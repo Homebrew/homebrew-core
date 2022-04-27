@@ -16,6 +16,8 @@ class GitIf < Formula
 
   depends_on "glktermw" => :build
 
+  uses_from_macos "ncurses"
+
   def install
     glk = Formula["glktermw"]
 
