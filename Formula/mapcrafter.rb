@@ -24,7 +24,7 @@ class Mapcrafter < Formula
 
     args = std_cmake_args
     args << "-DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}"
-    args << "-DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib}/libjpeg.dylib"
+    args << "-DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib/shared_library("libjpeg")}"
 
     system "cmake", ".", *args
     system "make", "install"
