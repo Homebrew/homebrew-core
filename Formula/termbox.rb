@@ -1,10 +1,10 @@
 class Termbox < Formula
   desc "Library for writing text-based user interfaces"
-  homepage "https://code.google.com/p/termbox/"
-  url "https://github.com/nsf/termbox/archive/v1.1.2.tar.gz"
-  sha256 "61c9940b42b3ac44bf0cba67eacba75e3c02088b8c695149528c77def04d69b1"
+  homepage "https://github.com/termbox/termbox"
+  url "https://github.com/termbox/termbox/archive/refs/tags/v1.1.4.tar.gz"
+  sha256 "402fa1b353882d18e8ddd48f9f37346bbb6f5277993d3b36f1fc7a8d6097ee8a"
   license "MIT"
-  head "https://github.com/nsf/termbox.git", branch: "master"
+  head "https://github.com/termbox/termbox.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "fffcb5179e3e5d596a30e3ee898b5af010d9cc448e7056d9aa4576611891adf3"
@@ -19,9 +19,7 @@ class Termbox < Formula
   end
 
   def install
-    system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf"
-    system "./waf", "install"
+    system "make", "install", "prefix=#{prefix}"
   end
 
   test do
