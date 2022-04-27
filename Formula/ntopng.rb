@@ -2,16 +2,12 @@ class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
   license "GPL-3.0-only"
-  revision 2
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/5.0.tar.gz"
-    sha256 "e540eb37c3b803e93a0648a6b7d838823477224f834540106b3339ec6eab2947"
+    url "https://github.com/ntop/ntopng/archive/5.2.1.tar.gz"
+    sha256 "67404ccd87202864d2c3c44426e60cb59cc2e87d746c704b27e6a63d61ec7644"
 
-    resource "nDPI" do
-      url "https://github.com/ntop/nDPI.git",
-        revision: "46ebd7128fd38f3eac5289ba281f3f25bad1d899"
-    end
+    depends_on "ndpi"
   end
 
   bottle do
@@ -56,14 +52,20 @@ class Ntopng < Formula
 
   fails_with gcc: "5"
 
+  # Allow dynamic linking with nDPI
+  patch :DATA
+
   def install
-    resource("nDPI").stage do
-      system "./autogen.sh"
-      system "make"
-      (buildpath/"nDPI").install Dir["*"]
+    if build.head?
+      resource("nDPI").stage do
+        system "./autogen.sh"
+        system "make"
+        (buildpath/"nDPI").install Dir["*"]
+      end
     end
+
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install", "MAN_DIR=#{man}"
   end
@@ -85,3 +87,22 @@ class Ntopng < Formula
     assert_match "list", shell_output("#{redis_bin}/redis-cli -p #{redis_port} TYPE ntopng.trace")
   end
 end
+
+__END__
+diff --git a/configure.ac.in b/configure.ac.in
+index b32ae1a2d19..9c2ef3eb140 100644
+--- a/configure.ac.in
++++ b/configure.ac.in
+@@ -234,10 +234,8 @@ if test -d /usr/local/include/ndpi ; then :
+ fi
+
+ PKG_CHECK_MODULES([NDPI], [libndpi >= 2.0], [
+-   NDPI_INC=`echo $NDPI_CFLAGS | sed -e "s/[ ]*$//"`
+-   # Use static libndpi library as building against the dynamic library fails
+-   NDPI_LIB="-Wl,-Bstatic $NDPI_LIBS -Wl,-Bdynamic"
+-   #NDPI_LIB="$NDPI_LIBS"
++   NDPI_INC="$NDPI_CFLAGS"
++   NDPI_LIB="$NDPI_LIBS"
+    NDPI_LIB_DEP=
+    ], [
+       AC_MSG_CHECKING(for nDPI source)
