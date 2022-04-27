@@ -20,6 +20,10 @@ class MonitoringPlugins < Formula
 
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "bind"
+  end
+
   conflicts_with "nagios-plugins", because: "both install their plugins to the same folder"
 
   def install
