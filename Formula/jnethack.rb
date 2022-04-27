@@ -20,8 +20,10 @@ class Jnethack < Formula
   end
 
   depends_on "nkf" => :build
+
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "ncurses"
 
   # Don't remove save folder
   skip_clean "libexec/save"
@@ -34,10 +36,12 @@ class Jnethack < Formula
     # Enable wizard mode for all users
     inreplace "sys/unix/sysconf", /^WIZARDS=.*/, "WIZARDS=*"
 
+    platform = OS.mac? ? "macosx10.10" : OS.kernel_name.downcase
+
     # Only this file is touched by jNetHack, so don't switch on macOS versions
-    inreplace "sys/unix/hints/macosx10.10" do |s|
+    inreplace "sys/unix/hints/#{platform}" do |s|
       # macOS clang doesn't support code page 932
-      s.gsub! "-fexec-charset=cp932", ""
+      s.gsub! "-fexec-charset=cp932", "" if OS.mac?
       s.change_make_var! "HACKDIR", libexec
       s.change_make_var! "CHOWN", "true"
       s.change_make_var! "CHGRP", "true"
@@ -46,12 +50,13 @@ class Jnethack < Formula
       # and save files are much tricker. We could set those separately but
       # it's probably not worth the extra trouble. New curses backend is not
       # supported by jNetHack.
-      s.gsub! "#WANT_WIN_CURSES=1", "CFLAGS+=-DVAR_PLAYGROUND='\"#{HOMEBREW_PREFIX}/share/jnethack\"'"
+      replace_string = OS.mac? ? "#WANT_WIN_CURSES=1" : "#CFLAGS+=-DEXTRA_SANITY_CHECKS"
+      s.gsub! replace_string, "CFLAGS+=-DVAR_PLAYGROUND='\"#{HOMEBREW_PREFIX}/share/jnethack\"'"
     end
 
     # We use the Linux version due to code page 932 issues, but point the
     # hints file to macOS
-    inreplace "japanese/set_lnx.sh", "linux", "macosx10.10"
+    inreplace "japanese/set_lnx.sh", "linux", "macosx10.10" if OS.mac?
     system "sh", "japanese/set_lnx.sh"
     system "make", "install"
     bin.install_symlink libexec/"jnethack"
