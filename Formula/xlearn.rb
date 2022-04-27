@@ -26,7 +26,7 @@ class Xlearn < Formula
 
       bin.install "xlearn_train"
       bin.install "xlearn_predict"
-      lib.install "lib/libxlearn_api.dylib"
+      lib.install "lib/#{shared_library("libxlearn_api")}"
     end
 
     pkgshare.install "demo"
