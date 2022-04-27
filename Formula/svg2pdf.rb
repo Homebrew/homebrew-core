@@ -33,6 +33,14 @@ class Svg2pdf < Formula
   end
 
   def install
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    unless OS.mac?
+      inreplace "src/Makefile.in",
+        "$(svg2pdf_LDFLAGS) $(svg2pdf_OBJECTS)",
+        "$(svg2pdf_OBJECTS) $(svg2pdf_LDFLAGS)"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
