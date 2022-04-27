@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/b9/dc/04f831bc15ccd42725bc5e547f2bccc7b27e5b6d1ca5fc5e98f88f744fdf/snakemake-7.4.0.tar.gz"
-  sha256 "4f201aa81ff1eebe3eb1cb883d3b6c33654e76c848f107ca05c63d8d72b53ecb"
+  url "https://files.pythonhosted.org/packages/dd/ca/9e046b55e0fa9bd6013e13d6c1d8ffe0da22797cf9ee3d6eb11df8967e12/snakemake-7.5.0.tar.gz"
+  sha256 "ca86c9da4e029aca31b1005a1ac59a77534403de57dd7ebaca852f096de6ca90"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -156,8 +156,8 @@ class Snakemake < Formula
   end
 
   resource "smart-open" do
-    url "https://files.pythonhosted.org/packages/53/9e/7a25cefbe4b51ea9bf883999c359dd761d32dcd2f764b70805278bb20bde/smart_open-5.2.1.tar.gz"
-    sha256 "75abf758717a92a8f53aa96953f0c245c8cedf8e1e4184903db3659b419d4c17"
+    url "https://files.pythonhosted.org/packages/e5/fd/8f944b4520298f3256d77adaa5994ca969985062e3c83d7f9e6217abc910/smart_open-6.0.0.tar.gz"
+    sha256 "d60106b96f0bcaedf5f1cd46ff5524a1c3d02d5653425618bb0fa66e158d22b0"
   end
 
   resource "smmap" do
