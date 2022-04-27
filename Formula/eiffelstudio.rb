@@ -17,20 +17,31 @@ class Eiffelstudio < Formula
   depends_on "pkg-config" => :build
   depends_on "gtk+"
 
+  uses_from_macos "pax" => :build
+
   def install
-    system "./compile_exes", "macosx-x86-64"
-    system "./make_images", "macosx-x86-64"
+    # Fix flat namespace usage in C shared library.
+    if OS.mac?
+      system "tar", "xf", "c.tar.bz2"
+      inreplace "C/CONFIGS/macosx-x86-64", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
+      system "tar", "cjf", "c.tar.bz2", "C"
+    end
+
+    os = OS.mac? ? "macosx" : OS.kernel_name.downcase
+    os_tag = "#{os}-x86-64"
+    system "./compile_exes", os_tag
+    system "./make_images", os_tag
     prefix.install Dir["Eiffel_19.05/*"]
-    bin.mkpath
-    env = { ISE_EIFFEL: prefix, ISE_PLATFORM: "macosx-x86-64" }
-    (bin/"ec").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/ec", env)
-    (bin/"ecb").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/ecb", env)
-    (bin/"estudio").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/estudio", env)
-    (bin/"finish_freezing").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/finish_freezing", env)
-    (bin/"compile_all").write_env_script(prefix/"tools/spec/macosx-x86-64/bin/compile_all", env)
-    (bin/"iron").write_env_script(prefix/"tools/spec/macosx-x86-64/bin/iron", env)
-    (bin/"syntax_updater").write_env_script(prefix/"tools/spec/macosx-x86-64/bin/syntax_updater", env)
-    (bin/"vision2_demo").write_env_script(prefix/"vision2_demo/spec/macosx-x86-64/bin/vision2_demo", env)
+    eiffel_env = { ISE_EIFFEL: prefix, ISE_PLATFORM: os_tag }
+    {
+      studio:       %w[ec ecb estudio finish_freezing],
+      tools:        %w[compile_all iron syntax_updater],
+      vision2_demo: %w[vision2_demo],
+    }.each do |subdir, targets|
+      targets.each do |target|
+        (bin/target).write_env_script prefix/subdir.to_s/"spec"/os_tag/"bin"/target, eiffel_env
+      end
+    end
   end
 
   test do
