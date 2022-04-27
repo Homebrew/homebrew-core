@@ -1,8 +1,8 @@
 class NodeAT16 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.14.2/node-v16.14.2.tar.xz"
-  sha256 "e922e215cc68eb5f94d33e8a0b61e2c863b7731cc8600ab955d3822da90ff8d1"
+  url "https://nodejs.org/dist/v16.15.0/node-v16.15.0.tar.xz"
+  sha256 "a0f812efc43f78321eca08957960a48f5e6bf97004d5058c8dd3b03c646ea4f7"
   license "MIT"
 
   livecheck do
@@ -43,13 +43,6 @@ class NodeAT16 < Formula
   end
 
   fails_with gcc: "5"
-
-  # Fixes node incorrectly building vendored OpenSSL when we want system OpenSSL.
-  # https://github.com/nodejs/node/pull/40965
-  patch do
-    url "https://github.com/nodejs/node/commit/65119a89586b94b0dd46b45f6d315c9d9f4c9261.patch?full_index=1"
-    sha256 "7d05debcfaf7bcbce75e28e3e5b2a329fe9bbb80f25b7b721e1b23f20db4dc40"
-  end
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
