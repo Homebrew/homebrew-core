@@ -43,13 +43,19 @@ class Nethacked < Formula
     sha256 yosemite:       "08b24568c94b14271e5d1b2880a0a78e6eea5cbbabfb9519347b5be1d2cc0893"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "ncurses"
+
+  on_macos do
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b40e459/nethacked/1.0.patch"
+      sha256 "d32bed5e7b4500515135270d72077bab49534abbdc60d8d040473fbee630f90f"
+    end
+  end
+
   # Don't remove save folder
   skip_clean "libexec/save"
-
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b40e459/nethacked/1.0.patch"
-    sha256 "d32bed5e7b4500515135270d72077bab49534abbdc60d8d040473fbee630f90f"
-  end
 
   def install
     # Build everything in-order; no multi builds.
@@ -72,6 +78,12 @@ class Nethacked < Formula
     inreplace "include/config.h",
       /^#\s*define\s+WIZARD_NAME\s+"wizard"/,
       "#define WIZARD_NAME \"#{wizard}\""
+
+    # Only apply minor changes from the macOS patch needed for Linux to build.
+    unless OS.mac?
+      inreplace "src/Makefile", "-ltermlib", "-lncurses"
+      inreplace "win/tty/termcap.c", "extern char *tparm();", "/*extern char *tparm();*/"
+    end
 
     cd "dat" do
       # Make the data first, before we munge the CFLAGS
