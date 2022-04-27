@@ -1,8 +1,8 @@
 class Rustscan < Formula
   desc "Modern Day Portscanner"
   homepage "https://github.com/rustscan/rustscan"
-  url "https://github.com/RustScan/RustScan/archive/2.0.1.tar.gz"
-  sha256 "1d458cb081cbed2db38472ff33f9546a6640632148b4396bd12f0229ca9de7eb"
+  url "https://github.com/RustScan/RustScan/archive/2.1.0.tar.gz"
+  sha256 "10958957148544da780c1be4004b906e94bafe02a19f0224f6026828fb77a8cc"
   license "GPL-3.0-or-later"
 
   bottle do
