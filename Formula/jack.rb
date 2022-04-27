@@ -4,6 +4,7 @@ class Jack < Formula
   url "https://github.com/jackaudio/jack2/archive/v1.9.21.tar.gz"
   sha256 "8b044a40ba5393b47605a920ba30744fdf8bf77d210eca90d39c8637fe6bc65d"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -44,7 +45,7 @@ class Jack < Formula
       ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
-    system Formula["python@3.10"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}", "--example-tools"
+    system Formula["python@3.10"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
     system Formula["python@3.10"].opt_bin/"python3", "./waf", "build"
     system Formula["python@3.10"].opt_bin/"python3", "./waf", "install"
   end
@@ -57,8 +58,6 @@ class Jack < Formula
   end
 
   test do
-    source_name = "test_source"
-    sink_name = "test_sink"
     fork do
       if OS.mac?
         exec "#{bin}/jackd", "-X", "coremidi", "-d", "dummy"
@@ -66,18 +65,5 @@ class Jack < Formula
         exec "#{bin}/jackd", "-d", "dummy"
       end
     end
-    system "#{bin}/jack_wait", "--wait", "--timeout", "10"
-    fork do
-      exec "#{bin}/jack_midiseq", source_name, "16000", "0", "60", "8000"
-    end
-    midi_sink = IO.popen "#{bin}/jack_midi_dump #{sink_name}"
-    sleep 1
-    system "#{bin}/jack_connect", "#{source_name}:out", "#{sink_name}:input"
-    sleep 1
-    Process.kill "TERM", midi_sink.pid
-
-    midi_dump = midi_sink.read
-    assert_match "90 3c 40", midi_dump
-    assert_match "80 3c 40", midi_dump
   end
 end
