@@ -27,6 +27,15 @@ class Openfortivpn < Formula
                           "--sysconfdir=#{etc}/openfortivpn"
     system "make", "install"
   end
+
+  plist_options startup: true
+  service do
+    run [opt_bin/"openfortivpn", "-c", etc/"openfortivpn/openfortivpn/config"]
+    keep_alive true
+    log_path var/"log/openfortivpn.log"
+    error_log_path var/"log/openfortivpn.log"
+  end
+
   test do
     system bin/"openfortivpn", "--version"
   end
