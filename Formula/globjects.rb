@@ -35,7 +35,9 @@ class Globjects < Formula
         globjects::init();
       }
     EOS
-    system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
+    flags = ["-std=c++11"]
+    flags << "-stdlib=libc++" if OS.mac?
+    system ENV.cxx, "-o", "test", "test.cpp", *flags,
            "-I#{include}/globjects", "-I#{Formula["glm"].include}/glm", "-I#{lib}/globjects",
            "-L#{lib}", "-L#{Formula["glbinding"].opt_lib}",
            "-lglobjects", "-lglbinding", *ENV.cflags.to_s.split
