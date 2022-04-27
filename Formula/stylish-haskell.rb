@@ -1,8 +1,8 @@
 class StylishHaskell < Formula
   desc "Haskell code prettifier"
   homepage "https://github.com/haskell/stylish-haskell"
-  url "https://github.com/haskell/stylish-haskell/archive/v0.14.1.0.tar.gz"
-  sha256 "9addb9e139b0fda76324b41e8a623b3c58f88080a09a406d1fa55cceea2a65da"
+  url "https://github.com/haskell/stylish-haskell/archive/v0.14.2.0.tar.gz"
+  sha256 "e70081f863a406f0f048799d9fb2e6d92ad486bf9d5364609902155bfd2c3ea8"
   license "BSD-3-Clause"
   head "https://github.com/haskell/stylish-haskell.git", branch: "main"
 
