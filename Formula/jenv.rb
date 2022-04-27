@@ -13,7 +13,7 @@ class Jenv < Formula
   def install
     libexec.install Dir["*"]
     bin.write_exec_script libexec/"bin/jenv"
-    fish_function.install_symlink Dir[libexec/"fish/*.fish"]
+    fish_function.install_symlink libexec/"fish/jenv.fish"
   end
 
   def caveats
