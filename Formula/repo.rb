@@ -4,8 +4,8 @@ class Repo < Formula
   desc "Repository tool for Android development"
   homepage "https://source.android.com/source/developing.html"
   url "https://gerrit.googlesource.com/git-repo.git",
-      tag:      "v2.24",
-      revision: "4c11aebeb934817407266787d58247e1ca802057"
+      tag:      "v2.24.1",
+      revision: "0de4fc3001b36db7e107e61586296ca25bbf6d6d"
   license "Apache-2.0"
   version_scheme 1
 
