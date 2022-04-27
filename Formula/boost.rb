@@ -1,8 +1,8 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.bz2"
-  sha256 "8681f175d4bdb26c52222665793eef08490d7758529330f98d3b29dd0735bccc"
+  url "https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.tar.bz2"
+  sha256 "475d589d51a7f8b3ba2ba4eda022b170e562ca3b760ee922c146b6c65856ef39"
   license "BSL-1.0"
   revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
@@ -30,10 +30,10 @@ class Boost < Formula
   uses_from_macos "zlib"
 
   # Fix some library installations being skipped in some cases.
-  # Remove with the next release.
+  # Added in patches for the initial full release of 1.79
   patch do
-    url "https://www.boost.org/patches/1_78_0/0001-b2-fix-install.patch"
-    sha256 "71e5b96e72e534670043e0fa7743fd34671715e21c3ddb41908a3da284a8920a"
+    url "https://www.boost.org/patches/1_79_0/0001-json-array-erase-relocate.patch"
+    sha256 "0edcb348b9c6f6ab8c67735881dccd9759af852830ffe651ae51248e24ff11ac"
   end
 
   def install
