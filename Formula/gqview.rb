@@ -27,6 +27,7 @@ class Gqview < Formula
   depends_on "gtk+"
 
   def install
+    ENV.append "LIBS", "-lm"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
