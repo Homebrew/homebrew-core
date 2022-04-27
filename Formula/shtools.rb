@@ -19,6 +19,10 @@ class Shtools < Formula
   depends_on "gcc"
   depends_on "openblas"
 
+  on_linux do
+    depends_on "libtool" => :build
+  end
+
   def install
     system "make", "fortran"
     system "make", "fortran-mp"
