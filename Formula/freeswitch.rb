@@ -43,8 +43,14 @@ class Freeswitch < Formula
   depends_on "sqlite"
   depends_on "util-linux"
 
+  uses_from_macos "curl"
   uses_from_macos "libedit"
+  uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
@@ -142,6 +148,11 @@ class Freeswitch < Formula
 
       ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/libks/lib/pkgconfig"
       ENV.append "CFLAGS", "-I#{libexec}/libks/include"
+
+      # Add RPATH to libks.pc so libks.so can be found by freeswitch modules.
+      inreplace libexec/"libks/lib/pkgconfig/libks.pc",
+                "-L${libdir}",
+                "-Wl,-rpath,${libdir} -L${libdir}"
     end
 
     resource("signalwire-c").stage do
@@ -149,6 +160,12 @@ class Freeswitch < Formula
       system "make", "install"
 
       ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/signalwire-c/lib/pkgconfig"
+
+      # Add RPATH to signalwire_client.pc so libsignalwire_client.so
+      # can be found by freeswitch modules.
+      inreplace libexec/"signalwire-c/lib/pkgconfig/signalwire_client.pc",
+                "-L${libdir}",
+                "-Wl,-rpath,${libdir} -L${libdir}"
     end
 
     system "./bootstrap.sh", "-j"
