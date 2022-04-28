@@ -1,8 +1,8 @@
 class Spago < Formula
   desc "PureScript package manager and build tool"
   homepage "https://github.com/purescript/spago"
-  url "https://github.com/purescript/spago/archive/refs/tags/0.20.7.tar.gz"
-  sha256 "4bb73918813550d9841a8f50b5653f46253da12295d9d8038a63923044d7cf7c"
+  url "https://github.com/purescript/spago/archive/refs/tags/0.20.8.tar.gz"
+  sha256 "646f97d3e6b86b875ecc32f2efe909f4595694b5a4efc0fd0d21a65f1962f59f"
   license "BSD-3-Clause"
   head "https://github.com/purescript/spago.git", branch: "master"
 
