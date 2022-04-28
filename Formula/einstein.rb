@@ -1,8 +1,8 @@
 class Einstein < Formula
   desc "Remake of the old DOS game Sherlock"
-  homepage "https://web.archive.org/web/20120621005109/games.flowix.com/en/index.html"
-  url "https://web.archive.org/web/20120621005109/games.flowix.com/files/einstein/einstein-2.0-src.tar.gz"
-  sha256 "0f2d1c7d46d36f27a856b98cd4bbb95813970c8e803444772be7bd9bec45a548"
+  homepage "https://github.com/lksj/einstein-puzzle"
+  url "https://github.com/lksj/einstein-puzzle/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "46cf0806c3792b995343e46bec02426065f66421c870781475d6d365522c10fc"
 
   bottle do
     rebuild 1
@@ -18,13 +18,10 @@ class Einstein < Formula
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
 
-  # Fixes a cast error on compilation
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/einstein/2.0.patch"
-    sha256 "c538ccb769c53aee4555ed6514c287444193290889853e1b53948a2cac7baf11"
-  end
-
   def install
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    inreplace "Makefile", "$(LNFLAGS) $(OBJECTS)", "$(OBJECTS) $(LNFLAGS)" unless OS.mac?
     system "make", "PREFIX=#{HOMEBREW_PREFIX}"
 
     bin.install "einstein"
