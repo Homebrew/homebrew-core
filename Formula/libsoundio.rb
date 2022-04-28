@@ -39,7 +39,7 @@ class Libsoundio < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lsoundio", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lsoundio", "-o", "test"
     system "./test"
   end
 end
