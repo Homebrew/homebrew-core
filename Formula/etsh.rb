@@ -25,9 +25,13 @@ class Etsh < Formula
 
   def install
     system "./configure"
-    system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}", "MANDIR=#{man1}"
+    # The `tshall` target is not supported on Ubuntu 16.04 (https://etsh.nl/blog/ubuntu-16/)
+    # so the `install-etshall` target must be used to only build `etshall`.
+    # Check if `tshall` is supported in Ubuntu 18.04.
+    install_target = OS.mac? ? "install" : "install-etshall"
+    system "make", install_target, "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}", "MANDIR=#{man1}"
     bin.install_symlink "etsh" => "osh"
-    bin.install_symlink "tsh" => "sh6"
+    bin.install_symlink "tsh" => "sh6" if OS.mac?
   end
 
   test do
