@@ -20,7 +20,7 @@ class Fsw < Formula
   end
 
   def install
-    ENV.append "CXXFLAGS", "-stdlib=libc++"
+    ENV.append "CXXFLAGS", "-stdlib=libc++" if OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
