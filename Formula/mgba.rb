@@ -29,6 +29,10 @@ class Mgba < Formula
   depends_on "qt@5"
   depends_on "sdl2"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
@@ -41,7 +45,11 @@ class Mgba < Formula
     # Replace SDL frontend binary with a script for running Qt frontend
     # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
     rm bin/"mgba"
-    bin.write_exec_script "#{prefix}/mGBA.app/Contents/MacOS/mGBA"
+    if OS.mac?
+      bin.write_exec_script "#{prefix}/mGBA.app/Contents/MacOS/mGBA"
+    else
+      mv bin/"mgba-qt", bin/"mGBA"
+    end
   end
 
   test do
