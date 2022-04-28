@@ -30,6 +30,10 @@ class GtkChtheme < Formula
     # we need to disable errors for it to compile properly
     inreplace "Makefile", "-DGTK_DISABLE_DEPRECATED", ""
 
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    inreplace "Makefile", "$(LDFLAGS) $^", "$^ $(LDFLAGS)" unless OS.mac?
+
     system "make", "PREFIX=#{prefix}", "install"
   end
 
