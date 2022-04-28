@@ -1,9 +1,8 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://www.manticoresearch.com"
-  url "https://repo.manticoresearch.com/repository/manticoresearch_source/release/manticore-3.6.0-210504-96d61d8-release-source.tar.gz"
-  version "3.6.0"
-  sha256 "320a19c837caf827a75e19e11755a9586487435aeb8b8aa80e8bef552fd5e1f5"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/4.2.0.tar.gz"
+  sha256 "6b4af70fcc56b40aa83e606240b237e47e54c0bfbfdd32c47788d59469ef7146"
   license "GPL-2.0-only"
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
@@ -18,20 +17,41 @@ class Manticoresearch < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "icu4c" => :build
-  depends_on "libpq" => :build
-  depends_on "mysql" => :build
+  depends_on "libpq"
+  depends_on "mysql"
   depends_on "openssl@1.1"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "gcc"
+  end
+
   conflicts_with "sphinx", because: "manticoresearch is a fork of sphinx"
+
+  fails_with gcc: "5"
 
   def install
     args = %W[
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
-      -DDISTR_BUILD=macosbrew
       -DBoost_NO_BOOST_CMAKE=ON
+      -DWITH_ICU=OFF
       -DWITH_ODBC=OFF
     ]
+
+    if OS.mac?
+      args << "-DDISTR_BUILD=macosbrew"
+    else
+      args += %W[
+        -DCMAKE_INSTALL_BINDIR=#{bin}
+        -DCMAKE_INSTALL_DATAROOTDIR=#{share}
+        -DCMAKE_INSTALL_INCLUDEDIR=#{include}
+        -DCMAKE_INSTALL_LIBDIR=#{lib}
+        -DCMAKE_INSTALL_MANDIR=#{man}
+        -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
+      ]
+    end
 
     # Disable support for Manticore Columnar Library on ARM (since the library itself doesn't support it as well)
     args << "-DWITH_COLUMNAR=OFF" if Hardware::CPU.arm?
