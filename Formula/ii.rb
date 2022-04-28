@@ -26,7 +26,7 @@ class Ii < Formula
 
   def install
     # Fixed upstream, drop for next version
-    inreplace "Makefile", "SRC = ii.c strlcpy.c", "SRC = ii.c"
+    inreplace "Makefile", "SRC = ii.c strlcpy.c", "SRC = ii.c" if OS.mac?
 
     system "make", "install", "PREFIX=#{prefix}"
   end
