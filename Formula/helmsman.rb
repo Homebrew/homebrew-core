@@ -28,7 +28,7 @@ class Helmsman < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/helmsman version")
 
-    output = shell_output("#{bin}/helmsman --apply -f #{pkgshare}/example.yaml 2>&1", 1)
+    output = shell_output("#{bin}/helmsman --apply -f #{pkgshare}/example.yaml 2>&1")
     assert_match "helm diff not found", output
   end
 end
