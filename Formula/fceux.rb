@@ -26,6 +26,7 @@ class Fceux < Formula
   on_linux do
     depends_on "gcc"
   end
+
   fails_with gcc: "5"
 
   def install
@@ -33,7 +34,8 @@ class Fceux < Formula
     system "cmake", ".", *std_cmake_args, "-DQT6=ON"
     system "make"
     cp "src/auxlib.lua", "output/luaScripts"
-    libexec.install "src/fceux.app/Contents/MacOS/fceux"
+    fceux_path = OS.mac? ? "src/fceux.app/Contents/MacOS" : "src"
+    libexec.install Pathname.new(fceux_path)/"fceux"
     pkgshare.install ["output/luaScripts", "output/palettes", "output/tools"]
     (bin/"fceux").write <<~EOS
       #!/bin/bash
@@ -42,6 +44,10 @@ class Fceux < Formula
   end
 
   test do
+    # Set QT_QPA_PLATFORM to minimal to avoid error:
+    # "This application failed to start because no Qt platform plugin could be initialized."
+    ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     system "#{bin}/fceux", "--help"
   end
 end
