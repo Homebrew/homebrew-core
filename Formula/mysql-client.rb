@@ -4,6 +4,7 @@ class MysqlClient < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.28.tar.gz"
   sha256 "6dd0303998e70066d36905bd8fef1c01228ea182dbfbabc6c22ebacdbf8b5941"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     formula "mysql"
@@ -38,6 +39,13 @@ class MysqlClient < Formula
 
   fails_with gcc: "5"
 
+  # Fix libfibo2 finding; fix unneeded coping of openssl@1.1 libs
+  # Remove in the next version (8.0.29)
+  patch do
+    url "https://github.com/mysql/mysql-server/commit/4498aef6d4a1fd266cdbddcce60965e3cb12fe1a.patch?full_index=1"
+    sha256 "09246d7f3a141adfc616bafb83f927648865eeb613f0726514fcb0aa6815d98b"
+  end
+
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
@@ -60,22 +68,6 @@ class MysqlClient < Formula
       -DWITH_UNIT_TESTS=OFF
       -DWITHOUT_SERVER=ON
     ]
-
-    # Their CMake macros check for `pkg-config` only on Linux and FreeBSD,
-    # so let's set `MY_PKG_CONFIG_EXECUTABLE` and `PKG_CONFIG_*` to make
-    # sure `pkg-config` is found and used.
-    if OS.mac?
-      args += %W[
-        -DMY_PKG_CONFIG_EXECUTABLE=pkg-config
-        -DPKG_CONFIG_FOUND=TRUE
-        -DPKG_CONFIG_VERSION_STRING=#{Formula["pkg-config"].version}
-        -DPKG_CONFIG_EXECUTABLE=#{Formula["pkg-config"].opt_bin}/pkg-config
-      ]
-
-      if ENV["HOMEBREW_SDKROOT"].present?
-        args << "-DPKG_CONFIG_ARGN=--define-variable=homebrew_sdkroot=#{ENV["HOMEBREW_SDKROOT"]}"
-      end
-    end
 
     system "cmake", ".", *std_cmake_args, *args
     system "make", "install"
