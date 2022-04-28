@@ -30,7 +30,7 @@ class LibxmpLite < Formula
       }
     EOS
 
-    system ENV.cc, "-I", include, "-L", lib, "-L#{lib}", "-lxmp-lite", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-I", include, "-L", lib, "-L#{lib}", "-lxmp-lite", "-o", "test"
     system "#{testpath}/test"
   end
 end
