@@ -22,7 +22,7 @@ class Libhdhomerun < Formula
   def install
     system "make"
     bin.install "hdhomerun_config"
-    lib.install "libhdhomerun.dylib"
+    lib.install shared_library("libhdhomerun")
     include.install Dir["hdhomerun*.h"]
   end
 
