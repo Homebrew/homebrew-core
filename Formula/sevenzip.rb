@@ -6,6 +6,11 @@ class Sevenzip < Formula
   sha256 "213d594407cb8efcba36610b152ca4921eda14163310b43903d13e68313e1e39"
   license all_of: ["LGPL-2.1-or-later", "BSD-3-Clause"]
 
+  livecheck do
+    url "https://7-zip.org/download.html"
+    regex(/>\s*Download\s+7-Zip\s+v?(\d+(?:\.\d+)+)[\s<]/im)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b7283890b7e26f7049acc6b39f4f39d0d0bb6e1d70cb06173bcef4c51e7ce9a0"
