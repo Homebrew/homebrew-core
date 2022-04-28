@@ -43,18 +43,34 @@ class Libcapn < Formula
   def install
     # head gets jansson as a git submodule
     (buildpath/"src/third_party/jansson").install resource("jansson") if build.stable?
-    system "cmake", ".", "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
-                         *std_cmake_args
+
+    args = std_cmake_args
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
+    unless OS.mac?
+      args += %W[
+        -DCAPN_INSTALL_PATH_SYSCONFIG=#{etc}
+        -DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{lib}/capn
+      ]
+    end
+
+    system "cmake", ".", *args
     system "make", "install"
     pkgshare.install "examples"
   end
 
   test do
+    flags = %W[
+      -I#{Formula["openssl@1.1"].opt_include}
+      -L#{lib}/capn
+      -lcapn
+    ]
+
+    flags << "-Wl,-rpath,#{lib}/capn" unless OS.mac?
+
     system ENV.cc, pkgshare/"examples/send_push_message.c",
-                   "-o", "send_push_message",
-                   "-I#{Formula["openssl@1.1"].opt_include}",
-                   "-L#{lib}/capn", "-lcapn"
+                   "-o", "send_push_message", *flags
     output = shell_output("./send_push_message", 255)
-    assert_match "unable to use specified PKCS12 file (errno: 9012)", output
+    # The returned error will be either 9013 or 9012 depending on the environment.
+    assert_match(/\(errno: 9013\)|\(errno: 9012\)/, output)
   end
 end
