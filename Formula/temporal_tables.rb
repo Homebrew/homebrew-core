@@ -46,7 +46,12 @@ class TemporalTables < Formula
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    lib.install Dir["stage/**/lib/*"]
-    (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
+    pgsql_prefix = Formula["postgresql"].prefix.realpath
+    pgsql_stage_path = File.join("stage", pgsql_prefix)
+    share.install (buildpath/pgsql_stage_path/"share").children
+
+    stage_path = File.join("stage", HOMEBREW_PREFIX)
+    lib.install (buildpath/stage_path/"lib").children
+    share.install (buildpath/stage_path/"share").children
   end
 end
