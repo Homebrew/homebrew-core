@@ -17,8 +17,13 @@ class MrubyCli < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "a06806ca6a22d3b015e073a984e832013f2efe729870e2aa6d0b17e91a4b9855"
   end
 
+  deprecate! date: "2022-04-28", because: :unmaintained
+
   uses_from_macos "bison" => :build
-  uses_from_macos "ruby" => :build
+
+  on_linux do
+    depends_on "ruby@2.7" => :build
+  end
 
   def install
     ENV["MRUBY_CLI_LOCAL"] = "true"
@@ -28,8 +33,10 @@ class MrubyCli < Formula
 
     (buildpath/"build_config.rb").write <<~EOS
       MRuby::Build.new do |conf|
-        toolchain :clang
+        toolchain :#{ENV.compiler == :gcc ? "gcc" : "clang"}
+
         conf.gem File.expand_path(File.dirname(__FILE__))
+        conf.gem :github => 'iij/mruby-io'
       end
     EOS
 
