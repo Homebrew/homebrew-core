@@ -1,8 +1,8 @@
 class Slurm < Formula
   desc "Yet another network load monitor"
   homepage "https://github.com/mattthias/slurm"
-  url "https://github.com/mattthias/slurm/archive/upstream/0.4.3.tar.gz"
-  sha256 "b960c0d215927be1d02c176e1b189321856030226c91f840284886b727d3a3ac"
+  url "https://github.com/mattthias/slurm/archive/upstream/0.4.4.tar.gz"
+  sha256 "2f846c9aa16f86cc0d3832c5cd1122b9d322a189f9e6acf8e9646dee12f9ac02"
   license "GPL-2.0-or-later"
 
   bottle do
