@@ -14,6 +14,10 @@ class Vsce < Formula
   end
 
   depends_on "node"
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libsecret"
+  end
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
