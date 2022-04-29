@@ -1,8 +1,8 @@
 class Fits < Formula
   desc "File Information Tool Set"
   homepage "https://projects.iq.harvard.edu/fits"
-  url "https://github.com/harvard-lts/fits/releases/download/1.5.1/fits-1.5.1.zip"
-  sha256 "4bf4adfedf0779221cc2f4648f5dfd3040c7a3e5daa4060c5754d73dc1964442"
+  url "https://github.com/harvard-lts/fits/releases/download/1.5.2/fits-1.5.2.zip"
+  sha256 "d7ddf33846d5041491ecadea6aef1f4c98c75fc8fe4ca1d8553535e30de08aba"
   license "Apache-2.0"
 
   bottle do
