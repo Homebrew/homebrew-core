@@ -1,8 +1,8 @@
 class Oksh < Formula
   desc "Portable OpenBSD ksh, based on the public domain Korn shell (pdksh)"
   homepage "https://github.com/ibara/oksh"
-  url "https://github.com/ibara/oksh/releases/download/oksh-7.0/oksh-7.0.tar.gz"
-  sha256 "21d5891f38ffea3a5d1aa8c494f0a5579c93778535e0a92275b102dec3221da1"
+  url "https://github.com/ibara/oksh/releases/download/oksh-7.1/oksh-7.1.tar.gz"
+  sha256 "9dc0b0578d9d64d10c834f9757ca11f526b562bc5454da64b2cb270122f52064"
   license all_of: [:public_domain, "BSD-3-Clause", "ISC"]
   head "https://github.com/ibara/oksh.git", branch: "main"
 
