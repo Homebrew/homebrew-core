@@ -21,7 +21,15 @@ class Sc68 < Formula
     sha256 yosemite:      "b6b3fb845e14cd2c35212911b261bb4a15f38c528522789fd5905e762b7d0bfc"
   end
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
+    inreplace "configure", "-flat_namespace -undefined suppress",
+              "-undefined dynamic_lookup"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
