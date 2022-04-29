@@ -29,6 +29,10 @@ class Sz81 < Formula
   end
 
   test do
+    # Disable test on Linux because it fails with this error:
+    # sdl_init: Cannot initialise SDL: No available video device
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     assert_match "sz81 #{version} -", shell_output("#{bin}/sz81 -h", 1)
   end
 end
