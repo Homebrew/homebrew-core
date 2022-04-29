@@ -24,16 +24,24 @@ class Pmdmini < Formula
 
   def install
     # Specify Homebrew's cc
-    inreplace "mak/general.mak", "gcc", ENV.cc
+    inreplace "mak/general.mak", "gcc", ENV.cxx
+    # Add -fPIC on Linux
+    inreplace "mak/general.mak", "CFLAGS = -O2", "CFLAGS = -fPIC -O2" unless OS.mac?
     system "make"
 
     # Makefile doesn't build a dylib
-    system ENV.cc, "-dynamiclib", "-install_name", "#{lib}/libpmdmini.dylib",
-                   "-o", "libpmdmini.dylib", "-undefined", "dynamic_lookup",
-                   *Dir["obj/*.o"]
+    flags = if OS.mac?
+      ["-dynamiclib",
+       "-install_name", "#{lib}/libpmdmini.dylib",
+       "-undefined", "dynamic_lookup"]
+    else
+      ["-shared"]
+    end
+
+    system ENV.cxx, *flags, "-o", shared_library("libpmdmini"), *Dir["obj/*.o"]
 
     bin.install "pmdplay"
-    lib.install "libpmdmini.a", "libpmdmini.dylib"
+    lib.install "libpmdmini.a", shared_library("libpmdmini")
     (include+"libpmdmini").install Dir["src/*.h"]
     (include+"libpmdmini/pmdwin").install Dir["src/pmdwin/*.h"]
   end
