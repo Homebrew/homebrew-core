@@ -1,24 +1,14 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  if Hardware::CPU.arm?
-    # Branch from the Darwin maintainer of GCC with Apple Silicon support,
-    # located at https://github.com/iains/gcc-darwin-arm64 and
-    # backported with his help to gcc-11 branch. Too big for a patch.
-    url "https://github.com/fxcoudert/gcc/archive/refs/tags/gcc-11.2.0-arm-20211124.tar.gz"
-    sha256 "d7f8af7a0d9159db2ee3c59ffb335025a3d42547784bee321d58f2b4712ca5fd"
-    version "11.3.0"
-  else
-    url "https://ftp.gnu.org/gnu/gcc/gcc-11.3.0/gcc-11.3.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-11.3.0/gcc-11.3.0.tar.xz"
-    sha256 "b47cf2818691f5b1e21df2bb38c795fac2cfbd640ede2d0a5e1c89e338a3ac39"
-  end
+  url "https://ftp.gnu.org/gnu/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz"
+  sha256 "62fd634889f31c02b64af2c468f064b47ad1ca78411c45abe6ac4b5f8dd19c7b"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
-  # We can't use `url :stable` here due to the ARM-specific branch above.
   livecheck do
-    url "https://ftp.gnu.org/gnu/gcc/"
+    url :stable
     regex(%r{href=["']?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
@@ -50,13 +40,11 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Fix for https://gcc.gnu.org/bugzilla/show_bug.cgi?id=102992
-  # Working around a macOS Monterey bug
-  if MacOS.version >= :monterey && Hardware::CPU.arm?
-    patch do
-      url "https://gcc.gnu.org/git/?p=gcc.git;a=patch;h=fabe8cc41e9b01913e2016861237d1d99d7567bf"
-      sha256 "9d3c2c91917cdc37d11385bdeba005cd7fa89efdbdf7ca38f7de3f6fa8a8e51b"
-    end
+  # Branch from the Darwin maintainer of GCC, with a few generic fixes and
+  # Apple Silicon support, located at https://github.com/iains/gcc-darwin-arm64
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d61235ed/gcc/gcc-12.1.0-arm.diff"
+    sha256 "1e8b95e2649866678bf3aaa358028e8c5c611593c61f90e41aaa937ad5f589ed"
   end
 
   def version_suffix
@@ -72,14 +60,12 @@ class Gcc < Formula
     ENV.delete "LD"
 
     # We avoiding building:
-    #  - Ada, which requires a pre-existing GCC Ada compiler to bootstrap
+    #  - Ada and D, which require a pre-existing GCC Ada compiler to bootstrap
     #  - Go, currently not supported on macOS
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
-    languages << "d" if Hardware::CPU.intel?
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
-    cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
     args = %W[
       --prefix=#{opt_prefix}
@@ -96,16 +82,12 @@ class Gcc < Formula
       --with-zstd=#{Formula["zstd"].opt_prefix}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
+      --with-system-zlib
     ]
-    # libphobos is part of gdc
-    args << "--enable-libphobos" if Hardware::CPU.intel?
 
     if OS.mac?
+      cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
-      args << "--with-system-zlib"
-
-      # Xcode 10 dropped 32-bit Intel support
-      args << "--disable-multilib" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version >= 1000
 
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
@@ -129,17 +111,13 @@ class Gcc < Formula
       system "../configure", *args
       system "make"
 
-      # On Linux, strip the binaries
-      install_target = OS.mac? ? "install" : "install-strip"
-
       # To make sure GCC does not record cellar paths, we configure it with
       # opt_prefix as the prefix. Then we use DESTDIR to install into a
       # temporary location, then move into the cellar path.
-      system "make", install_target, "DESTDIR=#{Pathname.pwd}/../instdir"
+      system "make", "install-strip", "DESTDIR=#{Pathname.pwd}/../instdir"
       mv Dir[Pathname.pwd/"../instdir/#{opt_prefix}/*"], prefix
 
       bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
-      bin.install_symlink bin/"gdc-#{version_suffix}" => "gdc" if Hardware::CPU.intel?
 
       if OS.linux?
         # Only the newest brewed gcc should install gfortan libs as we can only have one.
@@ -282,18 +260,5 @@ class Gcc < Formula
     EOS
     system "#{bin}/gfortran", "-o", "test", "test.f90"
     assert_equal "Done\n", `./test`
-
-    if Hardware::CPU.intel?
-      (testpath/"hello_d.d").write <<~EOS
-        import std.stdio;
-        int main()
-        {
-          writeln("Hello, world!");
-          return 0;
-        }
-      EOS
-      system "#{bin}/gdc-#{version_suffix}", "-o", "hello-d", "hello_d.d"
-      assert_equal "Hello, world!\n", `./hello-d`
-    end
   end
 end
