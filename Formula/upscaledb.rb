@@ -51,11 +51,32 @@ class Upscaledb < Formula
     system "make", "install"
 
     pkgshare.install "samples"
+
+    unless OS.mac?
+      shim_reference_files = %w[
+        db1
+        db2
+        db3
+        db4
+        db5
+        db6
+        env1
+        env2
+        env3
+        uqi1
+        uqi2
+        Makefile
+      ]
+
+      shim_reference_files.each do |file|
+        inreplace pkgshare/"samples"/file, Superenv.shims_path, ""
+      end
+    end
   end
 
   test do
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lupscaledb",
-           pkgshare/"samples/db1.c", "-o", "test"
+    system ENV.cc, pkgshare/"samples/db1.c", "-I#{include}",
+           "-L#{lib}", "-lupscaledb", "-o", "test"
     system "./test"
   end
 end
