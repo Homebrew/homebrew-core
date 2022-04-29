@@ -26,12 +26,12 @@ class Mitie < Formula
   def install
     (share/"MITIE-models").install resource("models-english")
 
-    inreplace "mitielib/makefile", "libmitie.so", "libmitie.dylib"
+    inreplace "mitielib/makefile", "libmitie.so", "libmitie.dylib" if OS.mac?
     system "make", "mitielib"
     system "make"
 
     include.install Dir["mitielib/include/*"]
-    lib.install "mitielib/libmitie.dylib", "mitielib/libmitie.a"
+    lib.install "mitielib/#{shared_library("libmitie")}", "mitielib/libmitie.a"
 
     xy = Language::Python.major_minor_version "python3"
     (lib/"python#{xy}/site-packages").install "mitielib/mitie.py"
@@ -42,8 +42,8 @@ class Mitie < Formula
   end
 
   test do
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmitie",
-           pkgshare/"examples/C/ner/ner_example.c",
+    system ENV.cc, pkgshare/"examples/C/ner/ner_example.c",
+           "-I#{include}", "-L#{lib}", "-lmitie", "-lpthread",
            "-o", testpath/"ner_example"
     system "./ner_example", share/"MITIE-models/english/ner_model.dat",
            pkgshare/"sample_text.txt"
