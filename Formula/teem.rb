@@ -29,7 +29,7 @@ class Teem < Formula
                     "-DTeem_USE_LIB_INSTALL_SUBDIR:BOOL=ON"
     system "make", "install"
 
-    lib.install_symlink Dir.glob(lib/"Teem-#{version}/*.dylib")
+    lib.install_symlink Dir.glob(lib/"Teem-#{version}/#{shared_library("*")}")
     (lib/"cmake/teem").install_symlink Dir.glob(lib/"Teem-#{version}/*.cmake")
   end
 
