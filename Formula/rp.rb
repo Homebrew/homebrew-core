@@ -1,10 +1,10 @@
 class Rp < Formula
   desc "Tool to find ROP sequences in PE/Elf/Mach-O x86/x64 binaries"
-  homepage "https://0vercl0k.github.io/rp/"
+  homepage "https://github.com/0vercl0k/rp"
   url "https://github.com/0vercl0k/rp/archive/v1.tar.gz"
   version "1.0"
   sha256 "3bf69aee23421ffdc5c7fc3ce6c30eb7510640d384ce58f4a820bae02effebe3"
-  license "GPL-3.0"
+  license "MIT"
   head "https://github.com/0vercl0k/rp.git", branch: "master"
 
   bottle do
@@ -28,7 +28,8 @@ class Rp < Formula
       system "cmake", "..", *std_cmake_args
       system "make"
     end
-    bin.install "bin/rp-osx"
+    os = OS.mac? ? "osx" : "lin"
+    bin.install "bin/rp-#{os}"
   end
 end
 
