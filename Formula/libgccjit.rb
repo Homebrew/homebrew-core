@@ -1,18 +1,9 @@
 class Libgccjit < Formula
   desc "JIT library for the GNU compiler collection"
-  if Hardware::CPU.arm?
-    # Branch from the Darwin maintainer of GCC with Apple Silicon support,
-    # located at https://github.com/iains/gcc-darwin-arm64 and
-    # backported with his help to gcc-11 branch. Too big for a patch.
-    url "https://github.com/fxcoudert/gcc/archive/refs/tags/gcc-11.2.0-arm-20211124.tar.gz"
-    sha256 "d7f8af7a0d9159db2ee3c59ffb335025a3d42547784bee321d58f2b4712ca5fd"
-    version "11.3.0"
-  else
-    url "https://ftp.gnu.org/gnu/gcc/gcc-11.3.0/gcc-11.3.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-11.3.0/gcc-11.3.0.tar.xz"
-    sha256 "b47cf2818691f5b1e21df2bb38c795fac2cfbd640ede2d0a5e1c89e338a3ac39"
-  end
   homepage "https://gcc.gnu.org/"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz"
+  sha256 "62fd634889f31c02b64af2c468f064b47ad1ca78411c45abe6ac4b5f8dd19c7b"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
@@ -44,13 +35,11 @@ class Libgccjit < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Fix for https://gcc.gnu.org/bugzilla/show_bug.cgi?id=102992
-  # Working around a macOS Monterey bug
-  if MacOS.version >= :monterey && Hardware::CPU.arm?
-    patch do
-      url "https://gcc.gnu.org/git/?p=gcc.git;a=patch;h=fabe8cc41e9b01913e2016861237d1d99d7567bf"
-      sha256 "9d3c2c91917cdc37d11385bdeba005cd7fa89efdbdf7ca38f7de3f6fa8a8e51b"
-    end
+  # Branch from the Darwin maintainer of GCC, with a few generic fixes and
+  # Apple Silicon support, located at https://github.com/iains/gcc-darwin-arm64
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d61235ed/gcc/gcc-12.1.0-arm.diff"
+    sha256 "1e8b95e2649866678bf3aaa358028e8c5c611593c61f90e41aaa937ad5f589ed"
   end
 
   def install
@@ -58,7 +47,6 @@ class Libgccjit < Formula
     ENV.delete "LD"
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
-    cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
     args = %W[
       --prefix=#{prefix}
@@ -73,13 +61,12 @@ class Libgccjit < Formula
       --with-zstd=#{Formula["zstd"].opt_prefix}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
+      --with-system-zlib
     ]
 
     if OS.mac?
+      cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
-
-      # Xcode 10 dropped 32-bit support
-      args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
 
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
@@ -87,11 +74,6 @@ class Libgccjit < Formula
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
       end
-
-      # Use -headerpad_max_install_names in the build,
-      # otherwise updated load commands won't fit in the Mach-O header.
-      # This is needed because `gcc` avoids the superenv shim.
-      make_args = ["BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"]
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}"
@@ -107,7 +89,7 @@ class Libgccjit < Formula
     # Building jit needs --enable-host-shared, which slows down the compiler.
     mkdir "build-jit" do
       system "../configure", *args, "--enable-languages=jit", "--enable-host-shared"
-      system "make", *make_args
+      system "make"
       system "make", "install"
     end
 
