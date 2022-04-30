@@ -3,8 +3,8 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://pyinstaller.org/"
-  url "https://files.pythonhosted.org/packages/cf/b0/69585629b023056e801a99ee4d669e2d3b85fb5a68fe461c1660af9ea514/pyinstaller-5.0.tar.gz"
-  sha256 "0b7f1a09e1ae617867d4e9b56285dd670bcf0b1362b272c96a933b0195fce226"
+  url "https://files.pythonhosted.org/packages/ad/09/82d3f066eddb9ab3cbed8284a0bda84a93806ff2c44536474841a98ae0e7/pyinstaller-5.0.1.tar.gz"
+  sha256 "25f5f758b005c66471af0d452c90ec328179116afe9d5bd82f5fb06d9416267b"
   license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
