@@ -5,6 +5,7 @@ class Vcpkg < Formula
   version "2022.03.09"
   sha256 "174a9081059efc29f8c617e6d673d342388816872a3c57c7042051d029b77841"
   license "MIT"
+  revision 1
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
   # The source repository has pre-release tags with the same
