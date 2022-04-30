@@ -2,6 +2,7 @@ class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
   license "GPL-3.0-or-later"
+  revision 1
 
   # Remove when patch is no longer needed.
   stable do
