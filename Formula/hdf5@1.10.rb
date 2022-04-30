@@ -4,6 +4,7 @@ class Hdf5AT110 < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.8/src/hdf5-1.10.8.tar.bz2"
   sha256 "66ec544b195a4cb9f6ffed034fd82e52429d6112747c2996ab69853f606e546b"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "4da7acce76c469df0bd29df9e3a682d72dfe5ed950aee37fe3157c9cd1b8b7e5"
