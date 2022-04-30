@@ -14,6 +14,11 @@ class MermaidCli < Formula
     sha256 cellar: :any, mojave:        "b97919f1f15b8c36004a484cfe8ab6820a09e7f42bec6a493ecc2da5c8778a5c"
   end
 
+  # Needs Chromium for puppeteer. Chromium is currently installed as a pre-built.
+  # Ref: https://github.com/Homebrew/homebrew-core/pull/83338
+  # Ref: https://github.com/Homebrew/homebrew-core/issues/100192
+  deprecate! date: "2022-04-30", because: "installs a pre-built copy of Chromium"
+
   depends_on "node"
 
   def install
