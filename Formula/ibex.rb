@@ -29,7 +29,7 @@ class Ibex < Formula
     ENV.cxx11
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args.reject { |s| s["CMAKE_INSTALL_LIBDIR"] }
       system "make", "SHARED=true"
       system "make", "install"
     end
