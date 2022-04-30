@@ -30,6 +30,7 @@ class MariadbConnectorOdbc < Formula
   def install
     ENV.append_to_cflags "-I#{Formula["mariadb-connector-c"].opt_include}/mariadb"
     ENV.append "LDFLAGS", "-L#{Formula["mariadb-connector-c"].opt_lib}/mariadb"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["mariadb-connector-c"].opt_lib}/mariadb" if OS.linux?
     system "cmake", ".", "-DMARIADB_LINK_DYNAMIC=1",
                          "-DWITH_SSL=OPENSSL",
                          "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
