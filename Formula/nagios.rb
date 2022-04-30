@@ -23,6 +23,8 @@ class Nagios < Formula
   depends_on "nagios-plugins"
   depends_on "openssl@1.1"
 
+  uses_from_macos "unzip"
+
   def nagios_sbin
     prefix/"cgi-bin"
   end
@@ -48,23 +50,24 @@ class Nagios < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sbindir=#{nagios_sbin}",
-                          "--sysconfdir=#{nagios_etc}",
-                          "--localstatedir=#{nagios_var}",
-                          "--datadir=#{htdocs}",
-                          "--libexecdir=#{HOMEBREW_PREFIX}/sbin", # Plugin dir
-                          "--with-cgiurl=/nagios/cgi-bin",
-                          "--with-htmurl=/nagios",
-                          "--with-nagios-user=#{user}",
-                          "--with-nagios-group='#{group}'",
-                          "--with-command-user=#{user}",
-                          "--with-command-group=_www",
-                          "--with-httpd-conf=#{share}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--disable-libtool"
+    args = std_configure_args + [
+      "--sbindir=#{nagios_sbin}",
+      "--sysconfdir=#{nagios_etc}",
+      "--localstatedir=#{nagios_var}",
+      "--datadir=#{htdocs}",
+      "--libexecdir=#{HOMEBREW_PREFIX}/sbin", # Plugin dir
+      "--with-cgiurl=/nagios/cgi-bin",
+      "--with-htmurl=/nagios",
+      "--with-nagios-user=#{user}",
+      "--with-nagios-group='#{group}'",
+      "--with-command-user=#{user}",
+      "--with-httpd-conf=#{share}",
+      "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+      "--disable-libtool",
+    ]
+    args << "--with-command-group=_www" if OS.mac?
+
+    system "./configure", *args
     system "make", "all"
     system "make", "install"
 
