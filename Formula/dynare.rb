@@ -2,7 +2,7 @@ class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   # Temporary stable block to patch in Octave 7 support. Remove in the next release.
   stable do
@@ -40,6 +40,13 @@ class Dynare < Formula
       directory "matlab/modules/reporting"
     end
     patch :DATA # https://git.dynare.org/Dynare/dynare/-/commit/00610cf3731e84538a94b2e384d5c333ebca7943
+
+    # Fix build with GCC 12
+    patch do
+      url "https://git.dynare.org/Dynare/preprocessor/-/commit/3823379966f15a377c863b0d15694b146854dfd8.diff"
+      sha256 "879939bae9b20b5655bc78776c1a8ae48f0fd8935325a7b1d7eda49ea9237bef"
+      directory "preprocessor"
+    end
   end
 
   livecheck do
