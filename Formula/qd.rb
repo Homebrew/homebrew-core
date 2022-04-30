@@ -3,6 +3,7 @@ class Qd < Formula
   homepage "https://www.davidhbailey.com/dhbsoftware/"
   url "https://www.davidhbailey.com/dhbsoftware/qd-2.3.23.tar.gz"
   sha256 "b3eaf41ce413ec08f348ee73e606bd3ff9203e411c377c3c0467f89acf69ee26"
+  revision 1
 
   livecheck do
     url :homepage
