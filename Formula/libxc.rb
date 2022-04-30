@@ -4,6 +4,7 @@ class Libxc < Formula
   url "https://gitlab.com/libxc/libxc/-/archive/5.2.3/libxc-5.2.3.tar.bz2"
   sha256 "6cd45669d7f92bdcdb6879bea232dac94ad57d025cf2edfd019182ccf6494a75"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ab53f54b78b5af31ed1ec2e0f366153e72a6d52b556afda8b4f4e83590ac986b"
