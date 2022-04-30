@@ -4,6 +4,7 @@ class Lapack < Formula
   url "https://github.com/Reference-LAPACK/lapack/archive/v3.10.1.tar.gz"
   sha256 "cd005cd021f144d7d5f7f33c943942db9f03a28d110d6a3b80d718a295f7f714"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Reference-LAPACK/lapack.git", branch: "master"
 
   bottle do
