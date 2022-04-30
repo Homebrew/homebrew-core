@@ -4,7 +4,7 @@ class Packmol < Formula
   url "https://github.com/m3g/packmol/archive/20.010.tar.gz"
   sha256 "23285f2a9e2bef0e8253250d7eae2d4026a9535ddcc2b9b383f5ad45b19e123d"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/m3g/packmol.git", branch: "master"
 
   bottle do
