@@ -4,6 +4,7 @@ class Fftw < Formula
   url "https://fftw.org/fftw-3.3.10.tar.gz"
   sha256 "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
   license all_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
+  revision 1
 
   livecheck do
     url :homepage
