@@ -51,6 +51,12 @@ class GnomeRecipes < Formula
 
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
+    # Add RPATH to libexec in goa-1.0.pc on Linux.
+    unless OS.mac?
+      inreplace libexec/"lib/pkgconfig/goa-1.0.pc", "-L${libdir}",
+                "-Wl,-rpath,${libdir} -L${libdir}"
+    end
+
     # BSD tar does not support the required options
     inreplace "src/gr-recipe-store.c", "argv[0] = \"tar\";", "argv[0] = \"gtar\";"
     # stop meson_post_install.py from doing what needs to be done in the post_install step
