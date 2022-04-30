@@ -4,7 +4,7 @@ class Creduce < Formula
   url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
   sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/csmith-project/creduce.git", branch: "master"
 
   livecheck do
@@ -20,7 +20,6 @@ class Creduce < Formula
   end
 
   depends_on "astyle"
-  depends_on "delta"
   depends_on "llvm@9"
 
   uses_from_macos "perl"
@@ -73,6 +72,14 @@ class Creduce < Formula
       end
     end
 
+    # Work around build failure seen on Apple Clang 13.1.6 by using LLVM Clang
+    # Undefined symbols for architecture x86_64:
+    #   "std::__1::basic_stringbuf<char, std::__1::char_traits<char>, ...
+    if DevelopmentTools.clang_build_version == 1316
+      ENV["CC"] = Formula["llvm@9"].opt_bin/"clang"
+      ENV["CXX"] = Formula["llvm@9"].opt_bin/"clang++"
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--bindir=#{libexec}"
@@ -84,21 +91,14 @@ class Creduce < Formula
 
   test do
     (testpath/"test1.c").write <<~EOS
-      #include <stdio.h>
-
       int main() {
-        int i = -1;
-        unsigned int j = i;
-        printf("%d\n", j);
+        printf("%d\n", 0);
       }
-
     EOS
     (testpath/"test1.sh").write <<~EOS
       #!/usr/bin/env bash
 
-      clang -Weverything "$(dirname "${BASH_SOURCE[0]}")"/test1.c 2>&1 | \
-      grep 'implicit conversion changes signedness'
-
+      #{ENV.cc} -Wall #{testpath}/test1.c 2>&1 | grep 'Wimplicit-function-declaration'
     EOS
 
     chmod 0755, testpath/"test1.sh"
