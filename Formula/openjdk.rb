@@ -23,6 +23,7 @@ class Openjdk < Formula
 
   depends_on "autoconf" => :build
   depends_on xcode: :build
+  depends_on macos: :catalina
 
   on_linux do
     depends_on "pkg-config" => :build
