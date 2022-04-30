@@ -4,7 +4,7 @@ class Matplotplusplus < Formula
   url "https://github.com/alandefreitas/matplotplusplus/archive/v1.1.0.tar.gz"
   sha256 "5c3a1bdfee12f5c11fd194361040fe4760f57e334523ac125ec22b2cb03f27bb"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "da37512436dab0d5d57a352a3af69cfd93408afbcda7b81e91dc16f299981c90"
