@@ -6,7 +6,6 @@ class Shogimaru < Formula
   license "MIT"
   head "https://github.com/shogimaru/shogimaru.git", branch: "develop"
 
-  depends_on xcode: :build
   depends_on "qt"
 
   on_linux do
@@ -16,12 +15,16 @@ class Shogimaru < Formula
   fails_with gcc: "5"
 
   def install
-    system "qmake", "-recursive", "CONFIG+=release", "target.path=#{prefix}/bin"
+    system "qmake", "-recursive", "CONFIG+=release", "target.path=#{bin}"
     system "make"
     system "make", "install"
   end
 
   test do
-    #system "shogimaru"
+    if OS.mac?
+      otool "-L", "#{bin}/shogimaru"
+    else
+      system "ldd", "#{bin}/shogimaru"
+    end
   end
 end
