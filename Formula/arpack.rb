@@ -4,7 +4,7 @@ class Arpack < Formula
   url "https://github.com/opencollab/arpack-ng/archive/3.8.0.tar.gz"
   sha256 "ada5aeb3878874383307239c9235b716a8a170c6d096a6625bfd529844df003d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/opencollab/arpack-ng.git", branch: "master"
 
   bottle do
