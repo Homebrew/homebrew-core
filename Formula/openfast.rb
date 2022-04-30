@@ -4,6 +4,7 @@ class Openfast < Formula
   url "https://github.com/openfast/openfast/archive/v3.0.0.tar.gz"
   sha256 "9af57af054e4128b6e257a76da368dc4ad0c7fbb2b22d51fc7ea63cdf999c530"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 monterey:     "157d1ec772acdfebd91e2f8dd7fd385d6baabb60d04288ff8936d84d551120d4"
