@@ -4,6 +4,7 @@ class Kahip < Formula
   url "https://github.com/KaHIP/KaHIP/archive/v3.14.tar.gz"
   sha256 "9da04f3b0ea53b50eae670d6014ff54c0df2cb40f6679b2f6a96840c1217f242"
   license "MIT"
+  revision 1
   head "https://github.com/KaHIP/KaHIP.git", branch: "master"
 
   bottle do
