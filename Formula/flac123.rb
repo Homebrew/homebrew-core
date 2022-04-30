@@ -26,14 +26,16 @@ class Flac123 < Formula
   depends_on "popt"
 
   def install
+    ENV["ACLOCAL"] = "aclocal"
+    ENV["AUTOMAKE"] = "automake"
+    system "aclocal"
+    system "automake", "--add-missing"
     system "./configure", "--prefix=#{prefix}"
-    system "make", "install", "CC=#{ENV.cc}",
-                   # specify aclocal and automake without version suffixes
-                   "ACLOCAL=${SHELL} #{buildpath}/missing --run aclocal",
-                   "AUTOMAKE=${SHELL} #{buildpath}/missing --run automake"
+    system "make", "install", "CC=#{ENV.cc}"
   end
 
   test do
-    system "#{bin}/flac123"
+    driver = OS.mac? ? "macosx" : "oss"
+    system "#{bin}/flac123", "-d=#{driver}"
   end
 end
