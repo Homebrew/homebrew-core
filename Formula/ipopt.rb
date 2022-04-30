@@ -4,6 +4,7 @@ class Ipopt < Formula
   url "https://github.com/coin-or/Ipopt/archive/releases/3.14.9.tar.gz"
   sha256 "e12eba451269ec30f4cf6e2acb8b35399f0d029c97dff10465416f5739c8cf7a"
   license "EPL-2.0"
+  revision 1
   head "https://github.com/coin-or/Ipopt.git", branch: "stable/3.14"
 
   bottle do
@@ -23,6 +24,7 @@ class Ipopt < Formula
 
   resource "mumps" do
     url "http://mumps.enseeiht.fr/MUMPS_5.5.0.tar.gz"
+    mirror "http://deb.debian.org/debian/pool/main/m/mumps/mumps_5.5.0.orig.tar.gz"
     sha256 "e54d17c5e42a36c40607a03279e0704d239d71d38503aab68ef3bfe0a9a79c13"
 
     patch do
