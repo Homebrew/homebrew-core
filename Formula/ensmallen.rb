@@ -4,6 +4,7 @@ class Ensmallen < Formula
   url "https://github.com/mlpack/ensmallen/archive/2.19.0.tar.gz"
   sha256 "f9b280e03266b308d2772ab7e1dd962adcfa98b0552b05795f8ac81ec15eb270"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/mlpack/ensmallen.git", branch: "master"
 
   bottle do
