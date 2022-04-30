@@ -3,6 +3,7 @@ class Fastme < Formula
   homepage "http://www.atgc-montpellier.fr/fastme/"
   url "https://gite.lirmm.fr/atgc/FastME/raw/v2.1.6.3/tarball/fastme-2.1.6.3.tar.gz"
   sha256 "09a23ea94e23c0821ab75f426b410ec701dac47da841943587443a25b2b85030"
+  revision 1
 
   livecheck do
     url "https://gite.lirmm.fr/atgc/FastME.git"
