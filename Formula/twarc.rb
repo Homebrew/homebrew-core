@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/84/ce/13127e02f6890c5cd2e0fb03e6c31342d7c5fba2674f584f13c9b87348c0/twarc-2.10.3.tar.gz"
-  sha256 "1cdd81571f839461570159ce380d2b29d4d8fabda53aa5418a587b6d214e17b0"
+  url "https://files.pythonhosted.org/packages/46/a2/71696490c3d7318554a56200f3af3dd307996476dffd5239a001889e9ba7/twarc-2.10.4.tar.gz"
+  sha256 "f26d52f4aee133ab8fee516dca4a97ddc0c42fa5240db4be53cd52dd48b6a67b"
   license "MIT"
 
   bottle do
@@ -30,8 +30,8 @@ class Twarc < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/42/e1/4cb2d3a2416bcd871ac93f12b5616f7755a6800bccae05e5a99d3673eb69/click-8.1.2.tar.gz"
-    sha256 "479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"
+    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
+    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "click-config-file" do
