@@ -5,7 +5,7 @@ class Hdf5AT18 < Formula
   # (see: https://portal.hdfgroup.org/display/support/HDF5%201.8.22#HDF51.8.22-futureFutureofHDF5-1.8).
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.22/src/hdf5-1.8.22.tar.bz2"
   sha256 "689b88c6a5577b05d603541ce900545779c96d62b6f83d3f23f46559b48893a4"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/"
