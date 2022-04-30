@@ -4,6 +4,7 @@ class Gromacs < Formula
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2022.1.tar.gz"
   sha256 "85ddab5197d79524a702c4959c2c43be875e0fc471df3a35224939dce8512450"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
