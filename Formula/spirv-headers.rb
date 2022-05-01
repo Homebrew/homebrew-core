@@ -7,7 +7,7 @@ class SpirvHeaders < Formula
 
   livecheck do
     url :stable
-    regex(/^sdk-v?(\d+(?:\.\d+)+)$/i)
+    regex(/^sdk[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
