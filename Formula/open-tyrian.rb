@@ -1,9 +1,9 @@
 class OpenTyrian < Formula
   desc "Open-source port of Tyrian"
   homepage "https://github.com/opentyrian/opentyrian"
-  url "https://www.camanis.net/opentyrian/releases/opentyrian-2.1.20130907-src.tar.gz"
-  sha256 "f54b6b3cedcefa187c9f605d6164aae29ec46a731a6df30d351af4c008dee45f"
-  license "GPL-2.0"
+  url "https://github.com/opentyrian/opentyrian/archive/refs/tags/v2.1.20220318.tar.gz"
+  sha256 "e0c6afbb5d395c919f9202f4c9b3b4da7bd6e993e9da6152f995012577e1ccbd"
+  license "GPL-2.0-or-later"
   head "https://github.com/opentyrian/opentyrian.git", branch: "master"
 
   bottle do
@@ -18,24 +18,19 @@ class OpenTyrian < Formula
     sha256 x86_64_linux:   "723f3b0f366b3515276c2e35c6776447b48285cafe565dab1d988abe60f909d4"
   end
 
-  depends_on "sdl"
-  depends_on "sdl_net"
+  depends_on "pkg-config" => :build
+  depends_on "sdl2"
+  depends_on "sdl2_net"
 
-  resource "data" do
+  resource "homebrew-test-data" do
     url "https://camanis.net/tyrian/tyrian21.zip"
     sha256 "7790d09a2a3addcd33c66ef063d5900eb81cc9c342f4807eb8356364dd1d9277"
   end
 
   def install
     datadir = pkgshare/"data"
-    datadir.install resource("data")
-    args = []
-    if build.head?
-      args << "TYRIAN_DIR=#{datadir}"
-    else
-      inreplace "src/file.c", "/usr/share/opentyrian/data", datadir
-    end
-    system "make", *args
+    datadir.install resource("homebrew-test-data")
+    system "make", "TYRIAN_DIR=#{datadir}"
     bin.install "opentyrian"
   end
 
