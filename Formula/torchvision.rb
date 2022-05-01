@@ -6,6 +6,11 @@ class Torchvision < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3e1c87431e9cfeecbf3460a2301e00452963ebbf8982be41ba2a19e9543882d3"
     sha256 cellar: :any,                 arm64_big_sur:  "b832c2dd9e48f9ccdbf4af596b1e4ca74fdb0bf04f5480488b0f8b8f0fe2b353"
