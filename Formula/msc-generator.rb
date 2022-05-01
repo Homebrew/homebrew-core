@@ -4,6 +4,7 @@ class MscGenerator < Formula
   url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.1/msc-generator-8.1.tar.gz"
   sha256 "d5812a1d24d42e319b5caab0316ae04d2de908db0f73c84f2797f20ebdf302a6"
   license "AGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "f2b4bcf403d15c2eb9a633c5610970e1ee0f157f72d46c6eb94e9ad6549b24ee"
