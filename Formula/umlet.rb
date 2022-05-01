@@ -3,6 +3,7 @@ class Umlet < Formula
   homepage "https://www.umlet.com/"
   url "https://www.umlet.com/umlet_15_0/umlet-standalone-15.0.0.zip"
   sha256 "81dbe1a981b2ac5b90861ae4176eb05dbdd340b4422e6e7dfee4b14cf9877401"
+  license "GPL-3.0-only"
 
   livecheck do
     url "https://www.umlet.com/changes.htm"
