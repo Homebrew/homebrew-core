@@ -6,6 +6,11 @@ class Click < Formula
   license "Apache-2.0"
   head "https://github.com/databricks/click.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "08fffc5fa5f08e292d5ebb07ccbd3d8cfe2b7ec70d06420377c94e849b4bc3c3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e54fef33b234b0c5053040a012ff0ab1c548ff31dfe660e0f577b01cd6727ff3"
