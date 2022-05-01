@@ -78,7 +78,6 @@ class RichCli < Formula
     sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
-
   def install
     virtualenv_install_with_resources
   end
