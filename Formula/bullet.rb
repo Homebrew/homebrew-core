@@ -1,21 +1,10 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
+  url "https://github.com/bulletphysics/bullet3/archive/3.24.tar.gz"
+  sha256 "6b1e987d6f8156fa8a6468652f4eaad17b3e11252c9870359e5bca693e35780b"
   license "Zlib"
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
-
-  stable do
-    url "https://github.com/bulletphysics/bullet3/archive/3.22b.tar.gz"
-    version "3.22b"
-    sha256 "c6cd89ecbc4bd73fee64723c831c1578daab056d88774755a6f56afc6f417b2b"
-
-    # Fix btSoftBodyHelpers.h invalid dependency on example header that is not installed.
-    # Remove in the next release.
-    patch do
-      url "https://github.com/bulletphysics/bullet3/commit/4f0673810cab0eee67ea314a3243952afd150cb4.patch?full_index=1"
-      sha256 "577ec365785924f29533bf5bdaef168c851e414aeebd3fe8b4a2d5286d773553"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "53c8070433e550cc819f1821088eeb3f17d65ae12ebc72b1d20be3772ff796ca"
