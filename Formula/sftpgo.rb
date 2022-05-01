@@ -8,11 +8,14 @@ class Sftpgo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", "sftpgo"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", "sftpgo"
     inreplace "sftpgo.json" do |s|
       s.gsub! "\"users_base_dir\": \"\"", "\"users_base_dir\": \"#{var}/sftpgo/data\""
       s.gsub! "\"backups_path\": \"backups\"", "\"backups_path\": \"#{var}/sftpgo/backups\""
       s.gsub! "\"credentials_path\": \"credentials\"", "\"credentials_path\": \"#{var}/sftpgo/credentials\""
+      s.gsub! "\"templates_path\": \"templates\"", "\"templates_path\": \"#{opt_pkgshare}/templates\""
+      s.gsub! "\"static_files_path\": \"static\"", "\"static_files_path\": \"#{opt_pkgshare}/static\""
+      s.gsub! "\"openapi_path\": \"openapi\"", "\"openapi_path\": \"#{opt_pkgshare}/openapi\""
     end
     bin.install "sftpgo"
     pkgetc.install "sftpgo.json"
@@ -22,18 +25,6 @@ class Sftpgo < Formula
 
   def caveats
     <<~EOS
-      If this is your first installation please open the web administration panel:
-
-      http://localhost:8080/web/admin
-
-      and complete the initial setup.
-
-      The SFTP service is available on port 2022.
-      If the SFTPGo service does not start, make sure that TCP ports 2022 and 8080 are not used by other services
-      or change the SFTPGo configuration to suit your needs.
-
-      SFTPGo service runs as user "#{ENV["USER"]}".
-
       Default data location:
 
       #{var}/sftpgo
@@ -42,60 +33,37 @@ class Sftpgo < Formula
 
       #{pkgetc}/sftpgo.json
 
-      Getting started guide:
-
-      https://github.com/drakkan/sftpgo/blob/main/docs/howto/getting-started.md
-
-      Step-to-step tutorials:
-
-      https://github.com/drakkan/sftpgo/tree/main/docs/howto
+      If the SFTPGo service does not start, make sure that TCP ports 2022 and 8080 are not used by other services
+      or change the SFTPGo configuration to suit your needs.
     EOS
   end
 
   plist_options startup: true
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>EnvironmentVariables</key>
-        <dict>
-          <key>SFTPGO_CONFIG_FILE</key>
-          <string>#{pkgetc}/sftpgo.json</string>
-          <key>SFTPGO_LOG_FILE_PATH</key>
-          <string>#{var}/sftpgo/log/sftpgo.log</string>
-          <key>SFTPGO_HTTPD__TEMPLATES_PATH</key>
-          <string>#{pkgshare}/templates</string>
-          <key>SFTPGO_SMTP__TEMPLATES_PATH</key>
-          <string>#{pkgshare}/templates</string>
-          <key>SFTPGO_HTTPD__STATIC_FILES_PATH</key>
-          <string>#{pkgshare}/static</string>
-          <key>SFTPGO_HTTPD__OPENAPI_PATH</key>
-          <string>#{pkgshare}/openapi</string>
-        </dict>
-        <key>WorkingDirectory</key>
-        <string>#{var}/sftpgo</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/sftpgo</string>
-          <string>serve</string>
-        </array>
-        <key>UserName</key>
-        <string>#{ENV["USER"]}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ThrottleInterval</key>
-        <integer>10</integer>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"sftpgo", "serve", "--config-file", etc/"sftpgo/sftpgo.json", "--log-file-path",
+         var/"sftpgo/log/sftpgo.log"]
+    keep_alive true
+    working_dir var/"sftpgo"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/sftpgo -v")
+    expected_output = "ok"
+    http_port = free_port
+    sftp_port = free_port
+    ENV["SFTPGO_HTTPD__BINDINGS__0__PORT"] = http_port.to_s
+    ENV["SFTPGO_HTTPD__BINDINGS__0__ADDRESS"] = "127.0.0.1"
+    ENV["SFTPGO_SFTPD__BINDINGS__0__ADDRESS"] = "127.0.0.1"
+    ENV["SFTPGO_SFTPD__BINDINGS__0__PORT"] = sftp_port.to_s
+    ENV["SFTPGO_LOG_FILE_PATH"] = "#{testpath}/sftpgo.log"
+    pid = fork do
+      exec bin/"sftpgo", "serve", "--config-file", "#{pkgetc}/sftpgo.json"
+    end
+
+    sleep 10
+    assert_match expected_output, shell_output("curl -s 127.0.0.1:#{http_port}/healthz")
+    shell_output("ssh-keyscan -p #{sftp_port} 127.0.0.1")
+    ensure
+      Process.kill("TERM", pid)
+      Process.wait(pid)
   end
 end
