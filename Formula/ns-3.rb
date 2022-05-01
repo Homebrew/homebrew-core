@@ -15,6 +15,7 @@ class Ns3 < Formula
   end
 
   depends_on "boost" => :build
+  depends_on "cmake" => :build
   depends_on "python@3.10" => [:build, :test]
 
   uses_from_macos "libxml2"
@@ -24,8 +25,10 @@ class Ns3 < Formula
     depends_on "gcc"
   end
 
-  # `gcc version 5.4.0 older than minimum supported version 7.0.0`
+  # `g++ version 8 is now the minimum g++ compiler version supported.`
   fails_with gcc: "5"
+  fails_with gcc: "6"
+  fails_with gcc: "7"
 
   resource "pybindgen" do
     url "https://files.pythonhosted.org/packages/e0/8e/de441f26282eb869ac987c9a291af7e3773d93ffdb8e4add664b392ea439/PyBindGen-0.22.1.tar.gz"
@@ -35,24 +38,23 @@ class Ns3 < Formula
   def install
     resource("pybindgen").stage buildpath/"pybindgen"
 
-    system "./waf", "configure", "--prefix=#{prefix}",
-                                 "--build-profile=release",
-                                 "--disable-gtk",
-                                 "--with-python=#{which("python3")}",
-                                 "--with-pybindgen=#{buildpath}/pybindgen"
-    system "./waf", "--jobs=#{ENV.make_jobs}"
-    system "./waf", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install "examples/tutorial/first.cc", "examples/tutorial/first.py"
   end
 
   test do
-    system ENV.cxx, pkgshare/"first.cc", "-I#{include}/ns#{version}", "-L#{lib}",
+    system ENV.cxx, "-std=c++17", pkgshare/"first.cc",
+           "-I#{include}/ns#{version}", "-L#{lib}",
            "-lns#{version}-core", "-lns#{version}-network", "-lns#{version}-internet",
            "-lns#{version}-point-to-point", "-lns#{version}-applications",
-           "-std=c++11", "-o", "test"
+           "-o", "test"
     system "./test"
 
-    system Formula["python@3.10"].opt_bin/"python3", pkgshare/"first.py"
+    # As of ns-3.36, the python bindings do not work with python 3.9 or python 3.10
+    # https://gitlab.com/nsnam/ns-3-dev/-/blob/master/doc/manual/source/python.rst#L46-56
+    # system Formula["python@3.10"].opt_bin/"python3", pkgshare/"first.py"
   end
 end
