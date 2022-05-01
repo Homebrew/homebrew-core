@@ -24,12 +24,6 @@ class GitInteractiveRebaseTool < Formula
 
   uses_from_macos "zlib"
 
-  # Support rust 1.54, remove with next release after 2.1.0
-  patch do
-    url "https://github.com/MitMaro/git-interactive-rebase-tool/commit/f4d3026f23118d29a263bbca6c83f963e76c34c4.patch?full_index=1"
-    sha256 "74a9ff98f668707f41df910b41eab6006970f2cf703f2a02a65e8c9901ddbd12"
-  end
-
   def install
     system "cargo", "install", *std_cargo_args
   end
