@@ -1,8 +1,8 @@
 class Aspcud < Formula
   desc "Package dependency solver"
   homepage "https://potassco.org/aspcud/"
-  url "https://github.com/potassco/aspcud/archive/v1.9.5.tar.gz"
-  sha256 "9cd3a9490d377163d87b16fa1a10cc7254bc2dbb9f60e846961ac8233f3835cf"
+  url "https://github.com/potassco/aspcud/archive/v1.9.6.tar.gz"
+  sha256 "4dddfd4a74e4324887a1ddd7f8ff36231774fc1aa78b383256546e83acdf516c"
   license "MIT"
 
   bottle do
