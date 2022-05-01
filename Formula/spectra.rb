@@ -25,7 +25,7 @@ class Spectra < Formula
     system ENV.cxx, pkgshare/"test.cpp", "-std=c++11",
            "-I#{Formula["eigen"].opt_include/"eigen3"}", "-I#{include}", "-o", "test"
 
-    expected = <<~EOS
+    macos_expected = <<~EOS
       5 Eigenvalues found:
       1000.01
       999.017
@@ -34,6 +34,19 @@ class Spectra < Formula
       996.017
     EOS
 
-    assert_equal expected, shell_output(testpath/"test")
+    linux_expected = <<~EOS
+      5 Eigenvalues found:
+      999.969
+      998.965
+      997.995
+      996.999
+      995.962
+    EOS
+
+    if OS.mac?
+      assert_equal macos_expected, shell_output(testpath/"test")
+    else
+      assert_equal linux_expected, shell_output(testpath/"test")
+    end
   end
 end
