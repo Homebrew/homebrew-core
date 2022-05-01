@@ -18,6 +18,7 @@
   "soapysdr",
   "soci",
   "tcl-tk",
+  "uhd",
   "xmlrpc-c",
   "xvid"
 ]
