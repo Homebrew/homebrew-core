@@ -32,14 +32,6 @@ class Ns3 < Formula
     sha256 "8c7f22391a49a84518f5a2ad06e3a5b1e839d10e34da7631519c8a28fcba3764"
   end
 
-  # Fix ../src/lte/model/fdmt-ff-mac-scheduler.cc:1044:16: error:
-  # variable 'bytesTxed' set but not used [-Werror,-Wunused-but-set-variable]
-  # TODO: remove in the next release.
-  patch do
-    url "https://gitlab.com/nsnam/ns-3-dev/-/commit/dbd49741fcd5938edec17eddcde251b5dee25d05.diff"
-    sha256 "28e92297cfe058cfb587527dc3cfdb8ac66b51aba672be29539b6544591e2f1e"
-  end
-
   def install
     resource("pybindgen").stage buildpath/"pybindgen"
 
