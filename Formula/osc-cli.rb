@@ -3,8 +3,8 @@ class OscCli < Formula
 
   desc "Official Outscale CLI providing connectors to Outscale API"
   homepage "https://github.com/outscale/osc-cli"
-  url "https://files.pythonhosted.org/packages/88/27/82b58ed2c5180b065cc4b21d7de93b3c16d5e821f847ba62f1e6ab6ba253/osc-sdk-1.7.1.tar.gz"
-  sha256 "598b88cf63820bf217e685009f5a661d47c68fa050604b3c19f395df73e2df40"
+  url "https://files.pythonhosted.org/packages/e2/d3/2ff474be2543a868df1415f7a722d1b28016ee521982268e00b575adf0b9/osc-sdk-1.8.0.tar.gz"
+  sha256 "a4184cf708f1b42017d40b441463c87dbdfba5a6b6660a032e7cdc250ac3bea5"
   license "BSD-3-Clause"
 
   bottle do
@@ -25,8 +25,8 @@ class OscCli < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2f/39/5d8ff929409113e9ff402e405a7c7880ab1fa6f118a4ab72443976a01711/charset-normalizer-2.0.8.tar.gz"
-    sha256 "735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "defusedxml" do
@@ -45,8 +45,8 @@ class OscCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
-    sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
+    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
+    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
   end
 
   resource "termcolor" do
@@ -55,13 +55,13 @@ class OscCli < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz"
-    sha256 "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e"
+    url "https://files.pythonhosted.org/packages/fe/71/1df93bd59163c8084d812d166c907639646e8aac72886d563851b966bf18/typing_extensions-4.2.0.tar.gz"
+    sha256 "f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
-    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   resource "xmltodict" do
