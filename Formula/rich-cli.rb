@@ -2,9 +2,9 @@ class RichCli < Formula
   include Language::Python::Virtualenv
 
   desc "Command-line toolbox for fancy output in the terminal"
-  homepage "https://github.com/Textualize/rich-cli"
-  url "https://files.pythonhosted.org/packages/e2/73/d8e955678d670fa1983f61eabb7c83b4d55f568d4eb6f00d3bc4ca34289a/rich-cli-1.6.1.tar.gz"
-  sha256 "18db9408e5e670f54bfe93a2b533a0f10261232c70fa92a4343440777ed50359"
+  homepage "https://github.com/textualize/rich-cli"
+  url "https://files.pythonhosted.org/packages/1f/72/a7b7536dc3e5d9d3f6eb02bf2107907a8bc916037b2f91a387fa4c907f55/rich-cli-1.7.0.tar.gz"
+  sha256 "7e9a2bca579cf47fbd1b6bfc0f43b7d9e93b390b376114a66b5c4ea5a90296a9"
   license "MIT"
 
   bottle do
@@ -59,8 +59,8 @@ class RichCli < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/8e/81/d59e9198a32206a156649a24a813a36a50461d9f6e669378c68aed974910/rich-12.0.1.tar.gz"
-    sha256 "3fba9dd15ebe048e2795a02ac19baee79dc12cc50b074ef70f2958cd651b59a9"
+    url "https://files.pythonhosted.org/packages/a4/50/8e34f3f18dc3914bd14a0722cb471410488495fdcd93e122724d4dd8c5f9/rich-12.3.0.tar.gz"
+    sha256 "7e8700cda776337036a712ff0495b04052fb5f957c7dfb8df997f88350044b64"
   end
 
   resource "rich-rst" do
@@ -69,14 +69,15 @@ class RichCli < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/6a/05/0bfd14fde0d5473add167dea0a66665fff0cebaad5bb07d04198d30dfd46/textual-0.1.17.tar.gz"
-    sha256 "af6aa1fa34fe6d40689ce55a7bf519a07e48523a75b95cbed572990e0d6b6f84"
+    url "https://files.pythonhosted.org/packages/8c/d1/c228993e8a21e24bb43a0376b2901b6f3f2033dae13e7f76d1103bb9b8a3/textual-0.1.18.tar.gz"
+    sha256 "b2883f8ed291de58b9aa73de6d24bbaae0174687487458a4eb2a7c188a2acf23"
   end
 
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
     sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
+
 
   def install
     virtualenv_install_with_resources
