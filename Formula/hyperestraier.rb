@@ -26,9 +26,15 @@ class Hyperestraier < Formula
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}",
                           "--disable-dependency-tracking"
-    system "make", "mac"
-    system "make", "check-mac"
-    system "make", "install-mac"
+    if OS.mac?
+      system "make", "mac"
+      system "make", "check-mac"
+      system "make", "install-mac"
+    else
+      system "make", "LIBS=-lqdbm -lm"
+      system "make", "check"
+      system "make", "install"
+    end
   end
 
   test do
