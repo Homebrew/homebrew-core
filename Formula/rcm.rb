@@ -31,6 +31,7 @@ class Rcm < Formula
   end
 
   test do
+    (testpath/".dotfiles").mkdir
     (testpath/".gitconfig").write <<~EOS
       [user]
       	name = Test User
