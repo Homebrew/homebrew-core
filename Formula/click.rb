@@ -1,8 +1,8 @@
 class Click < Formula
   desc "Command-line interactive controller for Kubernetes"
   homepage "https://github.com/databricks/click"
-  url "https://github.com/databricks/click/archive/v0.5.4.tar.gz"
-  sha256 "fa9b2cb3911ae8331217cafb941cdee52b09a27a58a5dccbdb52f408dc22f4f4"
+  url "https://github.com/databricks/click/archive/v0.6.0.tar.gz"
+  sha256 "90773efa2bb91c71d6f8d448cabc2623cb2d4c31908d54b849426560755ef31f"
   license "Apache-2.0"
   head "https://github.com/databricks/click.git", branch: "master"
 
