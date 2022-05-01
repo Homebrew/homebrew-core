@@ -1,8 +1,9 @@
 class Glslviewer < Formula
   desc "Live-coding console tool that renders GLSL Shaders"
   homepage "http://patriciogonzalezvivo.com/2015/glslViewer/"
-  url "https://github.com/patriciogonzalezvivo/glslViewer/archive/2.0.4.tar.gz"
-  sha256 "6c18998ee7fb0e31d39909a6b59740b3f2cb8abd9ec7513be77aa2cd05755da5"
+  url "https://github.com/patriciogonzalezvivo/glslViewer.git",
+      tag:      "2.0.4",
+      revision: "bdf448011d8d0e0b227b193554e9193661b80a68"
   license "BSD-3-Clause"
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
@@ -15,6 +16,7 @@ class Glslviewer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a67a20f3f87feb3758105f7e8a4a2cc272124300642096ed513436ecb07661a5"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg@4"
   depends_on "glfw"
@@ -25,19 +27,18 @@ class Glslviewer < Formula
 
   fails_with gcc: "5" # rubberband is built with GCC
 
-  # From miniaudio commit in https://github.com/patriciogonzalezvivo/glslViewer/tree/#{version}/include
-  resource "miniaudio" do
-    url "https://raw.githubusercontent.com/mackron/miniaudio/199d6a7875b4288af6a7b615367c8fdc2019b03c/miniaudio.h"
-    sha256 "ee0aa8668db130ed92956ba678793f53b0bbf744e3f8584d994f3f2a87054790"
-  end
-
   def install
-    (buildpath/"include/miniaudio").install resource("miniaudio")
-    system "make"
-    bin.install "glslViewer"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    pkgshare.install "examples"
   end
 
   test do
-    system "#{bin}/glslViewer", "--help"
+    cp_r "#{pkgshare}/examples/2D/01_buffers/.", testpath
+    pid = fork { exec "#{bin}/glslViewer", "00_ripples.frag", "-l" }
+  ensure
+    Process.kill("HUP", pid)
   end
 end
