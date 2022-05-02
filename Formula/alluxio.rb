@@ -59,7 +59,8 @@ class Alluxio < Formula
     assert_match "ValidateConf - Validating configuration.", output
 
     output = shell_output("#{bin}/alluxio clearCache 2>&1", 1)
-    assert_match "drop_caches: No such file or directory", output
+    expected_output = OS.mac? ? "drop_caches: No such file or directory" : "drop_caches: Read-only file system"
+    assert_match expected_output, output
 
     assert_match version.to_s, shell_output("#{bin}/alluxio version")
   end
