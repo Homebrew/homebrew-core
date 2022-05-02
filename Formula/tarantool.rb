@@ -7,6 +7,11 @@ class Tarantool < Formula
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
+  livecheck do
+    url :head
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "fa79d91a265eaadd770342ed9a3276b53c516da511215a11871bb79dc3eddf33"
     sha256 cellar: :any,                 arm64_big_sur:  "dd4db0ad19a1c866a78c7ffb5cd2d87cfdc95b8a211fc4dc428834a435adf212"
