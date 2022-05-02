@@ -21,10 +21,33 @@ class Autopsy < Formula
 
   depends_on "sleuthkit"
 
+  uses_from_macos "perl"
+
+  on_linux do
+    depends_on "file-formula"
+    depends_on "grep"
+    depends_on "md5sha1sum"
+  end
+
   # fixes weird configure script that wouldn't work nicely with homebrew
   patch :DATA
 
   def autcfg
+    # Although these binaries are usually available on Linux, they can be in different locations
+    # so we use the brewed versions instead.
+
+    grep = "/usr/bin/grep"
+    file = "/usr/bin/file"
+    md5 = "/sbin/md5"
+    sha1 = "/usr/bin/shasum"
+
+    on_linux do
+      grep = Formula["grep"].opt_bin/"grep"
+      file = Formula["file"].opt_bin/"file"
+      md5 = Formula["md5sha1sum"].opt_bin/"md5sum"
+      sha1 = Formula["md5sha1sum"].opt_bin/"sha1sum"
+    end
+
     <<~EOS
       # Autopsy configuration settings
 
@@ -43,14 +66,14 @@ class Autopsy < Formula
 
 
       # System Utilities
-      $GREP_EXE = '/usr/bin/grep';
-      $FILE_EXE = '/usr/bin/file';
-      $MD5_EXE = '/sbin/md5';
-      $SHA1_EXE = '/usr/bin/shasum';
+      $GREP_EXE = '#{grep}';
+      $FILE_EXE = '#{file}';
+      $MD5_EXE = '#{md5}';
+      $SHA1_EXE = '#{sha1}';
 
 
       # Directories
-      $TSKDIR = '/usr/local/bin/';
+      $TSKDIR = '#{Formula["sleuthkit"].opt_bin}';
 
       # Homebrew users can install NSRL database and change this variable later
       $NSRLDB = '';
@@ -76,6 +99,13 @@ class Autopsy < Formula
       By default, the evidence locker is in:
         #{var}/lib/autopsy
     EOS
+  end
+
+  test do
+    # Launch autopsy inside a PTY and use Ctrl-C to exit it.
+    PTY.spawn(bin/"autopsy") do |_r, w, _pid|
+      w.write "\cC"
+    end
   end
 end
 
