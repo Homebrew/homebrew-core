@@ -21,6 +21,12 @@ class Ttygif < Formula
   end
 
   test do
+    # Disable test on Linux because it fails with this error:
+    # Error: WINDOWID environment variable was empty.
+    # This is expected as a valid X window ID is required:
+    # https://walialu.com/ttygif-error-windowid-environment-variable-was-empty
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     ENV["TERM_PROGRAM"] = "Something"
     system "#{bin}/ttygif", "--version"
   end
