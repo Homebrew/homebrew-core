@@ -17,12 +17,16 @@ class Spiped < Formula
     sha256 cellar: :any, catalina:       "f3edfef25280658dbeaee09e50d2b284a5d9768ffb2632502b3bfc050590e073"
   end
 
-  depends_on "bsdmake" => :build
   depends_on "openssl@1.1"
+
+  on_macos do
+    depends_on "bsdmake" => :build
+  end
 
   def install
     man1.mkpath
-    system "bsdmake", "BINDIR_DEFAULT=#{bin}", "MAN1DIR=#{man1}", "install"
+    make = OS.mac? ? "bsdmake" : "make"
+    system make, "BINDIR_DEFAULT=#{bin}", "MAN1DIR=#{man1}", "install"
   end
 
   test do
