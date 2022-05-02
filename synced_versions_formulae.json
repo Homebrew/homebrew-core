@@ -1,4 +1,5 @@
 [
+  ["aarch64-elf-gcc", "i686-elf-gcc", "x86_64-elf-gcc"],
   ["advancemame", "advancemenu"],
   ["apache-arrow", "apache-arrow-glib"],
   ["apache-pulsar", "libpulsar"],
@@ -15,6 +16,7 @@
   ["fb303", "fbthrift", "fizz", "folly", "wangle", "watchman"],
   ["frpc", "frps"],
   ["gcc", "libgccjit"],
+  ["gdb", "i386-elf-gdb", "x86_64-elf-gdb"],
   ["ghz", "ghz-web"],
   ["git", "git-credential-libsecret", "git-gui", "git-svn"],
   ["hdf5", "hdf5-mpi"],
