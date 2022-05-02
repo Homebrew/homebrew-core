@@ -25,6 +25,9 @@ class Ivtools < Formula
 
     # Conflicts with dialog
     mv man3/"Dialog.3", man3/"Dialog_ivtools.3"
+
+    # Delete unneeded symlink to libACE on Linux which conflicts with ace.
+    rm lib/"libACE.so" unless OS.mac?
   end
 
   test do
