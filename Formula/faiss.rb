@@ -19,8 +19,11 @@ class Faiss < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libomp"
   depends_on "openblas"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   def install
     args = *std_cmake_args + %w[
@@ -38,7 +41,7 @@ class Faiss < Formula
 
   test do
     cp pkgshare/"demos/demo_imi_flat.cpp", testpath
-    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lfaiss", "demo_imi_flat.cpp", "-o", "test"
+    system ENV.cxx, "-std=c++11", "demo_imi_flat.cpp", "-L#{lib}", "-lfaiss", "-o", "test"
     assert_match "Query results", shell_output("./test")
   end
 end
