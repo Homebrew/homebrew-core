@@ -4,8 +4,8 @@ class Libxml2 < Formula
   license "MIT"
 
   stable do
-    url "https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz"
-    sha256 "276130602d12fe484ecc03447ee5e759d0465558fbc9d6bd144e3745306ebf0e"
+    url "https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz"
+    sha256 "60d74a257d1ccec0475e749cba2f21559e48139efba6ff28224357c7c798dfee"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
