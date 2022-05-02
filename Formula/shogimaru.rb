@@ -1,8 +1,8 @@
 class Shogimaru < Formula
   desc "Shogi GUI supporting USI protocol"
   homepage "https://shogimaru.com/index.en.html"
-  url "https://github.com/shogimaru/shogimaru/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "2fda10886baa8f84dd403283a768e728c0d7cd7aac2238c9b83d79728234376b"
+  url "https://github.com/shogimaru/shogimaru/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "a1319cee822e6a673ecf89dca7b0491ab6909c59954842495f40e3f7f78462cb"
   license "MIT"
   head "https://github.com/shogimaru/shogimaru.git", branch: "develop"
 
@@ -25,7 +25,7 @@ class Shogimaru < Formula
   end
 
   test do
-    assert_match "Shogimaru", shell_output("#{bin}/shogimaru --version 2>/dev/null")
-    assert_match "Usage:", shell_output("#{bin}/shogimaru --help 2>/dev/null")
+    assert_match "Shogimaru", shell_output("#{bin}/shogimaru --version")
+    assert_match "Usage:", shell_output("#{bin}/shogimaru --help")
   end
 end
