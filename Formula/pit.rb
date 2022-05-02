@@ -44,6 +44,7 @@ class Pit < Formula
   uses_from_macos "ruby"
 
   def install
+    ENV.deparallelize
     bin.mkpath
 
     system "make"
