@@ -7,6 +7,22 @@ class Wownero < Formula
   license "BSD-3-Clause"
   revision 2
 
+  # The `strategy` code below can be removed if/when this software exceeds
+  # version 10.0.0. Until then, it's used to omit a malformed tag that would
+  # always be treated as newest.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :git do |tags, regex|
+      malformed_tags = ["10.0.0"].freeze
+      tags.map do |tag|
+        next if malformed_tags.include?(tag)
+
+        tag[regex, 1]
+      end
+    end
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "d25b719116fec944ea8974444252576cd9312b095d1cbf88b82498ff63b75843"
     sha256 cellar: :any,                 arm64_big_sur:  "bb97e22c03ad3eb74ecb8222032eb02263a902e4a5fdf51c4f8520e1686a114d"
