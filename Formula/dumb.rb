@@ -1,8 +1,8 @@
 class Dumb < Formula
   desc "IT, XM, S3M and MOD player library"
   homepage "https://dumb.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/dumb/dumb/0.9.3/dumb-0.9.3.tar.gz"
-  sha256 "8d44fbc9e57f3bac9f761c3b12ce102d47d717f0dd846657fb988e0bb5d1ea33"
+  url "https://github.com/kode54/dumb/archive/refs/tags/2.0.3.tar.gz"
+  sha256 "99bfac926aeb8d476562303312d9f47fd05b43803050cd889b44da34a9b2a4f9"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eafff4c73e4401c1d6cbb6a5ae9098dce369766057bf08516540f0ff24d48a92"
@@ -18,20 +18,28 @@ class Dumb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b9703a5ec46976384a0fb16f851ef2ed5017eceba818383f0b7993b09a30542"
   end
 
+  depends_on "cmake" => :build
+  depends_on "argtable"
+  depends_on "sdl2"
+
   def install
-    (buildpath/"make/config.txt").write <<~EOS
-      include make/unix.inc
-      ALL_TARGETS := core core-examples core-headers
-      PREFIX := #{prefix}
-    EOS
-    bin.mkpath
-    include.mkpath
-    lib.mkpath
-    system "make"
-    system "make", "install"
+    args = std_cmake_args + %w[
+      -DBUILD_ALLEGRO4=OFF
+      -DBUILD_EXAMPLES=ON
+    ]
+
+    # Build shared library
+    system "cmake", "-S", ".", "-B", "build", *args, "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # Build static library
+    system "cmake", "-S", ".", "-B", "build", *args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "build"
+    lib.install "build/libdumb.a"
   end
 
   test do
-    assert_match "Usage: dumb2wav", shell_output("#{bin}/dumb2wav 2>&1", 1)
+    assert_match "missing option <file>", shell_output("#{bin}/dumbplay 2>&1", 1)
   end
 end
