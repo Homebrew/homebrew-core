@@ -23,6 +23,12 @@ class Osm2pgrouting < Formula
   depends_on "postgis"
   depends_on "postgresql"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
