@@ -5,6 +5,10 @@ class Libcython < Formula
   sha256 "d6fac2342802c30e51426828fe084ff4deb1b3387367cf98976bb2e64b6f8e45"
   license "Apache-2.0"
 
+  livecheck do
+    formula "cython"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "15b21f47a97041f16f9d0143e6b011920491267b1dd71fdb1683ef7a8ab6722c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2e8c9c60bc707275e42d135c69f72517b5f0d601a12d89699b53238c18a4bc65"
