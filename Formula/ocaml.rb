@@ -20,8 +20,8 @@ class Ocaml < Formula
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
   livecheck do
-    url "https://ocaml.org/releases/"
-    regex(/href=.*?v?(\d+(?:\.\d+)+)\.html/i)
+    url "https://ocaml.org/releases"
+    regex(%r{href=.*?/releases/v?(\d+(?:\.\d+)+)/?["']}i)
   end
 
   bottle do
