@@ -1,12 +1,16 @@
 class Shogimaru < Formula
   desc "Shogi GUI supporting USI protocol"
   homepage "https://shogimaru.com/index.en.html"
-  url "https://github.com/shogimaru/shogimaru/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "152f18e381e6d08abae8a494002387a9ac2786104c8c5e98ca2c4fd011e11bca"
+  url "https://github.com/shogimaru/shogimaru/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "2fda10886baa8f84dd403283a768e728c0d7cd7aac2238c9b83d79728234376b"
   license "MIT"
   head "https://github.com/shogimaru/shogimaru.git", branch: "develop"
 
   depends_on "qt"
+
+  on_macos do
+    depends_on "libiconv"
+  end
 
   on_linux do
     depends_on "gcc"
@@ -21,10 +25,7 @@ class Shogimaru < Formula
   end
 
   test do
-    if OS.mac?
-      otool "-L", "#{bin}/shogimaru"
-    else
-      system "ldd", "#{bin}/shogimaru"
-    end
+    system "#{bin}/shogimaru", "--version"
+    system "#{bin}/shogimaru", "--help"
   end
 end
