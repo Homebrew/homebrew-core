@@ -20,6 +20,11 @@ class Click < Formula
 
   uses_from_macos "expect" => :test
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "openssl@1.1"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
