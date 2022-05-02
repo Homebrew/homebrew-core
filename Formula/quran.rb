@@ -14,9 +14,8 @@ class Quran < Formula
 
   test do
     require "pty"
-    stdout, _stdin, _pid = PTY.spawn("#{bin}/quran 1:1")
-    op = stdout.readline
+    op = shell_output("#{bin}/quran 1:1")
     stripped_op = op.strip
-    assert_equal stripped_op, "In the Name of Allah—the Most Compassionate, Most Merciful."
+    assert_equal  "In the Name of Allah—the Most Compassionate, Most Merciful.", stripped_op
   end
 end
