@@ -5,6 +5,11 @@ class Ddh < Formula
   sha256 "f16dd4da04852670912c1b3fd65ce9b6ebd01ba2d0df97cb8c9bdf91ba453384"
   license "LGPL-3.0-only"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bddfd92127ffb3ef31b00d86ec550206148c166d1c06482598377d994c4bc373"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4623ac62b866bfe712e7a773913868d2c8d961e90817a7bf71d4ba215c331aa3"
