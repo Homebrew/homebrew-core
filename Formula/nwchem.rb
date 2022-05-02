@@ -36,6 +36,12 @@ class Nwchem < Formula
     sha256 "1ff3fdacdebb0f812f6f14c423053a12f2389b0208b8809f3ab401b066866ffc"
   end
 
+  # patch for compatibility with ARM
+  patch do
+    url "https://github.com/nwchemgit/nwchem/commit/2a14c04f.patch?full_index=1"
+    sha256 "3a14bb5312861948a468a02a0a079a730e8d9db98d2f2758076f9cd649a6fc04"
+  end
+
   def install
     pkgshare.install "QA"
 
