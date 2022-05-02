@@ -51,6 +51,13 @@ class Qemu < Formula
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
   end
 
+  # Fixes RDTSCP not being exposed to hosts
+  # See https://gitlab.com/qemu-project/qemu/-/issues/1011
+  patch do
+    url "https://gitlab.com/qemu-project/qemu/-/commit/d8cf2c29cc1077cd8f8ab0580b285bff92f09d1c.diff"
+    sha256 "b7c0db81e136fb3b9692e56f4c95abbcbd196dc0b7feb517241dda20d9ec3166"
+  end
+
   def install
     ENV["LIBTOOL"] = "glibtool"
 
