@@ -24,8 +24,9 @@ class X8664ElfGdb < Formula
   depends_on "x86_64-elf-gcc" => :test
   depends_on "gmp"
   depends_on "python@3.10"
-  depends_on "xz"
+  depends_on "xz" # required for lzma support
 
+  uses_from_macos "texinfo" => :build
   uses_from_macos "zlib"
 
   def install
@@ -40,7 +41,7 @@ class X8664ElfGdb < Formula
       --disable-debug
       --disable-dependency-tracking
       --with-lzma
-      --with-python=#{which("python3")}
+      --with-python=#{Formula["python@3.10"].opt_bin}/python3
       --with-system-zlib
       --disable-binutils
     ]
@@ -49,6 +50,8 @@ class X8664ElfGdb < Formula
       system "../configure", *args
       ENV.deparallelize # Error: common/version.c-stamp.tmp: No such file or directory
       system "make"
+
+      # Don't install bfd or opcodes, as they are provided by binutils
       system "make", "install-gdb"
     end
   end
