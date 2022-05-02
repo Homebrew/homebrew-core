@@ -8,7 +8,7 @@ class Sftpgo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-trimpath", *std_go_args(ldflags: "-s -w"), "-o", "sftpgo"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
     inreplace "sftpgo.json" do |s|
       s.gsub! "\"users_base_dir\": \"\"", "\"users_base_dir\": \"#{var}/sftpgo/data\""
       s.gsub! "\"backups_path\": \"backups\"", "\"backups_path\": \"#{var}/sftpgo/backups\""
@@ -17,7 +17,6 @@ class Sftpgo < Formula
       s.gsub! "\"static_files_path\": \"static\"", "\"static_files_path\": \"#{opt_pkgshare}/static\""
       s.gsub! "\"openapi_path\": \"openapi\"", "\"openapi_path\": \"#{opt_pkgshare}/openapi\""
     end
-    bin.install "sftpgo"
     pkgetc.install "sftpgo.json"
     pkgshare.install "static", "templates", "openapi"
     (var/"sftpgo").mkpath
@@ -32,15 +31,12 @@ class Sftpgo < Formula
       Configuration file location:
 
       #{pkgetc}/sftpgo.json
-
-      If the SFTPGo service does not start, make sure that TCP ports 2022 and 8080 are not used by other services
-      or change the SFTPGo configuration to suit your needs.
     EOS
   end
 
   plist_options startup: true
   service do
-    run [opt_bin/"sftpgo", "serve", "--config-file", etc/"sftpgo/sftpgo.json", "--log-file-path",
+    run [bin/"sftpgo", "serve", "--config-file", etc/"sftpgo/sftpgo.json", "--log-file-path",
          var/"sftpgo/log/sftpgo.log"]
     keep_alive true
     working_dir var/"sftpgo"
