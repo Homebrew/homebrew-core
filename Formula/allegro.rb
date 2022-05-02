@@ -29,7 +29,21 @@ class Allegro < Formula
   depends_on "theora"
   depends_on "webp"
 
+  on_linux do
+    depends_on "gcc"
+    depends_on "libx11"
+    depends_on "libxcursor"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
+  fails_with gcc: "5"
+
   def install
+    # PR submitted upstream here: https://github.com/liballeg/allegro5/pull/1334
+    # Remove when this fix has been incorporated to a new release.
+    inreplace "cmake/Common.cmake", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DWANT_DOCS=OFF"
       system "make", "install"
