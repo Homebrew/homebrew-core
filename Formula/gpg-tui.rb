@@ -37,11 +37,15 @@ class GpgTui < Formula
     require "io/console"
 
     (testpath/"gpg-tui").mkdir
-    r, w, pid = PTY.spawn "#{bin}/gpg-tui"
-    r.winsize = [80, 43]
-    sleep 1
-    w.write "q"
-    assert_match(/^.*<.*list.*pub.*>.*$/, r.read)
+    begin
+      r, w, pid = PTY.spawn "#{bin}/gpg-tui"
+      r.winsize = [80, 43]
+      sleep 1
+      w.write "q"
+      assert_match(/^.*<.*list.*pub.*>.*$/, r.read)
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    end
   ensure
     Process.kill("TERM", pid)
   end
