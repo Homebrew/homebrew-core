@@ -3,7 +3,7 @@ class Jpegoptim < Formula
   homepage "https://github.com/tjko/jpegoptim"
   url "https://github.com/tjko/jpegoptim/archive/RELEASE.1.4.7.tar.gz"
   sha256 "9d2a13b7c531d122f360209422645206931c74ada76497c4aeb953610f0d70c1"
-  license "GPL-2.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/tjko/jpegoptim.git", branch: "master"
 
   bottle do
