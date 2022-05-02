@@ -14,6 +14,6 @@ class Quran < Formula
 
   test do
     op = shell_output("#{bin}/quran 1:1").strip
-    assert_equal  "In the Name of Allah—the Most Compassionate, Most Merciful.", op
+    assert_equal "In the Name of Allah—the Most Compassionate, Most Merciful.", op
   end
 end
