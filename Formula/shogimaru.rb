@@ -25,7 +25,7 @@ class Shogimaru < Formula
   end
 
   test do
-    system "#{bin}/shogimaru", "--version"
-    system "#{bin}/shogimaru", "--help"
+    assert_match "Shogimaru", shell_output("#{bin}/shogimaru --version 2>/dev/null")
+    assert_match "Usage:", shell_output("#{bin}/shogimaru --help 2>/dev/null")
   end
 end
