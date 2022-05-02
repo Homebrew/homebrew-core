@@ -1,20 +1,10 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library with Python bindings"
   homepage "https://www.libtorrent.org/"
+  url "https://github.com/arvidn/libtorrent/releases/download/v2.0.6/libtorrent-rasterbar-2.0.6.tar.gz"
+  sha256 "438e29272ff41ccc68ec7530f1b98d639f6d01ec8bf680766336ae202a065722"
   license "BSD-3-Clause"
   head "https://github.com/arvidn/libtorrent.git", branch: "RC_2_0"
-
-  # Remove `stable do` block when patch is no longer needed.
-  stable do
-    url "https://github.com/arvidn/libtorrent/releases/download/v2.0.6/libtorrent-rasterbar-2.0.6.tar.gz"
-    sha256 "438e29272ff41ccc68ec7530f1b98d639f6d01ec8bf680766336ae202a065722"
-
-    # Fix build with Boost 1.78. Remove in next release.
-    patch do
-      url "https://github.com/arvidn/libtorrent/commit/71d608fceca7e61c9d124f9ea83f71b06eda3b17.patch?full_index=1"
-      sha256 "20b8e93b67f81af22e50bd668fbeee30147dd85d3ffdff9d624531c32f54e567"
-    end
-  end
 
   livecheck do
     url :stable
