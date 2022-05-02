@@ -27,6 +27,7 @@ class Bitcoin < Formula
   depends_on "berkeley-db@4"
   depends_on "boost@1.76"
   depends_on "libevent"
+  depends_on macos: :catalina
   depends_on "miniupnpc"
   depends_on "zeromq"
 
