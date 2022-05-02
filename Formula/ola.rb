@@ -26,6 +26,9 @@ class Ola < Formula
   depends_on "protobuf"
   depends_on "python@3.10"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   # remove in version 0.10.9
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/add0354bf13253a4cc89e151438a630314df0efa/ola/protobuf3.diff"
