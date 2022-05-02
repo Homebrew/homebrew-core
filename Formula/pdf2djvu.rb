@@ -35,9 +35,9 @@ class Pdf2djvu < Formula
   end
 
   # poppler 22.04.0 compatibility, remove in next release
-  # TODO: switch to main repo after this PR is merged: https://github.com/Homebrew/formula-patches/pull/858
+
   patch do
-    url "https://raw.githubusercontent.com/yurikoles/formula-patches/4c18443/pdf2djvu/main-use-pdf-link-Destination-copy-constructor.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e0c880b/pdf2djvu/main-use-pdf-link-Destination-copy-constructor.patch"
     sha256 "3d1e9fc0d7f2861142721befff9e33b5c2665dacc78ac12b613af7b1e6fb0ce6"
   end
 
