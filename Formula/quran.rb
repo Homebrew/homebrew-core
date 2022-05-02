@@ -13,9 +13,7 @@ class Quran < Formula
   end
 
   test do
-    require "pty"
-    op = shell_output("#{bin}/quran 1:1")
-    stripped_op = op.strip
+    op = shell_output("#{bin}/quran 1:1").strip
     assert_equal  "In the Name of Allah—the Most Compassionate, Most Merciful.", stripped_op
   end
 end
