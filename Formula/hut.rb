@@ -4,6 +4,7 @@ class Hut < Formula
   url "https://git.sr.ht/~emersion/hut/archive/v0.1.0.tar.gz"
   sha256 "5af8f1111f9ec1da9a818978eb1f013dfd50ad4311c79d95b0e62ad428ac1c59"
   license "AGPL-3.0-or-later"
+  head "https://git.sr.ht/~emersion/hut", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e65754e2e59cbfaffec7702d6596a07b8d731b41407bcd51e3d6de4a4648a7e"
@@ -14,7 +15,7 @@ class Hut < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "58268d892d191366f05bea4d8a89b84e0fdbb221b6756d35c94efc55577a2c80"
   end
 
-  depends_on "coreutils" => :build # GNU install
+  depends_on "coreutils" => :build # Needed for GNU install in 0.1.0, remove in next release
   depends_on "go" => :build
   depends_on "scdoc" => :build
 
