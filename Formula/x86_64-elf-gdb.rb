@@ -1,7 +1,6 @@
 class X8664ElfGdb < Formula
   desc "GNU debugger for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  # Please add to synced_versions_formulae.json once version synced with gdb
   url "https://ftp.gnu.org/gnu/gdb/gdb-12.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/gdb/gdb-12.1.tar.xz"
   sha256 "0e1793bf8f2b54d53f46dea84ccfd446f48f81b297b28c4f7fc017b818d69fed"
