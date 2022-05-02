@@ -8,7 +8,7 @@ class Sftpgo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", "sftpgo"
+    system "go", "build", "-trimpath", *std_go_args(ldflags: "-s -w"), "-o", "sftpgo"
     inreplace "sftpgo.json" do |s|
       s.gsub! "\"users_base_dir\": \"\"", "\"users_base_dir\": \"#{var}/sftpgo/data\""
       s.gsub! "\"backups_path\": \"backups\"", "\"backups_path\": \"#{var}/sftpgo/backups\""
@@ -52,16 +52,17 @@ class Sftpgo < Formula
     sftp_port = free_port
     ENV["SFTPGO_HTTPD__BINDINGS__0__PORT"] = http_port.to_s
     ENV["SFTPGO_HTTPD__BINDINGS__0__ADDRESS"] = "127.0.0.1"
-    ENV["SFTPGO_SFTPD__BINDINGS__0__ADDRESS"] = "127.0.0.1"
     ENV["SFTPGO_SFTPD__BINDINGS__0__PORT"] = sftp_port.to_s
+    ENV["SFTPGO_SFTPD__BINDINGS__0__ADDRESS"] = "127.0.0.1"
+    ENV["SFTPGO_SFTPD__HOST_KEYS"] = "#{testpath}/id_ecdsa,#{testpath}/id_ed25519"
     ENV["SFTPGO_LOG_FILE_PATH"] = "#{testpath}/sftpgo.log"
     pid = fork do
       exec bin/"sftpgo", "serve", "--config-file", "#{pkgetc}/sftpgo.json"
     end
 
-    sleep 10
+    sleep 5
     assert_match expected_output, shell_output("curl -s 127.0.0.1:#{http_port}/healthz")
-    shell_output("ssh-keyscan -p #{sftp_port} 127.0.0.1")
+    system "ssh-keyscan", "-p", sftp_port.to_s, "127.0.0.1"
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
