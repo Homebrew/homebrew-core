@@ -16,9 +16,13 @@ class Bwa < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "3d875f0b64143cfb58e44681e47102158b46e0004c408d8fc5f10dc976383a94"
   end
 
+  depends_on "sse2neon" => :build  
+
   uses_from_macos "zlib"
 
   def install
+    inreplace "ksw.c", "<emmintrin.h>", "<sse2neon.h>"
+
     system "make"
 
     # "make install" requested 26 Dec 2017 https://github.com/lh3/bwa/issues/172
