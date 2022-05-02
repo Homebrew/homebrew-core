@@ -9,6 +9,13 @@ class Sftpgo < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+    system bin/"sftpgo", "gen", "man", "-d", "man"
+    man1.install Dir["man/*.1"]
+
+    (zsh_completion/"_sftpgo").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "zsh")
+    (bash_completion/"sftpgo").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "bash")
+    (fish_completion/"sftpgo.fish").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "fish")
+
     inreplace "sftpgo.json" do |s|
       s.gsub! "\"users_base_dir\": \"\"", "\"users_base_dir\": \"#{var}/sftpgo/data\""
       s.gsub! "\"backups_path\": \"backups\"", "\"backups_path\": \"#{var}/sftpgo/backups\""
@@ -17,6 +24,7 @@ class Sftpgo < Formula
       s.gsub! "\"static_files_path\": \"static\"", "\"static_files_path\": \"#{opt_pkgshare}/static\""
       s.gsub! "\"openapi_path\": \"openapi\"", "\"openapi_path\": \"#{opt_pkgshare}/openapi\""
     end
+
     pkgetc.install "sftpgo.json"
     pkgshare.install "static", "templates", "openapi"
     (var/"sftpgo").mkpath
