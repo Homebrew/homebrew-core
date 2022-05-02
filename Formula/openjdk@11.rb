@@ -70,6 +70,7 @@ class OpenjdkAT11 < Formula
       --with-debug-level=release
       --with-conf-name=release
       --with-jvm-variants=server
+      --with-jvm-features=shenandoahgc
       --with-native-debug-symbols=none
       --with-vendor-bug-url=#{tap.issues_url}
       --with-vendor-name=#{tap.user}
