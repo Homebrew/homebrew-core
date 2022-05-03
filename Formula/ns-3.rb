@@ -16,6 +16,7 @@ class Ns3 < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "python@3.10" => [:build, :test]
 
   uses_from_macos "libxml2"
@@ -37,10 +38,11 @@ class Ns3 < Formula
 
   def install
     resource("pybindgen").stage buildpath/"pybindgen"
+    ENV.append_path "PYTHONPATH", buildpath/"pybindgen"
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "./ns3", "configure", "--enable-python-bindings"
+    system "./ns3", "build"
+    system "./ns3", "install"
 
     pkgshare.install "examples/tutorial/first.cc", "examples/tutorial/first.py"
   end
