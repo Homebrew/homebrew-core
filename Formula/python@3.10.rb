@@ -4,6 +4,7 @@ class PythonAT310 < Formula
   url "https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tgz"
   sha256 "f3bcc65b1d5f1dc78675c746c98fcee823c038168fc629c5935b044d0911ad28"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -36,6 +37,7 @@ class PythonAT310 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "libffi"
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
