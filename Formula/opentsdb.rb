@@ -1,8 +1,8 @@
 class Opentsdb < Formula
   desc "Scalable, distributed Time Series Database"
   homepage "http://opentsdb.net/"
-  url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.4.0/opentsdb-2.4.0.tar.gz"
-  sha256 "a2d6a34369612b3f91bf81bfab24ec573ab4118127dc1c0f0ed6fc57318d102c"
+  url "https://github.com/OpenTSDB/opentsdb/archive/refs/tags/v2.4.1.tar.gz"
+  sha256 "70456fa8b33a9f0855105422f944d6ef14d077c4b4c9c26f8e4a86f329b247a0"
   license "LGPL-2.1"
 
   livecheck do
@@ -15,8 +15,6 @@ class Opentsdb < Formula
     sha256 cellar: :any_skip_relocation, mojave:      "ec077c13211eac9912661ff0e3e1165162f251c3408fdf36b709e0e98af34aa2"
     sha256 cellar: :any_skip_relocation, high_sierra: "5bcdc828069e124c16e1e6c8b2eb6732d0ef88533c27f60fcbb0bec369aca375"
   end
-
-  disable! date: "2022-09-14", because: :does_not_build
 
   depends_on "gnuplot"
   depends_on "hbase"
