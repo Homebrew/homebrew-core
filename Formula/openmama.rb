@@ -19,10 +19,18 @@ class Openmama < Formula
   depends_on "apr"
   depends_on "apr-util"
   depends_on "libevent"
-  depends_on "ossp-uuid"
   depends_on "qpid-proton"
 
   uses_from_macos "flex" => :build
+
+  on_macos do
+    depends_on "ossp-uuid"
+  end
+
+  # UUID is provided by util-linux on Linux.
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     mkdir "build" do
