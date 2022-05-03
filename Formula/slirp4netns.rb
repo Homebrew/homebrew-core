@@ -23,12 +23,12 @@ class Slirp4netns < Formula
   depends_on :linux
 
   resource "test-common" do
-    url "https://raw.githubusercontent.com/rootless-containers/slirp4netns/v1.1.12/tests/common.sh"
+    url "https://raw.githubusercontent.com/rootless-containers/slirp4netns/v1.2.0/tests/common.sh"
     sha256 "756149863c2397c09fabbc0a3234858ad4a5b2fd1480fb4646c8fa9d294c001a"
   end
 
   resource "test-api-socket" do
-    url "https://raw.githubusercontent.com/rootless-containers/slirp4netns/v1.1.12/tests/test-slirp4netns-api-socket.sh"
+    url "https://raw.githubusercontent.com/rootless-containers/slirp4netns/v1.2.0/tests/test-slirp4netns-api-socket.sh"
     sha256 "075f43c98d9a848ab5966d515174b3c996deec8c290873d92e200dc6ceae1500"
   end
 
