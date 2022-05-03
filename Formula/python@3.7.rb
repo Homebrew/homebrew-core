@@ -4,6 +4,7 @@ class PythonAT37 < Formula
   url "https://www.python.org/ftp/python/3.7.13/Python-3.7.13.tar.xz"
   sha256 "99f106275df8899c3e8cb9d7c01ce686c202ef275953301427194693de5bef84"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -34,6 +35,7 @@ class PythonAT37 < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libffi"
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "xz"
   uses_from_macos "zlib"
