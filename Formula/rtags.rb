@@ -1,16 +1,42 @@
 class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
-  url "https://github.com/Andersbakken/rtags.git",
-      tag:      "v2.38",
-      revision: "9687ccdb9e539981e7934e768ea5c84464a61139"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/Andersbakken/rtags.git", branch: "master"
 
+  stable do
+    url "https://github.com/Andersbakken/rtags.git",
+        tag:      "v2.40",
+        revision: "8597d6d2adbe11570dab55629ef9a684304ec3cd"
+
+    # fix compiling with gcc 11
+    patch do
+      url "https://github.com/Andersbakken/rct/commit/31347b4ff91fa6ea68035e0e7b88ed0330016d7f.patch?full_index=1"
+      sha256 "9324dded21b6796e218b0f531ade00cc3b2ef725e00e8296c497db3de47638df"
+      directory "src/rct"
+    end
+
+    # fix lisp files, remove on release 2.42
+    patch do
+      url "https://github.com/Andersbakken/rtags/commit/63f18acb21e664fd92fbc19465f0b5df085b5e93.patch?full_index=1"
+      sha256 "3229b2598211b2014a93a2d1e906cccf05b6a8a708234cc54f21803e6e31ef2a"
+    end
+  end
+
+  # The `strategy` code below can be removed if/when this software exceeds
+  # version 3.23. Until then, it's used to omit a malformed tag that would
+  # always be treated as newest.
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :git do |tags, regex|
+      malformed_tags = ["v3.23"].freeze
+      tags.map do |tag|
+        next if malformed_tags.include?(tag)
+
+        tag[regex, 1]
+      end
+    end
   end
 
   bottle do
@@ -36,42 +62,16 @@ class Rtags < Formula
   def install
     args = std_cmake_args << "-DRTAGS_NO_BUILD_CLANG=ON"
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{bin}/rdm</string>
-          <string>--verbose</string>
-          <string>--launchd</string>
-          <string>--inactivity-timeout=300</string>
-          <string>--log-file=#{var}/log/rtags.log</string>
-        </array>
-        <key>Sockets</key>
-        <dict>
-          <key>Listener</key>
-          <dict>
-            <key>SockPathName</key>
-            <string>#{ENV["HOME"]}/.rdm</string>
-          </dict>
-        </dict>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"rdm", "--verbose", "--inactivity-timeout=300"]
+    keep_alive true
+    log_path var/"log/rtags.log"
+    error_log_path var/"log/rtags.log"
   end
 
   test do
