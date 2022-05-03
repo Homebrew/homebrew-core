@@ -1,8 +1,8 @@
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://coin-or.github.io/Ipopt/"
-  url "https://github.com/coin-or/Ipopt/archive/releases/3.14.5.tar.gz"
-  sha256 "9ebbbbf14a64e998e3fba5d2662a8f9bd03f97b1406017e78ae54e5d105ae932"
+  url "https://github.com/coin-or/Ipopt/archive/releases/3.14.6.tar.gz"
+  sha256 "e4f2ac6968107003ab6a7b226cc12b94cfc59443159d6bdbf74d9a07047e1d84"
   license "EPL-2.0"
   head "https://github.com/coin-or/Ipopt.git", branch: "stable/3.14"
 
@@ -40,8 +40,8 @@ class Ipopt < Formula
   end
 
   resource "test" do
-    url "https://github.com/coin-or/Ipopt/archive/releases/3.14.5.tar.gz"
-    sha256 "9ebbbbf14a64e998e3fba5d2662a8f9bd03f97b1406017e78ae54e5d105ae932"
+    url "https://github.com/coin-or/Ipopt/archive/releases/3.14.6.tar.gz"
+    sha256 "e4f2ac6968107003ab6a7b226cc12b94cfc59443159d6bdbf74d9a07047e1d84"
   end
 
   def install
