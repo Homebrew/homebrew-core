@@ -25,6 +25,12 @@ class Klee < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   # klee needs a version of libc++ compiled with wllvm
   resource "libcxx" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.1/llvm-project-12.0.1.src.tar.xz"
@@ -77,10 +83,14 @@ class Klee < Formula
         -DLIBCXX_ENABLE_SHARED:BOOL=ON
         -DLIBCXXABI_ENABLE_THREADS:BOOL=OFF
       ]
-      libcxx_args << if OS.mac?
-        "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=OFF"
+
+      if OS.mac?
+        libcxx_args << "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=OFF"
       else
-        "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=ON"
+        libcxx_args += %w[
+          -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=ON
+          -DCMAKE_CXX_FLAGS=-I/usr/include/x86_64-linux-gnu
+        ]
       end
 
       mkdir "llvm/build" do
@@ -101,6 +111,10 @@ class Klee < Formula
       end
     end
 
+    # Homebrew-specific workaround to add paths to some glibc headers
+    inreplace "runtime/CMakeLists.txt", "\"-I${CMAKE_SOURCE_DIR}/include\"",
+      "\"-I${CMAKE_SOURCE_DIR}/include\"\n-I/usr/include/x86_64-linux-gnu"
+
     # CMake options are documented at
     # https://github.com/klee/klee/blob/v#{version}/README-CMake.md
     args = std_cmake_args + %W[
@@ -109,6 +123,7 @@ class Klee < Formula
       -DKLEE_LIBCXX_INCLUDE_DIR=#{libcxx_install_dir}/include/c++/v1
       -DKLEE_LIBCXXABI_SRC_DIR=#{libcxx_src_dir}/libcxxabi
       -DLLVM_CONFIG_BINARY=#{llvm.opt_bin}/llvm-config
+      -DM32_SUPPORTED=OFF
       -DENABLE_KLEE_ASSERTS=ON
       -DENABLE_KLEE_LIBCXX=ON
       -DENABLE_SOLVER_STP=ON
