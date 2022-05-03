@@ -28,6 +28,7 @@ class Grokj2k < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
+  depends_on macos: :catalina
 
   uses_from_macos "perl"
   uses_from_macos "zlib"
