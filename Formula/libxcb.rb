@@ -1,10 +1,9 @@
 class Libxcb < Formula
   desc "X.Org: Interface to the X Window System protocol"
   homepage "https://www.x.org/"
-  url "https://xcb.freedesktop.org/dist/libxcb-1.14.tar.gz"
-  sha256 "2c7fcddd1da34d9b238c9caeda20d3bd7486456fc50b3cc6567185dbd5b0ad02"
+  url "https://xcb.freedesktop.org/dist/libxcb-1.15.tar.gz"
+  sha256 "1cb65df8543a69ec0555ac696123ee386321dfac1964a3da39976c9a05ad724d"
   license "MIT"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "6c7154002b268eb74f36215a5d0b6496dacb3ff786bb40c29a2151359c219476"
