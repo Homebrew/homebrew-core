@@ -1,8 +1,8 @@
 class Libid3tag < Formula
   desc "ID3 tag manipulation library"
   homepage "https://www.underbit.com/products/mad/"
-  url "https://github.com/tenacityteam/libid3tag/archive/refs/tags/0.16.1.tar.gz"
-  sha256 "185a6cec84644cf1aade8397dcf76753bcb3bd85ec2111a9e1079214ed85bef0"
+  url "https://github.com/tenacityteam/libid3tag/archive/refs/tags/0.16.2.tar.gz"
+  sha256 "96198b7c8803bcda44e299615e1929a85bd5a5da02e67ebc442735bc50018190"
   license "GPL-2.0-only"
 
   bottle do
