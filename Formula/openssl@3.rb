@@ -1,9 +1,9 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-3.0.2.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.2.tar.gz"
-  sha256 "98e91ccead4d4756ae3c9cde5e09191a8e586d9f4d50838e7ec09d6411dfdb63"
+  url "https://www.openssl.org/source/openssl-3.0.3.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.3.tar.gz"
+  sha256 "ee0078adcef1de5f003c62c80cc96527721609c6f3bb42b7795df31f8b558c0b"
   license "Apache-2.0"
 
   livecheck do
