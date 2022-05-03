@@ -4,6 +4,7 @@ class Hyperfine < Formula
   url "https://github.com/sharkdp/hyperfine/archive/v1.13.0.tar.gz"
   sha256 "6e57c8e51962dd24a283ab46dde6fe306da772f4ef9bad86f8c89ac3a499c87e"
   license any_of: ["Apache-2.0", "MIT"]
+  head "https://github.com/sharkdp/hyperfine.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "afb094b1970220105faeb1fc7196e5bfdca61fb061ec494383887c782bbe886b"
