@@ -1,6 +1,6 @@
 {
   "anime-downloader": {
-    "exclude_packages": ["tabulate"]
+    "exclude_packages": ["six", "tabulate"]
   },
   "ansible": {
     "extra_packages": [
