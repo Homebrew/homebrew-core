@@ -47,8 +47,8 @@ class Yazpp < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-I#{include}/src", "-L#{lib}",
-           "-lzoompp", "test.cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}/src",
+                    "-L#{lib}", "-lzoompp", "-o", "test"
     output = shell_output("./test")
     assert_match "Exception caught", output
   end
