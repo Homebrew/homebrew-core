@@ -20,15 +20,14 @@ class Khiva < Formula
   depends_on "eigen"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                      "-DKHIVA_USE_CONAN=OFF",
-                      "-DKHIVA_BUILD_TESTS=OFF",
-                      "-DKHIVA_BUILD_BENCHMARKS=OFF",
-                      "-DKHIVA_BUILD_JNI_BINDINGS=OFF"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DKHIVA_USE_CONAN=OFF",
+                    "-DKHIVA_BUILD_TESTS=OFF",
+                    "-DKHIVA_BUILD_BENCHMARKS=OFF",
+                    "-DKHIVA_BUILD_JNI_BINDINGS=OFF"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "examples"
   end
 
