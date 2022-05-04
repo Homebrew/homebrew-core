@@ -10,21 +10,8 @@ class Primecount < Formula
   depends_on "primesieve"
 
   def install
-    # In 2022 integer division is slow on most CPUs,
-    # hence by default we use libdivide instead.
-    use_libdivide = "ON"
-    use_div32 = "ON"
-
-    if OS.mac? && Hardware::CPU.arm?
-      # Apple Silicon CPUs have very fast integer division
-      use_libdivide = "OFF"
-      use_div32 = "OFF"
-    end
-
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON",
                                               "-DBUILD_LIBPRIMESIEVE=OFF",
-                                              "-DWITH_LIBDIVIDE=#{use_libdivide}",
-                                              "-DWITH_DIV32=#{use_div32}",
                                               "-DCMAKE_INSTALL_RPATH=#{rpath}",
                                               *std_cmake_args
     system "cmake", "--build", "build"
