@@ -5,6 +5,7 @@ class Inetutils < Formula
   mirror "https://ftpmirror.gnu.org/inetutils/inetutils-2.2.tar.xz"
   sha256 "d547f69172df73afef691a0f7886280fd781acea28def4ff4b4b212086a89d80"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "6bc3499a13f6fddc89d967fe8bc9633ddd5970d9a40e596cca7e2b32484b6051"
@@ -16,7 +17,14 @@ class Inetutils < Formula
     sha256 x86_64_linux:   "d2ef16a78009201d1b6a594cc44bc8fc44c6a730b91c96e23588f1c71de6d234"
   end
 
-  depends_on "libidn"
+  depends_on "libidn2"
+
+  uses_from_macos "libxcrypt"
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   conflicts_with "telnet", because: "both install `telnet` binaries"
   conflicts_with "tnftp", because: "both install `ftp` binaries"
@@ -28,60 +36,88 @@ class Inetutils < Formula
     list
   end
 
-  def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --with-idn
-    ]
+  def linux_conflicts
+    # List of binaries that conflict with other common implementations
+    list = %w[dnsdomainname hostname ifconfig] # net-tools
+    list << "logger" # util-linux
+    list << "ping" # iputils
+    list << "whois" # whois
+    list
+  end
 
-    args << "--program-prefix=g" if OS.mac?
-    system "./configure", *args
+  def install
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--with-idn",
+                          "--program-prefix=g"
     system "make", "SUIDMODE=", "install"
 
-    if OS.mac?
-      # Binaries not shadowing macOS utils symlinked without 'g' prefix
-      noshadow.each do |cmd|
-        bin.install_symlink "g#{cmd}" => cmd
-        man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
-      end
+    no_conflict = OS.mac? ? noshadow : []
 
-      # Symlink commands without 'g' prefix into libexec/gnubin and
-      # man pages into libexec/gnuman
-      bin.find.each do |path|
+    # Symlink server commands without 'g' prefix into sbin on Linux.
+    # (ftpd, inetd, rexecd, rlogind, rshd, syslogd, talkd, telnetd, tftpd, uucpd)
+    if OS.linux?
+      libexec.find.each do |path|
         next if !File.executable?(path) || File.directory?(path)
 
         cmd = path.basename.to_s.sub(/^g/, "")
-        (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
-        (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
+        sbin.install_symlink libexec/"g#{cmd}" => cmd
+        man8.install_symlink man8/"g#{cmd}.8" => "#{cmd}.8"
       end
     end
 
+    # Symlink commands without 'g' prefix into libexec/gnubin and
+    # man pages into libexec/gnuman
+    bin.find.each do |path|
+      next if !File.executable?(path) || File.directory?(path)
+
+      cmd = path.basename.to_s.sub(/^g/, "")
+      no_conflict << cmd unless OS.mac?
+      (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
+      (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
+    end
     libexec.install_symlink "gnuman" => "man"
+
+    no_conflict -= linux_conflicts if OS.linux?
+    # Symlink binaries that are not shadowing macOS utils or are
+    # non-conflicting with common alternatives on Linux.
+    no_conflict.each do |cmd|
+      bin.install_symlink "g#{cmd}" => cmd
+      man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
+    end
   end
 
   def caveats
-    <<~EOS
-      The following commands have been installed with the prefix 'g'.
+    s = ""
+    on_macos do
+      s += <<~EOS
+        Only the following commands have been installed without the prefix 'g'.
 
-          #{noshadow.sort.join("\n    ")}
+            #{noshadow.sort.join("\n    ")}
 
-      If you really need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
+        If you really need to use other commands with their normal names,
+      EOS
+    end
+    on_linux do
+      s += <<~EOS
+        The following commands have been installed with the prefix 'g'.
+
+            #{linux_conflicts.sort.join("\n    ")}
+
+        If you really need to use these commands with their normal names,
+      EOS
+    end
+    s += <<~EOS
+      you can add a "gnubin" directory to your PATH from your bashrc like:
 
           PATH="#{opt_libexec}/gnubin:$PATH"
     EOS
+    s
   end
 
   test do
-    output = if OS.mac?
-      pipe_output("#{libexec}/gnubin/ftp -v",
-                               "open ftp.gnu.org\nanonymous\nls\nquit\n")
-    else
-      pipe_output("#{bin}/ftp -v",
-                               "open ftp.gnu.org\nanonymous\nls\nquit\n")
-    end
+    ftp = OS.mac? ? libexec/"gnubin/ftp" : bin/"ftp"
+    output = pipe_output("#{ftp} -v", "open ftp.gnu.org\nanonymous\nls\nquit\n")
     assert_match "Connected to ftp.gnu.org.\n220 GNU FTP server ready", output
   end
 end
