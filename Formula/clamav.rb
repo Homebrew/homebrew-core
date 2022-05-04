@@ -1,9 +1,9 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.104.2.tar.gz"
-  mirror "https://fossies.org/linux/misc/clamav-0.104.2.tar.gz"
-  sha256 "3e45e46d9aaeb3a6956ed30376237ab7c4cd9573bc0f5d6fc15c588d30978d9d"
+  url "https://www.clamav.net/downloads/production/clamav-0.105.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/clamav-0.105.0.tar.gz"
+  sha256 "270203a54c458049db54fcd93683ff5b2db19151f363c48e82cecefdde2b35d4"
   license "GPL-2.0-or-later"
   head "https://github.com/Cisco-Talos/clamav-devel.git", branch: "main"
 
@@ -23,6 +23,7 @@ class Clamav < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "json-c"
   depends_on "libtool"
   depends_on "openssl@1.1"
