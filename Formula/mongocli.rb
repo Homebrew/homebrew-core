@@ -5,6 +5,13 @@ class Mongocli < Formula
   sha256 "aab93f9702df598461f0de5a7d8949e4c1d45c73c1f01198cff0d60b12ac9fd9"
   license "Apache-2.0"
 
+  head "https://github.com/mongodb/mongodb-atlas-cli.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(%r{^mongocli/v?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a2c4bcd9669f917539527d17707777d70f543149cef622892cc535973cbab543"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7e4eb9294305b73ecff4271244b878328d1274dfcbe336699efd64e93454f230"
