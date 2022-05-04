@@ -20,6 +20,10 @@ class TitanServer < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "6e84706c4de8f9288fe11a9c28d0b6901289ce45ddcd7ff51abc1ecfcc6f3ac3"
   end
 
+  on_linux do
+    depends_on "openjdk"
+  end
+
   def install
     libexec.install %w[bin conf data ext javadocs lib log scripts]
     bin.install_symlink libexec/"bin/titan.sh" => "titan"
@@ -28,6 +32,6 @@ class TitanServer < Formula
   end
 
   test do
-    system "#{bin}/titan", "stop"
+    assert_match("not found in the java process table", shell_output("#{bin}/titan stop"))
   end
 end
