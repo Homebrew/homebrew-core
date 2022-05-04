@@ -26,6 +26,6 @@ class Sendemail < Formula
   end
 
   test do
-    assert_match "sendemail-#{version}", shell_output("#{bin}/sendemail", 1).strip
+    assert_match "sendEmail-#{version}", shell_output("#{bin}/sendEmail", 1).strip
   end
 end
