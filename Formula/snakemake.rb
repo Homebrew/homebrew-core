@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/0e/e7/2ea51f8c43081011a54278084667473676a30896227fc3c1c4ff06c6a6c3/snakemake-7.6.0.tar.gz"
-  sha256 "3089e57ed4cc1b4c4a5e5db6c1bce12f328a3411cc304ded630cc723b5af573d"
+  url "https://files.pythonhosted.org/packages/17/7a/ac05de3820426b120dcd5d88d54f29aefcc19c7cd41025e190186b223bfc/snakemake-7.6.1.tar.gz"
+  sha256 "cb713d22855c1cc0be53662bf7a504542b40b8f26118ca3a758fc96bbc719bc0"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -106,8 +106,8 @@ class Snakemake < Formula
   end
 
   resource "nbformat" do
-    url "https://files.pythonhosted.org/packages/eb/51/ad97f33007b51095f551fc06391f13d28a45f62c0c051837331970e01557/nbformat-5.3.0.tar.gz"
-    sha256 "fcc5ab8cb74e20b19570b5be809e2dba9b82836fd2761a89066ad43394ba29f5"
+    url "https://files.pythonhosted.org/packages/2c/ed/ce3e63f5e757442cbb01ac45683fb0338d48f7e824606957d933bc831a58/nbformat-5.4.0.tar.gz"
+    sha256 "44ba5ca6acb80c5d5a500f1e5b83ede8cbe364d5a495c4c8cf60aaf1ba656501"
   end
 
   resource "plac" do
