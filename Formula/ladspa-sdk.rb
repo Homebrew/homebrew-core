@@ -2,7 +2,7 @@ class LadspaSdk < Formula
   desc "Linux Audio Developer's Simple Plugin"
   homepage "https://www.ladspa.org"
   url "https://www.ladspa.org/download/ladspa_sdk_1.17.tgz"
-  sha256 "d9d596171d93f9c226fcdb7e27c6f917422ac487efe2c05e0a18094df4268061"
+  sha256 "27d24f279e4b81bd17ecbdcc38e4c42991bb388826c0b200067ce0eb59d3da5b"
   license "LGPL-2.1-only"
 
   livecheck do
