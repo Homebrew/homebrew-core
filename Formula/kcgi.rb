@@ -21,9 +21,15 @@ class Kcgi < Formula
 
   depends_on "bmake" => :build
 
+  on_linux do
+    depends_on "libseccomp"
+  end
+
   def install
     system "./configure", "MANDIR=#{man}",
                           "PREFIX=#{prefix}"
+    # Uncomment CPPFLAGS to enable libseccomp support on Linux, as instructed to in Makefile.
+    inreplace "Makefile", "#CPPFLAGS", "CPPFLAGS" unless OS.mac?
     system "bmake"
     system "bmake", "install"
   end
