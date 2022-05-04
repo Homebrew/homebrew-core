@@ -39,6 +39,10 @@ class Slides < Formula
     r, _, pid = PTY.spawn "#{bin}/slides test.md"
     sleep 1
     Process.kill("TERM", pid)
-    assert_match(/\e\[/, r.read)
+    begin
+      assert_match(/\e\[/, r.read)
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    end
   end
 end
