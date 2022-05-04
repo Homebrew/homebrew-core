@@ -1,9 +1,8 @@
 class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
-  url "https://gitlab.com/esr/reposurgeon.git",
-      tag:      "4.32",
-      revision: "2e221c19802176479d98d080409273896dd43997"
+  url "https://gitlab.com/esr/reposurgeon/-/archive/4.32/reposurgeon-4.32.tar.gz"
+  sha256 "5ebb884dda0abde29114fa7f20bdbc11aff8a50ddd6f017052f944799faccec5"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/reposurgeon.git", branch: "master"
 
@@ -19,6 +18,8 @@ class Reposurgeon < Formula
   depends_on "gawk" => :build if MacOS.version <= :catalina
   depends_on "go" => :build
   depends_on "git" # requires >= 2.19.2
+
+  uses_from_macos "ruby"
 
   def install
     ENV.append_path "GEM_PATH", Formula["asciidoctor"].opt_libexec
@@ -38,6 +39,6 @@ class Reposurgeon < Formula
     system "git", "commit", "--allow-empty", "--message", "brewing"
 
     assert_match "brewing",
-      shell_output("script -q /dev/null #{bin}/reposurgeon read list")
+      shell_output("#{bin}/reposurgeon read list")
   end
 end
