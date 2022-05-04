@@ -587,7 +587,11 @@ class AnsibleAT29 < Formula
         - name: ping
           ping:
     EOS
-    (testpath/"hosts.ini").write "localhost ansible_connection=local\n"
+    (testpath/"hosts.ini").write [
+      "localhost ansible_connection=local",
+      " ansible_python_interpreter=#{Formula["python@3.9"].opt_bin}/python3",
+      "\n",
+    ].join
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"
 
     # Ensure requests[security] is activated
