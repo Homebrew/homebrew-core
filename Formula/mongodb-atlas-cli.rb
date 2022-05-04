@@ -4,7 +4,6 @@ class MongodbAtlasCli < Formula
   url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/atlascli/v1.0.3.tar.gz"
   sha256 "68e14e188096d5303d87bc673782e9143ae925c635787076790b1607447e3645"
   license "Apache-2.0"
-
   head "https://github.com/mongodb/mongodb-atlas-cli.git", branch: "master"
 
   livecheck do
