@@ -37,9 +37,14 @@ class Terminator < Formula
 
   test do
     pid = Process.spawn bin/"terminator", "-d", [:out, :err] => "#{testpath}/output"
-    sleep 5
+    sleep 30
     Process.kill "TERM", pid
-    assert_match "Window::create_layout: Making a child of type: Terminal", File.read("#{testpath}/output")
+    output = if OS.mac?
+      "Window::create_layout: Making a child of type: Terminal"
+    else
+      "You need to run terminator in an X environment. Make sure $DISPLAY is properly set"
+    end
+    assert_match output, File.read("#{testpath}/output")
   ensure
     Process.kill "KILL", pid
   end
