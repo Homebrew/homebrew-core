@@ -23,6 +23,6 @@ class Fx < Formula
   end
 
   test do
-    assert_equal "42", shell_output("echo 42 | #{bin}/fx").strip
+    assert_equal "42", pipe_output(bin/"fx", 42).strip
   end
 end
