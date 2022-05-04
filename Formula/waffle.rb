@@ -19,6 +19,22 @@ class Waffle < Formula
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :test
 
+  uses_from_macos "libxslt" => :build
+
+  on_linux do
+    depends_on "libxcb"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+    depends_on "systemd"
+    depends_on "wayland"
+  end
+
+  # Apply upstream commit to fix build with wayland 1.20.  Remove with next release.
+  patch do
+    url "https://gitlab.freedesktop.org/mesa/waffle/-/commit/2c33597245bb74f19104f0a858cd40e80b26991d.diff"
+    sha256 "739b2699349535c7f9fbc0efc7ca880c59cc8208fbf4ffacb5050dcfdf7c753c"
+  end
+
   def install
     args = std_cmake_args + %w[
       -Dwaffle_build_examples=1
@@ -36,6 +52,14 @@ class Waffle < Formula
   test do
     cp_r prefix/"share/doc/waffle1/examples", testpath
     cd "examples"
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    unless OS.mac?
+      inreplace "Makefile.example", "$(LDFLAGS) -o gl_basic gl_basic.c",
+                "gl_basic.c $(LDFLAGS) -o gl_basic"
+      inreplace "Makefile.example", "$(LDFLAGS) -o simple-x11-egl simple-x11-egl.c",
+                "simple-x11-egl.c $(LDFLAGS) -o simple-x11-egl"
+    end
     system "make", "-f", "Makefile.example"
   end
 end
