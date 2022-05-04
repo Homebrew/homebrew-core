@@ -32,6 +32,9 @@ class GnuCobol < Formula
     ENV.append "CPPFLAGS", "-I#{gmp.opt_include} -I#{bdb.opt_include}"
     ENV.append "LDFLAGS", "-L#{gmp.opt_lib} -L#{bdb.opt_lib}"
 
+    # Avoid shim references in binaries on Linux.
+    ENV["LD"] = "ld" unless OS.mac?
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
