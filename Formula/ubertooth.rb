@@ -23,7 +23,10 @@ class Ubertooth < Formula
 
   def install
     mkdir "host/build" do
-      system "cmake", "..", *std_cmake_args
+      args = std_cmake_args
+      # Tell CMake to install udev rules in HOMEBREW_PREFIX/etc on Linux because it defaults to /etc.
+      args << "-DUDEV_RULES_PATH=#{etc}/udev/rules.d" unless OS.mac?
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
