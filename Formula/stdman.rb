@@ -25,6 +25,7 @@ class Stdman < Formula
   end
 
   test do
-    system "man", "-w", "std::string"
+    man = OS.mac? ? "man" : "gman"
+    system man, "-w", "std::string"
   end
 end
