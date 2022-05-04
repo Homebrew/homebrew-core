@@ -3,6 +3,7 @@ class Opencsg < Formula
   homepage "http://www.opencsg.org"
   url "http://www.opencsg.org/OpenCSG-1.5.1.tar.gz"
   sha256 "7adb7ec7650d803d9cb54d06572fb5ba5aca8f23e6ccb75b73c17756a9ab46e3"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
