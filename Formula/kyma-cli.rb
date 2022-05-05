@@ -30,6 +30,6 @@ class KymaCli < Formula
   test do
     touch testpath/"kubeconfig"
     assert_match "invalid configuration",
-      shell_output("#{bin}/kyma install --kubeconfig ./kubeconfig 2>&1", 1)
+      shell_output("#{bin}/kyma deploy --kubeconfig ./kubeconfig 2>&1", 1)
   end
 end
