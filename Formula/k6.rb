@@ -1,8 +1,8 @@
 class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
-  url "https://github.com/loadimpact/k6/archive/v0.37.0.tar.gz"
-  sha256 "a0bb00caa1eb404b53d6296c81bde917c7ea9b6f50c8c49c1985b95a3dd82002"
+  url "https://github.com/loadimpact/k6/archive/v0.38.0.tar.gz"
+  sha256 "e121b247f8d169feb3c5de374a01728fea45ce8a8e0fd943b887722d130b63a2"
   license "AGPL-3.0-or-later"
 
   bottle do
