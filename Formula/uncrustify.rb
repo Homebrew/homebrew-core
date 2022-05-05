@@ -16,6 +16,7 @@ class Uncrustify < Formula
   end
 
   depends_on "cmake" => :build
+  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "gcc"
