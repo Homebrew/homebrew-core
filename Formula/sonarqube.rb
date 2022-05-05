@@ -56,7 +56,7 @@ class Sonarqube < Formula
       # Set wrapper.working.dir to allow using symlinked wrapper
       s.sub!(/^wrapper\.java\.command=.*/, "\\0\nwrapper.working.dir=#{libexec}/bin/#{platform}")
       # Write log files outside of installation directory
-      s.sub! %r{^wrapper\.logfile=.*/([^/]+\.log)$}, "wrapper.logfile=#{var}/sonarqube/logs/\\1"
+      s.sub! %r{^wrapper\.logfile=.*/([^/\s]+\.log)$}, "wrapper.logfile=#{var}/sonarqube/logs/\\1"
     end
     inreplace "conf/sonar.properties" do |s|
       # Write log/data/temp files outside of installation directory
