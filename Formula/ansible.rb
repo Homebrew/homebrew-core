@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/92/1a/0e05192a96400bdda723a093432efc8acc8863b507fb261fab56aadc12e0/ansible-5.7.0.tar.gz"
-  sha256 "e80c0e74de1774adae7c0233b247ff72b8fbd8b5f107077db5d0b7f0370d6b86"
+  url "https://files.pythonhosted.org/packages/b6/c4/f58b7f295936686e7c16851e3a855332bf9aa3c7ac636a7a32803ca6cd1a/ansible-5.7.1.tar.gz"
+  sha256 "90a09a34510d194d63556895a225a89e4a8b748b9ae215b55e517a37de063a61"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
@@ -82,13 +82,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ac/b0/a279790642886feeae5ca57c451b5f17ca63977e7f038394a6c9b52f380b/boto3-1.22.4.tar.gz"
-    sha256 "71019d49562112bcf8c2e5c183f3cca263edf02785e6a2c5f98ee104927cbb44"
+    url "https://files.pythonhosted.org/packages/bf/5b/fba78a9f7529eb7a8d340a7eea80889c11c2cce15517a48f8ef5f91aaa67/boto3-1.22.7.tar.gz"
+    sha256 "4dc0df36c3465ff0d586017da68b0152123695f38f30ad98fed7185e59298d2c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/c8/2c/a11fc13b157fa295fc25a9728f78ce816166a9541a7c3245cc05408ecd0d/botocore-1.25.4.tar.gz"
-    sha256 "71cf60ccb024d3c925424d28eba9ca953fc13f36a345dca177b080971ed1141a"
+    url "https://files.pythonhosted.org/packages/80/e0/fb563487d28044be311894572c5cbb2a166e96b3fc0c4571bda77f6cc826/botocore-1.25.7.tar.gz"
+    sha256 "190361776d96323ff401b976175f76172acf7ebbe3efbb19c4c6f9800a9ad6b6"
   end
 
   resource "cachetools" do
@@ -122,8 +122,8 @@ class Ansible < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/3d/5f/addb8b91fd356792d28e59a8275fec833323cb28604fb3a497c35d7cf0a3/cryptography-37.0.1.tar.gz"
-    sha256 "d610d0ee14dd9109006215c7c0de15eee91230b70a9bce2263461cf7c3720b83"
+    url "https://files.pythonhosted.org/packages/51/05/bb2b681f6a77276fc423d04187c39dafdb65b799c8d87b62ca82659f9ead/cryptography-37.0.2.tar.gz"
+    sha256 "f224ad253cc9cea7568f49077007d2263efa57396a2f2f78114066fd54b5c68e"
   end
 
   resource "debtcollector" do
@@ -537,8 +537,8 @@ class Ansible < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/c7/b4/3a937c7f8ee4751b38274c8542e02f42ebf3e080f1344c4a2aff6416630e/wrapt-1.14.0.tar.gz"
-    sha256 "8323a43bd9c91f62bb7d4be74cc9ff10090e7ef820e27bfe8815c57e68261311"
+    url "https://files.pythonhosted.org/packages/11/eb/e06e77394d6cf09977d92bff310cb0392930c08a338f99af6066a5a98f92/wrapt-1.14.1.tar.gz"
+    sha256 "380a85cf89e0e69b7cfbe2ea9f765f004ff419f34194018a6827ac0e3edfed4d"
   end
 
   resource "xmltodict" do
