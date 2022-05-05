@@ -25,6 +25,10 @@ class Gping < Formula
 
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "iputils"
+  end
+
   def install
     cd "gping" do
       system "cargo", "install", *std_cargo_args
@@ -40,15 +44,19 @@ class Gping < Formula
     sleep 1
     w.write "q"
 
-    screenlog = r.read
-    # remove ANSI colors
-    screenlog.encode!("UTF-8", "binary",
-      invalid: :replace,
-      undef:   :replace,
-      replace: "")
-    screenlog.gsub!(/\e\[([;\d]+)?m/, "")
+    begin
+      screenlog = r.read
+      # remove ANSI colors
+      screenlog.encode!("UTF-8", "binary",
+        invalid: :replace,
+        undef:   :replace,
+        replace: "")
+      screenlog.gsub!(/\e\[([;\d]+)?m/, "")
 
-    assert_match "google.com (", screenlog
+      assert_match "google.com (", screenlog
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    end
   ensure
     Process.kill("TERM", pid)
   end
