@@ -1,8 +1,8 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/terraform-linters/tflint"
-  url "https://github.com/terraform-linters/tflint/archive/v0.36.0.tar.gz"
-  sha256 "f6cb78aaf8ee67b37b71f7460101394763d74f77d9ed10f8fc3c1d0a4eb40e9c"
+  url "https://github.com/terraform-linters/tflint/archive/v0.36.1.tar.gz"
+  sha256 "e05761530f4efdfd9d4fc5efa3f4eaa1e38e2fa49ae28b84dde31c47779c399f"
   license "MPL-2.0"
   head "https://github.com/terraform-linters/tflint.git", branch: "master"
 
