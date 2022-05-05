@@ -34,6 +34,7 @@ class LibtorrentRasterbar < Formula
       -Dencryption=ON
       -Dpython-bindings=ON
       -Dpython-egg-info=ON
+      -DCMAKE_INSTALL_RPATH=#{lib}
     ]
     args += std_cmake_args
 
