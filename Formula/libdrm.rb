@@ -13,9 +13,9 @@ class Libdrm < Formula
   bottle do
     sha256 x86_64_linux: "1ca8eb09c3a8c1b9a64dc05d030f0e544456e18fae2f30eca0a6a2729fe3943b"
   end
-
-  depends_on "docutils" => :build
+  
   depends_on "cairo" => :build
+  depends_on "docutils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
