@@ -23,6 +23,8 @@ class Urlview < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "2c93e736ee4b39f7567afe60fcb06ec2144ca054a819a3406caaa5c330ab4911"
   end
 
+  uses_from_macos "ncurses"
+
   on_linux do
     depends_on "automake"
   end
@@ -33,20 +35,35 @@ class Urlview < Formula
   end
 
   def install
-    inreplace "urlview.man", "/etc/urlview/url_handler.sh", "open"
+    url_handler = OS.mac? ? "open" : etc/"urlview/url_handler.sh"
+    inreplace "urlview.man", "/etc/urlview/url_handler.sh", url_handler
     inreplace "urlview.c",
       '#define DEFAULT_COMMAND "/etc/urlview/url_handler.sh %s"',
-      '#define DEFAULT_COMMAND "open %s"'
+      %Q(#define DEFAULT_COMMAND "#{url_handler} %s")
 
     man1.mkpath
 
-    if OS.linux?
+    unless OS.mac?
       touch("NEWS") # autoreconf will fail if this file does not exist
       system "autoreconf", "-i"
+
+      # Disable use of librx, since it is not needed on Linux.
+      ENV["CFLAGS"] = "-DHAVE_REGEX_H"
+      (etc/"urlview").install "url_handler.sh"
     end
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.txt").write <<~EOS
+      https://github.com/Homebrew
+    EOS
+    PTY.spawn("urlview test.txt") do |_r, w, _pid|
+      sleep 1
+      w.write("\cD")
+    end
   end
 end
