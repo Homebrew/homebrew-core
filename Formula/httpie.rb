@@ -3,8 +3,8 @@ class Httpie < Formula
 
   desc "User-friendly cURL replacement (command-line HTTP client)"
   homepage "https://httpie.io/"
-  url "https://files.pythonhosted.org/packages/32/85/bb095699be20cc98731261cb80884e9458178f8fef2a38273530ce77c0a5/httpie-3.1.0.tar.gz"
-  sha256 "2e4a2040b84a912e65c01fb34f7aafe88cad2a3af2da8c685ca65080f376feda"
+  url "https://files.pythonhosted.org/packages/1a/f6/e91bad647303b1181975eda6b4d2182443d79da55e32112fd53cbff1c101/httpie-3.2.0.tar.gz"
+  sha256 "acfc75f5a05f02a6bf7e0efd32daebd72ea3da9929dfce5be3b7052bdac31116"
   license "BSD-3-Clause"
   head "https://github.com/httpie/httpie.git", branch: "master"
 
@@ -29,6 +29,11 @@ class Httpie < Formula
     sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
+  resource "commonmark" do
+    url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
+    sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
+  end
+
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
     sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
@@ -45,8 +50,8 @@ class Httpie < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
-    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
+    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
+    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
   end
 
   resource "PySocks" do
@@ -64,9 +69,14 @@ class Httpie < Formula
     sha256 "968089d4584ad4ad7c171454f0a5c6dac23971e9472521ea3b6d49d610aa6fc0"
   end
 
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/a4/50/8e34f3f18dc3914bd14a0722cb471410488495fdcd93e122724d4dd8c5f9/rich-12.3.0.tar.gz"
+    sha256 "7e8700cda776337036a712ff0495b04052fb5f957c7dfb8df997f88350044b64"
+  end
+
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   def install
