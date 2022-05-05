@@ -27,6 +27,7 @@ class ZeroInstall < Formula
   depends_on "ocamlbuild" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "gnupg"
 
   uses_from_macos "curl"
@@ -72,20 +73,23 @@ class ZeroInstall < Formula
   end
 
   test do
-    (testpath/"hello.py").write <<~EOS
-      print("hello world")
+    (testpath/"hello.sh").write <<~EOS
+      #!/bin/sh
+      echo "hello world"
     EOS
+    chmod 0755, testpath/"hello.sh"
     (testpath/"hello.xml").write <<~EOS
       <?xml version="1.0" ?>
-      <interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
-        <name>Hello</name>
-        <summary>minimal demonstration program</summary>
+      <interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface" xmlns:compile="http://zero-install.sourceforge.net/2006/namespaces/0compile">
+        <name>hello-bash</name>
+        <summary>template source package for a bash program</summary>
+        <description>This package demonstrates how to create a simple program that uses bash.</description>
 
-        <implementation id="." version="0.1-pre">
-          <command name='run' path='hello.py'>
-            <runner interface='http://repo.roscidus.com/python/python'></runner>
-          </command>
-        </implementation>
+        <group>
+          <implementation id="." version="0.1-pre" compile:min-version='1.1'>
+            <command name='run' path='hello.sh'></command>
+          </implementation>
+        </group>
       </interface>
     EOS
     assert_equal "hello world\n", shell_output("#{bin}/0launch --console hello.xml")
