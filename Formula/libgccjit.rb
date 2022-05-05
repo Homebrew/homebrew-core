@@ -61,7 +61,6 @@ class Libgccjit < Formula
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
     args = %W[
-      --build=#{cpu}-apple-darwin#{OS.kernel_version.major}
       --prefix=#{prefix}
       --libdir=#{lib}/gcc/#{version.major}
       --disable-nls
@@ -76,20 +75,34 @@ class Libgccjit < Formula
       --with-bugurl=#{tap.issues_url}
     ]
 
-    # Xcode 10 dropped 32-bit support
-    args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+    if OS.mac?
+      args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
 
-    # System headers may not be in /usr/include
-    sdk = MacOS.sdk_path_if_needed
-    if sdk
-      args << "--with-native-system-header-dir=/usr/include"
-      args << "--with-sysroot=#{sdk}"
+      # Xcode 10 dropped 32-bit support
+      args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+
+      # System headers may not be in /usr/include
+      sdk = MacOS.sdk_path_if_needed
+      if sdk
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=#{sdk}"
+      end
+
+      # Use -headerpad_max_install_names in the build,
+      # otherwise updated load commands won't fit in the Mach-O header.
+      # This is needed because `gcc` avoids the superenv shim.
+      make_args = ["BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"]
+    else
+      # Fix cc1: error while loading shared libraries: libisl.so.15
+      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}"
+
+      # Fix Linux error: gnu/stubs-32.h: No such file or directory.
+      args << "--disable-multilib"
+
+      # Change the default directory name for 64-bit libraries to `lib`
+      # https://stackoverflow.com/a/54038769
+      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
     end
-
-    # Use -headerpad_max_install_names in the build,
-    # otherwise updated load commands won't fit in the Mach-O header.
-    # This is needed because `gcc` avoids the superenv shim.
-    make_args = ["BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"]
 
     # Building jit needs --enable-host-shared, which slows down the compiler.
     mkdir "build-jit" do
