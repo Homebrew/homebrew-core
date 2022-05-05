@@ -23,7 +23,7 @@ class Libdrm < Formula
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, ".."
+      system "meson", *std_meson_args, "-Dcairo-tests=false", ".."
       system "ninja"
       system "ninja", "install"
     end
