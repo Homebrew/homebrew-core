@@ -30,6 +30,11 @@ class UcspiTcp < Formula
   end
 
   def install
+    # Work around build error from root requirement: "Oops. Your getgroups() returned 0,
+    # and setgroups() failed; this means that I can't reliably do my shsgr test. Please
+    # either ``make'' as root or ``make'' while you're in one or more supplementary groups."
+    inreplace "Makefile", "( cat warn-shsgr; exit 1 )", "cat warn-shsgr" if OS.linux?
+
     (buildpath/"conf-home").unlink
     (buildpath/"conf-home").write prefix
 
