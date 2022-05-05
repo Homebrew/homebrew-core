@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk18u/archive/jdk-18.0.1-ga.tar.gz"
-  sha256 "4728da4676601af35c6ad998f2283e595ca9ce9b8528a75d74fddf7d03932d71"
+  url "https://github.com/openjdk/jdk18u/archive/jdk-18.0.1.1-ga.tar.gz"
+  sha256 "a7d6c43c859ba3320d3e4a8fde94804811723ba66afb52caab28953d0ab3010e"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
