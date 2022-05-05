@@ -27,6 +27,9 @@ class BulkExtractor < Formula
   depends_on "boost"
   depends_on "openssl@1.1"
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "expat"
+
   # Upstream commits for OpenSSL 1.1 compatibility in dfxm:
   # https://github.com/simsong/dfxml/commits/master/src/hash_t.h
   # Three commits are picked:
