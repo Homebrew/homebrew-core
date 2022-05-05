@@ -30,9 +30,9 @@ class V2raya < Formula
 
   test do
     port = free_port
-    v2raya_process = fork { exec "#{bin}/v2raya", "--lite", "-a", "0.0.0.0:#{free_port}" }
+    v2raya_process = fork { exec "#{bin}/v2raya", "--lite", "-a", "0.0.0.0:#{port}" }
     sleep 5
-    system "curl", "-v", "http://localhost:#{free_port}"
+    system "curl", "-v", "http://localhost:#{port}"
     Process.kill 15, v2raya_process
     Process.wait v2raya_process
   end
