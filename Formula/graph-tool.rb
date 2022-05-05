@@ -40,6 +40,14 @@ class GraphTool < Formula
   depends_on "scipy"
   depends_on "six"
 
+  uses_from_macos "expat" => :build
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   resource "Cycler" do
     url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
     sha256 "cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"
@@ -76,6 +84,9 @@ class GraphTool < Formula
   end
 
   def install
+    # Linux build is not thread-safe.
+    ENV.deparallelize unless OS.mac?
+
     system "autoreconf", "-fiv"
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
@@ -89,13 +100,13 @@ class GraphTool < Formula
       "--disable-dependency-tracking",
       "--prefix=#{prefix}",
       "PYTHON=python3",
-      "PYTHON_LIBS=-undefined dynamic_lookup",
       "--with-python-module-path=#{lib}/python#{xy}/site-packages",
       "--with-boost-python=boost_python#{xy.to_s.delete(".")}-mt",
       "--with-boost-libdir=#{HOMEBREW_PREFIX}/opt/boost/lib",
       "--with-boost-coroutine=boost_coroutine-mt",
     ]
     args << "--with-expat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
+    args << "PYTHON_LIBS=-undefined dynamic_lookup" if OS.mac?
 
     system "./configure", *args
     system "make", "install"
