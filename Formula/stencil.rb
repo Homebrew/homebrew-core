@@ -1,8 +1,8 @@
 class Stencil < Formula
-  desc "Configurable static site generator"
+  desc "A smart templating engine for service development"
   homepage "https://getoutreach.github.io/stencil/"
-  url "https://github.com/getoutreach/stencil/archive/refs/tags/v1.12.1.tar.gz"
-  sha256 "bf8f342963362d580cf75afb8608b1bffe93ad0b320df7d9b21ef365d8332c6e"
+  url "https://github.com/getoutreach/stencil/archive/refs/tags/v1.14.2.tar.gz"
+  sha256 "b313a6cb7e6b4512a7bf483e52af650d10b87c302b1359451fa976be194443ef"
   license "Apache-2.0"
   head "https://github.com/getoutreach/stencil.git", branch: "main"
 
@@ -14,6 +14,13 @@ class Stencil < Formula
   end
 
   test do
-    system "#{bin}/stencil", "--help"
+    site = testpath/"test-123"
+
+    # Create the directory and change into it because stencil doesn't _currently_ do that for you.
+    Dir.mkdir(site)
+    Dir.chdir(site)
+
+    system "#{bin}/stencil", "create", "templaterepository", "github.com/myorg/#{File.basename(site)}"
+    assert_predicate testpath/"#{site}/manifest.yaml", :exist?
   end
 end
