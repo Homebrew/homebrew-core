@@ -25,18 +25,18 @@ class Lcm < Formula
   depends_on "python@3.9"
 
   def install
+    # Adding RPATH in #{lib}/lua/X.Y/lcm.so and some #{bin}/*.
     args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{lib}
       -DLCM_ENABLE_EXAMPLES=OFF
       -DLCM_ENABLE_TESTS=OFF
       -DLCM_JAVA_TARGET_VERSION=8
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
 
-    mkdir "build" do
-      system "cmake", *args, ".."
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
