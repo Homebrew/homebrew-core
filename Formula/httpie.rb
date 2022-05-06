@@ -89,9 +89,9 @@ class Httpie < Formula
 
     venv.pip_install_and_link buildpath
 
-    man1.install_symlink libexec/"share/man/man1/http.1" => "http.1"
-    man1.install_symlink libexec/"share/man/man1/https.1" => "https.1"
-    man1.install_symlink libexec/"share/man/man1/httpie.1" => "httpie.1"
+    man1.install_symlink libexec/"share/man/man1/http.1"
+    man1.install_symlink libexec/"share/man/man1/https.1"
+    man1.install_symlink libexec/"share/man/man1/httpie.1"
   end
 
   test do
