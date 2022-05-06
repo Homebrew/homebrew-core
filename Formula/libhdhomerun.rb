@@ -6,8 +6,9 @@ class Libhdhomerun < Formula
   license "LGPL-2.1-or-later"
 
   livecheck do
-    url :homepage
-    regex(/href=.*?libhdhomerun[._-]v?(\d{6,8})\.t/i)
+    url "https://download.silicondust.com/hdhomerun/libhdhomerun.tgz"
+    regex(/libhdhomerun[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    strategy :header_match
   end
 
   bottle do
