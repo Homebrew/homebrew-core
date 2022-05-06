@@ -29,6 +29,7 @@ class V2raya < Formula
   end
 
   test do
+    ENV["V2RAY_LOCATION_ASSET"] = "#{HOMEBREW_PREFIX}/share/v2ray/"
     port = free_port
     v2raya_process = fork { exec "#{bin}/v2raya", "--lite", "-a", "0.0.0.0:#{port}" }
     sleep 5
@@ -38,7 +39,8 @@ class V2raya < Formula
   end
 
   service do
-    run [bin/"v2raya", "--lite", "--v2ray-bin", "#{HOMEBREW_PREFIX}/bin/v2ray"]
+    environment_variables V2RAY_LOCATION_ASSET:"#{HOMEBREW_PREFIX}/share/v2ray/", V2RAYA_V2RAY_BIN:"#{HOMEBREW_PREFIX}/bin/v2ray", V2RAYA_LOG_FILE:"/tmp/v2raya.log"
+    run [bin/"v2raya", "--lite"]
     keep_alive true
   end
 end
