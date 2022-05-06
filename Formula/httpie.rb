@@ -81,6 +81,9 @@ class Httpie < Formula
 
   def install
     virtualenv_install_with_resources
+    man1.install_symlink libexec/"share/man/man1/http.1" => "http.1"
+    man1.install_symlink libexec/"share/man/man1/https.1" => "https.1"
+    man1.install_symlink libexec/"share/man/man1/httpie.1" => "httpie.1"
   end
 
   test do
