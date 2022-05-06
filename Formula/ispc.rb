@@ -4,6 +4,7 @@ class Ispc < Formula
   url "https://github.com/ispc/ispc/archive/v1.18.0.tar.gz"
   sha256 "81f2cc23b555c815faf53429e9eee37d1f2f16873ae7074e382ede94721ee042"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a08e384a9b0c3c245ff4a6cbe1fa6ed15e0d3c945d9460a59f65bc63d7d450a2"
@@ -18,7 +19,7 @@ class Ispc < Formula
   depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "python@3.10" => :build
-  depends_on "llvm@12"
+  depends_on "llvm@13"
 
   on_linux do
     depends_on "gcc"
