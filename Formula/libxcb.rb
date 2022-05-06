@@ -35,6 +35,7 @@ class Libxcb < Formula
       --disable-silent-rules
       --enable-devel-docs=no
       --with-doxygen=no
+      PYTHON=python3
     ]
 
     system "./configure", *args
