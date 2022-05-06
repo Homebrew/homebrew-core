@@ -24,7 +24,6 @@ class Ghq < Formula
     bin.install "ghq"
     bash_completion.install "misc/bash/_ghq" => "ghq"
     zsh_completion.install "misc/zsh/_ghq"
-    prefix.install_metafiles
   end
 
   test do
