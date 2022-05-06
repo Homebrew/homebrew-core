@@ -33,7 +33,7 @@ class Pyenv < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "python@3.10" => :test
+    depends_on "python" => :test
   end
 
   def install
