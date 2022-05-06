@@ -39,7 +39,7 @@ class V2raya < Formula
   end
 
   service do
-    environment_variables V2RAY_LOCATION_ASSET:"#{HOMEBREW_PREFIX}/share/v2ray/", V2RAYA_V2RAY_BIN:"#{HOMEBREW_PREFIX}/bin/v2ray", V2RAYA_LOG_FILE:"/tmp/v2raya.log"
+    environment_variables V2RAY_LOCATION_ASSET: "#{HOMEBREW_PREFIX}/share/v2ray/", V2RAYA_V2RAY_BIN: "#{HOMEBREW_PREFIX}/bin/v2ray", V2RAYA_LOG_FILE: "/tmp/v2raya.log"
     run [bin/"v2raya", "--lite"]
     keep_alive true
   end
