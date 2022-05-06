@@ -16,12 +16,16 @@ class Opentsdb < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "5bcdc828069e124c16e1e6c8b2eb6732d0ef88533c27f60fcbb0bec369aca375"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gnuplot"
   depends_on "hbase"
   depends_on "lzo"
   depends_on "openjdk@11"
 
   def install
+    system "autoreconf", "-fvi"
+
     system "./configure",
            "--disable-silent-rules",
            "--prefix=#{prefix}",
@@ -37,7 +41,7 @@ class Opentsdb < Formula
       HBASE_HOME:  Formula["hbase"].opt_libexec,
       COMPRESSION: "LZO",
     }
-    env = Language::Java.java_home_env("1.8").merge(env)
+    env = Language::Java.java_home_env("11").merge(env)
     create_table = pkgshare/"tools/create_table_with_env.sh"
     create_table.write_env_script pkgshare/"tools/create_table.sh", env
     create_table.chmod 0755
