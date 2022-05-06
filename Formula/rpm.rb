@@ -5,6 +5,7 @@ class Rpm < Formula
   mirror "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.17.x/rpm-4.17.0.tar.bz2"
   sha256 "2e0d220b24749b17810ed181ac1ed005a56bbb6bc8ac429c21f314068dc65e6a"
   license "GPL-2.0-only"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -26,7 +27,6 @@ class Rpm < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "berkeley-db"
   depends_on "gettext"
   depends_on "libarchive"
   depends_on "libmagic"
@@ -38,6 +38,9 @@ class Rpm < Formula
   depends_on "sqlite"
   depends_on "xz"
   depends_on "zstd"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   # Fix `fstat64` detection for Apple Silicon.
   # https://github.com/rpm-software-management/rpm/pull/1775
