@@ -3,10 +3,9 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4311"
-  version "10.86.32"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4328"
+  version "10.86.33"
   license "GPL-3.0-or-later"
-  revision 1
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
@@ -80,7 +79,7 @@ class Netpbm < Formula
     fwrite = shell_output("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam")
     (testpath/"test.pam").write fwrite
     system "#{bin}/pamdice", "test.pam", "-outstem", testpath/"testing"
-    assert_predicate testpath/"testing_0_0.", :exist?
+    assert_predicate testpath/"testing_0_0.pam", :exist?
     (testpath/"test.xpm").write <<~EOS
       /* XPM */
       static char * favicon_xpm[] = {
