@@ -80,7 +80,15 @@ class Httpie < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
+    venv.pip_install resources
+
+    # We use a special file called __build_channel__.py to denote which source
+    # was used to install httpie.
+    File.write("httpie/internal/__build_channel__.py", "BUILD_CHANNEL = \"homebrew\"")
+
+    venv.pip_install_and_link buildpath
+
     man1.install_symlink libexec/"share/man/man1/http.1" => "http.1"
     man1.install_symlink libexec/"share/man/man1/https.1" => "https.1"
     man1.install_symlink libexec/"share/man/man1/httpie.1" => "httpie.1"
