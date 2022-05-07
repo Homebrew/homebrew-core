@@ -55,6 +55,13 @@ class MinimalRacket < Formula
     end
   end
 
+  def post_install
+    # Run raco setup to make sure core libraries are properly compiled.
+    # Sometimes the mtimes of .rkt and .zo files are messed up after a fresh
+    # install, making Racket take 15s to start up because interpreting is slow.
+    system "#{bin}/raco", "setup"
+  end
+
   def caveats
     <<~EOS
       This is a minimal Racket distribution.
