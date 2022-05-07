@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/17/7a/ac05de3820426b120dcd5d88d54f29aefcc19c7cd41025e190186b223bfc/snakemake-7.6.1.tar.gz"
-  sha256 "cb713d22855c1cc0be53662bf7a504542b40b8f26118ca3a758fc96bbc719bc0"
+  url "https://files.pythonhosted.org/packages/e1/a7/24b138fc7501507804ea4e4379de3b1cb15b4075b6f8f20ba4d8f15ba4f2/snakemake-7.6.2.tar.gz"
+  sha256 "80cb2d0ab0a2366010a1c0b288a90159cd640f942ae86e740021c15c9989f872"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -91,8 +91,8 @@ class Snakemake < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/26/67/36cfd516f7b3560bbf7183d7a0f82bb9514d2a5f4e1d682a8a1d55d8031d/jsonschema-4.4.0.tar.gz"
-    sha256 "636694eb41b3535ed608fe04129f26542b59ed99808b4f688aa32dcf55317a83"
+    url "https://files.pythonhosted.org/packages/9e/62/93a54db0e44c4de57868a7d638d7a8abce113c8bc43a20b10b1109b2a517/jsonschema-4.5.1.tar.gz"
+    sha256 "7c6d882619340c3347a1bf7315e147e6d3dae439033ae6383d6acb908c101dfc"
   end
 
   resource "jupyter-core" do
@@ -196,8 +196,8 @@ class Snakemake < Formula
   end
 
   resource "yte" do
-    url "https://files.pythonhosted.org/packages/30/7e/86e07223e6a1d0682acfe9c2db0e711fdaa70b6e7f8ea3e8992465a71105/yte-1.2.2.tar.gz"
-    sha256 "bfef905fe4bde475fa00eaa6264e1bd2c3dac9494abe32aaf387db08882c9096"
+    url "https://files.pythonhosted.org/packages/57/20/ebe70dcf175d94f22089966631ab9149b88c42e55e4a64f6393a5d6517f6/yte-1.2.3.tar.gz"
+    sha256 "80f7786968ebf2fa8af3631a1c88575a4da01de1e0e927d252fabebfd4f6666e"
   end
 
   def install
