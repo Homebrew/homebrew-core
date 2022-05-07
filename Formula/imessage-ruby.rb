@@ -1,8 +1,8 @@
 class ImessageRuby < Formula
   desc "Command-line tool to send iMessage"
   homepage "https://github.com/linjunpop/imessage"
-  url "https://github.com/linjunpop/imessage/archive/v0.3.1.tar.gz"
-  sha256 "74ccd560dec09dcf0de28cd04fc4d512812c3348fc5618cbb73b6b36c43e14ef"
+  url "https://github.com/linjunpop/imessage/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "3d93570dd3ff000c51859aaa34c4a8e8b80b86e6bdf3018c1c7f6f8d85939b30"
   license "MIT"
   head "https://github.com/linjunpop/imessage.git", branch: "master"
 
