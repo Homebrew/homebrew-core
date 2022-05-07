@@ -1,9 +1,9 @@
 class Bench < Formula
   desc "Command-line benchmark tool"
-  homepage "https://github.com/Gabriel439/bench"
+  homepage "https://github.com/Gabriella439/bench"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/Gabriel439/bench.git", branch: "main"
+  head "https://github.com/Gabriella439/bench.git", branch: "main"
 
   stable do
     url "https://hackage.haskell.org/package/bench-1.0.12/bench-1.0.12.tar.gz"
@@ -11,7 +11,7 @@ class Bench < Formula
 
     # Compatibility with GHC 8.8. Remove with the next release.
     patch do
-      url "https://github.com/Gabriel439/bench/commit/846dea7caeb0aee81870898b80345b9d71484f86.patch?full_index=1"
+      url "https://github.com/Gabriella439/bench/commit/846dea7caeb0aee81870898b80345b9d71484f86.patch?full_index=1"
       sha256 "fac63cd1ddb0af3bda78900df3ac5a4e6b6d2bb8a3d4d94c2f55d3f21dc681d1"
     end
   end
