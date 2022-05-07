@@ -3,8 +3,8 @@ class NeovimRemote < Formula
 
   desc "Control nvim processes using `nvr` command-line tool"
   homepage "https://github.com/mhinz/neovim-remote"
-  url "https://files.pythonhosted.org/packages/90/41/d91d81c2d27d1eb50c05f2fb5f52500b84e249e714748526d5074211d5fd/neovim-remote-2.4.2.tar.gz"
-  sha256 "a5935c8b70dd85cd3470805f2aa15c809dca1e228e79c6bcdc1fea880923f150"
+  url "https://files.pythonhosted.org/packages/df/cb/ca9bbe164abcf5f47b61bcda3ca00ea9a5004231b60e806752f790fafdd0/neovim-remote-2.5.0.tar.gz"
+  sha256 "1a35d133aa94d5980fcca68d6717783d6fcffee33bcab23b456397f0a099e88d"
   license "MIT"
   head "https://github.com/mhinz/neovim-remote.git", branch: "master"
 
