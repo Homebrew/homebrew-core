@@ -30,6 +30,8 @@ class Fheroes2 < Formula
 
   uses_from_macos "zlib"
 
+  fails_with gcc: "5"
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
