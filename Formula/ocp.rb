@@ -45,8 +45,8 @@ class Ocp < Formula
   end
 
   resource "unifont" do
-    url "https://ftp.gnu.org/gnu/unifont/unifont-14.0.02/unifont-14.0.02.tar.gz"
-    sha256 "401bb9c3741372c1316fec87c392887037e9e828fae64fd7bee2775bbe4545f7"
+    url "https://ftp.gnu.org/gnu/unifont/unifont-14.0.03/unifont-14.0.03.tar.gz"
+    sha256 "d4000ad1858a45b80980a3f6b91aa3cd73855d01e0f8bd4785f8c65206e49feb"
   end
 
   def install
