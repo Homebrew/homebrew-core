@@ -2,17 +2,16 @@ class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "https://networkupstools.org/"
   license "GPL-2.0-or-later"
-  revision 2
 
   stable do
-    url "https://networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
-    sha256 "980e82918c52d364605c0703a5dcf01f74ad2ef06e3d365949e43b7d406d25a7"
+    url "https://networkupstools.org/source/2.8/nut-2.8.0.tar.gz"
+    sha256 "c3e5a708da797b7c70b653d37b1206a000fcb503b85519fe4cdf6353f792bfe5"
 
-    # Upstream fix for OpenSSL 1.1 compatibility
-    # https://github.com/networkupstools/nut/pull/504
+    # fix build failure
+    # remove in next release
     patch do
-      url "https://github.com/networkupstools/nut/commit/612c05ef.patch?full_index=1"
-      sha256 "0f87adda658bc2ce6ae0266dfa7ced8c6e7e0db627baaef8cdbd547416ba989b"
+      url "https://github.com/networkupstools/nut/commit/9e6d3c79a4c0ed71c25fdfd350402bb2e78e42e8.patch?full_index=1"
+      sha256 "39472a04f1963a297713381a3a17e57183c1143a6602c194ca3016244caa6a9f"
     end
   end
 
