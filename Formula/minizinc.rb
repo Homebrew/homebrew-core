@@ -28,8 +28,6 @@ class Minizinc < Formula
   # this patch when upstream resolves that issue.
   fails_with gcc: "5"
 
-  patch :DATA
-
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
@@ -53,69 +51,3 @@ class Minizinc < Formula
     assert_match "==========", shell_output("#{bin}/minizinc --solver cbc optimise.mzn").strip
   end
 end
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index bfeb7ad4..c317f30d 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -33,7 +33,7 @@ if(POLICY CMP0074)
-   cmake_policy(SET CMP0074 NEW)
- endif(POLICY CMP0074)
- find_package(Geas)
--find_package(Gecode 6.3 COMPONENTS Driver Float Int Kernel Minimodel Search Set Support)
-+find_package(Gecode 6.2 COMPONENTS Driver Float Int Kernel Minimodel Search Set Support)
- find_package(OsiCBC)
- if(NOT CPLEX_PLUGIN)
- 	find_package(CPlex REQUIRED)
-diff --git a/include/minizinc/solvers/gecode_solverinstance.hh b/include/minizinc/solvers/gecode_solverinstance.hh
-index 19328341..d020867d 100644
---- a/include/minizinc/solvers/gecode_solverinstance.hh
-+++ b/include/minizinc/solvers/gecode_solverinstance.hh
-@@ -192,7 +192,6 @@ public:
-   int nodes = 0;
-   int fails = 0;
-   int time = 0;
--  int restarts = 0;
-   int seed = 1;
-   double decay = 0.5;
- };
-diff --git a/solvers/gecode/gecode_solverinstance.cpp b/solvers/gecode/gecode_solverinstance.cpp
-index f37dae02..8638fed4 100644
---- a/solvers/gecode/gecode_solverinstance.cpp
-+++ b/solvers/gecode/gecode_solverinstance.cpp
-@@ -109,14 +109,6 @@ bool GecodeSolverFactory::processOption(SolverInstanceBase::Options* opt, int& i
-     if (a_d >= 0) {
-       _opt.a_d = static_cast<unsigned int>(a_d);
-     }
--  } else if (string(argv[i]) == "--restart-limit") {
--    if (++i == argv.size()) {
--      return false;
--    }
--    int restarts = atoi(argv[i].c_str());
--    if (restarts >= 0) {
--      _opt.fails = restarts;
--    }
-   } else if (string(argv[i]) == "--fail") {
-     if (++i == argv.size()) {
-       return false;
-@@ -164,8 +156,6 @@ void GecodeSolverFactory::printHelp(ostream& os) {
-      << "    node cutoff (0 = none, solution mode)" << std::endl
-      << "  --fail <f>" << std::endl
-      << "    failure cutoff (0 = none, solution mode)" << std::endl
--     << "  --restart-limit <n>" << std::endl
--     << "    restart cutoff (0 = none, solution mode)" << std::endl
-      << "  --time <ms>" << std::endl
-      << "    time (in ms) cutoff (0 = none, solution mode)" << std::endl
-      << "  -a, --all-solutions" << std::endl
-@@ -1309,10 +1299,9 @@ void GecodeSolverInstance::prepareEngine() {
-     int nodeStop = _opt.nodes;
-     int failStop = _opt.fails;
-     int timeStop = _opt.time;
--    int restartStop = _opt.restarts;
- 
-     engineOptions.stop =
--        Driver::CombinedStop::create(nodeStop, failStop, timeStop, restartStop, false);
-+        Driver::CombinedStop::create(nodeStop, failStop, timeStop, false);
- 
-     // TODO: add presolving part
-     if (currentSpace->solveType == MiniZinc::SolveI::SolveType::ST_SAT) {
