@@ -1,8 +1,8 @@
 class GhcAT9 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.2.2/ghc-9.2.2-src.tar.xz"
-  sha256 "902463a4cc6ee479af9358b9f8b2ee3237b03e934a1ea65b6d1fcf3e0d749ea6"
+  url "https://downloads.haskell.org/~ghc/9.2.3/ghc-9.2.3-src.tar.xz"
+  sha256 "50ecdc2bef013e518f9a62a15245d7db0e4409d737c43b1cea7306fd82e1669e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -18,8 +18,15 @@ class GhcAT9 < Formula
 
   keg_only :versioned_formula
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gmp" => :build
+  depends_on "libtool" => :build
   depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
+
+  uses_from_macos "m4" => :build
+  uses_from_macos "ncurses"
 
   # https://www.haskell.org/ghc/download_ghc_9_0_2.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
@@ -44,13 +51,15 @@ class GhcAT9 < Formula
     resource("binary").stage do
       binary = buildpath/"binary"
 
-      system "./configure", "--prefix=#{binary}"
+      system "./configure", "--prefix=#{binary}", "--with-gmp-includes=#{Formula["gmp"].opt_include}",
+             "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
     end
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./boot"
+    system "./configure", "--prefix=#{prefix}", "--with-intree-gmp"
     system "make"
 
     ENV.deparallelize { system "make", "install" }
