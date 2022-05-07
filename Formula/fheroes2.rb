@@ -34,11 +34,6 @@ class Fheroes2 < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    system "make", "-C", "files/lang"
-
-    (pkgshare/"files/lang").install Dir["files/lang/*.mo"]
-    pkgshare.install "fheroes2.key"
-    bin.install "script/demo/download_demo_version.sh" => "fheroes2-install-demo"
   end
 
   test do
