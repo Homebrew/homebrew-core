@@ -4,8 +4,8 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.16.0.tar.gz"
-  sha256 "97c47de35915d1637b254f02643c3230c3e73617851700edc7a2a8c958a3310c"
+  url "https://download.samba.org/pub/samba/stable/samba-4.16.1.tar.gz"
+  sha256 "c058b563a36dbb552464b63afde2431b79050471723fd9ee83219f997efb66ce"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -92,11 +92,7 @@ class Samba < Formula
   end
 
   test do
-    smbd = if OS.mac?
-      "#{sbin}/smbd"
-    else
-      "#{sbin}/samba-dot-org-smbd"
-    end
+    smbd = "#{sbin}/samba-dot-org-smbd"
 
     system smbd, "--build-options", "--configfile=/dev/null"
     system smbd, "--version"
