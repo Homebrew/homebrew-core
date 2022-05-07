@@ -23,14 +23,6 @@ class Jemalloc < Formula
     depends_on "docbook-xsl" => :build
   end
 
-  # Fixes an issue where jemalloc's types conflict with the system
-  # types, preventing their use. Merged upstream.
-  # https://github.com/jemalloc/jemalloc/commit/3b4a03b92b2e415415a08f0150fdb9eeb659cd52
-  patch do
-    url "https://github.com/Homebrew/formula-patches/raw/d3d5ad2b5683c1a435a185eec9c593749c7ca41a/jemalloc/fix_nothrow_type.patch"
-    sha256 "d79f5c8767695059ff541f291db3fbc57c9b67299dc129848dd365c2f51b214a"
-  end
-
   def install
     args = %W[
       --disable-debug
