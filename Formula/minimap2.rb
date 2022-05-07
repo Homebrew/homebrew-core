@@ -5,6 +5,11 @@ class Minimap2 < Formula
   sha256 "2e3264300661cf1fce6adabffe6970ec59d46f3e8150dd40fa4501ff4f6c0dbc"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22995a1c375367bea1d8cf7c543c26eded794df72b09915e0d3858e11277dcdb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1894aa9bd2241edc817f29a5672614ab47d263529e549914df2031e14ee80017"
