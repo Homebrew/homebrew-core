@@ -27,6 +27,10 @@ class Exiftool < Formula
   uses_from_macos "perl"
 
   def install
+    # Enable large file support
+    # https://exiftool.org/forum/index.php?topic=3916.msg18182#msg18182
+    inreplace "lib/Image/ExifTool.pm", "LargeFileSupport => undef", "LargeFileSupport => 1"
+
     # replace the hard-coded path to the lib directory
     inreplace "exiftool", "$1/lib", libexec/"lib"
 
