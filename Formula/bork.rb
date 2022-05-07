@@ -1,10 +1,10 @@
 class Bork < Formula
   desc "Bash-Operated Reconciling Kludge"
-  homepage "https://github.com/skylarmacdonald/bork"
-  url "https://github.com/skylarmacdonald/bork/archive/v0.13.0.tar.gz"
+  homepage "https://bork.sh/"
+  url "https://github.com/borksh/bork/archive/v0.13.0.tar.gz"
   sha256 "5eaca1ebd984121df008b93c43ac259a455db7ccf13da1b1465d704e1faab563"
   license "Apache-2.0"
-  head "https://github.com/skylarmacdonald/bork.git", branch: "main"
+  head "https://github.com/borksh/bork.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "29526cc2119003d1e1957071f35dd01ef782d8d2615b390768715a39d17b584c"
