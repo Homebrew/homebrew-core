@@ -16,6 +16,8 @@ class Publish < Formula
 
   # https://github.com/JohnSundell/Publish#system-requirements
   depends_on xcode: ["12.5", :build]
+  # missing `libswift_Concurrency.dylib` on big_sur`
+  depends_on macos: :monterey
 
   uses_from_macos "swift"
 
