@@ -33,7 +33,7 @@ class GxGo < Formula
   end
 
   go_resource "github.com/urfave/cli" do
-    url "https://github.com/codegangsta/cli.git",
+    url "https://github.com/urfave/cli.git",
         revision: "cfb38830724cc34fedffe9a2a29fb54fa9169cd1"
   end
 
