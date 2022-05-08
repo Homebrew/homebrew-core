@@ -1,10 +1,10 @@
 class ApacheFlink < Formula
   desc "Scalable batch and stream data processing"
   homepage "https://flink.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.14.4/flink-1.14.4-bin-scala_2.12.tgz"
-  mirror "https://archive.apache.org/dist/flink/flink-1.14.4/flink-1.14.4-bin-scala_2.12.tgz"
-  version "1.14.4"
-  sha256 "a36aeeea1ac340a5063e837ac18293ff73bd7cca2f8d6813982dfc50abb5e6f9"
+  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.15.0/flink-1.15.0-bin-scala_2.12.tgz"
+  mirror "https://archive.apache.org/dist/flink/flink-1.15.0/flink-1.15.0-bin-scala_2.12.tgz"
+  version "1.15.0"
+  sha256 "8d88b555453b162a62b9e7d37ec95b30f65b0219cd97819699ad5cb8e7f32964"
   license "Apache-2.0"
   head "https://github.com/apache/flink.git", branch: "master"
 
@@ -36,9 +36,11 @@ class ApacheFlink < Formula
     system libexec/"bin/start-cluster.sh"
     system bin/"flink", "run", "-p", "1",
            libexec/"examples/streaming/WordCount.jar", "--input", testpath/"input",
-           "--output", testpath/"result/1"
+           "--output", testpath/"result"
     system libexec/"bin/stop-cluster.sh"
-    assert_predicate testpath/"result/1", :exist?
-    assert_equal expected, (testpath/"result/1").read
+    assert_predicate testpath/"result", :exist?
+    result_files = Dir[testpath/"result/*/*"]
+    assert_equal 1, result_files.length
+    assert_equal expected, (testpath/result_files.first).read
   end
 end
