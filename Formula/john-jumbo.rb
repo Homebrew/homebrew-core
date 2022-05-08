@@ -7,7 +7,7 @@ class JohnJumbo < Formula
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://github.com/magnumripper/JohnTheRipper.git"
+    url "https://github.com/openwall/john.git"
     regex(/^v?(\d+(?:\.\d+)+)-jumbo-\d$/i)
   end
 
@@ -33,24 +33,24 @@ class JohnJumbo < Formula
   conflicts_with "john", because: "both install the same binaries"
 
   # Fixed setup `-mno-sse4.1` for some machines.
-  # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4100
+  # See details for example from here: https://github.com/openwall/john/pull/4100
   patch do
-    url "https://github.com/magnumripper/JohnTheRipper/commit/a537bbca37c1c2452ffcfccea6d2366447ec05c2.patch?full_index=1"
+    url "https://github.com/openwall/john/commit/a537bbca37c1c2452ffcfccea6d2366447ec05c2.patch?full_index=1"
     sha256 "bb6cfff297f1223dd1177a515657b8f1f780c55f790e5b6e6518bb2cb0986b7b"
   end
 
   # Fixed setup of openssl@1.1 over series of patches
-  # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4101
+  # See details for example from here: https://github.com/openwall/john/pull/4101
   patch do
-    url "https://github.com/magnumripper/JohnTheRipper/commit/4844c79bf43dbdbb6ae3717001173355b3de5517.patch?full_index=1"
+    url "https://github.com/openwall/john/commit/4844c79bf43dbdbb6ae3717001173355b3de5517.patch?full_index=1"
     sha256 "8469b8eb1d880365121491d45421d132b634983fdcaf4028df8ae8b9085c98ae"
   end
   patch do
-    url "https://github.com/magnumripper/JohnTheRipper/commit/26750d4cff0e650f836974dc3c9c4d446f3f8d0e.patch?full_index=1"
+    url "https://github.com/openwall/john/commit/26750d4cff0e650f836974dc3c9c4d446f3f8d0e.patch?full_index=1"
     sha256 "43d259266b6b986a0a3daff484cfb90214ca7f57cd4703175e3ff95d48ddd3e2"
   end
   patch do
-    url "https://github.com/magnumripper/JohnTheRipper/commit/f03412b789d905b1a8d50f5f4b76d158b01c81c1.patch?full_index=1"
+    url "https://github.com/openwall/john/commit/f03412b789d905b1a8d50f5f4b76d158b01c81c1.patch?full_index=1"
     sha256 "65a4aacc22f82004e102607c03149395e81c7b6104715e5b90b4bbc016e5e0f7"
   end
 
