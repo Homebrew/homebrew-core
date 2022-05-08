@@ -1,6 +1,6 @@
 class RestShell < Formula
   desc "Shell to work with Spring HATEOAS-compliant REST resources"
-  homepage "https://github.com/spring-projects/rest-shell"
+  homepage "https://github.com/spring-attic/rest-shell"
   url "http://download.gopivotal.com/rest-shell/1.2.1/rest-shell-1.2.1.RELEASE.tar.gz"
   # Specify version explicitly at version bump:
   # version "1.2.1"
@@ -12,6 +12,8 @@ class RestShell < Formula
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "153d1bc5b10e1be1bb2775eaa53e2eafee9e392489e45082c4db383d468cc041"
   end
+
+  deprecate! date: "2022-05-08", because: :repo_archived
 
   depends_on "openjdk@11"
 
