@@ -146,8 +146,7 @@ class Sdl2Sound < Formula
       -lSDL2_sound
       -lSDL2
     ]
-    Dir["#{pkgshare}/examples/*.c"].each do |r|
-      system ENV.cc, r, "-o", "#{File.basename(r, ".c")}.out", *flags
-    end
+    system ENV.cc, pkgshare/"examples/playsound.c", "-o", "playsound", *flags
+    assert_match "help", shell_output("./playsound --help 2>&1", 42)
   end
 end
