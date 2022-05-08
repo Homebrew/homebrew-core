@@ -11,7 +11,6 @@ class Sql2pb < Formula
     system "go", "build", "-o", bin/"sql2pb"
   end
 
-
   test do
     system bin/"sql2pb", "-h"
   end
