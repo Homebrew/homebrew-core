@@ -2,12 +2,12 @@ class Ccm < Formula
   include Language::Python::Virtualenv
 
   desc "Create and destroy an Apache Cassandra cluster on localhost"
-  homepage "https://github.com/pcmanus/ccm"
+  homepage "https://github.com/riptano/ccm"
   url "https://files.pythonhosted.org/packages/f1/12/091e82033d53b3802e1ead6b16045c5ecfb03374f8586a4ae4673a914c1a/ccm-3.1.5.tar.gz"
   sha256 "f07cc0a37116d2ce1b96c0d467f792668aa25835c73beb61639fa50a1954326c"
   license "Apache-2.0"
   revision 3
-  head "https://github.com/pcmanus/ccm.git", branch: "master"
+  head "https://github.com/riptano/ccm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b0afbb4b4623fd1d164d742e64247fce9912ee49b36156ee654e6ccca9d8b8d3"
