@@ -1,7 +1,7 @@
 class DockerGen < Formula
   desc "Generate files from docker container metadata"
-  homepage "https://github.com/jwilder/docker-gen"
-  url "https://github.com/jwilder/docker-gen/archive/0.9.0.tar.gz"
+  homepage "https://github.com/nginx-proxy/docker-gen"
+  url "https://github.com/nginx-proxy/docker-gen/archive/0.9.0.tar.gz"
   sha256 "9f270363d872e4d302b67b3baa3baec4d1c7b892814fd6a50e5953a2b90d745e"
   license "MIT"
 
