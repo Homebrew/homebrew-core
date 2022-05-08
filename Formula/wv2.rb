@@ -30,17 +30,23 @@ class Wv2 < Formula
 
   uses_from_macos "libxml2"
 
+  # Temporary test resource for bottles built before testole.doc was added.
+  resource "testole.doc" do
+    url "https://sourceforge.net/p/wvware/svn/2/tree/wv2-trunk/tests/testole.doc?format=raw"
+    sha256 "fd3a5e28d96655fa320c3118f5ccdc6435034513779b1f59f88e8d8892e78954"
+  end
+
   def install
     ENV.append "LDFLAGS", "-lgobject-2.0" # work around broken detection
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.append "CXXFLAGS", "-I#{Formula["libxml2"].include}/libxml2" unless OS.mac?
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    (share/"test").install "tests/testole.doc"
+    (pkgshare/"test").install "tests/testole.doc"
   end
 
   test do
-    cp share/"test/testole.doc", testpath
+    testpath.install resource("testole.doc")
 
     (testpath/"test.cpp").write <<~EOS
       #include <cstdlib>
