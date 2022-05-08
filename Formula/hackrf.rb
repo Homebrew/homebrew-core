@@ -1,10 +1,10 @@
 class Hackrf < Formula
   desc "Low cost software radio platform"
-  homepage "https://github.com/mossmann/hackrf"
-  url "https://github.com/mossmann/hackrf/archive/v2021.03.1.tar.gz"
+  homepage "https://github.com/greatscottgadgets/hackrf"
+  url "https://github.com/greatscottgadgets/hackrf/archive/v2021.03.1.tar.gz"
   sha256 "84a9aef6fe2666744dc1a17ba5adb1d039f8038ffab30e9018dcfae312eab5be"
   license "GPL-2.0-or-later"
-  head "https://github.com/mossmann/hackrf.git", branch: "master"
+  head "https://github.com/greatscottgadgets/hackrf.git", branch: "master"
 
   livecheck do
     url :stable
