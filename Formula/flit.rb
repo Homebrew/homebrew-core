@@ -2,11 +2,11 @@ class Flit < Formula
   include Language::Python::Virtualenv
 
   desc "Simplified packaging of Python modules"
-  homepage "https://github.com/takluyver/flit"
+  homepage "https://github.com/pypa/flit"
   url "https://files.pythonhosted.org/packages/a0/62/4fe47656976da4a95bbe9ab3cc710b2c16a0b5a5ffa308780a2ab208ef50/flit-3.7.1.tar.gz"
   sha256 "3c9bd9c140515bfe62dd938c6610d10d6efb9e35cc647fc614fe5fb3a5036682"
   license "BSD-3-Clause"
-  head "https://github.com/takluyver/flit.git", branch: "main"
+  head "https://github.com/pypa/flit.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e81e7df88cf7e1327777442cd65f9b2405b842ab47eaaa288f4ec26daa2e220e"
