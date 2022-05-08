@@ -1,10 +1,10 @@
 class Libetpan < Formula
   desc "Portable mail library handling several protocols"
   homepage "https://www.etpan.org/libetpan.html"
-  url "https://github.com/dinhviethoa/libetpan/archive/1.9.4.tar.gz"
+  url "https://github.com/dinhvh/libetpan/archive/1.9.4.tar.gz"
   sha256 "82ec8ea11d239c9967dbd1717cac09c8330a558e025b3e4dc6a7594e80d13bb1"
   license "BSD-3-Clause"
-  head "https://github.com/dinhviethoa/libetpan.git", branch: "master"
+  head "https://github.com/dinhvh/libetpan.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "772546d5dd375facff503b9d1fb5618b9ebc49e6d0d8c04250edc7bcc60cd115"
