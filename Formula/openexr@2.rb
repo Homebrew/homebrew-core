@@ -1,7 +1,7 @@
 class OpenexrAT2 < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  url "https://github.com/openexr/openexr/archive/v2.5.7.tar.gz"
+  url "https://github.com/AcademySoftwareFoundation/openexr/archive/v2.5.7.tar.gz"
   sha256 "36ecb2290cba6fc92b2ec9357f8dc0e364b4f9a90d727bf9a57c84760695272d"
   license "BSD-3-Clause"
 
@@ -26,7 +26,7 @@ class OpenexrAT2 < Formula
   uses_from_macos "zlib"
 
   resource "exr" do
-    url "https://github.com/openexr/openexr-images/raw/master/TestImages/AllHalfValues.exr"
+    url "https://github.com/AcademySoftwareFoundation/openexr-images/raw/master/TestImages/AllHalfValues.exr"
     sha256 "eede573a0b59b79f21de15ee9d3b7649d58d8f2a8e7787ea34f192db3b3c84a4"
   end
 
