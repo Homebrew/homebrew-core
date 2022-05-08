@@ -1,4 +1,3 @@
-# Documentation: https://github.com/Mikaelemmmm/sql2pb
 class Sql2pb < Formula
   desc "Generates a protobuf file from your mysql database"
   homepage "https://github.com/Mikaelemmmm/sql2pb"
