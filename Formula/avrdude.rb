@@ -2,12 +2,11 @@ class Avrdude < Formula
   desc "Atmel AVR MCU programmer"
   homepage "https://savannah.nongnu.org/projects/avrdude/"
   license "GPL-2.0-or-later"
-  revision 1
 
   stable do
-    url "https://download.savannah.gnu.org/releases/avrdude/avrdude-6.4.tar.gz"
-    mirror "https://download-mirror.savannah.gnu.org/releases/avrdude/avrdude-6.4.tar.gz"
-    sha256 "a9be7066f70a9dcf4bf0736fcf531db6a3250aed1a24cc643add27641b7110f9"
+    url "https://download.savannah.gnu.org/releases/avrdude/avrdude-7.0.tar.gz"
+    mirror "https://download-mirror.savannah.gnu.org/releases/avrdude/avrdude-7.0.tar.gz"
+    sha256 "c0ef65d98d6040ca0b4f2b700d51463c2a1f94665441f39d15d97442dbb79b54"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
