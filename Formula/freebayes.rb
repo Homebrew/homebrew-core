@@ -1,6 +1,6 @@
 class Freebayes < Formula
   desc "Bayesian haplotype-based genetic polymorphism discovery and genotyping"
-  homepage "https://github.com/ekg/freebayes"
+  homepage "https://github.com/freebayes/freebayes"
   url "https://github.com/freebayes/freebayes/releases/download/v1.3.6/freebayes-1.3.6-src.tar.gz"
   sha256 "6016c1e58fdf34a1f6f77b720dd8e12e13a127f7cbac9c747e47954561b437f5"
   license "MIT"
