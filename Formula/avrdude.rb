@@ -73,7 +73,7 @@ class Avrdude < Formula
   end
 
   test do
-    assert_equal "avrdude done.  Thank you.",
+    assert_match "avrdude done.  Thank you.",
       shell_output("#{bin}/avrdude -c jtag2 -p x16a4 2>&1", 1).strip
   end
 end
