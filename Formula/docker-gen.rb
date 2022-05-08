@@ -4,6 +4,7 @@ class DockerGen < Formula
   url "https://github.com/nginx-proxy/docker-gen/archive/0.9.0.tar.gz"
   sha256 "9f270363d872e4d302b67b3baa3baec4d1c7b892814fd6a50e5953a2b90d745e"
   license "MIT"
+  head "https://github.com/nginx-proxy/docker-gen.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f40cb72aa44346dd276d00f9587d27e7ccb060684d138e3045e0207b2b3cc325"
