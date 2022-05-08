@@ -23,6 +23,13 @@ class Ddclient < Formula
 
   uses_from_macos "perl"
 
+  on_linux do
+    resource "NetAddr::IP" do
+      url "https://cpan.metacpan.org/authors/id/M/MI/MIKER/NetAddr-IP-4.079.tar.gz"
+      sha256 "ec5a82dfb7028bcd28bb3d569f95d87dd4166cc19867f2184ed3a59f6d6ca0e7"
+    end
+  end
+
   resource "Data::Validate::IP" do
     url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Data-Validate-IP-0.27.tar.gz"
     sha256 "e1aa92235dcb9c6fd9b6c8cda184d1af73537cc77f4f83a0f88207a8bfbfb7d6"
