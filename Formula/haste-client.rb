@@ -3,16 +3,16 @@ class HasteClient < Formula
   homepage "https://hastebin.com/"
   license "MIT"
   revision 6
-  head "https://github.com/seejohnrun/haste-client.git", branch: "master"
+  head "https://github.com/toptal/haste-client.git", branch: "master"
 
   stable do
-    url "https://github.com/seejohnrun/haste-client/archive/v0.2.3.tar.gz"
+    url "https://github.com/toptal/haste-client/archive/v0.2.3.tar.gz"
     sha256 "becbc13c964bb88841a440db4daff8e535e49cc03df7e1eddf16f95e2696cbaf"
 
     # Remove for > 0.2.3
     # Upstream commit from 19 Jul 2017 "Bump version to 0.2.3"
     patch do
-      url "https://github.com/seejohnrun/haste-client/commit/1037d89.patch?full_index=1"
+      url "https://github.com/toptal/haste-client/commit/1037d89.patch?full_index=1"
       sha256 "1e9c47f35c65f253fd762c673b7677921b333c02d2c4e4ae5f182fcd6a5747c6"
     end
   end
