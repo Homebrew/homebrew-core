@@ -5,6 +5,7 @@ class Kubevela < Formula
       tag:      "v1.3.3",
       revision: "45e1de19dc736b10b3eb2d908d809210f470b24f"
   license "Apache-2.0"
+  head "https://github.com/kubevela/kubevela.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cad332ae13671750a609b10b5c4b0cad36f6e715019023ebcad010123f721789"
