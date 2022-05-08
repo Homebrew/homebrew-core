@@ -2,11 +2,11 @@ class Jsonschema < Formula
   include Language::Python::Virtualenv
 
   desc "Implementation of JSON Schema for Python"
-  homepage "https://github.com/Julian/jsonschema"
+  homepage "https://github.com/python-jsonschema/jsonschema"
   url "https://files.pythonhosted.org/packages/9e/62/93a54db0e44c4de57868a7d638d7a8abce113c8bc43a20b10b1109b2a517/jsonschema-4.5.1.tar.gz"
   sha256 "7c6d882619340c3347a1bf7315e147e6d3dae439033ae6383d6acb908c101dfc"
   license "MIT"
-  head "https://github.com/Julian/jsonschema.git", branch: "main"
+  head "https://github.com/python-jsonschema/jsonschema.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9308909fee150d682a7133f23b0614cc624323fadc5d22a764c7ebd9af821dc2"
