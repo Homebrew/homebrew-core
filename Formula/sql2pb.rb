@@ -13,6 +13,6 @@ class Sql2pb < Formula
 
 
   test do
-     system bin/"sql2pb", "-h"
+    system bin/"sql2pb", "-h"
   end
 end
