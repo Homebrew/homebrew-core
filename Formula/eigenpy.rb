@@ -4,6 +4,7 @@ class Eigenpy < Formula
   url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.7.4/eigenpy-2.7.4.tar.gz"
   sha256 "54f6f61f57b6588004725476b586318e62ae4ed456b81ed9ba262775e64556c3"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
