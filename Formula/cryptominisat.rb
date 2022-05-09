@@ -6,7 +6,7 @@ class Cryptominisat < Formula
   # Everything that's needed to run/build/install/link the system is MIT licensed. This allows
   # easy distribution and running of the system everywhere.
   license "MIT"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://github.com/msoos/cryptominisat.git"
