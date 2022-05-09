@@ -26,6 +26,6 @@ class Lazydocker < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/lazydocker --version")
 
-    assert_match "reporting: undetermined", shell_output("#{bin}/lazydocker --config")
+    assert_match "language: auto", shell_output("#{bin}/lazydocker --config")
   end
 end
