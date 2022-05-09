@@ -4,7 +4,7 @@ class Imake < Formula
   url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.8.tar.bz2"
   sha256 "b8d2e416b3f29cd6482bcffaaf19286d32917a164d07102a0e531ccd41a2a702"
   license "MIT"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://xorg.freedesktop.org/releases/individual/util/"
@@ -23,7 +23,7 @@ class Imake < Formula
 
   depends_on "pkg-config" => :build
   depends_on "xorgproto" => :build
-  depends_on "gcc"
+  depends_on "tradcpp"
 
   resource "xorg-cf-files" do
     url "https://xorg.freedesktop.org/releases/individual/util/xorg-cf-files-1.0.6.tar.bz2"
@@ -34,8 +34,7 @@ class Imake < Formula
     ENV.deparallelize
 
     # imake runtime is broken when used with clang's cpp
-    gcc_major_ver = Formula["gcc"].any_installed_version.major
-    cpp_program = Formula["gcc"].opt_bin/"cpp-#{gcc_major_ver}"
+    cpp_program = Formula["tradcpp"].opt_bin/"tradcpp"
     (buildpath/"imakemdep.h").append_lines [
       "#define DEFAULT_CPP \"#{cpp_program}\"",
       "#undef USE_CC_E",
@@ -61,7 +60,6 @@ class Imake < Formula
   test do
     # Use pipe_output because the return code is unimportant here.
     output = pipe_output("#{bin}/imake -v -s/dev/null -f/dev/null -T/dev/null 2>&1")
-    gcc_major_ver = Formula["gcc"].any_installed_version.major
-    assert_match "#{Formula["gcc"].opt_bin}/cpp-#{gcc_major_ver}", output
+    assert_match "#{Formula["tradcpp"].opt_bin}/tradcpp", output
   end
 end
