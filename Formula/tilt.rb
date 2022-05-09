@@ -17,8 +17,14 @@ class Tilt < Formula
   end
 
   depends_on "go" => :build
+  depends_on "node@16" => :build
+  depends_on "yarn" => :build
 
   def install
+    # bundling the frontend assets first will allow them to be embedded into
+    # the final build
+    system "make", "build-js"
+
     ENV["CGO_ENABLED"] = "1"
     ldflags = %W[
       -s -w
