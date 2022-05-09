@@ -1,8 +1,8 @@
 class Goawk < Formula
   desc "POSIX-compliant AWK interpreter written in Go"
   homepage "https://benhoyt.com/writings/goawk/"
-  url "https://github.com/benhoyt/goawk/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "f610e57396cac89aaa1070ab9edfd46f09929775b58dad2ba78ed8a59e01d6a1"
+  url "https://github.com/benhoyt/goawk/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "d215cea6418a2b0f59960c7099dd5eaef677ef633a545a69ba963424c3e20e85"
   license "MIT"
 
   bottle do
