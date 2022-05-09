@@ -72,13 +72,6 @@ class Gnuradio < Formula
     sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
-  # patch to build with qt6
-  # PR ref, https://github.com/gnuradio/gnuradio/pull/5034
-  patch do
-    url "https://github.com/gnuradio/gnuradio/commit/74bb3881c044d0fe9bb498ede8bcd17f0a27574c.patch?full_index=1"
-    sha256 "d5a76e38e9c50ce28d6efddde2ad3612f602879a7edc5161aa8fa7b93756edfd"
-  end
-
   def install
     ENV.cxx11
 
