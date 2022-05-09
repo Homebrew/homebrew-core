@@ -5,7 +5,7 @@ class AvroCpp < Formula
   mirror "https://archive.apache.org/dist/avro/avro-1.11.0/cpp/avro-cpp-1.11.0.tar.gz"
   sha256 "ef70ca8a1cfeed7017dcb2c0ed591374deab161b86be6ca4b312bc24cada9c56"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "afc1ca56809de324699a3591a9cfc69b64910abd765ed5ed23fc147ed3f3e981"
