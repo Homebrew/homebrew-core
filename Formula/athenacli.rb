@@ -3,8 +3,8 @@ class Athenacli < Formula
 
   desc "CLI tool for AWS Athena service"
   homepage "https://athenacli.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/b0/9f/8edbec6f46ca77bc984e56e190a3f6b9b5659d5ff7b7bdbbbefec597f99c/athenacli-1.6.5.tar.gz"
-  sha256 "2e1c059cba6efe05a93aa41155979ed3061c6de0eddf38ee1c564887a7150e32"
+  url "https://files.pythonhosted.org/packages/db/3e/c6389ff4bd91f3786ceca882c8c03d79182d8fd04714b3cd9dceca780e13/athenacli-1.6.6.tar.gz"
+  sha256 "19947fc189784267c0ef51fc37cde31620bd60b37ff6aa62be12c37ec1efda8c"
   license "BSD-3-Clause"
 
   bottle do
@@ -21,13 +21,13 @@ class Athenacli < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7a/f4/75375d73f3b51272e8291f7e5f13ef4d48a11bb138239b4ce80c9cab4dfe/boto3-1.21.46.tar.gz"
-    sha256 "9ac902076eac82112f4536cc2606a1f597a387dbc56b250575ac2d2c64c75e20"
+    url "https://files.pythonhosted.org/packages/36/47/9027aca40e6f495b280d74f35882dd4c0d172da21667e9ada8c53fd82c22/boto3-1.22.10.tar.gz"
+    sha256 "3edf68bdd1b95576c04cb7f69b9759a75b169fa13bb567271cb4d742f60accad"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5a/8a/f7230958ed29e2a65804f6eeee84bfff0dd4e964c272a96ac40b3871b173/botocore-1.24.46.tar.gz"
-    sha256 "89a203bba3c8f2299287e48a9e112e2dbe478cf67eaac26716f0e7f176446146"
+    url "https://files.pythonhosted.org/packages/d6/d7/21a9635d6dc37188b2e20eab84fdab0645d178c91f43214ca115df10702b/botocore-1.25.10.tar.gz"
+    sha256 "d4738b1c6ae3a905be39422e7a5ca99e4028efc9017c2694cbebbe12c899fc78"
   end
 
   resource "cli-helpers" do
@@ -36,8 +36,8 @@ class Athenacli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/42/e1/4cb2d3a2416bcd871ac93f12b5616f7755a6800bccae05e5a99d3673eb69/click-8.1.2.tar.gz"
-    sha256 "479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"
+    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
+    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "configobj" do
@@ -56,8 +56,8 @@ class Athenacli < Formula
   end
 
   resource "pyathena" do
-    url "https://files.pythonhosted.org/packages/07/6a/e621010c5f78e840305a6acf5ca8aa1150dd2bd99a0af5621d97aac6ee5f/PyAthena-2.5.2.tar.gz"
-    sha256 "be3a0aea5122b6f779bea48413f69e97cab4d0ed3996ab8a22f8852bf6cf9554"
+    url "https://files.pythonhosted.org/packages/26/0d/8783facb8aff8729c87f46bb6f334458d55bb54b9e1fdbcfa6ab78c96cf7/PyAthena-2.6.1.tar.gz"
+    sha256 "1581d9ef1726427538c59b39238baf0dcac019a62025a9004eda173b90809810"
   end
 
   resource "Pygments" do
