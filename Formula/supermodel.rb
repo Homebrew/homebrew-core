@@ -25,6 +25,13 @@ class Supermodel < Formula
 
   depends_on "sdl"
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   def install
     makefile_dir = build.head? ? "Makefiles/Makefile.OSX" : "Makefiles/Makefile.SDL.OSX.GCC"
     if OS.mac?
