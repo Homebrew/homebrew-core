@@ -23,9 +23,6 @@ class Minizinc < Formula
     depends_on "gcc"
   end
 
-  # Workaround for https://github.com/MiniZinc/libminizinc/issues/546 by undoing commit
-  # 894d2d97b5d7c9a24a1b87d71f4c27f9e6a5f0e7, as suggested by a comment there.  Remove
-  # this patch when upstream resolves that issue.
   fails_with gcc: "5"
 
   def install
