@@ -1,10 +1,21 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/v9.3.tar.gz"
-  sha256 "6fe981326563136fbb7a697547dc0fe6495914b5b42df559c2d88b35f6bcc661"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/google/or-tools.git", branch: "stable"
+
+  stable do
+    url "https://github.com/google/or-tools/archive/v9.3.tar.gz"
+    sha256 "6fe981326563136fbb7a697547dc0fe6495914b5b42df559c2d88b35f6bcc661"
+
+    # Allow building with `re2` formula rather than bundled & patched copy.
+    # TODO: remove in the next release
+    patch do
+      url "https://github.com/google/or-tools/commit/0d3572bda874ce30b35af161a713ecd1793cd296.patch?full_index=1"
+      sha256 "b15dcbaf130ce1e6f51dccfd2e97e92ad43694e3019d2179a9c1765909b7ffb8"
+    end
+  end
 
   livecheck do
     url :stable
@@ -31,6 +42,7 @@ class OrTools < Formula
   depends_on "openblas"
   depends_on "osi"
   depends_on "protobuf"
+  depends_on "re2"
 
   uses_from_macos "zlib"
 
@@ -44,8 +56,7 @@ class OrTools < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DUSE_SCIP=OFF",
                     "-DBUILD_SAMPLES=OFF",
-                    "-DBUILD_EXAMPLES=OFF",
-                    "-DBUILD_re2=ON" # build bundled re2 due to re2-2021-11-01.patch
+                    "-DBUILD_EXAMPLES=OFF"
     system "cmake", "--build", "build", "-v"
     system "cmake", "--build", "build", "--target", "install"
     pkgshare.install "ortools/linear_solver/samples/simple_lp_program.cc"
