@@ -6,8 +6,7 @@ class HgTui < Formula
   license "GPL-3.0"
 
   def install
-    system "cargo install --path ."
-    # bin.install "hgtui"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
