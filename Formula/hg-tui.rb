@@ -11,5 +11,6 @@ class HgTui < Formula
   end
 
   test do
-    system bin/"hgtui", "-V"
+    system bin/"hggui", "--version"
   end
+end
