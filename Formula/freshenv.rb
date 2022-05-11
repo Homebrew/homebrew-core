@@ -6,7 +6,7 @@ class Freshenv < Formula
   url "https://files.pythonhosted.org/packages/0e/96/aeef64901691d92bf891912a02edc76c84322c261c1a655c89875f9fae36/freshenv-1.0.3.tar.gz"
   sha256 "50a3bcfa8fa06135e30bed7ad7a2338dab68943370d736471fb7f27e3682bddf"
   license "MIT"
-  depends_on "python@3.6"
+  depends_on "python@3.8"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
