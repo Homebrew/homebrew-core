@@ -42,7 +42,7 @@ class Freshenv < Formula
     url "https://files.pythonhosted.org/packages/2d/f0/c8b22ba63ff25efaf1840f6d63b77e17cbb3bda82a7f87cfbfd2e5a90b7e/rich-12.2.0.tar.gz"
     sha256 "ea74bc9dad9589d8eea3e3fd0b136d8bf6e428888955f215824c2894f0da8b47"
   end
-  
+
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/10/ca/c416cfacf6a47e1400dad56eab85aa86c92c6fbe58447d12035e434f0d5c/aiofiles-0.8.0.tar.gz"
     sha256 "8334f23235248a3b2e83b2c3a78a22674f39969b96397126cc93664d9a901e59"
