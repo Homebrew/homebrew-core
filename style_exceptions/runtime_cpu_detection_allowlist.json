@@ -1,9 +1,0 @@
-[
-  "aom",
-  "apache-arrow",
-  "blis",
-  "fftw",
-  "libvpx",
-  "openblas",
-  "open-mpi"
-]
