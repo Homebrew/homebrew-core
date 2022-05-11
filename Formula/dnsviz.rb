@@ -17,6 +17,7 @@ class Dnsviz < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "poetry" => :build
   depends_on "swig" => :build
   depends_on "bind" => :test
   depends_on "graphviz"
@@ -46,7 +47,21 @@ class Dnsviz < Formula
   def install
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+
+    # Install dnspython using brewed poetry to avoid build dependency on Rust.
+    resource("dnspython").stage do
+      system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
+      venv.pip_install_and_link Dir["dist/dnspython-*.whl"].first
+    end
+
+    resources.each do |r|
+      next if r.name == "dnspython"
+
+      venv.pip_install r
+    end
+
+    venv.pip_install_and_link buildpath
   end
 
   test do
