@@ -4,6 +4,7 @@ class Tradcpp < Formula
   url "https://cdn.netbsd.org/pub/NetBSD/misc/dholland/tradcpp-0.5.3.tar.gz"
   sha256 "e17b9f42cf74b360d5691bc59fb53f37e41581c45b75fcd64bb965e5e2fe4c5e"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9584ff61e602fe8001d9c39dcaec1e348731955bd65583155953edc41ef989a3"
@@ -17,8 +18,14 @@ class Tradcpp < Formula
   depends_on "bmake" => :build
 
   def install
+    ENV.append_to_cflags %Q(-DCONFIG_SYSTEMINCLUDE=\\"#{MacOS.sdk_path}/usr/include\\") if OS.mac?
+    bmake_args = %W[
+      prefix=#{prefix}
+      MK_INSTALL_AS_USER=yes
+      MANDIR=#{man}
+    ]
     system "bmake"
-    system "bmake", "prefix=#{prefix}", "MK_INSTALL_AS_USER=yes", "install"
+    system "bmake", *bmake_args, "install"
   end
 
   test do
