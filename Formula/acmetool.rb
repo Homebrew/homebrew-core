@@ -2,10 +2,9 @@ class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
   homepage "https://github.com/hlandau/acmetool"
   url "https://github.com/hlandau/acmetool.git",
-      tag:      "v0.0.67",
-      revision: "221ea15246f0bbcf254b350bee272d43a1820285"
+      tag:      "v0.2.1",
+      revision: "f68b275d0a0ca526525b1d11e58be9b7e995251f"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f3a7ca3981353a8c1ce7b022a1734184ca4cb288d8f4dac69af498a5aead925d"
@@ -29,7 +28,7 @@ class Acmetool < Formula
   end
 
   def install
-    # https://github.com/hlandau/acmetool/blob/221ea15246f0bbcf254b350bee272d43a1820285/_doc/PACKAGING-PATHS.md
+    # https://github.com/hlandau/acmetool/blob/f68b275d0a0ca526525b1d11e58be9b7e995251f/_doc/PACKAGING-PATHS.md
     buildinfo = Utils.safe_popen_read("(echo acmetool Homebrew version #{version} \\($(uname -mrs)\\);
                                       go list -m all | sed '1d') | base64 | tr -d '\\n'")
     ldflags = %W[
