@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/13/ad/e1f6a9884050247bdcf3389aab8b53e06e4634d6ed548c5e12005266c471/datalad-0.16.2.tar.gz"
-  sha256 "1fab2d92bbd1b683ee86403ac63795a759208d43d7ff2c82e928c63f214ff876"
+  url "https://files.pythonhosted.org/packages/97/38/49e1aa29ee7d23dbfa38fc9a11dc03ff5b21112b3c5d225c0a31baa897b9/datalad-0.16.3.tar.gz"
+  sha256 "673839c1cb5a0b2f89b25d43131e724acd677d3b3953862d1a2a59337917a418"
   license "MIT"
 
   bottle do
@@ -55,8 +55,8 @@ class Datalad < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/db/08/dbe660b435f7dcc9cd78c928cabba90e3088c10b2a90843c102cc3671154/humanize-4.0.0.tar.gz"
-    sha256 "ee1f872fdfc7d2ef4a28d4f80ddde9f96d36955b5d6b0dac4bdeb99502bddb00"
+    url "https://files.pythonhosted.org/packages/bb/68/c8be852a42c3b0364ad256a8cb41ab619d445b812aa16f94c9d16b042d74/humanize-4.1.0.tar.gz"
+    sha256 "3a119b242ec872c029d8b7bf8435a61a5798f124b244a08013aec5617302f80e"
   end
 
   resource "idna" do
@@ -105,13 +105,13 @@ class Datalad < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
-    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
+    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
+    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   resource "python-gitlab" do
-    url "https://files.pythonhosted.org/packages/36/36/0c7701ead9029b05341873d719191603ed291375f4ccfc2697d9388b80d2/python-gitlab-3.3.0.tar.gz"
-    sha256 "fef25d41a62f91da82ee20f72a728b9c69eef34cf0a3005cdbb9a0b471d5b498"
+    url "https://files.pythonhosted.org/packages/e7/ae/dd62e4f2d3f476636605179243d80a314a9a3592941ff354b65ca4ef1467/python-gitlab-3.4.0.tar.gz"
+    sha256 "6180b81ee2f265ad8d8412956a1740b4d3ceca7b28ae2f707dfe62375fed0082"
   end
 
   resource "requests" do
