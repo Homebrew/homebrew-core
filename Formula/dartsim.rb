@@ -28,6 +28,12 @@ class Dartsim < Formula
   depends_on "tinyxml2"
   depends_on "urdfdom"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     ENV.cxx11
     args = std_cmake_args
@@ -60,6 +66,8 @@ class Dartsim < Formula
                     "-I#{include}", "-L#{lib}", "-ldart",
                     "-L#{Formula["assimp"].opt_lib}", "-lassimp",
                     "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+                    "-L#{Formula["libccd"].opt_lib}", "-lccd",
+                    "-L#{Formula["fcl"].opt_lib}", "-lfcl",
                     "-std=c++14", "-o", "test"
     system "./test"
   end
