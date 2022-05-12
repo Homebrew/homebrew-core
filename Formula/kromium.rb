@@ -12,7 +12,7 @@ class Kromium < Formula
   end
 
   test do
-    assert_match version.to_s(), shell_output("#{bin}/kromium -version | cut -d\":\" -f2")
+    assert_match version.to_s, shell_output("#{bin}/kromium -version")
     system "mkdir", "src"
     system "mkdir", "dst"
     system "mkdir", "state"
