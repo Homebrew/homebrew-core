@@ -17,9 +17,9 @@ class Kromium < Formula
     (testpath/"src/file1").write "hello\n"
     (testpath/"test.cue").write <<~EOS
       {
-      SourceBucket: "file://#{dir}/src"
-      DestinationBucket: "file://#{dir}/dst"
-      StateBucket: "file://#{dir}/state"
+      SourceBucket: "file://#{testpath}/src"
+      DestinationBucket: "file://#{testpath}/dst"
+      StateBucket: "file://#{testpath}/state"
       Transforms: [{ Type: "Identity" }]
       }
     EOS
