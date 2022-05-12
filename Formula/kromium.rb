@@ -17,12 +17,14 @@ class Kromium < Formula
     system "echo hello > src/file1"
     assert_match "file1", shell_output("ls src")
     assert_match "", shell_output("ls dst")
-    system "echo { > test.cue"
-    system "echo \"SourceBucket: \\\"file://`pwd`/src\\\"\" >> test.cue"
-    system "echo \"DestinationBucket: \\\"file://`pwd`/dst\\\"\" >> test.cue"
-    system "echo \"StateBucket: \\\"file://`pwd`/state\\\"\" >> test.cue"
-    system "echo 'Transforms: [{ Type: \"Identity\" }]' >> test.cue"
-    system "echo } >> test.cue"
+    (testpath/"test.cue").write <<~EOS
+      {
+      SourceBucket: "file://`pwd`/src"
+      DestinationBucket: "file://`pwd`/dst"
+      StateBucket: "file://`pwd`/state"
+      Transforms: [{ Type: "Identity" }]
+      }
+    EOS
     system "#{bin}/kromium", "-run", "test.cue", "-render=false"
     assert_match "file1", shell_output("ls dst")
   end
