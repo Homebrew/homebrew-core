@@ -6,9 +6,7 @@ class ImessageRuby < Formula
   license "MIT"
   head "https://github.com/linjunpop/imessage.git", branch: "master"
 
-  depends_on "ruby" if Hardware::CPU.arm?
-
-  uses_from_macos "ruby", since: :catalina
+  uses_from_macos "ruby"
 
   def install
     ENV["GEM_HOME"] = libexec
