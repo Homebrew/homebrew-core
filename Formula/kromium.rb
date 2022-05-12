@@ -15,7 +15,6 @@ class Kromium < Formula
     assert_match version.to_s, shell_output("#{bin}/kromium -version")
     %w[src dst state].map { |d| (testpath/d).mkpath }
     (testpath/"src/file1").write "hello\n"
-    dir = Dir.getwd
     (testpath/"test.cue").write <<~EOS
       {
       SourceBucket: "file://#{dir}/src"
