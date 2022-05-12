@@ -14,9 +14,7 @@ class Kromium < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/kromium -version")
     %w[src dst state].map { |d| (testpath/d).mkpath }
-    system "echo hello > src/file1"
-    assert_match "file1", shell_output("ls src")
-    assert_match "", shell_output("ls dst")
+    (testpath/"src/file1").write "hello\n"
     dir = Dir.getwd
     (testpath/"test.cue").write <<~EOS
       {
