@@ -17,14 +17,16 @@ class Kromium < Formula
     system "echo hello > src/file1"
     assert_match "file1", shell_output("ls src")
     assert_match "", shell_output("ls dst")
+    dir = Dir.getwd
     (testpath/"test.cue").write <<~EOS
       {
-      SourceBucket: "file://`pwd`/src"
-      DestinationBucket: "file://`pwd`/dst"
-      StateBucket: "file://`pwd`/state"
+      SourceBucket: "file://#{dir}/src"
+      DestinationBucket: "file://#{dir}/dst"
+      StateBucket: "file://#{dir}/state"
       Transforms: [{ Type: "Identity" }]
       }
     EOS
+    system "cp", "test.cue", "/tmp/"
     system "#{bin}/kromium", "-run", "test.cue", "-render=false"
     assert_predicate testpath/"dst/file1", :exist?
   end
