@@ -23,6 +23,12 @@ class Metaproxy < Formula
   depends_on "boost"
   depends_on "yazpp"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
