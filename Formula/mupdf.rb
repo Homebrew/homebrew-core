@@ -28,6 +28,7 @@ class Mupdf < Formula
     because: "mupdf and mupdf-tools install the same binaries"
 
   def install
+    ENV.append_to_cflags "-fPIC" if OS.linux?
     glut_cflags = `pkg-config --cflags glut gl`.chomp
     glut_libs = `pkg-config --libs glut gl`.chomp
     system "make", "install",
