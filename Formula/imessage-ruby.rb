@@ -28,7 +28,7 @@ class ImessageRuby < Formula
     system "#{bin}/imessage", "--version"
 
     unless build.head?
-      assert_match "imessage #{version}", shell_output("#{bin}/imessage --version")
+      assert_match "imessage v#{version}", shell_output("#{bin}/imessage --version")
     end
   end
 end
