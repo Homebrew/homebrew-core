@@ -13,9 +13,7 @@ class Kromium < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/kromium -version")
-    system "mkdir", "src"
-    system "mkdir", "dst"
-    system "mkdir", "state"
+    %w[src dst state].map { |d| (testpath/d).mkpath }
     system "echo hello > src/file1"
     assert_match "file1", shell_output("ls src")
     assert_match "", shell_output("ls dst")
