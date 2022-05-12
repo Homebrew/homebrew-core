@@ -26,7 +26,6 @@ class Kromium < Formula
       Transforms: [{ Type: "Identity" }]
       }
     EOS
-    system "cp", "test.cue", "/tmp/"
     system "#{bin}/kromium", "-run", "test.cue", "-render=false"
     assert_predicate testpath/"dst/file1", :exist?
   end
