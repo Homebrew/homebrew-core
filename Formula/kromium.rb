@@ -26,6 +26,6 @@ class Kromium < Formula
       }
     EOS
     system "#{bin}/kromium", "-run", "test.cue", "-render=false"
-    assert_match "file1", shell_output("ls dst")
+    assert_predicate testpath/"dst/file1", :exist?
   end
 end
