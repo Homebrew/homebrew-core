@@ -14,15 +14,12 @@ class Kromium < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/kromium -version")
     %w[src dst state].map { |d| (testpath/d).mkpath }
-    system "echo hello > src/file1"
-    assert_match "file1", shell_output("ls src")
-    assert_match "", shell_output("ls dst")
-    dir = Dir.getwd
+    (testpath/"src/file1").write "hello\n"
     (testpath/"test.cue").write <<~EOS
       {
-      SourceBucket: "file://#{dir}/src"
-      DestinationBucket: "file://#{dir}/dst"
-      StateBucket: "file://#{dir}/state"
+      SourceBucket: "file://#{testpath}/src"
+      DestinationBucket: "file://#{testpath}/dst"
+      StateBucket: "file://#{testpath}/state"
       Transforms: [{ Type: "Identity" }]
       }
     EOS
