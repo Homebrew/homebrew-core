@@ -12,6 +12,6 @@ class Xpipe < Formula
   end
 
   test do
-    system "true"
+    system "false"
   end
 end
