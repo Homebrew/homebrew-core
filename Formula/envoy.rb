@@ -4,8 +4,8 @@ class Envoy < Formula
   # Switch to a tarball when the following issue is resolved:
   # https://github.com/envoyproxy/envoy/issues/2181
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.21.1",
-      revision: "af50070ee60866874b0a9383daf9364e884ded22"
+      tag:      "v1.21.2",
+      revision: "dc7f46eb44e54d5646301aa5ab4ba01f662fdf75"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -61,7 +61,6 @@ class Envoy < Formula
     args = %W[
       --compilation_mode=opt
       --curses=no
-      --show_task_finish
       --verbose_failures
       --action_env=PATH=#{env_path}
       --host_action_env=PATH=#{env_path}
