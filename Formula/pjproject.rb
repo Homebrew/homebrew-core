@@ -1,8 +1,8 @@
 class Pjproject < Formula
   desc "C library for multimedia protocols such as SIP, SDP, RTP and more"
   homepage "https://www.pjsip.org/"
-  url "https://github.com/pjsip/pjproject/archive/2.11.1.tar.gz"
-  sha256 "45f6604372df3f49293749cd7c0b42cb21c4fb666c66f8ed9765de004d1eae38"
+  url "https://github.com/pjsip/pjproject/archive/2.12.1.tar.gz"
+  sha256 "d0feef6963b07934e821ba4328aecb4c36358515c1b3e507da5874555d713533"
   license "GPL-2.0-or-later"
   head "https://github.com/pjsip/pjproject.git", branch: "master"
 
@@ -22,6 +22,12 @@ class Pjproject < Formula
 
   depends_on macos: :high_sierra # Uses Security framework API enum cases introduced in 10.13.4
   depends_on "openssl@1.1"
+
+  # restore --version flag, remove in next version
+  patch do
+    url "https://github.com/pjsip/pjproject/commit/4a8cf9f3.patch?full_index=1"
+    sha256 "2a343db0ba4c0cb02ebaa4fc197b27aa9ef064f8367f02f77b854204ff640112"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}"
