@@ -3,8 +3,8 @@ class Clarinet < Formula
   homepage "https://github.com/hirosystems/clarinet"
   # pull from git tag to get submodules
   url "https://github.com/hirosystems/clarinet.git",
-      tag:      "v0.29.1",
-      revision: "c403059af09f4eb0303d488ff048aa39f082fb03"
+      tag:      "v0.30.0",
+      revision: "79f8a4f94e3941193d96c3416b2c6e916a62f1d3"
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/clarinet.git", branch: "main"
 
