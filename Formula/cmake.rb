@@ -6,6 +6,7 @@ class Cmake < Formula
   mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.23.1.tar.gz"
   sha256 "33fd10a8ec687a4d0d5b42473f10459bb92b3ae7def2b745dc10b192760869f3"
   license "BSD-3-Clause"
+  revision 1
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
   # The "latest" release on GitHub has been an unstable version before, so we
@@ -28,6 +29,13 @@ class Cmake < Formula
 
   on_linux do
     depends_on "openssl@1.1"
+  end
+
+  # Tentative workaround for bug with gfortran 12 and clang
+  # https://gitlab.kitware.com/cmake/cmake/-/issues/23500
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/533fd564/cmake/gcc-12.diff"
+    sha256 "f9c7e39c10cf4c88e092da65f2859652529103e364828188e0ae4fef10a18936"
   end
 
   # The completions were removed because of problems with system bash
