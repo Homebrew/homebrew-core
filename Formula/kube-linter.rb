@@ -4,7 +4,6 @@ class KubeLinter < Formula
   url "https://github.com/stackrox/kube-linter/archive/0.3.0.tar.gz"
   sha256 "204140d9c6953ac4e8cc4d52306eeb2b2cb1b434d66b1638c7242d2721926b78"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/stackrox/kube-linter.git", branch: "master"
 
   bottle do
