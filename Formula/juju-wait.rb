@@ -6,7 +6,7 @@ class JujuWait < Formula
   url "https://files.pythonhosted.org/packages/0c/2b/f4bd0138f941e4ba321298663de3f1c8d9368b75671b17aa1b8d41a154dc/juju-wait-2.8.4.tar.gz"
   sha256 "9e84739056e371ab41ee59086313bf357684bc97aae8308716c8fe3f19df99be"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "87e0c8b5441eff8bfa72f04efa8c49b0b3eb6236e0f53e4e7bdaa052ae88e1b3"
@@ -22,8 +22,8 @@ class JujuWait < Formula
   depends_on "python@3.10"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   def install
