@@ -1,8 +1,9 @@
 class Amtk < Formula
   desc "Actions, Menus and Toolbars Kit for GNOME"
-  homepage "https://wiki.gnome.org/Projects/Amtk"
-  url "https://download.gnome.org/sources/amtk/5.2/amtk-5.2.0.tar.xz"
-  sha256 "820545bb4cf87ecebc2c3638d6b6e58b8dbd60a419a9b43cf020124e5dad7078"
+  homepage "https://gitlab.gnome.org/swilmet/amtk"
+  url "https://gitlab.gnome.org/swilmet/amtk.git",
+      tag:      "5.4.0",
+      revision: "9feb1a70cf06a6fe837c27f4ddcdd492dcb4fe9b"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -17,14 +18,23 @@ class Amtk < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
 
+  # Fix "ld: unknown option: --version-script", remove in next release
+  patch do
+    url "https://gitlab.gnome.org/swilmet/amtk/-/commit/eed214d83df7fb67e36bf6024fb5ba39bd35e4ce.diff"
+    sha256 "3af869e9d6a462f9713c1a62671c68835ceb0bf8c0ca0c38388b3ec063d311a2"
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    cd "build" do
+      system "meson", *std_meson_args, "-Dgtk_doc=false", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
