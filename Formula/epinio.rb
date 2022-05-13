@@ -14,7 +14,7 @@ class Epinio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "af8db289bd0578f756eff57d1a120d260e2e62d4c7d087f3ed7debc7f236bc80"
   end
 
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/epinio/epinio/internal/version.Version=#{version}")
