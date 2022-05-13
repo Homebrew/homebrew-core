@@ -17,8 +17,8 @@ class Mruby < Formula
   end
 
   depends_on "bison" => :build
-
   uses_from_macos "ruby" => :build
+  depends_on "readline"
 
   def install
     cp "build_config/default.rb", buildpath/"homebrew.rb"
