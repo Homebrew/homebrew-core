@@ -30,9 +30,9 @@ class Zsh < Formula
   uses_from_macos "texinfo"
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.8.1/zsh-5.8.1-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.8.1-doc.tar.xz"
-    sha256 "8b9cb53d6432f13e9767a8680b642e8e8a52c7f1b8decd211756ca20c667f917"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.9/zsh-5.9-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.9-doc.tar.xz"
+    sha256 "6f7c091249575e68c177c5e8d5c3e9705660d0d3ca1647aea365fd00a0bd3e8a"
   end
 
   def install
