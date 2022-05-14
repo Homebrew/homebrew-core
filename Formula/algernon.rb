@@ -1,8 +1,8 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://github.com/xyproto/algernon"
-  url "https://github.com/xyproto/algernon/archive/1.12.14.tar.gz"
-  sha256 "cab5b01923142e0326ea2a01797814bb2e8ea9f7c6c41a3ea0ae7df3b667e86e"
+  url "https://github.com/xyproto/algernon/archive/refs/tags/v1.13.0.tar.gz"
+  sha256 "8327c1687990386eb5a48d15fd46fc69e17d400c29d726b34f6087c9c4887b9c"
   license "MIT"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git", branch: "main"
