@@ -15,6 +15,8 @@ class SfPwgen < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "01cf1ff26d304c0cbb0072130ba2476ddeebd8933040092b937ced1ede06c2a2"
   end
 
+  depends_on :macos
+
   def install
     system "make"
     bin.install "sf-pwgen"
