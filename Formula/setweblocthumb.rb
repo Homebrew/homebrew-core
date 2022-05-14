@@ -16,6 +16,8 @@ class Setweblocthumb < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "f55cbbabd19c245e42249b8d75c51b4fcec05d6d08674a448bf6e7a3da70aae5"
   end
 
+  depends_on :macos
+
   def install
     system "make"
     bin.install "setWeblocThumb"
