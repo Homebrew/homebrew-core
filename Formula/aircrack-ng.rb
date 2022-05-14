@@ -1,8 +1,8 @@
 class AircrackNg < Formula
   desc "Next-generation aircrack with lots of new features"
   homepage "https://aircrack-ng.org/"
-  url "https://download.aircrack-ng.org/aircrack-ng-1.6.tar.gz"
-  sha256 "4f0bfd486efc6ea7229f7fbc54340ff8b2094a0d73e9f617e0a39f878999a247"
+  url "https://download.aircrack-ng.org/aircrack-ng-1.7.tar.gz"
+  sha256 "05a704e3c8f7792a17315080a21214a4448fd2452c1b0dd5226a3a55f90b58c3"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause", "OpenSSL"]
 
   livecheck do
