@@ -29,6 +29,13 @@ class Tcptrace < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "f9de7ef41a2b9dc8daee1fddef1035ddf6a08cf473b6edafcf4bb069ab5f0052"
   end
 
+  uses_from_macos "libpcap"
+
+  patch do
+    url "https://github.com/msagarpatel/tcptrace/commit/f36b1567a5691d4c32489ab8493d8d4faaad3935.patch?full_index=1"
+    sha256 "ee86790cc2c3cea38ab9d764b3bfbc6adf5f62ca6c33c590329c00429d0a9ef8"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
