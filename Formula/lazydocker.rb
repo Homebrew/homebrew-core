@@ -15,8 +15,7 @@ class Lazydocker < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6e2024d69df4df7a28f75aebd7b9e5db1d6002b1d500276fa5e258618422637"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", "-mod=vendor", "-o", bin/"lazydocker",
