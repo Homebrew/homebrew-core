@@ -17,6 +17,7 @@ class Killswitch < Formula
 
   # Bump to 1.18 on the next release, if possible.
   depends_on "go@1.17" => :build
+  depends_on :macos
 
   def install
     system "go", "build", "-mod=readonly", "-ldflags", "-s -w -X main.version=#{version}",
