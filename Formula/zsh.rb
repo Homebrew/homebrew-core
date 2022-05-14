@@ -1,9 +1,9 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.8.1/zsh-5.8.1.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.8.1.tar.xz"
-  sha256 "b6973520bace600b4779200269b1e5d79e5f505ac4952058c11ad5bbf0dd9919"
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.9/zsh-5.9.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.9.tar.xz"
+  sha256 "9b8d1ecedd5b5e81fbf1918e876752a7dd948e05c1a0dba10ab863842d45acd5"
   license "MIT-Modern-Variant"
 
   livecheck do
