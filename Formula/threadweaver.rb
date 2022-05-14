@@ -53,7 +53,7 @@ class Threadweaver < Formula
     qt5_args = ["-DQt5Core_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Core"]
     qt5_args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{Formula["qt@5"].opt_lib}" unless OS.mac?
     system "cmake", (pkgshare/"examples/HelloWorld"), *std_cmake_args, *qt5_args
-    system "make"
+    system "cmake", "--build", "."
 
     assert_equal "Hello World!", shell_output("./ThreadWeaver_HelloWorld 2>&1").strip
   end
