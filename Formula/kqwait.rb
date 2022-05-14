@@ -19,6 +19,8 @@ class Kqwait < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "c65e153f40c8f7a3e8732f4cb386e2758cdff079e7600524011ca7c6d1da4a0d"
   end
 
+  depends_on :macos
+
   def install
     system "make"
     bin.install "kqwait"
