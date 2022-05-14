@@ -1,10 +1,10 @@
 class GnomeLatex < Formula
   desc "LaTeX editor for the GNOME desktop"
-  homepage "https://wiki.gnome.org/Apps/GNOME-LaTeX"
-  url "https://download.gnome.org/sources/gnome-latex/3.38/gnome-latex-3.38.0.tar.xz"
-  sha256 "a82a9fc6f056929ea18d6dffd121e71b2c21768808c86ef1f34da0f86e220d77"
+  homepage "https://gitlab.gnome.org/swilmet/gnome-latex"
+  url "https://gitlab.gnome.org/swilmet/gnome-latex.git",
+      tag:      "3.40.0",
+      revision: "d488276c58b0d126d34e1facc431c153664d980b"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "6c25d1dc2043da0fd0618c57316b19e59fa7627c61ea01051a38384c1e6683ac"
@@ -15,10 +15,9 @@ class GnomeLatex < Formula
     sha256 mojave:         "282a45a8580c354c10f112895d0448cc97e206da12460f75b6dbcc8906401314"
   end
 
-  # See: https://gitlab.gnome.org/Archive/gnome-latex
-  deprecate! date: "2021-05-25", because: :repo_archived
-
+  depends_on "appstream-glib" => :build
   depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
@@ -26,25 +25,23 @@ class GnomeLatex < Formula
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
+  depends_on "yelp-tools" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gnome-themes-standard"
   depends_on "gspell"
   depends_on "libgee"
   depends_on "tepl"
 
-  # Add commit to port to Tepl 6
-  patch do
-    url "https://gitlab.gnome.org/Archive/gnome-latex/-/commit/e1b01186f8a4e5d3fee4c9ccfbedd6d098517df9.diff"
-    sha256 "0d54059732cb3092f52bfb8bca6ebad24a08b86036baafb31e06aca2415517ca"
-  end
-
   def install
-    system "autoreconf", "-fvi"
-    system "./configure", "--disable-schemas-compile",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--disable-dconf-migration",
-                          "--prefix=#{prefix}"
+    # Needed by intltool (xml::parser)
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" if OS.linux?
+
+    system "./autogen.sh", "--disable-schemas-compile",
+                           "--disable-dependency-tracking",
+                           "--disable-silent-rules",
+                           "--disable-code-coverage",
+                           "--disable-dconf-migration",
+                           "--prefix=#{prefix}"
     system "make", "install"
   end
 
