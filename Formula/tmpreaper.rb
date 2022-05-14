@@ -1,9 +1,9 @@
 class Tmpreaper < Formula
   desc "Clean up files in directories based on their age"
   homepage "https://packages.debian.org/sid/tmpreaper"
-  url "https://old-releases.ubuntu.com/ubuntu/pool/universe/t/tmpreaper/tmpreaper_1.6.14.tar.gz"
-  mirror "https://fossies.org/linux/misc/tmpreaper_1.6.14.tar.gz"
-  sha256 "4acb93745ceb8b8c5941313bbba78ceb2af0c3914f1afea0e0ae1f7950d6bdae"
+  url "https://deb.debian.org/debian/pool/main/t/tmpreaper/tmpreaper_1.6.16.tar.gz"
+  mirror "https://fossies.org/linux/misc/tmpreaper_1.6.16.tar.gz"
+  sha256 "e543acdd55bb50102c42015e6d399e8abb36ad818cbd3ca6cb1c905b5781e202"
   license "GPL-2.0-only"
 
   bottle do
@@ -16,6 +16,9 @@ class Tmpreaper < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "2e526cb2d2a7e7e2fa82becbee314478158aec96a6c5a2963072cc8e1092f42c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbb3e26d1d6ef72c484371f2e9e2614e8118d18eccbceba255f10a198a7a0663"
   end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   on_linux do
     depends_on "e2fsprogs"
