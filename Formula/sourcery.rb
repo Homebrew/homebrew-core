@@ -13,6 +13,7 @@ class Sourcery < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "92cb87ac0c373bd0ad1111d388916c86f4fcdd390686143b2ddff85a664f1b7a"
   end
 
+  depends_on :macos # Linux support is still a WIP: https://github.com/krzysztofzablocki/Sourcery/issues/306
   depends_on xcode: "13.0"
 
   uses_from_macos "ruby" => :build
