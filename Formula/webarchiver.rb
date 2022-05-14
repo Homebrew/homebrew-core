@@ -16,6 +16,7 @@ class Webarchiver < Formula
   end
 
   depends_on xcode: ["6.0.1", :build]
+  depends_on :macos
 
   def install
     # Force 64 bit-only build, otherwise it fails on Mojave
