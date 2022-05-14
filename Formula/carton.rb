@@ -1,10 +1,9 @@
 class Carton < Formula
   desc "Perl module dependency manager (aka Bundler for Perl)"
   homepage "https://metacpan.org/pod/Carton"
-  url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/Carton-v1.0.34.tar.gz"
-  sha256 "77d42b92732bcfc18a59d341e56ce476205b1c4d380eab3a07224f5745c23e45"
+  url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/Carton-v1.0.35.tar.gz"
+  sha256 "9c4558ca97cd08b69fdfb52b28c3ddc2043ef52f0627b90e53d05a4087344175"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  revision 2
   head "https://github.com/perl-carton/carton.git", branch: "master"
 
   bottle do
