@@ -81,6 +81,7 @@ class Csound < Formula
     ENV["JAVA_HOME"] = Formula["openjdk"].libexec/(OS.mac? ? "openjdk.jdk/Contents/Home" : "lib")
 
     args = [
+      "-DBUILD_DSSI_OPCODES=OFF", # Csound segfaults on Linux CI if DSSI opcodes are built
       "-DBUILD_JAVA_INTERFACE=ON",
       "-DBUILD_LUA_INTERFACE=OFF",
       "-DCS_FRAMEWORK_DEST=#{frameworks}",
