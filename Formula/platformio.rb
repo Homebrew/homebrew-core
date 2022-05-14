@@ -6,6 +6,7 @@ class Platformio < Formula
   url "https://files.pythonhosted.org/packages/9d/e6/d369eada663ba901e5a9d6783b160ca546515b112b06bbb42851792f3353/platformio-5.2.5.tar.gz"
   sha256 "aa0d1ff8a17ac1952eb45d37a84d4aa6e5d1aa65098bd1525db34be83c42c4ae"
   license "Apache-2.0"
+  head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5a29db1f9f19f41cc8c753cea288205e18268f5753414770ac884ce2e688b63d"
