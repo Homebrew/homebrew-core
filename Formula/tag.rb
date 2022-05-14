@@ -18,6 +18,8 @@ class Tag < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "5711ce58bd5b224252f1869f84f937c6bca0775bf4c86a6a1168418c1218dc98"
   end
 
+  depends_on :macos
+
   def install
     system "make", "install", "prefix=#{prefix}"
   end
