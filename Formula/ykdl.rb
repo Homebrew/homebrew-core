@@ -3,8 +3,8 @@ class Ykdl < Formula
 
   desc "Video downloader that focus on China mainland video sites"
   homepage "https://github.com/SeaHOH/ykdl"
-  url "https://files.pythonhosted.org/packages/72/b1/2b860383f3568fc168f9e843d367675724f2c67feabc2207da90d7fbe47f/ykdl-1.8.0.tar.gz"
-  sha256 "29588ec771d364ed91446a5f7f0dcee914119e7e7c99c6860ac46f0ad9622790"
+  url "https://files.pythonhosted.org/packages/94/0c/723886d89167fa7ab4fa8847c646da95ef6cf56afadf7098619d4223fb62/ykdl-1.8.1.tar.gz"
+  sha256 "28b6415c03efd6141034c8d46c0483d27276bcd7d189fd12e48dd5762f79a868"
   license "MIT"
 
   bottle do
@@ -29,8 +29,8 @@ class Ykdl < Formula
   end
 
   resource "m3u8" do
-    url "https://files.pythonhosted.org/packages/23/aa/fe3796bc467b8108462854dcc12143c8f083b918028f179f02b1a7c33f79/m3u8-1.0.0.tar.gz"
-    sha256 "e9886ff0df35d81fadc522df5ef9b516708b09f8109492f1175720e006b9b8e8"
+    url "https://files.pythonhosted.org/packages/0a/c1/ea98c5f109be04a745d01437f77b801192f3cf56cb834fa5e660f0a0ce03/m3u8-2.0.0.tar.gz"
+    sha256 "bd8727a74c23fd706f2dc2a53f319391589ea64bb3a5c76b1c9b5707d8f4a0b0"
   end
 
   def install
