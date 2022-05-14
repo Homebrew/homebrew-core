@@ -1,10 +1,10 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
-  homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz"
-  sha256 "a86397a895dca9c0de7a5ccb063bda8f7ef691cccb950ce2cfdee367903e7a63"
+  homepage "https://gitlab.gnome.org/swilmet/tepl"
+  url "https://gitlab.gnome.org/swilmet/tepl.git",
+      tag:      "6.0.1",
+      revision: "2db87c240f86ec05b6707c069dd132f835be653a"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "778a7adeb2248b9f542c80adcd699256d5806294ac483646b9b1ea5dde73df55"
@@ -15,9 +15,6 @@ class Tepl < Formula
     sha256 x86_64_linux:   "935c8e224e39e236bd3f84eaac5baca6bf2a19ba60554434b0a4ffcab21f5ce5"
   end
 
-  # See: https://gitlab.gnome.org/Archive/tepl
-  deprecate! date: "2021-05-25", because: :repo_archived
-
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -27,15 +24,15 @@ class Tepl < Formula
   depends_on "icu4c"
   depends_on "uchardet"
 
-  # Submitted upstream at https://gitlab.gnome.org/GNOME/tepl/-/merge_requests/8
+  # Fix "ld: unknown option: --version-script", remove in next release
   patch do
-    url "https://gitlab.gnome.org/GNOME/tepl/-/commit/a8075b0685764d1243762e569fc636fa4673d244.diff"
-    sha256 "b5d646c194955b0c14bbb7604c96e237a82632dc548f66f2d0163595ef18ee88"
+    url "https://gitlab.gnome.org/swilmet/tepl/-/commit/9f2dbb0f2e835b4a7e4bdb04085799575237dff7.diff"
+    sha256 "c3c3dfcd6c7e665d2f524678d9d3e3343afb9b575ab76cc71ef214abb5dbc727"
   end
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, ".."
+      system "meson", *std_meson_args, "-Dgtk_doc=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
