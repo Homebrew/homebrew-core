@@ -32,6 +32,7 @@ class IosClassGuard < Formula
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   def install
     xcodebuild "-workspace", "ios-class-guard.xcworkspace",
