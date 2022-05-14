@@ -2,18 +2,17 @@ class Tcptrace < Formula
   # The tcptrace.org site has a history of going down sometimes, which is why
   # we're using mirrors even though the first-party site may be available.
   desc "Analyze tcpdump output"
-  homepage "http://www.tcptrace.org/"
+  homepage "https://web.archive.org/web/20210826120800/http://www.tcptrace.org/"
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/tcptrace/tcptrace-6.6.7.tar.gz"
   mirror "https://distfiles.macports.org/tcptrace/tcptrace-6.6.7.tar.gz"
   sha256 "63380a4051933ca08979476a9dfc6f959308bc9f60d45255202e388eb56910bd"
   license "GPL-2.0-or-later"
 
-  # This site has a history of going down for periods of time, which is why the
-  # formula uses mirrors. This is something to be aware of if livecheck is
-  # unable to find versions.
+  # tcptrace.org has a history of going down for periods of time, which is why
+  # the formula uses mirrors. As of writing, the site has been down for months.
+  # There hasn't been a new tcptrace version in years, so we simply skip it.
   livecheck do
-    url "http://www.tcptrace.org/download.shtml"
-    regex(/href=.*?tcptrace[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    skip "Not maintained and tcptrace.org is frequently inaccessible"
   end
 
   bottle do
