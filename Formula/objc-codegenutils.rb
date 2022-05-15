@@ -1,10 +1,10 @@
 class ObjcCodegenutils < Formula
   desc "Three small tools to help work with XCode"
-  homepage "https://github.com/square/objc-codegenutils"
-  url "https://github.com/square/objc-codegenutils/archive/v1.0.tar.gz"
+  homepage "https://github.com/puls/objc-codegenutils"
+  url "https://github.com/puls/objc-codegenutils/archive/v1.0.tar.gz"
   sha256 "98b8819e77e18029f1bda56622d42c162e52ef98f3ba4c6c8fcf5d40c256e845"
   license "Apache-2.0"
-  head "https://github.com/square/objc-codegenutils.git", branch: "master"
+  head "https://github.com/puls/objc-codegenutils.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d5ddfb8ef11849ea3ef38002ca27c492fb9802886ac6cbaf611baa51606de4b7"
