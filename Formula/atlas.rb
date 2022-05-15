@@ -20,7 +20,7 @@ class Atlas < Formula
   def install
     ldflags = %W[
       -s -w
-      -X ariga.io/atlas/cmd/action.version=v#{version}
+      -X ariga.io/atlas/cmd/atlascmd.version=v#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/atlas"
 
@@ -36,7 +36,7 @@ class Atlas < Formula
 
   test do
     assert_match "Error: mysql: query system variables:",
-      shell_output("#{bin}/atlas schema inspect -d \"mysql://user:pass@tcp(localhost:3306)/dbname\" 2>&1", 1)
+      shell_output("#{bin}/atlas schema inspect -u \"mysql://user:pass@localhost:3306/dbname\" 2>&1", 1)
 
     assert_match version.to_s, shell_output("#{bin}/atlas version")
   end
