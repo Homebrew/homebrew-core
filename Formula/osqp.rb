@@ -1,7 +1,7 @@
 class Osqp < Formula
   desc "Operator splitting QP solver"
   homepage "https://osqp.org/"
-  url "https://github.com/oxfordcontrol/osqp/archive/v0.6.2.tar.gz"
+  url "https://github.com/osqp/osqp/archive/v0.6.2.tar.gz"
   sha256 "d973c33c3164caa381ed7387375347a46f7522523350a4e51989479b9d3b59c7"
   license "Apache-2.0"
 
@@ -18,7 +18,7 @@ class Osqp < Formula
   depends_on "cmake" => [:build, :test]
 
   resource "qdldl" do
-    url "https://github.com/oxfordcontrol/qdldl/archive/v0.1.5.tar.gz"
+    url "https://github.com/osqp/qdldl/archive/v0.1.5.tar.gz"
     sha256 "2868b0e61b7424174e9adef3cb87478329f8ab2075211ef28fe477f29e0e5c99"
   end
 
@@ -53,7 +53,7 @@ class Osqp < Formula
       add_executable(osqp_demo_static osqp_demo.c)
       target_link_libraries(osqp_demo_static PRIVATE osqp::osqpstatic -lm)
     EOS
-    # from https://github.com/oxfordcontrol/osqp/blob/HEAD/tests/demo/test_demo.h
+    # from https://github.com/osqp/osqp/blob/HEAD/tests/demo/test_demo.h
     (testpath/"osqp_demo.c").write <<~EOS
       #include <assert.h>
       #include <osqp.h>
