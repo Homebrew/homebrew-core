@@ -23,6 +23,8 @@ class ArgpStandalone < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "c926ac0ad3b8dbb8c3e08299ade556470f81d3a88eb51dc60e7cfe107da533e8"
   end
 
+  depends_on :macos # argp is provided by glibc on Linux
+
   # This patch fixes compilation with Clang.
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/b5f0ad3/argp-standalone/patch-argp-fmtstream.h"
