@@ -17,6 +17,7 @@ class WatchSim < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "06d95de04920d991ee1ee5a9e8035fb12ef103aa072382cef82cab683797e8d9"
   end
 
+  depends_on :macos
   depends_on xcode: "6.2"
 
   def install
