@@ -1,10 +1,10 @@
 class Nq < Formula
   desc "Unix command-line queue utility"
-  homepage "https://github.com/chneukirchen/nq"
-  url "https://github.com/chneukirchen/nq/archive/v0.5.tar.gz"
+  homepage "https://github.com/leahneukirchen/nq"
+  url "https://github.com/leahneukirchen/nq/archive/v0.5.tar.gz"
   sha256 "3f01aaf0b8eee4f5080ed1cd71887cb6485d366257d4cf5470878da2b734b030"
   license "CC0-1.0"
-  head "https://github.com/chneukirchen/nq.git", branch: "master"
+  head "https://github.com/leahneukirchen/nq.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5b050bc2a3667662b9f12ec156c2aa73758b5a58803029c56172ba8c8ce0dd0f"
