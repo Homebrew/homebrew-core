@@ -1,7 +1,7 @@
 class RustAnalyzer < Formula
   desc "Experimental Rust compiler front-end for IDEs"
   homepage "https://rust-analyzer.github.io/"
-  url "https://github.com/rust-analyzer/rust-analyzer.git",
+  url "https://github.com/rust-lang/rust-analyzer.git",
        tag:      "2022-05-02",
        revision: "5dce1ff0212e467271c9e895478670c74d847ee9"
   version "2022-05-02"
@@ -84,7 +84,7 @@ index 1937b8936..e6f321394 100644
 --- a/Cargo.lock
 +++ b/Cargo.lock
 @@ -1571,9 +1571,9 @@ checksum = "f2dd574626839106c320a323308629dcb1acfc96e32a8cba364ddc61ac23ee83"
- 
+
  [[package]]
  name = "smol_str"
 -version = "0.1.22"
