@@ -1,10 +1,10 @@
 class VisionmediaWatch < Formula
   desc "Periodically executes the given command"
-  homepage "https://github.com/visionmedia/watch"
-  url "https://github.com/visionmedia/watch/archive/0.4.0.tar.gz"
+  homepage "https://github.com/tj/watch"
+  url "https://github.com/tj/watch/archive/0.4.0.tar.gz"
   sha256 "d37ead189a644661d219b566170122b80d44f235c0df6df71b2b250f3b412547"
   license "MIT"
-  head "https://github.com/visionmedia/watch.git", branch: "master"
+  head "https://github.com/tj/watch.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "40495ba873ac4427ecab5da7d30a23594efd23d27b26996045ba1a38c357f3ca"
