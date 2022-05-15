@@ -1,7 +1,7 @@
 class V8AT315 < Formula
   desc "Google's open source JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
-  url "https://github.com/v8/v8-git-mirror/archive/3.15.11.18.tar.gz"
+  url "https://github.com/v8/v8/archive/3.15.11.18.tar.gz"
   sha256 "93a4945a550e5718d474113d9769a3c010ba21e3764df8f22932903cd106314d"
   revision 1
 
