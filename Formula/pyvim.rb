@@ -2,7 +2,7 @@ class Pyvim < Formula
   include Language::Python::Virtualenv
 
   desc "Pure Python Vim clone"
-  homepage "https://github.com/jonathanslenders/pyvim"
+  homepage "https://github.com/prompt-toolkit/pyvim"
   url "https://files.pythonhosted.org/packages/7b/7c/4c44b77642e866bbbe391584433c11977aef5d1dc05da879d3e8476cab10/pyvim-3.0.2.tar.gz"
   sha256 "da94f7a8e8c4b2b4611196987c3ca2840b0011cc399618793e551f7149f26c6a"
   license "BSD-3-Clause"
@@ -57,7 +57,7 @@ class Pyvim < Formula
   test do
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    # Need a pty due to https://github.com/jonathanslenders/pyvim/issues/101
+    # Need a pty due to https://github.com/prompt-toolkit/pyvim/issues/101
     require "pty"
     PTY.spawn(bin/"pyvim", "--help") do |r, _w, _pid|
       assert_match "Vim clone", r.read
