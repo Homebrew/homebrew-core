@@ -21,6 +21,8 @@ class PcscLite < Formula
 
   keg_only :shadowed_by_macos, "macOS provides PCSC.framework"
 
+  uses_from_macos "flex" => :build
+
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "libusb"
