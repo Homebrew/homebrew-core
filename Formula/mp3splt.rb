@@ -4,7 +4,7 @@ class Mp3splt < Formula
   url "https://downloads.sourceforge.net/project/mp3splt/mp3splt/2.6.2/mp3splt-2.6.2.tar.gz"
   sha256 "3ec32b10ddd8bb11af987b8cd1c76382c48d265d0ffda53041d9aceb1f103baa"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "546627259a47cde5bbf05b51258a0f3feab02400f6f0d41632d5a4fc0a67a990"
