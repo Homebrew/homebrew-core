@@ -2,6 +2,7 @@ require "language/perl"
 
 class Sslmate < Formula
   include Language::Perl::Shebang
+  include Language::Python::Virtualenv
 
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
@@ -35,13 +36,8 @@ class Sslmate < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
-    python3 = Formula["python@3.10"].opt_bin/"python3"
-    xy = Language::Python.major_minor_version python3
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-
-    resource("boto").stage do
-      system python3, *Language::Python.setup_install_args(libexec/"vendor")
-    end
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resource("boto")
 
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
