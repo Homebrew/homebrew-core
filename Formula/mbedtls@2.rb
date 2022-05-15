@@ -1,10 +1,10 @@
 class MbedtlsAT2 < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/ARMmbed/mbedtls/archive/mbedtls-2.28.0.tar.gz"
+  url "https://github.com/Mbed-TLS/mbedtls/archive/mbedtls-2.28.0.tar.gz"
   sha256 "f644248f23cf04315cf9bb58d88c4c9471c16ca0533ecf33f86fb7749a3e5fa6"
   license "Apache-2.0"
-  head "https://github.com/ARMmbed/mbedtls.git", branch: "development_2.x"
+  head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development_2.x"
 
   livecheck do
     url :stable
@@ -39,7 +39,7 @@ class MbedtlsAT2 < Formula
                     *std_cmake_args
     system "cmake", "--build", "build"
     # We run CTest because this is a crypto library. Running tests in parallel causes failures.
-    # https://github.com/ARMmbed/mbedtls/issues/4980
+    # https://github.com/Mbed-TLS/mbedtls/issues/4980
     with_env(CC: DevelopmentTools.locate(DevelopmentTools.default_compiler)) do
       system "ctest", "--parallel", "1", "--test-dir", "build", "--rerun-failed", "--output-on-failure"
     end
