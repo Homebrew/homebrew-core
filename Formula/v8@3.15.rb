@@ -19,6 +19,8 @@ class V8AT315 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2022-05-18", because: "depends on Python 2 to build"
+
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",
         revision: "f7bc250ccc4d619a1cf238db87e5979f89ff36d7"
