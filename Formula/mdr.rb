@@ -18,6 +18,8 @@ class Mdr < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "7048e71ef8f9a1d5c1712dce6cb33df08029038d771789021a1b8bc1e5f4ad10"
   end
 
+  deprecate! date: "2022-05-14", because: :unmaintained
+
   def install
     system "rake"
     libexec.install Dir["*"]
