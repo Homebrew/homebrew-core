@@ -15,6 +15,7 @@ class Iconsur < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "77884a43974a1b6a917d415b12d2b6fe476dee4215e986e7123b9d911b0a95cc"
   end
 
+  depends_on :macos
   depends_on "node"
 
   def install
