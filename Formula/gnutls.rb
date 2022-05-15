@@ -32,10 +32,6 @@ class Gnutls < Formula
   depends_on "unbound"
 
   def install
-    # Fix compile crash on Apple Silicon.
-    # https://gitlab.com/gnutls/gnutls/-/issues/1347
-    inreplace "lib/accelerated/aarch64/Makefile.in", /^(AM_CCASFLAGS =) -Wa,-march=all$/, "\\1" if OS.mac?
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
