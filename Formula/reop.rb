@@ -23,6 +23,10 @@ class Reop < Formula
   depends_on "libsodium"
 
   def install
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    inreplace "GNUmakefile", "${LDFLAGS} ${OBJS}", "${OBJS} ${LDFLAGS}"
+
     system "make", "-f", "GNUmakefile"
     bin.install "reop"
     man1.install "reop.1"
