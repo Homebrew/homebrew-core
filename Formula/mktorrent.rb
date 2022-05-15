@@ -3,7 +3,7 @@ class Mktorrent < Formula
   homepage "https://github.com/pobrn/mktorrent/wiki"
   url "https://github.com/pobrn/mktorrent/archive/v1.1.tar.gz"
   sha256 "d0f47500192605d01b5a2569c605e51ed319f557d24cfcbcb23a26d51d6138c9"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
