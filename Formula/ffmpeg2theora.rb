@@ -53,7 +53,13 @@ class Ffmpeg2theora < Formula
       "prefix=#{prefix}",
       "mandir=PREFIX/share/man",
     ]
-    args << "APPEND_LINKFLAGS=-headerpad_max_install_names" if OS.mac?
+    if OS.mac?
+      args << "APPEND_LINKFLAGS=-headerpad_max_install_names"
+    else
+      gcc_version = Formula["gcc"].version.major
+      rpaths = "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib -Wl,-rpath,#{Formula["ffmpeg@4"].opt_lib}"
+      args << "APPEND_LINKFLAGS=-L#{Formula["gcc"].opt_lib}/gcc/#{gcc_version} -lstdc++ #{rpaths}"
+    end
     system "scons", "install", *args
   end
 
