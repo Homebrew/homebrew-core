@@ -1,8 +1,8 @@
 class PamReattach < Formula
   desc "PAM module for reattaching to the user's GUI (Aqua) session"
   homepage "https://github.com/fabianishere/pam_reattach"
-  url "https://github.com/fabianishere/pam_reattach/archive/v1.2.tar.gz"
-  sha256 "60133388c400a924ca05ee0e5e6f9cc74c9f619bf97e545afe96f35544b0d011"
+  url "https://github.com/fabianishere/pam_reattach/archive/refs/tags/v1.3.tar.gz"
+  sha256 "b1b735fa7832350a23457f7d36feb6ec939e5e1de987b456b6c28f5738216570"
   license "MIT"
   head "https://github.com/fabianishere/pam_reattach.git", branch: "master"
 
