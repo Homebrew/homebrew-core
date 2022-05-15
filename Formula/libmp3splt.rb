@@ -3,7 +3,7 @@ class Libmp3splt < Formula
   homepage "https://mp3splt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mp3splt/libmp3splt/0.9.2/libmp3splt-0.9.2.tar.gz"
   sha256 "30eed64fce58cb379b7cc6a0d8e545579cb99d0f0f31eb00b9acc8aaa1b035dc"
-  revision 2
+  revision 3
 
   # We check the "libmp3splt" directory page since versions aren't present in
   # the RSS feed as of writing.
