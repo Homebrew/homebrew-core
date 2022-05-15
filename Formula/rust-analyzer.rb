@@ -80,17 +80,17 @@ end
 
 __END__
 diff --git a/Cargo.lock b/Cargo.lock
-index 1937b8936..e6f321394 100644
+index 62b2ac86f..bc06c853d 100644
 --- a/Cargo.lock
 +++ b/Cargo.lock
-@@ -1571,9 +1571,9 @@ checksum = "f2dd574626839106c320a323308629dcb1acfc96e32a8cba364ddc61ac23ee83"
+@@ -1546,9 +1546,9 @@ checksum = "f2dd574626839106c320a323308629dcb1acfc96e32a8cba364ddc61ac23ee83"
 
  [[package]]
  name = "smol_str"
--version = "0.1.22"
+-version = "0.1.23"
 +version = "0.1.21"
  source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "167ee181c12079444893cec9c8f21b13d6b314af789c9fdb041a0645f11ed9d2"
+-checksum = "7475118a28b7e3a2e157ce0131ba8c5526ea96e90ee601d9f6bb2e286a35ab44"
 +checksum = "61d15c83e300cce35b7c8cd39ff567c1ef42dde6d4a1a38dbdbf9a59902261bd"
  dependencies = [
   "serde",
