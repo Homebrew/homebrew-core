@@ -5,10 +5,9 @@ class Sslmate < Formula
 
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
-  url "https://packages.sslmate.com/other/sslmate-1.9.0.tar.gz"
-  sha256 "3e40122484491f59178de80e14ccf7e90cea4fea94056b25c7f89abe31685b98"
+  url "https://packages.sslmate.com/other/sslmate-1.9.1.tar.gz"
+  sha256 "179b331a7d5c6f0ed1de51cca1c33b6acd514bfb9a06a282b2f3b103ead70ce7"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://packages.sslmate.com/other/"
