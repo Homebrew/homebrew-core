@@ -4,7 +4,7 @@ class Pcl < Formula
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.12.1.tar.gz"
   sha256 "dc0ac26f094eafa7b26c3653838494cc0a012bd1bdc1f1b0dc79b16c2de0125a"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   bottle do
@@ -39,6 +39,11 @@ class Pcl < Formula
 
   fails_with gcc: "5" # qt@5 is built with GCC
 
+  patch do
+    url "https://github.com/PointCloudLibrary/pcl/commit/e964409b4accfd9070093dbc3c9cf5fb216cd877.patch?full_index=1"
+    sha256 "78c77388e6c82105d028d5e42662a37c497c35982622a6f8bc875b1c411ab375"
+  end
+
   def install
     args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS:BOOL=ON
@@ -55,6 +60,7 @@ class Pcl < Formula
       -DWITH_CUDA:BOOL=OFF
       -DWITH_DOCS:BOOL=OFF
       -DWITH_TUTORIALS:BOOL=OFF
+      -DBoost_USE_DEBUG_RUNTIME:BOOL=OFF
     ]
 
     args << if build.head?
