@@ -1,20 +1,9 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
   homepage "https://dicom.offis.de/dcmtk.php.en"
+  url "https://dicom.offis.de/download/dcmtk/release/dcmtk-3.6.7.tar.gz"
+  sha256 "7c58298e3e8d60232ee6fc8408cfadd14463cc11a3c4ca4c59af5988c7e9710a"
   head "https://git.dcmtk.org/dcmtk.git", branch: "master"
-
-  stable do
-    url "https://dicom.offis.de/download/dcmtk/dcmtk366/dcmtk-3.6.6.tar.gz"
-    sha256 "6859c62b290ee55677093cccfd6029c04186d91cf99c7642ae43627387f3458e"
-
-    # Fix build for Apple Silicon.
-    # Issue ref: https://support.dcmtk.org/redmine/issues/957
-    # TODO: Remove in the next release along with stable block
-    patch do
-      url "https://git.dcmtk.org/?p=dcmtk.git;a=patch;h=5fba853b6f7c13b02bed28bd9f7d3f450e4c72bb"
-      sha256 "40ca9e6f377951e2d24a509a6c95b9e572224d74d694f0d648b8b33e4d67e285"
-    end
-  end
 
   livecheck do
     url "https://dicom.offis.de/download/dcmtk/release/"
