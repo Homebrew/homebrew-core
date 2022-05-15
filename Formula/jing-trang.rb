@@ -2,10 +2,9 @@ class JingTrang < Formula
   desc "Schema validation and conversion based on RELAX NG"
   homepage "http://www.thaiopensource.com/relaxng/"
   url "https://github.com/relaxng/jing-trang.git",
-      tag:      "V20181222",
-      revision: "a3ec4cd650f48ec00189578f314fbe94893cd92d"
+      tag:      "V20220510",
+      revision: "84ec6ad578d6e0a77342baa5427851f98028bfd8"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f0bfd7ca4e0fb2e0a60df34fdb19d0ede3b2338299f369a4c577357e3c5334df"
