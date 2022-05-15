@@ -6,6 +6,7 @@ class Uhd < Formula
       tag:      "v4.2.0.0",
       revision: "46a70d853267c40205a8cfea472056bd1aa7c04e"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
+  revision 1
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
