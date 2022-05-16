@@ -24,6 +24,7 @@ class Torchvision < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtorch"
+  depends_on "libomp"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
@@ -45,11 +46,14 @@ class Torchvision < Formula
       }
     EOS
     libtorch = Formula["libtorch"]
+    libomp = Formula["libomp"]
     system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
                     "-I#{libtorch.opt_include}",
                     "-I#{libtorch.opt_include}/torch/csrc/api/include",
                     "-L#{libtorch.opt_lib}", "-ltorch", "-ltorch_cpu", "-lc10",
-                    "-L#{lib}", "-ltorchvision"
+                    "-L#{lib}", "-ltorchvision",
+                    "-L#{libomp.opt_lib}", "-lomp" 
+
     system "./test"
   end
 end
