@@ -3,8 +3,8 @@ class Esptool < Formula
 
   desc "ESP8266 and ESP32 serial bootloader utility"
   homepage "https://github.com/espressif/esptool"
-  url "https://files.pythonhosted.org/packages/de/57/08750ca0d19114237ff5e2da6a945deed888e3774c95acb577387ed11bec/esptool-3.3.1.tar.gz"
-  sha256 "f9ade989a7f5f19bfc60e11925c45f470b8155c7ecf1a37bc8c31380d5dd07b8"
+  url "https://files.pythonhosted.org/packages/2d/91/76dac7a2c87172ee01e3e6e9ee17afb0b732065d49b476fef65c1ff8a386/esptool-4.0.tar.gz"
+  sha256 "bf6ed90864a02da70fe20132ab589e892ec0af7437df9e0bc4844afd2fc2dac0"
   license "GPL-2.0-or-later"
 
   bottle do
