@@ -1,10 +1,9 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
-  url "https://github.com/google/libphonenumber/archive/v8.12.44.tar.gz"
-  sha256 "02337c60e3a055e0a4bc4e0a60e8ae31aa567adce59f266cfd37961fceea74c2"
+  url "https://github.com/google/libphonenumber/archive/v8.12.48.tar.gz"
+  sha256 "4bd2b7c89f1cba8dc78038395f4cc3236dd5aa62118feb4c354a8890634faea9"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -22,10 +21,16 @@ class Libphonenumber < Formula
 
   depends_on "cmake" => :build
   depends_on "googletest" => :build
+
+  depends_on "abseil"
   depends_on "boost"
   depends_on "icu4c"
   depends_on "protobuf"
   depends_on "re2"
+
+  # remove builtin abseil download step
+  # build patch ref, https://github.com/archlinux/svntogit-packages/blob/packages/libphonenumber/trunk/absl.diff
+  patch :DATA
 
   def install
     ENV.cxx11
@@ -61,3 +66,60 @@ class Libphonenumber < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/cpp/CMakeLists.txt b/cpp/CMakeLists.txt
+index 57261a6..8686f5a 100644
+--- a/cpp/CMakeLists.txt
++++ b/cpp/CMakeLists.txt
+@@ -18,7 +18,7 @@ cmake_minimum_required (VERSION 3.11)
+
+ # Pick the C++ standard to compile with.
+ # Abseil currently supports C++11, C++14, and C++17.
+-set(CMAKE_CXX_STANDARD 11)
++set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+ project (libphonenumber)
+@@ -126,6 +126,7 @@ if (${USE_BOOST} STREQUAL "OFF" AND ${USE_STDMUTEX} STREQUAL "OFF")
+   find_package (Threads)
+ endif()
+
++find_package (absl REQUIRED)
+ find_or_build_gtest ()
+
+ if (${USE_RE2} STREQUAL "ON")
+diff --git a/tools/cpp/CMakeLists.txt b/tools/cpp/CMakeLists.txt
+index b094165..58a9b3b 100644
+--- a/tools/cpp/CMakeLists.txt
++++ b/tools/cpp/CMakeLists.txt
+@@ -26,29 +26,6 @@ project (generate_geocoding_data)
+ # Helper functions dealing with finding libraries and programs this library
+ # depends on.
+ include (gtest.cmake)
+-include (FetchContent)
+-
+-# Downloading the abseil sources.
+-FetchContent_Declare(
+-    abseil-cpp
+-    GIT_REPOSITORY  https://github.com/abseil/abseil-cpp.git
+-    GIT_TAG         origin/master
+-)
+-
+-# Building the abseil binaries
+-FetchContent_GetProperties(abseil-cpp)
+-if (NOT abseil-cpp_POPULATED)
+-    FetchContent_Populate(abseil-cpp)
+-endif ()
+-
+-if (NOT abseil-cpp_POPULATED)
+-   message (FATAL_ERROR "Could not build abseil-cpp binaries.")
+-endif ()
+-
+-# Safeguarding against any potential link errors as mentioned in
+-# https://github.com/abseil/abseil-cpp/issues/225
+-set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
+-add_subdirectory(${abseil-cpp_SOURCE_DIR} ${abseil-cpp_BINARY_DIR})
+
+ find_or_build_gtest ()
+ set (
