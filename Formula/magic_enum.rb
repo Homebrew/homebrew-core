@@ -11,6 +11,12 @@ class MagicEnum < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "gcc" # C++17
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
@@ -33,7 +39,7 @@ class MagicEnum < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-I#{include}", "-Wall", "-Wextra", "-pedantic-errors", "-Werror", "-std=c++17"
-    system "./a.out"
+    system ENV.cxx, "test.cpp", "-I#{include}", "-std=c++17", "-o", "test"
+    assert_equal "RED\n", shell_output(testpath/"test")
   end
 end
