@@ -4,10 +4,9 @@ class ArcadeLearningEnvironment < Formula
   desc "Platform for AI research"
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment.git",
-      tag:      "v0.7.4",
-      revision: "069f8bd860b9da816cea58c5ade791025a51c105"
+      tag:      "v0.7.5",
+      revision: "db3728264f382402120913d76c4fa0dc320ef59f"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
@@ -34,13 +33,13 @@ class ArcadeLearningEnvironment < Formula
   fails_with gcc: "5"
 
   resource "homebrew-test-tetris.bin" do
-    url "https://raw.githubusercontent.com/mgbellemare/Arcade-Learning-Environment/v0.7.0/tests/resources/tetris.bin"
+    url "https://raw.githubusercontent.com/mgbellemare/Arcade-Learning-Environment/v0.7.5/tests/resources/tetris.bin"
     sha256 "36d5b5d3222f007ca8e3691cfc17f639801453b98438b1282dfd695ae44752f6"
   end
 
   resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/b5/d8/51ace1c1ea6609c01c7f46ca2978e11821aa0efaaa7516002ef6df000731/importlib_resources-5.4.0.tar.gz"
-    sha256 "d756e2f85dd4de2ba89be0b21dba2a3bbec2e871a42a3a16719258a11f87506b"
+    url "https://files.pythonhosted.org/packages/07/3c/4e27ef7d4cea5203ed4b52b7fe96ddd08559d9f147a2a4307e7d6d98c035/importlib_resources-5.7.1.tar.gz"
+    sha256 "b6062987dfc51f0fcb809187cffbd60f35df7acb4589091f154214af6d0d49d3"
   end
 
   def install
