@@ -522,6 +522,9 @@
   "volatility": {
     "extra_packages": ["capstone", "pycryptodome", "yara-python"]
   },
+  "watson": {
+    "exclude_packages": ["six"]
+  },
   "west": {
     "exclude_packages": ["six"]
   },
