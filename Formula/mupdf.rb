@@ -5,6 +5,7 @@ class Mupdf < Formula
   sha256 "b5eac663fe74f33c430eda342f655cf41fa73d71610f0884768a856a82e3803e"
   license "AGPL-3.0-or-later"
   head "https://git.ghostscript.com/mupdf.git", branch: "master"
+  revision 1
 
   livecheck do
     url "https://mupdf.com/downloads/archive/"
