@@ -17,8 +17,6 @@ class BatsCore < Formula
 
   def install
     system "./install.sh", prefix
-    # Replace `/usr/local` references for uniform bottles
-    inreplace lib/"bats-core/formatter.bash", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
