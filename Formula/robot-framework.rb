@@ -3,8 +3,8 @@ class RobotFramework < Formula
 
   desc "Open source test framework for acceptance testing"
   homepage "https://robotframework.org/"
-  url "https://files.pythonhosted.org/packages/cb/f9/04ce4ff8d87649b828c07035acfcc72805b15720ed8565745f697c18601e/robotframework-5.0.zip"
-  sha256 "bffecba8c43d4294936d921f0af4941079039edce88194769133719732c608bc"
+  url "https://files.pythonhosted.org/packages/b8/58/739caa540ba895d583309884dab7ee6cf6d357a80dd3ed56a171c2cc143b/robotframework-5.0.1.zip"
+  sha256 "cf5dc59777ed9d8c3e1e91fb4403454890242867735681f22f4f22dbb2a20fc8"
   license "Apache-2.0"
   head "https://github.com/robotframework/robotframework.git", branch: "master"
 
@@ -23,8 +23,8 @@ class RobotFramework < Formula
   depends_on "six"
 
   resource "bcrypt" do
-    url "https://files.pythonhosted.org/packages/d8/ba/21c475ead997ee21502d30f76fd93ad8d5858d19a3fad7cd153de698c4dd/bcrypt-3.2.0.tar.gz"
-    sha256 "5b93c1726e50a93a033c36e5ca7fdcd29a5c7395af50a6892f5d9e7c6cfbfb29"
+    url "https://files.pythonhosted.org/packages/e8/36/edc85ab295ceff724506252b774155eff8a238f13730c8b13badd33ef866/bcrypt-3.2.2.tar.gz"
+    sha256 "433c410c2177057705da2a9f2cd01dd157493b2a7ac14c8593a16b3dab6b6bfb"
   end
 
   resource "cffi" do
@@ -33,13 +33,13 @@ class RobotFramework < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/10/a7/51953e73828deef2b58ba1604de9167843ee9cd4185d8aaffcb45dd1932d/cryptography-36.0.2.tar.gz"
-    sha256 "70f8f4f7bb2ac9f340655cbac89d68c527af5bb4387522a8413e841e3e6628c9"
+    url "https://files.pythonhosted.org/packages/51/05/bb2b681f6a77276fc423d04187c39dafdb65b799c8d87b62ca82659f9ead/cryptography-37.0.2.tar.gz"
+    sha256 "f224ad253cc9cea7568f49077007d2263efa57396a2f2f78114066fd54b5c68e"
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/d4/93/1a1eb7f214e6774099d56153db9e612f93cb8ffcdfd2eca243fcd5bb3a78/paramiko-2.10.3.tar.gz"
-    sha256 "ddb1977853aef82804b35d72a0e597b244fa326c404c350bd00c5b01dbfee71a"
+    url "https://files.pythonhosted.org/packages/a1/9b/737c2306468a9fce2d630f12c2f29a2674d7bbe406819334c0883e929812/paramiko-2.10.4.tar.gz"
+    sha256 "3d2e650b6812ce6d160abff701d6ef4434ec97934b13e95cf1ad3da70ffb5c58"
   end
 
   resource "pycparser" do
