@@ -12,6 +12,9 @@ class Xpipe < Formula
   end
 
   test do
-    system "true"
+    system "echo foo | xpipe -b 1 -J % /bin/sh -c 'cat >%'"
+    assert_predicate testpath/"1", :exist?
+    assert_predicate testpath/"2", :exist?
+    assert_predicate testpath/"3", :exist?
   end
 end
