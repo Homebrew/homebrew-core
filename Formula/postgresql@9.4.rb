@@ -4,6 +4,7 @@ class PostgresqlAT94 < Formula
   url "https://ftp.postgresql.org/pub/source/v9.4.26/postgresql-9.4.26.tar.bz2"
   sha256 "f5c014fc4a5c94e8cf11314cbadcade4d84213cfcc82081c9123e1b8847a20b9"
   license "PostgreSQL"
+  revision 1
 
   bottle do
     rebuild 4
@@ -20,6 +21,7 @@ class PostgresqlAT94 < Formula
   deprecate! date: "2020-02-13", because: :unsupported
 
   depends_on arch: :x86_64
+  depends_on "gettext"
   depends_on "openssl@1.1"
   depends_on "readline"
 
@@ -51,6 +53,7 @@ class PostgresqlAT94 < Formula
       --prefix=#{prefix}
       --datadir=#{pkgshare}
       --docdir=#{doc}
+      --enable-nls
       --enable-thread-safety
       --with-gssapi
       --with-ldap

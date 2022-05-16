@@ -4,6 +4,7 @@ class PostgresqlAT10 < Formula
   url "https://ftp.postgresql.org/pub/source/v10.21/postgresql-10.21.tar.bz2"
   sha256 "d32198856d52a9a6f5d50642ef86687ac058bd6efca5c9ed57be7808496f45d1"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -25,6 +26,7 @@ class PostgresqlAT10 < Formula
   deprecate! date: "2022-11-10", because: :unsupported
 
   depends_on "pkg-config" => :build
+  depends_on "gettext"
   depends_on "icu4c"
   depends_on "openssl@1.1"
   depends_on "readline"
@@ -50,6 +52,7 @@ class PostgresqlAT10 < Formula
       --libdir=#{lib}
       --sysconfdir=#{etc}
       --docdir=#{doc}
+      --enable-nls
       --enable-thread-safety
       --with-gssapi
       --with-icu
