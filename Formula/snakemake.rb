@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/e1/a7/24b138fc7501507804ea4e4379de3b1cb15b4075b6f8f20ba4d8f15ba4f2/snakemake-7.6.2.tar.gz"
-  sha256 "80cb2d0ab0a2366010a1c0b288a90159cd640f942ae86e740021c15c9989f872"
+  url "https://files.pythonhosted.org/packages/49/cb/f048383ef9133cfef54e1add59dac0e96a53ae8b9f08ca01d2c5a77c3d4d/snakemake-7.7.0.tar.gz"
+  sha256 "1f9389b77b34ae16634c4fc91d07f9e593c99ab80ec30c4297e1c22ad00ff785"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -63,6 +63,11 @@ class Snakemake < Formula
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/57/b1/b880503681ea1b64df05106fc7e3c4e3801736cf63deffc6fa7fc5404cf5/docutils-0.18.1.tar.gz"
     sha256 "679987caf361a7539d76e584cbeddc311e3aee937877c87346f31debc63e9d06"
+  end
+
+  resource "dpath" do
+    url "https://files.pythonhosted.org/packages/a0/cf/cf35f8b7f212be18634970a5b2d7a50adc715e649a0a8fedb06c909603d8/dpath-2.0.6.tar.gz"
+    sha256 "5a1ddae52233fbc8ef81b15fb85073a81126bb43698d3f3a1b6aaf561a46cdc0"
   end
 
   resource "fastjsonschema" do
@@ -181,8 +186,8 @@ class Snakemake < Formula
   end
 
   resource "traitlets" do
-    url "https://files.pythonhosted.org/packages/db/cf/e6cbf07ce2d21a17c8379f3f2f12db413a38da5ee20809638226b1490e48/traitlets-5.1.1.tar.gz"
-    sha256 "059f456c5a7c1c82b98c2e8c799f39c9b8128f6d0d46941ee118daace9eb70c7"
+    url "https://files.pythonhosted.org/packages/9b/26/5e5f9002f939d54663d244a260d0453b2baf4f767697da5968aa474f04e7/traitlets-5.2.1.post0.tar.gz"
+    sha256 "70815ecb20ec619d1af28910ade523383be13754283aef90528eb3d47b77c5db"
   end
 
   resource "urllib3" do
@@ -196,8 +201,8 @@ class Snakemake < Formula
   end
 
   resource "yte" do
-    url "https://files.pythonhosted.org/packages/57/20/ebe70dcf175d94f22089966631ab9149b88c42e55e4a64f6393a5d6517f6/yte-1.2.3.tar.gz"
-    sha256 "80f7786968ebf2fa8af3631a1c88575a4da01de1e0e927d252fabebfd4f6666e"
+    url "https://files.pythonhosted.org/packages/b4/cd/e469c384d79d1cdf86fabf76fd79d5c6b9977a57573fa943aabc0d2ccbe2/yte-1.4.0.tar.gz"
+    sha256 "20802e64b851be75172456650cfbac6f18c4c81ba01ccaede44f9242bb6c4685"
   end
 
   def install
