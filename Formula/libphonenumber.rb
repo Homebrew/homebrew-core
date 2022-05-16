@@ -28,6 +28,12 @@ class Libphonenumber < Formula
   depends_on "protobuf"
   depends_on "re2"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # C++17
+
   # remove builtin abseil download step
   # build patch ref, https://github.com/archlinux/svntogit-packages/blob/packages/libphonenumber/trunk/absl.diff
   patch :DATA
