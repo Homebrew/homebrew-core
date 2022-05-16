@@ -1,9 +1,9 @@
 class TomcatAT9 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.62/bin/apache-tomcat-9.0.62.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.62/bin/apache-tomcat-9.0.62.tar.gz"
-  sha256 "03157728a832cf9c83048cdc28d09600cbb3e4fa087f8b97d74c8b4f34cd89bb"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz"
+  sha256 "5ceea63808f68daa4501a72abbc02c6deff42a50eaf96aaa5ecfb36b1d28106d"
   license "Apache-2.0"
 
   livecheck do
