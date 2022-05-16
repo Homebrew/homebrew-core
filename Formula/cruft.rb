@@ -17,7 +17,6 @@ class Cruft < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "89e8752784fa125df67127d6ae43ac5b37026f9fed1378f99c62f4c6b76139da"
   end
 
-  depends_on "poetry" => :build
   depends_on "python@3.10"
   depends_on "six"
 
@@ -127,12 +126,7 @@ class Cruft < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resources
-
-    poetry = Formula["poetry"].opt_bin/"poetry"
-    system poetry, "build", "--format", "wheel", "--verbose", "--no-interaction"
-    venv.pip_install_and_link Dir["dist/cruft-*.whl"].first
+    virtualenv_install_with_resources
   end
 
   test do
