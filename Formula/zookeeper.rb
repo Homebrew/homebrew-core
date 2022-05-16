@@ -1,11 +1,10 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0.tar.gz"
-  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0.tar.gz"
-  sha256 "cb3980f61b66babe550dcb717c940160ba813512c0aca26c2b8a718fac5d465d"
+  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.8.0/apache-zookeeper-3.8.0.tar.gz"
+  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.8.0/apache-zookeeper-3.8.0.tar.gz"
+  sha256 "b0c5684640bea2d8bd6610b47ff41be2aefd6c910ba48fcad5949bd2bf2fa1ac"
   license "Apache-2.0"
-  revision 1
   head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
 
   bottle do
@@ -34,14 +33,36 @@ class Zookeeper < Formula
     EOS
   end
 
-  def default_log4j_properties
+  def default_logback_xml
     <<~EOS
-      log4j.rootCategory=WARN, zklog
-      log4j.appender.zklog = org.apache.log4j.RollingFileAppender
-      log4j.appender.zklog.File = #{var}/log/zookeeper/zookeeper.log
-      log4j.appender.zklog.Append = true
-      log4j.appender.zklog.layout = org.apache.log4j.PatternLayout
-      log4j.appender.zklog.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss} %c{1} [%p] %m%n
+      <configuration>
+        <property name="zookeeper.log.dir" value="#{var}/log/zookeeper" />
+        <property name="zookeeper.log.file" value="zookeeper.log" />
+        <property name="zookeeper.log.threshold" value="INFO" />
+        <property name="zookeeper.log.maxfilesize" value="256MB" />
+        <property name="zookeeper.log.maxbackupindex" value="20" />
+
+        <appender name="ROLLINGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+          <File>${zookeeper.log.dir}/${zookeeper.log.file}</File>
+          <encoder>
+            <pattern>%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n</pattern>
+          </encoder>
+          <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${zookeeper.log.threshold}</level>
+          </filter>
+          <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <maxIndex>${zookeeper.log.maxbackupindex}</maxIndex>
+            <FileNamePattern>${zookeeper.log.dir}/${zookeeper.log.file}.%i</FileNamePattern>
+          </rollingPolicy>
+          <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>${zookeeper.log.maxfilesize}</MaxFileSize>
+          </triggeringPolicy>
+        </appender-->
+
+        <root level="INFO">
+          <appender-ref ref="FILE" />
+        </root>
+      </configuration>
     EOS
   end
 
@@ -81,15 +102,15 @@ class Zookeeper < Formula
               /^dataDir=.*/, "dataDir=#{var}/run/zookeeper/data"
     (etc/"zookeeper").install "conf/zoo.cfg"
 
-    (pkgshare/"examples").install "conf/log4j.properties", "conf/zoo_sample.cfg"
+    (pkgshare/"examples").install "conf/logback.xml", "conf/zoo_sample.cfg"
   end
 
   def post_install
     defaults = etc/"zookeeper/defaults"
     defaults.write(default_zk_env) unless defaults.exist?
 
-    log4j_properties = etc/"zookeeper/log4j.properties"
-    log4j_properties.write(default_log4j_properties) unless log4j_properties.exist?
+    logback_xml = etc/"zookeeper/logback.xml"
+    logback_xml.write(default_logback_xml) unless logback_xml.exist?
   end
 
   plist_options manual: "zkServer start"
