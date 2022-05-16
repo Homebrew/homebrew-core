@@ -146,10 +146,6 @@ jobs:
               path: Formula/(gettext|openssl@(3|1.1)|sqlite).rb
               keep_if_no_match: true
 
-            - label: CI-linux-wheezy
-              path: Formula/(zlib|binutils).rb
-              keep_if_no_match: true
-
             - label: CI-linux-self-hosted
               path: Formula/(gdbm|go|openssl@1.1|python@3.9).rb
               keep_if_no_match: true
