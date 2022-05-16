@@ -22,9 +22,9 @@ class Torchvision < Formula
 
   depends_on "cmake" => :build
   depends_on "jpeg"
+  depends_on "libomp"
   depends_on "libpng"
   depends_on "libtorch"
-  depends_on "libomp"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
@@ -52,7 +52,7 @@ class Torchvision < Formula
                     "-I#{libtorch.opt_include}/torch/csrc/api/include",
                     "-L#{libtorch.opt_lib}", "-ltorch", "-ltorch_cpu", "-lc10",
                     "-L#{lib}", "-ltorchvision",
-                    "-L#{libomp.opt_lib}", "-lomp" 
+                    "-L#{libomp.opt_lib}", "-lomp"
 
     system "./test"
   end
