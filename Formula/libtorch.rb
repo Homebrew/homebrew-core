@@ -7,6 +7,7 @@ class Libtorch < Formula
       tag:      "v1.11.0",
       revision: "bc2c6edaf163b1a1330e37a6e34caf8c553e4755"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -53,7 +54,7 @@ class Libtorch < Formula
       -DUSE_METAL=OFF
       -DUSE_MKLDNN=OFF
       -DUSE_NNPACK=OFF
-      -DUSE_OPENMP=OFF
+      -DUSE_OPENMP=ON
       -DUSE_SYSTEM_EIGEN_INSTALL=ON
       -DUSE_SYSTEM_PYBIND11=ON
     ]
