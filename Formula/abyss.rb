@@ -1,8 +1,8 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "https://www.bcgsc.ca/resources/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.3.4/abyss-2.3.4.tar.gz"
-  sha256 "7bbe479d2574a4d0241a5f564852d637690ded165c160862977e90597c614fed"
+  url "https://github.com/bcgsc/abyss/releases/download/2.3.5/abyss-2.3.5.tar.gz"
+  sha256 "5455f7708531681ee15ec4fd5620526a53c86d28f959e630dc495f526b7d40f7"
   license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
 
   livecheck do
@@ -35,7 +35,7 @@ class Abyss < Formula
   fails_with gcc: "5"
   fails_with :clang # no OpenMP support
 
-  resource("testdata") do
+  resource "homebrew-testdata" do
     url "https://www.bcgsc.ca/sites/default/files/bioinformatics/software/abyss/releases/1.3.4/test-data.tar.gz"
     sha256 "28f8592203daf2d7c3b90887f9344ea54fda39451464a306ef0226224e5f4f0e"
   end
@@ -54,7 +54,7 @@ class Abyss < Formula
   end
 
   test do
-    testpath.install resource("testdata")
+    testpath.install resource("homebrew-testdata")
     if which("column")
       system "#{bin}/abyss-pe", "B=2G", "k=25", "name=ts", "in=reads1.fastq reads2.fastq"
     else
