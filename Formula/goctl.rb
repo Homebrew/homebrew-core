@@ -15,5 +15,7 @@ class Goctl < Formula
 
   test do
     assert_match "goctl version #{version}", shell_output("#{bin}/goctl --version")
+    system bin/"goctl", "template", "init", "--home=#{testpath}/goctl-tpl-#{version}"
+    assert_predicate testpath/"goctl-tpl-#{version}", :exist?, "goctl install fail"
   end
 end
