@@ -8,6 +8,7 @@ class Syft < Formula
   head "https://github.com/anchore/syft.git", branch: "main"
 
   depends_on "go" => :build
+  depends_on "docker" => :test
 
   def install
     ldflags = %W[
