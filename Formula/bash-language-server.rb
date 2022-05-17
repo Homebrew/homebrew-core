@@ -24,6 +24,8 @@ class BashLanguageServer < Formula
   end
 
   test do
+    ENV["NODE_OPTIONS"] = "--no-experimental-fetch"
+
     json = <<~JSON
       {
         "jsonrpc": "2.0",
