@@ -3,8 +3,8 @@ class Ykdl < Formula
 
   desc "Video downloader that focus on China mainland video sites"
   homepage "https://github.com/SeaHOH/ykdl"
-  url "https://files.pythonhosted.org/packages/94/0c/723886d89167fa7ab4fa8847c646da95ef6cf56afadf7098619d4223fb62/ykdl-1.8.1.tar.gz"
-  sha256 "28b6415c03efd6141034c8d46c0483d27276bcd7d189fd12e48dd5762f79a868"
+  url "https://files.pythonhosted.org/packages/1e/a2/8d68c0f5bfda82033fac0d36875c185241de37e1ac56f8b3f161e825a1e6/ykdl-1.8.1.post1.tar.gz"
+  sha256 "97b179ef7059685fbbb24d4f50ae6e5e01f08e9c0998b292dc1ca44c1af09dc1"
   license "MIT"
 
   bottle do
