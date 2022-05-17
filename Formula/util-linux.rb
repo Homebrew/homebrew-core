@@ -12,6 +12,7 @@ class UtilLinux < Formula
     "LGPL-2.1-or-later",
     :public_domain,
   ]
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "be2925aad03237bfdb1fd53158c9235d649d9e5fcd8f2b0689d8ce8d3273c04e"
@@ -27,6 +28,7 @@ class UtilLinux < Formula
   depends_on "asciidoctor" => :build
   depends_on "gettext"
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
