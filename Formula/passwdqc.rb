@@ -4,6 +4,7 @@ class Passwdqc < Formula
   url "https://www.openwall.com/passwdqc/passwdqc-2.0.2.tar.gz"
   sha256 "ff1f505764c020f6a4484b1e0cc4fdbf2e3f71b522926d90b4709104ca0604ab"
   license "0BSD"
+  revision 1
 
   livecheck do
     url :homepage
@@ -19,6 +20,8 @@ class Passwdqc < Formula
     sha256 cellar: :any,                 mojave:         "e5f0c3879c811e178aed95c5541ea0f3b8967865d75a425bc3ac1b102a9b1014"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2068b218232974b2b44cf9a01ac38950f781df2df5a82862b4cc1ccc2de01bbb"
   end
+
+  uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "linux-pam"
