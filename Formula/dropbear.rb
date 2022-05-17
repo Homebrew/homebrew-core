@@ -4,6 +4,7 @@ class Dropbear < Formula
   url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2022.82.tar.bz2"
   sha256 "3a038d2bbc02bf28bbdd20c012091f741a3ec5cbe460691811d714876aad75d1"
   license "MIT"
+  revision 1
 
   livecheck do
     url :homepage
@@ -25,6 +26,8 @@ class Dropbear < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "linux-pam"
