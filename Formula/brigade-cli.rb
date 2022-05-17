@@ -7,6 +7,11 @@ class BrigadeCli < Formula
   license "Apache-2.0"
   head "https://github.com/brigadecore/brigade.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e32b00704bef443f6998dd60330c9e13c64443f358b43d8bc7812cc34c892fd3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5aa661ac2ca0c024cc154a8acdc20107d63d171b106a3a9be07f08b8260abe0a"
