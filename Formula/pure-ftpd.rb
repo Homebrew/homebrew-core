@@ -4,6 +4,7 @@ class PureFtpd < Formula
   url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.50.tar.gz"
   sha256 "abe2f94eb40b330d4dc22b159991f44e5e515212f8e887049dccdef266d0ea23"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause", "ISC"]
+  revision 1
 
   livecheck do
     url "https://download.pureftpd.org/pub/pure-ftpd/releases/"
@@ -21,6 +22,8 @@ class PureFtpd < Formula
 
   depends_on "libsodium"
   depends_on "openssl@1.1"
+
+  uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "linux-pam"
