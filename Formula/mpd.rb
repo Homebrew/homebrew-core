@@ -54,6 +54,13 @@ class Mpd < Formula
 
   fails_with gcc: "5"
 
+  # Fix missing header file (see https://github.com/MusicPlayerDaemon/MPD/issues/1530)
+  # Patch accepted upstream, remove on next release
+  patch do
+    url "https://github.com/MusicPlayerDaemon/MPD/commit/c6f7f5777694c448aa42d17f88ab9cf2e3112dd0.patch?full_index=1"
+    sha256 "17c03ecee2a8b91c1b114b2ab340878f6cec5fc28093ec6386f4d7ba47d8b909"
+  end
+
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
     # that against libstdc++ anyway, which won't work.
