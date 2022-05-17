@@ -4,6 +4,7 @@ class MariadbAT106 < Formula
   url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.7/source/mariadb-10.6.7.tar.gz"
   sha256 "75ee0f1f865a765fc461ab165419417a719e308faba784b2c97ecbe9e4b4b2c5"
   license "GPL-2.0-only"
+  revision 1
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
   # requirement. In the future, this will be updated to use a `Json` strategy
@@ -44,6 +45,7 @@ class MariadbAT106 < Formula
   depends_on "pcre2"
 
   uses_from_macos "bzip2"
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
