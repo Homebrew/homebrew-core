@@ -4,6 +4,12 @@ class Freebayes < Formula
   url "https://github.com/freebayes/freebayes/releases/download/v1.3.6/freebayes-1.3.6-src.tar.gz"
   sha256 "6016c1e58fdf34a1f6f77b720dd8e12e13a127f7cbac9c747e47954561b437f5"
   license "MIT"
+  head "https://github.com/freebayes/freebayes.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "26799da3d54c7416f8c79cbc95ab4c7428cc60a3d5dba0d4f67e08050cd7d40c"
