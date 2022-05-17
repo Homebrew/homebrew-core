@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/10.0.139.15.tar.gz"
-  sha256 "1090da1faa9cdcbf6a054452d21b8f6a5188601f809fcdd5c14376ecae6bfdc2"
+  url "https://github.com/v8/v8/archive/10.1.124.12.tar.gz"
+  sha256 "8f4c640721123af612106cd1939d42191a69a4633a889f384e551b36763cf11f"
   license "BSD-3-Clause"
 
   livecheck do
@@ -37,13 +37,13 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.9.115.8/DEPS#43
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.1.124.12/DEPS#43
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "0725d7827575b239594fbc8fd5192873a1d62f44"
+        revision: "bd99dbf98cbdefe18a4128189665c5761263bcfb"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.9.115.8/DEPS#84
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.1.124.12/DEPS#84
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
         revision: "d115b033c4e53666b535cbd1985ffe60badad082"
@@ -51,17 +51,17 @@ class V8 < Formula
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "62a6377648eb82cff75e3a12f689400694fbbb63"
+        revision: "3d9590754d5d23e62d15472c5baf6777ca59df20"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "ea55f1f52c489535f0d3b583c81529762c9cb5ea"
+        revision: "ae5e06dd35c6137d335331b0815cf1f60fd7e3c5"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "b867f209e4b56b0a8c01aaaba3882ad41e438c4f"
+        revision: "8a5b728e4f43b0eabdb9ea450f956d67cfb22719"
   end
 
   resource "v8/third_party/jinja2" do
@@ -76,8 +76,12 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "9538f4194f6e5eff1bd59f2396ed9d05b1a8d801"
+        revision: "b0676a1f52484bf53a1a49d0e48ff8abc430fafe"
   end
+
+  # Apply patch to fix v8 build with glibc < 2.27. See here for details:
+  # https://libc-alpha.sourceware.narkive.com/XOENQFwL/add-fcntl-sealing-interfaces-from-linux-3-17-to-bits-fcntl-linux-h
+  patch :DATA
 
   def install
     (buildpath/"build").install resource("v8/build")
@@ -173,3 +177,18 @@ class V8 < Formula
       "-L#{lib}", "-lv8", "-lv8_libplatform"
   end
 end
+
+__END__
+--- a/src/base/platform/platform-posix.cc
++++ b/src/base/platform/platform-posix.cc
+@@ -88,6 +88,11 @@ extern int madvise(caddr_t, size_t, int);
+ extern "C" void* __libc_stack_end;
+ #endif
+
++#ifndef MFD_CLOEXEC
++#define MFD_CLOEXEC 0x0001U
++#define MFD_ALLOW_SEALING 0x0002U
++#endif
++
+ namespace v8 {
+ namespace base {
