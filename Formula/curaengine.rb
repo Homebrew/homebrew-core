@@ -1,8 +1,8 @@
 class Curaengine < Formula
   desc "C++ 3D printing GCode generator"
   homepage "https://github.com/Ultimaker/CuraEngine"
-  url "https://github.com/Ultimaker/CuraEngine/archive/4.13.1.tar.gz"
-  sha256 "283f62326c6072cdcef9d9b84cb8141a6072747f08e1cae6534d08ad85b1c657"
+  url "https://github.com/Ultimaker/CuraEngine/archive/5.0.0.tar.gz"
+  sha256 "69d0e40ecd7a41038304319a5f80e9ce3538974449664c7ba405cb6129e7a1b2"
   license "AGPL-3.0-or-later"
   version_scheme 1
   head "https://github.com/Ultimaker/CuraEngine.git", branch: "master"
@@ -37,13 +37,13 @@ class Curaengine < Formula
   # The version tag in these resources (e.g., `/1.2.3/`) should be changed as
   # part of updating this formula to a new version.
   resource "fdmextruder_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.13.1/resources/definitions/fdmextruder.def.json"
-    sha256 "c03847252f9dea37277a3151c0eaeec32ded5e4cd91eed62b58e420ad8cb7fef"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/5.0.0/resources/definitions/fdmextruder.def.json"
+    sha256 "556f9d2d1d0232ff19576b6dd96895dfb2a0f6a0e33b2b1c3f942b833685ed46"
   end
 
   resource "fdmprinter_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.13.1/resources/definitions/fdmprinter.def.json"
-    sha256 "6634679e3a9571f877e52e57a688d883dc4dc9fe6855a04c3b7be19b60f3a0b7"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/5.0.0/resources/definitions/fdmprinter.def.json"
+    sha256 "077d194b2252a8b04b7d1ab6df05a5a4ecfaef730a4fd56eb6a26364cbd8c5a7"
   end
 
   def install
