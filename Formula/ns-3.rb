@@ -4,7 +4,7 @@ class Ns3 < Formula
   url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.35/ns-3-dev-ns-3.35.tar.bz2"
   sha256 "946abd1be8eeeb2b0f72a67f9d5fa3b9839bb6973297d4601c017a6c3a50fc10"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "2e8c6e69fc3e3866afb6f182bd26c71b80e3a58d4880cd8f6054ef7c147a124e"
@@ -18,6 +18,7 @@ class Ns3 < Formula
   depends_on "boost" => :build
   depends_on "python@3.10" => [:build, :test]
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
 
