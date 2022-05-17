@@ -3,8 +3,8 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/e1/df/64cdd2b7c2852eefa74caa9319fa427468d79c95882dbaa8657fd61e172e/platformio-6.0.0.tar.gz"
-  sha256 "8a4f660bd46f54d6b7271636be93019ec3c1f8ee547250c006661abde2f0946a"
+  url "https://files.pythonhosted.org/packages/4d/3d/04e2dd3de05ed9a6a7d4119e6e178db53efd5412518995f1f4f74f9c7f9b/platformio-6.0.1.tar.gz"
+  sha256 "17b31f189a91d80767031760a923b47cee96f9cf7f2ba361cf386d1b9340b378"
   license "Apache-2.0"
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
@@ -36,8 +36,8 @@ class Platformio < Formula
   end
 
   resource "asgiref" do
-    url "https://files.pythonhosted.org/packages/6d/b6/44c179fdee3857af5e76ee04426cac8119ef736900a0068d12c1c018301c/asgiref-3.5.1.tar.gz"
-    sha256 "fddeea3c53fa99d0cdb613c3941cc6e52d822491fc2753fba25768fb5bf4e865"
+    url "https://files.pythonhosted.org/packages/1f/35/e7d59b92ceffb1dc62c65156278de378670b46ab2364a3ea7216fe194ba3/asgiref-3.5.2.tar.gz"
+    sha256 "4a29362a6acebe09bf1d6640db38c1dc3d9217c68e6f9f6204d72667fc19a424"
   end
 
   resource "bottle" do
