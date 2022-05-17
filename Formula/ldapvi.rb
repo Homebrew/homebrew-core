@@ -5,7 +5,7 @@ class Ldapvi < Formula
   mirror "https://deb.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7.orig.tar.gz"
   sha256 "6f62e92d20ff2ac0d06125024a914b8622e5b8a0a0c2d390bf3e7990cbd2e153"
   license "GPL-2.0-or-later"
-  revision 7
+  revision 8
 
   livecheck do
     url :homepage
@@ -32,6 +32,7 @@ class Ldapvi < Formula
   depends_on "popt"
   depends_on "readline"
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "openldap"
 
   # These patches are applied upstream but release process seems to be dead.
