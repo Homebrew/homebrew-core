@@ -4,6 +4,7 @@ class Monit < Formula
   url "https://mmonit.com/monit/dist/monit-5.32.0.tar.gz"
   sha256 "1077052d4c4e848ac47d14f9b37754d46419aecbe8c9a07e1f869c914faf3216"
   license "AGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://mmonit.com/monit/dist/"
@@ -20,6 +21,8 @@ class Monit < Formula
   end
 
   depends_on "openssl@1.1"
+
+  uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "linux-pam"
