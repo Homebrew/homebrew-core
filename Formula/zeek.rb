@@ -5,6 +5,7 @@ class Zeek < Formula
       tag:      "v4.2.1",
       revision: "45491fc4e19ef15428db3ccdc5e1c55130f79131"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/zeek/zeek.git", branch: "master"
 
   livecheck do
@@ -33,6 +34,7 @@ class Zeek < Formula
 
   uses_from_macos "flex"
   uses_from_macos "libpcap"
+  uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   on_linux do
