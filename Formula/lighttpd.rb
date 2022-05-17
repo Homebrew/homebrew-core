@@ -4,6 +4,7 @@ class Lighttpd < Formula
   url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.64.tar.xz"
   sha256 "e1489d9fa7496fbf2e071c338b593b2300d38c23f1e5967e52c9ef482e1b0e26"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://www.lighttpd.net/download/"
@@ -26,6 +27,8 @@ class Lighttpd < Formula
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "pcre2"
+
+  uses_from_macos "libxcrypt"
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
   MAX_FDS = 512
