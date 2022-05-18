@@ -146,13 +146,8 @@ class Sdl2Sound < Formula
       -lSDL2_sound
       -lSDL2
     ]
+    flags << "-DHAVE_SIGNAL_H=1" if OS.linux?
     cp pkgshare/"examples/playsound.c", testpath
-    
-    if OS.Linux?
-      inreplace "playsound.c",
-        "#if HAVE_SIGNAL_H\n",
-        "#define HAVE_SIGNAL_H 1\n#if HAVE_SIGNAL_H\n"
-    end
 
     system ENV.cc, "playsound.c", "-o", "playsound", *flags
     assert_match "help", shell_output("./playsound --help 2>&1", 42)
