@@ -26,10 +26,18 @@ class Samba < Formula
   depends_on "python@3.10" => :build
   depends_on "gnutls"
   depends_on "krb5"
+  depends_on "libtasn1"
+  depends_on "readline"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
+  uses_from_macos "libxcrypt"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "openssl@1.1"
+  end
 
   resource "Parse::Yapp" do
     url "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
@@ -92,7 +100,11 @@ class Samba < Formula
   end
 
   test do
-    smbd = "#{sbin}/samba-dot-org-smbd"
+    smbd = if OS.mac?
+      "#{sbin}/samba-dot-org-smbd"
+    else
+      "#{sbin}/smbd"
+    end
 
     system smbd, "--build-options", "--configfile=/dev/null"
     system smbd, "--version"
