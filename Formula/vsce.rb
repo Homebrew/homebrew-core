@@ -3,8 +3,8 @@ require "language/node"
 class Vsce < Formula
   desc "Tool for packaging, publishing and managing VS Code extensions"
   homepage "https://code.visualstudio.com/api/working-with-extensions/publishing-extension#vsce"
-  url "https://registry.npmjs.org/vsce/-/vsce-2.7.0.tgz"
-  sha256 "68016d50a3208624c525dd8d214ac81fb37772d94f1565740a2e9d061a25327c"
+  url "https://registry.npmjs.org/vsce/-/vsce-2.8.0.tgz"
+  sha256 "eca227dce6dba0f2dd32a095df5aeedacba27a7cac14278e32e3b05e9279ca11"
   license "MIT"
   head "https://github.com/microsoft/vscode-vsce.git", branch: "main"
 
