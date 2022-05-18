@@ -12,6 +12,7 @@
   "gcc@8",
   "gcc@9",
   "gcc@10",
+  "gcc@12",
   "glibmm@2.66",
   "gnupg@1.4",
   "libsigc++@2",
