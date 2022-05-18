@@ -3,10 +3,9 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-22.0.5.tar.xz"
-  sha256 "5ee2dc06eff19e19b2867f12eb0db0905c9691c07974f6253f2f1443df4c7a35"
+  url "https://mesa.freedesktop.org/archive/mesa-22.1.3.tar.xz"
+  sha256 "b98f32ba7aa2a1ff5725fb36eb999c693079f0ca16f70aa2f103e2b6c3f093e3"
   license "MIT"
-  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   # Linux bottle removed for GCC 12 migration
