@@ -13,10 +13,7 @@ class Flix < Formula
   def install
     system Formula["gradle"].bin/"gradle", "build", "jar"
     prefix.install "build/libs/flix-#{version}.jar"
-    (bin/"flix").write <<~EOS
-      #!/bin/bash
-      CLASSPATH="#{prefix}/flix-#{version}.jar:." exec "#{Formula["openjdk"].opt_bin}/java" -jar #{prefix}/flix-#{version}.jar "$@"
-    EOS
+    bin.write_jar_script prefix/"flix-#{version}.jar", "flix"
   end
 
   test do
