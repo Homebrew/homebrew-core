@@ -6,9 +6,14 @@ class Freebayes < Formula
   license "MIT"
   head "https://github.com/freebayes/freebayes.git", branch: "master"
 
+  # The Git repository contains a few older tags that erroneously omit a
+  # leading zero in the version (e.g., `v9.9.2` should have been `v0.9.9.2`)
+  # and these would appear as the newest versions until the current version
+  # exceeds 9.9.2. `stable` uses a tarball from a release (not a tag archive),
+  # so using the `GithubLatest` strategy is appropriate here overall.
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
