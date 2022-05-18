@@ -9,8 +9,7 @@ class Sftpgo < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
-    system bin/"sftpgo", "gen", "man", "-d", "man"
-    man1.install Dir["man/*.1"]
+    system bin/"sftpgo", "gen", "man", "-d", man1
 
     (zsh_completion/"_sftpgo").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "zsh")
     (bash_completion/"sftpgo").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "bash")
