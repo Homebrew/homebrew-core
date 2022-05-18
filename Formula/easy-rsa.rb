@@ -53,7 +53,7 @@ class EasyRsa < Formula
   end
 
   test do
-    ENV["EASYRSA_PKI"] = testpath/"pki"
+    ENV["EASYRSA_PKI"] = etc/name
     assert_match "init-pki complete", shell_output("easyrsa init-pki")
   end
 end
