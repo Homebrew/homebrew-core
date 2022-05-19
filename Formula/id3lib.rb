@@ -36,6 +36,8 @@ class Id3lib < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  uses_from_macos "zlib"
+
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e223e971/id3lib/no-iomanip.h.patch"
     sha256 "da0bd9f3d17f1dd054720c17dfd15062eabdfc4d38126bb1b2ef5e8f39904925"
@@ -57,6 +59,8 @@ class Id3lib < Formula
     sha256 "71c79002d9485965a3a93e87ecbd7fed8f89f64340433b7ccd263d21385ac969"
   end
 
+  patch :DATA
+
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
@@ -64,3 +68,26 @@ class Id3lib < Formula
     system "make", "install"
   end
 end
+
+__END__
+--- a/include/id3/id3lib_strings.h
++++ b/include/id3/id3lib_strings.h
+@@ -30,6 +30,7 @@
+ #define _ID3LIB_STRINGS_H_
+
+ #include <string>
++#include <cstring>
+
+ #if (defined(__GNUC__) && (__GNUC__ >= 3) || (defined(_MSC_VER) && _MSC_VER > 1000))
+ namespace std
+--- a/include/id3/writers.h
++++ b/include/id3/writers.h
+@@ -30,7 +30,7 @@
+
+ #include "id3/writer.h"
+ #include "id3/id3lib_streams.h"
+-//#include <string.h>
++#include <cstring>
+
+ class ID3_CPP_EXPORT ID3_OStreamWriter : public ID3_Writer
+ {
