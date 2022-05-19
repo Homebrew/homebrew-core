@@ -20,7 +20,14 @@ class Id3v2 < Formula
 
   depends_on "id3lib"
 
+  uses_from_macos "groff" => :build
+  uses_from_macos "zlib"
+
   def install
+    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
+    # Remove after migration to 18.04.
+    inreplace "Makefile", "-lz -lid3", "-lid3 -lz"
+
     # tarball includes a prebuilt Linux binary, which will get installed
     # by `make install` if `make clean` isn't run first
     system "make", "clean"
