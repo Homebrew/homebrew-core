@@ -18,7 +18,7 @@ class Flix < Formula
 
   test do
     system bin/"flix", "init"
-    system bin/"flix", "run"
-    system bin/"flix", "test"
+    assert_match "Hello World!", shell_output("#{bin/"flix"} run")
+    assert_match "Tests Passed!", shell_output("#{bin/"flix"} test")
   end
 end
