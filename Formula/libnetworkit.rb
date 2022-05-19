@@ -20,6 +20,7 @@ class Libnetworkit < Formula
 
   depends_on "cmake" => :build
   depends_on "tlx"
+  depends_on "ttmath"
 
   on_macos do
     depends_on "libomp"
