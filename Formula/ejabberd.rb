@@ -1,14 +1,10 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://static.process-one.net/ejabberd/downloads/21.12/ejabberd-21.12.tgz"
-  sha256 "b6e6739947d3678525b14ee280cedb1a04280c83ea17a4741795aac99fbdad47"
+  url "https://github.com/processone/ejabberd/archive/refs/tags/22.05.tar.gz"
+  sha256 "b8e93b51ae3cb650a2870fae1b6705404bb155289e97be7e9a54961a9effb959"
   license "GPL-2.0-only"
-
-  livecheck do
-    url "https://www.process-one.net/en/ejabberd/downloads/"
-    regex(/href=.*?ejabberd[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://github.com/processone/ejabberd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c4873e5f20dc834c2b31e8a3a0a8e4b2c72ff0cc3f1af5de65236cf2823d6524"
@@ -19,14 +15,9 @@ class Ejabberd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "61e4ae90bc4c22ec6114b3a26a9cb9d2285328b4e86219e58d50dae56cba2aec"
   end
 
-  head do
-    url "https://github.com/processone/ejabberd.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
-  depends_on "erlang@22"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "erlang"
   depends_on "gd"
   depends_on "libyaml"
   depends_on "openssl@1.1"
@@ -50,7 +41,7 @@ class Ejabberd < Formula
             "--enable-odbc",
             "--enable-pam"]
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", *args
 
     # Set CPP to work around cpp shim issue:
