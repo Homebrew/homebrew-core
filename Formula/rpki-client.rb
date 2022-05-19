@@ -4,6 +4,7 @@ class RpkiClient < Formula
   url "https://ftp.openbsd.org/pub/OpenBSD/rpki-client/rpki-client-7.8.tar.gz"
   sha256 "7a87a6fe7b1bd36a1ce277cf50e125ece7b2ed0236e252a66e2b34ca8f88b7f5"
   license "ISC"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "a163c6fb57235560fc3e117b0a0ae65cfb5a88f0a4c919243f7b7367b36bc5d7"
