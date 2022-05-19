@@ -1,8 +1,8 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://github.com/lima-vm/lima"
-  url "https://github.com/lima-vm/lima/archive/v0.10.0.tar.gz"
-  sha256 "7faa906b2814738eb0e19b93ad7291aa4b280f0bcffedfc60d0ec77dc053c5b4"
+  url "https://github.com/lima-vm/lima/archive/v0.11.0.tar.gz"
+  sha256 "b4f89cd8be84d2530a9ca86544ee9709b6d90c50ea0a08bac5959813f4bd435d"
   license "Apache-2.0"
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
