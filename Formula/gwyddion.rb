@@ -106,15 +106,11 @@ class Gwyddion < Formula
       -lfftw3
       -lfontconfig
       -lfreetype
-      -lgdk-quartz-2.0
       -lgdk_pixbuf-2.0
-      -lgdkglext-quartz-1.0
       -lgio-2.0
       -lglib-2.0
       -lgmodule-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
-      -lgtkglext-quartz-1.0
       -lgwyapp2
       -lgwyddion2
       -lgwydgets2
@@ -124,10 +120,20 @@ class Gwyddion < Formula
       -lpango-1.0
       -lpangocairo-1.0
       -lpangoft2-1.0
-      -framework AppKit
-      -framework OpenGL
     ]
-    flags << "-lintl" if OS.mac?
+
+    if OS.mac?
+      flags += %w[
+        -lintl
+        -lgdk-quartz-2.0
+        -lgdkglext-quartz-1.0
+        -lgtk-quartz-2.0
+        -lgtkglext-quartz-1.0
+        -framework AppKit
+        -framework OpenGL
+      ]
+    end
+
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
