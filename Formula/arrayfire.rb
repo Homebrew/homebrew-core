@@ -1,8 +1,8 @@
 class Arrayfire < Formula
   desc "General purpose GPU library"
   homepage "https://arrayfire.com"
-  url "https://github.com/arrayfire/arrayfire/releases/download/v3.8.1/arrayfire-full-3.8.1.tar.bz2"
-  sha256 "13edaeb329826e7ca51b5db2d39b8dbdb9edffb6f5b88aef375e115443155668"
+  url "https://github.com/arrayfire/arrayfire/releases/download/v3.8.2/arrayfire-full-3.8.2.tar.bz2"
+  sha256 "2d01b35adade2433078f57e2233844679aabfdb06a41e6992a6b27c65302d3fe"
   license "BSD-3-Clause"
 
   bottle do
