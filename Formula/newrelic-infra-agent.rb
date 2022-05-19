@@ -2,8 +2,8 @@ class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
   url "https://github.com/newrelic/infrastructure-agent.git",
-      tag:      "1.24.3",
-      revision: "2fc109dfcae37cd27a6db5089d09f712e667479b"
+      tag:      "1.25.0",
+      revision: "dd4b09fe5916df26c5ceb176f2d3cde3e60ac0d9"
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
@@ -21,8 +21,7 @@ class NewrelicInfraAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ef8260a5a4659a6560e9530513d7a3e99ec2381c1028a8d5c68d27fc3909da48"
   end
 
-  # https://github.com/newrelic/infrastructure-agent/issues/723
-  depends_on "go@1.16" => :build
+  depends_on "go@1.18" => :build
   # https://github.com/newrelic/infrastructure-agent/issues/695
   depends_on arch: :x86_64
 
