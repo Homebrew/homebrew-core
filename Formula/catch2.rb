@@ -20,8 +20,7 @@ class Catch2 < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #define CATCH_CONFIG_MAIN
-      #include <catch2/catch.hpp>
+      #include <catch2/catch_all.hpp>
       TEST_CASE("Basic", "[catch2]") {
         int x = 1;
         SECTION("Test section 1") {
