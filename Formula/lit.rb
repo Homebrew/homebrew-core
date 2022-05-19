@@ -3,8 +3,8 @@ class Lit < Formula
 
   desc "Portable tool for LLVM- and Clang-style test suites"
   homepage "https://llvm.org"
-  url "https://files.pythonhosted.org/packages/9d/8e/a4570b82f17fe3bdc378fa41989c1652d57736918b3640b8acf5ce9dcb0b/lit-14.0.0.tar.gz"
-  sha256 "45e08ce87b0ea56ab632aa02fa857418a5dd241a711c7c756878b73a130c3efe"
+  url "https://files.pythonhosted.org/packages/65/0c/94e4da4d1dc0dd55a09257d16dd9c87ed2f8e4747278d78fd4254465d943/lit-14.0.3.tar.gz"
+  sha256 "a4126b5bfcb73b3ac0e8473cf365e844fce2867515ac56072b6950deda3d5d98"
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   bottle do
