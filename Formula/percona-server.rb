@@ -23,6 +23,7 @@ class PerconaServer < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "libevent"
+  depends_on "libfido2"
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "protobuf"
@@ -64,11 +65,11 @@ class PerconaServer < Formula
     sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
   end
 
-  # Fix build on Monterey.
-  # Remove with 8.0.28.
+  # Fix libfibo2 finding; fix unneeded copying of openssl@1.1 libs
+  # Remove in the next version (8.0.29)
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fcbea58e245ea562fbb749bfe6e1ab178fd10025/mysql/monterey.diff"
-    sha256 "6709edb2393000bd89acf2d86ad0876bde3b84f46884d3cba7463cd346234f6f"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3e668c9996eef41f7d7fa4e2d647f2b80da699e1/percona-server/8.0.28-19.diff"
+    sha256 "1410c30b8634c2bb011de08a45ea2b2c7edce13b846871a8447658c1c262ddbf"
   end
 
   def install
@@ -100,6 +101,7 @@ class PerconaServer < Formula
       -DWITH_UNIT_TESTS=OFF
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system
+      -DWITH_FIDO=system
       -DWITH_ICU=system
       -DWITH_LIBEVENT=system
       -DWITH_LZ4=system
@@ -134,14 +136,6 @@ class PerconaServer < Formula
       # Docker containers lack CAP_SYS_NICE capability by default.
       test_args << "--nowarnings" if OS.linux?
       system "./mysql-test-run.pl", "status", *test_args
-    end
-
-    if OS.mac?
-      # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
-      rm lib/"libssl.dylib"
-      rm lib/"libssl.1.1.dylib"
-      rm lib/"libcrypto.1.1.dylib"
-      rm lib/"libcrypto.dylib"
     end
 
     # Remove the tests directory
