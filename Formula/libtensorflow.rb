@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.8.1.tar.gz"
-  sha256 "4b487a63d6f0c1ca46a2ac37ba4687eabdc3a260c222616fa414f6df73228cec"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "8087cb0c529f04a4bfe480e49925cd64a904ad16d8ec66b98e2aacdfd53c80ff"
   license "Apache-2.0"
 
   bottle do
@@ -20,17 +20,6 @@ class Libtensorflow < Formula
   resource "test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
     sha256 "147fab50ddc945972818516418942157de5e7053d4b67e7fca0b0ada16733ecb"
-  end
-
-  # Fix build for host without python2
-  # Remove in the next 2.9 release
-  patch do
-    url "https://github.com/tensorflow/tensorflow/commit/1dd61c1f744227ad2434a7a9813fc57f623bc9a2.patch?full_index=1"
-    sha256 "f73a590f19962c097251efa6f4f40b80dfa944e3440b298973436016aea67c70"
-  end
-  patch do
-    url "https://github.com/tensorflow/tensorflow/commit/739002567ff81d731179a4b949def7e0f14737c8.patch?full_index=1"
-    sha256 "23c96cf491a6445db18353504bdb0b01f58770f1c0da405da42b91381259ce0e"
   end
 
   def install
