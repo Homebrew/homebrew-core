@@ -5,7 +5,7 @@ class Gmt < Formula
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.3.0-src.tar.xz"
   sha256 "69e29b62ee802a3a64260d6a1e023f1350e3bf4070221aa1307bf8a9e56c1ee5"
   license "LGPL-3.0-or-later"
-  revision 5
+  revision 6
   head "https://github.com/GenericMappingTools/gmt.git", branch: "master"
 
   bottle do
@@ -30,9 +30,9 @@ class Gmt < Formula
   end
 
   resource "dcw" do
-    url "https://github.com/GenericMappingTools/dcw-gmt/releases/download/2.1.0/dcw-gmt-2.1.0.tar.gz"
-    mirror "https://mirrors.ustc.edu.cn/gmt/dcw-gmt-2.1.0.tar.gz"
-    sha256 "e810567cd474d5af9d84751938acb447a8612391ed66190d60d789974a1f9e29"
+    url "https://github.com/GenericMappingTools/dcw-gmt/releases/download/2.1.1/dcw-gmt-2.1.1.tar.gz"
+    mirror "https://mirrors.ustc.edu.cn/gmt/dcw-gmt-2.1.1.tar.gz"
+    sha256 "d4e208dca88fbf42cba1bb440fbd96ea2f932185c86001f327ed0c7b65d27af1"
   end
 
   def install
