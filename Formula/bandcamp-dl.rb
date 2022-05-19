@@ -20,6 +20,9 @@ class BandcampDl < Formula
   depends_on "python@3.10"
   depends_on "six"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/e8/b0/cd2b968000577ec5ce6c741a54d846dfa402372369b8b6861720aa9ecea7/beautifulsoup4-4.11.1.tar.gz"
     sha256 "ad9aa55b65ef2808eb405f46cf74df7fcb7044d5cbc26487f96eb2ef2e436693"
