@@ -24,6 +24,8 @@ class Castget < Formula
   depends_on "glib"
   depends_on "id3lib"
 
+  uses_from_macos "curl"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
