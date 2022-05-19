@@ -1,5 +1,5 @@
 class Stencil < Formula
-  desc "A smart templating engine for service development"
+  desc "Smart templating engine for service development"
   homepage "https://engineering.outreach.io/stencil/"
   url "https://github.com/getoutreach/stencil/archive/refs/tags/v1.15.1.tar.gz"
   sha256 "4b3019a99c70751e7d670d911cf8e20dd827caeb1907730425479bc7824770cf"
