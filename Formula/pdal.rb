@@ -1,10 +1,9 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.4.0/PDAL-2.4.0-src.tar.gz"
-  sha256 "c08e56c0d3931ab9e612172d5836673dfa2d5e6b2bf4f8d22c912b126b590b15"
+  url "https://github.com/PDAL/PDAL/releases/download/2.4.1/PDAL-2.4.1-src.tar.gz"
+  sha256 "4df8463f68087e3742691048f5ab9db04269fc54bc418e4dc53e2c761bd825f2"
   license "BSD-3-Clause"
-  revision 4
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes tags a commit with only a
