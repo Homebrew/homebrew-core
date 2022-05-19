@@ -44,6 +44,6 @@ class OmegaRpg < Formula
   def post_install
     # omega refuses to run without license.txt in OMEGALIB
     license_file = libexec/"license.txt"
-    ln_s prefix/"license.txt", license_file unless license_file.exist?
+    prefix.install_symlink license_file unless license_file.exist?
   end
 end
