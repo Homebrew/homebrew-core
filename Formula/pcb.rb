@@ -33,21 +33,41 @@ class Pcb < Formula
   depends_on "gtk+"
   depends_on "gtkglext"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "perl" => :build
+  uses_from_macos "tcl-tk"
+
+  on_macos do
+    depends_on "gnu-sed"
+  end
+
   conflicts_with "gts", because: "both install a `gts.h` header"
 
   def install
+    if OS.mac?
+      ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin"
+    else
+      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
+    end
+
     system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-update-desktop-database",
-                          "--disable-update-mime-database",
-                          "--disable-gl",
-                          "--without-x"
+    args = std_configure_args + %w[
+      --disable-update-desktop-database
+      --disable-update-mime-database
+      --disable-gl
+    ]
+    args << "--without-x" if OS.mac?
+
+    system "./configure", *args
     system "make", "install"
   end
 
   test do
+    # Disable test on Linux because it fails with:
+    # Gtk-WARNING **: 09:09:35.919: cannot open display
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     assert_match version.to_s, shell_output("#{bin}/pcb --version")
   end
 end
