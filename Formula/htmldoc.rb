@@ -1,8 +1,8 @@
 class Htmldoc < Formula
   desc "Convert HTML to PDF or PostScript"
   homepage "https://www.msweet.org/htmldoc/"
-  url "https://github.com/michaelrsweet/htmldoc/archive/v1.9.15.tar.gz"
-  sha256 "9dc88e5a2ce849105933c438bbe54f4383f0d1dadb494f52c6ec941317659431"
+  url "https://github.com/michaelrsweet/htmldoc/archive/v1.9.16.tar.gz"
+  sha256 "f0d19d8be0fd961d07556f85dbea1d95f0d38728a45dc0f2cf92c715e4140542"
   license "GPL-2.0-only"
   head "https://github.com/michaelrsweet/htmldoc.git", branch: "master"
 
