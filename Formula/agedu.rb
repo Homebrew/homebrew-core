@@ -21,14 +21,12 @@ class Agedu < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "5079b0c9090045244900e90d0845b3eaef544fa624ba2f5658467ef229201e31"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "halibut" => :build
+  depends_on "cmake" => :build
 
   def install
-    system "./mkauto.sh"
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
