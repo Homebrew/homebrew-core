@@ -25,6 +25,10 @@ class Libwpd < Formula
   depends_on "libgsf"
   depends_on "librevenge"
 
+  # Apply https://sourceforge.net/p/libwpd/code/ci/333c8a26f231bea26ec3d56245315041bbf5577f
+  # Remove with next release.
+  patch :DATA
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
@@ -48,3 +52,16 @@ class Libwpd < Formula
     system "./test"
   end
 end
+
+__END__
+--- a/src/lib/WPXTable.h
++++ b/src/lib/WPXTable.h
+@@ -53,7 +53,7 @@
+ 	~WPXTable();
+ 	void insertRow();
+ 	void insertCell(unsigned char colSpan, unsigned char rowSpan, unsigned char borderBits);
+-	const WPXTableCell  *getCell(size_t i, size_t j)
++	const WPXTableCell  *getCell(std::size_t i, std::size_t j)
+ 	{
+ 		return &(m_tableRows[i])[j];
+ 	}
