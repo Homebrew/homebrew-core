@@ -1,5 +1,5 @@
 class Pget < Formula
-  desc "Fastest file download client"
+  desc "File download client"
   homepage "https://github.com/Code-Hex/pget"
   url "https://github.com/Code-Hex/pget/archive/refs/tags/v0.1.1.tar.gz"
   sha256 "34d674dc48144c84de72d525e67d96500243cc1d1c4c0433794495c0846c193f"
