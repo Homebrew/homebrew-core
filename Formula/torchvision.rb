@@ -47,12 +47,13 @@ class Torchvision < Formula
     EOS
     libtorch = Formula["libtorch"]
     libomp = Formula["libomp"]
-    system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++14", "-Xpreprocessor", "-fopenmp", "test.cpp", "-o", "test",
+                    "-I#{libomp.opt_include}",
+                    "-L#{libomp.opt_lib}", "-lomp",
                     "-I#{libtorch.opt_include}",
                     "-I#{libtorch.opt_include}/torch/csrc/api/include",
                     "-L#{libtorch.opt_lib}", "-ltorch", "-ltorch_cpu", "-lc10",
-                    "-L#{lib}", "-ltorchvision",
-                    "-L#{libomp.opt_lib}", "-lomp"
+                    "-L#{lib}", "-ltorchvision"
 
     system "./test"
   end
