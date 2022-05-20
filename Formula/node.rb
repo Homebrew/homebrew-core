@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v18.3.0/node-v18.3.0.tar.xz"
   sha256 "3f694a81626e5057cda57898e771d213cfc5a649855f4cf1c6f6cd150c530625"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "master"
 
   livecheck do
@@ -21,15 +22,14 @@ class Node < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@1.1"
+  depends_on "python@3.10"
 
-  uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
 
   on_macos do
