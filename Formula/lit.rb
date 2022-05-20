@@ -15,7 +15,8 @@ class Lit < Formula
   depends_on "python@3.10"
 
   def install
-    system "python3", *Language::Python.setup_install_args(prefix)
+    system "python3", *Language::Python.setup_install_args(prefix),
+                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
 
     # Install symlinks so that `import lit` works with multiple versions of Python
     python_versions = Formula.names
