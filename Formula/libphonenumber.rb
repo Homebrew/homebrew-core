@@ -36,6 +36,7 @@ class Libphonenumber < Formula
 
   # remove builtin abseil download step
   # build patch ref, https://github.com/archlinux/svntogit-packages/blob/packages/libphonenumber/trunk/absl.diff
+  # upstream PR to conditionally download abseil package
   patch :DATA
 
   def install
