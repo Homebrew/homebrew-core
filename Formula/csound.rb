@@ -54,11 +54,13 @@ class Csound < Formula
   end
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   conflicts_with "libextractor", because: "both install `extract` binaries"
   conflicts_with "pkcrack", because: "both install `extract` binaries"
+
+  fails_with gcc: "5"
 
   resource "ableton-link" do
     url "https://github.com/Ableton/link/archive/Link-3.0.5.tar.gz"
@@ -151,6 +153,7 @@ class Csound < Formula
         export CLASSPATH="#{opt_libexec}/csnd6.jar:."
       and link the native shared library into your Java Extensions folder:
     EOS
+
     on_macos do
       caveats = <<~EOS
         #{caveats}\
@@ -158,6 +161,7 @@ class Csound < Formula
           ln -s "#{opt_libexec}/lib_jcsound6.jnilib" ~/Library/Java/Extensions
       EOS
     end
+
     on_linux do
       caveats = <<~EOS
         srconv is not installed because it conflicts with binutils. To run srconv:
@@ -168,6 +172,7 @@ class Csound < Formula
           sudo ln -s "#{opt_libexec}/lib_jcsound6.jnilib" /usr/java/packages/lib
       EOS
     end
+
     caveats
   end
 
