@@ -36,6 +36,7 @@ class Ninja < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_bin
     (testpath/"build.ninja").write <<~EOS
       cflags = -Wall
 
