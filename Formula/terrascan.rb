@@ -1,10 +1,10 @@
 class Terrascan < Formula
   desc "Detect compliance and security violations across Infrastructure as Code"
-  homepage "https://github.com/accurics/terrascan"
-  url "https://github.com/accurics/terrascan/archive/v1.13.0.tar.gz"
-  sha256 "20d7f92a88168fa803dc62323c91fbd9e7c707cc1161865053e8a9e752e170e9"
+  homepage "https://github.com/tenable/terrascan"
+  url "https://github.com/tenable/terrascan/archive/v1.15.1.tar.gz"
+  sha256 "3d0588ea411f3cd2a47803ab1fe3e0f92b75a48e29109f843cb99700c083fc66"
   license "Apache-2.0"
-  head "https://github.com/accurics/terrascan.git", branch: "master"
+  head "https://github.com/tenable/terrascan.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ea062b0f2155e618d9e98bd416914286a58cac6d9b333951423c65a722f2da6"
