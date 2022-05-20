@@ -48,6 +48,8 @@ class Fbthrift < Formula
   fails_with gcc: "5" # C++ 17
   fails_with gcc: "11" # https://github.com/facebook/folly#ubuntu-lts-centos-stream-fedora
 
+  patch :DATA
+
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
@@ -79,3 +81,17 @@ class Fbthrift < Formula
     assert_predicate testpath/"gen-cpp2", :directory?
   end
 end
+
+__END__
+diff --git a/thrift/compiler/source_location.cc b/thrift/compiler/source_location.cc
+index 7af4a749ad..1134a22ed7 100644
+--- a/thrift/compiler/source_location.cc
++++ b/thrift/compiler/source_location.cc
+@@ -17,6 +17,7 @@
+ #include <thrift/compiler/source_location.h>
+ 
+ #include <assert.h>
++#include <errno.h>
+ #include <string.h>
+ #include <algorithm>
+ #include <stdexcept>
