@@ -16,6 +16,7 @@ class Pydocstyle < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "6a454e42222a31a0437d0d33197b068b952c5a48011fe107f0d0f14f707e36f1"
     sha256 cellar: :any_skip_relocation, catalina:       "a4091b17676b23f645aec6684939a19a2a5c05f991b25e9d4ebbf09c90764084"
     sha256 cellar: :any_skip_relocation, mojave:         "84a68e5f7328a5a2127b50254e52f13a3f68f8bc718dd8ef84ceae59461a3bbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a656c93ee9ed3bc8572cc415b93081e8ce24870a14ab6569b5ea08ffeb17fbf0"
   end
 
   depends_on "python@3.10"

@@ -2,10 +2,11 @@ class Libgeotiff < Formula
   desc "Library and tools for dealing with GeoTIFF"
   homepage "https://github.com/OSGeo/libgeotiff"
   license "MIT"
+  revision 1
 
   stable do
-    url "https://github.com/OSGeo/libgeotiff/releases/download/1.7.0/libgeotiff-1.7.0.tar.gz"
-    sha256 "fc304d8839ca5947cfbeb63adb9d1aa47acef38fc6d6689e622926e672a99a7e"
+    url "https://github.com/OSGeo/libgeotiff/releases/download/1.7.1/libgeotiff-1.7.1.tar.gz"
+    sha256 "05ab1347aaa471fc97347d8d4269ff0c00f30fa666d956baba37948ec87e55d6"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -20,13 +21,12 @@ class Libgeotiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3d173e746cacebaf4a9be10c49e9f2a0fa94808993d75e44ba9465e5739d2100"
-    sha256 cellar: :any,                 arm64_big_sur:  "0f191bda555533ac59d14b262d66a7a874ed55f77a6dc96785150eed1e84f7fe"
-    sha256 cellar: :any,                 monterey:       "227714a8d1abd87e7f1cf3905116501838da12f3dc5a160b90e8b149d32cfec9"
-    sha256 cellar: :any,                 big_sur:        "0e37a3add2a8840aebaf25f5e3e365eaca77c0943722366f760d4bebbcbdfe95"
-    sha256 cellar: :any,                 catalina:       "20f4e9268c9c5154858452b5d4d1764c042de0e53f5ee7ee45fb889b3754e7ec"
-    sha256 cellar: :any,                 mojave:         "ae97cbd99b52140c77705d0acd1f2b1affd7ffd907e00d6f00f72eae2e61c292"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8731b70f84b1e9daa9ac6c8747232d87c760bcb2be7eb83643cc6582e1163cc"
+    sha256 cellar: :any,                 arm64_monterey: "615f768061ab2ac581ccb0e574d9f7fdde6bbe16e22b4ee8062d25b48410f967"
+    sha256 cellar: :any,                 arm64_big_sur:  "d8442fb7541204b9ede5e102c854baf3157cc4813e8fa9975b9a8e13052f59c5"
+    sha256 cellar: :any,                 monterey:       "90a3a8ab11c000fd87ea68a11a110175aa38053c6ef3e8a11be68bf9ffc67814"
+    sha256 cellar: :any,                 big_sur:        "05347cfdc6122b60956c631a067fadc51f07c6d8362edf26aaa0c073895292f9"
+    sha256 cellar: :any,                 catalina:       "bbdddfdbecc383bdac026cb0769c7148ef34f921accfe83d0b29bce17c44829b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a84070c619a3a8cfb9cec0960d5431cb83570713999462fbd4d8a0d15857e32f"
   end
 
   head do
@@ -39,7 +39,7 @@ class Libgeotiff < Formula
 
   depends_on "jpeg"
   depends_on "libtiff"
-  depends_on "proj@7"
+  depends_on "proj"
 
   def install
     system "./autogen.sh" if build.head?

@@ -1,8 +1,8 @@
 class LuajitOpenresty < Formula
   desc "OpenResty's Branch of LuaJIT 2"
   homepage "https://github.com/openresty/luajit2"
-  url "https://github.com/openresty/luajit2/archive/refs/tags/v2.1-20220111.tar.gz"
-  sha256 "b7e35d8b498b93693efd01e5dac8bff86587f00bf15587c556991e3f0fa6ce41"
+  url "https://github.com/openresty/luajit2/archive/refs/tags/v2.1-20220411.tar.gz"
+  sha256 "d3f2c870f8f88477b01726b32accab30f6e5d57ae59c5ec87374ff73d0794316"
   license "MIT"
   version_scheme 1
   head "https://github.com/openresty/luajit2.git", branch: "v2.1-agentzh"
@@ -19,12 +19,12 @@ class LuajitOpenresty < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d1620aa6cd20803a23f58508ba488baa270f5e14e22b0e5435d5b0be0a7bcf31"
-    sha256 cellar: :any,                 arm64_big_sur:  "608cc0339aa3c1ecbcf71abe49bd6ec8f1ee2b62b1d72c1d3e88c2995598ac8e"
-    sha256 cellar: :any,                 monterey:       "2ae1461b658b6ae206c81ad79b81421c9a472de7cf6e7999cfbb18b95558304c"
-    sha256 cellar: :any,                 big_sur:        "a68f4da860b3b1b336c3b4ebb4308f6edf1e46d064fe0412f9c6b1b9ad41948f"
-    sha256 cellar: :any,                 catalina:       "88211e20b192783028325813116389a6ac92492b1a84d561320d3a0c596acc48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9688d9198d9a771640f859e8aa77489eaf1e182290016dfb3ee6992d36d0007a"
+    sha256 cellar: :any,                 arm64_monterey: "97b49b1612b5579992fe7e825b91f2b192bc0a28433534ac0acc222065b8aeaa"
+    sha256 cellar: :any,                 arm64_big_sur:  "6cc059ffbc72123fae17b51b47709495f0edd2e737d1fcc9d8cec1ba8cf073b7"
+    sha256 cellar: :any,                 monterey:       "cb382c21c8e0239aa7a73b031157298670369db20d247adf200ad488d6d3e61e"
+    sha256 cellar: :any,                 big_sur:        "21bb7476cda22b1fc1265f708a4b357860b238a15ccb9f8866c95a16a98dda10"
+    sha256 cellar: :any,                 catalina:       "92eadb859be61c3553a79f5b8f00ce9feeb8a0d3d9d898125aae40fce016eeec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d4e0b55a6e9f1397b50799fd33b4f0ee86bf749c1f36a595a309ca4b866dd6f"
   end
 
   keg_only "it conflicts with the LuaJIT formula"

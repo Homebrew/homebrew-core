@@ -1,19 +1,18 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-2.8.tar.gz"
-  sha256 "03f858a7abf6bd85bb8cd595f3541fc3bd31f8f400ec092ef3034825ccb77c25"
+  url "https://humdi.net/vnstat/vnstat-2.9.tar.gz"
+  sha256 "11a21475dea91706500aba7c63e24126703fd01f13b1f3acdf92baa5aead9dc7"
   license "GPL-2.0-only"
   head "https://github.com/vergoh/vnstat.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "17d72eee03c37131ab65a80500885f44f5b96cdd242eb25dcb887a08eac29bfe"
-    sha256 arm64_big_sur:  "1b3dd9ca73892c5a80eaf5be1e7e71a8ec7035a8539ebefff3108c169b264871"
-    sha256 monterey:       "cf5082ac9dec5d1b11f4c67e197e60053969fb185590690eba7f83280fa46bed"
-    sha256 big_sur:        "fd1ec9717260fdab127a4bedc0b37fa8e7ddf7cbf98f580d4a09ee83c8732fa8"
-    sha256 catalina:       "f77d3b9d0d6255cb9e25bf8d55f4b77e65bb4d042e4967994694f86f02efc403"
-    sha256 mojave:         "6dcdff6ebc18f04db1c1774a170111147a30a2b9b1fa9c3aede34ef0af7ed683"
-    sha256 x86_64_linux:   "6741cfc8070a737a45db2a57c4a9fc3b9a6e505e4a1cbf97be5b37bbeb33a58e"
+    sha256 arm64_monterey: "a9d126ced5b400cfd9fdd67762f0abb7b68d484168eb1d376de589e26401cafb"
+    sha256 arm64_big_sur:  "9c449b01cc80fcdffad166dd457f08cd5060a4ebbd40d4f947c4abb401b6084a"
+    sha256 monterey:       "bba4e7167e3d1ae02c828a3a5cc561b98f3915aa2b4d058300d62414f7d446cc"
+    sha256 big_sur:        "095e49284800aa41b7cd7808b902a1b451c302c1a4bea0b4a41d93c3de0ede2f"
+    sha256 catalina:       "f6f4328d86add848e05f6a14a59844bb8a32fabc1f9b77cccd86958eba2ffc83"
+    sha256 x86_64_linux:   "8d8dd227883a9cdfcf31b7a8bd6478bef463fc2efb03d162ca643e293c8ac03a"
   end
 
   depends_on "gd"
@@ -63,6 +62,8 @@ class Vnstat < Formula
   test do
     cp etc/"vnstat.conf", testpath
     inreplace "vnstat.conf", var, testpath/"var"
+    inreplace "vnstat.conf", ";Interface", "Interface"
+    inreplace "vnstat.conf", ";DatabaseDir", "DatabaseDir"
     (testpath/"var/db/vnstat").mkpath
 
     begin

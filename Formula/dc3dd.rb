@@ -6,15 +6,18 @@ class Dc3dd < Formula
   revision 2
 
   bottle do
-    sha256 monterey:    "81691239ee28eea77448db74952f8f8f1595a6c09bb5924f0a092cf050ebbf17"
-    sha256 big_sur:     "4b01295bd5bab46484c16fd08989ea81bb69711daa15696dee756f75323e9ed2"
-    sha256 catalina:    "fdd027b6a694489b16d05eab760a88903a83add31033296b13bf660c5807ea12"
-    sha256 mojave:      "da27e2227f7fac70c613c4677ec597255c13b1253bc7c79cf58f7321a0a6427e"
-    sha256 high_sierra: "b906b2d7009282e22eb97a1ad07982f3e4545fa4791cb2bc2eaf1e0c101ebaed"
-    sha256 sierra:      "581af2165e8c666a92060e8354107cd0b27ada0143b4e0f5416b1d76739f45b7"
+    sha256 monterey:     "81691239ee28eea77448db74952f8f8f1595a6c09bb5924f0a092cf050ebbf17"
+    sha256 big_sur:      "4b01295bd5bab46484c16fd08989ea81bb69711daa15696dee756f75323e9ed2"
+    sha256 catalina:     "fdd027b6a694489b16d05eab760a88903a83add31033296b13bf660c5807ea12"
+    sha256 mojave:       "da27e2227f7fac70c613c4677ec597255c13b1253bc7c79cf58f7321a0a6427e"
+    sha256 high_sierra:  "b906b2d7009282e22eb97a1ad07982f3e4545fa4791cb2bc2eaf1e0c101ebaed"
+    sha256 sierra:       "581af2165e8c666a92060e8354107cd0b27ada0143b4e0f5416b1d76739f45b7"
+    sha256 x86_64_linux: "b881a1edf6af2b67b038c16362d6805a7d70cf90d4ebb450f465da60005432e0"
   end
 
   depends_on "gettext"
+
+  uses_from_macos "perl" => :build
 
   resource "gettext-pm" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"

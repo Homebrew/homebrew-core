@@ -1,19 +1,18 @@
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "https://www.openjpeg.org/"
-  url "https://github.com/uclouvain/openjpeg/archive/v2.4.0.tar.gz"
-  sha256 "8702ba68b442657f11aaeb2b338443ca8d5fb95b0d845757968a7be31ef7f16d"
+  url "https://github.com/uclouvain/openjpeg/archive/v2.5.0.tar.gz"
+  sha256 "0333806d6adecc6f7a91243b2b839ff4d2053823634d4f6ed7a59bc87409122a"
   license "BSD-2-Clause"
   head "https://github.com/uclouvain/openjpeg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "13b02f1e67d92a72a712a4cbeca0613c9467acef5e0a6c3ef45343988353c477"
-    sha256 cellar: :any,                 arm64_big_sur:  "b57a02c3bc4ee8a43e47df5015e6e40a04d7149e172806157e279b1b03c715ef"
-    sha256 cellar: :any,                 monterey:       "2dcf97a3d9df6686f006e9e9d471a71612da54a81de169dfc8b2dae83cfa2b79"
-    sha256 cellar: :any,                 big_sur:        "43c37565eb2eec2b41dee3f1cc26e3324a42a368cb88092fe1b0dbc941f7678f"
-    sha256 cellar: :any,                 catalina:       "80426609c75b98ee0ee394e9017bb621dc73dd2d6f60d0c851f6940d0b268676"
-    sha256 cellar: :any,                 mojave:         "e26d092b6177ee282d3724dea5ea4cb76af3645472791c3fefb002e2638588b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6aa616b62f6b6bc7604afdbddb4b665a33230f3661d112d9bd441bbadc6e66e"
+    sha256 cellar: :any,                 arm64_monterey: "ca6ecfefa5412308685c26b756bb2ba3017e08fec8f598cf9921f250b7650c46"
+    sha256 cellar: :any,                 arm64_big_sur:  "d75e9349dec836cacb65cd526b4102c42fb565a18a8f22258efc8ead7f02cb7d"
+    sha256 cellar: :any,                 monterey:       "e67b786522a005da2e0588e14b1db6a655ac183b33997e3f74e8020454ed73bf"
+    sha256 cellar: :any,                 big_sur:        "b57d2aae9396057846170004b7ac7048dd1fd3227bd0db8f332601416ec49180"
+    sha256 cellar: :any,                 catalina:       "dfc408c7529b4b391de6fbce4b8e211ab30ba554267cebcbf975bc6dbd3ad6cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "675a1e182e701f6a783d1407506558c7822bf6e377f7684d62eebd8fa23dfcb6"
   end
 
   depends_on "cmake" => :build

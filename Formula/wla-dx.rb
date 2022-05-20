@@ -1,8 +1,8 @@
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
-  url "https://github.com/vhelin/wla-dx/archive/v10.0.tar.gz"
-  sha256 "0ccc2b9a43b9ae9f6a95a6df6032e15d0815132476ec176e5759b9d14d0077d4"
+  url "https://github.com/vhelin/wla-dx/archive/v10.1.tar.gz"
+  sha256 "a3a985b28c210426650da444eed60f66c593b97d26c402386f1dac78617ea56a"
   license "GPL-2.0"
 
   livecheck do
@@ -12,13 +12,12 @@ class WlaDx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "723085318854f1bdbb5c58446a858841d1e276e3f6179584643a21a0d3abce9d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d3ae6b8ecb78d43c5d475c3e12a2ab139608682ac50205541aa2792738121a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "8528e631fd44a87cf339284fbd73232772d5ceeaa26682e3be4ce1c7d06d4fc2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b5f923d5b2868582fb46f23ed340246d921fd6f58e4119cb65172eb76f5156f7"
-    sha256 cellar: :any_skip_relocation, catalina:       "5158594f32b15295a50814c6108800d7f689371e39a5a363e035f3be49e18be9"
-    sha256 cellar: :any_skip_relocation, mojave:         "a01d1aab6f7380a4fa44facf9aeb31a9578d25acc093c2cb8743cbec7ecacf10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0dc2d2cc7aaa6f84b5795290bb7404ed0e95786d2ad89a58230dfe7bed705d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d8ca0ef1d076a6ad9751fd83d2cb9b4136bfc475552984c81cc0f739c5a92ff"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f92f501f3e3a9183a0475fde4c0fbecb295ac3ad0b2fb9c57b86889591f9490e"
+    sha256 cellar: :any_skip_relocation, monterey:       "615f48ed20c08134f6b9179dcbc309f3efb087d6649b4e9bcee5a62d64ac585f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dc6db662561786b69914c0b6b980659c9769f383d3d8af8573aa85059735a607"
+    sha256 cellar: :any_skip_relocation, catalina:       "e2c8be4e613ca7c010cb7143ce3bc79d6360eb2f6fb39940bc798dc3de8a790a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4259a83b65704eff0133136d667e97bdab8d322034aa9cb40c09aac0e6deb80b"
   end
 
   depends_on "cmake" => :build

@@ -5,7 +5,7 @@ class Freeswitch < Formula
       tag:      "v1.10.7",
       revision: "883d2cb662bed0316e157bd3beb9853e96c60d02"
   license "MPL-1.1"
-  revision 3
+  revision 4
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
 
   livecheck do
@@ -14,11 +14,12 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "8a9ff125ecaa773df591f966aa67802081c8b69c4b9e09eabe8594b79adf08b6"
-    sha256 arm64_big_sur:  "40ebdc302afd918094c7bdd42c76ce4e63e18e56037a95801f7458576d504768"
-    sha256 monterey:       "ed31b09230a436d612b6fb61e184877c2d3d78ac69da8d0f61bce35eedff7b80"
-    sha256 big_sur:        "61ea9b3f18494c0f0db577c5ca02d9b27a7716a64841b2af741b77c652b98d91"
-    sha256 catalina:       "9f1e49ab9e8a7a43ad21adc6d4baca1922f160045edc5ec3ccffb3b60338c909"
+    sha256 arm64_monterey: "c6ea3203ace7bb14a093379a005634c2a1168c3ffc8e6180628b6d1d9ea144c7"
+    sha256 arm64_big_sur:  "d50a18774f5ebce104dd53843c20998c7af189d97a6f56c60a6db54876b36c64"
+    sha256 monterey:       "d2b30cb6927c79f42bcb500af86490ba9f16c6f3dbe67a237077b91e9f31cfc3"
+    sha256 big_sur:        "b63a67915cba8a3d1e6f1580a4c9c5595c3d61d1900580a6403e394eb525fec3"
+    sha256 catalina:       "33498f0826b57b350702e6de4966bae76975b4f31b6ef10fe70a3a29107e99a6"
+    sha256 x86_64_linux:   "413dbb409c33a4b2a5215934a26b5c308d0dbb11d3ae559f2eed61ce32561813"
   end
 
   depends_on "autoconf" => :build
@@ -43,8 +44,14 @@ class Freeswitch < Formula
   depends_on "sqlite"
   depends_on "util-linux"
 
+  uses_from_macos "curl"
   uses_from_macos "libedit"
+  uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
@@ -142,6 +149,11 @@ class Freeswitch < Formula
 
       ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/libks/lib/pkgconfig"
       ENV.append "CFLAGS", "-I#{libexec}/libks/include"
+
+      # Add RPATH to libks.pc so libks.so can be found by freeswitch modules.
+      inreplace libexec/"libks/lib/pkgconfig/libks.pc",
+                "-L${libdir}",
+                "-Wl,-rpath,${libdir} -L${libdir}"
     end
 
     resource("signalwire-c").stage do
@@ -149,6 +161,12 @@ class Freeswitch < Formula
       system "make", "install"
 
       ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/signalwire-c/lib/pkgconfig"
+
+      # Add RPATH to signalwire_client.pc so libsignalwire_client.so
+      # can be found by freeswitch modules.
+      inreplace libexec/"signalwire-c/lib/pkgconfig/signalwire_client.pc",
+                "-L${libdir}",
+                "-Wl,-rpath,${libdir} -L${libdir}"
     end
 
     system "./bootstrap.sh", "-j"

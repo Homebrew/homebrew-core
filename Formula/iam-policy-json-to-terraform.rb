@@ -16,7 +16,8 @@ class IamPolicyJsonToTerraform < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "04e3ec2788df5965f842759d48c939efbd699fbcc66d2d3e000a6c844607630e"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

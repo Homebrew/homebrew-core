@@ -1,8 +1,8 @@
 class AircrackNg < Formula
   desc "Next-generation aircrack with lots of new features"
   homepage "https://aircrack-ng.org/"
-  url "https://download.aircrack-ng.org/aircrack-ng-1.6.tar.gz"
-  sha256 "4f0bfd486efc6ea7229f7fbc54340ff8b2094a0d73e9f617e0a39f878999a247"
+  url "https://download.aircrack-ng.org/aircrack-ng-1.7.tar.gz"
+  sha256 "05a704e3c8f7792a17315080a21214a4448fd2452c1b0dd5226a3a55f90b58c3"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause", "OpenSSL"]
 
   livecheck do
@@ -11,11 +11,12 @@ class AircrackNg < Formula
   end
 
   bottle do
-    sha256                               big_sur:      "8a131a99a89edd127981b9dc2c91df91ba7a03b7c0d6c74521392e1649fa7d09"
-    sha256                               catalina:     "1b5ecf42ef840c108536eac5107cf63c514ca2f3d7e8c4f32e5b301f088729c1"
-    sha256                               mojave:       "e6bbba9c16ac26aaacaad5ac4935100a79cf702ab8fcb35fa9797e806ec003fe"
-    sha256                               high_sierra:  "fad333ea8e2792d88305c22b62549f63900ea32aa3f856de57d6e8d70740cd49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2d6c32f3dc5f82c6a897a4a5916c70f686ce40c3aeaf7585e8d449ef971a9d4a"
+    sha256                               arm64_monterey: "45d34208031dc87ff03170ee9e19283d4396f1401fe23583e941b0e4d387bf4d"
+    sha256                               arm64_big_sur:  "ff3f2aa5b96ec3ea0436902af935dd2ee7205e51d662dad533637a9ef46839f5"
+    sha256                               monterey:       "055bd444a3db202d8b4a9ae173da38dd0a73ea452f3f8e4da5d506ce1c22b398"
+    sha256                               big_sur:        "a9e6d77b2d2111c983132147e603eddd609862550c70a978a853aeebc5204dc2"
+    sha256                               catalina:       "cd18023bc703b25b20ec00c90920a4c6d73613fe7cb9c390b8ce27fb02e33c02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "293d08618fc4a53a180af1357c01053f50ac3aac71417f2ed4ed602fae36ffa3"
   end
 
   depends_on "autoconf" => :build
@@ -25,6 +26,8 @@ class AircrackNg < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "sqlite"
+
+  uses_from_macos "libpcap"
 
   # Remove root requirement from OUI update script. See:
   # https://github.com/Homebrew/homebrew/pull/12755
@@ -45,7 +48,10 @@ class AircrackNg < Formula
   end
 
   test do
-    system "#{bin}/aircrack-ng", "--help"
+    assert_match "usage: aircrack-ng", shell_output("#{bin}/aircrack-ng --help")
+    assert_match "Logical CPUs", shell_output("#{bin}/aircrack-ng -u")
+    expected_simd = Hardware::CPU.arm? ? "neon" : "sse2"
+    assert_match expected_simd, shell_output("#{bin}/aircrack-ng --simd-list")
   end
 end
 

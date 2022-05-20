@@ -15,11 +15,12 @@ class MariadbConnectorOdbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "b42f1ff1129c849ac5cbba73424266fc19f3a3f6e17e08553e5e42a5acdb4325"
-    sha256 cellar: :any, arm64_big_sur:  "bfaba599e5ffe9b9012514a7da54d632d757f2bcec7f2deaefce2a8dee7231e8"
-    sha256 cellar: :any, monterey:       "417e39a2ed3e66fdee7263addcdc610d8c3cf440ffae2b03f2301a62fa8dff97"
-    sha256 cellar: :any, big_sur:        "0adf308c6438698c03832df3b4972e1007b39a76b29edf835e7f8fdd59065cb6"
-    sha256 cellar: :any, catalina:       "ba65e8cb114ebcd3ffa3680a24198e8c0e03a87d8f209cfae67505eb1aa6d6ac"
+    sha256 cellar: :any,                 arm64_monterey: "b42f1ff1129c849ac5cbba73424266fc19f3a3f6e17e08553e5e42a5acdb4325"
+    sha256 cellar: :any,                 arm64_big_sur:  "bfaba599e5ffe9b9012514a7da54d632d757f2bcec7f2deaefce2a8dee7231e8"
+    sha256 cellar: :any,                 monterey:       "417e39a2ed3e66fdee7263addcdc610d8c3cf440ffae2b03f2301a62fa8dff97"
+    sha256 cellar: :any,                 big_sur:        "0adf308c6438698c03832df3b4972e1007b39a76b29edf835e7f8fdd59065cb6"
+    sha256 cellar: :any,                 catalina:       "ba65e8cb114ebcd3ffa3680a24198e8c0e03a87d8f209cfae67505eb1aa6d6ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "703ad542557eedfe66091ff91c06279c1a4fcf7a77f045c6b3661b5c902652a1"
   end
 
   depends_on "cmake" => :build
@@ -30,6 +31,7 @@ class MariadbConnectorOdbc < Formula
   def install
     ENV.append_to_cflags "-I#{Formula["mariadb-connector-c"].opt_include}/mariadb"
     ENV.append "LDFLAGS", "-L#{Formula["mariadb-connector-c"].opt_lib}/mariadb"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["mariadb-connector-c"].opt_lib}/mariadb" if OS.linux?
     system "cmake", ".", "-DMARIADB_LINK_DYNAMIC=1",
                          "-DWITH_SSL=OPENSSL",
                          "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",

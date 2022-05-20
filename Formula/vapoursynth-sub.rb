@@ -1,21 +1,20 @@
 class VapoursynthSub < Formula
   desc "VapourSynth filters - Subtitling filter"
   homepage "https://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/subtext/archive/R2.tar.gz"
-  sha256 "509fd9b00f44fd3db5ad0de4bfac6ccff3e458882281d479a11c10ac7dfc37e4"
+  url "https://github.com/vapoursynth/subtext/archive/R3.tar.gz"
+  sha256 "d0a1cf9bdbab5294eaa2e8859a20cfe162103df691604d87971a6eb541bebd83"
   license "MIT"
-  revision 1
   version_scheme 1
 
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1d566a35094458188b0ef7503f4313d564b3d39d14698ba3d6ad33e812395934"
-    sha256 cellar: :any,                 arm64_big_sur:  "5be9a2f65b43236d03eebbc934971f1146cb5d442a9ef925b07c4087112a7d92"
-    sha256 cellar: :any,                 monterey:       "1343035d03a7207ed4fb65dcffcc1a53e742b855709993acc71b6f1b1eb3c6a0"
-    sha256 cellar: :any,                 big_sur:        "5ec53b9369f41673d1787985213f4984d4c6ff29b9f311882834193b4e80af69"
-    sha256 cellar: :any,                 catalina:       "d54510ddb431b6a0f959e402d5c3b02476e34b4d14a4a03ac94a40187c3f260b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b19e13e669af79fef8f897b445e4d72da584e739974bc5d7f759aa2bf8e8e97"
+    sha256 cellar: :any,                 arm64_monterey: "598c2f969d228c6aad738f79102fd549d47facea2ebfd8fd25b1f3d7e85edbd2"
+    sha256 cellar: :any,                 arm64_big_sur:  "b279a50abb9df0e703a3ed9edbc2f65146e5ee2cedc0e49fd9d593a8001e1f42"
+    sha256 cellar: :any,                 monterey:       "adeb08c0941dbfb5ade18eb806408659a450c1bc3f0a84501e2bb2e24023c190"
+    sha256 cellar: :any,                 big_sur:        "022a82b6d201fbdf76b421695bd6338fe2c02710f5fae1e17b9d304a9ef228a3"
+    sha256 cellar: :any,                 catalina:       "eaa0081cf6b8569686e3d6405267aa9825e2e1021e63a7128f37c269f4bd4fdc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f74fda462cb23aadfd9c57d0f98dd67980f5dfbd303015a864143def16ebf356"
   end
 
   depends_on "cmake" => :build

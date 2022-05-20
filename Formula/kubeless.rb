@@ -1,7 +1,7 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://kubeless.io"
-  url "https://github.com/kubeless/kubeless/archive/v1.0.8.tar.gz"
+  url "https://github.com/vmware-archive/kubeless/archive/v1.0.8.tar.gz"
   sha256 "c25dd4908747ac9e2b1f815dfca3e1f5d582378ea5a05c959f96221cafd3e4cf"
   license "Apache-2.0"
 
@@ -15,12 +15,14 @@ class Kubeless < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b87b97575b27569433e254396eaa15c265fd9f11de80c916e346e7fb0271559f"
   end
 
-  depends_on "go" => :build
+  deprecate! date: "2022-03-18", because: :repo_archived
+
+  depends_on "go@1.17" => :build
   depends_on "kubernetes-cli"
 
   def install
     ldflags = %W[
-      -s -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
+      -s -w -X github.com/vmware-archive/kubeless/pkg/version.Version=v#{version}
     ]
     system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
            "-o", bin/"kubeless", "./cmd/kubeless"

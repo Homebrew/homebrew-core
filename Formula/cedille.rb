@@ -5,19 +5,20 @@ class Cedille < Formula
       tag:      "v1.1.2",
       revision: "4d8a343a8d3f0b318e3c1b3209d216912dbc06ee"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/cedille/cedille.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 big_sur:  "9bfbd5b2e5b630d41cc5a43fe0c98931cad6c35751ce39328c5a26edc8070f3a"
-    sha256 catalina: "ec0149eec408a85bad6bc1e1475807b097d0c85e134c0f8ec88cb152422ebbd0"
-    sha256 mojave:   "a63ef04390299c7fad40453d4a979924e9d6d79e94d4eacfb3a6cfadb4e072a6"
+    sha256 cellar: :any,                 arm64_monterey: "a49d286082a5d3ea1bc7fd8aee7083cee2d4781411efd2bf340e683feb5f0835"
+    sha256 cellar: :any,                 arm64_big_sur:  "6623450409aa88704591d4e37e79706c49e339a86522c80fabe28aaa2ff3f371"
+    sha256 cellar: :any,                 monterey:       "69a46bf138fbbd7bd38d0e32eb379f3d60592af5e640a21617bc81822fd87112"
+    sha256 cellar: :any,                 big_sur:        "07b814c44f0479af4f9397b2f8f58bec7fa89a8aca1b7febb206f66269fddd68"
+    sha256 cellar: :any,                 catalina:       "3461a6fb6fac42f6b8127fb63664fa8bb11e8a7de2ea0905faa14a9d8b96eeb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91bb84bb30f83f200a24377e0c6c692d0dd3d09aa6a105bf932a0f26365aabe5"
   end
 
-  depends_on "agda" => :build
   depends_on "haskell-stack" => :build
-  depends_on "ghc@8.8"
+  depends_on "ghc"
 
   # needed to build with agda 2.6.1
   # taken from https://github.com/cedille/cedille/pull/144/files
@@ -29,10 +30,28 @@ class Cedille < Formula
   def install
     inreplace "stack.yaml", "resolver: lts-12.26", <<~EOS
       resolver: lts-16.12
+      compiler: ghc-#{Formula["ghc"].version}
+      compiler-check: newer-minor
       allow-newer: true
       system-ghc: true
       install-ghc: false
     EOS
+
+    # Build fails with agda >= 2.6.2, so locally install agda 2.6.1.
+    # Issue ref: https://github.com/cedille/cedille/issues/162
+    # TODO: on next release, switch to `depends_on "agda"` if supported,
+    # or reduce list to `Agda alex happy` once stack.yaml includes extra-deps.
+    deps = %w[
+      Agda-2.6.1.3
+      alex
+      happy
+      data-hash-0.2.0.1
+      equivalence-0.3.5
+      geniplate-mirror-0.7.8
+      STMonadTrans-0.4.6
+    ]
+    system "stack", "build", "--copy-bins", "--local-bin-path=#{buildpath}/bin", *deps
+    ENV.append_path "PATH", buildpath/"bin"
 
     system "stack", "build", "--copy-bins", "--local-bin-path=#{bin}"
 
@@ -107,6 +126,7 @@ class Cedille < Formula
     system bin/"cedille", cedilletest
   end
 end
+
 __END__
 diff --git a/src/to-string.agda b/src/to-string.agda
 index 2505942..051a2da 100644

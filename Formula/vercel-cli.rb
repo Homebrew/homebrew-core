@@ -3,18 +3,17 @@ require "language/node"
 class VercelCli < Formula
   desc "Command-line interface for Vercel"
   homepage "https://vercel.com/home"
-  url "https://registry.npmjs.org/vercel/-/vercel-23.1.2.tgz"
-  sha256 "4d70d24cd61c69e7925c44119516b57ec3614815cb9e7ad95d15e2e5297f3fff"
+  url "https://registry.npmjs.org/vercel/-/vercel-24.2.4.tgz"
+  sha256 "83db033140b224a499ef23a699ef28df0ff8965bf363c03e822089ce3629cbfa"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "848563a59a3857fd0256b96539e62f330c984c99819ce4a2b53920190f75bf3c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d29c72ee982f0570268925aa018ed305602ee7852374ac1ae0da2ccfc72153e0"
-    sha256 cellar: :any_skip_relocation, monterey:       "a608016fe7bb15dc8f2da6a7ddd484ea60355ac3061bc719fdaa4c21c00d01ec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7f43661170b3cb218a03326790a654d97abcbf7a4cfcd344f9286a095bf023ec"
-    sha256 cellar: :any_skip_relocation, catalina:       "7f43661170b3cb218a03326790a654d97abcbf7a4cfcd344f9286a095bf023ec"
-    sha256 cellar: :any_skip_relocation, mojave:         "7f43661170b3cb218a03326790a654d97abcbf7a4cfcd344f9286a095bf023ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06b886f8dec030c4ed906a86d642343eba7629626487742f8bc8d5632fabfc8e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e8dd5d26b235e360a040e64dcd926c25e8f982cc6de1db07e4bc5b553f6225b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e8dd5d26b235e360a040e64dcd926c25e8f982cc6de1db07e4bc5b553f6225b"
+    sha256 cellar: :any_skip_relocation, monterey:       "481fd2e12ad26548cba89fdbe6a97814b7f2798962d1fcfafbb6df1953d83710"
+    sha256 cellar: :any_skip_relocation, big_sur:        "481fd2e12ad26548cba89fdbe6a97814b7f2798962d1fcfafbb6df1953d83710"
+    sha256 cellar: :any_skip_relocation, catalina:       "481fd2e12ad26548cba89fdbe6a97814b7f2798962d1fcfafbb6df1953d83710"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "251e43de54ff181b2dcc1917c901dd8b0ccd92dfa41ba20b2780126d609d12fa"
   end
 
   depends_on "node"

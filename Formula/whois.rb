@@ -1,18 +1,18 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
-  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.5.11.tar.xz"
-  sha256 "966281eb8301c14a1acc17e46c70061f73179d80e370aef43065c22f0947fb87"
+  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.5.13.tar.xz"
+  sha256 "62e613f116d5635aea6684238db00b030a6602ffc79462e4a0a8e62cb184b5d7"
   license "GPL-2.0-or-later"
   head "https://github.com/rfc1036/whois.git", branch: "next"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "be657821ee4224c09ebe3909fc441b2a8baa78cd369425c4669effae0abba9b3"
-    sha256 cellar: :any,                 arm64_big_sur:  "5b42ff43ea4711c8ca3c0c40bff695aa5963c1414326fb837a47e9712f88f99b"
-    sha256 cellar: :any,                 monterey:       "d09d231e93cdc0425c53400bac35585454b2ab6e440517f6f91f8fbad0636d1d"
-    sha256 cellar: :any,                 big_sur:        "3df50be53c085527789f072e304be94afaa43d7a4a5f7723b52c937fd424215c"
-    sha256 cellar: :any,                 catalina:       "c3660283e22b3999805d3b777c766b1f002fe4979af09595ad8f6ec822f38df7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28a3b321ea1423176b44bb8892411ebaa806bda4de732e29a7a94488c08d58b8"
+    sha256 cellar: :any,                 arm64_monterey: "3b8a8d276e28ba2565cde46aede77fcfdbe014693aa336d50e17002324c9461f"
+    sha256 cellar: :any,                 arm64_big_sur:  "1f6cde04177d329370ef24f19f61f30da1f8a618da92b2184432a72da57a7e4c"
+    sha256 cellar: :any,                 monterey:       "033954b7cc2e31dafcbae6cb07913037247b9cbf21be439889fdd2cfdd2ee437"
+    sha256 cellar: :any,                 big_sur:        "05f047c3e6808289fcd5061fb0c3a96f267b3287fdd282e953ea179e20e60902"
+    sha256 cellar: :any,                 catalina:       "656da1332e3434bcdb20c1a18fab72ea96002433281b0bc8060544e98764c5bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac4e1d3fe13d6e208d613c446820f3838b91e30f04735a5951830c58454e7146"
   end
 
   keg_only :provided_by_macos

@@ -1,4 +1,6 @@
 class Zurl < Formula
+  include Language::Python::Virtualenv
+
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
   url "https://github.com/fanout/zurl/releases/download/v1.11.1/zurl-1.11.1.tar.bz2"
@@ -8,6 +10,7 @@ class Zurl < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f4f20dfa4fa21116538bf6150b3ed05fb8e1ade026fa0a08b67d00f033c13de1"
     sha256 cellar: :any,                 arm64_big_sur:  "dbe3e4510bfb54034ca28ad3eb228314d9bde1c68e666af0c76b7676136c105b"
+    sha256 cellar: :any,                 monterey:       "10197ca2f6b2b2e783781b0e33800f76c3a17d05cd423c19c228113c3b7d074b"
     sha256 cellar: :any,                 big_sur:        "156dbba9a7152ab28f5f70670de6692857c7910a00449e7040fb7ae89431a08c"
     sha256 cellar: :any,                 catalina:       "5d251122a34705e001a53b33539895698a31e8aad29a3bf7e0c6eaa3579b6a1c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b83d6978ef49ead8934309eb8d3db989e849479bbcc0eb695f80df53a460db5"
@@ -42,9 +45,8 @@ class Zurl < Formula
     ipcfile = testpath/"zurl-req"
     runfile = testpath/"test.py"
 
-    resource("pyzmq").stage do
-      system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(testpath/"vendor")
-    end
+    venv = virtualenv_create(testpath/"vendor", Formula["python@3.10"].opt_bin/"python3")
+    venv.pip_install resource("pyzmq")
 
     conffile.write(<<~EOS,
       [General]
@@ -101,9 +103,7 @@ class Zurl < Formula
     end
 
     begin
-      xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
-      ENV["PYTHONPATH"] = testpath/"vendor/lib/python#{xy}/site-packages"
-      system Formula["python@3.10"].opt_bin/"python3", runfile
+      system testpath/"vendor/bin/python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

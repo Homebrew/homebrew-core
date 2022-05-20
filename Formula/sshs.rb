@@ -1,17 +1,17 @@
 class Sshs < Formula
   desc "Graphical command-line client for SSH"
   homepage "https://github.com/quantumsheep/sshs"
-  url "https://github.com/quantumsheep/sshs/archive/refs/tags/1.5.0.tar.gz"
-  sha256 "74edb1b69d83ed4de2d020e468ff7c4602a2857a821711f4454466417b069b7c"
+  url "https://github.com/quantumsheep/sshs/archive/refs/tags/3.2.0.tar.gz"
+  sha256 "8b3127178c7bff19c1ea1a5fd2c5758137863c7e7cfbc4900cdf3fa2f13007a6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "51d213592f12022974078a68b985bad17ca9698bbe355f94c8914370b68fbde3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6595c36cc71cc726795cfe2888b69d77da67aaf4c2746fcd13d6114b6986c7dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "9be8a5eeb06d7abca82ade00e9c3c24d4065fd0013ae887312cb54b11fa7da03"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cedba2975dc580306cba4909b09eaf5616b7ede6a764b1eb58062d3c068596d4"
-    sha256 cellar: :any_skip_relocation, catalina:       "fb045a5bd8436dead0b6173d4c3f732e679a195c55232bf8d7dbba1d16dacdbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a459a74ff427c2ca7215a4a361f2a90504deacf1ee53e75a61943b332a665ff0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "25ddb81546acf421a7314d16e113049b92247e6f5d9ef82d21b616c9c9b203dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d99b452bc112129f2cd1c0db08c54b89cc6c9d6efa12ad7d9a6eab77d514869"
+    sha256 cellar: :any_skip_relocation, monterey:       "a94fbcb2090a8762122c6ebfed9f2b5fcbfdfbda259293ebeb5dfdd7919262f1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4523020639af5422641feec22d3ff6c5b2027fc65d13c3ac1563e0d5e0a3e407"
+    sha256 cellar: :any_skip_relocation, catalina:       "bcf3b701609f1a4eb851178d6e97ba0f18a8becd5e5537b046ffb79d32052bac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fde91b2d26c5147e1f2a97a2e26f7755419e9c1861ac68e591fc1662e49ba6f4"
   end
 
   depends_on "go" => :build
@@ -22,9 +22,6 @@ class Sshs < Formula
 
   test do
     assert_equal "sshs version #{version}", shell_output(bin/"sshs --version").strip
-
-    # Homebrew testing environment doesn't have ~/.ssh/config by default
-    assert_match "no such file or directory", shell_output(bin/"sshs 2>&1 || true").strip
 
     (testpath/".ssh/config").write <<~EOS
       Host "Test"

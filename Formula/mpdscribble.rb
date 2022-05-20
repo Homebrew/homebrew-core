@@ -17,6 +17,7 @@ class Mpdscribble < Formula
     sha256 big_sur:        "0abaf443ebb52e23fd027970737ae42d912c66a43b650e5a5ebc5b8abb0483f2"
     sha256 catalina:       "0d75bbf947da0c0fd231994339f0b2c7d23ec9fa5a04532f3c20733064de5394"
     sha256 mojave:         "d2ac4631cea6e610b6ae6b9a007b8c5b2141b0ff55c76b57fbacdbb1a7904a9c"
+    sha256 x86_64_linux:   "0ad8f7427437e00cc7e140e52a997d18e8c8bfba665f2f5b1bc308288155b075"
   end
 
   depends_on "boost" => :build

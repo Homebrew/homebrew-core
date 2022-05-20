@@ -1,8 +1,8 @@
 class Aspectj < Formula
   desc "Aspect-oriented programming for Java"
   homepage "https://www.eclipse.org/aspectj/"
-  url "https://github.com/eclipse/org.aspectj/releases/download/V1_9_7/aspectj-1.9.7.jar"
-  sha256 "c6b83cf272ce71a81a02c1529e760286196fe842a1741aa42494c3ce1501bd3a"
+  url "https://github.com/eclipse/org.aspectj/releases/download/V1_9_9_1/aspectj-1.9.9.1.jar"
+  sha256 "922310b843d7a12a4752222791f62cadf08071273a997e364d12016de210856b"
   license "EPL-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Aspectj < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47d9c8a95f6a6d675ace914b7b13365dcc207fed8825d96ba338b541eb2fc425"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f94378ed79ac6d24889ebf3b40df02d159988c8673fb55c54997bc89ff46895"
-    sha256 cellar: :any_skip_relocation, monterey:       "c5cd6dae63d140d489b9aa09fc779bb100dbba85c6df71bc9e1b884c56b7c2f6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f0ae7be29aa7df4960f1ae71a30f9ce57d9c28300591deb042b68fb439157ec8"
-    sha256 cellar: :any_skip_relocation, catalina:       "445830c663aa8379176a05874f3689c13ebaf953e50afe8e193322353db9d4aa"
-    sha256 cellar: :any_skip_relocation, mojave:         "751669f59894109ea55f8d8a22ded54b459f20505f74c33fd57fc9b47de36b26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0be92ed60e7bc7639c8ba77b7e545044f20ed9d1e44dbc797f284da6df548a1b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5010ad23271abcd2710611ebea6d5e45e261fbfa3eab099a1f6cdbb1a132aaa2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aa0b87f4d7fd11196fda90236d0c85eea8ddddc8d646e030f731b7a85729f5d1"
+    sha256 cellar: :any_skip_relocation, monterey:       "5b0871adb51c137ab4dcef34e4f59be0313a21c4f560352b50ef32e9429fd946"
+    sha256 cellar: :any_skip_relocation, big_sur:        "78dadaa0a4eb9536adb1e506452e5dd78bb65a5bfd293035a1e14f62565323cd"
+    sha256 cellar: :any_skip_relocation, catalina:       "e4a9d574a1bd6153c5a903a925da7c668590951641e6c20d6c8048a95c2d241f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f62ece6e63e0c945228e7046599684aef183bd3c615a0f65929aecaed8fa4816"
   end
 
   depends_on "openjdk"

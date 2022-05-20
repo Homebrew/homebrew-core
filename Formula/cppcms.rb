@@ -1,4 +1,6 @@
 class Cppcms < Formula
+  include Language::Python::Shebang
+
   desc "Free High Performance Web Development Framework"
   homepage "http://cppcms.com/wikipp/en/page/main"
   url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.2.1/cppcms-1.2.1.tar.bz2"
@@ -10,25 +12,37 @@ class Cppcms < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_monterey: "c6a5fe13878c0c37e6b326f957fc7d6dda3a0987c2fb09f5c8c54f169a76012b"
-    sha256 cellar: :any, arm64_big_sur:  "a76448718798b05d84c1b9a54afa83c35afc924ed5bb5a8ad592d39cff90eaee"
-    sha256 cellar: :any, monterey:       "34eccbf3637e2d5193070b75247f7d6e601b83166d8023aa87077dbb4e871e0c"
-    sha256 cellar: :any, big_sur:        "ebe54531c492cd6771e3eab7cfee4d4a858c5b13a91e061c9d5bb2cb75f310dc"
-    sha256 cellar: :any, catalina:       "14a71b7ff0bbcbd0def75bd0a5e4552d5bfeccd24b7de17d38dcb676c37a71cf"
-    sha256 cellar: :any, mojave:         "aa587cdc614e7450100ee7c9aef5259893db98db66b9aa3fce8bc928fe080de7"
-    sha256 cellar: :any, high_sierra:    "3339592fd6caed70941abe444cf34c1621dd65878eea1acbd07e798d4bb5c9b4"
-    sha256 cellar: :any, sierra:         "9f21d55044af09d3eced9664c2d570657f0b3221c9f3051a5311f6f197bd2a28"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_monterey: "9a02f447ab6d82e0cf98c2a4aba48011974e6c6ae103cbe2e7c74890dac4d038"
+    sha256 cellar: :any,                 arm64_big_sur:  "67a1c9feafceea6cbbe96ab29fa05ee6032dfc839b691cb3e64f28ebd8e70d81"
+    sha256 cellar: :any,                 monterey:       "d4b7c10f3349b0d96a29f936e1e26c819b99229bb0e49b3b6856c786be168418"
+    sha256 cellar: :any,                 big_sur:        "4a343093b0050726543c1ca4e125460c5537efb7bb4c7ca24b475f8f33be12fe"
+    sha256 cellar: :any,                 catalina:       "a0d3cb27c298bf95e97b7cbd97329aacd6eb33239f21dfe9e3d91272d5ce5263"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1757391e77052508958f08bfe468e7168a6b8261f5022e9dd644de056e9079d"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
+  depends_on "python@3.10"
 
   def install
     ENV.cxx11
-    system "cmake", *std_cmake_args
-    system "make", "install"
+
+    # Look explicitly for python3 and ignore python2
+    inreplace "CMakeLists.txt", "find_program(PYTHON NAMES python2 python)", "find_program(PYTHON NAMES python3)"
+
+    # Adjust cppcms_tmpl_cc for Python 3 compatibility (and rewrite shebang to use brewed Python)
+    rewrite_shebang detected_python_shebang, "bin/cppcms_tmpl_cc"
+    inreplace "bin/cppcms_tmpl_cc" do |s|
+      s.gsub! "import StringIO", "import io"
+      s.gsub! "StringIO.StringIO()", "io.StringIO()"
+      s.gsub! "md5(header_define)", "md5(header_define.encode('utf-8'))"
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -89,16 +103,14 @@ class Cppcms < Formula
           }
       }
     EOS
-    system ENV.cxx, "-o", "hello", "-std=c++11", "-stdlib=libc++", "-lc++",
-                    "-L#{lib}", "-lcppcms", "hello.cpp"
+    system ENV.cxx, "hello.cpp", "-std=c++11", "-L#{lib}", "-lcppcms", "-o", "hello"
     pid = fork { exec "./hello", "-c", "config.json" }
 
     sleep 1 # grace time for server start
     begin
-      assert_match(/Hello World/, shell_output("curl http://127.0.0.1:#{port}/hello"))
+      assert_match "Hello World", shell_output("curl http://127.0.0.1:#{port}/hello")
     ensure
-      Process.kill 9, pid
-      Process.wait pid
+      Process.kill "SIGTERM", pid
     end
   end
 end

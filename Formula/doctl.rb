@@ -1,18 +1,18 @@
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/v1.70.0.tar.gz"
-  sha256 "527a0d02acb303ca3e55c28db162acbc018fb77ca9e77d9298fece2124774c32"
+  url "https://github.com/digitalocean/doctl/archive/v1.75.0.tar.gz"
+  sha256 "3fe102d60f57ee8f9bd4a8f5094fd3ddfdf7af1bbaf35c7b8286a9ae3c8a8f3e"
   license "Apache-2.0"
   head "https://github.com/digitalocean/doctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "38ff8eb380adf54840f16b346f07cfef339e57065aac54ed474cf9dde1bd1be8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16a80ceb75a97aa896c53a9afd3dc03badfcd9f0bcffbd52179b196f5944c133"
-    sha256 cellar: :any_skip_relocation, monterey:       "87766c760569b86f5050a3eb94bb01b5bd66aa814b2cc5b85005d652050e6fff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f2347ee26d1e9e7082eab370564fd706009d7695b6570b538b73602faef902a4"
-    sha256 cellar: :any_skip_relocation, catalina:       "b17a08925d8b86f8003e789a2b61722b5b9d5d95af2e0788e5e48577fbda2809"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f86834dd9a1a937b238a193069b901a435d9d92b3cbefd1dc7661d14619486a2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e293ff5065e9663bd40b5e7e0fea3c63548a51632c5239dc332b6e8b0ea2febb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9134a6b998af652334909842880aafabfa496124b509a390a3121ca50cffc66e"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f18b2d75262f0f4a9fee1a554d70d2b94bc8644e8b3c4782d149644b963cd8d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "93ed294e003f37766490e8b2bfa940095ca205561f54a225f7674920935745ca"
+    sha256 cellar: :any_skip_relocation, catalina:       "bb3959499898e0f64a3db5a4046e4df6630b9a02a70a83ce600ef80fba68cba6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "554dbbb1f403b3d37175682deeced57429c1b7cbd35ef6db2a40820fe2ea99e3"
   end
 
   depends_on "go" => :build

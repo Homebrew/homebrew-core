@@ -4,15 +4,15 @@ class OpencvAT3 < Formula
   url "https://github.com/opencv/opencv/archive/3.4.16.tar.gz"
   sha256 "5e37b791b2fe42ed39b52d9955920b951ee42d5da95f79fbc9765a08ef733399"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
 
   bottle do
-    sha256                               arm64_monterey: "7f31d871c375d6b50f34a4dac18cb4ca6703d910af3b7e041740cf7cd5c895c7"
-    sha256                               arm64_big_sur:  "6231910890e288e9605f550ce3f07ef6f4fd8e7fa78151c4de0799ff4ed45bdd"
-    sha256                               monterey:       "a7625cc53b680f3c3e9d1039891f67fec23b5548dc7345684ef525aec98cc1e1"
-    sha256                               big_sur:        "b8ebe8700eefb2eec581906a0a076b698ff1480518238dbc997641697f876bce"
-    sha256                               catalina:       "1071cbf83c628cd1ded5568435d21fa1d69d9e0eada3ad54f9db06d4c1539c70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "757fb16495a8f0569a7e38a75767aa8b0f612c5ad794c7d5e1ee74d2bbba76f3"
+    sha256                               arm64_monterey: "37dca7d346b0857889147bd647a5b42e5f4dfd74c51e7a9bb586f34819de48fb"
+    sha256                               arm64_big_sur:  "1c93b28fa05c5eaac9159d2db755cb58d1a648f67fb9ff64d94fe66917523f0f"
+    sha256                               monterey:       "5934a2bfe67dba2aea7ea4037a8ec678f4e3001498750f49c4773ad78ebb5140"
+    sha256                               big_sur:        "74a9731fee72fce9adc97d6ed4acbc188ed72101c2646a744d0d01de7782e61a"
+    sha256                               catalina:       "feac697cd5cb449c2eabfe6068ea25a8f0e42b59158a3702dd0da60fbca5680a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f87da752eb513d227ba4bea92f39d61db9a7296bbe369dd4ddccaa6ca6a05d5"
   end
 
   keg_only :versioned_formula

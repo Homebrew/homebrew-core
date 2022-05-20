@@ -1,8 +1,8 @@
 class HtmlXmlUtils < Formula
   desc "Tools for manipulating HTML and XML files"
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
-  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-8.2.tar.gz"
-  sha256 "00db3cc6877c885bfcd4009933ce7d427d472156f2502a27ca16bcaf01faae64"
+  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-8.4.tar.gz"
+  sha256 "41bb9b14e1f4cd6102e3f8dfb79e7146a24c09693869873165c421769a57d137"
   license "W3C"
 
   livecheck do
@@ -11,12 +11,12 @@ class HtmlXmlUtils < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4dd51b01bbec079bb106a4da0fac3881c6fa7b8013a44e4070dddc523c4fbe0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d05e54a669d9277dc02f0e32f62b5f429d62382c4896545e001c2c5f3a7cdb9"
-    sha256 cellar: :any_skip_relocation, monterey:       "d0d0bf8d477eb0b24fc8a0c39a4d6176983d2aa1ddb772e7d6c01f45d1b81b33"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d6df6b38e77ddb76979b65bf3335e01a7cb6670d38de9acdec41c4d465f792d0"
-    sha256 cellar: :any_skip_relocation, catalina:       "28ff1e5fe6d0a19c9e080acc813d49e5fa4bc074f0c009b89a9276a8de9c08d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a7e65aea3eb85a7c8c294ac6d06c87253292b13069a89b093670be1e48fce32"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "66e08eeaa55322e3e088c454ca5dfa536dfb006af028431f49dde19603de08c4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "266bde745a50183463b375f937ee0b6352f25d49c8d0fea63984939fcbc340ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "d57473f0754a2f146c74c87774c1aaefaac8e82b168f31208e1fd92db461a721"
+    sha256 cellar: :any_skip_relocation, big_sur:        "94028fe5988b7d67104d8bac2b751b2b96fc07710ff045cff56365c8677e96f6"
+    sha256 cellar: :any_skip_relocation, catalina:       "8aa10fdafb70c37a904da4dd86b9498d6cfdf9b11e00db7f6eeb27140cac27d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcedcb2a41de4451a870f08cc23b38f45e209d849a00c9664b6b67053d920be0"
   end
 
   def install

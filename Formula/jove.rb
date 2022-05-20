@@ -16,7 +16,11 @@ class Jove < Formula
     sha256 sierra:         "a4559511caca50cf08e01049dda2a35a9423b5c976bf0d930ba819afebc1387b"
     sha256 el_capitan:     "c083761f33516e9d18718b6f78f6468b9aa72c0c80bb625987c60c05cc4f1895"
     sha256 yosemite:       "4e741042364faa5ef07f7957d9e811c204561ecad03ebbcd98f82761211ec78c"
+    sha256 x86_64_linux:   "16b980f6ffc7e4d3d3ee8a98d89b9e3786b630e6847130fe412ea7dac5d17050"
   end
+
+  uses_from_macos "groff" => :build
+  uses_from_macos "ncurses"
 
   # Per MacPorts, avoid clash with libc getline
   patch :p0 do

@@ -1,13 +1,13 @@
 class Cereal < Formula
   desc "C++11 library for serialization"
   homepage "https://uscilab.github.io/cereal/"
-  url "https://github.com/USCiLab/cereal/archive/v1.3.1.tar.gz"
-  sha256 "65ea6ddda98f4274f5c10fb3e07b2269ccdd1e5cbb227be6a2fd78b8f382c976"
+  url "https://github.com/USCiLab/cereal/archive/v1.3.2.tar.gz"
+  sha256 "16a7ad9b31ba5880dac55d62b5d6f243c3ebc8d46a3514149e56b5e7ea81f85f"
   license "BSD-3-Clause"
   head "https://github.com/USCiLab/cereal.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7dc12c1ee5081634ef84aa6e05921c1679aff2cfdad8bce12076a4016b793539"
+    sha256 cellar: :any_skip_relocation, all: "13b3cb91e465c3857b307912e79bc1531167deccf9a2823d1c6e69abb8833792"
   end
 
   depends_on "cmake" => :build

@@ -1,25 +1,27 @@
 class Libwbxml < Formula
   desc "Library and tools to parse and encode WBXML documents"
   homepage "https://github.com/libwbxml/libwbxml"
-  url "https://github.com/libwbxml/libwbxml/archive/libwbxml-0.11.7.tar.gz"
-  sha256 "35e2cf033066edebc0d96543c0bdde87273359e4f4e59291299d41e103bd6338"
+  url "https://github.com/libwbxml/libwbxml/archive/libwbxml-0.11.8.tar.gz"
+  sha256 "a6fe0e55369280c1a7698859a5c2bb37c8615c57a919b574cd8c16458279db66"
   license "LGPL-2.1"
   head "https://github.com/libwbxml/libwbxml.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "729b58788cf91dea13972dc2321ea894aaaec6360b709c48feeff949c800c85a"
-    sha256 cellar: :any, arm64_big_sur:  "79c3653734dc5a8fbd8707a17e085f8eb3d93367a51aa62f76da1d9ac5001ef2"
-    sha256 cellar: :any, monterey:       "7a26910220690ace39924a8cee2a44295491b4349daa3b35bd1ed11bac09a0d1"
-    sha256 cellar: :any, big_sur:        "65a96ce0682ac9e3cec8599ef84c52ce89446c001cb6d3751e3962ae62d3ed82"
-    sha256 cellar: :any, catalina:       "4adbd8447466f7d3cbad72d5aff2730a87539dacd0638180cd39a9eaee11e174"
-    sha256 cellar: :any, mojave:         "9077d1c9669a92c39590de8280678cbe3d50853e76d69fda6a476ba88d170845"
-    sha256 cellar: :any, high_sierra:    "051a666b16d73e92e4910f40559d2bb5681ae4b5028a7f86959ad5f6bdb4e55a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "fe2ac6ea506094bb84685b873d59cb9b0ea225b2ce56cb13b2fc1197bcd6b906"
+    sha256 cellar: :any,                 arm64_big_sur:  "ac5e42ae5a76a5d3cf1d731b80b40ae019ffd90c0cef0ea4ad24d700958f3dc3"
+    sha256 cellar: :any,                 monterey:       "08e5267c81b874f8115b1fb110a3a0553553863b139c950e60aeead99701ac7f"
+    sha256 cellar: :any,                 big_sur:        "1d656b5fd3c1c1486db641b7e00a129b71071c1f26a522dad2bc29795d6c2a85"
+    sha256 cellar: :any,                 catalina:       "1a5739cb2c803bc0580ef5cab2c58effaa2d849f7f0d55060f325a5cd9cf8ec2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec4cdd3a2ead2da218798ef2a020fe2ef66f18b44d6a995977838af60257e8a2"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "graphviz" => :build
   depends_on "wget"
+
+  uses_from_macos "expat"
 
   def install
     # Sandbox fix:
@@ -28,7 +30,9 @@ class Libwbxml < Formula
                                       "#{share}/cmake/Modules"
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_DOCUMENTATION=ON"
+      system "cmake", "..", *std_cmake_args,
+                            "-DBUILD_DOCUMENTATION=ON",
+                            "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make", "install"
     end
   end

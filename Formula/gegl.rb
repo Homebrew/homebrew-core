@@ -1,8 +1,8 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "https://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.34.tar.xz"
-  sha256 "ef63f0bca5b431c6119addd834ca7fbb507c900c4861c57b3667b6f4ccfcaaaa"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.36.tar.xz"
+  sha256 "6fd58a0cdcc7702258adaeffb573a389228ae8f0eff47578efda2309b61b2ca6"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://gitlab.gnome.org/GNOME/gegl.git", branch: "master"
 
@@ -12,11 +12,12 @@ class Gegl < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "0f2b1e9e751f1b2ca5b7a04cd596d0c9519958f2ebdce7f96f41067d002346d6"
-    sha256 monterey:      "a8b18e980abb9dd1fdf0652db218e46a5afc9d5b13be343b3df1117300b7bd71"
-    sha256 big_sur:       "52a33d9e16e603c48f600ca9ce4ba681caba76b247d37e8151a4d3bbfc452a91"
-    sha256 catalina:      "c9be0db0d79af3269a54203cc23870bc9dd6ad8c51fc0d6bc0fde4cf33e5c9a4"
-    sha256 x86_64_linux:  "4de825248e9f3448382f5de5c622200c3d9d3f8bece7c8e8f3f1b1303f222cca"
+    sha256 arm64_monterey: "a91f3f6b32deacfc1c91169b4e5183929e9b82430bef2fdbf3e4da4663d188c4"
+    sha256 arm64_big_sur:  "f8bf081e087a3e5b470e9a327ff50047cf17c9ebb9f7570f530cab92a7736a0c"
+    sha256 monterey:       "a04deb788626f77457cde16d421839eda775f45afaa11d7fc48eb038a8d27be8"
+    sha256 big_sur:        "d59252856cebc4916eb25f2af230cda980c56594d63cc5e91084cc4936f6d966"
+    sha256 catalina:       "b5018fc41c0a7cb2ba44812798790b51014ff51b0c10e9535bea53ac8f476ac3"
+    sha256 x86_64_linux:   "4dbaf182578d98e5048bc3cd3eacdfdf0e1b0de787a6e97457ae5b6e05d016dc"
   end
 
   depends_on "glib" => :build
@@ -24,7 +25,7 @@ class Gegl < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "babl"
   depends_on "gettext"
   depends_on "glib"
@@ -39,12 +40,6 @@ class Gegl < Formula
   conflicts_with "coreutils", because: "both install `gcut` binaries"
 
   def install
-    # Generate .cl.h files from .cl files before proceeding with the rest of the build
-    # Upstream bug at https://gitlab.gnome.org/GNOME/gegl/-/issues/288
-    Dir.glob("opencl/*.cl").each do |f|
-      system Formula["python@3.9"].opt_bin/"python3", "opencl/cltostring.py", f, "#{f}.h"
-    end
-
     args = std_meson_args + %w[
       -Ddocs=false
       -Dcairo=disabled

@@ -8,15 +8,17 @@ class Networkit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "34d3a02ef514cf53e77cf00082e889ac93b0ec532f9a1fcea6c6ec08ba426761"
-    sha256 cellar: :any, arm64_big_sur:  "a41320e53a56631eba9d16927a2d8bc35880db0702e25adf14bfc377ef2f5f75"
-    sha256 cellar: :any, monterey:       "b468e08ba6ab0065b94003554360602c63e58096f0000e1d0ec7f15cb64dfbdc"
-    sha256 cellar: :any, big_sur:        "8c8341f80a04288cff1f1755a0a87b3d285cc031bfeeae6de1802d2ff8c23822"
-    sha256 cellar: :any, catalina:       "6022341e3e95e3f8e11516e6118ad6fcc5f233aa5f96d030684ade3dad268e5f"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "dba17aec211b9a8def53232466c251ac398e38a3d1ad3c5d76b0bf11ca144c55"
+    sha256 cellar: :any, arm64_big_sur:  "d158fcf26c6611109a72ff60fc73a8c3546efb824f2ccc6cde0058c111d91952"
+    sha256 cellar: :any, monterey:       "f443a8636f1579826d9793613578d06adef3165773ee1353f32774081f253021"
+    sha256 cellar: :any, big_sur:        "ea766a3afd870e69d1860c4e093ac5cb431a495d9b304d3ba21c032717635213"
+    sha256 cellar: :any, catalina:       "456b7dbc97239bb9f3a9aa4588def29fb16a0c1f021017ad55b61ebcb60a9d72"
   end
 
   depends_on "cmake" => :build
-  depends_on "cython" => :build
+  depends_on "libcython" => :build
+  depends_on "ninja" => :build
   depends_on "tlx" => :build
 
   depends_on "libnetworkit"
@@ -29,7 +31,7 @@ class Networkit < Formula
     rpath_addons = Formula["libnetworkit"].opt_lib
 
     ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python#{xy}/site-packages/"
-    ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["libcython"].opt_libexec/"lib/python#{xy}/site-packages"
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build_ext",
           "--networkit-external-core",
           "--external-tlx=#{Formula["tlx"].opt_prefix}",

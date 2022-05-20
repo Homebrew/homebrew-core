@@ -3,19 +3,21 @@ class Iredis < Formula
 
   desc "Terminal Client for Redis with AutoCompletion and Syntax Highlighting"
   homepage "https://iredis.io"
-  url "https://files.pythonhosted.org/packages/d1/83/bd1b95706cb7112bebd7396f8ad06a5c15c58b7df632d9882d85652aad83/iredis-1.11.0.tar.gz"
-  sha256 "b4a5d80c321bd267f5dc8f49d0f1d064966bffea69a6a04aa807c057860d3130"
+  url "https://files.pythonhosted.org/packages/af/0d/5902a8d2f41aff7fd3d43658df4dbb85d14a818f929e8e593145276b4c14/iredis-1.11.1.tar.gz"
+  sha256 "f679bc66da34be8bc43bf4461748fe4d1f389f3ddf3d88366d53f6b719a4c14c"
   license "BSD-3-Clause"
   head "https://github.com/laixintao/iredis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "19c42f54287b3e81f9ef4998b7c4db2ba9f175b48c9489cfb6e8684637654c6b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a7933ff87ef9724fef45ee313273b35c9c544c2fdb2f851e4208b82ed512104"
-    sha256 cellar: :any_skip_relocation, monterey:       "5ac52237e414603ec1cb5c18b5e0ceb7011d09c60c9c5c20f6df586c23030cc1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "235f9d3279eaf00f9ba31ad4e6365df6fb54d03fcb95273220fd916652574a16"
-    sha256 cellar: :any_skip_relocation, catalina:       "3bd5ea74217eb18f9cd9e3f95f0a8228aa6e26e90c26047c506d2a7add92c631"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2280369fb335c6d5aa2b66cde1a792801d27b88d8e25dad244cc2b4422934c0e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "acc0941a410754a930a114b82bdad4e164db7cba2e472ca6b2d6b659fd51e301"
+    sha256 cellar: :any_skip_relocation, monterey:       "b44f5e27dee871ca46efd273fd9246c46db0bc3d8fc5b7cc6d0ffacf26e09ecb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6141ed321bbe104ace573a9c7fb698020da17bb71aec57ad9bb1687f070f4e1e"
+    sha256 cellar: :any_skip_relocation, catalina:       "8581b5e5553e01adde363fe81f0d0021e3c1ffd6c0b8175a1bd96bb4d395a826"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98997277d9d7f8d8d40c9030bdad1d77660e14900161828c72fa5f11c12ac5a0"
   end
 
+  depends_on "poetry" => :build
   depends_on "python@3.10"
   depends_on "six"
 
@@ -39,19 +41,29 @@ class Iredis < Formula
     sha256 "6fc88c3cb49dba8b16687b41725e661cf85784c12e8974a29b9d336dd596c3a1"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+  end
+
   resource "pendulum" do
     url "https://files.pythonhosted.org/packages/db/15/6e89ae7cde7907118769ed3d2481566d05b5fd362724025198bb95faf599/pendulum-2.1.2.tar.gz"
     sha256 "b06a0ca1bfe41c990bbf0c029f0b6501a7f2ec4e38bfec730712015e8860f207"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/15/e4/f138d6319c02a6052a590ef32e94366b74581973b43665c2960b07b9ec24/prompt_toolkit-3.0.24.tar.gz"
-    sha256 "1bb05628c7d87b645974a1bad3f17612be0c29fa39af9f7688030163f680bad6"
+    url "https://files.pythonhosted.org/packages/37/34/c34c376882305c5051ed7f086daf07e68563d284015839bfb74d6e61d402/prompt_toolkit-3.0.28.tar.gz"
+    sha256 "9f1cd16b1e86c2968f2519d7fb31dd9d669916f515612c269d14e9ed52b51650"
   end
 
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
     sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
   end
 
   resource "python-dateutil" do
@@ -75,7 +87,23 @@ class Iredis < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+
+    # Install pytzdata using brewed poetry to avoid build dependency on Rust.
+    resource("pytzdata").stage do
+      system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
+      venv.pip_install_and_link Dir["dist/pytzdata-*.whl"].first
+    end
+
+    resources.each do |r|
+      next if r.name == "pytzdata"
+
+      venv.pip_install r
+    end
+
+    # Install iredis using brewed poetry to avoid build dependency on Rust.
+    system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
+    venv.pip_install_and_link Dir["dist/iredis-*.whl"].first
   end
 
   test do

@@ -3,17 +3,17 @@ require "language/node"
 class Apidoc < Formula
   desc "RESTful web API Documentation Generator"
   homepage "https://apidocjs.com"
-  url "https://github.com/apidoc/apidoc/archive/0.50.4.tar.gz"
-  sha256 "e8a145743c9a00175a342465abdf944b3da23ee290e273f44861090a40cefe20"
+  url "https://github.com/apidoc/apidoc/archive/0.51.1.tar.gz"
+  sha256 "f2fe6bea7a43bc23936f7b15088fc1f33fa0728a46341bfaebea14096014ed7b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e966cb24c07275c508f2d2f998a648454d144440a79da70cf7ce2c2c5f0efd78"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e966cb24c07275c508f2d2f998a648454d144440a79da70cf7ce2c2c5f0efd78"
-    sha256 cellar: :any_skip_relocation, monterey:       "b8a1a09b224fdfb53f87ef1906320b869b9246e6dbec494139c6895cedde8cfa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e5a2ec5e06bce49a3153e7d25ca0facaaa041081001b752ad443b6aeae154ae4"
-    sha256 cellar: :any_skip_relocation, catalina:       "b8a1a09b224fdfb53f87ef1906320b869b9246e6dbec494139c6895cedde8cfa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5e4651f3f732dcb68ff1f5e686b1aa2d3ad4c734720466c3b5601b91717db1f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b74ba0c32abafffc3071d870c28afb905e98a5469dca9b28c97ea31ef4c52973"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b74ba0c32abafffc3071d870c28afb905e98a5469dca9b28c97ea31ef4c52973"
+    sha256 cellar: :any_skip_relocation, monterey:       "af4956028141ee14b32ab71020a659cddfc1fd15d9d0d4199761d111f9a50817"
+    sha256 cellar: :any_skip_relocation, big_sur:        "af4956028141ee14b32ab71020a659cddfc1fd15d9d0d4199761d111f9a50817"
+    sha256 cellar: :any_skip_relocation, catalina:       "af4956028141ee14b32ab71020a659cddfc1fd15d9d0d4199761d111f9a50817"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75039cedddf3ba8c7a056dcb1c5bc539628ac8b0b6d9ac9cc14e845f312dea9d"
   end
 
   depends_on "node"

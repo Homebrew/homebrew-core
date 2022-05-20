@@ -1,10 +1,10 @@
 class Rapidjson < Formula
   desc "JSON parser/generator for C++ with SAX and DOM style APIs"
-  homepage "https://miloyip.github.io/rapidjson/"
-  url "https://github.com/miloyip/rapidjson/archive/v1.1.0.tar.gz"
+  homepage "https://rapidjson.org/"
+  url "https://github.com/Tencent/rapidjson/archive/v1.1.0.tar.gz"
   sha256 "bf7ced29704a1e696fbccf2a2b4ea068e7774fa37f6d7dd4039d0787f8bed98e"
   license "MIT"
-  head "https://github.com/miloyip/rapidjson.git", branch: "master"
+  head "https://github.com/Tencent/rapidjson.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3d0b51a74337aee74ad9f17eafba4694dc414aa9f45585607fab67efde2373f8"

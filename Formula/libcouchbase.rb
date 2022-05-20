@@ -1,18 +1,18 @@
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "https://docs.couchbase.com/c-sdk/current/hello-world/start-using-sdk.html"
-  url "https://packages.couchbase.com/clients/c/libcouchbase-3.2.4.tar.gz"
-  sha256 "ac5774695906d5482ea5d92cc9e47826eb979c6a784114a259bd748aa4774c3a"
+  url "https://packages.couchbase.com/clients/c/libcouchbase-3.3.0.tar.gz"
+  sha256 "5b70ccc53bb5c61ed2aa2ed5f495c0fdb474e3c4cc1b5fbbd94f6a1b96776bd2"
   license "Apache-2.0"
   head "https://github.com/couchbase/libcouchbase.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "5a779c707052e820cd2faed4e8e4b6f96ceede06f57277161c3b6b38561c32f9"
-    sha256 arm64_big_sur:  "1aa9f0839809a8b8701142f946fa45a36fe2cf7bf5042195284f46669bae8bfb"
-    sha256 monterey:       "fee52a8f33c3868df4bc9336b2b1664e32a798ee2b5dda441bd1ea8f1e751399"
-    sha256 big_sur:        "2c54f96a26c5db5b9dde6d0636d62f18abfcea5b06d612de4c961ffdabb0a2ac"
-    sha256 catalina:       "05a73fbee2eb8adc53d5edf9fbda2b18ca39c993cb89d8a75be6ab95b53da5bf"
-    sha256 x86_64_linux:   "30a92f67630091008ab654c636707f63ebeb9879a79e9d04800e047aa7143e56"
+    sha256 arm64_monterey: "d1dd5618afd54e294a06f56cf9611c79829df4fc5ff6eb2c5a4e52baf0978288"
+    sha256 arm64_big_sur:  "e3716b38221b6ffe23acdd4008c97cdd4197fd8d8df6da5bdce89fee20889da4"
+    sha256 monterey:       "df746ac669a8c63f3bf0df08c80aca4544daca0b59c9ff7028d322df0181bbe1"
+    sha256 big_sur:        "3a77bea5f9a3b4261ed9f5495892011a2428f7c0fd0aeacf2627b92c25f33e3d"
+    sha256 catalina:       "f38e34f4f2c412a7bfe02a119364b308b186caab95675562114502038e61f973"
+    sha256 x86_64_linux:   "98970a6c121e6a8e5e8041b9a1619abfb4e1de1cba1ca10fd009dd4ef6ba36ea"
   end
 
   depends_on "cmake" => :build

@@ -4,15 +4,16 @@ class Dspdfviewer < Formula
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   license "GPL-2.0-or-later"
-  revision 11
+  revision 12
   head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d3d3383fcb214390beda2e696d2b01ffe97705352ac7486aeae9398f829fe832"
-    sha256 cellar: :any,                 arm64_big_sur:  "906f49e56185764e6bd001cdf165d34a288449d2c7da470d7be578b63d736f59"
-    sha256 cellar: :any,                 big_sur:        "af329c28bb3455247fdd2d3048d75fbbd0b685d97251c4c80acad5c3e1c30404"
-    sha256 cellar: :any,                 catalina:       "afeebf5d866baa9e1c57005c44a359a5b5f409259a296765b4b9234eb80f96fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5ea0adb9cfd4fa87f6c653bd8fc6c9b29820a8971e8e18f56a121d2e99e0501"
+    sha256 cellar: :any,                 arm64_monterey: "da24ba97fbae24b36492e878571a4a1cf07cf7979ded00ccc07c23f86e26ce1c"
+    sha256 cellar: :any,                 arm64_big_sur:  "8b5db6a6870b1e825274f0a28a1f41da06e7325d45b21e700f2de94c59cf7e72"
+    sha256 cellar: :any,                 monterey:       "26f5ad626166f23fe820ea41ded7cb9c3ab328178ee3f9d0eb5319fe02819f16"
+    sha256 cellar: :any,                 big_sur:        "9a7b4b3ada6b75e933a8d577f9dc67e86eed733f5eab383ebe59dbf8c6fb2cd8"
+    sha256 cellar: :any,                 catalina:       "de51c0869902887ee1f385d68358a04414bd85adea00aa481e1310a417e0749d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "faeff34b7271731f882d46087c907b565b5218c77a6b57eba2227fb477cf42ab"
   end
 
   depends_on "cmake" => :build

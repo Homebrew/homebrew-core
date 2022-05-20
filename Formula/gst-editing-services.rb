@@ -1,10 +1,9 @@
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
-  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.18.5.tar.xz"
-  sha256 "8af4a8394d051f3e18280686db49a6efaccc95c0c59a17f0f564e32000590df5"
+  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.20.2.tar.xz"
+  sha256 "2ddef442cf8313e78477510a4461c8522f180afef26d035a38fea3f5006d012f"
   license "LGPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-editing-services/"
@@ -12,12 +11,12 @@ class GstEditingServices < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "bc9faf8f9ee1c006d98a5209e8b1a1b53ce41facff7f79a3463cf6674be0c0ff"
-    sha256 cellar: :any, arm64_big_sur:  "20543ff1dd9615a33cc1c3ed0f4a2048ebdbcca2c6b088fa1e3e5294a086030f"
-    sha256 cellar: :any, monterey:       "fb747140eabca711d8d06a3f0d3e9b980c69691921d8a24b58deb20612ef1105"
-    sha256 cellar: :any, big_sur:        "2d49eef7d705b830d02398ead8d24140dcd618ad61b57e3026c28d7a129bd50c"
-    sha256 cellar: :any, catalina:       "124a991e88f1fdc6be5432529382302301ff283b59fd3eaab1d2586043645a1b"
-    sha256               x86_64_linux:   "6c53aca54d7ed4e3bb37a8f15cf9caca3d114d8e858777278aeae263f333f595"
+    sha256 cellar: :any, arm64_monterey: "f835dfd475d4f014c927e06f232eac88fb82a3aa8790d6f695ccc013aa332f24"
+    sha256 cellar: :any, arm64_big_sur:  "f864af216b70b6b83d51fe0139e42e25f6c78338d85f80e701debc1f7927d8da"
+    sha256 cellar: :any, monterey:       "90cc39a61be23b30e6284497bb9d218aa44e2f211a272a3859b15dc0853d53e9"
+    sha256 cellar: :any, big_sur:        "18d4c81c3980bd1d8cc2bf87a3108c544ecdd7f40a77233cafb44b9c91461bc9"
+    sha256 cellar: :any, catalina:       "94240503d99b2413e169cb0adbbb3a8f8886bc9c1bd394bd84133133ec8b9ea0"
+    sha256               x86_64_linux:   "1309865dfea44b887ec1a1e5937f7811688ba2b63a5aedb1caa1551bff164bd6"
   end
 
   depends_on "gobject-introspection" => :build
@@ -37,6 +36,7 @@ class GstEditingServices < Formula
     args = std_meson_args + %w[
       -Dintrospection=enabled
       -Dtests=disabled
+      -Dvalidate=disabled
     ]
     # https://gitlab.freedesktop.org/gstreamer/gst-editing-services/-/issues/114
     # https://github.com/Homebrew/homebrew-core/pull/84906

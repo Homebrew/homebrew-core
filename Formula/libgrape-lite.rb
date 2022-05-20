@@ -4,14 +4,15 @@ class LibgrapeLite < Formula
   url "https://github.com/alibaba/libgrape-lite/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "aafc8e5e9b122c4bde4370ee3f2ab8afb043f2a1547cacc062991ad420e3b9a4"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a522e2d270893e0abb9a24679444c7b1cea1fb09c19679ee28c908778b00d09f"
-    sha256 cellar: :any,                 arm64_big_sur:  "bf96f8bf63e8dbb34cdf983c5281de60f5f62a6f356849194c357da99a5b2462"
-    sha256 cellar: :any,                 monterey:       "b3f83fd0b36714ad82779de087fbeaeb42d3458def5da07f540f8f9e753e41c2"
-    sha256 cellar: :any,                 big_sur:        "a5a2e84797108299fa6ebfc43ec6c9781abb3685a54025934f9e60a0a0721acd"
-    sha256 cellar: :any,                 catalina:       "a8404a094ee40d02827c7f7bfa64409f2ede29ced343a3588b9c6f53df8c77f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25c62461eb2b5aa859f60f904b0fbd830a71b02a9edf349988427793ff7d88b8"
+    sha256 cellar: :any,                 arm64_monterey: "ed50fa273a04b369892e2bcb127cb9104a7f24c699adffde0df014f0cbed7a6d"
+    sha256 cellar: :any,                 arm64_big_sur:  "81ba4ead0d61e360b73d125f6ec426f539c412608731659aaf0f34a9a808fd45"
+    sha256 cellar: :any,                 monterey:       "71c99960740542e6033ce9055d05107e8823b7632a78a0a8c0df7fdf7e08eab2"
+    sha256 cellar: :any,                 big_sur:        "c3fee8aa45339ea0ebd06096d2cda7cdcbf81fb5dc3798e63696b56af43fe606"
+    sha256 cellar: :any,                 catalina:       "531e59c654f3470fb9d01f576355e1da3cbf31ce33bc810244f606b88c733535"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96d9b222820202b5d107502a4ede041d20839a0c01befa93b1f5a306af54c2c6"
   end
 
   depends_on "cmake" => :build

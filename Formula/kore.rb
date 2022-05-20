@@ -1,9 +1,10 @@
 class Kore < Formula
   desc "Web application framework for writing web APIs in C"
   homepage "https://kore.io/"
-  url "https://kore.io/releases/kore-4.1.0.tar.gz"
-  sha256 "b7d73b005fde0ea01c356a54e4bbd8a209a4dff9cf315802a127ce7267efbe61"
+  url "https://kore.io/releases/kore-4.2.2.tar.gz"
+  sha256 "77c12d80bb76fe774b16996e6bac6d4ad950070d0816c3409dc0397dfc62725f"
   license "ISC"
+  revision 1
   head "https://github.com/jorisvink/kore.git", branch: "master"
 
   livecheck do
@@ -12,28 +13,19 @@ class Kore < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0903cb7198c7cee03d727ca1dff69ae17c143761702857c5d0925822067ceb9d"
-    sha256 arm64_big_sur:  "27b9278bca42a66ef991c721a6e9d4910c72eb5fd4fec1530cebb20444f65d6a"
-    sha256 monterey:       "9f6fb2a90b05326a0ee669a32f38487b9526e43bba7722efcc6feee1f9a8b56c"
-    sha256 big_sur:        "b9ee5f484ac7eb75b1282afee33da589de37ce1787b15eea441e63526996e47c"
-    sha256 catalina:       "1c361e384d9d76c042624f56a0e847f12e9db63a5e0fd49016827bcbdb71eb95"
-    sha256 mojave:         "111923e46a1a868241cea5eeed3477ef6de321684308168c8ffac582620ba95a"
-    sha256 x86_64_linux:   "915a0b5f6e3598f50e4e457c96221b07006490f5169c666dc745d8ee0c68bced"
+    sha256 arm64_monterey: "651dadcfc4d6ef192a3c6834d817fb184c369c0558113283a18a0cd45d6cd90a"
+    sha256 arm64_big_sur:  "843bee8be9b432353e81f244ce58a85cc190c7c28559a0f7ba61fa34ef7dd5cb"
+    sha256 monterey:       "e27813f97e1239b6d07e9c936acb3dd72b6e37499d427cd61b31e956ec7c59b0"
+    sha256 big_sur:        "b6b3ab72bc73bb9aed91e64f4118f80feb73f1f9416f66ca5817f533f29772f5"
+    sha256 catalina:       "b4b39605d30bd4b7b5159ab40b2ee49d6043ba63822de4fb16c66fbfddabb26e"
+    sha256 x86_64_linux:   "e94b9fd5e6039cffbac0e88cb1fdd46a00d22cfade31ac6d30a2b270ea438d67"
   end
 
+  depends_on "pkg-config" => :build
   depends_on macos: :sierra # needs clock_gettime
-
   depends_on "openssl@1.1"
 
   def install
-    # Ensure make finds our OpenSSL when Homebrew isn't in /usr/local.
-    # Current Makefile hardcodes paths for default MacPorts/Homebrew.
-    ENV.prepend "CFLAGS", "-I#{Formula["openssl@1.1"].opt_include}"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
-    # Also hardcoded paths in src/cli.c at compile.
-    inreplace "src/cli.c", "/usr/local/opt/openssl/include",
-                            Formula["openssl@1.1"].opt_include
-
     ENV.deparallelize { system "make", "PREFIX=#{prefix}", "TASKS=1" }
     system "make", "install", "PREFIX=#{prefix}"
   end

@@ -13,9 +13,10 @@ class Lfe < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "1b1a15cdc71cf54af9cf00b044694dbfe00b603d4caf3060ac1f904a95304290"
     sha256 cellar: :any_skip_relocation, catalina:       "8b6707bd8f4d0e7154d732e261001276efda9ec89f24a965ef25a8e5dfeda61a"
     sha256 cellar: :any_skip_relocation, mojave:         "774edd008cb45c6496247bcebb7370dee9555ea72563d90c5c42da23595b2b03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "488bc8ec352bae436e3982e8de8b852601bcf6714ec2d34d1928d231e9abfd22"
   end
 
-  depends_on "emacs" => :build if MacOS.version >= :catalina
+  depends_on "emacs" => :build
   depends_on "erlang"
 
   def install

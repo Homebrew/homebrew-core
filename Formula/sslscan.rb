@@ -1,18 +1,18 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites"
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/2.0.11.tar.gz"
-  sha256 "74bdf97c834b961afb342cae1ea32067af0e05f58239979d0f2d3fab82acae1c"
-  license "GPL-3.0-or-later"
+  url "https://github.com/rbsec/sslscan/archive/2.0.13.tar.gz"
+  sha256 "34549613e16ba5dbfca3d988672041b7b0ece6f408515d6ba8819e2d804b5833"
+  license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
   head "https://github.com/rbsec/sslscan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2ecbb60436191aad650902454485db6acc05491beee19e662774230c9c37095d"
-    sha256 cellar: :any,                 arm64_big_sur:  "31bff322be81a06bda1274655c6eb391f345cb2ac7af9b0a2a8af8d123524cfe"
-    sha256 cellar: :any,                 monterey:       "d7c2bf23ced03d7b5030dc8abb271aba5488f921146192e9a101a75c16bba94c"
-    sha256 cellar: :any,                 big_sur:        "01fb6a36a458d700191261620813796c67da729c7b02f96573a5fc3de8a61ac9"
-    sha256 cellar: :any,                 catalina:       "e71b9ce743ab9cce21ebaad1e2bf3f494273f87dd2f2261d963f7cf9a2912fd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6121ef0e9a9fa6d5c854ffed359d87bc12dbf7af05cee72489d5c9acd93e4a78"
+    sha256 cellar: :any,                 arm64_monterey: "836951f43d6608b813d7bc1c6ef6de2a6533a5cb9b9935358d0c57d6ffc7f302"
+    sha256 cellar: :any,                 arm64_big_sur:  "96ad7d01e342880dd402746d097e9717688f3d1cfb92d62db9d3c912277d5dc4"
+    sha256 cellar: :any,                 monterey:       "dbe8db7512295737f7b425df3d722774a64e3e3df0b8fc41e6217a29c6d26703"
+    sha256 cellar: :any,                 big_sur:        "4716a56b36bf8b640213057818393bd043104043075f0076cd8484f46bba9b6d"
+    sha256 cellar: :any,                 catalina:       "7206ababb391c78d0fea16bc4d256dd1ad2ecf46dbd2ffbcc19239751babde79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a14c08ecd33e99e69ab5ba041ed5440ce75c4f72fa2e9438acd2921ef47f582"
   end
 
   depends_on "openssl@1.1"

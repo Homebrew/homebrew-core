@@ -17,6 +17,7 @@ class MkConfigure < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "74fd29adec76158ebe619c4116609fe56b88aed78f64161fa352cad842a5a760"
     sha256 cellar: :any_skip_relocation, catalina:       "d49908536866ff5ad40d08035125236d0f3c0cdcb0d4db190b4d2fc72deee1c1"
     sha256 cellar: :any_skip_relocation, mojave:         "8e2d5682e9bbafe39e7d518b681f7e498b95b81a9e4ba16e5159af08825c2078"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc1ed3b81d9f3b233e7b858698e5c5f8942ff8b7887ad6978fd424d4dee8903d"
   end
 
   depends_on "bmake"

@@ -1,17 +1,17 @@
 class Dtm < Formula
   desc "Cross-language distributed transaction manager"
-  homepage "http://d.dtm.pub"
-  url "https://github.com/dtm-labs/dtm/archive/refs/tags/v1.12.0.tar.gz"
-  sha256 "73c2af8d6ac52d4879f69a40fa9250805a1a82b61781b39a21481076844c3ce6"
+  homepage "https://en.dtm.pub/"
+  url "https://github.com/dtm-labs/dtm/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "32f27a65e705e0f9d3fba2081ed01f509aa425c2284024eea498bb331aa3e146"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "242a0b5df99811d2d367512381935f8823dcf9ea66c0bca60b073e82153a7c63"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71c0d0d4170018bb6652339be12437c9cc84c7638964a4600ed872b30c0aa719"
-    sha256 cellar: :any_skip_relocation, monterey:       "0b1c2b22e9e0ae1eb554355d5ceaacd52cf944540f0aead22dce7eca83b2d1fe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "173f6774898d902a170fd282ad8dd0dc82c4be406dfb68454d9e2a65a3b4a8e5"
-    sha256 cellar: :any_skip_relocation, catalina:       "03a05c42d79c0df17184ca0bae0a90a1b695f8f20d0c6b68b99c56c30202ebc2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73a707cdd55363a4923be87a738b8bcbe692150ef01c1f0ddc313ed37875ea19"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4432b1961981934a4187779f7b1d3caf399a02e4bdff88e550f4a84f7cec5d14"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b81b5d284164d5875b9dc16c0ae06194f686d495f6116f73d69bcb5583ee53c"
+    sha256 cellar: :any_skip_relocation, monterey:       "89e07aaa2b3000fd3b169e51eb818abca54e60dc299ce51218988e099ba92f0e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a931f14a31f4fb6ceeffa950e38a42d5d91edaf87a7fd623babb87493e121fdb"
+    sha256 cellar: :any_skip_relocation, catalina:       "47ef34fcee78cdd15354bcbfbd1f71b030d531df5190af6e9bce7e371f169fa2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7228ae4cfc2ba79f40e213212c69a9ad31e498dd73017365271bd7e952e1991"
   end
 
   depends_on "go" => :build
@@ -23,12 +23,25 @@ class Dtm < Formula
 
   test do
     assert_match "dtm version: v#{version}", shell_output("#{bin}/dtm -v")
+
+    http_port = free_port
+    grpc_port = free_port
+
     dtm_pid = fork do
+      ENV["HTTP_PORT"] = http_port.to_s
+      ENV["GRPC_PORT"] = grpc_port.to_s
       exec bin/"dtm"
     end
     # sleep to let dtm get its wits about it
     sleep 5
-    assert_match "succeed", shell_output("#{bin}/dtm-qs 2>&1")
+    metrics_output = shell_output("curl -s localhost:#{http_port}/api/metrics")
+    assert_match "# HELP dtm_server_info The information of this dtm server.", metrics_output
+
+    all_json = JSON.parse(shell_output("curl -s localhost:#{http_port}/api/dtmsvr/all"))
+    assert_equal 0, all_json["next_position"].length
+    assert all_json["next_position"].instance_of? String
+    assert_equal 0, all_json["transactions"].length
+    assert all_json["transactions"].instance_of? Array
   ensure
     # clean up the dtm process before we leave
     Process.kill("HUP", dtm_pid)

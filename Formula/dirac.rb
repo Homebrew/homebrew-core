@@ -5,6 +5,7 @@ class Dirac < Formula
   mirror "https://launchpad.net/ubuntu/+archive/primary/+files/dirac_1.0.2.orig.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/d/dirac/dirac_1.0.2.orig.tar.gz"
   sha256 "816b16f18d235ff8ccd40d95fc5b4fad61ae47583e86607932929d70bf1f00fd"
+  license any_of: ["MPL-1.1", "GPL-2.0-only", "LGPL-2.1-only"]
 
   bottle do
     rebuild 1

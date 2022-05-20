@@ -13,6 +13,7 @@ class Sendemail < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "3d2d838108374473524945ae1cada342aad8e25f77216d15dbf8aae7ff0ded76"
     sha256 cellar: :any_skip_relocation, catalina:       "3d2d838108374473524945ae1cada342aad8e25f77216d15dbf8aae7ff0ded76"
     sha256 cellar: :any_skip_relocation, mojave:         "3d2d838108374473524945ae1cada342aad8e25f77216d15dbf8aae7ff0ded76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60b99fa4f05c5ee4f2b85c4529e8e4a2368d4a16d68246c4d9bb91ba256f828f"
   end
 
   # Reported upstream: https://web.archive.org/web/20191013154932/caspian.dotconf.net/menu/Software/SendEmail/#comment-1119965648
@@ -26,6 +27,6 @@ class Sendemail < Formula
   end
 
   test do
-    assert_match "sendemail-#{version}", shell_output("#{bin}/sendemail", 1).strip
+    assert_match "sendEmail-#{version}", shell_output("#{bin}/sendEmail", 1).strip
   end
 end

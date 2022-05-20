@@ -1,10 +1,9 @@
 class Ocamlbuild < Formula
   desc "Generic build tool for OCaml"
   homepage "https://github.com/ocaml/ocamlbuild"
-  url "https://github.com/ocaml/ocamlbuild/archive/0.14.0.tar.gz"
-  sha256 "87b29ce96958096c0a1a8eeafeb6268077b2d11e1bf2b3de0f5ebc9cf8d42e78"
-  license "LGPL-2.0"
-  revision 2
+  url "https://github.com/ocaml/ocamlbuild/archive/0.14.1.tar.gz"
+  sha256 "4e1279ff0ef80c862eaa5207a77020d741e89ef94f0e4a92a37c4188dbf08256"
+  license "LGPL-2.0-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocamlbuild.git", branch: "master"
 
   livecheck do
@@ -13,14 +12,12 @@ class Ocamlbuild < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f1db7b36700c95ce9ecf78fdbfd39444a2f1f6a338a38f9a5b195fea26ee2d09"
-    sha256 arm64_big_sur:  "3959adfee1e78a7194faf82338106d5a281dfa14a55e37a7506dd5970f416358"
-    sha256 monterey:       "028e644d34d4735929477809fca3a5587f96bb4cfe94e5efa7b9f3eddd06443c"
-    sha256 big_sur:        "3daa705ce9d023a2679f609671d06de48e8dd1dd13ece8db46068802abbdd41f"
-    sha256 catalina:       "8f6fc7e7413b24faa041b7651349a3128f9eadefae5c9aa0c50f0d1a56e010f6"
-    sha256 mojave:         "04fed811edb4dd3903f742ec6678643f9959e85c4fcb763972c8779dec059515"
-    sha256 high_sierra:    "e4cd0274f9657874e29add30545055af4ea8697d426ed95f799ddce63aef5cfe"
-    sha256 x86_64_linux:   "6b0804c980c27a7df543c4b31811a9b1509d88692d1b9da5f44eb1297da9aa76"
+    sha256 arm64_monterey: "035b9432d6fe955bb53f2d637fb4de478dfdfd03f22e2884032172e37b226dba"
+    sha256 arm64_big_sur:  "d1b989fc6305cb608d4b46a0e71827907074b5a2f5b2b8efb08f93383465c184"
+    sha256 monterey:       "97ef3918da137ee1845f434695830599924115318246a9e0dd9bee51ab40a042"
+    sha256 big_sur:        "fbc736c65d15027c12f07837a920fe7d3ca20f946fc1c3934970020cc315ea9b"
+    sha256 catalina:       "87cb5e4accc61bca40db364eb3818143941f2f6aa8215dabcea33e200e138e87"
+    sha256 x86_64_linux:   "d9b0cf584bd021f8872bb80b00d1663484b82f2e634d422c8b1854ca75ff4c8d"
   end
 
   depends_on "ocaml"

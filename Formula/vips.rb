@@ -4,6 +4,7 @@ class Vips < Formula
   url "https://github.com/libvips/libvips/releases/download/v8.12.2/vips-8.12.2.tar.gz"
   sha256 "565252992aff2c7cd10c866c7a58cd57bc536e03924bde29ae0f0cb9e074010b"
   license "LGPL-2.1-or-later"
+  revision 2
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "20d671529252314b17c8f3eb4be159543c864c96c429cb68cbe8a7bcf85770ac"
-    sha256 arm64_big_sur:  "f125f9b4ff5157974ff9d0b72397e2bdb1a8dae0c89a7f5d4e22ed725437840a"
-    sha256 monterey:       "8f6f1c98bba10185571a371349d73dbaab6ea91aa776c318b280037cf6371375"
-    sha256 big_sur:        "0d42d2f1ce288913155cf7cb7ae74882c6929f7613d8f89bc6da370c55c3661b"
-    sha256 catalina:       "17daae6e1c77856c58df8278eee46bc72c89ef8f6172979817930d842ed51875"
-    sha256 x86_64_linux:   "33d5a6b70eed88db1973afea1121b771df265a1853054bf7c0a96f828e1e3bae"
+    sha256 arm64_monterey: "0e9d0479d01b08754283b695427a7c1aa36beffb567c07e25fdac8a2685f7649"
+    sha256 arm64_big_sur:  "4c2b975f8a4f7a9e6e1ca1b50fcc66c52a2b5f257a48d1fef828c487f26334b2"
+    sha256 monterey:       "eb519980dbd7e7c42e7f7731be36838b5d279f95e2b7cbc4c8c7fa17df13c7d9"
+    sha256 big_sur:        "e824f02d4b151c8b5004f64132965dfccd1bd13040f021346df0aedd52c70ca4"
+    sha256 catalina:       "77dfb217bd6b4b0dd1292fe29f8021bf4bb8333523a8715ac4f4467a8e29f94a"
+    sha256 x86_64_linux:   "a02853a50059059c308a93900839afb5fb4fbc3b0b5cb96a0f6535db085ad5eb"
   end
 
   depends_on "pkg-config" => :build

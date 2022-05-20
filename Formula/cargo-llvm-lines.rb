@@ -1,18 +1,18 @@
 class CargoLlvmLines < Formula
   desc "Count lines of LLVM IR per generic function"
   homepage "https://github.com/dtolnay/cargo-llvm-lines"
-  url "https://github.com/dtolnay/cargo-llvm-lines/archive/0.4.13.tar.gz"
-  sha256 "a1cec39e555ca0264bd0b680267aec50e23bc23cc7103214448abc4cbc88f908"
+  url "https://github.com/dtolnay/cargo-llvm-lines/archive/0.4.15.tar.gz"
+  sha256 "32fdfdb4eea5f7d9118445a8beadfb1cea2e12c5949766453cee35584afae127"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/cargo-llvm-lines.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5387b744741a358b7bf4dad974b03f288881c84318382c5af1be7451f3cfa90b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8892a936a1e37e411e30df692ded2008e0d2fab6463dd8b26bc202a7674b94df"
-    sha256 cellar: :any_skip_relocation, monterey:       "329f5f585ca9747b576ee00623eb004f932b2f0f3daabdd7abfc5248fc9c7fb0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6d80d9b3ba3f4b52a9f642f4953267b895979f6d18527576fafe06fd67bd7a2f"
-    sha256 cellar: :any_skip_relocation, catalina:       "3fa2c275547f8349b43dd0a150abb8e44ae7f483f5c0f41fc6f0e754bd7e086b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3aec84fdf195cf6330cf640aa0fe6c04a55e52e43e5e7e5ab8f11cc0a0a06aef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0536447d900fc1d9ae9df4c85f9dfc443ad249c68fc97a2597f455262d9afc00"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebf2b38bb00a4d1258a7861ccd4b9cdb79b41551a2b102ade998d41ed2eadde0"
+    sha256 cellar: :any_skip_relocation, monterey:       "340d65137536c7b1ec32349328cb80fdf675ae63a599acf17cfda25ec10e287a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "64d3085281f646b672f2f301dec1feaee09e6eb6eb708ee9249dc301da7b11e1"
+    sha256 cellar: :any_skip_relocation, catalina:       "925e5b4ddd33b71f5fcefb8b00661ea39796f9595fe81525fae1f4e598850a9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "855169c73fe715b926c3a7afa1fe8921678db5b6b068bcfc9642a28cca6d9cd3"
   end
 
   depends_on "rust"

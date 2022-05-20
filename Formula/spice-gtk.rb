@@ -3,8 +3,8 @@ class SpiceGtk < Formula
 
   desc "GTK client/libraries for SPICE"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/gtk/spice-gtk-0.39.tar.xz"
-  sha256 "23acbee197eaaec9bce6e6bfd885bd8f79708332639243ff04833020865713cd"
+  url "https://www.spice-space.org/download/gtk/spice-gtk-0.40.tar.xz"
+  sha256 "23f5ff7fa80b75647ce73cda5eaf8b322f3432dbbb7f6f3a839634618adbced3"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
 
   livecheck do
@@ -13,12 +13,12 @@ class SpiceGtk < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "b1ab5bfc60085e400a90a30e44d8b4a4f5310b3c5b53097865b10ba2c270b86c"
-    sha256 arm64_big_sur:  "33653df442811987bf281eae7be51394129b2640fb934bb83a29aab64e89d9ec"
-    sha256 monterey:       "f43ab21e3f982f1957031d112de7e4361e61a3a8c899e04e88bd0ffe1ac75826"
-    sha256 big_sur:        "e51c47902eb3a8d5bf146330d3ed7a8965ce66b3d6d425ef5a39ebf4965c3a2c"
-    sha256 catalina:       "a6346dd1e7a827900d7dbeaa647588fa56af3dfc72dec3686241eff1f94deaca"
-    sha256 mojave:         "512587bfec950e40a3df1f3254427ca736af13c4e222701f32ca7a53c50d4c0f"
+    sha256 arm64_monterey: "f8161b28e3cc0d1446594631094a4ad447eedcd0b61d575bb9f922c36a3af592"
+    sha256 arm64_big_sur:  "20739ef4960c33ecb9b47faf65e7b9558ae27a7f69d285914804b0f8e62d4b1a"
+    sha256 monterey:       "668f119fbe839ccecbe5d8ec12e6b65f101d88e1737b04ba2f75a4220392dd10"
+    sha256 big_sur:        "ddc6164a653342713455e30972a7874d399d185dff288fd5b42f1424ff17d80f"
+    sha256 catalina:       "76aa8d0050886028ee2f8e5080069d9d6d74a96529028e698a6f78f6fe1f10db"
+    sha256 x86_64_linux:   "6d40f60a0f8b50bbc672cbc368983f2ed0995b106eb85544379735a031e2b1b9"
   end
 
   depends_on "gobject-introspection" => :build
@@ -28,6 +28,7 @@ class SpiceGtk < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "six" => :build
   depends_on "vala" => :build
 
   depends_on "atk"
@@ -53,33 +54,18 @@ class SpiceGtk < Formula
   depends_on "spice-protocol"
   depends_on "usbredir"
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
+    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(buildpath/"venv", "python3")
     venv.pip_install resources
-    ENV.prepend_path "PATH", libexec/"bin"
-
-    # https://gitlab.freedesktop.org/spice/spice-gtk/-/issues/144
-    inreplace "subprojects/spice-common/meson.build", "py_module.find_installation()",
-                                                      "py_module.find_installation('python3')"
-
-    # usb-device-cd.c not compiling, see: https://gitlab.freedesktop.org/spice/spice-gtk/-/issues/107
-    args = std_meson_args + %w[
-      -Dsmartcard=disabled
-      -Dusbredir=disabled
-    ]
+    ENV.prepend_path "PATH", buildpath/"venv/bin"
 
     mkdir "build" do
-      system "meson", *args, ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end

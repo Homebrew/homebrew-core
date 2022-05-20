@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/v3.3.1.tar.gz"
-  sha256 "0d02af9e8ed53763e2b0d2c01d59b88082d3e3b3b7ccb880300fb2ab0930fb77"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/v3.4.4.tar.gz"
+  sha256 "9ee6b8332b9f6854ca03be4c5bb2d33554fb2dac01c25453ecaccb44900b649b"
   license "Apache-2.0"
 
   livecheck do
@@ -11,14 +11,16 @@ class Micronaut < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8387cca071a7cc0b6d91d8e57ede7b978f3cc1a0d5784ad3714390cd9b7cd57b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9732b3235a1d2f0eda45291b0fedfee8a957aef571af38aefc277cdf6de9d91c"
-    sha256 cellar: :any_skip_relocation, catalina:      "01dcff3a4e13444855b81dda38fa3b1de8c85d4af3b0c71b7a29a51796c625a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edc2e20e34b83f962d9959845623338b918b4c6c6886eb4ad9de0817f8f3365c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aacf1c2c28500004708ab22ba0c16ed657d68fd72df6da346dbf242f501e97f4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "578a13ad532d764a8697c689cf4fe731ab257209b5bcf3e8a6aa790176e22223"
+    sha256 cellar: :any_skip_relocation, monterey:       "346bae11b7566afde46ccb469aad49ba82acdf911e0c66ce87fa199810a247fc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "adfa090bfe98a042272e8f2a8144822a04ebbc1fbcc4aa06b1391f880bbcb50e"
+    sha256 cellar: :any_skip_relocation, catalina:       "911d014b7404fc790a7cc635d0d070a1d13c4e67a4983b7b934b92ac9f6ff84d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9320f292a7a472fb4beddc0185bf3e6e6b3569ac7edc1856ec6e3042f53f7b2"
   end
 
   # Uses a hardcoded list of supported JDKs. Try switching to `openjdk` on update.
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   def install
     system "./gradlew", "micronaut-cli:assemble", "-x", "test"
@@ -28,7 +30,7 @@ class Micronaut < Formula
     mv "starter-cli/build/exploded/lib", libexec/"lib"
 
     bash_completion.install "starter-cli/build/exploded/bin/mn_completion"
-    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env("11")
+    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env("17")
   end
 
   test do

@@ -1,8 +1,8 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoincore.org/"
-  url "https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0.tar.gz"
-  sha256 "d0e9d089b57048b1555efa7cd5a63a7ed042482045f6f33402b1df425bf9613b"
+  url "https://bitcoincore.org/bin/bitcoin-core-23.0/bitcoin-23.0.tar.gz"
+  sha256 "26748bf49d6d6b4014d0fedccac46bf2bcca42e9d34b3acfd9e3467c415acc05"
   license "MIT"
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Bitcoin < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "e8518c5eff6958237409b99a4281e0dcf30c5fbd3a61f6558fa1b51310aaef9f"
-    sha256 cellar: :any,                 arm64_big_sur:  "9421b8a1746299d909b14410991c9d11735dc47b9315d15b5ee38565cad0ae45"
-    sha256 cellar: :any,                 monterey:       "8948c2404b7cffd74fe7bf979313a236349d397f92b6c0043c1a249918eb833c"
-    sha256 cellar: :any,                 big_sur:        "a326a566321b9f5b8d86499fcabb246fb7bdbded956791d9293a97705c0bdb12"
-    sha256 cellar: :any,                 catalina:       "59227888c3021090ea60dda9c54b80447d956e42325abb552e0f343cdaf334cc"
-    sha256 cellar: :any,                 mojave:         "12b6d4af2123df56dd5d421153a9901d97ad79b8af81660905446cf1fb592573"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc56082efef1d5c21ae17ae78f8510beb7bfbec3ed65df626fd4b67308afcc57"
+    sha256 cellar: :any,                 arm64_monterey: "b0704a6dc3a96f5bbb71d93a468b1a4881e747e90ddfa14d6ff0d97d5a23c6eb"
+    sha256 cellar: :any,                 arm64_big_sur:  "6c8caf0509daf986cd3af45eeea78789ccd4b0a8eb5aa1dfddaa624425e5b959"
+    sha256 cellar: :any,                 monterey:       "2859a13d7a48dad1a6701476d66ddb0b6940dcfe4b809b1c54512d78de247e26"
+    sha256 cellar: :any,                 big_sur:        "e8a1f3389faae4245c5f6a6ec8f179cb46e19af31f4e4637c6d3f24d55804b45"
+    sha256 cellar: :any,                 catalina:       "3279bd808f42d6ea608d04860ac276afda7c6ac2cf5d708469d4dc66672f210a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb60fb85781435dfb545cea0c7e08339a7b3e01d60df604ccf9cba830f148e36"
   end
 
   depends_on "autoconf" => :build
@@ -27,8 +25,9 @@ class Bitcoin < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "berkeley-db@4"
-  depends_on "boost"
+  depends_on "boost@1.76"
   depends_on "libevent"
+  depends_on macos: :catalina
   depends_on "miniupnpc"
   depends_on "zeromq"
 
@@ -43,10 +42,10 @@ class Bitcoin < Formula
     ENV.delete("SDKROOT") if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
 
     system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
+                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
-                          "--prefix=#{prefix}"
+                          "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
     system "make", "install"
     pkgshare.install "share/rpcauth"
   end

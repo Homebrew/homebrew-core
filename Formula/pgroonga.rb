@@ -1,8 +1,8 @@
 class Pgroonga < Formula
   desc "PostgreSQL plugin to use Groonga as index"
   homepage "https://pgroonga.github.io/"
-  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.3.4.tar.gz"
-  sha256 "5c4ebaf4a7c71326394e084c502d06708a9d3d3b1d02cd38a40fedf3893e8b61"
+  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.3.6.tar.gz"
+  sha256 "fc68a66a216e304bb0e2ef627f767fff528f4fbf2bbda27e8cd8db1b7ba090b0"
   license "PostgreSQL"
 
   livecheck do
@@ -11,11 +11,12 @@ class Pgroonga < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "2ad9ea45831ae3ffac67788c2a2d72b0be9bfd6c9214b0e2e725060bb4bb203a"
-    sha256 cellar: :any, arm64_big_sur:  "a53e679d4d9c3e982ee1317fc721bc79c07197059854f4c230be316ad47cc02a"
-    sha256 cellar: :any, monterey:       "84d2e269d422f9e2038f90b176c9a34c80533467f79f7f6961413d9ee7142a4b"
-    sha256 cellar: :any, big_sur:        "3b5fff0d0bc8e26d42b1cfbfae8510735bcf1d2ad5c87cb367c12be1c774b450"
-    sha256 cellar: :any, catalina:       "08050d1ffe39254ee2d27b5cdf61abc31c924ef4b8f335664b39d3f1fdfc3b5b"
+    sha256 cellar: :any,                 arm64_monterey: "3d3f7bbbeacdfc9b2391242f8d2ba757bbbf541bf154f52d8e0c482ab78cf82c"
+    sha256 cellar: :any,                 arm64_big_sur:  "442d5d9a02f563243626299b1191c54196fbec963f67db229082785cef82211f"
+    sha256 cellar: :any,                 monterey:       "319244d89ebc320de1c2074bc71e3579ffcfd1fa94ab1863adb05a5809163ff3"
+    sha256 cellar: :any,                 big_sur:        "e242ad6aa6bbf01c16769afce5e97f96c9d9954fe0aa1b08d40a3e4c23f36289"
+    sha256 cellar: :any,                 catalina:       "8ff648ec80d26251a697c76f4a219de20d39c7a51cc17c7d64b7b572f3029a35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c6e4b0ac90176f3fed6267dbb9c70303e8d42c4bc81ca95265244a4a49beca2"
   end
 
   depends_on "pkg-config" => :build
@@ -27,7 +28,14 @@ class Pgroonga < Formula
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    lib.install Dir["stage/**/lib/*"]
-    (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
+    stage_path = File.join("stage", HOMEBREW_PREFIX)
+    lib.install (buildpath/stage_path/"lib").children
+    share.install (buildpath/stage_path/"share").children
+    include.install (buildpath/stage_path/"include").children
+  end
+
+  test do
+    expected = "PGroonga database management module"
+    assert_match expected, (share/"postgresql/extension/pgroonga_database.control").read
   end
 end

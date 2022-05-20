@@ -1,33 +1,26 @@
 class Html2text < Formula
   desc "Advanced HTML-to-text converter"
   homepage "http://www.mbayer.de/html2text/"
-  url "https://github.com/grobian/html2text/archive/v2.0.0.tar.gz"
-  sha256 "061125bfac658c6d89fa55e9519d90c5eeb3ba97b2105748ee62f3a3fa2449de"
+  url "https://github.com/grobian/html2text/archive/v2.0.1.tar.gz"
+  sha256 "c52f16a282b69b9dc9f7b5fac7f44b15f90b74e012f0aa2d63fbf5b0fe5e5c49"
   license "GPL-2.0"
   head "https://github.com/grobian/html2text.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "05f7f6728c741d0b2d8ea997746f6179e8c446c70eb616315ade8c938aa7b197"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8628bce5605c486669b45437ad499b2b3a51901fcb934a031f4dc16be46ce85"
-    sha256 cellar: :any_skip_relocation, monterey:       "98c16961569654bec6a9c3363c370e442b1b3adf657333cdebb648a58b6ae8e3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f15e51b4bab96810d81f13f7a47cebdc0228e6367c9583918f1437275921d2d1"
-    sha256 cellar: :any_skip_relocation, catalina:       "567d2c7e25a24c445ad54074e9ff3ee6edfce3fe7fe960966dcd49a488b2affb"
-    sha256 cellar: :any_skip_relocation, mojave:         "55a8fe864bc8e05e7e2fa0085e22adb251fdeeee3fd463e326224a3dff78c773"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b0c913f98f9169669395d57c28c45d7d6c1dc68c13fdb82ba52a04fefdb00bc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63b4e67b96d6ffb0699ee2b02d62b2f187c73cd2ca242d0ca3926a71695f45df"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e78419657ce5e06388abd3a41ec0322383aca2c2c71b2e45139ca78832d452f3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c148cd0d5d064c8ad263ca7c12c9e4a73ce3ff5d1f9feebca0009e4a41add25"
+    sha256 cellar: :any_skip_relocation, monterey:       "bd43224481e6120f6f304b1861e514fdf4571d1f5b558c86827d55ada0682fbe"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3f8d47270e3e7f0fdbb628cac56a9da064c70de4f1988a6dec2985bb5e5235f9"
+    sha256 cellar: :any_skip_relocation, catalina:       "5a236441829b3eaa51e021fda8e10bac0dc8b8ad80fa95fb268a7f21be18864c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97fe7d5f5d6188936ffc827e284fd438cacf7d08a4bd0590d3724284b0f40eba"
   end
 
   def install
     ENV.cxx11
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-debug",
-                          "--prefix=#{prefix}"
+    system "./configure"
     system "make", "all"
-
-    bin.install "html2text"
-    man1.install "html2text.1"
-    man5.install "html2textrc.5"
+    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
   end
 
   test do

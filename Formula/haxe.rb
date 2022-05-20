@@ -2,13 +2,12 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   license all_of: ["GPL-2.0-or-later", "MIT"]
-  revision 1
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   stable do
     url "https://github.com/HaxeFoundation/haxe.git",
-        tag:      "4.2.4",
-        revision: "ab0c0548ff80fcbbbc140a381a9031af13b5782c"
+        tag:      "4.2.5",
+        revision: "e5eec3122454bfc95412437d938d1d8d3e77ed68"
 
     # Remove when campl5 dependency is bumped to 8.00 in a release
     patch do
@@ -23,12 +22,12 @@ class Haxe < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d683130428c5122d3f247988c665f5364d137a3aee0d1e197ca2e90299d8d51f"
-    sha256 cellar: :any,                 arm64_big_sur:  "73b60ab81690ae17d53b90203d1a6c5e16df4e4aff5452bc786df41d7884d536"
-    sha256 cellar: :any,                 monterey:       "171932ed56989118a977baa7c0a4031f92fe7a59500ccd4b264079822190a220"
-    sha256 cellar: :any,                 big_sur:        "fa2fe7d7e9409941d1a7979061c9dfad7bff61dfd32398b5a1c8adb5d942dac5"
-    sha256 cellar: :any,                 catalina:       "8d8c4ad674e13faea18b1364f2444fff90ffb3e670f7274b7477b870b0bd55d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4008b86717dc5687fa4b7f057d492d6b4cf8589a3b53d18575f2e2061141d9d"
+    sha256 cellar: :any,                 arm64_monterey: "ebb6b5472bc7408ce268e357651c2b123abaa2f614260f88838a149289423499"
+    sha256 cellar: :any,                 arm64_big_sur:  "380f0f1f640c3f4919d272a4648b2d04fb3afd93820003cec19b9f54be1cba75"
+    sha256 cellar: :any,                 monterey:       "8cdccc4df05e252d1094ecad90a97ea898659a5017b9c61c6a157629887e68ad"
+    sha256 cellar: :any,                 big_sur:        "dcb8925b9b647939dbf5abbd2ba150f26f581a525fbf8e9c1ce369de58bb6adc"
+    sha256 cellar: :any,                 catalina:       "21ddb930758328523200f2ef95d7639bfe32ca1a94a9861972a721b0c96ab968"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cce4723939b40c48dfb88f1ef06cf967aa5bb76a033a774eb207c72bb93abf12"
   end
 
   depends_on "cmake" => :build
@@ -114,9 +113,10 @@ class Haxe < Formula
     EOS
     system "#{bin}/haxe", "-js", "out.js", "-main", "HelloWorld"
 
-    cmd = "osascript -so -lJavaScript out.js 2>&1"
-    on_linux do
-      cmd = "node out.js"
+    cmd = if OS.mac?
+      "osascript -so -lJavaScript out.js 2>&1"
+    else
+      "node out.js"
     end
     assert_equal "Hello world!", shell_output(cmd).strip
   end

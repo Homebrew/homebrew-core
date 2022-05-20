@@ -3,6 +3,7 @@ class Cdpr < Formula
   homepage "http://www.monkeymental.com/"
   url "https://downloads.sourceforge.net/project/cdpr/cdpr/2.4/cdpr-2.4.tgz"
   sha256 "32d3b58d8be7e2f78834469bd5f48546450ccc2a86d513177311cce994dfbec5"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09f09ac98ad3c7e738e0d31bc9d37bdec2cd3745aa5d8d28db3953ef27541561"
@@ -15,11 +16,14 @@ class Cdpr < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "c6603372329fd2dc0c60266b3f3eb6c9f7cc5c0ce7f351b05977ab39a18cde7c"
     sha256 cellar: :any_skip_relocation, el_capitan:     "0bdc868c9b11510e2d9e6551dee970c20406215153906d8bc42790d8510ac429"
     sha256 cellar: :any_skip_relocation, yosemite:       "3f0fbd6fe9862b367f64354ad6ce3b2deacd35ae627f8d73d5095739325be378"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a2162fee06fc9c03e01a2a6787a18f1d8a0c241a0c315d76878b09ea787c7b6"
   end
+
+  uses_from_macos "libpcap"
 
   def install
     # Makefile hardcodes gcc and other atrocities
-    system ENV.cc, ENV.cflags, "cdpr.c", "cdprs.c", "conffile.c", ENV.ldflags, "-lpcap", "-o", "cdpr"
+    system ENV.cc, "cdpr.c", "cdprs.c", "conffile.c", "-lpcap", "-o", "cdpr"
     bin.install "cdpr"
   end
 

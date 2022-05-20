@@ -11,12 +11,13 @@ class Yazpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "577457aa710814861f42b783fcc32c4f51f2df56b0c0b2834ea7bea916a2556a"
-    sha256 cellar: :any, arm64_big_sur:  "beb0688e992377551877a54479486d836833702ea540c6a7d8a60220409c046d"
-    sha256 cellar: :any, monterey:       "239c72f8472b69f74c4016818000810833480ab03d710c4c788b514ec78a22c4"
-    sha256 cellar: :any, big_sur:        "d4676891be7edf41fbcccc88888a18703861c9db257cf65e8ef1b0cb7662dc9f"
-    sha256 cellar: :any, catalina:       "71a7193513c4928805d0d7a55e7e8892adb7779b11da5584b06fd7329640a8bb"
-    sha256 cellar: :any, mojave:         "a578d82eb791139b8dd98093d7e150ebbe92565beec2fa8d218be39498ae0baf"
+    sha256 cellar: :any,                 arm64_monterey: "577457aa710814861f42b783fcc32c4f51f2df56b0c0b2834ea7bea916a2556a"
+    sha256 cellar: :any,                 arm64_big_sur:  "beb0688e992377551877a54479486d836833702ea540c6a7d8a60220409c046d"
+    sha256 cellar: :any,                 monterey:       "239c72f8472b69f74c4016818000810833480ab03d710c4c788b514ec78a22c4"
+    sha256 cellar: :any,                 big_sur:        "d4676891be7edf41fbcccc88888a18703861c9db257cf65e8ef1b0cb7662dc9f"
+    sha256 cellar: :any,                 catalina:       "71a7193513c4928805d0d7a55e7e8892adb7779b11da5584b06fd7329640a8bb"
+    sha256 cellar: :any,                 mojave:         "a578d82eb791139b8dd98093d7e150ebbe92565beec2fa8d218be39498ae0baf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5f5d406efde5cefb64892ed7ca85e693225025f6d24bc02839212996486ae59"
   end
 
   depends_on "yaz"
@@ -47,8 +48,8 @@ class Yazpp < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-I#{include}/src", "-L#{lib}",
-           "-lzoompp", "test.cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}/src",
+                    "-L#{lib}", "-lzoompp", "-o", "test"
     output = shell_output("./test")
     assert_match "Exception caught", output
   end

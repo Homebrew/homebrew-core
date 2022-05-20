@@ -8,6 +8,7 @@ class PyqtAT5 < Formula
   bottle do
     sha256 cellar: :any, arm64_monterey: "05305ba5d0bc3ed5289b64e8df3ed20c1ccda93d61575ee00a403783287ee2e0"
     sha256 cellar: :any, arm64_big_sur:  "b93f151dfdd053cf4b2a97988b3f3d250a6536692c92d2b21dfca25fcd8cdeb4"
+    sha256 cellar: :any, monterey:       "ff3132f3db7964e49134803ba44973ce56e54b39045d737ca31897297dd21217"
     sha256 cellar: :any, big_sur:        "2044b5de144d1a0b947dc3021aed15d1bcbf68346f2200643e0579fc9833d79c"
     sha256 cellar: :any, catalina:       "548edca3fe604dafee249c9d30952abd1a34981bf7224e01b784c84dfefab5bf"
     sha256               x86_64_linux:   "be7eb87e0a3cc148ecd202d86cbc7365126559b1ef9e529a18396179c19e11ba"

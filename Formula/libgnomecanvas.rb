@@ -98,12 +98,11 @@ class Libgnomecanvas < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
+    if OS.mac?
       flags << "-lgdk-quartz-2.0"
       flags << "-lgtk-quartz-2.0"
       flags << "-lintl"
-    end
-    on_linux do
+    else
       flags << "-lgdk-x11-2.0"
       flags << "-lgtk-x11-2.0"
     end

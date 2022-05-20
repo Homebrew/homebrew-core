@@ -3,12 +3,12 @@ require "language/node"
 class Ncc < Formula
   desc "Compile a Node.js project into a single file"
   homepage "https://github.com/vercel/ncc"
-  url "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.33.1.tgz"
-  sha256 "3fcd1d928a5a2282d45083cc042cb49de7ea48bf5a8e3c5cfa2b2899f1ae4330"
+  url "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.33.4.tgz"
+  sha256 "83634db9376555720ced0e8686d40914a9663933b7cea40afede0ab75677e2b5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b77752e502789b9102fd3379598011f1cccefcb0b1d9e341049c70c8b5566cd8"
+    sha256 cellar: :any_skip_relocation, all: "a2f9aa8f610be0e7792aaf92162ed1671c0f2dc3244434cd1ff767eea0d33f76"
   end
 
   depends_on "node"

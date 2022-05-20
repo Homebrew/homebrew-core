@@ -1,8 +1,8 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.7-v7.3.7-src.tar.bz2"
-  sha256 "2ed02ac9e710859c41bc82deafb08619792bb9a27eeaa1676c741ededd214dd7"
+  url "https://downloads.python.org/pypy/pypy3.7-v7.3.9-src.tar.bz2"
+  sha256 "70426163b194ee46009986eea6d9426098a3ffb552d9cdbd3dfaa64a47373f49"
   license "MIT"
   head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.7"
 
@@ -12,10 +12,10 @@ class Pypy3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "d5e18214c56907c960277e72b5d1ab9688e42e3323db29e94789ff6e17be3e38"
-    sha256 cellar: :any,                 big_sur:      "f4980891d9687298103d5e53f2f783a106d2de25d3b5187da6e11f307a63464d"
-    sha256 cellar: :any,                 catalina:     "a42821d5afbdf003b7f5ad607881713b23f3a098eb452d7351ad0c3f28aa42f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e76f45f6f97329af492c51067b6b9e4dc1835fe9a66eaf41e739f213716d5d98"
+    sha256 cellar: :any,                 monterey:     "f74380e1d4d5b14922bf29f6bfa665b0429a646e57fb1e852b101df3bf2dfd3a"
+    sha256 cellar: :any,                 big_sur:      "a3d09f1aa40e583d77b868358a372edc500062e349b31f4bd83490ed64a487e9"
+    sha256 cellar: :any,                 catalina:     "bcffe5403e66a1a56d58284690d9d3c0930cac6de0f661708bf4a1cab32c2d28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d1954346420c8afcbe23af810ee8f52be9db616ad0f63a3f8eaec0781ad29f22"
   end
 
   depends_on "pkg-config" => :build
@@ -34,14 +34,16 @@ class Pypy3 < Formula
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
+  # setuptools >= 60 required sysconfig patch
+  # See https://github.com/Homebrew/homebrew-core/pull/99892#issuecomment-1108492321
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/1e/5c/3d7b3d91a86d71faf5038c5d259ed36b5d05b7804648e2c43251d574a6e6/setuptools-58.2.0.tar.gz"
-    sha256 "2c55bdb85d5bb460bd2e3b12052b677879cffcf46c0c688f2e5bf51d36001145"
+    url "https://files.pythonhosted.org/packages/ef/75/2bc7bef4d668f9caa9c6ed3f3187989922765403198243040d08d2a52725/setuptools-59.8.0.tar.gz"
+    sha256 "09980778aa734c3037a47997f28d6db5ab18bdf2af0e49f719bfc53967fd2e82"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/00/5f/d6959d6f25f202e3e68e3a53b815af42d770c829c19382d0acbf2c3e2112/pip-21.3.tar.gz"
-    sha256 "741a61baab1dbce2d8ca415effa48a2b6a964564f81a9f4f1fce4c433346c034"
+    url "https://files.pythonhosted.org/packages/33/c9/e2164122d365d8f823213a53970fa3005eb16218edcfc56ca24cb6deba2b/pip-22.0.4.tar.gz"
+    sha256 "b3a9de2c6ef801e9247d1527a4b16f92f2cc141cd1489f3fffaf6a9e96729764"
   end
 
   # Build fixes:
@@ -139,12 +141,11 @@ class Pypy3 < Formula
       end
     end
 
-    # Symlinks to easy_install_pypy3 and pip_pypy3
-    bin.install_symlink scripts_folder/"easy_install" => "easy_install_pypy3"
+    # Symlinks to pip_pypy3
     bin.install_symlink scripts_folder/"pip" => "pip_pypy3"
 
     # post_install happens after linking
-    %w[easy_install_pypy3 pip_pypy3].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
+    (HOMEBREW_PREFIX/"bin").install_symlink bin/"pip_pypy3"
   end
 
   def caveats
@@ -154,13 +155,12 @@ class Pypy3 < Formula
       specifying the install-scripts folder as:
         #{scripts_folder}
 
-      If you install Python packages via "pypy3 setup.py install", easy_install_pypy3,
-      or pip_pypy3, any provided scripts will go into the install-scripts folder
+      If you install Python packages via "pypy3 setup.py install" or pip_pypy3,
+      any provided scripts will go into the install-scripts folder
       above, so you may want to add it to your PATH *after* #{HOMEBREW_PREFIX}/bin
       so you don't overwrite tools from CPython.
 
-      Setuptools and pip have been installed, so you can use easy_install_pypy3 and
-      pip_pypy3.
+      Setuptools and pip have been installed, so you can use pip_pypy3.
       To update pip and setuptools between pypy3 releases, run:
           pip_pypy3 install --upgrade pip setuptools
 

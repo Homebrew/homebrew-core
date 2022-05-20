@@ -28,11 +28,14 @@ class Libbpg < Formula
 
   def install
     bin.mkpath
-    system "make", "install", "prefix=#{prefix}", "CONFIG_APPLE=y"
+    extra_args = []
+    extra_args << "CONFIG_APPLE=y" if OS.mac?
+    system "make", "install", "prefix=#{prefix}", *extra_args
     pkgshare.install Dir["html/bpgdec*.js"]
   end
 
   test do
     system "#{bin}/bpgenc", test_fixtures("test.png")
+    assert_predicate testpath/"out.bpg", :exist?
   end
 end

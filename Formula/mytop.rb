@@ -5,18 +5,19 @@ class Mytop < Formula
   mirror "https://deb.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
   license "GPL-2.0-or-later"
-  revision 9
+  revision 10
 
   livecheck do
     skip "Upstream is gone and the formula uses archive.org URLs"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0443f8710ab6f1be3e60afc59c15546091982df6f76e31855ff16a1bd86fcb4b"
-    sha256 cellar: :any,                 big_sur:       "7bbece0e0eeb32f4c8217c232d190990290625e16fa9e542fd6c68dd8aad1727"
-    sha256 cellar: :any,                 catalina:      "8ec423770dabfb5da68e626af379f73290cd7e04c118db9608d2ce5decf0e489"
-    sha256 cellar: :any,                 mojave:        "a7512239e490916ef7753a380e638e383b2dd0e0967b6b560c48adf6597b491b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01929f92371862962f1be2d9e8cf99dc19c80cfedc6472deffa06a9e2b7537b7"
+    sha256 cellar: :any,                 arm64_monterey: "95cae0d00535b950fa6acbee1d71245ccd3c317d6e093b02d3f2825695c1184a"
+    sha256 cellar: :any,                 arm64_big_sur:  "bb4ffddb44d5c033ba5d6f4b7eaffedea0ff65135d5821670ae45aef27f98597"
+    sha256 cellar: :any,                 monterey:       "8a351d6782b1bced697a6b8fabb5e783cede75af65045fc1ea36ee0566c07cc1"
+    sha256 cellar: :any,                 big_sur:        "4ba3994df3e4a0405b034c1c06fb4a5461e2df548e2505ffd30f5fbcbebd7728"
+    sha256 cellar: :any,                 catalina:       "b4d4e1e616b63afec015e21ce0d47265dbfad454304743700e333b75dd95ca1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3deb6ff1c4a196fcef50e50ac1fd2c0240a64be2003852226400aa641845ca37"
   end
 
   depends_on "mysql-client"

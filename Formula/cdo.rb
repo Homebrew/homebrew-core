@@ -1,9 +1,10 @@
 class Cdo < Formula
   desc "Climate Data Operators"
   homepage "https://code.mpimet.mpg.de/projects/cdo"
-  url "https://code.mpimet.mpg.de/attachments/download/26676/cdo-2.0.3.tar.gz"
-  sha256 "25520260ccb4e5324c27fa2160dfafc8152b180dd7f0133bd80425df3ef7c65a"
+  url "https://code.mpimet.mpg.de/attachments/download/26823/cdo-2.0.5.tar.gz"
+  sha256 "edeebbf1c3b1a1f0c642dae6bc8c7624e0c54babe461064dc5c7daca4a5b0dce"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://code.mpimet.mpg.de/projects/cdo/files"
@@ -11,19 +12,19 @@ class Cdo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "11265316f9d416cd681a9f26ad4b5039c7f2183cff4fa9dd6042267b28ee6f77"
-    sha256 cellar: :any,                 arm64_big_sur:  "e8755e1d69ded41b5412483288549accc560d33d66ad15159da00b18b82a7898"
-    sha256 cellar: :any,                 monterey:       "c0dc95130f6e089c0024c48444ca5ba84662df54b84a529aad2b59f0651e9e5f"
-    sha256 cellar: :any,                 big_sur:        "130c01eb36be886b4fca7800af26f9df9a6bba820d50d3245f847e6fe597a358"
-    sha256 cellar: :any,                 catalina:       "ffce788f133146b31e3ab4b4e4ed0577f5eb8ec562899e983d05bba898a9fe04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c890ffd9329c1e62cc19251190136aafedb7636019ef2d590a8b7c260258ccf3"
+    sha256 cellar: :any,                 arm64_monterey: "6263a211f02fdafd51bbfa3a0773a9fa81979b4c29b9d4e33da4417ab6dc6d51"
+    sha256 cellar: :any,                 arm64_big_sur:  "2656dc32acb71d11f5288aba8571de98a4411ee58e426437971759edfd38f1c3"
+    sha256 cellar: :any,                 monterey:       "043bece96c7875b42f3f5315a4beea11f2eeda4947199c206b01b29173c22e9f"
+    sha256 cellar: :any,                 big_sur:        "dd422128a9b8b836e849abcec45448435d3c2b21c33f9374cada7d98eed057e7"
+    sha256 cellar: :any,                 catalina:       "95c9af1513fe44f93dea7e59677c57d165588febe490b02b322701517e6e823b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd9ff737755e92c5a1a21d5a9aa8f30ef8f66eab9c8e3e1f62c0e4b0d4e5dd01"
   end
 
   depends_on "eccodes"
   depends_on "hdf5"
+  depends_on "libaec"
   depends_on "netcdf"
   depends_on "proj"
-  depends_on "szip"
 
   def install
     args = %W[
@@ -32,7 +33,7 @@ class Cdo < Formula
       --with-eccodes=#{Formula["eccodes"].opt_prefix}
       --with-netcdf=#{Formula["netcdf"].opt_prefix}
       --with-hdf5=#{Formula["hdf5"].opt_prefix}
-      --with-szlib=#{Formula["szip"].opt_prefix}
+      --with-szlib=#{Formula["libaec"].opt_prefix}
     ]
 
     system "./configure", *args

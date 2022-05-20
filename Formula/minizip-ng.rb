@@ -1,18 +1,18 @@
 class MinizipNg < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/zlib-ng/minizip-ng"
-  url "https://github.com/zlib-ng/minizip-ng/archive/3.0.4.tar.gz"
-  sha256 "2ab219f651901a337a7d3c268128711b80330a99ea36bdc528c76b591a624c3c"
+  url "https://github.com/zlib-ng/minizip-ng/archive/3.0.6.tar.gz"
+  sha256 "383fa1bdc28c482828a8a8db53f758dbd44291b641182724fda5df5b59cce543"
   license "Zlib"
   head "https://github.com/zlib-ng/minizip-ng.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ae8c49783a26f6dad84e7631a095c2c5171b8464a6b35c3fe308936e574e5d34"
-    sha256 cellar: :any,                 arm64_big_sur:  "6f22989c5000fdfe78bcf91d301b91af32d18a59dbb937da48e3401b207d1ab1"
-    sha256 cellar: :any,                 monterey:       "b450f04c3f51f25628b37994a175d09ff0d2dac77bb380bc760445632d859e19"
-    sha256 cellar: :any,                 big_sur:        "49c832e22964616d4186b84a674502c12f605249d446677cadb3258e981fe398"
-    sha256 cellar: :any,                 catalina:       "0018fe1fcc0c4d84b7e4bf3e86376f4ca6a4cdcef58406b7fe3e1cc1aded8605"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fae25a36cbd160439f73ccd4c26d056ecd99055ff16f65c33feeff179108da1d"
+    sha256 cellar: :any,                 arm64_monterey: "3b1a7fa90dae23cd69a27d16199279ea53d72d92eb96d59a1c4a6e888ccb89d4"
+    sha256 cellar: :any,                 arm64_big_sur:  "a61b06c3cd78bafd1a1f89fd6c59b6ee4fb600f4c69eed324c41a720e1129c8c"
+    sha256 cellar: :any,                 monterey:       "9ad34a5621f4f7da367f3ab215330236c4330e4620950da57530a98832918f2e"
+    sha256 cellar: :any,                 big_sur:        "f3b8970f1b0a42acc3993f3c898a6bc15ed454cbea4b0f13dacc71ce3f64d48d"
+    sha256 cellar: :any,                 catalina:       "a0afd89b7407ebe56deee2492654f24b76d5d9de9a10261a9e4429b82198ecb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba63cc8cc80ef8527b37ab6cc5b82471adef4d7cf2dedc33a6d4d74aab9adaba"
   end
 
   depends_on "cmake" => :build

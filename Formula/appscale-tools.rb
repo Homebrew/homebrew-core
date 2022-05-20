@@ -14,6 +14,10 @@ class AppscaleTools < Formula
     sha256 cellar: :any, high_sierra: "70e89498336894ae025118e51e418528d8d73da9b1e2786559b6bcbe6055f55b"
   end
 
+  # Requires Python2.
+  # https://github.com/Homebrew/homebrew-core/issues/93940
+  deprecate! date: "2022-04-23", because: :unsupported
+
   depends_on "libyaml"
   depends_on :macos # Due to Python 2 (Uses SOAPPy, which does not support Python 3)
   depends_on "openssl@1.1"

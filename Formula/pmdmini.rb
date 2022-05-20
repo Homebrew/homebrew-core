@@ -6,13 +6,14 @@ class Pmdmini < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "bd89f1d1b34981a1d1c10e1917a4303c8ce2937eeb25ab297cb9ab4868d82146"
-    sha256 cellar: :any, big_sur:       "5778b030ba5ad8c7b850946f038729089893f5dd066d9d49fc23377da56a8bc3"
-    sha256 cellar: :any, catalina:      "cfbf667e152bede1fce92c8d358195a651e807595bc5e704d71ee80cfe65682b"
-    sha256 cellar: :any, mojave:        "fe87429ee546fa0629d178c52476c4cc5696abac76b21abcd3e4977c7527bd22"
-    sha256 cellar: :any, high_sierra:   "c3195012d5b5333e76c1a8a44b3f734575540deee884dfb6685e139e1038c138"
-    sha256 cellar: :any, sierra:        "59b287650c6e40c20da8000f5e73b910f8096bd949e4432b4f11e70b1c779a5d"
-    sha256 cellar: :any, el_capitan:    "72afd84c66fef9f142a1922fd0995a6a173b46c40d06715808345cc1c71b6702"
+    sha256 cellar: :any,                 arm64_big_sur: "bd89f1d1b34981a1d1c10e1917a4303c8ce2937eeb25ab297cb9ab4868d82146"
+    sha256 cellar: :any,                 big_sur:       "5778b030ba5ad8c7b850946f038729089893f5dd066d9d49fc23377da56a8bc3"
+    sha256 cellar: :any,                 catalina:      "cfbf667e152bede1fce92c8d358195a651e807595bc5e704d71ee80cfe65682b"
+    sha256 cellar: :any,                 mojave:        "fe87429ee546fa0629d178c52476c4cc5696abac76b21abcd3e4977c7527bd22"
+    sha256 cellar: :any,                 high_sierra:   "c3195012d5b5333e76c1a8a44b3f734575540deee884dfb6685e139e1038c138"
+    sha256 cellar: :any,                 sierra:        "59b287650c6e40c20da8000f5e73b910f8096bd949e4432b4f11e70b1c779a5d"
+    sha256 cellar: :any,                 el_capitan:    "72afd84c66fef9f142a1922fd0995a6a173b46c40d06715808345cc1c71b6702"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b3b2912d858cab1995fece6ba18b8bb80e111ace5184b322c37a3b0a2821e10"
   end
 
   depends_on "sdl"
@@ -24,16 +25,24 @@ class Pmdmini < Formula
 
   def install
     # Specify Homebrew's cc
-    inreplace "mak/general.mak", "gcc", ENV.cc
+    inreplace "mak/general.mak", "gcc", ENV.cxx
+    # Add -fPIC on Linux
+    inreplace "mak/general.mak", "CFLAGS = -O2", "CFLAGS = -fPIC -O2" unless OS.mac?
     system "make"
 
     # Makefile doesn't build a dylib
-    system ENV.cc, "-dynamiclib", "-install_name", "#{lib}/libpmdmini.dylib",
-                   "-o", "libpmdmini.dylib", "-undefined", "dynamic_lookup",
-                   *Dir["obj/*.o"]
+    flags = if OS.mac?
+      ["-dynamiclib",
+       "-install_name", "#{lib}/libpmdmini.dylib",
+       "-undefined", "dynamic_lookup"]
+    else
+      ["-shared"]
+    end
+
+    system ENV.cxx, *flags, "-o", shared_library("libpmdmini"), *Dir["obj/*.o"]
 
     bin.install "pmdplay"
-    lib.install "libpmdmini.a", "libpmdmini.dylib"
+    lib.install "libpmdmini.a", shared_library("libpmdmini")
     (include+"libpmdmini").install Dir["src/*.h"]
     (include+"libpmdmini/pmdwin").install Dir["src/pmdwin/*.h"]
   end

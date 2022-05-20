@@ -7,11 +7,13 @@ class Blogc < Formula
   head "https://github.com/blogc/blogc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f51d0d693775155a5eb1199a7ee90abb00e35a00a7469e02f3a31c074aff57cf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ff83c11472e9295479779c6e27d5ae59efb77bdb216ba4d4efb30ae88f847981"
-    sha256 cellar: :any_skip_relocation, catalina:      "16c4393bd90b76d031af46bcd959705ef627e49823912c543f5a76683b5b48e2"
-    sha256 cellar: :any_skip_relocation, mojave:        "f1409e887cc77c191a561e71c497d95dffd281cdf673a5b474003902aaa44099"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5188455011d94f56149adb535c9a159e925eba66e28ab4362639ebb3e72ba5ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c132ce8fffa573a857c2ce019118f46bf11b52748dc9da184f3cc42779f7cfd1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f51d0d693775155a5eb1199a7ee90abb00e35a00a7469e02f3a31c074aff57cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "cebc47838829ba79f58cf14561233d6af355ea261206969fcb63abfe24bbf266"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ff83c11472e9295479779c6e27d5ae59efb77bdb216ba4d4efb30ae88f847981"
+    sha256 cellar: :any_skip_relocation, catalina:       "16c4393bd90b76d031af46bcd959705ef627e49823912c543f5a76683b5b48e2"
+    sha256 cellar: :any_skip_relocation, mojave:         "f1409e887cc77c191a561e71c497d95dffd281cdf673a5b474003902aaa44099"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5188455011d94f56149adb535c9a159e925eba66e28ab4362639ebb3e72ba5ba"
   end
 
   def install

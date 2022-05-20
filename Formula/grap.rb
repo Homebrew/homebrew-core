@@ -3,6 +3,7 @@ class Grap < Formula
   homepage "https://www.lunabase.org/~faber/Vault/software/grap/"
   url "https://www.lunabase.org/~faber/Vault/software/grap/grap-1.46.tar.gz"
   sha256 "7a8ecefdecfee96699913f2a412da68703911fa640bac3b964a413131f848bb4"
+  license "BSD-2-Clause"
 
   livecheck do
     url :homepage
@@ -17,7 +18,11 @@ class Grap < Formula
     sha256 catalina:       "8eb83388db58c42ae00a343e1382c52948c5b203ff754fed7b6582eeb989fa3c"
     sha256 mojave:         "d7f05f3fc8eb5c0c3f3a5a66bf4d43262a84ae1edaf7ec92897122fd069e4a96"
     sha256 high_sierra:    "b7394034b2898da9e7a61d578f9789f642f29d3191f84041b4fb9763bdfdcc73"
+    sha256 x86_64_linux:   "0908d98399141b1cf93340d87df9055ea0ae3da80d4a06e7d7b02e98027c5252"
   end
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",

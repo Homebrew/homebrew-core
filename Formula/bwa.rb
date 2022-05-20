@@ -4,6 +4,7 @@ class Bwa < Formula
   url "https://github.com/lh3/bwa/releases/download/v0.7.17/bwa-0.7.17.tar.bz2"
   sha256 "de1b4d4e745c0b7fc3e107b5155a51ac063011d33a5d82696331ecf4bed8d0fd"
   license "GPL-3.0"
+  head "https://github.com/lh3/bwa.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "815da042557c670364ad899e1257f51c893979436beb1c016c8fdb6ad9ef734a"
@@ -16,9 +17,14 @@ class Bwa < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "3d875f0b64143cfb58e44681e47102158b46e0004c408d8fc5f10dc976383a94"
   end
 
+  depends_on "sse2neon" => :build if Hardware::CPU.arm?
+
   uses_from_macos "zlib"
 
   def install
+    # PR ref: https://github.com/lh3/bwa/pull/344
+    inreplace "ksw.c", "<emmintrin.h>", "<sse2neon.h>" if Hardware::CPU.arm?
+
     system "make"
 
     # "make install" requested 26 Dec 2017 https://github.com/lh3/bwa/issues/172

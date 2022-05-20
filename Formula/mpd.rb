@@ -1,10 +1,9 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.5.tar.xz"
-  sha256 "f22c2c25093a05f4566f9cd7207cfbcd8405af67ed29a989bcf8905f80b7a299"
+  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.7.tar.xz"
+  sha256 "960dcbac717c388f5dcc4fd945e3af19a476f2b15f367e9653d4c7a948768211"
   license "GPL-2.0-or-later"
-  revision 3
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,12 @@ class Mpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "139504a6aaaf0d8de8904bfab7d8868043507bfde3be9dc7d6df8f2d464a1690"
-    sha256 cellar: :any, arm64_big_sur:  "851248a94d02fff751d3abae449e2547c815495613574a62802e9e7168127957"
-    sha256 cellar: :any, monterey:       "dc2d2a07d2cf7df5379bd9e87c4802b1bfb762f8fb49afc5260190086dd0235c"
-    sha256 cellar: :any, big_sur:        "459685fa7bd8e5efd6f8af897d76884ebde38e72850767b00fe239f6935a7f25"
-    sha256 cellar: :any, catalina:       "064067cfe031480090532ca96ab96613b5a6a7dc78cdcd74905dba5e1f7b322a"
-    sha256               x86_64_linux:   "4cb581fea4408f9681d082e710223efded3e8471602b54761a2ec080a2c17512"
+    sha256 cellar: :any, arm64_monterey: "94de9debec25ebae250e68989b23226fa90e6066fb9eb9b7b5bae4ff14be3452"
+    sha256 cellar: :any, arm64_big_sur:  "91324631d9a4363f552ae8d96449cf16f4a58a265bd946719caa084b4956c6f2"
+    sha256 cellar: :any, monterey:       "2087e7411b8cda1567a1d1dd90d00fea9d8adefa8cdc486a9c3459e80f68da66"
+    sha256 cellar: :any, big_sur:        "f6500f3cdf40962eec94983403eca601a08301e73b8165c508bf010b685272cc"
+    sha256 cellar: :any, catalina:       "5c9cb2acff7e54a6f69d99b69215b519e016d5088864b135b17ddee8a15e8fbf"
+    sha256               x86_64_linux:   "222c0ab9c11c53c2076ef60d5982661c5449b8b109ebc0ec13d837f790afcb82"
   end
 
   depends_on "boost" => :build
@@ -54,6 +53,13 @@ class Mpd < Formula
   end
 
   fails_with gcc: "5"
+
+  # Fix missing header file (see https://github.com/MusicPlayerDaemon/MPD/issues/1530)
+  # Patch accepted upstream, remove on next release
+  patch do
+    url "https://github.com/MusicPlayerDaemon/MPD/commit/c6f7f5777694c448aa42d17f88ab9cf2e3112dd0.patch?full_index=1"
+    sha256 "17c03ecee2a8b91c1b114b2ab340878f6cec5fc28093ec6386f4d7ba47d8b909"
+  end
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -103,11 +109,9 @@ class Mpd < Formula
   end
 
   test do
-    on_linux do
-      # oss_output: Error opening OSS device "/dev/dsp": No such file or directory
-      # oss_output: Error opening OSS device "/dev/sound/dsp": No such file or directory
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # oss_output: Error opening OSS device "/dev/dsp": No such file or directory
+    # oss_output: Error opening OSS device "/dev/sound/dsp": No such file or directory
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     require "expect"
 

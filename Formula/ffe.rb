@@ -18,6 +18,7 @@ class Ffe < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "96ed6ad86d89e339ff49c9ed615ca5e44dd1aa67b534b0644ae09accb31f4d80"
     sha256 cellar: :any_skip_relocation, catalina:       "f702acaeb2f1c1c8681b67e7725827b5a33b46a9f11c6138682b715c0a652798"
     sha256 cellar: :any_skip_relocation, mojave:         "50a6933b42632612de08af50fead023d23c04593ecb323749f950b05df9f034e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "583204b3a7ac459ad0ab5d76d7cea314103dc499d271ddfd2309f053e795c41f"
   end
 
   def install

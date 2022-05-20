@@ -1,8 +1,8 @@
 class Lasso < Formula
   desc "Library for Liberty Alliance and SAML protocols"
   homepage "https://lasso.entrouvert.org/"
-  url "https://dev.entrouvert.org/releases/lasso/lasso-2.7.0.tar.gz"
-  sha256 "9282f2a546ee84b6d3a8236970fea3a47bea51cb247c31a05a374c22eb451d8d"
+  url "https://dev.entrouvert.org/releases/lasso/lasso-2.8.0.tar.gz"
+  sha256 "ffcbd5851d98586c7e1caf43bad66164211a3b61d12bf860a0598448ff9f2b38"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,20 +11,23 @@ class Lasso < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "86f93ce8ecba12aa60b7e5f6078ef6082f5cbf79efd694a60e318c085d7cc8d5"
-    sha256 cellar: :any, arm64_big_sur:  "9fa2831bd4c741367805ff5621489c3cc2ea3f19bafc5252817851cf9d5c0bde"
-    sha256 cellar: :any, monterey:       "5e230ae1bb87a06e16d9f4c9780a868c90fdbd5efc341990cc23368136610415"
-    sha256 cellar: :any, big_sur:        "600c3e0dad28c4dadfd3c8aa880b3b652e6d7cf8d2bdeb22aa17f97eeb8bf43b"
-    sha256 cellar: :any, catalina:       "1b5faa0de1a45cb6d4965d17a1f8480716ab5e5af97ed6eeafa65d69a482e4e6"
-    sha256 cellar: :any, mojave:         "226e925072fb12e5009690fa8426c68dfad03fa9633464627a33b0991d29a5be"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "1234da53fe66054f3b22628b155ddad4b701e039aef6f648d4233ed0fbba0177"
+    sha256 cellar: :any,                 arm64_big_sur:  "41c8f358f24567d8e813a30362c67e14a66ae7534746aaad23f5b36eaa1c35e6"
+    sha256 cellar: :any,                 monterey:       "24604ecf58d01e58194a75e57c69237ecf85cceaf544b314cd4a59d4fd5e4f77"
+    sha256 cellar: :any,                 big_sur:        "8a395f2aa86ef1a5f22f23b3bc4b7fbca51e108b0c3afbea149e731932d59033"
+    sha256 cellar: :any,                 catalina:       "149148a36bada2068998128bdccb2887149cb8bbf8da23398546f734a1a8e03b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5818abda0bcd05f97c6bc342142623a13e70f3b0ae4fe036703b3d2e944f354"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "six" => :build
   depends_on "glib"
   depends_on "libxmlsec1"
   depends_on "openssl@1.1"
+
+  uses_from_macos "libxml2"
 
   def install
     xy = Language::Python.major_minor_version "python3"
@@ -49,10 +52,11 @@ class Lasso < Formula
         return lasso_init();
       }
     EOS
+    libxml = OS.mac? ? MacOS.sdk_path/"usr/include/libxml2" : Formula["libxml2"].include/"libxml2"
     system ENV.cc, "test.c",
                    "-I#{Formula["glib"].include}/glib-2.0",
                    "-I#{Formula["glib"].lib}/glib-2.0/include",
-                   "-I#{MacOS.sdk_path}/usr/include/libxml2",
+                   "-I#{libxml}",
                    "-I#{Formula["libxmlsec1"].include}/xmlsec1",
                    "-L#{lib}", "-llasso", "-o", "test"
     system "./test"

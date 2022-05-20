@@ -1,8 +1,8 @@
 class NodeAT12 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.22.10/node-v12.22.10.tar.xz"
-  sha256 "ad4c8891d54a2c9bb6af436956deead5986b9698b06e6c6d616de429cfb5393a"
+  url "https://nodejs.org/dist/v12.22.12/node-v12.22.12.tar.xz"
+  sha256 "bc42b7f8495b9bfc7f7850dd180bb02a5bdf139cc232b8c6f02a6967e20714f2"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,18 @@ class NodeAT12 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d855774f6d428e2e6d258eaf88fa60a941b6d2c9ecca3596d4156f35e7896dbe"
-    sha256 cellar: :any,                 arm64_big_sur:  "676b39ab4e74c531287956cc4e5478c7c4a22581584edb88d76b7623ab70f811"
-    sha256 cellar: :any,                 monterey:       "888cba85ca478f974dd0d8f6abd2de3e93f009fc40cb01584a609d0c4ea7b998"
-    sha256 cellar: :any,                 big_sur:        "d6470997250871edc042834db307e7c302ebad0b1b9bbca771ecd5ec0e188314"
-    sha256 cellar: :any,                 catalina:       "dd9dae6bc8610ea18d8533c627dc335bb372688b04404d7a7316ecc9ce9037aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4aafe9d8d830131e245b11fd5d969e9e4e17f37b57389ffa35599e9e8c00178c"
+    sha256 cellar: :any,                 arm64_monterey: "55ac811bdbf7b23af17685ffc6ca8f856b24eb12cdacf0090ba4db180601fcd0"
+    sha256 cellar: :any,                 arm64_big_sur:  "f77863889d72ff635fc8636c2c981129f77b63ca3f8089b1d3352a0f82fba82b"
+    sha256 cellar: :any,                 monterey:       "e17dd5d3ed174f07c209c3d997c754d955391204212015145dfd5a00babd0a1e"
+    sha256 cellar: :any,                 big_sur:        "f11dbd58e394229abb675d9d0f8bd4194b74ed4e00fe4450179864fc90961ff4"
+    sha256 cellar: :any,                 catalina:       "6fbfa5dc3b8ca2f79139a3d590a8672941d2d1d97468994cb0517e67fe56e1f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85107636ad59250c7b50c4f47d44d28fb6044f254f9b5f0f585defbbbb76aaaf"
   end
 
   keg_only :versioned_formula
+
+  # https://nodejs.org/en/about/releases/
+  deprecate! date: "2022-04-30", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build

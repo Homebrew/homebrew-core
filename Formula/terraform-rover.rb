@@ -2,17 +2,17 @@ require "language/node"
 class TerraformRover < Formula
   desc "Terraform Visualizer"
   homepage "https://github.com/im2nguyen/rover"
-  url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "9f04708e30770000116c5e00ffc9307812177d0049854c0f28139c478653d7fa"
+  url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "c49a840030f4f864c1b360f09a50917f9b4ffda08a1ba4834d1c1e3d5b9d152e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de30fe4fcaf5c9389680870deef5810aeb4126b7ab4e3ad6da5768913006b02d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25c2b2f422a99bfaa7f528d046f66bc46461ed92aee11240e9ab48265d7996c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "f91c58bd82b597fd0aba039832677e7774b8d63e12952733dc583ec57aaecff0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "409ec855c86bd24d245df20e5e83d32301351afc9eb1f54add4eb014568c3be9"
-    sha256 cellar: :any_skip_relocation, catalina:       "db3558eac800beb9a876e1c72689b50440e3f2743363a465e2d53fd8603a2273"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e89bed21e89d0a7485113d6d1507a34d6dcfbedaa0034583ead024eabc88cc68"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf0a8043de95076bb307200c101db95f8d4e42c8f0e5787fd8aa3ac7192dc3e0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "952e3e398a48f0a4697af849f275f8f83c5cc10eef151793897d336074ecd8ba"
+    sha256 cellar: :any_skip_relocation, monterey:       "56e5cd0a650757b2b408648b4be60ca14012bccdc811fc82c7de6d984307bded"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7feb2087d5615755e8f06745c2df7a74b8e51f200ee3aaa4da9393ef7bdd466d"
+    sha256 cellar: :any_skip_relocation, catalina:       "31f7684561978d42340fe062750f8d8fbd30fd12fe6a6ffdba222e42d565ed7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ea128eb5d636d264f865e67b1a0f6618571df1636865e0eca01c9a1b764ef32"
   end
 
   depends_on "go" => :build

@@ -16,6 +16,7 @@ class ChooseGui < Formula
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   conflicts_with "choose", because: "both install a `choose` binary"
   conflicts_with "choose-rust", because: "both install a `choose` binary"

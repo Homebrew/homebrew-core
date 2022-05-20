@@ -11,6 +11,10 @@ class Javarepl < Formula
     sha256 cellar: :any_skip_relocation, all: "fb7f0cc6ad4aa7b39635b74969d7eafd2e665085d0b4bb58f63598806b050a8f"
   end
 
+  # The GitHub README.md says: NOT MAINTAINED: Since Java is now
+  # released with REPL this project will no longer be maintained.
+  deprecate! date: "2022-03-08", because: :unmaintained
+
   depends_on "openjdk@8"
 
   def install

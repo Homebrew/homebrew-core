@@ -1,8 +1,8 @@
 class Libmnl < Formula
   desc "Minimalistic user-space library oriented to Netlink developers"
   homepage "https://www.netfilter.org/projects/libmnl"
-  url "https://www.netfilter.org/projects/libmnl/files/libmnl-1.0.4.tar.bz2"
-  sha256 "171f89699f286a5854b72b91d06e8f8e3683064c5901fb09d954a9ab6f551f81"
+  url "https://www.netfilter.org/projects/libmnl/files/libmnl-1.0.5.tar.bz2"
+  sha256 "274b9b919ef3152bfb3da3a13c950dd60d6e2bcd54230ffeca298d03b40d0525"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,7 +11,7 @@ class Libmnl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1ece867c29037eab669864263d1c09e53a590f105916b86bcd9673c279eb6462"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9dda4262d4878c4e458feb9b1b696d0fb88367fca602c4ce35182d28f3787c67"
   end
 
   depends_on :linux

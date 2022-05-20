@@ -14,7 +14,8 @@ class Vkectl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7369d566f5a8d7701bee09d76174a2145bcd7b1601311f20484e2f96fb0fe5ea"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/volcengine/vkectl/pkg/version.version=v#{version}"), "./main"

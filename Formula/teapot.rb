@@ -24,6 +24,8 @@ class Teapot < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "0ffd7fa1ac31cc91c9c71d225d26970e23da5719d7505d4a1dcaf40617c44afb"
   end
 
+  deprecate! date: "2022-05-14", because: "Upstream website has disappeared"
+
   depends_on "cmake" => :build
 
   # The upstream tarball still defines the version number as "2.2.1", even

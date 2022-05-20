@@ -4,17 +4,16 @@ class Huexpress < Formula
   url "https://github.com/kallisti5/huexpress/archive/3.0.4.tar.gz"
   sha256 "76589f02d1640fc5063d48a47f017077c6b7557431221defe9e38679d86d4db8"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/kallisti5/huexpress.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "7aa4fc9db666d6682f0bead431fd814310b04db7d3cfbe303577cc6a1d5904d5"
-    sha256 cellar: :any, big_sur:       "2305939ce9b39eb229e0ce01ad26a777411639c1fc5893298e3fa590fe3c7728"
-    sha256 cellar: :any, catalina:      "a17fe6ae136f94e859edbe7d65fc15466645c1d569fdbf363c841ec85477fa1d"
-    sha256 cellar: :any, mojave:        "f395a18b662d16c84b18e4594f67516a43e7a692879d68289c08ee652cedc651"
-    sha256 cellar: :any, high_sierra:   "53eec3fc474a553bdd70ad1c8dcb63714db5d059839748dcbc80b86380c81d4c"
-    sha256 cellar: :any, sierra:        "31ffed8cb0c04131abefe50aa06aa8154e3cf8e49fa24ebe5f4e6d456f6b3d9b"
+    sha256 cellar: :any, arm64_monterey: "a0919bd5024f7f197c262f0ba1dd5c57871506308bd7a4bfd98b5f18f04dbb50"
+    sha256 cellar: :any, arm64_big_sur:  "2709e20246d6ab1a14329ccc842e49eefd9276c6b1e3ef90bcadc85c2213a394"
+    sha256 cellar: :any, monterey:       "5c02e7de59a65392f1347c65df445e2d447daaac2eb508c920f8ce452628dbd5"
+    sha256 cellar: :any, big_sur:        "37272d08ed74984450ae2f08e17e9b41fdf32cc487aee1c0ab0832c10177474a"
+    sha256 cellar: :any, catalina:       "9e714566437e60a45c978daeade8dbb3515ee37c5d2b6de1a203443f243917d8"
+    sha256               x86_64_linux:   "8f5ca6b63b8fc347e8221765dc09ac1000f4b6a62e53424fb578bb14103c8952"
   end
 
   depends_on "pkg-config" => :build
@@ -24,7 +23,14 @@ class Huexpress < Formula
   depends_on "sdl2"
   depends_on "sdl2_mixer"
 
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   def install
+    # Don't statically link to libzip.
+    inreplace "src/SConscript", "pkg-config --cflags --libs --static libzip", "pkg-config --cflags --libs libzip"
     system "scons"
     bin.install ["src/huexpress", "src/hucrc"]
   end

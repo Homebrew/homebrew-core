@@ -1,19 +1,24 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/2.8/src/tarantool-2.8.3.0.tar.gz"
-  sha256 "953614448f23f37370c49c7832dba05b66c3b507c7047674403e05dbdc96bda8"
+  url "https://download.tarantool.org/tarantool/2.8/src/tarantool-2.8.4.0.tar.gz"
+  sha256 "6fc0b70aedd00c2328aa49dbb0ae9320eabf7266927f5e0790ff1a2ca67aa988"
   license "BSD-2-Clause"
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
+  livecheck do
+    url :head
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "449362fd95727d7bdd16fe236a0d7e568e28c93c6a689143b7ba6d3789b87477"
-    sha256 cellar: :any,                 arm64_big_sur:  "14a8805adc1acce67d1d8ad4a8058f0a91d830eb777196094bd7b6051c9022e3"
-    sha256                               monterey:       "c7c0b6de9a12a78c35a79284cfa7fe2fd06d700b27eef5e34b2c5b9f0044a1b7"
-    sha256                               big_sur:        "0ae949f642f828b42470057ac2573c693df046ccacdab1ba451b632b766ed24c"
-    sha256                               catalina:       "2dd055342cc0a398c0d594a272de9f1b677bec8c50b4187dd9f930aa3a3be441"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "129548b8d0ac6e99d44bca684e15df76078068267e5e3db1efba91761fa0900f"
+    sha256 cellar: :any,                 arm64_monterey: "fa79d91a265eaadd770342ed9a3276b53c516da511215a11871bb79dc3eddf33"
+    sha256 cellar: :any,                 arm64_big_sur:  "dd4db0ad19a1c866a78c7ffb5cd2d87cfdc95b8a211fc4dc428834a435adf212"
+    sha256                               monterey:       "19ee9ea24c9a5a6a6dd2b11b6aba159bc3895a926f8572fe171e300ad429c06b"
+    sha256                               big_sur:        "ad4032bfd88b4dc363b177db6dce6523985af9c5cebda4fdf0b60285387f9447"
+    sha256                               catalina:       "1121a774b704ed8dd5d8ccd5f430fbbcafb91edd848e2a7dab8e44a734dc0741"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0c5a7a2dfa937156ba3a2b0ef8fc0c833e2a1eda4862d9714f3fd3873e36a1e"
   end
 
   depends_on "cmake" => :build

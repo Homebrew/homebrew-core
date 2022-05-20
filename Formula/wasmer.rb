@@ -1,28 +1,31 @@
 class Wasmer < Formula
   desc "🚀 The Universal WebAssembly Runtime"
   homepage "https://wasmer.io"
-  url "https://github.com/wasmerio/wasmer/archive/2.1.1.tar.gz"
-  sha256 "f2ca1f3c48983de854b01c87b521e02245654f235d48d339a0e25229e184a322"
+  url "https://github.com/wasmerio/wasmer/archive/2.2.1.tar.gz"
+  sha256 "e9da2d07c5336266f8a13332628610b3833b9d9d45001b1b0558d3b8b0262e4f"
   license "MIT"
   head "https://github.com/wasmerio/wasmer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d206fbda506e4b5cf65e6ce467997edeba077476f7c936781e4b7ebc2c0cdea6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "936d62ed63c3f11aed9c5800c9025ce864ece877f10343c9352466adab50d295"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec343ba3e7540b5a5532c4eb7b33f35ac386d0b8ce3053f660ba12d638066f38"
-    sha256 cellar: :any_skip_relocation, big_sur:        "913c506c06b934608c0fbceb635681f5f3dc06e047d7bf923ed4843070e5e3b7"
-    sha256 cellar: :any_skip_relocation, catalina:       "90341fad160e2fbfd7e54ca70370abd0b88aba55a9fb64d8d86a3853bc05679d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdc91059ffa62e54a6c0d2354a0afb1033e82cb0276f296fd5f7f38c87c0381a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfcb96ce1f32091ce15f68763ed6fb1c2b6a274030618e6ff63725516b128a2b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2e8321de908d57a6012450235f154ba6d9cfa9a68e1ee0c66fa3c126190abf39"
+    sha256 cellar: :any_skip_relocation, monterey:       "03b7f8ebc3cdf6495bb8d603ed338ed42d2cbba80c4ed5323711e1d09f3d431b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bcbe55a5ddc2fe15b1b9a533ad1faba4af6fec0e4c7eb1fe6146928340767268"
+    sha256 cellar: :any_skip_relocation, catalina:       "08b296f5c3645d3f3f0584a674689efa99b05202026edf158feba549de9244d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80831b9e1c6020111f30790973e1a4a3cd034a18c75ddd3e3da617bb9ea83f24"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
   depends_on "wabt" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libxkbcommon"
+  end
+
   def install
-    chdir "lib/cli" do
-      system "cargo", "install", "--features", "cranelift", *std_cargo_args
-    end
+    system "cargo", "install", "--features", "cranelift", *std_cargo_args(path: "lib/cli")
   end
 
   test do

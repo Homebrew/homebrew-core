@@ -1,19 +1,18 @@
 class Naabu < Formula
   desc "Fast port scanner"
   homepage "https://github.com/projectdiscovery/naabu"
-  url "https://github.com/projectdiscovery/naabu/archive/v2.0.5.tar.gz"
-  sha256 "ec9ef8c7cff41d43b754859e4eba9c7aa2453100371c4bd01e82ac46dcf8f424"
+  url "https://github.com/projectdiscovery/naabu/archive/v2.0.7.tar.gz"
+  sha256 "dabd5f7b883f806483b2a5a879c583840cdda74dc6f3d3781b1b375744e9feac"
   license "MIT"
   head "https://github.com/projectdiscovery/naabu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "07cde489c34a237411f64ec430fafdfaa096e006ad0fff7c504ae8ac10d9788b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2cbc2fcb81774b4ba7f82548d2e4f67e383ca06af6c308eaa0a463144159a2c"
-    sha256 cellar: :any_skip_relocation, monterey:       "8c4ed0ee5cd0708252cf6ea0fb0fad11d0fbcd6069fc1c8343d191cce40aa0ea"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d029d03fce9096c163de85b9084d2c7a8eab195fb3895196680fc3d7c9948801"
-    sha256 cellar: :any_skip_relocation, catalina:       "93bbe2f3b71611f35213a7c6c2ed2938156858931254c7b6356e6527412d3cc6"
-    sha256 cellar: :any_skip_relocation, mojave:         "0ede7021872b98becd1eea302209b11cbc0198a7fb812517a4cbbe1d8325f0a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "788f0f18ac38c7047441dd6db332a176e27aef39830d77b78c85e08b280db424"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1458efaa4be0fc56ac4a6a969b2300e349b1c847114c88e095e12c9a0bad96f8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7c9483e3d20a000df560343d7f51e1e6451f7d069dc5ebd3ab8ebde95e9691d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "34efd719d9c83cca8f846b7ea75dea398c15e2333f28f7ce1f9b2bfac57a0cb5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d4b66039e0fe378db420419624650c006acd9e13aff32c38a1a7f3c8d20006c7"
+    sha256 cellar: :any_skip_relocation, catalina:       "f5d14c3c4b5c6f282215a026fb8a9f109d198cefde354cc8b9e4b6c212050f10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e1d193a8d1693bbc0399ff007e1c8eb93f788f333869b9a0c3dee45b8c8e3b8"
   end
 
   depends_on "go" => :build

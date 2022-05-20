@@ -1,19 +1,18 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.0.tar.xz"
-  sha256 "ce30acdf4a41bc5bb30dd955e9eaa75fa216b4e3deb08889ed32433c7b3b97ce"
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.1.tar.xz"
+  sha256 "61a1f410d78ba7e7f37a5a4f50e6d1320aca33375484a3255eddf17a38580423"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_monterey: "e7d849e225505512eaa003bfa599bed9b17d935467e3d33f13ff44017118ab41"
-    sha256 arm64_big_sur:  "cb659580e450fa90dc63b9bf3b0cd85aea2b2636e9d6844dc7c098179ec9128d"
-    sha256 monterey:       "b01dbccfa5988b39fb63031999d14dd0f3777df2eafe4e18e86ec000f36c6a23"
-    sha256 big_sur:        "a5f2ae877c7b2d542e8156e5739a166652482f270dce0bc79cf5f85c4629d358"
-    sha256 catalina:       "d7942e4d7f275b9bc17a7d6e7b1d916ac1e7359b58fdeadadd5e6de9040d1080"
-    sha256 x86_64_linux:   "93f2bb75dd42786a4c72c97f839a918cfe3f32cd9040dbdc174606473803335b"
+    sha256 arm64_monterey: "6a9a4988eda436fb5bdb5969044579c2e618e21eee8c8bbe32614ad29fe56bd7"
+    sha256 arm64_big_sur:  "85ef910aa223d48c0e73fc187aba54b86930c86f906e3d079ed0b114762bb24e"
+    sha256 monterey:       "7c9f988b4f9207415a5c96efd32376bc8cf2b280a7a36fbebb0b8fc334a14056"
+    sha256 big_sur:        "e446ef889d70bc377d67fa2d7f6a1fbc9faaee444a9e9086a1f5bd484069e5c0"
+    sha256 catalina:       "0d2117fa63dfcbb678c4e499f9ca0413c2c5bfa0a1bbdefde620434f2ead93a0"
+    sha256 x86_64_linux:   "3c2fbec99344b50d620695d16197eb112cb8bee6d3f9e47cb682484755b91f38"
   end
 
   head do
@@ -28,10 +27,6 @@ class Coreutils < Formula
     depends_on "xz" => :build
   end
 
-  # autoconf, automake are required for patch :DATA. remove when dropping patch
-  # https://github.com/Homebrew/homebrew-core/pull/94432
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "gmp"
   uses_from_macos "gperf" => :build
 
@@ -54,10 +49,6 @@ class Coreutils < Formula
     %w[dir dircolors vdir]
   end
 
-  # patch to fix cp 0x00 bytes bug, probably can be removed after 9.0 release
-  # https://github.com/Homebrew/homebrew-core/pull/94432
-  patch :DATA
-
   def install
     system "./bootstrap" if build.head?
 
@@ -68,9 +59,6 @@ class Coreutils < Formula
       --without-selinux
     ]
 
-    # aclocal is required for patch :DATA. remove when dropping patch
-    # https://github.com/Homebrew/homebrew-core/pull/94432
-    system "aclocal", "-Im4"
     system "./configure", *args
     system "make", "install"
 
@@ -134,134 +122,3 @@ class Coreutils < Formula
     system bin/"gln", "-f", "test", "test.sha1"
   end
 end
-
-__END__
-coreutils: fix cp filling destination files with 0x00 bytes:
-- https://github.com/Homebrew/homebrew-core/pull/94432
-- https://github.com/Homebrew/homebrew-core/issues/94405
-
-Upstream bug:
-- https://debbugs.gnu.org/cgi/bugreport.cgi?bug=51857
-
-This patch cherry picks following commits from gnulib:
-- 4db8db34112b86ddf8bac48f16b5acff732b5fa9
-- 1a268176fbb184e393c98575e61fe692264c7d91
-
-These patches will be very likely included next coreutils version followed by 9.0
-
---
-Elan Ruusamäe <glen@pld-linux.org>
-
-From 4db8db34112b86ddf8bac48f16b5acff732b5fa9 Mon Sep 17 00:00:00 2001
-From: Paul Eggert <eggert@cs.ucla.edu>
-Date: Mon, 15 Nov 2021 15:08:25 -0800
-Subject: [PATCH] lseek: port around macOS SEEK_DATA glitch
-
-Problem reported by Sudhip Nashi (Bug#51857).
-* doc/posix-functions/lseek.texi (lseek): Mention macOS SEEK_DATA
-issue.
-* lib/lseek.c (rpl_lseek): Work around macOS portability glitch.
-* m4/lseek.m4 (gl_FUNC_LSEEK): Replace lseek on Darwin.
-* modules/lseek (Depends-on): Depend on msvc-nothrow
-and fstat only if needed.
----
- ChangeLog                      | 11 +++++++++++
- doc/posix-functions/lseek.texi |  4 ++++
- lib/lseek.c                    | 16 ++++++++++++++++
- m4/lseek.m4                    | 10 ++++++++--
- modules/lseek                  |  4 ++--
- 5 files changed, 41 insertions(+), 4 deletions(-)
-
-diff --git a/lib/lseek.c b/lib/lseek.c
-index 0042546a8..7dcd6c9da 100644
---- a/lib/lseek.c
-+++ b/lib/lseek.c
-@@ -52,6 +52,22 @@ rpl_lseek (int fd, off_t offset, int whence)
-       errno = ESPIPE;
-       return -1;
-     }
-+#elif defined __APPLE__ && defined __MACH__ && defined SEEK_DATA
-+  if (whence == SEEK_DATA)
-+    {
-+      /* If OFFSET points to data, macOS lseek+SEEK_DATA returns the
-+         start S of the first data region that begins *after* OFFSET,
-+         where the region from OFFSET to S consists of possibly-empty
-+         data followed by a possibly-empty hole.  To work around this
-+         portability glitch, check whether OFFSET is within data by
-+         using lseek+SEEK_HOLE, and if so return to OFFSET by using
-+         lseek+SEEK_SET.  */
-+      off_t next_hole = lseek (fd, offset, SEEK_HOLE);
-+      if (next_hole < 0)
-+        return next_hole;
-+      if (next_hole != offset)
-+        whence = SEEK_SET;
-+    }
- #else
-   /* BeOS lseek mistakenly succeeds on pipes...  */
-   struct stat statbuf;
-diff --git a/m4/lseek.m4 b/m4/lseek.m4
-index 0af63780a..faab09b73 100644
---- a/m4/lseek.m4
-+++ b/m4/lseek.m4
-@@ -1,4 +1,4 @@
--# lseek.m4 serial 11
-+# lseek.m4 serial 12
- dnl Copyright (C) 2007, 2009-2021 Free Software Foundation, Inc.
- dnl This file is free software; the Free Software Foundation
- dnl gives unlimited permission to copy and/or distribute it,
-@@ -59,7 +59,7 @@ AC_DEFUN([gl_FUNC_LSEEK],
-          ;;
-      esac
-     ])
--  if test $gl_cv_func_lseek_pipe = no; then
-+  if test "$gl_cv_func_lseek_pipe" = no; then
-     REPLACE_LSEEK=1
-     AC_DEFINE([LSEEK_PIPE_BROKEN], [1],
-       [Define to 1 if lseek does not detect pipes.])
-@@ -69,4 +69,10 @@ AC_DEFUN([gl_FUNC_LSEEK],
-   if test $WINDOWS_64_BIT_OFF_T = 1; then
-     REPLACE_LSEEK=1
-   fi
-+
-+  dnl macOS SEEK_DATA is incompatible with other platforms.
-+  case $host_os in
-+    darwin*)
-+      REPLACE_LSEEK=1;;
-+  esac
- ])
-From 1a268176fbb184e393c98575e61fe692264c7d91 Mon Sep 17 00:00:00 2001
-From: Paul Eggert <eggert@cs.ucla.edu>
-Date: Mon, 15 Nov 2021 22:17:44 -0800
-Subject: [PATCH] lseek: port around macOS SEEK_HOLE glitch
-
-Problem reported by Sudhip Nashi (Bug#51857#47).
-* lib/lseek.c (rpl_lseek): Work around macOS lseek+SEEK_HOLE
-returning -1 with ENXIO if there are no holes before EOF,
-contrary to the macOS documentation.
----
- ChangeLog   | 6 ++++++
- lib/lseek.c | 6 ++++--
- 2 files changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/lib/lseek.c b/lib/lseek.c
-index 7dcd6c9da..e9a96ad20 100644
---- a/lib/lseek.c
-+++ b/lib/lseek.c
-@@ -61,10 +61,12 @@ rpl_lseek (int fd, off_t offset, int whence)
-          data followed by a possibly-empty hole.  To work around this
-          portability glitch, check whether OFFSET is within data by
-          using lseek+SEEK_HOLE, and if so return to OFFSET by using
--         lseek+SEEK_SET.  */
-+         lseek+SEEK_SET.  Also, contrary to the macOS documentation,
-+         lseek+SEEK_HOLE can fail with ENXIO if there are no holes on
-+         or after OFFSET.  What a mess!  */
-       off_t next_hole = lseek (fd, offset, SEEK_HOLE);
-       if (next_hole < 0)
--        return next_hole;
-+        return errno == ENXIO ? offset : next_hole;
-       if (next_hole != offset)
-         whence = SEEK_SET;
-     }
--- 
-2.35.1
-

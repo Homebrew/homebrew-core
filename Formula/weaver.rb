@@ -1,17 +1,16 @@
 class Weaver < Formula
   desc "Command-line tool for Weaver"
   homepage "https://github.com/scribd/Weaver"
-  url "https://github.com/scribd/Weaver/archive/1.0.7.tar.gz"
-  sha256 "600a49ea7dbe58f57bf40afb7be7a42fb382ce41d807549e427b23e8504d5e02"
+  url "https://github.com/scribd/Weaver/archive/1.0.8.tar.gz"
+  sha256 "eefdd5f986be6da6256e132c83ea4a7ed711ae492a158e685385ea65670cc88d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "63fb091fc3e723145f224db88ec2e2744ff1623347fef2b455e9a36375694d90"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb850cf17b8647754ec204c75491cae42e2ca5dcd907155f5c37902bfc2918de"
-    sha256 cellar: :any_skip_relocation, monterey:       "1747df2e79d12eceef248f2faef237ed577e1bd07febed75ec729c6dd03a037b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9546559d2fbfd8fbb74d6cb0f319418c2f6bec511a3ddb4e284b0195ac8a338b"
-    sha256 cellar: :any_skip_relocation, catalina:       "a0b1284a91a4647fa7b3c980fc237b0677e959c821d62ca31a5b3ea8a63abf40"
-    sha256 cellar: :any_skip_relocation, mojave:         "3db8730a06cb3ddd12a35097239afd85ea365c3e291a73422f37f23955230007"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ef608bc19d4f7b73774a664163c8b134d5110203dee5008a513d60704cbb68f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d940db79ce543334b7d888033adc22a517ed37b607bc2e1d0a37d2831ef26608"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d5648c31c7dba7867ad7a9915a54ad67342eb96b8347e8e6bf834606ec9d38c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a94e918e25975679aac042648547d882887b52e2f67c2271d1a6f63011043716"
+    sha256 cellar: :any_skip_relocation, catalina:       "ec79048231822f03c6dc5be241f215c650ef148036292e3be6e1fd6000d92325"
   end
 
   depends_on xcode: ["11.2", :build]

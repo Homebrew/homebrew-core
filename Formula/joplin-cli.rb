@@ -8,10 +8,11 @@ class JoplinCli < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_big_sur: "52c311d9e488d96e2e8aa4d1367311b5e27122cbf628f9394899d94cb9bd87f1"
-    sha256 monterey:      "7f0d4ff24d65d47f5a3c8dafc4e82c2111f5681133655c5542ba4baf99db2fed"
-    sha256 big_sur:       "bc1aa68c4c2df173022cf36de72838ba3fb4605d031f81b91d3f5b16d4ca9968"
-    sha256 catalina:      "248fab15de1b4c16463ec33bf6b2dd9b3f7ecdc64a8e463d38530c3143e64934"
+    sha256                               arm64_big_sur: "52c311d9e488d96e2e8aa4d1367311b5e27122cbf628f9394899d94cb9bd87f1"
+    sha256                               monterey:      "7f0d4ff24d65d47f5a3c8dafc4e82c2111f5681133655c5542ba4baf99db2fed"
+    sha256                               big_sur:       "bc1aa68c4c2df173022cf36de72838ba3fb4605d031f81b91d3f5b16d4ca9968"
+    sha256                               catalina:      "248fab15de1b4c16463ec33bf6b2dd9b3f7ecdc64a8e463d38530c3143e64934"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "533e30b3563e6a3ac8d588f69520d36418deb376414b266b54aed01d21563d3b"
   end
 
   depends_on "pkg-config" => :build
@@ -21,6 +22,10 @@ class JoplinCli < Formula
 
   on_macos do
     depends_on "terminal-notifier"
+  end
+
+  on_linux do
+    depends_on "libsecret"
   end
 
   def install

@@ -2,9 +2,9 @@ class PhpAT80 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.0.15.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.0.15.tar.xz"
-  sha256 "5f33544061d37d805a2a9ce791f081ef08a7155bd7ba2362e69bba2d06b0f8b2"
+  url "https://www.php.net/distributions/php-8.0.19.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.0.19.tar.xz"
+  sha256 "ba62219c4b0486cbb2a04f0796749a46b0ee1f5a142ed454212b4e2460cb0fab"
   license "PHP-3.01"
 
   livecheck do
@@ -13,12 +13,12 @@ class PhpAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "8595648d6d52fe810eee559d8ea61eeef5950e36ad70e9707c084b499663b5c3"
-    sha256 arm64_big_sur:  "36179b1a79aa41a68c059168d1eeca3e02fdb999455aeeda6660df42bdd1e9a4"
-    sha256 monterey:       "712e71b749c9d8bebd0cefcd2e9f30b20106dabc63ea62d161d7709342c756b8"
-    sha256 big_sur:        "45d772d2bb84c9dc2a9e80692c9274cef856be91c1f6e087915d911753437fa2"
-    sha256 catalina:       "a7cf2137e7ef7d6849d80ed2a38b65772c09c229d637723e580593163e5d4f40"
-    sha256 x86_64_linux:   "4d2881de2ba521e714d2dc5fbd662c568d6e1761423ac56770f467c563e6820a"
+    sha256 arm64_monterey: "fc26a27ee2956c4c1cc50864ef8dd2d73c90d31d7d8f5040d1b6448acaea353d"
+    sha256 arm64_big_sur:  "576918e895eb47b83750e67abc77f34a3b3d376accb75e9e5e38abd3085f0f6e"
+    sha256 monterey:       "9f3c310ced5cc0c5747df5da5826845304db0407beebdf1e4ac085e030d07faa"
+    sha256 big_sur:        "e302b950508fb59e3b1eeff719be8df930b16d9035f8938d0c7fcd6c8d2cb01b"
+    sha256 catalina:       "9ee63b2419003bd5b2a3c264e580a734af4cfbce425f2808be3bb615ce7d963e"
+    sha256 x86_64_linux:   "eff7c39f1f567073d6f20b8a62696a20cadbab4b1fb5bd1cc7f80190ed6adcc1"
   end
 
   keg_only :versioned_formula
@@ -65,11 +65,6 @@ class PhpAT80 < Formula
   end
 
   def install
-    if OS.mac? && (MacOS.version == :el_capitan || MacOS.version == :sierra)
-      # Ensure that libxml2 will be detected correctly in older MacOS
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
-
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
 
@@ -255,6 +250,7 @@ class PhpAT80 < Formula
 
     # Custom location for extensions installed via pecl
     pecl_path = HOMEBREW_PREFIX/"lib/php/pecl"
+    pecl_path.mkpath
     ln_s pecl_path, prefix/"pecl" unless (prefix/"pecl").exist?
     extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
     php_basename = File.basename(extension_dir)
@@ -330,9 +326,9 @@ class PhpAT80 < Formula
       "Zend OPCache extension not loaded")
     # Test related to libxml2 and
     # https://github.com/Homebrew/homebrew-core/issues/28398
-    on_macos do
+    if OS.mac?
       assert_includes MachO::Tools.dylibs("#{bin}/php"),
-        "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
+              "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
     end
 
     system "#{sbin}/php-fpm", "-t"

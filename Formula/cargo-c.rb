@@ -1,8 +1,8 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/v0.9.7.tar.gz"
-  sha256 "eead78d26b4e5924e9d750f66f2fef4d706680927542d87c895178fc0be016f0"
+  url "https://github.com/lu-zero/cargo-c/archive/v0.9.9.tar.gz"
+  sha256 "d35f91e3e57bb0b5459789c02d1fa8a875bc55ca603a85ed63138d6d8193b53f"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class CargoC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7e874b1aa94f5b0b72aee5323243cde55fa25ca229412c74aeee4468385466a2"
-    sha256 cellar: :any,                 arm64_big_sur:  "41315e8b42829f138832b7793cc3065def8d8521fd0965e641d0bd5a09da5b48"
-    sha256 cellar: :any,                 monterey:       "b03d125300c7bffd5bf6767ad0597a3ff3f998a79b024786d0876daba332d1b6"
-    sha256 cellar: :any,                 big_sur:        "3502a3f8d548d65868efcf464042484a7b0f41438a679027edd1ca8f3acaff30"
-    sha256 cellar: :any,                 catalina:       "0394f57f7aa85e8922184331f256ba7d5597315e7a7a45cb07e693a01cf09ff3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1f681b4860ef9f0d24918404cb4e7831966f26370acc9ffc8a944a9cfd2970d"
+    sha256 cellar: :any,                 arm64_monterey: "66aeb043716db062fa8e706153b92b23ba0e364c3f38da6a8cc13ef217031f65"
+    sha256 cellar: :any,                 arm64_big_sur:  "97872ff704fc91d5a1d27133bb41bf253b38edad9d39089ff56421933cd3cea9"
+    sha256 cellar: :any,                 monterey:       "739bb8b5ef685fed9734e96579f9389028765e772da26f267a95e037a23d1c06"
+    sha256 cellar: :any,                 big_sur:        "484b8e813a0af81d26b660a90393de3503b3c5fe016ae93389b6759271d947cd"
+    sha256 cellar: :any,                 catalina:       "44658a0bbb06e7497c993dadc986ecd2907b041310e217577f920a944c39b208"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88078fe5d3739f20760329ff00244d75455426fa4b125bcc1abdf7c5f53d0126"
   end
 
   depends_on "rust" => :build

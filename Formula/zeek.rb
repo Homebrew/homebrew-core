@@ -2,8 +2,8 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      tag:      "v4.2.0",
-      revision: "ce38609161cfd10a67cad301e60b7d96e3333835"
+      tag:      "v4.2.1",
+      revision: "45491fc4e19ef15428db3ccdc5e1c55130f79131"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Zeek < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f106f4f5e21f854042c199abc8def48b28c22e5cfc68a829b720daba4ce3b266"
-    sha256 arm64_big_sur:  "9f59e28060a19364c1b339f417943783677e75d8fac88ab4fee173d386073776"
-    sha256 monterey:       "c3a21ae64e28c3001d19e1cf60dca55b11b20535c4597a0c7392cfb3b021e389"
-    sha256 big_sur:        "8862c67438dfdf689575d4ac1a89fd1d866530777946f3f5d82bf16285b5d0f1"
-    sha256 catalina:       "7664242ed065030c455fd9210442e4fdee78a55c45d12391be681ffdf65ee673"
-    sha256 x86_64_linux:   "ed82ade4cda871af176e0656d20a83e5d5e2138981c83d08c641c1b76f70c7ad"
+    sha256 arm64_monterey: "5005d30962982766efe8af9b13499089adae2d7c8ba0b2dc3acaee46f1fcf9d3"
+    sha256 arm64_big_sur:  "d0c7d6589300b591bc6c9fcb90056e01d505ec91bca6b2473f8d8771adee32ad"
+    sha256 monterey:       "991b9a377ef8192946de126d612ce8aa3cbf48e19ed652ca3a2c582d704d5d98"
+    sha256 big_sur:        "040b280ab1df2c7696e9ebb3f90354a2a7f3ffd5a1eec561d2668effb0334ae1"
+    sha256 catalina:       "58fc46d06e986c504a1dfc4486f54fa8f63ce811e7c98cdb2fb191c2a69e0028"
+    sha256 x86_64_linux:   "538b2c9d090421142e65c71f6656b10e5e3b6106d687ea546ad80ae12c30e626"
   end
 
   depends_on "bison" => :build

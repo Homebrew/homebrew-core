@@ -1,21 +1,23 @@
 class Xcodegen < Formula
   desc "Generate your Xcode project from a spec file and your folder structure"
   homepage "https://github.com/yonaskolb/XcodeGen"
-  url "https://github.com/yonaskolb/XcodeGen/archive/2.26.0.tar.gz"
-  sha256 "10cca149699e358bef410a12cafd496b0838008a9accb422ffe00608f861f24a"
+  url "https://github.com/yonaskolb/XcodeGen/archive/2.29.0.tar.gz"
+  sha256 "d00d98e0f005ce581bcd354c057d29a08f37ad28c9e81cfe4f26d11d8770371b"
   license "MIT"
   head "https://github.com/yonaskolb/XcodeGen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "67808f91003859ba6c2e93cdab598aa2badd8880468e4035823c7dff355bc7a3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "572be1ef81ff8fc5d4548d606e9bcc4549f52cb25cda9f596bdbcce706aafe2a"
-    sha256 cellar: :any_skip_relocation, monterey:       "cecf4c25ddcf696c4b63027d5d21278b5a3a550bcb1d6b11911b9c3c4dd2c630"
-    sha256 cellar: :any_skip_relocation, big_sur:        "12c836f28b0635f710cdf4aef0be0ab957ee22fde9bafbd4f1c68dd4ce683f32"
-    sha256 cellar: :any_skip_relocation, catalina:       "a845d879aba3867a72047665e5a598556aa3745bb2f25e038e357a66e23a1b89"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f76deffe6ad019b5004774c27175af44d1e2a17f2bb932e3053c43338f4dc9e2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1dfbd86106c388ca72308a0b96f02140030767279bb2c1789e4e8d8f8aac0437"
+    sha256 cellar: :any_skip_relocation, monterey:       "b1aeb953a94bd3bf0e32365c9f7eb52e75d4340f2ff2e2298ae6a822f87b12b7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f5032654ab7d638460ff819699fc5822039482e307c3f68dcb31146106b98ef8"
+    sha256 cellar: :any_skip_relocation, catalina:       "9b7a3ab693384e83bed188f1bef6b7bf1bca6025affb9d9890aecf7973552b12"
   end
 
   depends_on xcode: ["10.2", :build]
-  depends_on macos: :catalina
+  depends_on :macos
+
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
@@ -35,7 +37,7 @@ class Xcodegen < Formula
           sources: TestProject
     EOS
     (testpath/"TestProject").mkpath
-    system bin/"XcodeGen", "--spec", testpath/"xcodegen.yml"
+    system bin/"xcodegen", "--spec", testpath/"xcodegen.yml"
     assert_predicate testpath/"GeneratedProject.xcodeproj", :exist?
     assert_predicate testpath/"GeneratedProject.xcodeproj/project.pbxproj", :exist?
     output = (testpath/"GeneratedProject.xcodeproj/project.pbxproj").read

@@ -1,12 +1,12 @@
 class Catch2 < Formula
   desc "Modern, C++-native, header-only, test framework"
   homepage "https://github.com/catchorg/Catch2"
-  url "https://github.com/catchorg/Catch2/archive/v2.13.8.tar.gz"
-  sha256 "b9b592bd743c09f13ee4bf35fc30eeee2748963184f6bea836b146e6cc2a585a"
+  url "https://github.com/catchorg/Catch2/archive/v2.13.9.tar.gz"
+  sha256 "06dbc7620e3b96c2b69d57bf337028bf245a211b3cddb843835bfe258f427a52"
   license "BSL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "839a57fc5d90bb72b80a47c75683f1c483c4a20befdf33745ccfa00bb6f9f340"
+    sha256 cellar: :any_skip_relocation, all: "457e6aad19afaea53718942729f62e17ea7d1a18be2a8a6b4c94cc7fa1d20d30"
   end
 
   depends_on "cmake" => :build

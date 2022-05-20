@@ -12,27 +12,33 @@ class Projectm < Formula
     sha256 big_sur:        "c8ece4df06966643cf9aaae5f31610b98eaacddbfb7b0e56b21531d5e2f8f1a5"
     sha256 catalina:       "8d11933c220cde67c4515ee5d42d99bc8e1c18479a4d3b746074c6080712cf0f"
     sha256 mojave:         "9f7aef06ab68d557c1c989e08709903511a4fcd74fd166559d4f7bbf6af55548"
+    sha256 x86_64_linux:   "05caf42b3d5a023b4c22e2f51e7699645cc5077fbd37c7c27f1f8260025d608b"
   end
+
   head do
-    url "https://github.com/projectM-visualizer/projectm.git"
+    url "https://github.com/projectM-visualizer/projectm.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config"
+  depends_on "pkg-config" => [:build, :test]
   depends_on "sdl2"
 
+  on_linux do
+    depends_on "mesa"
+  end
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
   test do
+    assert_predicate prefix/"share/projectM/config.inp", :exist?
+    assert_predicate prefix/"share/projectM/presets", :exist?
+
     (testpath/"test.cpp").write <<~EOS
       #include <libprojectM/projectM.hpp>
       #include <SDL2/SDL.h>
@@ -60,12 +66,12 @@ class Projectm < Formula
         return 0;
       }
     EOS
-    args = %w[test.cpp -o test]
-    args += shell_output("pkg-config libprojectM sdl2 --cflags --libs").split
-    system ENV.cxx, *args
-    system "./test"
+    flags = shell_output("pkg-config libprojectM sdl2 --cflags --libs").split
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
 
-    assert_predicate prefix/"share/projectM/config.inp", :exist?
-    assert_predicate prefix/"share/projectM/presets", :exist?
+    # Fails in Linux CI with "Video init failed: No available video device"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    system "./test"
   end
 end

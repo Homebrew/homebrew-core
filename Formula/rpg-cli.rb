@@ -1,18 +1,17 @@
 class RpgCli < Formula
   desc "Your filesystem as a dungeon!"
   homepage "https://github.com/facundoolano/rpg-cli"
-  url "https://github.com/facundoolano/rpg-cli/archive/refs/tags/1.0.0.tar.gz"
-  sha256 "9131308732b829a9ba7bf307dea3e5fb7ede7671ae206079c89ebcdac34a7da4"
+  url "https://github.com/facundoolano/rpg-cli/archive/refs/tags/1.0.1.tar.gz"
+  sha256 "763d5a5c9219f2084d5ec6273911f84213e5424f127117ab0f1c611609663a8b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "384a050d98cbbc63daf57e1a128a1bdfad36ceeb8c12d2ee6fa64a0a530b8b53"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "69fe52024f5c2760cdcefc1a79848b69c936609f5d06237ac543913eaf7b1e4c"
-    sha256 cellar: :any_skip_relocation, monterey:       "a898df44410ad6b3d549fe2a105fdc233e9e9a93bf135790aabc68c4e886789f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7ecfc66dc139d04795813c57df37f9c79c27d8e10d7a91cef218b90f0a8928a4"
-    sha256 cellar: :any_skip_relocation, catalina:       "95d3d612a6c9554852eb8a8edc7486a97ce1da7f39fb4f28446adee95ceb538c"
-    sha256 cellar: :any_skip_relocation, mojave:         "79088144a5a763bde83334c7749e859e6c5bed0e8ca6a953c9bd1e0073943b9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1a30a0095582ac0007fd4d6acb7e3f558bd962e5336a491dd70af867d502217"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ccaa9f4311164d4bcf2c242786158f89e7df7c2dc82e01a4a44267e4a3add74"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31e4b31edd2178a88a66ec372934ba55bd7ff46a45c708d61f416176b4319557"
+    sha256 cellar: :any_skip_relocation, monterey:       "edac7b05be2a3677bf1ad4e82546711c8aaacd0c2a69f13071ef0e468615fe56"
+    sha256 cellar: :any_skip_relocation, big_sur:        "55d33b765bb854c44512494989f559362c788926dc10349dd303dc49f8ad5bb1"
+    sha256 cellar: :any_skip_relocation, catalina:       "dc5072e0f7d57238bd57ae57ac736724876476b1337f7b8f4f8ac27547c2db15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e207b3c28ec5bda9b8b0c7f7a499594656cef0b097b8ac86ff608c3ee9889f0c"
   end
 
   depends_on "rust" => :build

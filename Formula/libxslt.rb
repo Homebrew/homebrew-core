@@ -2,39 +2,33 @@ class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
   license "X11"
-  revision 3
+  revision 1
 
   stable do
-    url "http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz"
-    sha256 "98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f"
+    url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.35.tar.xz"
+    sha256 "8247f33e9a872c6ac859aa45018bc4c4d00b97e2feac9eebc10c93ce1f34dd79"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
-
-    # Fix configure script for libxml2
-    # Remove in the next release
-    # Generated from the following commit:
-    # https://gitlab.gnome.org/GNOME/libxslt/-/commit/90c34c8bb90e095a8a8fe8b2ce368bd9ff1837cc
-    # We're not using the above patch to avoid having to regenerate `configure`.
-    patch :DATA
   end
 
+  # We use a common regex because libxslt doesn't use GNOME's "even-numbered
+  # minor is stable" version scheme.
   livecheck do
-    url "http://xmlsoft.org/sources/"
-    regex(/href=.*?libxslt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/libxslt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "95ee37540095f14e19fee092aa0a53d2e634de071c6165f90a996dc4b05121f2"
-    sha256 cellar: :any,                 arm64_big_sur:  "ec2551bbb89b9544e80586680db51270ccabf53be680b31178a7eb4b7a1fc6d9"
-    sha256 cellar: :any,                 monterey:       "b07661a0aa21e453d2f58cafdc7425bdd0270459def4e7354f3147bcbeeaaad7"
-    sha256 cellar: :any,                 big_sur:        "2ce7c3f7bbb1ffd73028662afca32211205734c5676ac743e865d9da2426bb5b"
-    sha256 cellar: :any,                 catalina:       "9afef3e030939882119df041160dbb00437c726101c7047e310abad7c354b2e9"
-    sha256 cellar: :any,                 mojave:         "a60cb3dba137da40ece1d48ed404adaa62c7a61e5be8618a03a035ac3413f03d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4644ffb9534613738889d7bf32b204c2e257a6a5154ab8e80209709a4a6f4f3f"
+    sha256 cellar: :any,                 arm64_monterey: "5c9f468e24ae918ae3e4966ff16cc22d5339072fc7e7508db2f36e769b563b8e"
+    sha256 cellar: :any,                 arm64_big_sur:  "2d92c6564b307cac871c57826ccd1a3f317647bd30e4c1143560b6230deac6c3"
+    sha256 cellar: :any,                 monterey:       "3282aa925b1956e8b4e5c8c58cee340551b596778822d765cacf99c20aa7c461"
+    sha256 cellar: :any,                 big_sur:        "f322603343c92777e9953ce2238236803f06a2c1195bcb87a8ddd253fc14eed7"
+    sha256 cellar: :any,                 catalina:       "f2e114e69b72994ca71c55802def701a7bf7803efeb85054e6839c5d800384b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd014efb1c1c44a80fee7ae5baf6b9563deeaf3d21b3f5af3d9119b1e8f4c22c"
   end
 
   head do
@@ -55,15 +49,17 @@ class Libxslt < Formula
   end
 
   def install
+    libxml2 = Formula["libxml2"]
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--without-python",
                           "--with-crypto",
-                          "--with-libxml-prefix=#{Formula["libxml2"].opt_prefix}"
+                          "--with-libxml-prefix=#{libxml2.opt_prefix}"
     system "make"
     system "make", "install"
+    inreplace [bin/"xslt-config", lib/"xsltConf.sh"], libxml2.prefix.realpath, libxml2.opt_prefix
   end
 
   def caveats
@@ -87,18 +83,3 @@ class Libxslt < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index c63adc5..6061227 100755
---- a/configure
-+++ b/configure
-@@ -14860,7 +14860,7 @@ PKG_CONFIG=$_save_PKG_CONFIG
- fi
- 
- 
--if test "x$LIBXML_LIBS" = "x" && ${XML_CONFIG} --libs print > /dev/null 2>&1
-+if test "x$LIBXML_LIBS" = "x" && ${XML_CONFIG} --libs > /dev/null 2>&1
- then
-     { $as_echo "$as_me:${as_lineno-$LINENO}: checking for libxml libraries >= $LIBXML_REQUIRED_VERSION" >&5
- $as_echo_n "checking for libxml libraries >= $LIBXML_REQUIRED_VERSION... " >&6; }

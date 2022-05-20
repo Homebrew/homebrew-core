@@ -13,6 +13,7 @@ class Xdot < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "cde9b3087f5d052432a49145b7e7b91aae192999a842f5764c6ed17cda033206"
     sha256 cellar: :any_skip_relocation, catalina:       "d8f03ae6eeb651fce014693fa933718777d2e1add5dbdd6939460797ca8bb4d0"
     sha256 cellar: :any_skip_relocation, mojave:         "771363f972fd67d88d8ed836a654248bbc9cc41109881eec54211aedaf507681"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00bda24e0f9c4ed867f2ca07a76aa49b7bafbad3de1ad3a95ef273cd6354108a"
   end
 
   depends_on "adwaita-icon-theme"
@@ -42,6 +43,10 @@ class Xdot < Formula
   end
 
   test do
+    # Disable test on Linux because it fails with this error:
+    # Gtk couldn't be initialized. Use Gtk.init_check() if you want to handle this case.
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     system "#{bin}/xdot", "--help"
   end
 end

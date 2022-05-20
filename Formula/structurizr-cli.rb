@@ -1,12 +1,12 @@
 class StructurizrCli < Formula
   desc "Command-line utility for Structurizr"
   homepage "https://structurizr.com"
-  url "https://github.com/structurizr/cli/releases/download/v1.17.0/structurizr-cli-1.17.0.zip"
-  sha256 "fa9e8497363a071e6f674b29aae19e87ba0deb470833d3dcfbbc119b8e0b3319"
+  url "https://github.com/structurizr/cli/releases/download/v1.19.0/structurizr-cli-1.19.0.zip"
+  sha256 "aad505e9e48b89a30fe411990981205433bb650e4148ca2f5d877477c80fe42d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c88252fdd70a140ace00ec88851f122619dc60dc985a888b617570285f2ba7d4"
+    sha256 cellar: :any_skip_relocation, all: "98825c0a0acda3154fde9280d794a1dd8774e388e1bfa1921b7fa53a1f529755"
   end
 
   depends_on "openjdk"
@@ -18,12 +18,9 @@ class StructurizrCli < Formula
   end
 
   test do
-    expected_output = <<~EOS.strip
-      Structurizr CLI v#{version}
-      Structurizr DSL v#{version}
-      Usage: structurizr push|pull|lock|unlock|export|validate|list [options]
-    EOS
     result = pipe_output("#{bin}/structurizr-cli").strip
-    assert_equal result, expected_output
+    # not checking `Structurizr DSL` version as it is different binary
+    assert_match "Structurizr CLI v#{version}", result
+    assert_match "Usage: structurizr push|pull|lock|unlock|export|validate|list [options]", result
   end
 end

@@ -1,18 +1,17 @@
 class Mask < Formula
   desc "CLI task runner defined by a simple markdown file"
   homepage "https://github.com/jakedeichert/mask/"
-  url "https://github.com/jakedeichert/mask/archive/v0.11.0.tar.gz"
-  sha256 "8e2ddca51c691aa7bb18e377803e68e1769a0bcef1ddb1ef510537fcbfbb863d"
+  url "https://github.com/jakedeichert/mask/archive/v0.11.1.tar.gz"
+  sha256 "49de25ee23bfa2f04f09750cf9b223a8ff5024280dca4ea40893e53212bef0b0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "90729c1e3903174fde62e403304be9f25cc6c3a9d1c0a701c0f7f0a61b0ff483"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4bb4f50cb4b31ea3aa48bb6465cefd751ad350e1d7b13923ca6abcb8228920f3"
-    sha256 cellar: :any_skip_relocation, monterey:       "434ff6861c7a47eec6bf1d67cefa4f75e6cd9febb1243e6b54f241124d8a847d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ea79a3d72ac52b2d3c333495caa91e6944de76e2d14442f8c1204018240d9712"
-    sha256 cellar: :any_skip_relocation, catalina:       "2d2e0026a9fead7ff7a8dc4ccfc1be23924227009f52e2f20497c442ec348d04"
-    sha256 cellar: :any_skip_relocation, mojave:         "d012c47efd8013a13aa07bfcd5b2a6b7a3ee25cd6f798b1e3e523f9ab574b1ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1deb5f556f95eef72f1de9553f472a5a938b125940bbddaee9118e6fd9294a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "642f6b33ca9fb556b0e25c639c0b0b72bd577c16b38abc7aacb0186b06a5e6a7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a8d12727a7304ab91f1efff0a936d0749ced7b93a23d95341f2d1bb4eb7fe50"
+    sha256 cellar: :any_skip_relocation, monterey:       "9f94a81fb949d160b9b08c21ee23ddea7003cb7e1203f91f7147c5b910e00e6b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "feb8ceded3fb6fa99b2660eb22a649f7ec13ee72dacc3cb71c82b43688685d8e"
+    sha256 cellar: :any_skip_relocation, catalina:       "cc2cb845008b7772b2bd9f87cba495a5ed7702b7a5fc67ba4d79992e278e5cb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfe51d1fbb5949917a95262d8ebb2fba5448676e9349ae27297abeb0721e39a0"
   end
 
   depends_on "rust" => :build

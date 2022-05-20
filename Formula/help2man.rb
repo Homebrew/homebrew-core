@@ -1,19 +1,18 @@
 class Help2man < Formula
   desc "Automatically generate simple man pages"
   homepage "https://www.gnu.org/software/help2man/"
-  url "https://ftp.gnu.org/gnu/help2man/help2man-1.48.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/help2man/help2man-1.48.5.tar.xz"
-  sha256 "6739e4caa42e6aed3399be4387ca79399640967334e91728863b8eaa922582be"
+  url "https://ftp.gnu.org/gnu/help2man/help2man-1.49.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/help2man/help2man-1.49.2.tar.xz"
+  sha256 "9e2e0e213a7e0a36244eed6204d902b6504602a578b6ecd15268b1454deadd36"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f0773ffb77e0e13dce87ce7726fe3f29184f431c345840c7dc869a3b6cf276d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f0773ffb77e0e13dce87ce7726fe3f29184f431c345840c7dc869a3b6cf276d"
-    sha256 cellar: :any,                 monterey:       "49e2e969ec8ed1c4f7954d0236fd64719e102a128c42af685767bfc5f213ac07"
-    sha256 cellar: :any,                 big_sur:        "49eb6e847eeb7e51779289d351a337ef0c6cba97ac079806066747456036d8e6"
-    sha256 cellar: :any,                 catalina:       "4abfd6faab1e8286a08da1874e46ebf8a32812f84953740b08ddf2b17be6eb3c"
-    sha256 cellar: :any,                 mojave:         "8586eeac3d452b94b08a519bc01a4887e534832e7be01aa1c0c5bfefeda5b6a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1316c8afe193ef525f86ba791f23557ac403d68b14677e6e29ba536df59a0be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "383b411c2f38bcc248ef62253135047fcdf62d9dc53f8204d8789648705750e2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "383b411c2f38bcc248ef62253135047fcdf62d9dc53f8204d8789648705750e2"
+    sha256 cellar: :any,                 monterey:       "2fa2384e5b009445b1c22c3524c290f99097e28f513d05fc72bd34b5a2359c4c"
+    sha256 cellar: :any,                 big_sur:        "6d00cbba2327558de78a1e01fc1906ddce81a03067b3d8636f15df835290018a"
+    sha256 cellar: :any,                 catalina:       "96ff3329951b52db5e2e70f64e93a5fa291b79d70bc39a4d10d6c2cc3340a1b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "457df4779894e46898cb3ae03f9b7d2650a0bd42e75ab7cdf4aacbe0e6bb90d6"
   end
 
   depends_on "gettext" if Hardware::CPU.intel?

@@ -1,7 +1,7 @@
 class Libevhtp < Formula
   desc "Create extremely-fast and secure embedded HTTP servers with ease"
-  homepage "https://github.com/criticalstack/libevhtp/"
-  url "https://github.com/criticalstack/libevhtp/archive/1.2.18.tar.gz"
+  homepage "https://github.com/Yellow-Camper/libevhtp/"
+  url "https://github.com/Yellow-Camper/libevhtp/archive/1.2.18.tar.gz"
   sha256 "316ede0d672be3ae6fe489d4ac1c8c53a1db7d4fe05edaff3c7c853933e02795"
   license "BSD-3-Clause"
   revision 3
@@ -17,7 +17,7 @@ class Libevhtp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "944924e814dc284b4f34bd754190c976c55b9ec6cf8e614ae0950b45655ff86b"
   end
 
-  deprecate! date: "2021-07-13", because: :repo_removed
+  deprecate! date: "2021-07-13", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build

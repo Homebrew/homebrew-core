@@ -4,14 +4,15 @@ class Biber < Formula
   url "https://github.com/plk/biber/archive/refs/tags/v2.17.tar.gz"
   sha256 "1ee7efdd8343e982046f2301c1b0dcf09e1f9a997ac86ed1018dcb41d04c9e88"
   license "Artistic-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6fc144d7d8a045356ef3fd0fccf5de17f6e3ac63d6b269a0a85f4809a9f00c43"
-    sha256 cellar: :any,                 arm64_big_sur:  "204d7cb929fa459938ec758687ca0525d0fa3061f8586de14fbeed12416a7c21"
-    sha256 cellar: :any,                 monterey:       "362e43be7f9798a76ba0be58e0e5e655d47f394a9cc62110e671f6c4f6059bf0"
-    sha256 cellar: :any,                 big_sur:        "8e83851811d503f7c587a95030a25d3ca1fc80f00ed2bb4306de248d6c68fc73"
-    sha256 cellar: :any,                 catalina:       "82981029f2e3f61ff004ee96715aeecc34073b9854f1368579dffcc0abb0c7cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd69f40c992696f6cf3887cf3e7dd71081c10abbaa557a4910f2b7521edd78ab"
+    sha256 cellar: :any,                 arm64_monterey: "f35f6be9f3e6ad82ace58f3cdd49717f6fad197f2ca783fd7367ccc47e4fd74e"
+    sha256 cellar: :any,                 arm64_big_sur:  "2f7c036d7cbd21b0f12874032d3417953fd91bbff4f59315ad8cebb3175f36ed"
+    sha256 cellar: :any,                 monterey:       "66d7d16f6adab843313f54ebde6cc18e2d97c9bc9d9a1730acfc09402dab0d5b"
+    sha256 cellar: :any,                 big_sur:        "770c78fba24df599a30105c093ec796519b2eb0acaae190eec22ed29298c0782"
+    sha256 cellar: :any,                 catalina:       "5676d01ffbc46b053f04bf74889852c16031954d75ed7da6183112a5166f18bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "283427c168ec790e3cb2bfecbcb2b1859fdd32ef0bec611d3ef3e955bfd58f0b"
   end
 
   depends_on "pkg-config" => :build
@@ -330,12 +331,8 @@ class Biber < Formula
     sha256 "122c8900000a9d388aa8e44f911cab6c118fe8497417917a84a8ec183971b449"
   end
   resource "Net::SSLeay" do
-    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.90.tar.gz"
-    sha256 "f8696cfaca98234679efeedc288a9398fcf77176f1f515dbc589ada7c650dc93"
-    # workaround for `dyld` behaviour change (https://openradar.appspot.com/FB9725981)
-    # adapted from https://github.com/macports/macports-ports/commit/08e3e0bd0f0383263a88331336bcab244a902a31
-    # upstream issue link: https://github.com/radiator-software/p5-net-ssleay/issues/329
-    patch :p0, :DATA if MacOS.version == :monterey
+    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.92.tar.gz"
+    sha256 "47c2f2b300f2e7162d71d699f633dd6a35b0625a00cbda8c50ac01144a9396a9"
   end
   resource "URI" do
     url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz"
@@ -509,13 +506,9 @@ class Biber < Formula
     url "https://cpan.metacpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz"
     sha256 "2d99975685242980d0a9904f639144c059d6ece15899efde4acb742d3253f105"
   end
-  resource "test-dev.bcf" do
-    url "https://downloads.sourceforge.net/project/biblatex-biber/biblatex-biber/testfiles/test-dev.bcf"
+  resource "test.bcf" do
+    url "https://downloads.sourceforge.net/project/biblatex-biber/biblatex-biber/testfiles/test.bcf"
     sha256 "7239ac502a8fc6d90fcaf9e9630d939a21e28456312ee7e041f6627ebb8fed24"
-  end
-  resource "test.bib" do
-    url "https://downloads.sourceforge.net/project/biblatex-biber/biblatex-biber/testfiles/test.bib"
-    sha256 "9bc875cdda0093db27f4890dc5801f6677117a495bafd16fa41625441f099368"
   end
 
   def install
@@ -524,10 +517,8 @@ class Biber < Formula
     ENV["PERL_MM_USE_DEFAULT"] = "1"
     ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
 
-    testresources = %w[test-dev.bcf test.bib]
-
     resources.each do |r|
-      next if testresources.include?(r.name)
+      next if r.name == "test.bcf"
 
       r.stage do
         # fix libbtparse.so linkage failure on Linux
@@ -561,23 +552,18 @@ class Biber < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/biber --version")
 
-    resource("test-dev.bcf").stage { testpath.install Dir["*.bcf"].first => "test.bcf" }
-    resource("test.bib").stage testpath
+    resource("test.bcf").stage testpath
+    (testpath/"test.bib").write <<~EOS
+      @BOOK{test1,
+        AUTHOR = {Terrence Test},
+        TITLE = {Testing is Trying and Troubling},
+        YEAR = {1987},
+      }
+    EOS
+
     assert_match "Output to test.bbl", shell_output("#{bin}/biber --validate-control --convert-control test")
     assert_predicate testpath/"test.bcf.html", :exist?
     assert_predicate testpath/"test.blg", :exist?
     assert_predicate testpath/"test.bbl", :exist?
   end
 end
-
-__END__
---- Makefile.PL
-+++ Makefile.PL
-@@ -157,7 +157,7 @@
-     for ("$prefix/include", "$prefix/inc32", '/usr/kerberos/include') {
-       push @{$opts->{inc_paths}}, $_ if -f "$_/openssl/ssl.h";
-     }
--    for ($prefix, "$prefix/lib64", "$prefix/lib", "$prefix/out32dll") {
-+    for ("$prefix/lib64", "$prefix/lib", "$prefix/out32dll") {
-       push @{$opts->{lib_paths}}, $_ if -d $_;
-     }

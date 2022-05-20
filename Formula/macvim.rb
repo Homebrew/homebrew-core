@@ -6,14 +6,15 @@ class Macvim < Formula
   version "8.2-172"
   sha256 "b5e16d721444d8cb6231df739b1b74dec8f3cb0bde1fe8327dd86e25fc322331"
   license "Vim"
+  revision 1
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "583d61e85112266e0a76a0f28fc000add12a780a128050537bc2431b90857d88"
-    sha256 arm64_big_sur:  "5353adb5cbd7cf25926390582328d748fe07e848eee0a999892c11e918721588"
-    sha256 monterey:       "82b452d795bab0b1771eab28210e4a342b723724d3a90ed54f411e948cf26e37"
-    sha256 big_sur:        "d901772860a5fb47aa384027e664a2ce6efcd049d66a0443545054fc17cc0c68"
-    sha256 catalina:       "d884f16d3c245adde4cb559f40a98db6fbb2ade43b8fb9c11698fb6145b086db"
+    sha256 arm64_monterey: "0e39822873ca26d8914c14ef4e1b7f19252cb848b0903620e2075d0c243174f2"
+    sha256 arm64_big_sur:  "1f3a828044e23eacd6914d42dd6d6b361d79f79eb144b5e63e262d920785dcfc"
+    sha256 monterey:       "6f7605e4db8b76bbed4bdec217fa2e4243281db34839936b9a32f5bd0aa7c635"
+    sha256 big_sur:        "99a2d020534238af1975e48408860e83831aaff27a7f7045e92ca9b38b520ebf"
+    sha256 catalina:       "6d12f8581f8336dc214b9b44627861f072c22a1400bf8e100ded02cea26b2957"
   end
 
   depends_on xcode: :build
@@ -21,7 +22,7 @@ class Macvim < Formula
   depends_on "gettext"
   depends_on "lua"
   depends_on :macos
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "ruby"
 
   conflicts_with "vim",
@@ -72,7 +73,7 @@ class Macvim < Formula
     assert_match "+gettext", output
 
     # Simple test to check if MacVim was linked to Homebrew's Python 3
-    py3_exec_prefix = shell_output(Formula["python@3.9"].opt_bin/"python3-config --exec-prefix")
+    py3_exec_prefix = shell_output(Formula["python@3.10"].opt_bin/"python3-config --exec-prefix")
     assert_match py3_exec_prefix.chomp, output
     (testpath/"commands.vim").write <<~EOS
       :python3 import vim; vim.current.buffer[0] = 'hello python3'

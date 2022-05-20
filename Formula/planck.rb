@@ -1,20 +1,17 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "https://planck-repl.org/"
-  url "https://github.com/planck-repl/planck/archive/2.25.0.tar.gz"
-  sha256 "58a3f9b0e3d776bc4e28f1e78a8ce6ab1d98149bebeb5c5328cc14345b925a1f"
+  url "https://github.com/planck-repl/planck/archive/2.26.0.tar.gz"
+  sha256 "e2a01ea5cefcc08399a6bfc7204b228bfd0602b1126d5968fc976f48135a59b2"
   license "EPL-1.0"
-  revision 2
   head "https://github.com/planck-repl/planck.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_monterey: "ae9c4d505e495c03e50facc262a0c2a4cc924707aadd380d68e72c828f8707b3"
-    sha256 cellar: :any, arm64_big_sur:  "d8a3539294b4ba931761adad175e84404a95dd991f977501f89c19e533fff9a2"
-    sha256 cellar: :any, monterey:       "85198ae6acebb93fe6fc8c7f0d00911e8e3806eb06fbb73101ac712f1d9ebac1"
-    sha256 cellar: :any, big_sur:        "436bb7f0481e0a6a0edeaa1abd2687c349e6314bf6139a2b8ae4e9a73978ed8e"
-    sha256 cellar: :any, catalina:       "2528a360ad99d9d5031ae53138523c691e5a5ccb93da15cc44d214a9ad0d2e3b"
-    sha256 cellar: :any, mojave:         "b0d1fe14b9ab71a5a18601e8e21fe3b16dc96247b877ce6842bbc7c7cae93784"
+    sha256 cellar: :any, arm64_monterey: "9ce7bd1d935341e19c8649a608dc484dfad567a0db5de0100fabc8099868008e"
+    sha256 cellar: :any, arm64_big_sur:  "15d73a32fea0cd439cc24f637aa9882f47e69e274e9ca24f45c741d5309759fc"
+    sha256 cellar: :any, monterey:       "d7d950b46cc246bdac4a782292bcb1c280c7f4f1613778736cee12cd4d052ea2"
+    sha256 cellar: :any, big_sur:        "a975776372c01c12ff5a19597a7fb89d37efb60c35032d6625bfe7c7a3b1388e"
+    sha256 cellar: :any, catalina:       "35d61599097953290d2f4aa16e317df127e33abc924250f13d22a3a20433cf4a"
   end
 
   depends_on "clojure" => :build

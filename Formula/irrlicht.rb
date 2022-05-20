@@ -98,9 +98,7 @@ class Irrlicht < Formula
   end
 
   test do
-    on_macos do
-      assert_match Hardware::CPU.arch.to_s, shell_output("lipo -info #{lib}/libIrrlicht.a")
-    end
+    assert_match Hardware::CPU.arch.to_s, shell_output("lipo -info #{lib}/libIrrlicht.a") if OS.mac?
     cp_r Dir["#{pkgshare}/examples/01.HelloWorld/*"], testpath
     system ENV.cxx, "main.cpp", "-I#{include}/irrlicht", "-L#{lib}", "-lIrrlicht", "-o", "hello"
   end

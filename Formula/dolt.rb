@@ -1,8 +1,8 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://github.com/dolthub/dolt"
-  url "https://github.com/dolthub/dolt/archive/v0.36.1.tar.gz"
-  sha256 "22477482f3c554e702b970dfebd37dce9be390ebf7ebdcb85d3e9dbf206098ee"
+  url "https://github.com/dolthub/dolt/archive/v0.40.4.tar.gz"
+  sha256 "29e748422207a1b67abe2b04f1d81d2a123c750c662d7de01007b0f6c13c9f5f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Dolt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0428be85e3bdd5a6675aaa47c76a389ced412e42be8994ff1852c7b15a0c6372"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e93fc39484505dab73b5d6bbb6965b100298e086dd337986d4f2d42ccfa1e0f"
-    sha256 cellar: :any_skip_relocation, monterey:       "4764cab6103bd7558c1bf4d71066406cf794bc6c65edc1903b93df89ba3f54b7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6239a5df6c93c456cd3a5d73e3d7c8ede87ff50d63095fe074c56a206dd5c4ed"
-    sha256 cellar: :any_skip_relocation, catalina:       "c3478e4fad1e5b70553e4c771cdb5a89743a4542376a260cde1c52e5885e3e10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64ada13f318ecaab67259c68d052cf35e7d5223445f1c5b312dcf93dcf619b6f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fca3678eb9ef4a49beaca82db327688679dd5bf17a540773ace9b8bccbba49b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "910f642356a1b073e041bc52d84c2a11d54781d226964b8d6761eaa91f2c51ea"
+    sha256 cellar: :any_skip_relocation, monterey:       "2b820b7eec5ccc3f908dbc9f89e1a31c991fc78dae22ac5ecce22bd77b161ba2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9b7c844a00d6a01823fe1030f189863445648084932deb00c0bd5ec184019cb3"
+    sha256 cellar: :any_skip_relocation, catalina:       "396528b3578fa20a8dea4e5997e57fa278591b3ecfe7280193eea3895fba4a88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef6564c408f8408b211961c856c1c3182cdf95afc551bb8dd999da4acf331860"
   end
 
   depends_on "go" => :build

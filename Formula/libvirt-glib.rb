@@ -51,9 +51,10 @@ class LibvirtGlib < Formula
         return 0;
       }
     EOS
-    libxml2 = "#{MacOS.sdk_path}/usr/include/libxml2"
-    on_linux do
-      libxml2 = Formula["libxml2"].opt_include/"libxml2"
+    libxml2 = if OS.mac?
+      "#{MacOS.sdk_path}/usr/include/libxml2"
+    else
+      Formula["libxml2"].opt_include/"libxml2"
     end
     system ENV.cc, "test.cpp",
                    "-I#{libxml2}",

@@ -105,7 +105,7 @@ class Libbi < Formula
   end
 
   resource "thrust" do
-    url "https://github.com/thrust/thrust/archive/1.8.2.tar.gz"
+    url "https://github.com/NVIDIA/thrust/archive/1.8.2.tar.gz"
     sha256 "83bc9e7b769daa04324c986eeaf48fcb53c2dda26bcc77cb3c07f4b1c359feb8"
   end
 

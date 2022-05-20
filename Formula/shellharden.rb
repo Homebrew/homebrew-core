@@ -1,17 +1,17 @@
 class Shellharden < Formula
   desc "Bash syntax highlighter that encourages/fixes variables quoting"
   homepage "https://github.com/anordal/shellharden"
-  url "https://github.com/anordal/shellharden/archive/v4.1.3.tar.gz"
-  sha256 "1ea7f3af1346738689bf41f2be2a8be2285c2d66b55fe71999c0d82f50a1bdc0"
+  url "https://github.com/anordal/shellharden/archive/v4.2.0.tar.gz"
+  sha256 "468406c3698c98deeabbcb0b933acec742dcd6439c24d85c60cd3d6926ffd02c"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d625041f1fbe3eab74c04270fd05050aaba03aee4cd7327298cc56076b257270"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1fad7048a92304e23fa0b61f52a33a481b9fd4b92d9d05f1fd4c8ae4592adc8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ff3866f623e46915cede8a4fae524cd3bc1617bea2b021fd6137e7ed36183ff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1ac2c0a82a51438f5f9de526e63a962e20e84d31383afe6dd3440d5477d3c1ee"
-    sha256 cellar: :any_skip_relocation, catalina:       "0f61dd945c675db1d7be6cc124ed4af85b1973bcd4a83a58ca76094b88885c62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d39ca4ad421695d03bc72d815214ead62fb236d96c7c3cad3265fd6998b8c694"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4df0a98551f3b8a21dd2542c2beb887d11bb0e0ad9c73b6850fc95e2d60bdc0f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3e8a5bcabd7544e1aae73bb1db2561ad4f88d0bdd12ba240a0a3b2d615aa9dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "3a6770751276ff16855df0c311a020755cec588e56045e95c7c49f6a74df055d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b56ce7f1583351611eb9247ea7cde6bbcefaa5370b79c4e4aa34e1c041a91dbb"
+    sha256 cellar: :any_skip_relocation, catalina:       "024ba81bf5ca8ac721264f893f0cae56830268dd922d6f015b1ea21d97d91291"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe37e5663ef542f05416ed4e2a3abb91716b2252b1e63b52776cc2288b3bceef"
   end
 
   depends_on "rust" => :build

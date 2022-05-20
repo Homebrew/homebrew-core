@@ -1,12 +1,12 @@
 class Fnlfmt < Formula
   desc "Formatter for Fennel code"
   homepage "https://git.sr.ht/~technomancy/fnlfmt"
-  url "https://git.sr.ht/~technomancy/fnlfmt/archive/0.2.2.tar.gz"
-  sha256 "9e14d6750495c78daa7a474ff2d44bccee260e3d39e55dd61d86986e75bd9def"
+  url "https://git.sr.ht/~technomancy/fnlfmt/archive/0.2.3.tar.gz"
+  sha256 "0a7d7aaf4d88a81b6f13ed02fa88e74ed6c634ba50254de09eeb5a7777ae90d6"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "18b456dcb6cc242942c5677c9b8ab8e74274426f5eba01038819dd5b71f9db79"
+    sha256 cellar: :any_skip_relocation, all: "28781ba4b856d98bae1c75b51e9d164dbb1f91c569ea421e5a41586410c363d5"
   end
 
   depends_on "lua"

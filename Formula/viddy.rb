@@ -22,10 +22,8 @@ class Viddy < Formula
   end
 
   test do
-    on_linux do
-      # Errno::EIO: Input/output error @ io_fread - /dev/pts/0
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # Errno::EIO: Input/output error @ io_fread - /dev/pts/0
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     ENV["TERM"] = "xterm"
     require "pty"

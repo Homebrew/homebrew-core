@@ -1,12 +1,12 @@
 class BatsCore < Formula
   desc "Bash Automated Testing System"
   homepage "https://github.com/bats-core/bats-core"
-  url "https://github.com/bats-core/bats-core/archive/v1.5.0.tar.gz"
-  sha256 "36a3fd4413899c0763158ae194329af8f48bb1ff0d1338090b80b3416d5793af"
+  url "https://github.com/bats-core/bats-core/archive/v1.7.0.tar.gz"
+  sha256 "ac70c2a153f108b1ac549c2eaa4154dea4a7c1cc421e3352f0ce6ea49435454e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6911a873446605176d6cfb219b335f1bd073da5be1834290829b062497443420"
+    sha256 cellar: :any_skip_relocation, all: "ca25618be85dfc2f86c31b7b6ea084a3d3108badcfbd28e036613958aa9094b6"
   end
 
   depends_on "coreutils"
@@ -17,8 +17,6 @@ class BatsCore < Formula
 
   def install
     system "./install.sh", prefix
-    # Replace `/usr/local` references for uniform bottles
-    inreplace lib/"bats-core/formatter.bash", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do

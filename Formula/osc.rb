@@ -3,18 +3,18 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://github.com/openSUSE/osc/archive/0.175.0.tar.gz"
-  sha256 "6802efaf1c1b2c89cc0de856c5754a1aecb045d2193a3a42b7a5775ccdbf70fd"
+  url "https://github.com/openSUSE/osc/archive/0.177.0.tar.gz"
+  sha256 "3dfeb9944f78f17a509966dd1dd89d177dd0d87856a6c8f7556d68e07521d1d4"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b1bb6399a8354b54ec662312050225f4a930ca5e84ff0c92727df410ca25235e"
-    sha256 cellar: :any,                 arm64_big_sur:  "968b82656b91621ef571880ae7998983fea24799216844027cd63f43760d1dde"
-    sha256 cellar: :any,                 monterey:       "c272b3e8927e3007f1c5f0103907622441231154b1ff2d452a21e67593dfe05c"
-    sha256 cellar: :any,                 big_sur:        "47e13a499a78af0b3cee0d71b5c5bb959a453d42f1ac1cf9e91a408ac6805da1"
-    sha256 cellar: :any,                 catalina:       "c3eb01e94ec3160f91086673286935de0e9f0867217a4f20357f4b06ed692419"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "948efff33f57394d660641f6f05c43452d0af7974c936a7c08e5e05d178b3007"
+    sha256 cellar: :any,                 arm64_monterey: "8cbbb5e963a05080ecff592388d59e896333d41f7f8416fa9670690e582a2a1a"
+    sha256 cellar: :any,                 arm64_big_sur:  "0c5e7c3eb32f6492fa802351eef8c6d3ecd98568bc42e7c7f468d4bfe5c486e9"
+    sha256 cellar: :any,                 monterey:       "6bcf28372b0620ee54688ac0bc31e6146aa217aec8f35b073cdad349cf320caf"
+    sha256 cellar: :any,                 big_sur:        "4948b942f82eb690022ecf628ef6983e70c0024e7e4ce23265e757f93ba0b1c8"
+    sha256 cellar: :any,                 catalina:       "852e256e0f08cc623fe93fed986f9438806ed29024fa5731c87eef0e39977c68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e3f5a16b0e44dd9b079e9040221fa607c3511fe50308144a643455c1ec6ce6b"
   end
 
   depends_on "swig" => :build

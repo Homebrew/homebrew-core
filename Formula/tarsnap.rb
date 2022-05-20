@@ -1,30 +1,26 @@
 class Tarsnap < Formula
   desc "Online backups for the truly paranoid"
   homepage "https://www.tarsnap.com/"
-  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz"
-  sha256 "5613218b2a1060c730b6c4a14c2b34ce33898dd19b38fb9ea0858c5517e42082"
+  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.40.tgz"
+  sha256 "bccae5380c1c1d6be25dccfb7c2eaa8364ba3401aafaee61e3c5574203c27fd5"
   license "0BSD"
-  revision 1
 
   livecheck do
-    url "https://www.tarsnap.com/download/"
-    regex(/href=.*?tarsnap-autoconf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://www.tarsnap.com/download.html"
+    regex(/href=.*?tarsnap-autoconf[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d249e7eb52d4bfc67e8a74fb45c7419181731c4c37c74591a08d97bd2dd064d8"
-    sha256 cellar: :any,                 arm64_big_sur:  "879ca63de6f2c293dd325fe0cf7a7284cf5603bf5efcc6fc5159ddb676d1163d"
-    sha256 cellar: :any,                 monterey:       "72bcf82c424cf4df2a63420b7353ee9085738b4132294d84cd6bdcb695c7ee9d"
-    sha256 cellar: :any,                 big_sur:        "db0fceeaf2b93d4d7588ef1b3c0ac69080595e4fd05311fb3d61ccb95c9f9ae0"
-    sha256 cellar: :any,                 catalina:       "afa6ebfefbc93faf12ac6576f26edb0b68c6a47cc65b893d590ea1efd4301fb4"
-    sha256 cellar: :any,                 mojave:         "c6c97cd8e16ba02f7997d1d269373dca82d4a3d188b89dc3532c8149e277bd02"
-    sha256 cellar: :any,                 high_sierra:    "847aae76230beaedfa23ea0a0f375864a8af6063c8539634637ab218a425540d"
-    sha256 cellar: :any,                 sierra:         "dbf1a477d46c723a3cebb6b1001771bf51956035ea3369b5e2451c091cad5930"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01ae2d2ea9adaba408f88a7e5917aa3891971e135b24052482193c94e8023b66"
+    sha256 cellar: :any,                 arm64_monterey: "2f1ea86aae6e6e464e2e78b7e984fdb884e62ab350b3d20058e0db069d7b191e"
+    sha256 cellar: :any,                 arm64_big_sur:  "cf93e896315ebb2a3fefb2ff032b6e39c12fa6fd800aea3b92ef0634d31858eb"
+    sha256 cellar: :any,                 monterey:       "c0f9c6e1b236cb7090f165e6d0446bf7ebbeec5c376e86f95c4780914986f241"
+    sha256 cellar: :any,                 big_sur:        "1c48cabb8d20ad07878301d4569f1aaf9c170ba8a966822dbcf4f24f50b4d00c"
+    sha256 cellar: :any,                 catalina:       "46c31d5b91537dfe098c9cdf09b56585fbfa0d096035a71dd6d2ff9746841456"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d753f70ee86f887511c3a1a1dbcea99b4da13b77f21b74d56fc1e5190a5c9c6c"
   end
 
   head do
-    url "https://github.com/Tarsnap/tarsnap.git"
+    url "https://github.com/Tarsnap/tarsnap.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

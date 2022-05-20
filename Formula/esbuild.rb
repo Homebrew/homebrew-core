@@ -3,17 +3,17 @@ require "language/node"
 class Esbuild < Formula
   desc "Extremely fast JavaScript bundler and minifier"
   homepage "https://esbuild.github.io/"
-  url "https://registry.npmjs.org/esbuild/-/esbuild-0.14.21.tgz"
-  sha256 "6933ccc42e8ba85e858ff5ebc888b68d32982f129a2f4e2af0a46d0b953a3177"
+  url "https://registry.npmjs.org/esbuild/-/esbuild-0.14.39.tgz"
+  sha256 "eee7a37917828d8cd6225414cc29b73fe6c2b0deaa1ed24b36a5bf51fd82b9ff"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b5f08d1bc1d41abd0e6b5046ee2d7904734e16fd4150d08f6cdc9c969d8a684"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7b5f08d1bc1d41abd0e6b5046ee2d7904734e16fd4150d08f6cdc9c969d8a684"
-    sha256 cellar: :any_skip_relocation, monterey:       "4048d68087dc2ab316afb605cc47d5aeb748b69331b3cf01bc66aceb487d27e8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4048d68087dc2ab316afb605cc47d5aeb748b69331b3cf01bc66aceb487d27e8"
-    sha256 cellar: :any_skip_relocation, catalina:       "4048d68087dc2ab316afb605cc47d5aeb748b69331b3cf01bc66aceb487d27e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b131f949d1302347e3262237a853c87ca59510a0bd21c2f3a13c1e42deed8c82"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "97a5dfd003d3113040877523977b7112a3edf93b19e46d4631e074a2598a9447"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97a5dfd003d3113040877523977b7112a3edf93b19e46d4631e074a2598a9447"
+    sha256 cellar: :any_skip_relocation, monterey:       "395cc12922abd08270196e50b868c8f8ca029dea88ba738de16376a8df907a06"
+    sha256 cellar: :any_skip_relocation, big_sur:        "395cc12922abd08270196e50b868c8f8ca029dea88ba738de16376a8df907a06"
+    sha256 cellar: :any_skip_relocation, catalina:       "395cc12922abd08270196e50b868c8f8ca029dea88ba738de16376a8df907a06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57da66b504681991f8613f7d8f52bfbff611baca2c241075f689b31481227c7b"
   end
 
   depends_on "node"
@@ -35,6 +35,6 @@ class Esbuild < Formula
     system Formula["node"].libexec/"bin/npm", "install", "react", "react-dom"
     system bin/"esbuild", "app.jsx", "--bundle", "--outfile=out.js"
 
-    assert_equal "<h1 data-reactroot=\"\">Hello, world!</h1>\n", shell_output("node out.js")
+    assert_equal "<h1>Hello, world!</h1>\n", shell_output("node out.js")
   end
 end

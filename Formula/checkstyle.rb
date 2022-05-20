@@ -1,12 +1,12 @@
 class Checkstyle < Formula
   desc "Check Java source against a coding standard"
   homepage "https://checkstyle.sourceforge.io/"
-  url "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-9.3/checkstyle-9.3-all.jar"
-  sha256 "02ad3307e46059a7c4f8af6c5f61f477bc5fd910e56afb145c45904c95d213ac"
+  url "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.2/checkstyle-10.2-all.jar"
+  sha256 "8dcbbb28c7986c7656e33b30695fdc2e463808b5fdbc921c1255c9ab4e847d16"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4b570ce9c5078c02d55930e90a0b3fb686a1168f5068db2491e2631d02b86144"
+    sha256 cellar: :any_skip_relocation, all: "53e644cd52b4972a15aefaa1d5f3f9a713e3de4d0a84bb07ada5babc56a1b56e"
   end
 
   depends_on "openjdk"

@@ -1,18 +1,18 @@
 class Simdjson < Formula
   desc "SIMD-accelerated C++ JSON parser"
   homepage "https://simdjson.org"
-  url "https://github.com/simdjson/simdjson/archive/v1.0.2.tar.gz"
-  sha256 "46d5995488de76ae61f1c3bcff445a9085c8d34f6cbc9bf0422a99c6d98a002c"
+  url "https://github.com/simdjson/simdjson/archive/v1.1.0.tar.gz"
+  sha256 "9effcb21fe48e4bcc9b96031e60c3911c58aa656ad8c78212d269c0db9e0133e"
   license "Apache-2.0"
   head "https://github.com/simdjson/simdjson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "518de62b8b806c49f648784dc9b33f2d0c8575029fb4d78a6487ac80cc62b013"
-    sha256 cellar: :any,                 arm64_big_sur:  "7c6b11eb8c5b581a872c5070ac1d7134305b419e49baa25dd9c3b3df9024ec55"
-    sha256 cellar: :any,                 monterey:       "c4ff0c41fcd758e7c0dd1f20e63830f690c3308999b35dcfb5739e27242180e6"
-    sha256 cellar: :any,                 big_sur:        "f2def7a5a729fd09f4e3e6c6df3d82f6233c8e3efcf6e292b650ead95fc3e089"
-    sha256 cellar: :any,                 catalina:       "a1c949fe2485e8e76fb0cfdd648f4fa8fef1eb304652a9a11d332ac2408b2625"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64093f3fcff9ceff07d1a228c5df8f9d93878c1a01d222b5a34ace5fb5c8f967"
+    sha256 cellar: :any,                 arm64_monterey: "f2e9edbd04fb5a138a642472fcfcf8a6ade530b2fb2fefa4b42f7d0ed3a1b44b"
+    sha256 cellar: :any,                 arm64_big_sur:  "9d202674c9cdd89243d7b33cb702993cf35807ba3f3322dfb95a2c5875656460"
+    sha256 cellar: :any,                 monterey:       "8929e292d50dafbe24d623ac686039202b5594b26f35cf175578ff1be3a14902"
+    sha256 cellar: :any,                 big_sur:        "4a37c01e7298d765fd92da44cf69030459974a565f38c84a81323920a2ca7653"
+    sha256 cellar: :any,                 catalina:       "7c33fdb53d9a8e07c42efa654ceb95bb8ae51024b8ff249fd45979cd71da2a0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fb8f83993f56ac81d7a330a64e11ea12cae3de3ef53ef136c38ffc669098cf3"
   end
 
   depends_on "cmake" => :build

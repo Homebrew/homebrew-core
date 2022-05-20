@@ -1,18 +1,18 @@
 class GitDelta < Formula
   desc "Syntax-highlighting pager for git and diff output"
   homepage "https://github.com/dandavison/delta"
-  url "https://github.com/dandavison/delta/archive/0.11.3.tar.gz"
-  sha256 "cf68f43d4d26c10551c0137a7e718719958e52267d83f29a8f7794af12095b9e"
+  url "https://github.com/dandavison/delta/archive/0.13.0.tar.gz"
+  sha256 "5a0ba70a094a7884beb6f1efd4d155861e4b3e3584c452cabbce1607f8eb0f30"
   license "MIT"
   head "https://github.com/dandavison/delta.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "38f445182717dc92fb654871935d936ee932baaa49617a3a217325a4a5a8d033"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98e71c99827e083aea7fde4edcfbe11bc9ab5b1bff8731f8726cc9ad70378c40"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bd9f1eb9ddca369f2b1792c7a74ef8086fad5758d28c9fa035e7f0fdbd1c414"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2c046081a409513ccf0d871b6ca6f26be882d95b691f735da74502fa2ff6ee21"
-    sha256 cellar: :any_skip_relocation, catalina:       "0878dc6e9edfdad87d5caa270869da90766cca1ce91a4c0abbf3f12c53c24c26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e9ffeba04833087f884c88ca779f909cb42ad2b0741d504d0adff3f022db13a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b871380c531484f3eb60c3f3965971d4e1974846e23ebbda2c4c4b4e6969c279"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a37fd9b4838aa5f039aa9b92b70ed92ea7e2e3cde223c848f64b7fc4520378a"
+    sha256 cellar: :any_skip_relocation, monterey:       "4fa85062a8ec07516f772aefea1d0da0c70500b4992e86157e4daeac699db73b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "009656e3089eb400dbb964db081e169b172a9d3918cc3afdc5ca3715c0363c23"
+    sha256 cellar: :any_skip_relocation, catalina:       "eb71a5e4badf7f096607feb7a58dd5116d2954705948a43045a7f943c3d27999"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "725478975f1e92f80fd7e5584cf924e585e69f9c2e4a39e64ccf83b3e07fac2e"
   end
 
   depends_on "rust" => :build

@@ -16,9 +16,14 @@ class MonitoringPlugins < Formula
     sha256 cellar: :any, big_sur:        "a49576ad287d073c67e0da12be686ba737abe34e5f61813a2e308cd44c427017"
     sha256 cellar: :any, catalina:       "644b33de5338e00a2103c87aa4b55a39b7a16e2ecee49936f2251a0a97756f0f"
     sha256 cellar: :any, mojave:         "883707c4b2fe29a6d0b8453d4d19005128761d5d6952b9fe21292ec4b4cb2b11"
+    sha256               x86_64_linux:   "db7cde1c3eb426811fd9ecec4a97c485caad9a35800d8006123339d0b82963b6"
   end
 
   depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "bind"
+  end
 
   conflicts_with "nagios-plugins", because: "both install their plugins to the same folder"
 

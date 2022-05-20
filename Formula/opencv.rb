@@ -1,10 +1,10 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.5.4.tar.gz"
-  sha256 "c20bb83dd790fc69df9f105477e24267706715a9d3c705ca1e7f613c7b3bad3d"
+  url "https://github.com/opencv/opencv/archive/4.5.5.tar.gz"
+  sha256 "a1cfdcf6619387ca9e232687504da996aaa9f7b5689986b8331ec02cb61d28ad"
   license "Apache-2.0"
-  revision 4
+  revision 2
 
   livecheck do
     url :stable
@@ -12,11 +12,12 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "0b8eed8bfbdb17ff2fa0d527f9d9eb84d1d6a25a5ad582ac373cab73cc6fb473"
-    sha256                               arm64_big_sur:  "6edac2cec751a071096bf5f7453882cf3dd0f717b59f0a0617ba96ba111c18a5"
-    sha256                               big_sur:        "2c42270eb3f5b20b40975120645b58e667992892278557609d5fa0e6ce930c97"
-    sha256                               catalina:       "b1e0918e3bb9c7f001f8389f1674d225b6268ce7bb28b624a6176cd06bbd6375"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2368bc3aa345fc6366fe39b4e67b9018b485a2547dc07669190f7a834c22f27e"
+    sha256                               arm64_monterey: "09ff0cf6c1615ae90f868104312a6f5600837a0a8f81932d95b2b441967b2c53"
+    sha256                               arm64_big_sur:  "7c2caf5b086c12861fbe94bf1bbf7f1789eceefa38d299de9cf7d7c71d4b1583"
+    sha256                               monterey:       "e8a0ae9ac95af2a50ea029a175addb786eca8ef74927f439ebf486ea6f27419b"
+    sha256                               big_sur:        "191f877884653ccc2daf7f1f54810cd59be0aed183af75de7f745bbfd238da9f"
+    sha256                               catalina:       "9f5ed07be7da595070b04642fe4f3776e5e7df6db6a314d012a8b0ce7be6df37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62aec5ee6afa617bd30ecc2b35131c2a7eafb3aa6547b6b9f65839dfd2f08f8e"
   end
 
   depends_on "cmake" => :build
@@ -43,8 +44,8 @@ class Opencv < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.5.4.tar.gz"
-    sha256 "ad74b440b4539619dc9b587995a16b691246023d45e34097c73e259f72de9f81"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.5.tar.gz"
+    sha256 "a97c2eaecf7a23c6dbd119a609c6d7fae903e5f9ff5f1fe678933e01c67a6c11"
   end
 
   def install

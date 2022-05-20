@@ -1,18 +1,18 @@
 class ArgocdVaultPlugin < Formula
   desc "Argo CD plugin to retrieve secrets from Secret Management tools"
   homepage "https://argocd-vault-plugin.readthedocs.io"
-  url "https://github.com/IBM/argocd-vault-plugin.git",
-      tag:      "v1.8.0",
-      revision: "aa8abb0efba2759fc2b86aadb5f0904eb972348e"
+  url "https://github.com/argoproj-labs/argocd-vault-plugin.git",
+      tag:      "v1.11.0",
+      revision: "4133295001e037b917a8884da84af42f12a51cae"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c53271294247cffd0989f434fd3cb4920e81664ebbf0b8aa4e2731775ba3eacb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c53271294247cffd0989f434fd3cb4920e81664ebbf0b8aa4e2731775ba3eacb"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e55c221461bb194cd52e657b1c01efc2e96d10f69f58c765e89b1a01fef29f6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3e55c221461bb194cd52e657b1c01efc2e96d10f69f58c765e89b1a01fef29f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "3e55c221461bb194cd52e657b1c01efc2e96d10f69f58c765e89b1a01fef29f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7390eecdb2846bfab9127c2b1e1c36b7ebaa167dc0272addcfc0aba2cf6cb15"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2058ed2abe0a5c050f2944a22aa9049f68a3d3778c43d77329ea24e30e69985"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2058ed2abe0a5c050f2944a22aa9049f68a3d3778c43d77329ea24e30e69985"
+    sha256 cellar: :any_skip_relocation, monterey:       "8913663ce63800efd24b419b70375ac8b2fd202162b2c5ba75e7c62aeb0192e1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8913663ce63800efd24b419b70375ac8b2fd202162b2c5ba75e7c62aeb0192e1"
+    sha256 cellar: :any_skip_relocation, catalina:       "8913663ce63800efd24b419b70375ac8b2fd202162b2c5ba75e7c62aeb0192e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1792a0e85386afe7070634fff7c70fefe1de375bab92fdca033641089581b82"
   end
 
   depends_on "go" => :build
@@ -22,9 +22,9 @@ class ArgocdVaultPlugin < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/IBM/argocd-vault-plugin/version.Version=#{version}
-      -X github.com/IBM/argocd-vault-plugin/version.BuildDate=#{time.iso8601}
-      -X github.com/IBM/argocd-vault-plugin/version.CommitSHA=#{Utils.git_head}
+      -X github.com/argoproj-labs/argocd-vault-plugin/version.Version=#{version}
+      -X github.com/argoproj-labs/argocd-vault-plugin/version.BuildDate=#{time.iso8601}
+      -X github.com/argoproj-labs/argocd-vault-plugin/version.CommitSHA=#{Utils.git_head}
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)

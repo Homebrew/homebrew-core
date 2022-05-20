@@ -1,8 +1,9 @@
 class V8AT315 < Formula
   desc "Google's open source JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
-  url "https://github.com/v8/v8-git-mirror/archive/3.15.11.18.tar.gz"
+  url "https://github.com/v8/v8/archive/3.15.11.18.tar.gz"
   sha256 "93a4945a550e5718d474113d9769a3c010ba21e3764df8f22932903cd106314d"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
@@ -17,6 +18,8 @@ class V8AT315 < Formula
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2022-05-18", because: "depends on Python 2 to build"
 
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",

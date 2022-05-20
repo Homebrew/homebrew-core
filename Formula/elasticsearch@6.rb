@@ -16,6 +16,8 @@ class ElasticsearchAT6 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2022-02-10", because: :unsupported
+
   depends_on "openjdk"
 
   def cluster_name

@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-26.0.1.Final.tar.gz"
-  sha256 "bd40fcf0bc2ff1a910eb6c2e5f2cb1946053cb2d15c0323aefb40f0f3852c5e5"
+  url "https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-26.1.1.Final.tar.gz"
+  sha256 "84d4caa31a82ee0dcd14528857c7efa23cef1ba819a981390f0f7587f191d364"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,11 +11,13 @@ class WildflyAs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, all: "b04e4e4beb6c592f3aeb1a0478a14b829a6f7d7bbc9a00c4c9fa70b6fb8e6cba"
+    sha256 cellar: :any, arm64_monterey: "24fba6e0f5201267c78e9ff5768c0968b067edf5afecbfa18507eae9e8fbf23b"
+    sha256 cellar: :any, arm64_big_sur:  "24fba6e0f5201267c78e9ff5768c0968b067edf5afecbfa18507eae9e8fbf23b"
+    sha256 cellar: :any, monterey:       "b82ea3020b78c0b58725b74344ea2db49c5997c10e9213d2d163b1ca3538526e"
+    sha256 cellar: :any, big_sur:        "b82ea3020b78c0b58725b74344ea2db49c5997c10e9213d2d163b1ca3538526e"
+    sha256 cellar: :any, catalina:       "b82ea3020b78c0b58725b74344ea2db49c5997c10e9213d2d163b1ca3538526e"
   end
 
-  # Installs a pre-built x86_64-only `libwfssl`
-  depends_on arch: :x86_64
   # Installs a pre-built `libartemis-native-64.so` file with linkage to libaio.so.1
   depends_on :macos
   depends_on "openjdk"
@@ -23,6 +25,16 @@ class WildflyAs < Formula
   def install
     buildpath.glob("bin/*.{bat,ps1}").map(&:unlink)
     buildpath.glob("**/win-x86_64").map(&:rmtree)
+    buildpath.glob("**/linux-i686").map(&:rmtree)
+    buildpath.glob("**/linux-s390x").map(&:rmtree)
+    buildpath.glob("**/linux-x86_64").map(&:rmtree)
+    buildpath.glob("**/netty-transport-native-epoll/**/native").map(&:rmtree)
+    if Hardware::CPU.intel?
+      buildpath.glob("**/*_aarch_64.jnilib").map(&:unlink)
+    else
+      buildpath.glob("**/macosx-x86_64").map(&:rmtree)
+      buildpath.glob("**/*_x86_64.jnilib").map(&:unlink)
+    end
 
     inreplace "bin/standalone.sh", /JAVA="[^"]*"/, "JAVA='#{Formula["openjdk"].opt_bin}/java'"
 

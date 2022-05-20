@@ -13,11 +13,14 @@ class Boxes < Formula
     sha256 big_sur:        "eba500de77351541b21e68725366e61c7f6452cf097d72d7098ebb752d9d6f8f"
     sha256 catalina:       "26564383c477c7e9e77ae94ab8d4fdb26cbaf2d530b768d01f93b72c1567b0c8"
     sha256 mojave:         "e42c888a34141a1cff3b52404f0e35d1de820f64b2d7d7bf973684a8e234b1bd"
+    sha256 x86_64_linux:   "4a7881b680878471dfb3ea8d9392439b5f857b7a61c6385f1c4bd405f2333891"
   end
 
   depends_on "bison" => :build
   depends_on "libunistring"
   depends_on "pcre2"
+
+  uses_from_macos "flex" => :build
 
   def install
     # distro uses /usr/share/boxes change to prefix

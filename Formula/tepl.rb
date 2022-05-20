@@ -1,22 +1,19 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
-  homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz"
-  sha256 "a86397a895dca9c0de7a5ccb063bda8f7ef691cccb950ce2cfdee367903e7a63"
+  homepage "https://gitlab.gnome.org/swilmet/tepl"
+  url "https://gitlab.gnome.org/swilmet/tepl.git",
+      tag:      "6.0.1",
+      revision: "2db87c240f86ec05b6707c069dd132f835be653a"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_monterey: "0e4dbf7150d529840a821f20d2d0eaf2b569c6e3bd1afbbec242fedec7b9aaaf"
-    sha256 arm64_big_sur:  "ffb98f11bf159e2352d8ed7ca0bb4c62c48f4ba5781c7e2757a02ad5458fc1a0"
-    sha256 monterey:       "cec974116423a8d584025acde11cef9b680be26899e18d8dc986cd0d63b04cc5"
-    sha256 big_sur:        "b5c8dfff1540875f6bd03ec4a7e58ba68d5df65597e80eb7e469ce88c6bd4175"
-    sha256 catalina:       "0c2d2161a8f65a3728e479d26ba2dc736e163b7fe902ec59666d138bfc0de47e"
-    sha256 mojave:         "44b4a1c68e07df9275cb2275f6852e6b713e306f764833c620542a2cb741e565"
-    sha256 x86_64_linux:   "427e014f684cb2d7b3ddea724baa0d93123564be224efbd8632283df1f9fbd14"
+    sha256 arm64_monterey: "36c69d3ea19fc801b127e7bceebb89fef2a5dbcd4ab404fb0f7e69b69839d4cf"
+    sha256 arm64_big_sur:  "c8592e7f095367683ded55ad7bb032675950476454d1d994430a66519e8d8ef1"
+    sha256 monterey:       "41fe7ca474a64f9e112bba45bfa7e63ae405281a17bf445ee356ef6fb9730f9f"
+    sha256 big_sur:        "3bfb9f49b5eab9cafb5f3f708f2adf837108d98ffd3b9e01c7f1e12e99735e8b"
+    sha256 catalina:       "2748d48927072c8ca4d10d960e50f7935a5323dafd7b700c78405c19d8fe27ba"
+    sha256 x86_64_linux:   "fed30b3cb27c8e62d8b6b04e362a2e0d51f0c7ef5de60531b6dbc4ff5357f586"
   end
-
-  # See: https://gitlab.gnome.org/Archive/tepl
-  deprecate! date: "2021-05-25", because: :repo_archived
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
@@ -24,17 +21,18 @@ class Tepl < Formula
   depends_on "pkg-config" => :build
   depends_on "amtk"
   depends_on "gtksourceview4"
+  depends_on "icu4c"
   depends_on "uchardet"
 
-  # Submitted upstream at https://gitlab.gnome.org/GNOME/tepl/-/merge_requests/8
+  # Fix "ld: unknown option: --version-script", remove in next release
   patch do
-    url "https://gitlab.gnome.org/GNOME/tepl/-/commit/a8075b0685764d1243762e569fc636fa4673d244.diff"
-    sha256 "b5d646c194955b0c14bbb7604c96e237a82632dc548f66f2d0163595ef18ee88"
+    url "https://gitlab.gnome.org/swilmet/tepl/-/commit/9f2dbb0f2e835b4a7e4bdb04085799575237dff7.diff"
+    sha256 "c3c3dfcd6c7e665d2f524678d9d3e3343afb9b575ab76cc71ef214abb5dbc727"
   end
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, ".."
+      system "meson", *std_meson_args, "-Dgtk_doc=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
@@ -115,9 +113,7 @@ class Tepl < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

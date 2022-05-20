@@ -15,7 +15,8 @@ class DockerMachineDriverVmware < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcbbcda3d2fefbc6a36110af71741feca578e911bda0c54ba54ab9846e741dc4"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
   depends_on "docker-machine"
 
   def install

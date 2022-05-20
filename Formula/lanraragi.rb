@@ -3,15 +3,17 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/v.0.8.4.tar.gz"
-  sha256 "c812c93c29cc69a7b513a9d34168816182cdd71fef93bba8575e9370b9ca855c"
+  url "https://github.com/Difegue/LANraragi/archive/v.0.8.5.tar.gz"
+  sha256 "2cf53f7405a6a4e16e6d61a1109bdd87c25471c2ee6cf2fb79129c7f5666fa31"
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7474aa535beace739f725a4e9d66d73301710a4048060661f1f9632e806e35f7"
-    sha256 cellar: :any, big_sur:       "6146ead7d4a4657c429573cfe7efebfac85af5c1662f9b4a848f91034eb45ac9"
-    sha256 cellar: :any, catalina:      "44b49568d0ee0e1f2da3329f111313bf34920c2e6b27b0038e5df91bd3c20127"
+    sha256 cellar: :any, arm64_monterey: "5aa823c1f1838e971751b56f2a3cd42bd815c9513b13d327e432e9017570b970"
+    sha256 cellar: :any, arm64_big_sur:  "2e1ef247998188562bc78cfef1689cbee1134cd834280fd243a0c1452b1a28aa"
+    sha256 cellar: :any, monterey:       "aa53aeb1ec9499a301c79f7011e3b228655ebe4c03e19de3f935478da467d969"
+    sha256 cellar: :any, big_sur:        "879f9384947c8453d3c803edf591f2c61decab4a5d39d4205c3db799d2ce2d23"
+    sha256 cellar: :any, catalina:       "44bb28ad1890524464db94ca26c07c838bf287c6ba784d6d60ddef7645552b16"
   end
 
   depends_on "nettle" => :build

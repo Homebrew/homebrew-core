@@ -2,8 +2,8 @@ class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
   url "https://github.com/apache/camel-k.git",
-      tag:      "v1.8.0",
-      revision: "eb893c22ad451a45525f487af671d7d945ed722c"
+      tag:      "v1.9.1",
+      revision: "501ef721cf1a1ed87bca6257b6ad4af72678ae8f"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git", branch: "main"
 
@@ -13,10 +13,12 @@ class Kamel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "81af020bb729671c37fbdb3c80a83f8a0ed566d867cbd589c8258877a2103a51"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6bb0296ca01de2472629f21b1a7ce23ea659b23bf0a6cfa6bb290ba007cef964"
-    sha256 cellar: :any_skip_relocation, catalina:      "dde46e992610679b2e3f58cd83a6fd9afb5ee97cd95b0fcaa63e3a6d8194bcbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4070e26e7d3cd55d7c42ac8379dc49cef852804be1e3d32e6cffede8a8f3f213"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa2cc0231913e380c326a9a442a5bcde3aad72601c8af37e8594551b80b8bc6a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc3a4d4f50ed082625fe5ee9f525634696f5f676de4ed935b2a21de5c024cf29"
+    sha256 cellar: :any_skip_relocation, monterey:       "828047d9df980e421cc9f86161a3248ec9b520fc68481e68eaa1cdb7fdc90e3c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d6ec6842ece259e50d3f8375a9273a872116589f65fd686133953aa0d75a5a0"
+    sha256 cellar: :any_skip_relocation, catalina:       "cdf6f2b72ff8dbfdabeec4ccfbf292f815316c3f97667ad43016159a0f53a111"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14b06e7e5b1fe878ba0e6a952198702493cb68842115f82971bd401994a3a28a"
   end
 
   depends_on "go" => :build
@@ -25,7 +27,7 @@ class Kamel < Formula
 
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
-    system "make"
+    system "make", "build-kamel"
     bin.install "kamel"
 
     output = Utils.safe_popen_read("#{bin}/kamel", "completion", "bash")

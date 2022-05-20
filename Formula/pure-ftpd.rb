@@ -11,15 +11,20 @@ class PureFtpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "37b7a18770c4050e170e73e9f91b0c4e89796b27b4bc97383f4c01e5d1b845c2"
-    sha256 cellar: :any, arm64_big_sur:  "be2354790a43f2530fade9684e49afdf6127e720e8a1a3396b284aa21e230a48"
-    sha256 cellar: :any, monterey:       "31ec7d058a66adc3e31d5b550e9dffa8d9d4388d125e25a701ac46e6b4f1480a"
-    sha256 cellar: :any, big_sur:        "f8a22572ca75768fa21b1177c77f8f222429726dbc21b8cd9fa061ddb3ecaaaf"
-    sha256 cellar: :any, catalina:       "a3cfa341bc66691b8f5962d493799c5f2f2c68114cc7a101493728991f18b423"
+    sha256 cellar: :any,                 arm64_monterey: "37b7a18770c4050e170e73e9f91b0c4e89796b27b4bc97383f4c01e5d1b845c2"
+    sha256 cellar: :any,                 arm64_big_sur:  "be2354790a43f2530fade9684e49afdf6127e720e8a1a3396b284aa21e230a48"
+    sha256 cellar: :any,                 monterey:       "31ec7d058a66adc3e31d5b550e9dffa8d9d4388d125e25a701ac46e6b4f1480a"
+    sha256 cellar: :any,                 big_sur:        "f8a22572ca75768fa21b1177c77f8f222429726dbc21b8cd9fa061ddb3ecaaaf"
+    sha256 cellar: :any,                 catalina:       "a3cfa341bc66691b8f5962d493799c5f2f2c68114cc7a101493728991f18b423"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97e9bebb7b6f9e9348e1151637f7d1ad046550426cc0b2e80186cd06205ad93d"
   end
 
   depends_on "libsodium"
   depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "linux-pam"
+  end
 
   def install
     args = %W[

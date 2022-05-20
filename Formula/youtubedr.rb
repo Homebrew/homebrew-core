@@ -1,17 +1,17 @@
 class Youtubedr < Formula
   desc "Download Youtube Video in Golang"
   homepage "https://github.com/kkdai/youtube"
-  url "https://github.com/kkdai/youtube/archive/v2.7.10.tar.gz"
-  sha256 "04a4f0b745094884fb2902945ac3b1c966fbe4fbd67a027cb482d491662900f9"
+  url "https://github.com/kkdai/youtube/archive/v2.7.13.tar.gz"
+  sha256 "082a6df600d390817ea3765196f5f5ca11a41ab81bfd591cb83a523acd011025"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f88cd160ded250e0192bba91a58e359049c4165e3272a2b28ed78f8049e7e32"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1f88cd160ded250e0192bba91a58e359049c4165e3272a2b28ed78f8049e7e32"
-    sha256 cellar: :any_skip_relocation, monterey:       "9e45685eefb31b15bc999271df40b123f7d13e6a4cf780e577c96c417e632d83"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9e45685eefb31b15bc999271df40b123f7d13e6a4cf780e577c96c417e632d83"
-    sha256 cellar: :any_skip_relocation, catalina:       "9e45685eefb31b15bc999271df40b123f7d13e6a4cf780e577c96c417e632d83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "558ca8bf9c1d309d215d9ae9a09d0b41716ebe1303a4e8c1f01731d7ebb28288"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef95c2836b3fb007cfb4ec7145e0755499c8625e2907c639ef807756231d2e8a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef95c2836b3fb007cfb4ec7145e0755499c8625e2907c639ef807756231d2e8a"
+    sha256 cellar: :any_skip_relocation, monterey:       "0b16f6015eb65f1318bf3bf1edc8f12a922a273971b4f1b31927392a38f4db87"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0b16f6015eb65f1318bf3bf1edc8f12a922a273971b4f1b31927392a38f4db87"
+    sha256 cellar: :any_skip_relocation, catalina:       "0b16f6015eb65f1318bf3bf1edc8f12a922a273971b4f1b31927392a38f4db87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45a9f86e792764aed25ed76564dfd9832982f6b6967ad5c5a1ab7bdc43848ecc"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Certigo < Formula
   desc "Utility to examine and validate certificates in a variety of formats"
   homepage "https://github.com/square/certigo"
-  url "https://github.com/square/certigo/archive/v1.14.1.tar.gz"
-  sha256 "3ed30adc63869fcbded9bff51e07eaadb08c243980ee08f18858cb6c2a86d232"
+  url "https://github.com/square/certigo/archive/v1.15.1.tar.gz"
+  sha256 "1c6b336a33fd944dfa1b05d3b592261d7538333a605078bdbb9889bbab088f0a"
   license "Apache-2.0"
   head "https://github.com/square/certigo.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Certigo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ccb58f1dac1161219e2310d72e8a7a404ffab99d2a8a7ae8be2c315f7033ceb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4622407b65e5f8c0298291455a40eae661eeac4f684f2299ea8e9fefd2444706"
-    sha256 cellar: :any_skip_relocation, monterey:       "cb9fb5641222de7cd94b67149ec8e69e0651d391881401cc4c5f5efed5b3cfab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d42f36d0e0736aed44c5550cbdbf0927bfea21e5bb001461be1fc5f172c0ddf3"
-    sha256 cellar: :any_skip_relocation, catalina:       "2f254dfc8abbe62963c2932d9ede812196e1151991830919af29900fdaf41313"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "013d339004641eb9b7bbf488ab06fe4c3482eaed0612c46fd55a8fd8f2bfa1fc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c821ed50edeca5b1f5f96859966f2e4cc71ca2106f0ac9e9a22c8504c1eba420"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af820a9dc6ea3aaafffc292931dcbbb55281efe6976585bb7a41912a3a4761f5"
+    sha256 cellar: :any_skip_relocation, monterey:       "e7b90757c3d6386fbe28a530057cb7e2a211f86f263937622c8107e144585867"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4aa9d2923c6e73524a573d64f5bd5325e86fe8f64907de52ac59cd4ffbad8eea"
+    sha256 cellar: :any_skip_relocation, catalina:       "850ae90eeb9960c1152cd35c6ab2a431123ddbc5380241f8a460a5a4bac1597e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef25a6de0f2ee9a786355247f7ed7d942f9fb8711ee721e0ac11337b9bd970bc"
   end
 
   depends_on "go" => :build

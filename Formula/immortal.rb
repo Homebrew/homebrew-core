@@ -1,20 +1,18 @@
 class Immortal < Formula
   desc "OS agnostic (*nix) cross-platform supervisor"
   homepage "https://immortal.run/"
-  url "https://github.com/immortal/immortal/archive/0.24.3.tar.gz"
-  sha256 "e31d5afb9028fb5047b5a2cc5f96c844f6480d600643a12075550f497e65f5cb"
+  url "https://github.com/immortal/immortal/archive/0.24.4.tar.gz"
+  sha256 "a343581dbe58fb0faa1c65b233a067820d8d5ecefc9726da5ad3ef979a2a0b08"
   license "BSD-3-Clause"
   head "https://github.com/immortal/immortal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "01fb4ace3e58bd7f6a1b2c16816286b06862b73e4aeb9b52e17b2d1372451c5a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38ec22b15e305094470a996cd4a9b4362f225da6d573618403c58bb949c39ee5"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0eded6c51aa4e01ba1aea618c56bac6450db7ce06c4234d890160d615d1ed1c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "96761cea1b43a1550e499f854dd6969f886a18345dddc24615ca75e10a4bf1e2"
-    sha256 cellar: :any_skip_relocation, catalina:       "4b1f289dbe2b0998f091ebf9fbf6df2894f0eb3d447df2b5840915a53cdb3c09"
-    sha256 cellar: :any_skip_relocation, mojave:         "c35c0718289bac0d3557ac5d17af6895765557d2c5a7124f389653163b40bb36"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "702cb544d23450cf258ef7b9287e99925e8cf715e1708513694f9068233a5cba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44afbe226bc53ce9abec4435e8057dc307d0f73bce4ffa804460801f66978917"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "516bb39ac0742d272011dd2804b18677d83233717af8233f35f1a81f21f0a7fe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2df85d157c9c1c6273dc516619ae18477f2574fe7a67b2145ab040272f4eb6b"
+    sha256 cellar: :any_skip_relocation, monterey:       "9ba02f8783dd2005d344f16484ba9ae1ac1a714330bae6504aeef327b3677383"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f621661ecfdba43e97f0c031b5de4577c080307271bbdf813ac69384b486cc33"
+    sha256 cellar: :any_skip_relocation, catalina:       "305a72330b69876b658ac5a2d0c9daa0f32c2bd99efd3b837a11345715d21aa3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67f539cf58912b6e954293efd7983d17f9a82670cae7faea1a979bf5c63b5887"
   end
 
   depends_on "go" => :build

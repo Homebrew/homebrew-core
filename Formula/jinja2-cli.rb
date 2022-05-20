@@ -3,29 +3,45 @@ class Jinja2Cli < Formula
 
   desc "CLI for the Jinja2 templating language"
   homepage "https://github.com/mattrobenolt/jinja2-cli"
-  url "https://files.pythonhosted.org/packages/0c/df/c16c1757b0cd37c282be4f7bb2addcdf3514272d180ae2ed290a5d2472cd/jinja2-cli-0.8.1.tar.gz"
-  sha256 "fb1173811ed5b54205c65131374f342fcb924a5123af53a65fe1ffa7eb40bf19"
+  url "https://files.pythonhosted.org/packages/a4/22/c922839761b311b72ccc95c2ca2239311a3e80916458878962626f96922a/jinja2-cli-0.8.2.tar.gz"
+  sha256 "a16bb1454111128e206f568c95938cdef5b5a139929378f72bb8cf6179e18e50"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2c27fed222d1b4d9fd23854b30559a8d0b5a520d8f08410f2b3be48758f21e3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2959f96e55b3d8e3f9030db4ac9d6c8c5ba06e51a1411dd854dcd7765ee46619"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a68d03e07b8c6c0c6a70ec8bf40f70efd96aa0b0af1e51a1e3c860f9989a2f2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5084fb300d9dbc82aa6a7438f8eafe65595d637b537e18851fbbd4d2b4ab2d11"
-    sha256 cellar: :any_skip_relocation, catalina:       "5e58a0cd15e7e8e2fa144ee3ad83a4c9ecb702ba7ded94c463bb9ed59a22a42d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e7d85123642611a753faffec7b98fb20ceec023aa550f0f27bc11bce1633749"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c29f7f1c00ff8568e0277a3df9cb7b952df34c37c4e5d5607ad755e1d0d7d67"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c312379e7bcc59c8f1b25c51571f274fcc248784e8a852fe594b020f6faf289"
+    sha256 cellar: :any_skip_relocation, monterey:       "f14e696604a0160216c837409b4d29683b6b55541bc956c940028b754a02d42d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "463b04b93dc0e2b5b6132ee38a59e563cff76c4b5aa2b72aa746465c8afea65d"
+    sha256 cellar: :any_skip_relocation, catalina:       "3372164230b316ea0cd7e853953b775a16f962469e9827201b1adc12041be4e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae469ff00703bd8b8cd045e0b1ecea9216c6d80f24b3b757de7f935bc3d80089"
   end
 
   depends_on "python@3.10"
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
+    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
-    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
+  end
+
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+  end
+
+  resource "xmltodict" do
+    url "https://files.pythonhosted.org/packages/58/40/0d783e14112e064127063fbf5d1fe1351723e5dfe9d6daad346a305f6c49/xmltodict-0.12.0.tar.gz"
+    sha256 "50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21"
   end
 
   def install
@@ -33,12 +49,12 @@ class Jinja2Cli < Formula
   end
 
   test do
-    on_macos do
-      assert_match version.to_s, shell_output("script -q /dev/null #{bin}/jinja2 --version")
+    output = if OS.mac?
+      shell_output("script -q /dev/null #{bin}/jinja2 --version")
+    else
+      shell_output("script -q /dev/null -e -c \"#{bin}/jinja2 --version\"")
     end
-    on_linux do
-      assert_match version.to_s, shell_output("script -q /dev/null -e -c \"#{bin}/jinja2 --version\"")
-    end
+    assert_match version.to_s, output
     expected_result = <<~EOS
       The Beatles:
       - Ringo Starr

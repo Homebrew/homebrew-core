@@ -1,17 +1,16 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/releases/download/v7.4.0/mlt-7.4.0.tar.gz"
-  sha256 "17c19843ffdbca66777aaadf39acb11829fd930eaded92f768cbcb8ae59a5f37"
+  url "https://github.com/mltframework/mlt/releases/download/v7.6.0/mlt-7.6.0.tar.gz"
+  sha256 "49f3c7902432a5a873ebce8406d901ac73623ff3dba7265b6e8b55cfe8220201"
   license "LGPL-2.1-only"
-  revision 2
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "90da35634d99fdc9d29eb921e13d444f0fe9a3ced4ba2e83a2b3378c3cb67f8a"
-    sha256 cellar: :any, big_sur:       "aa8ecfb467b2d2d0963c95a62008b24c91b285319a44c245aef6c91edd0b57bd"
-    sha256 cellar: :any, catalina:      "930332fecb1ad269581a75f17a89bd3e56ebe2ca1c705a4342d1293bbd8a330a"
-    sha256               x86_64_linux:  "c5d66c6b67a37304ebe7ded0bc6d4b4867fbd32b1ee0213fe7f62b7ce2cb0b9d"
+    sha256 arm64_big_sur: "75ebe6e53d6d94f41b774d6657a6b9e634af506a3f81222e90bf586f3d89cabf"
+    sha256 big_sur:       "cdf94bf5644bad214e7002f8c58bee10076ae981b5128a8e99802a4350ee3756"
+    sha256 catalina:      "9846d56f31fa1b65f4343c3ad607e19ee77e399cc018b32b337ec8167ea39f04"
+    sha256 x86_64_linux:  "82a103b511b1b1b1a43f2d2d9d0df154a30d79ec60bc2317553d9bcc7999dd8a"
   end
 
   depends_on "cmake" => :build
@@ -37,13 +36,17 @@ class Mlt < Formula
   fails_with gcc: "5"
 
   def install
+    rpaths = [rpath]
+    rpaths << "@loader_path/../../lib" if OS.mac?
+
     args = std_cmake_args + %W[
-      -DCMAKE_INSTALL_RPATH=#{opt_lib}
+      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
       -DGPL=ON
       -DGPL3=ON
       -DMOD_OPENCV=ON
       -DMOD_JACKRACK=OFF
       -DMOD_SDL1=OFF
+      -DRELOCATABLE=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args

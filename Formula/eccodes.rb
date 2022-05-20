@@ -1,8 +1,8 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
-  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.24.2-Source.tar.gz"
-  sha256 "c60ad0fd89e11918ace0d84c01489f21222b11d6cad3ff7495856a0add610403"
+  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.25.0-Source.tar.gz"
+  sha256 "8975131aac54d406e5457706fd4e6ba46a8cc9c7dd817a41f2aa64ce1193c04e"
   license "Apache-2.0"
 
   livecheck do
@@ -11,26 +11,30 @@ class Eccodes < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "7c68f7fb5597d3ba6022e79d5f67f1d5d3b759a28fc8f7ffda9f32667eebd6e1"
-    sha256 arm64_big_sur:  "6e17f66830348d52b23f71994003d8edc5865f519172706d3e26ed22a1aa51ea"
-    sha256 monterey:       "e4c88fadaa482cf40e53fe71f76dc4d84a06d4ac26db61f671e63ff5db66750f"
-    sha256 big_sur:        "3fbbc8dc7004e001684b7fc68182a893fc56dda1822e4f18bdc8e8db553ba079"
-    sha256 catalina:       "a805da1c88f154c585052fb0aaa7e15296a4e62036ada3497aa76707621e68e1"
-    sha256 x86_64_linux:   "f7486711b3219bdc5e198cf22dbf9476a88fb5337846c6eed7e0c1522f33231f"
+    sha256 arm64_monterey: "5d5aacdec267608302dbc74e7654a14eb3fe21229a17f3cf6422a519a4c522d6"
+    sha256 arm64_big_sur:  "8d3f7aaa3a2387feabe120e40bdb7b8fb82706c5ac16cde80595668187c38b17"
+    sha256 monterey:       "f435e63f6f8fb21a13fb88173e0f01da1e973c7a9132ef0aaf724d3426f04983"
+    sha256 big_sur:        "b8a219652c1d61ed4c1f2a6e39900cd4b978ea164ee3a0b0ee27502241dc49a3"
+    sha256 catalina:       "a96ae3f672ab6720cdda192fcae658d26120e21c06053edd207ba327147bcd37"
+    sha256 x86_64_linux:   "0363077a5224f60312b63210dab50d4fe89b6286d5d9836d42c2c150789c9183"
   end
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
-  depends_on "jasper"
   depends_on "libpng"
   depends_on "netcdf"
+  depends_on "openjpeg"
 
   def install
-    inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
-
     mkdir "build" do
-      system "cmake", "..", "-DENABLE_NETCDF=ON", "-DENABLE_PNG=ON",
-                            "-DENABLE_PYTHON=OFF", "-DENABLE_ECCODES_THREADS=ON",
+      system "cmake", "..", "-DENABLE_NETCDF=ON",
+                            "-DENABLE_FORTRAN=ON",
+                            "-DENABLE_PNG=ON",
+                            "-DENABLE_JPG=ON",
+                            "-DENABLE_JPG_LIBOPENJPEG=ON",
+                            "-DENABLE_JPG_LIBJASPER=OFF",
+                            "-DENABLE_PYTHON=OFF",
+                            "-DENABLE_ECCODES_THREADS=ON",
                              *std_cmake_args
       system "make", "install"
     end

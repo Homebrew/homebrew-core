@@ -17,7 +17,8 @@ class Leaf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a84a9c0400bd35d736290ce97440f83c844e728b0b79ab95c2b9f88446b2b127"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   conflicts_with "leaf-proxy", because: "both install `leaf` binaries"
 

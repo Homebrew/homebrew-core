@@ -1,10 +1,9 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.3.0/PDAL-2.3.0-src.tar.gz"
-  sha256 "5b0b92258874ef722b5027054d64c8b318b524e7a9b2b250d0330d76e19b8618"
+  url "https://github.com/PDAL/PDAL/releases/download/2.4.1/PDAL-2.4.1-src.tar.gz"
+  sha256 "4df8463f68087e3742691048f5ab9db04269fc54bc418e4dc53e2c761bd825f2"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes tags a commit with only a
@@ -19,10 +18,12 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "6c2e9fbd5a016f570d86d99cd9c0dcbee73874839f2ac9901727d792e4c0c7ce"
-    sha256 arm64_big_sur:  "e3e2a0a482d9127663cb55c9eec4ed08b92a9ecdd1e99369e373eeed6bd42d90"
-    sha256 big_sur:        "da4aa1ad9ad2a01463689dc1fe634505763c2aca6f73900d89e3f9c4b22f6640"
-    sha256 catalina:       "1ca1144f13120d8e77ee4ea0f460e8a87e00aa2487aefb823edf73df04d4e089"
+    sha256                               arm64_monterey: "2cc2d40e46a6ba825e7433a891dda892aa99f096ad9f4a7bbe5e579181be1c82"
+    sha256                               arm64_big_sur:  "de708dfbb95cd7909f75bb248d5b277f69c6b40c8866ff177609d7f76c64b7b1"
+    sha256                               monterey:       "479ad24653ab0f409e4d450e4a960937e83aa982ebed5957594b09cb2d656886"
+    sha256                               big_sur:        "f78507d9035a9ff5ad7f4b124c0af86a9b99c8a0ccc2ee55324067b7b8cc8fb2"
+    sha256                               catalina:       "e0bfb84ef816bad5e47a63d7ab82335c3dcdaf4e776217d01d71debf92184937"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06958cd3f681635b2ec5501394d63326c3c84b7b768c439414b35dcdfb508ece"
   end
 
   depends_on "cmake" => :build
@@ -33,6 +34,12 @@ class Pdal < Formula
   depends_on "numpy"
   depends_on "pcl"
   depends_on "postgresql"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # gdal is compiled with GCC
 
   def install
     system "cmake", ".", *std_cmake_args,

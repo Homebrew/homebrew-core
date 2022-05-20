@@ -16,6 +16,11 @@ class Clens < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "f034c79bf5a16265db249c673b2d2a3e6850676dba739adeb6e90394d8f77475"
     sha256 cellar: :any_skip_relocation, el_capitan:     "f6c68d7dce9d824274e16e3867926528cc79d161418fac0a0052e37dc6604668"
     sha256 cellar: :any_skip_relocation, yosemite:       "b08580c90a8ed647005c437158972a1dbd770792c2db74391eec8ed5f4ec1b6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b5d5f5cba941676c726e09e2b14c9069dfebf9db9d6cb2b75fc321a2481aedf"
+  end
+
+  on_linux do
+    depends_on "libbsd"
   end
 
   patch do

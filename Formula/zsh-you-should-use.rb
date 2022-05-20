@@ -19,10 +19,7 @@ class ZshYouShouldUse < Formula
 
         source #{HOMEBREW_PREFIX}/share/zsh-you-should-use/you-should-use.plugin.zsh
 
-      You will also need to force reload of your .zshrc:
-
-        source ~/.zshrc
-
+      You will also need to restart your terminal for this change to take effect.
     EOS
   end
 

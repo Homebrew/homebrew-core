@@ -55,11 +55,11 @@ jobs:
     steps:
       - name: Check for CI labels
         id: check-labels
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { data: { labels: labels } } = await github.pulls.get({
+            const { data: { labels: labels } } = await github.rest.pulls.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.issue.number
@@ -96,6 +96,7 @@ jobs:
               core.setOutput('test-dependents', 'true')
             }
 
+            const maximum_long_pr_count = 2
             if (label_names.includes('CI-long-timeout')) {
               const labelCountQuery = `query($owner:String!, $name:String!, $label:String!) {
                 repository(owner:$owner, name:$name) {
@@ -119,7 +120,6 @@ jobs:
                 long_pr_count = 0
                 core.warning('CI-long-timeout label count query failed. Assuming no long PRs.')
               }
-              const maximum_long_pr_count = 2
               if (long_pr_count > maximum_long_pr_count) {
                 core.setFailed(`Too many pull requests (${long_pr_count}) with the long-timeout label!`)
                 core.error(`Only ${maximum_long_pr_count} pull requests at a time can use this label.`)
@@ -129,7 +129,14 @@ jobs:
               core.setOutput('timeout-minutes', '4320')
             } else {
               console.log('No CI-long-timeout label found. Setting short GitHub Actions timeout.')
-              core.setOutput('timeout-minutes', '60')
+              core.setOutput('timeout-minutes', '90')
+
+              if (label_names.includes('long build')) {
+                core.setFailed('PR requires the CI-long-timeout label but it is not set!')
+                core.error('If the longer timeout is not required, remove the "long build" label.')
+                core.error('Otherwise, add the "CI-long-timeout" label.')
+                core.error(`No more than ${maximum_long_pr_count} PRs at a time may use "CI-long-timeout".`)
+              }
             }
 
             const container = {}
@@ -182,6 +189,8 @@ jobs:
     strategy:
       matrix:
         include:
+          # - runner: '12-arm64-${{github.run_id}}-${{github.run_attempt}}'
+          #   ephemeral: true
           - runner: '12-arm64'
           - runner: '12'
           - runner: '11-arm64'
@@ -190,10 +199,11 @@ jobs:
           - runner: ${{needs.setup_tests.outputs.linux-runner}}
             container: ${{fromJson(needs.setup_tests.outputs.container)}}
             workdir: /github/home
+            timeout: 4320
       fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
     runs-on: ${{matrix.runner}}
     container: ${{matrix.container}}
-    timeout-minutes: ${{ (matrix.runner == 'ubuntu-latest' && 360) || fromJson(needs.setup_tests.outputs.timeout-minutes) }}
+    timeout-minutes: ${{ matrix.timeout || fromJson(needs.setup_tests.outputs.timeout-minutes) }}
     defaults:
       run:
         shell: /bin/bash -e {0}
@@ -244,7 +254,7 @@ jobs:
           rm bottles/bottle_output.txt
 
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
-        if: ${{fromJson(needs.setup_tests.outputs.test-dependents)}}
+        if: ${{(success() || failure()) && fromJson(needs.setup_tests.outputs.test-dependents)}}
         run: |
           cd bottles
           brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
@@ -295,7 +305,7 @@ jobs:
         run: rm -rvf bottles/failed
 
       - name: Upload bottles
-        if: always() && steps.bottles.outputs.count > 0
+        if: always() && steps.bottles.outputs.count > 0 && !matrix.ephemeral
         uses: actions/upload-artifact@main
         with:
           name: bottles

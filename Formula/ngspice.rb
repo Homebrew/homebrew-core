@@ -1,8 +1,8 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/36/ngspice-36.tar.gz"
-  sha256 "4f818287efba245341046635b757ae81f879549b326a4316b5f6e697aa517f8c"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/37/ngspice-37.tar.gz"
+  sha256 "9beea6741a36a36a70f3152a36c82b728ee124c59a495312796376b30c8becbe"
 
   livecheck do
     url :stable
@@ -10,12 +10,12 @@ class Ngspice < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "d9ede6e35d7f1ab796ec2c19e785359dfa19f14c1ee2f84c8a0e1af5d6a138f0"
-    sha256 arm64_big_sur:  "8107e3a0dbb732b3da2e9b4f0dc7115f147c4df5203d2740cf356530414fbaa1"
-    sha256 monterey:       "8f9f6742807f18fedd725bd51d09cf4fbfce072a4646d03ff96839935326acbb"
-    sha256 big_sur:        "06e7103236e3bf1aa3037c25a2b47a916574677632749c4fc461d6ddfd976470"
-    sha256 catalina:       "857b80d8491645039822df8c422a662667501295598b4c89c63e573b31fc0aea"
-    sha256 x86_64_linux:   "777b72adb972fd06b5456835016d6625a45f6bc9473792c6e013eb3765b4254f"
+    sha256 arm64_monterey: "6421f66dabcafb24914972884fc7e4ff4dfd2919b0898864ad2580e9528d5c4b"
+    sha256 arm64_big_sur:  "9222829c0bfa71e306e073be15f9c4976dfa105480b618c842823978d3cf4e23"
+    sha256 monterey:       "80a8fc2742bca92a86cb22062ad7dfb1180769ec185be23807e48ae009f92143"
+    sha256 big_sur:        "9e0a218271ee9b1491d4e896c77905589d44464c13a99db0b946a38068583e6e"
+    sha256 catalina:       "f67eb8cb4eddb299a848a22e2507cf3fdb775b17f15dd1c5451186fc1387ab4c"
+    sha256 x86_64_linux:   "27e1a76a94f39071ef949f848ed17d7a59b3a0db7c2d444f846b5f1e85e0ce2c"
   end
 
   head do

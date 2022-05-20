@@ -39,12 +39,11 @@ class Bettercap < Formula
   end
 
   test do
-    on_macos do
-      assert_match "Operation not permitted", shell_output(bin/"bettercap 2>&1", 1)
+    expected = if OS.mac?
+      "Operation not permitted"
+    else
+      "Permission Denied"
     end
-
-    on_linux do
-      assert_match "Permission Denied", shell_output(bin/"bettercap 2>&1", 1)
-    end
+    assert_match expected, shell_output(bin/"bettercap 2>&1", 1)
   end
 end

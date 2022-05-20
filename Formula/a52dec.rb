@@ -7,7 +7,6 @@ class A52dec < Formula
 
   livecheck do
     url "https://liba52.sourceforge.io/downloads.html"
-    strategy :page_match
     regex(/href=.*?a52dec[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

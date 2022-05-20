@@ -1,18 +1,18 @@
 class Libstrophe < Formula
   desc "XMPP library for C"
   homepage "https://strophe.im/libstrophe/"
-  url "https://github.com/strophe/libstrophe/archive/0.11.0.tar.gz"
-  sha256 "090185bcf5800663e18340313410e3b6e4e742e065daac9e7cfa5dbb83dab8f5"
+  url "https://github.com/strophe/libstrophe/archive/0.12.0.tar.gz"
+  sha256 "f645819d8d93711c92454974dd9007c9b9e98ea0b59cb708dc626dd4c6b9d0a8"
   license any_of: ["GPL-3.0", "MIT"]
   head "https://github.com/strophe/libstrophe.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "13e67f5e28df838ffbf4bdcaded2308ae38abb6665cafa6bd36deba5c6ed2cb9"
-    sha256 cellar: :any,                 arm64_big_sur:  "db4c52347be6860ebc237f49996a177b1706a89653d4891db5041cf6b9cc9951"
-    sha256 cellar: :any,                 monterey:       "571d271187eb094a7b8ddee9e93fec77140042e279860b2ce6293d38bdaa1898"
-    sha256 cellar: :any,                 big_sur:        "9e0cf46077fc1ef4e30377e9a1d6047f542f86796b7f0e30bd6f9be307c20a6b"
-    sha256 cellar: :any,                 catalina:       "39d5bee8000fa0d133cb622b007cd050b2f1e7556a3f5e93d93ff2688abd6a1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b74000aa583bff02c47f079b4c75940ea81803761256eda098132c0b74d369b"
+    sha256 cellar: :any,                 arm64_monterey: "37d082b37338686b1ebae289da1cd4b3e989dc029899a1683a51e581ef5c5193"
+    sha256 cellar: :any,                 arm64_big_sur:  "1566e3b3fdb49be1fffc526fe93a7e5a7bf77b75b71c6588ebd4400f7b250a29"
+    sha256 cellar: :any,                 monterey:       "c33fd8b6bba0f9dc4bde68cfb05eb844123e9cc0f27688b3943af5ee7f9ab71c"
+    sha256 cellar: :any,                 big_sur:        "4eaa47a2b6f35d8867ee63c1575cb8ce093e6a0266e2b08688b2c9447d3240aa"
+    sha256 cellar: :any,                 catalina:       "6e0877ea21878ce6eceb361fd7e00391300ef1881d6ef98497e3c46fd8dc4ea7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7d50a1d3246972a879066ae41af5204a2c57d40bb1ad93f4321d18bd4b1db2d"
   end
 
   depends_on "autoconf" => :build

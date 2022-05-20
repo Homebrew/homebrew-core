@@ -48,23 +48,23 @@ class Redo < Formula
       #include <stdio.h>
 
       int main() {
-          printf(\"Hello, world!\\n\");
-          return 0;
+        printf("Hello, world!\\n");
+        return 0;
       }
     EOS
     (testpath/"hello.do").write <<~EOS
       redo-ifchange hello.c
       cc -o $3 hello.c -Wall
     EOS
-    assert_equal "redo  hello", shell_output("redo hello 2>&1").strip
+    assert_match "redo  hello", shell_output("#{bin}/redo hello 2>&1").strip
     assert_predicate testpath/"hello", :exist?
     assert_equal "Hello, world!\n", shell_output("./hello")
-    assert_equal "redo  hello", shell_output("redo hello 2>&1").strip
-    assert_equal "", shell_output("redo-ifchange hello 2>&1").strip
+    assert_match "redo  hello", shell_output("#{bin}/redo hello 2>&1").strip
+    refute_match "redo", shell_output("#{bin}/redo-ifchange hello 2>&1").strip
     touch "hello.c"
-    assert_equal "redo  hello", shell_output("redo-ifchange hello 2>&1").strip
+    assert_match "redo  hello", shell_output("#{bin}/redo-ifchange hello 2>&1").strip
     (testpath/"all.do").write("redo-ifchange hello")
-    (testpath/"hello").delete
-    assert_equal "redo  all\nredo    hello", shell_output("redo 2>&1").strip
+    (testpath/"hello").unlink
+    assert_match "redo  all\nredo    hello", shell_output("#{bin}/redo 2>&1").strip
   end
 end

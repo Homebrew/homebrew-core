@@ -1,17 +1,17 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://pcapplusplus.github.io"
-  url "https://github.com/seladb/PcapPlusPlus/archive/v21.11.tar.gz"
-  sha256 "56b8566b14b2586b8afc358e7c98268bc1dd6192197b29a3917b9df2120c51b0"
+  url "https://github.com/seladb/PcapPlusPlus/archive/v22.05.tar.gz"
+  sha256 "5f299c4503bf5d3c29f82b8d876a19be7dea29c2aadcb52f2f3b394846c21da9"
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b115322fd8474bf97c2e2a74e7821965573058f6ca9d32d01b15d1741467e158"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "febbc8ea26dbdf972f6d0a00d118bb26da8c9af95ea2a4778b127bbf665571bc"
-    sha256 cellar: :any_skip_relocation, monterey:       "0fc3d5d7be14ff129a449e230321a9e4b64ab3e97943486e45239d9159929888"
-    sha256 cellar: :any_skip_relocation, big_sur:        "57350221b31c416d6b45284cd28e682b625510783edf9373f1f9178fcfd8f913"
-    sha256 cellar: :any_skip_relocation, catalina:       "6cc2045ca6f8e554bb06a9df94884288a1cbcf66e6f480010e30894327bf0963"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38500b39456f10611f556f3dbdad46f2f546c58a4e31d9ada18f8d1a989222d4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff3ca668e89c2cc66c10d67921017931b3ceebecb67c5104ec93d6171a7ac873"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0688d833c5ffede68a0ccc000b3637279055a0c72aed10a9f4860ef605f7691f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ddfea2d6e61387bf8bb94903bd710c747c9f159506da7f3cba0cdd50cab5757c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b61b98ef3a3c29249ffa14f74eab3b316db6122b39eb31602836e5bb74b00306"
+    sha256 cellar: :any_skip_relocation, catalina:       "859bdd63e138a4c388de4b68e95aa8181635679d8758555f9118f10c62d0e216"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c05be599c504e6cfc591880bfa8bfcb50d7be89a4d2410270408c6dad0be8bde"
   end
 
   uses_from_macos "libpcap"

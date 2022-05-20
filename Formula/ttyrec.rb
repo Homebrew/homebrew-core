@@ -3,6 +3,7 @@ class Ttyrec < Formula
   homepage "http://0xcc.net/ttyrec/"
   url "http://0xcc.net/ttyrec/ttyrec-1.0.8.tar.gz"
   sha256 "ef5e9bf276b65bb831f9c2554cd8784bd5b4ee65353808f82b7e2aef851587ec"
+  license "BSD-4-Clause"
   revision 1
 
   livecheck do
@@ -20,6 +21,7 @@ class Ttyrec < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "8121debd07c4ecdd24d86fc7dadb00a7807e028f512418b5ba0d85768619628d"
     sha256 cellar: :any_skip_relocation, sierra:         "0323b20a0905ad1c3a2f997714572d779bcf6db63d8798840c14f6a75fd70cd5"
     sha256 cellar: :any_skip_relocation, el_capitan:     "ec05f403a1aa20da2e1fbd6f4d912b3d31fa1fd100c9adba68c928146a50bbc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2dd1acdb4519d34c1b28fced057623dcd6457c60def91150fd042ed6be04e481"
   end
 
   resource "matrix.tty" do
@@ -30,9 +32,12 @@ class Ttyrec < Formula
   def install
     # macOS has openpty() in <util.h>
     # Reported by email to satoru@0xcc.net on 2017-12-20
-    inreplace "ttyrec.c", "<libutil.h>", "<util.h>"
+    inreplace "ttyrec.c", "<libutil.h>", "<util.h>" if OS.mac?
 
-    system "make", "CFLAGS=#{ENV.cflags} -DHAVE_openpty"
+    # openpty is a BSD function
+    cflags = OS.mac? ? "-DHAVE_openpty" : nil
+
+    system "make", "CFLAGS=#{cflags}"
     bin.install %w[ttytime ttyplay ttyrec]
     man1.install Dir["*.1"]
   end

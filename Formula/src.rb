@@ -15,7 +15,7 @@ class Src < Formula
   end
 
   head do
-    url "https://gitlab.com/esr/src.git"
+    url "https://gitlab.com/esr/src.git", branch: "master"
     depends_on "asciidoc" => :build
   end
 
@@ -31,7 +31,13 @@ class Src < Formula
     require "pty"
     (testpath/"test.txt").write "foo"
     PTY.spawn("sh", "-c", "#{bin}/src commit -m hello test.txt; #{bin}/src status test.txt") do |r, _w, _pid|
-      assert_match(/^=\s*test.txt/, r.read)
+      output = ""
+      begin
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+      assert_match(/^=\s*test.txt/, output)
     end
   end
 end

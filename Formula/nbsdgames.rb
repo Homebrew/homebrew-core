@@ -1,19 +1,18 @@
 class Nbsdgames < Formula
   desc "Text-based modern games"
   homepage "https://github.com/abakh/nbsdgames"
-  url "https://github.com/abakh/nbsdgames/archive/refs/tags/v4.1.2.tar.gz"
-  sha256 "b4ba777791274af7db13d2827b254cf998a757468e119c6ee106ccbeafcd04c1"
+  url "https://github.com/abakh/nbsdgames/archive/refs/tags/v5.tar.gz"
+  sha256 "ca81d8b854a7bf9685bbc58aabc1a24cd617cadb7e9ddac64a513d2c8ddb2e6c"
   license :public_domain
   head "https://github.com/abakh/nbsdgames.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f27112c26f752624c594d5ab67af18de7e9138b985cfc4113ce293b7e9b91c58"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4281d8274d3f05106a5e34a31db7498615e2b4ac89e52528a864d8d4c2fa0999"
-    sha256 cellar: :any_skip_relocation, monterey:       "bbf1f0908c51d75fd78cbc5cd301c8f586e11d3357ff552dbfe61ab802cf8bdb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d30a3395191ecada03c1c7c18b0c82e6833a35fdf47f5a4c98fb708e89eede2a"
-    sha256 cellar: :any_skip_relocation, catalina:       "6fc7bda5fa3519d9a4c241396a0ea512e252dc43e06289059b52e8017adef885"
-    sha256 cellar: :any_skip_relocation, mojave:         "88cebe1f55579632df4606eb0f9e86f4488dee8cc2b108e97a0f3bd90a6c3f90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0323c032e3636a122be2af5faca46694b70a6072e334a42996068abccde6fb7c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9916d331aa232bf41939171c3591f22dd296ee973d90c703506eaca528409db1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c391d3da850a18fa442189d014181b3c0a28e3aa5286b5259ad9ca16aa6a5563"
+    sha256 cellar: :any_skip_relocation, monterey:       "31c7b5a1fa5cb7650d7de984547049f8429476ba23b1965db44497ac2eb7ac72"
+    sha256 cellar: :any_skip_relocation, big_sur:        "040fd2883d5c1ddd45b3bd27ed4ec12de532a1330bcc3e2cfeffdbb705d990da"
+    sha256 cellar: :any_skip_relocation, catalina:       "0c0672afd7f3de647311b6ae155c73aca2e1803f8cb22c4e6240aa77b116d4f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b311d8c8354dc0688b51024c40b2d632ff7d22587c89deeed8d559af092cce4a"
   end
 
   uses_from_macos "ncurses"
@@ -29,6 +28,6 @@ class Nbsdgames < Formula
   end
 
   test do
-    assert_equal "2 <= size <= 7", shell_output("#{bin}/sudoku 1", 1).chomp
+    assert_equal "2 <= size <= 7", shell_output("#{bin}/sudoku -s 1", 1).chomp
   end
 end

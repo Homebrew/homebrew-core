@@ -16,6 +16,7 @@ class MoonBuggy < Formula
     sha256 sierra:         "fb2abda84d3e2b20f286caa036fadb9bfd6c4df151352a171385a54ca43acda9"
     sha256 el_capitan:     "b71bfe4abfb1d2c3d35db544850cb56f1b2ba50df18d27d3fef3ed5845b30e76"
     sha256 yosemite:       "08b485a97197d8a0a2733e74622a232a8a1407ebd2564caccdffb9438176c1ee"
+    sha256 x86_64_linux:   "72e827a7015b8a6d3fa38358221125375c8c4d2ae96b6c47a391714706dcfdbf"
   end
 
   head do
@@ -23,6 +24,8 @@ class MoonBuggy < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  uses_from_macos "ncurses"
 
   def install
     system "./autogen.sh" if build.head?

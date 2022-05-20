@@ -4,16 +4,15 @@ class LibbitcoinExplorer < Formula
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.6.0.tar.gz"
   sha256 "e1b3fa2723465f7366a6e8c55e14df53106e90b82cc977db638c78f9bc5c47db"
   license "AGPL-3.0"
-  revision 7
+  revision 8
 
   bottle do
-    sha256 arm64_monterey: "e2a189dd066f9d5fa56f5aeebf8a2346a5cf4ab17f001c836436d00a038532a7"
-    sha256 arm64_big_sur:  "34d709bfefd23505e07cabcbedacf3a2869f6220e706cd96267d70e89caf5479"
-    sha256 monterey:       "ecf247fbfaa8aa9ebb90f632af460826e03a479791eac9525483d5f5b9f11e24"
-    sha256 big_sur:        "bb1687e4d167c4468a50df06d4bfb9cabd6ce2deab7641ff5866f0d41e686eeb"
-    sha256 catalina:       "fc49fe144993aebd296479497a30ed2441da35a8c34e3e646bc07a93dbb59873"
-    sha256 mojave:         "a965f788815e2e420fb46603f62c9b455e8930258e5478becbba0280f9b5950c"
-    sha256 x86_64_linux:   "c96bb170eab0fe2bac4928ba3b866eeabdf69731a14f0a61e7afcd8a725ba975"
+    sha256 arm64_monterey: "62e23a9ef97269830f43711bcb1353c20d3cf008ef46404427cc444fc664e433"
+    sha256 arm64_big_sur:  "a0dda43b536b42b220adffe2e130153fd6dcd9e55e939944db56bbdd9f4e03f1"
+    sha256 monterey:       "38d66c27871444b32587e4b79b3d858c4c1387aaf8af47340ac52fc0833bc52b"
+    sha256 big_sur:        "2370fd0d2fb7f276fdea60408724b4211941a7ffce6ca8b4f49b54224d92821c"
+    sha256 catalina:       "b6f18b3e70c53e1c9f22e68154ddd92936856e569f36b55bd1fd65f5b6b6f1fa"
+    sha256 x86_64_linux:   "964095ad75127b2959585f9ca2ec4fc694b329c023831afb1e08d876a68bc9f4"
   end
 
   depends_on "autoconf" => :build

@@ -1,8 +1,8 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://ece.engr.uvic.ca/~frodo/jasper/"
-  url "https://github.com/jasper-software/jasper/releases/download/version-2.0.33/jasper-2.0.33.tar.gz"
-  sha256 "28d28290cc2eaf70c8756d391ed8bcc8ab809a895b9a67ea6e89da23a611801a"
+  url "https://github.com/jasper-software/jasper/releases/download/version-3.0.3/jasper-3.0.3.tar.gz"
+  sha256 "7c2ae6e10f0e4988277aba9d6d15cbf4f73576e9372c1749366e565b68c76eae"
   license "JasPer-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Jasper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3d81460f695f07a776aed0a304cbf71e32db97d439d2daf3bc4a64d1c2e4d648"
-    sha256 cellar: :any,                 arm64_big_sur:  "d3a5b5039c95970e08dc6265aa845e4a4e675987519fd1cfe5ae3990b0b236b8"
-    sha256 cellar: :any,                 monterey:       "7f5cd02f1f30c50f98dceafc0f9cc5bbf30bd85667f141e44eef5ceb8ae61af5"
-    sha256 cellar: :any,                 big_sur:        "7462315306489ccf06bddad20b9ba97b5872574f8155dfa7f5d316d905da76b8"
-    sha256 cellar: :any,                 catalina:       "7c7ae386ed0221d5b04f50b0258afddda977ec8e968f3dcb1e099a1826bb30d7"
-    sha256 cellar: :any,                 mojave:         "4c6c520094341ba62068984ed5ee928c992c942d3040956818a92c6a43f26724"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f37c44732a8782727150b229ad8dc04bd4f2261b95be05c5d11bebbf197326d"
+    sha256 cellar: :any,                 arm64_monterey: "9e635dfd87b1259ba12c7f507dfd8b8d316cb8ede579eb01219601af2a0dd9a9"
+    sha256 cellar: :any,                 arm64_big_sur:  "94ece4798dcc13479a719d52684c0c4ab6a26deb8c1331948953d01c6061e514"
+    sha256 cellar: :any,                 monterey:       "ad01c6d8f38d4aab1a34c29fd665d4b6f7f68a21b4041ee745ceec15b88e085f"
+    sha256 cellar: :any,                 big_sur:        "1e52cfd6893ed868d1041f912ef31b99c7530b002194b57f1905a21cd0f337e2"
+    sha256 cellar: :any,                 catalina:       "1a3ce7bc7b60cd9ca3ec7e0d6ee405d6609c84d2fdcfb040f68a1ce3d5e54146"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08426c225b8e8ca3d9f3e702380b13aad3d676067ecc64ab449c78fc5962170c"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +27,7 @@ class Jasper < Formula
   end
 
   def install
-    mkdir "build" do
+    mkdir "tmp_cmake" do
       args = std_cmake_args
       args << "-DJAS_ENABLE_DOC=OFF"
 

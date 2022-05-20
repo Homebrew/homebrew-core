@@ -2,17 +2,17 @@ class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
   # NOTE: Please keep these values in sync with imath.rb when updating.
-  url "https://github.com/openexr/openexr/archive/v3.1.4.tar.gz"
-  sha256 "cb019c3c69ada47fe340f7fa6c8b863ca0515804dc60bdb25c942c1da886930b"
+  url "https://github.com/AcademySoftwareFoundation/openexr/archive/v3.1.5.tar.gz"
+  sha256 "93925805c1fc4f8162b35f0ae109c4a75344e6decae5a240afdfce25f8a433ec"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c0e4a96ccf31d34fe67da7fcf9bc581ebc64bbbec141127ad0fad087c01a2581"
-    sha256 cellar: :any,                 arm64_big_sur:  "991ec0d21d840c77f20e45936ac6420eb65afa66ed3ff9baa4519f2f132e99ae"
-    sha256 cellar: :any,                 monterey:       "2709b4deb3595f5d3649e725a78f30ab74d7b8634d57c8545edcd4ca735683d0"
-    sha256 cellar: :any,                 big_sur:        "fa2267c26e2ae530089dd70e700c4886547623b77d2671ac1f82fdaef0de1c3b"
-    sha256 cellar: :any,                 catalina:       "ce12dfc0252dfaaf13e25fd1b2eb9c22d4d4d1820561ed65d10df769286f1df8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dbcf828deeb1595e66d2a5e03f7d3d82a2c21787bc8a587d438b96138a8edc8"
+    sha256 cellar: :any,                 arm64_monterey: "633811a87f2087ee77e05aeb3bdbaea9cede0c010c0e4ddf5212b1f7dc773369"
+    sha256 cellar: :any,                 arm64_big_sur:  "a86f1c3252e421bb3c511fd17d02031eb62d19fc35be4e332835ef8023bc6903"
+    sha256 cellar: :any,                 monterey:       "7b5eac70a2b63764fe1dc4efa787b04f65f7566413b2727a3f5366256b007723"
+    sha256 cellar: :any,                 big_sur:        "db79b777e18b0c58f9b9d856e681a62e54ce91e54c8a1a5faaf4a6a98e515871"
+    sha256 cellar: :any,                 catalina:       "264da60466034171be1337d9b18f9293122ad82c364de5d037e7fab468525196"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37824df7fbc74d4e2f2b9837e14917b707fffdc94bbec39fe0babda17d0c9781"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +29,7 @@ class Openexr < Formula
   link_overwrite "lib/libIlmThread.so"
 
   resource "exr" do
-    url "https://github.com/openexr/openexr-images/raw/master/TestImages/AllHalfValues.exr"
+    url "https://github.com/AcademySoftwareFoundation/openexr-images/raw/master/TestImages/AllHalfValues.exr"
     sha256 "eede573a0b59b79f21de15ee9d3b7649d58d8f2a8e7787ea34f192db3b3c84a4"
   end
 

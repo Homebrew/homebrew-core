@@ -2,18 +2,18 @@ class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
   url "https://github.com/hashicorp/serf.git",
-      tag:      "v0.9.7",
-      revision: "daf7d4f50ee2b06d67af854112a7ccd26f398c83"
+      tag:      "v0.9.8",
+      revision: "a2bba5676d6e37953715ea10e583843793a0c507"
   license "MPL-2.0"
   head "https://github.com/hashicorp/serf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b43898b70b7822d41f86f4e4a1b5b101cbcc5187326b9f5e5008b086c9a1fb92"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "448c655cf74e72e2e919ac5cbd8ca9799b3d10638028af6f475a453e0d29bdd3"
-    sha256 cellar: :any_skip_relocation, monterey:       "5492c1e76121ebd5fa28d863623676360885c04e1bc3742d4cb8856b2c6c438f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ce2cbd6e2ad0344a9b0dd2f19da1ab752ed4021645df4c0667081768cf58bcd0"
-    sha256 cellar: :any_skip_relocation, catalina:       "bb7216fd18e55536f70a9df6d592c3daacf4b5609f3e2e807aee573189ed4a6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ec7af898cf71117c9569d4c28a2b82867da62374bdf497b103a246094a6785d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "93692d6fe8acf165b7862cc0fada6f54e0c97906fc65b136b7ed6780ee644292"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c14105927e4364f89656ecbb08e84543286f8a2bab84e98826cd14c11bd9521"
+    sha256 cellar: :any_skip_relocation, monterey:       "0c5555b5229287270e331b5a3a1240a08980e2984546342ce0d9c6155daf9aac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9d402ab5cf86b77f3742c8efb6650c04e9f807328fb2e5e09e10e7b09e11ae4c"
+    sha256 cellar: :any_skip_relocation, catalina:       "08e9a3ac7f1bd4410a89603626566f9d05fc42e197146d43b7be2717642bd439"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0bc60265805bce0fabaaa924ada86adf1aacc07ef101cbea52f8acf9294f29b"
   end
 
   depends_on "go" => :build

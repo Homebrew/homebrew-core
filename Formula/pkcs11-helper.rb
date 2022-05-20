@@ -1,8 +1,8 @@
 class Pkcs11Helper < Formula
   desc "Library to simplify the interaction with PKCS#11"
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
-  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.28/pkcs11-helper-1.28.0.tar.bz2"
-  sha256 "5bd55adafdbb708e096070dd0a910f23e1d5fd6291922398c1a15f00fff2b5ec"
+  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.29.0/pkcs11-helper-1.29.0.tar.bz2"
+  sha256 "996846a3c8395e03d8c0515111dc84d82e6e3648d44ba28cb2dbbbca2d4db7d6"
   license any_of: ["BSD-3-Clause", "GPL-2.0-or-later"]
   head "https://github.com/OpenSC/pkcs11-helper.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Pkcs11Helper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "97f9d183777dc541c1280c91c473d0263a0581957255ef0ce7e85ec734249b2a"
-    sha256 cellar: :any,                 arm64_big_sur:  "87eff3df3d5e443c1d219878de3b0ef64bfb33df76230309723772361f89a1d4"
-    sha256 cellar: :any,                 monterey:       "2a403dbd8fc321a834fec147e9e311746084c144d1360ba23c73b5bb687c4c55"
-    sha256 cellar: :any,                 big_sur:        "ba468f9cf80a8df0e4cdd9c5e1ed51dcc32a3b7385e6e66161448a1677067e9e"
-    sha256 cellar: :any,                 catalina:       "6e66fe50adb867beca5a8cbc4d79584b6f291f086adddefd71b887bb56f25985"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b612cacb26cfda5f4c28ec4e852b2ea91f612f1a45db62debedc987c341d3a11"
+    sha256 cellar: :any,                 arm64_monterey: "02155c6d56975a3cb96cdd5b2e57e993b5841300af1636fd0d8ae5b8e9fae33d"
+    sha256 cellar: :any,                 arm64_big_sur:  "2fe182fd00dd0baca77ff94f26a3648a2afbfb3c2ffe7f57b73ece952cacecf0"
+    sha256 cellar: :any,                 monterey:       "1ae6236ec0c857d5dc1cc2f80c0a50b4d69e8672cf895ce4d53f5c511ea0a511"
+    sha256 cellar: :any,                 big_sur:        "caa4474b77fbb8d95e11c77a7d2f4da6ab3b8dec4fe62128e5a72f8572e0a8a8"
+    sha256 cellar: :any,                 catalina:       "06f17f7492feabec8b42fa5d2da9f16f4b83526b6f5fa36c251c20a4132db6b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b5bcb11b8e1317ef37b1b3e6ba37675ef05fbb7c6f6c314694a9fef3d9c0299"
   end
 
   depends_on "autoconf" => :build

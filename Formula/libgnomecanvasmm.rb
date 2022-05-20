@@ -1,6 +1,6 @@
 class Libgnomecanvasmm < Formula
   desc "C++ wrapper for libgnomecanvas"
-  homepage "https://launchpad.net/libgnomecanvasmm"
+  homepage "https://gitlab.gnome.org/Archive/libgnomecanvasmm"
   url "https://download.gnome.org/sources/libgnomecanvasmm/2.26/libgnomecanvasmm-2.26.0.tar.bz2"
   sha256 "996577f97f459a574919e15ba7fee6af8cda38a87a98289e9a4f54752d83e918"
   license "LGPL-2.1-or-later"
@@ -12,6 +12,8 @@ class Libgnomecanvasmm < Formula
     sha256 cellar: :any, catalina:      "e92ef2275ecd56b74a7a7f5a6e795c4f1d6a0deecd8f91647bdb62610397b058"
     sha256 cellar: :any, mojave:        "a0d170f35e076cde6587dc614dbb705d0ecf673a5426ee47a13fdf1ba8f6eae0"
   end
+
+  deprecate! date: "2022-02-28", because: :repo_archived
 
   depends_on "pkg-config" => [:build, :test]
   depends_on "gtkmm"

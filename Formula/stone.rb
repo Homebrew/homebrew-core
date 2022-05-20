@@ -16,10 +16,12 @@ class Stone < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "f943cab7f931ae2b7c124a83b63150b9c3b75090eb63353fbe0732792b97a0bf"
     sha256 cellar: :any_skip_relocation, catalina:       "cadf40dd1d8aa5de47b9d3d3baa5bbc22fc5a8a50abe688e77520b035369f492"
     sha256 cellar: :any_skip_relocation, mojave:         "13be210aea90ed4b9067afcf0dcad8e54494c0f262aa94fb51f926f7a46b8e27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1986132ca2eabd91ea5b1193fefabc4f5af2253df1b4e720df4ddf4cddf433a0"
   end
 
   def install
-    system "make", "macosx"
+    os = OS.mac? ? "macosx" : OS.kernel_name.downcase
+    system "make", os
     bin.install "stone"
   end
 

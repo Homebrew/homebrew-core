@@ -1,15 +1,12 @@
 class Questdb < Formula
   desc "Time Series Database"
   homepage "https://questdb.io"
-  url "https://github.com/questdb/questdb/releases/download/6.2/questdb-6.2-no-jre-bin.tar.gz"
-  sha256 "33eef97f93c80157b0e836795c47f4a3ee5c40a614fbc12f0c0988b5e51644ef"
+  url "https://github.com/questdb/questdb/releases/download/6.3.1/questdb-6.3.1-no-jre-bin.tar.gz"
+  sha256 "5d5bc48a32bb95f5c185692b21bd04295caa59c156c667290df27e91dc63e0f7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f50e5dc6c93076c623791c4db32ee62cc33b57966b2b3eabd97ff31bb3f2c903"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2a5cc758ff7ab9098d459ea1aab1ee04c1f942613162f1fdb12652ec16530678"
-    sha256 cellar: :any_skip_relocation, catalina:      "2a5cc758ff7ab9098d459ea1aab1ee04c1f942613162f1fdb12652ec16530678"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f50e5dc6c93076c623791c4db32ee62cc33b57966b2b3eabd97ff31bb3f2c903"
+    sha256 cellar: :any_skip_relocation, all: "2c6e18c42a1b992a23446017c46dfe4e7c34afd7d43fd69b242f791c91dad675"
   end
 
   depends_on "openjdk@11"
@@ -18,6 +15,7 @@ class Questdb < Formula
     rm_rf "questdb.exe"
     libexec.install Dir["*"]
     (bin/"questdb").write_env_script libexec/"questdb.sh", Language::Java.overridable_java_home_env("11")
+    inreplace libexec/"questdb.sh", "/usr/local/var/questdb", var/"questdb"
   end
 
   plist_options manual: "questdb start"

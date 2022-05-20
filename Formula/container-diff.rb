@@ -15,7 +15,8 @@ class ContainerDiff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bd5bb07cb846d439d1e88afbdc6a9e88301f155b470465d1e8a0c8c015032d3"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     pkg = "github.com/GoogleContainerTools/container-diff/version"

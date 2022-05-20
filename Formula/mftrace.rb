@@ -19,6 +19,7 @@ class Mftrace < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "da5fc2002936d2260121ce8134472bce14e8bccfb406fe9e1e56591037aa9751"
     sha256 cellar: :any_skip_relocation, mojave:         "d4b3535bdd69a89c59c4b7d7011ccb06544108c376e6313f62062c32991dece2"
     sha256 cellar: :any_skip_relocation, high_sierra:    "e1d8b241eb03982520cf2b4b2f8794fe74afb240247e4ea7c8164b1c9a22e974"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "079f9402ed146dc21ee98a7537c0c62068ca7335c284d424a7d46cdfc69ef20c"
   end
 
   head do

@@ -2,8 +2,8 @@ class Juju < Formula
   desc "DevOps management tool"
   homepage "https://juju.is/"
   url "https://github.com/juju/juju.git",
-      tag:      "juju-2.9.23",
-      revision: "b9b2dc63924d8c503fa6b6c108168905e9466ca3"
+      tag:      "juju-2.9.30",
+      revision: "a461c98909458b689b373b45cf1433a067c34661"
   license "AGPL-3.0-only"
   version_scheme 1
   head "https://github.com/juju/juju.git", branch: "develop"
@@ -14,12 +14,12 @@ class Juju < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d52d579c4e18abb6bae5fa7d46c9ff0630e4aba6e1abc2d9424c4d7ae8671b22"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd269367c2bfd06ad006d698dce0595940d6590b2ba34def15182f108f3dbf2f"
-    sha256 cellar: :any_skip_relocation, monterey:       "dadb14964b5790f0611f1007f136d2afd0439eeceef816551dd949d7425bd392"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3d6557b983ad9dddd055ea439e5681409705effa21b714a053f3478d00ba25f7"
-    sha256 cellar: :any_skip_relocation, catalina:       "fdf1606468b9713f46cfc22c217c406026e5fc9802020be5c8a09382706c9b41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7814e0a08048357785f70e698322f42bf4522b9cde251f841ae31806d8139f8d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ddf55bff5fad015ea3796393142a88f5cbfcedfdbdcffefb654526b083473c8a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bfb8b03fc5a54bb2f6d1677b2f16c1ce98ae7b08620e19a6648ae7cddbd2f8c4"
+    sha256 cellar: :any_skip_relocation, monterey:       "a48e091d0d7d5457303e236a52892e3fdf063eedc03bdf8792dac253e6bb94a4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0210f78de4c995e5aa493cebde94557b0ab4f9c72db0b8a836d29723fe51a4e5"
+    sha256 cellar: :any_skip_relocation, catalina:       "3eb4ebaa8b5ccff85ad3b7c25e71b7b4944fb6f2481ec491b2da07522587b583"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dae06dfc1ccd98304e6bf86a98802d0abda299fea944c100ac4dc197600be880"
   end
 
   depends_on "go" => :build

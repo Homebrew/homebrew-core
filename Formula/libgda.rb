@@ -13,6 +13,7 @@ class Libgda < Formula
     sha256 catalina:       "83d65ccf6e92620dd833dd23d1a02880f020ab24a0a6ed2ab5cb1a5149a32c5b"
     sha256 mojave:         "e48a5aea9d860765e58bcd756c8e81956974d4284189604755a63232fc13a806"
     sha256 high_sierra:    "8c9a8133c1fd1c554f995c089b12cbe049d2a8a01ac31cb5e68c089857a200a1"
+    sha256 x86_64_linux:   "65f1e3cae4f56ec7264a6d59421564c75f10f65bae8ea3e3914dbb5e08fb7eee"
   end
 
   depends_on "gobject-introspection" => :build
@@ -26,6 +27,8 @@ class Libgda < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  uses_from_macos "perl" => :build
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
@@ -33,6 +36,8 @@ class Libgda < Formula
   end
 
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     # this build uses the sqlite source code that comes with libgda,
     # as opposed to using the system or brewed sqlite3, which is not supported on macOS,
     # as mentioned in https://github.com/GNOME/libgda/blob/95eeca4b0470f347c645a27f714c62aa6e59f820/libgda/sqlite/README#L31

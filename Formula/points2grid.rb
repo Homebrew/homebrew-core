@@ -7,6 +7,7 @@ class Points2grid < Formula
   revision 12
 
   bottle do
+    sha256 cellar: :any, monterey: "512f823167dbbf5181f29ed8114407b0412d5e078f0f936177fd740e976c0a09"
     sha256 cellar: :any, big_sur:  "2f165bbc5c54e67fbe9c0d52875898ef82689a3a5a1e145a4567b60dd440cb19"
     sha256 cellar: :any, catalina: "1e3ec7e78cd4652a7f43fca2d9917bd61d7dbd66461f3ac428e9d3f62d8bac97"
     sha256 cellar: :any, mojave:   "d3e4412d6830dc9a2c8bcfc9494497eaeb4d9f606ee0211a74ce10f60382aff8"

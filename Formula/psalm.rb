@@ -1,17 +1,17 @@
 class Psalm < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://psalm.dev"
-  url "https://github.com/vimeo/psalm/releases/download/4.20.0/psalm.phar"
-  sha256 "1ec302445bb3998789c8e80561daa6ad11cc1f4925a416f58d2429b3c2e0f1b3"
+  url "https://github.com/vimeo/psalm/releases/download/4.23.0/psalm.phar"
+  sha256 "c38bcc077ca16152862c4cca5767d6661d556dc664acae10801d72783bdff169"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "802400a79d0a9ecfd3c89f488589b0b9bafd83aad8f4b30cefb0a8df28112b09"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "802400a79d0a9ecfd3c89f488589b0b9bafd83aad8f4b30cefb0a8df28112b09"
-    sha256 cellar: :any_skip_relocation, monterey:       "2d5b1cbd06b7fe09a00c258a2a358b8dd191fcca321fa71ebd82b4be98753850"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d5b1cbd06b7fe09a00c258a2a358b8dd191fcca321fa71ebd82b4be98753850"
-    sha256 cellar: :any_skip_relocation, catalina:       "2d5b1cbd06b7fe09a00c258a2a358b8dd191fcca321fa71ebd82b4be98753850"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "802400a79d0a9ecfd3c89f488589b0b9bafd83aad8f4b30cefb0a8df28112b09"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c980265fee3bcce532621be7fff0a9a96f43827b506f1c592342d00d66a6c4c7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c980265fee3bcce532621be7fff0a9a96f43827b506f1c592342d00d66a6c4c7"
+    sha256 cellar: :any_skip_relocation, monterey:       "22afe9d299e325d006f7b67055cb9614a7897f3d240dcb7d253102179b05aaed"
+    sha256 cellar: :any_skip_relocation, big_sur:        "22afe9d299e325d006f7b67055cb9614a7897f3d240dcb7d253102179b05aaed"
+    sha256 cellar: :any_skip_relocation, catalina:       "22afe9d299e325d006f7b67055cb9614a7897f3d240dcb7d253102179b05aaed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c980265fee3bcce532621be7fff0a9a96f43827b506f1c592342d00d66a6c4c7"
   end
 
   depends_on "composer" => :test

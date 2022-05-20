@@ -1,8 +1,8 @@
 class Qodem < Formula
   desc "Terminal emulator and BBS client"
   homepage "https://qodem.sourceforge.io/"
-  url "https://github.com/klamonte/qodem/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "84aecd322839c615c6f465128ea3231163067606704f19ffa50e5d3481b6ff01"
+  url "https://downloads.sourceforge.net/project/qodem/qodem/1.0.1/qodem-1.0.1.tar.gz"
+  sha256 "dedc73bfa73ced5c6193f1baf1ffe91f7accaad55a749240db326cebb9323359"
   license :public_domain
 
   bottle do
@@ -12,10 +12,15 @@ class Qodem < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "ac2537f733ed6952656aec3016302414b37166b64b2d89836f17354008276f73"
     sha256 cellar: :any_skip_relocation, catalina:       "14491121c60a5368cf41e4cab4df43bd918f31342f8aedf7e43241a3e49b22b7"
     sha256 cellar: :any_skip_relocation, mojave:         "e5b1c53c02b9111a447d2eae8d74231ba3f9374ba7775215bd1559eb1b326e61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19414f9b69d7423a5f2ab1ecb2690bf1bd285f96832d151835741867f22f2e6e"
   end
+
+  deprecate! date: "2022-05-07", because: :repo_removed
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", *std_configure_args,

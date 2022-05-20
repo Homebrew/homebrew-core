@@ -1,19 +1,18 @@
 class Glog < Formula
   desc "Application-level logging library"
   homepage "https://github.com/google/glog"
-  url "https://github.com/google/glog/archive/v0.5.0.tar.gz"
-  sha256 "eede71f28371bf39aa69b45de23b329d37214016e2055269b3b5e7cfd40b59f5"
+  url "https://github.com/google/glog/archive/v0.6.0.tar.gz"
+  sha256 "8a83bf982f37bb70825df71a9709fa90ea9f4447fb3c099e1d720a439d88bad6"
   license "BSD-3-Clause"
   head "https://github.com/google/glog.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ddb4061510011a572bb536e3a705929f7d74b26a2477db7c45f0a5273aabcb12"
-    sha256 cellar: :any,                 arm64_big_sur:  "7cc04172531a192d8783f7d9d7fbaf48b8ab8849c896b089a371bd993726c30c"
-    sha256 cellar: :any,                 monterey:       "ffa231a5624fecd20c2277ccec235a017896de344c4e37c4d80440db02329e33"
-    sha256 cellar: :any,                 big_sur:        "cf69cacfd059791bf7c9196dfd38a170464cda435257eabe5a80428dbcd191be"
-    sha256 cellar: :any,                 catalina:       "934918ceea54e2afe84fe04b179cc86fd210e804ed57d3700d2ecd0bcfc784c3"
-    sha256 cellar: :any,                 mojave:         "8d66cd6d6e718969aa23d9c1fbf442fdb0da2824d40259aae5905074e838507d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31f07fd607f6b830eea772f50e07ef512ec98b2e8a74f270f0898217d56b23e1"
+    sha256 cellar: :any,                 arm64_monterey: "875364220b0fae1b16b63ff9811aa675d1fc55e47fd5ea64ecfb15ce063965b2"
+    sha256 cellar: :any,                 arm64_big_sur:  "8a33b84bd59fa19c00401e5540a41207f2364867783b85289a2153cc4da2b861"
+    sha256 cellar: :any,                 monterey:       "04b418eda3d8089e64ab902d265dd935245c815b19933173f670a28d8abbca81"
+    sha256 cellar: :any,                 big_sur:        "54cac16cc76e3594f3b61afa071ebb7890a1cc22122cab767ae540ced1f1a24b"
+    sha256 cellar: :any,                 catalina:       "53e6963a265a0af5d6982b91e423f432f0a130995cc7e2e2021a04edbbc8a88d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04695a6df86ea26cadda86975bc9ad9c1ec112e8325e2bbc5f25939b42698463"
   end
 
   depends_on "cmake" => :build

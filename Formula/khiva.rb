@@ -7,11 +7,13 @@ class Khiva < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "514fd58094f8ac4120f8a7e8cc600a96357a0ba68c5585acf869e146c30866a6"
-    sha256 cellar: :any, monterey:       "cb986b292887168d11bf06007d42b657ee7d2d2407d23b031708a6fd5af97870"
-    sha256 cellar: :any, big_sur:        "28cddc44c54478884807c063702fec744bc58f177fac0eb4478aa1baa8bb1824"
-    sha256 cellar: :any, catalina:       "befa8229bbf8013598ff42d1318c7eb60d63e13e22902d229658954a4362b521"
-    sha256 cellar: :any, mojave:         "6d9ddb73a8000d9f968717639717d6267e2ba7fb82c13d7a8cc3aefcd40a827b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "399f0456c0b20163d7c38851ab7838a6d9ab4335f01e01073bfedae98f949750"
+    sha256 cellar: :any,                 arm64_big_sur:  "c386d039a93dc9f3e96bc0325cda600cfbf2f698f1b45180e712b5baa4227f09"
+    sha256 cellar: :any,                 monterey:       "c049efc28517b418e5f613187aa29de8173066442386b409b175291c7becf493"
+    sha256 cellar: :any,                 big_sur:        "1a32ac76362d01553dfd4e21dad40e237f686a959e71f19bb0f8b72df1c2da35"
+    sha256 cellar: :any,                 catalina:       "25f5bad055a178283a0be93cbdc7c1581aea942ea779704e4099c966a86e6a63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f93da3f62b10d0f9158f50f722cace17a29ca66958fda924853af51cbcbe8cc9"
   end
 
   depends_on "boost" => :build
@@ -19,16 +21,21 @@ class Khiva < Formula
   depends_on "arrayfire"
   depends_on "eigen"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                      "-DKHIVA_USE_CONAN=OFF",
-                      "-DKHIVA_BUILD_TESTS=OFF",
-                      "-DKHIVA_BUILD_BENCHMARKS=OFF",
-                      "-DKHIVA_BUILD_JNI_BINDINGS=OFF"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DKHIVA_USE_CONAN=OFF",
+                    "-DKHIVA_BUILD_TESTS=OFF",
+                    "-DKHIVA_BUILD_BENCHMARKS=OFF",
+                    "-DKHIVA_BUILD_JNI_BINDINGS=OFF"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "examples"
   end
 

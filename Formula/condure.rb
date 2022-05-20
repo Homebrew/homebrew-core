@@ -1,18 +1,19 @@
 class Condure < Formula
+  include Language::Python::Virtualenv
+
   desc "HTTP/WebSocket connection manager"
   homepage "https://github.com/fanout/condure"
-  url "https://github.com/fanout/condure/archive/1.4.1.tar.gz"
-  sha256 "6a30cf8f5aa51d958099c15433f23dacc1a75780b1aace9a94dce40a5e755d90"
+  url "https://github.com/fanout/condure/archive/1.6.0.tar.gz"
+  sha256 "74c2fd5a165b9f7b1e255b17f07971ae33537a35b3c7bca9f10f57e840e4b7a5"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "e538eaabfae94e53c2805cdcf483f3b2679bfd73282a3b68edd60dc76e26065f"
-    sha256 cellar: :any,                 arm64_big_sur:  "3e1756bea865579f5803300783b22f0e50bb50e9000462ff21f561c2a7e15e25"
-    sha256 cellar: :any,                 monterey:       "7aa533fc9b521bd81b3c69e0a8fb709a5fe154167ffa8fb69572fd9a17efbd7e"
-    sha256 cellar: :any,                 big_sur:        "919ed30c8281ab14d8c66952ec5b29e7485541c655c43464d5a488013d2d842f"
-    sha256 cellar: :any,                 catalina:       "96d852229873b07d090f608d7ad087082c1b0653bf4d52be106edb4d7230561d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e3c29f8c40503b76813a7e0cd89c9a9404d4c82ecb4d441f7a359f9b94eab34"
+    sha256 cellar: :any,                 arm64_monterey: "f159535c454d4118afa3cc250e19c4d6cee6f3f20727d41963af040d15c7c6e6"
+    sha256 cellar: :any,                 arm64_big_sur:  "6ba83ee58520e1820b6904f879a11464b123c1eb58cd9943819f8a0c851c1fb3"
+    sha256 cellar: :any,                 monterey:       "d76c2cb36024143d585622daee20f20e811c815552c07a2b1757ab594bf113ce"
+    sha256 cellar: :any,                 big_sur:        "5982e3bc28672c233943c2afe0fc3131843fdfe74dca3ecd988ca54be39ff7ad"
+    sha256 cellar: :any,                 catalina:       "8d8c158d451781eda59bf013bf49f90a5bf1bccb4f3cfc430c250287f61b4377"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9027d4c4e99d35ae204df251ba36787e9869da849db6202002c28f43ea7800ff"
   end
 
   depends_on "pkg-config" => :build
@@ -39,15 +40,9 @@ class Condure < Formula
     ipcfile = testpath/"client"
     runfile = testpath/"test.py"
 
-    resource("pyzmq").stage do
-      system Formula["python@3.10"].opt_bin/"python3",
-      *Language::Python.setup_install_args(testpath/"vendor")
-    end
-
-    resource("tnetstring3").stage do
-      system Formula["python@3.10"].opt_bin/"python3",
-      *Language::Python.setup_install_args(testpath/"vendor")
-    end
+    venv = virtualenv_create(testpath/"vendor", Formula["python@3.10"].opt_bin/"python3")
+    venv.pip_install resource("pyzmq")
+    venv.pip_install resource("tnetstring3")
 
     runfile.write(<<~EOS,
       import threading
@@ -89,9 +84,7 @@ class Condure < Formula
     end
 
     begin
-      xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
-      ENV["PYTHONPATH"] = testpath/"vendor/lib/python#{xy}/site-packages"
-      system Formula["python@3.10"].opt_bin/"python3", runfile
+      system testpath/"vendor/bin/python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

@@ -1,19 +1,18 @@
 class Kind < Formula
   desc "Run local Kubernetes cluster in Docker"
   homepage "https://kind.sigs.k8s.io/"
-  url "https://github.com/kubernetes-sigs/kind/archive/v0.11.1.tar.gz"
-  sha256 "95ce0e7b01c00be149e5bd777936cef3f79ba7f1f3e5872e7ed60595858a2491"
+  url "https://github.com/kubernetes-sigs/kind/archive/v0.14.0.tar.gz"
+  sha256 "7850a3bb4c644622a1c643e63306ddcd76a5b729375df9bc97f87a82375b9439"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kind.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "836dda92f4ab17324edd3ebc8614fb84a55923388df87dc2be4a5f2b92c9ecbf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "29920822e416eea3f363200b64666756a2979aa186e067b3794bb5466aeaaf35"
-    sha256 cellar: :any_skip_relocation, monterey:       "b2ea26dd71b619145d2bd33e4c2c704bd59ef1d3813517e852b958600affaa9e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "116a1749c6aee8ad7282caf3a3d2616d11e6193c839c8797cde045cddd0e1138"
-    sha256 cellar: :any_skip_relocation, catalina:       "15aa1527c8886da5ce345ae84f255fd33ee9726acef8c6ba1f33c2f5af8d6a96"
-    sha256 cellar: :any_skip_relocation, mojave:         "f506e71e34e0e43f48425a733b77d4f7f574861d52041d6c3a8a7220ae49943f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03aa8a4879c9b3b3e234a37275b3c4dd9c9c50f1b3b8e0859ef92d0bee54eb59"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aae21435a83ef7c8e3abe321c708dde07a2169a849b98969d45f14539f4aec84"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "03a75bf5e690db31228c5a7c6933f5e320850b08891a23573b733acff97e6018"
+    sha256 cellar: :any_skip_relocation, monterey:       "17fd618a994d1ac7f4b5b96b21d77f624315f6180b02260cccf81769d9d8f8ac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f6ec6c1fad09f6c0647f15f70311291d31d632586b2fc9624d0e876c2d4a8a0c"
+    sha256 cellar: :any_skip_relocation, catalina:       "17ab65161efe2a82e48fec0adda13593195e97c3433f879abf09ae55a7990ae7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b29f6a0492c893f1c8f421b5ea37f6180eb5bc1532f6f537777646eb00b66217"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Calcurse < Formula
   desc "Text-based personal organizer"
   homepage "https://calcurse.org/"
-  url "https://calcurse.org/files/calcurse-4.7.1.tar.gz"
-  sha256 "0a7c55d07674569d166c0b0e7587b2972d3da8160cdb7d60b1dbd2895803afb0"
+  url "https://calcurse.org/files/calcurse-4.8.0.tar.gz"
+  sha256 "48a736666cc4b6b53012d73b3aa70152c18b41e6c7b4807fab0f168d645ae32c"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Calcurse < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "ec9948711ffda49c437becd2e2246ca93608c72b9411204e9a81a8be5d7e5bb9"
-    sha256 arm64_big_sur:  "f5aea7fdb9fd90fdbe3ccb695fd1e7922b39bf35b9568a35cca0659aad9884ca"
-    sha256 monterey:       "ac0994e1a5a5e95ec3a53cc749597761c26c7857af06e0609fafc7f5cfff6bab"
-    sha256 big_sur:        "3ec58ced653c61f7205ee551d5ac6dddeeced2fdd1231c6fc6dae8c1d5532f48"
-    sha256 catalina:       "edd3afddbdf8bcd68494332eeb6620a93530cd3a12541fb5db08470422715a4d"
-    sha256 mojave:         "3ae0a4b707a783e4fc8be4e575d16701f45f3c69c0cd67b6882e49f86fc7f52f"
-    sha256 x86_64_linux:   "4ab43789ad00c84b0f4844c6dd836bc0a5623a28d80d04027554433d4fb362c4"
+    sha256 arm64_monterey: "c052a312420fb5e3a244df5c013c72817f3f72e6575f3d4dc2df05616d42bf77"
+    sha256 arm64_big_sur:  "9e3f2eea1bab3d8e28dc2923c536a2b4585affe1c484024c684ad77dd1e75b8c"
+    sha256 monterey:       "5f1bc21c76038efd7812be974b649630a982d24a1f0b9de05d229ed4cd3c471a"
+    sha256 big_sur:        "157648881c6baa721a8ad91efc402f703211fdad5b9739d6221806fb42c1586c"
+    sha256 catalina:       "4e711564ffefe3d1479d3ad0efec99f4c87708ad48e3e71a0c7143a9003ddab5"
+    sha256 x86_64_linux:   "37bf63e3ebcd930c5019010e97c237d54171ca92c4eb7c2fdbebfd07dc290e4c"
   end
 
   head do

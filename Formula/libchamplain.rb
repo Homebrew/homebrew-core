@@ -12,6 +12,7 @@ class Libchamplain < Formula
     sha256 cellar: :any, monterey:      "be1d7594f805bd7c358011a1669f5eb479c04157330cca2434392fc46eaefa9c"
     sha256 cellar: :any, big_sur:       "492db68c8120ff8435f6d96b87cdc4db83afe2d47b0da7b1bc164bbb60af015b"
     sha256 cellar: :any, catalina:      "2b4c4d1e01b47b3598b56d92b27a42b944a56c83b73f1e175e6854210dfe465e"
+    sha256               x86_64_linux:  "292cd694f9167c38d48b8aba733960db987135857f6954bfff79908a57878413"
   end
 
   depends_on "gnome-common" => :build
@@ -23,6 +24,10 @@ class Libchamplain < Formula
   depends_on "clutter-gtk"
   depends_on "gtk+3"
   depends_on "libsoup@2"
+
+  on_linux do
+    depends_on "vala" => :build
+  end
 
   def install
     mkdir "build" do
@@ -102,11 +107,11 @@ class Libchamplain < Formula
       -lglib-2.0
       -lgmodule-2.0
       -lgobject-2.0
-      -lintl
       -ljson-glib-1.0
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

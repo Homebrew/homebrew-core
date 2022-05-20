@@ -3,8 +3,8 @@ class Libngspice < Formula
   homepage "https://ngspice.sourceforge.io/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/36/ngspice-36.tar.gz"
-    sha256 "4f818287efba245341046635b757ae81f879549b326a4316b5f6e697aa517f8c"
+    url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/37/ngspice-37.tar.gz"
+    sha256 "9beea6741a36a36a70f3152a36c82b728ee124c59a495312796376b30c8becbe"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -18,12 +18,12 @@ class Libngspice < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9d58e20b687ede651ca723c47a35bbc772478ab75768159021b38cb3d2f70a91"
-    sha256 cellar: :any,                 arm64_big_sur:  "06bfd009199b8955829ee232e8af51d8f5d9f18251cdfff08f957ec3cb5d4ee9"
-    sha256 cellar: :any,                 monterey:       "31d9faaad4c639bb2b16330c68bd9345df81cecc91946cf2f579ab2725ff11e0"
-    sha256 cellar: :any,                 big_sur:        "6234e617fda518242b252264e3ffdfab258711469adfdfbdf6586bb50e1776fe"
-    sha256 cellar: :any,                 catalina:       "f3d15531e93ab0c0bd4c19a17e85c1474352d04fbcd8c6592f11b687a8474138"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "179a9d7162f4dbda06ff91e35c6775cff85fcc40ff6cb65929be8bfa15823734"
+    sha256 cellar: :any,                 arm64_monterey: "570a9fc2cef0e38a6fc50413efff7cd1510fd5cfe45b418d9084f4500f00d443"
+    sha256 cellar: :any,                 arm64_big_sur:  "d6cc2b395086bdabcd8c82a8d80b0447abf14c5f54c1292c422a182f136c6cd3"
+    sha256 cellar: :any,                 monterey:       "f34f1c28d673e2a3f4a65eeaefe43d252823674cf5429f8db264a95f85b2b69c"
+    sha256 cellar: :any,                 big_sur:        "470615d662b09d1301509575e1d76ee703a086d08344acb0b53e22008ea31877"
+    sha256 cellar: :any,                 catalina:       "08e2cf42d85bc36c66b3c4fe5310354389ab72bc68fbe25c867e9e1136e5c8af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9f0287c2f22f2e517257128cdf3b5e37d1e5e44cb76fdc5df348b98cce0b188"
   end
 
   head do

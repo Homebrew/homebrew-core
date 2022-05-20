@@ -4,9 +4,8 @@ class Libxml2 < Formula
   license "MIT"
 
   stable do
-    url "http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.12.tar.gz"
-    sha256 "c8d6681e38c56f172892c85ddc0852e1fd4b53b4209e7f4ebf17f7e2eae71d92"
+    url "https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz"
+    sha256 "276130602d12fe484ecc03447ee5e759d0465558fbc9d6bd144e3745306ebf0e"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -15,23 +14,24 @@ class Libxml2 < Formula
     end
   end
 
+  # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
+  # minor is stable" version scheme.
   livecheck do
-    url "http://xmlsoft.org/sources/"
-    regex(/href=.*?libxml2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/libxml2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b279b3fe83d85482b13607b051188b256ee9382ffec26230d42fdbb1f96642ae"
-    sha256 cellar: :any,                 arm64_big_sur:  "a08e1ca1be7f5d1b1cf4eee4efabf906fb59fec8422292fe124002aa98d11540"
-    sha256 cellar: :any,                 monterey:       "f03e58ff77808c951c61fa10465965a9f71e94e1da8b850d70c335a8f3b9fc12"
-    sha256 cellar: :any,                 big_sur:        "fbc422ede343b2bd4047ccdf2f697430da636b66fc550697a2f921b97cebe18f"
-    sha256 cellar: :any,                 catalina:       "eb2c8a444b4cf1f09e35c23b91e7cc16c11bc63527bfc3e19a4442e41cfd4b4d"
-    sha256 cellar: :any,                 mojave:         "cf7b2b2ddb047582b9fb5c649d76ab6d4025ea328dff5ad22bcc4d929a8730ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28c0f1b5ed535d8ac6ae60d8ecde883605ed21691ad89be8869d47427a44b7a2"
+    sha256 cellar: :any,                 arm64_monterey: "1ebcd2fa8e48d384beddb7e016bbe994eab1982d9582f227101dcdb2961b3b1f"
+    sha256 cellar: :any,                 arm64_big_sur:  "c7e58f96d887c48155d6313d7a861ff7257dc0aa773af24241ee3e0519055fe5"
+    sha256 cellar: :any,                 monterey:       "51fb1fa73c67da7e66555925ec512aa05eb80af02ceb3d2923eba97da6c8df6b"
+    sha256 cellar: :any,                 big_sur:        "4398ed732014a4f6ce01740c6a9814eb456d154d969b3b35d1f545876225887b"
+    sha256 cellar: :any,                 catalina:       "96c7793298f4bf2d8e178d6fbec9cb008714e02ffd3de6c89cd80a43769e7a17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01393bbdc60b7263d0c66d19bb56361d703c69c7ab56940561746715958b2d5e"
   end
 
   head do
-    url "https://gitlab.gnome.org/GNOME/libxml2.git"
+    url "https://gitlab.gnome.org/GNOME/libxml2.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -78,7 +78,7 @@ class Libxml2 < Formula
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
                             "includes_dir = ['#{include}', '#{sdk_include}',"
-      system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 

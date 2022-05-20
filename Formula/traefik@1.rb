@@ -16,6 +16,7 @@ class TraefikAT1 < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "66cc839bf105e161e16aec5b056c5a5c908d7d5fbe2fadb5668614d8c764e783"
     sha256 cellar: :any_skip_relocation, big_sur:        "95d3b3da8a19aa4cb133c8e5b95b63a957551732c2a81fb4b80015dc84df0237"
     sha256 cellar: :any_skip_relocation, catalina:       "a1f090529ee3ed1646d872898219662f76d215c5cf7389cb84d4f22e540b7afd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69adbe00d348f14f732bbd9fe57d57e6f513f6f1c72f5ff2f4e09fae5b4ee2d9"
   end
 
   keg_only :versioned_formula
@@ -24,7 +25,6 @@ class TraefikAT1 < Formula
   depends_on "go-bindata" => :build
   depends_on "node@14" => :build
   depends_on "yarn" => :build
-  depends_on :macos # Due to Python 2 for node-sass <= 4
 
   def install
     cd "webui" do

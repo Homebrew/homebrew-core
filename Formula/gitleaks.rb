@@ -1,17 +1,17 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/zricethezav/gitleaks"
-  url "https://github.com/zricethezav/gitleaks/archive/v8.2.7.tar.gz"
-  sha256 "bf5ec1010b2f7c5031c21152ebdfbffc6e721690f67aa1f797c148e80834ecd0"
+  url "https://github.com/zricethezav/gitleaks/archive/v8.8.4.tar.gz"
+  sha256 "7692535fb0011d3ad9c6b1effd0f501c1b26baf5c720288384d459a8c8f951eb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8840deb078c6046f329c41b40ee625e6de66bc7ec6bfdb064b035e4948d6ca9b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "572ce8429cb425d235b4a9d82ce53b752ec35246913e5246395c476a01195d2e"
-    sha256 cellar: :any_skip_relocation, monterey:       "b5af65caedebfabae600dcea3688d43e220bbcb16d653aa9e5c33d0bb6c11a2c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "70d7b05e9f51639fb0fd01a70a940300c4fe0d769aae3db9d34964c084a13b93"
-    sha256 cellar: :any_skip_relocation, catalina:       "8c609541c9a84cdad7afe0e1d3f43b4bf6e397a86b9564a3bde706543b1b8c53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a486bb74ed4dd2a201cbcd1c8d9dc0b1e35180deda4d2c46c4bbf2b246f6c2a8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02874090a5efa08cf72de8c476049e964789e51c15d3afeeb2a0c4d4b2cd5dd6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "142be6860f75c2265e0b4bf23d1548837362561384552ba355ce14f33599acad"
+    sha256 cellar: :any_skip_relocation, monterey:       "e3cd6dc32f212e5c9bf8ad76ce22483fd1676e3522757708dd658426422a9e00"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a7d5e91488d917963cddf6f59e794af14a108c85e031cb981fea6dc52763e3c7"
+    sha256 cellar: :any_skip_relocation, catalina:       "147ad2dd94424903344eaace83e0de0ebfcc350905ea23a31c65d60abb2aac5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eaff584b110c12e67e187b4e1cd41242cc94696e6a3e408cdb44143251b47124"
   end
 
   depends_on "go" => :build

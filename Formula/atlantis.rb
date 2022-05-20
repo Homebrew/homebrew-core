@@ -1,18 +1,23 @@
 class Atlantis < Formula
   desc "Terraform Pull Request Automation tool"
   homepage "https://www.runatlantis.io/"
-  url "https://github.com/runatlantis/atlantis/archive/v0.18.2.tar.gz"
-  sha256 "72733047a46b937aaecb8d3b8848a2f5fcd40dfb25a613ade989a7a2f313519e"
+  url "https://github.com/runatlantis/atlantis/archive/v0.19.3.tar.gz"
+  sha256 "d44a148388aa6a07fdb3cf9b0681d4f8f3db621b6523dd99b1dc6a3aa08478f3"
   license "Apache-2.0"
   head "https://github.com/runatlantis/atlantis.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eae50154d522413f1c51dbaec0e4ceda2da337c0550319bd1622d8ddc65b5d98"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "215a944ca6521de133cdca8f12a00118b3e4783d860b872ea6bae7b5f210e19d"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f57963566bbe004982bb308177eb8764bd2946f4ea07e5e0c7c6d922012b1d1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7026e7efba485c9a34712822ac285d5d6c60f97439d3c22fbcc789e7505f03dc"
-    sha256 cellar: :any_skip_relocation, catalina:       "258b521bc9b263d62056065dd8744e34325f17ac2f264a6e31cf2990bba8b31d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d03b4a344e8aa6ec8161220cd0f6adfee0a0299efb316aef7b298663393e1f3d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a9a0c157c6a2fd2d3a36a31b768d4e648bab79d4b105bda588b11ec79365d89"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5dd0cb4514d19107aff8edebcb9ad145384d58b448e51bb0a550dee7598df0b"
+    sha256 cellar: :any_skip_relocation, monterey:       "2f8d85245fd4247529716a3fc78eb12610c168f74dc6ebe5f57bf21ca9c0f429"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8d1b9a117a1f172b6705953d513f47849ddbeab200268411150484468534d721"
+    sha256 cellar: :any_skip_relocation, catalina:       "a707d49925f0e083f7b065dbdc380b091de97a7cc60ae6a2b1e9e48f10560321"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e60258ab11a6f127ecc788ef7c9b351eab391046edea7b1b874cc1c8f4d883b"
   end
 
   depends_on "go" => :build

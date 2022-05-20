@@ -3,18 +3,18 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/21/8d/1d198d04a2fde554894206e791f05ec91b9986f14b0d464319143d0396f0/oci-cli-3.5.0.tar.gz"
-  sha256 "580e80726f9802554133b290d739e5597f664fb14782b8ef998f438b962ea717"
+  url "https://files.pythonhosted.org/packages/c1/02/2a386b82d70ada3a13133f3015b40f55f9b5b6d7b77baf7dc6f9d32e39ef/oci-cli-3.9.1.tar.gz"
+  sha256 "72d774dea65c07c8c3cf0ff6ee68369a37bda0d01b2fc24a246289286b6639bb"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cef86f43cba7501c0febecd818fa8c552b8dabf17dbfeb8d47c871af89869212"
-    sha256 cellar: :any,                 arm64_big_sur:  "7ec4d2d82a9a35d8b319bfbd5523f3915fa799dfdc7f515d4b2951fd0c9db200"
-    sha256 cellar: :any,                 monterey:       "5af51d770ebd68ea8b3d58bdc2b984eb1398c5393125e4cabbd556729b65f779"
-    sha256 cellar: :any,                 big_sur:        "21df79c9fcd414f17a4d4e361e98bff76acf731cf7c6b91bd3befd5678d011e8"
-    sha256 cellar: :any,                 catalina:       "6b06c4df05be8e26fb9a4b691bf293d6d89b6a94ce1335b3545f1ae185e5c87b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ede021be212096c947d602568f387653e656afd5415bf01e79d88b876a7a84a"
+    sha256 cellar: :any,                 arm64_monterey: "49b8e2f6e7f3c928f9e10543fb129fb9e095a08a9aa266c660ca0942a8d97bb4"
+    sha256 cellar: :any,                 arm64_big_sur:  "894d51afb1977f73dee3c53b885f963c2b5699516cea4b1b38aacf4b84278af3"
+    sha256 cellar: :any,                 monterey:       "69a8f0aa8eebf89f1fb14beb32b41b44e45b097c770abb69002361ea7e6e7727"
+    sha256 cellar: :any,                 big_sur:        "d756ebb1b27b4399b2d1dba61322562b0f72ed31f26a772d752d44ce0c0628be"
+    sha256 cellar: :any,                 catalina:       "20ecf59abb423e413adceabb409dfb3114f54ca9f4cf07c1449a3f9bd7f0849f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e662a86fdcb8a9d14399f7aedb78c954ea69ffecd19f61b06764a22a0feb432"
   end
 
   depends_on "rust" => :build
@@ -57,8 +57,13 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/18/bc/4c231cd32acda98b1708874d5d1d2d6034f6b83cd7082d93bcf2761e8b00/oci-2.56.0.tar.gz"
-    sha256 "752593f39f85ef91cdbc3f237d09ca80ae40f617167adaf7cedddf3bc6dedf0f"
+    url "https://files.pythonhosted.org/packages/d0/8d/ad2b25aa71c508306d39ac09b09dcdc83c8fe0afa01350461c02ab8c27f8/oci-2.68.0.tar.gz"
+    sha256 "0836b7ea0656d58ca68279a8e442d5a11db671008be094c5108777b2fca87e60"
+  end
+
+  resource "prompt-toolkit" do
+    url "https://files.pythonhosted.org/packages/b1/32/2a6b734dc25b249467bfc1d844b077a252ea393d1b90733f4e899aa56506/prompt_toolkit-3.0.16.tar.gz"
+    sha256 "0fa02fa80363844a4ab4b8d6891f62dd0645ba672723130423ca4037b80c1974"
   end
 
   resource "pycparser" do
@@ -77,8 +82,8 @@ class OciCli < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/e3/8e/1cde9d002f48a940b9d9d38820aaf444b229450c0854bdf15305ce4a3d1a/pytz-2021.3.tar.gz"
-    sha256 "acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"
+    url "https://files.pythonhosted.org/packages/2f/5f/a0f653311adff905bbcaa6d3dfaf97edcf4d26138393c6ccd37a484851fb/pytz-2022.1.tar.gz"
+    sha256 "1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7"
   end
 
   resource "PyYAML" do
@@ -89,6 +94,11 @@ class OciCli < Formula
   resource "terminaltables" do
     url "https://files.pythonhosted.org/packages/9b/c4/4a21174f32f8a7e1104798c445dacdc1d4df86f2f26722767034e4de4bff/terminaltables-3.1.0.tar.gz"
     sha256 "f3eb0eb92e3833972ac36796293ca0906e998dc3be91fbe1f8615b331b853b81"
+  end
+
+  resource "wcwidth" do
+    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
+    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
   end
 
   def install

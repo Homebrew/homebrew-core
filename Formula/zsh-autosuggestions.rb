@@ -22,9 +22,7 @@ class ZshAutosuggestions < Formula
 
         source #{HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-      You will also need to force reload of your .zshrc:
-
-        source ~/.zshrc
+      You will also need to restart your terminal for this change to take effect.
     EOS
   end
 

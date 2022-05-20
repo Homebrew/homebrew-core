@@ -1,18 +1,18 @@
 class Caire < Formula
   desc "Content aware image resize tool"
   homepage "https://github.com/esimov/caire"
-  url "https://github.com/esimov/caire/archive/v1.4.2.tar.gz"
-  sha256 "73924c22993baa98ed9310f9c4f7a004b3bf565a3a9b031f003f2d50ba662fda"
+  url "https://github.com/esimov/caire/archive/v1.4.4.tar.gz"
+  sha256 "2786ab0af06aeb8357ae835340b96f30ad1b134280faa346f0f250df5c7567b1"
   license "MIT"
   head "https://github.com/esimov/caire.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14f70b3438845397060eeb951fe97db41389f709acf0f13a954b23e3e3797c69"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a01b854816989ac5df266cdb211588b87c35bc889ef4960764c932ff4bf995e"
-    sha256 cellar: :any_skip_relocation, monterey:       "a483a740c1895b6834e4bbb76c70b92d7711c7568671b7740ca2410ce72c438c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7c2faee11e04a2a2a2816f3de11aa700ffbad6d1d1636045a2e3e7edf94117e2"
-    sha256 cellar: :any_skip_relocation, catalina:       "f7218ea67bedb743c074e9f2ba1507deea1d752f6d205bb69a66aefb7d579074"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ec617fa865ca313ca11d9f40680702dd0f3e94b87e4e2af3dabb43e029ee170"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4dd11795109c0ee09d0ab81c1a35861215b8a7afedb6fa7d4148535ffb23a8b4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a35ffdc4052f39ff43b89c2cac5b55385d46ecf0501b014ba5cad3b3f96b4249"
+    sha256 cellar: :any_skip_relocation, monterey:       "1ad74bdcdc3786d799e8394748683aa78137f97a7ed98c10cc6d287cf9be2fe5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8754892375d921d9700607d68d85ac0a430f0e98759a787b76bc20586490faf5"
+    sha256 cellar: :any_skip_relocation, catalina:       "58836775c2ee4ac9a78747499daf4582cbb193461a280cd798beb0dcba7e7291"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f80998cf1355ffaf5939ae34b17b747c999132b18b5efeffee2dc945b72cdd41"
   end
 
   depends_on "go" => :build

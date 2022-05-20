@@ -1,8 +1,8 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
-  homepage "https://www.aquamaniac.de/sites/aqbanking/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/400/aqbanking-6.4.1.tar.gz"
-  sha256 "79adeaf05e99b5aa0d31c3eac3db37a56bb375f537b3f106a9acfcf844dadd77"
+  homepage "https://www.aquamaniac.de/rdm/projects/aqbanking"
+  url "https://www.aquamaniac.de/rdm/attachments/download/435/aqbanking-6.5.0.tar.gz"
+  sha256 "4d2d3bea086e96ada7b6819206d4eb4168ceb7e32dce9a68dc6c6eabcc9eb63e"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,19 +11,12 @@ class Aqbanking < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "5a86ff8e93a1e454ae3588bb749378fb863230e353be6b862a36a6cf5bfed7df"
-    sha256 arm64_big_sur:  "d83a2a3067d0151089605f34c2b96b72cc55b4f5258bc84575094f04c22ddb8f"
-    sha256 big_sur:        "e15bcadc4d81ae9214ccd2b71cd9596f1431cc0d80032f4ba443cc46c7481283"
-    sha256 catalina:       "329934083304ca7ca6a3a30832ca652973fa0eaacf3a493520cc850675a22b68"
-    sha256 x86_64_linux:   "84a998567c4b0898daeabaf3c6bf6bf6027f625c3fbe060911dc8e9bebc35c74"
-  end
-
-  head do
-    url "https://git.aquamaniac.de/git/aqbanking.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    sha256 arm64_monterey: "d9e446b646d77b35070d3949d544f2c921bd39987e90e18f619de9193c8122f5"
+    sha256 arm64_big_sur:  "a726b3584d9f28941485c2ebc587c2f6c42b7f46d6107395913b8e562c249a3a"
+    sha256 monterey:       "dd8f1879bb07bf8712cf2777ad63e5687cb5de4efb13af0feae02f88dfefe64e"
+    sha256 big_sur:        "bd2d08d03cf5aaa9f5ebbf1c319e827030f0db7fac3f6952a9c8a0dc8ad6ac29"
+    sha256 catalina:       "1cd5ee4252aaf868fb9ad14e1adb3cf229dbee853bf2e4867699cb6a035a85a3"
+    sha256 x86_64_linux:   "3d7eb8830810d4841a5545a4bcba94849096a0b3d9e910e02655c1bc529cb4a4"
   end
 
   depends_on "gettext"

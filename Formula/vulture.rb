@@ -3,20 +3,18 @@ class Vulture < Formula
 
   desc "Find dead Python code"
   homepage "https://github.com/jendrikseipp/vulture"
-  url "https://files.pythonhosted.org/packages/30/8b/bf4765866521da744ca081f09184657c0dc4fd8ee910a2fd1043d2c7cd6e/vulture-2.3.tar.gz"
-  sha256 "03d5a62bcbe9ceb9a9b0575f42d71a2d414070229f2e6f95fa6e7c71aaaed967"
+  url "https://files.pythonhosted.org/packages/21/1e/843bc79daf4f46c13c56692c488722e3465a509331f3bb84bb314f9a6136/vulture-2.4.tar.gz"
+  sha256 "819439294a76b4e0b8e08c70d75565a8ce3dc1f6e03558ed123a5f2bb737c0ea"
   license "MIT"
-  revision 1
   head "https://github.com/jendrikseipp/vulture.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8df33d60a71db6f9cf50d1eb6ba88cb809b8f58971a3993a3e0695fe2d26c94b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15943088313f0f1636786938dba0625f4826370e556585b48d2d154a00a9a805"
-    sha256 cellar: :any_skip_relocation, monterey:       "4947fe3d214639b74461fd582c0262044b208462cc889d4ebfc863927dcbe30f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ede0a34d82eda81423282e75f1fa99d3b86b16b78cb2961928f6a6b3bfb77341"
-    sha256 cellar: :any_skip_relocation, catalina:       "480319c78f46a25a94c7e993bc88102d0569895403a06c370551bfc2455c0e95"
-    sha256 cellar: :any_skip_relocation, mojave:         "c3e6dffc1ca081ce496cf44351a836a9a1fc6d0984897efc7efeae4d8ae52696"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c69939c42b00da8c3f7688cd7a4cdec39631299492f7c30b051c9d19f1f97b2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4dd4b99f4bdbd0d1a8b889095d088193e051f27c763a54b922203772d590bf6d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30854fdc4aeb0e99e953e40edfb758f9b78a338330bc54902fe4f73f840fb1eb"
+    sha256 cellar: :any_skip_relocation, monterey:       "1036ebfc82380aa4f36d9b7407cdd5072493909bc06ee8b05b8b48ef2c61c6fc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aa2fd5aa8af519ec76764f3e391bb116af3e7ca034ac88d0e6fb74c1361c9fbe"
+    sha256 cellar: :any_skip_relocation, catalina:       "90c9ef1e889b77f1d09ab513fb1711adbe4274071e8a72c804bafe85e2c5da66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d493f44c7ec903b95b0082fa8a7dcf341210a474fad7d189b534943586f8e6a"
   end
 
   depends_on "python@3.10"

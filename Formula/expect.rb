@@ -28,6 +28,8 @@ class Expect < Formula
   depends_on "libtool" => :build
   depends_on "tcl-tk"
 
+  conflicts_with "ircd-hybrid", because: "both install an `mkpasswd` binary"
+
   def install
     args = %W[
       --prefix=#{prefix}

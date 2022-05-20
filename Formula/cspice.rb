@@ -18,6 +18,11 @@ class Cspice < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "b6317d5408e0c56164299671a459ed55c3581a219b4e0b7c699c08fe6abbcb3d"
     sha256 cellar: :any_skip_relocation, big_sur:        "081d234c0862319ab53275de9eb9f6e006d53afe43c63d53425bd089ea9b493c"
     sha256 cellar: :any_skip_relocation, catalina:       "900cfe839cf53dc03c1e227332d24849e55209a606dba515412ae74a955144f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c49763f72469907d773eef66b54ae8dce74c3df9f2f5dee29468de3ea9f0953"
+  end
+
+  on_linux do
+    depends_on "tcsh"
   end
 
   conflicts_with "openhmd", because: "both install `simple` binaries"
@@ -25,6 +30,13 @@ class Cspice < Formula
   conflicts_with "enscript", because: "both install `states` binaries"
 
   def install
+    # Use brewed csh on Linux because it is not installed in CI.
+    unless OS.mac?
+      Dir["src/*/*.csh"].each do |file|
+        inreplace file, "/bin/csh", Formula["tcsh"].opt_bin/"csh"
+      end
+    end
+
     rm_f Dir["lib/*"]
     rm_f Dir["exe/*"]
     system "csh", "makeall.csh"

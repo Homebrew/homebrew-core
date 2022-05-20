@@ -1,8 +1,8 @@
 class Dlib < Formula
   desc "C++ library for machine learning"
   homepage "http://dlib.net/"
-  url "http://dlib.net/files/dlib-19.23.tar.bz2"
-  sha256 "b1be30672302abdb8e010a21edf50d20a398ef9c38fddc45334dedf058af288a"
+  url "http://dlib.net/files/dlib-19.24.tar.bz2"
+  sha256 "28fdd1490c4d0bb73bd65dad64782dd55c23ea00647f5654d2227b7d30b784c4"
   license "BSL-1.0"
   head "https://github.com/davisking/dlib.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Dlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "716804b2263be0d5838f771743a0c2c3bf2edb5d90b9c45daa71a9aab5fbf52f"
-    sha256 cellar: :any,                 arm64_big_sur:  "f076d570b9b83d388a153ca175780a39a1aded6270955bc2d983184240ee107a"
-    sha256 cellar: :any,                 monterey:       "a507111d2b5820fa2ae50266df3e3063ac0a52e16ec2aaf6cfb015fbd111e615"
-    sha256 cellar: :any,                 big_sur:        "dbca75d3d14e4c314ebb9d3f273684140dd999929019a950b111d6fbcc012439"
-    sha256 cellar: :any,                 catalina:       "54272687cbb34d28d0b61e93183d8cc1257db518357ed7fdf3fdb997c0666395"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b2a7242c594ca4f6da385e61701705f1b309f96bcc007aa942491dcd1e7ae82"
+    sha256 cellar: :any,                 arm64_monterey: "ce4fe45d2e501625e5e8a4b7b274151c7ecacfc5ba081d7ac660b4e231a1a66f"
+    sha256 cellar: :any,                 arm64_big_sur:  "c2c4070c3d21aa827d2261564aec34317ac13317faf5ce23370b04a779e40fce"
+    sha256 cellar: :any,                 monterey:       "41275bb8f75b188f3da28618944fffc36d85420b86ad485f24b98a4a51c52b5c"
+    sha256 cellar: :any,                 big_sur:        "5306628da782489ff1cd32d0e0b4ae3b9e4bc467bdd525386772f306c4042b29"
+    sha256 cellar: :any,                 catalina:       "de3a205e585a92c5ba3b983dcdbaf7baeced3b3408efa3919d538f0531bd19f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5d1b7577ff56a2cce011dd0759b5dfd4865f3222c57950a4e154f582c8765d0"
   end
 
   depends_on "cmake" => :build

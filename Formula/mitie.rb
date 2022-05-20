@@ -8,12 +8,13 @@ class Mitie < Formula
   head "https://github.com/mit-nlp/MITIE.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "85090e5f3a58d0e1b4d809bb67813684bce137134f9d903dfeae192e4540ffe8"
-    sha256 cellar: :any, arm64_big_sur:  "ad562a270ddfb8ffc19c35fd3ec680a1152f3fc25d0bfa9d07f32ba49f563086"
-    sha256 cellar: :any, monterey:       "508dd4609e72647b3534466576df9e18a0717c9387cf68c9bbf14f3d8769f5f8"
-    sha256 cellar: :any, big_sur:        "1a3f80b1b4c26c82cd9b0110d244ffa40aa30933a8b92ecfc1a6bf1e1265480a"
-    sha256 cellar: :any, catalina:       "edf72d45db9f8b0772e21dd024b9f44a2ff40b926ae2c1662e394b9468c19863"
-    sha256 cellar: :any, mojave:         "4bf2422b5d421784cc2829fd5987132c89a82637c7d05a3a34b95568084c8457"
+    sha256 cellar: :any,                 arm64_monterey: "85090e5f3a58d0e1b4d809bb67813684bce137134f9d903dfeae192e4540ffe8"
+    sha256 cellar: :any,                 arm64_big_sur:  "ad562a270ddfb8ffc19c35fd3ec680a1152f3fc25d0bfa9d07f32ba49f563086"
+    sha256 cellar: :any,                 monterey:       "508dd4609e72647b3534466576df9e18a0717c9387cf68c9bbf14f3d8769f5f8"
+    sha256 cellar: :any,                 big_sur:        "1a3f80b1b4c26c82cd9b0110d244ffa40aa30933a8b92ecfc1a6bf1e1265480a"
+    sha256 cellar: :any,                 catalina:       "edf72d45db9f8b0772e21dd024b9f44a2ff40b926ae2c1662e394b9468c19863"
+    sha256 cellar: :any,                 mojave:         "4bf2422b5d421784cc2829fd5987132c89a82637c7d05a3a34b95568084c8457"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "474d1937760927929a73c3ebae48dbe3f7ee0f0cb2efff4eb43cbb397ce06679"
   end
 
   depends_on "python@3.10"
@@ -26,12 +27,12 @@ class Mitie < Formula
   def install
     (share/"MITIE-models").install resource("models-english")
 
-    inreplace "mitielib/makefile", "libmitie.so", "libmitie.dylib"
+    inreplace "mitielib/makefile", "libmitie.so", "libmitie.dylib" if OS.mac?
     system "make", "mitielib"
     system "make"
 
     include.install Dir["mitielib/include/*"]
-    lib.install "mitielib/libmitie.dylib", "mitielib/libmitie.a"
+    lib.install "mitielib/#{shared_library("libmitie")}", "mitielib/libmitie.a"
 
     xy = Language::Python.major_minor_version "python3"
     (lib/"python#{xy}/site-packages").install "mitielib/mitie.py"
@@ -42,8 +43,8 @@ class Mitie < Formula
   end
 
   test do
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmitie",
-           pkgshare/"examples/C/ner/ner_example.c",
+    system ENV.cc, pkgshare/"examples/C/ner/ner_example.c",
+           "-I#{include}", "-L#{lib}", "-lmitie", "-lpthread",
            "-o", testpath/"ner_example"
     system "./ner_example", share/"MITIE-models/english/ner_model.dat",
            pkgshare/"sample_text.txt"

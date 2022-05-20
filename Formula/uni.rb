@@ -1,23 +1,23 @@
 class Uni < Formula
   desc "Unicode database query tool for the command-line"
   homepage "https://github.com/arp242/uni"
-  url "https://github.com/arp242/uni/archive/v2.4.0.tar.gz"
-  sha256 "d9caa7753983a42588beb3e7016987928fe8cd1e1d8c3728dc1e441dc27abba7"
+  url "https://github.com/arp242/uni/archive/v2.5.1.tar.gz"
+  sha256 "806fbba66efaa45cd5691efcd8457ba8fe88d3b2f6fd0b027f1e6ef62253d6fb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5cb783308d060cc8844fbdb27187ec853a1b4f3333def5483f329601af567f07"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7117ab22880a486aaf1d933350ce6dbab7e030eceaf99a73952824877ed0601"
-    sha256 cellar: :any_skip_relocation, monterey:       "0bb57b769a286599155766fb20c9fd923dcabaf2e0829ff473755d09b13226cf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ef54494e9c07aba6f8005fe34b9012fffb59d5cfa78e87b05cff0839cbede28a"
-    sha256 cellar: :any_skip_relocation, catalina:       "950286c4f9e202ea7ec3cdfa3f02d4ea07ce4840506b53d933962b876d8bdc15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e16dc6e74f5960d8b00e0feedd868c812219080bddbf2e8aec510b68c90c2462"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9bad02bbe068358c07b85f7b4069cc518bd193dc31bf8bd2853ef9b3b612185"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b9bad02bbe068358c07b85f7b4069cc518bd193dc31bf8bd2853ef9b3b612185"
+    sha256 cellar: :any_skip_relocation, monterey:       "86d641d3f5fadd4b9bfb08b8791bedcc7e5545a697c2b5bedd2ddb8039e12963"
+    sha256 cellar: :any_skip_relocation, big_sur:        "86d641d3f5fadd4b9bfb08b8791bedcc7e5545a697c2b5bedd2ddb8039e12963"
+    sha256 cellar: :any_skip_relocation, catalina:       "86d641d3f5fadd4b9bfb08b8791bedcc7e5545a697c2b5bedd2ddb8039e12963"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9beb85eb77f2bd8b05bd7f49f049e9633b264da82c0ae09b041dbe56c3a8026"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"uni"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

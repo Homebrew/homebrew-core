@@ -3,37 +3,36 @@ class NeovimRemote < Formula
 
   desc "Control nvim processes using `nvr` command-line tool"
   homepage "https://github.com/mhinz/neovim-remote"
-  url "https://files.pythonhosted.org/packages/cc/d8/82aec85fc7ad0853afca2c88e73ecc7d3a50c66988c44aa9748ccbc9b689/neovim-remote-2.4.0.tar.gz"
-  sha256 "f199ebb61c3decf462feed4e7d467094ed38d8afaf43620736b5983a12fe2427"
+  url "https://files.pythonhosted.org/packages/69/50/4fe9ef6fd794929ceae73e476ac8a4ddbf3b0913fa248d834c9bb72978b7/neovim-remote-2.5.1.tar.gz"
+  sha256 "4b3cc35463544c5747c895c52a0343cfdbba15d307647d7f57f1cce0c6a27d02"
   license "MIT"
-  revision 1
   head "https://github.com/mhinz/neovim-remote.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0568bf3cb14f9e28c2700a629657b3f2fff0f18b0d3ff4466a8aa93f3c73898e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e0d20a2667bc55a954a1e62e6f6e7e6fe32905b57d204cd7ae1f2b7f8ab69fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "62d48f9615d8199367d901a3ff7dab155c6dcac6a647e4095b1d7a0dd3d4c327"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2397e3153ca914d67937fb22329d761f6db9c391d5b2eb6dedaa20f3ba6b5b90"
-    sha256 cellar: :any_skip_relocation, catalina:       "3d6ce83585c9dba3b3603c945b941ff6695fd71e41a01d2a75076b45fa9326d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ec3ab6e795babba12cc2bded96c466680c99526f970f6b101568e32214fa077"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70fd1dc7d92012d97b9f93321c28b5153507bf6708161c5c6769e53c98224541"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7e041bfc51360e3324177bef8536b3a2fae05f2343223b4961a63fb4183114a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "4d8eca98889cfb7fcd2b4198136b084b3c8e8cce25abe27e6406ed2f708404fa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5029b2d27bfa64527011105a15f9094bbf6a42e5834296e3638a9fe6b218aa1d"
+    sha256 cellar: :any_skip_relocation, catalina:       "298e97c28e94dda82cfa139e5bd9e2ef474e8b5b0d8c53540208ab8b0cb8885b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab19308790c8e99c6dab4677699978555e5ec60c757ce6deffba8621eb1b0152"
   end
 
   depends_on "neovim"
   depends_on "python@3.10"
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/47/6d/be10df2b141fcb1020c9605f7758881b5af706fb09a05b737e8eb7540387/greenlet-1.1.0.tar.gz"
-    sha256 "c87df8ae3f01ffb4483c796fe1b15232ce2b219f0b18126948616224d3f658ee"
+    url "https://files.pythonhosted.org/packages/0c/10/754e21b5bea89d0e73f99d60c83754df7cc64db74f47d98ab187669ce341/greenlet-1.1.2.tar.gz"
+    sha256 "e30f5ea4ae2346e62cedde8794a56858a67b878dd79f7df76a0767e356b1744a"
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/59/04/87fc6708659c2ed3b0b6d4954f270b6e931def707b227c4554f99bd5401e/msgpack-1.0.2.tar.gz"
-    sha256 "fae04496f5bc150eefad4e9571d1a76c55d021325dcd484ce45065ebbdd00984"
+    url "https://files.pythonhosted.org/packages/61/3c/2206f39880d38ca7ad8ac1b28d2d5ca81632d163b2d68ef90e46409ca057/msgpack-1.0.3.tar.gz"
+    sha256 "51fdc7fb93615286428ee7758cecc2f374d5ff363bdd884c7ea622a7a327a81e"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
-    sha256 "0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"
+    url "https://files.pythonhosted.org/packages/47/b6/ea8a7728f096a597f0032564e8013b705aa992a0990becd773dcc4d7b4a7/psutil-5.9.0.tar.gz"
+    sha256 "869842dbd66bb80c3217158e629d6fceaecc3a3166d3d1faee515b05dd26ca25"
   end
 
   resource "pynvim" do

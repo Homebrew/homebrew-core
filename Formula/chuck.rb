@@ -19,12 +19,22 @@ class Chuck < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "f0c77148d868e250d5de2e454fa57b63d652c139017bbecdab93bb3083e15a27"
     sha256 cellar: :any_skip_relocation, catalina:       "c5d475570562295a5ffd68ea6f43444ec6ca35c21d39d851e2dfda605d0f4d8e"
     sha256 cellar: :any_skip_relocation, mojave:         "479931bcc4ed8b29d80ec7f259f01f113ac5f6a6a75be3228bca9c018b0ffe3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "522802849d88f9c1f56f9870b9e2a74948df527390d3fd89b6f491548502bdf6"
   end
 
   depends_on xcode: :build
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "pulseaudio"
+  end
+
   def install
-    system "make", "-C", "src", "osx"
+    os = OS.mac? ? "osx" : "linux-pulse"
+    system "make", "-C", "src", os
     bin.install "src/chuck"
     pkgshare.install "examples"
   end

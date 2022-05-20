@@ -1,18 +1,17 @@
 class Triangle < Formula
   desc "Convert images to computer generated art using Delaunay triangulation"
   homepage "https://github.com/esimov/triangle"
-  url "https://github.com/esimov/triangle/archive/v1.2.3.tar.gz"
-  sha256 "28296d6b469c212967192f236c8139de1e315d23113f108eec641ce5e39553b5"
+  url "https://github.com/esimov/triangle/archive/v2.0.0.tar.gz"
+  sha256 "071ba2a39b62e7914a233af74e7935ddb7a875bc2a5f193cd43862da65b1c516"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "563d4012a2846639399afbee7a3e075ce9fb0579beedf8dd8106406e61775838"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "704b24d681e71a55c8c6d3888524ace351bb8240cefddf91060f8d6ead3fbf08"
-    sha256 cellar: :any_skip_relocation, monterey:       "42f96ab8e1bb5879b0e0be8fd44ac830c6f8bc5f96866205ee50c6608dec6cec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0b51538505ae028c96c122c565345e97257aef8103614afb14ecce0e5feeafe7"
-    sha256 cellar: :any_skip_relocation, catalina:       "5d3948f4093b5bc4f9b5410643eafd26a1d7c1bc87a2eb5ed7126447a46a675b"
-    sha256 cellar: :any_skip_relocation, mojave:         "a2549fdd2296b72dc857cfc4fcb89f07f4cf71f2419133ddb06eef63e3c7a7f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dd51ff7e1d80c1107c0c95b854db0168fda43a65a7e4bfca3201ad3d949e7ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a5c72d8022b7c7bc20511f07ff9f8dcd9637bffe596554ca7a9671dda8e713e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a6c8a7b7499e2b4d22c1fcb903545a7602c5762bc4b86f84fcd2c238f18c2ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "6044828f80d3b03acad78089a4a0608512f6aa0a1316b181d76da12aa098da0d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "777c1ba9464e94d016028f2892e9e50e95d4b41817fda1fecc67c8caab029bbf"
+    sha256 cellar: :any_skip_relocation, catalina:       "59397ab86cef290c6ce4b9c3d3bda0f89997d3cf5017b83b46575a7407a4a316"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93ce74ef95c2f4cb8ea2c3ece364712611680fd719884f1efbfdca4e0198784f"
   end
 
   depends_on "go" => :build

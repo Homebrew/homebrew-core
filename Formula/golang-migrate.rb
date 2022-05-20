@@ -1,18 +1,17 @@
 class GolangMigrate < Formula
   desc "Database migrations CLI tool"
   homepage "https://github.com/golang-migrate/migrate"
-  url "https://github.com/golang-migrate/migrate/archive/v4.15.1.tar.gz"
-  sha256 "d426b0c55b3445210392fc61cbeefbe8410665bf2725eed9b1becb6c200ffe42"
+  url "https://github.com/golang-migrate/migrate/archive/v4.15.2.tar.gz"
+  sha256 "070b8c370fe45a2c2f6aa445feb65a1d63d749ce8b2dc5c7d1dffe45418b567a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f83ef926cf9456ec3410d1638d9343cee72377951c151e9dc554d9ac7e0e265b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "214004a79f09ced2ba15ed70dd171e3928701bc962234adf99c07364a73cc154"
-    sha256 cellar: :any_skip_relocation, monterey:       "eea8b53cfc283d7dd1c9138f7d260e55db24f13795940428308a706324dc7b43"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dfd17394b62ed5ae5dede0b439549e919f6411e0db22c43570b70539e6bd718e"
-    sha256 cellar: :any_skip_relocation, catalina:       "3d0f6356d4703cfd34b5d5e910a8e294af781ea2ba5efb932282934e41cf4f52"
-    sha256 cellar: :any_skip_relocation, mojave:         "9da66644a815cb772799c02e7b1933e57f799f656b1cd718b64ab1b76642e2a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "084fb81db0dac1917ea2d0f17509b1af17f9b0ab862ad6f5cb5188534d304201"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "de335a1e58758ce0006b6c4b492699c409274b24a291ecb03612e104781093c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41595beeb24c80f73f2a3d1722ad29a03524dcf0d3cf3a40a1905a2d391188ba"
+    sha256 cellar: :any_skip_relocation, monterey:       "7d080cb0d06b0198228f7d0f74c626efefd9a6445155df5dce666745428c4bc1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "10b7e0b3396058331b4efd8ebfb0fdb44cc1cda885ab499c89963ce3ca752188"
+    sha256 cellar: :any_skip_relocation, catalina:       "f63879e90fea7b531081285580b10c5bc57d0585f35c3d6a3e178403a40f56cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd8eda55a6ba9adcf3bb093cd0a142cdea1cd0669fdc151ed14a790e8aa5a575"
   end
 
   depends_on "go" => :build

@@ -1,22 +1,30 @@
 class Spago < Formula
   desc "PureScript package manager and build tool"
   homepage "https://github.com/purescript/spago"
-  url "https://github.com/purescript/spago/archive/refs/tags/0.20.4.tar.gz"
-  sha256 "e2ef8604115556b39ec71301d85a3502502fd5972e40bac82cd556d6a128baff"
+  url "https://github.com/purescript/spago/archive/refs/tags/0.20.9.tar.gz"
+  sha256 "4e0ac70ce37a9bb7679ef280e62b61b21c9ff66e0ba335d9dae540dcde364c39"
   license "BSD-3-Clause"
   head "https://github.com/purescript/spago.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "33008a883792c326420f62b1ad8337f0f691a6303b59ca7ed7c47ce6327e7812"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a468fd898e7455e430e67b9b8f02faa17e399c4e63540da05d34f731181eed1a"
-    sha256 cellar: :any_skip_relocation, catalina:      "074392b06cc4595e17101045a49d42fbed166a943301cbb99d8ad2ac7f0e2262"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54431b502b1be4d515c103912bb07c4c125a778afcbe838f5e6edaf5c8cba0a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e0bdbfd6c263b7887da4f8031a5c6263b7bd2345bd50df31cbdecb9af3075ef"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b13c6566d9d4c40d34dfb9293fd39e3cf66ebb54e82999257a47475f0ade1ddd"
+    sha256 cellar: :any_skip_relocation, monterey:       "a3d4cf0264b4fea348f09122552279ac9515bff3003d7fcb01808d465da89f8d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "771754939dc4374b84a3cd39214a3b0749e665d590a736f397cf91657d48a8be"
+    sha256 cellar: :any_skip_relocation, catalina:       "9dbe38aaceb447ea90a4aeb7911f3111e60f18f84729af89b5a6e431acd13738"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8bee7f77a2ab534fc5c83201fe3ba287a2581be9a7470baed0dd4e870ad7670"
   end
 
   depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
   depends_on "purescript"
 
+  # Check the `scripts/fetch-templates` file for appropriate resource versions.
   resource "docs-search-app-0.0.10.js" do
     url "https://github.com/purescript/purescript-docs-search/releases/download/v0.0.10/docs-search-app.js"
     sha256 "45dd227a2139e965bedc33417a895ec7cb267ae4a2c314e6071924d19380aa54"

@@ -1,17 +1,17 @@
 class Scw < Formula
   desc "Command-line Interface for Scaleway"
   homepage "https://github.com/scaleway/scaleway-cli"
-  url "https://github.com/scaleway/scaleway-cli/archive/v2.4.0.tar.gz"
-  sha256 "7baa6d7af5602703bc9b1f54beb5a36642151cc12d6584d6ab76df8bb088365e"
+  url "https://github.com/scaleway/scaleway-cli/archive/v2.5.1.tar.gz"
+  sha256 "af926168122c192b10a19d701f2a03a41f14897b2a6c654499203edd2aafcafe"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aab6889425b7988dc4625408b8aff4745919f54e36639955ea0f229161b10d4d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "329526d63baa9f2bf9bf0ed6196ffab482af98c4f698ff51a8ff94b8e90589a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "8e2ebcf8cf1972283e4b3495f45ee5d5e221c64c5dbb885794a7843bcc71614a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6632940d906d29f0e3c693e618d2c5c1a6972f15dbcfd35e1145b5543dde3658"
-    sha256 cellar: :any_skip_relocation, catalina:       "bc04b5b0dc0721749caa804bbe2581cdceadf4a590a83a57fc9b57b9b7399938"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d950e6358f787d7927eb47d1296de6388ebb877f2fb13e421beb80c2658c9fc4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5e0ac68f17ccae80eaedb97c664036e83a3895de6c6270e170c7d3334ad99d5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffdeaa85b9fcfaf5bcb6c64d396fc0d3f7ef7fd32c0022386f6cabf4c0e41288"
+    sha256 cellar: :any_skip_relocation, monterey:       "0987c424fd44bf9db4e4f1216afe91d5feada2163bd65326c8bd1cbdafa98e96"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b899a77c674e34c350ca9f87c3afc8bd91b146eb5ddf9e99af27ae49e082d8c4"
+    sha256 cellar: :any_skip_relocation, catalina:       "36bfb953aff18e6fc48f2f43c00b805ee21339a04508b8829b9e5661afba6a46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2417dd45ec659a6b2005e1bff6c6f85cf24d4c5ed1ca9e16d94d05d4e1b6df2"
   end
 
   depends_on "go" => :build

@@ -4,6 +4,7 @@ class Lua < Formula
   url "https://www.lua.org/ftp/lua-5.4.4.tar.gz"
   sha256 "164c7849653b80ae67bec4b7473b884bf5cc8d2dca05653475ec2ed27b9ebf61"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.lua.org/ftp/"
@@ -11,12 +12,12 @@ class Lua < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "801bc01f4821a3f69e7496a00d609d9669ac9f6cac0b7b5bfad540ca5c9317cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "685fff4864fabe098295955b09a5eb7696ea1d48f9d034b0d2c528b76a2ae64a"
-    sha256 cellar: :any,                 monterey:       "05acee0902b938fe8d3154906f85fdd5b4d5947cecf5a1df8ea6d7cfe56ae038"
-    sha256 cellar: :any,                 big_sur:        "61c13421560dc5875669c591c5b8fd7b9adff8f50fee07db6883f7c278f73c5a"
-    sha256 cellar: :any,                 catalina:       "15ae93c61d7a2da10404dc915e76846fd0cd30421ad44989b9f83ea8fa9671ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9577e9329eec0de7cd8136e1557b62c135a0aa39e9f22a21be4cdee532d1e17"
+    sha256 cellar: :any,                 arm64_monterey: "a68739b34434711be8213dd5f0b005675534967195b04b9c6ed2f60e05a362fe"
+    sha256 cellar: :any,                 arm64_big_sur:  "87f8fc36f2f97b92016304ae6d25bd197ed4f5275966c6cf1b28a1181cc20b64"
+    sha256 cellar: :any,                 monterey:       "ef899efde91007b9c02f61a8fd4519893e271edb89c03f0c4a7f201f288dae1b"
+    sha256 cellar: :any,                 big_sur:        "55abe1007284d39071736eff023495e1a483675586414ed8504cd9507ae0d67f"
+    sha256 cellar: :any,                 catalina:       "c8cab606ce17da91d120b87f8efaddf80041e22ec601e10242fb543c805d4fbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a94fd6e24f1b0ba6bb6a0c849c2fbfa6acedde81ef3e2c12fb80dcda791f01e2"
   end
 
   uses_from_macos "unzip" => :build
@@ -34,18 +35,22 @@ class Lua < Formula
     depends_on "readline"
 
     # Add shared library for linux. Equivalent to the mac patch above.
-    # Inspired from http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+    # Inspired from https://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/0dcd11880c7d63eb395105a5cdddc1ca05b40f4a/lua/lua-so.patch"
       sha256 "522dc63a0c1d87bf127c992dfdf73a9267890fd01a5a17e2bcf06f7eb2782942"
     end
   end
 
+  # Fix crash issue in luac when invoked with multiple files.
+  # http://lua-users.org/lists/lua-l/2022-02/msg00113.html
+  patch :DATA
+
   def install
     if OS.linux?
       # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
       # when making a shared object; recompile with -fPIC
-      # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+      # See https://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
       ENV.append_to_cflags "-fPIC"
     end
 
@@ -119,3 +124,17 @@ class Lua < Formula
     assert_match "Homebrew is awesome!", shell_output("#{bin}/lua -e \"print ('Homebrew is awesome!')\"")
   end
 end
+
+__END__
+diff --git a/src/luac.c b/src/luac.c
+index f6db9cf..ba0a81e 100644
+--- a/src/luac.c
++++ b/src/luac.c
+@@ -156,6 +156,7 @@ static const Proto* combine(lua_State* L, int n)
+    if (f->p[i]->sizeupvalues>0) f->p[i]->upvalues[0].instack=0;
+   }
+   luaM_freearray(L,f->lineinfo,f->sizelineinfo);
++  f->lineinfo = NULL;
+   f->sizelineinfo=0;
+   return f;
+  }

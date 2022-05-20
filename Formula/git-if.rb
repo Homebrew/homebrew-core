@@ -12,9 +12,12 @@ class GitIf < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "56d9c7c7ba0b996340fddcfe108ff45a3e813330f9af771f6b9d398be0b7129e"
     sha256 cellar: :any_skip_relocation, catalina:      "f866a6a21977f9fd16230087f0e5239d8c8b37f7a158fcbb8d257a225e222774"
     sha256 cellar: :any_skip_relocation, mojave:        "f4785e352c5810e9642f490e5c27d02db1ea35c2167cb6c58d88d55002501e7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4f161d016e220b462129394b39b8ea7bad324349a73741489d3c6ea8d65f2db"
   end
 
   depends_on "glktermw" => :build
+
+  uses_from_macos "ncurses"
 
   def install
     glk = Formula["glktermw"]

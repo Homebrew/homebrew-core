@@ -5,6 +5,7 @@ class Rpm < Formula
   mirror "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.17.x/rpm-4.17.0.tar.bz2"
   sha256 "2e0d220b24749b17810ed181ac1ed005a56bbb6bc8ac429c21f314068dc65e6a"
   license "GPL-2.0-only"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -13,20 +14,18 @@ class Rpm < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "dec1600907c7c9f4f60e133cc9f75ba72f57da692a5f3ca47c5d6429c52cfc5e"
-    sha256 arm64_big_sur:  "c4b10772346b10fce44ecb909a27701d8bd209b834755fd38abc325bcad4c75e"
-    sha256 monterey:       "0b379a488c105af62efe9e14e8508754d47bdc73334b0def3999278eee0321c9"
-    sha256 big_sur:        "6f857111ed59bf5efb8f97ad26c7ed52fb8e70a92d2978dc7d2f6173d14675cd"
-    sha256 catalina:       "29846a4e13dd2683318362442fe7a84c2b7cd71813291be24cc356bc657f8a8d"
-    sha256 mojave:         "aeab2644677216b3d631a4a1abb3d75aada85152f7f85a550ab43943b934f994"
-    sha256 x86_64_linux:   "1147c07948c53779fdf751623b349d6da6d6b4753103ce2c898da2cc68a0a041"
+    sha256 arm64_monterey: "07c3b5a832fb5c1b75e2096a9146ca47d22750277414f98b4b3bb91c6ac01450"
+    sha256 arm64_big_sur:  "4a4e308c175c19023fb3128ec13b0acca85e761c1a8a9e525e8c8e31dc74ae4f"
+    sha256 monterey:       "d12aac69e0a3306982c6327fa220a54b1a2f1a3224e09555a6af65fec5a43fc6"
+    sha256 big_sur:        "f213bde4157208b400ad3927bbc694e2cbcd652c25ed4293e524793f62b0cb36"
+    sha256 catalina:       "e7982bc9769b7fbfcb00da573dc3d4160a3ae95a9a68bf02d4bae2c4e10faee4"
+    sha256 x86_64_linux:   "f2fbe2fec1f2d1212c2122560728929445e499f25df89cf8d623f04b993d5903"
   end
 
   # We need autotools for the Lua patch below. Remove when the patch is no longer needed.
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "berkeley-db"
   depends_on "gettext"
   depends_on "libarchive"
   depends_on "libmagic"
@@ -38,6 +37,9 @@ class Rpm < Formula
   depends_on "sqlite"
   depends_on "xz"
   depends_on "zstd"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   # Fix `fstat64` detection for Apple Silicon.
   # https://github.com/rpm-software-management/rpm/pull/1775

@@ -15,12 +15,15 @@ class Shellinabox < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "54a87f3514eb39cbbb1c4c127127d6b3eccd69d67f7ea26c32084218cb7d7d96"
     sha256 cellar: :any_skip_relocation, mojave:         "364588ed44513d77da920c1dfa722b8bd6351f72b2f18f2e7ec4edcc808fe9d7"
     sha256 cellar: :any_skip_relocation, high_sierra:    "78a08258706eec184d42977bda76175e827a909389a70627f6eed67a10c78d45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6c0f58f84a0889e6de2142d0d36d2e8248edcf20b03ed16e5a244162cef4663"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   # Upstream (Debian) patch for OpenSSL 1.1 compatibility
   # Original patch cluster: https://github.com/shellinabox/shellinabox/pull/467

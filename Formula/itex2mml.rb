@@ -23,7 +23,11 @@ class Itex2mml < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "3cf7d88d4e102acb646f5e23a4bc168a50c19ce8bda26011bd25c7d8208dbb86"
     sha256 cellar: :any_skip_relocation, catalina:       "a4a3f1a4d8ff096ed6a4e1eb6ac2883d916de6504496cd8da929081484ab65c4"
     sha256 cellar: :any_skip_relocation, mojave:         "ca96d27550adc14145a18df3a31ed79dfd12d082f7e4dbccce73e8eabe4ae69e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "809bf39b25611efdd6f0c297918b0376788c1a4f380a69489b1e4495bd19821e"
   end
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     bin.mkpath
@@ -34,6 +38,10 @@ class Itex2mml < Formula
   end
 
   test do
-    system "#{bin}/itex2MML", "--version"
+    input = "$f(x)$"
+    output = "<math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><semantics><mrow>" \
+             "<mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow>" \
+             "<annotation encoding='application/x-tex'>f(x)</annotation></semantics></math>"
+    assert_equal output, pipe_output("#{bin}/itex2MML", input)
   end
 end

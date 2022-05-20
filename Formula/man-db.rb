@@ -1,11 +1,10 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "https://www.nongnu.org/man-db/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.9.4.tar.xz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.9.4.tar.xz"
-  sha256 "b66c99edfad16ad928c889f87cf76380263c1609323c280b3a9e6963fdb16756"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.10.2.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.10.2.tar.xz"
+  sha256 "ee97954d492a13731903c9d0727b9b01e5089edbd695f0cdb58d405a5af5514d"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/man-db/"
@@ -13,13 +12,12 @@ class ManDb < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "9e5302cdc6d452943921cfefe681adc2db9a92e47bf92cdb0e96eaacf9c96ca9"
-    sha256 arm64_big_sur:  "6a96017a3bbef997608f6f6fd6e03e5106ae99c5058566be8e7115e4966f6641"
-    sha256 monterey:       "07f37a992a0445614097bded19707c6742fd969a8fdd621fe30ddfd88cf23da1"
-    sha256 big_sur:        "4529e4902e85caf37876458918ce7eac6513f28d4893834da88b1b772b3f22a9"
-    sha256 catalina:       "297439323c747e9fcfc6f27aca5c465affe33a614685cd4d90b32901d4a9a61f"
-    sha256 mojave:         "727b00709a5bde708f039abd8bcad7f861b4815301a5773d1fabc79fbeac2645"
-    sha256 x86_64_linux:   "000fbacc5696988c5c467eae8cc378aad1cb1bce92386e2c3ed30956f59da65e"
+    sha256 arm64_monterey: "a981901cd2341fa8b062d30ad8ce33e93d8d244307b61bb8dbbe795e8381fa7d"
+    sha256 arm64_big_sur:  "9b8c9d4933d144a1efed248b7a26790225d900c533cf5f87ba2662ac2867a015"
+    sha256 monterey:       "05e657d34074c4076ca2f07d401a331d9c5349052b46cbd78de41ad24b20755b"
+    sha256 big_sur:        "068eb7bbbad5a8e6eac3cd5d1a95f3d1975dea8fed52f7a347b486b3a0cb879d"
+    sha256 catalina:       "07b99f008c2c747276e1d995086a95c44a1a8458160afcd70ac8eba9320fd0a0"
+    sha256 x86_64_linux:   "88ddaf0f8afe906218f0888aa5209c2e8fc07d734518854bc8aea2b82a00886c"
   end
 
   depends_on "pkg-config" => :build
@@ -88,11 +86,10 @@ class ManDb < Formula
   test do
     ENV["PAGER"] = "cat"
     output = shell_output("#{bin}/gman true")
-    on_macos do
+    if OS.mac?
       assert_match "BSD General Commands Manual", output
       assert_match "The true utility always returns with exit code zero", output
-    end
-    on_linux do
+    else
       assert_match "true - do nothing, successfully", output
       assert_match "GNU coreutils online help: <http://www.gnu.org/software/coreutils/", output
     end

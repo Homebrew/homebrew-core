@@ -13,6 +13,7 @@ class Ghostunnel < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "b93ac43836099084bb444f2572886e0925bbe3184160a219cc4ab667c8ca23f8"
     sha256 cellar: :any_skip_relocation, catalina:       "6e3a12df1cd0d68dc23bd0ebdb73d0fb30e92a8c4cfa56e3601302123a45a908"
     sha256 cellar: :any_skip_relocation, mojave:         "2b518ddd7d5cba3bf9dfb99980ae5f8fa8cc9ad5b1cd8be8e275408886d20290"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea9e91ff93f4a79212f2a0363769be3879a3d6b656a6044ef8aa3a9ac9d7f794"
   end
 
   depends_on "go" => :build

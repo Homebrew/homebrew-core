@@ -12,6 +12,7 @@ class Pioneer < Formula
     sha256 monterey:       "b73fcfc1fe6b1c8976ed07b8ac0e82a390d972854483b2503437c04653a3dc95"
     sha256 big_sur:        "f725756669261a1fee10c39fec3a79bdbe4a4aaed5bbcb4680d2cf3de86241ef"
     sha256 catalina:       "45938119b01299002a7152f09472dc89afeba39473af90eb03b155c6b6b469f3"
+    sha256 x86_64_linux:   "b6d87d20060bd57eceeb841acb953d726765b7d995e33694d1e059e414b97d05"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +25,12 @@ class Pioneer < Formula
   depends_on "libvorbis"
   depends_on "sdl2"
   depends_on "sdl2_image"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV.cxx11

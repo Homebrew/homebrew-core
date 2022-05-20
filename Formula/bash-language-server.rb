@@ -3,17 +3,17 @@ require "language/node"
 class BashLanguageServer < Formula
   desc "Language Server for Bash"
   homepage "https://github.com/bash-lsp/bash-language-server"
-  url "https://registry.npmjs.org/bash-language-server/-/bash-language-server-2.0.0.tgz"
-  sha256 "6e00d79e9ae95586c567c3919ee81c6e82bb7ef106e4bfaf3c84d3a94dccb20e"
+  url "https://registry.npmjs.org/bash-language-server/-/bash-language-server-3.0.2.tgz"
+  sha256 "73f9b31f4ce53b97668c6057a4efbb38653c4e930d6407e08dbd6747cb7dcccb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "79dd0f26a1d2e1c2171b9c74f4769653f5986b98763118a75ca752672755a16a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79dd0f26a1d2e1c2171b9c74f4769653f5986b98763118a75ca752672755a16a"
-    sha256 cellar: :any_skip_relocation, monterey:       "f05052d1c1d88e31e2ee34f0bec1dd6074070d8735429dfde53ec28cafa5cd88"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f05052d1c1d88e31e2ee34f0bec1dd6074070d8735429dfde53ec28cafa5cd88"
-    sha256 cellar: :any_skip_relocation, catalina:       "f05052d1c1d88e31e2ee34f0bec1dd6074070d8735429dfde53ec28cafa5cd88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79dd0f26a1d2e1c2171b9c74f4769653f5986b98763118a75ca752672755a16a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "65d891bce3d24100092b10e87993e4696874cd756e14d0a9f35d48bc258a69ed"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65d891bce3d24100092b10e87993e4696874cd756e14d0a9f35d48bc258a69ed"
+    sha256 cellar: :any_skip_relocation, monterey:       "0edeaab537a6fcca09ee5d6a07763e0a888849a0220e4ac1f77175c826f04d3a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0edeaab537a6fcca09ee5d6a07763e0a888849a0220e4ac1f77175c826f04d3a"
+    sha256 cellar: :any_skip_relocation, catalina:       "0edeaab537a6fcca09ee5d6a07763e0a888849a0220e4ac1f77175c826f04d3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65d891bce3d24100092b10e87993e4696874cd756e14d0a9f35d48bc258a69ed"
   end
 
   depends_on "node"
@@ -24,6 +24,8 @@ class BashLanguageServer < Formula
   end
 
   test do
+    ENV["NODE_OPTIONS"] = "--no-experimental-fetch"
+
     json = <<~JSON
       {
         "jsonrpc": "2.0",

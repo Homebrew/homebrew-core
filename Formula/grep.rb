@@ -59,17 +59,14 @@ class Grep < Formula
     text_file = testpath/"file.txt"
     text_file.write "This line should be matched"
 
-    on_macos do
+    if OS.mac?
       grepped = shell_output("#{bin}/ggrep match #{text_file}")
       assert_match "should be matched", grepped
 
       grepped = shell_output("#{opt_libexec}/gnubin/grep match #{text_file}")
-      assert_match "should be matched", grepped
-    end
-
-    on_linux do
+    else
       grepped = shell_output("#{bin}/grep match #{text_file}")
-      assert_match "should be matched", grepped
     end
+    assert_match "should be matched", grepped
   end
 end

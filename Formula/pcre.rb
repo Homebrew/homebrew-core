@@ -4,7 +4,7 @@ class Pcre < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.bz2"
+    url "https://downloads.sourceforge.net/project/pcre/pcre/8.45/pcre-8.45.tar.bz2"
     mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.45.tar.bz2"
     sha256 "4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8"
 
@@ -15,9 +15,14 @@ class Pcre < Formula
     end
   end
 
+  # From the PCRE homepage:
+  # "The older, but still widely deployed PCRE library, originally released in
+  # 1997, is at version 8.45. This version of PCRE is now at end of life, and
+  # is no longer being actively maintained. Version 8.45 is expected to be the
+  # final release of the older PCRE library, and new projects should use PCRE2
+  # instead."
   livecheck do
-    url "https://ftp.pcre.org/pub/pcre/"
-    regex(/href=.*?pcre[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    skip "PCRE was declared end of life in 2021-06"
   end
 
   bottle do

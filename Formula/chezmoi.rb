@@ -2,18 +2,18 @@ class Chezmoi < Formula
   desc "Manage your dotfiles across multiple diverse machines, securely"
   homepage "https://chezmoi.io/"
   url "https://github.com/twpayne/chezmoi.git",
-      tag:      "v2.11.2",
-      revision: "13de45fdd4d2eddd3447d80c129754090fde80ac"
+      tag:      "v2.16.0",
+      revision: "1a63dc28562307ca34ed1be92346e088cf7c71aa"
   license "MIT"
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b0a7dc033340c53491cea7b93eaf8eb00c0e6fa0925f1dfe1396e59edd7e58e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f9ada056c8ea725b29dfcef5b8f4933c0df6f9536501a01785ae9abe5eea6f5"
-    sha256 cellar: :any_skip_relocation, monterey:       "bdd37a88281c80c66310fd9ffa966ba3b64235321736534b5994900222b6eed2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94ad80b8ee0d7fe05e767461e61b915e07c480f227f77afcc38e009fa0bddb2c"
-    sha256 cellar: :any_skip_relocation, catalina:       "0d3d71c4b9bf691228b18e34a8e8bd31b667c43fd733a73fc02f91580cbc632b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9793b5023b49299a07af0622700edb24f6346408ce18cea984f0d92c4ffd06e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2886dd70e608d8d3708aae3c72a17d013dc85c5a007d45a670dc43f5edfd2c84"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e1cb5608a1276a74852988bed57772224574bdf5b31352719060582042376060"
+    sha256 cellar: :any_skip_relocation, monterey:       "9bf3fc631e28855d976674280ef71a3f93cb09d6f66994596b61df26b44bcb28"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a7f6aa6299e482ccbb77c43388c6d1697f982c6bad267acb0a3d536b000341b7"
+    sha256 cellar: :any_skip_relocation, catalina:       "1c04edaee09b0a5d0e6da54c9dface0ba20410ccdb00ec4e1ac23a3818428512"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e67a54820bc785bb3776a06e3eed917d2f66812686d02d1435cf29e0599dd16a"
   end
 
   depends_on "go" => :build

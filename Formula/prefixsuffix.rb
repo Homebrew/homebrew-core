@@ -13,13 +13,17 @@ class Prefixsuffix < Formula
     sha256 big_sur:        "4300af03702b1873b307890bfb3bf9e08da08e43c401c958a2dcf796d56a34e8"
     sha256 catalina:       "8384f85dfc725d9a754030a2f94320124845b3d63968a2a3348a918afd096415"
     sha256 mojave:         "3e25c1930c085b61c073b5015895db250ec1113b3102384ebf84c1f8d0a65731"
+    sha256 x86_64_linux:   "fc0145d8cfcf008d3801cf7d90611303c510c4529974d4f2fa5b7224d09c027b"
   end
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gtkmm3"
 
+  uses_from_macos "perl" => :build
+
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -33,6 +37,7 @@ class Prefixsuffix < Formula
   end
 
   test do
-    system "#{bin}/prefixsuffix", "--version"
+    # Disable this part of the test on Linux because display is not available.
+    system "#{bin}/prefixsuffix", "--version" if OS.mac?
   end
 end

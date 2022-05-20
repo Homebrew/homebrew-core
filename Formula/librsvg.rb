@@ -1,17 +1,17 @@
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
-  url "https://download.gnome.org/sources/librsvg/2.52/librsvg-2.52.5.tar.xz"
-  sha256 "407cbbab518137ea18a3f3220bea180fbee75f3e5bd6ba10a7a862c1a6f74d82"
+  url "https://download.gnome.org/sources/librsvg/2.54/librsvg-2.54.3.tar.xz"
+  sha256 "66158f2ef46dde260026846c4da102e4a9dd4e5293010f30949c6cc26dd6efe8"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256                               arm64_monterey: "83e2f0abdc61c62986ce60cb243c9996ddc14321fab83b64af9beb0483e0e72f"
-    sha256                               arm64_big_sur:  "9b7b6b18890cdee1a4f227774556995eb6a6e84ac3b9dcdd62d7938300f9b113"
-    sha256                               monterey:       "25e4b29b4599cbb0dfac01c03aa55d35ef331c0d05c5bbfdad8d24008b0532cf"
-    sha256                               big_sur:        "7d56a8e320e894e04cb9e78a8923cb483f02fc5a3ba1eb8bc473c7affe38d74e"
-    sha256                               catalina:       "9c6702f2d5a0031e8b13f176cfedb3dfbfee5767190cc263a2fe36a3946ae799"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "809043724ce46d0d12d642b94c3c91a36b175566db853b716eb663c5af684c39"
+    sha256                               arm64_monterey: "95b5d68fd281c2dd6676ac9757987bbe108ec6b17f0166d59fd8289a41769fe5"
+    sha256                               arm64_big_sur:  "db9ab70e5eb9fe4e9a9964d3b9bbd39caf1adac22ddbd6d8334e5ccc6f1438fe"
+    sha256                               monterey:       "d633c9e47554d0ebb3d716cc58b88f903bf7d0abc4cd7ce8bb2a2166e87917a4"
+    sha256                               big_sur:        "066a0a03dcc32114ea0fce74143d58550cf50071cf50f4c29c675d6e6790a8ab"
+    sha256                               catalina:       "52106a21b64a99c22de997bd0b00674bfd7e3722c607e85e416f7a674c70189a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e30a183c2f1612d3316896dd1df40963c9c1fb567eee1a86d89ae9884f9edd6"
   end
 
   depends_on "gobject-introspection" => :build
@@ -94,9 +94,7 @@ class Librsvg < Formula
       -lm
       -lrsvg-2
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -1,18 +1,19 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code"
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/1.6.1.tar.gz"
-  sha256 "2ddfc9678902ee9f9f2627d176eeae1abf032ca66418836bb75b58645f6a5f74"
+  url "https://github.com/krzysztofzablocki/Sourcery/archive/1.8.1.tar.gz"
+  sha256 "a60b920b9dc4d3b7dc38c9d3593391c399ae6c5966734bb6d6991b73d0959898"
   license "MIT"
   head "https://github.com/krzysztofzablocki/Sourcery.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "610c06a6f7861b6a215a390c1e069f739d2990164a84d15aac16afdeeff9c4ac"
-    sha256 cellar: :any, arm64_big_sur:  "2ff7c9ee3d1d140289e00df614a69f470b61be3e87d9b2e0b69ebe8cedb7f3cf"
-    sha256 cellar: :any, monterey:       "e4ac024ab746343d0ae2ffff5b1ecdd0a54ccb0666dd5324f9d00b44b6f2fcec"
-    sha256 cellar: :any, big_sur:        "d880261ffceb5d27a1e00c9bb370465341c4f6ab096ef4bb3d64a804d780cd6f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "df19b1c5f921b36473c9de0cae013e705a796b2e4d439ea9cc1b43a1df4199bd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59234183803f8dc23797334a4f995a037e68ca51faf9f6242da18b0892f85f82"
+    sha256 cellar: :any_skip_relocation, monterey:       "5d93cb5bf7a3adc4dba8ea972fb9347190cd04238efcd60942192c56c096cbb6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "92cb87ac0c373bd0ad1111d388916c86f4fcdd390686143b2ddff85a664f1b7a"
   end
 
+  depends_on :macos # Linux support is still a WIP: https://github.com/krzysztofzablocki/Sourcery/issues/306
   depends_on xcode: "13.0"
 
   uses_from_macos "ruby" => :build

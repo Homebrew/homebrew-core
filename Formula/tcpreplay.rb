@@ -1,17 +1,17 @@
 class Tcpreplay < Formula
   desc "Replay saved tcpdump files at arbitrary speeds"
   homepage "https://tcpreplay.appneta.com/"
-  url "https://github.com/appneta/tcpreplay/releases/download/v4.4.0/tcpreplay-4.4.0.tar.gz"
-  sha256 "a3b125c0319bd096d68f821c4a08051b2d3d9278bac6fe18cfe3c9201703a567"
+  url "https://github.com/appneta/tcpreplay/releases/download/v4.4.1/tcpreplay-4.4.1.tar.gz"
+  sha256 "cb67b6491a618867fc4f9848f586019f1bb2ebd149f393afac5544ee55e4544f"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause", "GPL-3.0-or-later", "ISC"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e39e3a00e0da1a3fd7fb9371cf4641e742c3ad4392922c04111072e49bc57d1e"
-    sha256 cellar: :any,                 arm64_big_sur:  "f03bfb5f1b281de0f696c1188c97ab97a7919b57760ba49d58c797cea8f63b7b"
-    sha256 cellar: :any,                 monterey:       "a407650e9a9d593493e12fdc7a6b58cd2171682c695f5b814e3dc3f38f9e805c"
-    sha256 cellar: :any,                 big_sur:        "6d7199e6c205cb9112f703d3668402a0f9f4b673beaf4fc4ac5ee98a85b62942"
-    sha256 cellar: :any,                 catalina:       "a825697a2cf4da19b2478ca04c0299542a49bbb01bf36b7eb2babbd52ffda3a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35fb404fef44fd2da9189cb73b4c369fe7a07a26590eaa79e87e9f0639311f94"
+    sha256 cellar: :any,                 arm64_monterey: "246a822476aafe55e646650027017108c6c262498b7570458237d9dc1c66e139"
+    sha256 cellar: :any,                 arm64_big_sur:  "8f57fe87399c72f9179e651910e513c2238b0d04dc717358a37115aa6c1d8b0a"
+    sha256 cellar: :any,                 monterey:       "a1b2bb76d38e74c2eb3fbdc23ddab71e76f993a254199f73a21ddc8eb63d97b4"
+    sha256 cellar: :any,                 big_sur:        "d4ad05fa1d80f60b347813c1c300745c1cac288c428acbae2eae782fff538b86"
+    sha256 cellar: :any,                 catalina:       "b650d22c9a17d3e137a7e1f118d72d8ea4d57d8c4e33d7a3ae1165534df4e390"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "648a5148de83dea2991519c912f86c7c41a144392294f418e7db95cb8f09f560"
   end
 
   depends_on "autoconf" => :build

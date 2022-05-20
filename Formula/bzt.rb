@@ -6,20 +6,21 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/2d/cd/69d864c9d306f767751648edb3cebe2c8532913f8c4be74cc2223ffda5bf/bzt-1.16.3.tar.gz"
   sha256 "effb95393b67ae95f26a1bd1d927a76b7e66abf118a4f0c099f489373a8bc004"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Blazemeter/taurus.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d3e2c57e9d69eeeb3a1e20819bc6c389b82d51e7ee7f6c173d9eb6f2191b69c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "906615959b2bfcdca62e97b24c42a7e013b8f24d352971cdb66b61b661d680f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "7805c12489ad780352043b88955c5154887f94dc188ddd7b45e7faa387e61190"
-    sha256 cellar: :any_skip_relocation, big_sur:        "becaae0b13b866bd7107a4585f5490b4dcf289422bd9c8335f2bee5f4022a29c"
-    sha256 cellar: :any_skip_relocation, catalina:       "0a471dc6fb5d274ca838a5de32d21b11494aa7991c3eda28a3770056183e4293"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f40f7c493aca5cabefea5c509529dace418a732c07b361c6b2c681f29442ef0a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f831ff866dfd40136b02c2736feb5c5d894c9efa96235bd7315c422ebe0b6e76"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e0b8234395c6ddbdc7d6401a59ecd57806daf4c7440c6f33057b62fe04ca5b85"
+    sha256 cellar: :any_skip_relocation, monterey:       "af2143eefb306cc068662bc0b28a742f814295c481a2e1e87d5230ea9bd37650"
+    sha256 cellar: :any_skip_relocation, big_sur:        "45024a8026b3be9f72e0651c0b5841ada3e8c1e05d2b549f116a6af4b38da714"
+    sha256 cellar: :any_skip_relocation, catalina:       "22e3985d7dad57b9f7c4713b54bc46ff3cb0ffe9d46c37b3e07db7d78106ed0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e41f7882fdb50307a1efb61947a7c7c56388704bf44ed2706eb6d2059548ba3a"
   end
 
   depends_on "rust" => :build
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libxml2"
@@ -192,8 +193,6 @@ class Bzt < Formula
   end
 
   def install
-    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
     virtualenv_install_with_resources
   end
 

@@ -1,8 +1,8 @@
 class FfmpegAT4 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.4.1.tar.xz"
-  sha256 "eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8d68569a4651e30e02"
+  url "https://ffmpeg.org/releases/ffmpeg-4.4.2.tar.xz"
+  sha256 "af419a7f88adbc56c758ab19b4c708afbcae15ef09606b82b855291f6a6faa93"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
@@ -13,12 +13,12 @@ class FfmpegAT4 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e5bb29c1f83c1c48bc0b3adcb05b5bc9ac04f5d99d5d1e1f8bd02a115e9b5104"
-    sha256 arm64_big_sur:  "545c2a76da393e9f4719209493f1d4a50ff25899b5ce5ac59fe4d719b4715e51"
-    sha256 monterey:       "397d1907352f6ada22576bf8944034d841cce24233fe5bc9ed9b249cd79d1825"
-    sha256 big_sur:        "7e4be682fe8f62668b25f991e697290cb7ad909c9c31ebaa24d8a4b670715834"
-    sha256 catalina:       "4d836cc976f06fa4b67ba53f900b4c94d4097ce88db5846547351fad2a8c4af7"
-    sha256 x86_64_linux:   "aac393e201fd79971e19f697c440f27f0be57e6cc1f3469d61e384b231f058e3"
+    sha256 arm64_monterey: "05d30afe319459c95de3e848b17b36ec99b0c6210cc77626b295725d27a0b2db"
+    sha256 arm64_big_sur:  "80933b5d4538775caef38fca3cc689dc37cfb41b65e397a6fb20c5b1d841e035"
+    sha256 monterey:       "7729109effa41a25618cc1fc4884807750fce250cbd898cbb74bb18d03f116f5"
+    sha256 big_sur:        "424c489205771d1eb7db44138ce66247b86e693df5c74a0cb8d25c2930894516"
+    sha256 catalina:       "8ca1d665dcc6ecf2ee6704c5e8556c1c6b233edbdd9cf5424a0dc719965597ee"
+    sha256 x86_64_linux:   "3ce447434a09bee9739a6abbd3209725e15e5cdb6ca2ffbc6292dfd70880026f"
   end
 
   keg_only :versioned_formula

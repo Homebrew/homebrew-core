@@ -7,6 +7,19 @@ class Codec2 < Formula
   sha256 "d1b156035b806fd89a29371a5ab0eefca3ccecfeff303dac0672c59d5c0c1235"
   license "LGPL-2.1-only"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :git do |tags, regex|
+      malformed_tags = ["v1.03"].freeze
+      tags.map do |tag|
+        next if malformed_tags.include?(tag)
+
+        tag[regex, 1]
+      end
+    end
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "090856f39e5957c5d3badc83d370aa70bb89d1d5cc6120446d6c3b877581d94d"
     sha256 cellar: :any,                 arm64_big_sur:  "ae72433df0f211abb44fa154af2f7d404a56202a4caec2b5716816e8d69471e3"

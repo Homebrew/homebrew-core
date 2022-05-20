@@ -8,6 +8,7 @@ class Hexgui < Formula
   head "https://github.com/apetresc/hexgui.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey: "c63f9dbda46ae0e45d2c51fc8a8e37f3f58a3827daceaed2495f1bf5aae711c7"
     sha256 cellar: :any_skip_relocation, big_sur:  "44abaf6a475d74c93e8f986945bb5a455cfdf52ea40fd876b773b69b6b835a70"
     sha256 cellar: :any_skip_relocation, catalina: "70b804bf63f62c0aa4f98c5798f3353794b8c795c2f59300bf086a39ecd27b3b"
     sha256 cellar: :any_skip_relocation, mojave:   "3122e9db7ee36650e81a9ba6d6cd3b1844748e597389a830e66d85b2d0948243"

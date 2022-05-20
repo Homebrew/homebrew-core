@@ -1,8 +1,8 @@
 class Pyoxidizer < Formula
   desc "Modern Python application packaging and distribution tool"
   homepage "https://github.com/indygreg/PyOxidizer"
-  url "https://github.com/indygreg/PyOxidizer/archive/pyoxidizer/0.19.0.tar.gz"
-  sha256 "ca0ef41c359ad8ad4217b4c99f3cba4179278308d846f404175183f8ec71067b"
+  url "https://github.com/indygreg/PyOxidizer/archive/pyoxidizer/0.20.0.tar.gz"
+  sha256 "11baf7bac8f869d6458b5aee2cb8ecd7f2d7f170211ee97f979abb62eea22bc4"
   license "MPL-2.0"
   head "https://github.com/indygreg/PyOxidizer.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Pyoxidizer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "367f1fdce86f89f92472fc2bdefe8d11da9f0b769d4d36f586d0d2281793f99d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c468f253d4079687e234f63ce05b81f8c56197578a24719cf52a873df27c755"
-    sha256 cellar: :any_skip_relocation, monterey:       "5613815563a5da8cce53713073697a1f10899bf7f9067a90ae4abb8986792492"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d04cf6692c1a7c569e4c5c6774dffc6169f61b6b2eade7527b544d23372d017d"
-    sha256 cellar: :any_skip_relocation, catalina:       "3a5efe1ff4374f50f8c58ad0157ae8984bf609ff740245ad7892addffd5b0dbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b940fc30625300fff17268ebd769e3af03a1f0ab2f3dacc1e2f5dc064794a3a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "673b3f77fdd82c6fbde009da7461c759d8f6cf2d6090cb76359ee9001b25249f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a636c6b8142fc459301f010519b9fb7085da25940063ed5ecd15dd06d28c499"
+    sha256 cellar: :any_skip_relocation, monterey:       "5449fa05218b1d985cfb7bd09e619f2403896732a80446f6599d73c42c9adac9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "71b0ac60092c72ab35389de12abecd0ca258ede50f36a83768930b94c6718d9b"
+    sha256 cellar: :any_skip_relocation, catalina:       "e3a603c9950e3d8105359b2be8fca39a318a0215353c411bfa22f3eb1f6344ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b7d2be825e2393086f57e9e3e043166e0559c2de3e1170782ca9c6030dfd787"
   end
 
   depends_on "rust" => :build
@@ -31,8 +31,12 @@ class Pyoxidizer < Formula
 
   test do
     system bin/"pyoxidizer", "init-rust-project", "hello_world"
+    assert_predicate testpath/"hello_world/Cargo.toml", :exist?
+
     cd "hello_world" do
-      system bin/"pyoxidizer", "build"
+      system bin/"pyoxidizer", "build", "--verbose"
     end
+
+    assert_match version.to_s, shell_output("#{bin}/pyoxidizer --version")
   end
 end

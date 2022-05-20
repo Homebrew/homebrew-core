@@ -1,8 +1,8 @@
 class PythonTkAT310 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz"
-  sha256 "3c0ede893011319f9b0a56b44953a3d52c7abf9657c23fb4bc9ced93b86e9c97"
+  url "https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tgz"
+  sha256 "f3bcc65b1d5f1dc78675c746c98fcee823c038168fc629c5935b044d0911ad28"
   license "Python-2.0"
 
   livecheck do
@@ -10,12 +10,12 @@ class PythonTkAT310 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "3e7b9898dadb5091204da29fe887e305efaa935fc5da021c7cc228c1af2584dc"
-    sha256 cellar: :any, arm64_big_sur:  "a05137e7314633683ace197def05eced24b3105c13cad4d0fac3dbab55febb50"
-    sha256 cellar: :any, monterey:       "06f73104bbac0f422be8dcce1fede38f7c752a19c5a8017df3b14fa1080e9b90"
-    sha256 cellar: :any, big_sur:        "f5ae4e9c624d456dcbfcabf98cd3c88d2d91d0099fd92beb7a33d344d9f5b481"
-    sha256 cellar: :any, catalina:       "9f631f54a94f9c0e5d235ecc905d5f075d4ac4fe195dbc838d3a4c4a469917a6"
-    sha256               x86_64_linux:   "fd375b386627b5bfa133c01bcf7e4aed422ea1ebbd0d4dfc44d974c4beed406f"
+    sha256 cellar: :any, arm64_monterey: "7740ddbd35352e3f2336103b502a7f4e81f2974291504076a4515893435ccfb2"
+    sha256 cellar: :any, arm64_big_sur:  "4b6e6da3a3c725bde9be6a4d4a0922acda7bf1fbeb997a053cc91b768aae871d"
+    sha256 cellar: :any, monterey:       "6a937be1fd531589ef7f9b4d971cb91ee7549d99f7f1aaf97f0fc3c0911f1c5d"
+    sha256 cellar: :any, big_sur:        "c08f7d32f905c34c37f94bba1b64071f373fde8a81866c890d1ed48e6f25531e"
+    sha256 cellar: :any, catalina:       "4fb512fc0154201d044baf8cf1c929bef99c11b7f4f3b4d81de7903aadfaf110"
+    sha256               x86_64_linux:   "c256a3e8e2bd186387dca4763c6f7d7373052a63217ef2d01a63614847084b0a"
   end
 
   keg_only :versioned_formula
@@ -50,10 +50,7 @@ class PythonTkAT310 < Formula
   test do
     system Formula["python@3.10"].bin/"python3", "-c", "import tkinter"
 
-    on_linux do
-      # tk does not work in headless mode
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     system Formula["python@3.10"].bin/"python3", "-c", "import tkinter; root = tkinter.Tk()"
   end

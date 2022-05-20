@@ -47,12 +47,10 @@ class GnuTime < Formula
   end
 
   test do
-    on_macos do
+    if OS.mac?
       system bin/"gtime", "ruby", "--version"
       system opt_libexec/"gnubin/time", "ruby", "--version"
-    end
-
-    on_linux do
+    else
       system bin/"time", "ruby", "--version"
     end
   end

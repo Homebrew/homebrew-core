@@ -14,6 +14,7 @@ class SqlLint < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "8a7c08631d9f1d905fb44fcf587cee1f9e947b682695f4f698fa42b76d7acc6c"
     sha256 cellar: :any_skip_relocation, catalina:       "8a7c08631d9f1d905fb44fcf587cee1f9e947b682695f4f698fa42b76d7acc6c"
     sha256 cellar: :any_skip_relocation, mojave:         "8a7c08631d9f1d905fb44fcf587cee1f9e947b682695f4f698fa42b76d7acc6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6526ae7416a50c345e18cd17396455193fbd528ea8f87f05d097f9d9e4c87e03"
   end
 
   depends_on "node"

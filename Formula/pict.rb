@@ -1,16 +1,21 @@
 class Pict < Formula
   desc "Pairwise Independent Combinatorial Tool"
   homepage "https://github.com/Microsoft/pict/"
-  url "https://github.com/Microsoft/pict/archive/v3.7.2.tar.gz"
-  sha256 "9cb3ae12996046cc67b4fbed0706cf28795549c16b7c59a2fb697560810f5c48"
+  url "https://github.com/Microsoft/pict/archive/v3.7.4.tar.gz"
+  sha256 "42af3ac7948d5dfed66525c4b6a58464dfd8f78a370b1fc03a8d35be2179928f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6bb6e6db107a569972037aad09cc8c0c579b6ed53c812eb30c79d380673ca87"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "649b038bfe848fc40420a8bcb8c873dbaf61a5671fec09d6afd78e298b941321"
-    sha256 cellar: :any_skip_relocation, monterey:       "60e82b5a1d49f22b5bcfffe29b87ce3d6dbe92ca0582a833e81137b736e41a9e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92e7326170e175b898a30a79f4524afda931e0be0b29e68638f1120ea1855df3"
-    sha256 cellar: :any_skip_relocation, catalina:       "f7f1b4d4385fed18927decfa5fc38c8b890edbe8abf7c851876cf174b3339a78"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "850390dcfee5160977df23f8bb6cee15fd92f720efea4431c06e829962ac5f4e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd5908f0467620ae185bc24e395b7132695b814242ec3a5195197baf8e9180e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "3beebff6cb6214a7b3a413e52557377dcd45f2880ac1528facd10a74b3c32da5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6185ed2966b814e76cff386f76cd14c67e45b8005a197be1f0ea976792c27297"
+    sha256 cellar: :any_skip_relocation, catalina:       "295161d07acd9e141235eecd7c7e715bf3615ee3e71289cc57f00fa6440c2dd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89c9e0a586a093c3fcbbce59dcb05d54a16c111e18ac02cbe4c9cfc7ca74ef6a"
+  end
+
+  on_linux do
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"
@@ -27,8 +32,11 @@ class Pict < Formula
 
   test do
     resource("testfile").stage testpath
-    output = shell_output("#{bin}/pict pict.txt").split("\n")
-    assert_equal output[0], "LANGUAGES\tCURRIENCIES"
-    assert_equal output[4], "en_US\tGBP"
+    output = shell_output("#{bin}/pict pict.txt")
+    assert_equal output.split("\n")[0], "LANGUAGES\tCURRIENCIES"
+    assert_match "en_US\tGBP", output
+    assert_match "en_US\tUSD", output
+    assert_match "en_UK\tGBP", output
+    assert_match "en_UK\tUSD", output
   end
 end

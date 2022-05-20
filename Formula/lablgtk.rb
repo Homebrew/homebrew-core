@@ -16,6 +16,7 @@ class Lablgtk < Formula
     sha256 cellar: :any, monterey:       "2d7d514c6d7c31faa53b5e0292a7d4962f1c60e4bc524f4344b7895b15756e5d"
     sha256 cellar: :any, big_sur:        "acd2ebe952607c8ad6d2fdb430fc5ad7f2f06742c3b3c571e943afc315293116"
     sha256 cellar: :any, catalina:       "6d376c548d8cc2580b3756daedbcd24b8f33900509977a6192b34f009dc6964b"
+    sha256               x86_64_linux:   "d86fc0946e8a9d7d568c50cbb3f8af0d5aa1bedc1fdaf376b900a051bcb84d1f"
   end
 
   depends_on "pkg-config" => :build
@@ -40,7 +41,7 @@ class Lablgtk < Formula
         GtkMain.Main.init ()
     EOS
     ENV["CAML_LD_LIBRARY_PATH"] = "#{lib}/ocaml/stublibs"
-    system "ocamlc", "-I", "#{opt_lib}/ocaml/lablgtk2", "lablgtk.cma", "gtkInit.cmo", "test.ml", "-o", "test",
+    cclibs = [
       "-cclib", "-latk-1.0",
       "-cclib", "-lcairo",
       "-cclib", "-lgdk-quartz-2.0",
@@ -50,9 +51,13 @@ class Lablgtk < Formula
       "-cclib", "-lgobject-2.0",
       "-cclib", "-lgtk-quartz-2.0",
       "-cclib", "-lgtksourceview-2.0",
-      "-cclib", "-lintl",
       "-cclib", "-lpango-1.0",
       "-cclib", "-lpangocairo-1.0"
-    system "./test"
+    ]
+    cclibs += ["-cclib", "-lintl"] if OS.mac?
+    system "ocamlc", "-I", "#{opt_lib}/ocaml/lablgtk2", "lablgtk.cma", "gtkInit.cmo", "test.ml",
+           "-o", "test", *cclibs
+    # Disable this part of the test because display is not available on Linux.
+    system "./test" if OS.mac?
   end
 end

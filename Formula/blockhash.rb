@@ -8,11 +8,12 @@ class Blockhash < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_monterey: "c371333e6fb3b87bb8705b59656bee1f0273b908e9703c273491ca1e8cde6321"
-    sha256 cellar: :any, arm64_big_sur:  "ea24e2ec0238503bfd4d4bb60aad606be7721acec5320db0dca8518cbd017e2b"
-    sha256 cellar: :any, monterey:       "3f2fed32a9e23dfe2c96fbb1659c4096626b8af48c42c6f1cd9695f6be79d863"
-    sha256 cellar: :any, big_sur:        "f3d00d88a90889cd500ecc7c335ccb202f98d067f4224df1d940289d49caaf6c"
-    sha256 cellar: :any, catalina:       "cab37517dd31e66ef9092d2f390aadadeb84a2b21bea2e1c3bf1c3410f8f6fc6"
+    sha256 cellar: :any,                 arm64_monterey: "c371333e6fb3b87bb8705b59656bee1f0273b908e9703c273491ca1e8cde6321"
+    sha256 cellar: :any,                 arm64_big_sur:  "ea24e2ec0238503bfd4d4bb60aad606be7721acec5320db0dca8518cbd017e2b"
+    sha256 cellar: :any,                 monterey:       "3f2fed32a9e23dfe2c96fbb1659c4096626b8af48c42c6f1cd9695f6be79d863"
+    sha256 cellar: :any,                 big_sur:        "f3d00d88a90889cd500ecc7c335ccb202f98d067f4224df1d940289d49caaf6c"
+    sha256 cellar: :any,                 catalina:       "cab37517dd31e66ef9092d2f390aadadeb84a2b21bea2e1c3bf1c3410f8f6fc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef68b2a762b5c5bd42e28103e78b9782268d9c756beff3d3934be996a1500711"
   end
 
   depends_on "pkg-config" => :build
@@ -25,14 +26,12 @@ class Blockhash < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_bin
-
-    system "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
     # pkg-config adds -fopenmp flag during configuring
     # This fails the build on system clang, and OpenMP is not used in blockhash
     inreplace "build/c4che/_cache.py", "-fopenmp", ""
-    system "./waf"
-    system "./waf", "install"
+    system "python3", "./waf"
+    system "python3", "./waf", "install"
   end
 
   test do

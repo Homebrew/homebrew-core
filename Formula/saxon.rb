@@ -1,9 +1,10 @@
 class Saxon < Formula
   desc "XSLT and XQuery processor"
   homepage "https://saxon.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/saxon/Saxon-HE/10/Java/SaxonHE10-6J.zip"
-  version "10.6"
-  sha256 "0e590ede60eef6d8a98e759f72769c20417173f99191ebbc2f9ec4e331dbc296"
+  url "https://downloads.sourceforge.net/project/saxon/Saxon-HE/11/Java/SaxonHE11-3J.zip"
+  version "11.3"
+  sha256 "c462e29994e1622d1cdc50514469fd4c9eb13cb7658abe129667b2be8df35fb4"
+  license all_of: ["BSD-3-Clause", "MIT", "MPL-2.0"]
 
   livecheck do
     url :stable
@@ -14,14 +15,13 @@ class Saxon < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "4db59b57012438613c9fac1e2685c22598b91a3ce7ebbff0a1e3eb1dd2320092"
+    sha256 cellar: :any_skip_relocation, all: "02139e73950876f495a8cacd3b177e94f9a12b49748550a921b98f6c4a3a89e2"
   end
 
   depends_on "openjdk"
 
   def install
-    libexec.install Dir["*.jar", "doc", "notices"]
+    libexec.install Dir["*.jar", "doc", "lib", "notices"]
     bin.write_jar_script libexec/"saxon-he-#{version.major_minor}.jar", "saxon"
   end
 

@@ -4,7 +4,7 @@ class Grace < Formula
   url "https://deb.debian.org/debian/pool/main/g/grace/grace_5.1.25.orig.tar.gz"
   sha256 "751ab9917ed0f6232073c193aba74046037e185d73b77bab0f5af3e3ff1da2ac"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/g/grace/"
@@ -12,12 +12,12 @@ class Grace < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "ac76b67c8c85bc7ee8a1361334c2f70d6e74f45e5067eb4f0a688067e3667bc4"
-    sha256 big_sur:       "d5d91b7e7c89c18d466f01ce56c6935bbbcab420b392f942700b2432bc39d01d"
-    sha256 catalina:      "8bbfbfe5b8a205b29d21728d049f45d7acfbac1ca49dd2acc514321a9ce9f71a"
-    sha256 mojave:        "d5f408abf27cb7470e65dd34296e647141fdadf3d7b3255d512cc38f6c228d48"
-    sha256 x86_64_linux:  "e7b813126fc2bbd3e64b3947e83db5e9720fc005fe505aab6b34cca744a5617e"
+    sha256 arm64_monterey: "0513e12bd1ae9b631d576effdf09b697c94b627ed2c0aeb899b041a7c7d4ca89"
+    sha256 arm64_big_sur:  "c0bf43c187029b99326babf6bab2a352a6fc0d4092a49dfedadeff8dfed01d6d"
+    sha256 monterey:       "f0916c68e9915b20fd408f7cd3e9dad4c7d7dad85bf4c41dff95d270cf98a79f"
+    sha256 big_sur:        "9f9d80717bbc12f00c6ea79416a95fde41491125e325561b1e1442613e3c260f"
+    sha256 catalina:       "db3a1a8adad3df09d3e9a96e85c85d2f5e6cb09e4729560ca6b87e3d3ba636fc"
+    sha256 x86_64_linux:   "c879b07803e10fea09ed93fc3a9d169848841502e17c16fc4de019355463526a"
   end
 
   depends_on "fftw"
@@ -32,15 +32,14 @@ class Grace < Formula
   depends_on "libxpm"
   depends_on "libxt"
   depends_on "openmotif"
-  # pdflib-lite is not essential and does not currently support Apple Silicon
-  depends_on "pdflib-lite" if Hardware::CPU.intel?
 
   def install
     ENV.O1 # https://github.com/Homebrew/homebrew/issues/27840#issuecomment-38536704
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
-                          "--enable-grace-home=#{prefix}"
+                          "--enable-grace-home=#{prefix}",
+                          "--disable-pdfdrv"
     system "make", "install"
     share.install "fonts", "examples"
     man1.install Dir["doc/*.1"]

@@ -1,10 +1,9 @@
 class Ringojs < Formula
   desc "CommonJS-based JavaScript runtime"
   homepage "https://ringojs.org"
-  url "https://github.com/ringo/ringojs/releases/download/v2.0.0/ringojs-2.0.0.tar.gz"
-  sha256 "5991953012f3c493abb8c7256fa48e885bd284976bd1ec36f20fef77ff37fac9"
+  url "https://github.com/ringo/ringojs/releases/download/v3.0.0/ringojs-3.0.0.tar.gz"
+  sha256 "7f37388f5c0f05deec29c429151478a3758510566707bc0baf91f865126ca526"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url :stable
@@ -12,10 +11,12 @@ class Ringojs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "86b956cc3c7d0279529323450abaf3bca2a61ae520cdc262c44a2ff5035b810c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"
-    sha256 cellar: :any_skip_relocation, catalina:      "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"
-    sha256 cellar: :any_skip_relocation, mojave:        "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b5975c01f8c0407cdbfb815fb7535f9cb008b2dd141446c10f167714bd88f6e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b5975c01f8c0407cdbfb815fb7535f9cb008b2dd141446c10f167714bd88f6e"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b31c53a9b6168901c52dddfccb9671150401e2a2873f7708c6fce35605bf1e0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6b31c53a9b6168901c52dddfccb9671150401e2a2873f7708c6fce35605bf1e0"
+    sha256 cellar: :any_skip_relocation, catalina:       "6b31c53a9b6168901c52dddfccb9671150401e2a2873f7708c6fce35605bf1e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b5975c01f8c0407cdbfb815fb7535f9cb008b2dd141446c10f167714bd88f6e"
   end
 
   depends_on "openjdk@11"

@@ -2,21 +2,25 @@ class Offlineimap < Formula
   include Language::Python::Virtualenv
 
   desc "Synchronizes emails between two repositories"
-  homepage "https://www.offlineimap.org/"
+  homepage "https://github.com/OfflineIMAP/offlineimap3"
   url "https://github.com/OfflineIMAP/offlineimap3/archive/v8.0.0.tar.gz"
   sha256 "5d40c163ca2fbf89658116e29f8fa75050d0c34c29619019eee1a84c90fcab32"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca6ca7b5637188d594991786dd26549070571cde325550c4ec301fd0b50d9d3b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f1fb2cdac203f0fd3d933f0448b0d33eddd68088302f5ae3b0c2feb50ae2597"
-    sha256 cellar: :any_skip_relocation, monterey:       "37cb69a7d2cb44b30f248c823dd60861a24e9c12275c064903fe4d36a2791994"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c9df9bac321c169322310691fc2e9727221d1f8692cd21bed9588f05521b8d35"
-    sha256 cellar: :any_skip_relocation, catalina:       "42b1a6148dfed890446dc73e0cdc63214089b1eb0f1623b24ac298f043998fc8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab3fae7e96d819b5a576dab660a43438c93ad4f8f0137e29dc07f93add6d76c3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35280d4036bda75925c508f8edcf53e7b9431165071a1391b5fc024fe527f374"
+    sha256 cellar: :any_skip_relocation, monterey:       "99a7aabd972badba906e4430609217c5f03f5267cc76d4eb349ca327487ba549"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e53430590b20390cae4f5c291ed585fca5ecb23d06a6d47e27213bc66af76098"
+    sha256 cellar: :any_skip_relocation, catalina:       "c204ddc3b02a6f1bfd747610baa696d70ed02710e336f902f7d53a4610325632"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad8cd71fc09acdcf59cdcc3ddb58e500e032c33975e61b3c5296122a08b4f4d8"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
+
+  uses_from_macos "krb5"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"

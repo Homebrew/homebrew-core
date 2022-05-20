@@ -1,20 +1,18 @@
 class Carton < Formula
   desc "Perl module dependency manager (aka Bundler for Perl)"
   homepage "https://metacpan.org/pod/Carton"
-  url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/Carton-v1.0.34.tar.gz"
-  sha256 "77d42b92732bcfc18a59d341e56ce476205b1c4d380eab3a07224f5745c23e45"
+  url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/Carton-v1.0.35.tar.gz"
+  sha256 "9c4558ca97cd08b69fdfb52b28c3ddc2043ef52f0627b90e53d05a4087344175"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  revision 2
   head "https://github.com/perl-carton/carton.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "69bbc1bd1bc735b403d4e229cc927e797e890fd062b4cef1aa02844ddfda3d51"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ce1ddd8777839a7c6335edb8aeccb0603e7199f77e8535039888e4f17c1c16b"
-    sha256 cellar: :any_skip_relocation, monterey:       "9fcc9df862efb089bd695be67739a32851bb7912284abe70806c46422dcdc9fe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a8346120d0c0c90969deffae1f9f6a62cd801b85d960236a027ac01a66bb8764"
-    sha256 cellar: :any_skip_relocation, catalina:       "089c962c1d804848a5b1c00d424b840f4f97d56c9bc36628b660af9cf4d2ab13"
-    sha256 cellar: :any_skip_relocation, mojave:         "151b0beef68a8538b731e39e8bea4325279b2912f491c2be5f0a8ab8fde68123"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80f86c001f8fb0a49b809d66d3223db970ed12cba4e20e6af7c073e85842a34f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ed93b6f36dcfcbda3cf60bd27d204ed6e3fef9837a2c604baf5134e5133a75d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ed93b6f36dcfcbda3cf60bd27d204ed6e3fef9837a2c604baf5134e5133a75d"
+    sha256 cellar: :any_skip_relocation, monterey:       "ae0fcb618fd8b91fb40d7e52ed07d1ccb8a76ef5fabe0f7a73772f7f63a9979f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae0fcb618fd8b91fb40d7e52ed07d1ccb8a76ef5fabe0f7a73772f7f63a9979f"
+    sha256 cellar: :any_skip_relocation, catalina:       "ae0fcb618fd8b91fb40d7e52ed07d1ccb8a76ef5fabe0f7a73772f7f63a9979f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b241c14b6caf27b5e0a7eb694e31c186a60670a72a47834eda4883947ce5b89"
   end
 
   depends_on "perl"
@@ -65,8 +63,8 @@ class Carton < Formula
   end
 
   resource "File::Which" do
-    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz"
-    sha256 "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.27.tar.gz"
+    sha256 "3201f1a60e3f16484082e6045c896842261fc345de9fb2e620fd2a2c7af3a93a"
   end
 
   resource "File::pushd" do
@@ -105,8 +103,8 @@ class Carton < Formula
   end
 
   resource "Path::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.114.tar.gz"
-    sha256 "cd0f88f37a58fc3667ec065767fe01e73ee6efa18a112bfd3508cf6579ca00e1"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.122.tar.gz"
+    sha256 "4bc6f76d0548ccd8b38cb66291a885bf0de453d0167562c7b82e8861afdcfb7c"
   end
 
   resource "String::ShellQuote" do
@@ -120,13 +118,13 @@ class Carton < Formula
   end
 
   resource "Try::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz"
-    sha256 "da5bd0d5c903519bbf10bb9ba0cb7bcac0563882bcfe4503aee3fb143eddef6b"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.31.tar.gz"
+    sha256 "3300d31d8a4075b26d8f46ce864a1d913e0e8467ceeba6655d5d2b2e206c11be"
   end
 
   resource "URI" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.05.tar.gz"
-    sha256 "a5c113d2d02706d9fbdca6a86f290c5b05b2f86836d4e7fe1447f063261b79ec"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.10.tar.gz"
+    sha256 "16325d5e308c7b7ab623d1bf944e1354c5f2245afcfadb8eed1e2cae9a0bd0b5"
   end
 
   resource "Win32::ShellQuote" do
@@ -135,8 +133,8 @@ class Carton < Formula
   end
 
   resource "local::lib" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz"
-    sha256 "2e9b917bd48a0615e42633b2a327494e04610d8f710765b9493d306cead98a05"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000029.tar.gz"
+    sha256 "8df87a10c14c8e909c5b47c5701e4b8187d519e5251e87c80709b02bb33efdd7"
   end
 
   def install

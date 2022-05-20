@@ -3,6 +3,7 @@ class Aoeui < Formula
   homepage "https://code.google.com/archive/p/aoeui/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/aoeui/aoeui-1.6.tgz"
   sha256 "0655c3ca945b75b1204c5f25722ac0a07e89dd44bbf33aca068e918e9ef2a825"
+  license "GPL-2.0-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "daa6bd80f0cf479ba65187c2834ce38add2aeb37f93094596dcac9eda5001a68"
@@ -13,7 +14,10 @@ class Aoeui < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "1b04b93c490895121fed315f685d60cb96551b971ca1433a5240425cfa31dfcd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "62a04ac0fd27e76f4f77da95e7d5aaf75488765f98b02574ae7dff0508cd9f13"
     sha256 cellar: :any_skip_relocation, yosemite:      "19f622466c20ad4ddff2fc97ac186e189d5a8bb02dd405ed2a93c5d13a88b1f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b130912a9d91e2462433ad80f02827461c3c6aa8fef646b84cfa0249b9929815"
   end
+
+  uses_from_macos "m4" => :build
 
   def install
     system "make", "INST_DIR=#{prefix}", "install"

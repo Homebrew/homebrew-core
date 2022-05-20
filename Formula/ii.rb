@@ -22,11 +22,12 @@ class Ii < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "dcc9e7c86395491f5a62dd87dfcfb0f1b8b89a8f5ceb4e767ac70cf60ef350cd"
     sha256 cellar: :any_skip_relocation, sierra:         "a83511296e08d8ec1d126bb09574b02856f382f3f504b6f2b256cab6bd645ed1"
     sha256 cellar: :any_skip_relocation, el_capitan:     "eeba4fb4ec437895a9946bbbb00186ff05277ce9d57e8bbe29e1db5596d8a70f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65635369b704678c7b8e9e116df8421b2599b4fda0aa728cffc86d5c10438320"
   end
 
   def install
     # Fixed upstream, drop for next version
-    inreplace "Makefile", "SRC = ii.c strlcpy.c", "SRC = ii.c"
+    inreplace "Makefile", "SRC = ii.c strlcpy.c", "SRC = ii.c" if OS.mac?
 
     system "make", "install", "PREFIX=#{prefix}"
   end

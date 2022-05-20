@@ -36,9 +36,9 @@ class DocbookXsl < Formula
     sha256 "9bc38a3015717279a3a0620efb2d4bcace430077241ae2b0da609ba67d8340bc"
   end
 
-  # see http://www.linuxfromscratch.org/blfs/view/9.1/pst/docbook-xsl.html for this patch
+  # see https://www.linuxfromscratch.org/blfs/view/9.1/pst/docbook-xsl.html for this patch
   patch do
-    url "http://www.linuxfromscratch.org/patches/blfs/9.1/docbook-xsl-nons-1.79.2-stack_fix-1.patch"
+    url "https://www.linuxfromscratch.org/patches/blfs/9.1/docbook-xsl-nons-1.79.2-stack_fix-1.patch"
     mirror "https://raw.githubusercontent.com/Homebrew/formula-patches/5f2d6c1/docbook-xsl/docbook-xsl-nons-1.79.2-stack_fix-1.patch"
     sha256 "a92c39715c54949ba9369add1809527b8f155b7e2a2b2e30cb4b39ee715f2e30"
   end

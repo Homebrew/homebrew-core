@@ -1,18 +1,18 @@
 class NatsServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-server/archive/refs/tags/v2.7.2.tar.gz"
-  sha256 "30571297a2bfbd014c867513f0c79031f444b5112c9c0026365f2d82fd71131b"
+  url "https://github.com/nats-io/nats-server/archive/v2.8.2.tar.gz"
+  sha256 "aebddf3f65249dfa94521270ce599eb0af2855c5f57cfb5576f8ac0caf74822e"
   license "Apache-2.0"
   head "https://github.com/nats-io/nats-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95120165fbe58919d6c17546a07f908764a7e6e35702396e9483bc69b1fa8339"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c6ee2a5cf326e0db9ae415f264b91d1b3d46a94728ed079b6d3df6da3ce6e08"
-    sha256 cellar: :any_skip_relocation, monterey:       "d0296a2da871f926c82bbcf04128bdae09328684c923542ccecaaf4dd52c92c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5b65b46d685af569c5cd5d689446f5276bf5ed05e478cbc523c6eb10f278d147"
-    sha256 cellar: :any_skip_relocation, catalina:       "cbd35445ef7fdc8c8317e6bae0a3831581cf6add47dd031009ede42a3abdac7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7de90276cdde7fa664edf30144819512cc7ffe0f274abb353261774d8fbf6f93"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "041bcdebc7b947a87b7ca544be24121694633d65a851e39e245e2d6b5c28b181"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1f231bb5208dd55da7ecd555700952c74348d474d102385a24849b0764d1867"
+    sha256 cellar: :any_skip_relocation, monterey:       "52620d7ec67506c9c7b7c01cf3a625ec9daff2e20d97fa5df706ada577c6a896"
+    sha256 cellar: :any_skip_relocation, big_sur:        "08fba35e0667e536c1b379fd41f95420303d6b1cd153c3f4ec8548e630027243"
+    sha256 cellar: :any_skip_relocation, catalina:       "8e9189b6a62a93b612da20b262162dfb00a990f6d0b544bf961de7a21256231f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "564852f5bf4cdeefa50fc4f284efba19f5ce709c61703f4d92e875b4b447e000"
   end
 
   depends_on "go" => :build

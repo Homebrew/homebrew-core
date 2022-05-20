@@ -16,7 +16,8 @@ class Ccheck < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "441d2d833959bcf2908a40acf3677e974c2409719f2d353289431cb0bea40d04"
   end
 
-  depends_on "go" => :build
+  # x/sys dependency is too old for 1.18.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", "-o", bin/"ccheck", "main.go"

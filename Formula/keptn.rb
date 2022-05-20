@@ -1,8 +1,8 @@
 class Keptn < Formula
   desc "Is the CLI for keptn.sh a message-driven control-plane for application delivery"
   homepage "https://keptn.sh"
-  url "https://github.com/keptn/keptn/archive/0.12.0.tar.gz"
-  sha256 "c14ff6ed3a5f677da6c6d0eb9c56d72cefa154f871659ecd28733c4aeb8af435"
+  url "https://github.com/keptn/keptn/archive/0.15.0.tar.gz"
+  sha256 "a4b156d44a9b81efdcb75c527cd44e21745474e60ea2766b43f2744fb4bae264"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Keptn < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ed3b6528c9d6f76fcc8c4843625959a095b7e2b411a9571ce9b9d96d87ac01c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e34065881e2f8228aa9557b0430f3ba721c93eafd182bc61fde689a775ab9856"
-    sha256 cellar: :any_skip_relocation, monterey:       "edecc06ebb5fab67162574047db75f0b3bc8e99053bfe6be1f2c2b0ece7d40c9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4ba5892f0e2da03b4b1564e06b289bc4a26a46a5f3e09cf2091560f5fd3b1e24"
-    sha256 cellar: :any_skip_relocation, catalina:       "254f8535f57b629d5c06c33d62f63b5ed76ec8c9e4b2ac6268d11c882f129608"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26f430ef37612b22e28be1b31605e72072724c41cbcb5af839b1a8d78e7afee9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b8f6c505d4cadaea9afdeefad384453ee09a945077939f596dff42ef0d2ddb1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fe1a058fb784936cb6cb8767eb3189d4a5ed8aa4ff7868bf3e94ec06e100b5e"
+    sha256 cellar: :any_skip_relocation, monterey:       "232a834f43083eb27334c5e8510429116479082688a4a960a81d4e78bab8c0ce"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f2312880cd64e048cd413402882872049e9eb149fc726a761e6c52a72580b129"
+    sha256 cellar: :any_skip_relocation, catalina:       "317c8326c163dbb225fd214f79e25d333f8d91a135b04f1c380555e3bc821206"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a3dbe8266754a6b44bf27a5fe4129345d6b18de12283e53fededbd79a29c523"
   end
 
   depends_on "go" => :build
@@ -39,14 +39,11 @@ class Keptn < Formula
 
     assert_match "Keptn CLI version: #{version}", shell_output(bin/"keptn version 2>&1")
 
-    on_macos do
-      assert_match "Error: credentials not found in native keychain",
-        shell_output(bin/"keptn status 2>&1", 1)
-    end
-
-    on_linux do
-      assert_match ".keptn/.keptn____keptn: no such file or directory",
-        shell_output(bin/"keptn status 2>&1", 1)
+    output = shell_output(bin/"keptn status 2>&1", 1)
+    if OS.mac?
+      assert_match "Error: credentials not found in native keychain", output
+    else
+      assert_match ".keptn/.keptn____keptn: no such file or directory", output
     end
   end
 end

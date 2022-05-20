@@ -1,11 +1,21 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/v9.2.tar.gz"
-  sha256 "5337935ea1fa010bb62cf0fc8bedd6de07dda77bff3db7a0f6a36c84c7bd58db"
   license "Apache-2.0"
-  revision 2
+  revision 1
   head "https://github.com/google/or-tools.git", branch: "stable"
+
+  stable do
+    url "https://github.com/google/or-tools/archive/v9.3.tar.gz"
+    sha256 "6fe981326563136fbb7a697547dc0fe6495914b5b42df559c2d88b35f6bcc661"
+
+    # Allow building with `re2` formula rather than bundled & patched copy.
+    # TODO: remove in the next release
+    patch do
+      url "https://github.com/google/or-tools/commit/0d3572bda874ce30b35af161a713ecd1793cd296.patch?full_index=1"
+      sha256 "b15dcbaf130ce1e6f51dccfd2e97e92ad43694e3019d2179a9c1765909b7ffb8"
+    end
+  end
 
   livecheck do
     url :stable
@@ -13,12 +23,12 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "02a9fbeef13c7d71d23e90813d2146839d27a33bb7505ad7b9fa5307e417103e"
-    sha256 cellar: :any,                 arm64_big_sur:  "c444da980eb616ab64cbff22a3ca3ce3d3b63ddf12d3cce759e18927f232eb7b"
-    sha256 cellar: :any,                 monterey:       "76da45521f1c59e6f743946fef2423dd87b7fb1f22cfc9b41fa2cd90cac422f5"
-    sha256 cellar: :any,                 big_sur:        "53f217259a3740dadce9070892a9119203a96f17040aa11109791bda6ee0993d"
-    sha256 cellar: :any,                 catalina:       "8dd8f31ead4765391179b20f26e735e3fbbe3e25f52fe05ba89483badfb8bb12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efe55ab7e49dc5d27d859137b9151dcc045da0c8a1bf28032a26df451cfc554f"
+    sha256 cellar: :any,                 arm64_monterey: "64c2b3a6438460e17d56d3d78e567ef0e293ef5ec911a335c6f13d47a7d95073"
+    sha256 cellar: :any,                 arm64_big_sur:  "311a532e8b53e98c3e61d1d544c1f6cf04cd151b3e76e5b47e7ef3448e1ce77b"
+    sha256 cellar: :any,                 monterey:       "ec2a0fe33bb8b859f910efee4c4f74a936ecff27e715275cf081c215107f7015"
+    sha256 cellar: :any,                 big_sur:        "fc541facffb873535919dd270960ea045cc3ca005b3ef7b964b89bf1f37632d6"
+    sha256 cellar: :any,                 catalina:       "f7bd6fb05b39983c5dcbc7f25f2bfd140d6c43d3832f76675cea2ed3a0f8055b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32ef7af2c61144bf1d8c658a9cef4b2e9355a8907889c395e34a71250b0d5216"
   end
 
   depends_on "cmake" => :build
@@ -28,9 +38,11 @@ class OrTools < Formula
   depends_on "cgl"
   depends_on "clp"
   depends_on "coinutils"
+  depends_on "eigen"
   depends_on "openblas"
   depends_on "osi"
   depends_on "protobuf"
+  depends_on "re2"
 
   uses_from_macos "zlib"
 
@@ -41,8 +53,10 @@ class OrTools < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", "-S.", "-Bbuild", *std_cmake_args,
-           "-DUSE_SCIP=OFF", "-DBUILD_SAMPLES=OFF", "-DBUILD_EXAMPLES=OFF"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DUSE_SCIP=OFF",
+                    "-DBUILD_SAMPLES=OFF",
+                    "-DBUILD_EXAMPLES=OFF"
     system "cmake", "--build", "build", "-v"
     system "cmake", "--build", "build", "--target", "install"
     pkgshare.install "ortools/linear_solver/samples/simple_lp_program.cc"

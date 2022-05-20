@@ -20,6 +20,10 @@ class Eventql < Formula
     depends_on "libtool" => :build
   end
 
+  # See https://github.com/eventql/eventql/issues/366
+  # Also requires Python 2 to build older bundled SpiderMonkey
+  deprecate! date: "2022-04-23", because: :unmaintained
+
   def install
     # SpiderMonkey sets the deployment target to 10.6, kicking in libstdc++ mode
     # which no longer has headers as of Xcode 10.

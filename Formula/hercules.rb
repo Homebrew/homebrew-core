@@ -18,6 +18,7 @@ class Hercules < Formula
     sha256 big_sur:        "c85d96adaa0f5cc5a17d5927d4cd1b44f42003baba3e59ff11cee5ce444512fc"
     sha256 catalina:       "aae09d5616cf146c74bf3bfae69c1490cf920404d75d43c7d8c28ac1aab176b8"
     sha256 mojave:         "3c7535fa1d1e9385c9f2525e40445b931c3768ab611db4e6a2019c7910538c41"
+    sha256 x86_64_linux:   "253d9c36ec65a956796d413a957999b99bc22b10fc3baa436f2d3fb7ef7dcd25"
   end
 
   head do
@@ -28,9 +29,13 @@ class Hercules < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  uses_from_macos "zlib"
+
   skip_clean :la
 
   def install
+    ENV.deparallelize
+
     if build.head?
       system "./autogen.sh"
     elsif Hardware::CPU.arm?

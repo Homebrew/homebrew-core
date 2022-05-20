@@ -2,8 +2,8 @@ class Mimalloc < Formula
   desc "Compact general purpose allocator"
   homepage "https://github.com/microsoft/mimalloc"
   # 2.x series is in beta and shouldn't be upgraded to until it's stable
-  url "https://github.com/microsoft/mimalloc/archive/refs/tags/v1.7.2.tar.gz"
-  sha256 "b1912e354565a4b698410f7583c0f83934a6dbb3ade54ab7ddcb1569320936bd"
+  url "https://github.com/microsoft/mimalloc/archive/refs/tags/v1.7.6.tar.gz"
+  sha256 "d74f86ada2329016068bc5a243268f1f555edd620b6a7d6ce89295e7d6cf18da"
   license "MIT"
 
   livecheck do
@@ -12,13 +12,12 @@ class Mimalloc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d8b04769cce9dc72da71bc7ea8709ab7892f9f6f224cdc079a4c810fe1530063"
-    sha256 cellar: :any,                 arm64_big_sur:  "d58eb09178145c160f13902a84cbfb555c814c764d89b03a96294ed2ff4e1375"
-    sha256 cellar: :any,                 monterey:       "d2609eff9603a69d8a111a83aeebd47c9c3093b28d100f3e3a1a2d391b0c91d1"
-    sha256 cellar: :any,                 big_sur:        "d9a90d0801403374429de0014eb0a8ce54c943bd933184a02a90312eef9fbcfa"
-    sha256 cellar: :any,                 catalina:       "f3a16ec9db7143ff17d0dafba31f952f71299fd3cf121229962f901aeb6a348b"
-    sha256 cellar: :any,                 mojave:         "1b8ccb7e87846a9625645a9c6f6fb20ff3812eb28b9dc3f35607be223c16a21c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a52e4812137cb1272b5887a554eaea818ed04bbcb69da2c49a8d2402df02fdcf"
+    sha256 cellar: :any,                 arm64_monterey: "a600ddfb26f682c065638cf21d0a42247d31ac33a27ca525501b0c11645f73f3"
+    sha256 cellar: :any,                 arm64_big_sur:  "34179acc2bfaf5e8b45cb3d0ba5ce34d8f10707cace446ccf24c3f456964f775"
+    sha256 cellar: :any,                 monterey:       "16f7d8b1f61a463cce7ebebb368587173ee72e82a1e82b468144dff2a6d20c82"
+    sha256 cellar: :any,                 big_sur:        "35cb0ef636188ee92d2a5aa63d8e1ca422f3b7962daba961bb25845c27aab028"
+    sha256 cellar: :any,                 catalina:       "caa9ca85b45b5055eb0b2dcfd191c3cafd3cd9ff02c6714d46987ac49e3bda55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48f4d9a37d46c4289fdcbea078567975e59b40c6a3f4fa1d275b31185d43401b"
   end
 
   depends_on "cmake" => :build

@@ -18,7 +18,13 @@ class Libaec < Formula
 
   depends_on "cmake" => :build
 
-  conflicts_with "szip", because: "libaec provides a replacement for szip"
+  # These may have been linked by `szip` before keg_only change
+  link_overwrite "include/szlib.h"
+  link_overwrite "lib/libsz.a"
+  link_overwrite "lib/libsz.dylib"
+  link_overwrite "lib/libsz.2.dylib"
+  link_overwrite "lib/libsz.so"
+  link_overwrite "lib/libsz.so.2"
 
   def install
     mkdir "build" do

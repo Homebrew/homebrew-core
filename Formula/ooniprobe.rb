@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/v3.13.0.tar.gz"
-  sha256 "a055aed8c2d0d898b7cdb843cf247cf3b593c8ac7045103c08b3088b7d4d1737"
+  url "https://github.com/ooni/probe-cli/archive/v3.14.2.tar.gz"
+  sha256 "a0b71089444c899ba99c7f63f9e05819cdbe964cfa17bb95ca5672343e6aec22"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,18 +11,19 @@ class Ooniprobe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "207b5687cc32f010d5f6f55e2b95f69e086fb28a2825078bbbfd4861bfc09c61"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5d36efcb051f08355c23b62c0a244cd67e706b8674302903a908c428a2ac6d5"
-    sha256 cellar: :any_skip_relocation, monterey:       "e6fc0c3d3350eea9206523e06283e6842989d63cbd865d80610c1e1a3c7867d8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7125b855b7a0edeb91597e8b0aa525a5ccde50c6ac0bd2c23b5671b898b12699"
-    sha256 cellar: :any_skip_relocation, catalina:       "0c57f460123364905bbfa22a88943bc7566e318c26298847d3925664a67a5196"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8321538ff21f1692b8b9f569476ba61dc76feda24bc05a9adab72a9f2a77c177"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6175151c2c03b2ce67ee64b6e467b5a23805649bc4269261e02bf10704537c77"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86d43020ae3046726ae70e6e846dfbd8abff179a0ac60ed0092e3175b5209563"
+    sha256 cellar: :any_skip_relocation, monterey:       "e4a8ee479c263c4fa720b61b75b8ebcd0053d6fd3e704d45ac4d154e79b3c724"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9db39adc27ca6f68798393d77658e5db77320e6ce8dbcd4eae0f667df70f2cfe"
+    sha256 cellar: :any_skip_relocation, catalina:       "26cc9170c9a9b3b92dc8617dd9ce94d71d032b864adee1b6899777ef88166d20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6029598cdad5d2317cb9e6b0ca25c86d6c7aae00224950491e7ea6a1cc43d96"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
+  depends_on "tor"
 
   def install
-    system "go", "run", "./internal/cmd/getresources"
     system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/ooniprobe"
     (var/"ooniprobe").mkpath
   end

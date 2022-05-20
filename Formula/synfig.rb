@@ -17,6 +17,7 @@ class Synfig < Formula
     sha256 arm64_big_sur: "248a8a69404babd55d6d1e678fb2022d42639f47e7e5a8b34c92a014abbbd7ed"
     sha256 big_sur:       "f85dbdbe02942899a886ad52ae90250d92eab5d9d107274f29d2f58051db47d2"
     sha256 catalina:      "5fab8763baffa4652cd3ff289ee4fad1530cd0a3dbbee0b74c17d0c52b785b4e"
+    sha256 x86_64_linux:  "b6865d57013ac63ae95ee4208b993e7123390758fe195bd278b377eb2f5b8823"
   end
 
   depends_on "intltool" => :build
@@ -35,12 +36,17 @@ class Synfig < Formula
   depends_on "openexr"
   depends_on "pango"
 
+  uses_from_macos "perl" => :build
+
   on_linux do
     depends_on "gcc"
   end
+
   fails_with gcc: "5"
 
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     ENV.cxx11
     boost = Formula["boost"]
     system "./configure", "--disable-debug",
@@ -112,7 +118,6 @@ class Synfig < Formula
       -lglib-2.0
       -lglibmm-2.4
       -lgobject-2.0
-      -lintl
       -lmlt-7
       -lmlt++-7
       -lpango-1.0
@@ -123,6 +128,7 @@ class Synfig < Formula
       -lxml++-2.6
       -lxml2
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end

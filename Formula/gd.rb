@@ -4,16 +4,15 @@ class Gd < Formula
   url "https://github.com/libgd/libgd/releases/download/gd-2.3.3/libgd-2.3.3.tar.xz"
   sha256 "3fe822ece20796060af63b7c60acb151e5844204d289da0ce08f8fdf131e5a61"
   license :cannot_represent
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c4d367cecad55958b4117d012f8e358922248ac5f3894fdf0fffbefe2312814a"
-    sha256 cellar: :any,                 arm64_big_sur:  "6ce670e95834eda72a26d28f515f27becfe55b03ede20a3c4ee5f15fd9c0e687"
-    sha256 cellar: :any,                 monterey:       "8976ef6710a704e27557e1ad9c2b3aecf9b0b3dc266b212922a6ac2226d0074d"
-    sha256 cellar: :any,                 big_sur:        "35d040a24b8e6a05dee0703bef87a76d6c5d460a4168c749c484ecfc16d9904b"
-    sha256 cellar: :any,                 catalina:       "40ea66d7bca0bb527ba6ffff45b503ef6d6a3bb520d18e12efd15233e41da50d"
-    sha256 cellar: :any,                 mojave:         "33f5ac492e525bdfeb8f7602c1a56ed37e2f6f286e24734e406f568bc1be5d24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8052fd3f49e14af727cff5f2f2227a0f6a5b3e9f0b1c1418b68cc86edabe5b52"
+    sha256 cellar: :any,                 arm64_monterey: "08396f5ebf194ac40aee435158ccfa5405f214c5dbcf37bf6e253c1bd085123a"
+    sha256 cellar: :any,                 arm64_big_sur:  "6c7673cab6618b0a9e0d41531150d65c8eebd1f252c17dba38ad0f44790f6828"
+    sha256 cellar: :any,                 monterey:       "570313a4b9170b71de90d87c66d638beafe6aca33c919a0a3864f750e1e65599"
+    sha256 cellar: :any,                 big_sur:        "7580452407899ec5ba045a9d48af158bbefa50a5b561b826ae2ac845119dfac7"
+    sha256 cellar: :any,                 catalina:       "23cf2d9d302fdadd217d1a6c2f9a10f32090bda59f0202a657b3af4eec59ff2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "760128cc65a8e50be67fd0c8f29b307dc89886ed2b7a66f9cf40db5d1d03e5c3"
   end
 
   head do
@@ -27,6 +26,7 @@ class Gd < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "jpeg"
+  depends_on "libavif"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "webp"

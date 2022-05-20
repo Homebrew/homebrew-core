@@ -1,18 +1,17 @@
 class Libgee < Formula
   desc "Collection library providing GObject-based interfaces"
   homepage "https://wiki.gnome.org/Projects/Libgee"
-  url "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.4.tar.xz"
-  sha256 "524c1bf390f9cdda4fbd9a47b269980dc64ab5280f0801b53bc69d782c72de0e"
+  url "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.5.tar.xz"
+  sha256 "31863a8957d5a727f9067495cabf0a0889fa5d3d44626e54094331188d5c1518"
   license "LGPL-2.1"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "daeb224444a8ae5796c565896c23b81e5da63eb4e4f57ef601c75a4c6da210b2"
-    sha256 cellar: :any,                 arm64_big_sur:  "1cf5cbaa60b52012e61477e1dbcb69b77e9cc16846dc456c855bcbc1d2252563"
-    sha256 cellar: :any,                 monterey:       "e1545f52a853007d2f31792c14d7248a1c8c96c5472cd8b58199b4706d89dd4e"
-    sha256 cellar: :any,                 big_sur:        "0e8f110c3e14f4c45142ad2b215a803b70353e13429a73650e0641cfcda986d5"
-    sha256 cellar: :any,                 catalina:       "ce00019f9ca5b8dc93081d84d99b4587a66a3d87b726080ead7323bbec65f417"
-    sha256 cellar: :any,                 mojave:         "2d77bae2c373c426ae17050025de1ff6183e84673ebfa144c433a45cdbff8781"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e064df49b26118cd962fb582add7ead458cec62f5bcdeefcd2f6a0a6c661e46"
+    sha256 cellar: :any,                 arm64_monterey: "b4c0eb232ec495a1133db8cd3f639658033a25ce178ec00b858e8a33957d4221"
+    sha256 cellar: :any,                 arm64_big_sur:  "7595f10a228290c80b8059dff874470cfb76840b443096a3b97bfe6e27390a6b"
+    sha256 cellar: :any,                 monterey:       "8136138b5bbaeec36919d40184697874f473a5bf5e0a552cbec4d86e85273072"
+    sha256 cellar: :any,                 big_sur:        "1be6807d7a7b14d96503e8bf534c0535b83defe13eb467c478d729eb5ddd9d9c"
+    sha256 cellar: :any,                 catalina:       "7e72f9c9158e3ff6364672a300728bdfb4394a5d73dd39a2ae53da96ce456ca9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6746f72a5fc51d595da9fe6854598c74228caeabbc0a5a061bd78bf44c72d424"
   end
 
   depends_on "gobject-introspection" => :build
@@ -57,9 +56,7 @@ class Libgee < Formula
       -lglib-2.0
       -lgobject-2.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

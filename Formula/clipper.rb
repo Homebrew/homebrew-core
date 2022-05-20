@@ -17,6 +17,7 @@ class Clipper < Formula
   end
 
   depends_on "go" => :build
+  depends_on :macos
 
   def install
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"clipper", "clipper.go"

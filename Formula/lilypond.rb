@@ -9,14 +9,12 @@ class Lilypond < Formula
     :public_domain,
     "MIT",
   ]
-  revision 1
 
   stable do
-    url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.1.tar.gz"
-    sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
+    url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.2.tar.gz"
+    sha256 "dde90854fa7de1012f4e1304a68617aea9ab322932ec0ce76984f60d26aa23be"
 
-    # Distinguishes Lilypond homebrew installation that uses Guile 2.2 while
-    # others use Guile 1.8.
+    # Shows LilyPond's Guile version (Homebrew uses v2, other builds use v1).
     # See https://gitlab.com/lilypond/lilypond/-/merge_requests/950
     patch do
       url "https://gitlab.com/lilypond/lilypond/-/commit/a6742d0aadb6ad4999dddd3b07862fe720fe4dbf.diff"
@@ -30,11 +28,10 @@ class Lilypond < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "5b5182726f7fd17fc1da720d48d093b326c3b0e60ef7f8a56598d6d142999871"
-    sha256 big_sur:       "c6d72cd49f4ea86f978d257a2e6f73f6df79f5bddaadb1c8e676e2e715fe3d5d"
-    sha256 catalina:      "d38a77136b4bd19124aa9a01bd2de4a8fedbc2b9fea9e7e6d8addb9f2a09b90d"
-    sha256 mojave:        "2fed3245ffd0ad5ad6c17ecd9512ddbd117efcde703bd40732d8b820f9185503"
-    sha256 x86_64_linux:  "cb3d3205f0526ad3182d2afd32fa28a94ec0b893a39fff466ef7372335a15b52"
+    sha256 arm64_big_sur: "1bf9fc2843e2909c2de3e326d20bbf7e7ca4a6e26b55218d804517c7f1aecfad"
+    sha256 big_sur:       "06a0837a35cb89309a5e725e178db7de41711ae3a914a3136feb56576fa22c97"
+    sha256 catalina:      "dc9a0bb669aca02fe3d4b5ba2375120c4056b2202b43e6988eb555fffc1a86bd"
+    sha256 x86_64_linux:  "119d632c47f32b8f7ea9d7edfd6532d18c29302ae5a7f1d74f972bad9d8371ba"
   end
 
   head do
@@ -63,11 +60,13 @@ class Lilypond < Formula
 
   def install
     system "./autogen.sh", "--noconfigure" if build.head?
-    system "./configure",
-            "--prefix=#{prefix}",
-            "--datadir=#{share}",
-            "--with-texgyre-dir=#{Formula["texlive"].opt_share}/texmf-dist/fonts/opentype/public/tex-gyre",
-            "--disable-documentation"
+
+    texgyre_dir = "#{Formula["texlive"].opt_share}/texmf-dist/fonts/opentype/public/tex-gyre"
+    system "./configure", "--prefix=#{prefix}",
+                          "--datadir=#{share}",
+                          "--with-texgyre-dir=#{texgyre_dir}",
+                          "--disable-documentation"
+
     ENV.prepend_path "LTDL_LIBRARY_PATH", Formula["guile@2"].opt_lib
     system "make"
     system "make", "install"

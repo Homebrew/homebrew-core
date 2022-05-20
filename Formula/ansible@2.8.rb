@@ -6,12 +6,13 @@ class AnsibleAT28 < Formula
   url "https://files.pythonhosted.org/packages/e6/a3/d68781949f0b6d261ef8f17a4d1c6ee75df261ff168f4ead585604899e26/ansible-2.8.20.tar.gz"
   sha256 "f0672d138cf79cd39197952df0f8c761aac27c639a8ff7bdbd62cf463a7edaea"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "94e517f56308b730aa6489d492d7031ba6ba14780cff64ae0c6a218c7f287e19"
-    sha256 cellar: :any,                 catalina:     "0c7c0e90ce339a6570165e909986fa92cc00a5ffdd0b89f658e462add5705481"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "15b0aebb811533e98b41c3c3f6b227f8332560e42100fcd05e50275e9fc09dbc"
+    sha256 cellar: :any,                 monterey:     "32ad0d9b268cc30e130b80338f832f1f0f78839be71f4504262f4ebb8794dec3"
+    sha256 cellar: :any,                 big_sur:      "3d3c4a7c3b54b3ab76ec1aeb78e1faf00dec6b775d912262ea9228e1beae7734"
+    sha256 cellar: :any,                 catalina:     "49f5e63f3f67588d6b71b79702a84eac580b54f905a111ced3a3386c81975888"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ce97b8ec3ea2d975c27f6018231261cddc8fb750be7067b630746a0b7296ad9b"
   end
 
   keg_only :versioned_formula
@@ -280,8 +281,8 @@ class AnsibleAT28 < Formula
   end
 
   resource "kerberos" do
-    url "https://files.pythonhosted.org/packages/34/18/9c86fdfdb27e0f7437b7d5a9e22975dcc382637b2a68baac07843be512fc/kerberos-1.3.0.tar.gz"
-    sha256 "f039b7dd4746df56f6102097b3dc250fe0078be75130b9dc4211a85a3b1ec6a4"
+    url "https://files.pythonhosted.org/packages/39/cd/f98699a6e806b9d974ea1d3376b91f09edcb90415adbf31e3b56ee99ba64/kerberos-1.3.1.tar.gz"
+    sha256 "cdd046142a4e0060f96a00eb13d82a5d9ebc0f2d7934393ed559bac773460a2c"
   end
 
   resource "keystoneauth1" do
@@ -295,8 +296,8 @@ class AnsibleAT28 < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/39/2b/0a66d5436f237aff76b91e68b4d8c041d145ad0a2cdeefe2c42f76ba2857/lxml-4.5.0.tar.gz"
-    sha256 "8620ce80f50d023d414183bf90cc2576c2837b88e00bea3f33ad2630133bbb60"
+    url "https://files.pythonhosted.org/packages/3b/94/e2b1b3bad91d15526c7e38918795883cee18b93f6785ea8ecf13f8ffa01e/lxml-4.8.0.tar.gz"
+    sha256 "f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23"
   end
 
   resource "monotonic" do
@@ -601,11 +602,6 @@ class AnsibleAT28 < Formula
 
   def install
     ENV.prepend_path "PATH", Formula["python@3.7"].opt_libexec/"bin"
-
-    if OS.mac? && (MacOS.version <= :sierra)
-      # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
 
     virtualenv_install_with_resources
 

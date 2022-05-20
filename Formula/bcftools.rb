@@ -1,12 +1,11 @@
 class Bcftools < Formula
   desc "Tools for BCF/VCF files and variant calling from samtools"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/bcftools/releases/download/1.14/bcftools-1.14.tar.bz2"
-  sha256 "b7ef88ae89fcb55658c5bea2e8cb8e756b055e13860036d6be13756782aa19cb"
+  url "https://github.com/samtools/bcftools/releases/download/1.15.1/bcftools-1.15.1.tar.bz2"
+  sha256 "f21f9564873eb27ccf22d13b91a64acb8fbbfe4f9e4c37933a54b9a95857f2d7"
   # The bcftools source code is MIT/Expat-licensed, but when it is configured
   # with --enable-libgsl the resulting executable is GPL-licensed.
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -14,12 +13,12 @@ class Bcftools < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "f6dc63f7c76b06013acd6cc56917d92a36ead9ec1280f876dfbe93a724a1f143"
-    sha256                               arm64_big_sur:  "57ac52202f614792d964d18f706ee0285e4f39f34f794d42686a861591b5d1c3"
-    sha256                               monterey:       "02e025616ff6daf116c39cf5fbf62a0dab4c5cbcc460eac607e2a105ce30efd1"
-    sha256                               big_sur:        "df5c39b00efc020cbf282dcf10f489d67c3dea591d7eb733131e3d08f7a14c06"
-    sha256                               catalina:       "927aab202ad520ba0c44847404b6e1f2e6f1442dee49d08235125b767643ba07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57c32fb494027d88d9efabd8cfe15b158e32f0eb6e720ea6a228e04a8af53eaa"
+    sha256                               arm64_monterey: "547be287eadb9b767ab27232071c0fbd6895cea8de8470a657912d82ea90183c"
+    sha256                               arm64_big_sur:  "856cc821f42aa3a34efc45c71fe5be9139605e52373d123bd04be511d1476380"
+    sha256                               monterey:       "51b716a9f1b3b6889ee91f67135f0b3ef19bd4fbc298f1c3607497842684a5a2"
+    sha256                               big_sur:        "da96ced1e7dea42220ef0bea1deecc4f38bb1f30d68cd980dbdb37cdd61a719c"
+    sha256                               catalina:       "622b3e4e56e7b716824e3552e7cb9468753ba4dddacb7ef9b14e7e128cf68fc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7d57e0c0fbe7639362ba27ef336000e43e6be81c68d920cf7f86d6b4f50eeb5"
   end
 
   depends_on "gsl"

@@ -1,10 +1,9 @@
 class Cbc < Formula
   desc "Mixed integer linear programming solver"
   homepage "https://github.com/coin-or/Cbc"
-  url "https://github.com/coin-or/Cbc/archive/releases/2.10.7.tar.gz"
-  sha256 "5aa5490e2bc39c3c03f3636c9bca459cb3f8f365e0280fd0c4759ce3119e5b19"
-  # update to EPL-2.0 on next release
-  license "EPL-1.0"
+  url "https://github.com/coin-or/Cbc/archive/releases/2.10.8.tar.gz"
+  sha256 "8525abb541ee1b8e6ff03b00411b66e98bbc58f95be1aefd49d2bca571be2eaf"
+  license "EPL-2.0"
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Cbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ba53ab073c9dfe54e7e350153cd6362cd9bdb4b859e64e16a34d4f3000d0b676"
-    sha256 cellar: :any,                 arm64_big_sur:  "cb9cda04a4b2ede7adf9e75bf7c96ed85d1dfadd67c7a80cefd27b443c05b26a"
-    sha256 cellar: :any,                 monterey:       "2989abdac90634bd356939a82acb2b8efe0411b67f5b6c84bba1abe0de576359"
-    sha256 cellar: :any,                 big_sur:        "6aa7f580766fddec320fbdb3f573aef2a4f9e2ab3e218392b389f7ac5beaab10"
-    sha256 cellar: :any,                 catalina:       "b6c6354b27a584a4fdb61e13ae3406a9b80478d023be1f5084a4b9da13d69b61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f37aae46e6800124424873c8cbcaf9dde7fbdbe606fa7261f26de04139b4771"
+    sha256 cellar: :any,                 arm64_monterey: "9c6816ac51c4f6dfce9211077647576e41c87484d80fe80f37b10b010357292c"
+    sha256 cellar: :any,                 arm64_big_sur:  "f6d4d0d73a51b53cb17920352f78c1d7aba923d53ecc4bd3a7a4fa9968e7bdb5"
+    sha256 cellar: :any,                 monterey:       "58cd161d62e3c14010428dbe330a90858424f6fbb44b7da7337c2bbd21475dcb"
+    sha256 cellar: :any,                 big_sur:        "9dfd9b522f7488c4f8e09277d38f8a73fce9ee7e3febf2a7cec27005130e8659"
+    sha256 cellar: :any,                 catalina:       "255d298551bab042bd860bdd1a6fa005fb17ed61bf80bc4288a7862387dba4fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72a1c63a9b265b697e1be4ae6abbb90d002467fa4699ca0123cbb4cb4bba3da9"
   end
 
   depends_on "pkg-config" => :build

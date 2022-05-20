@@ -3,17 +3,17 @@ class Archey4 < Formula
 
   desc "Simple system information tool written in Python"
   homepage "https://github.com/HorlogeSkynet/archey4"
-  url "https://files.pythonhosted.org/packages/db/06/45e8c09c600c0647aa549b66e08f8dcf15203f81efbdd8f0bf4a784bf8e2/archey4-4.13.3.tar.gz"
-  sha256 "8c81ad0267d6d4689357d27e274fa142e10a8e619184bfafd9e57d9a8a720848"
+  url "https://files.pythonhosted.org/packages/be/f1/48885ef271b76ac590e239c04531af48009b85b54b60c1d2afba9b0bf463/archey4-4.13.4.tar.gz"
+  sha256 "9813ed0a1d5131756375e4113e6b158723d299353dab3d51b6ac0420af402e2c"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "62f3bd15c1f45182b47649a8dbbfe3a2fb6d26d444678f54df9eece728f3d415"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "37bfb5ef166056a64862eedca01e9ac44c041d44cd4a8af763af0fa86f329178"
-    sha256 cellar: :any_skip_relocation, monterey:       "13e7e4f687ed7e264d9c3eb853d7b6b09e64b7e26545a2e2ecb628bb03a1703f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2330a9c7e085631becc1c981ed4a1b66061146fbf354f04ab4884f70c5486e01"
-    sha256 cellar: :any_skip_relocation, catalina:       "6e6fd5ad1252c9ee3d7ee09cf48b0105447c24502a4ab939290a878a9e3bd438"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c48cf0d9341c959f192513de80ea013d6d00e4dbeda72c3ac640a756cc227049"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "41ddb1507784fabcc850020343fd218a3550a45b837a3ef67467cb52945c873c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45e747c8cdf4b78d7600910803f3651694472044a6228222507bf07c99ec3a12"
+    sha256 cellar: :any_skip_relocation, monterey:       "954a64e2166de9a4819c80b5af70de71c466ac4266116580ade432d31bcb564d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "af7eaa81198e4469d4f929dfb0710f17cb9071201929791c6e5b107343c6e86a"
+    sha256 cellar: :any_skip_relocation, catalina:       "2d54f4f054f4c28b2622c158cf30ad023100994e245490eea9307fda36529ba2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac16d29ad8c1354679cebb649399298c6b01975f75fe6cc601076343d712b83a"
   end
 
   depends_on "python@3.10"
@@ -21,8 +21,8 @@ class Archey4 < Formula
   conflicts_with "archey", because: "both install `archey` binaries"
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
-    sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
+    url "https://files.pythonhosted.org/packages/b5/7e/ddfbd640ac9a82e60718558a3de7d5988a7d4648385cf00318f60a8b073a/distro-1.7.0.tar.gz"
+    sha256 "151aeccf60c216402932b52e40ee477a939f8d58898927378a02abbe852c1c39"
   end
 
   resource "netifaces" do

@@ -4,37 +4,31 @@ class Sratoolkit < Formula
   license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
 
   stable do
-    url "https://github.com/ncbi/sra-tools/archive/2.11.3.tar.gz"
-    sha256 "6339dc398e04505cc7aa889e0266713e2b9dbd2309300e6fba62874051ca144d"
-
-    resource "ngs-sdk" do
-      url "https://github.com/ncbi/ngs/archive/2.11.2.tar.gz"
-      sha256 "7555ab7c2f04bd81160859f6c85c65376dc7f7b891804fad9e7636a7788e39c2"
-    end
+    url "https://github.com/ncbi/sra-tools/archive/refs/tags/3.0.0.tar.gz"
+    sha256 "b6e8116ecb196b91d5ee404cc978a128eec9af24bdc96f57ff7ebfaf9059a760"
 
     resource "ncbi-vdb" do
-      url "https://github.com/ncbi/ncbi-vdb/archive/2.11.2.tar.gz"
-      sha256 "647efea2762d63dee6d3e462b1fed2ae6d0f2cf1adb0da583ac95f3ee073abdf"
-
-      # Fix Linux error in vdb3/interfaces/memory/MemoryManagerItf.hpp:155:13:
-      # error: 'ptrdiff_t' does not name a type
-      patch :DATA
+      url "https://github.com/ncbi/ncbi-vdb/archive/refs/tags/3.0.0.tar.gz"
+      sha256 "154317ef265104861fe8d3d2e439939ae98f33b1e28da3c45f32ae8534dbfad7"
     end
   end
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any, monterey:     "7288ce0e3eca352589f120ae8a24f60009bd5ee7ad7b5fcd3ef68960ee0cb144"
-    sha256 cellar: :any, big_sur:      "3ed43023475647f878bc0876f69ed16e46dee7eea3d6ebcbd5fa1e5e8849f4ce"
-    sha256 cellar: :any, catalina:     "70d22bb73b4f8745df4434b20adbd0cd02b88cd136223deb5409ed24e944516f"
-    sha256               x86_64_linux: "2f713ec90a39a271b1a809e25c12f6d4749eb2cd3a20072138f9c87f2be6f5d7"
+    sha256 cellar: :any,                 arm64_monterey: "975b3b4963eb43aa4c18bd4c95f9b7620f07938990a85cf305f7dcf48684a085"
+    sha256 cellar: :any,                 arm64_big_sur:  "42d4d3f558d41d974c07d7ec7c7d025f1b227c8f9cafedb94c2d030dfb9a12a5"
+    sha256 cellar: :any,                 monterey:       "a88822cbdf8bf72d39325a1ebd26bf0a30460a1dbc2d597ca67613a35a140116"
+    sha256 cellar: :any,                 big_sur:        "4a01bbc8741c610ec13d056e23797718b46f991b2a30bc329807c90aaabdb153"
+    sha256 cellar: :any,                 catalina:       "ecc6b82054036d2ff55ddab7959ea7a8ee6d6d4ff8624a7ca332cace87293129"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0bc8bd79688b0ca4a7d2ca33f9b8a9e400198b0f6a863f3572c78032c0e6ce8"
   end
 
   head do
     url "https://github.com/ncbi/sra-tools.git", branch: "master"
-
-    resource "ngs-sdk" do
-      url "https://github.com/ncbi/ngs.git", branch: "master"
-    end
 
     resource "ncbi-vdb" do
       url "https://github.com/ncbi/ncbi-vdb.git", branch: "master"
@@ -42,83 +36,48 @@ class Sratoolkit < Formula
   end
 
   depends_on "cmake" => :build
-  # Failed to build with `hdf5` at ncbi-vdb-source/libs/hdf5/hdf5dir.c:295:89:
-  # error: too few arguments to function call, expected 5, have 4
-  # herr_t h5e = H5Oget_info_by_name( self->hdf5_handle, buffer, &obj_info, H5P_DEFAULT );
-  # Try updating to `hdf5` on future release.
-  depends_on "hdf5@1.10"
-  depends_on "libmagic"
+  depends_on "hdf5"
 
-  uses_from_macos "perl" => :build
   uses_from_macos "libxml2"
 
+  # Modify cmake scripts to avoid building tests when BUILD_TESTING=OFF and
+  # to install into CMAKE_INSTALL_LIBDIR rather than CMAKE_INSTALL_PREFIX/lib64.
+  # Issue ref: https://github.com/ncbi/sra-tools/issues/638
+  # Issue ref: https://github.com/ncbi/sra-tools/issues/639
+  patch :DATA
+
   def install
-    libxml2_prefix = if OS.mac?
-      MacOS.sdk_path/"usr"
-    else
-      Formula["libxml2"].opt_prefix
-    end
-    with_formula_args = %W[
-      --with-hdf5-prefix=#{Formula["hdf5@1.10"].opt_prefix}
-      --with-magic-prefix=#{Formula["libmagic"].opt_prefix}
-      --with-xml2-prefix=#{libxml2_prefix}
-    ]
+    (buildpath/"ncbi-vdb-source").install resource("ncbi-vdb")
 
-    ngs_sdk_prefix = buildpath/"ngs-sdk-prefix"
-    resource("ngs-sdk").stage do
-      cd "ngs-sdk" do
-        system "./configure", "--prefix=#{ngs_sdk_prefix}",
-                              "--build=#{buildpath}/ngs-sdk-build"
-        system "make"
-        system "make", "install"
-      end
+    # Workaround to allow clang/aarch64 build to use the gcc/arm64 directory
+    # Issue ref: https://github.com/ncbi/ncbi-vdb/issues/65
+    ln_s "../gcc/arm64", buildpath/"ncbi-vdb-source/interfaces/cc/clang/aarch64" if Hardware::CPU.arm?
+
+    # Workaround to remove hardcoded bitmagic SSE4.2 optimization if needed
+    if !Hardware::CPU.intel? || !Hardware::CPU.sse4_2? || (build.bottle? && !MacOS.version.requires_sse42?)
+      bitmagic_opt = Hardware::CPU.arm? ? "-DDBMNEONOPT" : "-DBMSSE2OPT"
+      inreplace "tools/sharq/CMakeLists.txt", "add_definitions(-msse4.2 -DBMSSE42OPT)",
+                                              "add_definitions(#{bitmagic_opt})"
     end
 
-    ncbi_vdb_source = buildpath/"ncbi-vdb-source"
-    ncbi_vdb_build = buildpath/"ncbi-vdb-build"
-    ncbi_vdb_source.install resource("ncbi-vdb")
-    cd ncbi_vdb_source do
-      # Fix detection of hdf5 library on macOS as Apple Clang linker doesn't
-      # allow mixing static (-Wl,-Bstatic) and dynamic (-Wl,-Bdynamic) libraries
-      inreplace "setup/konfigure.perl", "-Wl,-Bstatic -lhdf5 -Wl,-Bdynamic", "-lhdf5" if OS.mac?
+    # Need to use HDF 1.10 API: error: too few arguments to function call, expected 5, have 4
+    # herr_t h5e = H5Oget_info_by_name( self->hdf5_handle, buffer, &obj_info, H5P_DEFAULT );
+    ENV.append_to_cflags "-DH5_USE_110_API"
 
-      # Fix Linux error: `pshufb' is not supported on `generic64.aes'
-      # Upstream ref: https://github.com/ncbi/ncbi-vdb/issues/14
-      inreplace "libs/krypto/Makefile", "-Wa,-march=generic64+aes", "" if OS.linux?
+    system "cmake", "-S", "ncbi-vdb-source", "-B", "ncbi-vdb-build", *std_cmake_args,
+                    "-DNGS_INCDIR=#{buildpath}/ngs/ngs-sdk"
+    system "cmake", "--build", "ncbi-vdb-build"
 
-      system "./configure", "--prefix=#{buildpath}/ncbi-vdb-prefix",
-                            "--build=#{ncbi_vdb_build}",
-                            "--with-ngs-sdk-prefix=#{ngs_sdk_prefix}",
-                            *with_formula_args
-      ENV.deparallelize { system "make" }
-    end
-
-    # Fix the error: ld: library not found for -lmagic-static
-    # Upstream PR: https://github.com/ncbi/sra-tools/pull/105
-    inreplace "tools/copycat/Makefile", "-smagic-static", "-smagic"
-
-    # Fix detection of hdf5 library on macOS as Apple Clang linker doesn't
-    # allow mixing static (-Wl,-Bstatic) and dynamic (-Wl,-Bdynamic) libraries
-    inreplace "setup/konfigure.perl", "-Wl,-Bstatic -lhdf5 -Wl,-Bdynamic", "-lhdf5" if OS.mac?
-
-    # Fix the error: utf8proc.o: linker input file unused because linking not done
-    # Upstream issue: https://github.com/ncbi/sra-tools/issues/283
-    if OS.linux?
-      inreplace "tools/driver-tool/utf8proc/Makefile",
-                "$(CC) $(LDFLAGS) -shared",
-                "#{ENV.cc} $(LDFLAGS) -shared"
-    end
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--build=#{buildpath}/sra-tools-build",
-                          "--with-ngs-sdk-prefix=#{ngs_sdk_prefix}",
-                          "--with-ncbi-vdb-sources=#{ncbi_vdb_source}",
-                          "--with-ncbi-vdb-build=#{ncbi_vdb_build}",
-                          *with_formula_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "sra-tools-build", *std_cmake_args,
+                    "-DVDB_BINDIR=#{buildpath}/ncbi-vdb-build",
+                    "-DVDB_LIBDIR=#{buildpath}/ncbi-vdb-build/lib",
+                    "-DVDB_INCDIR=#{buildpath}/ncbi-vdb-source/interfaces"
+    system "cmake", "--build", "sra-tools-build"
+    system "cmake", "--install", "sra-tools-build"
 
     # Remove non-executable files.
-    rm_r [bin/"magic", bin/"ncbi"]
+    (bin/"magic").unlink if OS.linux?
+    (bin/"ncbi").rmtree
   end
 
   test do
@@ -134,15 +93,58 @@ class Sratoolkit < Formula
 end
 
 __END__
-diff --git a/vdb3/interfaces/memory/MemoryManagerItf.hpp b/vdb3/interfaces/memory/MemoryManagerItf.hpp
-index d802ba79..84a88aa5 100644
---- a/vdb3/interfaces/memory/MemoryManagerItf.hpp
-+++ b/vdb3/interfaces/memory/MemoryManagerItf.hpp
-@@ -26,6 +26,7 @@
- #pragma once
- 
- #include <memory>
-+#include <stddef.h>
- 
- namespace VDB3
- {
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d54d4646..ba4b77b7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -51,7 +51,9 @@ add_subdirectory( ngs )
+ add_subdirectory( libs )
+ add_subdirectory( tools )
+
+-add_subdirectory( test )
++if (BUILD_TESTING)
++	add_subdirectory( test )
++endif()
+
+ set ( CPACK_PACKAGE_NAME sra-tools )
+ set ( CPACK_PACKAGE_VERSION 0.1 )
+diff --git a/build/env.cmake b/build/env.cmake
+index 1c7a317a..e975d74c 100755
+--- a/build/env.cmake
++++ b/build/env.cmake
+@@ -362,7 +362,7 @@ function( ExportStatic name install )
+                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}.a.${MAJVERS}
+                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}.a
+                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}-static.a
+-                    DESTINATION ${CMAKE_INSTALL_PREFIX}/lib64
++                    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+             )
+          endif()
+     else()
+@@ -371,7 +371,7 @@ function( ExportStatic name install )
+         set_target_properties( ${name} PROPERTIES
+             ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE})
+         if ( ${install} )
+-            install( TARGETS ${name} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib64 )
++            install( TARGETS ${name} DESTINATION ${CMAKE_INSTALL_LIBDIR} )
+         endif()
+     endif()
+ endfunction()
+@@ -408,7 +408,7 @@ function(MakeLinksShared target name install)
+             install( PROGRAMS  ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}${LIBSUFFIX}
+                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}${MAJLIBSUFFIX}
+                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}.${SHLX}
+-                    DESTINATION ${CMAKE_INSTALL_PREFIX}/lib64
++                    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+         )
+         endif()
+     else()
+@@ -581,7 +581,7 @@ if ( SINGLE_CONFIG )
+                 ${CMAKE_INSTALL_PREFIX}/bin/ncbi    \
+                 /etc/ncbi                           \
+                 ${CMAKE_INSTALL_PREFIX}/bin         \
+-                ${CMAKE_INSTALL_PREFIX}/lib64       \
++                ${CMAKE_INSTALL_LIBDIR}             \
+                 ${CMAKE_SOURCE_DIR}/shared/kfgsums  \
+             \" )"
+     )

@@ -1,18 +1,18 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://pango.gnome.org"
-  url "https://download.gnome.org/sources/pango/1.50/pango-1.50.4.tar.xz"
-  sha256 "f4ad63e87dc2b145300542a4fb004d07a9f91b34152fae0ddbe50ecdd851c162"
+  url "https://download.gnome.org/sources/pango/1.50/pango-1.50.6.tar.xz"
+  sha256 "a998bcf36881c3ac20495d40bceb304f4eaa9175bd2967c85656434cbdafe86a"
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/pango.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "df36e5f3b64895adf6a5a5de39ef71b01c99c6bda6a8ac45e6a5ef527d0a40e0"
-    sha256 cellar: :any, arm64_big_sur:  "bb0263479f72d47a46483706990208fbe7c29594989599d0fe8157110f834022"
-    sha256 cellar: :any, monterey:       "cebb0e2360cbbe60e56afef30d4cbb3563d436037d0e3c8e78a81b22eda3e70c"
-    sha256 cellar: :any, big_sur:        "19694d3771d06baed767faca055c7f22d7f1133c463f0b1525c035ff637e8629"
-    sha256 cellar: :any, catalina:       "d99bc31f59a189ae413e5978f2870cc5c7424185506c13bfd5995c3fb7911c7b"
-    sha256               x86_64_linux:   "0a5499b66788373a8914b87eff41b5f60444836ca162aa31999bf6164c9f3e5e"
+    sha256 cellar: :any, arm64_monterey: "5f2fcb84957b49bc2764be3f6ce3b5309967ef93e8d39fbbc04d7fa20c65d142"
+    sha256 cellar: :any, arm64_big_sur:  "61196356dd6f636d28957e2b7c48674254693c1e175d7ccc7cb2207a55c3c7f5"
+    sha256 cellar: :any, monterey:       "f1452a4c0b3ccff2dd9ed4d0d5153c202a98e40602cbaa6faa59648b2c4f1318"
+    sha256 cellar: :any, big_sur:        "c4ed05228db80d461dac1d44479c4d71a7161307ef1e041e28d47363b9c9c891"
+    sha256 cellar: :any, catalina:       "d2a309a053431e56086a8ffa4f3d9e674f22b341f3c7ee349423cfb3f037f01a"
+    sha256               x86_64_linux:   "47c20a93f7f50984817766e16626ae24817838c3c3e478576223bcde099cb11b"
   end
 
   depends_on "gobject-introspection" => :build
@@ -85,9 +85,7 @@ class Pango < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

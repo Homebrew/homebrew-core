@@ -1,17 +1,17 @@
 class Libkeccak < Formula
   desc "Keccak-family hashing library"
   homepage "https://github.com/maandree/libkeccak"
-  url "https://github.com/maandree/libkeccak/archive/1.3.1.tar.gz"
-  sha256 "f13331e014d9b0b14c2be7b834c3ca817c171cad16801e58e6f1ec5eb981a2ce"
+  url "https://github.com/maandree/libkeccak/archive/1.3.1.2.tar.gz"
+  sha256 "c17df59e038f9f1b0f09aa79944ba572f5c4efcbfe8bc6bc7aae1b40f035abe9"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b8a1640efd1db1f3e2ba361363767fe1d5e3ac3b33e419173ee6c4fb9170d7ed"
-    sha256 cellar: :any,                 arm64_big_sur:  "bbd87c23aba8fa81dc53fa00db225f421a7026c76828cf4eeaf12851f8fcc895"
-    sha256 cellar: :any,                 monterey:       "cd1a2f6724177393e0aa75d7c7bf1bc01977df42197920516b6039b63bfa058b"
-    sha256 cellar: :any,                 big_sur:        "808bd9e888adb28862229941a08ad2041172e29b2714a5e0b87c9877714c5be6"
-    sha256 cellar: :any,                 catalina:       "b8d4bf24c9060975c0eb5d12f3f4c0da199c79265c4af85f3fb0db5b5d28cffb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72e0676b4dd6ba95cbd22f21eb58f6643e80c862fb732752f5b7f8e23e5d21aa"
+    sha256 cellar: :any,                 arm64_monterey: "173746b4543bc13ef45d1e4dfb8c6bb4d4249c25830f53f943898ac7ae1f81f2"
+    sha256 cellar: :any,                 arm64_big_sur:  "6fc14f2ea3a381b9e9e58578bcef407cef4af0bd931da39e2e84d28a8340ab54"
+    sha256 cellar: :any,                 monterey:       "ce7fee03661fde649e34fbc9574283f7e69d15bde1af456cb8b05b774266ca8f"
+    sha256 cellar: :any,                 big_sur:        "d7d2c628b5dbed7332389146686bebfd44d96cfec3fed0ea61df9fb0907ace4b"
+    sha256 cellar: :any,                 catalina:       "c3b5014399a99a2b14d44c201e389e187ba49d32190134a3c1b8458caa6368ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5873b5c5daf987e21fab9cc6fc11a516f5654d60d6ec4789c0da3dfba436379"
   end
 
   def install

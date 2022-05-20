@@ -11,17 +11,20 @@ class Paperkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "71c9db30e077414c7504d8b20e9f5809b2cde37997881c1715e51e953d90d76d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c6af240418bfb7c29113a1861966302d2be55fc578298f6fb0a4f71bc8dbf89e"
-    sha256 cellar: :any_skip_relocation, catalina:      "12be9f841cfb0d4069be3e461cd5e783ba4ea11195507a13763f90ccc026f31e"
-    sha256 cellar: :any_skip_relocation, mojave:        "894ef3339013be6574f736e316c61cbf54fbc3dcac358df14f1d54b1d7387854"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "82e49c6aa559a349ce73521a90881acb74a540de03d355ad7461c177d00bb8e8"
-    sha256 cellar: :any_skip_relocation, sierra:        "fecd3e866173f93ddd6d89e91f2850d29c10e8edf27bb969a95de581ec382c56"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e56628d74d3ba424c3c801ee83d03408a8fe0e72644b493504c1511d84eea422"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71c9db30e077414c7504d8b20e9f5809b2cde37997881c1715e51e953d90d76d"
+    sha256 cellar: :any_skip_relocation, monterey:       "8a3f3bdec644389ce5de309eb2ce36e5829d9da8b611bb30bbb7a73c32efc669"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c6af240418bfb7c29113a1861966302d2be55fc578298f6fb0a4f71bc8dbf89e"
+    sha256 cellar: :any_skip_relocation, catalina:       "12be9f841cfb0d4069be3e461cd5e783ba4ea11195507a13763f90ccc026f31e"
+    sha256 cellar: :any_skip_relocation, mojave:         "894ef3339013be6574f736e316c61cbf54fbc3dcac358df14f1d54b1d7387854"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "82e49c6aa559a349ce73521a90881acb74a540de03d355ad7461c177d00bb8e8"
+    sha256 cellar: :any_skip_relocation, sierra:         "fecd3e866173f93ddd6d89e91f2850d29c10e8edf27bb969a95de581ec382c56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "065de554c087ac3f19246e81fdbf2a60b64c2307f420b91029d781ec901b2d94"
   end
 
-  resource "secret.gpg" do
-    url "https://gist.github.com/bfontaine/5b0e3efa97e2dc42a970/raw/915e802578339ddde2967de541ed65cb76cd14b9/secret.gpg"
-    sha256 "eec8f32a401d1077feb19ea4b8e1816feeac02b9bfe6bd09e75c9985ff740890"
+  resource "homebrew-test_sec" do
+    url "https://raw.githubusercontent.com/dmshaw/paperkey/46adad971458a798e203bf8ec65d6bc897494754/checks/papertest-rsa.sec"
+    sha256 "0f39397227339171209760e0f27aa60ecf7eae31c32d0ec3a358434afd38eacd"
   end
 
   def install
@@ -32,8 +35,8 @@ class Paperkey < Formula
   end
 
   test do
-    resource("secret.gpg").stage do
-      system "#{bin}/paperkey", "--secret-key", "secret.gpg", "--output", "test"
+    resource("homebrew-test_sec").stage do
+      system "#{bin}/paperkey", "--secret-key", "papertest-rsa.sec", "--output", "test"
       assert_predicate Pathname.pwd/"test", :exist?
     end
   end

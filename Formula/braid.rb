@@ -2,28 +2,20 @@ class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
   url "https://github.com/cristibalan/braid.git",
-      tag:      "v1.1.3",
-      revision: "74bde1426c2a2713f8a56a879e5ff2e1e4213ad8"
+      tag:      "v1.1.6",
+      revision: "008c1f5d1ba0a5a3faf2866a998fb7188c3ece36"
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "680fa799b8d8b2f7f77574f7a62e489096cb174d77728a1b88f4a84e94b77d47"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0383392403f7924a8bbd09c08dfc0b28e4c147b98a21a66b63bf9a16ffca49f1"
-    sha256 cellar: :any_skip_relocation, catalina:      "1bbb75422a511aec7e439e350d4d428ed900ad9b78a3979d691430836c92a62a"
-    sha256 cellar: :any_skip_relocation, mojave:        "5e62988e4e3c52890e699afc017e62e24d42ff49560d6c41e425c2649096d28b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a277b20c60e81d0269ab7c84a80a5e0404551cc3906d0696f6731c669ce2954f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c02b66768affbf197d45aebaf3229525464b41c69df91204315a82963153dc84"
+    sha256 cellar: :any_skip_relocation, monterey:       "a277b20c60e81d0269ab7c84a80a5e0404551cc3906d0696f6731c669ce2954f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c02b66768affbf197d45aebaf3229525464b41c69df91204315a82963153dc84"
+    sha256 cellar: :any_skip_relocation, catalina:       "c02b66768affbf197d45aebaf3229525464b41c69df91204315a82963153dc84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccbf57441d2db228e3ef8dd6da2df5bb46885f878d3308191f562898b9236cc5"
   end
 
-  depends_on "ruby" if MacOS.version <= :sierra
-
-  on_linux do
-    depends_on "ruby"
-
-    resource "json" do
-      url "https://rubygems.org/gems/json-2.1.0.gem"
-      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
-    end
-  end
+  uses_from_macos "ruby", since: :high_sierra
 
   resource "arrayfields" do
     url "https://rubygems.org/gems/arrayfields-4.9.2.gem"
@@ -35,21 +27,19 @@ class Braid < Formula
     sha256 "766f2fcce6ac3cc152249ed0f2b827770d3e517e2e87c5fba7ed74f4889d2dc3"
   end
 
-  if MacOS.version <= :sierra
-    resource "json" do
-      url "https://rubygems.org/gems/json-2.1.0.gem"
-      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
-    end
+  resource "fattr" do
+    url "https://rubygems.org/gems/fattr-2.4.0.gem"
+    sha256 "a7544665977e6ff2945e204436f3b8e932edf8ed3d7174d5d027a265e328fc08"
   end
 
-  resource "fattr" do
-    url "https://rubygems.org/gems/fattr-2.3.0.gem"
-    sha256 "0430a798270a7097c8c14b56387331808b8d9bb83904ba643b196c895bdf5993"
+  resource "json" do
+    url "https://rubygems.org/gems/json-2.6.1.gem"
+    sha256 "7ff682a2db805d6b924e4e87341c3c0036824713a23c58ca53267ce7e5ce2ffd"
   end
 
   resource "main" do
-    url "https://rubygems.org/gems/main-6.2.2.gem"
-    sha256 "af04ee3eb4b7455eb5ab17e98ab86b0dad8b8420ad3ae605313644a4c6f49675"
+    url "https://rubygems.org/gems/main-6.2.3.gem"
+    sha256 "f630bf47a3ddfa09483a201a47c9601fd0ec9656d51b4a1196696ec57d33abf1"
   end
 
   resource "map" do
@@ -60,6 +50,8 @@ class Braid < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
+      next if r.name == "json" && MacOS.version >= :high_sierra
+
       r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",
              "--no-document", "--install-dir", libexec
@@ -71,13 +63,15 @@ class Braid < Formula
   end
 
   test do
-    system "git", "init"
-    (testpath/"README").write "Testing"
-    (testpath/".gitignore").write "Library"
-    system "git", "add", "README", ".gitignore"
-    system "git", "commit", "-m", "Initial commit"
-    output = shell_output("#{bin}/braid add https://github.com/cristibalan/braid.git")
-    assert_match "Braid: Added mirror at '", output
-    assert_match "braid (", shell_output("#{bin}/braid status")
+    mkdir "test" do
+      system "git", "init"
+      (Pathname.pwd/"README").write "Testing"
+      (Pathname.pwd/".gitignore").write "Library"
+      system "git", "add", "README", ".gitignore"
+      system "git", "commit", "-m", "Initial commit"
+      output = shell_output("#{bin}/braid add https://github.com/cristibalan/braid.git")
+      assert_match "Braid: Added mirror at '", output
+      assert_match "braid (", shell_output("#{bin}/braid status")
+    end
   end
 end

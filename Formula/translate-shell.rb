@@ -41,6 +41,6 @@ class TranslateShell < Formula
 
   test do
     assert_equal "hello\n",
-      shell_output("#{bin}/trans -no-init -b -s fr -t en bonjour").downcase
+      shell_output("#{bin}/trans -no-init -b -s es -t en hola").downcase
   end
 end

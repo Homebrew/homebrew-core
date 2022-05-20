@@ -2,16 +2,17 @@ class Licensefinder < Formula
   desc "Find licenses for your project's dependencies"
   homepage "https://github.com/pivotal/LicenseFinder"
   url "https://github.com/pivotal/LicenseFinder.git",
-      tag:      "v6.15.0",
-      revision: "cfbc7d3fd5313b4f19df523293b01280aa52ef65"
+      tag:      "v7.0.1",
+      revision: "b938cbfb33e8ec4eb9f2a4abcfb6e3462d226621"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b32049d8e378cc39897671e8f4c714fd313f22fee282005d4fcaaf75e4866fe2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d12c6eda18a5a481a599a1daca71b416f9793f5a1dab1f1f08ca9cccb66df90"
-    sha256 cellar: :any_skip_relocation, monterey:       "fe9ba07d6be035ff797f4d0730f437f28a53e173b8d84577dd712aa2646fdc1f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f227f4f12d350dfc41eb8c42450a45ded144c2f275211113c7ae1ddaede242b9"
-    sha256 cellar: :any_skip_relocation, catalina:       "f227f4f12d350dfc41eb8c42450a45ded144c2f275211113c7ae1ddaede242b9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "64d7159ca202de5e3b51a6ab6833ca7e87219a899ef5bfa908f530aba8fb2af7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2053ded4e0ceda44a1d43f3dd29d57c6f7c118abeab2ee1c561a415666b960e"
+    sha256 cellar: :any_skip_relocation, monterey:       "369e2affccf92dfb4d1869d1abc23118094553f062b78c1470635fb2347bda41"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4944b6336d9316648a52b2a1a21a7f11cebcde1b746fc772f25d39d9672e2af3"
+    sha256 cellar: :any_skip_relocation, catalina:       "4944b6336d9316648a52b2a1a21a7f11cebcde1b746fc772f25d39d9672e2af3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fad2104fa2186844235e5628d8afe03f34b08e7b9c62631399dde2b3947b493"
   end
 
   depends_on "ruby@2.7" if MacOS.version <= :mojave
@@ -27,7 +28,8 @@ class Licensefinder < Formula
   test do
     gem_home = testpath/"gem_home"
     ENV["GEM_HOME"] = gem_home
-    system "gem", "install", "bundler"
+    gem_command = (MacOS.version <= :mojave) ? Formula["ruby@2.7"].bin/"gem" : "gem"
+    system gem_command, "install", "bundler"
 
     mkdir "test"
     (testpath/"test/Gemfile").write <<~EOS

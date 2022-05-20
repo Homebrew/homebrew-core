@@ -7,27 +7,23 @@ class Libsigrok < Formula
   revision 1
 
   stable do
-    url "git://sigrok.org/libsigrok",
-        tag:      "libsigrok-0.5.2",
-        revision: "a6b07d7e28fe445afccf36922ef7d20e63e54fe6"
+    url "https://sigrok.org/download/source/libsigrok/libsigrok-0.5.2.tar.gz"
     sha256 "4d341f90b6220d3e8cb251dacf726c41165285612248f2c52d15df4590a1ce3c"
 
     resource "libserialport" do
-      url "git://sigrok.org/libserialport",
-          tag:      "libserialport-0.1.1",
-          revision: "348a6d353af8ac142f68fbf9fe0f4d070448d945"
+      url "https://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz"
+      sha256 "4a2af9d9c3ff488e92fb75b4ba38b35bcf9b8a66df04773eba2a7bbf1fa7529d"
     end
 
     resource "fw-fx2lafw" do
-      url "git://sigrok.org/sigrok-firmware-fx2lafw",
-          tag:      "sigrok-firmware-fx2lafw-0.1.7",
-          revision: "b6ec4813b592757e39784b9b370f3b12ae876954"
+      url "https://sigrok.org/download/source/sigrok-firmware-fx2lafw/sigrok-firmware-fx2lafw-0.1.7.tar.gz"
+      sha256 "a3f440d6a852a46e2c5d199fc1c8e4dacd006bc04e0d5576298ee55d056ace3b"
     end
   end
 
   livecheck do
-    url :stable
-    regex(/^libsigrok-(\d+(?:\.\d+)+)$/i)
+    url "https://sigrok.org/wiki/Downloads"
+    regex(/href=.*?libsigrok[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -78,7 +74,12 @@ class Libsigrok < Formula
 
   def install
     resource("fw-fx2lafw").stage do
-      system "./autogen.sh"
+      if build.head?
+        system "./autogen.sh"
+      else
+        system "autoreconf", "-fiv"
+      end
+
       mkdir "build" do
         system "../configure", *std_configure_args
         system "make", "install"
@@ -86,7 +87,12 @@ class Libsigrok < Formula
     end
 
     resource("libserialport").stage do
-      system "./autogen.sh"
+      if build.head?
+        system "./autogen.sh"
+      else
+        system "autoreconf", "-fiv"
+      end
+
       mkdir "build" do
         system "../configure", *std_configure_args
         system "make", "install"
@@ -101,7 +107,12 @@ class Libsigrok < Formula
       s.gsub!(/(\$\(setup_py\) install)/, "\\1 --single-version-externally-managed --record=installed.txt")
     end
 
-    system "./autogen.sh"
+    if build.head?
+      system "./autogen.sh"
+    else
+      system "autoreconf", "-fiv"
+    end
+
     mkdir "build" do
       ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
       ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"

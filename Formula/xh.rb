@@ -1,18 +1,18 @@
 class Xh < Formula
   desc "Friendly and fast tool for sending HTTP requests"
   homepage "https://github.com/ducaale/xh"
-  url "https://github.com/ducaale/xh/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "67dcea38d58115fb745eb41142a118110ff070d7d484128cc066d9b4bb01c68d"
+  url "https://github.com/ducaale/xh/archive/refs/tags/v0.16.0.tar.gz"
+  sha256 "d6ec84977da567dd36a4c59d624dc1e2b1c77a21e2b0a10e463216120be8112d"
   license "MIT"
   head "https://github.com/ducaale/xh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "02f466f20327f97da1bebc62c62a0b2f7020a3df7a7a0891e698336f65df137f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1f8f90ebb0129d20cb995fe3868ca7aea500d565c7a0962c76d04acdbfe1993"
-    sha256 cellar: :any_skip_relocation, monterey:       "54fa4125eaed0fc2505885734ed1190ce119700d10816c7a7441223bc005c593"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ce8a5ca446d00750009e1e70ca360484df6513dfc042525a28faad621047aefd"
-    sha256 cellar: :any_skip_relocation, catalina:       "295445d00cf71e16e2cd11e9d022f380ff4b326e6cda43d08c5628a6a24d6164"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb82dc0081f7d14f557b8b6b79a812ef400ea2b04874a3627a961dfde177890d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0249aacec0f8c4a1e8d8b72d674356ed12b603a26602a92b77b542aa825615b7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "235db6cadf881787e40e64b0da0addcd4f374bc6fd51b571f3121a6cd171f8f3"
+    sha256 cellar: :any_skip_relocation, monterey:       "c1f302ed2adad8f0ae61c16721ac39593515423c1c54ebcdfbeece58b167a0cd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e709d9d7f99ec917202995b0f8942153a0ac9c0ace4ba91dfa919885efa01f90"
+    sha256 cellar: :any_skip_relocation, catalina:       "58964f23fb620c8fd182a007ffa987cb9329c33c0823ff18d32224e374f369f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d32b0bd2e304c6895ccd2295823a8f1ce4189f436a2a931721f50b96a7915ff"
   end
 
   depends_on "rust" => :build

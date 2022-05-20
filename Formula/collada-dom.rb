@@ -3,22 +3,22 @@ class ColladaDom < Formula
   homepage "https://www.khronos.org/collada/wiki/Portal:COLLADA_DOM"
   url "https://github.com/rdiankov/collada-dom/archive/v2.5.0.tar.gz"
   sha256 "3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d"
+  revision 1
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "d7bfd664531c0f11f85f7133a8090627a39869cfc69d16611420c4c189541e50"
-    sha256               arm64_big_sur:  "74fdb739480d5afe0a658201d2ac35bbcc3612ba67760072fd6f9984bac0de89"
-    sha256 cellar: :any, monterey:       "7a130a67b845787b315e43d2f7ca35e5a28d4bed3f39e58d3fe4ef976bef5c70"
-    sha256               big_sur:        "b7c0c6d35d2af29ac7351dcdca28d85dc31a242c994ff5a4242982c3859380c0"
-    sha256               catalina:       "5e86a0dfc3311b0c2bc49017493f4c729a42b0a1d8e6c8a8bb2c7145197f9509"
-    sha256               mojave:         "67da6177f67deeba4a08cc0648766856f647eb54ca9cfdf8fd61a2e665330614"
-    sha256               high_sierra:    "a88714bbcd001a475d4222407031997af3cb34fe6214352a562021770a09a560"
-    sha256               sierra:         "69a6c5f038f7d622130b272ac2c3b35beffb11b5ab0c4b080de422b68ebd7466"
+    sha256 cellar: :any,                 arm64_monterey: "6baf8c9373cc9694ee34a651bcc5e7f334853969394d3d4b6b64d20688cf396a"
+    sha256 cellar: :any,                 arm64_big_sur:  "d4c611de9f56ddadaf4e34fdea1049c02289fc81bd0bd9c6e6665f7f15c0f4cb"
+    sha256 cellar: :any,                 monterey:       "764bd5de44b51b088e61df10fd3b8f66581b31ec37821810c6e24d9dd2bc4e32"
+    sha256 cellar: :any,                 big_sur:        "b0987e22d6e0eb6a4b5d5c2413fd629204d1b32c13dd4798bca499446ff89391"
+    sha256 cellar: :any,                 catalina:       "7f2ca06cafbed79ee7df9d03f7842a6bdee997f5d77ed8421b528f79fbe75dd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e38b4a56ab6e5192f8f8d287fb33f0810c3a09fc1bbd32a490bc1486484594c"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "pcre"
+  uses_from_macos "libxml2"
 
   def install
     system "cmake", ".", *std_cmake_args

@@ -12,14 +12,24 @@ class Partio < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "c5edd20c87a7b31af0632e12bb7c69ebe51e08530d33a292892cb5757b503b5e"
     sha256 cellar: :any_skip_relocation, catalina:       "513c77edf0748cfdd80dd8806add9b0166e2fc947de7fc89dc0a86e68505aece"
     sha256 cellar: :any_skip_relocation, mojave:         "8450fd8658881dbf6b9459bfa272339c99ed0b54d7e165b8f0ee6b85a68b95eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf85e64f726c22497d6129abf4030ed7b75b490f4e826103f87f085db51e1aac"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
 
+  on_linux do
+    depends_on "freeglut"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   def install
+    args = std_cmake_args
+    args << "-DPARTIO_USE_GLVND=OFF" unless OS.mac?
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "make"
       system "make", "doc"
       system "make", "install"

@@ -7,12 +7,13 @@ class C10t < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f6c5c0fb2e066bc4c505d61eb9db21034a89223e5a9e47c3c2a08b17f5a431ed"
-    sha256 cellar: :any, big_sur:       "15eb238ecc210202a0aa3034005b3da3637f4d5b5a7c9e6904b151d47ece6d47"
-    sha256 cellar: :any, catalina:      "50bb289bc77fc39bd7fa248be991069cfa63419c8ad74329d3684a965469084d"
-    sha256 cellar: :any, mojave:        "1bdc623e16b1854d4865ce29e7fb6e0724262ea2b998111c6ab908b5dbd5af17"
-    sha256 cellar: :any, high_sierra:   "ad850802e7b161e55c19bcb89d2af5a10a536574bf25a1c45a2693299d6182d2"
-    sha256 cellar: :any, sierra:        "fbfab463dd8a2af17bb3b8d07d448d8411f9393d98b1b35f6862a7dc92da7c82"
+    sha256 cellar: :any,                 arm64_big_sur: "f6c5c0fb2e066bc4c505d61eb9db21034a89223e5a9e47c3c2a08b17f5a431ed"
+    sha256 cellar: :any,                 big_sur:       "15eb238ecc210202a0aa3034005b3da3637f4d5b5a7c9e6904b151d47ece6d47"
+    sha256 cellar: :any,                 catalina:      "50bb289bc77fc39bd7fa248be991069cfa63419c8ad74329d3684a965469084d"
+    sha256 cellar: :any,                 mojave:        "1bdc623e16b1854d4865ce29e7fb6e0724262ea2b998111c6ab908b5dbd5af17"
+    sha256 cellar: :any,                 high_sierra:   "ad850802e7b161e55c19bcb89d2af5a10a536574bf25a1c45a2693299d6182d2"
+    sha256 cellar: :any,                 sierra:        "fbfab463dd8a2af17bb3b8d07d448d8411f9393d98b1b35f6862a7dc92da7c82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69228725cf24304d0ec95c68cb498b88aa2bb00d194a6d030f69b74613e2494b"
   end
 
   depends_on "cmake" => :build
@@ -42,7 +43,15 @@ class C10t < Formula
 
   def install
     inreplace "test/CMakeLists.txt", "boost_unit_test_framework", "boost_unit_test_framework-mt"
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args
+    unless OS.mac?
+      args += %W[
+        -DCMAKE_LINK_WHAT_YOU_USE=ON
+        -DZLIB_LIBRARY=#{Formula["zlib"].opt_lib}/libz.so.1
+        -DZLIB_INCLUDE_DIR=#{Formula["zlib"].include}
+      ]
+    end
+    system "cmake", ".", *args
     system "make"
     bin.install "c10t"
   end

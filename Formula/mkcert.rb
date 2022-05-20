@@ -1,19 +1,17 @@
 class Mkcert < Formula
   desc "Simple tool to make locally trusted development certificates"
   homepage "https://github.com/FiloSottile/mkcert"
-  url "https://github.com/FiloSottile/mkcert/archive/v1.4.3.tar.gz"
-  sha256 "eaaf25bf7f6e047dc4da4533cdd5780c143a34f076f3a8096c570ac75a9225d9"
+  url "https://github.com/FiloSottile/mkcert/archive/refs/tags/v1.4.4.tar.gz"
+  sha256 "32bd5519581bf0b03f53e5b22721692b99f39ab5b161dc27532c51eafa512ca9"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c57172b7216c9f78e41486251bf13acad21742da101793b10b6e6f69f9bf5c9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "053f02796ab0165faaabc470cc161559d3ba5062b5e56f6df1bbd46a828f4991"
-    sha256 cellar: :any_skip_relocation, monterey:       "5cf785059a301673a09850b1349afc0a799828e57eaec2e6423dbba75606da51"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4dc2370651718c72f2484c81a6dd5813cb7fcf6a5ec6bb1bee94e1720d23d412"
-    sha256 cellar: :any_skip_relocation, catalina:       "92ac9e87e65741d1cadb0372b259291dcd726fe1048715cfc993053cb62273e1"
-    sha256 cellar: :any_skip_relocation, mojave:         "49c14e8620ffb1dc44d587eea2a6c329bac516f24d209d08b656b0c21af4e3ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8d0c2399c57a86fdcd2c46b043cf29ed9e7636dc0320dcbedcee1b8a30a125f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "caadb67940cb551fc16122dc0486cac6a0dc948ccbdf90a5ee75219d4a437fa0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9529f010878e1b25e9e65ba68cb541e45878e09c65ad07c9e38090b8f9ed4383"
+    sha256 cellar: :any_skip_relocation, monterey:       "dedd5384a47f6e10702990d15787658cb33ae5c8f45a96869adcc4e0c730b810"
+    sha256 cellar: :any_skip_relocation, big_sur:        "26dd205eb0e33469922e8fd3b1828e91b2dfa920c7ffc2cc6f48494fd1c23d07"
+    sha256 cellar: :any_skip_relocation, catalina:       "19ed89b5ee9243e2d6880462ac1b0fcec4db64d4b6f2cefe423b248050b6ae15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f674faa8be61e225ae604b2ffe215927f6ecbc992aac75e769185862820d2881"
   end
 
   depends_on "go" => :build

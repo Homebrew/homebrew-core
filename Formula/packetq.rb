@@ -1,8 +1,8 @@
 class Packetq < Formula
   desc "SQL-like frontend to PCAP files"
   homepage "https://www.dns-oarc.net/tools/packetq"
-  url "https://www.dns-oarc.net/files/packetq/packetq-1.5.0.tar.gz"
-  sha256 "2358a878a2cf656d60f715b528911fb9a937149c71e336d7d65bb1af4e388ce2"
+  url "https://www.dns-oarc.net/files/packetq/packetq-1.7.0.tar.gz"
+  sha256 "6c275d1a0139ed191973593895ac0b313866a4bfb832e969eec0650d1c03f82f"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Packetq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd3f007444afb15a38d405e565cc6933820b5bec4b197947c98099209d860280"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "120a699588a29e106ad905ab89ecf695ddf14309b294226367afdfe7f002cde8"
-    sha256 cellar: :any_skip_relocation, monterey:       "ef968250dd6953a82f237a6b31503860ad0c05edf21d65cf8d62a75599e47cca"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b9a4c460d66722daf353e875130983c276a46349ce12ccc34d192f897d015838"
-    sha256 cellar: :any_skip_relocation, catalina:       "a568edf7e7c8ddbdc15ad4fccc1566a33fbf5998a10193c193733377891c9ce6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a86c2ae28e6cf69592d6117143ab7b2776bdaa367bbdb588516876e89e229314"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b18d16fd291fbcc6e7b89e94d1beb38c28c55d9058aecc5a47762e544451842"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "602151d75bfa0684f3aa52b957b6e63a51757741e8a67647abbc5a500e9bf838"
+    sha256 cellar: :any_skip_relocation, monterey:       "fd2d3343a6a827431b84d4ca63a61b025cbed8c8bacfe89f82ed2af66d0290ec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c2a675266e49a77bd5ccc5b354506c0fe41bcaca3254126363ad9f3df1b5f8a6"
+    sha256 cellar: :any_skip_relocation, catalina:       "a7ab7f52ebef6e9ef147be842e3cc1ca4e25a4a456850072e1b33841391451b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87eac1791759336c6189f9b4d055ddbab4674523848b1aa54511e9f5dcc9f5ab"
   end
 
   uses_from_macos "zlib"

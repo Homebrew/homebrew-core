@@ -11,10 +11,15 @@ class Dict < Formula
     sha256 monterey:       "360dfa6fe899696ef4ddda448bdd904348dd02f147c3a0f5b7433c894773d214"
     sha256 big_sur:        "04cd15245ebd92063b552cc04a92cb5fa888ef9b1dbaeb3199abe3d3a68d8e0b"
     sha256 catalina:       "da4b9f76b6e3bb5d18f5ac0abe43dea7dd4f571f9e41686ff45b3945ecd40e9a"
+    sha256 x86_64_linux:   "dc56eeb450b3ce327f27d2ef1ca74c74e2e3e0b3c28ed6cae1c0543ad736a148"
   end
 
   depends_on "libtool" => :build
   depends_on "libmaa"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "zlib"
 
   def install
     ENV["LIBTOOL"] = "glibtool"

@@ -21,7 +21,8 @@ class K3sup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e7d21a5c3b460560123484eb0d9fb10150f64b75410a7d455ff64282de3fd1f"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     ldflags = %W[

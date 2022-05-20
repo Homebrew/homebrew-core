@@ -1,8 +1,8 @@
 class GitInteractiveRebaseTool < Formula
   desc "Native sequence editor for Git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
-  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/2.1.0.tar.gz"
-  sha256 "f5c2d73a191fe37e1144dca19977e99d2f306ce92ce799acdbf2992524dd4aa2"
+  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/2.2.0.tar.gz"
+  sha256 "4d60912c64a1ea25ff3e8a4beca0ecdb6a1c761f81e06f81ebc2a46119b8780c"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,24 +11,17 @@ class GitInteractiveRebaseTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "84d875534c0464bf6f3dfef84835d10f8870fb23b3d9fefa51c75efada02037e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd082607eef75ac3382d280c358cf19db42ad11d464ded8a2845734de378937c"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc4be634c05adea3dba46604cbfad74eaa3668b102d08b55e27d181f9e25fd0f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4480f59a021edb031a3ef02b5cccae62719dad12f6ae7fc2413b75088be466ac"
-    sha256 cellar: :any_skip_relocation, catalina:       "9223a3f962e2af3897cefb9e221a529be7701e964005d55436f7de9d97d1b573"
-    sha256 cellar: :any_skip_relocation, mojave:         "bfab245c62dd4a37da0c275d8b4642ee86b5912153465da1e312a510fce60b80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c37316d7e0b5bc7d99d9979a001db0fbb348f6c6229ce5abfa7b50be39406c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8268602e97428a2533d221f653b1ecca35e22918f35553976fbb947bed703549"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7dc2093b0fb7fb8f7ae2d112ce8e40500b551e52840fea6f0731bdbce403a006"
+    sha256 cellar: :any_skip_relocation, monterey:       "ccf03c66468ccd6bce8e919fae15e3f457a05868c107073df3c4ffaaf4562d41"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dab98f6b284755fe1260117a7685a4ad8eb8682297ce7ab273b7e4ef33bfcdb9"
+    sha256 cellar: :any_skip_relocation, catalina:       "f348f038f063d183460b771be3c560b7f6432449e6ebdad34f4020b2ffb3ec33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c701dfa6e0e93a75d8b0f17ad3513bb816922ab333906d71ad93d87f3599b78"
   end
 
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
-
-  # Support rust 1.54, remove with next release after 2.1.0
-  patch do
-    url "https://github.com/MitMaro/git-interactive-rebase-tool/commit/f4d3026f23118d29a263bbca6c83f963e76c34c4.patch?full_index=1"
-    sha256 "74a9ff98f668707f41df910b41eab6006970f2cf703f2a02a65e8c9901ddbd12"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args

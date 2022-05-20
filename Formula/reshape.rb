@@ -1,18 +1,18 @@
 class Reshape < Formula
   desc "Easy-to-use, zero-downtime schema migration tool for Postgres"
   homepage "https://github.com/fabianlindfors/reshape"
-  url "https://github.com/fabianlindfors/reshape/archive/v0.3.1.tar.gz"
-  sha256 "a8d576597cb225a94bcc3441905c9fc88a3a8a41fbdbb84ead722f6933e2e616"
+  url "https://github.com/fabianlindfors/reshape/archive/v0.6.0.tar.gz"
+  sha256 "4a69ec4476e0983224d446b63ebf78e3f764b57ac4e73aab49ac34b8f506851c"
   license "MIT"
   head "https://github.com/fabianlindfors/reshape.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3bd9972c5d4827af99697a63fc17da06f4e0d5ad31867fde1ea644e117b01e20"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd78047e9268d619535734fd6ca7dc3770e5adeb3cb581d10df977a87c9c76e0"
-    sha256 cellar: :any_skip_relocation, monterey:       "e5b9319b0a959d5a6b8f248bdfb255165f52a7cbaa8e4a64dfc7660d75adbf88"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7217f769a48c2ca504e3215076c01b638d7fa55ce02556c47fb494667a3554cf"
-    sha256 cellar: :any_skip_relocation, catalina:       "308282ce640c2dccf57eb5383ab5e05fd3642689663129d5a843f9fad124f2af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e76e39f127b72a2b21503484753fcd07fd09cea36a81ae85772bd52f8850349f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa5c1056855d5b1c4a0ea5cb6e12ebc589903148de91e38f67b2036b59e7efcc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "961b890dcaa875d478cbb368de239eca807b236f08ad7067c9f082333d60b521"
+    sha256 cellar: :any_skip_relocation, monterey:       "0963250e57b8b8cc51afb6ff4eed611e8fa6b3591d48196194aecfa0069527d8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b27d2e05c280a2f613d89a4f687b9378388c3bea4d818e669794d7bfd2217c88"
+    sha256 cellar: :any_skip_relocation, catalina:       "ec7f968b52f5821c235394ef1d81299d237167f7ba95ed9420c3606c33658ba5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d3ed3ac9d59201a69ef95d2fa3c1216bb7a1586143a6dddb23ddd345ee41ee1"
   end
 
   depends_on "rust" => :build

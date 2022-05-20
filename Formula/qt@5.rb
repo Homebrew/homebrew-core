@@ -3,24 +3,24 @@
 class QtAT5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
-  sha256 "3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.3/single/qt-everywhere-opensource-src-5.15.3.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.3/single/qt-everywhere-opensource-src-5.15.3.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.3/single/qt-everywhere-opensource-src-5.15.3.tar.xz"
+  sha256 "b7412734698a87f4a0ae20751bab32b1b07fdc351476ad8e35328dbe10efdedb"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "36d6beacddb74f9a9a8a58a70903739a20ce8de1105aac3ec211e39881759885"
-    sha256 cellar: :any,                 arm64_big_sur:  "79d1822773a193d84cb2426364681dd3d1f1659fd07566665474f941ab61c879"
-    sha256 cellar: :any,                 big_sur:        "e7e33b94237ae8e1893443eaa1dae6750c5cbd27030cb15409438357362f4123"
-    sha256 cellar: :any,                 catalina:       "ead09d3345cf3c4088f73d585c0e40615e89848ce060d8313d1173d8d189b54f"
-    sha256 cellar: :any,                 mojave:         "8eb2fbfaa0e32dc3e97966ebec4712bbf5f12f7eb0bb7c54e3a33a3a8c034a38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "430b8d663f0e54938a12d91e185fbb8586d69d939f0fd4e50f1eb5c396bf3797"
+    sha256 cellar: :any,                 arm64_monterey: "5ac5153ebd4c55455f4e66c8ff709a8f6e5eaa4585b771d3713ff4157533c535"
+    sha256 cellar: :any,                 arm64_big_sur:  "6b1b9976f3d2156044a6417eea49950e032d3aa7868bce07f0b4f9a53566028f"
+    sha256 cellar: :any,                 monterey:       "c5b6845eaf185e11cfd8a34285b16c1abd00352a89d82940fc8dc6a9dc4c4270"
+    sha256 cellar: :any,                 big_sur:        "fac4e2200c7fd63370768cf50f7d094ea8de548a60c5bb48820815671ba7a772"
+    sha256 cellar: :any,                 catalina:       "0ee613de8e493575c529d25f3747375df84a5e0f3503535b0f227e86a055acca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c59614cf1a5d21a4ea8090bb063bedd49fdcf0dca166411f85930176431a4426"
   end
 
   keg_only :versioned_formula
 
+  depends_on "node"       => :build
   depends_on "pkg-config" => :build
   depends_on xcode: :build
   depends_on macos: :sierra
@@ -58,11 +58,10 @@ class QtAT5 < Formula
 
   fails_with gcc: "5"
 
-  # Find SDK for 11.x macOS
-  # Upstreamed, remove when Qt updates Chromium
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/92d4cf/qt/5.15.2.diff"
-    sha256 "fa99c7ffb8a510d140c02694a11e6c321930f43797dbf2fe8f2476680db4c2b2"
+  resource "qtwebengine" do
+    url "https://code.qt.io/qt/qtwebengine.git",
+        tag:      "v5.15.8-lts",
+        revision: "96e932d73057c3e705b849249fb02e1837b7576d"
   end
 
   # Backport of https://code.qt.io/cgit/qt/qtbase.git/commit/src/plugins/platforms/cocoa?id=dece6f5840463ae2ddf927d65eb1b3680e34a547
@@ -72,22 +71,29 @@ class QtAT5 < Formula
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtbase/commit/8252ef5fc6d043004ddf7085e1c1fe1bf2ca39f7.patch"
-    sha256 "8ab742b991ed5c43e8da4b1ce1982fd38fe611aaac3d57ee37728b59932b518a"
+    url "https://invent.kde.org/qt/qt/qtbase/commit/cd1646f00ae9df9824a639d01a2be708f85235fe.patch"
+    sha256 "c441973c3af66e6d58cce39d39b6e18d5832d942371ffd8c149ef732210c8e2c"
     directory "qtbase"
   end
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtbase/commit/cb2da673f53815a5cfe15f50df49b98032429f9e.patch"
-    sha256 "33304570431c0dd3becc22f3f0911ccfc781a1ce6c7926c3acb08278cd2e60c3"
+    url "https://invent.kde.org/qt/qt/qtbase/commit/8bcf1828f4d75606fb8d6913dfe09e2363a06cac.patch"
+    sha256 "f216814efff6c834fcdc0dae4c54bec0b4ef41132f78c6d0a4c6bf7f6feafda2"
     directory "qtbase"
   end
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/4f08a2da5b0da675cf6a75683a43a106f5a1e7b8.patch"
-    sha256 "193c2e159eccc0592b7092b1e9ff31ad9556b38462d70633e507822f75d4d24a"
+    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/3c42d4d3dce95b67d65541c5612384eab0c3e27b.patch"
+    sha256 "e8943934af0cea22814b526ca75abf98cacac2d0f86e2b2c9588c694a859f9d2"
+    directory "qtdeclarative"
+  end
+
+  # Fix build for GCC 11
+  patch do
+    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/0eb5ff2e97713e12318c00bab9f3605abb8592c2.patch"
+    sha256 "496241b7810f8073c82b781c7c4addb38a4ec3fbe3e7cafff56b0d0e340e2d5f"
     directory "qtdeclarative"
   end
 
@@ -102,6 +108,10 @@ class QtAT5 < Formula
   end
 
   def install
+    rm_r "qtwebengine"
+
+    resource("qtwebengine").stage(buildpath/"qtwebengine") if OS.mac?
+
     args = %W[
       -verbose
       -prefix #{prefix}
@@ -121,10 +131,9 @@ class QtAT5 < Formula
       args << "-no-rpath"
       args << "-system-zlib"
       if Hardware::CPU.arm?
-        # Temporarily fixes for Apple Silicon
+        # QtWebEngine is not supported on arm64. Use qt6 if you need it.
         args << "-skip" << "qtwebengine" << "-no-assimp"
       else
-        # Should be reenabled unconditionally once it is fixed on Apple Silicon
         args << "-proprietary-codecs"
       end
     else
@@ -169,6 +178,12 @@ class QtAT5 < Formula
     # of both Designer and Linguist as that relies on Assistant being in `bin`.)
     libexec.mkpath
     Pathname.glob("#{bin}/*.app") { |app| mv app, libexec }
+
+    if OS.mac? && !Hardware::CPU.arm?
+      # Fix find_package call using QtWebEngine version to find other Qt5 modules.
+      inreplace Dir[lib/"cmake/Qt5WebEngine*/*Config.cmake"],
+                " #{resource("qtwebengine").version} ", " #{version} "
+    end
   end
 
   def caveats
@@ -180,7 +195,7 @@ class QtAT5 < Formula
     if Hardware::CPU.arm?
       s += <<~EOS
 
-        This version of Qt on Apple Silicon does not include QtWebEngine
+        This version of Qt on Apple Silicon does not include QtWebEngine.
       EOS
     end
 

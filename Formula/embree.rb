@@ -1,17 +1,17 @@
 class Embree < Formula
   desc "High-performance ray tracing kernels"
   homepage "https://embree.github.io/"
-  url "https://github.com/embree/embree/archive/v3.13.2.tar.gz"
-  sha256 "dcda827e5b7a606c29d00c1339f1ef00f7fa6867346bc46a2318e8f0a601c6f9"
+  url "https://github.com/embree/embree/archive/v3.13.3.tar.gz"
+  sha256 "74ec785afb8f14d28ea5e0773544572c8df2e899caccdfc88509f1bfff58716f"
   license "Apache-2.0"
   head "https://github.com/embree/embree.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "f528ba35b704466b1e7b1fa48dc57b5a248403228211959e23f0dfd8a6754beb"
-    sha256 cellar: :any, arm64_big_sur:  "d1369defe4bc281212e5383b64f9e4709a4d775e001320897dd166470619311f"
-    sha256 cellar: :any, monterey:       "ace87ceb8f083acf8e7444301954b7fdd8723e06f51287e1d5e0732a5bb0c9b2"
-    sha256 cellar: :any, big_sur:        "fac38a131c9f2eae86d240e8a9d3ce104b356da4beabba06b7f98e7ff9bb24ad"
-    sha256 cellar: :any, catalina:       "3a696ad83e6b9df39438f19ee8c439cefda5ba0204c3e293fb8522911bb07c39"
+    sha256 cellar: :any, arm64_monterey: "688baaeb72504ff7d2f19e048121b805a8701e057942696f3323ede58aecf01b"
+    sha256 cellar: :any, arm64_big_sur:  "b845757ab2344160dc54d336c14b2ffe80d3cc05a0b0a296ecf808be24fdb22d"
+    sha256 cellar: :any, monterey:       "c53fb56c890319718fbaf5c6c805fb14aff2a7338aa02f23f4e6a4b3e9e3c23b"
+    sha256 cellar: :any, big_sur:        "bbdc3c8818dc11b86bfdc97f7bd3f6e660673ab783cecee96bbed102820f9615"
+    sha256 cellar: :any, catalina:       "8810f5e20f5cdd151889ed43942c26a73be528ab0b181a6a3a21c3aac017ba99"
   end
 
   depends_on "cmake" => :build

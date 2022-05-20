@@ -2,18 +2,18 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.17.0",
-      revision: "93708bd74e909e57ed5d9bea3cf2065f4cc43af3"
+      tag:      "v8.2.0",
+      revision: "045da3a1bb89944373c33332c18ca99ef6192df2"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dae71ff1c9c8c73bed77122b4a36779fa7ac6d1348a67f396299b7b990ec836d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea02de25c6eda34df9b9a97a647049ab39cfb3e8913de6bf864f01ab3a1b3aeb"
-    sha256 cellar: :any_skip_relocation, monterey:       "fc9d7d55e682734e6326650450ae600a63b31ad5ddd05f1522d36b054d104884"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b651fae5767c4bbbf8ccff274d3cd9c942c27fa388d35eba5948f8cf9ba954ae"
-    sha256 cellar: :any_skip_relocation, catalina:       "ad2e8ea13eff0e37ea4856a53b114930cb622d4f3e5bca56864cfbde895b3805"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe563395271ba49e765817998441b86a1c38368dcc1f9f7ed0d22c643b443949"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c95d2303c7d4287628a1e2b26d04d48879af09b221d6662c84476cd647e9184"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "522325fb833796fcdb62692ae59499d401ee62bfad3efe9fda42841efa4bb292"
+    sha256 cellar: :any_skip_relocation, monterey:       "7d63e71b34bb7a365b5cb994a53dd0d8cf4565aac37eb17aabd972e15a66d088"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e4116e2713cfa07306a66924c289cfc194d92b10827ed5df0be82dac9e94f1e8"
+    sha256 cellar: :any_skip_relocation, catalina:       "7a6add849e3b4b6afc992ac229bee6f089e352b19b581525e52fa92a055fec7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7780bcf21236579a1d9e3a564116b5c416a55727bb8c1b53ba4a1317fbc610b5"
   end
 
   depends_on "go" => :build
@@ -82,7 +82,14 @@ class Heartbeat < Formula
     end
     sleep 5
     assert_match "hello", pipe_output("nc -l #{port}", "goodbye\n", 0)
+
     sleep 5
-    assert_match "\"status\":\"up\"", (testpath/"heartbeat/heartbeat").read
+    output = JSON.parse((testpath/"data/meta.json").read)
+    assert_includes output, "first_start"
+
+    (testpath/"data").glob("heartbeat-*.ndjson") do |file|
+      s = JSON.parse(file.read)
+      assert_match "up", s["status"]
+    end
   end
 end

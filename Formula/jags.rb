@@ -1,9 +1,9 @@
 class Jags < Formula
   desc "Just Another Gibbs Sampler for Bayesian MCMC simulation"
   homepage "https://mcmc-jags.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/mcmc-jags/JAGS/4.x/Source/JAGS-4.3.0.tar.gz"
-  sha256 "8ac5dd57982bfd7d5f0ee384499d62f3e0bb35b5f1660feb368545f1186371fc"
-  revision 2
+  url "https://downloads.sourceforge.net/project/mcmc-jags/JAGS/4.x/Source/JAGS-4.3.1.tar.gz"
+  sha256 "f9258355b5e9eb13bd33c5fa720f0cbebacea7d0a4a42b71b0fb14501ee14229"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -11,14 +11,12 @@ class Jags < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "e2562319bd140af62e154596b8c9f42511c0907d77d0e5ce4b3579f5752af20a"
-    sha256 cellar: :any,                 arm64_big_sur:  "ea0be62c30efa7d985684c3295af0fa972596ed029622af0cf409740d3658c2e"
-    sha256 cellar: :any,                 monterey:       "a8b0f9f5bcdef8dd9cf4ccff73d2b3076a8e445c4e565e525c2c4ef9f1a5c01c"
-    sha256 cellar: :any,                 big_sur:        "72c2e292449224ec4b825399233be7de57fff2b810c7d31d738386c829a53098"
-    sha256 cellar: :any,                 catalina:       "11423ce61e9c8c567179c82e03179427ee9161808ff7256ffca47f72030359b7"
-    sha256 cellar: :any,                 mojave:         "9e1448b73ba0853385cdfd2861fd273588a6a8557522f0d3073f50154130e900"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "291114d6ec1984a0942fe9f7421d481d92ef96e1a510ceaa4391ff88ac11a7e5"
+    sha256 cellar: :any,                 arm64_monterey: "5fe69bb218cbcd93a194c8bd610de71e9f4642ae0095307ce5eac01d8fcc9dc5"
+    sha256 cellar: :any,                 arm64_big_sur:  "c9eeb588bbb9ab7e510cde300552d5600a4f4645f0a3659b6c6ae231b4cdd5cd"
+    sha256 cellar: :any,                 monterey:       "e0e85fc93e1427ba170ffbd9a3b561880724cfd3db9e599d42de652bd2e7e48c"
+    sha256 cellar: :any,                 big_sur:        "70d8dddaa0344b5e5f940bff4170a4af1075b403e48f3f7ef7f7fc69900d0cde"
+    sha256 cellar: :any,                 catalina:       "73ae1d3288ea381653cffcb2ef30b67a90760df5f25361a42bf5dd7b13bbecce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5741f22fe71e0da0f999bf4a5a9059f7c66285474ee9c9dfd40d4dbc9bbd1482"
   end
 
   depends_on "gcc" # for gfortran

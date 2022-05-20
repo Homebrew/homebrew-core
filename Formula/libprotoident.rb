@@ -11,12 +11,13 @@ class Libprotoident < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "d93974ec737d62f1b54f6aafeec74cccf2632954e81daa60043632e5446292f2"
-    sha256 cellar: :any, arm64_big_sur:  "d0686f33c93e2853ca605f256486c9d8569b56b1538d0881b32fa4f0d7a49dfa"
-    sha256 cellar: :any, monterey:       "94f6535531ea76727db897dd49009a111652cb1c47fa3a592515c71a97b1aebf"
-    sha256 cellar: :any, big_sur:        "1928a4cc164177352292b8872fa6ed498247af16b1c25ffbf6cc80983e6ac43a"
-    sha256 cellar: :any, catalina:       "7ea19cf1a0ae1423dcadebe59d08cd2c65433e4210a9e434e9d1e8dfce65abb0"
-    sha256 cellar: :any, mojave:         "06f18aa299bc9b53991ac448d20d318625a3f1d55fe6bb093c45045b4accbb5c"
+    sha256 cellar: :any,                 arm64_monterey: "d93974ec737d62f1b54f6aafeec74cccf2632954e81daa60043632e5446292f2"
+    sha256 cellar: :any,                 arm64_big_sur:  "d0686f33c93e2853ca605f256486c9d8569b56b1538d0881b32fa4f0d7a49dfa"
+    sha256 cellar: :any,                 monterey:       "94f6535531ea76727db897dd49009a111652cb1c47fa3a592515c71a97b1aebf"
+    sha256 cellar: :any,                 big_sur:        "1928a4cc164177352292b8872fa6ed498247af16b1c25ffbf6cc80983e6ac43a"
+    sha256 cellar: :any,                 catalina:       "7ea19cf1a0ae1423dcadebe59d08cd2c65433e4210a9e434e9d1e8dfce65abb0"
+    sha256 cellar: :any,                 mojave:         "06f18aa299bc9b53991ac448d20d318625a3f1d55fe6bb093c45045b4accbb5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24938f68759726bc0549a5388e71184d56795bfbaff25f9d341b5cd0f79bc9a0"
   end
 
   depends_on "libflowmanager"

@@ -21,7 +21,11 @@ class Cproto < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "6079a4a6df45f570734658bfda2197d6b9542a706cf0176f39be008f9e327a45"
     sha256 cellar: :any_skip_relocation, big_sur:        "90f6050bc98803612e77e1464bdacd518fbbf0f62607508ab1018553f0d59713"
     sha256 cellar: :any_skip_relocation, catalina:       "9f2cdd0ade5c49f112c2e87c5a18c9990805bc8447ad4e0350fafa26b08ac244"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cac5bb9129add6096d8890380543218b9e8028566074e4239d7b0072d519f2d"
   end
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "./configure", "--disable-debug",

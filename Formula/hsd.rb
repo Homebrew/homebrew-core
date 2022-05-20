@@ -13,19 +13,22 @@ class Hsd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 monterey: "aaebc4a1b12cede16789eb794d9351d638ddebc3bde2332ee1b80e0fcf84480c"
-    sha256 big_sur:  "2c55dd9db7cd9e0cd53aaeb684211fa5a83ecd3f2feec5233aa4087f6750da26"
-    sha256 catalina: "734bc1a659c1c148299eb76eb099247709079a0d21aa0c807cde6dc7d88a4cf3"
+    rebuild 2
+    sha256                               arm64_monterey: "fb0a7c2d44075faa68da8389694f08057a0c758d44fcb9dc1280094c9479486f"
+    sha256                               arm64_big_sur:  "416657d1f26523569bc1f3dac307482f852ebb6f5080875d7038c13c7283f948"
+    sha256                               monterey:       "5f73a93dfaed62d30e3ff916e39c247f4fa7b216c1661d287b9dcfa428d361c4"
+    sha256                               big_sur:        "adfb582d7191da242f522df403b180be8900177606be0641aca2a60d071c855d"
+    sha256                               catalina:       "5e9761cd4c9d23ef7ca4f13e6647901b0cbe0f3ee357621dcd9da81f956b4651"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e3ac1555d77c37e1fe74f74eaa033006216c666a606e37f72005a2bde090779"
   end
 
   depends_on "python@3.10" => :build
-  depends_on "node@10"
+  depends_on "node@14"
   depends_on "unbound"
 
   def install
-    system "#{Formula["node@10"].bin}/npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"hsd").write_env_script libexec/"bin/hsd", PATH: "#{Formula["node@10"].opt_bin}:$PATH"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    (bin/"hsd").write_env_script libexec/"bin/hsd", PATH: "#{Formula["node@14"].opt_bin}:$PATH"
     bin.install_symlink libexec/"bin/hsd-cli"
     bin.install_symlink libexec/"bin/hsw-cli"
   end
@@ -44,7 +47,7 @@ class Hsd < Formula
         await node.ensure();
       })();
     EOS
-    system "#{Formula["node@10"].opt_bin}/node", testpath/"script.js"
+    system "#{Formula["node@14"].opt_bin}/node", testpath/"script.js"
     assert File.directory?("#{testpath}/.hsd")
   end
 end

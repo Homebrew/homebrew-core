@@ -45,10 +45,7 @@ class Gpredict < Formula
   end
 
   test do
-    on_linux do
-      # Gtk-WARNING **: 20:21:55.071: cannot open display
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     assert_match "real-time", shell_output("#{bin}/gpredict -h")
   end

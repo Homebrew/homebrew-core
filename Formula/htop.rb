@@ -1,8 +1,8 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://htop.dev/"
-  url "https://github.com/htop-dev/htop/archive/3.1.2.tar.gz"
-  sha256 "fe9559637c8f21f5fd531a4c072048a404173806acbdad1359c6b82fd87aa001"
+  url "https://github.com/htop-dev/htop/archive/3.2.0.tar.gz"
+  sha256 "1a1dd174cc828521fe5fd0e052cff8c30aa50809cf80d3ce3a481c37d476ac54"
   license "GPL-2.0-or-later"
   head "https://github.com/htop-dev/htop.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Htop < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "45c0f1c73aedf0ea6ab4d3a52d892c514c707308502fc93b55ecdde191ba350d"
-    sha256 cellar: :any,                 arm64_big_sur:  "01cece6f30de91f3cb9a67fbd0f04a79ca07ced3f798bb9e43a1d49dcfb151d8"
-    sha256 cellar: :any,                 monterey:       "77e0033be74275bd295b7cb3fab804d0868cc19bf3e228f754e13efbaa03d46d"
-    sha256 cellar: :any,                 big_sur:        "af65b75242c8b5e6e4f1fb0d16674f58a574abd4c81a9351b9d38a20d8a756d0"
-    sha256 cellar: :any,                 catalina:       "cf18273f26be8596422deed0c19c050ce9f472bdb5b63f47d34f8a0333ece4f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21c0d9be63b85744846a23f50e56a4909c626e6929dadda6a861fc5291994027"
+    sha256 cellar: :any,                 arm64_monterey: "160f154f147eb9895626ac2a6aa9aaf16d561828067c1faa7e990e7e50a0efde"
+    sha256 cellar: :any,                 arm64_big_sur:  "0b5b52d11c885e8661a69e342d0778c5c71ecd57bc5c366fa28911967b2d1191"
+    sha256 cellar: :any,                 monterey:       "eac8d539403c7b3c1dee9e16454399e9963191c79a7b5cda343bb4b13cdf7f61"
+    sha256 cellar: :any,                 big_sur:        "e4b21db63251f1c3472e5c76372451017ed008a21afce273d0633bd8acb3de7d"
+    sha256 cellar: :any,                 catalina:       "998bbe3612d1d5da046351e28037c68fc894d2847fd08648b3fcce26141cf098"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ed8c32a717de42eec088976dbe561b5904fc11753f6b1c376f36a34af057802"
   end
 
   depends_on "autoconf" => :build

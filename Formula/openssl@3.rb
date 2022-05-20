@@ -1,9 +1,9 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-3.0.1.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.1.tar.gz"
-  sha256 "c311ad853353bce796edad01a862c50a8a587f62e7e2100ef465ab53ec9b06d1"
+  url "https://www.openssl.org/source/openssl-3.0.3.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.3.tar.gz"
+  sha256 "ee0078adcef1de5f003c62c80cc96527721609c6f3bb42b7795df31f8b558c0b"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,12 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f3c6edd4c7917ee5b82dda776ad8d70569dc5baddfe0f773954e4bb73a6946db"
-    sha256 arm64_big_sur:  "64ceea118bb6e2ea700168dda10109f8113ba3277fbe576aba97167c2a9feff0"
-    sha256 monterey:       "331a18b7ac0b35d55adb422268c6b08190b378bdfec915a5f6d0b7375864fa4a"
-    sha256 big_sur:        "48f4b3d0a036e4bf5c63732ce32e70e57a1ad1f9311f21776cef6431796e0cd1"
-    sha256 catalina:       "3d687315c44656ae4dcf17d9f1f82f15e4b959816afb9cbef8073676b4aed480"
-    sha256 x86_64_linux:   "51f292234a6a9933673d4afbf6ee98e676c1d523ec2316b49425c45d55e7471c"
+    sha256 arm64_monterey: "6a4508b120c14a1ca4e6c804db30f2da5100df94a3198e768d124dd7afd9e707"
+    sha256 arm64_big_sur:  "825d9a0d62dae77432b0391c2792e166be6cd4716b1efea40a65e9eb0fdf54c9"
+    sha256 monterey:       "044032dcdffb16c0bf7949fdf847f5f957e727bef1f982d8a7f156f727c81ad5"
+    sha256 big_sur:        "b2e06913edb52a31b6f8aab8513304875f377bf71381d9f9430e11974254f1eb"
+    sha256 catalina:       "89f1e75541cef8e314f2b4fc134a457dbc6d0bebb6e6906dbccd527144d54917"
+    sha256 x86_64_linux:   "34131de7d88d04d881351f8631dfcc1468d800ed85ae1361c6b4fb88b7ee83fd"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"

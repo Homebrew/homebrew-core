@@ -21,19 +21,17 @@ class Serd < Formula
   end
 
   depends_on "pkg-config" => :build
-
-  on_linux do
-    depends_on "python@3.10" => :build
-  end
+  depends_on "python@3.10" => :build
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" if OS.linux?
-    system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf"
-    system "./waf", "install"
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf"
+    system "python3", "./waf", "install"
   end
 
   test do
-    pipe_output("serdi -", "() a <http://example.org/List> .", 0)
+    rdf_syntax_ns = "http://www.w3.org/1999/02/22-rdf-syntax-ns"
+    re = %r{(<#{Regexp.quote(rdf_syntax_ns)}#.*>\s+)?<http://example.org/List>\s+\.}
+    assert_match re, pipe_output("serdi -", "() a <http://example.org/List> .")
   end
 end

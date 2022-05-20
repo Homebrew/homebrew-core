@@ -1,9 +1,9 @@
 class Glassfish < Formula
   desc "Java EE application server"
   homepage "https://glassfish.org/"
-  url "https://download.eclipse.org/ee4j/glassfish/glassfish-6.2.4.zip"
-  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/6.2.4/glassfish-6.2.4.zip"
-  sha256 "3baa27b0f1aca2b18a615810ab916d3c25e90057809d4ab9a6b0cdb9a2e0d710"
+  url "https://download.eclipse.org/ee4j/glassfish/glassfish-6.2.5.zip"
+  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/6.2.5/glassfish-6.2.5.zip"
+  sha256 "de63b0e322d1a03da1135e16abb6bfc36ba047ea09c0994e6f53b8cf24bab95d"
   license "EPL-2.0"
 
   livecheck do
@@ -12,7 +12,7 @@ class Glassfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3919da3f9c45ac37aff92991e4696a6c49df135780103178b537d6967f68f123"
+    sha256 cellar: :any_skip_relocation, all: "8e79d7413fc0c911734fce58f093b1e0aae94a73665a5585359b465486c9270b"
   end
 
   depends_on "openjdk@11"

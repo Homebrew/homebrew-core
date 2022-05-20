@@ -1,22 +1,24 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/06/d8/f140e9c0f592134580819b959121b47bce042694168032bf8b219d39c977/urh-2.9.2.tar.gz"
-  sha256 "e4fac51af73a69eeca25d9a12b777677b3b983de8537a2025ba698e20e6a56af"
+  url "https://files.pythonhosted.org/packages/c2/3d/9cbaac6d7101f50c408ac428d9e37668916a4a3e22292f38748b230239e0/urh-2.9.3.tar.gz"
+  sha256 "037b91bb87a113ac03d0695e0c2b5cce35d0886469b3ef46ba52d2342c8cfd8c"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "f932d73089bd4efbec62d2d043c6a971518a9f92a6f54640862b4bf06a5d2d7a"
-    sha256 cellar: :any, arm64_big_sur:  "09dc76c4ab1a6fade85309ced90029fadec5e323768c4bf373f016b25c5aef73"
-    sha256 cellar: :any, big_sur:        "9e250394aeddc6784c732b991f583ad6cdac03888c3f3e7ff477c8cfda2a7856"
-    sha256 cellar: :any, catalina:       "6a0dd1e02d615789893fbf96ef3d1bc127dd927033fbfc0d6a42945c55d22070"
-    sha256 cellar: :any, mojave:         "8c61a1fb6e05c52a17c4bd2d5b22fe2b3de41e4fb8cf4199de4eceef2bd661dc"
+    sha256 cellar: :any,                 arm64_monterey: "27f10408a73529f5680540ec0033410e4c336da56f8e50c184e49c101e619652"
+    sha256 cellar: :any,                 arm64_big_sur:  "fd5f62efa195ca2c91d6f7cba1cd48204b3a5a2b19d38356b6c1f3bac1d46aa6"
+    sha256 cellar: :any,                 monterey:       "c5d037f35ae8edd2fd3e5353c8d1ff69f6786a607fa1c520240e518403a6e2df"
+    sha256 cellar: :any,                 big_sur:        "1ef987750b1f35e896ea40e4a4d10933e7999e5d98061bc72b1956713d11b0b9"
+    sha256 cellar: :any,                 catalina:       "2b44f853d6ebf463106779c2edd2439d56d16016ad0a71a51d477282557bd9f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34f0544eb7a11800e0949bfc4045616b47c36822cb4d1f9323c2c6cf02eade80"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "cython"
   depends_on "hackrf"
+  depends_on "libcython"
   depends_on "numpy"
   depends_on "pyqt@5"
   depends_on "python@3.9"
@@ -35,7 +37,7 @@ class Urh < Formula
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", Formula["libcython"].opt_libexec/"lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)

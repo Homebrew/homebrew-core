@@ -1,8 +1,8 @@
 class RubyAT26 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.9.tar.xz"
-  sha256 "6a041d82ae6e0f02ccb1465e620d94a7196489d8a13d6018a160da42ebc1eece"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.10.tar.xz"
+  sha256 "5fd8ded51321b88fdc9c1b4b0eb1b951d2eddbc293865da0151612c2e814c1f2"
   license "Ruby"
 
   livecheck do
@@ -11,17 +11,17 @@ class RubyAT26 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e10de402ee300d55865d64caff39490c9fc505ab79f518cba89896c1bf175bd4"
-    sha256 arm64_big_sur:  "84d0c66e36833bd924c0eab2f463c8755e9ac200fb5dda953ff041f8004522f3"
-    sha256 monterey:       "05d4e5f2da62bae09c2134eebcf810c009b3e68bcdde8513e5f336f693da04ce"
-    sha256 big_sur:        "025d424e2e36fea54405718ca446eeb2451ff90baf47f3c1cdd029fb36a0b6ce"
-    sha256 catalina:       "2c2d9edda7c4b9f2be9c13ea6e41b5b9f7cd7a68035480e262b81d44d8b5735d"
-    sha256 x86_64_linux:   "8f90b68c00aad77a9ee626bb42eb09a9bfcfc4c47653c68ce2305908ac2d50b0"
+    sha256 arm64_monterey: "74f876ed5b99df4aac83e9493f1e35b9acd5caa40d455d74409dbb50da0e484e"
+    sha256 arm64_big_sur:  "5ddd0ae653c7fb59b23b2fe4c9d009e18f3c2c747c9bc0d912ac71bb90f0f9ca"
+    sha256 monterey:       "aba04d15f44c56b143076f4287067b7ee5a36b9ffe060291d21117412e637512"
+    sha256 big_sur:        "e0fac9dca78403a5963836b7f31261c831fb36fb568a75da05ab8e7fb93aa374"
+    sha256 catalina:       "b0b42c392235f47b3a697b51e02cb6cc2b1a628a689cac02d4c166bd22a109fa"
+    sha256 x86_64_linux:   "8aa297f5ccd7dd3956911e6b09b475a791e90c8a928b101744dd8988e366eeb8"
   end
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-04-05", because: :unsupported
+  deprecate! date: "2022-04-12", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"

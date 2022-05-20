@@ -1,17 +1,17 @@
 class Symengine < Formula
   desc "Fast symbolic manipulation library written in C++"
   homepage "https://sympy.org"
-  url "https://github.com/symengine/symengine/releases/download/v0.8.1/symengine-0.8.1.tar.gz"
-  sha256 "41eb6ae6901c09e53d7f61f0758f9201e81fc534bfeecd4b2bd4b4e6f6768693"
+  url "https://github.com/symengine/symengine/releases/download/v0.9.0/symengine-0.9.0.tar.gz"
+  sha256 "dcf174ac708ed2acea46691f6e78b9eb946d8a2ba62f75e87cf3bf4f0d651724"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "abe08332bac543566383c8db4f39281f000af279aa0dc49f8ba270f6c2575aba"
-    sha256 cellar: :any,                 arm64_big_sur:  "7326b614f16bfe94f168093b138f8a5ea64d1c26375edc80494c14b2f71919d9"
-    sha256 cellar: :any,                 monterey:       "da5f894beea834d4736105580d896218e62e470e3af4004f46bbdeabf94415e8"
-    sha256 cellar: :any,                 big_sur:        "8797e85c5af2516586b9b2fd3c8510dc714616e08642dff3d9fa6cf49fc969da"
-    sha256 cellar: :any,                 catalina:       "99ef93943b81e12248e9ccc1ae8cd391e28802915ce86567e67b49986efb0a9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c6191c7d326ae878fde11604f09887c7b5a6b7aa579755cfc0b4672b752afdb"
+    sha256 cellar: :any,                 arm64_monterey: "5e75924cfebfe29c1ad56a211302098274dc7829e837d97ecce628998cc45012"
+    sha256 cellar: :any,                 arm64_big_sur:  "d9aa2cf7d7fed7aa4fe3576e19e53dd595f3e43fe695c824a402487c0c56c82e"
+    sha256 cellar: :any,                 monterey:       "cfdf4eceacd418168d86460b734e4af2f90d8a06a2b98a02610e2332637ab467"
+    sha256 cellar: :any,                 big_sur:        "3b70d8cb61920a7d883af6f5c6d4f9ac90d0c2b7199d3f0499c3dd8c85790bf6"
+    sha256 cellar: :any,                 catalina:       "846fa41a78303f48bc01a6f050b1af6a248ef6787d9d586994f4407747d32fe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1728871d0ef9a14dea0a3478ea370f3cd2550a8738a95da7157919bbdc4d93f8"
   end
 
   depends_on "cmake" => :build

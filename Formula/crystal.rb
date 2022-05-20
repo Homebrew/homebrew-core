@@ -4,12 +4,12 @@ class Crystal < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.3.2.tar.gz"
-    sha256 "0dceb2fde610c479466ebe1ce03745c51ba9def9f0da3aff1601532693741e0a"
+    url "https://github.com/crystal-lang/crystal/archive/1.4.1.tar.gz"
+    sha256 "97466656adede19943619e18af030c1d542c2c3dd1f36f3a422310bd8b53f5e0"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.16.0.tar.gz"
-      sha256 "e23a51fdcb9747e86b3c58d733a1c7556a78002b46482ca0fdacfe63924dc454"
+      url "https://github.com/crystal-lang/shards/archive/v0.17.0.tar.gz"
+      sha256 "b3f0a2261437b21b3e2465b7755edf0c33f0305a112bd9a36e1b3ec74f96b098"
     end
   end
 
@@ -19,12 +19,12 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "bb8fa3d6661b12e3c186b51efa8bd0e98a9eec6d468e18bd98a3d1f6d36ed5ac"
-    sha256 arm64_big_sur:  "7e887e1efc3b48650801a90e38da652f27b6482f80ff91b411594eedbedfe64f"
-    sha256 monterey:       "bfde2b99b037c8749a9a88e70a5cdf5aa68002863164b7507fd4fecdc3681d56"
-    sha256 big_sur:        "c3f4173fb9fb81b529506d8078866740bb83f4bc1b9784ef2f7d19212fb87d8b"
-    sha256 catalina:       "c7f9765798c1bf561d6a74b5a3b16635fc7cbe6769d690c0db65667add97bf24"
-    sha256 x86_64_linux:   "6ed1b7a0292675183c1f49aac61d8c93156b77dca2802b4425468522e3c0ae18"
+    sha256 arm64_monterey: "0bd6b66e221cdd959199d3ba725e008bb56b4add7104a6af605a77aa8b4777d0"
+    sha256 arm64_big_sur:  "3f12fb6005eb7ea8a8e4e9d0e48d28751b0b44cb9d46d26ec2a8bf1fda2863b6"
+    sha256 monterey:       "e2d165828c73d94bebf93b9ee6e9e5f646b4b829a60aa39d439f8f3a05eac138"
+    sha256 big_sur:        "13c6d1aeef838b4541314812dca0ced5316bd9bc528e050798603a33fa41d29f"
+    sha256 catalina:       "d8670e8cd761aac62e776252d8d180c7492bbe3a2d9d9aef05e2b82513bae009"
+    sha256 x86_64_linux:   "af2c47f9bb9cfdf70ddac44e3ff36bae2c09727e63716569220b4141b8896380"
   end
 
   head do
@@ -51,20 +51,20 @@ class Crystal < Formula
   fails_with gcc: "5"
 
   # Every new crystal release is built from the previous one. The exceptions are
-  # when crystal make a minor release (only bug fixes). Resason is because those
+  # when crystal make a minor release (only bug fixes). Reason is because those
   # bugs could make the compiler from stopping compiling the next compiler.
   #
   # See: https://github.com/Homebrew/homebrew-core/pull/81318
   resource "boot" do
     on_macos do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.2.0/crystal-1.2.0-1-darwin-universal.tar.gz"
-      version "1.2.0-1"
-      sha256 "ce9e671abec489a95df39e347d109e6a99b7388dffe1942b726cb62e2f433ac3"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.3.2/crystal-1.3.2-1-darwin-universal.tar.gz"
+      version "1.3.2-1"
+      sha256 "ef7c509e29313ad024a54352abc9b9c30269efc2e81c5796b7b64a5f2c68470d"
     end
     on_linux do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.2.2/crystal-1.2.2-1-linux-x86_64.tar.gz"
-      version "1.2.2-1"
-      sha256 "b16e67862856ffa0e4abde62def24d5acd83d42b5086e8e1c556e040201ab3a1"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.3.2/crystal-1.3.2-1-linux-x86_64.tar.gz"
+      version "1.3.2-1"
+      sha256 "6e102e55d658f2cc0c56d23fcb50bd2edbd98959aa6b59b8e1210c6860651ed4"
     end
   end
 

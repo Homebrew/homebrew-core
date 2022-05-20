@@ -1,8 +1,9 @@
 class Minizip < Formula
   desc "C library for zip/unzip via zLib"
   homepage "https://www.winimage.com/zLibDll/minizip.html"
-  url "https://zlib.net/zlib-1.2.11.tar.gz"
-  sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
+  url "https://zlib.net/zlib-1.2.12.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.2.12/zlib-1.2.12.tar.gz"
+  sha256 "91844808532e5ce316b3c010929493c0244f3d37593afd6de04f71821d5136d9"
   license "Zlib"
 
   livecheck do
@@ -10,16 +11,12 @@ class Minizip < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_monterey: "3a9a867bd73462f129c1516ef669dcc9b2e3655f28102c55b165cf2b424ffd34"
-    sha256 cellar: :any,                 arm64_big_sur:  "fc8a34713482035711b688e21d0998387edd108bf7c22f3fdb38e14f7860646f"
-    sha256 cellar: :any,                 monterey:       "1c1b7f79e78ac58ace1b7bae4037220c4a046b051a824c087f35ae932db3b1db"
-    sha256 cellar: :any,                 big_sur:        "ac7c1bda7e98ef6ce3530f3de75e5eee8bbe95330614ac9646761c281f37d0a0"
-    sha256 cellar: :any,                 catalina:       "80d48e6cf3f3c64f618f1cb7487c6ac9a7259ba46c536dac286ef6bdffaacd8c"
-    sha256 cellar: :any,                 mojave:         "503832d6da09e7f16b7036ee1cf3055c25ba3602d3ea9815a9800d1840fb69ea"
-    sha256 cellar: :any,                 high_sierra:    "9fa636770888ef4e9aaa3c1bbf2d3c18fb0e4c393305c2ecf265ca79ecee6e71"
-    sha256 cellar: :any,                 sierra:         "83e4b5b1b52ff484a0ba73637e0961ed3d41ecba4ee3c3cfe667d13ef7e51ad7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "faa8b87e09ee6af763b3be6fa2e36c10d12f04c14d76d183249262aa7ab9fa30"
+    sha256 cellar: :any,                 arm64_monterey: "ff18fe7d07a68f17366a40f39a05604049a88ac4ce58a63820ac57fa6f8af476"
+    sha256 cellar: :any,                 arm64_big_sur:  "68d0ae9dc6ec0efa701f68af2663fc85da36e33a957743c5b01bae3118a04078"
+    sha256 cellar: :any,                 monterey:       "1d2ce07558bfa685effb10a2ab00683427f60f3d286f99488c5b42017b5f04ff"
+    sha256 cellar: :any,                 big_sur:        "98c64a1187ce693d07d4cfcb0abee35b88157b5491132fb495097641f7803ed8"
+    sha256 cellar: :any,                 catalina:       "ecb193a80dd68f0b38401183294bf282c5046814fd4692afdfb37989df702755"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ac31c56f146beebcebcbee8d51bd680f202e5b7a29588abeca3c0cdee6dc748"
   end
 
   depends_on "autoconf" => :build
@@ -30,6 +27,13 @@ class Minizip < Formula
 
   conflicts_with "minizip-ng",
     because: "both install a `libminizip.a` library"
+
+  # Patch for configure issue
+  # https://github.com/madler/zlib/pull/607
+  patch do
+    url "https://github.com/madler/zlib/commit/05796d3d8d5546cf1b4dfe2cd72ab746afae505d.patch?full_index=1"
+    sha256 "68573842f1619bb8de1fa92071e38e6e51b8df71371e139e4e96be19dd7e9694"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}"

@@ -1,18 +1,18 @@
 class Tbox < Formula
   desc "Glib-like multi-platform C library"
   homepage "https://tboox.org/"
-  url "https://github.com/tboox/tbox/archive/v1.6.7.tar.gz"
-  sha256 "7bedfc46036f0bb99d4d81b5a344fa8c24ada2372029b6cbe0c2c475469b2b70"
+  url "https://github.com/tboox/tbox/archive/v1.6.8.tar.gz"
+  sha256 "f437a31caa769a980e2e38ecc5bf37f1e572325d5d60fd242b9d6d49174b66fd"
   license "Apache-2.0"
   head "https://github.com/tboox/tbox.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "89d842123d7f547042298dde6663d5a4a8c6731d1ae02e714c88c1628910b63f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ffdb8f21d12d57dad00390ecbf0bc3cd7872e3de08c50466f6fdcd6e8c1700e"
-    sha256 cellar: :any_skip_relocation, monterey:       "a07d5346d050123b7dcb00bdc11b5e4295dd957a8a05911b6370aac6f8d3214c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1b183ed255da7495acc08c672aa3bbb8196aa66e237f2334a6131def4cb137f8"
-    sha256 cellar: :any_skip_relocation, catalina:       "19fc7b975473de7c23c5f726a36fe7ceb11b2b0dffa6a978619a5fafb5f0f31a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08666405afaf5b23af6184050f018a2346e75a2f20cc77477a3af5343c2c5126"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7686e4aca03fead3b10e49568600935d7bca9678bb747d736640f4aa907a68cd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af68ee72f0afb7f60bdffd342c152db700c54212500a262597625c5ac8f50a33"
+    sha256 cellar: :any_skip_relocation, monterey:       "c21d7e5f3bc3a15338a0c1d6d55d72c396e1308049fe52228ef8451853870b23"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8acbb9ad518a7c4e82de5510af88657dd0c1feab3db55e672f96d06459c1675b"
+    sha256 cellar: :any_skip_relocation, catalina:       "f1e53bfb8397d14871282edc646ef993fa0d5cfae0c1243fcac2cbbcefb61755"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec1c0828078dc222ae93501f594a07d9d10945adeac23bcbf8eb04a67f403b18"
   end
 
   depends_on "xmake" => :build

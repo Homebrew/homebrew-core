@@ -1,10 +1,10 @@
 class Ry < Formula
   desc "Ruby virtual env tool"
-  homepage "https://github.com/jayferd/ry"
-  url "https://github.com/jayferd/ry/archive/v0.5.2.tar.gz"
+  homepage "https://github.com/jneen/ry"
+  url "https://github.com/jneen/ry/archive/v0.5.2.tar.gz"
   sha256 "b53b51569dfa31233654b282d091b76af9f6b8af266e889b832bb374beeb1f59"
   license "MIT"
-  head "https://github.com/jayferd/ry.git", branch: "master"
+  head "https://github.com/jneen/ry.git", branch: "master"
 
   bottle do
     rebuild 2

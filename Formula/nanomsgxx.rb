@@ -4,16 +4,15 @@ class Nanomsgxx < Formula
   url "https://github.com/achille-roussel/nanomsgxx/archive/0.2.tar.gz"
   sha256 "116ad531b512d60ea75ef21f55fd9d31c00b172775548958e5e7d4edaeeedbaa"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any,                 arm64_monterey: "d3c9bed1411f07744e9a8ec93f6bf2ddfefc01d52b0a848a71897534c94a9289"
-    sha256 cellar: :any,                 arm64_big_sur:  "f306a0110e35f1e08fbe241993df9c241bb34b02d9f09baeaa3ec3399763e57e"
-    sha256 cellar: :any,                 monterey:       "0d213072aa619131d346310c7f2f02e0d41c51cf52bb53c4b7f8743e1b1d26e7"
-    sha256 cellar: :any,                 big_sur:        "08e27ade48b0c93ca759e7fcdbe0f8270ba7300ad45d14606eb6a959be53f0dd"
-    sha256 cellar: :any,                 catalina:       "6827a58b75548b6146396dff941aa8d891ef739f6077d33f005b5e2161263007"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4e4084e9d12379b31121f81db0e992f5cc198693cf5d6a9110e949128b94d65"
+    sha256 cellar: :any,                 arm64_monterey: "8436ab0a7b9ed4472dfa37e576b2003510ca115e1ae686b2352d3bb00c351d92"
+    sha256 cellar: :any,                 arm64_big_sur:  "722cb87d23c8dc14f3be995f3a83d3c8da43a2b76ebf621d57c27d63ce7c2598"
+    sha256 cellar: :any,                 monterey:       "2cfef95f0fc27d9d297a50191ae3d8e1d69b9a8f80ff3f34bc6bb90a9626a41f"
+    sha256 cellar: :any,                 big_sur:        "6509c8160cbe5dba38a77d3adc1f1d5d515feff427bad6441992dc40cb5b4d1a"
+    sha256 cellar: :any,                 catalina:       "0c377d26b223a21b48d90920818baf7b241ebadfac8c60a3420e0c3054df7401"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed20e2617835e53e1ee41927a5066275c7b7a6058de093932be16bb89bf23cd4"
   end
 
   depends_on "pkg-config" => :build

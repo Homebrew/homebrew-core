@@ -15,6 +15,7 @@ class Rswift < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "8c46754db5932ecefafee7b4fb665a8697fe72dadf86c6262458946e64e4265c"
   end
 
+  depends_on :macos # needs CoreGraphics, a macOS-only library
   depends_on xcode: "10.2"
 
   def install

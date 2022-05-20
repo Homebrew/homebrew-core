@@ -15,6 +15,14 @@ class Cdecl < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "1d424613881cf9109d824664fc77fc947f2968b9850d448db4b02c6f0a562b5c"
     sha256 cellar: :any_skip_relocation, el_capitan:     "4f0e990d88823aa9f3d1dcea71ffa442c13640ce82cc9da41f90a1be5ef457dc"
     sha256 cellar: :any_skip_relocation, yosemite:       "e8f53a0e5b3649f0c691c60380b9c77af573387240f3479a41550583fcc4e22c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ce7e2b34d87649b10f5cd29b4df13c565f518936b42f029b7d1b592984d237e"
+  end
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "readline"
   end
 
   def install

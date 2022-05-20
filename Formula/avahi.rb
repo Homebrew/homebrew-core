@@ -4,10 +4,10 @@ class Avahi < Formula
   url "https://github.com/lathiat/avahi/archive/v0.8.tar.gz"
   sha256 "c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 x86_64_linux: "bcd10354c4c18f283268b681b80f33262163d4d12ff4ccd55361c19b1b2005cf"
+    sha256 x86_64_linux: "b478d99f29a87da16b631835cdc80407459ee69c42e1813e7e18c1effb6c7206"
   end
 
   depends_on "autoconf" => :build
@@ -24,10 +24,8 @@ class Avahi < Formula
   depends_on :linux
 
   def install
-    system "./bootstrap.sh", "--disable-debug",
-                             "--disable-dependency-tracking",
+    system "./bootstrap.sh", *std_configure_args,
                              "--disable-silent-rules",
-                             "--prefix=#{prefix}",
                              "--sysconfdir=#{prefix}/etc",
                              "--localstatedir=#{prefix}/var",
                              "--disable-mono",
@@ -38,9 +36,13 @@ class Avahi < Formula
                              "--disable-gtk",
                              "--disable-gtk3",
                              "--disable-libevent",
+                             "--enable-compat-libdns_sd",
                              "--with-distro=none",
                              "--with-systemdsystemunitdir=no"
     system "make", "install"
+
+    # mDNSResponder compatibility
+    ln_s include/"avahi-compat-libdns_sd/dns_sd.h", include/"dns_sd.h"
   end
 
   test do

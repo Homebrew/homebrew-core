@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/9.8.177.9.tar.gz"
-  sha256 "8d9c4bc813cba7ff5c04cc3fa2c2a5c03a88d1bfcb15411de6381c4b94749ed3"
+  url "https://github.com/v8/v8/archive/10.0.139.15.tar.gz"
+  sha256 "1090da1faa9cdcbf6a054452d21b8f6a5188601f809fcdd5c14376ecae6bfdc2"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class V8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "122e44b93947e782b559967cfbadcc422b0781bf2507f50b994ab7a629ad735f"
-    sha256 cellar: :any,                 arm64_big_sur:  "089ee12f91861229c1e117c7fbc902a0237615c8d0b28da0c5f926b7e37b3b48"
-    sha256 cellar: :any,                 monterey:       "62a923029fde245b3b18134bcb3dd1fc206914414a70f1e1b06d43557d252962"
-    sha256 cellar: :any,                 big_sur:        "c7b656b746303c9330c1cc4559d55a087984f6205c31e743758234ce14465f3e"
-    sha256 cellar: :any,                 catalina:       "6f9f77e5abb7f8506ca7abe4b064de66f1cde07c796fa29868936780fd75cf7f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf2f6c1be0ed185db5401cb8c1bfdcf3508a7f5b1b028ecee5783d9d5272ca0e"
+    sha256 cellar: :any,                 arm64_monterey: "7ce14a5eef00d846b9489c437fc0d03f3f18d85e3f35576759665b159c909603"
+    sha256 cellar: :any,                 arm64_big_sur:  "f2df59cc6c10316cecb2739783878a18362a9a6b91cb74a1c52fdf8a1547fd2a"
+    sha256 cellar: :any,                 monterey:       "50271ff77e4d58ed9dc1280ba49e460838aae81f5a4773f4dda426d90dd099b0"
+    sha256 cellar: :any,                 big_sur:        "c5309ec7fb28e3ebc30ab157208c1c7b38ec3b8c8227ce1275a081e647f6703a"
+    sha256 cellar: :any,                 catalina:       "e73c565c6f9e0dd8eb228092f62ff50df1f42e47e9bb1814162b04c09948b83e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "605cc04fbbe345873a0076612e8b9d496dde355c2dd0acac7002a92e5a37f2af"
   end
 
   depends_on "ninja" => :build
@@ -37,31 +37,31 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.8.177.9/DEPS#43
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.9.115.8/DEPS#43
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "fc295f3ac7ca4fe7acc6cb5fb052d22909ef3a8f"
+        revision: "0725d7827575b239594fbc8fd5192873a1d62f44"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.8.177.9/DEPS#84
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.9.115.8/DEPS#84
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        revision: "7f36dbc19d31e2aad895c60261ca8f726442bfbb"
+        revision: "d115b033c4e53666b535cbd1985ffe60badad082"
   end
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "9cfc74504f0c5093fe6799e70f15bded2423b5b4"
+        revision: "62a6377648eb82cff75e3a12f689400694fbbb63"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "4c5650f68866e3c2e60361d5c4c95c6f335fb64b"
+        revision: "ea55f1f52c489535f0d3b583c81529762c9cb5ea"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "edf883ad2db9c723b058a6a17a146d68d6343143"
+        revision: "b867f209e4b56b0a8c01aaaba3882ad41e438c4f"
   end
 
   resource "v8/third_party/jinja2" do
@@ -76,7 +76,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "efd9399ae01364926be2a38946127fdf463480db"
+        revision: "9538f4194f6e5eff1bd59f2396ed9d05b1a8d801"
   end
 
   def install

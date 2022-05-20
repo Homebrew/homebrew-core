@@ -16,9 +16,14 @@ class SpoofMac < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "5e803ebae572b3af8eac3e6156c0e43b4e9ef3ce684f71b6fe8e4bcfdf4af362"
     sha256 cellar: :any_skip_relocation, catalina:       "5e803ebae572b3af8eac3e6156c0e43b4e9ef3ce684f71b6fe8e4bcfdf4af362"
     sha256 cellar: :any_skip_relocation, mojave:         "5e803ebae572b3af8eac3e6156c0e43b4e9ef3ce684f71b6fe8e4bcfdf4af362"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a558645acadf9bac6627ecf69539cdec484f116adf3b92af2cbbc7aec6f92f7c"
   end
 
   depends_on "python@3.10"
+
+  on_linux do
+    depends_on "net-tools"
+  end
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"

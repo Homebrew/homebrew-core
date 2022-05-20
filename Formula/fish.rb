@@ -1,8 +1,8 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.3.1/fish-3.3.1.tar.xz"
-  sha256 "b5b4ee1a5269762cbbe993a4bd6507e675e4100ce9bbe84214a5eeb2b19fae89"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.4.1/fish-3.4.1.tar.xz"
+  sha256 "b6f23b3843b04db6b0a90fea1f6f0d0e40cc027b4a732098200863f2864a94ea"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,12 @@ class Fish < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8b430125b97436764cabb848183282fd286935f9efed025ef0c1fc3867ee6823"
-    sha256 cellar: :any,                 arm64_big_sur:  "b38561f401a18c3347b34cfee074d812728bc027fc351eaab95a872564f102d9"
-    sha256 cellar: :any,                 monterey:       "033e833995d38505bb14e784729d3fc83bc7860813eb9dd6ab2e644541fd566f"
-    sha256 cellar: :any,                 big_sur:        "eb6c0068f4a2fce0992048d31f1204ebaad31237a17e2ada18843a54afea162c"
-    sha256 cellar: :any,                 catalina:       "50b1d13f3cf765f6b7933b317e48c76bcd42ce65fb5cbd5eeb1279229d6937a7"
-    sha256 cellar: :any,                 mojave:         "25119dc2f23d89aad5666dcd6ebdf58a1c250c5a86942c187a65b72ab19e287c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13846c25ad06b9327782e430ed9e7e1d7faec4712704a28001b65ba5073df84c"
+    sha256 cellar: :any,                 arm64_monterey: "34bcdd4310da2fe6e5e4d31ef465bdc38bb403ac050dd8efacfc9dcf35b451d7"
+    sha256 cellar: :any,                 arm64_big_sur:  "e4e1c8f1235b462cd1f5f21e59be0f8dce7e075f95d6fe2138d363f3957c0601"
+    sha256 cellar: :any,                 monterey:       "2af22ec016e21463326a33c653dc8c66d56deff1f975c8753a6ec2df894e0c17"
+    sha256 cellar: :any,                 big_sur:        "5e775df994cdd2479aec83c91fa103f883317e515429e18e57cea0a5de992cde"
+    sha256 cellar: :any,                 catalina:       "295d2223a3f98c4cbaeeb465480651db830e9be270834356d50fd4da3b9bc874"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "126ef47d281af27b490e74c8f89e210bc418f8e3cf6e0eea58228fbd0a8076fd"
   end
 
   head do

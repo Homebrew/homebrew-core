@@ -14,6 +14,7 @@ class Fastd < Formula
     sha256 cellar: :any, big_sur:        "80cb41c2885f7dea9a880de2a373f1643a9a204dcd1fbe7e865c7cb4fe2069f9"
     sha256 cellar: :any, catalina:       "b26819307ac8f58961adcb171eaffcbb06dc4758667aca30ce726befc861523c"
     sha256 cellar: :any, mojave:         "74193caa95dbb4e885eca705ce72b0fc3e708222e914448081752eee6c4051d9"
+    sha256               x86_64_linux:   "64ea560398270b9bb107c9bae9c397c6bdf808535e197e1b941494a7d9f69af1"
   end
 
   depends_on "bison" => :build
@@ -25,6 +26,11 @@ class Fastd < Formula
   depends_on "libsodium"
   depends_on "libuecc"
   depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "libcap"
+    depends_on "libmnl"
+  end
 
   # remove in next release
   patch do

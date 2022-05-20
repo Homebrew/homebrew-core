@@ -1,20 +1,18 @@
 class Libtins < Formula
   desc "C++ network packet sniffing and crafting library"
   homepage "https://libtins.github.io/"
-  url "https://github.com/mfontanini/libtins/archive/v4.3.tar.gz"
-  sha256 "c70bce5a41a27258bf0e3ad535d8238fb747d909a4b87ea14620f25dd65828fd"
+  url "https://github.com/mfontanini/libtins/archive/v4.4.tar.gz"
+  sha256 "ff0121b4ec070407e29720c801b7e1a972042300d37560a62c57abadc9635634"
   license "BSD-2-Clause"
   head "https://github.com/mfontanini/libtins.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "792e4fd9072bc8300a8005210760a0c0678e4d5afbc82ef0bedffbfb37ff4de3"
-    sha256 cellar: :any,                 arm64_big_sur:  "67015c4202420ae239e94a7c1df5be67af65f5a717a965f581202557df639e04"
-    sha256 cellar: :any,                 monterey:       "6bc15a550e9824e9e118c8b316cf29f752f7d1b4313f6a179a68988a2682f5c9"
-    sha256 cellar: :any,                 big_sur:        "fbde141533f922dd195e69f432fef3d8fc3fa3234de841ae832e1513427ca528"
-    sha256 cellar: :any,                 catalina:       "698edf1fd2794c4bf81e1debcddadf1fcad906f98cde53c7240705578ec3a584"
-    sha256 cellar: :any,                 mojave:         "0cc57b006a581a0da50ef3b365f1cbd292e9ae054a552751cc7af3d93860ebce"
-    sha256 cellar: :any,                 high_sierra:    "0a15741675e5c3f65f98fd89a25f0a1167294b95ba596620b63a45ad71dedea8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d479472d9c8f7e3c5b0492e99b0682829bd6033c34e7817c571413760f7dce8"
+    sha256 cellar: :any,                 arm64_monterey: "55e2d98465b2837a223cca0bb92e5ecc4d566c9cda05cf6f179aa017d1c36d2c"
+    sha256 cellar: :any,                 arm64_big_sur:  "5fa4b31697124737566a7d7e3c61afc792a3e2a88af27a8f11d3023a76dcd7ec"
+    sha256 cellar: :any,                 monterey:       "2562ccd8c4a866e5e1386882b31e9ac206558af6d10ed3f2e14c7e44d07a49b8"
+    sha256 cellar: :any,                 big_sur:        "db8c030a72a519cdf99e31d6269a213852908df81f9b180d1273a17db1f9e6f8"
+    sha256 cellar: :any,                 catalina:       "976fd4c5b7d38e489fefb4c481850c76b0cb3b0fc2885621c2286d7529600fa0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "287989d06b4d0cc921189658011a6a5fc2735037a7d8774cb304dc47c2faf3ec"
   end
 
   depends_on "cmake" => :build

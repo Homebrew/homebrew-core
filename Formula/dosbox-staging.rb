@@ -20,6 +20,7 @@ class DosboxStaging < Formula
     sha256 cellar: :any, monterey:       "7ca82e1f018eebd2650823754122b999dba06cd3c923edb7fec0cf07d356e54e"
     sha256 cellar: :any, big_sur:        "48c5d2212056baf6bf7cf5ac1db657148322f8e90a70fd065f11df3dc0262e98"
     sha256 cellar: :any, catalina:       "12ee01a5d78a0d1b24c51deccc311b2ab8bddec499265c088d5174a16a49837f"
+    sha256               x86_64_linux:   "357fb2f803a354e6662bc8bb5468bd8b02d66190f0b29c7270bd9dd1e08799bd"
   end
 
   depends_on "meson" => :build
@@ -33,6 +34,14 @@ class DosboxStaging < Formula
   depends_on "sdl2"
   depends_on "sdl2_net"
 
+  on_linux do
+    depends_on "gcc"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
+  fails_with gcc: "5"
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args, "-Db_lto=true", ".."
@@ -45,9 +54,10 @@ class DosboxStaging < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/dosbox-staging -version")
-    mkdir testpath/"Library/Preferences/DOSBox"
-    touch testpath/"Library/Preferences/DOSBox/dosbox-staging.conf"
+    config_path = OS.mac? ? "Library/Preferences/DOSBox" : ".config/dosbox"
+    mkdir testpath/config_path
+    touch testpath/config_path/"dosbox-staging.conf"
     output = shell_output("#{bin}/dosbox-staging -printconf")
-    assert_equal "#{testpath}/Library/Preferences/DOSBox/dosbox-staging.conf", output.chomp
+    assert_equal testpath/config_path/"dosbox-staging.conf", Pathname(output.chomp)
   end
 end

@@ -1,21 +1,22 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.6.13.tar.gz"
-  sha256 "3d281ee1c7dee6da62b21ff48c3eb548f497974910b954cc65347ecb23d99f65"
+  url "https://github.com/fnproject/cli/archive/0.6.17.tar.gz"
+  sha256 "7fbad5f089aa083aa3d2ab891cc1754457d3a0ccad2ed1e91af40f1ac5d6a110"
   license "Apache-2.0"
   head "https://github.com/fnproject/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66f0ee5a858fd45315cee2f349801053f815308d09e43d3810f318f9aaec9988"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eff4e23a9c6c8c3ada8492430cb3c509a843ee5defdb7cfd26f95ff065d64f9b"
-    sha256 cellar: :any_skip_relocation, monterey:       "5f48e64d4cd7e3e7151267254de4f8a31fedab3e537916f18b5e1ac0e332e393"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a70f793707845cdb9b89a68cb0c6ddcfe7cb4fc5a8201cf2a9a8481e824942c1"
-    sha256 cellar: :any_skip_relocation, catalina:       "64548a23e8d0c393fb3259d5b20b5d965ed558a600b2fa124b5b911ea47d1236"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75747402ee1afd4881479b96866606cc1e7915bd8f8196c6687a281eb99f32ad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "267799d6b927ebe87b5c4c49e44a5cf45cc5ca85c99a1671503244a17904ecb0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ea254f393e0fd4ee703a50afd897f3c69ed01f00e5be3525d493d70d4fbd54f"
+    sha256 cellar: :any_skip_relocation, monterey:       "8f9262756f3be90ad340812de24a8a309a5e4d4bc846b5e42b00b1e2860631bb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "41a148bff4a79248318b84787e5a5271678939a3bea271fb468fe0e0f426af05"
+    sha256 cellar: :any_skip_relocation, catalina:       "fa050aaacccba7ed6aa1e15f75aadd9a3d686234cfef03569ee763f1dad667d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c0163c108f2ca39f7b0709f4c54cd687d02d8ab9ddbfe82e8739f0e232498e2"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

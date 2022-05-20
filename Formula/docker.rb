@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/cli.git",
-      tag:      "v20.10.12",
-      revision: "e91ed5707e038b02af3b5120fa0835c5bedfd42e"
+      tag:      "v20.10.16",
+      revision: "aa7e414fdcb23a66e8fabbef0a560ef1769eace5"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Docker < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0f0f587866b5e53f620f9c7d478fd0679c4bfb10522b1bc2697c61868c2c6f4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee7d7e5ceec7ab41a96c0b36b7a0ed8cebdcc21211e996496bdb0928f0b26a56"
-    sha256 cellar: :any_skip_relocation, monterey:       "487260ddefb4b4e7ec375ef846b2a525ad497a081814c7165a5a267945b8a3d1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "835e484873eff2e02924c234864a188d9d49af6153fb3fff6984e57dca44e9bf"
-    sha256 cellar: :any_skip_relocation, catalina:       "8cc0183cc50945ea1b6afc8a475cf3e9864f5fa2c80cfb64f29bd1f75403974b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5804b4b85fe7385d4c41447b2d92075c0d8fb77b97627074b6f785ccb98dd1d7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3e2549cc84e09e7faafb11025bd732cdba63149a97432cb5da6fd4bb2f365dd2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2369b3c69866e93196b343cf623c5c1ea66338b91f6348386a345d4ef432aa49"
+    sha256 cellar: :any_skip_relocation, monterey:       "a74f1ea366019a6b92f4130d487ba6e180cdecc8d28c294c796f8c11b5869df5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "89e2bbca9ea87ab0f66b40101c4bf1f0e055aed2867ee73fa2a65974cfc7b069"
+    sha256 cellar: :any_skip_relocation, catalina:       "b5c8e6b1c69441e0a225f3ab1f92b1c4ddc3f0612b364d052f9019fb84839c53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7124e15cd9f187e561bef9fe42edcf21f149f37fc77524f177b4b3c40037aea"
   end
 
   depends_on "go" => :build
@@ -53,13 +53,11 @@ class Docker < Formula
   test do
     assert_match "Docker version #{version}", shell_output("#{bin}/docker --version")
 
-    on_macos do
-      assert_match "ERROR: Cannot connect to the Docker daemon", shell_output("#{bin}/docker info", 1)
+    expected = if OS.mac?
+      "ERROR: Cannot connect to the Docker daemon"
+    else
+      "ERROR: Got permission denied while trying to connect to the Docker daemon socket"
     end
-
-    on_linux do
-      assert_match "ERROR: Got permission denied while trying to connect to the Docker daemon socket",
-        shell_output("#{bin}/docker info", 1)
-    end
+    assert_match expected, shell_output("#{bin}/docker info", 1)
   end
 end

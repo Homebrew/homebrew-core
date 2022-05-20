@@ -3,19 +3,17 @@ class Csvkit < Formula
 
   desc "Suite of command-line tools for converting to and working with CSV"
   homepage "https://csvkit.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/b6/88/bdd8b8c77e8d8681b69d6689ca2a585d44eab2db23926a2c9e581a5ddd4b/csvkit-1.0.6.tar.gz"
-  sha256 "c8f761b5605cc978a7515a3d6a9e7ceec49a08eeefd7ad78480dea5f8bf80d35"
+  url "https://files.pythonhosted.org/packages/ae/97/a36a1c5feb04bc69a9133534bfff2b851aa687714144bf8c784ce4b093a1/csvkit-1.0.7.tar.gz"
+  sha256 "0019e29ccadfe3d5cb0d159a443cba3ce8dfc37c967317db983ce3f19f0ca050"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "96158e624e5d2d22d8f010f13d3aa8e32672169ca10e2794b07078e3bcc3591f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aed40922284925d839684f97dd4e3cb63f4cfa21d9adcd45ed25d270e6d89f95"
-    sha256 cellar: :any_skip_relocation, monterey:       "24491b76d82bdcae83c6b30d5d8e1378d79d5ba1e1e4afe0565c24e7a5fb2e59"
-    sha256 cellar: :any_skip_relocation, big_sur:        "286fb9d4d74b154881b61e2775fa9e3c8b180467708091df354e4ea5ff084079"
-    sha256 cellar: :any_skip_relocation, catalina:       "a2d07acf8dfae4b6644d102ed1a7ce19926c67ea82155ec948dc1efb96d5b19d"
-    sha256 cellar: :any_skip_relocation, mojave:         "217dcc1a45154cfae961bbcb93f8a5ba2a326f550991df30a3a965e3a35bd4eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3373715812233b761a23b2dd274076fbbedcbb7c40121040c491cf8f47920d1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ce619c2a98a1cf8ea48dd9ab7437caea868a82b93f2b5a814b87fb0c8d63be2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a176d551aa7b0163b141faf10bd1711832645aa17eb8cfa570097d10198d3e92"
+    sha256 cellar: :any_skip_relocation, monterey:       "823c9ea885ca02aca2be5725553580b5970a10820aa00ec05b9931130cdea7df"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4f2615d7e78d84b693e41df56a234b832e32a557ddb592c016f7cc18c511da20"
+    sha256 cellar: :any_skip_relocation, catalina:       "7500a9feecc89292868e73a7b3c1d8c903c7c508366a383bf915763a613a8c76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbceae6bcc8fc99e129e18df45cda1de02be54d6a95dedcdf4b66f8fa8919bbf"
   end
 
   depends_on "python@3.10"
@@ -67,8 +65,8 @@ class Csvkit < Formula
   end
 
   resource "isodate" do
-    url "https://files.pythonhosted.org/packages/b1/80/fb8c13a4cd38eb5021dc3741a9e588e4d1de88d895c1910c6fc8a08b7a70/isodate-0.6.0.tar.gz"
-    sha256 "2e364a3d5759479cdb2d37cce6b9376ea504db2ff90252a2e5b7cc89cc9ff2d8"
+    url "https://files.pythonhosted.org/packages/db/7a/c0a56c7d56c7fa723988f122fa1f1ccf8c5c4ccc48efad0d214b49e5b1af/isodate-0.6.1.tar.gz"
+    sha256 "48c5881de7e8b0a0d648cb024c8062dc84e7b840ed81e864c7614fd3c127bde9"
   end
 
   resource "leather" do
@@ -92,8 +90,8 @@ class Csvkit < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/bc/a4/57893fbaf7cbf303a4f2307564cf83855a5f2cc34544656e7263125a0d1e/python-slugify-5.0.2.tar.gz"
-    sha256 "f13383a0b9fcbe649a1892b9c8eb4f8eab1d6d84b84bb7a624317afa98159cab"
+    url "https://files.pythonhosted.org/packages/6a/29/fb7f28cb6c0ee3cfef1e2b02f42678aafd179ac9f41833159f2f80fc7f25/python-slugify-6.1.1.tar.gz"
+    sha256 "00003397f4e31414e922ce567b3a4da28cf1436a53d332c9aeeb51c7d8c469fd"
   end
 
   resource "pytimeparse" do
@@ -107,8 +105,8 @@ class Csvkit < Formula
   end
 
   resource "SQLAlchemy" do
-    url "https://files.pythonhosted.org/packages/69/2b/f0ee898c3270d965300ec30b0bf06e062c4cc92f35d17ae6046f429c5067/SQLAlchemy-1.4.25.tar.gz"
-    sha256 "1adf3d25e2e33afbcd48cfad8076f9378793be43e7fec3e4334306cac6bec138"
+    url "https://files.pythonhosted.org/packages/7a/9f/ace7376a3ab45adf0f7169a5d8d60707c04b171b72a18bb23d505f83f362/SQLAlchemy-1.4.32.tar.gz"
+    sha256 "6fdd2dc5931daab778c2b65b03df6ae68376e028a3098eb624d0909d999885bc"
   end
 
   resource "text-unidecode" do

@@ -1,18 +1,18 @@
 class Cue < Formula
   desc "Validate and define text-based and dynamic configuration"
   homepage "https://cuelang.org/"
-  url "https://github.com/cue-lang/cue/archive/v0.4.2.tar.gz"
-  sha256 "a45e45552b9b3e104fb65ec85891550d8675656be6dece3837334720be5d8150"
+  url "https://github.com/cue-lang/cue/archive/v0.4.3.tar.gz"
+  sha256 "3d51f780f6d606a0341a5321b66e7d80bd54c294073c0d381e2ed96a3ae07c6e"
   license "Apache-2.0"
   head "https://github.com/cue-lang/cue.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "33a0b540d4c796b36ac6994150bcaca1fba48a690b811c24fb6c433b6980cffc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79c147059e95126101b04d7479136fb90c139f424648710f343a777a70e5c323"
-    sha256 cellar: :any_skip_relocation, monterey:       "dac2dffe02c3a2270008f7b3a4e226cdae07121771fcdd17928d4b8c0f27fab1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7c5ae3f086df1f2d5089b83b9b171f5ce811b1e3a4926ee9633bb03cf24a520f"
-    sha256 cellar: :any_skip_relocation, catalina:       "c65b682ecb73dabe2f78389387b07dff6a52cfae923dadd1dae029dcd941ce9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3df3d4d368ee5bacf24ef60cb103e46b30cd191fc4bbc24fc3f30626f0e3e5d7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f770a065ca36acedeb4d7db3063c4c1b5c2a4a54a9891b6587a112f7e638a651"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4af3195f21ed20f27bc1015a415835728b32e06f39e84fdeb2c01b14932ffb7"
+    sha256 cellar: :any_skip_relocation, monterey:       "b633119259d30ab942c77eac991f3423980ec4d90b56ae2226f6934b692d33f9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "12db70d65d25aedc67b730918450fb0162f3a1127e5763322f12f8c48d89c2e5"
+    sha256 cellar: :any_skip_relocation, catalina:       "2cd3e2ca353ee6e2e6616d5a9ed3112a1b9a2c742b2f30e9ada35850aa60d60e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf1e2ef060f30c188077f17eac919ebd8b3c2581fb93ac171baf028b5acc5b10"
   end
 
   depends_on "go" => :build

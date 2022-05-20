@@ -18,6 +18,7 @@ class Iprint < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "3fc40e5d2ee26c7b8709bf61e651ec3506561b98fcbf6ca52b8d353dd4be356d"
     sha256 cellar: :any_skip_relocation, el_capitan:     "caa018741bb84409295f4fec33bcf427df199e717abf1323c9325d44238548ff"
     sha256 cellar: :any_skip_relocation, yosemite:       "eb0a1df1375a29fd3a88cddbe844820c9650b4ee14406245ee5d93ad41e48586"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "581a57b43314eb6fb95034df6b36ece5a5ef1b4dfc03554b57fb40a8a4cc9de7"
   end
 
   patch do

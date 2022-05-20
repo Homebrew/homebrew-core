@@ -1,10 +1,10 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.3.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.3.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.3.tar.gz"
-  sha256 "becc3c504ceea499f4167a260040ccf4d9f2ef9499ad5683c179a697146ce50e"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.4.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.4.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.4.tar.gz"
+  sha256 "6f761838d08052b0b6579cf7f6737d93e47f01f4da04c5d24d3447b7f2a5fad1"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -13,14 +13,12 @@ class Rsync < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "821901907a9a035c3b352cf840ceaf358910d47b7ca5642e19a8ff89e5e2aaf2"
-    sha256 cellar: :any,                 arm64_big_sur:  "05437fe41f5c05db284cb9b70c14ad47071976d3720d2148b62f83a2bfb0391a"
-    sha256 cellar: :any,                 monterey:       "3aa536da0c3756b25ccee8fbc29840b679d043adeeefa8dd75fc2c16d25f01c8"
-    sha256 cellar: :any,                 big_sur:        "def7f5cd96f4abc05ef344a16c084c11879dca54b91ea5dd56a6de63298cc1dd"
-    sha256 cellar: :any,                 catalina:       "fd92045e16b9b83ab6c281a1e658e27731ef9af53fcb6bb7ce6b9533851e728e"
-    sha256 cellar: :any,                 mojave:         "1be1e9754c4f4a4b043aece33299d90f50d01274682f63c29eca7d9bcb8a2090"
-    sha256 cellar: :any,                 high_sierra:    "5cf9c6e0014687c4abb4044e7f5e12d5d453b81c5dbadd472438b4131c655a1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c170f9fa6e10c5626434cc7a2ec17c1d0de7f3f16b3ffea4ce8bc27cec58208a"
+    sha256 cellar: :any,                 arm64_monterey: "5203ca4a96801c82df6304be050d16676edeb1179d060055c0a0d024719c647f"
+    sha256 cellar: :any,                 arm64_big_sur:  "7a97c83e5bdc7abfec4e3a605e5e7f2c142378dbb14719930b5da58ac11f8c58"
+    sha256 cellar: :any,                 monterey:       "57d1cf3bed28db1f850a5ce119dbd9a4ca6de38ec446a7a406e0f9510446af50"
+    sha256 cellar: :any,                 big_sur:        "1b9467be7a8c6199fd3b86ff1e316d8d6ada4ddd22b9ba3c4f0449207b9c36e0"
+    sha256 cellar: :any,                 catalina:       "76221855501830c9a97f08cdf24003d2540934f12d8758883cfbea2780bb827e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25827ec52d77b05cadd5930d0d0b81f327477639badaafb538b755c886a9f677"
   end
 
   depends_on "lz4"
@@ -32,11 +30,11 @@ class Rsync < Formula
   uses_from_macos "zlib"
 
   # hfs-compression.diff has been marked by upstream as broken since 3.1.3
-  # and has not been reported fixed as of 3.2.3
+  # and has not been reported fixed as of 3.2.4
   patch do
-    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.2.3.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.2.3.tar.gz"
-    sha256 "de6645b46967bd701b7d6f3e29cccb19d2b46a6fa2d26a9db165847dca0e42f2"
+    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.2.4.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.2.4.tar.gz"
+    sha256 "70a597590af6c61cf3d05d663429ff9f60ffe24e44f9c73a4cdc69ebdc1322a4"
     apply "patches/fileflags.diff"
   end
 

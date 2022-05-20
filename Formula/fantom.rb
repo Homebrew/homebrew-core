@@ -1,13 +1,17 @@
 class Fantom < Formula
   desc "Object oriented, portable programming language"
   homepage "https://fantom.org/"
-  url "https://github.com/fantom-lang/fantom/releases/download/v1.0.77/fantom-1.0.77.zip"
-  sha256 "f53ed7d3f0fc1b406ae65bc841a66756076563b57c783e1b097ab94f72da6825"
+  url "https://github.com/fantom-lang/fantom/releases/download/v1.0.78/fantom-1.0.78.zip"
+  sha256 "be6b9688177e5dd4087591ec89ac1d6faf1effa482d0ccc0315a991c4d66343a"
   license "AFL-3.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "d3a9833136f2595a1eb31a154d64faea7ad6f04501b168df82a13239dc9006c2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fcc2fc9b9274107bebe956c165da541fbbd1171b954d21c426e3d7cb4542ca8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7fcc2fc9b9274107bebe956c165da541fbbd1171b954d21c426e3d7cb4542ca8"
+    sha256 cellar: :any_skip_relocation, monterey:       "0ba7cd9d14d193ac7a20703e8ed5e1fba69ec4d0856daa7860892be4d1410f6d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0ba7cd9d14d193ac7a20703e8ed5e1fba69ec4d0856daa7860892be4d1410f6d"
+    sha256 cellar: :any_skip_relocation, catalina:       "0ba7cd9d14d193ac7a20703e8ed5e1fba69ec4d0856daa7860892be4d1410f6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fcc2fc9b9274107bebe956c165da541fbbd1171b954d21c426e3d7cb4542ca8"
   end
 
   depends_on "openjdk"

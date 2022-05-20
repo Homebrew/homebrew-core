@@ -1,8 +1,8 @@
 class DockerSlim < Formula
   desc "Minify and secure Docker images"
   homepage "https://dockersl.im"
-  url "https://github.com/docker-slim/docker-slim/archive/1.37.3.tar.gz"
-  sha256 "6c8bb386314b9e3674c28b4b3a3baf2a62656999374d93d7c741f9cc9a594a7c"
+  url "https://github.com/docker-slim/docker-slim/archive/1.37.5.tar.gz"
+  sha256 "e395a8865fb888a190032783ee0a9f1a5ac9a13c296b9bd0c503fe81937eed18"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class DockerSlim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "873e3bcbe01bda68937b930e569e75cb44e82c88fdaadcdd5d4186da29ac8998"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "873e3bcbe01bda68937b930e569e75cb44e82c88fdaadcdd5d4186da29ac8998"
-    sha256 cellar: :any_skip_relocation, monterey:       "df87009035951ec38e0ea41d9e16bd50380270eed26b218dbce04cabde178372"
-    sha256 cellar: :any_skip_relocation, big_sur:        "df87009035951ec38e0ea41d9e16bd50380270eed26b218dbce04cabde178372"
-    sha256 cellar: :any_skip_relocation, catalina:       "df87009035951ec38e0ea41d9e16bd50380270eed26b218dbce04cabde178372"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19f2f87b66b944d5e7aa4ba66de5bbbe159494c3bc99dc5caaeda7dbaa4619f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b6a013831cf0f8d3c2bcd560a1294c4a0382e178f8e692e1e8564fcf95f2fd2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b6a013831cf0f8d3c2bcd560a1294c4a0382e178f8e692e1e8564fcf95f2fd2"
+    sha256 cellar: :any_skip_relocation, monterey:       "88edfbf34c89bf14c1769bc56925689b85f81dab329afb06e014b362289ba606"
+    sha256 cellar: :any_skip_relocation, big_sur:        "88edfbf34c89bf14c1769bc56925689b85f81dab329afb06e014b362289ba606"
+    sha256 cellar: :any_skip_relocation, catalina:       "88edfbf34c89bf14c1769bc56925689b85f81dab329afb06e014b362289ba606"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63fd4c0005aec6def5ac502c93130e7d6bb248b9fb23f572918adea608ee85b7"
   end
 
   depends_on "go" => :build

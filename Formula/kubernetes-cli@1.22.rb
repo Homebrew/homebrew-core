@@ -2,8 +2,8 @@ class KubernetesCliAT122 < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.22.6",
-      revision: "f59f5c2fda36e4036b49ec027e556a15456108f0"
+      tag:      "v1.22.9",
+      revision: "6df4433e288edc9c40c2e344eb336f63fad45cd2"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,12 @@ class KubernetesCliAT122 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4eddced915660c20b511c1cee947c9b1e67f344911a350d8b9f2370b875ceadb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "036e01d57203e786610e1813890f5aae522c247bfdf1c3123d3474af0460cdf3"
-    sha256 cellar: :any_skip_relocation, monterey:       "88227487f916ed4a9c4964174a8b97d903745ae851afe41e94ba7045f15e0439"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6e2bd7461ed2b0164f7116a46acb557d407436d1c8712b3ab11a647fbcd4ea96"
-    sha256 cellar: :any_skip_relocation, catalina:       "5dc7c9864058c74be9eb8a593d8e8c1c1907518ecaf633584004b3611208fab8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bb9d9ee839576b07575ff508bd5aba4fc4528ed18077002e10ed13e94dd9da7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0165ca7444a0e28cb999b971890b2d64d73b345a7d4d9641d25570f740d749ba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3950c4f0806e126fce4799f3a81c29d9f7b9e3572b0da669b27ed52bcef76690"
+    sha256 cellar: :any_skip_relocation, monterey:       "7873a371b9c5c64ec4bec12e31198561d64847e10b952eb76cf492068b5f57c6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cab813470d053f1b193a4340d68f4122fed31a8ad9f37f0d487cfbd4a0832e39"
+    sha256 cellar: :any_skip_relocation, catalina:       "a120e39dc9b8b233edcaabaf6aa51de1a96d95ab140c332a0651058213c07164"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c7b83894be537b978f18867a8525d87c0256b2825513e4d3999708b22be88f7"
   end
 
   keg_only :versioned_formula
@@ -66,7 +66,7 @@ class KubernetesCliAT122 < Formula
     version_output = shell_output("#{bin}/kubectl version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
     if build.stable?
-      revision = stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision]
+      revision = stable.specs[:revision]
       assert_match revision.to_s, version_output
     end
   end

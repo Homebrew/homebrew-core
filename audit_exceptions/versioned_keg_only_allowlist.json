@@ -12,6 +12,7 @@
   "gcc@8",
   "gcc@9",
   "gcc@10",
+  "gcc@12",
   "glibmm@2.66",
   "gnupg@1.4",
   "libsigc++@2",
@@ -26,5 +27,6 @@
   "pyqt@5",
   "python@3.9",
   "python-tk@3.9",
+  "spidermonkey@78",
   "wxwidgets@3.0"
 ]

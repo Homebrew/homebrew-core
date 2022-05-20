@@ -12,10 +12,12 @@ class Ibex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "2fe73bcec8be89daf46ad449cced7ea3d5584d1eb8138343359fc0898e3ec826"
-    sha256 cellar: :any_skip_relocation, catalina:    "838265b9b44453641e3cbc39dbbb8903666ba3413ef8c7dc68af69f9759f4351"
-    sha256 cellar: :any_skip_relocation, mojave:      "91e091b03e482a8bae5248a435a8e827c79923aaee9f98f99d33254e176560d2"
-    sha256 cellar: :any_skip_relocation, high_sierra: "bb10a673525d7145196f523190401c2aa42345b5035ed2bcf261081e3653638f"
+    sha256 cellar: :any_skip_relocation, monterey:     "5c659f26d051f9c2e25308976051cff13d3c99a5ff579116ece615f0172d1705"
+    sha256 cellar: :any_skip_relocation, big_sur:      "2fe73bcec8be89daf46ad449cced7ea3d5584d1eb8138343359fc0898e3ec826"
+    sha256 cellar: :any_skip_relocation, catalina:     "838265b9b44453641e3cbc39dbbb8903666ba3413ef8c7dc68af69f9759f4351"
+    sha256 cellar: :any_skip_relocation, mojave:       "91e091b03e482a8bae5248a435a8e827c79923aaee9f98f99d33254e176560d2"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "bb10a673525d7145196f523190401c2aa42345b5035ed2bcf261081e3653638f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "396eb36d7b67037bd599525a5d591576dd25785076d6f117550c1885d2c81258"
   end
 
   depends_on "bison" => :build
@@ -29,7 +31,7 @@ class Ibex < Formula
     ENV.cxx11
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args.reject { |s| s["CMAKE_INSTALL_LIBDIR"] }
       system "make", "SHARED=true"
       system "make", "install"
     end

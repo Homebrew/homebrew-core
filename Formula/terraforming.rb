@@ -7,16 +7,18 @@ class Terraforming < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ae14e8533d790a2d2a7e937f0d36c2bac7a62087375b80e27f2dd2f2171981d6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "72f190c258f2ab9a73d635ff533f9814219a79a7261dd0d0b4e1b5cb6eddcb8a"
-    sha256 cellar: :any_skip_relocation, catalina:      "5b1a20c820982585fdad1e588ab6ac171e8d3f963da62b50a598e3002635331b"
-    sha256 cellar: :any_skip_relocation, mojave:        "e4997ba46e6e796833c2f881f68b20cd52006510371ede211d422190a5223454"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "59001edf7447dbab2dd760fcec4fc0a77d711ec43e7d95658aa9c663f7baf44d"
-    sha256 cellar: :any_skip_relocation, sierra:        "f1d900508e9b2a38a1e417ee9f0faa050c89332cf9eff1a3de83c96eebead164"
-    sha256 cellar: :any_skip_relocation, all:           "9fec9a488184066c7ef10f728be33fcc30afe004d9d5bc6dbe7c187a768b8165"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a999cfb15e43d21fccbed4c7ac4f570c192f7921f1948edd8e7da11ca7971ef9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9b5cf64c7ba61284462a250ad49d2a397a67efa3c43d2d60b43bae20a9dbd92"
+    sha256 cellar: :any_skip_relocation, monterey:       "a999cfb15e43d21fccbed4c7ac4f570c192f7921f1948edd8e7da11ca7971ef9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c9b5cf64c7ba61284462a250ad49d2a397a67efa3c43d2d60b43bae20a9dbd92"
+    sha256 cellar: :any_skip_relocation, catalina:       "c9b5cf64c7ba61284462a250ad49d2a397a67efa3c43d2d60b43bae20a9dbd92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eff0a68d600af8a5176b41a04c443da66ae1b27884d31547c7c7010a7aa7704e"
   end
 
-  uses_from_macos "ruby"
+  on_linux do
+    depends_on "ruby@2.7"
+  end
 
   resource "aws-sdk-autoscaling" do
     url "https://rubygems.org/gems/aws-sdk-autoscaling-1.20.0.gem"

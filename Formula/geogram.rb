@@ -1,20 +1,23 @@
 class Geogram < Formula
   desc "Programming library of geometric algorithms"
   homepage "http://alice.loria.fr/software/geogram/doc/html/index.html"
-  # Homepage links to gforge.inria.fr for downloads, which gives a 403 response.
-  # We're using a GitHub tarball unless/until upstream finds a new home.
-  url "https://github.com/alicevision/geogram/archive/v1.7.7.tar.gz"
-  sha256 "7323d9f6a38fbaff3e07c47955e0c8f310906871d38171536ec8bc0758e816aa"
+  url "https://members.loria.fr/BLevy/PACKAGES/geogram_1.7.8.tar.gz"
+  sha256 "28e70b353705faec555700d8a7b7b9d703687702f46866bad09e033f86a96faf"
   license all_of: ["BSD-3-Clause", :public_domain, "LGPL-3.0-or-later", "MIT"]
 
   bottle do
-    sha256 cellar: :any, monterey: "c825e078da693cc077b5655eebe374f753dc78620b87a73d6603f787fb248a0d"
-    sha256 cellar: :any, big_sur:  "c31325cc34b205bb39bce490babfd8948dfbea2e5ce3a2c8ee402c8efe50b106"
-    sha256 cellar: :any, catalina: "8766335d1707cf361a1093845f1b35ea15063b06d5bd96bb4f175d7260ff2a2b"
+    sha256 cellar: :any,                 monterey:     "14eae5569bb7755822db7dd6db76569ff6b3a9ec14d52ebcd32a01d859209db8"
+    sha256 cellar: :any,                 big_sur:      "c02fbf13cac94ee730282f326322b9ccc78a9b2747fea1ec31c937cafa543725"
+    sha256 cellar: :any,                 catalina:     "ef86799ac68bfd1f5e982acd10e991acf2f4b74f5c7623ac54b30a4af9a90bc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "15a4143539e68a38f813fdf87b4d2123fd68e304f3aa53c36ceca7d12f2be907"
   end
 
   depends_on "cmake" => :build
   depends_on "glfw"
+
+  on_linux do
+    depends_on "doxygen" => :build
+  end
 
   resource "bunny" do
     url "https://raw.githubusercontent.com/FreeCAD/Examples/be0b4f9/Point_cloud_ExampleFiles/PointCloud-Data_Stanford-Bunny.asc"
@@ -30,7 +33,8 @@ class Geogram < Formula
     EOS
 
     system "./configure.sh"
-    cd "build/Darwin-clang-dynamic-Release" do
+    platform = OS.mac? ? "Darwin-clang" : "Linux64-gcc"
+    cd "build/#{platform}-dynamic-Release" do
       system "make", "install"
     end
 

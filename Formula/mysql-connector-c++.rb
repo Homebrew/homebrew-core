@@ -1,8 +1,9 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.28-src.tar.gz"
-  sha256 "cb26fe9de05a3b5f1ed22a199429b6791ece18433eb0465e2a73fcf44586420b"
+  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.29-src.tar.gz"
+  sha256 "9a6236a28bca33ae951d8ccaabb8ff51a188863e8599f9096f4ae0a1da19f87f"
+  license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
     url "https://dev.mysql.com/downloads/connector/cpp/?tpl=files&os=src"
@@ -10,12 +11,12 @@ class MysqlConnectorCxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fe3d576cd8487aafb673dccef66b90b1d114f81ed9d33188aafffca58028733c"
-    sha256 cellar: :any,                 arm64_big_sur:  "adda7eb72ea92299565a006836f05350f36aaf3280fd3343460a0c97911d84d9"
-    sha256 cellar: :any,                 monterey:       "dc58916ed5dd075ba410f49d4b5e173207e3368ef8d14b0aa3198f070a490515"
-    sha256 cellar: :any,                 big_sur:        "1d4dbdfe1b037a04d45ca6f2f9d1fa71c24ec4c6b760133344f736f1da87016f"
-    sha256 cellar: :any,                 catalina:       "3939ecdcf8ecdfd5fab7f8a2a1480e36b99632c4e66c10398aba1240f8a89527"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4b8d3abc117a047e9396fd58603770f3d21c6a23daf486ff521ff67c03b1779"
+    sha256 cellar: :any,                 arm64_monterey: "8d44b981fafe057bd1b55ab1c2efe186859613540f67acd5cc64dc6ca4a0765c"
+    sha256 cellar: :any,                 arm64_big_sur:  "7f2513672ff63de832c621dcefb345e80e3f2259f4d2e4dfc401753bd09d83da"
+    sha256 cellar: :any,                 monterey:       "960e38066622667cd4668eccad4a780f06da9eb114a460d31f8e2236fcf09456"
+    sha256 cellar: :any,                 big_sur:        "8c9034de4514fe997aab920f512b0fec0ae8861f604d0ed7b8924b4e7eb9195a"
+    sha256 cellar: :any,                 catalina:       "4744e3345c3b18f8265d68e32a3de1df41cc88e1631ea3caa6dec2fd5b70f8e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad8ad4bb4424500ef39f08b7abe150bf9ec143480b6f2729f4a1fa0a4593a12f"
   end
 
   depends_on "boost" => :build

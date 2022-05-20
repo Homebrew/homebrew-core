@@ -4,13 +4,15 @@ class Gnuplot < Formula
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.3/gnuplot-5.4.3.tar.gz"
   sha256 "51f89bbab90f96d3543f95235368d188eb1e26eda296912256abcd3535bd4d84"
   license "gnuplot"
+  revision 1
 
   bottle do
-    sha256 arm64_monterey: "eb85e735b54d3525eebc7e9023e35e0265633a189a0a7a28eb67d923c2672503"
-    sha256 arm64_big_sur:  "4458590e1c71fee35fe0324b964a984fa2332a91b4bb0dc2af4c1ef4b55c3b63"
-    sha256 big_sur:        "fdf18f8bd7001fe7f05e049e0b953b080c6fdcbf7e3e17a39b4645528bb397ca"
-    sha256 catalina:       "b84af4fca336fe10b6447fe7307b56f526784aee1288c6de508019f4eb2bad83"
-    sha256 x86_64_linux:   "04affc7a3e9b83f0c6a7a5e12bc39bf8d4493debadf635a394229f1ed412d475"
+    sha256 arm64_monterey: "8434d860865ab948c40b82e8ed9cfc20697e153f1018c747df82f21ec71ffc70"
+    sha256 arm64_big_sur:  "c528b21b25c7c35f67cae3e71ea9f555112cd61f0add956d76e57a6f4cc6870b"
+    sha256 monterey:       "5d66c5093a628fc3169e1d844a818710e63fe959258a51d25aee2ebad7b2724a"
+    sha256 big_sur:        "355caca1944918dc774073f8cbbe96355f04b2731cb73d2d0f0664a646404183"
+    sha256 catalina:       "b0dc5bf8e5b3c703e0a3b590d130a9105849639f622189d9f49a7b4ad33619c9"
+    sha256 x86_64_linux:   "5171dbbb1add97ec81e2540392b89d9c271af07c1f6f5922376e6110319ef792"
   end
 
   head do

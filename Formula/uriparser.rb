@@ -7,17 +7,16 @@ class Uriparser < Formula
   head "https://github.com/uriparser/uriparser.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3f134b815c73529b29e59b870500d5b66f3643a3f77d26f0ae160d02114713c0"
-    sha256 cellar: :any,                 arm64_big_sur:  "e873b79a8af0b5331dcd4e51af7d4f52c88e6bf638b842f89cfeafa6606a6d1e"
-    sha256 cellar: :any,                 monterey:       "ed815b10b6d13b85d1dcc744bdb27c619d7cea1065e0b225587fb15f530feaf2"
-    sha256 cellar: :any,                 big_sur:        "2e8ad9cd04d73bb1be69799562415023d2d5b3010e0cf1a5d3196ca5695912f8"
-    sha256 cellar: :any,                 catalina:       "e57fd509a1cf3725b9b95cdc75e387702d876065975e1401f83a634e442a7f92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95d5ad1a9ad35dd79d6c7215349715c2f9f53ae1eec02d38506973a92d0706cc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "8ed697813938a18193dfd1a3a048cf3b237429ae6dadabc943cd419c2e948dde"
+    sha256 cellar: :any,                 arm64_big_sur:  "c6e0c16982bf15a531e8e2d60abb7d104407b0b7e01aac9b59e817cf1890bfba"
+    sha256 cellar: :any,                 monterey:       "687b043d447e68967f63077a08053b18fd9791f33645781ffb17eae9c7bde984"
+    sha256 cellar: :any,                 big_sur:        "f34888412c2e45eeb6e3cccb5a6d73064c2e8f52a000790828d907d63a48a90a"
+    sha256 cellar: :any,                 catalina:       "646001e197cd645dbf99ed8036d21289056bca546dcfab074e7031af5c7cc4db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fa1c9ef128411497b8e7ac7689cfb730571281c6ac071173ef961383ed6dd4f"
   end
 
   depends_on "cmake" => :build
-
-  conflicts_with "libkml", because: "both install `liburiparser.dylib`"
 
   def install
     system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF",

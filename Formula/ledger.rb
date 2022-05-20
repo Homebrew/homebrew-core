@@ -4,7 +4,7 @@ class Ledger < Formula
   url "https://github.com/ledger/ledger/archive/v3.2.1.tar.gz"
   sha256 "92bf09bc385b171987f456fe3ee9fa998ed5e40b97b3acdd562b663aa364384a"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
   head "https://github.com/ledger/ledger.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,12 @@ class Ledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9d9c6979d1708333ec05d9106ff3b10e9d81e565edc32e3299bab5e8cc9b1d05"
-    sha256 cellar: :any,                 arm64_big_sur:  "f80c6502c9966f8c6c0fdaa04257abe0ec381ac1e71d5c8c7fa040b5f17bf7eb"
-    sha256 cellar: :any,                 monterey:       "dca01afc7d8f81afea1458eca84e69b775a3e43387b7ff296df8857c6d7abded"
-    sha256 cellar: :any,                 big_sur:        "43b45dca311aaac9d9beaa116d7460a9c8ae1018e196e627811f34b0a33b4e33"
-    sha256 cellar: :any,                 catalina:       "339bea75fa51d131603613fb31e95c0b0774cc00e30a7accbcf0560bf8d8f900"
-    sha256 cellar: :any,                 mojave:         "7a030e18924a202197ca72c04fd9f147930e021b428581c7e111dd00acb0dd2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e62b1de7a6c8f43ba22517035871c6c47010d52f007e63292f89116b5d8cdc6"
+    sha256 cellar: :any,                 arm64_monterey: "37ed1f1252a0d6fc2d03e992366b42f796ee1d20824ef33f2edec255cca37ead"
+    sha256 cellar: :any,                 arm64_big_sur:  "527153ddc9398531a048d9f44515c4957056a2c2516a4549276a49725f619aa3"
+    sha256 cellar: :any,                 monterey:       "e7c98a74ce6f898a81ebb3ed16a4ed632d642d01bc9fc3dc9a92db89a46298d9"
+    sha256 cellar: :any,                 big_sur:        "4268a869cff79e90071ec4dd922dfcdb794d60915bc9d537a7678cff3474a57f"
+    sha256 cellar: :any,                 catalina:       "4d57f51ac997fc69b854c52419cbe41d81c009ecc64963a8c11114b5b75170d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51ba0f4b37b449e710d9377f2d38fd92599ed3af9bd6d1bc0be042ba8cbacd5f"
   end
 
   depends_on "cmake" => :build

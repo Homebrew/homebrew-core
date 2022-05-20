@@ -43,10 +43,9 @@ class Otf2bdf < Formula
   end
 
   test do
-    on_macos do
+    if OS.mac?
       assert_match "MacRoman", shell_output("#{bin}/otf2bdf -et /System/Library/Fonts/LucidaGrande.ttc")
-    end
-    on_linux do
+    else
       resource("test-font").stage do
         assert_match "MacRoman", shell_output("#{bin}/otf2bdf -et LucidaGrande.ttc")
       end

@@ -1,19 +1,14 @@
 class Libsigrokdecode < Formula
   desc "Drivers for logic analyzers and other supported devices"
   homepage "https://sigrok.org/"
+  url "https://sigrok.org/download/source/libsigrokdecode/libsigrokdecode-0.5.3.tar.gz"
+  sha256 "c50814aa6743cd8c4e88c84a0cdd8889d883c3be122289be90c63d7d67883fc0"
   license "GPL-3.0-or-later"
-
   head "git://sigrok.org/libsigrokdecode", branch: "master"
 
-  stable do
-    url "git://sigrok.org/libsigrokdecode",
-        tag:      "libsigrokdecode-0.5.3",
-        revision: "97991a3919da6a07c4c87308ae66fb441bd512e3"
-  end
-
   livecheck do
-    url :stable
-    regex(/^libsigrokdecode-(\d+(?:\.\d+)+)$/i)
+    url "https://sigrok.org/wiki/Downloads"
+    regex(/href=.*?libsigrokdecode[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -46,7 +41,12 @@ class Libsigrokdecode < Formula
       s.sub!(/^(SR_PKG_CHECK\(\[python3\], \[SRD_PKGLIBS\],)\n.*$/, "\\1 [python-#{py_version}-embed])")
     end
 
-    system "./autogen.sh"
+    if build.head?
+      system "./autogen.sh"
+    else
+      system "autoreconf", "-fiv"
+    end
+
     mkdir "build" do
       system "../configure", *std_configure_args, "PYTHON3=python#{py_version}"
       system "make", "install"

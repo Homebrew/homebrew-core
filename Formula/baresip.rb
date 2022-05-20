@@ -1,16 +1,17 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "https://github.com/baresip/baresip"
-  url "https://github.com/baresip/baresip/archive/v1.1.0.tar.gz"
-  sha256 "f9230b27c4a62f31223847bc485c51f3d960f8a09f36998dedb73358e1784b4e"
+  url "https://github.com/baresip/baresip/archive/v2.3.0.tar.gz"
+  sha256 "eeb3189733cd4a727204268c216ca4656a0ac24b761169692d241ea887059a95"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_monterey: "a1623929ecb9f411bd1ab4fa607aaa74ec48db088ca9075ce5150319af22faad"
-    sha256 arm64_big_sur:  "77f4fe8630f9f20ee699f35c7b382aeed1f9d0aca15d022c8c44953ad1139559"
-    sha256 monterey:       "44b6ef568ced4088484499a8f627a283af2bc6ce32aaa1e0e9e4a43c4f0c69fe"
-    sha256 big_sur:        "01fb027d2ef4ebb5ded6487930879b83f30140439b705813fefc5b8799b3ab5d"
-    sha256 catalina:       "968f11a8d0fd310d3c3998e51c1d20588faa49354d9d5bb4193bc7ac91c0ea98"
+    sha256 arm64_monterey: "379b7e4f13e88b53ee6fc2248633682bdf9ea8a721e6eb9f1bb3c97d713bc532"
+    sha256 arm64_big_sur:  "504991d4f884c50c4cba11c2b534adcebab9583a491910e79add42149ca55c13"
+    sha256 monterey:       "29a0bee2928b881241e14356692ebaab1bfecd3c77b47ba3a89a4d2fb5f0d979"
+    sha256 big_sur:        "41e4fdfdb1953a5b77a4909a0610e82ceecd8ce63c5123e4c10b4e4a4c96cb9e"
+    sha256 catalina:       "5c114335ae47891878c67bcab4b63b61be07f1074020a459fa89a9348ce13c6c"
+    sha256 x86_64_linux:   "9566b4a2c9de748983b20f152cae6e3a7aceae46c53d90c7a9fad419f7ca1ff8"
   end
 
   depends_on "libre"
@@ -26,21 +27,26 @@ class Baresip < Formula
     libre = Formula["libre"]
     librem = Formula["librem"]
     # NOTE: `LIBRE_SO` is a directory but `LIBREM_SO` is a shared library.
-    system "make", "install", "PREFIX=#{prefix}",
-                              "LIBRE_MK=#{libre.opt_share}/re/re.mk",
-                              "LIBRE_INC=#{libre.opt_include}/re",
-                              "LIBRE_SO=#{libre.opt_lib}",
-                              "LIBREM_PATH=#{librem.opt_prefix}",
-                              "LIBREM_SO=#{librem.opt_lib/shared_library("librem")}",
-                              "MOD_AUTODETECT=",
-                              "USE_AVCAPTURE=1",
-                              "USE_COREAUDIO=1",
-                              "USE_G711=1",
-                              "USE_OPENGL=1",
-                              "USE_STDIO=1",
-                              "USE_UUID=1",
-                              "HAVE_GETOPT=1",
-                              "V=1"
+    args = %W[
+      PREFIX=#{prefix}
+      LIBRE_MK=#{libre.opt_share}/re/re.mk
+      LIBRE_INC=#{libre.opt_include}/re
+      LIBRE_SO=#{libre.opt_lib}
+      LIBREM_PATH=#{librem.opt_prefix}
+      LIBREM_SO=#{librem.opt_lib/shared_library("librem")}
+      MOD_AUTODETECT=
+      USE_G711=1
+      USE_OPENGL=1
+      USE_STDIO=1
+      USE_UUID=1
+      HAVE_GETOPT=1
+      V=1
+    ]
+    if OS.mac?
+      args << "USE_AVCAPTURE=1"
+      args << "USE_COREAUDIO=1"
+    end
+    system "make", "install", *args
   end
 
   test do

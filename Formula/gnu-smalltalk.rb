@@ -9,10 +9,11 @@ class GnuSmalltalk < Formula
   head "https://github.com/gnu-smalltalk/smalltalk.git", branch: "master"
 
   bottle do
-    sha256 monterey: "f68902246ecd9c5e7a3d0f764143fbf870920179294f29377ad3101c1a266b06"
-    sha256 big_sur:  "3e29abd9a730f20034a70ae42e217674c85ccf0334a9b2bb45a304cbe4d7c15c"
-    sha256 catalina: "730a528feab24da9688e0c8bc1a4176ddab53f92b8d56fc7ff6367bf94710c7c"
-    sha256 mojave:   "e23c93c01254dd0be94bf1149b08a1e6df3ed1502f300c3e093dad340b694dbd"
+    sha256 monterey:     "f68902246ecd9c5e7a3d0f764143fbf870920179294f29377ad3101c1a266b06"
+    sha256 big_sur:      "3e29abd9a730f20034a70ae42e217674c85ccf0334a9b2bb45a304cbe4d7c15c"
+    sha256 catalina:     "730a528feab24da9688e0c8bc1a4176ddab53f92b8d56fc7ff6367bf94710c7c"
+    sha256 mojave:       "e23c93c01254dd0be94bf1149b08a1e6df3ed1502f300c3e093dad340b694dbd"
+    sha256 x86_64_linux: "541ed252da6928a69ba090429e2a1be1fc61dfbc5e073b133eb24747ab9a8c95"
   end
 
   depends_on "autoconf" => :build
@@ -25,6 +26,8 @@ class GnuSmalltalk < Formula
   depends_on "libsigsegv"
   depends_on "libtool"
   depends_on "readline"
+
+  uses_from_macos "zip" => :build
 
   def install
     args = %W[

@@ -1,22 +1,26 @@
 class Solana < Formula
   desc "Web-Scale Blockchain for decentralized apps and marketplaces"
   homepage "https://solana.com"
-  url "https://github.com/solana-labs/solana/archive/v1.9.4.tar.gz"
-  sha256 "6a01faca50d4507b21c63e7e2ba4351c5be7765796aafc45b02ff32d3ff5d303"
+  url "https://github.com/solana-labs/solana/archive/v1.9.22.tar.gz"
+  sha256 "63a7d1918084bba48eeb9387b185ab551fc2c3c42b8c7eca3b0f389655b44ddb"
   license "Apache-2.0"
 
+  # This formula tracks the stable channel but the "latest" release on GitHub
+  # varies between Mainnet and Testnet releases. This identifies versions by
+  # checking the releases page and only matching Mainnet releases.
   livecheck do
-    url :stable
-    strategy :github_latest
+    url "https://github.com/solana-labs/solana/releases?q=prerelease%3Afalse"
+    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)["' >][^>]*?>[^<]*?Mainnet}i)
+    strategy :page_match
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8cc98a9734fd0af66b7305573d08aebbf21ff4cfd157334dd8cf447c80018f5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "175bfb26ddf2a5854fd06998972dcbf1e96e4ead70d2c931aa65ed722f6c4734"
-    sha256 cellar: :any_skip_relocation, monterey:       "f6ab03696d1cd7ec5b33c1f7340f1ed27ad30875edbb36d31f977fb7776c6594"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d6ab547741b9b6c4510c01039ef815dab3e26720ccdb7c93798ae1f93f4a553"
-    sha256 cellar: :any_skip_relocation, catalina:       "f5d103d689b988c5e6d51efd1ff58aaf1b82c456b8e0fe0ae22d6b4651b9b9a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11f1dfc1e2b6ad7e2a1b9ddcf22ccfcb1d1532396c9e9bb74b4bc99dd407b01a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f8c2f3661fcd18a05cae17a90ef21dd6a313a4ed2bedbf5783101bc6dc035ba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d60d0a5dc28602ae4f7d07ef4f6575a257573a2634fc574cb685d1efd7c6f2b0"
+    sha256 cellar: :any_skip_relocation, monterey:       "3edea1dad3a8eeb4108cb19d556b2e49ba2bb1976863598b395a5c62ac74fcc8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cea4960cff9d79552a4a6ccf312e74f7ceeb0a50969bd4ca70fa5f391b2a0fa0"
+    sha256 cellar: :any_skip_relocation, catalina:       "f15342b5a13f2974ddf431d13a3062a881b154d69f9de84521da3d80f4c76877"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "171a8bbb5e30f0f1f69910edd60b5f963dfcd622291f1ecd47b3bd716092ed4c"
   end
 
   depends_on "protobuf" => :build

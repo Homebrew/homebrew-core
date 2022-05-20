@@ -13,11 +13,25 @@ class Ne < Formula
     sha256 big_sur:        "993bb3e19da613eec505a0ad68fe83bee71ff2623d7110b9e09005af7c819795"
     sha256 catalina:       "ecfd40e9e55ae2fe75fe6c8118742de8268ed794784fdff5807c26073832d2c5"
     sha256 mojave:         "4e3b9c4ad9cf331cd239cfe8b192e9f3c6cd9f6609d3726a0fad32ad1c4c9715"
+    sha256 x86_64_linux:   "8667e95df91bb5c2f696f404c5d6ded28c279ef41596ffba4ddd3705338ba939"
   end
 
   depends_on "texinfo" => :build
 
+  uses_from_macos "ncurses"
+
+  on_linux do
+    # The version of `env` in CI is too old, so we need to use brewed coreutils.
+    depends_on "coreutils" => :build
+  end
+
   def install
+    # Use newer env on Linux that supports -S option.
+    unless OS.mac?
+      inreplace "version.pl",
+                "/usr/bin/env",
+                Formula["coreutils"].libexec/"gnubin/env"
+    end
     ENV.deparallelize
     cd "src" do
       system "make"
@@ -26,6 +40,8 @@ class Ne < Formula
   end
 
   test do
+    require "pty"
+
     ENV["TERM"] = "xterm"
     document = testpath/"test.txt"
     macros = testpath/"macros"
@@ -38,7 +54,10 @@ class Ne < Formula
       InsertLine
       Exit
     EOS
-    system "script", "-q", "/dev/null", bin/"ne", "--macro", macros, document
+    PTY.spawn(bin/"ne", "--macro", macros, document) do |_r, _w, pid|
+      sleep 1
+      Process.kill "KILL", pid
+    end
     assert_equal <<~EOS, document.read
       This is a test document.
       line 2

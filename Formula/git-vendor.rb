@@ -1,13 +1,13 @@
 class GitVendor < Formula
   desc "Command for managing git vendored dependencies"
   homepage "https://brettlangdon.github.io/git-vendor"
-  url "https://github.com/brettlangdon/git-vendor/archive/v1.2.2.tar.gz"
-  sha256 "f7b3b73ab2246a7572d55eec4e634467bd1ae9414aae8f11a1d4e59e587326ca"
+  url "https://github.com/brettlangdon/git-vendor/archive/v1.3.0.tar.gz"
+  sha256 "774c0ba9596f3231c846dad096f61d7e2906f6fad38c031bf6c01bb8d6c0a338"
   license "MIT"
   head "https://github.com/brettlangdon/git-vendor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e1829f03d6c7439fa2ee659fce71db2cc3bc159477d58233d497125fbc14c281"
+    sha256 cellar: :any_skip_relocation, all: "8123246395ec3af5b972d961eda517a523b8c0807b6cc3e25aba2bc09c46230b"
   end
 
   def install

@@ -4,7 +4,7 @@ class Mapnik < Formula
   url "https://github.com/mapnik/mapnik/releases/download/v3.1.0/mapnik-v3.1.0.tar.bz2"
   sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
   license "LGPL-2.1-or-later"
-  revision 5
+  revision 9
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Mapnik < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5821727e6bd5b456ad80ba0d1dd8feea6b42de7af942fccb0279f0a24e23c003"
-    sha256 cellar: :any,                 arm64_big_sur:  "f969998d9b693da26699705c691d75b4cab8fa22b091d56a47e3ef92688fd8e0"
-    sha256 cellar: :any,                 monterey:       "bd44d13a5e833ea36ae35e16bb56e9bf4e90134b5565fa1bd6adc13a1e1187cf"
-    sha256 cellar: :any,                 big_sur:        "9234f5235b6586f049f18a8812f676262009811b0c32eb14171901dbd64ec4b5"
-    sha256 cellar: :any,                 catalina:       "2840371dd8a84e29fe883e616c937962b32b1bf34066c13fa6ada13bd75cda3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08332dc59b66ceb70a6ff51a7d72826a3a28b109ee9eea0d69513fb4b38a7924"
+    sha256 cellar: :any,                 arm64_monterey: "88c2bfae2fc095df973e6c1a24bd6424cdecb15a8cfe9e276cff215740e4150b"
+    sha256 cellar: :any,                 arm64_big_sur:  "940dd231a42ef131d258dbee54abc10ea97b21ae026e0ac6c852c0d836643eb8"
+    sha256 cellar: :any,                 monterey:       "16dcdc5257b5209a8447d806a0ff7500c6f6557c16b3238a0a2050e3b9e69431"
+    sha256 cellar: :any,                 big_sur:        "4afff60a6a7fc188c713e084a2a5e13ead96be504bd32c4ebb55990567b01052"
+    sha256 cellar: :any,                 catalina:       "9c2c0d3e4473fe2c55fc5d2449e2fd9ce4bad5ebf5e8b96a279bdca9813283ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f327e497ffaa82ca9fa47bc4bbe8d0549e096150eea5bab669d262957a74b61"
   end
 
   depends_on "pkg-config" => :build
@@ -33,7 +33,7 @@ class Mapnik < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "postgresql"
-  depends_on "proj@7"
+  depends_on "proj"
   depends_on "webp"
 
   def install
@@ -44,10 +44,6 @@ class Mapnik < Formula
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
     ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
-
-    # Use Proj 6.0.0 compatibility headers
-    # https://github.com/mapnik/mapnik/issues/4036
-    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
 
     boost = Formula["boost"].opt_prefix
     freetype = Formula["freetype"].opt_prefix

@@ -1,8 +1,8 @@
 class Kdoctools < Formula
   desc "Create documentation from DocBook"
   homepage "https://api.kde.org/frameworks/kdoctools/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.90/kdoctools-5.90.0.tar.xz"
-  sha256 "1a74ff1d5ac8c0639ff8a3430f5226480844119010605f911ed7a2ca684d4ad0"
+  url "https://download.kde.org/stable/frameworks/5.94/kdoctools-5.94.0.tar.xz"
+  sha256 "f54e61ffe8c5e634e7d6e341020b63346d40b524d4a22565c86b9147033cd2f4"
   license all_of: [
     "BSD-3-Clause",
     "GPL-2.0-or-later",
@@ -19,11 +19,12 @@ class Kdoctools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "eeab6840dc815e4072645bc32582799aceaed73da558dec30add8ee6689a8a04"
-    sha256 cellar: :any, arm64_big_sur:  "c3e0647d8f6a340c4bd4b33adc0458777f0a70af5d6f034cb7397b237b0fd338"
-    sha256 cellar: :any, monterey:       "fe1c04409b0f0eddc077ba701ee67eec9a85d2f3370638c9e430889ac99da562"
-    sha256 cellar: :any, big_sur:        "f0c22ea8a0565594383124d461bc585fd941ca1a4da66b8314bf80d1a08423c5"
-    sha256 cellar: :any, catalina:       "25ddbfcf45e0c2ee32b13134a11c8e9fe30593367e4c3579fb925a3c13265bd3"
+    sha256 cellar: :any,                 arm64_monterey: "94bf83e26aae861dd20861040fb613470b9cc16aebb7a7f4d5f1d97e5a0a3162"
+    sha256 cellar: :any,                 arm64_big_sur:  "10efc14f7276a8e5327820218a5cc028f358f2e10f860fbce7f264f76c35a093"
+    sha256 cellar: :any,                 monterey:       "f4243ebcadf7ade14f7e5de7d38cc31d8478131278b4c95f3347de1c37436ce4"
+    sha256 cellar: :any,                 big_sur:        "2b175cb882597b1def3dd71172d44684a604e8ca05debd05650d66ccaa64258c"
+    sha256 cellar: :any,                 catalina:       "6a5991a1049a9a176e8450aae8efbebc4eef199ec61761a65410175f77c3fce3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4609a46c6791a640b11750bedd7ef6f95d6deb5b9b88bca3d23198f0994fa553"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -38,6 +39,12 @@ class Kdoctools < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "perl"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   resource "URI::Escape" do
     url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz"

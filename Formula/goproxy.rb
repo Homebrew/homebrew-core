@@ -23,17 +23,16 @@ class Goproxy < Formula
   end
 
   test do
+    ENV["GOPATH"] = testpath.to_s
     bind_address = "127.0.0.1:#{free_port}"
     begin
       server = IO.popen("#{bin}/goproxy -proxy=https://goproxy.io -listen=#{bind_address}", err: [:child, :out])
       sleep 1
       ENV["GOPROXY"] = "http://#{bind_address}"
-      test_module = "github.com/spf13/cobra"
-      system "go", "get", test_module
+      system "go", "install", "golang.org/x/tools/cmd/guru@latest"
     ensure
       Process.kill("SIGINT", server.pid)
-      Process.wait(server.pid)
     end
-    assert_match test_module, server.read
+    assert_match "200 /golang.org/x/tools/", server.read
   end
 end

@@ -1,8 +1,8 @@
 class PhoronixTestSuite < Formula
   desc "Open-source automated testing/benchmarking software"
   homepage "https://www.phoronix-test-suite.com/"
-  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v10.8.1.tar.gz"
-  sha256 "d17ab231a2dadec506624db62d560565ada065671b290dc460cb8a757e98d96e"
+  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v10.8.3.tar.gz"
+  sha256 "752012b6e94897f03a219157fe1ba6c4198eb16a5ddf026811b739f1f89cfd9e"
   license "GPL-3.0-or-later"
   head "https://github.com/phoronix-test-suite/phoronix-test-suite.git", branch: "master"
 
@@ -12,12 +12,12 @@ class PhoronixTestSuite < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d13581a2744e55372e8a0738654d188674895fa23d873d8ae701c08a58214947"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d13581a2744e55372e8a0738654d188674895fa23d873d8ae701c08a58214947"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf2dd4e1198a7bb25435faeb3caa7ab7445b28cb4b11cec63720ea5b67cd71a5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cf2dd4e1198a7bb25435faeb3caa7ab7445b28cb4b11cec63720ea5b67cd71a5"
-    sha256 cellar: :any_skip_relocation, catalina:       "cf2dd4e1198a7bb25435faeb3caa7ab7445b28cb4b11cec63720ea5b67cd71a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d13581a2744e55372e8a0738654d188674895fa23d873d8ae701c08a58214947"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3ef1554e954d39cbcbed7d749e4250bb94d0c71b0c3f8777ee43e0e9e05e4b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3ef1554e954d39cbcbed7d749e4250bb94d0c71b0c3f8777ee43e0e9e05e4b1"
+    sha256 cellar: :any_skip_relocation, monterey:       "69aa498eda75a3f1706ab0ed9cc33ba18060b19bbb56824b8dfc981d0fda5641"
+    sha256 cellar: :any_skip_relocation, big_sur:        "69aa498eda75a3f1706ab0ed9cc33ba18060b19bbb56824b8dfc981d0fda5641"
+    sha256 cellar: :any_skip_relocation, catalina:       "69aa498eda75a3f1706ab0ed9cc33ba18060b19bbb56824b8dfc981d0fda5641"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3ef1554e954d39cbcbed7d749e4250bb94d0c71b0c3f8777ee43e0e9e05e4b1"
   end
 
   depends_on "php"

@@ -8,13 +8,13 @@ class Lcm < Formula
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6f663f930c725a6e01f5186aa3b73ad6f8a247673d5dca58921f3c49dc4992ab"
-    sha256 cellar: :any,                 arm64_big_sur:  "a0a53217477597ebd7afe6afcb10f732831af2914ebba6434d90a543ddd09aeb"
-    sha256 cellar: :any,                 monterey:       "b871f2e30a9ee82cd0830f0db5340f006d7603a15da2982f7df806a66fccddfb"
-    sha256 cellar: :any,                 big_sur:        "8ae12270c1b2ba9c0c02b22a32bb96326a4694aee2e0c65e694d71ef7e1a4c05"
-    sha256 cellar: :any,                 catalina:       "13a51b7c5ca3ffa82d366ae898ab98dcafa725af2a6f8319bcbf16225b0dba4f"
-    sha256 cellar: :any,                 mojave:         "437bc1978078c4ad00696efb00cf4add0afa7666c1e8b7a8b6080974bed3eae4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f395b8d2bc8dac7f0c332ef8a4aac62b3d9851a00c84820076addef775c29b9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "b30cc36445aaa0c3b1f5c784608fb4bfcc5e9f2e1d3afa9c5d58c6185340c5e7"
+    sha256 cellar: :any,                 arm64_big_sur:  "c7ad845ea866ae04b14650ff23482f4093ba7ab0973bbb920180d201c3b31b80"
+    sha256 cellar: :any,                 monterey:       "a05d1bd7f4b43968e99c05f80f0ef707eed4179a5c511a80a5e3fad656b5d666"
+    sha256 cellar: :any,                 big_sur:        "0ee183d544cf79575e1d23b84109b3439ab1adf3fc9de53bb726b272658a9dc0"
+    sha256 cellar: :any,                 catalina:       "f54ed2743dd01a817b91e881695c5bab06b42123269e5e1586256fb70ab81c62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc2ac51e1a23482d573e071493c49089c7de08be39be0002b523bbccfec4758b"
   end
 
   depends_on "cmake" => :build
@@ -25,18 +25,18 @@ class Lcm < Formula
   depends_on "python@3.9"
 
   def install
+    # Adding RPATH in #{lib}/lua/X.Y/lcm.so and some #{bin}/*.
     args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{lib}
       -DLCM_ENABLE_EXAMPLES=OFF
       -DLCM_ENABLE_TESTS=OFF
       -DLCM_JAVA_TARGET_VERSION=8
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
 
-    mkdir "build" do
-      system "cmake", *args, ".."
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

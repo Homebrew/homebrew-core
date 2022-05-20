@@ -16,6 +16,7 @@ class Ps2eps < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "91e08e8ced4f5394ad3f4990a092fa61a547cce4264127350f97912c50dda5f3"
     sha256 cellar: :any_skip_relocation, catalina:       "b2d84470b90f037632206b6318f87bf1024e0d0ed83fb8344e44642dc8751187"
     sha256 cellar: :any_skip_relocation, mojave:         "170231b1c48914442e5c4eac304652b1aab7603c46d407f26b1383b932e3c2d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e392648b006b21de93a33d1fbb1b5505c1de5353d0168368a71f15efd9a39df6"
   end
 
   depends_on "ghostscript"

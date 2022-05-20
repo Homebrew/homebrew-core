@@ -1,17 +1,18 @@
 class DockerGen < Formula
   desc "Generate files from docker container metadata"
-  homepage "https://github.com/jwilder/docker-gen"
-  url "https://github.com/jwilder/docker-gen/archive/0.8.2.tar.gz"
-  sha256 "4a616727869840344eda89d87df6ff09d31f38133eddaf051d481299bef7e63a"
+  homepage "https://github.com/nginx-proxy/docker-gen"
+  url "https://github.com/nginx-proxy/docker-gen/archive/0.9.0.tar.gz"
+  sha256 "9f270363d872e4d302b67b3baa3baec4d1c7b892814fd6a50e5953a2b90d745e"
   license "MIT"
+  head "https://github.com/nginx-proxy/docker-gen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e670b38ee0bf43c75b43b0ad6e2416acf29af2fea19782d31c513e73b31e4b0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff15a3f0cde3c608f89e86020045dbe47a38c82ed2078a760208b78cbc0e663f"
-    sha256 cellar: :any_skip_relocation, monterey:       "807f968afc90f52297ac1bb6953b87631a829dbccbe63ae418968c15f3d3dd11"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cca0a7a05288e3c4da58f0ce21dacd2cf8ecc0252d38e6052c1ef064f9c7cf6d"
-    sha256 cellar: :any_skip_relocation, catalina:       "10b4fe71565f1feff2bc50a1109cc01c6d569f9888ad337464fa06faa7b9f0eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2669fff11633b691ec14c68ef203116fb7259bd93cfd68e91335b4b83638e95f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f40cb72aa44346dd276d00f9587d27e7ccb060684d138e3045e0207b2b3cc325"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8edafbe63fac9db91d1202f54f59ef1c6cc3e65c3de3f7c9546943d297a0a8c"
+    sha256 cellar: :any_skip_relocation, monterey:       "01164c6aa3f7a4aad182637b926a5c108154f115c5d1e3233d40237986fa8ce5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1575d5f789387db751721f1114683e38c61f2519d07afcb82f214c13ce2434bb"
+    sha256 cellar: :any_skip_relocation, catalina:       "47c4d2d964d487c1e45fdd9a4415fe5a1bff554f616eccc9e4a70930a205a752"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e23c49eef1a172419af2bcaa3b35512401d45ad5d1b7e09e0d9e5af605230cf3"
   end
 
   depends_on "go" => :build

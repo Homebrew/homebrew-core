@@ -53,7 +53,7 @@ class Yasm < Formula
                 0x00, 0x00, 0x00, 0x00, 0xcd, 0x80]
     assert_equal expected, code
 
-    on_macos do
+    if OS.mac?
       (testpath/"test.asm").write <<~EOS
         global start
         section .text
@@ -72,8 +72,7 @@ class Yasm < Formula
       EOS
       system "#{bin}/yasm", "-f", "macho64", "test.asm"
       system "/usr/bin/ld", "-macosx_version_min", "10.8.0", "-static", "-o", "test", "test.o"
-    end
-    on_linux do
+    else
       (testpath/"test.asm").write <<~EOS
         global _start
         section .text

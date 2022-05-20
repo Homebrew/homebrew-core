@@ -1,8 +1,8 @@
 class Links < Formula
   desc "Lynx-like WWW browser that supports tables, menus, etc."
   homepage "http://links.twibright.com/"
-  url "http://links.twibright.com/download/links-2.25.tar.gz"
-  sha256 "5c0b3b0b8fe1f3c8694f5fb7fbdb19c63278ac68ae4646da69b49640b20283b1"
+  url "http://links.twibright.com/download/links-2.26.tar.gz"
+  sha256 "c42a4dba21dcfb4525034139489cd47f30aa0c5f9d05b37d4e2eaaea943fe2b1"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Links < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5d69fd6ef3b865956b1975123671932ad4d0b9a9f0b662ed412519debe748809"
-    sha256 cellar: :any,                 arm64_big_sur:  "b3e9ad1d3617acdbbc86edbc90f429083130a51eb6ea26b809774b8eaf39fa53"
-    sha256 cellar: :any,                 monterey:       "77261cf3aeedfe6b058734536d55b744b80bb52c1cf777a2d78497bd1f4c69e2"
-    sha256 cellar: :any,                 big_sur:        "9d7178901279a9ee80768056fa4f2b04676777d5ef2063c9f8a8c2b9f98a8906"
-    sha256 cellar: :any,                 catalina:       "1eaa9411f73c61b7a82ee8d16b94bd7c8c0dde86e1eec953c5ce5872394ee073"
-    sha256 cellar: :any,                 mojave:         "c12924230d58173c263dcdd827ecb4d9f44bb1e654a191ff5882a46330125cdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6bbd8bae1431f150cc3153f2731cf41cf4fbf06b59033a28b5ac8b72906a792"
+    sha256 cellar: :any,                 arm64_monterey: "0412a60f3601d879a412c3b439e70cb1b3d1448c2e4653612ce025b558174a9d"
+    sha256 cellar: :any,                 arm64_big_sur:  "75c23a628dce1edc0b548ec702d250ed8b92939365ec3c975a49d133ace60f2a"
+    sha256 cellar: :any,                 monterey:       "cf87869bc114345ff11665dc0a22b882128d15bdbeef9e97433090397fd92a93"
+    sha256 cellar: :any,                 big_sur:        "d5a8fe394135df37d8c3ea61dfa0e3a99bdff60c8c108322da48a7aef4fb6ae3"
+    sha256 cellar: :any,                 catalina:       "e1b34966182296dce6f81f866fc72089fe7b4a1af5b9084e3faf163a370b5200"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0df7751af5188e71d7b73156fd98ca906258bdda4d96fe6d272c66d7ae4e5817"
   end
 
   depends_on "pkg-config" => :build

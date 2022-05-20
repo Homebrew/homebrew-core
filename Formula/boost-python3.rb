@@ -2,8 +2,8 @@ class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
   # Please add to synced_versions_formulae.json once version synced with boost
-  url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
-  sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
+  url "https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.bz2"
+  sha256 "8681f175d4bdb26c52222665793eef08490d7758529330f98d3b29dd0735bccc"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -12,13 +12,12 @@ class BoostPython3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "00713138626814a358245d256f8dbb88b110156ae982c8c7b66f3153889de621"
-    sha256 cellar: :any,                 arm64_big_sur:  "5c5d10ed0373c7e068e2ca80fa98ff39ac444392bbcf0d6932fe92259f0f9f4a"
-    sha256 cellar: :any,                 monterey:       "d46ec50f79eb1e6fb9abf447841ee144314a689551a31ca523c07a8b25cca290"
-    sha256 cellar: :any,                 big_sur:        "031cfc31e2d655019467833a4c6ba4fcb7ed69f2e28798fead339cf5a1a84681"
-    sha256 cellar: :any,                 catalina:       "2f905a84c2f81d6037d16215e55e31feff2d5cccedb170e7294726d2ec3f80d9"
-    sha256 cellar: :any,                 mojave:         "9f4253a35144aabe0056e46b2c11c8c45d2fe4857b7d7cf4e2e728de19b8c044"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf25dc1ea9b2201258ff79c872dbbd8667ca52e7085f47164318631aae2f5ba1"
+    sha256 cellar: :any,                 arm64_monterey: "836470a175e4c95bcadd8da25cfbeb86e521aafbae2d23d3b5101619cbd9b8a4"
+    sha256 cellar: :any,                 arm64_big_sur:  "bad95d638e26a8882bd0a3a86c756777b572c0cddff98f0d119c4ec5d4e5944b"
+    sha256 cellar: :any,                 monterey:       "5b326c00a026c199ef9d6248163e7643fcf15e99a1df425c4d5fcba7b46484c3"
+    sha256 cellar: :any,                 big_sur:        "4b99b887b77708dadee882d3cba171e1f3ce9c8fa36a2cd8f458da7a559a591a"
+    sha256 cellar: :any,                 catalina:       "4a311cf08f87d7422778f81cba94abd862328b0b8965fdea0a3b26679fc52855"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa8e5b98ae2979745240f581c5578b757b09e929e9f3516c457d1fdc60625a1a"
   end
 
   depends_on "numpy" => :build

@@ -39,9 +39,13 @@ class Pit < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "fd6ce87e3c42f5418c28e6a8a60184ac51b596bb59343de5523930980071103b"
     sha256 cellar: :any_skip_relocation, el_capitan:     "20064d0b1496360f820f55aae90b0e4adf00a70cb4f607668a6beadd0ae11c08"
     sha256 cellar: :any_skip_relocation, yosemite:       "20d5d870a4a2cb926cfcdbf4ad8066281c0bc8c4318e7a74d316077c71fdf175"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9d22e313984a6d20930041fd3cbb5896826e0be8a687992866ceef0e79152c7"
   end
 
+  uses_from_macos "ruby"
+
   def install
+    ENV.deparallelize
     bin.mkpath
 
     system "make"

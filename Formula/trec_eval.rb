@@ -12,6 +12,7 @@ class TrecEval < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "909a8fa72d9da9dc50790dd31faf7ce80bfa13f6714fb39008ea4ef9ceefbff5"
     sha256 cellar: :any_skip_relocation, catalina:       "ea8723ce3d27bc893ec5255f8bb3235d03d442a58ef36586997b085626d752c7"
     sha256 cellar: :any_skip_relocation, mojave:         "cecbd8490c8b889b72922ff9d6f6fdd5bed740e211217b4ac5c37b742b4e1b41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc3ec132aca6dc41b193e739765cbc951b20c705d84aac1a98f930a5ebb1ee32"
   end
 
   def install

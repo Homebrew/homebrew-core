@@ -3,27 +3,23 @@ class OrganizeTool < Formula
 
   desc "File management automation tool"
   homepage "https://github.com/tfeldmann/organize"
-  url "https://files.pythonhosted.org/packages/1b/4d/2196f9bc400e36a41673c8f9438d0b48714eab6952c97f0720811fb3fc33/organize-tool-2.0.3.tar.gz"
-  sha256 "b4c5303da195d578c921f8cefa75a4cb6032824b70e11fd07bd74dce2e128194"
+  url "https://files.pythonhosted.org/packages/5e/2e/6afb23be979828a638a42ee767f25c3f703f5e85f4142095666d717a5e64/organize-tool-2.2.0.tar.gz"
+  sha256 "f912ce6d71baaf163f8961da9dcc283dd0ad38a6186f6f6590c4efadcdf34cac"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b1f4ca789c064c67c0205d70a67c4f21fbcaa5005c5e82ca5e1bc5872d772270"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9597e5948afa0bae83c5c41dc43eeaa6ad457e9d5282d9c2926e473178bbcdb7"
-    sha256 cellar: :any_skip_relocation, monterey:       "a188024dd867c6d1915b58164cfd987504b3cc406de449950f537636605cbb99"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b076c8c4baf69663b2a76961414c3bc599b94be027f3546c368f08d032bcdec7"
-    sha256 cellar: :any_skip_relocation, catalina:       "c52be98cbb297e6aacf18ed6edd9e1f3d2440b690974c2a07a8a2d1f08e5cd8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2dc3bd1afaa42ef4cbb4a2428e4e00f4c4d4db9abf8f5cad93575691ce3e685e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0de7be059bb7dfe89aa68b4446789a92261c1890a4476a03305a61123c968c65"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "591e0f8e053c3abe61feb0391ed78755979d388cb0f33b999945f2965b17850b"
+    sha256 cellar: :any_skip_relocation, monterey:       "3a00038967a4cbc757410bf363c2b557b24c152dcc6ba463d22c73fc84b4987f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8e41d6317a2970795a5b2e11aa80092f31c8b0b47f57c6438b0438af605798a4"
+    sha256 cellar: :any_skip_relocation, catalina:       "8a040aacd711c87946829db89eff5c783e77940d12dfd219dc80d511e86104e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff9995c81e726a8262683446f851152d209f361cea0ee0987dd258953b9ad73c"
   end
 
   depends_on "freetype"
   depends_on "openjpeg"
   depends_on "python@3.10"
   depends_on "six"
-
-  on_linux do
-    depends_on "poetry" => :build
-  end
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -36,8 +32,8 @@ class OrganizeTool < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
-    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
+    url "https://files.pythonhosted.org/packages/42/e1/4cb2d3a2416bcd871ac93f12b5616f7755a6800bccae05e5a99d3673eb69/click-8.1.2.tar.gz"
+    sha256 "479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"
   end
 
   resource "colorama" do
@@ -66,8 +62,8 @@ class OrganizeTool < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz"
+    sha256 "640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"
   end
 
   resource "macos-tags" do
@@ -76,8 +72,8 @@ class OrganizeTool < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
-    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "mdfind-wrapper" do
@@ -95,9 +91,19 @@ class OrganizeTool < Formula
     sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
   end
 
+  resource "pyobjc-core" do
+    url "https://files.pythonhosted.org/packages/38/2e/577f709fd6ef54cfa7cfa0ee177f98d36d5292b5231cc13e62b1548fca46/pyobjc-core-8.4.1.tar.gz"
+    sha256 "df98669e957adb33566d9ef46773a5ac876a81afe8849c282d6a80448e35dd74"
+  end
+
+  resource "pyobjc-framework-Cocoa" do
+    url "https://files.pythonhosted.org/packages/c9/f1/a6abd1b9af00e07593755818f52f8c370750b55bb9ea2e0dba262d559913/pyobjc-framework-Cocoa-8.4.1.tar.gz"
+    sha256 "dc596bac0f5d424f67944e95b2d0d7c94a07c4166359d7b4a4d4ae4f8e112822"
+  end
+
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/e3/8e/1cde9d002f48a940b9d9d38820aaf444b229450c0854bdf15305ce4a3d1a/pytz-2021.3.tar.gz"
-    sha256 "acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"
+    url "https://files.pythonhosted.org/packages/2f/5f/a0f653311adff905bbcaa6d3dfaf97edcf4d26138393c6ccd37a484851fb/pytz-2022.1.tar.gz"
+    sha256 "1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7"
   end
 
   resource "PyYAML" do
@@ -106,8 +112,8 @@ class OrganizeTool < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/81/d2/64751634e1af18e61454e9946c8c792ab3866c2b309615844fc435036715/rich-11.1.0.tar.gz"
-    sha256 "43e03d8eec12e21beaecc22c828a41c4247356414a12d5879834863d4ad53816"
+    url "https://files.pythonhosted.org/packages/72/de/b3a53cf1dfdbdc124e8110a60d6c6da8e39d4610c82491fc862383960552/rich-11.2.0.tar.gz"
+    sha256 "1a6266a5738115017bb64a66c59c717e7aa047b3ae49a011ede4abdeffc6536e"
   end
 
   resource "schema" do
@@ -137,6 +143,8 @@ class OrganizeTool < Formula
       # `macos-tags` and its dependencies are only needed on macOS
       # TODO: Currently requires manual check to confirm PyPI dependency tree
       dependencies -= %w[macos-tags mdfind-wrapper xattr cffi pycparser]
+      # Same for `pyobjc-framework-cocoa` and its dependencies
+      dependencies -= %w[pyobjc-framework-Cocoa pyobjc-core]
     end
     dependencies.each do |r|
       venv.pip_install resource(r)
@@ -158,7 +166,7 @@ class OrganizeTool < Formula
     touch testpath/"homebrew.txt"
 
     assert_match "Found: homebrew.txt", shell_output("#{bin}/organize sim --config-file=#{testpath}/config.yaml")
-    system "#{bin}/organize", "run", "--config-file=#{testpath}/config.yaml"
+    system bin/"organize", "run", "--config-file=#{testpath}/config.yaml"
     refute_predicate testpath/"homebrew.txt", :exist?
   end
 end

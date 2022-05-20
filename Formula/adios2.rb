@@ -1,8 +1,8 @@
 class Adios2 < Formula
   desc "Next generation of ADIOS developed in the Exascale Computing Program"
   homepage "https://adios2.readthedocs.io"
-  url "https://github.com/ornladios/ADIOS2/archive/v2.7.1.tar.gz"
-  sha256 "c8e237fd51f49d8a62a0660db12b72ea5067512aa7970f3fcf80b70e3f87ca3e"
+  url "https://github.com/ornladios/ADIOS2/archive/v2.8.0.tar.gz"
+  sha256 "5af3d950e616989133955c2430bd09bcf6bad3a04cf62317b401eaf6e7c2d479"
   license "Apache-2.0"
   revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
@@ -13,13 +13,12 @@ class Adios2 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "6868483da21fddfcb4c5a76d821c9df6f2276ef86de36141d3666ba01a3f1922"
-    sha256 arm64_big_sur:  "b6b6dbcbe7d3d1ad478d47b4004d9ac932707a2503f810439680672a87b89e2b"
-    sha256 monterey:       "43469ded9b6f8253cef8e12fcc64138f406f70c71705e3d7b59b8f001b357900"
-    sha256 big_sur:        "7d1abe16be0173d2c1e645c51641b59fea8983c140c5caef132016d4e1416568"
-    sha256 catalina:       "6826ba1d0cf70bd775a97a152fa2423b0091dfb196500d5a1eef0884f6e9d2f8"
-    sha256 mojave:         "ec0da5f5869f0473b3c7b906cb4ea86d7673f4ff3bb479d6cf88621beb990507"
-    sha256 x86_64_linux:   "1ff13a5c092bdbecb0ae8e3b5ec7a0b7910550c22ac7376c41ec92708138b67e"
+    sha256 arm64_monterey: "dbec6a45682239a427774326cb5b61e59306529820332c8998cf71472bf0c1af"
+    sha256 arm64_big_sur:  "f55adf2a1b181880e48dcb23b0cdf52101893c294ca8b3ed7e37caf07dfba813"
+    sha256 monterey:       "a6ee986cc4fa1893642b51545ee785be2171848d796d5d0b5029d64030a2aae2"
+    sha256 big_sur:        "682435b4e93127c54918a0cad61a8ac444c917774e3402c6350fe1be00734245"
+    sha256 catalina:       "53a6ac6ff41017b3ae2b48f4038e4861df8ced831fe1414649ea29c4ad9cb86b"
+    sha256 x86_64_linux:   "df57de553907d8247087bf17fd49a0d28fa3fe5103916c5a218456045a2015d2"
   end
 
   depends_on "cmake" => :build
@@ -30,8 +29,9 @@ class Adios2 < Formula
   depends_on "mpi4py"
   depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "zeromq"
+
   uses_from_macos "bzip2"
 
   def install
@@ -60,16 +60,14 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_FLEX=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
-      -DPython_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPython_EXECUTABLE=#{which("python3")}
       -DCMAKE_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages("python3")}
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
     ]
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-      rm_rf Dir[prefix/"bin/bp4dbg"] # https://github.com/ornladios/ADIOS2/pull/1846
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     (pkgshare/"test").install "examples/hello/bpWriter/helloBPWriter.cpp"
     (pkgshare/"test").install "examples/hello/bpWriter/helloBPWriter.py"
@@ -83,8 +81,9 @@ class Adios2 < Formula
     system "./a.out"
     assert_predicate testpath/"myVector_cpp.bp", :exist?
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import adios2"
-    system Formula["python@3.9"].opt_bin/"python3", (pkgshare/"test/helloBPWriter.py")
+    python = Formula["python@3.10"].opt_bin/"python3"
+    system python, "-c", "import adios2"
+    system python, (pkgshare/"test/helloBPWriter.py")
     assert_predicate testpath/"npArray.bp", :exist?
   end
 end

@@ -19,10 +19,13 @@ class Mpdas < Formula
     sha256 big_sur:        "1f41b8a297270de980e814104f1a74d9437777caa9443686fb251cac6625494b"
     sha256 catalina:       "ae3eaddea864370fbcb2ad3f815165ba4f79f57470cbf0b3d81c781f0aaccc37"
     sha256 mojave:         "4b6a70ab4c6599598c88dc0da91b3646a5d36bc7db9c174ed1cad387861f4370"
+    sha256 x86_64_linux:   "863be659b7b2e9ee5e61c73d284d0a753430f438fbf1225efcee4120850883d2"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libmpdclient"
+
+  uses_from_macos "curl"
 
   def install
     system "make", "PREFIX=#{prefix}", "MANPREFIX=#{man1}", "CONFIG=#{etc}", "install"

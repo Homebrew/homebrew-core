@@ -1,8 +1,8 @@
 class Csvq < Formula
   desc "SQL-like query language for csv"
   homepage "https://mithrandie.github.io/csvq"
-  url "https://github.com/mithrandie/csvq/archive/v1.15.2.tar.gz"
-  sha256 "013d27df901c00dfb75ea164dcc89e93c3ed3d300086d30eff23688f4519c103"
+  url "https://github.com/mithrandie/csvq/archive/v1.17.0.tar.gz"
+  sha256 "f723b7f8d6263bee4048e73fd2010b4275550b9a2ca2eeca16602c1d6fb3ac49"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,12 @@ class Csvq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f6ed16c9215d9eb3f655d7f6d6e8662eb6bafba47e2c966f031cd8f61e60b2e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02bea931968c6d43c8addab05167b4581a97157f8f232e9f9455f1307559d92e"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4219bb2b00a45fd20b65f8e5bcc3a88e1efa618561aa7f3b1a27111e8a55830"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2ef66a80dbf62ec07ccf9646db9650b56862a4908eb6d9bd6f481f754b4749d1"
-    sha256 cellar: :any_skip_relocation, catalina:       "f978e4066823494d805bd1d9672c0f9cd9b0d5917763b221e5d2b697c6fa49a0"
-    sha256 cellar: :any_skip_relocation, mojave:         "6512f703828def15a4763fea61299339795e808f9399c048e8807fb1d5e072bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7102a7561fcf110fd0d7180087fa5697360915ac4616bc1b321c64e3cba1830a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2178cf5b5b7bbbb644782801e4b0eaddde8696eb73960207dc9e0b3e38a93ac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "37813fdcde5b0ba9b963d81d7cc7a2af2b15b9105fee3f68ca5ee812ce092185"
+    sha256 cellar: :any_skip_relocation, monterey:       "651b524b911174db34914396bf37438d4cce7c59ccf4faabafa91bbd1afe36ce"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8df002d1325303f60e7ba736ff09d941d460999f842da0c6d85b8b59459ed7d3"
+    sha256 cellar: :any_skip_relocation, catalina:       "f6966021699830054d8f3afc31cc2096728e25729bf85c364916651eed55f191"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0107d103636fa32446e7da80a5396f902921a32b6bfa518c27c1fc65a909c2e"
   end
 
   depends_on "go" => :build

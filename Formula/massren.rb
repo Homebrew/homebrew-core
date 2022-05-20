@@ -1,21 +1,17 @@
 class Massren < Formula
   desc "Easily rename multiple files using your text editor"
   homepage "https://github.com/laurent22/massren"
-  url "https://github.com/laurent22/massren/archive/v1.5.4.tar.gz"
-  sha256 "7a728d96a9e627c3609d147db64bba60ced33c407c75e9512147a5c83ba94f56"
+  url "https://github.com/laurent22/massren/archive/v1.5.6.tar.gz"
+  sha256 "49758b477a205f3fbf5bbe72c2575fff8b5536f8c6b45f8f6bd2fdde023ce874"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d717cb639b1f6fd247d21a7ac91c11b8ecf138fbc19187b9feb4651bce3faf2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "899f09d133db12cac53c3d70ca93361e5f24167ccb89ae6e1cd97945ee6d257e"
-    sha256 cellar: :any_skip_relocation, monterey:       "06b2e78ca54137a852409e5cb16e58156d5853ecc4557cd5148b8038b8e3cb95"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cf6353befeba9f9244942cc577e808c9bc8b57bc9ee50410aeb1b8fb9848f80d"
-    sha256 cellar: :any_skip_relocation, catalina:       "501c6c8684475cb9c83e57917be164e86aeba079fe7ac4523be108b10f2ef545"
-    sha256 cellar: :any_skip_relocation, mojave:         "b342e2efbfe3400787138da378787ec54e9c3bfc1930dfae203f4baa378e4535"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "99afbeedc3d8ab1e3cf8ca525ac22f1b02efefbfd75b145b342f773cea639be6"
-    sha256 cellar: :any_skip_relocation, sierra:         "14874a768ef7f34aa638cdbd62aa32d2b07fc5c0e6668c86f6f080f172f0fe45"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "ea67caccb6dacdbed8979f3dc243e224ff1900928dedf1ea8800f5256f3456b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f63c928b2484ba780645184394e99b663b30d7035c45b9dc0a32212d24c41d0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4f3dfe97777a1e9526c15d1f68c635dd742e6aa3474905eed26de63688eb86d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2911c014673d7dd0eb6333dcca8ed9a56d6ef14467c2f5cbb0b16a433e35991a"
+    sha256 cellar: :any_skip_relocation, monterey:       "afc3920b649de0abbbf4be6f9bccc8bbb3362a7c84dd0c551b38a4abc1f1f2ac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c3e094ec567c910e7dd4dae785979781a3cc6ebcc5e5b32f14447f1610f068be"
+    sha256 cellar: :any_skip_relocation, catalina:       "edae797c19202bc52e73dd1c4f4e53609ef86693e63d536e26d5557f1c115edf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "903293ccfbd37369dca0458cfe533892a142cdc9418e46069b9d964f42c138c9"
   end
 
   depends_on "go" => :build

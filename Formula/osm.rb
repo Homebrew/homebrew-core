@@ -2,8 +2,8 @@ class Osm < Formula
   desc "Open Service Mesh (OSM)"
   homepage "https://openservicemesh.io/"
   url "https://github.com/openservicemesh/osm.git",
-      tag:      "v1.0.0",
-      revision: "26886c4f16ae5cc92ddfe4c62c87cd82f1cd965c"
+      tag:      "v1.1.1",
+      revision: "407bbedd5edb6ff9f1f51a4cabb95bedeb567312"
   license "Apache-2.0"
   head "https://github.com/openservicemesh/osm.git", branch: "main"
 
@@ -13,12 +13,12 @@ class Osm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "35ecdd0a7ed86d6e60d30714ce6e17f2078d559dc1c5ab21c7465ab680a24c96"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "722102c6b0bc60a31b4f809142b23ddb35f9425337555cb1e4bf8a7e3a63415e"
-    sha256 cellar: :any_skip_relocation, monterey:       "3fff2216b51719f1d89de6d5598bada47d99f8cf12b33f2022fd29187db126f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ba298b991a42baaa06746c805bad695a1b116e3c752e3d0880e7f52423833025"
-    sha256 cellar: :any_skip_relocation, catalina:       "0676bb631e653e08f4ef70ccaa47da52fd3cb9b426e4545b67194643c30a6add"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "206f1c52d1bc05bcb021033972e78c6c32be0098ef94fc714826005da6d73408"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3fd08295d2f98652d45bea238a4a1ed03553f61e075344093a99ade23b8e2e26"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81172012cc84f14efc38ace7890a7659eda7fda73e4917b327c5a594726dd2e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "9fb4b1e2cff02963938905fe37d2bdfe4245bb7646a5f3b608a77a690b908ad8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bf8152d718cf3c29a8b29326899ffdfad0bcd0c98211cacf38497fbc0f7252b4"
+    sha256 cellar: :any_skip_relocation, catalina:       "23118bbcecbfc1f171e79be9e568a9f371b2e4efcfde0dd1745e06804575ffd7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3051189b1dcac96851d280d64f5f79db40d42a848c36f82762b55d1020d262b0"
   end
 
   depends_on "go" => :build

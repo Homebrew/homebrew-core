@@ -1,8 +1,8 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.14/htslib-1.14.tar.bz2"
-  sha256 "ed221b8f52f4812f810eebe0cc56cd8355a5c9d21c62d142ac05ad0da147935f"
+  url "https://github.com/samtools/htslib/releases/download/1.15.1/htslib-1.15.1.tar.bz2"
+  sha256 "8d7f8bf9658226942eeab70af2a22aca618577eaa8fe2ed9416ee306d5351aa1"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Htslib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "75ad52abf7902d356ecd260cdc922220879284462d3178194e14e57b87b21cdd"
-    sha256 cellar: :any,                 arm64_big_sur:  "01178faca1c4825644c4f45d719c547d97eea893ece6eaff9aba9ba3e06155c3"
-    sha256 cellar: :any,                 monterey:       "fdd1fb62df77a796745eb09f9b348c78176703f4deeb593a8f881845c4b426d5"
-    sha256 cellar: :any,                 big_sur:        "cf7d3aa06fb89dca0f35f9184d2f431897fc290ed20b90c838cea235c4de814c"
-    sha256 cellar: :any,                 catalina:       "89e858252df0b8fec7e07dc82159bb4a9cb629ff54eb5848b319baef41197e26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90d770d787efcc137b83a491385683949861a0c5a9084e8eae66ff4ff47ce432"
+    sha256 cellar: :any,                 arm64_monterey: "126ee5017717e388750cafbea6b2915b5550c9be5f5623798e173e3ed35d91e5"
+    sha256 cellar: :any,                 arm64_big_sur:  "6ffc3560ccf65563420b32c35177b738783fc5b7499c2e16efdf6f2157264497"
+    sha256 cellar: :any,                 monterey:       "51952a370f820e68811bd9c891c2f134eb0366f751acf5f23e665ee2b2b15a65"
+    sha256 cellar: :any,                 big_sur:        "ea69b2d7b0f29325dda506c73a8cd726fac704397d2d991422660b0f56f13f53"
+    sha256 cellar: :any,                 catalina:       "fad753cd51694302972903cf8b4a8655aa5a76014a7a1ed272ec611ab1791da0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4888416ae72370da97c251d870fbc5e88f53b3abdf262ff73779b9095b55a365"
   end
 
   depends_on "xz"

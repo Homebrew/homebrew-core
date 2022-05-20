@@ -2,13 +2,13 @@ require "language/perl"
 
 class Sslmate < Formula
   include Language::Perl::Shebang
+  include Language::Python::Virtualenv
 
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
-  url "https://packages.sslmate.com/other/sslmate-1.9.0.tar.gz"
-  sha256 "3e40122484491f59178de80e14ccf7e90cea4fea94056b25c7f89abe31685b98"
+  url "https://packages.sslmate.com/other/sslmate-1.9.1.tar.gz"
+  sha256 "179b331a7d5c6f0ed1de51cca1c33b6acd514bfb9a06a282b2f3b103ead70ce7"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://packages.sslmate.com/other/"
@@ -16,17 +16,29 @@ class Sslmate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c7157d098fdb4f25cc862cf832c004a2c7e753a3f3301302707f5e64359dafa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7c7157d098fdb4f25cc862cf832c004a2c7e753a3f3301302707f5e64359dafa"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
-    sha256 cellar: :any_skip_relocation, catalina:       "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
-    sha256 cellar: :any_skip_relocation, mojave:         "7b80bafa52a6f8070897b25e3cc876c5c58006efe7c1e819aff898e91adf0f97"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "46c13c2b430a8d3621478a3bd84732bb885f61a11519ac643fce209c72fe17b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46c13c2b430a8d3621478a3bd84732bb885f61a11519ac643fce209c72fe17b1"
+    sha256 cellar: :any_skip_relocation, monterey:       "0b9be005d0b52d40b4a8459bf899c891b8a221b177d070fbed649ef42b10a018"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0b9be005d0b52d40b4a8459bf899c891b8a221b177d070fbed649ef42b10a018"
+    sha256 cellar: :any_skip_relocation, catalina:       "0b9be005d0b52d40b4a8459bf899c891b8a221b177d070fbed649ef42b10a018"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8e10a44ff520b1ca52330a788ab15a99fa2ad40805946369dd18addf299df54"
   end
 
   depends_on "python@3.10"
 
   uses_from_macos "perl"
+
+  on_linux do
+    resource "URI::Escape" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.10.tar.gz"
+      sha256 "16325d5e308c7b7ab623d1bf944e1354c5f2245afcfadb8eed1e2cae9a0bd0b5"
+    end
+
+    resource "Term::ReadKey" do
+      url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
+      sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
+    end
+  end
 
   resource "boto" do
     url "https://files.pythonhosted.org/packages/c8/af/54a920ff4255664f5d238b5aebd8eedf7a07c7a5e71e27afcfe840b82f51/boto-2.49.0.tar.gz"
@@ -36,12 +48,17 @@ class Sslmate < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
-    python3 = Formula["python@3.10"].opt_bin/"python3"
-    xy = Language::Python.major_minor_version python3
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resource("boto")
 
-    resource("boto").stage do
-      system python3, *Language::Python.setup_install_args(libexec/"vendor")
+    resources.each do |r|
+      next if r.name == "boto"
+
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}/vendor"
+        system "make"
+        system "make", "install"
+      end
     end
 
     system "make", "PREFIX=#{prefix}"

@@ -24,6 +24,6 @@ class Xmlsectool < Formula
   end
 
   test do
-    system "#{bin}/xmlsectool", "--listBlacklist"
+    system "#{bin}/xmlsectool", "--listAlgorithms"
   end
 end

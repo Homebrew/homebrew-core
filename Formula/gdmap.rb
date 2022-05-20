@@ -14,6 +14,7 @@ class Gdmap < Formula
     sha256 mojave:         "9c178f409b81ce7808efe356bf09d82804265de11d4527dcc1dea20948a76b16"
     sha256 high_sierra:    "1f82d4cf21c4166fd579e132e3ecf7302179cba2d6b19bf33ef18618f5354416"
     sha256 sierra:         "2a5da8dc2b00407271001ef511d61cad03f043cc98b45442ab1aff7d9263ae19"
+    sha256 x86_64_linux:   "89e1c3ad339cc74e03548a784171f218f5d8f7216749ee9c0a8bed3086c5aae1"
   end
 
   depends_on "intltool" => :build
@@ -21,6 +22,8 @@ class Gdmap < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+"
+
+  uses_from_macos "perl" => :build
 
   # The code depends on some GTK macros that are flagged as deprecated in the brew version of GTK.
   # I assume they're not deprecated in normal GTK, because the config file disables deprecated GDK calls.
@@ -34,8 +37,9 @@ class Gdmap < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
+    system "./configure", *std_configure_args, "LIBS=-lm"
 
     system "make", "install"
   end

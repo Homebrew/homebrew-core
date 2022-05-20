@@ -12,11 +12,12 @@ class Dwm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "2229c9fa0e2b34b02d6ceb6529b655e5100e6c96f3684fe9ba106908a1e59d81"
-    sha256 cellar: :any, arm64_big_sur:  "9544c01783dbd47a049adc2f1ae4269f79aa0a1ca0272e94414589d4acb9ca39"
-    sha256 cellar: :any, monterey:       "fed2ddf1b8509e7ecb5f236432ac23a5b2c843fc7ec84b16c7f0aa220a5cd59f"
-    sha256 cellar: :any, big_sur:        "96c4b987f4d8173368692428bd362c76ece48d34b267bb3040cb1fbac4406dab"
-    sha256 cellar: :any, catalina:       "513bb01c5c1276e7606edb577504b101240c1245558ab30fe724be6b9d7c2dbe"
+    sha256 cellar: :any,                 arm64_monterey: "2229c9fa0e2b34b02d6ceb6529b655e5100e6c96f3684fe9ba106908a1e59d81"
+    sha256 cellar: :any,                 arm64_big_sur:  "9544c01783dbd47a049adc2f1ae4269f79aa0a1ca0272e94414589d4acb9ca39"
+    sha256 cellar: :any,                 monterey:       "fed2ddf1b8509e7ecb5f236432ac23a5b2c843fc7ec84b16c7f0aa220a5cd59f"
+    sha256 cellar: :any,                 big_sur:        "96c4b987f4d8173368692428bd362c76ece48d34b267bb3040cb1fbac4406dab"
+    sha256 cellar: :any,                 catalina:       "513bb01c5c1276e7606edb577504b101240c1245558ab30fe724be6b9d7c2dbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c3458070c89d4f324a82eb95651c456a1ccdc51bcac7df5bbe5ba305f02d72c"
   end
 
   depends_on "dmenu"

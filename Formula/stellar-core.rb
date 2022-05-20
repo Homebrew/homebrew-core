@@ -2,15 +2,18 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v18.2.0",
-      revision: "b63c1622e695276a908033022b106ef8fd42155c"
+      tag:      "v19.0.1",
+      revision: "2b38097cbe980b0b602db023956a37460d5bd29d"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "83dc45e9db1b5981ed5960cd7368aa93d12a91ad0d7c57a310a98fbbe5ae395a"
-    sha256 cellar: :any, big_sur:       "5370feb4f95248952bcb674798077f9832685a27c53a290ae112216f0755513f"
-    sha256 cellar: :any, catalina:      "256f91735275e90f55e0fe0781a3b2fbb630978a12774daef1d8e144830f95b7"
+    sha256 cellar: :any,                 arm64_monterey: "9de5d0e688df4ff40412d0608631ef843c314b11decb50919b374bc9f7185ee7"
+    sha256 cellar: :any,                 arm64_big_sur:  "9ee6a195da5e5743b8e8863480beab027e77ce158a7a240b6946ce929546f3d4"
+    sha256 cellar: :any,                 monterey:       "40cf6974be6ec750e39766603661975dda453ac53e10c1749724148783f28d22"
+    sha256 cellar: :any,                 big_sur:        "ea38b51bf05d38c2a960aaf3de67539922626b866bace5c5f15a253b9b107e0b"
+    sha256 cellar: :any,                 catalina:       "3f9af9a4da2b981da6ac202201535f58a2cc6a910c0c53117ad9cdb4883552b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a606e6df4e7f991c0fba56c5b36be1c550a57661dd6c6ac69806e15ad5bff8e"
   end
 
   depends_on "autoconf" => :build
@@ -29,12 +32,14 @@ class StellarCore < Formula
 
   on_linux do
     depends_on "gcc"
+    depends_on "libunwind"
   end
 
-  # Needs libraries at runtime:
-  # /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found
-  # Upstream has explicitly stated gcc-5 is too old: https://github.com/stellar/stellar-core/issues/1903
-  fails_with gcc: "5"
+  # https://github.com/stellar/stellar-core/blob/master/INSTALL.md#build-dependencies
+  fails_with :gcc do
+    version "7"
+    cause "Requires C++17 filesystem"
+  end
 
   def install
     system "./autogen.sh"

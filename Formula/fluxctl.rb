@@ -2,8 +2,8 @@ class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/fluxcd/flux"
   url "https://github.com/fluxcd/flux.git",
-      tag:      "1.24.3",
-      revision: "27b83e1a07df8b14d1edb08fea181980fe979baa"
+      tag:      "1.25.1",
+      revision: "360a7f7b0f7d0dab52c51a2f4fe3a03921ef05a0"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,12 @@ class Fluxctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae8e2c8069e639637d65e48db682208ba716b4d929628b61b35adf6b603203c4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0dc50dd0ec5bfc3e424ad1499bfcb2b30e152ca160a36122b60709ec62511d5"
-    sha256 cellar: :any_skip_relocation, monterey:       "4957ff9c31c8c72b43905654c5bd59e1e12d547fe3d1a46f0e278e1e8aabc834"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3db920028523a47b8cb5fee6f4fe03c7afee0e7eae0e9c3a4f52f54104b376b8"
-    sha256 cellar: :any_skip_relocation, catalina:       "0aea620bee684d2b921180ee9c9f5759906703d3e7d0fdf552ac3b8830756f37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7c15e6212aa67cd451b89620f65ff330fdcb8ac392310b9503534482a0c64f7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4140d2fb4f97be34da2100dd4bd27f9e2cbe1baa6362b3927b6418bfb5391371"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "869a325e24d25c20ed3ba5ddbcac355e87f5c713e088861e3e54236be3fc60e3"
+    sha256 cellar: :any_skip_relocation, monterey:       "52546e57bf5bddebd3e82ac82527f8f3f73e5cde1f3f33387b25408eeabc2218"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9f8686dd1f85549a5fc9c0fe99556bb5fe66f9b8456094a3a429c3db9017cbae"
+    sha256 cellar: :any_skip_relocation, catalina:       "3aa4fe1fa2d80c65dadff9ef0d6b4344bc9ffd1aa918d3cccdd90c87788ee55a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b4c73c672279b5ca8e13812b48a0ef5d7ab7c0bc0ab92f710264d3b7b521ce1"
   end
 
   depends_on "go" => :build

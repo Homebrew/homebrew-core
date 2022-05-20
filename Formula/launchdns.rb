@@ -17,6 +17,8 @@ class Launchdns < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "38ad8be46847983774ec6b50896560517bb027b6fe5e5543395f168e489c9c27"
   end
 
+  depends_on :macos # uses launchd, a component of macOS
+
   def install
     ENV["PREFIX"] = prefix
     system "./configure", "--with-launch-h", "--with-launch-h-activate-socket"

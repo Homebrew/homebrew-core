@@ -1,11 +1,11 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/mcubeg/packmol/archive/20.010.tar.gz"
+  url "https://github.com/m3g/packmol/archive/20.010.tar.gz"
   sha256 "23285f2a9e2bef0e8253250d7eae2d4026a9535ddcc2b9b383f5ad45b19e123d"
   license "MIT"
   revision 2
-  head "https://github.com/mcubeg/packmol.git", branch: "master"
+  head "https://github.com/m3g/packmol.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "18c206884bbd5f5f14da86468f1dbe2d54fdeeca1f2990d8abdc2a190b03d7e9"

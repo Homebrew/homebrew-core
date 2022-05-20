@@ -1,8 +1,8 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "https://www.crufty.net/help/sjg/bmake.html"
-  url "https://www.crufty.net/ftp/pub/sjg/bmake-20211221.tar.gz"
-  sha256 "c48476c1c52493e61a5342d7d8541608f7852244f3c74ffd7676b6537c475bfb"
+  url "https://www.crufty.net/ftp/pub/sjg/bmake-20220418.tar.gz"
+  sha256 "6ea7de515cba74f173dc14ee17b1488ae032582028d2e86ea12f70369cc896f5"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Bmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "74f3d7297d0e43e051ebc25df8e6b6c937522e1eb7a6895479f5eee0e65f1850"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8089cd842adb172141c112baf8db676d392e7849894b8aaee63401e4f8da01ae"
-    sha256                               monterey:       "217b6ce35f1aeb7c59fbc35bbe04ade7290abb2b99c9538f7f375056088155c9"
-    sha256                               big_sur:        "9590fa688cbaf287271bbca8548420dde6c62603bc4b075f70660b561d72e19e"
-    sha256                               catalina:       "8da02f75fcdb4e85960a24da424e76c077cc58649935684d841e71521075827e"
-    sha256                               x86_64_linux:   "7a53a49414a8e399b846c5451923ef2eef3de96ce6998b1d2d61b162a473bda2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea6d347e27b41d0fe9e672910c829123de6563da61b665b2d0f17a45d7f14994"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "801ad5c98a414c1efc6be2d83ffe15c2c25af0ef3d973421ea2a1ed6864856bc"
+    sha256                               monterey:       "cc70133aa230c37eca6973c9759b8d08ffcc1d3ffc9f147f8ac73cc978d075b9"
+    sha256                               big_sur:        "467fbaa19a541763345a973dc9041a2a88c6ad4eef1e31bf660814c32bdff409"
+    sha256                               catalina:       "a9d6f26a78e81862230f1cee75746431fb049235dd811028b032fe6f52716bec"
+    sha256                               x86_64_linux:   "e420bc8442cf5eb48296e98d142a9de2000baf2b600444c1f6cd1e4937f2725d"
   end
 
   def install

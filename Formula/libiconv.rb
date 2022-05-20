@@ -1,20 +1,17 @@
 class Libiconv < Formula
   desc "Conversion library"
   homepage "https://www.gnu.org/software/libiconv/"
-  url "https://ftp.gnu.org/gnu/libiconv/libiconv-1.16.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libiconv/libiconv-1.16.tar.gz"
-  sha256 "e6a1b1b589654277ee790cce3734f07876ac4ccfaecbee8afa0b649cf529cc04"
+  url "https://ftp.gnu.org/gnu/libiconv/libiconv-1.17.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libiconv/libiconv-1.17.tar.gz"
+  sha256 "8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.0-or-later"]
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "23e9b95c2a691a34dfffef65139708ff6211417a849eee921cb002edc212fcec"
-    sha256 cellar: :any, arm64_big_sur:  "5d7976b37516995241432ab9c4cb14a0eba03f2e8af5b7bb110147ce045c9e1f"
-    sha256 cellar: :any, monterey:       "012b45c589388c4aec3c8a8124711d12722c561f2ecfe0cfd5a1c14ceb50cd80"
-    sha256 cellar: :any, big_sur:        "9253ae6551eb63499fb292b4a65d054c918b93dab8beff0bc12f3290f77bd15c"
-    sha256 cellar: :any, catalina:       "24d81638fcd7416a56c3dbdac7e2265d7b0476b17a71b631045425380122e6b1"
-    sha256 cellar: :any, mojave:         "7638dd8e2d511a2ce14c6c420762ce7fdbae6a34158e25015c3ffd88de2dd19b"
-    sha256 cellar: :any, high_sierra:    "0f7f5728be3b7fc082a62df5e38cf1f1f9dc540e95f0c3479788cc2e2dee7294"
-    sha256 cellar: :any, sierra:         "2c40a7b0486b9394f5f4cb6304179527421b68c965c49d961cf2703205da93e1"
+    sha256 cellar: :any, arm64_monterey: "2621f09f8681897e86d452876e64f73156042713db36beb52c95074f648c3ee6"
+    sha256 cellar: :any, arm64_big_sur:  "c79ae70f794ef2747b10d0aa7c4ab27435a742509ec17131902f1d075002e043"
+    sha256 cellar: :any, monterey:       "9484d4d80192da3c0dfd8d3eaa8b391db0120dd7d259670b821a38de7f404539"
+    sha256 cellar: :any, big_sur:        "a68939ed416afc78c2d9ece02bab394858783db5e03e3cd4575f66dc9a43160f"
+    sha256 cellar: :any, catalina:       "dfb536db610c9b2bad0e62d114ea81852d6d97da68b1360a404b9eb452413ab5"
   end
 
   keg_only :provided_by_macos

@@ -3,16 +3,11 @@ class Byobu < Formula
   homepage "https://launchpad.net/byobu"
   url "https://launchpad.net/byobu/trunk/5.133/+download/byobu_5.133.orig.tar.gz"
   sha256 "4d8ea48f8c059e56f7174df89b04a08c32286bae5a21562c5c6f61be6dab7563"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4b6177bef58c89b06a356a0bb96aae9cf60678442af57f9a5e7489b3a162ae6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d3b41a0d0546732f6bbbdedae5357df00625f5c9f7be0b631c4a0778107d3549"
-    sha256 cellar: :any_skip_relocation, catalina:      "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6"
-    sha256 cellar: :any_skip_relocation, mojave:        "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f84ea55ef2950c34c48f77609c4d00d9a35bd5ca13140aa98b8175ea1a04cf2f"
-    sha256 cellar: :any_skip_relocation, all:           "f84ea55ef2950c34c48f77609c4d00d9a35bd5ca13140aa98b8175ea1a04cf2f"
+    sha256 cellar: :any_skip_relocation, all: "45b2277b96cd2c4c4170fbbe4a8ac92665062e8d0c835bfbd24ee3e3d52f2616"
   end
 
   head do
@@ -23,7 +18,6 @@ class Byobu < Formula
   end
 
   depends_on "coreutils"
-  depends_on "gnu-sed" # fails with BSD sed
   depends_on "newt"
   depends_on "tmux"
 
@@ -36,13 +30,18 @@ class Byobu < Formula
     end
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-  end
 
-  def caveats
-    <<~EOS
-      Add the following to your shell configuration file:
-        export BYOBU_PREFIX=#{HOMEBREW_PREFIX}
-    EOS
+    byobu_python = Formula["newt"].deps
+                                  .find { |d| d.name.match?(/^python@\d\.\d+$/) }
+                                  .to_formula
+                                  .opt_bin/"python3"
+
+    lib.glob("byobu/include/*.py").each do |script|
+      byobu_script = "byobu-#{script.basename(".py")}"
+
+      libexec.install(bin/byobu_script)
+      (bin/byobu_script).write_env_script(libexec/byobu_script, BYOBU_PYTHON: byobu_python)
+    end
   end
 
   test do

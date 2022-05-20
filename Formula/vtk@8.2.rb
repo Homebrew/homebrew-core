@@ -4,16 +4,15 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
 
   bottle do
-    rebuild 1
-    sha256                               arm64_monterey: "ee325de2481066de0d5a310681be27d8b69075761de970b03c3ac5d4f623fa94"
-    sha256                               arm64_big_sur:  "5ada273760e541d09da596b14552ce792ee9844a243b592a7fae76e988df4714"
-    sha256                               big_sur:        "f588c1f6c99f842c807a440bfeebd7b2411dadec4c869f2348348668054ca2a8"
-    sha256                               catalina:       "5fbc2c1c449782fe77a92febe6872dee0b2487e5da4462f3255318e84e1a9292"
-    sha256                               mojave:         "5509812315e9589e0adeff8b780bab961ee9d89233179653d508d8a9f620977b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13f56b55f3986c1892cfc9161fec794b45a0d4a25bc481346695bee510ae897a"
+    sha256                               arm64_monterey: "b249cb4defffee5aac3aa5058a5d4f4e909bd91991b3fa580a77cdcb798b1692"
+    sha256                               arm64_big_sur:  "830e29cf629cd97413d77f679cecdc21a3795edcf336a0aa6efdec032022d5fc"
+    sha256                               monterey:       "e3890c6dfba19c6cf7bdcb99a46eab9a7069dfd3520af226d6b1efe0e62080ca"
+    sha256                               big_sur:        "fc747c1da6b5a001f288319ba2936b88eb38e0cf178ae99622cf525dd56f2249"
+    sha256                               catalina:       "027471c93128e75e8183d70274e0aedefb7ef9b7c905a85432283f45481206b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4873f8d2cede30b4969fc5a7bb91d22718f4d1e3cd18b438ef65cf9a6c42e149"
   end
 
   keg_only :versioned_formula
@@ -37,15 +36,24 @@ class VtkAT82 < Formula
   uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+  end
+
   on_linux do
     depends_on "gcc"
     depends_on "icu4c"
+    depends_on "libaec"
     depends_on "libxt"
-    depends_on "szip"
     depends_on "mesa-glu"
   end
 
   fails_with gcc: "5"
+
+  # clang: error: unable to execute command: Bus error: 10
+  # clang: error: clang frontend command failed due to signal (use -v to see invocation)
+  # Apple clang version 13.1.6 (clang-1316.0.21.2)
+  fails_with :clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
   # TODO: use diff
   # Fix compile issues on Mojave and later
@@ -73,8 +81,13 @@ class VtkAT82 < Formula
   end
 
   def install
+    if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+      ENV.llvm_clang
+    end
+
     # Do not record compiler path because it references the shim directory
-    inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", "clang++"
+    inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
     # Fix build with GCC 10 or newer
     # Adapted from https://bugs.gentoo.org/attachment.cgi?id=641488&action=diff
@@ -140,6 +153,9 @@ class VtkAT82 < Formula
   end
 
   test do
+    # Force use of Apple Clang on macOS that needs LLVM to build
+    ENV.clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+
     (testpath/"CMakeLists.txt").write <<~EOS
       set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
       set(CMAKE_INSTALL_RPATH "#{Formula["vtk@8.2"].opt_lib}")

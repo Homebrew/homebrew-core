@@ -17,7 +17,8 @@ class Gobuster < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "493ef7685bc5627b6b382479f3645eda52a36010581e3c9400145775d7da0ca2"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"gobuster"

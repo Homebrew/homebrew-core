@@ -1,17 +1,16 @@
 class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://yarnpkg.com/downloads/1.22.17/yarn-v1.22.17.tar.gz"
-  sha256 "267982c61119a055ba2b23d9cf90b02d3d16c202c03cb0c3a53b9633eae37249"
+  url "https://yarnpkg.com/downloads/1.22.19/yarn-v1.22.19.tar.gz"
+  sha256 "732620bac8b1690d507274f025f3c6cfdc3627a84d9642e38a07452cc00e0f2e"
   license "BSD-2-Clause"
-  revision 2
 
   livecheck do
     skip("1.x line is frozen and features/bugfixes only happen on 2.x")
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "28016c8b31dfd51b542168bf0c0165cc7a5e50f0b4034a6cc6628e03f2c01121"
+    sha256 cellar: :any_skip_relocation, all: "79b90324a5365189a144b786e9bdb3bf32be3823e9041d5f3250ea7b804dcd0b"
   end
 
   depends_on "node" => :test
@@ -38,9 +37,7 @@ class Yarn < Formula
   test do
     (testpath/"package.json").write('{"name": "test"}')
     system bin/"yarn", "add", "jquery"
-    on_macos do
-      # macOS specific package
-      system bin/"yarn", "add", "fsevents", "--build-from-source=true"
-    end
+    # macOS specific package
+    system bin/"yarn", "add", "fsevents", "--build-from-source=true" if OS.mac?
   end
 end

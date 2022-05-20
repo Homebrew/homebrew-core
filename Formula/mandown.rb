@@ -3,7 +3,7 @@ class Mandown < Formula
   homepage "https://github.com/Titor8115/mandown"
   url "https://github.com/Titor8115/mandown/archive/v1.0.1.tar.gz"
   sha256 "b014a44b27f921c12505ba4d8dba15487ca2b442764da645cd6d0fd607ef068c"
-  license "MIT"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f06d6f6ada8676f6644e8491823bcb2310eaec516120b3455465ce4bd03a3dd"
@@ -13,12 +13,14 @@ class Mandown < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "09ad2e54a3b54c9687580b4499f4c5247dfd2e18fb64230b3c255fbc7df1c5be"
     sha256 cellar: :any_skip_relocation, mojave:         "9186b868866dd17f080343297e145161f3fe6303701a12bd0a47f8ef246f6630"
     sha256 cellar: :any_skip_relocation, high_sierra:    "acf617ed0300f38b429ed05504c47bb9e403441316d335ae83bf28c18baa63a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5710fddef5906f57883d6fccbfd1078253dda88cc71c72ad707161bd8b6f01b3"
   end
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
 
   def install
+    ENV.append "CPPFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2" unless OS.mac?
     system "make", "install", "PREFIX=#{prefix}"
   end
 

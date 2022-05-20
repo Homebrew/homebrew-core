@@ -1,10 +1,9 @@
 class Jack < Formula
   desc "Audio Connection Kit"
   homepage "https://jackaudio.org/"
-  url "https://github.com/jackaudio/jack2/archive/v1.9.19.tar.gz"
-  sha256 "9030f4dc11773351b6ac96affd9c89803a5587ebc1b091e5ff866f433327e4b0"
+  url "https://github.com/jackaudio/jack2/archive/v1.9.21.tar.gz"
+  sha256 "8b044a40ba5393b47605a920ba30744fdf8bf77d210eca90d39c8637fe6bc65d"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Jack < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "3e003f8a5b0737f6e02c603ca2bcbd4f17ed7640b1e54840527f0b7e370c10e7"
-    sha256 arm64_big_sur:  "987152c55ae1bd6ecbe4783d74f6e0ad10897e4fe1122ba49bc7e3931dcb5c3f"
-    sha256 monterey:       "11cc08d274a8cef42b346cec82514bfa24b207160bf875d7937a632faddd0eda"
-    sha256 big_sur:        "0d00463dc1e48a853b39cc49416544af34049aff6f34963379588f72d5d58968"
-    sha256 catalina:       "3ae34c7eb978f5a9eae20c4dc02668f0ada755cc9ead3b37ef14edb203903e19"
-    sha256 x86_64_linux:   "d6ba9e708d13f9261b09ddfc26b8250147225cec8f01ae814eaa525efaeb5749"
+    sha256 arm64_monterey: "5b8c6629a97e463b96bb2672c3a0cfb8da8b5cf91d147f632c7f6d351a7fe3cb"
+    sha256 arm64_big_sur:  "a9732675aef73bf6a133a8130b46a81a275aad83abfc0d0d72b91f34580d11fb"
+    sha256 monterey:       "8047fbdd9eefa085dd3e66584d907bbbcfee2e7651f80836ff621844d39a53aa"
+    sha256 big_sur:        "f1f19dbf7ba59e389e51d325997b6c4173ebcf3c076732edd1d3ebbf51af5ab0"
+    sha256 catalina:       "d4ac8617761bb59dfaa1390d237ef7ad2b2733283353a8484fd4a1c8a82b4f79"
+    sha256 x86_64_linux:   "8a52eb2b5ec3ad62d4b573e7dd5997142d7435600da01cae8156dd6f6b0dae9b"
   end
 
   depends_on "autoconf" => :build
@@ -45,12 +44,9 @@ class Jack < Formula
       ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
-    system Formula["python@3.10"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
+    system Formula["python@3.10"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}", "--example-tools"
     system Formula["python@3.10"].opt_bin/"python3", "./waf", "build"
     system Formula["python@3.10"].opt_bin/"python3", "./waf", "install"
-
-    # Remove Python script used to control D-Bus JACK as it isn't enabled in formula
-    rm bin/"jack_control"
   end
 
   service do

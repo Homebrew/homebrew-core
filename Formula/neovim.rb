@@ -1,8 +1,8 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.6.1.tar.gz"
-  sha256 "dd882c21a52e5999f656cae3f336b5fc702d52addd4d9b5cd3dc39cfff35e864"
+  url "https://github.com/neovim/neovim/archive/v0.7.0.tar.gz"
+  sha256 "792a9c55d5d5f4a5148d475847267df309d65fb20f05523f21c1319ea8a6c7df"
   license "Apache-2.0"
   head "https://github.com/neovim/neovim.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "cb57c0fb2aca62d06e77176c7da2acae54c461293d93f66ac2f70cf5f00caf6e"
-    sha256 arm64_big_sur:  "1129c801c8e54eed760f10ae7ac6bcc2b5b9c3f9c55b3d40e2190546d7ffae9c"
-    sha256 monterey:       "3d5fad96914b500a9bf118d3cdbfa808639dbe003fa90f7b9230e5efa25a8a97"
-    sha256 big_sur:        "17d3d6e1b761650c2b4f623808d95d6884eee3fcc59ee47f75d2a777b3589ced"
-    sha256 catalina:       "8a39c2142e8f6d6335d83544af66c8e03599e50cd9a357257b777e6c48dbd089"
-    sha256 x86_64_linux:   "3287fadd7e5d8dae73b5055f6ae5f85391a4b8b29a6ab3fbbfbd4ca8f828f841"
+    sha256 arm64_monterey: "21da7566b9dc34a1a99a82e7a36e446b9dc17dad9bdf107d5fc46aeaea83879b"
+    sha256 arm64_big_sur:  "81bddcbf646911e46bcf4853ec29c2eae48776a72c29e2b0f4d1ff36959be025"
+    sha256 monterey:       "451c1643c6a01779c6443794c12ed41bc5629ab35059bea98ad54ea2459b4d48"
+    sha256 big_sur:        "d234249fbe80c3a75cb563ff88d841cb9c1df9bbcc99b0a2e0981eb5acf26eca"
+    sha256 catalina:       "137e5229d2322ad0f0662915db67cbb21e0581e3767b4648f6c7cbde51f8b54f"
+    sha256 x86_64_linux:   "0676404738239fdb2d03a2af7c5c381240ad7beaa7b42038d8e2b11519357163"
   end
 
   depends_on "cmake" => :build
@@ -45,7 +45,7 @@ class Neovim < Formula
   # TODO: Use `libvterm` formula when the following is resolved:
   # https://github.com/neovim/neovim/pull/16219
   resource "libvterm" do
-    url "http://www.leonerd.org.uk/code/libvterm/libvterm-0.1.4.tar.gz"
+    url "https://www.leonerd.org.uk/code/libvterm/libvterm-0.1.4.tar.gz"
     sha256 "bc70349e95559c667672fc8c55b9527d9db9ada0fb80a3beda533418d782d3dd"
   end
 

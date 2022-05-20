@@ -15,6 +15,8 @@ class CassandraAT21 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2022-03-01", because: :unsupported
+
   depends_on :macos # Due to Python 2 (does not support Python 3)
 
   # Only Yosemite has new enough setuptools for successful compile of the below deps.

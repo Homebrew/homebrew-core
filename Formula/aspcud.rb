@@ -1,18 +1,17 @@
 class Aspcud < Formula
   desc "Package dependency solver"
   homepage "https://potassco.org/aspcud/"
-  url "https://github.com/potassco/aspcud/archive/v1.9.5.tar.gz"
-  sha256 "9cd3a9490d377163d87b16fa1a10cc7254bc2dbb9f60e846961ac8233f3835cf"
+  url "https://github.com/potassco/aspcud/archive/v1.9.6.tar.gz"
+  sha256 "4dddfd4a74e4324887a1ddd7f8ff36231774fc1aa78b383256546e83acdf516c"
   license "MIT"
 
   bottle do
-    sha256 arm64_monterey: "e71bba5b3c4f8dc2be06fdb553e38c1284e0cab33c607016d73932bf21dd8074"
-    sha256 arm64_big_sur:  "c984eb4cfd2892c3cca7df260064546275a82fa02c01996ee65ecdf8973f27cb"
-    sha256 monterey:       "14d65fbc5df754144fa56b1dab2208ccc8f4a09217290d97b26f4e4e25393b98"
-    sha256 big_sur:        "c934a46742cb4d96d62a3e15dd9e0ada641672f405b1a96edc3f71dac2c87036"
-    sha256 catalina:       "3b19a6ee9f466789d05533e5614ae6daf9cf4abc4e2f6347ad401ea7d4d1040a"
-    sha256 mojave:         "b5d0df64bc57c7f929b00f04617f9b1260e7c3715abe68b98559c8b693070add"
-    sha256 x86_64_linux:   "c9a457dac612341f5ab16c39afc4e3f360da84a034ba7f3c05663d5d2c9a36f5"
+    sha256 arm64_monterey: "99122c4ae30f0760d00103191fb33b4fd793ac65e45f662a64d1386e0775d85f"
+    sha256 arm64_big_sur:  "59e462b9a05482e92ccee1a483642515afe98cf8180d22ec414b16282513cb6d"
+    sha256 monterey:       "8920dad4979d2ae3542553312c906d917ad1cbfe9f9059f4ee6bd726408489df"
+    sha256 big_sur:        "8b458c28102da4cbc936a8ee349f4ce95764c801a70e0031dd2007b94e93d1ef"
+    sha256 catalina:       "ae23d915a2acf5de9083c065c41df839558ac272725ef76e8ac269498b5cabe0"
+    sha256 x86_64_linux:   "38882525e9e80e2f8436800e20415bd7f584130f264fdacf484c4c11a2ee0076"
   end
 
   depends_on "boost" => :build

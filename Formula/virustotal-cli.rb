@@ -1,20 +1,21 @@
 class VirustotalCli < Formula
   desc "Command-line interface for VirusTotal"
   homepage "https://github.com/VirusTotal/vt-cli"
-  url "https://github.com/VirusTotal/vt-cli/archive/0.10.0.tar.gz"
-  sha256 "88ef4d2c7708be1bc27c2290181996b6c18e08d5f56a8765de8a5ec13f68e6ac"
+  url "https://github.com/VirusTotal/vt-cli/archive/0.10.2.tar.gz"
+  sha256 "09953ce45c2fbf872f70294d5fb58e856c0167ed6a7e1312f770e45bab18356b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "849c7ae448e6af49f1ed6a6b64a559c9a07b840a19013fa7adaec738bc945f6b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a643b77c571d9d26a9227f59b55b884725abe0d86edc39639d64acc56866c1e"
-    sha256 cellar: :any_skip_relocation, monterey:       "98cbab6fbd04041bebe75f8bc1cae81b48dd0738b2c2492baaf4486cc908e525"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a30d6323556789e412c02168fa352eb8a520c1faf66c94633b856f1368318059"
-    sha256 cellar: :any_skip_relocation, catalina:       "e023fd3db914eb5703ba2c35f47f15a6ec86d7021414cb7737a2958adee35800"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a96a4678e2800c65c145120c218066128fd78fd16c63a4b1ffc5d10854ba96ad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "49cb3acdc2acfec6d7c5e90ca3b75a15d597725eefb39c3a18485954b4dd3665"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73e67213c77275de6d81483520d6b69010cc499f6229c8d8ccf93938e2adb6f0"
+    sha256 cellar: :any_skip_relocation, monterey:       "d9e61d072fb423cd10c79d2f90436d2d5e11a10074e60cef18d687c74c746808"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2262044ba922438a95fad57af7207ae438b90cf39c2921b51ef4044836e048a9"
+    sha256 cellar: :any_skip_relocation, catalina:       "770c44dbb66c317f2662ca77771140a245b97405ebcac0c4222e64b0f92eaa37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12f7d8dc597833558487984ec3535ba2b453039662c8580553777a78f1c30e85"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", "-ldflags",

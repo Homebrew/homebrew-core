@@ -8,6 +8,7 @@ class PerconaToolkit < Formula
   url "https://www.percona.com/downloads/percona-toolkit/3.3.1/source/tarball/percona-toolkit-3.3.1.tar.gz"
   sha256 "60fc106b195b6716f1ebb3ca16b401692228c1a2a885da72111a93391fd12090"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
+  revision 1
   head "lp:percona-toolkit", using: :bzr
 
   livecheck do
@@ -16,11 +17,12 @@ class PerconaToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "1877facb5a23a5eea41fd11e8f02373d151fbead2a9c6e32249fb83bc15107d3"
-    sha256 cellar: :any,                 big_sur:       "8da16ad8dae9b642f959763c04f504e8e844f608ad34ecb5c47f8118acec5d81"
-    sha256 cellar: :any,                 catalina:      "a4a756d4c47f72d67680d33eb3f6e179eb857d5d12aa90cfb4f665a9d7ff10b5"
-    sha256 cellar: :any,                 mojave:        "d702da603979b5205d7e762e4b7e387a954dd1b987b982730de15b0c44a553ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2f41f215b4e4a2a19b70c00e4f2fe91e8a8b3efe021b947dd3198859e5ec4a0"
+    sha256 cellar: :any,                 arm64_monterey: "8f6bb6f309b86e299dd07068d8ffbc4f522211710c583256c5b7528ee24eb436"
+    sha256 cellar: :any,                 arm64_big_sur:  "c4894d911c4f3e0adad36c3f2aa3a67e74dd309faadb6dffb7c9ce543944bc2e"
+    sha256 cellar: :any,                 monterey:       "344ba40041a33e4b8daf56129ebf4523b5c198d43ea064c5aebb59c997183497"
+    sha256 cellar: :any,                 big_sur:        "9274b60c27cacce29aec88b890899ab988f003ae440108fe919692d0f852ea57"
+    sha256 cellar: :any,                 catalina:       "93c759128255833a67e8b365610eb8ccb4877d82f1bf66176ad4b597b90217fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bccfdd6284fc9a2c1226cb148a446180209d48b7b9070ea5b4779f429a31c984"
   end
 
   depends_on "mysql-client"

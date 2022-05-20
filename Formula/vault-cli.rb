@@ -1,8 +1,8 @@
 class VaultCli < Formula
   desc "Subversion-like utility to work with Jackrabbit FileVault"
   homepage "https://jackrabbit.apache.org/filevault/index.html"
-  url "https://search.maven.org/remotecontent?filepath=org/apache/jackrabbit/vault/vault-cli/3.5.8/vault-cli-3.5.8-bin.tar.gz"
-  sha256 "c41975ad4f6fdb12e88bdd0fb81437f3cb4a1119d6362135eaf843ae223d57ae"
+  url "https://search.maven.org/remotecontent?filepath=org/apache/jackrabbit/vault/vault-cli/3.6.0/vault-cli-3.6.0-bin.tar.gz"
+  sha256 "10bb141e3bbd2a5e39acb84cde4d2fd03902e10b60b22bcff41d742427f9ca02"
   license "Apache-2.0"
   head "https://github.com/apache/jackrabbit-filevault.git", branch: "master"
 
@@ -12,7 +12,7 @@ class VaultCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b02276a15876904ae6d542f1a6c655807cd6661169c87525f428dffd95b0eb41"
+    sha256 cellar: :any_skip_relocation, all: "e2c38a407efc4f07e6fb2b48b55769a649ce86e8d7814461d1c6c64218d1a6cb"
   end
 
   depends_on "openjdk"

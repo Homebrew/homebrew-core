@@ -1,17 +1,17 @@
 class Feroxbuster < Formula
   desc "Fast, simple, recursive content discovery tool written in Rust"
   homepage "https://epi052.github.io/feroxbuster"
-  url "https://github.com/epi052/feroxbuster/archive/v2.5.0.tar.gz"
-  sha256 "26684c4945e5a19ee44ef374f582354c520823581c9c3d9a3881cfe28b09b479"
+  url "https://github.com/epi052/feroxbuster/archive/refs/tags/2.7.1.tar.gz"
+  sha256 "4fc37897d98bb09bfe738067eb5889adff20e0caef70e4487d20f41ec920381b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d835d2cb3c9361b19eb17fbb582a47e6676c44243629ed95fb3882bb63b4bd41"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42708949a32a68a2a75cb951c0f89a58bdc603e12a45ea2e56e0457a6abe5e03"
-    sha256 cellar: :any_skip_relocation, monterey:       "3cf391d96de0bd291d786df340cb7e1657c25f7133f6b7840f9a0be53447a378"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4eaf2ce3f2d1f87de147602c56b7c463c0d67d64eacf42aa3ed7a4e4c6a9fb76"
-    sha256 cellar: :any_skip_relocation, catalina:       "faa55119e22344b7bfc06267faf20f5c5da0a99a7b1f71ed0dd9de1d51e6bf20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d84458b71cec3aad074232c97c765e015bb2a72203fac35aad2e3021e7830ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f167fc2b4d9ae529107451fce0a51d489b71fcf756da7f1bcdbc874f21ddb9e5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "545e710239f2893ba4e7727077967b0ec7059f375798c0bb3453afe125440f75"
+    sha256 cellar: :any_skip_relocation, monterey:       "b39ac240e877471e009a2709e453e3cb8fe00110744dd37dc8fc588027f2f3f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "37ef97dd22f19f0221337642f7a486ff8fcc9227cfcfcc80b25f5b27b0154024"
+    sha256 cellar: :any_skip_relocation, catalina:       "0ff6c797667e4b8d508cacf47efefa8073ece36b113200ace735c5f8fb3d53d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bfce064409d4aa3a43d343daa120bf06bd4ac53ffe894e8118bcf6a3e51d632"
   end
 
   depends_on "rust" => :build

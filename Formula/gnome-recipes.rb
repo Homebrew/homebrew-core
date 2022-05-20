@@ -12,6 +12,7 @@ class GnomeRecipes < Formula
     sha256 monterey:      "8a9ff369bae0b3acbbf48ee50e7ac5a8ec5a1340aeb5b81a6cf5edc3fb5f571c"
     sha256 big_sur:       "105a21c96546f36b1b419dd4c75fd2e7b8104734292133fd21f1380b426043d2"
     sha256 catalina:      "854c2d0ce62d52830785e13faec7626e0c08769d9b9e618158d622acb20b1097"
+    sha256 x86_64_linux:  "ffedc8920bea9198ab547302ded99b2591f52d3f38f11e7cb00b29aa80e386eb"
   end
 
   depends_on "itstool" => :build
@@ -50,6 +51,12 @@ class GnomeRecipes < Formula
     end
 
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+
+    # Add RPATH to libexec in goa-1.0.pc on Linux.
+    unless OS.mac?
+      inreplace libexec/"lib/pkgconfig/goa-1.0.pc", "-L${libdir}",
+                "-Wl,-rpath,${libdir} -L${libdir}"
+    end
 
     # BSD tar does not support the required options
     inreplace "src/gr-recipe-store.c", "argv[0] = \"tar\";", "argv[0] = \"gtar\";"

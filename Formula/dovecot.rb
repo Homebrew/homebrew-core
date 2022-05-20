@@ -1,10 +1,9 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.17.tar.gz"
-  sha256 "224412cd77a23a3ffb857da294da200883d956082cff7257942eff2789bd2df9"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.18.tar.gz"
+  sha256 "06e73f668c6c093c45bdeeeb7c20398ab8dc49317234f4b5781ac5e2cc5d6c33"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
-  revision 1
 
   livecheck do
     url "https://www.dovecot.org/download/"
@@ -12,12 +11,12 @@ class Dovecot < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "53ab068979a92f1e9d390191dca34daf50c130859c6f0f73fe5e62d40d263295"
-    sha256 arm64_big_sur:  "3f90c227cec171cd2ed64d6077fbdaf69ee32aebee220c4875c21257476ef401"
-    sha256 monterey:       "a78fd61bfc1e6d9467d9e637833dfd25935734ff1e5db0c4c6adaa490d0e9af6"
-    sha256 big_sur:        "2ddff9377783f9c7b5afccd9a45c0999a31c918d6a8343a030b745ad6f8fbc17"
-    sha256 catalina:       "d72e1066c436ac030b25e3f11dfb507a9d17b74edcb8a895b6a801f9fc1b30c0"
-    sha256 x86_64_linux:   "81fc9b4bad54f620c74cc4d8aee4de73c8a217e23e8edc83fe09e937d5422177"
+    sha256 arm64_monterey: "d2cc62eb849982ca14279369b4d28448843d1845910086453b731c74c329d4f9"
+    sha256 arm64_big_sur:  "941b8612dbb9cdcdd5e0e126d426f1560901f0e79763f0a7a5ed604000a86459"
+    sha256 monterey:       "7c9ce42ea413b52942f83231a072615e4f5b7d4174a1ff2a62414b84f470c58c"
+    sha256 big_sur:        "9b071d88d2f41e49d96e7ae742dd978555fd498d671e02c0f05c868ff34e36b5"
+    sha256 catalina:       "d6a488b910f15a4fd854bfb8419c463c6bd63d4d37a26ee31b07d5bc9f71290b"
+    sha256 x86_64_linux:   "e1bbd60ce22a39ff395e1757c2ff62ea0286f30b4eb4a185af6cade2dceecb52"
   end
 
   depends_on "openssl@1.1"
@@ -31,10 +30,8 @@ class Dovecot < Formula
   end
 
   resource "pigeonhole" do
-    # Syystem curl errors with:
-    # curl: (35) error:1400442E:SSL routines:CONNECT_CR_SRVR_HELLO:tlsv1 alert protocol version
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.17.tar.gz", using: :homebrew_curl
-    sha256 "031e823966c53121e289b3ecdcfa4bc35ed9d22ecbf5d93a8eb140384e78d648"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.18.tar.gz"
+    sha256 "a6d828f8d6f2decba5105343ece5c7a65245bd94e46a8ae4432a6d97543108a5"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -97,5 +94,12 @@ class Dovecot < Formula
 
   test do
     assert_match version.to_s, shell_output("#{sbin}/dovecot --version")
+
+    cp_r share/"doc/dovecot/example-config", testpath/"example"
+    inreplace testpath/"example/conf.d/10-master.conf" do |s|
+      s.gsub! "#default_login_user = dovenull", "default_login_user = #{ENV["USER"]}"
+      s.gsub! "#default_internal_user = dovecot", "default_internal_user = #{ENV["USER"]}"
+    end
+    system bin/"doveconf", "-c", testpath/"example/dovecot.conf"
   end
 end

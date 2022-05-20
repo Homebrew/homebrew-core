@@ -1,20 +1,28 @@
 class GitWhenMerged < Formula
+  include Language::Python::Shebang
+
   desc "Find where a commit was merged in git"
   homepage "https://github.com/mhagger/git-when-merged"
   url "https://github.com/mhagger/git-when-merged/archive/v1.2.0.tar.gz"
   sha256 "3fb3ee2f186103c2dae1e4a2e104bc37199641f4ffdb38d85ca612cf16636982"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "67a1db2415c0aa7026ad1958a6966b909575ded3f7c5c63297aff72ca8eb76b0"
+    sha256 cellar: :any_skip_relocation, all: "e17a93477d9712acb9acb0c77f18c646d3a25faa19e7f9875d1a31cb44560003"
   end
 
+  depends_on "python@3.10"
+
   def install
+    rewrite_shebang detected_python_shebang, "bin/git-when-merged"
     bin.install "bin/git-when-merged"
   end
 
   test do
     system "git", "init"
+    system "git", "config", "user.name", "BrewTestBot"
+    system "git", "config", "user.email", "BrewTestBot@example.com"
     touch "foo"
     system "git", "add", "foo"
     system "git", "commit", "-m", "foo"

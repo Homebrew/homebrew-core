@@ -1,8 +1,8 @@
 class TektoncdCli < Formula
   desc "CLI for interacting with TektonCD"
   homepage "https://github.com/tektoncd/cli"
-  url "https://github.com/tektoncd/cli/archive/v0.22.0.tar.gz"
-  sha256 "6aea6f79f97f17e707a13ea16c75b2693ad2e942991285452e11be240d3411f3"
+  url "https://github.com/tektoncd/cli/archive/v0.23.1.tar.gz"
+  sha256 "49ea8c907c10514e219b3536fad481c537c09b8fa264eb0c0f3c4ece61bcabc5"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class TektoncdCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "61583d36799bdc288c999f420be9cf344399cc4563778b99b93b5fc4652350a2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86da0c9047c2463ce21b619e96ec4071b257f60daff108085efbf451bbd85069"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f4b8897725c6144db96b15408600cecd475c57dd401b7aaae6dea55c566e131"
-    sha256 cellar: :any_skip_relocation, big_sur:        "050b5214be5bf3bbf68a58db54557a64f699d94b2a06eee5520d75aca2f0abda"
-    sha256 cellar: :any_skip_relocation, catalina:       "ca2398b83fe6a8bebb65ed6f1d62a1e4e0d06b21cb97dcaca042def904039cfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ec9cce77182fe8a54476b0764b0c0e887be371fcb0d239c98cff8a0960bf3e6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "854facd575ffe796bed332b0a5718761ab93070a7e31569f3902383ee367ee02"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a6521c797be2cb7afab88984e3487517f5fcd86702463c174eca40d8dcefc3e"
+    sha256 cellar: :any_skip_relocation, monterey:       "cf30f50ed353283c3da876f1616f2633d471992438125f3be766087b79140109"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6301e48ae1b13c59e2edf6d3645484233f0417c395d58ba8ba8f69627f8a57b0"
+    sha256 cellar: :any_skip_relocation, catalina:       "917f87b9949d7e48dfe8376b3fef5a841036e0737add3f41582ccb88433db78b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4437c493f8e8bd5a9aa538d97b68d86d389cfce0c684bebe9f3c346c4680fd86"
   end
 
   depends_on "go" => :build

@@ -17,6 +17,7 @@ class Mogenerator < Formula
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   # https://github.com/rentzsch/mogenerator/pull/390
   patch do

@@ -17,6 +17,8 @@ class SignifyOsx < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "fdac23b07368d6c8ebad06c2b8451f0c8228f71f5c65b48d672cfd581b222509"
   end
 
+  depends_on :macos
+
   def install
     system "make"
     system "make", "test"

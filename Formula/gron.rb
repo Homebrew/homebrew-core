@@ -1,19 +1,18 @@
 class Gron < Formula
   desc "Make JSON greppable"
   homepage "https://github.com/tomnomnom/gron"
-  url "https://github.com/tomnomnom/gron/archive/v0.6.1.tar.gz"
-  sha256 "eef150a425aa4eaa8b2e36a75ee400d4247525403f79e24ed32ccb346dc653ff"
+  url "https://github.com/tomnomnom/gron/archive/v0.7.1.tar.gz"
+  sha256 "1c98f2ef2ba03558864b1ab5e9c4b47a2e89d3ffaf24cfa0ac75cd38d775feb4"
   license "MIT"
   head "https://github.com/tomnomnom/gron.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a2b33efe431b4a44c97a0ce660fb35af397525b4785947b48bdd938770d56a4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d083132bef855096318805ebd6733993c444c1c6e5a203525184b5517f19da1a"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b1405e3ac3f6faf5032cc9ee800f8927b37b63ef839d6bde907c90025ba8efb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "18f72c72d99203bd58c670642d6c33fa9e1f67e6861212ba21f98b975df406f0"
-    sha256 cellar: :any_skip_relocation, catalina:       "dc6b46a589f618ab5b2e9d4aea01bd75f0326f585085c3b1f12e266dda2e7e5d"
-    sha256 cellar: :any_skip_relocation, mojave:         "2a0ad03c4c7dfd2098758be2c5b65f16107ce8c67b586a4679f9d871aaee09a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e59ac188f08b0d0bd3307b8a163ba4d27f8d33f687c57b1557139bcc7b530fc7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "856236ceb1dbc90437bd4a214ac5cbf9618ae17bb170f5187fc0acbd8110b174"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "322c63263dead630c89ab151634b663ecf95d93a82034b3e5b75c42318912835"
+    sha256 cellar: :any_skip_relocation, monterey:       "7b03cebd6d4120718aeb3de935087981d9e234c844df866076518417dfd6e9e0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c28a8bf800179d49a5aeb52d57bac6100eee9a5755c0dc112dc7fd7e7413323f"
+    sha256 cellar: :any_skip_relocation, catalina:       "d8422ab18406e6231c4731d0f124641508175c2ee142bd5bd0d99f1a97252c3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b10089d68a7958fb52643f3813b910fb5ab3a89ffb18d5161e5f717956b6bf2c"
   end
 
   depends_on "go" => :build

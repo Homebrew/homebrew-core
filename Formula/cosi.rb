@@ -60,8 +60,8 @@ class Cosi < Formula
         revision: "0c607074acd38c5f23d1344dfe74c977464d1257"
   end
 
-  go_resource "gopkg.in/codegangsta/cli.v1" do
-    url "https://gopkg.in/codegangsta/cli.v1.git",
+  go_resource "gopkg.in/urfave/cli.v1" do
+    url "https://gopkg.in/urfave/cli.v1.git",
         revision: "01857ac33766ce0c93856370626f9799281c14f4"
   end
 

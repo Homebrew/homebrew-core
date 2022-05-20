@@ -30,7 +30,6 @@ class Protobuf < Formula
   depends_on "python@3.10" => [:build, :test]
   # The Python3.9 bindings can be removed when Python3.9 is made keg-only.
   depends_on "python@3.9" => [:build, :test]
-  depends_on "six"
 
   uses_from_macos "zlib"
 
@@ -57,7 +56,10 @@ class Protobuf < Formula
 
     cd "python" do
       ["3.9", "3.10"].each do |xy|
-        system "python#{xy}", *Language::Python.setup_install_args(prefix), "--cpp_implementation"
+        site_packages = prefix/Language::Python.site_packages("python#{xy}")
+        system "python#{xy}", *Language::Python.setup_install_args(prefix),
+                              "--install-lib=#{site_packages}",
+                              "--cpp_implementation"
       end
     end
   end

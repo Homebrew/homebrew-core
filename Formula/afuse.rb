@@ -43,11 +43,11 @@ class Afuse < Formula
   end
 
   test do
-    on_macos do
-      assert_match "OSXFUSE", pipe_output("#{bin}/afuse --version 2>&1")
+    expected = if OS.mac?
+      "OSXFUSE"
+    else
+      "FUSE library version"
     end
-    on_linux do
-      assert_match "FUSE library version", pipe_output("#{bin}/afuse --version 2>&1")
-    end
+    assert_match expected, pipe_output("#{bin}/afuse --version 2>&1")
   end
 end

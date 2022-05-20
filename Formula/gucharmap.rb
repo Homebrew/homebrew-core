@@ -3,6 +3,7 @@ class Gucharmap < Formula
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
   url "https://download.gnome.org/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz"
   sha256 "39de8aad9d7f0af33c29db1a89f645e76dad2fce00d1a0f7c8a689252a2c2155"
+  license "GPL-3.0-or-later"
   revision 4
 
   bottle do
@@ -13,6 +14,7 @@ class Gucharmap < Formula
     sha256 catalina:       "007a3670270b9b8cbc2e0e9f36cb3854ba987d8b8105ec73e236fc56d28c2cbe"
     sha256 mojave:         "b8f34cbea2db76364e0a4e3a6d2e5ba3110e80ef6b76fa3c165b1ac6b30ee9f1"
     sha256 high_sierra:    "f8ad1728dd1e0124201e568ad0f69f004245368eb21527dea98ecf045ccad708"
+    sha256 x86_64_linux:   "6604c5046dbae96f07f30c6e4ee45c9b2e6e5a1030ae44c5dcd03870361c8fc4"
   end
 
   depends_on "coreutils" => :build
@@ -23,6 +25,8 @@ class Gucharmap < Formula
   depends_on "python@3.9" => :build
   depends_on "gtk+3"
 
+  uses_from_macos "perl" => :build
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
@@ -32,6 +36,7 @@ class Gucharmap < Formula
   def install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
     ENV["WGET"] = "curl"
 
     system "./configure", "--disable-debug",

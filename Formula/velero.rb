@@ -1,18 +1,17 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://github.com/vmware-tanzu/velero"
-  url "https://github.com/vmware-tanzu/velero/archive/v1.7.1.tar.gz"
-  sha256 "f008ea2ed6b5f03419399289768db907ec993f4c6ef6947689737d67d4a895b8"
+  url "https://github.com/vmware-tanzu/velero/archive/v1.8.1.tar.gz"
+  sha256 "675034d30d3539f9292ca5896e28df6159cdf1c6436d806795a79c61bfe37cd7"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e96eeec41a5dcac7d04a063999c61bbf30d55a4c9fce57b6f4fcd8197e64c39b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e1380bb4d04eae84d4a9cb5210e98ce16d99a2f18b8dc8dd3e6d6bd54d7e2ae3"
-    sha256 cellar: :any_skip_relocation, monterey:       "e9bef0f0f023267baa52886357ac482b4cbc85ccbc9c9405e50fed0e9f39184b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cbb0fe2a50ede42fd99ab6dc70a0137ca843d4bec77cbf80e3295428bf755453"
-    sha256 cellar: :any_skip_relocation, catalina:       "9f6402b61b970c220eb4178d14739ee1b5dbad44eab79907797209d95449b351"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bc3ebeaed2018400b6f1633b64a2219f43c222fb26b835076f1acce89cdf36e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d5e7dd1ec446795b48ee1216e986c73fb30a8578ac8c2ce4302189e5e41d0d3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "867c35bbc9c2c4cb084c88234979161ed92232c0fe86104e8aec4803b51182d3"
+    sha256 cellar: :any_skip_relocation, monterey:       "62f38614bdb6942df5c685c51c960f990e22121affdc612d8ceb42823f1586ce"
+    sha256 cellar: :any_skip_relocation, big_sur:        "84261d846c7d13f02a9ddb406fb6f9037388dab17bfd7da28ac4b36dbfc2ef07"
+    sha256 cellar: :any_skip_relocation, catalina:       "72b446ff30792fd7e486ddd0a106dd4a74a27321fb7d597fd407160005ac1846"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9d3245f03f0a719fb9d0e2621f3c1ef6a27936fed7650fe5ee9b0a419dc2b75"
   end
 
   depends_on "go" => :build

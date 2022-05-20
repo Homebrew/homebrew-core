@@ -1,19 +1,18 @@
 class Hydra < Formula
   desc "Network logon cracker which supports many services"
   homepage "https://github.com/vanhauser-thc/thc-hydra"
-  url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.2.tar.gz"
-  sha256 "1a28f064763f9144f8ec574416a56ef51c0ab1ae2276e35a89ceed4f594ec5d2"
+  url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.3.tar.gz"
+  sha256 "3977221a7eb176cd100298c6d47939999a920a628868ae1aceed408a21e04013"
   license "AGPL-3.0-only"
-  revision 1
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "884e41848bdb0202ba702a29259e2ad74a36f35e138fd2ed34cc86991b324041"
-    sha256 cellar: :any,                 arm64_big_sur:  "3d6ffc9ab242d4cd39565466f7ed470384ae655ca91727074b5931f5d240c17b"
-    sha256 cellar: :any,                 monterey:       "6bea829770ee544639bf52ebabdb6b76d2c860dbfd01cbae879f9ec34bfe0d33"
-    sha256 cellar: :any,                 big_sur:        "175fb361c3f301b4a204564fb55757566c29f31be057054804e7c546cf7ea94c"
-    sha256 cellar: :any,                 catalina:       "a6fb41371a0d4860f3988198203b7c10b35f0cb5f4c1aad29c7dc9993f46b4a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c32fd11cebf349d4ada5c6b551f1a24602b27eab5fc2af0afcfe6eb0e3a10ad"
+    sha256 cellar: :any,                 arm64_monterey: "d81667ed28dc2b8e38d9f44d7fd8b3aecd71a48f2f49d3005c7054872b96612a"
+    sha256 cellar: :any,                 arm64_big_sur:  "0b040b93fa5d82aea9d0158eb74e291c6cc4f7fd4c8071f96b2ab0d2324ad28b"
+    sha256 cellar: :any,                 monterey:       "08c11395c5eb20f807d57083e39472bc2408d0861aabbdf3c23cb35b15754d45"
+    sha256 cellar: :any,                 big_sur:        "f9de22a865bfa3e8f71d958b95b656c253e1c6af5f40576f6667a08f604ce0e3"
+    sha256 cellar: :any,                 catalina:       "d5bc777635381242e8c03a33cbf1da3eaf63c1abd88922e0be2075b35d93108d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36cdb072b8118f86cc077be2d7c862e46f847f23e65fbc192968845b4c9fe8ad"
   end
 
   depends_on "pkg-config" => :build
@@ -24,6 +23,13 @@ class Hydra < Formula
   uses_from_macos "ncurses"
 
   conflicts_with "ory-hydra", because: "both install `hydra` binaries"
+
+  # Fix "non-void function 'add_header' should return a value", issue introduced in version 9.3
+  # Patch accepted upstream, remove on next release
+  patch do
+    url "https://github.com/vanhauser-thc/thc-hydra/commit/e5996654ed48b385bc7f842d84d8b2ba72d29be1.patch?full_index=1"
+    sha256 "146827f84a20a8e26e28118430c3400f23e7ca429eff62d0664e900aede207cc"
+  end
 
   def install
     inreplace "configure" do |s|
@@ -65,9 +71,6 @@ class Hydra < Formula
     # https://github.com/vanhauser-thc/thc-hydra/issues/22
     system "./configure", "--prefix=#{prefix}"
     bin.mkpath
-    # remove unsupported ld flags on mac
-    # related to https://github.com/vanhauser-thc/thc-hydra/issues/622
-    inreplace "Makefile", "-Wl,--allow-multiple-definition", "" if OS.mac?
     system "make", "all", "install"
     share.install prefix/"man" # Put man pages in correct place
   end

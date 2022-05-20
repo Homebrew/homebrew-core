@@ -4,7 +4,7 @@ class SpatialiteTools < Formula
   url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-5.0.1.tar.gz"
   sha256 "9604c205e87f037789bc52302c66ccd1371c3e98c74e8ec4e29b0752de35171c"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/"
@@ -12,29 +12,26 @@ class SpatialiteTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "eb35f849a07740c11d2428ecdc269b6663a58f80387ff0b6db66f8940618f178"
-    sha256 cellar: :any, arm64_big_sur:  "1dc66a96910742c330fa90b8c547ce7d7693d7c3af118707b5a15b6d6e013ef9"
-    sha256 cellar: :any, monterey:       "873e89f72b1efb2b97ed66a8ef49f8eb59331075921eb21788c4ea9ea6f20dcb"
-    sha256 cellar: :any, big_sur:        "1e4d449a6915bfe180238dd30ed93a2909661076a86f66cea306fda8dbdeb8c4"
-    sha256 cellar: :any, catalina:       "362dd2c109f880d356d7f7e0359936717acfc1ca146277f0e2c456955c33492f"
-    sha256 cellar: :any, mojave:         "ffdc8a4b476146b0f58965f3879f1418a4b151bcbe4a213a005cd5eae5ecc50f"
+    sha256 cellar: :any,                 arm64_monterey: "b86e6782ee3e213e0f48dff798cfb97abe3d7b70b9952adec27a38101ae79ad0"
+    sha256 cellar: :any,                 arm64_big_sur:  "85f55f7e24e468d2e8c4e12b756adb403c7dca4c7d876ffa6f4d137068281bb7"
+    sha256 cellar: :any,                 monterey:       "a48217b08cf43cb0ab8f3d4d04746039aed59f2e6ab94da257086640cc554809"
+    sha256 cellar: :any,                 big_sur:        "14b4e9a726e60acf5e1e1fee927c95ac8956b616882e689010dd9c0f13e19675"
+    sha256 cellar: :any,                 catalina:       "73a69a00307ae7198b57f8e9636be6c096364366ab0e6641aed513a2fc88022f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b23dd8401a4f5979eb7f4d4356fe0a6254097d7312ceb4d9261bdce49593d9cf"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libspatialite"
-  depends_on "proj@7"
+  depends_on "proj"
   depends_on "readosm"
 
   def install
     # See: https://github.com/Homebrew/homebrew/issues/3328
-    ENV.append "LDFLAGS", "-liconv"
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
     # Ensure Homebrew SQLite is found before system SQLite.
-    #
-    # spatialite-tools picks `proj` (instead of `proj@7`) if installed
     sqlite = Formula["sqlite"]
-    proj = Formula["proj@7"]
-    ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3 -L#{proj.opt_lib}"
-    ENV.prepend "CFLAGS", "-I#{sqlite.opt_include} -I#{proj.opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
+    ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

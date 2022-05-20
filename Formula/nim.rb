@@ -1,8 +1,8 @@
 class Nim < Formula
   desc "Statically typed compiled systems programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-1.6.2.tar.xz"
-  sha256 "9ac4714fa6c315d691da7f5d8941c1b190d4d437397d9742e327c2d51893e373"
+  url "https://nim-lang.org/download/nim-1.6.6.tar.xz"
+  sha256 "67b111ce6f3861503b9fcc1cae59fc34d0122566d3ecfef3a064a2174121a452"
   license "MIT"
   head "https://github.com/nim-lang/Nim.git", branch: "devel"
 
@@ -12,12 +12,12 @@ class Nim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c7daaa6628706cef3ec4b193bbefdb0c3804dd7019841d01608eecca994448c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f2c52131f50e173728bbd873c32656e051c20b0d13a5a90ee1b4e59f6d746f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "26f0d2faa4867a8e614de4d7e433e0fa6a31747c27efd1787789140c77f4697f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d7228fccca15018d2315112e6fcbdef1026e73d19f158af49d19904e959c72c"
-    sha256 cellar: :any_skip_relocation, catalina:       "3c6f4cb8efc2fa744f3bf5920bf5f3b031891fa700a4c41c2d421532a7aa2561"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c04834ff02bde41a8fe8608fe1d547ce83be2603bb4864c97d84ee3568475e0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3e214ca5ddbf7d42963f13f2cbab8c574cf21a8baf321d3ed3747f09f27bce76"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2ef248de065620fdeb54db3faaf5082ec32d67734590074546c84facdb5be05"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf085cf759a3ecdd1e680e809f2cb73ac503d5951d34ed49c8b6927cc8a56024"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0b149204287e7bbde1e80e2cc5829dffe94c158ac095324fe3bbbbc67abbacb9"
+    sha256 cellar: :any_skip_relocation, catalina:       "de0fe0f7e2e0738cc72993964ac02364f73b9bdd8a832c8be353686336eabdbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76c949ae021e7d3fea06f4738d58adea8cb0bc2b79031a5640cec1e80908f496"
   end
 
   depends_on "help2man" => :build

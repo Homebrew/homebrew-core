@@ -1,20 +1,21 @@
 class GrafanaAgent < Formula
   desc "Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces"
   homepage "https://grafana.com/docs/agent/"
-  url "https://github.com/grafana/agent/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "d941335c83308e38afbec46f2d93082ac51cdfa6b975c0faaf2998aa938c3160"
+  url "https://github.com/grafana/agent/archive/refs/tags/v0.24.2.tar.gz"
+  sha256 "b7d96405ce9b58a371e9c5fc19bf3f13dd967a2c192bf3f7ae4f3f76ee581077"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1328346e0fa6fc9e61a1689b901d958efb2238cd588b42e0775720baec688d3e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01ecadf293ac8a1093ee8657e3b153427172ad7bd9e2e2a416020cec0397f3fc"
-    sha256 cellar: :any_skip_relocation, monterey:       "2d1a899d9cee5b94357f3ccf7bf83f1d500905f6ef59131e45d0e73005f77968"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9f3bd70221617a753a95ce7e6dbc8bcc9efd039422358f87bd990655aa91536e"
-    sha256 cellar: :any_skip_relocation, catalina:       "75c93d14b32addf817139f07386ca88e4093a8975b2da33f4ad4914c6696b75b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cc0d6b9316d4217c3e0d37242e28b2919570294640535285c5e21e6f743e235"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "220606e85009806dc6d5c861e9b2ef938d9953d62397c3524c9ffba497f96d71"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fcb27a88c14f65b4739186b2daf0c22eb5951cfba7871aa06b4471830eada621"
+    sha256 cellar: :any_skip_relocation, monterey:       "83b6502b2ec4b27f4f6f1178631c8df11ebfbe186b27dac1a05c6ebc7ec333b2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bde75a9fd54c11cf16a206ba8b3ad958437c0930cf806c5643b7e947b379531a"
+    sha256 cellar: :any_skip_relocation, catalina:       "927c87ee7cb57c84f916eb47a9b1fbda9cedd33c7826567015cdeb442459d1eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "141e7dd49f9b4a99097b46b5f95e527c960be33646a9c0878c4b4828c9466d82"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   on_linux do
     depends_on "systemd" => :build
@@ -68,7 +69,7 @@ class GrafanaAgent < Formula
 
     fork do
       exec bin/"grafana-agent", "-config.file=#{testpath}/grafana-agent.yaml",
-        "-prometheus.wal-directory=#{testpath}/wal"
+        "-metrics.wal-directory=#{testpath}/wal"
     end
     sleep 10
 

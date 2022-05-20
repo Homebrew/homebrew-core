@@ -1,8 +1,8 @@
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "https://gmsh.info/"
-  url "https://gmsh.info/src/gmsh-4.9.4-source.tgz"
-  sha256 "acff3342d1907c429a4be3e4596ed44f6cd43fd5a94ab75667f4863cdcf2f769"
+  url "https://gmsh.info/src/gmsh-4.10.2-source.tgz"
+  sha256 "d921109e6c419f68d5507d9612ee815d40b5239a5db175f28285e0cd0dbf2517"
   license "GPL-2.0-or-later"
   head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Gmsh < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4aa718a4b7d1faeadcaa874c87e4e4ca2e82da5c378058ce751ac78feb358a49"
-    sha256 cellar: :any,                 arm64_big_sur:  "50d6de6b1b0b2fdfcf2e8db39c9f817c00b50f7840efce24039f86bae64ff1a3"
-    sha256 cellar: :any,                 monterey:       "9585de98f12992a5333eeb4e96c907f2815dc7edbdf95c525eb586366d401b18"
-    sha256 cellar: :any,                 big_sur:        "c7fcff67537fd10502e48dfb2f6c48e260f325532501e407a1a36a0ede42f7b5"
-    sha256 cellar: :any,                 catalina:       "40ee85113f84a38cda1b6985fd35d321e91bae762a6eb8b6c51e4cd64f6a19a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f27da0009ee69eb3a6a4068c76ac386aa528251c3236a15578e9a247b33aaf17"
+    sha256 cellar: :any,                 arm64_monterey: "b459f75659cd2df0ba78b06a7a8e8d5e188170b80ffeb70d2ef19471391b92b8"
+    sha256 cellar: :any,                 arm64_big_sur:  "b438fc7507950d56fdfa643d6456a4ea27fde36b6dd445a2120ae172f1aa7772"
+    sha256 cellar: :any,                 monterey:       "330fcd934532d1504a4f6cc5f64bd91b1c84a2c30727bb359d7d5a393d1e318c"
+    sha256 cellar: :any,                 big_sur:        "21dd1ee4f74baa63ddb21b81dda3acf700592dc99aa347a926d0a4fcbc23133a"
+    sha256 cellar: :any,                 catalina:       "b21245f80b909d38dbe21f0213ade215bc67203d5bcffe9a382dacac2c3fd8ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19033cb75ac75b55c688d40bf17462e5eb86daa45dbf57ed3f17148256f2680b"
   end
 
   depends_on "cmake" => :build

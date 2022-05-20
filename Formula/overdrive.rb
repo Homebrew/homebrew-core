@@ -1,13 +1,13 @@
 class Overdrive < Formula
   desc "Bash script to download mp3s from the OverDrive audiobook service"
   homepage "https://github.com/chbrown/overdrive"
-  url "https://github.com/chbrown/overdrive/archive/2.2.0.tar.gz"
-  sha256 "5a4666ae75677acb90b593e6d31a12da0addefbdfeda679afcbd536c378500c2"
+  url "https://github.com/chbrown/overdrive/archive/2.3.0.tar.gz"
+  sha256 "1c963ee8d9d2cc4633b10a0677e077a9a9917c88d7184ee6936799ee41722faf"
   license "MIT"
   head "https://github.com/chbrown/overdrive.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b521ed34238151360b2c55997d73e19eef47b9a7c52821781f527d69fad1fde2"
+    sha256 cellar: :any_skip_relocation, all: "1b103c2e48d2768a883b675bc0b4dc3ccd98789c458db68b54219441250201bf"
   end
 
   depends_on "tidy-html5"

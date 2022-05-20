@@ -16,7 +16,8 @@ class Piknik < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d9a86776e5339217206d091bc5b37921db0c11c82b8a068108e41ef76c23fde"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args, "-ldflags", "-s -w"

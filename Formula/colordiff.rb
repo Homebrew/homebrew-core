@@ -1,8 +1,8 @@
 class Colordiff < Formula
   desc "Color-highlighted diff(1) output"
   homepage "https://www.colordiff.org/"
-  url "https://www.colordiff.org/colordiff-1.0.19.tar.gz"
-  sha256 "46e8c14d87f6c4b77a273cdd97020fda88d5b2be42cf015d5d84aca3dfff3b19"
+  url "https://www.colordiff.org/colordiff-1.0.20.tar.gz"
+  sha256 "e3b2017beeb9f619ebc3b15392f22810c882d1b657aab189623cffef351d7bcd"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,7 @@ class Colordiff < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bef827804516409457baf7bd7a7622d595aa6c2ace53c011400fbdcf54850755"
-    sha256 cellar: :any_skip_relocation, big_sur:       "945737122c0c542218c0ab89a1e923174033f27dd92760f102ca38c565c5485d"
-    sha256 cellar: :any_skip_relocation, catalina:      "a591ec70f59b8f5ff3cde4c0a8cd58d920db324f9c3001e218bdcfc8966aca15"
-    sha256 cellar: :any_skip_relocation, mojave:        "f5b78a778860c7d37a370287c3821e17243a37e5e568cf58fd2aa3df3e3ce409"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "305a7dfd6940d463d89473c1f2864c5f5b1bd7ed01f838929c3901ad94f4586d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2f240b24b42d70c44704e16ea74bab794666152afb7c992829956376e9d6cd2"
-    sha256 cellar: :any_skip_relocation, all:           "c2f240b24b42d70c44704e16ea74bab794666152afb7c992829956376e9d6cd2"
+    sha256 cellar: :any_skip_relocation, all: "074e293f6918138f532ee761a97822b75344fba0bf1193c776b597e40b7763ca"
   end
 
   depends_on "coreutils" => :build # GNU install

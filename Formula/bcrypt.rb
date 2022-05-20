@@ -6,8 +6,7 @@ class Bcrypt < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "http://bcrypt.sourceforge.net/"
-    strategy :page_match
+    url :homepage
     regex(/href=.*?bcrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

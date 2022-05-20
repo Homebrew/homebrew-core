@@ -15,6 +15,7 @@ class Vimpc < Formula
     sha256 mojave:         "83dd8968d8fc7830c2dc90db35441c01bd62c567b8d2749e00edba7ee7429487"
     sha256 high_sierra:    "d457ed5a1b85e88f721d7617753aee99a3a8ed17806b5925b6458c9fb9477423"
     sha256 sierra:         "af41091db0a875b5fa05d0b1cc969df649693f4ceb4e14b8cdd72a3b6527a741"
+    sha256 x86_64_linux:   "e2a99a63aaa638c00b002546903cffd1f63a085856dd5e62235102caac000162"
   end
 
   depends_on "autoconf" => :build
@@ -24,6 +25,8 @@ class Vimpc < Formula
   depends_on "libmpdclient"
   depends_on "pcre"
   depends_on "taglib"
+
+  uses_from_macos "curl"
 
   def install
     system "./autogen.sh"

@@ -1,17 +1,17 @@
 class Libavif < Formula
   desc "Library for encoding and decoding .avif files"
   homepage "https://github.com/AOMediaCodec/libavif"
-  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "bcd9a1f57f982a9615eb7e2faf87236dc88eb1d0c886f3471c7440ead605060d"
+  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "66e82854ceb84a3e542bc140a343bc90e56c68f3ecb4fff63e636c136ed9a05e"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "89ae2754b605c1a5dd35135ebfbf8e0d0970029fb617c8019c9566ad3da600ed"
-    sha256 cellar: :any,                 arm64_big_sur:  "0e64657e9f2d5ea82d0c66aaf761cfbb7d39e245590fbdcc603743f5280313c3"
-    sha256 cellar: :any,                 monterey:       "8c48b4c95b0df48df71fc8de3e924cfad0dd06c886cd9a69419a6affd7a76e7a"
-    sha256 cellar: :any,                 big_sur:        "9d11f6321b3889671d683e86ebb6db03716142cdc16f0a95ce5e761ba31ab258"
-    sha256 cellar: :any,                 catalina:       "f9611aacd9b0decd5ef0fbbccc67119cea5603eadfd4430ceac556f54723945e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84b065490127c11a9b8e5fe9263d270ca9751e9cb7962bb5a5ccf6ff2f3c4c08"
+    sha256 cellar: :any,                 arm64_monterey: "febd8e9323eaedb8079bcad420b689cb0f2ce7d443f7aef867d6656297488e70"
+    sha256 cellar: :any,                 arm64_big_sur:  "d5bc9850e31bff49542703f6a35a9f6fff240045eabe9ea2daf914b45a72d4b3"
+    sha256 cellar: :any,                 monterey:       "9d9a141b3f49071c4520b499d7ca30818ad2a18ebcba63df326fa980fd46d253"
+    sha256 cellar: :any,                 big_sur:        "7cd60491a115a112cfca358076359edba4c137c6a9a6c7be4cde710ac3817d71"
+    sha256 cellar: :any,                 catalina:       "3b9611a1b827880d54ef0a8fdae35f911cb2df2e9372f8d15c32224c56df8d99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "162daea36979f79d7aaabac8b02ac722d8799e303aae4a1d21306afda84d4279"
   end
 
   depends_on "cmake" => :build

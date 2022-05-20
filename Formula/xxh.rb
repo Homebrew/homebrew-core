@@ -3,17 +3,17 @@ class Xxh < Formula
 
   desc "Bring your favorite shell wherever you go through the ssh"
   homepage "https://github.com/xxh/xxh"
-  url "https://files.pythonhosted.org/packages/21/10/ecf32b1205e9e5be1eeb0e9f9bac665d1c978d2ae2c8c1c54e2d4945f8f0/xxh-xxh-0.8.8.tar.gz"
-  sha256 "0e49dee04455465bf6f77a9fd625f87ec9dae48306dddf423c18a0ef01a2ce1c"
+  url "https://files.pythonhosted.org/packages/63/71/7b985e754543e4fc9fc53cf36f405ee5b8044931cffa45898c4edf74275a/xxh-xxh-0.8.10.tar.gz"
+  sha256 "5afe1d9803143e3b6659f48a6e4ec8134b952046e8efd9089b791aeeb8fe1045"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "639a6aed5f3aa286bcbce5259504aa6edb3b9d1620c753b07e21c715f493fc45"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f396bc52bd61b46c139ea378b0e38dd3137a2772cfc0ed43fc98a3be59693f61"
-    sha256 cellar: :any_skip_relocation, monterey:       "1c5f2a2a841e545cf824876b8d7d1ef3ab583d168f52b2753b3ec19231a67123"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f38b8f4b5c4716c241347cbd945c0aed4e98585e04dca8bef5d55aca53268d02"
-    sha256 cellar: :any_skip_relocation, catalina:       "ed4fdb6cb0e7b4191631b7c92fd51cac5047dc5d299e7a7e09e0522e294830ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce4f48ddd84c4fc23d39007230c1e3cc9734f391b8c749258fc577ec55635215"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "af548bd09027ae01c49fb1d67eefb3f0d8d29f80e4377e0b4010625144cdba39"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "810b2858c8747dd4db075e2edb5572024517778bdaa204fdea1b33eabe186847"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ad4f9280daf8065a7c8320ed63e3e6ec861a78920b0fc1c99b520e5fd2a9fc5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b505817bc2c31dd89654076ea2c2cf8e8d8860c1c3480892985a520ebb0a6567"
+    sha256 cellar: :any_skip_relocation, catalina:       "52f43b88952a3d0580103972f914027dfd035d3384300f1db3fbd1661c3ac9b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0086a293188bcc14a2d1d57f5f8eb1fd09339c172286aed190e3896614332aa1"
   end
 
   depends_on "python@3.10"

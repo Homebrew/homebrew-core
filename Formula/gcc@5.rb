@@ -30,7 +30,7 @@ class GccAT5 < Formula
 
   on_linux do
     depends_on "binutils"
-    depends_on "glibc" if Formula["glibc"].any_version_installed?
+    depends_on "glibc" if OS::Linux::Glibc.system_version < Formula["glibc"].version
   end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
@@ -126,7 +126,7 @@ class GccAT5 < Formula
       args << "--disable-multilib"
 
       # Change the default directory name for 64-bit libraries to `lib`
-      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+      # https://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc-pass2.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
 
       # Fix for system gccs that do not support -static-libstdc++

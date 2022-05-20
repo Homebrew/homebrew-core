@@ -1,18 +1,18 @@
 class Cava < Formula
   desc "Console-based Audio Visualizer for ALSA"
   homepage "https://github.com/karlstav/cava"
-  url "https://github.com/karlstav/cava/archive/0.7.5.tar.gz"
-  sha256 "863578e7d091735fd9c673239058515300faa79ff76304849a93c37ae3bd93cf"
+  url "https://github.com/karlstav/cava/archive/0.8.2.tar.gz"
+  sha256 "99bc302ce77f8093a4ac1cf94be51581e37c075428117f248ffe1fee650f47d8"
   license "MIT"
   head "https://github.com/karlstav/cava.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "b9a0428949158a1c41d65288431f680c7852fff122a8e989877489a7758ee85b"
-    sha256 cellar: :any, arm64_big_sur:  "90037b3a25613aba832f187a1c744eee7c88cc778cb152d2294cc3dbb4ae292d"
-    sha256 cellar: :any, monterey:       "72a65af7592fc0a51c90f9c8bbb49a0434d7a7f45ec0ffb5b09b9751850085d5"
-    sha256 cellar: :any, big_sur:        "93fd5c02f56cce078610dcac879905fa85a86a245e2329d287215fca3bf33f20"
-    sha256 cellar: :any, catalina:       "0724c4e35cff72b75142831b06c191d95c3e134c5c8de3faee1ecda419b6c894"
-    sha256               x86_64_linux:   "4f8e76b8b7203526f9ed11858483059703f3d991121c03216cb39040c94da2f3"
+    sha256 cellar: :any, arm64_monterey: "89c862723b2716b7679e5efc78e716b09d1f45fd2c2a1edbd51a9c65b80d4343"
+    sha256 cellar: :any, arm64_big_sur:  "ac197a673c179b5cc6b908238b390d0895c0c6687310ce242ff906bb833085b7"
+    sha256 cellar: :any, monterey:       "fc8442ab578524fae2beb5b1ee7a27b685201d9cef2156193bd92734300a4948"
+    sha256 cellar: :any, big_sur:        "abc65c805ead74fb13a651f664a692afa4cc208670570123d6fdeb359d8a64f8"
+    sha256 cellar: :any, catalina:       "d96daa890f9abd0fe8d8cd56feb7d9462cc57fe8fbbf59967c88074ffd062fa8"
+    sha256               x86_64_linux:   "2f8f05f61182fd20761e06eb7255f03f34466b7ecd992e72a12bf555e0f5c280"
   end
 
   depends_on "autoconf" => :build
@@ -22,6 +22,7 @@ class Cava < Formula
   depends_on "iniparser"
   depends_on "portaudio"
 
+  uses_from_macos "vim" => :build # needed for xxd
   uses_from_macos "ncurses"
 
   def install

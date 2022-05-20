@@ -26,7 +26,7 @@ class Libgusb < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "libusb"
@@ -73,9 +73,7 @@ class Libgusb < Formula
       -lusb-1.0
       -lgusb
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

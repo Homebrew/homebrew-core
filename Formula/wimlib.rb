@@ -48,12 +48,10 @@ class Wimlib < Formula
   test do
     # make a directory containing a dummy 1M file
     mkdir("foo")
-    size = nil
-    on_macos do
-      size = "1m"
-    end
-    on_linux do
-      size = "1M"
+    size = if OS.mac?
+      "1m"
+    else
+      "1M"
     end
     system "dd", "if=/dev/random", "of=foo/bar", "bs=#{size}", "count=1"
     # capture an image

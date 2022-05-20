@@ -1,17 +1,17 @@
 class Proteinortho < Formula
   desc "Detecting orthologous genes within different species"
   homepage "https://gitlab.com/paulklemm_PHD/proteinortho"
-  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.0.33/proteinortho-v6.0.33.tar.gz"
-  sha256 "332f61eee4ea6f3e27b38e123bb78b5263627fb5a4fd3609502877d8c0af7373"
+  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.0.35/proteinortho-v6.0.35.tar.gz"
+  sha256 "1aa4a887d82a1074f1032d5a56858b35505d4c9937080a4f366fbdcc83e483d3"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "86d0a6bba939c19be78b655b7fe161e7c2aa51d5535db2b8918def494b70d6ee"
-    sha256 cellar: :any,                 arm64_big_sur:  "ae9faec3141c8ad3f91975208cfe2788bc83d3c80d33171269cb88495f6d457a"
-    sha256 cellar: :any,                 monterey:       "63d12ed4d29984b6bed15047c392fc7e2dad45df827a5631b0cd183725df092c"
-    sha256 cellar: :any,                 big_sur:        "8eef61bed20ff2035788c88088d4e15d3bc6e4f93526de5b4d3df8420a8a2d61"
-    sha256 cellar: :any,                 catalina:       "ab9b48a0acf47a57d7f5d92d1181d67a87b3fb57d5132900d45d666bfff570ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc69849d15f173ed8145690fe9b1d525c20cbbcbb9d8e3c6110a689f3eaa5fea"
+    sha256 cellar: :any,                 arm64_monterey: "469b94aa5b70464dd40543a1a7106898d73b1ed803f07d6d6470cf7b7797e63f"
+    sha256 cellar: :any,                 arm64_big_sur:  "e86e18cdee9b81485c286abaadba5ba5033cb7bd8a98cbbce5f91da425fe83b1"
+    sha256 cellar: :any,                 monterey:       "d2dfc2187c30b3e691186e4af047acf72f17c0f2a5389e5e5804ce68af6f15c2"
+    sha256 cellar: :any,                 big_sur:        "5491084133942279b0786c74395c59cbf5024bd90603b56ede99fb3d90d8f745"
+    sha256 cellar: :any,                 catalina:       "d604bc70207fc987ad4781e82585730db96421e8b115a8412ea08aadc0a1bae1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c86582443280a720052fae0c67e9fda0f3896e32e1e23d8b8134d030fac6becd"
   end
 
   depends_on "diamond"

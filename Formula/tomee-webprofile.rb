@@ -1,13 +1,13 @@
 class TomeeWebprofile < Formula
   desc "All-Apache Java EE 7 Web Profile stack"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.9/apache-tomee-8.0.9-webprofile.tar.gz"
-  mirror "https://archive.apache.org/dist/tomee/tomee-8.0.9/apache-tomee-8.0.9-webprofile.tar.gz"
-  sha256 "5f64747ddd17187a8064807e6bd548773041921b0769e708357bb79f07f18a28"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.11/apache-tomee-8.0.11-webprofile.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-8.0.11/apache-tomee-8.0.11-webprofile.tar.gz"
+  sha256 "55fdc13771e7d97524e22a6c315594f1d8cf8a6ded088257cffdb541165128b5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cb70fe505b37ccf05a652d36385c4550fc2600b4bf91b4b3883cbcc9ef1cf3e7"
+    sha256 cellar: :any_skip_relocation, all: "c1f98888d8a277e1888a2d274bd1f764812530dc1ba2f67fb01af0832c60826f"
   end
 
   depends_on "openjdk"

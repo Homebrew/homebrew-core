@@ -3,18 +3,18 @@ class NicotinePlus < Formula
 
   desc "Graphical client for the Soulseek file sharing network"
   homepage "https://nicotine-plus.github.io/nicotine-plus/"
-  url "https://files.pythonhosted.org/packages/25/76/9ef26b9311b8a475d15a4173789a463fa9dc28cff0d11e9d3edd34da3889/nicotine-plus-3.2.0.tar.gz"
-  sha256 "aca21de8596a81a54fdd306b5e1338fd530e94c983e01425dcaf48e6e1395785"
+  url "https://files.pythonhosted.org/packages/8d/60/a0a7b9d9066a4edcc4b9965d71e31794fc5faf2f8624619d46a8c484d272/nicotine-plus-3.2.2.tar.gz"
+  sha256 "32bb50559bb67b0b6d1760d4a11eec0660f841d00607a1f165292c967b6001c9"
   license "GPL-3.0-or-later"
   head "https://github.com/Nicotine-Plus/nicotine-plus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b238a3872d2d05e9abf72ed166c77d5e9dc74c6ef4a9b9108ed63282e9a3fb6d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7fa6eec8feed00ddc8740ca997a1e10ec7589e9db24f5cf1736e55994bf6b87"
-    sha256 cellar: :any_skip_relocation, monterey:       "e747f405686ef55476b094601d70d00af6793219fa9805871bb977770760621b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e747f405686ef55476b094601d70d00af6793219fa9805871bb977770760621b"
-    sha256 cellar: :any_skip_relocation, catalina:       "e747f405686ef55476b094601d70d00af6793219fa9805871bb977770760621b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ddee5cdc6d4015953c6097cfb273aef30ccb3cf1e8502cb59db6a799c53b3d7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "818ac9f1abfabc01664014a9adb46cbbc461574f367b19304a3ce6d632db3d1f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "818ac9f1abfabc01664014a9adb46cbbc461574f367b19304a3ce6d632db3d1f"
+    sha256 cellar: :any_skip_relocation, monterey:       "635b98a5568c1ff49fd0b4e9bf741b363f35a96252fc246bb445e7ca2ccfb698"
+    sha256 cellar: :any_skip_relocation, big_sur:        "635b98a5568c1ff49fd0b4e9bf741b363f35a96252fc246bb445e7ca2ccfb698"
+    sha256 cellar: :any_skip_relocation, catalina:       "635b98a5568c1ff49fd0b4e9bf741b363f35a96252fc246bb445e7ca2ccfb698"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ee4773eb5fbbbd4284ce16a7fcffc7396bc917ca3b92c21d626277f9c11624b"
   end
 
   depends_on "adwaita-icon-theme"

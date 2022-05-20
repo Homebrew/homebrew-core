@@ -7,6 +7,7 @@ class Jmxtrans < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, monterey:     "2014fcd1c2a53a9f3a396c039f3ad1b530548dabf8e55f8648819b8581c1e0a2"
     sha256 cellar: :any_skip_relocation, big_sur:      "f83bb65c93c0149c4af9b3277d2ec1eee6fd0e94f2a27af0de47c18d3932e9fb"
     sha256 cellar: :any_skip_relocation, catalina:     "f8e5ac84ca621fbb2c0b0c9715899c8e7b2e86f198330b49c7ba7e3d993ec24c"
     sha256 cellar: :any_skip_relocation, mojave:       "8dd69723155a4f2580b7327ca2babc8389cc9678f21dc1934ce3b73e7c67c89b"

@@ -18,6 +18,7 @@ class Fst < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "94a9f50588d2e816c45bcb162f03af288b86cc685eeffed746ae1fa3270c8ee2"
     sha256 cellar: :any_skip_relocation, catalina:       "ea8b25fc75d04973f1b9d19fbc667ddef74c452321a17bf72e705a401225956c"
     sha256 cellar: :any_skip_relocation, mojave:         "7724e05645b4567b4e464c14d1631e5bd99381602d8a24442beeb72db0483732"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dee5615e8bb35e38bb13fde24e002ffb67dc754712a6431f2c3d99fa54107c3d"
   end
 
   depends_on "rust" => :build

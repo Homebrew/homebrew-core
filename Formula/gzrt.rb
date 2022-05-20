@@ -20,11 +20,43 @@ class Gzrt < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "da5c89596737f514900f32986dd9eb32f010c6c1b9f1643dd03a07eae7e383a7"
     sha256 cellar: :any_skip_relocation, el_capitan:     "01df00fd35c6eaee9d32da4644d694ce33deda79a9c3da0284b52694f94a9515"
     sha256 cellar: :any_skip_relocation, yosemite:       "af8ffc53bcf606b0634537adfeb67733c27ec079fa0347de41c668dbb5cce037"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "befaf922391daf55b95098ef2c66c02fcd04813517cef56c60caf3cd1297d986"
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "make"
     bin.install "gzrecover"
     man1.install "gzrecover.1"
+  end
+
+  test do
+    filename = "data.txt"
+    fixed_filename = "#{filename}.recovered"
+    path = testpath/filename
+    fixed_path = testpath/fixed_filename
+
+    original_contents = "." * 1000
+    path.write original_contents
+
+    # Compress data into archive
+    gzip path
+    refute_predicate path, :exist?
+
+    # Corrupt the archive to test the recovery process
+    File.open("#{path}.gz", "r+b") do |file|
+      file.seek(11)
+      data = file.read(1).unpack1("C*")
+      data = ~data
+      file.write([data].pack("C*"))
+    end
+
+    # Verify that file corruption is detected and attempt to recover
+    system bin/"gzrecover", "-v", "#{path}.gz"
+
+    # Verify that recovered data is reasonably close - unlike lziprecover,
+    # this process is not perfect, even for small errors
+    assert_match original_contents, fixed_path.read
   end
 end

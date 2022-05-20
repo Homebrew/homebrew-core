@@ -1,17 +1,17 @@
 class Seal < Formula
   desc "Easy-to-use homomorphic encryption library"
   homepage "https://github.com/microsoft/SEAL"
-  url "https://github.com/microsoft/SEAL/archive/v3.7.2.tar.gz"
-  sha256 "12676de5766b8e2d641d6e45e92114ccdf8debd6f6d44b42a2ecc39a59b0bf13"
+  url "https://github.com/microsoft/SEAL/archive/v4.0.0.tar.gz"
+  sha256 "616653498ba8f3e0cd23abef1d451c6e161a63bd88922f43de4b3595348b5c7e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c0261e67c231e553089da32847512f48f323e65b6b3ea93971ce6c4b425582e0"
-    sha256 cellar: :any,                 arm64_big_sur:  "82b22467391cc77167beaf017991f3998f8898986d7585e59a2431ad7dd4935f"
-    sha256 cellar: :any,                 monterey:       "09c85d9093cb00526fac994d4171f075cc355027bea5880d1b3e89443f8abfeb"
-    sha256 cellar: :any,                 big_sur:        "69838eeb9e678c35c0263cb6f39597384e9d98ffbbd9d23cdf3a21f8b949f62f"
-    sha256 cellar: :any,                 catalina:       "f38ba78c2dfd2f8475519ff1bd5d930d4f8990a72e9b1e3de87bab2b4db0c623"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0f6c8d6a438d90b23f42e06c765d088b4ec4b3b02afb58783ff8dd855a97918"
+    sha256 cellar: :any,                 arm64_monterey: "ea53dd611311c919f58c7808143addd1998d7f2a3d28f58eed756ecb19ee98d4"
+    sha256 cellar: :any,                 arm64_big_sur:  "a0bf775b0bc6b873a92eb9dc52856c7119d4ea78b99acf4a08a1973dc5ebbd8f"
+    sha256 cellar: :any,                 monterey:       "992afd0a163c2aada6f229a5c8afb556d5a427f25b4561c793f3955a8460956f"
+    sha256 cellar: :any,                 big_sur:        "322c2cf9c05b472e0fb6622f0476d5f53ff17a3cfd09ae5c4b9988386cba2bfb"
+    sha256 cellar: :any,                 catalina:       "f3a21a40b17452fedb54680b5214faaafd1ef26f2e7c06d859a53985e83c771b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "409aab1c8e31f433ba23c9f08d4ae28ec858467043eedff6201b143beb9e8b63"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -80,10 +80,11 @@ class Seal < Formula
               1_bfv_basics.cpp
               2_encoders.cpp
               3_levels.cpp
-              4_ckks_basics.cpp
-              5_rotation.cpp
-              6_serialization.cpp
-              7_performance.cpp
+              4_bgv_basics.cpp
+              5_ckks_basics.cpp
+              6_rotation.cpp
+              7_serialization.cpp
+              8_performance.cpp
       )
 
       # Import Microsoft SEAL

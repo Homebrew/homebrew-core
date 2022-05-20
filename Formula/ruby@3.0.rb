@@ -1,8 +1,8 @@
 class RubyAT30 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.3.tar.xz"
-  sha256 "88cc7f0f021f15c4cd62b1f922e3a401697f7943551fe45b1fdf4f2417a17a9c"
+  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.4.tar.xz"
+  sha256 "8e22fc7304520435522253210ed0aa9a50545f8f13c959fe01a05aea06bef2f0"
   license "Ruby"
 
   livecheck do
@@ -11,12 +11,12 @@ class RubyAT30 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "1b39726ab3491e4db65dfe24d06dedee670c07ca282f57d4dedb118a5cb05edc"
-    sha256 arm64_big_sur:  "d97f9d0a366d7d300070f26ce037707e6ed5a751654591fe94f3cb00f7a7a989"
-    sha256 monterey:       "9d01ca79af1fc1ec9142dfdf0498332fb291febd4f9a310ad7a875f832cc99e3"
-    sha256 big_sur:        "4eb82d655f19b9a400917d9b452e00acdf2eae7a1412831d267fa94efe7f7319"
-    sha256 catalina:       "3ca7dc471eba36875c00e86747bd3998f7536f9d72a43c95c14864741e693dc1"
-    sha256 x86_64_linux:   "da8eb852065f3dc4567b1eef7d1e2d686c12793faade765bd3278697a15a01cc"
+    sha256 arm64_monterey: "f32813fbb36f5adabc64e959c0412f60304ba0d0fc782c61a3f208f27a0319f1"
+    sha256 arm64_big_sur:  "6dbff16fd5e19f039b75e56a6fa0af782086003f39683e94fc04986a6b468d21"
+    sha256 monterey:       "1946de51954930a396899e99cafcb77e535830c2a6470f6a1ca3aae709816ae3"
+    sha256 big_sur:        "88c9c43e9e9d9bb107afd1483bf7c5477afe0de67d74ae1fefb980956b5b7a96"
+    sha256 catalina:       "53cb996916041946a6374532a4acb385d9ec7efaacf45f753c690e4780422a7a"
+    sha256 x86_64_linux:   "a1d1df8923bc840f3305ef79cacc016a27d955e7aee34709e1471e537ccc60ab"
   end
 
   keg_only :versioned_formula

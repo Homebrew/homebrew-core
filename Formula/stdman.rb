@@ -13,6 +13,7 @@ class Stdman < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "4bfe62a6de41be881f882b575f84cf2150bdd8256067a98429837f38712a9207"
     sha256 cellar: :any_skip_relocation, big_sur:        "2f41a799a0b2127509c19ddd4f166ea89e37c51c3904eba2844e6c64f863fd08"
     sha256 cellar: :any_skip_relocation, catalina:       "e3ea4278fde0a38a7b8857e9a238464382ec7c8262b768a05f1730fd98e4daa8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2291feacb728c6580e6da646023abb24450d360160bb365233a7803e25f5deb"
   end
 
   on_linux do
@@ -25,6 +26,7 @@ class Stdman < Formula
   end
 
   test do
-    system "man", "-w", "std::string"
+    man = OS.mac? ? "man" : "gman"
+    system man, "-w", "std::string"
   end
 end

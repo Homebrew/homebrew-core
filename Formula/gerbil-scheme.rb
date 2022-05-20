@@ -16,6 +16,7 @@ class GerbilScheme < Formula
     sha256 monterey:       "83792d7b1a1339a73e36493f4201ab2b1657d2d1f061fb1f0cf50587722448da"
     sha256 big_sur:        "e49f094f25ebc88a787be33c109308decee3aebaf58298f43d429a31cbaa53d5"
     sha256 catalina:       "c136d9ffbf63bb1ac05c9b5c4936d61d97e855fc90964163ea645e32e9adeffb"
+    sha256 x86_64_linux:   "6b0d5524324abcd1838483696a9e04e21cce47d7a0910e2ab20a48940454b09e"
   end
 
   depends_on "gambit-scheme"
@@ -24,10 +25,12 @@ class GerbilScheme < Formula
   depends_on "lmdb"
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "sqlite"
+
   def install
     cd "src" do
       ENV.append_path "PATH", "#{Formula["gambit-scheme"].opt_prefix}/current/bin"
-      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
       system "./configure", "--prefix=#{prefix}",
                             "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}/current",
                             "--enable-leveldb",

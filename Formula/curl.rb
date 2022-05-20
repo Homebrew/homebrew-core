@@ -1,11 +1,11 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
-  url "https://curl.se/download/curl-7.81.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-7_80_0/curl-7.81.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-7.81.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-7.81.0.tar.bz2"
-  sha256 "1e7a38d7018ec060f1f16df839854f0889e94e122c4cfa5d3a37c2dc56f1e258"
+  url "https://curl.se/download/curl-7.83.1.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-7_83_1/curl-7.83.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-7.83.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-7.83.1.tar.bz2"
+  sha256 "f539a36fb44a8260ec5d977e4e0dbdd2eee29ed90fcedaa9bc3c9f78a113bff0"
   license "curl"
 
   livecheck do
@@ -14,12 +14,12 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a205db46ac75829993701f3c4b1af4db42629d3f8b74c11bda8e3059776bd6a0"
-    sha256 cellar: :any,                 arm64_big_sur:  "084bfa547e5f476b1a1868737080a187581957057170d56c15c868c0680e9283"
-    sha256 cellar: :any,                 monterey:       "a47f615f634dd25168cb0fa952db5b97419a81fe310cb0aa043427620291e95a"
-    sha256 cellar: :any,                 big_sur:        "91c16d0c8df24a416cb8864aec4078f3d969616d1718e158ebfb3b3addc8506b"
-    sha256 cellar: :any,                 catalina:       "8ca7e9dd87f61ccdcd3d09793356d92bdc98953ea75c1da25d4cd5f8dd0a52bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "382eebd6c8b4d6a298d5636d2a8848140aaec1cf8fd76a8b4c018766c3e22d55"
+    sha256 cellar: :any,                 arm64_monterey: "de6b8150f5f89e6fa4341428c3d957de2dc4a127b0ce79ba74b118b5d44e2fd2"
+    sha256 cellar: :any,                 arm64_big_sur:  "aca944aebbd9cf46016f68833d7039490e26c56ec6d2c672bca78b3b9b4d1ca0"
+    sha256 cellar: :any,                 monterey:       "47943f6b96dd8d3ecc88a6975a94babc8ec93854e390c5713a8b25d7c915994f"
+    sha256 cellar: :any,                 big_sur:        "0b9d8bcd39a0a634562dc62c791e65fa77f3cb264c7196713fab45e72ffac9d9"
+    sha256 cellar: :any,                 catalina:       "23f58afae9b3715bfaf87a13b61d85e3f38e1beeee129f02002f76dc0d8c9360"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "647aee913233bc3299656f9c97554511740aa5e1fb80934ac73b977fb78b9875"
   end
 
   head do
@@ -74,7 +74,7 @@ class Curl < Formula
     system "./configure", *args
     system "make", "install"
     system "make", "install", "-C", "scripts"
-    libexec.install "lib/mk-ca-bundle.pl"
+    libexec.install "scripts/mk-ca-bundle.pl"
   end
 
   test do

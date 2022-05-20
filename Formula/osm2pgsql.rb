@@ -4,15 +4,16 @@ class Osm2pgsql < Formula
   url "https://github.com/openstreetmap/osm2pgsql/archive/1.6.0.tar.gz"
   sha256 "0ec8b58ab972ac8356185af4161270c1b625a77299f09e5fb7f45e616ef1a9a5"
   license "GPL-2.0-only"
+  revision 2
   head "https://github.com/openstreetmap/osm2pgsql.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "b657c6e2d1a9b8c1174c6d9ec2fdfc55ab1f98b0c9884b0b3db5ee79460749a3"
-    sha256 arm64_big_sur:  "6d362127dc5476f3e69da88987b8940adbca5990935eef487f07f18af9f395a1"
-    sha256 monterey:       "81fc3542ae3cb36ff075b259c140ff6622da49402e22e207f7a637ad4aaf5e69"
-    sha256 big_sur:        "459c759c2c6293b9d8a0f4606925586dfa27a343e6da31300bcab307e2c45ba1"
-    sha256 catalina:       "53ba2486b1f36e3e254b695f1403d054f8c40cc4d1145ca447671f5f84994efa"
-    sha256 x86_64_linux:   "7030049e1144f3a1c561f0e8e10ff6b96c0215129aca20e2898485f4d8da4cb8"
+    sha256 arm64_monterey: "aa3e782aca8953d6ef78b2397fef8da5fcca0b191ea6dd3da4d81e4a54e2118a"
+    sha256 arm64_big_sur:  "e7bf361f2d2ffcd646e84dfbed4e775fc0a2880524ecee3d3d446c63524cbd80"
+    sha256 monterey:       "4e3e12fcbf10774a8526bdb1387111034fcc34f87b15cbc0eb582f811d5f0166"
+    sha256 big_sur:        "39cba6f1ce9a9039e99c32f130d5ef88932c098355673aaa898e7ca0215a37b8"
+    sha256 catalina:       "01af4be809ca6182195e1a65c8722db7b1044c6aa5e765a29ceb66d31aee1e9b"
+    sha256 x86_64_linux:   "7b87389923ce699c38bd8b3f7ede176114b43290549a344ff0d5ef8ec984fd98"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +22,7 @@ class Osm2pgsql < Formula
   depends_on "geos"
   depends_on "luajit-openresty"
   depends_on "postgresql"
-  depends_on "proj@7"
+  depends_on "proj"
 
   def install
     # This is essentially a CMake disrespects superenv problem
@@ -30,13 +31,8 @@ class Osm2pgsql < Formula
     inreplace "cmake/FindLua.cmake", /set\(LUA_VERSIONS5( \d\.\d)+\)/,
                                      "set(LUA_VERSIONS5 #{lua_version})"
 
-    # Use Proj 6.0.0 compatibility headers
-    # https://github.com/openstreetmap/osm2pgsql/issues/922
-    # and https://github.com/osmcode/libosmium/issues/277
-    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
-
     mkdir "build" do
-      system "cmake", "-DWITH_LUAJIT=ON", "..", *std_cmake_args
+      system "cmake", "-DWITH_LUAJIT=ON", "-DUSE_PROJ_LIB=6", "..", *std_cmake_args
       system "make", "install"
     end
   end

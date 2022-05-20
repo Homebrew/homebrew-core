@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.3.0.tar.gz"
   sha256 "4073ac72524f95fed4bda7dd553cb946f66d2e00bd07c4ae7758f1b787d507e0"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 5
   head "https://github.com/gnuradio/gnuradio.git", branch: "master"
 
   livecheck do
@@ -15,8 +15,11 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "9639999a1463f86c932ca5d2abcc139292dcf15bef02ed04338561657760968f"
-    sha256 cellar: :any, catalina: "853dee106d8a3bc77041cc7cdeaf5b637931584ffacb4f9879a2b5dc9dfb313c"
+    sha256 cellar: :any, arm64_monterey: "9e39531fad7885f811771414222caa7025d2d96095ecf42f6b8d5b37de498f1a"
+    sha256 cellar: :any, arm64_big_sur:  "6f73043d59f3d5f516da82c4f602a12a07a81329b02cf736a8456c48830c554e"
+    sha256 cellar: :any, monterey:       "c10b87bb919c0b184898fffa69a46c46035528819baaebe1a7442c2da9f65307"
+    sha256 cellar: :any, big_sur:        "7a07f316ed5c906da8cbcf5157fc9a064bca9c80f5637b0fff20ecfd0ea1bfcf"
+    sha256 cellar: :any, catalina:       "885384b1c34b0b1209c572bc7f6d936b421a3e1e6632136eaa371b49ffc1e514"
   end
 
   depends_on "cmake" => :build

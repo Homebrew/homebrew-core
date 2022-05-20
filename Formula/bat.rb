@@ -1,18 +1,18 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/v0.19.0.tar.gz"
-  sha256 "6a920cad1e7ae069eb9393f5b6883e0a7f2c957186b1075976331daaa5e0468a"
+  url "https://github.com/sharkdp/bat/archive/v0.21.0.tar.gz"
+  sha256 "3dff1e52d577d0a105f4afe3fe7722a4a2b8bb2eb3e7a6a5284ac7add586a3ee"
   license any_of: ["Apache-2.0", "MIT"]
+  head "https://github.com/sharkdp/bat.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f7a442b570f36e440439949f7daecd98e2dd5b31efe729f541e8da48ca9ec0ec"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "add86eb8edf0b45685eac681556c3661e5b77d1871ad48e6ee01377702927f43"
-    sha256 cellar: :any_skip_relocation, monterey:       "8da409d52a66eac1b58ed880136231eb7bfc51ea539a7fa07b7b111838876a25"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c7e91069fc195b658d2ac89d219af3b6ed0bdd740b70f335d2851620cc874042"
-    sha256 cellar: :any_skip_relocation, catalina:       "00f4fc7d8443630cdbd4fcd4d4fb89264a5176354331b8b10cf631db63cd1cb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8db3c6972d8c52701bf8cc0fabf418735da83ce6caef3737f1714f0d68fd7fd1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2e582eafc63d7242af612bb069f3686ece8828c239232ceb15fa91b374930f9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a8a80443ce88c0aee5f734a2c59707c5de6713e88d7054d7791c10130beec0f"
+    sha256 cellar: :any_skip_relocation, monterey:       "c7e28f20c861c79ad3d696f597af3bf153a4eccad92968c1b0cbd96edaa83ed5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "54b82450955087f9029f74a1d816cc8e099357f926fffd4f9e867e15949be2cc"
+    sha256 cellar: :any_skip_relocation, catalina:       "74e48f3a0081f5fe07b7eef3c9f9a4efffbc58e1b682530ad3f4a33a5717e4fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca0aafc35b964b69f3497cacc5612fe606c5a0205d0b887ff7ddd94b1ca62fea"
   end
 
   depends_on "rust" => :build

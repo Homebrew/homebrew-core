@@ -17,11 +17,15 @@ class Cuetools < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "9456e5957a78f993f5a8cef76aa583ac6a42a8298fb05bded243dbaf810f9a44"
     sha256 cellar: :any_skip_relocation, el_capitan:     "7f0effc75d64fca0f2695b5f7ddb4d8713cc83522d40dcd37842e83c120ac117"
     sha256 cellar: :any_skip_relocation, yosemite:       "81d06ef2e3d98061f332a535b810102c1be0505371c1ac1aed711cf2ae8de5a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45fd4566e2ce0650ad162fb32f3a12f30523efeded3f6d30612cdd8efca73ffc"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   # see https://github.com/svend/cuetools/pull/18
   patch :DATA

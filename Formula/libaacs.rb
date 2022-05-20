@@ -1,8 +1,8 @@
 class Libaacs < Formula
   desc "Implements the Advanced Access Content System specification"
   homepage "https://www.videolan.org/developers/libaacs.html"
-  url "https://download.videolan.org/pub/videolan/libaacs/0.11.0/libaacs-0.11.0.tar.bz2"
-  sha256 "6d884381fbb659e2a565eba91e72499778635975e4b3d6fd94ab364a25965387"
+  url "https://download.videolan.org/pub/videolan/libaacs/0.11.1/libaacs-0.11.1.tar.bz2"
+  sha256 "a88aa0ebe4c98a77f7aeffd92ab3ef64ac548c6b822e8248a8b926725bea0a39"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Libaacs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "628a46b83ed82425221046952f86bd52c06d7fadc93307dfef15164b16ab821e"
-    sha256 cellar: :any,                 arm64_big_sur:  "dcbccde309919c3349987341fda3259e218549d5ec5c34c38c628ff6ada98bce"
-    sha256 cellar: :any,                 monterey:       "ff947ef0c7044a205b75b39f99d40f9a6650a44f3e71e008ba675624b9b80c2e"
-    sha256 cellar: :any,                 big_sur:        "edf22602c987a889624eb8feb1ef3c13b8bbbb2397af0d4334379992c85b492b"
-    sha256 cellar: :any,                 catalina:       "74f17ba980a3b1d763f09869541542716979e8fe8e6ee299a00a9d5fe68bbb5b"
-    sha256 cellar: :any,                 mojave:         "97fbb158456e2b35633e387e239a5ccc5e90041a0bba15a139dbf32ea4de872b"
-    sha256 cellar: :any,                 high_sierra:    "6ac467398d3fb886cee220bd7724f1341631b1ac31220e3ee504d687347a731f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f93ad81a1e4368bfa9b17c913990b81aa4bfa4e3b3a8f80e04e6edfcee12b805"
+    sha256 cellar: :any,                 arm64_monterey: "821c6fed1af02d4446d3e376bf8eda6ef671e9623ff1332b5d299a60ef1f2dbc"
+    sha256 cellar: :any,                 arm64_big_sur:  "9205c7991ff5459dea68e115f5b09d95a937e06798c8ab536b07f554057c4261"
+    sha256 cellar: :any,                 monterey:       "32d350f3eb0294166767cf9f6f4f65c48e4619a635c8450bea42330d071e74ed"
+    sha256 cellar: :any,                 big_sur:        "cb432910cc4b313478eeb21e71035f82310189f54090723c9bc4167dc25ada9e"
+    sha256 cellar: :any,                 catalina:       "75e631b79c6ba6115572a390dd1c2ae75653449b8bd1edc27c549745b3d03ba8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc5a1b4925f4a25d7714f9ddebdd14478d2c75d7d292153a709a412dbb3ba63d"
   end
 
   head do

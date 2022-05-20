@@ -1,9 +1,10 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.2/6.2.2/single/qt-everywhere-src-6.2.2.tar.xz"
-  sha256 "907994f78d42b30bdea95e290e91930c2d9b593f3f8dd994f44157e387feee0f"
+  url "https://download.qt.io/official_releases/qt/6.2/6.2.3/single/qt-everywhere-src-6.2.3.tar.xz"
+  sha256 "f784998a159334d1f47617fd51bd0619b9dbfe445184567d2cd7c820ccb12771"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -14,12 +15,12 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1f27fa98abc66f49b7a1cc240f1f82a162f20510414345a674094a3b7c2cf49a"
-    sha256 cellar: :any,                 arm64_big_sur:  "0099420a50681340a3a24158b7624047c84b7d309b1450144679bab430a0591f"
-    sha256 cellar: :any,                 monterey:       "518bd9b50bdd54e4cd2088b3d3d0cfeee4c8a0c01011aa04eab33d6952a0a26b"
-    sha256 cellar: :any,                 big_sur:        "c76275715703cff6d611c096f1eaa61edabdab7b282c1ecb5677b21eafdd0754"
-    sha256 cellar: :any,                 catalina:       "31fbb69118d531109f73ee9f9a1076598c99799ec2dd2a3808cec280bdce92c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a67bb703efa1208eb737d641a8b06020227ee3a002aea282a4c44801c4e0f8b"
+    sha256 cellar: :any,                 arm64_monterey: "0544a49e767eb9e5135dd426b5cb2110e85f06afb1255f785ea6c310dcffe2fa"
+    sha256 cellar: :any,                 arm64_big_sur:  "1895365576eb6109f0f4fad292aeb317143782c4ba5f01b4d6959bfc24ed974e"
+    sha256 cellar: :any,                 monterey:       "8e3ca442b7c1069e0de861f8ac49b810101e019252cf445dca12012c4e096177"
+    sha256 cellar: :any,                 big_sur:        "accde8d7b8254c35021116cc4d711efa362058179a568124e3239efa865fecdf"
+    sha256 cellar: :any,                 catalina:       "597963f49f9ae42d663a09bdfb91fe590d6e73a4be6bdfe35cfbe346050c57a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13fccb27c51054a55d950b08624ae10528773d27d6d080069ca7bc5a060b21f7"
   end
 
   depends_on "cmake"      => [:build, :test]
@@ -39,6 +40,7 @@ class Qt < Formula
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libb2"
+  depends_on "libmng"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "md4c"
@@ -101,6 +103,21 @@ class Qt < Formula
     directory "qtquick3d"
   end
 
+  # Remove symlink check causing build to bail out and fail.
+  # https://gitlab.kitware.com/cmake/cmake/-/issues/23251
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c363f0edf9e90598d54bc3f4f1bacf95abbda282/qt/qt_internal_check_if_path_has_symlinks.patch"
+    sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
+    directory "qtbase"
+  end
+
+  # Patch for https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25255
+  patch do
+    url "https://download.qt.io/official_releases/qt/6.2/CVE-2022-25255-qprocess6-2.diff"
+    sha256 "62068c168dd1fde7fa7b0b574fcb692ca0c20e44165fa2aafae586ca199b9f00"
+    directory "qtbase"
+  end
+
   def install
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
@@ -112,7 +129,6 @@ class Qt < Formula
     inreplace "qtwebengine/src/3rdparty/gn/src/base/files/file_util_posix.cc",
               "FilePath(full_path)", "FilePath(input)"
     %w[
-      qtbase/CMakeLists.txt
       qtwebengine/cmake/Gn.cmake
       qtwebengine/cmake/Functions.cmake
       qtwebengine/src/core/api/CMakeLists.txt

@@ -1,8 +1,8 @@
 class Flint < Formula
   desc "C library for number theory"
   homepage "https://flintlib.org"
-  url "https://flintlib.org/flint-2.8.4.tar.gz"
-  sha256 "61df92ea8c8e9dc692d46c71d7f50aaa09a33d4ba08d02a1784730a445e5e4be"
+  url "https://flintlib.org/flint-2.8.5.tar.gz"
+  sha256 "5911fedff911100f15781f35e3a4fa934fe60e4aea02a8c10cc8918101c1eed8"
   license "LGPL-2.1-or-later"
   head "https://github.com/wbhart/flint2.git", branch: "trunk"
 
@@ -12,12 +12,12 @@ class Flint < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b5c3e6b7337b40d10f2ace7b9e0bb21284c7915c3b26baa67cba59e234018bff"
-    sha256 cellar: :any,                 arm64_big_sur:  "e4206315f3530578a697c9ee0b5fd2b5b57a03a871037ba94ecd095ef4b304d0"
-    sha256 cellar: :any,                 monterey:       "9a72a76b27ed77ad1153f1b46e9d0d4408911d297c28a3c32e6b751cff3c2b83"
-    sha256 cellar: :any,                 big_sur:        "7820a6249bb4ebea48b62341e0efd7cb90621d8661243116ef7553c593b26db8"
-    sha256 cellar: :any,                 catalina:       "0841c62e659a1d82daacd5ead7bfe25efb3b1ba4cc2d50a4b9ee6cedc39e9c87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8cd7e847e4bb90f1783f84e99bf4d34dbe8210c2d2c1360fa9131a4302236f5"
+    sha256 cellar: :any,                 arm64_monterey: "deda4a59344d38bfcdb8e9758de33bd4e1352cf2baba0d5e461047a7ce297280"
+    sha256 cellar: :any,                 arm64_big_sur:  "d202b642acc7f6ae3d2fb43b06182ca91ebdfa97519d5b528590ebf77b1be830"
+    sha256 cellar: :any,                 monterey:       "18ea50578610f8b09a7de1b6973d0422fc1397eea486b9b95aae71d8ecc8723d"
+    sha256 cellar: :any,                 big_sur:        "78c49e982be4383e2e01974dfc84c2b1ce5625cf0bda27527d9e9a574d787842"
+    sha256 cellar: :any,                 catalina:       "d3248d7d86afed1da3dda8de176c2e8dbc556cdcb5d4b9cf54e5099ce08e709f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d35d9c6ceefea408c5593d6063e70f6a85d9ac0971f0ebe0d0dd323b3e5cd1f"
   end
 
   depends_on "gmp"

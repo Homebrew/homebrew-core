@@ -1,17 +1,17 @@
 class Recode < Formula
   desc "Convert character set (charsets)"
   homepage "https://github.com/rrthomas/recode"
-  url "https://github.com/rrthomas/recode/releases/download/v3.7.11/recode-3.7.11.tar.gz"
-  sha256 "97267a0e6ee3d859b7f4d1593282900dbc798151b70a6d1f73718880563b485e"
+  url "https://github.com/rrthomas/recode/releases/download/v3.7.12/recode-3.7.12.tar.gz"
+  sha256 "4db1c9076f04dbaa159726f5000847e5e5a83aec8e5c64f8ca04383f6cda12d5"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "946547cc6a852689c9aec88304c31cc4ccefccc445e8c354f02a3d3f307e1848"
-    sha256 cellar: :any,                 arm64_big_sur:  "cfe0d3f306397fcb30ef57b6a10e9efaad602353d63015641c70543f9760e353"
-    sha256 cellar: :any,                 monterey:       "ad198e3f6095736d136841e530a7b447e5539668999f683f2b9f5ae0f6d11914"
-    sha256 cellar: :any,                 big_sur:        "29a770e70ea05708f39e3fd296eb30305d79b81352967f18f199f2cc6ea7dab5"
-    sha256 cellar: :any,                 catalina:       "26d4cbd59af48f7da47aee5a910f3ec9f7a090a3f01a3338df60ac267472042c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6ab05069d3a56be1bc774bc82795c1f47acb7feba6489bfdee240dcd1bb5fb6"
+    sha256 cellar: :any,                 arm64_monterey: "ca950e0f4e50459a5aa6800dc411c1ccde64865cac4e740de65a5019639d822b"
+    sha256 cellar: :any,                 arm64_big_sur:  "69206a0503a2d1780ff9ccc8eaebf6adf94b4018bb0efb4cd983f7f5a3d07ce6"
+    sha256 cellar: :any,                 monterey:       "76bf51e5a583a21bad1f24ea1b4c5ce568974a732c99861d1fa0a31213146e81"
+    sha256 cellar: :any,                 big_sur:        "020a78f27f0275d0fc8c0621ea5b21a6f6ef6ff8279fdcafa401f316cb078c01"
+    sha256 cellar: :any,                 catalina:       "f57a3d106020c93f0ba9e713cddbf50dfc5a1e86efe25dce36060ee16cd0eeb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "365bd66e439e5592ee482547354c758279ed085413efd9eb926db2beddb3d32e"
   end
 
   depends_on "libtool" => :build

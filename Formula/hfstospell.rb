@@ -1,10 +1,9 @@
 class Hfstospell < Formula
   desc "Helsinki Finite-State Technology ospell"
   homepage "https://hfst.github.io/"
-  url "https://github.com/hfst/hfst-ospell/releases/download/v0.5.2/hfst-ospell-0.5.2.tar.bz2"
-  sha256 "ab9ccf3c2165c0efd8dd514e0bf9116e86a8a079d712c0ed6c2fabf0052e9aa4"
+  url "https://github.com/hfst/hfst-ospell/releases/download/v0.5.3/hfst-ospell-0.5.3.tar.bz2"
+  sha256 "01bc5af763e4232d8aace8e4e8e03e1904de179d9e860b7d2d13f83c66f17111"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url :stable
@@ -12,13 +11,12 @@ class Hfstospell < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fc339fb27f8405230d88addd9ccf93b1ebdfa00fcc013fb38e3e327061b56b8b"
-    sha256 cellar: :any,                 arm64_big_sur:  "1a5437ebb7e8abeae096734d53edbbc8cf154f6635f8e15ac3a1cfa038782e85"
-    sha256 cellar: :any,                 monterey:       "49d6d65cff8b16516e2d0b570af2d37ec6fe592b6221504f0a28055aafe3a50a"
-    sha256 cellar: :any,                 big_sur:        "6fb2851153c12aa38ed01a7335781df78be3490380e6713b2a9c642f88e737d0"
-    sha256 cellar: :any,                 catalina:       "0651d2057fcf3c0242bcd277b0ddafb247c0f00fc78d2652e9eae9c82776f923"
-    sha256 cellar: :any,                 mojave:         "25a4f7bfe15fae7efd0ce6cf1ccedb150571935de5e0266cbf7fa472290bbf6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "558374d12fffddfe01a121b42e9e4edaaceeea1afdd6fdb6283672488b70eb96"
+    sha256 cellar: :any,                 arm64_monterey: "39ee3dc725cb4535ab7750e6f9f029526c99dbd36272d3bebad6bd29cc1c94e6"
+    sha256 cellar: :any,                 arm64_big_sur:  "7b19c0410b74db35223a040b64d82fa5cbadba8f887c628b91088dfff5ff24ab"
+    sha256 cellar: :any,                 monterey:       "670813eb672ef2483f9a4e445bedadd75a45f20c6e4285740b5f95a4c676c638"
+    sha256 cellar: :any,                 big_sur:        "b29f67a02688c05044d90f26e34f9e741b99d51d6573f5e2a687f43370eaa265"
+    sha256 cellar: :any,                 catalina:       "934c5346eef7db979bc0dfc2ef6945731b58433fd5f223e5d4eb736207eadb2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8528124f05e18a4bc62ba750c190b6264bf8b7cbdc11032426844a20dc1b42fe"
   end
 
   depends_on "autoconf" => :build

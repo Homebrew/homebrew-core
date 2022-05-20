@@ -39,8 +39,10 @@ class Sfml < Formula
   # https://github.com/Homebrew/homebrew/issues/40301
 
   def install
-    # error: expected function body after function declarator
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+    # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
+    # "error: expected function body after function declarator" on 10.12
+    # Requires the CLT to be the active developer directory if Xcode is installed
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     # Always remove the "extlibs" to avoid install_name_tool failure
     # (https://github.com/Homebrew/homebrew/pull/35279) but leave the

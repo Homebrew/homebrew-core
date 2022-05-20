@@ -1,10 +1,9 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.0/qmmp-2.0.3.tar.bz2"
-  sha256 "a0c22071bedfcc44deb37428faeeecafb095b7a0ce28ade8907adb300453542e"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.1/qmmp-2.1.0.tar.bz2"
+  sha256 "ac7b5981e371dc58759d5efd2babb42e377ecc5260ba3e57ac6dbf0897570ddc"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -12,8 +11,12 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 big_sur:  "da5200ac2ce8e5cd13f7203f5749198c58d688c034d9957532ea218317c74131"
-    sha256 catalina: "9fd0f5adf6d3917e37738345432f6ce3747a45aa1d65ac410742d95f2f338b4b"
+    sha256 arm64_monterey: "b2a56237442cfee1d7e1517b928be7817880d06b6f743f18c981887e6a863456"
+    sha256 arm64_big_sur:  "0744e49b9ad162030d4ff0fb680893ec978be00a36266b5251959d36ff959500"
+    sha256 monterey:       "b08c25679f1195632de44cace21a16512f619c735eb1dc24270f22af0b445507"
+    sha256 big_sur:        "a2a652ec27d8e3092069ff7febf23e2c36b17085ff0a95b04da5584be9b1ab65"
+    sha256 catalina:       "e5aa4ce020a7abff091232228065c2dbb61db60579d211841d8171f4764693b9"
+    sha256 x86_64_linux:   "2b0ebca845a83fb60afe6c1ad4d4613dad1c9bc5a676c30072a0a6ff6ffc953e"
   end
 
   depends_on "cmake"      => :build
@@ -41,7 +44,6 @@ class Qmmp < Formula
   depends_on "libxmp"
   depends_on "mad"
   depends_on "mplayer"
-  depends_on "musepack"
   depends_on "opus"
   depends_on "opusfile"
   depends_on "projectm"
@@ -53,39 +55,52 @@ class Qmmp < Formula
 
   uses_from_macos "curl"
 
+  on_macos do
+    # musepack is not bottled on Linux
+    # https://github.com/Homebrew/homebrew-core/pull/92041
+    depends_on "musepack"
+  end
+
+  on_linux do
+    depends_on "gcc"
+  end
+
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "qmmp-plugin-pack" do
-    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.0/qmmp-plugin-pack-2.0.1.tar.bz2"
-    sha256 "73f0d5c62b518eb1843546c8440f528a5de6795f1f4c3740f28b8ed0d4c3dbca"
+    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.1/qmmp-plugin-pack-2.1.0.tar.bz2"
+    sha256 "25692f5fc9f608d9b194697dae76d16408c98707758fb1d77ca633ba78eee917"
   end
 
   def install
     cmake_args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
       -DCMAKE_STAGING_PREFIX=#{prefix}
       -DUSE_SKINNED=ON
       -DUSE_ENCA=ON
       -DUSE_QMMP_DIALOG=ON
-      -DCMAKE_EXE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup
-      -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup
-      -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup
-
-      -S .
     ]
+    if OS.mac?
+      cmake_args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
+      cmake_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
+      cmake_args << "-DCMAKE_MODULE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
+    end
 
-    system "cmake", *cmake_args
+    system "cmake", "-S", ".", *cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
 
     ENV.append_path "PKG_CONFIG_PATH", lib/"pkgconfig"
     resource("qmmp-plugin-pack").stage do
-      system "cmake", ".", *std_cmake_args
+      system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "cmake", "--build", "."
       system "cmake", "--install", "."
     end
   end
 
   test do
+    # Set QT_QPA_PLATFORM to minimal to avoid error "qt.qpa.xcb: could not connect to display"
+    ENV["QT_QPA_PLATFORM"] = "minimal" unless OS.mac?
     system bin/"qmmp", "--version"
   end
 end

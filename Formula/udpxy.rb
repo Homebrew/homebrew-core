@@ -1,15 +1,11 @@
 class Udpxy < Formula
   desc "UDP-to-HTTP multicast traffic relay daemon"
-  homepage "http://www.udpxy.com/"
-  url "http://www.udpxy.com/download/1_23/udpxy.1.0.23-12-prod.tar.gz"
-  mirror "https://fossies.org/linux/www/udpxy.1.0.23-12-prod.tar.gz"
+  homepage "http://gigapxy.com/udpxy-en.html"
+  url "http://gigapxy.com/download/1_23/udpxy.1.0.23-12-prod.tar.gz"
+  mirror "https://fossies.org/linux/www/old/udpxy.1.0.23-12-prod.tar.gz"
   version "1.0.23-12"
   sha256 "16bdc8fb22f7659e0427e53567dc3e56900339da261199b3d00104d699f7e94c"
-
-  livecheck do
-    url "http://www.udpxy.com/download/1_23/"
-    regex(/href=.*?udpxy[._-]v?(\d+(?:\.\d+)+-\d+)-prod\.t/i)
-  end
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
@@ -21,6 +17,16 @@ class Udpxy < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "4688df2c4fd1ce7749d6d032f77cdae700129fa42284d9fc5ce1792ae9121151"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd123b142b4fa0ceb6a8d078a307499332c0911634be090bce60dfd8cf42d7dd"
   end
+
+  # As of writing, www.udpxy.com is a parked domain page (though gigapxy.com
+  # hosts the same site). The homepage states, "development has been on hold
+  # since 2012, with most of the effort routed toward enterprise-grade products,
+  # such as Gigapxy, RoWAN, GigA+ and GigaTools." The udpxy `README` (last
+  # modified 2018-01-18) has a "Project Status" section that states, "udpxy has
+  # not been extended or supported for 4+ years, having been replaced by
+  # Gigapxy - a superior enterprise-oriented product. Please see more info at
+  # http://gigapxy.com, thank you."
+  deprecate! date: "2022-05-03", because: :unsupported
 
   def install
     system "make"

@@ -1,19 +1,17 @@
 class Libxcursor < Formula
   desc "X.Org: X Window System Cursor management library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXcursor-1.2.0.tar.bz2"
-  sha256 "3ad3e9f8251094af6fe8cb4afcf63e28df504d46bfa5a5529db74a505d628782"
+  url "https://www.x.org/archive/individual/lib/libXcursor-1.2.1.tar.xz"
+  sha256 "46c143731610bafd2070159a844571b287ac26192537d047a39df06155492104"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cceedc0b07518449b6a6a56abdd901feccdac40f9979831e65da65bd3464e492"
-    sha256 cellar: :any,                 arm64_big_sur:  "ddae5ae0c6cad51f281edd9908df4752a16ee6934a0e20f4d53e06b6e6cb07f3"
-    sha256 cellar: :any,                 monterey:       "706bebeeaeff48e89d71e0e2dc06c3617b53b7d25ff088ab73553f00c1b96bc1"
-    sha256 cellar: :any,                 big_sur:        "ffaf742cbe0cf49e80345942765c872093a222cf42ceaee7e139080883dc343b"
-    sha256 cellar: :any,                 catalina:       "c8c48a2d78f7a5d23c1a1322ceac267d1d50ae8b7f1ad93c7a8b0e510afdf39e"
-    sha256 cellar: :any,                 mojave:         "fe9c7b74829d92a0330caa49aeaf03d52213f2d8671fe8a4840b2700fa1cb863"
-    sha256 cellar: :any,                 high_sierra:    "ac83b3e1c320f65c0dd7d66ef03abb3a5163ee8cb4b8932e14f008ae4cce5126"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "852a63bc502fb767d36fee2515dcc2787b29a9259d66bb3e30e63a8369d6a05c"
+    sha256 cellar: :any,                 arm64_monterey: "74a824dd9c8862745f66a17707ae3e5b4dd0e4f144717af8c6b706b76bed01a9"
+    sha256 cellar: :any,                 arm64_big_sur:  "e808a3694e529e169a6765b123c76b9e50e99bd781ee3fb5dc99370f2c97bff5"
+    sha256 cellar: :any,                 monterey:       "1ee235ee41180ae71b83c66948d3414ffaa855f689615dd3a247a68871dece6b"
+    sha256 cellar: :any,                 big_sur:        "33c6a96d769a95b515172c9fabfeb7cf37b3f1ba40bac913dee1457ee0659cb2"
+    sha256 cellar: :any,                 catalina:       "2c2cb1a2d43f836c277bdb33e4ebea581b49f84ef968c4d2c08e87bd9ffedc45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5feaf269b3a872f4a9b934baac4bfa833dba9e87437243d6071808b3b66495ea"
   end
 
   depends_on "pkg-config" => :build

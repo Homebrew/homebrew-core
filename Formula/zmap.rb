@@ -8,14 +8,13 @@ class Zmap < Formula
   head "https://github.com/zmap/zmap.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "3ea3dd65e8b77906443e60b1fecbaca531493c6b073c0b821116be968d65502e"
-    sha256 arm64_big_sur:  "142f0a0643a81aa7c4cd350d60c0879406524e867b8d6891265a2260e22d6ccb"
-    sha256 monterey:       "dc5f4713ce9f3a9df3e6a4008c88dbfcf5e7732cde0ee3fd7e16b8006cbbab62"
-    sha256 big_sur:        "4fbcf0453c48feae254c0799fdb38dc489ab435a9fd8f71f4f40490cb61a7272"
-    sha256 catalina:       "7f3dce955fb01597407317a81e6d1e0b60d66756e64358f11106adf5335b820a"
-    sha256 mojave:         "3014cc393e0d9b5e6705392a10da8588f26d668daa5660aebe252ed514bf176e"
-    sha256 high_sierra:    "99c0f7e06b2789fb57bd465a5a1fe35628b6d5e624ebba32d7f1199abc78d8bf"
-    sha256 x86_64_linux:   "31a5211efb8b10ea9fadbc9f6720fd6aef62ee5bf8df6689c391b2ac66677c86"
+    rebuild 1
+    sha256 arm64_monterey: "4f6a24cc441b2c1591370d13cd9f9b58b391780e4aee353976dd9698b1a85c2c"
+    sha256 arm64_big_sur:  "c1ee5777fb69a3df8b0b0107404effdbaa3a6d73138fda9a93f279efd9c0bb8d"
+    sha256 monterey:       "f68c0305b46be402d4b41bb709960228e76f4c17b7b39f42cdd5b11460dea905"
+    sha256 big_sur:        "edcf5c3a608c25386b8b5719ffba9ee6f18a140593c4dc941b43a768d1d14084"
+    sha256 catalina:       "7e94d9738a92dff6de1e76d69ab0e38ca7c6488d06c34d5bb40c3aa8cb08c8f4"
+    sha256 x86_64_linux:   "bf4676cca925307267ddc7fae14da7c3d4857a4636088a2c3361ec193ebc2137"
   end
 
   depends_on "byacc" => :build
@@ -52,11 +51,10 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 8bd825f..c70b651 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -71,7 +71,7 @@ if(WITH_JSON)
-         message(FATAL_ERROR "Did not find libjson")
+@@ -72,6 +72,7 @@
      endif()
 
--    add_definitions("-DJSON")
+     add_definitions("-DJSON")
 +    string(REPLACE ";" " " JSON_CFLAGS "${JSON_CFLAGS}")
      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${JSON_CFLAGS}")
  endif()

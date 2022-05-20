@@ -1,18 +1,17 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/archive/2.4.0.tar.gz"
-  sha256 "80eb7e09e2a106345d07f0985608c480341854b19b6f8fc653cb7043a9531e52"
+  url "https://github.com/FreeRDP/FreeRDP/archive/2.7.0.tar.gz"
+  sha256 "2350097b2dc865e54a3e858bce0b13a99711428d397ee51d60cf91ccb56c0415"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 arm64_monterey: "187c40da430fbc9e2030bab48cbc96b92449ebec81932357f1801f7c7e513efa"
-    sha256 arm64_big_sur:  "c7394ffbab31aca3baf2dde8ad790add11dba4b17f28b8dbd64d64ead1d7349b"
-    sha256 monterey:       "8e8d221c837ba22a5a334386b6cd455af199e64c07bb67910077b6fbcdc817cb"
-    sha256 big_sur:        "33b3d2b721d56ff90c2795ef0aa4d9258cbb2720ae214bf669b07fcdbbbdb765"
-    sha256 catalina:       "4aa3704ddc6a134b9239084cf5a7ff6169f64bf69232049f1c0318220540b124"
-    sha256 x86_64_linux:   "b196a3e07873e4a97ec4c93b0e8c2df48dbf90b9a86b8d5e17963181026f4862"
+    sha256 arm64_monterey: "cde0fdb6e408786ef74ae5d8222315ad4c145844e0cf257bd9f4d05d090e6ad6"
+    sha256 arm64_big_sur:  "bcbbdf87d558f4db4cfa4e0019a3415204439fb9753ddede27ecfa98bb931382"
+    sha256 monterey:       "a09cfd0938ba202fc66e6a8a367c5cf3d90745f0835267db9e333290dae6f290"
+    sha256 big_sur:        "01f2093ad7930301f8c8105538dbb96094dad55ef288c364de32f789d1062687"
+    sha256 catalina:       "9e21a6fc520a86ceb856a26b5832f1e55c78ab47e05595f62d38e6b1bbdf4b6b"
+    sha256 x86_64_linux:   "5d1352efc56c8386f8b0d62f76b759fbf225dd7c10986e60148118095e8fbdd7"
   end
 
   head do
@@ -55,10 +54,7 @@ class Freerdp < Formula
   end
 
   test do
-    on_linux do
-      # failed to open display
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     success = `#{bin}/xfreerdp --version` # not using system as expected non-zero exit code
     details = $CHILD_STATUS

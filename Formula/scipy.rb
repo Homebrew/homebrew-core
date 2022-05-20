@@ -1,21 +1,21 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/b4/a2/4faa34bf0cdbefd5c706625f1234987795f368eb4e97bde9d6f46860843e/scipy-1.8.0.tar.gz"
-  sha256 "31d4f2d6b724bc9a98e527b5849b8a7e589bf1ea630c33aa563eda912c9ff0bd"
+  url "https://files.pythonhosted.org/packages/26/b5/9330f004b9a3b2b6a31f59f46f1617ce9ca15c0e7fe64288c20385a05c9d/scipy-1.8.1.tar.gz"
+  sha256 "9e3fb1b0e896f14a85aa9a28d5f755daaeeb54c897b746df7a55ccb02b340f33"
   license "BSD-3-Clause"
   head "https://github.com/scipy/scipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "2818d2eecf3d9126d53cc3629b5e06227a0ea7ea5a4a845d3dc1b81d0180b0d7"
-    sha256 cellar: :any, arm64_big_sur:  "89d3d3b52108ace1c4a19671ec7b7e1bff59ae4472370b767411624f374e357d"
-    sha256 cellar: :any, monterey:       "caf9212be80e0ff32f309c3dbad8861b307a8bdc0e980599eed2f408bf531c28"
-    sha256 cellar: :any, big_sur:        "ae3e8196537deaf9739880873b9fe859c84229929f111a834a0ab951166d440d"
-    sha256 cellar: :any, catalina:       "5e74dcfd26730a916093f9b18dee1b1bd1a6d58d52790839c4efe2f35c452ea1"
-    sha256               x86_64_linux:   "b953884a721170689cec7207e3e416606a030a1e61542a83502dd643b086cc45"
+    sha256 cellar: :any, arm64_monterey: "e70703dd223d9b678f465c268e77a892cfe2602b7f7ad9a288a8efbd65ec3c92"
+    sha256 cellar: :any, arm64_big_sur:  "1382ef60f57a259d00f76239d5763f70e3ce7b922da295023ea2970068527054"
+    sha256 cellar: :any, monterey:       "556d91d10b74c316dc5fdbcb3ab5382b6b4d3d4f33ea0ac4faa412155cbb75c8"
+    sha256 cellar: :any, big_sur:        "5b5eafe225aceef063771c22197b882dd6b6dfd2e9a7656cd65c3967ba8f0537"
+    sha256 cellar: :any, catalina:       "4484ed1e364d8175548e3f59080669f1a6563310ec3a8a355bc6130029eb3b3c"
+    sha256               x86_64_linux:   "ec5adbad1bff9d60dc84e9e0b4f92f9b1dc3c25c2532e744ef78b6b3a0cae92c"
   end
 
-  depends_on "cython" => :build
+  depends_on "libcython" => :build
   depends_on "pythran" => :build
   depends_on "swig" => :build
   depends_on "gcc" # for gfortran
@@ -46,7 +46,7 @@ class Scipy < Formula
     Pathname("site.cfg").write config
 
     site_packages = Language::Python.site_packages("python3")
-    ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/site_packages
+    ENV.prepend_create_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
     ENV.prepend_create_path "PYTHONPATH", Formula["pythran"].opt_libexec/site_packages
     ENV.prepend_create_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
     ENV.prepend_create_path "PYTHONPATH", site_packages

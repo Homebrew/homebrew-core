@@ -35,10 +35,9 @@ class Fping < Formula
   test do
     assert_match "Version #{version}", shell_output("#{bin}/fping --version")
     assert_match "Probing options:", shell_output("#{bin}/fping --help")
-    on_macos do
+    if OS.mac?
       assert_equal "::1 is alive", shell_output("#{bin}/fping -A localhost").chomp
-    end
-    on_linux do
+    else
       assert_match "can't create socket", shell_output("#{bin}/fping -A localhost 2>&1", 4)
     end
   end

@@ -1,11 +1,10 @@
 class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "http://www.unixodbc.org/"
-  url "http://www.unixodbc.org/unixODBC-2.3.9.tar.gz"
-  mirror "https://fossies.org/linux/privat/unixODBC-2.3.9.tar.gz"
-  sha256 "52833eac3d681c8b0c9a5a65f2ebd745b3a964f208fc748f977e44015a31b207"
+  url "http://www.unixodbc.org/unixODBC-2.3.11.tar.gz"
+  mirror "https://fossies.org/linux/privat/unixODBC-2.3.11.tar.gz"
+  sha256 "d9e55c8e7118347e3c66c87338856dad1516b490fb7c756c1562a2c267c73b5c"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url "http://www.unixodbc.org/download.html"
@@ -13,25 +12,18 @@ class Unixodbc < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "460cf2165b1c047230b79f8c78c47b954a67d7dd64fafeb383923f11dd6d11ae"
-    sha256 arm64_big_sur:  "66e4b186a19526e02782557afe6926d2cfb9f372e94cbcc387f531b122f510e0"
-    sha256 monterey:       "762c9e183a9bebe5c44b2ad984cc87d730e2b316396e7260c0905290dbd32dca"
-    sha256 big_sur:        "7e85c6cae69a18bc572ac63a624d44f5e1f71b84693cdf6acf165449b35f90b7"
-    sha256 catalina:       "bd9ae8319552747572047c19a24ff3d55e3c59a51635ab799fd0959655d07459"
-    sha256 mojave:         "e3b8eeab0c16a66f1aae4784e5248f46c1476460982113803d62840379116f07"
-    sha256 x86_64_linux:   "1fbd8485269b6801167ff9ab353296796755ec3c6e8d9e8cab19ac17136bf92b"
+    sha256 arm64_monterey: "41252118b5c049b7fb24be4d68aa0efd821d1b263db205b6b8395d538acdebbc"
+    sha256 arm64_big_sur:  "d7c4effd78343a0e35e1ed173321299393132c84d383b34dacaa82abb09bfbcc"
+    sha256 monterey:       "a4d5de6d53870f610840a88bd31c0d0442bc3580068f9330207ab8e0488fa523"
+    sha256 big_sur:        "7c2e9b5e3e8b9e082afa7d669d0b073897fd30ebcc3ec566a2fa38fd63369087"
+    sha256 catalina:       "c398fc445679a3619a8e602444963a4e46e9302a1813c192ac42d9b6cc2d7e63"
+    sha256 x86_64_linux:   "e8d1c01d05e821f0e4aa4aa65f104266ed16331a3e39ae72071bbe0eaec03ea0"
   end
 
   depends_on "libtool"
 
   conflicts_with "libiodbc", because: "both install `odbcinst.h`"
   conflicts_with "virtuoso", because: "both install `isql` binaries"
-
-  # fix issue with SQLSpecialColumns on ARM64
-  # remove for 2.3.10
-  # https://github.com/lurcher/unixODBC/issues/60
-  # https://github.com/lurcher/unixODBC/pull/69
-  patch :DATA
 
   def install
     system "./configure", "--disable-debug",
@@ -47,33 +39,3 @@ class Unixodbc < Formula
     system bin/"odbcinst", "-j"
   end
 end
-
-__END__
---- a/DriverManager/drivermanager.h
-+++ b/DriverManager/drivermanager.h
-@@ -1091,11 +1177,23 @@ void return_to_pool( DMHDBC connection );
- #define DM_SQLSPECIALCOLUMNS        72
- #define CHECK_SQLSPECIALCOLUMNS(con)    (con->functions[72].func!=NULL)
- #define SQLSPECIALCOLUMNS(con,stmt,it,cn,nl1,sn,nl2,tn,nl3,s,n)\
--                                    (con->functions[72].func)\
-+                                    ((SQLRETURN (*) (\
-+                                           SQLHSTMT, SQLUSMALLINT,\
-+                                           SQLCHAR*, SQLSMALLINT,\
-+                                           SQLCHAR*, SQLSMALLINT,\
-+                                           SQLCHAR*, SQLSMALLINT,\
-+                                           SQLUSMALLINT, SQLUSMALLINT))\
-+                                    con->functions[72].func)\
-                                         (stmt,it,cn,nl1,sn,nl2,tn,nl3,s,n)
- #define CHECK_SQLSPECIALCOLUMNSW(con)    (con->functions[72].funcW!=NULL)
- #define SQLSPECIALCOLUMNSW(con,stmt,it,cn,nl1,sn,nl2,tn,nl3,s,n)\
--                                    (con->functions[72].funcW)\
-+                                    ((SQLRETURN (*) (\
-+                                        SQLHSTMT, SQLUSMALLINT,\
-+                                        SQLWCHAR*, SQLSMALLINT,\
-+                                        SQLWCHAR*, SQLSMALLINT,\
-+                                        SQLWCHAR*, SQLSMALLINT,\
-+                                        SQLUSMALLINT, SQLUSMALLINT))\
-+                                    con->functions[72].funcW)\
-                                         (stmt,it,cn,nl1,sn,nl2,tn,nl3,s,n)
- 
- #define DM_SQLSTATISTICS            73

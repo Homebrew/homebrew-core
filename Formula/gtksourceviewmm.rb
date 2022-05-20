@@ -12,12 +12,13 @@ class Gtksourceviewmm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "2735fdddc92f3280188428fc9fa83431a700c376bcae4424bca10005dd440c76"
-    sha256 cellar: :any, arm64_big_sur:  "2b73a79e4c0df491e43dcc3def52858679c0d0ff699c3bb8a003014a7940408b"
-    sha256 cellar: :any, monterey:       "337b822adee8ddec4bb8f9f045f10cdb5e624c35fd1bf58aaaa1ab860af3cd73"
-    sha256 cellar: :any, big_sur:        "cb0781be44de07c6b920d97337eeca3650d9ffc03d99cb0ac0e9da7cf2769b0c"
-    sha256 cellar: :any, catalina:       "d6bd00f9f409660e55085ad15802c9e9b1f5f85d8600a729da0c81e3e79cd9d2"
-    sha256 cellar: :any, mojave:         "5c11aa110b1c22269ddc3a2ad31752c02b6522c8310db0367dd7f112b62e0b1f"
+    sha256 cellar: :any,                 arm64_monterey: "2735fdddc92f3280188428fc9fa83431a700c376bcae4424bca10005dd440c76"
+    sha256 cellar: :any,                 arm64_big_sur:  "2b73a79e4c0df491e43dcc3def52858679c0d0ff699c3bb8a003014a7940408b"
+    sha256 cellar: :any,                 monterey:       "337b822adee8ddec4bb8f9f045f10cdb5e624c35fd1bf58aaaa1ab860af3cd73"
+    sha256 cellar: :any,                 big_sur:        "cb0781be44de07c6b920d97337eeca3650d9ffc03d99cb0ac0e9da7cf2769b0c"
+    sha256 cellar: :any,                 catalina:       "d6bd00f9f409660e55085ad15802c9e9b1f5f85d8600a729da0c81e3e79cd9d2"
+    sha256 cellar: :any,                 mojave:         "5c11aa110b1c22269ddc3a2ad31752c02b6522c8310db0367dd7f112b62e0b1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc5638fa500ed70f1de07180a729cee705fd3683305dabd4176f899bc7dfc17b"
   end
 
   depends_on "pkg-config" => [:build, :test]

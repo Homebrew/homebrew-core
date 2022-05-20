@@ -16,9 +16,12 @@ class Tin < Formula
     sha256 monterey:       "8897ee5f24a4004476bc93f15960c7f66d678e3f1e1636cbd8ab4c062c36053b"
     sha256 big_sur:        "12a0c54fd7adf50bf9e495045bf63deb70c640d9a93614fd36679821d4ad4343"
     sha256 catalina:       "5da812d0f63586b3e8f29b87d13eb143833d807034acef91eab05802700aa394"
+    sha256 x86_64_linux:   "c406776b10d1477ace215d59459332fff266f4b768c7c9d6d2837b1f550a57d4"
   end
 
   depends_on "gettext"
+
+  uses_from_macos "bison" => :build
 
   conflicts_with "mutt", because: "both install mmdf.5 and mbox.5 man pages"
 

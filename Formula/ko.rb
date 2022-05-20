@@ -1,18 +1,17 @@
 class Ko < Formula
   desc "Build and deploy Go applications on Kubernetes"
   homepage "https://github.com/google/ko"
-  url "https://github.com/google/ko/archive/v0.9.3.tar.gz"
-  sha256 "a31c9f6f3fd443599b854338f396f0e4c43a3d6ef7b1138f5df75a2c1c785c61"
+  url "https://github.com/google/ko/archive/v0.11.2.tar.gz"
+  sha256 "000045afa2eaee9a6af475a41fb60541b39e2e7bfb7b985ff7b1040b6bc2c58c"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e660aae5d3e7df1cca605319716dd9ec5ef5b6ba1f2cd1309d891f597e3849f5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a5ee4a862a5328cb8bc2ba75f1ac576ed7bdfced22a37aa823dccd0d6653ee0"
-    sha256 cellar: :any_skip_relocation, monterey:       "094e53771b71110f7df68973e84491adb465799f88655f11bc64276481902d8f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f1ab2b90c847b8ebcd4225d21a604c60eb0e7e4cf236e21694d4d8bf6f7d5d9d"
-    sha256 cellar: :any_skip_relocation, catalina:       "5d9c6dc8c007b469f2db46730d100e8b5610da54c574839d2e10ad59aee1911e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "deea93329a7fcc6f595ca491a25091d8dd78a1cb9c8d743fa074a7d3222b787f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4442b619909d0215c41d711176747e3f139c9eda96e84352c05eef9f6ccdf6d9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "519094e77db389c470a38088ff4b809bb4f4f1ca1e602f8e338e13e0aa4d3e1d"
+    sha256 cellar: :any_skip_relocation, monterey:       "6bb8bac9ce5609325fa60d8dd0bcac795f7ab8b52c5863996c678c41d507a6fb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1a5d2b02e531e66bb52c4de13ba0e2a26bd77e7f92d4c9c9a7df8c85073c2f49"
+    sha256 cellar: :any_skip_relocation, catalina:       "40940714e128a18a8cb159f339cbc68bf419ce2292a9de520dfb6ddbe2543b15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c36705c4dddb90628354bd7da1ddfa19c25c0f0ed926d98320247619cc5e95b6"
   end
 
   depends_on "go" => :build
@@ -20,11 +19,14 @@ class Ko < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/google/ko/pkg/commands.Version=#{version}")
 
-    bash_output = Utils.safe_popen_read(bin/"ko", "completion")
+    bash_output = Utils.safe_popen_read(bin/"ko", "completion", "bash")
     (bash_completion/"ko").write bash_output
 
-    zsh_output = Utils.safe_popen_read(bin/"ko", "completion", "--zsh")
+    zsh_output = Utils.safe_popen_read(bin/"ko", "completion", "zsh")
     (zsh_completion/"_ko").write zsh_output
+
+    fish_output = Utils.safe_popen_read(bin/"ko", "completion", "fish")
+    (fish_completion/"ko.fish").write fish_output
   end
 
   test do

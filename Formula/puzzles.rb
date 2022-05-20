@@ -47,12 +47,9 @@ class Puzzles < Formula
   end
 
   test do
-    on_macos do
+    if OS.mac?
       assert_predicate prefix/"Puzzles.app/Contents/MacOS/Puzzles", :executable?
-    end
-
-    on_linux do
-      # Gtk-WARNING **: 14:18:20.744: cannot open display
+    else
       return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
       assert_match "Mines, from Simon Tatham's Portable Puzzle Collection", shell_output(bin/"mines")

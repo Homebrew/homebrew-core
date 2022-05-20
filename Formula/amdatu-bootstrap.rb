@@ -4,7 +4,7 @@ class AmdatuBootstrap < Formula
   url "https://bitbucket.org/amdatuadm/amdatu-bootstrap/downloads/bootstrap-bin-r9.zip"
   sha256 "937ef932a740665439ea0118ed417ff7bdc9680b816b8b3c81ecfd6d0fc4773b"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://bitbucket.org/amdatuadm/amdatu-bootstrap/downloads/"
@@ -12,16 +12,20 @@ class AmdatuBootstrap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7efb4581ff91f9931f43d21974df335b66497e8d05488f91cdb9868a4c6ea0ac"
+    sha256 cellar: :any_skip_relocation, all: "f59cda35ffdacba6fb9c7f4d29fe641164995b42cf6f3bfeb169882c501559cc"
   end
 
   depends_on "openjdk@8"
 
   def install
+    env = Language::Java.java_home_env("1.8")
+    # Add java to PATH to fix Linux issue: amdatu-bootstrap: line 35: java: command not found
+    env["PATH"] = "$JAVA_HOME/bin:$PATH"
+    # Use bash to avoid issues with shells like dash: amdatu-bootstrap: 34: [: --info: unexpected operator
+    inreplace "amdatu-bootstrap", %r{^#!/bin/sh$}, "#!/bin/bash"
+
     libexec.install %w[amdatu-bootstrap bootstrap.jar conf]
-    (bin/"amdatu-bootstrap").write_env_script libexec/"amdatu-bootstrap",
-      Language::Java.java_home_env("1.8")
+    (bin/"amdatu-bootstrap").write_env_script libexec/"amdatu-bootstrap", env
   end
 
   test do

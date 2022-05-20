@@ -49,11 +49,11 @@ class Physfs < Formula
       cat test.txt
     EOS
     output = shell_output("#{bin}/test_physfs < test 2>&1")
-    on_macos do
-      assert_match "Successful.\nhomebrew", output
+    expected = if OS.mac?
+      "Successful.\nhomebrew"
+    else
+      "Successful.\n> cat test.txt\nhomebrew"
     end
-    on_linux do
-      assert_match "Successful.\n> cat test.txt\nhomebrew", output
-    end
+    assert_match expected, output
   end
 end

@@ -4,13 +4,13 @@ class Idris2 < Formula
   url "https://github.com/idris-lang/Idris2/archive/v0.5.1.tar.gz"
   sha256 "da44154f6eba5e22ec5ac64c6ba2c28d2df0a57cf620c5b00c11adb51dbda399"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/idris-lang/Idris2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "bd0fe93d2cf1992c825305e9fbc451cc900aacd15e5d2fcf8ca9a14c1abc9385"
-    sha256 cellar: :any,                 catalina:     "9a677678a11af3aa67e96cc31592b6690cbaa801fb16200f019e04ef582c8815"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "abf8255278b85d80ba3e41759c8df2a3d7a95ebd278a8fae24c19bda9f45e207"
+    sha256 cellar: :any,                 big_sur:      "39fe90502cd4a8a064b4f69bcc5b4e99295826cad363092b47d3353ed41db2da"
+    sha256 cellar: :any,                 catalina:     "f29bcc24fc1a0581eb3f17823641c5444acc4df10e93c17eae573deab9a18fa7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "fdd19a501c9b80da87fd4519ed43e9ed31647e17e03d582392d2b3d1517f7c74"
   end
 
   depends_on "coreutils" => :build

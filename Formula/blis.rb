@@ -1,39 +1,21 @@
 class Blis < Formula
   desc "BLAS-like Library Instantiation Software Framework"
   homepage "https://github.com/flame/blis"
+  url "https://github.com/flame/blis/archive/0.9.0.tar.gz"
+  sha256 "1135f664be7355427b91025075562805cdc6cc730d3173f83533b2c5dcc2f308"
   license "BSD-3-Clause"
   head "https://github.com/flame/blis.git", branch: "master"
 
-  stable do
-    url "https://github.com/flame/blis/archive/0.8.1.tar.gz"
-    sha256 "729694128719801e82fae7b5f2489ab73e4a467f46271beff09588c9265a697b"
-
-    # Fix non-generic build for Apple ARM and compilation with Clang.
-    # Upstream ref: https://github.com/flame/blis/pull/506
-    # Remove in the next release.
-    patch do
-      url "https://github.com/flame/blis/commit/bf727636632a368f3247dc8ab1d4b6119e9c511a.patch?full_index=1"
-      sha256 "55962e5df20308c08a5b10a2b7186268dfc905127e360af17e271198d2cde687"
-    end
-
-    # Allow using `thunderx2` config on Apple ARM with Clang
-    # Upstream ref: https://github.com/flame/blis/pull/492
-    # Remove in the next release.
-    patch do
-      url "https://github.com/flame/blis/commit/6548cebaf55a1f9bdb8417cc89dd0444d8f9c2e4.patch?full_index=1"
-      sha256 "c7f2ae70662b33f8db0aeb2773467288a9fba03fd26005d71d9ac0b9ff712c60"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "08a927f8360cd8cf29762341a080e86bda1a84098fdd99884136f0a25e10cf2e"
-    sha256 cellar: :any,                 arm64_big_sur:  "971251c831592d168e0ccafb67e47de2430433ea395663c788db7223a5ac6f3e"
-    sha256 cellar: :any,                 monterey:       "3d7e6df045340294770f76b78e015cf7c6e1401f9efe11250c3741a68a8f42f0"
-    sha256 cellar: :any,                 big_sur:        "ad2e6862fd4b5a425769c108e7a36e33ac7e7fc77ce699756fe051e68524518d"
-    sha256 cellar: :any,                 catalina:       "b26e5e7deb7b85319fa539a061ff84df842378a902e3695a4f6df63eba9f5cdb"
-    sha256 cellar: :any,                 mojave:         "333cceec593098d68f438ddcfc6415d44cf0af565601c0163496e23bdf4a8aec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7726592ecf1b90f66c73ca7be6f18a76ff9a208887e677e291a81036b467a3e9"
+    sha256 cellar: :any,                 arm64_monterey: "52c3918675fa0604bf2c9426f0908f5f3e1a25b60f886f86b2ae83ee8b72d7e2"
+    sha256 cellar: :any,                 arm64_big_sur:  "a9a11b09c4570cdcc7e84f992a33cab3f41daa27ef1ccc8483d9c2b5c34d6ac6"
+    sha256 cellar: :any,                 monterey:       "5b33bda9771e26c111a0b584995e3894c7f9fda16f3eb376e63698a0c6583874"
+    sha256 cellar: :any,                 big_sur:        "814f573e8a13d58d4bce3327c97af8dbfa4729dff01d541f2845734640d58a1f"
+    sha256 cellar: :any,                 catalina:       "9863e7c187fb4d14bce8499d86a63935c8e04bd76e001f8888f83101cb02feff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6319286075b6b686052882db10b2146275d746bd34235acb881e3c41acf82ebd"
   end
+
+  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "gcc" => [:build, :test]
@@ -42,13 +24,18 @@ class Blis < Formula
   fails_with gcc: "5"
 
   def install
-    # Work around for Apple ARM as there isn't an optimized framework config yet
-    # and auto-detection isn't implemented. With patches, we can use existing
-    # `thunderx2` config, which probably performs better than `generic` config.
-    # This should be changed when Apple ARM-specific config is available.
-    # Ref: https://github.com/flame/blis/issues/495
-    # Ref: https://github.com/flame/blis/pull/492#issuecomment-850797713
-    config = Hardware::CPU.arm? ? "thunderx2" : "auto"
+    # https://github.com/flame/blis/blob/master/docs/ConfigurationHowTo.md
+    ENV.runtime_cpu_detection
+    config = if !build.bottle?
+      "auto"
+    elsif OS.mac?
+      # For Apple Silicon, we can optimize using the dedicated "firestorm" config.
+      # For Intel Macs, we build multiple Intel x86_64 to allow runtime optimization.
+      Hardware::CPU.arm? ? "firestorm" : "intel64"
+    else
+      # For x86_64 Linux, we build full "x86_64" family with Intel and AMD processors.
+      Hardware::CPU.arch
+    end
 
     system "./configure", "--prefix=#{prefix}", "--enable-cblas", config
     system "make"

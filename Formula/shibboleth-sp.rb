@@ -16,13 +16,14 @@ class ShibbolethSp < Formula
     sha256 monterey:       "3c5fddd0234a1d201aebf7cda85223212e0e3ccbded613e3258cc014d2811c0d"
     sha256 big_sur:        "6adfa5b54297937bf4bc1a5abba4f57dd5bca91647c3b9cac9a0b7a86c8ca444"
     sha256 catalina:       "82e21f772932a9edbbefc1288e26e6537b23cbb74dc7eb6d8c814486157789c9"
+    sha256 x86_64_linux:   "53dbce9a0a34d7a61083ba1130c3699d0c0657a6552c16df84b4c07b25a35ce8"
   end
 
   depends_on "apr" => :build
   depends_on "apr-util" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "httpd" if MacOS.version >= :high_sierra
+  depends_on "httpd"
   depends_on "log4shib"
   depends_on "opensaml"
   depends_on "openssl@1.1"
@@ -43,10 +44,9 @@ class ShibbolethSp < Formula
       --with-xmltooling=#{Formula["xml-tooling-c"].opt_prefix}
       --with-saml=#{Formula["opensaml"].opt_prefix}
       --enable-apache-24
+      --with-apxs24=#{Formula["httpd"].opt_bin}/apxs
       DYLD_LIBRARY_PATH=#{lib}
     ]
-
-    args << "--with-apxs24=#{Formula["httpd"].opt_bin}/apxs" if MacOS.version >= :high_sierra
 
     system "./configure", *args
     system "make", "install"

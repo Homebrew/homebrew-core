@@ -3,6 +3,7 @@ class Renameutils < Formula
   homepage "https://www.nongnu.org/renameutils/"
   url "https://download.savannah.gnu.org/releases/renameutils/renameutils-0.12.0.tar.gz"
   sha256 "cbd2f002027ccf5a923135c3f529c6d17fabbca7d85506a394ca37694a9eb4a3"
+  license "GPL-3.0-or-later"
   revision 3
 
   livecheck do
@@ -11,12 +12,14 @@ class Renameutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any, monterey:     "93a4fb65fd3bba13cd797f0c374981b8dde01ee25a0b0637f6e4448b655457e4"
-    sha256 cellar: :any, big_sur:      "503b84eed8791b4a924e61fdfb0ea53cb6d349fe8a55c43ab7582c1e2a0985ba"
-    sha256 cellar: :any, catalina:     "2ec48c66fea9f53acf2b2ba3b726e6f7a9ff35778a3fb574fc59e7c6d01f681a"
-    sha256 cellar: :any, mojave:       "4f360267cba9842ef85e9cfbb1baaf73e9576dccfb924aade7f0ad6bbf0bf605"
-    sha256 cellar: :any, high_sierra:  "d25dc64bcc5d30e7695c65a93f7285849b57fdbdb18bf7d5e7bc22f0786cb14c"
-    sha256               x86_64_linux: "1a7ddae9fa3352ec89e73c91eaabedc5e941e3e752fdf5afda5b5098fb65cd7c"
+    sha256 cellar: :any, arm64_monterey: "a6570746ef47eed43cbde686b8ebf162559a9ada031bab821064c5e0754135a8"
+    sha256 cellar: :any, arm64_big_sur:  "0ea05fad50a7a43df09d3bbb652140e5037e91320ff9e549a9ad0cf41dfaa958"
+    sha256 cellar: :any, monterey:       "93a4fb65fd3bba13cd797f0c374981b8dde01ee25a0b0637f6e4448b655457e4"
+    sha256 cellar: :any, big_sur:        "503b84eed8791b4a924e61fdfb0ea53cb6d349fe8a55c43ab7582c1e2a0985ba"
+    sha256 cellar: :any, catalina:       "2ec48c66fea9f53acf2b2ba3b726e6f7a9ff35778a3fb574fc59e7c6d01f681a"
+    sha256 cellar: :any, mojave:         "4f360267cba9842ef85e9cfbb1baaf73e9576dccfb924aade7f0ad6bbf0bf605"
+    sha256 cellar: :any, high_sierra:    "d25dc64bcc5d30e7695c65a93f7285849b57fdbdb18bf7d5e7bc22f0786cb14c"
+    sha256               x86_64_linux:   "1a7ddae9fa3352ec89e73c91eaabedc5e941e3e752fdf5afda5b5098fb65cd7c"
   end
 
   depends_on "coreutils"
@@ -36,6 +39,9 @@ class Renameutils < Formula
   end
 
   def install
+    # Work around build failure on Apple Silicon due to trying to use deprecated stat64.
+    # io-utils.c:93:19: error: variable has incomplete type 'struct stat64'
+    ENV["ac_cv_func_lstat64"] = "no" if Hardware::CPU.arm?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-packager=Homebrew"

@@ -1,16 +1,17 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.9.1/apache-pulsar-2.9.1-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.9.1/apache-pulsar-2.9.1-src.tar.gz"
-  sha256 "e219a0b38645c64888ec031516afab0ca3248c194aaaf7bdc1d08aff4537e1f9"
+  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.10.0/apache-pulsar-2.10.0-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.10.0/apache-pulsar-2.10.0-src.tar.gz"
+  sha256 "fadf27077c5a15852791bea45f34191de1edc25799ecd6e2730a9ff656789c0b"
   license "Apache-2.0"
   head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "30d713f34fe9074fb582068cca80e13aefddc508219a0d045e11ecae050d9a2f"
-    sha256 cellar: :any_skip_relocation, catalina:     "b82051dede75c221887ece7e961e483fb38a9831ed1c2405cab3959d2749c768"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e8aab2331d721486ea7ad5bcf4df54158f4184e6a88593ff85b4e12a45f22a45"
+    sha256 cellar: :any_skip_relocation, monterey:     "957c2fa40cd1b7867dc4463ba65fb613ba3e67b672294ede255d6920881af932"
+    sha256 cellar: :any_skip_relocation, big_sur:      "4badd3eebc91259b2e8e0654b66e1a775c56c915529e10ee8bd90ed87d51feb7"
+    sha256 cellar: :any_skip_relocation, catalina:     "a1af20becc06d2d7984ba32906a35f12c9ff988fe8c5eff4381027ecf4e72f98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "72fc6caf2b5ad176ca9345befa61173e13f72fa11bed603b5ce0f757e5aa2f78"
   end
 
   depends_on "autoconf" => :build
@@ -62,6 +63,8 @@ class ApachePulsar < Formula
   end
 
   test do
+    ENV["PULSAR_GC_LOG"] = "-Xlog:gc*:#{testpath}/pulsar_gc_%p.log:time,uptime:filecount=10,filesize=20M"
+    ENV["PULSAR_LOG_DIR"] = testpath
     fork do
       exec bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", " --bookkeeper-dir", "#{testpath}/bk"
     end

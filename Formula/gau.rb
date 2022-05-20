@@ -1,18 +1,18 @@
 class Gau < Formula
   desc "Open Threat Exchange, Wayback Machine, and Common Crawl URL fetcher"
   homepage "https://github.com/lc/gau"
-  url "https://github.com/lc/gau/archive/v2.0.8.tar.gz"
-  sha256 "9604f0b7bf258547778a155afd2c58d32eeeb82d3bcbcbe97616ccefd1287d9a"
+  url "https://github.com/lc/gau/archive/v2.1.1.tar.gz"
+  sha256 "17bd5b8e3a6a554d82ab5de66bc1f34ce2810a3ba6b8e1456432faff9b191c8f"
   license "MIT"
   head "https://github.com/lc/gau.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c4330bc568a051aebfa06aff3210ce2ce8ff2f9e32460d107ad064282e722ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de3e33cbb1e861d60b6ef6e0e1711297be0f68110388d8c766f7fcbeaa52dd2c"
-    sha256 cellar: :any_skip_relocation, monterey:       "9660714535c33fd6a322d0ea3d6a825697e8dbd816e397a843636f37015f257d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6e1606b2462ba3c3b47f47589e0c6a5dac36c0f8557a50b2c3b3441239be9949"
-    sha256 cellar: :any_skip_relocation, catalina:       "d0e528c607348bb37cb7a856516088ed6607cd36da5bd208b102e047c5d4bd77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b29f6260b4fc9161e3ef840a98432fb78031a14bc36361e35f5532c189c0ea3d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "38e7339a593bfacf1502d7229c8efbd0437c9d047f395d4519bc81ae4680c1ad"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "69c6b9c13e1ac20d1dac6bb8b256b21ea9c7361ad2f252483536b9dcf706a3dc"
+    sha256 cellar: :any_skip_relocation, monterey:       "84d56775d9e7c3c0237804eb00f47ef8899b08b82ee1405230aab4a51e754a70"
+    sha256 cellar: :any_skip_relocation, big_sur:        "74f4cffe9ee51402a8ff40161c4f19927de6f1e559e9f23598211fe3a7723137"
+    sha256 cellar: :any_skip_relocation, catalina:       "9542546cd3c6c975765fdf6320f5f3041ac5de48a77a225b748966dede196ce0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14d7301ff3f4211804cfb704361e2018ea17f42457ba04a455457c36b9d39ad1"
   end
 
   depends_on "go" => :build

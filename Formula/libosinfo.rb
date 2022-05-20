@@ -1,10 +1,9 @@
 class Libosinfo < Formula
   desc "Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.9.0.tar.xz"
-  sha256 "b4f3418154ef3f43d9420827294916aea1827021afc06e1644fc56951830a359"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.10.0.tar.xz"
+  sha256 "a252e00fc580deb21da0da8c0aa03b8c31e8440b8448c8b98143fab477d32305"
   license "LGPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
@@ -12,13 +11,12 @@ class Libosinfo < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "ab606aa8dc9813fec260ebcf955248bf5e307e5e5cc7023f0455f54fe35b6058"
-    sha256 arm64_big_sur:  "0004d1a28d83410254c210d74f984e0fe3942a538a4b251f6651c0276841360b"
-    sha256 monterey:       "ec171b0891c3ff221daa1f9505df4f658f56533d80901ea161291bcff1ea1114"
-    sha256 big_sur:        "0dab96930b64dea3e2768f43050826f4fdf8246e83b93d6570691e698bc75186"
-    sha256 catalina:       "b2b611924d4682c845381072c7e39f76806aa0f00e3b973aadf943193f6ff999"
-    sha256 x86_64_linux:   "b7e0eb43c6c995d960813a26329282cbca7b5cda460a4c7acc6441d00e4012ee"
+    sha256 arm64_monterey: "2659892b2d277e688c8edc0f03875c1e518f5ab515a200d58698f717e9ed7dac"
+    sha256 arm64_big_sur:  "e8f42ab6e678acb61213692e472cc233112067f87b9d10744c4db4a10e14729c"
+    sha256 monterey:       "6fa3411b44dcdd8d33e73fa6d7b4e4d21828d0e00c52430c68684e9a0a2a45c6"
+    sha256 big_sur:        "494af85f0b66b208db81e2114e492c683028ebe8c1748c61bfaaaa5b8fc7892f"
+    sha256 catalina:       "ae3b5681f80d8a2fb8413b4d0e86ea64a4c6e48d809b9f96d2064ed1d7ecb570"
+    sha256 x86_64_linux:   "eb8f140219fb3208a0ee34a0e412a6a4d24581e622e2d81cd269c2b10a8312e3"
   end
 
   depends_on "gobject-introspection" => :build
@@ -28,7 +26,7 @@ class Libosinfo < Formula
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "libsoup@2"
+  depends_on "libsoup"
   depends_on "osinfo-db"
   depends_on "usb.ids"
 
@@ -37,8 +35,8 @@ class Libosinfo < Formula
   uses_from_macos "libxslt"
 
   resource "pci.ids" do
-    url "https://raw.githubusercontent.com/pciutils/pciids/7906a7b1f2d046072fe5fed27236381cff4c5624/pci.ids"
-    sha256 "255229b8b37474c949736bc4a048a721e31180bb8dae9d8f210e64af51089fe8"
+    url "https://raw.githubusercontent.com/pciutils/pciids/7d42acec647d327f0824260c2d4656410d48986a/pci.ids"
+    sha256 "7e6314c5ecab564af740b1a7da0b2839690716344504420f19ae21bb8cf7ae9e"
   end
 
   def install

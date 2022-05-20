@@ -2,18 +2,23 @@ class BrigadeCli < Formula
   desc "Brigade command-line interface"
   homepage "https://brigade.sh"
   url "https://github.com/brigadecore/brigade.git",
-      tag:      "v2.2.0",
-      revision: "da052e9b8b220296b216be536364d320e8778637"
+      tag:      "v2.5.0",
+      revision: "838e8fd2357e3ace0b2080544a9faf3229be8b3d"
   license "Apache-2.0"
   head "https://github.com/brigadecore/brigade.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4dd1f838e598091458ef918d05bd852942c7067a1615f1f1e702a9f15352e6f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "863bf65be33e8a9e986e63b04f5b7ab9673d24f484af96e8ed1bdf3d04a92ca5"
-    sha256 cellar: :any_skip_relocation, monterey:       "b587ad76c9d46dc5d2acd959849c7bc07b3b9bbac02d6d3f48d4a8735d5083e8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c20b9b671b50a9827bc60f64a8312f246d772eaf2995fc376210d43521ef6cb0"
-    sha256 cellar: :any_skip_relocation, catalina:       "ae703f89adbe8a4a856209b3361eff903c523201a60ac7aa4caa343c0c3697a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b72328b4955ca9bf9c25e445d5157147550783e516069e7a590f973b41d740af"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e32b00704bef443f6998dd60330c9e13c64443f358b43d8bc7812cc34c892fd3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5aa661ac2ca0c024cc154a8acdc20107d63d171b106a3a9be07f08b8260abe0a"
+    sha256 cellar: :any_skip_relocation, monterey:       "0ef3da90f5c89d4c3a58925ced20e50cdd55c9eef5acd565a04fa1a1045daff6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f8453e52557c129b920ee067378c8736c5b6bb543d06bd00eaf6aaacfda64a4e"
+    sha256 cellar: :any_skip_relocation, catalina:       "54b0a36772b3469d1bf93e96308ec201877d54be78e44ef2c847c69f7a07c933"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59385f3b5cb3d2993e5d9209b2289dd8cc841332218ca42f46ef86ae90a5396f"
   end
 
   depends_on "go" => :build

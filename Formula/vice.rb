@@ -17,6 +17,7 @@ class Vice < Formula
     sha256 monterey:       "642e255aa5c7e4cb48e8773196dd94925e81d11bc5b538f02946af1c70397298"
     sha256 big_sur:        "270cba1e6c87ed97b7cafc142f4610661610a874b2ddb7ba1b805472b004242a"
     sha256 catalina:       "05c3fbd9b2972453bf7d2688ef666efbbd7b9bd5b4fb37b294d3b6c0e45432cb"
+    sha256 x86_64_linux:   "29768ca0c24d34dbe29995cca12aec6b2e91f9b2f44252828a62ad1b53e2fa8c"
   end
 
   depends_on "autoconf" => :build
@@ -28,7 +29,7 @@ class Vice < Formula
   depends_on "yasm" => :build
 
   depends_on "adwaita-icon-theme"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
   depends_on "flac"
   depends_on "giflib"
   depends_on "glew"
@@ -39,6 +40,8 @@ class Vice < Formula
   depends_on "libpng"
   depends_on "librsvg"
   depends_on "libvorbis"
+
+  uses_from_macos "flex" => :build
 
   def install
     configure_flags = %W[

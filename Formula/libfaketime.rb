@@ -1,16 +1,16 @@
 class Libfaketime < Formula
   desc "Report faked system time to programs"
   homepage "https://github.com/wolfcw/libfaketime"
-  url "https://github.com/wolfcw/libfaketime/archive/v0.9.9.tar.gz"
-  sha256 "57d0181150361c0a9b5c8eef05b11392f6134ada2c2d998e92e63daed639647c"
+  url "https://github.com/wolfcw/libfaketime/archive/v0.9.10.tar.gz"
+  sha256 "729ad33b9c750a50d9c68e97b90499680a74afd1568d859c574c0fe56fe7947f"
   license "GPL-2.0-only"
   head "https://github.com/wolfcw/libfaketime.git", branch: "master"
 
   bottle do
-    sha256 big_sur:      "cf7b4559e89a7ea8049e9cfef460f7cf1f6e9403f743562e26010d4ef2705454"
-    sha256 catalina:     "b5e7ab51f854c78569b3bd6b52f3a668cf2b99e38fb5324f6a195c073f62f950"
-    sha256 mojave:       "e35274e338e72a603ed6b338437d09fc58427b65077a09e0159514e4df249317"
-    sha256 x86_64_linux: "56e8541e3caa6c07d631991e8034232244f4251d7b8bcbdcc4a718e83d64faf8"
+    sha256 monterey:     "0ec1aa518fba8d2e20ff358fdeac7ab640488eeb47dcbdf7900601d53c79b7ce"
+    sha256 big_sur:      "d852f9c059965fb8750e5202c6b59ed6806dbc19d0aac339dfec71cca3856dbc"
+    sha256 catalina:     "c826fdd7a0b8b1be7a8957665ddf3403bbc9e12f9da052a616e714c80c429602"
+    sha256 x86_64_linux: "a30d8e38cbe2d90d06ceb803a766750c07c5b2034931db350b6eca7879343eae"
   end
 
   on_macos do

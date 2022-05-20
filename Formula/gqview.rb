@@ -21,12 +21,14 @@ class Gqview < Formula
     sha256 mojave:         "dc9cc0efc66c0e2156efeba84201c54711288e96868367bde264dbfaff14236f"
     sha256 high_sierra:    "faeb25a25899fc5d18b2097574c3975648aaab4b8a55545e5ba6579335c2f587"
     sha256 sierra:         "b0e983e36c58634a2ae893003567dac0737c012811c1dcb64f0def22fc11f604"
+    sha256 x86_64_linux:   "18698348461bc51c97a1439a409726c32000f608f5f71f4ef7503c099899e99f"
   end
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"
 
   def install
+    ENV.append "LIBS", "-lm"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"

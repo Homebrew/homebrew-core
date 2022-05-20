@@ -1,8 +1,8 @@
 class MysqlAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.37.tar.gz"
-  sha256 "fed080e0b6200384315becb45a0a922f9a1c403bf8d0ab41d0d87f1d1507c8f0"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.38.tar.gz"
+  sha256 "89d2c42aaa7fd2e31f33b21c5619d2b4c7e1dc2081f820f9f6eec2f30c5fbbf8"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,12 +11,12 @@ class MysqlAT57 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "7ad25346d102c0ff244b0d0d944bdbfc0b13371e3456d1d89c60bd2eeaa36a91"
-    sha256 arm64_big_sur:  "113e288f22bd3c2101ad5f50e00fc2cd951f6e01120e844bbbd0c0cb54dc20d8"
-    sha256 monterey:       "535a7735816733f35d4bce45bc889acd45cdf3935491480425f261f2ac50e300"
-    sha256 big_sur:        "1e84b43b06d67220f37a96ffbd93b6785661aa7c3939df386eb394d45a24cc29"
-    sha256 catalina:       "c32552d92c733aee42cd43d5de752edc423079fe8aeeed7de781f99e664ef6ad"
-    sha256 x86_64_linux:   "8d0234fbe1065f899061768af56e54d24c7c0c0fe83be5c1299728898491f597"
+    sha256 arm64_monterey: "3c0acf8ec8261fb566698d24f8812b7393aed682213fa1f551cd3736c0f933d1"
+    sha256 arm64_big_sur:  "69fd8ebc670790c8c00adcc4fb0745e103d0b5aa5a7ae4d3569ce4272bdb5766"
+    sha256 monterey:       "ad4b3ffeb40b1864b5d519003f4aefae28c9a25d034d6fdd5e6feecdfb29bfe3"
+    sha256 big_sur:        "926681492ac45b200b034f9ccab34e85d30a5612d3672e4a7b19d0cffa545379"
+    sha256 catalina:       "77200927c2cdc73db992c105ecedec9027098cf7ad98d25a859f829edb19b51c"
+    sha256 x86_64_linux:   "24d14fba74969405696af96393cb6a9c10a8df4801d19ff1098fb1a9c997a835"
   end
 
   keg_only :versioned_formula

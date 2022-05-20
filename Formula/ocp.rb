@@ -1,8 +1,8 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-0.2.90.tar.xz"
-  sha256 "e5bb775648c4708c821cb8313932a8fef7dcf1b5035208e56e57779984d60911"
+  url "https://stian.cubic.org/ocp/ocp-0.2.95.tar.xz"
+  sha256 "94bffa3c7e7c1633a95a914c2d5b6fcf8d133e944f8e3455b5742d70e37b0231"
   license "GPL-2.0-or-later"
   head "https://github.com/mywave82/opencubicplayer.git", branch: "master"
 
@@ -12,17 +12,21 @@ class Ocp < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4e39e14e21a39d835a98ac386b88cbc01d1eb7c45cf590a982a38b48691c6da2"
-    sha256 big_sur:       "b1a86ede27aa902aa73ae8d304c1b48a6fd51f4c40597a6d7c96c8f6f9b25195"
-    sha256 catalina:      "796c250a21ccae79be58dd293a9a46544e0dcdbbdce2e6eb75f168213ff4fe60"
-    sha256 mojave:        "c1d02d5c7f9c8e0b4de6ddecec03dffc9347b0b52d4597fd9e480c94ac63630f"
+    sha256 arm64_monterey: "4cc24afa1801076f49fe41a24de65ba812aaf1bba577088c92f7a6424ae44658"
+    sha256 arm64_big_sur:  "7d8d2c2ce8478701d8297cce25daf82fd4fd07d41f57dbe47907ddfb51b57d3b"
+    sha256 monterey:       "0dac7fa3bbd1108fd6b6d4c3f9203c38ac9a221c9b88cb0e0bde1f7281d6ff62"
+    sha256 big_sur:        "143894d4658f2c7fad5852d1c3c4d9b72c136c1172eebd3991d9cc8a8b0582d3"
+    sha256 catalina:       "4e1ed4098098c347f44d9f6b64fd4ae8686231a2903967e228a9f4910e3f6853"
+    sha256 x86_64_linux:   "c59e438b69ab327ea8b46d4b0c5493beaab5e07f52e46d7449eb63614bc3d20a"
   end
 
   depends_on "pkg-config" => :build
   depends_on "xa" => :build
+  depends_on "cjson"
   depends_on "flac"
   depends_on "freetype"
   depends_on "jpeg-turbo"
+  depends_on "libdiscid"
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
@@ -36,20 +40,24 @@ class Ocp < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "util-linux" => :build # for `hexdump`
+  end
+
   resource "unifont" do
-    url "https://ftp.gnu.org/gnu/unifont/unifont-13.0.06/unifont-13.0.06.tar.gz"
-    sha256 "68def7a46df44241c7bf62de7ce0444e8ee9782f159c4b7553da9cfdc00be925"
+    url "https://ftp.gnu.org/gnu/unifont/unifont-14.0.02/unifont-14.0.02.tar.gz"
+    sha256 "401bb9c3741372c1316fec87c392887037e9e828fae64fd7bee2775bbe4545f7"
   end
 
   def install
     ENV.deparallelize
 
     # Required for SDL2
-    resource("unifont").stage do
+    resource("unifont").stage do |r|
       cd "font/precompiled" do
-        share.install "unifont-13.0.06.ttf" => "unifont.ttf"
-        share.install "unifont_csur-13.0.06.ttf" => "unifont_csur.ttf"
-        share.install "unifont_upper-13.0.06.ttf" => "unifont_upper.ttf"
+        share.install "unifont-#{r.version}.ttf" => "unifont.ttf"
+        share.install "unifont_csur-#{r.version}.ttf" => "unifont_csur.ttf"
+        share.install "unifont_upper-#{r.version}.ttf" => "unifont_upper.ttf"
       end
     end
 

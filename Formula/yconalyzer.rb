@@ -3,6 +3,7 @@ class Yconalyzer < Formula
   homepage "https://sourceforge.net/projects/yconalyzer/"
   url "https://downloads.sourceforge.net/project/yconalyzer/yconalyzer-1.0.4.tar.bz2"
   sha256 "3b2bd33ffa9f6de707c91deeb32d9e9a56c51e232be5002fbed7e7a6373b4d5b"
+  license "BSD-3-Clause"
 
   bottle do
     rebuild 1
@@ -14,7 +15,10 @@ class Yconalyzer < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3bf190ad069a4ee9423e79415907a684320e8e776916329f46d7620274a03434"
     sha256 cellar: :any_skip_relocation, el_capitan:    "918ca6d2bca328923ec3ff6e5612e9a0336aad666e993cfb0d1bc42a99758f1c"
     sha256 cellar: :any_skip_relocation, yosemite:      "e3e3fcebfdd0d25fbdad33c8f2aa13976c70ab4ff4bb81ed1fbae5cb8a7c2ffd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c416d91d76c10a6331d9703d23597b5e03fb67c97155247cb6e5e3f852f89953"
   end
+
+  uses_from_macos "libpcap"
 
   # Fix build issues issue on OS X 10.9/clang
   # Patch reported to upstream - https://sourceforge.net/p/yconalyzer/bugs/3/

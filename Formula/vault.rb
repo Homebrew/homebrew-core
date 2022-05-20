@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.9.3",
-      revision: "7dbdd57243a0d8d9d9e07cd01eb657369f8e1b8a"
+      tag:      "v1.10.1",
+      revision: "e452e9b30a9c2c8adfa1611c26eb472090adc767"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git", branch: "main"
 
@@ -16,12 +16,12 @@ class Vault < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4af8849bfb883c6709303e2f477bbf8118f7a610cb5a0588c6cdbefc77fe78aa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5873ce31a62c522bd87473dc52b896c98437fb8dc0c013b9e50de52d6dacc0a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "8e3641a34533f592e7766e76236113d47f96343a9eac94159d445560ba029904"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e9bbdf0d41dc238b40bb97fcee7d4d7626225d6c0aeb8620654c43fc0a452c4f"
-    sha256 cellar: :any_skip_relocation, catalina:       "904390bafeb870c90cc66989e346b85b1ccae9871835fc3de8643e0c75076d7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c6c56c8c8651fc682b696516da9c612531a3a5aca2752e75a31867c62ce0be8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "465549f58c6ec7fa29628bce3fa6261a4707a9b0c4b27c341314aa18395910d2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d052f3bdfeba9edd339ffa33e9cc3f0e67659a0c89da1df215aab1036be30750"
+    sha256 cellar: :any_skip_relocation, monterey:       "5043580fc5c44473155274d6c70c4d5b9d692b0234b72b34e8e4d8c9a832eeec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9589ab71d7c85eb3932db628a328ac42e69e80ed86f5a5dc6eedb9246883352e"
+    sha256 cellar: :any_skip_relocation, catalina:       "712bf30da625acd464b1fe97252b1ab4214f83b133251db29de3ee7c3643a948"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08fc660a9b1bd91bee332966e92f9a5d41a1dc95c81525cbde408b6ecca4591b"
   end
 
   depends_on "go" => :build

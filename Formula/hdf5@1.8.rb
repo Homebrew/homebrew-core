@@ -5,7 +5,7 @@ class Hdf5AT18 < Formula
   # (see: https://portal.hdfgroup.org/display/support/HDF5%201.8.22#HDF51.8.22-futureFutureofHDF5-1.8).
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.22/src/hdf5-1.8.22.tar.bz2"
   sha256 "689b88c6a5577b05d603541ce900545779c96d62b6f83d3f23f46559b48893a4"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/"
@@ -13,13 +13,12 @@ class Hdf5AT18 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "993e6daccf524d67fb067decd0258e2d7d7f30d67d4e003b3b0638eb79c32724"
-    sha256 cellar: :any,                 arm64_big_sur:  "802b34502415968c0a1322f55e68086c7122dbdd96026e26e21cdfe50bbef136"
-    sha256 cellar: :any,                 monterey:       "ef062baf9ecd358277129436555492b291eb15b50f92abda3f9e1f793622e910"
-    sha256 cellar: :any,                 big_sur:        "25f4af91d8f934b8d706271bb31d27a6b1f42e9fa4c6186687cea9078c0e56a0"
-    sha256 cellar: :any,                 catalina:       "65d03686011e2cd7c575c56829b9b639a0b04e1a94fb827f97e4897de2a9126c"
-    sha256 cellar: :any,                 mojave:         "b2af62b2ad8128b5df29097a95d32555b072aaf10f39ab2d0f3b36ca5c8b5d56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bea37af6734b50fdc36587b6bddea53c7aa24b6bcdcf17b303366b35870e46be"
+    sha256 cellar: :any,                 arm64_monterey: "b7b7d577875a460f98ea62d61b2d3c94cac815a71d7dd608694e1bd25b44fd74"
+    sha256 cellar: :any,                 arm64_big_sur:  "e4a385612628698f38ab015e10848bac04ec8b3cbcc99539cabea13f7ba86de2"
+    sha256 cellar: :any,                 monterey:       "1cab5b7ad0dd428f41cda7395afa6011e733ea35ed57f6f0e46974c03c246e2a"
+    sha256 cellar: :any,                 big_sur:        "722e36e081eda4de717052848c474c7a48d2f94b74755ed549f9dcb34a665da3"
+    sha256 cellar: :any,                 catalina:       "eea9e890f8225d6747ec5dea3562ae13a31645d15f6e4db0a23de3703473b135"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d7b58ab67742577e914b2a1a00da722eccabfc1fbba2d84f295294f57993b08"
   end
 
   keg_only :versioned_formula
@@ -28,32 +27,33 @@ class Hdf5AT18 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
-  depends_on "szip"
+  depends_on "libaec"
 
   def install
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
-      "${libdir}/libhdf5.settings",
-      "#{pkgshare}/libhdf5.settings"
+              "${libdir}/libhdf5.settings",
+              "#{pkgshare}/libhdf5.settings"
 
     inreplace "src/Makefile.am", "settingsdir=$(libdir)", "settingsdir=#{pkgshare}"
 
-    system "autoreconf", "-fiv"
-
-    # necessary to avoid compiler paths that include shims directory being used
-    ENV["CC"] = "/usr/bin/cc"
-    ENV["CXX"] = "/usr/bin/c++"
+    system "autoreconf", "--force", "--install", "--verbose"
 
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
-      --with-szlib=#{Formula["szip"].opt_prefix}
       --enable-build-mode=production
       --enable-fortran
       --disable-cxx
+      --prefix=#{prefix}
+      --with-szlib=#{Formula["libaec"].opt_prefix}
     ]
+    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if OS.linux?
 
     system "./configure", *args
+
+    # Avoid shims in settings file
+    inreplace "src/libhdf5.settings", Superenv.shims_path/ENV.cc, ENV.cc
+
     system "make", "install"
   end
 

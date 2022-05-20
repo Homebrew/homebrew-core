@@ -1,19 +1,18 @@
 class Zk < Formula
   desc "Plain text note-taking assistant"
   homepage "https://github.com/mickael-menu/zk"
-  url "https://github.com/mickael-menu/zk/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "102754f2722e7e4ff0a83715085c8bfdac090b440f89020123481a95b566730f"
+  url "https://github.com/mickael-menu/zk/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "57dd9e9bf1f93e9a5e3d2ed94ebb1477dda2f0cd62004964a3c8ea9767ce51fd"
   license "GPL-3.0-only"
-
   head "https://github.com/mickael-menu/zk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ce112a10870e5cdd752cbe76281d209cfec19247719771b52391028ad1b7139c"
-    sha256 cellar: :any,                 arm64_big_sur:  "d36bd7d94f0008c736de5cfe2e4223d0c7c20787e14cf649889a9a6ebe6683f9"
-    sha256 cellar: :any,                 monterey:       "1b25ef03a856fd00f78fb9abab558388f7382ab4060d518ffe8304be02b46c64"
-    sha256 cellar: :any,                 big_sur:        "8e775095be3f5055eae9e8187c954a887068a0c8de021e43e1514cce13fa2768"
-    sha256 cellar: :any,                 catalina:       "9d28c3e240b0ceed53da7701f39c8927642d17e8f90bc9c2388cfbbb02685551"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5aca583595a78d57225fab2d6dc7f9fc0c84223e725c6c3f6b287fd283f917c6"
+    sha256 cellar: :any,                 arm64_monterey: "21cc3b5384e0a7b99084639b2f924c1ff3c0909b3eb251b8747076e2b0547834"
+    sha256 cellar: :any,                 arm64_big_sur:  "18505544f41597f235f691e386bdf37a30c18c347fabcdf621cd120e76751ef8"
+    sha256 cellar: :any,                 monterey:       "3bf9f8757a1e9375cb6e281beae29afef8ce152dfb6aa2df1c4ce6dcba5b4bc0"
+    sha256 cellar: :any,                 big_sur:        "0b4183d720134da5f7ce7319581b58a2f3eb8f86c2f2fc36f5e6c9476a52014e"
+    sha256 cellar: :any,                 catalina:       "c739740ac4f72eecb9c711c91b61b0b3b6ca0d15b9fd1506424247b411e6cfcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07982a4d2542edd15e6d64bd49c36f5211de6ef23d7fde732733f815c02bba5f"
   end
 
   depends_on "go" => :build

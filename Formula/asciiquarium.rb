@@ -60,9 +60,7 @@ class Asciiquarium < Formula
   end
 
   test do
-    on_linux do
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     # This is difficult to test because:
     # - There are no command line switches that make the process exit

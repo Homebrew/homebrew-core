@@ -3,23 +3,21 @@ class Pocsuite3 < Formula
 
   desc "Open-sourced remote vulnerability testing framework"
   homepage "https://pocsuite.org/"
-  url "https://files.pythonhosted.org/packages/fb/e6/4efc370b1bf79254e67378e149f8ae4c59ddfd30fa3f65a48d451f3575f0/pocsuite3-1.8.11.tar.gz"
-  sha256 "4c48882d2a196111efe1b4270b5324949cdf01bb4916b71f8164ac22e956403a"
+  url "https://files.pythonhosted.org/packages/72/68/7e51f93895ba2765e20eced23b5bf501bb49f68874f43edf47e9a9d17af2/pocsuite3-1.9.2.tar.gz"
+  sha256 "474dd34097b511f22e748b5290896d52523923b76373a3b0c43b47cbee3ca915"
   license "GPL-2.0-only"
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e23e63de0f1a77d4f1d78ff758dd285738126c126f47a2973717dc7d380e6b7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "528891a68d47f209d889c6724578d5e229463bc425b5ab166021beee273f5b0e"
-    sha256 cellar: :any_skip_relocation, monterey:       "90ae28b94492903c58ecbd45c315ba955c5357a9936877ef21678402dce6acef"
-    sha256 cellar: :any_skip_relocation, big_sur:        "efebc0e2be41b328731856c7e4c1f04511fc87c162ea96e6706897ec7e8e9663"
-    sha256 cellar: :any_skip_relocation, catalina:       "9c5d6b9fcd3d1b32ff7ae3b964b8cfab93ac6dea9f90bab6d25957cef289e2e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6d71452beb88e549f590866a1adcad8cedd5440460b46e969889b87e14b3bb6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8dee91c50fe0732ace43b3ab1448487fb1fe048b3f55c6de8cc6ad343c7b99fa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "588f17e31b0d1cdb59e7ce5431f09369d88b3b53d1f1deff69de358c49981984"
+    sha256 cellar: :any_skip_relocation, monterey:       "c694bd7e03b7ae07e0c707296276e4de34db89ccab8b706ea05770583d1139dd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9d509a7c15da275034e38167badd1bd381fca788ebd60e29ab287d1b46ca7b4a"
+    sha256 cellar: :any_skip_relocation, catalina:       "621f3a04123cdb4c026086d70d8f21854856a95f5cb452b95fb9d190618c052a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0108fc9027c427e40858fe53267a3dfbfeb254171e0c9871eb7d5cc80a2e027a"
   end
 
-  depends_on "rust" => :build # for cryptography
-  depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libffi"
@@ -39,8 +37,8 @@ class Pocsuite3 < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/48/44/76b179e0d1afe6e6a91fd5661c284f60238987f3b42b676d141d01cd5b97/charset-normalizer-2.0.10.tar.gz"
-    sha256 "876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "colorama" do
@@ -54,8 +52,8 @@ class Pocsuite3 < Formula
   end
 
   resource "Faker" do
-    url "https://files.pythonhosted.org/packages/9c/c9/c506f4e6e2c7a0f766d80fe5f043a2bfc4dbaf6e381717224583646ca15e/Faker-11.3.0.tar.gz"
-    sha256 "adbe567e64da6a1097feacab699000e1ad16e17a6592a8f0ae1ee0b7fbf19887"
+    url "https://files.pythonhosted.org/packages/d6/3e/972fd4552247f8a2d746264da80ff720969b9609fef6e687b914deed56ab/Faker-13.3.4.tar.gz"
+    sha256 "188961065fb5c78ea639f42176f55100f72c90c3a3179ac6c955c4bd712b0511"
   end
 
   resource "idna" do
@@ -64,13 +62,13 @@ class Pocsuite3 < Formula
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/71/19/d65d4c39aa12a5630a8aa02ead8324cfaae3217146b19dd25d88d763bbdf/prettytable-3.0.0.tar.gz"
-    sha256 "69fe75d78ac8651e16dd61265b9e19626df5d630ae294fc31687aa6037b97a58"
+    url "https://files.pythonhosted.org/packages/cb/7d/7e6bc4bd4abc49e9f4f5c4773bb43d1615e4b476d108d1b527318b9c6521/prettytable-3.2.0.tar.gz"
+    sha256 "ae7d96c64100543dc61662b40a28f3b03c0f94a503ed121c6fca2782c5816f81"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/f6/06/e2ad9e93210790be86d36c6e2d5524ba54928c3ed27dd0be9b2ced7c57f1/pycryptodomex-3.12.0.zip"
-    sha256 "922e9dac0166e4617e5c7980d2cff6912a6eb5cb5c13e7ece222438650bd7f66"
+    url "https://files.pythonhosted.org/packages/24/40/e249ac3845a2333ce50f1bb02299ffb766babdfe80ca9d31e0158ad06afd/pycryptodomex-3.14.1.tar.gz"
+    sha256 "2ce76ed0081fd6ac8c74edc75b9d14eca2064173af79843c24fa62573263c1f2"
   end
 
   resource "PySocks" do
@@ -103,14 +101,9 @@ class Pocsuite3 < Formula
     sha256 "1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"
   end
 
-  resource "text-unidecode" do
-    url "https://files.pythonhosted.org/packages/ab/e2/e9a00f0ccb71718418230718b3d900e71a5d16e701a3dae079a21e9cd8f8/text-unidecode-1.3.tar.gz"
-    sha256 "bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"
-  end
-
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   resource "wcwidth" do
@@ -123,6 +116,6 @@ class Pocsuite3 < Formula
   end
 
   test do
-    assert_match "Module (pocs_ecshop_rce) options:", shell_output("#{bin}/pocsuite -r ecshop_rce.py --options")
+    assert_match "Module (pocs_ecshop_rce) options:", shell_output("#{bin}/pocsuite -k ecshop --options")
   end
 end

@@ -1,26 +1,20 @@
 class Telnetd < Formula
   desc "TELNET server"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
-  sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
+  url "https://github.com/apple-oss-distributions/remote_cmds/archive/refs/tags/remote_cmds-64.tar.gz"
+  sha256 "9beae91af0ac788227119c4ed17c707cd3bb3e4ed71422ab6ed230129cbb9362"
   license all_of: ["BSD-4-Clause-UC", "BSD-3-Clause"]
 
-  livecheck do
-    url "https://opensource.apple.com/tarballs/remote_cmds/"
-    regex(/href=.*?remote_cmds[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "13567bd6d3032b016085dcba115e8e298c1a95408339ee3ec8fe83ba66252e3e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd8bc95b6e361eaab4df4e4b1e65bc20f0f14f6e5b44aa55bde5ea69f3bec59c"
-    sha256 cellar: :any_skip_relocation, monterey:       "89758ea7bba66934bfceedb7568fd9d051931cbbe0d10ec6b91a7bea039eb291"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ce7113437e6dad49c075791c92c2fa4c0fd16a0ab6c9e3bc01f4ce40b573247f"
-    sha256 cellar: :any_skip_relocation, catalina:       "16f053b3bdfe04dcad271f63cd1f7e6ccc312ddb410081f4f729d12bc80eceb9"
-    sha256 cellar: :any_skip_relocation, mojave:         "cde731ff626ebda39ecadc5b6ed2014429cb2afb99521fd967a2176d127d94b7"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "d31eb6a8f79b8f9eb2417dce87c6508b8837207d4f8df48bdd5fd1d833f1b757"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0f71c7ca40e07b2d12cc1ebcb547960381088891b4800637752d29999e3fdca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e1227d7bf27eb7a58adac93e1a210a93c88d940dff07d48017d2858464ddc3b9"
+    sha256 cellar: :any_skip_relocation, monterey:       "70b9f81f506d83c50ba321e3920553aaeaa272c35ce798560afdd15da6e259a9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3fdf31a5dc2042a8ef17900ba7c2d7e87457d27fc656336b023f1b29caaaeac0"
+    sha256 cellar: :any_skip_relocation, catalina:       "5e463bafef10793f46d7c38905445a8a8d4141fac5f2ddfcb38710cc8b802210"
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   resource "libtelnet" do
     url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
@@ -36,12 +30,13 @@ class Telnetd < Formula
       libtelnet_dst.install "build/Release/usr/local/include/libtelnet/"
     end
 
+    ENV.append_to_cflags "-isystembuild/Products/"
     system "make", "-C", "telnetd.tproj",
                    "OBJROOT=build/Intermediates",
                    "SYMROOT=build/Products",
                    "DSTROOT=build/Archive",
                    "CC=#{ENV.cc}",
-                   "CFLAGS=$(CC_Flags) -isystembuild/Products/",
+                   "CFLAGS=$(CC_Flags) #{ENV.cflags}",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
                    "RC_ARCHS=#{Hardware::CPU.arch}"
 

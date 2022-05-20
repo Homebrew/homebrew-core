@@ -13,6 +13,7 @@ class Pdfsandwich < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "eed36d608adf9c4c6a7bcfa2f8d51fc7d7db6b9625d8dd87420b0a49432ed099"
     sha256 cellar: :any_skip_relocation, catalina:       "e45ad2480a96ef2ff2ee1a0a561004510d3d3f2b61117fce51d2995b5a004b34"
     sha256 cellar: :any_skip_relocation, mojave:         "dd4a617ef7bb8bb83cb9da94556537624bcf188789846e978ccb25926fcd7027"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f77d1aa373059a0b32d879bc45f075527a28c6a0a2068b8d38d634dfd2d7d60"
   end
 
   depends_on "gawk" => :build

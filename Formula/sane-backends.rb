@@ -4,8 +4,8 @@ class SaneBackends < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://gitlab.com/sane-project/backends/uploads/104f09c07d35519cc8e72e604f11643f/sane-backends-1.0.32.tar.gz"
-    sha256 "3a28c237c0a72767086202379f6dc92dbb63ec08dfbab22312cba80e238bb114"
+    url "https://gitlab.com/sane-project/backends/uploads/7d30fab4e115029d91027b6a58d64b43/sane-backends-1.1.1.tar.gz"
+    sha256 "dd4b04c37a42f14c4619e8eea6a957f4c7c617fe59e32ae2872b373940a8b603"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -20,13 +20,12 @@ class SaneBackends < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "63e8564065939a6a8dd41b20293d20e35b94ff75ebaec99181d286269624a3ec"
-    sha256 arm64_big_sur:  "1ebc21e81f57ecb00c64799e448dff7606c8bea5a66123169af37bed634083ac"
-    sha256 monterey:       "ca18d70d2c990dca6f77b72c8d6fe5e04f66bb7a314a35fe4f9a0452e57e9eeb"
-    sha256 big_sur:        "bcdbaa5208359537721be14fbf2420ff07c573d62a480cb0fbafd5cb0be4334b"
-    sha256 catalina:       "077644bb297e1e9e232d67ade77ef46bb8df7745a48444129e0b996d8fa2bec9"
-    sha256 mojave:         "d7a6d9cb0ef356bef081454e6ee551d0975be4444ce77d048b625b9f44460ed2"
-    sha256 x86_64_linux:   "51eaa1c638201959e754812033d8078f69af06a0b2746a13aed98aa2670e98fc"
+    sha256 arm64_monterey: "5ce5536fb913f7a9da86681e0dfe280024f06243ffc34e6290c74bec3ca0beb4"
+    sha256 arm64_big_sur:  "5e975ebd14b5abc14a27045bfdeba6a35b67fdefb3b3bfb41e31147329ac5ddf"
+    sha256 monterey:       "3d8d4820d67a24d31aeef2252a52fdfe295ac9fa6ac62b9646b9c48af0867a79"
+    sha256 big_sur:        "bc17ea2f5083c867e376d47b21b5e9ca03f44cd4e3c9954a17ec0532c9ae0c9a"
+    sha256 catalina:       "0524e31c3e201f125b48c7d64e6c4426bfed3f625719eafcb18c593e18904320"
+    sha256 x86_64_linux:   "587c72a27734165d08444ac71255802943a67a59f40f7b922792aa1cbea4e7a8"
   end
 
   head do

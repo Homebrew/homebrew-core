@@ -1,8 +1,8 @@
 class Javacc < Formula
   desc "Parser generator for use with Java applications"
   homepage "https://javacc.org/"
-  url "https://github.com/javacc/javacc/archive/javacc-7.0.10.tar.gz"
-  sha256 "656cb9aaed498bcfa5faae40aa8d006760d5431c276fda5bb46cff4225d7c3cc"
+  url "https://github.com/javacc/javacc/archive/javacc-7.0.11.tar.gz"
+  sha256 "68b7f6ad950531f112ca332ea697b56c7b5ad224d1ee132bbe40f297d14f6bd3"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,13 +12,12 @@ class Javacc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c75b5136be3d309ea45af335749e60b9ced4f44fdc02f4c4e766f84254f3ed27"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a3acf2460346b3e8fb8fccdff9098574002e3fd927633bf6135a0ab0dd400ce"
-    sha256 cellar: :any_skip_relocation, monterey:       "6c8777f66a4c1aff7d0c558f55fa6c261b133bb91db761141f0532b4cb264ddf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "81fa6c9cfa14578b76e7baa27ef7ac27ad0038558f4d372ecac6486f2eadc35a"
-    sha256 cellar: :any_skip_relocation, catalina:       "54792663583f44565206d4728237a9452859c162cea1e9c7ff782bf33daf6d99"
-    sha256 cellar: :any_skip_relocation, mojave:         "f954f391fb286509601a18d87042c3f6d218a7b57414e719cd37786723d71106"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75989c6e01cade18da9de70a7e5f3ddae779372b365e9eff2e8dbd78d46ad2cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12445b96e8e1456baaded628d43a3ef6dfde345420d224199f9b674627c787ed"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b30c5474cb749e344cba5f7f4e51d2ebcc37acbea166a4346130108f2031e7ea"
+    sha256 cellar: :any_skip_relocation, monterey:       "e85770d22da7247a1ca59ddf462b163826369f2935d841c127c04840c40ae41e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "86c6c432c31afc97b7807d317351229e7e1d2e1ee32431f5a9c501521ea1182f"
+    sha256 cellar: :any_skip_relocation, catalina:       "53515979909d5bfb4582aa556c12ca881508ba3bfe544534bfbf3f0e026ad0e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "177ac116b617ecd9fe564eb0f0960f1393c1039f075d39929823d64b5d91c200"
   end
 
   depends_on "ant" => :build

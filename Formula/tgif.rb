@@ -1,6 +1,6 @@
 class Tgif < Formula
   desc "Xlib-based interactive 2D drawing tool"
-  homepage "http://bourbon.usc.edu/tgif/"
+  homepage "https://bourbon.usc.edu/tgif/"
   url "https://downloads.sourceforge.net/project/tgif/tgif/4.2.5/tgif-QPL-4.2.5.tar.gz"
   sha256 "2f24e9fecafae6e671739bd80691a06c9d032bdd1973ca164823e72ab1c567ba"
   license "QPL-1.0"
@@ -14,6 +14,7 @@ class Tgif < Formula
     sha256 catalina:       "ce5a689942aed9986f74150bddebb09a129aba97810658fc67a6060519eacd86"
     sha256 mojave:         "3ab28b39b5a4b0c5cea21b096c0e8b2317725f8b6da6455ab365e8d13ac644a4"
     sha256 high_sierra:    "9c35ee5713a7efcdedb42d4602213dd94e84385bb8c5b0f9331706d6e897d08c"
+    sha256 x86_64_linux:   "e399c02348529aca39dfe252f2ee3e31fecb290d79599609abf4097c0b06afb8"
   end
 
   depends_on "libice"
@@ -23,6 +24,8 @@ class Tgif < Formula
   depends_on "libxext"
   depends_on "libxmu"
   depends_on "libxt"
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

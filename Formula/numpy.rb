@@ -1,26 +1,35 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/e9/6c/c0a8130fe198f27bab92f1b28631e0cc2572295f6b7a31e87efe7448aa1c/numpy-1.22.2.zip"
-  sha256 "076aee5a3763d41da6bef9565fdf3cb987606f567cd8b104aded2b38b7b47abf"
+  url "https://files.pythonhosted.org/packages/64/4a/b008d1f8a7b9f5206ecf70a53f84e654707e7616a771d84c05151a4713e9/numpy-1.22.3.zip"
+  sha256 "dbc7601a3b7472d559dc7b933b18b4b66f9aa7452c120e87dfb33d02008c8a18"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "f6c33f792d8c00665cfe271ec3b9eae946ee5106fa79a2225490653ef810359c"
-    sha256 cellar: :any, arm64_big_sur:  "96abb2b50960b5bb1c5735bfa75e364198edecfbf8394ff09efb385bce9133e9"
-    sha256 cellar: :any, monterey:       "6a8ee1c9062d547a38e56a1625f355cd211b3e35ac8f388f31f21b91b8798ce1"
-    sha256 cellar: :any, big_sur:        "1646cf4cb750986f240fff736000a512d9fc0d8d347a1d7a1622fd3c51829698"
-    sha256 cellar: :any, catalina:       "ce4cbd7a3bf888994c804cf2ac0df6ec43cd52973c6ca32f23dcf3234d63d7e3"
-    sha256               x86_64_linux:   "cfc7ee6231a35c689271532272c30e60dcbf4d86fa8d65e5b7a2dac3e67bdad5"
+    sha256 cellar: :any, arm64_monterey: "a1c754b946a507ea528ad0962cfc1fbf0d57c22903ae5695b12e17c94136aeda"
+    sha256 cellar: :any, arm64_big_sur:  "8750797b418d638eb4fb446f5a903cf96a36dfb580036556a1001edf27ace95f"
+    sha256 cellar: :any, monterey:       "78446dd95fdf20270dae3979bf92f25c182a9d3e2d1bf820dc2ca63caa9d1738"
+    sha256 cellar: :any, big_sur:        "74ba91b3faa4b5b4aa5cf801c62c1338f8f8ce736af04259626e008af7783a2f"
+    sha256 cellar: :any, catalina:       "f81c38efd05d1d93dfdb9ffaedea3c820bb922dea9e00ac77f85e67192fe7226"
+    sha256               x86_64_linux:   "f81bff8b8ceaf84423734a780c65a9fc69235c905206c8aece6b6a8b0761bb8a"
   end
 
-  depends_on "cython" => :build
   depends_on "gcc" => :build # for gfortran
+  depends_on "libcython" => :build
+  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.9" => [:build, :test]
   depends_on "openblas"
-  depends_on "python@3.9"
 
   fails_with gcc: "5"
+
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.match?(/python@\d\.\d+/) }
+        .map(&:opt_bin)
+        .map { |bin| bin/"python3" }
+  end
 
   def install
     openblas = Formula["openblas"].opt_prefix
@@ -36,26 +45,25 @@ class Numpy < Formula
 
     Pathname("site.cfg").write config
 
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
-    ENV.prepend_path "PYTHONPATH", buildpath/"temp/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(buildpath/"temp")
-      end
-    end
+    pythons.each do |python|
+      xy = Language::Python.major_minor_version python
+      ENV.prepend_create_path "PYTHONPATH", Formula["libcython"].opt_libexec/"lib/python#{xy}/site-packages"
 
-    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build",
-        "--fcompiler=#{Formula["gcc"].opt_bin}/gfortran", "--parallel=#{ENV.make_jobs}"
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system python, "setup.py", "build",
+             "--fcompiler=#{Formula["gcc"].opt_bin}/gfortran", "--parallel=#{ENV.make_jobs}"
+      system python, *Language::Python.setup_install_args(prefix),
+                     "--install-lib=#{prefix/Language::Python.site_packages(python)}"
+    end
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
-      import numpy as np
-      t = np.ones((3,3), int)
-      assert t.sum() == 9
-      assert np.dot(t, t).sum() == 27
-    EOS
+    pythons.each do |python|
+      system python, "-c", <<~EOS
+        import numpy as np
+        t = np.ones((3,3), int)
+        assert t.sum() == 9
+        assert np.dot(t, t).sum() == 27
+      EOS
+    end
   end
 end

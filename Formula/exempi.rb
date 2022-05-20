@@ -1,8 +1,9 @@
 class Exempi < Formula
   desc "Library to parse XMP metadata"
   homepage "https://wiki.freedesktop.org/libopenraw/Exempi/"
-  url "https://libopenraw.freedesktop.org/download/exempi-2.5.2.tar.bz2"
-  sha256 "52f54314aefd45945d47a6ecf4bd21f362e6467fa5d0538b0d45a06bc6eaaed5"
+  url "https://libopenraw.freedesktop.org/download/exempi-2.6.1.tar.bz2"
+  sha256 "072451ac1e0dc97ed69a2e5bfc235fd94fe093d837f65584d0e3581af5db18cd"
+  license "BSD-3-Clause"
 
   livecheck do
     url "https://libopenraw.freedesktop.org/exempi/"
@@ -10,14 +11,12 @@ class Exempi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b2e51519592229e63435e6c09cd13b49dd3bf23c45a86e516de86a4b371f87e3"
-    sha256 cellar: :any,                 arm64_big_sur:  "9993c63e20e0f25bec9217f10830945e93554caeb9ed96530b31386205f3b963"
-    sha256 cellar: :any,                 monterey:       "a74e4c553bde5ea70befdb50e6b69048708be588b0103aa571645aa0ff313dff"
-    sha256 cellar: :any,                 big_sur:        "3dca3e311a819ad927266feecc2a0fa06a6baf196290655b5531ec02ea97dddd"
-    sha256 cellar: :any,                 catalina:       "3ef58fd5cbd177ac785cfab9b58f813ce24320a507243d9d7b6c940fd463564f"
-    sha256 cellar: :any,                 mojave:         "189bb3c57e78845c33678353cb877ad7cdedd665087c0a4525397f32088abc39"
-    sha256 cellar: :any,                 high_sierra:    "0843f9bc589fd3c9ed0f5dfd724ba60eea4832410a0b6ff831bdb22c6563eafd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7dad218c3c0e3e3df9efc69e1a84cafd8a992c31157e610f0a382403599a439"
+    sha256 cellar: :any,                 arm64_monterey: "9b0039aab7afdf72220e267ed55d8cf7e93c6ecccfcd553b8ff15f4a4870a34b"
+    sha256 cellar: :any,                 arm64_big_sur:  "029f2d0d2fc76899e05db89a2c91b80d591797c995ed570467fa6da3e14cefb4"
+    sha256 cellar: :any,                 monterey:       "19a13f4ea1b3945dfee190b7fac9be56c191fea8c732ec262d8367ede305ee11"
+    sha256 cellar: :any,                 big_sur:        "a4e20a9d71550b11df0172f57569d783e66f051dc5f7848b18d112bdde086225"
+    sha256 cellar: :any,                 catalina:       "3ce93a31d89460a07f0fd81a7540b12001be170c56cb5b28d39b3f2f9df44582"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e383e49241a48787db09f24ce10fa0648cd0ed33030c230976c66ee1b784f40"
   end
 
   depends_on "boost"

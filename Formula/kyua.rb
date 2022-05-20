@@ -13,6 +13,7 @@ class Kyua < Formula
     sha256 big_sur:        "33c93cc065968275bdee21b772ada29ebe3776f7c1dacb297e6c3cb2804fcb20"
     sha256 catalina:       "5fba6da95b5e79c1fda0d118b0d67a4c74629a28e348ae4fab0dee1b770dccd4"
     sha256 mojave:         "b0d437da5f3f873795d6157dcc545a3ca72fef19d5288369a95b58ba5c8f4cc5"
+    sha256 x86_64_linux:   "056d090e0c1c5175016cb64ac1d8cebdf86e052895afd90d663e7ee8d65757e4"
   end
 
   depends_on "pkg-config" => :build

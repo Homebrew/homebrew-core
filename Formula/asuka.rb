@@ -1,8 +1,8 @@
 class Asuka < Formula
   desc "Gemini Project client written in Rust with NCurses"
   homepage "https://sr.ht/~julienxx/Asuka/"
-  url "https://git.sr.ht/~julienxx/asuka/archive/0.8.3.tar.gz"
-  sha256 "1305d65e07e83fe33ca102637fa27f8dafae9a9aaa436414c29532c4ed51c6ea"
+  url "https://git.sr.ht/~julienxx/asuka/archive/0.8.5.tar.gz"
+  sha256 "f7be2925cfc7ee6dcdfa4c30b9d4f6963f729c1b3f526ac242c7e1794bb190b1"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,12 @@ class Asuka < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0569256aff79179b0e44f42bd4bbcf511aa3933ed1578ed9b7c6b2f140419b43"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b5bb131f128e4a410d01615c1ea994365d2e31ac96109f4907cae513675526c"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ed9621d904ee83efd90bd1b38d117f262d7b0d7cc150d0bcec48be30ccaae4d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "26d7c7e0216db2d6909b0770e55dc92f717558aaa3ec8e7330743a58293f38b6"
-    sha256 cellar: :any_skip_relocation, catalina:       "4b44603a1aea30e38c0396d0a59f4d6ed3ba5c10919385c09a58f698da340f5e"
-    sha256 cellar: :any_skip_relocation, mojave:         "b75723fc27ad5f002a9757371d3d76a362e3690e1d434bafb033f19d4e14da98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cbf79e00e2a48f4d9f3356bede6bb934f2f7a17306bcce5fbb3cf285f6b1cd7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "74bce9c3efdfa9d6a507bb87fd329b1c988e9e283c0cefe75352a9310f8e1e88"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1921705681d406e5d5a47a061026b052fffca3b8b7994619c9279e34394891a1"
+    sha256 cellar: :any_skip_relocation, monterey:       "b8a111169f6a8ab65d73444a7fb698fa993b2c61b1ff556b84130125ec546e50"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d3b6f8e7d99f9a8ac1f759b076be04f93c09d6543eef83f34fddf947549b8d92"
+    sha256 cellar: :any_skip_relocation, catalina:       "902303f78522d425e7fed2656144114cd68cac29155609691dbe49184d48897b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc5764867f2dfe1962695ee027633ce09e82177971712a10d96f8c9fbe60c1c1"
   end
 
   depends_on "rust" => :build

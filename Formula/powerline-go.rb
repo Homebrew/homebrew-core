@@ -1,18 +1,17 @@
 class PowerlineGo < Formula
   desc "Beautiful and useful low-latency prompt for your shell"
   homepage "https://github.com/justjanne/powerline-go"
-  url "https://github.com/justjanne/powerline-go/archive/v1.21.0.tar.gz"
-  sha256 "eee6ef47676e42eccca3b7098a8b71c0854f7419f1bce13c72747217ce0661a3"
+  url "https://github.com/justjanne/powerline-go/archive/v1.22.1.tar.gz"
+  sha256 "f47f31c864bd0389088bb739ecbf7c104b4580f8d4f9143282b7c4158dc53c96"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3054a1098db5227c5a9ea1aaa2661307019814fbf2024b3a74cad3ee7d1d6d5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e88775c8b1a1912c3792a71206ab2d206ada9d2fca263eb7dbf9f62f9f680473"
-    sha256 cellar: :any_skip_relocation, monterey:       "71b87d8bc3d8f1bb4b57f742e49019f4c1773dbd0b36d39121517a4f5005b315"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ba6d575617e53cb30d27ae91fad3715d1e8b3bf747503d575b3d8ad7bbfe12ed"
-    sha256 cellar: :any_skip_relocation, catalina:       "8d390fa6247c60d921a9897f63a1fe9ed13c5cdedaa73cb0895c96108881d519"
-    sha256 cellar: :any_skip_relocation, mojave:         "61fdd9581af5d9d1c44bd90d0e1c317d6b172c5105d8157eb0196b20136df05d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a5fdf6f50d1bd65e3253ed387fd7a9167552e6406c6e9eccd685dd8c328ed47"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a0caa72d77ae3b738999a420d0cd11eb5446b65c76a2c06f20475bf9eaf5864"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "939711b83cba560b4caad213c1ae55e815326823b1c64d526ed57ed426a8bd9a"
+    sha256 cellar: :any_skip_relocation, monterey:       "cd064aa617acdab43c0dbc8dc8d8b6244525d7636b5d3a34a1493998c35adb62"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4a41907ce3c129b31732c83ce74c814d3cf57757f197cbd98a15fa8a82f952ba"
+    sha256 cellar: :any_skip_relocation, catalina:       "04f4a28ca05e5cea076804fb8910d05dc1c03956f08b2d090d489d9bbd3ce9be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8dad455057de8483939d867142fb9d9ae19b3e08a31ccd71739f6f8ef32c0bce"
   end
 
   depends_on "go" => :build

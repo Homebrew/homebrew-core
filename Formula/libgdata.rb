@@ -13,6 +13,7 @@ class Libgdata < Formula
     sha256 cellar: :any, monterey:       "51f3dd89ac7e6c40a35c0c629ea385a558942d00eff37864925c038b0d185eab"
     sha256 cellar: :any, big_sur:        "02e1ac992638692a58f8bb8313168c8e62117e6bab46ba447fc52b16b3f0127e"
     sha256 cellar: :any, catalina:       "45066a1abdda5d00f7a6a41f6e1b1a3bc40e9faa2de3701372ac237ce776eb8a"
+    sha256               x86_64_linux:   "47559f0a3203d2274cf17141c8a8812b166d41b1a0522b00053d64e70c514085"
   end
 
   depends_on "gobject-introspection" => :build
@@ -88,12 +89,12 @@ class Libgdata < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -ljson-glib-1.0
       -lsoup-2.4
       -lxml2
       -lcurl
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -1,19 +1,17 @@
 class Xdpyinfo < Formula
   desc "X.Org: Utility for displaying information about an X server"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/app/xdpyinfo-1.3.2.tar.bz2"
-  sha256 "30238ed915619e06ceb41721e5f747d67320555cc38d459e954839c189ccaf51"
+  url "https://www.x.org/archive/individual/app/xdpyinfo-1.3.3.tar.xz"
+  sha256 "356d5fd62f3e98ee36d6becf1b32d4ab6112d618339fb4b592ccffbd9e0fc206"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "ff2ad33679d6a717493607a23d89b8a61c3a0311f58435ae74dcf50efd44ea9d"
-    sha256 cellar: :any,                 arm64_big_sur:  "233966c398633a07136501eab8fc263aaa97232c0fe27e76e8eb1fa59ed5440e"
-    sha256 cellar: :any,                 monterey:       "86fcd00824eabdc1c808663db7fc37ebc7b67e231ab038cc4f2383717a9a0835"
-    sha256 cellar: :any,                 big_sur:        "128f9ce7c4fad4a7bdc313c02c7c2324fa311845cc6ccaf9e19cc835bbef83e6"
-    sha256 cellar: :any,                 catalina:       "dfb295a0259be51cd1ec75a16bda4582608569ad098a37ad257818616f70b81e"
-    sha256 cellar: :any,                 mojave:         "2f9c704633a4a7d7df952f4874a16bae0cc8890e6ba1fdf7cd1654bb4cad01c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ad0f419da3316e1c46cb7f89af895d4ab2b7612a7806dba861b733b34b4b72a"
+    sha256 cellar: :any,                 arm64_monterey: "a3bf79d6694303ce41fb825dfdf0c3346c192055520a269172ca807fbd0ddd11"
+    sha256 cellar: :any,                 arm64_big_sur:  "9ab87e3026a19b8a1769586cb2cfdb2d82fe5b84b66b3ac25b11db5529c6d924"
+    sha256 cellar: :any,                 monterey:       "4a7bb6ee4b0168a8b8e6d5b638df938c1e3008f00451f415bde65fdb5acecfbf"
+    sha256 cellar: :any,                 big_sur:        "2139a548a2a741429b1544be0382a71d66c5bce943f51e699fdab20d72fe06a7"
+    sha256 cellar: :any,                 catalina:       "a980564366bb676ec30ae2948c15f0976760e0a63f266d84349306346c49b3ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47fa8e46b0bf43f4063d5de687991fa34846d3f81f3bb505867350925a872dd9"
   end
 
   depends_on "pkg-config" => :build
@@ -36,10 +34,8 @@ class Xdpyinfo < Formula
   end
 
   test do
-    on_linux do
-      # xdpyinfo:  unable to open display "".
-      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    # xdpyinfo:  unable to open display "".
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     assert_match("xdpyinfo #{version}", shell_output("DISPLAY= xdpyinfo -version 2>&1"))
   end

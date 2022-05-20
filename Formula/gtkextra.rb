@@ -56,9 +56,10 @@ class Gtkextra < Formula
     pango = Formula["pango"]
     pixman = Formula["pixman"]
 
-    backend = "quartz"
-    on_linux do
-      backend = "x11"
+    backend = if OS.mac?
+      "quartz"
+    else
+      "x11"
     end
 
     flags = %W[
@@ -98,9 +99,7 @@ class Gtkextra < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

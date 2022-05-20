@@ -1,18 +1,17 @@
 class Libvmaf < Formula
   desc "Perceptual video quality assessment based on multi-method fusion"
   homepage "https://github.com/Netflix/vmaf"
-  url "https://github.com/Netflix/vmaf/archive/v2.3.0.tar.gz"
-  sha256 "d8dcc83f8e9686e6855da4c33d8c373f1735d87294edbd86ed662ba2f2f89277"
+  url "https://github.com/Netflix/vmaf/archive/v2.3.1.tar.gz"
+  sha256 "8d60b1ddab043ada25ff11ced821da6e0c37fd7730dd81c24f1fc12be7293ef2"
   license "BSD-2-Clause-Patent"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fd67d989436b66303d0ad7cd3a21bcfed79e54f3aeefd4663285edd45128bb67"
-    sha256 cellar: :any,                 arm64_big_sur:  "e1d46041b38687c5d5c93c13652a0866507bd7431768bf69cd9f07ba1d0eb366"
-    sha256 cellar: :any,                 monterey:       "5394cbc0b4ce2506b3c679b4d4fcb066225c305a134f2365735b31cec5738c3e"
-    sha256 cellar: :any,                 big_sur:        "3bcbc07f5f583829f2a176e88d6bf4ce8a0b5c48642777ac81c1e3f25d9c2573"
-    sha256 cellar: :any,                 catalina:       "2fca144593cb7b3eb9236efbc9db26f72ff4d42d1046715fbedbd7f7891a67e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c2cb0d92f2476341e6db584d56b4f3f62ef7b5a628cd273aea438bc45266e19"
+    sha256 cellar: :any,                 arm64_monterey: "780fe80d3941971968a0dfe1f8384fc5fc240e9994b09da41175a7d5fc56b513"
+    sha256 cellar: :any,                 arm64_big_sur:  "76b4b46c07bde41001d5dd6660de656c369b1cf9653638538348e97ffaeec55f"
+    sha256 cellar: :any,                 monterey:       "a30aaf6bd5878809c3dec5f47d643e4adbda5811a13f5a20d21a3472d5151e2a"
+    sha256 cellar: :any,                 big_sur:        "60fb7784b39ae2aff9a836f08190637e9c7f2ac32755ed24ec3f5ddbac916c64"
+    sha256 cellar: :any,                 catalina:       "99db9a406ddacb8ca0c157dbea53eb12a29ced66091f2af820ae8bf9bc9802cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6697226f2c628ce462531ad546f8152b264f29151710cdb064659ac321cb92a4"
   end
 
   depends_on "meson" => :build

@@ -18,6 +18,8 @@ class Vfuse < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "95be83b370683ec27d9052f897028bd939241568d81939a67d3bb985d89a06df"
   end
 
+  depends_on :macos
+
   def install
     # Fix upstream artifact packaging issue
     # remove in the next release

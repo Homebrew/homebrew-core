@@ -1,8 +1,8 @@
 class Websocat < Formula
   desc "Command-line client for WebSockets"
   homepage "https://github.com/vi/websocat"
-  url "https://github.com/vi/websocat/archive/v1.9.0.tar.gz"
-  sha256 "8ad0d3048662e321af11fc7e9e66d9fa4bebcd9aefad6e56c97df7d7eaab6b44"
+  url "https://github.com/vi/websocat/archive/v1.10.1.tar.gz"
+  sha256 "5256629b0b063b51aad317dbd8f385ad0d56cc4155621d9bb0f6484aa2e7c95c"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Websocat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57b76f7fcfa4ebf2fc23020f7e22e2178c68b8b8bde73f6d371d3e817add5417"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "309a57a8fd36a1ee4cc28d21b30cb9769685cd028ea5a8f161afa95426f7ad19"
-    sha256 cellar: :any_skip_relocation, monterey:       "9383054678af18337eb65c00e3d7da5017b1b8747a6f942b421e7f455635a5a6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dd31927b25c9299ba56b6a24d5f6c2c0c8aca50262e88773ef66c031504dc812"
-    sha256 cellar: :any_skip_relocation, catalina:       "ea7f615a79ec40a4cd93ed14d76fdc12828b0580cdbbfb379a395a447e5a4b8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de5cd5ef6f8fb29e5a8238d9b5486083363cff22cf2b96676835a2fca7ca3e14"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "80d297bb2d57c6c978cca4b6128ab1e997ed215fe541e6dfc6996fa91e5001d2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f9ca787b3e30a93ed36ad0a3bf7e323c90cce322e53321f9f8e699bddb3c4077"
+    sha256 cellar: :any_skip_relocation, monterey:       "cf216c574ffb9ba612501ecb300ad62efd51c2361f43fe2f7d6fcd24e02679cd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "35c88fe762c8e8ed6c1b67540ac1eca844961f368828d83f994da73ddd62dc2c"
+    sha256 cellar: :any_skip_relocation, catalina:       "569cc39bbd032bb6d755b201b3ad3dea40c1162071592fa1e70605b7034f53b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7ee5ad57ba8a70d91bbf552441a78c2f558699dbccad738f4ed9c4cd92e3e90"
   end
 
   depends_on "pkg-config" => :build

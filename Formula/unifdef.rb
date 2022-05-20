@@ -3,6 +3,10 @@ class Unifdef < Formula
   homepage "https://dotat.at/prog/unifdef/"
   url "https://dotat.at/prog/unifdef/unifdef-2.12.tar.gz"
   sha256 "fba564a24db7b97ebe9329713ac970627b902e5e9e8b14e19e024eb6e278d10b"
+  license all_of: [
+    "BSD-2-Clause",
+    "BSD-3-Clause", # only for `unifdef.1`
+  ]
   head "https://github.com/fanf2/unifdef.git", branch: "master"
 
   bottle do

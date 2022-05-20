@@ -1,8 +1,8 @@
 class Unison < Formula
   desc "File synchronization tool for OSX"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
-  url "https://github.com/bcpierce00/unison/archive/v2.51.5.tar.gz"
-  sha256 "7e876371992ebf890b60f32df880a98a75fe8c47c06b7b2ae2ad36be48013e83"
+  url "https://github.com/bcpierce00/unison/archive/v2.52.1.tar.gz"
+  sha256 "ff7d920e1b4ec0872df764130b82a515f6f21a361f31a67b39c3e3ea12bfda80"
   license "GPL-3.0-or-later"
   head "https://github.com/bcpierce00/unison.git", branch: "master"
 
@@ -14,12 +14,12 @@ class Unison < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "98cdf34ea44465871eb5338eb26b480b96ace1192e54d6c7db997bd2d486cc50"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ac8d5f306f4079a4c148bc1bc93b32533b1e4d48144a04255896111e0361aa1"
-    sha256 cellar: :any_skip_relocation, monterey:       "460e6a4e07b3ee795ca91f920064c223a4b68649c63abe3bd2d98f6b38cf4116"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ad4e0217401e1790e575a5d78c118bcc0c0602d32e6c2f8569edf7ae6cb1efeb"
-    sha256 cellar: :any_skip_relocation, catalina:       "82f848e724776d1dffc4f1ed6fa48500bb44714ed8096ab1a571c524ea6afcfa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c89c81b1b16caf7fa1cd2feb8e7c77481aaa96dacaf0b1cda7d4ab0b6282af74"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "45293fd4e83702a4d380e9de6b47d3f783921ff7d808e7210a065781fe1cf3a6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c3f2d8eee01742ac5684b99ebda2279e73e5bd13662432cb119deee550070cd2"
+    sha256 cellar: :any_skip_relocation, monterey:       "cbedbc4e31e0ae5d79d9ad3c1488f5f3a837aa374c2f9491bfbb0bb6e4d5f370"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4d18ef8e7f2847cbce44229fa59f07590ac2d56b2dac1c859d0ba7095932e59c"
+    sha256 cellar: :any_skip_relocation, catalina:       "2b88be10c70130c6a9f0232b00976987fd8378c561dc86fe39805d989eaa28aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4364430843f28d8467531315922e607d8da2e05ed17199f30895e659c70d6f9e"
   end
 
   depends_on "ocaml" => :build

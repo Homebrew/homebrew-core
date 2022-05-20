@@ -4,15 +4,16 @@ class Alpscore < Formula
   url "https://github.com/ALPSCore/ALPSCore/archive/v2.2.0.tar.gz"
   sha256 "f7bc9c8f806fb0ad4d38cb6604a10d56ab159ca63aed6530c1f84ecaf40adc61"
   license "GPL-2.0-only"
+  revision 2
   head "https://github.com/ALPSCore/ALPSCore.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "60542a579fdbcfd7e115a21906681ef53ba08541a6811d9adf3ce1de11390f88"
-    sha256 cellar: :any,                 arm64_big_sur:  "3fb8eeebac63feda029c063b3a74de6c9998e97b88431618b8b724c55f743b10"
-    sha256 cellar: :any,                 monterey:       "c84c178fa07cd5d9aad47530baae782ec008945486fb52551385668f4ec27ca8"
-    sha256 cellar: :any,                 big_sur:        "578b46e4adf6a968c29f6e33b30ccdfb1552d9a209a5acc1410bd755b47a80b0"
-    sha256 cellar: :any,                 catalina:       "eacb1c74617905918455e0b6bb4cbcd2b8404582ab360d6e4c3e7fd02bcb920e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae800598e03dde4b7e42035be7fc8b2858276ea5ef02d207882dd3f13d85c1c8"
+    sha256 cellar: :any,                 arm64_monterey: "7871e3e67a75c290db8e660f2bc1ec61429e9d2729a93dec35ff3dd388e8cde2"
+    sha256 cellar: :any,                 arm64_big_sur:  "cd40f73fe61378e84131abe4a98493a0e8eab7b92b4c8840344637e5b706a43c"
+    sha256 cellar: :any,                 monterey:       "f657811bc26f0813bdfa09d879ab4b28066f01f809703bcea01c99173ccb4090"
+    sha256 cellar: :any,                 big_sur:        "48dfc02950aee1ad3e491669f8594c240d6010be24e3ee2da18a769838fd84eb"
+    sha256 cellar: :any,                 catalina:       "fcc8af526ea82cb34aedc72462583e600cf1e7b1c5c8d48811b514de8556783e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4249c8eca7818304c1c460c69becdbe3a2f3b34446dd9fb93ada171169f189f"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,7 @@ class Alpscore < Formula
   depends_on "open-mpi"
 
   on_macos do
-    depends_on "szip"
+    depends_on "libaec"
   end
 
   def install

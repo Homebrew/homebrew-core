@@ -1,24 +1,32 @@
 class CpuFeatures < Formula
   desc "Cross platform C99 library to get cpu features at runtime"
   homepage "https://github.com/google/cpu_features"
-  url "https://github.com/google/cpu_features/archive/v0.6.0.tar.gz"
-  sha256 "95a1cf6f24948031df114798a97eea2a71143bd38a4d07d9a758dda3924c1932"
+  url "https://github.com/google/cpu_features/archive/v0.7.0.tar.gz"
+  sha256 "df80d9439abf741c7d2fdcdfd2d26528b136e6c52976be8bd0cd5e45a27262c0"
   license "Apache-2.0"
+  head "https://github.com/google/cpu_features.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "e4cc8363ff01721edffa3c1c48fdefc2f50973468f130feb2c8a8635da723b7c"
-    sha256 cellar: :any_skip_relocation, big_sur:      "f6bebf333094fed54f5a96c9dc96280f7a2ca6c7b075cbed9c77a9214fafd8c4"
-    sha256 cellar: :any_skip_relocation, catalina:     "ba67bb2d2166f43b17aba3fb4f8306b577e17779e8a8facea32a16451c7b369d"
-    sha256 cellar: :any_skip_relocation, mojave:       "9f7d3b134c25934208808a47a8c8ecde61d8a7c3d429246ce807d9183930bd66"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "057d70560cecfd8863543a562ddb0ec64147ac3ce6292adedf0bc28c74a92349"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "eba6a3614e0c50480292250b36dfce454e572696b73eb6a6be476fb637688101"
+    sha256 cellar: :any,                 monterey:     "96d648cebc111c56cc4ce8d8c371dcfd61ec9a0b5ded7ade4f7382d2f6fbc2e7"
+    sha256 cellar: :any,                 big_sur:      "f38f676b5869a9e36c57a6e06f0fc8406155e274f6fa6e40fa619d677ab6f2ed"
+    sha256 cellar: :any,                 catalina:     "b0a9fe84986d1905ce1f05319e05b4b3f7b382c9816cdbec5107d6583845dca7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "861a3a31b94d4f853f252f6b430fc20f4aba9aa704eb83c8b85a83478f3e8678"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # Install static lib too
+    system "cmake", "-S", ".", "-B", "build/static", *std_cmake_args
+    system "cmake", "--build", "build/static"
+    lib.install "build/static/libcpu_features.a"
   end
 
   test do

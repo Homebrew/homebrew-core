@@ -15,11 +15,17 @@ class KeepkeyAgent < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "648c7a6bee2065718586b392941e3881e4d10d7971e785df15b63c3c51806b56"
     sha256 cellar: :any_skip_relocation, catalina:       "f5c1be64474b731cf09cd8066c0ef6b33c28a00803bef23b856a24fee92fd1f8"
     sha256 cellar: :any_skip_relocation, mojave:         "900d7ba894e9aa98c285106037db89bf3ddb1a3c08f761781d37f227f2ab960b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d341f2556e410200106b4588a6de17e5395412c837b0fc46e0e7a235ab1a41f"
   end
 
   depends_on "libusb"
   depends_on "python@3.10"
   depends_on "six"
+
+  on_linux do
+    # python-daemon depends on cryptography
+    depends_on "rust" => :build
+  end
 
   resource "backports.shutil_which" do
     url "https://files.pythonhosted.org/packages/a0/22/51b896a4539f1bff6a7ab8514eb031b9f43f12bff23f75a4c3f4e9a666e5/backports.shutil_which-3.5.2.tar.gz"
@@ -117,6 +123,8 @@ class KeepkeyAgent < Formula
   end
 
   def install
+    # Help gcc to find libusb headers on Linux.
+    ENV.append "CFLAGS", "-I#{Formula["libusb"].opt_include}/libusb-1.0" unless OS.mac?
     virtualenv_install_with_resources
   end
 

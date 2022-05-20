@@ -1,17 +1,17 @@
 class Imlib2 < Formula
   desc "Image loading and rendering library"
   homepage "https://sourceforge.net/projects/enlightenment/"
-  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.8.0/imlib2-1.8.0.tar.xz"
-  sha256 "8925cf2a87f6f4971c1cd2073a7352446fe912d04ff41a05fd6ac20323cc086d"
+  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.9.0/imlib2-1.9.0.tar.xz"
+  sha256 "5ac9e8ca7c6700919fe72749ad7243c42de4b22823c81769a1bf8e480e14c650"
   license "Imlib2"
 
   bottle do
-    sha256 arm64_monterey: "b2de245f18e78b436d4d07f3014c56d8270b3492fb69fdeb3582a0d15bf4b67f"
-    sha256 arm64_big_sur:  "36251f3feb076561ea14d370a835cc083784dc5e474eacbf245e2fd45b9a57d5"
-    sha256 monterey:       "9aa38042fc2b718761512b6a15e83b42e72ded8dd8c2ef7c31d725bb6e24541f"
-    sha256 big_sur:        "705df97598ac9dcc97cbebe1c1e0c73e00bfe3767026beab67d4a323895c19b5"
-    sha256 catalina:       "29986753fc1e8df3308f04e97c8ac84e1bbeb7261782aeacc368d15e15da4105"
-    sha256 x86_64_linux:   "3515128d61ab7d33f66381177b0a99d5001ec5b23b9f121906d40db994c30804"
+    sha256 arm64_monterey: "acaa25e7ae6473d124fe9eccd31cdf3f968b250fe6ceb90aa0bca03bb5aefde4"
+    sha256 arm64_big_sur:  "ce46c731364d432530301e1e3f8b16c5cf09d269e658ba091b107d4dd0bcbdf0"
+    sha256 monterey:       "426a3a9bbb3d2dcc1fc034528397d4d5dca5632658948afaea5f894c9d4962f8"
+    sha256 big_sur:        "1040596216b85a75b8c4d7f7e8411c324974e50eac47e0a12b5d031d6aea2497"
+    sha256 catalina:       "d130d1bac13c47e10e81bf89a57aa06b0fef78710a4a40c14bb454f5dc0a3029"
+    sha256 x86_64_linux:   "e23cfeb030588b855455841f10d6a1fcb5a33ece3d00c7d6a88f38394ac15519"
   end
 
   depends_on "pkg-config" => :build

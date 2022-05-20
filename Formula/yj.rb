@@ -1,21 +1,18 @@
 class Yj < Formula
   desc "CLI to convert between YAML, TOML, JSON and HCL"
   homepage "https://github.com/sclevine/yj"
-  url "https://github.com/sclevine/yj/archive/v5.0.0.tar.gz"
-  sha256 "df9a4f5b6d067842ea3da68ff92c374b98560dce1086337d39963a1346120574"
+  url "https://github.com/sclevine/yj/archive/v5.1.0.tar.gz"
+  sha256 "9a3e9895181d1cbd436a1b02ccf47579afacd181c73f341e697a8fe74f74f99d"
   license "Apache-2.0"
   head "https://github.com/sclevine/yj.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ac2fc3bf4625447840613f6c998565f25ba35f2ad39bf5d6d756807691bb967"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9093ad6c4366b3d6cd6d37b1300f1e80fbd30b051e3d934a498db64c46bed6d6"
-    sha256 cellar: :any_skip_relocation, monterey:       "86518dd9cb0b7c51203fa9c684649c293d420b1548c1b6cf340bc3eb7ba39746"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6c1c51234dc8c8590af22184be13472c9939426c98db9c9bcd58fade1cbb1840"
-    sha256 cellar: :any_skip_relocation, catalina:       "918450aaf162067fe6fa7979518a7fc998853a4ab215c01f2c69e756739fb710"
-    sha256 cellar: :any_skip_relocation, mojave:         "918450aaf162067fe6fa7979518a7fc998853a4ab215c01f2c69e756739fb710"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "918450aaf162067fe6fa7979518a7fc998853a4ab215c01f2c69e756739fb710"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "229cf652c16b0285d26f043c5f3197a8fad33b6099bd2d6377916aadc1855886"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6006ef14b2246ac63c166b0c2e7ddd59265ab3e38d46d3f6373e4a9c33897000"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6006ef14b2246ac63c166b0c2e7ddd59265ab3e38d46d3f6373e4a9c33897000"
+    sha256 cellar: :any_skip_relocation, monterey:       "5171d044ed87a081eaa9cf71a7acad2bede581c9b451a0f21b3908e4d2e45105"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5171d044ed87a081eaa9cf71a7acad2bede581c9b451a0f21b3908e4d2e45105"
+    sha256 cellar: :any_skip_relocation, catalina:       "5171d044ed87a081eaa9cf71a7acad2bede581c9b451a0f21b3908e4d2e45105"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca06f08696b263564c3f22ad114cca8863eb06f805a83c6b5fbf4134854a0413"
   end
 
   depends_on "go" => :build

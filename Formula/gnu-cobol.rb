@@ -18,6 +18,7 @@ class GnuCobol < Formula
     sha256 big_sur:        "bc73094fd113c6dc58c3cc475c78c8ec4dac1d9459895ab8ba23ff8f1974df34"
     sha256 catalina:       "ed671ad5c7cabc4992d399cdc02a5bdda5ead3d273d307dcff68eaa9204f3447"
     sha256 mojave:         "d0c71a8b125011452f7e47411ba743021a6d0edeb477a267fc905abd81b1a561"
+    sha256 x86_64_linux:   "8eb4919dd9745cee1a261cafbbb2fe2a231a451b09231d1e644d28e5a5a22f15"
   end
 
   depends_on "berkeley-db"
@@ -31,6 +32,9 @@ class GnuCobol < Formula
     bdb = Formula["berkeley-db"]
     ENV.append "CPPFLAGS", "-I#{gmp.opt_include} -I#{bdb.opt_include}"
     ENV.append "LDFLAGS", "-L#{gmp.opt_lib} -L#{bdb.opt_lib}"
+
+    # Avoid shim references in binaries on Linux.
+    ENV["LD"] = "ld" unless OS.mac?
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

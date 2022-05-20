@@ -1,31 +1,23 @@
 class Pacparser < Formula
   desc "Library to parse proxy auto-config (PAC) files"
-  homepage "https://github.com/pacparser/pacparser"
-  url "https://github.com/pacparser/pacparser/archive/1.3.7.tar.gz"
-  sha256 "575c5d8096b4c842b2af852bbb8bcfde96170b28b49f33249dbe2057a8beea13"
+  homepage "https://github.com/manugarg/pacparser"
+  url "https://github.com/manugarg/pacparser/archive/v1.4.0.tar.gz"
+  sha256 "d62d30aa6e2b4ccdf6773fc30a8b90d1d64eb6ad8edcbf56d2b803e913dcddbb"
   license "LGPL-3.0-or-later"
-  head "https://github.com/pacparser/pacparser.git", branch: "master"
+  head "https://github.com/manugarg/pacparser.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_monterey: "30ceddf59723263d52009377de9a4003f962239dddd7f4033935e31b9efd90cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "1999482c32deaa8c6b9a38800b6dbc4f6d18076177f6a8a0dad49c21c4327781"
-    sha256 cellar: :any,                 monterey:       "861d3e460101ce328b440dd01e53e1bb0ff7d17bb344ec11f6bac6d160733a05"
-    sha256 cellar: :any,                 big_sur:        "55ce66921189d2ba41d3cf58f7548237442c5387372b8cc4bab891cf1ed7766f"
-    sha256 cellar: :any,                 catalina:       "ca13d2507c9c6616bc6c3604c19a7f6f1652bb3b3c1fed3168c4d832a10b0174"
-    sha256 cellar: :any,                 mojave:         "3544e7aed8d310d3407997f46b8b51cbbc2b1d962f90535175baff72301e375e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "171b897e20fc774db40f8d7e3a61e6367216cd485894f8b04c8a0d14a7bae9ed"
-  end
-
-  # Fix build for MacOS 11.1
-  patch do
-    url "https://github.com/manugarg/pacparser/commit/28afea85c7578d033132f3817b62d3bb707cc3a3.patch?full_index=1"
-    sha256 "52fc5b276caf6e95a3ae4ac21e75c9751daaf429f344fdc6b62c85de4aa40d48"
+    sha256 cellar: :any,                 arm64_monterey: "c9a4d912f32c3d95b1d3e9908c1bf173b5454ab2fe97b72d542e7e9d3323acaa"
+    sha256 cellar: :any,                 arm64_big_sur:  "87c7b416faa3933313915c97df4908636f6fb90d076906aedb9ab0f6349b0184"
+    sha256 cellar: :any,                 monterey:       "66567eed659b8c575fd086749fb206f091b4dac80c18aace817402f53363ce5d"
+    sha256 cellar: :any,                 big_sur:        "ec53ab3e50bc58c1fb3226e83ea9dea4ccf12294674588a2ac05177699816b49"
+    sha256 cellar: :any,                 catalina:       "99ad319b5cefd28b2d33f4645fa0f2f408a99b5905901eb61a052d38fa29df1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2afb1ac8ba357e7310b718a253d8d294ab9af92467a55c48110a73cc2284ea4"
   end
 
   def install
     # Disable parallel build due to upstream concurrency issue.
-    # https://github.com/pacparser/pacparser/issues/27
+    # https://github.com/manugarg/pacparser/issues/27
     ENV.deparallelize
     ENV["VERSION"] = version
     Dir.chdir "src"

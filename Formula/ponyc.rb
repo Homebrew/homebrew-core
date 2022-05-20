@@ -2,20 +2,21 @@ class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
   url "https://github.com/ponylang/ponyc.git",
-      tag:      "0.48.0",
-      revision: "367815b900a914ee385f958452e07f6e046ce00a"
+      tag:      "0.50.0",
+      revision: "54fe89ae70c553d03391137ae2d1e83724688728"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c8f81baf0dbf4539bc6dda139fd46a5a70521cc739f9b2507d1c730c37b36b8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b9092cb374423746b3b1a4fb1449ce8a2b0d652c507b582a75d4862a74a7b2b"
-    sha256 cellar: :any_skip_relocation, monterey:       "54fc22099af71cb7dd8f31017a2a2ad0f4c0b320852632e3e2368553aeb1b8e9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b4f3806405fd19e372ebe2c277b9a88932f52182668b8f3f07a9e6d68a5e3d0f"
-    sha256 cellar: :any_skip_relocation, catalina:       "40610701ec8983ed84108be8e41ecac49eafacd495a6cc1782d87dd10cc729a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21e960076f0b3b358ea58d9e2a71e03c12f1c947fae0d25f66742f7d7409428c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c48aae8ae4bf42ef3acf91740991e7e5480b375bb292a2b08c1d2f352bdb7bae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f52221e2e3fb2800263c9061014492931448fd10f78106ecfc8caf5335884e2f"
+    sha256 cellar: :any_skip_relocation, monterey:       "c557b8fb8acaa1cb92c792e1c0380d6d16ee13bd111c8b354a84a303b2223f23"
+    sha256 cellar: :any_skip_relocation, big_sur:        "eef39e925c1d264f5c7cf4348d6827ce6c6a9069e85fa43a2dd274d614fbcfa2"
+    sha256 cellar: :any_skip_relocation, catalina:       "a175472a0ecd593481be87c8541e62092344b7ba78928c732799c5a313391b64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ce3ad30da7d3a2079e33d11543b3f68037f0ce6da214427431b7cb20b69ec7f"
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.10" => :build
 
   uses_from_macos "zlib"
 

@@ -1,18 +1,18 @@
 class CargoOutdated < Formula
   desc "Cargo subcommand for displaying when Rust dependencies are out of date"
   homepage "https://github.com/kbknapp/cargo-outdated"
-  url "https://github.com/kbknapp/cargo-outdated/archive/v0.10.2.tar.gz"
-  sha256 "0f8a4badebeb98d01808bc811c0e840a261df3d0c6306b05a4a9e926b754fc02"
+  url "https://github.com/kbknapp/cargo-outdated/archive/v0.11.1.tar.gz"
+  sha256 "2d80f0243d70a3563c48644dd3567519c32a733fb5d20f1161fd5d9f8e6e9146"
   license "MIT"
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a1a02a91c18803be32a47359119f65789037400c9225a567c484fb304ac49de3"
-    sha256 cellar: :any,                 arm64_big_sur:  "2a03fe15e0b7934985fb9cea65efe32b0b28ac7665d81463f49a29724bdfa507"
-    sha256 cellar: :any,                 monterey:       "8a353caa9e7e3237e1c05574151982f0c2a18a86c633dd389292059f05831a04"
-    sha256 cellar: :any,                 big_sur:        "5c52e6faa0351dd588b3f7a70320b140af0540ea6cb84cbb25757530c61f3081"
-    sha256 cellar: :any,                 catalina:       "42531a5f9b9bde7545cb11447244e2a118b504ecdf6e8030f409da5cd760dac6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0415af73396a4b7a6745885a5b5ed3a4f6d3603d7e9ebaf7c3e2af85aa4c27ba"
+    sha256 cellar: :any,                 arm64_monterey: "d9992bcef76c009e18f8a77aa3f6cc457c72bce7d72e078517744ca139b75125"
+    sha256 cellar: :any,                 arm64_big_sur:  "c7b4435ef3e709b0eb807a99ae088537ae7133c07181346b3a3e8c254bd02437"
+    sha256 cellar: :any,                 monterey:       "185935f62ff6132e75d7f0c6c8e9fdd487e9d488e1546b8471cae090a3f06caf"
+    sha256 cellar: :any,                 big_sur:        "227989c4aa9cda780813f0a9ba32d47305a0f9469844897e80ffe5636e1cbd56"
+    sha256 cellar: :any,                 catalina:       "946e355c42343a215b9f4927a1a23439d97ac7bb156f38954dcf4c906f635f14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3d25a01a0b6532594534b4d80053b14347e07e5322a0e0b44c102a75bcfe1b1"
   end
 
   depends_on "libgit2"

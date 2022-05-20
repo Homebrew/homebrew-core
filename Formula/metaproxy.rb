@@ -13,15 +13,22 @@ class Metaproxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a443529903a38577237d577f72b441de2853ab5e4dfebc1f9402a2bc7d25413f"
-    sha256 cellar: :any, big_sur:       "88bde89594c64dbbe9a79e5c3301506611b490be7bdb0e573bdcd6e07ab75fe9"
-    sha256 cellar: :any, catalina:      "4319580fd77eef8cf4da3a1e392669151471f397e71a9f6bdc1080f65678e17f"
-    sha256 cellar: :any, mojave:        "3f853cf457181ab372cd1eccafad913223a52a328cfcde07b96390c17b8ce349"
+    sha256 cellar: :any,                 arm64_big_sur: "a443529903a38577237d577f72b441de2853ab5e4dfebc1f9402a2bc7d25413f"
+    sha256 cellar: :any,                 big_sur:       "88bde89594c64dbbe9a79e5c3301506611b490be7bdb0e573bdcd6e07ab75fe9"
+    sha256 cellar: :any,                 catalina:      "4319580fd77eef8cf4da3a1e392669151471f397e71a9f6bdc1080f65678e17f"
+    sha256 cellar: :any,                 mojave:        "3f853cf457181ab372cd1eccafad913223a52a328cfcde07b96390c17b8ce349"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4ef01d6ddb998fdd39edb19f18d4e2ce6e508499fca658221b4f51b0605b87a"
   end
 
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "yazpp"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "./configure", "--disable-dependency-tracking",

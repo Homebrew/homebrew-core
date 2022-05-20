@@ -1,8 +1,8 @@
 class Scotch < Formula
   desc "Package for graph partitioning, graph clustering, and sparse matrix ordering"
   homepage "https://gitlab.inria.fr/scotch/scotch"
-  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.0/scotch-v7.0.0.tar.bz2"
-  sha256 "a36a26c89b6eeb0ffcda8378fb29dd98a2589a47be93c67b59e00374c878054a"
+  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.1/scotch-v7.0.1.tar.bz2"
+  sha256 "4ce908798ebdf0ae8dc7899a51bbebe6f274c195e28ecbb29724681eee31a6af"
   license "CECILL-C"
   head "https://gitlab.inria.fr/scotch/scotch.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Scotch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "26b950506f3fe8caa735b151641771956d5a138bc31babbf10e32e2f6308b99a"
-    sha256 cellar: :any,                 arm64_big_sur:  "93af205f1f99e2520e4979b305052bb2407ae3b22f20f9f81c427ccb487b6fe0"
-    sha256 cellar: :any,                 monterey:       "374db0a88ff61869fd53bd3f308bff9b4d1bdb22477182563137f3e38974fe67"
-    sha256 cellar: :any,                 big_sur:        "94f374c1faadfa24aeb7bab6b3b709c257283ce451ae9a982491f81685f38e83"
-    sha256 cellar: :any,                 catalina:       "526cd44e60be24309806b8a73d035bc51af69748ab6dc0a5e1ddaea483e2189e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23bb7fc89073b21386ce427867b49c25f0898dc854641fb6f6cf20ed1d96b29d"
+    sha256 cellar: :any,                 arm64_monterey: "46a3cc42b5362cb35a182a6b10d77913936c380d09298de39799ac7c7ff95d56"
+    sha256 cellar: :any,                 arm64_big_sur:  "be66bc36acfa18ce38d45c642cb83830dd208d91ca3c2612312bae484a6eecfe"
+    sha256 cellar: :any,                 monterey:       "57283af1e66679f2137cb7926b1789bf5f6a080eec4b679db53364c3c081d7e1"
+    sha256 cellar: :any,                 big_sur:        "0e4ec98850e307bfc39a16d9572cb8e1f4e1bd4a214f117be55c12a4715b5365"
+    sha256 cellar: :any,                 catalina:       "4b51d16f211dbe4d8777c69501423ab7d480c5efad89416067c46319702df7c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd55e5d0770829bb50d600703003ce0e19b8453f00ccfdb265ac8f3d2382e6e2"
   end
 
   depends_on "bison" => :build

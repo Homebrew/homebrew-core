@@ -1,26 +1,23 @@
 class GoAT116 < Formula
   desc "Go programming environment (1.16)"
   homepage "https://golang.org"
-  url "https://golang.org/dl/go1.16.13.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.16.13.src.tar.gz"
-  sha256 "b0926654eaeb01ef43816638f42d7b1681f2d3f41b9559f07735522b7afad41a"
+  url "https://golang.org/dl/go1.16.15.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.16.15.src.tar.gz"
+  sha256 "90a08c689279e35f3865ba510998c33a63255c36089b3ec206c912fc0568c3d3"
   license "BSD-3-Clause"
 
-  livecheck do
-    url "https://golang.org/dl/"
-    regex(/href=.*?go[._-]?v?(1\.16(?:\.\d+)*)[._-]src\.t/i)
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5177e50de5b4d2687a61053eead7a87b65d8efe390970345969edce5dc630ba2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d3c8e8ab07154ac960a630e9f3c07ba3a9f673d14e6b0edb66ee47faf59a8fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "57f8a5eea9e84406b6f691781b6fab1bf96f72c80a3f892887fb21f19888bf75"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4a1e251a16fd3257d38389ae571df94721f1a62ab115f7c969c26c4a65b03e30"
-    sha256 cellar: :any_skip_relocation, catalina:       "3a990ccead37a49f6d6d21897eb9441d55876ab73f53a0b01a7ea7f59c298fb5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba5a29d6b43c1b88a42266055811540d65a962765658b85d4252c8229bc764d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0500786661f7cddfc20403a9daa9af648404e0564363783fb7d9fc44e884fe3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5dcd84f44f1231cf1d32cbe6ca5d5f158de11efe7ea24b1ae24b4ede68cc6361"
+    sha256 cellar: :any_skip_relocation, monterey:       "b57fe6d2c36ea1529189bd3b7c9687a17c5b66660843f8f8db80b3a437693743"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2ba14df4f397d33f51bc22b9da40f07836990e6eb2e876aba96f3da82e12babe"
+    sha256 cellar: :any_skip_relocation, catalina:       "80d62cf6ed5b2fedfd714b1f02e7bb660a23d6f061f7ecdfdbbdf0257072401f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aaee729abff3f20350c5af642bea0e39257fe077dde752873f8539fbfed874d9"
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2022-03-15", because: :unsupported
 
   depends_on "go" => :build
 

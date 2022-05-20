@@ -8,12 +8,13 @@ class Solarus < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "e02ef9bfa00c637a6e43e91eebdcb064a85465c72bfd2dbab0344512400bc614"
-    sha256 cellar: :any, arm64_big_sur:  "f3b35b5252b2ee2c4068f7f4e2b952a1f88cbc9cacd4d84fb19680cea344bd7e"
-    sha256 cellar: :any, monterey:       "820ab24962729c085bad240f89d02f7a313a33b0ed7a7fc67f6ddc02e07b030d"
-    sha256 cellar: :any, big_sur:        "21eb9b511e6d49a1f17830ba8a7adcab4f0e3265c63f02679efba837ff77c55b"
-    sha256 cellar: :any, catalina:       "819dc6f84e1b4e56ba679d8b798412b2a3f71350c0923cf340ab49e76075e202"
-    sha256 cellar: :any, mojave:         "417dff62c280dd7e9bb742eef82fbae408a6e5fefcf427daf8d2af5955cc660a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "81f2b618280f6e3c1c4301a33c110fc693ec2db3f077290101bc35794971ffa3"
+    sha256 cellar: :any,                 arm64_big_sur:  "4fd02a38396ccef31a843c7d4172a1a8f3ba6e9f3573061433009922e08748ea"
+    sha256 cellar: :any,                 monterey:       "7a515dbb5fc12783533f6f702696001bd9d948d71108eb17ffbc51da6cd69e84"
+    sha256 cellar: :any,                 big_sur:        "7ef48a0cc8bf5a48ba41d78f0b2c950ded7e30dd53525e404d09af34f7df61cf"
+    sha256 cellar: :any,                 catalina:       "58399ecdec97de696ec39a3eab21cb3fe7c6d3c08dab321c95bc2c4567192db5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "977c7794f247a875af1e24d9be7c82b76c42a5a12bc717be7b3ea8fff3d9764b"
   end
 
   depends_on "cmake" => :build
@@ -27,19 +28,26 @@ class Solarus < Formula
   depends_on "sdl2_image"
   depends_on "sdl2_ttf"
 
+  on_linux do
+    depends_on "gcc"
+    depends_on "mesa"
+    depends_on "openal-soft"
+  end
+
+  fails_with gcc: "5" # needs same GLIBCXX as mesa at runtime
+
   def install
-    mkdir "build" do
-      ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
-      ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
-      system "cmake", "..",
-                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                      "-DSOLARUS_ARCH=#{Hardware::CPU.arch}",
-                      "-DSOLARUS_GUI=OFF",
-                      "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
-                      "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",
-                      *std_cmake_args
-      system "make", "install"
-    end
+    ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
+    ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DSOLARUS_ARCH=#{Hardware::CPU.arch}",
+                    "-DSOLARUS_GUI=OFF",
+                    "-DSOLARUS_TESTS=OFF",
+                    "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
+                    "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

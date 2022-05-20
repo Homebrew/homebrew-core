@@ -18,13 +18,17 @@ class Le < Formula
     sha256 catalina:       "704e7762fb13634aa7b2fe4cc271747894d8ffcf5028abd0d27497bceb6bc378"
     sha256 mojave:         "aa1144661f13ab5fbe4eb132415da66785ab1b903c8d517df03f40826d08632f"
     sha256 high_sierra:    "b6fad9458d040f9a47a0d3ff003ab5f77cdb9508a5b653c3cddc201cfb5310e2"
+    sha256 x86_64_linux:   "e51d99aa9b68a5ba6ec8fb1679f2dd79efd171d01a0921f268ad4247e41a50d4"
   end
+
+  uses_from_macos "ncurses"
 
   def install
     # Configure script makes bad assumptions about curses locations.
     # Future versions allow this to be manually specified:
     # https://github.com/lavv17/le/commit/d921a3cdb3e1a0b50624d17e5efeb5a76d64f29d
-    inreplace "configure", "/usr/local/include/ncurses", "#{MacOS.sdk_path}/usr/include"
+    ncurses = OS.mac? ? MacOS.sdk_path/"usr/include" : Formula["ncurses"].include
+    inreplace "configure", "/usr/local/include/ncurses", ncurses
 
     ENV.deparallelize
     system "./configure", "--disable-dependency-tracking",

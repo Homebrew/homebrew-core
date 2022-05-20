@@ -1,8 +1,8 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "https://people.engr.tamu.edu/davis/suitesparse.html"
-  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.10.1.tar.gz"
-  sha256 "acb4d1045f48a237e70294b950153e48dce5b5f9ca8190e86c2b8c54ce00a7ee"
+  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.12.0.tar.gz"
+  sha256 "5fb0064a3398111976f30c5908a8c0b40df44c6dd8f0cc4bfa7b9e45d8c647de"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.1-or-later",
@@ -11,7 +11,6 @@ class SuiteSparse < Formula
     "GPL-3.0-only",
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
   ]
-  revision 1
 
   livecheck do
     url :stable
@@ -19,13 +18,12 @@ class SuiteSparse < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9570f13d8bbf0d5fb1325e4314fc48fd9b505eb0f110fb5d3879cbaecad4a874"
-    sha256 cellar: :any,                 arm64_big_sur:  "c8fbc735aba72dc8654281521ff0601568d925873c98d2268fa7297cccff72c6"
-    sha256 cellar: :any,                 monterey:       "c51ad852f211dbc2e344d0de627f89933b191c95b57b53e47499ded9de8a4d66"
-    sha256 cellar: :any,                 big_sur:        "ddd29e66d06ca74ae08450c744d516bd4ad8fd42d655afcfac31ddf4f260c6ee"
-    sha256 cellar: :any,                 catalina:       "4c5c24fae85e69e4d3b75ecb79437240c0810ab49324b585f868949a57f4dfcc"
-    sha256 cellar: :any,                 mojave:         "a76725e62f88b28dc0d2250b1c2e52b8199372adedd4ddcde8cba3b2b9c783c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb17eb63750da9e79456fc86841d5bdbc083ae39c464c5432a2bdbccf0b9540b"
+    sha256 cellar: :any,                 arm64_monterey: "d5b574cfaaf805d7551e4c53c63be76894cb203cbf023233f4319979c497ff82"
+    sha256 cellar: :any,                 arm64_big_sur:  "1f38820a7a22ab471398656416c55fe1f9640353d7f39d4280b320b02f0f44d1"
+    sha256 cellar: :any,                 monterey:       "f258fe66db7f42f7a37df007e7869c13d86897b222e98969d8ca85535fc485f4"
+    sha256 cellar: :any,                 big_sur:        "82c4221826d5aa01e9767598da7155ebf41bf2add188cd684456c188c4ee647e"
+    sha256 cellar: :any,                 catalina:       "f21dfb630d3b05c13474d315776825bd4508e8bcca52d8527e112f48781b1531"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac0e65f3f30a84769cd093fef6afa7bbcb080fb5770f94f27a4d1115f7c09e8b"
   end
 
   depends_on "cmake" => :build
@@ -37,13 +35,14 @@ class SuiteSparse < Formula
   conflicts_with "mongoose", because: "suite-sparse vendors libmongoose.dylib"
 
   def install
+    cmake_args = *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     args = [
       "INSTALL=#{prefix}",
       "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "LAPACK=$(BLAS)",
       "MY_METIS_LIB=-L#{Formula["metis"].opt_lib} -lmetis",
       "MY_METIS_INC=#{Formula["metis"].opt_include}",
-      "CMAKE_OPTIONS=#{std_cmake_args.join(" ")}",
+      "CMAKE_OPTIONS=#{cmake_args.join(" ")}",
       "JOBS=#{ENV.make_jobs}",
     ]
 

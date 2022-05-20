@@ -24,6 +24,7 @@ class Midgard2 < Formula
     sha256 mojave:         "d37c0fefe73ad6e8360585d80e26e11f7e1f5735fdf8382f0c3795f95fa93d68"
     sha256 high_sierra:    "08df9e1d7487d38c8174047aa9d0620bc1f430f23602acba90c2ec9978a3fdd9"
     sha256 sierra:         "2aec9cbfb7a432a4ad73157831b9d5f6573ae4b85141410040cb0f053435541a"
+    sha256 x86_64_linux:   "832a02ad03489936522c500504ab060207992e9a25c0790828431d8c56d3020e"
   end
 
   head do

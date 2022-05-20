@@ -4,18 +4,23 @@ class Envoy < Formula
   # Switch to a tarball when the following issue is resolved:
   # https://github.com/envoyproxy/envoy/issues/2181
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.21.0",
-      revision: "a9d72603c68da3a10a1c0d021d01c7877e6f2a30"
+      tag:      "v1.21.2",
+      revision: "dc7f46eb44e54d5646301aa5ab4ba01f662fdf75"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf22e01df08c56e453469d1b9057bc4735bbbcb15edb6e81a557a10e103897a0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "82a538bffdfe021e54774e9713351c8555bbb7b2766c6f9b96998918fdcaaa11"
-    sha256 cellar: :any_skip_relocation, monterey:       "da08bf14e846b5f09e0f2e17866e55ccaf5412b726b62f2c17d0836fc660126d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "327d71692facbe6dcaf66e07ddb718653d4f8d0dcc2bf0121cd6af4f0a874e19"
-    sha256 cellar: :any_skip_relocation, catalina:       "89cd16d7a6a786bbaaf9acb65617c4783dc71a2f222d0a73141e1a9c8bc65985"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d0b57f5e87b1e480267adbb5e49a1d96d967323ea97f283c9255c4d3e1f490d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "89354fae8d255f7c9c96d577201a17146fdf6d3869691fba0f191231504f9f77"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c10c36d88c1be8a6c658da6060364b667b543e35bd9055619d9c98bd93ed0dc8"
+    sha256 cellar: :any_skip_relocation, monterey:       "3674bd7e56db7d7e7ae6125c34ac258e26957015c2ebaa837218df1e169f3b94"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3b1aac9989d81199ebeeac66bf38205554019892b52b214b76a34dabe61695b0"
+    sha256 cellar: :any_skip_relocation, catalina:       "410c2fba36a9efc5b0d1c340fb80c95f7ce3cddcc75ac249dd603eb05491efa8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f40044f44e01006b40c979a3954c11c2a075aabd96aaf4fa13b3c69717303bf"
   end
 
   depends_on "automake" => :build
@@ -56,7 +61,6 @@ class Envoy < Formula
     args = %W[
       --compilation_mode=opt
       --curses=no
-      --show_task_finish
       --verbose_failures
       --action_env=PATH=#{env_path}
       --host_action_env=PATH=#{env_path}

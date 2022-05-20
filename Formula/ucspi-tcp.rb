@@ -20,6 +20,7 @@ class UcspiTcp < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "46d324e867e5a35cbb17e8a215ff33f693651d11645eed116e4e4a6c02085b34"
     sha256 cellar: :any_skip_relocation, el_capitan:     "a57368e57812063bc4e1450c0bef5cad8392c44e54abf3c8ca950ea51abe7ae9"
     sha256 cellar: :any_skip_relocation, yosemite:       "727e93394b415da772b43ce5028ad54dcb569f695e6c8c4cdf05dc462b2febbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1403c13191ec33d523a407bcac88d15d712598e39629a265890805527bb2a566"
   end
 
   # IPv6 patch
@@ -30,6 +31,11 @@ class UcspiTcp < Formula
   end
 
   def install
+    # Work around build error from root requirement: "Oops. Your getgroups() returned 0,
+    # and setgroups() failed; this means that I can't reliably do my shsgr test. Please
+    # either ``make'' as root or ``make'' while you're in one or more supplementary groups."
+    inreplace "Makefile", "( cat warn-shsgr; exit 1 )", "cat warn-shsgr" if OS.linux?
+
     (buildpath/"conf-home").unlink
     (buildpath/"conf-home").write prefix
 

@@ -6,15 +6,17 @@ class Dbacl < Formula
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "267668662863b785760b49c085001924efb548d2a01e9be3a14e330233a58943"
-    sha256 cellar: :any_skip_relocation, big_sur:       "643c9891b075b1f8a766269cc1a9f5ec6b541e23055124f7cb2d289650bf08d0"
-    sha256 cellar: :any_skip_relocation, catalina:      "d81fd1fc86703610737cfd9d24f8c3c8db2e97ef4148f1f7f91a43c81c8762c6"
-    sha256 cellar: :any_skip_relocation, mojave:        "8a64ac80e91d8d5b2366046096098b851d503c58af65ef0858834c5794d039a5"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "42c1c03e8df0b4db91dc99ace3ec87f3901f1aa6975430d597240ab5f9182c1f"
-    sha256 cellar: :any_skip_relocation, sierra:        "c6e6d74e2f2a86325ee895f8ef6893d99e1463d0018ead0d0da46e0dfd95c272"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "750c29761c5784ddbd0d46643f2d462d8b22c14822773e2366db01be17a3e310"
-    sha256 cellar: :any_skip_relocation, yosemite:      "b3d759bba5d1e478bc3df9e829594f49fb37cdd96e589937ebf4a7da87416855"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27ddb0fca1dfb2cc615befe472927ff657b689dad255e26913ce118f7d83dfcb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "66ed22f1faf6f76848af60768dc3cd915f92859fb4c527657e06768d0499e443"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "267668662863b785760b49c085001924efb548d2a01e9be3a14e330233a58943"
+    sha256 cellar: :any_skip_relocation, monterey:       "70c98f90cec395f2366d669999f11334f95c8e97657f9845307c3bc37d67278a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "643c9891b075b1f8a766269cc1a9f5ec6b541e23055124f7cb2d289650bf08d0"
+    sha256 cellar: :any_skip_relocation, catalina:       "d81fd1fc86703610737cfd9d24f8c3c8db2e97ef4148f1f7f91a43c81c8762c6"
+    sha256 cellar: :any_skip_relocation, mojave:         "8a64ac80e91d8d5b2366046096098b851d503c58af65ef0858834c5794d039a5"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "42c1c03e8df0b4db91dc99ace3ec87f3901f1aa6975430d597240ab5f9182c1f"
+    sha256 cellar: :any_skip_relocation, sierra:         "c6e6d74e2f2a86325ee895f8ef6893d99e1463d0018ead0d0da46e0dfd95c272"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "750c29761c5784ddbd0d46643f2d462d8b22c14822773e2366db01be17a3e310"
+    sha256 cellar: :any_skip_relocation, yosemite:       "b3d759bba5d1e478bc3df9e829594f49fb37cdd96e589937ebf4a7da87416855"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27ddb0fca1dfb2cc615befe472927ff657b689dad255e26913ce118f7d83dfcb"
   end
 
   def install

@@ -3,18 +3,18 @@ class Pygments < Formula
 
   desc "Generic syntax highlighter"
   homepage "https://pygments.org/"
-  url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
-  sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
+  url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
+  sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
   license "BSD-2-Clause"
   head "https://github.com/pygments/pygments.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8946aab517a5db3fc574e647a92a22513333c4731c4ecfa9fa31087b14e71376"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8946aab517a5db3fc574e647a92a22513333c4731c4ecfa9fa31087b14e71376"
-    sha256 cellar: :any_skip_relocation, monterey:       "1144025d257641b8df2002a0c7c55953d030050d06f8bd2f0cc739d926d993f2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1144025d257641b8df2002a0c7c55953d030050d06f8bd2f0cc739d926d993f2"
-    sha256 cellar: :any_skip_relocation, catalina:       "1144025d257641b8df2002a0c7c55953d030050d06f8bd2f0cc739d926d993f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afc7ae61ad47ae9bf35739f29ee36e8ea9fdb205ca4e46b706d2d773c083d66a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c088e9c10fb8a38ffff90d0d401a8296949c782530ae81310fdcd8535d5af080"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c088e9c10fb8a38ffff90d0d401a8296949c782530ae81310fdcd8535d5af080"
+    sha256 cellar: :any_skip_relocation, monterey:       "6efdb3747f7ec6af4b4dc193f17dc1ba76e3b68a2e1770aa3a27170f833c0e21"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6efdb3747f7ec6af4b4dc193f17dc1ba76e3b68a2e1770aa3a27170f833c0e21"
+    sha256 cellar: :any_skip_relocation, catalina:       "6efdb3747f7ec6af4b4dc193f17dc1ba76e3b68a2e1770aa3a27170f833c0e21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8eec5295c6384bbc245cf57a27f35caf6d41207d1762504e9e70e0d86eefcf5"
   end
 
   depends_on "python@3.10"

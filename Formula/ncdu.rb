@@ -1,8 +1,8 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-2.1.tar.gz"
-  sha256 "4ba8d20a64a55cc00af2d2c6138afcc9dc25e40a5ed6a8c544cb9e2285a195fe"
+  url "https://dev.yorhel.nl/download/ncdu-2.1.2.tar.gz"
+  sha256 "9e0d6ef03618a3c316726bf49217b7efe45cec758b2c917ce892ded74332c6dc"
   license "MIT"
   head "https://g.blicky.net/ncdu.git", branch: "zig"
 
@@ -12,12 +12,12 @@ class Ncdu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fcc450b390fcf8c12105fa31c66962096058076a9342c47385a7720924fe123e"
-    sha256 cellar: :any,                 arm64_big_sur:  "ef4257052ed5d0cfcd125d84cae0adcc9392c7911eb14f80b86a7e92b743b794"
-    sha256 cellar: :any,                 monterey:       "269a12aff37eb757713ef1da816f769c9a5d89a93ae289af6563299e311ab9f2"
-    sha256 cellar: :any,                 big_sur:        "2758cf2d073453d9b2ba00fca59af2d887b5f2759029504fedc3dcf02ba7d85f"
-    sha256 cellar: :any,                 catalina:       "52fecaf89f0d6d491836617736d18f05e28db6a21f1b36c9955cf7888557c2d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5590f41a5f0b594ca7510f95d409cf53c9859bcbf4ab95938382d69282252d3c"
+    sha256 cellar: :any,                 arm64_monterey: "5b2f014ed878a5402ab588810bfab00ad3c53bea56fb540f638c757d69ff37fb"
+    sha256 cellar: :any,                 arm64_big_sur:  "c5cd8b46859d78923d564b30a797cc0e631591c41df84f54cd1897b13d9543be"
+    sha256 cellar: :any,                 monterey:       "04f5c6961fe800ceac83d793a4781adcbcb87a58be6c0836798f73462bfac5d2"
+    sha256 cellar: :any,                 big_sur:        "fc687682b0a3a6c8524adc6b0c8803079121f7ce2ca40b257e7e56131ec03515"
+    sha256 cellar: :any,                 catalina:       "a1a6be988dbeb8b211bd29964b85fca0d66c0935e05402519e3793c75521a3c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c165a42d391ca8ad87f1a9d8f4234841cbe1aa51db7f65dc873c1c0cf4a30d59"
   end
 
   depends_on "pkg-config" => :build

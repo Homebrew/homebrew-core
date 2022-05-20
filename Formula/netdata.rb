@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.33.0/netdata-v1.33.0.tar.gz"
-  sha256 "d167d4b2d8529119fa4047ae40d22833dac9d360a6ed07c314ba313807c027eb"
+  url "https://github.com/netdata/netdata/releases/download/v1.34.1/netdata-v1.34.1.tar.gz"
+  sha256 "8ea0786df0e952209c14efeb02e25339a0769aa3edc029e12816b8ead24a82d7"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f15328221a2e5b4e8f78697d1bbf951b09f14b41ba44e47f0aa44b860b2c07c9"
-    sha256 arm64_big_sur:  "591ad576bdef3f6b89b7abb39ea760c8f3f0eafdf773eebeca5badb33f625932"
-    sha256 monterey:       "8e847c3a39ace106a1330d1cd2b15e02a690bb5d33fb9dd6ea819aef170b366d"
-    sha256 big_sur:        "b49585adefd324086a942492954a4bba8b615d5a17545240cd2b3e3e95b50997"
-    sha256 catalina:       "803292f46a528e0bbfd85652622de401e9a54ee0218d1d5a02b2a9e9c1fdea3b"
-    sha256 x86_64_linux:   "ec35854abc1c7c6ee9fdae20bd1e49a1ec337b9edd8b205992a369e828eed1ec"
+    sha256 arm64_monterey: "b480f643be8d68bf638bd90a6d2e2a77d59fd3aaa1d56d0bb82a7720783e2520"
+    sha256 arm64_big_sur:  "920ac3da17182e45a2bcaebc706b82b24c4a7c258c6dc5af01a4e210268389a5"
+    sha256 monterey:       "28b9730ef86558c40460c4c3c36a8a9143ada7f0676b1e36f070a3a30591bc2b"
+    sha256 big_sur:        "1783733330f546387b3b2fd6edaf35758e8d63100ae79e294b80830ae9a00664"
+    sha256 catalina:       "9bf6f768fc0b83b802ff68d6c287d7bef4c63b77f0cedc18f4ca214ad6c3053c"
+    sha256 x86_64_linux:   "df4a8fea0f73ee02c9ca59989027231c706c32ed6e3705f9a871178c8d9cfcc5"
   end
 
   depends_on "autoconf" => :build
@@ -26,6 +26,7 @@ class Netdata < Formula
   depends_on "libuv"
   depends_on "lz4"
   depends_on "openssl@1.1"
+  depends_on "protobuf-c"
 
   uses_from_macos "zlib"
 
@@ -85,11 +86,6 @@ class Netdata < Formula
   end
 
   def post_install
-    config = etc/"netdata/netdata.conf"
-    inreplace config do |s|
-      s.gsub!(/web files owner = .*/, "web files owner = #{ENV["USER"]}")
-      s.gsub!(/web files group = .*/, "web files group = #{Etc.getgrgid(prefix.stat.gid).name}")
-    end
     (var/"cache/netdata/unittest-dbengine/dbengine").mkpath
     (var/"lib/netdata/registry").mkpath
     (var/"log/netdata").mkpath

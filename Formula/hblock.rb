@@ -1,17 +1,17 @@
 class Hblock < Formula
   desc "Adblocker that creates a hosts file from multiple sources"
   homepage "https://hblock.molinero.dev/"
-  url "https://github.com/hectorm/hblock/archive/v3.3.1.tar.gz"
-  sha256 "649ef980871d4be467a43edfa99c636b95b5af38ee976985082a65c4989eac01"
+  url "https://github.com/hectorm/hblock/archive/v3.3.2.tar.gz"
+  sha256 "35bd4af1dbae3b57de6cede6c05f3d4ce25227b33a53358ef47c76a491304eb0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d55b6e30c4a6f24996fc8545204ba6e6b12239f01c10a2b55c36e0c126300847"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d55b6e30c4a6f24996fc8545204ba6e6b12239f01c10a2b55c36e0c126300847"
-    sha256 cellar: :any_skip_relocation, monterey:       "d55b6e30c4a6f24996fc8545204ba6e6b12239f01c10a2b55c36e0c126300847"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d55b6e30c4a6f24996fc8545204ba6e6b12239f01c10a2b55c36e0c126300847"
-    sha256 cellar: :any_skip_relocation, catalina:       "d55b6e30c4a6f24996fc8545204ba6e6b12239f01c10a2b55c36e0c126300847"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9507040d0afc93650d3b975ca02d76528b15c3481a8f857374ac0fa24c7e665f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b408e7de0b8d0d3634deac27adcf630e303dcf03eee853a16af4b8b9d2f75714"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b408e7de0b8d0d3634deac27adcf630e303dcf03eee853a16af4b8b9d2f75714"
+    sha256 cellar: :any_skip_relocation, monterey:       "b408e7de0b8d0d3634deac27adcf630e303dcf03eee853a16af4b8b9d2f75714"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b408e7de0b8d0d3634deac27adcf630e303dcf03eee853a16af4b8b9d2f75714"
+    sha256 cellar: :any_skip_relocation, catalina:       "b408e7de0b8d0d3634deac27adcf630e303dcf03eee853a16af4b8b9d2f75714"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31d98acdc362571796f04dee5c4fca5ed0949a5cf7347c024de713764f68a3c1"
   end
 
   uses_from_macos "curl"

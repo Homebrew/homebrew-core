@@ -2,18 +2,18 @@ class OdoDev < Formula
   desc "Developer-focused CLI for Kubernetes and OpenShift"
   homepage "https://odo.dev"
   url "https://github.com/redhat-developer/odo.git",
-      tag:      "v2.5.0",
-      revision: "724f16e689545dd4a81671da3e116a33df4832d3"
+      tag:      "v2.5.1",
+      revision: "ae0c553090e7644c3eda585639151419a8c3fb6b"
   license "Apache-2.0"
   head "https://github.com/redhat-developer/odo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5026ff52c68d73fc7981326856682ff9c48833657f750d7aa86dd1ec60bb270"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "018a78f5f9e9d5cda3d4e2aaf8e1eaa5c44a474044bda827f4c7f5142737f65b"
-    sha256 cellar: :any_skip_relocation, monterey:       "d9322be68b4aec2b97c0b4eac766ce31393d8ec2f8bbb138e44e911a102c9a36"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5e4b468e5b613a38077b745f938fd99bbea16c47f1c04a255abaeaf06926b21b"
-    sha256 cellar: :any_skip_relocation, catalina:       "6b9827adad64f018a9b43f70b5910d8feb72e64433b543bb743003ab598df346"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78f177ccb42d8bf3d93fef3682a7b11a185f4e59de9c9fd1ba9b640efc14015e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ccd1659bef55782660366226e5c3b98d59e979c9a33e77c609ba25bb059f19b3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07a113911a23917f2d797bf76fcae16fd8f7596fc2f897aa2314e8c8ec6b96e9"
+    sha256 cellar: :any_skip_relocation, monterey:       "d9e50dfaaae7aba3c10637c1a49867848409bdd83a78458a7a15933c4c0801ff"
+    sha256 cellar: :any_skip_relocation, big_sur:        "915e4475508f99bd976092ccb9982b89877d0ae87b8f9f761a650ad28acb2939"
+    sha256 cellar: :any_skip_relocation, catalina:       "7ba020986b1be4cd3b4d919320bfabea50ee575869be6f43860c7851f0078fa4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd3d5e5ffb98d731541c5da735965a4b0c65918e2999e8c62b77c0135e491d09"
   end
 
   depends_on "go" => :build

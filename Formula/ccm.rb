@@ -1,32 +1,29 @@
 class Ccm < Formula
+  include Language::Python::Virtualenv
+
   desc "Create and destroy an Apache Cassandra cluster on localhost"
-  homepage "https://github.com/pcmanus/ccm"
+  homepage "https://github.com/riptano/ccm"
   url "https://files.pythonhosted.org/packages/f1/12/091e82033d53b3802e1ead6b16045c5ecfb03374f8586a4ae4673a914c1a/ccm-3.1.5.tar.gz"
   sha256 "f07cc0a37116d2ce1b96c0d467f792668aa25835c73beb61639fa50a1954326c"
   license "Apache-2.0"
-  revision 2
-  head "https://github.com/pcmanus/ccm.git", branch: "master"
+  revision 3
+  head "https://github.com/riptano/ccm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a63a013f478786c34eac1bc519ee9466ccf7c146446e06c993fe0435588947e3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d54c130a02a2a8e18fa4ab6581fb247801cb8e4a34ed64556092445a7d00768"
-    sha256 cellar: :any_skip_relocation, monterey:       "18ee12aedd0f0d05fb7d61451ba98e981d71e5c8c375450bde94a0eb7c612ca8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5be6d025aa61b10990e45c4158cea86bd6722e5aeb677c5a10e3cadc68971bdf"
-    sha256 cellar: :any_skip_relocation, catalina:       "cb07fbe35e0dcea161491e1a670f7605e21b13299c28de8d3ed08102a0d641a4"
-    sha256 cellar: :any_skip_relocation, mojave:         "076976be7d2278de9591750dcfada9d9856cb217f2869c9e00ddf459e173e933"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25f5c11e27bc7042f66c6ed9c5c9d71b98e2c9796be0acdef7ef1012b98c96fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0afbb4b4623fd1d164d742e64247fce9912ee49b36156ee654e6ccca9d8b8d3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3327e612ae47705224d8aaa05b516b5dea4c35dd0b411cde6253f66def171b58"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa06c77a9703e116d09988d230fb256d8123cdad6251d8a34e750e13981dbdae"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cf6b0a4df32b09df6f4809b54b0dcf81a2dcc63c95828dc2178c75a5ac98ecbe"
+    sha256 cellar: :any_skip_relocation, catalina:       "ba15093446fbe0f1beb000f890f26adff53901dc7d6c9261b8e3dc31a5f00cfa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f1e9482baf6aa02be97dd299448a47420d6ba56986e04292312c58c01830978"
   end
 
   depends_on "python@3.10"
+  depends_on "six"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
-    sha256 "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   resource "cassandra-driver" do
@@ -35,19 +32,7 @@ class Ccm < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    %w[PyYAML six cassandra-driver].each do |r|
-      resource(r).stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

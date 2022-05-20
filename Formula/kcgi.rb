@@ -17,13 +17,20 @@ class Kcgi < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "aea0950090e27a079ea4f104a726676c13f01de6c56284b2f98e8bfd1a208e21"
     sha256 cellar: :any_skip_relocation, catalina:       "de0d79ace2d35397df1fa1e8d7e09128372d9c7989992675ae835d2d21a502e8"
     sha256 cellar: :any_skip_relocation, mojave:         "a4779378456da9d3887e45136c69df85d47bef12d57b7f8903f840f4c2b12002"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dbc844befbf8fcff4b08055dd7c9964ece3e846b6d0bbd6282663ebd89a6ff4"
   end
 
   depends_on "bmake" => :build
 
+  on_linux do
+    depends_on "libseccomp"
+  end
+
   def install
     system "./configure", "MANDIR=#{man}",
                           "PREFIX=#{prefix}"
+    # Uncomment CPPFLAGS to enable libseccomp support on Linux, as instructed to in Makefile.
+    inreplace "Makefile", "#CPPFLAGS", "CPPFLAGS" unless OS.mac?
     system "bmake"
     system "bmake", "install"
   end

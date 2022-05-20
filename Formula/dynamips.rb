@@ -19,6 +19,7 @@ class Dynamips < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "db5398464afdb11af6f26cd4780f6e688bed0f35c9fea8f8308f11991987a037"
     sha256 cellar: :any_skip_relocation, high_sierra:    "cb9bf6eebd6a7987976e0e2543a807e1b0f16698a1c71eb64e7da56f320fd425"
     sha256 cellar: :any_skip_relocation, sierra:         "08b44502cd3b052592f11f5b75453fabd51fdcfe1a311405c4b7329a701dc424"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c57bab5a6ec685c6c6e5590eec88c10f22555749a84e9baea403a7a081f09207"
   end
 
   depends_on "cmake" => :build

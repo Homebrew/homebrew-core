@@ -1,21 +1,25 @@
 class PySpy < Formula
   desc "Sampling profiler for Python programs"
   homepage "https://github.com/benfred/py-spy"
-  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.3.11.tar.gz"
-  sha256 "094cfb80e2c099763453fc39cfa9c46cfa423afa858268c6a7bc0d867763b014"
+  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.3.12.tar.gz"
+  sha256 "6a4b0537e0bf9cf40fc4557931955222a25db01c110309d0b642dd28211bffeb"
   license "MIT"
   head "https://github.com/benfred/py-spy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "117cc4ae799abeda0ec934378e287d78196c66da8219843266336519f5252174"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1951839640b1aa3d4deb01f27fd0130e5c9e49227a3997cad3b0e622c79b8cf3"
-    sha256 cellar: :any_skip_relocation, monterey:       "05f6c44c4453d888b149f3fa2009c1c3b31d3073c2980632ebaf7e1f2289832e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "651aeae6101063deed04c2219abc9068444f24eb7640c3db9d22d7edab8b3e79"
-    sha256 cellar: :any_skip_relocation, catalina:       "1792e2f649b4d6d8fe9fc1151e1d70815b43775b3ebf96323e704c1769449121"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e173344a61c94b2b47230bdbd60b28485a66101a80e74e138b291c1d77db15a0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f205ddc3f08b11e91ae023cd699153bab4f0f5ec500014b352fc46b76e2e1f64"
+    sha256 cellar: :any_skip_relocation, monterey:       "45b42cedd108860fc73371420c2c98f49c9accc61b18efd7fe6fd223919808a3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d385fca448f241602624f98ba5af909ba0d8142a3f7587ca460240d224e63324"
+    sha256 cellar: :any_skip_relocation, catalina:       "fd5f0a7e3a7bc3b10840b7c290571f6a5901ed51c8facc561e0659dc938ae377"
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.9" => :test
+  depends_on "python@3.10" => :test
+
+  on_linux do
+    depends_on "libunwind"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -29,7 +33,8 @@ class PySpy < Formula
   end
 
   test do
-    output = shell_output("#{bin}/py-spy record python3.9 2>&1", 1)
-    assert_match "This program requires root", output
+    python = Formula["python@3.10"].opt_bin/"python3"
+    output = shell_output("#{bin}/py-spy record #{python} 2>&1", 1)
+    assert_match "Try running again with elevated permissions by going", output
   end
 end

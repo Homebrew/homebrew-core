@@ -4,6 +4,7 @@ class Chicken < Formula
   url "https://code.call-cc.org/releases/5.3.0/chicken-5.3.0.tar.gz"
   sha256 "c3ad99d8f9e17ed810912ef981ac3b0c2e2f46fb0ecc033b5c3b6dca1bdb0d76"
   license "BSD-3-Clause"
+  revision 1
   head "https://code.call-cc.org/git/chicken-core.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Chicken < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e09430040963225492897d7609406819e86fb849d13845ad8087d5d61e31eaca"
-    sha256 arm64_big_sur:  "61ae526015573afb8c25f406a65cdd4b7de3f8eb937e4f7fa6e7348323d89898"
-    sha256 monterey:       "049d9b3aa4cd14369f60989ab423da0b73a1aeab96b15e3c238f904de0293fb0"
-    sha256 big_sur:        "86b3c43930711b19e3270bda4701c3472da23eed410ca33203426e155f7098ff"
-    sha256 catalina:       "6cc05c82270f15d1013cd4d3d63ed7b82ae891c29ff6fc3156be89c3d64973f1"
-    sha256 x86_64_linux:   "cb961e4d3aadeca9ffff40761b866ba766234d9b4ffe87cf4daae445435f5e4d"
+    sha256 arm64_monterey: "735eaf1eff7d654129834cf32300deaa9967a154a05e8d646715061a817dbccd"
+    sha256 arm64_big_sur:  "41364c265c005a36f35b92e71e5442b478a31350ec2c3fdc56014a89b01b49ed"
+    sha256 monterey:       "5f24e343e712def1c09cff350d1ee69abd79a23699d64d766e36072933390699"
+    sha256 big_sur:        "d7e2e910b7744978bf4cc87f09088d5460c40918a2b2368f2e57646b4c8ddb48"
+    sha256 catalina:       "b05075013a96eb98358be15f57417b4bf511ed8d93a78b1a330dcb4be1a14046"
+    sha256 x86_64_linux:   "e2b200753be38c69074918464c322b94d0468d234b332b69d77ed074a372cbd9"
   end
 
   def install
@@ -27,7 +28,8 @@ class Chicken < Formula
       PREFIX=#{prefix}
       C_COMPILER=#{ENV.cc}
       LIBRARIAN=ar
-      ARCH=x86-64
+      ARCH=#{Hardware::CPU.arch.to_s.tr("_", "-")}
+      LINKER_OPTIONS=-Wl,-rpath,#{rpath},-rpath,#{HOMEBREW_PREFIX}/lib
     ]
 
     if OS.mac?
@@ -43,5 +45,6 @@ class Chicken < Formula
 
   test do
     assert_equal "25", shell_output("#{bin}/csi -e '(print (* 5 5))'").strip
+    system bin/"csi", "-ne", "(import (chicken tcp))"
   end
 end

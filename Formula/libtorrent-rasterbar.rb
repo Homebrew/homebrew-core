@@ -1,8 +1,8 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library with Python bindings"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/v2.0.5/libtorrent-rasterbar-2.0.5.tar.gz"
-  sha256 "e965c2e53170c61c0db3a2d898a61769cb7acd541bbf157cbbef97a185930ea5"
+  url "https://github.com/arvidn/libtorrent/releases/download/v2.0.6/libtorrent-rasterbar-2.0.6.tar.gz"
+  sha256 "438e29272ff41ccc68ec7530f1b98d639f6d01ec8bf680766336ae202a065722"
   license "BSD-3-Clause"
   head "https://github.com/arvidn/libtorrent.git", branch: "RC_2_0"
 
@@ -12,12 +12,12 @@ class LibtorrentRasterbar < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ec36596076e63e4d4f7c3d04b62aee6f8b0f729ba32758fe364753f859b31f44"
-    sha256 cellar: :any,                 arm64_big_sur:  "09e94f3fede7ef026dfb8977c6b883fd6ab5f24aac319b8dde461149d7c0e531"
-    sha256 cellar: :any,                 monterey:       "62cb48b0aa76dce1afe071b65a8637d6d6275d13eead3450aea1065879260d92"
-    sha256 cellar: :any,                 big_sur:        "48c7b32a652eacbb59d5ed4948ecc686e76fe52f00a5e49463100d7c62227350"
-    sha256 cellar: :any,                 catalina:       "74d9cee17029faaaf3c858a9c167bebc7756a55378450bde41f6f78c2154ec86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0a25a4299d4dda53f7485eac44dece7244a9a652fa3f8e9593e31c3bb427f56"
+    sha256 cellar: :any,                 arm64_monterey: "47b1906d8e53bc2976aab0a24ba6591c17a1d5edce6c04a8f417f9da840e7d28"
+    sha256 cellar: :any,                 arm64_big_sur:  "412f0df0d375a88c515e488cfed96fcea33e2294cce70b20f8811bf5759c65e4"
+    sha256 cellar: :any,                 monterey:       "a64cb513f3dc2e5ac8f30caffcfc2cd699e5e7788905b7562ebc5998e7114f25"
+    sha256 cellar: :any,                 big_sur:        "2f9dc1705105ea69680464d72dedf4ca7f09a4a5c88920fe3704b9f798375a58"
+    sha256 cellar: :any,                 catalina:       "0150bdc3871d41c0d7a88d00789f7caba0bf597da223ab753fca87ab0877e484"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ae32cb094aa1897be7be0caa2173ce260778c0955cd5493095eabaed5917932"
   end
 
   depends_on "cmake" => :build
@@ -34,6 +34,7 @@ class LibtorrentRasterbar < Formula
       -Dencryption=ON
       -Dpython-bindings=ON
       -Dpython-egg-info=ON
+      -DCMAKE_INSTALL_RPATH=#{lib}
     ]
     args += std_cmake_args
 
@@ -57,7 +58,7 @@ class LibtorrentRasterbar < Formula
       "-ltorrent-rasterbar",
     ]
 
-    on_macos do
+    if OS.mac?
       args += [
         "-framework",
         "SystemConfiguration",

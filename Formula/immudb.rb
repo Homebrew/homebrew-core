@@ -1,8 +1,8 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://www.codenotary.io"
-  url "https://github.com/codenotary/immudb/archive/v1.2.2.tar.gz"
-  sha256 "ed99ed58beb089a7d8eabc0853cd9644b23ea5fcc59aa2a29608335ce09b3eec"
+  url "https://github.com/codenotary/immudb/archive/v1.2.4.tar.gz"
+  sha256 "dd7f7ef1bae8d34ebaa1bb8d1099a1b0809dd6bac0d36fdc279139087dcedb79"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Immudb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4058dbcf9ad539dffa3233c1011e60fe42fe663d1945921a1a25bc521e33b6f8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad07b54822ae7fd4ea1f6e75d813513b5e6cbddba71ac6ce625528abf604cf98"
-    sha256 cellar: :any_skip_relocation, monterey:       "f4d1988a3e8609ebd6e0a2199ff7f6257d32b58818497403a8a7516dce8d477b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2b2da7f36c75d8ccf86286e810ce65bf8c51a08a2865e48dc777cf4b1a5aeb4f"
-    sha256 cellar: :any_skip_relocation, catalina:       "c473c5b400625b33e1740ffc4ca6a8a5efabb84f373f0463bc8f0971a91a8767"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eca747d1e87572ad7e58a9d67289e6a69d72da32d3d7e88c2d8f29b51b438d0a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2eb5d591b8b3d5cba6f21b72a25b45bd9e877826e385d775f1f8d0943915e85c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56d2e49783d2e7cd1d8d294b8296103456798d8cbc88dc928f26ea61b39322aa"
+    sha256 cellar: :any_skip_relocation, monterey:       "b79c1fbba63722c2f5d8b4baeff37c95d28cf8363d4acaaea3ab5abe0b09eb98"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b1c13f1a07cac939a8a1423106a05e63a11150b0cb228c160353323f57cddb98"
+    sha256 cellar: :any_skip_relocation, catalina:       "481624cee7d5f2d109f4c4f27befb332bee9e4772efb5ab655f001037ef3f9b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf822b40d8efd272a64b408352dcedf234003c94eed601b08df29c7214ece017"
   end
 
   depends_on "go" => :build

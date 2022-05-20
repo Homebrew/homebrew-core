@@ -21,7 +21,8 @@ class FaasCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8eff9b23ae2028d8b3e5f116d5815c02cacb23ccac61bd96e5dae10d770f871a"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     ENV["XC_OS"] = OS.kernel_name.downcase

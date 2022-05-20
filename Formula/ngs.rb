@@ -1,18 +1,18 @@
 class Ngs < Formula
   desc "Powerful programming language and shell designed specifically for Ops"
   homepage "https://ngs-lang.org/"
-  url "https://github.com/ngs-lang/ngs/archive/v0.2.13.tar.gz"
-  sha256 "7648761edb3695292d3289b91f9644c204d42269b8af697c765707ce192e45b5"
+  url "https://github.com/ngs-lang/ngs/archive/v0.2.14.tar.gz"
+  sha256 "9432377548ef76c57918b020b2abb258137703ff0172016d58d713186fcafed3"
   license "GPL-3.0-only"
   head "https://github.com/ngs-lang/ngs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1ef58ca0af08ba7b8e30568dc89329ca2d7dde56b1f617c7ea761e648d5943ff"
-    sha256 cellar: :any,                 arm64_big_sur:  "479155bbdc08c74555033cb3399499e8a483dca09eb317d9f0440a040f35941d"
-    sha256 cellar: :any,                 monterey:       "c2d37bb8bf811e88ef63b977c15983f9ef7ca5111e91e5a9e1433a41b487ec22"
-    sha256 cellar: :any,                 big_sur:        "8fc41ede0fb6966d1825eb40db7eb4b51e1e87adab1b53d2104581da18abd6b8"
-    sha256 cellar: :any,                 catalina:       "020d1e3143db15da54baa7e0a01be63e238ba5f6aec3b11ed7dd69c5651679d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "358aff5f12a275ad72cb474f000ce798c5af3d529c3573af69fdadda0098c257"
+    sha256 cellar: :any,                 arm64_monterey: "7ac61b5c9438473a5f71c38284858266792591132258e22a49430aa15d06e25d"
+    sha256 cellar: :any,                 arm64_big_sur:  "b41e5bc67f4f5bf5a3ccc4d84e59e89097da7e425c3b17417fcb09f064edfbb3"
+    sha256 cellar: :any,                 monterey:       "2a233c86f9388f3a867954b702e0291ac348c0203f3a343e8b6a0d43422ded68"
+    sha256 cellar: :any,                 big_sur:        "4e5dd77c036e3e9d1abdd16618c547795083cd0f3a28eb652ccf3a3a7227804d"
+    sha256 cellar: :any,                 catalina:       "6347f2636910e87893aa7be12672472f030aba05bdde2445d8ed7d585f98b322"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "144cae041e5e211ec773a0c60c9c3d835ac979d1ebc61cd769339bc5d5f8b632"
   end
 
   depends_on "cmake" => :build
@@ -27,11 +27,10 @@ class Ngs < Formula
   uses_from_macos "libffi"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
-    share.install prefix/"man"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+    share.install prefix/"man" unless OS.mac?
   end
 
   test do

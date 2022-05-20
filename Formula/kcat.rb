@@ -7,6 +7,14 @@ class Kcat < Formula
   license "BSD-2-Clause"
   head "https://github.com/edenhill/kcat.git", branch: "master"
 
+  # Upstream sometimes creates a tag with a stable version format but does not
+  # create a release on GitHub. Versions that are tagged but not released don't
+  # appear to be appropriate for this formula, so we check releases instead.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "fd220a7e002772622e581f636e59c4a198ec883cbb813d2b31857d0bf24d089d"
     sha256 cellar: :any,                 arm64_big_sur:  "f930080248bb0eff245599536bbc12465c6bf6e256acb283e6d2d5a5d047f11e"

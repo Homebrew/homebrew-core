@@ -1,18 +1,18 @@
 class Lux < Formula
   desc "Fast and simple video downloader"
   homepage "https://github.com/iawia002/lux"
-  url "https://github.com/iawia002/lux/archive/v0.12.0.tar.gz"
-  sha256 "f5bcbe1039219a299908fdd5a540052ef603ff5c8c21c0d64f44c53132c41cdd"
+  url "https://github.com/iawia002/lux/archive/v0.15.0.tar.gz"
+  sha256 "41e45542587caa27bf8180e66c72c6c77e83d00f8dcba2e952c5a9b04d382c6c"
   license "MIT"
   head "https://github.com/iawia002/lux.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b74c6842567e63a373ae138e919298930773e84358fdf732b6ee06b4aa8476a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "99fd27cbc911377b60c376fc991f532be082c8b825c4e4ea1368d3d7fdea3187"
-    sha256 cellar: :any_skip_relocation, monterey:       "a94769da2053182cfa2620b1314829d2a2dac564f5c7be269216ce2251ae616c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4070d8a638416e31faa2aac747a445b969f2a0479710d5a0184aced5e03e9a5a"
-    sha256 cellar: :any_skip_relocation, catalina:       "703ca74cee2903b74281bd88a091d1f425a2c6d1739b44a930dd0d640b6b9ec0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c3eb6f7a80fb704c89f3ce1607a356b2e31b9c43e0a1dead6a1b6cf7ddd5542"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c88913410858105cb233f3076167d8cfcc7cc21374a9cc1134e1a520c6ec6618"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d31fd3e601f2b122ad705fdbc8044b6a55f5b94a512949aca0359cd869d39c56"
+    sha256 cellar: :any_skip_relocation, monterey:       "a2039236ff2da7493d2a539dae8af265f0f09dc565f5b6a569e8be6378eda475"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9f883e14b543c0df497f7ab66c4e76bd335b78b03d41e2063e97707075a7aa75"
+    sha256 cellar: :any_skip_relocation, catalina:       "2cb75509d7e2047811af1dd550a0c7febeedae1b935a3a6da16a9732f2e2b319"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1324047684ba3a1479977df3b979df584299e63c8aa4924f1c8f6d8fda07b08a"
   end
 
   depends_on "go" => :build
@@ -22,6 +22,6 @@ class Lux < Formula
   end
 
   test do
-    system bin/"lux", "-i", "https://www.bilibili.com/video/av20203945"
+    system bin/"lux", "-i", "https://github.githubassets.com/images/modules/site/icons/footer/github-logo.svg"
   end
 end

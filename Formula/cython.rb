@@ -1,17 +1,17 @@
 class Cython < Formula
   desc "Compiler for writing C extensions for the Python language"
   homepage "https://cython.org/"
-  url "https://files.pythonhosted.org/packages/eb/46/80dd9e5ad67ebc766ff3229901bde4a7bc82907efe93cd7007c4df458dd5/Cython-0.29.27.tar.gz"
-  sha256 "c6a442504db906dfc13a480e96850cced994ecdc076bcf492c43515b78f70da2"
+  url "https://files.pythonhosted.org/packages/70/fa/f1c0a37b5d37378cd37eaa16341b65f98df13bc53042e0081a31bd63c929/Cython-0.29.29.tar.gz"
+  sha256 "ce70dbbfbe374ee0d02fd16c26d5e512424fd0ab2927150a3f99d108bd0d8a20"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2a6ff3640e54f2992e6e6e784be73ff7995021e1ad079d7fd1ef9294cbae7ffa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "87960da8cdf4f9970782c68ac1b7873cae95e9000f9674451f3c6bb60e265e78"
-    sha256 cellar: :any_skip_relocation, monterey:       "e09b91ecdb96c5a685d1acb95ef35e10ccc12058d24b72e90da4d728b6bb0266"
-    sha256 cellar: :any_skip_relocation, big_sur:        "88e280167ed30df0ee60adf71bd9546a4ffd12636bc6b38db80caeec381c3119"
-    sha256 cellar: :any_skip_relocation, catalina:       "08f8c42e0d5ce2143788320f7ce6c3aaee16652fac553503d20c06befe1573cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e9ab748b78e718b018c245264d5b38559443ca10617d2110a59a2958a9ca1d3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9cfb8a70313b532be6f6f48ab21e871ef965127ac6e085b0bb9a0cc25a779ea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ffd455466d6a78aa0f95dadd4b4018efccd10902804c46709db97fb6f0ba7a8"
+    sha256 cellar: :any_skip_relocation, monterey:       "155eeb235101e6ba198cd9f1ae9ea8d884bc530da209fa5fb1dab06e8aeccff8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b3ffdd9fbce63403b893f0c93b4dc02195f2b9fbbb00cb5b437d0d4e83d19696"
+    sha256 cellar: :any_skip_relocation, catalina:       "d337755389c7d4b73779b53bdd327574a6459123e70ffb4e6fde180f85aab0b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a828c8d37590349241fde08ed7e3a881f47f7432a175550c1769c1f8f80eecc6"
   end
 
   keg_only <<~EOS

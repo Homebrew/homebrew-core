@@ -1,8 +1,8 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "https://www.bcgsc.ca/resources/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.3.4/abyss-2.3.4.tar.gz"
-  sha256 "7bbe479d2574a4d0241a5f564852d637690ded165c160862977e90597c614fed"
+  url "https://github.com/bcgsc/abyss/releases/download/2.3.5/abyss-2.3.5.tar.gz"
+  sha256 "5455f7708531681ee15ec4fd5620526a53c86d28f959e630dc495f526b7d40f7"
   license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
 
   livecheck do
@@ -11,12 +11,12 @@ class Abyss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ddaf94b4cc55d9eeba4af66371607f9b52d88f63199be9d8dca4b35a1e174409"
-    sha256 cellar: :any,                 arm64_big_sur:  "778a4b29c03b0e5a1157690e78a53ac4ed82dc881f59a42f416772be9194967e"
-    sha256 cellar: :any,                 monterey:       "c2e61ff154139048e0ffdd23dc2389344646a81ffbf7a211ec665d39cdb607f8"
-    sha256 cellar: :any,                 big_sur:        "ed5226b1b597566cbf966d7bf4cfc560027a5279ef444c1de2abad38ffaea5c6"
-    sha256 cellar: :any,                 catalina:       "d50e051d08efd49321441dbcccd8973505d9f5e75a5b5a126946ca41e5f2a673"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90f95159abd04629455507380bb7fd86ece2e658b1009b3c4dbd48fe0f934f2a"
+    sha256 cellar: :any,                 arm64_monterey: "1e541d242060ab3e5ff9544a4a9fe61327824692e3ad8ee37db2a52709683b74"
+    sha256 cellar: :any,                 arm64_big_sur:  "0ce0917d17014e1a82c1928695fb87b3a5dcaaec638feb9e97a9e0f536e3c813"
+    sha256 cellar: :any,                 monterey:       "74d2f18f1d5bce6c64fd8c0cdb3107d754c6e4e047d8a51c5374bdd197534149"
+    sha256 cellar: :any,                 big_sur:        "530b0b23c9af599146f4acf2ca548a4881b02e96e16adc11606cbafb41dfe802"
+    sha256 cellar: :any,                 catalina:       "9a6e75c4710d0e7d9ca55119250defb2f82ac1295882f809e5bc669e8e446386"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1023cb4e3ee62d6feec535b310d4d9957e8517cedc032d16e2245fb43e750070"
   end
 
   head do
@@ -35,7 +35,7 @@ class Abyss < Formula
   fails_with gcc: "5"
   fails_with :clang # no OpenMP support
 
-  resource("testdata") do
+  resource "homebrew-testdata" do
     url "https://www.bcgsc.ca/sites/default/files/bioinformatics/software/abyss/releases/1.3.4/test-data.tar.gz"
     sha256 "28f8592203daf2d7c3b90887f9344ea54fda39451464a306ef0226224e5f4f0e"
   end
@@ -54,7 +54,7 @@ class Abyss < Formula
   end
 
   test do
-    testpath.install resource("testdata")
+    testpath.install resource("homebrew-testdata")
     if which("column")
       system "#{bin}/abyss-pe", "B=2G", "k=25", "name=ts", "in=reads1.fastq reads2.fastq"
     else

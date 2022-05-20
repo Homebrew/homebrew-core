@@ -1,8 +1,10 @@
 class Redex < Formula
+  include Language::Python::Shebang
+
   desc "Bytecode optimizer for Android apps"
   homepage "https://fbredex.com"
   license "MIT"
-  revision 7
+  revision 8
   head "https://github.com/facebook/redex.git", branch: "master"
 
   stable do
@@ -22,9 +24,12 @@ class Redex < Formula
   end
 
   bottle do
-    sha256 cellar: :any, monterey: "2b490640260fa724790d6ae825f57a90551749380c53a5b6e00bc33b00775522"
-    sha256 cellar: :any, big_sur:  "936415aa72cd6d676b6516c6edf3c190c3852d48c54ff043a26dca13d926e152"
-    sha256 cellar: :any, catalina: "955c56ea40752ce69a68f58a65900f5b4d40253ba4e32b58a230da117cd53cf6"
+    sha256 cellar: :any,                 arm64_monterey: "a163d4757ff1c42ac50de19779a2b5d50c17ef4be5bc0be4c0fad6daaa267af9"
+    sha256 cellar: :any,                 arm64_big_sur:  "ae66fa7a064e03be1b6547e0f922ecb192674697df74472c24f981f551c022cb"
+    sha256 cellar: :any,                 monterey:       "b7cdcc65eb07f62e1483cf9ed47d2002d8bc315207f4071388444ec511dd0938"
+    sha256 cellar: :any,                 big_sur:        "00629b3e7e7018c6695fe2d6a8db1c26d543662a3c30db8de461c98525076542"
+    sha256 cellar: :any,                 catalina:       "9d1e529b8d4645e7d0daeedb4b16d84e9f22e14c52b91c87430e53d863688329"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f1fb9e4c3b69e8f063212416c6f6b99c6b9a877bd4d8837296fbdeaf5ff0942"
   end
 
   depends_on "autoconf" => :build
@@ -33,7 +38,7 @@ class Redex < Formula
   depends_on "libtool" => :build
   depends_on "boost"
   depends_on "jsoncpp"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "test_apk" do
     url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
@@ -44,16 +49,28 @@ class Redex < Formula
     # https://github.com/facebook/redex/issues/457
     inreplace "Makefile.am", "/usr/include/jsoncpp", Formula["jsoncpp"].opt_include
 
-    system "autoreconf", "-ivf"
-    system "./configure", "--prefix=#{prefix}"
+    python_scripts = %w[
+      apkutil
+      redex.py
+      tools/python/dex.py
+      tools/python/dict_utils.py
+      tools/python/file_extract.py
+      tools/python/reach_graph.py
+      tools/redex-tool/DexSqlQuery.py
+      tools/redexdump-apk
+    ]
+    rewrite_shebang detected_python_shebang, *python_scripts
+
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args, "--with-boost=#{Formula["boost"].opt_prefix}"
     system "make"
     system "make", "install"
   end
 
   test do
-    resource("test_apk").stage do
-      system "#{bin}/redex", "redex-test.apk", "-o", "redex-test-out.apk"
-    end
+    testpath.install resource("test_apk")
+    system "#{bin}/redex", "--ignore-zipalign", "redex-test.apk", "-o", "redex-test-out.apk"
+    assert_predicate testpath/"redex-test-out.apk", :exist?
   end
 end
 

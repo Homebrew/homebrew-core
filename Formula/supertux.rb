@@ -4,6 +4,7 @@ class Supertux < Formula
   url "https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz"
   sha256 "f7940e6009c40226eb34ebab8ffb0e3a894892d891a07b35d0e5762dd41c79f6"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/SuperTux/supertux.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Supertux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f9677deb13c19bdd3e76c135e2fb2d961ddbf6f98d4e305fc1605e3c4a2bf103"
-    sha256 cellar: :any,                 arm64_big_sur:  "9a68b3e319f61d99118584fd5a007291db8d5c8d076c5a643b541b33eda928cf"
-    sha256 cellar: :any,                 monterey:       "63ef627b954b70207338d052603dbcc6135421549dcecd01324d10a8e9e6165e"
-    sha256 cellar: :any,                 big_sur:        "a767e80bf9819fa11cafdd3083f9e263cf10049410a3133efbcb8b112854ce35"
-    sha256 cellar: :any,                 catalina:       "1807232df5b7acccfe300a8e79353c076a9031f3056e24bf653492cf2df37472"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "201ebccb650519184532f54602b2e51911dfa079e60152bfadca5ea07b901f1c"
+    sha256 cellar: :any,                 arm64_monterey: "052322840a5515495b30ca53f026ad78731ed3e0449cbfed92a926ccc27c5199"
+    sha256 cellar: :any,                 arm64_big_sur:  "b5f2b0dbf95c98f59d7c939f7350c03aaf15482c5bca9a58afdab0d7ea8e3b41"
+    sha256 cellar: :any,                 monterey:       "df5093e4b9825cc6e270c64c57577879d8d6aa89e4803ea8f7ecd061290ee27f"
+    sha256 cellar: :any,                 big_sur:        "79a3ed56412120db54a25502c915d8375cee5c13866dc6c2fba6fd861d423268"
+    sha256 cellar: :any,                 catalina:       "10aba5baa7d1dd9e8831f360ec9818f26bae2ba89ee8a3474b00115b4a92121b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ddc402083ffea0ee2c54fb1e5eb59f86103b367b3b6de5420fa3bf3c00abd3cc"
   end
 
   depends_on "cmake" => :build

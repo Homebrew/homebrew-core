@@ -94,9 +94,7 @@ class Libhttpseverywhere < Formula
       -lsoup-2.4
       -lxml2
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

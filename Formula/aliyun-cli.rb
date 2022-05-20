@@ -2,24 +2,24 @@ class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
   url "https://github.com/aliyun/aliyun-cli.git",
-      tag:      "v3.0.107",
-      revision: "0188e444ca12ac74ad04698d19223fe7d2aff9e6"
+      tag:      "v3.0.119",
+      revision: "8b3a542cca921d27c961dfde6cba7935bfe9e745"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc531f4b20a25a4ab448980bf8ba79c80c2d3b8feae256a4113cd4beb64a30a4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0dcbc95d51649a1dd7e4a9708c7adfc5a67ea5b04685a689a30f161a75e599c2"
-    sha256 cellar: :any_skip_relocation, monterey:       "968c552fbf96033e811657658300791b570ecf944c908ed0b30008e54d28513c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6d5acf587e1af39835904d3d7920218dfdf67b34e11693aadba868c7af994ff3"
-    sha256 cellar: :any_skip_relocation, catalina:       "a3c601abe4a1cb48a2f5f238d1c63d907caec610a587788d8d70b78e2c5d4a60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30fedc2f2a680a428ff689d81b69572468113b00e2155f553748af1b961abcb6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "175d4cb3940bbac562d1e7c404182b4cf536bfd942d479332e161671ee9e11c0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7200a742551a94679584b7ea413e78f810fed383d471778898318d6ae4db9d06"
+    sha256 cellar: :any_skip_relocation, monterey:       "c885268866700e32b0ef9711530bc593d7cfcdfcac90afc9c7593ab4e40be24e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7532eda45f7df894002e7431f798c802a698cd6fce06568c71ad754c926c55cb"
+    sha256 cellar: :any_skip_relocation, catalina:       "609d3b4be7a4611a0545a7fe9bd757cedd732716c25bc1ceff2462e206a01cff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3819b350b6368276eface4159abb46ad134d13df8a15e7e878cccfc2050bb375"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/aliyun/aliyun-cli/cli.Version=#{version}"),
-                          "-o", bin/"aliyun", "main/main.go"
+    ldflags = "-s -w -X github.com/aliyun/aliyun-cli/cli.Version=#{version}"
+    system "go", "build", *std_go_args(output: bin/"aliyun", ldflags: ldflags), "main/main.go"
   end
 
   test do

@@ -10,12 +10,13 @@ class Tracebox < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_monterey: "cc4ac9edfdc0765525644d4af89bece91cf0b184d960bfb44998b8261c6402c3"
-    sha256 cellar: :any, arm64_big_sur:  "ad820978e61f8d526c9116d5f87cf834761575819e7034937c446199a912d2f6"
-    sha256 cellar: :any, monterey:       "951aba2156c33b56e146e3d8f69b3405f66ec650f17796254c0a2bcc6af59b4b"
-    sha256 cellar: :any, big_sur:        "b972c4ea4a3c130bb45f8b9a97441ea3e9b7aae20de0c1c33d5e1a19596825c1"
-    sha256 cellar: :any, catalina:       "cf183ba6385036080157a7dc032453e4c28bde55a2ebf4830e8b990b3c83e1c8"
-    sha256 cellar: :any, mojave:         "ba193e6a2a415a8fefd90890daaa21a19c3bdabeb14504699a558207affdc216"
+    sha256 cellar: :any,                 arm64_monterey: "cc4ac9edfdc0765525644d4af89bece91cf0b184d960bfb44998b8261c6402c3"
+    sha256 cellar: :any,                 arm64_big_sur:  "ad820978e61f8d526c9116d5f87cf834761575819e7034937c446199a912d2f6"
+    sha256 cellar: :any,                 monterey:       "951aba2156c33b56e146e3d8f69b3405f66ec650f17796254c0a2bcc6af59b4b"
+    sha256 cellar: :any,                 big_sur:        "b972c4ea4a3c130bb45f8b9a97441ea3e9b7aae20de0c1c33d5e1a19596825c1"
+    sha256 cellar: :any,                 catalina:       "cf183ba6385036080157a7dc032453e4c28bde55a2ebf4830e8b990b3c83e1c8"
+    sha256 cellar: :any,                 mojave:         "ba193e6a2a415a8fefd90890daaa21a19c3bdabeb14504699a558207affdc216"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cec9a216221eedd1e87a7bb434cacbe58c050fd278693b59a9a4e09dfe23638"
   end
 
   depends_on "autoconf" => :build

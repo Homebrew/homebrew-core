@@ -1,7 +1,7 @@
 class Kubeprod < Formula
   desc "Installer for the Bitnami Kubernetes Production Runtime (BKPR)"
   homepage "https://kubeprod.io"
-  url "https://github.com/bitnami/kube-prod-runtime/archive/v1.8.0.tar.gz"
+  url "https://github.com/vmware-archive/kube-prod-runtime/archive/v1.8.0.tar.gz"
   sha256 "cc2fbda4c115d164afcaaabbbef4b5824b9b09b6df95d9cce021aee50c2ad2c1"
   license "Apache-2.0"
 
@@ -15,7 +15,9 @@ class Kubeprod < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d33e013a915ab5b777bcdf0d11476c55905896c29cf168c76558bf66e6753403"
   end
 
-  depends_on "go" => :build
+  deprecate! date: "2022-03-18", because: :repo_archived
+
+  depends_on "go@1.17" => :build
 
   def install
     cd "kubeprod" do

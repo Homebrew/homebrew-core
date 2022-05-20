@@ -4,22 +4,23 @@ class LibbitcoinNetwork < Formula
   url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.6.0.tar.gz"
   sha256 "68d36577d44f7319280c446a5327a072eb20749dfa859c0e1ac768304c9dd93a"
   license "AGPL-3.0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f3793425b364b897fc7916d488a7645f735dc385edd645beb96e6b5681891ea8"
-    sha256 cellar: :any,                 arm64_big_sur:  "424e25564e199005eb3944f8e682ac6c07803833494b9b89df2175e93b7ba34b"
-    sha256 cellar: :any,                 monterey:       "7c51f436a31f94b18ca3d462c5797b7bf9fb63e1dabcbfdcc77f881a61ffe923"
-    sha256 cellar: :any,                 big_sur:        "21053287aadad7716c0b0471778e8b88d542d8b8628e505f917ffd20f8ebe78c"
-    sha256 cellar: :any,                 catalina:       "6ab4e56e5f996fe7441564b5998b4bd7ef7350fb6cfc5dda22b0efd55d64ef80"
-    sha256 cellar: :any,                 mojave:         "3f856ae06429e04d02fafefd40ad3ec6732f0b644e126fc3f5f3d42ad92c7e2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ab35bf2bc8d91ab8cdb61a68883fa383676acf5088851a8affae7962175bd9a"
+    sha256 cellar: :any,                 arm64_monterey: "f63e59fce512e4075d886ca920977a340092a06ca6a77a4a30a3e29487f30af1"
+    sha256 cellar: :any,                 arm64_big_sur:  "d5b25de58273e7a75f3ab79ec9b191b01bebdf9901a3345ff2e9a1df23ba0bad"
+    sha256 cellar: :any,                 monterey:       "7a342860fe4bc338f783efd3f1d1f7dee8247c5aed93f313c679ac02c3a09b9a"
+    sha256 cellar: :any,                 big_sur:        "afb63dab758788b425675d7e6920c74259e682c7a8e67ebe3c47016b715e70b2"
+    sha256 cellar: :any,                 catalina:       "7ace1c57a1959c1dbbf2fe3dfe468dc5f5ffb37944bc21ad7f817df308b7d661"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b6f7ca20b8d9bfd7599d1358f9b38458f247120a2ccd6d3ef1f082de188fd21"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  # https://github.com/libbitcoin/libbitcoin-system/issues/1234
+  depends_on "boost@1.76"
   depends_on "libbitcoin"
 
   def install
@@ -30,12 +31,12 @@ class LibbitcoinNetwork < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
+                          "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
     system "make", "install"
   end
 
   test do
-    boost = Formula["boost"]
+    boost = Formula["boost@1.76"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/network.hpp>
       int main() {
@@ -47,9 +48,10 @@ class LibbitcoinNetwork < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-I#{boost.include}",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-network",
-                    "-L#{boost.opt_lib}", "-lboost_system"
+                    "-L#{boost.lib}", "-lboost_system"
     system "./test"
   end
 end

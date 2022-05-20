@@ -1,23 +1,16 @@
 class Telnet < Formula
   desc "User interface to the TELNET protocol"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
-  sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
+  url "https://github.com/apple-oss-distributions/remote_cmds/archive/refs/tags/remote_cmds-64.tar.gz"
+  sha256 "9beae91af0ac788227119c4ed17c707cd3bb3e4ed71422ab6ed230129cbb9362"
   license all_of: ["BSD-4-Clause-UC", "APSL-1.0"]
 
-  livecheck do
-    url "https://opensource.apple.com/tarballs/remote_cmds/"
-    regex(/href=.*?remote_cmds[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "83fb633f08504f7f2e89c866530c4ee83798e043eeb5a1974919311651c99c37"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "563fcbef08590e48a07079f00877e14f22f54849db11ee02ba7c935499a7ccd1"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0b297685d31e574035700bd31e2003e81cad22c6d5b5a0f746d7b9b0be20f90"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e6fb7de53e703755a72e227752f81023c2935567d935af638959e986da910b3e"
-    sha256 cellar: :any_skip_relocation, catalina:       "7435a9fd2515158762a85197a4ad7141e430383e185e002da169dbbb638c952f"
-    sha256 cellar: :any_skip_relocation, mojave:         "d5009f496dc6cf0c13b936996f98b91b0f12733ea9462843b56a39fc53b20fe0"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "af38f3c6dd4ff5eda2248671958e66595b39e74cdeecca52af4efb495bc659a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf76f3b47cf35efd4d271adf52227e463298005ec9b1ac586b629d5ad94522cf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee7b09914ace1a19c919373b7199f90bbe1204137ac3412e4d6b129af8afef88"
+    sha256 cellar: :any_skip_relocation, monterey:       "e7d411ac808b074f661caf470c170e0c3e01746e818e5654400b7adbc418e941"
+    sha256 cellar: :any_skip_relocation, big_sur:        "792bf380076d34dc7e3150ab900c6fabbaac605da31a0a7f3836119fb9ed53ea"
+    sha256 cellar: :any_skip_relocation, catalina:       "2ba6a3f8043930a9cf490e88d269c54e8b59697d0a0faa62eb18d389b6ce9c7b"
   end
 
   depends_on xcode: :build
@@ -42,9 +35,6 @@ class Telnet < Formula
       libtelnet_dst.install "build/Release/usr/local/include/libtelnet/"
     end
 
-    # Workaround for
-    # error: 'vfork' is deprecated: Use posix_spawn or fork
-    ENV.append_to_cflags "-Wno-deprecated-declarations"
     ENV.append_to_cflags "-isystembuild/Products/"
     system "make", "-C", "telnet.tproj",
                    "OBJROOT=build/Intermediates",

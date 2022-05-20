@@ -1,18 +1,18 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.6.3/xmake-v2.6.3.tar.gz"
-  sha256 "43c739b8faa3be986f95421c7ba1e135ff18d4723fb88b7e0bb0cdd27ef37430"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.6.5/xmake-v2.6.5.tar.gz"
+  sha256 "868f109f660d3f42d8f67aad71b8075b7c3b606d7529956bfc94ad052bb8c1bd"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "304fbc5d5dc9f058a52e5fc34596ac2992fb8b10a599cac8cb53132ddc85f4dd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "304fbc5d5dc9f058a52e5fc34596ac2992fb8b10a599cac8cb53132ddc85f4dd"
-    sha256 cellar: :any_skip_relocation, monterey:       "1238a11b383969d646d468eacce1e72505d3dba055825141633e8c8c33cca00a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aaa62929287d0207c7e8e8f41002901babf920ceab9e2280f767442f9724954a"
-    sha256 cellar: :any_skip_relocation, catalina:       "974ee287dceff056a0900edc1234410f4e5eda87bb4c6a73fd3727a46e2f5436"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aaf9c99ca22dccf829afc4cce4b21c50327fc12a8bc1d17bdda465f55a8a51f5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "85b7c3125fecdc983d44faa26b29f6a03e997fdfcc7dc90a8af5fbf1e60e1c73"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f6afc9d2060838214ca517c1f59271742519baa8c429a952fd3c04952005323d"
+    sha256 cellar: :any_skip_relocation, monterey:       "71b7f08020ce93d0519d0cab7fa0aa081ab2f3880b802dd2ffde04d092f238eb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5dbece780215f07b4769e47dd1fcb044553272a75fb42237d118274547fc9aad"
+    sha256 cellar: :any_skip_relocation, catalina:       "41af3e93e9539e10df6ec63841a6cddbaec0df56ef47b56abffe05f7da4940d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e89453aafcecf53467b9d1a0125c37cda263314ca61bd4492d4acf61445501f6"
   end
 
   on_linux do
@@ -27,9 +27,7 @@ class Xmake < Formula
   end
 
   test do
-    on_linux do
-      ENV["XMAKE_ROOT"] = "y" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    ENV["XMAKE_ROOT"] = "y" if OS.linux? && (ENV["HOMEBREW_GITHUB_ACTIONS"])
     system bin/"xmake", "create", "test"
     cd "test" do
       system bin/"xmake"

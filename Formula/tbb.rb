@@ -4,14 +4,15 @@ class Tbb < Formula
   url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.5.0.tar.gz"
   sha256 "e5b57537c741400cf6134b428fc1689a649d7d38d9bb9c1b6d64f092ea28178a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "804b72c51e22dfa98d7252a3e187b06c22244ac09ddcdee8aa78ece343083f18"
-    sha256 cellar: :any,                 arm64_big_sur:  "f869d3475a70d54683b257434dfdb7496b7872e7aa4e214287b69777515692e0"
-    sha256 cellar: :any,                 monterey:       "b0b026ab6a6cacf1be163f6344862a3102efe93627cc71c8da38443e1c43bb70"
-    sha256 cellar: :any,                 big_sur:        "4d2baf8e746cc56b7564207865ca491313262904a414c281f6b32c15160b74a2"
-    sha256 cellar: :any,                 catalina:       "8853e627df0ac701d1378531e2eaf2cee7bc6f7e6f07f904e49e405aa1175315"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b80392a4505b4116bb4d551c95d12fd3c1ad59162950024b03a48b2e29edaf1b"
+    sha256 cellar: :any,                 arm64_monterey: "c70f9d3c24cb86290c6d371179f6d01afcdd13c3a9bad26ee36baa2262c142a8"
+    sha256 cellar: :any,                 arm64_big_sur:  "4e6a51639e5a92a15b5a52abf3937870536eb97273228635698a82da78757b65"
+    sha256 cellar: :any,                 monterey:       "8323879a2adfcfc50d60fa20adcfe709a00797a1bc698d8cd3b967bd5f3bee2c"
+    sha256 cellar: :any,                 big_sur:        "af411c6cabc26792c73f8605f7c22bd6ddec9405e30b32a2782592c1056b90ce"
+    sha256 cellar: :any,                 catalina:       "244bb7fd1ae57141d3cd3eb01685f7364f475778fbb51fa8aa371c24737736fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa2dca8daa7a939d9dd52162911d95dee683b42c4b1f0e9cadb5fa0b5bf1a9dc"
   end
 
   depends_on "cmake" => :build
@@ -29,9 +30,13 @@ class Tbb < Formula
     ]
 
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make"
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=OFF"
+      system "make"
+      lib.install Dir["**/libtbb*.a"]
     end
 
     cd "python" do

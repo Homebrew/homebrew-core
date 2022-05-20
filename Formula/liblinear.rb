@@ -1,8 +1,8 @@
 class Liblinear < Formula
   desc "Library for large linear classification"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/liblinear/"
-  url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.43.tar.gz"
-  sha256 "02bad43d745e2796f39a08ac9d117770e71939ef06b1ee7afc6ab7909e304807"
+  url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.44.tar.gz"
+  sha256 "45572b99d4eeffc3e8ad7b72c27370be867edf3523c396d8b278a2c873bfbb5c"
   license "BSD-3-Clause"
   head "https://github.com/cjlin1/liblinear.git", branch: "master"
 
@@ -12,12 +12,11 @@ class Liblinear < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "1331f0607a09c1c2ab02e24b79a3923d4d6b42db87663c2cc02a08b33462ebd2"
-    sha256 cellar: :any, arm64_big_sur:  "aca85fb0c9bedeb95d6f9ebfa7f276ecc730dc62f4c4f57280cc2b8d935d04ea"
-    sha256 cellar: :any, monterey:       "f7397f0a43f8de1cb2add67a3a2b16c2e45997259ed227a5541ea20a7040b0ab"
-    sha256 cellar: :any, big_sur:        "6cb465de42446200b77938139b8249b0feea08442b5cca7b72549f2d97e883dc"
-    sha256 cellar: :any, catalina:       "d1e10b22338d6a746fa8c05b68133f6439c58c1ed3a4728b1c5a4e7e7d3d7d6e"
-    sha256 cellar: :any, mojave:         "60fc530063ad3f9f304cb7cfa739aa6974ed6f89b0f3218dceb6f4fc060d2e77"
+    sha256 cellar: :any, arm64_monterey: "0f496d85ea12f35bd6b69d1849d8db10d77dfc598b9b1a2e52d497a361efef0a"
+    sha256 cellar: :any, arm64_big_sur:  "30ae9909931985aa38757d4e672de1443d1b90ddcba1adcf3fb6f032793c41e8"
+    sha256 cellar: :any, monterey:       "44f98075df89547f680f8ff9c22c855ba8abb37e748bb715e459688a37a05a13"
+    sha256 cellar: :any, big_sur:        "0254d6ff53ed4b920f30f7825def66c7620f513a80d6b57304ecb0df26708810"
+    sha256 cellar: :any, catalina:       "c0bb83cc29780a4433b1c8b95b0f9232277e1b3337e308c8b0761faa20fbf7d2"
   end
 
   # Fix sonames

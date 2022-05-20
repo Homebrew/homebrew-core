@@ -2,6 +2,7 @@ class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/resources/software/yaz/"
   license "BSD-3-Clause"
+  revision 2
 
   stable do
     url "https://ftp.indexdata.com/pub/yaz/yaz-5.31.1.tar.gz"
@@ -14,19 +15,24 @@ class Yaz < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "bcab7919ac7e0c4c8e0e077622193a6bd4cd7b58c7715376aa6675e71eb6b87d"
-    sha256 cellar: :any,                 arm64_big_sur:  "6e8441355f2049e16ac5f66df8cb458199dca132f574057b36f819cb10c5b563"
-    sha256 cellar: :any,                 monterey:       "625cbdf4bf9dc3571df41fae49bbd66d4431f69c964e5b1414fd7ee0502e3fcb"
-    sha256 cellar: :any,                 big_sur:        "47a5ed5c62c9edf756123a8563da840de4dd9faedafecb00a0a4cd8e437be8a9"
-    sha256 cellar: :any,                 catalina:       "e407505a0d004b0fb8d28aa328a8fa89bd1740fbdfc81e36f14e3078d0104d21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d58e6deba9fe27a994c5d08f3e00c1ce3033a397c39ab66a11c31b9cc5e59cb0"
+    sha256 cellar: :any,                 arm64_monterey: "923f0919d3e65c3b61ad8f90641db2dbb199b53cd6ecf651add576633e35b67c"
+    sha256 cellar: :any,                 arm64_big_sur:  "c50a90da020887b4a7f6ca986061225ae1493cc1ea5bc0da7c4f5e8cdca54e4b"
+    sha256 cellar: :any,                 monterey:       "d4573e9eba835bde601ad2f3e202844e9267f5514b5f83662d800c552cee1be8"
+    sha256 cellar: :any,                 big_sur:        "ae3de529018e63dda8090880bcd454e3725ca2729b94df67140b8b6ffed0143b"
+    sha256 cellar: :any,                 catalina:       "f867dbc67ba829e5e905ab6d9dec27c3b342873903b6dcbf71404a4e6ebbfeed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "febd7d4ad3b81e84619eaa27dc033e5756d917e0b2f784f6d260f6ffe08178b0"
   end
 
   head do
     url "https://github.com/indexdata/yaz.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "docbook-xsl" => :build
     depends_on "libtool" => :build
+
+    uses_from_macos "bison" => :build
+    uses_from_macos "tcl-tk" => :build
   end
 
   depends_on "pkg-config" => :build
@@ -34,13 +40,17 @@ class Yaz < Formula
   depends_on "icu4c"
 
   uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   def install
-    system "./buildconf.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    if build.head?
+      ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+      system "./buildconf.sh"
+    end
+    system "./configure", *std_configure_args,
                           "--with-gnutls",
-                          "--with-xml2"
+                          "--with-xml2",
+                          "--with-xslt"
     system "make", "install"
   end
 

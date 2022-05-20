@@ -1,8 +1,8 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_0.99.45.tar.xz"
-  sha256 "87649f594b8e6e8fb9426d437b1cd651240e073624ffbe0e5268b686759af2a5"
+  url "https://www.giuspen.com/software/cherrytree_0.99.47.tar.xz"
+  sha256 "1b551ee00f788d21ebda3123495a88da293467b8a53bb78fb4fae957c452d024"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,11 +11,12 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "bfb5a3b14a4a62259d25ae17a6842d30531936d0c73632a9bfbeb5bc39ed5d2c"
-    sha256 arm64_big_sur:  "1e1b056e3fdec0d7cba717f263dcaef1118972a16cd0b4b9fcf92875b1d66513"
-    sha256 monterey:       "d7fcc3ded3f25ac9fafa9208c653e319404fce604ce0b94f54a801288f41226f"
-    sha256 big_sur:        "8e84898987639bf2e21edf7c8580964663cfd3d52d1a787e36f5dc952cc2932a"
-    sha256 catalina:       "210e40271e3cd19ca54cb3917214d13df911c73885d93c514429d92f607da418"
+    sha256 arm64_monterey: "719a2a9e6f7f2e5cf2d8551ebc950852d5285e112eb51c149b8b6d1ba695b938"
+    sha256 arm64_big_sur:  "7c6575fd74aad453d3a59d274cc05bce335209bc9cfc52896417af3d0ebd4b98"
+    sha256 monterey:       "0658c77389e7ceff243b5aed1bf706ddd6efcfc21096c325d4ca80c35b71a4d0"
+    sha256 big_sur:        "bf1bc700fb367ec574eab60d404f8bd67a095322f876a3fb6b29874f864c6a50"
+    sha256 catalina:       "3f005d7b897aa4f528ea4767f4733db8a24f199cfa0bf81d7d3d8f5e3c596578"
+    sha256 x86_64_linux:   "d0e44b554461cc96f1d948a8421dd926673504ee1481f20e662017289b74ddc4"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +33,12 @@ class Cherrytree < Formula
 
   uses_from_macos "curl"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # Needs std::optional
+
   def install
     system "cmake", ".", "-DBUILD_TESTING=''", "-GNinja", *std_cmake_args
     system "ninja"
@@ -39,6 +46,9 @@ class Cherrytree < Formula
   end
 
   test do
+    # (cherrytree:46081): Gtk-WARNING **: 17:33:48.386: cannot open display
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     (testpath/"homebrew.ctd").write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <cherrytree>

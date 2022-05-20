@@ -1,21 +1,22 @@
 class BaidupcsGo < Formula
   desc "Terminal utility for Baidu Network Disk"
   homepage "https://github.com/qjfoidnh/BaiduPCS-Go"
-  url "https://github.com/qjfoidnh/BaiduPCS-Go/archive/v3.8.5.tar.gz"
-  sha256 "0d1a95b6ae3e6fb330d157368337ee1c596498eb4a10c5984c3ee100e981506c"
+  url "https://github.com/qjfoidnh/BaiduPCS-Go/archive/v3.8.7.tar.gz"
+  sha256 "e365fabee470ea5ab51b9ba034b5168dca1d0d537ab36274a17bfc460036b965"
   license "Apache-2.0"
   head "https://github.com/qjfoidnh/BaiduPCS-Go.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "55d6ed1661f5bcc77dd2c6a9a230eaf3024c34543eec132b7f3e268d6f032ec5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a92c96e64d4e967fd6355ccb4f02980e8311d7431861c7c00134be72765e56b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "5002411de5624d982114461a20812f7b8e3bb731fd055ac300fcf6d9069887c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "576cbdbadb43f6abb0ede6f8e738858bf72a5a483d6d1afc1425e3465bef8a7b"
-    sha256 cellar: :any_skip_relocation, catalina:       "d37c17419f4987928c5be59dddbf66d4130adb20de6a7fab729679569696c995"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd19473b665ad7777bc07394675b8b054d15d9d465589a7623c87001210a427f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "111eefb9c7f8ae719169eac7077e8bddf33b2cdd00bad03feef94d40eab5742e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "80eaa1ecbad6e50225610d22350ae9cb678343b2eb087672af9250497fc903b9"
+    sha256 cellar: :any_skip_relocation, monterey:       "b3a4ad281be6a60c5e5fe09af3c5720aa1f6dbae5715c43c803f035a7571ee30"
+    sha256 cellar: :any_skip_relocation, big_sur:        "76a4a15ce1ead939d054a42600fde14db16174dd75c6206718af10c8fb98e927"
+    sha256 cellar: :any_skip_relocation, catalina:       "2b330c09d1b39ead114981227255ff65090e316cadff7454272ac16893b12818"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0aea12e4a2d233097b5a9e1d1f5eb98950699ba8ac2746f08c927a92aec8cab"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

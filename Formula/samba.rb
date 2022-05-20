@@ -4,10 +4,9 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.15.5.tar.gz"
-  sha256 "69115e33831937ba5151be0247943147765aece658ba743f44741672ad68d17f"
+  url "https://download.samba.org/pub/samba/stable/samba-4.16.0.tar.gz"
+  sha256 "97c47de35915d1637b254f02643c3230c3e73617851700edc7a2a8c958a3310c"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.samba.org/samba/download/"
@@ -15,17 +14,18 @@ class Samba < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "d0e4f39f3735d7c604be5226085be74efcd0e4a7d8799150b4e0c4c749380dce"
-    sha256 arm64_big_sur:  "ea73604ad9de7fb21ba00ba9cf9b508a9f04ae56ffed1ac056066e8247c9b733"
-    sha256 monterey:       "c1a0b21ce6f68f5a94264f2c2c16dbc0bddd24945bbc20cccaccec39cb795532"
-    sha256 big_sur:        "a1b0f75c5b9828ff32f61345e8f1e49b6662db05f07934bc8acae915c80cb85f"
-    sha256 catalina:       "7ff8e6e103d569dc6d0d12bfda4dd5cd649219bd51224e97ae2d42958715d096"
-    sha256 x86_64_linux:   "e41ca8efab7004d35260963ffe102b6ec9c889cd3ef01034b103352027eca5d1"
+    sha256 arm64_monterey: "e0c50a59ab88a1d3a9d3be66880f2566622da03cf356a2df5e1d3f44e7ef438b"
+    sha256 arm64_big_sur:  "f721f9262e0cfd35e2648731f4c31ca006e35c68b6981dc456377f9a2e0ad072"
+    sha256 monterey:       "b7b5ef9cbb5d54be2c5633250cacf4877295b6bd86de7cd7ad08ab3a417c20f6"
+    sha256 big_sur:        "4090b62197888b5a7920d08ade7ef2654e1bab9bb939b401d75586332cbb7648"
+    sha256 catalina:       "414eaf8c4ad02fd972c1b8f1c7248fb6c3f18ea3faa38cdfaebcbd23d3800649"
+    sha256 x86_64_linux:   "f9f89ac1551ae5c28091fd97f904f20c0ed39e0e5dbccdb6cd0a9b2b524cabee"
   end
 
   # configure requires python3 binary to be present, even when --disable-python is set.
   depends_on "python@3.10" => :build
   depends_on "gnutls"
+  depends_on "krb5"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -34,14 +34,6 @@ class Samba < Formula
   resource "Parse::Yapp" do
     url "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
     sha256 "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5"
-  end
-
-  # [PATCH] smbd: Safeguards for getpwuid
-  # Fix `Regression: Samba 4.15.2 on macOS segfaults intermittently during strcpy in tdbsam_getsampwnam`
-  # https://bugzilla.samba.org/show_bug.cgi?id=14900
-  patch do
-    url "https://attachments.samba.org/attachment.cgi?id=17147"
-    sha256 "ca414d668d4c669e9d1886ccfc81bf5215f002ae7a2ca9491ac99548dd88bf9b"
   end
 
   def install
@@ -74,6 +66,7 @@ class Samba < Formula
            "--without-utmp",
            "--without-winbind",
            "--with-shared-modules=!vfs_snapper",
+           "--with-system-mitkrb5",
            "--prefix=#{prefix}",
            "--sysconfdir=#{etc}",
            "--localstatedir=#{var}"
@@ -99,9 +92,10 @@ class Samba < Formula
   end
 
   test do
-    smbd = "#{sbin}/smbd"
-    on_macos do
-      smbd = "#{sbin}/samba-dot-org-smbd"
+    smbd = if OS.mac?
+      "#{sbin}/smbd"
+    else
+      "#{sbin}/samba-dot-org-smbd"
     end
 
     system smbd, "--build-options", "--configfile=/dev/null"

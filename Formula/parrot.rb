@@ -22,6 +22,11 @@ class Parrot < Formula
     end
   end
 
+  livecheck do
+    url "http://ftp.parrot.org/releases/supported/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     sha256 arm64_monterey: "91f7d2f17e362ea66be0f7706414a1241d5af6f8bce0c7054c1e0ef1ba39bad5"
     sha256 arm64_big_sur:  "d8a39b997791e6fc739322075c52ae288072b787d5f3f401b1040a6548649f63"
@@ -33,7 +38,10 @@ class Parrot < Formula
     sha256 sierra:         "e8c50fee6a2111412b5f6ac31292f3ff7d3e4dd2be9a02cc94a890026588ae63"
     sha256 el_capitan:     "3b78be029276ca642cb2bc705888ed0cd7745c0398cf90bf67031190191c76a8"
     sha256 yosemite:       "37a9ad2396bcf355d6d7ae2d432489e316d3290528947a6f1a30e753fed59902"
+    sha256 x86_64_linux:   "26b301714008aa6c10ecd25b10d01bf361ed4772b90af0a9d50936d2108f9013"
   end
+
+  uses_from_macos "zlib"
 
   conflicts_with "rakudo-star"
 

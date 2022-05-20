@@ -1,9 +1,9 @@
 class Libopenmpt < Formula
   desc "Software library to decode tracked music files"
   homepage "https://lib.openmpt.org/libopenmpt/"
-  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.6.1+release.autotools.tar.gz"
-  version "0.6.1"
-  sha256 "c0bada4bebfc707961111bdb5ff6bbe337f5d71e837e8278f2e362a909eb925b"
+  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.6.3+release.autotools.tar.gz"
+  version "0.6.3"
+  sha256 "a410afeb7cd5970b16b9a6ce7daccf495b1a5e9121a9d6442de0c028fd54a25b"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class Libopenmpt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5ae693ffcf795c795753afa50d8306ed888b90c6569c1fcb3bde280912d26c3d"
-    sha256 cellar: :any,                 arm64_big_sur:  "37a157780ba7ef0507a3da11bd350796d3e26a16ac7cc9e128c07d76e0ad163b"
-    sha256 cellar: :any,                 monterey:       "e1acfb7fc4921077f5700c1e51be6f7ce2a15cd8cfcb9cb13be9595969a337b5"
-    sha256 cellar: :any,                 big_sur:        "9207908fabb5d34783165c9d46bcf792940bf6c7fdb90991c7dcf51705fca428"
-    sha256 cellar: :any,                 catalina:       "88a75a6df13605b5b3398aebe2489c38bf5b347c50e4cdb630d8c53096032677"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18c7ae4c72b1606180b5eca6780df3603408d5a3908bf6ca25f74dda7a1930e3"
+    sha256 cellar: :any,                 arm64_monterey: "0eb53cb23e34cc2d7116342b8f50aa2481447998949bc8ed22a67d04d4f4f717"
+    sha256 cellar: :any,                 arm64_big_sur:  "edadba2b2195b66b53d764249527ef5294badaf175c678ed58711153ea9cfdd9"
+    sha256 cellar: :any,                 monterey:       "20205d6a2c015ea5a92504f721780f17a959a9f5e7103fff9bd36b6155715b76"
+    sha256 cellar: :any,                 big_sur:        "cff4b53361e26c0c7b32c14017d305bb00cdb356a65c53d180c092fdadc85e3c"
+    sha256 cellar: :any,                 catalina:       "43d3a996c15055afcc0fe14628cd472219d42997641acb77dc45b8d4343ba73d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27aec280ef3ff37b23a2a3e5c6c82a05f808da9af2067ee722ec8cb72cfbbe21"
   end
 
   depends_on "pkg-config" => :build

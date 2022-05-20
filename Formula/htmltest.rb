@@ -1,18 +1,17 @@
 class Htmltest < Formula
   desc "HTML validator written in Go"
   homepage "https://github.com/wjdp/htmltest"
-  url "https://github.com/wjdp/htmltest/archive/v0.15.0.tar.gz"
-  sha256 "d8a8fa1f7ce6cf7a05401fa7ae3f1dd85e4abb2f0354f8825a2e628d4824df9b"
+  url "https://github.com/wjdp/htmltest/archive/v0.16.0.tar.gz"
+  sha256 "f6db6cd746cf8f28063ce806bb8b02e53165808f85400c93e844f9c51822e47e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7507678413c0f673c241ba842bb27138c875356df6cdc67ceb7c1906a4b7a8d5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c56728f224b74a174a7a0dd84632a00fc514497a0770d907420af74bc668a32f"
-    sha256 cellar: :any_skip_relocation, monterey:       "ce41afd6ef389eeeaf5c9b26a9423e03ea562a6349ad7248664a3a1afbf699d8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "02514122a2096f262dbd9fb76726eae3e375d5ed6fa682e465551e694ac48072"
-    sha256 cellar: :any_skip_relocation, catalina:       "3bf67d5d510e565c05e18f03cb36efbf07c5f6f9a7a175375b5b662f2ea51037"
-    sha256 cellar: :any_skip_relocation, mojave:         "19196540163714c7de59083a8957e8670b4befba3e3c6f2217ff308c3b1be824"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f69d59bdeeafbb3d552668b1d8dc387b90eefbae9ae78489b71fd324463d3658"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6af932fffd9a8a5917648b948909a8feaaf80e35cce13d4df74d334a2ccb5841"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "736a23d87214b401dbe5798e60bd8068142e68c010ed68c1d2c076a3c51bf799"
+    sha256 cellar: :any_skip_relocation, monterey:       "99bde810401bbdf86f8a10ae9d8a26f1fc9a34b11cad4887947132677795e774"
+    sha256 cellar: :any_skip_relocation, big_sur:        "63836ae3db30e6bcbe70768355c9730a4dbd36fae0fed097dd7b6dc220611769"
+    sha256 cellar: :any_skip_relocation, catalina:       "6fc34ea39270980857f8777f47e758b08fc1fbbef50fcea6d87a1172231795dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ac1cc7ed8a8917d9050619070c6718e912c9c49d2fd8279f5979256eae20c37"
   end
 
   depends_on "go" => :build

@@ -1,10 +1,10 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
-  homepage "https://github.com/eribertomota/axel"
+  homepage "https://github.com/axel-download-accelerator/axel"
   url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.11/axel-2.17.11.tar.xz"
   sha256 "580b2c18692482fd7f1e2b2819159484311ffc50f6d18924dceb80fd41d4ccf9"
   license "GPL-2.0-or-later"
-  head "https://github.com/eribertomota/axel.git", branch: "master"
+  head "https://github.com/axel-download-accelerator/axel.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "483732a5fda41e8592d78ce2d4df86362e60f61bbeb41081beaf382f211edea3"
