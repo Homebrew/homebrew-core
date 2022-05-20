@@ -3,10 +3,10 @@
 class QtAT5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.3/single/qt-everywhere-opensource-src-5.15.3.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.3/single/qt-everywhere-opensource-src-5.15.3.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.3/single/qt-everywhere-opensource-src-5.15.3.tar.xz"
-  sha256 "b7412734698a87f4a0ae20751bab32b1b07fdc351476ad8e35328dbe10efdedb"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.4/single/qt-everywhere-opensource-src-5.15.4.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.4/single/qt-everywhere-opensource-src-5.15.4.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.4/single/qt-everywhere-opensource-src-5.15.4.tar.xz"
+  sha256 "615ff68d7af8eef3167de1fd15eac1b150e1fd69d1e2f4239e54447e7797253b"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
   bottle do
@@ -60,8 +60,8 @@ class QtAT5 < Formula
 
   resource "qtwebengine" do
     url "https://code.qt.io/qt/qtwebengine.git",
-        tag:      "v5.15.8-lts",
-        revision: "96e932d73057c3e705b849249fb02e1837b7576d"
+        tag:      "v5.15.9-lts",
+        revision: "4f570bd7add21725d66ac8396dcf21917c3a603f"
   end
 
   # Backport of https://code.qt.io/cgit/qt/qtbase.git/commit/src/plugins/platforms/cocoa?id=dece6f5840463ae2ddf927d65eb1b3680e34a547
@@ -71,30 +71,31 @@ class QtAT5 < Formula
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtbase/commit/cd1646f00ae9df9824a639d01a2be708f85235fe.patch"
-    sha256 "c441973c3af66e6d58cce39d39b6e18d5832d942371ffd8c149ef732210c8e2c"
+    url "https://invent.kde.org/qt/qt/qtbase/commit/ccc0f5cd016eb17e4ff0db03ffed76ad32c8894d.patch"
+    sha256 "ad97b5dbb13875f95a6d9ffc1ecf89956f8249771a4e485bd5ddcbe0c8ba54e8"
     directory "qtbase"
   end
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtbase/commit/8bcf1828f4d75606fb8d6913dfe09e2363a06cac.patch"
-    sha256 "f216814efff6c834fcdc0dae4c54bec0b4ef41132f78c6d0a4c6bf7f6feafda2"
-    directory "qtbase"
-  end
-
-  # Fix build for GCC 11
-  patch do
-    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/3c42d4d3dce95b67d65541c5612384eab0c3e27b.patch"
-    sha256 "e8943934af0cea22814b526ca75abf98cacac2d0f86e2b2c9588c694a859f9d2"
+    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/8da88589929a1d82103c8bbfa80210f3c1af3714.patch"
+    sha256 "9faedb41c80f23d4776f0be64f796415abd00ef722a318b3f7c1311a8f82e66d"
     directory "qtdeclarative"
   end
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/0eb5ff2e97713e12318c00bab9f3605abb8592c2.patch"
-    sha256 "496241b7810f8073c82b781c7c4addb38a4ec3fbe3e7cafff56b0d0e340e2d5f"
+    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/ba07a40a2afacfb57ddb8f7cb4cc90a39560f17d.patch"
+    sha256 "44f620ebf210f8f894142c9bcdfd38a0b916f3743f7c9dd0c0327430cc582224"
     directory "qtdeclarative"
+  end
+
+  # Update Chromium
+  # https://code.qt.io/cgit/qt/qtwebengine.git/patch/?id=404a40de5862c8ab24992ea4dcd2f8ef63f5e080
+  patch do
+    url "https://invent.kde.org/qt/qt/qtwebengine/commit/404a40de5862c8ab24992ea4dcd2f8ef63f5e080.patch"
+    sha256 "c7055bc4853a5cd8acdc54fe8808b5fea908ed3d5f089ad5966971350e377eaa"
+    directory "qtwebengine"
   end
 
   # Patch for qmake on ARM
