@@ -14,23 +14,55 @@ class Nco < Formula
   end
 
   head do
-    url "https://github.com/nco/nco.git"
+    url "https://github.com/nco/nco.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
-  depends_on "antlr@2" # requires C++ interface in Antlr2
+  depends_on "openjdk" => :build # needed for antlr2
   depends_on "gsl"
   depends_on "netcdf"
   depends_on "texinfo"
   depends_on "udunits"
+
+  uses_from_macos "flex" => :build
 
   resource "homebrew-example_nc" do
     url "https://www.unidata.ucar.edu/software/netcdf/examples/WMI_Lear.nc"
     sha256 "e37527146376716ef335d01d68efc8d0142bdebf8d9d7f4e8cbe6f880807bdef"
   end
 
+  resource "antlr2" do
+    url "https://github.com/nco/antlr2.git",
+     branch:   "master",
+     revision: "4fb7744d244eee46a981930c6bd1fd43dafe3f20"
+
+    # Fix upstreamed here: https://github.com/nco/antlr2/pull/1.
+    patch :DATA
+  end
+
   def install
+    resource("antlr2").stage do
+      system "./configure", "--prefix=#{buildpath}",
+                            "--disable-debug",
+                            "--disable-csharp"
+      system "make"
+
+      (buildpath/"libexec").install "antlr.jar"
+      (buildpath/"include").install "lib/cpp/antlr"
+      (buildpath/"lib").install "lib/cpp/src/libantlr.a"
+
+      (buildpath/"bin/antlr").write <<~EOS
+        #!/bin/sh
+        exec "#{Formula["openjdk"].opt_bin}/java" -classpath "#{buildpath}/libexec/antlr.jar" antlr.Tool "$@"
+      EOS
+
+      chmod 0755, buildpath/"bin/antlr"
+    end
+
+    ENV.append "CPPFLAGS", "-I#{buildpath}/include"
+    ENV.append "LDFLAGS", "-L#{buildpath}/lib"
+    ENV.prepend_path "PATH", buildpath/"bin"
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -44,3 +76,14 @@ class Nco < Formula
     assert_match "\"time\": 180", output
   end
 end
+
+__END__
+--- a/lib/cpp/antlr/CharScanner.hpp     2006-11-01 22:37:17.000000000 +0100
++++ b/lib/cpp/antlr/CharScanner.hpp     2008-03-19 20:09:21.000000000 +0100
+@@ -10,6 +10,8 @@
+
+ #include <antlr/config.hpp>
+
++#include <cstdio>
++#include <cstring>
+ #include <map>
