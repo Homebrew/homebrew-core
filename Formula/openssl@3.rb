@@ -5,6 +5,7 @@ class OpensslAT3 < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.3.tar.gz"
   sha256 "ee0078adcef1de5f003c62c80cc96527721609c6f3bb42b7795df31f8b558c0b"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://www.openssl.org/source/"
@@ -52,6 +53,7 @@ class OpensslAT3 < Formula
       --prefix=#{prefix}
       --openssldir=#{openssldir}
       --libdir=#{lib}
+      enable-fips
       no-ssl3
       no-ssl3-method
       no-zlib
@@ -108,6 +110,9 @@ class OpensslAT3 < Formula
   def post_install
     rm_f openssldir/"cert.pem"
     openssldir.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
+    system "#{bin}/openssl", "fipsinstall",
+           "-out", "#{openssldir}/fipsmodule.cnf",
+           "-module", "#{lib}/ossl-modules/#{shared_library("fips")}"
   end
 
   def caveats
@@ -118,6 +123,10 @@ class OpensslAT3 < Formula
 
       and run
         #{opt_bin}/c_rehash
+
+      The FIPS module has been installed.  The generated configuration file is at
+        #{openssldir}/fipsmodule.cnf
+      If desired, activate it as described in fips_module(7).
     EOS
   end
 
