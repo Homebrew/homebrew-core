@@ -7,6 +7,8 @@ class Tinysearch < Formula
   head "https://github.com/tinysearch/tinysearch.git", branch: "master"
 
   depends_on "rust" => :build
+
+  depends_on "rustup-init"
   depends_on "wasm-pack"
 
   def install
@@ -15,8 +17,11 @@ class Tinysearch < Formula
   end
 
   test do
-    output = shell_output("tinysearch #{pkgshare}/fixtures/index.json 2>&1", 1)
-    assert_match "Compiling WASM module using wasm-pack", output
-    assert_match "failed to execute \"wasm-pack\" \"build\"", output
+    system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
+    ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
+
+    system bin/"tinysearch", pkgshare/"fixtures/index.json"
+    assert_predicate testpath/"tinysearch_engine_bg.wasm", :exist?
+    assert_match "A tiny search engine for static websites", (testpath/"package.json").read
   end
 end
