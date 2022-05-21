@@ -6,9 +6,7 @@ class Xpipe < Formula
   license "BSD-2-Clause"
 
   def install
-    system "make"
-    bin.install "xpipe"
-    man1.install "doc/xpipe.1"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
