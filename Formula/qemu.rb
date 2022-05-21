@@ -65,6 +65,7 @@ class Qemu < Formula
       --enable-virtfs
       --extra-cflags=-DNCURSES_WIDECHAR=1
       --disable-sdl
+      --disable-linux-user
     ]
     # Sharing Samba directories in QEMU requires the samba.org smbd which is
     # incompatible with the macOS-provided version. This will lead to
