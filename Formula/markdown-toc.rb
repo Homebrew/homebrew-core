@@ -19,6 +19,6 @@ class MarkdownToc < Formula
   end
 
   test do
-    assert_equal "- [One](#one)\n- [Two](#two)", shell_output("#{bin}/markdown-toc - <<< $'# One\\n\\n# Two'").strip
+    assert_equal "- [One](#one)\n- [Two](#two)", shell_output("bash -c \"#{bin}/markdown-toc - <<< $'# One\\n\\n# Two'\"").strip
   end
 end
