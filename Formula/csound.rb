@@ -5,7 +5,7 @@ class Csound < Formula
       tag:      "6.17.0",
       revision: "f5b4258794a82c99f7d85f1807c6638f2e80ccac"
   license "LGPL-2.1-or-later"
-  revision 6
+  revision 5
   head "https://github.com/csound/csound.git", branch: "master"
 
   livecheck do
@@ -84,7 +84,7 @@ class Csound < Formula
   end
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].libexec/(OS.mac? ? "openjdk.jdk/Contents/Home" : "lib")
+    ENV["JAVA_HOME"] = Language::Java.overridable_java_home_env
 
     args = [
       "-DBUILD_JAVA_INTERFACE=ON",
