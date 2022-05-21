@@ -5,6 +5,7 @@ class ApachePulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-2.10.0/apache-pulsar-2.10.0-src.tar.gz"
   sha256 "fadf27077c5a15852791bea45f34191de1edc25799ecd6e2730a9ff656789c0b"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
@@ -21,11 +22,10 @@ class ApachePulsar < Formula
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
-  depends_on arch: :x86_64
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   def install
-    with_env("TMPDIR" => buildpath, **Language::Java.java_home_env("11")) do
+    with_env("TMPDIR" => buildpath, **Language::Java.java_home_env("17")) do
       system "mvn", "-X", "clean", "package", "-DskipTests", "-Pcore-modules"
     end
 
@@ -47,7 +47,7 @@ class ApachePulsar < Formula
     libexec.glob("bin/*") do |path|
       if !path.fnmatch?("*common.sh") && !path.directory?
         bin_name = path.basename
-        (bin/bin_name).write_env_script libexec/"bin"/bin_name, Language::Java.java_home_env("11")
+        (bin/bin_name).write_env_script libexec/"bin"/bin_name, Language::Java.java_home_env("17")
       end
     end
   end
