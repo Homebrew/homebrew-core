@@ -13,6 +13,9 @@ class Blush < Formula
   end
 
   test do
+    # Display issue on CI
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     test_file = testpath/"test.txt"
     test_file.write "first second third"
     expected = ": \e[38;5;196mfirst\e[0m \e[38;5;46msecond\e[0m third"
