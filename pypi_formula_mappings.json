@@ -195,6 +195,9 @@
   "khard": {
     "exclude_packages": ["six"]
   },
+  "legit": {
+    "exclude_packages": ["six"]
+  },
   "litecli": {
     "exclude_packages": ["six", "tabulate"]
   },
