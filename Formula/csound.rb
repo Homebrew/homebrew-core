@@ -84,7 +84,7 @@ class Csound < Formula
   end
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.overridable_java_home_env
+    ENV["JAVA_HOME"] = Language::Java.java_home
 
     args = [
       "-DBUILD_JAVA_INTERFACE=ON",
