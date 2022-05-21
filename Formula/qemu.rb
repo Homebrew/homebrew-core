@@ -65,9 +65,11 @@ class Qemu < Formula
       --enable-virtfs
       --extra-cflags=-DNCURSES_WIDECHAR=1
       --disable-sdl
-      # Please remove this line when the CI gets updated to a recent version of Ubuntu(kernel version >= 4.9)
-      --disable-linux-user
     ]
+
+    # Please remove this line when the CI gets updated to a recent version of Ubuntu(kernel version >= 4.9)
+    args << "--disable-linux-user"
+
     # Sharing Samba directories in QEMU requires the samba.org smbd which is
     # incompatible with the macOS-provided version. This will lead to
     # silent runtime failures, so we set it to a Homebrew path in order to
