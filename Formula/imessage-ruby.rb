@@ -16,10 +16,8 @@ class ImessageRuby < Formula
     system "gem", "install", "--local", "--verbose", "imessage-#{version}.gem", "--no-document"
     system "gem", "info", "imessage"
 
-    (bin/"imessage").write_env_script libexec/"bin/imessage",
-          PATH: "#{Formula["ruby"].opt_bin}:#{libexec}/bin:$PATH",
-      GEM_HOME: libexec.to_s,
-      GEM_PATH: libexec.to_s
+    bin.install libexec/"bin/imessage"
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do
