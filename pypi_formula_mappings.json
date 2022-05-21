@@ -192,6 +192,9 @@
   "keepkey-agent": {
     "exclude_packages": ["six"]
   },
+  "khal": {
+    "exclude_packages": ["six"]
+  },
   "khard": {
     "exclude_packages": ["six"]
   },
