@@ -186,6 +186,9 @@
     "exclude_packages": ["six"]
   },
   "jinja2-cli": "jinja2-cli[yaml,toml,xml]",
+  "jrnl": {
+    "exclude_packages": ["six"]
+  },
   "jupyterlab": {
     "exclude_packages": ["six"]
   },
