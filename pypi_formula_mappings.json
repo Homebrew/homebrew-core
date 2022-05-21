@@ -63,6 +63,9 @@
     "extra_packages": ["certbot-apache", "certbot-nginx"],
     "exclude_packages": ["six"]
   },
+  "cfn-flip": {
+    "exclude_packages": ["six"]
+  },
   "cfn-lint": {
     "exclude_packages": ["junit-xml", "six"]
   },
