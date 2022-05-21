@@ -209,9 +209,9 @@ class Csound < Formula
     end
     ENV["RAWWAVE_PATH"] = Formula["stk"].pkgshare/"rawwaves"
 
-    system bin/"csound", "test.orc", "test.sco", "--format=wav"
+    system bin/"csound", "test.orc", "test.sco"
 
-    assert_predicate testpath/"test.wav", :exist?
+    assert_predicate testpath/"test.#{OS.mac? ? "aif" : "wav"}", :exist?
     assert_predicate testpath/"test.h5", :exist?
     assert_predicate testpath/"test.mp3", :exist?
 
