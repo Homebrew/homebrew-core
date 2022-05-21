@@ -6,6 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.72/glib-2.72.2.tar.xz"
   sha256 "78d599a133dba7fe2036dfa8db8fb6131ab9642783fc9578b07a20995252d2de"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "dd94ffde0318591e91b826353d83387839c57b4455bd79243c7227a2ad83b677"
@@ -18,15 +19,10 @@ class Glib < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pcre" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
-  depends_on "libffi"
-  depends_on "pcre"
+  depends_on "libglib"
   depends_on "python@3.9"
-
-  on_linux do
-    depends_on "util-linux"
-  end
 
   # replace several hardcoded paths with homebrew counterparts
   patch do
