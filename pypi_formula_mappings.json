@@ -163,6 +163,9 @@
   "git-remote-codecommit": {
     "exclude_packages": ["six"]
   },
+  "gitlint": {
+    "exclude_packages": ["six"]
+  },
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
   },
