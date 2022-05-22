@@ -4,7 +4,7 @@ class Wdfs < Formula
   url "http://noedler.de/projekte/wdfs/wdfs-1.4.2.tar.gz"
   sha256 "fcf2e1584568b07c7f3683a983a9be26fae6534b8109e09167e5dff9114ba2e5"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, catalina:    "a00329ad59065dc12983272eb1da0e861aa73cbfa8b2edc69393a5a2eba4e49f"
@@ -14,7 +14,7 @@ class Wdfs < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "neon"
 
   on_macos do
