@@ -4,6 +4,7 @@ class Gwyddion < Formula
   url "http://gwyddion.net/download/2.61/gwyddion-2.61.tar.gz"
   sha256 "ae9d647b1c8c44d91d4ebec3d22d7536299fdb16bfa0bacccdf64e4704cd355e"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "http://gwyddion.net/download.php"
@@ -61,7 +62,7 @@ class Gwyddion < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gtkx = Formula["gtk+"]
     gtkglext = Formula["gtkglext"]
     harfbuzz = Formula["harfbuzz"]
@@ -76,8 +77,8 @@ class Gwyddion < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtkglext.opt_include}/gtkglext-1.0
       -I#{gtkglext.opt_lib}/gtkglext-1.0/include
       -I#{gtkx.opt_include}/gtk-2.0
@@ -96,7 +97,7 @@ class Gwyddion < Formula
       -L#{freetype.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtkglext.opt_lib}
       -L#{gtkx.opt_lib}
       -L#{lib}
