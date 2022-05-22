@@ -3,7 +3,7 @@ class ClutterGtk < Formula
   homepage "https://wiki.gnome.org/Projects/Clutter"
   url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz"
   sha256 "521493ec038973c77edcb8bc5eac23eed41645117894aaee7300b2487cb42b06"
-  revision 4
+  revision 5
 
   bottle do
     sha256                               arm64_monterey: "28a3283252422dbc864b7beb4c69e377688c33fbb2a0e535c62a9362264162bf"
@@ -20,8 +20,8 @@ class ClutterGtk < Formula
   depends_on "pkg-config" => :build
   depends_on "clutter"
   depends_on "gdk-pixbuf"
-  depends_on "glib"
   depends_on "gtk+3"
+  depends_on "libglib"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -60,7 +60,7 @@ class ClutterGtk < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gtkx3 = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
     json_glib = Formula["json-glib"]
@@ -77,9 +77,9 @@ class ClutterGtk < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/gio-unix-2.0/
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/clutter-gtk-1.0
@@ -95,7 +95,7 @@ class ClutterGtk < Formula
       -L#{cogl.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{json_glib.opt_lib}
       -L#{lib}
