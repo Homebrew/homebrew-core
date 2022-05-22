@@ -4,6 +4,7 @@ class Freerdp < Formula
   url "https://github.com/FreeRDP/FreeRDP/archive/2.7.0.tar.gz"
   sha256 "2350097b2dc865e54a3e858bce0b13a99711428d397ee51d60cf91ccb56c0415"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "cde0fdb6e408786ef74ae5d8222315ad4c145844e0cf257bd9f4d05d090e6ad6"
@@ -39,7 +40,7 @@ class Freerdp < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "ffmpeg"
-    depends_on "glib"
+    depends_on "libglib"
     depends_on "systemd"
     depends_on "wayland"
   end
