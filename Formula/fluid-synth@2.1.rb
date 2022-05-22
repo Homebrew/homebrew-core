@@ -19,7 +19,7 @@ class FluidSynthAT21 < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libsndfile"
   depends_on "portaudio"
 
