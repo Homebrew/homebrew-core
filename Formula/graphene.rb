@@ -4,6 +4,7 @@ class Graphene < Formula
   url "https://github.com/ebassi/graphene/archive/refs/tags/1.10.8.tar.gz"
   sha256 "922dc109d2dc5dc56617a29bd716c79dd84db31721a8493a13a5f79109a4a4ed"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "93468985e1d6a4b6ef69387b400d23ad39da4a154140a759dd3154bcfd19b9ed"
@@ -18,7 +19,7 @@ class Graphene < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     mkdir "build" do
@@ -38,11 +39,11 @@ class Graphene < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/graphene-1.0
       -I#{lib}/graphene-1.0/include
       -L#{lib}
