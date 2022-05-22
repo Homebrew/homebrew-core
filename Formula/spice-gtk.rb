@@ -6,6 +6,7 @@ class SpiceGtk < Formula
   url "https://www.spice-space.org/download/gtk/spice-gtk-0.40.tar.xz"
   sha256 "23f5ff7fa80b75647ce73cda5eaf8b322f3432dbbb7f6f3a839634618adbced3"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
@@ -35,7 +36,6 @@ class SpiceGtk < Formula
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gst-libav"
   depends_on "gst-plugins-bad"
   depends_on "gst-plugins-base"
@@ -45,6 +45,7 @@ class SpiceGtk < Formula
   depends_on "gtk+3"
   depends_on "jpeg"
   depends_on "json-glib"
+  depends_on "libglib"
   depends_on "libusb"
   depends_on "lz4"
   depends_on "openssl@1.1"
@@ -79,16 +80,17 @@ class SpiceGtk < Formula
         return spice_session_new() ? 0 : 1;
       }
     EOS
+    libglib = Formula["libglib"]
     system ENV.cc, "test.cpp",
-                   "-I#{Formula["atk"].include}/atk-1.0",
-                   "-I#{Formula["cairo"].include}/cairo",
-                   "-I#{Formula["gdk-pixbuf"].include}/gdk-pixbuf-2.0",
-                   "-I#{Formula["glib"].include}/glib-2.0",
-                   "-I#{Formula["glib"].lib}/glib-2.0/include",
-                   "-I#{Formula["gtk+3"].include}/gtk-3.0",
+                   "-I#{Formula["atk"].opt_include}/atk-1.0",
+                   "-I#{Formula["cairo"].opt_include}/cairo",
+                   "-I#{Formula["gdk-pixbuf"].opt_include}/gdk-pixbuf-2.0",
+                   "-I#{libglib.opt_include}/glib-2.0",
+                   "-I#{libglib.opt_lib}/glib-2.0/include",
+                   "-I#{Formula["gtk+3"].opt_include}/gtk-3.0",
                    "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
-                   "-I#{Formula["pango"].include}/pango-1.0",
-                   "-I#{Formula["spice-protocol"].include}/spice-1",
+                   "-I#{Formula["pango"].opt_include}/pango-1.0",
+                   "-I#{Formula["spice-protocol"].opt_include}/spice-1",
                    "-I#{include}/spice-client-glib-2.0",
                    "-I#{include}/spice-client-gtk-3.0",
                    "-L#{lib}",
