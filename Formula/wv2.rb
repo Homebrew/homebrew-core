@@ -3,6 +3,7 @@ class Wv2 < Formula
   homepage "https://wvware.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/wvware/wv2-0.4.2.tar.bz2"
   sha256 "9f2b6d3910cb0e29c9ff432f935a594ceec0101bca46ba2fc251aff251ee38dc"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,7 @@ class Wv2 < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libgsf"
 
   uses_from_macos "libxml2"
@@ -98,7 +99,7 @@ class Wv2 < Formula
 
     wv2_flags = shell_output("wv2-config --cflags --libs").chomp.split
     system ENV.cxx, "test.cpp", "-L#{Formula["libgsf"].lib}",
-           "-L#{Formula["glib"].lib}", *wv2_flags, "-o", "test"
+           "-L#{Formula["libglib"].opt_lib}", *wv2_flags, "-o", "test"
     assert_match "Done", shell_output("#{testpath}/test 2>&1 testole.doc")
   end
 end
