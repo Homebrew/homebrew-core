@@ -4,6 +4,7 @@ class Gerbv < Formula
   url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.9.0.tar.gz"
   sha256 "afbe700edc3287a534cc26ff64b63ed295d717c6764bba54f5434f90b5de5ff5"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "05b4ffa6b9b03d2a3eea8b023d3811ef475064f9cc9a44e74ed662cbda9d1641"
@@ -57,7 +58,7 @@ class Gerbv < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gtkx = Formula["gtk+"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
@@ -70,8 +71,8 @@ class Gerbv < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
       -I#{harfbuzz.opt_include}/harfbuzz
@@ -84,7 +85,7 @@ class Gerbv < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtkx.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
