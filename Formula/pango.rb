@@ -4,6 +4,7 @@ class Pango < Formula
   url "https://download.gnome.org/sources/pango/1.50/pango-1.50.6.tar.xz"
   sha256 "a998bcf36881c3ac20495d40bceb304f4eaa9175bd2967c85656434cbdafe86a"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://gitlab.gnome.org/GNOME/pango.git", branch: "main"
 
   bottle do
@@ -23,8 +24,8 @@ class Pango < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "fribidi"
-  depends_on "glib"
   depends_on "harfbuzz"
+  depends_on "libglib"
 
   def install
     mkdir "build" do
@@ -59,7 +60,7 @@ class Pango < Formula
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pixman = Formula["pixman"]
@@ -68,8 +69,8 @@ class Pango < Formula
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/pango-1.0
       -I#{libpng.opt_include}/libpng16
@@ -77,7 +78,7 @@ class Pango < Formula
       -D_REENTRANT
       -L#{cairo.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lcairo
       -lglib-2.0
