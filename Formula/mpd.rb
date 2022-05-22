@@ -4,6 +4,7 @@ class Mpd < Formula
   url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.7.tar.xz"
   sha256 "960dcbac717c388f5dcc4fd945e3af19a476f2b15f367e9653d4c7a948768211"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   livecheck do
@@ -30,11 +31,11 @@ class Mpd < Formula
   depends_on "flac"
   depends_on "fluid-synth"
   depends_on "fmt"
-  depends_on "glib"
   depends_on "icu4c"
   depends_on "lame"
   depends_on "libao"
   depends_on "libgcrypt"
+  depends_on "libglib"
   depends_on "libid3tag"
   depends_on "libmpdclient"
   depends_on "libnfs"
