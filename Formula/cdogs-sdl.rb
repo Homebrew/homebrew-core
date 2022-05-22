@@ -4,6 +4,7 @@ class CdogsSdl < Formula
   url "https://github.com/cxong/cdogs-sdl/archive/1.3.0.tar.gz"
   sha256 "d978a4314c1c9d6993f930ef505a5f8ae82aa689d383f94229a3f774323103f6"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/cxong/cdogs-sdl.git", branch: "master"
 
   livecheck do
@@ -29,7 +30,7 @@ class CdogsSdl < Formula
   depends_on "sdl2_mixer"
 
   on_linux do
-    depends_on "glib"
+    depends_on "libglib"
     depends_on "gtk+3"
     depends_on "mesa"
   end
