@@ -6,6 +6,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/6.3/6.3.0/single/qt-everywhere-src-6.3.0.tar.xz"
   sha256 "cd2789cade3e865690f3c18df58ffbff8af74cc5f01faae50634c12eb52dd85b"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -35,12 +36,12 @@ class Qt < Formula
   depends_on "dbus"
   depends_on "double-conversion"
   depends_on "freetype"
-  depends_on "glib"
   depends_on "hunspell"
   depends_on "icu4c"
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libb2"
+  depends_on "libglib"
   depends_on "libmng"
   depends_on "libpng"
   depends_on "libtiff"
