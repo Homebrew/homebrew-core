@@ -4,6 +4,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.36.tar.xz"
   sha256 "130231b830fd980efbd2aab12214392b8841f5d2a5a361aa8c79a79a6035ce40"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -25,8 +26,8 @@ class Notmuch < Formula
   depends_on "libgpg-error" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "glib"
   depends_on "gmime"
+  depends_on "libglib"
   depends_on "python@3.9"
   depends_on "talloc"
   depends_on "xapian"
