@@ -4,7 +4,7 @@ class Wmctrl < Formula
   url "https://sites.google.com/site/tstyblo/wmctrl/wmctrl-1.07.tar.gz"
   sha256 "d78a1efdb62f18674298ad039c5cbdb1edb6e8e149bb3a8e3a01a4750aa3cca9"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
@@ -24,7 +24,7 @@ class Wmctrl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libice"
   depends_on "libsm"
   depends_on "libx11"
