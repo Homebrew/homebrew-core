@@ -4,6 +4,7 @@ class Libmms < Formula
   url "https://downloads.sourceforge.net/project/libmms/libmms/0.6.4/libmms-0.6.4.tar.gz"
   sha256 "3c05e05aebcbfcc044d9e8c2d4646cd8359be39a3f0ba8ce4e72a9094bee704f"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     rebuild 2
@@ -21,7 +22,7 @@ class Libmms < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
