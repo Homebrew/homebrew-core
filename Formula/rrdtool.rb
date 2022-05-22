@@ -2,6 +2,7 @@ class Rrdtool < Formula
   desc "Round Robin Database"
   homepage "https://oss.oetiker.ch/rrdtool/index.en.html"
   license "GPL-2.0"
+  revision 1
 
   stable do
     url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.8.0/rrdtool-1.8.0.tar.gz"
@@ -31,7 +32,7 @@ class Rrdtool < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "pango"
 
   uses_from_macos "groff"
