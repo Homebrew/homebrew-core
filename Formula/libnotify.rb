@@ -4,6 +4,7 @@ class Libnotify < Formula
   url "https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.12.tar.xz"
   sha256 "744b2b37508135f8261b755a9debe6e09add421adc75bde930f6e198b70ab46e"
   license "LGPL-2.1-or-later"
+  revision 1
 
   # libnotify uses GNOME's "even-numbered minor is stable" version scheme but
   # we've been using a development version 0.7.x for many years, so we have to
@@ -50,17 +51,17 @@ class Libnotify < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{lib}
       -lnotify
