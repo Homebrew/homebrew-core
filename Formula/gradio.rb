@@ -4,7 +4,7 @@ class Gradio < Formula
   url "https://github.com/haecker-felix/Gradio/archive/v7.3.tar.gz"
   sha256 "5c5afed83fceb9a9f8bc7414b8a200128b3317ccf1ed50a0e7321ca15cf19412"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -23,13 +23,13 @@ class Gradio < Formula
   depends_on "adwaita-icon-theme"
   depends_on "cairo"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gst-libav"
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
+  depends_on "libglib"
   depends_on "libsoup@2"
   depends_on "python@3.7"
 
