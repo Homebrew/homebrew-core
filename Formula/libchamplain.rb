@@ -4,7 +4,7 @@ class Libchamplain < Formula
   url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz"
   sha256 "0232b4bfcd130a1c5bda7b6aec266bf2d06e701e8093df1886f1e26bc1ba3066"
   license "LGPL-2.1"
-  revision 3
+  revision 4
 
   bottle do
     rebuild 1
@@ -55,7 +55,7 @@ class Libchamplain < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gtkx3 = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
     json_glib = Formula["json-glib"]
@@ -73,9 +73,9 @@ class Libchamplain < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/gio-unix-2.0/
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/champlain-0.12
@@ -91,7 +91,7 @@ class Libchamplain < Formula
       -L#{clutter.opt_lib}
       -L#{cogl.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{json_glib.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
