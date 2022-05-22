@@ -4,6 +4,7 @@ class Libdazzle < Formula
   url "https://download.gnome.org/sources/libdazzle/3.44/libdazzle-3.44.0.tar.xz"
   sha256 "3cd3e45eb6e2680cb05d52e1e80dd8f9d59d4765212f0e28f78e6c1783d18eae"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "fd00728bb05e73562b642a2a36bb24562f97c867710642e08bcc522fbd06ea5e"
@@ -19,8 +20,8 @@ class Libdazzle < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "glib"
   depends_on "gtk+3"
+  depends_on "libglib"
 
   def install
     mkdir "build" do
@@ -45,7 +46,7 @@ class Libdazzle < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     graphite2 = Formula["graphite2"]
     gtkx3 = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
@@ -62,9 +63,9 @@ class Libdazzle < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/gio-unix-2.0/
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{graphite2.opt_include}
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
@@ -79,7 +80,7 @@ class Libdazzle < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
