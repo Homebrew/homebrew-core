@@ -4,6 +4,7 @@ class Gpsim < Formula
   url "https://downloads.sourceforge.net/project/gpsim/gpsim/0.31.0/gpsim-0.31.0.tar.gz"
   sha256 "110ee6be3a5d02b32803a91e480cbfc9d423ef72e0830703fc0bc97b9569923f"
   license "GPL-2.0"
+  revision 1
   head "https://svn.code.sf.net/p/gpsim/code/trunk"
 
   livecheck do
@@ -25,7 +26,7 @@ class Gpsim < Formula
   depends_on "gputils" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "popt"
   depends_on "readline"
 
