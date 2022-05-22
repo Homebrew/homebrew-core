@@ -3,7 +3,7 @@ class Oscats < Formula
   homepage "https://code.google.com/archive/p/oscats/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/oscats/oscats-0.6.tar.gz"
   sha256 "2f7c88cdab6a2106085f7a3e5b1073c74f7d633728c76bd73efba5dc5657a604"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "b1b79b163aa6caf6bda95defe34d5ea891c5cec0e134d02aea71c9d9939d3af8"
@@ -14,8 +14,8 @@ class Oscats < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "gsl"
+  depends_on "libglib"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
