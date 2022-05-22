@@ -4,6 +4,7 @@ class Mydumper < Formula
   url "https://github.com/mydumper/mydumper/archive/v0.12.3-3.tar.gz"
   sha256 "8c7e3b44f5f4840188b1c32d50e82cdba6c8c735076930b02d1e33581e8447d9"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "0c0d9517cb9f8655dbbf52a5f4edf6962a57f2d242137f195cc98b7f091e0efd"
@@ -17,7 +18,7 @@ class Mydumper < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "mysql-client"
   depends_on "openssl@1.1"
   depends_on "pcre"
