@@ -41,7 +41,7 @@ class Cattle < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     pkgshare.mkpath
@@ -64,12 +64,13 @@ class Cattle < Formula
   test do
     cp_r (pkgshare/"examples").children, testpath
     cp_r (pkgshare/"tests").children, testpath
+    libglib = Formula["libglib"]
     system ENV.cc, "common.c", "run.c", "-o", "test",
            "-I#{include}/cattle-1.0",
-           "-I#{Formula["glib"].include}/glib-2.0",
-           "-I#{Formula["glib"].lib}/glib-2.0/include",
+           "-I#{libglib.opt_include}/glib-2.0",
+           "-I#{libglib.opt_lib}/glib-2.0/include",
            "-L#{lib}",
-           "-L#{Formula["glib"].lib}",
+           "-L#{libglib.opt_lib}",
            "-lcattle-1.0", "-lglib-2.0", "-lgio-2.0", "-lgobject-2.0"
     assert_match "Unbalanced brackets", shell_output("./test program.c 2>&1", 1)
   end
