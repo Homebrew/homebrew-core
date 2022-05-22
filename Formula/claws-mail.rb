@@ -4,6 +4,7 @@ class ClawsMail < Formula
   url "https://www.claws-mail.org/releases/claws-mail-3.19.0.tar.gz"
   sha256 "3feef9ff72b15fb9f1ecc5102d7dfbb5b1c2c53172d331a3fb453645a6b53a6b"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.claws-mail.org/releases.php"
@@ -20,10 +21,10 @@ class ClawsMail < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+"
   depends_on "libetpan"
+  depends_on "libglib"
   depends_on "nettle"
 
   def install
