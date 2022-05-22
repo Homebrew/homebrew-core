@@ -2,6 +2,7 @@ class Goffice < Formula
   desc "Gnumeric spreadsheet program"
   homepage "https://gitlab.gnome.org/GNOME/goffice"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.52.tar.xz"
@@ -78,9 +79,10 @@ class Goffice < Formula
     else
       Formula["libxml2"].opt_include/"libxml2"
     end
+    libglib = Formula["libglib"]
     system ENV.cc, "-I#{include}/libgoffice-0.10",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{libglib.opt_include}/glib-2.0",
+           "-I#{libglib.opt_lib}/glib-2.0/include",
            "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["libgsf"].opt_include}/libgsf-1",
            "-I#{libxml2}",
