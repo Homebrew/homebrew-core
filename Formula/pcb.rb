@@ -4,6 +4,7 @@ class Pcb < Formula
   url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.3.0/pcb-4.3.0.tar.gz"
   sha256 "ae852f46af84aba7f51d813fb916fc7fcdbeea43f7134f150507024e1743fb5e"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -31,9 +32,9 @@ class Pcb < Formula
   depends_on "dbus"
   depends_on "gd"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gtk+"
   depends_on "gtkglext"
+  depends_on "libglib"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
