@@ -4,7 +4,7 @@ class Gtranslator < Formula
   url "https://download.gnome.org/sources/gtranslator/40/gtranslator-40.0.tar.xz"
   sha256 "ec3eba36dee1c549377d1475aef71748dbaebd295005e1990ea9821f02b38834"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -20,7 +20,6 @@ class Gtranslator < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "glib"
   depends_on "gspell"
   depends_on "gtk+3"
   depends_on "gtksourceview4"
@@ -29,6 +28,7 @@ class Gtranslator < Formula
   depends_on "json-glib"
   depends_on "libdazzle"
   depends_on "libgda"
+  depends_on "libglib"
   depends_on "libhandy"
   depends_on "libsoup@2"
 
