@@ -4,6 +4,7 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-7.0.0.tar.xz"
   sha256 "f6b375c7951f728402798b0baabb2d86478ca53d44cedbefabbe1c46bf46f839"
   license "GPL-2.0-only"
+  revision 1
   head "https://git.qemu.org/git/qemu.git", branch: "master"
 
   bottle do
@@ -20,9 +21,9 @@ class Qemu < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "glib"
   depends_on "gnutls"
   depends_on "jpeg"
+  depends_on "libglib"
   depends_on "libpng"
   depends_on "libslirp"
   depends_on "libssh"
