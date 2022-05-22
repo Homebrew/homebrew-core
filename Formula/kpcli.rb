@@ -110,7 +110,7 @@ class Kpcli < Formula
       system "./Build", "install"
     end
 
-    resource("Term::Readline::Gnu").stage do
+    resource("Term::ReadLine::Gnu").stage do
       # Prevent the Makefile to try and build universal binaries
       ENV.refurbish_args
 
