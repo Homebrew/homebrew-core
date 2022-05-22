@@ -4,6 +4,7 @@ class Gexiv2 < Formula
   url "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.0.tar.xz"
   sha256 "e58279a6ff20b6f64fa499615da5e9b57cf65ba7850b72fafdf17221a9d6d69e"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "990b477bf1f0d51b110bb91a59d8a50f0953c5d2029b06383e6c203d544ead21"
@@ -23,7 +24,7 @@ class Gexiv2 < Formula
   depends_on "python@3.9" => :build
   depends_on "vala" => :build
   depends_on "exiv2"
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
