@@ -3,7 +3,7 @@ class Utimer < Formula
   homepage "https://launchpad.net/utimer"
   url "https://launchpad.net/utimer/0.4/0.4/+download/utimer-0.4.tar.gz"
   sha256 "07a9d28e15155a10b7e6b22af05c84c878d95be782b6b0afaadec2f7884aa0f7"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3c86234c30c090ef832ddfb4c4b52117f6ef31956246abb311645860154cc6fc"
@@ -20,7 +20,7 @@ class Utimer < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
 
   uses_from_macos "perl" => :build
 
