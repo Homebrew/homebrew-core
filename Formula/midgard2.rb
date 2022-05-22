@@ -2,7 +2,7 @@ class Midgard2 < Formula
   desc "Generic content repository for web and desktop applications"
   homepage "http://www.midgard-project.org/"
   license "LGPL-2.0"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/downloads/midgardproject/midgard-core/midgard2-core-12.09.tar.gz"
@@ -37,8 +37,8 @@ class Midgard2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "dbus-glib"
-  depends_on "glib"
   depends_on "libgda"
+  depends_on "libglib"
 
   def install
     args = %W[
