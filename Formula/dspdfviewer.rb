@@ -4,7 +4,7 @@ class Dspdfviewer < Formula
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   license "GPL-2.0-or-later"
-  revision 12
+  revision 13
   head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
   bottle do
@@ -24,8 +24,8 @@ class Dspdfviewer < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "jpeg"
+  depends_on "libglib"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openjpeg"
