@@ -3,7 +3,7 @@ class Libgtop < Formula
   homepage "https://library.gnome.org/devel/libgtop/stable/"
   url "https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz"
   sha256 "78f3274c0c79c434c03655c1b35edf7b95ec0421430897fb1345a98a265ed2d4"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
@@ -18,7 +18,7 @@ class Libgtop < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
 
   on_linux do
     depends_on "libxau"
@@ -41,14 +41,14 @@ class Libgtop < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/libgtop-2.0
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lglib-2.0
       -lgtop-2.0
