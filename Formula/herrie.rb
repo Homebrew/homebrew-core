@@ -4,7 +4,7 @@ class Herrie < Formula
   url "https://github.com/EdSchouten/herrie/releases/download/herrie-2.2/herrie-2.2.tar.bz2"
   sha256 "142341072920f86b6eb570b8f13bf5fd87c06cf801543dc7d1a819e39eb9fb2b"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -20,7 +20,7 @@ class Herrie < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libid3tag"
   depends_on "libsndfile"
   depends_on "libvorbis"
