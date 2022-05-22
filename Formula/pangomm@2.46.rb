@@ -4,6 +4,7 @@ class PangommAT246 < Formula
   url "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.2.tar.xz"
   sha256 "57442ab4dc043877bfe3839915731ab2d693fc6634a71614422fb530c9eaa6f4"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -49,7 +50,7 @@ class PangommAT246 < Formula
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     glibmm = Formula["glibmm@2.66"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
@@ -63,8 +64,8 @@ class PangommAT246 < Formula
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{glibmm.opt_include}/glibmm-2.4
       -I#{glibmm.opt_lib}/glibmm-2.4/include
       -I#{harfbuzz.opt_include}/harfbuzz
@@ -78,7 +79,7 @@ class PangommAT246 < Formula
       -L#{cairo.opt_lib}
       -L#{cairomm.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{glibmm.opt_lib}
       -L#{libsigcxx.opt_lib}
       -L#{lib}
