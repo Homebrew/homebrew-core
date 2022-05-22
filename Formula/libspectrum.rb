@@ -4,6 +4,7 @@ class Libspectrum < Formula
   url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.5.0/libspectrum-1.5.0.tar.gz"
   sha256 "a353cb46e9b1a281061d816353ea010d0a6fe78e6a17aa0b7b74271ca5e4acfc"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -29,8 +30,8 @@ class Libspectrum < Formula
 
   depends_on "pkg-config" => :build
   depends_on "audiofile"
-  depends_on "glib"
   depends_on "libgcrypt"
+  depends_on "libglib"
 
   def install
     system "./autogen.sh" if build.head?
