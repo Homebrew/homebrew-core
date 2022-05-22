@@ -4,6 +4,7 @@ class OsinfoDbTools < Formula
   url "https://releases.pagure.org/libosinfo/osinfo-db-tools-1.10.0.tar.xz"
   sha256 "802cdd53b416706ea5844f046ddcfb658c1b4906b9f940c79ac7abc50981ca68"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
@@ -23,9 +24,9 @@ class OsinfoDbTools < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "json-glib"
   depends_on "libarchive"
+  depends_on "libglib"
   depends_on "libsoup"
 
   uses_from_macos "pod2man" => :build
