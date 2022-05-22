@@ -4,6 +4,7 @@ class FluidSynth < Formula
   url "https://github.com/FluidSynth/fluidsynth/archive/v2.2.7.tar.gz"
   sha256 "460d86d8d687f567dc4780890b72538c7ff6b2082080ef2f9359d41670a309cf"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/FluidSynth/fluidsynth.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class FluidSynth < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libsndfile"
   depends_on "portaudio"
 
