@@ -8,6 +8,7 @@ class Zile < Formula
   mirror "https://ftpmirror.gnu.org/zile/zile-2.6.2.tar.gz"
   sha256 "77eb7daff3c98bdc88daa1ac040dccca72b81dc32fc3166e079dd7a63e42c741"
   license "GPL-3.0-or-later"
+  revision 1
   version_scheme 1
 
   bottle do
@@ -23,8 +24,8 @@ class Zile < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
-  depends_on "glib"
   depends_on "libgee"
+  depends_on "libglib"
 
   uses_from_macos "ncurses"
 
