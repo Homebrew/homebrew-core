@@ -32,7 +32,7 @@ class Catch2 < Formula
         }
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++14", "-o", "test"
     system "./test"
   end
 end
