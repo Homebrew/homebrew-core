@@ -4,6 +4,7 @@ class GnomeAutoar < Formula
   url "https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.3.tar.xz"
   sha256 "7bdf0789553496abddc3c963b0ce7363805c0c02c025feddebcaacc787249e88"
   license "LGPL-2.1-or-later"
+  revision 1
 
   # gnome-autoar doesn't seem to follow the typical GNOME version format where
   # even-numbered minor versions are stable, so we override the default regex
@@ -49,20 +50,20 @@ class GnomeAutoar < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     libarchive = Formula["libarchive"]
     pcre = Formula["pcre"]
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
     flags += %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/gnome-autoar-0
       -I#{libarchive.opt_include}
       -I#{pcre.opt_include}
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{libarchive.opt_lib}
       -L#{lib}
       -larchive
