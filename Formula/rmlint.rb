@@ -4,6 +4,7 @@ class Rmlint < Formula
   url "https://github.com/sahib/rmlint/archive/v2.10.1.tar.gz"
   sha256 "10e72ba4dd9672d1b6519c0c94eae647c5069c7d11f1409a46e7011dd0c6b883"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -20,8 +21,8 @@ class Rmlint < Formula
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "glib"
   depends_on "json-glib"
+  depends_on "libglib"
 
   on_linux do
     depends_on "elfutils"
@@ -33,7 +34,7 @@ class Rmlint < Formula
       ENV.append_to_cflags "-I#{Formula["util-linux"].opt_include}"
       ENV.append_to_cflags "-I#{Formula["elfutils"].opt_include}"
       ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["elfutils"].opt_lib}"
-      ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["glib"].opt_lib}"
+      ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["libglib"].opt_lib}"
       ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["json-glib"].opt_lib}"
       ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["util-linux"].opt_lib}"
     end
