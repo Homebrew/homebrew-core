@@ -4,6 +4,7 @@ class Libhandy < Formula
   url "https://gitlab.gnome.org/GNOME/libhandy/-/archive/1.6.2/libhandy-1.6.2.tar.gz"
   sha256 "42247aac9f06e1083f5b0ea3f114f36f647e1b35b84089ad1b66d89ba2dc777e"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "9bfcb69be81e5aabb383000523e1ef93583822fa0e23884494ac132a9852149a"
@@ -47,7 +48,7 @@ class Libhandy < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gtk = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
@@ -60,8 +61,8 @@ class Libhandy < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtk.opt_include}/gtk-3.0
       -I#{gtk.opt_lib}/gtk-3.0/include
       -I#{harfbuzz.opt_include}/harfbuzz
@@ -75,7 +76,7 @@ class Libhandy < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtk.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
