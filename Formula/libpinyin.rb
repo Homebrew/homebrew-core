@@ -4,6 +4,7 @@ class Libpinyin < Formula
   url "https://github.com/libpinyin/libpinyin/archive/2.6.2.tar.gz"
   sha256 "73f428a1c76a44a9ff666ae3c71b9ce4d96d07bc5b5af8081a85ef66a0383777"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "0ad30a7fa33d9c0a1c8581c2419503d1d78b003ddcee423c37bac04cafe93c8b"
@@ -20,7 +21,7 @@ class Libpinyin < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "berkeley-db"
-  depends_on "glib"
+  depends_on "libglib"
 
   # The language model file is independently maintained by the project owner.
   # To update this resource block, the URL can be found in data/Makefile.am.
@@ -59,13 +60,13 @@ class Libpinyin < Formula
           return 0;
       }
     EOS
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{include}/libpinyin-#{version}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -L#{lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -DLIBPINYIN_DATADIR="#{lib}/libpinyin/data/"
       -lglib-2.0
       -lpinyin
