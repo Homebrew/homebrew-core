@@ -4,6 +4,7 @@ class Castget < Formula
   url "https://download.savannah.gnu.org/releases/castget/castget-2.0.1.tar.bz2"
   sha256 "438b5f7ec7e31a45ed3756630fe447f42015acda53ec09202f48628726b5e875"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/castget/"
@@ -21,8 +22,8 @@ class Castget < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "id3lib"
+  depends_on "libglib"
 
   def install
     system "./configure", "--disable-dependency-tracking",
