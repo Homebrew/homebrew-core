@@ -4,6 +4,7 @@ class Glibmm < Formula
   url "https://download.gnome.org/sources/glibmm/2.72/glibmm-2.72.1.tar.xz"
   sha256 "2a7649a28ab5dc53ac4dabb76c9f61599fbc628923ab6a7dd74bf675d9155cd8"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "c29aa04bc62b03add040f49af1002fdde20d9b4e5eb2cc4f96422cc937fce3c1"
@@ -17,7 +18,7 @@ class Glibmm < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libsigc++"
 
   on_linux do
@@ -47,18 +48,18 @@ class Glibmm < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     libsigcxx = Formula["libsigc++"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/glibmm-2.68
       -I#{libsigcxx.opt_include}/sigc++-3.0
       -I#{libsigcxx.opt_lib}/sigc++-3.0/include
       -I#{lib}/glibmm-2.68/include
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{libsigcxx.opt_lib}
       -L#{lib}
       -lglib-2.0
