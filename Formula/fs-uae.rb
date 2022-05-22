@@ -4,6 +4,7 @@ class FsUae < Formula
   url "https://fs-uae.net/files/FS-UAE/Stable/3.1.66/fs-uae-3.1.66.tar.xz"
   sha256 "606e1868b500413d69bd33bb469f8fd08d6c08988801f17b7dd022f3fbe23832"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://fs-uae.net/download"
@@ -30,7 +31,7 @@ class FsUae < Formula
   depends_on "freetype"
   depends_on "gettext"
   depends_on "glew"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libmpeg2"
   depends_on "libpng"
   depends_on "sdl2"
