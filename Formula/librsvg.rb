@@ -4,6 +4,7 @@ class Librsvg < Formula
   url "https://download.gnome.org/sources/librsvg/2.54/librsvg-2.54.3.tar.xz"
   sha256 "66158f2ef46dde260026846c4da102e4a9dd4e5293010f30949c6cc26dd6efe8"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256                               arm64_monterey: "95b5d68fd281c2dd6676ac9757987bbe108ec6b17f0166d59fd8289a41769fe5"
@@ -19,7 +20,7 @@ class Librsvg < Formula
   depends_on "rust" => :build
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "pango"
 
   def install
@@ -66,7 +67,7 @@ class Librsvg < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     libpng = Formula["libpng"]
     pixman = Formula["pixman"]
     flags = %W[
@@ -75,8 +76,8 @@ class Librsvg < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/librsvg-2.0
       -I#{libpng.opt_include}/libpng16
       -I#{pixman.opt_include}/pixman-1
@@ -84,7 +85,7 @@ class Librsvg < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lcairo
       -lgdk_pixbuf-2.0
