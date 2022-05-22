@@ -4,6 +4,7 @@ class MonoLibgdiplus < Formula
   url "https://download.mono-project.com/sources/libgdiplus/libgdiplus-6.1.tar.gz"
   sha256 "97d5a83d6d6d8f96c27fb7626f4ae11d3b38bc88a1726b4466aeb91451f3255b"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://download.mono-project.com/sources/libgdiplus/"
@@ -25,9 +26,9 @@ class MonoLibgdiplus < Formula
   depends_on "freetype"
   depends_on "gettext"
   depends_on "giflib"
-  depends_on "glib"
   depends_on "jpeg"
   depends_on "libexif"
+  depends_on "libglib"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "pango"
