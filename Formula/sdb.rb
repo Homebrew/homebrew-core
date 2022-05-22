@@ -4,6 +4,7 @@ class Sdb < Formula
   url "https://github.com/radareorg/sdb/archive/1.8.8.tar.gz"
   sha256 "646add20d2fcb4beb2d5a7910368ac7c8245a63fa243ab1d3bb3732fa3a2b148"
   license "MIT"
+  revision 1
   head "https://github.com/radareorg/sdb.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Sdb < Formula
 
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     system "make"
