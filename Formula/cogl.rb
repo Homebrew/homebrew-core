@@ -4,6 +4,7 @@ class Cogl < Formula
   url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.8.tar.xz"
   sha256 "a805b2b019184710ff53d0496f9f0ce6dcca420c141a0f4f6fcc02131581d759"
   license all_of: ["MIT", "SGI-B-2.0", "BSD-3-Clause", :public_domain]
+  revision 1
   head "https://gitlab.gnome.org/GNOME/cogl.git", branch: "cogl-1.22"
 
   bottle do
@@ -21,7 +22,7 @@ class Cogl < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "pango"
 
   on_linux do
@@ -62,9 +63,10 @@ class Cogl < Formula
           return 0;
       }
     EOS
+    libglib = Formula["libglib"]
     system ENV.cc, "-I#{include}/cogl",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{libglib.opt_include}/glib-2.0",
+           "-I#{libglib.opt_lib}/glib-2.0/include",
            testpath/"test.c", "-o", testpath/"test",
            "-L#{lib}", "-lcogl"
     system "./test"
