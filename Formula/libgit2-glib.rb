@@ -4,7 +4,7 @@ class Libgit2Glib < Formula
   url "https://download.gnome.org/sources/libgit2-glib/1.0/libgit2-glib-1.0.0.1.tar.xz"
   sha256 "460a5d6936950ca08d2d8518bfc90c12bb187cf6e674de715f7055fc58102b57"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
   head "https://github.com/GNOME/libgit2-glib.git", branch: "master"
 
   livecheck do
@@ -27,8 +27,8 @@ class Libgit2Glib < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "libgit2"
+  depends_on "libglib"
 
   def install
     mkdir "build" do
