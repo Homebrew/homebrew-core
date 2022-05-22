@@ -49,11 +49,12 @@ class SimpleTiles < Formula
         return 0;
       }
     EOS
+    libglib = Formula["libglib"]
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lsimple-tiles",
            "-I#{Formula["cairo"].opt_include}/cairo",
            "-I#{Formula["gdal"].opt_include}",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{libglib.opt_include}/glib-2.0",
+           "-I#{libglib.opt_lib}/glib-2.0/include",
            "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["pango"].opt_include}/pango-1.0",
            "-o", "test"
