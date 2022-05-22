@@ -6,6 +6,7 @@ class Puzzles < Formula
   version "20220128"
   sha256 "4b1855c1b209f7534a73a49319668b071cec273db5b14e274b4909403a09d9b7"
   license "MIT"
+  revision 1
   head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
   # There's no directory listing page and the homepage only lists an unversioned
@@ -34,7 +35,7 @@ class Puzzles < Formula
     depends_on "pkg-config" => :build
     depends_on "cairo"
     depends_on "gdk-pixbuf"
-    depends_on "glib"
+    depends_on "libglib"
     depends_on "gtk+3"
     depends_on "pango"
   end
