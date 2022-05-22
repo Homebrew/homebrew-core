@@ -2,8 +2,8 @@ class PrometheusCpp < Formula
   desc "Prometheus Client Library for Modern C++"
   homepage "https://github.com/jupp0r/prometheus-cpp"
   url "https://github.com/jupp0r/prometheus-cpp.git",
-      tag:      "v1.0.0",
-      revision: "4ea303fa66e4c26dc4df67045fa0edf09c2f3077"
+      tag:      "v1.0.1",
+      revision: "76470b3ec024c8214e1f4253fb1f4c0b28d3df94"
   license "MIT"
   head "https://github.com/jupp0r/prometheus-cpp.git", branch: "master"
 
