@@ -4,6 +4,7 @@ class Usbredir < Formula
   url "https://www.spice-space.org/download/usbredir/usbredir-0.12.0.tar.xz"
   sha256 "fbb44025bf55e1ce8d84afc7596bfa47c8a36cd603c6fa440f9102c1c9761e6d"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://www.spice-space.org/download/usbredir/"
@@ -22,7 +23,7 @@ class Usbredir < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libusb"
 
   def install
