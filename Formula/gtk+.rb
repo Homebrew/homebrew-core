@@ -2,6 +2,7 @@ class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
   license "LGPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz"
@@ -112,7 +113,7 @@ class Gtkx < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -124,8 +125,8 @@ class Gtkx < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtk-2.0
       -I#{libpng.opt_include}/libpng16
@@ -137,7 +138,7 @@ class Gtkx < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
