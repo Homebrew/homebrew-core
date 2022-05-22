@@ -3,6 +3,7 @@ class Silk < Formula
   homepage "https://tools.netsa.cert.org/silk/"
   url "https://tools.netsa.cert.org/releases/silk-3.19.2.tar.gz"
   sha256 "358ba718208dcfb14a22664a6d935f343bd7a1976729e5619ba7c702b70e3a7d"
+  revision 1
 
   livecheck do
     url :homepage
@@ -19,8 +20,8 @@ class Silk < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "libfixbuf"
+  depends_on "libglib"
   depends_on "yaf"
 
   uses_from_macos "libpcap"
