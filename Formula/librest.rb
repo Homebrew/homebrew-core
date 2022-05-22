@@ -3,7 +3,7 @@ class Librest < Formula
   homepage "https://wiki.gnome.org/Projects/Librest"
   url "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz"
   sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
-  revision 4
+  revision 5
 
   bottle do
     rebuild 1
@@ -16,7 +16,7 @@ class Librest < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libsoup@2"
 
   def install
@@ -46,15 +46,15 @@ class Librest < Formula
         return EXIT_SUCCESS;
       }
     EOS
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     libsoup = Formula["libsoup@2"]
     flags = %W[
       -I#{libsoup.opt_include}/libsoup-2.4
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/rest-0.7
       -L#{libsoup.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lrest-0.7
       -lgobject-2.0
