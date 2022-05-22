@@ -4,6 +4,7 @@ class Cairomm < Formula
   url "https://cairographics.org/releases/cairomm-1.16.1.tar.xz"
   sha256 "6f6060d8e98dd4b8acfee2295fddbdd38cf487c07c26aad8d1a83bb9bff4a2c6"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"
@@ -58,7 +59,7 @@ class Cairomm < Formula
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     libpng = Formula["libpng"]
     libsigcxx = Formula["libsigc++"]
     pixman = Formula["pixman"]
@@ -67,8 +68,8 @@ class Cairomm < Formula
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/cairomm-1.16
       -I#{libpng.opt_include}/libpng16
       -I#{libsigcxx.opt_include}/sigc++-3.0
