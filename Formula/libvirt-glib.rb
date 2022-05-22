@@ -4,6 +4,7 @@ class LibvirtGlib < Formula
   url "https://libvirt.org/sources/glib/libvirt-glib-4.0.0.tar.xz"
   sha256 "8423f7069daa476307321d1c11e2ecc285340cd32ca9fc05207762843edeacbd"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://libvirt.org/sources/glib/"
@@ -26,7 +27,7 @@ class LibvirtGlib < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libvirt"
 
   uses_from_macos "libxml2"
@@ -56,10 +57,11 @@ class LibvirtGlib < Formula
     else
       Formula["libxml2"].opt_include/"libxml2"
     end
+    libglib = Formula["libglib"]
     system ENV.cc, "test.cpp",
                    "-I#{libxml2}",
-                   "-I#{Formula["glib"].include}/glib-2.0",
-                   "-I#{Formula["glib"].lib}/glib-2.0/include",
+                   "-I#{libglib.opt_include}/glib-2.0",
+                   "-I#{libglib.opt_lib}/glib-2.0/include",
                    "-I#{include}/libvirt-gconfig-1.0",
                    "-I#{include}/libvirt-glib-1.0",
                    "-I#{include}/libvirt-gobject-1.0",
