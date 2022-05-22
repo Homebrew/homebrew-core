@@ -4,7 +4,7 @@ class GeocodeGlib < Formula
   url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz"
   sha256 "01fe84cfa0be50c6e401147a2bc5e2f1574326e2293b55c69879be3e82030fd1"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -49,15 +49,15 @@ class GeocodeGlib < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/geocode-glib-1.0
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lgeocode-glib
       -lgio-2.0
