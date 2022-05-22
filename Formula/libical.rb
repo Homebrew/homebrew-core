@@ -4,7 +4,7 @@ class Libical < Formula
   url "https://github.com/libical/libical/releases/download/v3.0.14/libical-3.0.14.tar.gz"
   sha256 "4284b780356f1dc6a01f16083e7b836e63d3815e27ed0eaaad684712357ccc8f"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c27b4e5e0183e2a3c00df25be49016a32eabefe48df38495607cbe77cd1c4488"
@@ -17,8 +17,8 @@ class Libical < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "icu4c"
+  depends_on "libglib"
 
   uses_from_macos "libxml2"
 
@@ -40,9 +40,10 @@ class Libical < Formula
         return 0;
       }
     EOS
+    libglib = Formula["libglib"]
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lical-glib",
-                   "-I#{Formula["glib"].opt_include}/glib-2.0",
-                   "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
+                   "-I#{libglib.opt_include}/glib-2.0",
+                   "-I#{libglib.opt_lib}/glib-2.0/include"
     system "./test"
   end
 end
