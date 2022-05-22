@@ -2,6 +2,7 @@ class Loudmouth < Formula
   desc "Lightweight C library for the Jabber protocol"
   homepage "https://mcabber.com"
   license "LGPL-2.1-or-later"
+  revision 1
 
   stable do
     url "https://mcabber.com/files/loudmouth/loudmouth-1.5.4.tar.bz2"
@@ -39,8 +40,8 @@ class Loudmouth < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gnutls"
+  depends_on "libglib"
   depends_on "libidn"
 
   def install
@@ -55,11 +56,12 @@ class Loudmouth < Formula
 
   test do
     cp pkgshare/"examples/lm-send-async.c", testpath
+    libglib = Formula["libglib"]
     system ENV.cc, "lm-send-async.c", "-o", "test",
-      "-L#{lib}", "-L#{Formula["glib"].opt_lib}", "-lloudmouth-1", "-lglib-2.0",
+      "-L#{lib}", "-L#{libglib.opt_lib}", "-lloudmouth-1", "-lglib-2.0",
       "-I#{include}/loudmouth-1.0",
-      "-I#{Formula["glib"].opt_include}/glib-2.0",
-      "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
+      "-I#{libglib.opt_include}/glib-2.0",
+      "-I#{libglib.opt_lib}/glib-2.0/include"
     system "./test", "--help"
   end
 end
