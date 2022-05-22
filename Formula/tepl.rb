@@ -5,6 +5,7 @@ class Tepl < Formula
       tag:      "6.0.2",
       revision: "52b2715293a8cb8c2be853686be0bc711cef6759"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "1a686c153aa269c680566bd57de74b18e6ae78f6b8c61fad86d9d57dd761ea98"
@@ -49,7 +50,7 @@ class Tepl < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gtkx3 = Formula["gtk+3"]
     gtksourceview4 = Formula["gtksourceview4"]
     harfbuzz = Formula["harfbuzz"]
@@ -68,9 +69,9 @@ class Tepl < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/gio-unix-2.0/
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
@@ -87,7 +88,7 @@ class Tepl < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtksourceview4.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{lib}
