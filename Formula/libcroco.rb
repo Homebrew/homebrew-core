@@ -3,7 +3,7 @@ class Libcroco < Formula
   homepage "https://gitlab.gnome.org/GNOME/libcroco"
   url "https://download.gnome.org/sources/libcroco/0.6/libcroco-0.6.13.tar.xz"
   sha256 "767ec234ae7aa684695b3a735548224888132e063f92db585759b422570621d4"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "0c7ea7611c087cead41eabbc6e7680a7d47c8c3fd6736d7f97742f1311f61eaf"
@@ -19,7 +19,7 @@ class Libcroco < Formula
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   uses_from_macos "libxml2"
 
