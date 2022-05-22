@@ -4,7 +4,7 @@ class AppstreamGlib < Formula
   url "https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_18.tar.gz"
   sha256 "73b8c10273c4cdd8f6de03c2524fedad64e34ccae08ee847dba804bb15461f6e"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -23,9 +23,9 @@ class AppstreamGlib < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gdk-pixbuf"
-  depends_on "glib"
   depends_on "json-glib"
   depends_on "libarchive"
+  depends_on "libglib"
   depends_on "libsoup@2"
   depends_on "util-linux"
 
@@ -55,17 +55,17 @@ class AppstreamGlib < Formula
     EOS
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/gio-unix-2.0/
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/libappstream-glib
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lappstream-glib
       -lgdk_pixbuf-2.0
