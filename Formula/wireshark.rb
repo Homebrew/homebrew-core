@@ -5,6 +5,7 @@ class Wireshark < Formula
   mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.6.5.tar.xz"
   sha256 "a2d741d60ff3516137d4b9f38cdc07eee54a56ec36046f4c3afee6bfb4f6eaa1"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
   livecheck do
@@ -23,9 +24,9 @@ class Wireshark < Formula
 
   depends_on "cmake" => :build
   depends_on "c-ares"
-  depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "libglib"
   depends_on "libmaxminddb"
   depends_on "libnghttp2"
   depends_on "libsmi"
