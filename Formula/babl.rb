@@ -4,6 +4,7 @@ class Babl < Formula
   url "https://download.gimp.org/pub/babl/0.1/babl-0.1.90.tar.xz"
   sha256 "6e2ebb636f37581588e3d02499b3d2f69f9ac73e34a262f42911d7f5906a9243"
   license "LGPL-3.0-or-later"
+  revision 1
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git", branch: "master"
 
@@ -21,8 +22,8 @@ class Babl < Formula
     sha256 x86_64_linux:   "2cda652edb873aacf928ee293cea2f9d9a8b020bf7c2b53fbf502de339b2f0ca"
   end
 
-  depends_on "glib" => :build # for gobject-introspection
   depends_on "gobject-introspection" => :build
+  depends_on "libglib" => :build # for gobject-introspection
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
