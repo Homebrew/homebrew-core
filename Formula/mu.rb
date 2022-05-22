@@ -7,6 +7,7 @@ class Mu < Formula
   url "https://github.com/djcb/mu/releases/download/1.6.10/mu-1.6.10.tar.xz"
   sha256 "0bc224aab2bfe40b5209af14e0982e637789292b7979872658d4498b29e900b6"
   license "GPL-3.0-or-later"
+  revision 1
 
   # We restrict matching to versions with an even-numbered minor version number,
   # as an odd-numbered minor version number indicates a development version:
@@ -38,8 +39,8 @@ class Mu < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gmime"
+  depends_on "libglib"
   depends_on "xapian"
 
   uses_from_macos "texinfo" => :build
