@@ -4,6 +4,7 @@ class Atkmm < Formula
   url "https://download.gnome.org/sources/atkmm/2.36/atkmm-2.36.1.tar.xz"
   sha256 "e11324bfed1b6e330a02db25cecc145dca03fb0dff47f0710c85e317687da458"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "62a52bf13cb3e8ae0f3de2c22fe5eb99c82e2bfcf70562e7299b81e3b0eb46ab"
@@ -48,14 +49,14 @@ class Atkmm < Formula
     EOS
     atk = Formula["atk"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     glibmm = Formula["glibmm"]
     libsigcxx = Formula["libsigc++"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{glibmm.opt_include}/giomm-2.68
       -I#{glibmm.opt_include}/glibmm-2.68
       -I#{glibmm.opt_lib}/giomm-2.68/include
@@ -66,7 +67,7 @@ class Atkmm < Formula
       -I#{libsigcxx.opt_lib}/sigc++-3.0/include
       -L#{atk.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{glibmm.opt_lib}
       -L#{libsigcxx.opt_lib}
       -L#{lib}
