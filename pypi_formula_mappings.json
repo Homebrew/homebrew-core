@@ -169,6 +169,9 @@
   "gitlint": {
     "exclude_packages": ["six"]
   },
+  "hatch": {
+    "exclude_packages": ["six"]
+  },
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
   },
