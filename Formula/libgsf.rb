@@ -4,6 +4,7 @@ class Libgsf < Formula
   url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.49.tar.xz"
   sha256 "e9ebe36688f010c9e6e40c8903f3732948deb8aca032578d07d0751bd82cf857"
   license "LGPL-2.1-only"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "b4f7cf3af8caa8b37b04297651f835ad4817f2eadd801053929701b89a5a20aa"
@@ -25,7 +26,7 @@ class Libgsf < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
 
   uses_from_macos "libxml2"
 
@@ -50,9 +51,10 @@ class Libgsf < Formula
           return 0;
       }
     EOS
+    libglib = Formula["libglib"]
     system ENV.cc, "-I#{include}/libgsf-1",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{libglib.opt_include}/glib-2.0",
+           "-I#{libglib.opt_lib}/glib-2.0/include",
            testpath/"test.c", "-o", testpath/"test"
     system "./test"
   end
