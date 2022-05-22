@@ -4,6 +4,7 @@ class Gtkdatabox < Formula
   url "https://downloads.sourceforge.net/project/gtkdatabox/gtkdatabox-1/gtkdatabox-1.0.0.tar.gz"
   sha256 "8bee70206494a422ecfec9a88d32d914c50bb7a0c0e8fedc4512f5154aa9d3e3"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "af11118be54316daf2c684ab1ed515c1150e151bc58ae7d59e4c9afcb40c5180"
@@ -40,7 +41,7 @@ class Gtkdatabox < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gtkx = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
@@ -53,8 +54,8 @@ class Gtkdatabox < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-3.0
       -I#{gtkx.opt_lib}/gtk-3.0/include
       -I#{harfbuzz.opt_include}/harfbuzz
@@ -67,7 +68,7 @@ class Gtkdatabox < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtkx.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
