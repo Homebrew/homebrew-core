@@ -4,6 +4,7 @@ class Aravis < Formula
   url "https://github.com/AravisProject/aravis/releases/download/0.8.21/aravis-0.8.21.tar.xz"
   sha256 "3c4f768b22e7333386fc2622ef731722cb42971de1810caa59d29aa23eedff39"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "aa2eaf08418a757ff9674b3a2d608226cd239ae0b6bbd5fe83e28484692d8543"
@@ -20,13 +21,13 @@ class Aravis < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "glib"
   depends_on "gst-plugins-bad"
   depends_on "gst-plugins-base"
   depends_on "gst-plugins-good"
   depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "intltool"
+  depends_on "libglib"
   depends_on "libnotify"
   depends_on "libusb"
 
