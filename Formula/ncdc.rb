@@ -4,6 +4,7 @@ class Ncdc < Formula
   url "https://dev.yorhel.nl/download/ncdc-1.23.tar.gz"
   sha256 "804abae41fcca969e87f650483ae7e3a237419dabbd320897e25fe8851f0a2cb"
   license "MIT"
+  revision 1
 
   livecheck do
     url :homepage
@@ -27,8 +28,8 @@ class Ncdc < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "gnutls"
+  depends_on "libglib"
   depends_on "ncurses"
   depends_on "sqlite"
 
