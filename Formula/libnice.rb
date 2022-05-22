@@ -4,6 +4,7 @@ class Libnice < Formula
   url "https://nice.freedesktop.org/releases/libnice-0.1.19.tar.gz"
   sha256 "6747af710998cf708a2e8ceef51cccd181373d94201dd4b8d40797a070ed47cc"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  revision 1
 
   livecheck do
     url "https://github.com/libnice/libnice.git"
@@ -22,9 +23,9 @@ class Libnice < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "gnutls"
   depends_on "gstreamer"
+  depends_on "libglib"
 
   on_linux do
     depends_on "intltool" => :build
@@ -59,15 +60,15 @@ class Libnice < Formula
     EOS
 
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/nice
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lgio-2.0
       -lglib-2.0
