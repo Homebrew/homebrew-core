@@ -4,7 +4,7 @@ class Libgdata < Formula
   url "https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz"
   sha256 "dd8592eeb6512ad0a8cf5c8be8c72e76f74bfe6b23e4dd93f0756ee0716804c7"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -63,7 +63,7 @@ class Libgdata < Formula
     EOS
     ENV.libxml2
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     json_glib = Formula["json-glib"]
     liboauth = Formula["liboauth"]
     libsoup = Formula["libsoup@2"]
@@ -71,8 +71,8 @@ class Libgdata < Formula
     curl_lib = OS.mac? ? MacOS.sdk_path_if_needed/"usr/lib" : Formula["curl"].opt_lib
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/libgdata
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{liboauth.opt_include}
@@ -80,7 +80,7 @@ class Libgdata < Formula
       -I#{libxml2_prefix}/include/libxml2
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{json_glib.opt_lib}
       -L#{libsoup.opt_lib}
       -L#{curl_lib}
