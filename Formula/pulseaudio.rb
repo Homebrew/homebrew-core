@@ -2,6 +2,7 @@ class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+  revision 1
 
   stable do
     url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz"
@@ -53,7 +54,7 @@ class Pulseaudio < Formula
 
   on_linux do
     depends_on "dbus"
-    depends_on "glib"
+    depends_on "libglib"
     depends_on "libcap"
 
     resource "XML::Parser" do
