@@ -4,6 +4,7 @@ class AtSpi2Core < Formula
   url "https://download.gnome.org/sources/at-spi2-core/2.44/at-spi2-core-2.44.1.tar.xz"
   sha256 "4beb23270ba6cf7caf20b597354d75194d89afb69d2efcf15f4271688ba6f746"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 x86_64_linux: "f30c087e00d06e8b89ce75d4b0360dee93541a30e07a9e89ff5cab3f36a6f189"
@@ -17,7 +18,7 @@ class AtSpi2Core < Formula
   depends_on "python@3.9" => :build
   depends_on "dbus"
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libx11"
   depends_on "libxtst"
   depends_on :linux
