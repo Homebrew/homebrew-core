@@ -4,6 +4,7 @@ class GsettingsDesktopSchemas < Formula
   url "https://download.gnome.org/sources/gsettings-desktop-schemas/42/gsettings-desktop-schemas-42.0.tar.xz"
   sha256 "6686335a9ed623f7ae2276fefa50a410d4e71d4231880824714070cb317323d2"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20d3476344356c605545eb88740d06692e630cb59c90561a43ec15e8cc775ec9"
@@ -18,7 +19,7 @@ class GsettingsDesktopSchemas < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   uses_from_macos "expat"
 
