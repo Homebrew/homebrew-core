@@ -4,6 +4,7 @@ class Yaf < Formula
   url "https://tools.netsa.cert.org/releases/yaf-2.12.2.tar.gz"
   sha256 "0f3634887b68c695c80472ed17f3a2ebfbf86f841d23a2d48534afc8b637afcb"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://tools.netsa.cert.org/yaf/download.html"
@@ -21,8 +22,8 @@ class Yaf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "libfixbuf"
+  depends_on "libglib"
   depends_on "libtool"
   depends_on "pcre"
 
