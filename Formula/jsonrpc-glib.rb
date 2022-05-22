@@ -4,6 +4,7 @@ class JsonrpcGlib < Formula
   url "https://download.gnome.org/sources/jsonrpc-glib/3.42/jsonrpc-glib-3.42.0.tar.xz"
   sha256 "221989a57ca82a12467dc427822cd7651b0cad038140c931027bf1074208276b"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "92133b3379600969851a22f77764ea937b7a2c6ed7abfaace7f5d82a46f2e365"
@@ -19,8 +20,8 @@ class JsonrpcGlib < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "glib"
   depends_on "json-glib"
+  depends_on "libglib"
 
   def install
     mkdir "build" do
@@ -40,20 +41,20 @@ class JsonrpcGlib < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     json_glib = Formula["json-glib"]
     pcre = Formula["pcre"]
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
     flags += %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/jsonrpc-glib-1.0
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{pcre.opt_include}
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{json_glib.opt_lib}
       -L#{lib}
       -lgio-2.0
