@@ -3,7 +3,7 @@ class Streamripper < Formula
   homepage "https://streamripper.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/streamripper/streamripper%20%28current%29/1.64.6/streamripper-1.64.6.tar.gz"
   sha256 "c1d75f2e9c7b38fd4695be66eff4533395248132f3cc61f375196403c4d8de42"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -21,7 +21,7 @@ class Streamripper < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     # the Makefile ignores CPPFLAGS from the environment, which
