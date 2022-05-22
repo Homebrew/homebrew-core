@@ -8,6 +8,7 @@ class QtAT5 < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.3/single/qt-everywhere-opensource-src-5.15.3.tar.xz"
   sha256 "b7412734698a87f4a0ae20751bab32b1b07fdc351476ad8e35328dbe10efdedb"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5ac5153ebd4c55455f4e66c8ff709a8f6e5eaa4585b771d3713ff4157533c535"
@@ -34,7 +35,7 @@ class QtAT5 < Formula
     depends_on "at-spi2-core"
     depends_on "fontconfig"
     depends_on "gcc"
-    depends_on "glib"
+    depends_on "libglib"
     depends_on "icu4c"
     depends_on "libproxy"
     depends_on "libxkbcommon"
@@ -242,7 +243,7 @@ __END__
 @@ -43,4 +43,6 @@
  #include <qpa/qplatformgraphicsbuffer.h>
  #include <private/qcore_mac_p.h>
-+ 
++
 +#include <CoreGraphics/CGColorSpace.h>
 
  QT_BEGIN_NAMESPACE
