@@ -4,6 +4,7 @@ class Lasso < Formula
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.8.0.tar.gz"
   sha256 "ffcbd5851d98586c7e1caf43bad66164211a3b61d12bf860a0598448ff9f2b38"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -23,7 +24,7 @@ class Lasso < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
   depends_on "six" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libxmlsec1"
   depends_on "openssl@1.1"
 
@@ -53,11 +54,12 @@ class Lasso < Formula
       }
     EOS
     libxml = OS.mac? ? MacOS.sdk_path/"usr/include/libxml2" : Formula["libxml2"].include/"libxml2"
+    libglib = Formula["libglib"]
     system ENV.cc, "test.c",
-                   "-I#{Formula["glib"].include}/glib-2.0",
-                   "-I#{Formula["glib"].lib}/glib-2.0/include",
+                   "-I#{libglib.opt_include}/glib-2.0",
+                   "-I#{libglib.opt_lib}/glib-2.0/include",
                    "-I#{libxml}",
-                   "-I#{Formula["libxmlsec1"].include}/xmlsec1",
+                   "-I#{Formula["libxmlsec1"].opt_include}/xmlsec1",
                    "-L#{lib}", "-llasso", "-o", "test"
     system "./test"
   end
