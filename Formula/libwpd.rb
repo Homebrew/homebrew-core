@@ -3,6 +3,7 @@ class Libwpd < Formula
   homepage "https://libwpd.sourceforge.io/"
   url "https://dev-www.libreoffice.org/src/libwpd-0.10.3.tar.xz"
   sha256 "2465b0b662fdc5d4e3bebcdc9a79027713fb629ca2bff04a3c9251fdec42dd09"
+  revision 1
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -22,7 +23,7 @@ class Libwpd < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libgsf"
   depends_on "librevenge"
 
