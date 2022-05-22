@@ -2,7 +2,7 @@ class Liblqr < Formula
   desc "C/C++ seam carving library"
   homepage "https://liblqr.wikidot.com/"
   license "LGPL-3.0"
-  revision 1
+  revision 2
   head "https://github.com/carlobaldassi/liblqr.git", branch: "master"
 
   stable do
@@ -29,7 +29,7 @@ class Liblqr < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     system "./configure", "--disable-dependency-tracking",
