@@ -4,6 +4,7 @@ class Libsoup < Formula
   url "https://download.gnome.org/sources/libsoup/3.0/libsoup-3.0.6.tar.xz"
   sha256 "b45d59f840b9acf9bb45fd45854e3ef672f57e3ab957401c3ad8d7502ac23da6"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "6bfe28dcf8068b439aa91e0961fd296d4acf6e43dc5d9cb5a897d0ecaeda5919"
@@ -57,15 +58,15 @@ class Libsoup < Formula
     EOS
     ENV.libxml2
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/libsoup-3.0
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lgio-2.0
       -lglib-2.0
