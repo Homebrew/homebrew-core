@@ -5,7 +5,7 @@ class Minbif < Formula
   version "1.0.5-20150505"
   sha256 "4e264fce518a0281de9fc3d44450677c5fa91097a0597ef7a0d2a688ee66d40b"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "fe93338a9056edd1860252df688c5924ec0b5846455a4b171360495c9a9f05fb"
@@ -20,8 +20,8 @@ class Minbif < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gnutls"
+  depends_on "libglib"
   depends_on "pidgin"
 
   def install
