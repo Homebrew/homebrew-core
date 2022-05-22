@@ -4,6 +4,7 @@ class Deno < Formula
   url "https://github.com/denoland/deno/releases/download/v1.22.0/deno_src.tar.gz"
   sha256 "ffa1cd143ba1e53ab5d380c1e630a2fe73910b7be4e483b0d643d14b31b23ed4"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ef4b117706e007e417804196ce60872e1ce6f7202ea3f862184c25278cccffb2"
@@ -28,7 +29,7 @@ class Deno < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "gcc"
-    depends_on "glib"
+    depends_on "libglib"
   end
 
   fails_with gcc: "5"
