@@ -4,6 +4,7 @@ class Libgee < Formula
   url "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.5.tar.xz"
   sha256 "31863a8957d5a727f9067495cabf0a0889fa5d3d44626e54094331188d5c1518"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "b4c0eb232ec495a1133db8cd3f639658033a25ce178ec00b858e8a33957d4221"
@@ -17,7 +18,7 @@ class Libgee < Formula
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     # ensures that the gobject-introspection files remain within the keg
@@ -43,14 +44,14 @@ class Libgee < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/gee-0.8
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lgee-0.8
       -lglib-2.0
