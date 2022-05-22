@@ -11,6 +11,7 @@ class Lensfun < Formula
     "CC-BY-3.0",
     :public_domain,
   ]
+  revision 1
   version_scheme 1
   head "https://github.com/lensfun/lensfun.git", branch: "master"
 
@@ -31,7 +32,7 @@ class Lensfun < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libpng"
   depends_on "python@3.9"
 
