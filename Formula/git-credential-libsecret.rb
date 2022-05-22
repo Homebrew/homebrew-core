@@ -4,6 +4,7 @@ class GitCredentialLibsecret < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.36.1.tar.xz"
   sha256 "405d4a0ff6e818d1f12b3e92e1ac060f612adcb454f6299f70583058cb508370"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
@@ -20,7 +21,7 @@ class GitCredentialLibsecret < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libsecret"
 
   def install
