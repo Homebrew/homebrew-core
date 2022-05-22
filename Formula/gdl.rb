@@ -4,6 +4,7 @@ class Gdl < Formula
   url "https://download.gnome.org/sources/gdl/3.40/gdl-3.40.0.tar.xz"
   sha256 "3641d4fd669d1e1818aeff3cf9ffb7887fc5c367850b78c28c775eba4ab6a555"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256                               arm64_monterey: "20a0742ffcaa3bf6a8ee5c1531ed48f2b51a18c7a816f4b96d85192c2906db23"
@@ -50,7 +51,7 @@ class Gdl < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gtkx3 = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
@@ -64,9 +65,9 @@ class Gdl < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/gio-unix-2.0/
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libgdl-3.0
@@ -79,7 +80,7 @@ class Gdl < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
