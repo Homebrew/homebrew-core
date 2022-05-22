@@ -4,6 +4,7 @@ class Sshfs < Formula
   url "https://github.com/libfuse/sshfs/archive/sshfs-3.7.3.tar.gz"
   sha256 "52a1a1e017859dfe72a550e6fef8ad4f8703ce312ae165f74b579fd7344e3a26"
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
+  revision 1
 
   bottle do
     sha256 x86_64_linux: "a98d273e64706971684935a3ae87da16b1dda98f7289eb79e82f4cdfb7f12bb8"
@@ -12,7 +13,7 @@ class Sshfs < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   on_macos do
     disable! date: "2021-04-08", because: "requires closed-source macFUSE"
