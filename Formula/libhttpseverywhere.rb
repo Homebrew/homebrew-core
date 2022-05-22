@@ -4,7 +4,7 @@ class Libhttpseverywhere < Formula
   url "https://download.gnome.org/sources/libhttpseverywhere/0.8/libhttpseverywhere-0.8.3.tar.xz"
   sha256 "1c006f5633842a2b131c1cf644ab929556fc27968a60da55c00955bd4934b6ca"
   license "LGPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "006bf3748d65067509e5b2e6d506f3b0a9a52c5eaab54780850b70b7f82ff249"
@@ -23,10 +23,10 @@ class Libhttpseverywhere < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "glib"
   depends_on "json-glib"
   depends_on "libarchive"
   depends_on "libgee"
+  depends_on "libglib"
   depends_on "libsoup@2"
 
   # see https://gitlab.gnome.org/GNOME/libhttpseverywhere/issues/1
@@ -59,7 +59,7 @@ class Libhttpseverywhere < Formula
     EOS
     ENV.libxml2
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     json_glib = Formula["json-glib"]
     libarchive = Formula["libarchive"]
     libgee = Formula["libgee"]
@@ -68,8 +68,8 @@ class Libhttpseverywhere < Formula
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
     flags += %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/httpseverywhere-0.8
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libarchive.opt_include}
@@ -78,7 +78,7 @@ class Libhttpseverywhere < Formula
       -I#{pcre.opt_include}
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{json_glib.opt_lib}
       -L#{libarchive.opt_lib}
       -L#{libgee.opt_lib}
