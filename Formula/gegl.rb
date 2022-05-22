@@ -4,6 +4,7 @@ class Gegl < Formula
   url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.36.tar.xz"
   sha256 "6fd58a0cdcc7702258adaeffb573a389228ae8f0eff47578efda2309b61b2ca6"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
+  revision 1
   head "https://gitlab.gnome.org/GNOME/gegl.git", branch: "master"
 
   livecheck do
@@ -20,7 +21,6 @@ class Gegl < Formula
     sha256 x86_64_linux:   "4dbaf182578d98e5048bc3cd3eacdfdf0e1b0de787a6e97457ae5b6e05d016dc"
   end
 
-  depends_on "glib" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -28,9 +28,9 @@ class Gegl < Formula
   depends_on "python@3.10" => :build
   depends_on "babl"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "jpeg"
   depends_on "json-glib"
+  depends_on "libglib"
   depends_on "libpng"
 
   on_linux do
@@ -76,11 +76,12 @@ class Gegl < Formula
         return 0;
       }
     EOS
+    libglib = Formula["libglib"]
     system ENV.cc,
            "-I#{Formula["babl"].opt_include}/babl-0.1",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
-           "-L#{Formula["glib"].opt_lib}", "-lgobject-2.0", "-lglib-2.0",
+           "-I#{libglib.opt_include}/glib-2.0",
+           "-I#{libglib.opt_lib}/glib-2.0/include",
+           "-L#{libglib.opt_lib}", "-lgobject-2.0", "-lglib-2.0",
            testpath/"test.c",
            "-I#{include}/gegl-0.4", "-L#{lib}", "-lgegl-0.4",
            "-o", testpath/"test"
