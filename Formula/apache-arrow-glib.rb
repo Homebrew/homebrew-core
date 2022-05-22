@@ -5,6 +5,7 @@ class ApacheArrowGlib < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-8.0.0/apache-arrow-8.0.0.tar.gz"
   sha256 "ad9a05705117c989c116bae9ac70492fe015050e1b80fb0e38fde4b5d863aaa3"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/arrow.git", branch: "master"
 
   livecheck do
@@ -25,7 +26,7 @@ class ApacheArrowGlib < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "apache-arrow"
-  depends_on "glib"
+  depends_on "libglib"
 
   on_linux do
     depends_on "gcc"
@@ -51,15 +52,15 @@ class ApacheArrowGlib < Formula
       }
     SOURCE
     apache_arrow = Formula["apache-arrow"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{include}
       -I#{apache_arrow.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -L#{lib}
       -L#{apache_arrow.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -DNDEBUG
       -larrow-glib
       -larrow
