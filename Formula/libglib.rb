@@ -9,8 +9,6 @@ class Libglib < Formula
     formula "glib"
   end
 
-  keg_only "both libglib and glib provide headers and libraries"
-
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
