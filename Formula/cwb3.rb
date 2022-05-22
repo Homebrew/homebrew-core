@@ -4,7 +4,7 @@ class Cwb3 < Formula
   url "https://downloads.sourceforge.net/project/cwb/cwb/cwb-3.5-RC/cwb-3.4.33-src.tar.gz"
   sha256 "856b72785522d42f13f4a0528d2b80c2bf422c10411234a8e4b61df111af77dd"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "svn://svn.code.sf.net/p/cwb/code/cwb/trunk"
 
   livecheck do
@@ -23,7 +23,7 @@ class Cwb3 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "pcre"
   depends_on "readline"
 
@@ -51,7 +51,7 @@ class Cwb3 < Formula
 
     # Avoid rebuilds when dependencies are bumped.
     inreplace bin/"cwb-config" do |s|
-      s.gsub! Formula["glib"].prefix.realpath, Formula["glib"].opt_prefix
+      s.gsub! Formula["libglib"].prefix.realpath, Formula["libglib"].opt_prefix
       s.gsub! Formula["pcre"].prefix.realpath, Formula["pcre"].opt_prefix
     end
   end
