@@ -3,7 +3,7 @@ class Wv < Formula
   homepage "https://wvware.sourceforge.io/"
   url "https://abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz"
   sha256 "4c730d3b325c0785450dd3a043eeb53e1518598c4f41f155558385dd2635c19d"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "a96f5e5c182887f42939ab725f79d4a9f31801d3f92a19da1e08da6477edcfe7"
@@ -18,7 +18,7 @@ class Wv < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libgsf"
   depends_on "libpng"
   depends_on "libwmf"
