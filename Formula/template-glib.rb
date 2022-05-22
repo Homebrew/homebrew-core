@@ -4,6 +4,7 @@ class TemplateGlib < Formula
   url "https://download.gnome.org/sources/template-glib/3.34/template-glib-3.34.1.tar.xz"
   sha256 "9ec9b71e04d4f5cb14f755ef790631cd0b45c0603e11c836fc7cfd9e268cd07a"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "be8fc4d72fbfb17644f0b2ed2b7d75491d2530b2710b078b02cbfdf5304a0682"
@@ -18,8 +19,8 @@ class TemplateGlib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "gobject-introspection"
+  depends_on "libglib"
 
   uses_from_macos "flex"
 
@@ -42,18 +43,18 @@ class TemplateGlib < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     pcre = Formula["pcre"]
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
     flags += %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/template-glib-1.0
       -I#{pcre.opt_include}
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lgio-2.0
       -lglib-2.0
