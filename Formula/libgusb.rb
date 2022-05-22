@@ -6,6 +6,7 @@ class Libgusb < Formula
   url "https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.10.tar.xz"
   sha256 "0eb0b9ab0f8bba0c59631c809c37b616ef34eb3c8e000b0b9b71cf11e4931bdc"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/hughsie/libgusb.git", branch: "main"
 
   livecheck do
@@ -28,7 +29,7 @@ class Libgusb < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
   depends_on "vala" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libusb"
   depends_on "usb.ids"
 
@@ -54,17 +55,17 @@ class Libgusb < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     libusb = Formula["libusb"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{libusb.opt_include}/libusb-1.0
       -I#{include}/gusb-1
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{libusb.opt_lib}
       -L#{lib}
       -lgio-2.0
