@@ -4,7 +4,7 @@ class Vips < Formula
   url "https://github.com/libvips/libvips/releases/download/v8.12.2/vips-8.12.2.tar.gz"
   sha256 "565252992aff2c7cd10c866c7a58cd57bc536e03924bde29ae0f0cb9e074010b"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -29,13 +29,13 @@ class Vips < Formula
   depends_on "freetype"
   depends_on "gdk-pixbuf"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "harfbuzz"
   depends_on "hdf5"
   depends_on "imagemagick"
   depends_on "imath"
   depends_on "jpeg-xl"
   depends_on "libexif"
+  depends_on "libglib"
   depends_on "libgsf"
   depends_on "libheif"
   depends_on "libimagequant"
