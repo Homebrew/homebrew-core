@@ -3,7 +3,7 @@ class Goocanvas < Formula
   homepage "https://wiki.gnome.org/Projects/GooCanvas"
   url "https://download.gnome.org/sources/goocanvas/2.0/goocanvas-2.0.4.tar.xz"
   sha256 "c728e2b7d4425ae81b54e1e07a3d3c8a4bd6377a63cffa43006045bceaa92e90"
-  revision 2
+  revision 3
 
   bottle do
     sha256                               arm64_monterey: "82c8618cacc3ede0528d7b5642df008d85004ffcb2dca6161854191fc5f7305f"
@@ -20,8 +20,8 @@ class Goocanvas < Formula
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "glib"
   depends_on "gtk+3"
+  depends_on "libglib"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
