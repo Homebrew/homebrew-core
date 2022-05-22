@@ -4,6 +4,7 @@ class Gxml < Formula
   url "https://download.gnome.org/sources/gxml/0.20/gxml-0.20.0.tar.xz"
   sha256 "0a0fc4f305ba9ea2f1f76aadfd660fd50febdc7a5e151f9559c81b2bd362d87b"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "7fe768a5398f9cb19eb57263e3b9b57716b48a149b175ff9b970eb1e898fbacd"
@@ -21,8 +22,8 @@ class Gxml < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "glib"
   depends_on "libgee"
+  depends_on "libglib"
   depends_on "libxml2"
 
   def install
@@ -44,18 +45,18 @@ class Gxml < Formula
     EOS
     libxml2 = Formula["libxml2"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     libgee = Formula["libgee"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{libxml2.opt_include}/libxml2
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/gxml-0.20
       -I#{libgee.opt_include}/gee-0.8
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{libgee.opt_lib}
       -L#{libxml2.opt_lib}
       -L#{lib}
