@@ -3,7 +3,7 @@ class Libidl < Formula
   homepage "https://ftp.acc.umu.se/pub/gnome/sources/libIDL/0.8/"
   url "https://download.gnome.org/sources/libIDL/0.8/libIDL-0.8.14.tar.bz2"
   sha256 "c5d24d8c096546353fbc7cedf208392d5a02afe9d56ebcc1cccb258d7c4d2220"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "84968b36ff2cb712d57470b45200c7b421e2e86f60a018829534a971856f3a9c"
@@ -19,7 +19,7 @@ class Libidl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
