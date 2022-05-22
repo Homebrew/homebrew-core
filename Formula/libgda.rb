@@ -4,6 +4,7 @@ class Libgda < Formula
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.10.tar.xz"
   sha256 "6f6cdf7b8053f553b907e0c88a6064eb48cf2751852eb24323dcf027792334c8"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "31de7c27443d4f477cfefa7b7598311b98b1998368385ea7a0787644c30a3c6f"
@@ -21,9 +22,9 @@ class Libgda < Formula
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "libgcrypt"
   depends_on "libgee"
+  depends_on "libglib"
   depends_on "openssl@1.1"
   depends_on "readline"
 
