@@ -4,7 +4,7 @@ class Libgxps < Formula
   url "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz"
   sha256 "6d27867256a35ccf9b69253eb2a88a32baca3b97d5f4ef7f82e3667fa435251c"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://gitlab.gnome.org/GNOME/libgxps.git", branch: "master"
 
   livecheck do
@@ -28,9 +28,9 @@ class Libgxps < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "gtk+3"
   depends_on "libarchive"
+  depends_on "libglib"
   depends_on "little-cms2"
 
   uses_from_macos "zip" => :test
