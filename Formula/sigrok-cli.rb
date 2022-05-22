@@ -4,6 +4,7 @@ class SigrokCli < Formula
   url "https://sigrok.org/download/source/sigrok-cli/sigrok-cli-0.7.2.tar.gz"
   sha256 "71d0443f36897bf565732dec206830dbea0f2789b6601cf10536b286d1140ab8"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://sigrok.org/wiki/Downloads"
@@ -27,7 +28,7 @@ class SigrokCli < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libsigrok"
   depends_on "libsigrokdecode"
 
