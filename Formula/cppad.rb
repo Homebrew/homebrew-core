@@ -1,9 +1,8 @@
 class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
-  # Stable versions have numbers of the form 201x0000.y
-  url "https://github.com/coin-or/CppAD/archive/20220000.2.tar.gz"
-  sha256 "a363996d6a36c08b37048d3c439119d1cd715ce7caf124ac6f0c2e94240985bd"
+  url "https://github.com/coin-or/CppAD/archive/20220000.3.tar.gz"
+  sha256 "7778c516a131a20e12c97dffe2b65fbf356d791741a6c63d39f16b9c4b747259"
   license "EPL-2.0"
   version_scheme 1
   head "https://github.com/coin-or/CppAD.git", branch: "master"
@@ -14,12 +13,12 @@ class Cppad < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4bf638f87ef91e08200f860e3dd6073e16f653de91637b50b2eab717cf6c0180"
-    sha256 cellar: :any,                 arm64_big_sur:  "e8ab2a0462ba2f7a0ce0801e81c65e0cb86ccd73bc39bdc67401edd4784162ec"
-    sha256 cellar: :any,                 monterey:       "fa31d5517dbbaeaf87d0db041ab6bb91a0f9c2ffda42091a02aad9083b29ef49"
-    sha256 cellar: :any,                 big_sur:        "79db2a1511c61b7d0a7f000bb17088b97d633e21bf0504b8b24f4813a4fd1b1d"
-    sha256 cellar: :any,                 catalina:       "adb9ccfaa8aeceb4ff09ef0215f412e03fc404b3a1ffc499a41f0a0a8cb74c06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93017c4eef160255f23db2a6d7f576ba5a61e6711bc9f997be49700e4d0eb937"
+    sha256 cellar: :any,                 arm64_monterey: "c3d520e2e241c46e3c00851cd18de2f9926bcf44aab38a8438213328d161b894"
+    sha256 cellar: :any,                 arm64_big_sur:  "19b705f49108fab8d83f09fd9ae6429c0c6f90622e41eea6bb573fb228017548"
+    sha256 cellar: :any,                 monterey:       "3762f8640dc15f82c67222c3580e9c7b2f22afe4718bfb4a094582e85cc3cd25"
+    sha256 cellar: :any,                 big_sur:        "050aae4237805f0c17171b680f62f9c6800b72a00f148ad39fe313f33a35bb77"
+    sha256 cellar: :any,                 catalina:       "6b4c71bc2acbafa390d4dfe2b569b2a744453c7947842dcfd5aa72a2dbb7591d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7da097694f15fd7afa3bade6dd5c97ffeb400e0cf70acdfabc151b8adae00b5f"
   end
 
   depends_on "cmake" => :build

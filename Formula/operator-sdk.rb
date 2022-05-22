@@ -2,10 +2,9 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      tag:      "v1.20.0",
-      revision: "deb3531ae20a5805b7ee30b71f13792b80bd49b1"
+      tag:      "v1.20.1",
+      revision: "1780d438cfd87382d034c72703a80d9073b7b6d8"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
   livecheck do
@@ -14,12 +13,12 @@ class OperatorSdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e7fc83b305d8fd672b1a68ed04d83afb2509393e07a105ba1922d11ee491986"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "239b1ada548023fa19a593d3f15267f7e370f5e2d30cb2c4be1045aa7b21a2aa"
-    sha256 cellar: :any_skip_relocation, monterey:       "8fd164db5f3d9e183527aa2082d096c60b1f097a05e965d8daa308842f12dab5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c50a93409f48b97037f376aa565a58f3e0cd282b5d1cd730ffdbf3bb58f6fb3e"
-    sha256 cellar: :any_skip_relocation, catalina:       "17820af2c0902e9b7bede2a5747a553838160a2cbe603686aaa667b798345faf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0e9798f46d1f7f58da65b99dfbb3a242c2e1c8720c4979ea249c1818b1a02ee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d5cd01b5fdb8324fb44bda66242e6a073b215b97c1e3bae784c63f425ad7c7e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae3bb5275c923c0c665db28ab637705d9c8df340caf366de30667ed688dfadc9"
+    sha256 cellar: :any_skip_relocation, monterey:       "2eeeb399d7d9efa353efdd8c498d99d7714c3fb55dbc937f7ed6cba6d3b01328"
+    sha256 cellar: :any_skip_relocation, big_sur:        "85d9bbc2e01b77b932e13253becc33ee1b8fb84c4f8dda91e95b78bc9ebe3bac"
+    sha256 cellar: :any_skip_relocation, catalina:       "d52fa5df9d064f3bf51c06d8644ee5fdafefa4cf47d47699184b8d6e70cfe678"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d3f8c7cdbe90eb140988a13064c9725f810e2c301ad8f3cc51b5f4fd865249b"
   end
 
   # Resolves upstream issue: https://github.com/operator-framework/operator-sdk/issues/5689

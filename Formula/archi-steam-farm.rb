@@ -2,8 +2,8 @@ class ArchiSteamFarm < Formula
   desc "Application for idling Steam cards from multiple accounts simultaneously"
   homepage "https://github.com/JustArchiNET/ArchiSteamFarm"
   url "https://github.com/JustArchiNET/ArchiSteamFarm.git",
-      tag:      "5.2.4.2",
-      revision: "aea7c7640c4b39e7de187a68d1a413c8460874ae"
+      tag:      "5.2.5.7",
+      revision: "7532b89fd02696aa680ac001df6e85ecbf114926"
   license "Apache-2.0"
   head "https://github.com/JustArchiNET/ArchiSteamFarm.git", branch: "main"
 
@@ -13,12 +13,12 @@ class ArchiSteamFarm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1accef4e592ff0d817b56cdfd2e0a5d8e50cb2026ba5a2563a8603eb61b65f8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1accef4e592ff0d817b56cdfd2e0a5d8e50cb2026ba5a2563a8603eb61b65f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "b13a21c309a475840bf326bf2218982ad86b0797e4c342d705607d0a7c1a3c4b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b13a21c309a475840bf326bf2218982ad86b0797e4c342d705607d0a7c1a3c4b"
-    sha256 cellar: :any_skip_relocation, catalina:       "efb1d8af377e14d0ff4bc482e37e59e219dc18fa7874018a8b01d9df5d9214ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5253ef3735381e38e0a20e4f6de09344f96495ef2aac29b2656ecdca108e166"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "52588fa149c88a4792e11126c4b539972202680fee34c884c5975329960d44c5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4cd23228e657e8ec75883dc0cf809b7c6ff44d7f1df987a31f21fa5954d02203"
+    sha256 cellar: :any_skip_relocation, monterey:       "e70791726631128e107591942451783148e95c287c5c97327ea8b3ddd7b206ee"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e2d49fb5e366f66b0b4339cc732350419f35270df05d6e38ca354376056b4dea"
+    sha256 cellar: :any_skip_relocation, catalina:       "752f79cd2aa3831d2574a86d8f5322f68024ea83f89c6c222830231c12f8091f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e63d978a9bd51f7e198fa59e7dbe4a27b52a5126bb2eb8ec70064fb5cb2309b5"
   end
 
   depends_on "dotnet"

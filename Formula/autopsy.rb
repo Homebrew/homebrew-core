@@ -17,6 +17,7 @@ class Autopsy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "cec5acab1fcc5e79f07962e85ed00af7696fb5db6d7e1bce164d8f21bf3b614d"
     sha256 cellar: :any_skip_relocation, catalina:       "cec5acab1fcc5e79f07962e85ed00af7696fb5db6d7e1bce164d8f21bf3b614d"
     sha256 cellar: :any_skip_relocation, mojave:         "cec5acab1fcc5e79f07962e85ed00af7696fb5db6d7e1bce164d8f21bf3b614d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e1ce8b5147639d7737a4013030ee2a059d1b8dd4657554e08e9423a9a6b2f66"
   end
 
   depends_on "sleuthkit"

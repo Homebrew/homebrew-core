@@ -1,18 +1,18 @@
 class Vapor < Formula
   desc "Command-line tool for Vapor (Server-side Swift web framework)"
   homepage "https://vapor.codes"
-  url "https://github.com/vapor/toolbox/archive/18.3.6.tar.gz"
-  sha256 "67efb2d454564be007e520afb582b9d1d3bf2ac93b49e3ecdec5495df724c2cf"
+  url "https://github.com/vapor/toolbox/archive/18.4.0.tar.gz"
+  sha256 "bc57edded55d0e5e4f4b2bdf2c5a1809a910f3ab06aaaebf2973dc12e4ed5d2c"
   license "MIT"
   head "https://github.com/vapor/toolbox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e0192858bca261ff3690cf1097896eaa5a9866a5d2d692410fdb7e8971238c7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "617785d6e88b734dafb4e2bd0c4fbca219d28f8dbce88a14befe8a8405579d1b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a6b32eb224796649a9e2024e7a430124bdebaf4253c42ca90a755aa3fe4690b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a2488d72900dbcd7147ef0b1c756baea6c69c3a976a63cdfc4f7537764a244ef"
-    sha256 cellar: :any_skip_relocation, catalina:       "0622f5ae31e2f4be566727425b0fce7cc8b5d79b60d80fb54a7abc9c86d51e1b"
-    sha256                               x86_64_linux:   "56ae58ee4fc87aedec745769bc1a1e19bc9efd01f91a2d203d3e2e3f7ad3eb1c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9844f4021880ae9c897816e239ec7b8e2a4db84db38c901b23831aa475229066"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f2297e3b959aa4e8708c8319c6408057c0ef65b9804e249862a818c93433231"
+    sha256 cellar: :any_skip_relocation, monterey:       "c1d30a46e7df99f7da46e2aff3c9e8aa4e70f5d290295e81ff32f8b49be0819d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a9f72599af6fc398847a947a80e8fef567e5c1d4ecf2ab9ecfa3161fb1c80187"
+    sha256 cellar: :any_skip_relocation, catalina:       "19c812ee543c37232b4ede3bb38de34b92812fa3ffa6ac32962728a974fd9201"
+    sha256                               x86_64_linux:   "7e9c0e6e4bedd6a176c73b01d3658677f052fe9db01e3b5feb3cb91e4e4dd4f8"
   end
 
   depends_on xcode: "11.4"

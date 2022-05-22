@@ -1,32 +1,23 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://static.process-one.net/ejabberd/downloads/21.12/ejabberd-21.12.tgz"
-  sha256 "b6e6739947d3678525b14ee280cedb1a04280c83ea17a4741795aac99fbdad47"
+  url "https://github.com/processone/ejabberd/archive/refs/tags/22.05.tar.gz"
+  sha256 "b8e93b51ae3cb650a2870fae1b6705404bb155289e97be7e9a54961a9effb959"
   license "GPL-2.0-only"
-
-  livecheck do
-    url "https://www.process-one.net/en/ejabberd/downloads/"
-    regex(/href=.*?ejabberd[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://github.com/processone/ejabberd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c4873e5f20dc834c2b31e8a3a0a8e4b2c72ff0cc3f1af5de65236cf2823d6524"
-    sha256 cellar: :any,                 arm64_big_sur:  "2c0f3a0d99e52c4e25e6844669929f992ee89514847532aa0cfff77aba2b1297"
-    sha256 cellar: :any,                 monterey:       "2aab8f179a30fb248fd1e07a00ac149bd763451f11a385f916d1950e0dea5858"
-    sha256 cellar: :any,                 big_sur:        "38f754a3aa6ef9c634104f39fd0c41e5d501525d69b437fd1520ff5544c1d01e"
-    sha256 cellar: :any,                 catalina:       "383e3974b71e4d572c5f509b3b33f228eef34f18ab607633e632c387a9562863"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61e4ae90bc4c22ec6114b3a26a9cb9d2285328b4e86219e58d50dae56cba2aec"
+    sha256 cellar: :any,                 arm64_monterey: "e4ae78568fd0c9db8eac5476082cf922e2c41d3e950cae20ba3342030ca6d2f2"
+    sha256 cellar: :any,                 arm64_big_sur:  "4bf6c4c8d85610dfabea9fefbbacfedbd20ece86bdd513afbfd126b932f71630"
+    sha256 cellar: :any,                 monterey:       "e36160a15fd2ace0ccca9be68f91920e366bbe7a1e76f109152ea4397123225a"
+    sha256 cellar: :any,                 big_sur:        "4b3fd6069f6273d2f292d6bdec216783963e6071b0972ee11e7afd23663d1f2e"
+    sha256 cellar: :any,                 catalina:       "551ed90dd256ea103807e74f7d58aa319e1bd3c34d9cf91bfb0b4d9b4492f22b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35e94cd42d1f356f143e0d7ccc89cfced53138fcc2d6ce82c18044d2c9ca51b0"
   end
 
-  head do
-    url "https://github.com/processone/ejabberd.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
-  depends_on "erlang@22"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "erlang"
   depends_on "gd"
   depends_on "libyaml"
   depends_on "openssl@1.1"
@@ -50,7 +41,7 @@ class Ejabberd < Formula
             "--enable-odbc",
             "--enable-pam"]
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", *args
 
     # Set CPP to work around cpp shim issue:

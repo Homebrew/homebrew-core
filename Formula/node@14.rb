@@ -1,8 +1,8 @@
 class NodeAT14 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.19.2/node-v14.19.2.tar.xz"
-  sha256 "ef4375a9152ff69f2823d7b20a3b53767a046164bbac7824429cb216d1688cf0"
+  url "https://nodejs.org/dist/v14.19.3/node-v14.19.3.tar.xz"
+  sha256 "5cf45b1f1aca77523acf36240c1d53a999279070a7711eabf23346f88b0cc994"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,11 @@ class NodeAT14 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "65968f3500dae69c05e9c596624b97b5ba6165103759a3b0fab3f07085a0dd17"
-    sha256 cellar: :any, arm64_big_sur:  "2e3e408186ba11e59317d17f94c102cd04ff7198fdb0a1f80415b889e910f4fd"
-    sha256 cellar: :any, monterey:       "afb9738a882eba4f7a2f7779d32e8bde7135abedf1e9c45ca1d9af415d5e8d6e"
-    sha256 cellar: :any, big_sur:        "b9754256b4ca8e50eb9176351ab9a6cd82d15c3ef16b45317496bc0453c87511"
-    sha256 cellar: :any, catalina:       "a9eecfcce4e5d6a47d0feb754a0080cd74064ecf30f5b3372c82ec1ea8621064"
+    sha256 cellar: :any, arm64_monterey: "3887b21bad6630db6cadbda77a28c4d426be9e9223584e54025876315ecfa3df"
+    sha256 cellar: :any, arm64_big_sur:  "7136a0a7dfe5c0ae2fe97bfd530cd2e649172f4887486d076a7ad283a56b1d7f"
+    sha256 cellar: :any, monterey:       "7552042ab27893957554b8eb38f204eb072527cb60f401b54530e3b774ba1b96"
+    sha256 cellar: :any, big_sur:        "03d428f146009b987141dd5dca7a763d250af5be7e87eab6a8fcf7faf78e92ce"
+    sha256 cellar: :any, catalina:       "66d2551f4f6bf33cbf26d2e6baf7de8bfc7b8176a2f663b2362bc6566be1b527"
   end
 
   keg_only :versioned_formula
@@ -29,6 +29,7 @@ class NodeAT14 < Formula
   depends_on "libuv"
   depends_on "openssl@1.1"
 
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do

@@ -19,6 +19,7 @@ class Sc68 < Formula
     sha256 sierra:        "0b5a0931d6f72700ca691436ed69d467cc043aea9b3454d628050886ccd12141"
     sha256 el_capitan:    "d5ac5c810d4f3505230f2cdb9bc3f9f8c14394e1663f30f8d601fe4a559f99c8"
     sha256 yosemite:      "b6b3fb845e14cd2c35212911b261bb4a15f38c528522789fd5905e762b7d0bfc"
+    sha256 x86_64_linux:  "1876d7c98fac9c5a36824c13141354e0cbce33508f155741d8430182d7fd6104"
   end
 
   uses_from_macos "zlib"

@@ -3,17 +3,17 @@ require "language/node"
 class Rollup < Formula
   desc "Next-generation ES module bundler"
   homepage "https://rollupjs.org/"
-  url "https://registry.npmjs.org/rollup/-/rollup-2.73.0.tgz"
-  sha256 "00b4a46559ec952e898c65cb1fda06274acf0747e40b05512aeb733262bf2686"
+  url "https://registry.npmjs.org/rollup/-/rollup-2.74.0.tgz"
+  sha256 "ac3ab45b165e578113e73aa0fd50aaa5c51b2cfd5a52a2cb08fe9561851cdab0"
   license all_of: ["ISC", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "33eac37f5776937c0eaca84219fa8710f4b01be2e42ddce898e37fc15f56cc6a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33eac37f5776937c0eaca84219fa8710f4b01be2e42ddce898e37fc15f56cc6a"
-    sha256 cellar: :any_skip_relocation, monterey:       "08a84ec0abe8212dc615fb00169fd8ae78335c05b901cb311e4a1e79ac98e95c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "08a84ec0abe8212dc615fb00169fd8ae78335c05b901cb311e4a1e79ac98e95c"
-    sha256 cellar: :any_skip_relocation, catalina:       "08a84ec0abe8212dc615fb00169fd8ae78335c05b901cb311e4a1e79ac98e95c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7806aa709cb69ed7c4a89cb89a8618ec4c26d76567d9fc44589d460f28891c0f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "18390b33430580ec17fb9f5e25054ed203257b59866b96ee43c1cf6cfa9af390"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18390b33430580ec17fb9f5e25054ed203257b59866b96ee43c1cf6cfa9af390"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c501f37c9a9edf92498edf1337c260690ab2f197b6d84550f3aec41aa2cd5c2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1c501f37c9a9edf92498edf1337c260690ab2f197b6d84550f3aec41aa2cd5c2"
+    sha256 cellar: :any_skip_relocation, catalina:       "1c501f37c9a9edf92498edf1337c260690ab2f197b6d84550f3aec41aa2cd5c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fcead3a6c1aa006d2d969d5739aa8710cc6c1bdcad1b717246f7aeab340e015"
   end
 
   depends_on "node"

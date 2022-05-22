@@ -3,17 +3,17 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/bc/4e/6ec2fc646d958ce6d915423b628558d45f6b9a1ad7a783e3d396322806b3/ansible-lint-6.2.0.tar.gz"
-  sha256 "31007af0499a41506d85da90f78b3f1eb6a8d7e6c7d739178b1acdca78e70424"
+  url "https://files.pythonhosted.org/packages/ee/aa/782c7e600ba507fbd6ce0b214aa127f0c8bd7ee3070196caa45dc6f92bfd/ansible-lint-6.2.1.tar.gz"
+  sha256 "ca0deee5835cbfaf9bba182758688a88a0b9c6852b32b15e77e4b0376c21bc1f"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d108b6e6870013ab8e9e4a55e222aa7c202890e5b95a9596a836fcd52ae17231"
-    sha256 cellar: :any,                 arm64_big_sur:  "a4a890011cf5ab1eed38776b1b433be6aa8ba1b175acafcbc2286f66c7655780"
-    sha256 cellar: :any,                 monterey:       "46ac716a58a5502cc0c14d8065a8f64ed3d1e8fd5afb4a45f3469d3144532233"
-    sha256 cellar: :any,                 big_sur:        "4c1b7a756e03033f0cf290e8cc79c2d25421b1609847c44cf0c98cec569e134b"
-    sha256 cellar: :any,                 catalina:       "89a7eee7758dfd9837f674c1a984665989fdbadf34a6d18296b32b0d83570833"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eff4157bd7d76accf04d21de59cb41e4ce30be49b3301af7b0f83cbcc325fadb"
+    sha256 cellar: :any,                 arm64_monterey: "77f8bbea4a435b19cbe6a9c773b12e55e9a123aa676f0fddd33d3d73f987dd05"
+    sha256 cellar: :any,                 arm64_big_sur:  "7ce5704ef191a809233a4a9ba4a50ca14e0032ded6320beb2272117971036d8f"
+    sha256 cellar: :any,                 monterey:       "5e166bf6e83827e54a6aa0f831ad9ead1c4a26d3feecf685ff299077dd753efb"
+    sha256 cellar: :any,                 big_sur:        "4bbde8e0f38a011296d40c5ca877bcc11db3d337c54e30608d938973d4e61096"
+    sha256 cellar: :any,                 catalina:       "18f2989d5fac8d991b8bc8397a8fd883a342d6ef3acd59c8fa3ca37980fcea76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f00090c97ede01175634cd3a1e5f409c953c4eda708889e7fd15a19394eb2483"
   end
 
   depends_on "pkg-config" => :build

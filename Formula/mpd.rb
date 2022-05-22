@@ -1,8 +1,8 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.6.tar.xz"
-  sha256 "cbc5928ee3ee1ef7ff6a58f6ba4afaee16c07e9eb42d0107bcc098010f4f26ed"
+  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.7.tar.xz"
+  sha256 "960dcbac717c388f5dcc4fd945e3af19a476f2b15f367e9653d4c7a948768211"
   license "GPL-2.0-or-later"
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Mpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "53d1e2e5265ae152438c0dd6bf7add88f97383651351050f7a240536a70ad282"
-    sha256 cellar: :any, arm64_big_sur:  "c99d2f275d6f0412e8f0de48df6a43ffaf1b9c1fcb23bcac2b706c7a2313168c"
-    sha256 cellar: :any, monterey:       "7ce24984d226d46a5312e5c44b850d2b69b03fee8acd2a5382310e6889aa922d"
-    sha256 cellar: :any, big_sur:        "dca4d1c83bb289d68f0c3f1cda7abd0b7a8b65e4e8c49b2767cd3110f3565038"
-    sha256 cellar: :any, catalina:       "05fdd73fba1d2a32f5e0c9643a470bb9df754a097a01ba6386788e3bd7fb5fb4"
-    sha256               x86_64_linux:   "0b2ceadf8b29cc437da40f48e8f6d7c2d7a1210559c57577180c91b6d9c91905"
+    sha256 cellar: :any, arm64_monterey: "94de9debec25ebae250e68989b23226fa90e6066fb9eb9b7b5bae4ff14be3452"
+    sha256 cellar: :any, arm64_big_sur:  "91324631d9a4363f552ae8d96449cf16f4a58a265bd946719caa084b4956c6f2"
+    sha256 cellar: :any, monterey:       "2087e7411b8cda1567a1d1dd90d00fea9d8adefa8cdc486a9c3459e80f68da66"
+    sha256 cellar: :any, big_sur:        "f6500f3cdf40962eec94983403eca601a08301e73b8165c508bf010b685272cc"
+    sha256 cellar: :any, catalina:       "5c9cb2acff7e54a6f69d99b69215b519e016d5088864b135b17ddee8a15e8fbf"
+    sha256               x86_64_linux:   "222c0ab9c11c53c2076ef60d5982661c5449b8b109ebc0ec13d837f790afcb82"
   end
 
   depends_on "boost" => :build
@@ -53,6 +53,13 @@ class Mpd < Formula
   end
 
   fails_with gcc: "5"
+
+  # Fix missing header file (see https://github.com/MusicPlayerDaemon/MPD/issues/1530)
+  # Patch accepted upstream, remove on next release
+  patch do
+    url "https://github.com/MusicPlayerDaemon/MPD/commit/c6f7f5777694c448aa42d17f88ab9cf2e3112dd0.patch?full_index=1"
+    sha256 "17c03ecee2a8b91c1b114b2ab340878f6cec5fc28093ec6386f4d7ba47d8b909"
+  end
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
