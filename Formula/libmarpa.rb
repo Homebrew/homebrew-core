@@ -4,7 +4,7 @@ class Libmarpa < Formula
   url "https://github.com/jeffreykegler/libmarpa/archive/refs/tags/v8.6.2.tar.gz"
   sha256 "b7eb539143959c406ced4a3afdb56419cc5836e679f4094630697e7dd2b7f55a"
   license "MIT"
-  head "https://github.com/jeffreykegler/libmarpa.git", branch: "master"
+  head "https://github.com/jeffreykegler/libmarpa.git", branch: "tested"
 
   bottle do
     rebuild 1
@@ -19,15 +19,15 @@ class Libmarpa < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
+  depends_on "emacs" => :build
   depends_on "libtool" => :build
+  depends_on "texinfo" => :build
   depends_on "texlive" => :build
-
-  uses_from_macos "texinfo" => :build
 
   def install
     ENV.deparallelize
     inreplace "work/etc/libmarpa.pc.in", "prefix=\".\"", "prefix=\"#{prefix}\"" if build.head?
-    system "make", "dists"
+    system "make", build.head? ? "dist" : "dists"
     system "cmake", "-S", "cm_dist", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
