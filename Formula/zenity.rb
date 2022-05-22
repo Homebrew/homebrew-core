@@ -4,6 +4,7 @@ class Zenity < Formula
   url "https://download.gnome.org/sources/zenity/3.42/zenity-3.42.1.tar.xz"
   sha256 "a08e0c8e626615ee2c23ff74628eba6f8b486875dd54371ca7e2d7605b72a87c"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "a9e84c3b0eefa50aafb0f41cc6e0a9ccdce95ece584680c1d14591fd9fa4250c"
@@ -18,8 +19,8 @@ class Zenity < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "gtk+3"
+  depends_on "libglib"
 
   def install
     ENV["DESTDIR"] = "/"
