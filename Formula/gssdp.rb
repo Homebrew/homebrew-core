@@ -3,7 +3,7 @@ class Gssdp < Formula
   homepage "https://wiki.gnome.org/GUPnP/"
   url "https://download.gnome.org/sources/gssdp/1.4/gssdp-1.4.0.1.tar.xz"
   sha256 "8676849d57fb822b8728856dbadebf3867f89ee47a0ec47a20045d011f431582"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
@@ -21,7 +21,7 @@ class Gssdp < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libsoup@2"
 
   def install
@@ -46,11 +46,11 @@ class Gssdp < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/gssdp-1.2
       -D_REENTRANT
       -L#{lib}
