@@ -4,6 +4,7 @@ class Vala < Formula
   url "https://download.gnome.org/sources/vala/0.56/vala-0.56.1.tar.xz"
   sha256 "c518b81dfdda82d1cdf586b3f9b2323162cb96bd3cb5a2c03650cea025d91fb9"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "05e5872db764a41a0ffca75b7ca821b360f5c0679ad7d81b7149d95e61752ee8"
@@ -15,8 +16,8 @@ class Vala < Formula
   end
 
   depends_on "gettext"
-  depends_on "glib"
   depends_on "graphviz"
+  depends_on "libglib"
   depends_on "pkg-config"
 
   uses_from_macos "bison" => :build
