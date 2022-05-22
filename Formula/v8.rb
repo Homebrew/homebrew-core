@@ -5,6 +5,7 @@ class V8 < Formula
   url "https://github.com/v8/v8/archive/10.0.139.15.tar.gz"
   sha256 "1090da1faa9cdcbf6a054452d21b8f6a5188601f809fcdd5c14376ecae6bfdc2"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://omahaproxy.appspot.com/all.json?os=mac&channel=stable"
@@ -31,7 +32,7 @@ class V8 < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "gcc"
-    depends_on "glib"
+    depends_on "libglib"
   end
 
   fails_with gcc: "5"
