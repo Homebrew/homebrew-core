@@ -3,7 +3,7 @@ class GlibOpenssl < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
-  revision 3
+  revision 4
 
   bottle do
     sha256 arm64_monterey: "db8f2b1599d0c3060229a32f7d4bb775d6907126db00624345d91d23dbd7fa6d"
@@ -54,15 +54,15 @@ class GlibOpenssl < Formula
 
     # From `pkg-config --cflags --libs gio-2.0`
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -D_REENTRANT
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/gio-unix-2.0/
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -lgio-2.0
       -lgobject-2.0
       -lglib-2.0
