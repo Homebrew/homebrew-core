@@ -4,6 +4,7 @@ class SofiaSip < Formula
   url "https://github.com/freeswitch/sofia-sip/archive/v1.13.7.tar.gz"
   sha256 "3bdcbe80a066c9cafa8d947d51512b86ed56bf2cdbb25dbe9b8eef6a8bab6a25"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f035ecd9ec07ec02c1850ba3882ef38bbeab8d92fbc145d4e4b42f08409d6f6b"
@@ -18,7 +19,7 @@ class SofiaSip < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "openssl@1.1"
 
   def install
