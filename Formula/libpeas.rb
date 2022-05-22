@@ -4,6 +4,7 @@ class Libpeas < Formula
   url "https://download.gnome.org/sources/libpeas/1.32/libpeas-1.32.0.tar.xz"
   sha256 "d625520fa02e8977029b246ae439bc218968965f1e82d612208b713f1dcc3d0e"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "95e58fd14df242b90173b9ba0d5d40b8234e84f87cc6ebc30b3824928cbf205e"
@@ -18,9 +19,9 @@ class Libpeas < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
+  depends_on "libglib"
   depends_on "pygobject3"
   depends_on "python@3.9"
 
@@ -50,19 +51,19 @@ class Libpeas < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gobject_introspection = Formula["gobject-introspection"]
     libffi = Formula["libffi"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gobject_introspection.opt_include}/gobject-introspection-1.0
       -I#{include}/libpeas-1.0
       -I#{libffi.opt_lib}/libffi-3.0.13/include
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gobject_introspection.opt_lib}
       -L#{lib}
       -lgio-2.0
