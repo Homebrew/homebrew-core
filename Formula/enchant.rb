@@ -4,6 +4,7 @@ class Enchant < Formula
   url "https://github.com/AbiWord/enchant/releases/download/v2.3.3/enchant-2.3.3.tar.gz"
   sha256 "3da12103f11cf49c3cf2fd2ce3017575c5321a489e5b9bfa81dd91ec413f3891"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "a108e65f994b1f4d783e337d3d91b1cf97232286ff12e171e40b89e81f8812f0"
@@ -16,7 +17,7 @@ class Enchant < Formula
 
   depends_on "pkg-config" => :build
   depends_on "aspell"
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     system "./configure", "--disable-dependency-tracking",
