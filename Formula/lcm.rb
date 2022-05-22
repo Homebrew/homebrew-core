@@ -4,7 +4,7 @@ class Lcm < Formula
   url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
   license "LGPL-2.1"
-  revision 6
+  revision 7
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
   bottle do
@@ -19,7 +19,7 @@ class Lcm < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "lua"
   depends_on "openjdk"
   depends_on "python@3.9"
