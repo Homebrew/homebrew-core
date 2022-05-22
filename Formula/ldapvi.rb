@@ -24,7 +24,7 @@ class Ldapvi < Formula
   depends_on "pkg-config" => :build
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "openssl@1.1"
   depends_on "popt"
   depends_on "readline"
