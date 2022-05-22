@@ -8,8 +8,8 @@ class Termtunnel < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "."
-    system "make"
+    system "cmake", ".", *std_cmake_args
+    system "cmake", "--build", "."
     bin.install "termtunnel"
   end
 
