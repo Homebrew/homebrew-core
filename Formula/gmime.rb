@@ -4,6 +4,7 @@ class Gmime < Formula
   url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.7.tar.xz"
   sha256 "2aea96647a468ba2160a64e17c6dc6afe674ed9ac86070624a3f584c10737d44"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     sha256                               arm64_monterey: "18050619c00d2e6b994b91472ed9567716f0d77ee64b200626ff6ab066e87aaa"
@@ -18,8 +19,8 @@ class Gmime < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "gpgme"
+  depends_on "libglib"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -57,18 +58,18 @@ class Gmime < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     pcre = Formula["pcre"]
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
     flags += %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/gmime-3.0
       -I#{pcre.opt_include}
       -D_REENTRANT
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lgio-2.0
       -lglib-2.0
