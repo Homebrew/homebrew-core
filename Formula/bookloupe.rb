@@ -3,7 +3,7 @@ class Bookloupe < Formula
   homepage "http://www.juiblex.co.uk/pgdp/bookloupe/"
   url "http://www.juiblex.co.uk/pgdp/bookloupe/bookloupe-2.0.tar.gz"
   sha256 "15b1f5a0fa01e7c0a0752c282f8a354d3dc9edbefc677e6e42044771d5abe3c9"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -23,7 +23,7 @@ class Bookloupe < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     system "./configure", "--disable-debug",
