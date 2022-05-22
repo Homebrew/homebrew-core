@@ -4,6 +4,7 @@ class AtkmmAT228 < Formula
   url "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.2.tar.xz"
   sha256 "a0bb49765ceccc293ab2c6735ba100431807d384ffa14c2ebd30e07993fd2fa4"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -47,14 +48,14 @@ class AtkmmAT228 < Formula
     EOS
     atk = Formula["atk"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     glibmm = Formula["glibmm@2.66"]
     libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{glibmm.opt_include}/glibmm-2.4
       -I#{glibmm.opt_lib}/glibmm-2.4/include
       -I#{include}/atkmm-1.6
@@ -63,7 +64,7 @@ class AtkmmAT228 < Formula
       -I#{libsigcxx.opt_lib}/sigc++-2.0/include
       -L#{atk.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{glibmm.opt_lib}
       -L#{libsigcxx.opt_lib}
       -L#{lib}
