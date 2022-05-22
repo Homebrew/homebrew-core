@@ -3,7 +3,7 @@ class ClutterGst < Formula
   homepage "https://gitlab.gnome.org/GNOME/clutter-gst"
   url "https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz"
   sha256 "fe69bd6c659d24ab30da3f091eb91cd1970026d431179b0724f13791e8ad9f9d"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -62,7 +62,7 @@ class ClutterGst < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gst_plugins_base = Formula["gst-plugins-base"]
     gstreamer = Formula["gstreamer"]
     harfbuzz = Formula["harfbuzz"]
@@ -79,8 +79,8 @@ class ClutterGst < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gst_plugins_base.opt_include}/gstreamer-1.0
       -I#{gstreamer.opt_include}/gstreamer-1.0
       -I#{gstreamer.opt_lib}/gstreamer-1.0/include
@@ -97,7 +97,7 @@ class ClutterGst < Formula
       -L#{cogl.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gst_plugins_base.opt_lib}
       -L#{gstreamer.opt_lib}
       -L#{json_glib.opt_lib}
