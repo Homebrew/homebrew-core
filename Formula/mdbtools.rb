@@ -4,6 +4,7 @@ class Mdbtools < Formula
   url "https://github.com/mdbtools/mdbtools/releases/download/v1.0.0/mdbtools-1.0.0.tar.gz"
   sha256 "3446e1d71abdeb98d41e252777e67e1909b186496fda59f98f67032f7fbcd955"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c4502a9b481c4e40f0bc5c1767af43938cea64ea125a564dd1371e0cdad5729c"
@@ -21,7 +22,7 @@ class Mdbtools < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "readline"
 
   def install
