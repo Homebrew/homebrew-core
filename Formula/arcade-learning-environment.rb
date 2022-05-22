@@ -32,6 +32,13 @@ class ArcadeLearningEnvironment < Formula
 
   fails_with gcc: "5"
 
+  # Issue building with older setuptools currently included with Python 3.10.4.
+  # TODO: remove after next python update
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4a/25/ec29a23ef38b9456f9965c57a9e1221e6c246d87abbf2a31158799bca201/setuptools-62.3.2.tar.gz"
+    sha256 "a43bdedf853c670e5fed28e5623403bad2f73cf02f9a2774e91def6bda8265a7"
+  end
+
   resource "importlib-resources" do
     url "https://files.pythonhosted.org/packages/07/3c/4e27ef7d4cea5203ed4b52b7fe96ddd08559d9f147a2a4307e7d6d98c035/importlib_resources-5.7.1.tar.gz"
     sha256 "b6062987dfc51f0fcb809187cffbd60f35df7acb4589091f154214af6d0d49d3"
@@ -47,10 +54,17 @@ class ArcadeLearningEnvironment < Formula
     system "cmake", "--install", "build"
     pkgshare.install "tests/resources/tetris.bin"
 
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources
+
     # error: no member named 'signbit' in the global namespace
     inreplace "setup.py", "cmake_args = [", "\\0\"-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}\"," if OS.mac?
 
-    virtualenv_install_with_resources
+    # `venv.pip_install_and_link buildpath` fails to install scripts, so manually run setup.py instead
+    bin_before = Dir[libexec/"bin/*"].to_set
+    system libexec/"bin/python3", *Language::Python.setup_install_args(libexec)
+    bin.install_symlink (Dir[libexec/"bin/*"].to_set - bin_before).to_a
+
     site_packages = Language::Python.site_packages("python3")
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-ale-py.pth").write pth_contents
