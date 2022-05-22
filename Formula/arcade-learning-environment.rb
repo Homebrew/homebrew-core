@@ -32,41 +32,25 @@ class ArcadeLearningEnvironment < Formula
 
   fails_with gcc: "5"
 
-  resource "homebrew-test-tetris.bin" do
-    url "https://raw.githubusercontent.com/mgbellemare/Arcade-Learning-Environment/v0.7.5/tests/resources/tetris.bin"
-    sha256 "36d5b5d3222f007ca8e3691cfc17f639801453b98438b1282dfd695ae44752f6"
-  end
-
   resource "importlib-resources" do
     url "https://files.pythonhosted.org/packages/07/3c/4e27ef7d4cea5203ed4b52b7fe96ddd08559d9f147a2a4307e7d6d98c035/importlib_resources-5.7.1.tar.gz"
     sha256 "b6062987dfc51f0fcb809187cffbd60f35df7acb4589091f154214af6d0d49d3"
   end
 
   def install
-    args = %W[
-      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
-      -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
-      -DSDL_SUPPORT=ON
-      -DSDL_DYNLOAD=ON
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_NAME_DIR=#{opt_lib}",
+                    "-DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON",
+                    "-DSDL_SUPPORT=ON",
+                    "-DSDL_DYNLOAD=ON"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resources.reject { |r| r.name == "homebrew-test-tetris.bin" }
+    pkgshare.install "tests/resources/tetris.bin"
 
     # error: no member named 'signbit' in the global namespace
-    python_args = Language::Python.setup_install_args(libexec)
-    python_cmake_options = "--cmake-options=-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
-    python_args.insert((python_args.index "install"), python_cmake_options) if OS.mac?
+    inreplace "setup.py", "cmake_args = [", "\\0\"-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}\"," if OS.mac?
 
-    # `venv.pip_install_and_link buildpath` alternative to allow passing in arguments
-    bin_before = Dir[libexec/"bin/*"].to_set
-    system libexec/"bin/python3", *python_args
-    bin.install_symlink (Dir[libexec/"bin/*"].to_set - bin_before).to_a
-
+    virtualenv_install_with_resources
     site_packages = Language::Python.site_packages("python3")
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-ale-py.pth").write pth_contents
@@ -78,7 +62,7 @@ class ArcadeLearningEnvironment < Formula
     output = shell_output("#{bin}/ale-import-roms .").lines.last.chomp
     assert_equal "Imported 0 / 0 ROMs", output
 
-    testpath.install resource("homebrew-test-tetris.bin")
+    cp pkgshare/"tetris.bin", testpath
     output = shell_output("#{bin}/ale-import-roms --dry-run .").lines.first.chomp
     assert_match(/\[SUPPORTED\].*tetris\.bin/, output)
 
