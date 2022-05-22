@@ -6,6 +6,7 @@ class Gupnp < Formula
   url "https://download.gnome.org/sources/gupnp/1.4/gupnp-1.4.3.tar.xz"
   sha256 "14eda777934da2df743d072489933bd9811332b7b5bf41626b8032efb28b33ba"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "1937e917519b9784475606a21cc66d5b2ed5914c2008105c992b91a04bee834f"
@@ -23,8 +24,8 @@ class Gupnp < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gssdp"
+  depends_on "libglib"
   depends_on "libsoup@2"
   depends_on "libxml2"
   depends_on "python@3.9"
@@ -74,13 +75,14 @@ class Gupnp < Formula
     else
       "-I#{Formula["libxml2"].include}/libxml2"
     end
-
+    gssdp = Formula["gssdp"]
+    libglib = Formula["libglib"]
     system ENV.cc, testpath/"test.c", "-I#{include}/gupnp-1.2", "-L#{lib}", "-lgupnp-1.2",
-           "-I#{Formula["gssdp"].opt_include}/gssdp-1.2",
-           "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-1.2",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
-           "-L#{Formula["glib"].opt_lib}",
+           "-I#{gssdp.opt_include}/gssdp-1.2",
+           "-L#{gssdp.opt_lib}", "-lgssdp-1.2",
+           "-I#{libglib.opt_include}/glib-2.0",
+           "-I#{libglib.opt_lib}/glib-2.0/include",
+           "-L#{libglib.opt_lib}",
            "-lglib-2.0", "-lgobject-2.0",
            "-I#{Formula["libsoup@2"].opt_include}/libsoup-2.4",
            libxml2, "-o", testpath/"test"
