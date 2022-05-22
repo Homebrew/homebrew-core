@@ -4,7 +4,7 @@ class Pdf2htmlex < Formula
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
   license "GPL-3.0-or-later"
-  revision 24
+  revision 25
   head "https://github.com/coolwanglu/pdf2htmlEX.git", branch: "master"
 
   bottle do
@@ -25,9 +25,9 @@ class Pdf2htmlex < Formula
   depends_on "freetype" # for fontforge
   depends_on "gettext" # for fontforge
   depends_on "giflib" # for fontforge
-  depends_on "glib" # for fontforge
   depends_on "gnu-getopt"
-  depends_on "jpeg" # for fontforge
+  depends_on "jpeg"
+  depends_on "libglib" # for fontforge # for fontforge
   depends_on "libpng" # for fontforge
   depends_on "libtiff" # for fontforge
   depends_on "libtool" # for fontforge
