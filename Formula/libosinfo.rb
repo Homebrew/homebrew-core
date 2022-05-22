@@ -4,6 +4,7 @@ class Libosinfo < Formula
   url "https://releases.pagure.org/libosinfo/libosinfo-1.10.0.tar.xz"
   sha256 "a252e00fc580deb21da0da8c0aa03b8c31e8440b8448c8b98143fab477d32305"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
@@ -25,7 +26,7 @@ class Libosinfo < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libsoup"
   depends_on "osinfo-db"
   depends_on "usb.ids"
@@ -73,14 +74,14 @@ class Libosinfo < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/libosinfo-1.0
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -losinfo-1.0
       -lglib-2.0
