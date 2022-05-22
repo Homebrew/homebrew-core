@@ -4,6 +4,7 @@ class Clutter < Formula
   url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.4.tar.xz"
   sha256 "8b48fac159843f556d0a6be3dbfc6b083fc6d9c58a20a49a6b4919ab4263c4e6"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "462bd7556ec62d37cff950568506d5c6275bc1f36a8f5766b8a053885c06c0d3"
@@ -22,8 +23,8 @@ class Clutter < Formula
   depends_on "cairo" # for cairo-gobject
   depends_on "cogl"
   depends_on "gdk-pixbuf"
-  depends_on "glib"
   depends_on "json-glib"
+  depends_on "libglib"
   depends_on "pango"
 
   # Fix -flat_namespace being used on Big Sur and later.
@@ -72,7 +73,7 @@ class Clutter < Formula
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     harfbuzz = Formula["harfbuzz"]
     json_glib = Formula["json-glib"]
     libpng = Formula["libpng"]
@@ -85,8 +86,8 @@ class Clutter < Formula
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/clutter-1.0
       -I#{json_glib.opt_include}/json-glib-1.0
@@ -98,7 +99,7 @@ class Clutter < Formula
       -L#{cairo.opt_lib}
       -L#{cogl.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{json_glib.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
