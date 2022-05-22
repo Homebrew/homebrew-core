@@ -4,6 +4,7 @@ class Megatools < Formula
   url "https://megatools.megous.com/builds/megatools-1.10.3.tar.gz"
   sha256 "8dc1ca348633fd49de7eb832b323e8dc295f1c55aefb484d30e6475218558bdb"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://megatools.megous.com/builds/"
@@ -23,8 +24,8 @@ class Megatools < Formula
 
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "glib-networking"
+  depends_on "libglib"
   depends_on "openssl@1.1"
 
   uses_from_macos "curl"
