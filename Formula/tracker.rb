@@ -4,7 +4,7 @@ class Tracker < Formula
   url "https://download.gnome.org/sources/tracker/3.1/tracker-3.1.2.tar.xz"
   sha256 "da368962665d587bb2e4f164d75919a81dacb35c7d4cfae6f93a94c60f60ec8f"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 2
+  revision 3
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version scheme.
   livecheck do
@@ -92,13 +92,13 @@ class Tracker < Formula
         return 0;
       }
     EOS
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/tracker-3.0
       -D_REENTRANT
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -ltracker-sparql-3.0
       -lgio-2.0
