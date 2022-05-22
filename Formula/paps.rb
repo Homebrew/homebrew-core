@@ -4,6 +4,7 @@ class Paps < Formula
   url "https://github.com/dov/paps/archive/v0.7.1.tar.gz"
   sha256 "b8cbd16f8dd5832ecfa9907d31411b35a7f12d81a5ec472a1555d00a8a205e0e"
   license "LGPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "64750f6318462484efbf5d4656bf75896fae72f2abf0636182e27ad9ba77915c"
@@ -23,7 +24,7 @@ class Paps < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "pango"
 
   uses_from_macos "perl" => :build
