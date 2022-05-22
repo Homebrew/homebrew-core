@@ -4,6 +4,7 @@ class Msitools < Formula
   url "https://download.gnome.org/sources/msitools/0.101/msitools-0.101.tar.xz"
   sha256 "0cc4d2e0d108fa6f2b4085b9a97dd5bc6d9fcadecdd933f2094f86bafdbe85fe"
   license "LGPL-2.1-or-later"
+  revision 1
 
   # msitools doesn't seem to use the GNOME version scheme, so we have to
   # loosen the default `Gnome` strategy regex to match the latest version.
@@ -29,7 +30,7 @@ class Msitools < Formula
   depends_on "pkg-config" => :build
   depends_on "gcab"
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libgsf"
   depends_on "vala"
 
