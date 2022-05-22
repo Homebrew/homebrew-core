@@ -4,6 +4,7 @@ class Pangomm < Formula
   url "https://download.gnome.org/sources/pangomm/2.50/pangomm-2.50.0.tar.xz"
   sha256 "a27aa77e017b9afce9e751d85bd1cf890abbb3a58bf59d0fac917eef82db3b5b"
   license "LGPL-2.1-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a21f7c630199d45ac1b8cf9878cf82aaaac75561407e0d239f4308a7ce8b64c5"
@@ -51,7 +52,7 @@ class Pangomm < Formula
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     glibmm = Formula["glibmm"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
@@ -65,8 +66,8 @@ class Pangomm < Formula
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{glibmm.opt_include}/giomm-2.68
       -I#{glibmm.opt_include}/glibmm-2.68
       -I#{glibmm.opt_lib}/giomm-2.68/include
@@ -82,7 +83,7 @@ class Pangomm < Formula
       -L#{cairo.opt_lib}
       -L#{cairomm.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{glibmm.opt_lib}
       -L#{libsigcxx.opt_lib}
       -L#{lib}
