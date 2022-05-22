@@ -4,6 +4,7 @@ class Libgnt < Formula
   url "https://downloads.sourceforge.net/project/pidgin/libgnt/2.14.3/libgnt-2.14.3.tar.xz"
   sha256 "57f5457f72999d0bb1a139a37f2746ec1b5a02c094f2710a339d8bcea4236123"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://sourceforge.net/projects/pidgin/files/libgnt/"
@@ -25,7 +26,7 @@ class Libgnt < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
@@ -60,12 +61,13 @@ class Libgnt < Formula
       }
     EOS
 
+    libglib = Formula["libglib"]
     flags = [
-      "-I#{Formula["glib"].opt_include}/glib-2.0",
-      "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+      "-I#{libglib.opt_include}/glib-2.0",
+      "-I#{libglib.opt_lib}/glib-2.0/include",
       "-I#{include}",
       "-L#{lib}",
-      "-L#{Formula["glib"].opt_lib}",
+      "-L#{libglib.opt_lib}",
       "-lgnt",
       "-lglib-2.0",
     ]
