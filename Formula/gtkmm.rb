@@ -4,7 +4,7 @@ class Gtkmm < Formula
   url "https://download.gnome.org/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz"
   sha256 "0680a53b7bf90b4e4bf444d1d89e6df41c777e0bacc96e9c09fc4dd2f5fe6b72"
   license "LGPL-2.1-or-later"
-  revision 8
+  revision 9
 
   livecheck do
     url :stable
@@ -53,7 +53,7 @@ class Gtkmm < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     glibmm = Formula["glibmm@2.66"]
     gtkx = Formula["gtk+"]
     harfbuzz = Formula["harfbuzz"]
@@ -73,8 +73,8 @@ class Gtkmm < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{glibmm.opt_include}/giomm-2.4
       -I#{glibmm.opt_include}/glibmm-2.4
       -I#{glibmm.opt_lib}/giomm-2.4/include
@@ -101,7 +101,7 @@ class Gtkmm < Formula
       -L#{cairomm.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{glibmm.opt_lib}
       -L#{gtkx.opt_lib}
       -L#{libsigcxx.opt_lib}
