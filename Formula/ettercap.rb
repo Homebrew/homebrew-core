@@ -4,6 +4,7 @@ class Ettercap < Formula
   url "https://github.com/Ettercap/ettercap/archive/v0.8.3.1.tar.gz"
   sha256 "d0c3ef88dfc284b61d3d5b64d946c1160fd04276b448519c1ae4438a9cdffaf3"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Ettercap/ettercap.git", branch: "master"
 
   bottle do
@@ -48,7 +49,7 @@ class Ettercap < Formula
       -DENABLE_PDF_DOCS=OFF
       -DENABLE_PLUGINS=ON
       -DGTK_BUILD_TYPE=GTK3
-      -DGTK3_GLIBCONFIG_INCLUDE_DIR=#{Formula["glib"].opt_lib}/glib-2.0/include
+      -DGTK3_GLIBCONFIG_INCLUDE_DIR=#{Formula["libglib"].opt_lib}/glib-2.0/include
       -DINSTALL_DESKTOP=ON
       -DINSTALL_SYSCONFDIR=#{etc}
     ]
