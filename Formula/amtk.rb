@@ -5,6 +5,7 @@ class Amtk < Formula
       tag:      "5.4.0",
       revision: "9feb1a70cf06a6fe837c27f4ddcdd492dcb4fe9b"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "725c9ebf6be9c39257c55b8318b527c0a299dd3479f5a0185907c226193bfbb2"
@@ -51,7 +52,7 @@ class Amtk < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gtkx3 = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
@@ -67,9 +68,9 @@ class Amtk < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/gio-unix-2.0/
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/amtk-5
@@ -83,7 +84,7 @@ class Amtk < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
