@@ -16,7 +16,7 @@ class Dopewars < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   uses_from_macos "curl"
 
