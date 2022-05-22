@@ -4,7 +4,7 @@ class Orbit < Formula
   url "https://download.gnome.org/sources/ORBit2/2.14/ORBit2-2.14.19.tar.bz2"
   sha256 "55c900a905482992730f575f3eef34d50bda717c197c97c08fa5a6eafd857550"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-only"]
-  revision 1
+  revision 2
   head "https://gitlab.gnome.org/Archive/orbit2.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Orbit < Formula
   deprecate! date: "2020-12-25", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libidl"
 
   # per MacPorts, re-enable use of deprecated glib functions
