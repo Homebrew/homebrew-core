@@ -4,6 +4,7 @@ class Libvirt < Formula
   url "https://libvirt.org/sources/libvirt-8.3.0.tar.xz"
   sha256 "be229b9ad1d48be7007e7bf341fc990c65e24aea624c16db6b36d02c820df5eb"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
   head "https://gitlab.com/libvirt/libvirt.git", branch: "master"
 
   livecheck do
@@ -27,11 +28,11 @@ class Libvirt < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gnu-sed"
   depends_on "gnutls"
   depends_on "grep"
   depends_on "libgcrypt"
+  depends_on "libglib"
   depends_on "libiscsi"
   depends_on "libssh2"
   depends_on "yajl"
