@@ -3,7 +3,7 @@ class Gdmap < Formula
   homepage "https://sourceforge.net/projects/gdmap/"
   url "https://downloads.sourceforge.net/project/gdmap/gdmap/0.8.1/gdmap-0.8.1.tar.gz"
   sha256 "a200c98004b349443f853bf611e49941403fce46f2335850913f85c710a2285b"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_monterey: "0434aca36b5815b56ed272593d2c932c9021f98096b69948345326c6d4385711"
@@ -20,8 +20,8 @@ class Gdmap < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gtk+"
+  depends_on "libglib"
 
   uses_from_macos "perl" => :build
 
