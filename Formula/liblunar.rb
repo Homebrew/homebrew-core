@@ -3,7 +3,7 @@ class Liblunar < Formula
   homepage "https://code.google.com/archive/p/liblunar/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/liblunar/liblunar-2.2.5.tar.gz"
   sha256 "c24a7cd3ccbf7ab739d752a437f1879f62b975b95abcf9eb9e1dd623982bc167"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_big_sur: "aa7c3b3099b3de258c3080a38afb8bedf0c55d4239c38462ebe66ef6df51d24b"
@@ -17,7 +17,7 @@ class Liblunar < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     system "./configure", "--disable-dependency-tracking",
