@@ -114,10 +114,6 @@ class Kpcli < Formula
       # Prevent the Makefile to try and build universal binaries
       ENV.refurbish_args
 
-      # Work around issue with Makefile.PL not detecting -ltermcap
-      # https://rt.cpan.org/Public/Bug/Display.html?id=133846
-      inreplace "Makefile.PL", "my $TERMCAP_LIB =", "my $TERMCAP_LIB = '-lncurses'; 0 &&"
-
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
                      "--includedir=#{Formula["readline"].opt_include}",
                      "--libdir=#{Formula["readline"].opt_lib}"
