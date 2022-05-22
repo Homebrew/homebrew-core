@@ -2,7 +2,7 @@ class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.1.tar.bz2"
@@ -44,10 +44,10 @@ class Audacious < Formula
   depends_on "ffmpeg@4"
   depends_on "flac"
   depends_on "fluid-synth"
-  depends_on "glib"
   depends_on "lame"
   depends_on "libbs2b"
   depends_on "libcue"
+  depends_on "libglib"
   depends_on "libmodplug"
   depends_on "libnotify"
   depends_on "libopenmpt"
