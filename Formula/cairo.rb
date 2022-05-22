@@ -4,7 +4,7 @@ class Cairo < Formula
   url "https://cairographics.org/releases/cairo-1.16.0.tar.xz"
   sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
-  revision 5
+  revision 6
 
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"
@@ -31,7 +31,7 @@ class Cairo < Formula
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libpng"
   depends_on "libx11"
   depends_on "libxcb"
@@ -87,15 +87,15 @@ class Cairo < Formula
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     libpng = Formula["libpng"]
     pixman = Formula["pixman"]
     flags = %W[
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/cairo
       -I#{libpng.opt_include}/libpng16
       -I#{pixman.opt_include}/pixman-1
