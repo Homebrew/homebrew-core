@@ -3,7 +3,7 @@ class Ufraw < Formula
   homepage "https://ufraw.sourceforge.io"
   url "https://downloads.sourceforge.net/project/ufraw/ufraw/ufraw-0.22/ufraw-0.22.tar.gz"
   sha256 "f7abd28ce587db2a74b4c54149bd8a2523a7ddc09bedf4f923246ff0ae09a25e"
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_monterey: "65712db00e593e27aba98df72a8cf42cfc4e9f2ea1b9735aa53ac6cc8e0be630"
@@ -17,9 +17,9 @@ class Ufraw < Formula
   depends_on "pkg-config" => :build
   depends_on "dcraw"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "jasper"
   depends_on "jpeg"
+  depends_on "libglib"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
