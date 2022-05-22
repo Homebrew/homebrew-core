@@ -4,6 +4,7 @@ class Imgproxy < Formula
   url "https://github.com/imgproxy/imgproxy/archive/v3.5.1.tar.gz"
   sha256 "1ad4f38c56db422bef77289a17653189776fc50f7749cb0e938e539fabb57830"
   license "MIT"
+  revision 1
   head "https://github.com/imgproxy/imgproxy.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Imgproxy < Formula
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "vips"
 
   def install
