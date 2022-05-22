@@ -4,7 +4,7 @@ class Gts < Formula
   url "https://downloads.sourceforge.net/project/gts/gts/0.7.6/gts-0.7.6.tar.gz"
   sha256 "059c3e13e3e3b796d775ec9f96abdce8f2b3b5144df8514eda0cc12e13e8b81e"
   license "LGPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5eb4dfee13280ea9c104b3839dc42d6ace7b8f6a154c3ea1aa991aae0fc4d4a2"
@@ -23,7 +23,7 @@ class Gts < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "netpbm"
 
   conflicts_with "pcb", because: "both install a `gts.h` header"
