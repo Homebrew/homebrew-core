@@ -4,7 +4,7 @@ class ValaLanguageServer < Formula
   url "https://github.com/vala-lang/vala-language-server/releases/download/0.48.4/vala-language-server-0.48.4.tar.xz"
   sha256 "0fd65b641a4bd6e0385502f0536f803bf542fd8bae6a2adb04e2e299ccca4551"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "a23bbac929f9a26ce34722df50036ba8bcedfd701b44c98aa2672ccdcb32c5eb"
@@ -18,10 +18,10 @@ class ValaLanguageServer < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "json-glib"
   depends_on "jsonrpc-glib"
   depends_on "libgee"
+  depends_on "libglib"
   depends_on "vala"
 
   def install
