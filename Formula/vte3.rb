@@ -4,7 +4,7 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.64/vte-0.64.2.tar.xz"
   sha256 "2b3c820b65a667c1d8859ba20478be626d1519cc3159dac25f703330c6d07e18"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "be757081c2174226aa18516a2eed57c1c2ab3e7d408c4ab7102a4e0f6e49b26b"
@@ -71,7 +71,7 @@ class Vte3 < Formula
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gnutls = Formula["gnutls"]
     gtkx3 = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
@@ -88,9 +88,9 @@ class Vte3 < Formula
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/gio-unix-2.0/
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gnutls.opt_include}
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
@@ -106,7 +106,7 @@ class Vte3 < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gnutls.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{lib}
