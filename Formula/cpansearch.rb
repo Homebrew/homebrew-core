@@ -3,7 +3,7 @@ class Cpansearch < Formula
   homepage "https://github.com/c9s/cpansearch"
   url "https://github.com/c9s/cpansearch/archive/0.2.tar.gz"
   sha256 "09e631f361766fcacd608a0f5b3effe7b66b3a9e0970a458d418d58b8f3f2a74"
-  revision 1
+  revision 2
   head "https://github.com/c9s/cpansearch.git", branch: "master"
 
   bottle do
@@ -19,7 +19,7 @@ class Cpansearch < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "ncurses"
 
   uses_from_macos "curl"
