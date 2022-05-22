@@ -4,7 +4,7 @@ class Libsmf < Formula
   url "https://downloads.sourceforge.net/project/libsmf/libsmf/1.3/libsmf-1.3.tar.gz"
   sha256 "d3549f15de94ac8905ad365639ac6a2689cb1b51fdfa02d77fa6640001b18099"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f71269c1ec95b265499e4a313d872ad46006be914ba0ea0251cdb772bea68407"
@@ -26,7 +26,7 @@ class Libsmf < Formula
   # Issue ref in alt repo: https://github.com/stump/libsmf/issues/10
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
