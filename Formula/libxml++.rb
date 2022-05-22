@@ -4,6 +4,7 @@ class Libxmlxx < Formula
   url "https://download.gnome.org/sources/libxml++/2.42/libxml++-2.42.1.tar.xz"
   sha256 "9b59059abe5545d28ceb388a55e341095f197bd219c73e6623aeb6d801e00be8"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -50,13 +51,13 @@ class Libxmlxx < Formula
     EOS
     ENV.libxml2
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     glibmm = Formula["glibmm@2.66"]
     libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{glibmm.opt_include}/glibmm-2.4
       -I#{glibmm.opt_lib}/glibmm-2.4/include
       -I#{include}/libxml++-2.6
@@ -64,7 +65,7 @@ class Libxmlxx < Formula
       -I#{libsigcxx.opt_lib}/sigc++-2.0/include
       -I#{lib}/libxml++-2.6/include
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{glibmm.opt_lib}
       -L#{libsigcxx.opt_lib}
       -L#{lib}
