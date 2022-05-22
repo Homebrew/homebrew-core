@@ -4,6 +4,7 @@ class Chafa < Formula
   url "https://hpjansson.org/chafa/releases/chafa-1.10.3.tar.xz"
   sha256 "797729e0ae9af1ff084d59b89054e9f59fb419a9f13b846a36d3bead50aabe3c"
   license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://hpjansson.org/chafa/releases/?C=M&O=D"
@@ -20,8 +21,8 @@ class Chafa < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "imagemagick"
+  depends_on "libglib"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
