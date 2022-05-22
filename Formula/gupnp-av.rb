@@ -3,6 +3,7 @@ class GupnpAv < Formula
   homepage "https://wiki.gnome.org/GUPnP/"
   url "https://download.gnome.org/sources/gupnp-av/0.14/gupnp-av-0.14.0.tar.xz"
   sha256 "20aed546fc882e78a3f186a0c8bce5c841cc3a44b7ea528298fbdc82596fb156"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "24e9ed1aab5ceed57281735b5405901c62045cac2ccc76fb712c693a27393bd2"
@@ -21,7 +22,7 @@ class GupnpAv < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     mkdir "build" do
