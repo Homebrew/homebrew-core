@@ -5,6 +5,7 @@ class MidnightCommander < Formula
   mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.28.tar.xz"
   sha256 "e994d9be9a7172e9ac4a4ad62107921f6aa312e668b056dfe5b8bcebbaf53803"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.osuosl.org/pub/midnightcommander/"
@@ -29,7 +30,7 @@ class MidnightCommander < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "libssh2"
   depends_on "openssl@1.1"
   depends_on "s-lang"
