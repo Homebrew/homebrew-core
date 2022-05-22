@@ -3,7 +3,7 @@ class Gom < Formula
   homepage "https://wiki.gnome.org/Projects/Gom"
   url "https://download.gnome.org/sources/gom/0.4/gom-0.4.tar.xz"
   sha256 "68d08006aaa3b58169ce7cf1839498f45686fba8115f09acecb89d77e1018a9d"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "3ae28996020630b4d188ef9d8750bd43b4ffdeab6dcb8f0cd1b2e38eadf945f1"
@@ -23,7 +23,7 @@ class Gom < Formula
   depends_on "python@3.9" => :build
   depends_on "gdk-pixbuf"
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
@@ -45,14 +45,14 @@ class Gom < Formula
       }
     EOS
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     flags = %W[
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{include}/gom-1.0
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{lib}
       -lglib-2.0
       -lgobject-2.0
