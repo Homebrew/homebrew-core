@@ -4,7 +4,7 @@ class Rdup < Formula
   url "https://github.com/miekg/rdup/archive/1.1.15.tar.gz"
   sha256 "787b8c37e88be810a710210a9d9f6966b544b1389a738aadba3903c71e0c29cb"
   license "GPL-3.0"
-  revision 2
+  revision 3
   head "https://github.com/miekg/rdup.git", branch: "master"
 
   bottle do
@@ -19,8 +19,8 @@ class Rdup < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "libarchive"
+  depends_on "libglib"
   depends_on "mcrypt"
   depends_on "nettle"
   depends_on "pcre"
