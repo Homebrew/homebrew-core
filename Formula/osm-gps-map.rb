@@ -4,7 +4,7 @@ class OsmGpsMap < Formula
   url "https://github.com/nzjrs/osm-gps-map/releases/download/1.2.0/osm-gps-map-1.2.0.tar.gz"
   sha256 "ddec11449f37b5dffb4bca134d024623897c6140af1f9981a8acc512dbf6a7a5"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -27,8 +27,8 @@ class OsmGpsMap < Formula
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gdk-pixbuf"
-  depends_on "glib"
   depends_on "gtk+3"
+  depends_on "libglib"
   depends_on "libsoup@2"
 
   patch do
@@ -56,7 +56,7 @@ class OsmGpsMap < Formula
     EOS
     atk = Formula["atk"]
     cairo = Formula["cairo"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gtkx3 = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
@@ -65,8 +65,8 @@ class OsmGpsMap < Formula
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{pango.opt_include}/pango-1.0
@@ -75,7 +75,7 @@ class OsmGpsMap < Formula
       -L#{atk.opt_lib}
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
