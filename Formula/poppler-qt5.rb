@@ -4,6 +4,7 @@ class PopplerQt5 < Formula
   url "https://poppler.freedesktop.org/poppler-22.05.0.tar.xz"
   sha256 "a969ced458e050d6202367bd7427054e2bd19bae39e8f969910d3b9151abf958"
   license "GPL-2.0-only"
+  revision 1
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
   livecheck do
@@ -28,8 +29,8 @@ class PopplerQt5 < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "jpeg"
+  depends_on "libglib"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
