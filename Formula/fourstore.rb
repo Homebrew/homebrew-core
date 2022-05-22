@@ -23,7 +23,7 @@ class Fourstore < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "pcre"
   depends_on "raptor"
   depends_on "rasqal"
