@@ -3,7 +3,7 @@ class Gcab < Formula
   homepage "https://wiki.gnome.org/msitools"
   url "https://download.gnome.org/sources/gcab/1.4/gcab-1.4.tar.xz"
   sha256 "67a5fa9be6c923fbc9197de6332f36f69a33dadc9016a2b207859246711c048f"
-  revision 1
+  revision 2
 
   # We use a common regex because gcab doesn't use GNOME's "even-numbered minor
   # is stable" version scheme.
@@ -28,7 +28,7 @@ class Gcab < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     mkdir "build" do
