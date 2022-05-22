@@ -5,7 +5,7 @@ class Groff < Formula
   mirror "https://ftpmirror.gnu.org/groff/groff-1.22.4.tar.gz"
   sha256 "e78e7b4cb7dec310849004fa88847c44701e8d133b5d4c13057d876c1bad0293"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "8727b4965fdaa053760844dd7e3823de3515ac20c82f7e8fbf59d5dce6e3bb7a"
@@ -28,7 +28,7 @@ class Groff < Formula
   uses_from_macos "perl"
 
   on_linux do
-    depends_on "glib"
+    depends_on "libglib"
   end
 
   # See https://savannah.gnu.org/bugs/index.php?59276
