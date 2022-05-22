@@ -4,6 +4,7 @@ class Gstreamer < Formula
   url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.20.2.tar.xz"
   sha256 "df24e8792691a02dfe003b3833a51f1dbc6c3331ae625d143b17da939ceb5e0a"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://gitlab.freedesktop.org/gstreamer/gstreamer.git", branch: "main"
 
   livecheck do
@@ -26,7 +27,7 @@ class Gstreamer < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
 
   uses_from_macos "flex" => :build
 
