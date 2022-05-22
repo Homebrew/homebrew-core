@@ -3,7 +3,7 @@ class Pms < Formula
   homepage "https://pms.sourceforge.io"
   url "https://downloads.sourceforge.net/project/pms/pms/0.42/pms-0.42.tar.bz2"
   sha256 "96bf942b08cba10ee891a63eeccad307fd082ef3bd20be879f189e1959e775a6"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5928678a604a80ee70d57b581b408890b4137d3c16f6123e3e455b636c36c14d"
@@ -19,7 +19,7 @@ class Pms < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
 
   def install
     system "./configure", "--disable-dependency-tracking",
