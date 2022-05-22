@@ -4,6 +4,7 @@ class Libsecret < Formula
   url "https://download.gnome.org/sources/libsecret/0.20/libsecret-0.20.5.tar.xz"
   sha256 "3fb3ce340fcd7db54d87c893e69bfc2b1f6e4d4b279065ffe66dac9f0fd12b4d"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "38a274dc11d584dac3a265339c366a8222bf51d81142c65908164391cae6b789"
@@ -21,8 +22,8 @@ class Libsecret < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "glib"
   depends_on "libgcrypt"
+  depends_on "libglib"
   uses_from_macos "libxslt" => :build
 
   def install
