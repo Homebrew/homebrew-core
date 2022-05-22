@@ -4,6 +4,7 @@ class Geeqie < Formula
   url "https://github.com/BestImageViewer/geeqie/releases/download/v1.7.3/geeqie-1.7.3.tar.xz"
   sha256 "25b1f71cf91bd9a96f399d2a9e70507e54bb377a56e64d89521c0f7a9ce5dd38"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -29,10 +30,10 @@ class Geeqie < Formula
   depends_on "exiv2"
   depends_on "gdk-pixbuf"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gtk+3"
   depends_on "imagemagick"
   depends_on "jpeg"
+  depends_on "libglib"
   depends_on "libtiff"
   depends_on "libx11"
   depends_on "little-cms2"
