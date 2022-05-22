@@ -37,7 +37,7 @@ class Groonga < Formula
   uses_from_macos "libxcrypt"
 
   on_linux do
-    depends_on "glib"
+    depends_on "libglib"
   end
 
   link_overwrite "lib/groonga/plugins/normalizers/"
