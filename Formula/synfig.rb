@@ -5,7 +5,7 @@ class Synfig < Formula
   mirror "https://github.com/synfig/synfig/releases/download/v1.4.2/synfig-1.4.2.tar.gz"
   sha256 "e66688b908ab2f05f87cc5a364f958a1351f101ccab3b3ade33a926453002f4e"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://svn.code.sf.net/p/synfig/code/"
 
   livecheck do
@@ -73,7 +73,7 @@ class Synfig < Formula
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    libglib = Formula["libglib"]
     glibmm = Formula["glibmm@2.66"]
     libpng = Formula["libpng"]
     libsigcxx = Formula["libsigc++@2"]
@@ -87,8 +87,8 @@ class Synfig < Formula
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{libglib.opt_include}/glib-2.0
+      -I#{libglib.opt_lib}/glib-2.0/include
       -I#{glibmm.opt_include}/giomm-2.4
       -I#{glibmm.opt_include}/glibmm-2.4
       -I#{glibmm.opt_lib}/giomm-2.4/include
@@ -105,7 +105,7 @@ class Synfig < Formula
       -D_REENTRANT
       -L#{cairo.opt_lib}
       -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
+      -L#{libglib.opt_lib}
       -L#{glibmm.opt_lib}
       -L#{libsigcxx.opt_lib}
       -L#{libxmlxx.opt_lib}
