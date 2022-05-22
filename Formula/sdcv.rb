@@ -4,6 +4,7 @@ class Sdcv < Formula
   url "https://github.com/Dushistov/sdcv/archive/v0.5.3.tar.gz"
   sha256 "75fb95b1607fdd2fb9f7795d3432d295904614150575ae539202f680499803c9"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
   head "https://github.com/Dushistov/sdcv.git", branch: "master"
 
@@ -21,7 +22,7 @@ class Sdcv < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "glib"
+  depends_on "libglib"
   depends_on "readline"
 
   def install
