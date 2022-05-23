@@ -21,7 +21,7 @@ class NewrelicInfraAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ef8260a5a4659a6560e9530513d7a3e99ec2381c1028a8d5c68d27fc3909da48"
   end
 
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
   # https://github.com/newrelic/infrastructure-agent/issues/695
   depends_on arch: :x86_64
 
