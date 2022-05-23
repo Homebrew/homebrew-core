@@ -5,11 +5,6 @@ class RubyAT26 < Formula
   sha256 "5fd8ded51321b88fdc9c1b4b0eb1b951d2eddbc293865da0151612c2e814c1f2"
   license "Ruby"
 
-  livecheck do
-    url "https://www.ruby-lang.org/en/downloads/"
-    regex(/href=.*?ruby[._-]v?(2\.6(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 arm64_monterey: "74f876ed5b99df4aac83e9493f1e35b9acd5caa40d455d74409dbb50da0e484e"
     sha256 arm64_big_sur:  "5ddd0ae653c7fb59b23b2fe4c9d009e18f3c2c747c9bc0d912ac71bb90f0f9ca"
