@@ -7,12 +7,6 @@ class YoutubeDlc < Formula
   revision 1
   head "https://github.com/blackjack4494/yt-dlc.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/v?(\d+(?:[.-]\d+)+)["' >]}i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b783d95acf80bf416f5914825a6526f20a1cf2efaf796c034e7b681c77cf14d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b783d95acf80bf416f5914825a6526f20a1cf2efaf796c034e7b681c77cf14d"
