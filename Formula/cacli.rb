@@ -5,11 +5,6 @@ class Cacli < Formula
   sha256 "e7d8fd54f16098a6ac9a612b021beea3218d9747672d49eff20a285cdee69101"
   license "MIT"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7c6cf80205658f45979413a2c281e981988c5bab3384f4eb52517b854d024801"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea0076fb8a8b30ee1809d70d1864a8cb2475f06bfb330d42968dc1775cd34c21"
