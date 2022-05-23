@@ -5,7 +5,7 @@ class ImessageRuby < Formula
   sha256 "09031e60548f34f05e07faeb0e26b002aeb655488d152dd811021fba8d850162"
   license "MIT"
   head "https://github.com/linjunpop/imessage.git", branch: "master"
- 
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "7c538ac24ec3ce437d868267582bd68aaa500eeb5a9bdbd3d0d80398b4bab19d"
   end
