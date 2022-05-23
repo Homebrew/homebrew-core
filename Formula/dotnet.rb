@@ -2,10 +2,9 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.104",
-      revision: "915d644e451858f4f7c6e1416ea202695ddd54fb"
+      tag:      "v6.0.300",
+      revision: "8473146e7d8d3de5d9558239c46e62d12314d52b"
   license "MIT"
-  revision 1
 
   # https://github.com/dotnet/source-build/#support
   livecheck do
@@ -72,13 +71,6 @@ class Dotnet < Formula
   # GCC builds have limited support via community.
   fails_with :gcc
 
-  # Fixes race condition in MSBuild.
-  # Remove with 6.0.3xx or later.
-  resource "homebrew-msbuild-patch" do
-    url "https://github.com/dotnet/msbuild/commit/64edb33a278d1334bd6efc35fecd23bd3af4ed48.patch?full_index=1"
-    sha256 "5870bcdd12164668472094a2f9f1b73a4124e72ac99bbbe43028370be3648ccd"
-  end
-
   # Fix build failure on macOS due to missing ILAsm/ILDAsm
   # Fix build failure on macOS ARM due to `osx-x64` override
   patch :DATA
@@ -89,13 +81,6 @@ class Dotnet < Formula
     else
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
     end
-
-    (buildpath/"src/SourceBuild/tarball/patches/msbuild").install resource("homebrew-msbuild-patch")
-
-    # Fix usage of GNU-specific flag.
-    # TODO: Remove this when upstreamed
-    inreplace "src/SourceBuild/tarball/content/repos/Directory.Build.targets",
-              "--block-size=1M", "-m"
 
     Dir.mktmpdir do |sourcedir|
       system "./build.sh", "/p:ArcadeBuildTarball=true", "/p:TarballDir=#{sourcedir}"
