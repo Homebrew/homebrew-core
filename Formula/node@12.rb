@@ -5,11 +5,6 @@ class NodeAT12 < Formula
   sha256 "bc42b7f8495b9bfc7f7850dd180bb02a5bdf139cc232b8c6f02a6967e20714f2"
   license "MIT"
 
-  livecheck do
-    url "https://nodejs.org/dist/"
-    regex(%r{href=["']?v?(12(?:\.\d+)+)/?["' >]}i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "55ac811bdbf7b23af17685ffc6ca8f856b24eb12cdacf0090ba4db180601fcd0"
     sha256 cellar: :any,                 arm64_big_sur:  "f77863889d72ff635fc8636c2c981129f77b63ca3f8089b1d3352a0f82fba82b"
