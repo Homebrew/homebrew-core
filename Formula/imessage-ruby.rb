@@ -5,7 +5,7 @@ class ImessageRuby < Formula
   sha256 "09031e60548f34f05e07faeb0e26b002aeb655488d152dd811021fba8d850162"
   license "MIT"
   head "https://github.com/linjunpop/imessage.git", branch: "master"
-  
+ 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "7c538ac24ec3ce437d868267582bd68aaa500eeb5a9bdbd3d0d80398b4bab19d"
   end
@@ -18,7 +18,6 @@ class ImessageRuby < Formula
 
     system "gem", "build", "imessage.gemspec", "-o", "imessage-#{version}.gem"
     system "gem", "install", "--local", "--verbose", "imessage-#{version}.gem", "--no-document"
-    system "gem", "info", "imessage"
 
     bin.install libexec/"bin/imessage"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
