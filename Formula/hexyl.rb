@@ -4,6 +4,7 @@ class Hexyl < Formula
   url "https://github.com/sharkdp/hexyl/archive/v0.10.0.tar.gz"
   sha256 "5821c0aa5fdda9e84399a5f92dbab53be2dbbcd9a7d4c81166c0b224a38624f8"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/sharkdp/hexyl.git", branch: "master"
 
   bottle do
@@ -15,10 +16,14 @@ class Hexyl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0910b917d78f2f7de1929e68fbb22425d3e5e0f314a7a4da2958798402f9e7fa"
   end
 
+  depends_on "pandoc" => :build
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
+    system "pandoc", "-s", "-f", "markdown", "-t", "man",
+                     "doc/hexyl.1.md", "-o", "hexyl.1"
+    man1.install "hexyl.1"
   end
 
   test do
