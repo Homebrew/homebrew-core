@@ -6,10 +6,6 @@ class Librasterlite < Formula
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
   revision 8
 
-  livecheck do
-    skip "No longer developed"
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_monterey: "631ed6e41434a21f397ba2e46abc9a21b38a02ffb242826de1ec41279e542c47"
