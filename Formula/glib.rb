@@ -6,7 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.72/glib-2.72.2.tar.xz"
   sha256 "78d599a133dba7fe2036dfa8db8fb6131ab9642783fc9578b07a20995252d2de"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "dd94ffde0318591e91b826353d83387839c57b4455bd79243c7227a2ad83b677"
@@ -34,8 +34,20 @@ class Glib < Formula
     inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c],
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
+    # Point the headers and libraries to `libglib`.
+    # The headers and libraries will be removed later because they are provided by `libglib`.
+    libglib = Formula["libglib"]
+    args = std_meson_args.delete_if do |arg|
+      arg.start_with?("--prefix=", "--includedir=", "--libdir=")
+    end
+    args += %W[
+      --prefix=#{prefix}
+      --includedir=#{libglib.opt_include}
+      --libdir=#{libglib.opt_lib}
+    ]
+
     # Disable dtrace; see https://trac.macports.org/ticket/30413
-    args = std_meson_args + %W[
+    args += %W[
       --default-library=both
       --localstatedir=#{var}
       -Diconv=auto
@@ -47,63 +59,14 @@ class Glib < Formula
     mkdir "build" do
       system "meson", *args, ".."
       system "ninja", "-v"
-      system "ninja", "install", "-v"
+      system "meson", "install", "--no-rebuild", "--skip-subprojects", "include,lib"
       rewrite_shebang detected_python_shebang, *bin.children
-    end
-
-    # ensure giomoduledir contains prefix, as this pkgconfig variable will be
-    # used by glib-networking and glib-openssl to determine where to install
-    # their modules
-    inreplace lib/"pkgconfig/gio-2.0.pc",
-              "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
-              "giomoduledir=${libdir}/gio/modules"
-
-    if OS.mac?
-      # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
-      # have a pkgconfig file, so we add gettext lib and include paths here.
-      gettext = Formula["gettext"].opt_prefix
-      inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
-        s.gsub! "Libs: -L${libdir} -lglib-2.0 -lintl",
-                "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
-        s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
-                "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
-      end
-    end
-
-    # `pkg-config --print-requires-private gobject-2.0` includes libffi,
-    # but that package is keg-only so it needs to look for the pkgconfig file
-    # in libffi's opt path.
-    libffi = Formula["libffi"].opt_prefix
-    inreplace lib+"pkgconfig/gobject-2.0.pc" do |s|
-      s.gsub! "Requires.private: libffi",
-              "Requires.private: #{libffi}/lib/pkgconfig/libffi.pc"
     end
 
     bash_completion.install Dir["gio/completion/*"]
   end
 
-  def post_install
-    (HOMEBREW_PREFIX/"lib/gio/modules").mkpath
-  end
-
   test do
-    (testpath/"test.c").write <<~EOS
-      #include <string.h>
-      #include <glib.h>
-
-      int main(void)
-      {
-          gchar *result_1, *result_2;
-          char *str = "string";
-
-          result_1 = g_convert(str, strlen(str), "ASCII", "UTF-8", NULL, NULL, NULL);
-          result_2 = g_convert(result_1, strlen(result_1), "UTF-8", "ASCII", NULL, NULL, NULL);
-
-          return (strcmp(str, result_2) == 0) ? 0 : 1;
-      }
-    EOS
-    system ENV.cc, "-o", "test", "test.c", "-I#{include}/glib-2.0",
-                   "-I#{lib}/glib-2.0/include", "-L#{lib}", "-lglib-2.0"
-    system "./test"
+    system "#{bin}/glib-compile-schemas", "--version"
   end
 end
