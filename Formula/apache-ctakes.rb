@@ -5,11 +5,6 @@ class ApacheCtakes < Formula
   sha256 "f741016e3755054876f3bb27f916a8008af27175ef33785638a6292d300c972e"
   license "Apache-2.0"
 
-  livecheck do
-    url "https://ctakes.apache.org/downloads.cgi"
-    regex(/href=.*?apache-ctakes[._-]v?(\d+(?:\.\d+)+)-bin\.t/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "4c6af60f27e2795e09763b88aa81e00faa80ba6d46e6f6cac3d2cd0b72b9f69f"
