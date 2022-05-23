@@ -2,7 +2,7 @@ class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/root-project/root.git", branch: "master"
 
   stable do
@@ -48,6 +48,7 @@ class Root < Formula
   depends_on "xz" # for LZMA
   depends_on "zstd"
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
