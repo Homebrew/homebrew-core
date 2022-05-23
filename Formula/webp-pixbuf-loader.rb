@@ -1,8 +1,8 @@
 class WebpPixbufLoader < Formula
   desc "WebP Image format GdkPixbuf loader"
   homepage "https://github.com/aruiz/webp-pixbuf-loader"
-  url "https://github.com/aruiz/webp-pixbuf-loader/archive/0.0.4.tar.gz"
-  sha256 "cd6e4ec44755e8df3e298688c0aeb72b9467bbdd03009989c0d94b219b30fb51"
+  url "https://github.com/aruiz/webp-pixbuf-loader/archive/0.0.5.tar.gz"
+  sha256 "8271af4dd3d49792dfd157031d44997187a31e039f7b7b264bc9dded17f24cb9"
   license "LGPL-2.0-or-later"
 
   bottle do
