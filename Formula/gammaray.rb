@@ -31,6 +31,7 @@ class Gammaray < Formula
     ENV.libcxx
 
     system "cmake", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DCMAKE_DISABLE_FIND_PACKAGE_Graphviz=ON",
                     "-DCMAKE_DISABLE_FIND_PACKAGE_VTK=OFF"
     system "make", "install"
