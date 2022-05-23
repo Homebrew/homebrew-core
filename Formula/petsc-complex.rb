@@ -28,6 +28,8 @@ class PetscComplex < Formula
   depends_on "scalapack"
   depends_on "suite-sparse"
 
+  uses_from_macos "python" => :build
+
   conflicts_with "petsc", because: "petsc must be installed with either real or complex support, not both"
 
   def install
