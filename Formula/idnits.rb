@@ -5,11 +5,6 @@ class Idnits < Formula
   sha256 "986ff822cdd6f4bf1bca943dcd22ed5804c6e9725063401317f291d9f5481725"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?idnits[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "c6ad8398fb0962f27699d3cdbc897d636d8a118d18902f24a0d61bda419f6c29"
   end
