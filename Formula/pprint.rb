@@ -10,7 +10,6 @@ class Pprint < Formula
     sha256 cellar: :any_skip_relocation, all: "c299956c83c6f1af4511db5e69cad0e678779646c40cebdd03176368510d2c58"
   end
 
-  depends_on "catch2" => :test
   depends_on macos: :high_sierra # needs C++17
 
   on_linux do
@@ -21,17 +20,26 @@ class Pprint < Formula
 
   def install
     include.install "include/pprint.hpp"
-    pkgshare.install "test"
   end
 
   test do
-    cp_r pkgshare/"test", testpath
-    cd "test" do
-      rm "catch.hpp" # The bundled Catch2 is too old to work on Apple Silicon
-      system ENV.cxx, "main.cpp", "--std=c++17",
-             "-I#{testpath}/test", "-I#{Formula["catch2"].opt_include}/catch2",
-             "-o", "tests"
-      system "./tests"
-    end
+    cpp_file = testpath/"main.cpp"
+    cpp_file.write <<~EOS
+      #include <pprint.hpp>
+
+      int main() {
+          pprint::PrettyPrinter printer;
+          printer.print(std::set<std::set<std::set<int>>>{ {{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {10, 11, 12}} });
+          return 0;
+      }
+    EOS
+
+    system ENV.cxx, "main.cpp", "--std=c++17", "-o", "test"
+    assert_equal <<~EOS, shell_output("./test")
+      {
+        {{1, 2, 3}, {4, 5, 6}},#{" "}
+        {{7, 8, 9}, {10, 11, 12}}
+      }
+    EOS
   end
 end
