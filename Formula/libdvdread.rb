@@ -4,8 +4,8 @@ class Libdvdread < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://download.videolan.org/pub/videolan/libdvdread/6.1.2/libdvdread-6.1.2.tar.bz2"
-    sha256 "cc190f553758ced7571859e301f802cb4821f164d02bfacfd320c14a4e0da763"
+    url "https://download.videolan.org/pub/videolan/libdvdread/6.1.3/libdvdread-6.1.3.tar.bz2"
+    sha256 "ce35454997a208cbe50e91232f0e73fb1ac3471965813a13b8730a8f18a15369"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
