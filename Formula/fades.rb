@@ -13,9 +13,9 @@ class Fades < Formula
   depends_on "python@3.10"
 
   def install
-    pyver = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
+    site_packages = libexec/Language::Python.site_packages("python3")
+    ENV.prepend_create_path "PYTHONPATH", site_packages
+    system "python3", *Language::Python.setup_install_args(libexec), "--install-lib=#{site_packages}"
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
