@@ -9,6 +9,7 @@ class Kdoctools < Formula
     "LGPL-2.1-or-later",
     any_of: ["LGPL-2.1-only", "LGPL-3.0-only"],
   ]
+  revision 1
   head "https://invent.kde.org/frameworks/kdoctools.git", branch: "master"
 
   # We check the tags from the `head` repository because the latest stable
@@ -28,12 +29,12 @@ class Kdoctools < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "docbook-xsl" => [:build, :test]
   depends_on "doxygen" => :build
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "gettext" => :build
   depends_on "ki18n" => :build
 
+  depends_on "docbook-xsl"
   depends_on "karchive"
 
   uses_from_macos "libxml2"
