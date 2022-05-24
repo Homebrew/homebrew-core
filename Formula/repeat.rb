@@ -15,7 +15,7 @@ class Repeat < Formula
   end
 
   test do
-    system "repeat -n 2 -J % /bin/sh -c 'touch %'"
+    system "repeat", "-n", "2", "-J", "%", "/bin/sh", "-c", "touch %"
     assert_predicate testpath/"1", :exist?
     assert_predicate testpath/"2", :exist?
   end
