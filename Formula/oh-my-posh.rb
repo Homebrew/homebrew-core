@@ -25,7 +25,9 @@ class OhMyPosh < Formula
     cd "src" do
       system "go", "build", *std_go_args(ldflags: ldflags)
     end
-    pkgshare.install "themes"
+
+    mv "themes", prefix
+    pkgshare.install_symlink "#{prefix}/themes"
   end
 
   test do
