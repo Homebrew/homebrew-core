@@ -7,20 +7,15 @@ class SolrAT77 < Formula
   license "Apache-2.0"
   revision 1
 
-  # Remove the `livecheck` block (so the check is automatically skipped) once
-  # the 7.7.x series is reported as EOL on the first-party downloads page:
-  # https://solr.apache.org/downloads.html#about-versions-and-support
-  livecheck do
-    url "https://solr.apache.org/downloads.html"
-    regex(/href=.*?solr[._-]v?(7(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "2ece595725317381657387652c053d0e88069f7238c8ce9decbd91794ab5fc7e"
   end
 
   keg_only :versioned_formula
+
+  # The 7.7 series is end of life (EOL) as of 2022-05.
+  deprecate! date: "2022-05-12", because: :unsupported
 
   depends_on "openjdk@11"
 
