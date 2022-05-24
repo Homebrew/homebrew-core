@@ -23,6 +23,7 @@ class Helmsman < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/helmsman"
     pkgshare.install "examples/example.yaml"
+    pkgshare.install "examples/job.yaml"
   end
 
   test do
