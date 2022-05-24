@@ -1,0 +1,57 @@
+class Solid < Formula
+  desc "Collision detection library for geometric objects in 3D space"
+  homepage "https://github.com/dtecta/solid3/"
+  url "https://github.com/dtecta/solid3/archive/ec3e218616749949487f81165f8b478b16bc7932.tar.gz"
+  version "3.5.8"
+  sha256 "e3a23751ebbad5e35f50e685061f1ab9e1bd3777317efc6912567f55259d0f15"
+  license any_of: ["GPL-2.0-only", "QPL-1.0"]
+
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "e670e041979d6f3f95ded01c38b053a701d55dee074e016197ba1b1613128d67"
+    sha256 cellar: :any,                 arm64_big_sur:  "ec2f44a3fe6993dd89a03fc6c79bb15ea9d0e03eff14c5fee248a8d6ef2dc84b"
+    sha256 cellar: :any,                 monterey:       "5f6332325f0e43bd790343ac713ffde38b6933284f56ccf2300ed1f6a0d846c1"
+    sha256 cellar: :any,                 big_sur:        "53fa124eaf6eec06348f0fd19db0cf189066560f44ed22f6fffb9bdbc58beae7"
+    sha256 cellar: :any,                 catalina:       "9d1231c8c37bb4a40ae017d0f8a546bf8f58a2c8f4898d9c226a8aec1708d633"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf61db5178e9b3286d47dee7ec43fbb18da035dd2bfad28d269e74aa01ff7d1e"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
+  uses_from_macos "texinfo" => :build
+
+  # This patch fixes a broken build on clang-600.0.56.
+  # Was reported to bugs@dtecta.com (since it also applies to solid-3.5.6)
+  patch :DATA
+
+  def install
+    # Avoid `required file not found` errors
+    touch ["AUTHORS", "ChangeLog", "NEWS"]
+
+    system "autoreconf", "-fiv"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-debug",
+                          "--prefix=#{prefix}",
+                          "--infodir=#{info}"
+
+    # Don't make examples, as they do not compile because the include
+    # statements for the GLUT library are not platform independent
+    inreplace "Makefile", /^(SUBDIRS *=.*) examples( .+)?/, '\1\2'
+
+    system "make", "install"
+  end
+end
+
+__END__
+diff --git a/src/complex/DT_CBox.h b/src/complex/DT_CBox.h
+index 7fc7c5d..16ce972 100644
+--- a/src/complex/DT_CBox.h
++++ b/src/complex/DT_CBox.h
+@@ -131,4 +131,6 @@ inline DT_CBox operator-(const DT_CBox& b1, const DT_CBox& b2)
+                    b1.getExtent() + b2.getExtent());
+ }
+
++inline DT_CBox computeCBox(MT_Scalar margin, const MT_Transform& xform);
++
+ #endif
