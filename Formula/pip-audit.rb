@@ -3,8 +3,8 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/a9/e1/77e3b8dd2c04fb0bc04c3d836eec868283e289ffeeb18d70d6c10431e9b6/pip_audit-2.3.0.tar.gz"
-  sha256 "95326d536eab1f60df0c36193675c2ab0777de3ef1b3af98ebfc378159b0bed5"
+  url "https://files.pythonhosted.org/packages/4e/bd/3800fe3b6db696bb83a25d641f1e497bc809b4ecf5f0130f6281c6183857/pip_audit-2.3.1.tar.gz"
+  sha256 "3667f2024033b1e01bda44f6f64674cc1b684254c1d5b9065d53c1d85e521075"
   license "Apache-2.0"
 
   bottle do
@@ -25,8 +25,8 @@ class PipAudit < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c5/63/a8e4b0c24e8538cec5579edbb2df4ed1f980d5f186878905317139d83b61/certifi-2022.5.18.tar.gz"
-    sha256 "6ae10321df3e464305a46e997da41ea56c1d311fb9ff1dd4e04d6f14653ec63a"
+    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
+    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
   end
 
   resource "charset-normalizer" do
@@ -100,8 +100,8 @@ class PipAudit < Formula
   end
 
   resource "types-setuptools" do
-    url "https://files.pythonhosted.org/packages/42/2e/d21d995feca499eac401958fee97879926249e60b8e5608f0361f0ee2ae1/types-setuptools-57.4.14.tar.gz"
-    sha256 "df02fe1dd244f58cf4e67cfc3d0a97930a2d61a72dd89f21d81c71017cd83f9a"
+    url "https://files.pythonhosted.org/packages/4f/4b/fadfbd0cbaa6ae3cc22812e5d941086a4d136ff4941dfce8611390c96505/types-setuptools-57.4.15.tar.gz"
+    sha256 "650528ce803586029d7f153f32aed2dbaa6bb2888b233334af80d7ba63ed3c87"
   end
 
   resource "types-toml" do
