@@ -26,9 +26,11 @@ class Helmsman < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/helmsman version")
+    ENV["ORG_PATH"] = "brewtest"
 
     output = shell_output("#{bin}/helmsman --apply -f #{pkgshare}/example.yaml 2>&1")
     assert_match "helm diff not found", output
+
+    assert_match version.to_s, shell_output("#{bin}/helmsman version")
   end
 end
