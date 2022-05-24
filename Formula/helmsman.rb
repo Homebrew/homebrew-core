@@ -27,6 +27,7 @@ class Helmsman < Formula
 
   test do
     ENV["ORG_PATH"] = "brewtest"
+    ENV["VALUE"] = "brewtest"
 
     output = shell_output("#{bin}/helmsman --apply -f #{pkgshare}/example.yaml 2>&1")
     assert_match "helm diff not found", output
