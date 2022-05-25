@@ -39,7 +39,8 @@ class Arrayfire < Formula
                     "-DAF_BUILD_CUDA=OFF",
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
                     *std_cmake_args
-    system "cmake", "--build", "build"
+    # Workaround for /bin/sh: line 1: 52286 Abort trap: 6 /usr/local/bin/doxygen /tmp/.../doxygen.mk.out
+    ENV.deparallelize { system "cmake", "--build", "build" }
     system "cmake", "--install", "build"
 
     pkgshare.install "examples"
