@@ -2,7 +2,7 @@ class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/root-project/root.git", branch: "master"
 
   stable do
@@ -43,7 +43,6 @@ class Root < Formula
   depends_on "python@3.9"
   depends_on "sqlite"
   depends_on "tbb"
-  depends_on :xcode
   depends_on "xrootd"
   depends_on "xz" # for LZMA
   depends_on "zstd"
@@ -59,6 +58,15 @@ class Root < Formula
   skip_clean "bin"
 
   fails_with gcc: "5"
+
+  patch do
+    # Pin CLING_OSX_SYSROOT to the major SDK version used at compile time instead of the latest available.
+    # This resolves compilation errors described in https://github.com/root-project/root/issues/7881 on older
+    # major macOS releases with recent CLT/XCode installations that provide macOS SDK for newer major macOS
+    # releses, e.g. on macOS 11 with CLT 13 (which contains MacOSX12.sdk)
+    url "https://github.com/dennisklein/root/commit/ee75437c09a45b362df0d1c87ea5d9f0dd8123b5.patch?full_index=1"
+    sha256 "637a1390037ffff5cb00766986312c453c0fe96cf7ad89d1db078d9984e47548"
+  end
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root"
