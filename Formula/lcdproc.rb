@@ -4,6 +4,7 @@ class Lcdproc < Formula
   url "https://github.com/lcdproc/lcdproc/releases/download/v0.5.9/lcdproc-0.5.9.tar.gz"
   sha256 "d48a915496c96ff775b377d2222de3150ae5172bfb84a6ec9f9ceab962f97b83"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     sha256 monterey:     "0ecf5320e0921bd1180325908dd202d50b5348462ff8bbad54241682b5d866b2"
@@ -18,7 +19,7 @@ class Lcdproc < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libftdi0"
+  depends_on "libftdi"
   depends_on "libhid"
   depends_on "libusb"
 
