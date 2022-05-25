@@ -11,7 +11,8 @@ class Predictionio < Formula
     sha256 cellar: :any_skip_relocation, all: "483dfcfe76371f6e4ecc93cd47c905cddce97b0db57c015cefa3fda6dbc80392"
   end
 
-  deprecate! date: "2020-09-01", because: :unmaintained
+  # Original deprecation date: 2020-09-01
+  disable! date: "2022-05-25", because: :unmaintained
 
   depends_on "apache-spark"
   depends_on "elasticsearch@6"
