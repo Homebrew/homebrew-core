@@ -4,6 +4,7 @@ class Flashrom < Formula
   url "https://download.flashrom.org/releases/flashrom-v1.2.tar.bz2"
   sha256 "e1f8d95881f5a4365dfe58776ce821dfcee0f138f75d0f44f8a3cd032d9ea42b"
   license "GPL-2.0"
+  revision 1
   head "https://review.coreboot.org/flashrom.git", branch: "master"
 
   livecheck do
@@ -24,8 +25,8 @@ class Flashrom < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libftdi0"
-  depends_on "libusb-compat"
+  depends_on "libftdi"
+  depends_on "libusb"
 
   # Add https://github.com/flashrom/flashrom/pull/212, to allow flashrom to build on Apple Silicon
   patch do
