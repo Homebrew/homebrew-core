@@ -5,7 +5,7 @@ class Dtrx < Formula
   homepage "https://pypi.org/project/dtrx/"
   url "https://files.pythonhosted.org/packages/25/cb/1ef093d762f4d5963e9e571daec239acc5f4971eb9daeda77b131d7cf39f/dtrx-8.3.1.tar.gz"
   sha256 "5587258e762074d5395a6824fd7968ca4f4a1dc481f4852fb84d14e7624433fb"
-  license "GPL-3.0-only"
+  license "GPL-3.0-or-later"
 
   # Include a few common decompression handlers in addition to the python dep
   depends_on "p7zip"
