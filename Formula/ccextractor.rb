@@ -16,6 +16,12 @@ class Ccextractor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d1b026a171e1a894bd3e7ea306eba0a2d7a4894978618ebc5ffd05ed96cea68"
   end
 
+  # Upstream vendors their own dependencies without an easy way to switch to using brewed/system dependencies, see
+  # https://github.com/CCExtractor/ccextractor/issues/1309. Also, upstream does not support gpac 2.x.x (and doesn't
+  # seem to intend to soon), see https://github.com/CCExtractor/ccextractor/issues/1425. See also
+  # https://github.com/Homebrew/homebrew-core/pull/97413.
+  disable! date: "2022-05-25", because: :does_not_build
+
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "gpac"
