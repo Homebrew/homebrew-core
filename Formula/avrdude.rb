@@ -1,7 +1,8 @@
 class Avrdude < Formula
   desc "Atmel AVR MCU programmer"
-  homepage "https://savannah.nongnu.org/projects/avrdude/"
+  homepage "https://www.nongnu.org/avrdude/"
   license "GPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://download.savannah.gnu.org/releases/avrdude/avrdude-7.0.tar.gz"
@@ -30,46 +31,43 @@ class Avrdude < Formula
   end
 
   head do
-    url "https://svn.savannah.nongnu.org/svn/avrdude/trunk/avrdude"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    url "https://github.com/avrdudes/avrdude.git", branch: "main"
+    depends_on "cmake" => :build
   end
 
-  depends_on "automake" => :build
   depends_on "hidapi"
-  depends_on "libftdi0"
-  depends_on "libhid"
-  depends_on "libusb-compat"
+  depends_on "libftdi"
+  depends_on "libusb"
 
-  uses_from_macos "bison"
-  uses_from_macos "flex"
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   on_macos do
-    depends_on "libelf"
+    depends_on "libelf" => :build
   end
 
   on_linux do
     depends_on "elfutils"
+    depends_on "readline"
   end
 
   def install
-    # Workaround for ancient config files not recognizing aarch64 macos.
-    am = Formula["automake"]
-    am_share = am.opt_share/"automake-#{am.version.major_minor}"
-    %w[config.guess config.sub].each do |fn|
-      chmod "u+w", fn
-      cp am_share/fn, fn
-    end
-
     if build.head?
-      inreplace "bootstrap", /libtoolize/, "glibtoolize"
-      system "./bootstrap"
+      shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
+      shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup" if OS.mac?
+
+      system "cmake", "-S", ".", "-B", "build/shared", *std_cmake_args, *shared_args
+      system "cmake", "--build", "build/shared"
+      system "cmake", "--install", "build/shared"
+
+      system "cmake", "-S", ".", "-B", "build/static", *std_cmake_args
+      system "cmake", "--build", "build/static"
+      lib.install "build/static/src/libavrdude.a"
+    else
+      system "./configure", *std_configure_args
+      system "make"
+      system "make", "install"
     end
-    system "./configure", *std_configure_args
-    system "make"
-    system "make", "install"
   end
 
   test do
