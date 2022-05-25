@@ -23,7 +23,6 @@ class Dcled < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0c7a6b33e48eb8e369235f0bd1e84d10c161a41eaec0ab93854bec94df8aee0"
   end
 
-  depends_on "libhid"
   depends_on "libusb"
 
   def install
