@@ -39,6 +39,7 @@ class Fplll < Formula
       #include <fplll.h>
       #include <vector>
       #include <stdio.h>
+      using namespace fplll;
       int main(int c, char **v) {
         ZZ_mat<mpz_t> b;
         std::vector<Z_NR<mpz_t>> sol_coord;
