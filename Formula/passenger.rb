@@ -14,10 +14,16 @@ class Passenger < Formula
     sha256 cellar: :any, catalina:       "c4891710dedbf2346eee8aea53a21c0098116419b55049684bd70616ad8850bd"
   end
 
-  # to build nginx module
-  depends_on "nginx" => [:build, :test]
+  depends_on "httpd" => :build # to build the apache2 module
+  depends_on "nginx" => [:build, :test] # to build nginx module
+  depends_on "apr"
+  depends_on "apr-util"
   depends_on "openssl@1.1"
   depends_on "pcre"
+
+  uses_from_macos "xz" => :build
+  uses_from_macos "curl"
+  uses_from_macos "libxcrypt"
   uses_from_macos "ruby", since: :catalina
 
   def install
