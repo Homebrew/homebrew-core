@@ -31,9 +31,11 @@ class GnomeLatex < Formula
   depends_on "libgee"
   depends_on "tepl"
 
+  uses_from_macos "perl" => :build
+
   def install
     # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" if OS.linux?
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
 
     system "./autogen.sh", "--disable-schemas-compile",
                            "--disable-dependency-tracking",
