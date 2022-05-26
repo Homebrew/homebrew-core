@@ -8,9 +8,7 @@ class Glider < Formula
 
   depends_on "go" => :build
 
-  on_linux do
-    depends_on "curl" => :test
-  end
+  uses_from_macos "curl" => :test
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "."
