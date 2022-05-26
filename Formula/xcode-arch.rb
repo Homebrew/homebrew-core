@@ -8,7 +8,9 @@ class XcodeArch < Formula
   head "https://github.com/417-72KI/xcode-arch.git", branch: "main"
 
   depends_on xcode: ["13.3", :build]
+  depends_on arch: :arm64
   depends_on :macos
+  depends_on macos: :monterey
 
   uses_from_macos "swift"
 
