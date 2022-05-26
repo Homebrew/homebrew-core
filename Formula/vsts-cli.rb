@@ -17,7 +17,7 @@ class VstsCli < Formula
   end
 
   # https://github.com/Azure/azure-devops-cli-extension/pull/219#issuecomment-456404611
-  deprecate! date: "2019-01-22", because: :unsupported
+  disable! date: "2022-05-27", because: :unsupported
 
   depends_on "rust" => :build
   depends_on "python@3.9"
