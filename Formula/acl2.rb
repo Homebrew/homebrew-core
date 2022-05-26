@@ -12,9 +12,6 @@ class Acl2 < Formula
     sha256 x86_64_linux: "72514be4dcc48b2cebc9671056a66f7006c584ff62120988cd6febe765f44b3e"
   end
 
-  # Homebrew ARM CI runners hang when trying to build `acl2`.
-  # See https://github.com/Homebrew/homebrew-core/pull/96455
-  depends_on arch: :x86_64
   depends_on "sbcl"
 
   def install
