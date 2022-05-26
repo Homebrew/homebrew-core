@@ -3,8 +3,8 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/f1/0e/7c5d060b0fc6a33739e7a36603c7d8dd0186cf5699e61e05706b4ecca104/gallery_dl-1.21.2.tar.gz"
-  sha256 "c67f98f163881face41313b764dc9add907087dd284a34a4d34c5f3b4736dd3a"
+  url "https://files.pythonhosted.org/packages/77/41/26b80b62d585b233ac73669ec3964759f9b34cad64ea610dd6be7c6d984d/gallery_dl-1.22.0.tar.gz"
+  sha256 "ee0b259ed6008c7da74b254a8e87c2daeb63a73428dda3550f5c394ad1e4dbcf"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
@@ -20,8 +20,8 @@ class GalleryDl < Formula
   depends_on "python@3.10"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
+    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
+    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
   end
 
   resource "charset-normalizer" do
