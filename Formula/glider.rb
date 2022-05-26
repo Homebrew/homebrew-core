@@ -4,7 +4,7 @@ class Glider < Formula
   url "https://github.com/nadoo/glider/archive/refs/tags/v0.16.2.tar.gz"
   sha256 "a1c7032ad508b6c55dad3a356737cf05083441ea16a46c03f8548d4892ff9183"
   license "GPL-3.0-or-later"
-  head "https://github.com/nadoo/glider.git", branch: "dev"
+  head "https://github.com/nadoo/glider.git", branch: "master"
 
   depends_on "go" => :build
 
