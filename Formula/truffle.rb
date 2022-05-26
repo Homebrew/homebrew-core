@@ -3,14 +3,8 @@ require "language/node"
 class Truffle < Formula
   desc "Development environment, testing framework and asset pipeline for Ethereum"
   homepage "https://trufflesuite.com"
-  # Added to `mismatched_binary_allowlist` due to randomly named binaries in
-  # libexec/"lib/node_modules/truffle/node_modules/ganache/dist/node" directory.
-  # TODO: Check in future updates if possible to do one of following:
-  # - Remove from allowlist if DSL available to detect ELF/Mach-O type to delete binaries
-  # - Remove from allowlist if filenames have OS/Arch information
-  # - Update allowlist if support is added for restricting to specific directories
-  url "https://registry.npmjs.org/truffle/-/truffle-5.5.6.tgz"
-  sha256 "c678ca5e2372898d68cd2a5da59dc53007a616989f226a58c88fa8962ba5cf22"
+  url "https://registry.npmjs.org/truffle/-/truffle-5.5.15.tgz"
+  sha256 "2167a744b9b046875ac75e048c0936ff7a627c273f3ecfb25373e06fc85631ad"
   license "MIT"
 
   bottle do
@@ -20,19 +14,13 @@ class Truffle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "be1dc91dc96de713bf506d8fece22df6c2a77d266eb3fd3ddf2da22ad23e1c16"
   end
 
-  # needs fsevents>=2.2.2 for Apple Silicon: https://github.com/fsevents/fsevents/pull/350
-  depends_on arch: :x86_64
   depends_on "node"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir[libexec/"bin/*"]
 
-    # Remove log files with references to shim paths
     truffle_dir = libexec/"lib/node_modules/truffle"
-    (truffle_dir/"node_modules/ursa-optional/stderr.log").unlink
-
-    # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     %w[
@@ -40,15 +28,25 @@ class Truffle < Formula
       node_modules/ganache/node_modules/@trufflesuite/bigint-buffer
     ].each do |pattern|
       truffle_dir.glob("#{pattern}/prebuilds/*").each do |dir|
-        next if OS.mac? && dir.basename.to_s == "darwin-x64+arm64" # universal binaries
-
-        dir.glob("*.musl.node").map(&:unlink)
-        dir.rmtree if dir.basename.to_s != "#{os}-#{arch}"
+        if OS.mac? && dir.basename.to_s == "darwin-x64+arm64"
+          # Replace universal binaries with their native slices
+          deuniversalize_machos dir/"node.napi.node"
+        else
+          # Remove incompatible pre-built binaries
+          dir.glob("*.musl.node").map(&:unlink)
+          dir.rmtree if dir.basename.to_s != "#{os}-#{arch}"
+        end
       end
     end
 
-    # Replace universal binaries with their native slices
-    deuniversalize_machos
+    # Replace remaining universal binaries with their native slices
+    deuniversalize_machos truffle_dir/"node_modules/fsevents/fsevents.node"
+
+    # Remove incompatible pre-built binaries that have arbitrary names
+    if OS.mac?
+      truffle_dir.glob("node_modules/ganache/dist/node/*.node")
+                 .each { |f| f.unlink if f.dylib? && f.archs.exclude?(Hardware::CPU.arch) }
+    end
   end
 
   test do
