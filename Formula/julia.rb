@@ -8,36 +8,6 @@ class Julia < Formula
     url "https://github.com/JuliaLang/julia/releases/download/v1.7.3/julia-1.7.3.tar.gz"
     sha256 "06df2a81e6a18d0333ffa58d36f6eb84934c38984898f9e0c3072c8facaa7306"
 
-    # Patches for compatibility with LLVM 13
-    patch do
-      url "https://github.com/JuliaLang/julia/commit/677ce6d3adc2f70886f72795b0e5c739e75730ee.patch?full_index=1"
-      sha256 "ebcedfbc61b6cc77c0dd9aebb9f1dfa477326241bf5a54209533e4886aad5af3"
-    end
-
-    patch do
-      url "https://github.com/JuliaLang/julia/commit/47f9139e88917813cb7beee5e690c48c2ac65de4.patch?full_index=1"
-      sha256 "cdc41494b2a163ca363da8ea9bcf27d7541a6dc9e6b4eff72f6c8ff8ce1b67b6"
-    end
-
-    patch do
-      url "https://github.com/JuliaLang/julia/commit/1eb063f1957b2e287ad0c7435debc72af58bb6f1.patch?full_index=1"
-      sha256 "d95b9fb5f327bc3ac351c35317a776ef6a46c1cdff248562e70c76e58eb9a903"
-    end
-
-    # Backported from:
-    # https://github.com/JuliaLang/julia/commit/f8c918b00f7c62e204d324a827e2ee2ef05bb66a
-    patch do
-      url "https://raw.githubusercontent.com/archlinux/svntogit-community/074e62e4e946201779d2d6df9a261c91d111720f/trunk/f8c918b0.patch"
-      sha256 "bc6c85cbbca489ef0b2876dbeb6ae493c11573e058507b8bcb9e01273bc3a38c"
-    end
-
-    # Backported from:
-    # https://github.com/JuliaLang/julia/commit/6330398088e235e4d4fdbda38c41c87e02384edb.patch
-    patch do
-      url "https://raw.githubusercontent.com/archlinux/svntogit-community/df73abb8162e31e6541d2143d1db5f9f1d70b632/trunk/63303980.patch"
-      sha256 "ce9cd140c3bc39987d60340bf365d6238e79cf4d5385494272c49c64af22ef78"
-    end
-
     # Fix compatibility with LibGit2 1.2.0+
     # https://github.com/JuliaLang/julia/pull/43250
     patch do
