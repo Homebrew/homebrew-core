@@ -17,6 +17,7 @@ class Webfs < Formula
     sha256 cellar: :any, sierra:         "9e678532e4546e4fabb9a96b9eb141769e00e330e15c9e5b453001141448c9fb"
   end
 
+  depends_on "httpd" => :build
   depends_on "openssl@1.1"
 
   patch :p0 do
@@ -26,7 +27,9 @@ class Webfs < Formula
 
   def install
     ENV["prefix"]=prefix
-    system "make", "install", "mimefile=/etc/apache2/mime.types"
+    args = ["mimefile=#{etc}/httpd/mime.types"]
+    args << "SHELL=bash" unless OS.mac?
+    system "make", "install", *args
   end
 
   test do
