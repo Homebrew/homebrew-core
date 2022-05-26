@@ -81,13 +81,17 @@ class PythonAT39 < Formula
     sha256 "b0716ba88a4061dcc8c9bdd1acc57f62884000d1f959075090bf2c05ffa28bf3"
   end
 
-  def lib_cellar
+  def lib_python
     on_macos do
-      return prefix/"Frameworks/Python.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}"
+      return "Frameworks/Python.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}"
     end
     on_linux do
-      return prefix/"lib/python#{version.major_minor}"
+      return "lib/python#{version.major_minor}"
     end
+  end
+
+  def lib_cellar
+    prefix/lib_python
   end
 
   def site_packages_cellar
@@ -401,21 +405,21 @@ class PythonAT39 < Formula
           sys.path.extend(library_packages)
           # the Cellar site-packages is a symlink to the HOMEBREW_PREFIX
           # site_packages; prefer the shorter paths
-          long_prefix = re.compile(r'#{rack}/[0-9\._abrc]+/Frameworks/Python\.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}/site-packages')
+          long_prefix = re.compile(r'#{rack}/[0-9\._abrc]+/#{Regexp.escape(lib_python)}/site-packages')
           sys.path = [long_prefix.sub('#{HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"}', p) for p in sys.path]
           # Set the sys.executable to use the opt_prefix. Only do this if PYTHONEXECUTABLE is not
           # explicitly set and we are not in a virtualenv:
           if 'PYTHONEXECUTABLE' not in os.environ and sys.prefix == sys.base_prefix:
               sys.executable = sys._base_executable = '#{opt_bin}/python#{version.major_minor}'
       if 'PYTHONHOME' not in os.environ:
-          cellar_prefix = re.compile(r'#{rack}/[0-9\._abrc]+/')
+          cellar_prefix = re.compile(r'#{rack}/[0-9\._abrc]+(?=/|$)')
           if os.path.realpath(sys.base_prefix).startswith('#{rack}'):
-              new_prefix = cellar_prefix.sub('#{opt_prefix}/', sys.base_prefix)
+              new_prefix = cellar_prefix.sub('#{opt_prefix}', sys.base_prefix)
               if sys.prefix == sys.base_prefix:
                   sys.prefix = new_prefix
               sys.base_prefix = new_prefix
           if os.path.realpath(sys.base_exec_prefix).startswith('#{rack}'):
-              new_exec_prefix = cellar_prefix.sub('#{opt_prefix}/', sys.base_exec_prefix)
+              new_exec_prefix = cellar_prefix.sub('#{opt_prefix}', sys.base_exec_prefix)
               if sys.exec_prefix == sys.base_exec_prefix:
                   sys.exec_prefix = new_exec_prefix
               sys.base_exec_prefix = new_exec_prefix
@@ -461,6 +465,12 @@ class PythonAT39 < Formula
     system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
     system "#{bin}/python#{version.major_minor}", "-c", "import pyexpat"
     system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
+
+    # Check if our sitecustomize.py works
+    system "#{bin}/python#{version.major_minor}", "-c",
+           "import sys; assert not sys.base_prefix.startswith('#{HOMEBREW_CELLAR}')"
+    system "#{bin}/python#{version.major_minor}", "-c",
+           "import sys; assert not any(p.startswith('#{site_packages_cellar}') for p in sys.path)"
 
     # tkinter is provided in a separate formula
     assert_match "ModuleNotFoundError: No module named '_tkinter'",
