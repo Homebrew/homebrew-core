@@ -12,13 +12,14 @@ class Akamai < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d68de8020c21317cae498f11a875cb3b19ea9b1e20355940071627caeb43239f"
   end
 
-  depends_on "go" => :build
+  depends_on "go" => [:build, :test]
 
   def install
     system "go", "build", "-tags", "noautoupgrade nofirstrun", *std_go_args, "cli/main.go"
   end
 
   test do
-    assert_match "Purge", pipe_output("#{bin}/akamai install --force purge", "n")
+    assert_match "diagnostics", shell_output("#{bin}/akamai install diagnostics")
+    system bin/"akamai", "uninstall", "diagnostics"
   end
 end
