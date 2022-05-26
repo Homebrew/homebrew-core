@@ -19,7 +19,6 @@ class Mpv < Formula
   depends_on "docutils" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
-  depends_on xcode: :build
 
   depends_on "ffmpeg@4"
   depends_on "jpeg"
@@ -39,6 +38,13 @@ class Mpv < Formula
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
+
+    if OS.mac? && (sdk = MacOS.sdk)
+      ENV["MACOS_SDK"] = sdk.path
+      ENV["MACOS_SDK_VERSION"] = "#{sdk.version}.0"
+    end
+
+    ENV["SWIFT"] = "#{MacOS::CLT::PKG_PATH}/usr/bin/swift" if MacOS::CLT.installed?
 
     # libarchive is keg-only
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
