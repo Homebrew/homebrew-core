@@ -19,6 +19,6 @@ class Xlate < Formula
   end
 
   test do
-    assert_match "0.1.1", shell_output("#{bin}/xlate --version")
+    assert_match version.to_s, shell_output("#{bin}/xlate --version")
   end
 end
