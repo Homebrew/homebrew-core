@@ -3,8 +3,8 @@ require "language/node"
 class JoplinCli < Formula
   desc "Note taking and to-do application with synchronization capabilities"
   homepage "https://joplinapp.org/"
-  url "https://registry.npmjs.org/joplin/-/joplin-2.6.1.tgz"
-  sha256 "5ae8c2cfbb54b55bba18f7cd413ba7bd7ef03412021322b65df53216fd7db4be"
+  url "https://registry.npmjs.org/joplin/-/joplin-2.8.1.tgz"
+  sha256 "bf5d3e2ce4a82916e984878a6a5aa80de830307643c67c9d6641f873a6903714"
   license "MIT"
 
   bottle do
@@ -43,6 +43,9 @@ class JoplinCli < Formula
       terminal_notifier_app = Formula["terminal-notifier"].opt_prefix/"terminal-notifier.app"
       ln_sf terminal_notifier_app.relative_path_from(terminal_notifier_dir), terminal_notifier_dir
     end
+
+    # Replace universal binaries with their native slices
+    deuniversalize_machos libexec/"lib/node_modules/joplin/node_modules/fsevents/fsevents.node"
   end
 
   # All joplin commands rely on the system keychain and so they cannot run
