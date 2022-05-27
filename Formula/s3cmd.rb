@@ -6,7 +6,7 @@ class S3cmd < Formula
   url "https://files.pythonhosted.org/packages/65/6c/f51ba2fbc74916f4fe3883228450306135e13be6dcca03a08d3e91239992/s3cmd-2.2.0.tar.gz"
   sha256 "2a7d2afe09ce5aa9f2ce925b68c6e0c1903dd8d4e4a591cd7047da8e983a99c3"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
@@ -27,8 +27,8 @@ class S3cmd < Formula
   end
 
   resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/3a/70/76b185393fecf78f81c12f9dc7b1df814df785f6acb545fc92b016e75a7e/python-magic-0.4.24.tar.gz"
-    sha256 "de800df9fb50f8ec5974761054a708af6e4246b03b4bdaee993f948947b0ebcf"
+    url "https://files.pythonhosted.org/packages/f7/46/fecfd32c126d26c8dd5287095cad01356ec0a761205f0b9255998bff96d1/python-magic-0.4.25.tar.gz"
+    sha256 "21f5f542aa0330f5c8a64442528542f6215c8e18d2466b399b0d9d39356d83fc"
   end
 
   def install
@@ -37,6 +37,7 @@ class S3cmd < Formula
   end
 
   test do
-    system bin/"s3cmd", "--help"
+    assert_match ".s3cfg: None", shell_output("#{bin}/s3cmd ls s3://brewtest 2>&1", 78)
+    assert_match "s3cmd version #{version}", shell_output("#{bin}/s3cmd --version")
   end
 end
