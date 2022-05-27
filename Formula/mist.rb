@@ -15,6 +15,7 @@ class Mist < Formula
 
   # Mist requires Swift 5.5
   depends_on xcode: ["13.1", :build]
+  depends_on :macos
   uses_from_macos "swift"
 
   def install
