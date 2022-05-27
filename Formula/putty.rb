@@ -1,8 +1,8 @@
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/putty/"
-  url "https://the.earth.li/~sgtatham/putty/0.76/putty-0.76.tar.gz"
-  sha256 "547cd97a8daa87ef71037fab0773bceb54a8abccb2f825a49ef8eba5e045713f"
+  url "https://the.earth.li/~sgtatham/putty/0.77/putty-0.77.tar.gz"
+  sha256 "419a76f45238fd45f2c76b42438993056e74fa78374f136052aaa843085beae5"
   license "MIT"
 
   bottle do
