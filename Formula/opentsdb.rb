@@ -18,30 +18,34 @@ class Opentsdb < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "openjdk@8" => :build
+  depends_on "python@3.10" => :build
   depends_on "gnuplot"
   depends_on "hbase"
   depends_on "lzo"
   depends_on "openjdk@11"
 
   def install
-    system "autoreconf", "-fvi"
+    with_env(JAVA_HOME: Language::Java.java_home("1.8")) do
+      ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+      system "autoreconf", "--force", "--install", "--verbose"
+      system "./configure", "--disable-silent-rules",
+                            "--prefix=#{prefix}",
+                            "--mandir=#{man}",
+                            "--sysconfdir=#{etc}",
+                            "--localstatedir=#{var}/opentsdb"
+      system "make"
+      bin.mkpath
+      (pkgshare/"static/gwt/opentsdb/images/ie6").mkpath
+      system "make", "install"
+    end
 
-    system "./configure",
-           "--disable-silent-rules",
-           "--prefix=#{prefix}",
-           "--mandir=#{man}",
-           "--sysconfdir=#{etc}",
-           "--localstatedir=#{var}/opentsdb"
-    system "make"
-    bin.mkpath
-    (pkgshare/"static/gwt/opentsdb/images/ie6").mkpath
-    system "make", "install"
+    env = Language::Java.java_home_env("11")
+    env["PATH"] = "$JAVA_HOME/bin:$PATH"
+    env["HBASE_HOME"] = Formula["hbase"].opt_libexec
+    # We weren't able to get HBase native LZO compression working in Monterey
+    env["COMPRESSION"] = (MacOS.version >= :monterey) ? "NONE" : "LZO"
 
-    env = {
-      HBASE_HOME:  Formula["hbase"].opt_libexec,
-      COMPRESSION: "LZO",
-    }
-    env = Language::Java.java_home_env("11").merge(env)
     create_table = pkgshare/"tools/create_table_with_env.sh"
     create_table.write_env_script pkgshare/"tools/create_table.sh", env
     create_table.chmod 0755
