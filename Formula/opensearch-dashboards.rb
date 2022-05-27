@@ -16,8 +16,8 @@ class OpensearchDashboards < Formula
   end
 
   depends_on "yarn" => :build
-  depends_on arch: :x86_64
-  depends_on "node@14"
+  depends_on arch: :x86_64 # https://github.com/opensearch-project/OpenSearch-Dashboards/issues/1630
+  depends_on "node@14" # use `node@16` after https://github.com/opensearch-project/OpenSearch-Dashboards/issues/406
 
   def install
     inreplace "package.json", /"node": "14\.\d+\.\d+"/, %Q("node": "#{Formula["node@14"].version}")
