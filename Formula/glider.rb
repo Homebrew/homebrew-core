@@ -11,7 +11,11 @@ class Glider < Formula
   uses_from_macos "curl" => :test
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "."
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     etc.install buildpath/"config/glider.conf.example" => "glider.conf"
   end
