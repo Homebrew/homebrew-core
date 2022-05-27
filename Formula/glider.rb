@@ -27,13 +27,12 @@ class Glider < Formula
 
   test do
     proxy_port = free_port
-    filename = (testpath/"test.tar.gz")
     glider = fork { exec "#{bin}/glider", "-listen", "socks5://:#{proxy_port}" }
 
     sleep 3
     begin
-      system "curl", "--socks5", "127.0.0.1:#{proxy_port}", "-L", stable.url, "-o", filename
-      filename.verify_checksum stable.checksum
+      assert_match "The Missing Package Manager for macOS (or Linux)",
+        shell_output("curl --socks5 127.0.0.1:#{proxy_port} -L https://brew.sh")
     ensure
       Process.kill 9, glider
       Process.wait glider
