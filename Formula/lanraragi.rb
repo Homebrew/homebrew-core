@@ -32,20 +32,29 @@ class Lanraragi < Formula
 
   uses_from_macos "libarchive"
 
+  on_macos do
+    resource "libarchive-headers" do
+      url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.100.2.tar.gz"
+      sha256 "e54049be1b1d4f674f33488fdbcf5bb9f9390db5cc17a5b34cbeeb5f752b207a"
+    end
+  end
+
   resource "Image::Magick" do
     url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.0.11-3.tar.gz"
     sha256 "232f2312c09a9d9ebc9de6c9c6380b893511ef7c6fc358d457a4afcec26916aa"
   end
 
-  resource "libarchive-headers" do
-    url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.100.2.tar.gz"
-    sha256 "e54049be1b1d4f674f33488fdbcf5bb9f9390db5cc17a5b34cbeeb5f752b207a"
-  end
-
   def install
     ENV.prepend_create_path "PERL5LIB", "#{libexec}/lib/perl5"
     ENV.prepend_path "PERL5LIB", "#{libexec}/lib"
-    ENV["CFLAGS"] = "-I#{libexec}/include"
+
+    # On Linux, use the headers provided by the libarchive formula rather than the ones provided by Apple.
+    ENV["CFLAGS"] = if OS.mac?
+      "-I#{libexec}/include"
+    else
+      "-I#{Formula["libarchive"].opt_include}"
+    end
+
     ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
 
     imagemagick = Formula["imagemagick"]
@@ -60,9 +69,11 @@ class Lanraragi < Formula
       system "make", "install"
     end
 
-    resource("libarchive-headers").stage do
-      cd "libarchive/libarchive" do
-        (libexec/"include").install "archive.h", "archive_entry.h"
+    if OS.mac?
+      resource("libarchive-headers").stage do
+        cd "libarchive/libarchive" do
+          (libexec/"include").install "archive.h", "archive_entry.h"
+        end
       end
     end
 
@@ -104,6 +115,7 @@ class Lanraragi < Formula
       The program will cease functioning now.
     EOS
     # Execute through npm to avoid starting a redis-server
-    assert_match output, shell_output("npm start --prefix #{libexec}", 61)
+    return_value = OS.mac? ? 61 : 111
+    assert_match output, shell_output("npm start --prefix #{libexec}", return_value)
   end
 end
