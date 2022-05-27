@@ -2,8 +2,8 @@ class Kubevela < Formula
   desc "Application Platform based on Kubernetes and Open Application Model"
   homepage "https://kubevela.io"
   url "https://github.com/kubevela/kubevela.git",
-      tag:      "v1.3.5",
-      revision: "cbed2b5cb3371b48357dbda3b5fc278a506c4d70"
+      tag:      "v1.3.6",
+      revision: "54477eabf5313a85f22c0c92bc8e92878b533be3"
   license "Apache-2.0"
   head "https://github.com/kubevela/kubevela.git", branch: "master"
 
