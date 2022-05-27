@@ -1,5 +1,3 @@
-require 'fileutils'
-
 class Stencil < Formula
   desc "Smart templating engine for service development"
   homepage "https://engineering.outreach.io/stencil/"
