@@ -17,10 +17,13 @@ class Darglint < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "aa84254d72fcccfece16713b9f7648aeaef79831465d2f14032b942a48a17801"
   end
 
+  depends_on "poetry" => :build
   depends_on "python@3.10"
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
+    venv.pip_install_and_link Dir["dist/darglint-*.whl"].first
   end
 
   test do
