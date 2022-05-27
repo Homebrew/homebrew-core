@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.22.0/deno_src.tar.gz"
-  sha256 "ffa1cd143ba1e53ab5d380c1e630a2fe73910b7be4e483b0d643d14b31b23ed4"
+  url "https://github.com/denoland/deno/releases/download/v1.23.1/deno_src.tar.gz"
+  sha256 "619169f952f1730870a7d1039bf3d65f030f520f5a7d2f50673fd1899ceeace7"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -30,6 +30,15 @@ class Deno < Formula
     depends_on "pkg-config" => :build
     depends_on "gcc"
     depends_on "glib"
+
+    # Temporary v8 resource to work around build failure due to missing MFD_CLOEXEC in Homebrew's glibc.
+    # We use the crate as GitHub tarball lacks submodules and this allows us to avoid git overhead.
+    # TODO: Remove when deno's v8 is on 10.5.x, a backport/patch is added, or Homebrew uses a newer glibc.
+    # Ref: https://chromium.googlesource.com/v8/v8.git/+/8fdb91cdb80ae0dd0223c0d065f724e480c5e0db
+    resource "v8" do
+      url "https://static.crates.io/crates/v8/v8-0.44.2.crate"
+      sha256 "5ee18f5327bc32aeacce7027886683f4f9bd06ee2a17db17860bf0ab008a4013"
+    end
   end
 
   fails_with gcc: "5"
@@ -41,10 +50,32 @@ class Deno < Formula
   # 4. Find full gn commit hash: https://gn.googlesource.com/gn.git/+/#{gn_commit}
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "53d92014bf94c3893886470a1c7c1289f8818db0"
+        revision: "bf4e17dc67b2a2007475415e3f9e1d1cf32f6e35"
   end
 
   def install
+    # Work around Homebrew's old glibc using same temporary patch as `v8` formula.
+    # TODO: Remove this at the same time as `v8` resource
+    if OS.linux?
+      (buildpath/"v8").mkpath
+      resource("v8").stage do |r|
+        system "tar", "--strip-components", "1", "-xzvf", "v8-#{r.version}.crate", "-C", buildpath/"v8"
+      end
+      inreplace "v8/v8/src/base/platform/platform-posix.cc" do |s|
+        s.sub!(/^namespace v8 {$/, <<~EOS)
+          #ifndef MFD_CLOEXEC
+          #define MFD_CLOEXEC 0x0001U
+          #define MFD_ALLOW_SEALING 0x0002U
+          #endif
+
+          namespace v8 {
+        EOS
+      end
+      inreplace %w[core/Cargo.toml serde_v8/Cargo.toml],
+                /^v8 = ("[\d.]+")$/,
+                "v8 = { version = \\1, path = \"../v8\" }"
+    end
+
     if OS.mac? && (MacOS.version < :mojave)
       # Overwrite Chromium minimum SDK version of 10.15
       ENV["FORCE_MAC_SDK_MIN"] = MacOS.version
@@ -67,11 +98,10 @@ class Deno < Formula
       system "ninja", "-C", "out"
     end
 
-    cd "cli" do
-      # cargo seems to build rusty_v8 twice in parallel, which causes problems,
-      # hence the need for -j1
-      system "cargo", "install", "-vv", "-j1", *std_cargo_args
-    end
+    # cargo seems to build rusty_v8 twice in parallel, which causes problems,
+    # hence the need for -j1
+    # Issue ref: https://github.com/denoland/deno/issues/9244
+    system "cargo", "install", "-vv", "-j1", *std_cargo_args(path: "cli")
 
     bash_output = Utils.safe_popen_read(bin/"deno", "completions", "bash")
     (bash_completion/"deno").write bash_output
