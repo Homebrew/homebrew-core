@@ -13,11 +13,18 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  # Remove `coq` from `flat_namespace_allowlist` at version bump.
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.xz"
-  sha256 "39ee9db8dc1e3eb65473dd81a71fabab7cc253dbd7b85e9f9b5b28271319bec3"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
+
+  stable do
+    url "https://caml.inria.fr/pub/distrib/ocaml-4.14/ocaml-4.14.0.tar.xz"
+    sha256 "36abd8cca53ff593d5e7cd8b98eee2f1f36bd49aaf6ff26dc4c4dd21d861ac2b"
+
+    # Remove use of -flat_namespace. Upstreamed at
+    # https://github.com/ocaml/ocaml/pull/10723
+    # We embed a patch here so we don't have to regenerate configure.
+    patch :DATA
+  end
 
   livecheck do
     url "https://ocaml.org/releases"
@@ -37,11 +44,6 @@ class Ocaml < Formula
   # The ocaml compilers embed prefix information in weird ways that the default
   # brew detection doesn't find, and so needs to be explicitly blocked.
   pour_bottle? only_if: :default_prefix
-
-  # Remove use of -flat_namespace. Upstreamed at
-  # https://github.com/ocaml/ocaml/pull/10723
-  # We embed a patch here so we don't have to regenerate configure.
-  patch :p0, :DATA
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -71,14 +73,14 @@ class Ocaml < Formula
 end
 
 __END__
---- configure.orig	2021-10-24 09:34:12.145636659 +0800
-+++ configure	2021-10-24 09:34:30.504944693 +0800
-@@ -13644,7 +13644,7 @@
- if test x"$enable_shared" != "xno"; then :
+--- a/configure
++++ b/configure
+@@ -14087,7 +14087,7 @@ if test x"$enable_shared" != "xno"; then :
    case $host in #(
    *-apple-darwin*) :
--    mksharedlib="$CC -shared -flat_namespace -undefined suppress \
-+    mksharedlib="$CC -shared -undefined dynamic_lookup \
-                    -Wl,-no_compact_unwind"
-       shared_libraries_supported=true ;; #(
+     mksharedlib="$CC -shared \
+-                   -flat_namespace -undefined suppress -Wl,-no_compact_unwind \
++                   -undefined dynamic_lookup -Wl,-no_compact_unwind \
+                    \$(LDFLAGS)"
+       supports_shared_libraries=true ;; #(
    *-*-mingw32) :
