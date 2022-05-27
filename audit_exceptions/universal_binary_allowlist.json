@@ -18,7 +18,6 @@
   "netlify-cli",
   "node-sass",
   "openjdk@11",
-  "serverless",
   "sourcery",
   "swift"
 ]
