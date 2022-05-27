@@ -36,8 +36,8 @@ class Diffoscope < Formula
   end
 
   resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/ac/68/2e05edacfbf350cf8c7a4c382aed89a918be03a8f27383de77aa3c3b53df/python-magic-0.4.26.tar.gz"
-    sha256 "8262c13001f904ad5b724d38b5e5b5f17ec0450ae249def398a62e4e33108a50"
+    url "https://files.pythonhosted.org/packages/f7/46/fecfd32c126d26c8dd5287095cad01356ec0a761205f0b9255998bff96d1/python-magic-0.4.25.tar.gz"
+    sha256 "21f5f542aa0330f5c8a64442528542f6215c8e18d2466b399b0d9d39356d83fc"
   end
 
   def install
