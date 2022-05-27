@@ -18,6 +18,8 @@ class Makeicns < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "40c3d4befe2d4625d7013ea40f307b4f5b26e122a6dad51706a25bb22734f075"
   end
 
+  depends_on :macos
+
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e59da9d/makeicns/patch-IconFamily.m.diff"
     sha256 "f5ddbf6a688d6f153cf6fc2e15e75309adaf61677ab423cb67351e4fbb26066e"
