@@ -4,8 +4,8 @@ class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "1.3.2",
-      revision: "6aa55aee1acd98035c714a46c8508a5b5ecabfd5"
+      tag:      "2.0.0",
+      revision: "3d6dd638d021f383a4c6ab750c83a1d30d3787b3"
   license "Apache-2.0"
 
   bottle do
@@ -13,10 +13,11 @@ class OpensearchDashboards < Formula
   end
 
   depends_on "yarn" => :build
-  depends_on "node@10" # Switch to `node` after https://github.com/opensearch-project/OpenSearch-Dashboards/issues/406
+  depends_on arch: :x86_64
+  depends_on "node@14"
 
   def install
-    inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
+    inreplace "package.json", /"node": "14\.\d+\.\d+"/, %Q("node": "#{Formula["node@14"].version}")
 
     # Do not download node and discard all actions related to this node
     inreplace "src/dev/build/build_distributables.ts" do |s|
@@ -36,10 +37,12 @@ class OpensearchDashboards < Formula
     system "yarn", "osd", "bootstrap"
     system "node", "scripts/build", "--release", "--skip-os-packages", "--skip-archives", "--skip-node-download"
 
-    cd "build/opensearch-dashboards-#{version}-darwin-x64" do
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    cd "build/opensearch-dashboards-#{version}-#{os}-#{arch}" do
       inreplace Dir["bin/*"],
                 "\"${DIR}/node/bin/node\"",
-                "\"#{Formula["node@10"].opt_bin/"node"}\""
+                "\"#{Formula["node@14"].opt_bin/"node"}\""
 
       inreplace "config/opensearch_dashboards.yml",
                 /#\s*pid\.file: .+$/,
