@@ -4,6 +4,7 @@ class Camlp5 < Formula
   url "https://github.com/camlp5/camlp5/archive/refs/tags/rel8.00.03.tar.gz"
   sha256 "1a710e2a6dbb0f4440867850d605f31fe8407ee8a56c9e067866e34e584385b4"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/camlp5/camlp5.git", branch: "master"
 
   livecheck do
@@ -21,6 +22,7 @@ class Camlp5 < Formula
   end
 
   depends_on "ocaml-findlib" => :build
+  depends_on "camlp-streams"
   depends_on "ocaml"
 
   def install
