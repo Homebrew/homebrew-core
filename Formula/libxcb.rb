@@ -14,10 +14,10 @@ class Libxcb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "993d37bb436fab0157ed5f3c031f9a18168053439e93edb4bdce9abe6e99373d"
   end
 
+  depends_on "libpthread-stubs" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
   depends_on "xcb-proto" => :build
-  depends_on "libpthread-stubs"
   depends_on "libxau"
   depends_on "libxdmcp"
 
