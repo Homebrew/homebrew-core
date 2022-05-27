@@ -4,6 +4,7 @@ class Libxcb < Formula
   url "https://xcb.freedesktop.org/dist/libxcb-1.15.tar.gz"
   sha256 "1cb65df8543a69ec0555ac696123ee386321dfac1964a3da39976c9a05ad724d"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -20,9 +21,12 @@ class Libxcb < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build # match version in `xcb-proto`
   depends_on "xcb-proto" => :build
-  depends_on "libpthread-stubs"
   depends_on "libxau"
   depends_on "libxdmcp"
+
+  # Drop libpthread-stubs on macOS
+  # remove in next release
+  patch :DATA
 
   def install
     python3 = "python3.11"
@@ -98,3 +102,18 @@ class Libxcb < Formula
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index 2503d4b..0c36685 100755
+--- a/configure
++++ b/configure
+@@ -20662,7 +20662,7 @@ printf "%s\n" "yes" >&6; }
+ fi
+ NEEDED="xau >= 0.99.2"
+ case $host_os in
+-linux*) ;;
++linux*|darwin*) ;;
+      *) NEEDED="$NEEDED pthread-stubs" ;;
+ esac
+ 
