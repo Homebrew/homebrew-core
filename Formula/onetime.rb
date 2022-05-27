@@ -22,6 +22,8 @@ class Onetime < Formula
     sha256 cellar: :any_skip_relocation, all:           "93ec90f57aaf9235f925eb7146e3446a2265b5e6d573188bc129178aa516b1ad"
   end
 
+  deprecate! date: "2022-05-26", because: :unmaintained
+
   # Fixes the Makefile to permit destination specification
   # https://github.com/kfogel/OneTime/pull/12
   patch do
