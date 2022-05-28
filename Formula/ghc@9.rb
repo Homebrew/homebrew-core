@@ -1,8 +1,8 @@
 class GhcAT9 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.2.2/ghc-9.2.2-src.tar.xz"
-  sha256 "902463a4cc6ee479af9358b9f8b2ee3237b03e934a1ea65b6d1fcf3e0d749ea6"
+  url "https://downloads.haskell.org/~ghc/9.2.3/ghc-9.2.3-src.tar.xz"
+  sha256 "50ecdc2bef013e518f9a62a15245d7db0e4409d737c43b1cea7306fd82e1669e"
   license "BSD-3-Clause"
 
   livecheck do
