@@ -4,6 +4,7 @@ class Clhep < Formula
   url "https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.5.2.tgz"
   sha256 "3a87de7c0c41a877212ee3d0d2ac5afe315299ae278ce7858b2ec7249ef2d911"
   license "GPL-3.0-only"
+  head "https://gitlab.cern.ch/CLHEP/CLHEP.git", branch: "develop"
 
   livecheck do
     url :homepage
@@ -20,21 +21,13 @@ class Clhep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "548f3418aaaa382af761e4eda5d888cead02febf767d01964070b52bd34a6da2"
   end
 
-  head do
-    url "https://gitlab.cern.ch/CLHEP/CLHEP.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
   depends_on "cmake" => :build
 
   def install
-    mv (buildpath/"CLHEP").children, buildpath if build.stable?
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    (buildpath/"CLHEP").install buildpath.children if build.head?
+    system "cmake", "-S", "CLHEP", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
