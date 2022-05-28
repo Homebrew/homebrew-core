@@ -2,8 +2,8 @@ class Securefs < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
   url "https://github.com/netheril96/securefs.git",
-      tag:      "0.11.1",
-      revision: "dfeebf8406871d020848edde668234715356158c"
+      tag:      "0.13.0",
+      revision: "1705d14b8fef5ebb826a74549d609c6ab6cb63f7"
   license "MIT"
   head "https://github.com/netheril96/securefs.git", branch: "master"
 
@@ -20,12 +20,13 @@ class Securefs < Formula
   end
 
   on_linux do
-    depends_on "libfuse"
+    depends_on "libfuse@2"
   end
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def caveats
