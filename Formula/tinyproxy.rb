@@ -20,12 +20,6 @@ class Tinyproxy < Formula
   depends_on "docbook-xsl" => :build
 
   def install
-    # conf.c:412:21: error: use of undeclared identifier 'LINE_MAX'
-    # https://github.com/tinyproxy/tinyproxy/commit/7168a42624fb9ce3305c9e666e44cc8a533af5f6
-    # Patch already accepted upstream, but not usable due to upstream refactor. Remove on next release.
-    inreplace "src/acl.c", "#include <limits.h>\n", ""
-    inreplace "src/common.h", "#  include	<pwd.h>\n", "#  include	<pwd.h>\n#  include	<limits.h>\n"
-
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = %W[
