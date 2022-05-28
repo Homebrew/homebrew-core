@@ -1,8 +1,8 @@
 class Spack < Formula
   desc "Package manager that builds multiple versions and configurations of software"
   homepage "https://spack.io"
-  url "https://github.com/spack/spack/archive/v0.17.2.tar.gz"
-  sha256 "3c3c0eccc5c0a1fa89223cbdfd48c71c5be8b4645f5fa4e921426062a9b32d51"
+  url "https://github.com/spack/spack/archive/v0.18.0.tar.gz"
+  sha256 "7b8d1e6bb49cd4f46f79a93fa577e00336dafeb5452712e36efeafd02711d38e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/spack/spack.git", branch: "develop"
 
@@ -23,6 +23,8 @@ class Spack < Formula
   depends_on "python@3.10"
 
   def install
+    # remove ps1, bat files
+    rm ["bin/haspywin.py", "bin/spack.bat", "bin/spack_cmd.bat", "bin/spack_pwsh.ps1"]
     prefix.install Dir["*"]
   end
 
@@ -38,6 +40,7 @@ class Spack < Formula
     else
       "gcc"
     end
-    assert_match expected, shell_output("spack compiler list")
+    assert_match expected, shell_output("#{bin}/spack compiler find")
+    assert_predicate testpath/".spack/darwin/compilers.yaml", :exist?
   end
 end
