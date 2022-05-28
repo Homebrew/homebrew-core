@@ -6,6 +6,11 @@ class Mbt < Formula
   license "Apache-2.0"
   head "https://github.com/SAP/cloud-mta-build-tool.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "657e41b278ed88ca0e7b0ccdc423649367616665c48b3b4c114044a465abeb34"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed8e05ae667449d37fa2e52f3c6f48de6715d2143d1d24b54fda5b79e33641e2"
