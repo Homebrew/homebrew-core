@@ -1,8 +1,8 @@
 class Nqp < Formula
   desc "Lightweight Perl 6-like environment for virtual machines"
   homepage "https://github.com/Raku/nqp"
-  url "https://github.com/Raku/nqp/releases/download/2022.02/nqp-2022.02.tar.gz"
-  sha256 "25d3c99745cd84f4049a9bd9cf26bb5dc817925abaafe71c9bdb68841cdb18b1"
+  url "https://github.com/Raku/nqp/releases/download/2022.04/nqp-2022.04.tar.gz"
+  sha256 "556d458e25d3c0464af9f04ea3e92bbde10046066b329188a88663943bd4e79c"
   license "Artistic-2.0"
 
   bottle do
@@ -17,9 +17,14 @@ class Nqp < Formula
   depends_on "libtommath"
   depends_on "moarvm"
 
+  uses_from_macos "perl" => :build
+
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with nqp included"
 
   def install
+    # Work around Homebrew's directory structure and help find moarvm libraries
+    inreplace "tools/build/gen-version.pl", "$libdir, 'MAST'", "'#{Formula["moarvm"].opt_share}/nqp/lib/MAST'"
+
     system "perl", "Configure.pl",
                    "--backends=moar",
                    "--prefix=#{prefix}",
