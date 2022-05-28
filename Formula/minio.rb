@@ -2,9 +2,9 @@ class Minio < Formula
   desc "High Performance, Kubernetes Native Object Storage"
   homepage "https://min.io"
   url "https://github.com/minio/minio.git",
-      tag:      "RELEASE.2022-05-08T23-50-31Z",
-      revision: "62aa42cccf39c8b08f394c0d27fb5e2db33f49b6"
-  version "20220508235031"
+      tag:      "RELEASE.2022-05-26T05-48-41Z",
+      revision: "372a08be49a2213a4a01de1fb7b271d98f38215c"
+  version "20220526054841"
   license "AGPL-3.0-or-later"
   head "https://github.com/minio/minio.git", branch: "master"
 
