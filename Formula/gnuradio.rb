@@ -3,11 +3,10 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.3.0.tar.gz"
-  sha256 "4073ac72524f95fed4bda7dd553cb946f66d2e00bd07c4ae7758f1b787d507e0"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.2.0.tar.gz"
+  sha256 "a8f6c1cc98bc3784aa70ab29d3039ad6922ec36f908ecfb2c904a597b32c0776"
   license "GPL-3.0-or-later"
-  revision 5
-  head "https://github.com/gnuradio/gnuradio.git", branch: "master"
+  head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
     url :stable
@@ -34,6 +33,7 @@ class Gnuradio < Formula
   depends_on "gsl"
   depends_on "gtk+3"
   depends_on "jack"
+  depends_on "libyaml"
   depends_on "log4cpp"
   depends_on "numpy"
   depends_on "portaudio"
@@ -44,9 +44,16 @@ class Gnuradio < Formula
   depends_on "qwt-qt5"
   depends_on "six"
   depends_on "soapyrtlsdr"
+  depends_on "spdlog"
   depends_on "uhd"
   depends_on "volk"
   depends_on "zeromq"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   resource "Cheetah3" do
     url "https://files.pythonhosted.org/packages/ee/6f/29c6d74d8536dede06815eeaebfad53699e3f3df0fb22b7a9801a893b426/Cheetah3-3.2.6.tar.gz"
@@ -54,8 +61,8 @@ class Gnuradio < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
+    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "click-plugins" do
@@ -64,20 +71,28 @@ class Gnuradio < Formula
   end
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/d1/42/ff293411e980debfc647be9306d89840c8b82ea24571b014f1a35b2ad80f/Mako-1.1.5.tar.gz"
-    sha256 "169fa52af22a91900d852e937400e79f535496191c63712e3b9fda5a9bed6fc3"
+    url "https://files.pythonhosted.org/packages/50/ec/1d687348f0954bda388bfd1330c158ba8d7dea4044fc160e74e080babdb9/Mako-1.2.0.tar.gz"
+    sha256 "9a7c7e922b87db3686210cf49d5d767033a41d4010b284e747682c92bddd8b39"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
+    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
-  # patch to build with qt6
-  # PR ref, https://github.com/gnuradio/gnuradio/pull/5034
-  patch do
-    url "https://github.com/gnuradio/gnuradio/commit/74bb3881c044d0fe9bb498ede8bcd17f0a27574c.patch?full_index=1"
-    sha256 "d5a76e38e9c50ce28d6efddde2ad3612f602879a7edc5161aa8fa7b93756edfd"
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
+    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
+  end
+
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   def install
@@ -89,10 +104,7 @@ class Gnuradio < Formula
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", "#{venv_root}/lib/python#{xy}/site-packages"
     venv = virtualenv_create(venv_root, "python3")
-
-    %w[Mako Cheetah3 PyYAML click click-plugins].each do |r|
-      venv.pip_install resource(r)
-    end
+    venv.pip_install resources
 
     # Avoid references to the Homebrew shims directory
     inreplace "CMakeLists.txt" do |s|
@@ -100,14 +112,19 @@ class Gnuradio < Formula
       s.gsub! "${CMAKE_CXX_COMPILER}", ENV.cxx
     end
 
+    qwt = Formula["qwt-qt5"].opt_lib
+    qwt_lib = OS.mac? ? qwt/"qwt.framework/qwt" : qwt/"libqwt.so"
+    qwt_include = OS.mac? ? qwt/"qwt.framework/Headers" : Formula["qwt-qt5"].opt_include
+
     args = std_cmake_args + %W[
       -DGR_PKG_CONF_DIR=#{etc}/gnuradio/conf.d
       -DGR_PREFSDIR=#{etc}/gnuradio/conf.d
+      -DGR_PYTHON_DIR=#{lib}/python#{xy}/site-packages
       -DENABLE_DEFAULT=OFF
       -DPYTHON_EXECUTABLE=#{venv_root}/bin/python
       -DPYTHON_VERSION_MAJOR=3
-      -DQWT_LIBRARIES=#{Formula["qwt-qt5"].lib}/qwt.framework/qwt
-      -DQWT_INCLUDE_DIRS=#{Formula["qwt-qt5"].lib}/qwt.framework/Headers
+      -DQWT_LIBRARIES=#{qwt_lib}
+      -DQWT_INCLUDE_DIRS=#{qwt_include}
       -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
       -DQT_BINARY_DIR=#{Formula["qt@5"].opt_bin}
       -DENABLE_TESTING=OFF
@@ -189,10 +206,12 @@ class Gnuradio < Formula
         top.run();
       }
     EOS
-    system ENV.cxx, "-std=c++11", "-L#{lib}", "-L#{Formula["boost"].opt_lib}",
-           "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
-           "-lboost_system", "-L#{Formula["log4cpp"].opt_lib}", "-llog4cpp",
-            testpath/"test.c++", "-o", testpath/"test"
+    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lgnuradio-blocks",
+           "-lgnuradio-runtime", "-lgnuradio-pmt",
+           "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+           "-L#{Formula["log4cpp"].opt_lib}", "-llog4cpp",
+           "-L#{Formula["fmt"].opt_lib}", "-lfmt",
+           testpath/"test.c++", "-o", testpath/"test"
     system "./test"
 
     (testpath/"test.py").write <<~EOS
