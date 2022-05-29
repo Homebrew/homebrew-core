@@ -4,7 +4,7 @@ class Mhonarc < Formula
   url "https://www.mhonarc.org/release/MHonArc/tar/MHonArc-2.6.19.tar.bz2"
   sha256 "08912eae8323997b940b94817c83149d2ee3ed11d44f29b3ef4ed2a39de7f480"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
@@ -15,7 +15,7 @@ class Mhonarc < Formula
     sha256 cellar: :any_skip_relocation, all: "d9a6c4bddb21af835cc9664460d4cd83dc46175de5d338f4d719d0012a7df45b"
   end
 
-  depends_on "perl"
+  uses_from_macos "perl"
 
   # Apply a bugfix for syntax. https://savannah.nongnu.org/bugs/?49997
   patch do
@@ -29,10 +29,10 @@ class Mhonarc < Formula
 
     system "perl", "install.me",
            "-batch",
-           "-perl", Formula["perl"].opt_bin/"perl",
+           "-binpath", bin,
+           "-manpath", man,
+           "-perl", which("perl"),
            "-prefix", prefix
-
-    bin.install "mhonarc"
   end
 
   test do
