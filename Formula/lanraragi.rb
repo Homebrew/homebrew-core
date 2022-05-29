@@ -79,8 +79,12 @@ class Lanraragi < Formula
       end
     end
 
-    system "cpanm", "Config::AutoConf", "--notest", "-l", libexec
+    cpanm = Formula["cpanminus"].opt_bin/"cpanm"
+    system "perl", cpanm, "Config::AutoConf", "--notest", "-l", libexec
     system "npm", "install", *Language::Node.local_npm_install_args
+
+    inreplace "tools/install.pl", "cpanm --installdeps",
+                                  "perl #{cpanm} --installdeps"
     system "perl", "./tools/install.pl", "install-full"
 
     prefix.install "README.md"
