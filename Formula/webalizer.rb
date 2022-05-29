@@ -4,6 +4,7 @@ class Webalizer < Formula
   url "https://web.archive.org/web/20200205152356/ftp.mrunix.net/pub/webalizer/webalizer-2.23-08-src.tgz"
   mirror "https://deb.debian.org/debian/pool/main/w/webalizer/webalizer_2.23.08.orig.tar.gz"
   sha256 "edaddb5aa41cc4a081a1500e3fa96615d4b41bc12086bcedf9938018ce79ed8d"
+  license "GPL-2.0-or-later"
   revision 2
 
   bottle do
@@ -18,6 +19,8 @@ class Webalizer < Formula
     sha256 el_capitan:     "2bae3de97730aa72807cadcfda25ac395f3e30608d865df998fb474e75d4c780"
     sha256 x86_64_linux:   "162c45cacfbf8619b563fd65ca79010add2bc05609886c27d3c15ed25c7fb22f"
   end
+
+  deprecate! date: "2022-05-29", because: :unmaintained
 
   depends_on "berkeley-db"
   depends_on "gd"
