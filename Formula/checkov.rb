@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/be/db/611ab4a9bd7030a788a0bdd8feb489960b6da00d85fb350c451a9abac496/checkov-2.0.1155.tar.gz"
-  sha256 "f4ff66974f6ab0a0cdc4661732ce082b66fe8a22f511906bed44a342f3dafbc1"
+  url "https://files.pythonhosted.org/packages/55/40/99203ce568b74e899d8a7edf3ae52259ea96eee40be6875eef5175d49d05/checkov-2.0.1170.tar.gz"
+  sha256 "e6c7e5d8cf3182d768c7f78fb46391c0fcca93aef9e82c41be928708fc05cedc"
   license "Apache-2.0"
 
   bottle do
@@ -57,8 +57,8 @@ class Checkov < Formula
   end
 
   resource "bc-python-hcl2" do
-    url "https://files.pythonhosted.org/packages/53/c0/82cf9a498280b3809e6639b1cd6ac12d5c70717ee40411b2a92d6dab9c70/bc-python-hcl2-0.3.39.tar.gz"
-    sha256 "24c436b0b8009cc275ff49d1f0b80a6e93c1e378152ad0adad92abfd3e29d0ef"
+    url "https://files.pythonhosted.org/packages/e2/1e/f2ceab9d9ac12d311262bc7838588d25ae1c0b35aa668cdced2f84c7eaf5/bc-python-hcl2-0.3.40.tar.gz"
+    sha256 "e307b64f193b909d52ac26bcd9e409f4eb2ac93905ce870d8be186edc57e3807"
   end
 
   resource "beautifulsoup4" do
@@ -132,8 +132,8 @@ class Checkov < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/4d/58/251b3c753ee22912cbc1f38dd1a3fdd06a81c854a124ada3ceb7c6426bde/cyclonedx-python-lib-0.12.3.tar.gz"
-    sha256 "ea2d5393a3de4a347e9c99c6c59efe4e3f64da2fb48e80f3e350fee289fa8a73"
+    url "https://files.pythonhosted.org/packages/d6/99/cb03356e010d98c1e52465f9726dea0c77e95180f8b3f3dd3c412141423b/cyclonedx-python-lib-2.4.0.tar.gz"
+    sha256 "35ef1dbff4aab8ef143552cecde4ef9050f805957519339991e488f80cab36e2"
   end
 
   resource "decorator" do
@@ -272,8 +272,8 @@ class Checkov < Formula
   end
 
   resource "pycep-parser" do
-    url "https://files.pythonhosted.org/packages/22/3f/ee9212dba41b5a1c896c88d6d506e3d2e83e30f85e5d1acde98996fd1a56/pycep-parser-0.3.4.tar.gz"
-    sha256 "97bb05d659b3a4e0a0c6deaae7b73790fc9490267d341a67ba45d1e31adb066b"
+    url "https://files.pythonhosted.org/packages/a2/3b/1cb178506df9198403d65e006c04867bfd03099f3f6d2f6b60d238d79e19/pycep-parser-0.3.6.tar.gz"
+    sha256 "6518d9b90c31db4466d52570491b13231f093c975d49daa1a3570e80093fd997"
   end
 
   resource "pycparser" do
