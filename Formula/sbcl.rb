@@ -6,6 +6,12 @@ class Sbcl < Formula
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
   head "https://git.code.sf.net/p/sbcl/sbcl.git", branch: "master"
 
+  livecheck do
+    url "https://sourceforge.net/projects/sbcl/files/sbcl/"
+    regex(%r{href=.*?/files/sbcl/(\d+(?:[.-]\d+)+)/}i)
+    strategy :page_match
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c6d8c6243cd6fd92cf9fd681a3784d876c1be1a86083dc542dd9abc01f8e49ed"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c4af4f35fafa713bb0cec53e4139667556586f65e444e5c06644a44683c36b76"
