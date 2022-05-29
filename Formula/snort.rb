@@ -17,7 +17,6 @@ class Snort < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "flatbuffers" => :build
   depends_on "flex" => :build # need flex>=2.6.0
   depends_on "pkg-config" => :build
   depends_on "daq"
