@@ -1,9 +1,9 @@
 class Coursier < Formula
   desc "Pure Scala Artifact Fetching"
   homepage "https://get-coursier.io/"
-  url "https://github.com/coursier/coursier/releases/download/v2.1.0-M5/coursier.jar"
-  version "2.1.0-M5"
-  sha256 "4e9041524151a4213e71a6d76daae41307b5aeaed643257188618f1d99e8486d"
+  url "https://github.com/coursier/coursier/releases/download/v2.1.0-M6/coursier.jar"
+  version "2.1.0-M6"
+  sha256 "68c4380b16f424047b48ac33c426fa2750f3424a9907e37fcf0c8b111081aa6a"
   license "Apache-2.0"
 
   livecheck do
