@@ -4,7 +4,7 @@ class Biber < Formula
   url "https://github.com/plk/biber/archive/refs/tags/v2.17.tar.gz"
   sha256 "1ee7efdd8343e982046f2301c1b0dcf09e1f9a997ac86ed1018dcb41d04c9e88"
   license "Artistic-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f35f6be9f3e6ad82ace58f3cdd49717f6fad197f2ca783fd7367ccc47e4fd74e"
@@ -506,9 +506,13 @@ class Biber < Formula
     url "https://cpan.metacpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz"
     sha256 "2d99975685242980d0a9904f639144c059d6ece15899efde4acb742d3253f105"
   end
-  resource "test.bcf" do
-    url "https://downloads.sourceforge.net/project/biblatex-biber/biblatex-biber/testfiles/test.bcf"
-    sha256 "7239ac502a8fc6d90fcaf9e9630d939a21e28456312ee7e041f6627ebb8fed24"
+
+  # Fix Perl 5.36.0 compatibility
+  # Remove in the next release
+  # See https://github.com/plk/biber/pull/411
+  patch do
+    url "https://github.com/plk/biber/commit/760e6e4ec08a3097f7e6136331541a7b8c1c9df7.patch?full_index=1"
+    sha256 "68586264731e1583331ada69151026333a48b53ab90786f43c36ecac0807d32e"
   end
 
   def install
@@ -518,8 +522,6 @@ class Biber < Formula
     ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
 
     resources.each do |r|
-      next if r.name == "test.bcf"
-
       r.stage do
         # fix libbtparse.so linkage failure on Linux
         if r.name == "Text::BibTeX" && OS.linux?
@@ -540,30 +542,27 @@ class Biber < Formula
       end
     end
 
+    bin_before = Dir[libexec/"bin/*"].to_set
     system "perl", "Build.PL", "--install_base", libexec
     system "./Build"
     system "./Build", "install"
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin_after = Dir[libexec/"bin/*"].to_set
+    (bin_after - bin_before).each do |file|
+      basename = Pathname(file).basename
+      (bin/basename).write_env_script file, PERL5LIB: ENV["PERL5LIB"]
+    end
     man1.install libexec/"man/man1/biber.1"
+    (pkgshare/"test").install "t/tdata/annotations.bcf", "t/tdata/annotations.bib"
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/biber --version")
 
-    resource("test.bcf").stage testpath
-    (testpath/"test.bib").write <<~EOS
-      @BOOK{test1,
-        AUTHOR = {Terrence Test},
-        TITLE = {Testing is Trying and Troubling},
-        YEAR = {1987},
-      }
-    EOS
-
-    assert_match "Output to test.bbl", shell_output("#{bin}/biber --validate-control --convert-control test")
-    assert_predicate testpath/"test.bcf.html", :exist?
-    assert_predicate testpath/"test.blg", :exist?
-    assert_predicate testpath/"test.bbl", :exist?
+    cp (pkgshare/"test").children, testpath
+    output = shell_output("#{bin}/biber --validate-control --convert-control annotations")
+    assert_match "Output to annotations.bbl", output
+    assert_predicate testpath/"annotations.bcf.html", :exist?
+    assert_predicate testpath/"annotations.blg", :exist?
+    assert_predicate testpath/"annotations.bbl", :exist?
   end
 end
