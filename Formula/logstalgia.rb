@@ -1,10 +1,9 @@
 class Logstalgia < Formula
   desc "Web server access log visualizer with retro style"
   homepage "https://logstalgia.io/"
-  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.2/logstalgia-1.1.2.tar.gz"
-  sha256 "ed3f4081e401f4a509761a7204bdbd7c34f8f1aff9dcb030348885fb3995fca9"
+  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.3/logstalgia-1.1.3.tar.gz"
+  sha256 "82e6a33c3c305c1f1d32d7e115ba0b307bb191ed2a70368a3cd9138ced0a98d9"
   license "GPL-3.0"
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "613467e1f9bd7b051fbb6c31370f8e7a39c0889037d545a303d88ecac5a59fa3"
@@ -31,7 +30,7 @@ class Logstalgia < Formula
   depends_on "freetype"
   depends_on "glew"
   depends_on "libpng"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "sdl2"
   depends_on "sdl2_image"
 
@@ -48,6 +47,7 @@ class Logstalgia < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
                           "--without-x"
     system "make"
     system "make", "install"
