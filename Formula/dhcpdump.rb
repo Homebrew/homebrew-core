@@ -23,6 +23,8 @@ class Dhcpdump < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "6df64653cfd4b118db43e2acb2f08a565ac3cba9e1b739a258eeb7655c1a6103"
   end
 
+  uses_from_macos "libpcap"
+
   def install
     system "make", "CFLAGS=-DHAVE_STRSEP"
     bin.install "dhcpdump"
