@@ -1,8 +1,8 @@
 class Dav1d < Formula
   desc "AV1 decoder targeted to be small and fast"
   homepage "https://code.videolan.org/videolan/dav1d"
-  url "https://code.videolan.org/videolan/dav1d/-/archive/0.9.2/dav1d-0.9.2.tar.bz2"
-  sha256 "0d198c4fe63fe7f0395b1b17de75b21c8c4508cd3204996229355759efa30ef8"
+  url "https://code.videolan.org/videolan/dav1d/-/archive/1.0.0/dav1d-1.0.0.tar.bz2"
+  sha256 "4a4eb6cecbc8c26916ef58886d478243de8bcc46710b369c04d6891b0155ac0f"
   license "BSD-2-Clause"
 
   bottle do
@@ -20,7 +20,7 @@ class Dav1d < Formula
   depends_on "ninja" => :build
 
   resource "00000000.ivf" do
-    url "https://code.videolan.org/videolan/dav1d-test-data/raw/0.8.2/8-bit/data/00000000.ivf"
+    url "https://code.videolan.org/videolan/dav1d-test-data/raw/1.0.0/8-bit/data/00000000.ivf"
     sha256 "52b4351f9bc8a876c8f3c9afc403d9e90f319c1882bfe44667d41c8c6f5486f3"
   end
 
