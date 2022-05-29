@@ -52,12 +52,6 @@ class Snort < Formula
     # On Apple ARM, building with flags results in broken binaries and they need to be removed.
     inreplace "cmake/FindLuaJIT.cmake", " -pagezero_size 10000 -image_base 100000000\"", "\""
 
-    # Starting with flatbuffers 2.0.6, the function flatbuffer_version_string was renamed to
-    # flatbuffers_version_string. Upstream issue at https://github.com/snort3/snort3/issues/235.
-    inreplace "src/utils/util.cc",
-              "flatbuffers::flatbuffer_version_string",
-              "flatbuffers::flatbuffers_version_string()"
-
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DENABLE_TCMALLOC=ON"
       system "make", "install"
