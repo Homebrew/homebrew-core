@@ -2,12 +2,11 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 1
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   stable do
-    url "https://github.com/JuliaLang/julia/releases/download/v1.7.2/julia-1.7.2.tar.gz"
-    sha256 "0847943dd65001f3322b00c7dc4e12f56e70e98c6b798ccbd4f02d27ce161fef"
+    url "https://github.com/JuliaLang/julia/releases/download/v1.7.3/julia-1.7.3.tar.gz"
+    sha256 "06df2a81e6a18d0333ffa58d36f6eb84934c38984898f9e0c3072c8facaa7306"
 
     # Patches for compatibility with LLVM 13
     patch do
@@ -35,8 +34,8 @@ class Julia < Formula
     # Backported from:
     # https://github.com/JuliaLang/julia/commit/6330398088e235e4d4fdbda38c41c87e02384edb.patch
     patch do
-      url "https://raw.githubusercontent.com/archlinux/svntogit-community/df73abb8162e31e6541d2143d1db5f9f1d70b632/trunk/63303980.patch"
-      sha256 "ce9cd140c3bc39987d60340bf365d6238e79cf4d5385494272c49c64af22ef78"
+      url "https://raw.githubusercontent.com/archlinux/svntogit-community/bee1243b4ec66da31097f84600b37451435cfb1e/trunk/63303980.patch"
+      sha256 "96303f5cb520e861c7fdc5eb6d64767b597ecf2057a0aa37250af546738da63e"
     end
 
     # Fix compatibility with LibGit2 1.2.0+
@@ -90,13 +89,6 @@ class Julia < Formula
 
   fails_with gcc: "5"
 
-  # Fix segfaults with Curl 7.81. We need to patch the contents of a tarball, so this can't be a `patch` block.
-  # https://github.com/JuliaLang/Downloads.jl/issues/172
-  resource "curl-patch" do
-    url "https://raw.githubusercontent.com/archlinux/svntogit-community/6751794c82949589805db950119afba77549554a/trunk/julia-curl-7.81.patch"
-    sha256 "710587dd88c7698dc5cdf47a1a50f6f144b584b7d9ffb85fac3f5f79c65fce11"
-  end
-
   # Fix compatibility with LibGit2 1.4.0+
   patch do
     url "https://raw.githubusercontent.com/archlinux/svntogit-community/cd813138d8a6fd496d0972a033d55028613be06d/trunk/julia-libgit-1.4.patch"
@@ -104,24 +96,6 @@ class Julia < Formula
   end
 
   def install
-    # Fix segfaults with Curl 7.81. Remove when this is resolved upstream.
-    srccache = buildpath/"stdlib/srccache"
-    srccache.install resource("curl-patch")
-
-    cd srccache do
-      tarball = Pathname.glob("Downloads-*.tar.gz").first
-      system "tar", "-xzf", tarball
-      extracted_dir = Pathname.glob("JuliaLang-Downloads.jl-*").first
-      to_patch = extracted_dir/"src/Curl/Multi.jl"
-      system "patch", to_patch, "julia-curl-7.81.patch"
-      system "tar", "-czf", tarball, extracted_dir
-
-      md5sum = Digest::MD5.file(tarball).hexdigest
-      sha512sum = Digest::SHA512.file(tarball).hexdigest
-      (buildpath/"deps/checksums"/tarball/"md5").atomic_write md5sum
-      (buildpath/"deps/checksums"/tarball/"sha512").atomic_write sha512sum
-    end
-
     # Build documentation available at
     # https://github.com/JuliaLang/julia/blob/v#{version}/doc/build/build.md
     args = %W[
