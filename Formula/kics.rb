@@ -20,9 +20,9 @@ class Kics < Formula
 
   def caveats
     <<~EOS
-      KICS queries are placed under #{pkgshare}/assets/queries
+      KICS queries are placed under #{opt_pkgshare}/assets/queries
       To use KICS default queries add KICS_QUERIES_PATH env to your ~/.zshrc or ~/.zprofile:
-          "echo 'export KICS_QUERIES_PATH=#{pkgshare}/assets/queries' >> ~/.zshrc"
+          "echo 'export KICS_QUERIES_PATH=#{opt_pkgshare}/assets/queries' >> ~/.zshrc"
       usage of CLI flag --queries-path takes precedence.
     EOS
   end
