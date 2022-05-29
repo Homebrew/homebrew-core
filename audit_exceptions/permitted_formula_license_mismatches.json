@@ -1,6 +1,3 @@
 [
-  "cmockery",
-  "scummvm",
-  "vapoursynth-ocr",
-  "vapoursynth-sub"
+  "scummvm"
 ]
