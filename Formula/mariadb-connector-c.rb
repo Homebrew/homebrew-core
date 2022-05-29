@@ -5,7 +5,7 @@ class MariadbConnectorC < Formula
   mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.3.1-src.tar.gz/"
   sha256 "29993f4ae4c975662724978792d1a503b9ee760fbb194d321a754253cbe60aad"
   license "LGPL-2.1-or-later"
-  head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.2"
+  head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.3"
 
   # https://mariadb.org/download/ sometimes lists an older version as newest,
   # so we check the JSON data used to populate the mariadb.com downloads page
