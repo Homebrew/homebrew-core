@@ -3,7 +3,9 @@ class Cmockery < Formula
   homepage "https://github.com/google/cmockery"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cmockery/cmockery-0.1.2.tar.gz"
   sha256 "b9e04bfbeb45ceee9b6107aa5db671c53683a992082ed2828295e83dc84a8486"
-  license "BSD-3-Clause"
+  # Installed COPYING is BSD-3-Clause but source code uses Apache-2.0.
+  # TODO: Change license to Apache-2.0 on next version as COPYING was replaced by LICENSE.txt
+  license all_of: ["BSD-3-Clause", "Apache-2.0"]
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "aa62f9303682b243044246c155e301361e9ea68a52b9ff66a83a6432aa7b1ddd"
@@ -17,6 +19,12 @@ class Cmockery < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "533f1415fd60a5f31757ede621f69316eb6a944b1702a0c9a846cadd9390d2d6"
   end
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   # This patch will be integrated upstream in 0.1.3, this is due to malloc.h being already in stdlib on OSX
   # It is safe to remove it on the next version
   # More info on https://code.google.com/p/cmockery/issues/detail?id=3
@@ -26,6 +34,10 @@ class Cmockery < Formula
   end
 
   def install
+    # Fix -flat_namespace being used on Big Sur and later.
+    # Need to regenerate configure since existing patches don't apply.
+    system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
+
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
