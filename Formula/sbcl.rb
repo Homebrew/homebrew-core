@@ -7,9 +7,7 @@ class Sbcl < Formula
   head "https://git.code.sf.net/p/sbcl/sbcl.git", branch: "master"
 
   livecheck do
-    url "https://sourceforge.net/projects/sbcl/files/sbcl/"
-    regex(%r{href=.*?/files/sbcl/(\d+(?:[.-]\d+)+)/}i)
-    strategy :page_match
+    url "https://sourceforge.net/projects/sbcl/rss?path=/sbcl"
   end
 
   bottle do
