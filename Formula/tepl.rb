@@ -24,12 +24,6 @@ class Tepl < Formula
   depends_on "icu4c"
   depends_on "uchardet"
 
-  # Fix "ld: unknown option: --version-script", remove in next release
-  patch do
-    url "https://gitlab.gnome.org/swilmet/tepl/-/commit/9f2dbb0f2e835b4a7e4bdb04085799575237dff7.diff"
-    sha256 "c3c3dfcd6c7e665d2f524678d9d3e3343afb9b575ab76cc71ef214abb5dbc727"
-  end
-
   def install
     mkdir "build" do
       system "meson", *std_meson_args, "-Dgtk_doc=false", ".."
