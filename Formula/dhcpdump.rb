@@ -24,7 +24,7 @@ class Dhcpdump < Formula
   end
 
   def install
-    system "make"
+    system "make", "CFLAGS=-DHAVE_STRSEP"
     bin.install "dhcpdump"
     man8.install "dhcpdump.8"
   end
