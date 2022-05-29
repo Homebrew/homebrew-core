@@ -21,12 +21,6 @@ class Amtk < Formula
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
 
-  # Fix "ld: unknown option: --version-script", remove in next release
-  patch do
-    url "https://gitlab.gnome.org/swilmet/amtk/-/commit/eed214d83df7fb67e36bf6024fb5ba39bd35e4ce.diff"
-    sha256 "3af869e9d6a462f9713c1a62671c68835ceb0bf8c0ca0c38388b3ec063d311a2"
-  end
-
   def install
     cd "build" do
       system "meson", *std_meson_args, "-Dgtk_doc=false", ".."
