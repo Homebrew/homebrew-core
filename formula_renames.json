@@ -132,6 +132,7 @@
   "scala211": "scala@2.11",
   "screenbrightness": "brightness",
   "selenium-server-standalone": "selenium-server",
+  "server-go": "openiothub-server",
   "sonar": "sonarqube",
   "speedtest_cli": "speedtest-cli",
   "ssreflect": "math-comp",
