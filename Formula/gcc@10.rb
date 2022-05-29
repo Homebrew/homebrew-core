@@ -123,6 +123,10 @@ class GccAT10 < Formula
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
+
+    # Work around GCC install bug
+    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105664
+    rm_rf Dir[bin/"*-gcc-tmp"]
   end
 
   def add_suffix(file, suffix)
