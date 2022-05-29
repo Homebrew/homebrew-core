@@ -1,8 +1,8 @@
 class Pastel < Formula
   desc "Command-line tool to generate, analyze, convert and manipulate colors"
   homepage "https://github.com/sharkdp/pastel"
-  url "https://github.com/sharkdp/pastel/archive/v0.8.1.tar.gz"
-  sha256 "e1afcd8035a4c1da7f6d0fc8d5fc703dee72baa77bd0588a67d3b606e70146cb"
+  url "https://github.com/sharkdp/pastel/archive/v0.9.0.tar.gz"
+  sha256 "473c805de42f6849a4bb14ec103ca007441f355552bdb6ebc80b60dac1f3a95d"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/sharkdp/pastel.git", branch: "master"
 
