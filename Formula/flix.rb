@@ -8,7 +8,7 @@ class Flix < Formula
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?\.?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
