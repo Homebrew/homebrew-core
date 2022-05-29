@@ -6,6 +6,11 @@ class Flix < Formula
   license "Apache-2.0"
   head "https://github.com/flix/flix.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5b3d95e65de36e986e68df7ea0f58576503515a52d8f4820ff0577dafce81554"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31bb6276ef2caa9483ff96f55955eab80cd3497f7c2ed90e49ca4dd37d666aed"
