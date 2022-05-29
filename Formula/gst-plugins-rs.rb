@@ -4,6 +4,7 @@ class GstPluginsRs < Formula
   url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/0.8.4/gst-plugins-rs-0.8.4.tar.bz2"
   sha256 "c3499bb73d44f93f0d5238a09e121bef96750e8869651e09daaee5777c2e215c"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "330aa9abc8a345f970940379accfc07ae260327378c050ae99b1e00be29a8ea6"
@@ -23,6 +24,10 @@ class GstPluginsRs < Formula
   depends_on "gstreamer"
   depends_on "gtk4"
   depends_on "pango" # for closedcaption
+
+  # commit ref, https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/commit/ea98a0b5964cd196abbb48c621969a8ef33eb157
+  # remove in next release
+  patch :DATA
 
   def install
     mkdir "build" do
@@ -47,3 +52,18 @@ class GstPluginsRs < Formula
     assert_match version.to_s, output
   end
 end
+
+__END__
+diff --git a/video/dav1d/Cargo.toml b/video/dav1d/Cargo.toml
+index 9ae00ef..2c2e005 100644
+--- a/video/dav1d/Cargo.toml
++++ b/video/dav1d/Cargo.toml
+@@ -10,7 +10,7 @@ description = "Dav1d Plugin"
+
+ [dependencies]
+ atomic_refcell = "0.1"
+-dav1d = "0.7"
++dav1d = "0.8"
+ gst = { package = "gstreamer", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "0.18", version = "0.18" }
+ gst-base = { package = "gstreamer-base", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "0.18", version = "0.18" }
+ gst-video = { package = "gstreamer-video", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "0.18", version = "0.18", features = ["v1_12"] }
