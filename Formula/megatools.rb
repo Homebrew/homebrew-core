@@ -1,13 +1,13 @@
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://megatools.megous.com/"
-  url "https://megatools.megous.com/builds/megatools-1.10.3.tar.gz"
-  sha256 "8dc1ca348633fd49de7eb832b323e8dc295f1c55aefb484d30e6475218558bdb"
-  license "GPL-2.0"
+  url "https://megatools.megous.com/builds/megatools-1.11.0.20220519.tar.gz"
+  sha256 "b30b1d87d916570f7aa6d36777dd378e83215d75ea5a2c14106028b6bddc261b"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://megatools.megous.com/builds/"
-    regex(/href=.*?megatools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?megatools[._-]v?(\d{1,3}(?:\.\d{1,3})+)(?:\.\d{8})?\.t/i)
   end
 
   bottle do
@@ -21,7 +21,8 @@ class Megatools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "56f981aea4ce43496323a83ecd3e1c9c6de26ed9b68300700774aeb7f50ad535"
   end
 
-  depends_on "asciidoc" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "glib-networking"
@@ -30,11 +31,11 @@ class Megatools < Formula
   uses_from_macos "curl"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
