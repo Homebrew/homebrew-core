@@ -15,6 +15,7 @@ class Poac < Formula
   on_linux do
     depends_on "gcc"
   end
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do
