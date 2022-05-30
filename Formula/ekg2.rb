@@ -26,6 +26,10 @@ class Ekg2 < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   # Fix the build on OS X 10.9+
   # bugs.ekg2.org/issues/152 [LOST LINK]
   patch do
@@ -41,6 +45,8 @@ class Ekg2 < Formula
 
   def install
     readline = Formula["readline"].opt_prefix
+
+    ENV.append "LDFLAGS", "-lintl" if OS.mac?
 
     args = %W[
       --disable-debug
