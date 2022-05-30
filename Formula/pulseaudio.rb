@@ -4,8 +4,8 @@ class Pulseaudio < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
 
   stable do
-    url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz"
-    sha256 "75d3f7742c1ae449049a4c88900e454b8b350ecaa8c544f3488a2562a9ff66f1"
+    url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-16.0.tar.xz"
+    sha256 "b4ec6271910a1a86803f165056547f700dfabaf8d5c6c69736f706b5bb889f47"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
