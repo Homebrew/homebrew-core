@@ -17,8 +17,18 @@ class Cfonts < Formula
 
   test do
     system bin/"cfonts", "--version"
-    assert_match "\n\n ████████╗\n ╚══██╔══╝\n    ██║   \n    ██║   \n    ██║   \n    ╚═╝   \n\n\n",
-      shell_output("#{bin}/cfonts t")
+    assert_match <<~EOS, shell_output("#{bin}/cfonts t")
+
+
+    \ ████████╗
+    \ ╚══██╔══╝
+    \    ██║  \s
+    \    ██║  \s
+    \    ██║  \s
+    \    ╚═╝  \s
+
+
+    EOS
     assert_match "\n\ntest\n\n\n", shell_output("#{bin}/cfonts test -f console")
   end
 end
