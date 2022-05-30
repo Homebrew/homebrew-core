@@ -24,7 +24,16 @@ class Dsh < Formula
 
   depends_on "libdshconfig"
 
+  on_macos do
+    depends_on "gnu-sed" => :build
+  end
+
   def install
+    # Use GNU sed on macOS to avoid this build failure:
+    # sed: RE error: illegal byte sequence
+    # Reported to the upstream developer by email as a bug tracker does not exist.
+    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
