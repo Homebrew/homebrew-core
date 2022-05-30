@@ -88,7 +88,7 @@ class ManDb < Formula
     output = shell_output("#{bin}/gman true")
     if OS.mac?
       assert_match "BSD General Commands Manual", output
-      assert_match "The true utility always returns with an exit code of zero", output
+      assert_match "true — return true value", output
     else
       assert_match "true - do nothing, successfully", output
       assert_match "GNU coreutils online help: <http://www.gnu.org/software/coreutils/", output
