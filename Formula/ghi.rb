@@ -1,11 +1,10 @@
 class Ghi < Formula
   desc "Work on GitHub issues on the command-line"
-  homepage "https://github.com/stephencelis/ghi"
-  url "https://github.com/stephencelis/ghi/archive/1.2.0.tar.gz"
-  sha256 "ffc17cfbdc8b88bf208f5f762e62c211bf8fc837f447354ad53cce39b1400671"
+  homepage "https://github.com/drazisil/ghi"
+  url "https://github.com/drazisil/ghi/archive/refs/tags/1.2.1.tar.gz"
+  sha256 "83fbc4918ddf14df77ef06b28922f481747c6f4dc99b865e15d236b1db98c0b8"
   license "MIT"
-  revision 4
-  head "https://github.com/stephencelis/ghi.git", branch: "master"
+  head "https://github.com/drazisil/ghi.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "320e13830aac81ab0bcbef032e548f6a5f9bf71ce713d7dab24fc813087f4d4c"
@@ -21,14 +20,9 @@ class Ghi < Formula
 
   uses_from_macos "ruby"
 
-  resource "multi_json" do
-    url "https://rubygems.org/gems/multi_json-1.12.1.gem"
-    sha256 "b387722b0a31fff619a2682c7011affb5a13fed2cce240c75c5d6ca3e910ecf2"
-  end
-
   resource "pygments.rb" do
-    url "https://rubygems.org/gems/pygments.rb-1.1.2.gem"
-    sha256 "55a5deed9ecba6037ac22bf27191e0073bd460f87291b2f384922e4b0d59511c"
+    url "https://rubygems.org/gems/pygments.rb-2.3.0.gem"
+    sha256 "4c41c8baee10680d808b2fda9b236fe6b2799cd4ce5c15e29b936cf4bf97f510"
   end
 
   def install
