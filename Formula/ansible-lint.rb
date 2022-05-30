@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/ee/aa/782c7e600ba507fbd6ce0b214aa127f0c8bd7ee3070196caa45dc6f92bfd/ansible-lint-6.2.1.tar.gz"
-  sha256 "ca0deee5835cbfaf9bba182758688a88a0b9c6852b32b15e77e4b0376c21bc1f"
+  url "https://files.pythonhosted.org/packages/63/69/c94542202d3ce8988cc0868a16d7c688ab73342edc3de83d38a22ad374f8/ansible-lint-6.2.2.tar.gz"
+  sha256 "b8e2956fede90bd28150e97f209a8af787c6001f584bb6613112a1ce1aea311d"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -23,8 +23,8 @@ class AnsibleLint < Formula
   depends_on "python@3.10"
 
   resource "ansible-compat" do
-    url "https://files.pythonhosted.org/packages/37/8f/1a0168b9e03cefde8e83731f3b30e5fb2fc96a2a5d869036b6ff0d1f50b6/ansible-compat-2.0.4.tar.gz"
-    sha256 "3d5fb21c1ff069e84ac5fc17f6c8d2261c2a7b299986be810d339dfc77c128a9"
+    url "https://files.pythonhosted.org/packages/5b/51/2ba6b4783de230234e3f289b17c51bda9cd5b10a2392cfcc92c64c98cb7a/ansible-compat-2.1.0.tar.gz"
+    sha256 "62bae1bb5c20663d5ee1bfec04f073c08be721040af9ef5bddc7904e6678d184"
   end
 
   resource "ansible-core" do
@@ -38,8 +38,8 @@ class AnsibleLint < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/bd/ef/6273bba9e5bc615aab4997159eeaddfe03c825eeabe2942c39e91be5afec/bracex-2.2.1.tar.gz"
-    sha256 "1c8d1296e00ad9a91030ccb4c291f9e4dc7c054f12c707ba3c5ff3e9a81bcd21"
+    url "https://files.pythonhosted.org/packages/b3/96/d53e290ddf6215cfb24f93449a1835eff566f79a1f332cf046a978df0c9e/bracex-2.3.post1.tar.gz"
+    sha256 "e7b23fc8b2cd06d3dec0692baabecb249dda94e06a617901ff03a6c56fd71693"
   end
 
   resource "cffi" do
@@ -138,8 +138,8 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/72/4d/1f48abaa1e91474af1be8622ec2a8bd3768b306def47b064aa15aa943f95/rich-12.4.1.tar.gz"
-    sha256 "d239001c0fb7de985e21ec9a4bb542b5150350330bbc1849f835b9cbc8923b91"
+    url "https://files.pythonhosted.org/packages/f5/f3/f87be42279b5cfba09f7f29e2f4a77063ccf5d9075042981e2cf48752d51/rich-12.4.4.tar.gz"
+    sha256 "4c586de507202505346f3e32d1363eb9ed6932f0c2f63184dea88983ff4971e2"
   end
 
   resource "ruamel.yaml" do
