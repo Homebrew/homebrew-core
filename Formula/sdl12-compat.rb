@@ -4,6 +4,7 @@ class Sdl12Compat < Formula
   url "https://github.com/libsdl-org/sdl12-compat/archive/refs/tags/release-1.2.52.tar.gz"
   sha256 "5bd7942703575554670a8767ae030f7921a0ac3c5e2fd173a537b7c7a8599014"
   license all_of: ["Zlib", "MIT-0"]
+  revision 1
   head "https://github.com/libsdl-org/sdl12-compat.git", branch: "main"
 
   bottle do
@@ -23,6 +24,7 @@ class Sdl12Compat < Formula
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DSDL2_PATH=#{Formula["sdl2"].opt_prefix}",
+                    "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-rpath,#{Formula["sdl2"].opt_lib}",
                     "-DSDL12DEVEL=ON",
                     "-DSDL12TESTS=OFF",
                     *std_cmake_args
@@ -49,7 +51,6 @@ class Sdl12Compat < Formula
       }
     EOS
     flags = Utils.safe_popen_read(bin/"sdl-config", "--cflags", "--libs").split
-    flags << "-Wl,-rpath,#{lib},-rpath,#{Formula["sdl2"].opt_lib}"
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
