@@ -1,8 +1,8 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "http://freeciv.org"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.6/freeciv-2.6.6.tar.bz2"
-  sha256 "7bcfe5dd3c081122e7cde7cdb24f57c3681d6a9667496faed207a91ac3165811"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.0/3.0.1/freeciv-3.0.1.tar.xz"
+  sha256 "beda7adaebb3462797c8f090ec604c2974f15a1559fff2fb4cfff2607cb0180f"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -79,7 +79,7 @@ class Freeciv < Formula
 
   test do
     system bin/"freeciv-manual"
-    assert_predicate testpath/"classic6.mediawiki", :exist?
+    assert_predicate testpath/"civ2civ36.mediawiki", :exist?
 
     fork do
       system bin/"freeciv-server", "-l", testpath/"test.log"
