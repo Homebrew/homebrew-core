@@ -19,7 +19,6 @@ class Cfonts < Formula
     system bin/"cfonts", "--version"
     assert_match "\n\n ████████╗\n ╚══██╔══╝\n    ██║   \n    ██║   \n    ██║   \n    ╚═╝   \n\n\n",
       shell_output("#{bin}/cfonts t")
-    assert_match "\n\ntest\n\n\n",
-      shell_output("#{bin}/cfonts test -f console")
+    assert_match "\n\ntest\n\n\n", shell_output("#{bin}/cfonts test -f console")
   end
 end
