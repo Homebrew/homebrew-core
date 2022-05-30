@@ -9,7 +9,7 @@ class Poac < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on macos: :catalina # C++20
+  depends_on macos: :big_sur # C++20
   depends_on "openssl@3"
 
   on_linux do
