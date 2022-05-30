@@ -1,8 +1,9 @@
 class Dnsmap < Formula
   desc "Passive DNS network mapper (a.k.a. subdomains bruteforcer)"
-  homepage "https://code.google.com/archive/p/dnsmap/"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/dnsmap/dnsmap-0.30.tar.gz"
-  sha256 "fcf03a7b269b51121920ac49f7d450241306cfff23c76f3da94b03792f6becbc"
+  homepage "https://github.com/resurrecting-open-source-projects/dnsmap"
+  url "https://github.com/resurrecting-open-source-projects/dnsmap/archive/refs/tags/0.36.tar.gz"
+  sha256 "f52d6d49cbf9a60f601c919f99457f108d51ecd011c63e669d58f38d50ad853c"
+  head "https://github.com/resurrecting-open-source-projects/dnsmap.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8967ddec7a8c82711405dcc76f2f5c1908884f5fdd6c59661179448a5beda8ed"
@@ -18,9 +19,13 @@ class Dnsmap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "08b6e254381a735136e969dcec42c3de2ec8d54576de2daeb8c7d40d5b4776d3"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
-    system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}",
-                   "BINDIR=#{bin}", "install"
+    system "./autogen.sh"
+    system "./configure", *std_configure_args
+    system "make", "install"
   end
 
   test do
