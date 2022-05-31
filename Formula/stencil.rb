@@ -14,7 +14,7 @@ class Stencil < Formula
   end
 
   test do
-    File.write("service.yaml", "name: test")
+    (testpath/"service.yaml).write "name: test"
     system "#{bin}/stencil"
     assert_predicate testpath/"stencil.lock", :exist?
   end
