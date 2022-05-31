@@ -3,8 +3,8 @@ class Hatch < Formula
 
   desc "Modern, extensible Python project management"
   homepage "https://hatch.pypa.io/latest"
-  url "https://files.pythonhosted.org/packages/2c/8e/0a03f3e672488aa9de41448752cf9ba6cbef97d25f2b15547ba596bb1761/hatch-1.2.0.tar.gz"
-  sha256 "2ecdd8e3ff5fd5e9d2a49f926e7d3490a43f619fd5ed6811e36789d2ec71f0a1"
+  url "https://files.pythonhosted.org/packages/5e/3f/401a19f2a48cccaeaeeca99837f75d489fabfcf72bd058d5c0b2067ff6f6/hatch-1.2.1.tar.gz"
+  sha256 "61761e1fe14474fb2be7e264555b99fc343b4e63c0ee32aa3497c651e4cdec03"
   license "MIT"
 
   bottle do
@@ -32,11 +32,6 @@ class Hatch < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
     sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
-  end
-
-  resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
-    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "click" do
@@ -70,18 +65,18 @@ class Hatch < Formula
   end
 
   resource "hatchling" do
-    url "https://files.pythonhosted.org/packages/58/53/a5957d34c0e7121b97ce164c4b5e0f7e5da54e9071049b77faf8348d1190/hatchling-1.3.0.tar.gz"
-    sha256 "1401d45d3dd6a5910f64d539acaa943486d5e8b7dda1a97f2b0040fdddc5b85e"
+    url "https://files.pythonhosted.org/packages/b0/49/caada91404326c3d4c610afc243e81dd4abc6b8d2caaa39d6954b42d8947/hatchling-1.3.1.tar.gz"
+    sha256 "aaa63019c9d666053d9ff318097335e766123844547c52940155c0401c3c142f"
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/f2/46/2c1e32574749d38404c9380d5c0de3f6fba44ceea119cf1536f138e72784/httpcore-0.14.7.tar.gz"
-    sha256 "7503ec1c0f559066e7e39bc4003fd2ce023d01cf51793e3c173b864eb456ead1"
+    url "https://files.pythonhosted.org/packages/42/98/44c3e51a0655eae75adefee028c9bada7427a90f63105e54f5e735946f50/httpcore-0.15.0.tar.gz"
+    sha256 "18b68ab86a3ccf3e7dc0f43598eaddcf472b602aba29f9aa6ab85fe2ada3980b"
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/59/07/de30dd4bb26131bf34fe82bf721a392ff21e35bb2707ef8cbec954054a23/httpx-0.22.0.tar.gz"
-    sha256 "d8e778f76d9bbd46af49e7f062467e3157a5a3d2ae4876a4bbfd8a51ed9c9cb4"
+    url "https://files.pythonhosted.org/packages/43/cd/677173d194b4839e5b196709e3819ffca2a4bc58b0538f4ae4be877ad480/httpx-0.23.0.tar.gz"
+    sha256 "f28eac771ec9eb4866d3fb4ab65abd42d38c424739e80c08d8d20570de60b0ef"
   end
 
   resource "idna" do
@@ -150,8 +145,8 @@ class Hatch < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/c6/8e/3318b84309265e4ed5299b716f36d00320ff44904cfcb07ec78f151e89f7/rich-12.4.2.tar.gz"
-    sha256 "cd8c809da089740f4bd94fa6d544cf23421d4bad34988569c2d03fdbdb858f0d"
+    url "https://files.pythonhosted.org/packages/f5/f3/f87be42279b5cfba09f7f29e2f4a77063ccf5d9075042981e2cf48752d51/rich-12.4.4.tar.gz"
+    sha256 "4c586de507202505346f3e32d1363eb9ed6932f0c2f63184dea88983ff4971e2"
   end
 
   resource "sniffio" do
@@ -170,8 +165,8 @@ class Hatch < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/8b/95/c8826c61bd59c0d991fb1ca3d187d7fa803af13c1704be932e1071e041da/tomlkit-0.10.2.tar.gz"
-    sha256 "30d54c0b914e595f3d10a87888599eab5321a2a69abc773bbefff51599b72db6"
+    url "https://files.pythonhosted.org/packages/24/24/e50be8344fc6e9c9ae55bfcb136b33ad562776d822736da3d1ec0278b18b/tomlkit-0.11.0.tar.gz"
+    sha256 "71ceb10c0eefd8b8f11fe34e8a51ad07812cb1dc3de23247425fbc9ddc47b9dd"
   end
 
   resource "userpath" do
