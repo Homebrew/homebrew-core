@@ -88,6 +88,12 @@ class Borgmatic < Formula
       #!/bin/sh
       echo $@ >> #{log_path}
 
+      # Return valid borg version
+      if [ "$1" = "--version" ]; then
+        echo "borg 1.2.0"
+        exit 0
+      fi
+
       # Return error on info so we force an init to occur
       if [ "$1" = "info" ]; then
         exit 2
@@ -121,11 +127,15 @@ class Borgmatic < Formula
 
     # Assert that the proper borg commands were executed
     assert_equal <<~EOS, log_content
+      --version --debug --show-rc
       info --debug #{repo_path}
       init --encryption repokey --debug #{repo_path}
+      --version
       prune --keep-daily 7 --prefix {hostname}- #{repo_path}
+      compact #{repo_path}
       create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home
       check --prefix {hostname}- #{repo_path}
+      --version
       list --json #{repo_path}
     EOS
   end
