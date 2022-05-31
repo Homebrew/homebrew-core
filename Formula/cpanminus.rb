@@ -30,6 +30,7 @@ class Cpanminus < Formula
   end
 
   test do
+    assert_match "cpan.metacpan.org", stable.url, "Don't use git tags, their naming is misleading"
     system "#{bin}/cpanm", "--local-lib=#{testpath}/perl5", "Test::More"
   end
 end
