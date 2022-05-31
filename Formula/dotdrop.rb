@@ -3,8 +3,8 @@ class Dotdrop < Formula
 
   desc "Save your dotfiles once, deploy them everywhere"
   homepage "https://deadc0de.re/dotdrop"
-  url "https://github.com/deadc0de6/dotdrop/archive/refs/tags/v1.8.2.tar.gz"
-  sha256 "4e81db35e47c05607e46472e2919f0840e4ec0a1c168214f0bff54b876245340"
+  url "https://github.com/deadc0de6/dotdrop/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "5e79deb64322fcd4f745734e8fcfa293e2f659738599012844ccd57b13592f57"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -73,6 +73,11 @@ class Dotdrop < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
     sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+  end
+
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
   def install
