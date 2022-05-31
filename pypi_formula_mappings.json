@@ -95,6 +95,9 @@
     "exclude_packages": ["six"],
     "extra_packages": ["distro"]
   },
+  "cookiecutter": {
+    "exclude_packages": ["six"]
+  },
   "cppman": {
     "exclude_packages": ["six"]
   },
