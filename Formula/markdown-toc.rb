@@ -7,10 +7,6 @@ class MarkdownToc < Formula
   sha256 "4a5bf3efafb21217889ab240caacd795a1101bfbe07cd8abb228cc44937acd9c"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   depends_on "node"
 
   def install
