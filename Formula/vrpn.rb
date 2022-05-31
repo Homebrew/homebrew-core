@@ -1,8 +1,8 @@
 class Vrpn < Formula
   desc "Virtual reality peripheral network"
   homepage "https://github.com/vrpn/vrpn/wiki"
-  url "https://github.com/vrpn/vrpn/releases/download/version_07.34/vrpn_07.34.zip"
-  sha256 "1ecb68f25dcd741c4bfe161ce15424f1319a387a487efa3fbf49b8aa249c9910"
+  url "https://github.com/vrpn/vrpn/releases/download/version_07.35/vrpn_07.35.zip"
+  sha256 "06b74a40b0fb215d4238148517705d0075235823c0941154d14dd660ba25af19"
   head "https://github.com/vrpn/vrpn.git", branch: "master"
 
   bottle do
