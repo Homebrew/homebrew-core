@@ -4,6 +4,7 @@ class Putty < Formula
   url "https://the.earth.li/~sgtatham/putty/0.77/putty-0.77.tar.gz"
   sha256 "419a76f45238fd45f2c76b42438993056e74fa78374f136052aaa843085beae5"
   license "MIT"
+  head "https://git.tartarus.org/simon/putty.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d4ca114d39cb55f75ef0b71f496bb96acf2e3f97e10e66d3ea7de8a4c87dc51b"
@@ -15,42 +16,26 @@ class Putty < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "51689b0cb6c740349175dad1786ac7786b639e78f5e5b3765272ae83162009d4"
   end
 
-  head do
-    url "https://git.tartarus.org/simon/putty.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "halibut" => :build
-  end
-
+  depends_on "cmake" => :build
+  depends_on "halibut" => :build
   depends_on "pkg-config" => :build
 
+  uses_from_macos "perl" => :build
   uses_from_macos "expect" => :test
 
   conflicts_with "pssh", because: "both install `pscp` binaries"
 
   def install
-    if build.head?
-      system "./mkfiles.pl"
-      system "./mkauto.sh"
-      system "make", "-C", "doc"
-    end
+    build_version = build.head? ? "svn-#{version}" : version
 
-    args = std_configure_args + %w[
-      --disable-gtktest
-      --without-gtk
+    args = std_cmake_args + %W[
+      -DRELEASE=#{build_version}
+      -DPUTTY_GTK_VERSION=NONE
     ]
 
-    system "./configure", *args
-
-    build_version = build.head? ? "svn-#{version}" : version
-    system "make", "VER=-DRELEASE=#{build_version}"
-
-    bin.install %w[plink pscp psftp puttygen]
-
-    cd "doc" do
-      man1.install %w[plink.1 pscp.1 psftp.1 puttygen.1]
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
