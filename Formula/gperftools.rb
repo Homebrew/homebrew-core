@@ -2,11 +2,10 @@ class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
   license "BSD-3-Clause"
-  revision 1
 
   stable do
-    url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.9.1/gperftools-2.9.1.tar.gz"
-    sha256 "ea566e528605befb830671e359118c2da718f721c27225cbbc93858c7520fee3"
+    url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.10/gperftools-2.10.tar.gz"
+    sha256 "83e3bfdd28b8bcf53222c3798d4d395d52dadbbae59e8730c4a6d31a9c3732d8"
 
     # Fix segfaults on Monterey.
     # https://github.com/gperftools/gperftools/pull/1315
