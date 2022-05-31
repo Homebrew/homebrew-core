@@ -48,13 +48,6 @@ class Fbthrift < Formula
   fails_with gcc: "5" # C++ 17
   fails_with gcc: "11" # https://github.com/facebook/folly#ubuntu-lts-centos-stream-fedora
 
-  # Fix build failure on Catalina.
-  # https://github.com/facebook/fbthrift/pull/500
-  patch do
-    url "https://github.com/facebook/fbthrift/commit/eb566ef3fd748c04ecd6058351644edee0d02dbf.patch?full_index=1"
-    sha256 "12286a10e3802e15ea03ea4853edd8640f9e5aedcac662b324a708625348a809"
-  end
-
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
