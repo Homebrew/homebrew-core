@@ -1,19 +1,44 @@
-STARFIG_VERSION = 0.1
-
 class Starfig < Formula
-  desc "Starfig is a programmatic config generator. It helps create static configs using Starlark, a deterministic Python-like language."
+  desc "Programmatic and deterministic config generator, using Starlark"
   homepage "https://github.com/jathu/starfig"
-  url "https://github.com/jathu/starfig/archive/refs/tags/#{STARFIG_VERSION}.tar.gz"
-  sha256 "bf254452452b955cb70d95e4ae90b7242f4b811ed4c920fcf7acfe03a3782100"
+  url "https://github.com/jathu/starfig/archive/refs/tags/0.1.tar.gz"
+  sha256 "c068e394ec204055edc8b1c33f325b0ad182b4abaa45193cbe36cd812179a09d"
   license "Apache-2.0"
 
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "\"-X main.starfigVersion=#{STARFIG_VERSION}\"", "-o", bin/"starfig"
+    system "go", "build", "-ldflags", "-s -w -X main.starfigVersion=#{version}", "-o", bin/"starfig"
   end
 
   test do
-    assert_match("starfig-#{STARFIG_VERSION}", shell_output("#{bin}/starfig version"))
+    make_test_file("STARVERSE", "")
+    defs_content = <<~EOF
+      Greeter = Schema(
+        fields = {
+          "message": String()
+        }
+      )
+    EOF
+    make_test_file(File.join("example", "defs.star"), defs_content)
+    starfig_content = <<~EOF
+      load("//example/defs.star", "Greeter")
+
+      hello = Greeter(message = "hello world")
+    EOF
+    make_test_file(File.join("example", "STARFIG"), starfig_content)
+
+    build_result = `#{bin}/starfig build //...`.strip
+    expected_result = '{"//example:hello": {"message": "hello world"}}'
+
+    system "false" if build_result != expected_result
+  end
+
+  def make_test_file(filename, content)
+    file_path = File.join(testpath, filename)
+    directory = File.dirname(file_path)
+    Dir.mkdir(directory) unless File.exist?(directory)
+    File.write(file_path, content)
+    file_path
   end
 end
