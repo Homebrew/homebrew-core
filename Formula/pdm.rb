@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/96/68/f2b75326f4698281a7b42b968a9b1fdecffce8b63352a56427939377eaca/pdm-1.15.0.tar.gz"
-  sha256 "55de45b71de72ffcbad6d076d46324079cb356a13d93ab8da57ec991bcf54401"
+  url "https://files.pythonhosted.org/packages/c2/49/6f9191631a4b73e38eff7171d4d455dac90f7bf17a86d73feeb6126bf6fa/pdm-1.15.1.tar.gz"
+  sha256 "3fe55fc92d3aab61a1bd6ab1a6fe688a98c41a08aa8cf9a73494f7e78de58205"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -86,8 +86,8 @@ class Pdm < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/8b/95/c8826c61bd59c0d991fb1ca3d187d7fa803af13c1704be932e1071e041da/tomlkit-0.10.2.tar.gz"
-    sha256 "30d54c0b914e595f3d10a87888599eab5321a2a69abc773bbefff51599b72db6"
+    url "https://files.pythonhosted.org/packages/24/24/e50be8344fc6e9c9ae55bfcb136b33ad562776d822736da3d1ec0278b18b/tomlkit-0.11.0.tar.gz"
+    sha256 "71ceb10c0eefd8b8f11fe34e8a51ad07812cb1dc3de23247425fbc9ddc47b9dd"
   end
 
   resource "wheel" do
