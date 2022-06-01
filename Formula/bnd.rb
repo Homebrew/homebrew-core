@@ -1,8 +1,8 @@
 class Bnd < Formula
   desc "Swiss Army Knife for OSGi bundles"
   homepage "https://bnd.bndtools.org/"
-  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/6.2.0/biz.aQute.bnd-6.2.0.jar"
-  sha256 "d2af14e76918696bba1deb8d23724f67298e123afaa7350d5ed9ab751525eb3b"
+  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/6.3.0/biz.aQute.bnd-6.3.0.jar"
+  sha256 "7d4d1bc3eb69e52e10d63098d21cdce5c382118d9630694ec511ae4bba6f51f5"
   license any_of: ["Apache-2.0", "EPL-2.0"]
 
   livecheck do
