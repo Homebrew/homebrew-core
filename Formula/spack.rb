@@ -20,7 +20,7 @@ class Spack < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb58c98f0a1d9e696c4a20aed8e05962e7b184adf5042fd960ed84bedadb2a72"
   end
 
-  depends_on "python@3.10"
+  uses_from_macos "python"
 
   def install
     # remove ps1, bat files
