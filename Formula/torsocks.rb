@@ -1,10 +1,9 @@
 class Torsocks < Formula
   desc "Use SOCKS-friendly applications with Tor"
-  homepage "https://gitweb.torproject.org/torsocks.git/"
-  url "https://git.torproject.org/torsocks.git",
-      tag:      "v2.3.0",
-      revision: "cec4a733c081e09fb34f0aa4224ffd7b687fb310"
-  head "https://git.torproject.org/torsocks.git", branch: "master"
+  homepage "https://gitlab.torproject.org/tpo/core/torsocks"
+  url "https://gitlab.torproject.org/tpo/core/torsocks/-/archive/v2.4.0/torsocks-v2.4.0.tar.bz2"
+  sha256 "54b2e3255b697fb69bb92388376419bcef1f94d511da3980f9ed5cd8a41df3a8"
+  head "https://gitlab.torproject.org/tpo/core/torsocks.git", branch: "main"
 
   bottle do
     rebuild 1
@@ -29,8 +28,7 @@ class Torsocks < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
