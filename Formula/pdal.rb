@@ -4,6 +4,7 @@ class Pdal < Formula
   url "https://github.com/PDAL/PDAL/releases/download/2.4.1/PDAL-2.4.1-src.tar.gz"
   sha256 "4df8463f68087e3742691048f5ab9db04269fc54bc418e4dc53e2c761bd825f2"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes tags a commit with only a
