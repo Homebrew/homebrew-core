@@ -6,13 +6,6 @@ class Tmux < Formula
   stable do
     url "https://github.com/tmux/tmux/releases/download/3.3/tmux-3.3.tar.gz"
     sha256 "b2382ac391f6a1c5b93293016cdc9488337d9a04b9d611ae05eac164740351dc"
-
-    # Fix occasional crash on exit.
-    # Remove with the next release (3.3).
-    patch do
-      url "https://github.com/tmux/tmux/commit/5fdea440cede1690db9a242a091df72f16e53d24.patch?full_index=1"
-      sha256 "3752098eb9ec21f4711b12d399eaa1a7dcebe9c66afc147790fba217edcf340f"
-    end
   end
 
   livecheck do
