@@ -10,8 +10,8 @@ class Manticoresearch < Formula
     sha256 "ca7828a6841ed8bdbc330516f85ad3a85749998f443b9de319cec60e12c64c07"
 
     # Allow system ICU usage and tune build (config from homebrew; release build; don't split symbols).
-    # (Remove this instruction and the patch at the bottom of the formula with next release)
-    # https://github.com/manticoresoftware/manticoresearch/commit/70ede046a1ed4f783a293871748dbcbe43c9bb62
+    # Remove with next release
+
     patch do
       url "https://github.com/manticoresoftware/manticoresearch/commit/70ede046a1ed.patch?full_index=1"
       sha256 "8c15dc5373898c2788cea5c930c4301b9a21d8dc35d22a1bbb591ddcf94cf7ff"
