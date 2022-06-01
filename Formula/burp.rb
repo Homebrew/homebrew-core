@@ -1,22 +1,21 @@
 class Burp < Formula
   desc "Network backup and restore"
   homepage "https://burp.grke.org/"
-  license "AGPL-3.0"
-  revision 1
+  license "AGPL-3.0-only" => { with: "openvpn-openssl-exception" }
 
   stable do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.2.18/burp-2.2.18.tar.bz2"
-    sha256 "9c0c5298d8c2995d30d4e1a63d2882662e7056ce2b0cee1f65d7d0a6775c0f81"
+    url "https://github.com/grke/burp/releases/download/2.4.0/burp-2.4.0.tar.bz2"
+    sha256 "1f88d325f59c6191908d13ac764db5ee56b478fbea30244ae839383b9f9d2832"
 
     resource "uthash" do
-      url "https://github.com/troydhanson/uthash.git",
-          revision: "8b214aefcb81df86a7e5e0d4fa20e59a6c18bc02"
+      url "https://github.com/troydhanson/uthash/archive/refs/tags/v2.3.0.tar.gz"
+      sha256 "e10382ab75518bad8319eb922ad04f907cb20cccb451a3aa980c9d005e661acc"
     end
   end
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/burp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    url "https://burp.grke.org/download.html"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >].*?:\s*Stable}i)
   end
 
   bottle do
@@ -32,20 +31,23 @@ class Burp < Formula
   end
 
   head do
-    url "https://github.com/grke/burp.git"
+    url "https://github.com/grke/burp.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
 
     resource "uthash" do
-      url "https://github.com/troydhanson/uthash.git"
+      url "https://github.com/troydhanson/uthash.git", branch: "master"
     end
   end
 
   depends_on "pkg-config" => :build
   depends_on "librsync"
   depends_on "openssl@1.1"
+
+  uses_from_macos "libxcrypt"
+  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   def install
