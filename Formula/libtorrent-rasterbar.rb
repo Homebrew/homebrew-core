@@ -2,7 +2,7 @@ class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library with Python bindings"
   homepage "https://www.libtorrent.org/"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/arvidn/libtorrent.git", branch: "RC_2_0"
 
   stable do
