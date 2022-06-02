@@ -6,8 +6,8 @@ class Hwloc < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url :homepage
-    regex(%r{href=.*?/software/hwloc/v?(\d+(?:\.\d+)+)/?["' >]}i)
+    url "https://www.mail-archive.com/hwloc-announce@lists.open-mpi.org/"
+    regex(/[\s,>]v?(\d+(?:\.\d+)+)(?:\s*?,|\s*?released)/i)
   end
 
   bottle do
