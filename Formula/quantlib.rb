@@ -4,6 +4,7 @@ class Quantlib < Formula
   url "https://github.com/lballabio/QuantLib/releases/download/QuantLib-v1.26/QuantLib-1.26.tar.gz"
   sha256 "04fe6cc1a3eb7776020093f550d4da89062586cc15d73e92babdf4505e3673e9"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2ddeb386e7eb27aab8f00620125603599dd3371039ad911a6e0196c1ffaba809"
