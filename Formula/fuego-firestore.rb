@@ -1,0 +1,18 @@
+class FuegoFirestore < Formula
+  desc "Fuego is a command-line client for the firestore database"
+  homepage "https://github.com/sgarciac/fuego"
+  url "https://github.com/sgarciac/fuego/archive/refs/tags/0.31.1.tar.gz"
+  sha256 "4657ba2854a28d3cf58c0818c2088b650979cfd3cb5c1dd3be4669b88b1cd870"
+  license "GPL-3.0-only"
+
+  depends_on "go" => :build
+
+  def install
+    system "go", "build", "-o", "#{bin}/fuego"
+  end
+
+  test do
+    version_output = shell_output("#{bin}/fuego --version")
+    assert_match "Fuego version #{version}", version_output
+  end
+end
