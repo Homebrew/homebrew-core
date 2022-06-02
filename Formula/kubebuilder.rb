@@ -44,7 +44,8 @@ class Kubebuilder < Formula
     mkdir "test" do
       system "go", "mod", "init", "example.com"
       system "#{bin}/kubebuilder", "init"
-      system "yes", "|", "#{bin}/kubebuilder", "create", "api", "--group", "webapp", "--version", "v1", "--kind", "Guestbook"
+      system "yes", "|", "#{bin}/kubebuilder", "create", "api", "--group",
+        "webapp", "--version", "v1", "--kind", "Guestbook"
     end
   end
 end
