@@ -1,8 +1,8 @@
 class OhdearCli < Formula
   desc "Tool to manage your Oh Dear sites"
   homepage "https://github.com/nunomaduro/ohdear-cli"
-  url "https://github.com/nunomaduro/ohdear-cli/releases/download/v3.0.0/ohdear-cli.phar"
-  sha256 "257e792bf575277e82313350b06100f915711c939b2dc83f88099004397ff7f9"
+  url "https://github.com/nunomaduro/ohdear-cli/releases/download/v3.1.0/ohdear-cli.phar"
+  sha256 "26c0ef44c467de6cbf8d068fc9f1b55a5375a4cbfd91520ce594defb8fe8b7c6"
   license "MIT"
 
   livecheck do
@@ -17,6 +17,6 @@ class OhdearCli < Formula
   end
 
   test do
-    system "#{bin}/ohdear-cli", "--version"
+    assert_match "Unauthorised", shell_output("#{bin}/ohdear-cli me", 1)
   end
 end
