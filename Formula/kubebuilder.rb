@@ -17,7 +17,7 @@ class Kubebuilder < Formula
   end
 
   depends_on "git-lfs" => :build
-  depends_on "go"
+  depends_on "go@1.17"
 
   def install
     goos = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOOS").chomp
@@ -43,9 +43,8 @@ class Kubebuilder < Formula
     assert_match "KubeBuilderVersion:\"#{version}\"", shell_output("#{bin}/kubebuilder version 2>&1")
     mkdir "test" do
       system "go", "mod", "init", "example.com"
-      system "#{bin}/kubebuilder", "init",
-        "--plugins", "go/v3", "--project-version", "3",
-        "--skip-go-version-check"
+      system "#{bin}/kubebuilder", "init"
+      system "yes", "|", "#{bin}/kubebuilder", "create", "api", "--group", "webapp", "--version", "v1", "--kind", "Guestbook"
     end
   end
 end
