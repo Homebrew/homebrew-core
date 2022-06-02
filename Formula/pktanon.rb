@@ -3,7 +3,7 @@ class Pktanon < Formula
   homepage "https://www.tm.uka.de/software/pktanon/index.html"
   url "https://www.tm.uka.de/software/pktanon/download/pktanon-1.4.0-dev.tar.gz"
   sha256 "db3f437bcb8ddb40323ddef7a9de25a465c5f6b4cce078202060f661d4b97ba3"
-  revision 2
+  revision 3
 
   # The regex below matches development versions, as a stable version isn't yet
   # available. If stable versions appear in the future, we should modify the
