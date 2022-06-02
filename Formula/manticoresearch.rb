@@ -73,6 +73,9 @@ class Manticoresearch < Formula
     (var/"run/manticore").mkpath
     (var/"log/manticore").mkpath
     (var/"manticore/data").mkpath
+
+    # Fix old config path (actually it was always wrong and never worked; however let's check)
+    mv etc/"manticore/manticore.conf", etc/"manticoresearch/manticore.conf" if (etc/"manticore/manticore.conf").exist?
   end
 
   service do
