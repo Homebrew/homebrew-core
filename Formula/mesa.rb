@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-22.0.3.tar.xz"
-  sha256 "9f2b30f5276a9abaf71aafc6979685e2636189de1a87aea2c9e69744a6d0ebb9"
+  url "https://mesa.freedesktop.org/archive/mesa-22.0.5.tar.xz"
+  sha256 "5ee2dc06eff19e19b2867f12eb0db0905c9691c07974f6253f2f1443df4c7a35"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
@@ -17,6 +17,7 @@ class Mesa < Formula
     sha256 x86_64_linux:   "ed884f5b81ed8d10845138ff0d0c42c70767a7371d3edcee2679b83d6dce0ac4"
   end
 
+  depends_on "bison" => :build # can't use form macOS, needs '> 2.3'
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -28,7 +29,6 @@ class Mesa < Formula
   depends_on "libxdamage"
   depends_on "libxext"
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "llvm"
   uses_from_macos "ncurses"
@@ -60,8 +60,8 @@ class Mesa < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
-    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
+    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
+    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
   end
 
   resource "MarkupSafe" do
@@ -75,8 +75,8 @@ class Mesa < Formula
   end
 
   resource "gl_wrap.h" do
-    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/5435fc7fbd332e171da9a71e33a9b190e9462cf0/src/util/gl_wrap.h"
-    sha256 "c727b2341d81c2a1b8a0b31e46d24f9702a1ec55c8be3f455ddc8d72120ada72"
+    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/ea99b861a256e63d029f0d476bf452681d821dd6/src/util/gl_wrap.h"
+    sha256 "41f5a84f8f5abe8ea2a21caebf5ff31094a46953a83a738a19e21c010c433c88"
   end
 
   def install
@@ -91,29 +91,29 @@ class Mesa < Formula
 
     ENV.prepend_path "PATH", "#{venv_root}/bin"
 
-    mkdir "build" do
-      args = ["-Db_ndebug=true"]
+    args = ["-Db_ndebug=true"]
 
-      if OS.linux?
-        args << "-Dplatforms=x11,wayland"
-        args << "-Dglx=auto"
-        args << "-Ddri3=true"
-        args << "-Dgallium-drivers=auto"
-        args << "-Dgallium-omx=disabled"
-        args << "-Degl=true"
-        args << "-Dgbm=true"
-        args << "-Dopengl=true"
-        args << "-Dgles1=enabled"
-        args << "-Dgles2=enabled"
-        args << "-Dgallium-xvmc=disabled"
-        args << "-Dvalgrind=false"
-        args << "-Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima"
-      end
-
-      system "meson", *std_meson_args, "..", *args
-      system "ninja"
-      system "ninja", "install"
+    if OS.linux?
+      args += %w[
+        -Dplatforms=x11,wayland
+        -Dglx=auto
+        -Ddri3=true
+        -Dgallium-drivers=auto
+        -Dgallium-omx=disabled
+        -Degl=true
+        -Dgbm=true
+        -Dopengl=true
+        -Dgles1=enabled
+        -Dgles2=enabled
+        -Dgallium-xvmc=disabled
+        -Dvalgrind=false
+        -Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima
+      ]
     end
+
+    system "meson", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
 
     if OS.linux?
       # Strip executables/libraries/object files to reduce their size
