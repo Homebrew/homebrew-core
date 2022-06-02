@@ -4,6 +4,7 @@ class Imposm3 < Formula
   url "https://github.com/omniscale/imposm3/archive/refs/tags/v0.11.1.tar.gz"
   sha256 "14045272aa0157dc5fde1cfe885fecc2703f3bf33506603f2922cdf28310ebf0"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "fdafcbc08f1e074d72e2cb9c4b1fac78bfce27bc7a13a8bcec66ef9772500ebb"
