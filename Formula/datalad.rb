@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/97/38/49e1aa29ee7d23dbfa38fc9a11dc03ff5b21112b3c5d225c0a31baa897b9/datalad-0.16.3.tar.gz"
-  sha256 "673839c1cb5a0b2f89b25d43131e724acd677d3b3953862d1a2a59337917a418"
+  url "https://files.pythonhosted.org/packages/28/c8/8d43ba5bcd2306c9aa22af6083aa56c14219c5a1006ce51ee3d143a8d899/datalad-0.16.4.tar.gz"
+  sha256 "d8fe88b76d63478efefccf9cef11bb5cf7d8a820cd82ecd0e8ad587f143fe92b"
   license "MIT"
 
   bottle do
@@ -30,8 +30,8 @@ class Datalad < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
+    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
+    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
   end
 
   resource "chardet" do
@@ -65,8 +65,8 @@ class Datalad < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/3e/1d/964b27278cfa369fbe9041f604ab09c6e99556f8b7910781b4584b428c2f/importlib_metadata-4.11.3.tar.gz"
-    sha256 "ea4c597ebf37142f827b8f39299579e31685c31d3a438b59f469406afd0f2539"
+    url "https://files.pythonhosted.org/packages/35/a8/f2bd0d488c2bf932b4dda0fb91cbb687c0b1132b33130d1cfad4e2b4b963/importlib_metadata-4.11.4.tar.gz"
+    sha256 "5d26852efe48c0a32b0509ffbc583fda1a2266545a78d104a6f4aff3db17d700"
   end
 
   resource "iso8601" do
@@ -75,8 +75,8 @@ class Datalad < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/22/2b/e840597838cc63f96926bd7daca67936031635cfe6c81ee12dc652bd2dce/keyring-23.5.0.tar.gz"
-    sha256 "9012508e141a80bd1c0b6778d5c610dd9f8c464d75ac6774248500503f972fb9"
+    url "https://files.pythonhosted.org/packages/0b/c6/87aaea22b32a85c1eb786ee77844f826103e65e9c0a0c4df1f95ec23d3be/keyring-23.5.1.tar.gz"
+    sha256 "dee502cdf18a98211bef428eea11456a33c00718b2f08524fd5727c7f424bffd"
   end
 
   resource "keyrings.alt" do
@@ -110,8 +110,8 @@ class Datalad < Formula
   end
 
   resource "python-gitlab" do
-    url "https://files.pythonhosted.org/packages/e7/ae/dd62e4f2d3f476636605179243d80a314a9a3592941ff354b65ca4ef1467/python-gitlab-3.4.0.tar.gz"
-    sha256 "6180b81ee2f265ad8d8412956a1740b4d3ceca7b28ae2f707dfe62375fed0082"
+    url "https://files.pythonhosted.org/packages/38/1e/29924d85c47276943019d43efbd902f46ee9cab5ac94d484bcb3b34c8952/python-gitlab-3.5.0.tar.gz"
+    sha256 "29ae7fb9b8c9aeb2e6e19bd2fd04867e93ecd7af719978ce68fac0cf116ab30d"
   end
 
   resource "requests" do
