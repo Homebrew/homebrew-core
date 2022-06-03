@@ -3,9 +3,8 @@ class Simgrid < Formula
 
   desc "Studies behavior of large-scale distributed systems"
   homepage "https://simgrid.org/"
-  url "https://framagit.org/simgrid/simgrid/uploads/6ca357e80bd4d401bff16367ff1d3dcc/simgrid-3.29.tar.gz"
-  sha256 "83e8afd653555eeb70dc5c0737b88036c7906778ecd3c95806c6bf5535da2ccf"
-  revision 1
+  url "https://framagit.org/simgrid/simgrid/uploads/caf09286c8e698d977f11e8f8451ba46/simgrid-3.31.tar.gz"
+  sha256 "4b44f77ad40c01cf4e3013957c9cbe39f33dec9304ff0c9c3d9056372ed4c61d"
 
   livecheck do
     url :homepage
@@ -33,17 +32,27 @@ class Simgrid < Formula
 
   fails_with gcc: "5"
 
+  # Fix build with graphviz>=3 as headers no longer define NIL macros
+  patch do
+    url "https://framagit.org/simgrid/simgrid/-/commit/33ef49cf9e1ad1aeea86dca9a009d5a6e15e2920.diff"
+    sha256 "3bf50df79fd1f58e1919d0c3fa1cd808d50ed0133712e8d596805f25e27933ea"
+  end
+
   def install
     # Avoid superenv shim references
     inreplace "src/smpi/smpicc.in", "@CMAKE_C_COMPILER@", DevelopmentTools.locate(ENV.cc)
     inreplace "src/smpi/smpicxx.in", "@CMAKE_CXX_COMPILER@", DevelopmentTools.locate(ENV.cxx)
 
-    system "cmake", ".",
+    # Work around build error: ld: library not found for -lcgraph
+    ENV.append "LDFLAGS", "-L#{Formula["graphviz"].opt_lib}"
+
+    system "cmake", "-S", ".", "-B", "build",
                     "-Denable_debug=on",
                     "-Denable_compile_optimizations=off",
                     "-Denable_fortran=off",
                     *std_cmake_args
-    system "make", "install"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     rewrite_shebang detected_python_shebang, *bin.children
   end
