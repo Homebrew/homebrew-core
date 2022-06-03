@@ -27,10 +27,11 @@ class Mesa < Formula
   depends_on "libxcb"
   depends_on "libxdamage"
   depends_on "libxext"
+  depends_on "llvm"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-  uses_from_macos "llvm"
+
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -91,29 +92,27 @@ class Mesa < Formula
 
     ENV.prepend_path "PATH", "#{venv_root}/bin"
 
-    mkdir "build" do
-      args = ["-Db_ndebug=true"]
+    args = std_meson_args + ["-Db_ndebug=true"]
 
-      if OS.linux?
-        args << "-Dplatforms=x11,wayland"
-        args << "-Dglx=auto"
-        args << "-Ddri3=true"
-        args << "-Dgallium-drivers=auto"
-        args << "-Dgallium-omx=disabled"
-        args << "-Degl=true"
-        args << "-Dgbm=true"
-        args << "-Dopengl=true"
-        args << "-Dgles1=enabled"
-        args << "-Dgles2=enabled"
-        args << "-Dgallium-xvmc=disabled"
-        args << "-Dvalgrind=false"
-        args << "-Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima"
-      end
-
-      system "meson", *std_meson_args, "..", *args
-      system "ninja"
-      system "ninja", "install"
+    if OS.linux?
+      args << "-Dplatforms=x11,wayland"
+      args << "-Dglx=auto"
+      args << "-Ddri3=true"
+      args << "-Dgallium-drivers=auto"
+      args << "-Dgallium-omx=disabled"
+      args << "-Degl=true"
+      args << "-Dgbm=true"
+      args << "-Dopengl=true"
+      args << "-Dgles1=enabled"
+      args << "-Dgles2=enabled"
+      args << "-Dgallium-xvmc=disabled"
+      args << "-Dvalgrind=false"
+      args << "-Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima"
     end
+
+    system "meson", ".", "build", *args
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
 
     if OS.linux?
       # Strip executables/libraries/object files to reduce their size
