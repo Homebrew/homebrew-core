@@ -5,9 +5,11 @@ class Kotlin < Formula
   sha256 "632166fed89f3f430482f5aa07f2e20b923b72ef688c8f5a7df3aa1502c6d8ba"
   license "Apache-2.0"
 
+  # This repository has thousands of development tags, so the `GithubLatest`
+  # strategy is used to minimize data transfer in this extreme case.
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
