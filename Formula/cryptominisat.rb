@@ -9,7 +9,7 @@ class Cryptominisat < Formula
   revision 2
 
   livecheck do
-    url "https://github.com/msoos/cryptominisat.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
@@ -25,6 +25,12 @@ class Cryptominisat < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "python@3.9"
+
+  # Fix build error with setuptools 61+
+  patch do
+    url "https://github.com/msoos/cryptominisat/commit/a01179ffd6b0dd47bfdef2d9350d80b575571f24.patch?full_index=1"
+    sha256 "a75998d5060d1de13f2173514b85b2c3ce13ad13085ef624b0d711e062fc6289"
+  end
 
   def install
     # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
