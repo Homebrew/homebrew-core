@@ -39,7 +39,7 @@ class Earthly < Formula
       \tRUN echo Homebrew
     EOS
 
-    output = shell_output("#{bin}/earthly --buildkit-host 127.0.0.1 +default 2>&1", 6).strip
-    assert_match "buildkitd failed to start", output
+    output = shell_output("#{bin}/earthly --buildkit-host 127.0.0.1 +default 2>&1", 2).strip
+    assert_match "auto frontend initialization failed", output
   end
 end
