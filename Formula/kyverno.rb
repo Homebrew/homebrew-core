@@ -41,8 +41,7 @@ class Kyverno < Formula
   end
 
   test do
-    manifest = "https://raw.githubusercontent.com/kyverno/kyverno/1af9e48b0dffe405c8a52938c78c710cf9ed6721/test/cli/test/variables/image-example.yaml"
-    assert_match "Policy images is valid.", shell_output("#{bin}/kyverno validate #{manifest}")
+    assert_match "Test Summary: 0 tests passed and 0 tests failed", shell_output("#{bin}/kyverno test .")
 
     assert_match version.to_s, "#{bin}/kyverno version"
   end
