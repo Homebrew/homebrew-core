@@ -6,8 +6,9 @@ class Phpunit < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://phar.phpunit.de/"
-    regex(/href=.*?phpunit[._-]v?(\d+(?:\.\d+)+)\.phar/i)
+    url "https://phar.phpunit.de/phpunit.phar"
+    regex(%r{/phpunit[._-]v?(\d+(?:\.\d+)+)\.phar}i)
+    strategy :header_match
   end
 
   bottle do
