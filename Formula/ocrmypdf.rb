@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://ocrmypdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/8d/b7/133754a539497a0a602dfcc5a34b1ae63e00ba671a41caccdf3a9f217825/ocrmypdf-13.4.6.tar.gz"
-  sha256 "bdb2d9a8f0fea3c66498fbd75cf7cfcd6f33198000751c0a03f7d2b2c5be6b37"
+  url "https://files.pythonhosted.org/packages/e6/5b/dcf4cf3efd388a1226f9fecec19420294a318fd999bd644af6fb19392134/ocrmypdf-13.4.7.tar.gz"
+  sha256 "8a0a2fa07cf0aac4dea11990d27a15b552afa7ff2dfffdb322bfd8bd0b77751d"
   license "MPL-2.0"
 
   bottle do
@@ -71,8 +71,8 @@ class Ocrmypdf < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/3b/94/e2b1b3bad91d15526c7e38918795883cee18b93f6785ea8ecf13f8ffa01e/lxml-4.8.0.tar.gz"
-    sha256 "f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23"
+    url "https://files.pythonhosted.org/packages/aa/23/bda4e9881090f0f5e33e2efe89aacfa0668eb6e1ab2de28591e2912d78d4/lxml-4.9.0.tar.gz"
+    sha256 "520461c36727268a989790aef08884347cd41f2d8ae855489ccf40b50321d8d7"
   end
 
   resource "packaging" do
