@@ -25,6 +25,6 @@ class Kalker < Formula
   end
 
   test do
-    assert_equal shell_output("#{bin}/kalker 'sum(1, 3, 2n+1)'").chomp, "15"
+    assert_equal shell_output("#{bin}/kalker 'sum(n=1, 3, 2n+1)'").chomp, "15"
   end
 end
