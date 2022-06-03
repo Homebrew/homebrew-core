@@ -6,7 +6,7 @@ class LiterateGit < Formula
   url "https://github.com/bennorth/literate-git/archive/v0.3.1.tar.gz"
   sha256 "f1dec77584236a5ab2bcee9169e16b5d976e83cd53d279512136bdc90b04940a"
   license "GPL-3.0-or-later"
-  revision 10
+  revision 11
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c2031c7652e019684c8a4fe2e4002df04a6026c12cbb39f8590283094d0f26f3"
@@ -26,14 +26,9 @@ class LiterateGit < Formula
     depends_on "pkg-config" => :build
   end
 
-  resource "cached-property" do
-    url "https://files.pythonhosted.org/packages/57/8e/0698e10350a57d46b3bcfe8eff1d4181642fd1724073336079cb13c5cf7f/cached-property-1.5.1.tar.gz"
-    sha256 "9217a59f14a5682da7c4b8829deadbfc194ac22e9908ccf7c8820234e80a1504"
-  end
-
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
-    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
+    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
   resource "docopt" do
@@ -42,28 +37,28 @@ class LiterateGit < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/d8/03/e491f423379ea14bb3a02a5238507f7d446de639b623187bccc111fbecdf/Jinja2-2.11.1.tar.gz"
-    sha256 "93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250"
+    url "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz"
+    sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
   end
 
   resource "markdown2" do
-    url "https://files.pythonhosted.org/packages/e3/93/d37055743009d1a492b2670cc215831a388b3d6e4a28b7672fdf0f7854f5/markdown2-2.3.8.tar.gz"
-    sha256 "7ff88e00b396c02c8e1ecd8d176cfa418fb01fe81234dcea77803e7ce4f05dbe"
+    url "https://files.pythonhosted.org/packages/2b/26/1dd47bdf8adb98e1807b2283a88d6d4379911a2e1a1da266739c038ef8e2/markdown2-2.4.3.tar.gz"
+    sha256 "412520c7b6bba540c2c2067d6be3a523ab885703bf6a81d93963f848b55dfb9a"
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
-    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
-    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/7e/8c/c162e50ad20c36b457aa97a9d96536fde316d90052fb03fc4ae22a7fe9ea/pygit2-1.9.0.tar.gz"
-    sha256 "c5e8588acad5e32fa0595582571059e6b90ec7c487c58b4e53c2800dcbde44c8"
+    url "https://files.pythonhosted.org/packages/15/69/95baec94618352fad36a5c53ed1a7a96f7de96d2b36c5ac3fc2a5017b78a/pygit2-1.9.2.tar.gz"
+    sha256 "20894433df1146481aacae37e2b0f3bbbfdea026db2f55061170bd9823e40b19"
   end
 
   resource "Pygments" do
