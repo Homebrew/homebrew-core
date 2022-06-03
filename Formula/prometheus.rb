@@ -19,12 +19,14 @@ class Prometheus < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f20741dd19460f66fbf3999418ac08969a2080e6cb6af6b87b0fed0df1ec6844"
   end
 
+  depends_on "gnu-tar" => :build
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
 
   def install
     ENV.deparallelize
+    ENV.prepend_path "PATH", Formula["gnu-tar"].opt_libexec/"gnubin"
     ENV.prepend_path "PATH", Formula["node"].opt_libexec/"bin"
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
