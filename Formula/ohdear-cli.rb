@@ -1,14 +1,9 @@
 class OhdearCli < Formula
   desc "Tool to manage your Oh Dear sites"
   homepage "https://github.com/nunomaduro/ohdear-cli"
-  url "https://github.com/nunomaduro/ohdear-cli/releases/download/v3.1.0/ohdear-cli.phar"
-  sha256 "26c0ef44c467de6cbf8d068fc9f1b55a5375a4cbfd91520ce594defb8fe8b7c6"
+  url "https://github.com/nunomaduro/ohdear-cli/releases/download/v3.2.0/ohdear-cli.phar"
+  sha256 "9bc29673e7bdb6749cbe798d01386351d7f8f93cf33b5721d6be6179817a3980
   license "MIT"
-
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
 
   depends_on "php"
 
