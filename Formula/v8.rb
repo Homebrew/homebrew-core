@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/10.1.124.12.tar.gz"
-  sha256 "8f4c640721123af612106cd1939d42191a69a4633a889f384e551b36763cf11f"
+  url "https://github.com/v8/v8/archive/10.2.154.4.tar.gz"
+  sha256 "6f4865ffe499f51da3e422cf7e4d85d3dab1b0a99b2d5bf204910ce423505597"
   license "BSD-3-Clause"
 
   livecheck do
@@ -37,13 +37,13 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.1.124.12/DEPS#43
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.2.154.4/DEPS#43
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "bd99dbf98cbdefe18a4128189665c5761263bcfb"
+        revision: "ae110f8b525009255ba1f9ae96982176d3bfad3d"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.1.124.12/DEPS#84
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.2.154.4/DEPS#84
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
         revision: "d115b033c4e53666b535cbd1985ffe60badad082"
@@ -51,17 +51,17 @@ class V8 < Formula
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "3d9590754d5d23e62d15472c5baf6777ca59df20"
+        revision: "b37c340767cf9e7777d4ca5a588c34c5744df9b2"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "ae5e06dd35c6137d335331b0815cf1f60fd7e3c5"
+        revision: "af29db7ec28d6df1c7f0f745186884091e602e07"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "8a5b728e4f43b0eabdb9ea450f956d67cfb22719"
+        revision: "1fd0dbea04448c3f73fe5cb7599f9472f0f107f1"
   end
 
   resource "v8/third_party/jinja2" do
@@ -76,7 +76,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "b0676a1f52484bf53a1a49d0e48ff8abc430fafe"
+        revision: "a6d209ab932df0f1c9d5b7dc67cfa74e8a3272c0"
   end
 
   # Apply patch to fix v8 build with glibc < 2.27. See here for details:
