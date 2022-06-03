@@ -11,8 +11,11 @@ class Root < Formula
   end
 
   livecheck do
-    url "https://root.cern.ch/download/"
-    regex(/href=.*?root[._-]v?(\d+(?:\.\d*[02468])+)\.source\.t/i)
+    url "https://root.cern/install/all_releases/"
+    regex(%r{Release\s+v?(\d+(?:[./]\d*[02468])+)[ >]}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("/", ".") }
+    end
   end
 
   bottle do
