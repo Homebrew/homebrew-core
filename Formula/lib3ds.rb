@@ -18,7 +18,16 @@ class Lib3ds < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7adf7c63871e56081abf7ecbf0327d77970aa925812d04082152d32a13d229e5"
   end
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
+    # Run autoreconf on macOS to rebuild configure script so that it doesn't try
+    # to build with a flat namespace.
+    system "autoreconf", "--force", "--verbose", "--install" if OS.mac?
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end
