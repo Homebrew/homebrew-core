@@ -22,6 +22,9 @@ class Libopennet < Formula
   end
 
   def install
+    # Fix flat namespace usage.
+    inreplace "configure", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
