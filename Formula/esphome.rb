@@ -6,6 +6,7 @@ class Esphome < Formula
   url "https://files.pythonhosted.org/packages/00/04/0dd40df2b8e7a4dccfcbc7f3e7789f9050cf0f0d15ec0b67c8548f3e8d9c/esphome-2022.5.1.tar.gz"
   sha256 "31fec427c29ff5967e54afaeec79e96e37544bfb1166862ee6255c5651af1442"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "cc7ff6864c61265f6837b144bc58e965e2eb9c5f4fd95a55aadef7f1dfcc74c2"
@@ -53,8 +54,8 @@ class Esphome < Formula
   end
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/ea/80/3d2dca1562ffa1929017c74635b4cb3645a352588de89e90d0bb53af3317/bottle-0.12.19.tar.gz"
-    sha256 "a9d73ffcbc6a1345ca2d7949638db46349f5b2b77dac65d6494d45c23628da2c"
+    url "https://files.pythonhosted.org/packages/95/e3/5749d7657b6fb38d65afb3c0b345514a783de7a9feb4fab594fa0bacc2a0/bottle-0.12.21.tar.gz"
+    sha256 "787c61b6cc02b9c229bf2663011fac53dd8fc197f7f8ad2eeede29d888d7887e"
   end
 
   resource "certifi" do
@@ -123,8 +124,8 @@ class Esphome < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/ef/d1/3c7c7d0ed4470c49c971cb5db4c5becdc37bd3969946bba434216c56c08c/marshmallow-3.15.0.tar.gz"
-    sha256 "2aaaab4f01ef4f5a011a21319af9fce17ab13bf28a026d1252adab0e035648d5"
+    url "https://files.pythonhosted.org/packages/a7/c9/59fe5693b3973861f3c9aa6ea6d616a6922d076d53a09359611034782840/marshmallow-3.16.0.tar.gz"
+    sha256 "a762c1d8b2bcb0e5c8e964850d03f9f3bffd6a12b626f3c14b9d6b1841999af5"
   end
 
   resource "noiseprotocol" do
