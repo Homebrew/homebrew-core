@@ -33,13 +33,6 @@ class Lcov < Formula
     sha256 "4848679a3f201e3f3b0c5f6f9526e602af52923ffa471a2a3657db786bd3bdc5"
   end
 
-  # Temporary patch. Use correct c++filt flag. Upstreamed at
-  # https://github.com/linux-test-project/lcov/pull/125
-  patch do
-    url "https://github.com/linux-test-project/lcov/commit/462f71ddbad726b2c9968fefca31d60a9f0f745f.patch?full_index=1"
-    sha256 "73414e8f29d5c703c6c057d202fdd73efb07df05ae35c7daa5c48a4b2396e55b"
-  end
-
   def install
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
 
