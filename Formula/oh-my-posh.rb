@@ -1,8 +1,8 @@
 class OhMyPosh < Formula
   desc "Prompt theme engine for any shell"
   homepage "https://ohmyposh.dev"
-  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/v7.94.1.tar.gz"
-  sha256 "9c6a8c8f4d688ab2a9fb8527cceeaef2238dc2a6f0abfa95e937873f6dc72114"
+  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/v8.0.0.tar.gz"
+  sha256 "7cd9f877a42198294f29004de0c9dd5afd71b45561ea369655f71dc63fa7dc8a"
   license "MIT"
   head "https://github.com/JanDeDobbeleer/oh-my-posh.git", branch: "main"
 
