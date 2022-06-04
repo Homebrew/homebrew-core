@@ -23,7 +23,16 @@ class Classads < Formula
 
   depends_on "pcre"
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
+    # Run autoreconf on macOS to rebuild configure script so that it doesn't try
+    # to build with a flat namespace.
+    system "autoreconf", "--force", "--verbose", "--install" if OS.mac?
     system "./configure", "--enable-namespace", "--prefix=#{prefix}"
     system "make", "install"
   end
