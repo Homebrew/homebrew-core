@@ -23,7 +23,6 @@ class Rdkit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eefff7697ed7824736d6c5535714b14f0f7fa1647d149ab072b56fd4098dc4b"
   end
 
-  depends_on "catch2" => :build
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "boost"
@@ -72,7 +71,6 @@ class Rdkit < Formula
       -DPYTHON_INCLUDE_DIR=#{py3include}
       -DPYTHON_EXECUTABLE=#{python_executable}
       -DPYTHON_NUMPY_INCLUDE_PATH=#{numpy_include}
-      -DCATCH_DIR=#{Formula["catch2"].opt_include}/catch2
     ]
 
     system "cmake", ".", *args
