@@ -31,9 +31,9 @@ class Fpart < Formula
     (testpath/"myfile1").write("")
     (testpath/"myfile2").write("")
     system bin/"fpart", "-n", "2", "-o", (testpath/"mypart"), (testpath/"myfile1"), (testpath/"myfile2")
-    (testpath/"mypart.1").exist?
-    (testpath/"mypart.2").exist?
-    !(testpath/"mypart.0").exist?
-    !(testpath/"mypart.3").exist?
+    assert_predicate testpath/"mypart.1", :exist?
+    assert_predicate testpath/"mypart.2", :exist?
+    refute_predicate testpath/"mypart.0", :exist?
+    refute_predicate testpath/"mypart.3", :exist?
   end
 end
