@@ -16,8 +16,17 @@ class Ekhtml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8841e4eeb677f92be17fbaa26ee2d5d1e2d6ce958eff178fdb4a9fcf33ea1363"
   end
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
     ENV.deparallelize
+    # Run autoreconf on macOS to rebuild configure script so that it doesn't try
+    # to build with a flat namespace.
+    system "autoreconf", "--force", "--verbose", "--install" if OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
