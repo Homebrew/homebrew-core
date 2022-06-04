@@ -1,8 +1,8 @@
 class GupnpAv < Formula
   desc "Library to help implement UPnP A/V profiles"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gupnp-av/0.14/gupnp-av-0.14.0.tar.xz"
-  sha256 "20aed546fc882e78a3f186a0c8bce5c841cc3a44b7ea528298fbdc82596fb156"
+  url "https://download.gnome.org/sources/gupnp-av/0.14/gupnp-av-0.14.1.tar.xz"
+  sha256 "b79ce0cc4b0c66d9c54bc22183a10e5709a0011d2af272025948efcab33a3e4f"
 
   bottle do
     sha256 arm64_monterey: "24e9ed1aab5ceed57281735b5405901c62045cac2ccc76fb712c693a27393bd2"
