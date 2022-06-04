@@ -18,6 +18,9 @@ class Libiptcdata < Formula
   depends_on "gettext"
 
   def install
+    # Fix flat namespace usage
+    inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
