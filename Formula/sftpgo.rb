@@ -1,8 +1,8 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.2.3/sftpgo_v2.2.3_src_with_deps.tar.xz"
-  sha256 "6c8676725e86ee3f6ad46a340a84f0da37cab8b6ea7b6aee86b2b96ba5e6671a"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.0/sftpgo_v2.3.0_src_with_deps.tar.xz"
+  sha256 "2a1c6dc2c540404e7a19e9ba3b43224cb040fb6c05b3f4ad24cc20da0c34b93f"
   license "AGPL-3.0-only"
 
   bottle do
@@ -65,7 +65,7 @@ class Sftpgo < Formula
     ENV["SFTPGO_SFTPD__BINDINGS__0__PORT"] = sftp_port.to_s
     ENV["SFTPGO_SFTPD__BINDINGS__0__ADDRESS"] = "127.0.0.1"
     ENV["SFTPGO_SFTPD__HOST_KEYS"] = "#{testpath}/id_ecdsa,#{testpath}/id_ed25519"
-    ENV["SFTPGO_LOG_FILE_PATH"] = "#{testpath}/sftpgo.log"
+    ENV["SFTPGO_LOG_FILE_PATH"] = ""
     pid = fork do
       exec bin/"sftpgo", "serve", "--config-file", "#{pkgetc}/sftpgo.json"
     end
