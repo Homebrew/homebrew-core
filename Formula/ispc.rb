@@ -4,7 +4,7 @@ class Ispc < Formula
   url "https://github.com/ispc/ispc/archive/v1.18.0.tar.gz"
   sha256 "81f2cc23b555c815faf53429e9eee37d1f2f16873ae7074e382ede94721ee042"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c9cf8cf0b15d029f95bab589d6aec903d19df669fa39e8b844e413ceced5244c"
