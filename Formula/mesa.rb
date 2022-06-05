@@ -76,8 +76,8 @@ class Mesa < Formula
   end
 
   resource "gl_wrap.h" do
-    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/5435fc7fbd332e171da9a71e33a9b190e9462cf0/src/util/gl_wrap.h"
-    sha256 "c727b2341d81c2a1b8a0b31e46d24f9702a1ec55c8be3f455ddc8d72120ada72"
+    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/ea99b861a256e63d029f0d476bf452681d821dd6/src/util/gl_wrap.h"
+    sha256 "41f5a84f8f5abe8ea2a21caebf5ff31094a46953a83a738a19e21c010c433c88"
   end
 
   def install
