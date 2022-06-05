@@ -1,8 +1,8 @@
 class Opencc < Formula
   desc "Simplified-traditional Chinese conversion tool"
   homepage "https://github.com/BYVoid/OpenCC"
-  url "https://github.com/BYVoid/OpenCC/archive/ver.1.1.3.tar.gz"
-  sha256 "99a9af883b304f11f3b0f6df30d9fb4161f15b848803f9ff9c65a96d59ce877f"
+  url "https://github.com/BYVoid/OpenCC/archive/ver.1.1.4.tar.gz"
+  sha256 "ca33cf2a2bf691ee44f53397c319bb50c6d6c4eff1931a259fd11533ba26c1e9"
   license "Apache-2.0"
 
   bottle do
@@ -16,11 +16,16 @@ class Opencc < Formula
   end
 
   depends_on "cmake" => :build
+  uses_from_macos "python" => :build
 
   def install
     ENV.cxx11
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DPYTHON_EXECUTABLE=#{which("python3")}
+    ]
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_DOCUMENTATION:BOOL=OFF", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
