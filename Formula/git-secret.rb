@@ -5,8 +5,8 @@ class GitSecret < Formula
   head "https://github.com/sobolevn/git-secret.git", branch: "master"
 
   stable do
-    url "https://github.com/sobolevn/git-secret/archive/v0.4.0.tar.gz"
-    sha256 "ae17bfda88eb77e8f07c5f16d833792a3a14adc9c5d2bbc840f28538c62f08ba"
+    url "https://github.com/sobolevn/git-secret/archive/v0.5.0.tar.gz"
+    sha256 "1cba04a59c8109389079b479c1bf5719b595e799680e10d35ce9aa091cb752af"
   end
 
   bottle do
