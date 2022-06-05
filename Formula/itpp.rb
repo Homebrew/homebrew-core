@@ -24,6 +24,10 @@ class Itpp < Formula
   depends_on "fftw"
 
   def install
+    # Rename VERSION file to avoid build failure: version:1:1: error: expected unqualified-id
+    # Reported upstream at: https://sourceforge.net/p/itpp/bugs/262/
+    mv "VERSION", "VERSION.txt"
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
