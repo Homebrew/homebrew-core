@@ -1,14 +1,10 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
+  url "https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz"
+  sha256 "38cf4e84481f5facc766ba72783e7462e08d6d29a5d47e3b75c8ee3142485210"
   license "MIT"
-
-  stable do
-    url "https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz"
-    sha256 "38cf4e84481f5facc766ba72783e7462e08d6d29a5d47e3b75c8ee3142485210"
-
-    depends_on "llvm"
-  end
+  head "https://github.com/ziglang/zig.git"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "61d958015313e75d98c407902e6aba1b4f359e392eda0c090199eec76d20534a"
@@ -19,12 +15,8 @@ class Zig < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d8cb3768434244333ab7164ba5806a924db341a1f86c9471009fc1f6177fcfe"
   end
 
-  head do
-    url "https://github.com/ziglang/zig.git", branch: "master"
-    depends_on "llvm"
-  end
-
   depends_on "cmake" => :build
+  depends_on "llvm"
 
   fails_with gcc: "5" # LLVM is built with GCC
 
