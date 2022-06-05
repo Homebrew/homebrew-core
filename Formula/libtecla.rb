@@ -33,6 +33,8 @@ class Libtecla < Formula
       cp "#{Formula["automake"].opt_prefix}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}", fn
     end
 
+    # Fix hard coded flat namespace usage in configure.
+    inreplace "configure", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end
@@ -51,7 +53,7 @@ class Libtecla < Formula
       }
     EOS
 
-    system ENV.cc, "test.c", "-L#{lib}", "-ltecla", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-ltecla", "-lcurses", "-o", "test"
     system "./test"
   end
 end
