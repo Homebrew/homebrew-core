@@ -21,6 +21,13 @@ class Scrollkeeper < Formula
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "intltool" => :build
+    depends_on "libtool" => :build
+  end
+
   conflicts_with "rarian",
     because: "scrollkeeper and rarian install the same binaries"
 
@@ -45,6 +52,9 @@ class Scrollkeeper < Formula
       end
     end
 
+    # Run autoreconf on macOS to rebuild configure script so that it doesn't try
+    # to build with a flat namespace.
+    system "autoreconf", "--force", "--verbose", "--install" if OS.mac?
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--with-xml-catalog=#{etc}/xml/catalog"
