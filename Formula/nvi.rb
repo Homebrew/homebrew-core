@@ -19,6 +19,12 @@ class Nvi < Formula
 
   uses_from_macos "ncurses"
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   # Patches per MacPorts
   # The first corrects usage of BDB flags.
   patch :p0 do
@@ -51,6 +57,14 @@ class Nvi < Formula
 
   def install
     cd "dist" do
+      # Run autoreconf on macOS to rebuild configure script so that it doesn't try
+      # to build with a flat namespace.
+      if OS.mac?
+        # These files must be present for autoreconf to work.
+        %w[AUTHORS ChangeLog NEWS README].each { |f| touch f }
+        system "autoreconf", "--force", "--verbose", "--install"
+      end
+
       # Xcode 12 needs the "-Wno-implicit-function-declaration" to compile successfully
       # The usual trick of setting $CFLAGS in the environment doesn't work for this
       # configure file though, but specifying an explicit CC setting does
