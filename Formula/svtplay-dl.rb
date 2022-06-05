@@ -3,8 +3,8 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/08/6b/8d9bb9b08e33653fed2508eceeea7039621deac9ecf66c252f0f4fa6a523/svtplay-dl-4.12.tar.gz"
-  sha256 "0ca0907f0848c8263fabcf556a5f5f16b05ddd16d8c9cc117a432004336a31a3"
+  url "https://files.pythonhosted.org/packages/40/c0/7363733395c0a88af79ac1097ee2e5fc3d8f984eec2f04e6e539ffb68dff/svtplay-dl-4.13.tar.gz"
+  sha256 "4c0279aefed6d95048e7d01d23bea1c3e97986672ebd5330c061c52c94d1a95d"
   license "MIT"
 
   bottle do
@@ -21,8 +21,8 @@ class SvtplayDl < Formula
   depends_on "python@3.10"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
+    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
+    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
   end
 
   resource "cffi" do
