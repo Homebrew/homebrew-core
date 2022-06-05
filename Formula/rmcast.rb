@@ -21,7 +21,16 @@ class Rmcast < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecbaa8a68d7cb766021fb1f1bff97c911a5e16720508cf71648c6e96a2b93c4f"
   end
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
+    # Run autoreconf on macOS to rebuild configure script so that it doesn't try
+    # to build with a flat namespace.
+    system "autoreconf", "--force", "--verbose", "--install" if OS.mac?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
