@@ -1,8 +1,8 @@
 class Cfonts < Formula
   desc "Sexy ANSI fonts for the console"
   homepage "https://github.com/dominikwilkowski/cfonts"
-  url "https://github.com/dominikwilkowski/cfonts/archive/refs/tags/v1.0.3rust.tar.gz"
-  sha256 "fbf7c1fd1d02bd02f47d29e7ff23af52b6ab7f8e2ed3d18eed9a2ec9e495e57d"
+  url "https://github.com/dominikwilkowski/cfonts/archive/refs/tags/v1.0.4rust.tar.gz"
+  sha256 "c8b82256e74091dc15570ccd1447259d27923cdb2eba16d26487b497518d33cc"
   license "GPL-3.0-or-later"
 
   depends_on "rust" => :build
