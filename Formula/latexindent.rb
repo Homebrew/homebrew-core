@@ -1,8 +1,8 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://ctan.org/pkg/latexindent"
-  url "https://github.com/cmhughes/latexindent.pl/archive/V3.17.2.tar.gz"
-  sha256 "79283728e5bf25e494e26dddbaedde60d23e23957c6adb0c478ba56c8db2f3e0"
+  url "https://github.com/cmhughes/latexindent.pl/archive/V3.17.3.tar.gz"
+  sha256 "8f7c4f3d98c5fff762db5d58367e3f2b48714dc0a21d6fda8a36ee8514dc66e1"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -74,8 +74,8 @@ class Latexindent < Formula
   end
 
   resource "Log::Log4perl" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETJ/Log-Log4perl-1.54.tar.gz"
-    sha256 "bbabe42d3b4cdaa3a47666b957be81d55bbd1cbcffcdff2b119586d33602eabe"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETJ/Log-Log4perl-1.55.tar.gz"
+    sha256 "c4f3caa1328fdc48595ccd0d1e16c40bd74af2547552370125b4b7e5eae1ff44"
   end
 
   resource "MIME::Charset" do
