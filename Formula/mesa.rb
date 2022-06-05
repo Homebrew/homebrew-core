@@ -17,6 +17,7 @@ class Mesa < Formula
     sha256 x86_64_linux:   "ed884f5b81ed8d10845138ff0d0c42c70767a7371d3edcee2679b83d6dce0ac4"
   end
 
+  depends_on "bison" => :build # can't use form macOS, needs '> 2.3'
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -29,7 +30,6 @@ class Mesa < Formula
   depends_on "libxext"
   depends_on "llvm"
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   uses_from_macos "ncurses"
