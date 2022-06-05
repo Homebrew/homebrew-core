@@ -16,6 +16,7 @@ class Opencc < Formula
   end
 
   depends_on "cmake" => :build
+  uses_from_macos "python" => :build
 
   def install
     ENV.cxx11
