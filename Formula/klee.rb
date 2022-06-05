@@ -85,10 +85,13 @@ class Klee < Formula
         -DLIBCXXABI_ENABLE_THREADS:BOOL=OFF
       ]
 
-      if OS.mac?
-        libcxx_args << "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=OFF"
+      libcxx_args += if OS.mac?
+        %W[
+          -DCMAKE_INSTALL_RPATH=#{rpath}
+          -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=OFF
+        ]
       else
-        libcxx_args += %w[
+        %w[
           -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=ON
           -DCMAKE_CXX_FLAGS=-I/usr/include/x86_64-linux-gnu
         ]
