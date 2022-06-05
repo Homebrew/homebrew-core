@@ -29,7 +29,17 @@ class Ucommon < Formula
     sha256 "46aef9108e2012362b6adcb3bea2928146a3a8fe5e699450ffaf931b6db596ff"
   end
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  end
+
   def install
+    # Make sure flat namespace flags are not used in pkgconfig files. This must be handled separately
+    # from the flat namespace patch already used above.
+    inreplace "configure", "-undefined suppress -flat_namespace", "-undefined dynamic_lookup"
+
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
                           "--disable-silent-rules", "--enable-socks",
                           "--with-sslstack=gnutls", "--with-pkg-config"
