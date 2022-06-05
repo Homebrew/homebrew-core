@@ -25,7 +25,7 @@ class OpeniothubServer < Formula
   end
 
   service do
-    run [opt_bin/"openiothub-server", "-c", pkg_etc/"server-go.yaml"]
+    run [opt_bin/"openiothub-server", "-c", etc/"server-go.yaml"]
     keep_alive true
     log_path var/"log/openiothub-server.log"
     error_log_path var/"log/openiothub-server.log"
