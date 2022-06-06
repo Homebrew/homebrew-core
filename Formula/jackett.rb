@@ -6,6 +6,15 @@ class Jackett < Formula
   license "GPL-2.0-only"
   head "https://github.com/Jackett/Jackett.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "f955b81261d7d4ad28aa03b30b84adfe473c81791238a5cee0c768a9d7751e05"
+    sha256 cellar: :any,                 arm64_big_sur:  "e9e3a8a393dcfb218fc213db4ee62b6ea269e1070891b4bc6f6bd5165fff0499"
+    sha256 cellar: :any,                 monterey:       "ead68cc2336aa5fb411f4f917001c34dd4641c73077ed6c99a6d1c2bc58f038f"
+    sha256 cellar: :any,                 big_sur:        "76fbecd5c7288a2c71f45ef7f70853c9317979e824df0cfd24703856dff7ddd7"
+    sha256 cellar: :any,                 catalina:       "8056687a50a9a84b9e7c8adc25b832951880cd8f082834047aca38958d21ec16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64fc5c43f3b333610bd4747aabd51a01a6b8aa29f09cf1dcbfd8588003f24642"
+  end
+
   depends_on "dotnet"
 
   def install
