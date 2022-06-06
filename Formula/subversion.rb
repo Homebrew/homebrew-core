@@ -2,6 +2,7 @@ class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.2.tar.bz2"
@@ -148,6 +149,7 @@ class Subversion < Formula
 
     args = %W[
       --prefix=#{prefix}
+      --mandir=#{man}
       --disable-debug
       --enable-optimize
       --disable-mod-activation
