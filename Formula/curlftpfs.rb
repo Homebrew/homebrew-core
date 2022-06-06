@@ -19,14 +19,14 @@ class Curlftpfs < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
 
-  # TODO: depend on specific X11 formulae instead
+  uses_from_macos "curl"
 
   on_macos do
     disable! date: "2021-04-08", because: "requires closed-source macFUSE"
   end
 
   on_linux do
-    depends_on "libfuse"
+    depends_on "libfuse@2"
   end
 
   def install
