@@ -22,8 +22,11 @@ class SimpleMtpfs < Formula
   end
 
   on_linux do
-    depends_on "libfuse"
+    depends_on "gcc"
+    depends_on "libfuse@2"
   end
+
+  fails_with gcc: "5"
 
   def install
     system "./autogen.sh"
