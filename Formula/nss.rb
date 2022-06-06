@@ -4,6 +4,7 @@ class Nss < Formula
   url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_79_RTM/src/nss-3.79.tar.gz"
   sha256 "ebdf2d6a96613b6fe70ad579e9f983e0e94e0110171cfb2999db633d3394a514"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url "https://ftp.mozilla.org/pub/security/nss/releases/"
@@ -37,6 +38,7 @@ class Nss < Formula
     args = %W[
       BUILD_OPT=1
       NSS_ALLOW_SSLKEYLOGFILE=1
+      NSS_DISABLE_GTESTS=1
       NSS_USE_SYSTEM_SQLITE=1
       NSPR_INCLUDE_DIR=#{Formula["nspr"].opt_include}/nspr
       NSPR_LIB_DIR=#{Formula["nspr"].opt_lib}
@@ -72,7 +74,7 @@ class Nss < Formula
         cp file, lib
       end
     end
-    # resolves conflict with openssl, see #28258
+    # resolves conflict with openssl, see legacy-homebrew#28258
     rm lib/"libssl.a"
 
     (bin/"nss-config").write config_file
