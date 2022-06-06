@@ -22,7 +22,7 @@ class Goplus < Formula
     system "go", "run", "cmd/make.go", "--install"
 
     libexec.install Dir["*"] - Dir[".*"]
-    bin.install_symlink Dir[libexec/"bin/*"]
+    bin.install_symlink (libexec/"bin").children
   end
 
   test do
