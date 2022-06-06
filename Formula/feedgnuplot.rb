@@ -4,7 +4,7 @@ class Feedgnuplot < Formula
   url "https://github.com/dkogan/feedgnuplot/archive/v1.61.tar.gz"
   sha256 "4239fe61a03232ea47909edd59af767b98481b205f58910b2e30d2d41f9caa80"
   license any_of: ["GPL-1.0-or-later", "Artistic-1.0"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d921d4a402bdf9ad1633bea40e99f12c746dc671c256c7cfbe54995e2923cb55"
@@ -46,7 +46,7 @@ class Feedgnuplot < Formula
       end
     end
 
-    system "perl", "Makefile.PL", "prefix=#{prefix}"
+    system "perl", "Makefile.PL", "prefix=#{prefix}", "INSTALLSITEMAN1DIR=#{man1}"
     system "make"
     system "make", "install"
     prefix.install Dir[prefix/"local/*"]
