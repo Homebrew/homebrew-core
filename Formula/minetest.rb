@@ -2,14 +2,31 @@ class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "https://www.minetest.net/"
   license "LGPL-2.1-or-later"
+  revision 1
 
   stable do
     url "https://github.com/minetest/minetest/archive/5.5.1.tar.gz"
     sha256 "dc0ae5188ef351db85c38b27f38f8549b133ed82aa46daea6deee148aa3454f4"
 
+    # This patch fixes https://github.com/minetest/minetest/issues/12172
+    # It has been merged upstream, and so should not be necessary for the next
+    # minetest release (5.5.2)
+    patch do
+      url "https://github.com/minetest/minetest/commit/951604e29ff9d4b796003264574e06031c014a3f.patch?full_index=1"
+      sha256 "46ca51997cadba9ec714de1988097ae37dec013def1cc4ae560d8de6b0f1d0bc"
+    end
+
     resource "irrlichtmt" do
       url "https://github.com/minetest/irrlicht/archive/1.9.0mt4.tar.gz"
       sha256 "a0e2e5239ebca804adf54400ccaacaf228ec09223cfb2e1daddc9bf2694176e6"
+
+      # This patch fixes https://github.com/minetest/minetest/issues/11541
+      # It has been merged upstream, and so should not be necessary for the
+      # next irrlicht release (1.9.0mt7)
+      patch do
+        url "https://github.com/minetest/irrlicht/commit/392df9bae3de8a71bf1d119a58dc2d9f1388751d.patch?full_index=1"
+        sha256 "127b6ec571e6d6b2617bf9ece98b756da651dc1a9842fbf0e5a53f982fef1d6d"
+      end
     end
 
     resource "minetest_game" do
@@ -33,7 +50,7 @@ class Minetest < Formula
   end
 
   head do
-    url "https://github.com/minetest/minetest.git"
+    url "https://github.com/minetest/minetest.git", branch: "master"
 
     resource "irrlichtmt" do
       url "https://github.com/minetest/irrlicht.git", branch: "master"
@@ -105,8 +122,8 @@ class Minetest < Formula
       "~/Library/Application Support/minetest/", respectively (you may have
       to create those folders first).
 
-      If you would like to start the Minetest server from a terminal, run
-      "#{prefix}/minetest.app/Contents/MacOS/minetest --server".
+      To start minetest, from a terminal run
+      "#{prefix}/minetest.app/Contents/MacOS/minetest".
     EOS
   end
 
