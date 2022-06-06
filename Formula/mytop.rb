@@ -5,7 +5,7 @@ class Mytop < Formula
   mirror "https://deb.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
   license "GPL-2.0-or-later"
-  revision 10
+  revision 11
 
   livecheck do
     skip "Upstream is gone and the formula uses archive.org URLs"
