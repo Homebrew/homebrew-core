@@ -7,12 +7,12 @@ class OhMyPosh < Formula
   head "https://github.com/JanDeDobbeleer/oh-my-posh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a49268e5987fe884ca727c06553c2fa5c626f2b9c4fd9f3d74b88c9f021128f2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "687a173cc8ce8871b22c4139fdf487400cc17160b6275c9836d327a971f649f2"
-    sha256 cellar: :any_skip_relocation, monterey:       "7ebf402bc6a9830afa1a132bd530a24e02983c1d9a0f7e1381922c9636d1453c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98b53cb545ea48ca436e1a5c889a30eb04ef71929e9f4168b506f79c9fe79474"
-    sha256 cellar: :any_skip_relocation, catalina:       "1a32763b6e6f97dc5fcb08e5e0a9c024a4f40e20a631da0a7a4f5c7dfc862ff1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ff299b52f445483855453ca540317bcf1ac6fda3f782e89388162045b61618f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bba17ce779c4eedbfdcdfc9e40c3ebbb1f2116ba12f969719930c3251547abfb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cbd7986e6948b5ecab85b2014249cd5e517072efa43b46bcda0edd52ca008f3"
+    sha256 cellar: :any_skip_relocation, monterey:       "cf572d55b5bd17da25eb62d470049b67fc5d4dce5d2b44257250ab2d9075bd31"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b8ebc864002f47ebbbdfbc8615c824efbd522663e59594fc701cf20c71e8579d"
+    sha256 cellar: :any_skip_relocation, catalina:       "0ed594a41ec3523610213c95c07d78082916a0dd4a94c66df9c885f242ab840b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "031d2399c06c572df190cf7f7961c5a37fead0f7baab816ae75ec67e187120f3"
   end
 
   depends_on "go" => :build
