@@ -4,7 +4,7 @@ class Monkeysphere < Formula
   url "https://deb.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.44.orig.tar.gz"
   sha256 "6ac6979fa1a4a0332cbea39e408b9f981452d092ff2b14ed3549be94918707aa"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/m/monkeysphere/"
