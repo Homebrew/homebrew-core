@@ -1,8 +1,8 @@
 class Grokj2k < Formula
   desc "JPEG 2000 Library"
   homepage "https://github.com/GrokImageCompression/grok"
-  url "https://github.com/GrokImageCompression/grok/archive/v9.7.1.tar.gz"
-  sha256 "a7d433dca92b035349ef8203eb44cb6d0b2c9b41aecd2d12872a9ca2761e0606"
+  url "https://github.com/GrokImageCompression/grok/archive/refs/tags/v9.7.8.tar.gz"
+  sha256 "405dc9052d0918736f483d4a4fed73a5e211c6b7a906930b6ab42e707333b9b4"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
@@ -85,6 +85,7 @@ class Grokj2k < Formula
     # See https://github.com/GrokImageCompression/grok/issues/241
     ENV.append "CXXFLAGS", "-DCMS_NO_REGISTER_KEYWORD=1"
 
+    perl = DevelopmentTools.locate("perl")
     if OS.mac?
       # Workaround Perl 5.18 issues with C++11: pad.h:323:17: error: invalid suffix on literal
       ENV.append "CXXFLAGS", "-Wno-reserved-user-defined-literal" if MacOS.version <= :catalina
@@ -92,9 +93,9 @@ class Grokj2k < Formula
       # Without this, CMake outputs: Could NOT find PerlLibs (missing: PERL_INCLUDE_PATH)
       perl_path = MacOS.sdk_path/"System/Library/Perl"/MacOS.preferred_perl_version
       args << "-DPERL_INCLUDE_PATH=#{perl_path}/darwin-thread-multi-2level/CORE"
+      args << "-DPERL_EXECUTABLE=#{perl}"
     else
       # Fix linkage error due to RPATH missing directory with libperl.so
-      perl = DevelopmentTools.locate("perl")
       perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
       ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
     end
