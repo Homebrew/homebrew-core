@@ -25,6 +25,6 @@ class Vermin < Formula
 
   test do
     path = libexec/"lib/python3.10/site-packages/vermin"
-    assert_match "Minimum required versions: 2.7, 3.0", shell_output("#{bin}/vermin -q #{path}")
+    assert_match "Minimum required versions: 2.7, 3.0", shell_output("#{bin}/vermin #{path}")
   end
 end
