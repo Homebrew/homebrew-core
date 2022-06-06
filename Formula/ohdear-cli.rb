@@ -5,6 +5,10 @@ class OhdearCli < Formula
   sha256 "9bc29673e7bdb6749cbe798d01386351d7f8f93cf33b5721d6be6179817a3980"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "dfeb6971f0a46393da6698a6e74482066dd3b1762bf28ff26897e5d39303c54a"
+  end
+
   depends_on "php"
 
   def install
