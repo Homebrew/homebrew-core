@@ -9,12 +9,12 @@ class Vermin < Formula
   head "https://github.com/netromdk/vermin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "78b0ba9a707cef99046629273e048e95bdb41a5f2d58ee343d3088b509c3dc61"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "78b0ba9a707cef99046629273e048e95bdb41a5f2d58ee343d3088b509c3dc61"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a31f6d451c7be3fca256f08212b838d348ca520c07e64c6921834fc4409f154"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4a31f6d451c7be3fca256f08212b838d348ca520c07e64c6921834fc4409f154"
-    sha256 cellar: :any_skip_relocation, catalina:       "4a31f6d451c7be3fca256f08212b838d348ca520c07e64c6921834fc4409f154"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9958a00ae57d114cbe0e689972e77df8074f5cc208de1a247a16f4e8566f533"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "979e49dcf59072276cf1f26ef959b72285a34dbf50be7fd9b3d1a17691ba7782"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "979e49dcf59072276cf1f26ef959b72285a34dbf50be7fd9b3d1a17691ba7782"
+    sha256 cellar: :any_skip_relocation, monterey:       "b161ec94326e573a7b96c5cc887ea932d17a1b4b3a501ba9f0522873ac997903"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b161ec94326e573a7b96c5cc887ea932d17a1b4b3a501ba9f0522873ac997903"
+    sha256 cellar: :any_skip_relocation, catalina:       "b161ec94326e573a7b96c5cc887ea932d17a1b4b3a501ba9f0522873ac997903"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dddfe95d6b2572b6b3e354219b638dea36d7d03a80740c51cf315510fcaa4af"
   end
 
   depends_on "python@3.10"
