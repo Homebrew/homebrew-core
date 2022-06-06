@@ -1,8 +1,8 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "https://liballeg.org/"
-  url "https://github.com/liballeg/allegro5/releases/download/5.2.7.0/allegro-5.2.7.0.tar.gz"
-  sha256 "c1e3b319d99cb453b39d393572ba2b9f3de42a96de424aee7d4a1abceaaa970c"
+  url "https://github.com/liballeg/allegro5/releases/download/5.2.8.0/allegro-5.2.8.0.tar.gz"
+  sha256 "089fcbfab0543caa282cd61bd364793d0929876e3d2bf629380ae77b014e4aa4"
   license "Zlib"
   head "https://github.com/liballeg/allegro5.git", branch: "master"
 
@@ -43,14 +43,14 @@ class Allegro < Formula
   fails_with gcc: "5"
 
   def install
-    # PR submitted upstream here: https://github.com/liballeg/allegro5/pull/1334
-    # Remove when this fix has been incorporated to a new release.
-    inreplace "cmake/Common.cmake", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
+    cmake_args = std_cmake_args + %W[
+      -DWANT_DOCS=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DWANT_DOCS=OFF"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
