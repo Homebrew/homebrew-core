@@ -1,14 +1,9 @@
 class Joshua < Formula
   desc "Statistical machine translation decoder"
   homepage "https://cwiki.apache.org/confluence/display/JOSHUA/"
-  url "https://cs.jhu.edu/~post/files/joshua-6.0.5.tgz"
+  url "https://www.cs.jhu.edu/~post/files/joshua-6.0.5.tgz"
   sha256 "972116a74468389e89da018dd985f1ed1005b92401907881a14bdcc1be8bd98a"
   revision 1
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?joshua[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a11700736da72d86af2c07f05365c1a52a9851ef62aa3f4b6ddaaef914ca4b03"
@@ -20,6 +15,9 @@ class Joshua < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d89eaec2a6bcd8de99e07c2a1e77eee4d1e9d3c21239727beb1ab0f73173ea8c"
   end
+
+  # Moved into the Attic in 2021-11: https://attic.apache.org/projects/joshua.html
+  deprecate! date: "2022-06-05", because: :deprecated_upstream
 
   depends_on "openjdk"
 
