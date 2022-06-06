@@ -6,6 +6,11 @@ class MongoCxxDriver < Formula
   license "Apache-2.0"
   head "https://github.com/mongodb/mongo-cxx-driver.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^[rv]?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e953ef9f1244187c03e35b5c63cc56fe78a346b6961375883bfdb20882389ff3"
     sha256 cellar: :any,                 arm64_big_sur:  "fe2c413af917d8fbc92cf070ac83de24056be996536f548a15e68378016da14a"
