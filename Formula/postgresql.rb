@@ -4,6 +4,7 @@ class Postgresql < Formula
   url "https://ftp.postgresql.org/pub/source/v14.5/postgresql-14.5.tar.bz2"
   sha256 "d4f72cb5fb857c9a9f75ec8cf091a1771272802f2178f0b2e65b7b6ff64f4a30"
   license "PostgreSQL"
+  revision 1
   head "https://github.com/postgres/postgres.git", branch: "master"
 
   livecheck do
