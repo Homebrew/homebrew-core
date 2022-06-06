@@ -74,7 +74,7 @@ class Tmux < Formula
       Example configuration has been installed to:
         #{opt_pkgshare}
 
-      On macOS, add the following to ~/.tmux.conf
+      On macOS, add the following to etc/tmux.conf or ~/.tmux.conf
         set -g default-terminal screen-256color
     EOS
   end
