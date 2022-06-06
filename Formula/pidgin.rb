@@ -4,6 +4,7 @@ class Pidgin < Formula
   url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.10/pidgin-2.14.10.tar.bz2"
   sha256 "454b1b928bc6bcbb183353af30fbfde5595f2245a3423a1a46e6c97a2df22810"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://sourceforge.net/projects/pidgin/files/Pidgin/"
