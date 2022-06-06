@@ -1,8 +1,8 @@
 class S3fs < Formula
   desc "FUSE-based file system backed by Amazon S3"
   homepage "https://github.com/s3fs-fuse/s3fs-fuse/wiki"
-  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.87.tar.gz"
-  sha256 "c5e064efb8fb5134a463731a7cf8d7174c93a296957145200347d2f4d9d11985"
+  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/refs/tags/v1.91.tar.gz"
+  sha256 "f130fec375dc6972145c56f53e83ea7c98c82621406d0208a328989e5d900b0f"
   license "GPL-2.0-or-later"
   head "https://github.com/s3fs-fuse/s3fs-fuse.git", branch: "master"
 
@@ -19,12 +19,14 @@ class S3fs < Formula
   depends_on "libgcrypt"
   depends_on "nettle"
 
+  uses_from_macos "curl"
+
   on_macos do
     disable! date: "2021-04-08", because: "requires closed-source macFUSE"
   end
 
   on_linux do
-    depends_on "libfuse"
+    depends_on "libfuse@2"
   end
 
   def install
