@@ -19,6 +19,7 @@ class Sbjson < Formula
 
   def install
     xcodebuild "-project", "SBJson5.xcodeproj",
+               "-arch", Hardware::CPU.arch,
                "-target", "sbjson",
                "-configuration", "Release",
                "clean",
