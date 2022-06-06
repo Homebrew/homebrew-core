@@ -3,8 +3,13 @@ class Termrec < Formula
   homepage "https://angband.pl/termrec.html"
   url "https://github.com/kilobyte/termrec/archive/v0.19.tar.gz"
   sha256 "0550c12266ac524a8afb764890c420c917270b0a876013592f608ed786ca91dc"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
   head "https://github.com/kilobyte/termrec.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3c45928def623126f5999ab77cd48cc6711731a44cfa28c5746841ee19f313c3"
