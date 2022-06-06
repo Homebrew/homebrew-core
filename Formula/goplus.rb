@@ -15,17 +15,14 @@ class Goplus < Formula
     sha256 x86_64_linux:   "36a85ee921d8c8a65cb03c6b7e57c35ae1fbb4edc8dc529288bf8fd0b21b5507"
   end
 
-  # Bump to 1.18 on the next release (1.1.0).
-  depends_on "go@1.17"
+  depends_on "go"
 
   def install
     ENV["GOPROOT_FINAL"] = libexec
     system "go", "run", "cmd/make.go", "--install"
 
     libexec.install Dir["*"] - Dir[".*"]
-    libexec.glob("bin/*").each do |file|
-      (bin/file.basename).write_env_script(file, PATH: "$PATH:#{Formula["go@1.17"].opt_bin}")
-    end
+    bin.install_symlink Dir[libexec/"bin/*"]
   end
 
   test do
@@ -44,7 +41,7 @@ class Goplus < Formula
       module hello
     EOS
 
-    system Formula["go@1.17"].opt_bin/"go", "get", "github.com/goplus/gop/builtin"
+    system "go", "get", "github.com/goplus/gop/builtin"
     system bin/"gop", "build", "-o", "hello"
     assert_equal "Hello World\n", shell_output("./hello")
   end
