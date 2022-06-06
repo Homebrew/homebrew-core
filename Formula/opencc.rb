@@ -6,13 +6,12 @@ class Opencc < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_monterey: "858a21a759d237f29b6e882a969eea5c215377a8d8289fae04a081f78c5e2821"
-    sha256 arm64_big_sur:  "c511e94c8ede779f36276e9149f503e88bf9241ed06c15b5f1b667eb66b6a93d"
-    sha256 monterey:       "7c64d8b156a92d9f94b6e10dcfbb065d4cc20024215d348a161970db05bad282"
-    sha256 big_sur:        "f03bc24b794a0be72ffeec4b97ad2a7ef350cfbcce48c27480720bfa2b5ddbbe"
-    sha256 catalina:       "71a2e9d6df44f77c60ee8bfb22f355dc7cd073ce58a2e990a7e1a9c54039a9a0"
-    sha256 mojave:         "d35684ce9298dca475a9f30318e86f8209aef8df8e06a0a930b3d2d500f7bb2f"
-    sha256 x86_64_linux:   "298d3cd7f7918b43d6e5c5f0d533b609b538d35bebf7f1af48f943d13278971c"
+    sha256 arm64_monterey: "b3b6c98505d778bffac40244ff3550082c67043700c11f8b4c2dc470bd708adb"
+    sha256 arm64_big_sur:  "79dbf338581ae748fcbd116e8c6ec45c57a74fc950205c11e05aa586b6601bc6"
+    sha256 monterey:       "abb5f38218d666e864435b8fdcc8dc83e5a9d74f6d5b72d13dddc518e2d068b2"
+    sha256 big_sur:        "04e1e578598037552c24853cf84d2ed66da5d23f517612ea8e793e5ba44cc0c7"
+    sha256 catalina:       "4dcee8df044e226db8af14ecee5ae84785b799a648c421e6d2f00768df9b30be"
+    sha256 x86_64_linux:   "3e911567c4bed3312fcb55d777f00383b91e4d847633afe9d4b3f0af9c59d802"
   end
 
   depends_on "cmake" => :build
