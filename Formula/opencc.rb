@@ -20,8 +20,12 @@ class Opencc < Formula
 
   def install
     ENV.cxx11
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DPYTHON_EXECUTABLE=#{which("python3")}
+    ]
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_DOCUMENTATION:BOOL=OFF", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
