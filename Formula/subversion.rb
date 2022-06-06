@@ -2,6 +2,7 @@ class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.2.tar.bz2"
@@ -118,8 +119,9 @@ class Subversion < Formula
 
       args << "ZLIB=#{Formula["zlib"].opt_prefix}" if OS.linux?
 
-      system "scons", *args
-      system "scons", "install"
+      scons = Formula["scons"].opt_bin/"scons"
+      system scons, *args
+      system scons, "install"
     end
 
     # Use existing system zlib and sqlite
@@ -223,8 +225,12 @@ class Subversion < Formula
           "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
       end
     end
-    system "make", "swig-pl"
-    system "make", "install-swig-pl"
+    system "make", "swig-pl-lib"
+    system "make", "install-swig-pl-lib"
+    cd "subversion/bindings/swig/perl/native" do
+      system perl, "Makefile.PL", "PREFIX=#{prefix}", "INSTALLSITEMAN3DIR=#{man3}"
+      system "make", "install"
+    end
 
     # This is only created when building against system Perl, but it isn't
     # purged by Homebrew's post-install cleaner because that doesn't check
