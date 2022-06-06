@@ -8,7 +8,7 @@ class Whistle < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "eb3f98660e986268ef07fa6935370eb8a9885356dfe132d74c9686062b91bb81"
+    sha256 cellar: :any_skip_relocation, all: "b4736ee1a3f190e38e9d40cc6667594ca9aa436d26f3b4e089a01d0d1e15c81b"
   end
 
   # `bin/proxy/mac/Whistle` was only built for `x86_64`
