@@ -6,6 +6,15 @@ class Kics < Formula
   license "Apache-2.0"
   head "https://github.com/Checkmarx/kics.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "adcdd6d54494437a064600c6914a469cd0a4a2f4986cbfb6d156f1d8c631a3f4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b469f5bd3fc8b296b295db3a43d648f940b9302a35f9fabab1bfea85b49318a"
+    sha256 cellar: :any_skip_relocation, monterey:       "e738e43f4aa51067a683cf86ba47098ebf230903c833f50d05595d0059d5b17d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d128fa00e5317e4192c6ac27f3c59bbc1deaceab5d4dc2fcff140b2e1b455d79"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7a11d878d4b25ee5d2724def4baac32a2bf55869ef451835b41a5fcce7e354f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0af1a60c4eed61561f82bf44892cf80ec6c7f024cba4ebde02070e35829fc3a9"
+  end
+
   depends_on "go" => :build
 
   def install
