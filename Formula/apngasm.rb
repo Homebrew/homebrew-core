@@ -20,6 +20,7 @@ class Apngasm < Formula
   depends_on "icu4c"
   depends_on "libpng"
   depends_on "lzlib"
+  depends_on macos: :catalina
 
   on_linux do
     depends_on "gcc"
