@@ -2,6 +2,7 @@ class Ddclient < Formula
   desc "Update dynamic DNS entries"
   homepage "https://ddclient.net/"
   license "GPL-2.0-or-later"
+  revision 1
 
   # Remove `stable` block when resources are no longer needed.
   stable do
