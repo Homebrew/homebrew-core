@@ -67,6 +67,11 @@ class Tmux < Formula
     <<~EOS
       Example configuration has been installed to:
         #{opt_pkgshare}
+
+      The default terminal for tmux is now tmux-256color which may not be
+      available in the environment. To continue using the older
+      screen-256color terminal, please do the following:
+        echo "set -g default-terminal screen-256color" >> ~/.tmux.conf
     EOS
   end
 
