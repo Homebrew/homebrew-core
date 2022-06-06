@@ -2,17 +2,28 @@ class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
   head "https://github.com/FreeRADIUS/freeradius-server.git", branch: "master"
 
   stable do
     url "https://github.com/FreeRADIUS/freeradius-server/archive/refs/tags/release_3_2_0.tar.gz"
     sha256 "2b8817472847e0b49395facd670be97071133730ffa825bb56386c89c18174f5"
 
+    depends_on "autoconf" => :build # for patch
+    depends_on "automake" => :build # for patch
+
     # Fix -flat_namespace being used
     patch do
       url "https://github.com/FreeRADIUS/freeradius-server/commit/6c1cdb0e75ce36f6fadb8ade1a69ba5e16283689.patch?full_index=1"
       sha256 "7e7d055d72736880ca8e1be70b81271dd02f2467156404280a117cb5dc8dccdc"
     end
+
+    # Add a configure option to disable opportunistic linking to collectd when CI
+    # needs to build both formulae, e.g. perl PRs. In master/4.x, the configure.ac
+    # was rewritten to support this by using a local m4 macro AX_WITH_LIB_ARGS_OPT.
+    # TODO: Remove when upstream has option in stable release, or when Homebrew CI
+    # is able to uninstall previously-built formulae to avoid unwanted linkage.
+    patch :DATA
   end
 
   livecheck do
@@ -32,6 +43,8 @@ class FreeradiusServer < Formula
   depends_on "openssl@1.1"
   depends_on "talloc"
 
+  uses_from_macos "krb5"
+  uses_from_macos "libpcap"
   uses_from_macos "perl"
   uses_from_macos "sqlite"
 
@@ -40,6 +53,9 @@ class FreeradiusServer < Formula
   end
 
   def install
+    # TODO: remove autoreconf when patch is no longer needed
+    system "autoreconf", "--verbose", "--install", "--force" if build.stable?
+
     ENV.deparallelize
 
     args = %W[
@@ -50,6 +66,7 @@ class FreeradiusServer < Formula
       --with-openssl-libraries=#{Formula["openssl@1.1"].opt_lib}
       --with-talloc-lib-dir=#{Formula["talloc"].opt_lib}
       --with-talloc-include-dir=#{Formula["talloc"].opt_include}
+      --without-collectdclient
     ]
 
     system "./configure", *args
@@ -67,3 +84,60 @@ class FreeradiusServer < Formula
     assert_match "77C8009C912CFFCF3832C92FC614B7D1", output
   end
 end
+
+__END__
+diff --git a/configure.ac b/configure.ac
+index 3fc6e9df03..e80f96c518 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -968,6 +968,22 @@ fi
+ dnl Set by FR_SMART_CHECK_LIB
+ LIBS="${old_LIBS}"
+
++dnl #
++dnl #  extra argument: --with-collectdclient
++dnl #
++WITH_COLLECTDCLIENT=yes
++AC_ARG_WITH(collectdclient,
++[  --with-collectdclient   use collectd client. (default=yes)],
++[ case "$withval" in
++  no)
++    WITH_COLLECTDCLIENT=no
++    ;;
++  *)
++    WITH_COLLECTDCLIENT=yes
++    ;;
++  esac ]
++)
++
+ dnl Check for collectdclient
+ dnl extra argument: --with-collectdclient-lib-dir=DIR
+ collectdclient_lib_dir=
+@@ -1001,16 +1017,18 @@ AC_ARG_WITH(collectdclient-include-dir,
+       ;;
+   esac])
+
+-smart_try_dir="$collectdclient_lib_dir"
+-FR_SMART_CHECK_LIB(collectdclient, lcc_connect)
+-if test "x$ac_cv_lib_collectdclient_lcc_connect" != "xyes"; then
+-  AC_MSG_WARN([collectdclient library not found. Use --with-collectdclient-lib-dir=<path>.])
+-else
+-  COLLECTDC_LIBS="${smart_lib}"
+-  COLLECTDC_LDFLAGS="${smart_ldflags}"
++if test "x$WITH_COLLECTDCLIENT" = xyes; then
++  smart_try_dir="$collectdclient_lib_dir"
++  FR_SMART_CHECK_LIB(collectdclient, lcc_connect)
++  if test "x$ac_cv_lib_collectdclient_lcc_connect" != "xyes"; then
++    AC_MSG_WARN([collectdclient library not found. Use --with-collectdclient-lib-dir=<path>.])
++  else
++    COLLECTDC_LIBS="${smart_lib}"
++    COLLECTDC_LDFLAGS="${smart_ldflags}"
++  fi
++  dnl Set by FR_SMART_CHECKLIB
++  LIBS="${old_LIBS}"
+ fi
+-dnl Set by FR_SMART_CHECKLIB
+-LIBS="${old_LIBS}"
+
+ dnl Check for cap
+ dnl extra argument: --with-cap-lib-dir=DIR
