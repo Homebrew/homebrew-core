@@ -13,12 +13,12 @@ class ArduinoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bae8af4aecd07ca5ac57ece0c17387ad7d310d91375daed4c0b178253d44cad8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54e5588c3a2cfd7eeee64da76514f82f45d5505ce7cb47bb41596962cd6bf162"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f94dbd7f08288e82b2daa0431c7696219744ca212c52ea962c5d78ca9589390"
-    sha256 cellar: :any_skip_relocation, big_sur:        "db675f8f5c2c36b59378d2774535b1bdad46f7ccde87495c4f3b9a3c850cfbf9"
-    sha256 cellar: :any_skip_relocation, catalina:       "7a98127797bcb1acc737a47ced6262fd45bd9633de2f2192391536feb58635da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4136941860e46bc8e14f0cdcee1b3133493d81b5796ba819409a32b2d449d530"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "14059e9426764c67f82e777b58ad474cb97edbc8cbb3bc47d85c3bf104689bd5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7dfab4653e679f08b935f243cab2941be847d07403dd90deb75055e2674416ae"
+    sha256 cellar: :any_skip_relocation, monterey:       "2f4b83fbe895e74b4e39cb83009ce0de862b5386b37f35780a51040abcb1a5e6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fb56c1951a0d092b7ad159e0d5c59261061a80a080e00aa9f8efb65e1ebb5919"
+    sha256 cellar: :any_skip_relocation, catalina:       "a8e597af1b23aac4d071753482787ae725787dc703df35aa051bd8ebaee57533"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3c9149b0898e105763ae8375ac025c23944d6e6ea3617fc828cd5aaf58d81a6"
   end
 
   depends_on "go" => :build
