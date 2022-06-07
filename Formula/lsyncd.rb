@@ -1,8 +1,8 @@
 class Lsyncd < Formula
   desc "Synchronize local directories with remote targets"
   homepage "https://github.com/lsyncd/lsyncd"
-  url "https://github.com/lsyncd/lsyncd/archive/release-2.2.4.tar.gz"
-  sha256 "3f51c6456604b5acce191c3539e7693a63bd395045dfd5ba35fa4222ca76ed79"
+  url "https://github.com/lsyncd/lsyncd/archive/release-2.3.0.tar.gz"
+  sha256 "08a1bcab041fa5d4c777ae272c72ad9917442b6e654b14ffd1a82ba0cd45e4ef"
   license "GPL-2.0-or-later"
 
   bottle do
