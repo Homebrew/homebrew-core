@@ -8,12 +8,12 @@ class Litecli < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "263b30ac885f52bd069e757810216a2141e698a7eaa798fb220bf39e0e5fa0f3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc8a568160e4b6dd22ddb542441f8ee54110e1f6d1c35a53dec53fcb95d89436"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e864da7aed0865ebf362c10234e16223496d9e01ecb1c37b677f1a0a4b53ef5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "012325056bfea596a804a4a85a8f1ac4490f25b7a83314b9765041c129bc70d9"
-    sha256 cellar: :any_skip_relocation, catalina:       "fed773d5369b458df5ab3aa979a752b4114dd532c501352cef6bf10bcf3a036d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f53c5c799905180bc4bd7bcd2125dcf67512671d3f8bcb73e0e7e075df461863"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "65504fcf3105e95a62a3ef67973daba12b766128677e5c64f1db9cba374041f5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d3cb47d70e5148b22be814a7e4068032ed9d1cb6829d03f032dbd97eaa035f4"
+    sha256 cellar: :any_skip_relocation, monterey:       "157d8243e77f60936f4246e66a9477a97f42c44bdc6a772c2ff3480012107f30"
+    sha256 cellar: :any_skip_relocation, big_sur:        "106802355344f26bba1b64360f25763602dcb298f14b13428936045ea06fcef8"
+    sha256 cellar: :any_skip_relocation, catalina:       "75cd793b4ee3265a70a2c295a15eada9c74881e533a33241596846e66ac7e3b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62a9506cdced7134ea3002efdadbaa2565afd56c086ccd5191f25381217f46ba"
   end
 
   depends_on "python-tabulate"
