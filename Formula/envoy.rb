@@ -3,11 +3,28 @@ class Envoy < Formula
   homepage "https://www.envoyproxy.io/index.html"
   # Switch to a tarball when the following issue is resolved:
   # https://github.com/envoyproxy/envoy/issues/2181
-  url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.21.2",
-      revision: "dc7f46eb44e54d5646301aa5ab4ba01f662fdf75"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
+
+  stable do
+    url "https://github.com/envoyproxy/envoy.git",
+        tag:      "v1.22.0",
+        revision: "dcd329a2e95b54f754b17aceca3f72724294b502"
+
+    # Fix build on Apple Silicon which fails on undefined symbol:
+    # v8::internal::trap_handler::TryHandleSignal(int, __siginfo*, void*)
+    patch do
+      url "https://github.com/envoyproxy/envoy/commit/823f81ea8a3c0f792a7dbb0d08422c6a3d251152.patch?full_index=1"
+      sha256 "c48ecebc8a63f41f8bf8c4598a6442402470f2f04d20511e1aa3a1f322beccc7"
+    end
+
+    # Fix build with GCC in "opt" mode which fails on strict-aliasing rules:
+    # type_url_, reinterpret_cast<std::vector<DecodedResourcePtr>&>(decoded_resources),
+    patch do
+      url "https://github.com/envoyproxy/envoy/commit/aa06f653ed736b428f3ea69900aa864ce4187305.patch?full_index=1"
+      sha256 "d05b1519e6d0d78619457deb3d0bed6bb69ee2f095d31b9913cc70c9ee851e80"
+    end
+  end
 
   livecheck do
     url :stable
@@ -35,21 +52,22 @@ class Envoy < Formula
   depends_on macos: :catalina
 
   on_linux do
-    # GCC added as a test dependency to work around Homebrew issue. Otherwise `brew test` fails.
-    # CompilerSelectionError: envoy cannot be built with any available compilers.
-    depends_on "gcc@9" => [:build, :test]
     depends_on "python@3.10" => :build
+    depends_on "gcc@9"
   end
 
   # https://github.com/envoyproxy/envoy/tree/main/bazel#supported-compiler-versions
-  fails_with gcc: "5"
-  fails_with gcc: "6"
-  # GCC 10 build fails at external/com_google_absl/absl/container/internal/inlined_vector.h:469:5:
+  fails_with :gcc do
+    version "8"
+    cause "C++17 support and tcmalloc requirement"
+  end
+  # GCC 10 build fails at external/com_google_absl/absl/container/internal/inlined_vector.h:448:5:
   # error: '<anonymous>.absl::inlined_vector_internal::Storage<char, 128, std::allocator<char> >::data_'
   # is used uninitialized in this function [-Werror=uninitialized]
   fails_with gcc: "10"
-  # GCC 11 build fails at external/boringssl/src/crypto/curve25519/curve25519.c:503:57:
-  # error: argument 2 of type 'const uint8_t[32]' with mismatched bound [-Werror=array-parameter=]
+  # GCC 11 build fails at external/org_brotli/c/dec/decode.c:2036:41:
+  # error: argument 2 of type 'const uint8_t *' declared as a pointer [-Werror=vla-parameter]
+  # Brotli upstream ref: https://github.com/google/brotli/pull/893
   fails_with gcc: "11"
 
   def install
