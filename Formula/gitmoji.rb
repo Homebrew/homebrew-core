@@ -8,12 +8,12 @@ class Gitmoji < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "385246ee625614e22f59422efd70a2e1af31d84ca41556c8be39dc21dcd06a2f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "385246ee625614e22f59422efd70a2e1af31d84ca41556c8be39dc21dcd06a2f"
-    sha256 cellar: :any_skip_relocation, monterey:       "d4445a3365a84dd6f4b8da87d19b5fc6adec4311100896bfb9f67002da21b586"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d4445a3365a84dd6f4b8da87d19b5fc6adec4311100896bfb9f67002da21b586"
-    sha256 cellar: :any_skip_relocation, catalina:       "d4445a3365a84dd6f4b8da87d19b5fc6adec4311100896bfb9f67002da21b586"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "385246ee625614e22f59422efd70a2e1af31d84ca41556c8be39dc21dcd06a2f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b61adc16e52fb9574da999f988450c9230ffffbbbf63a15b8c83c2ab269ea2f9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b61adc16e52fb9574da999f988450c9230ffffbbbf63a15b8c83c2ab269ea2f9"
+    sha256 cellar: :any_skip_relocation, monterey:       "e5dc6f5c52815154ee3bb09a1876829c2a6d515729ca5a83b7dfc4a55020e832"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e5dc6f5c52815154ee3bb09a1876829c2a6d515729ca5a83b7dfc4a55020e832"
+    sha256 cellar: :any_skip_relocation, catalina:       "e5dc6f5c52815154ee3bb09a1876829c2a6d515729ca5a83b7dfc4a55020e832"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b61adc16e52fb9574da999f988450c9230ffffbbbf63a15b8c83c2ab269ea2f9"
   end
 
   depends_on "node"
