@@ -1,5 +1,5 @@
 class DockerCredentialHelper < Formula
-  desc "macOS Credential Helper for Docker"
+  desc "Platform keystore credential helper for Docker"
   homepage "https://github.com/docker/docker-credential-helpers"
   url "https://github.com/docker/docker-credential-helpers/archive/v0.6.4.tar.gz"
   sha256 "b97d27cefb2de7a18079aad31c9aef8e3b8a38313182b73aaf8b83701275ac83"
@@ -23,24 +23,16 @@ class DockerCredentialHelper < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    dir = buildpath/"src/github.com/docker/docker-credential-helpers"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      if OS.mac?
-        system "make", "vet_osx"
-        system "make", "osxkeychain"
-        bin.install "bin/docker-credential-osxkeychain"
-      else
-        system "make", "vet_linux"
-        system "make", "pass"
-        system "make", "secretservice"
-        bin.install "bin/docker-credential-pass"
-        bin.install "bin/docker-credential-secretservice"
-      end
-      prefix.install_metafiles
+    if OS.mac?
+      system "make", "vet_osx"
+      system "make", "osxkeychain"
+      bin.install "bin/docker-credential-osxkeychain"
+    else
+      system "make", "vet_linux"
+      system "make", "pass"
+      system "make", "secretservice"
+      bin.install "bin/docker-credential-pass"
+      bin.install "bin/docker-credential-secretservice"
     end
   end
 
