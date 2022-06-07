@@ -12,12 +12,12 @@ class Homeworlds < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "397e18518b0779fffc7d007d72cffea54a26d9e6f874a56fe77846acdb229b38"
-    sha256 cellar: :any,                 arm64_big_sur:  "7adb58b280cbfe2cfb21b09a2587caef52ccdd366f4d7886d3059221f6334e32"
-    sha256 cellar: :any,                 monterey:       "bed10dee0c56b449fdba441e61190f46486b456680296125e5a49ce8297860ff"
-    sha256 cellar: :any,                 big_sur:        "80dad8c3e92edbf4a37d3d5e36ff82ca1afc7cd048c44800a04e63ab9d6678b9"
-    sha256 cellar: :any,                 catalina:       "764f569513dee5f39b4044e2c56cd89cf0fa98c6d1e1f4e07c3a2c7d0918f86c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09cd03cdda63f5a1897eb54a876c4f17aa02ab656eb13e40d6ca20014ca19354"
+    sha256 cellar: :any,                 arm64_monterey: "0e14216bfa947bba3dce2cabc92d15d6728eaa28f3eb0817d4b96a8e06db3783"
+    sha256 cellar: :any,                 arm64_big_sur:  "c09cbb2ce42b5625f9aadc56379ad001647386123395c43196943bc9d2528781"
+    sha256 cellar: :any,                 monterey:       "caea0dce749f2e7ee1977b01ef54f6ff3a044b2346c0e1162da3b1291b7c491b"
+    sha256 cellar: :any,                 big_sur:        "c133cb6a5eef778b85fb75622147710a5f3668322c5401a8078962724ea1e603"
+    sha256 cellar: :any,                 catalina:       "1a46da701b7ecc11098f014d354ffc1140f1fe44cbaff59e959d941d912deb1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "221937160080213724eefdb95f2e82822ca060c154115a66fae7e46ec739d702"
   end
 
   depends_on "wxwidgets"
