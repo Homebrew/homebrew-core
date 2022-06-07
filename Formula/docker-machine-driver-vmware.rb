@@ -7,12 +7,13 @@ class DockerMachineDriverVmware < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3522b431d33e08ad8254960584cb82125d3654ef0967e278351e28a1a9b87a5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98cd633c17acd0978f43cb4d2f1443e6d21ad5acf56d93cf28c654f397791658"
-    sha256 cellar: :any_skip_relocation, monterey:       "3a22d6d877b2412af488570396f84ee8f009eeaf0e12a773ee6af1eac7683418"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9f7eef36f62d2b630deb5322a4f6b01e78d14e669fbfb88e352eb774e280dce6"
-    sha256 cellar: :any_skip_relocation, catalina:       "4bc310cd17c2d0fd65a4c52c31950ff23de1c2d70dd18affa8d6f94328c6d6cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcbbcda3d2fefbc6a36110af71741feca578e911bda0c54ba54ab9846e741dc4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8435fdd294f5ada321d652dec3eba0a01811576074e9d169b96d4bedcb31c630"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51441771e510e3263cfddbefe03c1306bd971624e35d5a44a3a8acb37be141c6"
+    sha256 cellar: :any_skip_relocation, monterey:       "ffa978d59f3f647229527029ab3a3a88fdd3bed7d7000214969acf218fc1d084"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a4cc3a076070538c9bacec55e70ed2fd454f860c5c3c9a5f3f1986abb8c7be88"
+    sha256 cellar: :any_skip_relocation, catalina:       "29427b8c6e0c23160406ffbd642c5838cf6e2d2e73de30c688630ae60f57f47d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2699119a539f3b9b7c86f900d5510d5b4cdb952ebdc60b7f5c12bf80f5d4932"
   end
 
   # Bump to 1.18 on the next release, if possible.
