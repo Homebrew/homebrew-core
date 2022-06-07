@@ -18,6 +18,7 @@ class S3Backer < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "curl"
+  uses_from_macos "expat"
 
   on_macos do
     disable! date: "2021-04-08", because: "requires closed-source macFUSE"
