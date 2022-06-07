@@ -40,6 +40,6 @@ class Chafa < Formula
 
   test do
     output = shell_output("#{bin}/chafa #{test_fixtures("test.png")}")
-    assert_equal 4, output.lines.count
+    assert_equal 2, output.lines.count
   end
 end
