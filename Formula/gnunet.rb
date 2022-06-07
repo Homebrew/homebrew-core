@@ -23,6 +23,7 @@ class Gnunet < Formula
   depends_on "libgcrypt"
   depends_on "libidn2"
   depends_on "libmicrohttpd"
+  depends_on "libpq"
   depends_on "libsodium"
   depends_on "libunistring"
 
