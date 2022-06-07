@@ -7,10 +7,8 @@ class Curlftpfs < Formula
   head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", using: :cvs
 
   bottle do
-    sha256 cellar: :any, catalina:    "2d3fea0aecd1856a956cedcf8ab992f217bd730371c6eb80900158c69f138aa8"
-    sha256 cellar: :any, mojave:      "b4f74999789cdb534784428530110421a256adc2b276ed8f372c8498e31719a0"
-    sha256 cellar: :any, high_sierra: "edb3da0b0ccc3b5b3004096f89174786ad75838b82b6c6b621855291744147f1"
-    sha256 cellar: :any, sierra:      "5734dbff6e2a7c18232d08d22fe64e19610f32b07e48b276996df759baaef407"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e852eed1a4b62dcf25f16c5cbbb1b32e023f40cb61b27498eab4f7ee569d6c39"
   end
 
   depends_on "autoconf" => :build
