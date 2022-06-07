@@ -63,7 +63,7 @@ class Tmux < Formula
     bash_completion.install resource("completion")
 
     if OS.mac?
-      (etc/"file").write <<~EOS
+      (etc/"tmux.conf").write <<~EOS
         set -g default-terminal screen-256color
       EOS
     end
