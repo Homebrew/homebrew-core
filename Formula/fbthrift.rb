@@ -4,6 +4,7 @@ class Fbthrift < Formula
   url "https://github.com/facebook/fbthrift/archive/v2022.06.06.00.tar.gz"
   sha256 "add554f5f4139f5fe16502a279f3b1233e3f30e56efa387728d59a10dcf6a053"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
@@ -35,7 +36,7 @@ class Fbthrift < Formula
   end
 
   on_linux do
-    depends_on "gcc@10"
+    depends_on "gcc"
   end
 
   fails_with :clang do
@@ -46,7 +47,6 @@ class Fbthrift < Formula
   end
 
   fails_with gcc: "5" # C++ 17
-  fails_with gcc: "11" # https://github.com/facebook/folly#ubuntu-lts-centos-stream-fedora
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
