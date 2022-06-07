@@ -28,7 +28,6 @@ class Mesa < Formula
   depends_on "libxcb"
   depends_on "libxdamage"
   depends_on "libxext"
-  depends_on "llvm" # can't use from macOS, it isn't found
 
   uses_from_macos "flex" => :build
 
@@ -48,6 +47,7 @@ class Mesa < Formula
     depends_on "libxv"
     depends_on "libxvmc"
     depends_on "libxxf86vm"
+    depends_on "llvm" # can't use from macOS, it isn't found
     depends_on "lm-sensors"
     depends_on "wayland"
     depends_on "wayland-protocols"
