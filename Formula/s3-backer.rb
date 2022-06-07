@@ -6,9 +6,7 @@ class S3Backer < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, catalina:    "f54a33c549b57b056808803b4cc722596a89bb9413d135161952903de975a3f5"
-    sha256 cellar: :any, mojave:      "346fe1b085490959e17acf9930878b46b8224bf20b7aada21a1a48ab963c0da3"
-    sha256 cellar: :any, high_sierra: "4d23cfd2c126c5f3efa1023e7c061830de6f1fdda69760bbd3ed70a169def288"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "055a37d8f9b6dceeeca5798a68fa931526e1c10144fa0201adf0d02188aaa465"
   end
 
   depends_on "autoconf" => :build
