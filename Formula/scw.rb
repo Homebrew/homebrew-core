@@ -17,7 +17,7 @@ class Scw < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./cmd/scw"
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/scw"
 
     zsh_output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"scw", "autocomplete", "script")
     (zsh_completion/"_scw").write zsh_output
