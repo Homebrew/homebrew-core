@@ -22,12 +22,11 @@ class Lxc < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOBIN"] = bin
-
     system "go", "build", *std_go_args, "./lxc"
   end
 
   test do
-    system "#{bin}/lxc", "--version"
+    output = JSON.parse(shell_output("#{bin}/lxc remote list --format json"))
+    assert_equal "https://images.linuxcontainers.org", output["images"]["Addr"]
   end
 end
