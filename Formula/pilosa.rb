@@ -18,13 +18,17 @@ class Pilosa < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    # Fix compilation with Go 1.18 - see https://github.com/golang/go/issues/51706
+    inreplace "go.mod",
+              "golang.org/x/sys v0.0.0-20190429190828-d89cdac9e872",
+              "golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a"
 
-    (buildpath/"src/github.com/pilosa/pilosa").install buildpath.children
-    cd "src/github.com/pilosa/pilosa" do
-      system "make", "build", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
-      prefix.install_metafiles
-    end
+    (buildpath/"go.sum").append_lines <<~EOS
+      golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a h1:dGzPydgVsqGcTRVwiLJ1jVbufYwmzD3LfVPLKsKg+0k=
+      golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+    EOS
+
+    system "make", "build", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
   end
 
   service do
