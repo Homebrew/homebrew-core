@@ -3,8 +3,8 @@ class Gambit < Formula
   homepage "http://www.gambit-project.org"
   url "https://github.com/gambitproject/gambit/archive/v16.0.2.tar.gz"
   sha256 "49837f2ccb9bb65dad2f3bba9c436c7a7df8711887e25f6bf54b074508a682d4"
-  license "Apache-2.0"
-  revision 1
+  license all_of: ["GPL-2.0-or-later", "Zlib"]
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "41bbabeace9094509b989c0c9927766bf9152ac536141af8a9192cecc28fad48"
