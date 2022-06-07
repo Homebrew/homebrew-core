@@ -18,14 +18,7 @@ class PowermanDockerize < Formula
   conflicts_with "dockerize", because: "powerman-dockerize and dockerize install conflicting executables"
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/powerman/dockerize").install buildpath.children
-    ENV.append_path "PATH", buildpath/"bin"
-
-    cd "src/github.com/powerman/dockerize" do
-      system "go", "build", *std_go_args(output: bin/"dockerize", ldflags: "-s -w -X main.ver=#{version}")
-    end
+    system "go", "build", *std_go_args(output: bin/"dockerize", ldflags: "-s -w -X main.ver=#{version}")
   end
 
   test do
