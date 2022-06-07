@@ -14,13 +14,12 @@ class Exiftool < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d440f446b4d3e17f6b03ca37dba81135e6c886abef7850fe951dd7ef32200d3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45c78f2098a22750e6040506491726d8ab34b6d5b0b39dd7357d781f3a8b423e"
-    sha256 cellar: :any_skip_relocation, monterey:       "89315618ad46482d4cba44899113fbcd47fefe2b2c87c97f261c7d7fa8f882ed"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c0ef378ec45afc7dafa0b76653ac643759b3bdaade2785cdcc41ad0d830f4cee"
-    sha256 cellar: :any_skip_relocation, catalina:       "c283bbbba0855fdb085630e7e6393febc820d357fcd600df9e41d1b2c4f941bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6d408ef0f465f15b8165594a28be11114f97f992d5921a4eb5732855101fe91"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d262f00f8f26d69838dad118928276859984c4b69885c606cb3bcf7eee44452"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "52deb0d5fdb3e25412439bdc3c0a9f0fd827e4d9903cb37d4a0e50be3963e4ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "b5087be17a279128ca05aafd3c2332dff4ccadbb3e13e808596b65a8b2a87b5e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2d1fd5bd75287ece6407d067a30a89886e1fcaefd42afa3f4d6ca07f2bb9c6e5"
+    sha256 cellar: :any_skip_relocation, catalina:       "80da9ac3b1b54b839ff144a8cd35c0785e431bcd95c4aa437a3f8c82ac959e8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "975e2a4b41e750db055cfd0e40c87fce2e49bd0cbef810ebc8e00a12e3e9f598"
   end
 
   uses_from_macos "perl"
