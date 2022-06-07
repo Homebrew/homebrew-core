@@ -17,14 +17,10 @@ class Dvm < Formula
   depends_on "go" => :build
 
   def install
-    (buildpath/"src/github.com/howtowhale/dvm").install buildpath.children
-
-    cd "src/github.com/howtowhale/dvm" do
-      system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true"
-      prefix.install "dvm.sh"
-      bash_completion.install "bash_completion" => "dvm"
-      (prefix/"dvm-helper").install "dvm-helper/dvm-helper"
-    end
+    system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true"
+    prefix.install "dvm.sh"
+    bash_completion.install "bash_completion" => "dvm"
+    (prefix/"dvm-helper").install "dvm-helper/dvm-helper"
   end
 
   def caveats
