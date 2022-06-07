@@ -18,16 +18,12 @@ class Kepubify < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-
     %w[
       kepubify
       covergen
       seriesmeta
     ].each do |p|
-      system "go", "build", "-o", bin/p,
-                   "-ldflags", "-s -w -X main.version=#{version}",
-                   "./cmd/#{p}"
+      system "go", "build", *std_go_args(output: bin/p, ldflags: "-s -w -X main.version=#{version}"), "./cmd/#{p}"
     end
   end
 
