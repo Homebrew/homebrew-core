@@ -1,8 +1,8 @@
 class MscGenerator < Formula
   desc "Draws signalling charts from textual description"
   homepage "https://sourceforge.net/p/msc-generator"
-  url "https://gitlab.com/msc-generator/msc-generator/-/archive/v7.3/msc-generator-v7.3.tar.gz"
-  sha256 "6f5dd835e731d7682da0f000e68e9f7ca756e2c794c6117d8264e32649a43fd2"
+  url "https://gitlab.com/msc-generator/msc-generator/-/archive/z-7.3-fixes/msc-generator-z-7.3-fixes.tar.gz"
+  sha256 "283561fe2700a4f1b98c52d7758ae358b2c49803f7cfbd77ef064f41699bab0a"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -33,6 +33,7 @@ class MscGenerator < Formula
   end
 
   def install
+    system "./autogen"
     system "./configure", "--prefix=#{prefix}", "--disable-font-checks"
     # Dance around upstream trying to build everything in doc/ which we don't do for now
     # system "make", "install"
