@@ -39,7 +39,7 @@ class Driftctl < Formula
 
   test do
     assert_match "v#{version}", shell_output("#{bin}/driftctl version")
-    assert_match "Downloading terraform provider: aws",
+    assert_match "Could not find a way to authenticate on AWS!",
       shell_output("#{bin}/driftctl --no-version-check scan 2>&1", 2)
   end
 end
