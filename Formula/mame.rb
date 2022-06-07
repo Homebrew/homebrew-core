@@ -55,6 +55,13 @@ class Mame < Formula
   fails_with gcc: "5"
   fails_with gcc: "6"
 
+  # Apply upstream commit to fix build with newer GCC.
+  # Remove with next release.
+  patch do
+    url "https://github.com/mamedev/mame/commit/034e0d2c87a16e90783f742f39850dc7d85def1f.patch?full_index=1"
+    sha256 "cc7da44c9ca8caca26756175340644e1284a6d3692a1aa7320e85167a31e85c8"
+  end
+
   def install
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
