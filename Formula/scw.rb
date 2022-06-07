@@ -6,12 +6,13 @@ class Scw < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5e0ac68f17ccae80eaedb97c664036e83a3895de6c6270e170c7d3334ad99d5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffdeaa85b9fcfaf5bcb6c64d396fc0d3f7ef7fd32c0022386f6cabf4c0e41288"
-    sha256 cellar: :any_skip_relocation, monterey:       "0987c424fd44bf9db4e4f1216afe91d5feada2163bd65326c8bd1cbdafa98e96"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b899a77c674e34c350ca9f87c3afc8bd91b146eb5ddf9e99af27ae49e082d8c4"
-    sha256 cellar: :any_skip_relocation, catalina:       "36bfb953aff18e6fc48f2f43c00b805ee21339a04508b8829b9e5661afba6a46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2417dd45ec659a6b2005e1bff6c6f85cf24d4c5ed1ca9e16d94d05d4e1b6df2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "523bcbc6362116154c166295771973e6b4588970287a7a3f068c9a5d92a1415a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8e62fc4837bcf1a4b6c6c35e89cd04fccf4833b17145597daf4bc43a354faca"
+    sha256 cellar: :any_skip_relocation, monterey:       "f041da73aefc5527c938a79e309d63865268c778a37a98e479627b255c069b8c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "75c80081d91db3d17a6a198e312be40a0801b3b48df3f607fb8c422ea2c7bac9"
+    sha256 cellar: :any_skip_relocation, catalina:       "e5f41d0e35b06d7f6c00d50ad5c5f62f4acda110395844956e5be5900bb0c7a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfbce028ad90322415bf84b405d6e96b45cfc49104c6b9b0eb1a2a0370982d11"
   end
 
   depends_on "go" => :build
