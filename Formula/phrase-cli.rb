@@ -13,7 +13,7 @@ class PhraseCli < Formula
       -w
       -X=github.com/phrase/phrase-cli/cmd.PHRASE_CLIENT_VERSION=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    system "go", "build", *std_go_args(ldflags: ldflags)
     bin.install_symlink "phrase-cli" => "phrase"
   end
 
