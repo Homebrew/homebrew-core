@@ -12,7 +12,7 @@ class DockerCompletion < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "96e060ddd2136c21e8367c8ae80936c91c2d5e78ccd41859c8d09001bcdfd067"
+    sha256 cellar: :any_skip_relocation, all: "508154ce1c00c83edaa002c6ed127e31dfbd771a8c142db0695b74dd8c623058"
   end
 
   conflicts_with "docker",
