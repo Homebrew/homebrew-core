@@ -28,6 +28,7 @@ class Gnunet < Formula
   depends_on "libunistring"
 
   uses_from_macos "curl"
+  uses_from_macos "python" => :build
   uses_from_macos "sqlite"
 
   def install
