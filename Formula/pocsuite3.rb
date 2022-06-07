@@ -3,8 +3,8 @@ class Pocsuite3 < Formula
 
   desc "Open-sourced remote vulnerability testing framework"
   homepage "https://pocsuite.org/"
-  url "https://files.pythonhosted.org/packages/bc/27/c16b76c111e5e69175484c3f9fef1c72efc0a506392af1acafe8e0602d35/pocsuite3-1.9.3.tar.gz"
-  sha256 "58e1b3d3567bf5f7d9e9ff7e88118280c82991858b0a7df9001030ac6dfbe399"
+  url "https://files.pythonhosted.org/packages/d6/4a/37c63628ec506d749042701907d5666df36e60b81ca0373d874063bbd5ee/pocsuite3-1.9.4.tar.gz"
+  sha256 "06a6d665e6a4cabd7ebb45e6c348f44a8a1072acc8a6ae613b599e42060c6fed"
   license "GPL-2.0-only"
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
@@ -52,8 +52,8 @@ class Pocsuite3 < Formula
   end
 
   resource "Faker" do
-    url "https://files.pythonhosted.org/packages/5f/83/17b69d1fb2104be9f11624e29d53c084932c0c88a6a87a81d534916eb11c/Faker-13.11.1.tar.gz"
-    sha256 "cad1f69d72a68878cd67855140b6fe3e44c11628971cd838595d289c98bc45de"
+    url "https://files.pythonhosted.org/packages/b9/0f/e73c16b978961ef519982420b9c2827c8efcb814593d95965999409858e8/Faker-13.12.1.tar.gz"
+    sha256 "fb95f956bac59c90f54543919d5c5ef41625e12a0773e5aa08c9b9c62ba58fb3"
   end
 
   resource "idna" do
