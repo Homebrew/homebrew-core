@@ -41,12 +41,12 @@ class Minetest < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "d0c1097956b717f56544865134f04bb95028aa31b517749414d5370c9085977d"
-    sha256 cellar: :any, arm64_big_sur:  "1c53d428c75053c524f66d441eb969185826e4d6b85b2f5315a219f9a805c7da"
-    sha256 cellar: :any, monterey:       "323b69f263666c94f7f1d663da71a1fd43ab67c1f4ac24928c809cf2a17fd3ca"
-    sha256 cellar: :any, big_sur:        "503c1267f5ec15cbea9f0d0b4b3f2f51e610c86f5ff4aafd97eb2ef492294b27"
-    sha256 cellar: :any, catalina:       "71c7c50c24d662d3fbb6972c9d4b45e3adb35a0af91bc6ac9b20ba2a4a511e80"
-    sha256               x86_64_linux:   "a65f247b5013345444d48341afbb9b410a42adcddb60663891c786768e81592c"
+    sha256 cellar: :any, arm64_monterey: "cdc7d369d90affea485e8bcc63f2967a92d21ad18bdff4e152edff651d0a2c49"
+    sha256 cellar: :any, arm64_big_sur:  "9c24a32096f8928221026f96bf0577f88a8b0e92ac09c37fa74b3ad56656b6f4"
+    sha256 cellar: :any, monterey:       "0edb70c8e765a07f5d76a1f0bef95c178450c70961aa15d1f978f9d8d00cc67d"
+    sha256 cellar: :any, big_sur:        "71fe30043e317d083bdd51dacad821dcfbef76413b0069c01eb310a130cbd9db"
+    sha256 cellar: :any, catalina:       "0d918c15c0df1d80e8f332789e251a87f84f3e2ba34e314780bf07a495d45580"
+    sha256               x86_64_linux:   "cb4db8c60cc48312c53838dc636c2f5c8b401cab8bd108d3bc4e22e4d88f5e41"
   end
 
   head do
