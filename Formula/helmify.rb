@@ -8,12 +8,12 @@ class Helmify < Formula
   head "https://github.com/arttor/helmify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cef8cd4760798dc9eb966857e1c614bf91c78cfe3aafbf930a7fd4d32b30a0a2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e68f0e9274faf61830ebb2156f2edb3877a86e94f41d35eb77685dd2252f0bfb"
-    sha256 cellar: :any_skip_relocation, monterey:       "3d615588d2f06e755cba838168270b7bf3d191cfb8353a419345df131804e40d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ea7c24fd72e2022f9e371e8f2f96dd0e83a6161d38dbdf4b917639c70500e122"
-    sha256 cellar: :any_skip_relocation, catalina:       "1bb265ae23580f56ff3126570ec2401e82aa4d0550cfe02a037fa7b779e98996"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f485c5ce0cdce27ed86fe54a913728410245c9e49b88f7334d3a9c5968ceb6a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "643eed3d48ac4b22fea2c92f45e1d246e58c0b9e3ce3207035ee6321e5a73327"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b3c432acbf2002f55e01a97896f7c42cdf86b6e8ff07bdf46cb4d85d050d16e"
+    sha256 cellar: :any_skip_relocation, monterey:       "e19798b0feed40368127bedd58404c8a6a7e5cfce949c2c38609eb2b203e2a63"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ad0a381f606960de3462de66e746990aa6f65c1d04b008adb830066a66145920"
+    sha256 cellar: :any_skip_relocation, catalina:       "60856b6382dd86c84f9177a513aa4b57de028a6aeebd76abfd1c731b04d7ddcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d47b3bef45543611f2b8a13a0e4a1ae2a5ebfd9178b179703afeeefc8aa9dccc"
   end
 
   depends_on "go" => :build
