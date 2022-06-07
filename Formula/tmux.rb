@@ -61,17 +61,18 @@ class Tmux < Formula
 
     pkgshare.install "example_tmux.conf"
     bash_completion.install resource("completion")
+
+    if OS.mac?
+      (etc/"file").write <<~EOS
+        set -g default-terminal screen-256color
+      EOS
+    end
   end
 
   def caveats
     <<~EOS
       Example configuration has been installed to:
         #{opt_pkgshare}
-
-      The default terminal for tmux is now tmux-256color which may not be
-      available in the environment. To continue using the older
-      screen-256color terminal, please do the following:
-        echo "set -g default-terminal screen-256color" >> ~/.tmux.conf
     EOS
   end
 
