@@ -7,12 +7,12 @@ class Gambit < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "41bbabeace9094509b989c0c9927766bf9152ac536141af8a9192cecc28fad48"
-    sha256 cellar: :any,                 arm64_big_sur:  "e7ad1df8904644a889496a9080ff1b988521daee6e39b701584ac78a9be70408"
-    sha256 cellar: :any,                 monterey:       "20a9da764deb1412b480a02594f73f11f3ea30096e00532550b31d1b7097aeed"
-    sha256 cellar: :any,                 big_sur:        "48efe04b8b27733e94777c0a1f0d87474718075b8591ff08913a475070cb9ec9"
-    sha256 cellar: :any,                 catalina:       "1ed09ec20d96eb987aa568a26cf2203386d99b01ff3603de632ad20ef6948b24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95e129d1fdcd1a734e96c5c73517760465e35b178895081f09c9d172524f2fbf"
+    sha256 cellar: :any,                 arm64_monterey: "5de5e2b1de2ed63312ece5a6f674df1d38d01b720910c89ab12e732d3de56e40"
+    sha256 cellar: :any,                 arm64_big_sur:  "c97e03ee045fc6cb0df0f0cfb3812b9037524765a3adcda3ffa47358b8c242b4"
+    sha256 cellar: :any,                 monterey:       "b4a0e0e82274595c8be7e31229cd8fd2eee7db7eccc3519c9c06b243dc7d33e2"
+    sha256 cellar: :any,                 big_sur:        "c3f908600efd465c3857f5f0a9f14367e057f37119c554fdf165632fc87ed777"
+    sha256 cellar: :any,                 catalina:       "908361fb788eb07b5eb5d4d54377c23ad995ee55b509d5f40b75b988ff1bd445"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05dfaa8cfe56c8c444af6ee95abf4a04ba00ab69db38cb877f0c1d0812e336d0"
   end
 
   depends_on "autoconf" => :build
