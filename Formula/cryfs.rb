@@ -8,11 +8,7 @@ class Cryfs < Formula
   license "LGPL-3.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, catalina:    "3a5986dc3775877188cbf4442bd72c6f20ffe1d384fefebac8041c0d8f9ff09b"
-    sha256 cellar: :any, mojave:      "cc94e5ba2d13205b0199e59779cecd7dd094965ee22c4ebf92d53ecaa65f8be7"
-    sha256 cellar: :any, high_sierra: "daa6d8961ef98fc509e806614c4daf6f589ee7d76bbb483066962b6bd700a2fe"
-    sha256 cellar: :any, sierra:      "252aa90f3281ccff1b9d0c6292856df1a08be17ada7aacd320f05d2d2508565f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "09cc7d9ab0b5b8cf54ae558e79e76723974a7f2a026ceaa680810a9e33dd7e12"
   end
 
   head do
