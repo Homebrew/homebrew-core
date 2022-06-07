@@ -20,17 +20,7 @@ class DockerMachineDriverVmware < Formula
   depends_on "docker-machine"
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-
-    dir = buildpath/"src/github.com/machine-drivers/docker-machine-driver-vmware"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", "#{bin}/docker-machine-driver-vmware",
-            "-ldflags", "-X main.version=#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do
