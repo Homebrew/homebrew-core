@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/ab/66/fa927b5c46e526e8cedd1327e93687a1b1ad518568a6a20d508f9c2a7c2d/checkov-2.0.1185.tar.gz"
-  sha256 "bb81475046db93e98d58363a753a9a5a22ebc324a041be8eb423ea5ef46af407"
+  url "https://files.pythonhosted.org/packages/d0/71/058b52c0824bceb3693145d81c216b5867e9f19d9dcccfc59a88f0ab3cf0/checkov-2.0.1200.tar.gz"
+  sha256 "51f236b54213915b0737a370184bba667b3a5d22af93c4c005b224d2464ecd75"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/9f/ec/adbde33327d791ca0e61ffa5294c26d87147c74c78451813eaeb8b2ebcd5/boto3-1.24.1.tar.gz"
-    sha256 "cf705c0c2d049b0adb564b2cd60b9ac0d4405653b29c33e2a1f1fdde37f476c0"
+    url "https://files.pythonhosted.org/packages/c3/eb/8585cdeff525464157e44df5e5dd41fabf4c0f8451b3702698860ae5233d/boto3-1.24.4.tar.gz"
+    sha256 "8bfb695cbe27d2ee9730ea4e1c894ef1fc255219d3fc7bc804171943ae8d7914"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/ec/c3/f4c602c8afd5d7ac0299101864543d10c8387d446032a18a81f08cc01a93/botocore-1.27.1.tar.gz"
-    sha256 "2702181c3b7cad75b64b4a758f862d46da50ed8dd5329870d69c8c187b877b94"
+    url "https://files.pythonhosted.org/packages/b4/77/3e189fcd0e7425bd24743a608673373521726436c6bccffa12bfb373988a/botocore-1.27.4.tar.gz"
+    sha256 "866ac4ad7de326cfb6956462cc224eee1ef1c17987c2313c6fecdbe017e753fc"
   end
 
   resource "cached-property" do
@@ -232,8 +232,8 @@ class Checkov < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/4a/e2/1f9d6cf8562cf2bde58c102db70fe48d2d9652ec256f86bab6b279601b0d/networkx-2.8.2.tar.gz"
-    sha256 "ae99c9b0d35e5b4a62cf1cfea01e5b3633d8d02f4a0ead69685b6e7de5b85eab"
+    url "https://files.pythonhosted.org/packages/78/6c/85c0664365d32a32806bd12d46ea5dc466aa3aa7e8086e5daf3505b8cf33/networkx-2.8.3.tar.gz"
+    sha256 "67fab04a955a73eb660fe7bf281b6fa71a003bc6e23a92d2f6227654c5223dbe"
   end
 
   resource "packageurl-python" do
@@ -302,8 +302,8 @@ class Checkov < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/b6/d9/b6971b194833ee2eccf4591f9097833b65e669cce0f8fc0ff2a118238f63/regex-2022.4.24.tar.gz"
-    sha256 "92183e9180c392371079262879c6532ccf55f808e6900df5d9f03c9ca8807255"
+    url "https://files.pythonhosted.org/packages/1a/6b/9b6b8284e88105acbcb39e71bd3bfcaffcd36c2601152ae23b00e6e04d91/regex-2022.6.2.tar.gz"
+    sha256 "f7b43acb2c46fb2cd506965b2d9cf4c5e64c9c612bac26c1187933c7296bf08c"
   end
 
   resource "requests" do
