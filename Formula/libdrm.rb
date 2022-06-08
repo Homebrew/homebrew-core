@@ -14,7 +14,6 @@ class Libdrm < Formula
     sha256 x86_64_linux: "1ca8eb09c3a8c1b9a64dc05d030f0e544456e18fae2f30eca0a6a2729fe3943b"
   end
 
-  depends_on "cairo" => :build
   depends_on "docutils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -24,7 +23,7 @@ class Libdrm < Formula
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, ".."
+      system "meson", *std_meson_args, "-Dcairo-tests=false", ".."
       system "ninja"
       system "ninja", "install"
     end
