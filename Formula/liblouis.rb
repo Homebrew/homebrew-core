@@ -6,12 +6,12 @@ class Liblouis < Formula
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 arm64_monterey: "edaa66d2c114d467b4252be12f0dadff048cf217291278ba0389b2c66bd8f7f7"
-    sha256 arm64_big_sur:  "005f73c85caeebce3ece98318ed9cd011f8c7402fbc73fec9ea7a9fa1dfc7df6"
-    sha256 monterey:       "c9deea8618a1fbe77a00c2bbbb09bae690249e18e0099016756ca36ee985ce8d"
-    sha256 big_sur:        "84870b729313a627a984a0c844f18da7d8548c1ea4eb7589b37b1828f9f77557"
-    sha256 catalina:       "2b05f8113124d98e8bf35943508ca1fe2aa3fc9f411849212bef04c538f13136"
-    sha256 x86_64_linux:   "782c6f0b15b6ea597c94d8b97ddba3b35da0ba220f949fee630186d30cdd41f7"
+    sha256 arm64_monterey: "e769de4bbb3c436190d0d17c385b71970852081d0b09d103e0e823e7aefc9f57"
+    sha256 arm64_big_sur:  "4f36aef2fa2137fec76ec8c48e70a12a0f869be962c664b691cb38f0ba918c38"
+    sha256 monterey:       "3edaaeb5d262ebcbe82261b530f1673352c5758be1fce71c2c4aaba004e5e22d"
+    sha256 big_sur:        "507f441db29d4922ec57910d4bd4a523a5217b36d7d55fb336425ba0ac541732"
+    sha256 catalina:       "e4f9b1cd8cde982282ce2f8c2334d7723ca663e3e4e7b72c7b0389d7288bc329"
+    sha256 x86_64_linux:   "da6e17924278bf881f62975b42cd482159152870bb3642efcc694b9832fcc7c3"
   end
 
   head do
