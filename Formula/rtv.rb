@@ -19,7 +19,8 @@ class Rtv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "927350083466dd294f9391c50b9ed188cfbe213875683267be60d3a8b2740d5e"
   end
 
-  deprecate! date: "2019-06-02", because: :repo_archived
+  # Deprecation added 2020-06-15 / deprecated since 2019-06-02
+  disable! date: "2022-06-08", because: :repo_archived
 
   depends_on "python@3.10"
   depends_on "six"
