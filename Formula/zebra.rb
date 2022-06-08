@@ -11,12 +11,12 @@ class Zebra < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0d08d76d0ef45a572673b738cc53cc93eb09a02480962bf6d34d57cb2da00661"
-    sha256 arm64_big_sur:  "011c175d082719c8f52007a216c8f25eb444243dcf191510d20acc683b942d3b"
-    sha256 monterey:       "3a9ae308213d53da1210f33dc0c942a5b452c1cb92e7cce606ef9298bed177af"
-    sha256 big_sur:        "fb1792f314dc578f4367f72959f02cb090c62e0abd35105dbeb7dc008de807ae"
-    sha256 catalina:       "21f7799240d6b2611cc003dc32bce5f9be51759777d51d46cbba6fb3dd4e59a1"
-    sha256 x86_64_linux:   "81732c0caf9eb5541275b1e4028dcb50becd5ac4cc1bacc0d6189fc4a3827cef"
+    sha256 arm64_monterey: "3151e5dcd9a07585d8f6d4f81235394e665a2443c35a45a89f673801c6150971"
+    sha256 arm64_big_sur:  "eb74e46a14ff57b506bd931116576cd0254274ea64538ee694cd2a1f87f0f09c"
+    sha256 monterey:       "b09a16015fa21a43563b01a182c6fa7ccfe277cba465f07f01c770ee36b8de11"
+    sha256 big_sur:        "f03be76a850297ab5ca3b56f989f8cc2ca05034e83be744cf46ea38d903ecacb"
+    sha256 catalina:       "56d4d4d9606a9f1da02ec47aa53d06d87e6d216b66dbe90510dff70a9f3313b5"
+    sha256 x86_64_linux:   "1c46c43a552fc8e9572efa1b294e22b2635c089417d7d0e33c79de3c0e6868b8"
   end
 
   depends_on "icu4c"
