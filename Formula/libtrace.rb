@@ -1,8 +1,8 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://research.wand.net.nz/software/libtrace.php"
-  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.17.tar.bz2"
-  sha256 "5db6572467122581c44ce505327d7882bc21d9bad4bee8c57a147cc93a29d1ac"
+  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.18.tar.bz2"
+  sha256 "7ee1440b9f29ca31269189b9aa8904c9e19841696f2dd4da5c40d804e5977aea"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -26,7 +26,7 @@ class Libtrace < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "libpcap"
 
-  resource "8021x.pcap" do
+  resource "homebrew-8021x.pcap" do
     url "https://github.com/LibtraceTeam/libtrace/raw/9e82eabc39bc491c74cc4215d7eda5f07b85a8f5/test/traces/8021x.pcap"
     sha256 "aa036e997d7bec2fa3d387e3ad669eba461036b9a89b79dcf63017a2c4dac725"
   end
@@ -38,7 +38,7 @@ class Libtrace < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -252,7 +252,7 @@ class Libtrace < Formula
       }
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-ltrace", "-o", "test"
-    resource("8021x.pcap").stage testpath
+    resource("homebrew-8021x.pcap").stage testpath
     system "./test", testpath/"8021x.pcap"
   end
 end
