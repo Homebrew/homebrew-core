@@ -17,7 +17,7 @@ class Vapor < Formula
 
   depends_on xcode: "11.4"
 
-  uses_from_macos "swift"
+  uses_from_macos "swift", since: :big_sur
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc", \
