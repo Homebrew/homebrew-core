@@ -19,8 +19,8 @@ class Gdbgui < Formula
   depends_on "python@3.10"
 
   resource "bidict" do
-    url "https://files.pythonhosted.org/packages/bd/7c/83fbbc8568be511bc48704b97ef58f67ff2ab85ec4fcd1dad12cd2323c32/bidict-0.21.2.tar.gz"
-    sha256 "4fa46f7ff96dc244abfc437383d987404ae861df797e2fd5b190e233c302be09"
+    url "https://files.pythonhosted.org/packages/2b/84/159749556b9c49ea4489dadeb94d44f05d6033d1db3af4c83120ecac5b15/bidict-0.22.0.tar.gz"
+    sha256 "5c826b3e15e97cc6e615de295756847c282a79b79c5430d3bfc909b1ac9f5bd8"
   end
 
   resource "Brotli" do
@@ -29,13 +29,13 @@ class Gdbgui < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
+    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "Flask" do
-    url "https://files.pythonhosted.org/packages/c0/df/c516b5f38a670b6b0de604c2637ed5860db03692c2f8542fd1f60c2552a7/Flask-2.0.1.tar.gz"
-    sha256 "1c4c257b1892aec1398784c63791cbaa43062f1f7aeb555c4da961b20ee68f55"
+    url "https://files.pythonhosted.org/packages/d3/3c/94f38d4db919a9326a706ad56f05a7e6f0c8f7b7d93e2997cca54d3bc14b/Flask-2.1.2.tar.gz"
+    sha256 "315ded2ddf8a6281567edb27393010fe3406188bafbfe65a3339d5787d89e477"
   end
 
   resource "Flask-Compress" do
@@ -44,48 +44,48 @@ class Gdbgui < Formula
   end
 
   resource "Flask-SocketIO" do
-    url "https://files.pythonhosted.org/packages/5f/a5/5c03d62fdbdf0343345c8cca19d4961d8958eba54449230df2b0080b7011/Flask-SocketIO-5.1.1.tar.gz"
-    sha256 "1efdaacc7a26e94f2b197a80079b1058f6aa644a6094c0a322349e2b9c41f6b1"
+    url "https://files.pythonhosted.org/packages/27/5c/4fea659fefebfec25dfda642ce9ee53fa208d3851261ff69178b47310b33/Flask-SocketIO-5.1.2.tar.gz"
+    sha256 "933bcc887ef463a9b78d76f8f86174f63a32d12a5406b99f452cdf3b129ebba3"
   end
 
   resource "itsdangerous" do
-    url "https://files.pythonhosted.org/packages/58/66/d6c5859dcac92b442626427a8c7a42322068c5cd5d4a463ce78b93f730b7/itsdangerous-2.0.1.tar.gz"
-    sha256 "9e724d68fc22902a1435351f84c3fb8623f303fffcc566a4cb952df8c572cff0"
+    url "https://files.pythonhosted.org/packages/7f/a1/d3fb83e7a61fa0c0d3d08ad0a94ddbeff3731c05212617dff3a94e097f08/itsdangerous-2.1.2.tar.gz"
+    sha256 "5dbbc68b317e5e42f327f9021763545dc3fc3bfe22e6deb96aaf1fc38874156a"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/39/11/8076571afd97303dfeb6e466f27187ca4970918d4b36d5326725514d3ed3/Jinja2-3.0.1.tar.gz"
-    sha256 "703f484b47a6af502e743c9122595cc812b0271f661722403114f71a79d0f5a4"
+    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
+    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
-    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "pygdbmi" do
-    url "https://files.pythonhosted.org/packages/a8/0a/54f3f197a4a097d36b0025b600dba12a269b92c380a45c9f6bbb4635e0d0/pygdbmi-0.10.0.1.tar.gz"
-    sha256 "308a8cc7a002e90e3588f5a480127d7f5d95ebd0ba9993aeeee985aa418e78be"
+    url "https://files.pythonhosted.org/packages/f5/74/67e1d69287950e527798db40a4478a4a5cd7da08130de29a74c3433a016d/pygdbmi-0.10.0.2.tar.gz"
+    sha256 "81dfc9e7ffd49f5006685a243905cee72216303e5ea42f6588793dfb8c8407ab"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
-    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
+    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
+    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
   end
 
   resource "python-engineio" do
-    url "https://files.pythonhosted.org/packages/74/1e/33e402011bb2fe33ab12762e5a66d66df1d47302a23e9c5e8310e11b1403/python-engineio-4.2.1.tar.gz"
-    sha256 "d510329b6d8ed5662547862f58bc73659ae62defa66b66d745ba021de112fa62"
+    url "https://files.pythonhosted.org/packages/dc/0f/44e7126a0f90c983e3fa4af0b976cd6bef313ad9786f099e30a54cc44660/python-engineio-4.3.2.tar.gz"
+    sha256 "e02f8d6686663408533726be2d4ceb403914fd17285d247791c6a91623777bdd"
   end
 
   resource "python-socketio" do
-    url "https://files.pythonhosted.org/packages/72/70/9b992f4b8adfcbf0724c079c18629d83f20b36fb0eb64d4fdf874054becf/python-socketio-5.4.0.tar.gz"
-    sha256 "ca807c9e1f168e96dea412d64dd834fb47c470d27fd83da0504aa4b248ba2544"
+    url "https://files.pythonhosted.org/packages/eb/a4/43e5f832831c09a0a9cf05d812d4904f74c5350df6c9ec98d80f78e43f4a/python-socketio-5.6.0.tar.gz"
+    sha256 "f1f2eabdea500dbcb384902418cacedd98b7fe4d0fed818415ddf8af10e428fa"
   end
 
   resource "Werkzeug" do
-    url "https://files.pythonhosted.org/packages/e3/bd/a49e5f756b2f29010b5be321fe02478660dbf8fefea3f078493c86011b5f/Werkzeug-2.0.1.tar.gz"
-    sha256 "1de1db30d010ff1af14a009224ec49ab2329ad2cde454c8a708130642d579c42"
+    url "https://files.pythonhosted.org/packages/10/cf/97eb1a3847c01ae53e8376bc21145555ac95279523a935963dc8ff96c50b/Werkzeug-2.1.2.tar.gz"
+    sha256 "1ce08e8093ed67d638d63879fd1ba3735817f7a80de3674d293f5984f25fb6e6"
   end
 
   def install
