@@ -23,27 +23,21 @@ class X264 < Formula
 
       # Fetch the `stable` Git branch Atom feed
       stable_page_data = Homebrew::Livecheck::Strategy.page_content("https://code.videolan.org/videolan/x264/-/commits/stable?format=atom")
-      next [] if stable_page_data[:content].blank?
+      next if stable_page_data[:content].blank?
 
       # Extract commit hashes from the feed content
       commit_hashes = stable_page_data[:content].scan(%r{/commit/([\da-z]+)}i).flatten
-      next [] if commit_hashes.blank?
+      next if commit_hashes.blank?
 
       # Only keep versions with a matching commit hash in the `stable` branch
       matches.map do |match|
-        next nil unless match.length >= 2
-
         release_hash = match[1]
-        commit_in_stable = false
-        commit_hashes.each do |commit_hash|
-          next unless commit_hash.start_with?(release_hash)
-
-          commit_in_stable = true
-          break
+        commit_in_stable = commit_hashes.any? do |commit_hash|
+          commit_hash.start_with?(release_hash)
         end
 
-        commit_in_stable ? match[0] : nil
-      end.compact
+        match[0] if commit_in_stable
+      end
     end
   end
 
