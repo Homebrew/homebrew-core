@@ -12,12 +12,12 @@ class ErlangAT24 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "327004c44baeff85ea1c8cc386980795df7ba99a0910319fab7e5e44c9677c0f"
-    sha256 cellar: :any,                 arm64_big_sur:  "08980ae3000365321b15713aebdb2870d16d7d5f893f1853ef9a1c2ab68b58f8"
-    sha256 cellar: :any,                 monterey:       "9f595c4511740db7b368222a755e6ec4a2e96c19c267641f7752285c2e526a85"
-    sha256 cellar: :any,                 big_sur:        "41eb90e71e7796d0ee4a98621015e23087c0b91338911bee1486c49722f8f6ac"
-    sha256 cellar: :any,                 catalina:       "f0bf8f15dbc0758f64a979e59d98d0752106e86d26a7ea0b66f40564f52656a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2f0319ad284c7f0e6ba487b90c1b04c0c5aaf938175256232e6642b6c5ce55f"
+    sha256 cellar: :any,                 arm64_monterey: "0bfe42a56f8c20941068547b35d3631449b8df1edb5a334ef5f4d09ce529e5e7"
+    sha256 cellar: :any,                 arm64_big_sur:  "2f833ded35fa4e2dd6de482a00ec4a9bcddd498cb468d233ee2173d50172b39f"
+    sha256 cellar: :any,                 monterey:       "dd35aac6b8d4720da99e948a32a17d32f72a9aed4ea3f67a53de94da119bdb8a"
+    sha256 cellar: :any,                 big_sur:        "6c938d1a9f93444d5790d43e9ea0529e16d5b3926920ef02731c7b73faec5471"
+    sha256 cellar: :any,                 catalina:       "9ced7aeae75705541ab6992b65221c4a4b6670cb618cdc06c523b7edb60f0939"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65d283aae434807295e418df760dbb5fd59c507fa5bc88f393132c5ad778e715"
   end
 
   keg_only :versioned_formula
