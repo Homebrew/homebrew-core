@@ -9,12 +9,12 @@ class GatsbyCli < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_monterey: "e9c7b70fdf39f82f2e4b2a60fa15e9f1d481a1c0ba701a7a50610489765cf54e"
-    sha256                               arm64_big_sur:  "449a69c69a135d74ed649eb9c1ae924272c673e676b5ab91e18d39a7d9d63ca3"
-    sha256                               monterey:       "fc8ec3415bbca8c45b8b8eae4084a59bbdcd846e3c9e1f963b4a0b18adbd1eb5"
-    sha256                               big_sur:        "b7799b3741c9c0c8e5a4c53faad4395af82cdfadf90c41ea43f2952c2c8d6696"
-    sha256                               catalina:       "e7095d3fe975262ae4df17cab4ffd687aa3d55070b2d5158f9131330c5f85801"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a13c05685afa0b966e1c8b9f991f22a083420604bec7a28898a36a5effa1b566"
+    sha256                               arm64_monterey: "dae77ab968764511ca40234fcb0a9b0684353fb3913a9cf212315be053ee237b"
+    sha256                               arm64_big_sur:  "125f047e62ae2ee5df1145ea29ed65c87ac66100d906d2245583781abb5bcb98"
+    sha256                               monterey:       "d05d8410fce7adc1dd3b015b8a562e0757e98315a98928f454c1b5ae49dd5905"
+    sha256                               big_sur:        "dad4c8eb0f617e16910a5f6c7168435847f052ce6dc3752a39072980642a43c4"
+    sha256                               catalina:       "e73c849347f2509fcf012109df611b9410bf02e183be224af38cd2b9682591bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c8b687b1d1f9d6422a876ca200eba5070314970ac492950cb04fe94d531e05e"
   end
 
   depends_on "node"
