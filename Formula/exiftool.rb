@@ -30,7 +30,7 @@ class Exiftool < Formula
     inreplace "lib/Image/ExifTool.pm", "LargeFileSupport => undef", "LargeFileSupport => 1"
 
     # replace the hard-coded path to the lib directory
-    inreplace "exiftool", "$1/lib", libexec/"lib"
+    inreplace "exiftool", "unshift @INC, $incDir;", "unshift @INC, \"#{libexec}/lib\";"
 
     system "perl", "Makefile.PL"
     system "make", "all"
