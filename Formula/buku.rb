@@ -6,7 +6,7 @@ class Buku < Formula
   url "https://files.pythonhosted.org/packages/94/96/1d62b1346c07f8abc661fa499fef0acc7a110735e5b768b8899e58be8dc5/buku-4.6.tar.gz"
   sha256 "e598045dc6b41121f2b706355d41e771aca9d30df71880fdeaed6f2f670d8dd8"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/jarun/buku.git", branch: "master"
 
   bottle do
@@ -36,18 +36,18 @@ class Buku < Formula
   end
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/25/e2/85d4a709a3ea58f8e36b4db9eb7927560a2fa4b6f8f362fb6475962fec51/arrow-1.2.1.tar.gz"
-    sha256 "c2dde3c382d9f7e6922ce636bf0b318a7a853df40ecb383b29192e6c5cc82840"
+    url "https://files.pythonhosted.org/packages/48/28/30a5748af715b0ab9c2b81cf08bd9e261e47a6261e247553afb7f6421b24/arrow-1.2.2.tar.gz"
+    sha256 "05caf1fd3d9a11a1135b2b6f09887421153b94558e5ef4d090b567b47173ac2b"
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/a1/69/daeee6d8f22c997e522cdbeb59641c4d31ab120aba0f2c799500f7456b7e/beautifulsoup4-4.10.0.tar.gz"
-    sha256 "c23ad23c521d818955a4151a67d81580319d4bf548d3d49f4223ae041ff98891"
+    url "https://files.pythonhosted.org/packages/e8/b0/cd2b968000577ec5ce6c741a54d846dfa402372369b8b6861720aa9ecea7/beautifulsoup4-4.11.1.tar.gz"
+    sha256 "ad9aa55b65ef2808eb405f46cf74df7fcb7044d5cbc26487f96eb2ef2e436693"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
+    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
+    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
   end
 
   resource "cffi" do
@@ -56,8 +56,8 @@ class Buku < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
-    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "click" do
@@ -66,8 +66,8 @@ class Buku < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
-    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
+    url "https://files.pythonhosted.org/packages/51/05/bb2b681f6a77276fc423d04187c39dafdb65b799c8d87b62ca82659f9ead/cryptography-37.0.2.tar.gz"
+    sha256 "f224ad253cc9cea7568f49077007d2263efa57396a2f2f78114066fd54b5c68e"
   end
 
   resource "dominate" do
@@ -81,8 +81,8 @@ class Buku < Formula
   end
 
   resource "Flask-Admin" do
-    url "https://files.pythonhosted.org/packages/db/04/8a3fb1a40ff6752d644ddd76f517cc1c2caf246f7e4d0fb2515d462388db/Flask-Admin-1.5.8.tar.gz"
-    sha256 "eb06a1f31b98881dee53a55c64faebd1990d6aac38826364b280df0b2679ff74"
+    url "https://files.pythonhosted.org/packages/d4/cb/2f0b363a818ca756eb9931a5af3ce216e497b6a4edc8caf130310dd1e36c/Flask-Admin-1.6.0.tar.gz"
+    sha256 "424ffc79b7b0dfff051555686ea12e86e48dffacac14beaa319fb4502ac40988"
   end
 
   resource "Flask-API" do
@@ -96,8 +96,8 @@ class Buku < Formula
   end
 
   resource "flask-paginate" do
-    url "https://files.pythonhosted.org/packages/23/b5/c27b414b6fa9904d31641845b0e15eab1e1e2c125c521fc1d69917ae58a8/flask-paginate-2021.10.29.tar.gz"
-    sha256 "660ba1451e4cb168d3a42ed63914fe507bb5c0b30c26a6286b923077bba2362b"
+    url "https://files.pythonhosted.org/packages/6a/2c/79a20c141c58f0993f3e40e280376618800e3cd5a503cacf7db84e4785dc/flask-paginate-2022.1.8.tar.gz"
+    sha256 "a32996ec07ca004c45b768b0d50829728ab8f3986c0650ef538e42852c7aeba2"
   end
 
   resource "flask-reverse-proxy-fix" do
@@ -106,8 +106,8 @@ class Buku < Formula
   end
 
   resource "Flask-WTF" do
-    url "https://files.pythonhosted.org/packages/06/bb/090df80acb1f51ee3996d822ba34096b3e54b3af76c2c46530d6cf35c9b9/Flask-WTF-1.0.0.tar.gz"
-    sha256 "872fbb17b5888bfc734edbdcf45bc08fb365ca39f69d25dc752465a455517b28"
+    url "https://files.pythonhosted.org/packages/d9/38/d4798dd05be711d666e1befb08b1d3db57bd146d1a14d15657f60c88b446/Flask-WTF-1.0.1.tar.gz"
+    sha256 "34fe5c6fee0f69b50e30f81a3b7ea16aa1492a771fe9ad0974d164610c09a6c9"
   end
 
   resource "html5lib" do
@@ -151,8 +151,8 @@ class Buku < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
-    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
+    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
+    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   resource "python-dateutil" do
@@ -161,18 +161,18 @@ class Buku < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
-    sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
+    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
+    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/e1/25/a3005eedafb34e1258458e8a4b94900a60a41a2b4e459e0e19631648a2a0/soupsieve-2.3.1.tar.gz"
-    sha256 "b8d49b1cd4f037c7082a9683dfa1801aa2597fb11c3a1155b7a5b94829b4f1f9"
+    url "https://files.pythonhosted.org/packages/f3/03/bac179d539362319b4779a00764e95f7542f4920084163db6b0fd4742d38/soupsieve-2.3.2.post1.tar.gz"
+    sha256 "fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
-    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   resource "visitor" do
@@ -191,8 +191,8 @@ class Buku < Formula
   end
 
   resource "WTForms" do
-    url "https://files.pythonhosted.org/packages/8e/0c/4c273e88f5b5b5757b4532a0d7f1fe9fb7d9843fe57303f162daaad2b7ce/WTForms-3.0.0.tar.gz"
-    sha256 "4abfbaa1d529a1d0ac927d44af8dbb9833afd910e56448a103f1893b0b176886"
+    url "https://files.pythonhosted.org/packages/9a/7d/d4aa68f5bfcb91dd61a7faf0e862512ae7b3d531c41f24c217910aec0559/WTForms-3.0.1.tar.gz"
+    sha256 "6b351bbb12dd58af57ffef05bc78425d08d1914e0fd68ee14143b7ade023c5bc"
   end
 
   def install
