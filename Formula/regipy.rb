@@ -3,8 +3,8 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/2b/34/f71bebb13f414513427c08594087decc79a84d26845279402a4425c76b7b/regipy-2.4.1.tar.gz"
-  sha256 "6177ea938d7b87f1c2c537ef9eb87c46a4c28f0e8aa2a2a10fff80d520deb5c0"
+  url "https://files.pythonhosted.org/packages/19/f4/44a4ad4a2d8b921769edf463849b1c5b81405a1ef3954e6a5c9b886aa1fd/regipy-2.5.1.tar.gz"
+  sha256 "9b1338a2860c617a8210b4b734cba675679fa51d216b118f017a7b518d5e70f2"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
@@ -38,6 +38,11 @@ class Regipy < Formula
   resource "inflection" do
     url "https://files.pythonhosted.org/packages/e1/7e/691d061b7329bc8d54edbf0ec22fbfb2afe61facb681f9aaa9bff7a27d04/inflection-0.5.1.tar.gz"
     sha256 "1a29730d366e996aaacffb2f1f1cb9593dc38e2ddd30c91250c6dde09ea9b417"
+  end
+
+  resource "libfwsi-python" do
+    url "https://files.pythonhosted.org/packages/63/c8/47a7197167a11da6a68704f08053057922c1f73a91441824207099310b90/libfwsi-python-20220123.tar.gz"
+    sha256 "faef9fb8e76faf6ad43a785a9129a110d80eb7d540c1382349ed5cec07714873"
   end
 
   resource "pytz" do
