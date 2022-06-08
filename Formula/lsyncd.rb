@@ -6,13 +6,12 @@ class Lsyncd < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "cbda318c2cf13e893bcc621563af095d2436040b3dbbeaf6b2ca47d4e80c336a"
-    sha256 cellar: :any,                 arm64_big_sur:  "4e4414dab4d0e2ff7e7482554e6435121434009fd0d66796f7401fe76a90c7bc"
-    sha256 cellar: :any,                 monterey:       "2bf0b3eb23b5b88d0efdfab4dea33ae92063748f0135fabf4fa8c7531b8a9861"
-    sha256 cellar: :any,                 big_sur:        "7e7495710b3dc7d92ed0d794b030c8545d043fa64d9f5abd82e56fd1b102248d"
-    sha256 cellar: :any,                 catalina:       "f93035a8b1d52b3fbfca4aee82cefcf07ff90e2d9a7d2bff70c145fb1c031c61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9491c6fd122ef3ad43ac82553bba87b4e4a5c863b2166069ceaafef7ca4d624"
+    sha256 cellar: :any,                 arm64_monterey: "7efe77196dbd68eed6bf1756d431c8d673ef190bc9a34a3e4cd4b69ec68ed86f"
+    sha256 cellar: :any,                 arm64_big_sur:  "9cd46cb4d36241420c4016c10745fbe8086d79426e3c65428f9ec6918ef7471f"
+    sha256 cellar: :any,                 monterey:       "8aa99334757054b742bdf154cb9062975bc9971e10e86fb6fd3d829efa4195db"
+    sha256 cellar: :any,                 big_sur:        "216c8d2fcebd0ce0402d68697e209fc35f47b31f8628a1c73d31a6a21fe75b52"
+    sha256 cellar: :any,                 catalina:       "9bf855ed792d5c2a66b23f326d4093c49c1d35012400e02a305b43bb5155d45e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e199eed33824a260fad6c0cd15edafe30a7e6b727e9d626e9974e7ccce3a170"
   end
 
   depends_on "cmake" => :build
