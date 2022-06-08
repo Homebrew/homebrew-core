@@ -1,8 +1,8 @@
 class MoltenVk < Formula
   desc "Implementation of the Vulkan graphics and compute API on top of Metal"
   homepage "https://github.com/KhronosGroup/MoltenVK"
-  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.9.tar.gz"
-  sha256 "ea455a14decb85ec4bc66ffd2b963492afa7b53297b7064a11ca47ca8d2464ea"
+  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.10.tar.gz"
+  sha256 "fac11c2501195c9ce042103685c7778e35484562e6c084963a22072dd0a602e0"
   license "Apache-2.0"
 
   bottle do
@@ -32,37 +32,37 @@ class MoltenVk < Formula
   resource "Vulkan-Headers" do
     # ExternalRevisions/Vulkan-Headers_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-        revision: "76f00ef6cbb1886eb1162d1fa39bee8b51e22ee8"
+        revision: "3ef4c97fd6ea001d75a8e9da408ee473c180e456"
   end
 
   resource "SPIRV-Cross" do
     # ExternalRevisions/SPIRV-Cross_repo_revision
     url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-        revision: "0d4ce028bf8b8a94d325dc1e1c20446153ba19c4"
+        revision: "50b4d5389b6a06f86fb63a2848e1a7da6d9755ca"
   end
 
   resource "glslang" do
     # ExternalRevisions/glslang_repo_revision
     url "https://github.com/KhronosGroup/glslang.git",
-        revision: "9bb8cfffb0eed010e07132282c41d73064a7a609"
+        revision: "adbf0d3106b26daa237b10b9bf72b1af7c31092d"
   end
 
   resource "SPIRV-Tools" do
     # known_good.json in the glslang repository
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        revision: "eed5c76a57bb965f2e1b56d1dc40b50910b5ec1d"
+        revision: "b930e734ea198b7aabbbf04ee1562cf6f57962f0"
   end
 
   resource "SPIRV-Headers" do
     # known_good.json in the glslang repository
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "4995a2f2723c401eb0ea3e10c81298906bf1422b"
+        revision: "5a121866927a16ab9d49bed4788b532c7fcea766"
   end
 
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-        revision: "3903162ac4b01ed376bfa55a72ef7217a72c0b74"
+        revision: "ef9db7a8ec52f6c56158d83f5d57ef388c1abec1"
   end
 
   def install
