@@ -61,8 +61,10 @@ class Tmux < Formula
 
     pkgshare.install "example_tmux.conf"
     bash_completion.install resource("completion")
-
-    if OS.mac?
+  end
+  
+  def post_install
+    if OS.mac? && !(etc/"tmux.conf").exist?
       (etc/"tmux.conf").write <<~EOS
         set -g default-terminal screen-256color
       EOS
