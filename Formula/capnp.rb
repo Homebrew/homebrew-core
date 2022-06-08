@@ -12,12 +12,12 @@ class Capnp < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f29efbb4780d6a29e9e8d917700cc710c2233c7362b358a798e64439f80d942f"
-    sha256 arm64_big_sur:  "d6430862db731ac62235e0a4637f485175486e7af1c90b532b8ebd6355e08690"
-    sha256 monterey:       "2d10f5bff0137eeec97dc6df6cf107fa10b5bf246c0cd81b2444b17bb9310c16"
-    sha256 big_sur:        "77a0120ece805fb4f451bfcb039013418a011455581aebff0db9bd627bdaed7b"
-    sha256 catalina:       "b5f725e92ed4c8d130ab19e0f0d0da1281a1c5acb3e518ad1e0ee10a94b8dd45"
-    sha256 x86_64_linux:   "0f55802e4bb1cc7b43d8b2a5e7e8c9a35bebcddeb8a230b85cc7c1ec98bb616d"
+    sha256 arm64_monterey: "cf4352d304acbc3efc850209f34cec32ec70472edbe139ac83caebbbc90d94ba"
+    sha256 arm64_big_sur:  "772932eac02c7c407d574d2cc8e1ead9f68225b0094137e2d63c3c1caf195fe4"
+    sha256 monterey:       "5d87dc87b14828f2afbac22a055b3cdb7b08d3c7bd4275b925df04e8c6a025c2"
+    sha256 big_sur:        "4be05582ce7938b7aab9082cb3f7a3c75fc6b1a527fc1d83fbd9627c54dbe422"
+    sha256 catalina:       "c8b13089224a39ce6b8632861fc52f333be2d634854decdf23e5907efe0fe77b"
+    sha256 x86_64_linux:   "484bf4c433b99c0ddb1cf7aae38844e4dc112469d266236c158b3de40e6d7c65"
   end
 
   depends_on "cmake" => :build
