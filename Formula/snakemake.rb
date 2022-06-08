@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/e7/b6/2d8bc8fc8ae62af51c165d0ce1e6daad62e21f97e56c51e25e8f6a9e0418/snakemake-7.8.1.tar.gz"
-  sha256 "0b3674665b42d0d231ca567184ba45c700428e2ad821d69efc3a720a79b4a903"
+  url "https://files.pythonhosted.org/packages/cf/85/2b0ecf98ca37a041dc042290ad5ae07b0dc373afe60116efe2eba1cb9b33/snakemake-7.8.2.tar.gz"
+  sha256 "b73ac610b5250d6b9626c512eeffd59df89c57d28dcd5775a2270739c1cc2358"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -96,8 +96,8 @@ class Snakemake < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/9e/62/93a54db0e44c4de57868a7d638d7a8abce113c8bc43a20b10b1109b2a517/jsonschema-4.5.1.tar.gz"
-    sha256 "7c6d882619340c3347a1bf7315e147e6d3dae439033ae6383d6acb908c101dfc"
+    url "https://files.pythonhosted.org/packages/b5/a0/dd13abb5f371f980037d271fd09461df18c85188216008a1e3a9c3f8bd0c/jsonschema-4.6.0.tar.gz"
+    sha256 "9d6397ba4a6c0bf0300736057f649e3e12ecbc07d3e81a0dacb72de4e9801957"
   end
 
   resource "jupyter-core" do
@@ -186,8 +186,8 @@ class Snakemake < Formula
   end
 
   resource "traitlets" do
-    url "https://files.pythonhosted.org/packages/9b/26/5e5f9002f939d54663d244a260d0453b2baf4f767697da5968aa474f04e7/traitlets-5.2.1.post0.tar.gz"
-    sha256 "70815ecb20ec619d1af28910ade523383be13754283aef90528eb3d47b77c5db"
+    url "https://files.pythonhosted.org/packages/0b/c2/bb2b6eec33cdccfe16415a979aca248628478e6ac80759e5fbf1cb82d0aa/traitlets-5.2.2.post1.tar.gz"
+    sha256 "74803a1baa59af70f023671d86d5c7a834c931186df26d50d362ee6a1ff021fd"
   end
 
   resource "urllib3" do
@@ -201,8 +201,8 @@ class Snakemake < Formula
   end
 
   resource "yte" do
-    url "https://files.pythonhosted.org/packages/b4/cd/e469c384d79d1cdf86fabf76fd79d5c6b9977a57573fa943aabc0d2ccbe2/yte-1.4.0.tar.gz"
-    sha256 "20802e64b851be75172456650cfbac6f18c4c81ba01ccaede44f9242bb6c4685"
+    url "https://files.pythonhosted.org/packages/bd/ec/85b6f67edccf6789bd5feeabe8906f5626e9328c9b340008ac0378668c59/yte-1.5.1.tar.gz"
+    sha256 "6d0b315b78af83276d78f5f67c107c84238f772a76d74f4fc77905b46f3731f5"
   end
 
   def install
