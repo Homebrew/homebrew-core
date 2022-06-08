@@ -11,12 +11,12 @@ class Bazel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e645907b78298101e6bc245aea0d45367ebd2a2e3d29f43c00fbd0dc74bc045"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "debe0b683d1db63c758fead8c4d3f7d71ae31f56ec1ddb855c778c311ed37ad6"
-    sha256 cellar: :any_skip_relocation, monterey:       "f8ffa9d8a6b09958b4dff10c0449b06a1cab5e504c409d0e8cb787f94a0400b1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5bfd75cf4c88196ab4a83519d3ed45fe66b045e40b2da3e68ba5b83a0ce8aa5b"
-    sha256 cellar: :any_skip_relocation, catalina:       "255b0b5cd354106d3af40604eefc3e16f5f6f921260dc1f6d1bd89f8a8ead6b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f11486934ca61d04c4e9430a1b79901e25f02e743cc8b1b392bb966eda5a59f1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "418ec820bfac74c2481c1a84cb4cbd0475a17d115a1ba4c73bd32c4e04f5f921"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "91d8679263d8d0be9d1dcb119b8785c81614f6f75147f449ef56691811553d95"
+    sha256 cellar: :any_skip_relocation, monterey:       "32308420766fc56b97477bb5b64106db142f1c38fd2c2599178aa03e72937754"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ad90a53b89ef024228e2e860574396f1d72d08555e8b925abb23ce705cde116a"
+    sha256 cellar: :any_skip_relocation, catalina:       "5041095436013f8ad8270a76bbb848712ce3fd4673ec71a987608af6c6dd5333"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52143acfb0462a4e137d4e8f8c2be003a9796877616a7012d1a12b20e72a8f92"
   end
 
   depends_on "python@3.10" => :build
