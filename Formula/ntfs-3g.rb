@@ -1,8 +1,8 @@
 class Ntfs3g < Formula
   desc "Read-write NTFS driver for FUSE"
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
-  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2021.8.22.tgz"
-  sha256 "55b883aa05d94b2ec746ef3966cb41e66bed6db99f22ddd41d1b8b94bb202efb"
+  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2022.5.17.tgz"
+  sha256 "0489fbb6972581e1b417ab578d543f6ae522e7fa648c3c9b49c789510fd5eb93"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
   livecheck do
