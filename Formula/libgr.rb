@@ -1,8 +1,8 @@
 class Libgr < Formula
   desc "GR framework: a graphics library for visualisation applications"
   homepage "https://gr-framework.org/"
-  url "https://github.com/sciapp/gr/archive/v0.64.3.tar.gz"
-  sha256 "ef91d89187843454c70046bad6a5b8e99350bf6e3f209477aa3ad3c7a893c02f"
+  url "https://github.com/sciapp/gr/archive/v0.64.4.tar.gz"
+  sha256 "b9866f1c9496817023c0d7f23d92bf7c5bdcbe669a1e744a7e839b5f34baf501"
   license "MIT"
 
   bottle do
@@ -18,7 +18,7 @@ class Libgr < Formula
   depends_on "glfw"
   depends_on "libtiff"
   depends_on "qhull"
-  depends_on "qt@5"
+  depends_on "qt"
   depends_on "zeromq"
 
   def install
