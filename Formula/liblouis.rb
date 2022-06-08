@@ -1,8 +1,8 @@
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
   homepage "http://liblouis.org"
-  url "https://github.com/liblouis/liblouis/releases/download/v3.21.0/liblouis-3.21.0.tar.gz"
-  sha256 "6d7f4ed09d4dd0fafbc22b256632a232575cfa764d4bfd86b73fe0529a81d449"
+  url "https://github.com/liblouis/liblouis/releases/download/v3.22.0/liblouis-3.22.0.tar.gz"
+  sha256 "79bc508425822e4df2ea50ac4a648e80ef0878afcd979b655bfcac5c1766763f"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
@@ -15,7 +15,7 @@ class Liblouis < Formula
   end
 
   head do
-    url "https://github.com/liblouis/liblouis.git"
+    url "https://github.com/liblouis/liblouis.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
