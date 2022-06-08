@@ -18,7 +18,8 @@ class SnapTelemetry < Formula
   end
 
   # https://github.com/intelsdi-x/snap/commit/e3a6c8e39994b3980df0c7b069d5ede810622952
-  deprecate! date: "2018-12-20", because: :deprecated_upstream
+  # Deprecation added 2021-02-21 / deprecated since 2018-12-20
+  disable! date: "2022-06-08", because: :deprecated_upstream
 
   depends_on "glide" => :build
   depends_on "go" => :build
