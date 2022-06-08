@@ -62,7 +62,7 @@ class Tmux < Formula
     pkgshare.install "example_tmux.conf"
     bash_completion.install resource("completion")
   end
-  
+
   def post_install
     if OS.mac? && !(etc/"tmux.conf").exist?
       (etc/"tmux.conf").write <<~EOS
