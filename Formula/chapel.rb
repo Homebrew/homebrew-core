@@ -4,6 +4,7 @@ class Chapel < Formula
   url "https://github.com/chapel-lang/chapel/releases/download/1.26.0/chapel-1.26.0.tar.gz"
   sha256 "ba396b581f0a17f8da3f365a3f8b079b8d2e229a393fbd1756966b0019931ece"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "65a2b089a00f6a1c02f0cac3bad10cd372c937cf07f664354418b87d56221f72"
@@ -15,9 +16,16 @@ class Chapel < Formula
   end
 
   depends_on "gmp"
-  depends_on "python@3.10"
+  # `chapel` scripts use python on PATH (e.g. checking `command -v python3`),
+  # so it needs to depend on the currently linked Homebrew Python version.
+  # TODO: remove from versioned_dependencies_conflicts_allowlist when
+  # when Python dependency matches LLVM's Python for all OS versions.
+  depends_on "python@3.9"
+
   on_macos do
     depends_on "llvm" if MacOS.version > :catalina
+    # fatal error: cannot open file './sys_basic.h': No such file or directory
+    # Issue ref: https://github.com/Homebrew/homebrew-core/issues/96915
     depends_on "llvm@11" if MacOS.version <= :catalina
   end
   on_linux do
@@ -26,6 +34,16 @@ class Chapel < Formula
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
+
+  # Work around Homebrew 11-arm64 CI issue, which outputs unwanted objc warnings like:
+  # objc[42134]: Class ... is implemented in both ... One of the two will be used. Which one is undefined.
+  # These end up incorrectly failing checkChplInstall test script when it checks for stdout/stderr.
+  # TODO: remove when Homebrew CI no longer outputs these warnings or 11-arm64 is no longer used.
+  patch :DATA
+
+  def llvm
+    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+  end
 
   def install
     libexec.install Dir["*"]
@@ -39,24 +57,15 @@ class Chapel < Formula
     # Must be built from within CHPL_HOME to prevent build bugs.
     # https://github.com/Homebrew/legacy-homebrew/pull/35166
     cd libexec do
+      # don't try to set CHPL_LLVM_GCC_PREFIX since the llvm@13
+      # package should be configured to use a reasonable GCC
       (libexec/"chplconfig").write <<~EOS
         CHPL_RE2=bundled
         CHPL_GMP=system
+        CHPL_LLVM_CONFIG=#{llvm.opt_bin}/llvm-config
+        CHPL_LLVM_GCC_PREFIX=none
       EOS
 
-      if OS.mac?
-        if MacOS.version > :catalina
-          system "echo CHPL_LLVM_CONFIG=#{HOMEBREW_PREFIX}/opt/llvm@13/bin/llvm-config >> chplconfig"
-        else
-          system "echo CHPL_LLVM_CONFIG=#{HOMEBREW_PREFIX}/opt/llvm@11/bin/llvm-config >> chplconfig"
-        end
-      else
-        system "echo CHPL_LLVM_CONFIG=#{HOMEBREW_PREFIX}/opt/llvm@13/bin/llvm-config >> chplconfig"
-      end
-
-      # don't try to set CHPL_LLVM_GCC_PREFIX since the llvm@13
-      # package should be configured to use a reasonable GCC
-      system 'echo CHPL_LLVM_GCC_PREFIX="none" >> chplconfig'
       system "./util/printchplenv", "--all"
       with_env(CHPL_PIP_FROM_SOURCE: "1") do
         system "make", "test-venv"
@@ -72,6 +81,7 @@ class Chapel < Formula
       end
       system "make", "mason"
       system "make", "cleanall"
+
       rm_rf("third-party/llvm/llvm-src/")
       rm_rf("third-party/gasnet/gasnet-src")
       rm_rf("third-party/libfabric/libfabric-src")
@@ -108,3 +118,17 @@ class Chapel < Formula
     system bin/"chpl", "--print-passes", "--print-commands", libexec/"examples/hello.chpl"
   end
 end
+
+__END__
+diff --git a/util/test/checkChplInstall b/util/test/checkChplInstall
+index 7d2eb78a88..a9ddf22054 100755
+--- a/util/test/checkChplInstall
++++ b/util/test/checkChplInstall
+@@ -189,6 +189,7 @@ fi
+ if [ -n "${TEST_COMP_OUT}" ]; then
+     # apply "prediff"-like filter to remove gmake "clock skew detected" warnings, if any
+     TEST_COMP_OUT=$( grep <<<"${TEST_COMP_OUT}" -v \
++        -e '^objc\(\[[0-9]*\]\)*: Class .* is implemented in both .* One of the two will be used\. Which one is undefined\. *$' \
+         -e '^g*make\(\[[0-9]*\]\)*: Warning: File .* has modification time .* in the future *$' \
+         -e '^g*make\(\[[0-9]*\]\)*: warning:  Clock skew detected\.  Your build may be incomplete\. *$' )
+ fi
