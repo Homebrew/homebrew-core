@@ -1,8 +1,8 @@
 class Vapor < Formula
   desc "Command-line tool for Vapor (Server-side Swift web framework)"
   homepage "https://vapor.codes"
-  url "https://github.com/vapor/toolbox/archive/18.4.1.tar.gz"
-  sha256 "8109b21f45be3f73d9e823fd741341cf687c16ee0fae1eb1d30ada865eeb3efc"
+  url "https://github.com/vapor/toolbox/archive/18.5.0.tar.gz"
+  sha256 "70be40f3ddd6c8fe238ac340655daf2f7e545cc406a1d6684f474cfaa17fdddb"
   license "MIT"
   head "https://github.com/vapor/toolbox.git", branch: "main"
 
@@ -17,7 +17,7 @@ class Vapor < Formula
 
   depends_on xcode: "11.4"
 
-  uses_from_macos "swift"
+  uses_from_macos "swift", since: :big_sur
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc", \
