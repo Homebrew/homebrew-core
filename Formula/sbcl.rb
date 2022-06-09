@@ -49,9 +49,16 @@ class Sbcl < Formula
     system "sh", "install.sh"
 
     # Install sources
-    bin.env_script_all_files libexec/"bin",
-                             SBCL_SOURCE_ROOT: pkgshare/"src",
-                             SBCL_HOME:        lib/"sbcl"
+    sbcl_env = {
+      SBCL_SOURCE_ROOT: pkgshare/"src",
+      SBCL_HOME:        lib/"sbcl",
+    }
+    # Needed for `pgloader`. Update when `pgloader` uses a different OpenSSL version.
+    # There does not seem to be a way to configure this during the build. See:
+    # https://github.com/portacle/portacle/issues/95
+    sbcl_env["DYLD_FALLBACK_LIBRARY_PATH"] = Formula["openssl@1.1"].opt_lib
+
+    bin.env_script_all_files libexec/"bin", sbcl_env
     pkgshare.install %w[contrib src]
     (lib/"sbcl/sbclrc").write <<~EOS
       (setf (logical-pathname-translations "SYS")
@@ -66,5 +73,8 @@ class Sbcl < Formula
     EOS
     output = shell_output("#{bin}/sbcl --script #{testpath}/simple.sbcl")
     assert_equal "4", output.strip
+
+    pgloader_deps_include_openssl = Formula["pgloader"].deps.map(&:to_s).include?("openssl@1.1")
+    assert pgloader_deps_include_openssl, "`sbcl` RPATH needs updating!"
   end
 end
