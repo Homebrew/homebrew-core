@@ -6,6 +6,15 @@ class Dump1090Mutability < Formula
   sha256 "778f389508eccbce6c90d7f56cd01568fad2aaa5618cb5e7c41640a2473905a6"
   license "GPL-2.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "74d4061c93d647ace683380b85ab320e96b7e115a30ffe7587bc0c0672a097b5"
+    sha256 cellar: :any,                 arm64_big_sur:  "53aa50bb97ebb0923c0ea340562f523e61018454bfcf78dcc6a6b5509aef6462"
+    sha256 cellar: :any,                 monterey:       "7c2a4fc31ec409abf1ac74f68b65325f8d5ff38389b7f2be44b51d8529eeb338"
+    sha256 cellar: :any,                 big_sur:        "331470e3b5efe1732916e5d6e5267dfee973d7be2c5573a4c6a9c2e8f207b1e9"
+    sha256 cellar: :any,                 catalina:       "c2b702a7432ab1dd5086c693d4930103d2386782e43453fb7811a8d415505459"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51cef04d99c6aeec12b2a1ae03cfcc84059d6fd0060026fc590ef93a3c172e91"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "librtlsdr"
 
