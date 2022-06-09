@@ -15,8 +15,11 @@ class Primecount < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libomp"
   depends_on "primesieve"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON",
