@@ -1,9 +1,9 @@
 class Squashfs < Formula
   desc "Compressed read-only file system for Linux"
   homepage "https://github.com/plougher/squashfs-tools"
-  url "https://github.com/plougher/squashfs-tools/archive/4.5.tar.gz"
-  sha256 "b9e16188e6dc1857fe312633920f7d71cc36b0162eb50f3ecb1f0040f02edddd"
-  license "GPL-2.0"
+  url "https://github.com/plougher/squashfs-tools/archive/4.5.1.tar.gz"
+  sha256 "277b6e7f75a4a57f72191295ae62766a10d627a4f5e5f19eadfbc861378deea7"
+  license "GPL-2.0-or-later"
   head "https://github.com/plougher/squashfs-tools.git", branch: "master"
 
   # Tags like `4.4-git.1` are not release versions and the regex omits these
@@ -23,6 +23,9 @@ class Squashfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5d319d1cafa8de74886f9e41623bcf1a1cb75307d9d62d143220f386d5b5206"
   end
 
+  depends_on "gnu-sed" => :build
+  depends_on "help2man" => :build
+
   depends_on "lz4"
   depends_on "lzo"
   depends_on "xz"
@@ -34,8 +37,8 @@ class Squashfs < Formula
   # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
   # Original patchset: https://github.com/plougher/squashfs-tools/pull/69
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d75d6958612eb590580872d1878f26af6d2deb83/squashfs/4.5.patch"
-    sha256 "d90f3b167e016f44a87b84c2ccbb9bcfc47d28fc51b630857e7e27bd01b58084"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/67d366d76a655dca08177bf05d812361c4175a10/squashfs/4.5.1.patch"
+    sha256 "2cc6cfb75f1479cbc74e3a03b1c359ba63f1c1caa5bb65d6ffca0e95264552f1"
   end
 
   def install
@@ -53,12 +56,22 @@ class Squashfs < Formula
       XATTR_SUPPORT=1
     ]
 
+    commands = %w[mksquashfs unsquashfs sqfscat sqfstar]
+
     cd "squashfs-tools" do
       system "make", *args
-      bin.install %w[mksquashfs unsquashfs]
+      bin.install commands
     end
 
-    doc.install %W[README-#{version.major_minor} RELEASE-READMEs USAGE COPYING]
+    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+    mkdir_p man1
+    cd "generate-manpages" do
+      commands.each do |command|
+        system "./#{command}-manpage.sh", bin, man1/"#{command}.1"
+      end
+    end
+
+    doc.install %W[README-#{version} RELEASE-READMEs USAGE COPYING]
   end
 
   test do
