@@ -763,7 +763,6 @@ env:
     trafficserver
     tree-sitter
     triangle
-    trino
     trivy
     trojan-go
     typedb
