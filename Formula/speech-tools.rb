@@ -1,10 +1,19 @@
 class SpeechTools < Formula
   desc "C++ speech software library from the University of Edinburgh"
   homepage "http://festvox.org/docs/speech_tools-2.4.0/"
-  url "http://festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz"
-  sha256 "e4fd97ed78f14464358d09f36dfe91bc1721b7c0fa6503e04364fb5847805dcc"
-  revision 1
+  revision 2
   head "https://github.com/festvox/speech_tools.git", branch: "master"
+
+  stable do
+    url "http://festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz"
+    sha256 "e4fd97ed78f14464358d09f36dfe91bc1721b7c0fa6503e04364fb5847805dcc"
+
+    # Fix build on Apple Silicon. Remove in the next release.
+    patch do
+      url "https://github.com/festvox/speech_tools/commit/06141f69d21bf507a9becb5405265dc362edb0df.patch?full_index=1"
+      sha256 "a42493982af11a914d2cf8b97edd287a54b5cabffe6c8fe0e4a9076c211e85ef"
+    end
+  end
 
   livecheck do
     url "http://festvox.org/packed/festival/?C=M&O=D"
@@ -20,9 +29,11 @@ class SpeechTools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "367d922ef74f4977cd3fca29461b4814af733073cbba6cc066d5b85a729daf26"
   end
 
-  depends_on "libomp"
-
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   conflicts_with "align", because: "both install `align` binaries"
 
@@ -33,7 +44,7 @@ class SpeechTools < Formula
     # as a dependency.  Normally you can force this on autoconf by
     # setting "ac_cv_prog_cxx_openmp" and "LIBS", but this configure
     # script does OpenMP its own way so we need to actually edit the script:
-    inreplace "configure", "-fopenmp", "-Xpreprocessor -fopenmp -lomp"
+    inreplace "configure", "-fopenmp", "-Xpreprocessor -fopenmp -lomp" if OS.mac?
     system "./configure", "--prefix=#{prefix}"
     system "make"
     # install all executable files in "main" directory
