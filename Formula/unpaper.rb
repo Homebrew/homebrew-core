@@ -1,10 +1,10 @@
 class Unpaper < Formula
   desc "Post-processing for scanned/photocopied books"
   homepage "https://www.flameeyes.com/projects/unpaper"
-  url "https://www.flameeyes.com/files/unpaper-6.1.tar.xz"
-  sha256 "237c84f5da544b3f7709827f9f12c37c346cdf029b1128fb4633f9bafa5cb930"
+  url "https://www.flameeyes.com/files/unpaper-7.0.0.tar.xz"
+  sha256 "2575fbbf26c22719d1cb882b59602c9900c7f747118ac130883f63419be46a80"
   license "GPL-2.0-or-later"
-  revision 8
+  head "https://github.com/unpaper/unpaper.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "15a1aa7548aed02a7f8c82e541386b9122b2d74e628f0e123c3381c1690b11da"
@@ -15,31 +15,24 @@ class Unpaper < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8dfbd593ccaa3f878eea978943866a2791d66aa4ce15fdd183e6fea1a7be261"
   end
 
-  head do
-    url "https://github.com/Flameeyes/unpaper.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
-
-  uses_from_macos "libxslt"
+  depends_on "sphinx-doc" => :build
+  depends_on "ffmpeg"
 
   on_linux do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
+    depends_on "gcc"
   end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
-    system "autoreconf", "-i" if build.head?
-
-    system "autoreconf", "-i" if OS.linux?
-
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
