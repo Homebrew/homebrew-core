@@ -10,8 +10,7 @@ class Eget < Formula
   depends_on "pandoc" => :build
 
   def install
-    system "go", "build",
-      *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
     system "make", "eget.1"
     man1.install "eget.1"
   end
