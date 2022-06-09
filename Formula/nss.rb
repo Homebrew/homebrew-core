@@ -29,7 +29,6 @@ class Nss < Formula
   uses_from_macos "zlib"
 
   conflicts_with "resty", because: "both install `pp` binaries"
-  conflicts_with "googletest", because: "both install `libgtest.a`"
 
   def install
     ENV.deparallelize
