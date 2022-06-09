@@ -4,6 +4,7 @@ class Smartmontools < Formula
   url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.3/smartmontools-7.3.tar.gz"
   sha256 "a544f8808d0c58cfb0e7424ca1841cb858a974922b035d505d4e4c248be3a22b"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "e6dcb98550cdf4dbf6e175655a81a8413f71e974ad8b73b352492bbe65bf7b67"
@@ -24,7 +25,8 @@ class Smartmontools < Formula
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
                           "--with-savestates",
-                          "--with-attributelog"
+                          "--with-attributelog",
+                          "--with-nvme-devicescan"
     system "make", "install"
   end
 
