@@ -7,12 +7,12 @@ class Opencolorio < Formula
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f50d5ba3977c39c7675f9a47c6e6e8a94dde8ffaa0eff80e0a4f3f85ac60fc83"
-    sha256 cellar: :any,                 arm64_big_sur:  "a12191e6238cf29395345d5d1be49d52912a1e6a6066baa11558184122df6d31"
-    sha256 cellar: :any,                 monterey:       "e909973e5bb4f73da7feb23846bc2f1ac5dbe9de58c7f1cdbcb5cea375faac15"
-    sha256 cellar: :any,                 big_sur:        "d5569167550905603f4512ed476af45f9803d292f5de1b122e509854d24c43a7"
-    sha256 cellar: :any,                 catalina:       "b12394d8d4e9180dfcb7bb943d1d0fa25546f86f82b50863be7566320b6de9b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "919b027f1ebe994bf1e43f264a361b70183e28200e10340fc6fb56d7978e6ece"
+    sha256 cellar: :any,                 arm64_monterey: "2394a606bf2c81345d434f6d4256aa5221058c3eb7fa938468bd01b617b3ac20"
+    sha256 cellar: :any,                 arm64_big_sur:  "f6668fec2e276f024eb9c341f42e9a0d83974e6aa4c35798ecdcf57ba57ff662"
+    sha256 cellar: :any,                 monterey:       "6ab80bb1cf81ce78367511863b6a82361723bdf938ba9ba12556863ee6113e2b"
+    sha256 cellar: :any,                 big_sur:        "b7235c4ebdec6cb5172d50a50532a8e9be31be23bbc2d0926a91c46f1ac5e349"
+    sha256 cellar: :any,                 catalina:       "a8c4db5c6a1854af480deffa8c7837c19612dc25dfd6c961192e1751cd8fe1fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "678355de0343ede44fc52bdc7cf9ac530935f5df7a75c5d3678e8d505fe0b425"
   end
 
   depends_on "cmake" => :build
