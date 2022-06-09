@@ -1,8 +1,8 @@
 class Minuit2 < Formula
   desc "Physics analysis tool for function minimization"
   homepage "https://root.cern.ch/doc/master/md_math_minuit2_doc_Minuit2.html"
-  url "https://root.cern.ch/download/root_v6.26.02.source.tar.gz"
-  sha256 "7ba96772271a726079506c5bf629c3ceb21bf0682567ed6145be30606d7cd9bb"
+  url "https://root.cern.ch/download/root_v6.26.04.source.tar.gz"
+  sha256 "a271cf82782d6ed2c87ea5eef6681803f2e69e17b3036df9d863636e9358421e"
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git", branch: "master"
 
