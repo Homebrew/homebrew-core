@@ -12,12 +12,12 @@ class Tmux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6f0331120c7069f6087bfeb423f03ebd6066d7a8069804dee43c935ad2f41f61"
-    sha256 cellar: :any,                 arm64_big_sur:  "c1600c185934c9977a7da4dbe465cc91c2cc9a18581b95fbffd6b54186480fbf"
-    sha256 cellar: :any,                 monterey:       "186ebfae5c6dd36efce4c7fc9cda6c922bcc2df29bc13878c993f9a44bfc5029"
-    sha256 cellar: :any,                 big_sur:        "f9b89e64ed341c98a9b5c8d00935140dfd92dfd38e54d50931e6995b3fdf73d9"
-    sha256 cellar: :any,                 catalina:       "e12d0599f3fe24e1c556966739ad52b7ee84c7cc92c21f0cc6a378fc5c19c78c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5e292aa2bd7dbf7234ca308f82915af23edf5215dacaa1c515c26d425ad3529"
+    sha256 cellar: :any,                 arm64_monterey: "89fb850bf05eff4e9c972402c25836dd722a5ba2560703ae119c64f1f10435d4"
+    sha256 cellar: :any,                 arm64_big_sur:  "0286262e80742ab6e9bdfce7f5a698aec0e97dd92c77a59e6db915c1afb29b89"
+    sha256 cellar: :any,                 monterey:       "e635ff8848c41e2d02a8a6afe577ff77b0352b6b7b127fe4435347292deb3e43"
+    sha256 cellar: :any,                 big_sur:        "81527548c67f4d4ee5a5bb7b552c2de38f2cee19ce9edfe39453b2036317d8bf"
+    sha256 cellar: :any,                 catalina:       "1d47ea7173d492ee287e507813af787f97835c1c5eb1609c692bbe1ef840e4e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5799476117316bf13aa72354a66b77a7a3aa7c8dd697d6cae7fe39835a8ff04e"
   end
 
   head do
