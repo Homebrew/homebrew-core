@@ -11,7 +11,7 @@ class TomcatAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6c9f4bd394aa9a684d69e2800c66cc295e5f644d272ecc5b1c67c6d721a1ce83"
+    sha256 cellar: :any_skip_relocation, all: "feeab9803ec2042ec97b9c3f9cad9cc76efb711d07fdfcc81898a3748c286415"
   end
 
   keg_only :versioned_formula
