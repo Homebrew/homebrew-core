@@ -1,15 +1,15 @@
 class Mcap < Formula
   desc "Serialization-agnostic container file format for pub/sub messages"
   homepage "https://mcap.dev"
-  url "https://github.com/foxglove/mcap/archive/refs/tags/releases/mcap-cli/v0.0.6.tar.gz"
-  sha256 "f2adc1a2c1f81d4c5f5b684829013dcdf28f24f15ce34e4a72139ee01355d93a"
+  url "https://github.com/foxglove/mcap/archive/refs/tags/releases/mcap-cli/v0.0.9.tar.gz"
+  sha256 "f7b7c6350683d5af2e0d02697d920ce0e944d0c0d58ddd94091455d380f49558"
   license "Apache-2.0"
   head "https://github.com/foxglove/mcap.git", branch: "main"
 
   depends_on "go" => :build
 
   resource "homebrew-testdata" do
-    url "https://media.githubusercontent.com/media/foxglove/mcap/releases/mcap-cli/v0.0.6/tests/conformance/data/OneMessage/OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap"
+    url "https://media.githubusercontent.com/media/foxglove/mcap/releases/mcap-cli/v0.0.9/tests/conformance/data/OneMessage/OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap"
     sha256 "9db644f7fad2a256b891946a011fb23127b95d67dc03551b78224aa6cad8c5db"
   end
 
@@ -37,7 +37,7 @@ class Mcap < Formula
         compression:
         	: [1/1 chunks] (0.00%)
         channels:
-          	(1) example  1 msgs (0.00 Hz)   : Example [c]
+          	(1) example  1 msgs (+Inf Hz)   : Example [c]
         attachments: 0
       EOF
       assert_equal expected_info.lines.map(&:strip),
