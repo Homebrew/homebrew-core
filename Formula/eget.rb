@@ -16,6 +16,8 @@ class Eget < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/eget -v")
+
     # Use eget to install a v1.1.0 release of itself,
     # and verify that the installed binary is functional.
     system bin/"eget", "zyedidia/eget",
@@ -23,6 +25,5 @@ class Eget < Formula
                        "--to", testpath,
                        "--file", "eget"
     assert_match "eget version 1.1.0", shell_output("./eget -v")
-    assert_match version.to_s, shell_output("#{bin}/eget -v")
   end
 end
