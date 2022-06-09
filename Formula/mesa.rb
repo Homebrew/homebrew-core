@@ -91,25 +91,29 @@ class Mesa < Formula
 
     ENV.prepend_path "PATH", "#{venv_root}/bin"
 
-    args = std_meson_args + ["-Db_ndebug=true"]
+    args = ["-Db_ndebug=true"]
 
     if OS.linux?
-      args << "-Dplatforms=x11,wayland"
-      args << "-Dglx=auto"
-      args << "-Ddri3=true"
-      args << "-Dgallium-drivers=auto"
-      args << "-Dgallium-omx=disabled"
-      args << "-Degl=true"
-      args << "-Dgbm=true"
-      args << "-Dopengl=true"
-      args << "-Dgles1=enabled"
-      args << "-Dgles2=enabled"
-      args << "-Dgallium-xvmc=disabled"
-      args << "-Dvalgrind=false"
-      args << "-Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima"
+      args += %w[
+        -Dplatforms=x11,wayland
+        -Dglx=auto
+        -Ddri3=true
+        -Dgallium-drivers=auto
+        -Dgallium-omx=disabled
+        -Degl=true
+        -Dgbm=true
+        -Dopengl=true
+        -Dgles1=enabled
+        -Dgles2=enabled
+        -Dgallium-xvmc=disabled
+        -Dvalgrind=false
+        -Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima
+      ]
+    else
+      args << "-Dosmesa=true"
     end
 
-    system "meson", ".", "build", *args
+    system "meson", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build"
     system "meson", "install", "-C", "build"
 
