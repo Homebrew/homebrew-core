@@ -8,12 +8,12 @@ class RustAnalyzer < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5202e358f835110bede624c05c09b0cbfa8e4f48152495d816c89a66a42237dd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c24dbc224ab2797512438a5ef93ea76cbbf7f4712e19aff274820486afc7c86"
-    sha256 cellar: :any_skip_relocation, monterey:       "72fa19ad4e14a103f23d507db9f51afba2ae88ee9610a8cbd4bcd4ee462d572e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b3b6d1f1d54da527ba69a98b8b9c6d7878b97743de0a6206f2cc5c430e73884d"
-    sha256 cellar: :any_skip_relocation, catalina:       "1f2b80ef0fdf93d1ea3baa9b80f45c2aa08ab7ec78ca3f9d3c0de98fb2b2f6d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf7cb2fdfe3cd6b58f3e7fbf04aee26891e7b87360a67d3315352b91830aefad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "19596ae1c7e4a16adc4952b71212f77524b298ccb98324ec2c9aac85873bfff8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef82947142117247e9a79d40e7a2e34abc59d49c07858477089c57ad675dcb69"
+    sha256 cellar: :any_skip_relocation, monterey:       "59dda23d68f1144b4e52403d6fbbaf3cb4a9ea615d48ddcda52e0305b5f2e3f9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "46c21b6798aaa52ddf2340275969aa746b32175356f70caf1b82d027e97f780f"
+    sha256 cellar: :any_skip_relocation, catalina:       "680a40117febb721ec590d75aa0256b2d0d36edee4d150e3c0ff311a8a28d3ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5e529a2c004b0b51189d7b78017b2bab118228e7aec8651673b6d438638ad68"
   end
 
   depends_on "rust" => :build
