@@ -3,8 +3,8 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/sumneko/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/sumneko/lua-language-server.git",
-      tag:      "3.2.4",
-      revision: "505ed9411939fe8c45903e3c9ce559fde50a0584"
+      tag:      "3.2.5",
+      revision: "afb4f838f65d22443ccf30089b2f898fc9c55430"
   license "MIT"
   head "https://github.com/sumneko/lua-language-server.git", branch: "master"
 
@@ -27,6 +27,11 @@ class LuaLanguageServer < Formula
 
   def install
     ENV.cxx11
+
+    # disable all tests by build script (fail in build environment)
+    inreplace buildpath.glob("**/3rd/bee.lua/test/test.lua"),
+      "os.exit(lt.run(), true)",
+      "os.exit(true, true)"
 
     chdir "3rd/luamake" do
       system "compile/install.sh"
