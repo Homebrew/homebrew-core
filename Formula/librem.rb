@@ -1,8 +1,8 @@
 class Librem < Formula
   desc "Toolkit library for real-time audio and video processing"
   homepage "https://github.com/baresip/rem"
-  url "https://github.com/baresip/rem/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "a80a1dc2b30233cd4012de8b58ac9c7e87e17676e6026629d8b66d8a01600a83"
+  url "https://github.com/baresip/rem/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "e9c4ebb63fe37dcf77638f280e619776d4e93884d9063084432f18bff2020cfe"
   license "BSD-3-Clause"
 
   bottle do
