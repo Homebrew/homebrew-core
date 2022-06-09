@@ -1,8 +1,8 @@
 class Roapi < Formula
   desc "Full-fledged APIs for static datasets without writing a single line of code"
   homepage "https://roapi.github.io/docs"
-  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-http-v0.6.0.tar.gz"
-  sha256 "f34442a5a4531fd5e0694ed5c62ddf7e1795d940cabc7346bc7a8cac3af73923"
+  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-v0.7.1.tar.gz"
+  sha256 "5abe5e4d9c58f6b5be951c8889e98f718c329c0fd5030825965217b6abe98df1"
   license "Apache-2.0"
 
   bottle do
@@ -20,12 +20,12 @@ class Roapi < Formula
     # skip default features like snmalloc which errs on ubuntu 16.04
     system "cargo", "install", "--no-default-features",
                                "--features", "rustls",
-                               *std_cargo_args(path: "roapi-http")
+                               *std_cargo_args(path: "roapi")
   end
 
   test do
     # test that versioning works
-    assert_equal "roapi-http #{version}", shell_output("#{bin}/roapi-http -V").strip
+    assert_equal "roapi #{version}", shell_output("#{bin}/roapi -V").strip
 
     # test CSV reading + JSON response
     port = free_port
@@ -34,7 +34,7 @@ class Roapi < Formula
 
     begin
       pid = fork do
-        exec bin/"roapi-http", "-a", "localhost:#{port}", "-t", "#{testpath}/data.csv"
+        exec bin/"roapi", "-a", "localhost:#{port}", "-t", "#{testpath}/data.csv"
       end
       query = "SELECT name from data"
       header = "ACCEPT: application/json"
