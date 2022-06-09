@@ -6,12 +6,12 @@ class Keydb < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5f67cc6109bcf302b7298b9fdf3d6440851c822f1e41067711ce2f0acd997ebc"
-    sha256 cellar: :any,                 arm64_big_sur:  "0d3c175286f20d74387ad91da01b6960428d726724c84b801a33d07f10c1206c"
-    sha256 cellar: :any,                 monterey:       "5326f26759e31697f474186479d86f70190f79843245f7c3542a66c86c8141ed"
-    sha256 cellar: :any,                 big_sur:        "1e51a0da309923c61c5c5e00a1d64671b95e5b02a5fd2f6dbfe4f5b9ac3f91e2"
-    sha256 cellar: :any,                 catalina:       "6766829c11cdac2d5610e37b4e0a51f16f1821754cf01d47bd3acd1e7e0bc2c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a839ca5809be0438bc6eb68834310316fd32e4fc8ccf583f4508a28f640402f4"
+    sha256 cellar: :any,                 arm64_monterey: "db45b745f6bd2ec985ac208baf993e0eaf63213b04524729fd88a989b10f9450"
+    sha256 cellar: :any,                 arm64_big_sur:  "186e3c93ffd0f867dfcabe61ef11573f886f3589429d6720cb541d0b40951dca"
+    sha256 cellar: :any,                 monterey:       "42d02ad9f16092ad46f1897bd56f2002caf28466cb129ce0479acf0ab2ba5cbd"
+    sha256 cellar: :any,                 big_sur:        "d0956eef5c45dd5515eebce726517de432d501045f0ce3e9501e10909b002442"
+    sha256 cellar: :any,                 catalina:       "1bb8588ba5ebdbcfb4fcfe1be1884fed97e4669d431d9b972b9f92cbfc98c0de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e586d4eab07319cddbce1a92270f31950caf3a3f45b573f5425c6f80a4025a87"
   end
 
   depends_on "openssl@3"
