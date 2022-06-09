@@ -21,12 +21,12 @@ class SpeechTools < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 monterey:     "134051b43ceb9d7b0c72cd1ae9c6c2381cd0dd74b8360e45a99879519da2bb63"
-    sha256 cellar: :any,                 big_sur:      "cabb028b487d5baa5c9c1bb67a982a285ab2af2194ac429fb80f0675e2bd9f6e"
-    sha256 cellar: :any,                 catalina:     "e25823939149f50f343c2e6bd8521b302067a0eb3106df6b40ff96b2d1a70c21"
-    sha256 cellar: :any,                 mojave:       "3ede4e21772a17e0c0a109151406ad82943ba77b0cad2249c0cac51e063d24ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "367d922ef74f4977cd3fca29461b4814af733073cbba6cc066d5b85a729daf26"
+    sha256 cellar: :any,                 arm64_monterey: "b6fc76b6258dbd5956b9ee1fc3c2b6bdd3bff70c3e5963d0909d063d7d58469e"
+    sha256 cellar: :any,                 arm64_big_sur:  "f87cf4b034c413c123d7a6c443492a836ce28c23407f522cad259a7832fd7e33"
+    sha256 cellar: :any,                 monterey:       "ff2891dc045fd7e6a9044dab515a213eb8cfacbdf94cee6191b4d14c32cdcff5"
+    sha256 cellar: :any,                 big_sur:        "6752fe1558b7d5c824d6b8f534caf8a2ee2547cc8346e6802ba7138992af4ea3"
+    sha256 cellar: :any,                 catalina:       "e88b78b7a2391634494dc70406f42667d8d152e41d8b85958afd38ec16d8b4e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05b33f6bd508503c40c67baaa4d8766e3d3b58853b18c9f356d0e650a2ecad13"
   end
 
   uses_from_macos "ncurses"
