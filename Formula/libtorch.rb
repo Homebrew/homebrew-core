@@ -26,10 +26,13 @@ class Libtorch < Formula
   depends_on "cmake" => :build
   depends_on "python@3.10" => :build
   depends_on "eigen"
-  depends_on "libomp"
   depends_on "libyaml"
   depends_on "protobuf"
   depends_on "pybind11"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
