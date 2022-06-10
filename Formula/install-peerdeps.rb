@@ -20,7 +20,6 @@ class InstallPeerdeps < Formula
 
   test do
     system "install-peerdeps", "eslint-config-airbnb@19.0.4"
-    system "bash", "-c", "ls -lR . > /tmp/ls.txt"
     assert_predicate testpath/"node_modules"/"eslint", :exist? # eslint is a peerdep
   end
 end
