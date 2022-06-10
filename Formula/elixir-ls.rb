@@ -6,12 +6,12 @@ class ElixirLs < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "58db48a0b346fa46459a1ce9f218a7d6ff0dc04dd04cd036e9f22e7790d5e265"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7741ff3f47a66c229add6d8cb41fe36743323d34ebcbf86927555530fa7abf9"
-    sha256 cellar: :any_skip_relocation, monterey:       "1465b0c582eb53a898cfdc107f9569b09905cf85060a82739124ac30bc0d4472"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c93d53ef7e88d9c4718f2cf968bd45dd71585c8dc585a3c0f3fee588f3e8c0fa"
-    sha256 cellar: :any_skip_relocation, catalina:       "cb7117dbc37b193f3e41b85d06b780c72cb2ed4e589d51096ada2402d8469eec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ca791a9e0f4e50fb5eb8b52aaf15965fb9f85fe9d98b7036f918a91762d1dc5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2508f07c361fee37a62eff19b9ce0772564ed43467e927e25310cd47286fd59f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bde32d69852db52952aa55e71a9d0e000a3cbb70f9acc41fa0c21ed2556cea96"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c6419dab00f7268c698a4ed55b8e0ecb8ee9cb64aa5b7d7c38d49897de1ecc9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9954971dd64118ec86bc464fdbfdce2793b9d50fbbd2881791894248deccf756"
+    sha256 cellar: :any_skip_relocation, catalina:       "65b16d8a3c5172c7aa9bb3faf189ec3e0e61e111996ef64139b7d23a71101918"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1f6cd1e14c2937b657abec11f0d3e1cf5364a6c4fa73670f7d1cd68ab04b416"
   end
 
   depends_on "elixir"
