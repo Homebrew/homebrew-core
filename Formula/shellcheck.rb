@@ -22,8 +22,7 @@ class Shellcheck < Formula
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
-    system "pandoc", "-s", "-f", "markdown-smart", "-t", "man",
-                     "shellcheck.1.md", "-o", "shellcheck.1"
+    system "./manpage"
     man1.install "shellcheck.1"
   end
 
