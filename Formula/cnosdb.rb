@@ -22,7 +22,6 @@ class Cnosdb < Formula
     (var/"cnosdb/meta").mkpath
     (var/"cnosdb/wal").mkpath
   end
-  
   test do
     (testpath/"config.toml").write shell_output("#{bin}/cnosdb config")
     inreplace testpath/"config.toml" do |s|
