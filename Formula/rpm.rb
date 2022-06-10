@@ -29,7 +29,6 @@ class Rpm < Formula
   depends_on "gettext"
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "libomp"
   depends_on "lua"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
@@ -40,6 +39,10 @@ class Rpm < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   # Fix `fstat64` detection for Apple Silicon.
   # https://github.com/rpm-software-management/rpm/pull/1775
@@ -60,7 +63,7 @@ class Rpm < Formula
 
   def install
     ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
-    ENV.append "LDFLAGS", "-lomp"
+    ENV.append "LDFLAGS", "-lomp" if OS.mac?
 
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
     inreplace ["macros.in", "platform.in"], "@prefix@", HOMEBREW_PREFIX
