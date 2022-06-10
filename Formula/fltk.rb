@@ -4,6 +4,7 @@ class Fltk < Formula
   url "https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz"
   sha256 "f3c1102b07eb0e7a50538f9fc9037c18387165bc70d4b626e94ab725b9d4d1bf"
   license "LGPL-2.0-only" => { with: "FLTK-exception" }
+  revision 1
 
   livecheck do
     url "https://www.fltk.org/software.php"
@@ -20,11 +21,11 @@ class Fltk < Formula
   end
 
   head do
-    url "https://github.com/fltk/fltk.git"
+    url "https://github.com/fltk/fltk.git", branch: "master"
     depends_on "cmake" => :build
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
 
   on_linux do
