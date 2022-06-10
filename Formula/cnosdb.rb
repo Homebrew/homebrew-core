@@ -11,11 +11,6 @@ class Cnosdb < Formula
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
-  bottle do
-    root_url "https://mirrors.ustc.edu.cn/homebrew-bottles"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "74dbc72e359b23c900e9bc876dd7c267cca5b1cef4ec418bfaefc4d808e8fdec"
-  end
-
   depends_on "go" => :build
 
   def install
