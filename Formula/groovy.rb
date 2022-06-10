@@ -12,12 +12,12 @@ class Groovy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3708bcafe903eeb2eac591c7eadb2386de9f96c7d81ff7c527fa29d46b703c28"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a10be4f13635f7ab7bad131f1ef08183e80ae18491649b86448160d3a6b6bc06"
-    sha256 cellar: :any_skip_relocation, monterey:       "7be116fd5be2d69d5339872ba50545807a81ec5cf8a8980fc5d6bd66ca172b8b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4d4a1b8301373044c3f0e021c9a05059edd22963035164fc51d202239d951c36"
-    sha256 cellar: :any_skip_relocation, catalina:       "6b1a0752d0f6311395605004663ef3e48aedf4404715aee6668d87b5e5d91e4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb205fc2adc36491adb129415d84de37b7f9169e1da16709838c48a3625b2ffe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d45b62e6a0d261523f26b7c5f8f749aa677e5263e3fb71f0e06b7889fb22d70c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ad556032e89611844889f5c0160d33d0dfeed5f2cf9a939becf1e700adce9da"
+    sha256 cellar: :any_skip_relocation, monterey:       "e1aecccd6ad6643ca8e3cd87ac853150548415d413fd66576639819be9975d6a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c8046066b0b2bf5858101eb5447e45d41bd3bb13186f62f35b290e2e305635c2"
+    sha256 cellar: :any_skip_relocation, catalina:       "85d1f7d50a1da7a8dcd9b4b72ed5761a4ceecc6719080a61418f078174802fae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5b8bdd6810dfd60b960521e0b3d4298736b3349c8816713b7444c8f07211c31"
   end
 
   depends_on "openjdk"
