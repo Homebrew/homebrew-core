@@ -4,8 +4,8 @@ class Envoy < Formula
   # Switch to a tarball when the following issue is resolved:
   # https://github.com/envoyproxy/envoy/issues/2181
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.21.2",
-      revision: "dc7f46eb44e54d5646301aa5ab4ba01f662fdf75"
+      tag:      "v1.21.3",
+      revision: "8c8c75fe7a2d3d2844da1de4cf66b09abf8e8227"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
