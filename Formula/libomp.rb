@@ -11,12 +11,12 @@ class Libomp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cf1058b26e1a778e523d51562c99b4145aea1b1cb89f1c60b3315677a86c7a08"
-    sha256 cellar: :any,                 arm64_big_sur:  "bbf77a1a151f00a18e340ab1f655fb87fe787a85834518f1dc44bf0c52ae7d4c"
-    sha256 cellar: :any,                 monterey:       "e66d2009d6d205c19499dcb453dfac4376ab6bdba805987be00ddbbab65a0818"
-    sha256 cellar: :any,                 big_sur:        "ed9dc636a5fc8c2a0cfb1643f7932d742ae4805c3f193a9e56cab7d7cf7342e7"
-    sha256 cellar: :any,                 catalina:       "c72ce9beecde09052e7eac3550b0286ed9bfb2d14f1dd5954705ab5fb25f231b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fe14d5f4c8b472de1fad74278da6ba38da7322775b8a88ac61de0c373c4ad10"
+    sha256 cellar: :any,                 arm64_monterey: "99c9a82a20ce0f76ba8fafefd538ecd23839dc57234b202a7f36d89774003914"
+    sha256 cellar: :any,                 arm64_big_sur:  "61791fa8cf7a642ed2cb57939c04fa41fbf47390900f22583f067738dad6637c"
+    sha256 cellar: :any,                 monterey:       "82d59517f8101fe83d7fe11822250aa1760d975a80eb4622f9ae7d4a67cf9a78"
+    sha256 cellar: :any,                 big_sur:        "baaeb5a704b6d245da5834fb3157f4e2e1f2fc1179bcc8da4ccfc7f9579ae9fd"
+    sha256 cellar: :any,                 catalina:       "450836950ce6be5a0fc3412f37d6ba409fcb4ba9ecc32b42b2c70f5a37b88d70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7a8591023d64f61141ab2f125737dc198ff252b87ee383253148b526194228c"
   end
 
   depends_on "cmake" => :build
