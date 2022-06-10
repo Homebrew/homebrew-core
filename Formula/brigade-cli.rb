@@ -13,12 +13,12 @@ class BrigadeCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e32b00704bef443f6998dd60330c9e13c64443f358b43d8bc7812cc34c892fd3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5aa661ac2ca0c024cc154a8acdc20107d63d171b106a3a9be07f08b8260abe0a"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ef3da90f5c89d4c3a58925ced20e50cdd55c9eef5acd565a04fa1a1045daff6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f8453e52557c129b920ee067378c8736c5b6bb543d06bd00eaf6aaacfda64a4e"
-    sha256 cellar: :any_skip_relocation, catalina:       "54b0a36772b3469d1bf93e96308ec201877d54be78e44ef2c847c69f7a07c933"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59385f3b5cb3d2993e5d9209b2289dd8cc841332218ca42f46ef86ae90a5396f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4e178e6bfe8c8a61e05b2ada8776a5604613048747225d3e9860dc1dad623ead"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48ec0ce5d53d16f87f4609aebdc42f589c4319ef546bec4c4cfe58d08c3cb7bf"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac352707fa64317b9a5f9761bca6e51ef9da7381e070bfcbe54aceb6561f2ba0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "df47dabe1fa9f31b4e192307622c25134f09672b5a3149f634b360beef60a31c"
+    sha256 cellar: :any_skip_relocation, catalina:       "c8053952e004fb4455c0402425de2e7099141964f914d3c906206e69865c98cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17449306b36ee93b21a273f1e7435610e11b903f49ebf5566dceac471fd0fe89"
   end
 
   depends_on "go" => :build
