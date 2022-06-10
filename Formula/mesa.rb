@@ -109,8 +109,6 @@ class Mesa < Formula
         -Dvalgrind=false
         -Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima
       ]
-    else
-      args << "-Dosmesa=true"
     end
 
     system "meson", "build", *args, *std_meson_args
