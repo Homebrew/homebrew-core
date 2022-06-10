@@ -23,12 +23,15 @@ class Pcl < Formula
   depends_on "eigen"
   depends_on "flann"
   depends_on "glew"
-  depends_on "libomp"
   depends_on "libpcap"
   depends_on "libusb"
   depends_on "qhull"
   depends_on "qt@5"
   depends_on "vtk"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   on_linux do
     depends_on "gcc"
