@@ -20,15 +20,13 @@ class Jsoncpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e00ec8c187ad0787b392125e31b23d0c2b0dcbb4e9f66cfd34570ca813146ab9"
   end
 
-  depends_on "meson" => :build
+  depends_on "cmake" => :build
   depends_on "ninja" => :build
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-GNinja", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
