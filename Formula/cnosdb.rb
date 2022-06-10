@@ -23,7 +23,6 @@ class Cnosdb < Formula
     (var/"cnosdb/wal").mkpath
   end
   plist_options :manual => "cnosdb --config #{HOMEBREW_PREFIX}/etc/cnosdb.conf"
-
   def plist
     <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
