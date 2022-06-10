@@ -4,6 +4,7 @@ class Qpdf < Formula
   url "https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.6.3/qpdf-10.6.3.tar.gz"
   sha256 "e8fc23b2a584ea68c963a897515d3eb3129186741dd19d13c86d31fa33493811"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class Qpdf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b60263aafd42b76e159d8571dec80efa1ca5e411b592e92df1ea1d81935df399"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
