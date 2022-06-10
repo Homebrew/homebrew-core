@@ -1,13 +1,14 @@
 class Flowgrind < Formula
   desc "TCP measurement tool, similar to iperf or netperf"
-  homepage "https://launchpad.net/flowgrind"
-  url "https://launchpad.net/flowgrind/trunk/flowgrind-0.8.0/+download/flowgrind-0.8.0.tar.bz2"
-  sha256 "2e8b58fc919bb1dae8f79535e21931336355b4831d8b5bf75cf43eacd1921d04"
-  revision 4
+  homepage "https://flowgrind.github.io"
+  url "https://github.com/flowgrind/flowgrind/releases/download/flowgrind-0.8.2/flowgrind-0.8.2.tar.bz2"
+  sha256 "432c4d15cb62d5d8d0b3509034bfb42380a02e3f0b75d16b7619a1ede07ac4f1"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
-    regex(%r{<div class="version">\s*Latest version is flowgrind[._-]v?(\d+(?:\.\d+)+)\s*</div>}i)
+    strategy :github_latest
+    regex(%r{href=.*?/tag/flowgrind[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
@@ -19,14 +20,21 @@ class Flowgrind < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3adf0b567ee925141f552e7c8bfc8efb552853f314bf0039e64c5e6ee01c87aa"
   end
 
+  head do
+    url "https://github.com/flowgrind/flowgrind.git", branch: "next"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "gsl"
   depends_on "xmlrpc-c"
 
+  uses_from_macos "libpcap"
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
