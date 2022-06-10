@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/63/69/c94542202d3ce8988cc0868a16d7c688ab73342edc3de83d38a22ad374f8/ansible-lint-6.2.2.tar.gz"
-  sha256 "b8e2956fede90bd28150e97f209a8af787c6001f584bb6613112a1ce1aea311d"
+  url "https://files.pythonhosted.org/packages/4b/70/c8a9688d33f3411563656c765815d39ace9bfbe03841cd2ff3cd12b13538/ansible-lint-6.3.0.tar.gz"
+  sha256 "f57f520ae5d810ce062157dc7d633990ad2fbec81bbbb34ccc4ce3a0c21fcd38"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -73,8 +73,8 @@ class AnsibleLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/9e/62/93a54db0e44c4de57868a7d638d7a8abce113c8bc43a20b10b1109b2a517/jsonschema-4.5.1.tar.gz"
-    sha256 "7c6d882619340c3347a1bf7315e147e6d3dae439033ae6383d6acb908c101dfc"
+    url "https://files.pythonhosted.org/packages/b5/a0/dd13abb5f371f980037d271fd09461df18c85188216008a1e3a9c3f8bd0c/jsonschema-4.6.0.tar.gz"
+    sha256 "9d6397ba4a6c0bf0300736057f649e3e12ecbc07d3e81a0dacb72de4e9801957"
   end
 
   resource "MarkupSafe" do
@@ -163,8 +163,8 @@ class AnsibleLint < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/a7/73/7c739ae235b7e3ee36f2c0084a595b89c62aefeafa52df8d54d26846b32b/wcmatch-8.3.tar.gz"
-    sha256 "371072912398af61d1e4e78609e18801c6faecd3cb36c54c82556a60abc965db"
+    url "https://files.pythonhosted.org/packages/95/b3/597b79292584de5b790146871e50cf3cb3bf37cf845232a20123fc784ef2/wcmatch-8.4.tar.gz"
+    sha256 "ba4fc5558f8946bf1ffc7034b05b814d825d694112499c86035e0e4d398b6a67"
   end
 
   resource "yamllint" do
