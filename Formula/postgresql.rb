@@ -27,6 +27,7 @@ class Postgresql < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
 
+  depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "readline"
 
@@ -58,6 +59,7 @@ class Postgresql < Formula
       --with-ldap
       --with-libxml
       --with-libxslt
+      --with-lz4
       --with-openssl
       --with-pam
       --with-perl
