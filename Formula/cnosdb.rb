@@ -6,11 +6,6 @@ class Cnosdb < Formula
   license "MIT"
   head "https://github.com/cnosdb/cnosdb.git"
 
-  livecheck do
-    url "https://github.com/cnosdb/cnosdb/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
-  end
-
   depends_on "go" => :build
 
   def install
