@@ -4,6 +4,7 @@ class Gmsh < Formula
   url "https://gmsh.info/src/gmsh-4.10.3-source.tgz"
   sha256 "a87d59ccea596d493d375b0d6bc380079a5e5a4baebf0d3383018b0cd6bd8e33"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
 
   livecheck do
@@ -24,6 +25,7 @@ class Gmsh < Formula
   depends_on "cairo"
   depends_on "fltk"
   depends_on "gcc" # for gfortran
+  depends_on "jpeg-turbo"
   depends_on "open-mpi"
   depends_on "opencascade"
 
