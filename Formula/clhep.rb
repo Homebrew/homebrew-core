@@ -1,8 +1,8 @@
 class Clhep < Formula
   desc "Class Library for High Energy Physics"
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
-  url "https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.5.2.tgz"
-  sha256 "3a87de7c0c41a877212ee3d0d2ac5afe315299ae278ce7858b2ec7249ef2d911"
+  url "https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.5.3.tgz"
+  sha256 "45f63eeb097f02fe67b86a7dadbf10d409b401c28a1a3e172db36252c3097c13"
   license "GPL-3.0-only"
   head "https://gitlab.cern.ch/CLHEP/CLHEP.git", branch: "develop"
 
