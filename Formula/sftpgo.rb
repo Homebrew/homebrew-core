@@ -1,8 +1,8 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.0/sftpgo_v2.3.0_src_with_deps.tar.xz"
-  sha256 "2a1c6dc2c540404e7a19e9ba3b43224cb040fb6c05b3f4ad24cc20da0c34b93f"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.1/sftpgo_v2.3.1_src_with_deps.tar.xz"
+  sha256 "dd4d0f7b7e7618f01ccecee7ea8045a6adcee2c2e29ab011a85eef8c80a0ac55"
   license "AGPL-3.0-only"
 
   bottle do
@@ -17,7 +17,11 @@ class Sftpgo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = %W[
+      -s -w
+      -X github.com/drakkan/sftpgo/v2/util.additionalSharedDataSearchPath=#{opt_pkgshare}
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags)
     system bin/"sftpgo", "gen", "man", "-d", man1
 
     (zsh_completion/"_sftpgo").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "zsh")
@@ -26,9 +30,6 @@ class Sftpgo < Formula
 
     inreplace "sftpgo.json" do |s|
       s.gsub! "\"users_base_dir\": \"\"", "\"users_base_dir\": \"#{var}/sftpgo/data\""
-      s.gsub! "\"templates_path\": \"templates\"", "\"templates_path\": \"#{opt_pkgshare}/templates\""
-      s.gsub! "\"static_files_path\": \"static\"", "\"static_files_path\": \"#{opt_pkgshare}/static\""
-      s.gsub! "\"openapi_path\": \"openapi\"", "\"openapi_path\": \"#{opt_pkgshare}/openapi\""
     end
 
     pkgetc.install "sftpgo.json"
