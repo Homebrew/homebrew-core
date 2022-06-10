@@ -4,6 +4,7 @@ class Siril < Formula
   url "https://free-astro.org/download/siril-1.0.2.tar.bz2"
   sha256 "4973bd7ad6d3cb7ad279ef27bb5c79f37ca1f914c7b6ad8fe689e1d59189f2db"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   bottle do
@@ -28,10 +29,10 @@ class Siril < Formula
   depends_on "fftw"
   depends_on "gnuplot"
   depends_on "gsl"
+  depends_on "gtk+3"
   depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libconfig"
-  depends_on "libomp"
   depends_on "libraw"
   depends_on "librsvg"
   depends_on "netpbm"
@@ -42,11 +43,11 @@ class Siril < Formula
 
   on_macos do
     depends_on "gtk-mac-integration"
+    depends_on "libomp"
   end
 
   on_linux do
     depends_on "gcc"
-    depends_on "gtk+3"
   end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
@@ -56,7 +57,8 @@ class Siril < Formula
 
     # siril uses pkg-config but it has wrong include paths for several
     # headers. Work around that by letting it find all includes.
-    ENV.append_to_cflags "-I#{HOMEBREW_PREFIX}/include -Xpreprocessor -fopenmp -lomp"
+    ENV.append_to_cflags "-I#{HOMEBREW_PREFIX}/include"
+    ENV.append_to_cflags "-Xpreprocessor -fopenmp -lomp" if OS.mac?
 
     system "./autogen.sh", "--prefix=#{prefix}"
     system "make"
