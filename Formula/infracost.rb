@@ -7,12 +7,12 @@ class Infracost < Formula
   head "https://github.com/infracost/infracost.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0429b05f5d99bf32ee6b5871c4af6c4c60db5f34f027fb7741b844ebc2a766b1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f3f4e5354e334bd171c8961fc52d85856ac9c894e978aa10d4ab816819a27da6"
-    sha256 cellar: :any_skip_relocation, monterey:       "b26ae16a6b6c1dcbd0d171e7f49630721712cdb8b6f77fc661bda687299f2c69"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d6f0b57293316e622d480705e136fd3007895c5b3bc7312cf0b088c6d896a783"
-    sha256 cellar: :any_skip_relocation, catalina:       "d6f0b57293316e622d480705e136fd3007895c5b3bc7312cf0b088c6d896a783"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96151262ba6859e38071af166746e16ecfa0e122288fd7a566e2b47c775a21a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f486f3f046511259406fa6d321bb1fb75fd07a50b0ac3d8c090ceefffb2fb24"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f486f3f046511259406fa6d321bb1fb75fd07a50b0ac3d8c090ceefffb2fb24"
+    sha256 cellar: :any_skip_relocation, monterey:       "a6fa3080b8c126cc6e39d467f12e33f7f4624d9315d4965409d2db5c15f0cea0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a1883926e3bc1e960a95ceec28f14d3b6a18f7aee3fadd04317e543eb3ecc28f"
+    sha256 cellar: :any_skip_relocation, catalina:       "bb73398ae8f3e8c0b10752fe01c31ce7acf9463e52b5dbe5cf290937f8ffaeb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb05f32d7b0dbd6b9b9db03218bcd800530818775b802cadd3708d378c1cec7d"
   end
 
   depends_on "go" => :build
