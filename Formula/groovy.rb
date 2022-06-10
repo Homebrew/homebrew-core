@@ -4,6 +4,7 @@ class Groovy < Formula
   url "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.3.zip"
   sha256 "ddfc8e26fdcf3626d1c83f28d198c3e4e616a72337ca6e46fcaca09e7a4bb37f"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/"
@@ -59,12 +60,7 @@ class Groovy < Formula
 
     libexec.install "bin", "conf", "lib"
     bin.install Dir["#{libexec}/bin/*"] - ["#{libexec}/bin/groovy.ico"]
-    env = Language::Java.overridable_java_home_env
-    # Work around for exception starting `groovysh` on OpenJDK 18:
-    # java.lang.UnsupportedOperationException: The Security Manager is deprecated ...
-    # TODO: Remove when groovy no longer uses deprecated Security Manager.
-    env["JAVA_OPTS"] = "$JAVA_OPTS -Djava.security.manager=allow"
-    bin.env_script_all_files libexec/"bin", env
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   def caveats
