@@ -2,8 +2,8 @@ class BrigadeCli < Formula
   desc "Brigade command-line interface"
   homepage "https://brigade.sh"
   url "https://github.com/brigadecore/brigade.git",
-      tag:      "v2.5.0",
-      revision: "838e8fd2357e3ace0b2080544a9faf3229be8b3d"
+      tag:      "v2.6.0",
+      revision: "e455508e5ec5bb9352e635c179ab44b0bc44c320"
   license "Apache-2.0"
   head "https://github.com/brigadecore/brigade.git", branch: "main"
 
