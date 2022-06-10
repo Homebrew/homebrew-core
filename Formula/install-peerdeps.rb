@@ -7,10 +7,6 @@ class InstallPeerdeps < Formula
   sha256 "a1f0e865f9db356aa15ccc9cb56e200c442229bef9e1e1ef8c73bcd587dfc506"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   depends_on "node"
 
   def install
