@@ -2,8 +2,8 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.github.io/cd"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v2.3.4",
-      revision: "ac8b7df9467ffcc0920b826c62c4b603a7bfed24"
+      tag:      "v2.4.0",
+      revision: "91aefabc5b213a258ddcfe04b8e69bb4a2dd2566"
   license "Apache-2.0"
 
   bottle do
@@ -42,6 +42,7 @@ class Argocd < Formula
 
     # Providing argocd with an empty config file returns the contexts table header
     touch testpath/"argocd-config"
+    (testpath/"argocd-config").chmod 0600
     assert_match "CURRENT  NAME  SERVER\n",
       shell_output("#{bin}/argocd context --config ./argocd-config")
   end
