@@ -4,7 +4,7 @@ class Skktools < Formula
   url "https://deb.debian.org/debian/pool/main/s/skktools/skktools_1.3.4.orig.tar.gz"
   sha256 "84cc5d3344362372e0dfe93a84790a193d93730178401a96248961ef161f2168"
   license "GPL-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2516509661552b0b851aadc8da1e3ecf821a5527dd6ab8d0d268ad5dfdc14b33"
@@ -22,13 +22,17 @@ class Skktools < Formula
   depends_on "glib"
 
   on_linux do
-    depends_on "berkeley-db"
+    depends_on "gdbm"
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-skkdic-expr2"
-
+    args = ["--with-skkdic-expr2"]
+    if OS.linux?
+      args << "--with-gdbm"
+      # Help find Homebrew's gdbm compatibility layer header
+      inreplace %w[configure skkdic-expr.c], "gdbm/ndbm.h", "gdbm-ndbm.h"
+    end
+    system "./configure", *std_configure_args, *args
     system "make", "CC=#{ENV.cc}"
     ENV.deparallelize
     system "make", "install"
