@@ -21,7 +21,12 @@ class Nmap < Formula
     sha256 x86_64_linux:   "5ceab0e20f0aba5059b7ba612876413c799d0a933dfb46c5bf078b432d01c7dd"
   end
 
+  depends_on "liblinear"
+  depends_on "libssh2"
+  # Check supported Lua version at https://github.com/nmap/nmap/tree/master/liblua.
+  depends_on "lua@5.3"
   depends_on "openssl@1.1"
+  depends_on "pcre"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -30,12 +35,18 @@ class Nmap < Formula
   conflicts_with "ndiff", because: "both install `ndiff` binaries"
 
   def install
+    (buildpath/"configure").read.lines.grep(/lua/) do |line|
+      lua_minor_version = line[%r{lua/?5\.?(\d+)}, 1]
+      next if lua_minor_version.blank?
+      raise "Lua dependency needs updating!" if lua_minor_version.to_i > 3
+    end
+
     ENV.deparallelize
 
     args = %W[
       --prefix=#{prefix}
-      --with-libpcre=included
-      --with-liblua=included
+      --with-liblua=#{Formula["lua@5.3"].opt_prefix}
+      --with-libpcre=#{Formula["pcre"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-nmap-update
       --disable-universal
