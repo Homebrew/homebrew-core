@@ -7,8 +7,8 @@ class Nb < Formula
   license "AGPL-3.0-or-later"
   head "https://github.com/xwmx/nb.git", branch: "master"
 
-  depends_on "bat"
   depends_on "nano" => :test
+  depends_on "bat"
   depends_on "nmap"
   depends_on "pandoc"
   depends_on "ripgrep"
