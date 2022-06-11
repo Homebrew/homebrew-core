@@ -28,12 +28,12 @@ class Nb < Formula
   test do
     ENV["EDITOR"] = which("nano")
 
-    assert_match version.to_s, shell_output("nb version")
+    assert_match version.to_s, shell_output("#{bin}/nb version")
 
-    system "yes | nb notebooks init"
-    system "nb", "add", "test", "note"
-    assert_match "test note", shell_output("nb ls")
-    assert_match "test note", shell_output("nb show 1")
-    assert_match "1", shell_output("nb search test")
+    system "yes | #{bin}/nb notebooks init"
+    system bin/"nb", "add", "test", "note"
+    assert_match "test note", shell_output("#{bin}/nb ls")
+    assert_match "test note", shell_output("#{bin}/nb show 1")
+    assert_match "1", shell_output("#{bin}/nb search test")
   end
 end
