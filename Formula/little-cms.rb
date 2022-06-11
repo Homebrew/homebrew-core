@@ -6,10 +6,6 @@ class LittleCms < Formula
   license "MIT"
   revision 1
 
-  livecheck do
-    skip "1.x versions are no longer developed"
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2ffcd73342ab7d70a8a355578f62947ed40701d3fd2a443ff505235bbb9a26fc"
     sha256 cellar: :any,                 arm64_big_sur:  "e16ca9dc1d92be7f1aefb1496d713c4635aaa032dac246df26dd7e86ad1abd65"
@@ -23,6 +19,8 @@ class LittleCms < Formula
     sha256 cellar: :any,                 yosemite:       "bc02c8267bf616ef0dcfc27db97a849b0f79e8211164ea4a955482b964255a7e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c687f10094faebcec6573681241dc7f45e3f19ffcaab3ef2a56c987d13ba18a3"
   end
+
+  deprecate! date: "2022-06-12", because: :unmaintained
 
   depends_on "jpeg"
   depends_on "libtiff"
