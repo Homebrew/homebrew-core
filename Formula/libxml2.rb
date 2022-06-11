@@ -2,6 +2,7 @@ class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
   license "MIT"
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz"
@@ -42,6 +43,7 @@ class Libxml2 < Formula
   keg_only :provided_by_macos
 
   depends_on "python@3.9" => [:build, :test]
+  depends_on "icu4c"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -70,9 +72,15 @@ class Libxml2 < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-history",
+                          "--with-icu",
                           "--without-python",
                           "--without-lzma"
     system "make", "install"
+
+    # Homebrew-specific workaround to add include path for `icu4c` because
+    # it is in a different directory than `libxml2`.
+    inreplace bin/"xml2-config", "-I${includedir}/libxml2 ",
+                                 "-I${includedir}/libxml2 -I#{Formula["icu4c"].opt_include}"
 
     cd "python" do
       # We need to insert our include dir first
