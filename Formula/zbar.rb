@@ -4,7 +4,7 @@ class Zbar < Formula
   url "https://github.com/mchehab/zbar/archive/0.23.90.tar.gz"
   sha256 "25fdd6726d5c4c6f95c95d37591bfbb2dde63d13d0b10cb1350923ea8b11963b"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
   head "https://github.com/mchehab/zbar.git", branch: "master"
 
   livecheck do
@@ -30,7 +30,7 @@ class Zbar < Formula
   depends_on "xmlto" => :build
   depends_on "freetype"
   depends_on "imagemagick"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libtool"
   depends_on "ufraw"
   depends_on "xz"
@@ -39,20 +39,16 @@ class Zbar < Formula
     depends_on "dbus"
   end
 
+  fails_with gcc: "5" # imagemagick is built with GCC
+
   def install
-    system "autoreconf", "-fvi"
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --without-python
-      --without-qt
-      --disable-video
-      --without-gtk
-      --without-x
-    ]
-
-    system "./configure", *args
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args,
+                          "--without-python",
+                          "--without-qt",
+                          "--disable-video",
+                          "--without-gtk",
+                          "--without-x"
     system "make", "install"
   end
 
