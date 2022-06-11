@@ -28,6 +28,6 @@ class Rune < Formula
         println!("Hello, world!");
       }
     EOS
-    assert_match "Hello, world!", shell_output("#{bin/"rune"} run #{testpath/"hello.rn"}").strip)
+    assert_match "Hello, world!", shell_output("#{bin/"rune"} run #{testpath/"hello.rn"}").strip
   end
 end
