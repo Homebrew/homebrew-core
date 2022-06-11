@@ -1,8 +1,8 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau-lang.org"
-  url "https://github.com/Roblox/luau/archive/0.530.tar.gz"
-  sha256 "913dd66657f1c65c592e85443100bd89c5259f3df3ba86c8cd26d51296a8f42d"
+  url "https://github.com/Roblox/luau/archive/0.531.tar.gz"
+  sha256 "dad818dd2e0d21842139c2c3379e66a0ee5c21a22a865f028495812708885472"
   license "MIT"
   head "https://github.com/Roblox/luau.git", branch: "master"
 
@@ -23,9 +23,6 @@ class Luau < Formula
 
   fails_with gcc: "5"
 
-  # Upstreamed here: https://github.com/Roblox/luau/pull/522.
-  patch :DATA
-
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DLUAU_BUILD_TESTS=OFF"
     system "cmake", "--build", "build"
@@ -37,17 +34,3 @@ class Luau < Formula
     assert_match "Homebrew is awesome!", shell_output("#{bin}/luau test.lua")
   end
 end
-
-__END__
-diff --git a/Analysis/include/Luau/Variant.h b/Analysis/include/Luau/Variant.h
-index c9c97c9..f637222 100644
---- a/Analysis/include/Luau/Variant.h
-+++ b/Analysis/include/Luau/Variant.h
-@@ -6,6 +6,7 @@
- #include <type_traits>
- #include <initializer_list>
- #include <stddef.h>
-+#include <utility>
-
- namespace Luau
- {
