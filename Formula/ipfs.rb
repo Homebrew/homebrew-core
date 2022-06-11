@@ -24,8 +24,7 @@ class Ipfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdd652dd1d3e09ddfc815feaa00039a03468da60739a41957f5c5b073afc5b37"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "make", "build"
