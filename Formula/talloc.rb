@@ -11,13 +11,12 @@ class Talloc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "a0b8936aab48e933fe8152fbcf62aaae8fe275eaf633da10d8a3cc8850427ab8"
-    sha256 cellar: :any,                 arm64_big_sur:  "416d686e27607c6cd1341da3ee1db0263bcea028b4644a7051c0acd6d2533b9c"
-    sha256 cellar: :any,                 monterey:       "548b62389799fbc33f2457d242149d49e0347d13241591e370f753458eb4a746"
-    sha256 cellar: :any,                 big_sur:        "72693abba030813551e05e682996bea4b9bcd6d9524faab3ab6a6ede826b482a"
-    sha256 cellar: :any,                 catalina:       "1b69ab0589f68b580776015ad297dfdd12b734fdbe062884e9b5b8cb2ebb31b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f3f4cfdd6c4cad9505ef2cdf8522bb2ea0951d09119b78932d638fbd6aa176c"
+    sha256 cellar: :any,                 arm64_monterey: "14c38dbabaa0448ddea4576de5ac2fb6badf605c4db2ae4e5fa72c1ec19b4f95"
+    sha256 cellar: :any,                 arm64_big_sur:  "75f15e5f72f21ee560283263719a256bfba325b510b420fa45775a1622b12de5"
+    sha256 cellar: :any,                 monterey:       "a7a0a524000d68b5e82bcb885e91a1944ecb372122f43424a2aeec684a23a512"
+    sha256 cellar: :any,                 big_sur:        "b5df557121367248b6cce98c9a699414c357053ca90ced707e27749bf0ed84ac"
+    sha256 cellar: :any,                 catalina:       "db80889b42ee0a260422deae04d5dbed0cfbabd0231e891b7231e5660fd70858"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fec65f462b96323ca4acc197a5c41d2370156057f594b5cd5dc2f97223a69fda"
   end
 
   depends_on "python@3.10" => :build
