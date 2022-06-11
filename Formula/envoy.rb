@@ -32,12 +32,12 @@ class Envoy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c229515a8e2c5e49c12dab26fb4cf452732f17e86c0f7df7b1ec58d16fa42f9f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8779af01643cb05425d1f3ac09b67663ae3002c08a64ca1523cd1ac3f6cce788"
-    sha256 cellar: :any_skip_relocation, monterey:       "ccfb037e24539dd688f5d0a35429c26ee3d9ad5a9002df31f905e71070dab8de"
-    sha256 cellar: :any_skip_relocation, big_sur:        "adf357907f4d6a12e64b1e6f3c2227bed88e709a75cce4f35553e5b7ea512088"
-    sha256 cellar: :any_skip_relocation, catalina:       "8da520a2a769e8306fcc2ca013f598e9f52738c842bf7cccc111132856f1a0bb"
-    sha256                               x86_64_linux:   "18853308c3d2cb0b8c0584e597adc5007a68c4a2cd0fe966d45637908c258916"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "122977e8eee980aab6b9d5fa2ba9fc1e58f831e68345e417e7fdc52df554d7a4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "78d13f1e2a098f849805bf575c53e52dd452ae45c8fa2134e93941c7bcdb7e89"
+    sha256 cellar: :any_skip_relocation, monterey:       "97dde181e8691fb7594cdf1d788049d9e9e658128fd912128eb2be31ccbe0b9c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "55c03e83374c3637254dc03c3ecf67833861cd6f6ef013d8c9b91d6b5d0a48ab"
+    sha256 cellar: :any_skip_relocation, catalina:       "6ec9fb982745c52765ec8cb02f9ea7bceb53ff821e30100e45d4cbb2b9587c38"
+    sha256                               x86_64_linux:   "7add4d2d423ab7ab170c5ded6e8681a6b7c1b6806ecb4ef18f772f3cc785e121"
   end
 
   depends_on "automake" => :build
