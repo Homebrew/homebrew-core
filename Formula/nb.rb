@@ -8,6 +8,7 @@ class Nb < Formula
   head "https://github.com/xwmx/nb.git", branch: "master"
 
   depends_on "bat"
+  depends_on "nano" => :test
   depends_on "nmap"
   depends_on "pandoc"
   depends_on "ripgrep"
@@ -25,7 +26,7 @@ class Nb < Formula
   end
 
   test do
-    ENV["EDITOR"] = shell_output("which vi")
+    ENV["EDITOR"] = shell_output("which nano")
 
     assert_match version.to_s, shell_output("nb version")
 
