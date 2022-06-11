@@ -25,7 +25,7 @@ class Nb < Formula
   end
 
   test do
-    ENV["EDITOR"] = which("nano")
+    ENV["EDITOR"] = which "nano"
 
     assert_match version.to_s, shell_output("#{bin}/nb version")
 
