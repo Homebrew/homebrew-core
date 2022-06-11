@@ -15,7 +15,6 @@ class Nb < Formula
   depends_on "w3m"
 
   uses_from_macos "bash"
-  uses_from_macos "git"
 
   def install
     bin.install "nb", "bin/bookmark"
@@ -26,6 +25,8 @@ class Nb < Formula
   end
 
   test do
+    ENV["EDITOR"] = shell_output("which vi")
+
     assert_match version.to_s, shell_output("nb version")
 
     system "yes | nb notebooks init"
