@@ -4,7 +4,7 @@ class Fizmo < Formula
   url "https://fizmo.spellbreaker.org/source/fizmo-0.8.5.tar.gz"
   sha256 "1c259a29b21c9f401c12fc24d555aca4f4ff171873be56fb44c0c9402c61beaa"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://fizmo.spellbreaker.org/download/"
@@ -24,16 +24,17 @@ class Fizmo < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libsndfile"
   depends_on "libx11"
   depends_on "sdl2"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
