@@ -7,12 +7,12 @@ class ClangFormat < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.4/llvm-14.0.4.src.tar.xz"
-    sha256 "eb8e90dfadae4073a7f8fc6384bacc0dda072400d82b9d25dabb5280a737ba22"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.5/llvm-14.0.5.src.tar.xz"
+    sha256 "234c8ed02ed1338aa4f0ffa955e45eb13abe7ba0032569d6bc17ae9334257b02"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.4/clang-14.0.4.src.tar.xz"
-      sha256 "922bdc8341491d4f54548c51bafd77c0e737a3146fe33c762bce31a0fd151591"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.5/clang-14.0.5.src.tar.xz"
+      sha256 "a8e2e3ce217f4c2682c3fe2d2691f826cf1f0ab0a1dff4b5b8f6264baa1f2a79"
     end
   end
 
