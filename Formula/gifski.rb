@@ -6,12 +6,12 @@ class Gifski < Formula
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "59840cc6d34510cbde228cedbae08d270effbd2c427748cb98b0685154effb55"
-    sha256 cellar: :any,                 arm64_big_sur:  "06a4710d0902483c75377e7fffadb47cf28577ad32c2c6ac6cbb398ae07fc972"
-    sha256 cellar: :any,                 monterey:       "6995c7396bf11196d20f76b55d50aa1680942de8f05ac20da05fad1aa4f933d2"
-    sha256 cellar: :any,                 big_sur:        "4060dcb4e64572d843ebdb8c6cdeeef011fb7e586844c61fb11b0ca70bd02239"
-    sha256 cellar: :any,                 catalina:       "e3e324b67bee1677e69d327669082a7a2bb4593e5a3aa6f3d76fc6a1d41f1f36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad6ec536a7c531cc186390da8b099148d0fc01119f25408c72fa245e31821daf"
+    sha256 cellar: :any,                 arm64_monterey: "ff9a703f6f1ccad514c4eed9b1f2fb54e02f245b6e765b551e1bad28fbecf870"
+    sha256 cellar: :any,                 arm64_big_sur:  "7f8fb7a008f173ed43074a3c2c7aa5c48f809e92ffd88096926625ce7b8fab66"
+    sha256 cellar: :any,                 monterey:       "704e3011b96b4cb7865c3fe77adaa27d849acb3ee0cf638e08817e97d34aca0a"
+    sha256 cellar: :any,                 big_sur:        "b5ddc35b04a75f1e553a97c90e09a2671146ead4511e69324b4fc82c6ede8d5d"
+    sha256 cellar: :any,                 catalina:       "eb5d6832ad98307405113d443144dc7632aeddb77fdb788ef5bf6c977f5bffdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3fd4fb52b0eb0131eb866949f7dbe3f9dd63cd23d0d04cbb4e46a424447b056"
   end
 
   depends_on "pkg-config" => :build
