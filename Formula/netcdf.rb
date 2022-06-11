@@ -49,11 +49,6 @@ class Netcdf < Formula
       args << "-DNC_EXTRA_DEPS=-lmpi" if Tab.for_name("hdf5").with? "mpi"
       args << "-DENABLE_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
 
-      # Extra CMake flags for compatibility with hdf5 1.12
-      # Remove with the following PR lands in a release:
-      # https://github.com/Unidata/netcdf-c/pull/1973
-      args << "-DCMAKE_C_FLAGS='-I#{Formula["hdf5"].include} -DH5_USE_110_API'"
-
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *args
       system "make", "install"
       system "make", "clean"
