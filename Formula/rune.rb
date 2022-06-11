@@ -1,8 +1,8 @@
 class Rune < Formula
   desc "Embeddable dynamic programming language for Rust"
   homepage "https://rune-rs.github.io"
-  url "https://github.com/rune-rs/rune/archive/refs/tags/0.10.3.tar.gz"
-  sha256 "6a7154191b9f279bad68ac474107d9a24ff8470d3aca243c9805c2ea90534dbb"
+  url "https://github.com/rune-rs/rune/archive/refs/tags/0.12.0.tar.gz"
+  sha256 "7683526f9f9259f4a7fd33c4dda19fdff11850eccac5bbced89e9bdbfe8aeb38"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rune-rs/rune.git", branch: "main"
 
@@ -28,7 +28,6 @@ class Rune < Formula
         println!("Hello, world!");
       }
     EOS
-    assert_match(/Hello, world!\n== \(\) \([\d.]+[µm]?s\)/,
-                 shell_output("#{bin/"rune"} run #{testpath/"hello.rn"}").strip)
+    assert_match "Hello, world!", shell_output("#{bin/"rune"} run #{testpath/"hello.rn"}").strip
   end
 end
