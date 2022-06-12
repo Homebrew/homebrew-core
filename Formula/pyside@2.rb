@@ -1,8 +1,8 @@
 class PysideAT2 < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.3-src/pyside-setup-opensource-src-5.15.3.tar.xz"
-  sha256 "7ff5f1cc4291fffb6d5a3098b3090abe4d415da2adec740b4e901893d95d7137"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.5-src/pyside-setup-opensource-src-5.15.5.tar.xz"
+  sha256 "3920a4fb353300260c9bc46ff70f1fb975c5e7efa22e9d51222588928ce19b33"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   bottle do
@@ -23,6 +23,11 @@ class PysideAT2 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
+  on_linux do
+    depends_on "libxcb"
+    depends_on "mesa"
+  end
+
   fails_with gcc: "5"
 
   # Don't copy qt@5 tools.
@@ -32,7 +37,17 @@ class PysideAT2 < Formula
   end
 
   def install
+    # upstream issue: https://bugreports.qt.io/browse/PYSIDE-1684
+    unless OS.mac?
+      extra_include_dirs = [Formula["mesa"].opt_include, Formula["libxcb"].opt_include]
+
+      inreplace "sources/pyside2/cmake/Macros/PySideModules.cmake",
+                "--include-paths=${shiboken_include_dirs}",
+                "--include-paths=${shiboken_include_dirs}:#{extra_include_dirs.join(":")}"
+    end
+
     args = std_cmake_args + %W[
+      -DCMAKE_CXX_COMPILER=#{ENV.cxx}
       -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
       -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3
       -DCMAKE_INSTALL_RPATH=#{lib}
@@ -59,12 +74,10 @@ class PysideAT2 < Formula
       Network
       Quick
       Svg
+      WebEngineWidgets
       Widgets
       Xml
     ]
-
-    # Qt web engine is not supported on Apple Silicon.
-    modules << "WebEngineWidgets" unless Hardware::CPU.arm?
 
     modules.each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
 
@@ -81,8 +94,10 @@ class PysideAT2 < Formula
         return 0;
       }
     EOS
+    rpaths = []
+    rpaths += ["-Wl,-rpath,#{lib}", "-Wl,-rpath,#{Formula["python@3.10"].opt_lib}"] unless OS.mac?
     system ENV.cxx, "-std=c++11", "test.cpp",
-           "-I#{include}/shiboken2", "-L#{lib}", "-lshiboken2.abi3",
+           "-I#{include}/shiboken2", "-L#{lib}", "-lshiboken2.abi3", *rpaths,
            *pyincludes, *pylib, "-o", "test"
     system "./test"
   end
