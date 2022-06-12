@@ -24,6 +24,15 @@ class SynergyCore < Formula
     sha256 "081735f032a2909c65322d43bcaf463bca05f88a05882c706762c959cd4bbec6"
   end
 
+  bottle do
+    sha256                               arm64_monterey: "93130d9add2ff477b7ab848e0f4b4336031ca0ff50dddc2b67cfaef51040bd56"
+    sha256                               arm64_big_sur:  "5d3fab34b90a58e079012cc8d2b7f441ad098214161d83894558177b356ed2ed"
+    sha256                               monterey:       "2fcafb9115be3180db650acf09ba588ebfadb9c0f8c4a0ecde4d56f9df458206"
+    sha256                               big_sur:        "ea0c6b24239d0e24a28cc5a8668cf85b956f3d4d2f43d0102c5a43742a07d49b"
+    sha256                               catalina:       "f1666f47106ce89f7607d0e24ed2dd9d1d5d3ac0dce72357ff81c0f4b55612ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbab7cd07ce0f831b70812149aba63de79a8ab7cf998396e44742065249082b6"
+  end
+
   depends_on "cmake" => :build
   depends_on "openssl@3"
   depends_on "pugixml"
