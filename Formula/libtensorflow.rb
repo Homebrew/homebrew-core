@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "8087cb0c529f04a4bfe480e49925cd64a904ad16d8ec66b98e2aacdfd53c80ff"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.9.1.tar.gz"
+  sha256 "6eaf86ead73e23988fe192da1db68f4d3828bcdd0f3a9dc195935e339c95dbdc"
   license "Apache-2.0"
 
   bottle do
@@ -36,7 +36,7 @@ class Libtensorflow < Formula
     ENV["TF_NEED_JEMALLOC"] = "1"
     ENV["TF_NEED_GCP"] = "0"
     ENV["TF_NEED_HDFS"] = "0"
-    ENV["TF_ENABLE_XLA"] = "0"
+    ENV["TF_ENABLE_XLA"] = "1"
     ENV["USE_DEFAULT_PYTHON_LIB_PATH"] = "1"
     ENV["TF_NEED_OPENCL"] = "0"
     ENV["TF_NEED_CUDA"] = "0"
