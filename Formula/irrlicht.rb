@@ -6,6 +6,7 @@ class Irrlicht < Formula
   # Irrlicht is available under alternative license terms. See
   # https://metadata.ftp-master.debian.org/changelogs//main/i/irrlicht/irrlicht_1.8.4+dfsg1-1.1_copyright
   license "Zlib"
+  revision 1
   head "https://svn.code.sf.net/p/irrlicht/code/trunk"
 
   livecheck do
@@ -24,7 +25,7 @@ class Irrlicht < Formula
 
   depends_on xcode: :build
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
 
   uses_from_macos "bzip2"
@@ -49,10 +50,12 @@ class Irrlicht < Formula
   end
 
   def install
+    %w[bzip2 jpeglib libpng zlib].each { |l| (buildpath/"source/Irrlicht"/l).rmtree }
+
     if OS.mac?
       inreplace "source/Irrlicht/MacOSX/MacOSX.xcodeproj/project.pbxproj" do |s|
         s.gsub! "@LIBPNG_PREFIX@", Formula["libpng"].opt_prefix
-        s.gsub! "@JPEG_PREFIX@", Formula["jpeg"].opt_prefix
+        s.gsub! "@JPEG_PREFIX@", Formula["jpeg-turbo"].opt_prefix
       end
 
       extra_args = []
@@ -83,13 +86,24 @@ class Irrlicht < Formula
           s.gsub! "/usr/X11R6/lib$(LIBSELECT)", Formula["libx11"].opt_lib
           s.gsub! "/usr/X11R6/include", Formula["libx11"].opt_include
         end
+        ENV.append "LDFLAGS", "-L#{Formula["bzip2"].opt_lib} -lbz2"
+        ENV.append "LDFLAGS", "-L#{Formula["jpeg-turbo"].opt_lib} -ljpeg"
+        ENV.append "LDFLAGS", "-L#{Formula["libpng"].opt_lib} -lpng"
+        ENV.append "LDFLAGS", "-L#{Formula["zlib"].opt_lib} -lz"
         ENV.append "LDFLAGS", "-L#{Formula["mesa"].opt_lib}"
         ENV.append "LDFLAGS", "-L#{Formula["libxxf86vm"].opt_lib}"
         ENV.append "CXXFLAGS", "-I#{Formula["libxxf86vm"].opt_include}"
-        system "make", "sharedlib", "NDEBUG=1"
+        args = %w[
+          NDEBUG=1
+          BZIP2OBJ=
+          JPEGLIBOBJ=
+          LIBPNGOBJ=
+          ZLIBOBJ=
+        ]
+        system "make", "sharedlib", *args
         system "make", "install", "INSTALL_DIR=#{lib}"
         system "make", "clean"
-        system "make", "staticlib", "NDEBUG=1"
+        system "make", "staticlib", *args
       end
       lib.install "lib/Linux/libIrrlicht.a"
     end
