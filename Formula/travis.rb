@@ -6,12 +6,12 @@ class Travis < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "668e747cf04776b79f25d587e0927e0c3a64d37e09db4e84db6ecded29d5a672"
-    sha256 cellar: :any,                 arm64_big_sur:  "bf2c4092341390a13aafcf999b963402a3a40543913123e5064972a3448d8980"
-    sha256 cellar: :any,                 monterey:       "53b7abaa30cc82ad4aebba780820f275eab14fe967c2d1b5f2297013dfdb36a1"
-    sha256 cellar: :any,                 big_sur:        "fd1df0523c4c5ff90c18749eea5414c422a1256f31086207401b079c4dd922d4"
-    sha256 cellar: :any,                 catalina:       "96ee2f88a4b5c58aeb3a8518190e798ba4c33d4080bcd758789328b4c3c10bc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aff57e5c66026ee18ba8e67894148caa8443cbf52f2712ee0773583fd497e79b"
+    sha256 cellar: :any,                 arm64_monterey: "c4da048c5f77ee63fe387538a273e9080552c117ef07ac4d45534fd9163ffc30"
+    sha256 cellar: :any,                 arm64_big_sur:  "bbd3308337d7b015f746d50feb7e51429e18060d23baed028257859b6739ef46"
+    sha256 cellar: :any,                 monterey:       "583cfc1b00f42226cd07475eb0617c57e3c884ced1129d2172a68109fbba0eb7"
+    sha256 cellar: :any,                 big_sur:        "f0a55e82526eaa40fba78be5b4b419e7c525fc75ba84f597c373d0b3fb831a74"
+    sha256 cellar: :any,                 catalina:       "ee1ce8cef3410604d180120a31fa9e444eefb03eee6e7e29ffa25a12d5e7a70c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e355b0b9b52ab1e349aa1c982487f2143200955df3fb2f67c3cb829e2a245adb"
   end
 
   depends_on "pkg-config" => :build
