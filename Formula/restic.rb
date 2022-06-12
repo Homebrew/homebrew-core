@@ -8,12 +8,12 @@ class Restic < Formula
   head "https://github.com/restic/restic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "525e62a21ce0ffe1d91eb2f99be699a5bef4cccacdbb67fd328a11506ca78ba7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "525e62a21ce0ffe1d91eb2f99be699a5bef4cccacdbb67fd328a11506ca78ba7"
-    sha256 cellar: :any_skip_relocation, monterey:       "fe187c82575e9c7877976974dd13a47b9d43b9ddffd16e07ab0dbbad8d95509a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fe187c82575e9c7877976974dd13a47b9d43b9ddffd16e07ab0dbbad8d95509a"
-    sha256 cellar: :any_skip_relocation, catalina:       "fe187c82575e9c7877976974dd13a47b9d43b9ddffd16e07ab0dbbad8d95509a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9beed0be209369479f0ad798ed215becd5c271479e8d3a6a6cb49fa8400067b8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d302f557aadf90ab0715d4ba38b73562e640609ab7993e60749f9aca006ef99"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d302f557aadf90ab0715d4ba38b73562e640609ab7993e60749f9aca006ef99"
+    sha256 cellar: :any_skip_relocation, monterey:       "b20f4e3f5683a908b592cb38a212410e74d77b8898adfaa4609106af734f4234"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b20f4e3f5683a908b592cb38a212410e74d77b8898adfaa4609106af734f4234"
+    sha256 cellar: :any_skip_relocation, catalina:       "b20f4e3f5683a908b592cb38a212410e74d77b8898adfaa4609106af734f4234"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e73e11921db005141f386b90ae1966568afec23d763ec8404059d7a088d7a6cc"
   end
 
   depends_on "go" => :build
