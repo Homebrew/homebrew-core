@@ -2,6 +2,7 @@ class Imageworsener < Formula
   desc "Utility and library for image scaling and processing"
   homepage "https://entropymine.com/imageworsener/"
   license "MIT"
+  revision 1
 
   stable do
     url "https://entropymine.com/imageworsener/imageworsener-1.3.4.tar.gz"
@@ -36,8 +37,10 @@ class Imageworsener < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
+
+  uses_from_macos "zlib"
 
   def install
     if build.head?
@@ -45,8 +48,7 @@ class Imageworsener < Formula
       system "./scripts/autogen.sh"
     end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", "--without-webp"
+    system "./configure", *std_configure_args, "--without-webp"
     system "make", "install"
     pkgshare.install "tests"
   end
