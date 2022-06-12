@@ -1,8 +1,8 @@
 class PyqtAT5 < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/3b/27/fd81188a35f37be9b3b4c2db1654d9439d1418823916fe702ac3658c9c41/PyQt5-5.15.6.tar.gz"
-  sha256 "80343bcab95ffba619f2ed2467fd828ffeb0a251ad7225be5fc06dcc333af452"
+  url "https://files.pythonhosted.org/packages/e1/57/2023316578646e1adab903caab714708422f83a57f97eb34a5d13510f4e1/PyQt5-5.15.7.tar.gz"
+  sha256 "755121a52b3a08cb07275c10ebb96576d36e320e572591db16cfdbc558101594"
   license "GPL-3.0-only"
 
   bottle do
@@ -27,8 +27,8 @@ class PyqtAT5 < Formula
 
   # extra components
   resource "PyQt5-sip" do
-    url "https://files.pythonhosted.org/packages/b1/40/dd8f081f04a12912b65417979bf2097def0af0f20c89083ada3670562ac5/PyQt5_sip-12.9.0.tar.gz"
-    sha256 "d3e4489d7c2b0ece9d203ae66e573939f7f60d4d29e089c9f11daa17cfeaae32"
+    url "https://files.pythonhosted.org/packages/39/5f/fd9384fdcb9cd0388088899c110838007f49f5da1dd1ef6749bfb728a5da/PyQt5_sip-12.11.0.tar.gz"
+    sha256 "b4710fd85b57edef716cc55fae45bfd5bfac6fc7ba91036f1dcc3f331ca0eb39"
   end
 
   resource "3d" do
@@ -37,8 +37,8 @@ class PyqtAT5 < Formula
   end
 
   resource "chart" do
-    url "https://files.pythonhosted.org/packages/b3/14/a9fdca9b002f5bf01cf66f9854c65fd6b7ea12523e9e6ef063b0aba0e9e1/PyQtChart-5.15.5.tar.gz"
-    sha256 "e2cd55a8a72cef99bc0126f3b1daa914eb5f21e20a70127b6985299f1dc50107"
+    url "https://files.pythonhosted.org/packages/eb/17/1d9bb859b3e09a06633264ad91249ede0abd68c1e3f2f948ae7df94702d3/PyQtChart-5.15.6.tar.gz"
+    sha256 "2691796fe92a294a617592a5c5c35e785dc91f7759def9eb22da79df63762339"
   end
 
   resource "datavis" do
@@ -52,8 +52,8 @@ class PyqtAT5 < Formula
   end
 
   resource "webengine" do
-    url "https://files.pythonhosted.org/packages/60/66/56e118abb4cddd8e4bea6f89bdec834069b52479fb991748f1b21950811e/PyQtWebEngine-5.15.5.tar.gz"
-    sha256 "ab47608dccf2b5e4b950d5a3cc704b17711af035024d07a9b71ad29fc103b941"
+    url "https://files.pythonhosted.org/packages/cf/4b/ca01d875eff114ba5221ce9311912fbbc142b7bb4cbc4435e04f4f1f73cb/PyQtWebEngine-5.15.6.tar.gz"
+    sha256 "ae241ef2a61c782939c58b52c2aea53ad99b30f3934c8358d5e0a6ebb3fd0721"
   end
 
   resource "purchasing" do
@@ -76,8 +76,7 @@ class PyqtAT5 < Formula
       system "python3", *Language::Python.setup_install_args(prefix)
     end
 
-    components = %w[3d chart datavis networkauth purchasing]
-    components << "webengine" if OS.mac? && !Hardware::CPU.arm?
+    components = %w[3d chart datavis networkauth purchasing webengine]
     components.each do |p|
       resource(p).stage do
         inreplace "pyproject.toml", "[tool.sip.project]",
@@ -99,6 +98,7 @@ class PyqtAT5 < Formula
       Network
       Quick
       Svg
+      WebEngineWidgets
       Widgets
       Xml
     ].each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
