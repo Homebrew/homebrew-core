@@ -38,7 +38,7 @@ class HaskellStack < Formula
 
   def install
     # https://github.com/JustusAdam/mustache/issues/41
-    cabal_install_constraints = ["--constraint=mustache^>=2.3.1"]
+    cabal_install_constraints = ["--constraint=mustache^>=2.3.1", "--constraint=persistent==2.13.3.0"]
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args, *cabal_install_constraints
