@@ -11,13 +11,12 @@ class Libmagic < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "35178fd8f00c95f6f576cb98809ba1a8778c4ff6afb3fd5dafe5122fb9172188"
-    sha256 arm64_big_sur:  "b851d23643cbb4558264dce05ae04afb67188753ed9631707ba24177f4d8b618"
-    sha256 monterey:       "e77cc066068ef97ec61fdecd1c59229baad49e82aac3be24d8b1cce37cac0045"
-    sha256 big_sur:        "90a9c204356d026e45f276ff7466b2afe11593b8992ae2f4e199951d973124a7"
-    sha256 catalina:       "bd9af8b940362c68313c49ea0481e8b705514fd558582cfa609548aea3e03b01"
-    sha256 mojave:         "ee176ca0e970104d6f4d59c752e9ce94433b1ae4e09ae12bdd5daf45e2a332f1"
-    sha256 x86_64_linux:   "045b433b1e5ce7a3adf028ce87dd03b8a28255cad4547ec318772b242523080d"
+    sha256 arm64_monterey: "dedf6d84629d5be425761bb16b49799dafa5beb62c4cd2e00338257529f1e029"
+    sha256 arm64_big_sur:  "110beab8c6ba44b4b583a22a13c9ac2910a1a701d4fd2c9f652b5d58a7cd4d11"
+    sha256 monterey:       "8ebd9135090f6be383c666f2d43351fa3ec02b33ef4a3bc9ea6dbeaa7ff7ae81"
+    sha256 big_sur:        "a7b547fa40fd411d9bad470887ca3b5d7f4faf91167de926e14d4b05eb0b61b5"
+    sha256 catalina:       "147c064a545b472d0a4107ecccfe6be9763f162d3c186f86d0a09dc49648b1b2"
+    sha256 x86_64_linux:   "8ec80f6b042e696b991acd2a986647fcfc115996d5ce652be2dc8f98dced44d6"
   end
 
   uses_from_macos "zlib"
