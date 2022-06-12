@@ -1,8 +1,8 @@
 class DuaCli < Formula
   desc "View disk space usage and delete unwanted data, fast"
   homepage "https://lib.rs/crates/dua-cli"
-  url "https://github.com/Byron/dua-cli/archive/refs/tags/v2.17.5.tar.gz"
-  sha256 "805a911300bbb5234c25f607b25444988a97c260c03c02932844aeee0ba108e1"
+  url "https://github.com/Byron/dua-cli/archive/refs/tags/v2.17.6.tar.gz"
+  sha256 "4c5ad60b3a9919fa89736431b7d1050ef9c3acf19d29b2c20fb85d8106872a38"
   license "MIT"
 
   bottle do
