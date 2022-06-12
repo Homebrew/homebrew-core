@@ -7,12 +7,12 @@ class RiemannClient < Formula
   head "https://github.com/algernon/riemann-c-client.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2e258c3d69f945ca6e74c115212360f51dba2dd8cd7a7fe2b5ddc61abe655bf0"
-    sha256 cellar: :any,                 arm64_big_sur:  "c4cee833659db746110a1f7efec8f7b0d0f51017685a36299d7da801708f2cd9"
-    sha256 cellar: :any,                 monterey:       "f89040ef4e8103aebc2d0f0f7fc3f726075b3e0b0c17a1ba22c563636f1d3168"
-    sha256 cellar: :any,                 big_sur:        "8477c2c7a301ea944f2e1bb1243870143940c479c9cc71e1532c5d6093184c51"
-    sha256 cellar: :any,                 catalina:       "f8bab9f628c7c2eeba134634387ab554ba44beb5d4e3dc3368969d90bbfac9ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2eacca5202c51e1bafaea6800bbbc86a575133ba4a9a15a9092a25142816903d"
+    sha256 cellar: :any,                 arm64_monterey: "b4d9f270930a03bd6d14c2e0673b37274b2dbe88601d9d5eed4e23b1651360d6"
+    sha256 cellar: :any,                 arm64_big_sur:  "a903c8865839e11d8161aecead89d3446aaa02cec90ce473ff3581b07ef2901e"
+    sha256 cellar: :any,                 monterey:       "0781e42d0d4650a9265d89c2dee9256d461816cf3b7e5f41de213e1ada9c221e"
+    sha256 cellar: :any,                 big_sur:        "ef200e9b62011f846805a5a4b05e778b46fe4599d8b8a7600a6611a8a43c1832"
+    sha256 cellar: :any,                 catalina:       "c328701c5ea1aa6101c54a3db32c39a5798fa27d88d898dd5ca2bad512f50175"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f50dd475e3edc8145db2e9808ee16dd2d0cf795ee727d8a4d4d30d28af3960ca"
   end
 
   depends_on "autoconf" => :build
