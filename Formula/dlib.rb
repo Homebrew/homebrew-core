@@ -13,12 +13,12 @@ class Dlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ce4fe45d2e501625e5e8a4b7b274151c7ecacfc5ba081d7ac660b4e231a1a66f"
-    sha256 cellar: :any,                 arm64_big_sur:  "c2c4070c3d21aa827d2261564aec34317ac13317faf5ce23370b04a779e40fce"
-    sha256 cellar: :any,                 monterey:       "41275bb8f75b188f3da28618944fffc36d85420b86ad485f24b98a4a51c52b5c"
-    sha256 cellar: :any,                 big_sur:        "5306628da782489ff1cd32d0e0b4ae3b9e4bc467bdd525386772f306c4042b29"
-    sha256 cellar: :any,                 catalina:       "de3a205e585a92c5ba3b983dcdbaf7baeced3b3408efa3919d538f0531bd19f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5d1b7577ff56a2cce011dd0759b5dfd4865f3222c57950a4e154f582c8765d0"
+    sha256 cellar: :any,                 arm64_monterey: "20350a3f0a638a1a5b6466c4809c7beea386545b35a98de7181bc66e2d3a0e3d"
+    sha256 cellar: :any,                 arm64_big_sur:  "2546c7c03817f1181c406a1e6167c2a66a0a87b224567b7a7feb7c4111736e39"
+    sha256 cellar: :any,                 monterey:       "3be4dd9f52d3d4aa041c1909159466b57f4ccbbb32404f3a07325d37d0fd8144"
+    sha256 cellar: :any,                 big_sur:        "2d16a7080c79a77d00003641420e051dd08a69f6b1f2233af47afd76de567909"
+    sha256 cellar: :any,                 catalina:       "d52920f7bb619e287c2eb05e902ca4041d6dc08344e48d75b6ad7575e0d27774"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d95e3ef4dce0839979479f9d75e24a6776f74d04f7f3a6f0ec9b365e7e81392"
   end
 
   depends_on "cmake" => :build
