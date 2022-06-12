@@ -8,12 +8,12 @@ class Istioctl < Formula
   head "https://github.com/istio/istio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4aba25f4c2d3ab04306a63b33d6eff16d5db0d62426f837e82d9cdaf5f5ced7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4aba25f4c2d3ab04306a63b33d6eff16d5db0d62426f837e82d9cdaf5f5ced7"
-    sha256 cellar: :any_skip_relocation, monterey:       "94a5ae68196a87bac80928d2e816bd89038a6a9bb3485ca7419292373820bc9f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94a5ae68196a87bac80928d2e816bd89038a6a9bb3485ca7419292373820bc9f"
-    sha256 cellar: :any_skip_relocation, catalina:       "94a5ae68196a87bac80928d2e816bd89038a6a9bb3485ca7419292373820bc9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbdf0bdeb95cca91b24ecb2be448e7b6564b556bbfb8db6515e8e93aae0be5c4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd6ad6cff5b01db19f2190995e1e2b34167b23908de2c1380107702d2a524e11"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd6ad6cff5b01db19f2190995e1e2b34167b23908de2c1380107702d2a524e11"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac46c14577dbcce6c0b378f78e8a8813ba0ac7ffcc01e1bb1c90e7c5fe0442ed"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ac46c14577dbcce6c0b378f78e8a8813ba0ac7ffcc01e1bb1c90e7c5fe0442ed"
+    sha256 cellar: :any_skip_relocation, catalina:       "ac46c14577dbcce6c0b378f78e8a8813ba0ac7ffcc01e1bb1c90e7c5fe0442ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1c40fb94cdb8b8076d8f1c54a4db0be6c3d0a7f5a6d30601e699178d2bc79a5"
   end
 
   depends_on "go" => :build
