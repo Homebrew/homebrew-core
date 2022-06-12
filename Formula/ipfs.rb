@@ -16,12 +16,12 @@ class Ipfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b096d6f28b2c338b27ae4bc89e2d5d948f70530ec03aef8d623b5162bf3f33c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66a04fee70fd546ed59d1b0889f726e72d307e7cb75485e97e5226fc7b080d3a"
-    sha256 cellar: :any_skip_relocation, monterey:       "f40b8ac2e2ff38e4be021c6f220851abf93a0f52be3294230531cafa979a9041"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c252151aea93f3d1338a52fe20bef3d7b02489bced42fea4c00e0d6c15b3db0f"
-    sha256 cellar: :any_skip_relocation, catalina:       "6101a28948da2d09cdebdfeedabb17ab59e999b3677b327ed95822bed2cc0e9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdd652dd1d3e09ddfc815feaa00039a03468da60739a41957f5c5b073afc5b37"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb349ff0435eaadd3f4e8c1c0839500e365b8c905e2f548b05ad2866d0181107"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "049d30ffda8146ff4f3bdbe222e11053465267f30cf766d1804b6aa79fabab40"
+    sha256 cellar: :any_skip_relocation, monterey:       "04432091e72611f00b4c7608c793d722401c743e4e32ef05b998908e0ab185ec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1f860b4632e87e8f763e53b7077d1f245d2467b6cd4556bcfcd8e68149ff7efc"
+    sha256 cellar: :any_skip_relocation, catalina:       "603de813a4eecd91d616966f5fab469fc3125344d1d87078ee5774a322750069"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f2a47d461bef41ce50bf271a5ffae00d7cf809f9a4425b308828a491cfdb72c"
   end
 
   depends_on "go" => :build
