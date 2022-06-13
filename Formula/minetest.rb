@@ -2,7 +2,7 @@ class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "https://www.minetest.net/"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/minetest/minetest/archive/5.5.1.tar.gz"
@@ -65,7 +65,7 @@ class Minetest < Formula
   depends_on "gettext" => :build
   depends_on "freetype"
   depends_on "gmp"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "jsoncpp"
   depends_on "libogg"
   depends_on "libpng"
