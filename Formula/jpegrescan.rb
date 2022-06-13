@@ -8,7 +8,12 @@ class Jpegrescan < Formula
   head "https://github.com/kud/jpegrescan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a09a6149fe87f3cc7a2f54b9b3c538bc6881d3b4e7edc6f947ed54d29d4ad473"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
+    sha256 cellar: :any_skip_relocation, monterey:       "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
+    sha256 cellar: :any_skip_relocation, catalina:       "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e57f2d0e5e4c03913297ea1c9d1c41164756dffd1899e89b4024125bf81477f2"
   end
 
   depends_on "jpeg-turbo"
