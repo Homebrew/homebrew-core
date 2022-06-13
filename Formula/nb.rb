@@ -6,7 +6,6 @@ class Nb < Formula
   license "AGPL-3.0-or-later"
   head "https://github.com/xwmx/nb.git", branch: "master"
 
-  depends_on "nano" => :test
   depends_on "bat"
   depends_on "nmap"
   depends_on "pandoc"
@@ -25,7 +24,7 @@ class Nb < Formula
   end
 
   test do
-    ENV["EDITOR"] = which "nano"
+    ENV["EDITOR"] = ""
 
     assert_match version.to_s, shell_output("#{bin}/nb version")
 
