@@ -9,7 +9,7 @@ class Cnosdb < Formula
   def install
     ENV["GOBIN"] = buildpath
     system "go", "install", "./..."
-    bin.install "bin/cnsodb"
+    bin.install "bin/cnosdb"
     bin.install "bin/cnosdb-cli"
     bin.install "bin/cnosdb-inspect"
     bin.install "bin/cnosdb-meta"
