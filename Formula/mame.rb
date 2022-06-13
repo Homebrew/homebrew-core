@@ -5,6 +5,7 @@ class Mame < Formula
   version "0.244"
   sha256 "843c917edc46008a27b439a1fc66fc12a27c84e55e08753b963789e5614cebf7"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mamedev/mame.git", branch: "master"
 
   # MAME tags (and filenames) are formatted like `mame0226`, so livecheck will
@@ -32,7 +33,7 @@ class Mame < Formula
   depends_on "rapidjson" => :build
   depends_on "sphinx-doc" => :build
   depends_on "flac"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   # Need C++ compiler and standard library support C++17.
   depends_on macos: :high_sierra
   depends_on "portaudio"
