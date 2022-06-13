@@ -22,23 +22,34 @@ class Cnosdb < Formula
     (var/"cnosdb/meta").mkpath
     (var/"cnosdb/wal").mkpath
   end
+  def caveats
+    <<~EOS
+      To start the server:
+        cnosdb-cli
+    EOS
+  end
+  service do
+    run bin/"cnosdb"
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    environment_variables INFLUXD_CONFIG_PATH: etc/"cnosdb/cnosdb.conf"
+  end
   test do
-    (testpath/"config.toml").write shell_output("#{bin}/cnosdb config")
-    inreplace testpath/"config.toml" do |s|
-      s.gsub! %r{/.*/.cnosdb/data}, "#{testpath}/cnosdb/data"
-      s.gsub! %r{/.*/.cnosdb/meta}, "#{testpath}/cnosdb/meta"
-      s.gsub! %r{/.*/.cnosdb/wal}, "#{testpath}/cnosdb/wal"
+    cnosdb_port = free_port
+    cnosdb_host = "localhost"
+    cnosdb_http_bind = "http://#{cnosdb_host}:#{cnosdb_port}"
+    ENV["CNOSDB_HOST"] = cnosdb_host
+    cnosdb = fork do
+      exec "#{bin}/cnosdb", "--config", "#{testpath}/config.toml"
+      exec "#{bin}/cnosdb-cli", "--host=:#{cnosdb_host}", "--port=#{cnosdb_port}"
     end
-    begin
-      pid = fork do
-        exec "#{bin}/cnosdb --config #{testpath}/config.toml"
-      end
-      sleep 6
-      output = shell_output("curl -Is localhost:8086/ping")
-      assert_match X-cnosdb-Version, output
-    ensure
-      Process.kill("SIGTERM", pid)
-      Process.wait(pid)
-    end
+    sleep 30
+    # Check that the server has properly bundled UI assets and serves them as HTML.
+    curl_output = shell_output("curl --silent --head #{cnosdb_http_bind}")
+    assert_match "200 OK", curl_output
+    assert_match "text/html", curl_output
+  ensure 
+    Process.kill("TERM", cnosdb)
+    Process.wait cnosdb
   end
 end
