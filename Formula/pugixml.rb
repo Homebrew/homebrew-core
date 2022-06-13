@@ -4,6 +4,7 @@ class Pugixml < Formula
   url "https://github.com/zeux/pugixml/releases/download/v1.12.1/pugixml-1.12.1.tar.gz"
   sha256 "dcf671a919cc4051210f08ffd3edf9e4247f79ad583c61577a13ee93af33afc7"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,9 +23,11 @@ class Pugixml < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", "-DBUILD_SHARED_AND_STATIC_LIBS=ON",
-                         "-DBUILD_PKGCONFIG=ON", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DPUGIXML_BUILD_SHARED_AND_STATIC_LIBS=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
