@@ -24,11 +24,14 @@ class SynergyCore < Formula
     sha256 "081735f032a2909c65322d43bcaf463bca05f88a05882c706762c959cd4bbec6"
   end
 
+  # This repository contains old 2.0.0 tags, one of which uses a stable tag
+  # format (`v2.0.0-stable`), despite being marked as "pre-release" on GitHub.
+  # The `GithubLatest` strategy is used to avoid these old tags without having
+  # to worry about missing a new 2.0.0 version in the future.
   livecheck do
     url :stable
-    # Include only versions that start with 1.x because Synergy 2.x is an old
-    # deprecated product that was never finished.
-    regex(/(1\.[\d.]+)-stable\z/i)
+    regex(%r{href=["']?[^"' >]*?/tag/[^"' >]*?v?(\d+(?:\.\d+)+)[^"' >]*?["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
