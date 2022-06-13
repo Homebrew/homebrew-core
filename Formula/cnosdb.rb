@@ -22,6 +22,7 @@ class Cnosdb < Formula
     (var/"cnosdb/meta").mkpath
     (var/"cnosdb/wal").mkpath
   end
+
   def caveats
     <<~EOS
       To start the server:
@@ -48,7 +49,7 @@ class Cnosdb < Formula
     curl_output = shell_output("curl --silent --head #{cnosdb_http_bind}")
     assert_match "200 OK", curl_output
     assert_match "text/html", curl_output
-  ensure 
+  ensure
     Process.kill("TERM", cnosdb)
     Process.wait cnosdb
   end
