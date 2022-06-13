@@ -4,7 +4,7 @@ class Cnosdb < Formula
   url "https://github.com/cnosdb/cnosdb/archive/refs/tags/v1.0.2.tar.gz"
   sha256 "ae412d0944b64c9b39dc1edc66f7b6f712b85bc5afad354c12b135ae71017100"
   license "MIT"
-  head "https://github.com/cnosdb/cnosdb.git"
+  head "https://github.com/cnosdb/cnosdb.git", branch: "main"
   depends_on "go" => :build
   def install
     ENV["GOBIN"] = buildpath
@@ -12,15 +12,35 @@ class Cnosdb < Formula
     bin.install %w[cnosdb cnosdb-cli cnosdb-ctl cnosdb-meta cnosdb-inspect cnosdb-tools]
     etc.install "etc/cnosdb.sample.toml" => "cnosdb.conf"
   end
+
+  def caveats
+    <<~EOS
+      To start the server:
+        cnosdb-cli
+    EOS
+  end
+  service do
+    run bin/"cnosdb"
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    environment_variables CNOSDB_CONFIG_PATH: etc/"cnosdb/cnosdb.conf"
+  end
   test do
-    pid = fork do
+    cnosdb_port = free_port
+    cnosdb_host = "localhost"
+    cnosdb_http_bind = "http://#{cnosdb_host}:#{cnosdb_port}"
+    ENV["CNOSDB_HOST"] = cnosdb_host
+    cnosdb = fork do
       exec "#{bin}/cnosdb --config #{HOMEBREW_PREFIX}/etc/cnosdb.conf"
+      exec "#{bin}/cnosdb-cli", "--host=:#{cnosdb_host}", "--port=#{cnosdb_port}"
     end
-    sleep 6
-    output = shell_output("curl -Is localhost:8086/ping")
-    assert_match X-cnosdb-Version, output
-    ensure
-      Process.kill("SIGTERM", pid)
-      Process.wait(pid)
+    sleep 30
+    # Check that the server has properly bundled UI assets and serves them as HTML.
+    curl_output = shell_output("curl --silent --head #{cnosdb_http_bind}")
+    assert_match "200 OK", curl_output
+    assert_match "text/html", curl_output
+  ensure
+    Process.kill("TERM", cnosdb)
+    Process.wait cnosdb
   end
 end
