@@ -13,12 +13,12 @@ class SwiProlog < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "139513fc8927d079f0b78a67b532596753680992f49a2695aed9efe7c98f1397"
-    sha256 arm64_big_sur:  "65783eed3844c8e5291d118edfe5fe62a76159cd6633b2c77952baf376bb30e4"
-    sha256 monterey:       "ca133c29a855fdd87964128d30a33b135827a87e5b4dc38324b72d25f1abcf38"
-    sha256 big_sur:        "d3ba87e54537f8da87bbf6b60c0054706fac316ffd60ff4fb7300dadd05a8e64"
-    sha256 catalina:       "bc4eed487d3f941713cd01091962cc258d81962373ee5b3186fa616955479715"
-    sha256 x86_64_linux:   "0a185f53a0e73890c03d0e45135db8cdbc72171c325c4cb7b2d2ff71687b8661"
+    sha256 arm64_monterey: "b76a775bacf401e61dc4a075d870accdcf2ce05563be15a45384a83575469938"
+    sha256 arm64_big_sur:  "8f81a93c9e15407c4df34d7a57abd5bb7b3b24f165859c5b1d7078a2e9636e17"
+    sha256 monterey:       "8a612e9be7e4bd33580d0e4c88b7241e83e618c594da1ee73b87a6f79fde2b9b"
+    sha256 big_sur:        "243131fe5917d269242e3ba81cd2579c73365dcb765cccb76bd7bd58c2cb1051"
+    sha256 catalina:       "971367f3c09223fa38fac0978422516c1bf9829b20565d79dc5ceed85b41bd8a"
+    sha256 x86_64_linux:   "eca321dd1ec862ea54ec84798be3a1ccd281499ae3258d1ebb7386064c6a484d"
   end
 
   depends_on "cmake" => :build
