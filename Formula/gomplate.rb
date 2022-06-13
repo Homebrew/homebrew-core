@@ -7,13 +7,12 @@ class Gomplate < Formula
   head "https://github.com/hairyhenderson/gomplate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd9583c59cdd27102266f6c324d4e7613470e48cdb5a30d1ffdcf677e497f54e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "05845f4a31da3d5b78b61e119a62d7f9c869f471194de46d0b06b3b76b3cfc14"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b41465cdf57336347772059715707557335b9c1b7c026d96ad163e05e7c025b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92ce5929e369eb6a49e478f71bf2a6fba500094b600c578f4ba3ae0c0546dcc5"
-    sha256 cellar: :any_skip_relocation, catalina:       "85ba008a9f271385b4599fe1308fa0846bde36307d96a39424c2aa53396ba12b"
-    sha256 cellar: :any_skip_relocation, mojave:         "d08b4521c7140d8391be5aef5ab3cfa9184e080e5abf46dbea079025b49c4a0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f026fafcaeba0eb20e509c298edcd80c0158f0ab0a45a68184f754f8aa2e2754"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bbaa7a423653935a5da14f8d179f1c508f24448fe1796f440a25bdabe799b06c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ecc85bf3e98ae28b55930e49396bdd9256050d836d5248986687b70264353d33"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c0b74eb0edac99cd389119bf96643109253a0a284a95992d3916423b467f71e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c790639fd07c9238be390566670b8dba96e336420268594d7e6703c4c700212a"
+    sha256 cellar: :any_skip_relocation, catalina:       "f491a7be3e1416759f2a56f6589e098a489b0d01dbad56e33f0498152e9fba53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6e50e183b35a604d7544ca9ab6d996e8bb33911b4e0580df061f83efd1abf4e"
   end
 
   depends_on "go" => :build
