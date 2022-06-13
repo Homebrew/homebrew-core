@@ -7,16 +7,61 @@ class Cnosdb < Formula
   head "https://github.com/cnosdb/cnosdb.git", branch: "main"
   depends_on "go" => :build
   def install
-    ENV["GOBIN"] = buildpath
-    system "go", "install", "./..."
-    bin.install %w[cnosdb cnosdb-cli cnosdb-ctl cnosdb-meta cnosdb-inspect cnosdb-tools]
-    etc.install "etc/cnosdb.sample.toml" => "cnosdb.conf"
+    cd cnosdb_path do
+      system "go", "install", "./..."
+    end
+    inreplace cnosdb_path/"etc/config.sample.toml" do |s|
+      s.gsub! "/var/lib/cnosdb/data", "#{var}/cnosdb/data"
+      s.gsub! "/var/lib/cnosdb/meta", "#{var}/cnosdb/meta"
+      s.gsub! "/var/lib/cnosdb/wal", "#{var}/cnosdb/wal"
+    end
+    bin.install "bin/cnsodb"
+    bin.install "bin/cnosdb-cli"
+    bin.install "bin/cnosdb-inspect"
+    bin.install "bin/cnosdb-meta"
+    bin.install "bin/cnosdb-tools"
+    etc.install cnosdb_path/"etc/config.sample.toml" => "cnosdb.conf"
+    (var/"cnosdb/data").mkpath
+    (var/"cnosdb/meta").mkpath
+    (var/"cnosdb/wal").mkpath
   end
 
   def caveats
     <<~EOS
       To start the server:
         cnosdb-cli
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/cnosdb</string>
+            <string>-config</string>
+            <string>#{HOMEBREW_PREFIX}/etc/cnosdb.conf</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/cnosdb.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/cnosdb.log</string>
+          <key>SoftResourceLimits</key>
+          <dict>
+            <key>NumberOfFiles</key>
+            <integer>10240</integer>
+          </dict>
+        </dict>
+      </plist>
     EOS
   end
   service do
@@ -26,21 +71,22 @@ class Cnosdb < Formula
     environment_variables CNOSDB_CONFIG_PATH: etc/"cnosdb/cnosdb.conf"
   end
   test do
-    cnosdb_port = free_port
-    cnosdb_host = "localhost"
-    cnosdb_http_bind = "http://#{cnosdb_host}:#{cnosdb_port}"
-    ENV["CNOSDB_HOST"] = cnosdb_host
-    cnosdb = fork do
-      exec "#{bin}/cnosdb --config #{HOMEBREW_PREFIX}/etc/cnosdb.conf"
-      exec "#{bin}/cnosdb-cli", "--host=:#{cnosdb_host}", "--port=#{cnosdb_port}"
+    (testpath/"config.toml").write shell_output("#{bin}/cnosdb config")
+    inreplace testpath/"config.toml" do |s|
+      s.gsub! %r{/.*/.cnosdb/data}, "#{testpath}/cnosdb/data"
+      s.gsub! %r{/.*/.cnosdb/meta}, "#{testpath}/cnosdb/meta"
+      s.gsub! %r{/.*/.cnosdb/wal}, "#{testpath}/cnosdb/wal"
     end
-    sleep 30
-    # Check that the server has properly bundled UI assets and serves them as HTML.
-    curl_output = shell_output("curl --silent --head #{cnosdb_http_bind}")
-    assert_match "200 OK", curl_output
-    assert_match "text/html", curl_output
-  ensure
-    Process.kill("TERM", cnosdb)
-    Process.wait cnosdb
+    begin
+      pid = fork do
+        exec "#{bin}/cnosdb --config #{testpath}/config.toml"
+      end
+      sleep 60
+      output = shell_output("curl -Is localhost:8086/ping")
+      assert_match output
+    ensure
+      Process.kill("SIGTERM", pid)
+      Process.wait(pid)
+    end
   end
 end
