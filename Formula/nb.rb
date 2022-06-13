@@ -24,6 +24,7 @@ class Nb < Formula
   end
 
   test do
+    # EDITOR must be set to a non-empty value for ubuntu-latest to pass tests!
     ENV["EDITOR"] = "placeholder"
 
     assert_match version.to_s, shell_output("#{bin}/nb version")
