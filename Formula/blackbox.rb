@@ -4,6 +4,7 @@ class Blackbox < Formula
   url "https://github.com/StackExchange/blackbox/archive/v1.20220610.tar.gz"
   sha256 "f1efcca6680159f244eb44fdb78e92b521760b875fa5a36e4c433b93ed0f87c1"
   license "MIT"
+  version_scheme 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "6910c4f3a0b2b04288b9ca0eedc866e6b83d14ac5276d4eb46651a0bb0c14333"
