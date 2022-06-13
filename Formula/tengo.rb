@@ -1,8 +1,8 @@
 class Tengo < Formula
   desc "Fast script language for Go"
   homepage "https://tengolang.com"
-  url "https://github.com/d5/tengo/archive/v2.11.1.tar.gz"
-  sha256 "2e992bb4560d78d83bea97e95ddbe46f5a329df67e27b4620bcdfef7e3e539c4"
+  url "https://github.com/d5/tengo/archive/v2.11.2.tar.gz"
+  sha256 "bce3d6180eaaca682eaf814148a4b8278e8b0ad87bf322647e9817e29604508d"
   license "MIT"
 
   bottle do
