@@ -8,8 +8,8 @@ class Envoy < Formula
 
   stable do
     url "https://github.com/envoyproxy/envoy.git",
-        tag:      "v1.22.0",
-        revision: "dcd329a2e95b54f754b17aceca3f72724294b502"
+        tag:      "v1.22.2",
+        revision: "c919bdec19d79e97f4f56e4095706f8e6a383f1c"
 
     # Fix build on Apple Silicon which fails on undefined symbol:
     # v8::internal::trap_handler::TryHandleSignal(int, __siginfo*, void*)
@@ -32,12 +32,12 @@ class Envoy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc1cf0df4ac0a006ae09d4b6334714fa95da8f49537f81c99a73ab351379bab9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d45e9366b2a1634682bf75045797df394ff8344da581a2da921d590c7258648"
-    sha256 cellar: :any_skip_relocation, monterey:       "90ba116ea4a5d21c444a6f6f4b31676f7767602a5ce0cd830fd59c79ef02c77e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8e02b448afbc376f19ac28d0acb5cc4287474edbb62b6528e7805b124c6b98ac"
-    sha256 cellar: :any_skip_relocation, catalina:       "07e363dfa5215b04e8255a917498567741c4af4fde19823e5bdb282990b2d90d"
-    sha256                               x86_64_linux:   "17bd5c7119d92142b6da277574c13da07ad149f96af044a988e9a2f769eb9b4d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "122977e8eee980aab6b9d5fa2ba9fc1e58f831e68345e417e7fdc52df554d7a4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "78d13f1e2a098f849805bf575c53e52dd452ae45c8fa2134e93941c7bcdb7e89"
+    sha256 cellar: :any_skip_relocation, monterey:       "97dde181e8691fb7594cdf1d788049d9e9e658128fd912128eb2be31ccbe0b9c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "55c03e83374c3637254dc03c3ecf67833861cd6f6ef013d8c9b91d6b5d0a48ab"
+    sha256 cellar: :any_skip_relocation, catalina:       "6ec9fb982745c52765ec8cb02f9ea7bceb53ff821e30100e45d4cbb2b9587c38"
+    sha256                               x86_64_linux:   "7add4d2d423ab7ab170c5ded6e8681a6b7c1b6806ecb4ef18f772f3cc785e121"
   end
 
   depends_on "automake" => :build

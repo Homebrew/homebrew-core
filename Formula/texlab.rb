@@ -1,18 +1,18 @@
 class Texlab < Formula
   desc "Implementation of the Language Server Protocol for LaTeX"
   homepage "https://texlab.netlify.com/"
-  url "https://github.com/latex-lsp/texlab/archive/v4.0.0.tar.gz"
-  sha256 "18149b8b4f79c18144eed3ae6d501e89dd5790b92ec5bf523201a8f713b353b7"
+  url "https://github.com/latex-lsp/texlab/archive/v4.1.0.tar.gz"
+  sha256 "f7b5300c6fc93d7c339c755c67ea84f9c5daced2fb2735545d01a67ccf2ff770"
   license "GPL-3.0-only"
   head "https://github.com/latex-lsp/texlab.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04320f6d1985d27064e7608942be21744ec057eace805099abca67071f4c7fd1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d62fa4354e7333387e6b1772f5a3d9a2064310a8ec1701ee01bc59a14ed2f4ee"
-    sha256 cellar: :any_skip_relocation, monterey:       "f7433890664185e3d9330d9784b7d8ae3cb7ea0efc959fe1e59bf0dd09df03e4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "da6fb8de103851d1bbda4ea290bcd7bafc03c23fdf3a56666847af80e66bd69e"
-    sha256 cellar: :any_skip_relocation, catalina:       "ce88085446349d27c9d6ca31de09f86caa3eedbaa51c4408f861b5ebd33a83c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f839df3586c0f26e257df122ca98397b5330f64c592db41a801f7818eb4bf370"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "36e4f90c7b4896f0faacc18c6b423089796adc0c1e86f91c79d55302276333c0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c6e64335dd23f0fdf0bf9a42eff295e845236e438f8a3e7afb416c8373fd45b"
+    sha256 cellar: :any_skip_relocation, monterey:       "a4e7ea84a854e3b068d7092d45cef776798567ab964d0fdcdc047bac7207489b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a489728ac86340df7dc7bc148ff1331648b134f49685ad6455ae8c114bb95d4e"
+    sha256 cellar: :any_skip_relocation, catalina:       "d674f21e2e02768da23cf07e18d81194d4fb9d4c17c5ddf736a841805154177a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "531425e0e370f46e1260ba91108ea214b511f8a39f9788f866e3ec665570fb09"
   end
 
   depends_on "rust" => :build

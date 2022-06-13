@@ -2,7 +2,7 @@ class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "https://www.minetest.net/"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/minetest/minetest/archive/5.5.1.tar.gz"
@@ -41,12 +41,12 @@ class Minetest < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "cdc7d369d90affea485e8bcc63f2967a92d21ad18bdff4e152edff651d0a2c49"
-    sha256 cellar: :any, arm64_big_sur:  "9c24a32096f8928221026f96bf0577f88a8b0e92ac09c37fa74b3ad56656b6f4"
-    sha256 cellar: :any, monterey:       "0edb70c8e765a07f5d76a1f0bef95c178450c70961aa15d1f978f9d8d00cc67d"
-    sha256 cellar: :any, big_sur:        "71fe30043e317d083bdd51dacad821dcfbef76413b0069c01eb310a130cbd9db"
-    sha256 cellar: :any, catalina:       "0d918c15c0df1d80e8f332789e251a87f84f3e2ba34e314780bf07a495d45580"
-    sha256               x86_64_linux:   "cb4db8c60cc48312c53838dc636c2f5c8b401cab8bd108d3bc4e22e4d88f5e41"
+    sha256 cellar: :any, arm64_monterey: "fe56419d18e25c0f7b0d198d0f1d44ee1e418b18bcbe34b458b181747fa0793d"
+    sha256 cellar: :any, arm64_big_sur:  "4609f23fc7e9c1ed432645cb87f0279c5c1ec33039ee1b397c7107bc77def44b"
+    sha256 cellar: :any, monterey:       "d922d848edf2c1547891ee81034537867bb9c6847322faeb52ab6a6598acc426"
+    sha256 cellar: :any, big_sur:        "98495a6cc6b22b5ab3c83a89b1a5d03398f838dc09fcff114b1d135cec5e419b"
+    sha256 cellar: :any, catalina:       "408d8a9b6b98e59dd1b4a2ea026f3af15a65d538f9f02a0d57f1fe45238ece25"
+    sha256               x86_64_linux:   "7f71477eee5745c98fc7236d65aded9fb830b3b1be1b7d85a793bd951062c721"
   end
 
   head do
@@ -65,7 +65,7 @@ class Minetest < Formula
   depends_on "gettext" => :build
   depends_on "freetype"
   depends_on "gmp"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "jsoncpp"
   depends_on "libogg"
   depends_on "libpng"

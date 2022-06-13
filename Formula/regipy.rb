@@ -3,18 +3,18 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/19/f4/44a4ad4a2d8b921769edf463849b1c5b81405a1ef3954e6a5c9b886aa1fd/regipy-2.5.1.tar.gz"
-  sha256 "9b1338a2860c617a8210b4b734cba675679fa51d216b118f017a7b518d5e70f2"
+  url "https://files.pythonhosted.org/packages/a8/bd/03d491698ab93395c0d851ee2b8b4f64f326961a89f89cb8453bcceb8986/regipy-2.5.2.tar.gz"
+  sha256 "3e56758d22a933dd55488ffa00cdc39c55e3abf6e6d92d158f597a09338ddc43"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "261f722fc2705ac31f6715c3e927b96930a196841a317ffe0ea3fb7d2f9c9c43"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ce9ec61532ca6c90e2c833a16e8e3721c19f8f20636b7e444e9922dd11007b0"
-    sha256 cellar: :any_skip_relocation, monterey:       "d86ac4043983d58a213c87a6ed835eb9a654a528a2134f4be638a261aed08969"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a7a2ddb1a8bc6d4c1c75b822e6cb944464ec0d6068c6e2c366cf176633af2163"
-    sha256 cellar: :any_skip_relocation, catalina:       "709a3826f8304347d3b4fbb45283593e1256fb9a5feab0041b566cd7e5895ba3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "594d29902c6d3e484b099fc5911d7783da268f87684958e32ea8dea11f458c3f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4003510cff0f3050c8ea10c370a82f66c187ba398a4bd413dde9297b46d335c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "10cfd21d03add5165c8d9d68461536f56564f8082843b13278b8dc0fa03e34bb"
+    sha256 cellar: :any_skip_relocation, monterey:       "3335e8657584a2b2642b115a42f49b324e55b5b29c47dbf7068ea2e7b2dc52ba"
+    sha256 cellar: :any_skip_relocation, big_sur:        "68ee37be471204c07cc0c35cfcaec834ff9942bdbcc5d42ed19634036ebe5e59"
+    sha256 cellar: :any_skip_relocation, catalina:       "77067197f553044f3e18527137a0e0c4272deabf01d3906ebcc590c8ad773b35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1727efe3e1144dbe1f8730b7770f5c7411769337c5e10dc30bd468c8ea024a44"
   end
 
   depends_on "python-tabulate"

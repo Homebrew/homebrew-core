@@ -1,23 +1,27 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.0/sftpgo_v2.3.0_src_with_deps.tar.xz"
-  sha256 "2a1c6dc2c540404e7a19e9ba3b43224cb040fb6c05b3f4ad24cc20da0c34b93f"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.1/sftpgo_v2.3.1_src_with_deps.tar.xz"
+  sha256 "dd4d0f7b7e7618f01ccecee7ea8045a6adcee2c2e29ab011a85eef8c80a0ac55"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4177c93da29157f3326598a85e3a1c7129c880a80092d7bf90f4a98755134f52"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb7138ee760de736f3920c7660bad35c87a3b504f1a491c88ab7fcc173698168"
-    sha256 cellar: :any_skip_relocation, monterey:       "4779a81233db43db1a3b6296d365709c35f5d9eb0f6938a1670090669e9cb486"
-    sha256 cellar: :any_skip_relocation, big_sur:        "afb296aefe068d09e4619b12d728bb84599b8e07cd45b9f5b4c2a03078ec4f11"
-    sha256 cellar: :any_skip_relocation, catalina:       "bb0e5ce46d2ffb4f33975946ac61b72b9130d5719d76576ba387053efbd7ff63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d009a58901d01a7b9599f9bc81f012ba9426f9ffc10a41ce186b440dc5bc0456"
+    sha256 arm64_monterey: "9f206b453542f1e113f7c32ed957aa2e3ad83ff17e8633f1deeda08fbb0b42c9"
+    sha256 arm64_big_sur:  "0e31b410f5c9e81f78570ea7690c15097eb0a742ecf64d3a7ddb1560e95347da"
+    sha256 monterey:       "002d45406bd9c33651427c1114454193bde4e3fecbf1ccc806187f081bfe6142"
+    sha256 big_sur:        "536ee83cd3e33f243b77460a2f66c4f6940599d505611ceaa4a5f596968a5900"
+    sha256 catalina:       "dc89326ebf0835b5d5543b9a3c383150361f6490af9b2905f1781afdede603d9"
+    sha256 x86_64_linux:   "b78756f3bf09d1e6f8fd410eb61dc34a2b72afeb6b5e6bbf44b2e82021380279"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = %W[
+      -s -w
+      -X github.com/drakkan/sftpgo/v2/util.additionalSharedDataSearchPath=#{opt_pkgshare}
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags)
     system bin/"sftpgo", "gen", "man", "-d", man1
 
     (zsh_completion/"_sftpgo").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "zsh")
@@ -26,9 +30,6 @@ class Sftpgo < Formula
 
     inreplace "sftpgo.json" do |s|
       s.gsub! "\"users_base_dir\": \"\"", "\"users_base_dir\": \"#{var}/sftpgo/data\""
-      s.gsub! "\"templates_path\": \"templates\"", "\"templates_path\": \"#{opt_pkgshare}/templates\""
-      s.gsub! "\"static_files_path\": \"static\"", "\"static_files_path\": \"#{opt_pkgshare}/static\""
-      s.gsub! "\"openapi_path\": \"openapi\"", "\"openapi_path\": \"#{opt_pkgshare}/openapi\""
     end
 
     pkgetc.install "sftpgo.json"

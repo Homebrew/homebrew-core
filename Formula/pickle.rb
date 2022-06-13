@@ -1,17 +1,17 @@
 class Pickle < Formula
   desc "PHP Extension installer"
   homepage "https://github.com/FriendsOfPHP/pickle"
-  url "https://github.com/FriendsOfPHP/pickle/releases/download/v0.7.10/pickle.phar"
-  sha256 "8d06ed7c09faf08f8e65119d4ca1a6cbbb121b140c7b199b4b6ca15afcd7f02f"
+  url "https://github.com/FriendsOfPHP/pickle/releases/download/v0.7.11/pickle.phar"
+  sha256 "fe68430bbaf01b45c7bf46fa3fd2ab51f8d3ab41e6f5620644d245a29d56cfd6"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b6a5e839808afaf5e61450c3b041473a7c4cbfd933c9533a9c20ec5ad6b2259"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b6a5e839808afaf5e61450c3b041473a7c4cbfd933c9533a9c20ec5ad6b2259"
-    sha256 cellar: :any_skip_relocation, monterey:       "b5ebad05ada35280198568e3f376c8803cb61d245662eca6041220684bb083fc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b5ebad05ada35280198568e3f376c8803cb61d245662eca6041220684bb083fc"
-    sha256 cellar: :any_skip_relocation, catalina:       "b5ebad05ada35280198568e3f376c8803cb61d245662eca6041220684bb083fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b6a5e839808afaf5e61450c3b041473a7c4cbfd933c9533a9c20ec5ad6b2259"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9f2e503ecd0cb0ffbb7297c91ade88e59fae31c5d9f898f0733e57b86c72020"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9f2e503ecd0cb0ffbb7297c91ade88e59fae31c5d9f898f0733e57b86c72020"
+    sha256 cellar: :any_skip_relocation, monterey:       "bcb061bd3996f49e3b6ee1848677a1fb1858cd126c810f22bd82dbfe3518b59c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bcb061bd3996f49e3b6ee1848677a1fb1858cd126c810f22bd82dbfe3518b59c"
+    sha256 cellar: :any_skip_relocation, catalina:       "bcb061bd3996f49e3b6ee1848677a1fb1858cd126c810f22bd82dbfe3518b59c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9f2e503ecd0cb0ffbb7297c91ade88e59fae31c5d9f898f0733e57b86c72020"
   end
 
   depends_on "php"

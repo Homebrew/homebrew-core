@@ -2,17 +2,17 @@ class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://gitlab.gnome.org/swilmet/tepl"
   url "https://gitlab.gnome.org/swilmet/tepl.git",
-      tag:      "6.0.2",
-      revision: "52b2715293a8cb8c2be853686be0bc711cef6759"
+      tag:      "6.1.1",
+      revision: "a3538fdee2f3518541bfc4041286143e6c8e16de"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_monterey: "1a686c153aa269c680566bd57de74b18e6ae78f6b8c61fad86d9d57dd761ea98"
-    sha256 arm64_big_sur:  "a6a93b147dd7a4026775656f4b39a972c9a012192082a2edbc381ccd42504b04"
-    sha256 monterey:       "d271515be1223f6604dfd21fabff45ef380b1e669387b7dbc6c94fc54dfb3da9"
-    sha256 big_sur:        "2484663d844aa0685e1b336827093273debfac52f633222e3d7e16c342e0d7c8"
-    sha256 catalina:       "91f261fbdb8f52024bc9c3c556d4fe5542e523f165e756dcdedf5b81198f1de1"
-    sha256 x86_64_linux:   "ba49f6bfaee807bfa9862661e9eecbf5f522e7e5a5b9fb31c53c9c638052c3d2"
+    sha256 arm64_monterey: "b7d0c579d0edc4c75dc7af9e858046a4fb8adf883848ec73ea25807cf39bcd29"
+    sha256 arm64_big_sur:  "369a9ddfff9b925e3a0ac8a35d3a6b4b2029920338e276f0e27a6ee6ee6f5636"
+    sha256 monterey:       "b2fbda07e78db6f17c33c7f032a6098b1718be700ad0ffc4e738fb0045232b9e"
+    sha256 big_sur:        "fe377fa92b4797a892cdc1f5d19c01f44ace1b40c4bba5367b5da2f6d964f3b2"
+    sha256 catalina:       "94c51c2737f734b9ec19cda81d70fb4d79a6c352488b1e70d023abfd609d4061"
+    sha256 x86_64_linux:   "e4e9628ba8d89a340e2f7cfa00d18d7c30d40cb223554836edca1f0c913c85a5"
   end
 
   depends_on "gobject-introspection" => :build

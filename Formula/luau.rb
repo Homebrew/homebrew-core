@@ -1,18 +1,18 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau-lang.org"
-  url "https://github.com/Roblox/luau/archive/0.530.tar.gz"
-  sha256 "913dd66657f1c65c592e85443100bd89c5259f3df3ba86c8cd26d51296a8f42d"
+  url "https://github.com/Roblox/luau/archive/0.531.tar.gz"
+  sha256 "dad818dd2e0d21842139c2c3379e66a0ee5c21a22a865f028495812708885472"
   license "MIT"
   head "https://github.com/Roblox/luau.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c26d01a5aba740c5243b047aaa4ad5f8b6d4add149066e4a0a2958f9d77d229"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4679650bc46a70ff4adc599baa619750192793acb0b8581b4666f50f18650666"
-    sha256 cellar: :any_skip_relocation, monterey:       "44a92eb249a7441f908c311ccaef01bb5fc2639dda7f3217b6cd2d887931334b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f9c6e0ec5025e27c37192548205b683300f148b61d6d8105f000e46b6232e29d"
-    sha256 cellar: :any_skip_relocation, catalina:       "5ac25eaf50a22af03a0680af2d8df77a787e7b98704c5d8f084442c7e3d8df98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da345a5c1df86821cb9081531a04aa2e92fc79fc62cfca9d8faa8c28a96e7c67"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b290403dbda58e4cd5a9b598f759769e701dadffc9186619ca4a071ca1366bd0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0feb6df22ebc6f59cec0cf7b454ab3f2a19e51678f5feaeb5ead8abad6b0a05e"
+    sha256 cellar: :any_skip_relocation, monterey:       "e5af5b40a4ef0f8c8be8d7480f1a3d16b37bb5c79f296a7c04f8fd5783f805a7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0f7b11b2004e2a1bfd5f90dadacf73f1a1e87bfc6faff06e06409e6155cb187c"
+    sha256 cellar: :any_skip_relocation, catalina:       "811d33a9337a602af4318869f33471825f1792ea6162b41c4c714c3cfd836924"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bf8a5994c053f4006db3ec6530c9e89b6d9a401d4d21c60eb287d879e86dd14"
   end
 
   depends_on "cmake" => :build
@@ -22,9 +22,6 @@ class Luau < Formula
   end
 
   fails_with gcc: "5"
-
-  # Upstreamed here: https://github.com/Roblox/luau/pull/522.
-  patch :DATA
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DLUAU_BUILD_TESTS=OFF"
@@ -37,17 +34,3 @@ class Luau < Formula
     assert_match "Homebrew is awesome!", shell_output("#{bin}/luau test.lua")
   end
 end
-
-__END__
-diff --git a/Analysis/include/Luau/Variant.h b/Analysis/include/Luau/Variant.h
-index c9c97c9..f637222 100644
---- a/Analysis/include/Luau/Variant.h
-+++ b/Analysis/include/Luau/Variant.h
-@@ -6,6 +6,7 @@
- #include <type_traits>
- #include <initializer_list>
- #include <stddef.h>
-+#include <utility>
-
- namespace Luau
- {

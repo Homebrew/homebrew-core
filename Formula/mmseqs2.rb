@@ -18,11 +18,14 @@ class Mmseqs2 < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "libomp"
   depends_on "wget"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   on_linux do
     depends_on "gawk"

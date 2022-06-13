@@ -2,6 +2,7 @@ class Imageworsener < Formula
   desc "Utility and library for image scaling and processing"
   homepage "https://entropymine.com/imageworsener/"
   license "MIT"
+  revision 1
 
   stable do
     url "https://entropymine.com/imageworsener/imageworsener-1.3.4.tar.gz"
@@ -20,13 +21,12 @@ class Imageworsener < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "59a3ec8b38b32f1dd73a0e68ed6b04143f5f017c8e2f67104f1c4b04581a9a91"
-    sha256 cellar: :any,                 arm64_big_sur:  "0ee5c5f12bf988c164ce3ea06ce3c6a22af96427edaf241fb68f91c3e951d2de"
-    sha256 cellar: :any,                 monterey:       "daad4e7c113aba1f302eddedf9953ca54f2565698f7338dc0118d5e4978388d4"
-    sha256 cellar: :any,                 big_sur:        "6e6ec999be6238848bc4c39f7e39419b39d060dc925273ddbaaa500d63a29f92"
-    sha256 cellar: :any,                 catalina:       "a2c33e599d1b1aa2500593919cdc4a9771f5afe71a7f6011a98b125dbfbd9c60"
-    sha256 cellar: :any,                 mojave:         "a529b6264397516c763640015683f35632d46befd85fb07a3433ff2ebf2fcd95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9018d0001a824d65d6e4205cffe1f745248df78b2341a0922e8a5254849bc672"
+    sha256 cellar: :any,                 arm64_monterey: "95a22e3ec38cf958cf529618b473c4d909ebf0a63f419eedbd3a967c2ee59437"
+    sha256 cellar: :any,                 arm64_big_sur:  "49a10087ef0a0e2844b1aac81d6288a55a38ae1a44e6838b4839a16d7ede1ccd"
+    sha256 cellar: :any,                 monterey:       "5107b352565dbde45e70ecb9c0014d398f1484e0188d67796b567caf6a3d89d9"
+    sha256 cellar: :any,                 big_sur:        "8b89eef7348b681120d65279b58a424495a07f74df19c1688be31131a2aa19a6"
+    sha256 cellar: :any,                 catalina:       "a7cdd866470feabfcc8c7e602f1765a69aebc122d48b5da391a7ad3661b5b8f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bda810cee57ed24f184221afcffa158ee54c8c2e474f8b6b45953ed94f8b2b45"
   end
 
   head do
@@ -36,8 +36,10 @@ class Imageworsener < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
+
+  uses_from_macos "zlib"
 
   def install
     if build.head?
@@ -45,8 +47,7 @@ class Imageworsener < Formula
       system "./scripts/autogen.sh"
     end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", "--without-webp"
+    system "./configure", *std_configure_args, "--without-webp"
     system "make", "install"
     pkgshare.install "tests"
   end

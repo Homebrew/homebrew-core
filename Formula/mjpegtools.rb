@@ -4,19 +4,19 @@ class Mjpegtools < Formula
   url "https://downloads.sourceforge.net/project/mjpeg/mjpegtools/2.2.1/mjpegtools-2.2.1.tar.gz"
   sha256 "b180536d7d9960b05e0023a197b00dcb100929a49aab71d19d55f4a1b210f49a"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "641462f37bf9b4525a1f1ff5310763cc518bd135fe7a71b3db707d1f175010d5"
-    sha256 cellar: :any,                 arm64_big_sur:  "57f69f4a147c3e886146105b9f2ea4f6edb15bd2f5c9e3c648af5781590f1389"
-    sha256 cellar: :any,                 monterey:       "b03c31418ea5d42e4c88a6160209ac4798dc628574ddb1d08b7cdee4e86ab9e2"
-    sha256 cellar: :any,                 big_sur:        "df7c071afa72c7fcb3e3abf340450d34f05ab1b81655ae57d48f4a3c516a7067"
-    sha256 cellar: :any,                 catalina:       "2b41e5e3f6abf5fa6767757128b8913fa5932919a02b86aba9dc3a4c4302be24"
-    sha256 cellar: :any,                 mojave:         "1c5d0fb366a3d4b0da30a2a2da4c8bc3f90cbe9238c512bfab57a4273855c98b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cfd7380321fa05242d23477ea708de3c2b9019043f0a0b80c376d79323fdb1b"
+    sha256 cellar: :any,                 arm64_monterey: "c7d05e5fc6d485aa298f4aa7ce6cdfb0c28f2a7792650bba2e3fda8adc030f85"
+    sha256 cellar: :any,                 arm64_big_sur:  "35bd5112b5352ad73c9636e205134628682d93f2502d33951945f676464f1e72"
+    sha256 cellar: :any,                 monterey:       "9afd34745954ea736c8e894c42b4552aa414df0d44942a09d7c47a6113c3ed2b"
+    sha256 cellar: :any,                 big_sur:        "49857ba4da574bcbdf2795f9bed39ab9b9ca4c4b3d6ff39196b707f0981e8523"
+    sha256 cellar: :any,                 catalina:       "c2beea84698794fc12896fa9e7b2c1655a3f4be189b90b6963799419ee3b34bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7efdf0c986f0afd7094a355256ee6743f2ce7720d23f680005e53a8ae5213244"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -25,9 +25,7 @@ class Mjpegtools < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--enable-simd-accel",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--enable-simd-accel"
     system "make", "install"
   end
 end

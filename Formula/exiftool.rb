@@ -14,12 +14,13 @@ class Exiftool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d262f00f8f26d69838dad118928276859984c4b69885c606cb3bcf7eee44452"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "52deb0d5fdb3e25412439bdc3c0a9f0fd827e4d9903cb37d4a0e50be3963e4ad"
-    sha256 cellar: :any_skip_relocation, monterey:       "b5087be17a279128ca05aafd3c2332dff4ccadbb3e13e808596b65a8b2a87b5e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d1fd5bd75287ece6407d067a30a89886e1fcaefd42afa3f4d6ca07f2bb9c6e5"
-    sha256 cellar: :any_skip_relocation, catalina:       "80da9ac3b1b54b839ff144a8cd35c0785e431bcd95c4aa437a3f8c82ac959e8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "975e2a4b41e750db055cfd0e40c87fce2e49bd0cbef810ebc8e00a12e3e9f598"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "107ea49a6a120d031be18ca6f552a8df01c2b74da166394ec6336551f624763d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8956e65756c109506891750840a88e1171fcda9028cf7466df3c6f9f49aa26d2"
+    sha256 cellar: :any_skip_relocation, monterey:       "f318bf377de9820dfa35039ff40bb6d193e1d855e2753b9962303f17a923d231"
+    sha256 cellar: :any_skip_relocation, big_sur:        "88e0b007181d89405c6597a1a234cbbd44c7b998d288f2335cac898061ff5d57"
+    sha256 cellar: :any_skip_relocation, catalina:       "dcec97e9c602263e02fb3459bdb2c8c4537264e308c06869fa8e674520f251a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "084e982832971c5e53308d917b10675b64581ba531ec4f075224e15fb66f9e40"
   end
 
   uses_from_macos "perl"
@@ -30,7 +31,7 @@ class Exiftool < Formula
     inreplace "lib/Image/ExifTool.pm", "LargeFileSupport => undef", "LargeFileSupport => 1"
 
     # replace the hard-coded path to the lib directory
-    inreplace "exiftool", "$1/lib", libexec/"lib"
+    inreplace "exiftool", "unshift @INC, $incDir;", "unshift @INC, \"#{libexec}/lib\";"
 
     system "perl", "Makefile.PL"
     system "make", "all"

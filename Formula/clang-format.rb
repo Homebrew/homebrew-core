@@ -7,12 +7,12 @@ class ClangFormat < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.4/llvm-14.0.4.src.tar.xz"
-    sha256 "eb8e90dfadae4073a7f8fc6384bacc0dda072400d82b9d25dabb5280a737ba22"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.5/llvm-14.0.5.src.tar.xz"
+    sha256 "234c8ed02ed1338aa4f0ffa955e45eb13abe7ba0032569d6bc17ae9334257b02"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.4/clang-14.0.4.src.tar.xz"
-      sha256 "922bdc8341491d4f54548c51bafd77c0e737a3146fe33c762bce31a0fd151591"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.5/clang-14.0.5.src.tar.xz"
+      sha256 "a8e2e3ce217f4c2682c3fe2d2691f826cf1f0ab0a1dff4b5b8f6264baa1f2a79"
     end
   end
 
@@ -23,12 +23,12 @@ class ClangFormat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70bda35ddab5bd3bacc8a643aad68bff985543abaf0ed9b87fcd25a650c1fa82"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48477c9781ee49665fd2fa39639c375e50ca628ab708c0e20f6dc1295cb4df5a"
-    sha256 cellar: :any_skip_relocation, monterey:       "8492cd3bfbda0866219e81f7f03dc07d3c1ee5849bc2476b832f744b5244b18a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "59f192fa04104e53221cf27bd4b0c148352bbc8b529c0ba70e721af4b8825488"
-    sha256 cellar: :any_skip_relocation, catalina:       "34561a6a8a523dc514cadc32e145599fdb3c86bded4a3a414604ee3e64a50e8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2b023eb0918fe1b5848f5f879e5e5b7ecadf84da1ec136f81fc001bd34550bd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "542713e3432b7293bfde1fdfc3c6147579eff994f62575768696e1d296a096f7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81e9d8854eaafbbde7436ac90ea9406841b0a52ee9f01249f556b56fa0d9c0dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "6bca908189beac87350ecb3c0183a55a1779b44fd23a5cd8cc380bfaacc6f4bb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4c3f6b7b8c35cbce0a000b896aeb44ece2029b55d514d9fee5ab5e3469f0f5ac"
+    sha256 cellar: :any_skip_relocation, catalina:       "9166671af3734da1dc5c33b844370f0f9c03405d5826af4f8e1c805242f253f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd3748a28d378478000ad1e59b36f2955ab0d5e246143ff769787e637a3cb541"
   end
 
   depends_on "cmake" => :build

@@ -3,17 +3,17 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/63/69/c94542202d3ce8988cc0868a16d7c688ab73342edc3de83d38a22ad374f8/ansible-lint-6.2.2.tar.gz"
-  sha256 "b8e2956fede90bd28150e97f209a8af787c6001f584bb6613112a1ce1aea311d"
+  url "https://files.pythonhosted.org/packages/4b/70/c8a9688d33f3411563656c765815d39ace9bfbe03841cd2ff3cd12b13538/ansible-lint-6.3.0.tar.gz"
+  sha256 "f57f520ae5d810ce062157dc7d633990ad2fbec81bbbb34ccc4ce3a0c21fcd38"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "99e6717d62b2fa8fd23f05f584b6623d2417c352b22eb5a3be5b256ef258c24a"
-    sha256 cellar: :any,                 arm64_big_sur:  "60e76e7e9f45a57f2308642a59e20bab42238127eabd48bc478299974e2c9eb5"
-    sha256 cellar: :any,                 monterey:       "188991ed2ed0dfe45389868528753048e37845f879dad3b92643f91fed73ff9a"
-    sha256 cellar: :any,                 big_sur:        "23f37fad6cb7c35a7f55b308a687421238fe38252e14bbd5654cd3b7ebad028c"
-    sha256 cellar: :any,                 catalina:       "2d50660c5930f588be21a2fec2d79336664dbcf6825d6e406713efe34432db74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a63a47bf6e44e77b59a953f4ecafa6e2fac499382eb4167857863e1eac811da"
+    sha256 cellar: :any,                 arm64_monterey: "65250276cd63a801bdb094acd20fe91ee5953450f0c591e622100371bdf2c6eb"
+    sha256 cellar: :any,                 arm64_big_sur:  "bcf3eea6b799ab8ea212a28fa52856622f3b880f468edee0a9b48b08b16c4955"
+    sha256 cellar: :any,                 monterey:       "c1c6e3eef40abe1b35ca3c5508d79f269598a83e3aef86f7aab49ad64eb2f80e"
+    sha256 cellar: :any,                 big_sur:        "58e0c24c5d5607f3ba19f00a2660e5daa075fb2104489968eb58e36802e33b78"
+    sha256 cellar: :any,                 catalina:       "e7e4c7fbe0f67ac4252874dc735657f9939c0cca4e12722c9e748fffa1fbee30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8354bbf969f4f78ad6ba912a4e777743a03900ef70062edef4d1173efe635a25"
   end
 
   depends_on "pkg-config" => :build
@@ -73,8 +73,8 @@ class AnsibleLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/9e/62/93a54db0e44c4de57868a7d638d7a8abce113c8bc43a20b10b1109b2a517/jsonschema-4.5.1.tar.gz"
-    sha256 "7c6d882619340c3347a1bf7315e147e6d3dae439033ae6383d6acb908c101dfc"
+    url "https://files.pythonhosted.org/packages/b5/a0/dd13abb5f371f980037d271fd09461df18c85188216008a1e3a9c3f8bd0c/jsonschema-4.6.0.tar.gz"
+    sha256 "9d6397ba4a6c0bf0300736057f649e3e12ecbc07d3e81a0dacb72de4e9801957"
   end
 
   resource "MarkupSafe" do
@@ -163,8 +163,8 @@ class AnsibleLint < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/a7/73/7c739ae235b7e3ee36f2c0084a595b89c62aefeafa52df8d54d26846b32b/wcmatch-8.3.tar.gz"
-    sha256 "371072912398af61d1e4e78609e18801c6faecd3cb36c54c82556a60abc965db"
+    url "https://files.pythonhosted.org/packages/95/b3/597b79292584de5b790146871e50cf3cb3bf37cf845232a20123fc784ef2/wcmatch-8.4.tar.gz"
+    sha256 "ba4fc5558f8946bf1ffc7034b05b814d825d694112499c86035e0e4d398b6a67"
   end
 
   resource "yamllint" do

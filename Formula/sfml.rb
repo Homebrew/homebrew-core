@@ -23,7 +23,6 @@ class Sfml < Formula
   depends_on "doxygen" => :build
   depends_on "flac"
   depends_on "freetype"
-  depends_on "jpeg"
   depends_on "libogg"
   depends_on "libvorbis"
 
@@ -35,8 +34,6 @@ class Sfml < Formula
     depends_on "openal-soft"
     depends_on "systemd"
   end
-
-  # https://github.com/Homebrew/homebrew/issues/40301
 
   def install
     # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
@@ -56,8 +53,9 @@ class Sfml < Formula
 
     args << "-DSFML_USE_SYSTEM_DEPS=ON" if OS.linux?
 
-    system "cmake", ".", *std_cmake_args, *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
