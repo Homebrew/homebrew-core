@@ -7,12 +7,12 @@ class ErofsUtils < Formula
   head "git://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "575602c8b72d4b7474f08862c92655ee551935ca742508f833e22b88077fde08"
-    sha256 cellar: :any,                 arm64_big_sur:  "6b09c4568245e7ba0442e00bc87342ec5030acb9393c0dccf886a72bdcfb04fe"
-    sha256 cellar: :any,                 monterey:       "df01bcb6e5b5faa32155211916825784564fadce9f610183ef3efd0555dba8b6"
-    sha256 cellar: :any,                 big_sur:        "4bddb7c29191fee61c9c94204d7876096fdcb85ea76d8003b3785ad90ac2bd01"
-    sha256 cellar: :any,                 catalina:       "dddfb64d62d09af5c46bb53dd99f35a8208259ca17d7681e6a6fe608b866bb09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "650c01bb5fdd4b389c59ac51b3788bdd8cf469145082f007ec94cfda33794045"
+    sha256 cellar: :any,                 arm64_monterey: "f812b9f50ece8d4d7e81b37b57933185f9dc1bc9568b1c4de9f439e9a340e254"
+    sha256 cellar: :any,                 arm64_big_sur:  "11e2d2ac010ffbfc3a0d76b3578c13f05c97ad9e5b00729f3d2133169cdc343e"
+    sha256 cellar: :any,                 monterey:       "87db76ee25a677a010bb62467a32f187b6219e4146d44b25c36154fa09b5cc57"
+    sha256 cellar: :any,                 big_sur:        "cddfe15f6b280c94e6963bd675d4d7a3e49683f92221e965af6622c8e9801b8a"
+    sha256 cellar: :any,                 catalina:       "e438b1d7948e817de555cd9fb2717a883aa74bfe3b6ec26e8e4f6ac409cc155b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9eb89adcc6562bc174aded93a098155a4d73a52f149b974c4d690f7d1aa6706"
   end
 
   depends_on "autoconf" => :build
