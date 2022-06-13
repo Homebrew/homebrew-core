@@ -7,9 +7,8 @@ class Cnosdb < Formula
   head "https://github.com/cnosdb/cnosdb.git", branch: "main"
   depends_on "go" => :build
   def install
-    cd cnosdb_path do
-      system "go", "install", "./..."
-    end
+    ENV["GOBIN"] = buildpath
+    system "go", "install", "./..."
     inreplace cnosdb_path/"etc/config.sample.toml" do |s|
       s.gsub! "/var/lib/cnosdb/data", "#{var}/cnosdb/data"
       s.gsub! "/var/lib/cnosdb/meta", "#{var}/cnosdb/meta"
@@ -63,12 +62,6 @@ class Cnosdb < Formula
         </dict>
       </plist>
     EOS
-  end
-  service do
-    run bin/"cnosdb"
-    keep_alive true
-    working_dir HOMEBREW_PREFIX
-    environment_variables CNOSDB_CONFIG_PATH: etc/"cnosdb/cnosdb.conf"
   end
   test do
     (testpath/"config.toml").write shell_output("#{bin}/cnosdb config")
