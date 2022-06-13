@@ -9,7 +9,7 @@ class Cnosdb < Formula
   def install
     ENV["GOBIN"] = buildpath
     system "go", "install", "./..."
-    inreplace cnosdb_path/"etc/config.sample.toml" do |s|
+    inreplace "./etc/config.sample.toml" do |s|
       s.gsub! "/var/lib/cnosdb/data", "#{var}/cnosdb/data"
       s.gsub! "/var/lib/cnosdb/meta", "#{var}/cnosdb/meta"
       s.gsub! "/var/lib/cnosdb/wal", "#{var}/cnosdb/wal"
