@@ -3,8 +3,8 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/db/16/49348e34fa1b9bf335d1cc9915c50bbf64128d8373dae7ea2112fd687234/copier-6.0.0.tar.gz"
-  sha256 "e85c91e54ee9e9c3cf39f36516f32fc57fe840f702bde7a627a5831890c17232"
+  url "https://files.pythonhosted.org/packages/d4/1a/a518411edbe28df377b2f4aca4be61b86b52f625592c3c5bfd68f25f4131/copier-6.1.0.tar.gz"
+  sha256 "d3b399285763e97a1c3c49cbc7e0d3b3cea2f05b680f652ff58d59a5b59f3a3c"
   license "MIT"
 
   bottle do
@@ -69,8 +69,8 @@ class Copier < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/60/a3/23a8a9378ff06853bda6527a39fe317b088d760adf41cf70fc0f6110e485/pydantic-1.9.0.tar.gz"
-    sha256 "742645059757a56ecd886faf4ed2441b9c0cd406079c2b4bee51bcc3fbcd510a"
+    url "https://files.pythonhosted.org/packages/d0/a5/e4a25a0becf35530a3d90459a88855743e942f2e502da49ca5b10aa78568/pydantic-1.9.1.tar.gz"
+    sha256 "1ed987c3ff29fff7fd8c3ea3a3ea877ad310aae2ef9889a119e22d3f2db0691a"
   end
 
   resource "Pygments" do
