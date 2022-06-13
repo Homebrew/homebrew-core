@@ -24,6 +24,13 @@ class SynergyCore < Formula
     sha256 "081735f032a2909c65322d43bcaf463bca05f88a05882c706762c959cd4bbec6"
   end
 
+  livecheck do
+    url :stable
+    # Include only versions that start with 1.x because Synergy 2.x is an old
+    # deprecated product that was never finished.
+    regex(/(1\.[\d.]+)-stable\z/i)
+  end
+
   bottle do
     sha256                               arm64_monterey: "93130d9add2ff477b7ab848e0f4b4336031ca0ff50dddc2b67cfaef51040bd56"
     sha256                               arm64_big_sur:  "5d3fab34b90a58e079012cc8d2b7f441ad098214161d83894558177b356ed2ed"
