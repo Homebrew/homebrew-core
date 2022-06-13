@@ -24,7 +24,7 @@ class Nb < Formula
   end
 
   test do
-    ENV["EDITOR"] = ""
+    ENV["EDITOR"] = which "vim"
 
     assert_match version.to_s, shell_output("#{bin}/nb version")
 
