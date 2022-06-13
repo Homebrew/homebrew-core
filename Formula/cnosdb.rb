@@ -19,7 +19,7 @@ class Cnosdb < Formula
     bin.install "bin/cnosdb-inspect"
     bin.install "bin/cnosdb-meta"
     bin.install "bin/cnosdb-tools"
-    etc.install cnosdb_path/"etc/config.sample.toml" => "cnosdb.conf"
+    etc.install "./etc/config.sample.toml" => "cnosdb.conf"
     (var/"cnosdb/data").mkpath
     (var/"cnosdb/meta").mkpath
     (var/"cnosdb/wal").mkpath
