@@ -4,6 +4,7 @@ class Mjpegtools < Formula
   url "https://downloads.sourceforge.net/project/mjpeg/mjpegtools/2.2.1/mjpegtools-2.2.1.tar.gz"
   sha256 "b180536d7d9960b05e0023a197b00dcb100929a49aab71d19d55f4a1b210f49a"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "641462f37bf9b4525a1f1ff5310763cc518bd135fe7a71b3db707d1f175010d5"
@@ -16,7 +17,7 @@ class Mjpegtools < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -25,9 +26,7 @@ class Mjpegtools < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--enable-simd-accel",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--enable-simd-accel"
     system "make", "install"
   end
 end
