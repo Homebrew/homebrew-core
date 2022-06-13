@@ -6,12 +6,12 @@ class Tengo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e594094ff8a94562666fc2efdfbc7bd531e2a717bc48769a28059511eab8ff30"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e594094ff8a94562666fc2efdfbc7bd531e2a717bc48769a28059511eab8ff30"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f1552f0168f84e1e8e31617ea7c9b628dbf7ac581fb3906aeabe00d3fc92fe2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0f1552f0168f84e1e8e31617ea7c9b628dbf7ac581fb3906aeabe00d3fc92fe2"
-    sha256 cellar: :any_skip_relocation, catalina:       "0f1552f0168f84e1e8e31617ea7c9b628dbf7ac581fb3906aeabe00d3fc92fe2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d0f571c73f3b8baf939f779d497b62b85c7d6ee20a5d94f5ed52645524e4133"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "67b83d6f2cebdda0b7ade6d5790658c0ef044eb47b59ca8d2fb4f085e1b3eeba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67b83d6f2cebdda0b7ade6d5790658c0ef044eb47b59ca8d2fb4f085e1b3eeba"
+    sha256 cellar: :any_skip_relocation, monterey:       "12d25c5ef97f07d7097d00f4e00d2d20e3569b371a11a1ed31d36ca2a842d6aa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "12d25c5ef97f07d7097d00f4e00d2d20e3569b371a11a1ed31d36ca2a842d6aa"
+    sha256 cellar: :any_skip_relocation, catalina:       "12d25c5ef97f07d7097d00f4e00d2d20e3569b371a11a1ed31d36ca2a842d6aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdc490fd77b549902c5fc5bc895d6450f2167be13bd708122039604246d463d9"
   end
 
   depends_on "go" => :build
