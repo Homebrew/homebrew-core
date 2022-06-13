@@ -34,7 +34,7 @@ class MscGenerator < Formula
   end
 
   def install
-    system "./autogen"
+    # system "./autogen" # not needed currently
     system "./configure", "--prefix=#{prefix}", "--disable-font-checks"
     # Dance around upstream trying to build everything in doc/ which we don't do for now
     # system "make", "install"
