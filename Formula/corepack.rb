@@ -34,7 +34,7 @@ class Corepack < Formula
     system bin/"yarn", "add", "fsevents", "--build-from-source=true" if OS.mac?
 
     (testpath/"package.json").delete
-    system "#{bin}/pnpm", "init", "-y"
+    system "#{bin}/pnpm", "init"
     assert_predicate testpath/"package.json", :exist?, "package.json must exist"
   end
 end
