@@ -56,6 +56,10 @@ jobs:
       - name: Check for CI labels
         id: check-labels
         uses: actions/github-script@v6
+        env:
+          TESTING_FORMULAE: ${{needs.tap_syntax.outputs.testing_formulae}}
+          ADDED_FORMULAE: ${{needs.tap_syntax.outputs.added_formulae}}
+          DELETED_FORMULAE: ${{needs.tap_syntax.outputs.deleted_formulae}}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -151,12 +155,12 @@ jobs:
             core.setOutput('container', JSON.stringify(container))
 
             const test_bot_formulae_args = ["--only-formulae", "--junit", "--only-json-tab", "--skip-dependents"]
-            test_bot_formulae_args.push('--testing-formulae=${{needs.tap_syntax.outputs.testing_formulae}}')
-            test_bot_formulae_args.push('--added-formulae=${{needs.tap_syntax.outputs.added_formulae}}')
-            test_bot_formulae_args.push('--deleted-formulae=${{needs.tap_syntax.outputs.deleted_formulae}}')
+            test_bot_formulae_args.push(`--testing-formulae="${process.env.TESTING_FORMULAE}"`)
+            test_bot_formulae_args.push(`--added-formulae="${process.env.ADDED_FORMULAE}"`)
+            test_bot_formulae_args.push(`--deleted-formulae="${process.env.DELETED_FORMULAE}"`)
 
             const test_bot_dependents_args = ["--only-formulae-dependents", "--junit"]
-            test_bot_dependents_args.push('--testing-formulae=${{needs.tap_syntax.outputs.testing_formulae}}')
+            test_bot_dependents_args.push(`--testing-formulae="${process.env.TESTING_FORMULAE}"`)
 
             if (label_names.includes('CI-test-bot-fail-fast')) {
               console.log('CI-test-bot-fail-fast label found. Passing --fail-fast to brew test-bot.')
