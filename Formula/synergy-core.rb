@@ -24,6 +24,16 @@ class SynergyCore < Formula
     sha256 "081735f032a2909c65322d43bcaf463bca05f88a05882c706762c959cd4bbec6"
   end
 
+  # This repository contains old 2.0.0 tags, one of which uses a stable tag
+  # format (`v2.0.0-stable`), despite being marked as "pre-release" on GitHub.
+  # The `GithubLatest` strategy is used to avoid these old tags without having
+  # to worry about missing a new 2.0.0 version in the future.
+  livecheck do
+    url :stable
+    regex(%r{href=["']?[^"' >]*?/tag/[^"' >]*?v?(\d+(?:\.\d+)+)[^"' >]*?["' >]}i)
+    strategy :github_latest
+  end
+
   bottle do
     sha256                               arm64_monterey: "93130d9add2ff477b7ab848e0f4b4336031ca0ff50dddc2b67cfaef51040bd56"
     sha256                               arm64_big_sur:  "5d3fab34b90a58e079012cc8d2b7f441ad098214161d83894558177b356ed2ed"
