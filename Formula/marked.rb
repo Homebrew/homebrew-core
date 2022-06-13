@@ -8,7 +8,7 @@ class Marked < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f9c20b418c87e37af6a4f970429f3bb180ad3276055729c7ea18c8be9c5f729a"
+    sha256 cellar: :any_skip_relocation, all: "9b514a4d0c43633103865803bab753016528ee558cc8253f187fdfbcbc89ea4c"
   end
 
   depends_on "node"
