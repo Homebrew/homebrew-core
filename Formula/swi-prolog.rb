@@ -4,6 +4,7 @@ class SwiProlog < Formula
   url "https://www.swi-prolog.org/download/stable/src/swipl-8.4.2.tar.gz"
   sha256 "be21bd3d6d1c9f3e9b0d8947ca6f3f5fd56922a3819cae03251728f3e1a6f389"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
   livecheck do
@@ -24,13 +25,16 @@ class SwiProlog < Formula
   depends_on "pkg-config" => :build
   depends_on "berkeley-db"
   depends_on "gmp"
-  depends_on "jpeg"
   depends_on "libarchive"
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "readline"
   depends_on "unixodbc"
+
+  uses_from_macos "libxcrypt"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     # Remove shim paths from binary files `swipl-ld` and `libswipl.so.*`
@@ -41,13 +45,11 @@ class SwiProlog < Formula
       end
     end
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                      "-DSWIPL_PACKAGES_JAVA=OFF",
-                      "-DSWIPL_PACKAGES_X=OFF",
-                      "-DCMAKE_INSTALL_PREFIX=#{libexec}"
-      system "make", "install"
-    end
+    args = ["-DSWIPL_PACKAGES_JAVA=OFF", "-DSWIPL_PACKAGES_X=OFF"]
+    args << "-DCMAKE_INSTALL_RPATH=@loader_path" if OS.mac?
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec), *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
