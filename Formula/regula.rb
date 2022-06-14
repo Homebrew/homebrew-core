@@ -2,8 +2,8 @@ class Regula < Formula
   desc "Checks infrastructure as code templates using Open Policy Agent/Rego"
   homepage "https://regula.dev/"
   url "https://github.com/fugue/regula.git",
-      tag:      "v2.7.0",
-      revision: "d8928e350f9d7f49321716d75090be98ee6b7488"
+      tag:      "v2.8.0",
+      revision: "611dbd38f7df934e8001d11d52863d73cf0ee266"
   license "Apache-2.0"
   head "https://github.com/fugue/regula.git", branch: "master"
 
