@@ -16,6 +16,7 @@ class Quill < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on macos: :catalina
 
   on_linux do
     depends_on "gcc"
