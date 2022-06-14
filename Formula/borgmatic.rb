@@ -3,17 +3,17 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/ff/99/7a3b3223dd8814ed0878a28932f592186cd12c5d24cefaafe7688989fe20/borgmatic-1.6.2.tar.gz"
-  sha256 "74329aa66380d4d85b99ed0b5d5a8d70d0e640c0eb7aee83a1e955648a447be6"
+  url "https://files.pythonhosted.org/packages/b7/8f/a8f2930277ac3c65f13db1551fe94d27b711948e2b6436113d2d8bedc4c9/borgmatic-1.6.3.tar.gz"
+  sha256 "08b49c7e6bf4269e277ca010bdaab75dd631365f690df122e61cf5c9b8a45837"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "44cd843f54b8071a3141f0ed34bce55b4dc9c70778aacd450a9e26a09d6c3762"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "947612516075e1195748d3ae14d3a64858ecd248f60738330ce1ec60ab6327b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "dd05045abd7994481e6149a5d29fd5f964e86461557b00efd191c2ab607979e0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9f2c9af661936c27acf80241eb50267c3b19320603e2d73d1a5ceff5fae70490"
-    sha256 cellar: :any_skip_relocation, catalina:       "107e0a6053c28f630f68c904a0ace98ee76b7c41e7d743de9f64519e5419474c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0960d0bced548412a51dd27ba1233808358f100c4e5daed2e58ac09968b93d4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4575f01e7859867efb780b3a7c5dfbb261f08d4d976481864a239b9c0d43a2b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9abf1937273c140e0405db5ea9a866f227308f7203d62c0acefacbfe86606030"
+    sha256 cellar: :any_skip_relocation, monterey:       "0a26a157d095d401c245091a59a04447bff42f4c72f840154dde50d7433f7e58"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7a85f40f30b7c450aefad8609a9623675c319ada507f9b1d212ce3e4ff6bfa89"
+    sha256 cellar: :any_skip_relocation, catalina:       "8e6e612d036977f932c0bb959f0803b2748dbd45b86a4214ef780553a871036b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8ed81a924b44ff78aa427721fa686c698c5a1a352561f2ea796e495d080354a"
   end
 
   depends_on "python@3.10"
@@ -44,8 +44,8 @@ class Borgmatic < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/9e/62/93a54db0e44c4de57868a7d638d7a8abce113c8bc43a20b10b1109b2a517/jsonschema-4.5.1.tar.gz"
-    sha256 "7c6d882619340c3347a1bf7315e147e6d3dae439033ae6383d6acb908c101dfc"
+    url "https://files.pythonhosted.org/packages/b5/a0/dd13abb5f371f980037d271fd09461df18c85188216008a1e3a9c3f8bd0c/jsonschema-4.6.0.tar.gz"
+    sha256 "9d6397ba4a6c0bf0300736057f649e3e12ecbc07d3e81a0dacb72de4e9801957"
   end
 
   resource "pyrsistent" do
@@ -54,8 +54,8 @@ class Borgmatic < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+    url "https://files.pythonhosted.org/packages/e9/23/384d9953bb968731212dc37af87cb75a885dc48e0615bd6a303577c4dc4b/requests-2.28.0.tar.gz"
+    sha256 "d568723a7ebd25875d8d1eaf5dfa068cd2fc8194b2e483d7b1f7c81918dbec6b"
   end
 
   resource "ruamel.yaml" do

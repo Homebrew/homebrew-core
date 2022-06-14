@@ -5,6 +5,7 @@ class Mame < Formula
   version "0.244"
   sha256 "843c917edc46008a27b439a1fc66fc12a27c84e55e08753b963789e5614cebf7"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mamedev/mame.git", branch: "master"
 
   # MAME tags (and filenames) are formatted like `mame0226`, so livecheck will
@@ -18,12 +19,12 @@ class Mame < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cafe5962e905d7ea9401cace95e71c9836ceb692e01033bf1ee2ed5e95f7d1a2"
-    sha256 cellar: :any,                 arm64_big_sur:  "00f96b79f5f285f321ae256ba4d8935a1cbc9335936aaddc1b7e0b478e8c63d8"
-    sha256 cellar: :any,                 monterey:       "567ce6f50e471f814a984993ae453d19b88b0f1abeacbab03a116c2e61c24918"
-    sha256 cellar: :any,                 big_sur:        "efae2663babbd163fd019113effa55eb5b0496e8508ef38b90e6810f41c65bd9"
-    sha256 cellar: :any,                 catalina:       "e460d923eba6ca00451d7ed2f57252e84134cdcf35dbfc67652ab1bb80f37aa0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4a38df94c7c3d6474699bd2077c6118c6ffd6b69067a4bc2dbc366624a44713"
+    sha256 cellar: :any,                 arm64_monterey: "89043592e7849635471fbe5664003f6834a5d6efd4b69a0fbd6a7b87a9b96d59"
+    sha256 cellar: :any,                 arm64_big_sur:  "3d48c4fb49b76f0166a325caecdfcfb9c5bc484e6de351e067f69c4cfa73cca7"
+    sha256 cellar: :any,                 monterey:       "9913a888b0911e33abce98cc55abf68bbf1c5d629cc008e8d0030b4f3ce71732"
+    sha256 cellar: :any,                 big_sur:        "8b9e3fd18d19b9dec412f076f7b282e155f1146751444d790084c0e6dabdee52"
+    sha256 cellar: :any,                 catalina:       "d1ae2236928f32d3e8bcdeb5d5224cf95fd57bd4925652841b31e0b22984c37f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46a7a329dff35a6a3935cee7883b8d4314d9ce18abfb25ccfccce6c92a14db56"
   end
 
   depends_on "glm" => :build
@@ -32,7 +33,7 @@ class Mame < Formula
   depends_on "rapidjson" => :build
   depends_on "sphinx-doc" => :build
   depends_on "flac"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   # Need C++ compiler and standard library support C++17.
   depends_on macos: :high_sierra
   depends_on "portaudio"

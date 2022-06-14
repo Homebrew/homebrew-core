@@ -3,17 +3,17 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/2c/1f/c7c9fe2e3d78cf0f4b9e8e5275543f3fe5c7d096062dfd4f47e219643c2f/moto-3.1.12.tar.gz"
-  sha256 "c6f407715b7babd1ff7796576ba8d873870d9fe6aa4d32664554a6116cc55afb"
+  url "https://files.pythonhosted.org/packages/e6/84/71189c5a2f97f06bdb34b3552de7ce0777ed358b5d6a284efc073738f3ec/moto-3.1.13.tar.gz"
+  sha256 "7d72e66f233109d0403b20547d4c661f885185ccb502db186ff30572333034a3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d9feb24b0cba58d09d42a52b34d40e090e42d7631449a017153f6babec48d2b5"
-    sha256 cellar: :any,                 arm64_big_sur:  "9fc86e42627c588fcaf42f980f50fb1f5009d9ef183be6f969938332391a2924"
-    sha256 cellar: :any,                 monterey:       "336f008dcebc9017f0faedc56d7b84572cabdaea26dead5a2b6c4038e39435d2"
-    sha256 cellar: :any,                 big_sur:        "b9f2109af7f6c33ec72eb903d9d1a040634109e07d74b23473bea4cc72edd105"
-    sha256 cellar: :any,                 catalina:       "742c29f2652ffc1fe39c0553050468bd9eaef3cfd6465d17f4235ea6cf007f77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34903d1783d6831f3f0d8f6be4779b7f3de8414229ef30c5af6491f512cd0d1d"
+    sha256 cellar: :any,                 arm64_monterey: "75ef60f004534eed268d1fd4c4506d2e7f7636fd598f0d838764215c2705dea7"
+    sha256 cellar: :any,                 arm64_big_sur:  "0790fe755939c3ecbc3b2677735c54e6f3925a6c1d5fd69bc2122a09382bc81f"
+    sha256 cellar: :any,                 monterey:       "11ac32940b47df4ff72c6032c312db11cc7edeaf6402a3316a26b10aea8caf09"
+    sha256 cellar: :any,                 big_sur:        "b803596f9ec01016997e33c7a164144affffba7882acc80c09358ec1bf3232a0"
+    sha256 cellar: :any,                 catalina:       "aa88c83bd1e9e94fa4b279f338135c6fab3ab03afc94259fa63a88196688262a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b6d4540bbc3a82d699b365fb6bee4782c150034905a8936cfa3c0e61542e120"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -26,8 +26,8 @@ class Moto < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/b1/ce/402ea474888505f956bba9a5b224d2662d5a4071925ad38079eb3506bd90/aws-sam-translator-1.45.0.tar.gz"
-    sha256 "bf321ab62aa1731d3e471fd55de6f5d1ab07dfc169cd254aa523dd9ad30246f9"
+    url "https://files.pythonhosted.org/packages/5d/47/069d24f9ebac4e5a702fbd364edb14ddef3d8102670edd72524b64fadfd5/aws-sam-translator-1.46.0.tar.gz"
+    sha256 "53ed4cbabf8b9247c1be9c5f47fcfc2764578f55b12e7fe24b9bc41d6fce47cc"
   end
 
   resource "aws-xray-sdk" do
@@ -36,13 +36,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/1a/7d/642072193e5229b5050ab2caf1648d7d830c103e1b8ebc19ba8746ee8aa3/boto3-1.24.2.tar.gz"
-    sha256 "927b5e8e2decad746e6c32bb81f15c2ea9ab4398286134d21f6742493eb893f6"
+    url "https://files.pythonhosted.org/packages/4f/e7/b727c30479d7fa72166f7aaa2ffb6da688ad6e4904e0949411eef321a21f/boto3-1.24.7.tar.gz"
+    sha256 "6e243e28c804dccd2015935acfac0567e1861b20fdd96aa47f232b47aa214a69"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/05/4f/7ca67c62547e1070531a38eb3e25ca8b674e22adc4265b8ff0d2d7754084/botocore-1.27.2.tar.gz"
-    sha256 "b7cdd4f4a6395a084a381a7d2a25b177e6de5f8a4dfa3c645ec957ba3c83e200"
+    url "https://files.pythonhosted.org/packages/6b/bb/5a95618c2f3cc5d3a32dd77b5560b0af0e9c98a0990ab4803a42bd352a1b/botocore-1.27.7.tar.gz"
+    sha256 "dc83ef991c730ab0f06b51fcefda74f493b990903b882452aff78c123e3040e2"
   end
 
   resource "certifi" do
@@ -226,8 +226,8 @@ class Moto < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+    url "https://files.pythonhosted.org/packages/e9/23/384d9953bb968731212dc37af87cb75a885dc48e0615bd6a303577c4dc4b/requests-2.28.0.tar.gz"
+    sha256 "d568723a7ebd25875d8d1eaf5dfa068cd2fc8194b2e483d7b1f7c81918dbec6b"
   end
 
   resource "responses" do

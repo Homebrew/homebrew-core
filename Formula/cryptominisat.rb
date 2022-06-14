@@ -39,6 +39,13 @@ class Cryptominisat < Formula
     # fix building C++ with the value of PY_C_CONFIG
     inreplace "python/setup.py.in", "cconf +", "cconf + ['-std=gnu++11'] +"
 
+    # fix error: could not create '/usr/local/lib/python3.10/site-packages/pycryptosat.cpython-310-darwin.so':
+    # Operation not permitted
+    site_packages = prefix/Language::Python.site_packages("python3")
+    inreplace "python/CMakeLists.txt",
+              "COMMAND ${PYTHON_EXECUTABLE} ${SETUP_PY} install",
+              "COMMAND ${PYTHON_EXECUTABLE} ${SETUP_PY} install --install-lib=#{site_packages}"
+
     system "cmake", "-S", ".", "-B", "build",
                     "-DNOM4RI=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",

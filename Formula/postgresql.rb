@@ -12,12 +12,13 @@ class Postgresql < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "2a11cd482fd9a80f279692ad9438b4e082592f7f29a2d1ca2a22833cfc99fba7"
-    sha256 arm64_big_sur:  "330c2e7113341cc9f0963ea1436101d7b2ed6bcfe3f4b94ab4f39785fe15e5ae"
-    sha256 monterey:       "67cd521a3edbaebe73144d820f23ac0af39a96d7e149d6a53a1645727e2f749c"
-    sha256 big_sur:        "6df37649e2546805a9428dca6771529ed25bfe2301d39cb3a3568b492f00323c"
-    sha256 catalina:       "3e7956ee096504d3d0fec19e750018c33d67839cffbdba83581791114dd59228"
-    sha256 x86_64_linux:   "256505f05f229e52f42aaec3df269d79a66da6c40063a7ca03c127fd99a6594b"
+    rebuild 1
+    sha256 arm64_monterey: "d270d17a2e3b8a1efc2b2cfbeff2a789b1786440d833bba073b148f94af011c4"
+    sha256 arm64_big_sur:  "f7c1f679c1fe7ecd51d114e2e5de345b7e346d7cd719643f1cc84e4798854900"
+    sha256 monterey:       "2da50b88db0bbb7861f3249a0c2b357b73b6ac4e85693ff406572da5657f61b2"
+    sha256 big_sur:        "6b09a56d995f1e267da15f7c85311c5075091c8143bc8e6684a3f1dd2683f2f3"
+    sha256 catalina:       "cd9c37da23e2b5bb3096e2025ec536bb0252c5714bd8bb56b829a18396750388"
+    sha256 x86_64_linux:   "5cf8c86d9313f99a961235af2b2881b7bee24209c51d41f747c2b8547e986412"
   end
 
   depends_on "pkg-config" => :build
@@ -27,6 +28,7 @@ class Postgresql < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
 
+  depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "readline"
 
@@ -58,6 +60,7 @@ class Postgresql < Formula
       --with-ldap
       --with-libxml
       --with-libxslt
+      --with-lz4
       --with-openssl
       --with-pam
       --with-perl

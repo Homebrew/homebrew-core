@@ -3,17 +3,17 @@ require "language/node"
 class Lerna < Formula
   desc "Tool for managing JavaScript projects with multiple packages"
   homepage "https://lerna.js.org"
-  url "https://registry.npmjs.org/lerna/-/lerna-5.1.1.tgz"
-  sha256 "6b1f0efab6c194e4fc00e6aea08ef3212130e4ad40dbf1d5dc9ec345349188d7"
+  url "https://registry.npmjs.org/lerna/-/lerna-5.1.2.tgz"
+  sha256 "61fd4da993723f85b9a857276898dfedcc57c5b59828b0db014b9fd09940e5ac"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "016e6897f2049259f8c5d97bda0a2b8f1f1a8028edf6903d65ba3bf8eae22345"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "016e6897f2049259f8c5d97bda0a2b8f1f1a8028edf6903d65ba3bf8eae22345"
-    sha256 cellar: :any_skip_relocation, monterey:       "1edfa12cbeadc1cfda828794164572c7c63cc3e1db7fe2d9373f1ef297331e08"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1edfa12cbeadc1cfda828794164572c7c63cc3e1db7fe2d9373f1ef297331e08"
-    sha256 cellar: :any_skip_relocation, catalina:       "1edfa12cbeadc1cfda828794164572c7c63cc3e1db7fe2d9373f1ef297331e08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "016e6897f2049259f8c5d97bda0a2b8f1f1a8028edf6903d65ba3bf8eae22345"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a79a556019a5bb27bc89d17e2207bef01e22ccab5c0b17d4900d2cc243d7f7c4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a79a556019a5bb27bc89d17e2207bef01e22ccab5c0b17d4900d2cc243d7f7c4"
+    sha256 cellar: :any_skip_relocation, monterey:       "1ad6f34e1d1fce7ad2954f91816467dfb581464776cfdd42235f66b054804195"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1ad6f34e1d1fce7ad2954f91816467dfb581464776cfdd42235f66b054804195"
+    sha256 cellar: :any_skip_relocation, catalina:       "1ad6f34e1d1fce7ad2954f91816467dfb581464776cfdd42235f66b054804195"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a79a556019a5bb27bc89d17e2207bef01e22ccab5c0b17d4900d2cc243d7f7c4"
   end
 
   depends_on "node"

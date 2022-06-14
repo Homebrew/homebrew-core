@@ -24,6 +24,8 @@ class Mpw < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0aaf191d28ba5c097800350caa11f37f351f8f0ff336aed7f0e479d884321e86"
   end
 
+  disable! date: "2022-06-13", because: :unmaintained
+
   depends_on "json-c"
   depends_on "libsodium"
   depends_on "ncurses"

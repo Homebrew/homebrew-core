@@ -12,16 +12,21 @@ class Nmap < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "fce671325c40cb243af6e19672b1a09221973211483c80641f0f698670d38b06"
-    sha256 arm64_big_sur:  "1f40f19d97c6f87564344793e9921535137f0d76020132cd33fff9a5b9e220da"
-    sha256 monterey:       "aed665169bd13d61b5b4cb04204548d6012cfe4bffe4ae40a44a86f756ffc64e"
-    sha256 big_sur:        "0e98a05d4ff5630ab1e70218930c06e598164fb5832fb76b3e4df3a4b6872ffa"
-    sha256 catalina:       "fe638eedb2063e9bdd8fb75679c6bceead8084456bba2a43819889c93158301d"
-    sha256 mojave:         "dba8ca74eccbb2eec127b82d6cb81478c131ba3d19f7851b82871775bb01e8b3"
-    sha256 x86_64_linux:   "5ceab0e20f0aba5059b7ba612876413c799d0a933dfb46c5bf078b432d01c7dd"
+    rebuild 1
+    sha256 arm64_monterey: "7debf45813bcc5d01562e2191219173e5faf37669790f208068b5a97935c7910"
+    sha256 arm64_big_sur:  "9395c62aa5b48e2dc6ad2f1071080ae14ac38a7a75c2c031208a2c02b67f56d6"
+    sha256 monterey:       "d42ac93fe1e777c3460377ec94992397c32a0ab61a7c98fb54637d3f0442a151"
+    sha256 big_sur:        "4930a59d6546c229c90c7680560822fe2609a7f2d12425d40af4f4fb6e660de9"
+    sha256 catalina:       "c2ab40d041d915b8ef99ab7049931af23d99a44c5a8970aa420bfe3156dee3e9"
+    sha256 x86_64_linux:   "77946dc2f15a7c0dc98587016a1d1961a456ca61079361233455ba8db69a54d5"
   end
 
+  depends_on "liblinear"
+  depends_on "libssh2"
+  # Check supported Lua version at https://github.com/nmap/nmap/tree/master/liblua.
+  depends_on "lua@5.3"
   depends_on "openssl@1.1"
+  depends_on "pcre"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -30,12 +35,18 @@ class Nmap < Formula
   conflicts_with "ndiff", because: "both install `ndiff` binaries"
 
   def install
+    (buildpath/"configure").read.lines.grep(/lua/) do |line|
+      lua_minor_version = line[%r{lua/?5\.?(\d+)}, 1]
+      next if lua_minor_version.blank?
+      raise "Lua dependency needs updating!" if lua_minor_version.to_i > 3
+    end
+
     ENV.deparallelize
 
     args = %W[
       --prefix=#{prefix}
-      --with-libpcre=included
-      --with-liblua=included
+      --with-liblua=#{Formula["lua@5.3"].opt_prefix}
+      --with-libpcre=#{Formula["pcre"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-nmap-update
       --disable-universal
