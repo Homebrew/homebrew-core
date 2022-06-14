@@ -2,8 +2,8 @@ class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
   homepage "https://github.com/mattermost/mmctl"
   url "https://github.com/mattermost/mmctl.git",
-      tag:      "v6.7.1",
-      revision: "716ec5c93e5de8382b8cb0693679f4328e8d73fd"
+      tag:      "v7.0.0",
+      revision: "da16e02777ba86aceb098fdaeaff393b5a2fe7b7"
   license "Apache-2.0"
   head "https://github.com/mattermost/mmctl.git", branch: "master"
 
