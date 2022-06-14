@@ -1,8 +1,8 @@
 class Mist < Formula
   desc "Mac command-line tool that automatically downloads macOS Installers / Firmwares"
   homepage "https://github.com/ninxsoft/Mist"
-  url "https://github.com/ninxsoft/Mist/archive/refs/tags/v1.7.0.tar.gz"
-  sha256 "49a362396014460847b7b04c2f6347c10da73e2d0348543ac26d78ac30cd9f6e"
+  url "https://github.com/ninxsoft/Mist/archive/refs/tags/v1.8.tar.gz"
+  sha256 "c3a55d018f384090e5bccf625fe2c9720102218fe9126d651c4583cc504ae25c"
   license "MIT"
   head "https://github.com/ninxsoft/Mist.git", branch: "main"
 
