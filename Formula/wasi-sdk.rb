@@ -2,9 +2,9 @@ class WasiSdk < Formula
   desc "WASI-enabled WebAssembly C/C++ toolchain"
   homepage "https://github.com/WebAssembly/wasi-sdk"
   url "https://github.com/WebAssembly/wasi-sdk.git",
-    tag:      "wasi-sdk-15",
-    revision: "e025da6b1099c730af4809484ad0ea84e0c3edbe"
-  version "15.0"
+    tag:      "wasi-sdk-16",
+    revision: "7b7b8a974a31f527d71467499b0d5be3b12f2fa9"
+  version "16.0"
   license "Apache-2.0"
 
   keg_only "provides alternative LLVM/Clang binaries specific to WASI"
