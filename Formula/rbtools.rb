@@ -3,8 +3,8 @@ class Rbtools < Formula
 
   desc "CLI and API for working with code and document reviews on Review Board"
   homepage "https://www.reviewboard.org/downloads/rbtools/"
-  url "https://files.pythonhosted.org/packages/68/19/48f2e95bccac4299cdd75932e812cff9f0a0bd802afeb67027563b162ee4/RBTools-3.1.tar.gz"
-  sha256 "a185dd9c4b42eeda6b611135b3a814cc01c9b870519a3b6d6d7e7401592692f9"
+  url "https://files.pythonhosted.org/packages/f3/12/69737ab2c89eae4e7c7952792148e6d065150a8c5067e3dfa184583bfcf8/RBTools-3.1.1.tar.gz"
+  sha256 "1c57725cb2c9a23b8aa947a607b6e71a5075c511379652406ca010f917e70b3e"
   license "MIT"
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
