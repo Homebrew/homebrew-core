@@ -14,6 +14,11 @@ class WasiSdk < Formula
   depends_on "python@3.10" => :build
   depends_on "rsync" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+  fails_with gcc: "5"
+
   def install
     # The `build` target in wasi-sdk's Makefile sets all of the options
     # appropriately.
