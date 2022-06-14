@@ -24,7 +24,7 @@ class Epinio < Formula
     output = shell_output("#{bin}/epinio version 2>&1")
     assert_match "Epinio Version: #{version}", output
 
-    output = shell_output("#{bin}/epinio settings update 2>&1", 255)
+    output = shell_output("#{bin}/epinio settings update-ca 2>&1", 255)
     assert_match "failed to get kube config", output
     assert_match "no configuration has been provided", output
   end
