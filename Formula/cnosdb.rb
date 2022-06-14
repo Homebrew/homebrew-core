@@ -34,6 +34,12 @@ class Cnosdb < Formula
     (var/"cnosdb/meta").mkpath
     (var/"cnosdb/wal").mkpath
   end
+  service do
+    run bin/"cnosdb"
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    environment_variables CNOSDB_CONFIG_PATH: "#{HOMEBREW_PREFIX}/etc/cnosdb.conf"
+  end
 
   test do
     cnosdb_port = free_port
@@ -43,18 +49,17 @@ class Cnosdb < Formula
       s.gsub! %r{/.*/.cnosdb/data}, "#{testpath}/cnosdb/data"
       s.gsub! %r{/.*/.cnosdb/meta}, "#{testpath}/cnosdb/meta"
       s.gsub! %r{/.*/.cnosdb/wal}, "#{testpath}/cnosdb/wal"
+      s.gsub! %r{8086}, "#{cnosdb_port}"
     end
     begin
       cnosdb = fork do
-        exec bin/"cnosdb", "--config", testpath/"cnosdb.conf"
         exec "#{bin}/cnosdb-cli", "--host=#{cnosdb_host}", "--port=#{cnosdb_port}"
       end
-      sleep 60
-      # Check that the server has properly bundled UI assets and serves them as HTML.
-      output = shell_output("#{bin}/cnosdb version")
-      assert_match "CnosDB v1.0.2 (git: unknown bf128f1533)", output
+      sleep 30
+      # Assert that initial resources show in CLI output.
+      assert_match "CnosDB v1.0.2 (git: unknown bf128f1533)", shell_output("#{bin}/cnosdb version")
     ensure
-      Process.kill("TERM", cnosdb)
+      Process.kill("SIGTERM", cnosdb)
       Process.wait(cnosdb)
     end
   end
