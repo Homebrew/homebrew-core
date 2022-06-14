@@ -3,8 +3,8 @@ class Mapproxy < Formula
 
   desc "Accelerating web map proxy"
   homepage "https://mapproxy.org/"
-  url "https://files.pythonhosted.org/packages/98/3b/424fecff5f852100a100e326cc554df17da59d491d3c62fd305caceffcf8/MapProxy-1.14.0.tar.gz"
-  sha256 "dd36278d60cdcaaf31f7f9bbc50e90e770f3feb65cf4b3eff287215ee85f018d"
+  url "https://files.pythonhosted.org/packages/33/c3/4cdf29e81aeacc8d2b94520b135cf623983d41e6fdbc81ffbcb7e0dcb17c/MapProxy-1.15.0.tar.gz"
+  sha256 "5462cb001b347f3e53ecbd4f5cec737a35285cd6cd6c8501acd71eaebf23114f"
   license "Apache-2.0"
 
   bottle do
@@ -20,14 +20,9 @@ class Mapproxy < Formula
   depends_on "proj"
   depends_on "python@3.9"
 
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
-  end
-
-  resource "pyproj" do
-    url "https://files.pythonhosted.org/packages/e4/36/c151d658ca1a1ccfd5ed82ac3b41d13c36cbd0687da97ac1beaeb3381fa8/pyproj-3.3.0.tar.gz"
-    sha256 "ce8bfbc212729e9a643f5f5d77f7a93394e032eda1e2d8799ae902d08add747e"
+  resource "Pillow" do
+    url "https://files.pythonhosted.org/packages/43/6e/59853546226ee6200f9ba6e574d11604b60ad0754d2cbd1c8f3246b70418/Pillow-9.1.1.tar.gz"
+    sha256 "7502539939b53d7565f3d11d87c78e7ec900d3c72945d4ee0e2f250d598309a0"
   end
 
   resource "PyYAML" do
