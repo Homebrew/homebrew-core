@@ -11,6 +11,9 @@ class Cnosdb < Formula
     url :stable
     regex(/^v?((?!9\.9\.9)\d+(?:\.\d+)+)$/i)
   end
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4bf5ade94d1585ed51649675f2b52e0ca087bc590d385a3ed34a67a82a66c44"
+  end
   depends_on "go" => :build
   def install
     ldflags = %W[
