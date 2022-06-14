@@ -20,31 +20,42 @@ class Cnosdb < Formula
       -X main.commit=#{Utils.git_short_head(length: 10)}
       -X main.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(output: bin/"cnosdb", ldflags: ldflags), "./cmd/cnosdb"
-    system "go", "build", *std_go_args(output: bin/"cnosdb-cli", ldflags: ldflags), "./cmd/cnosdb-cli"
-    system "go", "build", *std_go_args(output: bin/"cnosdb-inspect", ldflags: ldflags), "./cmd/cnosdb-inspect"
-    system "go", "build", *std_go_args(output: bin/"cnosdb-tools", ldflags: ldflags), "./cmd/cnosdb-tools"
-    system "go", "build", *std_go_args(output: bin/"cnosdb-ctl", ldflags: ldflags), "./cmd/cnosdb-ctl"
-    system "go", "build", *std_go_args(output: bin/"cnosdb-meta", ldflags: ldflags), "./cmd/cnosdb-meta"
+    %w[cnosdb cnosdb-cli cnosdb-inspect cnosdb-tools cnosdb-ctl cnosdb-meta].each do |cmd|
+      system "go", "build", *std_go_args(output: bin/cmd, ldflags: ldflags), "./cmd/#{cmd}"
+    end
+    exec "pwd"
+    inreplace "#{HOMEBREW_PREFIX}/etc/config.sample.toml" do |s|
+      s.gsub! "/var/lib/cnosdb/data", "#{var}/cnosdb/data"
+      s.gsub! "/var/lib/cnosdb/meta", "#{var}/cnosdb/meta"
+      s.gsub! "/var/lib/cnosdb/wal", "#{var}/cnosdb/wal"
+    end
+    etc.install "#{HOMEBREW_PREFIX}/etc/config.sample.toml" => "cnosdb.conf"
+    (var/"cnosdb/data").mkpath
+    (var/"cnosdb/meta").mkpath
+    (var/"cnosdb/wal").mkpath
   end
+
   test do
     cnosdb_port = free_port
-    (testpath/"config.toml").write shell_output("#{bin}/cnosdb config")
-    inreplace testpath/"config.toml" do |s|
+    cnosdb_host = "localhost"
+    (testpath/"cnosdb.conf").write shell_output("#{bin}/cnosdb config")
+    inreplace testpath/"cnosdb.conf" do |s|
       s.gsub! %r{/.*/.cnosdb/data}, "#{testpath}/cnosdb/data"
       s.gsub! %r{/.*/.cnosdb/meta}, "#{testpath}/cnosdb/meta"
       s.gsub! %r{/.*/.cnosdb/wal}, "#{testpath}/cnosdb/wal"
     end
     begin
-      pid = fork do
-        exec bin/"cnosdb", "--config", testpath/"config.toml"
+      cnosdb = fork do
+        exec bin/"cnosdb", "--config", testpath/"cnosdb.conf"
+        exec "#{bin}/cnosdb-cli", "--host=#{cnosdb_host}", "--port=#{cnosdb_port}"
       end
       sleep 60
-      output = shell_output("curl -Is localhost:#{cnosdb_port}/ping")
-      assert_match output
+      # Check that the server has properly bundled UI assets and serves them as HTML.
+      output = shell_output("#{bin}/cnosdb version")
+      assert_match "CnosDB v1.0.2 (git: unknown bf128f1533)", output
     ensure
-      Process.kill("SIGTERM", pid)
-      Process.wait(pid)
+      Process.kill("TERM", cnosdb)
+      Process.wait(cnosdb)
     end
   end
 end
