@@ -13,6 +13,7 @@ class Cnosdb < Formula
   end
   depends_on "go" => :build
   def install
+    ENV["GOBIN"] = buildpath
     ldflags = %W[
       -s
       -w
@@ -27,17 +28,12 @@ class Cnosdb < Formula
     system "go", "build", *std_go_args(output: bin/"cnosdb-tools", ldflags: ldflags), "./cmd/cnosdb-tools"
     system "go", "build", *std_go_args(output: bin/"cnosdb-ctl", ldflags: ldflags), "./cmd/cnosdb-ctl"
     system "go", "build", *std_go_args(output: bin/"cnosdb-meta", ldflags: ldflags), "./cmd/cnosdb-meta"
-    inreplace birthpath "etc/config.sample.toml" do |s|
+    inreplace buildpath "etc/config.sample.toml" do |s|
       s.gsub! "/var/lib/cnosdb/data", "#{var}/cnosdb/data"
       s.gsub! "/var/lib/cnosdb/meta", "#{var}/cnosdb/meta"
       s.gsub! "/var/lib/cnosdb/wal", "#{var}/cnosdb/wal"
     end
-    bin.install "bin/cnsodb"
-    bin.install "bin/cnosdb-cli"
-    bin.install "bin/cnosdb-inspect"
-    bin.install "bin/cnosdb-meta"
-    bin.install "bin/cnosdb-tools"
-    etc.install birthpath "etc/config.sample.toml" => "cnosdb.conf"
+    etc.install buildpath "etc/config.sample.toml" => "cnosdb.conf"
     (var/"cnosdb/data").mkpath
     (var/"cnosdb/meta").mkpath
     (var/"cnosdb/wal").mkpath
