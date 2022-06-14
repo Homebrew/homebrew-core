@@ -1,10 +1,16 @@
 class Cnosdb < Formula
   desc "Open source distributed time series database"
   homepage "https://www.cnosdb.com"
-  url "https://github.com/cnosdb/cnosdb/archive/refs/tags/v1.0.2.tar.gz"
-  sha256 "ae412d0944b64c9b39dc1edc66f7b6f712b85bc5afad354c12b135ae71017100"
+  url "https://github.com/cnosdb/cnosdb.git",
+      tag:      "v1.0.2",
+      revision: "bf128f15334a9104a5a644917693c29bf5eb3e65"
   license "MIT"
   head "https://github.com/cnosdb/cnosdb.git", branch: "main"
+  # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
+  livecheck do
+    url :stable
+    regex(/^v?((?!9\.9\.9)\d+(?:\.\d+)+)$/i)
+  end
   depends_on "go" => :build
   def install
     ldflags = %W[
