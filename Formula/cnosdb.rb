@@ -13,7 +13,6 @@ class Cnosdb < Formula
   end
   depends_on "go" => :build
   def install
-    ENV["GOBIN"] = buildpath
     ldflags = %W[
       -s
       -w
@@ -21,22 +20,12 @@ class Cnosdb < Formula
       -X main.commit=#{Utils.git_short_head(length: 10)}
       -X main.date=#{time.iso8601}
     ]
-
     system "go", "build", *std_go_args(output: bin/"cnosdb", ldflags: ldflags), "./cmd/cnosdb"
     system "go", "build", *std_go_args(output: bin/"cnosdb-cli", ldflags: ldflags), "./cmd/cnosdb-cli"
     system "go", "build", *std_go_args(output: bin/"cnosdb-inspect", ldflags: ldflags), "./cmd/cnosdb-inspect"
     system "go", "build", *std_go_args(output: bin/"cnosdb-tools", ldflags: ldflags), "./cmd/cnosdb-tools"
     system "go", "build", *std_go_args(output: bin/"cnosdb-ctl", ldflags: ldflags), "./cmd/cnosdb-ctl"
     system "go", "build", *std_go_args(output: bin/"cnosdb-meta", ldflags: ldflags), "./cmd/cnosdb-meta"
-    inreplace buildpath "etc/config.sample.toml" do |s|
-      s.gsub! "/var/lib/cnosdb/data", "#{var}/cnosdb/data"
-      s.gsub! "/var/lib/cnosdb/meta", "#{var}/cnosdb/meta"
-      s.gsub! "/var/lib/cnosdb/wal", "#{var}/cnosdb/wal"
-    end
-    etc.install buildpath "etc/config.sample.toml" => "cnosdb.conf"
-    (var/"cnosdb/data").mkpath
-    (var/"cnosdb/meta").mkpath
-    (var/"cnosdb/wal").mkpath
   end
   test do
     cnosdb_port = free_port
