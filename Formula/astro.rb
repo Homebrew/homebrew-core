@@ -13,7 +13,14 @@ class Astro < Formula
   end
 
   test do
-    run_output = shell_output("#{bin}/astro version")
-    assert_match "Astro CLI Version: #{version}", run_output
+    version_output = shell_output("#{bin}/astro version")
+    assert_match("Astro CLI Version: #{version}", version_output)
+
+    run_output = shell_output("echo 'y' | #{bin}/astro dev init")
+    assert_match(/^Initializing Astro project*/, run_output)
+    assert_predicate testpath/".astro/config.yaml", :exist?
+
+    run_output = shell_output("echo 'test@invalid.io' | #{bin}/astro login astronomer.io", 1)
+    assert_match(/^Welcome to the Astro CLI*/, run_output)
   end
 end
