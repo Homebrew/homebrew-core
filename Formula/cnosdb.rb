@@ -49,7 +49,6 @@ class Cnosdb < Formula
       s.gsub! %r{/.*/.cnosdb/data}, "#{testpath}/cnosdb/data"
       s.gsub! %r{/.*/.cnosdb/meta}, "#{testpath}/cnosdb/meta"
       s.gsub! %r{/.*/.cnosdb/wal}, "#{testpath}/cnosdb/wal"
-      s.gsub! %r{8086}, "#{cnosdb_port}"
     end
     begin
       cnosdb = fork do
