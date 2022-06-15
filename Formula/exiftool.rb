@@ -7,6 +7,7 @@ class Exiftool < Formula
   mirror "https://exiftool.org/Image-ExifTool-12.42.tar.gz"
   sha256 "31d805ed59f2114f19c569f8a2aaffb89fa211453733d2c650d843a3e46236df"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://exiftool.org/history.html"
