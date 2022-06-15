@@ -1,8 +1,8 @@
 class Qtads < Formula
   desc "TADS multimedia interpreter"
   homepage "https://realnc.github.io/qtads/"
-  url "https://github.com/realnc/qtads/releases/download/v3.2.0/qtads-3.2.0-source.tar.xz"
-  sha256 "382dbeb9af6ea5048ac19e7189bb862f81bc0f2e2e7ccad42d03985db12e5cc4"
+  url "https://github.com/realnc/qtads/releases/download/v3.3.0/qtads-3.3.0-source.tar.xz"
+  sha256 "02d62f004adbcf1faaa24928b3575a771d289df0fea9a97705d3bc528d9164a1"
   license "GPL-3.0-or-later"
   head "https://github.com/realnc/qtads.git", branch: "master"
 
