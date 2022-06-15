@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.97.0",
-      revision: "ea2980cfb052a541b58a7b05b3024582b200413f"
+      tag:      "v0.98.0",
+      revision: "789568953dddd742c3cd9e4ccea8ef3013ca6efb"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -58,8 +58,8 @@ class Semgrep < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
-    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
+    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
+    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
   end
 
   resource "charset-normalizer" do
@@ -127,9 +127,14 @@ class Semgrep < Formula
     sha256 "d4d61f8b993a7255ba714df3aca52700f8125289f84f704cf80916517c46eb96"
   end
 
+  resource "python-lsp-jsonrpc" do
+    url "https://files.pythonhosted.org/packages/99/45/1c2a272950679af529f7360af6ee567ef266f282e451be926329e8d50d84/python-lsp-jsonrpc-1.0.0.tar.gz"
+    sha256 "7bec170733db628d3506ea3a5288ff76aa33c70215ed223abdb0d95e957660bd"
+  end
+
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+    url "https://files.pythonhosted.org/packages/e9/23/384d9953bb968731212dc37af87cb75a885dc48e0615bd6a303577c4dc4b/requests-2.28.0.tar.gz"
+    sha256 "d568723a7ebd25875d8d1eaf5dfa068cd2fc8194b2e483d7b1f7c81918dbec6b"
   end
 
   resource "ruamel.yaml" do
@@ -157,6 +162,11 @@ class Semgrep < Formula
     sha256 "f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"
   end
 
+  resource "ujson" do
+    url "https://files.pythonhosted.org/packages/92/38/a8c8d8cdacd586e0e66673ca60daf295a79cd5b4fae72a25f1bfa482554d/ujson-5.3.0.tar.gz"
+    sha256 "ab938777b3ac0372231ee654a7f6a13787e587b1ca268d8aa7e6fb6846e477d0"
+  end
+
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
     sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
@@ -179,7 +189,7 @@ class Semgrep < Formula
       ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
 
       system "opam", "init", "--no-setup", "--disable-sandboxing"
-      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.12.0" }
+      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.14.0" }
 
       # Manually run steps from `opam exec -- make setup` to link Homebrew's tree-sitter
       system "opam", "update", "-y"
