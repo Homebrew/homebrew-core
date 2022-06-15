@@ -3,7 +3,7 @@ class JbossForge < Formula
   homepage "https://forge.jboss.org/"
   url "https://downloads.jboss.org/forge/releases/3.10.0.Final/forge-distribution-3.10.0.Final-offline.zip"
   sha256 "0c57ea7ad90cbc5e654dd09623f385c192c6fabe366a30c11597b49bb09f7fb3"
-  license "Apache-2.0"
+  license "EPL-1.0"
 
   # The first-party download page (https://forge.jboss.org/download) uses
   # JavaScript to render the download links and the version information comes
