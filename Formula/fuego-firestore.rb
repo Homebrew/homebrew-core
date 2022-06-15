@@ -12,7 +12,7 @@ class FuegoFirestore < Formula
   end
 
   test do
-    collections_output = shell_output("#{bin}/fuego collections 2>&1", result = 80)
+    collections_output = shell_output("#{bin}/fuego collections 2>&1", 80)
     assert_match "Failed to create client.", collections_output
   end
 end
