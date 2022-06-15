@@ -232,6 +232,10 @@
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
+  "mapproxy": {
+    "exclude_packages": ["pillow"],
+    "extra_packages": ["pyproj"]
+  },
   "mkdocs": {
     "exclude_packages": ["six"]
   },
