@@ -1,8 +1,8 @@
 class GitCola < Formula
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
-  url "https://github.com/git-cola/git-cola/archive/v4.0.1.tar.gz"
-  sha256 "dc9e42d588f35924ff928731f6c2c77018a17bdee920ec785a7c8d18caa5c05a"
+  url "https://files.pythonhosted.org/packages/ee/cb/244839cf29199438c86e0f254f0d131e41ec39074efe6b71d556d121f275/git-cola-4.0.1.tar.gz"
+  sha256 "5d3abc4cae3eadae6728a69950ae7b467ec2bda4f32c30437bcac34c1a331896"
   license "GPL-2.0-or-later"
   head "https://github.com/git-cola/git-cola.git", branch: "main"
 
@@ -22,14 +22,7 @@ class GitCola < Formula
   uses_from_macos "rsync"
 
   def install
-    # setuptools>=60 prefers its own bundled distutils, which breaks the installation
-    # Remove when disutils is no longer used: https://github.com/git-cola/git-cola/issues/1201
-    ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
-
-    ENV.delete("PYTHONPATH")
-    ENV["PYTHON"] = which("python3")
-    system "make", "prefix=#{prefix}", "install"
-    system "make", "install-doc", "prefix=#{prefix}", "SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
+    virtualenv_install_with_resources
   end
 
   test do
