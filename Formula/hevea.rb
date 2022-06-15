@@ -1,8 +1,8 @@
 class Hevea < Formula
   desc "LaTeX-to-HTML translator"
   homepage "http://hevea.inria.fr/"
-  url "http://hevea.inria.fr/old/hevea-2.35.tar.gz"
-  sha256 "f189bada5d3e5b35855dfdfdb5b270c994fc7a2366b01250d761359ad66c9ecb"
+  url "http://hevea.inria.fr/old/hevea-2.36.tar.gz"
+  sha256 "5d6759d7702a295c76a12c1b2a1a16754ab0ec1ffed73fc9d0b138b41e720648"
 
   livecheck do
     url "http://hevea.inria.fr/old/"
