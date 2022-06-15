@@ -10,6 +10,8 @@ class ElixirBuild < Formula
     sha256 cellar: :any_skip_relocation, all: "0f434ba340b50a81c737a8de0b167293c1ce596972fa15a9f57abc81c6f69499"
   end
 
+  deprecate! date: "2022-06-14", because: :repo_archived
+
   conflicts_with "narwhal", because: "both install `json` binaries"
 
   def install
