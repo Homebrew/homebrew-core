@@ -11,7 +11,7 @@ class Poac < Formula
   depends_on "libarchive"
   depends_on "libgit2"
   depends_on macos: :big_sur # C++20
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
 
   on_linux do
     depends_on "gcc"
