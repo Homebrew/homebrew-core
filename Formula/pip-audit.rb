@@ -3,8 +3,8 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/4e/bd/3800fe3b6db696bb83a25d641f1e497bc809b4ecf5f0130f6281c6183857/pip_audit-2.3.1.tar.gz"
-  sha256 "3667f2024033b1e01bda44f6f64674cc1b684254c1d5b9065d53c1d85e521075"
+  url "https://files.pythonhosted.org/packages/2a/26/e384ca6093564c5df284320da9e3a51aed52c03363c6e6345831f998f208/pip_audit-2.3.2.tar.gz"
+  sha256 "b9f132186e7e5f80a602117ffcbc1ec574b5985f234d3a027c86573a771f182d"
   license "Apache-2.0"
 
   bottle do
@@ -34,9 +34,14 @@ class PipAudit < Formula
     sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
+  resource "commonmark" do
+    url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
+    sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
+  end
+
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/d6/99/cb03356e010d98c1e52465f9726dea0c77e95180f8b3f3dd3c412141423b/cyclonedx-python-lib-2.4.0.tar.gz"
-    sha256 "35ef1dbff4aab8ef143552cecde4ef9050f805957519339991e488f80cab36e2"
+    url "https://files.pythonhosted.org/packages/e5/70/488d01f935e3344e68f64e1b0e0127bb52e33d76527c37311ec07bcbe0f3/cyclonedx-python-lib-2.5.1.tar.gz"
+    sha256 "e17f692ce031d11ceb04e5be0ce6824d48449dd25c159a2dec27b6d6a934a0b1"
   end
 
   resource "html5lib" do
@@ -55,8 +60,8 @@ class PipAudit < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/61/3c/2206f39880d38ca7ad8ac1b28d2d5ca81632d163b2d68ef90e46409ca057/msgpack-1.0.3.tar.gz"
-    sha256 "51fdc7fb93615286428ee7758cecc2f374d5ff363bdd884c7ea622a7a327a81e"
+    url "https://files.pythonhosted.org/packages/22/44/0829b19ac243211d1d2bd759999aa92196c546518b0be91de9cacc98122a/msgpack-1.0.4.tar.gz"
+    sha256 "f5d869c18f030202eb412f08b28d2afeea553d6613aee89e200d7aca7ef01f5f"
   end
 
   resource "packageurl-python" do
@@ -74,9 +79,9 @@ class PipAudit < Formula
     sha256 "f701584eb1c3e01021c846f89d629ab9373b6624f0626757774ad54fc4c29571"
   end
 
-  resource "progress" do
-    url "https://files.pythonhosted.org/packages/2a/68/d8412d1e0d70edf9791cbac5426dc859f4649afc22f2abbeb0d947cf70fd/progress-1.6.tar.gz"
-    sha256 "c9c86e98b5c03fa1fe11e3b67c1feda4788b8d0fe7336c2ff7d5644ccfba34cd"
+  resource "Pygments" do
+    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
+    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
   end
 
   resource "pyparsing" do
@@ -85,8 +90,8 @@ class PipAudit < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+    url "https://files.pythonhosted.org/packages/e9/23/384d9953bb968731212dc37af87cb75a885dc48e0615bd6a303577c4dc4b/requests-2.28.0.tar.gz"
+    sha256 "d568723a7ebd25875d8d1eaf5dfa068cd2fc8194b2e483d7b1f7c81918dbec6b"
   end
 
   resource "resolvelib" do
@@ -94,19 +99,19 @@ class PipAudit < Formula
     sha256 "c6ea56732e9fb6fca1b2acc2ccc68a0b6b8c566d8f3e78e0443310ede61dbd37"
   end
 
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/f5/f3/f87be42279b5cfba09f7f29e2f4a77063ccf5d9075042981e2cf48752d51/rich-12.4.4.tar.gz"
+    sha256 "4c586de507202505346f3e32d1363eb9ed6932f0c2f63184dea88983ff4971e2"
+  end
+
+  resource "sortedcontainers" do
+    url "https://files.pythonhosted.org/packages/e8/c4/ba2f8066cceb6f23394729afe52f3bf7adec04bf9ed2c820b39e19299111/sortedcontainers-2.4.0.tar.gz"
+    sha256 "25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"
+  end
+
   resource "toml" do
     url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
-  end
-
-  resource "types-setuptools" do
-    url "https://files.pythonhosted.org/packages/4f/4b/fadfbd0cbaa6ae3cc22812e5d941086a4d136ff4941dfce8611390c96505/types-setuptools-57.4.15.tar.gz"
-    sha256 "650528ce803586029d7f153f32aed2dbaa6bb2888b233334af80d7ba63ed3c87"
-  end
-
-  resource "types-toml" do
-    url "https://files.pythonhosted.org/packages/c5/da/a5fb5c4eb663a1cd2d0c8ef619c42d51e6b8f55e155341e7b39b8c6c67b4/types-toml-0.10.7.tar.gz"
-    sha256 "a567fe2614b177d537ad99a661adc9bfc8c55a46f95e66370a4ed2dd171335f9"
   end
 
   resource "urllib3" do
