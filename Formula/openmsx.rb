@@ -1,8 +1,8 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "https://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_17_0/openmsx-17.0.tar.gz"
-  sha256 "70ec6859522d8e3bbc97227abb98c87256ecda555b016d1da85cdd99072ce564"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_18_0/openmsx-18.0.tar.gz"
+  sha256 "23db7756e6c6b5cfd157bb4720a0d96aa2bb75e88d1fdf5a0f76210eef4aff60"
   license "GPL-2.0"
   head "https://github.com/openMSX/openMSX.git", branch: "master"
 
