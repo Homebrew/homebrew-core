@@ -1,15 +1,17 @@
 class Poac < Formula
   desc "Package manager for C++"
   homepage "https://github.com/poacpm/poac"
-  url "https://github.com/poacpm/poac/archive/refs/tags/0.3.4.tar.gz"
-  sha256 "972727bd1f45f9cb1a0aae1994533fae75234614ffe5df2a316690698db9dd74"
+  url "https://github.com/poacpm/poac/archive/refs/tags/0.3.5.tar.gz"
+  sha256 "0d131695e5b7b4d569a5aee6bdd9830fa4400a24b7d5642c95a2857007177da7"
   license "Apache-2.0"
   head "https://github.com/poacpm/poac.git", branch: "main"
 
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "fmt"
   depends_on macos: :big_sur # C++20
   depends_on "openssl@1.1"
+  depends_on "spdlog"
 
   uses_from_macos "libarchive"
 
