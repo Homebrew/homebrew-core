@@ -8,6 +8,8 @@ class Poac < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "libarchive"
+  depends_on "libgit2"
   depends_on macos: :big_sur # C++20
   depends_on "openssl@3"
 
@@ -17,8 +19,9 @@ class Poac < Formula
   fails_with gcc: "5" # C++20
 
   def install
-    system "cmake", "-B", "build", *std_cmake_args
-    system "cmake", "--build", "build", "--target", "install"
+    system "cmake", "-B", "build", "-DCPM_USE_LOCAL_PACKAGES=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     man1.install (buildpath/"src/etc/man/man1").children
     bash_completion.install_symlink "src/etc/poac.bash" => "poac"
