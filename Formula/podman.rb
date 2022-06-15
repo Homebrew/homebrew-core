@@ -4,8 +4,8 @@ class Podman < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/containers/podman/archive/v4.1.0.tar.gz"
-    sha256 "f814e12a7311d486c1ccdc4eb021bc6dd24499569de7a572e436342876f70e95"
+    url "https://github.com/containers/podman/archive/v4.1.1.tar.gz"
+    sha256 "27bf32e9b1afee94cb08ebd59389104788d687f402a541f3631f94c7916b10a5"
     resource "gvproxy" do
       url "https://github.com/containers/gvisor-tap-vsock/archive/v0.3.0.tar.gz"
       sha256 "6ca454ae73fce3574fa2b615e6c923ee526064d0dc2bcf8dab3cca57e9678035"
@@ -32,6 +32,13 @@ class Podman < Formula
   depends_on "go" => :build
   depends_on "go-md2man" => :build
   depends_on "qemu"
+
+  # Fixes compatability with qemu 7.0.0. Can be removed next release.
+  # See: https://github.com/containers/podman/issues/14303
+  patch do
+    url "https://github.com/containers/podman/commit/9fac1b335f681400a029e9d8014f45fa5634ec40.patch?full_index=1"
+    sha256 "161a0ce3d1012ae030790a16857278e4417b3b410dce68927a6b02a43cf090ba"
+  end
 
   def install
     ENV["CGO_ENABLED"] = "1"
