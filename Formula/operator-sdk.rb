@@ -21,9 +21,7 @@ class OperatorSdk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "597fce6f6cf96f22c5220a52d05355eb30a976d64373427b8de772de7202ee7a"
   end
 
-  # Resolves upstream issue: https://github.com/operator-framework/operator-sdk/issues/5689
-  # Should be updated to "go" when the following upstream issue is resolved: https://github.com/operator-framework/operator-sdk/issues/5740
-  depends_on "go@1.17"
+  depends_on "go"
 
   def install
     ENV["GOBIN"] = libexec/"bin"
