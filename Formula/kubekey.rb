@@ -2,8 +2,8 @@ class Kubekey < Formula
   desc "Installer for Kubernetes and / or KubeSphere, and related cloud-native add-ons"
   homepage "https://kubesphere.io"
   url "https://github.com/kubesphere/kubekey.git",
-      tag:      "v2.0.0",
-      revision: "ff9d30b7a07ed2219b0c82f1946307dbcc76975b"
+      tag:      "v2.2.0",
+      revision: "979f18caa94360ebfd22b4d4332fa76455042847"
   license "Apache-2.0"
 
   bottle do
