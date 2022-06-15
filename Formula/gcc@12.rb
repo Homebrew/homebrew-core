@@ -5,6 +5,7 @@ class GccAT12 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz"
   sha256 "62fd634889f31c02b64af2c468f064b47ad1ca78411c45abe6ac4b5f8dd19c7b"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
 
   livecheck do
     url :stable
@@ -43,8 +44,8 @@ class GccAT12 < Formula
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-darwin-arm64
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d61235ed/gcc/gcc-12.1.0-arm.diff"
-    sha256 "1e8b95e2649866678bf3aaa358028e8c5c611593c61f90e41aaa937ad5f589ed"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/76677f2b/gcc/gcc-12.1.0-arm.diff"
+    sha256 "a000f1d9cb1dd98c7c4ef00df31435cd5d712d2f9d037ddc044f8bf82a16cf35"
   end
 
   def version_suffix
