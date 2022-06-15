@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/ed/25/a7a4619efa82cf6f7abfd7c4077ee4a2f9821767e7bf12d195bb7ccdaf08/datalad-0.16.5.tar.gz"
-  sha256 "58581ab07b6bd2e541203fefad58096e3363f6582b5648aa96b99290a4f8c038"
+  url "https://files.pythonhosted.org/packages/52/8f/06a336f228e1f08226009184b05095c8ce1f969b255b4f59e9591aefd78e/datalad-0.16.6.tar.gz"
+  sha256 "1b64873dc250e90ee4f89f59074f514c2f0e8d5ddd2a861ea6ce84765726a717"
   license "MIT"
 
   bottle do
@@ -110,8 +110,8 @@ class Datalad < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+    url "https://files.pythonhosted.org/packages/e9/23/384d9953bb968731212dc37af87cb75a885dc48e0615bd6a303577c4dc4b/requests-2.28.0.tar.gz"
+    sha256 "d568723a7ebd25875d8d1eaf5dfa068cd2fc8194b2e483d7b1f7c81918dbec6b"
   end
 
   resource "requests-toolbelt" do
