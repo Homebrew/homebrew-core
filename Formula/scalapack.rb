@@ -1,10 +1,9 @@
 class Scalapack < Formula
   desc "High-performance linear algebra for distributed memory machines"
   homepage "https://www.netlib.org/scalapack/"
-  url "https://www.netlib.org/scalapack/scalapack-2.1.0.tgz"
-  sha256 "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
+  url "https://www.netlib.org/scalapack/scalapack-2.2.0.tgz"
+  sha256 "40b9406c20735a9a3009d863318cb8d3e496fb073d201c5463df810e01ab2a57"
   license "BSD-3-Clause"
-  revision 3
 
   livecheck do
     url :homepage
