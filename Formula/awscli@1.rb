@@ -4,8 +4,8 @@ class AwscliAT1 < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://files.pythonhosted.org/packages/f1/f9/650b63e957f0fbb9c48dde2dfac078c4532b739e23bad663761e443585a0/awscli-1.25.0.tar.gz"
-  sha256 "60cb3233ec036712295206025032ffa1abb630f5a46d9d3dfdc6360e22cd6627"
+  url "https://files.pythonhosted.org/packages/93/ae/4bf41bd2d9e5cbecd7a75128604c40d0f7839d13c580909f1a18d4a0ff82/awscli-1.25.10.tar.gz"
+  sha256 "c85daa66c59b0407dd481154cdd2b0292bd4337fc09bf42bf0326beb51af589e"
   license "Apache-2.0"
 
   livecheck do
@@ -32,8 +32,8 @@ class AwscliAT1 < Formula
   uses_from_macos "groff"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/69/99/0d504a248fece3b6dba7d6e836129bbb66f04bd34245f6991e59d3bbdbcd/botocore-1.27.0.tar.gz"
-    sha256 "505ba80201dd577cb4c704fea5b16142c85473e4e2ef3eb55ebd991037b70142"
+    url "https://files.pythonhosted.org/packages/a6/8f/802d30cbabbb86afccfdd95173510b161ad29baa02947d0312248abe4888/botocore-1.27.10.tar.gz"
+    sha256 "b39da97452c9e2c856e7778d8c908252394da81e2e5792f1d4cb0ece4ce1043a"
   end
 
   resource "colorama" do
