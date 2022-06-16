@@ -5,7 +5,7 @@ class Gcc < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-11.3.0/gcc-11.3.0.tar.xz"
   sha256 "b47cf2818691f5b1e21df2bb38c795fac2cfbd640ede2d0a5e1c89e338a3ac39"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  revision 1
+  revision 2
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   livecheck do
@@ -46,8 +46,8 @@ class Gcc < Formula
   # Apple Silicon support, located at https://github.com/iains/gcc-11-branch
   if Hardware::CPU.arm?
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/22dec3fc/gcc/gcc-11.3.0-arm.diff"
-      sha256 "e02006b7ec917cc1390645d95735a6a866caed0dfe506d5bef742f7862cab218"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/07e71538/gcc/gcc-11.3.0-arm.diff"
+      sha256 "857390a7f32dbfc4c7e6163a3b3b9d5e1d392e5d9c74c3ebb98701c1d0629565"
     end
   end
 
