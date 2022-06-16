@@ -6,12 +6,15 @@ class Cnosdb < Formula
       revision: "bf128f15334a9104a5a644917693c29bf5eb3e65"
   license "MIT"
   head "https://github.com/cnosdb/cnosdb.git", branch: "main"
+
   # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
   livecheck do
     url :stable
     regex(/^v?((?!9\.9\.9)\d+(?:\.\d+)+)$/i)
   end
+
   depends_on "go" => :build
+
   def install
     ldflags = %W[
       -s
