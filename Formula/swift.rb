@@ -4,8 +4,8 @@ class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://www.swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/apple/swift/archive/refs/tags/swift-5.6.1-RELEASE.tar.gz"
-  sha256 "39e4e2b7343756e26627b945a384e1b828e38778b34cc5b0f3ecc23f18d22fd6"
+  url "https://github.com/apple/swift/archive/refs/tags/swift-5.6.2-RELEASE.tar.gz"
+  sha256 "8176efb376e83b358cd088683e5214d8db864386dae745f94618745b1ab89a19"
   license "Apache-2.0"
 
   livecheck do
