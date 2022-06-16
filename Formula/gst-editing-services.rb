@@ -1,8 +1,8 @@
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
-  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.20.2.tar.xz"
-  sha256 "2ddef442cf8313e78477510a4461c8522f180afef26d035a38fea3f5006d012f"
+  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.20.3.tar.xz"
+  sha256 "5fd896de69fbe24421eb6b0ff8d2f8b4c3cba3f3025ceacd302172f39a8abaa2"
   license "LGPL-2.0-or-later"
 
   livecheck do
