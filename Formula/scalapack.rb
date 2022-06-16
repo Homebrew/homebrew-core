@@ -25,13 +25,6 @@ class Scalapack < Formula
   depends_on "open-mpi"
   depends_on "openblas"
 
-  # Patch for compatibility with GCC 10
-  # https://github.com/Reference-ScaLAPACK/scalapack/pull/26
-  patch do
-    url "https://github.com/Reference-ScaLAPACK/scalapack/commit/bc6cad585362aa58e05186bb85d4b619080c45a9.patch?full_index=1"
-    sha256 "f0892888e5a83d984e023e76eabae8864ad89b90ae3a41d472b960c95fdab981"
-  end
-
   def install
     mkdir "build" do
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
