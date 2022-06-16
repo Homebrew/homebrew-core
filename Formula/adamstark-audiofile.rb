@@ -19,7 +19,7 @@ class AdamstarkAudiofile < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=gnu++2a", \
+    system ENV.cxx, "-std=c++11", \
            "-o", "audiofile", \
            "audiofile.cc", \
             "-L", include.to_s
