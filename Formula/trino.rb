@@ -21,12 +21,11 @@ class Trino < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7377af0312b739814bdcf3adf278fb5973ed86e4f60987509d43845c5d9111e"
   end
 
-  depends_on "gnu-tar" => :build
   depends_on "openjdk"
   depends_on "python@3.10"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/386.tar.gz", using: :nounzip
+    url "https://github.com/trinodb/trino/archive/386.zip", using: :nounzip
     sha256 "bab8287f387931faa228b698a30886c084f2981c4313b8ebef4340c685c490c8"
   end
 
@@ -42,8 +41,7 @@ class Trino < Formula
     #   trino-363/plugin/trino-hive/src/test/resources/<truncated>.snappy.orc.crc: Failed to restore metadata
     # Remove when https://github.com/trinodb/trino/issues/8877 is fixed
     resource("trino-src").stage do |r|
-      ENV.prepend_path "PATH", Formula["gnu-tar"].opt_libexec/"gnubin"
-      system "tar", "-xzf", "trino-#{r.version}.tar.gz"
+      system "unzip", "#{r.version}.zip"
       (libexec/"etc").install Dir["trino-#{r.version}/core/docker/default/etc/*"]
       inreplace libexec/"etc/node.properties", "docker", tap.user.downcase
       inreplace libexec/"etc/node.properties", "/data/trino", var/"trino/data"
