@@ -1,10 +1,9 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-6.12.0.122.tar.xz"
-  sha256 "29c277660fc5e7513107aee1cbf8c5057c9370a4cdfeda2fc781be6986d89d23"
+  url "https://download.mono-project.com/sources/mono/mono-6.12.0.182.tar.xz"
+  sha256 "57366a6ab4f3b5ecf111d48548031615b3a100db87c679fc006e8c8a4efd9424"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://www.mono-project.com/download/stable/"
