@@ -44,9 +44,9 @@ class Minidlna < Formula
   def post_install
     conf = <<~EOS
       friendly_name=Mac DLNA Server
-      media_dir=#{ENV["HOME"]}/.config/minidlna/media
-      db_dir=#{ENV["HOME"]}/.config/minidlna/cache
-      log_dir=#{ENV["HOME"]}/.config/minidlna
+      media_dir=#{Dir.home}/.config/minidlna/media
+      db_dir=#{Dir.home}/.config/minidlna/cache
+      log_dir=#{Dir.home}/.config/minidlna
     EOS
 
     (pkgshare/"minidlna.conf").write conf unless File.exist? pkgshare/"minidlna.conf"
@@ -64,8 +64,8 @@ class Minidlna < Formula
   end
 
   service do
-    run [opt_sbin/"minidlnad", "-d", "-f", "#{ENV["HOME"]}/.config/minidlna/minidlna.conf",
-         "-P", "#{ENV["HOME"]}/.config/minidlna/minidlna.pid"]
+    run [opt_sbin/"minidlnad", "-d", "-f", "#{Dir.home}/.config/minidlna/minidlna.conf",
+         "-P", "#{Dir.home}/.config/minidlna/minidlna.pid"]
     keep_alive true
     log_path var/"log/minidlnad.log"
     error_log_path var/"log/minidlnad.log"
