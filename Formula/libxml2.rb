@@ -2,7 +2,7 @@ class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
   license "MIT"
-  revision 1
+  revision 2
 
   stable do
     url "https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz"
@@ -43,6 +43,7 @@ class Libxml2 < Formula
   keg_only :provided_by_macos
 
   depends_on "python@3.9" => [:build, :test]
+  depends_on "pkg-config" => :test
   depends_on "icu4c"
   depends_on "readline"
 
@@ -81,6 +82,8 @@ class Libxml2 < Formula
     # it is in a different directory than `libxml2`.
     inreplace bin/"xml2-config", "-I${includedir}/libxml2 ",
                                  "-I${includedir}/libxml2 -I#{Formula["icu4c"].opt_include}"
+    inreplace lib/"pkgconfig/libxml-2.0.pc", "-I${includedir}/libxml2 ",
+                                             "-I${includedir}/libxml2 -I#{Formula["icu4c"].opt_include}"
 
     cd "python" do
       # We need to insert our include dir first
@@ -103,8 +106,17 @@ class Libxml2 < Formula
         return 0;
       }
     EOS
+
+    # Test build with xml2-config
     args = %w[test.c -o test]
     args += shell_output("#{bin}/xml2-config --cflags --libs").split
+    system ENV.cc, *args
+    system "./test"
+
+    # Test build with pkg-config
+    ENV.append "PKG_CONFIG_PATH", lib/"pkgconfig"
+    args = %w[test.c -o test]
+    args += shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs libxml-2.0").split
     system ENV.cc, *args
     system "./test"
 
