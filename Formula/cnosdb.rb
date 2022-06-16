@@ -34,6 +34,7 @@ class Cnosdb < Formula
     (var/"cnosdb/meta").mkpath
     (var/"cnosdb/wal").mkpath
   end
+
   service do
     run bin/"cnosdb"
     keep_alive true
