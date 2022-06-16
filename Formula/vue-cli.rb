@@ -3,8 +3,8 @@ require "language/node"
 class VueCli < Formula
   desc "Standard Tooling for Vue.js Development"
   homepage "https://cli.vuejs.org/"
-  url "https://registry.npmjs.org/@vue/cli/-/cli-5.0.4.tgz"
-  sha256 "07aba062833f861b86b83e04a70633e8f2f05e56b1db0105477fdc9363a15d4b"
+  url "https://registry.npmjs.org/@vue/cli/-/cli-5.0.5.tgz"
+  sha256 "6b81f904c81bd43a2820537f9b126231e8792e1b5a95111407c82142098d31ef"
   license "MIT"
 
   bottle do
