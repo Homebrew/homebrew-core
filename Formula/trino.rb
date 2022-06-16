@@ -26,12 +26,12 @@ class Trino < Formula
 
   resource "trino-src" do
     url "https://github.com/trinodb/trino/archive/386.zip", using: :nounzip
-    sha256 "bab8287f387931faa228b698a30886c084f2981c4313b8ebef4340c685c490c8"
+    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   end
 
   resource "trino-cli" do
     url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/386/trino-cli-386-executable.jar"
-    sha256 "0b96af66dca43353389be3c348f0472a9e709ace22c9a2a9689acb64b70beac1"
+    sha256 "753e0dd54f28c4f7009b9c0b18a68aed175416bd8b7d134858264586eaac56f0"
   end
 
   def install
