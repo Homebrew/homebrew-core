@@ -20,7 +20,7 @@ class OpenMpi < Formula
   end
 
   head do
-    url "https://github.com/open-mpi/ompi.git"
+    url "https://github.com/open-mpi/ompi.git", branch: "main"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -39,17 +39,9 @@ class OpenMpi < Formula
     # Avoid references to the Homebrew shims directory
     %w[
       ompi/tools/ompi_info/param.c
-      orte/tools/orte-info/param.c
       oshmem/tools/oshmem_info/param.c
-      opal/mca/pmix/pmix3x/pmix/src/tools/pmix_info/support.c
     ].each do |fname|
       inreplace fname, /(OPAL|PMIX)_CC_ABSOLUTE/, "\"#{ENV.cc}\""
-    end
-
-    %w[
-      ompi/tools/ompi_info/param.c
-      oshmem/tools/oshmem_info/param.c
-    ].each do |fname|
       inreplace fname, "OMPI_CXX_ABSOLUTE", "\"#{ENV.cxx}\""
     end
 
