@@ -4,6 +4,7 @@ class CaCertificates < Formula
   url "https://curl.se/ca/cacert-2022-07-19.pem"
   sha256 "6ed95025fba2aef0ce7b647607225745624497f876d74ef6ec22b26e73e9de77"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url :homepage
@@ -68,6 +69,7 @@ class CaCertificates < Formula
       verify_args = %W[
         -l -L
         -c #{tmpfile.path}
+        -p ssl
       ]
       verify_args << "-R" << "offline" if MacOS.version >= :high_sierra
 
