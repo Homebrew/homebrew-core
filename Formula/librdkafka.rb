@@ -28,6 +28,10 @@ class Librdkafka < Formula
   depends_on "openssl@1.1"
   depends_on "zstd"
 
+  uses_from_macos "curl"
+  uses_from_macos "cyrus-sasl"
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
