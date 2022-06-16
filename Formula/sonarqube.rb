@@ -1,10 +1,9 @@
 class Sonarqube < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.4.0.54424.zip"
-  sha256 "df8d97ae93002593fcaceacfe4dfdab68982a8dc52002c441ee6218f4d71961c"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.5.0.56709.zip"
+  sha256 "6278da57011c64cef2a140619b77423d29d85992858dafce618f8918ea339a9d"
   license "LGPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.sonarqube.org/success-download-community-edition/"
@@ -12,12 +11,12 @@ class Sonarqube < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "46547b82e1821d1a2fdd3d340d14aed54710705ff4a00f948fef8cb56187203f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46547b82e1821d1a2fdd3d340d14aed54710705ff4a00f948fef8cb56187203f"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b9522ce8f801fc37e8b5ba585670ce484cfc34c89e8483a83936eb2dd95f3f6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7b9522ce8f801fc37e8b5ba585670ce484cfc34c89e8483a83936eb2dd95f3f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "7b9522ce8f801fc37e8b5ba585670ce484cfc34c89e8483a83936eb2dd95f3f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f83ab713cba4041c8d08cf2c6cf1d79319ac72cab34f4b675e5218668083d69c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf217559602d1d83e6e3157ab60e379e1c79b59d5dcb16aab87dcabb75ab29d6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf217559602d1d83e6e3157ab60e379e1c79b59d5dcb16aab87dcabb75ab29d6"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a398ceb838b5a35beb5989ec9f0e1ab847957c77eae0064f3359f2fa6929f4f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6a398ceb838b5a35beb5989ec9f0e1ab847957c77eae0064f3359f2fa6929f4f"
+    sha256 cellar: :any_skip_relocation, catalina:       "6a398ceb838b5a35beb5989ec9f0e1ab847957c77eae0064f3359f2fa6929f4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0460aad08ae421d32fa9eeeda1b6abfa395a605aa2e274d7054e17f872d93be6"
   end
 
   depends_on "java-service-wrapper"

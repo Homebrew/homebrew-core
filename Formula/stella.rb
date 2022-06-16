@@ -1,16 +1,18 @@
 class Stella < Formula
   desc "Atari 2600 VCS emulator"
   homepage "https://stella-emu.github.io/"
-  url "https://github.com/stella-emu/stella/releases/download/6.6/stella-6.6-src.tar.xz"
-  sha256 "d481efc6d27b5294565dfcc10983de2dbc4db8a59932a678ffdb4d2404b8c207"
+  url "https://github.com/stella-emu/stella/releases/download/6.7/stella-6.7-src.tar.xz"
+  sha256 "babfcbb39abbd1a992cb1e6d3b2f508df7ed19cb9d0b5b5d624828bb98f97267"
   license "GPL-2.0-or-later"
   head "https://github.com/stella-emu/stella.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "72e0d2b7a302b102a942fbc30d3b877792e676f2ea28608d874e64bf9cf88020"
-    sha256 cellar: :any,                 big_sur:      "0b8b9b3ea9c9e27a5274adc3a849c19fd41385fbc39a09d3b3af368399f97a06"
-    sha256 cellar: :any,                 catalina:     "bc346d37156a2a5adae7d11e52dfd3d4d0bfad70f68826cba5cd94ced66e59da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f5e2f0fe6837b8420b5ba6be490ee02eb965c6c3a129e8df8a6836797601befb"
+    sha256 cellar: :any,                 arm64_monterey: "77773fb03e92c01def740b7acba99c765ed509e04b0adf0372d59f11634fdc92"
+    sha256 cellar: :any,                 arm64_big_sur:  "f1d2831b612ce334a42b340e15482f4abfea1095f2850904b87fb388f5b644e6"
+    sha256 cellar: :any,                 monterey:       "93530cff4003a6155360f6a7683913d536a81856909672d1db4a750a9ccf87d9"
+    sha256 cellar: :any,                 big_sur:        "6a982f58468560bdb62cec0d2235e56343b7373a93176a0af005c0f7ee5329e8"
+    sha256 cellar: :any,                 catalina:       "9f01df79243f051af7f6634646b7398ba8d380fa9213233b0f01f6c4a13e9fb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6aae8f6b0df12475faeafb6bcfb80c6009bdd68539e301a7bb945571be9e363e"
   end
 
   depends_on xcode: :build
@@ -39,7 +41,7 @@ class Stella < Formula
                   "\\1 = (#{sdl2.opt_lib}, #{libpng.opt_lib}, \\2);")
           s.gsub!(/(OTHER_LDFLAGS) = "((-\w+)*)"/, '\1 = "-lSDL2 -lpng \2"')
         end
-        xcodebuild "SYMROOT=build"
+        xcodebuild "-arch", Hardware::CPU.arch, "SYMROOT=build"
         prefix.install "build/Release/Stella.app"
         bin.write_exec_script "#{prefix}/Stella.app/Contents/MacOS/Stella"
       end

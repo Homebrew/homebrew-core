@@ -1,17 +1,17 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.10.7.tar.gz"
-  sha256 "c577673b40c82ca3242d2ec5ed3305b380cd400856cf3f8504afea56845c7538"
+  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.10.8.tar.gz"
+  sha256 "dd7f9d4827307d6fd66c327bd96197421cd9cf3cf6d7eb19dab62355f123d712"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b86b1d7df87deeb644f5c05259a0b652729ec55962575a5299371e568218597"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8073a963756f5941714309ae2b8a9e96b21abc50fab59fbed8087cd7593eab8f"
-    sha256 cellar: :any_skip_relocation, monterey:       "03351fc76ddb40e4b3d6681c3a361bc85c01d16030702a43e9d7e8ff53768ab5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f54a9ab39ffb9a5a8e97174fed7ceeca1853b25760abb207d86f7eb65b60ea4e"
-    sha256 cellar: :any_skip_relocation, catalina:       "2b92d438aaddbfefcc618affd038dbe7941e99d131c3987309bd589b64c0981a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "773b9bc0521d6266d598b63c91cba1b138c9b7b1b21cf0e6c2dabb9ae970f06c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6988c2865baff5251ff723bfd4a232171c4f0009ba184e7ce19edc84621d5a94"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "281d34600e8cb98a9d1c5255ff9d74e390fa8ea83d93032b26815d05be4a2d96"
+    sha256 cellar: :any_skip_relocation, monterey:       "464b11826987bf442bb5c72a6ad2be20aa9e8c860cdaadf1e27e24ef1de668d5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "572f5893e455afa412777dabc40a31142fa634ce477358ccc76ba4345b7b504d"
+    sha256 cellar: :any_skip_relocation, catalina:       "72248f3265345c850d383772206827c7ef29fbcb00029e187084816fecf7f874"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce8de29322a3701346f443301230a2f30e70fd57565cd85c97956c19355d8e1a"
   end
 
   depends_on "gradle" => :build

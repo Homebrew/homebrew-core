@@ -1,19 +1,18 @@
 class Binutils < Formula
   desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.37.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.37.tar.xz"
-  sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.38.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.38.tar.xz"
+  sha256 "e316477a914f567eccc34d5d29785b8b0f5a10208d36bbacedcc39048ecfe024"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
 
   bottle do
-    sha256 arm64_monterey: "189bea0bf26bbde02e13aa60e16cb7f4fb33c6dc601029393c4c39ee415e5a0a"
-    sha256 arm64_big_sur:  "2bf192cb717e8e107e61899218d8d25db92d8c07d164b2dea9c50a3d41b0dca9"
-    sha256 monterey:       "feca3b1dbaf91e243e47d261411977909b68b2d54d7e5b1b93c9150a7bc698ad"
-    sha256 big_sur:        "9757e5cac1e7fd0046d02671d31f608e57c2398a2d3a0042518707a5fe6fb30c"
-    sha256 catalina:       "0c90a75475fc973066ace915f8f58f83bf5009181e42c9c8140dc72453d53d0f"
-    sha256 mojave:         "58bf91ff243d080224bd9f7170307788d4319ccdd96d17e7afbf0f326a639f97"
-    sha256 x86_64_linux:   "7dcdd47b180a4dfcc838fa0a047f6fbfac0cd37bd867170ac026e6b8ae93af5d"
+    sha256                               arm64_monterey: "688777b47a3ccd4bf77ba9fa46c0ed66dd0c8a662dbd9c0021e574df5c87a783"
+    sha256                               arm64_big_sur:  "794eab8c0705e58f4578480ac49225a96bdb8d25ae9642a9e9161730f354e83a"
+    sha256                               monterey:       "6e8ef1eab4c0ca426453a36584a6791fe16619a3641646feb1932423c5e0e27d"
+    sha256                               big_sur:        "0bdf6d0186c29f175d4493118a4086f0c24056088359fe0c333123e1b9e03759"
+    sha256                               catalina:       "f32ac82487eff8fb84bd6d6780213f9c152dc2403e67d6adda50f9c91d5a889e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c260a27d2cec70f223f75b8f56e158db62c2f5bc9f25f39d7332a02c2ff03ac"
   end
 
   keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"

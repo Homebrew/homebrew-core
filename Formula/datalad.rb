@@ -3,15 +3,15 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/ed/25/a7a4619efa82cf6f7abfd7c4077ee4a2f9821767e7bf12d195bb7ccdaf08/datalad-0.16.5.tar.gz"
-  sha256 "58581ab07b6bd2e541203fefad58096e3363f6582b5648aa96b99290a4f8c038"
+  url "https://files.pythonhosted.org/packages/52/8f/06a336f228e1f08226009184b05095c8ce1f969b255b4f59e9591aefd78e/datalad-0.16.6.tar.gz"
+  sha256 "1b64873dc250e90ee4f89f59074f514c2f0e8d5ddd2a861ea6ce84765726a717"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "a370be7da8af1b2c049fb63c49fe4f97accf8089bfbc8438da25e3f8ee3486e1"
-    sha256 cellar: :any_skip_relocation, big_sur:      "defb42ba7648f8e8cb7a46b965e1c7b52bac8b6c6477b4192a76e0c047b2d552"
-    sha256 cellar: :any_skip_relocation, catalina:     "ab3456cfc4895f5c4e05b2d58506a16628bb2988835b1d64ac726d3f28e89ce2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ad9d8082d948aa2751c582ccb1e5e032528e08b0d70cb16e26720f2d5bd36a97"
+    sha256 cellar: :any_skip_relocation, monterey:     "9a8a8cbd46d28fffc6012e8d925222a59e1501e2907edfa594f17e74a533f202"
+    sha256 cellar: :any_skip_relocation, big_sur:      "541a3c9c1d5e80b8a679c452c465bdd5ba97e7135eb5a4a890205023f4c9daef"
+    sha256 cellar: :any_skip_relocation, catalina:     "c0ac603939d5c96fabe9dd0bc8563edd30a7d9da307ebbb8e7d84566d95fc569"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9379fb233d4577dd72d96e5faa62fba4ca3fdb20871c1740e43a3f61815b92f6"
   end
 
   depends_on "git-annex"
@@ -110,8 +110,8 @@ class Datalad < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+    url "https://files.pythonhosted.org/packages/e9/23/384d9953bb968731212dc37af87cb75a885dc48e0615bd6a303577c4dc4b/requests-2.28.0.tar.gz"
+    sha256 "d568723a7ebd25875d8d1eaf5dfa068cd2fc8194b2e483d7b1f7c81918dbec6b"
   end
 
   resource "requests-toolbelt" do

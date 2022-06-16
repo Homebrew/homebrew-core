@@ -4,6 +4,7 @@ class Yadm < Formula
   url "https://github.com/TheLocehiliosan/yadm/archive/3.2.1.tar.gz"
   sha256 "6b7e0b32bdca074cbf36e64d8dd528f37c05ce0786fec1099cf374d81cd7d68e"
   license "GPL-3.0-or-later"
+  head "https://github.com/TheLocehiliosan/yadm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "59521d8b8fb32be4504ac837a7e08e98505d397e92f6a88474759cc2bf5f3cab"

@@ -1,17 +1,17 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/42/gedit-42.0.tar.xz"
-  sha256 "a87991f42961eb4f6abcdbaabb784760c23aeaeefae6363d3e21a61e9c458437"
+  url "https://download.gnome.org/sources/gedit/42/gedit-42.1.tar.xz"
+  sha256 "7f1fd43df5110d4c37de6541993f41f0fbc3efc790900e92053479ba069920e9"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "e86676c92593d01d9b0d1c04ae138d8c9d0653f5f9e67e957328ec13bedd52cd"
-    sha256 arm64_big_sur:  "d663b941cc3dd78c2d9c48cc4cbb98e9326245bf68f10f44c36e7d36300e8f95"
-    sha256 monterey:       "ec72280a13bd5c78436afcd1c829774fd778f8956656ec3be93aa2bbc04108d7"
-    sha256 big_sur:        "5e53509d003a7597561e0457510cd8fc12aa48458c4d1ca11d60b8197c941815"
-    sha256 catalina:       "2f9741e8a1ccca51e097e52d81eed9b268a8081491739a267a89f968f11a870e"
-    sha256 x86_64_linux:   "cf0e8b86045a61b1a67af714598b9bee08573b2d78634cc9c72fb0d458945ace"
+    sha256 arm64_monterey: "6bf62715f6d13766d9f5acecccb83388fd76e676717bf66fd35c1583f24cc52a"
+    sha256 arm64_big_sur:  "befed484ace491f22c794ab58ab00c163926f3a371fbaef317aed9fce9777eb6"
+    sha256 monterey:       "00937891d211cb9135396a1772b1455ea25b5456e95ccd3fb959d99b0463ee4f"
+    sha256 big_sur:        "a8f006d3c869d4758f8c2807a689105148af330f9ee3261d0bbe07e9e70793ea"
+    sha256 catalina:       "0b09d9d9db66e4c95211942e5b0bb8edd341ea40edb6ddb272876a1e72f3753b"
+    sha256 x86_64_linux:   "799ad9372a0590ae0bb113949df29cd769207a46dc3378d83b6b03982f41d1c4"
   end
 
   depends_on "itstool" => :build

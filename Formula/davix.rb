@@ -1,24 +1,26 @@
 class Davix < Formula
   desc "Library and tools for advanced file I/O with HTTP-based protocols"
   homepage "https://github.com/cern-fts/davix"
-  url "https://github.com/cern-fts/davix/releases/download/R_0_8_1/davix-0.8.1.tar.gz"
-  sha256 "3f42f4eadaf560ab80984535ffa096d3e88287d631960b2193e84cf29a5fe3a6"
+  url "https://github.com/cern-fts/davix/releases/download/R_0_8_2/davix-0.8.2.tar.gz"
+  sha256 "8817a24c23f1309b9de233b9a882455f457c42edc2a649dc70fe2524cf76d94c"
   license "LGPL-2.1-or-later"
   head "https://github.com/cern-fts/davix.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "94b126cc7cd16f3e057e3e53cae4f29ac0c67b33493e7e233088cbf3a031eb08"
-    sha256 cellar: :any,                 arm64_big_sur:  "1352499f99f63e3db5b8bee1c5c33a3c91f01fe0469aba37e730cf345630b8ea"
-    sha256 cellar: :any,                 monterey:       "078b736ba2804b062d528d51c1573ce63650efc171fff6be48bda1930a26880a"
-    sha256 cellar: :any,                 big_sur:        "d7a35a8730e5b829bb96af49ada8ce8e506306d1bc339811054ac16fb6f25faa"
-    sha256 cellar: :any,                 catalina:       "e5e1f1c20c98c6ec7938021b254262689b9a7ede8f948cd9278123b1d8825831"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55792b06f189367e5f8e0c0820234502d059507794e52ea84992764041704236"
+    sha256 cellar: :any,                 arm64_monterey: "b3fd12cecd1b960af4fe7c80b9e0156ed3a4dd5108bac3dcc1ed9dab36ba86b3"
+    sha256 cellar: :any,                 arm64_big_sur:  "52c5577ca06e32e59d20bb237fff2e79c908114e7742126ba3f7e471b395c288"
+    sha256 cellar: :any,                 monterey:       "1ce55fe29cb8731fb72628d8814f4ddca26020b7e28e97839ff7b9d27a73dd8d"
+    sha256 cellar: :any,                 big_sur:        "85241ccaba4ad6a5e118dc385444a93e86b48410f1fe1522003e133d15c01af6"
+    sha256 cellar: :any,                 catalina:       "b50ca24dc6bf232d18a0f32463064107005f462bb5242555158ac5c385fa7a24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63f6b0cb5a38765039975cc57a1726fa7561cc1c2f937ac58f095de781e08bcb"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "python" => :build
+  uses_from_macos "curl", since: :monterey # needs CURLE_AUTH_ERROR, available since curl 7.66.0
   uses_from_macos "libxml2"
 
   on_linux do
@@ -26,8 +28,14 @@ class Davix < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-    system "make", "install"
+    args = std_cmake_args + %W[
+      -DEMBEDDED_LIBCURL=FALSE
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

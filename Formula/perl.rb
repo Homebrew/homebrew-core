@@ -57,7 +57,7 @@ class Perl < Formula
 
   def post_install
     if OS.linux?
-      perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
+      perl_archlib = Utils.safe_popen_read(bin/"perl", "-MConfig", "-e", "print $Config{archlib}")
       perl_core = Pathname.new(perl_archlib)/"CORE"
       if File.readlines("#{perl_core}/perl.h").grep(/include <xlocale.h>/).any? &&
          (OS::Linux::Glibc.system_version >= "2.26" ||

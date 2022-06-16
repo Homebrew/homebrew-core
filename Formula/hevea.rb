@@ -1,8 +1,8 @@
 class Hevea < Formula
   desc "LaTeX-to-HTML translator"
   homepage "http://hevea.inria.fr/"
-  url "http://hevea.inria.fr/old/hevea-2.35.tar.gz"
-  sha256 "f189bada5d3e5b35855dfdfdb5b270c994fc7a2366b01250d761359ad66c9ecb"
+  url "http://hevea.inria.fr/old/hevea-2.36.tar.gz"
+  sha256 "5d6759d7702a295c76a12c1b2a1a16754ab0ec1ffed73fc9d0b138b41e720648"
 
   livecheck do
     url "http://hevea.inria.fr/old/"
@@ -10,13 +10,12 @@ class Hevea < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "851da4083db9aae8086e0d2f999a12da33601988c8d562d1f3e6d05f9bbc9a61"
-    sha256 arm64_big_sur:  "83f3e0a6a87ad437058b5bdc840e4663dc1e57b5b34abf32b4f00a72ac436070"
-    sha256 monterey:       "ee766667e58bab6f083fdd3d245b76da4a3fb2954e90314d381fc5f567b601f6"
-    sha256 big_sur:        "7679aa58989eb2715fad0c5967407ce69b94bc3ec2aa7b3ad9fe7992be315858"
-    sha256 catalina:       "6d654577f6c28ddd3c1029df88c7ecfce23dcc3ddac12fba90fc247abfcdb43e"
-    sha256 mojave:         "6e0aa3139d0f799090295e989d8aa53d27b6d3735011ee9a8cedd85a0fd3b95b"
-    sha256 x86_64_linux:   "ae4ae6db216b2bc7e0e2fa93fd64b9d04825a448507268c331c3a7e151736810"
+    sha256 arm64_monterey: "c390ecca1b09d574110a2394049497f058b9fe2dec4a1cc89647b624dc91b404"
+    sha256 arm64_big_sur:  "c1a1d50e902bf8aa644a33983ffde654d240f0d6101e25f838b8565ca6a1c576"
+    sha256 monterey:       "db2c216ff60400ea161cd163af81b5c62cb2749d3ba0109e4ec76d13f0f57d3a"
+    sha256 big_sur:        "a583d051c2a5257acb2b60d9fdcacbafb63a6012c4d3f4aa293a5372020fb942"
+    sha256 catalina:       "22faadcb4cf36deb5864e240ef5e7e718dbfd10308adb3582acbf53d653d082f"
+    sha256 x86_64_linux:   "06f64e05150caebad2f34b80f2861b3c69fc4fa1a483d0863e269007d77de28b"
   end
 
   depends_on "ocamlbuild" => :build

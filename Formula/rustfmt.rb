@@ -1,18 +1,18 @@
 class Rustfmt < Formula
   desc "Format Rust code"
   homepage "https://rust-lang.github.io/rustfmt/"
-  url "https://github.com/rust-lang/rustfmt/archive/refs/tags/v1.4.38.tar.gz"
-  sha256 "4856cac540a6d894bc019285b690cebd2076aa8067bd8509ec176645c47a31bf"
+  url "https://github.com/rust-lang/rustfmt/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "e5d96f28e9a6c559eba06f3631fa552bb664cd5509fab2248c6627dd09cd9864"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/rust-lang/rustfmt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "afb003f601f7e97ce4ef1a4cf23f9e5b35eab087d31757b37c4ea804a278e274"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1047fcdd002ac5189641374ba680ea9cb92d13b52ced30698d8d3d8853ad7dd6"
-    sha256 cellar: :any_skip_relocation, monterey:       "e780b81a82b67a572eb2a46d7392db6f107ce1d4870e5d77ae169c0095d65dac"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2cfa6db0233217adb5d9a0f9ff64253afa137ca9b0983a5d332b0b7c9ca705eb"
-    sha256 cellar: :any_skip_relocation, catalina:       "4a2eae7078777ddb02514994cece25febf9600cc1c107b74a5f616dc93f5ffc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24bb85331af1fdf0aa6eebb41ee687254dba63ef921faade71752fa576b34fa1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "423647ad2be54be15e4d74087fc63ca8ea06de50fe2d585ac1aecec4be2f48cc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c38e4967aeeddf79bc97fa6164c5f573df29d8fce634a4a6e39c60b1719e4199"
+    sha256 cellar: :any_skip_relocation, monterey:       "68b8279cf33d308adf45410c68c18f65796eeeb78dbfa15d816fe4e38710cdd9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "73a17404a40d5e11f8138fad876c1108f390906105b540b27935ddcc4a21a1e4"
+    sha256 cellar: :any_skip_relocation, catalina:       "3d953ad94c63251aa59a0efe5dd6bda8cdecc4e63090eb580c0221c18bc49474"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "214102e7ec369b4e73ebd146e2b6512277535e857fc7dd10413fb3aa4e1a9ab6"
   end
 
   depends_on "rustup-init" => :build

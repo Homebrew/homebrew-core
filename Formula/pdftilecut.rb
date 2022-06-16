@@ -1,18 +1,17 @@
 class Pdftilecut < Formula
   desc "Sub-divide a PDF page(s) into smaller pages so you can print them"
   homepage "https://github.com/oxplot/pdftilecut"
-  url "https://github.com/oxplot/pdftilecut/archive/v0.5.tar.gz"
-  sha256 "48a34df2ab7a9fbf2f7dbec328fae9cd15fff8a77fe938675a9e2ee336357b58"
+  url "https://github.com/oxplot/pdftilecut/archive/v0.6.tar.gz"
+  sha256 "fd2383ee0d0acfa56cf6e80ac62881bd6dda4555adcd7f5a397339e7d3eca9ac"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cd783946f14694c88350aca877863aec712b788f220a8fe02a6e3e79d50f54d6"
-    sha256 cellar: :any,                 arm64_big_sur:  "11d7a2b31e405708a309b9f0faf98e508ca920e1ad03b061f088652ced8099e6"
-    sha256 cellar: :any,                 monterey:       "7166769343d909da78938cb1ee6ab1b106a3b56b8a51d154e93305b4cf644941"
-    sha256 cellar: :any,                 big_sur:        "5cc898901cadbd6b08d17bb17ada4e636d00b8c3d4139343ccc26e8e701e4c81"
-    sha256 cellar: :any,                 catalina:       "173f96dddd480ad7c18440dcc55fe1d23930b71b9ae38723e426214a13e03f15"
-    sha256 cellar: :any,                 mojave:         "6da1ac7ea176188c87da04b27539d6a55e0a03736daf42959d577cca6a1c4014"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "664c904c42e4832bee89e532931f1005f2a79eb0da02c8702d9d880f25cf5e0f"
+    sha256 cellar: :any,                 arm64_monterey: "2c5121b94c0d057a347e8770437d18bcce632226dad2cf826ac49119c2f5460c"
+    sha256 cellar: :any,                 arm64_big_sur:  "4797087f671ff29728caee9c21e104c7385bb0e82a6489b82cc1bfc31bff70ca"
+    sha256 cellar: :any,                 monterey:       "af3cd335415f42b10886cf83d0710012e1422f95f290e952006563178f8c2eb3"
+    sha256 cellar: :any,                 big_sur:        "5f5296e419ec3a658b156b8a6510e1a16cd1c618dac87f500bef5dd30195e6ec"
+    sha256 cellar: :any,                 catalina:       "f0fd1252843c4215929e234451cc1b26b68f46d8e63e75c1188c1c1e51f3c3ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d634ed8e3910decf0afd32b9f3f0e71c7c8ec4aa2aec508cbcb7778433d9d998"
   end
 
   depends_on "go" => :build

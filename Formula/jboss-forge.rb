@@ -1,8 +1,9 @@
 class JbossForge < Formula
   desc "Tools to help set up and configure a project"
   homepage "https://forge.jboss.org/"
-  url "https://downloads.jboss.org/forge/releases/3.9.8.Final/forge-distribution-3.9.8.Final-offline.zip"
-  sha256 "a08387f2d7010ac34e13593707d4d93a135a6e3b42cbe78ebcdae4ef3e5c0bf2"
+  url "https://downloads.jboss.org/forge/releases/3.10.0.Final/forge-distribution-3.10.0.Final-offline.zip"
+  sha256 "0c57ea7ad90cbc5e654dd09623f385c192c6fabe366a30c11597b49bb09f7fb3"
+  license "EPL-1.0"
 
   # The first-party download page (https://forge.jboss.org/download) uses
   # JavaScript to render the download links and the version information comes
@@ -14,7 +15,7 @@ class JbossForge < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "d7570b0c75b054635f6718eb8eab0702fcde155bb94f460c85d4c667adda953c"
+    sha256 cellar: :any_skip_relocation, all: "e60122e8ee18ddd1352a46447c0247f72dfd0aa385744aaf85ecb3ee29d2c298"
   end
 
   depends_on "openjdk"

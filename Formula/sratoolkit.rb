@@ -19,12 +19,13 @@ class Sratoolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "975b3b4963eb43aa4c18bd4c95f9b7620f07938990a85cf305f7dcf48684a085"
-    sha256 cellar: :any,                 arm64_big_sur:  "42d4d3f558d41d974c07d7ec7c7d025f1b227c8f9cafedb94c2d030dfb9a12a5"
-    sha256 cellar: :any,                 monterey:       "a88822cbdf8bf72d39325a1ebd26bf0a30460a1dbc2d597ca67613a35a140116"
-    sha256 cellar: :any,                 big_sur:        "4a01bbc8741c610ec13d056e23797718b46f991b2a30bc329807c90aaabdb153"
-    sha256 cellar: :any,                 catalina:       "ecc6b82054036d2ff55ddab7959ea7a8ee6d6d4ff8624a7ca332cace87293129"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0bc8bd79688b0ca4a7d2ca33f9b8a9e400198b0f6a863f3572c78032c0e6ce8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "6c6a32652af2f8ab9c54ed59edc181db1af783215a61be6fdbfa4401ff879fc7"
+    sha256 cellar: :any,                 arm64_big_sur:  "d6a6eb07031864f36d11d1392c1c4aa99e696e6704d1ac303f29adc2433a742b"
+    sha256 cellar: :any,                 monterey:       "7016ea36e31f338f43e013230fe18c8afae8854cdab36b0488a86572ddb7fa92"
+    sha256 cellar: :any,                 big_sur:        "46f8d2ef24b5f035b353191aadd8df9058bd5c4e27bfce4c15a0baf65c7ed442"
+    sha256 cellar: :any,                 catalina:       "609b9fb8f0fb3757a09ab030880156ac6f8dde9c37fdd611203c6b4cbe78cf96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "109c7639be767b29831435d2e0561513abad009b12cce299922563abd64eab78"
   end
 
   head do
@@ -37,6 +38,7 @@ class Sratoolkit < Formula
 
   depends_on "cmake" => :build
   depends_on "hdf5"
+  depends_on macos: :catalina
 
   uses_from_macos "libxml2"
 

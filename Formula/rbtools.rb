@@ -3,18 +3,18 @@ class Rbtools < Formula
 
   desc "CLI and API for working with code and document reviews on Review Board"
   homepage "https://www.reviewboard.org/downloads/rbtools/"
-  url "https://files.pythonhosted.org/packages/68/19/48f2e95bccac4299cdd75932e812cff9f0a0bd802afeb67027563b162ee4/RBTools-3.1.tar.gz"
-  sha256 "a185dd9c4b42eeda6b611135b3a814cc01c9b870519a3b6d6d7e7401592692f9"
+  url "https://files.pythonhosted.org/packages/f3/12/69737ab2c89eae4e7c7952792148e6d065150a8c5067e3dfa184583bfcf8/RBTools-3.1.1.tar.gz"
+  sha256 "1c57725cb2c9a23b8aa947a607b6e71a5075c511379652406ca010f917e70b3e"
   license "MIT"
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2acfa6cccb168097c2f6ab2998c8296cf1ab2e8b76a67b5c33e044811abc8df"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16ed4c6c8285943b06397b811cf4d143014c30d1e80e82080bb82ed2944a04a0"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e8b284cdb2ec40b50215f205e6e695814e3fdd58fb7abf915a02c108dc2fee7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f0a75a64077db79439ec71044d820108792196223d7c70fb806c0dbbc3a025f3"
-    sha256 cellar: :any_skip_relocation, catalina:       "cae882c759abd127a2ef2afc4476a54f13a59d05cfd0d93963bd546799ade086"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4936682850ec625ae854d0804229825669f18adac88243dfca8ae06da3634989"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "55446557bdf534d41de838b34e950be95255098ce2f88c23a2c972ec75d1aa33"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "027739fd21d5a63d7dd44c7e24145135170e61b24ddda9a084869714ba1a608e"
+    sha256 cellar: :any_skip_relocation, monterey:       "ffd5c86cfd67e1c631f31304bde25f5bed20f4bc9e3703aa5998b7cc3a8b29b3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2c065fc32ef9fe77d0370e8efba10124596a3f3ea5141559a2b96736ec0c7e32"
+    sha256 cellar: :any_skip_relocation, catalina:       "57de9e02373b0ade740c14739fb42d17afa5108c2d14eda882d14c39234c3e83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81ec8a8ba96b20b9ef10103179359f26cd51ccfee4f624304ba69f8fb9e46a71"
   end
 
   depends_on "python@3.10"

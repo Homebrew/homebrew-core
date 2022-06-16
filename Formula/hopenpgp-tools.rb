@@ -1,19 +1,18 @@
 class HopenpgpTools < Formula
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.6/hopenpgp-tools-0.23.6.tar.gz"
-  sha256 "3df2f26a8e1c2be92c54b1b347474464a23d213a7982dd4afb8c88c6b6325042"
+  url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.7/hopenpgp-tools-0.23.7.tar.gz"
+  sha256 "b04137b315106f3f276509876acf396024fbb7152794e1e2a0ddd3afd740f857"
   license "AGPL-3.0-or-later"
   head "https://salsa.debian.org/clint/hOpenPGP.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4fc50e0b7b9c1d941d0b36dae6b6bb975d1635f801cdaa703c1ad8a70108c46a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28a2c5d4842abe810b28d5e6f4433e8b23308b68ca6c19c8b097fb27c58b5f88"
-    sha256 cellar: :any_skip_relocation, monterey:       "3dda67da3f76b1739fee9f78a1d74702cb693482a4637f53efbbcf277c635351"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e8ca61264f0399f95be40c4583b36604b4c64c9cf6ba761d209e4e722d4178e1"
-    sha256 cellar: :any_skip_relocation, catalina:       "6b44cea08ca2095f1dd4a997ff852f862a58c0a18f56e74509061cb173405e5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fac0a93a10aa5a26607c224db66c19ab6809776791200d14fb254991af88864"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5bba29c5fe72093581be4ee0cf64fe345b7f366b9784f4cf9071674c7c720bbf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "723dcc2a9a37a9ad238c335c289b62474284ecffc30564e3a4b7281386476f72"
+    sha256 cellar: :any_skip_relocation, monterey:       "25218ccd4e41873383140eb223da71c0d018d08a62a213fbfe102e745c97b355"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9a50ad11be71a77763353b97fcf5214c44b1fc495d616d189633e1749e649689"
+    sha256 cellar: :any_skip_relocation, catalina:       "c82f967236223fcbb3245513aead6c3d34789031d3244440ec86c5aa4a95bd87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc2e44b2d4cf1ac3d71572ecaa5f4ba3d0ba882a1c9ed7813ca7d8edda546cc6"
   end
 
   depends_on "cabal-install" => :build
