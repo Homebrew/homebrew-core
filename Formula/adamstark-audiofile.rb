@@ -19,7 +19,7 @@ class AdamstarkAudiofile < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++20", \
+    system ENV.cxx, "-std=gnu++2a", \
            "-o", "audiofile", \
            "audiofile.cc", \
             "-L", "/usr/local/Cellar/adamstark-audiofile/1.1.0/include"
