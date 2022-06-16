@@ -33,7 +33,7 @@ class MscGenerator < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-font-checks"
+    system "./configure", *std_configure_args, "--disable-font-checks"
     system "make", "-C", "src", "install"
     system "make", "-C", "doc", "msc-gen.1"
     man1.install "doc/msc-gen.1"
