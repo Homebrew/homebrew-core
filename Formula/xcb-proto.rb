@@ -1,8 +1,8 @@
 class XcbProto < Formula
   desc "X.Org: XML-XCB protocol descriptions for libxcb code generation"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.15.tar.xz"
-  sha256 "d34c3b264e8365d16fa9db49179cfa3e9952baaf9275badda0f413966b65955f"
+  url "https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.15.1.tar.xz"
+  sha256 "270eed15a98207fff89dc40a4a7ea31425fc7059d641227856bdd9191c2718ae"
   license "MIT"
 
   bottle do
