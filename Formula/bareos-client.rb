@@ -1,8 +1,8 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.org/"
-  url "https://github.com/bareos/bareos/archive/Release/19.2.9.tar.gz"
-  sha256 "ea203d4bdacc8dcc86164a74f628888ce31cc90858398498137bd25900b8f723"
+  url "https://github.com/bareos/bareos/archive/Release/21.1.3.tar.gz"
+  sha256 "3fc1241981f095c5e3db4e7476cdb273633b630820b1e1eff792b2c4d99b3d11"
   license "AGPL-3.0-only"
 
   livecheck do
