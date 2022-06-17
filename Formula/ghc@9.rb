@@ -25,6 +25,7 @@ class GhcAT9 < Formula
   depends_on "libtool" => :build
   depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "llvm@12" if Hardware::CPU.arm?
 
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
@@ -34,8 +35,13 @@ class GhcAT9 < Formula
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
-      url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-x86_64-apple-darwin.tar.xz"
-      sha256 "e1fe990eb987f5c4b03e0396f9c228a10da71769c8a2bc8fadbc1d3b10a0f53a"
+      if Hardware::CPU.intel?
+        url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-x86_64-apple-darwin.tar.xz"
+        sha256 "e1fe990eb987f5c4b03e0396f9c228a10da71769c8a2bc8fadbc1d3b10a0f53a"
+      else
+        url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-aarch64-apple-darwin.tar.xz"
+        sha256 "b1fcab17fe48326d2ff302d70c12bc4cf4d570dfbbce68ab57c719cfec882b05"
+      end
     end
 
     on_linux do
@@ -48,6 +54,10 @@ class GhcAT9 < Formula
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
     ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
+    # Work around build failure: fatal error: 'ffitarget_arm64.h' file not found
+    # Issue ref: https://gitlab.haskell.org/ghc/ghc/-/issues/20592
+    # TODO: remove once bootstrap ghc is 9.2.3 or later.
+    ENV.append_path "C_INCLUDE_PATH", "#{MacOS.sdk_path_if_needed}/usr/include/ffi" if OS.mac? && Hardware::CPU.arm?
 
     resource("binary").stage do
       binary = buildpath/"binary"
@@ -66,6 +76,8 @@ class GhcAT9 < Formula
     ENV.deparallelize { system "make", "install" }
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
     Dir.glob(lib/"*/package.conf.d/package.cache.lock") { |f| rm f }
+
+    bin.env_script_all_files libexec, PATH: "$PATH:#{Formula["llvm@12"].opt_bin}" if Hardware::CPU.arm?
   end
 
   def post_install
