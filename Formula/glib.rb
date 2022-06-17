@@ -6,6 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.72/glib-2.72.2.tar.xz"
   sha256 "78d599a133dba7fe2036dfa8db8fb6131ab9642783fc9578b07a20995252d2de"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "dd94ffde0318591e91b826353d83387839c57b4455bd79243c7227a2ad83b677"
@@ -19,10 +20,10 @@ class Glib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-  depends_on "python@3.9"
 
   on_linux do
     depends_on "util-linux"
@@ -39,6 +40,7 @@ class Glib < Formula
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
+    # and https://gitlab.gnome.org/GNOME/glib/-/issues/653
     args = std_meson_args + %W[
       --default-library=both
       --localstatedir=#{var}
@@ -52,7 +54,6 @@ class Glib < Formula
       system "meson", *args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
-      rewrite_shebang detected_python_shebang, *bin.children
     end
 
     # ensure giomoduledir contains prefix, as this pkgconfig variable will be
@@ -61,6 +62,23 @@ class Glib < Formula
     inreplace lib/"pkgconfig/gio-2.0.pc",
               "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
               "giomoduledir=${libdir}/gio/modules"
+
+    # Delete python files because they are provided by `glib-utils`
+    python_extension_regex = /\.(py(?:[diwx])?|px[di]|cpython-(?:[23]\d{1,2})[-\w]*\.(so|dylib))$/i
+    python_shebang_regex = %r{^#! ?/usr/bin/(?:env )?python(?:[23](?:\.\d{1,2})?)?( |$)}
+    shebang_max_length = 28 # the length of "#! /usr/bin/env pythonx.yyy "
+    prefix.find do |f|
+      next unless f.file?
+
+      f.unlink if python_extension_regex.match?(f.basename) || python_shebang_regex.match?(f.read(shebang_max_length))
+    end
+
+    # Delete empty directories
+    # Note: We need to traversal the directories in reverse order (i.e. deepest first).
+    #       Also, we should put checking emptiness and deletion in a single loop.
+    #       `dirs.select(&:empty?).map(&:rmdir)` will not work because it will not delete
+    #       directories that only contain empty directories.
+    prefix.find.select(&:directory?).reverse_each { |d| d.rmdir if d.empty? }
 
     if OS.mac?
       # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
@@ -88,6 +106,13 @@ class Glib < Formula
 
   def post_install
     (HOMEBREW_PREFIX/"lib/gio/modules").mkpath
+  end
+
+  def caveats
+    <<~EOS
+      Python executables and libraries are no longer included with this formula, but they are available separately:
+        brew install glib-utils
+    EOS
   end
 
   test do
