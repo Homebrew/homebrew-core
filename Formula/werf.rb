@@ -6,6 +6,11 @@ class Werf < Formula
   license "Apache-2.0"
   head "https://github.com/werf/werf.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c8cc4fe6768731e67fd9fe28b9ccda80a42b39d153704817f3e5ddc4db099424"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2324cf8804a9b3eb033fd9a0df3fb3f156ccb5ad5cebf95e61e6ac4c564b9a72"
