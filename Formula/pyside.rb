@@ -38,12 +38,6 @@ class Pyside < Formula
 
   fails_with gcc: "5"
 
-  # Apply upstream commit to fix build.  Remove with next release.
-  patch do
-    url "https://code.qt.io/cgit/pyside/pyside-setup.git/patch/?id=703d975f"
-    sha256 "c8aa9518edb792793d30e7ee8b77bfbdc4c408bdb6ac4d208813092cdbf7f6ae"
-  end
-
   def install
     ENV.append_path "PYTHONPATH", buildpath/"build/sources"
 
