@@ -3,8 +3,8 @@ class Sip < Formula
 
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://files.pythonhosted.org/packages/c6/08/34642c4db19e9d41f43640547c5a997cb9b12b512f8c61d0d476e8b9e883/sip-6.6.1.tar.gz"
-  sha256 "696c575c72144122701171f2cc767fe6cc87050ea755a04909152a8508ae10c3"
+  url "https://files.pythonhosted.org/packages/5b/cb/c27c925ae07bd03a2597fa1db17bfc2a4ac57da61aeb90f8ec98ffbb975b/sip-6.6.2.tar.gz"
+  sha256 "0e3efac1c5dfd8e525ae57140927df26993e13f58b89d1577c314f4105bfd90d"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
@@ -30,8 +30,8 @@ class Sip < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
-    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
+    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
+    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   resource "toml" do
