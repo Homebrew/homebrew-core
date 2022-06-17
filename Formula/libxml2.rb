@@ -58,15 +58,6 @@ class Libxml2 < Formula
     sha256 "37eb81a8ec6929eed1514e891bff2dd05b450bcf0c712153880c485b7366c17c"
   end
 
-  def sdk_include
-    on_macos do
-      return MacOS.sdk_path/"usr/include"
-    end
-    on_linux do
-      return HOMEBREW_PREFIX/"include"
-    end
-  end
-
   def install
     system "autoreconf", "-fiv" if build.head?
 
@@ -80,12 +71,12 @@ class Libxml2 < Formula
 
     # Homebrew-specific workaround to add include path for `icu4c` because
     # it is in a different directory than `libxml2`.
-    inreplace bin/"xml2-config", "-I${includedir}/libxml2 ",
-                                 "-I${includedir}/libxml2 -I#{Formula["icu4c"].opt_include}"
-    inreplace lib/"pkgconfig/libxml-2.0.pc", "-I${includedir}/libxml2 ",
-                                             "-I${includedir}/libxml2 -I#{Formula["icu4c"].opt_include}"
+    inreplace [bin/"xml2-config", lib/"pkgconfig/libxml-2.0.pc"],
+              "-I${includedir}/libxml2 ",
+              "-I${includedir}/libxml2 -I#{Formula["icu4c"].opt_include}"
 
     cd "python" do
+      sdk_include = OS.mac? ? MacOS.sdk_path_if_needed/"usr/include" : HOMEBREW_PREFIX/"include"
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
                             "includes_dir = ['#{include}', '#{sdk_include}',"
