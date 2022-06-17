@@ -1,17 +1,17 @@
 class KotlinLanguageServer < Formula
   desc "Intelligent Kotlin support for any editor/IDE using the Language Server Protocol"
   homepage "https://github.com/fwcd/kotlin-language-server"
-  url "https://github.com/fwcd/kotlin-language-server/archive/refs/tags/1.3.0.tar.gz"
-  sha256 "679375e987aa7dea7dc8d291a1ebe729372dcd508065074c8b2d2663b6c776e6"
+  url "https://github.com/fwcd/kotlin-language-server/archive/refs/tags/1.3.1.tar.gz"
+  sha256 "a968e0079787f1a6d2f46b4dbd49b2394c266287c8573097f71a14cdb794223d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef1a6bbecfdc62410386d2f02acf4775806573636275434a41797d6921cd14aa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "018806306d3fe124273bf9ea742ac848c67218f5343c989d0d931dc639bbe1c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "66407aa73f6db0ef7cbe35de4df502894ea98609cd23d43d6e058f8e29470fb9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a693dbc67f8ab34ee7decce3237cdb6a3960f5d5e46c73f564ee70a325e6257b"
-    sha256 cellar: :any_skip_relocation, catalina:       "aa1af6e2de79409ce1470619caf212960cad02ec317229248fa1f9147f5a5709"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57c74afd0401577513db5f79ed04c8903a1e36bac2aa3c3a8ca2a9b55c1a4ae8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad521214d25e1c4ca6f66cbbfb7b877de45b7f6aeecbdfeb3d812a35d2367d34"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42be778c6f2825ec713f5a65a8ab55623b8a8b3ec1a8712bd30880f873e25242"
+    sha256 cellar: :any_skip_relocation, monterey:       "cacdac3c30827ebdba6ec8ba7c3194467a43ac05b2fd4e9bc667ee78cbef2b6f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d49a6301254a3824575a106eb4b7cd87f4497851a17a1e8b8cff36162ac7300d"
+    sha256 cellar: :any_skip_relocation, catalina:       "864d2c7571e16472b304581106e2d718cfe3e3df0924416c41a10f9a335cae49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2b546afa467dea1abbe547c6caea4fcf34d79267eb83ec314465e07fe4fb541"
   end
 
   depends_on "gradle" => :build

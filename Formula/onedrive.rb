@@ -29,7 +29,7 @@ class Onedrive < Formula
     keep_alive true
     error_log_path var/"log/onedrive.log"
     log_path var/"log/onedrive.log"
-    working_dir ENV["HOME"]
+    working_dir Dir.home
   end
 
   test do

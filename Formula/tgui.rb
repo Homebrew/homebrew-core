@@ -1,17 +1,17 @@
 class Tgui < Formula
   desc "GUI library for use with sfml"
   homepage "https://tgui.eu"
-  url "https://github.com/texus/TGUI/archive/v0.9.3.tar.gz"
-  sha256 "187acfa850e24e3676e656a7dbe53736c98ca2577d756e9c96c9dad6374ffa0e"
+  url "https://github.com/texus/TGUI/archive/v0.9.4.tar.gz"
+  sha256 "08ce4893a5ab25a151be317c87395ac3567654547c9854b16c3142e750389cf6"
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e694ef23f7c331e9ade5da5ba872d66eb38b662b88643ffa10586d5816cd159a"
-    sha256 cellar: :any,                 arm64_big_sur:  "5b7c153f39dc10454b182874e8d4ffd93e52d0c14de03912dce1643e17c3ad7a"
-    sha256 cellar: :any,                 monterey:       "e07465d3dd63c15487ef251ff22e322e72d7c2f4f0eacf42514bfef7a5f7d708"
-    sha256 cellar: :any,                 big_sur:        "0fda08ecd69619a0ea7ac101e9915698a3c439a677f5c1148834d585c51e5d12"
-    sha256 cellar: :any,                 catalina:       "ba3b33488a47cfe5dedd377e0f3517feb0b052f1ee5a2d03ef92f469da6ba35a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1426f8179e7f14ef646875d610c511458bbf931c4f6f812d6c4f5ce4b3ab1e72"
+    sha256 cellar: :any,                 arm64_monterey: "8cf63f4e1002f76b5a0a6691d2eb7a1bf6cc358e4c878815905c9ad2131e73d9"
+    sha256 cellar: :any,                 arm64_big_sur:  "9088fcda97b4adeff261b57a4b7f9696d7617778da75a4e548da491e4ad1a8bc"
+    sha256 cellar: :any,                 monterey:       "b0f45eecfd9bf712aa79880adce0a2cece1e48ac8599bb9e57cdabd5ccd165ce"
+    sha256 cellar: :any,                 big_sur:        "37873670a0f0a3665560148ea67408aaad52bf36fdd54cc35a9c0e6babe3ff8a"
+    sha256 cellar: :any,                 catalina:       "10d9ffc4baffa1206a56c62ca4f6c0968c83a1b3026b943e52596789c23c1cf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "899cd5ef7ce7e66f14487d1bad93990eaa45fe577cba4b203a2ad01de9b9c1ea"
   end
 
   depends_on "cmake" => :build

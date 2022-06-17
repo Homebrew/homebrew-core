@@ -3,20 +3,18 @@ class Alot < Formula
 
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
-  url "https://github.com/pazz/alot/archive/0.9.1.tar.gz"
-  sha256 "ee2c1ab1b43d022a8fe2078820ed57d8d72aec260a7d750776dac4ee841d1de4"
+  url "https://github.com/pazz/alot/archive/0.10.tar.gz"
+  sha256 "71f382aa751fb90fde1a06a0a4ba43628ee6aa6d41b5cd53c8701fd7c5ab6e6e"
   license "GPL-3.0-only"
-  revision 2
   head "https://github.com/pazz/alot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c79ff668ad0dbd660487733211ac380e97ae7e67cf211ef559be687c07f027d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f9ba3f7cc0858982386261853661c35eeaf4f0ecf928033345f5cf84005dcc7"
-    sha256 cellar: :any_skip_relocation, monterey:       "4ae10d58fe370c3f27a5002c2a08c9aecbd107561ea8b302b2e75eefdc618a42"
-    sha256 cellar: :any_skip_relocation, big_sur:        "96603eb0e2c1ff9195d760a15a5892f8b325b05ef504874ebc2c477d06bf4e99"
-    sha256 cellar: :any_skip_relocation, catalina:       "9957fe31c30e665b47efd1150e90288fc91f9a00fd0298d1a8e0e0d7dcfaffbe"
-    sha256 cellar: :any_skip_relocation, mojave:         "182143fbad21974b42e94c8432c80e395e53eeb7f0bbccffd36e687b67081c54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b19f738d69314b171068f4318f1516c7351e76a9ce11f06156af0e49db6b4de0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f8ec0de4e6950b4f82157ccfc83caf5cddb8b8211ea43eaa011ef717effaec7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35890bbfb4c88bc546dd4034f1c86c3c7b1de3aefd501a1b5122897786c212de"
+    sha256 cellar: :any_skip_relocation, monterey:       "e8afb3036175dfa2e2446add9df2ba0d735b895e32112c86dd719c77d2942332"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9a34a5fa6126b2aeac47b3606a5077d0a206fec7a88939e8d30cbd374f448f54"
+    sha256 cellar: :any_skip_relocation, catalina:       "48ad5f6ee8ac8519a0598d8c3cd025a12f3e78c559ae65343ec8a8fd124e6330"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4cde5dde41d4aab32bf1a6c64ab5f3514020f3726350082751e3889aaca712c"
   end
 
   depends_on "sphinx-doc" => :build
@@ -25,11 +23,7 @@ class Alot < Formula
   depends_on "libmagic"
   depends_on "notmuch"
   depends_on "python@3.9"
-
-  resource "wheel" do
-    url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
-    sha256 "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
-  end
+  depends_on "six"
 
   resource "Automat" do
     url "https://files.pythonhosted.org/packages/80/c5/82c63bad570f4ef745cc5c2f0713c8eddcd07153b4bee7f72a8dc9f9384b/Automat-20.2.0.tar.gz"
@@ -37,13 +31,13 @@ class Alot < Formula
   end
 
   resource "Twisted" do
-    url "https://files.pythonhosted.org/packages/c2/41/3f30da0f7025480eff8feb9ef0927c6db6bbbf6e64985cac77ee0210a903/Twisted-21.2.0.tar.gz"
-    sha256 "77544a8945cf69b98d2946689bbe0c75de7d145cdf11f391dd487eae8fc95a12"
+    url "https://files.pythonhosted.org/packages/fb/1e/fffa0d45da0ed2998e4d7f121621f2de68c51153fbbab23e63901cf859f4/Twisted-22.4.0.tar.gz"
+    sha256 "a047990f57dfae1e0bd2b7df2526d4f16dcdc843774dc108b78c52f2a5f13680"
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
-    sha256 "832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
+    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
+    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
   end
 
   resource "configobj" do
@@ -62,8 +56,8 @@ class Alot < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/9f/24/1444ee2c9aee531783c031072a273182109c6800320868ab87675d147a05/idna-3.1.tar.gz"
-    sha256 "c5b02147e01ea9920e6b0a3f1f7bb833612d507592c837a6c49552768f4054e1"
+    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
+    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
   resource "incremental" do
@@ -77,13 +71,13 @@ class Alot < Formula
   end
 
   resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/26/60/6d45e0e7043f5a7bf15238ca451256a78d3c5fe02cd372f0ed6d888a16d5/python-magic-0.4.22.tar.gz"
-    sha256 "ca884349f2c92ce830e3f498c5b7c7051fe2942c3ee4332f65213b8ebff15a62"
+    url "https://files.pythonhosted.org/packages/f7/46/fecfd32c126d26c8dd5287095cad01356ec0a761205f0b9255998bff96d1/python-magic-0.4.25.tar.gz"
+    sha256 "21f5f542aa0330f5c8a64442528542f6215c8e18d2466b399b0d9d39356d83fc"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/fe/71/1df93bd59163c8084d812d166c907639646e8aac72886d563851b966bf18/typing_extensions-4.2.0.tar.gz"
+    sha256 "f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"
   end
 
   resource "urwid" do
@@ -103,6 +97,12 @@ class Alot < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # Add path configuration file to use notmuch CFFI bindings
+    site_packages = Language::Python.site_packages("python3")
+    pth_contents = "import site; site.addsitedir('#{Formula["notmuch"].opt_libexec/site_packages}')\n"
+    (libexec/site_packages/"homebrew-notmuch2.pth").write pth_contents
+
     pkgshare.install Dir["extra/*"] - %w[extra/completion]
     zsh_completion.install "extra/completion/alot-completion.zsh" => "_alot"
 
@@ -125,10 +125,9 @@ class Alot < Formula
       pid = fork do
         $stdout.reopen("/dev/null")
         $stdin.reopen("/dev/null")
-        on_macos do
+        if OS.mac?
           exec "script", "-q", "/dev/null", bin/"alot", "--logfile", testpath/"out.log"
-        end
-        on_linux do
+        else
           exec "script", "-q", "/dev/null", "-e", "-c", "#{bin}/alot --logfile #{testpath}/out.log"
         end
       end

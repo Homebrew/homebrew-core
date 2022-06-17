@@ -32,6 +32,14 @@ class Exa < Formula
   end
 
   def install
+    # Workaround rust 1.61.0 bug, remove with next rust release
+    # https://github.com/rust-lang/rust/issues/97255
+    # https://github.com/ogham/exa/issues/1068
+    ENV["CARGO_PROFILE_RELEASE_LTO"] = "false"
+    if Formula["rust"].version > "1.61.0" && build.stable?
+      raise "Rust 1.61.1+ detected, remove workaround for broken LTO!"
+    end
+
     system "cargo", "install", *std_cargo_args
 
     if build.head?

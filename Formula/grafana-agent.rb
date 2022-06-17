@@ -1,17 +1,17 @@
 class GrafanaAgent < Formula
   desc "Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces"
   homepage "https://grafana.com/docs/agent/"
-  url "https://github.com/grafana/agent/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "da23573532abdf62f02265f78d1c8ea0a758c9fb69e1772a1a2716532f454e0e"
+  url "https://github.com/grafana/agent/archive/refs/tags/v0.25.1.tar.gz"
+  sha256 "a8bf90eed088fc40bdafbc741080a995f5ded73c2dc83d45a654fd40c65874bf"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04f83b1ab521b1483e11abe376d1ee3d3b310cbfc5a56aaa66a9f8d16a0a1ace"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8575c1158f73508cf1345dbd1913873aefb09eb1767ca864456241b8d7a6f9bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bc5393999066ddff55f8ad8fb8c011b8faa8de25dec1957a84c63249e074852"
-    sha256 cellar: :any_skip_relocation, big_sur:        "43b840467cdd62c34c22516c07eb371a5647aa39f4ea9d5221bbc37481d93b82"
-    sha256 cellar: :any_skip_relocation, catalina:       "a25beb6b0697134b2a214d0d108453e371d4f09c871a07bfe039e64f74e4418b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fc4f3db8fb714ed58afc3da72c5d6f51ffc15e2c5f1c7e6c2830c7aae260219"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0be2dd902955f68cd3d4e95d4b2c75ba30eaf9125d31facd0c7d141caf323121"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd7cad2ece9e5817f9e048197e20b32a09f97eb81a4ff01f71146b9daa45a3de"
+    sha256 cellar: :any_skip_relocation, monterey:       "125d57a1995fbd85f7e264e6a15383850e1ee2fd67f4800399e0ab6cbd21cc9b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "603f4f57bc555a82027723df8c81659afabe6604640f70cdebf25ea9a75a82af"
+    sha256 cellar: :any_skip_relocation, catalina:       "c490955cd699cb583f31938ac7993ec1ab86ca513799ed19a115ad5e8ee40440"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd0ecd7e2503b86ae3a27c254ddd5495a607e4b7e50548d20eebbe65e94cac9c"
   end
 
   # Bump to 1.18 on the next release, if possible.

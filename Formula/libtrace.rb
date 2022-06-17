@@ -1,8 +1,8 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://research.wand.net.nz/software/libtrace.php"
-  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.18.tar.bz2"
-  sha256 "7ee1440b9f29ca31269189b9aa8904c9e19841696f2dd4da5c40d804e5977aea"
+  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.19.tar.bz2"
+  sha256 "d1a2d756d744c4ffad480f6d4b0bdaca05a9966c87e491992c42007a22317e5a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libtrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fafe9355c658955e42845e9948322275be61c65e4c621baec118bc80916e070f"
-    sha256 cellar: :any,                 arm64_big_sur:  "4c636423c07217665afda17ff79dafc55ffb05390dbc0c30ab05fcd58c5c659c"
-    sha256 cellar: :any,                 monterey:       "0ac1f4c438fdb6e9b764d7b52c282b50a7acd430637776625f190aa6bb40daf9"
-    sha256 cellar: :any,                 big_sur:        "d2c620571784157b150d119ea93b4b7a4bcd1cb31d692eb11019768c04499c49"
-    sha256 cellar: :any,                 catalina:       "e46d78363ad72263730d6926fac771e9eb050ce9c6d94b260ff806a98a5e521a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91a08080b54316504e84b351ee72819a3791c6849200b3c9584efee87ef80e64"
+    sha256 cellar: :any,                 arm64_monterey: "f9edccc796e56af2f95bbbcffa1e791f7a17192e010ca4034b45ffa2427a0ae1"
+    sha256 cellar: :any,                 arm64_big_sur:  "1726bfafd1b98709f408d17495827e1884f5e0bdc3a1933c80da04116dfd9bca"
+    sha256 cellar: :any,                 monterey:       "a7a4f93a72e61b050f64ba94ca1074c4e0da466914755abe87c9d66894ec9fcb"
+    sha256 cellar: :any,                 big_sur:        "beba5d290b00bd42eafec29d80b05460da03da8f00e1c4e1ef58c47e602c1312"
+    sha256 cellar: :any,                 catalina:       "9aa10a0c52d0f1e3929cd8c4fffd0a1c65f12c4527d95d8854c1139cffb1dcc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dde6596eb8e6501379c201dd115de9e1f106dbc39e5705a56f07055249ed8c2"
   end
 
   depends_on "openssl@1.1"
