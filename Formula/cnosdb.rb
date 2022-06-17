@@ -60,7 +60,7 @@ class Cnosdb < Formula
       end
       sleep 30
       # Assert that initial resources show in CLI output.
-      assert_match "CnosDB v#{version} (git: unknown #{Utils.git_short_head(length: 10)})", shell_output("#{bin}/cnosdb version")
+      assert_match "CnosDB shell version: v#{version}", shell_output("#{bin}/cnosdb-cli")
     ensure
       Process.kill("SIGTERM", cnosdb)
       Process.wait(cnosdb)
