@@ -20,6 +20,7 @@
   ["gdb", "i386-elf-gdb", "x86_64-elf-gdb"],
   ["ghz", "ghz-web"],
   ["git", "git-credential-libsecret", "git-gui", "git-svn"],
+  ["glib", "glib-utils"],
   ["hdf5", "hdf5-mpi"],
   ["ilmbase", "openexr@2"],
   ["libexosip", "libosip"],
