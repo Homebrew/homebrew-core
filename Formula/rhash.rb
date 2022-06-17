@@ -16,13 +16,6 @@ class Rhash < Formula
     sha256 x86_64_linux:   "9e3e320d2103007aa387d1710d4db67d7399b3341aa02770dc6d9b2c7dff9805"
   end
 
-  # configure: fix clang detection on macOS
-  # Patch accepted and merged upstream, remove on next release
-  patch do
-    url "https://github.com/rhash/RHash/commit/4dc506066cf1727b021e6352535a8bb315c3f8dc.patch?full_index=1"
-    sha256 "3fbfe4603d2ec5228fd198fc87ff3ee281e1f68d252c1afceaa15cba76e9b6b4"
-  end
-
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-gettext"
     system "make"
