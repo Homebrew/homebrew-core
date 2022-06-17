@@ -48,12 +48,6 @@ class Cnosdb < Formula
   test do
     cnosdb_port = free_port
     cnosdb_host = "localhost"
-    (testpath/"cnosdb.conf").write shell_output("#{bin}/cnosdb config")
-    inreplace testpath/"cnosdb.conf" do |s|
-      s.gsub! %r{/.*/.cnosdb/data}, "#{testpath}/cnosdb/data"
-      s.gsub! %r{/.*/.cnosdb/meta}, "#{testpath}/cnosdb/meta"
-      s.gsub! %r{/.*/.cnosdb/wal}, "#{testpath}/cnosdb/wal"
-    end
     begin
       cnosdb = fork do
         exec "#{bin}/cnosdb-cli", "--host=#{cnosdb_host}", "--port=#{cnosdb_port}"
