@@ -52,16 +52,16 @@ class Werf < Formula
     EOS
 
     output = <<~EOS
-      - image: vote
-      - image: result
-      - image: worker
+      vote
+      result
+      worker
     EOS
 
     system "git", "init"
     system "git", "add", werf_config
     system "git", "commit", "-m", "Initial commit"
 
-    assert_equal output, shell_output("#{bin}/werf config graph")
+    assert_equal output, shell_output("#{bin}/werf config list")
 
     assert_match version.to_s, shell_output("#{bin}/werf version")
   end
