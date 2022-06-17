@@ -1,6 +1,5 @@
 [
   ["aarch64-elf-gcc", "i686-elf-gcc", "x86_64-elf-gcc"],
-  ["advancemame", "advancemenu"],
   ["apache-arrow", "apache-arrow-glib"],
   ["apache-pulsar", "libpulsar"],
   ["avro-c", "avro-cpp", "avro-tools"],
