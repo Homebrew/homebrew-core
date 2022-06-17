@@ -16,6 +16,7 @@ class Localstack < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "52adc89050fa5b2cad056beea0c314134d22cf1cdfa04da76175d729bb4190ab"
   end
 
+  depends_on "rust" => :build # for cryptography
   depends_on "docker" => :test
   depends_on "python-tabulate"
   depends_on "python@3.9"
