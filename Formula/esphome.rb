@@ -3,18 +3,17 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/00/04/0dd40df2b8e7a4dccfcbc7f3e7789f9050cf0f0d15ec0b67c8548f3e8d9c/esphome-2022.5.1.tar.gz"
-  sha256 "31fec427c29ff5967e54afaeec79e96e37544bfb1166862ee6255c5651af1442"
+  url "https://files.pythonhosted.org/packages/2c/33/fd3a63ceb08045f8f1258c3b80651bd9295861bd9eb3612000d758ccf362/esphome-2022.6.0.tar.gz"
+  sha256 "00011d445e96c95ed54c66382396539ddddfc1f01bb319b1bf76b81ac3993aa6"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f5f2fc67d6789834947b81ba234a1d0cc2f4bdb4ec1e93b460432fffbae2eecb"
-    sha256 cellar: :any,                 arm64_big_sur:  "683a9b18664a482001299b8f1dbad50c020324ec88c7cec7f2c1aa148730f16e"
-    sha256 cellar: :any,                 monterey:       "52170b1b35d8c75b4a40548f9af13d739f95288ac525c1e4d0eab2f4bb5421fa"
-    sha256 cellar: :any,                 big_sur:        "ae510625685f5e543be16a8d17501cf12fbb319eb385f51d1ede9c9652e484e4"
-    sha256 cellar: :any,                 catalina:       "c28914f7f09c3622a15e76b6d43b82a71b8f6eab40a6b8baf8664adf35944752"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4bb590e59b427293f280e9a787ffb9a7b629b46407cfd7b9d51c556757287ffd"
+    sha256 cellar: :any,                 arm64_monterey: "38d9feb3b3d2f41499422b5415e14d86a8a8d6da0c7141e36e666741b0268edd"
+    sha256 cellar: :any,                 arm64_big_sur:  "4a6b23ad632e62956cf47a7bd68a25ac1d417f74f55ef50aa039ac492a4f8eb2"
+    sha256 cellar: :any,                 monterey:       "2b8715afadaafd592d98ee2554bdea40bb552aa65ca1871aebed8c95907b6b66"
+    sha256 cellar: :any,                 big_sur:        "007bd676d76ee34db0dcf0972576f8635599358d797fb07737806ecc1d7c387a"
+    sha256 cellar: :any,                 catalina:       "6f41147ce8ba28e54500663422b5812e32ac8db5b096483d0aeae2d3a9197eb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb6894c4a70651e093f321d4b57477f1c741a0c18aea3d6f63c73eff0b2053c9"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -59,8 +58,8 @@ class Esphome < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
-    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
+    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
+    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
   end
 
   resource "cffi" do
@@ -99,8 +98,8 @@ class Esphome < Formula
   end
 
   resource "esptool" do
-    url "https://files.pythonhosted.org/packages/63/85/1a7f65d3f89c112c721c6ec013ecd948112df17640e453ddeb1921b05aab/esptool-3.3.tar.gz"
-    sha256 "39b92e1848e352183188f149f3e876cde4b8a1c095551e7e545a28e5c11eea13"
+    url "https://files.pythonhosted.org/packages/de/57/08750ca0d19114237ff5e2da6a945deed888e3774c95acb577387ed11bec/esptool-3.3.1.tar.gz"
+    sha256 "f9ade989a7f5f19bfc60e11925c45f470b8155c7ecf1a37bc8c31380d5dd07b8"
   end
 
   resource "h11" do
@@ -114,8 +113,8 @@ class Esphome < Formula
   end
 
   resource "ifaddr" do
-    url "https://files.pythonhosted.org/packages/3d/fc/4ce147e3997cd0ea470ad27112087545cf83bf85015ddb3054673cb471bb/ifaddr-0.1.7.tar.gz"
-    sha256 "1f9e8a6ca6f16db5a37d3356f07b6e52344f6f9f7e806d618537731669eb1a94"
+    url "https://files.pythonhosted.org/packages/e8/ac/fb4c578f4a3256561548cd825646680edcadb9440f3f68add95ade1eb791/ifaddr-0.2.0.tar.gz"
+    sha256 "cc0cbfcaabf765d44595825fb96a99bb12c79716b73b44330ea38ee2b0c4aed4"
   end
 
   resource "kconfiglib" do
@@ -184,8 +183,8 @@ class Esphome < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+    url "https://files.pythonhosted.org/packages/e9/23/384d9953bb968731212dc37af87cb75a885dc48e0615bd6a303577c4dc4b/requests-2.28.0.tar.gz"
+    sha256 "d568723a7ebd25875d8d1eaf5dfa068cd2fc8194b2e483d7b1f7c81918dbec6b"
   end
 
   resource "semantic-version" do

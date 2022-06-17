@@ -2,6 +2,7 @@ class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
   license "MIT"
+  revision 2
 
   stable do
     url "https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz"
@@ -22,12 +23,12 @@ class Libxml2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8f4f5e5b265b205ff11a433146bda5da6a83e40bdd7be6f0896e635ab5f2fba9"
-    sha256 cellar: :any,                 arm64_big_sur:  "72ca35dc31cdea740bbfff3721badbc4f638d4597bb58e7871e233a6094aa490"
-    sha256 cellar: :any,                 monterey:       "7b01db07cad660cbb1bbfde23f2ea6abd61efb5a78b3332cf70983df5c64b952"
-    sha256 cellar: :any,                 big_sur:        "20b7d9eceed268fd720a18c091782e00390ca1bb662f9397256d854d58138915"
-    sha256 cellar: :any,                 catalina:       "af0f3fc90036eb2e6b918019be41ffcc9ab9859dcc116e49b82c8ee6969cb7fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29b5f1488808a5f626ab1a4ec38acf1ea8399c13e2c4fe15be9b178020bf517d"
+    sha256 cellar: :any,                 arm64_monterey: "10f2630faa3eb5d1840210bf461ef2ec00f30bf84e7732bf8f7793177336878d"
+    sha256 cellar: :any,                 arm64_big_sur:  "1121cf5f532c4a7e8e01173d78fb13b9f2afbec433c49a691df47f86508c6e0f"
+    sha256 cellar: :any,                 monterey:       "9ef0a3cefa07728a1b4b08db180de0f1aba8a827e9e58fe4549fbd68dfbbb3e2"
+    sha256 cellar: :any,                 big_sur:        "023456bec0dc12b1ea765a2ed4bd9d67117dad4ba14e0dfd21bc1cc598b8943f"
+    sha256 cellar: :any,                 catalina:       "573f91a92d66c022482b943b258e4d883ff75ec9aa9c32df6a3203aec3003b24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e83b54acd9f5967af5f7a7bafbf963c69942a7fd6a615dd45c32e153675b63e"
   end
 
   head do
@@ -42,6 +43,8 @@ class Libxml2 < Formula
   keg_only :provided_by_macos
 
   depends_on "python@3.9" => [:build, :test]
+  depends_on "pkg-config" => :test
+  depends_on "icu4c"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -55,26 +58,25 @@ class Libxml2 < Formula
     sha256 "37eb81a8ec6929eed1514e891bff2dd05b450bcf0c712153880c485b7366c17c"
   end
 
-  def sdk_include
-    on_macos do
-      return MacOS.sdk_path/"usr/include"
-    end
-    on_linux do
-      return HOMEBREW_PREFIX/"include"
-    end
-  end
-
   def install
     system "autoreconf", "-fiv" if build.head?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-history",
+                          "--with-icu",
                           "--without-python",
                           "--without-lzma"
     system "make", "install"
 
+    # Homebrew-specific workaround to add include path for `icu4c` because
+    # it is in a different directory than `libxml2`.
+    inreplace [bin/"xml2-config", lib/"pkgconfig/libxml-2.0.pc"],
+              "-I${includedir}/libxml2 ",
+              "-I${includedir}/libxml2 -I#{Formula["icu4c"].opt_include}"
+
     cd "python" do
+      sdk_include = OS.mac? ? MacOS.sdk_path_if_needed/"usr/include" : HOMEBREW_PREFIX/"include"
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
                             "includes_dir = ['#{include}', '#{sdk_include}',"
@@ -95,8 +97,17 @@ class Libxml2 < Formula
         return 0;
       }
     EOS
+
+    # Test build with xml2-config
     args = %w[test.c -o test]
     args += shell_output("#{bin}/xml2-config --cflags --libs").split
+    system ENV.cc, *args
+    system "./test"
+
+    # Test build with pkg-config
+    ENV.append "PKG_CONFIG_PATH", lib/"pkgconfig"
+    args = %w[test.c -o test]
+    args += shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs libxml-2.0").split
     system ENV.cc, *args
     system "./test"
 

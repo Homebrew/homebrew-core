@@ -1,5 +1,6 @@
 [
   "arxiv_latex_cleaner",
+  "chapel",
   "coin3d",
   "emscripten",
   "freedink",
@@ -11,5 +12,6 @@
   "pyside",
   "pyside@2",
   "sqoop",
+  "swtpm",
   "watchman"
 ]

@@ -7,6 +7,7 @@ class Exiftool < Formula
   mirror "https://exiftool.org/Image-ExifTool-12.42.tar.gz"
   sha256 "31d805ed59f2114f19c569f8a2aaffb89fa211453733d2c650d843a3e46236df"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://exiftool.org/history.html"
@@ -14,13 +15,12 @@ class Exiftool < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "107ea49a6a120d031be18ca6f552a8df01c2b74da166394ec6336551f624763d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8956e65756c109506891750840a88e1171fcda9028cf7466df3c6f9f49aa26d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "f318bf377de9820dfa35039ff40bb6d193e1d855e2753b9962303f17a923d231"
-    sha256 cellar: :any_skip_relocation, big_sur:        "88e0b007181d89405c6597a1a234cbbd44c7b998d288f2335cac898061ff5d57"
-    sha256 cellar: :any_skip_relocation, catalina:       "dcec97e9c602263e02fb3459bdb2c8c4537264e308c06869fa8e674520f251a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "084e982832971c5e53308d917b10675b64581ba531ec4f075224e15fb66f9e40"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e424311955c3d99967bbed07db50debfed9679ce818a745c9c00a9baf44e166"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cba13fbd607ab06ed51322537c8872dcd97526e2a73bf0e9068d13385c968b89"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec0dc0fef8e628c082a615d6e4d463bc6a49650fc4a05f7ade1c255b3eb68bd5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cb6f7097abf5fd559d2a9321bc0bb9cefe787b556bc422f5f50a7d1b51d24ac7"
+    sha256 cellar: :any_skip_relocation, catalina:       "5a32f4e2cf0bf03b9e8767653e858f0e2bf741b8e684ddf881090e79dd9d9201"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77f263d6e8fe29f4ac068e2623a2c0592a227f11e0335f99a24a50b70c02b563"
   end
 
   uses_from_macos "perl"

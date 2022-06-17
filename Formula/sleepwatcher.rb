@@ -43,7 +43,7 @@ class Sleepwatcher < Formula
   end
 
   service do
-    run [opt_sbin/"sleepwatcher", "-V", "-s", "#{ENV["HOME"]}/.sleep", "-w", "#{ENV["HOME"]}/.wakeup"]
+    run [opt_sbin/"sleepwatcher", "-V", "-s", "#{Dir.home}/.sleep", "-w", "#{Dir.home}/.wakeup"]
     run_type :immediate
     keep_alive true
   end

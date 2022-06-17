@@ -1,7 +1,7 @@
 class Libtermkey < Formula
   desc "Library for processing keyboard entry from the terminal"
-  homepage "http://www.leonerd.org.uk/code/libtermkey/"
-  url "http://www.leonerd.org.uk/code/libtermkey/libtermkey-0.22.tar.gz"
+  homepage "https://www.leonerd.org.uk/code/libtermkey/"
+  url "https://www.leonerd.org.uk/code/libtermkey/libtermkey-0.22.tar.gz"
   sha256 "6945bd3c4aaa83da83d80a045c5563da4edd7d0374c62c0d35aec09eb3014600"
   license "MIT"
 
@@ -11,15 +11,13 @@ class Libtermkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "97c29474c42b54cb9784fe05855b969b7fbb3a20e7b46081f257cff2e149dcb9"
-    sha256 cellar: :any,                 arm64_big_sur:  "a9e13d645b016b670bb0d9c79928f5344928685f7d358480210f1af8729480e6"
-    sha256 cellar: :any,                 monterey:       "542c3e6cab8cf06b848f38f4e0453e000b6507d4fadc1f5e8c7a81916a156e64"
-    sha256 cellar: :any,                 big_sur:        "afaf585bd31e32a5fd01a5c16a4c37af9e38524b72e03a76b61038c60f2ed113"
-    sha256 cellar: :any,                 catalina:       "293f71f6cb8498f734910ada7ffe4e8e2ea2cb6121455318053d2a5951b272a8"
-    sha256 cellar: :any,                 mojave:         "efa6360ccb50275ee143410e57b4ff47b2d6bafd97d6f4feeb3cb3ee02050a2c"
-    sha256 cellar: :any,                 high_sierra:    "e3b848de428f811c1879530c043145152bf4b0e599ed642aa2845904d13f7081"
-    sha256 cellar: :any,                 sierra:         "3f8ce77603619d85de7127f317e276c0cd38a461c545cafeb7c875e7c89fe467"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9ac2c7fc0a6df84b0743233d1ab68984bc398b2c0550a4c61ab01ddfd9bd665"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "7ffaeabbe372926ca45094684424add804cb1a8140c88a19115e7e41e02dedc9"
+    sha256 cellar: :any,                 arm64_big_sur:  "fc0c8e944f2a0e93500e6b93823b685aa085badbf298cf933ef2be6c615ab9a1"
+    sha256 cellar: :any,                 monterey:       "4acf8f693e3ca76abb35a77f32edd5f54dbe47419fa690a9c32c396536a30b00"
+    sha256 cellar: :any,                 big_sur:        "4a463c5f31b1748ce885716a2f709f3ff1791725bb67e71bd9b44080148d6ff2"
+    sha256 cellar: :any,                 catalina:       "d011f1ac8c14c605e8614cac5328a8b41f0a8f5775d8919104d1495acdc9e135"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "359504c1b88e079ed34f73484c6196c5e5a2f6ca402088cbb7a537177cc22f93"
   end
 
   depends_on "libtool" => :build

@@ -10,6 +10,8 @@ class Exenv < Formula
     sha256 cellar: :any_skip_relocation, all: "ae3d33c35709202895d8d27bff0ea95075cd1455cc20207b139c43b73ca34322"
   end
 
+  deprecate! date: "2022-06-15", because: :repo_archived
+
   def install
     inreplace "libexec/exenv", "/usr/local", HOMEBREW_PREFIX
     prefix.install Dir["*"]

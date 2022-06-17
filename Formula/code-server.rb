@@ -49,7 +49,7 @@ class CodeServer < Formula
     keep_alive true
     error_log_path var/"log/code-server.log"
     log_path var/"log/code-server.log"
-    working_dir ENV["HOME"]
+    working_dir Dir.home
   end
 
   test do

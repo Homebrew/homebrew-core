@@ -2,8 +2,8 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v2.2.0",
-      revision: "a2f85388377fe454257b6da6ad1e723e52b5438b"
+      tag:      "v2.3.0",
+      revision: "090f681737896feb99870ee534c9ccc4203b9a6d"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git", branch: "master"
 
@@ -14,12 +14,12 @@ class Influxdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "413f77a266d349110b0f3dd6d31b3b8d504aca072e42700a786f78409ee0c29d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc3011b138388f8fc7b3c7a26ffcb69b0984c76ae887b2a9aaa96df2d48ffc63"
-    sha256 cellar: :any_skip_relocation, monterey:       "5a9344498c796383d0ac7f99ab7b23daa6b215f71275734d52459abe98831ebd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fac54d7d0332e8c8a7dc457f1ad2696ab1af0afbf807da07639448a61475fa48"
-    sha256 cellar: :any_skip_relocation, catalina:       "dee85db3544e4ab2dbd8ae022d8dfe8318e355d8ffa180cd54adcceda16624fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0de0b0c00c70d8edf7add72aee60cd05fda3201f808810a5001bdf2a9a9ecde8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "95105d666775e9a4b652a430222da82f15f7bdf11e02508cce1c7e00f6b25ec7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "202bd77fdae7445a217740f9964b07e765cf262a01dea787268ccf4423ed84b3"
+    sha256 cellar: :any_skip_relocation, monterey:       "cbb3dd12f7730b73e5d59c50462e2c252b2e0a2d3360a884e7fd54f5bca125fc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7921499d12ad9c04673d4d57a4a8c0f0399ae765829de04cf7a192e648514769"
+    sha256 cellar: :any_skip_relocation, catalina:       "48285a09744171ad0ca5b9e95b9e7559388a3deb7c00f5b90febd52d209a25ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5b6262d944954a1396ef7c87b2e712f7fa26c2f3d0de0de0d578c2d7fc26f70"
   end
 
   depends_on "breezy" => :build
