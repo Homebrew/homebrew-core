@@ -33,7 +33,6 @@ class Levant < Formula
     EOS
 
     assert_match "resources {\n    cpu    = 250\n    memory = 512\n}\n",
-      shell_output("#{bin}/levant render -var-file=" +
-                   (testpath/"variables.json") + " " + (testpath/"template.nomad"))
+      shell_output("#{bin}/levant render -var-file=#{testpath}/variables.json #{testpath}/template.nomad")
   end
 end
