@@ -1,6 +1,5 @@
 class GitCola < Formula
   include Language::Python::Virtualenv
-  
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
   url "https://files.pythonhosted.org/packages/ee/cb/244839cf29199438c86e0f254f0d131e41ec39074efe6b71d556d121f275/git-cola-4.0.1.tar.gz"
