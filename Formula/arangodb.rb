@@ -1,10 +1,9 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.9.1.tar.bz2"
-  sha256 "afc5dfbe9fb80d2154707520b4c44ad2f5ba22c1f5877228cc0d03d352856721"
+  url "https://download.arangodb.com/Source/ArangoDB-3.9.2.tar.bz2"
+  sha256 "35ac1678b91c0cc448454ef3a76637682d095328570674a5765ae5d060c5721b"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   livecheck do
@@ -39,6 +38,12 @@ class Arangodb < Formula
     url "https://github.com/arangodb-helper/arangodb.git",
         tag:      "0.15.4",
         revision: "ed743d2293efd763309f3ba0a1ba6fb68ac4a41a"
+  end
+
+  # Fix compilation with Apple clang 13.1.6, remove in next release
+  patch do
+    url "https://github.com/arangodb/arangodb/commit/fd43fbc27.patch?full_index=1"
+    sha256 "0298670362e04ec0870f6b7032dff83bfcdf9a04f2fa4763ce5186d4e10a3abb"
   end
 
   def install
