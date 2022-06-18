@@ -13,7 +13,7 @@ class Pulp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ca587774d93f4ad417f6b91a951b110999119be5a1b74e487c797afc9c24c751"
+    sha256 cellar: :any_skip_relocation, all: "9955ac49b00b61c6111d73f01fbe9b33316ed86f63517ee2cd1e1f8ddd0ad4a6"
   end
 
   depends_on "bower"
