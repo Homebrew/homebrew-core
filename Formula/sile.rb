@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.13.0/sile-0.13.0.tar.xz"
-  sha256 "c32fe58e20f0753e150771678db0e0bc9e2c6c767eda406d2ac2e4a51c7bc439"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.13.1/sile-0.13.1.tar.xz"
+  sha256 "bec374b5c95b0fb763c6976a25986341b836ac187fe6f4adb8f306b45ff3bb26"
   license "MIT"
 
   bottle do
@@ -15,7 +15,7 @@ class Sile < Formula
   end
 
   head do
-    url "https://github.com/sile-typesetter/sile.git"
+    url "https://github.com/sile-typesetter/sile.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
