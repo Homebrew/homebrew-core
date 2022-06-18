@@ -17,6 +17,14 @@ class Hwatch < Formula
   end
 
   test do
+    begin
+      pid = fork do
+        system bin/"hwatch", "--interval", "1", "date"
+      end
+    ensure
+      Process.kill("TERM", pid)
+    end
+
     assert_match "hwatch #{version}", shell_output("#{bin}/hwatch --version")
   end
 end
