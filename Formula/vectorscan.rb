@@ -13,7 +13,7 @@ class Vectorscan < Formula
   depends_on "pcre"
 
   def install
-    cmake_args = std_cmake_args + [
+    cmake_args = [
       "-DBUILD_STATIC_AND_SHARED=ON",
       "-DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3",
     ]
