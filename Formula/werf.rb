@@ -6,6 +6,9 @@ class Werf < Formula
   license "Apache-2.0"
   head "https://github.com/werf/werf.git", branch: "main"
 
+  # This repository has some tagged versions that are higher than the newest
+  # stable release (e.g., `v1.5.2`) and the `GithubLatest` strategy is
+  # currently necessary to identify the correct latest version.
   livecheck do
     url :stable
     strategy :github_latest
