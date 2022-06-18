@@ -1,7 +1,7 @@
 class Snap < Formula
   desc "Tool to work with .snap files"
   homepage "https://snapcraft.io/"
-  url "https://github.com/snapcore/snapd/releases/download/2.56.2.2/snapd_2.56.2.2.vendor.tar.xz"
+  url "https://github.com/snapcore/snapd/releases/download/2.56.2/snapd_2.56.2.vendor.tar.xz"
   version "2.56.2"
   sha256 "ee4096ef1a74a8d29b4cb7f43d442244beec413c21a517f34476270eb6a59fed"
   license "GPL-3.0-only"
