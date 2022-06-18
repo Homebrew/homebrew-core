@@ -25,7 +25,7 @@ class Aom < Formula
     depends_on "libvmaf"
   end
 
-  resource "bus_qcif_15fps.y4m" do
+  resource "homebrew-bus_qcif_15fps.y4m" do
     url "https://media.xiph.org/video/derf/y4m/bus_qcif_15fps.y4m"
     sha256 "868fc3446d37d0c6959a48b68906486bd64788b2e795f0e29613cbb1fa73480e"
   end
@@ -57,7 +57,7 @@ class Aom < Formula
   end
 
   test do
-    resource("bus_qcif_15fps.y4m").stage do
+    resource("homebrew-bus_qcif_15fps.y4m").stage do
       system "#{bin}/aomenc", "--webm",
                               "--tile-columns=2",
                               "--tile-rows=2",
