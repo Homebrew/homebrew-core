@@ -1,8 +1,8 @@
 class Fisher < Formula
   desc "Plugin manager for the Fish shell"
   homepage "https://github.com/jorgebucaran/fisher"
-  url "https://github.com/jorgebucaran/fisher/archive/4.3.3.tar.gz"
-  sha256 "b587ae3a931c9efea13322be09092b7a96ad490f4947e21b03a99d41b8dd86cb"
+  url "https://github.com/jorgebucaran/fisher/archive/4.3.4.tar.gz"
+  sha256 "8c8d48a390ca94f330f7089dd4bd3883ffd4d51b380622cd851ce7a597aae5b1"
   license "MIT"
 
   bottle do
