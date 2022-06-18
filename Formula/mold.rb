@@ -1,8 +1,8 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/v1.2.1.tar.gz"
-  sha256 "41868663ff18afee3fa35e5e3fdf3d9575eb2e4ff49967b8f42f479c61c1ec34"
+  url "https://github.com/rui314/mold/archive/v1.3.0.tar.gz"
+  sha256 "02132ae717d7f22f8bc7e5c22642ad41541ec4c535fa85f095c60ecc81465a3d"
   license "AGPL-3.0-only"
   head "https://github.com/rui314/mold.git", branch: "main"
 
@@ -51,16 +51,20 @@ class Mold < Formula
     args << "STRIP=true" if OS.mac?
     system "make", *args, "install"
 
-    inreplace buildpath.glob("test/*/*.sh") do |s|
-      s.gsub!(/^mold=.+?((?:ld64\.)?mold)"?$/, "mold=\"#{bin}/\\1\"")
-      s.gsub!(/"?\$mold"?-wrapper/, lib/"mold/mold-wrapper", false)
+    inreplace buildpath.glob("test/macho/*.sh"), "./ld64", bin/"ld64.mold", false
+    inreplace buildpath.glob("test/elf/*.sh") do |s|
+      s.gsub!(%r{(\.|`pwd`)/mold }, "#{bin}/mold ", false)
+      s.gsub!(%r{(`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", false)
     end
     pkgshare.install "test"
   end
 
   test do
     # Avoid use of the `llvm_clang` shim.
-    ENV.clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
+    if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
+      ENV.clang
+      ENV.prepend_path "PATH", Formula["llvm"].opt_bin
+    end
 
     (testpath/"test.c").write <<~EOS
       int main(void) { return 0; }
@@ -82,6 +86,8 @@ class Mold < Formula
       cp_r pkgshare/"test", testpath
       # Remove some failing tests.
       untested = %w[headerpad* pagezero-size basic response-file]
+      homebrew_clang = Utils.safe_popen_read("clang", "--version").include?("Homebrew")
+      untested << "syslibroot" if homebrew_clang
       testpath.glob("test/macho/{#{untested.join(",")}}.sh").map(&:unlink)
       (testpath/"test/macho").children.each { |t| system t }
     else
