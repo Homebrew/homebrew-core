@@ -12,8 +12,8 @@ class PhpCodeSniffer < Formula
   depends_on "php"
 
   resource "phpcbf.phar" do
-    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.7.0/phpcbf.phar"
-    sha256 "65e865c3134355b15121576da9334431cf6ae914cb4c33a3012d877681719348"
+    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.7.1/phpcbf.phar"
+    sha256 "c93c0e83cbda21c21f849ccf0f4b42979d20004a5a6172ed0ea270eca7ae6fa8"
   end
 
   def install
