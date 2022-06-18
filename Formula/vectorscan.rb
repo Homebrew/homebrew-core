@@ -18,10 +18,9 @@ class Vectorscan < Formula
       "-DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3",
     ]
 
-    mkdir "build" do
-      system "cmake", "..", *cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
