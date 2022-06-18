@@ -6,15 +6,12 @@ class Yank < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "49abc10638dad41a261428f3a0fcb87606b69a9a53818cc5171451315e89d6fa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "518e0acdc9c56266b1666b5d4ef54367a8c9cd104826f0499b414d4158c540c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "da45aa57fed9616178ad8b489e52f20a2f5980d813c505c65933778b150eda9c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "df2425ac44c54c3e55aaf835a40d2ac74663193550ea32a09f88f23490e1f7d9"
-    sha256 cellar: :any_skip_relocation, catalina:       "ef4da54ce9a56a1767b44dd88df6616c147730d74f390d5a661910dddf8785a7"
-    sha256 cellar: :any_skip_relocation, mojave:         "60431f02c576c640597975986ce62f9d157c49f160d7d6e23f917dc321ca8bac"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b87461e809f0bebd615d4da69c31509109de8f86d07d280dab07326293cc851f"
-    sha256 cellar: :any_skip_relocation, sierra:         "70a5de45249c1656653733fea8d7a92c2496b9ba8e7540eef86b3f805d0e933a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f04ce62b6e440fa687142f18f0487c52936827cadbae0eff64bd9da3484e9f8a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5fd3a08d92bfeb4da493930b49df96b38ad624f815b3c3f27a661f5e35274ac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ca61de9c598eb8c2abd4b78874ff40af76cc83474ff1d2261979800a42d62f7"
+    sha256 cellar: :any_skip_relocation, monterey:       "7e58ab275e612ff3d6072c1765d5a21fb151c904f56f3c238249be022c14e07a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d41ad7e32d8c75ca170b883b39cd3f5b34f800e9ea555d128a11b1a198f08c53"
+    sha256 cellar: :any_skip_relocation, catalina:       "a1c1f827b9e04877c3c9082c2f531a512be07ff8f0afb204aeea3fba013f74d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac3f578746c21ef166d41389433354a0435093a8648e224ad55c648925f1764c"
   end
 
   uses_from_macos "expect" => :test
