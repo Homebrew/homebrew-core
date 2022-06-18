@@ -35,18 +35,6 @@ class Tracker < Formula
 
   uses_from_macos "libxml2"
 
-  # Fix build error: tracker_init_remote: code should not be reached
-  patch do
-    url "https://gitlab.gnome.org/GNOME/tracker/-/commit/95291bf791ead1db062dfe0f0b4626393cb58338.diff"
-    sha256 "c3485e0323fca437a95f1f0c6ce002da86781d01c27a429ed0a4f7e408a22f2f"
-  end
-
-  # Fix build error: Invalid GType function: 'tracker_endpoint_http_get_type'
-  patch do
-    url "https://gitlab.gnome.org/GNOME/tracker/-/commit/471f7fd87da2fea4aeebdddb3579e95a14208647.diff"
-    sha256 "8a90b9c197a63f55a4d126afd2e9ccad230856ba5b9bdd5c2a6a861419e57ac5"
-  end
-
   def install
     args = std_meson_args + %w[
       -Dman=false
