@@ -3,8 +3,8 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.3/6.3.0/single/qt-everywhere-src-6.3.0.tar.xz"
-  sha256 "cd2789cade3e865690f3c18df58ffbff8af74cc5f01faae50634c12eb52dd85b"
+  url "https://download.qt.io/official_releases/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1.tar.xz"
+  sha256 "51114e789485fdb6b35d112dfd7c7abb38326325ac51221b6341564a1c3cc726"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
@@ -28,6 +28,8 @@ class Qt < Formula
   depends_on "ninja"      => :build
   depends_on "node"       => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
+  depends_on "six" => :build
   depends_on xcode: :build
 
   depends_on "assimp"
@@ -39,14 +41,13 @@ class Qt < Formula
   depends_on "hunspell"
   depends_on "icu4c"
   depends_on "jasper"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libb2"
   depends_on "libmng"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "md4c"
   depends_on "pcre2"
-  depends_on "python@3.9"
   depends_on "sqlite"
   depends_on "webp"
   depends_on "zstd"
@@ -111,31 +112,12 @@ class Qt < Formula
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
-  resource("six") do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   # Remove symlink check causing build to bail out and fail.
   # https://gitlab.kitware.com/cmake/cmake/-/issues/23251
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c363f0edf9e90598d54bc3f4f1bacf95abbda282/qt/qt_internal_check_if_path_has_symlinks.patch"
     sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
     directory "qtbase"
-  end
-
-  # Apply upstream commit to fix build on older Linux systems
-  patch do
-    url "https://invent.kde.org/qt/qt/qtbase/-/commit/311d29d2261a7e0689340c4c1322138f8234da7b.diff"
-    sha256 "a9cda53f71d307be9b35cbd60a56d369e5611dcf0bee3246c9f2f34b128928de"
-    directory "qtbase"
-  end
-
-  # Apply upstream commit to fix using system icu in chromium.
-  patch do
-    url "https://code.qt.io/cgit/qt/qtwebengine-chromium.git/patch/?id=75f0f4eb"
-    sha256 "ec28b71135f293f624365a50be0c329e396eaa9433655386af146614837e82a2"
-    directory "qtwebengine/src/3rdparty"
   end
 
   # Apply patch to fix chromium build with glibc < 2.27. See here for details:
@@ -150,7 +132,7 @@ class Qt < Formula
     end
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_path "PYTHONPATH", buildpath/"venv/lib/python#{xy}/site-packages"
-    ENV.prepend_path "PATH", Formula["python@3.9"].libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].libexec/"bin"
 
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/apple/toolchain.gni",
@@ -197,14 +179,6 @@ class Qt < Formula
       config_args << "-skip" << "qtwebengine" if DevelopmentTools.clang_build_version <= 1200
     end
 
-    # Currently we have to use vendored ffmpeg because the chromium copy adds a symbol not
-    # provided by the brewed version.
-    # See here for an explanation of why upstream ffmpeg does not want to add this:
-    # https://www.mail-archive.com/ffmpeg-devel@ffmpeg.org/msg124998.html
-    # The vendored copy of libjpeg is also used instead of the brewed copy, because the build
-    # fails due to a missing symbol otherwise.
-    # On macOS chromium will always use bundled copies and the QT_FEATURE_webengine_system_*
-    # arguments are ignored.
     cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
 
@@ -213,17 +187,8 @@ class Qt < Formula
       -DFEATURE_pkg_config=ON
 
       -DQT_FEATURE_avx2=OFF
-      -DQT_FEATURE_webengine_system_alsa=ON
-      -DQT_FEATURE_webengine_system_icu=ON
-      -DQT_FEATURE_webengine_system_libevent=ON
-      -DQT_FEATURE_webengine_system_libpng=ON
-      -DQT_FEATURE_webengine_system_libxml=ON
-      -DQT_FEATURE_webengine_system_libwebp=ON
-      -DQT_FEATURE_webengine_system_minizip=ON
-      -DQT_FEATURE_webengine_system_opus=ON
-      -DQT_FEATURE_webengine_system_poppler=ON
-      -DQT_FEATURE_webengine_system_pulseaudio=ON
-      -DQT_FEATURE_webengine_system_zlib=ON
+
+      -DQT_FEATURE_webengine_proprietary_codecs=ON
       -DQT_FEATURE_webengine_kerberos=ON
     ]
 
@@ -231,6 +196,28 @@ class Qt < Formula
       # Explicitly specify QT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX so
       # that cmake does not think $HOMEBREW_PREFIX/lib is the install prefix.
       cmake_args << "-DQT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX=#{prefix}"
+
+      # Currently we have to use vendored ffmpeg because the chromium copy adds a symbol not
+      # provided by the brewed version.
+      # See here for an explanation of why upstream ffmpeg does not want to add this:
+      # https://www.mail-archive.com/ffmpeg-devel@ffmpeg.org/msg124998.html
+      # The vendored copy of libjpeg is also used instead of the brewed copy, because the build
+      # fails due to a missing symbol otherwise.
+      # On macOS chromium will always use bundled copies and the QT_FEATURE_webengine_system_*
+      # arguments are ignored.
+      cmake_args += %w[
+        -DQT_FEATURE_webengine_system_alsa=ON
+        -DQT_FEATURE_webengine_system_icu=ON
+        -DQT_FEATURE_webengine_system_libevent=ON
+        -DQT_FEATURE_webengine_system_libpng=ON
+        -DQT_FEATURE_webengine_system_libxml=ON
+        -DQT_FEATURE_webengine_system_libwebp=ON
+        -DQT_FEATURE_webengine_system_minizip=ON
+        -DQT_FEATURE_webengine_system_opus=ON
+        -DQT_FEATURE_webengine_system_poppler=ON
+        -DQT_FEATURE_webengine_system_pulseaudio=ON
+        -DQT_FEATURE_webengine_system_zlib=ON
+      ]
 
       # Change default mkspec for qmake on Linux to use brewed GCC
       inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}gcc", ENV.cc
