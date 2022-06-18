@@ -34,6 +34,6 @@ class Vectorscan < Formula
       }
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lhs", "-o", "test"
-    system "./test"
+    assert_match "hyperscan v5.4.7 2022-05-05", shell_output("./test")
   end
 end
