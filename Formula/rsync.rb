@@ -21,6 +21,8 @@ class Rsync < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "25827ec52d77b05cadd5930d0d0b81f327477639badaafb538b755c886a9f677"
   end
 
+  depends_on "autoconf"
+  depends_on "automake"
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "popt"
@@ -38,6 +40,12 @@ class Rsync < Formula
     apply "patches/fileflags.diff"
   end
 
+  patch do
+    url "https://download.samba.org/pub/rsync/rsync-schar-fix-3.2.4.diff"
+    sha256 "1c3baba01f3087ae2d2aa9195eedf97adf2b57f0482e9435a0433525c399635f"
+    apply "rsync-schar-fix-3.2.4.diff"
+  end
+
   def install
     args = %W[
       --disable-debug
@@ -52,6 +60,9 @@ class Rsync < Formula
     # function multiversioning on older versions of macOS
     args << "--disable-simd" if MacOS.version < :catalina
 
+    # Remove in the next release, needed for rsync-schar-fix-3.2.4.diff
+    system "autoreconf", "-fi"
+    system "autoconf", "-o", "configure.sh"
     system "./configure", *args
     system "make"
     system "make", "install"
