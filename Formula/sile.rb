@@ -1,7 +1,7 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.13.P/sile-0.13.1.tar.xz"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.13.1/sile-0.13.1.tar.xz"
   sha256 "bec374b5c95b0fb763c6976a25986341b836ac187fe6f4adb8f306b45ff3bb26"
   license "MIT"
 
