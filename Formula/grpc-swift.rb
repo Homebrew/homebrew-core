@@ -20,7 +20,7 @@ class GrpcSwift < Formula
     sha256                               x86_64_linux:   "5faad1ff5ff2a40e57abd972d5f951f7d41f50a874e4a21252bd3f5e73e9736d"
   end
 
-  depends_on xcode: ["12.0", :build]
+  depends_on xcode: ["12.5", :build]
   depends_on "protobuf"
   depends_on "swift-protobuf"
 
