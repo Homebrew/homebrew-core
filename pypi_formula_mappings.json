@@ -542,6 +542,7 @@
   "twine-pypi": {
     "exclude_packages": ["six"]
   },
+  "vdirsyncer": "vdirsyncer[google]",
   "virtualenv": {
     "exclude_packages": ["six"]
   },
