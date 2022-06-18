@@ -2,7 +2,7 @@ class Avrdude < Formula
   desc "Atmel AVR MCU programmer"
   homepage "https://www.nongnu.org/avrdude/"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   stable do
     url "https://download.savannah.gnu.org/releases/avrdude/avrdude-7.0.tar.gz"
@@ -38,6 +38,7 @@ class Avrdude < Formula
   depends_on "hidapi"
   depends_on "libftdi"
   depends_on "libusb"
+  depends_on "libusb-compat"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -53,25 +54,27 @@ class Avrdude < Formula
 
   def install
     if build.head?
+      args = std_cmake_args + ["-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"]
       shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
       shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup" if OS.mac?
 
-      system "cmake", "-S", ".", "-B", "build/shared", *std_cmake_args, *shared_args
+      system "cmake", "-S", ".", "-B", "build/shared", *args, *shared_args
       system "cmake", "--build", "build/shared"
       system "cmake", "--install", "build/shared"
 
-      system "cmake", "-S", ".", "-B", "build/static", *std_cmake_args
+      system "cmake", "-S", ".", "-B", "build/static", *args
       system "cmake", "--build", "build/static"
       lib.install "build/static/src/libavrdude.a"
     else
-      system "./configure", *std_configure_args
+      system "./configure", *std_configure_args, "--sysconfdir=#{etc}"
       system "make"
       system "make", "install"
     end
   end
 
   test do
-    assert_match "avrdude done.  Thank you.",
-      shell_output("#{bin}/avrdude -c jtag2 -p x16a4 2>&1", 1).strip
+    output = shell_output("#{bin}/avrdude -c jtag2 -p x16a4 2>&1", 1).strip
+    refute_match "avrdude was compiled without usb support", output
+    assert_match "avrdude done.  Thank you.", output
   end
 end
