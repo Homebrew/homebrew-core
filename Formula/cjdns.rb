@@ -16,9 +16,16 @@ class Cjdns < Formula
   end
 
   depends_on "node" => :build
+  # Fails to build with python@3.10.
+  # AttributeError: module 'collections' has no attribute 'MutableSet'
+  # Related PR: https://github.com/cjdelisle/cjdns/pull/1246
+  depends_on "python@3.9" => :build
   depends_on "rust" => :build
 
   def install
+    # Libuv build fails on macOS with: env: python: No such file or directory
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" if OS.mac?
+
     # Avoid using -march=native
     inreplace "node_build/make.js",
               "var NO_MARCH_FLAG = ['arm', 'ppc', 'ppc64'];",
