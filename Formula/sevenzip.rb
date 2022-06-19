@@ -1,9 +1,9 @@
 class Sevenzip < Formula
   desc "7-Zip is a file archiver with a high compression ratio"
   homepage "https://7-zip.org"
-  url "https://7-zip.org/a/7z2107-src.tar.xz"
-  version "21.07"
-  sha256 "213d594407cb8efcba36610b152ca4921eda14163310b43903d13e68313e1e39"
+  url "https://7-zip.org/a/7z2200-src.tar.xz"
+  version "22.00"
+  sha256 "40969f601e86aff49aaa0ba0df5ce6fd397cf7e2683a84b591b0081e461ef675"
   license all_of: ["LGPL-2.1-or-later", "BSD-3-Clause"]
 
   livecheck do
@@ -22,6 +22,13 @@ class Sevenzip < Formula
   end
 
   def install
+    # See https://sourceforge.net/p/sevenzip/discussion/45797/thread/9c2d9061ce/#01e7
+    if OS.mac?
+      inreplace ["Common/FileStreams.cpp", "UI/Common/UpdateCallback.cpp"].map { |d| buildpath/"CPP/7zip"/d },
+                "sysmacros.h",
+                "types.h"
+    end
+
     cd "CPP/7zip/Bundles/Alone2" do
       mac_suffix = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch
       mk_suffix, directory = if OS.mac?
