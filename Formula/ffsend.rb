@@ -6,13 +6,12 @@ class Ffsend < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b53cd1075514afca5d97f9132b1abdecd1c6e0da8085493572084c0f4924e00"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb28f76fd8ce6bdd41178a7c019b74a181bc10c6af7bc4577c39f42cb8a5aad4"
-    sha256 cellar: :any_skip_relocation, monterey:       "03593e8ec608b4906bd3e02324fb8ebb01fec7f6f346f66c2adcb48d3b2b48cf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b0cf6c1a3c746a12a9fb654c772ec117378d63acaa9027811641a7ce81493f2d"
-    sha256 cellar: :any_skip_relocation, catalina:       "17e152eadf259130498d4b99008244646fa13d5ab35ca55998dbaa587b39283b"
-    sha256 cellar: :any_skip_relocation, mojave:         "8721d410afecbffa858783fadedc162294924ea4aba35ba0c929956df7bbe899"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1eaeb9b9f408a6a0766c84fe6cc7bfada070b859a9a66c36dff3d80b7d198b38"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "15338d4a4bfbcdf84ebd39cee8d0bc46d5585685c3bb3de1474580d1a7d77aa7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "914f11f9535c6d914957e57b945474a7181247cd4d6e41cb5821920e959d878a"
+    sha256 cellar: :any_skip_relocation, monterey:       "d54339de7e3f900df00dd5887139672882e5041f2d8f2795f1f58e9b1efc3e4d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4acc10638eaf9e7d0642f88987b035a67ba70949c0a74fbd43a7427d2bde916d"
+    sha256 cellar: :any_skip_relocation, catalina:       "c73dd9f2435c47400d0cde77498dda7b4dbe157c602054c166b018f0fb599f7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c145bc5e46c598991c81b692147bdfe7d2e7ab98b704b23e52d433b5d7d1ee2"
   end
 
   depends_on "rust" => :build
