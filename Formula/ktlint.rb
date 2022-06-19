@@ -21,13 +21,13 @@ class Ktlint < Formula
   end
 
   test do
-    (testpath/"In.kt").write <<~EOS
+    (testpath/"Main.kt").write <<~EOS
       fun main( )
     EOS
     (testpath/"Out.kt").write <<~EOS
       fun main()
     EOS
-    system bin/"ktlint", "-F", "In.kt"
-    assert_equal shell_output("cat In.kt"), shell_output("cat Out.kt")
+    system bin/"ktlint", "-F", "Main.kt"
+    assert_equal shell_output("cat Main.kt"), shell_output("cat Out.kt")
   end
 end
