@@ -1,8 +1,8 @@
 class Ffsend < Formula
   desc "Fully featured Firefox Send client"
   homepage "https://gitlab.com/timvisee/ffsend"
-  url "https://github.com/timvisee/ffsend/archive/v0.2.74.tar.gz"
-  sha256 "e6092fc4f40be6d79ddf46a0fb4a739310a2db5407fd3f5db2c43cafc8c41485"
+  url "https://github.com/timvisee/ffsend/archive/v0.2.75.tar.gz"
+  sha256 "bcc391a7839f387b5fa72ad4d07e333826e6fe278f1ffe1fa23f5b4ec3dbc033"
   license "GPL-3.0-only"
 
   bottle do
