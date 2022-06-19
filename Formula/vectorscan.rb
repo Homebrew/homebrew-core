@@ -15,7 +15,7 @@ class Vectorscan < Formula
   def install
     cmake_args = [
       "-DBUILD_STATIC_AND_SHARED=ON",
-      "-DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3",
+      "-DPYTHON_EXECUTABLE:FILEPATH=python3",
     ]
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
