@@ -3,8 +3,8 @@ require "language/node"
 class SqlLint < Formula
   desc "SQL linter to do sanity checks on your queries and bring errors back from the DB"
   homepage "https://github.com/joereynolds/sql-lint"
-  url "https://registry.npmjs.org/sql-lint/-/sql-lint-0.0.19.tgz"
-  sha256 "af38df9ffdea1647fa677b1fae1897c91c787455b1be8654f07c6866da09798e"
+  url "https://registry.npmjs.org/sql-lint/-/sql-lint-0.0.20.tgz"
+  sha256 "c471ffa379c8b63fd9cfe8e1c04237bdcde6ecead23c34d888dd7e26c057c9eb"
   license "MIT"
 
   bottle do
