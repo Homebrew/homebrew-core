@@ -11,12 +11,12 @@ class Rebar3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "44500038a7b9cd871f2ddba57cfa67d147abb833c6868cf72590a19b544fabee"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70362076a1b5523e0c4e789840c30cee30c76b1399c957aba61ce47261594331"
-    sha256 cellar: :any_skip_relocation, monterey:       "c8547511cfe4dfe1b5753d81218ad149d597f01961a5f6e41d1c989500897481"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b76334a1871767352db5e5e641c4cc6c02d0d291c6a16012cf7f2f999674f362"
-    sha256 cellar: :any_skip_relocation, catalina:       "49f8019c79ba3b07f9a91a2aa66c9767f724ffd49a418dce80e9296628bf2202"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39e6def810bc61aaee09615d73e5692bfeb723070e4e6e28902b1ba822e97607"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef92a8046c3586e56ea4dc2d06c2f4c820cdf089501fd3d7a23f7d88d3bf1d52"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e0f5455219769c8b3b161ab5513bb596cd10099d627c95914772d57f8f0d125a"
+    sha256 cellar: :any_skip_relocation, monterey:       "0b30b3ae4f97383f843db7d700cbe035cfa4f4e0e29c925f8d27ea7786775a5a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7d39403a69b6be80a8393ee1f457a2f223744d3ef640a3fc5875ba0059a853c3"
+    sha256 cellar: :any_skip_relocation, catalina:       "38ac0151429d49ee6317c7dfa80a7ff210fd3c346b0828900f02b8fa77ecc5f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fd5dc3126cebbd682d6f95911c0e433fdb43eaf0824f9b9aa2c28b93dbeef03"
   end
 
   depends_on "erlang"
