@@ -1,10 +1,10 @@
 class Volta < Formula
   desc "JavaScript toolchain manager for reproducible environments"
   homepage "https://volta.sh"
-  url "https://github.com/volta-cli/volta.git",
-      tag:      "v1.0.8",
-      revision: "d4fc9df13ab975d7f6424b85a4052f14ab0e9bd5"
+  url "https://github.com/volta-cli/volta/archive/v1.0.8.tar.gz"
+  sha256 "b6d1691424b13e28a953a2661e1f3261ecbeb607574ad217e18c4cf62ab48df4"
   license "BSD-2-Clause"
+  head "https://github.com/volta-cli/volta.git", branch: "main"
 
   livecheck do
     url :stable
@@ -30,16 +30,16 @@ class Volta < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_output = Utils.safe_popen_read("#{bin}/volta", "completions", "bash")
+    bash_output = Utils.safe_popen_read(bin/"volta", "completions", "bash")
     (bash_completion/"volta").write bash_output
-    zsh_output = Utils.safe_popen_read("#{bin}/volta", "completions", "zsh")
+    zsh_output = Utils.safe_popen_read(bin/"volta", "completions", "zsh")
     (zsh_completion/"_volta").write zsh_output
-    fish_output = Utils.safe_popen_read("#{bin}/volta", "completions", "fish")
+    fish_output = Utils.safe_popen_read(bin/"volta", "completions", "fish")
     (fish_completion/"volta.fish").write fish_output
   end
 
   test do
-    system "#{bin}/volta", "install", "node@12.16.1"
+    system bin/"volta", "install", "node@12.16.1"
     node = shell_output("#{bin}/volta which node").chomp
     assert_match "12.16.1", shell_output("#{node} --version")
   end
