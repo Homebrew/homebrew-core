@@ -1,5 +1,5 @@
 class Jaq < Formula
-  desc "Command-line deletion tool focused on safety, ergonomics, and performance"
+  desc "JQ clone focussed on correctness, speed, and simplicity"
   homepage "https://github.com/01mf02/jaq"
   url "https://static.crates.io/crates/jaq/jaq-0.6.0.crate"
   sha256 "aebeabacdd1571bd650e628c424a17ca92744a7b1f8b587059eb0a7ba7668987"
