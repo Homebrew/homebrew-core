@@ -9,7 +9,13 @@ class Honcho < Formula
   head "https://github.com/nickstenning/honcho.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3dada63778e9ed2ba5ea8afb8a0946f886f378539b5ee07164016026452a4ecf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef2edcfde1a8c8409c2d0b33a27bf5f223d5d2932ef7824dfa1cbb6e8d4ead8a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef2edcfde1a8c8409c2d0b33a27bf5f223d5d2932ef7824dfa1cbb6e8d4ead8a"
+    sha256 cellar: :any_skip_relocation, monterey:       "bfc07f9982c7c909af7c40963280933cb47afe7c9ba83b9598832b1c25d8a3d3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bfc07f9982c7c909af7c40963280933cb47afe7c9ba83b9598832b1c25d8a3d3"
+    sha256 cellar: :any_skip_relocation, catalina:       "bfc07f9982c7c909af7c40963280933cb47afe7c9ba83b9598832b1c25d8a3d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "502f8069959faf73d1d03318b681f89bf2dfe987139fd8b4913f52eb66b1d738"
   end
 
   depends_on "python@3.10"
