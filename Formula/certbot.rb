@@ -35,6 +35,16 @@ class Certbot < Formula
     sha256 "1f822d0f1a4140606c7569333dba97a6df32c17bd0cc996bcdebdf611ee1d589"
   end
 
+  resource "certbot-apache" do
+    url "https://files.pythonhosted.org/packages/fa/46/57c80b6e8078377945230b4cfb1b06c7c0c885e46edbded4dc44e52a07b2/certbot-apache-1.28.0.tar.gz"
+    sha256 "37b4ed592b91e6ad1f7927a5e73d7155313a5f5d890aae9f77e1a91e9f023d4a"
+  end
+
+  resource "certbot-nginx" do
+    url "https://files.pythonhosted.org/packages/27/10/95f6aef46a3bcffee230a7566dd2f48bbc7d49adce50d620106547ee05ad/certbot-nginx-1.28.0.tar.gz"
+    sha256 "643f0db1d26b274826b6c2468f44b05f8b2304bc0954221176263f83e0836070"
+  end
+
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
     sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
@@ -95,9 +105,19 @@ class Certbot < Formula
     sha256 "660b1b1425aac4a1bea1d94168a85d99f0b3144c869dd4390d27629d0087f1bf"
   end
 
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
+    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
+  end
+
   resource "pyRFC3339" do
     url "https://files.pythonhosted.org/packages/00/52/75ea0ae249ba885c9429e421b4f94bc154df68484847f1ac164287d978d7/pyRFC3339-1.1.tar.gz"
     sha256 "81b8cbe1519cdb79bed04910dd6fa4e181faf8c88dff1e1b987b5f7ab23a5b1a"
+  end
+
+  resource "python-augeas" do
+    url "https://files.pythonhosted.org/packages/af/cc/5064a3c25721cd863e6982b87f10fdd91d8bcc62b6f7f36f5231f20d6376/python-augeas-1.1.0.tar.gz"
+    sha256 "5194a49e86b40ffc57055f73d833f87e39dce6fce934683e7d0d5bbb8eff3b8c"
   end
 
   resource "pytz" do
