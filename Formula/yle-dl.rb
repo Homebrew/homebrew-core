@@ -1,4 +1,6 @@
 class YleDl < Formula
+  include Language::Python::Virtualenv
+
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
   url "https://files.pythonhosted.org/packages/e2/bf/9111331d2e13a10614b3f97a5bcce96c5eea03d3791957ccf2fdcba95872/yle-dl-20220610.tar.gz"
@@ -21,28 +23,14 @@ class YleDl < Formula
 
   uses_from_macos "libxslt"
 
-  # `Cannot import name "Feature" from "setuptools" in version 46.0.0`, and lock setuptools to v45.0.0
-  # https://github.com/pypa/setuptools/issues/2017#issuecomment-605354361
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/fd/76/3c7f726ed5c582019937f178d7478ce62716b7e8263344f1684cbe11ab3e/setuptools-45.0.0.zip"
-    sha256 "c46d9c8f2289535457d36c676b541ca78f7dcb736b97d02f50d17f7f15b583cc"
-  end
-
-  resource "AdobeHDS.php" do
-    # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.
-    # Check if there are bugfixes at https://github.com/K-S-V/Scripts/commits/master/AdobeHDS.php
-    url "https://raw.githubusercontent.com/K-S-V/Scripts/7fea932cb012cba8c203d5b46b891167b0f609a6/AdobeHDS.php"
-    sha256 "b79e8a4c8544953c39b79a622049c4deced57354adb9697e8c73420c12547229"
-  end
-
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
     sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
-    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
+    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
+    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
   end
 
   resource "charset-normalizer" do
@@ -76,21 +64,7 @@ class YleDl < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    (resources - [resource("AdobeHDS.php")]).each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    resource("AdobeHDS.php").stage(pkgshare)
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
