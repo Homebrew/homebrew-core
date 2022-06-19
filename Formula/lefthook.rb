@@ -7,12 +7,12 @@ class Lefthook < Formula
   head "https://github.com/evilmartians/lefthook.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ad967d2fe34e5b9d82f50699d5fae1dc6ff5d9f8d5ea40bf69bf662b8a4439f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9a5ad443987d0831933719c7f78696538b24362b97601a964cf8defc10e0425"
-    sha256 cellar: :any_skip_relocation, monterey:       "73d9c7450356807562aca01359f9e29c844cb9564d1ec4879bb90204794bcca3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bcee78b80266183d13ab696e2a8dedfce71ee452fdbd4ad570c1ede86425d0f2"
-    sha256 cellar: :any_skip_relocation, catalina:       "2dea79c5b9c23768129ff85df82c961b2c8eb93ab66c17fbf4ab694a46b27bd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "832810ff4bd44b6edf4d631bd65c1d54e8997216a59280265bd76ba957fb3c94"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5f2ab96c2200225392fd574a2c4a06196a4f841fdf8d9e2b2516e70d0e1c709"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a9ed07ba0b06af28a884ef7e424202e377b718211200499e54e4d267d001c2f1"
+    sha256 cellar: :any_skip_relocation, monterey:       "5dc3edaef01f25a38f40bd17a44726d46b0ac2420b3a328ddae66ce7d5b03a6d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4b53c98f86ca5ec99a1a553a42b23ea72e0b9074ecc4f47edae3d6a08dcb108e"
+    sha256 cellar: :any_skip_relocation, catalina:       "777f95d7eeb4a472f32c33d88e77c748ba85c0ae6cb1fc6e3754f173ec4ce803"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "798a435460e7f5cfcb2387dfd7a10ff1dd2bb36e488d242119e7b9b162c22afd"
   end
 
   # Bump to 1.18 on the next release, if possible.
