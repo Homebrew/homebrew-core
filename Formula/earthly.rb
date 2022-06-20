@@ -1,8 +1,8 @@
 class Earthly < Formula
   desc "Build automation tool for the container era"
   homepage "https://earthly.dev/"
-  url "https://github.com/earthly/earthly/archive/v0.6.16.tar.gz"
-  sha256 "be379e19d16275fa67fe553dd39b63d7f0a69ba345e7d1dc6870c673832fd370"
+  url "https://github.com/earthly/earthly/archive/v0.6.17.tar.gz"
+  sha256 "4a7d0c3b27962fda52ebe77b0a32ab280a5ea4177a3ec3b1b67f2198b0f3ab8f"
   license "MPL-2.0"
   head "https://github.com/earthly/earthly.git", branch: "main"
 
@@ -20,7 +20,7 @@ class Earthly < Formula
   def install
     # the earthly_gitsha variable is required by the earthly release script, moving this value it into
     # the ldflags string will break the upstream release process.
-    earthly_gitsha = "05fc449487ad0c8a1721b4fbfc527eb9870dfcfd"
+    earthly_gitsha = "7e4f1df4c124db1644d51d312b19313217cbe478"
 
     ldflags = "-X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version} -X main.Version=v#{version} " \
               "-X main.GitSha=#{earthly_gitsha}"
