@@ -1,4 +1,6 @@
 class Urh < Formula
+  include Language::Python::Virtualenv
+
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
   url "https://files.pythonhosted.org/packages/c2/3d/9cbaac6d7101f50c408ac428d9e37668916a4a3e22292f38748b230239e0/urh-2.9.3.tar.gz"
@@ -29,34 +31,19 @@ class Urh < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", Formula["libcython"].opt_libexec/"lib/python#{xy}/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    site_packages = Language::Python.site_packages("python3")
+    ENV.prepend_create_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
+    virtualenv_install_with_resources
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     (testpath/"test.py").write <<~EOS
       from urh.util.GenericCRC import GenericCRC;
       c = GenericCRC();
       expected = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0]
       assert(expected == c.crc([0, 1, 0, 1, 1, 0, 1, 0]).tolist())
     EOS
-    system Formula["python@3.9"].opt_bin/"python3", "test.py"
+    system libexec/"bin/python3", "test.py"
 
     # test command-line functionality
     output = shell_output("#{bin}/urh_cli -pm 0 0 -pm 1 100 -mo ASK -sps 100 -s 2e3 " \
