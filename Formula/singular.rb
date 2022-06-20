@@ -1,10 +1,9 @@
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
-  url "https://service.mathematik.uni-kl.de/ftp/pub/Math/Singular/src/4-2-1/singular-4.2.1.tar.gz"
-  sha256 "28a56df84f85b116e0068ffecf92fbe08fc27bd4c5ba902997f1a367db0bfe8d"
+  url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-3-0/singular-4.3.0.tar.gz"
+  sha256 "74f38288203720e3f280256f2f8deb94030dd032b4237d844652aff0faab36e7"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_big_sur: "abff098b3e9ee836f54f320103eb4a34b418d54dc4776ddfa391c9a698728fbb"
@@ -27,8 +26,15 @@ class Singular < Formula
   depends_on "ntl"
   depends_on "python@3.10"
 
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
-    system "./autogen.sh" if build.head?
+    # Run autogen on macOS so that -flat_namespace flag is not used.
+    system "./autogen.sh" if build.head? || OS.mac?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
