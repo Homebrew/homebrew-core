@@ -22,6 +22,8 @@ class Mesa < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
+  depends_on "xorgproto" => :build
+
   depends_on "expat"
   depends_on "gettext"
   depends_on "libx11"
