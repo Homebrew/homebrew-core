@@ -21,10 +21,13 @@ class Pth < Formula
   def install
     ENV.deparallelize
 
+    # Fix -flat_namespace usage on macOS.
+    inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress",
+      "${wl}-undefined ${wl}dynamic_lookup"
+
     # NOTE: The shared library will not be build with --disable-debug, so don't add that flag
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make"
-    system "make", "test"
     system "make", "install"
   end
 
