@@ -6,6 +6,10 @@ class Gold < Formula
   sha256 "e316477a914f567eccc34d5d29785b8b0f5a10208d36bbacedcc39048ecfe024"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f603d71e281e77548939b9742b9a309718b5c436a907b6aea687a63c8e855a9e"
+  end
+
   depends_on :linux
 
   uses_from_macos "zlib"
