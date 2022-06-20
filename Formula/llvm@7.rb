@@ -4,7 +4,7 @@ class LlvmAT7 < Formula
   url "https://releases.llvm.org/7.1.0/llvm-7.1.0.src.tar.xz"
   sha256 "1bcc9b285074ded87b88faaedddb88e6b5d6c331dfcfb57d7f3393dd622b3764"
   license "NCSA"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 catalina:     "ea1162f57d529a64b516055b9d1756dfa6402177f0f149453da9310580e063ec"
@@ -35,8 +35,8 @@ class LlvmAT7 < Formula
   on_linux do
     depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
-    depends_on "libelf" # openmp requires <gelf.h>
-    depends_on "python@3.8"
+    depends_on "elfutils" # openmp requires <gelf.h>
+    depends_on "python@3.10"
   end
 
   resource "clang" do
@@ -162,6 +162,10 @@ class LlvmAT7 < Formula
         -DLIBCXXABI_USE_LLVM_UNWINDER=ON
 
         -DLIBUNWIND_USE_COMPILER_RT=ON
+        -DCOMPILER_RT_USE_BUILTINS_LIBRARY=ON
+
+        -DSANITIZER_CXX_ABI=libc++
+        -DSANITIZER_TEST_CXX=libc++
       ]
 
       # Don't pass -rtlib as an argument to GCC because it doesn't understand it.
@@ -199,7 +203,7 @@ class LlvmAT7 < Formula
     xz = if OS.mac?
       "2.7"
     else
-      "3.8"
+      "3.10"
     end
     (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
