@@ -25,6 +25,12 @@ class Scalapack < Formula
   depends_on "open-mpi"
   depends_on "openblas"
 
+  # Apply upstream commit to fix build with gfortran-12.  Remove in next release.
+  patch do
+    url "https://github.com/Reference-ScaLAPACK/scalapack/commit/a0f76fc0c1c16646875b454b7d6f8d9d17726b5a.patch?full_index=1"
+    sha256 "2b42d282a02b3e56bb9b3178e6279dc29fc8a17b9c42c0f54857109286a9461e"
+  end
+
   def install
     mkdir "build" do
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
