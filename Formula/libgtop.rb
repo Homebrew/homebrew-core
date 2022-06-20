@@ -19,10 +19,7 @@ class Libgtop < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-
-  on_linux do
-    depends_on "libxau"
-  end
+  depends_on "libxau"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
