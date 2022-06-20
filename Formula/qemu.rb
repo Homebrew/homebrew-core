@@ -33,6 +33,7 @@ class Qemu < Formula
   depends_on "pixman"
   depends_on "snappy"
   depends_on "vde"
+  depends_on "zstd"
 
   on_linux do
     depends_on "attr"
@@ -63,6 +64,7 @@ class Qemu < Formula
       --enable-slirp=system
       --enable-vde
       --enable-virtfs
+      --enable-zstd
       --extra-cflags=-DNCURSES_WIDECHAR=1
       --disable-sdl
     ]
