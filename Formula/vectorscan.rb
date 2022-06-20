@@ -9,8 +9,8 @@ class Vectorscan < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ragel" => :build
+  depends_on arch: :arm64
   depends_on "pcre"
-
 
   def install
     cmake_args = [
