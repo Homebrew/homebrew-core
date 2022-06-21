@@ -31,6 +31,8 @@ class Scalapack < Formula
     sha256 "2b42d282a02b3e56bb9b3178e6279dc29fc8a17b9c42c0f54857109286a9461e"
   end
 
+  patch :DATA
+
   def install
     mkdir "build" do
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
@@ -57,3 +59,18 @@ class Scalapack < Formula
     end
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 85ea82a..86222e0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -232,7 +232,7 @@ append_subdir_files(src-C "SRC")
+ 
+ if (UNIX)
+    add_library(scalapack ${blacs} ${tools} ${tools-C} ${extra_lapack} ${pblas} ${pblas-F} ${ptzblas} ${ptools} ${pbblas} ${redist} ${src} ${src-C})
+-   target_link_libraries( scalapack ${LAPACK_LIBRARIES} ${BLAS_LIBRARIES})
++   target_link_libraries( scalapack ${LAPACK_LIBRARIES} ${BLAS_LIBRARIES} ${MPI_Fortran_LIBRARIES})
+    scalapack_install_library(scalapack)
+ else (UNIX) # Need to separate Fortran and C Code
+    OPTION(BUILD_SHARED_LIBS "Build shared libraries" ON )
