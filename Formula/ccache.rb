@@ -59,6 +59,8 @@ class Ccache < Formula
       g++ g++2 g++3 g++-3.3 g++-4.0
       g++-4.2 g++-4.3 g++-4.4 g++-4.5 g++-4.6 g++-4.7 g++-4.8 g++-4.9
       g++-5 g++-6 g++-7 g++-8 g++-9 g++-10 g++-11 g++-12
+      i686-w64-mingw32-gcc i686-w64-mingw32-g++
+      x86_64-w64-mingw32-gcc x86_64-w64-mingw32-g++
     ].each do |prog|
       libexec.install_symlink bin/"ccache" => prog
     end
