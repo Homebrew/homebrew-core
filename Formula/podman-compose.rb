@@ -7,6 +7,8 @@ class PodmanCompose < Formula
   sha256 "b28e5792a50feee987e7864e0df1b6e8929c923c010e1f65493fe29b4c2aedcf"
   license "GPL-2.0-only"
 
+  # Depends on the `podman` command, which the podman.rb formula does not
+  # currently install on Linux.
   depends_on :macos
   depends_on "podman"
   depends_on "python@3.9"
