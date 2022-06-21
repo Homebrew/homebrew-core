@@ -1,8 +1,8 @@
 class Lefthook < Formula
   desc "Fast and powerful Git hooks manager for any type of projects"
   homepage "https://github.com/evilmartians/lefthook"
-  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "c169ff8afd9f73936256e9b5063557debe9a7b015fd567b29818fb68ad8a6bb0"
+  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "91c5434a8e9a05c609b6d3aa36df6750945348d123375f979638f84917d2c356"
   license "MIT"
   head "https://github.com/evilmartians/lefthook.git", branch: "master"
 
