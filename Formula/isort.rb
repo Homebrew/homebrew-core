@@ -6,6 +6,7 @@ class Isort < Formula
   url "https://files.pythonhosted.org/packages/ab/e9/964cb0b2eedd80c92f5172f1f8ae0443781a9d461c1372a3ce5762489593/isort-5.10.1.tar.gz"
   sha256 "e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"
   license "MIT"
+  head "https://github.com/PyCQA/isort.git", branch: "main"
 
   livecheck do
     url :stable
