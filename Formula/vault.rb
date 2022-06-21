@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.10.1",
-      revision: "e452e9b30a9c2c8adfa1611c26eb472090adc767"
+      tag:      "v1.11.0",
+      revision: "ea296ccf58507b25051bc0597379c467046eb2f1"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git", branch: "main"
 
@@ -26,11 +26,14 @@ class Vault < Formula
 
   depends_on "go" => :build
   depends_on "gox" => :build
-  # Cannot build with `node` while upstream depends on node-sass<6
-  depends_on "node@14" => :build
+  depends_on "node" => :build
+  depends_on "python@3.10" => :build
   depends_on "yarn" => :build
 
   def install
+    # Needs both `npm` and `python` in PATH
+    ENV.prepend_path "PATH", Formula["node"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" if OS.mac?
     ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
     system "make", "bootstrap", "static-dist", "dev-ui"
     bin.install "bin/vault"
