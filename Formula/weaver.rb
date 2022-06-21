@@ -1,8 +1,8 @@
 class Weaver < Formula
   desc "Command-line tool for Weaver"
   homepage "https://github.com/scribd/Weaver"
-  url "https://github.com/scribd/Weaver/archive/1.1.0.tar.gz"
-  sha256 "b6ea521ce3bbd0f55d0f8b61181312bb23a4da6d3605fe449d080abeffe09d91"
+  url "https://github.com/scribd/Weaver/archive/1.1.1.tar.gz"
+  sha256 "2c82cafa133002addc106f4bcdac1ea32ed50eddf98b63422ce28ff5f086e508"
   license "MIT"
 
   bottle do
