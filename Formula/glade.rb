@@ -31,6 +31,17 @@ class Glade < Formula
     depends_on "gtk-mac-integration"
   end
 
+  # Apply 2 upstream commits to fix build with newer meson.  Remove with next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glade/-/commit/6da47128e8da04edccccdfcbc9101940fc15fe3a.diff"
+    sha256 "81eaacf4c9dd1c1a907f99582a81db248447935b4048e5084098041c78f9b3fb"
+  end
+
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glade/-/commit/efdd5338b034a11c5d617684d92d11edc600965e.diff"
+    sha256 "37badb7b5af87d51c3eea7677547b93deb5bda51c2fc710c64de1b7cf843bf4b"
+  end
+
   def install
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
