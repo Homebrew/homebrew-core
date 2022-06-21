@@ -43,13 +43,6 @@ class OpensslAT3 < Formula
     end
   end
 
-  # Fix failing test due to an expired certificate.
-  # Remove with the next version (3.0.4).
-  patch do
-    url "https://github.com/openssl/openssl/commit/338123cd95c83bddd2f54eb28ef2c5565e1766cb.patch?full_index=1"
-    sha256 "ef4fc492c841b61572f4d2031a3d707019aeb67d89d539287699c326857187fc"
-  end
-
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
   # be obvious to everyone, so explicitly state it for now to
