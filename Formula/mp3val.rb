@@ -18,8 +18,13 @@ class Mp3val < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "298b6b2835de5f1aa3cef2f9435da3935ffbcfa49468511676661e8eaff8ca70"
   end
 
+  # Apply this upstream commit to fix build on Linux:
+  # https://sourceforge.net/p/mp3val/subversion/95/
+  # Remove with next release.
+  patch :DATA
+
   def install
-    system "gnumake", "-f", "Makefile.gcc"
+    system "make", "-f", "Makefile.gcc"
     bin.install "mp3val.exe" => "mp3val"
   end
 
@@ -28,3 +33,18 @@ class Mp3val < Formula
     assert_match(/Done!$/, shell_output("#{bin}/mp3val -f #{mp3}"))
   end
 end
+
+__END__
+diff --git a/crossapi.cpp b/crossapi.cpp
+index cd8011a..fd586e1 100755
+--- a/crossapi.cpp
++++ b/crossapi.cpp
+@@ -241,7 +241,7 @@ int CrossAPI_MoveFile(char *szNewName,char *szOldName) {
+ //Moving failed due to different logical drives of source and destination. Let's copy:
+ 	id=open(szOldName,O_RDONLY);
+ 	if(id==-1) return 0;
+-	od=open(szNewName,O_WRONLY|O_CREAT|O_TRUNC);
++	od=open(szNewName,O_WRONLY|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
+ 	if(od==-1) {
+ 		close(id);
+ 		return 0;
