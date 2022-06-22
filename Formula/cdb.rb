@@ -23,6 +23,10 @@ class Cdb < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "4181f08e221e9cebd1cb9f7dd0082fef86d8f8571831491464340b68be238186"
   end
 
+  # Fix build failure because of missing #include errno.h on LInux.
+  # Patch has been submitted to the cdb mailing list.
+  patch :DATA
+
   def install
     inreplace "conf-home", "/usr/local", prefix
     system "make", "setup"
@@ -36,3 +40,108 @@ class Cdb < Formula
                  pipe_output("#{bin}/cdbdump", (testpath/"db").binread, 0))
   end
 end
+
+__END__
+diff --git a/alloc.c b/alloc.c
+index c661453..c466cc9 100644
+--- a/alloc.c
++++ b/alloc.c
+@@ -1,5 +1,6 @@
+ #include "alloc.h"
+ #include "error.h"
++#include "errno.h"
+ extern char *malloc();
+ extern void free();
+ 
+diff --git a/buffer_get.c b/buffer_get.c
+index 937b75e..661bd1a 100644
+--- a/buffer_get.c
++++ b/buffer_get.c
+@@ -1,6 +1,7 @@
+ #include "buffer.h"
+ #include "byte.h"
+ #include "error.h"
++#include "errno.h"
+ 
+ static int oneread(int (*op)(),int fd,char *buf,unsigned int len)
+ {
+diff --git a/buffer_put.c b/buffer_put.c
+index a05e1f5..1f07541 100644
+--- a/buffer_put.c
++++ b/buffer_put.c
+@@ -2,6 +2,7 @@
+ #include "str.h"
+ #include "byte.h"
+ #include "error.h"
++#include "errno.h"
+ 
+ static int allwrite(int (*op)(),int fd,char *buf,unsigned int len)
+ {
+diff --git a/cdb.c b/cdb.c
+index b09d3a5..54db474 100644
+--- a/cdb.c
++++ b/cdb.c
+@@ -5,6 +5,7 @@
+ #include <sys/mman.h>
+ #include "readwrite.h"
+ #include "error.h"
++#include "errno.h"
+ #include "seek.h"
+ #include "byte.h"
+ #include "cdb.h"
+diff --git a/cdb_make.c b/cdb_make.c
+index 6d1bd03..b3f8fc7 100644
+--- a/cdb_make.c
++++ b/cdb_make.c
+@@ -3,6 +3,7 @@
+ #include "readwrite.h"
+ #include "seek.h"
+ #include "error.h"
++#include "errno.h"
+ #include "alloc.h"
+ #include "cdb.h"
+ #include "cdb_make.h"
+diff --git a/cdbmake.c b/cdbmake.c
+index 3c1c8bd..34a459a 100644
+--- a/cdbmake.c
++++ b/cdbmake.c
+@@ -1,4 +1,5 @@
+ #include "error.h"
++#include "errno.h"
+ #include "open.h"
+ #include "strerr.h"
+ #include "cdb_make.h"
+diff --git a/install.c b/install.c
+index 605fed3..9ce1e04 100644
+--- a/install.c
++++ b/install.c
+@@ -1,6 +1,7 @@
+ #include "buffer.h"
+ #include "strerr.h"
+ #include "error.h"
++#include "errno.h"
+ #include "open.h"
+ #include "readwrite.h"
+ #include "exit.h"
+diff --git a/instcheck.c b/instcheck.c
+index c945e67..8a69a78 100644
+--- a/instcheck.c
++++ b/instcheck.c
+@@ -2,6 +2,7 @@
+ #include <sys/stat.h>
+ #include "strerr.h"
+ #include "error.h"
++#include "errno.h"
+ #include "readwrite.h"
+ #include "exit.h"
+ 
+diff --git a/strerr_sys.c b/strerr_sys.c
+index b484197..3e98cfa 100644
+--- a/strerr_sys.c
++++ b/strerr_sys.c
+@@ -1,4 +1,5 @@
+ #include "error.h"
++#include "errno.h"
+ #include "strerr.h"
+ 
+ struct strerr strerr_sys;
