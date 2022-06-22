@@ -47,6 +47,10 @@ class Fragroute < Formula
     # conflicts with an unrelated function in newer versions of libpcap
     inreplace %w[pcaputil.h pcaputil.c tun-loop.c fragtest.c], /pcap_open\b/, "pcap_open_device_named"
 
+    # libpcap has renamed the net directory to pcap.
+    # Fix reported to author by email.
+    inreplace "configure", "net/bpf.h", "pcap/bpf.h" unless OS.mac?
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -57,6 +61,7 @@ class Fragroute < Formula
     ]
 
     args << "--with-libpcap=#{MacOS.sdk_path}/usr" if !MacOS::CLT.installed? || MacOS.version != :sierra
+    args << "--with-libpcap=#{Formula["libpcap"].opt_prefix}" unless OS.mac?
 
     system "./configure", *args
     system "make", "install"
