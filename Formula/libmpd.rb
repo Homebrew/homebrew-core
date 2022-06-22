@@ -32,6 +32,7 @@ class Libmpd < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-DHAVE_STRNDUP" unless OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
