@@ -3,7 +3,8 @@ class GerbilScheme < Formula
   homepage "https://cons.io"
   url "https://github.com/vyzo/gerbil/archive/v0.17.tar.gz"
   sha256 "1e81265aba7e9022432649eb26b2e5c85a2bb631a315e4fa840b14cf336b2483"
-  license "Apache-2.0"
+  license all_of: ["LGPL-2.1-or-later", "Apache-2.0"]
+  revision 1
 
   livecheck do
     url "https://github.com/vyzo/gerbil.git"
@@ -19,6 +20,7 @@ class GerbilScheme < Formula
     sha256 x86_64_linux:   "6b0d5524324abcd1838483696a9e04e21cce47d7a0910e2ab20a48940454b09e"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "gambit-scheme"
   depends_on "leveldb"
   depends_on "libyaml"
@@ -32,7 +34,7 @@ class GerbilScheme < Formula
     cd "src" do
       ENV.append_path "PATH", "#{Formula["gambit-scheme"].opt_prefix}/current/bin"
       system "./configure", "--prefix=#{prefix}",
-                            "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}/current",
+                            "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}",
                             "--enable-leveldb",
                             "--enable-libxml",
                             "--enable-libyaml",
