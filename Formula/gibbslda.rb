@@ -19,6 +19,9 @@ class Gibbslda < Formula
 
   # Build fails without including stdlib - https://trac.macports.org/ticket/41915
   # https://sourceforge.net/p/gibbslda/bugs/4/
+  # Also fix build failure because of missing #include <stdio.h> on Linux.
+  # Linux patch submitted to SourceForge page:
+  # https://sourceforge.net/p/gibbslda/bugs/5/
   patch :DATA
 
   def install
@@ -30,7 +33,6 @@ class Gibbslda < Formula
 end
 
 __END__
-
 diff --git a/src/utils.cpp b/src/utils.cpp
 index e2f538b..1df5fb3 100644
 --- a/src/utils.cpp
@@ -43,3 +45,16 @@ index e2f538b..1df5fb3 100644
  #include <string>
  #include <map>
  #include "strtokenizer.h"
+diff --git a/src/lda.cpp b/src/lda.cpp
+index 273d469..4b03d85 100644
+--- a/src/lda.cpp
++++ b/src/lda.cpp
+@@ -21,6 +21,8 @@
+  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+  */
+ 
++#include <stdio.h>
++
+ #include "model.h"
+ 
+ using namespace std;
