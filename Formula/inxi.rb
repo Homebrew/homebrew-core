@@ -28,14 +28,6 @@ class Inxi < Formula
 
   test do
     inxi_output = shell_output("#{bin}/inxi")
-
-    # This test does not work on Linux, because on that platform
-    # inxi does not print the OS name, only the kernel version.
-    if OS.mac?
-      uname = shell_output("uname").strip
-      assert_match uname.to_str, inxi_output.to_s
-    end
-
     uname_r = shell_output("uname -r").strip
     assert_match uname_r.to_str, inxi_output.to_s
   end
