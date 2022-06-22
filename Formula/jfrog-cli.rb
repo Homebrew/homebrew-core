@@ -31,6 +31,8 @@ class JfrogCli < Formula
     # Install fish completion
     output = Utils.safe_popen_read(bin/"jf", "completion", "fish")
     (fish_completion/"jf.fish").write output
+
+    system "jf", "-v"
   end
 
   test do
