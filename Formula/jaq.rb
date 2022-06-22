@@ -1,15 +1,10 @@
 class Jaq < Formula
   desc "JQ clone focussed on correctness, speed, and simplicity"
   homepage "https://github.com/01mf02/jaq"
-  url "https://static.crates.io/crates/jaq/jaq-0.7.0.crate"
-  sha256 "b0aebabdc99fed46c3f75d68f832fe6b8d5c9cbe4bedea1b3011f5102fcf233f"
+  url "https://github.com/01mf02/jaq/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "8ddf812157c4d0e999b2fadc25b9c13665528df08086114d575eee265973b81a"
   license "MIT"
   head "https://github.com/01mf02/jaq.git", branch: "main"
-
-  livecheck do
-    url "https://crates.io/api/v1/crates/jaq/versions"
-    regex(/"num":\s*"(\d+(?:\.\d+)+)"/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dbede05c6da0f769eb033adff55af1d561def4928c62fa11f3c9845ef0e1ff42"
@@ -23,7 +18,6 @@ class Jaq < Formula
   depends_on "rust" => :build
 
   def install
-    system "tar", "--strip-components", "1", "-xzvf", "jaq-#{version}.crate"
     system "cargo", "install", *std_cargo_args
   end
 
