@@ -27,11 +27,12 @@ class Caf < Formula
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCAF_ENABLE_TESTING=OFF"
-      system "make"
-      system "make", "install"
-    end
+    tools = pkgshare/"tools"
+    args = ["-DCAF_ENABLE_TESTING=OFF"]
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath};@loader_path/#{lib.relative_path_from(tools)}" if OS.mac?
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
