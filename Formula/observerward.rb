@@ -1,8 +1,8 @@
 class Observerward < Formula
   desc "Cross platform community web fingerprint identification tool"
   homepage "https://0x727.github.io/ObserverWard/"
-  url "https://github.com/0x727/ObserverWard/archive/refs/tags/v2022.6.14.tar.gz"
-  sha256 "d67af3efacc181c20b3b0a4f16616e74d19565498e56ab78ca5867fa71564b59"
+  url "https://github.com/0x727/ObserverWard/archive/refs/tags/v2022.6.22.tar.gz"
+  sha256 "4bb29c35ba7bb9743ccfe5c44348cdf27da582884afe0396a0ce2dcd011ada30"
   license "MIT"
 
   bottle do
