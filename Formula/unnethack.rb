@@ -20,8 +20,21 @@ class Unnethack < Formula
     sha256 high_sierra:    "47228cb416afe4d7e9ab31a2b85914e6b27f77e88340f7ef174bb2d9dd3ea2bb"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "util-linux"
+  end
+
   # directory for temporary level data of running games
   skip_clean "var/unnethack/level"
+
+  # Apply upstream commit to fix build with newer bison. Remove with next release.
+  patch do
+    url "https://github.com/UnNetHack/UnNetHack/commit/04f0a3a850a94eb8837ddcef31303968240d1c31.patch?full_index=1"
+    sha256 "5285dc2e57b378bc77c01879399e2af248ef967977ed50e0c13a80b1993a7081"
+  end
 
   def install
     # directory for version specific files that shouldn't be deleted when
@@ -31,13 +44,13 @@ class Unnethack < Formula
     args = [
       "--prefix=#{prefix}",
       "--with-owner=#{`id -un`}",
-      "--with-group=admin",
       # common xlogfile for all versions
       "--enable-xlogfile=#{var}/unnethack/xlogfile",
       "--with-bonesdir=#{version_specific_directory}/bones",
       "--with-savesdir=#{version_specific_directory}/saves",
       "--enable-wizmode=#{`id -un`}",
     ]
+    args << "--with-group=admin" if OS.mac?
 
     system "./configure", *args
     ENV.deparallelize # Race condition in make
