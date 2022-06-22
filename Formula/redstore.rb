@@ -27,6 +27,7 @@ class Redstore < Formula
   depends_on "redland"
 
   def install
+    ENV.append "CFLAGS", "-D_GNU_SOURCE" unless OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
