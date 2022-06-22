@@ -32,7 +32,7 @@ class JfrogCli < Formula
     output = Utils.safe_popen_read(bin/"jf", "completion", "fish")
     (fish_completion/"jf.fish").write output
 
-    system "jf", "-v"
+    exec "#{bin}/jf intro"
   end
 
   test do
