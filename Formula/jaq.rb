@@ -1,8 +1,8 @@
 class Jaq < Formula
   desc "JQ clone focussed on correctness, speed, and simplicity"
   homepage "https://github.com/01mf02/jaq"
-  url "https://static.crates.io/crates/jaq/jaq-0.6.0.crate"
-  sha256 "aebeabacdd1571bd650e628c424a17ca92744a7b1f8b587059eb0a7ba7668987"
+  url "https://static.crates.io/crates/jaq/jaq-0.7.0.crate"
+  sha256 "b0aebabdc99fed46c3f75d68f832fe6b8d5c9cbe4bedea1b3011f5102fcf233f"
   license "MIT"
   head "https://github.com/01mf02/jaq.git", branch: "main"
 
