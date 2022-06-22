@@ -29,6 +29,8 @@ class Hping < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "95f5fabc90cdd2e8ca9b10189f69a2057019b35ac1f6cb2e7e4afa7bea1221d5"
   end
 
+  uses_from_macos "libpcap"
+
   patch :DATA
 
   patch :p0 do
@@ -57,6 +59,10 @@ class Hping < Formula
   end
 
   def install
+    # The net directory has been renamed to pcap in libpcap.
+    # Submitted upstream in https://github.com/antirez/hping/pull/13.
+    inreplace "libpcap_stuff.c", "net/bpf.h", "pcap/bpf.h" unless OS.mac?
+
     # Compile fails with tcl support; TCL on macOS is 32-bit only
     system "./configure", "--no-tcl"
 
@@ -64,7 +70,7 @@ class Hping < Formula
     sbin.mkpath
     man8.mkpath
     system "make", "CC=#{ENV.cc}",
-                   "COMPILE_TIME=#{ENV.cflags}",
+                   "COMPILE_TIME=-D__LITTLE_ENDIAN__",
                    "INSTALL_PATH=#{prefix}",
                    "INSTALL_MANPATH=#{man}",
                    "install"
