@@ -24,6 +24,10 @@ class Yamcha < Formula
 
   depends_on "tinysvm"
 
+  # Fix build failure because of missing #include <cstring>/"stdlib.h" on Linux.
+  # Patch submitted to author by email.
+  patch :DATA
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -68,3 +72,29 @@ class Yamcha < Formula
     end
   end
 end
+
+__END__
+diff --git a/libexec/mkdarts.cpp b/libexec/mkdarts.cpp
+index c012fec..b88bdff 100644
+--- a/libexec/mkdarts.cpp
++++ b/libexec/mkdarts.cpp
+@@ -23,6 +23,7 @@
+ 
+ #include <cstdio>
+ #include <cstring>
++#include <cstdlib>
+ #include <iostream>
+ #include <fstream>
+ #include <string>
+diff --git a/src/param.cpp b/src/param.cpp
+index bbf7761..053e3c8 100644
+--- a/src/param.cpp
++++ b/src/param.cpp
+@@ -26,6 +26,7 @@
+ #include <cstdio>
+ #include "param.h"
+ #include "common.h"
++#include "string.h"
+ 
+ #ifdef HAVE_CONFIG_H
+ #include "config.h"
