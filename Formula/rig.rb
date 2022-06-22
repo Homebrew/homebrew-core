@@ -16,8 +16,12 @@ class Rig < Formula
     sha256 cellar: :any_skip_relocation, yosemite:    "785921276b725db4d309ed0833c7f9fece46b6c73d33caa8e74fec614d8afa68"
   end
 
+  # Fix build failure because of missing #include <cstring> on Linux.
+  # Patch submitted to author by email.
+  patch :DATA
+
   def install
-    system "make"
+    system "make", "PREFIX=#{prefix}"
     bin.install "rig"
     pkgshare.install Dir["data/*"]
   end
@@ -26,3 +30,17 @@ class Rig < Formula
     system "#{bin}/rig"
   end
 end
+
+__END__
+diff --git a/rig.cc b/rig.cc
+index 1f9a2e4..3a23ea8 100644
+--- a/rig.cc
++++ b/rig.cc
+@@ -21,6 +21,7 @@
+ #include <fstream>
+ #include <vector>
+ #include <string>
++#include <cstring>
+ #include <stdlib.h>
+ #include <unistd.h>
+ #include <time.h>
