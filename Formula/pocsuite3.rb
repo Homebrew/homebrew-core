@@ -52,8 +52,8 @@ class Pocsuite3 < Formula
   end
 
   resource "Faker" do
-    url "https://files.pythonhosted.org/packages/c9/d2/d1ac0df1bba01992850dc40db1434b44898d78e808308de5152dd9dee17d/Faker-13.13.0.tar.gz"
-    sha256 "f192d238b3b6acb98ee85bd596258a15a171385613b30a7849e5845f8980d722"
+    url "https://files.pythonhosted.org/packages/6d/cc/a6f8e71577a744d172bdcd994d41914d595d32e451f4a82498613910dc01/Faker-13.14.0.tar.gz"
+    sha256 "b9f93ec97a70da79d43f497aa7b2b7d2bcd5d0c6d3ab7c102dde4193d0a38351"
   end
 
   resource "idna" do
