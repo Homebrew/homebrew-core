@@ -29,7 +29,7 @@ class Mist < Formula
 
     # check we can export the output list
     out = testpath/"out.json"
-    shell_output("#{bin}/mist list --quiet --export #{out} --output-type json").strip
+    system bin/"mist", "list", "firmware", "--quiet", "--export=#{out}", "--output-type=json"
     assert_predicate out, :exist?
 
     # check that it's parseable JSON in the format we expect
