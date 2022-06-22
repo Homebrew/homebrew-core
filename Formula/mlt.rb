@@ -1,8 +1,8 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/releases/download/v7.6.0/mlt-7.6.0.tar.gz"
-  sha256 "49f3c7902432a5a873ebce8406d901ac73623ff3dba7265b6e8b55cfe8220201"
+  url "https://github.com/mltframework/mlt/releases/download/v7.8.0/mlt-7.8.0.tar.gz"
+  sha256 "4165e62e007e37d65e96517a45817517067897eedef4d83de7208dbd74b1f0f7"
   license "LGPL-2.1-only"
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
