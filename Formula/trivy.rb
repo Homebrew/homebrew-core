@@ -1,18 +1,18 @@
 class Trivy < Formula
   desc "Vulnerability scanner for container images, file systems, and Git repos"
   homepage "https://aquasecurity.github.io/trivy/"
-  url "https://github.com/aquasecurity/trivy/archive/v0.29.1.tar.gz"
-  sha256 "8a84df786de95df74aed9d05ba265703b9ae1b45631eacb39ece4b3c06561bf2"
+  url "https://github.com/aquasecurity/trivy/archive/v0.29.2.tar.gz"
+  sha256 "df82e986e05032f9b08bc9b35eea0926f312ed7c839c6eb9ea6553c482e4f988"
   license "Apache-2.0"
   head "https://github.com/aquasecurity/trivy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "383e26a670eb564e4a58f37f50836fa2c1e72139b1f5280e3151af92233d4858"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5aa008779545926dbca756d96b3039a2daf84f3d99c978b463416df0e248cf3"
-    sha256 cellar: :any_skip_relocation, monterey:       "04a230934cd3ca67390f8ab81351704336bcf6a295ccf715275792ad34a9b501"
-    sha256 cellar: :any_skip_relocation, big_sur:        "be26f8ff0c9b96f8698bd43a26c69239b91981a1cd74d1fb87337885b9883239"
-    sha256 cellar: :any_skip_relocation, catalina:       "86fe1f098a5a02460e3a6e8bb99c332218c928cde9c8fa0047c5ca01b57f0427"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8c4714ccca4d3f5d158c8a3774c489a16ec5da6336083a2d820c1c372aab9a2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "37e8ea97d0e092bd44635c6f7ebe46bed8e265557a8e76c766b89524d70d18be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a3324d6dd1d586695b27a87c1dab65efaef20dc51103da34a4c353aa98a98bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "2941d285bd1649643687dd276cc3f06dfef23b444166b3db739236a5e9271e8e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d8bd8fada8439d85d793c5d2eeeca0356090ff8bced590faac88c0bcdd241ac9"
+    sha256 cellar: :any_skip_relocation, catalina:       "7df5162e4479052ff519f5ba632f7836c98536139439dfb406fd437a3842659d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49ee3a643b1f5bf4bd404d00de15d8a15075525b135058ead0097f0ae83b2b2f"
   end
 
   depends_on "go" => :build
