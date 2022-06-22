@@ -27,6 +27,8 @@ class I2pd < Formula
 
     args << "USE_AESNI=no" if Hardware::CPU.arm?
 
+    # Homebrew-specific fix to make sure documentation is installed in `share`.
+    inreplace "Makefile.linux", "${PREFIX}/usr/share", "${PREFIX}/share"
     system "make", "install", *args
 
     # preinstall to prevent overwriting changed by user configs
