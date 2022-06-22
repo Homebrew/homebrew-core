@@ -18,6 +18,14 @@ class Bitchx < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxcrypt"
+  uses_from_macos "ncurses"
+
+  # Apply this upstream commit to fix Linux build:
+  # https://sourceforge.net/p/bitchx/git/ci/1c6ff3088ad01a15bea50f78f1b2b468db7afae9/
+  # Remove with next release.
+  patch :DATA
+
   def install
     # Patch to fix OpenSSL detection with OpenSSL 1.1
     # A similar fix is already committed upstream:
@@ -38,3 +46,40 @@ class Bitchx < Formula
     system bin/"BitchX", "-v"
   end
 end
+
+__END__
+diff --git a/dll/amp/layer2.c b/dll/amp/layer2.c
+index d4c4d95..2b7d412 100644
+--- a/dll/amp/layer2.c
++++ b/dll/amp/layer2.c
+@@ -77,7 +77,7 @@ int hsize,fs,mean_frame_size;
+ 					   nbal=&t_nbal2;
+ 					   sblimit=8;
+ 					   break;
+-				default  : /*printf(" bit alloc info no gud ");*/
++				default  : break;
+ 				}
+ 				break;
+ 		case 1 : switch (bitrate)	/* 1 = 48 kHz */
+@@ -98,7 +98,7 @@ int hsize,fs,mean_frame_size;
+ 					   nbal=&t_nbal2;
+ 					   sblimit=8;
+ 					   break;
+-				default  : /*printf(" bit alloc info no gud ");*/
++				default  : break;
+ 				}
+ 				break;
+ 		case 2 : switch (bitrate)	/* 2 = 32 kHz */
+@@ -122,10 +122,10 @@ int hsize,fs,mean_frame_size;
+                                    nbal=&t_nbal3;
+                                    sblimit=12;
+ 				   break;
+-			default  : /*printf("bit alloc info not ok\n");*/
++			default  : break;
+ 			}
+ 	                break;                                                    
+-		default  : /*printf("sampling freq. not ok/n");*/
++		default  : break;
+ 	} else {
+ 		bit_alloc_index=&t_allocMPG2;
+ 		nbal=&t_nbalMPG2;
