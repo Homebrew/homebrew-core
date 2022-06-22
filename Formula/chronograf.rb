@@ -19,15 +19,17 @@ class Chronograf < Formula
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
-  # Switch to `node` when chronograf updates dependency node-sass>=6.0.0
-  depends_on "node@14" => :build
+  depends_on "node" => :build
+  depends_on "python@3.10" => :build if MacOS.version >= :monterey
   depends_on "yarn" => :build
   depends_on "influxdb"
   depends_on "kapacitor"
 
   def install
-    Language::Node.setup_npm_environment
+    # Work around older version of gyp-mac-tool: env: python: No such file or directory
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" if MacOS.version >= :monterey
 
+    Language::Node.setup_npm_environment
     system "make", "dep"
     system "make", ".jssrc"
     system "make", "chronograf"
