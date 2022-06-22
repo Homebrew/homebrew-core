@@ -23,29 +23,50 @@ class DvdxrwTools < Formula
     sha256 cellar: :any_skip_relocation, yosemite:       "13fa5b14889c82bd2ff44d4da2ba8049603bdfc6026196440fe33102939faa06"
   end
 
-  # Respect $PREFIX
+  uses_from_macos "m4" => :build
+
+  # Respect $prefix on macOS.
+  # Fix build failure because of missing #include <limits.h> on Linux.
+  # Patch submitted to author by email.
   patch :DATA
 
   def install
     bin.mkpath
     man1.mkpath
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "prefix=#{prefix}", "install"
   end
 end
 
 __END__
 diff --git a/Makefile.m4 b/Makefile.m4
-index a6a100b..bf7c041 100644
+index a6a100b..03fc245 100644
 --- a/Makefile.m4
 +++ b/Makefile.m4
-@@ -30,8 +30,8 @@ LINK.o	=$(LINK.cc)
+@@ -27,11 +27,13 @@ CXXFLAGS+=$(WARN) -D__unix -O2 -fno-exceptions
+ LDLIBS	=-framework CoreFoundation -framework IOKit
+ LINK.o	=$(LINK.cc)
+ 
++prefix?=/usr
++
  # to install set-root-uid, `make BIN_MODE=04755 install'...
  BIN_MODE?=0755
  install:	dvd+rw-tools
 -	install -o root -m $(BIN_MODE) $(CHAIN) /usr/bin
 -	install -o root -m 0644 growisofs.1 /usr/share/man/man1
-+	install -m $(BIN_MODE) $(CHAIN) $(PREFIX)/bin
-+	install -m 0644 growisofs.1 $(PREFIX)/share/man/man1
++	install -m $(BIN_MODE) $(CHAIN) $(prefix)/bin
++	install -m 0644 growisofs.1 $(prefix)/share/man/man1
  ])
-
+ 
  ifelse(OS,MINGW32,[
+diff --git a/transport.hxx b/transport.hxx
+index 35a57a7..467ce50 100644
+--- a/transport.hxx
++++ b/transport.hxx
+@@ -16,6 +16,7 @@
+ #include <fcntl.h>
+ #include <poll.h>
+ #include <sys/time.h>
++#include <limits.h>
+ 
+ inline long getmsecs()
+ { struct timeval tv;
