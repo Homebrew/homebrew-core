@@ -8,13 +8,6 @@ class AnsibleAT29 < Formula
   license "GPL-3.0-or-later"
   revision 3
 
-  # The newest PyPI release won't be a 2.9.x version, so we match versions from
-  # the links in the "Release History" section.
-  livecheck do
-    url :stable
-    regex(%r{href=.*?/project/ansible/v?(2\.9(?:\.\d+)*)/?["' >]}i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ee4048e7f365c3196c9753f3b3c082ab1907b64eb738eaa32c35c74d7114e449"
     sha256 cellar: :any,                 arm64_big_sur:  "bd5dd76b03986474587e43cf794def3d91bfc4e671aa955d274b4bbed40cb2ed"
@@ -25,6 +18,10 @@ class AnsibleAT29 < Formula
   end
 
   keg_only :versioned_formula
+
+  # Ansible 2.9 was documented as unmaintained/EOL upstream on 2022-05-11.
+  # Ref: https://github.com/ansible/ansible/commit/6230244537b57fddf1bf822c74ffd0061eb240cc
+  disable! date: "2023-05-11", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
