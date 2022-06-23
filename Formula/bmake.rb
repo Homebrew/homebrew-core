@@ -20,6 +20,9 @@ class Bmake < Formula
   end
 
   def install
+    # Don't pass flat_namespace to dependents build
+    inreplace "mk/lib.mk", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
+
     # Don't pre-roff cat pages.
     inreplace "mk/man.mk", "MANTARGET?", "MANTARGET"
 
