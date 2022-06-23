@@ -4,7 +4,7 @@ class Lcdproc < Formula
   url "https://github.com/lcdproc/lcdproc/releases/download/v0.5.9/lcdproc-0.5.9.tar.gz"
   sha256 "d48a915496c96ff775b377d2222de3150ae5172bfb84a6ec9f9ceab962f97b83"
   license "GPL-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 monterey:     "0184f9e8d0715ce4a16b47546ba9e9b60c9cd180b8bbc1144f45b7989e893eeb"
@@ -15,14 +15,14 @@ class Lcdproc < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libftdi"
-  depends_on "libhid"
   depends_on "libusb"
+  depends_on "libusb-compat" # Remove when all drivers migrated https://github.com/lcdproc/lcdproc/issues/13
+
+  uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
                           "--enable-drivers=all",
                           "--enable-libftdi=yes"
     system "make", "install"
