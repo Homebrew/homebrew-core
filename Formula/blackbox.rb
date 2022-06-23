@@ -6,6 +6,11 @@ class Blackbox < Formula
   license "MIT"
   version_scheme 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)*\.\d{6,8}(?:\.\d+)*)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "6910c4f3a0b2b04288b9ca0eedc866e6b83d14ac5276d4eb46651a0bb0c14333"
   end
