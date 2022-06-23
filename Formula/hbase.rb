@@ -1,9 +1,9 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.10/hbase-2.4.10-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/2.4.10/hbase-2.4.10-bin.tar.gz"
-  sha256 "7ea25b264c9d934f6d4ea25362ea8ede38b1c527747f55e4aa1ec9a700082219"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.14/hbase-2.4.14-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.4.14/hbase-2.4.14-bin.tar.gz"
+  sha256 "04d5c2f46ce4d1e1b80dcf4740d7c8e6c6a371f4a44f5561dfc55c703df00b1e"
   # We bundle hadoop-lzo which is GPL-3.0-or-later
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
@@ -68,7 +68,7 @@ class Hbase < Formula
       (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
     end
 
-    inreplace "#{libexec}/conf/hbase-env.sh" do |s|
+    inreplace libexec/"conf/hbase-env.sh" do |s|
       # upstream bugs for ipv6 incompatibility:
       # https://issues.apache.org/jira/browse/HADOOP-8568
       # https://issues.apache.org/jira/browse/HADOOP-3619
@@ -83,6 +83,8 @@ class Hbase < Formula
               "export HBASE_LOG_DIR=\"${HBASE_LOG_DIR:-#{var}/log/hbase}\"")
     end
 
+    # Interface name is lo on Linux, not lo0.
+    loopback = OS.mac? ? "lo0" : "lo"
     # makes hbase usable out of the box
     # upstream has been provided this patch
     # https://issues.apache.org/jira/browse/HBASE-15426
@@ -104,15 +106,15 @@ class Hbase < Formula
           </property>
           <property>
             <name>hbase.zookeeper.dns.interface</name>
-            <value>lo0</value>
+            <value>#{loopback}</value>
           </property>
           <property>
             <name>hbase.regionserver.dns.interface</name>
-            <value>lo0</value>
+            <value>#{loopback}</value>
           </property>
           <property>
             <name>hbase.master.dns.interface</name>
-            <value>lo0</value>
+            <value>#{loopback}</value>
           </property>
       EOS
   end
@@ -151,9 +153,6 @@ class Hbase < Formula
       s.gsub!(/(hbase.rootdir.*)\n.*/, "\\1\n<value>file://#{testpath}/hbase</value>")
       s.gsub!(/(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>")
       s.gsub!(/(hbase.zookeeper.property.clientPort.*)\n.*/, "\\1\n<value>#{port}</value>")
-
-      # Interface name is lo on Linux, not lo0.
-      s.gsub!("lo0", "lo") unless OS.mac?
     end
 
     ENV["HBASE_LOG_DIR"]  = testpath/"logs"
@@ -161,7 +160,7 @@ class Hbase < Formula
     ENV["HBASE_PID_DIR"]  = testpath/"pid"
 
     system "#{bin}/start-hbase.sh"
-    sleep 10
+    sleep 15
     begin
       assert_match "Zookeeper", pipe_output("nc 127.0.0.1 #{port} 2>&1", "stats")
     ensure
