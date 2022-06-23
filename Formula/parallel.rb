@@ -20,6 +20,7 @@ class Parallel < Formula
   conflicts_with "moreutils", because: "both install a `parallel` executable"
 
   def install
+    ENV.append_path "PATH", bin
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
 
