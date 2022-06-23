@@ -35,8 +35,8 @@ class Mlton < Formula
     end
 
     on_linux do
-      url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117-1.amd64-linux.tgz"
-      sha256 "25876b075e95b0e70677bd5eeebb791a871629376044f358b908678b8f9b605d"
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117-1.amd64-linux-glibc2.23.tgz"
+      sha256 "5ac30fe415dd9bf727327980391df2556fed3f8422e36624db1ce0e9f7fba1e5"
     end
   end
 
