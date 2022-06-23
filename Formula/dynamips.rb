@@ -4,6 +4,7 @@ class Dynamips < Formula
   url "https://github.com/GNS3/dynamips/archive/v0.2.22.tar.gz"
   sha256 "5b3142eb4d2780683ea8781d5f4da6fc39c514d36546392508c74da8ba98240b"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Dynamips < Formula
   uses_from_macos "libpcap"
 
   on_macos do
-    depends_on "libelf" => :build
+    depends_on "elftoolchain"
   end
 
   on_linux do
@@ -34,16 +35,15 @@ class Dynamips < Formula
   def install
     cmake_args = std_cmake_args + ["-DANY_COMPILER=1"]
     cmake_args << if OS.mac?
-      "-DLIBELF_INCLUDE_DIRS=#{Formula["libelf"].opt_include}/libelf"
+      "-DLIBELF_INCLUDE_DIRS=#{Formula["elftoolchain"].opt_include}"
     else
       "-DLIBELF_INCLUDE_DIRS=#{Formula["elfutils"].opt_include}"
     end
 
     ENV.deparallelize
-    mkdir "build" do
-      system "cmake", "..", *cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
