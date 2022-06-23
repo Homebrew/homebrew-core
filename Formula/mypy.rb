@@ -6,6 +6,7 @@ class Mypy < Formula
   url "https://files.pythonhosted.org/packages/67/48/e73045183ce9824d98365f18255a79d0b01638f40a0a68f898dc8f3cebcc/mypy-0.961.tar.gz"
   sha256 "f730d56cb924d371c26b8eaddeea3cc07d78ff51c521c6d04899ac6904b75492"
   license "MIT"
+  head "https://github.com/python/mypy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4eea7c74afc17105c42e966afc34ea619550feab44e1ea3f38b84c0e76e3cd68"
