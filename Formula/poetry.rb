@@ -6,6 +6,7 @@ class Poetry < Formula
   url "https://files.pythonhosted.org/packages/b5/0c/6d139a547c5962da458f7899861d8f8f52a5909e37a100bf22e281007e7c/poetry-1.1.14.tar.gz"
   sha256 "8b5a7676cda9b9e85c71743c672352cabcb6e2f647b6b88fa95e4f374bc8edce"
   license "MIT"
+  head "https://github.com/python-poetry/poetry.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d296d15d5de01b3286067c2b76ba633e89564f9dd69d9c41b16b4e2a7e453743"
