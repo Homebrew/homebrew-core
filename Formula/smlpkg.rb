@@ -8,10 +8,11 @@ class Smlpkg < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, monterey: "59f20ca9b49cf17bcb6931a23477ae7e62ab547520509a66c1a6385713f925b8"
-    sha256 cellar: :any_skip_relocation, big_sur:  "dedbec064bc7c579cac83e901849fddf01fd75ff93fb61f547fea21f166995ea"
-    sha256 cellar: :any_skip_relocation, catalina: "081ba1bc8f93af1f393505ad20d46084498a3a268a9a2f5fcbe0bc274964ba95"
-    sha256 cellar: :any_skip_relocation, mojave:   "0f714a205b9b960956fdd6fde1a3185adcd6cb26a28e30b30adb4f49c53ab344"
+    sha256 cellar: :any_skip_relocation, monterey:     "59f20ca9b49cf17bcb6931a23477ae7e62ab547520509a66c1a6385713f925b8"
+    sha256 cellar: :any_skip_relocation, big_sur:      "dedbec064bc7c579cac83e901849fddf01fd75ff93fb61f547fea21f166995ea"
+    sha256 cellar: :any_skip_relocation, catalina:     "081ba1bc8f93af1f393505ad20d46084498a3a268a9a2f5fcbe0bc274964ba95"
+    sha256 cellar: :any_skip_relocation, mojave:       "0f714a205b9b960956fdd6fde1a3185adcd6cb26a28e30b30adb4f49c53ab344"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c34eb8d99928a9143212f3273c3a51ec4d2eab32f11f70f626aec59855f1a6a9"
   end
 
   depends_on "mlkit" => :build
