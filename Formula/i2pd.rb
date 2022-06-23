@@ -6,11 +6,12 @@ class I2pd < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "1a73baaf386d2a35b5cfbf2f7dbd294fee1fc8c76e29e7b181c5ce3b48f43352"
-    sha256 cellar: :any, arm64_big_sur:  "4cda48f56d5863d889e03ce2c506cbb1481bdd4d7a8ecb286e0f3c74c9d4e47c"
-    sha256 cellar: :any, monterey:       "d2bb1f31c7c24141e030ef2144f288bd60a87499edecd0739b4ae2446d480813"
-    sha256 cellar: :any, big_sur:        "1493e258f64e629569bcacb78dea5850053496f02c8d96c5c3905971a22c98b1"
-    sha256 cellar: :any, catalina:       "1864323dd8bc24ba63702ed6ceed9b0c0daa529840f712e9f9c033d42b227c86"
+    sha256 cellar: :any,                 arm64_monterey: "1a73baaf386d2a35b5cfbf2f7dbd294fee1fc8c76e29e7b181c5ce3b48f43352"
+    sha256 cellar: :any,                 arm64_big_sur:  "4cda48f56d5863d889e03ce2c506cbb1481bdd4d7a8ecb286e0f3c74c9d4e47c"
+    sha256 cellar: :any,                 monterey:       "d2bb1f31c7c24141e030ef2144f288bd60a87499edecd0739b4ae2446d480813"
+    sha256 cellar: :any,                 big_sur:        "1493e258f64e629569bcacb78dea5850053496f02c8d96c5c3905971a22c98b1"
+    sha256 cellar: :any,                 catalina:       "1864323dd8bc24ba63702ed6ceed9b0c0daa529840f712e9f9c033d42b227c86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5ae82687c0223459a4db06a225b1d8af0490008356c8667b9201a4d2a670e3c"
   end
 
   depends_on "boost"
@@ -27,6 +28,8 @@ class I2pd < Formula
 
     args << "USE_AESNI=no" if Hardware::CPU.arm?
 
+    # Homebrew-specific fix to make sure documentation is installed in `share`.
+    inreplace "Makefile.linux", "${PREFIX}/usr/share", "${PREFIX}/share"
     system "make", "install", *args
 
     # preinstall to prevent overwriting changed by user configs

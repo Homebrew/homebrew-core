@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.98.0",
-      revision: "789568953dddd742c3cd9e4ccea8ef3013ca6efb"
+      tag:      "v0.100.0",
+      revision: "facd90461b6a99fbac4406a7fe51ee91d1039eb2"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "b68e49bfc6c26fe8c3ee0e460ec875280b85e7aebb87d0d3c8890bb0b7194873"
-    sha256 cellar: :any, arm64_big_sur:  "d8f77c7d8c6e144653245a331230fdc8c890585d392e2bc82d9b96d2ebe95f8d"
-    sha256 cellar: :any, monterey:       "d74ad176c9d059f57b33cbe95d4ea84e860f368ad4dd2c8c2ef16879829bc9b0"
-    sha256 cellar: :any, big_sur:        "f109d18878565f9db3423d5885c1312d85f4716c7ae40e0ee7fca08c5b263ae9"
-    sha256 cellar: :any, catalina:       "320c753649e9de1f2280ac26d57338f48b209aa908d7de4cd6c7a66a174ddbe5"
-    sha256               x86_64_linux:   "3c254aefe6da2279236f6bb22fe2aebbb81bd9f7c47e687180a180dea1d178f9"
+    sha256 cellar: :any, arm64_monterey: "c0c185b52061aeea1a2db6ce387f1df1cdeaf7586c58900b489c819969b3d6eb"
+    sha256 cellar: :any, arm64_big_sur:  "eb8d578c6340c8bf2a29829d7c516baee0aadffca6e4ce5363c1e713f63ba9d0"
+    sha256 cellar: :any, monterey:       "8c5566c663618799c6de6f1930be7be3cc1778c33c1b8327189a1ca7ed1ad568"
+    sha256 cellar: :any, big_sur:        "98e27a84f95cc5a893c15272cb902cc64e42c4d51b57f48a4e733bab8dab8523"
+    sha256 cellar: :any, catalina:       "c5e00b3c4c35bb3beafbc7f4097d278d2c7761224476a930f95ba153610b8c45"
+    sha256               x86_64_linux:   "a8ea2d8a44233bf7a7a1e8b1e80dbba4151fa33a8c9f64ec9077ecc5bdfbbea8"
   end
 
   depends_on "cmake" => :build
@@ -78,8 +78,8 @@ class Semgrep < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
-    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
+    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
   end
 
   resource "defusedxml" do
@@ -113,8 +113,8 @@ class Semgrep < Formula
   end
 
   resource "peewee" do
-    url "https://files.pythonhosted.org/packages/ca/2a/a3a01c86080c77369a5288554e619a0dc4efdacd9fabae2d2fdbbe393f82/peewee-3.14.10.tar.gz"
-    sha256 "23271422b332c82d30c92597dee905ee831b56c6d99c33e05901e6891c75fe15"
+    url "https://files.pythonhosted.org/packages/d4/22/b9d912a9611e8fd3f25ce040aa683c1dabbae7404e77db0f6a511363a112/peewee-3.15.0.tar.gz"
+    sha256 "48eac70be812ac84daa5400fb8e7b545e0c83adcfa05c8e2a8612f9ced4da495"
   end
 
   resource "pyparsing" do
@@ -212,7 +212,7 @@ class Semgrep < Formula
     end
 
     ENV["SEMGREP_SKIP_BIN"] = "1"
-    python_path = "semgrep"
+    python_path = "cli"
     cd python_path do
       venv = virtualenv_create(libexec, Formula["python@3.10"].bin/"python3.10")
       venv.pip_install resources.reject { |r| r.name == "ocaml-tree-sitter" }

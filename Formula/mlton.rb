@@ -14,10 +14,11 @@ class Mlton < Formula
   end
 
   bottle do
-    sha256 cellar: :any, monterey: "ae1960f379bae7ffc49962c1d30a8eeb1110063f7c8a136605cb06e49549a308"
-    sha256 cellar: :any, big_sur:  "be6a6d599390e1182ab91f99c8e4cbeb20ed10cbd472d7a7fda790cbb9e60b88"
-    sha256 cellar: :any, catalina: "9690c5e07e46081d3f771797ea92f8ddef37fb79e3104263794f8c7473170f18"
-    sha256 cellar: :any, mojave:   "e6fdecbf689992c25e1429e2f33d5cd66c5bdee500ec1fe07759ac8d53593fdf"
+    sha256 cellar: :any,                 monterey:     "ae1960f379bae7ffc49962c1d30a8eeb1110063f7c8a136605cb06e49549a308"
+    sha256 cellar: :any,                 big_sur:      "be6a6d599390e1182ab91f99c8e4cbeb20ed10cbd472d7a7fda790cbb9e60b88"
+    sha256 cellar: :any,                 catalina:     "9690c5e07e46081d3f771797ea92f8ddef37fb79e3104263794f8c7473170f18"
+    sha256 cellar: :any,                 mojave:       "e6fdecbf689992c25e1429e2f33d5cd66c5bdee500ec1fe07759ac8d53593fdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "37b7f50290f97fee13414549f234cc0cee45bfa6c91d696dda799e6eed431e2a"
   end
 
   depends_on "autoconf" => :build
@@ -35,8 +36,8 @@ class Mlton < Formula
     end
 
     on_linux do
-      url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117-1.amd64-linux.tgz"
-      sha256 "25876b075e95b0e70677bd5eeebb791a871629376044f358b908678b8f9b605d"
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117-1.amd64-linux-glibc2.23.tgz"
+      sha256 "5ac30fe415dd9bf727327980391df2556fed3f8422e36624db1ce0e9f7fba1e5"
     end
   end
 

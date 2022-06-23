@@ -1,9 +1,9 @@
 class Jetty < Formula
   desc "Java servlet engine and webserver"
   homepage "https://www.eclipse.org/jetty/"
-  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/9.4.47.v20220610/jetty-distribution-9.4.47.v20220610.tar.gz"
-  version "9.4.47.v20220610"
-  sha256 "2f67259ce889d0a74cd554df8739afc930851c2d1e2bdce5d690b2f6f1d1588d"
+  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/9.4.48.v20220622/jetty-distribution-9.4.48.v20220622.tar.gz"
+  version "9.4.48.v20220622"
+  sha256 "50d6eccd349d2e671bfea710cee833911287eb706fe1d39503eab76fc6fc1a0c"
   license any_of: ["Apache-2.0", "EPL-1.0"]
 
   livecheck do
@@ -12,10 +12,10 @@ class Jetty < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "a42ad239f5c7748366bdb58c9bbcf9afc7648e45e5cfecf005ef138fd076df9e"
-    sha256 cellar: :any,                 big_sur:      "a42ad239f5c7748366bdb58c9bbcf9afc7648e45e5cfecf005ef138fd076df9e"
-    sha256 cellar: :any,                 catalina:     "a42ad239f5c7748366bdb58c9bbcf9afc7648e45e5cfecf005ef138fd076df9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b0ac7389c719a987b2ae6524c39df9a50f6c16e2748e78e3c3ffceb663bc846a"
+    sha256 cellar: :any,                 monterey:     "e03072df8acd66171e1916dfd05883610faa74a50a323cd07ad79698a8c46fc5"
+    sha256 cellar: :any,                 big_sur:      "e03072df8acd66171e1916dfd05883610faa74a50a323cd07ad79698a8c46fc5"
+    sha256 cellar: :any,                 catalina:     "e03072df8acd66171e1916dfd05883610faa74a50a323cd07ad79698a8c46fc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e89783e620e008ec57e836acec85afbea839a98caf8b0c44bdb5e442567ef142"
   end
 
   # Ships a pre-built x86_64-only `libsetuid-osx.so`.

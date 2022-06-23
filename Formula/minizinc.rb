@@ -1,18 +1,18 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/2.6.3.tar.gz"
-  sha256 "740884d4eb8e7acf366efaad82efa0ca46dc4342afa5a6ecc1d749fcc4f96dd4"
+  url "https://github.com/MiniZinc/libminizinc/archive/2.6.4.tar.gz"
+  sha256 "f1f5adba23c749ddfdb2420e797d7ff46e72b843850529978f867583dbc599ca"
   license "MPL-2.0"
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b55a016f4865ac6a319b6f52b3b2a7fa3ae4aa90b6d9931a9a6304dbe5c538f5"
-    sha256 cellar: :any,                 arm64_big_sur:  "bc02b6889bbc11f528678cf89ce6a92e3cecdcf8479988407211d9bc65b2d016"
-    sha256 cellar: :any,                 monterey:       "1995a81599adbd8ef24889b3518d9f5a9d51a6f7cce730195ec36d12d813e460"
-    sha256 cellar: :any,                 big_sur:        "69198098a3ce3e1d63e632eea9710241269ad6aef086c9382815f81235a2e8ec"
-    sha256 cellar: :any,                 catalina:       "56ef2b32d0e0d47b52587a1116285fa773978b57289caa8636c9cf5a6280ed59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4676ea1ccfc234dc032dda36e071f4fddaaeff6aacd12f07b6e6c69cce990a44"
+    sha256 cellar: :any,                 arm64_monterey: "b0a513043c90cdaf37886e77e7e8fd5d26b669ae17a97285709ac2354a0f2412"
+    sha256 cellar: :any,                 arm64_big_sur:  "d4848cac56d6ed4199cc562e8cb7d9f03b592481c49ebd7800d865a0c552db39"
+    sha256 cellar: :any,                 monterey:       "aa9431c2cecc4b689aa2340fc55049ab389fbd3c3addc37f926c1a928e6068f6"
+    sha256 cellar: :any,                 big_sur:        "040a9ba684acb1661952ec2742146d67c92d423a2628e9d19256c57353a62ab9"
+    sha256 cellar: :any,                 catalina:       "e1330a26f4fe8c2b8615c7358d99a7f9a7b61abd86575012e51007c7b2a6569a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f01136a668aae3151fc5f25bab6f8d3e64c974abf59b57d4628c75834d3f49b0"
   end
 
   depends_on "cmake" => :build

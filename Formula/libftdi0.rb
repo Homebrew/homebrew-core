@@ -4,11 +4,6 @@ class Libftdi0 < Formula
   url "https://www.intra2net.com/en/developer/libftdi/download/libftdi-0.20.tar.gz"
   sha256 "3176d5b5986438f33f5208e690a8bfe90941be501cc0a72118ce3d338d4b838e"
 
-  livecheck do
-    url "https://www.intra2net.com/en/developer/libftdi/download.php"
-    regex(/href=.*?libftdi[._-]v?(0(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_monterey: "aa6fa3c7382182d2cccdfad72fd6842b382498c6c5dd5e7a4231313e6cd0e2ab"
@@ -23,6 +18,9 @@ class Libftdi0 < Formula
     sha256 cellar: :any,                 yosemite:       "92ecdb3a110e1abcba05561f0def8e573d1f8174d4e04247375dd5cd47d3bc24"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b534233dfc308f70dba8650d30fdd2d82a4991a5f9afd0f892ec2adb0af63395"
   end
+
+  # The `libftdi` formula tracks the current release
+  deprecate! date: "2022-06-22", because: :unmaintained
 
   depends_on "libusb-compat"
 

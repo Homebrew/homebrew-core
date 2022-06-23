@@ -1,17 +1,17 @@
 class Crane < Formula
   desc "Tool for interacting with remote images and registries"
   homepage "https://github.com/google/go-containerregistry"
-  url "https://github.com/google/go-containerregistry/archive/v0.9.0.tar.gz"
-  sha256 "9cd3de5d5675ca79ff7251491c481f6afa54aa6a68bbbbf92613d66bfb39aa08"
+  url "https://github.com/google/go-containerregistry/archive/v0.10.0.tar.gz"
+  sha256 "15d3368c12678cfb56ff2e9121d8f590b6ecfb6759ef29d33a8fb042b3979b4a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5af47da793d997af20c568b40714d623013d21d93ba31598f4f1758284e018b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2bfde0fc6248f7db514fcdcd8eef4fd6612e767d5672741828219115a414582"
-    sha256 cellar: :any_skip_relocation, monterey:       "e418304d4bfafd663ff50ec67e7a641711313867b37f9fff1d0ddb41685b4ca8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6d508c41fd0c5195e2dd2aa10aa5845d09064411e017bfd21bac798cfff200ce"
-    sha256 cellar: :any_skip_relocation, catalina:       "302379a36dc2ec68e9be83af447b89b891ee3e6a0998cca1a73234b0b67d0745"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "028ae8d288ffe7eb7731f40d4e4687062e0e756e6c94740c093d2bfc22a98ecd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d15969e757d75e887dcec694227c4f9f7404311c762d1077b8755763452b5ca6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "369650cec87f63bd118400de2f3e6508aba277fc2335d910e19d4fcd91aaba4c"
+    sha256 cellar: :any_skip_relocation, monterey:       "ca985a2dba31c88f751193a931c3c87dae7bd7a5c7f384576fe6dbb1aecc6d64"
+    sha256 cellar: :any_skip_relocation, big_sur:        "867c8cb14d4ad1d9eadc56dd2d3670d0c9eb8b4595618a16eac639c15f7230e0"
+    sha256 cellar: :any_skip_relocation, catalina:       "c854844c8abc000c843ef0ebe201e72514a955152024c18cac34f5b56a61e5f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3d5b06ed6bb515f4998022e806d68ab3dd77e55248bced0965ac53820409f06"
   end
 
   depends_on "go" => :build

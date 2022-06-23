@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.7.9.tar.gz"
-  sha256 "c69c0a2241162c4bed80b510622210e3c997b61d526f76586ed7b5d7db3d0366"
+  url "https://github.com/aws/aws-cli/archive/2.7.10.tar.gz"
+  sha256 "688262c8edaa844f5202bc31da065523edd3f5ce132973d267d018ee259ab2de"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "055bbfac763342e010f9f55545e014c1d8ed05e92430f58ef30ed312bec017dc"
-    sha256 cellar: :any,                 arm64_big_sur:  "d01a146c83e8c14d86f2d8883da5ba3aa95f9d23ada238ea69ac084faacf4bff"
-    sha256 cellar: :any,                 monterey:       "3ba49c8854ab24a49bf3cc4d847df86d4c3b38bb9a21916ef079adfe556dd95c"
-    sha256 cellar: :any,                 big_sur:        "7db64a5bdf605dcf7243360059212fa941cd05eac039914f88f4bd998eaa9e37"
-    sha256 cellar: :any,                 catalina:       "b32c3eb2619bce805e41a4ffa2c36d289708c5f99b0a5f0a20740f7c73497877"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5f0685c28a4f3c67a9007ace29bec9b6962a48b687399e39e13db8a0829dc08"
+    sha256 cellar: :any,                 arm64_monterey: "884117f117b8bdf1a1042c25b03a8f82aa7b5e9b078f4a3d01556e6c7e03fa73"
+    sha256 cellar: :any,                 arm64_big_sur:  "eaedf9e1027b5c47a24368222af66ebd1880d24032c5160ba3e755818c031bd6"
+    sha256 cellar: :any,                 monterey:       "14f5c5b080475288087cffaf39889d599c188dbe9177eaa8cb171e33df67720c"
+    sha256 cellar: :any,                 big_sur:        "e659c6c03dd2f2321498edf6de70b28ef401dd060fe8354be522b0f3e3fac52c"
+    sha256 cellar: :any,                 catalina:       "371f597fbe97b8335bc56bdbd1ff803c594692f1a5c3153c91ac601126d47af0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "720c0326f73f897e4c89df61780552752611c31104c525bbf7bd9f59f6763fd1"
   end
 
   depends_on "cmake" => :build

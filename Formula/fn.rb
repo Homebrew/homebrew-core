@@ -1,18 +1,18 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.6.19.tar.gz"
-  sha256 "3e723259ed038cedfcefb9110ea970ceda3bab9e493afd1ba48fa24291f2779e"
+  url "https://github.com/fnproject/cli/archive/0.6.20.tar.gz"
+  sha256 "6a1555e31f1403744248eeb1eb07631ec322cfc9594bba8a4e031b381592b9d0"
   license "Apache-2.0"
   head "https://github.com/fnproject/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8407f799cec4723d7244dec71ba925e87f91a2a316f8a9e83d9a3fd5eabd36d1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a56d0797435cdcab945f3db2f0c4c4982bff6867b53140f734450b0207e6713"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee1807449afb195bfbbc63e0233916e4a8a1ed30d5e87279ce40501b5e0a868d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "01e654dcec06074346dd45b985b116f494524f3401d8d1c975b514491b2eaca6"
-    sha256 cellar: :any_skip_relocation, catalina:       "a891436e41183f189e808b9095cfe2883cfc107ee0adcc2fad5bce3b17b266e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "385fda78d9f806ca3d3d175aa6b088d64016deed970a175e0e3282843f2ad72a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70e980b7318a4512a47d59bae1115b65132b564cd955af33aeeb642df165d584"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "395fcc168ecdf5a0b72575a1481eff34d5ea5d7918ed287c2ed47138bfb61ab9"
+    sha256 cellar: :any_skip_relocation, monterey:       "c87f98ed1402e9da8933805ddb02477827493003aa132ec4b49a8afa4da1986a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd663d8190f7f4287c82c846e0756ddc093470cfe65113d05b64cabfed511002"
+    sha256 cellar: :any_skip_relocation, catalina:       "36dc09ae38ebf9f338b122cbb983532ae16609468ac22ca6042f9edcdc1aedf6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c42971e597e3eadbc2010bd5b1969e24fd13e12a56538ef44b201414bd386c1"
   end
 
   # Bump to 1.18 on the next release, if possible.

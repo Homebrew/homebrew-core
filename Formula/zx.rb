@@ -3,17 +3,17 @@ require "language/node"
 class Zx < Formula
   desc "Tool for writing better scripts"
   homepage "https://github.com/google/zx"
-  url "https://registry.npmjs.org/zx/-/zx-7.0.1.tgz"
-  sha256 "e3e658c143bd03a9ed65a1271c65ef0fcb0471bb9f5c3acd259b3dbbb59c5539"
+  url "https://registry.npmjs.org/zx/-/zx-7.0.2.tgz"
+  sha256 "d7d64f7c41713f12570950c91534b895749dbbe677c6d2bb3f04d0effd432686"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57c59b236331563608aceef2458eda18a8b0f0790cac5f366ea03ee7f308ba3b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57c59b236331563608aceef2458eda18a8b0f0790cac5f366ea03ee7f308ba3b"
-    sha256 cellar: :any_skip_relocation, monterey:       "b788e63e4d38d924363c0334e43eb6cae569e7512a4effafa227931571273621"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b788e63e4d38d924363c0334e43eb6cae569e7512a4effafa227931571273621"
-    sha256 cellar: :any_skip_relocation, catalina:       "b788e63e4d38d924363c0334e43eb6cae569e7512a4effafa227931571273621"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57c59b236331563608aceef2458eda18a8b0f0790cac5f366ea03ee7f308ba3b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6bcac05e48bce175cac36d3c9665c03f4261f8b459c7596366cd5091385237a9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6bcac05e48bce175cac36d3c9665c03f4261f8b459c7596366cd5091385237a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "05b956950409c016507029ab5e3c52f77a986d7f7afc8be4e693aad76de6956a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "05b956950409c016507029ab5e3c52f77a986d7f7afc8be4e693aad76de6956a"
+    sha256 cellar: :any_skip_relocation, catalina:       "05b956950409c016507029ab5e3c52f77a986d7f7afc8be4e693aad76de6956a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bcac05e48bce175cac36d3c9665c03f4261f8b459c7596366cd5091385237a9"
   end
 
   depends_on "node"

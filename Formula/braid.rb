@@ -2,17 +2,17 @@ class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
   url "https://github.com/cristibalan/braid.git",
-      tag:      "v1.1.7",
-      revision: "15290b6f2876ce2fc5a881d4371f6f62e0b0dd46"
+      tag:      "v1.1.8",
+      revision: "d7391f2585fc86a8057d88de248ddc082eb8fa1b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c68a563b2f3e6a8c6a072ba3357dc30baf2bb85073bcbf8c9fd0d8e8c50e4d1c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab8df6e670f440fd13f724a016d0048d2efc33485e6435545a508f88c369f277"
-    sha256 cellar: :any_skip_relocation, monterey:       "c68a563b2f3e6a8c6a072ba3357dc30baf2bb85073bcbf8c9fd0d8e8c50e4d1c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ab8df6e670f440fd13f724a016d0048d2efc33485e6435545a508f88c369f277"
-    sha256 cellar: :any_skip_relocation, catalina:       "ab8df6e670f440fd13f724a016d0048d2efc33485e6435545a508f88c369f277"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e36562671e7ddab64502cbfa9cb19217f86367eda7a25778f9e35fdc27e84b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b87226e335b4bbf5ab6db80f4ae502c64849bdb1a3e93c0d40b954a7b8729f7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef6c996ced958c4fbf1782ab4dbfdb7ce1fd4109253dd86b338978876b29a312"
+    sha256 cellar: :any_skip_relocation, monterey:       "9b87226e335b4bbf5ab6db80f4ae502c64849bdb1a3e93c0d40b954a7b8729f7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ef6c996ced958c4fbf1782ab4dbfdb7ce1fd4109253dd86b338978876b29a312"
+    sha256 cellar: :any_skip_relocation, catalina:       "ef6c996ced958c4fbf1782ab4dbfdb7ce1fd4109253dd86b338978876b29a312"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f41f9bcb623db022eb830f348a1fe7f408332d4ef8d41e90aca6701da7476ccd"
   end
 
   uses_from_macos "ruby", since: :high_sierra
