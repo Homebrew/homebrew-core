@@ -2,7 +2,7 @@ class Avrdude < Formula
   desc "Atmel AVR MCU programmer"
   homepage "https://www.nongnu.org/avrdude/"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   stable do
     url "https://download.savannah.gnu.org/releases/avrdude/avrdude-7.0.tar.gz"
@@ -44,7 +44,7 @@ class Avrdude < Formula
   uses_from_macos "flex" => :build
 
   on_macos do
-    depends_on "libelf" => :build
+    depends_on "elftoolchain"
   end
 
   on_linux do
