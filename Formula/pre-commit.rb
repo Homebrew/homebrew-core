@@ -6,6 +6,7 @@ class PreCommit < Formula
   url "https://files.pythonhosted.org/packages/d0/3c/f0906f9e015c2fd38ca912cb9a6d2eb10c6ca0ce0fd318239993466613b7/pre_commit-2.19.0.tar.gz"
   sha256 "4233a1e38621c87d9dda9808c6606d7e7ba0e087cd56d3fe03202a01d2919615"
   license "MIT"
+  head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "35830ae8dc83700b547c078a43e0cae5b99c69d820e6a70b7dd43872105cc075"
