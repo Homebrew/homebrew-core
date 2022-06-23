@@ -15,6 +15,8 @@ class Weaver < Formula
 
   depends_on xcode: ["11.2", :build]
 
+  uses_from_macos "swift"
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
@@ -23,6 +25,6 @@ class Weaver < Formula
     # Weaver uses Sourcekitten and thus, has the same sandbox issues.
     # Rewrite test after sandbox issues investigated.
     # https://github.com/Homebrew/homebrew/pull/50211
-    system "#{bin}/weaver", "version"
+    system bin/"weaver", "version"
   end
 end
