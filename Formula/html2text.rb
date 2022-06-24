@@ -18,9 +18,9 @@ class Html2text < Formula
   def install
     ENV.cxx11
 
-    system "./configure"
+    system "./configure", *std_configure_args
     system "make", "all"
-    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
+    system "make", "install", "PREFIX=#{prefix}", "BINDIR=#{bin}", "MANDIR=#{man}", "DOCDIR=#{doc}"
   end
 
   test do
