@@ -6,6 +6,7 @@ class Mycli < Formula
   url "https://files.pythonhosted.org/packages/fb/8d/3ce24791ec6bb7914830660f4a26ac780243d643860757a53fc99e4d4639/mycli-1.25.0.tar.gz"
   sha256 "fef12ed8125fd13edf4a04977e5ab9e8895a8a1ed10218629595206cdcd96108"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "4d24cf9b505e40c7aa71640a309e8869aa38f57eea6291e48cd31dc7c7807b99"
@@ -17,9 +18,9 @@ class Mycli < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "libpython-tabulate"
   depends_on "openssl@1.1"
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "pkg-config" => :build
