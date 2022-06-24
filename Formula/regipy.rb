@@ -57,14 +57,8 @@ class Regipy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.9")
-    res = resources.map(&:name).to_set
-    res -= %w[test_hive]
-
-    res.each do |r|
-      venv.pip_install resource(r)
-    end
-
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources.reject { |r| r.name == "test_hive" }
     venv.pip_install_and_link buildpath
   end
 
