@@ -19,7 +19,7 @@ class Goplus < Formula
 
   def install
     ENV["GOPROOT_FINAL"] = libexec
-    system "go", "run", "cmd/make.go", "--install"
+    system "go", "run", "cmd/make.go", "--build"
 
     libexec.install Dir["*"] - Dir[".*"]
     bin.install_symlink (libexec/"bin").children
