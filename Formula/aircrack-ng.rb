@@ -37,8 +37,14 @@ class AircrackNg < Formula
     system "./autogen.sh", "--disable-silent-rules",
                            "--disable-dependency-tracking",
                            "--prefix=#{prefix}",
+                           "--sysconfdir=#{etc}",
                            "--with-experimental"
     system "make", "install"
+    inreplace sbin/"airodump-ng-oui-update", "/usr/local", HOMEBREW_PREFIX
+  end
+
+  def post_install
+    pkgetc.mkpath
   end
 
   def caveats
