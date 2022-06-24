@@ -4,6 +4,7 @@ class Stp < Formula
   url "https://github.com/stp/stp/archive/refs/tags/2.3.3.tar.gz"
   sha256 "ea6115c0fc11312c797a4b7c4db8734afcfce4908d078f386616189e01b4fffa"
   license "MIT"
+  revision 1
   head "https://github.com/stp/stp.git", branch: "master"
 
   livecheck do
@@ -28,7 +29,7 @@ class Stp < Formula
   depends_on "boost"
   depends_on "cryptominisat"
   depends_on "minisat"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "perl"
 
@@ -38,7 +39,7 @@ class Stp < Formula
     inreplace "lib/Util/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
+                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3",
                     "-DPYTHON_LIB_INSTALL_DIR=#{site_packages}",
                     *std_cmake_args
     system "cmake", "--build", "build"
