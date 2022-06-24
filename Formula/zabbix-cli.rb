@@ -53,12 +53,6 @@ class ZabbixCli < Formula
     sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
-  # Support python@3.10, remove with next release
-  patch do
-    url "https://github.com/unioslo/zabbix-cli/commit/656fdbbd6c4415b52f7ad42a29124b15387458de.patch?full_index=1"
-    sha256 "21d574e0d2500d140591c494e513d81552d5f7e259cc0084cc9fa0488532a55c"
-  end
-
   def install
     # script tries to install config into /usr/local/bin (macOS) or /usr/share (Linux)
     inreplace %w[setup.py etc/zabbix-cli.conf zabbix_cli/config.py], %r{(["' ])/usr/share/}, "\\1#{share}/"
