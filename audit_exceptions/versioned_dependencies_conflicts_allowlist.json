@@ -1,6 +1,7 @@
 [
   "aqbanking",
   "arxiv_latex_cleaner",
+  "aws-google-auth",
   "chapel",
   "coin3d",
   "emscripten",
