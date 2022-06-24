@@ -5,7 +5,7 @@ class Aztfy < Formula
       tag:      "v0.5.0",
       revision: "f957fc158684aaf66551543327124865c7fe4eca"
   license "MPL-2.0"
-
+  head "https://github.com/Azure/aztfy.git", branch: "main"
   depends_on "go" => :build
 
   def install
