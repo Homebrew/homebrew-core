@@ -1,7 +1,9 @@
 class ClapHost < Formula
   desc "CLAP example host"
   homepage "https://github.com/free-audio/clap-host"
-  url "https://github.com/free-audio/clap-host", using: :git, tag: "1.0.1", revision: "4602d26b91a526ac80933bdc9f6fcafdf2423bbf"
+  url "https://github.com/free-audio/clap-host", 
+        tag: "1.0.1",
+        revision: "4602d26b91a526ac80933bdc9f6fcafdf2423bbf"
   license "MIT"
   head "https://github.com/free-audio/clap-host", using: :git, branch: "main"
 
