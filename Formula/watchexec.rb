@@ -4,6 +4,7 @@ class Watchexec < Formula
   url "https://github.com/watchexec/watchexec/archive/cli-v1.20.0.tar.gz"
   sha256 "69c551090692a04943e7ded2d7f997f8777aa099c674b096a31d94983d02dbf7"
   license "Apache-2.0"
+  head "https://github.com/watchexec/watchexec.git", branch: "main"
 
   livecheck do
     url :stable
@@ -24,9 +25,7 @@ class Watchexec < Formula
   uses_from_macos "zlib"
 
   def install
-    cd "cli" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "crates/cli")
     man1.install "doc/watchexec.1"
   end
 
