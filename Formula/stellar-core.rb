@@ -18,6 +18,7 @@ class StellarCore < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "bison" => :build
   depends_on "libtool" => :build
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
@@ -27,7 +28,6 @@ class StellarCore < Formula
   depends_on "libsodium"
   depends_on macos: :catalina # Requires C++17 filesystem
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   on_linux do
