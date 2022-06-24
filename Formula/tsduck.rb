@@ -4,6 +4,7 @@ class Tsduck < Formula
   url "https://github.com/tsduck/tsduck/archive/v3.31-2761.tar.gz"
   sha256 "2e9e7956cd1b47b0b24666619fa0f1b27599eed6dc5f1457e1401679496f7562"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
   bottle do
