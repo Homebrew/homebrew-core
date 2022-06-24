@@ -6,7 +6,7 @@ class HomeassistantCli < Formula
   url "https://files.pythonhosted.org/packages/f0/f5/a90000b810751a6094761ed5fed3a6cb746c3c8be3bd1c5ed525e77be69a/homeassistant-cli-0.9.3.tar.gz"
   sha256 "daf9c2a256cd2e63fc173c7c96b3462211f045a66639778302eb4f9d125b06a2"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/home-assistant-ecosystem/home-assistant-cli.git", branch: "dev"
 
   bottle do
@@ -18,8 +18,8 @@ class HomeassistantCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a74e707bf8ec985f90feec282f7e939f70f2685ad9698c2b08a2301b348d7760"
   end
 
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "aiohttp" do
