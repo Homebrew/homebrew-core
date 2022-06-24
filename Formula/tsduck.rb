@@ -1,8 +1,8 @@
 class Tsduck < Formula
   desc "MPEG Transport Stream Toolkit"
   homepage "https://tsduck.io/"
-  url "https://github.com/tsduck/tsduck/archive/v3.30-2710.tar.gz"
-  sha256 "a6548f42aa99ebf5987407599ed50207d743431a5fb54497717963ddad37c0d2"
+  url "https://github.com/tsduck/tsduck/archive/v3.31-2761.tar.gz"
+  sha256 "2e9e7956cd1b47b0b24666619fa0f1b27599eed6dc5f1457e1401679496f7562"
   license "BSD-2-Clause"
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
@@ -28,6 +28,7 @@ class Tsduck < Formula
   def install
     ENV["LINUXBREW"] = "true" if OS.linux?
     system "make", "NOGITHUB=1", "NOTEST=1"
+    ENV.deparallelize
     system "make", "NOGITHUB=1", "NOTEST=1", "install", "SYSPREFIX=#{prefix}"
   end
 
