@@ -23,12 +23,12 @@ class Hsd < Formula
   end
 
   depends_on "python@3.10" => :build
-  depends_on "node@14"
+  depends_on "node"
   depends_on "unbound"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"hsd").write_env_script libexec/"bin/hsd", PATH: "#{Formula["node@14"].opt_bin}:$PATH"
+    (bin/"hsd").write_env_script libexec/"bin/hsd", PATH: "#{Formula["node"].opt_bin}:$PATH"
     bin.install_symlink libexec/"bin/hsd-cli"
     bin.install_symlink libexec/"bin/hsw-cli"
   end
@@ -47,7 +47,7 @@ class Hsd < Formula
         await node.ensure();
       })();
     EOS
-    system "#{Formula["node@14"].opt_bin}/node", testpath/"script.js"
+    system "#{Formula["node"].opt_bin}/node", testpath/"script.js"
     assert File.directory?("#{testpath}/.hsd")
   end
 end
