@@ -1,10 +1,9 @@
 class ValaLanguageServer < Formula
   desc "Code Intelligence for Vala & Genie"
   homepage "https://github.com/vala-lang/vala-language-server"
-  url "https://github.com/vala-lang/vala-language-server/releases/download/0.48.4/vala-language-server-0.48.4.tar.xz"
-  sha256 "0fd65b641a4bd6e0385502f0536f803bf542fd8bae6a2adb04e2e299ccca4551"
+  url "https://github.com/vala-lang/vala-language-server/releases/download/0.48.5/vala-language-server-0.48.5.tar.xz"
+  sha256 "698a0f26b61a882517f31039e7dc8efdda1384de0687b1ab78f2a768c305b17e"
   license "LGPL-2.1-only"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "a23bbac929f9a26ce34722df50036ba8bcedfd701b44c98aa2672ccdcb32c5eb"
