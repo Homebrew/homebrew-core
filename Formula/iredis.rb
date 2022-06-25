@@ -3,8 +3,8 @@ class Iredis < Formula
 
   desc "Terminal Client for Redis with AutoCompletion and Syntax Highlighting"
   homepage "https://iredis.io"
-  url "https://files.pythonhosted.org/packages/af/0d/5902a8d2f41aff7fd3d43658df4dbb85d14a818f929e8e593145276b4c14/iredis-1.11.1.tar.gz"
-  sha256 "f679bc66da34be8bc43bf4461748fe4d1f389f3ddf3d88366d53f6b719a4c14c"
+  url "https://files.pythonhosted.org/packages/43/2a/9a94d3fb93a5666da5e1fbfeb224d2bd5ae1558e9aac884ca856236432c5/iredis-1.12.0.tar.gz"
+  sha256 "c3031094db0aa03d48b6f9be750e32d3e901942a96cc05283029086cb871cd81"
   license "BSD-3-Clause"
   head "https://github.com/laixintao/iredis.git", branch: "master"
 
@@ -32,8 +32,8 @@ class Iredis < Formula
   end
 
   resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/b5/d8/51ace1c1ea6609c01c7f46ca2978e11821aa0efaaa7516002ef6df000731/importlib_resources-5.4.0.tar.gz"
-    sha256 "d756e2f85dd4de2ba89be0b21dba2a3bbec2e871a42a3a16719258a11f87506b"
+    url "https://files.pythonhosted.org/packages/a5/66/b844887f2225049abd75a0c54415d419e334b7a7e2a69c5a5c4968e30906/importlib_resources-5.8.0.tar.gz"
+    sha256 "568c9f16cb204f9decc8d6d24a572eeea27dacbb4cee9e6b03a8025736769751"
   end
 
   resource "mistune" do
@@ -52,18 +52,18 @@ class Iredis < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/37/34/c34c376882305c5051ed7f086daf07e68563d284015839bfb74d6e61d402/prompt_toolkit-3.0.28.tar.gz"
-    sha256 "9f1cd16b1e86c2968f2519d7fb31dd9d669916f515612c269d14e9ed52b51650"
+    url "https://files.pythonhosted.org/packages/59/68/4d80f22e889ea34f20483ae3d4ca3f8d15f15264bcfb75e52b90fb5aefa5/prompt_toolkit-3.0.29.tar.gz"
+    sha256 "bd640f60e8cecd74f0dc249713d433ace2ddc62b65ee07f96d358e0b152b6ea7"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
-    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
+    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
+    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
-    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
+    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
+    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   resource "python-dateutil" do
@@ -95,15 +95,8 @@ class Iredis < Formula
       venv.pip_install_and_link Dir["dist/pytzdata-*.whl"].first
     end
 
-    resources.each do |r|
-      next if r.name == "pytzdata"
-
-      venv.pip_install r
-    end
-
-    # Install iredis using brewed poetry to avoid build dependency on Rust.
-    system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
-    venv.pip_install_and_link Dir["dist/iredis-*.whl"].first
+    venv.pip_install resources.reject { |r| r.name == "pytzdata" }
+    venv.pip_install_and_link buildpath
   end
 
   test do
