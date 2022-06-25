@@ -22,6 +22,11 @@ class Runit < Formula
   def install
     # Runit untars to 'admin/runit-VERSION'
     cd "runit-#{version}" do
+      # Work around build error from root requirement: "Oops. Your getgroups() returned 0,
+      # and setgroups() failed; this means that I can't reliably do my shsgr test. Please
+      # either ``make'' as root or ``make'' while you're in one or more supplementary groups."
+      inreplace "src/Makefile", "( cat warn-shsgr; exit 1 )", "cat warn-shsgr" if OS.linux?
+
       # Per the installation doc on macOS, we need to make a couple changes.
       system "echo 'cc -Xlinker -x' >src/conf-ld"
       inreplace "src/Makefile", / -static/, ""
