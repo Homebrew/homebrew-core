@@ -1,9 +1,9 @@
 class NifiRegistry < Formula
   desc "Centralized storage & management of NiFi/MiNiFi shared resources"
   homepage "https://nifi.apache.org/registry"
-  url "https://www.apache.org/dyn/closer.lua?path=/nifi/1.16.2/nifi-registry-1.16.2-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/nifi/1.16.2/nifi-registry-1.16.2-bin.tar.gz"
-  sha256 "dbf46cdcc6fbba96253affc953298b0eb23154af1a8c5b5cdd2c93c6886ba729"
+  url "https://www.apache.org/dyn/closer.lua?path=/nifi/1.16.3/nifi-registry-1.16.3-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/nifi/1.16.3/nifi-registry-1.16.3-bin.tar.gz"
+  sha256 "fa8ef5097d9385ac9efe06e836fbff37d9ecc955b8495fba798a91f196fd4a52"
   license "Apache-2.0"
 
   bottle do
