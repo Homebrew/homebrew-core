@@ -18,16 +18,19 @@ class Ext2fuse < Formula
   end
 
   on_linux do
-    depends_on "libfuse"
+    depends_on "libfuse@2"
   end
 
-  def install
-    ENV.append "LIBS", "-losxfuse"
-    ENV.append "CFLAGS",
-      "-D__FreeBSD__=10 -DENABLE_SWAPFS -I/usr/local/include/osxfuse/fuse " \
-      "-I#{HOMEBREW_PREFIX}/opt/osxfuse/include/osxfuse/fuse"
-    ENV.append "CFLAGS", "--std=gnu89" if ENV.compiler == :clang
+  # Fix build failure because of missing argument to open() Linux.
+  # Patch submitted upstream to SourceForge page:
+  # https://sourceforge.net/p/ext2fuse/patches/2/
+  patch :DATA
 
+  def install
+    ENV.append "CFLAGS", "-D__i386__"
+    ENV.append "CFLAGS", "-DHAVE_TYPE_SSIZE_T"
+    ENV.append "CFLAGS", "-DNO_INLINE_FUNCS"
+    ENV.append "CFLAGS", "-I#{Formula["libfuse@2"].opt_include}/fuse"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
@@ -45,3 +48,18 @@ class Ext2fuse < Formula
     end
   end
 end
+
+__END__
+diff --git a/lib/ext2fs/ismounted.c b/lib/ext2fs/ismounted.c
+index 1b9cd36..a7d8235 100644
+--- a/lib/ext2fs/ismounted.c
++++ b/lib/ext2fs/ismounted.c
+@@ -150,7 +150,7 @@ static errcode_t check_mntent_file(const char *mtab_file, const char *file,
+ is_root:
+ #define TEST_FILE "/.ismount-test-file"		
+ 		*mount_flags |= EXT2_MF_ISROOT;
+-		fd = open(TEST_FILE, O_RDWR|O_CREAT);
++		fd = open(TEST_FILE, O_RDWR|O_CREAT, S_IRUSR|S_IRGRP);
+ 		if (fd < 0) {
+ 			if (errno == EROFS)
+ 				*mount_flags |= EXT2_MF_READONLY;
