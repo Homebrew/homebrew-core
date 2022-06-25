@@ -22,9 +22,90 @@ class Mpack < Formula
     sha256 "52ad1592ee4b137cde6ddb3c26e3541fa0dcea55c53ae8b37546cd566c897a43"
   end
 
+  # Fix build failure because of missing include statements on Linux.
+  patch :DATA
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
   end
 end
+
+__END__
+diff --git a/unixos.c b/unixos.c
+index 243a7be..c7008d6 100644
+--- a/unixos.c
++++ b/unixos.c
+@@ -23,6 +23,7 @@
+  * SOFTWARE.
+  */
+ #include <stdio.h>
++#include <stdlib.h>
+ #include <ctype.h>
+ #include <string.h>
+ #include <errno.h>
+@@ -38,10 +39,6 @@
+ #define MAXHOSTNAMELEN 64
+ #endif
+ 
+-extern int errno;
+-extern char *malloc();
+-extern char *getenv();
+-
+ int overwrite_files = 0;
+ int didchat;
+ 
+diff --git a/unixpk.c b/unixpk.c
+index 144e34d..1c70779 100644
+--- a/unixpk.c
++++ b/unixpk.c
+@@ -23,6 +23,9 @@
+  * SOFTWARE.
+  */
+ #include <stdio.h>
++#include <stdlib.h>
++#include <unistd.h>
++#include <getopt.h>
+ #include <string.h>
+ #include <errno.h>
+ #include "common.h"
+@@ -31,12 +34,6 @@
+ 
+ #define MAXADDRESS 100
+ 
+-extern char *getenv();
+-
+-extern int errno;
+-extern int optind;
+-extern char *optarg;
+-
+ void usage(void);
+ void sendmail(FILE *infile, char **addr, int start);
+ void inews(FILE *infile);
+diff --git a/unixunpk.c b/unixunpk.c
+index a1f065b..0f5fa85 100644
+--- a/unixunpk.c
++++ b/unixunpk.c
+@@ -23,6 +23,7 @@
+  * SOFTWARE.
+  */
+ #include <stdio.h>
++#include <stdlib.h>
+ #include "version.h"
+ #include "part.h"
+ 
+diff --git a/xmalloc.c b/xmalloc.c
+index 7c74360..d5f3909 100644
+--- a/xmalloc.c
++++ b/xmalloc.c
+@@ -23,8 +23,8 @@
+  * SOFTWARE.
+  */
+ #include <stdio.h>
++#include <stdlib.h>
+ #include <string.h>
+-extern char *malloc(), *realloc();
+ 
+ char *xmalloc (int size)
+ {
