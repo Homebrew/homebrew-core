@@ -27,6 +27,10 @@ class Bmon < Formula
 
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "libnl"
+  end
+
   def install
     # Workaround for https://github.com/tgraf/bmon/issues/89 build issue:
     inreplace "include/bmon/bmon.h", "#define __unused__", "//#define __unused__"
