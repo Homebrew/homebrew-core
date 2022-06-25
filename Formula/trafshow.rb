@@ -21,6 +21,9 @@ class Trafshow < Formula
 
   depends_on "libtool" => :build
 
+  uses_from_macos "libpcap"
+  uses_from_macos "ncurses"
+
   {
     "domain_resolver.c" => "43b97d4ea025ed2087e4525a0b1acffc887082148df6dd2603b91fa70f79b678",
     "colormask.c"       => "04121b295d22a18aaf078611c75401a620570fbd89362bba2dd1abc042ea3c4a",
@@ -44,6 +47,10 @@ class Trafshow < Formula
 
   def install
     cp Dir["#{Formula["libtool"].opt_pkgshare}/*/config.{guess,sub}"], buildpath
+
+    # Fix build for newer libpcap.
+    # Reported to maintainer by email.
+    inreplace "trafshow.c", "pcap_init", "pcap_initialize" unless OS.mac?
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
