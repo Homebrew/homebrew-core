@@ -18,9 +18,13 @@ class Devtodo < Formula
 
   depends_on "readline"
 
+  uses_from_macos "expect" => :test
+
   conflicts_with "todoman", because: "both install a `todo` binary"
 
   # Fix invalid regex. See https://web.archive.org/web/20090205000308/swapoff.org/ticket/54
+  # Also fix build failure because of missing #include <stdlib.h> on Linux.
+  # Patch submitted to author by email.
   patch :DATA
 
   def install
@@ -61,3 +65,15 @@ __END__
  		xmlScan.addPattern(XmlCommentBegin, "<!--");
  		xmlScan.addPattern(XmlBegin, "<[a-zA-Z0-9_-]+"
  			"([[:space:]]+[a-zA-Z_0-9-]+=(([/a-zA-Z_0-9,.]+)|(\"[^\"]*\")|('[^']*')))"
+diff --git a/src/todoterm.cc b/src/todoterm.cc
+index a979d1b..6aef728 100644
+--- a/src/todoterm.cc
++++ b/src/todoterm.cc
+@@ -7,6 +7,7 @@
+ #include <stdexcept>
+ #include <curses.h>
+ #include <term.h>
++#include <stdlib.h>
+ 
+ static char info[2048];
+ static bool term_initialized;
