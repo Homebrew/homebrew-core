@@ -9,6 +9,8 @@ class Nodeenv < Formula
     sha256 cellar: :any_skip_relocation, all: "1e5b23648954dc4570499e605ed8ea5d3eb6124b1cc776b98ee9b4601872aec7"
   end
 
+  depends_on "python@3.10"
+
   def install
     bin.install "nodeenv.py" => "nodeenv"
   end
