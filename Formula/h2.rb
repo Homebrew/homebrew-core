@@ -1,9 +1,9 @@
 class H2 < Formula
   desc "Java SQL database"
   homepage "https://www.h2database.com/"
-  url "https://github.com/h2database/h2database/releases/download/version-2.1.212/h2-2022-04-09.zip"
-  version "2.1.212"
-  sha256 "013cc5765d1033edc8e792024aed7d91b169a7f3b2c52c6dc78a866a0a761f57"
+  url "https://github.com/h2database/h2database/releases/download/version-2.1.214/h2-2022-06-13.zip"
+  version "2.1.214"
+  sha256 "34c5ffe2d27ceeff217e5b71aefe964fb3fb6c0e6891551bec4e599df5e78c9b"
   license "MPL-2.0"
 
   bottle do
