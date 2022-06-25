@@ -1,4 +1,6 @@
 class Nodeenv < Formula
+  include Language::Python::Shebang
+
   desc "Node.js virtual environment builder"
   homepage "https://github.com/ekalinin/nodeenv"
   url "https://github.com/ekalinin/nodeenv/archive/1.7.0.tar.gz"
@@ -12,6 +14,7 @@ class Nodeenv < Formula
   depends_on "python@3.10"
 
   def install
+    rewrite_shebang detected_python_shebang, "nodeenv.py"
     bin.install "nodeenv.py" => "nodeenv"
   end
 
