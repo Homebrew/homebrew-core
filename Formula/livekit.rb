@@ -9,12 +9,15 @@ class Livekit < Formula
 
   def install
     cd "cmd/server" do
-      system "go", "build", "-o", "livekit-server"
+      system "go", "build", *std_go_args(output: bin/"livekit-server")
     end
-    bin.install "cmd/server/livekit-server"
   end
 
   test do
-    assert_match "livekit-server - High performance WebRTC server", shell_output("#{bin}/livekit-server --help 2>&1")
+    fork do
+      exec bin/"livekit-server", "--keys", "test: key"
+    end
+    sleep 3
+    assert_match "OK", shell_output("curl localhost:7880")
   end
 end
