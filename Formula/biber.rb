@@ -1,10 +1,9 @@
 class Biber < Formula
   desc "Backend processor for BibLaTeX"
   homepage "https://sourceforge.net/projects/biblatex-biber/"
-  url "https://github.com/plk/biber/archive/refs/tags/v2.17.tar.gz"
-  sha256 "1ee7efdd8343e982046f2301c1b0dcf09e1f9a997ac86ed1018dcb41d04c9e88"
+  url "https://github.com/plk/biber/archive/refs/tags/v2.18.tar.gz"
+  sha256 "9e05eba55ec397edbb778979bafb12bf8a1838768159db447a947aaea85af467"
   license "Artistic-2.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a879a966a62c17a8a2b136dada68b2a30350f42ff66c470dd6ee76ffcab12fe8"
