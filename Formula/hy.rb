@@ -34,6 +34,9 @@ class Hy < Formula
   end
 
   test do
+    site_packages = libexec/Language::Python.site_packages(Formula["python@3.10"].opt_bin/"python3")
+    ENV.prepend_path "PYTHONPATH", site_packages
+
     (testpath/"test.hy").write "(print (+ 2 2))"
     assert_match "4", shell_output("#{bin}/hy test.hy")
     (testpath/"test.py").write shell_output("#{bin}/hy2py test.hy")
