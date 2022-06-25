@@ -5,6 +5,11 @@ class Qbe < Formula
   sha256 "257ef3727c462795f8e599771f18272b772beb854aacab97e0fda70c13745e0c"
   license "MIT"
 
+  livecheck do
+    url "https://c9x.me/compile/releases.html"
+    regex(/href=.*?qbe[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ede097fbd833309d4afb675ef089aee3fe5bff6fced0a5551dc4111688ed31a1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72c102e7eb668d52ea3d369450d30d19b0272d3bfe35049cf99d0c003bd7ff98"
