@@ -25,6 +25,10 @@ class Djbdns < Formula
   depends_on "daemontools"
   depends_on "ucspi-tcp"
 
+  on_linux do
+    depends_on "fakeroot" => :build
+  end
+
   def install
     inreplace "hier.c", 'c("/"', "c(auto_home"
     inreplace "dnscache-conf.c", "/etc/dnsroots", "#{etc}/dnsroots"
@@ -42,7 +46,14 @@ class Djbdns < Formula
 
     bin.mkpath
     (prefix/"etc").mkpath # Otherwise "file does not exist"
-    system "make", "setup", "check"
+
+    # Use fakeroot on Linux because djbdns checks for setgroups permissions
+    # that are limited in CI.
+    if OS.mac?
+      system "make", "setup", "check"
+    else
+      system "fakeroot", "make", "setup", "check"
+    end
   end
 
   test do
