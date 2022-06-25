@@ -52,9 +52,9 @@ class Trzsz < Formula
   end
 
   test do
-    assert_match "trz (trzsz)", shell_output("#{bin}/trz -v")
-    assert_match "tsz (trzsz)", shell_output("#{bin}/tsz -v")
-    assert_match "trzsz-iterm2 (trzsz)", shell_output("#{bin}/trzsz-iterm2 -v")
+    assert_match "trz (trzsz) py #{version}", shell_output("#{bin}/trz -v")
+    assert_match "tsz (trzsz) py #{version}", shell_output("#{bin}/tsz -v")
+    assert_match "trzsz-iterm2 (trzsz) py #{version}", shell_output("#{bin}/trzsz-iterm2 -v")
 
     touch "tmpfile"
     assert_match "Not a directory", shell_output("#{bin}/trz tmpfile 2>&1")

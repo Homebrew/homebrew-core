@@ -1,18 +1,18 @@
 class Benthos < Formula
   desc "Stream processor for mundane tasks written in Go"
   homepage "https://www.benthos.dev"
-  url "https://github.com/benthosdev/benthos/archive/v4.2.0.tar.gz"
-  sha256 "5df106650ed8ca64435c11717814dc6ec6fbca3a75e0d809197fa617da90dcf5"
+  url "https://github.com/benthosdev/benthos/archive/v4.3.0.tar.gz"
+  sha256 "7db224e93d7c7ad3b9b70e478a341ca177f90f63f9805ead98d41a9b9dfed545"
   license "MIT"
   head "https://github.com/benthosdev/benthos.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a94a9e6a514d4f0659557d02428552cb7ccd298d9718323fad1580caec3e014"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7675e080359be5b03f763f7baef43a8a5979900553d03e39cc35a0b1eadc0907"
-    sha256 cellar: :any_skip_relocation, monterey:       "cb2c021e7f1cf0f44940772a659e0a179ecceb84b4940d02cdf5092ed56723bd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a8d7752bf380432a9e93df5f6709623a43dcfca9d955540808bbdec74e7f4899"
-    sha256 cellar: :any_skip_relocation, catalina:       "fa56a5c76542e1c932c993f65f6fbf4493a31e35eb6935a7af54650091566594"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36d7a90512ab612d8ca2a76a8ebcb7b662459ae035b7a811407b80dab03991be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c6f538b02378223da2b792aaef6ec8da904bbc4e38bea6c74abce9eb77d8dfe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62c763601788481910ca4a381cc9ee0ec1075c57e49e7c5a40733d32370cb306"
+    sha256 cellar: :any_skip_relocation, monterey:       "3f1e207783702d93a77acd7ca2c76be2cb48fc6f0d3c8254f58e4e40aec59306"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9fcd955f5c5e1001927a1df5df2ad3c0c9e51d521319232ae2e0f4c8c9528711"
+    sha256 cellar: :any_skip_relocation, catalina:       "e31382b5edd13821d6e39016e14e4f81e0912213246038b2a347f0eca1976577"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0a34316d370976d7555cd246a54a9eb0dba80fa87878c63865e4a3fc4388a1b"
   end
 
   depends_on "go" => :build

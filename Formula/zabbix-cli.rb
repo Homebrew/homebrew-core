@@ -3,10 +3,9 @@ class ZabbixCli < Formula
 
   desc "CLI tool for interacting with Zabbix monitoring system"
   homepage "https://github.com/unioslo/zabbix-cli/"
-  url "https://github.com/unioslo/zabbix-cli/archive/2.2.1.tar.gz"
-  sha256 "884ecd2a4a4c7f68a080bb7e0936dd208c813284ec3ed60b948ce90a1be7c828"
+  url "https://github.com/unioslo/zabbix-cli/archive/2.3.0.tar.gz"
+  sha256 "76a5abb5bad02b2305f6f92dff6251d1290a8efe383a17af54cf7c0aa71ba88e"
   license "GPL-3.0-or-later"
-  revision 3
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   livecheck do
@@ -15,28 +14,19 @@ class ZabbixCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "082eb7d6258f879a8a1efc37bce9bfe1af127796a11c2183b00b3af6029458bd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "082eb7d6258f879a8a1efc37bce9bfe1af127796a11c2183b00b3af6029458bd"
-    sha256 cellar: :any_skip_relocation, monterey:       "c6a723a414a06752ff87be0f895a4629da612399d9274f4c34cb5e4bd9b2f955"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c6a723a414a06752ff87be0f895a4629da612399d9274f4c34cb5e4bd9b2f955"
-    sha256 cellar: :any_skip_relocation, catalina:       "c6a723a414a06752ff87be0f895a4629da612399d9274f4c34cb5e4bd9b2f955"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3aa46984e858b73d557301d0b209daa516d747eda0d10bc1d6ba62221efc02c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ab89b9f2fabc3c2722394efb7c8dcb8cf51be41c0710e7e6123f6573af77a86"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbd058a04ae1baec1926fa7958202bcabe31985c5ddd5cd13455f6181bf1d83c"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b9cebb798c9aa6934009dd8b490fc561abe578f38005efef06982c7ea6854af"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3b465465c9daa386eb077763f0d147433a39c97012e858fb6d9f9d1879a70188"
+    sha256 cellar: :any_skip_relocation, catalina:       "d166ddeca40d79b9aaee92f1c9a05711ccdf987c5ec71668e70645b7f350139c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d726f40bff1125aa211af1c9dfaeb57ca38df80251d583280877c61a6c3d066c"
   end
 
   depends_on "python@3.10"
 
-  ## direct dependencies
-
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
-  end
-
-  ## indirect dependencies
-
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
-    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
+    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
+    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
   end
 
   resource "charset-normalizer" do
@@ -49,15 +39,14 @@ class ZabbixCli < Formula
     sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/e9/23/384d9953bb968731212dc37af87cb75a885dc48e0615bd6a303577c4dc4b/requests-2.28.0.tar.gz"
+    sha256 "d568723a7ebd25875d8d1eaf5dfa068cd2fc8194b2e483d7b1f7c81918dbec6b"
+  end
+
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
     sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
-  end
-
-  # Support python@3.10, remove with next release
-  patch do
-    url "https://github.com/unioslo/zabbix-cli/commit/656fdbbd6c4415b52f7ad42a29124b15387458de.patch?full_index=1"
-    sha256 "21d574e0d2500d140591c494e513d81552d5f7e259cc0084cc9fa0488532a55c"
   end
 
   def install

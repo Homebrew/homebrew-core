@@ -4,14 +4,15 @@ class Nvc < Formula
   url "https://github.com/nickg/nvc/releases/download/r1.6.2/nvc-1.6.2.tar.gz"
   sha256 "e6e2db8e086ef0e54e0745b0346e83fbc5664f9c4bda11645843656736382d3c"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_monterey: "d94444247597cbc17c3e446519777ef98af2f890b4ddec04580aaab124f09fc3"
-    sha256 arm64_big_sur:  "b556f95f7dd3ad3fe13600a087c4a9b180a2f0299e6275648cf3af398e423868"
-    sha256 monterey:       "978ca721f49f993579acab15ba13ec1a6cd106107cb721d3f25ba4605178b0a3"
-    sha256 big_sur:        "85e996f111a1e044b618c3668e8a7e4f90d1199e62b541255a38ffff19220e39"
-    sha256 catalina:       "46167192b6dc41d9cc8ebd3f6e2fd51c5733541f83eaed8e53d06f57bdd25bb2"
-    sha256 x86_64_linux:   "12c4126806168b0c08fbd201e4b1cadefd2fb0dcafa24927ff11bc4c54826796"
+    sha256 arm64_monterey: "a2b12eab1789c86431f2c2243e07f012f8bc23eb8bdc753cc460e2c548f80e63"
+    sha256 arm64_big_sur:  "e2af86fea8247b02a6fae2a9dd6a197f180647950bcbda07a0e7a865054873c5"
+    sha256 monterey:       "9c4dbeb21c316cef280370437fe31c6a2d8536ae66bd8f6f13de8303adf4f1fc"
+    sha256 big_sur:        "41afd05b5d20c00d5f2051858bbaae4c46c200eed14e25a77916b7072341787c"
+    sha256 catalina:       "806ec3dff942acf027597a0c712527ed90d04f732cf111be011bad506fbeb16a"
+    sha256 x86_64_linux:   "58200eb93611d5b1ea8efe69f1f7d26e117f8d184c09a39ab9445fef24b17b98"
   end
 
   head do

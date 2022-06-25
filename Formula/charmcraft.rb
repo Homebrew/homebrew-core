@@ -6,21 +6,22 @@ class Charmcraft < Formula
   url "https://files.pythonhosted.org/packages/1c/b1/950a8646e6fb58775f10aac2ac56abefc0511ce0bfa8ac76ffe3c62e6037/charmcraft-1.7.1.tar.gz"
   sha256 "1b9f61bd752495c23156b595a2df1c0cc5440a55aeee5f1feb1e1e1d56768049"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "60b571f978ad7b27f7b917a13b3d9ec4d2e0e4792071f4345d13d0ef9f0eaeb0"
-    sha256 cellar: :any,                 arm64_big_sur:  "6c085b2d858a5a9232223bb6e2cbdb5575cffa959d417f512c2c2ba4f2887c62"
-    sha256 cellar: :any,                 monterey:       "f6eb08595b18a76d09ca2311b6a749470bca50e0c82fae5679f777e3ff37c720"
-    sha256 cellar: :any,                 big_sur:        "7b4121c1f5674da40b686752011a06a97d901d37dd3b92a17a3280670cb4d5dc"
-    sha256 cellar: :any,                 catalina:       "9da9e0e8d8215c2b77d06f2a201578da24a2cf8e0e6d42e29c2d043f203a40c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "353ea98432be004318de6c17cc530c2b10f0df2455660869c8e166b02095c4f0"
+    sha256 cellar: :any,                 arm64_monterey: "47c35f7d9fd31b92496edc008cc39703a8bb69f3bb3c01677a4a64cb1cdafdf2"
+    sha256 cellar: :any,                 arm64_big_sur:  "cd9eaddd3002b2cf1aa9aafe86c6fbc32fbcb2ee92d3d9d84b2cc8d2bc587930"
+    sha256 cellar: :any,                 monterey:       "5b827e5964aad75e23edf93f2865ef02686a50f72919fe2d0d6e1459399efdbc"
+    sha256 cellar: :any,                 big_sur:        "f206d1fa953147242bcb0b3630ee2f1fc2320451baec55ccc81922816b75ab95"
+    sha256 cellar: :any,                 catalina:       "54d24d22dead8c4f18e9c6400527e0d568e88953acc18b2c0c0f322e603b2190"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "544c0488ea683baa36a5af2acb9d7653d2d89410bf7532f3983de458a3c19e37"
   end
 
   depends_on "rust" => :build
+  depends_on "libpython-tabulate"
   depends_on "libsodium"
   depends_on "libyaml"
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "attrs" do

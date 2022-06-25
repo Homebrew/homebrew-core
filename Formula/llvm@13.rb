@@ -1,30 +1,32 @@
-class Llvm < Formula
+class LlvmAT13 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.5/llvm-project-14.0.5.src.tar.xz"
-  sha256 "c9d27903ba3883c476a83cd515e36e1e07b0585db55692835de11385d9e3c8fa"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/llvm-project-13.0.1.src.tar.xz"
+  sha256 "326335a830f2e32d06d0a36393b5455d17dc73e0bd1211065227ee014f92cbf8"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  head "https://github.com/llvm/llvm-project.git", branch: "main"
 
+  # This should be removed when LLVM 15 is released, so we only check the
+  # current version (the `llvm` formula) and one major version before it
+  # (to catch any patch version that may appear, however uncommon).
   livecheck do
     url :stable
-    regex(/^llvmorg[._-]v?(\d+(?:\.\d+)+)$/i)
+    regex(/^llvmorg[._-]v?(13(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ec2fd8d43fcd0de5bfbffdf63d884c1f521b2ced38ce2e87e06652de35520967"
-    sha256 cellar: :any,                 arm64_big_sur:  "3f00231c050cc93c5c49e5f1dda087d264a184a30480d039f40549a6c5913324"
-    sha256 cellar: :any,                 monterey:       "fd8252f8acbd5e09112bbc2767a62d0470eaeb65964d437da47f8c49811d4d64"
-    sha256 cellar: :any,                 big_sur:        "e78a9788620c9451a2ff789b10a2ed1370c5347f21b42edba2d2d16e5277d486"
-    sha256 cellar: :any,                 catalina:       "705f04c87e33cc9e3f26feb2d1721904eea36142a09c2eb752feaa6bbf927c07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3117935ac819ebeda2db10216bab523a4bb6452d340ff3eadbc52b3df6cef710"
+    sha256 cellar: :any,                 arm64_monterey: "0871109ada8b7b50a210dabb9f354e922ea73b087678cd06849268f1f5cfee71"
+    sha256 cellar: :any,                 arm64_big_sur:  "f7231cd86d1ec1f3bfebc586d793565b395fea673287cd62de05212b03972e7d"
+    sha256 cellar: :any,                 monterey:       "60ac0ca7260352e807e08591b29423c915971f0e7f1e8532af25b8986848466f"
+    sha256 cellar: :any,                 big_sur:        "6089883fc0032bef65d597648758f12c7497e62400f66cecb363be2eb93407a1"
+    sha256 cellar: :any,                 catalina:       "bfae7889794444e19c8cca3d1da40a6461c86a0defa8c3378f87932a05fc72bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "139453f124f5e88c575bfc0fdf9c3582ccbc074e5ffb8750d07b34f1492b98b3"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? only_if: :clt_installed
 
-  keg_only :provided_by_macos
+  keg_only :versioned_formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   # We intentionally use Make instead of Ninja.
@@ -134,9 +136,6 @@ class Llvm < Formula
     runtimes_cmake_args = []
     builtins_cmake_args = []
 
-    # Skip the PGO build on HEAD installs or non-bottle source builds
-    pgo_build = build.stable? && build.bottle?
-
     if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
@@ -179,13 +178,13 @@ class Llvm < Formula
     end
 
     if ENV.cflags.present?
-      args << "-DCMAKE_C_FLAGS=#{ENV.cflags}" unless pgo_build
+      args << "-DCMAKE_C_FLAGS=#{ENV.cflags}"
       runtimes_cmake_args << "-DCMAKE_C_FLAGS=#{ENV.cflags}"
       builtins_cmake_args << "-DCMAKE_C_FLAGS=#{ENV.cflags}"
     end
 
     if ENV.cxxflags.present?
-      args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}" unless pgo_build
+      args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}"
       runtimes_cmake_args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}"
       builtins_cmake_args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}"
     end
@@ -194,166 +193,6 @@ class Llvm < Formula
     args << "-DBUILTINS_CMAKE_ARGS=#{builtins_cmake_args.join(";")}" if builtins_cmake_args.present?
 
     llvmpath = buildpath/"llvm"
-    if pgo_build
-      # We build LLVM a few times first for optimisations. See
-      # https://github.com/Homebrew/homebrew-core/issues/77975
-
-      # PGO build adapted from:
-      # https://llvm.org/docs/HowToBuildWithPGO.html#building-clang-with-pgo
-      # https://github.com/llvm/llvm-project/blob/33ba8bd2/llvm/utils/collect_and_build_with_pgo.py
-      # https://github.com/facebookincubator/BOLT/blob/01f471e7/docs/OptimizingClang.md
-      extra_args = [
-        "-DLLVM_TARGETS_TO_BUILD=Native",
-        "-DLLVM_ENABLE_PROJECTS=clang;compiler-rt;lld",
-      ]
-
-      if OS.mac?
-        extra_args << "-DLLVM_ENABLE_LIBCXX=ON"
-        extra_args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
-      else
-        # Make sure CMake doesn't try to pass C++-only flags to C compiler.
-        extra_args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
-        extra_args << "-DCMAKE_CXX_COMPILER=#{ENV.cxx}"
-      end
-
-      cflags = ENV.cflags&.split || []
-      cxxflags = ENV.cxxflags&.split || []
-      extra_args << "-DCMAKE_C_FLAGS=#{cflags.join(" ")}" unless cflags.empty?
-      extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}" unless cxxflags.empty?
-
-      # First, build a stage1 compiler. It might be possible to skip this step on macOS
-      # and use system Clang instead, but this stage does not take too long, and we want
-      # to avoid incompatibilities from generating profile data with a newer Clang than
-      # the one we consume the data with.
-      mkdir llvmpath/"stage1" do
-        system "cmake", "-G", "Unix Makefiles", "..",
-                        *extra_args, *std_cmake_args
-        system "cmake", "--build", ".", "--target", "clang", "llvm-profdata", "profile"
-      end
-
-      # Barring the stage where we generate the profile data, there is no benefit to
-      # rebuilding these.
-      extra_args << "-DCLANG_TABLEGEN=#{llvmpath}/stage1/bin/clang-tblgen"
-      extra_args << "-DLLVM_TABLEGEN=#{llvmpath}/stage1/bin/llvm-tblgen"
-
-      # Our just-built Clang needs a little help finding C++ headers,
-      # since we did not build libc++, and the atomic and type_traits
-      # headers are not in the SDK on macOS versions before Big Sur.
-      if OS.mac? && (MacOS.version <= :catalina && macos_sdk)
-        toolchain_path = if MacOS::CLT.installed?
-          MacOS::CLT::PKG_PATH
-        else
-          MacOS::Xcode.toolchain_path
-        end
-
-        cxxflags << "-isystem#{toolchain_path}/usr/include/c++/v1"
-        cxxflags << "-isystem#{toolchain_path}/usr/include"
-        cxxflags << "-isystem#{macos_sdk}/usr/include"
-
-        extra_args.reject! { |s| s["CMAKE_CXX_FLAGS"] }
-        extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
-      end
-
-      # On Linux, our just-built Clang needs a little help finding C++ headers,
-      # since we did not build libc++, and we are using the libstdc++ headers instead.
-      # We also need to make sure it links to libstdc++ for brewed GCC rather than
-      # the host GCC which is too old.
-      unless OS.mac?
-        gcc_version = Formula["gcc"].version.major
-
-        cxxflags << "-isystem#{Formula["gcc"].opt_include}/c++/#{gcc_version}"
-        cxxflags << "-isystem#{Formula["gcc"].opt_include}/c++/#{gcc_version}/x86_64-pc-linux-gnu"
-        cxxflags << "-nostdinc++"
-
-        extra_args.reject! { |s| s["CMAKE_CXX_FLAGS"] }
-        extra_args.reject! { |s| s["CMAKE_C_COMPILER"] }
-        extra_args.reject! { |s| s["CMAKE_CXX_COMPILER"] }
-        extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
-
-        libstdcxx_dir = Formula["gcc"].opt_lib/"gcc"/gcc_version
-        extra_args << "-DCMAKE_EXE_LINKER_FLAGS=-L#{libstdcxx_dir} -Wl,-rpath,#{libstdcxx_dir}"
-        extra_args << "-DCMAKE_SHARED_LINKER_FLAGS=-L#{libstdcxx_dir} -Wl,-rpath,#{libstdcxx_dir}"
-      end
-
-      # Next, build an instrumented stage2 compiler
-      mkdir llvmpath/"stage2" do
-        # LLVM Profile runs out of static counters
-        # https://reviews.llvm.org/D92669, https://reviews.llvm.org/D93281
-        # Without this, the build produces many warnings of the form
-        # LLVM Profile Warning: Unable to track new values: Running out of static counters.
-        instrumented_cflags = cflags + ["-Xclang -mllvm -Xclang -vp-counters-per-site=6"]
-        instrumented_cxxflags = cxxflags + ["-Xclang -mllvm -Xclang -vp-counters-per-site=6"]
-        instrumented_extra_args = extra_args.reject { |s| s[/CMAKE_C(XX)?_FLAGS/] }
-
-        system "cmake", "-G", "Unix Makefiles", "..",
-                        "-DCMAKE_C_COMPILER=#{llvmpath}/stage1/bin/clang",
-                        "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage1/bin/clang++",
-                        "-DLLVM_BUILD_INSTRUMENTED=IR",
-                        "-DLLVM_BUILD_RUNTIME=NO",
-                        "-DCMAKE_C_FLAGS=#{instrumented_cflags.join(" ")}",
-                        "-DCMAKE_CXX_FLAGS=#{instrumented_cxxflags.join(" ")}",
-                        *instrumented_extra_args, *std_cmake_args
-        system "cmake", "--build", ".", "--target", "clang", "lld"
-
-        # We run some `check-*` targets to increase profiling
-        # coverage. These do not need to succeed.
-        begin
-          system "cmake", "--build", ".", "--target", "check-clang", "check-llvm", "--", "--keep-going"
-        rescue RuntimeError
-          nil
-        end
-      end
-
-      # Then, generate the profile data
-      mkdir llvmpath/"stage2-profdata" do
-        system "cmake", "-G", "Unix Makefiles", "..",
-                        "-DCMAKE_C_COMPILER=#{llvmpath}/stage2/bin/clang",
-                        "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage2/bin/clang++",
-                        *extra_args.reject { |s| s["TABLEGEN"] },
-                        *std_cmake_args
-
-        # This build is for profiling, so it is safe to ignore errors.
-        begin
-          system "cmake", "--build", ".", "--", "--keep-going"
-        rescue RuntimeError
-          nil
-        end
-      end
-
-      # Merge the generated profile data
-      profpath = llvmpath/"stage2/profiles"
-      pgo_profile = profpath/"pgo_profile.prof"
-      system llvmpath/"stage1/bin/llvm-profdata", "merge", "-output=#{pgo_profile}", *profpath.glob("*.profraw")
-
-      # Make sure to build with our profiled compiler and use the profile data
-      args << "-DCMAKE_C_COMPILER=#{llvmpath}/stage1/bin/clang"
-      args << "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage1/bin/clang++"
-      args << "-DLLVM_PROFDATA_FILE=#{pgo_profile}"
-      # `llvm-tblgen` is an install target, so let's build that.
-      args << "-DCLANG_TABLEGEN=#{llvmpath}/stage1/bin/clang-tblgen"
-
-      # Silence some warnings
-      cflags << "-Wno-backend-plugin"
-      cxxflags << "-Wno-backend-plugin"
-      # Make sure stage1 clang can find headers for other formulae on Linux.
-      cxxflags << "-isystem#{HOMEBREW_PREFIX}/include" unless OS.mac?
-
-      args << "-DCMAKE_C_FLAGS=#{cflags.join(" ")}"
-      args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
-
-      # Add linker flags on Linux so that stage1 clang can find libstdc++ from brewed GCC and all of the other
-      # brewed libraries that need to be linked.
-      unless OS.mac?
-        ldflags = %W[
-          -L#{libstdcxx_dir}
-          -Wl,-rpath,#{libstdcxx_dir}
-          -L#{HOMEBREW_PREFIX}/lib
-          -Wl,-rpath,#{HOMEBREW_PREFIX}/lib
-        ]
-        args << "-DCMAKE_EXE_LINKER_FLAGS=#{ldflags.join(" ")}"
-        args << "-DCMAKE_SHARED_LINKER_FLAGS=#{ldflags.join(" ")}"
-      end
-    end
 
     # Now, we can build.
     mkdir llvmpath/"build" do
@@ -363,24 +202,19 @@ class Llvm < Formula
     end
 
     if OS.mac?
-      # Get the version from `llvm-config` to get the correct HEAD version too.
-      llvm_version = Version.new(Utils.safe_popen_read(bin/"llvm-config", "--version").strip)
-      soversion = llvm_version.major.to_s
-      soversion << "git" if build.head?
-
       # Install versioned symlink, or else `llvm-config` doesn't work properly
-      lib.install_symlink "libLLVM.dylib" => "libLLVM-#{soversion}.dylib"
+      lib.install_symlink "libLLVM.dylib" => "libLLVM-#{version.major}.dylib"
 
       # Install Xcode toolchain. See:
       # https://github.com/llvm/llvm-project/blob/main/llvm/tools/xcode-toolchain/CMakeLists.txt
       # We do this manually in order to avoid:
       #   1. installing duplicates of files in the prefix
       #   2. requiring an existing Xcode installation
-      xctoolchain = prefix/"Toolchains/LLVM#{llvm_version}.xctoolchain"
+      xctoolchain = prefix/"Toolchains/LLVM#{version}.xctoolchain"
       xcode_version = MacOS::Xcode.installed? ? MacOS::Xcode.version : Version.new(MacOS::Xcode.latest_version)
       compat_version = xcode_version < 8 ? "1" : "2"
 
-      system "/usr/libexec/PlistBuddy", "-c", "Add:CFBundleIdentifier string org.llvm.#{llvm_version}", "Info.plist"
+      system "/usr/libexec/PlistBuddy", "-c", "Add:CFBundleIdentifier string org.llvm.#{version}", "Info.plist"
       system "/usr/libexec/PlistBuddy", "-c", "Add:CompatibilityVersion integer #{compat_version}", "Info.plist"
       xctoolchain.install "Info.plist"
       (xctoolchain/"usr").install_symlink [bin, include, lib, libexec, share]
@@ -416,9 +250,8 @@ class Llvm < Formula
   test do
     llvm_version = Version.new(Utils.safe_popen_read(bin/"llvm-config", "--version").strip)
     soversion = llvm_version.major.to_s
-    soversion << "git" if head?
 
-    assert_equal version, llvm_version unless head?
+    assert_equal version, llvm_version
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
     assert_equal "-lLLVM-#{soversion}", shell_output("#{bin}/llvm-config --libs").chomp
     assert_equal (lib/shared_library("libLLVM-#{soversion}")).to_s,

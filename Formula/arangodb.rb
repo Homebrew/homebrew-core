@@ -1,10 +1,9 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.9.1.tar.bz2"
-  sha256 "afc5dfbe9fb80d2154707520b4c44ad2f5ba22c1f5877228cc0d03d352856721"
+  url "https://download.arangodb.com/Source/ArangoDB-3.9.2.tar.bz2"
+  sha256 "35ac1678b91c0cc448454ef3a76637682d095328570674a5765ae5d060c5721b"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   livecheck do
@@ -13,10 +12,10 @@ class Arangodb < Formula
   end
 
   bottle do
-    sha256 monterey:     "6b7d80d0d952e3f39e18cfb91e3c76881f89dab5d7a8e141de4c4b6c9c9e5b3b"
-    sha256 big_sur:      "c6d5be3d12057a9e7ee2999f6b1fc20f419d30b8f3fb126ceac80a27e7eb1934"
-    sha256 catalina:     "081eb0952791da03bbdad0990b596b25a4888a25ab717c585549343e366c7d05"
-    sha256 x86_64_linux: "2efb2e317b088344bdc880dc5a34035cd986008e663f4c98a1a55e0f017b5015"
+    sha256 monterey:     "6ce88863c3d64b6e0f80157b81ccada705ba6a364ee8ff827e46f63df16b3b10"
+    sha256 big_sur:      "e38065e33bd2ee3eee533bcde177f1ce0c3dfd7c8857f678fe73d4e2e8fcec75"
+    sha256 catalina:     "5420623e77cc3c4dd8c272a791ce8d102d46fdceeea983104f2443a6b2cb95c8"
+    sha256 x86_64_linux: "8c311faac036bab8fc2acee10adf136275ccbf5c976795fadae2b08adaefffaf"
   end
 
   depends_on "ccache" => :build
@@ -39,6 +38,12 @@ class Arangodb < Formula
     url "https://github.com/arangodb-helper/arangodb.git",
         tag:      "0.15.4",
         revision: "ed743d2293efd763309f3ba0a1ba6fb68ac4a41a"
+  end
+
+  # Fix compilation with Apple clang 13.1.6, remove in next release
+  patch do
+    url "https://github.com/arangodb/arangodb/commit/fd43fbc27.patch?full_index=1"
+    sha256 "0298670362e04ec0870f6b7032dff83bfcdf9a04f2fa4763ce5186d4e10a3abb"
   end
 
   def install

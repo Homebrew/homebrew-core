@@ -13,6 +13,7 @@ class Juise < Formula
     sha256 catalina:       "fdc8151a4937275308e7d353b0f42007e5a371a58551c2609351ac9ae0647bbb"
     sha256 mojave:         "7895026372337e9a86c906b364f5a3bda3c217e6def31b6e51ada8ab14c9334b"
     sha256 high_sierra:    "6c4e884c63521014cd059e59372130ea70a06067769aaaf79497cb1f6877c41a"
+    sha256 x86_64_linux:   "7130ee133efb52f271435ff4ace122428e1706c561e5ef6c2eecea524b342d4b"
   end
 
   head do

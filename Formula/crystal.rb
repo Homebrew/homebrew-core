@@ -2,6 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/1.4.1.tar.gz"
@@ -19,12 +20,12 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0bd6b66e221cdd959199d3ba725e008bb56b4add7104a6af605a77aa8b4777d0"
-    sha256 arm64_big_sur:  "3f12fb6005eb7ea8a8e4e9d0e48d28751b0b44cb9d46d26ec2a8bf1fda2863b6"
-    sha256 monterey:       "e2d165828c73d94bebf93b9ee6e9e5f646b4b829a60aa39d439f8f3a05eac138"
-    sha256 big_sur:        "13c6d1aeef838b4541314812dca0ced5316bd9bc528e050798603a33fa41d29f"
-    sha256 catalina:       "d8670e8cd761aac62e776252d8d180c7492bbe3a2d9d9aef05e2b82513bae009"
-    sha256 x86_64_linux:   "af2c47f9bb9cfdf70ddac44e3ff36bae2c09727e63716569220b4141b8896380"
+    sha256 arm64_monterey: "3e6120f5f7a3da7d41aed6d3945d111cbf3e5871c5d4b8744e044ad94f49ec2e"
+    sha256 arm64_big_sur:  "50314c7f799c880d27280831bd83c1af4622b9d5e898a96c363d04e719013de1"
+    sha256 monterey:       "e7b3135c115fe7aa89a8a8785a915e4f1d9f19500512bc393368b190fdecf349"
+    sha256 big_sur:        "6e4df7ecd39a6eb72b4cb78ca7bc1f92a67b7ebe8b71c63571f05ca33506b8fa"
+    sha256 catalina:       "5c66db4aa5106173b05997799ca8460384ca5bfd3482f04651fe70a8781212e1"
+    sha256 x86_64_linux:   "6241a16177243023dec99e9b7e3da77da9a861314ada2a647f138be70d0868c8"
   end
 
   head do

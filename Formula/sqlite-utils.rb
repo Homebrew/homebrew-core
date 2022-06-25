@@ -5,18 +5,19 @@ class SqliteUtils < Formula
   url "https://files.pythonhosted.org/packages/92/b6/0a91a81b21b7be2dfdb2e964941000d299168dea582bfb899dfae5425abf/sqlite-utils-3.27.tar.gz"
   sha256 "49eadc3cad92bebabbac450b825be3ab5277155d31d1a1c72acef61e65e44c6a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77807ffb7a6bc884b61fd33ade6173153407ee526b551a58044f7970d3771453"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "454643ec6f4289f47fcd81e9c87ec52d66a2313e9de52a6e16f0dc00ca9d0860"
-    sha256 cellar: :any_skip_relocation, monterey:       "fd63d789c47d1a77ebcbba8ab8c4a668a06ed60bb52906766c620d1ddb60c2e0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f87f20558e31d8ab716ffa321874752fb5b28f639362a8302e86f87406ace434"
-    sha256 cellar: :any_skip_relocation, catalina:       "59c825ff22b585265850bf523a6ab039f9d0016b2413314f3e6c2b5b02d9e9e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c9d46bf3cbf52f51ef1dbdc6c426a2db341b2f352566fbf4bda76c53b534f7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b7f599eb5dc91a5f5d27391c351ca95882360b4b855e704321d4baeec8e5d27"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c1bd26f47d9de1c9446fd24e1037b5f9111a7b2b190d447d277ca9cb590cae5"
+    sha256 cellar: :any_skip_relocation, monterey:       "8016f473186e3f8a3988e91348001e82cb9bf1720fdbf3efeedcc675e22b4f88"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0e857312c5a21c643cacf375681309fd47ed13b6c953460eaa04513a9b3ebfcb"
+    sha256 cellar: :any_skip_relocation, catalina:       "1dedbf5b5f83df74cd95ac97a1b90a6076cf79e0c2fb74d8d1515dd952eb435a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f400d0357e434cc0a01b66094e2d0727e4f2c39e78745f36c39a0734716c7a46"
   end
 
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "click" do

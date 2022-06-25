@@ -2,6 +2,7 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
+  revision 1
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   stable do
@@ -47,10 +48,10 @@ class Julia < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "1952d5d5e006180fc02ca3b362cdee7e3c25f2eed26a4e58bda1b1cf75f2b52c"
-    sha256 cellar: :any,                 big_sur:      "6bf092ffc5838d21cbaf35ba5330e8674ac79f4a314c6321d042b6b7eb9a78c7"
-    sha256 cellar: :any,                 catalina:     "cbcd464ba9cb10e78920e3dc38c23bd4b61347527ed3737ec61e71d390a83441"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "741aa32d988bcd48dba2f51ea58a21ef0461719768e14e53544aadccaa60d386"
+    sha256 cellar: :any,                 monterey:     "895f7b8a61cbd77b5665c8d546fae133dbd3deaaedfded57c7c85b1bd13153d2"
+    sha256 cellar: :any,                 big_sur:      "4e00c54f877125f995edb139994552747edf7399913cabb27140f512396bf0b0"
+    sha256 cellar: :any,                 catalina:     "74328f672d054a120741a407f641e5dee2614eea4db775dc8f8b94018086a0e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d8beebc85100fad2fac21f012602396d2bde0e24d6ef59853c55cfd462b3dfac"
   end
 
   # Requires the M1 fork of GCC to build
@@ -63,7 +64,7 @@ class Julia < Formula
   depends_on "libgit2"
   depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "llvm"
+  depends_on "llvm@13"
   depends_on "mbedtls@2"
   depends_on "mpfr"
   depends_on "openblas"

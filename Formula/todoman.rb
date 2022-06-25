@@ -6,19 +6,20 @@ class Todoman < Formula
   url "https://files.pythonhosted.org/packages/2d/b0/ffe9e812fa710579d07369763262e418cadb2a99fc5d0ec0d685c7f33a69/todoman-4.1.0.tar.gz"
   sha256 "ce3caa481d923e91da9b492b46509810a754e2d3ef857f5d20bc5a8e362b50c8"
   license "ISC"
+  revision 1
   head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbc49789ca82123ddb165380dc10fa598335b9c892b05012174f091185886e06"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ad8941910dd324c0c9a1eff79fec0313fef5a53bf547c632c24de57e396c5fb"
-    sha256 cellar: :any_skip_relocation, monterey:       "4da34ad0ce35739040ebac5ba8da6eba936a9fb67487ab6db6cf1b6db332b56e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "72cac8ed69f61678a2e8b665b550e27694325811ab5ace67b60772a9c4d5831f"
-    sha256 cellar: :any_skip_relocation, catalina:       "6f5089d7b1405734c1a88c1caf07f1c995606cb8c41f61a80b04ea06d2d1756a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8487a64b4a5ba1f7fa89426140d104e9c41e53de6a4008920bd2887867050194"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f38d4c571efa7c25b1b44b44222ba42be1d488bd8dfcfdb90e000c86eba7dbfb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dc56a4c68161b390101745201298401d8d191df4f008646691bfa391ea7f10f6"
+    sha256 cellar: :any_skip_relocation, monterey:       "848a0f885428cf7cf8bc849cc5dd794d8a687b19432f92f382604309498f7dfc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "71b03101fbe5f053e86d33b07e9fc1ec851d15476bb9cfa5c18d290d6267ffcb"
+    sha256 cellar: :any_skip_relocation, catalina:       "f9e24586502750b1a3338e1c935e57a823bda1a83f9f2b26ab7f6ebca87ce769"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "715db55e55809a33bd410ab3726fb35f6a203504013d4e992d2a8c4fa8971e52"
   end
 
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
   depends_on "six"
 
   conflicts_with "devtodo", because: "both install a `todo` binary"

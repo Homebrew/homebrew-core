@@ -6,20 +6,21 @@ class Esphome < Formula
   url "https://files.pythonhosted.org/packages/1c/02/8a1409bba74e502136a7026aec9e3350d7c09544e77c1aa55c3bc88bbf81/esphome-2022.6.2.tar.gz"
   sha256 "ae3bcfa25668ee63d3b83e16e9f6747d837141ae911b8fa84472182d4e25d2f2"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "47366d0868b532f6ff1d1e19973a3cb6518aeb849fbfde12da0a4a70a9c77100"
-    sha256 cellar: :any,                 arm64_big_sur:  "f70ca5df212ca955a890f49dd75c2d2629ff5017b887f770a5a7e5565ca94ab1"
-    sha256 cellar: :any,                 monterey:       "c2eb79056f0b8e2f2da85327bd818aaccc2440221865883a9e45c29cd6397847"
-    sha256 cellar: :any,                 big_sur:        "2f1b1cca9a4707376d028fc7831d4707d2f89262c60be162f42a204da8ffa826"
-    sha256 cellar: :any,                 catalina:       "610565bfd36591961064af5ca2087e1931d039ae0ad0b55610f583317f3b2549"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c8837ca92c53b9d2e39b8980e2b81ed0e7ca01073023d66f9cc5059e4254d72"
+    sha256 cellar: :any,                 arm64_monterey: "aa4134f498ad43e314986102e5dc307891a770ad0a43be12ed14e65bfca2e953"
+    sha256 cellar: :any,                 arm64_big_sur:  "57d647c3bf96db390d1c1036aeac24f1481696ee4a2837e8d798b0aa1f3f9d8d"
+    sha256 cellar: :any,                 monterey:       "1559fbdab40f7fa19b2b0dedb8456f719f6b2736e52f9f1d6187836d186ffb73"
+    sha256 cellar: :any,                 big_sur:        "75339c097df6bb1d67001137a269432f00d5acaf927bc27f252a361ce06874b3"
+    sha256 cellar: :any,                 catalina:       "f05de2500f96a0da3c7f33e266a41f63050d4805d378206628bdda51d763258f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aed97fbf902c2a5b96e1dac3987a8fdf32374f1e42f7cffcc555b8131d38817e"
   end
 
   depends_on "rust" => :build # for cryptography
+  depends_on "libpython-tabulate"
   depends_on "protobuf"
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "aioesphomeapi" do

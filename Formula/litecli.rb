@@ -6,18 +6,19 @@ class Litecli < Formula
   url "https://files.pythonhosted.org/packages/c1/92/b2eb5f098446a05b9a92e548bd83442f2169f87f3e1b37ffed7a5315c264/litecli-1.9.0.tar.gz"
   sha256 "21af2cfa083dd4df1e3ccaa2a2117129b5f17212756f596ea090e296776c27a1"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "65504fcf3105e95a62a3ef67973daba12b766128677e5c64f1db9cba374041f5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d3cb47d70e5148b22be814a7e4068032ed9d1cb6829d03f032dbd97eaa035f4"
-    sha256 cellar: :any_skip_relocation, monterey:       "157d8243e77f60936f4246e66a9477a97f42c44bdc6a772c2ff3480012107f30"
-    sha256 cellar: :any_skip_relocation, big_sur:        "106802355344f26bba1b64360f25763602dcb298f14b13428936045ea06fcef8"
-    sha256 cellar: :any_skip_relocation, catalina:       "75cd793b4ee3265a70a2c295a15eada9c74881e533a33241596846e66ac7e3b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62a9506cdced7134ea3002efdadbaa2565afd56c086ccd5191f25381217f46ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b97169f3d2ad603fd47711e054a62b9a921ee9439c9835ee21334f8ce965b67f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21d2b95e8dc5425f9e2a536e18c31a4bc10571e74db1799b546fcf75558080a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "b781f2b36b03c0a0818ba23e44fcebc0d7298fdc592ef6ab926bfccf27c02a03"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a721921ed7081672e9e4daf0f132fcad3b97cdfc8b789cecf21d1975f48f6a56"
+    sha256 cellar: :any_skip_relocation, catalina:       "2c33653b3321ea402acca08777cd4d65e90912ab02bde50fe75445c17e5e7363"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "980d2cd71ab0022fdae1f03d680bc3546c79278d97f8d639cda27bd1cb847022"
   end
 
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "sqlite"

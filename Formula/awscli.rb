@@ -3,23 +3,23 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.7.10.tar.gz"
-  sha256 "688262c8edaa844f5202bc31da065523edd3f5ce132973d267d018ee259ab2de"
+  url "https://github.com/aws/aws-cli/archive/2.7.11.tar.gz"
+  sha256 "0b58c39361242b02a56a058edc7f1fd8f8a79d70b7ef9d9a6e5676f7396fafc6"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "884117f117b8bdf1a1042c25b03a8f82aa7b5e9b078f4a3d01556e6c7e03fa73"
-    sha256 cellar: :any,                 arm64_big_sur:  "eaedf9e1027b5c47a24368222af66ebd1880d24032c5160ba3e755818c031bd6"
-    sha256 cellar: :any,                 monterey:       "14f5c5b080475288087cffaf39889d599c188dbe9177eaa8cb171e33df67720c"
-    sha256 cellar: :any,                 big_sur:        "e659c6c03dd2f2321498edf6de70b28ef401dd060fe8354be522b0f3e3fac52c"
-    sha256 cellar: :any,                 catalina:       "371f597fbe97b8335bc56bdbd1ff803c594692f1a5c3153c91ac601126d47af0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "720c0326f73f897e4c89df61780552752611c31104c525bbf7bd9f59f6763fd1"
+    sha256 cellar: :any,                 arm64_monterey: "5549d4b06e888d0df18e72ae45fe8fef6bdcdefde5591b66bb4e472c7ce08ca0"
+    sha256 cellar: :any,                 arm64_big_sur:  "d68bdb7bc3f8d27d9cd4f517e190f4dd708743904779712cb13fa5e66faa681a"
+    sha256 cellar: :any,                 monterey:       "c53f97e6cf825b3bffa60b01b4b7df8dc5c2c66628f46fc5b7b9106a5fc3091b"
+    sha256 cellar: :any,                 big_sur:        "8df9a33d6a64999f300f9399bee12c14e13713126b5b5ab060654cae79d7843a"
+    sha256 cellar: :any,                 catalina:       "94c823a7f36442d656be4c3d3d9dfdbd7393627469f39c0021451069aaeab163"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f9bc57cb9c5b6552110d0d39fc2d5d214ffd89481faf2ca939a245cae7d2366"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build # for cryptography
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "groff"
@@ -78,9 +78,14 @@ class Awscli < Formula
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
+  resource "ruamel-yaml-clib" do
+    url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
+    sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
+  end
+
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/9a/ee/55cd64bbff971c181e2d9e1c13aba9a27fd4cd2bee545dbe90c44427c757/ruamel.yaml-0.15.100.tar.gz"
-    sha256 "8e42f3067a59e819935a2926e247170ed93c8f0b2ab64526f888e026854db2e4"
+    url "https://files.pythonhosted.org/packages/46/a9/6ed24832095b692a8cecc323230ce2ec3480015fbfa4b79941bd41b23a3c/ruamel.yaml-0.17.21.tar.gz"
+    sha256 "8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
   end
 
   resource "urllib3" do
@@ -100,7 +105,7 @@ class Awscli < Formula
     # ImportError: _awscrt.cpython-39-x86_64-linux-gnu.so: undefined symbol: EVP_CIPHER_CTX_init
     # As workaround, add relative path to local libcrypto.a before openssl's so it gets picked.
     if OS.linux?
-      python_version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+      python_version = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
       ENV.prepend "CFLAGS", "-I./build/temp.linux-x86_64-#{python_version}/deps/install/include"
       ENV.prepend "LDFLAGS", "-L./build/temp.linux-x86_64-#{python_version}/deps/install/lib"
     end
@@ -135,7 +140,7 @@ class Awscli < Formula
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
-    assert_includes Dir[libexec/"lib/python3.9/site-packages/awscli/data/*"],
-                    "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
+    site_packages = libexec/Language::Python.site_packages(Formula["python@3.10"].opt_bin/"python3")
+    assert_includes Dir[site_packages/"awscli/data/*"], "#{site_packages}/awscli/data/ac.index"
   end
 end

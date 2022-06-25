@@ -1,17 +1,17 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://github.com/vmware-tanzu/velero"
-  url "https://github.com/vmware-tanzu/velero/archive/v1.8.1.tar.gz"
-  sha256 "675034d30d3539f9292ca5896e28df6159cdf1c6436d806795a79c61bfe37cd7"
+  url "https://github.com/vmware-tanzu/velero/archive/v1.9.0.tar.gz"
+  sha256 "ad2b40ee7e80fb23b9e5b887d0dbc6ee49d4a708af8372e502872a157d30ed50"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d5e7dd1ec446795b48ee1216e986c73fb30a8578ac8c2ce4302189e5e41d0d3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "867c35bbc9c2c4cb084c88234979161ed92232c0fe86104e8aec4803b51182d3"
-    sha256 cellar: :any_skip_relocation, monterey:       "62f38614bdb6942df5c685c51c960f990e22121affdc612d8ceb42823f1586ce"
-    sha256 cellar: :any_skip_relocation, big_sur:        "84261d846c7d13f02a9ddb406fb6f9037388dab17bfd7da28ac4b36dbfc2ef07"
-    sha256 cellar: :any_skip_relocation, catalina:       "72b446ff30792fd7e486ddd0a106dd4a74a27321fb7d597fd407160005ac1846"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9d3245f03f0a719fb9d0e2621f3c1ef6a27936fed7650fe5ee9b0a419dc2b75"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c4fef74c83b07c1d9d195554c924ff4adb90705abb0bbde7f5b1ab799a45ac4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c7b96f49e100f98d138ce47b2ffeb2098695791d7db254bdfc010a4475376512"
+    sha256 cellar: :any_skip_relocation, monterey:       "7c91d88283327d154e2438639b91dc58ce71a2e81dec0396193bb591be20d0ae"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4999a63622ff95f83af7749c48a66debe93ac7e31bc34520a30a8c171bce55db"
+    sha256 cellar: :any_skip_relocation, catalina:       "0c0feb320ab1f409e259663707bd95da3054e78376bc399c9eb85874a8c642e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8c6fe417db6d1422ecf596501c470d24697461e2a320bfee06f67e793857d97"
   end
 
   depends_on "go" => :build

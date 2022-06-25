@@ -1,25 +1,25 @@
 class Lefthook < Formula
   desc "Fast and powerful Git hooks manager for any type of projects"
   homepage "https://github.com/evilmartians/lefthook"
-  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "c169ff8afd9f73936256e9b5063557debe9a7b015fd567b29818fb68ad8a6bb0"
+  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "06680a58cd7c7277f745ae89624b8c43de37fb2cfe5ba32e3c6882306cff0f6c"
   license "MIT"
   head "https://github.com/evilmartians/lefthook.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5f2ab96c2200225392fd574a2c4a06196a4f841fdf8d9e2b2516e70d0e1c709"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a9ed07ba0b06af28a884ef7e424202e377b718211200499e54e4d267d001c2f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "5dc3edaef01f25a38f40bd17a44726d46b0ac2420b3a328ddae66ce7d5b03a6d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4b53c98f86ca5ec99a1a553a42b23ea72e0b9074ecc4f47edae3d6a08dcb108e"
-    sha256 cellar: :any_skip_relocation, catalina:       "777f95d7eeb4a472f32c33d88e77c748ba85c0ae6cb1fc6e3754f173ec4ce803"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "798a435460e7f5cfcb2387dfd7a10ff1dd2bb36e488d242119e7b9b162c22afd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8aae0593bc21fe3f31a1149a841682b909a8d6c55296549db980d2bfc2a20355"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "10a06556ed8487c8f754ffc50c8d16d857dfe9a54fe5d16358b5adc080e72cf9"
+    sha256 cellar: :any_skip_relocation, monterey:       "aa731243a390296befa7cbc3cd2500bbc7c42b9a14b786444121e48fa6b1561b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "721e1eb9321c2671f04a8d860a5f8832a86bd801526ada9caf794df72b64b09f"
+    sha256 cellar: :any_skip_relocation, catalina:       "19326938dc6a103a70e6d29690f8acc25f431a02ae8997268ccf9e0dd2426695"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc645449194ac8caa0a4050888fb212e1be414f2fa0d8e17f5013d10945d583e"
   end
 
   # Bump to 1.18 on the next release, if possible.
   depends_on "go@1.17" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), *Dir.glob("cmd/lefthook/*.go")
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

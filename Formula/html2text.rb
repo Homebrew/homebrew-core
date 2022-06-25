@@ -1,26 +1,26 @@
 class Html2text < Formula
   desc "Advanced HTML-to-text converter"
   homepage "http://www.mbayer.de/html2text/"
-  url "https://github.com/grobian/html2text/archive/v2.0.1.tar.gz"
-  sha256 "c52f16a282b69b9dc9f7b5fac7f44b15f90b74e012f0aa2d63fbf5b0fe5e5c49"
-  license "GPL-2.0"
+  url "https://github.com/grobian/html2text/archive/v2.1.1.tar.gz"
+  sha256 "be16ec8ceb25f8e7fe438bd6e525b717d5de51bd0797eeadda0617087f1563c9"
+  license "GPL-2.0-or-later"
   head "https://github.com/grobian/html2text.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e78419657ce5e06388abd3a41ec0322383aca2c2c71b2e45139ca78832d452f3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c148cd0d5d064c8ad263ca7c12c9e4a73ce3ff5d1f9feebca0009e4a41add25"
-    sha256 cellar: :any_skip_relocation, monterey:       "bd43224481e6120f6f304b1861e514fdf4571d1f5b558c86827d55ada0682fbe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3f8d47270e3e7f0fdbb628cac56a9da064c70de4f1988a6dec2985bb5e5235f9"
-    sha256 cellar: :any_skip_relocation, catalina:       "5a236441829b3eaa51e021fda8e10bac0dc8b8ad80fa95fb268a7f21be18864c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97fe7d5f5d6188936ffc827e284fd438cacf7d08a4bd0590d3724284b0f40eba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "54bba0f039b260d8cebd56ccb081dec77f1b75b11fc648a6dda6204b7bf21ccf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e60478802f517404cd7193c7ae612335fd2f4e494e8eb066badd9cf61dd72bcb"
+    sha256 cellar: :any_skip_relocation, monterey:       "195fd0fabd45c610163f7eb572e1aec8977b92150e1acc8dcc613c642ffc1dca"
+    sha256 cellar: :any_skip_relocation, big_sur:        "051ceb5b6dc1a54670a01b6b90281b3f91a5e10c5f66d01db0f8664b78760e6d"
+    sha256 cellar: :any_skip_relocation, catalina:       "2e2e2d60421b7b5609e5de0a8151abee3e4a4488f67cf4b6fed242cbbef4740b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b4f01b75211993397fa0a3fbe836c9817b331c2fcc5f01295a872961e88a0e0"
   end
 
   def install
     ENV.cxx11
 
-    system "./configure"
+    system "./configure", *std_configure_args
     system "make", "all"
-    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
+    system "make", "install", "PREFIX=#{prefix}", "BINDIR=#{bin}", "MANDIR=#{man}", "DOCDIR=#{doc}"
   end
 
   test do

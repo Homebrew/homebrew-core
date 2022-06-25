@@ -1,18 +1,17 @@
 class Googletest < Formula
   desc "Google Testing and Mocking Framework"
   homepage "https://github.com/google/googletest"
-  url "https://github.com/google/googletest/archive/release-1.11.0.tar.gz"
-  sha256 "b4870bf121ff7795ba20d20bcdd8627b8e088f2d1dab299a031c1034eddc93d5"
+  url "https://github.com/google/googletest/archive/release-1.12.0.tar.gz"
+  sha256 "2a4f11dce6188b256f3650061525d0fe352069e5c162452818efbbf8d0b5fe1c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5643998289368581eb4c81fd36e4cc3311ab92782db116d1f46c659d609523f8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53a1b277842358ceae62800c9af78271a0a33043eff7f007110353941ace54d6"
-    sha256 cellar: :any_skip_relocation, monterey:       "65d52d92904a3167ae1dc2a420dd56da5c81f3c4bd394f45ab4b8fd6b620a209"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7ff36ee689017d9f973acbc0407eaf8135d983028e85d1e6375a6a144c829e7e"
-    sha256 cellar: :any_skip_relocation, catalina:       "38290ffd89c69da85af50bb3e1c1e670440b59a342865a64ce50b7abb1e424aa"
-    sha256 cellar: :any_skip_relocation, mojave:         "0581f86b3dd88e39339b4cf3b6b0174109491e2d4aa97cd49369381c6611cff0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "929f3a916ff562ab210129b6e45c06f10dbdecbce115f2b55e482cda29ae50bf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86cd21c7b3fac1acba48a1f28e1bead799640a05c61ed7944891fcc411b8ce2f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cca9b050ae45a9617d92cafd864d91379ec59bda05b9f353f130bd9ef8bf910e"
+    sha256 cellar: :any_skip_relocation, monterey:       "8452430bfa0f8a5f20737cc455f29c66a1e102b360a9bdeca58bedc6c20490a5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "23b3f9e12eb1fe8bbd6b2decb6f93a301da99fdb24e316cda06c340730ab207f"
+    sha256 cellar: :any_skip_relocation, catalina:       "583fc21ec573afa92fdbdcbcf50012ab1e617ef5d53ea46ddb39e5df9d9dc136"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ac1cfe862797ec4a0b447f02119c748b7849fb57caf98d6cbe76be940444755"
   end
 
   depends_on "cmake" => :build

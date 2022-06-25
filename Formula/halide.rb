@@ -4,6 +4,7 @@ class Halide < Formula
   url "https://github.com/halide/Halide/archive/v14.0.0.tar.gz"
   sha256 "f9fc9765217cbd10e3a3e3883a60fc8f2dbbeaac634b45c789577a8a87999a01"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class Halide < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5d6deeee63f5251f982a8bd33b5eadde2ed76043243d2b0b3549a5d73d40773b"
-    sha256 cellar: :any,                 arm64_big_sur:  "2a3a60f4bf9e2b96e060ccd3f97bdb5f01300db7d41064a1f8ea5522eaae6fe5"
-    sha256 cellar: :any,                 monterey:       "6c76d4bda2ecde2563febab79f1b56a9d2f3f42f30359974875ebd5ee46a9978"
-    sha256 cellar: :any,                 big_sur:        "cb88aa6cb18664d402c9bc329ec8eaec11e42e0ccc2cb6d9831411cd5e730d7e"
-    sha256 cellar: :any,                 catalina:       "5cfc526ab5d5bb5c7e24ec6f5cd67679d4ad7820d8834c55b1b1b655c2ec5320"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f60867f23283b511e17b91c4f6cdcb0cf17e98026bc86afa21a9e22aed92b5bf"
+    sha256 cellar: :any,                 arm64_monterey: "e1ba8d1d6232fd52c98664b9e307aa0f0ba0623ec3a3a4ead0d43b028499d3db"
+    sha256 cellar: :any,                 arm64_big_sur:  "f927bd59f1abcf1fd3034f04fe6cff538241bfe3a0975248578ed9e47ba7499c"
+    sha256 cellar: :any,                 monterey:       "14c4ba34f34b0261121c8d4416f685f5dc67321dd810d30c3d56c1a25b16167a"
+    sha256 cellar: :any,                 big_sur:        "4cbbc5c24273b2cc7b3b4d830ad195b9d8fdc745919e16f166ac2452aff651e2"
+    sha256 cellar: :any,                 catalina:       "490da68c6f73b829277d459ea7705b66415e9a50dd48d09b43f55f5d2e9c26ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd52a51fc41dfe0184dbf1cbfdf0dfad45c1071ed0a71fb97e2c792536f6e1fe"
   end
 
   depends_on "cmake" => :build

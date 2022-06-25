@@ -4,15 +4,16 @@ class Enzyme < Formula
   url "https://github.com/EnzymeAD/Enzyme/archive/v0.0.33.tar.gz", using: :homebrew_curl
   sha256 "49375521e48daa09c03e2bfabb18ca35f7e142abdc35bc5d0144c72aef513efb"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/EnzymeAD/Enzyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "53b0ac1f07fbe0748b86cf07af709e741d7c12b0d951ef9149b855b3ab7cbb21"
-    sha256 cellar: :any,                 arm64_big_sur:  "01469c969a3e31ffcb0412681124f3139acefbf7837b1b27953d870dc38c0236"
-    sha256 cellar: :any,                 monterey:       "5855d8062e41672e4596be9b6ef547f1beae6b56004b16e521383f079586e428"
-    sha256 cellar: :any,                 big_sur:        "4cf1919a3e636e0d6d2c068f33ab88b908197505857c5f6cdcd24040b8272185"
-    sha256 cellar: :any,                 catalina:       "18a28cecee6f9596b56c9d1d5458650029a28f7a9711f3c34d0a8de64571f502"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc19b14eeebf4c7647eab6fe1b6e776bc64753b16f4661e086374b2769ad3f8e"
+    sha256 cellar: :any,                 arm64_monterey: "746de5336fc3c2c7f2e401a1f87e7807b68319a014e097c1371c6999202ee195"
+    sha256 cellar: :any,                 arm64_big_sur:  "580151279a789ff27f5dd2aa6c3c3798675c4abb3c96e4200953a9e765da40d6"
+    sha256 cellar: :any,                 monterey:       "05bcb2c85066e5bfbfb251bb29997fdf271546cd4a2f5db9ffb5c5f2ec0d0a57"
+    sha256 cellar: :any,                 big_sur:        "9c2bf0d877d336b86b3992185aa4f497ddfa511b37888aaaedde8f176dfb26f4"
+    sha256 cellar: :any,                 catalina:       "6bda1ce4a4cc6e9d0511123af46f84fc08f6986549acf42d04ba1cafa796e3e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd429ecd1bbec172f8b09d53e6986c8d90dc2e8fa54a1ab9c98b63b9178eea88"
   end
 
   depends_on "cmake" => :build

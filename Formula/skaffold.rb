@@ -2,8 +2,8 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-      tag:      "v1.38.0",
-      revision: "89b789ddcfe00d2fe7626fd86ef39a3eb6b455c5"
+      tag:      "v1.39.1",
+      revision: "cd3f6fa3231ae8abf7f028eb7163d74aafd6ae94"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
@@ -24,12 +24,12 @@ class Skaffold < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5f86e0f2c7df648c93973f1d1f5bb3fd36a6e70732755ba8e0275fe6a9827cd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "267f1056fb46f40e4b80385b65aeced63274b4834e84ca180a18c16500026260"
-    sha256 cellar: :any_skip_relocation, monterey:       "8aa5361678edd51d0186a62ce9846c0bd114bfa934dacc897d8cf5e050b232ba"
-    sha256 cellar: :any_skip_relocation, big_sur:        "86b4b0cf661910e5f405c55d5d6272a3a5bc5d5204a071e9580946ef03c089d1"
-    sha256 cellar: :any_skip_relocation, catalina:       "e7f0b3a1532b269a9779de0ed47116cccc2aa62df86b6f6ecd328c3d07a8182a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30fb90ce26b77c73a6acedf99b399558d1f5a02853862209dfac2e6cb53f1982"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7650b6cf1ad3dc03ce7c824484a84c1bae258d9d9f72ba28c6ea2dec9f0eb329"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1dcb6612c9a80a420b24bbb0a1f24c26d14a58ac47917d7de0bcad029c31adee"
+    sha256 cellar: :any_skip_relocation, monterey:       "8948da353af63ff993d82b6f1778c7fd7dea4cb0d671e1f98e954a92fb7b4a1b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d4ada4f1ba20dc64a2262c7036deca66cdd18933637f499acd89c1dcbbc195e"
+    sha256 cellar: :any_skip_relocation, catalina:       "a58c17765b6af7f29ee9fe750c314f7b4477ffb14dcf7bd38277f0de95427e5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79abd805ad0b67e83d56df8f51d18b2913f63c475105f82eb0c5af9b8f529283"
   end
 
   # Bump to 1.18 on the next release, if possible.

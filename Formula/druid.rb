@@ -1,9 +1,9 @@
 class Druid < Formula
   desc "High-performance, column-oriented, distributed data store"
   homepage "https://druid.apache.org/"
-  url "https://dlcdn.apache.org/druid/0.22.1/apache-druid-0.22.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/druid/0.22.1/apache-druid-0.22.1-bin.tar.gz"
-  sha256 "bd83d8f8235c74d47577468d65f96d302e6918b017e6338cfbb040df9157143c"
+  url "https://dlcdn.apache.org/druid/0.23.0/apache-druid-0.23.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/druid/0.23.0/apache-druid-0.23.0-bin.tar.gz"
+  sha256 "6a00187fb6eaf7fa03148b01900bc92302fff9c809c02ae7584029c1c028d3d4"
   license "Apache-2.0"
 
   livecheck do
@@ -12,23 +12,21 @@ class Druid < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "ad7e134eb7daa12f3175bc93f269c471ce7f636d86118d7c0cfaebe8c8dc2450"
-    sha256 cellar: :any_skip_relocation, big_sur:      "ad7e134eb7daa12f3175bc93f269c471ce7f636d86118d7c0cfaebe8c8dc2450"
-    sha256 cellar: :any_skip_relocation, catalina:     "ad7e134eb7daa12f3175bc93f269c471ce7f636d86118d7c0cfaebe8c8dc2450"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "525049785863e472e223ea3d141178598cbb117f242d8ea0b5ab4864175d71f7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "13c6d41fb0acc0f371666d0dd274bc42d2b3dd8ecd863f0c8f25699df8b59870"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13c6d41fb0acc0f371666d0dd274bc42d2b3dd8ecd863f0c8f25699df8b59870"
+    sha256 cellar: :any_skip_relocation, monterey:       "331bc1799f1dc1d2aa11314b60b6a9ad296a29048ffdff6627052b34c3fee9c6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "331bc1799f1dc1d2aa11314b60b6a9ad296a29048ffdff6627052b34c3fee9c6"
+    sha256 cellar: :any_skip_relocation, catalina:       "331bc1799f1dc1d2aa11314b60b6a9ad296a29048ffdff6627052b34c3fee9c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13c6d41fb0acc0f371666d0dd274bc42d2b3dd8ecd863f0c8f25699df8b59870"
   end
 
   depends_on "zookeeper" => :test
-  depends_on "openjdk@8"
+  depends_on "openjdk@11"
 
   resource "mysql-connector-java" do
     url "https://search.maven.org/remotecontent?filepath=mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar"
     sha256 "5bba9ff50e5e637a0996a730619dee19ccae274883a4d28c890d945252bb0e12"
   end
-
-  # Fixes: node.sh: source: not found. Remove with next release
-  # https://github.com/apache/druid/pull/12014
-  patch :DATA
 
   def install
     libexec.install Dir["*"]
@@ -47,7 +45,7 @@ class Druid < Formula
       s.gsub! "nohup $JAVA", "nohup $JAVA -Ddruid.extensions.directory=\"#{libexec}/extensions\""
       s.gsub! ":=lib", ":=#{libexec}/lib"
       s.gsub! ":=conf/druid", ":=#{libexec}/conf/druid"
-      s.gsub! ":=log", ":=#{var}/druid/log"
+      s.gsub! ":=${WHEREAMI}/log", ":=#{var}/druid/log"
       s.gsub! ":=var/druid/pids", ":=#{var}/druid/pids"
     end
 
@@ -56,7 +54,7 @@ class Druid < Formula
     end
 
     bin.install Dir["#{libexec}/bin/*.sh"]
-    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("1.8")
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("11")
 
     Pathname.glob("#{bin}/*.sh") do |file|
       mv file, bin/"druid-#{file.basename}"
@@ -96,16 +94,3 @@ class Druid < Formula
     end
   end
 end
-
-__END__
-diff -Naur apache-druid-0.22.0-old/bin/node.sh apache-druid-0.22.0/bin/node.sh
---- apache-druid-0.22.0-old/bin/node.sh	2021-11-30 21:39:18.000000000 +0100
-+++ apache-druid-0.22.0/bin/node.sh	2021-11-30 21:40:08.000000000 +0100
-@@ -41,7 +41,7 @@
- PID_DIR="${DRUID_PID_DIR:=var/druid/pids}"
- WHEREAMI="$(dirname "$0")"
- WHEREAMI="$(cd "$WHEREAMI" && pwd)"
--JAVA_BIN_DIR="$(source "$WHEREAMI"/java-util && get_java_bin_dir)"
-+JAVA_BIN_DIR="$(. /"$WHEREAMI"/java-util && get_java_bin_dir)"
-
- pid=$PID_DIR/$nodeType.pid

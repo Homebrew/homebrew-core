@@ -1,8 +1,8 @@
 class Brev < Formula
   desc "CLI tool for managing workspaces provided by brev.dev"
   homepage "https://docs.brev.dev"
-  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.80.tar.gz"
-  sha256 "1e8a246ce9211ad08f4be6d1f50696980b537a445b735c2193635409c31c6ba1"
+  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.81.tar.gz"
+  sha256 "33d4d56f66b3923333e64da5151f92b1c186c644c4ac69ca357567aed035a42c"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Brev < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "836d792334c9fa6a8d5914703f9297cf6d85171ab8a05ec3ecd0b7d9b5d90fef"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed32109c1a7f7ddc47a47b5eba8919bdc4caf653e3310fce4e68959125110735"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a10451c3557ba94352a1aba95c6263c4af14240b393a86486107cc836672832"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fc05e9007e47c111d88712227e3f56d4a21529b21949c0535ee4882d42ce8d94"
-    sha256 cellar: :any_skip_relocation, catalina:       "0133c3a12ebe06d3b92ce59fa940139b413cb6e90a9990db1cca2ac6b448c06b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a59268e0b1f93762126d3b19776e78a9a03d580102ccb04fec4ec826139f585"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "14c93beb73c66e8e31f4c76cb6b65818a69c66db1690c876512aa6409aa4c5af"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "395f02d696465ac80a1bdce2fbf8c31017f3aa877fdced446feb47ba46006967"
+    sha256 cellar: :any_skip_relocation, monterey:       "7f28b55ab10a00ee6038e4e5b3df6813aa4f4c07fecc1a3fe5be5eb715a4f02e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e515eca9d32193ee57de1e00477493e9da050abcc895e1a11ee13c574a25d108"
+    sha256 cellar: :any_skip_relocation, catalina:       "2c913050b6f54b12a9f2d9fdf97c855d591978094458d94520dc126d95e227da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be852c4b0444930cf84c4516e8b3258da1f694e354d5570827d902908be1ede4"
   end
 
   depends_on "go" => :build

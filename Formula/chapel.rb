@@ -4,15 +4,15 @@ class Chapel < Formula
   url "https://github.com/chapel-lang/chapel/releases/download/1.26.0/chapel-1.26.0.tar.gz"
   sha256 "ba396b581f0a17f8da3f365a3f8b079b8d2e229a393fbd1756966b0019931ece"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_monterey: "64d6aec51c37987b02b097485e201e6d6bbbf750c4f4ec1f6a0c42a5ad3b00b5"
-    sha256 arm64_big_sur:  "2af1e2f47d881b45fceb8269c0e0072651f2c31636d18477a69ed40cfe183425"
-    sha256 monterey:       "071524c6a8974377d6331048878bc05213e292995985d7211855a54fe83fb8af"
-    sha256 big_sur:        "6357ed5ffe3478282d7260364c9cbbde0b9043c32d6f40057a4906ee2cc364ec"
-    sha256 catalina:       "9b6177315ed483d8bf5767d02d911d67aa9968219e21eaca8901a6f0b5c554e5"
-    sha256 x86_64_linux:   "2fd94cac965b48ddb70ab6c5d2104c79c9ae8b892f25131a33356ab012dcc5ef"
+    sha256 arm64_monterey: "2f3b638cc2c187ac2c11f0dc128eae825466ce6745b5ad358e2fee8b96ef0187"
+    sha256 arm64_big_sur:  "90f68a1e21e3ad61165bbcea1e79306cbf09e811f5b5dd0c91068dadb07e0aca"
+    sha256 monterey:       "f33951b329c819f7ff386b33a413b3cd331fb3a31c0823f10f435d0227c29cf2"
+    sha256 big_sur:        "aeaa92c2f32435c1c16c52f737261c66b2b44ce197ec3e6f6a479f1c029d702c"
+    sha256 catalina:       "11eebc6dbc8383482c689e8a1d74359d12a4781579a48bb29417ca25779c50c4"
+    sha256 x86_64_linux:   "c4ccfadfa28118b70d76a324310dc17be9f351011490c7c29eb6dca5eb7ab093"
   end
 
   depends_on "gmp"
@@ -23,13 +23,14 @@ class Chapel < Formula
   depends_on "python@3.9"
 
   on_macos do
-    depends_on "llvm" if MacOS.version > :catalina
+    depends_on "llvm@13" if MacOS.version > :catalina
     # fatal error: cannot open file './sys_basic.h': No such file or directory
     # Issue ref: https://github.com/Homebrew/homebrew-core/issues/96915
     depends_on "llvm@11" if MacOS.version <= :catalina
   end
+
   on_linux do
-    depends_on "llvm"
+    depends_on "llvm@13"
   end
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx

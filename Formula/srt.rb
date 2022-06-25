@@ -1,19 +1,18 @@
 class Srt < Formula
   desc "Secure Reliable Transport"
   homepage "https://www.srtalliance.org/"
-  url "https://github.com/Haivision/srt/archive/v1.4.4.tar.gz"
-  sha256 "93f5f3715bd5bd522b8d65fc0d086ef2ad49db6a41ad2d7b35df2e8bd7094114"
+  url "https://github.com/Haivision/srt/archive/v1.5.0.tar.gz"
+  sha256 "99e3625a6285b3b429af26abb1ec0a4bd0072db144bc4d617a83154d99a5dd1e"
   license "MPL-2.0"
   head "https://github.com/Haivision/srt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c4abdf93a43db5fc8be19f44e921dd28c249bdc560fcd9321b41616de8c20617"
-    sha256 cellar: :any,                 arm64_big_sur:  "7f19f11cb0131e7fe95bf612906b40e00fc8c941f80d294eac2f80850c88ced9"
-    sha256 cellar: :any,                 monterey:       "7531eebaf81a48b44393a5f4e90142db3b560636d5490deb4eedcd79591f108e"
-    sha256 cellar: :any,                 big_sur:        "1feec9a3449db0914403420eddd731dc17bd2df8fce2b0471227c79e8e7688f9"
-    sha256 cellar: :any,                 catalina:       "078b246649eed71dc3eed9d8d3e2d71b2ce025ecf5933fdc33956f6582251b96"
-    sha256 cellar: :any,                 mojave:         "7308578774fd1cdfed6c250044bf013e2b188c19d866ba114fe02c505ae92303"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84d86cd1b27fe5f6dd097e29ceb63d83aec156c2358e2b21cf00c48435d96a96"
+    sha256 cellar: :any,                 arm64_monterey: "9e2a971ae1cb78832cd1e6cdb7ca0d4da5e75258c63e837f7f6191ba301cd537"
+    sha256 cellar: :any,                 arm64_big_sur:  "76320349a7d9ddd3d7eca07a5b0100384bff76c1a15c51d35fe3093e908947ac"
+    sha256 cellar: :any,                 monterey:       "27cd213ce6f1f10227d357371e6f254229a8617711703394f5e1cca02afff863"
+    sha256 cellar: :any,                 big_sur:        "467748db3f76c9f98bc68bdb266f8d348716c5ae7029a7032a88b95094413077"
+    sha256 cellar: :any,                 catalina:       "fa800cf09c2f68f6c6ecb8f37c8705e7b0cbc8243908317574558b689e585f33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6df02822d10c90b41a7be11c8286ab23738513776dc27e3395644cc1e2783168"
   end
 
   depends_on "cmake" => :build

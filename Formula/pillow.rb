@@ -31,10 +31,6 @@ class Pillow < Formula
 
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "python@3.7" => [:build, :test] unless Hardware::CPU.arm?
-  end
-
   def pythons
     deps.map(&:to_formula)
         .select { |f| f.name.match?(/python@\d\.\d+/) }

@@ -1,17 +1,17 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-10.20220525/git-annex-10.20220525.tar.gz"
-  sha256 "c6c7b50df31acec63c70fd249e3e3d0d7e5140af8181057a0879f65131513cdb"
+  url "https://hackage.haskell.org/package/git-annex-10.20220624/git-annex-10.20220624.tar.gz"
+  sha256 "bfda8cacc8ea8689de125c63d2ca431f5c7ec56fd0930af9aa0e08c311bc2728"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "74c014b0aaf7f6202989cb872a100923dd583d1bfab1fe6b0429421dba6624bc"
-    sha256 cellar: :any,                 big_sur:      "1dc73508bcaf254c42dc0d33a01873a34ce0f86c30b12905d23a40b3f387306c"
-    sha256 cellar: :any,                 catalina:     "5ad1aac5f949eaf0b411ab109c9928cd4ed4b5c69e0aff04bfee8f4afa783d61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b2429a70e041c70345ed186bf8c3d907893749d7a684d231ec3c3da093070924"
+    sha256 cellar: :any,                 monterey:     "5c3ce77843d8a0e2ff119df4b80eb00818218fa636f7dd3d22e48be793b3a26a"
+    sha256 cellar: :any,                 big_sur:      "4a50a15d6af284ce5a0d6d8460e26ca4b91e8323c525d9524e8ddab55d4aa4d8"
+    sha256 cellar: :any,                 catalina:     "5d6fd12aefb663087a48f000fb158c2ce14e81c29f18b0247e27ab0d78b01459"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1c9bee72757a1bd3db2375ebf2c57c0740a7127abeb9cd748d136999e0c62426"
   end
 
   depends_on "cabal-install" => :build

@@ -1,8 +1,8 @@
 class PythonAT310 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tgz"
-  sha256 "f3bcc65b1d5f1dc78675c746c98fcee823c038168fc629c5935b044d0911ad28"
+  url "https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz"
+  sha256 "18f57182a2de3b0be76dfc39fdcfd28156bb6dd23e5f08696f7492e9e3d0bf2d"
   license "Python-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class PythonAT310 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "03dd7d1e273eca8dabce7e7cf4660dfece8e63b40092dff0329adaa8c777b142"
-    sha256 arm64_big_sur:  "e5702c6b8576fc6ae41bd7dc405dbadeadb5d0cc9add6ea21c0d8d2f230b5aa2"
-    sha256 monterey:       "4a7df5e4d26ee1ecd7da234429b4d402abe3e2f32bd0cf38564ef830e3097cfa"
-    sha256 big_sur:        "7f7fab1c22cef32117babcf5ddba2e62651192de7058dbe67a938709c33fcbb2"
-    sha256 catalina:       "24b64cbc348c187b43292e8dd518da443ffd0b382fb682d982bf9804c28bb40a"
-    sha256 x86_64_linux:   "cf65764bbc258fa1bd05ed40f995b8009f654adbefc7a0425d2771fb46d566f7"
+    sha256 arm64_monterey: "cf86ae4b20eb1385e3623b30e793b4f562d973913138b19853d70f97c42186cd"
+    sha256 arm64_big_sur:  "65c549de21e669d897f2a79d93b6b3855394d42879db9e933e139eb2203daeca"
+    sha256 monterey:       "63b0d871331d882dafc1d072a113ae12a2ceef20e026eaf7502c51402f8765f8"
+    sha256 big_sur:        "cfacc11f862f85e6df7f3da618154ccb84b1ee5dd4d47399bb244f201d747a27"
+    sha256 catalina:       "013f8386734a024aa192c62eba860a7f6314f8322c0e9f0e194699b2adf6bf01"
+    sha256 x86_64_linux:   "95c186564fd95c4da149eda813e134ac75c9fe46087972178347f557a43ead13"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -36,6 +36,7 @@ class PythonAT310 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "libffi"
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
@@ -44,14 +45,15 @@ class PythonAT310 < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6",
               "bin/easy_install-3.7", "bin/easy_install-3.8", "bin/easy_install-3.9"
 
+  # Always update to latest release
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/af/e8/894c71e914dfbe01276a42dfad40025cd96119f2eefc39c554b6e8b9df86/setuptools-60.10.0.tar.gz"
-    sha256 "6599055eeb23bfef457d5605d33a4d68804266e6cb430b0fb12417c5efeae36c"
+    url "https://files.pythonhosted.org/packages/dc/73/88920663229023b724a854d1ab7e3e50a1a28b63eeec399a604ba30f9242/setuptools-62.6.0.tar.gz"
+    sha256 "990a4f7861b31532871ab72331e755b5f14efbe52d336ea7f6118144dd478741"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/33/c9/e2164122d365d8f823213a53970fa3005eb16218edcfc56ca24cb6deba2b/pip-22.0.4.tar.gz"
-    sha256 "b3a9de2c6ef801e9247d1527a4b16f92f2cc141cd1489f3fffaf6a9e96729764"
+    url "https://files.pythonhosted.org/packages/4b/b6/0fa7aa968a9fa4ef63a51b3ff0644e59f49dcd7235b3fd6cceb23f202e08/pip-22.1.2.tar.gz"
+    sha256 "6d55b27e10f506312894a87ccc59f280136bad9061719fac9101bdad5a6bce69"
   end
 
   resource "wheel" do

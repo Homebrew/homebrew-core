@@ -4,15 +4,15 @@ class Ispc < Formula
   url "https://github.com/ispc/ispc/archive/v1.18.0.tar.gz"
   sha256 "81f2cc23b555c815faf53429e9eee37d1f2f16873ae7074e382ede94721ee042"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c9cf8cf0b15d029f95bab589d6aec903d19df669fa39e8b844e413ceced5244c"
-    sha256 cellar: :any,                 arm64_big_sur:  "3b13624a6b741e413530b0ac1559b5a82f797af71f945aea54577c77ae2462ff"
-    sha256 cellar: :any,                 monterey:       "673087b8118571ed140a11b5dad66277eab33450cd8ce3fb02a15c35ef45f48c"
-    sha256 cellar: :any,                 big_sur:        "da6ef96870ff6afd9b719dfcf7316a9c207f0f137b4624469f26472a10fbb878"
-    sha256 cellar: :any,                 catalina:       "41beb9f2a721a680564bcd55e0a029c1f99231886ae96cb0d02884fbb2541a2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "864e22beac49f650331488c5ae56594b70f397c5f290f185e9636883793ec62a"
+    sha256 cellar: :any,                 arm64_monterey: "5a5fc37bbdf6fcbb4fba27258c45375a26eea734edcbecae41715a990b989d99"
+    sha256 cellar: :any,                 arm64_big_sur:  "f69fc55e33fd45a8bd12da6c97604f4f72c043e03cbca2f11095d0d46a638c16"
+    sha256 cellar: :any,                 monterey:       "17bffc3892dd6cce820a77585f04f6b3edb3394ccd76104b7e0b5243c2e1c40a"
+    sha256 cellar: :any,                 big_sur:        "25c32b978928b322c5742da89ce024016daefbba49e4b9fb63d70073756bd914"
+    sha256 cellar: :any,                 catalina:       "8fce16395de7f76c88eae707da678b1bf63c39f6768e3404b87749ae081ab99e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97be3aa73e6249c6b65a4352f37a2157fa660a027292ab57c2850432e82a8376"
   end
 
   depends_on "bison" => :build

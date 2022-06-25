@@ -6,18 +6,19 @@ class Athenacli < Formula
   url "https://files.pythonhosted.org/packages/38/1a/d9cd6c68a4a1cd2ce779b163f8cec390ae82c684caa920d0360094886b1f/athenacli-1.6.8.tar.gz"
   sha256 "c7733433f2795d250e3c23b134136fea571ea9868c15f424875cd194eaeb7246"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "612fbf2fee22c4c519962861dd862c90a5244e66810afb79726dd2c4a7aa5f21"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7b790adebc0fcf8ef135b50869c365aad0f40775c836886e5cb0bcf512939bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "3100b6a04e1bd70319f825b8d6f1029ac74633b9eb82245a58e0f2635cc7c82f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "425ed8802ae34f2dfc7ceea9b843784f933a53c2c3cf6e05848adbf44a0902f2"
-    sha256 cellar: :any_skip_relocation, catalina:       "d5c23122a70120716e19235afdb869590676c047ce3d0702149b4581f590a808"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c74df7b94d58e4e2e034ba51d6971f3619103fdd203126c13f737956f7676c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c63bfe382f10fcdb71c9754e7d6ae10dc08d17e72f05730ba60ca5659847a68"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f2ab9c1fc9efc265c6c5eecb381b95ddb7f51be0a6e995d5e0ce26b391b4761"
+    sha256 cellar: :any_skip_relocation, monterey:       "0ecdbeaca4b67156d4e7f835dc8ddeee0a9a5519e5f9406a974100400c69473b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "11cb358c6eec9d9301b1a9a593dfd845686d9656335b0bfc3ffa9308c67fbb80"
+    sha256 cellar: :any_skip_relocation, catalina:       "980751bae383135bb3591fd59fcd5c4b992eb259b7df0b361e0d3bb7c6762d3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "545a0944e4516d289665fd8bc592e9e7f5bbba1af48720d855899b1e071303e0"
   end
 
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "boto3" do

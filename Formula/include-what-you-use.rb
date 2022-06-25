@@ -1,8 +1,8 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.17.src.tar.gz"
-  sha256 "eca7c04f8b416b6385ed00e33669a7fa4693cd26cb72b522cde558828eb0c665"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.18.src.tar.gz"
+  sha256 "9102fc8419294757df86a89ce6ec305f8d90a818d1f2598a139d15eb1894b8f3"
   license "NCSA"
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
@@ -16,12 +16,12 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c849e210107d49902d6cefe58ca3af7afc4a1a197f1239da4d26639e6eef4a49"
-    sha256 cellar: :any,                 arm64_big_sur:  "47ced9c1ae76704cb14d2ea2d3e1ab29c66d650387576d1f931b102ee44c96ed"
-    sha256 cellar: :any,                 monterey:       "0a84098cd52678381ca12ee9986e59c6cda595a10877ecb974d4445251017fe6"
-    sha256 cellar: :any,                 big_sur:        "657ab0dd0639344d923f288e3ab5130b1ad6094d516eea05526dc4fc966dc230"
-    sha256 cellar: :any,                 catalina:       "e817cfbf7abeced52eb5596dc1b2a59da1c624b7adcb276677a9d7ed71762ef2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "257d7f45e2b1c30d46254a6b7786b38eefb483853ab599995a296b230908d128"
+    sha256 cellar: :any,                 arm64_monterey: "3527218d2eacc7dcc420cd610c455cbb2a8556712d3c0edd9943c114554d3af9"
+    sha256 cellar: :any,                 arm64_big_sur:  "a4a0cf7834febad16d2f2c793fe6e9c6ef2d71227e4d66941dc2dd8e43cefd17"
+    sha256 cellar: :any,                 monterey:       "705ff7b615f3826575ac01d379ed2a4215a39f3db525f0a2443f6078376e0e3f"
+    sha256 cellar: :any,                 big_sur:        "f99fe6d8b02faf20f94a08b1b3b916e7cf309ce6b6f0485d50ac4e463d3b6517"
+    sha256 cellar: :any,                 catalina:       "4f5bf00fc530be42f12975e6c4a5235fb109a5ab85951c855c1060d4cd46909a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49a667ebb31d836688ee1b5a1ee4140909566917bd03fbb3f04411c2eb7bf153"
   end
 
   depends_on "cmake" => :build
@@ -86,7 +86,7 @@ class IncludeWhatYouUse < Formula
       ---
     EOS
     assert_match expected_output,
-      shell_output("#{bin}/include-what-you-use main.c 2>&1", 4)
+      shell_output("#{bin}/include-what-you-use main.c 2>&1")
 
     (testpath/"main.cc").write <<~EOS
       #include <iostream>
@@ -99,6 +99,6 @@ class IncludeWhatYouUse < Formula
       (main.cc has correct #includes/fwd-decls)
     EOS
     assert_match expected_output,
-      shell_output("#{bin}/include-what-you-use main.cc 2>&1", 2)
+      shell_output("#{bin}/include-what-you-use main.cc 2>&1")
   end
 end

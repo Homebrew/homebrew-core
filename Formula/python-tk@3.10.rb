@@ -1,8 +1,8 @@
 class PythonTkAT310 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tgz"
-  sha256 "f3bcc65b1d5f1dc78675c746c98fcee823c038168fc629c5935b044d0911ad28"
+  url "https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz"
+  sha256 "18f57182a2de3b0be76dfc39fdcfd28156bb6dd23e5f08696f7492e9e3d0bf2d"
   license "Python-2.0"
 
   livecheck do
@@ -10,12 +10,12 @@ class PythonTkAT310 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "7740ddbd35352e3f2336103b502a7f4e81f2974291504076a4515893435ccfb2"
-    sha256 cellar: :any, arm64_big_sur:  "4b6e6da3a3c725bde9be6a4d4a0922acda7bf1fbeb997a053cc91b768aae871d"
-    sha256 cellar: :any, monterey:       "6a937be1fd531589ef7f9b4d971cb91ee7549d99f7f1aaf97f0fc3c0911f1c5d"
-    sha256 cellar: :any, big_sur:        "c08f7d32f905c34c37f94bba1b64071f373fde8a81866c890d1ed48e6f25531e"
-    sha256 cellar: :any, catalina:       "4fb512fc0154201d044baf8cf1c929bef99c11b7f4f3b4d81de7903aadfaf110"
-    sha256               x86_64_linux:   "c256a3e8e2bd186387dca4763c6f7d7373052a63217ef2d01a63614847084b0a"
+    sha256 cellar: :any, arm64_monterey: "17cacd2c17335c4f1339a52dba6bf34a05c0b907e7fdbf3e5ba5c12653ae4a69"
+    sha256 cellar: :any, arm64_big_sur:  "8bd65f755163bddb704b663bedd678ed1b96e20ee52c869ae87a1d2e25879926"
+    sha256 cellar: :any, monterey:       "e4fa0a7945b0ce190468ab396a81e53282b865ee31552e1296bc5fded7f6f237"
+    sha256 cellar: :any, big_sur:        "ce608e55dd668b4b962f848b615a89d9bfd14ac178f85a231d710428d8183b3c"
+    sha256 cellar: :any, catalina:       "3efc70ba2ebccdbd611bed0f8c4d6e836b1cdd1801e1a9a8995cd4f4f544c29c"
+    sha256               x86_64_linux:   "d6da0aab4b89fd738b412609ed09a28c6c253fb848a1b86b02a4ce48c7a2ca21"
   end
 
   keg_only :versioned_formula

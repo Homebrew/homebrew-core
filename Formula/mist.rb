@@ -1,16 +1,16 @@
 class Mist < Formula
   desc "Mac command-line tool that automatically downloads macOS Installers / Firmwares"
   homepage "https://github.com/ninxsoft/Mist"
-  url "https://github.com/ninxsoft/Mist/archive/refs/tags/v1.7.0.tar.gz"
-  sha256 "49a362396014460847b7b04c2f6347c10da73e2d0348543ac26d78ac30cd9f6e"
+  url "https://github.com/ninxsoft/Mist/archive/refs/tags/v1.8.tar.gz"
+  sha256 "c3a55d018f384090e5bccf625fe2c9720102218fe9126d651c4583cc504ae25c"
   license "MIT"
   head "https://github.com/ninxsoft/Mist.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0874f6cc33272436447fe0f363348d4b9170fef67a5913373a0d6ed8f5feee9c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54eca06d7652fbb198304ca71a7b12006dcaf3ca914c6b84f938b8bc24e9ec73"
-    sha256 cellar: :any_skip_relocation, monterey:       "55847742460e3637d910a4f24e7e5574a576ce4db931e1739abacb3179a10c8e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "71e2ef77f7c6bd38ac1691b65b754465a0513fe087f4d7d2f1267d4a322774cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8214125ac548a63db1c1ea0b59c0b315b15ca8497809d6e1d5587d3c18ac3919"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2de8592da1c11ff5d2dd5a6b9c78caca53641d481f4ee642aa11277be3d2d519"
+    sha256 cellar: :any_skip_relocation, monterey:       "359271650bdc927599b8a19a78b97392cd352e8c415defd4eec4f0de0a0ad5a4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "117db2644b9547c56bd56adfde3d8285ee7c3fa8391dcd3d5b493574d3c29c16"
   end
 
   # Mist requires Swift 5.5
@@ -29,7 +29,7 @@ class Mist < Formula
 
     # check we can export the output list
     out = testpath/"out.json"
-    shell_output("#{bin}/mist list --quiet --export #{out} --output-type json").strip
+    system bin/"mist", "list", "firmware", "--quiet", "--export=#{out}", "--output-type=json"
     assert_predicate out, :exist?
 
     # check that it's parseable JSON in the format we expect

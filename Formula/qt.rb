@@ -6,6 +6,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1.tar.xz"
   sha256 "51114e789485fdb6b35d112dfd7c7abb38326325ac51221b6341564a1c3cc726"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -16,12 +17,12 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "79d268f36432a86c99d797c263be6f81b78f9e2352954815cdb06d2be8533cfd"
-    sha256 cellar: :any,                 arm64_big_sur:  "ba7b204b65d687239a056596c605a142348a10f9a0a2265b082ca2cee804b2f3"
-    sha256 cellar: :any,                 monterey:       "bbc889be08ea7a75772f28467e88136172b7e5e4d91801a9e75aed1f4409cf43"
-    sha256 cellar: :any,                 big_sur:        "de4ef487c69fb8062495784bdda381bd05f362e95cb9671ccab744ac22083532"
-    sha256 cellar: :any,                 catalina:       "0a68ca4bba4ceae597adfa735a8b2686255b6bb3a63f348dbd68285a5e781001"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e43ab75f5951ab408296290c609fc2dcd4fef0d324ed0ecf852a7dbcec6d5b8b"
+    sha256 cellar: :any,                 arm64_monterey: "abe333d16ba99fd91be9c5b6d836ec1f3a2a3c91a0b4b2874e106cd05900513b"
+    sha256 cellar: :any,                 arm64_big_sur:  "0ea27b68a9c32f4a9fe3488fe368b9f3af3a404b7ccd543904ed75d652ceccd7"
+    sha256 cellar: :any,                 monterey:       "bef1b0427824669fd0cf4ce29022bd21e1c2b0ab38d4556847088ad9a753806a"
+    sha256 cellar: :any,                 big_sur:        "90b88656e47c78b0c5dcc50ef4eebfa9d2a0b623bbaa6eac6e5a3d4e1b3b1d81"
+    sha256 cellar: :any,                 catalina:       "ee612c10a25bf9dfb461a85c929bafa0e5056eb3cc1a923a0e043372408158d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1354122fcd611c4a332658e83adc098f844b3f8041fce3ad2003ac142352ed41"
   end
 
   depends_on "cmake"      => [:build, :test]

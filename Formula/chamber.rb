@@ -1,8 +1,8 @@
 class Chamber < Formula
   desc "CLI for managing secrets through AWS SSM Parameter Store"
   homepage "https://github.com/segmentio/chamber"
-  url "https://github.com/segmentio/chamber/archive/v2.10.11.tar.gz"
-  sha256 "9461f0366ff84fb24f82072d9cb16443d6bf9d2ff1847548d26d24619991ae27"
+  url "https://github.com/segmentio/chamber/archive/v2.10.12.tar.gz"
+  sha256 "7766ef7f84b8fe09aaad13b5bbe2256b05fd1e44cac6279de5051ecfb9cc5c66"
   license "MIT"
   head "https://github.com/segmentio/chamber.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Chamber < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d64a9308ea7631ea51ac1c1f011ccd8de0fb5cbe7a96562572f4276e0db7f9db"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c2565c4cd16a4660401cac19e3850a1d3dea267fa160d8f2d68d450f5ac7ec97"
-    sha256 cellar: :any_skip_relocation, monterey:       "743a03500af20689087d1f045d2432a455f423454d3364a4dc91fe26c33b61d9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "72cccbe8b48c44f13d8092e01237f46e2654e2ab68a5b2019a31ad2b9870a80b"
-    sha256 cellar: :any_skip_relocation, catalina:       "0865abe7920a1ad2051a181c71126f727c9938df4f46ff668fb9ff1aa448ae6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "027f6fa7dd87199c3b32c34f8bc5e788a688bfd553404c9f01494d70312bbf08"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c9474f3c3f88813e4b7bb293039eef43468a31baefbcd84ef22e112b5b38577"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b1ef203eeb0029032c383d8ef18ee5847dde0260975004fdcb7e58f139b9e671"
+    sha256 cellar: :any_skip_relocation, monterey:       "63110436d09c64179e12ef7e4a441bb8aa09c688776a5fdcec216d8e878a1a84"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1f6801db19ecdc06231eecfcda28c8f36f4b94714f4d2ad8fb9510aeb1c93b21"
+    sha256 cellar: :any_skip_relocation, catalina:       "1909ef937908a3ce510de1a56336e95c47115989caa5ada6705b983b6b303a51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69baa13bd656719221bd2673882deb3035e274fa7c07c096a58f2b76aee6bd56"
   end
 
   # Bump to 1.18 on the next release, if possible.

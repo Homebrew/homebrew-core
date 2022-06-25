@@ -3,17 +3,17 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/b7/8f/a8f2930277ac3c65f13db1551fe94d27b711948e2b6436113d2d8bedc4c9/borgmatic-1.6.3.tar.gz"
-  sha256 "08b49c7e6bf4269e277ca010bdaab75dd631365f690df122e61cf5c9b8a45837"
+  url "https://files.pythonhosted.org/packages/d3/9d/3026e365a13a95e0da0f7ef6d209003c621efd83de30719d10facb329d79/borgmatic-1.6.4.tar.gz"
+  sha256 "da443e28eebd471a48424ae40fa9fb97db62f484f07691d82bb2ee5d8528ddc9"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4575f01e7859867efb780b3a7c5dfbb261f08d4d976481864a239b9c0d43a2b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9abf1937273c140e0405db5ea9a866f227308f7203d62c0acefacbfe86606030"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a26a157d095d401c245091a59a04447bff42f4c72f840154dde50d7433f7e58"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7a85f40f30b7c450aefad8609a9623675c319ada507f9b1d212ce3e4ff6bfa89"
-    sha256 cellar: :any_skip_relocation, catalina:       "8e6e612d036977f932c0bb959f0803b2748dbd45b86a4214ef780553a871036b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8ed81a924b44ff78aa427721fa686c698c5a1a352561f2ea796e495d080354a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d6e2ab10ed7eb2a087f131a167285189c2bc7431fc55ab5cdc5653f853418f27"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12d10cf95444fdc83405047d49dd2c9b4ef38eaa9b575f990a6d4e6a9a8d56d5"
+    sha256 cellar: :any_skip_relocation, monterey:       "e2f43f65acfbdc306e62e1980149c1343d73f62fbd91be057c52f22b1b9aea4b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "876de972467aac49913bf7d32ce45e0ff98ca60840df3356e89296905eab8308"
+    sha256 cellar: :any_skip_relocation, catalina:       "dd0d4097de4d4d760b3589fd4ac87c63ba4bffc379798d671348f72043d83fd2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "549ca4e4fd19cb14b0da776ad3635e67536268e57b71491ebc2edc0d881ce5ff"
   end
 
   depends_on "python@3.10"
@@ -24,8 +24,8 @@ class Borgmatic < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
-    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
+    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
+    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
   end
 
   resource "charset-normalizer" do
@@ -34,8 +34,8 @@ class Borgmatic < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
-    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
+    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
   end
 
   resource "idna" do

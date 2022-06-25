@@ -213,6 +213,10 @@
   "khard": {
     "exclude_packages": ["six"]
   },
+  "lexicon": {
+    "package_name": "dns-lexicon[full]",
+    "exclude_packages": ["six"]
+  },
   "legit": {
     "exclude_packages": ["six"]
   },

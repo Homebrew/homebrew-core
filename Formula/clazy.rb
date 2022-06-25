@@ -4,6 +4,7 @@ class Clazy < Formula
   url "https://download.kde.org/stable/clazy/1.11/src/clazy-1.11.tar.xz"
   sha256 "66165df33be8785218720c8947aa9099bae6d06c90b1501953d9f95fdfa0120a"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://invent.kde.org/sdk/clazy.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Clazy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fad1df33efebf700d5329eddce6ad261c667e8e4b73b0a27d8a0db33e31ffd28"
-    sha256 cellar: :any,                 arm64_big_sur:  "79ef1923f1d400cdb819e2b981e6fd6cb9632c16cce36de504e985f723ff3138"
-    sha256 cellar: :any,                 monterey:       "0f460acc6eff9ab586f4bc43b41247147fad62bc1dc4e59c6aec738f8f70c737"
-    sha256 cellar: :any,                 big_sur:        "e5534a8dca79cc95ea78e7a45f496187eb731f109be790df6bf1974334eb8475"
-    sha256 cellar: :any,                 catalina:       "f8829bbea066fec01afe36746ef08a4f35e021ad699bdb5c1aac6b8edd1ccb29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "449e65447d16635d47941364ea2ddd274e314893774e798becfb24e232f82ca5"
+    sha256 cellar: :any,                 arm64_monterey: "aaaa160995aa8134003713a92fa61ccf94a2ef918b5f20cd01e646e12537f57a"
+    sha256 cellar: :any,                 arm64_big_sur:  "9fbf9d700955ad17fa061447e4d4665781c4e7110f0c7214e5944710f927ce7e"
+    sha256 cellar: :any,                 monterey:       "a96fce75ba8454e0fea0b4c7925e9f3c64ecd4f6332ffdc4ddc7a9fcd7c16e2b"
+    sha256 cellar: :any,                 big_sur:        "d0130eecf3cffb4ecb14168f7fad810c7f11264bfd9163d67f7bdd8d2dd11aee"
+    sha256 cellar: :any,                 catalina:       "b4e73e0bdaf4fd050513f2697b11bac66c8bf4d24ba6a33ec116b3447d296639"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fdc8926cc35d4ca571c707289b6051055e625bb829b57765b880df0e84a18ff"
   end
 
   depends_on "cmake"   => [:build, :test]

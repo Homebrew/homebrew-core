@@ -6,7 +6,7 @@ class FfmpegAT4 < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -14,12 +14,12 @@ class FfmpegAT4 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "fc99852c671ec4da088820944b88cef405774125b06588a53eed091eb4f2d0b6"
-    sha256 arm64_big_sur:  "69a4a60b0d5b08de549510850c73992397116c9b7f1d775ff611793727ec9463"
-    sha256 monterey:       "e6cb2065556c9a50ff8ffc316ea6d9f23edee8f6fca69bca7ff905a81ff41966"
-    sha256 big_sur:        "96ece2b52cdc8f3bc674488da723be85e085a8333c5f5db1685a02b2e8b3ef83"
-    sha256 catalina:       "b4a154e611d44b30748df9096c8ad6b7877526a54461b18a0dda4d899085f3ab"
-    sha256 x86_64_linux:   "772ec2919b2a2177fdb432ad58a33c24af3af6950e38ead39f49e97701197499"
+    sha256 arm64_monterey: "45fe3d6bcbed4a82661897100313edef0985cbbfd31c8a26e3d0e8d0cff4ae80"
+    sha256 arm64_big_sur:  "6be8e7871edbbdc8ac4ed06c30aaf0b2ce885a06d228f25b212e8133ae251034"
+    sha256 monterey:       "97d4a31d4b3273635c38fd06d3dcf6476564517c8b8d25e172d97823ceb08cea"
+    sha256 big_sur:        "48bd7a081bda5fa6fa355611e3a2ca7e1b58c34296df821fcaad79bd2068ecf4"
+    sha256 catalina:       "1249b1db3fd4bb13354a11db67c3546f81ef74eafc0b13b671be3828a51ff903"
+    sha256 x86_64_linux:   "d7a6a6e7ed2ce7ad954f05ecd16324c79ffa6cdb7d8a1699c3b8afa6837b675f"
   end
 
   keg_only :versioned_formula

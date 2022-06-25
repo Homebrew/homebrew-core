@@ -6,19 +6,20 @@ class Platformio < Formula
   url "https://files.pythonhosted.org/packages/d2/9c/dc9d6373311ca5ab8c4fda3fc4c160473e730b4015dccf558acbf7e06c45/platformio-6.0.2.tar.gz"
   sha256 "e4cb9d45327d93b5888ba0c5d4c9ca22a30411952056e55b79d714c7f84f9b83"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf5949edbb5233a9082f1a77fd4bea01b879101a98c0c86b157bdb364facd659"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "472fd933d2634c999c69de33853481380f3e0df5510e1c0f3880aff0829d70a0"
-    sha256 cellar: :any_skip_relocation, monterey:       "df42506853722c8e307422d738442dbc3328b12b3d0b999f1decbd923bd0e538"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c684ff88c15f70524310ff0c5dc9ef9dce76b09812a36877f85b5f3bc3e8a98d"
-    sha256 cellar: :any_skip_relocation, catalina:       "e60fc78ff4d23996f7659ea2de98f5144407cadc96c81ef6aac9944843e7ae6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84dffa9399b60b8c0352d2452cceec9197ad5265c5da5bf452e35fa555f5c8ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b6f773d779f63a6c699be262f82efaa1d0eb5f41d40d646d3193cfe9aef2a82"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ca62d46d437708a60db241ce1ffd0bc7dca2f78434f1954d22f0fd1bd0bcd5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "806c58f06f498dffb874628c4dca8bbd9f4ceef462393acd859e3e5811d139f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d8ae9e1e27f5771f8e7e55d274beb18c13a040f5ce0a5449e0a519607ea02092"
+    sha256 cellar: :any_skip_relocation, catalina:       "82e205f9d6997af227147d83bfd1bf85038d809cf3fc721b7deb483502e679de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dea207fa13230f2404af2a0582217c9f0aa90daa47b9e558df83e958de31b612"
   end
 
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/10/ca/c416cfacf6a47e1400dad56eab85aa86c92c6fbe58447d12035e434f0d5c/aiofiles-0.8.0.tar.gz"

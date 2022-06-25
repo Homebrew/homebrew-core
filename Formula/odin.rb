@@ -6,14 +6,15 @@ class Odin < Formula
       revision: "ba5f7c4e2af5c82c220b7e1796fde2f026ce4208"
   version "2022-06"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "506cf50feb10db57f679850c4e1b046c8d5cb320cf849742990e51a056686557"
-    sha256 cellar: :any,                 arm64_big_sur:  "a1841da7e51c016c45b7d24b47a763873ade6cc33be56dec7568f3bab7fc9f13"
-    sha256 cellar: :any,                 monterey:       "6dfb144248a30dc5ea62b78adba57e890a8c56308928712e7784170fd057262d"
-    sha256 cellar: :any,                 big_sur:        "755a3411b972a3108ff3bc028e41e84969258ca057eb22be705a39f112567bb1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "539cc1ef40a4c81911836b05adc67f0b20cfa5ad9a0aae70a2a735b718c0e72b"
+    sha256 cellar: :any,                 arm64_monterey: "99d3f356276eb775996a0b694c329c22b00c2a1b54f6f9c2df634f210579b4b6"
+    sha256 cellar: :any,                 arm64_big_sur:  "3479376b9b9fecbcfba35b71e367e84d92a6c1e10a93c605ecdf3f21c64ea8b9"
+    sha256 cellar: :any,                 monterey:       "4dffaa801df406990c17d3ae92b9896a5e689ae226dcd9aa4293b0c4c105bfcc"
+    sha256 cellar: :any,                 big_sur:        "fc1a6ba86fa16ccb06cd0cf444bf074abb618c56a78dc481544117e606fca9e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30244b3c4d3033db671c62a6521578bd2e11a5401458e75eac99fc849d36dbaf"
   end
 
   depends_on "llvm"

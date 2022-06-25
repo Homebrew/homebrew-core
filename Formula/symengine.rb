@@ -4,14 +4,15 @@ class Symengine < Formula
   url "https://github.com/symengine/symengine/releases/download/v0.9.0/symengine-0.9.0.tar.gz"
   sha256 "dcf174ac708ed2acea46691f6e78b9eb946d8a2ba62f75e87cf3bf4f0d651724"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5e75924cfebfe29c1ad56a211302098274dc7829e837d97ecce628998cc45012"
-    sha256 cellar: :any,                 arm64_big_sur:  "d9aa2cf7d7fed7aa4fe3576e19e53dd595f3e43fe695c824a402487c0c56c82e"
-    sha256 cellar: :any,                 monterey:       "cfdf4eceacd418168d86460b734e4af2f90d8a06a2b98a02610e2332637ab467"
-    sha256 cellar: :any,                 big_sur:        "3b70d8cb61920a7d883af6f5c6d4f9ac90d0c2b7199d3f0499c3dd8c85790bf6"
-    sha256 cellar: :any,                 catalina:       "846fa41a78303f48bc01a6f050b1af6a248ef6787d9d586994f4407747d32fe0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1728871d0ef9a14dea0a3478ea370f3cd2550a8738a95da7157919bbdc4d93f8"
+    sha256 cellar: :any,                 arm64_monterey: "2f14a527a90815157ddd3a7050bce697084640bebadd38424d32f9303a94cffd"
+    sha256 cellar: :any,                 arm64_big_sur:  "f243f842693a16ec33a24535420135944419434df3ff30b6763f6ccf72e1c8db"
+    sha256 cellar: :any,                 monterey:       "9c1caba2abdaddcd60f3b12bae45abab47483fc9dd51c78775500045a58a39ce"
+    sha256 cellar: :any,                 big_sur:        "f223805951efd1e98f0af0b981893891b6d81718f57a85843c807ef1b8dae2c4"
+    sha256 cellar: :any,                 catalina:       "ef7f55776b013b964fc6da53ffe555251c782371d56ef4cb913d8368bbc43dd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9298e0d3a5074493f366481d4b2ab4ec65b8d12acc34bf3b47d301e02c26ad0e"
   end
 
   depends_on "cmake" => :build

@@ -1,17 +1,17 @@
 class Matterbridge < Formula
   desc "Protocol bridge for multiple chat platforms"
   homepage "https://github.com/42wim/matterbridge"
-  url "https://github.com/42wim/matterbridge/archive/v1.25.1.tar.gz"
-  sha256 "26fd8500334118c2eb3910ea9fa8fbd955aace59209cedf01179b29c072290fe"
+  url "https://github.com/42wim/matterbridge/archive/v1.25.2.tar.gz"
+  sha256 "e078a4776b1082230ea0b8146613679c23d3b0d322706c987261df987a04bfc5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4174c819609e1c263abd35cb2db17ee14925387ae27d6c4319b51d02af6a5043"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23b1615eff284371cb6fce07aa987bdb1a162d9bb8d31f91ad2a354acf6f13b9"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa9ac58de42c1a600af3df0b170219ad5590ce2d0f0ac0238c3956a65698d683"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8c6507f6a442a0890618d98a4b1cae5698c674753f895a5b54fe465ebeaf2f3c"
-    sha256 cellar: :any_skip_relocation, catalina:       "8ba42e63a7089b339cf1438304a096e39e0c32f0d7308306837a2b489422e0a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f03036ad720e2948b071c6f97d26cebf7e37aa1c3dfdfb99238f5feed05e1d09"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6d54394cacd4fac5f2aceb85a80f287b74f4534ff971b77de2021be54954e45"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62838814ac245e65dce8998e5b009d9ee99849897c81af44199bd9a3c44db20d"
+    sha256 cellar: :any_skip_relocation, monterey:       "d91055137b8898b9f133108ad6e07a643c5a4453140e8857c5ea45a1973ea639"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f52d497a23d97561087e1762a8a0ec878549fdec336ba3625c1089e581d27f0c"
+    sha256 cellar: :any_skip_relocation, catalina:       "eeda6283cc709b2c85b7f6bdd62e7115edc2c3db730d96a6d277cf1abc9ed75a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7a176037043824d9aa1cda3ca9d06527db5a2b3ed1c7f481e0857980ae21dbe"
   end
 
   depends_on "go" => :build

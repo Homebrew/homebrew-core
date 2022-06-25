@@ -6,20 +6,20 @@ class HomeassistantCli < Formula
   url "https://files.pythonhosted.org/packages/f0/f5/a90000b810751a6094761ed5fed3a6cb746c3c8be3bd1c5ed525e77be69a/homeassistant-cli-0.9.3.tar.gz"
   sha256 "daf9c2a256cd2e63fc173c7c96b3462211f045a66639778302eb4f9d125b06a2"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/home-assistant-ecosystem/home-assistant-cli.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7eadc2e398b9f8c135101856eac2a255cf43123aae02265915984e9c2df76f9e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97a633caf44614d95ce5b731ef2a9eeacb91185f553752279f828b776ab3984a"
-    sha256 cellar: :any_skip_relocation, monterey:       "09a4f86519a69a93eced162f5fb663698129d1445ff950b203c153f32082ef29"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a750073865a2ce49c88e2c6b7f0fb3c9c252adb0e517c71187d271d09b393332"
-    sha256 cellar: :any_skip_relocation, catalina:       "8361289afc3553168bebc6ae53fbeac71c81a8cf23a0923226f68bddba079826"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a74e707bf8ec985f90feec282f7e939f70f2685ad9698c2b08a2301b348d7760"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "848600688f92cf15c560bf16a0a6faa0c86e62187a2ef8d32cd2e7e053410c31"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea3b47f9868671e3b36e0c7c6fa6cbd8748da06ae26dd5e794fd53d02036bbb3"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d3818930609c5acbbefd2f83d0c0d484af7e0ce00d453cf08385ca042c2fe10"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5600886c81e278fb971e95c7f0c44fd9e65979e9af9469340703af4aa85a35a2"
+    sha256 cellar: :any_skip_relocation, catalina:       "0022c483a4d65e5984859003799d24fb6382548f5c30ac98c7bb716039838c27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c60d64775f074262cfa98c4f049ffdd4cece49c4868c0cda4fa914afaaabe41"
   end
 
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "aiohttp" do

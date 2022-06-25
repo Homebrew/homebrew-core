@@ -16,6 +16,7 @@ class Idutils < Formula
     sha256 catalina:       "5df54c76ae786e54f6994c1c65821adaa746c8a6b1aecbafbe3cd9f4f77f7c62"
     sha256 mojave:         "b48a4caf24a1eba916f1932c85970294e56a0559603a8289fe732c124fbf0811"
     sha256 high_sierra:    "95f118aa56026de98d148bccc5a807d609a2bfc54749e1d9051a5dce80f603ef"
+    sha256 x86_64_linux:   "287179d81db15f091f9363fd7f1411d5a8d00313ed569d84654a7e14816cf923"
   end
 
   conflicts_with "coreutils", because: "both install `gid` and `gid.1`"
@@ -26,6 +27,12 @@ class Idutils < Formula
       sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
     end
   end
+
+  # Fix build on Linux. Upstream issue:
+  # https://savannah.gnu.org/bugs/?57429
+  # Patch submitted here:
+  # https://savannah.gnu.org/patch/index.php?10240
+  patch :DATA
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of
@@ -47,3 +54,15 @@ class Idutils < Formula
     system bin/"lid", "FILE"
   end
 end
+
+__END__
+diff --git a/lib/stdio.in.h b/lib/stdio.in.h
+index 0481930..79720e0 100644
+--- a/lib/stdio.in.h
++++ b/lib/stdio.in.h
+@@ -715,7 +715,6 @@ _GL_CXXALIASWARN (gets);
+ /* It is very rare that the developer ever has full control of stdin,
+    so any use of gets warrants an unconditional warning.  Assume it is
+    always declared, since it is required by C89.  */
+-_GL_WARN_ON_USE (gets, "gets is a security hole - use fgets instead");
+ #endif

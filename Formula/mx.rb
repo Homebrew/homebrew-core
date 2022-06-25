@@ -1,8 +1,8 @@
 class Mx < Formula
   desc "Command-line tool used for the development of Graal projects"
   homepage "https://github.com/graalvm/mx"
-  url "https://github.com/graalvm/mx/archive/refs/tags/6.1.3.tar.gz"
-  sha256 "ee40f2e18d4333e47bb89955baaa17f46ddc38e6efe2f6b8fc25b9e247374dd4"
+  url "https://github.com/graalvm/mx/archive/refs/tags/6.1.4.tar.gz"
+  sha256 "2a83dd5f21da71e944b7ba868ea4d443752c3982b87275cf8a332e33aa268e06"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,7 +11,7 @@ class Mx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "edd699f067b1c9185a05b02f1aadc1f8dc34e5b2686f5c95223b03ca7e4a3448"
+    sha256 cellar: :any_skip_relocation, all: "c3eac6612e7a2901e94f974159ed5645e1fe297075b84014433f8c598d360d48"
   end
 
   depends_on "openjdk" => :test

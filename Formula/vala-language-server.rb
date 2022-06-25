@@ -1,18 +1,17 @@
 class ValaLanguageServer < Formula
   desc "Code Intelligence for Vala & Genie"
   homepage "https://github.com/vala-lang/vala-language-server"
-  url "https://github.com/vala-lang/vala-language-server/releases/download/0.48.4/vala-language-server-0.48.4.tar.xz"
-  sha256 "0fd65b641a4bd6e0385502f0536f803bf542fd8bae6a2adb04e2e299ccca4551"
+  url "https://github.com/vala-lang/vala-language-server/releases/download/0.48.5/vala-language-server-0.48.5.tar.xz"
+  sha256 "698a0f26b61a882517f31039e7dc8efdda1384de0687b1ab78f2a768c305b17e"
   license "LGPL-2.1-only"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "a23bbac929f9a26ce34722df50036ba8bcedfd701b44c98aa2672ccdcb32c5eb"
-    sha256 cellar: :any, arm64_big_sur:  "f1d742cc6026cedaec272a18d61ff0c1e5dbccc1c1e345e0baacfb4f3319963e"
-    sha256 cellar: :any, monterey:       "40d80fa55a2f767a97e17e7b7b21e39557b44bfa34eddc131971e5f62c6a838b"
-    sha256 cellar: :any, big_sur:        "7de4d55be1e5d00de01010688738af7ba5274788b9367b42197cea77972c26dd"
-    sha256 cellar: :any, catalina:       "aba8a72cab7b03e5051e3a33e2c9288aaeedecfbb85b88055d51ffedf8ee85fc"
-    sha256               x86_64_linux:   "6478587d4b72b39e375e691703681768c46b8d2685f9d4b7f7a49c101a607ee9"
+    sha256 cellar: :any, arm64_monterey: "e52da2c7a6d04e21500d5c94b50e960071a30e4c8e5ccc3eb35e62950d5afe63"
+    sha256 cellar: :any, arm64_big_sur:  "696c0222b7254ba09819682b05659522794e27281a24a6d1cd0d7edb1034b881"
+    sha256 cellar: :any, monterey:       "9d60b232a351cd76708ddcd8253d51dcf78d821d61f8a152d781478d6d2c7a13"
+    sha256 cellar: :any, big_sur:        "f3f713cd02ef48c53f475e660e4719d5ade539f8739a2ac30b16c39a9b66a41b"
+    sha256 cellar: :any, catalina:       "e1adfcc2dab05e3633d76a8397cffae5e9e37530d28f90468c593bcbb3cef7ab"
+    sha256               x86_64_linux:   "505cda33ad604a86e51d83bd97c9940978439de9c6b14a3260f282d41bbb698e"
   end
 
   depends_on "meson" => :build

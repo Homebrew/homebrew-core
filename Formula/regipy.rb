@@ -6,19 +6,20 @@ class Regipy < Formula
   url "https://files.pythonhosted.org/packages/73/4a/7a5c7ccdfa0858c636ebe267c235d32a6d75e83e26477c98c4e550396ef0/regipy-2.5.3.tar.gz"
   sha256 "4d69dd28dfe0796829fa4ac032208df686242b94df90bb8ff96c286176dcd153"
   license "MIT"
+  revision 1
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "12e64447c14e5ec71ca4e46dcd45ebe2402768778fa9a3dd55d61706e14055f1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bdea63bb5919174e7c76e0d21a31313c357bb17751afb15df406fc187f91d3e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "926d95ad52d4509626611aba9248fcebbf6e4fa575a87c22f70ccf1d56496103"
-    sha256 cellar: :any_skip_relocation, big_sur:        "58a94eeab978e129269fa3e062451ecefa1a5f259ab266d319af20d2cd5d1d62"
-    sha256 cellar: :any_skip_relocation, catalina:       "89faf5f8c9dee3ab9daca294f543a505fe2f3c5bde9ccc38556b161b4a348f23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba2e9703f2e5d139971903eb5ad9eb9d2164324b93af0571881954c6eb62da61"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea6ec8f86d572f9862bd99d51b09a615fbf214774650018fb4ef3cce29d24e21"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee1a19314aa9b566e6cc032e1307f417ddcef87518b780820242195226fa2d56"
+    sha256 cellar: :any_skip_relocation, monterey:       "3ea29584e37aa8c4302714c5ea908bbdd8c47bca32943c90787e3b36ac6680e1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ee8224a8c3ca5b9c0a49d90c2e911baac9ed8b2a1f749b209984d196676a6fbc"
+    sha256 cellar: :any_skip_relocation, catalina:       "eef67fe052fd505ca123478c47eb7416e25a6130516ae4a8e3d0a78ae4f4b10d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cea5dad8fdd301244b2c9ba9bca820b54529f2e7e57cd228ff26a33ac74fc522"
   end
 
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
@@ -56,14 +57,8 @@ class Regipy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.9")
-    res = resources.map(&:name).to_set
-    res -= %w[test_hive]
-
-    res.each do |r|
-      venv.pip_install resource(r)
-    end
-
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources.reject { |r| r.name == "test_hive" }
     venv.pip_install_and_link buildpath
   end
 

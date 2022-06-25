@@ -25,7 +25,6 @@ class Clamav < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "json-c"
-  depends_on "libtool"
   depends_on "openssl@1.1"
   depends_on "pcre2"
   depends_on "yara"

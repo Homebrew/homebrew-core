@@ -6,21 +6,22 @@ class Pgcli < Formula
   url "https://files.pythonhosted.org/packages/f8/2a/f23f103e28b32fe005862441c461c9b0022cb1dd4f7b248dd983440628d5/pgcli-3.4.1.tar.gz"
   sha256 "f03930187e27d60df658ca8a04fb601ec5d7476c735f2b1542c6adec5cac8fe2"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5b31c304fd56b94f055f1914db3cc9287ee3f59ced01436112cb70563da41960"
-    sha256 cellar: :any,                 arm64_big_sur:  "d9471c9f20c489b5bd64303f182cdbdc01e93832e15f94fecc5f56e5f92c33ab"
-    sha256 cellar: :any,                 monterey:       "75c22fb060f79aa267bc7b96b264bd79b2b849a4eeddd58c148af972f9a600a6"
-    sha256 cellar: :any,                 big_sur:        "527933ff3f86990099d3b8f245c55ee8a341b900fd493a7a492148e647336cb7"
-    sha256 cellar: :any,                 catalina:       "b26dbeed520bb6ca3bddca94a842f3b2358fc94102033d55c7503da2f67e1fdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ea245bc0f3ed24ce08a7575a40eb5fc80a0459f8d0d013fb7d0a3128cd181aa"
+    sha256 cellar: :any,                 arm64_monterey: "42f3418781082af3e55990a78522ae32f2e79d3215bc9aa554b6354680221b10"
+    sha256 cellar: :any,                 arm64_big_sur:  "ec16c8c1ea64497a11dfa6455ad2b83bf31842e7208eddcbfae2150d03995414"
+    sha256 cellar: :any,                 monterey:       "bc86e7556052c3cebc2ae5fdd4532c171186208a309e175d35e5c37dd1194460"
+    sha256 cellar: :any,                 big_sur:        "ee513bcd32c26ae573a9063de7740a99f8ad44f8bf8be7142ac99aadb0b9ff74"
+    sha256 cellar: :any,                 catalina:       "e77cade4c739091a2d5703b9c3905770e154cd12f1dfe472f37baeb514d5111a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cc849ebe87e0f4b8c9bfcb342156de9e6d651b2e19d55a620c18aff3f6de016"
   end
 
   depends_on "poetry" => :build
   depends_on "libpq"
+  depends_on "libpython-tabulate"
   depends_on "openssl@1.1"
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "cli-helpers" do
