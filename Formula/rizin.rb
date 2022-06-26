@@ -15,6 +15,7 @@ class Rizin < Formula
     sha256 x86_64_linux:   "c4ac63f6cb764721c72490a884700a03a28f443db91ef4e3b2cc319483bfc6d4"
   end
 
+  depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -44,7 +45,6 @@ class Rizin < Formula
         "-Duse_sys_xxhash=enabled",
         "-Duse_sys_magic=enabled",
         "-Drizin_plugins=#{HOMEBREW_PREFIX}/lib/rizin/plugins",
-        "-Drizin_extras=#{HOMEBREW_PREFIX}/lib/rizin/extras",
         "-Drizin_bindings=#{HOMEBREW_PREFIX}/lib/rizin/bindings",
         "-Denable_tests=false",
         "-Denable_rz_test=false",
@@ -58,7 +58,6 @@ class Rizin < Formula
 
   def post_install
     (HOMEBREW_PREFIX/"lib/rizin/plugins").mkpath
-    (HOMEBREW_PREFIX/"lib/rizin/extras").mkpath
     (HOMEBREW_PREFIX/"lib/rizin/bindings").mkpath
   end
 
