@@ -17,6 +17,17 @@ class Unar < Formula
 
   depends_on xcode: :build
 
+  uses_from_macos "llvm" => [:build, :test]
+  uses_from_macos "bzip2"
+
+  on_linux do
+    depends_on "gnustep-base"
+    depends_on "wavpack"
+  end
+
+  # Clang must be used on Linux because GCC Objective C support is insufficient.
+  fails_with :gcc
+
   resource "universal-detector" do
     url "https://github.com/MacPaw/universal-detector/archive/refs/tags/1.1.tar.gz"
     sha256 "8e8532111d0163628eb828a60d67b53133afad3f710b1967e69d3b8eee28a811"
@@ -31,21 +42,28 @@ class Unar < Formula
     # Replace usage of __DATE__ to keep builds reproducible
     inreplace %w[lsar.m unar.m], "@__DATE__", "@\"#{time.strftime("%b %d %Y")}\""
 
-    mkdir "build" do
-      # Build XADMaster.framework, unar and lsar
-      arch = Hardware::CPU.arm? ? "arm64" : "x86_64"
-      %w[XADMaster unar lsar].each do |target|
-        xcodebuild "-target", target, "-project", "../XADMaster.xcodeproj",
-                   "SYMROOT=#{buildpath/"build"}", "-configuration", "Release",
-                   "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}", "ARCHS=#{arch}", "ONLY_ACTIVE_ARCH=YES"
-      end
+    # Makefile.linux does not support an out-of-tree build.
+    if OS.mac?
+      mkdir "build" do
+        # Build XADMaster.framework, unar and lsar
+        arch = Hardware::CPU.arm? ? "arm64" : "x86_64"
+        %w[XADMaster unar lsar].each do |target|
+          xcodebuild "-target", target, "-project", "../XADMaster.xcodeproj",
+                     "SYMROOT=#{buildpath/"build"}", "-configuration", "Release",
+                     "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}", "ARCHS=#{arch}", "ONLY_ACTIVE_ARCH=YES"
+        end
 
-      bin.install "./Release/unar", "./Release/lsar"
-      %w[UniversalDetector XADMaster].each do |framework|
-        lib.install "./Release/lib#{framework}.a"
-        frameworks.install "./Release/#{framework}.framework"
-        (include/"lib#{framework}").install_symlink Dir["#{frameworks}/#{framework}.framework/Headers/*"]
+        bin.install "./Release/unar", "./Release/lsar"
+        %w[UniversalDetector XADMaster].each do |framework|
+          lib.install "./Release/lib#{framework}.a"
+          frameworks.install "./Release/#{framework}.framework"
+          (include/"lib#{framework}").install_symlink Dir["#{frameworks}/#{framework}.framework/Headers/*"]
+        end
       end
+    else
+      system "make", "-f", "Makefile.linux"
+      bin.install "unar", "lsar"
+      lib.install buildpath/"../UniversalDetector/libUniversalDetector.a", "libXADMaster.a"
     end
 
     cd "Extra" do
