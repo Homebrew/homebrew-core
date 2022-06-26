@@ -1,8 +1,8 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz"
-  sha256 "cc9cb653fff2ea947c3702680b59c99ac0bd1bbf19976d37e22a463cd804f167"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.96.tar.xz"
+  sha256 "299a56927b2eb3477daafd3c5bda02bc67e5c4e5898a7aeaf2740875278cf1a3"
   license "GPL-2.0-or-later"
 
   # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
@@ -29,18 +29,18 @@ class Exim < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "52c643ce9c129aff859aabfb48764f73c48a6aafc1172e419f8736e6c5a736a1"
-    sha256 arm64_big_sur:  "c47a9b199a7c8d21242cc6155b96845d7da106d724a7f164e3e39a5eb9b919ea"
-    sha256 monterey:       "241e1812e4aed22a524827de26069100d895112616095bc2cedf2d94f5574477"
-    sha256 big_sur:        "d0f080aa74fcacedab9959c9971b8f5b215cf0eda29c93bcfab0fd79a3d8e0b7"
-    sha256 catalina:       "7568c4385faf5f74893b8c93f927b95ee16daa4467bfc0c5a31da1383657747b"
-    sha256 mojave:         "08261de0fa2fdecfbfd426247ca7d56fe95bad0d5e9410df69ce94bfbb789c61"
-    sha256 x86_64_linux:   "073483eb6602a0c563a66f8b999763e27deb6a53bf4018b0c2267a4eebe1cec6"
+    sha256 arm64_monterey: "5f2204bc0b518d60cb48faab04f357bb2733dccc4a0e208eeb5655c9a204b4f4"
+    sha256 arm64_big_sur:  "64610ea9910c5faff8285e73194930d6b43bf0cbd9ba32ef2d14924f0a2ffd61"
+    sha256 monterey:       "da4fb14104a0fd40aaeadf9ecfaab6cb8530e8dc3210d3b115bc23146909f176"
+    sha256 big_sur:        "d4cdbb1b7f6e949a3e4d923f95b320d37065b0ee86f3142d19d5824f73091651"
+    sha256 catalina:       "70a67635e064e233da5b95ce8e11a61ed4b5bb1001d460ab96755712f8acf629"
+    sha256 x86_64_linux:   "03b233d5f4c5c4c0c3cc4cfde54260177d241084152d927ae02cb6bb478f2673"
   end
 
   depends_on "berkeley-db@4"
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
+  uses_from_macos "libxcrypt"
 
   def install
     cp "src/EDITME", "Local/Makefile"

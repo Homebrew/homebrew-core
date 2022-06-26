@@ -1,25 +1,24 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/v0.65.1.tar.gz"
-  sha256 "b8a1503371fa0c0f3d07d3b39a3de2769b8ed25923d0d931b7075bc88e3f508f"
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.66.tar.gz"
+  sha256 "9f87ff002405501b12798a715b691496775a4f9727188eeba167143816992a0f"
   license "MIT"
-  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "654811f4e5a3540862b868be587f6a44c25453a946952d36d9c0b67a06bafff2"
-    sha256 arm64_big_sur:  "85711a57a88a670524cb047baef9f8fe98ce5e2023fb0b513d08a8473ca46ed4"
-    sha256 monterey:       "45fcd5591710383a1b437f6d74266b6a9d1f587f3b820b8a0499199bf581e4c2"
-    sha256 big_sur:        "400cdf58edc5407ba28bdc2437fef922a1ab4748c6c74dc047a6a6273291f583"
-    sha256 catalina:       "d4b4c1abbd7c4329792a2a96304d95b8289d5f5f4be841872e5a9079e2349cf0"
-    sha256 x86_64_linux:   "23e347e4c34e7b5ffdb7738adf242fd742ce36de7f4eb6b19510f07bac61f688"
+    sha256 arm64_monterey: "1983163d306715a37bd59ff24f0d6bce2535bed34bc1643cc7ffffb7ad78dad5"
+    sha256 arm64_big_sur:  "c90c4533b838f558b553138b17ac2710cd6642cd054e38a06f974e292b876bff"
+    sha256 monterey:       "bb64f6ad5d2c46f97aff23de1295ff587aab58a1ce6501990afc06221705e2dc"
+    sha256 big_sur:        "69d34ae25d49ddfe6554b67ce7a05ed93a5f535dd89982f196d17adcdbb293be"
+    sha256 catalina:       "3221e324484ba66c0f9767d87ee5888910947f7a53cb09f08b80ed86b5381689"
+    sha256 x86_64_linux:   "0cd0b245a8f0d201098f2bfc9e34ebb36e6e2c839900c0a137b20f162cbfd9e9"
   end
 
   depends_on "cmake" => :build
   depends_on "luarocks" => :build
   depends_on xcode: :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "freetype"
   depends_on "lua"
   depends_on "sdl2"

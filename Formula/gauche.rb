@@ -1,8 +1,8 @@
 class Gauche < Formula
   desc "R7RS Scheme implementation, developed to be a handy script interpreter"
   homepage "https://practical-scheme.net/gauche/"
-  url "https://github.com/shirok/Gauche/releases/download/release0_9_11_p1/Gauche-0.9.11-p1.tgz"
-  sha256 "9069c347e12e7fd14072680100e63dedec92de8fd7f48a200224b4d478733795"
+  url "https://github.com/shirok/Gauche/releases/download/release0_9_12/Gauche-0.9.12.tgz"
+  sha256 "b4ae64921b07a96661695ebd5aac0dec813d1a68e546a61609113d7843f5b617"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,16 +12,17 @@ class Gauche < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "4bdf5a2a9587084ab420015aa4587ec327ee3f05506a884d742ef71cf10ea7dd"
-    sha256 arm64_big_sur:  "dbeda7059ccccad0efd5d615ba0f36fe0b5160d180d131149970428ae409672b"
-    sha256 monterey:       "a0b4f07a8397f91ef11b66d215e5c18eca3b7b0da67b47117a20a7730cd5df5d"
-    sha256 big_sur:        "2a21e02ce609480efec6abc2e9f03e9bd4cf1f353c132783101ead0a5ce219d8"
-    sha256 catalina:       "7f9f718aac4ec5c52ef60b3338c43204fa3ab019446f834867a5d528611b4583"
-    sha256 x86_64_linux:   "31295606e5b3844e9c3c3d999853236eef698250a415f3209083421a0dc36964"
+    sha256 arm64_monterey: "6d7406def914577f32cea82af22920e4be9dcf8465ea89b594b8b53eed6c9abc"
+    sha256 arm64_big_sur:  "d028b131ffcbe25a756e86f77617ca756e23ce97ad64f87f70e8a1d01dad8cef"
+    sha256 monterey:       "70393a92c73c3d1d5d9d20a047c059994de76412a32d2750c45600a431194011"
+    sha256 big_sur:        "86c00e06332efe038ba894bfccedfccb91be22ab37214b4c2f4b469d5e92438b"
+    sha256 catalina:       "4054f4d238e0cc4bdb5634940a8d3cf5bb07e5d23efd3023ef05e5d9ab6d8002"
+    sha256 x86_64_linux:   "49bd5b315e7e7d53155746ef19de207f51a61c01b6a5c30382e492ab008b42cb"
   end
 
   depends_on "mbedtls"
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   def install

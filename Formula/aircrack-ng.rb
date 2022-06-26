@@ -11,12 +11,13 @@ class AircrackNg < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "45d34208031dc87ff03170ee9e19283d4396f1401fe23583e941b0e4d387bf4d"
-    sha256                               arm64_big_sur:  "ff3f2aa5b96ec3ea0436902af935dd2ee7205e51d662dad533637a9ef46839f5"
-    sha256                               monterey:       "055bd444a3db202d8b4a9ae173da38dd0a73ea452f3f8e4da5d506ce1c22b398"
-    sha256                               big_sur:        "a9e6d77b2d2111c983132147e603eddd609862550c70a978a853aeebc5204dc2"
-    sha256                               catalina:       "cd18023bc703b25b20ec00c90920a4c6d73613fe7cb9c390b8ce27fb02e33c02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "293d08618fc4a53a180af1357c01053f50ac3aac71417f2ed4ed602fae36ffa3"
+    rebuild 1
+    sha256                               arm64_monterey: "499ece5ad3317410df74ec2ca4de39e198a7739d0be0e6f0a48042a684631f73"
+    sha256                               arm64_big_sur:  "68528c46fdf173d9a8a02c27b39c7d57d19ac87bca2c98e4dd6b3ec11745b470"
+    sha256                               monterey:       "049eedde2f5028350063d74a8fcf406b743ec6c53d019a183f74a27d5f9fc586"
+    sha256                               big_sur:        "21e3668b005f69b9b05acee557079e01abf9dbdd4c7c36ca3da102e266bc4654"
+    sha256                               catalina:       "993529dff2b7b3143497fb057ecdab91a4562830451b6fd4414fd84ae7c9c96d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e23cb441fb4fdef1d74fc2edea0a7a601bb4834f5c2b0f56176c4095a2fc2135"
   end
 
   depends_on "autoconf" => :build
@@ -37,8 +38,14 @@ class AircrackNg < Formula
     system "./autogen.sh", "--disable-silent-rules",
                            "--disable-dependency-tracking",
                            "--prefix=#{prefix}",
+                           "--sysconfdir=#{etc}",
                            "--with-experimental"
     system "make", "install"
+    inreplace sbin/"airodump-ng-oui-update", "/usr/local", HOMEBREW_PREFIX
+  end
+
+  def post_install
+    pkgetc.mkpath
   end
 
   def caveats

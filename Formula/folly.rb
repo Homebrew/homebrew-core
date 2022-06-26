@@ -1,18 +1,18 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2022.06.13.00.tar.gz"
-  sha256 "1151bf4292c3b2bbd0e70486bb3c6797e7cf345cc7622cdda8d01d2f70138b68"
+  url "https://github.com/facebook/folly/archive/v2022.06.20.00.tar.gz"
+  sha256 "58c362bb832e9fcc12b6060b5cce754c97475db72a6a3d829b9735b16a1d0f56"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6ebf9805f28dc28052b5fe37ec4fc23d4d97ab3ea79334e59343072af4a77c83"
-    sha256 cellar: :any,                 arm64_big_sur:  "96e35e3206a67513f72633df8b3af14a3df79d038408b16f3111df0197a8ff30"
-    sha256 cellar: :any,                 monterey:       "5c658187c7c07147d0c82ab750919f5beb4ce514b79ed8233b88e089e09b2722"
-    sha256 cellar: :any,                 big_sur:        "6c9dbc94d6b1ba9a3e0c3fd4c49b968a6fbc1df38869fd2f4ed9a795a36b3d9e"
-    sha256 cellar: :any,                 catalina:       "431c06141239fc99495388ef71306aeb840091773efcf3a80738e6afdd364606"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d2f1216c6b8b1daa4079de3bb8b5dd8861c1f9a846b0ae25716190c4e28b44f"
+    sha256 cellar: :any,                 arm64_monterey: "db6002fec61a04f5c4020a8af2874cff41c5ff71c1af1595e91ed88727f0324d"
+    sha256 cellar: :any,                 arm64_big_sur:  "c459d1660e4d876deaade72bd59cc022dfee90a74b613cf6551c7b668d44fded"
+    sha256 cellar: :any,                 monterey:       "4e37803010a26d21b72eea1891c78fcab2d69fbb904264d00de57f59c90fcb86"
+    sha256 cellar: :any,                 big_sur:        "c20e9007d4dd26361817e2cb22d2a1388f03f4d064e42ba24521ae873996e7b7"
+    sha256 cellar: :any,                 catalina:       "419666a03b8c010f32235b5e1980a70b0c8ca1059e97f0ef1bb40a9f5c6706d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb3ba2c036147561ec37aec1b7c7643b1b7c144091d86a04127e08651abcd062"
   end
 
   depends_on "cmake" => :build

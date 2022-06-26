@@ -1,8 +1,8 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v6.17.0.tar.gz"
-  sha256 "748a989390202ba2d1ccbd9d9a6b8cbd6551149cbab63b347fd1ed6df0254faa"
+  url "https://github.com/xmrig/xmrig/archive/v6.18.0.tar.gz"
+  sha256 "4531a31c0c095fcae18fdef0157f1e2a6694408abbcff6789c8f3cd6ab2c3ca0"
   license "GPL-3.0-or-later"
   head "https://github.com/xmrig/xmrig.git", branch: "dev"
 
@@ -12,12 +12,12 @@ class Xmrig < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "a003d05e56ecd9168a034b4f45891ab52ab93a854e629f4433c1816f72b24317"
-    sha256                               arm64_big_sur:  "41b88534766fd352e53873c97842c459a932c123cfbddc3aabc3a62d32ebc8c9"
-    sha256                               monterey:       "1572b95a2018fe4cae59b38354f9cf3a212931a146bfb1b13b1211658d251fcc"
-    sha256                               big_sur:        "d6021e38504ee50f39369d0700d5dd30d5a2da3e265614436076af1e2c7d9212"
-    sha256                               catalina:       "48c53323accf223f7f3b756b795b07ff53d568c5f0053b6232d74251aaa612d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb324b92d3cb8c231bd6c45a62785d29d31eef7a68d0ee50fdc5367b3be7b08a"
+    sha256                               arm64_monterey: "1da1fc4a51baca0ef97dde96ce4574a743892f7abb001ee9a8009783aa0b8a2e"
+    sha256                               arm64_big_sur:  "5d21b0a51189c496add0957d7ff2029995c20f6b3ac9199d0ecb35e1177e76c3"
+    sha256                               monterey:       "4c2d83937291e552c369743ee8d2cebaa5834756de152e87022d8247431ac01e"
+    sha256                               big_sur:        "1756da83146306c303350f6d6764ded50a3c0eca947dca5dce35ec83de791920"
+    sha256                               catalina:       "e39c4c45bcdfd052399d7449e2fa38187bcb51a69eff0ea34ed44c07bdbac1a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70d997270b0fa25a71f43f7e278f063c7e95a6cd35751d9f46f0dc4de6342e93"
   end
 
   depends_on "cmake" => :build

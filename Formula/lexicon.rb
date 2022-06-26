@@ -3,18 +3,18 @@ class Lexicon < Formula
 
   desc "Manipulate DNS records on various DNS providers in a standardized way"
   homepage "https://github.com/AnalogJ/lexicon"
-  url "https://files.pythonhosted.org/packages/14/bd/df17c559e2817c2ac420a6146adbee9fd655d143079336c63f339206b128/dns-lexicon-3.11.2.tar.gz"
-  sha256 "824b75a354173a05000a805a5307f8ed6da34ec47605554a1f883707f38c2e0d"
+  url "https://files.pythonhosted.org/packages/2f/c7/66b8657c03846353d6d46910329a853308810ea602914ebd254ddf7c2cb8/dns-lexicon-3.11.3.tar.gz"
+  sha256 "79de74ae5894d05c35d4aff016e37ccc64b8eee64da49424f95951c108fad203"
   license "MIT"
   head "https://github.com/AnalogJ/lexicon.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cc8bc2efc4b8277ce359f57e8b99144ffa041ae35c4890422f9ef30846f31aa9"
-    sha256 cellar: :any,                 arm64_big_sur:  "fe96b43bd0d72c9dded228469096e4b45982a4334a5d65f112904acfd54c5778"
-    sha256 cellar: :any,                 monterey:       "ca5034905bdc0263aab1e1f9610ace6573950745ab57cb7676b6486113634d64"
-    sha256 cellar: :any,                 big_sur:        "21b13d01379e21d202df3e1edd8ff70344fadccac90590059b580b06d88529c5"
-    sha256 cellar: :any,                 catalina:       "73ba7d3f42cd40fb4d92461b4b72403007a4daaea618cd632fe86be56dd9d82f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b768547b728046959e0d4e49bf42f7e156ccc257eb5d57b6021fd6036334b2e4"
+    sha256 cellar: :any,                 arm64_monterey: "60a0658287690d9230995919b738260dc9b0b08f435a920bcb5ff39f05459a7e"
+    sha256 cellar: :any,                 arm64_big_sur:  "5cbfb3294666c58d6d36e7d93654834ff688c66d8bb39a928204bbdc0e044db7"
+    sha256 cellar: :any,                 monterey:       "0f95e676946d223d8502e1365f77c6ad10a9a01cb6b3ab508a87bf6dc9140377"
+    sha256 cellar: :any,                 big_sur:        "27ca80e31dcc806f198be50fec5dff2ab1f90b1a577607ae2570875f38705a7b"
+    sha256 cellar: :any,                 catalina:       "ed2ee90d0962d24227491162907a7502d0710f6251d846d59ad667bb7fb5dbaf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87083a379d10fb99294c6916c70b5b4939bdd2d8b577cfecbd436b074b1cc449"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -35,13 +35,13 @@ class Lexicon < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/21/60/d87362d4beb729f8369e7e0b224f199146264cfb6055ddd7eaca51b5497a/boto3-1.24.10.tar.gz"
-    sha256 "88fd816274d4b64bcf90889441d4efa5f16a0048ed670bc33cbd0f5a678313a6"
+    url "https://files.pythonhosted.org/packages/e1/a5/fb6342b4f1f53fe77a447c400767b7120b8e7a28c552802f792923ed5074/boto3-1.24.17.tar.gz"
+    sha256 "bcbf31eff02bc01f9c55e2d428b4f6a27701c86b4600cbe4e9d45aa1dd61f036"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a6/8f/802d30cbabbb86afccfdd95173510b161ad29baa02947d0312248abe4888/botocore-1.27.10.tar.gz"
-    sha256 "b39da97452c9e2c856e7778d8c908252394da81e2e5792f1d4cb0ece4ce1043a"
+    url "https://files.pythonhosted.org/packages/93/48/69dfd090a5a42cb11698b9e4789dba70fd18a607cb3c742034bb3bffe3e0/botocore-1.27.17.tar.gz"
+    sha256 "af9d44592b4d0d6509b355b2ec5cb14fd23eadf7c33d13b880266dede22759ac"
   end
 
   resource "cached-property" do
@@ -75,8 +75,8 @@ class Lexicon < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/51/05/bb2b681f6a77276fc423d04187c39dafdb65b799c8d87b62ca82659f9ead/cryptography-37.0.2.tar.gz"
-    sha256 "f224ad253cc9cea7568f49077007d2263efa57396a2f2f78114066fd54b5c68e"
+    url "https://files.pythonhosted.org/packages/67/82/9dd8ef695c7f928b25927e8956f73bdba09a752a51871678f320c498c535/cryptography-37.0.3.tar.gz"
+    sha256 "ae430d51c67ac638dfbb42edf56c669ca9c74744f4d225ad11c6f3d355858187"
   end
 
   resource "dnspython" do
@@ -105,8 +105,8 @@ class Lexicon < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/06/7e/44686b986ef9ca6069db224651baaa8300b93af2a085a5b135997bf659b3/jmespath-1.0.0.tar.gz"
-    sha256 "a490e280edd1f57d6de88636992d05b71e97d69a26a19f058ecf7d304474bf5e"
+    url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
+    sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
   end
 
   resource "localzone" do
