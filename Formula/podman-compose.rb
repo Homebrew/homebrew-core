@@ -3,8 +3,8 @@ class PodmanCompose < Formula
 
   desc "Alternative to docker-compose using podman"
   homepage "https://github.com/containers/podman-compose"
-  url "https://github.com/containers/podman-compose/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "b28e5792a50feee987e7864e0df1b6e8929c923c010e1f65493fe29b4c2aedcf"
+  url "https://files.pythonhosted.org/packages/c7/aa/0997e5e387822e80fb19627b2d4378db065a603c4d339ae28440a8104846/podman-compose-1.0.3.tar.gz"
+  sha256 "9c9fe8249136e45257662272ade33760613e2d9ca6153269e1e970400ea14675"
   license "GPL-2.0-only"
 
   # Depends on the `podman` command, which the podman.rb formula does not
