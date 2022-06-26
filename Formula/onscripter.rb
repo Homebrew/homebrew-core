@@ -28,6 +28,16 @@ class Onscripter < Formula
   depends_on "smpeg"
 
   def install
+    # Configuration is done through editing of Makefiles.
+    # Comment out optional libavifile dependency on Linux as it is old and unmaintained.
+    inreplace "Makefile.Linux" do |s|
+      s.gsub!("DEFS += -DUSE_AVIFILE", "#DEFS += -DUSE_AVIFILE")
+      s.gsub!("INCS += `avifile-config --cflags`", "#INCS += `avifile-config --cflags`")
+      s.gsub!("LIBS += `avifile-config --libs`", "#LIBS += `avifile-config --libs`")
+      s.gsub!("TARGET += simple_aviplay$(EXESUFFIX)", "#TARGET += simple_aviplay$(EXESUFFIX)")
+      s.gsub!("EXT_OBJS += AVIWrapper$(OBJSUFFIX)", "#EXT_OBJS += AVIWrapper$(OBJSUFFIX)")
+    end
+
     incs = [
       `pkg-config --cflags sdl SDL_ttf SDL_image SDL_mixer`.chomp,
       `smpeg-config --cflags`.chomp,
@@ -44,19 +54,20 @@ class Onscripter < Formula
     ]
 
     defs = %w[
-      -DMACOSX
       -DUSE_CDROM
       -DUSE_LUA
       -DUTF8_CAPTION
       -DUTF8_FILESYSTEM
     ]
+    defs << "-DMACOSX" if OS.mac?
 
     ext_objs = ["LUAHandler.o"]
 
     k = %w[INCS LIBS DEFS EXT_OBJS]
     v = [incs, libs, defs, ext_objs].map { |x| x.join(" ") }
     args = k.zip(v).map { |x| x.join("=") }
-    system "make", "-f", "Makefile.MacOSX", *args
+    platform = OS.mac? ? "MacOSX" : "Linux"
+    system "make", "-f", "Makefile.#{platform}", *args
     bin.install %w[onscripter sardec nsadec sarconv nsaconv]
   end
 
