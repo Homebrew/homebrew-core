@@ -41,6 +41,7 @@ class Exim < Formula
   depends_on "berkeley-db@4"
   depends_on "openssl@1.1"
   depends_on "pcre2"
+  uses_from_macos "libxcrypt"
 
   def install
     cp "src/EDITME", "Local/Makefile"
