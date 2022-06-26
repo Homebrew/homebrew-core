@@ -24,7 +24,8 @@ class Kubekey < Formula
       -X github.com/kubesphere/kubekey/version.gitCommit=#{Utils.git_head}
       -X github.com/kubesphere/kubekey/version.gitTreeState=clean
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kk"), "./cmd"
+    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kk"),
+      "-tags", "containers_image_openpgp", "./cmd"
 
     (zsh_completion/"_kk").write Utils.safe_popen_read(bin/"kk", "completion", "--type", "zsh")
     (bash_completion/"kk").write Utils.safe_popen_read(bin/"kk", "completion", "--type", "bash")
