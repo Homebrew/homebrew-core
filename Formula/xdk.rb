@@ -8,16 +8,40 @@ class Xdk < Formula
   depends_on "openjdk"
 
   def install
-    libexec.install buildpath.children
+    %w[doc examples javatools lib].each do |child_name|
+      libexec.install buildpath/child_name
+    end
+    java_bin   = "${JAVA_HOME}/bin/java"
+    java_opts  = "-Xms256m -Xmx1024m -ea"
+    java_jar   = "#{libexec}/javatools/javatools.jar"
+    libexecbin = libexec + "bin"
+    libexecbin.mkdir
     %w[xec xtc xam].each do |cmd|
-      java = "${JAVA_HOME}/bin/java"
-      args = "-Xms256m -Xmx1024m -ea -jar #{libexec}/javatools/javatools.jar" \
-             " #{cmd} -L #{libexec}/lib -L #{libexec}/javatools"
-      (bin/cmd).write_env_script java, args, Language::Java.overridable_java_home_env
+      cmd_sh = libexecbin + cmd
+      cmd_sh.write <<~SH
+        #!/bin/bash
+        export JAVA_HOME="#{Language::Java.overridable_java_home_env[:JAVA_HOME]}"
+        exec "#{java_bin}" #{java_opts} -jar #{java_jar} #{cmd} -L #{libexec}/lib -L #{libexec}/javatools "$@"
+      SH
+      cmd_sh.chmod 0755
+      bin.install_symlink cmd_sh => cmd
     end
   end
 
   test do
-    system "#{bin}/xec", "-help"
+    src_file = testpath + "HelloWorld.x"
+    obj_file = testpath + "HelloWorld.xtc"
+    src_file.write <<~SF
+      module HelloWorld
+          {
+          void run()
+              {
+              @Inject Console console;
+              console.println("Hello World!");
+              }
+          }
+    SF
+    system "#{bin}/xtc", src_file
+    assert_match "Hello World!", shell_output("#{bin}/xec #{obj_file} 2>&1")
   end
 end
