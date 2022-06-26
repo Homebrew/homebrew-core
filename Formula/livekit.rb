@@ -8,9 +8,7 @@ class Livekit < Formula
   depends_on "go" => :build
 
   def install
-    cd "cmd/server" do
-      system "go", "build", *std_go_args(output: bin/"livekit-server")
-    end
+    system "go", "build", *std_go_args(output: bin/"livekit-server"), "./cmd/server"
   end
 
   test do
