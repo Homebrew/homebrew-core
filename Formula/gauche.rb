@@ -22,6 +22,7 @@ class Gauche < Formula
 
   depends_on "mbedtls"
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   def install
