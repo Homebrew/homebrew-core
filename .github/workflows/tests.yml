@@ -1,0 +1,322 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_GITHUB_ACTIONS: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_CHANGE_ARCH_TO_ARM: 1
+
+concurrency:
+  group: "tests-${{ github.ref }}"
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  tap_syntax:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu16.04:master
+    env:
+      HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
+    outputs:
+      testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
+      added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
+      deleted_formulae: ${{ steps.formulae-detect.outputs.deleted_formulae }}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - run: brew test-bot --only-tap-syntax
+
+      - run: brew test-bot --only-formulae-detect
+        if: github.event_name == 'pull_request'
+        id: formulae-detect
+
+  setup_tests:
+    if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    needs: tap_syntax
+    outputs:
+      syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
+      linux-runner: ${{ steps.check-labels.outputs.linux-runner }}
+      fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
+      test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
+      timeout-minutes: ${{ steps.check-labels.outputs.timeout-minutes }}
+      container: ${{ steps.check-labels.outputs.container }}
+      test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
+      test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
+    steps:
+      - name: Check for CI labels
+        id: check-labels
+        uses: actions/github-script@v6
+        env:
+          TESTING_FORMULAE: ${{needs.tap_syntax.outputs.testing_formulae}}
+          ADDED_FORMULAE: ${{needs.tap_syntax.outputs.added_formulae}}
+          DELETED_FORMULAE: ${{needs.tap_syntax.outputs.deleted_formulae}}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: { labels: labels } } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            })
+            const label_names = labels.map(label => label.name)
+
+            if (label_names.includes('CI-syntax-only')) {
+              console.log('CI-syntax-only label found. Skipping tests job.')
+              core.setOutput('syntax-only', 'true')
+            } else {
+              console.log('No CI-syntax-only label found. Running tests job.')
+              core.setOutput('syntax-only', 'false')
+            }
+
+            if (label_names.includes('CI-linux-self-hosted')) {
+              core.setOutput('linux-runner', 'linux-self-hosted-1')
+            } else {
+              core.setOutput('linux-runner', 'ubuntu-latest')
+            }
+
+            if (label_names.includes('CI-no-fail-fast')) {
+              console.log('CI-no-fail-fast label found. Continuing tests despite failing matrix builds.')
+              core.setOutput('fail-fast', 'false')
+            } else {
+              console.log('No CI-no-fail-fast label found. Stopping tests on first failing matrix build.')
+              core.setOutput('fail-fast', 'true')
+            }
+
+            if (label_names.includes('CI-skip-dependents')) {
+              console.log('CI-skip-dependents label found. Skipping brew test-bot --only-formulae-dependents.')
+              core.setOutput('test-dependents', 'false')
+            } else {
+              console.log('No CI-skip-dependents label found. Running brew test-bot --only-formulae-dependents.')
+              core.setOutput('test-dependents', 'true')
+            }
+
+            const maximum_long_pr_count = 2
+            if (label_names.includes('CI-long-timeout')) {
+              const labelCountQuery = `query($owner:String!, $name:String!, $label:String!) {
+                repository(owner:$owner, name:$name) {
+                  pullRequests(last: 100, states: OPEN, labels: [$label]) {
+                    totalCount
+                  }
+                }
+              }`;
+              var long_pr_count;
+              try {
+                const response = await github.graphql(
+                  labelCountQuery, {
+                    owner: context.repo.owner,
+                    name: context.repo.repo,
+                    label: 'CI-long-timeout'
+                  }
+                )
+                long_pr_count = response.repository.pullRequests.totalCount
+              } catch (error) {
+                // The GitHub API query errored, so fail open and assume 0 long PRs.
+                long_pr_count = 0
+                core.warning('CI-long-timeout label count query failed. Assuming no long PRs.')
+              }
+              if (long_pr_count > maximum_long_pr_count) {
+                core.setFailed(`Too many pull requests (${long_pr_count}) with the long-timeout label!`)
+                core.error(`Only ${maximum_long_pr_count} pull requests at a time can use this label.`)
+                core.error('Remove the long-timeout label from this or other PRs (once their CI has completed).')
+              }
+              console.log('CI-long-timeout label found. Setting long GitHub Actions timeout.')
+              core.setOutput('timeout-minutes', '4320')
+            } else {
+              console.log('No CI-long-timeout label found. Setting short GitHub Actions timeout.')
+              core.setOutput('timeout-minutes', '90')
+
+              if (label_names.includes('long build')) {
+                core.setFailed('PR requires the CI-long-timeout label but it is not set!')
+                core.error('If the longer timeout is not required, remove the "long build" label.')
+                core.error('Otherwise, add the "CI-long-timeout" label.')
+                core.error(`No more than ${maximum_long_pr_count} PRs at a time may use "CI-long-timeout".`)
+              }
+            }
+
+            const container = {}
+            if (label_names.includes('CI-linux-wheezy')) {
+              console.log('CI-linux-wheezy label found. Using Linux Debian 7 (Wheezy) container.')
+              container.image = 'homebrew/debian7:latest'
+            } else {
+              console.log('No CI-linux-wheezy label found. Using default Homebrew (Ubuntu 16.04) container.')
+              container.image = 'ghcr.io/homebrew/ubuntu16.04:master'
+            }
+            container.options = '--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED'
+            core.setOutput('container', JSON.stringify(container))
+
+            const test_bot_formulae_args = ["--only-formulae", "--junit", "--only-json-tab", "--skip-dependents"]
+            test_bot_formulae_args.push(`--testing-formulae="${process.env.TESTING_FORMULAE}"`)
+            test_bot_formulae_args.push(`--added-formulae="${process.env.ADDED_FORMULAE}"`)
+            test_bot_formulae_args.push(`--deleted-formulae="${process.env.DELETED_FORMULAE}"`)
+
+            const test_bot_dependents_args = ["--only-formulae-dependents", "--junit"]
+            test_bot_dependents_args.push(`--testing-formulae="${process.env.TESTING_FORMULAE}"`)
+
+            if (label_names.includes('CI-test-bot-fail-fast')) {
+              console.log('CI-test-bot-fail-fast label found. Passing --fail-fast to brew test-bot.')
+              test_bot_formulae_args.push('--fail-fast')
+              test_bot_dependents_args.push('--fail-fast')
+            } else {
+              console.log('No CI-test-bot-fail-fast label found. Not passing --fail-fast to brew test-bot.')
+            }
+
+            if (label_names.includes('CI-build-dependents-from-source')) {
+              console.log('CI-build-dependents-from-source label found. Passing --build-dependents-from-source to brew test-bot.')
+              test_bot_dependents_args.push('--build-dependents-from-source')
+            } else {
+              console.log('No CI-build-dependents-from-source label found. Not passing --build-dependents-from-source to brew test-bot.')
+            }
+
+            if (label_names.includes('CI-skip-recursive-dependents')) {
+              console.log('CI-skip-recursive-dependents label found. Passing --skip-recursive-dependents to brew test-bot.')
+              test_bot_dependents_args.push('--skip-recursive-dependents')
+            } else {
+              console.log('No CI-skip-recursive-dependents label found. Not passing --skip-recursive-dependents to brew test-bot.')
+            }
+
+            core.setOutput('test-bot-formulae-args', test_bot_formulae_args.join(" "))
+            core.setOutput('test-bot-dependents-args', test_bot_dependents_args.join(" "))
+
+  tests:
+    needs: setup_tests
+    if: ${{github.event_name == 'pull_request' && fromJson(needs.setup_tests.outputs.syntax-only) == false}}
+    strategy:
+      matrix:
+        include:
+          # - runner: '12-arm64-${{github.run_id}}-${{github.run_attempt}}'
+          #   ephemeral: true
+          - runner: '12-arm64'
+          - runner: '12'
+          - runner: '11-arm64'
+          - runner: '11'
+          - runner: '10.15'
+          - runner: ${{needs.setup_tests.outputs.linux-runner}}
+            container: ${{fromJson(needs.setup_tests.outputs.container)}}
+            workdir: /github/home
+            timeout: 4320
+      fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
+    runs-on: ${{matrix.runner}}
+    container: ${{matrix.container}}
+    timeout-minutes: ${{ matrix.timeout || fromJson(needs.setup_tests.outputs.timeout-minutes) }}
+    defaults:
+      run:
+        shell: /bin/bash -e {0}
+        working-directory: ${{matrix.workdir || github.workspace}}
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    steps:
+      - name: Set environment variables
+        if: runner.os == 'macOS'
+        run: |
+          echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
+          # TODO: remove the line below once set in the runner .env file
+          echo 'GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED=1' >> $GITHUB_ENV
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - run: brew test-bot --only-cleanup-before
+
+      - run: brew test-bot --only-setup
+
+      - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
+        id: brew-test-bot-formulae
+        run: |
+          mkdir bottles
+          cd bottles
+          brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
+
+      - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
+        if: always()
+        run: |
+          touch bottles/steps_output.txt
+          cat bottles/steps_output.txt
+          rm bottles/steps_output.txt
+
+      - name: Output brew linkage result
+        if: always()
+        run: |
+          cat bottles/linkage_output.txt
+          rm bottles/linkage_output.txt
+
+      - name: Output brew bottle result
+        if: always()
+        run: |
+          cat bottles/bottle_output.txt
+          rm bottles/bottle_output.txt
+
+      - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
+        if: ${{(success() || failure()) && fromJson(needs.setup_tests.outputs.test-dependents)}}
+        run: |
+          cd bottles
+          brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
+
+      - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
+        if: ${{always() && fromJson(needs.setup_tests.outputs.test-dependents) == true}}
+        run: |
+          touch bottles/steps_output.txt
+          cat bottles/steps_output.txt
+          rm bottles/steps_output.txt
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@main
+        with:
+          name: logs-${{ matrix.runner }}
+          path: ${{matrix.workdir || github.workspace}}/bottles/logs
+
+      - name: Delete logs and home
+        if: always()
+        run: |
+          rm -rvf bottles/logs
+          rm -rvf bottles/home
+
+      - name: Count bottles
+        id: bottles
+        if: always()
+        run: |
+          cd bottles
+          count=$(ls *.json | wc -l | xargs echo -n)
+          echo "$count bottles"
+          echo "::set-output name=count::$count"
+          failures=$(ls failed/*.json | wc -l | xargs echo -n)
+          echo "$failures failed bottles"
+          echo "::set-output name=failures::$failures"
+
+      - name: Upload failed bottles
+        if: always() && steps.bottles.outputs.failures > 0
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles-${{ matrix.runner }}
+          path: ${{matrix.workdir || github.workspace}}/bottles/failed
+
+      # Must be run before the `Upload bottles` step so that failed
+      # bottles are not included in the `bottles` artifact.
+      - name: Delete failed bottles
+        if: always()
+        run: rm -rvf bottles/failed
+
+      - name: Upload bottles
+        if: always() && steps.bottles.outputs.count > 0 && !matrix.ephemeral
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: ${{matrix.workdir || github.workspace}}/bottles
+
+      - name: Post cleanup
+        if: always()
+        run: |
+          brew test-bot --only-cleanup-after
+          rm -rvf bottles
