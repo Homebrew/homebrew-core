@@ -2,11 +2,10 @@ require "language/node"
 
 class Czg < Formula
   desc "Interactive Commitizen CLI that generate standardized commit messages"
-  homepage "https://cz-git.qbenben.com/cli/"
+  homepage "https://github.com/Zhengqbbb/cz-git"
   url "https://registry.npmjs.org/czg/-/czg-1.3.8.tgz"
   sha256 "c1994df8ff1829953b31e071101a8eea8fa5065fb95842afe33440a415bf6b93"
   license "MIT"
-  head "https://github.com/Zhengqbbb/cz-git.git", branch: "main"
 
   depends_on "node"
 
