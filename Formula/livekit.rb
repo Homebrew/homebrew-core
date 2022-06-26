@@ -4,6 +4,7 @@ class Livekit < Formula
   url "https://github.com/livekit/livekit/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "acc55775cca1648940706842ace7d453dd71d301689c4f368bf8467ee1460507"
   license "Apache-2.0"
+  head "https://github.com/livekit/livekit.git", branch: "master"
 
   depends_on "go" => :build
 
