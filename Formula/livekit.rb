@@ -19,5 +19,8 @@ class Livekit < Formula
     end
     sleep 3
     assert_match "OK", shell_output("curl localhost:7880")
+
+    output = shell_output("#{bin}/livekit-server --version")
+    assert_match "livekit-server version #{version}", output
   end
 end
