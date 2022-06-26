@@ -18,7 +18,10 @@ class Gobo < Formula
   def install
     ENV["GOBO"] = buildpath
     ENV.prepend_path "PATH", buildpath/"bin"
-    system buildpath/"bin/install.sh", "-v", "--threads=#{ENV.make_jobs}", ENV.compiler
+    # The value for compiler needs to be an unversioned name, but it will still use
+    # the compiler shim which will choose the correct compiler.
+    compiler = OS.mac? ? "clang" : "gcc"
+    system buildpath/"bin/install.sh", "-v", "--threads=#{ENV.make_jobs}", compiler
     (prefix/"gobo").install Dir[buildpath/"*"]
     (Pathname.glob prefix/"gobo/bin/ge*").each do |p|
       (bin/p.basename).write_env_script p,
