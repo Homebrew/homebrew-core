@@ -1,5 +1,5 @@
 class Levant < Formula
-  desc "Templating and deployment tool for HashiCorp Nomad"
+  desc "Templating and deployment tool for HashiCorp Nomad jobs"
   homepage "https://github.com/hashicorp/levant"
   url "https://github.com/hashicorp/levant/archive/v0.3.1.tar.gz"
   sha256 "a2e078168cfe24966209f34f9c0a677df3ff74e22a0eb387103c0fcb68187a53"
