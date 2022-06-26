@@ -20,6 +20,6 @@ class Czg < Formula
     # test: git staging verifies is working
     system "git", "init"
     assert_match ">>> No files added to staging! Did you forget to run `git add` ?",
-      shell_output("#{bin}/czg 2>&1", 1)
+      shell_output("NO_COLOR=1 #{bin}/czg 2>&1", 1)
   end
 end
