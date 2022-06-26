@@ -4,6 +4,7 @@ class KtConnect < Formula
   url "https://github.com/alibaba/kt-connect/archive/refs/tags/v0.3.5.tar.gz"
   sha256 "b1a2f0f71feb7d8c4418f73048c24687d513dc1cabb1f68ffac3be5baa0e3f5a"
   license "GPL-3.0-or-later"
+  head "https://github.com/alibaba/kt-connect.git", branch: "master"
 
   depends_on "go" => :build
 
