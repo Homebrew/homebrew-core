@@ -5,7 +5,6 @@ class VapoursynthImwri < Formula
   sha256 "f4d2965d32877005d0709bd8339828f951885a0cb51e0c006d123ede0b74307b"
   license "LGPL-2.1-or-later"
   version_scheme 1
-
   head "https://github.com/vapoursynth/vs-imwri.git", branch: "master"
 
   bottle do
