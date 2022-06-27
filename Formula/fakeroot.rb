@@ -16,6 +16,10 @@ class Fakeroot < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  on_linux do
+    depends_on "libcap" => :build
+  end
+
   # https://salsa.debian.org/clint/fakeroot/-/merge_requests/16
   patch do
     url "https://salsa.debian.org/clint/fakeroot/-/commit/e1a7af793e58bddd4bbd04cfb4d26687fbaa9bcf.diff"
