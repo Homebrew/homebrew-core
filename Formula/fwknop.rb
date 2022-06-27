@@ -28,11 +28,25 @@ class Fwknop < Formula
   depends_on "libtool" => :build
   depends_on "gpgme"
 
+  uses_from_macos "texinfo" => :build
+
+  on_linux do
+    depends_on "iptables"
+  end
+
   def install
+    # Fix failure with texinfo while building documentation.
+    inreplace "doc/libfko.texi", "@setcontentsaftertitlepage", "" unless OS.mac?
+
     system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking", "--disable-silent-rules",
-                          "--prefix=#{prefix}", "--with-gpgme", "--sysconfdir=#{etc}",
-                          "--with-gpg=#{Formula["gnupg"].opt_bin}/gpg"
+    args = *std_configure_args + %W[
+      --disable-silent-rules
+      --sysconfdir=#{etc}
+      --with-gpgme
+      --with-gpg=#{Formula["gnupg"].opt_bin}/gpg
+    ]
+    args << "--with-iptables=#{Formula["iptables"].opt_prefix}" unless OS.mac?
+    system "./configure", *args
     system "make", "install"
   end
 
