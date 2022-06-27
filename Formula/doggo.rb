@@ -10,10 +10,10 @@ class Doggo < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = [
-      "-s", "-w",
-      "-X", "main.buildVersion=#{version}",
-      "-X", "main.buildDate=2022-06-02"
+    ldflags = %W[
+      -s -w
+      -X main.buildVersion=#{version}
+      -X main.buildDate=#{time.iso8601}
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/doggo"
