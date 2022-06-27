@@ -10,6 +10,7 @@ class MqttxCli < Formula
   end
 
   test do
-    system "false"
+    status_output = shell_output("#{bin}/mqttx sub -t hello -h 127.0.0.1 -p 1883", 1)
+    assert_match "Error: connect ECONNREFUSED 127.0.0.1:1883", status_output
   end
 end
