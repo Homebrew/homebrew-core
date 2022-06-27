@@ -16,6 +16,8 @@ class Prototool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b193cacb23781483394900b2067c93a1abe8cafe846993a86171ed772c9b18ff"
   end
 
+  deprecate! date: "2022-06-26", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
