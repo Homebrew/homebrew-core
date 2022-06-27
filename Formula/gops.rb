@@ -1,8 +1,8 @@
 class Gops < Formula
   desc "Tool to list and diagnose Go processes currently running on your system"
   homepage "https://github.com/google/gops"
-  url "https://github.com/google/gops/archive/refs/tags/v0.3.23.tar.gz"
-  sha256 "7bea1780f7175d7518fb532a7ff858bc1789b88b918965068210ad8c5b8fd746"
+  url "https://github.com/google/gops/archive/refs/tags/v0.3.24.tar.gz"
+  sha256 "6003591200e32dd1259ed6199b5d204b2040ba9e143c59b729346816485e0302"
   license "BSD-3-Clause"
   head "https://github.com/google/gops.git", branch: "master"
 
