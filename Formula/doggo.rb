@@ -18,7 +18,7 @@ class Doggo < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/doggo"
 
-    zsh_completion.install "completions/doggo.zsh"
+    zsh_completion.install "completions/doggo.zsh" => "_doggo"
     fish_completion.install "completions/doggo.fish"
   end
 
