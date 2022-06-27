@@ -20,6 +20,7 @@ class Rsyslog < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gnutls"
   depends_on "libestr"
 
   uses_from_macos "curl"
@@ -46,7 +47,8 @@ class Rsyslog < Formula
                           "--enable-usertools",
                           "--enable-diagtools",
                           "--disable-uuid",
-                          "--disable-libgcrypt"
+                          "--disable-libgcrypt",
+                          "--enable-gnutls"
     system "make"
     system "make", "install"
 
