@@ -25,5 +25,7 @@ class Doggo < Formula
   test do
     answer = shell_output("#{bin}/doggo --short example.com NS @1.1.1.1")
     assert_equal "a.iana-servers.net.\nb.iana-servers.net.\n", answer
+
+    assert_match version.to_s, shell_output("#{bin}/doggo --version")
   end
 end
