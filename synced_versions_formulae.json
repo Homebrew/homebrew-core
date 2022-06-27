@@ -29,6 +29,7 @@
   ["libpq", "postgresql"],
   ["libqalculate", "qalculate-gtk"],
   ["libvnc", "libvncserver"],
+  ["lldb", "llvm"],
   ["logcli", "loki", "promtail"],
   ["mame", "rom-tools"],
   ["mecab-unidic", "mecab-unidic-extended"],
