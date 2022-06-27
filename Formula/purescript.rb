@@ -1,8 +1,8 @@
 class Purescript < Formula
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
-  url "https://hackage.haskell.org/package/purescript-0.15.2/purescript-0.15.2.tar.gz"
-  sha256 "a4d99367b98dcc25f22721b633ca2a9d339131776f8e827b35a9738b7a3cd587"
+  url "https://hackage.haskell.org/package/purescript-0.15.4/purescript-0.15.4.tar.gz"
+  sha256 "df279079a7c78c5b1fa813846797e696787f5dd567b1b6e042f7ab6a2701868f"
   license "BSD-3-Clause"
   head "https://github.com/purescript/purescript.git", branch: "master"
 
@@ -15,7 +15,7 @@ class Purescript < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "498682974e6ae80326a87d34d62c42012558bcd2ebd13b9a788c00f51f055814"
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@9" => :build
   depends_on "haskell-stack" => :build
 
   uses_from_macos "ncurses"
