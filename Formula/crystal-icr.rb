@@ -19,6 +19,7 @@ class CrystalIcr < Formula
   depends_on "libevent"
   depends_on "libyaml"
   depends_on "openssl@1.1"
+  depends_on "readline"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
