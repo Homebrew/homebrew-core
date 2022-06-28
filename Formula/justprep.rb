@@ -30,7 +30,7 @@ class Justprep < Formula
     system bin/"justprep"
     assert_predicate testpath/"justfile", :exist?
 
-    system bin/"just"
+    system "just"
     assert_predicate testpath/"it-worked", :exist?
   end
 end
