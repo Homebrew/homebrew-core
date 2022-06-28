@@ -35,8 +35,8 @@ class Scry < Formula
         "#{json}"
     end
 
-    input = rpc '{ "jsonrpc": "2.0", "id": 1, "method": "initialize", "params":' \
-                '  { "processId": 1, "rootPath": "/dev/null", "capabilities": {}, "trace": "off" } }'
+    input = rpc '{ "jsonrpc": "2.0", "id": 1, "method": "initialize", "params": ' \
+                '{ "processId": 1, "rootPath": "/dev/null", "capabilities": {}, "trace": "off" } }'
     input += rpc '{ "jsonrpc": "2.0", "method": "initialized", "params": {} }'
     input += rpc '{ "jsonrpc": "2.0", "id":  1, "method": "shutdown" }'
     assert_match(/"capabilities"\s*:\s*{/, pipe_output(bin/"scry", input, 0))
