@@ -6,7 +6,7 @@ class Black < Formula
   url "https://files.pythonhosted.org/packages/61/11/551b0d067a7e6836fc0997ab36ee46ec65259fea8f30104f4870092f3301/black-22.6.0.tar.gz"
   sha256 "6c6d39e28aed379aec40da1c65434c77d75e65bb59a1e1c283de545fb4e7c6c9"
   license "MIT"
-  head "https://github.com/psf/black", branch: "main"
+  head "https://github.com/psf/black.git", branch: "main"
 
   livecheck do
     url :stable
