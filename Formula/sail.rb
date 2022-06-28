@@ -151,7 +151,7 @@ class Sail < Formula
 
   test do
     xy = Language::Python.major_minor_version "#{libexec}/bin/python"
-    unittest = "#{libexec}/bin/python -m unittest discover "\
+    unittest = "#{libexec}/bin/python -m unittest discover " \
                "#{libexec}/lib/python#{xy}/site-packages/sail/tests 2>&1"
 
     assert_match(version.to_s, shell_output("#{bin}/sail --version"))
