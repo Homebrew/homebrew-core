@@ -115,10 +115,10 @@ class AwsSsoUtil < Formula
   end
 
   test do
-    cmd = "#{bin}/aws-sso-util configure profile invalid"\
-          " --sso-start-url https://example.com/start --sso-region eu-west-1" \
-          " --account-id 000000000000 --role-name InvalidRole" \
-          " --region eu-west-1 --non-interactive"
+    cmd = "#{bin}/aws-sso-util configure profile invalid " \
+          "--sso-start-url https://example.com/start --sso-region eu-west-1 " \
+          "--account-id 000000000000 --role-name InvalidRole " \
+          "--region eu-west-1 --non-interactive"
 
     assert_empty shell_output "AWS_CONFIG_FILE=#{testpath}/config #{cmd}"
 
