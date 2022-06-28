@@ -4,6 +4,7 @@ class Rsyslog < Formula
   url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2206.0.tar.gz"
   sha256 "a1377218b26c0767a7a3f67d166d5338af7c24b455d35ec99974e18e6845ba27"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later", "LGPL-3.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://www.rsyslog.com/downloads/download-v8-stable/"
