@@ -129,7 +129,7 @@ index 076a9fd..6c67184 100644
 	$(BUILT_SOURCES)
 
  libgspell_core_la_LIBADD =	\
-+	$(GTK_MAC_LIBS)		\
++	$(GTK_MAC_LIBS) \
 	$(CODE_COVERAGE_LIBS)
 
  libgspell_core_la_CFLAGS =	\
