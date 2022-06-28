@@ -30,7 +30,7 @@ class Jmxtrans < Formula
 
     cd "jmxtrans" do
       # Point JAR_FILE into Cellar where we've installed the jar file
-      inreplace "jmxtrans.sh", "$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )/../lib\" "\
+      inreplace "jmxtrans.sh", "$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )/../lib\" " \
                                ">/dev/null && pwd )/jmxtrans-all.jar",
                 libexec/"target/jmxtrans-#{version}-all.jar"
 
