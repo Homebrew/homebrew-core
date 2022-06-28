@@ -19,10 +19,11 @@ class Kcptun < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-X main.VERSION=#{version} -s -w",
-      "-o", bin/"kcptun_client", "github.com/xtaci/kcptun/client"
-    system "go", "build", "-ldflags", "-X main.VERSION=#{version} -s -w",
-      "-o", bin/"kcptun_server", "github.com/xtaci/kcptun/server"
+    ENV["CGO_ENABLED"] = "0"
+
+    ldflags = "-s -w -X main.VERSION=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kcptun_client"), "./client"
+    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kcptun_server"), "./server"
 
     etc.install "examples/local.json" => "kcptun_client.json"
   end
