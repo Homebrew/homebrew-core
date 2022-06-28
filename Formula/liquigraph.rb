@@ -45,9 +45,9 @@ class Liquigraph < Formula
     EOS
 
     jdbc = "jdbc:neo4j:http://#{failing_hostname}:7474/"
-    output = shell_output("#{bin}/liquigraph "\
-                          "dry-run -d #{testpath} "\
-                          "--changelog #{changelog.realpath} "\
+    output = shell_output("#{bin}/liquigraph " \
+                          "dry-run -d #{testpath} " \
+                          "--changelog #{changelog.realpath} " \
                           "--graph-db-uri #{jdbc} 2>&1", 1)
     assert_match "Exception: #{failing_hostname}", output
   end
