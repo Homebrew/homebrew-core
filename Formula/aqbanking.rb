@@ -65,8 +65,8 @@ class Aqbanking < Formula
     EOS
 
     match = "110000000 000123456789 12.12.2022 -110.96 US44110000000000123456789 BYLADEM1001"
-    out = shell_output("#{bin}/aqbanking-cli -D .aqbanking listbal "\
-                       "-T '$(bankcode) $(accountnumber) $(dateAsString) "\
+    out = shell_output("#{bin}/aqbanking-cli -D .aqbanking listbal " \
+                       "-T '$(bankcode) $(accountnumber) $(dateAsString) " \
                        "$(valueAsString) $(iban) $(bic)' < #{context}")
     assert_match match, out.gsub(/\s+/, " ")
   end
