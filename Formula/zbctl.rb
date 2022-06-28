@@ -34,9 +34,9 @@ class Zbctl < Formula
   test do
     # Check status for a nonexistent cluster
     status_error_message =
-      "Error: rpc error: code =" \
-      " Unavailable desc = connection error:" \
-      " desc = \"transport: Error while dialing dial tcp 127.0.0.1:26500: connect: connection refused\""
+      "Error: rpc error: code = " \
+      "Unavailable desc = connection error: " \
+      "desc = \"transport: Error while dialing dial tcp 127.0.0.1:26500: connect: connection refused\""
     output = shell_output("#{bin}/zbctl status 2>&1", 1)
     assert_match status_error_message, output
     # Check version
