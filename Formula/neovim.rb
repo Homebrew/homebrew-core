@@ -102,7 +102,10 @@ class Neovim < Formula
                     *std_cmake_args
 
     # Patch out references to Homebrew shims
-    inreplace "build/config/auto/versiondef.h", Superenv.shims_path/ENV.cc, ENV.cc
+    # TODO: Remove conditional when the following PR is included in a release.
+    # https://github.com/neovim/neovim/pull/19120
+    config_dir_prefix = build.head? ? "cmake." : ""
+    inreplace "build/#{config_dir_prefix}config/auto/versiondef.h", Superenv.shims_path/ENV.cc, ENV.cc
 
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
