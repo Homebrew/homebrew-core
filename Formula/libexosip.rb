@@ -30,7 +30,7 @@ class Libexosip < Formula
     # https://growingshoot.blogspot.com/2013/02/manually-install-osip-and-exosip-as.html
     # Upstream bug ticket: https://savannah.nongnu.org/bugs/index.php?45079
     if OS.mac?
-      ENV.append "LDFLAGS", "-framework CoreFoundation -framework CoreServices "\
+      ENV.append "LDFLAGS", "-framework CoreFoundation -framework CoreServices " \
                             "-framework Security"
     end
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
