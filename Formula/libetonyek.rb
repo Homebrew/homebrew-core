@@ -26,8 +26,8 @@ class Libetonyek < Formula
   uses_from_macos "libxml2"
 
   resource "liblangtag" do
-    url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.3.tar.bz2"
-    sha256 "1f12a20a02ec3a8d22e54dedb8b683a43c9c160bda1ba337bf1060607ae733bd"
+    url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.4.tar.bz2"
+    sha256 "5701062c17d3e73ddaa49956cbfa5d47d2f8221988dec561c0af2118c1c8a564"
   end
 
   def install
@@ -37,6 +37,11 @@ class Libetonyek < Formula
       system "make", "install"
     end
 
+    # The mdds pkg-config .pc file includes the API version in its name (ex. mdds-2.0.pc).
+    # We extract this from the filename programmatically and store it in mdds_api_version.
+    mdds_pc_file = (Formula["mdds"].share/"pkgconfig").glob("mdds-*.pc").first.to_s
+    mdds_api_version = File.basename(mdds_pc_file, File.extname(mdds_pc_file)).split("-")[1]
+
     ENV["LANGTAG_CFLAGS"] = "-I#{libexec}/include"
     ENV["LANGTAG_LIBS"] = "-L#{libexec}/lib -llangtag -lxml2"
     system "./configure", "--without-docs",
@@ -45,7 +50,7 @@ class Libetonyek < Formula
                           "--disable-werror",
                           "--disable-tests",
                           "--prefix=#{prefix}",
-                          "--with-mdds=1.5"
+                          "--with-mdds=#{mdds_api_version}"
     system "make", "install"
   end
 
