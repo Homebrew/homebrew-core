@@ -34,7 +34,7 @@ class Twoping < Formula
 
   test do
     assert_match "OK 2PING", shell_output(
-      "#{bin}/2ping --count=10 --interval=0.2 --port=-1 --interface-address=127.0.0.1 "\
+      "#{bin}/2ping --count=10 --interval=0.2 --port=-1 --interface-address=127.0.0.1 " \
       "--listen --nagios=1000,5%,1000,5% 127.0.0.1",
     )
   end
