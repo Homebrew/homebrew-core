@@ -36,10 +36,10 @@ class Vcluster < Formula
     help_output = "vcluster root command"
     assert_match help_output, shell_output("#{bin}/vcluster --help")
 
-    create_output = "there is an error loading your current kube config "\
-                    "(invalid configuration: no configuration has been provided, "\
-                    "try setting KUBERNETES_MASTER environment variable), "\
-                    "please make sure you have access to a kubernetes cluster and the command "\
+    create_output = "there is an error loading your current kube config " \
+                    "(invalid configuration: no configuration has been provided, " \
+                    "try setting KUBERNETES_MASTER environment variable), " \
+                    "please make sure you have access to a kubernetes cluster and the command " \
                     "`kubectl get namespaces` is working"
     assert_match create_output, shell_output("#{bin}/vcluster create vcluster -n vcluster --create-namespace", 1)
   end
