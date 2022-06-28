@@ -3,7 +3,7 @@ class Oras < Formula
   homepage "https://github.com/oras-project/oras"
   url "https://github.com/oras-project/oras/archive/v0.13.0.tar.gz"
   sha256 "15a87644123cb99f2ab12301e93c1d752e8da4228e4932977452f3dcf54f3b5c"
-  license "MIT"
+  license "Apache-2.0"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c6d96bff8a617c66e247fdeff34859df2969d6d4ea17f9ce8bde54e32f688d76"
