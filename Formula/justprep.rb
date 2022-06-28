@@ -5,8 +5,8 @@ class Justprep < Formula
   sha256 "0277839a9e7e3b821b2cf72efcb364a839a59dbbbaab0b1baa02594a4994f70c"
   license "MIT"
 
-  depends_on "crystal" => [:build, :test]
-  depends_on "just" => :build
+  depends_on "crystal" => :build
+  depends_on "just" => [:build, :test]
   depends_on "bdw-gc"
   depends_on "libevent"
   depends_on "pcre"
