@@ -39,8 +39,8 @@ class ChartTesting < Formula
 
     # Lint an empty Helm chart that we create with `helm create`
     system "helm", "create", "testchart"
-    output = shell_output("#{bin}/ct lint --charts ./testchart --validate-chart-schema=false" \
-                          " --validate-maintainers=false").lines.last.chomp
+    output = shell_output("#{bin}/ct lint --charts ./testchart --validate-chart-schema=false " \
+                          "--validate-maintainers=false").lines.last.chomp
     assert_match "All charts linted successfully", output
   end
 end
