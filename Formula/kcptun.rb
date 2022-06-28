@@ -19,8 +19,6 @@ class Kcptun < Formula
   depends_on "go" => :build
 
   def install
-    ENV["CGO_ENABLED"] = "0"
-
     ldflags = "-s -w -X main.VERSION=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kcptun_client"), "./client"
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kcptun_server"), "./server"
