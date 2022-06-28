@@ -1,8 +1,10 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.26.0/chapel-1.26.0.tar.gz"
-  sha256 "ba396b581f0a17f8da3f365a3f8b079b8d2e229a393fbd1756966b0019931ece"
+#  url "https://github.com/chapel-lang/chapel/releases/download/1.26.0/chapel-1.26.0.tar.gz"
+#  sha256 "ba396b581f0a17f8da3f365a3f8b079b8d2e229a393fbd1756966b0019931ece"
+  url "http://chapel-lang.org/tmp/chapel-1.27.0.tar.gz"
+  sha256 "558b1376fb7757a5e1f254c717953f598a3e89850c8edd1936b8d09c464f3e8b"
   license "Apache-2.0"
   revision 2
 
@@ -23,14 +25,14 @@ class Chapel < Formula
   depends_on "python@3.9"
 
   on_macos do
-    depends_on "llvm@13" if MacOS.version > :catalina
+    depends_on "llvm" if MacOS.version > :catalina
     # fatal error: cannot open file './sys_basic.h': No such file or directory
     # Issue ref: https://github.com/Homebrew/homebrew-core/issues/96915
     depends_on "llvm@11" if MacOS.version <= :catalina
   end
 
   on_linux do
-    depends_on "llvm@13"
+    depends_on "llvm"
   end
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
