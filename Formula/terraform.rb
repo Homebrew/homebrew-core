@@ -1,8 +1,8 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v1.2.3.tar.gz"
-  sha256 "0bc726b85e0ef7325f9cc525f6e57cba46ed24e23f7d7d3d0ed3df91811a4ac6"
+  url "https://github.com/hashicorp/terraform/archive/v1.2.4.tar.gz"
+  sha256 "7d2f50449ddf87b6207b435a661ff3d6e3a9342f64d747211da7a558f8483997"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git", branch: "main"
 
