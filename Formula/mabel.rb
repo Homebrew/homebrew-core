@@ -24,5 +24,8 @@ class Mabel < Formula
     vrsn_out = shell_output("#{bin}/mabel --version")
     assert_match "Mabel #{version}", vrsn_out
     assert_match "Built by: #{tap.user}", vrsn_out
+
+    trnt_out = shell_output("#{bin}/mabel 'test.torrent' 2>&1", 1)
+    assert_match "open test.torrent: no such file or directory", trnt_out
   end
 end
