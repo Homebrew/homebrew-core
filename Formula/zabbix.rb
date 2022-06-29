@@ -20,6 +20,7 @@ class Zabbix < Formula
     sha256 x86_64_linux:   "fd03d3a3ad820b134a85668abed40b86a49a1282dafa18d92296f60684103323"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "openssl@3"
   depends_on "pcre2"
 
