@@ -1,11 +1,19 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://github.com/harfbuzz/harfbuzz"
-  url "https://github.com/harfbuzz/harfbuzz/archive/4.3.0.tar.gz"
-  sha256 "32184860ddc0b264ff95010e1c64e596bd746fe4c2e34014a1185340cdddeba6"
   license "MIT"
-  revision 1
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
+
+  stable do
+    url "https://github.com/harfbuzz/harfbuzz/archive/4.4.1.tar.gz"
+    sha256 "1a95b091a40546a211b6f38a65ccd0950fa5be38d95c77b5c4fa245130b418e1"
+
+    # Fix build on GCC <7, remove on next release.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ae5613e951257f508f4b17e9e24a3ea2ccb43a3f/harfbuzz/fix-pregcc7-build.patch"
+      sha256 "17abbae47e09a0daa3f5afa5f6ba37353db00c2f0fe025a014856d8b023672b6"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "ac805625a6a531cd49941e438734d1d04047468b258e13a9c69b49ffe8c2d6e9"
