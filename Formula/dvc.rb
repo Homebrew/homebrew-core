@@ -6,6 +6,7 @@ class Dvc < Formula
   url "https://files.pythonhosted.org/packages/43/84/2b29a5ef7348221f0ad0ed175ca750b236e7805dace7e75455be1eca4cc2/dvc-2.11.0.tar.gz"
   sha256 "26f5ba2a89a94874a4cc5046835717f8122c6e9adcf7097f5ec93a3a816388a0"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a2ed3472a21f69116d863403221e9b2738b493954cfaf243d39acd7cd200fb7e"
@@ -21,10 +22,10 @@ class Dvc < Formula
   depends_on "rust" => :build
   depends_on "apache-arrow"
   depends_on "libgit2"
+  depends_on "libpython-tabulate"
   depends_on "openssl@1.1"
   depends_on "protobuf"
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   # When updating, check that the extra packages in pypi_formula_mappings.json
@@ -691,18 +692,15 @@ class Dvc < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
-    venv.pip_install resources
-
     # NOTE: dvc uses this file [1] to know which package it was installed from,
     # so that it is able to provide appropriate instructions for updates.
     # [1] https://github.com/iterative/dvc/blob/0.68.1/dvc/utils/pkg.py
     File.write("dvc/utils/build.py", "PKG = \"brew\"")
 
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
 
-    (bash_completion/"dvc").write `#{bin}/dvc completion -s bash`
-    (zsh_completion/"_dvc").write `#{bin}/dvc completion -s zsh`
+    (bash_completion/"dvc").write Utils.safe_popen_read(bin/"dvc", "completion", "-s", "bash")
+    (zsh_completion/"_dvc").write Utils.safe_popen_read(bin/"dvc", "completion", "-s", "zsh")
   end
 
   test do
