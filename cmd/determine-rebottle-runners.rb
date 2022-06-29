@@ -43,7 +43,7 @@ module Homebrew
     tags = formula.bottle_specification.collector.tags
     runners = if tags.count == 1 && tags.first.system == :all
       # Build on all supported macOS versions and Linux.
-      MacOS::Version::SYMBOLS.values.flat_map do |version|
+      MacOSVersions::SYMBOLS.values.flat_map do |version|
         macos_version = MacOS::Version.new(version)
         if macos_version.outdated_release? || macos_version.prerelease?
           nil
