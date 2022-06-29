@@ -43,6 +43,6 @@ class Oras < Formula
     output = shell_output("oras push localhost:#{port}/test-artifact:v1 " \
                           "--manifest-config test.json:application/vnd.homebrew.test.config.v1+json " \
                           "./test.json 2>&1", 1)
-    assert_match "dial tcp [::1]:#{port}: connect: connection refused", output
+    assert_match "#{port}: connect: connection refused", output
   end
 end
