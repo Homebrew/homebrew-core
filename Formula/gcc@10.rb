@@ -86,10 +86,6 @@ class GccAT10 < Formula
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
       end
-
-      # Ensure correct install names when linking against libgcc_s;
-      # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
-      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}"
