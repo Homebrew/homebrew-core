@@ -4,7 +4,7 @@ class H2o < Formula
   url "https://github.com/h2o/h2o/archive/v2.2.6.tar.gz"
   sha256 "f8cbc1b530d85ff098f6efc2c3fdbc5e29baffb30614caac59d5c710f7bda201"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -28,10 +28,20 @@ class H2o < Formula
     # https://github.com/Homebrew/brew/pull/251
     ENV.delete("SDKROOT")
 
-    system "cmake", *std_cmake_args,
-                    "-DWITH_BUNDLED_SSL=OFF",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
-    system "make", "install"
+    args = std_cmake_args + %W[
+      -DWITH_BUNDLED_SSL=OFF
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
+    ]
+
+    # Build shared library.
+    system "cmake", "-S", ".", "-B", "build_shared", *args, "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
+
+    # Build static library.
+    system "cmake", "-S", ".", "-B", "build_static", *args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "build_static"
+    lib.install "build_static/libh2o-evloop.a"
 
     (etc/"h2o").mkpath
     (var/"h2o").install "examples/doc_root/index.html"
