@@ -42,12 +42,14 @@ class Gxml < Formula
         return 0;
       }
     EOS
-    libxml2 = Formula["libxml2"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
+    icu4c = Formula["icu4c"]
     libgee = Formula["libgee"]
+    libxml2 = Formula["libxml2"]
     flags = %W[
       -I#{gettext.opt_include}
+      -I#{icu4c.opt_include}
       -I#{libxml2.opt_include}/libxml2
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
@@ -55,6 +57,7 @@ class Gxml < Formula
       -I#{libgee.opt_include}/gee-0.8
       -D_REENTRANT
       -L#{gettext.opt_lib}
+      -L#{icu4c.opt_lib}
       -L#{glib.opt_lib}
       -L#{libgee.opt_lib}
       -L#{libxml2.opt_lib}
