@@ -33,6 +33,10 @@ class Easeprobe < Formula
       http:
         - name: "brew.sh"
           url: "https://brew.sh"
+      notify:
+        log:
+          - name: "logfile"
+            file: #{testpath}/easeprobe.log
     EOS
 
     easeprobe_stdout = (testpath/"easeprobe.log")
