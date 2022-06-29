@@ -11,13 +11,10 @@ class Whistle < Formula
     sha256 cellar: :any_skip_relocation, all: "1b8d58714e6b860fe5dac96826c69f30a82a9abcd697bfe240e3d780a234f33c"
   end
 
-  # `bin/proxy/mac/Whistle` was only built for `x86_64`
-  # upstream issue tracker, https://github.com/avwo/whistle/issues/734
-  depends_on arch: :x86_64
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", "--production", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
