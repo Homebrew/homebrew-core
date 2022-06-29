@@ -28,15 +28,17 @@ class OpenalSoft < Formula
   def install
     # Please don't re-enable example building. See:
     # https://github.com/Homebrew/homebrew/issues/38274
-    args = std_cmake_args + %w[
+    args = %w[
       -DALSOFT_BACKEND_PORTAUDIO=OFF
       -DALSOFT_BACKEND_PULSEAUDIO=OFF
       -DALSOFT_EXAMPLES=OFF
       -DALSOFT_MIDI_FLUIDSYNTH=OFF
     ]
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
 
-    system "cmake", ".", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
