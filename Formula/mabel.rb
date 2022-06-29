@@ -14,7 +14,7 @@ class Mabel < Formula
       -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_head}
-      -X main.builtBy=homebrew
+      -X main.builtBy=#{tap.user}
       -X main.date=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
@@ -23,6 +23,6 @@ class Mabel < Formula
   test do
     vrsn_out = shell_output("#{bin}/mabel --version")
     assert_match "Mabel #{version}", vrsn_out
-    assert_match "Built by: homebrew", vrsn_out
+    assert_match "Built by: #{tap.user}", vrsn_out
   end
 end
