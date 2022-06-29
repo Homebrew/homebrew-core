@@ -1,21 +1,19 @@
 # Note that the naming of this file is incorrect for our case: these people do not "own" the provided files but are
-# people with write-access to this repository (i.e. @Homebrew/core) who wish to be notified of changes to these
-# files.
+# people with write-access to this repository (i.e. @Homebrew/core) who wish to approve changes to these files.
 #
-# Their review is not required to merge PRs that change these files but just an indication that they wish to follow
-# along changes to these files without having to "watch" this repository on GitHub.
+# Their review is required to merge PRs that change these files.
 #
 # To be explicit: we will never accept changes to this file adding people from outside the Homebrew GitHub
 # organisation. If you are not a Homebrew maintainer: you do not personally "own" or "maintain" any formulae.
 
-CODEOWNERS            @MikeMcQuaid
-CONTRIBUTING.md       @MikeMcQuaid
-tap_migrations.json   @MikeMcQuaid
-.github/              @MikeMcQuaid @dawidd6
+CODEOWNERS            @MikeMcQuaid @Homebrew/plc @Homebrew/tsc
+CONTRIBUTING.md       @MikeMcQuaid @Homebrew/tsc
+tap_migrations.json   @MikeMcQuaid @Homebrew/tsc
+.github/              @MikeMcQuaid @dawidd6 @Homebrew/tsc
 cmd/                  @MikeMcQuaid
 
 LICENSE.txt           @Homebrew/plc @MikeMcQuaid
 
 audit_exceptions/permitted_formula_license_mismatches.json   @Homebrew/plc
 audit_exceptions/provided_by_macos_depends_on_allowlist.json @Homebrew/tsc
-audit_exceptions/universal_binary_allowlist.json             @carlocab
+audit_exceptions/universal_binary_allowlist.json             @carlocab @Homebrew/tsc
