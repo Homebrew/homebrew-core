@@ -3,8 +3,8 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/be/e2/6a78ecdbfe1d15575a46d17a17468a0f52841ead6da38d94bf57b14e9ea0/gallery_dl-1.22.2.tar.gz"
-  sha256 "b0435f55d12df53f2edcb962535d74ee36576943c085df7f0b19b4e006bc2a8c"
+  url "https://files.pythonhosted.org/packages/ba/23/444fb785bb2e20357ff220496199b078f5cd8f0304ccd6007b0a0cdaf9ae/gallery_dl-1.22.3.tar.gz"
+  sha256 "ea7bde484a62e5f7657faa2851716b5f559a5433908ba9af8031801a0c22d737"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
