@@ -1,8 +1,8 @@
 class Opendht < Formula
   desc "C++17 Distributed Hash Table implementation"
   homepage "https://github.com/savoirfairelinux/opendht"
-  url "https://github.com/savoirfairelinux/opendht/archive/refs/tags/2.4.7.1.tar.gz"
-  sha256 "c653ee697278b6acf904be77a04ccac35451b1b3bae432428ebb9878890330a7"
+  url "https://github.com/savoirfairelinux/opendht/archive/refs/tags/2.4.7.2.tar.gz"
+  sha256 "3e8eb91622ac73ca080159e6ec04192ec0c948fcea493db3dd84cda1443c2577"
   license "GPL-3.0-or-later"
 
   bottle do
