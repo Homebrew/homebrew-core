@@ -2,8 +2,8 @@ class Mabel < Formula
   desc "Fancy BitTorrent client for the terminal"
   homepage "https://github.com/smmr-software/mabel"
   url "https://github.com/smmr-software/mabel.git",
-    tag:      "v0.1.1",
-    revision: "23490e76aea68357b224dd4d7f1aed822ce2cd46"
+      tag:      "v0.1.1",
+      revision: "23490e76aea68357b224dd4d7f1aed822ce2cd46"
   license "GPL-3.0-or-later"
   head "https://github.com/smmr-software/mabel.git", branch: "main"
 
