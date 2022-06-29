@@ -3,17 +3,17 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/0b/2e/5cf9d9cd17cb2784a090beba4f1491866f2d2e3646474c93904483d058a6/locust-2.10.0.tar.gz"
-  sha256 "932771787cc22c8ef68ae52963d5f545667d12fbe9e2498ad97e5dc1401393d5"
+  url "https://files.pythonhosted.org/packages/22/e8/aa8404cefe799b597955125ca5c0c226a6635c0714d1b60fd87308dbf3ba/locust-2.10.1.tar.gz"
+  sha256 "4c6844f50f7b50b5328f310431375ad62dfb1c786a83641357838aa02e1f2382"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cae286ffe5d9783a669da40a3d04206afabd3d44d6a6643827df91555376e79e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44b4ca14cc53b955835890a47355e03e194ec5798c1519d2a16bc07a3debfa9b"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9a728848a3db7555777b9d8fbceea5a383559e5a71eba50ad92a7d2c4b2f238"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0c2ecac25d1c63e0c66952ec4aeac7d054444c819fd5f4b9f9aef40e7b5ebed1"
-    sha256 cellar: :any_skip_relocation, catalina:       "80dc78130b8fa5e95f5727954c94218726757df4f07046ad8faf29e7c7ca46cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbaa29802c780c91db890911c0f157b9fd06cb037ba27f3287ee71673b491ffb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4932bc3782d7202a988a748a25808074f138a149a55b856099c7623342ebfd43"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2062001177b8a401f54ec4248dd00e26aaef5f8658b79d8484bb16adb200e127"
+    sha256 cellar: :any_skip_relocation, monterey:       "4da83714ef257a6f7924f870cf0cf96f32cad739c531b0b1c3cc702fd3d0d67d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "211d0f684e13ac5f16cd51f2c46a892997bb68bde195b8670f9099d5bc7ff350"
+    sha256 cellar: :any_skip_relocation, catalina:       "ffb01d0d859c8d10fda72f7ad9aa4d05181f357a29bf30e7719b9db16d9f4061"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c7718c45b43f2505140b41e9532495384b0ddde90889fd424629df7cf16e9b8"
   end
 
   depends_on "python@3.10"

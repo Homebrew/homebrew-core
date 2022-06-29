@@ -1,21 +1,18 @@
 class Aptly < Formula
   desc "Swiss army knife for Debian repository management"
   homepage "https://www.aptly.info/"
-  url "https://github.com/aptly-dev/aptly/archive/v1.4.0.tar.gz"
-  sha256 "4172d54613139f6c34d5a17396adc9675d7ed002e517db8381731d105351fbe5"
+  url "https://github.com/aptly-dev/aptly/archive/v1.5.0.tar.gz"
+  sha256 "07e18ce606feb8c86a1f79f7f5dd724079ac27196faa61a2cefa5b599bbb5bb1"
   license "MIT"
-  revision 1
   head "https://github.com/aptly-dev/aptly.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a4b9b701d448d055a16c970ab0aa4af3d15c9ab0d9f60df6d380ad186956284"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7e20f2357e98719f0364e6e66322d0ea2d59b8be278cc656ace3f6386212fa11"
-    sha256 cellar: :any_skip_relocation, monterey:       "ea06977233174e186c5b5e77019881772ca2cfc323d25557255c3a3ce2c955d7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3ddf3032efd340ae06b8038917c4493facd1e4e9a64244b092d2d00f0904ae1d"
-    sha256 cellar: :any_skip_relocation, catalina:       "d14f3a2e0589a69b545078f4408a7ff804f727769f9ac0f66b0e08cbed96a7de"
-    sha256 cellar: :any_skip_relocation, mojave:         "4a164a193db58e11d6e7b18f7e911a8d7a96e8b40201160b822d8ade95181f65"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "53301cc0bf47b4eeadf784856ee71bc72c9be5db62ad0462ded0f843aed49b42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6412f542bf6952762d6e04f702544ff88056eb33751ba6772735356bede2203a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "692eb1a5b0cfdc72267072c38ec91ac0e09c3afda313318819f3e06f6de16840"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f8e56fb7954c129c0879918c382b762a998d25eee9fab0b7c7fcb2f20d5a2807"
+    sha256 cellar: :any_skip_relocation, monterey:       "b0abc4e127dd981e976f725e56a06111fe7b120fa300d53cadd3230ace8f2ea4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bfa5263df4cf003ef7a928b5ac73da07337ba666929dceecd7c279b784d4bad4"
+    sha256 cellar: :any_skip_relocation, catalina:       "413b36d3c1512a089dff010cb3e39a71ebad07570fe7c87c8413709fb093e677"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44c2015a999ea878b0b5714f1a261100974f3c8b4834cfe1406447f50821e3ec"
   end
 
   depends_on "go" => :build

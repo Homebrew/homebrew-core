@@ -1,8 +1,8 @@
 class Watchexec < Formula
   desc "Execute commands when watched files change"
   homepage "https://github.com/watchexec/watchexec"
-  url "https://github.com/watchexec/watchexec/archive/cli-v1.20.0.tar.gz"
-  sha256 "69c551090692a04943e7ded2d7f997f8777aa099c674b096a31d94983d02dbf7"
+  url "https://github.com/watchexec/watchexec/archive/cli-v1.20.2.tar.gz"
+  sha256 "62e2e722a84475436286010edff36c56c4c6fad9e76be4b35381877e93faeac8"
   license "Apache-2.0"
   head "https://github.com/watchexec/watchexec.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Watchexec < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66507f12309fc37fc7f081853d3aa37afb83df3a3e3fcf0ff3a4cb93b0b9ec5f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8461208fd41e69a9f4d9668e30f8f468cbf4e2a8293429b064dba8779f719c97"
-    sha256 cellar: :any_skip_relocation, monterey:       "2795c0f9a3552780b9bba112d6deb290a5ac003b6b050155acd6afa4a0b69716"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d086791b0e9220a05ce2b017c90757324bd46cdf6913abfebef3921bd2e9eb25"
-    sha256 cellar: :any_skip_relocation, catalina:       "144de0109bbc3614af5527d537aef3865d6cfd21361f3fd551aebaf9c9487802"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c886e0845d06cc49517e43082c5126a5fbdabe94d18f962b1ab4da5d35b3a4e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f54890b10cb00298f7ff38587e2aac50c8ecce080f5f98d7e9c767772162641"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "563a1463e20b8c6139329d00fbdd0730cd6ac619a73f66b10a048bef534a4acc"
+    sha256 cellar: :any_skip_relocation, monterey:       "91dbad2654882e4a90f3ba7cf055788308efad6960b13f26fa518334f1716380"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fca56147d4e8431e3420e0e1774349f262efddbe17ceae902b2e0187c3398ca4"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7fe9258d1fce651b347675c92a6384b934daf81141eb6e5edd13c4af1cc2256"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41a0cf97927e9514d82fd1455ea6c8fa05013243205ac058b8b6af8cc34aeceb"
   end
 
   depends_on "rust" => :build

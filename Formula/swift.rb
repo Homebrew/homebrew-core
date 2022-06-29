@@ -8,9 +8,12 @@ class Swift < Formula
   sha256 "39e4e2b7343756e26627b945a384e1b828e38778b34cc5b0f3ecc23f18d22fd6"
   license "Apache-2.0"
 
+  # This uses the `GithubLatest` strategy because a `-RELEASE` tag is often
+  # created several days before the version is officially released.
   livecheck do
-    url "https://www.swift.org/download/"
-    regex(/Releases<.*?>Swift v?(\d+(?:\.\d+)+)</im)
+    url :stable
+    regex(%r{href=["']?[^"' >]*?/tag/swift[._-]v?(\d+(?:\.\d+)+)[^"' >]*?["' >]}i)
+    strategy :github_latest
   end
 
   bottle do

@@ -6,22 +6,22 @@ class AnimeDownloader < Formula
   url "https://files.pythonhosted.org/packages/00/8b/2f354c0c2e56f1fe45e805698bd6a81c472473a48b814c44aaed2d41016d/anime-downloader-5.0.9.tar.gz"
   sha256 "40eaded9508a30f35993b2fc0f436c357d9939d58625a10bd595bfc11816ead4"
   license "Unlicense"
-  revision 1
+  revision 2
   head "https://github.com/anime-dl/anime-downloader.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e82810dc9a27679b5a31f627464c6ef9a7eddbc3501e81c9c3f528d3360adaa3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "494d36e4a623b1479cb9ee392256dd8482a5b8562469564c2d25b6f268edd726"
-    sha256 cellar: :any_skip_relocation, monterey:       "9ebdb91f8dcd1581cc47bc408bbb62b291b722e4e3759dc0bc4d9f00823a4cb1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "63656c7f0a386ce4a6c98c7c64ddebee7df37dbe8dc5972c58b70d92ec558ee8"
-    sha256 cellar: :any_skip_relocation, catalina:       "4b020f1d32f6dd05163eb04c6836c18e88347800f3f57b917cd97447fa57184d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb0930218119dc19689ed1fb6f1b58b825ad46a3c09ce062b4b167a216d42f7b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5afaf4fa40f1532ee8209377819d185323faa31ac3c754f8aefae6f03129ef1b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dba45022fb2c3c1096ccded85262e59defb8b856ed85b4f1d92137dbc038a3f8"
+    sha256 cellar: :any_skip_relocation, monterey:       "0356bb8150b7ab72fcb71902a2d22592f53ab7bcf82ea8393c15a88ecd182588"
+    sha256 cellar: :any_skip_relocation, big_sur:        "006e3511da5b6012449156ca0a7707c0481bc27dd1b2a0ad0cb8af480bf22e56"
+    sha256 cellar: :any_skip_relocation, catalina:       "f2661fa8a64d31d17871e333ffc36c92ff83904c42287cb27b9c33e5cec4a558"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "844029b93589877c1f647ba1c4550f6a374419d9499aef9783bfaa6030c7de83"
   end
 
   depends_on "aria2"
+  depends_on "libpython-tabulate"
   depends_on "node"
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/e8/b0/cd2b968000577ec5ce6c741a54d846dfa402372369b8b6861720aa9ecea7/beautifulsoup4-4.11.1.tar.gz"

@@ -20,6 +20,7 @@ class Fragroute < Formula
     sha256               big_sur:        "6d9bc388969f3798ca6ff4bc6e4cf5ecbc03f995b5f21268ae57fd49a69ec1c2"
     sha256               catalina:       "1427f299e84d0b1662a3492dc9c69cd46776265dc8b76488752b19eee1126ba6"
     sha256               mojave:         "2e4c49a602719693ed6a285aab60158a489d0f6592920b37a41e7ee933959ea6"
+    sha256               x86_64_linux:   "8bb5693e0c2a0b3f5b0d10750d306b75fde72e4e7d9247c8e3717f95204aa534"
   end
 
   depends_on "libdnet"
@@ -47,6 +48,10 @@ class Fragroute < Formula
     # conflicts with an unrelated function in newer versions of libpcap
     inreplace %w[pcaputil.h pcaputil.c tun-loop.c fragtest.c], /pcap_open\b/, "pcap_open_device_named"
 
+    # libpcap has renamed the net directory to pcap.
+    # Fix reported to author by email.
+    inreplace "configure", "net/bpf.h", "pcap/bpf.h" unless OS.mac?
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -57,6 +62,7 @@ class Fragroute < Formula
     ]
 
     args << "--with-libpcap=#{MacOS.sdk_path}/usr" if !MacOS::CLT.installed? || MacOS.version != :sierra
+    args << "--with-libpcap=#{Formula["libpcap"].opt_prefix}" unless OS.mac?
 
     system "./configure", *args
     system "make", "install"

@@ -3,17 +3,17 @@ require "language/node"
 class Asyncapi < Formula
   desc "All in one CLI for all AsyncAPI tools"
   homepage "https://github.com/asyncapi/cli"
-  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-0.19.5.tgz"
-  sha256 "3bdfdaa731b38fe49472dda37afc6e97bbe11d4dd1109ab4feb3325c5a83a325"
+  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-0.20.1.tgz"
+  sha256 "d113b063016504d018b9d0d0affea8c0a6f1cb012ae6403396c2d2ecd3bcb28d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf9ac14adb9a7f5d94f0b2c80862de3b1e6f590b1e1d82a3160ae4dc3e6fa65d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf9ac14adb9a7f5d94f0b2c80862de3b1e6f590b1e1d82a3160ae4dc3e6fa65d"
-    sha256 cellar: :any_skip_relocation, monterey:       "5fe998cc599ac55d990fa1515da4f93daa93636c4a656d38badddf1d8c8d7ba0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5fe998cc599ac55d990fa1515da4f93daa93636c4a656d38badddf1d8c8d7ba0"
-    sha256 cellar: :any_skip_relocation, catalina:       "5fe998cc599ac55d990fa1515da4f93daa93636c4a656d38badddf1d8c8d7ba0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cc3e62205720148e0cd173844960912060b2e63767b6706b5344665416c6d14"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6bf8a0cb53eae52ba5957542751fe2a7aac83a6dd6a5d305669a5133800eb990"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6bf8a0cb53eae52ba5957542751fe2a7aac83a6dd6a5d305669a5133800eb990"
+    sha256 cellar: :any_skip_relocation, monterey:       "14fa602d4c3f1770519b8b8eb93fb58d125ca8e984ecfedcf50c91a7fc956e58"
+    sha256 cellar: :any_skip_relocation, big_sur:        "14fa602d4c3f1770519b8b8eb93fb58d125ca8e984ecfedcf50c91a7fc956e58"
+    sha256 cellar: :any_skip_relocation, catalina:       "14fa602d4c3f1770519b8b8eb93fb58d125ca8e984ecfedcf50c91a7fc956e58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27ef0d0a3b91c57254c55f5981495b1eb23c4e81c7f6e6a22d4367dfcd2cfe70"
   end
 
   depends_on "node"

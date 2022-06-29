@@ -14,13 +14,18 @@ class Devtodo < Formula
     sha256 mojave:         "80c04083f48a5791985a5cf02e86ddff3e40b4523177a947f0bd3f7f066f47a1"
     sha256 high_sierra:    "1d5279b22730d8983887f91866a913b4714f8e453e382116bee294bbacee0e97"
     sha256 sierra:         "aa22627fa7722dd0ca564fdd9770a047901d71090bb5312edfa91c8cf0d72ba4"
+    sha256 x86_64_linux:   "3e73efa42394be4e0be78fe83c13b693f42a84d743fbc8e9248cdcaea13da1c2"
   end
 
   depends_on "readline"
 
+  uses_from_macos "expect" => :test
+
   conflicts_with "todoman", because: "both install a `todo` binary"
 
   # Fix invalid regex. See https://web.archive.org/web/20090205000308/swapoff.org/ticket/54
+  # Also fix build failure because of missing #include <stdlib.h> on Linux.
+  # Patch submitted to author by email.
   patch :DATA
 
   def install
@@ -61,3 +66,15 @@ __END__
  		xmlScan.addPattern(XmlCommentBegin, "<!--");
  		xmlScan.addPattern(XmlBegin, "<[a-zA-Z0-9_-]+"
  			"([[:space:]]+[a-zA-Z_0-9-]+=(([/a-zA-Z_0-9,.]+)|(\"[^\"]*\")|('[^']*')))"
+diff --git a/src/todoterm.cc b/src/todoterm.cc
+index a979d1b..6aef728 100644
+--- a/src/todoterm.cc
++++ b/src/todoterm.cc
+@@ -7,6 +7,7 @@
+ #include <stdexcept>
+ #include <curses.h>
+ #include <term.h>
++#include <stdlib.h>
+ 
+ static char info[2048];
+ static bool term_initialized;

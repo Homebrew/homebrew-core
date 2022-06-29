@@ -1,17 +1,17 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.13.1/sile-0.13.1.tar.xz"
-  sha256 "bec374b5c95b0fb763c6976a25986341b836ac187fe6f4adb8f306b45ff3bb26"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.13.2/sile-0.13.2.tar.xz"
+  sha256 "7d0a1f22100cefbc85d67b1e78fe114c3b4b510dc3a24ec59a9485e9b3ef7b08"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f0b0f6bc217c3b4beb0c0b76b209ad7d77cf7390b32e9f45e532404bfb4e8c11"
-    sha256 cellar: :any,                 arm64_big_sur:  "8aff274a17dffaafb9e729663a0ee1314820b3036c8f2cce525b8700ed91e82b"
-    sha256 cellar: :any,                 monterey:       "89ca7232f6ef8ea9053bb51b0e0891fdbf06f08bbf3b89d25d401d301c1d1860"
-    sha256 cellar: :any,                 big_sur:        "48b466cfa705153d1731feb973ce08fd5812933dd322bdf7be0317d9de7316dc"
-    sha256 cellar: :any,                 catalina:       "5c763013b45108c6e48f9c4364ded69cb4f4b8771be9198491e231e166882bb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11a4a46a5a545ecb868eeca90b44fd1e4f768d5e7bab65c2b8e7f7938ca0f56d"
+    sha256 cellar: :any,                 arm64_monterey: "356667a7143b2fb820d0ee5b18ddc8fef3d7bf6ad24ca63b06abe3a8389896cd"
+    sha256 cellar: :any,                 arm64_big_sur:  "3d3fc7af1a74c68b31aa780f1245c3c66985c87bde754ff9601b974a81c2acc1"
+    sha256 cellar: :any,                 monterey:       "1fadcd2a3cee29cf95f5b5d15518e7f7a86e5d7969955dc552e696e7c0bc9ff9"
+    sha256 cellar: :any,                 big_sur:        "dc86bcec91f4ecb978816038197761bf5438879c74f5f8028fe7b5c555f458a0"
+    sha256 cellar: :any,                 catalina:       "e22587730ceb695677fa9e46fbaeca44ddee84ada6f7476e843aeebb33618a0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bde660debb48ea8b9b4e93cc5efb9d10b17aeb74da51e6d27a62f194b312cfab"
   end
 
   head do

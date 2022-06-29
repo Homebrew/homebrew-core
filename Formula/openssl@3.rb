@@ -5,6 +5,7 @@ class OpensslAT3 < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.4.tar.gz"
   sha256 "2831843e9a668a0ab478e7020ad63d2d65e51f72977472dc73efcefbafc0c00f"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://www.openssl.org/source/"
@@ -12,12 +13,12 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0c76fe10482a42af93c6a7211be8c65d2eb8b84298c2e8c8c2724e98b538dab5"
-    sha256 arm64_big_sur:  "3b2c8f610a1795ae7988ef3953242180a5482f8454ef6b778a37d5b53793a198"
-    sha256 monterey:       "f73407d5c9da710a08aba96a5528e9426c3328dfd7fdf16d9ac37c6e61b42213"
-    sha256 big_sur:        "b7297c525a5e56d66ba6612abaf6fc39ba7db2ff1289a3738f0c8856da262b95"
-    sha256 catalina:       "6bba993328fa698354f8f80aee634a123e2eaf2b6fad9ca94f5dbbfc0ad2f74e"
-    sha256 x86_64_linux:   "f35334ec817d0a2077904f81f82345b9ef33243a046cfe4a80ee8d6c76eb030a"
+    sha256 arm64_monterey: "828b7127e7ef0c457e3261d4e13bf1aba531f253471abb80c0c6e8881a54b48b"
+    sha256 arm64_big_sur:  "52ef8f2a57e306ec21e39f28001065cde898aa7d7f8b74a5b6c7c6bd7f4aa95c"
+    sha256 monterey:       "f8c44f089db2921088039e7a300807e6d4e2a8e8a9847163179804154d849dc4"
+    sha256 big_sur:        "17f86bcfbd7e14a4c0d77a1f0b30e6bf51945fccbf7c0227800af4fa972660db"
+    sha256 catalina:       "ca25c3dd16dd3f9fe3ddeffd12f1d9b2a40863330366833618315923e9f63982"
+    sha256 x86_64_linux:   "7928d4e8b208346844f7ebff716aa22af313f645c6aa0800ce6e28c8b69906c5"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
@@ -62,6 +63,15 @@ class OpensslAT3 < Formula
       args += (ENV.ldflags || "").split
     end
     args
+  end
+
+  # Fix AVX512-specific heap buffer overflow
+  # See https://github.com/openssl/openssl/pull/18626
+  #
+  # Remove in the next release
+  patch do
+    url "https://github.com/openssl/openssl/commit/71ad6a8da3e39bd4caf5c6c767287ddd9bce8bae.patch?full_index=1"
+    sha256 "ab26fe6240a1d3b9d7214fa3937fe36f22d69acf6a6819903e8ebf2884711f26"
   end
 
   def install

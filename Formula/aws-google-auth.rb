@@ -6,20 +6,21 @@ class AwsGoogleAuth < Formula
   url "https://files.pythonhosted.org/packages/32/4c/3a1dd1781c9d3bb4a85921b3d3e6e32fc0f0bad61ace6a8e1bd1a59c5ba0/aws-google-auth-0.0.38.tar.gz"
   sha256 "7a044636df2f0ce6ceb01f8f57aba0b6a79ae58a91bef788b0ccc6474914e8ee"
   license "MIT"
+  revision 1
   head "https://github.com/cevoaustralia/aws-google-auth.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6233d50edd462ffd96294e99b8fe3affbcc12bb141e82033e0f7ab2a5ab88795"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46bbe67a5a85e29f2b0ad393509e325ffac381ea7529998a8a2d9ad53060c3e8"
-    sha256 cellar: :any_skip_relocation, monterey:       "b6237f7e70d808733ba06d681d8821d9b6a2d2c16539340b7b81b3714d5ec7b2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2369bf3561d1c2409eeecdabe2a0e0690730286461098bbcf5dde051d0acdedf"
-    sha256 cellar: :any_skip_relocation, catalina:       "03e7bd5b49fd308b0270b685ab3bf107b2c133bf3666be6ac9c6d6fc29792bf2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "789407efb9f4e8d9dbd07b3964d57c36c41eda6ef61b807bf3cdb6536e604b15"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "699951afce9efec4e907d3a3b1503afa75eaf66cca7e22d62c7077d8fd9ce02f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9204a7db473afb575d28d30ea0ae9ca79583088c1b5a606c29113e0c4f166d41"
+    sha256 cellar: :any_skip_relocation, monterey:       "76b7daa439e75b88c71a79a4f26948934de5e8b69df345426763c0caa731e39a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0330e9877788a7eac57ee79e29ca154ff334a0dbb83df4693b77a0307ddae425"
+    sha256 cellar: :any_skip_relocation, catalina:       "17c22bc8fe71e90e721301f37d6b95f1cc15f3c2d26459e1acb525863bc574eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc4560791854b269226726cfc0f3ff6d9567c5aa431622edd0d66161c7cfa5d8"
   end
 
+  depends_on "libpython-tabulate"
   depends_on "pillow"
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libffi"

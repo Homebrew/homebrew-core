@@ -3,18 +3,18 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      tag:      "v0.1.18980",
-      revision: "a65cbb5d5d6df7d78628d241ffeb9c9e0c1d23d5"
+      tag:      "v0.1.19183",
+      revision: "cc194b572048e9d935aa7dc380e2b74bd3f1fb75"
   license "MIT"
   head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d074ebecf563fe8e988cd37eba487fea1efc480b37963e2f27a029006a4c5c5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9909655c681ec2182c0f4748425b89d678f1f92dca99e69f6efc983bd3dae1e0"
-    sha256 cellar: :any_skip_relocation, monterey:       "3037b909a75ff13e554fe92202604433f5490311572b556119dbf5d05ed6e5a7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7bd48c7931266b7bc425e570019d7ba3f3c7f1bc138b4515d2cde54b67c8bbcd"
-    sha256 cellar: :any_skip_relocation, catalina:       "8bf20f6d8b65562fd858ed0e80cf628d04ef257cabddedeb6e94f0f3c0c810dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a4db53c57c676f95c740b1be74af3bdf08ad023f322216bdbb964b559cb02cd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a09e9a52d0be288de95839633deeaadb3a74b054d32db6dcc3aa2b45a0899bf3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1d52da1a67d005f11c24b049f2b28c920c4d631b9f3141f12403058ef119dc1"
+    sha256 cellar: :any_skip_relocation, monterey:       "99cd3fc0cfe614ed3b27b88cefd90355f22b4c8637f06b10f9787d8ce4dd37b9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "45e74ccfbb64ce3b4b8dacd17fb3758ca9c7cdcf82dbc4e6ecb968aa138699e7"
+    sha256 cellar: :any_skip_relocation, catalina:       "afa18ec742f5893c41ddf7eaba568b9f52fcebfe6ea6e1a8af9560c11ccd1447"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9210f27f59c72511e93933e11959453018002894119764836246fcc480d8cc7a"
   end
 
   # Bump to 1.18 when the x/sys dependency is updated upstream.
