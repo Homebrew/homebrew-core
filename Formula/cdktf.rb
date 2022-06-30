@@ -23,7 +23,10 @@ class Cdktf < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
-    output = Utils.safe_popen_read("#{bin}/cdktf", "completion", "--help")
+    output = Utils.safe_popen_read({ "SHELL" => "bash" }, libexec/"bin/cdktf", "completion", "--help")
+    (bash_completion/"cdktf").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, libexec/"bin/cdktf", "completion", "--help")
     (zsh_completion/"_cdktf").write output
   end
 
