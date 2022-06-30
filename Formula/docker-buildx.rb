@@ -7,30 +7,16 @@ class DockerBuildx < Formula
   license "Apache-2.0"
   head "https://github.com/docker/buildx.git", branch: "master"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
-  bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c64de4f3c30f7a73ff9db637660c7aa0f00234368105b0a09fa8e24eebe910c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux: "304d3d9822c75f98ad9cf57f0c234bcf326bbb96d791d551728cadd72a7a377f"
-    sha256 cellar: :any_skip_relocation, monterey: "95303b8b017d6805d35768244e66b41739745f81cb3677c0aefea231e484e227"
-  end
-
   depends_on "go" => :build
 
   def install
-    revision = Utils.git_head
     ldflags = %W[
       -s -w
-      -X github.com/docker/buildx/version.Version=#{version}
-      -X github.com/docker/buildx/version.Revision=#{revision}
-      -X github.com/docker/buildx/version.Package=github.com/docker/buildx
+      -X github.com/docker/buildx/version.Version=v#{version}
+      -X github.com/docker/buildx/version.Revision=#{Utils.git_head}
     ]
 
-    system "go", "build", "-mod=vendor", "-trimpath",
-      "-ldflags", ldflags.join(" "), "-o", bin/"docker-buildx", "./cmd/buildx"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/buildx"
 
     doc.install Dir["docs/reference/*.md"]
   end
@@ -44,6 +30,6 @@ class DockerBuildx < Formula
   end
 
   test do
-    assert_match "github.com/docker/buildx #{version}", shell_output("#{bin}/docker-buildx version")
+    assert_match "github.com/docker/buildx v#{version}", shell_output("#{bin}/docker-buildx version")
   end
 end
