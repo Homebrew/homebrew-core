@@ -31,9 +31,11 @@ class Ogmtools < Formula
   end
 
   def install
+    ENV.append "CPPFLAGS", "-I#{Formula["libvorbis"].opt_include}"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--mandir=#{man}"
-    system "make", "install"
+
+    system "make", "install", "LIBS=-L#{Formula["libvorbis"].opt_lib} -lvorbis -lvorbisenc"
   end
 
   # Borrow warning from MacPorts
