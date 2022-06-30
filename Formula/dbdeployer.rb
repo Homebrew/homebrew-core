@@ -1,8 +1,8 @@
 class Dbdeployer < Formula
   desc "Tool to deploy sandboxed MySQL database servers"
   homepage "https://github.com/datacharmer/dbdeployer"
-  url "https://github.com/datacharmer/dbdeployer/archive/v1.65.1.tar.gz"
-  sha256 "b4cc8380f09d1e503c65b354d0995add908f2f0a733a4943982f076a9405c235"
+  url "https://github.com/datacharmer/dbdeployer/archive/v1.65.2.tar.gz"
+  sha256 "535813d304d3715737bedea8c7cf88b9b3ea565a303d70554218a11d6dd9717a"
   license "Apache-2.0"
   head "https://github.com/datacharmer/dbdeployer.git", branch: "master"
 
