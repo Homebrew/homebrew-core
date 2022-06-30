@@ -27,24 +27,22 @@ class MinizipNg < Formula
     depends_on "openssl@1.1"
   end
 
-  conflicts_with "minizip",
-    because: "both install a `libminizip.a` library"
-  conflicts_with "libtcod", "libzip",
-    because: "libtcod, libzip and minizip-ng install a `zip.h` header"
+  conflicts_with "minizip", because: "both install a `libminizip.a` library"
+  conflicts_with "libtcod", "libzip", because: "libtcod, libzip and minizip-ng install a `zip.h` header"
 
   def install
-    system "cmake", "-S", ".", "-B", "build/static",
-                    "-DMZ_FETCH_LIBS=OFF",
-                    *std_cmake_args
-    system "cmake", "--build", "build/static"
-    system "cmake", "--install", "build/static"
-
     system "cmake", "-S", ".", "-B", "build/shared",
                     "-DMZ_FETCH_LIBS=OFF",
                     "-DBUILD_SHARED_LIBS=ON",
                     *std_cmake_args
     system "cmake", "--build", "build/shared"
     system "cmake", "--install", "build/shared"
+
+    system "cmake", "-S", ".", "-B", "build/static",
+                    "-DMZ_FETCH_LIBS=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build/static"
+    lib.install "build/static/libminizip.a"
   end
 
   test do
@@ -61,24 +59,7 @@ class MinizipNg < Formula
       }
     EOS
 
-    lib_flags = if OS.mac?
-      %W[
-        -lz -lbz2 -liconv -lcompression
-        -L#{Formula["zstd"].opt_lib} -lzstd
-        -L#{Formula["xz"].opt_lib} -llzma
-        -framework CoreFoundation -framework Security
-      ]
-    else
-      %W[
-        -L#{Formula["zlib"].opt_lib} -lz
-        -L#{Formula["bzip2"].opt_lib} -lbz2
-        -L#{Formula["zstd"].opt_lib} -lzstd
-        -L#{Formula["xz"].opt_lib} -llzma
-      ]
-    end
-
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
-                   "-lminizip", *lib_flags, "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lminizip", "-o", "test"
     system "./test"
   end
 end
