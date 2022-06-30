@@ -15,7 +15,7 @@ class Tuntox < Formula
       inreplace "Makefile.mac", ".git/HEAD .git/index", ""
       system "make", "-f", "Makefile.mac", "LIB_DIR=#{HOMEBREW_PREFIX}/lib"
     else
-      system "make tuntox_nostatic"
+      system "make", "tuntox_nostatic"
     end
 
     bin.install "tuntox"
