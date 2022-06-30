@@ -1,8 +1,8 @@
 class Kmod < Formula
   desc "Linux kernel module handling"
   homepage "https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git"
-  url "https://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-29.tar.xz"
-  sha256 "0b80eea7aa184ac6fd20cafa2a1fdf290ffecc70869a797079e2cc5c6225a52a"
+  url "https://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-30.tar.xz"
+  sha256 "f897dd72698dc6ac1ef03255cd0a5734ad932318e4adbaebc7338ef2f5202f9f"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
