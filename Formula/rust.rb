@@ -4,14 +4,13 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.61.0-src.tar.gz"
-    sha256 "ad0b4351675aa9abdf4c7e066613bd274c4391c5506db152983426376101daed"
+    url "https://static.rust-lang.org/dist/rustc-1.62.0-src.tar.gz"
+    sha256 "7d0878809b64d206825acae3eb7f60afb2212d81e3de1adf4c11c6032b36c027"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.62.0",
-          revision: "a028ae42fc1376571de836be702e840ca8e060c2"
+          revision: "a748cf5a3e666bc2dcdf54f37adef8ef22196452"
     end
   end
 
@@ -25,10 +24,10 @@ class Rust < Formula
   end
 
   head do
-    url "https://github.com/rust-lang/rust.git"
+    url "https://github.com/rust-lang/rust.git", branch: "master"
 
     resource "cargo" do
-      url "https://github.com/rust-lang/cargo.git"
+      url "https://github.com/rust-lang/cargo.git", branch: "master"
     end
   end
 
@@ -46,18 +45,18 @@ class Rust < Formula
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       if Hardware::CPU.arm?
-        url "https://static.rust-lang.org/dist/2022-04-07/cargo-1.60.0-aarch64-apple-darwin.tar.gz"
-        sha256 "6839526ce51c47162e678e6329d90f04b565e2214f9864e15e14fe794d047a73"
+        url "https://static.rust-lang.org/dist/2022-05-19/cargo-1.61.0-aarch64-apple-darwin.tar.gz"
+        sha256 "8099a35548e1ae4773dbbcbe797301c500ec10236435fde0073f52b4937be6c3"
       else
-        url "https://static.rust-lang.org/dist/2022-04-07/cargo-1.60.0-x86_64-apple-darwin.tar.gz"
-        sha256 "fd479595f3c4035a555357c0bebffdf6fb5e244d590dc6b7eb2880dd71091cca"
+        url "https://static.rust-lang.org/dist/2022-05-19/cargo-1.61.0-x86_64-apple-darwin.tar.gz"
+        sha256 "f2b10ef8c56f37014d2f3e4c36d5e666e3be368d24c597e99cf2e4b21dc40455"
       end
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
-      url "https://static.rust-lang.org/dist/2022-04-07/cargo-1.60.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "6dfc8b0e2d5ac2ccfc4daff66f1e4ea83af47e491edbc56c867de0227eb0cfd5"
+      url "https://static.rust-lang.org/dist/2022-05-19/cargo-1.61.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "c6e108e13ef5e08e71d70685861590f8683090368cab1f4eacfe97677333b2c7"
     end
   end
 
@@ -124,7 +123,7 @@ class Rust < Formula
       }
     EOS
     system bin/"rustc", "hello.rs"
-    assert_equal "Hello World!\n", `./hello`
+    assert_equal "Hello World!\n", shell_output("./hello")
     system bin/"cargo", "new", "hello_world", "--bin"
     assert_equal "Hello, world!", cd("hello_world") { shell_output("#{bin}/cargo run").split("\n").last }
   end
