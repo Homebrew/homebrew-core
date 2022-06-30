@@ -10,9 +10,9 @@ class XdgNinja < Formula
   depends_on "jq"
 
   def install
-    prefix.install "programs/"
-    prefix.install "xdg-ninja.sh" => "xdg-ninja"
-    bin.install_symlink prefix/"xdg-ninja"
+    pkgshare.install "programs/"
+    pkgshare.install "xdg-ninja.sh" => "xdg-ninja"
+    bin.install_symlink pkgshare/"xdg-ninja"
   end
 
   test do
