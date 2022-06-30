@@ -26,6 +26,10 @@ class Openclonk < Formula
       url "https://github.com/openclonk/openclonk/commit/15e58576894f5735af390164eb15e609344f9331.patch?full_index=1"
       sha256 "af84dc82b85c2b2ae63738badf604745002ddeb2e285fb7911b7ccdf5d4497eb"
     end
+
+    # Fix build failure with newer GCC because of missing #include <limits>
+    # TODO: submit to upstream GitHub repo
+    patch :DATA
   end
 
   livecheck do
@@ -99,3 +103,17 @@ class Openclonk < Formula
     system bin/"c4group"
   end
 end
+
+__END__
+diff --git a/src/gui/C4ScriptGuiWindow.cpp b/src/gui/C4ScriptGuiWindow.cpp
+index 785e168..1d2c467 100755
+--- a/src/gui/C4ScriptGuiWindow.cpp
++++ b/src/gui/C4ScriptGuiWindow.cpp
+@@ -42,6 +42,7 @@
+ #include <C4Viewport.h>
+
+ #include <cmath>
++#include <limits>
+
+ // Adds some helpful logs for hunting control & menu based desyncs.
+ //#define MenuDebugLogF(...) DebugLogF(__VA_ARGS__)
