@@ -16,12 +16,15 @@ class Tuntox < Formula
     if OS.mac?
       inreplace "Makefile.mac", ".git/HEAD .git/index", ""
       system "make", "-f", "Makefile.mac", "LIB_DIR=#{HOMEBREW_PREFIX}/lib"
+      bin.install "tuntox"
     else
-      inreplace "Makefile", "%.o: %.c $(INCLUDES) gitversion.h", "%.o: %.c $(INCLUDES)"
+      inreplace "Makefile" do |s|
+        s.gsub! "%.o: %.c $(INCLUDES) gitversion.h", "%.o: %.c $(INCLUDES)"
+        s.gsub! "gitversion.h: FORCE", "gitversion.h:"
+      end
       system "make", "tuntox_nostatic"
+      bin.install "tuntox_nostatic" => "tuntox"
     end
-
-    bin.install "tuntox"
   end
 
   test do
