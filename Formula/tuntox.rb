@@ -11,10 +11,13 @@ class Tuntox < Formula
   depends_on "toxcore"
 
   def install
+    inreplace "gitversion.h", /.*/, "#define GITVERSION \"4eda1442c458506158257341ab6d3fd4543288cc\""
+
     if OS.mac?
       inreplace "Makefile.mac", ".git/HEAD .git/index", ""
       system "make", "-f", "Makefile.mac", "LIB_DIR=#{HOMEBREW_PREFIX}/lib"
     else
+      inreplace "Makefile", "%.o: %.c $(INCLUDES) gitversion.h", "%.o: %.c $(INCLUDES)"
       system "make", "tuntox_nostatic"
     end
 
