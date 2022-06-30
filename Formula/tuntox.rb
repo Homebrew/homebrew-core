@@ -13,9 +13,9 @@ class Tuntox < Formula
   def install
     if OS.mac?
       inreplace "Makefile.mac", ".git/HEAD .git/index", ""
-      system "make", "-f", "Makefile.mac", "LIB_DIR=#{ENV["HOMEBREW_PREFIX"]}/lib"
+      system "make", "-f", "Makefile.mac", "LIB_DIR=#{HOMEBREW_PREFIX}/lib"
     else
-      system "make"
+      system "make tuntox_nostatic"
     end
 
     bin.install "tuntox"
