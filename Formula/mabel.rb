@@ -26,6 +26,11 @@ class Mabel < Formula
     assert_match "Built by: #{tap.user}", vrsn_out
 
     trnt_out = shell_output("#{bin}/mabel 'test.torrent' 2>&1", 1)
-    assert_match "open test.torrent: no such file or directory", trnt_out
+    error_message = if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+      "open /dev/tty: no such device or address"
+    else
+      "open test.torrent: no such file or directory"
+    end
+    assert_match error_message, trnt_out
   end
 end
