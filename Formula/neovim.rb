@@ -1,10 +1,17 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.7.2.tar.gz"
-  sha256 "ccab8ca02a0c292de9ea14b39f84f90b635a69282de38a6b4ccc8565bc65d096"
   license "Apache-2.0"
   head "https://github.com/neovim/neovim.git", branch: "master"
+
+  # Remove `stable` block when `gperf` is no longer needed.
+  stable do
+    url "https://github.com/neovim/neovim/archive/v0.7.2.tar.gz"
+    sha256 "ccab8ca02a0c292de9ea14b39f84f90b635a69282de38a6b4ccc8565bc65d096"
+    # GPerf was removed in https://github.com/neovim/neovim/pull/18544.
+    # Remove dependency when relevant commits are in a stable release.
+    uses_from_macos "gperf" => :build
+  end
 
   livecheck do
     url :stable
@@ -35,7 +42,6 @@ class Neovim < Formula
   depends_on "tree-sitter"
   depends_on "unibilium"
 
-  uses_from_macos "gperf" => :build
   uses_from_macos "unzip" => :build
 
   on_linux do
