@@ -5,6 +5,10 @@ class LibpythonTabulate < Formula
   sha256 "6c57f3f3dd7ac2782770155f3adb2db0b1a269637e42f27599925e64b114f519"
   license "MIT"
 
+  livecheck do
+    formula "python-tabulate"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "761c33fc48f6ed2af1a83df2cddbdcd4f8090569a50cb8b0f25fcce1bfe0b091"
   end
