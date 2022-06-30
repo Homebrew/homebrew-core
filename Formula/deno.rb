@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.23.1/deno_src.tar.gz"
-  sha256 "619169f952f1730870a7d1039bf3d65f030f520f5a7d2f50673fd1899ceeace7"
+  url "https://github.com/denoland/deno/releases/download/v1.23.2/deno_src.tar.gz"
+  sha256 "e3214064ccf9a2d25d483571b889ce459a3fb74a186171a81d551e0ef2752939"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -36,8 +36,8 @@ class Deno < Formula
     # TODO: Remove when deno's v8 is on 10.5.x, a backport/patch is added, or Homebrew uses a newer glibc.
     # Ref: https://chromium.googlesource.com/v8/v8.git/+/8fdb91cdb80ae0dd0223c0d065f724e480c5e0db
     resource "v8" do
-      url "https://static.crates.io/crates/v8/v8-0.44.2.crate"
-      sha256 "5ee18f5327bc32aeacce7027886683f4f9bd06ee2a17db17860bf0ab008a4013"
+      url "https://static.crates.io/crates/v8/v8-0.44.3.crate"
+      sha256 "f3f92c29dd66c7342443280695afc5bb79d773c3aa3eb02978cf24f058ae2b3d"
     end
   end
 
