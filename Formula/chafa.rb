@@ -23,11 +23,14 @@ class Chafa < Formula
   depends_on "glib"
   depends_on "imagemagick"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # imagemagick is built with GCC
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
     man1.install "docs/chafa.1"
   end
