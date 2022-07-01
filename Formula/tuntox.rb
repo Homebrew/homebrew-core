@@ -12,6 +12,7 @@ class Tuntox < Formula
 
   def install
     inreplace "gitversion.h", /.*/, '#define GITVERSION "N/A"'
+    inreplace "Makefile", "gitversion.h: FORCE", "gitversion.h:"
     system "make", "prefix=#{prefix}", "install"
   end
 
