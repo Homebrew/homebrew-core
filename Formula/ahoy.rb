@@ -20,7 +20,7 @@ class Ahoy < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-trimpath", "-ldflags", "-X main.version=#{version}-homebrew", "-o", bin/"ahoy", "."
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}-homebrew")
   end
 
   def caveats
@@ -47,6 +47,6 @@ class Ahoy < Formula
     EOS
     assert_equal "Hello Homebrew!\n", `#{bin}/ahoy hello`
 
-    assert_equal version.to_s + "-homebrew", shell_output("#{bin}/ahoy --version").strip
+    assert_equal "#{version}-homebrew", shell_output("#{bin}/ahoy --version").strip
   end
 end
