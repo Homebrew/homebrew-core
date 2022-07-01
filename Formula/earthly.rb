@@ -20,17 +20,14 @@ class Earthly < Formula
 
   def install
     ldflags = %W[
+      -s -w
       -X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version}
       -X main.Version=v#{version}
       -X main.GitSha=#{Utils.git_head}
       -X main.BuiltBy=homebrew
     ]
     tags = "dfrunmount dfrunsecurity dfsecrets dfssh dfrunnetwork"
-    system "go", "build",
-        "-tags", tags,
-        "-ldflags", ldflags,
-        *std_go_args,
-        "./cmd/earthly/main.go"
+    system "go", "build", "-tags", tags, *std_go_args(ldflags: ldflags), "./cmd/earthly"
 
     bash_output = Utils.safe_popen_read("#{bin}/earthly", "bootstrap", "--source", "bash")
     (bash_completion/"earthly").write bash_output
