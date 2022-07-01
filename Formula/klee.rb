@@ -21,7 +21,7 @@ class Klee < Formula
   depends_on arch: :x86_64
   depends_on "gperftools"
   depends_on "libpython-tabulate"
-  depends_on "llvm"
+  depends_on "llvm@13"
   depends_on "python@3.10"
   depends_on "sqlite"
   depends_on "stp"
@@ -38,8 +38,8 @@ class Klee < Formula
 
   # klee needs a version of libc++ compiled with wllvm
   resource "libcxx" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.5/llvm-14.0.5.src.tar.xz"
-    sha256 "234c8ed02ed1338aa4f0ffa955e45eb13abe7ba0032569d6bc17ae9334257b02"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/llvm-project-13.0.1.src.tar.xz"
+    sha256 "326335a830f2e32d06d0a36393b5455d17dc73e0bd1211065227ee014f92cbf8"
   end
 
   def llvm
