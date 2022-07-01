@@ -18,8 +18,8 @@ class Helmfile < Formula
   depends_on "helm"
 
   def install
-    system "go", "build", "-ldflags", "-X github.com/roboll/helmfile/pkg/app/version.Version=v#{version}",
-             "-o", bin/"helmfile", "-v", "github.com/roboll/helmfile"
+    system "go", "build", "-ldflags", "-X github.com/helmfile/helmfile/pkg/app/version.Version=v#{version}",
+             "-o", bin/"helmfile", "-v", "github.com/helmfile/helmfile"
   end
 
   test do
