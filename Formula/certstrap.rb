@@ -1,8 +1,8 @@
 class Certstrap < Formula
   desc "Tools to bootstrap CAs, certificate requests, and signed certificates"
   homepage "https://github.com/square/certstrap"
-  url "https://github.com/square/certstrap/archive/v1.2.0.tar.gz"
-  sha256 "0eebcc515ca1a3e945d0460386829c0cdd61e67c536ec858baa07986cb5e64f8"
+  url "https://github.com/square/certstrap/archive/v1.3.0.tar.gz"
+  sha256 "4b32289c20dfad7bf8ab653c200954b3b9981fcbf101b699ceb575c6e7661a90"
   license "Apache-2.0"
 
   bottle do
