@@ -4,10 +4,9 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.11.0",
-      revision: "bc2c6edaf163b1a1330e37a6e34caf8c553e4755"
+      tag:      "v1.12.0",
+      revision: "67ece03c8cd632cce9523cd96efde6f2d1cc8121"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
