@@ -27,12 +27,8 @@ class Gmic < Formula
   depends_on "libtiff"
 
   def install
-    system "cmake", *std_cmake_args,
-                    "-DENABLE_FFMPEG=OFF",
-                    "-DENABLE_OPENCV=OFF",
-                    "-DENABLE_OPENEXR=OFF",
-                    "-DENABLE_X=OFF"
-    system "make", "install"
+    system "make"
+    system "make", "DESTDIR=#{prefix}", "install"
   end
 
   test do
