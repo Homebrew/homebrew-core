@@ -2,8 +2,8 @@ class K3sup < Formula
   desc "Utility to create k3s clusters on any local or remote VM"
   homepage "https://k3sup.dev"
   url "https://github.com/alexellis/k3sup.git",
-      tag:      "0.11.3",
-      revision: "e2bb18116d3686bf53cf40fe0998af7b6c9cf8a6"
+      tag:      "0.12.0",
+      revision: "c59d67b63ec76d5d5e399808cf4b11a1e02ddbc8"
   license "MIT"
   head "https://github.com/alexellis/k3sup.git", branch: "master"
 
@@ -21,8 +21,7 @@ class K3sup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e7d21a5c3b460560123484eb0d9fb10150f64b75410a7d455ff64282de3fd1f"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     ldflags = %W[
