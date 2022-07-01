@@ -4,8 +4,8 @@ class AwscliAT1 < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://files.pythonhosted.org/packages/93/ae/4bf41bd2d9e5cbecd7a75128604c40d0f7839d13c580909f1a18d4a0ff82/awscli-1.25.10.tar.gz"
-  sha256 "c85daa66c59b0407dd481154cdd2b0292bd4337fc09bf42bf0326beb51af589e"
+  url "https://files.pythonhosted.org/packages/59/51/23730328c43354f50e9d07be07d98366aefddcf05a5a671f6f2c2a641ba7/awscli-1.25.20.tar.gz"
+  sha256 "603e259e16a790ce659c5d9aee25439d2e2f2bce3614c218a63b34e85d0afdec"
   license "Apache-2.0"
 
   livecheck do
@@ -32,8 +32,8 @@ class AwscliAT1 < Formula
   uses_from_macos "groff"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a6/8f/802d30cbabbb86afccfdd95173510b161ad29baa02947d0312248abe4888/botocore-1.27.10.tar.gz"
-    sha256 "b39da97452c9e2c856e7778d8c908252394da81e2e5792f1d4cb0ece4ce1043a"
+    url "https://files.pythonhosted.org/packages/33/b2/6fc9760bdd1f593358ad5f3639d0a46df8650e53ce554f19b6888bf346e2/botocore-1.27.20.tar.gz"
+    sha256 "d3445a382711b58b4ec29e42267f074aa743ac7a5ddc50a08e0aae2b8309e3a5"
   end
 
   resource "colorama" do
@@ -47,8 +47,8 @@ class AwscliAT1 < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/06/7e/44686b986ef9ca6069db224651baaa8300b93af2a085a5b135997bf659b3/jmespath-1.0.0.tar.gz"
-    sha256 "a490e280edd1f57d6de88636992d05b71e97d69a26a19f058ecf7d304474bf5e"
+    url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
+    sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
   end
 
   resource "pyasn1" do
