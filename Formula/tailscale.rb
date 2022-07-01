@@ -29,6 +29,13 @@ class Tailscale < Formula
     system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"tailscaled", "tailscale.com/cmd/tailscaled"
   end
 
+  service do
+    run opt_bin/"tailscaled"
+    keep_alive true
+    log_path var/"log/tailscaled.log"
+    error_log_path var/"log/tailscaled.log"
+  end
+
   test do
     version_text = shell_output("#{bin}/tailscale version")
     assert_match version.to_s, version_text
