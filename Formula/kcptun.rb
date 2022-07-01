@@ -1,8 +1,8 @@
 class Kcptun < Formula
   desc "Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/refs/tags/v20200628.tar.gz"
-  sha256 "1cc486f75337d42f5b62477aa3ad2318f35b5f941138220a4330281eb8620195"
+  url "https://github.com/xtaci/kcptun/archive/refs/tags/v20220628.tar.gz"
+  sha256 "6a63facc902594b4ca5f0456e58196cf7b2a2451594fe2f69b55ac712ceb85e8"
   license "MIT"
   head "https://github.com/xtaci/kcptun.git", branch: "master"
 
