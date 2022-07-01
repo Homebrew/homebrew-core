@@ -46,5 +46,7 @@ class Ahoy < Formula
           cmd: echo "Hello Homebrew!"
     EOS
     assert_equal "Hello Homebrew!\n", `#{bin}/ahoy hello`
+
+    assert_equal version.to_s + "-homebrew", shell_output("#{bin}/ahoy --version").strip
   end
 end
