@@ -20,7 +20,7 @@ class Gmic < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e61637e97caf2fdd854f10c685ef304731a607a8a4e0161d49b0dcfeeac08ef"
   end
 
-  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "jpeg"
   depends_on "libpng"
