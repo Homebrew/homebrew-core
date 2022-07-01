@@ -24,6 +24,7 @@ class MscGenerator < Formula
   depends_on "glpk"
   depends_on "graphviz"
   depends_on "sdl2"
+  depends_on "tinyxml2"
 
   fails_with :clang # needs std::range
 
