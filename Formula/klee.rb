@@ -3,10 +3,20 @@ class Klee < Formula
 
   desc "Symbolic Execution Engine"
   homepage "https://klee.github.io/"
-  url "https://github.com/klee/klee/archive/v2.3.tar.gz"
-  sha256 "6155fcaa4e86e7af8a73e8e4b63102abaea3a62d17e4021beeec47b0a3a6eff9"
   license "NCSA"
   head "https://github.com/klee/klee.git", branch: "master"
+
+  stable do
+    url "https://github.com/klee/klee/archive/v2.3.tar.gz"
+    sha256 "6155fcaa4e86e7af8a73e8e4b63102abaea3a62d17e4021beeec47b0a3a6eff9"
+
+    # Fix ARM build.
+    # https://github.com/klee/klee/pull/1530
+    patch do
+      url "https://github.com/klee/klee/commit/885997a9841ab666ccf1f1b573b980aa8c84a339.patch?full_index=1"
+      sha256 "6b070c676e002d455d7a4064c937b9b7c46eb576862cc85aba29dc7e6eecee91"
+    end
+  end
 
   bottle do
     sha256 monterey:     "dcee52e30664b74d8be8b6a6c5916b8e617af263f4b17a16185490e550459adf"
@@ -16,10 +26,9 @@ class Klee < Formula
   end
 
   depends_on "cmake" => :build
-  # Does not build on ARM: error: invalid application of 'sizeof' to an incomplete type 'struct stat64'
-  depends_on arch: :x86_64
   depends_on "gperftools"
   depends_on "libpython-tabulate"
+  # LLVM 14 support in progress at https://github.com/klee/klee/pull/1477
   depends_on "llvm@13"
   depends_on "python@3.10"
   depends_on "sqlite"
@@ -53,10 +62,9 @@ class Klee < Formula
     cd libcxx_src_dir do
       # Use build configuration at
       # https://github.com/klee/klee/blob/v#{version}/scripts/build/p-libcxx.inc
-      libcxx_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
+      libcxx_args = std_cmake_args(install_prefix: libcxx_install_dir) + %w[
         -DCMAKE_C_COMPILER=wllvm
         -DCMAKE_CXX_COMPILER=wllvm++
-        -DCMAKE_INSTALL_PREFIX=#{libcxx_install_dir}
         -DLLVM_ENABLE_PROJECTS=libcxx;libcxxabi
         -DLLVM_ENABLE_THREADS:BOOL=OFF
         -DLLVM_ENABLE_EH:BOOL=OFF
@@ -87,7 +95,7 @@ class Klee < Formula
           system "make", "cxx"
           system "make", "-C", "projects", "install"
 
-          Dir[libcxx_install_dir/"lib/#{shared_library("*")}", libcxx_install_dir/"lib/*.a"].each do |sl|
+          Dir[libcxx_install_dir/"lib"/shared_library("*"), libcxx_install_dir/"lib/*.a"].each do |sl|
             next if File.symlink? sl
 
             system "extract-bc", sl
