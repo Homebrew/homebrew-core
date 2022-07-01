@@ -20,13 +20,7 @@ class Ahoy < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    bin_path = buildpath/"src/github.com/ahoy-cli/ahoy"
-    bin_path.install Dir["*"]
-    cd bin_path do
-      system "go", "build", "-o", bin/"ahoy", "-ldflags", "-X main.version=#{version}-homebrew", "."
-    end
+    system "go", "build", "-trimpath", "-ldflags", "-X main.version=#{version}-homebrew", "-o", bin/"ahoy", "."
   end
 
   def caveats
