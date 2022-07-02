@@ -20,7 +20,7 @@ class Sbcl < Formula
   end
 
   depends_on "ecl" => :build
-  depends_on "zstd" => :build
+  depends_on "zstd"
 
   def install
     # Remove non-ASCII values from environment as they cause build failures
