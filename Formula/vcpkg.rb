@@ -59,7 +59,7 @@ class Vcpkg < Formula
   end
 
   test do
-    message = "Error: Could not detect vcpkg-root. You must define the VCPKG_ROOT environment variable"
+    message = "error: Could not detect vcpkg-root."
     assert_match message, shell_output("#{bin}/vcpkg search sqlite", 1)
   end
 end
