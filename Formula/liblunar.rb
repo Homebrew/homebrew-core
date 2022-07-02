@@ -14,6 +14,9 @@ class Liblunar < Formula
     sha256 sierra:        "29252d2fbfdfb582d46a728bd8272767dfa532eb90fedbb67a4b2116749dc657"
   end
 
+  # Replaced by lunar-date
+  deprecate! date: "2022-07-02", because: :deprecated_upstream
+
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
