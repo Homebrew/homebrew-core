@@ -6,6 +6,11 @@ class Mcap < Formula
   license "Apache-2.0"
   head "https://github.com/foxglove/mcap.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(%r{^releases/mcap-cli/v?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a61f55fc04c6095c5c1f053c7545623047ae62a0116157860e2f1970f76465e5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dfd7ace4c4523f70cca08dd0aa62c5451d58d58c6280bf424e6c6de6538598f"
