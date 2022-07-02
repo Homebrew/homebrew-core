@@ -10,6 +10,8 @@ class ZshCompletions < Formula
     sha256 cellar: :any_skip_relocation, all: "eab228532a15b1c8eddfd38f46306cf723e6f331d38c8874d0305d6fe888ab70"
   end
 
+  uses_from_macos "zsh" => :test
+
   def install
     inreplace "src/_ghc", "/usr/local", HOMEBREW_PREFIX
     pkgshare.install Dir["src/_*"]
@@ -43,6 +45,6 @@ class ZshCompletions < Formula
       autoload _ack
       which _ack
     EOS
-    assert_match(/^_ack/, shell_output("/bin/zsh test.zsh"))
+    assert_match(/^_ack/, shell_output("zsh test.zsh"))
   end
 end
