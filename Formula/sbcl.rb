@@ -20,8 +20,7 @@ class Sbcl < Formula
   end
 
   depends_on "ecl" => :build
-
-  uses_from_macos "zlib"
+  depends_on "zstd" => :build
 
   def install
     # Remove non-ASCII values from environment as they cause build failures
