@@ -34,10 +34,6 @@ class GeocodeGlib < Formula
     end
   end
 
-  def post_install
-    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/gnome"
-  end
-
   test do
     (testpath/"test.c").write <<~EOS
       #include <geocode-glib/geocode-glib.h>
