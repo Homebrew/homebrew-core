@@ -49,8 +49,7 @@ class Beecrypt < Formula
         byte *crc;
 
         sha256Reset(&hash);
-        sha256Update(&hash, string, sizeof(string) / sizeof(*string));
-        sha256Process(&hash);
+        sha256Update(&hash, string, 3);
         sha256Digest(&hash, digest);
 
         printf("%s\\n", crc = b64crc(digest, 32));
@@ -61,7 +60,7 @@ class Beecrypt < Formula
       }
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lbeecrypt", "-o", "test"
-    assert_match "ZF8D", shell_output("./test")
+    assert_match "FJOO", shell_output("./test")
   end
 end
 
