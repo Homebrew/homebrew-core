@@ -1,6 +1,6 @@
 class GeocodeGlib < Formula
   desc "GNOME library for gecoding and reverse geocoding"
-  homepage "https://developer.gnome.org/geocode-glib"
+  homepage "https://gitlab.gnome.org/GNOME/geocode-glib"
   url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.3.tar.xz"
   sha256 "1dfeae83b90eccca1b6cf7dcf7c5e3b317828cf0b56205c4471ef0f911999766"
   license "GPL-2.0-or-later"
