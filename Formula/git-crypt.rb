@@ -20,10 +20,10 @@ class GitCrypt < Formula
   end
 
   depends_on "openssl@1.1"
+  uses_from_macos "libxslt" => :build
 
   def install
-    system "make"
-    bin.install "git-crypt"
+    system "make", "ENABLE_MAN=yes", "PREFIX=#{prefix}", "install"
   end
 
   test do
