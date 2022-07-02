@@ -2,7 +2,7 @@ class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/resources/software/yaz/"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   stable do
     url "https://ftp.indexdata.com/pub/yaz/yaz-5.32.0.tar.gz"
@@ -52,6 +52,19 @@ class Yaz < Formula
                           "--with-xml2",
                           "--with-xslt"
     system "make", "install"
+
+    # Replace dependencies' cellar paths, which can break build for dependents
+    # (like `metaproxy` and `zebra`) after a dependency is version/revision bumped
+    inreplace bin/"yaz-config" do |s|
+      s.gsub! Formula["gnutls"].prefix.realpath, Formula["gnutls"].opt_prefix
+      s.gsub! Formula["icu4c"].prefix.realpath, Formula["icu4c"].opt_prefix
+    end
+    unless OS.mac?
+      inreplace [bin/"yaz-config", lib/"pkgconfig/yaz.pc"] do |s|
+        s.gsub! Formula["libxml2"].prefix.realpath, Formula["libxml2"].opt_prefix
+        s.gsub! Formula["libxslt"].prefix.realpath, Formula["libxslt"].opt_prefix
+      end
+    end
   end
 
   test do
