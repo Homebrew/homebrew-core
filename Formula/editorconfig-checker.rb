@@ -13,6 +13,11 @@ class EditorconfigChecker < Formula
   end
 
   test do
+    (testpath/"version.txt").write <<~EOS
+      version=#{version}
+    EOS
+
+    system "#{bin}/editorconfig-checker", testpath/"version.txt"
     assert_match version.to_s, shell_output("#{bin}/editorconfig-checker --version")
   end
 end
