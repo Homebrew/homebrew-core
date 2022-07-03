@@ -1,8 +1,8 @@
 class Jump < Formula
   desc "Helps you navigate your file system faster by learning your habits"
   homepage "https://github.com/gsamokovarov/jump"
-  url "https://github.com/gsamokovarov/jump/archive/v0.41.0.tar.gz"
-  sha256 "833151da3e9dc09190588c0a381116e3dfdf5b728869cb7b96681eb59c452b4c"
+  url "https://github.com/gsamokovarov/jump/archive/v0.50.0.tar.gz"
+  sha256 "7832e968c81659e3750b8ecaaa49eb769fff4a96e790e28ef3d1e479f11affb4"
   license "MIT"
   head "https://github.com/gsamokovarov/jump.git", branch: "main"
 
