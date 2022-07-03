@@ -4,6 +4,7 @@
   "blis",
   "fftw",
   "libvpx",
+  "luajit",
   "openblas",
   "open-mpi"
 ]

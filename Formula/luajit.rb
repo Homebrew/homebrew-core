@@ -6,11 +6,11 @@ class Luajit < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "https://luajit.org/luajit.html"
   # Update this to the tip of the `v2.1` branch at the start of every month.
-  url "https://github.com/LuaJIT/LuaJIT/archive/4c2441c16ce3c4e312aaefecc6d40c4fe21de97c.tar.gz"
+  url "https://github.com/LuaJIT/LuaJIT/archive/50936d784474747b4569d988767f1b5bab8bb6d0.tar.gz"
   # Use the version scheme `2.1.0-beta3-yyyymmdd.x` where `yyyymmdd` is the date of the
   # latest commit at the time of updating, and `x` is the number of commits on that date.
-  version "2.1.0-beta3-20220623.2"
-  sha256 "e46561743772f2e338e9dbdc1a6b7c8210688e9d25dd823f93890a44a8d30b16"
+  version "2.1.0-beta3-20220712.6"
+  sha256 "4d44e4709130b031c1c2c81cf5c102dfce877bf454409dabba03249e18870e66"
   license "MIT"
   head "https://luajit.org/git/luajit-2.0.git", branch: "v2.1"
 
@@ -44,6 +44,9 @@ class Luajit < Formula
   end
 
   def install
+    # https://github.com/LuaJIT/LuaJIT/issues/648#issuecomment-752023149
+    ENV.runtime_cpu_detection
+
     # 1 - Override the hardcoded gcc.
     # 2 - Remove the "-march=i686" so we can set the march in cflags.
     # Both changes should persist and were discussed upstream.
@@ -59,17 +62,14 @@ class Luajit < Formula
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
-    args = %W[
-      PREFIX=#{prefix}
-      XCFLAGS=-DLUAJIT_ENABLE_GC64
-    ]
+    # Pass `Q=` to build verbosely.
+    system "make", "amalg", "PREFIX=#{prefix}", "Q="
+    system "make", "install", "PREFIX=#{prefix}", "Q="
 
-    system "make", "amalg", *args
-    system "make", "install", *args
-
+    upstream_version = version.to_s.sub(/-\d+\.\d+$/, "")
     # v2.1 branch doesn't install symlink for luajit.
     # This breaks tools like `luarocks` that require the `luajit` bin to be present.
-    bin.install_symlink bin.glob("luajit-*").first => "luajit"
+    bin.install_symlink "luajit-#{upstream_version}" => "luajit"
 
     # LuaJIT doesn't automatically symlink unversioned libraries:
     # https://github.com/Homebrew/homebrew/issues/45854.
@@ -84,9 +84,6 @@ class Luajit < Formula
       s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
               "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
     end
-
-    # Having an empty Lua dir in lib/share can mess with other Homebrew Luas.
-    [lib/"lua", share/"lua"].map(&:rmtree)
   end
 
   test do
@@ -95,7 +92,10 @@ class Luajit < Formula
       ffi.cdef("int printf(const char *fmt, ...);")
       ffi.C.printf("Hello %s!\\n", "#{ENV["USER"]}")
     EOS
+
     # Check that LuaJIT can find its own `jit.*` modules
-    system bin/"luajit", "-l", "jit.bcsave", "-e", ""
+    touch "empty.lua"
+    system bin/"luajit", "-b", "empty.lua", "empty.o"
+    assert_predicate testpath/"empty.o", :exist?
   end
 end
