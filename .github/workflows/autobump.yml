@@ -840,6 +840,9 @@ env:
     zstd
     zydis
 
+permissions:
+  contents: read
+
 jobs:
   autobump:
     if: github.repository == 'Homebrew/homebrew-core'

@@ -10,6 +10,9 @@ concurrency:
   group: recreate-linux-runners
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   recreate:
     if: github.repository == 'Homebrew/homebrew-core'

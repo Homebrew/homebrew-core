@@ -13,6 +13,9 @@ concurrency:
 env:
   HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
 
+permissions:
+  contents: read
+
 jobs:
   autopublish:
     if: github.repository == 'Homebrew/homebrew-core'

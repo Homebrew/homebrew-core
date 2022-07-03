@@ -18,6 +18,9 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
 
+permissions:
+  contents: read
+
 jobs:
   upload:
     runs-on: ${{github.event.inputs.self_hosted == 'true' && 'linux-self-hosted-1' || 'ubuntu-latest'}}
