@@ -38,12 +38,6 @@ class Salt < Formula
   # Please do not add PyObjC (pyobjc* resources) since it causes broken linkage
   # https://github.com/Homebrew/homebrew-core/pull/52835#issuecomment-617502578
 
-  # fix importlib_metadata for `salt/_compat.py`
-  patch do
-    url "https://github.com/saltstack/salt/commit/a273fffc857145198f25ba269f7e2493112e55fc.patch?full_index=1"
-    sha256 "7f1d781846f684e25308ecaad601b0aa7ac563a78b6e2d83ff476d6f23849d1c"
-  end
-
   resource "apache-libcloud" do
     url "https://files.pythonhosted.org/packages/b6/a0/707142df518a602a2e36f9aa4f6dcc2cc9981843ffb7ba1207f7a084819d/apache-libcloud-2.5.0.tar.gz"
     sha256 "8f133038710257d39f9092ccaea694e31f7f4fe02c11d7fcc2674bc60a9448b6"
