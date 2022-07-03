@@ -22,6 +22,8 @@ class IrcdHybrid < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxcrypt"
+
   conflicts_with "expect", because: "both install an `mkpasswd` binary"
   conflicts_with "ircd-irc2", because: "both install an `ircd` binary"
 
