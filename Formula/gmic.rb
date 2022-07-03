@@ -25,6 +25,8 @@ class Gmic < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "libx11"
+  depends_on "openexr"
 
   def install
     system "make"
