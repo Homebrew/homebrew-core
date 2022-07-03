@@ -1,8 +1,8 @@
 class Pyqt < Formula
   desc "Python bindings for v6 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/1a/54/793f2a2408fd7774361faf99ecf1e276e787e0cbc3062161e2c54d94df33/PyQt6-6.3.0.tar.gz"
-  sha256 "4fd85dcb15ea4e734b6e4e216fe9a6246779761edaf2cf7c0cce1a2303a8d31b"
+  url "https://files.pythonhosted.org/packages/a3/ab/c5989de70eceed91abf5f828d99817462ff75f41558e9f5a6f5213f0932c/PyQt6-6.3.1.tar.gz"
+  sha256 "8cc6e21dbaf7047d1fc897e396ccd9710a12f2ef976563dad65f06017d2c9757"
   license "GPL-3.0-only"
 
   bottle do
@@ -17,7 +17,7 @@ class Pyqt < Formula
   depends_on "pyqt-builder" => :build
   depends_on "sip"          => :build
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "qt"
 
   on_linux do
@@ -28,8 +28,8 @@ class Pyqt < Formula
 
   # extra components
   resource "PyQt6-sip" do
-    url "https://files.pythonhosted.org/packages/80/1a/52b23708e45f5da117caea0ec177ea89cd21395db993c7a1fb40c25f845e/PyQt6_sip-13.3.1.tar.gz"
-    sha256 "d629c0e39d5ccfdae567b92ba74d92f9180b7c55535f82251f1a12a9076a9e01"
+    url "https://files.pythonhosted.org/packages/39/fc/f889254efda90418e367df28da9d14ac64ca19a9d93f44355d21ac562b0f/PyQt6_sip-13.4.0.tar.gz"
+    sha256 "6d87a3ee5872d7511b76957d68a32109352caf3b7a42a01d9ee20032b350d979"
   end
 
   resource "3d" do
@@ -38,13 +38,13 @@ class Pyqt < Formula
   end
 
   resource "charts" do
-    url "https://files.pythonhosted.org/packages/d4/c4/2b9bc7a69794f0a11b6ff4a0e4bbe008b513c8a5a2266fc69570d9f093cf/PyQt6_Charts-6.3.0.tar.gz"
-    sha256 "65f0abd36305884bcae6ac837f8bbcf301873cbeeea7af9f0269f4a7c1a8ae2b"
+    url "https://files.pythonhosted.org/packages/b9/f7/669fdd84d0bbd18f1a3c01dff3bcdd12f866d01fa212cf05f2ffc06f5efb/PyQt6_Charts-6.3.1.tar.gz"
+    sha256 "e6bbb17a3d5503508cb28a7b8f44dfedd659c43ff62adb64182a004fbd968f2f"
   end
 
   resource "datavis" do
-    url "https://files.pythonhosted.org/packages/21/19/d74bec74d696889fa768f63c2724ff92a1cd62be2cdda18fcc014b5fc0a9/PyQt6_DataVisualization-6.3.0.tar.gz"
-    sha256 "f3e39f04e15fa022d8343db108af03c462de81d98c07efccb0e4b6d29292f537"
+    url "https://files.pythonhosted.org/packages/6e/4d/281a11a6b2147167014285142d8dbfba8f8ac8d4de3dc8c8e7c66d152dbb/PyQt6_DataVisualization-6.3.1.tar.gz"
+    sha256 "7509f24a84f92d127e17129ec18cb208f96bd3d12a0e4b6f57d57e955527ec34"
   end
 
   resource "networkauth" do
@@ -53,8 +53,8 @@ class Pyqt < Formula
   end
 
   resource "webengine" do
-    url "https://files.pythonhosted.org/packages/eb/ac/9deb287f98b3f8fa6227c6ca73d763c5d89d292d56c20d4057831f0c62e8/PyQt6_WebEngine-6.3.0.tar.gz"
-    sha256 "ab2aedbeec54f1bcff872f7dfc236aa0fce4b55cd30f608ca89b408ee9e8147b"
+    url "https://files.pythonhosted.org/packages/90/99/59acbe75fb0ad284945d27e40f68c642850c7a186bfc9cc338c3f638d0dc/PyQt6_WebEngine-6.3.1.tar.gz"
+    sha256 "c3d1f5527b4b15f44102d617c59b1d74d9af50f821629e9335f13df47de8f007"
   end
 
   def install
@@ -70,7 +70,8 @@ class Pyqt < Formula
     system "sip-install", *args
 
     resource("PyQt6-sip").stage do
-      system "python3", *Language::Python.setup_install_args(prefix)
+      system "python3", *Language::Python.setup_install_args(prefix),
+                        "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
     end
 
     resources.each do |r|
@@ -90,7 +91,7 @@ class Pyqt < Formula
     system bin/"pyuic#{version.major}", "-V"
     system bin/"pylupdate#{version.major}", "-V"
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
     pyqt_modules = %w[
       3DAnimation
       3DCore
@@ -110,6 +111,6 @@ class Pyqt < Formula
     ]
     # Don't test WebEngineCore bindings on macOS if the SDK is too old to have built qtwebengine in qt.
     pyqt_modules << "WebEngineCore" if OS.linux? || DevelopmentTools.clang_build_version > 1200
-    pyqt_modules.each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt#{version.major}.Qt#{mod}" }
+    pyqt_modules.each { |mod| system Formula["python@3.10"].opt_bin/"python3", "-c", "import PyQt#{version.major}.Qt#{mod}" }
   end
 end
