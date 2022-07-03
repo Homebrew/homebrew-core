@@ -6,10 +6,10 @@ class EditorconfigChecker < Formula
   license "MIT"
   head "https://github.com/editorconfig-checker/editorconfig-checker.git", branch: "main"
 
-  depends_on "go@1.16" => :build
+  depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}", output: bin/"editorconfig-checker"), "./cmd/editorconfig-checker/main.go"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/editorconfig-checker/main.go"
   end
 
   test do
