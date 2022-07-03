@@ -1,8 +1,8 @@
 class Wiredtiger < Formula
   desc "High performance NoSQL extensible platform for data management"
   homepage "https://source.wiredtiger.com/"
-  url "https://github.com/wiredtiger/wiredtiger/releases/download/10.0.0/wiredtiger-10.0.0.tar.bz2"
-  sha256 "4830107ac744c0459ef99697652aa3e655c2122005a469a49d221e692fb834a5"
+  url "https://github.com/wiredtiger/wiredtiger/archive/refs/tags/11.0.0.tar.gz"
+  sha256 "1dad4afb604fa0dbebfa8024739226d6faec1ffd9f36b1ea00de86a7ac832168"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
