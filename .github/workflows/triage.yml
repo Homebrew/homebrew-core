@@ -73,6 +73,14 @@ jobs:
               path: Formula/.+
               content: license .*"(GPL|LGPL|AGPL|GFDL)-[0-9].[0-9][+]?".*
 
+            - label: boost
+              path: Formula/.+
+              content: depends_on "boost(@[0-9.]+)?"
+
+            - label: ffmpeg
+              path: Formula/.+
+              content: depends_on "ffmpeg(@[0-9.]+)?"
+
             - label: go
               path: Formula/.+
               content: depends_on "go(@[0-9.]+)?"
@@ -80,6 +88,10 @@ jobs:
             - label: haskell
               path: Formula/.+
               content: depends_on "(ghc|haskell-stack)(@[0-9.]+)?"
+
+            - label: icu4c
+              path: Formula/.+
+              content: depends_on "icu4c(@[0-9.]+)?"
 
             - label: java
               path: Formula/.+
