@@ -4,6 +4,7 @@ class Yazpp < Formula
   url "https://ftp.indexdata.com/pub/yazpp/yazpp-1.8.0.tar.gz"
   sha256 "e6c32c90fa83241e44e506a720aff70460dfbd0a73252324b90b9489eaeb050d"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://ftp.indexdata.com/pub/yazpp/"
@@ -23,9 +24,12 @@ class Yazpp < Formula
   depends_on "yaz"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.cxx11 if OS.linux? # due to `icu4c` dependency in `libxml2`
+    system "./configure", *std_configure_args
     system "make", "install"
+
+    # Replace `yaz` cellar paths, which break on `yaz` version or revision bumps
+    inreplace bin/"yazpp-config", Formula["yaz"].prefix.realpath, Formula["yaz"].opt_prefix
   end
 
   test do
