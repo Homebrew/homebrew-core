@@ -14,10 +14,25 @@ class Luajit < Formula
   license "MIT"
   head "https://luajit.org/git/luajit-2.0.git", branch: "v2.1"
 
-  # TODO: Fix livecheck.
   livecheck do
-    url "https://luajit.org/download.html"
-    regex(/href=.*?LuaJIT[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://github.com/LuaJIT/LuaJIT/commits/v2.1"
+    regex(/<relative-time[^>]+?datetime=["']?(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z)["' >]/im)
+    strategy :page_match do |page, regex|
+      newest_date = nil
+      commit_count = 0
+      page.scan(regex).map do |match|
+        date = Date.parse(match[0])
+        newest_date ||= date
+        break if date != newest_date
+
+        commit_count += 1
+      end
+      next if newest_date.blank? || commit_count.zero?
+
+      # The main LuaJIT version is rarely updated, so we recycle it from the
+      # `version` to avoid having to fetch another page.
+      version.to_s.sub(/\d+\.\d+$/, "#{newest_date.strftime("%Y%m%d")}.#{commit_count}")
+    end
   end
 
   bottle do
