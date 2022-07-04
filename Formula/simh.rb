@@ -1,9 +1,9 @@
 class Simh < Formula
   desc "Portable, multi-system simulator"
   homepage "http://simh.trailing-edge.com/"
-  url "https://github.com/simh/simh/archive/v3.11-1.tar.gz"
-  version "3.11.1"
-  sha256 "c8a2fc62bfa9369f75935950512a4cac204fd813ce6a9a222b2c6a76503befdb"
+  url "https://github.com/simh/simh/archive/v3.12-2.tar.gz"
+  version "3.12.2"
+  sha256 "bd8b01c24e62d9ba930f41a7ae7c87bf0c1e5794e27ff689c1b058ed75ebc3e8"
   license "MIT"
   head "https://github.com/simh/simh.git", branch: "master"
 
