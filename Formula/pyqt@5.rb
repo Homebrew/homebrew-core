@@ -4,6 +4,7 @@ class PyqtAT5 < Formula
   url "https://files.pythonhosted.org/packages/e1/57/2023316578646e1adab903caab714708422f83a57f97eb34a5d13510f4e1/PyQt5-5.15.7.tar.gz"
   sha256 "755121a52b3a08cb07275c10ebb96576d36e320e572591db16cfdbc558101594"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "1f1378660ae41e740dced0b0505c1511b54100605f68763013a23246d4bf1f4f"
@@ -15,8 +16,9 @@ class PyqtAT5 < Formula
   end
 
   depends_on "pyqt-builder" => :build
+  depends_on "python@3.10"  => [:build, :test]
+  depends_on "python@3.9"   => [:build, :test]
   depends_on "sip"          => :build
-  depends_on "python@3.9"
   depends_on "qt@5"
 
   on_linux do
@@ -61,37 +63,52 @@ class PyqtAT5 < Formula
     sha256 "8bb1df553ba6a615f8ec3d9b9c5270db3e15e831a6161773dabfdc1a7afe4834"
   end
 
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.match?(/python@\d\.\d+/) }
+        .map(&:opt_bin)
+        .map { |bin| bin/"python3" }
+  end
+
   def install
-    site_packages = prefix/Language::Python.site_packages("python3")
-    args = %W[
-      --target-dir #{site_packages}
-      --scripts-dir #{bin}
-      --confirm-license
-      --no-designer-plugin
-      --no-qml-plugin
-    ]
-    system "sip-install", *args
-
-    resource("PyQt5-sip").stage do
-      system "python3", *Language::Python.setup_install_args(prefix)
-    end
-
     components = %w[3d chart datavis networkauth purchasing webengine]
-    components.each do |p|
-      resource(p).stage do
-        inreplace "pyproject.toml", "[tool.sip.project]",
-          "[tool.sip.project]\nsip-include-dirs = [\"#{site_packages}/PyQt#{version.major}/bindings\"]\n"
-        system "sip-install", "--target-dir", site_packages
+
+    pythons.each do |python|
+      site_packages = prefix/Language::Python.site_packages(python)
+      args = [
+        "--target-dir", site_packages,
+        "--scripts-dir", bin,
+        "--confirm-license",
+        "--no-designer-plugin",
+        "--no-qml-plugin"
+      ]
+      system "sip-install", *args
+
+      resource("PyQt5-sip").stage do
+        system python, *Language::Python.setup_install_args(prefix),
+                       "--install-lib=#{prefix/Language::Python.site_packages(python)}"
+      end
+
+      components.each do |p|
+        resource(p).stage do
+          inreplace "pyproject.toml", "[tool.sip.project]", <<~EOS
+            [tool.sip.project]
+            sip-include-dirs = ["#{site_packages}/PyQt#{version.major}/bindings"]
+          EOS
+          system "sip-install", "--target-dir", site_packages
+        end
       end
     end
+
+    # Replace hardcoded reference to Python version used with sip/pyqt-builder with generic python3.
+    bin.children.each { |script| inreplace script, Formula["python@3.10"].opt_bin/"python3.10", "python3" }
   end
 
   test do
     system bin/"pyuic#{version.major}", "--version"
     system bin/"pylupdate#{version.major}", "-version"
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
-    %w[
+    components = %w[
       Gui
       Location
       Multimedia
@@ -101,6 +118,11 @@ class PyqtAT5 < Formula
       WebEngineWidgets
       Widgets
       Xml
-    ].each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
+    ]
+
+    pythons.each do |python|
+      system python, "-c", "import PyQt#{version.major}"
+      components.each { |mod| system python, "-c", "import PyQt5.Qt#{mod}" }
+    end
   end
 end
