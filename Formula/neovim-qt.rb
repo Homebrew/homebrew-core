@@ -39,6 +39,7 @@ class NeovimQt < Formula
   end
 
   test do
+    puts shell_output("#{bin}/nvim-qt --version")
     # Disable tests in CI environment:
     #   qt.qpa.xcb: could not connect to display
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
