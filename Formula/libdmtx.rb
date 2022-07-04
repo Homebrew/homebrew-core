@@ -1,8 +1,8 @@
 class Libdmtx < Formula
   desc "Data Matrix library"
   homepage "https://libdmtx.sourceforge.io"
-  url "https://github.com/dmtx/libdmtx/archive/v0.7.5.tar.gz"
-  sha256 "be0c5275695a732a5f434ded1fcc232aa63b1a6015c00044fe87f3a689b75f2e"
+  url "https://github.com/dmtx/libdmtx/archive/v0.7.7.tar.gz"
+  sha256 "7aa62adcefdd6e24bdabeb82b3ce41a8d35f4a0c95ab0c4438206aecafd6e1a1"
   license "BSD-2-Clause"
 
   bottle do
