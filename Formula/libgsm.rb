@@ -20,6 +20,9 @@ class Libgsm < Formula
   end
 
   def install
+    # Use symlinks instead of hardlinks.
+    inreplace "Makefile", "ln $? $@", "$(LN) $? $@"
+
     # Only the targets for which a directory exists will be installed
     bin.mkpath
     lib.mkpath
@@ -35,7 +38,7 @@ class Libgsm < Formula
         -install_name #{lib/shared_library("libgsm", version.major.to_s)}
       ]
     else
-      %w[-shared -fPIC]
+      ["-shared"]
     end
     arflags << "-o"
 
@@ -50,6 +53,7 @@ class Libgsm < Formula
       "RANLIB=true",
       "LIBGSM=$(LIB)/#{shared_library("libgsm", version)}",
     ]
+    args << "CC=#{ENV.cc} -fPIC" if OS.linux?
 
     system "make", "install", *args
 
@@ -59,6 +63,7 @@ class Libgsm < Formula
     lib.install_symlink shared_library("libgsm", version.to_s) => shared_library("libgsm", version.major.to_s)
 
     # Build static library
+    system "make", "clean"
     system "make", "./lib/libgsm.a"
     lib.install "lib/libgsm.a"
   end
