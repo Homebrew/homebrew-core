@@ -52,7 +52,7 @@ class Libgsm < Formula
       "AR=#{ENV.cc}",
       "ARFLAGS=#{arflags.join(" ")}",
       "RANLIB=true",
-      "LIBGSM=$(LIB)/#{shared_library("libgsm", version)}",
+      "LIBGSM=$(LIB)/#{shared_library("libgsm", version.to_s)}",
     ]
     args << "CC=#{ENV.cc} -fPIC" if OS.linux?
 
@@ -62,6 +62,7 @@ class Libgsm < Formula
     lib.install lib/"libgsm.a" => shared_library("libgsm", version.to_s)
     lib.install_symlink shared_library("libgsm", version.to_s) => shared_library("libgsm")
     lib.install_symlink shared_library("libgsm", version.to_s) => shared_library("libgsm", version.major.to_s)
+    lib.install_symlink shared_library("libgsm", version.to_s) => shared_library("libgsm", version.major_minor.to_s)
 
     # Build static library
     system "make", "clean"
