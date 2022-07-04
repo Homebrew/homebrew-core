@@ -4,11 +4,13 @@ class Neovide < Formula
   url "https://github.com/neovide/neovide/archive/tags/0.9.0.tar.gz"
   sha256 "a4c68cd2f3633f1478dc22ac5f27c636de236fdfe6641f558d65b846d1fbe1c8"
   license "MIT"
+  head "https://github.com/neovide/neovide.git", branch: "main"
 
   depends_on "rust" => :build
   depends_on "neovim"
 
   on_linux do
+    depends_on "python@3.10" => :build
     depends_on "fontconfig"
     depends_on "freetype"
     depends_on "libxcb"
@@ -20,6 +22,16 @@ class Neovide < Formula
   end
 
   test do
-    system bin/"neovide", "--remote-tcp=localhost:6666"
+    assert_match version.to_s, shell_output("#{bin}/neovide --version")
+
+    test_server = "localhost:#{free_port}"
+    nvim_pid = spawn "nvim", "--headless", "--listen", test_server
+    sleep 10
+    neovide_pid = spawn bin/"neovide", "--nofork", "--remote-tcp=#{test_server}"
+    sleep 10
+    system "nvim", "--server", test_server, "--remote-send", ":q<CR>"
+
+    Process.wait nvim_pid
+    Process.wait neovide_pid
   end
 end
