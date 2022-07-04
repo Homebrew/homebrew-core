@@ -11,21 +11,22 @@ class Nodeenv < Formula
     sha256 cellar: :any_skip_relocation, all: "1e5b23648954dc4570499e605ed8ea5d3eb6124b1cc776b98ee9b4601872aec7"
   end
 
-  depends_on "python@3.10"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "nodeenv.py"
+    rw_info = OS.mac? ? python_shebang_rewrite_info("/usr/bin/env python3") : detected_python_shebang
+    rewrite_shebang rw_info, "nodeenv.py"
     bin.install "nodeenv.py" => "nodeenv"
   end
 
   test do
-    system bin/"nodeenv", "--node=18.0.0", "--prebuilt", "env-18.0.0-prebuilt"
+    system bin/"nodeenv", "--node=16.0.0", "--prebuilt", "env-16.0.0-prebuilt"
     # Dropping into the virtualenv itself requires sourcing activate which
     # isn't easy to deal with. This ensures current Node installed & functional.
-    ENV.prepend_path "PATH", testpath/"env-18.0.0-prebuilt/bin"
+    ENV.prepend_path "PATH", testpath/"env-16.0.0-prebuilt/bin"
 
     (testpath/"test.js").write "console.log('hello');"
     assert_match "hello", shell_output("node test.js")
-    assert_match "v18.0.0", shell_output("node -v")
+    assert_match "v16.0.0", shell_output("node -v")
   end
 end
