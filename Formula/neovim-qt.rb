@@ -17,7 +17,6 @@ class NeovimQt < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "neovim-remote" => :test
   depends_on "neovim"
   depends_on "qt@5"
 
@@ -39,31 +38,30 @@ class NeovimQt < Formula
   end
 
   test do
-    puts shell_output("#{bin}/nvim-qt --version")
     # Disable tests in CI environment:
     #   qt.qpa.xcb: could not connect to display
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
 
     # Same test as Formula/neovim.rb
 
     testfile = testpath/"test.txt"
     testserver = testpath/"nvim.sock"
 
-    testcommand = "s/Vim/Neovim/g"
+    testcommand = ":s/Vim/Neovim/g<CR>"
     testinput = "Hello World from Vim!!"
     testexpected = "Hello World from Neovim!!"
     testfile.write(testinput)
 
-    nvr_opts = ["--nostart", "--servername", testserver]
+    nvim_opts = ["--server", testserver]
 
     ohai "#{bin}/nvim-qt --nofork -- --listen #{testserver}"
     nvimqt_pid = spawn bin/"nvim-qt", "--nofork", "--", "--listen", testserver
     sleep 10
-    system "nvr", *nvr_opts, "--remote", testfile
-    system "nvr", *nvr_opts, "-c", testcommand
-    system "nvr", *nvr_opts, "-c", "w"
+    system "nvim", *nvim_opts, "--remote", testfile
+    system "nvim", *nvim_opts, "--remote-send", testcommand
+    system "nvim", *nvim_opts, "--remote-send", ":w<CR>"
     assert_equal testexpected, testfile.read.chomp
-    system "nvr", *nvr_opts, "-c", "call GuiClose()"
+    system "nvim", "--server", testserver, "--remote-send", ":q<CR>"
     Process.wait nvimqt_pid
   end
 end
