@@ -3,6 +3,7 @@ class Libgsm < Formula
   homepage "http://www.quut.com/gsm/"
   url "http://www.quut.com/gsm/gsm-1.0.20.tar.gz"
   sha256 "b0e6cf4d5ac81387cf74cbe431f77302db3b2f62fc7cb5e21a5670ac30963979"
+  license "TU-Berlin-2.0"
 
   livecheck do
     url :homepage
