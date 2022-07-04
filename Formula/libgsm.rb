@@ -35,7 +35,7 @@ class Libgsm < Formula
         -install_name #{lib/shared_library("libgsm", version.major.to_s)}
       ]
     else
-      ["-shared"]
+      %w[-shared -fPIC]
     end
     arflags << "-o"
 
@@ -57,6 +57,10 @@ class Libgsm < Formula
     lib.install lib/"libgsm.a" => shared_library("libgsm", version.to_s)
     lib.install_symlink shared_library("libgsm", version.to_s) => shared_library("libgsm")
     lib.install_symlink shared_library("libgsm", version.to_s) => shared_library("libgsm", version.major.to_s)
+
+    # Build static library
+    system "make", "./lib/libgsm.a"
+    lib.install "lib/libgsm.a"
   end
 
   test do
