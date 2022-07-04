@@ -14,7 +14,6 @@ class Mprocs < Formula
 
   test do
     require "pty"
-    require "io/console"
 
     begin
       r, w, pid = PTY.spawn("#{bin}/mprocs 'echo hello mprocs'")
