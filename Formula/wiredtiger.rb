@@ -20,24 +20,17 @@ class Wiredtiger < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e89496c6a6af975b83b16006c84ef7c69d7df3b0e127e2f58a3b2ff6cfc860f"
   end
 
+  depends_on "ccache" => :build
+  depends_on "cmake" => :build
   depends_on "snappy"
 
   uses_from_macos "zlib"
 
-  # Workaround to build on ARM with system type 'arm-apple-darwin*'
-  # Remove in next release as build system is changing to CMake
-  patch :DATA
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
-    system "./configure", "--with-builtins=snappy,zlib",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-DHAVE_BUILTIN_EXTENSION_SNAPPY=1", "-DHAVE_BUILTIN_EXTENSION_ZLIB=1", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
@@ -45,16 +38,3 @@ class Wiredtiger < Formula
     system "#{bin}/wt", "drop", "table:test"
   end
 end
-
-__END__
---- a/configure
-+++ b/configure
-@@ -16317,7 +16317,7 @@ else
- fi
-
- case $host_cpu in #(
--  aarch64*) :
-+  aarch64*|arm*) :
-     wt_cv_arm64="yes" ;; #(
-   *) :
-     wt_cv_arm64="no" ;;
