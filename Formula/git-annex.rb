@@ -17,9 +17,7 @@ class GitAnnex < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pkg-config" => :build
-  depends_on "gsasl"
   depends_on "libmagic"
-  depends_on "quvi"
 
   def install
     system "cabal", "v2-update"
