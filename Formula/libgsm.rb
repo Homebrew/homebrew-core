@@ -84,7 +84,7 @@ class Libgsm < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lgsm", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lgsm", "-o", "test"
     system "./test"
   end
 end
