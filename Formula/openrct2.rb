@@ -2,8 +2,8 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      tag:      "v0.4.0",
-      revision: "c6302a1dae09e2539ed053390ca0dd1816448a14"
+      tag:      "v0.4.1",
+      revision: "be518f48e34184674cf176102d343e539b20549e"
   license "GPL-3.0-only"
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
@@ -20,9 +20,12 @@ class Openrct2 < Formula
   depends_on "nlohmann-json" => :build
   depends_on "pkg-config" => :build
   depends_on "duktape"
+  depends_on "flac"
   depends_on "freetype"
   depends_on "icu4c"
+  depends_on "libogg"
   depends_on "libpng"
+  depends_on "libvorbis"
   depends_on "libzip"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
   depends_on "openssl@1.1"
@@ -43,8 +46,8 @@ class Openrct2 < Formula
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/archive/v1.2.7.tar.gz"
-    sha256 "ec9a4f862365477b24a9eea16159131b235e05330fa2becefa1a113b17e6bceb"
+    url "https://github.com/OpenRCT2/objects/archive/v1.3.2.tar.gz"
+    sha256 "9c94e479ce676076c739a05edbd9196860d1baecff8753c378043dcea8e0b63b"
   end
 
   def install
