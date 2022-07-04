@@ -47,6 +47,27 @@ class Pymupdf < Formula
   end
 
   test do
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import fitz"
+    (testpath/"test.py").write <<~EOS
+      import sys
+      from pathlib import Path
+
+      import fitz
+
+      in_pdf = sys.argv[1]
+      out_png = sys.argv[2]
+
+      # Convert first page to PNG
+      pdf_doc = fitz.open(in_pdf)
+      pdf_page = pdf_doc.load_page(0)
+      png_bytes = pdf_page.get_pixmap().tobytes()
+
+      Path(out_png).write_bytes(png_bytes)
+    EOS
+
+    in_pdf = test_fixtures("test.pdf")
+    out_png = testpath/"test.png"
+
+    system Formula["python@3.10"].opt_bin/"python3", testpath/"test.py", in_pdf, out_png
+    assert_predicate out_png, :exist?
   end
 end
