@@ -9,7 +9,7 @@ class Pymupdf < Formula
   depends_on "swig" => :build
 
   depends_on "mupdf"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "mujs"
@@ -38,10 +38,15 @@ class Pymupdf < Formula
     # https://github.com/pymupdf/PyMuPDF/blob/1.20.0/setup.py#L447
     ENV["PYMUPDF_SETUP_MUPDF_BUILD"] = ""
 
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix), "build"
+    # Ensure `python` references use our python3
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_bin
+
+    system "python3", *Language::Python.setup_install_args(prefix),
+                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}",
+                      "build"
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import fitz"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import fitz"
   end
 end
