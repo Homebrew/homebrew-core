@@ -13,6 +13,19 @@ class Mprocs < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/mprocs --version")
+    require "pty"
+    require "io/console"
+
+    begin
+      r, w, pid = PTY.spawn("#{bin}/mprocs 'echo hello mprocs'")
+      r.winsize = [80, 30]
+      sleep 1
+      w.write "q"
+      assert_match "hello mprocs", r.read
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    end
+  ensure
+    Process.kill("TERM", pid)
   end
 end
