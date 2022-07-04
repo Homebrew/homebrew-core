@@ -8,6 +8,7 @@ class QtAT5 < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.5/single/qt-everywhere-opensource-src-5.15.5.tar.xz"
   sha256 "5a97827bdf9fd515f43bc7651defaf64fecb7a55e051c79b8f80510d0e990f06"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "bce4356e6987a55b0bbe586f753190d3f3afed4036ada8ec4a2d8d23d420841a"
@@ -235,6 +236,10 @@ class QtAT5 < Formula
     # of both Designer and Linguist as that relies on Assistant being in `bin`.)
     libexec.mkpath
     Pathname.glob("#{bin}/*.app") { |app| mv app, libexec }
+
+    # Fix find_package call using QtWebEngine version to find other Qt5 modules.
+    inreplace Dir[lib/"cmake/Qt5WebEngine*/*Config.cmake"],
+              " #{resource("qtwebengine").version} ", " #{version} "
   end
 
   def caveats
