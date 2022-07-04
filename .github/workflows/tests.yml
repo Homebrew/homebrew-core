@@ -49,7 +49,6 @@ jobs:
       fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
       test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
       timeout-minutes: ${{ steps.check-labels.outputs.timeout-minutes }}
-      container: ${{ steps.check-labels.outputs.container }}
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
@@ -143,17 +142,6 @@ jobs:
               }
             }
 
-            const container = {}
-            if (label_names.includes('CI-linux-wheezy')) {
-              console.log('CI-linux-wheezy label found. Using Linux Debian 7 (Wheezy) container.')
-              container.image = 'homebrew/debian7:latest'
-            } else {
-              console.log('No CI-linux-wheezy label found. Using default Homebrew (Ubuntu 16.04) container.')
-              container.image = 'ghcr.io/homebrew/ubuntu16.04:master'
-            }
-            container.options = '--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED'
-            core.setOutput('container', JSON.stringify(container))
-
             const test_bot_formulae_args = ["--only-formulae", "--junit", "--only-json-tab", "--skip-dependents"]
             test_bot_formulae_args.push(`--testing-formulae="${process.env.TESTING_FORMULAE}"`)
             test_bot_formulae_args.push(`--added-formulae="${process.env.ADDED_FORMULAE}"`)
@@ -201,7 +189,9 @@ jobs:
           - runner: '11'
           - runner: '10.15'
           - runner: ${{needs.setup_tests.outputs.linux-runner}}
-            container: ${{fromJson(needs.setup_tests.outputs.container)}}
+            container:
+              image: ghcr.io/homebrew/ubuntu16.04:master
+              options: --user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED
             workdir: /github/home
             timeout: 4320
       fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}

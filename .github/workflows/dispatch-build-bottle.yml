@@ -19,9 +19,6 @@ on:
       upload:
         description: "Whether to upload built bottles or not (default: false)"
         required: false
-      wheezy:
-        description: Whether to build the bottle in Debian Wheezy container
-        required: false
 
 env:
   HOMEBREW_DEVELOPER: 1
@@ -66,7 +63,6 @@ jobs:
           echo timeout=${{github.event.inputs.timeout}}
           echo issue=${{github.event.inputs.issue}}
           echo upload=${{github.event.inputs.upload}}
-          echo wheezy=${{github.event.inputs.wheezy}}
 
       - name: Set environment variables
         if: runner.os == 'macOS'
@@ -87,7 +83,7 @@ jobs:
             --env-file <(env | egrep 'HOMEBREW|GITHUB') \
             --workdir /tmp/bottles \
             --pull always \
-            ${{github.event.inputs.wheezy && 'homebrew/debian7:latest' || 'ghcr.io/homebrew/ubuntu16.04:master'}} \
+            ghcr.io/homebrew/ubuntu16.04:master \
             sleep inf
           # Fix working directory permissions
           docker exec --user root ${{github.sha}} chmod 777 /tmp/bottles
