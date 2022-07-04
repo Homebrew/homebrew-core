@@ -31,7 +31,7 @@ class Pymupdf < Formula
       (buildpath/"pymupdf_dirs.env").write(pymupdf_dirs.to_json)
 
       # https://github.com/pymupdf/PyMuPDF/blob/1.20.0/setup.py#L630
-      ENV["PYMUPDF_DIRS"] = File.expand_path("pymupdf_dirs.env")
+      ENV["PYMUPDF_DIRS"] = (buildpath/"pymupdf_dirs.env").to_s
     end
 
     # Makes setup skip build stage for mupdf
