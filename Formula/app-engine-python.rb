@@ -13,6 +13,8 @@ class AppEnginePython < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "5b799bff8064c075f8950a27c73f1a1cfd18c57fd4fb2082b19f1bade4f61cc0"
   end
 
+  deprecate! date: "2022-07-03", because: "depends on Python 2"
+
   def install
     pkgshare.install Dir["*"]
     %w[
