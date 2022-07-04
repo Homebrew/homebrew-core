@@ -20,8 +20,6 @@ class Libgsm < Formula
   end
 
   def install
-    ENV.append_to_cflags "-c -O2 -DNeedFunctionPrototypes=1"
-
     # Only the targets for which a directory exists will be installed
     bin.mkpath
     lib.mkpath
@@ -29,17 +27,36 @@ class Libgsm < Formula
     man1.mkpath
     man3.mkpath
 
-    # Dynamic library must be built first
-    system "make", "lib/libgsm.1.0.13.dylib",
-           "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}",
-           "LDFLAGS=#{ENV.ldflags}"
-    system "make", "all",
-           "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}",
-           "LDFLAGS=#{ENV.ldflags}"
-    system "make", "install",
-           "INSTALL_ROOT=#{prefix}",
-           "GSM_INSTALL_INC=#{include}"
-    lib.install Dir["lib/#{shared_library("*")}"]
+    arflags = if OS.mac?
+      %W[
+        -dynamiclib
+        -compatibility_version #{version.major}
+        -current_version #{version}
+        -install_name #{lib/shared_library("libgsm", version.major.to_s)}
+      ]
+    else
+      ["-shared"]
+    end
+    arflags << "-o"
+
+    args = [
+      "INSTALL_ROOT=#{prefix}",
+      "GSM_INSTALL_INC=#{include}",
+      "GSM_INSTALL_MAN=#{man3}",
+      "TOAST_INSTALL_MAN=#{man1}",
+      "LN=ln -s",
+      "AR=#{ENV.cc}",
+      "ARFLAGS=#{arflags.join(" ")}",
+      "RANLIB=true",
+      "LIBGSM=$(LIB)/#{shared_library("libgsm", version)}",
+    ]
+
+    system "make", "install", *args
+
+    # Our shared library is erroneously installed as `libgsm.a`
+    lib.install lib/"libgsm.a" => shared_library("libgsm", version.to_s)
+    lib.install_symlink shared_library("libgsm", version.to_s) => shared_library("libgsm")
+    lib.install_symlink shared_library("libgsm", version.to_s) => shared_library("libgsm", version.major.to_s)
   end
 
   test do
