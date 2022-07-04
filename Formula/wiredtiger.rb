@@ -27,8 +27,6 @@ class Wiredtiger < Formula
   uses_from_macos "zlib"
 
   def install
-    # Workaround to build on ARM with system type 'arm-apple-darwin*'
-    inreplace "CMakeLists.txt", "arm64|aarch64", "arm*|aarch64"
     system "cmake", "-S", ".", "-B", "build",
       "-DHAVE_BUILTIN_EXTENSION_SNAPPY=1",
       "-DHAVE_BUILTIN_EXTENSION_ZLIB=1",
