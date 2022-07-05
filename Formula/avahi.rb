@@ -4,7 +4,7 @@ class Avahi < Formula
   url "https://github.com/lathiat/avahi/archive/v0.8.tar.gz"
   sha256 "c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 x86_64_linux: "b478d99f29a87da16b631835cdc80407459ee69c42e1813e7e18c1effb6c7206"
@@ -12,6 +12,7 @@ class Avahi < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "glib-utils" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
   depends_on "m4" => :build
@@ -19,6 +20,7 @@ class Avahi < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "xmltoman" => :build
   depends_on "dbus"
+  depends_on "gdbm"
   depends_on "glib"
   depends_on "libdaemon"
   depends_on :linux
