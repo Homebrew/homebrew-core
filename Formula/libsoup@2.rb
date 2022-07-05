@@ -4,6 +4,7 @@ class LibsoupAT2 < Formula
   url "https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.2.tar.xz"
   sha256 "f0a427656e5fe19e1df71c107e88dfa1b2e673c25c547b7823b6018b40d01159"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "f237e2e3e6d4ed0ee7a3945803a0353afa7d140f9da9c86adbdf3e6e6462f942"
@@ -16,10 +17,12 @@ class LibsoupAT2 < Formula
 
   keg_only :versioned_formula
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "vala" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
@@ -27,6 +30,7 @@ class LibsoupAT2 < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "libxml2"
+  uses_from_macos "sqlite"
 
   def install
     mkdir "build" do
