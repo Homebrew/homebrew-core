@@ -29,7 +29,7 @@ class Simh < Formula
     ENV.deparallelize unless build.head?
     inreplace "makefile", "GCC = gcc", "GCC = #{ENV.cc}"
     inreplace "makefile", "CFLAGS_O = -O2", "CFLAGS_O = #{ENV.cflags}"
-    system "make", "USE_NETWORK=1", "all"
+    system "make", "all"
     bin.install Dir["BIN/*"]
     Dir["**/*.txt"].each do |f|
       (doc/File.dirname(f)).install f
