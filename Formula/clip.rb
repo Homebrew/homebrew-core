@@ -4,7 +4,7 @@ class Clip < Formula
   url "https://github.com/asmuth/clip/archive/v0.7.tar.gz"
   sha256 "f38f455cf3e9201614ac71d8a871e4ff94a6e4cf461fd5bf81bdf457ba2e6b3e"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "02d8da157f889f384abb2900d10ead88cc6bfaba984165e78a92f6fbce100f6e"
