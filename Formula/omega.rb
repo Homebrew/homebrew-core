@@ -1,8 +1,8 @@
 class Omega < Formula
   desc "Packaged search engine for websites, built on top of Xapian"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.19/xapian-omega-1.4.19.tar.xz"
-  sha256 "e4b2ef287e55df6754a1cb13b7677231bfda6df22567d28944046f6994d5cd8c"
+  url "https://oligarchy.co.uk/xapian/1.4.20/xapian-omega-1.4.20.tar.xz"
+  sha256 "09fd7d6c60b394fd00d84700649969a1fcc3aa2b88bb2c6ca220fdfa8d25881f"
   license "GPL-2.0-or-later"
 
   livecheck do
