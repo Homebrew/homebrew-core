@@ -90,8 +90,8 @@ class Watchman < Formula
     system "cmake", "--install", "build"
 
     path = Pathname.new(File.join(prefix, HOMEBREW_PREFIX))
-    bin.install Dir[path/"bin/*"]
-    lib.install Dir[path/"lib/*"]
+    bin.install (path/"bin").children
+    lib.install (path/"lib").children
     path.rmtree
   end
 
