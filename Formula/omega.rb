@@ -21,7 +21,7 @@ class Omega < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libmagic"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "xapian"
 
   def install
