@@ -4,6 +4,7 @@ class LibvirtGlib < Formula
   url "https://libvirt.org/sources/glib/libvirt-glib-4.0.0.tar.xz"
   sha256 "8423f7069daa476307321d1c11e2ecc285340cd32ca9fc05207762843edeacbd"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://libvirt.org/sources/glib/"
@@ -20,6 +21,7 @@ class LibvirtGlib < Formula
     sha256 x86_64_linux:   "dca22d86f5c9e75e1abd763a252c0468da812032f80fae12514f57bb33023ffb"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "meson" => :build
