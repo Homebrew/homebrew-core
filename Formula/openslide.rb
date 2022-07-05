@@ -4,7 +4,7 @@ class Openslide < Formula
   url "https://github.com/openslide/openslide/releases/download/v3.4.1/openslide-3.4.1.tar.xz"
   sha256 "9938034dba7f48fadc90a2cdf8cfe94c5613b04098d1348a5ff19da95b990564"
   license "LGPL-2.1-only"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3766557c0ad2aef7585e85ecd59c1b2794982602161425b67eba70bed8b35a80"
@@ -27,6 +27,8 @@ class Openslide < Formula
   depends_on "libtiff"
   depends_on "libxml2"
   depends_on "openjpeg"
+
+  uses_from_macos "sqlite"
 
   resource "svs" do
     url "https://openslide.cs.cmu.edu/download/openslide-testdata/Aperio/CMU-1-Small-Region.svs"
