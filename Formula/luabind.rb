@@ -19,6 +19,8 @@ class Luabind < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8b418ed0d609a995f30fd64ad72c5a99317068f07b4c9950ed3818af6878bae"
   end
 
+  deprecate! date: "2022-07-04", because: :unmaintained
+
   depends_on "boost-build" => :build
   depends_on "boost"
   depends_on "lua@5.1"
