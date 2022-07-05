@@ -64,15 +64,6 @@ class OpensslAT3 < Formula
     args
   end
 
-  # Fix AVX512-specific heap buffer overflow
-  # See https://github.com/openssl/openssl/pull/18626
-  #
-  # Remove in the next release
-  patch do
-    url "https://github.com/openssl/openssl/commit/71ad6a8da3e39bd4caf5c6c767287ddd9bce8bae.patch?full_index=1"
-    sha256 "ab26fe6240a1d3b9d7214fa3937fe36f22d69acf6a6819903e8ebf2884711f26"
-  end
-
   def install
     if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
