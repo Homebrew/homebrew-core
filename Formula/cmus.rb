@@ -1,10 +1,9 @@
 class Cmus < Formula
   desc "Music player with an ncurses based interface"
   homepage "https://cmus.github.io/"
-  url "https://github.com/cmus/cmus/archive/v2.9.1.tar.gz"
-  sha256 "6fb799cae60db9324f03922bbb2e322107fd386ab429c0271996985294e2ef44"
+  url "https://github.com/cmus/cmus/archive/v2.10.0.tar.gz"
+  sha256 "ff40068574810a7de3990f4f69c9c47ef49e37bd31d298d372e8bcdafb973fff"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/cmus/cmus.git", branch: "master"
 
   bottle do
