@@ -4,6 +4,7 @@ class Libsoup < Formula
   url "https://download.gnome.org/sources/libsoup/3.0/libsoup-3.0.7.tar.xz"
   sha256 "ebdf90cf3599c11acbb6818a9d9e3fc9d2c68e56eb829b93962972683e1bf7c8"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "3a65a35c6dfa623e09f5b36d098445e215871ec09d0a3ed18b5bd25b05e452fd"
@@ -14,10 +15,12 @@ class Libsoup < Formula
     sha256 x86_64_linux:   "865315a09372ab22d48f15bef518e54fdd69493dae309bca6f8816206c948834"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.10" => :build
   depends_on "vala" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
@@ -25,6 +28,7 @@ class Libsoup < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "libxml2"
+  uses_from_macos "sqlite"
 
   def install
     mkdir "build" do
