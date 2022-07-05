@@ -34,6 +34,12 @@ class MscGenerator < Formula
   end
 
   def install
+    # Brew uses shims to ensure that the project is built with a single compiler.
+    # However, gcc cannot compile our Objective-C++ sources (clipboard.mm), while
+    # clang++ cannot compile the rest of the project. As a workaround, we set gcc
+    # as the main compiler, and bypass brew's compiler shim to force using clang++
+    # for Objective-C++ sources. This workaround should be removed once brew supports
+    # setting separate compilers for C/C++ and Objective-C/C++.
     extra_args = []
     extra_args << "OBJCXX=/usr/bin/clang++" if OS.mac?
     system "./configure", *std_configure_args, "--disable-font-checks", *extra_args
