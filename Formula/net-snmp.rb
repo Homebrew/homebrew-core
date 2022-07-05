@@ -1,8 +1,8 @@
 class NetSnmp < Formula
   desc "Implements SNMP v1, v2c, and v3, using IPv4 and IPv6"
   homepage "http://www.net-snmp.org/"
-  url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9.1/net-snmp-5.9.1.tar.gz"
-  sha256 "eb7fd4a44de6cddbffd9a92a85ad1309e5c1054fb9d5a7dd93079c8953f48c3f"
+  url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9.2/net-snmp-5.9.2.tar.gz"
+  sha256 "21e86b06c8b54639f915781c9bf6433a79da5b7aa109087ea47a9b5378a6c5fd"
   license "Net-SNMP"
   head "https://github.com/net-snmp/net-snmp.git", branch: "master"
 
@@ -38,9 +38,6 @@ class NetSnmp < Formula
   end
 
   def install
-    # Workaround https://github.com/net-snmp/net-snmp/issues/226 in 5.9:
-    inreplace "agent/mibgroup/mibII/icmp.h", "darwin10", "darwin"
-
     args = [
       "--disable-debugging",
       "--prefix=#{prefix}",
