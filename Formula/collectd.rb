@@ -2,7 +2,7 @@ class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
   license "MIT"
-  revision 2
+  revision 3
 
   stable do
     url "https://collectd.org/files/collectd-5.12.0.tar.bz2"
