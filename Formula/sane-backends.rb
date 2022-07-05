@@ -2,6 +2,7 @@ class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
   license "GPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://gitlab.com/sane-project/backends/uploads/7d30fab4e115029d91027b6a58d64b43/sane-backends-1.1.1.tar.gz"
