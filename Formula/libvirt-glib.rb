@@ -33,10 +33,8 @@ class LibvirtGlib < Formula
 
   def install
     system "meson", "setup", "builddir", *std_meson_args, "-Dintrospection=enabled"
-    cd "builddir" do
-      system "meson", "compile"
-      system "meson", "install"
-    end
+    system "meson", "compile", "-C", "builddir"
+    system "meson", "install", "-C", "builddir"
   end
 
   test do
@@ -56,18 +54,18 @@ class LibvirtGlib < Formula
     else
       Formula["libxml2"].opt_include/"libxml2"
     end
-    system ENV.cc, "test.cpp",
-                   "-I#{libxml2}",
-                   "-I#{Formula["glib"].include}/glib-2.0",
-                   "-I#{Formula["glib"].lib}/glib-2.0/include",
-                   "-I#{include}/libvirt-gconfig-1.0",
-                   "-I#{include}/libvirt-glib-1.0",
-                   "-I#{include}/libvirt-gobject-1.0",
-                   "-L#{lib}",
-                   "-lvirt-gconfig-1.0",
-                   "-lvirt-glib-1.0",
-                   "-lvirt-gobject-1.0",
-                   "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp",
+                    "-I#{libxml2}",
+                    "-I#{Formula["glib"].include}/glib-2.0",
+                    "-I#{Formula["glib"].lib}/glib-2.0/include",
+                    "-I#{include}/libvirt-gconfig-1.0",
+                    "-I#{include}/libvirt-glib-1.0",
+                    "-I#{include}/libvirt-gobject-1.0",
+                    "-L#{lib}",
+                    "-lvirt-gconfig-1.0",
+                    "-lvirt-glib-1.0",
+                    "-lvirt-gobject-1.0",
+                    "-o", "test"
     system "./test"
   end
 end
