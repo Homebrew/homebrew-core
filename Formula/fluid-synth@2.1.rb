@@ -4,6 +4,7 @@ class FluidSynthAT21 < Formula
   url "https://github.com/FluidSynth/fluidsynth/archive/v2.1.9.tar.gz"
   sha256 "365642cc64bafe0491149ad643ef7327877f99412d5abb93f1fa54e252028484"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "23918636b21c7d2f4c617fc58fc9bfbdaffbe371be38a9b6ce1062af4dfc92b5"
@@ -22,6 +23,7 @@ class FluidSynthAT21 < Formula
   depends_on "glib"
   depends_on "libsndfile"
   depends_on "portaudio"
+  depends_on "readline"
 
   resource "example_midi" do
     url "https://upload.wikimedia.org/wikipedia/commons/6/61/Drum_sample.mid"
