@@ -4,7 +4,7 @@ class Fourstore < Formula
   url "https://github.com/4store/4store/archive/v1.1.6.tar.gz"
   sha256 "a0c8143fcceeb2f1c7f266425bb6b0581279129b86fdd10383bf1c1e1cab8e00"
   license "GPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "a58ee8282103b2789731c582a0c71cef2c97b65cb0f2d9d488fc969823b1c29a"
@@ -22,11 +22,13 @@ class Fourstore < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "dbus"
   depends_on "gettext"
   depends_on "glib"
   depends_on "pcre"
   depends_on "raptor"
   depends_on "rasqal"
+  depends_on "readline"
 
   def install
     # Upstream issue garlik/4store#138
