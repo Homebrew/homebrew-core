@@ -17,13 +17,6 @@ class Fmt < Formula
 
   depends_on "cmake" => :build
 
-  # Fix Watchman build.
-  # https://github.com/fmtlib/fmt/issues/2717
-  patch do
-    url "https://github.com/fmtlib/fmt/commit/8f8a1a02d5c5cb967d240feee3ffac00d66f22a2.patch?full_index=1"
-    sha256 "ac5d7a8f9eabd40e34f21b1e0034fbc4147008f13b7bf2314131239fb3a7bdab"
-  end
-
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=TRUE", *std_cmake_args
     system "make", "install"
