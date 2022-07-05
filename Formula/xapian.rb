@@ -32,8 +32,8 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.19/xapian-bindings-1.4.19.tar.xz"
-    sha256 "91c385a48951aa7cdf665effd25533f7477fc22781ca712e50b5496459a2883d"
+    url "https://oligarchy.co.uk/xapian/1.4.20/xapian-bindings-1.4.20.tar.xz"
+    sha256 "786cc28d05660b227954413af0e2f66e4ead2a06d3df6dabaea484454b601ef5"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
