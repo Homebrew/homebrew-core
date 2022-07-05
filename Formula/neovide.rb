@@ -9,6 +9,10 @@ class Neovide < Formula
   depends_on "rust" => :build
   depends_on "neovim"
 
+  on_macos do
+    depends_on "cargo-bundle" => :build
+  end
+
   on_linux do
     depends_on "python@3.10" => :build
     depends_on "fontconfig"
@@ -18,7 +22,15 @@ class Neovide < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    bin.install "target/release/neovide"
+
+    if OS.mac?
+      # https://github.com/burtonageo/cargo-bundle/issues/118
+      with_env(TERM: "xterm") { system "cargo", "bundle", "--release" }
+      prefix.install "target/release/bundle/osx/Neovide.app"
+      bin.install_symlink prefix/"Neovide.app/Contents/MacOS/neovide"
+    else
+      bin.install "target/release/neovide"
+    end
   end
 
   test do
