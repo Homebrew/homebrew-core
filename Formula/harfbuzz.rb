@@ -4,6 +4,7 @@ class Harfbuzz < Formula
   url "https://github.com/harfbuzz/harfbuzz/archive/4.3.0.tar.gz"
   sha256 "32184860ddc0b264ff95010e1c64e596bd746fe4c2e34014a1185340cdddeba6"
   license "MIT"
+  revision 1
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
 
   bottle do
@@ -15,6 +16,7 @@ class Harfbuzz < Formula
     sha256               x86_64_linux:   "f5975c60af6c00c66e0a15f581023c9197ac9d04f01fb1957580ec5927093f68"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "cairo"
