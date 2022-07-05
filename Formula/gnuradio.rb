@@ -3,10 +3,9 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.2.0.tar.gz"
-  sha256 "a8f6c1cc98bc3784aa70ab29d3039ad6922ec36f908ecfb2c904a597b32c0776"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.3.0.tar.gz"
+  sha256 "957108a67ec75d99adaad8f3b10be8ae08760a9cef0b659a5c815a4e33898a75"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -96,6 +95,9 @@ class Gnuradio < Formula
     url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
     sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
+
+  # Fix upstreamed here: https://github.com/gnuradio/gnuradio/pull/6002.
+  patch :DATA
 
   def install
     ENV.cxx11
@@ -243,3 +245,42 @@ class Gnuradio < Formula
     system Formula["python@3.9"].opt_bin/"python3", testpath/"test.py"
   end
 end
+
+__END__
+diff --git a/gr-qtgui/lib/FrequencyDisplayPlot.cc b/gr-qtgui/lib/FrequencyDisplayPlot.cc
+index f6f673e..2171f26 100644
+--- a/gr-qtgui/lib/FrequencyDisplayPlot.cc
++++ b/gr-qtgui/lib/FrequencyDisplayPlot.cc
+@@ -16,7 +16,7 @@
+ #include <gnuradio/qtgui/qtgui_types.h>
+ #include <qwt_scale_draw.h>
+ #include <QColor>
+-
++#include <cmath>
+
+ /***********************************************************************
+  * Widget to provide mouse pointer coordinate text
+diff --git a/gr-qtgui/lib/VectorDisplayPlot.cc b/gr-qtgui/lib/VectorDisplayPlot.cc
+index d5c2ecc..e047437 100644
+--- a/gr-qtgui/lib/VectorDisplayPlot.cc
++++ b/gr-qtgui/lib/VectorDisplayPlot.cc
+@@ -17,6 +17,7 @@
+ #include <qwt_legend.h>
+ #include <qwt_scale_draw.h>
+ #include <QColor>
++#include <cmath>
+
+ #if QWT_VERSION < 0x060100
+ #include <qwt_legend_item.h>
+diff --git a/gr-qtgui/lib/WaterfallDisplayPlot.cc b/gr-qtgui/lib/WaterfallDisplayPlot.cc
+index 69d82fd..d1e42e9 100644
+--- a/gr-qtgui/lib/WaterfallDisplayPlot.cc
++++ b/gr-qtgui/lib/WaterfallDisplayPlot.cc
+@@ -19,6 +19,7 @@
+ #include <qwt_plot_layout.h>
+ #include <qwt_scale_draw.h>
+ #include <QColor>
++#include <cmath>
+
+ #if QWT_VERSION < 0x060100
+ #include <qwt_legend_item.h>
