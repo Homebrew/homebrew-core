@@ -23,6 +23,8 @@ class Quvi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bde81ca6c65e967a5f18c0552cbe4823bc393e5e943c24d809f55dbefc6ea59d"
   end
 
+  deprecate! date: "2022-07-04", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "libquvi"
 
