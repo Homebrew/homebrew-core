@@ -23,6 +23,8 @@ class Libquvi < Formula
     sha256 x86_64_linux:   "86842f87a749f377843293787a9ce31911d10715e08e783cebe404d8ecd64e21"
   end
 
+  deprecate! date: "2022-07-04", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "lua@5.1"
 
