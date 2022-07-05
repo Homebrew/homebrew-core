@@ -2,7 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/1.4.1.tar.gz"
@@ -44,6 +44,7 @@ class Crystal < Formula
   depends_on "openssl@1.1" # std uses it but it's not linked
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
+  uses_from_macos "libffi" # for the interpreter
 
   on_linux do
     depends_on "gcc"
@@ -75,17 +76,24 @@ class Crystal < Formula
 
     (buildpath/"boot").install resource("boot")
     ENV.append_path "PATH", "boot/bin"
-    ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["bdw-gc"].opt_lib
-    ENV.append_path "CRYSTAL_LIBRARY_PATH", ENV["HOMEBREW_LIBRARY_PATHS"]
-    ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["libevent"].opt_lib
+    ENV["CRYSTAL_LIBRARY_PATH"] = ENV["HOMEBREW_LIBRARY_PATHS"]
+    ENV.append_path "CRYSTAL_LIBRARY_PATH", MacOS.sdk_path_if_needed/"usr/lib" if MacOS.sdk_path_if_needed
     ENV.append_path "LLVM_CONFIG", llvm.opt_bin/"llvm-config"
 
-    # Build crystal
-    crystal_build_opts = []
-    crystal_build_opts << "release=true"
-    crystal_build_opts << "FLAGS=--no-debug"
-    crystal_build_opts << "CRYSTAL_CONFIG_LIBRARY_PATH="
+    # Avoid embedding HOMEBREW_PREFIX references in `crystal` binary.
+    config_library_paths = ENV["CRYSTAL_LIBRARY_PATH"].gsub(
+      HOMEBREW_PREFIX,
+      "\\$$ORIGIN/#{HOMEBREW_PREFIX.relative_path_from(libexec)}",
+    )
+    crystal_build_opts = [
+      "release=true",
+      "interpreter=true",
+      "FLAGS=--no-debug",
+      "CRYSTAL_CONFIG_LIBRARY_PATH=#{config_library_paths}",
+    ]
     crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.git_short_head}" if build.head?
+
+    # Build crystal
     (buildpath/".build").mkpath
     system "make", "deps"
     system "make", "crystal", *crystal_build_opts
@@ -95,12 +103,12 @@ class Crystal < Formula
     # Setup the same path the wrapper script would, but just for building shards.
     # NOTE: it seems that the installed crystal in bin/"crystal" can be used while
     #       building the formula. Otherwise this ad-hoc setup could be avoided.
-    embedded_crystal_path=`"#{buildpath/".build/crystal"}" env CRYSTAL_PATH`.strip
-    ENV["CRYSTAL_PATH"] = "#{embedded_crystal_path}:#{buildpath/"src"}"
+    embedded_crystal_path = Utils.safe_popen_read(buildpath/".build/crystal", "env", "CRYSTAL_PATH").strip
+    ENV["CRYSTAL_PATH"] = "#{embedded_crystal_path}:#{buildpath}/src"
 
     # Install shards
     resource("shards").stage do
-      system "make", "bin/shards", "CRYSTAL=#{buildpath/"bin/crystal"}",
+      system "make", "bin/shards", "CRYSTAL=#{buildpath}/bin/crystal",
                                    "SHARDS=false",
                                    "release=true",
                                    "FLAGS=--no-debug"
@@ -113,16 +121,15 @@ class Crystal < Formula
 
     # Install crystal
     libexec.install ".build/crystal"
-    (bin/"crystal").write <<~SH
-      #!/bin/bash
-      EMBEDDED_CRYSTAL_PATH=$("#{libexec/"crystal"}" env CRYSTAL_PATH)
-      export CRYSTAL_PATH="${CRYSTAL_PATH:-"$EMBEDDED_CRYSTAL_PATH:#{prefix/"src"}"}"
-      export CRYSTAL_LIBRARY_PATH="${CRYSTAL_LIBRARY_PATH:+$CRYSTAL_LIBRARY_PATH:}#{HOMEBREW_PREFIX}/lib"
-      export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}#{Formula["openssl@1.1"].opt_lib/"pkgconfig"}"
-      exec "#{libexec/"crystal"}" "${@}"
-    SH
+    pkgshare.install "src"
 
-    prefix.install "src"
+    embedded_crystal_path = "$(\"#{libexec}/crystal\" env CRYSTAL_PATH)"
+    crystal_env = {
+      CRYSTAL_PATH:         "${CRYSTAL_PATH:-#{embedded_crystal_path}:#{pkgshare}/src}",
+      CRYSTAL_LIBRARY_PATH: "${CRYSTAL_LIBRARY_PATH:+${CRYSTAL_LIBRARY_PATH}:}#{HOMEBREW_PREFIX}/lib",
+      PKG_CONFIG_PATH:      "${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}#{Formula["openssl@1.1"].opt_lib}/pkgconfig",
+    }
+    (bin/"crystal").write_env_script libexec/"crystal", crystal_env
 
     bash_completion.install "etc/completion.bash" => "crystal"
     zsh_completion.install "etc/completion.zsh" => "_crystal"
