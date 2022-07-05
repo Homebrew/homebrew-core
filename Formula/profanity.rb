@@ -4,6 +4,7 @@ class Profanity < Formula
   url "https://profanity-im.github.io/tarballs/profanity-0.12.1.tar.gz"
   sha256 "e344481e7bf3b16baf58a169d321b809c4700becffb70db6f1c39adc3fad306e"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "de57a1808ee6ef8e5c37753ab3084c8bcf1aeb09019a0dc7481621b383f7ed2a"
@@ -24,7 +25,6 @@ class Profanity < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
   depends_on "curl"
   depends_on "glib"
   depends_on "gnutls"
@@ -33,6 +33,7 @@ class Profanity < Formula
   depends_on "libsignal-protocol-c"
   depends_on "libstrophe"
   depends_on "openssl@1.1"
+  depends_on "python@3.9"
   depends_on "readline"
 
   on_macos do
