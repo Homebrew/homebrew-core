@@ -65,6 +65,7 @@ class GlibcAT213 < Formula
   url "https://ftp.gnu.org/gnu/glibc/glibc-2.13.tar.gz"
   sha256 "bd90d6119bcc2898befd6e1bbb2cb1ed3bb1c2997d5eaa6fdbca4ee16191a906"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   bottle do
     sha256 x86_64_linux: "57a6ca64716049ea84a5a85f520b4df984a1c24cdbc5faae22243555dd901f31"
@@ -123,14 +124,7 @@ class GlibcAT213 < Formula
     end
 
     # Fix quoting of filenames that contain @
-    rm_f lib/"libc.so"
-    (lib/"libc.so").write <<~EOF
-      /* GNU ld script
-      Use the shared library, but some functions are only in
-      the static library, so try that secondarily.  */
-      OUTPUT_FORMAT(elf64-x86-64)
-      GROUP ( "#{lib}/libc.so.6" "#{lib}/libc_nonshared.a" AS_NEEDED ( "#{lib}/ld-linux-x86-64.so.2" ) )
-    EOF
+    inreplace [lib/"libc.so", lib/"libpthread.so"], %r{(#{Regexp.escape(prefix)}/\S*) }, '"\1" '
   end
 
   def post_install
