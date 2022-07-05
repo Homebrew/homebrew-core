@@ -4,7 +4,7 @@ class Glyr < Formula
   url "https://github.com/sahib/glyr/archive/1.0.10.tar.gz"
   sha256 "77e8da60221c8d27612e4a36482069f26f8ed74a1b2768ebc373c8144ca806e8"
   license "LGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c46e7d37c47e8f8c6d8a2846b970e50634c00ff976b1393ef42cf3fa2119c07c"
@@ -24,6 +24,7 @@ class Glyr < Formula
   depends_on "glib"
 
   uses_from_macos "curl"
+  uses_from_macos "sqlite"
 
   def install
     system "cmake", ".", *std_cmake_args
