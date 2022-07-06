@@ -41,8 +41,7 @@ class Jenkins < Formula
   end
 
   service do
-    run [Formula["openjdk@11"].opt_bin/"java", "-Dmail.smtp.starttls.enable=true", "-jar", opt_libexec/"jenkins.war",
-         "--httpListenAddress=127.0.0.1", "--httpPort=8080"]
+    run [opt_bin/"jenkins", "--httpListenAddress=127.0.0.1", "--httpPort=8080"]
     keep_alive true
     log_path var/"log/jenkins/output.log"
     error_log_path var/"log/jenkins/error.log"
