@@ -253,12 +253,6 @@ class Salt < Formula
     sha256 "307ad78227e48be260e64896ec8886edc7eae22d8ec53e4d528ab5537a83203b"
   end
 
-  # Fix python 3.10 compatibility, remove when https://github.com/saltstack/salt/pull/61064 is in a release
-  patch do
-    url "https://github.com/saltstack/salt/commit/a273fffc857145198f25ba269f7e2493112e55fc.patch?full_index=1"
-    sha256 "7f1d781846f684e25308ecaad601b0aa7ac563a78b6e2d83ff476d6f23849d1c"
-  end
-
   def install
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
     xy = Language::Python.major_minor_version Formula["python@3.10"].bin/"python3.10"
