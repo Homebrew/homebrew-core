@@ -4,7 +4,7 @@ class Zig < Formula
   url "https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz"
   sha256 "38cf4e84481f5facc766ba72783e7462e08d6d29a5d47e3b75c8ee3142485210"
   license "MIT"
-  head "https://github.com/ziglang/zig.git"
+  head "https://github.com/ziglang/zig.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "61d958015313e75d98c407902e6aba1b4f359e392eda0c090199eec76d20534a"
@@ -16,7 +16,7 @@ class Zig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@13"
 
   fails_with gcc: "5" # LLVM is built with GCC
 
