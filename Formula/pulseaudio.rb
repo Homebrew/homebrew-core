@@ -65,8 +65,8 @@ class Pulseaudio < Formula
     end
 
     args = *std_meson_args + %W[
-      --prefix=#{prefix}
-      --x11=false
+      -Dprefix=#{prefix}
+      -Dx11=false
     ]
 
     if OS.linux?
@@ -77,11 +77,11 @@ class Pulseaudio < Formula
       #  - specify not to use gdbm, or
       #  - add a dependency on gdbm if gdbm is wanted (not implemented).
       # See Linuxbrew/homebrew-core#8148
-      args << "--database=simple"
+      args << "-Ddatabase=simple"
 
       # Tell pulseaudio to use the brewed udev rules dir instead of the system one,
       # which it does not have permission to modify
-      args << "--udevrulesdir=#{lib}/udev/rules.d"
+      args << "-Dudevrulesdir=#{lib}/udev/rules.d"
     end
 
     mkdir "build" do
