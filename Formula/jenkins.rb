@@ -1,8 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://www.jenkins.io/"
-  url "https://get.jenkins.io/war/2.357/jenkins.war"
-  sha256 "77317608252ec4365e94a0e5494c242a97191e4110bb556eebe3583d09bac121"
+  url "https://get.jenkins.io/war/2.358/jenkins.war"
+  sha256 "067c057087f751e259adb75b07c7533b3a803feb95f554be9f4fd7623ffaaba1"
   license "MIT"
 
   livecheck do
@@ -19,17 +19,17 @@ class Jenkins < Formula
     depends_on "maven" => :build
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   def install
     if build.head?
       system "mvn", "clean", "install", "-pl", "war", "-am", "-DskipTests"
     else
-      system "#{Formula["openjdk@11"].opt_bin}/jar", "xvf", "jenkins.war"
+      system "#{Formula["openjdk@17"].opt_bin}/jar", "xvf", "jenkins.war"
     end
     libexec.install Dir["**/jenkins.war", "**/cli-#{version}.jar"]
-    bin.write_jar_script libexec/"jenkins.war", "jenkins", java_version: "11"
-    bin.write_jar_script libexec/"cli-#{version}.jar", "jenkins-cli", java_version: "11"
+    bin.write_jar_script libexec/"jenkins.war", "jenkins", java_version: "17"
+    bin.write_jar_script libexec/"cli-#{version}.jar", "jenkins-cli", java_version: "17"
 
     (var/"log/jenkins").mkpath
   end
