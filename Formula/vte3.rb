@@ -42,7 +42,7 @@ class Vte3 < Formula
   end
 
   fails_with :gcc do
-    build "9"
+    version "9"
     cause "Requires C++20"
   end
 
