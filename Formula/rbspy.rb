@@ -16,6 +16,12 @@ class Rbspy < Formula
 
   depends_on "rust" => :build
 
+  # Support rust 1.62+, remove after next release
+  patch do
+    url "https://github.com/rbspy/rbspy/commit/f5a8eecfbf2ad0b3ff9105115988478fb760d54d.patch?full_index=1"
+    sha256 "17a1c7d6d0eea2bbeb811f1bbe18534249553b61bedb69710b28a5ed9d4f9e2e"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
