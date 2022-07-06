@@ -1,8 +1,8 @@
 class Javacc < Formula
   desc "Parser generator for use with Java applications"
   homepage "https://javacc.org/"
-  url "https://github.com/javacc/javacc/archive/javacc-7.0.11.tar.gz"
-  sha256 "68b7f6ad950531f112ca332ea697b56c7b5ad224d1ee132bbe40f297d14f6bd3"
+  url "https://github.com/javacc/javacc/archive/javacc-7.0.12.tar.gz"
+  sha256 "1b38fa8c9e8348fe72b46fbdbaed2f05783a796a7417e3d22af18df5833b8850"
   license "BSD-3-Clause"
 
   livecheck do
