@@ -2,6 +2,7 @@ class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
   license "X11"
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.37.tar.xz"
@@ -40,6 +41,7 @@ class Libxslt < Formula
 
   keg_only :provided_by_macos
 
+  depends_on "icu4c"
   depends_on "libgcrypt"
   depends_on "libxml2"
 
