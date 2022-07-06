@@ -263,7 +263,7 @@ class Salt < Formula
   # Fix cve-2022-22967, remove in next release
   patch do
     url "https://github.com/saltstack/salt/commit/e068a34ccb2e17ae7224f8016a24b727f726d4c8.patch?full_index=1"
-    sha256 "cb51ff51b56bfff03209c2927d2aab013c375257f8c8951ea0dd6cb9760d5716 "
+    sha256 "cb51ff51b56bfff03209c2927d2aab013c375257f8c8951ea0dd6cb9760d5716"
   end
 
   def install
