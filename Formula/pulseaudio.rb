@@ -64,7 +64,7 @@ class Pulseaudio < Formula
       end
     end
 
-    args = *std_meson_args + %W[-Dx11=false]
+    args = *std_meson_args
 
     if OS.linux?
       # Perl depends on gdbm.
@@ -82,7 +82,7 @@ class Pulseaudio < Formula
     end
 
     mkdir "build" do
-      system "meson", *args, ".."
+      system "meson", *args, "-Dx11=false", ".."
       system "ninja"
       system "ninja", "install"
     end
