@@ -30,7 +30,7 @@ class Antlr4CppRuntime < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", ".", "-DANTLR4_INSTALL=ON", *std_cmake_args
+    system "cmake", ".", "-DANTLR4_INSTALL=ON", "-DANTLR_BUILD_CPP_TESTS=OFF", *std_cmake_args
     system "cmake", "--build", ".", "--target", "install"
   end
 
