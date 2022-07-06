@@ -30,6 +30,7 @@ class Pulseaudio < Formula
     depends_on "intltool" => :build
   end
 
+  depends_on "meson" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libsndfile"
@@ -63,20 +64,12 @@ class Pulseaudio < Formula
       end
     end
 
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
+    args = *std_meson_args + %W[
       --prefix=#{prefix}
-      --disable-neon-opt
-      --disable-nls
-      --disable-x11
+      --x11=false
     ]
 
-    if OS.mac?
-      args << "--enable-coreaudio-output"
-      args << "--with-mac-sysroot=#{MacOS.sdk_path}"
-      args << "--with-mac-version-min=#{MacOS.version}"
-    else
+    if OS.linux?
       # Perl depends on gdbm.
       # If the dependency of pulseaudio on perl is build-time only,
       # pulseaudio detects and links gdbm at build-time, but cannot locate it at run-time.
@@ -84,20 +77,18 @@ class Pulseaudio < Formula
       #  - specify not to use gdbm, or
       #  - add a dependency on gdbm if gdbm is wanted (not implemented).
       # See Linuxbrew/homebrew-core#8148
-      args << "--with-database=simple"
+      args << "--database=simple"
 
       # Tell pulseaudio to use the brewed udev rules dir instead of the system one,
       # which it does not have permission to modify
-      args << "--with-udev-rules-dir=#{lib}/udev/rules.d"
+      args << "--udevrulesdir=#{lib}/udev/rules.d"
     end
 
-    if build.head?
-      # autogen.sh runs bootstrap.sh then ./configure
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja"
+      system "ninja", "install"
     end
-    system "make", "install"
 
     if OS.linux?
       # https://stackoverflow.com/questions/56309056/is-gschemas-compiled-architecture-specific-can-i-ship-it-with-my-python-library
