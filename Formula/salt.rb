@@ -6,7 +6,7 @@ class Salt < Formula
   url "https://files.pythonhosted.org/packages/2f/31/73c98765b59608fe6742824af31f2037ef1490e46a95873a07a34b596f15/salt-3004.1.tar.gz"
   sha256 "7f344a2432648a4f078daa5accc68dcdffe1095cea13ec21e50413560f04c298"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/saltstack/salt.git", branch: "master"
 
   bottle do
@@ -258,6 +258,12 @@ class Salt < Formula
   patch do
     url "https://github.com/saltstack/salt/commit/a273fffc857145198f25ba269f7e2493112e55fc.patch?full_index=1"
     sha256 "7f1d781846f684e25308ecaad601b0aa7ac563a78b6e2d83ff476d6f23849d1c"
+  end
+
+  # Fix cve-2022-22967, remove in next release
+  patch do
+    url "https://github.com/saltstack/salt/commit/e068a34ccb2e17ae7224f8016a24b727f726d4c8.patch?full_index=1"
+    sha256 "cb51ff51b56bfff03209c2927d2aab013c375257f8c8951ea0dd6cb9760d5716 "
   end
 
   def install
