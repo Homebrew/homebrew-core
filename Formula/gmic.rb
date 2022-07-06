@@ -21,7 +21,7 @@ class Gmic < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qmake" => :build
+  depends_on "qt" => :build
   depends_on "fftw"
   depends_on "jpeg"
   depends_on "libpng"
