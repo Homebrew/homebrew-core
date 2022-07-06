@@ -32,6 +32,6 @@ class DockerBuildx < Formula
   test do
     assert_match "github.com/docker/buildx v#{version}", shell_output("#{bin}/docker-buildx version")
     output = shell_output(bin/"docker-buildx build . 2>&1", 1)
-    assert_match "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?", output
+    assert_match(/(denied while trying to|Cannot) connect to the Docker daemon/, output)
   end
 end
