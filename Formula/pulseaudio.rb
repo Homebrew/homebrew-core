@@ -64,10 +64,7 @@ class Pulseaudio < Formula
       end
     end
 
-    args = *std_meson_args + %W[
-      -Dprefix=#{prefix}
-      -Dx11=false
-    ]
+    args = *std_meson_args + %W[-Dx11=false]
 
     if OS.linux?
       # Perl depends on gdbm.
