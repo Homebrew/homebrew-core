@@ -1,8 +1,8 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.20.0/step_0.20.0.tar.gz"
-  sha256 "28c1a3f59f625992454328e466672d3974acbe67bb666a959d57331496b2042c"
+  url "https://github.com/smallstep/cli/releases/download/v0.21.0/step_0.21.0.tar.gz"
+  sha256 "bed0c7b4b946797bb3d0402b0bdb9a721dde0adcad848b97bfbbeae80e687cac"
   license "Apache-2.0"
 
   bottle do
@@ -17,8 +17,8 @@ class Step < Formula
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.20.0/step-ca_0.20.0.tar.gz"
-    sha256 "89751704be475ebfee6dba322fc8d31afca02b8993a33cfe9c7dba92d06b1b00"
+    url "https://github.com/smallstep/certificates/releases/download/v0.21.0/step-ca_0.21.0.tar.gz"
+    sha256 "61ea96696f139fac0c87f957a84a1f1dc74e58f4d7f1720d192ab454a8a589c0"
   end
 
   def install
@@ -80,7 +80,7 @@ class Step < Formula
     # certificate using the API.
     (testpath/"password.txt").write("password")
     steppath = "#{testpath}/.step"
-    mkdir_p(steppath)
+    Dir.mkdir(steppath)
     ENV["STEPPATH"] = steppath
     system "#{bin}/step", "ca", "init", "--address", "127.0.0.1:8081",
         "--dns", "127.0.0.1", "--password-file", "#{testpath}/password.txt",
