@@ -25,8 +25,8 @@ class Simh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "15786096ec6cd0995825d33e772e3af76b78d7277ab94b57e4ad30ca88df0b40"
   end
 
-  depends_on "sdl2"
   depends_on "libpng"
+  depends_on "sdl2"
 
   uses_from_macos "zlib"
 
