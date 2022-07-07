@@ -2,11 +2,10 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 2
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.4.1.tar.gz"
-    sha256 "97466656adede19943619e18af030c1d542c2c3dd1f36f3a422310bd8b53f5e0"
+    url "https://github.com/crystal-lang/crystal/archive/1.5.0.tar.gz"
+    sha256 "f53e459ef6c7227df922a76fb62e350c90d52d30bfaa84b90feda9731bb98655"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.17.0.tar.gz"
@@ -34,6 +33,8 @@ class Crystal < Formula
     resource "shards" do
       url "https://github.com/crystal-lang/shards.git"
     end
+
+    uses_from_macos "libffi" # for the interpreter
   end
 
   depends_on "bdw-gc"
@@ -44,7 +45,6 @@ class Crystal < Formula
   depends_on "openssl@1.1" # std uses it but it's not linked
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
-  uses_from_macos "libffi" # for the interpreter
 
   on_linux do
     depends_on "gcc"
@@ -58,16 +58,20 @@ class Crystal < Formula
   #
   # See: https://github.com/Homebrew/homebrew-core/pull/81318
   resource "boot" do
-    on_macos do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.3.2/crystal-1.3.2-1-darwin-universal.tar.gz"
-      version "1.3.2-1"
-      sha256 "ef7c509e29313ad024a54352abc9b9c30269efc2e81c5796b7b64a5f2c68470d"
+    platform = case OS.kernel_name
+    when "Darwin" then "darwin-universal"
+    else "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch}"
     end
-    on_linux do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.3.2/crystal-1.3.2-1-linux-x86_64.tar.gz"
-      version "1.3.2-1"
-      sha256 "6e102e55d658f2cc0c56d23fcb50bd2edbd98959aa6b59b8e1210c6860651ed4"
-    end
+
+    checksums = {
+      "darwin-universal" => "e7f9b3e1e866dc909a0a310238907182f1ee8b3c09bd8da5ecd0072d99c1fc5c",
+      "linux-x86_64"     => "a5bdf1b78897b3cdc7d715b5f7adff79e84401d39b7ab546ab3249dc17fc770c",
+    }
+    boot_version = Version.new("1.4.1-1")
+
+    url "https://github.com/crystal-lang/crystal/releases/download/#{boot_version.major_minor_patch}/crystal-#{boot_version}-#{platform}.tar.gz"
+    version boot_version
+    sha256 checksums[platform]
   end
 
   def install
@@ -80,18 +84,21 @@ class Crystal < Formula
     ENV.append_path "CRYSTAL_LIBRARY_PATH", MacOS.sdk_path_if_needed/"usr/lib" if MacOS.sdk_path_if_needed
     ENV.append_path "LLVM_CONFIG", llvm.opt_bin/"llvm-config"
 
+    crystal_install_dir = libexec
     # Avoid embedding HOMEBREW_PREFIX references in `crystal` binary.
     config_library_paths = ENV["CRYSTAL_LIBRARY_PATH"].gsub(
       HOMEBREW_PREFIX,
-      "\\$$ORIGIN/#{HOMEBREW_PREFIX.relative_path_from(libexec)}",
+      "\\$$ORIGIN/#{HOMEBREW_PREFIX.relative_path_from(crystal_install_dir)}",
     )
     crystal_build_opts = [
       "release=true",
-      "interpreter=true",
       "FLAGS=--no-debug",
       "CRYSTAL_CONFIG_LIBRARY_PATH=#{config_library_paths}",
     ]
-    crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.git_short_head}" if build.head?
+    if build.head?
+      crystal_build_opts << "interpreter=true"
+      crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.git_short_head}"
+    end
 
     # Build crystal
     (buildpath/".build").mkpath
@@ -120,16 +127,16 @@ class Crystal < Formula
     end
 
     # Install crystal
-    libexec.install ".build/crystal"
+    crystal_install_dir.install ".build/crystal"
     pkgshare.install "src"
 
-    embedded_crystal_path = "$(\"#{libexec}/crystal\" env CRYSTAL_PATH)"
+    embedded_crystal_path = "$(\"#{crystal_install_dir}/crystal\" env CRYSTAL_PATH)"
     crystal_env = {
       CRYSTAL_PATH:         "${CRYSTAL_PATH:-#{embedded_crystal_path}:#{pkgshare}/src}",
       CRYSTAL_LIBRARY_PATH: "${CRYSTAL_LIBRARY_PATH:+${CRYSTAL_LIBRARY_PATH}:}#{HOMEBREW_PREFIX}/lib",
       PKG_CONFIG_PATH:      "${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}#{Formula["openssl@1.1"].opt_lib}/pkgconfig",
     }
-    (bin/"crystal").write_env_script libexec/"crystal", crystal_env
+    (bin/"crystal").write_env_script crystal_install_dir/"crystal", crystal_env
 
     bash_completion.install "etc/completion.bash" => "crystal"
     zsh_completion.install "etc/completion.zsh" => "_crystal"
