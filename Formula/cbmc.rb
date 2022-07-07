@@ -2,8 +2,8 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-5.60.0",
-      revision: "026931f0c5892bb5037299fb1afda38632f2e050"
+      tag:      "cbmc-5.61.0",
+      revision: "8f147113c34b06a03e1308b5ef4f5a496f76cd6a"
   license "BSD-4-Clause"
 
   bottle do
