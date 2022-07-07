@@ -5,8 +5,8 @@ class Crystal < Formula
   revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.4.1.tar.gz"
-    sha256 "97466656adede19943619e18af030c1d542c2c3dd1f36f3a422310bd8b53f5e0"
+    url "https://github.com/crystal-lang/crystal/archive/1.5.0.tar.gz"
+    sha256 "f53e459ef6c7227df922a76fb62e350c90d52d30bfaa84b90feda9731bb98655"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.17.0.tar.gz"
@@ -58,14 +58,14 @@ class Crystal < Formula
   # See: https://github.com/Homebrew/homebrew-core/pull/81318
   resource "boot" do
     on_macos do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.3.2/crystal-1.3.2-1-darwin-universal.tar.gz"
-      version "1.3.2-1"
-      sha256 "ef7c509e29313ad024a54352abc9b9c30269efc2e81c5796b7b64a5f2c68470d"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.4.1/crystal-1.4.1-1-darwin-universal.tar.gz"
+      version "1.4.1-1"
+      sha256 "e7f9b3e1e866dc909a0a310238907182f1ee8b3c09bd8da5ecd0072d99c1fc5c"
     end
     on_linux do
-      url "https://github.com/crystal-lang/crystal/releases/download/1.3.2/crystal-1.3.2-1-linux-x86_64.tar.gz"
-      version "1.3.2-1"
-      sha256 "6e102e55d658f2cc0c56d23fcb50bd2edbd98959aa6b59b8e1210c6860651ed4"
+      url "https://github.com/crystal-lang/crystal/releases/download/1.4.1/crystal-1.4.1-1-linux-x86_64.tar.gz"
+      version "1.4.1-1"
+      sha256 "a5bdf1b78897b3cdc7d715b5f7adff79e84401d39b7ab546ab3249dc17fc770c"
     end
   end
 
