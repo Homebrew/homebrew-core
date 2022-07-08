@@ -64,8 +64,9 @@ class Ffmpeg < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "libxv"
+    depends_on "alsa-lib"
     depends_on "gcc" # because rubberband is compiled with gcc
+    depends_on "libxv"
   end
 
   fails_with gcc: "5"
