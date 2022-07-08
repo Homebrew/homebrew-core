@@ -32,6 +32,10 @@ class Mpv < Formula
   depends_on "vapoursynth"
   depends_on "yt-dlp"
 
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
