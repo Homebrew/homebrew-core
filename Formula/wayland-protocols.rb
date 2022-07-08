@@ -17,6 +17,7 @@ class WaylandProtocols < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
+  depends_on "python@3.10" => :build
   depends_on "wayland" => :build
   depends_on :linux
 
