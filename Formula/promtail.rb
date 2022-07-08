@@ -1,8 +1,8 @@
 class Promtail < Formula
   desc "Log agent for Loki"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "f9ca9e52f4d9125cc31f9a593aba6a46ed6464c9cd99b2be4e35192a0ab4a76e"
+  url "https://github.com/grafana/loki/archive/v2.6.1.tar.gz"
+  sha256 "4b41175e552dd198bb9cae213df3c0d9ca8cacd0b673f79d26419cea7cfb2df7"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -19,8 +19,7 @@ class Promtail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "78231035a114c603adbe37b031766fe239d3c83dbc34abdefa329d44530a2243"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   on_linux do
     depends_on "systemd"
@@ -28,7 +27,7 @@ class Promtail < Formula
 
   def install
     cd "clients/cmd/promtail" do
-      system "go", "build", *std_go_args
+      system "go", "build", *std_go_args(ldflags: "-s -w")
       etc.install "promtail-local-config.yaml"
     end
   end
