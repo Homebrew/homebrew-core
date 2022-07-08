@@ -20,8 +20,8 @@ class SynergyCore < Formula
   head "https://github.com/symless/synergy-core.git", branch: "master"
 
   stable do
-    url "https://github.com/symless/synergy-core/archive/refs/tags/v1.14.4.37-stable.tar.gz"
-    sha256 "081735f032a2909c65322d43bcaf463bca05f88a05882c706762c959cd4bbec6"
+    url "https://github.com/symless/synergy-core/archive/refs/tags/1.14.5.13-stable.tar.gz"
+    sha256 "368d7ca33c5f0d2ed9082fff287bccd1b95b4dfc8cb957764475390d4d507a00"
   end
 
   # This repository contains old 2.0.0 tags, one of which uses a stable tag
