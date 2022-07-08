@@ -1,8 +1,8 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "https://www.unicorn-engine.org/"
-  url "https://github.com/unicorn-engine/unicorn/archive/1.0.3.tar.gz"
-  sha256 "64fba177dec64baf3f11c046fbb70e91483e029793ec6a3e43b028ef14dc0d65"
+  url "https://github.com/unicorn-engine/unicorn/archive/2.0.0.tar.gz"
+  sha256 "67b445c760e2bbac663e8c8bc410e43311c7fc92df4dfa8d90e06a021d07f634"
   head "https://github.com/unicorn-engine/unicorn.git", branch: "master"
 
   bottle do
