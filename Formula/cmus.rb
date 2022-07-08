@@ -26,6 +26,10 @@ class Cmus < Formula
   depends_on "mp4v2"
   depends_on "opusfile"
 
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
