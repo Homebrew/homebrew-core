@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/38/ae/f2837cade9591850f068111576cac3eef70879ef6f794e57a776aee50ac2/datalad-0.16.7.tar.gz"
-  sha256 "47fdfd9fef75c6fce87a0803340b41f3022b89debdcb267c4c9143499d33979d"
+  url "https://files.pythonhosted.org/packages/da/9b/d8d7308f63245ea990203e82a6a3d22994cd6a1fca6310a3cd1e977399ae/datalad-0.17.0.tar.gz"
+  sha256 "1b25ee4f00aa82dc7685ac3e0d41ed11de9e576ccd600143338f471f00dffea0"
   license "MIT"
 
   bottle do
@@ -130,8 +130,8 @@ class Datalad < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
-    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
+    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
+    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
   end
 
   resource "Whoosh" do
