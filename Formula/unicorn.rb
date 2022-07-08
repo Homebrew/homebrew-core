@@ -3,6 +3,7 @@ class Unicorn < Formula
   homepage "https://www.unicorn-engine.org/"
   url "https://github.com/unicorn-engine/unicorn/archive/2.0.0.tar.gz"
   sha256 "67b445c760e2bbac663e8c8bc410e43311c7fc92df4dfa8d90e06a021d07f634"
+  license "GPL-2.0"
   head "https://github.com/unicorn-engine/unicorn.git", branch: "master"
 
   bottle do
