@@ -18,11 +18,7 @@ class Unicorn < Formula
   depends_on "pkg-config" => :build
 
   def install
-    args = std_cmake_args + %W[
-      -DUNICORN_SHARE=yes
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUNICORN_SHARE=yes"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
