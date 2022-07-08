@@ -43,6 +43,10 @@ class Vice < Formula
 
   uses_from_macos "flex" => :build
 
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   def install
     configure_flags = %W[
       --prefix=#{prefix}
