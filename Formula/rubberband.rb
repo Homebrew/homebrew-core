@@ -30,15 +30,16 @@ class Rubberband < Formula
     depends_on "fftw"
     depends_on "gcc"
     depends_on "ladspa-sdk"
-    depends_on "openjdk"
     depends_on "vamp-plugin-sdk"
   end
 
   fails_with gcc: "5"
 
   def install
+    args = ["-Dresampler=libsamplerate"]
+    args << "-Dfft=fftw" if OS.linux?
     mkdir "build" do
-      system "meson", *std_meson_args
+      system "meson", *std_meson_args, *args
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
