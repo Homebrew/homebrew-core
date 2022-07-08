@@ -74,6 +74,12 @@ class Crystal < Formula
     sha256 checksums[platform]
   end
 
+  # Check version in `shard.lock` in shards repo.
+  resource "molinillo" do
+    url "https://github.com/crystal-lang/crystal-molinillo/archive/refs/tags/v0.2.0.tar.gz"
+    sha256 "e231cf2411a6a11a1538983c7fb52b19e650acc3338bd3cdf6fdb13d6463861a"
+  end
+
   def install
     llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
                .to_formula
@@ -117,9 +123,19 @@ class Crystal < Formula
 
     # Build shards (with recently built crystal)
     resource("shards").stage do
-      system "make", "bin/shards", "CRYSTAL=#{buildpath}/bin/crystal",
-                                   "SHARDS=false",
-                                   *release_flags
+      shard_lock = YAML.load_file("shard.lock")
+      required_molinillo_version = shard_lock.dig("shards", "molinillo", "version")
+      available_molinillo_version = resource("molinillo").version.to_s
+      odie "`molinillo` resource is outdated!" unless required_molinillo_version == available_molinillo_version
+
+      (Pathname.pwd/"lib/molinillo").install resource("molinillo")
+
+      shards_build_opts = release_flags + [
+        "CRYSTAL=#{buildpath}/bin/crystal",
+        "SHARDS=false",
+      ]
+      shards_build_opts << "SHARDS_CONFIG_BUILD_COMMIT=#{Utils.git_short_head}" if build.head?
+      system "make", "bin/shards", *shards_build_opts
 
       # Install shards
       bin.install "bin/shards"
