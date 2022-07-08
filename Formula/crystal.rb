@@ -77,23 +77,33 @@ class Crystal < Formula
   def install
     llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
                .to_formula
+    non_keg_only_runtime_deps = deps.reject(&:build?)
+                                    .map(&:to_formula)
+                                    .reject(&:keg_only?)
 
     (buildpath/"boot").install resource("boot")
     ENV.append_path "PATH", "boot/bin"
+    ENV["LLVM_CONFIG"] = llvm.opt_bin/"llvm-config"
     ENV["CRYSTAL_LIBRARY_PATH"] = ENV["HOMEBREW_LIBRARY_PATHS"]
     ENV.append_path "CRYSTAL_LIBRARY_PATH", MacOS.sdk_path_if_needed/"usr/lib" if MacOS.sdk_path_if_needed
-    ENV.append_path "LLVM_CONFIG", llvm.opt_bin/"llvm-config"
+    non_keg_only_runtime_deps.each do |dep|
+      # Our just built `crystal` won't link with some dependents (e.g. `bdw-gc`, `libevent`)
+      # unless they're explicitly added to `CRYSTAL_LIBRARY_PATH`. The keg-only dependencies
+      # are already in `HOMEBREW_LIBRARY_PATHS`, so there is no need to add them.
+      ENV.prepend_path "CRYSTAL_LIBRARY_PATH", dep.opt_lib
+    end
 
     crystal_install_dir = libexec
+    stdlib_install_dir = pkgshare
+
     # Avoid embedding HOMEBREW_PREFIX references in `crystal` binary.
-    config_library_paths = ENV["CRYSTAL_LIBRARY_PATH"].gsub(
-      HOMEBREW_PREFIX,
-      "\\$$ORIGIN/#{HOMEBREW_PREFIX.relative_path_from(crystal_install_dir)}",
-    )
-    crystal_build_opts = [
-      "release=true",
-      "FLAGS=--no-debug",
-      "CRYSTAL_CONFIG_LIBRARY_PATH=#{config_library_paths}",
+    config_library_path = "\\$$ORIGIN/#{HOMEBREW_PREFIX.relative_path_from(crystal_install_dir)}/lib"
+    config_path = "\\$$ORIGIN/#{stdlib_install_dir.relative_path_from(crystal_install_dir)}/src"
+
+    release_flags = ["release=true", "FLAGS=--no-debug"]
+    crystal_build_opts = release_flags + [
+      "CRYSTAL_CONFIG_LIBRARY_PATH=#{config_library_path}",
+      "CRYSTAL_CONFIG_PATH=#{config_path}",
     ]
     if build.head?
       crystal_build_opts << "interpreter=true"
@@ -106,19 +116,10 @@ class Crystal < Formula
     system "make", "crystal", *crystal_build_opts
 
     # Build shards (with recently built crystal)
-    #
-    # Setup the same path the wrapper script would, but just for building shards.
-    # NOTE: it seems that the installed crystal in bin/"crystal" can be used while
-    #       building the formula. Otherwise this ad-hoc setup could be avoided.
-    embedded_crystal_path = Utils.safe_popen_read(buildpath/".build/crystal", "env", "CRYSTAL_PATH").strip
-    ENV["CRYSTAL_PATH"] = "#{embedded_crystal_path}:#{buildpath}/src"
-
-    # Install shards
     resource("shards").stage do
       system "make", "bin/shards", "CRYSTAL=#{buildpath}/bin/crystal",
                                    "SHARDS=false",
-                                   "release=true",
-                                   "FLAGS=--no-debug"
+                                   *release_flags
 
       # Install shards
       bin.install "bin/shards"
@@ -128,15 +129,10 @@ class Crystal < Formula
 
     # Install crystal
     crystal_install_dir.install ".build/crystal"
-    pkgshare.install "src"
+    stdlib_install_dir.install "src"
 
-    embedded_crystal_path = "$(\"#{crystal_install_dir}/crystal\" env CRYSTAL_PATH)"
-    crystal_env = {
-      CRYSTAL_PATH:         "${CRYSTAL_PATH:-#{embedded_crystal_path}:#{pkgshare}/src}",
-      CRYSTAL_LIBRARY_PATH: "${CRYSTAL_LIBRARY_PATH:+${CRYSTAL_LIBRARY_PATH}:}#{HOMEBREW_PREFIX}/lib",
-      PKG_CONFIG_PATH:      "${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}#{Formula["openssl@1.1"].opt_lib}/pkgconfig",
-    }
-    (bin/"crystal").write_env_script crystal_install_dir/"crystal", crystal_env
+    pkg_config_path = "${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}#{Formula["openssl@1.1"].opt_lib}/pkgconfig"
+    (bin/"crystal").write_env_script crystal_install_dir/"crystal", PKG_CONFIG_PATH: pkg_config_path
 
     bash_completion.install "etc/completion.bash" => "crystal"
     zsh_completion.install "etc/completion.zsh" => "_crystal"
