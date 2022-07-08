@@ -222,24 +222,15 @@ class Llvm < Formula
           gcc.opt_lib/"gcc"/gcc.version.major, # libstdc++
           Formula["glibc"].opt_lib,
         ]
+        linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
 
-        # Use libstdc++ headers for brewed GCC rather than host GCC which is too old.
-        # We also need to make sure we can find headers for other formulae on Linux.
-        linux_include_paths = [
-          gcc.opt_include/"c++"/gcc.version.major,
-          gcc.opt_include/"c++"/gcc.version.major/"x86_64-pc-linux-gnu",
-          HOMEBREW_PREFIX/"include",
-        ]
-
-        # Add the linker and include paths to the arguments passed to the temporary compilers.
-        extra_args << "-DCMAKE_INSTALL_RPATH=#{rpath};#{linux_library_paths.join(";")}"
-        extra_args << "-DCMAKE_SYSTEM_LIBRARY_PATH=#{linux_library_paths.join(";")}"
-        extra_args << "-DCMAKE_SYSTEM_INCLUDE_PATH=#{linux_include_paths.join(";")}"
+        # Add the linker paths to the arguments passed to the temporary compilers.
+        extra_args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+        extra_args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
 
         # We need these flags for the installed toolchain too.
-        args << "-DCMAKE_INSTALL_RPATH=#{rpath};#{linux_library_paths.join(";")}"
-        args << "-DCMAKE_SYSTEM_LIBRARY_PATH=#{linux_library_paths.join(";")}"
-        args << "-DCMAKE_SYSTEM_INCLUDE_PATH=#{linux_include_paths.join(";")}"
+        args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+        args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
       end
 
       cflags = ENV.cflags&.split || []
@@ -276,6 +267,15 @@ class Llvm < Formula
         cxxflags << "-isystem#{toolchain_path}/usr/include"
         cxxflags << "-isystem#{macos_sdk}/usr/include"
       elsif !OS.mac?
+        # Use libstdc++ headers for brewed GCC rather than host GCC which is too old.
+        # We also need to make sure we can find headers for other formulae on Linux.
+        linux_include_paths = [
+          gcc.opt_include/"c++"/gcc.version.major,
+          gcc.opt_include/"c++"/gcc.version.major/"x86_64-pc-linux-gnu",
+          HOMEBREW_PREFIX/"include",
+        ]
+        linux_include_paths.each { |path| cxxflags << "-isystem#{path}" }
+
         # Make sure Clang does not try to include any headers from host GCC.
         cxxflags << "-nostdinc++"
 
