@@ -41,7 +41,7 @@ class Cava < Formula
     cava_config = (testpath/"cava.conf")
     cava_stdout = (testpath/"cava_stdout.log")
 
-    (cava_config).write <<~EOS
+    cava_config.write <<~EOS
       [general]
       bars = 2
       sleep_timer = 1
