@@ -1,8 +1,8 @@
 class Livekit < Formula
   desc "Scalable, high-performance WebRTC server"
   homepage "https://livekit.io"
-  url "https://github.com/livekit/livekit/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "acc55775cca1648940706842ace7d453dd71d301689c4f368bf8467ee1460507"
+  url "https://github.com/livekit/livekit/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "63c173793963f2921aa0d2e08685ef665c5c7e59aa89f417e562ce2ba98bde39"
   license "Apache-2.0"
   head "https://github.com/livekit/livekit.git", branch: "master"
 
