@@ -1,8 +1,8 @@
 class Kubeaudit < Formula
   desc "Helps audit your Kubernetes clusters against common security controls"
   homepage "https://github.com/Shopify/kubeaudit"
-  url "https://github.com/Shopify/kubeaudit/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "e15f603813fd0877d0874ad3122241183ce270a4ed3cb78a3568d5a167446f52"
+  url "https://github.com/Shopify/kubeaudit/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "846ad5000e43e37c6089332f964d421a72fdded710066b58de8dcae655627749"
   license "MIT"
   head "https://github.com/Shopify/kubeaudit.git", branch: "main"
 
@@ -28,7 +28,7 @@ class Kubeaudit < Formula
   end
 
   test do
-    output = shell_output(bin/"kubeaudit -c /some-file-that-does-not-exist all 2>&1", 1).chomp
+    output = shell_output(bin/"kubeaudit --kubeconfig /some-file-that-does-not-exist all 2>&1", 1).chomp
     assert_match "failed to open kubeconfig file /some-file-that-does-not-exist", output
   end
 end
