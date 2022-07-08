@@ -1,10 +1,9 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.7.tar.xz"
-  sha256 "960dcbac717c388f5dcc4fd945e3af19a476f2b15f367e9653d4c7a948768211"
+  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.8.tar.xz"
+  sha256 "86bb569bf3b519821f36f6bb5564e484e85d2564411b34b200fe2cd3a04e78cf"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   livecheck do
@@ -54,13 +53,6 @@ class Mpd < Formula
   end
 
   fails_with gcc: "5"
-
-  # Fix missing header file (see https://github.com/MusicPlayerDaemon/MPD/issues/1530)
-  # Patch accepted upstream, remove on next release
-  patch do
-    url "https://github.com/MusicPlayerDaemon/MPD/commit/c6f7f5777694c448aa42d17f88ab9cf2e3112dd0.patch?full_index=1"
-    sha256 "17c03ecee2a8b91c1b114b2ab340878f6cec5fc28093ec6386f4d7ba47d8b909"
-  end
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
