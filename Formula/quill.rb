@@ -1,8 +1,8 @@
 class Quill < Formula
   desc "C++17 Asynchronous Low Latency Logging Library"
   homepage "https://github.com/odygrd/quill"
-  url "https://github.com/odygrd/quill/archive/v2.0.2.tar.gz"
-  sha256 "d2dc9004886b787f8357e97d2f2d0c74a460259f7f95d65ab49d060fe34a9b5c"
+  url "https://github.com/odygrd/quill/archive/v2.1.0.tar.gz"
+  sha256 "66c59501ad827207e7d4682ccba0f1c33ca215269aa13a388df4d59ca195ee76"
   license "MIT"
   head "https://github.com/odygrd/quill.git", branch: "master"
 
