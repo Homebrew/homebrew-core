@@ -5,6 +5,11 @@ class Ascii2binary < Formula
   sha256 "addc332b2bdc503de573bfc1876290cf976811aae28498a5c9b902a3c06835a9"
   license "GPL-3.0-only"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ascii2binary[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f0c93f44f94301da7726208ebff6c51c83b751827518a92c7347c0312bafabcc"
     sha256 cellar: :any,                 arm64_big_sur:  "c205cd2ae106cbbd23999f85812a51bbd0c6453caa761be24082cec7c721fc7f"
