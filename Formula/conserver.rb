@@ -21,6 +21,8 @@ class Conserver < Formula
   end
 
   depends_on "openssl@1.1"
+  
+  uses_from_macos "libxcrypt"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-openssl", "--with-ipv6"
