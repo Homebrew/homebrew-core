@@ -3,8 +3,8 @@ class ReorderPythonImports < Formula
 
   desc "Rewrites source to reorder python imports"
   homepage "https://github.com/asottile/reorder_python_imports"
-  url "https://files.pythonhosted.org/packages/a6/fc/a1cadfac34efd5a0d47993ee5995104aaaa7a42939ac7912c573230942c5/reorder_python_imports-3.3.0.tar.gz"
-  sha256 "01fc01665fc51e236f7ef26b080a2134259937dca5ea3aaadac022cb87444f0e"
+  url "https://files.pythonhosted.org/packages/7c/a7/d415ff9bf22885abaa7ac7a9a60ff40c598c245f7439de9a14911ac4ff84/reorder_python_imports-3.4.0.tar.gz"
+  sha256 "cdbf5cd52859b6ee6d5931720984a846951a3c0b5865a00541d8f4b6c4218f6f"
   license "MIT"
   head "https://github.com/asottile/reorder_python_imports.git", branch: "master"
 
@@ -20,8 +20,8 @@ class ReorderPythonImports < Formula
   depends_on "python@3.10"
 
   resource "classify-imports" do
-    url "https://files.pythonhosted.org/packages/b5/98/9541d3f96f8754ee3f2ecf09f0689fd5d0bb097e769a0b34585425e2d316/classify_imports-4.0.2.tar.gz"
-    sha256 "a1880ba36cca1a3e6efc338698685c3c93019c92ecb7cc246636abb42c621e7f"
+    url "https://files.pythonhosted.org/packages/5e/b1/5c8792dee3437a13d66e0518bcd6add8ec6f54a02c89ef3f14986a05016d/classify_imports-4.1.0.tar.gz"
+    sha256 "69ddc4320690c26aa8baa66bf7e0fa0eecfda49d99cf71a59dee0b57dac82616"
   end
 
   def install
