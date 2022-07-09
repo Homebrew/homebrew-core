@@ -22,7 +22,7 @@ class Poco < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   uses_from_macos "expat"
   uses_from_macos "sqlite"
