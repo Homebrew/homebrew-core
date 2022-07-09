@@ -5,6 +5,11 @@ class Heppdt2 < Formula
   sha256 "12a1b6ffdd626603fa3b4d70f44f6e95a36f8f3b6d4fd614bac14880467a2c2e"
   license "AFL-3.0"
 
+  livecheck do
+    url "https://cern.ch/lcgpackages/tarFiles/sources/"
+    regex(/href=.*?HepPDT[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e1edccaf839fb239d8d8b583b03537bb8789f939afa610df5b806f2ff15243d5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b0f2ffc2837fee3dbf5aea96b1a7329c574373578548986c95cdf50b7f0171a"
