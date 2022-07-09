@@ -11,7 +11,7 @@ class Transcrypt < Formula
   end
 
   on_linux do
-    depends_on "transcrypt"
+    depends_on "util-linux"
   end
 
   def install
