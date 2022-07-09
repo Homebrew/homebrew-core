@@ -20,6 +20,14 @@ class Stdman < Formula
     depends_on "man-db" => :test
   end
 
+  # Preserve timestamps when doing `make install`.
+  # This helps ensure uniform bottles across builds.
+  # https://github.com/jeaye/stdman/pull/49
+  patch do
+    url "https://github.com/jeaye/stdman/commit/862e5132c18275661c468083baeab42dc4c335f2.patch?full_index=1"
+    sha256 "8b2c785fc859e31fcb8c58884eff64c371bb9afd001979ad1158517c77ea1041"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
