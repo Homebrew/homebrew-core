@@ -10,6 +10,10 @@ class Transcrypt < Formula
     sha256 cellar: :any_skip_relocation, all: "a5cfd2ec236ba342258bf5119e96dd721c5669370094192ef3389146a62ae53b"
   end
 
+  on_linux do
+    depends_on "transcrypt"
+  end
+
   def install
     bin.install "transcrypt"
     man.install "man/transcrypt.1"
