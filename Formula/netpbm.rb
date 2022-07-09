@@ -24,6 +24,7 @@ class Netpbm < Formula
     sha256 x86_64_linux:   "9ab2fffdc4eebc47be06d97c5eb5849d55df9ce27a22d7de445d48a0061ef77c"
   end
 
+  depends_on "subversion" => :build
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libpng"
