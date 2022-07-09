@@ -3,6 +3,7 @@ class Aggregate < Formula
   homepage "https://web.archive.org/web/20160716192438/freecode.com/projects/aggregate/"
   url "https://ftp.isc.org/isc/aggregate/aggregate-1.6.tar.gz"
   sha256 "166503005cd8722c730e530cc90652ddfa198a25624914c65dffc3eb87ba5482"
+  license "ISC"
 
   bottle do
     rebuild 1
