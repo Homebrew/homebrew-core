@@ -47,8 +47,8 @@ class Kdoctools < Formula
   fails_with gcc: "5"
 
   resource "URI::Escape" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz"
-    sha256 "03e63ada499d2645c435a57551f041f3943970492baa3b3338246dab6f1fae0a"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.11.tar.gz"
+    sha256 "d3b62a69a6ab288021167d428ac4673c399d42e4de69eb49c7953a30821843c9"
   end
 
   def install
