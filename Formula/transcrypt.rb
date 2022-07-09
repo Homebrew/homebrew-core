@@ -1,8 +1,8 @@
 class Transcrypt < Formula
   desc "Configure transparent encryption of files in a Git repo"
   homepage "https://github.com/elasticdog/transcrypt"
-  url "https://github.com/elasticdog/transcrypt/archive/v2.1.0.tar.gz"
-  sha256 "0075a25f7fb48ddfcfb33dd834a5f12fe0644ed4fb5ab0a5f2f7dca06e9ed48c"
+  url "https://github.com/elasticdog/transcrypt/archive/v2.2.0.tar.gz"
+  sha256 "6ea1dd8c3c7306e54f056728c7344ed31cf52403566e6c2268acc0f984d53391"
   license "MIT"
   head "https://github.com/elasticdog/transcrypt.git", branch: "main"
 
