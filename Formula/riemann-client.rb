@@ -15,6 +15,8 @@ class RiemannClient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f50dd475e3edc8145db2e9808ee16dd2d0cf795ee727d8a4d4d30d28af3960ca"
   end
 
+  deprecate! date: "2022-07-09", because: :repo_removed
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
