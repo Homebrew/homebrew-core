@@ -7,7 +7,7 @@ class WxwidgetsAT30 < Formula
 
   livecheck do
     url :stable
-    regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
+    regex(/^v?(3\.0(?:\.\d+)*)$/i)
   end
 
   bottle do
