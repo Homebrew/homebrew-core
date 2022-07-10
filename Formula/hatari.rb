@@ -28,8 +28,8 @@ class Hatari < Formula
 
   # Download EmuTOS ROM image
   resource "emutos" do
-    url "https://downloads.sourceforge.net/project/emutos/emutos/1.0.1/emutos-512k-1.0.1.zip"
-    sha256 "96c698aa0fc0f51ecdb0f8b53484df9de273215467b5de3f44d245821dff795e"
+    url "https://downloads.sourceforge.net/project/emutos/emutos/1.1.1/emutos-512k-1.1.1.zip"
+    sha256 "71ac9b7f093b0d078ce1fe6f291fb60914d80bcbdc7662137afeeb78b340b94b"
   end
 
   def install
