@@ -18,6 +18,6 @@ class Sgn < Formula
   end
 
   test do
-    assert_match "All done ＼(＾O＾)／", shell_output("#{bin}/sgn -o #{testpath}/sgn.out #{text_fixtures("mach/a.out")}")
+    assert_match "All done ＼(＾O＾)／", shell_output("#{bin}/sgn -o #{testpath}/sgn.out #{test_fixtures("mach/a.out")}")
   end
 end
