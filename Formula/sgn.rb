@@ -11,9 +11,9 @@ class Sgn < Formula
 
   def install
     # Repository owner has not updated go.mod and go.sum files
-    # in a while and updates are needed to build only from HEAD
-    system "go", "get", "-u" if build.head?
-    
+    # in a while and updates are needed if building from HEAD
+    # system "go", "get", "-u"
+
     system "go", "build", *std_go_args
   end
 
