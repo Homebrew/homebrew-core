@@ -30,6 +30,10 @@ class K3sup < Formula
       -X github.com/alexellis/k3sup/cmd.GitCommit=#{Utils.git_short_head}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    (bash_completion/"k3sup").write Utils.safe_popen_read(bin/"k3sup", "completion", "bash")
+    (zsh_completion/"_k3sup").write Utils.safe_popen_read(bin/"k3sup", "completion", "zsh")
+    (fish_completion/"k3sup.fish").write Utils.safe_popen_read(bin/"k3sup", "completion", "fish")
   end
 
   test do
