@@ -10,7 +10,10 @@ class Sgn < Formula
   depends_on "keystone" => :build
 
   def install
-    system "go", "get", "-u" if build.head? # Repository owner has not updated go.mod and go.sum files in a while and updates are needed to build only from HEAD
+    # Repository owner has not updated go.mod and go.sum files
+    # in a while and updates are needed to build only from HEAD
+    system "go", "get", "-u" if build.head?
+    
     system "go", "build", *std_go_args
   end
 
