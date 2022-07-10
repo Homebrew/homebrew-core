@@ -26,7 +26,7 @@ class Weechat < Formula
   depends_on "ncurses"
   depends_on "perl"
   depends_on "python@3.10"
-  depends_on "ruby@3.0"
+  depends_on "ruby@3.1"
   depends_on "zstd"
 
   uses_from_macos "curl"
