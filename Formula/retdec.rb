@@ -21,6 +21,6 @@ class Retdec < Formula
   end
 
   test do
-    assert_match "##### Done!", shell_output("#{bin}/retdec-decompiler.py #{text_fixtures("mach/a.out")}")
+    assert_match "##### Done!", shell_output("#{bin}/retdec-decompiler.py #{test_fixtures("mach/a.out")}")
   end
 end
