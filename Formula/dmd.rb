@@ -8,18 +8,18 @@ class Dmd < Formula
     sha256 "0cde9e69f2e540b325cd09b17e98c2de21e247b35045b8104c3eaa0ea516a3af"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.100.0.tar.gz"
-      sha256 "b9622c94468326487380393d183790830f38d224bb5d15067b6e4f5ec9cfced4"
+      url "https://github.com/dlang/druntime/archive/v2.100.1.tar.gz"
+      sha256 "d1a85c43df362f87477952f7dbafff318c2c921954a6dda34cfbd45df8ed44e8"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.100.0.tar.gz"
-      sha256 "cebf9fecdaf395bdb745cbed990879e561d055cc367ba44ba69fb40ab9c45008"
+      url "https://github.com/dlang/phobos/archive/v2.100.1.tar.gz"
+      sha256 "a950d6104aaa2a1829b7db11fd5b7bd9c075b01ba74ad09429fea5f81046afa0"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.100.0.tar.gz"
-      sha256 "7b53e32606b22acc391dd2a4e7c8527fabc18045ade3f99b3d38e8fa471066c8"
+      url "https://github.com/dlang/tools/archive/v2.100.1.tar.gz"
+      sha256 "54bde9a979d70952690a517f90de8d76631fa9a2f7252af7278dafbcaaa42d54"
     end
   end
 
