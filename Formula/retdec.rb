@@ -1,5 +1,5 @@
 class Retdec < Formula
-  desc "RetDec is a retargetable machine-code decompiler based on LLVM"
+  desc "Retargetable machine-code decompiler based on LLVM"
   homepage "https://github.com/avast/retdec"
   url "https://github.com/avast/retdec/archive/refs/tags/v4.0.tar.gz"
   sha256 "b26c2f71556dc4919714899eccdf82d2fefa5e0b3bc0125af664ec60ddc87023"
