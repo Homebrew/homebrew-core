@@ -1,8 +1,8 @@
 class GitlabGem < Formula
   desc "Ruby client and CLI for GitLab API"
   homepage "https://github.com/NARKOZ/gitlab"
-  url "https://github.com/NARKOZ/gitlab/archive/v4.18.0.tar.gz"
-  sha256 "6967bbf68ebff61714d855da950cfac4c8c3825a80d79f9210b40e37f6ba752c"
+  url "https://github.com/NARKOZ/gitlab/archive/v4.19.0.tar.gz"
+  sha256 "f747fa76db258d4df54d564eb7f7c164d15a9f4937583e885d79aab3f04023fe"
   license "BSD-2-Clause"
 
   bottle do
