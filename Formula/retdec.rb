@@ -6,11 +6,11 @@ class Retdec < Formula
   license all_of: ["MIT", "Zlib"]
   head "https://github.com/avast/retdec.git", branch: "master"
 
-  depends_on macos: :mojave
-  depends_on xcode: :build
   depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "cmake" => :build
+  depends_on "libtool" => :build
+  depends_on xcode: :build
+  depends_on macos: :mojave
   depends_on "python@3.10"
 
   def install
@@ -21,6 +21,6 @@ class Retdec < Formula
   end
 
   test do
-    assert_match "##### Done!", shell_output("#{bin}/retdec-decompiler.py #{text_fixtures("mach/a.out")")
+    assert_match "##### Done!", shell_output("#{bin}/retdec-decompiler.py #{text_fixtures("mach/a.out")}")
   end
 end
