@@ -9,9 +9,7 @@ class Pixiewps < Formula
   depends_on "openssl@3"
 
   def install
-    inreplace "Makefile", "/usr/local", prefix.to_s
-
-    system "make", "OPENSSL=1", "install"
+    system "make", "PREFIX=#{prefix}", "OPENSSL=1", "install"
   end
 
   test do
