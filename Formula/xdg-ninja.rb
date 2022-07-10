@@ -13,6 +13,10 @@ class XdgNinja < Formula
   depends_on "glow"
   depends_on "jq"
 
+  on_macos do
+    depends_on "coreutils"
+  end
+
   def install
     pkgshare.install "programs/"
     pkgshare.install "xdg-ninja.sh" => "xdg-ninja"
