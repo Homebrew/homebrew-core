@@ -14,8 +14,6 @@ class Retdec < Formula
   depends_on macos: :mojave
   depends_on "python@3.10"
 
-  patch :DATA
-
   def install
     inreplace "cmake/options.cmake", "set_if_at_least_one_set(RETDEC_ENABLE_OPENSLL
 		RETDEC_ENABLE_CRYPTO)", ""
@@ -38,38 +36,3 @@ class Retdec < Formula
     assert_match "##### Done!", shell_output("#{bin}/retdec-decompiler.py #{test_fixtures("mach/a.out")}")
   end
 end
-__END__
-diff --git a/deps/yara/patch.cmake b/deps/yara/patch.cmake
-index 30257dce..ff8500e0 100644
---- a/deps/yara/patch.cmake
-+++ b/deps/yara/patch.cmake
-@@ -1,3 +1,30 @@
-+# https://github.com/VirusTotal/yara/pull/1540
-+function(patch_configure_ac file)
-+    file(READ "${file}" content)
-+    set(new_content "${content}")
-+
-+    string(REPLACE
-+        "PKG_CHECK_MODULES(PROTOBUF_C, libprotobuf-c >= 1.0.0)"
-+        "PKG_CHECK_MODULES([PROTOBUF_C], [libprotobuf-c >= 1.0.0])"
-+        new_content
-+        "${new_content}"
-+    )
-+
-+    string(REPLACE
-+        "AC_CHECK_LIB(protobuf-c, protobuf_c_message_unpack,,"
-+        "AC_CHECK_LIB([protobuf-c], protobuf_c_message_unpack,,"
-+        new_content
-+        "${new_content}"
-+    )
-+
-+    if("${new_content}" STREQUAL "${content}")
-+        message(STATUS "-- Patching: ${file} skipped")
-+    else()
-+        message(STATUS "-- Patching: ${file} patched")
-+        file(WRITE "${file}" "${new_content}")
-+    endif()
-+endfunction()
-+patch_configure_ac("${yara_path}/configure.ac")
- 
- function(patch_vcxproj file)
