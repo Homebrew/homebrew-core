@@ -12,7 +12,9 @@ class Mkp224o < Formula
   def install
     system "./autogen.sh"
     system "./configure", *std_configure_args
-    system "make", "install"
+    system "make"
+
+    bin.install "mkp224o"
   end
 
   test do
