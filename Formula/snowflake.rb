@@ -15,6 +15,6 @@ class Snowflake < Formula
   end
 
   test do
-    assert_match "ENV-ERROR no TOR_PT_MANAGED_TRANSPORT_VER environment variable", shell_output("#{bin}/snowflake")
+    assert_match "ENV-ERROR no TOR_PT_MANAGED_TRANSPORT_VER environment variable", shell_output("#{bin}/snowflake", 1)
   end
 end
