@@ -3,7 +3,7 @@ class Libstrophe < Formula
   homepage "https://strophe.im/libstrophe/"
   url "https://github.com/strophe/libstrophe/archive/0.12.1.tar.gz"
   sha256 "91fc40a89528a32b0bda975d84f8f567b57e687898e22e328b3733c2ae0393d8"
-  license any_of: ["GPL-3.0", "MIT"]
+  license all_of: ["GPL-3.0-only", "MIT"]
   head "https://github.com/strophe/libstrophe.git", branch: "master"
 
   bottle do
@@ -19,7 +19,6 @@ class Libstrophe < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "check"
   depends_on "openssl@1.1"
 
   uses_from_macos "expat"
