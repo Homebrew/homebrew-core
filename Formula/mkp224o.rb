@@ -18,6 +18,6 @@ class Mkp224o < Formula
   end
 
   test do
-    assert_match "waiting for threads to finish... done", shell_output("#{bin}/mkp224o -n 3 home")
+    assert_match "waiting for threads to finish... done", shell_output("#{bin}/mkp224o -n 3 home 2>&1")
   end
 end
