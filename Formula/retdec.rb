@@ -18,7 +18,7 @@ class Retdec < Formula
 
   def install
     inreplace "cmake/options.cmake", "set_if_at_least_one_set(RETDEC_ENABLE_OPENSLL
-        RETDEC_ENABLE_CRYPTO)", ""
+		RETDEC_ENABLE_CRYPTO)", ""
     inreplace "deps/CMakeLists.txt", "cond_add_subdirectory(openssl RETDEC_ENABLE_OPENSLL)", ""
     inreplace "src/crypto/CMakeLists.txt", "ALIAS crypto)", "ALIAS crypto)
 
