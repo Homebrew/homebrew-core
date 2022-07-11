@@ -18,12 +18,17 @@ class Bfgminer < Formula
   depends_on "libevent"
   depends_on "libusb"
 
+  on_linux do
+    depends_on "curl" => :build
+  end
+
   def install
     libgcrypt = Formula["libgcrypt"]
     libusb = Formula["libusb"]
 
     configure_args = ["CPPFLAGS=-I#{libgcrypt.opt_include} -I#{libusb.opt_include}/libsub-1.0"]
     configure_args << "LDFLAGS=-L#{libgcrypt.opt_lib} -L#{libusb.opt_lib}"
+    configure_args << "--with-udevrulesdir=#{lib}/udev" if OS.linux?
     configure_args << "--without-system-libbase58"
     configure_args << "--enable-cpumining"
     configure_args << "--enable-opencl"
