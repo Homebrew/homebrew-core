@@ -9,7 +9,7 @@ class Snowflake < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(output: bin/"snowflake"), "./client"
+    system "go", "build", *std_go_args, "./client"
 
     man1.install "doc/snowflake-client.1"
   end
