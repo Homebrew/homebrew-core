@@ -4,6 +4,7 @@ class MoltenVk < Formula
   url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.10.tar.gz"
   sha256 "fac11c2501195c9ce042103685c7778e35484562e6c084963a22072dd0a602e0"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "63331fa43116526b4c08c082fee1caf55ca667eaf74b5392d22f84838b750c47"
@@ -143,6 +144,9 @@ class MoltenVk < Formula
     include.install Dir["Package/Release/MoltenVKShaderConverter/include/" \
                         "MoltenVKShaderConverter"]
 
+    inreplace "MoltenVK/icd/MoltenVK_icd.json",
+              "./libMoltenVK.dylib",
+              (lib/"libMoltenVK.dylib").relative_path_from(share/"vulkan/icd.d")
     (share/"vulkan").install "MoltenVK/icd" => "icd.d"
   end
 
