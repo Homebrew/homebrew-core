@@ -9,6 +9,7 @@ class Retdec < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
+  depends_on "openssl@1.1" => :build
   depends_on xcode: :build
   depends_on macos: :mojave
   depends_on "python@3.10"
