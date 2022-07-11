@@ -17,6 +17,7 @@ class Retdec < Formula
   patch do
     url "https://raw.githubusercontent.com/macports/macports-ports/master/devel/retdec/files/patch-yara-syntax-error.diff"
     sha256 "656e156a42082476d10dd3737f9b7d3e3296dc50690ec19913440143a7cfe52c"
+    revision "1"
   end
 
   def install
