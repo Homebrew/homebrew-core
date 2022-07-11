@@ -21,8 +21,8 @@ class Pymupdf < Formula
 
   def install
     if OS.linux?
-      ENV["CPATH"] = Formula["mupdf"].include/"mupdf"
-      ENV["CPATH"] += ":" + Formula["freetype2"].include/"freetype2"
+      ENV.append "CPATH", Formula["mupdf"].include/"mupdf", ":"
+      ENV.append "CPATH", Formula["freetype2"].include/"freetype2", ":"
     end
 
     # Makes setup skip build stage for mupdf
