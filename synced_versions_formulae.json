@@ -1,5 +1,12 @@
 [
   ["aarch64-elf-gcc", "i686-elf-gcc", "x86_64-elf-gcc"],
+  [
+    "aarch64-elf-binutils",
+    "arm-linux-gnueabihf-binutils",
+    "i686-elf-binutils",
+    "x86_64-elf-binutils",
+    "x86_64-linux-gnu-binutils"
+  ],
   ["apache-arrow", "apache-arrow-glib"],
   ["apache-pulsar", "libpulsar"],
   ["avro-c", "avro-cpp", "avro-tools"],
