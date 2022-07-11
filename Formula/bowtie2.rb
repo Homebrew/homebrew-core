@@ -4,6 +4,7 @@ class Bowtie2 < Formula
   url "https://github.com/BenLangmead/bowtie2/archive/v2.4.5.tar.gz"
   sha256 "db101391b54a5e0eeed7469b05aee55ee6299558b38607f592f6b35a7d41dcb6"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ddb6c153e12bef52b933b8ec71b4d13b668575e48804687595435e216e7465d3"
@@ -16,6 +17,9 @@ class Bowtie2 < Formula
 
   depends_on "simde"
   depends_on "tbb"
+
+  uses_from_macos "python"
+  uses_from_macos "zlib"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
