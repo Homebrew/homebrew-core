@@ -3,8 +3,8 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/71/d7/6793c4c903d373df2223bb9e89bb943b415bbd8e249ff47fe1500cfea513/platformio-6.1.0.tar.gz"
-  sha256 "41409e77fb028a7c5e29a0de622af5a118dfc125b0993fab7f605cfe9047e67d"
+  url "https://files.pythonhosted.org/packages/67/dd/fb958596df5013c57a6dd9e934f1aca25ac532e3a27e1007ed96af5cd126/platformio-6.1.1.tar.gz"
+  sha256 "eef0c2056c70c12f481c3959fa0423e6740ed2ff95d0f66d27d3d8040e293bdd"
   license "Apache-2.0"
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
@@ -126,8 +126,8 @@ class Platformio < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
-    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
+    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
+    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
   end
 
   resource "uvicorn" do
