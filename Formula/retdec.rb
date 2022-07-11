@@ -14,16 +14,39 @@ class Retdec < Formula
   depends_on macos: :mojave
   depends_on "python@3.10"
 
-  patch do
-    url "https://raw.githubusercontent.com/macports/macports-ports/master/devel/retdec/files/patch-yara-syntax-error.diff"
-    sha256 "656e156a42082476d10dd3737f9b7d3e3296dc50690ec19913440143a7cfe52c"
-    revision "1"
-  end
-
   def install
     inreplace "cmake/options.cmake", "set_if_at_least_one_set(RETDEC_ENABLE_OPENSLL
         RETDEC_ENABLE_CRYPTO)", ""
     inreplace "deps/CMakeLists.txt", "cond_add_subdirectory(openssl RETDEC_ENABLE_OPENSLL)", ""
+    inreplace "deps/yara/patch.cmake", "function(patch_vcxproj file)", "# https://github.com/VirusTotal/yara/pull/1540
+ function(patch_configure_ac file)
+     file(READ "${file}" content)
+     set(new_content "${content}")
+
+     string(REPLACE
+         "PKG_CHECK_MODULES(PROTOBUF_C, libprotobuf-c >= 1.0.0)"
+         "PKG_CHECK_MODULES([PROTOBUF_C], [libprotobuf-c >= 1.0.0])"
+         new_content
+         "${new_content}"
+     )
+
+     string(REPLACE
+         "AC_CHECK_LIB(protobuf-c, protobuf_c_message_unpack,,"
+         "AC_CHECK_LIB([protobuf-c], protobuf_c_message_unpack,,"
+         new_content
+         "${new_content}"
+     )
+
+     if("${new_content}" STREQUAL "${content}")
+         message(STATUS "-- Patching: ${file} skipped")
+     else()
+         message(STATUS "-- Patching: ${file} patched")
+         file(WRITE "${file}" "${new_content}")
+     endif()
+ endfunction()
+ patch_configure_ac("${yara_path}/configure.ac")
+
+ function(patch_vcxproj file)"
     inreplace "src/crypto/CMakeLists.txt", "ALIAS crypto)", "ALIAS crypto)
 
     find_package(OpenSSL 1.1.1 REQUIRED)"
