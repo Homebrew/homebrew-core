@@ -30,7 +30,8 @@ class Pymupdf < Formula
     ENV["PYMUPDF_SETUP_MUPDF_BUILD"] = ""
 
     system "python3", *Language::Python.setup_install_args(prefix),
-                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
+                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}",
+                      "build"
   end
 
   test do
