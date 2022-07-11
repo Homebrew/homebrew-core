@@ -18,8 +18,8 @@ class Retdec < Formula
     inreplace "cmake/options.cmake", "set_if_at_least_one_set(RETDEC_ENABLE_OPENSLL
         RETDEC_ENABLE_CRYPTO)", ""
     inreplace "deps/CMakeLists.txt", "cond_add_subdirectory(openssl RETDEC_ENABLE_OPENSLL)", ""
-    inreplace "src/crypto/CMakeLists.txt", "add_library(retdec::crypto ALIAS crypto)", "add_library(retdec::crypto ALIAS crypto)
-    
+    inreplace "src/crypto/CMakeLists.txt", "ALIAS crypto)", "ALIAS crypto)
+
     find_package(OpenSSL 1.1.1 REQUIRED)"
     inreplace "src/crypto/CMakeLists.txt", "retdec::deps::openssl-crypto", "OpenSSL::Crypto"
     inreplace "src/crypto/retdec-crypto-config.cmake", "openssl-crypto", ""
