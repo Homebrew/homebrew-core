@@ -21,29 +21,16 @@ class Pymupdf < Formula
 
   def install
     if OS.linux?
-      pymupdf_dirs = {
-        include_dirs: [
-          Formula["mupdf"].include/"mupdf",
-          Formula["freetype2"].include/"freetype2",
-        ],
-        library_dirs: [lib],
-      }
-      (buildpath/"pymupdf_dirs.env").write(pymupdf_dirs.to_json)
-
-      # https://github.com/pymupdf/PyMuPDF/blob/1.20.0/setup.py#L630
-      ENV["PYMUPDF_DIRS"] = (buildpath/"pymupdf_dirs.env").to_s
+      ENV["CPATH"] = Formula["mupdf"].include/"mupdf"
+      ENV["CPATH"] += ":" + Formula["freetype2"].include/"freetype2"
     end
 
     # Makes setup skip build stage for mupdf
     # https://github.com/pymupdf/PyMuPDF/blob/1.20.0/setup.py#L447
     ENV["PYMUPDF_SETUP_MUPDF_BUILD"] = ""
 
-    # Ensure `python` references use our python3
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_bin
-
     system "python3", *Language::Python.setup_install_args(prefix),
-                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}",
-                      "build"
+                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
   end
 
   test do
