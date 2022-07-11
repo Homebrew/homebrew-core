@@ -14,8 +14,10 @@ class Retdec < Formula
   depends_on "python@3.10"
 
   def install
+    openssl = Formula["openssl@1.1"]
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DOPENSSL_ROOT_DIR=#{openssl.opt_prefix}"
       system "make", "install"
     end
   end
