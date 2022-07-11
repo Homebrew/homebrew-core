@@ -6,6 +6,7 @@ class Retdec < Formula
   license all_of: ["MIT", "Zlib"]
   head "https://github.com/avast/retdec.git", branch: "master"
 
+  depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
