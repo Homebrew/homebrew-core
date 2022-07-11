@@ -34,7 +34,7 @@ class Retdec < Formula
   end
 
   test do
-    args <<
-    assert_match "##### Decompiling!", shell_output("#{bin}/retdec-decompiler.py --no-memory-limit -o #{testpath}/a.out.c #{test_fixtures("mach/a.out")}")
+    assert_match "\#\#\#\#\# Decompiling!",
+    shell_output("#{bin}/retdec-decompiler.py --no-memory-limit -o #{testpath}/a.out.c #{test_fixtures("mach/a.out")}")
   end
 end
