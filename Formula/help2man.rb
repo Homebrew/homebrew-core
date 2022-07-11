@@ -17,7 +17,7 @@ class Help2man < Formula
 
   depends_on "gettext" if Hardware::CPU.intel?
 
-  uses_from_macos "perl"
+  uses_from_macos "perl", since: :mojave
 
   resource "Locale::gettext" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
