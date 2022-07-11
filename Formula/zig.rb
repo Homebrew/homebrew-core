@@ -17,7 +17,7 @@ class Zig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@13"
+  depends_on "llvm@14"
 
   fails_with gcc: "5" # LLVM is built with GCC
 
