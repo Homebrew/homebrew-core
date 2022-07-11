@@ -19,29 +19,30 @@ class Bfgminer < Formula
   depends_on "libusb"
 
   on_linux do
-    depends_on "curl" => :build
+    depends_on "curl"
   end
 
   def install
     libgcrypt = Formula["libgcrypt"]
     libusb = Formula["libusb"]
 
-    configure_args = ["CPPFLAGS=-I#{libgcrypt.opt_include} -I#{libusb.opt_include}/libsub-1.0"]
-    configure_args << "LDFLAGS=-L#{libgcrypt.opt_lib} -L#{libusb.opt_lib}"
+    configure_args = [*std_configure_args,
+                      "CPPFLAGS=-I#{libgcrypt.opt_include} -I#{libusb.opt_include}/libsub-1.0",
+                      "LDFLAGS=-L#{libgcrypt.opt_lib} -L#{libusb.opt_lib}",
+                      "--without-system-libbase58",
+                      "--enable-cpumining",
+                      "--enable-opencl",
+                      "--enable-scrypt",
+                      "--enable-keccak",
+                      "--enable-bitmain",
+                      "--enable-alchemist"]
     configure_args << "--with-udevrulesdir=#{lib}/udev" if OS.linux?
-    configure_args << "--without-system-libbase58"
-    configure_args << "--enable-cpumining"
-    configure_args << "--enable-opencl"
-    configure_args << "--enable-scrypt"
-    configure_args << "--enable-keccak"
-    configure_args << "--enable-bitmain"
-    configure_args << "--enable-alchemist"
 
-    system "./configure", *std_configure_args, *configure_args
+    system "./configure", *configure_args
     system "make", "install"
   end
 
   test do
-    assert_match "Work items generated", shell_output("#{bin}/bfgminer --benchmark 2>/dev/null <<< q")
+    assert_match "Work items generated", shell_output("#{bin}/bfgminer --benchmark <<< q 2>/dev/null")
   end
 end
