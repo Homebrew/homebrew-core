@@ -19,7 +19,7 @@ class Retdec < Formula
   end
 
   on_linux do
-    patch :DATA
+    depends_on "gcc"
   end
 
   def install
@@ -31,7 +31,6 @@ class Retdec < Formula
     find_package(OpenSSL 1.1.1 REQUIRED)"
     inreplace "src/crypto/CMakeLists.txt", "retdec::deps::openssl-crypto", "OpenSSL::Crypto"
     inreplace "src/crypto/retdec-crypto-config.cmake", "openssl-crypto", ""
-    inreplace "deps/yara/CMakeLists.txt", "make -j", "gmake -j" if OS.linux?
 
     openssl = Formula["openssl@1.1"]
 
@@ -46,36 +45,3 @@ class Retdec < Formula
     shell_output("#{bin}/retdec-decompiler.py --no-memory-limit -o #{testpath}/a.c #{test_fixtures("mach/a.out")}")
   end
 end
-__END__
---- a/deps/yara/patch.cmake
-+++ b/deps/yara/patch.cmake
-@@ -1,3 +1,30 @@
-+# https://github.com/VirusTotal/yara/pull/1540
-+function(patch_configure_ac file)
-+    file(READ "${file}" content)
-+    set(new_content "${content}")
-+
-+    string(REPLACE
-+        "PKG_CHECK_MODULES(PROTOBUF_C, libprotobuf-c >= 1.0.0)"
-+        "PKG_CHECK_MODULES([PROTOBUF_C], [libprotobuf-c >= 1.0.0])"
-+        new_content
-+        "${new_content}"
-+    )
-+
-+    string(REPLACE
-+        "AC_CHECK_LIB(protobuf-c, protobuf_c_message_unpack,,"
-+        "AC_CHECK_LIB([protobuf-c], protobuf_c_message_unpack,,"
-+        new_content
-+        "${new_content}"
-+    )
-+
-+    if("${new_content}" STREQUAL "${content}")
-+        message(STATUS "-- Patching: ${file} skipped")
-+    else()
-+        message(STATUS "-- Patching: ${file} patched")
-+        file(WRITE "${file}" "${new_content}")
-+    endif()
-+endfunction()
-+patch_configure_ac("${yara_path}/configure.ac")
- 
- function(patch_vcxproj file)
