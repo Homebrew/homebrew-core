@@ -5,9 +5,14 @@ class HapiFhirCli < Formula
   sha256 "9779b9ac721a93ec59fe88c202290682c79bf6f23fc2f5e55b652aafac004f66"
   license "Apache-2.0"
 
+  # The "latest" release on GitHub is sometimes for an older major/minor, so we
+  # can't rely on it being the newest version. The formula's `stable` URL is a
+  # release archive, so it's also not appropriate to check the Git tags here.
+  # Instead we have to check tags of releases (omitting pre-release versions).
   livecheck do
-    url :stable
-    strategy :github_latest
+    url "https://github.com/hapifhir/hapi-fhir/releases?q=prerelease%3Afalse"
+    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :page_match
   end
 
   bottle do
