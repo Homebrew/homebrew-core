@@ -9,17 +9,25 @@ class Solang < Formula
   depends_on "python@3.10" => :build
   depends_on "rust" => :build
 
+  resource "llvm" do
+    url "https://github.com/solana-labs/llvm-project.git",
+        revision: "920bf6a3c2476f640448cc534399ad17820f10d7"
+  end
+
   def install
-    system "git", "clone", "--depth", "1", "--branch", "solana-rustc/13.0-2021-08-08", "https://github.com/solana-labs/llvm-project"
-    mkdir "solana-llvm13.0"
-    cd "llvm-project" do
-      system "cmake", "-G", "Ninja", "-DLLVM_ENABLE_ASSERTIONS=On", "-DLLVM_ENABLE_PROJECTS=lld",
-      "-DLLVM_ENABLE_TERMINFO=Off", "-DLLVM_ENABLE_LIBXML2=Off", "-DLLVM_ENABLE_ZLIB=Off",
-      "-DLLVM_TARGETS_TO_BUILD='WebAssembly;BPF'", "-DCMAKE_BUILD_TYPE=Release",
-      "-DCMAKE_INSTALL_PREFIX=../solana-llvm13.0", "-B", "build", "llvm"
-      system "cmake", "--build", "build", "--target", "install"
+    resource("llvm").stage do
+      system "cmake", "-S", "llvm-project", "-B", "build",
+                      *std_cmake_args(install_prefix: buildpath/"solana-llvm"),
+                      "-DLLVM_ENABLE_ASSERTIONS=ON",
+                      "-DLLVM_ENABLE_PROJECTS=lld",
+                      "-DLLVM_ENABLE_TERMINFO=OFF",
+                      "-DLLVM_ENABLE_LIBXML2=OFF",
+                      "-DLLVM_ENABLE_ZLIB=OFF",
+                      "-DLLVM_TARGETS_TO_BUILD=WebAssembly;BPF"
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
     end
-    ENV["PATH"]="#{buildpath}/solana-llvm13.0/bin:" + ENV["PATH"]
+    ENV.prepend_path "PATH", buildpath/"solana-llvm/bin"
     system "cargo", "install", *std_cargo_args
   end
 
