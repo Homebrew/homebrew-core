@@ -11,9 +11,12 @@ class Retdec < Formula
   depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "openssl@1.1" => :build
-  depends_on xcode: :build
-  depends_on macos: :mojave
   depends_on "python@3.10"
+
+  on_macos do
+    depends_on xcode: :build
+    depends_on macos: :mojave
+  end
 
   on_linux do
     depends_on "perl" => :build
@@ -28,6 +31,7 @@ class Retdec < Formula
     find_package(OpenSSL 1.1.1 REQUIRED)"
     inreplace "src/crypto/CMakeLists.txt", "retdec::deps::openssl-crypto", "OpenSSL::Crypto"
     inreplace "src/crypto/retdec-crypto-config.cmake", "openssl-crypto", ""
+    inreplace "deps/yara/CMakeLists.txt", "make -j", "${CMAKE_MAKE_PROGRAM} -j" if OS.linux?
     ENV.append "PERL5LIB", "#{Formula["perl"].opt_lib}/perl5/#{Formula["perl"].version}" if OS.linux?
 
     openssl = Formula["openssl@1.1"]
