@@ -16,7 +16,7 @@ class Retdec < Formula
   depends_on "python@3.10"
 
   on_linux do
-    depends_on perl => :build
+    depends_on "perl" => :build
   end
 
   def install
