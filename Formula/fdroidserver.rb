@@ -6,6 +6,7 @@ class Fdroidserver < Formula
   url "https://files.pythonhosted.org/packages/4f/2d/7e81d5bfcc0ba8cc3da96a12e20ce02fca60cd43ee038880875dc8399540/fdroidserver-2.1.tar.gz"
   sha256 "0a8e382d4824d1caef759b8118f540438de37799b3e3a7708bc84db9766e2ebe"
   license "AGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c25fa3ea230a0a94e40e29277cbea4762870d0e63576880655bfb48098a1b915"
@@ -161,8 +162,8 @@ class Fdroidserver < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/3b/94/e2b1b3bad91d15526c7e38918795883cee18b93f6785ea8ecf13f8ffa01e/lxml-4.8.0.tar.gz"
-    sha256 "f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23"
+    url "https://files.pythonhosted.org/packages/70/bb/7a2c7b4f8f434aa1ee801704bf08f1e53d7b5feba3d5313ab17003477808/lxml-4.9.1.tar.gz"
+    sha256 "fe749b052bb7233fe5d072fcb549221a8cb1a16725c47c37e42b0b9cb3ff2c3f"
   end
 
   resource "matplotlib" do
