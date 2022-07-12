@@ -32,7 +32,7 @@ class Boringtun < Formula
     system "#{bin}/boringtun-cli", "--help"
     assert_match "boringtun #{version}", shell_output("#{bin}/boringtun-cli -V").chomp
 
-    output = shell_output("#{bin}/boringtun-cli utun -v --log #{testpath}/boringtun.log 2>&1", 1)
+    output = shell_output("#{bin}/boringtun-cli utun --log #{testpath}/boringtun.log 2>&1", 1)
     assert_predicate testpath/"boringtun.log", :exist?
     # requires `sudo` to start
     assert_match "BoringTun failed to start", output
