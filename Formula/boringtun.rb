@@ -23,16 +23,16 @@ class Boringtun < Formula
 
   def caveats
     <<~EOS
-      boringtun requires root privileges so you will need to run `sudo boringtun utun`.
+      boringtun-cli requires root privileges so you will need to run `sudo boringtun-cli utun`.
       You should be certain that you trust any software you grant root privileges.
     EOS
   end
 
   test do
-    system "#{bin}/boringtun", "--help"
-    assert_match "boringtun #{version}", shell_output("#{bin}/boringtun -V").chomp
+    system "#{bin}/boringtun-cli", "--help"
+    assert_match "boringtun #{version}", shell_output("#{bin}/boringtun-cli -V").chomp
 
-    output = shell_output("#{bin}/boringtun utun -v --log #{testpath}/boringtun.log 2>&1", 1)
+    output = shell_output("#{bin}/boringtun-cli utun -v --log #{testpath}/boringtun.log 2>&1", 1)
     assert_predicate testpath/"boringtun.log", :exist?
     # requires `sudo` to start
     assert_match "BoringTun failed to start", output
