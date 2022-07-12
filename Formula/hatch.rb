@@ -3,8 +3,8 @@ class Hatch < Formula
 
   desc "Modern, extensible Python project management"
   homepage "https://hatch.pypa.io/latest"
-  url "https://files.pythonhosted.org/packages/68/ef/97fb07fb0793422fd8ead450be9478a973cbe13c5c5f6ed376f5b81a3b4b/hatch-1.3.0.tar.gz"
-  sha256 "55a090d3f83f0beee761385444448f258b984871471c57241c1a206f6e047084"
+  url "https://files.pythonhosted.org/packages/28/36/40c72b28fd33bfd6264efd417a544abb14ec1e5401a43b86431412e1ba6f/hatch-1.3.1.tar.gz"
+  sha256 "fb1bdad4a22d3443137036b246898c5d3c7552ff4ba399b4605548cef0a22496"
   license "MIT"
 
   bottle do
@@ -60,8 +60,8 @@ class Hatch < Formula
   end
 
   resource "hatchling" do
-    url "https://files.pythonhosted.org/packages/51/40/9007232411fdb941d2c517f71476329ed2e967b3e861082df01dda82d917/hatchling-1.4.1.tar.gz"
-    sha256 "13461b42876ade4f75ee5d2a2c656b288ca0aab7f048ef66657ef166996b2118"
+    url "https://files.pythonhosted.org/packages/83/2d/8fe45dabfdc8630999420fa9439f5dd8138f2a375a41a78f97dd2b7304dc/hatchling-1.5.0.tar.gz"
+    sha256 "9ca409a41140cc662164680b78adcd3ba77b23a945984bd9970d11fe38e86a38"
   end
 
   resource "httpcore" do
@@ -135,8 +135,8 @@ class Hatch < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/f5/f3/f87be42279b5cfba09f7f29e2f4a77063ccf5d9075042981e2cf48752d51/rich-12.4.4.tar.gz"
-    sha256 "4c586de507202505346f3e32d1363eb9ed6932f0c2f63184dea88983ff4971e2"
+    url "https://files.pythonhosted.org/packages/bb/2d/c902484141330ded63c6c40d66a9725f8da5e818770f67241cf429eef825/rich-12.5.1.tar.gz"
+    sha256 "63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"
   end
 
   resource "shellingham" do
