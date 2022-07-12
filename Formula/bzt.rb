@@ -6,6 +6,7 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/c1/af/c4f6ac11d1855e1b2fbfc74acbfc1fb5f13d6d38555f74f726e35973bd31/bzt-1.16.8.tar.gz"
   sha256 "a7d8cd956e356f946d6680391131be945796b73dd2d0c9d44ea89a4bffe569dc"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
@@ -108,13 +109,13 @@ class Bzt < Formula
   end
 
   resource "jarowinkler" do
-    url "https://files.pythonhosted.org/packages/41/89/6cee8d9142957f8517f7510b22ea1e64e64aaebe0ac895b9fdfd6fdafb39/jarowinkler-1.0.5.tar.gz"
-    sha256 "d0ecdae8e122594d22e09ceebfca23342d290a9305d669958e674e0e39e2e260"
+    url "https://files.pythonhosted.org/packages/ce/8f/5efa1249a5aeca64fa0e92a3788609121404a1b6887a239ddd632b53686f/jarowinkler-1.1.2.tar.gz"
+    sha256 "1899cdd09fb1bfa6f32dad30ff8bc9c64b4ad2cb4fe8875306192752ff0cf8f6"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/23/bda4e9881090f0f5e33e2efe89aacfa0668eb6e1ab2de28591e2912d78d4/lxml-4.9.0.tar.gz"
-    sha256 "520461c36727268a989790aef08884347cd41f2d8ae855489ccf40b50321d8d7"
+    url "https://files.pythonhosted.org/packages/70/bb/7a2c7b4f8f434aa1ee801704bf08f1e53d7b5feba3d5313ab17003477808/lxml-4.9.1.tar.gz"
+    sha256 "fe749b052bb7233fe5d072fcb549221a8cb1a16725c47c37e42b0b9cb3ff2c3f"
   end
 
   resource "molotov" do
@@ -153,8 +154,8 @@ class Bzt < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/5c/9d/cb0d101f975d3831b7f41742c997150a7c960fb4a1d8132a033e55152734/rapidfuzz-2.1.1.tar.gz"
-    sha256 "5f24f1e50c7bf0907995b3436bdeab4bcbc033ea5d2e850be68d8da910728dd3"
+    url "https://files.pythonhosted.org/packages/e3/88/cf29bcbee7de754253f6c48b09adc672d28009f774a0e705d91ea78768fc/rapidfuzz-2.1.3.tar.gz"
+    sha256 "7c32a83a28476cfe8cfc9a955f535c31ad0499493a6ab316c3fb31eef58e00d6"
   end
 
   resource "requests" do
@@ -168,8 +169,8 @@ class Bzt < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
-    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
+    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
+    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
   end
 
   resource "urwid" do
