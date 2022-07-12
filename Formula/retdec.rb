@@ -15,6 +15,10 @@ class Retdec < Formula
   depends_on macos: :mojave
   depends_on "python@3.10"
 
+  on_linux do
+    depends_on perl => :build
+  end
+
   def install
     inreplace "cmake/options.cmake", "set_if_at_least_one_set(RETDEC_ENABLE_OPENSLL
 		RETDEC_ENABLE_CRYPTO)", ""
@@ -24,6 +28,7 @@ class Retdec < Formula
     find_package(OpenSSL 1.1.1 REQUIRED)"
     inreplace "src/crypto/CMakeLists.txt", "retdec::deps::openssl-crypto", "OpenSSL::Crypto"
     inreplace "src/crypto/retdec-crypto-config.cmake", "openssl-crypto", ""
+    ENV.append "PERL5LIB", "#{Formula["perl"].opt_lib}/perl5/#{Formula["perl"].version}" if OS.linux?
 
     openssl = Formula["openssl@1.1"]
 
