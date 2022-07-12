@@ -48,8 +48,8 @@ class Solang < Formula
 	        }
         }
     EOS
-    system "#{bin}/solang", "--target", "solana", "flipper.sol"
-    assert File.file?("#{testpath}/flipper.abi")
-    assert File.file?("#{testpath}/bundle.so")
+    system bin/"solang", "--target", "solana", "flipper.sol"
+    assert_predicate testpath/"flipper.abi", :file?
+    assert_predicate testpath/"bundle.so", :file?
   end
 end
