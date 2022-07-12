@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/da/9b/d8d7308f63245ea990203e82a6a3d22994cd6a1fca6310a3cd1e977399ae/datalad-0.17.0.tar.gz"
-  sha256 "1b25ee4f00aa82dc7685ac3e0d41ed11de9e576ccd600143338f471f00dffea0"
+  url "https://files.pythonhosted.org/packages/5c/6d/326a01aa6fe2295bdb237ebf36bcadd5f5ac1d02908fd7a63738543747a0/datalad-0.17.1.tar.gz"
+  sha256 "904579e429a7f17235c3682882a5052acea1dcf030668e9c314ea4681b3ce83c"
   license "MIT"
 
   bottle do
