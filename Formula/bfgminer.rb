@@ -43,6 +43,6 @@ class Bfgminer < Formula
   end
 
   test do
-    assert_match "Work items generated", shell_output("bash -c \"#{bin}/bfgminer --benchmark <<< q 2>/dev/null\"")
+    assert_match "Work items generated", shell_output("bash -c \"#{bin}/bfgminer --benchmark 2>/dev/null <<< q\"")
   end
 end
