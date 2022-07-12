@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.23.3/deno_src.tar.gz"
-  sha256 "1f2df9477c44e48e67a93a8d424ae2e9ca59075ab20f3470ccb391e146c6ef0b"
+  url "https://github.com/denoland/deno/releases/download/v1.24.1/deno_src.tar.gz"
+  sha256 "47917607edad9551933997ffd6eeaf45447836d9637c3f805669eef52f104d65"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -34,10 +34,10 @@ class Deno < Formula
     # Temporary v8 resource to work around build failure due to missing MFD_CLOEXEC in Homebrew's glibc.
     # We use the crate as GitHub tarball lacks submodules and this allows us to avoid git overhead.
     # TODO: Remove when deno's v8 is on 10.5.x, a backport/patch is added, or Homebrew uses a newer glibc.
-    # Ref: https://chromium.googlesource.com/v8/v8.git/+/8fdb91cdb80ae0dd0223c0d065f724e480c5e0db
+    # Ref: https://chromium.googlesource.com/v8/v8.git/+/3d67ad243ce92b9fb162cc85da1dc1a0ebe4c78b
     resource "v8" do
-      url "https://static.crates.io/crates/v8/v8-0.44.3.crate"
-      sha256 "f3f92c29dd66c7342443280695afc5bb79d773c3aa3eb02978cf24f058ae2b3d"
+      url "https://static.crates.io/crates/v8/v8-0.47.1.crate"
+      sha256 "be156dece7a023d5959a72dc0d398d6c95100ec601a2cea10d868da143e85166"
     end
   end
 
@@ -51,6 +51,13 @@ class Deno < Formula
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
         revision: "bf4e17dc67b2a2007475415e3f9e1d1cf32f6e35"
+  end
+
+  # To find the version of tinycc used, check the commit hash referenced from
+  # https://github.com/denoland/deno/tree/v#{version}/ext/ffi
+  resource "tinycc" do
+    url "https://github.com/TinyCC/tinycc.git",
+        revision: "afc136262e93ae85fb3643005b36dbfc30d99c42"
   end
 
   def install
@@ -72,7 +79,7 @@ class Deno < Formula
         EOS
       end
       inreplace %w[core/Cargo.toml serde_v8/Cargo.toml],
-                /^v8 = ("[\d.]+")$/,
+                /^v8 = { version = ("[\d.]+"),.*}$/,
                 "v8 = { version = \\1, path = \"../v8\" }"
     end
 
@@ -97,6 +104,15 @@ class Deno < Formula
       system "python3", "build/gen.py"
       system "ninja", "-C", "out"
     end
+
+    resource("tinycc").stage buildpath/"tinycc"
+    cd "tinycc" do
+      ENV.append_to_cflags "-fPIE" if OS.linux?
+      system "./configure", "--cc=#{ENV.cc}"
+      system "make"
+    end
+
+    ENV["TCC_PATH"] = buildpath/"tinycc"
 
     # cargo seems to build rusty_v8 twice in parallel, which causes problems,
     # hence the need for -j1
