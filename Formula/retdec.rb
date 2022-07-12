@@ -48,6 +48,7 @@ class Retdec < Formula
     shell_output("#{bin}/retdec-decompiler.py --no-memory-limit -o #{testpath}/a.c #{test_fixtures("mach/a.out")}")
   end
 end
+__END__
 --- a/deps/yara/patch.cmake
 +++ b/deps/yara/patch.cmake
 @@ -1,3 +1,30 @@
