@@ -18,8 +18,7 @@ class Boringtun < Formula
   depends_on "rust" => :build
 
   def install
-    args = build.head? ? std_cargo_args(path: "boringtun-cli") : std_cargo_args
-    system "cargo", "install", *args
+    system "cargo", "install", *std_cargo_args(path: "boringtun-cli")
   end
 
   def caveats
