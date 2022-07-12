@@ -23,7 +23,7 @@ class Icon < Formula
   def install
     ENV.deparallelize
     target = if OS.mac?
-      "posix"
+      "macintosh"
     else
       "linux"
     end
