@@ -4,6 +4,7 @@ class Purescript < Formula
   url "https://hackage.haskell.org/package/purescript-0.15.4/purescript-0.15.4.tar.gz"
   sha256 "df279079a7c78c5b1fa813846797e696787f5dd567b1b6e042f7ab6a2701868f"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/purescript/purescript.git", branch: "master"
 
   bottle do
@@ -22,6 +23,11 @@ class Purescript < Formula
   uses_from_macos "zlib"
 
   def install
+    # Use ncurses in REPL, providing an improved experience when editing long
+    # lines in the REPL.
+    # See https://github.com/purescript/purescript/issues/3696#issuecomment-657282303.
+    inreplace "stack.yaml", "terminfo: false", "terminfo: true"
+
     system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"
   end
 
