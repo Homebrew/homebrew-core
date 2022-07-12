@@ -31,6 +31,7 @@ class Retdec < Formula
     find_package(OpenSSL 1.1.1 REQUIRED)"
     inreplace "src/crypto/CMakeLists.txt", "retdec::deps::openssl-crypto", "OpenSSL::Crypto"
     inreplace "src/crypto/retdec-crypto-config.cmake", "openssl-crypto", ""
+    inreplace "deps/yara/CMakeLists.txt", "make -j", "gmake -j" if OS.linux?
 
     openssl = Formula["openssl@1.1"]
 
