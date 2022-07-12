@@ -1,11 +1,12 @@
 class Regldg < Formula
   desc "Regular expression grammar language dictionary generator"
   homepage "https://regldg.com/"
-  url "https://regldg.com/regldg-1.0.0.tar.gz"
-  sha256 "cd550592cc7a2f29f5882dcd9cf892875dd4e84840d8fe87133df9814c8003f1"
+  url "https://regldg.com/regldg-1.0.1.tar.gz"
+  sha256 "f5f401c645a94d4c737cefa2bbcb62f23407d25868327902b9c93b501335dc99"
+  license "MIT"
 
   livecheck do
-    url "https://regldg.com/download.php"
+    url "https://regldg.com/download.html"
     regex(/href=.*?regldg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
