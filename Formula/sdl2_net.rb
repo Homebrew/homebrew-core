@@ -1,13 +1,16 @@
 class Sdl2Net < Formula
   desc "Small sample cross-platform networking library"
-  homepage "https://www.libsdl.org/projects/SDL_net/"
+  homepage "https://github.com/libsdl-org/SDL_net"
   url "https://www.libsdl.org/projects/SDL_net/release/SDL2_net-2.0.1.tar.gz"
   sha256 "15ce8a7e5a23dafe8177c8df6e6c79b6749a03fff1e8196742d3571657609d21"
   license "Zlib"
 
+  # NOTE: This should be updated to use the `GithubLatest` strategy if/when the
+  # GitHub releases provide downloadable artifacts and the formula uses one as
+  # the `stable` URL (like `sdl2_image`, `sdl2_mixer`, etc.).
   livecheck do
-    url :homepage
-    regex(/href=.*?SDL2_net[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :head
+    regex(/^release[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
