@@ -4,6 +4,7 @@ class Tig < Formula
   url "https://github.com/jonas/tig/releases/download/tig-2.5.5/tig-2.5.5.tar.gz"
   sha256 "24ba2c8beae889e6002ea7ced0e29851dee57c27fde8480fb9c64d5eb8765313"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a7d0bf9c1f535420cd5855c037280d5f7e3f7061c8a8f5c3178e567d92e8839c"
@@ -23,6 +24,8 @@ class Tig < Formula
     depends_on "xmlto" => :build
   end
 
+  # https://github.com/jonas/tig/issues/1210
+  depends_on "ncurses"
   depends_on "readline"
 
   def install
