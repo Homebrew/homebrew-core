@@ -1,13 +1,15 @@
 class Sdl2Image < Formula
   desc "Library for loading images as SDL surfaces and textures"
-  homepage "https://www.libsdl.org/projects/SDL_image/"
-  url "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-2.0.5.tar.gz"
-  sha256 "bdd5f6e026682f7d7e1be0b6051b209da2f402a2dd8bd1c4bd9c25ad263108d0"
+  homepage "https://github.com/libsdl-org/SDL_image"
+  url "https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.0/SDL2_image-2.6.0.tar.gz"
+  sha256 "611c862f40de3b883393aabaa8d6df350aa3ae4814d65030972e402edae85aaa"
   license "Zlib"
 
+  # This formula uses a file from a GitHub release, so we check the latest
+  # release version instead of Git tags.
   livecheck do
-    url :homepage
-    regex(/href=.*?SDL2_image[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
