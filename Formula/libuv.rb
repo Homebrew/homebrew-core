@@ -26,13 +26,6 @@ class Libuv < Formula
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
 
-  # Fix posix_spawnp bug on macOS. https://github.com/Homebrew/homebrew-core/issues/99688
-  # Remove at next release.
-  patch do
-    url "https://github.com/libuv/libuv/commit/7c9b3938df9cc1eb9e1efec249a171c31b1a9a3a.patch?full_index=1"
-    sha256 "5fb73337d841504ad514709146ba6715f6a6f91e69a9b07b48dee4e9b6617bdc"
-  end
-
   def install
     # This isn't yet handled by the make install process sadly.
     cd "docs" do
