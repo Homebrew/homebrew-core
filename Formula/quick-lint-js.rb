@@ -1,10 +1,9 @@
 class QuickLintJs < Formula
   desc "Find bugs in your JavaScript code"
   homepage "https://quick-lint-js.com/"
-  url "https://c.quick-lint-js.com/releases/2.6.0/source/quick-lint-js-2.6.0.tar.gz"
-  sha256 "6fd402e1d0743adb9e862532e25b2be09f637d4c45cb964251ac0f52a1eb5d5c"
+  url "https://c.quick-lint-js.com/releases/2.7.0/source/quick-lint-js-2.7.0.tar.gz"
+  sha256 "722a41b7c5521b2dd483b86ece20dfded6a13b8c8894e9ef2902f2a70c4735ff"
   license "GPL-3.0-or-later"
-  revision 3
   head "https://github.com/quick-lint/quick-lint-js.git", branch: "master"
 
   bottle do
@@ -33,13 +32,6 @@ class QuickLintJs < Formula
   fails_with gcc: "5"
   fails_with gcc: "6"
   fails_with gcc: "7"
-
-  # Fix build with simdjson 2.2.0.
-  # https://github.com/quick-lint/quick-lint-js/pull/779
-  patch do
-    url "https://github.com/quick-lint/quick-lint-js/commit/a82c706ef4b8d1e7aa71b6ff0d244670a50d69ee.patch?full_index=1"
-    sha256 "445b11501ab08613a90f0107df965b9e7b420ad2e0139a47deb0453ced5b86f8"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",
