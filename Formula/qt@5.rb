@@ -243,19 +243,10 @@ class QtAT5 < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       We agreed to the Qt open source license for you.
       If this is unacceptable you should uninstall.
     EOS
-
-    if Hardware::CPU.arm?
-      s += <<~EOS
-
-        This version of Qt on Apple Silicon does not include QtWebEngine.
-      EOS
-    end
-
-    s
   end
 
   test do
