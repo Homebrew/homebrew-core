@@ -48,14 +48,15 @@ class Retdec < Formula
   end
 
   test do
-    test_cmd = %W[#{Formula["python@3.10"].opt_bin}/python3
+    test_cmd = %w[
+      #{Formula["python@3.10"].opt_bin}/python3
       #{bin}/retdec-decompiler.py"
+      --no-memory-limit
       -o
-      #{testpath}/a.c"
-      #{test_fixtures("mach/a.out")}.to_s
+      #{testpath}/a.c
+      #{test_fixtures("mach/a.out")}
       2>/dev/null
     ]
-    test_cmd << "--no-memory-limit" if OS.linux?
 
     assert_match "\#\#\#\#\# Decompiling", shell_output(*test_cmd)
   end
