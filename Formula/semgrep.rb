@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.103.0",
-      revision: "ce4e07b4f5b2e692269ce75480b8d3e6029ef293"
+      tag:      "v0.104.0",
+      revision: "8976e37cbd603d2d0348cabbf3b45343527f70c9"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -103,8 +103,8 @@ class Semgrep < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
-    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
+    url "https://files.pythonhosted.org/packages/19/0f/89db7764dfb59fc1c2b18c2d63f11375b4827aa3e93ae037166a780d2bed/jsonschema-4.7.2.tar.gz"
+    sha256 "73764f461d61eb97a057c929368610a134d1d1fffd858acfe88864ee94f1f1d3"
   end
 
   resource "packaging" do
@@ -113,8 +113,8 @@ class Semgrep < Formula
   end
 
   resource "peewee" do
-    url "https://files.pythonhosted.org/packages/d4/22/b9d912a9611e8fd3f25ce040aa683c1dabbae7404e77db0f6a511363a112/peewee-3.15.0.tar.gz"
-    sha256 "48eac70be812ac84daa5400fb8e7b545e0c83adcfa05c8e2a8612f9ced4da495"
+    url "https://files.pythonhosted.org/packages/45/c4/be139f7b7e0bbbc7b2fba4dc492cfb0202c64a0086fa2d23c0b6091ef4f2/peewee-3.15.1.tar.gz"
+    sha256 "6d5db3babc33819ac326f1550e5a39677f4584094c567a7b88cc6bf7bcdcb687"
   end
 
   resource "pyparsing" do
@@ -147,11 +147,6 @@ class Semgrep < Formula
     sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "tqdm" do
     url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
     sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
@@ -168,8 +163,8 @@ class Semgrep < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
-    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
+    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
+    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
   end
 
   resource "wcmatch" do
