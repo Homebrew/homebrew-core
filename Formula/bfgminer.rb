@@ -6,8 +6,6 @@ class Bfgminer < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/luke-jr/bfgminer.git", branch: "bfgminer"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "hidapi" => :build
   depends_on "libgcrypt" => :build
   depends_on "libscrypt" => :build
@@ -17,18 +15,9 @@ class Bfgminer < Formula
   depends_on "jansson"
   depends_on "libevent"
   depends_on "libusb"
-
-  on_linux do
-    depends_on "curl"
-  end
+  uses_from_macos "curl"
 
   def install
-    libgcrypt = Formula["libgcrypt"]
-    libusb = Formula["libusb"]
-
-    ENV.append "CPPFLAGS", "-I#{libgcrypt.opt_include} -I#{libusb.opt_include}/libusb-1.0"
-    ENV.append "LDFLAGS", "-L#{libgcrypt.opt_lib} -L#{libusb.opt_lib}"
-
     configure_args = std_configure_args + %w[
       --without-system-libbase58
       --enable-cpumining
