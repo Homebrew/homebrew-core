@@ -1,8 +1,8 @@
 class FontUtil < Formula
   desc "X.Org: Font package creation/installation utilities"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/font/font-util-1.3.2.tar.bz2"
-  sha256 "3ad880444123ac06a7238546fa38a2a6ad7f7e0cc3614de7e103863616522282"
+  url "https://www.x.org/archive/individual/font/font-util-1.3.3.tar.xz"
+  sha256 "e791c890779c40056ab63aaed5e031bb6e2890a98418ca09c534e6261a2eebd2"
   license "MIT"
 
   bottle do
