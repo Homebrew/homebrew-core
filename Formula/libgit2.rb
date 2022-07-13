@@ -28,6 +28,7 @@ class Libgit2 < Formula
     args = std_cmake_args
     args << "-DBUILD_EXAMPLES=YES"
     args << "-DBUILD_CLAR=NO" # Don't build tests.
+    args << "-DBUILD_TESTS=OFF" # Really don't build tests.
     args << "-DUSE_SSH=YES"
 
     mkdir "build" do
