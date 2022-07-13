@@ -35,7 +35,6 @@ class VowpalWabbit < Formula
                             "-DFMT_SYS_DEP=ON",
                             "-DSPDLOG_SYS_DEP=ON",
                             "-DVW_BOOST_MATH_SYS_DEP=On",
-                            "-DBUILD_FLATBUFFERS=ON",
                             "-DVW_INSTALL=On"
       system "make", "install"
     end
