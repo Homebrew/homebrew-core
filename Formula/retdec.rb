@@ -10,7 +10,6 @@ class Retdec < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl@1.1" => :build
   depends_on "python@3.10"
 
   on_macos do
@@ -23,21 +22,22 @@ class Retdec < Formula
   end
 
   def install
-    inreplace "cmake/options.cmake", "set_if_at_least_one_set(RETDEC_ENABLE_OPENSLL
-		RETDEC_ENABLE_CRYPTO)", ""
-    inreplace "deps/CMakeLists.txt", "cond_add_subdirectory(openssl RETDEC_ENABLE_OPENSLL)", ""
-    inreplace "src/crypto/CMakeLists.txt", "ALIAS crypto)", "ALIAS crypto)
+    inreplace "cmake/deps.cmake", "1.1.1c", "1.1.1i"
+    inreplace "cmake/deps.cmake",
+      "97ace46e11dba4c4c2b7cb67140b6ec152cfaaf4",
+      "90cebd1b216e0a160fcfd8e0eddca47dad47c183"
+    inreplace "cmake/deps.cmake",
+      "f093df5cfd7521d8f6a09f250d7e69159d1001c47419130e806488de8a6312d8",
+      "b12110d8a344f03b4f182fb111e6caa46a851e4966dc5975c4801af74a85cd7c"
+    inreplace "deps/openssl/CMakeLists.txt",
+      "set(OPENSSL_CONFIGURE_ARCH \"darwin64-x86_64-cc\")",
+      "set(OPENSSL_CONFIGURE_ARCH \"darwin64-x86_64-cc\")
+        elseif(ARCH_ARM64)
+                set(OPENSSL_CONFIGURE_ARCH \"darwin64-arm64-cc\")"
 
-    find_package(OpenSSL 1.1.1 REQUIRED)"
-    inreplace "src/crypto/CMakeLists.txt", "retdec::deps::openssl-crypto", "OpenSSL::Crypto"
-    inreplace "src/crypto/retdec-crypto-config.cmake", "openssl-crypto", ""
-
-    openssl = Formula["openssl@1.1"]
     gcc = Formula["gcc@7"] if OS.linux?
 
-    cmake_args = std_cmake_args + %W[
-      -DOPENSSL_ROOT_DIR=#{openssl.opt_prefix}
-    ]
+    cmake_args = std_cmake_args
     cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-7" if OS.linux?
     cmake_args << "-DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-7" if OS.linux?
 
