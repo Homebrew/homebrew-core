@@ -11,7 +11,7 @@ class Snowflake < Formula
   def install
     system "go", "build", *std_go_args, "./client"
 
-    man1.install "doc/snowflake-client.1"
+    man1.install "doc/snowflake-client.1" => "snowflake.1"
   end
 
   test do
