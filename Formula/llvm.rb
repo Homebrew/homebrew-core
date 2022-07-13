@@ -170,6 +170,7 @@ class Llvm < Formula
 
         -DLIBUNWIND_USE_COMPILER_RT=ON
         -DCOMPILER_RT_USE_BUILTINS_LIBRARY=ON
+        -DCOMPILER_RT_USE_LLVM_UNWINDER=ON
 
         -DSANITIZER_CXX_ABI=libc++
         -DSANITIZER_TEST_CXX=libc++
@@ -215,22 +216,6 @@ class Llvm < Formula
         # Make sure CMake doesn't try to pass C++-only flags to C compiler.
         extra_args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
         extra_args << "-DCMAKE_CXX_COMPILER=#{ENV.cxx}"
-
-        gcc = Formula["gcc"]
-        # Link to libstdc++ for brewed GCC rather than the host GCC which is too old.
-        linux_library_paths = [
-          gcc.opt_lib/"gcc"/gcc.version.major, # libstdc++
-          Formula["glibc"].opt_lib,
-        ]
-        linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
-
-        # Add the linker paths to the arguments passed to the temporary compilers.
-        extra_args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        extra_args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-
-        # We need these flags for the installed toolchain too.
-        args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
       end
 
       cflags = ENV.cflags&.split || []
@@ -246,6 +231,8 @@ class Llvm < Formula
         system "cmake", "-G", "Unix Makefiles", "..",
                         *extra_args, *std_cmake_args
         system "cmake", "--build", ".", "--target", "clang", "llvm-profdata", "profile"
+        # Build lld in stage1 on Linux so we can use it as the linker instead of the ld shim.
+        system "cmake", "--build", ".", "--target", "lld" unless OS.mac?
       end
 
       # Barring the stage where we generate the profile data, there is no benefit to
@@ -267,6 +254,29 @@ class Llvm < Formula
         cxxflags << "-isystem#{toolchain_path}/usr/include"
         cxxflags << "-isystem#{macos_sdk}/usr/include"
       elsif !OS.mac?
+        gcc = Formula["gcc"]
+        # Link to libstdc++ for brewed GCC rather than the host GCC which is too old.
+        # Also make sure brewed glibc will be used if it is installed.
+        linux_library_paths = [
+          gcc.opt_lib/"gcc"/gcc.version.major, # libstdc++
+          Formula["glibc"].opt_lib,
+        ]
+        linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
+        # Add opt_libs for dependencies to RPATH.
+        linux_linker_flags += deps.map(&:to_formula).map { |dep| "-Wl,-rpath,#{dep.opt_lib}" }
+        # Use stage1 lld instead of ld shim so that we can control RPATH.
+        linux_linker_flags << "--ld-path=#{llvmpath}/stage1/bin/ld.lld"
+
+        # Add the linker paths to the arguments passed to the temporary compilers.
+        extra_args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+        extra_args << "-DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+        extra_args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+
+        # We need these flags for the installed toolchain too.
+        args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+        args << "-DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+        args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+
         # Use libstdc++ headers for brewed GCC rather than host GCC which is too old.
         # We also need to make sure we can find headers for other formulae on Linux.
         linux_include_paths = [
