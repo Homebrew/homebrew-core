@@ -5,7 +5,7 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-8.0.0/apache-arrow-8.0.0.tar.gz"
   sha256 "ad9a05705117c989c116bae9ac70492fe015050e1b80fb0e38fde4b5d863aaa3"
   license "Apache-2.0"
-  revision 3
+  revision 4
   head "https://github.com/apache/arrow.git", branch: "master"
 
   bottle do
@@ -77,11 +77,9 @@ class ApacheArrow < Formula
 
     args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?
 
-    mkdir "build" do
-      system "cmake", "../cpp", *std_cmake_args, *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", "cpp", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
