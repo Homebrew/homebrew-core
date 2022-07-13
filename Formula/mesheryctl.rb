@@ -24,7 +24,7 @@ class Mesheryctl < Formula
   end
 
   test do
-    # We need a 'y' here because mesheryctl needs a meshery config file to display version
+    # We need a 'y' here because mesheryctl needs a meshconfig file to display version
     # of the server along with the cli. Since it doesn't exist yet it shows a prompt if the user
     # wants to create a default config file.
     assert_match version.to_s, shell_output("#{bin}/mesheryctl version <<< y 2>&1")
