@@ -16,7 +16,7 @@ class Solang < Formula
 
   def install
     resource("llvm").stage do
-      system "cmake", "-S", "llvm-project", "-B", "build",
+      system "cmake", "-S", "llvm", "-B", "build",
                       *std_cmake_args(install_prefix: buildpath/"solana-llvm"),
                       "-DLLVM_ENABLE_ASSERTIONS=ON",
                       "-DLLVM_ENABLE_PROJECTS=lld",
