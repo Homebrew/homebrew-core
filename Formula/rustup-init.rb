@@ -1,8 +1,8 @@
 class RustupInit < Formula
   desc "Rust toolchain installer"
   homepage "https://github.com/rust-lang/rustup"
-  url "https://github.com/rust-lang/rustup/archive/1.25.0.tar.gz"
-  sha256 "a6d4701fb0c6030fdcf3e9828ccf880e78cef293749573e33714b5645a74191b"
+  url "https://github.com/rust-lang/rustup/archive/1.25.1.tar.gz"
+  sha256 "4d062c77b08309bd212f22dd7da1957c1882509c478e57762f34ec4fb2884c9a"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
