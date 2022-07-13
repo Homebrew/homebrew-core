@@ -9,7 +9,7 @@ class Pixiewps < Formula
   depends_on "openssl@3"
 
   def install
-    system "make", *std_make_args, "OPENSSL=1", "install"
+    system "make", "PREFIX=#{prefix}", "OPENSSL=1", "install"
   end
 
   test do
