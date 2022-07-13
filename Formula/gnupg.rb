@@ -4,6 +4,7 @@ class Gnupg < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.7.tar.bz2"
   sha256 "ee163a5fb9ec99ffc1b18e65faef8d086800c5713d15a672ab57d3799da83669"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gnupg/"
@@ -34,6 +35,14 @@ class Gnupg < Formula
 
   on_linux do
     depends_on "libidn"
+  end
+
+  # Fixes a regression using Yubikey devices as smart cards.
+  # Committed upstream, will be in the next release.
+  # https://dev.gnupg.org/T6070
+  patch do
+    url "https://dev.gnupg.org/rGf34b9147eb3070bce80d53febaa564164cd6c977?diff=1"
+    sha256 "0a54359e00ea5e5f0e53220571a4502b28a05cf687cb73b360fb4c777e2f421b"
   end
 
   def install
