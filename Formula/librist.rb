@@ -29,8 +29,10 @@ class Librist < Formula
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
-    system "meson", *std_meson_args, "build", ".", "--default-library", "both"
-    system "ninja", "install", "-C", "build"
+
+    system "meson", "setup", "--default-library", "both", "-Dfallback_builtin=false", *std_meson_args, "build", "."
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
   end
 
   test do
