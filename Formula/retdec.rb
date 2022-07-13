@@ -32,12 +32,12 @@ class Retdec < Formula
     inreplace "src/crypto/CMakeLists.txt", "retdec::deps::openssl-crypto", "OpenSSL::Crypto"
     inreplace "src/crypto/retdec-crypto-config.cmake", "openssl-crypto", ""
 
-    gcc = Formula["gcc@7"]
+    gcc = Formula["gcc@7"] if OS.linux?
     openssl = Formula["openssl@1.1"]
 
     cmake_args = std_cmake_args + %W[
-      -DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-7
-      -DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-7
+      -DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-7 if OS.linux?
+      -DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-7 if OS.linux?
       -DOPENSSL_ROOT_DIR=#{openssl.opt_prefix}
     ]
 
