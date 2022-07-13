@@ -5,6 +5,7 @@ class Meek < Formula
   sha256 "f5650e26638f94954d0b89892ac0f4241cfeb55c17f555ee890609544ea85474"
   license "CC0-1.0"
   head "https://git.torproject.org/pluggable-transports/meek.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d19c3c39e282288d574f72c2e645d586514d5bdf9fa3adbd5dee9abce2c57c6a"
@@ -18,9 +19,9 @@ class Meek < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(output: bin/"meek"), "./meek-client"
+    system "go", "build", *std_go_args, "./meek-client"
 
-    man1.install "doc/meek-client.1"
+    man1.install "doc/meek-client.1" => "meek.1"
   end
 
   test do
