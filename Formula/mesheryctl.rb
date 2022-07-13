@@ -1,5 +1,5 @@
 class Mesheryctl < Formula
-  desc "Command-line utility for meshery, a cloud native management plane"
+  desc "Command-line utility for Meshery, the cloud native management plane"
   homepage "https://meshery.io"
   url "https://github.com/meshery/meshery.git",
       tag:      "v0.6.0-rc.6b",
