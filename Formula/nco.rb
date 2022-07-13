@@ -34,12 +34,8 @@ class Nco < Formula
   end
 
   resource "antlr2" do
-    url "https://github.com/nco/antlr2.git",
-     branch:   "master",
-     revision: "4fb7744d244eee46a981930c6bd1fd43dafe3f20"
-
-    # Fix upstreamed here: https://github.com/nco/antlr2/pull/1.
-    patch :DATA
+    url "https://github.com/nco/antlr2/archive/refs/tags/antlr2-2.7.7-1.tar.gz"
+    sha256 "d06e0ae7a0380c806321045d045ccacac92071f0f843aeef7bdf5841d330a989"
   end
 
   def install
@@ -77,14 +73,3 @@ class Nco < Formula
     assert_match "\"time\": 180", output
   end
 end
-
-__END__
---- a/lib/cpp/antlr/CharScanner.hpp     2006-11-01 22:37:17.000000000 +0100
-+++ b/lib/cpp/antlr/CharScanner.hpp     2008-03-19 20:09:21.000000000 +0100
-@@ -10,6 +10,8 @@
-
- #include <antlr/config.hpp>
-
-+#include <cstdio>
-+#include <cstring>
- #include <map>
