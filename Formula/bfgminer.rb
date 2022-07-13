@@ -26,9 +26,10 @@ class Bfgminer < Formula
     libgcrypt = Formula["libgcrypt"]
     libusb = Formula["libusb"]
 
+    ENV.append "CPPFLAGS", "-I#{libgcrypt.opt_include} -I#{libusb.opt_include}/libusb-1.0"
+    ENV.append "LDFLAGS", "-L#{libgcrypt.opt_lib} -L#{libusb.opt_lib}"
+
     configure_args = std_configure_args + %W[
-      CPPFLAGS="-I#{libgcrypt.opt_include} -I#{libusb.opt_include}/libusb-1.0"
-      LDFLAGS="-L#{libgcrypt.opt_lib} -L#{libusb.opt_lib}"
       --without-system-libbase58
       --enable-cpumining
       --enable-opencl
