@@ -4,6 +4,7 @@ class ProtobufC < Formula
   url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.4.1/protobuf-c-1.4.1.tar.gz"
   sha256 "4cc4facd508172f3e0a4d3a8736225d472418aee35b4ad053384b137b220339f"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "537aa180b45b68c137ab083b1ff95d02e2080a83e3233c699d405811ee1f1fdf"
@@ -19,6 +20,9 @@ class ProtobufC < Formula
 
   def install
     ENV.cxx11
+
+    # https://github.com/protocolbuffers/protobuf/issues/9947
+    ENV.append_to_cflags "-DNDEBUG"
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
