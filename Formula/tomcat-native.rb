@@ -1,9 +1,9 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-connectors/native/1.2.34/source/tomcat-native-1.2.34-src.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.34/source/tomcat-native-1.2.34-src.tar.gz"
-  sha256 "b7571881f527c079b4e9114f556797d11ce483db28f55f9a5943fc0eea82d930"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-connectors/native/2.0.1/source/tomcat-native-2.0.1-src.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/2.0.1/source/tomcat-native-2.0.1-src.tar.gz"
+  sha256 "184679dc9e8d704003e720b87db10750982ddffb21b13eedc30b5e666748d775"
   license "Apache-2.0"
 
   bottle do
@@ -18,14 +18,14 @@ class TomcatNative < Formula
   depends_on "libtool" => :build
   depends_on "apr"
   depends_on "openjdk"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     cd "native" do
       system "./configure", "--prefix=#{prefix}",
                             "--with-apr=#{Formula["apr"].opt_prefix}",
                             "--with-java-home=#{Formula["openjdk"].opt_prefix}",
-                            "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
+                            "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
 
       # fixes occasional compiling issue: glibtool: compile: specify a tag with `--tag'
       args = ["LIBTOOL=glibtool --tag=CC"]
