@@ -50,7 +50,7 @@ class Retdec < Formula
   test do
     test_cmd = %w[
       #{Formula["python@3.10"].opt_bin}/python3
-      #{bin}/retdec-decompiler.py"
+      #{bin}/retdec-decompiler.py
       --no-memory-limit
       -o
       #{testpath}/a.c
