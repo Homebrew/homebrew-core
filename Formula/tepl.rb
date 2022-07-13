@@ -2,8 +2,8 @@ class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://gitlab.gnome.org/swilmet/tepl"
   url "https://gitlab.gnome.org/swilmet/tepl.git",
-      tag:      "6.1.1",
-      revision: "a3538fdee2f3518541bfc4041286143e6c8e16de"
+      tag:      "6.1.2",
+      revision: "62aba5222f8512042285d65d29e455da56f67dc3"
   license "LGPL-2.1-or-later"
 
   bottle do
