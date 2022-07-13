@@ -4,8 +4,8 @@ class Meek < Formula
   url "https://gitweb.torproject.org/pluggable-transports/meek.git/snapshot/meek-0.37.0.tar.gz"
   sha256 "f5650e26638f94954d0b89892ac0f4241cfeb55c17f555ee890609544ea85474"
   license "CC0-1.0"
-  head "https://git.torproject.org/pluggable-transports/meek.git", branch: "main"
   revision 1
+  head "https://git.torproject.org/pluggable-transports/meek.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d19c3c39e282288d574f72c2e645d586514d5bdf9fa3adbd5dee9abce2c57c6a"
