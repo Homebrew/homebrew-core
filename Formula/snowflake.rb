@@ -9,12 +9,18 @@ class Snowflake < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./client"
+    system "go", "build", *std_go_args(output: bin/"snowflake-broker"), "./broker"
+    system "go", "build", *std_go_args(output: bin/"snowflake-client"), "./client"
+    system "go", "build", *std_go_args(output: bin/"snowflake-proxy"), "./proxy"
+    system "go", "build", *std_go_args(output: bin/"snowflake-server"), "./server"
 
-    man1.install "doc/snowflake-client.1" => "snowflake.1"
+    man1.install "doc/snowflake-client.1"
+    man1.install "doc/snowflake-proxy.1"
   end
 
   test do
-    assert_match "ENV-ERROR no TOR_PT_MANAGED_TRANSPORT_VER environment variable", shell_output("#{bin}/snowflake", 1)
+    assert_match "open /usr/share/tor/geoip: no such file", shell_output("#{bin}/snowflake-broker 2>&1", 1)
+    assert_match "ENV-ERROR no TOR_PT_MANAGED_TRANSPORT_VER", shell_output("#{bin}/snowflake-client 2>&1", 1)
+    assert_match "the --acme-hostnames option is required", shell_output("#{bin}/snowflake-server 2>&1", 1)
   end
 end
