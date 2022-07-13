@@ -2,7 +2,7 @@ class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
   license "GPL-3.0-or-later"
-  revision 18
+  revision 19
 
   stable do
     url "https://mosh.org/mosh-1.3.2.tar.gz"
@@ -72,6 +72,9 @@ class Mosh < Formula
 
   def install
     ENV.cxx11
+
+    # https://github.com/protocolbuffers/protobuf/issues/9947
+    ENV.append_to_cflags "-DNDEBUG"
 
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
