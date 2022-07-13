@@ -40,10 +40,23 @@ class Teleport < Formula
     sha256 "43e5b2403061e67817f51e552fee3c3c1058fccb989088ccfa62cf3e9bca9138"
   end
 
+  # Fix finding `pam_appl.h` on macOS.
+  # https://github.com/gravitational/teleport/pull/14558
+  patch do
+    url "https://github.com/gravitational/teleport/commit/12165463f1b0b81cfe85ac43a9152d8ce573c818.patch?full_index=1"
+    sha256 "fc9c9908e4b9e54d363f31a618aad8cf829f46c876e7ee01922e23519d226dac"
+  end
+
   def install
+    ENV["SDKROOT"] = MacOS.sdk_path_if_needed
     (buildpath/"webassets").install resource("webassets")
-    ENV.deparallelize { system "make", "full", "FIDO2=dynamic" }
-    bin.install Dir["build/*"]
+    inreplace("version.mk") { |s| s.change_make_var!("GITREF", "v#{version}") }
+    ENV.deparallelize do
+      system "make", "TOUCHID=#{OS.mac? ? "yes" : "no"}",
+                     "BUILDDIR=#{bin}",
+                     "FIDO2=dynamic",
+                     "full"
+    end
   end
 
   test do
