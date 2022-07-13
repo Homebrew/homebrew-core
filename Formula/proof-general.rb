@@ -3,7 +3,7 @@ class ProofGeneral < Formula
   homepage "https://proofgeneral.github.io"
   url "https://github.com/ProofGeneral/PG/archive/v4.5.tar.gz"
   sha256 "b408ab943cfbfe4fcb0d3322f079f41e2a2d29b50cf0cc704fbb4d5e6c26e3a2"
-  license "GPL-2.0"
+  license "GPL-3.0"
   head "https://github.com/ProofGeneral/PG.git", branch: "master"
 
   bottle do
