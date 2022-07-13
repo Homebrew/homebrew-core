@@ -13,7 +13,6 @@ class Snowflake < Formula
     system "go", "build", *std_go_args(output: bin/"snowflake-client"), "./client"
     system "go", "build", *std_go_args(output: bin/"snowflake-proxy"), "./proxy"
     system "go", "build", *std_go_args(output: bin/"snowflake-server"), "./server"
-
     man1.install "doc/snowflake-client.1"
     man1.install "doc/snowflake-proxy.1"
   end
