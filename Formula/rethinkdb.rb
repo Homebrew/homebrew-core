@@ -4,6 +4,7 @@ class Rethinkdb < Formula
   url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.2.tgz"
   sha256 "35e6a76a527d473a7d962515a0414dea6e09300fff368ae713964ce2494d9c0d"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
 
   livecheck do
