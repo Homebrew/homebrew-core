@@ -6,6 +6,7 @@ class ProtocGenGrpcWeb < Formula
   url "https://github.com/grpc/grpc-web/archive/1.3.1.tar.gz"
   sha256 "d292df306b269ebf83fb53a349bbec61c07de4d628bd6a02d75ad3bd2f295574"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e679f48db0744502049cda46308f89de294134b522ba731fcfc88486589e992d"
@@ -19,14 +20,21 @@ class ProtocGenGrpcWeb < Formula
   depends_on "cmake" => :build
   depends_on "node" => :test
   depends_on "typescript" => :test
-  depends_on "protobuf"
+  depends_on "protobuf@3"
 
   def install
     bin.mkpath
     system "make", "install-plugin", "PREFIX=#{prefix}"
+
+    # Remove these two lines when this formula depends on unversioned `protobuf`.
+    libexec.install bin/"protoc-gen-grpc-web"
+    (bin/"protoc-gen-grpc-web").write_env_script libexec/"protoc-gen-grpc-web",
+                                                 PATH: "#{Formula["protobuf@3"].opt_bin}:${PATH}"
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["protobuf@3"].opt_bin
+
     # First use the plugin to generate the files.
     testdata = <<~EOS
       syntax = "proto3";
@@ -46,8 +54,8 @@ class ProtocGenGrpcWeb < Formula
     EOS
     (testpath/"test.proto").write testdata
     system "protoc", "test.proto", "--plugin=#{bin}/protoc-gen-grpc-web",
-      "--js_out=import_style=commonjs:.",
-      "--grpc-web_out=import_style=typescript,mode=grpcwebtext:."
+                     "--js_out=import_style=commonjs:.",
+                     "--grpc-web_out=import_style=typescript,mode=grpcwebtext:."
 
     # Now see if we can import them.
     testts = <<~EOS
