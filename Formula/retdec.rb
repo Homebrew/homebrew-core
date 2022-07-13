@@ -19,7 +19,7 @@ class Retdec < Formula
   end
 
   on_linux do
-    depends_on "gcc"
+    depends_on "gcc@7" => :build
   end
 
   def install
@@ -32,10 +32,17 @@ class Retdec < Formula
     inreplace "src/crypto/CMakeLists.txt", "retdec::deps::openssl-crypto", "OpenSSL::Crypto"
     inreplace "src/crypto/retdec-crypto-config.cmake", "openssl-crypto", ""
 
+    gcc = Formula["gcc@7"]
     openssl = Formula["openssl@1.1"]
 
+    cmake_args = std_cmake_args + %W[
+      -DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-7
+      -DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-7
+      -DOPENSSL_ROOT_DIR=#{openssl.opt_prefix}
+    ]
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DOPENSSL_ROOT_DIR=#{openssl.opt_prefix}"
+      system "cmake", "..", *cmake_args
       system "make", "install"
     end
   end
