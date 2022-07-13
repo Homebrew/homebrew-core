@@ -7,6 +7,7 @@ class Libtorch < Formula
       tag:      "v1.12.0",
       revision: "67ece03c8cd632cce9523cd96efde6f2d1cc8121"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
