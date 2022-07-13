@@ -35,11 +35,14 @@ class Retdec < Formula
     openssl = Formula["openssl@1.1"]
     gcc = Formula["gcc@7"] if OS.linux?
 
-    cmake_args = ["-DOPENSSL_ROOT_DIR=#{openssl.opt_prefix}"]
-    cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-7 -DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-7" if OS.linux?
+    cmake_args = std_cmake_args + %W[
+      -DOPENSSL_ROOT_DIR=#{openssl.opt_prefix}
+    ]
+    cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-7" if OS.linux?
+    cmake_args << "-DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-7" if OS.linux?
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, *cmake_args
+      system "cmake", "..", *cmake_args
       system "make", "install"
     end
   end
