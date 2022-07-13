@@ -27,8 +27,10 @@ class Libsndfile < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "flac"
+  depends_on "lame"
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "mpg123"
   depends_on "opus"
 
   uses_from_macos "python" => :build
