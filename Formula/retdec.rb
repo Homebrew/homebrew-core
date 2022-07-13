@@ -53,6 +53,7 @@ class Retdec < Formula
       -o
       #{testpath}/a.c"
       #{test_fixtures("mach/a.out")}.to_s
+      2>/dev/null
     ]
     test_cmd << "--no-memory-limit" if OS.linux?
 
