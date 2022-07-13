@@ -26,16 +26,17 @@ class Bfgminer < Formula
     libgcrypt = Formula["libgcrypt"]
     libusb = Formula["libusb"]
 
-    configure_args = [*std_configure_args,
-                      "CPPFLAGS=-I#{libgcrypt.opt_include} -I#{libusb.opt_include}/libsub-1.0",
-                      "LDFLAGS=-L#{libgcrypt.opt_lib} -L#{libusb.opt_lib}",
-                      "--without-system-libbase58",
-                      "--enable-cpumining",
-                      "--enable-opencl",
-                      "--enable-scrypt",
-                      "--enable-keccak",
-                      "--enable-bitmain",
-                      "--enable-alchemist"]
+    configure_args = std_configure_args + %W[
+      CPPFLAGS=-I#{libgcrypt.opt_include} -I#{libusb.opt_include}/libusb-1.0
+      LDFLAGS=-L#{libgcrypt.opt_lib} -L#{libusb.opt_lib}
+      --without-system-libbase58
+      --enable-cpumining
+      --enable-opencl
+      --enable-scrypt
+      --enable-keccak
+      --enable-bitmain
+      --enable-alchemist
+    ]
     configure_args << "--with-udevrulesdir=#{lib}/udev" if OS.linux?
 
     system "./configure", *configure_args
