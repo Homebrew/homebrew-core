@@ -48,7 +48,7 @@ class Retdec < Formula
   end
 
   test do
-    test_cmd = %w[
+    test_cmd = %W[
       #{Formula["python@3.10"].opt_bin}/python3
       #{bin}/retdec-decompiler.py
       --no-memory-limit
@@ -57,7 +57,8 @@ class Retdec < Formula
       #{test_fixtures("mach/a.out")}
       2>/dev/null
     ]
+    test_cmd = test_cmd.join(" ")
 
-    assert_match "\#\#\#\#\# Decompiling", shell_output(*test_cmd)
+    assert_match "\#\#\#\#\# Decompiling", shell_output(test_cmd)
   end
 end
