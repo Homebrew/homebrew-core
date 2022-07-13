@@ -1,10 +1,9 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "https://jonas.github.io/tig/"
-  url "https://github.com/jonas/tig/releases/download/tig-2.5.5/tig-2.5.5.tar.gz"
-  sha256 "24ba2c8beae889e6002ea7ced0e29851dee57c27fde8480fb9c64d5eb8765313"
+  url "https://github.com/jonas/tig/releases/download/tig-2.5.6/tig-2.5.6.tar.gz"
+  sha256 "50bb5f33369b50b77748115c730c52b13e79b2de49cba7167bb634eb683d965f"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e4bd07be2479e864e8fea79167f589b4a814fd6763884dc655669376967d951f"
