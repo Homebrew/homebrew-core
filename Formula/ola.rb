@@ -4,7 +4,7 @@ class Ola < Formula
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz"
   sha256 "102aa3114562a2a71dbf7f77d2a0fb9fc47acc35d6248a70b6e831365ca71b13"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 5
+  revision 6
   head "https://github.com/OpenLightingProject/ola.git", branch: "master"
 
   bottle do
@@ -37,6 +37,9 @@ class Ola < Formula
   end
 
   def install
+    # https://github.com/protocolbuffers/protobuf/issues/9947
+    ENV.append_to_cflags "-DNDEBUG"
+
     args = %W[
       --disable-fatal-warnings
       --disable-dependency-tracking
