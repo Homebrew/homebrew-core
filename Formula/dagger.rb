@@ -2,8 +2,8 @@ class Dagger < Formula
   desc "Portable devkit for CI/CD pipelines"
   homepage "https://dagger.io"
   url "https://github.com/dagger/dagger.git",
-      tag:      "v0.2.22",
-      revision: "33bf2080c974b25f1ad370704b23dca893fdb1ea"
+      tag:      "v0.2.23",
+      revision: "2927c77876a83c0aa688ba648fc376f31eccf5bf"
   license "Apache-2.0"
   head "https://github.com/dagger/dagger.git", branch: "main"
 
