@@ -4,7 +4,7 @@ class Caffe < Formula
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
   license "BSD-2-Clause"
-  revision 39
+  revision 40
 
   livecheck do
     url :stable
@@ -61,7 +61,7 @@ class Caffe < Formula
   def install
     ENV.cxx11
 
-    args = std_cmake_args + %w[
+    args = %w[
       -DALLOW_LMDB_NOLOCK=OFF
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_docs=OFF
@@ -77,8 +77,9 @@ class Caffe < Formula
     ]
     args << "-DBLAS=Open" if OS.linux?
 
-    system "cmake", ".", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "models"
   end
 
