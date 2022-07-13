@@ -4,6 +4,7 @@ class Netdata < Formula
   url "https://github.com/netdata/netdata/releases/download/v1.35.1/netdata-v1.35.1.tar.gz"
   sha256 "587f6cce421015f8e0a527e3964a4de8cc17085c354498150bc3ade21606bbf9"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -40,6 +41,9 @@ class Netdata < Formula
   end
 
   def install
+    # https://github.com/protocolbuffers/protobuf/issues/9947
+    ENV.append_to_cflags "-DNDEBUG"
+
     # We build judy as static library, so we don't need to install it
     # into the real prefix
     judyprefix = "#{buildpath}/resources/judy"
