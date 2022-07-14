@@ -50,6 +50,6 @@ class ProofGeneral < Formula
   end
 
   test do
-    system bin/"proofgeneral", "--help"
+    system bin/"coqtags", "--help"
   end
 end
