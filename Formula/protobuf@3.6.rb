@@ -16,7 +16,7 @@ class ProtobufAT36 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2021-02-19", because: :versioned_formula
+  disable! date: "2022-07-14", because: :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
