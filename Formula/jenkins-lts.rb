@@ -30,8 +30,7 @@ class JenkinsLts < Formula
   end
 
   service do
-    run [Formula["openjdk@17"].opt_bin/"java", "-Dmail.smtp.starttls.enable=true", "-jar", opt_libexec/"jenkins.war",
-         "--httpListenAddress=127.0.0.1", "--httpPort=8080"]
+    run [opt_libexec/"jenkins-lts", "--httpListenAddress=127.0.0.1", "--httpPort=8080"]
   end
 
   test do
