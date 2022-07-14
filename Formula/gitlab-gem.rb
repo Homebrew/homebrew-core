@@ -17,8 +17,8 @@ class GitlabGem < Formula
   uses_from_macos "ruby", since: :catalina
 
   resource "httparty" do
-    url "https://rubygems.org/gems/httparty-0.18.1.gem"
-    sha256 "878fe8038e344b219dbba9e20c442914a2be251d2f4a20bcdeb31f25dcb2f79d"
+    url "https://rubygems.org/gems/httparty-0.20.0.gem"
+    sha256 "490d2a028a5accc611f1685d479d80ef80b129140d24a93c53c119f578614867"
   end
 
   resource "mime-types" do
