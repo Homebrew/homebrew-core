@@ -1,8 +1,8 @@
 class Lighthouse < Formula
   desc "Rust Ethereum 2.0 Client"
   homepage "https://github.com/sigp/lighthouse"
-  url "https://github.com/sigp/lighthouse/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "191dd902f8d4f1d67d3edf4b3af808fddefaa5d85a83da2d8f6268306331bcfa"
+  url "https://github.com/sigp/lighthouse/archive/refs/tags/v2.3.1.tar.gz"
+  sha256 "078cc80858a4c7668e2ae728a43bb029fd14811cb8148a7fe4ea61cdefb9a4ed"
   license "Apache-2.0"
 
   bottle do
