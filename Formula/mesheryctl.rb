@@ -28,5 +28,6 @@ class Mesheryctl < Formula
     # of the server along with the cli. Since it doesn't exist yet it shows a prompt if the user
     # wants to create a default config file.
     assert_match version.to_s, shell_output("yes | #{bin}/mesheryctl version 2>&1")
+    assert_match "Channel: stable", shell_output("#{bin}/mesheryctl system channel view 2>&1")
   end
 end
