@@ -20,6 +20,12 @@ class Clblas < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "opencl-headers" => :build
+    depends_on "ocl-icd"
+    depends_on "pocl"
+  end
+
   def install
     system "cmake", "src", *std_cmake_args,
                     "-DBUILD_CLIENT=OFF",
@@ -34,7 +40,8 @@ class Clblas < Formula
   test do
     # We do not run the test, as it fails on CI machines
     # ("clGetDeviceIDs() failed with -1")
+    opencl_lib = OS.mac? ? ["-framework", "OpenCL"] : ["-lOpenCL"]
     system ENV.cc, pkgshare/"example_srot.c", "-I#{include}", "-L#{lib}",
-                   "-lclBLAS", "-framework", "OpenCL", "-Wno-implicit-function-declaration"
+                   "-lclBLAS", *opencl_lib, "-Wno-implicit-function-declaration"
   end
 end
