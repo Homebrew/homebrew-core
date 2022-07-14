@@ -2,6 +2,7 @@ class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/neovim/neovim.git", branch: "master"
 
   # Remove `stable` block when `gperf` is no longer needed.
@@ -36,7 +37,7 @@ class Neovim < Formula
   depends_on "gettext"
   depends_on "libtermkey"
   depends_on "libuv"
-  depends_on "luajit-openresty"
+  depends_on "luajit"
   depends_on "luv"
   depends_on "msgpack"
   depends_on "tree-sitter"
@@ -79,7 +80,7 @@ class Neovim < Formula
     # Don't clobber the default search path
     ENV.append "LUA_PATH", ";", ";"
     ENV.append "LUA_CPATH", ";", ";"
-    lua_path = "--lua-dir=#{Formula["luajit-openresty"].opt_prefix}"
+    lua_path = "--lua-dir=#{Formula["luajit"].opt_prefix}"
 
     cd "deps-build/build/src" do
       %w[
