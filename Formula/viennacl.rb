@@ -19,6 +19,12 @@ class Viennacl < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "opencl-headers" => :build
+    depends_on "ocl-icd"
+    depends_on "pocl"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
