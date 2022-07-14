@@ -16,10 +16,10 @@ class VowpalWabbit < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "flatbuffers" => :build
   depends_on "rapidjson" => :build
   depends_on "spdlog" => :build
   depends_on "boost"
+  depends_on "eigen"
   depends_on "fmt"
   depends_on "zlib"
 
