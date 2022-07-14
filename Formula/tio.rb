@@ -19,6 +19,13 @@ class Tio < Formula
   depends_on "pkg-config" => :build
   depends_on "inih"
 
+  # PR, https://github.com/tio/tio/pull/159
+  # remove in next release
+  patch do
+    url "https://github.com/tio/tio/commit/223f0c5d1304dd6295c77313fb6bd0c156755b62.patch?full_index=1"
+    sha256 "09459cd348fd3d451a82e9712599f82de5dc7457270147228bba1beed7b1545f"
+  end
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args, ".."
