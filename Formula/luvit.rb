@@ -4,6 +4,7 @@ class Luvit < Formula
   url "https://github.com/luvit/luvit/archive/2.18.1.tar.gz"
   sha256 "b792781d77028edb7e5761e96618c96162bd68747b8fced9a6fc52f123837c2c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/luvit/luvit.git", branch: "master"
 
   bottle do
@@ -13,10 +14,10 @@ class Luvit < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "luajit-openresty" => :build
-  depends_on "luv" => :build
   depends_on "pkg-config" => :build
   depends_on "libuv"
+  depends_on "luajit"
+  depends_on "luv"
   depends_on "openssl@1.1"
   depends_on "pcre"
 
@@ -34,11 +35,19 @@ class Luvit < Formula
     url "https://github.com/luvit/luvi.git",
         tag:      "v2.12.0",
         revision: "5d1052f11e813ff9edc3ec75b5282b3e6cb0f3bf"
+
+    # Remove outdated linker flags that break the ARM build.
+    # https://github.com/luvit/luvi/pull/261
+    patch do
+      url "https://github.com/luvit/luvi/commit/b2e501deb407c44a9a3e7f4d8e4b5dc500e7a196.patch?full_index=1"
+      sha256 "be3315f7cf8a9e43f1db39d0ef55698f09e871bea0f508774d0135c6375f4291"
+    end
   end
 
   def install
     ENV["PREFIX"] = prefix
-    luajit = Formula["luajit-openresty"]
+    luajit = Formula["luajit"]
+    luv = Formula["luv"]
 
     resource("luvi").stage do
       # Build scripts set LUA_PATH before invoking LuaJIT, but that causes errors.
@@ -59,10 +68,10 @@ class Luvit < Formula
         -DWithLPEG=ON
         -DWithSharedPCRE=ON
         -DWithSharedLibluv=ON
-        -DLIBLUV_INCLUDE_DIR=#{Formula["luv"].opt_include}/luv
-        -DLIBLUV_LIBRARIES=#{Formula["luv"].opt_lib}/libluv_a.a
+        -DLIBLUV_INCLUDE_DIR=#{luv.opt_include}/luv
+        -DLIBLUV_LIBRARIES=#{luv.opt_lib/shared_library("libluv")}
         -DLUAJIT_INCLUDE_DIR=#{luajit.opt_include}/luajit-2.1
-        -DLUAJIT_LIBRARIES=#{luajit.opt_lib}/libluajit.a
+        -DLUAJIT_LIBRARIES=#{luajit.opt_lib/shared_library("libluajit")}
       ]
 
       system "cmake", ".", "-B", "build", *luvi_args
