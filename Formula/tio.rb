@@ -4,6 +4,7 @@ class Tio < Formula
   url "https://github.com/tio/tio/releases/download/v1.44/tio-1.44.tar.xz"
   sha256 "3d3e20ecc44ed674816d2d0421cce42c1a7af96753d3b3bc1d7b7f6b03192cd0"
   license "GPL-2.0-or-later"
+  head "https://github.com/tio/tio.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3177501ffa921361367a050dbcacdf7c2beb6597d75431c7dbee66c385b7e4bc"
