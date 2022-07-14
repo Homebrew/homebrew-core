@@ -4,6 +4,7 @@ class CargoOutdated < Formula
   url "https://github.com/kbknapp/cargo-outdated/archive/v0.11.1.tar.gz"
   sha256 "2d80f0243d70a3563c48644dd3567519c32a733fb5d20f1161fd5d9f8e6e9146"
   license "MIT"
+  revision 1
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
