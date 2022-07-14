@@ -67,7 +67,8 @@ class Luajit < Formula
     system "make", "amalg", "PREFIX=#{prefix}", "Q="
     system "make", "install", "PREFIX=#{prefix}", "Q="
 
-    upstream_version = version.to_s.sub(/-\d+\.\d+$/, "")
+    # We need `stable.version` here to avoid breaking symlink generation for HEAD.
+    upstream_version = stable.version.to_s.sub(/-\d+\.\d+$/, "")
     # v2.1 branch doesn't install symlink for luajit.
     # This breaks tools like `luarocks` that require the `luajit` bin to be present.
     bin.install_symlink "luajit-#{upstream_version}" => "luajit"
