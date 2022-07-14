@@ -41,7 +41,7 @@ class VowpalWabbit < Formula
     bin.install Dir["utl/*"]
     rm bin/"active_interactor.py"
     rm bin/"vw-validate.html"
-    rm bin/"clang-format"
+    rm bin/"clang-format.sh"
     rm bin/"release_blog_post_template.md"
     rm_r bin/"flatbuffer"
     rm_r bin/"dump_options"
