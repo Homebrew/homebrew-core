@@ -1,8 +1,8 @@
 class Systemd < Formula
   desc "System and service manager"
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
-  url "https://github.com/systemd/systemd/archive/v250.tar.gz"
-  sha256 "389935dea020caf6e2e81a4e90e556bd5599a2086861045efdc06197776e94e1"
+  url "https://github.com/systemd/systemd/archive/v251.tar.gz"
+  sha256 "0ecc8bb28d3062c8e58a64699a9b16534554bb6a01efb8d5507c893db39f8d51"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/systemd/systemd.git", branch: "main"
 
@@ -34,35 +34,25 @@ class Systemd < Formula
   depends_on "xz"
   depends_on "zstd"
 
-  # Fix missing mount constants, remove in next version
-  patch do
-    url "https://github.com/systemd/systemd/commit/0764e3a327573e7bda2f0e1a914f28482ab00574.patch?full_index=1"
-    sha256 "ad34441deb22b37272d4fd6a307a804f8ceffc0452c17f2353a144b3c04d5451"
-  end
-
   def install
     ENV["PYTHONPATH"] = Formula["jinja2-cli"].opt_libexec/Language::Python.site_packages("python3")
 
-    args = %W[
-      --prefix=#{prefix}
-      --libdir=lib
+    args = *std_meson_args + %W[
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       -Drootprefix=#{prefix}
-      -Dsysvinit-path=#{prefix}/etc/init.d
-      -Dsysvrcnd-path=#{prefix}/etc/rc.d
-      -Dpamconfdir=#{prefix}/etc/pam.d
+      -Dsysvinit-path=#{etc}/init.d
+      -Dsysvrcnd-path=#{etc}/rc.d
+      -Dpamconfdir=#{etc}/pam.d
       -Dcreate-log-dirs=false
       -Dhwdb=false
       -Dlz4=true
       -Dgcrypt=false
     ]
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", *args, "build"
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
   end
 
   test do
