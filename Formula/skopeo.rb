@@ -48,7 +48,12 @@ class Skopeo < Formula
     (etc/"containers").install "default-policy.json" => "policy.json"
     (etc/"containers/registries.d").install "default.yaml"
 
-    bash_completion.install "completions/bash/skopeo"
+    bash_output = Utils.safe_popen_read(bin/"skopeo", "completion", "bash")
+    (bash_completion/"skopeo").write bash_output
+    zsh_output = Utils.safe_popen_read(bin/"skopeo", "completion", "zsh")
+    (zsh_completion/"_skopeo").write zsh_output
+    fish_output = Utils.safe_popen_read(bin/"skopeo", "completion", "fish")
+    (fish_completion/"skopeo.fish").write fish_output
   end
 
   test do
