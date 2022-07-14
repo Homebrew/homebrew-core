@@ -22,16 +22,36 @@ class Libphonenumber < Formula
 
   depends_on "cmake" => :build
   depends_on "googletest" => :build
+  depends_on "abseil"
   depends_on "boost"
   depends_on "icu4c"
   depends_on "protobuf"
   depends_on "re2"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # For abseil and C++17
+
+  # Use Homebrew abseil. Patch from Arch. Debian uses a similar patch.
+  # A version is being upstreamed at:
+  #   https://github.com/google/libphonenumber/pull/2772
+  #
+  # We're not using the upstream patch because it doesn't work yet.
+  # https://github.com/google/libphonenumber/pull/2772#issuecomment-1184289820
+  patch do
+    url "https://raw.githubusercontent.com/archlinux/svntogit-packages/864f0cf5874088d76e9e7309fb3da1eeed8b701d/trunk/absl.diff"
+    sha256 "f6bceb2409ff7cba1e6947e6fdce3fe82b511b04fefcd1f597eceb13af67a8a4"
+  end
+
   def install
-    ENV.cxx11
-    system "cmake", "cpp", "-DGTEST_INCLUDE_DIR=#{Formula["googletest"].include}",
-                           *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", "cpp", "-B", "build",
+                    "-DCMAKE_CXX_STANDARD=17", # keep in sync with C++ standard in abseil.rb
+                    "-DGTEST_INCLUDE_DIR=#{Formula["googletest"].opt_include}",
+                      *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -57,7 +77,7 @@ class Libphonenumber < Formula
         }
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lphonenumber", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lphonenumber", "-o", "test"
     system "./test"
   end
 end
