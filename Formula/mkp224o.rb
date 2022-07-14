@@ -6,14 +6,11 @@ class Mkp224o < Formula
   license "CC0-1.0"
   head "https://github.com/cathugger/mkp224o.git", branch: "master"
 
-  depends_on "autoconf" => :build
   depends_on "libsodium"
 
   def install
-    system "./autogen.sh"
     system "./configure", *std_configure_args
     system "make"
-
     bin.install "mkp224o"
   end
 
