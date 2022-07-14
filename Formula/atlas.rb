@@ -20,9 +20,11 @@ class Atlas < Formula
   def install
     ldflags = %W[
       -s -w
-      -X ariga.io/atlas/cmd/atlascmd.version=v#{version}
+      -X ariga.io/atlas/cmd/atlas/internal/cmdapi.version=v#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/atlas"
+    cd "./cmd/atlas" do
+      system "go", "build", *std_go_args(ldflags: ldflags)
+    end
 
     bash_output = Utils.safe_popen_read(bin/"atlas", "completion", "bash")
     (bash_completion/"atlas").write bash_output
