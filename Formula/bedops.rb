@@ -3,7 +3,7 @@ class Bedops < Formula
   homepage "https://github.com/bedops/bedops"
   url "https://github.com/bedops/bedops/archive/v2.4.41.tar.gz"
   sha256 "3b868c820d59dd38372417efc31e9be3fbdca8cf0a6b39f13fb2b822607d6194"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fa0e42d870cb2e5fd71ecfe637ec760352eb571074aa19156564f8fd1fc0cb2f"
