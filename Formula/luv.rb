@@ -4,6 +4,7 @@ class Luv < Formula
   url "https://github.com/luvit/luv/archive/1.44.2-0.tar.gz"
   sha256 "44ccda27035bfe683e6325a2a93f2c254be1eb76bde6efc2bd37c56a7af7b00a"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/luvit/luv.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Luv < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "luajit-openresty" => [:build, :test]
+  depends_on "luajit" => [:build, :test]
   depends_on "libuv"
 
   resource "lua-compat-5.3" do
@@ -43,8 +44,6 @@ class Luv < Formula
   end
 
   test do
-    ENV["LUA_CPATH"] = opt_lib/"lua/5.1/?.so"
-    ENV.prepend_path "PATH", Formula["luajit-openresty"].opt_bin
     (testpath/"test.lua").write <<~EOS
       local uv = require('luv')
       local timer = uv.new_timer()
