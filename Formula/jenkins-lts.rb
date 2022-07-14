@@ -17,7 +17,7 @@ class JenkinsLts < Formula
   depends_on "openjdk@17"
 
   def install
-    system "#{Formula["openjdk@17"].opt_bin}/jar", "xvf", "jenkins.war"
+    system Formula["openjdk@17"].opt_bin/"jar", "xvf", "jenkins.war"
     libexec.install "jenkins.war", "WEB-INF/lib/cli-#{version}.jar"
     bin.write_jar_script libexec/"jenkins.war", "jenkins-lts", java_version: "17"
     bin.write_jar_script libexec/"cli-#{version}.jar", "jenkins-lts-cli", java_version: "17"
