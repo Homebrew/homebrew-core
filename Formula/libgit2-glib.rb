@@ -4,7 +4,7 @@ class Libgit2Glib < Formula
   url "https://download.gnome.org/sources/libgit2-glib/1.0/libgit2-glib-1.0.0.1.tar.xz"
   sha256 "460a5d6936950ca08d2d8518bfc90c12bb187cf6e674de715f7055fc58102b57"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
   head "https://github.com/GNOME/libgit2-glib.git", branch: "master"
 
   livecheck do
@@ -21,6 +21,7 @@ class Libgit2Glib < Formula
     sha256               x86_64_linux:   "55beee71255b5693f49ff558e4bdf563fd85f9ba87e94551795763e91a507a0b"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
