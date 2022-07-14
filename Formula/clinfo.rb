@@ -20,6 +20,12 @@ class Clinfo < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "6165806150adf656308b999a1fac88effdf0fe5128b39d21c4faa0cda9b3c491"
   end
 
+  on_linux do
+    depends_on "opencl-headers" => :build
+    depends_on "ocl-icd"
+    depends_on "pocl"
+  end
+
   def install
     system "make", "MANDIR=#{man}", "PREFIX=#{prefix}", "install"
   end
