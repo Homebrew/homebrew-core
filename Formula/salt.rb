@@ -6,7 +6,7 @@ class Salt < Formula
   url "https://files.pythonhosted.org/packages/78/47/0acfc5d43fcf4b01c3f650ce884525dd2330b8827364e4509819f7e925d3/salt-3004.2.tar.gz"
   sha256 "2fa644f6200d4e36b55846cb372b6e67b6ca0fbec0697f1d8d73e771b665ed70"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/saltstack/salt.git", branch: "master"
 
   bottle do
@@ -185,8 +185,8 @@ class Salt < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/15/69/95baec94618352fad36a5c53ed1a7a96f7de96d2b36c5ac3fc2a5017b78a/pygit2-1.9.2.tar.gz"
-    sha256 "20894433df1146481aacae37e2b0f3bbbfdea026db2f55061170bd9823e40b19"
+    url "https://files.pythonhosted.org/packages/e7/8a/e52a1c8b9878e9d9743089393f8289bb9c8a81eaab722df22df46a38b9e9/pygit2-1.10.0.tar.gz"
+    sha256 "7c751eee88c731b922e4e487ee287e2e40906b2bd32d0bfd2105947f63e867de"
   end
 
   resource "pyOpenSSL" do
