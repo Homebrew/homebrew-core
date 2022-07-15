@@ -14,10 +14,10 @@ class Pdftotextmovie < Formula
   depends_on "imagemagick" => :build
 
   def install
-    system "pip3 install --user pdftotext"
-    system "pip3 install --user numpy"
+    system "pip install pdftotext"
+    system "pip install numpy"
     system "python3 set_path_numpy.py"
-    system "pip3 install --user TTS"
+    system "pip install TTS"
   end
 
   test do
