@@ -17,32 +17,3 @@ LICENSE.txt           @Homebrew/plc @MikeMcQuaid
 audit_exceptions/permitted_formula_license_mismatches.json   @Homebrew/plc
 audit_exceptions/provided_by_macos_depends_on_allowlist.json @Homebrew/tsc
 audit_exceptions/universal_binary_allowlist.json             @carlocab @Homebrew/tsc
-
-# Remove when https://github.com/Homebrew/homebrew-core/pull/105712 is merged.
-Formula/apache-arrow.rb        @carlocab @Homebrew/tsc
-Formula/bear.rb                @carlocab @Homebrew/tsc
-Formula/bloaty.rb              @carlocab @Homebrew/tsc
-Formula/caffe.rb               @carlocab @Homebrew/tsc
-Formula/etcd-cpp-apiv3.rb      @carlocab @Homebrew/tsc
-Formula/fastnetmon.rb          @carlocab @Homebrew/tsc
-Formula/grpc.rb                @carlocab @Homebrew/tsc
-Formula/libphonenumber.rb      @carlocab @Homebrew/tsc
-Formula/libpulsar.rb           @carlocab @Homebrew/tsc
-Formula/libtorch.rb            @carlocab @Homebrew/tsc
-Formula/mavsdk.rb              @carlocab @Homebrew/tsc
-Formula/monero.rb              @carlocab @Homebrew/tsc
-Formula/mosh.rb                @carlocab @Homebrew/tsc
-Formula/mysql.rb               @carlocab @Homebrew/tsc
-Formula/ncnn.rb                @carlocab @Homebrew/tsc
-Formula/netdata.rb             @carlocab @Homebrew/tsc
-Formula/ola.rb                 @carlocab @Homebrew/tsc
-Formula/opencv.rb              @carlocab @Homebrew/tsc
-Formula/or-tools.rb            @carlocab @Homebrew/tsc
-Formula/osm-pbf.rb             @carlocab @Homebrew/tsc
-Formula/percona-server.rb      @carlocab @Homebrew/tsc
-Formula/percona-xtrabackup.rb  @carlocab @Homebrew/tsc
-Formula/protobuf-c.rb          @carlocab @Homebrew/tsc
-Formula/protoc-gen-grpc-web.rb @carlocab @Homebrew/tsc
-Formula/rethinkdb.rb           @carlocab @Homebrew/tsc
-Formula/sysdig.rb              @carlocab @Homebrew/tsc
-Formula/torchvision.rb         @carlocab @Homebrew/tsc
