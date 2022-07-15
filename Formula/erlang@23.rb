@@ -26,8 +26,8 @@ class ErlangAT23 < Formula
   depends_on "wxwidgets" # for GUI apps like observer
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.15/otp_doc_html_23.3.4.15.tar.gz"
-    sha256 "df4cab04b2cac0362de4fa7e7f0ac69d38c75579fb0f034bd4bf99567b72d5b3"
+    url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.16/otp_doc_html_23.3.4.16.tar.gz"
+    sha256 "68af4e188200bd6c998ef6b34cbd05bcaa91e322bd8f4dbecb2fbd220b6542c5"
   end
 
   def install
