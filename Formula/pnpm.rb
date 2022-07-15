@@ -6,6 +6,7 @@ class Pnpm < Formula
   url "https://registry.npmjs.org/pnpm/-/pnpm-7.5.1.tgz"
   sha256 "193553eb0f806aa96bf7b13c2b24131a8b5e5c34275474b5b6e0bec30bc4620b"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://registry.npmjs.org/pnpm/latest"
@@ -21,13 +22,20 @@ class Pnpm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9a6fb2febc1f62bba9e377ad9de5ba471166b3a47614388335fb01a52a0060a"
   end
 
-  depends_on "node"
+  depends_on "node" => :test
 
   conflicts_with "corepack", because: "both installs `pnpm` and `pnpx` binaries"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+  end
+
+  def caveats
+    <<~EOS
+      pnpm requires a Node installation to function. You can install one with:
+        brew install node
+    EOS
   end
 
   test do
