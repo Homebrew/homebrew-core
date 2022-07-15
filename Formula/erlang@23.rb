@@ -2,8 +2,8 @@ class ErlangAT23 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.15/otp_src_23.3.4.15.tar.gz"
-  sha256 "16a82292e14de16943825936e17d9b71e2875a89717596f4023e5a03bf20e6ec"
+  url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.16/otp_src_23.3.4.16.tar.gz"
+  sha256 "e3ecb3ac2cc549ab90cd9f8921eaebc8613f4d5c89972a3987e5a762d5a2df08"
   license "Apache-2.0"
 
   livecheck do
