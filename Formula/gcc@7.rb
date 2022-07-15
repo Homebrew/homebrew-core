@@ -46,6 +46,22 @@ class GccAT7 < Formula
   end
 
   def install
+    # Fix flat namespace use on macOS.
+    configure_paths = %w[
+      libatomic
+      libgfortran
+      libgomp
+      libitm
+      libobjc
+      libquadmath
+      libssp
+      libstdc++-v3
+    ]
+    configure_paths.each do |path|
+      inreplace buildpath/path/"configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress",
+                                            "${wl}-undefined ${wl}dynamic_lookup"
+    end
+
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
