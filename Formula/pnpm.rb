@@ -27,8 +27,9 @@ class Pnpm < Formula
   conflicts_with "corepack", because: "both installs `pnpm` and `pnpx` binaries"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    libexec.install buildpath.glob("*")
+    bin.install_symlink "#{libexec}/bin/pnpm.cjs" => "pnpm"
+    bin.install_symlink "#{libexec}/bin/pnpx.cjs" => "pnpx"
   end
 
   def caveats
