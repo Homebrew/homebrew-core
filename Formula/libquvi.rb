@@ -5,11 +5,6 @@ class Libquvi < Formula
   sha256 "f5a2fb0571634483e8a957910f44e739f5a72eb9a1900bd10b453c49b8d5f49d"
   revision 2
 
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/libquvi[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
-
   bottle do
     sha256 arm64_monterey: "c7334e914191fed570ebfb0c19f3d99c2d6558d9e585f6c7618507e8fa768bf4"
     sha256 arm64_big_sur:  "167718e2a3981fdbfa9b34cddc3c94ed4e0c80f4cbe82749535cd7b7c644d9a5"
