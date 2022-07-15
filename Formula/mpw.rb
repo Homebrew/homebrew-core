@@ -7,13 +7,6 @@ class Mpw < Formula
   license "GPL-3.0-or-later"
   head "https://gitlab.com/MasterPassword/MasterPassword.git", branch: "master"
 
-  # The first-party site doesn't seem to list version information, so it's
-  # necessary to check the tags from the `head` repository instead.
-  livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+[._-]cli[._-]?\d+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e9888d9cfb2d36d1b764cb66f63f6dd46007a1971a4103207cb443029c1d12ee"
     sha256 cellar: :any,                 arm64_big_sur:  "ae3c6d9c4698beed61f7d0ee6330d1afa63b993c8ff3ecd3dae5fea25dc052be"
