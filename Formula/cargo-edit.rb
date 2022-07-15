@@ -1,8 +1,8 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/v0.9.1.tar.gz"
-  sha256 "bae2a59dcf6110fe0c8bf8562e58d550b2b3b3a02e89b233af5a3be12d41cdf0"
+  url "https://github.com/killercup/cargo-edit/archive/v0.10.0.tar.gz"
+  sha256 "fedc4200095d221935d4716fd8f4104e8607e5f4618c6c52580fef404e4d63b7"
   license "MIT"
 
   bottle do
@@ -30,20 +30,16 @@ class CargoEdit < Formula
         [package]
         name = "demo-crate"
         version = "0.1.0"
+
+        [dependencies]
+        clap = "2"
       EOS
 
-      system bin/"cargo-add", "add", "clap@2", "serde"
-      system bin/"cargo-add", "add", "-D", "just@0.8.3"
-      manifest = (crate/"Cargo.toml").read
+      system bin/"cargo-set-version", "set-version", "0.2.0"
+      assert_match 'version = "0.2.0"', (crate/"Cargo.toml").read
 
-      assert_match 'clap = "2"', manifest
-      assert_match(/serde = "\d+(?:\.\d+)+"/, manifest)
-      assert_match 'just = "0.8.3"', manifest
-
-      system bin/"cargo-rm", "rm", "serde"
-      manifest = (crate/"Cargo.toml").read
-
-      refute_match(/serde/, manifest)
+      system bin/"cargo-rm", "rm", "clap"
+      refute_match(/clap/, (crate/"Cargo.toml").read)
     end
   end
 end
