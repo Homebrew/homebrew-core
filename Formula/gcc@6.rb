@@ -56,6 +56,22 @@ class GccAT6 < Formula
   end
 
   def install
+    # Fix flat namespace use on macOS.
+    configure_paths = %w[
+      libatomic
+      libgfortran
+      libgomp
+      libitm
+      libobjc
+      libquadmath
+      libssp
+      libstdc++-v3
+    ]
+    configure_paths.each do |path|
+      inreplace buildpath/path/"configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress",
+                                            "${wl}-undefined ${wl}dynamic_lookup"
+    end
+
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
@@ -106,6 +122,9 @@ class GccAT6 < Formula
       # Ensure correct install names when linking against libgcc_s;
       # see discussion in https://github.com/Homebrew/homebrew/pull/34303
       inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+
+      # Fix bug reported in https://gcc.gnu.org/bugzilla/show_bug.cgi?id=92061.
+      inreplace "gcc/genconditions.c", "#if GCC_VERSION >= 3001", "#if GCC_VERSION >= 3001 && __clang_major__ < 9"
     else
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
