@@ -4,6 +4,7 @@ class PysideAT2 < Formula
   url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.5-src/pyside-setup-opensource-src-5.15.5.tar.xz"
   sha256 "3920a4fb353300260c9bc46ff70f1fb975c5e7efa22e9d51222588928ce19b33"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "9981b3c216053460da40f7e9e05410159ddde34eb1f98a8387cae76e89020d8a"
@@ -38,20 +39,26 @@ class PysideAT2 < Formula
   end
 
   def install
-    # upstream issue: https://bugreports.qt.io/browse/PYSIDE-1684
-    unless OS.mac?
+    rpaths = if OS.mac?
+      site_packages = Language::Python.site_packages("python3")
+      prefix_relative_path = prefix.relative_path_from(prefix/site_packages/"PySide2")
+      [rpath, "@loader_path/#{prefix_relative_path}/lib"]
+    else
+      # Add missing include dirs on Linux.
+      # upstream issue: https://bugreports.qt.io/browse/PYSIDE-1684
       extra_include_dirs = [Formula["mesa"].opt_include, Formula["libxcb"].opt_include]
-
       inreplace "sources/pyside2/cmake/Macros/PySideModules.cmake",
                 "--include-paths=${shiboken_include_dirs}",
                 "--include-paths=${shiboken_include_dirs}:#{extra_include_dirs.join(":")}"
+      # Add rpath to qt@5 because it is keg-only.
+      [lib, Formula["qt@5"].opt_lib]
     end
 
     args = std_cmake_args + %W[
       -DCMAKE_CXX_COMPILER=#{ENV.cxx}
       -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
       -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3
-      -DCMAKE_INSTALL_RPATH=#{lib}
+      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
       -DFORCE_LIMITED_API=yes
     ]
 
