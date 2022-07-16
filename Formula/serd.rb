@@ -1,8 +1,8 @@
 class Serd < Formula
   desc "C library for RDF syntax"
   homepage "https://drobilla.net/software/serd.html"
-  url "https://download.drobilla.net/serd-0.30.12.tar.bz2"
-  sha256 "9f9dab4125d88256c1f694b6638cbdbf84c15ce31003cd83cb32fb2192d3e866"
+  url "https://download.drobilla.net/serd-0.30.14.tar.xz"
+  sha256 "a14137d47b11d6ad431e78da341ca9737998d9eaccf6a49263d4c8d79fd856e3"
   license "ISC"
 
   livecheck do
