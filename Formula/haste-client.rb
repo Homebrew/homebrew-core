@@ -26,15 +26,15 @@ class HasteClient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f58ba7733cf6b73c7ad7be755d4d31c88af9577a43f9cd4658d8732bdd8bad3b"
   end
 
-  depends_on "ruby" if MacOS.version <= :sierra
+  uses_from_macos "ruby", since: :high_sierra
 
   resource "faraday" do
     url "https://rubygems.org/gems/faraday-0.17.4.gem"
     sha256 "11677b5b261fbbfd4d959f702078d81c0bb66006c00ab2f329f32784778e4d9c"
   end
 
-  if MacOS.version <= :sierra
-    resource "json" do
+  resource "json" do
+    on_system :linux, macos: :sierra_or_older do
       url "https://rubygems.org/gems/json-2.5.1.gem"
       sha256 "918d8c41dacb7cfdbe0c7bbd6014a5372f0cf1c454ca150e9f4010fe80cc3153"
     end
