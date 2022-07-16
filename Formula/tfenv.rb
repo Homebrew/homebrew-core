@@ -16,6 +16,7 @@ class Tfenv < Formula
   end
 
   uses_from_macos "unzip"
+  uses_from_macos "curl"
 
   conflicts_with "terraform", because: "tfenv symlinks terraform binaries"
 
