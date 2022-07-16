@@ -19,13 +19,15 @@ class Serd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "feb299d5b99d16463f8104eb2b8df075982afd42ea57f4f3d13fdc23b37d0a71"
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
 
   def install
-    system "python3", "./waf", "configure", "--prefix=#{prefix}"
-    system "python3", "./waf"
-    system "python3", "./waf", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
