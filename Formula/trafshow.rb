@@ -38,8 +38,8 @@ class Trafshow < Formula
   end
 
   # libpcap on 10.12 has pcap_lib_version() instead of pcap_version
-  if MacOS.version >= :sierra
-    patch :p0 do
+  patch :p0 do
+    on_sierra :or_newer do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/7ad7c77/trafshow/patch-pcap-version-sierra.diff"
       sha256 "03213c8b8b46241ecef8f427cdbec9b09f5fdc35b9d67672ad4b370a1186aed5"
     end
