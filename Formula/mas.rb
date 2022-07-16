@@ -16,9 +16,10 @@ class Mas < Formula
   end
 
   depends_on :macos
-  if Hardware::CPU.arm?
+  on_arm do
     depends_on xcode: ["12.2", :build]
-  else
+  end
+  on_intel do
     depends_on xcode: ["12.0", :build]
   end
 
