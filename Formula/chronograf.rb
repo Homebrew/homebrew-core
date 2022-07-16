@@ -20,10 +20,13 @@ class Chronograf < Formula
   depends_on "go" => :build
   depends_on "go-bindata" => :build
   depends_on "node" => :build
-  depends_on "python@3.10" => :build if MacOS.version >= :monterey
   depends_on "yarn" => :build
   depends_on "influxdb"
   depends_on "kapacitor"
+
+  on_monterey :or_newer do
+    depends_on "python@3.10" => :build
+  end
 
   def install
     # Work around older version of gyp-mac-tool: env: python: No such file or directory
