@@ -5,7 +5,7 @@ class CargoUdeps < Formula
   sha256 "a1dd8b533fa915783919b78705d4a377fb021b67f8386023866017a139caf935"
   license any_of: ["Apache-2.0", "MIT"]
 
-  depends_on "rust" => :build
+  depends_on "rust" => [:build, :test]
 
   def install
     system "cargo", "install", *std_cargo_args
