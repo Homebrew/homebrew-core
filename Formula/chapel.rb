@@ -21,14 +21,13 @@ class Chapel < Formula
   # when Python dependency matches LLVM's Python for all OS versions.
   depends_on "python@3.9"
 
-  on_macos do
-    depends_on "llvm" if MacOS.version > :catalina
-    # fatal error: cannot open file './sys_basic.h': No such file or directory
-    # Issue ref: https://github.com/Homebrew/homebrew-core/issues/96915
-    depends_on "llvm@11" if MacOS.version <= :catalina
+  # fatal error: cannot open file './sys_basic.h': No such file or directory
+  # Issue ref: https://github.com/Homebrew/homebrew-core/issues/96915
+  on_catalina :or_older do
+    depends_on "llvm@11"
   end
 
-  on_linux do
+  on_system :linux, macos: :big_sur_or_newer do
     depends_on "llvm"
   end
 
