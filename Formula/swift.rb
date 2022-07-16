@@ -456,7 +456,7 @@ class Swift < Formula
 
     # Test Swift Package Manager
     mkdir "swiftpmtest" do
-      on_macos do
+      if OS.mac?
         # Swift Package Manager does not currently support using SDKROOT.
         ENV.remove_macosxsdk
       end
