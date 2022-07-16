@@ -22,7 +22,6 @@ class LlvmAT8 < Formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
-  depends_on xcode: :build if MacOS.version < :mojave
   depends_on arch: :x86_64
   depends_on "python@3.8"
   depends_on "swig"
@@ -32,6 +31,10 @@ class LlvmAT8 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  on_high_sierra :or_older do
+    depends_on xcode: :build
+  end
 
   on_linux do
     depends_on "glibc" if Formula["glibc"].any_version_installed?
@@ -44,7 +47,7 @@ class LlvmAT8 < Formula
     sha256 "70effd69f7a8ab249f66b0a68aba8b08af52aa2ab710dfb8a0fba102685b1646"
 
     # Fix include paths on Big Sur
-    if MacOS.version >= :big_sur
+    on_big_sur :or_newer do
       # Refactor header search path logic into driver
       # https://github.com/llvm/llvm-project/commit/e97b5f5cf37e382643b567affd714823215d0e75
       patch :p2 do
