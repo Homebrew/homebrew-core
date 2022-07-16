@@ -1,8 +1,8 @@
 class Libnotify < Formula
   desc "Library that sends desktop notifications to a notification daemon"
   homepage "https://gitlab.gnome.org/GNOME/libnotify"
-  url "https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.12.tar.xz"
-  sha256 "744b2b37508135f8261b755a9debe6e09add421adc75bde930f6e198b70ab46e"
+  url "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.0.tar.xz"
+  sha256 "46a26f0db4e64cf24016291eb1579ed9f0ba7611fe6cd9e1afec8f42780d3924"
   license "LGPL-2.1-or-later"
 
   # libnotify uses GNOME's "even-numbered minor is stable" version scheme but
