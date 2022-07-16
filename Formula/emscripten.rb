@@ -36,7 +36,9 @@ class Emscripten < Formula
   # OpenJDK is needed as a dependency on Linux and ARM64 for google-closure-compiler,
   # an emscripten dependency, because the native GraalVM image will not work.
   on_macos do
-    depends_on "openjdk" if Hardware::CPU.arm?
+    on_arm do
+      depends_on "openjdk"
+    end
   end
 
   on_linux do
