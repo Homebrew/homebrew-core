@@ -15,7 +15,9 @@ class Licensefinder < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fad2104fa2186844235e5628d8afe03f34b08e7b9c62631399dde2b3947b493"
   end
 
-  depends_on "ruby@2.7" if MacOS.version <= :mojave
+  on_system :linux, macos: :mojave_or_older do
+    depends_on "ruby@2.7"
+  end
 
   def install
     ENV["GEM_HOME"] = libexec
