@@ -3,6 +3,7 @@ class Ren < Formula
   homepage "https://pdb.finkproject.org/pdb/package.php/ren"
   url "https://www.ibiblio.org/pub/Linux/utils/file/ren-1.0.tar.gz"
   sha256 "6ccf51b473f07b2f463430015f2e956b63b1d9e1d8493a51f4ebd70f8a8136c9"
+  license :public_domain
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f6b10a80274e2cd7b78b8bbf90e8132511c321ec104bd9418b89814fa6dd2a4e"
