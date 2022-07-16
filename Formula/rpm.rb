@@ -47,8 +47,8 @@ class Rpm < Formula
   # Fix `fstat64` detection for Apple Silicon.
   # https://github.com/rpm-software-management/rpm/pull/1775
   # https://github.com/rpm-software-management/rpm/pull/1897
-  if Hardware::CPU.arm?
-    patch do
+  patch do
+    on_arm do
       url "https://github.com/rpm-software-management/rpm/commit/ad87ced3990c7e14b6b593fa411505e99412e248.patch?full_index=1"
       sha256 "a129345c6ba026b337fe647763874bedfcaf853e1994cf65b1b761bc2c7531ad"
     end
