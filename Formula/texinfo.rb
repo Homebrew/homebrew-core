@@ -16,12 +16,14 @@ class Texinfo < Formula
     sha256 x86_64_linux:   "9addf0b22ab845a8071f0d3dc742c65de4fde1a06a7f41df5cccb2e1c9f6afe2"
   end
 
-  depends_on "gettext" if MacOS.version <= :high_sierra
-
   keg_only :provided_by_macos
 
   uses_from_macos "ncurses"
   uses_from_macos "perl"
+
+  on_system :linux, macos: :high_sierra_or_older do
+    depends_on "gettext"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
