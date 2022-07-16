@@ -27,11 +27,9 @@ class Openj9 < Formula
   depends_on "autoconf" => :build
   depends_on "bash" => :build
   depends_on "cmake" => :build
-  depends_on "nasm" => :build if Hardware::CPU.intel?
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on arch: :x86_64 # https://github.com/eclipse-openj9/openj9/issues/11164
-
   depends_on "fontconfig"
   depends_on "giflib"
   depends_on "harfbuzz"
@@ -56,6 +54,10 @@ class Openj9 < Formula
     depends_on "libxt"
     depends_on "libxtst"
     depends_on "numactl"
+  end
+
+  on_intel do
+    depends_on "nasm" => :build
   end
 
   # From https://github.com/eclipse-openj9/openj9/blob/openj9-#{version}/doc/build-instructions/
