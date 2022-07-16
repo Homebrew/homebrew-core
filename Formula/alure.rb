@@ -32,8 +32,8 @@ class Alure < Formula
 
   # Fix missing unistd include
   # Reported by email to author on 2017-08-25
-  if MacOS.version >= :high_sierra
-    patch do
+  patch do
+    on_high_sierra :or_newer do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/eed63e836e/alure/unistd.patch"
       sha256 "7852a7a365f518b12a1afd763a6a80ece88ac7aeea3c9023aa6c1fe46ac5a1ae"
     end
