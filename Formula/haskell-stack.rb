@@ -25,6 +25,9 @@ class HaskellStack < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+
+  uses_from_macos "zlib"
+
   # All ghc versions before 9.2.1 requires LLVM Code Generator as a backend on
   # ARM. GHC 8.10.7 user manual recommend use LLVM 9 through 12 and we met some
   # unknown issue with LLVM 13 before so conservatively use LLVM 12 here.
@@ -32,9 +35,9 @@ class HaskellStack < Formula
   # References:
   #   https://downloads.haskell.org/~ghc/8.10.7/docs/html/users_guide/8.10.7-notes.html
   #   https://gitlab.haskell.org/ghc/ghc/-/issues/20559
-  depends_on "llvm@12" if Hardware::CPU.arm?
-
-  uses_from_macos "zlib"
+  on_arm do
+    depends_on "llvm@12"
+  end
 
   def install
     # https://github.com/JustusAdam/mustache/issues/41
