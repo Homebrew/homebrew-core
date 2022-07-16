@@ -4,6 +4,12 @@ class Cfonts < Formula
   url "https://github.com/dominikwilkowski/cfonts/archive/refs/tags/v1.1.0rust.tar.gz"
   sha256 "45c40dfc867234efc5c5a2df687ccfc40a6702fa5a82f2380b555f9e755508e6"
   license "GPL-3.0-or-later"
+  head "https://github.com/dominikwilkowski/cfonts.git", branch: "released"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)rust$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f0c159afb368d8b9e13fb37a74541565a42dd93b87bcd8c0da87db15a7badde2"
