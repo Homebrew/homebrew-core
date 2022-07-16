@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/1.20.1.tar.gz"
-  sha256 "e36dccd1ad531503d1ceefe794a57b3b661e5e669c3d1db1d5bfaf0b95c933df"
+  url "https://github.com/libtcod/libtcod/archive/1.21.0.tar.gz"
+  sha256 "443701105ba98c50a27e71d632f6cc1490b9ced55b3ee6750852f0c34ca0274f"
   license "BSD-3-Clause"
 
   bottle do
