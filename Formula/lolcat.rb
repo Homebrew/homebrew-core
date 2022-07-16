@@ -16,7 +16,7 @@ class Lolcat < Formula
     sha256 cellar: :any_skip_relocation, all:           "2413429a0ccae2c204b12dc59fbc9cd780947f6f4d5af51e8b6d9ecb6de5772d"
   end
 
-  depends_on "ruby" if MacOS.version <= :sierra
+  uses_from_macos "ruby", since: :high_sierra
 
   def install
     ENV["GEM_HOME"] = libexec
