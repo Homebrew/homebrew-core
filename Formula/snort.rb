@@ -22,8 +22,6 @@ class Snort < Formula
   depends_on "daq"
   depends_on "gperftools" # for tcmalloc
   depends_on "hwloc"
-  # Hyperscan improves IPS performance, but is only available for x86_64 arch.
-  depends_on "hyperscan" if Hardware::CPU.intel?
   depends_on "libdnet"
   depends_on "libpcap" # macOS version segfaults
   depends_on "luajit-openresty"
@@ -36,6 +34,11 @@ class Snort < Formula
   on_linux do
     depends_on "libunwind"
     depends_on "gcc"
+  end
+
+  # Hyperscan improves IPS performance, but is only available for x86_64 arch.
+  on_intel do
+    depends_on "hyperscan"
   end
 
   fails_with gcc: "5"
