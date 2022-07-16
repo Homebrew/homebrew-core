@@ -17,6 +17,10 @@ class Devtodo < Formula
     sha256 x86_64_linux:   "3e73efa42394be4e0be78fe83c13b693f42a84d743fbc8e9248cdcaea13da1c2"
   end
 
+  # DevTodo1 still compiles and installs, but is now unmaintained.
+  # https://swapoff.org/devtodo1.html
+  deprecate! date: "2022-07-15", because: :unmaintained
+
   depends_on "readline"
 
   uses_from_macos "expect" => :test
@@ -75,6 +79,6 @@ index a979d1b..6aef728 100644
  #include <curses.h>
  #include <term.h>
 +#include <stdlib.h>
- 
+
  static char info[2048];
  static bool term_initialized;
