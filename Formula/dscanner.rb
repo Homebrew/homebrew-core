@@ -16,9 +16,11 @@ class Dscanner < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cf437aaf0802ae3aab2a37476e0506351b1da609c6470acded10962537a639b"
   end
 
-  if Hardware::CPU.arm?
+  on_arm do
     depends_on "ldc" => :build
-  else
+  end
+
+  on_intel do
     depends_on "dmd" => :build
   end
 
