@@ -22,11 +22,13 @@ class Md5deep < Formula
 
   # Fix compilation error due to very old GNU config scripts in source repo
   # reported upstream at https://github.com/jessek/hashdeep/issues/400
-  patch :DATA if Hardware::CPU.arm?
+  on_arm do
+    patch :DATA
+  end
 
   # Fix compilation error due to pointer comparison
-  if MacOS.version >= :sierra
-    patch do
+  patch do
+    on_sierra :or_newer do
       url "https://github.com/jessek/hashdeep/commit/8776134.patch?full_index=1"
       sha256 "3d4e3114aee5505d1336158b76652587fd6f76e1d3af784912277a1f93518c64"
     end
