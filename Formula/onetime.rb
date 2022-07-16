@@ -6,11 +6,6 @@ class Onetime < Formula
   license "MIT"
   revision 1
 
-  livecheck do
-    url "https://www.red-bean.com/onetime/get"
-    regex(/href=.*?onetime[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d6b4a7ac553f33266044258c1b8cc8e703428990ec7c329ec1abcec649c94eaf"
     sha256 cellar: :any_skip_relocation, big_sur:       "3537657d8ff718b94fa84714b0105b95ef613fe778d04ff573a19df687798747"
