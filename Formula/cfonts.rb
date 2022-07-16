@@ -8,7 +8,7 @@ class Cfonts < Formula
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)rust$/i)
+    regex(/^v?(\d+(?:\.\d+)+)[._-]?rust$/i)
   end
 
   bottle do
