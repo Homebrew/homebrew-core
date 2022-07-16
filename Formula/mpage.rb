@@ -3,6 +3,7 @@ class Mpage < Formula
   homepage "https://mesa.nl/pub/mpage/README"
   url "https://mesa.nl/pub/mpage/mpage-2.5.7.tgz"
   sha256 "51ab9c4e5fdd37e03c90df6756f30c0b61a34f066cb625f8924feedc4b3ec3fe"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_monterey: "6a83b49a225ea3e7c45f06bcb70fc7c822b07aa80a23f51667e74d1264f6ef03"
