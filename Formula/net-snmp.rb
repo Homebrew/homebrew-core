@@ -38,9 +38,6 @@ class NetSnmp < Formula
   end
 
   def install
-    # Workaround https://github.com/net-snmp/net-snmp/issues/226 in 5.9:
-    inreplace "agent/mibgroup/mibII/icmp.h", "darwin10", "darwin"
-
     args = [
       "--disable-debugging",
       "--prefix=#{prefix}",
