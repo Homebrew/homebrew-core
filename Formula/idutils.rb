@@ -19,8 +19,8 @@ class Idutils < Formula
 
   conflicts_with "coreutils", because: "both install `gid` and `gid.1`"
 
-  if MacOS.version >= :high_sierra
-    patch :p0 do
+  patch :p0 do
+    on_high_sierra :or_newer do
       url "https://raw.githubusercontent.com/macports/macports-ports/b76d1e48dac/editors/nano/files/secure_snprintf.patch"
       sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
     end
