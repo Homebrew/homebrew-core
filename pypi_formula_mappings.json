@@ -264,6 +264,9 @@
   "nox": {
     "exclude_packages": ["six"]
   },
+  "nuitka": {
+    "extra_packages": ["ordered-set", "zstandard"]
+  },
   "nvchecker": "nvchecker[pypi]",
   "oci-cli": {
     "exclude_packages": ["six"]
