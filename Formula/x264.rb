@@ -52,7 +52,7 @@ class X264 < Formula
 
   depends_on "nasm" => :build
 
-  if MacOS.version <= :high_sierra
+  on_system :linux, macos: :high_sierra_or_older do
     # Stack realignment requires newer Clang
     # https://code.videolan.org/videolan/x264/-/commit/b5bc5d69c580429ff716bafcd43655e855c31b02
     depends_on "gcc"
