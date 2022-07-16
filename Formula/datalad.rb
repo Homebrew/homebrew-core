@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/5c/6d/326a01aa6fe2295bdb237ebf36bcadd5f5ac1d02908fd7a63738543747a0/datalad-0.17.1.tar.gz"
-  sha256 "904579e429a7f17235c3682882a5052acea1dcf030668e9c314ea4681b3ce83c"
+  url "https://files.pythonhosted.org/packages/17/dd/653c922fc279735bc3a9eef9de377edebcfe18745da1dfb116e2298db8fe/datalad-0.17.2.tar.gz"
+  sha256 "80fb4a133b6942f63f5d84552ce08cbccd1706adb32732531772157e35126724"
   license "MIT"
 
   bottle do
@@ -70,13 +70,13 @@ class Datalad < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a4/9e/9d9eb6a6dc4f347bae8200a2e1dd65a7b96ae99e29ef8f7452ccc4ef9eea/keyring-23.6.0.tar.gz"
-    sha256 "3ac00c26e4c93739e19103091a9986a9f79665a78cf15a4df1dba7ea9ac8da2f"
+    url "https://files.pythonhosted.org/packages/01/92/9a1973e6132089e1263b0dc545a021d0733bf5d5b6fa19cc7e641e1925ae/keyring-23.7.0.tar.gz"
+    sha256 "782e1cd1132e91bf459fcd243bcf25b326015c1ac0b198e4408f91fa6791062b"
   end
 
   resource "keyrings.alt" do
-    url "https://files.pythonhosted.org/packages/b8/a4/f9ef8a522e2f5bb273de6b5848bcb7d2fa4f0c1ea935fc8630762accb4db/keyrings.alt-4.1.0.tar.gz"
-    sha256 "52ccb61d6f16c10f32f30d38cceef7811ed48e086d73e3bae86f0854352c4ab2"
+    url "https://files.pythonhosted.org/packages/66/a5/21276d87d43dc8941a4f19e6b1a330e5bd093854e4e385ab7dfbd3989f48/keyrings.alt-4.1.1.tar.gz"
+    sha256 "e87152b9562fa822b5130ee31025512b4da6e6db0daf38c870566d08b84aded6"
   end
 
   resource "msgpack" do
