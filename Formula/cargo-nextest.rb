@@ -9,7 +9,7 @@ class CargoNextest < Formula
 
   def install
     system "cargo", "install", "--no-default-features", "--features", "default-no-update",
-      *std_cargo_args(path: "cargo-nextest")
+                    *std_cargo_args(path: "cargo-nextest")
   end
 
   test do
