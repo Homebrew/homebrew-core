@@ -45,10 +45,11 @@ class Rust < Formula
   resource "cargobootstrap" do
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
-      if Hardware::CPU.arm?
+      on_arm do
         url "https://static.rust-lang.org/dist/2022-05-19/cargo-1.61.0-aarch64-apple-darwin.tar.gz"
         sha256 "8099a35548e1ae4773dbbcbe797301c500ec10236435fde0073f52b4937be6c3"
-      else
+      end
+      on_intel do
         url "https://static.rust-lang.org/dist/2022-05-19/cargo-1.61.0-x86_64-apple-darwin.tar.gz"
         sha256 "f2b10ef8c56f37014d2f3e4c36d5e666e3be368d24c597e99cf2e4b21dc40455"
       end
