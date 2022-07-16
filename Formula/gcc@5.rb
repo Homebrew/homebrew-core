@@ -48,8 +48,8 @@ class GccAT5 < Formula
   # Fix Apple headers, otherwise they trigger a build failure in libsanitizer
   # GCC bug report: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=83531
   # Apple radar 36176941
-  if MacOS.version == :high_sierra
-    patch do
+  patch do
+    on_high_sierra do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/413cfac6/gcc%405/10.13_headers.patch"
       sha256 "94aaec20c8c7bfd3c41ef8fb7725bd524b1c0392d11a411742303a3465d18d09"
     end
