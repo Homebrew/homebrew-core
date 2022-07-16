@@ -31,14 +31,16 @@ class Ocp < Formula
   depends_on "libvorbis"
   depends_on "mad"
 
-  if MacOS.version < :catalina
-    depends_on "sdl"
-  else
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  on_catalina :or_newer do
     depends_on "sdl2"
   end
 
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+  on_system :linux, macos: :mojave_or_older do
+    depends_on "sdl"
+  end
 
   on_linux do
     depends_on "util-linux" => :build # for `hexdump`
