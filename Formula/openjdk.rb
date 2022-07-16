@@ -48,10 +48,11 @@ class Openjdk < Formula
   # From https://jdk.java.net/archive/
   resource "boot-jdk" do
     on_macos do
-      if Hardware::CPU.arm?
+      on_arm do
         url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_macos-aarch64_bin.tar.gz"
         sha256 "602d7de72526368bb3f80d95c4427696ea639d2e0cc40455f53ff0bbb18c27c8"
-      else
+      end
+      on_intel do
         url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_macos-x64_bin.tar.gz"
         sha256 "b85c4aaf7b141825ad3a0ea34b965e45c15d5963677e9b27235aa05f65c6df06"
       end
