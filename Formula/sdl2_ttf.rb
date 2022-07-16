@@ -1,10 +1,9 @@
 class Sdl2Ttf < Formula
   desc "Library for using TrueType fonts in SDL applications"
   homepage "https://github.com/libsdl-org/SDL_ttf"
-  url "https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.0.18/SDL2_ttf-2.0.18.tar.gz"
-  sha256 "7234eb8883514e019e7747c703e4a774575b18d435c22a4a29d068cb768a2251"
+  url "https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.0/SDL2_ttf-2.20.0.tar.gz"
+  sha256 "874680232b72839555a558b48d71666b562e280f379e673b6f0c7445ea3b9b8a"
   license "Zlib"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "28d5056700c673afc9015cc76ac7db652ed0a916399246e432ba5e2bcb8a09c3"
