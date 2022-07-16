@@ -71,7 +71,9 @@ class CaCertificates < Formula
         -c #{tmpfile.path}
         -p ssl
       ]
-      verify_args << "-R" << "offline" if MacOS.version >= :high_sierra
+      on_high_sierra :or_newer do
+        verify_args << "-R" << "offline"
+      end
 
       valid_certs.select do |cert|
         tmpfile.rewind
