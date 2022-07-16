@@ -3,6 +3,7 @@ class Devtodo < Formula
   homepage "https://swapoff.org/devtodo.html"
   url "https://swapoff.org/files/devtodo/devtodo-0.1.20.tar.gz"
   sha256 "379c6ac4499fc97e9676075188f7217e324e7ece3fb6daeda7bf7969c7093e09"
+  license "GPL-2.0-only"
   revision 2
 
   bottle do
