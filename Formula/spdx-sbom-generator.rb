@@ -1,10 +1,9 @@
 class SpdxSbomGenerator < Formula
   desc "Support CI generation of SBOMs via golang tooling"
   homepage "https://github.com/opensbom-generator/spdx-sbom-generator"
-  url "https://github.com/opensbom-generator/spdx-sbom-generator/archive/refs/tags/v0.0.13.tar.gz"
-  sha256 "7d088f136a53d1f608b1941362c568d78cc6279df9c1bdb3516de075cb7f10c3"
+  url "https://github.com/opensbom-generator/spdx-sbom-generator/archive/refs/tags/v0.0.15.tar.gz"
+  sha256 "3811d652de0f27d3bfa7c025aa6815805ef347a35b46f9e2a5093cc6b26f7b08"
   license any_of: ["Apache-2.0", "CC-BY-4.0"]
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d33ca829ee21a0368595ccfd056fd71b42adf885c56e9817873d59f5fa654e4"
