@@ -71,10 +71,9 @@ class Inlets < Formula
     EOS
 
     mock_upstream_server_pid = fork do
-      on_macos do
+      if OS.mac?
         exec "ruby mock_upstream_server.rb"
-      end
-      on_linux do
+      elsif OS.linux?
         exec "#{Formula["ruby"].opt_bin}/ruby mock_upstream_server.rb"
       end
     end
