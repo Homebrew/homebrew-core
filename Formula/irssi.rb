@@ -6,6 +6,12 @@ class Irssi < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  # This formula uses a file from a GitHub release, so we check the latest
+  # release version instead of Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
   bottle do
     sha256 arm64_monterey: "6f90ced76f4dff3f6a4a65f47cdb996dc8e0473c677a4ae939019c54e69c88a8"
     sha256 arm64_big_sur:  "745a8f336278ed4d2ccb4f7a396b8dd3b8cb6ac4b8cc20ae9e39822815aeb01b"
