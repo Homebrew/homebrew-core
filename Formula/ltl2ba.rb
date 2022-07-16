@@ -3,6 +3,7 @@ class Ltl2ba < Formula
   homepage "https://www.lsv.ens-cachan.fr/~gastin/ltl2ba/"
   url "https://www.lsv.fr/~gastin/ltl2ba/ltl2ba-1.3.tar.gz"
   sha256 "912877cb2929cddeadfd545a467135a2c61c507bbd5ae0edb695f8b5af7ce9af"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e35ea05ee9b358df863d969c190abea48b61ec737c7aaa5fb01f9f7de455330"
