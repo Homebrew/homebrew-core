@@ -21,7 +21,7 @@ class Sdl < Formula
     end
 
     # Fix mouse cursor transparency on 10.13, https://bugzilla.libsdl.org/show_bug.cgi?id=4076
-    if MacOS.version == :high_sierra
+    on_high_sierra do
       patch do
         url "https://bugzilla-attachments.libsdl.org/attachment.cgi?id=3721"
         sha256 "954875a277d9246bcc444b4e067e75c29b7d3f3d2ace5318a6aab7d7a502f740"
@@ -29,7 +29,7 @@ class Sdl < Formula
     end
 
     # Fix display issues on 10.14+, https://bugzilla.libsdl.org/show_bug.cgi?id=4788
-    if MacOS.version >= :mojave
+    on_mojave :or_newer do
       patch do
         url "https://bugzilla-attachments.libsdl.org/attachment.cgi?id=4288"
         sha256 "5a89ddce5deaf72348792d33e12b5f66d0dab4f9747718bb5021d3067bdab283"
@@ -38,7 +38,7 @@ class Sdl < Formula
 
     # Fix audio initialization issues on Big Sur, upstream patch
     # https://github.com/libsdl-org/SDL-1.2/commit/a2047dc403ffb58b89b717929637352045699743
-    if MacOS.version >= :big_sur
+    on_big_sur :or_newer do
       patch do
         url "https://github.com/libsdl-org/SDL-1.2/commit/a2047dc403ffb58b89b717929637352045699743.patch?full_index=1"
         sha256 "7684a923dfd0c13f1a78e09ca0cea2632850e4d41023867b504707946ec495d4"
