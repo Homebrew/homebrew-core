@@ -122,8 +122,8 @@ class Imapsync < Formula
     sha256 "2b7f80da87f5a6fe0360d9ee521051053017442c3a26e85db68dfac9f8307623"
   end
 
-  if MacOS.version <= :catalina
-    resource "Module::Build" do
+  resource "Module::Build" do
+    on_system :linux, macos: :catalina_or_older do
       url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
       sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
     end
