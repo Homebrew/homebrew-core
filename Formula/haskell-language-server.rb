@@ -25,13 +25,13 @@ class HaskellLanguageServer < Formula
   depends_on "cabal-install" => [:build, :test]
   depends_on "ghc" => [:build, :test]
 
-  if Hardware::CPU.intel?
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  on_intel do
     depends_on "ghc@8.6" => [:build, :test]
     depends_on "ghc@8.8" => [:build, :test]
   end
-
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   def ghcs
     deps.map(&:to_formula)
