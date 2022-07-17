@@ -6,11 +6,11 @@ class Jbig2dec < Formula
   license "AGPL-3.0-or-later"
 
   # Not every GhostPDL release contains a jbig2dec archive, so we have to check
-  # the GitHub releases page instead (which we otherwise avoid). This is
-  # necessary because the jbig2dec homepage hasn't been updated to link to
-  # versions after 0.17.
+  # the GitHub releases page (which we otherwise avoid) instead of the tags.
+  # We avoid checking the jbig2dec homepage because it has been very slow to
+  # update in the past when new versions were released.
   livecheck do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases"
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases?q=prerelease%3Afalse"
     regex(%r{href=.*?/jbig2dec[._-]v?(\d+(?:\.\d+)+)\.t}i)
     strategy :page_match
   end
