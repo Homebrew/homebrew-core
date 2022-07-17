@@ -41,13 +41,13 @@ class Octosql < Formula
     EOS
 
     expected = <<~EOS
-      +-------------+-------------+--------------------------+
-      | test.field1 | test.field2 |       test.field3        |
-      +-------------+-------------+--------------------------+
-      | 'value'     |          42 | { <null>, 'eulav',       |
-      |             |             | 'value' }                |
-      | 'value'     |          42 | { 'eulav', 24, <null> }  |
-      +-------------+-------------+--------------------------+
+      +---------+--------+--------------------------+
+      | field1  | field2 |          field3          |
+      +---------+--------+--------------------------+
+      | 'value' |     42 | { <null>, 'eulav',       |
+      |         |        | 'value' }                |
+      | 'value' |     42 | { 'eulav', 24, <null> }  |
+      +---------+--------+--------------------------+
     EOS
 
     assert_equal expected, shell_output("#{bin}/octosql \"select * from test.json\"")
