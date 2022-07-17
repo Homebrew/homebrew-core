@@ -54,7 +54,7 @@ class PopplerQt5 < Formula
   def install
     ENV.cxx11
 
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
       -DBUILD_GTK_TESTS=OFF
       -DENABLE_BOOST=OFF
       -DENABLE_CMS=lcms2
@@ -63,6 +63,7 @@ class PopplerQt5 < Formula
       -DENABLE_QT6=OFF
       -DENABLE_UNSTABLE_API_ABI_HEADERS=ON
       -DWITH_GObjectIntrospection=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
     system "cmake", ".", *args
@@ -75,20 +76,6 @@ class PopplerQt5 < Formula
     lib.install "glib/libpoppler-glib.a"
     resource("font-data").stage do
       system "make", "install", "prefix=#{prefix}"
-    end
-
-    if OS.mac?
-      libpoppler = (lib/"libpoppler.dylib").readlink
-      [
-        "#{lib}/libpoppler-cpp.dylib",
-        "#{lib}/libpoppler-glib.dylib",
-        "#{lib}/libpoppler-qt5.dylib",
-        *Dir["#{bin}/*"],
-      ].each do |f|
-        macho = MachO.open(f)
-        macho.change_dylib("@rpath/#{libpoppler}", "#{opt_lib}/#{libpoppler}")
-        macho.write!
-      end
     end
   end
 
