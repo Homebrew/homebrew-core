@@ -8,8 +8,7 @@ class Gaze < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", "dist/gaze", "-v", "cmd/gaze/main.go"
-    bin.install "dist/gaze"
+    system "go", "build", *std_go_args, "cmd/gaze/main.go"
   end
 
   test do
