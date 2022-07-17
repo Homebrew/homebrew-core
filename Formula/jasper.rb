@@ -4,6 +4,7 @@ class Jasper < Formula
   url "https://github.com/jasper-software/jasper/releases/download/version-3.0.6/jasper-3.0.6.tar.gz"
   sha256 "169be004d91f6940c649a4f854ada2755d4f35f62b0555ce9e1219c778cffc09"
   license "JasPer-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,10 +23,6 @@ class Jasper < Formula
   depends_on "cmake" => :build
   depends_on "jpeg"
 
-  on_linux do
-    depends_on "freeglut"
-  end
-
   def install
     mkdir "tmp_cmake" do
       args = std_cmake_args
@@ -36,6 +33,8 @@ class Jasper < Formula
         # Reported to CMake upstream 4 Apr 2016 https://gitlab.kitware.com/cmake/cmake/issues/16045
         glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
         args << "-DGLUT_glut_LIBRARY=#{glut_lib}"
+      else
+        args << "-DJAS_ENABLE_OPENGL=OFF"
       end
 
       system "cmake", "..",
