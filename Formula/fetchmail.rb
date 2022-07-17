@@ -1,8 +1,8 @@
 class Fetchmail < Formula
   desc "Client for fetching mail from POP, IMAP, ETRN or ODMR-capable servers"
   homepage "https://www.fetchmail.info/"
-  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.4/fetchmail-6.4.30.tar.xz"
-  sha256 "35824c20aa1d8d97e3f1611fef49b9f7f68396f7cbc4d3a807fed27ae9ea445a"
+  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.4/fetchmail-6.4.31.tar.xz"
+  sha256 "904bf9247054df8e91b47b1a9fe15a31dda8478c25b5291da0424653744a28f7"
   license all_of: [
     "LGPL-2.1-or-later",
     "ISC",
@@ -25,12 +25,12 @@ class Fetchmail < Formula
     sha256               x86_64_linux:   "1adcc903c56512782e6781442dc2b9bb466329b2c6e4657b17e2be80f2f84437"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
