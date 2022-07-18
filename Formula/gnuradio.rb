@@ -6,6 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.3.0.tar.gz"
   sha256 "957108a67ec75d99adaad8f3b10be8ae08760a9cef0b659a5c815a4e33898a75"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -40,7 +41,7 @@ class Gnuradio < Formula
   depends_on "portaudio"
   depends_on "pygobject3"
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "qt@5"
   depends_on "qwt-qt5"
   depends_on "six"
@@ -242,7 +243,7 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system Formula["python@3.9"].opt_bin/"python3", testpath/"test.py"
+    system Formula["python@3.10"].opt_bin/"python3", testpath/"test.py"
   end
 end
 
