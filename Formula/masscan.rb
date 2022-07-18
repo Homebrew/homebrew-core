@@ -22,12 +22,6 @@ class Masscan < Formula
   end
 
   def install
-    # Fix `dyld: lazy symbol binding failed: Symbol not found: _clock_gettime`
-    # Reported 8 July 2017: https://github.com/robertdavidgraham/masscan/issues/284
-    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
-      inreplace "src/pixie-timer.c", "#elif defined(CLOCK_MONOTONIC)", "#elif defined(NOT_A_MACRO)"
-    end
-
     system "make"
     bin.install "bin/masscan"
   end
