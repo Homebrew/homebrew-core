@@ -29,6 +29,7 @@ class Glib < Formula
     depends_on "util-linux"
   end
 
+  # Sync this with `glib-utils.rb`
   # replace several hardcoded paths with homebrew counterparts
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/43467fd8dfc0e8954892ecc08fab131242dca025/glib/hardcoded-paths.diff"
