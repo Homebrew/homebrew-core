@@ -6,6 +6,7 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.72/gobject-introspection-1.72.0.tar.xz"
   sha256 "02fe8e590861d88f83060dd39cda5ccaa60b2da1d21d0f95499301b186beaabc"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "f99f2db1c00cdde18f0cbfa00e70604dfaea7aa512256750eabc31cbb0181204"
@@ -19,11 +20,11 @@ class GobjectIntrospection < Formula
   depends_on "bison" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "python@3.10" => :build
   depends_on "cairo"
   depends_on "glib"
   depends_on "libffi"
   depends_on "pkg-config"
-  depends_on "python@3.9"
 
   uses_from_macos "flex" => :build
 
@@ -49,19 +50,49 @@ class GobjectIntrospection < Formula
 
     mkdir "build" do
       system "meson", *std_meson_args,
-        "-Dpython=#{Formula["python@3.9"].opt_bin}/python3",
+        "-Dpython=#{Formula["python@3.10"].opt_bin}/python3",
         "-Dextra_library_paths=#{HOMEBREW_PREFIX}/lib",
         ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
-      rewrite_shebang detected_python_shebang, *bin.children
+    end
+
+    # Delete python files because they are provided by `gobject-introspection-utils`
+    python_extension_regex = /\.(py(?:[diwx])?|px[di]|cpython-(?:[23]\d{1,2})[-\w]*\.(so|dylib))$/i
+    python_shebang_regex = %r{^#! ?/usr/bin/(?:env )?python(?:[23](?:\.\d{1,2})?)?( |$)}
+    shebang_max_length = 28 # the length of "#! /usr/bin/env pythonx.yyy "
+    prefix.find do |f|
+      next unless f.file?
+
+      f.unlink if python_extension_regex.match?(f.basename) || python_shebang_regex.match?(f.read(shebang_max_length))
+    end
+
+    rm_rf lib/"gobject-introspection"
+
+    pc_files = %w[
+      gobject-introspection-1.0.pc
+      gobject-introspection-no-export-1.0.pc
+    ]
+
+    pc_files.each do |pc_file|
+      inreplace lib/"pkgconfig"/pc_file,
+                "g_ir_scanner=${bindir}/g-ir-scanner",
+                "g_ir_scanner=#{Formula["gobject-introspection-utils"].opt_bin}/g-ir-scanner"
     end
   end
 
   test do
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libffi"].opt_lib/"pkgconfig"
     resource("tutorial").stage testpath
-    system "make"
-    assert_predicate testpath/"Tut-0.1.typelib", :exist?
+    # Build the gobject-introspection test binary but don't build the full tutorial, because it needs g-ir-scanner
+    # provided by gobject-introspection-utils, which depends on gobject-introspection.
+    pkg_config = Formula["pkg-config"].opt_bin/"pkg-config"
+    pkg_config_cflags = Utils.safe_popen_read(pkg_config, "--cflags", "gobject-introspection-1.0").chomp.split
+    pkg_config_ldflags = Utils.safe_popen_read(pkg_config, "--libs", "gobject-introspection-1.0",
+                                                           "gmodule-2.0").chomp.split
+    system ENV.cc, "tut-greeter.c", *pkg_config_cflags, "-c", "-o", "tut-greeter.o"
+    system ENV.cc, "main.c", *pkg_config_cflags, "-c", "-o", "main.o"
+    system ENV.cc, "tut-greeter.o", "main.o", *pkg_config_ldflags, "-o", "greeter"
+    assert_match "Hello, World!", Utils.safe_popen_read(testpath/"greeter")
   end
 end
