@@ -6,6 +6,7 @@ class Ford < Formula
   url "https://files.pythonhosted.org/packages/1c/80/a8750198772c8647aa2c8d1459d5d8dbedd317a2ba18fdad73802073e1d5/FORD-6.1.13.tar.gz"
   sha256 "95b743ea25c5a9c6a9e13db3633e04f91e11d1debb69f48ca3ef7fefc51f0559"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Ford < Formula
   end
 
   depends_on "graphviz"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
