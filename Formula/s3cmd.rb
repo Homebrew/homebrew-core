@@ -6,7 +6,7 @@ class S3cmd < Formula
   url "https://files.pythonhosted.org/packages/65/6c/f51ba2fbc74916f4fe3883228450306135e13be6dcca03a08d3e91239992/s3cmd-2.2.0.tar.gz"
   sha256 "2a7d2afe09ce5aa9f2ce925b68c6e0c1903dd8d4e4a591cd7047da8e983a99c3"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
@@ -18,7 +18,7 @@ class S3cmd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0afba47e264b4a94fc0b6b96f69880d51e3cdf126998f7fd3b1079f149587adb"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "python-dateutil" do
