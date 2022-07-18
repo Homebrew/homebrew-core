@@ -38,15 +38,6 @@ class Anttweakbar < Formula
   end
 
   def install
-    # Work around Xcode 9 error "no member named 'signbit' in the global
-    # namespace" and Xcode 8 issue on El Capitan "error: missing ',' between
-    # enumerators"
-    if DevelopmentTools.clang_build_version >= 900 ||
-       (MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0")
-      ENV.delete("SDKROOT")
-      ENV.delete("HOMEBREW_SDKROOT")
-    end
-
     makefile = OS.mac? ? "Makefile.osx" : "Makefile"
     system "make", "-C", "src", "-f", makefile
     lib.install shared_library("lib/libAntTweakBar"), "lib/libAntTweakBar.a"
