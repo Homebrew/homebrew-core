@@ -28,6 +28,7 @@ class Spdylay < Formula
   depends_on "libevent"
   depends_on "openssl@1.1"
 
+  uses_from_macos "xz"
   uses_from_macos "zlib"
 
   def install
