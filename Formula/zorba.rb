@@ -39,13 +39,7 @@ class Zorba < Formula
 
     ENV.cxx11
 
-    args = std_cmake_args
-
-    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    # usual superenv fix doesn't work since zorba doesn't use HAVE_CLOCK_GETTIME
-    args << "-DZORBA_HAVE_CLOCKGETTIME=OFF" if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
-
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
