@@ -18,12 +18,6 @@ class Baresip < Formula
   depends_on "librem"
 
   def install
-    # baresip doesn't like the 10.11 SDK when on Yosemite
-    if MacOS::Xcode.version.to_i >= 7
-      ENV.delete("SDKROOT")
-      ENV.delete("HOMEBREW_SDKROOT") if MacOS::Xcode.without_clt?
-    end
-
     libre = Formula["libre"]
     librem = Formula["librem"]
     # NOTE: `LIBRE_SO` is a directory but `LIBREM_SO` is a shared library.
