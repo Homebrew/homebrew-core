@@ -39,8 +39,6 @@ class Bitcoin < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.delete("SDKROOT") if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
-
     system "./autogen.sh"
     system "./configure", *std_configure_args,
                           "--disable-dependency-tracking",
