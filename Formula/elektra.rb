@@ -26,7 +26,7 @@ class Elektra < Formula
   def install
     mkdir "build" do
       system "cmake", "..", "-DBINDINGS=cpp", "-DTOOLS=kdb;",
-                            "-DPLUGINS=NODEP", *std_cmake_args
+                            "-DPLUGINS=NODEP;-tracer", *std_cmake_args
       system "make", "install"
     end
 
