@@ -18,7 +18,7 @@ class Gel < Formula
 
   def install
     ENV["PATH"] = "bin:#{Dir.home}/.local/gel/bin:#{ENV["PATH"]}"
-    inreplace "Gemfile.lock", "rdiscount (2.2.0.1)", "rdiscount (2.2.0.2)", false
+    inreplace "Gemfile.lock", "rdiscount (2.2.0.1)", "rdiscount (2.2.0.2)", build.stable?
     system "gel", "install"
     system "rake", "man"
     bin.install "exe/gel"
