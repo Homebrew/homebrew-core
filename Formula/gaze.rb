@@ -12,25 +12,11 @@ class Gaze < Formula
   end
 
   test do
-    (testpath/"test.txt").write("init")
     o = IO.popen("#{bin}/gaze -c 'cp test.txt out.txt' test.txt")
-    thread = Thread.new do
-      10.times do
-        begin
-          File.write("test.txt", "hello, world!")
-        rescue
-          # Safe to ignore
-        end
-        sleep 1
-      end
-    end
-    10.times do
-      break if File.exist?("out.txt")
-
-      sleep 1
-    end
-    thread.terminate
-    assert("hello, world!", File.read("out.txt"))
+    sleep 5
+    File.write("test.txt", "hello, world!")
+    sleep 2
     Process.kill("TERM", o.pid)
+    assert_match("hello, world!", File.read("out.txt"))
   end
 end
