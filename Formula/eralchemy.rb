@@ -23,7 +23,7 @@ class Eralchemy < Formula
   depends_on "graphviz"
   depends_on "libpq"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "psycopg2" do
     url "https://files.pythonhosted.org/packages/fd/ae/98cb7a0cbb1d748ee547b058b14604bd0e9bf285a8e0cc5d148f8a8a952e/psycopg2-2.8.6.tar.gz"
@@ -46,7 +46,7 @@ class Eralchemy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, which("python3"))
 
     res = resources.reject { |r| r.name == "er_example" }
     res.each do |r|
