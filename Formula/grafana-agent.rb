@@ -67,7 +67,8 @@ class GrafanaAgent < Formula
 
     fork do
       exec bin/"grafana-agent", "-config.file=#{testpath}/grafana-agent.yaml",
-        "-metrics.wal-directory=#{testpath}/wal", "-server.http.address=127.0.0.1:#{port}"
+        "-metrics.wal-directory=#{testpath}/wal", "-server.http.address=127.0.0.1:#{port}",
+        "-server.grpc.address=127.0.0.1:#{free_port}"
     end
     sleep 10
 
