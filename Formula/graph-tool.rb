@@ -6,7 +6,7 @@ class GraphTool < Formula
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.45.tar.bz2"
   sha256 "f92da7accfda02b29791efe4f0b3ed93329f27232af4d3afc07c92421ec68668"
   license "LGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -37,7 +37,7 @@ class GraphTool < Formula
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "scipy"
   depends_on "six"
 
@@ -89,8 +89,9 @@ class GraphTool < Formula
     ENV.deparallelize unless OS.mac?
 
     system "autoreconf", "-fiv"
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    python = which("python3")
+    xy = Language::Python.major_minor_version python
+    venv = virtualenv_create(libexec, python)
 
     resources.each do |r|
       venv.pip_install_and_link r
@@ -100,7 +101,7 @@ class GraphTool < Formula
       "--disable-debug",
       "--disable-dependency-tracking",
       "--prefix=#{prefix}",
-      "PYTHON=python3",
+      "PYTHON=#{python}",
       "--with-python-module-path=#{lib}/python#{xy}/site-packages",
       "--with-boost-python=boost_python#{xy.to_s.delete(".")}-mt",
       "--with-boost-libdir=#{HOMEBREW_PREFIX}/opt/boost/lib",
@@ -127,6 +128,6 @@ class GraphTool < Formula
       assert g.num_edges() == 1
       assert g.num_vertices() == 2
     EOS
-    system Formula["python@3.9"].opt_bin/"python3", "test.py"
+    system Formula["python@3.10"].opt_bin/"python3", "test.py"
   end
 end
