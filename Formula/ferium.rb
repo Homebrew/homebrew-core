@@ -20,4 +20,3 @@ class Ferium < Formula
     system "ferium", "help"
   end
 end
-  
