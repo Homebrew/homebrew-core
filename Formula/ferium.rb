@@ -14,6 +14,13 @@ class Ferium < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    bash_output = Utils.safe_popen_read(bin/"ferium", "complete", "bash")
+    (bash_completion/"ferium").write bash_output
+    zsh_output = Utils.safe_popen_read(bin/"ferium", "complete", "zsh")
+    (zsh_completion/"_ferium").write zsh_output
+    fish_output = Utils.safe_popen_read(bin/"ferium", "complete", "fish")
+    (fish_completion/"ferium.fish").write fish_output
   end
 
   test do
