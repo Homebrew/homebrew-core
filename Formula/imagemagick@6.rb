@@ -7,8 +7,8 @@ class ImagemagickAT6 < Formula
   head "https://github.com/imagemagick/imagemagick6.git", branch: "main"
 
   livecheck do
-    url "https://download.imagemagick.org/ImageMagick/download/"
-    regex(/href=.*?ImageMagick[._-]v?(6(?:\.\d+)+(?:-\d+)?)\.t/i)
+    url "https://imagemagick.org/archive/"
+    regex(/href=.*?ImageMagick[._-]v?(6(?:[.-]\d+)+)\.t/i)
   end
 
   bottle do
