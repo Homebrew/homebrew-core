@@ -4,7 +4,7 @@ class Anjuta < Formula
   url "https://download.gnome.org/sources/anjuta/3.34/anjuta-3.34.0.tar.xz"
   sha256 "42a93130ed3ee02d064a7094e94e1ffae2032b3f35a87bf441e37fc3bb3a148f"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_monterey: "f94220711948d150b55bd7fb45b7d0ed6b22074cce634196cefe563280eda75c"
@@ -28,7 +28,7 @@ class Anjuta < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libgda"
   depends_on "libxml2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "shared-mime-info"
   depends_on "vala"
   depends_on "vte3"
