@@ -25,10 +25,10 @@ class Ferium < Formula
 
   test do
     with_env("FERIUM_CONFIG_FILE" => "./config.json") do
-      system "ferium", "profile","create",
+      system "ferium", "profile", "create",
         "--game-version", "1.19",
         "--mod-loader", "quilt",
-        "--output-dir", "#{ENV["HOME"]}/mods",
+        "--output-dir", "#{Dir.home}/mods",
         "--name", "test"
       system "ferium", "add", "sodium"
       system "ferium", "list", "--verbose"
