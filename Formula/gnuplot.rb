@@ -1,10 +1,9 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.3/gnuplot-5.4.3.tar.gz"
-  sha256 "51f89bbab90f96d3543f95235368d188eb1e26eda296912256abcd3535bd4d84"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.4/gnuplot-5.4.4.tar.gz"
+  sha256 "372300b7867f5b3538b25fc5d0ac7734af6e3fe0d202b6db926e4369913f0902"
   license "gnuplot"
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "8434d860865ab948c40b82e8ed9cfc20697e153f1018c747df82f21ec71ffc70"
