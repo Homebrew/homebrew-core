@@ -5,8 +5,6 @@ class Hyx < Formula
   sha256 "8d4f14e58584d6cc8f04e43ca38042eed218882a389249c20b086730256da5eb"
   license "MIT"
 
-  uses_from_macos "ncurses"
-
   def install
     inreplace "Makefile", " -Wl,-s", " "
     inreplace "Makefile", " -Wl,-z,relro,-z,now -fpic -pie", " "
