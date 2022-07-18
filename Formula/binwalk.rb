@@ -6,6 +6,7 @@ class Binwalk < Formula
   url "https://github.com/ReFirmLabs/binwalk/archive/v2.3.3.tar.gz"
   sha256 "7e32b94dc77632b51d18732b5456e2a3ef85e4521d7d4a54410e36f93859501f"
   license "MIT"
+  revision 1
   head "https://github.com/ReFirmLabs/binwalk.git", branch: "master"
 
   livecheck do
@@ -30,7 +31,7 @@ class Binwalk < Formula
   depends_on "numpy"
   depends_on "p7zip"
   depends_on "pillow"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
   depends_on "ssdeep"
   depends_on "xz"
