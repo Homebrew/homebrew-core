@@ -5,6 +5,7 @@ class Genometools < Formula
   url "https://github.com/genometools/genometools/archive/v1.6.2.tar.gz"
   sha256 "974825ddc42602bdce3d5fbe2b6e2726e7a35e81b532a0dc236f6e375d18adac"
   license "ISC"
+  revision 1
   head "https://github.com/genometools/genometools.git", branch: "master"
 
   bottle do
@@ -20,7 +21,7 @@ class Genometools < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "libpthread-stubs" => :build
@@ -45,6 +46,6 @@ class Genometools < Formula
 
   test do
     system "#{bin}/gt", "-test"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gt"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import gt"
   end
 end
