@@ -29,14 +29,6 @@ class GnuTar < Formula
   end
 
   def install
-    # Work around unremovable, nested dirs bug that affects lots of
-    # GNU projects. See:
-    # https://github.com/Homebrew/homebrew/issues/45273
-    # https://github.com/Homebrew/homebrew/issues/44993
-    # This is thought to be an el_capitan bug:
-    # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
-
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
