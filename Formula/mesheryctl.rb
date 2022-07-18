@@ -31,10 +31,8 @@ class Mesheryctl < Formula
     assert_match "Channel: stable", shell_output("#{bin}/mesheryctl system channel view 2>&1")
 
     # Test existence of main commands
-    assert_match "requires at least 1 arg(s)", shell_output("#{bin}/mesheryctl system 2>&1")
-    assert_match "requires at least 1 arg(s)", shell_output("#{bin}/mesheryctl mesh 2>&1")
-    assert_match "requires at least 1 arg(s)", shell_output("#{bin}/mesheryctl perf 2>&1")
-    assert_match "requires at least 1 arg(s)", shell_output("#{bin}/mesheryctl pattern 2>&1")
-    assert_match "requires at least 1 arg(s)", shell_output("#{bin}/mesheryctl app 2>&1")
+    %w[system mesh perf pattern app].each do |subcmd|
+      assert_match "requires at least 1 arg(s)", shell_output("#{bin}/mesheryctl #{subcmd} 2>&1")
+    end
   end
 end
