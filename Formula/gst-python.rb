@@ -4,6 +4,7 @@ class GstPython < Formula
   url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.20.3.tar.xz"
   sha256 "db348120eae955b8cc4de3560a7ea06e36d6e1ddbaa99a7ad96b59846601cfdc"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-python/"
@@ -23,7 +24,7 @@ class GstPython < Formula
   depends_on "ninja" => :build
   depends_on "gst-plugins-base"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # See https://gitlab.freedesktop.org/gstreamer/gst-python/-/merge_requests/41
   patch do
