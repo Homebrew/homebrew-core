@@ -22,16 +22,16 @@ class GlibUtils < Formula
   depends_on "glib"
   depends_on "python@3.10"
 
+  # Sync this with `glib.rb`
+  # replace several hardcoded paths with homebrew counterparts
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/43467fd8dfc0e8954892ecc08fab131242dca025/glib/hardcoded-paths.diff"
+    sha256 "d81c9e8296ec5b53b4ead6917f174b06026eeb0c671dfffc4965b2271fb6a82c"
+  end
+
   def install
-    # TODO: This is a workaround for `brew audit --new-formula`.
-    #       Use `patch` rather than `inreplace` (see also `glib`).
-    # replace several hardcoded paths with homebrew counterparts
-    inreplace "gio/xdgmime/xdgmime.c",
-              'xdg_data_dirs = "/usr/local/share/:/usr/share/";',
-              "xdg_data_dirs = \"#{HOMEBREW_PREFIX}/share/:/usr/local/share/:/usr/share/\";"
-    inreplace "glib/gutils.c",
-              'data_dirs = "/usr/local/share/:/usr/share/";',
-              "data_dirs = \"#{HOMEBREW_PREFIX}/share/:/usr/local/share/:/usr/share/\";"
+    inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c],
+      "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
     # Point the headers and libraries to `glib`.
     # The headers and libraries will be removed later because they are provided by `glib`.
