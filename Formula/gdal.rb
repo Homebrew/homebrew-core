@@ -4,6 +4,7 @@ class Gdal < Formula
   url "http://download.osgeo.org/gdal/3.5.1/gdal-3.5.1.tar.xz"
   sha256 "d12c30a9eacdeaab493c0d1c9f88eb337c9cbb5bb40744c751bdd5a5af166ab6"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -45,7 +46,7 @@ class Gdal < Formula
   depends_on "numpy"
   depends_on "openjpeg"
   depends_on "pcre2"
-  depends_on "poppler-qt5"
+  depends_on "poppler"
   depends_on "proj"
   depends_on "python@3.9"
   depends_on "sqlite"
