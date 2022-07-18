@@ -22,12 +22,6 @@ class Pigz < Formula
   uses_from_macos "zlib"
 
   def install
-    # Fix dyld: lazy symbol binding failed: Symbol not found: _deflatePending
-    # Reported 8 Dec 2016 to madler at alumni.caltech.edu
-    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
-      inreplace "pigz.c", "ZLIB_VERNUM >= 0x1260", "ZLIB_VERNUM >= 0x9999"
-    end
-
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "pigz", "unpigz"
     man1.install "pigz.1"
