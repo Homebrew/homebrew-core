@@ -38,11 +38,6 @@ class GnuApl < Formula
   depends_on "readline" # GNU Readline is required, libedit won't work
 
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    # encountered when trying to detect boost regex in configure
-    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
-    ENV.delete("HOMEBREW_SDKROOT") if MacOS.version == :high_sierra
-
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
