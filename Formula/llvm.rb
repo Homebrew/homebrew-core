@@ -383,11 +383,9 @@ class Llvm < Formula
       #   1. installing duplicates of files in the prefix
       #   2. requiring an existing Xcode installation
       xctoolchain = prefix/"Toolchains/LLVM#{llvm_version}.xctoolchain"
-      xcode_version = MacOS::Xcode.installed? ? MacOS::Xcode.version : Version.new(MacOS::Xcode.latest_version)
-      compat_version = xcode_version < 8 ? "1" : "2"
 
       system "/usr/libexec/PlistBuddy", "-c", "Add:CFBundleIdentifier string org.llvm.#{llvm_version}", "Info.plist"
-      system "/usr/libexec/PlistBuddy", "-c", "Add:CompatibilityVersion integer #{compat_version}", "Info.plist"
+      system "/usr/libexec/PlistBuddy", "-c", "Add:CompatibilityVersion integer 2", "Info.plist"
       xctoolchain.install "Info.plist"
       (xctoolchain/"usr").install_symlink [bin, include, lib, libexec, share]
     end
