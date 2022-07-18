@@ -27,7 +27,8 @@ class Dvdauthor < Formula
   depends_on "freetype"
   depends_on "libdvdread"
   depends_on "libpng"
-  depends_on "libxml2" if MacOS.version <= :el_capitan
+
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-dependency-tracking",
