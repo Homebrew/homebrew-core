@@ -61,15 +61,13 @@ class GrafanaAgent < Formula
     (testpath/"grafana-agent.yaml").write <<~EOS
       server:
         log_level: info
-        http_listen_port: #{port}
-        grpc_listen_port: #{free_port}
     EOS
 
     system "#{bin}/grafana-agentctl", "config-check", "#{testpath}/grafana-agent.yaml"
 
     fork do
       exec bin/"grafana-agent", "-config.file=#{testpath}/grafana-agent.yaml",
-        "-metrics.wal-directory=#{testpath}/wal"
+        "-metrics.wal-directory=#{testpath}/wal", "-server.http.address=127.0.0.1:#{port}"
     end
     sleep 10
 
