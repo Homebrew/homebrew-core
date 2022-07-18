@@ -12,11 +12,13 @@ class Gaze < Formula
   end
 
   test do
-    o = IO.popen("#{bin}/gaze -c 'cp test.txt out.txt' test.txt")
+    pid = fork do
+      exec bin/"gaze", "-c", "cp test.txt out.txt", "test.txt"
+    end
     sleep 5
     File.write("test.txt", "hello, world!")
     sleep 2
-    Process.kill("TERM", o.pid)
+    Process.kill("TERM", pid)
     assert_match("hello, world!", File.read("out.txt"))
   end
 end
