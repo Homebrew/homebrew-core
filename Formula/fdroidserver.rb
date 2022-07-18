@@ -6,6 +6,7 @@ class Fdroidserver < Formula
   url "https://files.pythonhosted.org/packages/4f/2d/7e81d5bfcc0ba8cc3da96a12e20ce02fca60cd43ee038880875dc8399540/fdroidserver-2.1.tar.gz"
   sha256 "0a8e382d4824d1caef759b8118f540438de37799b3e3a7708bc84db9766e2ebe"
   license "AGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c25fa3ea230a0a94e40e29277cbea4762870d0e63576880655bfb48098a1b915"
@@ -22,7 +23,7 @@ class Fdroidserver < Formula
   depends_on "numpy"
   depends_on "openssl@1.1"
   depends_on "pillow"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "s3cmd"
 
   uses_from_macos "libxml2"
