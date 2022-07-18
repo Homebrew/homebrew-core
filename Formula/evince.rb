@@ -4,6 +4,7 @@ class Evince < Formula
   url "https://download.gnome.org/sources/evince/42/evince-42.3.tar.xz"
   sha256 "49aecf845c946c96db17ba89d75c8002c5ae8963f504a9b0626d12675914645e"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "743b9157e90ae9315e58dd0001dc8b904a813f7377b108cf9719aeec323f6573"
@@ -30,7 +31,7 @@ class Evince < Formula
   depends_on "libsecret"
   depends_on "libspectre"
   depends_on "poppler"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     ENV["DESTDIR"] = "/"
