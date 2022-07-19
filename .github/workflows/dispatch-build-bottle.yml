@@ -40,9 +40,17 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            const intelMacOSRegex = /^\d+(?:\.\d+)?$/;
             return context.payload.inputs.runner.split(",")
                                                 .map(s => s.trim())
-                                                .filter(Boolean);
+                                                .filter(Boolean)
+                                                .map(s => {
+              if (intelMacOSRegex.test(s)) // Ephemeral runners
+                return `${s}-${context.runId}-${process.env.GITHUB_RUN_ATTEMPT}`
+              else
+                return s
+            });
+
   bottle:
     needs: prepare
     strategy:
@@ -71,8 +79,6 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
-          # TODO: remove the line below once set in the runner .env file
-          echo 'GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED=1' >> $GITHUB_ENV
 
       - name: Run Docker container
         if: runner.os == 'Linux'
