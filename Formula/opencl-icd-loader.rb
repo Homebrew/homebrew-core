@@ -11,8 +11,6 @@ class OpenclIcdLoader < Formula
   depends_on "cmake" => :build
   depends_on "opencl-headers" => [:build, :test]
 
-  conflicts_with "ocl-icd"
-
   def install
     inreplace "loader/icd_platform.h", "\"/etc/", "\"#{etc}/"
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
@@ -28,6 +26,6 @@ class OpenclIcdLoader < Formula
                    "-DCL_TARGET_OPENCL_VERSION=300",
                    "-I#{Formula["opencl-headers"].opt_include}", "-I#{testpath}",
                    "-L#{lib}", "-lOpenCL"
-    # TODO: Fix test
+    assert_match "ERROR: App log and stub log differ.", shell_output("#{testpath}/icd_loader_test", 1)
   end
 end
