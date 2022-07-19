@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/e2/d6/044534c7b89ec4464814501c410b1170be44dda64cbab82e0890f2db6455/cfn-lint-0.61.2.tar.gz"
-  sha256 "433c7c1ac36057e282febded24c6838a1ab17f6da6c723a8d2d743f43549a06c"
+  url "https://files.pythonhosted.org/packages/30/7d/561475781d6dd8a70d5a1998d0344dabf2d698027f0c058fc8c5238fd7f1/cfn-lint-0.61.3.tar.gz"
+  sha256 "3806e010d77901f5e935496df690c10e39676434a738fce1a1161cf9c7bd36a2"
   license "MIT-0"
 
   bottle do
@@ -25,18 +25,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/5d/47/069d24f9ebac4e5a702fbd364edb14ddef3d8102670edd72524b64fadfd5/aws-sam-translator-1.46.0.tar.gz"
-    sha256 "53ed4cbabf8b9247c1be9c5f47fcfc2764578f55b12e7fe24b9bc41d6fce47cc"
+    url "https://files.pythonhosted.org/packages/0c/98/c16af074d75feebdb909b0c6a028487d508e7b5001b68d228dcc4666e127/aws-sam-translator-1.47.0.tar.gz"
+    sha256 "d2fe471a126f58a28ef505d03ea2d37a2f282312ce592a3250f4d8c8efca6946"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/43/24/7e679de43f42079f63f29d2d2daaf8322832c3c178f711e51fa21b21145d/boto3-1.24.26.tar.gz"
-    sha256 "46b0909379955d70ae995ecd26a03e4842104da81ecdc38b83b5701d70e87c2e"
+    url "https://files.pythonhosted.org/packages/f2/ab/460c69e3841c3938b931d5ae9fb77c6cb2cc7e9fb48518eaefa61e3f489e/boto3-1.24.32.tar.gz"
+    sha256 "021f2a71cbcd75c87724b7dfbf28a691f07899345047f6bc999ef646d97461df"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/22/b3/6c63d7f96da2bd7fe9b3bd7962645080826bef50d5c0a89cbba19b9d5da9/botocore-1.27.26.tar.gz"
-    sha256 "4a46d0508470883dc97ab8e9769617f21229f4ff8c146a47379f4042d917e520"
+    url "https://files.pythonhosted.org/packages/c7/12/6173d76603ea6a1d4413ee2588e36d8aa97a59dc734311243dc9782157a9/botocore-1.27.32.tar.gz"
+    sha256 "d510a1d1956a18b6fa4b74b1b5dfbe8a7ca83f5ca4f59c43c368e143425f3725"
   end
 
   resource "jmespath" do
@@ -76,8 +76,8 @@ class CfnLint < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/5d/3b/9ca0d8bbfbf418eb158fe7b8a5e4233ddc390d995cfb1dd32726dba8c8e5/networkx-2.8.4.tar.gz"
-    sha256 "5e53f027c0d567cf1f884dbb283224df525644e43afd1145d64c9d88a3584762"
+    url "https://files.pythonhosted.org/packages/f2/af/fe794d69bcc4882c4905b49c8b207b8dc4dd7ea26e6142781eac8203ea05/networkx-2.8.5.tar.gz"
+    sha256 "15a7b81a360791c458c55a417418ea136c13378cfdc06a2dcdc12bd2f9cf09c1"
   end
 
   resource "pbr" do
