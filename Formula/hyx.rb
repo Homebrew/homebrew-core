@@ -16,7 +16,7 @@ class Hyx < Formula
   end
 
   test do
-    assert_match (/window|0000/,
+    assert_match(/window|0000/,
       pipe_output("env TERM=tty expect -",
                   "spawn #{bin}/hyx;send \"q\";expect eof"))
   end
