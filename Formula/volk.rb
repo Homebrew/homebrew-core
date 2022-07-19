@@ -6,7 +6,7 @@ class Volk < Formula
   url "https://github.com/gnuradio/volk/releases/download/v2.5.1/volk-2.5.1.tar.gz"
   sha256 "8f7f2f8918c6ba63ebe8375fe87add347046b8b3acbba2fb582577bebd8852df"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "cd08be9bd078c3132652c270cfd6af087adc72855e36f2919e049d39fc22ba3a"
@@ -21,7 +21,7 @@ class Volk < Formula
   depends_on "pkg-config" => :build
   depends_on "cpu_features" if Hardware::CPU.intel?
   depends_on "orc"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "gcc"
