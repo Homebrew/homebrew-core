@@ -4,6 +4,7 @@ class OpentelemetryCpp < Formula
   url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.4.1.tar.gz"
   sha256 "301b1ab74a664723560f46c29f228360aff1e2d63e930b963755ea077ae67524"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
@@ -49,6 +50,7 @@ class OpentelemetryCpp < Formula
       #include "opentelemetry/sdk/trace/tracer_provider.h"
       #include "opentelemetry/trace/provider.h"
       #include "opentelemetry/exporters/ostream/span_exporter.h"
+      #include "opentelemetry/exporters/otlp/otlp_recordable_utils.h"
 
       namespace trace_api = opentelemetry::trace;
       namespace trace_sdk = opentelemetry::sdk::trace;
