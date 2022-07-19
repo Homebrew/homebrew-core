@@ -4,12 +4,13 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.62.0-src.tar.gz"
-    sha256 "7d0878809b64d206825acae3eb7f60afb2212d81e3de1adf4c11c6032b36c027"
+    url "https://static.rust-lang.org/dist/rustc-1.62.1-src.tar.gz"
+    sha256 "72acbe6ffcd94f598382a7430b0d85ee8f679e6d0b27f3f566ed1c16c978133f"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
+          tag:      "0.63.0",
           revision: "a748cf5a3e666bc2dcdf54f37adef8ef22196452"
     end
   end
