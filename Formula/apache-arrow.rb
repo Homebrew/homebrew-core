@@ -1,11 +1,10 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-8.0.0/apache-arrow-8.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-8.0.0/apache-arrow-8.0.0.tar.gz"
-  sha256 "ad9a05705117c989c116bae9ac70492fe015050e1b80fb0e38fde4b5d863aaa3"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-8.0.1/apache-arrow-8.0.1.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-8.0.1/apache-arrow-8.0.1.tar.gz"
+  sha256 "82d46929f7574715551da21700f100b39f99c3c4d6790f26cac86d869d64e94e"
   license "Apache-2.0"
-  revision 4
   head "https://github.com/apache/arrow.git", branch: "master"
 
   bottle do
