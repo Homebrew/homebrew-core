@@ -285,12 +285,6 @@ class CharmTools < Formula
     sha256 "e9a504e793efbca1b8e0e9cb979a249cf4a0a7b5b8c9e8b65a5e39d49529c1c4"
   end
 
-  # Fix compatibility with Python 3.10. Remove in the next release.
-  patch do
-    url "https://github.com/juju/charm-tools/commit/6ff9c20032f140771064fef6f655b655a33efb8c.patch?full_index=1"
-    sha256 "215d5f682588f8cc027bdfc8abc794b578047a293e5cea309646dc9e1d1d7f9a"
-  end
-
   def install
     virtualenv_install_with_resources
   end
