@@ -5,15 +5,22 @@ class Vile < Formula
   sha256 "240edec7bbf3d9df48b3042754bf9854d9a233d371d50bba236ec0edd708eed5"
   license "GPL-2.0-or-later"
 
+  depends_on "expect" => :test
+
   uses_from_macos "flex" => :build
   uses_from_macos "groff" => :build
   uses_from_macos "libiconv"
   uses_from_macos "ncurses"
+  uses_from_macos "perl"
 
   def install
+    # Allow building with plugin support; upstream bug #62785.
+    inreplace "configure", 'LDFLAGS="$LDFLAGS -export-dynamic"',
+                           'LDFLAGS="$LDFLAGS"'
     system "./configure", *std_configure_args,
                           "--disable-imake",
                           "--enable-colored-menus",
+                          "--enable-plugins",
                           "--with-ncurses",
                           "--with-screen=ncurses",
                           "--without-x"
@@ -21,8 +28,8 @@ class Vile < Formula
   end
 
   test do
-    (testpath/"test").write("This is toto!\n")
-    pipe_output("#{bin}/vile -e test", "%s/toto/tutu/g\nwq\n")
-    assert_equal "This is tutu!\n", File.read("test")
+    pipe_output("env TERM=xterm expect -",
+      "spawn vile;expect \"unnamed\";send \":w new\r:q\r\";expect eof")
+    assert_predicate testpath/"new", :exist?
   end
 end
