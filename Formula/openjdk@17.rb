@@ -1,8 +1,8 @@
 class OpenjdkAT17 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.3-ga.tar.gz"
-  sha256 "9a23da36c4e8f26a7197c6e6b763c7be83bc8788f495ae9dadfabadf8c7d57c2"
+  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.4-ga.tar.gz"
+  sha256 "6db40d6762416837825da8505a7a664e1001322d6ebd284fe792dbec938c022a"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -22,6 +22,7 @@ class OpenjdkAT17 < Formula
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
+  depends_on xcode: :build
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -47,8 +48,8 @@ class OpenjdkAT17 < Formula
   resource "boot-jdk" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://download.java.net/java/GA/jdk17.0.1/2a2082e5a09d4267845be086888add4f/12/GPL/openjdk-17.0.1_macos-aarch64_bin.tar.gz"
-        sha256 "45acad5647960ecde83dc1fb6dda72e5e274798660fa9acff0fb9cc8a37b5794"
+        url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_macos-aarch64_bin.tar.gz"
+        sha256 "602d7de72526368bb3f80d95c4427696ea639d2e0cc40455f53ff0bbb18c27c8"
       else
         url "https://download.java.net/java/GA/jdk16.0.2/d4a915d82b4c4fbb9bde534da945d746/7/GPL/openjdk-16.0.2_osx-x64_bin.tar.gz"
         sha256 "e65f2437585f16a01fa8e10139d0d855e8a74396a1dfb0163294ed17edd704b8"
