@@ -19,6 +19,9 @@ class Zstd < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "lz4"
+  depends_on "xz"
+  uses_from_macos "zlib"
 
   def install
     # Legacy support is the default after
@@ -29,16 +32,24 @@ class Zstd < Formula
                     "-DZSTD_BUILD_CONTRIB=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DZSTD_LEGACY_SUPPORT=ON",
+                    "-DZSTD_ZLIB_SUPPORT=ON",
+                    "-DZSTD_LZMA_SUPPORT=ON",
+                    "-DZSTD_LZ4_SUPPORT=ON",
                     *std_cmake_args
     system "cmake", "--build", "builddir"
     system "cmake", "--install", "builddir"
   end
 
   test do
-    assert_equal "hello\n",
-      pipe_output("#{bin}/zstd | #{bin}/zstd -d", "hello\n", 0)
-
-    assert_equal "hello\n",
-      pipe_output("#{bin}/pzstd | #{bin}/pzstd -d", "hello\n", 0)
+    [bin/"zstd", bin/"pzstd", "xz", "lz4", "gzip"].each do |prog|
+      data = "Hello, #{prog}"
+      assert_equal data, pipe_output("#{bin}/zstd -d", pipe_output(prog, data))
+      if prog.to_s.end_with?("zstd")
+        # `pzstd` can only decompress zstd-compressed data.
+        assert_equal data, pipe_output("#{bin}/pzstd -d", pipe_output(prog, data))
+      else
+        assert_equal data, pipe_output("#{prog} -d", pipe_output("#{bin}/zstd --format=#{prog}", data))
+      end
+    end
   end
 end
