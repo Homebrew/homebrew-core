@@ -12,7 +12,7 @@ class Vile < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--disable-imake",
                           "--enable-colored-menus",
                           "--with-ncurses",
