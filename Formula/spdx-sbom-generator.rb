@@ -31,7 +31,7 @@ class SpdxSbomGenerator < Formula
   end
 
   test do
-    system Formula["go"].opt_bin/"go", "mod", "init", "example.com/tester"
+    system "go", "mod", "init", "example.com/tester"
 
     assert_equal "panic: runtime error: index out of range [0] with length 0",
                  shell_output("#{bin}/spdx-sbom-generator 2>&1", 2).split("\n")[4]
