@@ -4,7 +4,7 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://files.pythonhosted.org/packages/5e/66/00f7f751140fe6953603fb0cd56dee0314842cfe358884ca3025589ca81c/mypy-0.971.tar.gz"
-  sha256 "98c1f45e85f79c2304b01ae9089333decfece81f7a073408176a8c00617fc835"
+  sha256 "40b0f21484238269ae6a57200c807d80debc6459d444c0489a102d7c6a75fa56"
   license "MIT"
   head "https://github.com/python/mypy.git", branch: "master"
 
