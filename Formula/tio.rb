@@ -1,8 +1,8 @@
 class Tio < Formula
   desc "Simple TTY terminal I/O application"
   homepage "https://tio.github.io"
-  url "https://github.com/tio/tio/releases/download/v1.45/tio-1.45.tar.xz"
-  sha256 "4e72a946792346f86504865ed2923688f4dd9281905bb81e76ba3fd6f3b96014"
+  url "https://github.com/tio/tio/releases/download/v1.46/tio-1.46.tar.xz"
+  sha256 "b97f3ee558c41bb4e605c8cd26f81dc6df167a46c1859927811c3c510cd517a8"
   license "GPL-2.0-or-later"
   head "https://github.com/tio/tio.git", branch: "master"
 
