@@ -342,8 +342,8 @@
     "exclude_packages": ["six"]
   },
   "regipy": {
-    "exclude_packages": ["tabulate"],
-    "extra_packages": ["click", "libfwsi-python"]
+    "package_name": "regipy[cli]",
+    "exclude_packages": ["tabulate"]
   },
   "remarshal": {
     "exclude_packages": ["six"]
