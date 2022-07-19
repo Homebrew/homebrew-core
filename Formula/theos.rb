@@ -5,7 +5,6 @@ class Theos < Formula
     branch:   "master",
     revision: "e53ec51e92a3716def537c7ff1b5b2a86930700c"
   version "2.6"
-  sha256 "20539477e6d517917c93914d1c6f2920c172fb006139863675b8ac23505bede5"
   license "GPL-3.0-or-later"
   head "https://github.com/theos/theos.git", branch: "master"
 
