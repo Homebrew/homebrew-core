@@ -28,7 +28,6 @@ class SpdxSbomGenerator < Formula
     system "make", target
 
     prefix.install "bin"
-    (bin/exe).write_env_script(libexec/"bin/#{exe}", PATH: "$PATH:#{Formula["go"].opt_bin}")
   end
 
   test do
