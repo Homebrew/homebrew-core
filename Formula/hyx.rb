@@ -16,8 +16,7 @@ class Hyx < Formula
   end
 
   test do
-    pipe_output("env TERM=tty expect -",
-      "spawn #{bin}/hyx;sleep 0.1;expect \">\";send \":wq new\r\";expect eof")
+    pipe_output("expect -", 'set timeout -1;spawn hyx;expect "> ";sleep 0.1;send ":wq new\r";expect eof')
     assert_predicate testpath/"new", :exist?
   end
 end
