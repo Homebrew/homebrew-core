@@ -26,6 +26,6 @@ class Theos < Formula
   end
 
   test do
-    assert_match "Use of uninitialized value", shell_output("#{bin}/nic.pl <<< 17 2>&1", 1) 
+    assert_match "Use of uninitialized value", shell_output("#{bin}/nic.pl <<< 17 2>&1", 1)
   end
 end
