@@ -1,8 +1,8 @@
 class Libxcvt < Formula
   desc "VESA CVT standard timing modelines generator"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/lib/libxcvt-0.1.1.tar.xz"
-  sha256 "27ebce180d355f94c1992930bedb40a36f6d7312ee50bf7f0acbcd22f33e8c29"
+  url "https://www.x.org/releases/individual/lib/libxcvt-0.1.2.tar.xz"
+  sha256 "0561690544796e25cfbd71806ba1b0d797ffe464e9796411123e79450f71db38"
   license "MIT"
   head "https://gitlab.freedesktop.org/xorg/lib/libxcvt.git", branch: "master"
 
