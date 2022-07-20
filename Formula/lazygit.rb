@@ -1,8 +1,8 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/v0.34.tar.gz"
-  sha256 "f715ab86b219fd42462399459bfa1e04a5925268bff4839c4d96bd01264d6847"
+  url "https://github.com/jesseduffield/lazygit/archive/v0.35.tar.gz"
+  sha256 "fe5b2278d7b5b22058d139ec8961a09197d8fd26d7432d263a583fa9c1599d6d"
   license "MIT"
 
   bottle do
@@ -24,7 +24,7 @@ class Lazygit < Formula
   # lazygit is a terminal GUI, but it can be run in 'client mode' for example to write to git's todo file
   test do
     (testpath/"git-rebase-todo").write ""
-    ENV["LAZYGIT_CLIENT_COMMAND"] = "INTERACTIVE_REBASE"
+    ENV["LAZYGIT_DAEMON_KIND"] = "INTERACTIVE_REBASE"
     ENV["LAZYGIT_REBASE_TODO"] = "foo"
     system "#{bin}/lazygit", "git-rebase-todo"
     assert_match "foo", (testpath/"git-rebase-todo").read
