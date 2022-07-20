@@ -7,8 +7,10 @@ class Nmrpflash < Formula
 
   uses_from_macos "libpcap"
 
-  # for now
-  depends_on :macos
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libnl"
+  end
 
   def install
     system "make", "VERSION=#{version}"
@@ -16,6 +18,6 @@ class Nmrpflash < Formula
   end
 
   test do
-    system "#{bin}/nmrpflash", "-L"
+    system bin/"nmrpflash", "-L"
   end
 end
