@@ -33,15 +33,11 @@ class Libphonenumber < Formula
 
   fails_with gcc: "5" # For abseil and C++17
 
-  # Use Homebrew abseil. Patch from Arch. Debian uses a similar patch.
-  # A version is being upstreamed at:
-  #   https://github.com/google/libphonenumber/pull/2772
-  #
-  # We're not using the upstream patch because it doesn't work yet.
-  # https://github.com/google/libphonenumber/pull/2772#issuecomment-1184289820
+  # Use Homebrew abseil.
+  # https://github.com/google/libphonenumber/pull/2791
   patch do
-    url "https://raw.githubusercontent.com/archlinux/svntogit-packages/864f0cf5874088d76e9e7309fb3da1eeed8b701d/trunk/absl.diff"
-    sha256 "f6bceb2409ff7cba1e6947e6fdce3fe82b511b04fefcd1f597eceb13af67a8a4"
+    url "https://github.com/google/libphonenumber/commit/035901b78dbe5a6fddc9e758f0069c310750db72.patch?full_index=1"
+    sha256 "006843f29cb42e0d8ef820ccc7a90fffd139fe7666c1357a1504a8795f0c5db6"
   end
 
   def install
