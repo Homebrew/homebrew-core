@@ -7,7 +7,6 @@ class Bcc < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm" => :build
-  depends_on "make" => :build
   depends_on "arping"
   depends_on "bison"
   depends_on "flex"
