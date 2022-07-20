@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/a9/99/67fe7a4b8c51ca0375555f1c7dadf1d67600b39120c5b0babbd347258ede/borgmatic-1.6.5.tar.gz"
-  sha256 "fbd219f1a05e11073d6133081ceeae803c865b1c05cabd7c7f785ef5a9e5057a"
+  url "https://files.pythonhosted.org/packages/07/76/ff953d01e2852aee43c3ffc2df44d6386125819f41b9d834b295752eaf3d/borgmatic-1.6.6.tar.gz"
+  sha256 "cbb95c0a19a8da1796af25bf09ed9158005b6c72be18790db43d2bffda2fa32b"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -44,8 +44,8 @@ class Borgmatic < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/42/d9/bfc795bb02d0cee772f7b339c5aa6fdd8778e852951e62603556d6143fbc/jsonschema-4.6.1.tar.gz"
-    sha256 "ec2802e6a37517f09d47d9ba107947589ae1d25ff557b925d83a321fc2aa5d3b"
+    url "https://files.pythonhosted.org/packages/19/0f/89db7764dfb59fc1c2b18c2d63f11375b4827aa3e93ae037166a780d2bed/jsonschema-4.7.2.tar.gz"
+    sha256 "73764f461d61eb97a057c929368610a134d1d1fffd858acfe88864ee94f1f1d3"
   end
 
   resource "pyrsistent" do
@@ -69,8 +69,8 @@ class Borgmatic < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
-    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
+    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
+    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
   end
 
   def install
