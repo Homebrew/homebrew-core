@@ -7,7 +7,9 @@ class Vile < Formula
 
   uses_from_macos "flex" => :build
   uses_from_macos "groff" => :build
+
   uses_from_macos "expect" => :test
+
   uses_from_macos "ncurses"
   uses_from_macos "perl"
 
@@ -22,8 +24,14 @@ class Vile < Formula
   end
 
   test do
-    pipe_output("env TERM=xterm expect -",
-      "spawn vile;expect \"unnamed\";send \":w new\r:q\r\";expect eof")
+    ENV["TERM"] = "xterm"
+    (testpath/"vile.exp").write <<~EOS
+      spawn #{bin}/vile
+      expect "unnamed"
+      send ":w new\r:q\r"
+      expect eof
+    EOS
+    system "expect", "-f", "vile.exp"
     assert_predicate testpath/"new", :exist?
   end
 end
