@@ -15,6 +15,7 @@ class JsonGlib < Formula
     sha256 x86_64_linux:   "5def8d6b0014378f86ed161dcf1570e2ca5432c5616d34e7f96c84d6fd4ff97d"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
