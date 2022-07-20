@@ -34,5 +34,8 @@ class Mesheryctl < Formula
     %w[system mesh perf pattern app].each do |subcmd|
       assert_match "requires at least 1 arg(s)", shell_output("#{bin}/mesheryctl #{subcmd} 2>&1")
     end
+
+    # Test kubernetes error on trying to start meshery
+    assert_match "The Kubernetes cluster is not accessible.", shell_output("#{bin}/mesheryctl system start 2>&1")
   end
 end
