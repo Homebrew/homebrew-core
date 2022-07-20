@@ -1,8 +1,8 @@
 class Nmrpflash < Formula
   desc "Netgear Unbrick Utility"
   homepage "https://github.com/jclehner/nmrpflash"
-  url "https://github.com/jclehner/nmrpflash/archive/refs/tags/v0.9.17.tar.gz"
-  sha256 "fd3193c8c3a10bc50eb01da655570fd7d4fa191f6f489d517f86a85a4fc14681"
+  url "https://github.com/jclehner/nmrpflash/archive/refs/tags/v0.9.18.tar.gz"
+  sha256 "e1bc46445ab302d76fc4d9a99885f5df404b77a7c836bf2ef9f08fd73390db38"
   license "GPL-3.0-or-later"
 
   uses_from_macos "libpcap"
