@@ -1,8 +1,8 @@
 class Atkmm < Formula
   desc "Official C++ interface for the ATK accessibility toolkit library"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/atkmm/2.36/atkmm-2.36.1.tar.xz"
-  sha256 "e11324bfed1b6e330a02db25cecc145dca03fb0dff47f0710c85e317687da458"
+  url "https://download.gnome.org/sources/atkmm/2.36/atkmm-2.36.2.tar.xz"
+  sha256 "6f62dd99f746985e573605937577ccfc944368f606a71ca46342d70e1cdae079"
   license "LGPL-2.1-or-later"
 
   bottle do
