@@ -13,6 +13,7 @@ class Bcc < Formula
   depends_on "flex"
   depends_on "iperf"
   depends_on :linux
+  depends_on "linux-headers@5.16"
   depends_on "luajit"
   depends_on "netperf"
   depends_on "python@3.9"
