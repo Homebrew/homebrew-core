@@ -20,7 +20,6 @@ class Bcc < Formula
   depends_on "zlib"
 
   def install
-    ENV.deparallelize
     system "cmake", "-S", ".", "-B", "build", "-DPYTHON_CMD=python3", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
