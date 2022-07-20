@@ -15,11 +15,10 @@ class Vile < Formula
   def install
     system "./configure", *std_configure_args,
                           "--disable-imake",
-                          "--disable-link-prefix",
                           "--enable-colored-menus",
                           "--with-ncurses",
-                          "--without-x"
-                          "--with-screen=ncurses",
+                          "--without-x",
+                          "--with-screen=ncurses"
     system "make", "install"
   end
 
