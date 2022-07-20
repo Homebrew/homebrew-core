@@ -1,8 +1,8 @@
 class Spack < Formula
   desc "Package manager that builds multiple versions and configurations of software"
   homepage "https://spack.io"
-  url "https://github.com/spack/spack/archive/v0.17.2.tar.gz"
-  sha256 "3c3c0eccc5c0a1fa89223cbdfd48c71c5be8b4645f5fa4e921426062a9b32d51"
+  url "https://github.com/spack/spack/archive/v0.18.1.tar.gz"
+  sha256 "d1491374ce280653ee0bc48cd80527d06860b886af8b0d4a7cf1d0a2309191b7"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/spack/spack.git", branch: "develop"
 
@@ -20,9 +20,10 @@ class Spack < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb58c98f0a1d9e696c4a20aed8e05962e7b184adf5042fd960ed84bedadb2a72"
   end
 
-  depends_on "python@3.10"
+  uses_from_macos "python"
 
   def install
+    rm Dir["bin/*.bat", "bin/*.ps1", "bin/haspywin.py"] # Remove Windows files.
     prefix.install Dir["*"]
   end
 
@@ -33,11 +34,8 @@ class Spack < Formula
   test do
     system bin/"spack", "--version"
     assert_match "zlib", shell_output("#{bin}/spack info zlib")
-    expected = if OS.mac?
-      "clang"
-    else
-      "gcc"
-    end
-    assert_match expected, shell_output("spack compiler list")
+    system bin/"spack", "compiler", "find"
+    expected = OS.mac? ? "clang" : "gcc"
+    assert_match expected, shell_output("#{bin}/spack compiler list")
   end
 end
