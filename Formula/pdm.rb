@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/44/6e/9c0bd169416f01fc37f29dc2c24df6dbdd13b940c0870d4426a0641f4626/pdm-2.0.0.tar.gz"
-  sha256 "36d1cf69efed0a901afd388c351802290c5a5daf2b0bf7949771d95e4cd03619"
+  url "https://files.pythonhosted.org/packages/df/ab/f7a321bb2ae5955403a4d502481581540011f22c0b7e7845941e6c792c08/pdm-2.0.2.tar.gz"
+  sha256 "32b12270fa79450730928e20e6d736598b3647c7e2b353ede948f7e7109043f1"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -21,8 +21,8 @@ class Pdm < Formula
   depends_on "six"
 
   resource "blinker" do
-    url "https://files.pythonhosted.org/packages/1b/51/e2a9f3b757eb802f61dc1f2b09c8c99f6eb01cf06416c0671253536517b6/blinker-1.4.tar.gz"
-    sha256 "471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6"
+    url "https://files.pythonhosted.org/packages/2b/12/82786486cefb68685bb1c151730f510b0f4e5d621d77f245bc0daf9a6c64/blinker-1.5.tar.gz"
+    sha256 "923e5e2f69c155f2cc42dafbbd70e16e3fde24d2d4aa2ab72fbe386238892462"
   end
 
   resource "CacheControl" do
