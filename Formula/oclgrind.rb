@@ -21,40 +21,51 @@ class Oclgrind < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm@13"
+  depends_on "readline"
+
+  on_linux do
+    depends_on "opencl-headers" => :test
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # LLVM is built with GCC
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    # Install the optional ICD into #{prefix}/etc rather than #{etc} as it contains realpath
+    # to the shared library and needs to be kept up-to-date to work with an ICD loader.
+    # This relies on `brew link` automatically creating and updating #{etc} symlinks.
+    (prefix/"etc/OpenCL/vendors").install "build/oclgrind.icd"
   end
 
   test do
-    (testpath/"rot13.c").write <<~'EOS'
+    (testpath/"rot13.c").write <<~EOS
       #include <stdio.h>
       #include <stdlib.h>
       #include <string.h>
+      #include <#{OS.mac? ? "OpenCL" : "CL"}/cl.h>
 
-      #include <OpenCL/cl.h>
-
-      const char rot13_cl[] = "                         \
-      __kernel void rot13                               \
-          (   __global    const   char*    in           \
-          ,   __global            char*    out          \
-          )                                             \
-      {                                                 \
-          const uint index = get_global_id(0);          \
-                                                        \
-          char c=in[index];                             \
-          if (c<'A' || c>'z' || (c>'Z' && c<'a')) {     \
-              out[index] = in[index];                   \
-          } else {                                      \
-              if (c>'m' || (c>'M' && c<'a')) {          \
-                out[index] = in[index]-13;              \
-              } else {                                  \
-                out[index] = in[index]+13;              \
-              }                                         \
-          }                                             \
-      }                                                 \
+      const char rot13_cl[] = "                         \\
+      __kernel void rot13                               \\
+          (   __global    const   char*    in           \\
+          ,   __global            char*    out          \\
+          )                                             \\
+      {                                                 \\
+          const uint index = get_global_id(0);          \\
+                                                        \\
+          char c=in[index];                             \\
+          if (c<'A' || c>'z' || (c>'Z' && c<'a')) {     \\
+              out[index] = in[index];                   \\
+          } else {                                      \\
+              if (c>'m' || (c>'M' && c<'a')) {          \\
+                out[index] = in[index]-13;              \\
+              } else {                                  \\
+                out[index] = in[index]+13;              \\
+              }                                         \\
+          }                                             \\
+      }                                                 \\
       ";
 
       void rot13 (char *buf) {
@@ -109,7 +120,7 @@ class Oclgrind < Formula
           char *log=(char *)malloc(logsize);
           clGetProgramBuildInfo(prog, device, CL_PROGRAM_BUILD_LOG, logsize, log, NULL);
 
-          fprintf(stderr, "%s\n", log);
+          fprintf(stderr, "%s\\n", log);
           free(log);
 
           return 1;
@@ -136,7 +147,7 @@ class Oclgrind < Formula
       }
     EOS
 
-    system ENV.cc, "rot13.c", "-o", "rot13", "-framework", "OpenCL"
+    system ENV.cc, "rot13.c", "-o", "rot13", "-L#{lib}", "-loclgrind-rt"
     output = shell_output("#{bin}/oclgrind ./rot13 2>&1").chomp
     assert_equal "Hello, World!", output
   end
