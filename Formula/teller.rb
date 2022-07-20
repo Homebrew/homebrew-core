@@ -29,6 +29,24 @@ class Teller < Formula
   end
 
   test do
+    (testpath/"test.env").write <<~EOS
+      foo: var
+    EOS
+
+    (testpath/".teller.yml").write <<~EOS
+      project: brewtest
+      providers:
+        # this will fuse vars with the below .env file
+        # use if you'd like to grab secrets from outside of the project tree
+        dotenv:
+          env_sync:
+            path: #{testpath}/test.env
+    EOS
+
+    output = shell_output("#{bin}/teller -c #{testpath}/.teller.yml show  2>&1")
+    assert_match "teller: loaded variables for brewtest using #{testpath}/.teller.yml", output
+    assert_match "foo", output
+
     assert_match "Teller #{version}", shell_output("#{bin}/teller version")
   end
 end
