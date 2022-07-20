@@ -12,11 +12,11 @@ class Bcc < Formula
   depends_on "bison"
   depends_on "flex"
   depends_on "iperf"
+  depends_on :linux
   depends_on "luajit"
   depends_on "netperf"
   depends_on "python@3.9"
   depends_on "zlib"
-  depends_on :linux
 
   def install
     ENV.deparallelize
@@ -25,10 +25,10 @@ class Bcc < Formula
       system "cmake", "--install-prefix=#{HOMEBREW_PREFIX}", "-DPYTHON_CMD=python3", ".."
       system "make"
       system "make", "install"
-#      chdir "src/python" do
-#        system "make"
-#        system "make", "install"
-#      end
+      # chdir "src/python" do
+      #  system "make"
+      #  system "make", "install"
+      # end
     end
   end
 
