@@ -14,9 +14,6 @@ class Vile < Formula
   uses_from_macos "perl"
 
   def install
-    # Allow building with plugin support; upstream bug #62785.
-    inreplace "configure", 'LDFLAGS="$LDFLAGS -export-dynamic"',
-                           'LDFLAGS="$LDFLAGS"'
     system "./configure", *std_configure_args,
                           "--disable-imake",
                           "--enable-colored-menus",
