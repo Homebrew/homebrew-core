@@ -236,32 +236,52 @@ jobs:
       - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
         if: always()
         run: |
-          touch bottles/steps_output.txt
+          if [[ "${{ runner.os }}" == "Linux" ]]
+          then
+            # `GITHUB_STEP_SUMMARY` is unique to each step, so we have to
+            # chown it in each step that we wish to write to it.
+            sudo chown "$(whoami)" "$GITHUB_STEP_SUMMARY"
+          fi
 
-          echo "# Build failure summary on ${{ matrix.runner }}" >> "$GITHUB_STEP_SUMMARY"
+          touch bottles/steps_output.txt
+          echo "### Build failure summary on ${{ matrix.runner }}" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-          cat bottles/steps_output.txt | tee -a "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tee -a "$GITHUB_STEP_SUMMARY" <bottles/steps_output.txt
+          echo '\n```' >> "$GITHUB_STEP_SUMMARY"
 
           rm bottles/steps_output.txt
 
       - name: Output brew linkage result
         if: always()
         run: |
-          echo '# `brew linkage` output on ${{ matrix.runner }}' >> "$GITHUB_STEP_SUMMARY"
+          if [[ "${{ runner.os }}" == "Linux" ]]
+          then
+            # `GITHUB_STEP_SUMMARY` is unique to each step, so we have to
+            # chown it in each step that we wish to write to it.
+            sudo chown "$(whoami)" "$GITHUB_STEP_SUMMARY"
+          fi
+
+          echo '### `brew linkage` output on ${{ matrix.runner }}' >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-          cat bottles/linkage_output.txt | tee -a "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tee -a "GITHUB_STEP_SUMMARY" <bottles/linkage_output.txt
+          echo '\n```' >> "$GITHUB_STEP_SUMMARY"
 
           rm bottles/linkage_output.txt
 
       - name: Output brew bottle result
         if: always()
         run: |
-          echo '# `brew bottle` output on ${{ matrix.runner }}' >> "$GITHUB_STEP_SUMMARY"
+          if [[ "${{ runner.os }}" == "Linux" ]]
+          then
+            # `GITHUB_STEP_SUMMARY` is unique to each step, so we have to
+            # chown it in each step that we wish to write to it.
+            sudo chown "$(whoami)" "$GITHUB_STEP_SUMMARY"
+          fi
+
+          echo '### `brew bottle` output on ${{ matrix.runner }}' >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-          cat bottles/bottle_output.txt | tee -a "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tee -a "$GITHUB_STEP_SUMMARY" <bottles/bottle_output.txt
+          echo '\n```' >> "$GITHUB_STEP_SUMMARY"
 
           rm bottles/bottle_output.txt
 
