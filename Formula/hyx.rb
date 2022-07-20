@@ -5,7 +5,7 @@ class Hyx < Formula
   sha256 "8d4f14e58584d6cc8f04e43ca38042eed218882a389249c20b086730256da5eb"
   license "MIT"
 
-  depends_on "expect" => :test
+  uses_from_macos "expect" => :test
 
   def install
     ENV["CFLAGS"] = "-Os"
