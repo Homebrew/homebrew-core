@@ -17,7 +17,6 @@ class Vile < Formula
     system "./configure", *std_configure_args,
                           "--disable-imake",
                           "--enable-colored-menus",
-                          "--enable-plugins",
                           "--with-ncurses",
                           "--with-screen=ncurses",
                           "--without-x"
