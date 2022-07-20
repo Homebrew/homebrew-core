@@ -26,6 +26,7 @@ class Nginx < Formula
   depends_on "pcre2"
 
   uses_from_macos "xz" => :build
+  uses_from_macos "libxcrypt"
 
   def install
     # keep clean copy of source for compiling dynamic modules e.g. passenger
