@@ -5,6 +5,8 @@ class Vile < Formula
   sha256 "240edec7bbf3d9df48b3042754bf9854d9a233d371d50bba236ec0edd708eed5"
   license "GPL-2.0-or-later"
 
+  depends_on "expect" => :test
+
   uses_from_macos "flex" => :build
   uses_from_macos "groff" => :build
   uses_from_macos "ncurses"
@@ -21,14 +23,8 @@ class Vile < Formula
   end
 
   test do
-    require "pty"
-
-    PTY.spawn(bin/"vile") do |_, w,|
-      r.winsize = [80, 40]
-      w.write ":w new\n"
-      w.write ":q\n"
-    end
-    sleep 5
+    pipe_output("env TERM=xterm expect -",
+      "spawn vile;expect \"unnamed\";send \":w new\r:q\r\";expect eof")
     assert_predicate testpath/"new", :exist?
   end
 end
