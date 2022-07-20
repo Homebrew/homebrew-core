@@ -294,12 +294,18 @@ jobs:
       - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
         if: ${{always() && fromJson(needs.setup_tests.outputs.test-dependents) == true}}
         run: |
-          touch bottles/steps_output.txt
+          if [[ "${{ runner.os }}" == "Linux" ]]
+          then
+            # `GITHUB_STEP_SUMMARY` is unique to each step, so we have to
+            # chown it in each step that we wish to write to it.
+            sudo chown "$(whoami)" "$GITHUB_STEP_SUMMARY"
+          fi
 
+          touch bottles/steps_output.txt
           echo "# Dependent failure summary on ${{ matrix.runner }}" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-          cat bottles/steps_output.txt | tee -a "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tee -a "$GITHUB_STEP_SUMMARY" <bottles/steps_output.txt
+          echo '\n```' >> "$GITHUB_STEP_SUMMARY"
 
           rm bottles/steps_output.txt
 
