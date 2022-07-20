@@ -16,6 +16,7 @@ class Bcc < Formula
   depends_on "netperf"
   depends_on "python"
   depends_on "zlib"
+  depends_on :linux
 
   def install
     ENV.deparallelize
