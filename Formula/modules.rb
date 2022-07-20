@@ -21,9 +21,7 @@ class Modules < Formula
 
   depends_on "tcl-tk"
 
-  on_linux do
-    depends_on "less"
-  end
+  uses_from_macos "less"
 
   def install
     args = %W[
