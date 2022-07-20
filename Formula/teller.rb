@@ -44,7 +44,7 @@ class Teller < Formula
             path: #{testpath}/test.env
     EOS
 
-    output = shell_output("#{bin}/teller -c #{testpath}/.teller.yml show")
+    output = pipe_output("#{bin}/teller -c #{testpath}/.teller.yml show")
     assert_match "teller: loaded variables for brewtest using #{testpath}/.teller.yml", output
     assert_match "foo", output
 
