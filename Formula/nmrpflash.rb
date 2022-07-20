@@ -13,8 +13,7 @@ class Nmrpflash < Formula
   end
 
   def install
-    system "make", "VERSION=#{version}"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "VERSION=#{version}"
   end
 
   test do
