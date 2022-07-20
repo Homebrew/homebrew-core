@@ -24,8 +24,12 @@ class Vile < Formula
   end
 
   test do
-    pipe_output("env TERM=xterm expect -",
-      "spawn vile;expect \"unnamed\";send \":w new\r:q\r\";expect eof")
+    require "pty"
+
+    PTY.spawn(bin/"vile") do |_, w,|
+      w.write ":w new\n"
+      w.write ":q\n"
+    end
     assert_predicate testpath/"new", :exist?
   end
 end
