@@ -7,6 +7,9 @@ class Nmrpflash < Formula
 
   uses_from_macos "libpcap"
 
+  # for now
+  depends_on :macos
+
   def install
     system "make", "VERSION=#{version}"
     # "make install" is currently broken
