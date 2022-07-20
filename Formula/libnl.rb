@@ -16,7 +16,7 @@ class Libnl < Formula
   uses_from_macos "flex" => :build
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", *std_configure_args, "--disable-silent-rules", "--sysconfdir=#{etc}"
     system "make", "install"
   end
 
