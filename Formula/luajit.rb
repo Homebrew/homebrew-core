@@ -101,7 +101,18 @@ class Luajit < Formula
 
     # Check that LuaJIT can find its own `jit.*` modules
     touch "empty.lua"
-    system bin/"luajit", "-b", "empty.lua", "empty.o"
+    system bin/"luajit", "-b", "-o", "osx", "-a", "arm64", "empty.lua", "empty.o"
     assert_predicate testpath/"empty.o", :exist?
+
+    # Check that we're not affected by https://github.com/LuaJIT/LuaJIT/issues/865.
+    require "macho"
+    machobj = MachO.open("empty.o")
+    assert_kind_of MachO::FatFile, machobj
+    assert_predicate machobj, :object?
+
+    cputypes = machobj.machos.map(&:cputype)
+    assert_includes cputypes, :arm64
+    assert_includes cputypes, :x86_64
+    assert_equal 2, cputypes.length
   end
 end
