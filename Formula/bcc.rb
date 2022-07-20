@@ -14,7 +14,7 @@ class Bcc < Formula
   depends_on "iperf"
   depends_on "luajit"
   depends_on "netperf"
-  depends_on "python"
+  depends_on "python@3.9"
   depends_on "zlib"
   depends_on :linux
 
