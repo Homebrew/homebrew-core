@@ -21,7 +21,7 @@ class VowpalWabbit < Formula
   depends_on "boost"
   depends_on "eigen"
   depends_on "fmt"
-  depends_on "zlib"
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11
