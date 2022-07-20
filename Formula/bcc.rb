@@ -21,16 +21,9 @@ class Bcc < Formula
 
   def install
     ENV.deparallelize
-    mkdir "build"
-    chdir "build" do
-      system "cmake", "--install-prefix=#{HOMEBREW_PREFIX}", "-DPYTHON_CMD=python3", ".."
-      system "make"
-      system "make", "install"
-      # chdir "src/python" do
-      #  system "make"
-      #  system "make", "install"
-      # end
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DPYTHON_CMD=python3", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
