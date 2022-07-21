@@ -3,6 +3,7 @@ class Rex < Formula
   homepage "https://www.rexify.org"
   url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.13.4.tar.gz"
   sha256 "a86e9270159b41c9a8fce96f9ddc97c5caa68167ca4ed33e97908bfce17098cf"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "656a990a252550d057e8cea6994e1270081c7263b1978ebaf4dd21a5d59783f8"
@@ -15,9 +16,9 @@ class Rex < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "84905c6bacd76ee95deacca3830ccbb2927bbb5d946e472a7b3f65e0e5ad7ecb"
   end
 
-  uses_from_macos "perl"
+  uses_from_macos "perl", since: :big_sur
 
-  if MacOS.version < :big_sur
+  on_system :linux, macos: :catalina_or_older do
     resource "Module::Build" do
       # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
       # MacOS Perl installation has 0.4003
@@ -50,18 +51,11 @@ class Rex < Formula
       sha256 "5030a6d6cbffaf12583050bf552aa800d4646ca9678c187add649227f57479cd"
     end
 
-    resource "ExtUtils::MakeMaker" do
-      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.64.tar.gz"
-      sha256 "4a6ac575815c0413b1f58967043cc9f2e166446b73c687f9bc62b5eaed9464a0"
-    end
-
     resource "File::ShareDir::Install" do
       url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.14.tar.gz"
       sha256 "8f9533b198f2d4a9a5288cbc7d224f7679ad05a7a8573745599789428bc5aea0"
     end
-  end
 
-  on_linux do
     resource "Devel::Caller" do
       url "https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Devel-Caller-2.06.tar.gz"
       sha256 "6a73ae6a292834255b90da9409205425305fcfe994b148dcb6d2d6ef628db7df"
@@ -77,11 +71,6 @@ class Rex < Formula
       sha256 "176fa02771f542a4efb1dbc2a4c928e8f4391bf4078473bd6040d8f11adb0ec1"
     end
 
-    resource "ExtUtils::MakeMaker" do
-      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.64.tar.gz"
-      sha256 "4a6ac575815c0413b1f58967043cc9f2e166446b73c687f9bc62b5eaed9464a0"
-    end
-
     resource "File::Listing" do
       url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Listing-6.15.tar.gz"
       sha256 "46c4fb9f9eb9635805e26b7ea55b54455e47302758a10ed2a0b92f392713770c"
@@ -90,11 +79,6 @@ class Rex < Formula
     resource "File::ShareDir" do
       url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.118.tar.gz"
       sha256 "3bb2a20ba35df958dc0a4f2306fc05d903d8b8c4de3c8beefce17739d281c958"
-    end
-
-    resource "File::ShareDir::Install" do
-      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.14.tar.gz"
-      sha256 "8f9533b198f2d4a9a5288cbc7d224f7679ad05a7a8573745599789428bc5aea0"
     end
 
     resource "HTML::Parser" do
@@ -292,13 +276,7 @@ class Rex < Formula
       system "./Build", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "./Build", "install"
     elsif File.exist? "Makefile.PL"
-      on_macos do
-        path = "#{MacOS.sdk_path}/System/Library/Perl/#{MacOS.preferred_perl_version}/darwin-thread-multi-2level/CORE"
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INC=-I#{path}"
-      end
-      on_linux do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      end
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "make", "install"
     else
