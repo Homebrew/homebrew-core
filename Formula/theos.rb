@@ -11,12 +11,14 @@ class Theos < Formula
     version "2.6"
   end
 
+  keg_only "symlinking Theos makes it unusable"
+
   depends_on "ldid"
   depends_on :macos
   depends_on :xcode
   depends_on "xz"
 
-  skip_clean "include", "lib", "sdks"
+  skip_clean "lib", "sdks"
 
   resource "sdks" do
     url "https://github.com/theos/sdks.git",
@@ -27,7 +29,7 @@ class Theos < Formula
   def install
     prefix.install Dir["*"]
     (prefix/"sdks").install resource("sdks")
-    rm_rf Dir["#{include}/.keep", "#{lib}/.keep"]
+    rm_rf lib/".keep"
   end
 
   def caveats
