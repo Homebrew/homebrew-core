@@ -42,15 +42,12 @@ class Retdec < Formula
   end
 
   test do
-    test_cmd = %W[
-      #{bin}/retdec-decompiler
-      -o
-      #{testpath}/a.c
-      #{test_fixtures("mach/a.out")}
-      2>/dev/null
-    ]
-    test_cmd = test_cmd.join(" ")
+    a_out = if OS.mac?
+      test_fixtures("mach/a.out")
+    else
+      test_fixtures("elf/hello")
+    end
 
-    assert_match "Running phase: cleanup", shell_output(test_cmd)
+    assert_match "Running phase: cleanup", shell_output("#{bin}/retdec-decompiler -o #{testpath}/a.c #{a_out} 2>/dev/null")
   end
 end
