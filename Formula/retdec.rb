@@ -51,6 +51,7 @@ class Retdec < Formula
     ]
     test_cmd = test_cmd.join(" ")
 
-    assert_match "Running phase: cleanup", shell_output(test_cmd, 1)
+    assert_match "Running phase: cleanup", shell_output(test_cmd)
+    assert_match "Running phase: cleanup", shell_output(test_cmd, 1) if OS.linux?
   end
 end
