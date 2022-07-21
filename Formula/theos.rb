@@ -29,7 +29,7 @@ class Theos < Formula
     <<~EOS
       You must add the following line in your .profile/.bashrc/.zshrc:
         export THEOS="#{opt_prefix}"
-      
+
       And you must download and place Theos patched SDKs in this folder:
         #{opt_prefix}/sdks
     EOS
