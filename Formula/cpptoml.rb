@@ -4,6 +4,7 @@ class Cpptoml < Formula
   url "https://github.com/skystrife/cpptoml/archive/v0.1.1.tar.gz"
   sha256 "23af72468cfd4040984d46a0dd2a609538579c78ddc429d6b8fd7a10a6e24403"
   license "MIT"
+  revision 1
   head "https://github.com/skystrife/cpptoml.git", branch: "master"
 
   bottle do
@@ -11,6 +12,13 @@ class Cpptoml < Formula
   end
 
   depends_on "cmake" => :build
+
+  # Fix library support for GCC 11+ by adding include for limits header.
+  # Upstream PR: https://github.com/skystrife/cpptoml/pull/123
+  patch do
+    url "https://github.com/skystrife/cpptoml/commit/c55a516e90133d89d67285429c6474241346d27a.patch?full_index=1"
+    sha256 "29d720fa096f0afab8a6a42b3382e98ce09a8d2958d0ad2980cf7c70060eb2c1"
+  end
 
   def install
     args = %W[
