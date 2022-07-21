@@ -1,10 +1,19 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2022.07.04.00.tar.gz"
-  sha256 "6b270c1865c53b39f5d815cc2d97879a17dde6c77c5c127ede2a962ef3ab24b1"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git", branch: "main"
+
+  stable do
+    url "https://github.com/facebook/folly/archive/v2022.08.08.00.tar.gz"
+    sha256 "ad27468c3c8dddacd592baa688b5d9b0a1de30c8f57e959fb88ba68a231f853d"
+
+    # Fix CMake bugs for x86_64 builds. Remove in the next release.
+    patch do
+      url "https://github.com/facebook/folly/commit/10fc2e449038d9ffda5cd53999edb9875c4cb151.patch?full_index=1"
+      sha256 "23b7a26530d83b391a5e587e5ba6c88c2831dc516b2438a99eb27c6d1b9e7e1d"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "03f9148ba3607548d9a4607f63e868d9353cfade1a3e5c2a198e832ec17747d4"
@@ -51,7 +60,8 @@ class Folly < Formula
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
+      -DCMAKE_LIBRARY_ARCHITECTURE=#{Hardware::CPU.arch}
       -DFOLLY_USE_JEMALLOC=OFF
     ]
 
