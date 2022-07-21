@@ -25,6 +25,7 @@ class Teleport < Formula
   end
 
   depends_on "go" => :build
+  depends_on "libfido2"
 
   uses_from_macos "curl" => :test
   uses_from_macos "netcat" => :test
@@ -40,7 +41,7 @@ class Teleport < Formula
 
   def install
     (buildpath/"webassets").install resource("webassets")
-    ENV.deparallelize { system "make", "full" }
+    ENV.deparallelize { system "make", "full", "FIDO2=dynamic" }
     bin.install Dir["build/*"]
   end
 
