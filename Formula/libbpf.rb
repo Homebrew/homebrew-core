@@ -9,6 +9,7 @@ class Libbpf < Formula
   depends_on "elfutils"
   depends_on :linux
   depends_on "pkg-config"
+
   uses_from_macos "zlib"
 
   def install
