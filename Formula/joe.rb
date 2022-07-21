@@ -23,6 +23,8 @@ class Joe < Formula
     sha256 x86_64_linux:   "1aa552f5f7cd405c1658145c7c8ef7c73ba8ceec8b24dc85d2a27cab53c93cea"
   end
 
+  conflicts_with "jupp", because: "both install the same binaries"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
