@@ -14,8 +14,11 @@ class Terragrunt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aebfaa647705da82ac376d8598a2522aeee3de7d8b60913a3fca65a25f9230d7"
   end
 
+  option "with-tfenv", "Depend on tfenv instead of terraform"
+
   depends_on "go" => :build
-  depends_on "terraform"
+  depends_on "terraform" => :optional unless build.with?("tfenv")
+  depends_on "tfenv" => :optional if build.with?("tfenv")
 
   conflicts_with "tgenv", because: "tgenv symlinks terragrunt binaries"
 
