@@ -15,6 +15,7 @@ class Pango < Formula
     sha256               x86_64_linux:   "3fe3557945828082262b97d82f49c25c354e5cefbe9d538034bf6585fd2258b1"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
