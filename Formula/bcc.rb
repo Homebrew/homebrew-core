@@ -22,7 +22,7 @@ class Bcc < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DENABLE_LLVM_SHARED=ON"
+                    "-DENABLE_LLVM_SHARED=ON",
                     "-DPYTHON_CMD=python3",
                     *std_cmake_args
     system "cmake", "--build", "build"
