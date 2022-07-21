@@ -11,31 +11,27 @@ class Theos < Formula
     version "2.6"
   end
 
-  keg_only "symlinking Theos makes it unusable"
+  keg_only "it interferes with the default directory for finding templates"
 
   depends_on "ldid"
   depends_on :macos
   depends_on :xcode
   depends_on "xz"
 
-  skip_clean "lib", "sdks"
-
-  resource "sdks" do
-    url "https://github.com/theos/sdks.git",
-      branch:   "master",
-      revision: "fd931ca723ee46994ad9f73c2f0929d1ab9732ca"
-  end
+  skip_clean "lib"
 
   def install
     prefix.install Dir["*"]
-    (prefix/"sdks").install resource("sdks")
     rm_rf lib/".keep"
   end
 
   def caveats
     <<~EOS
-      To use Theos, please put the following in your .profile:
+      You must add the following line in your .profile/.bashrc/.zshrc:
         export THEOS="#{opt_prefix}"
+      
+      And you must download and place Theos patched SDKs in this folder:
+        #{opt_prefix}/sdks
     EOS
   end
 
