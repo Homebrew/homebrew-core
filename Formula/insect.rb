@@ -14,9 +14,6 @@ class Insect < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c1883f188bed11649803d4732f861e8193cae22e6d165b65d569f22c8c55abd"
   end
 
-  depends_on "psc-package" => :build
-  depends_on "pulp" => :build
-  depends_on "purescript" => :build
   depends_on "node"
 
   on_linux do
