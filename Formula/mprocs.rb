@@ -17,6 +17,8 @@ class Mprocs < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "python" => :build # required by the xcb crate
+
   def install
     system "cargo", "install", *std_cargo_args
   end
