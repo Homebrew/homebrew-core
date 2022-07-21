@@ -12,7 +12,7 @@ class ApacheSpark < Formula
     sha256 cellar: :any_skip_relocation, all: "70d5e3f211b3c2ffceacd171066bff9089a67ce11624288c53a9b654fd4decee"
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     # Rename beeline to distinguish it from hive's beeline
@@ -21,7 +21,9 @@ class ApacheSpark < Formula
     rm_f Dir["bin/*.cmd"]
     libexec.install Dir["*"]
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk@11"].opt_prefix)
+    # FIXME: how to add the arg '--driver-java-options=-Dio.netty.tryReflectionSetAccessible=true' on 'pyspark' binary
+    # How can I do it?
   end
 
   test do
