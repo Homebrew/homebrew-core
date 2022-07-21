@@ -11,8 +11,8 @@ class Theos < Formula
   keg_only "symlinking Theos will make Theos unusable"
 
   depends_on "ldid"
-  depends_on "xz"
   depends_on :macos
+  depends_on "xz"
 
   resource "sdks" do
     url "https://github.com/theos/sdks.git",
@@ -26,6 +26,6 @@ class Theos < Formula
   end
 
   test do
-    assert_match "Use of uninitialized value", shell_output("#{bin}/nic.pl <<< 17 2>&1", 1)
+    assert_match "Use of uninitialized value", shell_output("#{bin}/nic.pl 2>&1 <<< 17", 1)
   end
 end
