@@ -4,6 +4,7 @@ class VulkanLoader < Formula
   url "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/v1.3.220.tar.gz"
   sha256 "fe5b65e5d88febb1220ae59de363ed8b2794f8c861d6d74efb14aecefd464559"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/KhronosGroup/Vulkan-Loader.git", branch: "master"
 
   bottle do
@@ -31,6 +32,8 @@ class VulkanLoader < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].opt_prefix}",
                     "-DFALLBACK_DATA_DIRS=#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share",
+                    "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}",
+                    "-DFALLBACK_CONFIG_DIRS=#{etc}/xdg:/etc/xdg",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
