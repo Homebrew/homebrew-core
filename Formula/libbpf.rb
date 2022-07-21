@@ -28,8 +28,8 @@ class Libbpf < Formula
         return(0);
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lbpf",
-                   "-o", "test"
+    system ENV.cc, "test.c", "-I#{Formula["linux-headers@5.16"].opt_include}", "-I#{include}", "-L#{lib}",
+                   "-lbpf", "-o", "test"
     system "./test"
   end
 end
