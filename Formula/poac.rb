@@ -48,7 +48,9 @@ class Poac < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    man1.install (buildpath/"src/etc/man/man1").children
+    man.install "src/etc/man/man1"
+    bash_completion.install "src/etc/poac.bash" => "poac"
+    zsh_completion.install_symlink bash_completion/"poac" => "_poac"
   end
 
   test do
