@@ -1,10 +1,10 @@
 class RiemannClient < Formula
   desc "C client library for the Riemann monitoring system"
   homepage "https://github.com/algernon/riemann-c-client"
-  url "https://github.com/algernon/riemann-c-client/archive/riemann-c-client-2.0.1.tar.gz"
-  sha256 "2ed963eeef5517f7be921790ef0cde13c7bcac172ac14ce5818d84a261cc3b31"
+  url "https://git.madhouse-project.org/algernon/riemann-c-client/archive/riemann-c-client-2.1.0.tar.gz"
+  sha256 "e1a4439ee23f4557d7563a88c67044d50c384641cf160d95114480404c547085"
   license "LGPL-3.0-or-later"
-  head "https://github.com/algernon/riemann-c-client.git", branch: "master"
+  head "https://git.madhouse-project.org/algernon/riemann-c-client.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "b4d9f270930a03bd6d14c2e0673b37274b2dbe88601d9d5eed4e23b1651360d6"
@@ -14,8 +14,6 @@ class RiemannClient < Formula
     sha256 cellar: :any,                 catalina:       "c328701c5ea1aa6101c54a3db32c39a5798fa27d88d898dd5ca2bad512f50175"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f50dd475e3edc8145db2e9808ee16dd2d0cf795ee727d8a4d4d30d28af3960ca"
   end
-
-  deprecate! date: "2022-07-09", because: :repo_removed
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
