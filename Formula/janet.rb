@@ -19,8 +19,8 @@ class Janet < Formula
   depends_on "ninja" => :build
 
   resource "jpm" do
-    url "https://github.com/janet-lang/jpm/archive/refs/tags/v1.0.0.tar.gz"
-    sha256 "858d4ef2f6ac78222c53154dd91f8fb5994e3c3cbe253c9b0d3b9d52557eeb9b"
+    url "https://github.com/janet-lang/jpm/archive/refs/tags/v1.1.0.tar.gz"
+    sha256 "337c40d9b8c087b920202287b375c2962447218e8e127ce3a5a12e6e47ac6f16"
   end
 
   def install
