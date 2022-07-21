@@ -18,6 +18,8 @@ class Bcc < Formula
   depends_on "python@3.10"
   depends_on "zlib"
 
+  fails_with gcc: "5" # LLVM
+
   def install
     system "cmake", "-S", ".", "-B", "build", "-DPYTHON_CMD=python3", *std_cmake_args
     system "cmake", "--build", "build"
