@@ -48,6 +48,6 @@ class Retdec < Formula
       test_fixtures("elf/hello")
     end
 
-    assert_match "Running phase: cleanup", shell_output("#{bin}/retdec-decompiler -o #{testpath}/a.c #{a_out} 2>/dev/null")
+    assert_match "phase: cleanup", shell_output("#{bin}/retdec-decompiler -o #{testpath}/a.c #{a_out} 2>/dev/null")
   end
 end
