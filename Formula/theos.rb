@@ -12,6 +12,7 @@ class Theos < Formula
 
   depends_on "ldid"
   depends_on "xz"
+  depends_on :macos
 
   resource "sdks" do
     url "https://github.com/theos/sdks.git",
