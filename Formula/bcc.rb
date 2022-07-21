@@ -6,13 +6,13 @@ class Bcc < Formula
   license "Apache-2.0"
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
   depends_on "arping"
   depends_on "bison"
   depends_on "flex"
   depends_on "iperf"
   depends_on :linux
   depends_on "linux-headers@5.16"
+  depends_on "llvm"
   depends_on "luajit"
   depends_on "netperf"
   depends_on "python@3.10"
