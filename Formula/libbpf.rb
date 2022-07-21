@@ -9,7 +9,7 @@ class Libbpf < Formula
   depends_on "elfutils"
   depends_on :linux
   depends_on "pkg-config"
-  depends_on "zlib"
+  uses_from_macos "zlib"
 
   def install
     chdir "src" do
