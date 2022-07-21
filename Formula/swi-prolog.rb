@@ -4,6 +4,7 @@ class SwiProlog < Formula
   url "https://www.swi-prolog.org/download/stable/src/swipl-8.4.3.tar.gz"
   sha256 "946119a0b5f5c8f410ea21fbf6281e917e61ef35ac0aabbdd24e787470d06faa"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
   livecheck do
@@ -22,7 +23,7 @@ class SwiProlog < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "berkeley-db"
+  depends_on "berkeley-db@4"
   depends_on "gmp"
   depends_on "libarchive"
   depends_on "libyaml"
