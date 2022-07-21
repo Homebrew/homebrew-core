@@ -22,7 +22,7 @@ class CypherShell < Formula
 
     # Needs the jar, but cannot go in bin
     libexec.install Dir["cypher-shell{,.jar}"]
-    (bin/"cypher-shell").write_env_script libexec/"cypher-shell", Language::Java.overridable_java_home_env("11")
+    (bin/"cypher-shell").write_env_script libexec/"cypher-shell", Language::Java.overridable_java_home_env
   end
 
   test do
