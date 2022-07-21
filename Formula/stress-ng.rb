@@ -16,6 +16,7 @@ class StressNg < Formula
 
   depends_on macos: :sierra
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   def install
