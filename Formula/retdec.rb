@@ -25,15 +25,15 @@ class Retdec < Formula
   end
 
   on_linux do
-    depends_on "gcc@8" => :build
+    depends_on "gcc@10" => :build
   end
 
   def install
-    gcc = Formula["gcc@8"] if OS.linux?
+    gcc = Formula["gcc@10"] if OS.linux?
 
     cmake_args = std_cmake_args
-    cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-8" if OS.linux?
-    cmake_args << "-DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-8" if OS.linux?
+    cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-10" if OS.linux?
+    cmake_args << "-DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-10" if OS.linux?
 
     mkdir "build" do
       system "cmake", "..", *cmake_args
