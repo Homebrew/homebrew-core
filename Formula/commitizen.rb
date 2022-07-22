@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/af/44/afd88869ba1139878d95dc4b44e1e3a50d778c8a4ca4b9e5d8883344a1a5/commitizen-2.28.1.tar.gz"
-  sha256 "705df560d1066e4d1186f1aec580a598e9c9c27a7f125a9cf24d43b65e7e6e83"
+  url "https://files.pythonhosted.org/packages/b9/4b/7431ece8c48d89120b8b8bc94b29ab408fd3a1d668925ead2f4452c98b51/commitizen-2.29.0.tar.gz"
+  sha256 "a689d87b648d3914d9dab78d9534f3c65d799a4ff527099bedbcb57262328a17"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
@@ -22,6 +22,11 @@ class Commitizen < Formula
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz"
     sha256 "2c7dbffd8c045ea534921e63b0be6fe65e88599990d8dc408ac8c542b72a5445"
+  end
+
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/31/a2/12c090713b3d0e141f367236d3a8bdc3e5fca0d83ff3647af4892c16c205/chardet-5.0.0.tar.gz"
+    sha256 "0368df2bfd78b5fc20572bb4e9bb7fb53e2c094f60ae9993339e8671d0afb8aa"
   end
 
   resource "colorama" do
