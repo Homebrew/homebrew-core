@@ -25,14 +25,14 @@ class Mytop < Formula
 
   uses_from_macos "perl"
 
-  on_linux do
-    resource "Term::ReadKey" do
+  conflicts_with "mariadb", because: "both install `mytop` binaries"
+
+  resource "Term::ReadKey" do
+    on_linux do
       url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
       sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
     end
   end
-
-  conflicts_with "mariadb", because: "both install `mytop` binaries"
 
   resource "List::Util" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.46.tar.gz"
