@@ -48,7 +48,7 @@ class Retdec < Formula
       test_fixtures("elf/hello")
     end
 
-    test_cmd = "#{bin}/retdec-decompiler -o #{testpath}/a.c #{a_out} 2>/dev/null"
+    test_cmd = "#{bin}/retdec-decompiler -o #{testpath}/a.c #{a_out}"
 
     assert_match "phase: cleanup", shell_output(test_cmd) if OS.mac?
     assert_match "phase: cleanup", shell_output(test_cmd, 1) if OS.linux?
