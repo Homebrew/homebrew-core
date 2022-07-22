@@ -30,7 +30,7 @@ class Clarinet < Formula
   end
 
   def install
-    system "cargo", "clarinet-install", "--root #{prefix}"
+    system "cargo", "clarinet-install", "--root", "#{prefix}"
   end
 
   test do
