@@ -24,18 +24,18 @@ class Fpc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3491933cdf5782d3c4b9b1188757cb3846b5d823a6db75c8fb56f13b23bc6747"
   end
 
-  on_macos do
-    resource "bootstrap" do
+  # mesa is needed to test GL unit
+  on_linux do
+    depends_on "mesa" => :test
+  end
+
+  resource "bootstrap" do
+    on_macos do
       url "https://downloads.sourceforge.net/project/freepascal/Mac%20OS%20X/3.2.2/fpc-3.2.2.intelarm64-macosx.dmg"
       sha256 "05d4510c8c887e3c68de20272abf62171aa5b2ef1eba6bce25e4c0bc41ba8b7d"
     end
-  end
 
-  on_linux do
-    # mesa is needed to test GL unit
-    depends_on "mesa" => :test
-
-    resource "bootstrap" do
+    on_linux do
       url "https://downloads.sourceforge.net/project/freepascal/Linux/3.2.2/fpc-3.2.2.x86_64-linux.tar"
       sha256 "5adac308a5534b6a76446d8311fc340747cbb7edeaacfe6b651493ff3fe31e83"
     end
