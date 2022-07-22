@@ -27,20 +27,22 @@ class Kpcli < Formula
 
   uses_from_macos "perl"
 
-  on_macos do
-    resource "Mac::Pasteboard" do
+  resource "Mac::Pasteboard" do
+    on_macos do
       url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.103.tar.gz"
       sha256 "2f5e8dd2db0d6445558484ca6d42d839c5a97ee8aa1b250e694d67d5b7f6634c"
     end
   end
 
-  on_linux do
-    resource "Clone" do
+  resource "Clone" do
+    on_linux do
       url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.45.tar.gz"
       sha256 "cbb6ee348afa95432e4878893b46752549e70dc68fe6d9e430d1d2e99079a9e6"
     end
+  end
 
-    resource "TermReadKey" do
+  resource "TermReadKey" do
+    on_linux do
       url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
       sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
     end
