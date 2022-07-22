@@ -3,6 +3,7 @@ class Libwmf < Formula
   homepage "https://wvware.sourceforge.io/libwmf.html"
   url "https://downloads.sourceforge.net/project/wvware/libwmf/0.2.8.4/libwmf-0.2.8.4.tar.gz"
   sha256 "5b345c69220545d003ad52bfd035d5d6f4f075e65204114a9e875e84895a7cf8"
+  license "LGPL-2.1-only" # http://wvware.sourceforge.net/libwmf.html#download
   revision 2
 
   livecheck do
@@ -33,7 +34,8 @@ class Libwmf < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-png=#{Formula["libpng"].opt_prefix}",
-                          "--with-freetype=#{Formula["freetype"].opt_prefix}"
+                          "--with-freetype=#{Formula["freetype"].opt_prefix}",
+                          "--with-jpeg=#{Formula["jpeg"].opt_prefix}"
     system "make"
     ENV.deparallelize # yet another rubbish Makefile
     system "make", "install"
