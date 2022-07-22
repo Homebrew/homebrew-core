@@ -33,8 +33,8 @@ class Lanraragi < Formula
 
   uses_from_macos "libarchive"
 
-  on_macos do
-    resource "libarchive-headers" do
+  resource "libarchive-headers" do
+    on_macos do
       url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.100.2.tar.gz"
       sha256 "e54049be1b1d4f674f33488fdbcf5bb9f9390db5cc17a5b34cbeeb5f752b207a"
     end
