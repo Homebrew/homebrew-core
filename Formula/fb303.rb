@@ -51,10 +51,21 @@ class Fb303 < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++17", "-I#{include}", "-I#{Formula["openssl@1.1"].opt_include}", "test.cpp",
-                    "-L#{Formula["folly"].opt_lib}", "-lfolly", "-L#{Formula["glog"].opt_lib}", "-lglog",
-                    "-L#{lib}", "-lfb303_thrift_cpp", "-L#{Formula["boost"].opt_lib}", "-lboost_context-mt",
-                    "-ldl", "-L#{Formula["fbthrift"].opt_lib}", "-lthriftprotocol", "-o", "test"
+
+    if Tab.for_formula(Formula["folly"]).built_as_bottle
+      ENV.remove_from_cflags "-march=native"
+      ENV.append_to_cflags "-march=#{Hardware.oldest_cpu}" if Hardware::CPU.intel?
+    end
+
+    ENV.append "CXXFLAGS", "-std=c++17"
+    system ENV.cxx, *ENV.cxxflags.split, "test.cpp", "-o", "test",
+                    "-I#{include}", "-I#{Formula["openssl@1.1"].opt_include}",
+                    "-L#{lib}", "-lfb303_thrift_cpp",
+                    "-L#{Formula["folly"].opt_lib}", "-lfolly",
+                    "-L#{Formula["glog"].opt_lib}", "-lglog",
+                    "-L#{Formula["fbthrift"].opt_lib}", "-lthriftprotocol", "-lthriftcpp2",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_context-mt",
+                    "-ldl"
     assert_equal "BaseService", shell_output("./test").strip
   end
 end
