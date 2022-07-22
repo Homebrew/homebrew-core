@@ -60,7 +60,15 @@ class Mpd < Formula
     # The build is fine with G++.
     ENV.libcxx
 
-    args = std_meson_args + %W[
+    # kAudioObjectPropertyElementMain is macOS 12+ only
+    # https://developer.apple.com/documentation/coreaudio/kaudioobjectpropertyelementmain
+    # https://developer.apple.com/documentation/coreaudio/kaudioobjectpropertyelementmaster
+    # https://github.com/MusicPlayerDaemon/MPD/commit/c975d8b94316c86bf5950ed3abeba394e1263677
+    if MacOS.version <= :big_sur
+      ENV.append_to_cflags "-DkAudioObjectPropertyElementMain=kAudioObjectPropertyElementMaster"
+    end
+
+    args = %W[
       --sysconfdir=#{etc}
       -Dmad=disabled
       -Dmpcdec=disabled
@@ -76,12 +84,12 @@ class Mpd < Formula
       -Dvorbisenc=enabled
     ]
 
-    system "meson", *args, "output/release", "."
-    system "ninja", "-C", "output/release"
+    system "meson", "setup", "output/release", *args, *std_meson_args
+    system "meson", "compile", "-C", "output/release"
     ENV.deparallelize # Directories are created in parallel, so let's not do that
-    system "ninja", "-C", "output/release", "install"
+    system "meson", "install", "-C", "output/release"
 
-    (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
+    pkgetc.install "doc/mpdconf.example" => "mpd.conf"
   end
 
   def caveats
