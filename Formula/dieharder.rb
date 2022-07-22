@@ -31,8 +31,8 @@ class Dieharder < Formula
 
   depends_on "gsl"
 
-  on_linux do
-    patch do
+  patch do
+    on_linux do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/b5dfa6f2b9c5d44cb4bab93ace2e0d7d58465fb0/dieharder/dieharder-linux.patch"
       sha256 "8c0ab2425c8a315471f809d5ecaebd061985f24019886cba7f856e5aaf72112b"
     end
