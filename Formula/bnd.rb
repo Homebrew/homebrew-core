@@ -50,6 +50,7 @@ class Bnd < Formula
       -runrequires: osgi.identity;filter:='(osgi.identity=#{test_bsn})'
     EOS
 
+    mkdir "cnf"
     touch "cnf/build.bnd"
 
     output = shell_output("#{bin}/bnd resolve resolve -b launch.bndrun")
