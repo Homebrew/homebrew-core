@@ -65,7 +65,11 @@ class Mpd < Formula
     # https://developer.apple.com/documentation/coreaudio/kaudioobjectpropertyelementmaster
     # https://github.com/MusicPlayerDaemon/MPD/commit/c975d8b94316c86bf5950ed3abeba394e1263677
     if MacOS.version <= :big_sur
-      ENV.append_to_cflags "-DkAudioObjectPropertyElementMain=kAudioObjectPropertyElementMaster"
+      new_syms = ["kAudioObjectPropertyElementMain", "kAudioHardwareServiceDeviceProperty_VirtualMainVolume"]
+      new_syms.each do |new_sym|
+        old_sym = new_sym.sub("Main", "Master")
+        ENV.append_to_cflags "-D#{new_sym}=#{old_sym}"
+      end
     end
 
     args = %W[
