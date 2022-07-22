@@ -12,14 +12,6 @@ class Tere < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  def caveats
-    <<~EOS
-      Shell wrappers must be installed for `tere` to work.
-      Follow the instructions listed here:
-        https://github.com/mgunyho/tere/blob/master/README.md#setup
-    EOS
-  end
-
   test do
     # Launch `tere` and then immediately exit to test whether `tere` runs without errors.
     PTY.spawn(bin/"tere") do |r, w, _pid|
