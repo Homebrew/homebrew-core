@@ -19,6 +19,10 @@ class Mprocs < Formula
 
   uses_from_macos "python" => :build # required by the xcb crate
 
+  on_linux do
+    depends_on "libxcb"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
