@@ -54,7 +54,7 @@ __END__
      if test "$ne_cv_lib_neon" = "yes"; then
         ne_cv_lib_neonver=no
 -       for v in 27 28 29; do
-+       for v in 27 28 29 30 31; do
++       for v in 27 28 29 30 31 32; do
            case $ne_libver in
            0.$v.*) ne_cv_lib_neonver=yes ;;
            esac
@@ -64,8 +64,8 @@ __END__
  else
 -    { $as_echo "$as_me:$LINENO: incompatible neon library version $ne_libver: wanted 0.27 28 29" >&5
 -$as_echo "$as_me: incompatible neon library version $ne_libver: wanted 0.27 28 29" >&6;}
-+    { $as_echo "$as_me:$LINENO: incompatible neon library version $ne_libver: wanted 0.27 28 29 30 31" >&5
-+$as_echo "$as_me: incompatible neon library version $ne_libver: wanted 0.27 28 29 30 31" >&6;}
++    { $as_echo "$as_me:$LINENO: incompatible neon library version $ne_libver: wanted 0.27 28 29 30 31 32" >&5
++$as_echo "$as_me: incompatible neon library version $ne_libver: wanted 0.27 28 29 30 31 32" >&6;}
      neon_got_library=no
  fi
  
