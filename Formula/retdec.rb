@@ -25,15 +25,15 @@ class Retdec < Formula
   end
 
   on_linux do
-    depends_on "gcc@7" => :build
+    depends_on "gcc@8" => :build
   end
 
   def install
-    gcc = Formula["gcc@7"] if OS.linux?
+    gcc = Formula["gcc@8"] if OS.linux?
 
     cmake_args = std_cmake_args
-    cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-7" if OS.linux?
-    cmake_args << "-DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-7" if OS.linux?
+    cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-8" if OS.linux?
+    cmake_args << "-DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-8" if OS.linux?
 
     mkdir "build" do
       system "cmake", "..", *cmake_args
@@ -42,15 +42,9 @@ class Retdec < Formula
   end
 
   test do
-    a_out = if OS.mac?
-      test_fixtures("mach/a.out")
-    else
-      test_fixtures("elf/hello")
-    end
-
+    a_out = test_fixtures("mach/a.out")
     test_cmd = "#{bin}/retdec-decompiler -o #{testpath}/a.c #{a_out}"
 
-    assert_match "phase: cleanup", shell_output(test_cmd) if OS.mac?
-    assert_match "phase: cleanup", shell_output(test_cmd, 1) if OS.linux?
+    assert_match "phase: cleanup", shell_output(test_cmd)
   end
 end
