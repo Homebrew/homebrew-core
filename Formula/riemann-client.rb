@@ -4,7 +4,7 @@ class RiemannClient < Formula
   url "https://git.madhouse-project.org/algernon/riemann-c-client/archive/riemann-c-client-2.1.0.tar.gz"
   sha256 "e1a4439ee23f4557d7563a88c67044d50c384641cf160d95114480404c547085"
   license "LGPL-3.0-or-later"
-  head "https://git.madhouse-project.org/algernon/riemann-c-client.git", branch: "master"
+  head "https://git.madhouse-project.org/algernon/riemann-c-client.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "b4d9f270930a03bd6d14c2e0673b37274b2dbe88601d9d5eed4e23b1651360d6"
