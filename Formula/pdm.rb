@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/df/ab/f7a321bb2ae5955403a4d502481581540011f22c0b7e7845941e6c792c08/pdm-2.0.2.tar.gz"
-  sha256 "32b12270fa79450730928e20e6d736598b3647c7e2b353ede948f7e7109043f1"
+  url "https://files.pythonhosted.org/packages/9b/e9/fd5421218ce2393a6f1980dec2ef4d8a269820d6ee2c756e16acc9323138/pdm-2.0.3.tar.gz"
+  sha256 "6fb2835fd17311b2f48897b004b9ff76cb66b471481e7d9488c7f84271317bfb"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -151,8 +151,8 @@ class Pdm < Formula
   end
 
   resource "unearth" do
-    url "https://files.pythonhosted.org/packages/88/69/6d9052f35cccf9ec16c32c78b0fc17ebe000dbddaa052e39975c4483ab15/unearth-0.5.1.tar.gz"
-    sha256 "52c40d4880a4ca3b46f2e388b52b59acc7b30c1a931fea6e3dfd9966c9401507"
+    url "https://files.pythonhosted.org/packages/91/ce/16a2880ab5ce732c7e40e30808419089112c75afc7bac32c8ba78e0ce869/unearth-0.5.2.tar.gz"
+    sha256 "e51696b1913f591b41927b3eef8cebe84668fb769bf81f88094b7cc99afa706d"
   end
 
   resource "urllib3" do
