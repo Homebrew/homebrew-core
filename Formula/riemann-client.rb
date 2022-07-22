@@ -1,6 +1,6 @@
 class RiemannClient < Formula
   desc "C client library for the Riemann monitoring system"
-  homepage "https://github.com/algernon/riemann-c-client"
+  homepage "https://git.madhouse-project.org/algernon/riemann-c-client"
   url "https://git.madhouse-project.org/algernon/riemann-c-client/archive/riemann-c-client-2.1.0.tar.gz"
   sha256 "e1a4439ee23f4557d7563a88c67044d50c384641cf160d95114480404c547085"
   license "LGPL-3.0-or-later"
