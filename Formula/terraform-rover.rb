@@ -2,8 +2,8 @@ require "language/node"
 class TerraformRover < Formula
   desc "Terraform Visualizer"
   homepage "https://github.com/im2nguyen/rover"
-  url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "c49a840030f4f864c1b360f09a50917f9b4ffda08a1ba4834d1c1e3d5b9d152e"
+  url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "491709df11c70c9756e55f4cd203321bf1c6b92793b8db91073012a1f13b42e5"
   license "MIT"
 
   bottle do
