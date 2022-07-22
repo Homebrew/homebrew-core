@@ -31,7 +31,15 @@ class Promtail < Formula
       etc.install "promtail-local-config.yaml"
     end
   end
-
+  
+  service do
+    run [opt_bin/"promtail", "-config.file=#{etc}/promtail-local-config.yaml"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/promtail.log"
+    error_log_path var/"log/promtail.log"
+  end
+  
   test do
     port = free_port
 
