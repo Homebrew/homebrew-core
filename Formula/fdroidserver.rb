@@ -28,8 +28,8 @@ class Fdroidserver < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
-  on_macos do
-    resource "appnope" do
+  resource "appnope" do
+    on_macos do
       url "https://files.pythonhosted.org/packages/6a/cd/355842c0db33192ac0fc822e2dcae835669ef317fe56c795fb55fcddb26f/appnope-0.1.3.tar.gz"
       sha256 "02bd91c4de869fbb1e1c50aafc4098827a7a54ab2f39d9dcba6c9547ed920e24"
     end
