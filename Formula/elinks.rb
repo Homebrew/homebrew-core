@@ -34,6 +34,8 @@ class Elinks < Formula
 
   uses_from_macos "zlib"
 
+  conflicts_with "felinks", because: "both install the same binaries"
+
   # Two patches for compatibility with OpenSSL 1.1, from FreeBSD:
   # https://www.freshports.org/www/elinks/
   patch :p0 do
