@@ -34,17 +34,17 @@ class Libgccjit < Formula
 
   uses_from_macos "zlib"
 
+  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
+  cxxstdlib_check :skip
+
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-11-branch
-  on_arm do
-    patch do
+  patch do
+    on_arm do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/07e71538/gcc/gcc-11.3.0-arm.diff"
       sha256 "857390a7f32dbfc4c7e6163a3b3b9d5e1d392e5d9c74c3ebb98701c1d0629565"
     end
   end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
