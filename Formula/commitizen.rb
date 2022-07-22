@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/fe/8b/b35e3716d1b069c203f6369f5111d3062072538d908406e12e316147d5ed/commitizen-2.28.0.tar.gz"
-  sha256 "8510b67e4c45131ef75114aeca5fe30b4f973b2b943457cf1667177af296192e"
+  url "https://files.pythonhosted.org/packages/af/44/afd88869ba1139878d95dc4b44e1e3a50d778c8a4ca4b9e5d8883344a1a5/commitizen-2.28.1.tar.gz"
+  sha256 "705df560d1066e4d1186f1aec580a598e9c9c27a7f125a9cf24d43b65e7e6e83"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
@@ -75,8 +75,8 @@ class Commitizen < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/24/24/e50be8344fc6e9c9ae55bfcb136b33ad562776d822736da3d1ec0278b18b/tomlkit-0.11.0.tar.gz"
-    sha256 "71ceb10c0eefd8b8f11fe34e8a51ad07812cb1dc3de23247425fbc9ddc47b9dd"
+    url "https://files.pythonhosted.org/packages/1e/81/93889ea6641154b22f26036bc4ef800b06df84fc647a6ded5abdc2f06dcf/tomlkit-0.11.1.tar.gz"
+    sha256 "61901f81ff4017951119cd0d1ed9b7af31c821d6845c8c477587bbdcd5e5854e"
   end
 
   resource "typing-extensions" do
