@@ -7,7 +7,7 @@ class Retdec < Formula
   stable do
     url "https://github.com/avast/retdec.git",
       branch:   "master",
-      revision: "8503282c6d1295ba58ed5fed4ccb5605ed3febfd"
+      revision: "3435bc827d2c2c5da91dfb84509af0c034ee22b5"
     version "5.0"
   end
 
