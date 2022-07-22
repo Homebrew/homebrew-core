@@ -34,8 +34,8 @@ class Retdec < Formula
     gcc = Formula["gcc@7"] if OS.linux?
 
     cmake_args = std_cmake_args
-    cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-7" if OS.linux?
-    cmake_args << "-DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-7" if OS.linux?
+    cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-#{gcc.version.major}" if OS.linux?
+    cmake_args << "-DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-#{gcc.version.major}" if OS.linux?
 
     mkdir "build" do
       system "cmake", "..", *cmake_args
@@ -44,9 +44,7 @@ class Retdec < Formula
   end
 
   test do
-    a_out = test_fixtures("mach/a.out")
-    test_cmd = "#{bin}/retdec-decompiler -o #{testpath}/a.c #{a_out}"
-
-    assert_match "phase: cleanup", shell_output(test_cmd)
+    assert_match "Running phase: cleanup",
+    shell_output("#{bin}/retdec-decompiler -o #{testpath}/a.c #{test_fixtures("mach/a.out")} 2>/dev/null")
   end
 end
