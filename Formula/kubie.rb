@@ -4,6 +4,7 @@ class Kubie < Formula
   url "https://github.com/sbstp/kubie/archive/v0.17.1.tar.gz"
   sha256 "2de65f47648f5467fc57bb1cc3f643a009314e950e6da68524460512c71fe0c6"
   license "Zlib"
+  head "https://github.com/sbstp/kubie.git", branch: "master"
 
   livecheck do
     url :stable
@@ -25,10 +26,10 @@ class Kubie < Formula
   def install
     system "cargo", "install", *std_cargo_args
     bash_completion.install "./completion/kubie.bash"
+    fish_completion.install "./completion/kubie.fish"
   end
 
   test do
-    mkdir_p testpath/".kube"
     (testpath/".kube/kubie-test.yaml").write <<~EOS
       apiVersion: v1
       clusters:
@@ -48,8 +49,6 @@ class Kubie < Formula
       - user:
         name: kubie-test-user
     EOS
-
-    assert_match "kubie #{version}", shell_output("#{bin}/kubie --version")
 
     assert_match "The connection to the server 0.0.0.0 was refused - did you specify the right host or port?",
       shell_output("#{bin}/kubie exec kubie-test kubie-test-namespace kubectl get pod 2>&1")
