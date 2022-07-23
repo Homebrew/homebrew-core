@@ -14,11 +14,8 @@ class Terragrunt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aebfaa647705da82ac376d8598a2522aeee3de7d8b60913a3fca65a25f9230d7"
   end
 
-  option "with-tfenv", "Depend on tfenv instead of terraform"
-
   depends_on "go" => :build
-  depends_on "terraform" => :optional unless build.with?("tfenv")
-  depends_on "tfenv" => :optional if build.with?("tfenv")
+  depends_on "terraform" => :test
 
   conflicts_with "tgenv", because: "tgenv symlinks terragrunt binaries"
 
@@ -28,5 +25,10 @@ class Terragrunt < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/terragrunt --version")
+
+    # Generate an empty plan just to ensure Terraform works
+    touch "#{testpath}/terragrunt.hcl"
+    touch "#{testpath}/main.tf"
+    system "#{bin}/terragrunt plan"
   end
 end
