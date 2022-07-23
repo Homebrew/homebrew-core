@@ -25,13 +25,13 @@ class Retdec < Formula
   end
 
   on_linux do
-    depends_on "gcc@7"
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"
 
   def install
-    gcc = Formula["gcc@7"] if OS.linux?
+    gcc = Formula["gcc"] if OS.linux?
 
     cmake_args = std_cmake_args
     cmake_args << "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-#{gcc.version.major}" if OS.linux?
