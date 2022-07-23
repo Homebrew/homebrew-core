@@ -8,7 +8,7 @@ class Hyx < Formula
   uses_from_macos "expect" => :test
 
   def install
-    ENV["CFLAGS"] = "-Os"
+    ENV["CFLAGS"] = "-O2 -D_FORTIFY_SOURCE=2 -fstack-protector-all"
     system "make"
 
     bin.install "hyx"
