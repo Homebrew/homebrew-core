@@ -1,10 +1,9 @@
 class Acl2 < Formula
   desc "Logic and programming language in which you can model computer systems"
   homepage "https://www.cs.utexas.edu/users/moore/acl2/index.html"
-  url "https://github.com/acl2/acl2/archive/8.4.tar.gz"
-  sha256 "b440c0048e2988eeb9f477a37a0443c97037a062c076f86a999433a2c762cd8b"
+  url "https://github.com/acl2/acl2/archive/8.5.tar.gz"
+  sha256 "dcc18ab0220027b90f30cd9e5a67d8f603ff0e5b26528f3aab75dc8d3d4ebc0f"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
     sha256 arm64_monterey: "92d20c471a6e2eb90af1eb1591f85348c4a391b8719bfafc2e445b2063242381"
