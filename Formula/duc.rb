@@ -1,10 +1,9 @@
 class Duc < Formula
   desc "Suite of tools for inspecting disk usage"
   homepage "https://duc.zevv.nl/"
-  url "https://github.com/zevv/duc/releases/download/1.4.4/duc-1.4.4.tar.gz"
-  sha256 "f4e7483dbeca4e26b003548f9f850b84ce8859bba90da89c55a7a147636ba922"
+  url "https://github.com/zevv/duc/releases/download/1.4.5/duc-1.4.5.tar.gz"
+  sha256 "c69512ca85b443e42ffbb4026eedd5492307af612047afb9c469df923b468bfd"
   license "LGPL-3.0"
-  revision 1
   head "https://github.com/zevv/duc.git", branch: "master"
 
   bottle do
@@ -36,9 +35,11 @@ class Duc < Formula
   end
 
   test do
+    db_file = testpath/"duc.db"
+    touch db_file
     system "dd", "if=/dev/zero", "of=test", "count=1"
-    system "#{bin}/duc", "index", "."
-    system "#{bin}/duc", "graph", "-o", "duc.png"
+    system "#{bin}/duc", "index", "-d", db_file, "."
+    system "#{bin}/duc", "graph", "-d", db_file, "-o", "duc.png"
     assert_predicate testpath/"duc.png", :exist?, "Failed to create duc.png!"
   end
 end
