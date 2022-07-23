@@ -31,8 +31,11 @@ class Metaproxy < Formula
   fails_with gcc: "5"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # Match C++ standard in boost to avoid undefined symbols at runtime
+    # Ref: https://github.com/boostorg/regex/issues/150
+    ENV.append "CXXFLAGS", "-std=c++14"
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
