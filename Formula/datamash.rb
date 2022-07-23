@@ -1,9 +1,9 @@
 class Datamash < Formula
   desc "Tool to perform numerical, textual & statistical operations"
   homepage "https://www.gnu.org/software/datamash"
-  url "https://ftp.gnu.org/gnu/datamash/datamash-1.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/datamash/datamash-1.7.tar.gz"
-  sha256 "574a592bb90c5ae702ffaed1b59498d5e3e7466a8abf8530c5f2f3f11fa4adb3"
+  url "https://ftp.gnu.org/gnu/datamash/datamash-1.8.tar.gz"
+  mirror "https://ftpmirror.gnu.org/datamash/datamash-1.8.tar.gz"
+  sha256 "94a4e11819ad259aa3745b7eca392e385e3a676d276e8cbb616269dbbb17fe6d"
   license "GPL-3.0"
 
   bottle do
