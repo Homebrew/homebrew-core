@@ -4,7 +4,7 @@ class Jython < Formula
   url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.2/jython-installer-2.7.2.jar"
   sha256 "36e40609567ce020a1de0aaffe45e0b68571c278c14116f52e58cc652fb71552"
   license "PSF-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/"
