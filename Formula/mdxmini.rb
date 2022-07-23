@@ -29,12 +29,21 @@ class Mdxmini < Formula
     system "make"
 
     # Makefile doesn't build a dylib
-    system ENV.cc, "-dynamiclib", "-install_name", "#{lib}/libmdxmini.dylib",
-                   "-o", "libmdxmini.dylib", "-undefined", "dynamic_lookup",
-                   *Dir["obj/*"]
+    libmdxmini = shared_library("libmdxmini")
+    flags = if OS.mac?
+      %W[
+        -dynamiclib
+        -install_name #{lib/libmdxmini}
+        -undefined dynamic_lookup
+      ]
+    else
+      ["-shared"]
+    end
+    sdl_libs = Utils.safe_popen_read("sdl-config", "--libs").strip.split
+    system ENV.cc, *flags, "-o", libmdxmini, *Dir["obj/*"], *sdl_libs
 
     bin.install "mdxplay"
-    lib.install "libmdxmini.dylib"
+    lib.install libmdxmini
     (include/"libmdxmini").install Dir["src/*.h"]
   end
 
