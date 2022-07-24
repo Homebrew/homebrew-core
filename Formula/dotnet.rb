@@ -91,11 +91,6 @@ class Dotnet < Formula
 
     (buildpath/"src/SourceBuild/tarball/patches/msbuild").install resource("homebrew-msbuild-patch")
 
-    # Fix usage of GNU-specific flag.
-    # TODO: Remove this when upstreamed
-    inreplace "src/SourceBuild/tarball/content/repos/Directory.Build.targets",
-              "--block-size=1M", "-m"
-
     Dir.mktmpdir do |sourcedir|
       system "./build.sh", "/p:ArcadeBuildTarball=true", "/p:TarballDir=#{sourcedir}"
 
