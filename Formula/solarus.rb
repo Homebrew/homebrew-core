@@ -5,7 +5,7 @@ class Solarus < Formula
       tag:      "v1.6.5",
       revision: "3aec70b0556a8d7aed7903d1a3e4d9a18c5d1649"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -22,7 +22,7 @@ class Solarus < Formula
   depends_on "libmodplug"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "luajit-openresty"
+  depends_on "luajit"
   depends_on "physfs"
   depends_on "sdl2"
   depends_on "sdl2_image"
