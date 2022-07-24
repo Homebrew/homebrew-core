@@ -3,8 +3,8 @@ class PythonYq < Formula
 
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://kislyuk.github.io/yq/"
-  url "https://files.pythonhosted.org/packages/fc/0b/93a830fe6f75acaf2c052966b2c5f98aa3a18c08ca99b1621b60dd74e453/yq-3.0.2.tar.gz"
-  sha256 "e47ff2479a3746f90bdbb77f84e3ebdb789ce46a092b1c261ae5b1f5f914f8e8"
+  url "https://files.pythonhosted.org/packages/55/b2/0c4409c0e677ea9e6870538b4cdf4959fad92a8aaa73ee41cf03876bddf9/yq-3.1.0.tar.gz"
+  sha256 "30a84aa22486c749ba269256bd586c0bcd370b7e2a71e76c3924ead4867e74f2"
   license "Apache-2.0"
 
   bottle do
