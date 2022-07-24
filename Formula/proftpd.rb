@@ -26,6 +26,8 @@ class Proftpd < Formula
     sha256 x86_64_linux:   "b4c6e6de0169554fad7d91e497a3c6f4764ad01ebaa31c7ce2771edf0205db2b"
   end
 
+  uses_from_macos "libxcrypt"
+
   def install
     # fixes unknown group 'nogroup'
     # http://www.proftpd.org/docs/faq/linked/faq-ch4.html#AEN434
@@ -36,7 +38,7 @@ class Proftpd < Formula
                           "--localstatedir=#{var}"
     ENV.deparallelize
     install_user = ENV["USER"]
-    install_group = `groups`.split[0]
+    install_group = Utils.safe_popen_read("groups").split.first
     system "make", "INSTALL_USER=#{install_user}", "INSTALL_GROUP=#{install_group}", "install"
   end
 
