@@ -11,9 +11,9 @@ class Sophus < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "fmt" => :build
   depends_on "ceres-solver"
   depends_on "eigen"
-  depends_on "fmt"
 
   on_linux do
     depends_on "gcc"
@@ -34,6 +34,7 @@ class Sophus < Formula
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.5)
       project(HelloSO3)
+      add_compile_definitions(SOPHUS_USE_BASIC_LOGGING)
       find_package(Sophus REQUIRED)
       add_executable(HelloSO3 HelloSO3.cpp)
       target_link_libraries(HelloSO3 Sophus::Sophus)
