@@ -48,6 +48,7 @@ class Qt < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "md4c"
+  depends_on "openssl@1.1"
   depends_on "pcre2"
   depends_on "sqlite"
   depends_on "webp"
