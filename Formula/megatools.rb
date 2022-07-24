@@ -7,7 +7,7 @@ class Megatools < Formula
 
   livecheck do
     url "https://megatools.megous.com/builds/"
-    regex(/href=.*?megatools[._-]v?(\d{1,3}(?:\.\d{1,3})+)(?:\.\d{8})?\.t/i)
+    regex(/href=.*?megatools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
