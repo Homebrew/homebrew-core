@@ -17,6 +17,9 @@ class Acl2 < Formula
   depends_on "sbcl"
 
   def install
+    # Remove prebuilt-binary.
+    (buildpath/"books/kestrel/axe/x86/examples/popcount/popcount-macho-64.executable").unlink
+
     system "make",
            "LISP=#{HOMEBREW_PREFIX}/bin/sbcl",
            "ACL2=#{buildpath}/saved_acl2",
