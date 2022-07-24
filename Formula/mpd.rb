@@ -60,12 +60,11 @@ class Mpd < Formula
     # The build is fine with G++.
     ENV.libcxx
 
-    # kAudioObjectPropertyElementMain is macOS 12+ only
-    # https://developer.apple.com/documentation/coreaudio/kaudioobjectpropertyelementmain
-    # https://developer.apple.com/documentation/coreaudio/kaudioobjectpropertyelementmaster
-    # https://github.com/MusicPlayerDaemon/MPD/commit/c975d8b94316c86bf5950ed3abeba394e1263677
+    # Replace symbols available only on macOS 12+ with their older versions.
+    # https://github.com/MusicPlayerDaemon/MPD/issues/1580
     if MacOS.version <= :big_sur
       new_syms = ["kAudioObjectPropertyElementMain", "kAudioHardwareServiceDeviceProperty_VirtualMainVolume"]
+      # Doing `ENV.append_to_cflags` twice results in line length errors.
       new_syms.each do |new_sym|
         old_sym = new_sym.sub("Main", "Master")
         ENV.append_to_cflags "-D#{new_sym}=#{old_sym}"
