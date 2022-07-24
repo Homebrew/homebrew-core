@@ -1,8 +1,8 @@
 class PowermanDockerize < Formula
   desc "Utility to simplify running applications in docker containers"
   homepage "https://github.com/powerman/dockerize"
-  url "https://github.com/powerman/dockerize/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "b6507b24714dee193bd04be18fe8658531d2b0c0b9f6f060ac6bb387c736009f"
+  url "https://github.com/powerman/dockerize/archive/refs/tags/v0.16.2.tar.gz"
+  sha256 "ad8644aab41d06429167ed94f575b7f3d878b12514cf25d70a756a8c3803d362"
   license "MIT"
 
   bottle do
