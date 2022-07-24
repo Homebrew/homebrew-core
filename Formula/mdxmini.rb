@@ -26,6 +26,12 @@ class Mdxmini < Formula
   def install
     # Specify Homebrew's cc
     inreplace "mak/general.mak", "gcc", ENV.cc
+    unless OS.mac?
+      inreplace "mak/general.mak", "-liconv", ""
+      inreplace "mak/general.mak", "-g -O3", "-fPIC"
+      inreplace "Makefile", "$(LD) $(LFLAGS) -o $@ $(OBJS) $(LIBS)",
+                            "$(LD) $(LFLAGS) -o $@ $(OBJS) $(LIBS) -lm"
+    end
     system "make"
 
     # Makefile doesn't build a dylib
