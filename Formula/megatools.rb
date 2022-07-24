@@ -3,7 +3,7 @@ class Megatools < Formula
   homepage "https://megatools.megous.com/"
   url "https://megatools.megous.com/builds/megatools-1.11.0.20220519.tar.gz"
   sha256 "b30b1d87d916570f7aa6d36777dd378e83215d75ea5a2c14106028b6bddc261b"
-  license "GPL-2.0-or-later"
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
     url "https://megatools.megous.com/builds/"
