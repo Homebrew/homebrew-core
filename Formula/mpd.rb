@@ -4,6 +4,7 @@ class Mpd < Formula
   url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.8.tar.xz"
   sha256 "86bb569bf3b519821f36f6bb5564e484e85d2564411b34b200fe2cd3a04e78cf"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   livecheck do
@@ -53,6 +54,10 @@ class Mpd < Formula
   end
 
   fails_with gcc: "5"
+
+  # Fix build with FFmpeg 5.1. Backported from
+  # https://github.com/MusicPlayerDaemon/MPD/commit/59792cb0b801854ee41be72d33db9542735df754
+  patch :DATA
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -142,3 +147,24 @@ class Mpd < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/decoder/plugins/FfmpegIo.cxx b/src/decoder/plugins/FfmpegIo.cxx
+index 2e22d9599102ac445fc269c69863f4c2c34bfe1c..5b5c8b40e3a0b95fbf5e75a0cf9b53e2c416a36f 100644
+--- a/src/decoder/plugins/FfmpegIo.cxx
++++ b/src/decoder/plugins/FfmpegIo.cxx
+@@ -21,10 +21,13 @@
+ #define __STDC_CONSTANT_MACROS
+ 
+ #include "FfmpegIo.hxx"
+-#include "libavutil/mem.h"
+ #include "../DecoderAPI.hxx"
+ #include "input/InputStream.hxx"
+ 
++extern "C" {
++#include <libavutil/mem.h>
++}
++
+ AvioStream::~AvioStream()
+ {
+ 	if (io != nullptr) {
