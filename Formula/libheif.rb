@@ -4,7 +4,7 @@ class Libheif < Formula
   url "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz"
   sha256 "e1ac2abb354fdc8ccdca71363ebad7503ad731c84022cf460837f0839e171718"
   license "LGPL-3.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "6285488bd07d49e996a1be0dfe7296051ade71cc2078ecbaa2243afd05afe560"
@@ -17,7 +17,7 @@ class Libheif < Formula
 
   depends_on "pkg-config" => :build
   depends_on "aom"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libde265"
   depends_on "libpng"
   depends_on "shared-mime-info"
@@ -30,9 +30,7 @@ class Libheif < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
     pkgshare.install "examples/example.heic"
     pkgshare.install "examples/example.avif"
