@@ -4,6 +4,7 @@ class Graphicsmagick < Formula
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.38/GraphicsMagick-1.3.38.tar.xz"
   sha256 "d60cd9db59351d2b9cb19beb443170acaa28f073d13d258f67b3627635e32675"
   license "MIT"
+  revision 1
   head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
   livecheck do
@@ -22,7 +23,7 @@ class Graphicsmagick < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "jasper"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
