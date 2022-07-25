@@ -4,6 +4,7 @@ class Ghostscript < Formula
   url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9561/ghostpdl-9.56.1.tar.xz"
   sha256 "05e64c19853e475290fd608a415289dc21892c4d08ee9086138284b6addcb299"
   license "AGPL-3.0-or-later"
+  revision 1
 
   # We check the tags from the `head` repository because the GitHub tags are
   # formatted ambiguously, like `gs9533` (corresponding to version 9.53.3).
@@ -35,7 +36,7 @@ class Ghostscript < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "jbig2dec"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libidn"
   depends_on "libpng"
   depends_on "libtiff"
