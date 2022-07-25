@@ -14,6 +14,7 @@ class Tuntox < Formula
     inreplace "gitversion.h", /.*/, '#define GITVERSION "N/A"'
     inreplace "Makefile" do |s|
       s.gsub! "gitversion.h: FORCE", ""
+      # -lrt substitution can be removed after 0.0.10.1
       s.gsub! "-lrt", "" if OS.mac?
     end
     system "make", "prefix=#{prefix}", "install"
