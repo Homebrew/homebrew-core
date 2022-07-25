@@ -8,6 +8,8 @@ class Hyx < Formula
   uses_from_macos "expect" => :test
 
   def install
+    # CFLAGS set here because the defaults are not compatible with Clang.
+    # Issue reported upstream via email to lorenz@yx7@.cc on 2022-07-19.
     ENV["CFLAGS"] = "-O2 -D_FORTIFY_SOURCE=2 -fstack-protector-all"
     system "make"
 
