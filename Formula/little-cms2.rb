@@ -6,6 +6,7 @@ class LittleCms2 < Formula
   url "https://downloads.sourceforge.net/project/lcms/lcms/2.13/lcms2-2.13.1.tar.gz"
   sha256 "d473e796e7b27c5af01bd6d1552d42b45b43457e7182ce9903f38bb748203b88"
   license "MIT"
+  revision 1
   version_scheme 1
 
   # The Little CMS website has been redesigned and there's no longer a
@@ -26,13 +27,11 @@ class LittleCms2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "021649a443c169b8b18dd404f99d367ef79e5a6f650d8912b552a1b887e85ffe"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libtiff"
 
   def install
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-
-    system "./configure", *args
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
