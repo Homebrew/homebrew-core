@@ -4,6 +4,7 @@ class Webp < Formula
   url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.2.3.tar.gz"
   sha256 "f5d7ab2390b06b8a934a4fc35784291b3885b557780d099bd32f09241f9d83f9"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "dd0682d7262da6160c7306d8a2e32c9d30ea4f7431e5d17f32c5179e60607f62"
@@ -15,14 +16,14 @@ class Webp < Formula
   end
 
   head do
-    url "https://chromium.googlesource.com/webm/libwebp.git"
+    url "https://chromium.googlesource.com/webm/libwebp.git", branch: "main"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "giflib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 
