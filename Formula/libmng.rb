@@ -1,9 +1,13 @@
 class Libmng < Formula
   desc "MNG/JNG reference library"
+  # Use Homebrew curl to work around audit failure from TLS 1.3-only homepage.
+  # TODO: The `using: :homebrew_curl` can be removed once default curl on all
+  # CI runners support TLS 1.3 or if there is a way to skip homepage audit in CI.
   homepage "https://libmng.com/"
-  url "https://downloads.sourceforge.net/project/libmng/libmng-devel/2.0.3/libmng-2.0.3.tar.gz"
+  url "https://downloads.sourceforge.net/project/libmng/libmng-devel/2.0.3/libmng-2.0.3.tar.gz", using: :homebrew_curl
   sha256 "cf112a1fb02f5b1c0fce5cab11ea8243852c139e669c44014125874b14b7dfaa"
   license "Zlib"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c446fd993909b3334b8df2eaacf0af44be6da33c03899c85bc966b8659858648"
@@ -15,7 +19,7 @@ class Libmng < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "76a41e2666007dabb0bce0da17d0a55ca7694168e74f31ec6136cb9632642eea"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "little-cms2"
 
   uses_from_macos "zlib"
@@ -42,6 +46,7 @@ class Libmng < Formula
 
   test do
     system ENV.cc, pkgshare/"mngtree.c", "-DMNG_USE_SO",
+           "-I#{Formula["jpeg-turbo"].opt_include}",
            "-I#{include}", "-L#{lib}", "-lmng", "-o", "mngtree"
 
     resource("sample").stage do
