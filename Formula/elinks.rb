@@ -3,6 +3,7 @@ class Elinks < Formula
   homepage "http://elinks.or.cz/"
   url "http://elinks.or.cz/download/elinks-0.11.7.tar.bz2"
   sha256 "456db6f704c591b1298b0cd80105f459ff8a1fc07a0ec1156a36c4da6f898979"
+  license "GPL-2.0-only"
   revision 3
 
   livecheck do
