@@ -4,6 +4,7 @@ class JpegXl < Formula
   url "https://github.com/libjxl/libjxl/archive/v0.6.1.tar.gz"
   sha256 "ccbd5a729d730152303be399f033b905e608309d5802d77a61a95faa092592c5"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "299002d5c10f0009bcdf7b2f5c4d544e4b84fc36dd109a0b3dd5eee780dbb5f7"
@@ -19,7 +20,7 @@ class JpegXl < Formula
   depends_on "brotli"
   depends_on "giflib"
   depends_on "imath"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "openexr"
   depends_on "webp"
