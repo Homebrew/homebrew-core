@@ -9,6 +9,10 @@ class GotPortable < Formula
   depends_on "pkg-config" => :build
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "ossp-uuid"
+  end
+
   def install
     if OS.mac?
       ENV["LIBPANELW_LIBS"] = "-lpanel"
