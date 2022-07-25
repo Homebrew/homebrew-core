@@ -8,8 +8,11 @@ class GotPortable < Formula
 
   depends_on "pkg-config" => :build
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   on_linux do
+    depends_on "libbsd"
+    depends_on "libmd"
     depends_on "ossp-uuid"
   end
 
