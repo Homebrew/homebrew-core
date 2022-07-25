@@ -18,9 +18,8 @@ class Mpv < Formula
 
   depends_on "docutils" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on xcode: :build
-
   depends_on "ffmpeg@4"
   depends_on "jpeg"
   depends_on "libarchive"
@@ -44,6 +43,13 @@ class Mpv < Formula
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
 
+    # Avoid unreliable macOS SDK version detection
+    # See https://github.com/mpv-player/mpv/pull/8939
+    if OS.mac? && (sdk = MacOS.sdk)
+      ENV["MACOS_SDK"] = sdk.path
+      ENV["MACOS_SDK_VERSION"] = "#{sdk.version}.0"
+    end
+
     # libarchive is keg-only
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
     # luajit-openresty is keg-only
@@ -65,9 +71,10 @@ class Mpv < Formula
       --lua=luajit
     ]
 
-    system Formula["python@3.9"].opt_bin/"python3", "bootstrap.py"
-    system Formula["python@3.9"].opt_bin/"python3", "waf", "configure", *args
-    system Formula["python@3.9"].opt_bin/"python3", "waf", "install"
+    python3 = "python3.10"
+    system python3, "bootstrap.py"
+    system python3, "waf", "configure", *args
+    system python3, "waf", "install"
   end
 
   test do
