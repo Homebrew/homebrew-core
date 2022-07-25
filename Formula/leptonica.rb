@@ -4,6 +4,7 @@ class Leptonica < Formula
   url "http://www.leptonica.org/source/leptonica-1.82.0.tar.gz"
   sha256 "155302ee914668c27b6fe3ca9ff2da63b245f6d62f3061c8f27563774b8ae2d6"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "http://www.leptonica.org/download.html"
@@ -22,21 +23,16 @@ class Leptonica < Formula
 
   depends_on "pkg-config" => :build
   depends_on "giflib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openjpeg"
   depends_on "webp"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --with-libwebp
-      --with-libopenjpeg
-    ]
-
-    system "./configure", *args
+    system "./configure", *std_configure_args,
+                          "--with-libwebp",
+                          "--with-libopenjpeg"
     system "make", "install"
   end
 
