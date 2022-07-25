@@ -4,7 +4,7 @@ class Jasper < Formula
   url "https://github.com/jasper-software/jasper/releases/download/version-3.0.6/jasper-3.0.6.tar.gz"
   sha256 "169be004d91f6940c649a4f854ada2755d4f35f62b0555ce9e1219c778cffc09"
   license "JasPer-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -21,7 +21,7 @@ class Jasper < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
 
   def install
     mkdir "tmp_cmake" do
