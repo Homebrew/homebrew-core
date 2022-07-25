@@ -5,6 +5,7 @@ class Libtiff < Formula
   mirror "https://fossies.org/linux/misc/tiff-4.4.0.tar.gz"
   sha256 "917223b37538959aca3b790d2d73aa6e626b688e02dcda272aec24c2f498abed"
   license "libtiff"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/libtiff/"
@@ -20,7 +21,7 @@ class Libtiff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa756f41864cae38e3c74b29b857f7c2f081a3b9eabd1c551cd6e39e12fd17bf"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
 
   uses_from_macos "zlib"
 
@@ -31,8 +32,8 @@ class Libtiff < Formula
       --disable-lzma
       --disable-webp
       --disable-zstd
-      --with-jpeg-include-dir=#{Formula["jpeg"].opt_include}
-      --with-jpeg-lib-dir=#{Formula["jpeg"].opt_lib}
+      --with-jpeg-include-dir=#{Formula["jpeg-turbo"].opt_include}
+      --with-jpeg-lib-dir=#{Formula["jpeg-turbo"].opt_lib}
       --without-x
     ]
     system "./configure", *args
