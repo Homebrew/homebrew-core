@@ -28,6 +28,9 @@ class Elinks < Formula
     depends_on "libtool" => :build
   end
 
+  # Warning: No elinks releases in the last 10 years, recommend using the actively maintained felinks instead
+  deprecate! date: "2022-07-25", because: "No releases since 2012; consider using the maintained felinks instead"
+
   depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
