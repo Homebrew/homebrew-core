@@ -36,8 +36,8 @@ class Netcdf < Formula
   resource "fortran" do
     # Source tarball at official domains are missing some configuration files
     # Switch back at version bump
-    url "https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz"
-    sha256 "c6da30c2fe7e4e614c1dff4124e857afbd45355c6798353eccfa60c0702b495a"
+    url "https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.4.tar.gz"
+    sha256 "1a8613cb639e83e2df5a8e6c21fa48a0c64b053c244abddecec66cfcac03a48a"
   end
 
   def install
