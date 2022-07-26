@@ -6,6 +6,7 @@ class Pike < Formula
   # Homepage has an expired SSL cert as of 16/12/2020, so we add a Debian mirror
   sha256 "1033bc90621896ef6145df448b48fdfa342dbdf01b48fd9ae8acf64f6a31b92a"
   license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "MPL-1.1"]
+  revision 1
 
   livecheck do
     url "https://pike.lysator.liu.se/download/pub/pike/latest-stable/"
@@ -21,19 +22,18 @@ class Pike < Formula
     sha256 x86_64_linux:   "d1b09df6210744180a51992d93ba0d4344fea5fff256b6434486f909f0457a94"
   end
 
+  depends_on "gettext"
   depends_on "gmp"
+  depends_on "jpeg-turbo"
   depends_on "libtiff"
   depends_on "nettle"
   depends_on "pcre"
+  depends_on "webp"
 
   uses_from_macos "libxcrypt"
 
   on_macos do
     depends_on "gnu-sed" => :build
-  end
-
-  on_linux do
-    depends_on "jpeg"
   end
 
   def install
