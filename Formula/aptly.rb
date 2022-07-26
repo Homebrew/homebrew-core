@@ -18,16 +18,11 @@ class Aptly < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    ENV["GOBIN"] = bin
-    (buildpath/"src/github.com/aptly-dev/aptly").install buildpath.children
-    cd "src/github.com/aptly-dev/aptly" do
-      system "make", "VERSION=#{version}", "install"
-      prefix.install_metafiles
-      bash_completion.install "completion.d/aptly"
-      zsh_completion.install "completion.d/_aptly"
-    end
+    system "go", "generate" if build.head?
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+
+    bash_completion.install "completion.d/aptly"
+    zsh_completion.install "completion.d/_aptly"
   end
 
   test do
