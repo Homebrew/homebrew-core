@@ -4,6 +4,7 @@ class Gammaray < Formula
   url "https://github.com/KDAB/GammaRay/releases/download/v2.11.3/gammaray-2.11.3.tar.gz"
   sha256 "03d7ca7bd5eb600c9c389d0cf071960330592f1f392a783b7fec5f9eaa5df586"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/KDAB/GammaRay.git", branch: "master"
 
   bottle do
@@ -32,7 +33,8 @@ class Gammaray < Formula
 
     system "cmake", *std_cmake_args,
                     "-DCMAKE_DISABLE_FIND_PACKAGE_Graphviz=ON",
-                    "-DCMAKE_DISABLE_FIND_PACKAGE_VTK=OFF"
+                    "-DCMAKE_DISABLE_FIND_PACKAGE_VTK=OFF",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "make", "install"
   end
 
