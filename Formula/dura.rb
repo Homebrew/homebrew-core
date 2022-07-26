@@ -27,6 +27,14 @@ class Dura < Formula
     system "cargo", "install", *std_cargo_args
   end
 
+  service do
+    run [opt_bin/"dura", "serve"]
+    keep_alive true
+    error_log_path var/"log/dura.stderr.log"
+    log_path var/"log/dura.log.json"
+    working_dir var
+  end
+
   test do
     system "git", "init"
     touch "foo"
