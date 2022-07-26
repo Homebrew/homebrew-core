@@ -29,6 +29,7 @@ class Mgba < Formula
   depends_on "libzip"
   depends_on "qt@5"
   depends_on "sdl2"
+  depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
 
   on_linux do
     depends_on "gcc"
