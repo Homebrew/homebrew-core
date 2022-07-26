@@ -3,8 +3,8 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/28/34/033b06028ed94c93955e0dde6a81377ca5f68a75bcff6aae19a900cb55e7/pip_audit-2.4.2.tar.gz"
-  sha256 "b662085ac41ca2340c12c303d421d822ac313b8e3edac359894ff6338cb1f296"
+  url "https://files.pythonhosted.org/packages/30/66/bbd4286034e4d5b93a8c8abe9766b541e343f92805d2c57ad43212a40ba2/pip_audit-2.4.3.tar.gz"
+  sha256 "5fecbeb85e64f87ad519736fae3b572797502e069c007899a2b90e48ca6c2c01"
   license "Apache-2.0"
 
   bottle do
@@ -40,8 +40,8 @@ class PipAudit < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/d0/fb/6b7717b0bcdf53b4177c2c2db4cd2beceb24f2c9f3648d375d57f608def0/cyclonedx-python-lib-2.6.0.tar.gz"
-    sha256 "8235aad70efc0f84cdf154b8c28802b605ee8133cd5c9a247d834bdb8b6c827a"
+    url "https://files.pythonhosted.org/packages/ca/de/e4d6daddd1e9cd5154320f0b63d7df576e226baa8bffcadb59840a899b66/cyclonedx-python-lib-2.7.0.tar.gz"
+    sha256 "d7ac73c2028f35ee2667ff1f1f9b98ecc6704f140ccecd53d78fe82968124ded"
   end
 
   resource "html5lib" do
@@ -120,8 +120,8 @@ class PipAudit < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
-    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
+    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
+    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
   end
 
   resource "webencodings" do
