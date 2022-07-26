@@ -4,6 +4,7 @@ class Chafa < Formula
   url "https://hpjansson.org/chafa/releases/chafa-1.12.3.tar.xz"
   sha256 "2456a0b6c1150e25b64cd6a92810d59bed3f061f8b86f91aba5a77bc7cc76cfa"
   license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://hpjansson.org/chafa/releases/?C=M&O=D"
@@ -20,17 +21,17 @@ class Chafa < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "freetype"
   depends_on "glib"
-  depends_on "imagemagick"
-
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5" # imagemagick is built with GCC
+  depends_on "jpeg-turbo"
+  depends_on "librsvg"
+  depends_on "libtiff"
+  depends_on "webp"
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--without-imagemagick" # deprecated in 1.12.0 and planned for removal
     system "make", "install"
     man1.install "docs/chafa.1"
   end
@@ -38,5 +39,7 @@ class Chafa < Formula
   test do
     output = shell_output("#{bin}/chafa #{test_fixtures("test.png")}")
     assert_equal 2, output.lines.count
+    output = shell_output("#{bin}/chafa --version")
+    assert_match(/Loaders:.* JPEG.* SVG.* TIFF.* WebP/, output)
   end
 end
