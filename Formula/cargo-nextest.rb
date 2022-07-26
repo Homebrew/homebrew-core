@@ -17,6 +17,10 @@ class CargoNextest < Formula
   depends_on "rust" # uses `cargo` at runtime
 
   def install
+    # Fix a performance regression. This can be removed once Rust 1.64 is stable.
+    # See https://github.com/nextest-rs/nextest/releases/tag/cargo-nextest-0.9.30
+    ENV["RUSTC_BOOTSTRAP"] = "1"
+    ENV["RUSTFLAGS"] = "--cfg process_group --cfg process_group_bootstrap_hack"
     system "cargo", "install", "--no-default-features", "--features", "default-no-update",
                     *std_cargo_args(path: "cargo-nextest")
   end
