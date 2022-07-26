@@ -1,14 +1,9 @@
 class Spandsp < Formula
   desc "DSP functions library for telephony"
-  homepage "https://www.soft-switch.org/"
-  url "https://www.soft-switch.org/downloads/spandsp/spandsp-0.0.6.tar.gz"
+  homepage "https://web.archive.org/web/20220504064130/https://www.soft-switch.org/"
+  url "https://web.archive.org/web/20220329161120/https://www.soft-switch.org/downloads/spandsp/spandsp-0.0.6.tar.gz"
   sha256 "cc053ac67e8ac4bb992f258fd94f275a7872df959f6a87763965feabfdcc9465"
-  revision 1
-
-  livecheck do
-    url "https://www.soft-switch.org/downloads/spandsp/?C=M&O=D"
-    regex(/href=.*?spandsp[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "126dae630e017d020ecdb42a862a1d25cf4cf0d45a9b8572a952939ab19a9a77"
@@ -33,10 +28,7 @@ class Spandsp < Formula
 
   def install
     ENV.deparallelize
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
   end
