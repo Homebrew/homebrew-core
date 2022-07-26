@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/0e/18/625fce2feb5512ec48733d4e44274a8337197516f77388df9dbbf1d3c8e4/checkov-2.1.60.tar.gz"
-  sha256 "b0abbb0333e79a91990508553b0551e6362eaf9935c9bd109c0e6d4c2ed0414e"
+  url "https://files.pythonhosted.org/packages/f7/ec/74fdca059d30f6fe6f90496b9c8f87d892e6280f7bd631f28bca68c53d61/checkov-2.1.75.tar.gz"
+  sha256 "a3c3574c68b538546189a24ba2814be2e6800b93068a3534e818cab365505fb9"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f2/ab/460c69e3841c3938b931d5ae9fb77c6cb2cc7e9fb48518eaefa61e3f489e/boto3-1.24.32.tar.gz"
-    sha256 "021f2a71cbcd75c87724b7dfbf28a691f07899345047f6bc999ef646d97461df"
+    url "https://files.pythonhosted.org/packages/40/36/41f4a54070314d899cef60a0c43e69a10929d68642bf2f1ae7c28017cddd/boto3-1.24.37.tar.gz"
+    sha256 "c5f0b44a77d01d6f714f91f181b1e0819fed9b99423234cd4c2cce6704e915b3"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/c7/12/6173d76603ea6a1d4413ee2588e36d8aa97a59dc734311243dc9782157a9/botocore-1.27.32.tar.gz"
-    sha256 "d510a1d1956a18b6fa4b74b1b5dfbe8a7ca83f5ca4f59c43c368e143425f3725"
+    url "https://files.pythonhosted.org/packages/b6/f2/e3f57019830a6a85109c7842babf930bfad80fa4978dce915c9bc1e8c725/botocore-1.27.37.tar.gz"
+    sha256 "c73988eff91897fe840ae6a9b459705e3086bc7f62f37a12999a7f4564002f63"
   end
 
   resource "cached-property" do
@@ -132,8 +132,8 @@ class Checkov < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/d0/fb/6b7717b0bcdf53b4177c2c2db4cd2beceb24f2c9f3648d375d57f608def0/cyclonedx-python-lib-2.6.0.tar.gz"
-    sha256 "8235aad70efc0f84cdf154b8c28802b605ee8133cd5c9a247d834bdb8b6c827a"
+    url "https://files.pythonhosted.org/packages/ca/de/e4d6daddd1e9cd5154320f0b63d7df576e226baa8bffcadb59840a899b66/cyclonedx-python-lib-2.7.0.tar.gz"
+    sha256 "d7ac73c2028f35ee2667ff1f1f9b98ecc6704f140ccecd53d78fe82968124ded"
   end
 
   resource "decorator" do
@@ -147,8 +147,8 @@ class Checkov < Formula
   end
 
   resource "detect-secrets" do
-    url "https://files.pythonhosted.org/packages/cd/b6/08bc0bf3cf2cf0d7b08442d4d2bcf2d94144db7e22f0d4aa5621789c0e15/detect_secrets-1.2.0.tar.gz"
-    sha256 "c160e897b3d0e81bf9cf0f6cc2e5e6434fa609a159f9a2849fcae0a08b4e2a30"
+    url "https://files.pythonhosted.org/packages/c2/c0/c0eff47622486753163a482abe9b96f83e613b49913e62a54f371db9b1aa/detect_secrets-1.3.0.tar.gz"
+    sha256 "a93ef7d141f48a3a6531bc6d4ccf6d022d23bc10afd1e100a91ca9d2c25abb90"
   end
 
   resource "docker" do
@@ -252,8 +252,8 @@ class Checkov < Formula
   end
 
   resource "policy-sentry" do
-    url "https://files.pythonhosted.org/packages/69/08/19f2f761da39b93ab6bb736cc6c05cce64448afac0d14c5d6391e6022769/policy_sentry-0.12.3.tar.gz"
-    sha256 "75137fc7e1311bc24836855dce7caa40548f3f81a72045bb6731d55f48de644a"
+    url "https://files.pythonhosted.org/packages/76/c0/a6f51378a651ba9c48f1e6bb2dc996616be668d4bbbe8a2731d9b818444d/policy_sentry-0.12.4.tar.gz"
+    sha256 "1f0a96a070933cf90510c76823cadfa8852c9d6b95a2dbf53b96acfb4b49ed80"
   end
 
   resource "policyuniverse" do
@@ -302,8 +302,8 @@ class Checkov < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/52/b1/48941b5df2d73a14e067e68d9055544effc515c8242741fd7c1dd2d72101/regex-2022.7.9.tar.gz"
-    sha256 "601c99ac775b6c89699a48976f3dbb000b47d3ca59362c8abc9582e6d0780d91"
+    url "https://files.pythonhosted.org/packages/c6/5a/e266ef579433b9cbd3e704032bb3ffa66b89ff3f0b0874a8cbaa4d451427/regex-2022.7.25.tar.gz"
+    sha256 "bd0883e86964cd61360ffc36dbebbc49b928e92a306f886eab02c11dfde5b7aa"
   end
 
   resource "requests" do
@@ -367,8 +367,8 @@ class Checkov < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
-    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
+    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
+    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
   end
 
   resource "wcwidth" do
