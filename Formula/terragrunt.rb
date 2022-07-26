@@ -29,6 +29,6 @@ class Terragrunt < Formula
     # Generate an empty plan just to ensure Terraform works
     touch "#{testpath}/terragrunt.hcl"
     touch "#{testpath}/main.tf"
-    system "#{bin}/terragrunt plan"
+    assert_match "Terraform has been successfully initialized!", Utils.safe_popen_read(bin/"terragrunt", "plan")
   end
 end
