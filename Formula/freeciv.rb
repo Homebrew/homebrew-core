@@ -43,6 +43,7 @@ class Freeciv < Formula
   depends_on "readline"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
+  depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
