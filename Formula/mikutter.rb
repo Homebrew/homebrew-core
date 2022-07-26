@@ -1,7 +1,7 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter-4.1.1.tar.gz"
+  url "https://mikutter.hachune.net/bin/mikutter-4.1.1.tar.gz", using: :homebrew_curl
   sha256 "4cce3a4770a0d9a2691d21e3379fe616797e583a47273d69d1ec44f48b98836d"
   license "MIT"
   revision 2
@@ -25,8 +25,7 @@ class Mikutter < Formula
   depends_on "gtk+"
   depends_on "libidn"
   depends_on "ruby@2.7"
-
-  uses_from_macos "xz"
+  depends_on "xz" # try to change to uses_from_macos after python is not a dependency
 
   on_macos do
     depends_on "terminal-notifier"
@@ -221,6 +220,8 @@ class Mikutter < Formula
     end
 
     gemfile_remove_test!
+    system "bundle", "config",
+           "build.nokogiri", "--use-system-libraries"
     system "bundle", "install",
            "--local", "--path=#{lib}/mikutter/vendor"
 
