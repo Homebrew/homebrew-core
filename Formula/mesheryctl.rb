@@ -24,10 +24,32 @@ class Mesheryctl < Formula
   end
 
   test do
-    # We need 'yes' here because mesheryctl needs a meshconfig file to display version
-    # of the server along with the cli. Since it doesn't exist yet it shows a prompt if the user
-    # wants to create a default config file.
-    assert_match version.to_s, shell_output("yes | #{bin}/mesheryctl version 2>&1")
+    (testpath/".meshery/config.yaml").write <<~EOS
+      contexts:
+        local:
+            endpoint: http://localhost:9081
+            token: Default
+            platform: kubernetes
+            components:
+                - meshery-app-mesh
+                - meshery-istio
+                - meshery-linkerd
+                - meshery-consul
+                - meshery-nsm
+                - meshery-kuma
+                - meshery-osm
+                - meshery-traefik-mesh
+                - meshery-nginx-sm
+                - meshery-cilium
+            channel: stable
+            version: latest
+      current-context: local
+      tokens:
+          - name: Default
+            location: auth.json
+    EOS
+
+    assert_match version.to_s, shell_output("#{bin}/mesheryctl version 2>&1")
     assert_match "Channel: stable", shell_output("#{bin}/mesheryctl system channel view 2>&1")
 
     # Test existence of main commands
