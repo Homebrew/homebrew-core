@@ -46,6 +46,7 @@ class FfmpegAT28 < Formula
   depends_on "x264"
   depends_on "x265"
   depends_on "xvid"
+  depends_on "xz" # try to change to uses_from_macos after python is not a dependency
 
   def install
     args = %W[
