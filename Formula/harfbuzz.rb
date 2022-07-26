@@ -16,12 +16,14 @@ class Harfbuzz < Formula
   end
 
   depends_on "glib-utils" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "python@3.10" => [:build, :test]
+  depends_on "pygobject3" => :test
   depends_on "cairo"
   depends_on "freetype"
   depends_on "glib"
-  depends_on "gobject-introspection"
   depends_on "graphite2"
   depends_on "icu4c"
 
@@ -43,11 +45,9 @@ class Harfbuzz < Formula
       -Dintrospection=enabled
     ]
 
-    mkdir "build" do
-      system "meson", *std_meson_args, *args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args, *args
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -55,5 +55,6 @@ class Harfbuzz < Formula
       shape = `echo 'സ്റ്റ്' | #{bin}/hb-shape 270b89df543a7e48e206a2d830c0e10e5265c630.ttf`.chomp
       assert_equal "[glyph201=0+1183|U0D4D=0+0]", shape
     end
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "from gi.repository import HarfBuzz"
   end
 end
