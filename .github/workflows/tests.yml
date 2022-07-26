@@ -21,7 +21,6 @@ permissions:
 
 jobs:
   tap_syntax:
-    if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/homebrew/ubuntu16.04:master
@@ -45,7 +44,7 @@ jobs:
   setup_tests:
     permissions:
       pull-requests: read  
-    if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     needs: tap_syntax
     outputs:
