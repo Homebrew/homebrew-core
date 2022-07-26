@@ -40,11 +40,11 @@ class Ntopng < Formula
   depends_on "mysql-client"
   depends_on "redis"
   depends_on "rrdtool"
+  depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
   depends_on "zeromq"
 
   uses_from_macos "curl"
   uses_from_macos "libpcap"
-  uses_from_macos "sqlite"
 
   on_linux do
     depends_on "gcc"
