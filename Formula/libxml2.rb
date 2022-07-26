@@ -93,11 +93,9 @@ class Libxml2 < Formula
       inreplace "setup.py", "includes_dir = [",
                             "includes_dir = [#{includes}"
 
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
-
-      site_packages_310 = Language::Python.site_packages(Formula["python@3.10"].opt_bin/"python3")
-      system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(prefix),
-                                                       "--install-lib=#{prefix/site_packages_310}"
+      ["3.9", "3.10"].each do |xy|
+        system "python#{xy}", *Language::Python.setup_install_args(prefix, "python#{xy}")
+      end
     end
   end
 
