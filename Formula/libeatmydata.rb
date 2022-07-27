@@ -10,6 +10,7 @@ class Libeatmydata < Formula
   depends_on "autoconf-archive" => :build
   depends_on "automake"         => :build
   depends_on "libtool"          => :build
+  depends_on "coreutils"        => :test
 
   on_linux do
     depends_on "strace" => :test
@@ -24,6 +25,7 @@ class Libeatmydata < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
     system "#{bin}/eatmydata", "sync"
     if OS.linux?
       test_match = "grep -E '(^[a-z]*sync|O_SYNC| exited with 0 )'|wc -l"
