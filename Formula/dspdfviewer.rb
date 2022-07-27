@@ -4,7 +4,7 @@ class Dspdfviewer < Formula
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   license "GPL-2.0-or-later"
-  revision 13
+  revision 14
   head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
   bottle do
@@ -25,7 +25,7 @@ class Dspdfviewer < Formula
   depends_on "freetype"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openjpeg"
@@ -39,13 +39,12 @@ class Dspdfviewer < Formula
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DRunDualScreenTests=OFF",
-                            "-DUsePrerenderedPDF=ON",
-                            "-DUseQtFive=ON"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DRunDualScreenTests=OFF",
+                    "-DUsePrerenderedPDF=ON",
+                    "-DUseQtFive=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
