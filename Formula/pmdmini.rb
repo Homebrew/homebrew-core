@@ -1,10 +1,9 @@
 class Pmdmini < Formula
   desc "Plays music in PC-88/98 PMD chiptune format"
   homepage "https://github.com/mistydemeo/pmdmini"
-  url "https://github.com/mistydemeo/pmdmini/archive/v1.0.1.tar.gz"
-  sha256 "5c866121d58fbea55d9ffc28ec7d48dba916c8e1bed1574453656ef92ee5cea9"
-  license "GPL-2.0"
-  revision 1
+  url "https://github.com/mistydemeo/pmdmini/archive/v2.0.0.tar.gz"
+  sha256 "e3288dcf356e83ef4ad48cde44fcb703ca9ce478b9fcac1b44bd9d2d84bf2ba3"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "1bdf417d67bfd4312694a9c5e8cdc70d1ed9c749d39a7082ac92fff2210c8fec"
@@ -14,7 +13,7 @@ class Pmdmini < Formula
     sha256 cellar: :any, catalina:       "422add6136c6829f5ba656e0a052dd2c03f118c665a3fc3bb74a3e4091d8f2e5"
   end
 
-  depends_on "sdl12-compat"
+  depends_on "sdl2"
 
   resource "test_song" do
     url "https://ftp.modland.com/pub/modules/PMD/Shiori%20Ueno/His%20Name%20Is%20Diamond/dd06.m"
@@ -22,11 +21,9 @@ class Pmdmini < Formula
   end
 
   def install
-    # Specify Homebrew's cc
-    inreplace "mak/general.mak", "gcc", ENV.cxx
     # Add -fPIC on Linux
     inreplace "mak/general.mak", "CFLAGS = -O2", "CFLAGS = -fPIC -O2" unless OS.mac?
-    system "make"
+    system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}", "LD=#{ENV.cxx}"
 
     # Makefile doesn't build a dylib
     flags = if OS.mac?
@@ -41,8 +38,8 @@ class Pmdmini < Formula
 
     bin.install "pmdplay"
     lib.install "libpmdmini.a", shared_library("libpmdmini")
-    (include+"libpmdmini").install Dir["src/*.h"]
-    (include+"libpmdmini/pmdwin").install Dir["src/pmdwin/*.h"]
+    (include/"libpmdmini").install Dir["src/*.h"]
+    (include/"libpmdmini/pmdwin").install Dir["src/pmdwin/*.h"]
   end
 
   test do
