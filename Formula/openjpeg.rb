@@ -22,8 +22,11 @@ class Openjpeg < Formula
   depends_on "little-cms2"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_DOC=ON"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DBUILD_DOC=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
