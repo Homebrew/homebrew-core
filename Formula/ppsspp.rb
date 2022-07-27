@@ -23,8 +23,10 @@ class Ppsspp < Formula
   depends_on "python@3.10" => :build
   depends_on "libpng"
   depends_on "libzip"
+  depends_on "miniupnpc"
   depends_on "sdl2"
   depends_on "snappy"
+  depends_on "zstd"
 
   uses_from_macos "zlib"
 
@@ -52,13 +54,18 @@ class Ppsspp < Formula
     end
 
     # Replace bundled MoltenVK dylib with symlink to Homebrew-managed dylib
-    rm "MoltenVK/macOS/Frameworks/libMoltenVK.dylib"
-    (buildpath/"MoltenVK/macOS/Frameworks").install_symlink Formula["molten-vk"].opt_lib/"libMoltenVK.dylib"
+    vulkan_frameworks = buildpath/"ext/vulkan/macOS/Frameworks"
+    (vulkan_frameworks/"libMoltenVK.dylib").unlink
+    vulkan_frameworks.install_symlink Formula["molten-vk"].opt_lib/"libMoltenVK.dylib"
 
     mkdir "build" do
       args = std_cmake_args + %w[
         -DUSE_SYSTEM_LIBZIP=ON
         -DUSE_SYSTEM_SNAPPY=ON
+        -DUSE_SYSTEM_LIBSDL2=ON
+        -DUSE_SYSTEM_LIBPNG=ON
+        -DUSE_SYSTEM_ZSTD=ON
+        -DUSE_SYSTEM_MINIUPNPC=ON
       ]
 
       system "cmake", "..", *args
