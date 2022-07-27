@@ -3,8 +3,8 @@ class Doc8 < Formula
 
   desc "Style checker for Sphinx documentation"
   homepage "https://github.com/PyCQA/doc8"
-  url "https://files.pythonhosted.org/packages/e0/38/af1889fbcfae4b66eb936f0f43ceaa315b19b8d4ae1123e1bcab0d9d0738/doc8-0.11.2.tar.gz"
-  sha256 "c35a231f88f15c204659154ed3d499fa4d402d7e63d41cba7b54cf5e646123ab"
+  url "https://files.pythonhosted.org/packages/75/8b/6df640e943a1334bebaf96e0017911763d882748e8b8fd748f109c8c3279/doc8-1.0.0.tar.gz"
+  sha256 "1e999a14fe415ea96d89d5053c790d01061f19b6737706b817d1579c2a07cc16"
   license "Apache-2.0"
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
@@ -20,8 +20,8 @@ class Doc8 < Formula
   depends_on "python@3.10"
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/57/b1/b880503681ea1b64df05106fc7e3c4e3801736cf63deffc6fa7fc5404cf5/docutils-0.18.1.tar.gz"
-    sha256 "679987caf361a7539d76e584cbeddc311e3aee937877c87346f31debc63e9d06"
+    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
+    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "pbr" do
@@ -40,8 +40,13 @@ class Doc8 < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/67/73/cd693fde78c3b2397d49ad2c6cdb082eb0b6a606188876d61f53bae16293/stevedore-3.5.0.tar.gz"
-    sha256 "f40253887d8712eaa2bb0ea3830374416736dc8ec0e22f5a65092c1174c44335"
+    url "https://files.pythonhosted.org/packages/f5/70/7953626fd19faa7a0852779c1949650e825f650ee6060f68658a84584c26/stevedore-4.0.0.tar.gz"
+    sha256 "f82cc99a1ff552310d19c379827c2c64dd9f85a38bcd5559db2470161867b786"
+  end
+
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   def install
