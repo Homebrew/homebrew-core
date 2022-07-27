@@ -40,6 +40,13 @@ class Netcdf < Formula
     sha256 "1a8613cb639e83e2df5a8e6c21fa48a0c64b053c244abddecec66cfcac03a48a"
   end
 
+  ## Patch for JSON collision
+  ## Remove when release includes https://github.com/Unidata/netcdf-c/pull/2448
+  patch do
+    url "https://github.com/Unidata/netcdf-c/commit/0de3062048f006079b6ce7fd2bf2b40dc1d634bd.patch?full_index=1"
+    sha256 "94ab335368b739764250f30c3f2465aebbc48201db061a3e220c8a6a19f30fc6"
+  end
+
   def install
     ENV.deparallelize
 
