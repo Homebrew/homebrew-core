@@ -4,6 +4,7 @@ class Nu < Formula
   url "https://github.com/programming-nu/nu/archive/v2.3.0.tar.gz"
   sha256 "1a6839c1f45aff10797dd4ce5498edaf2f04c415b3c28cd06a7e0697d6133342"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 monterey:     "bceb7b3b986c2b6861645b7044dae295ee1d0cdeefe1af8990accff06bbac370"
