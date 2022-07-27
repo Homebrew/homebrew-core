@@ -4,6 +4,7 @@ class PopplerQt5 < Formula
   url "https://poppler.freedesktop.org/poppler-22.06.0.tar.xz"
   sha256 "a0f9aaa3918bad781039fc307a635652a14d1b391cd559b66edec4bedba3c5d7"
   license "GPL-2.0-only"
+  revision 1
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
   livecheck do
@@ -23,6 +24,7 @@ class PopplerQt5 < Formula
   keg_only "it conflicts with poppler"
 
   depends_on "cmake" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
@@ -30,7 +32,7 @@ class PopplerQt5 < Formula
   depends_on "freetype"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
