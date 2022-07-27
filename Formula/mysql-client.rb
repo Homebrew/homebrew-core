@@ -27,10 +27,10 @@ class MysqlClient < Formula
   # GCC is not supported either, so exclude for El Capitan.
   depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
   depends_on "openssl@1.1"
+  depends_on "zlib" # Zlib 1.2.12+
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "gcc"
