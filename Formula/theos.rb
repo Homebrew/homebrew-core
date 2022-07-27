@@ -18,11 +18,13 @@ class Theos < Formula
   depends_on :xcode
   depends_on "xz"
 
-  skip_clean "lib"
+  skip_clean "include", "lib"
 
   def install
+    rm_rf [Dir["bin/*update*"], "include/.keep", "lib/.keep", "sdks"]
     prefix.install Dir["*"]
-    rm_rf lib/".keep"
+    mkdir pkgetc/"sdks"
+    prefix.install_symlink pkgetc/"sdks"
   end
 
   def caveats
@@ -31,7 +33,7 @@ class Theos < Formula
         export THEOS="#{opt_prefix}"
 
       And you must download and place Theos patched SDKs in this folder:
-        #{opt_prefix}/sdks
+        #{pkgetc}/sdks
     EOS
   end
 
