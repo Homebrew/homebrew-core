@@ -15,6 +15,7 @@ class Gexiv2 < Formula
     sha256               x86_64_linux:   "3d95b43c323ebc976f94527574ee81bbe061e632cd37789e0c9a64009d3fd3df"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
