@@ -21,6 +21,20 @@ class Direnv < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
+  def caveats
+    <<~EOS
+      The last step is to configure your shell to use it. For example for bash, add the following lines at the end of your ~/.bashrc:
+
+        eval "\$(direnv hook bash)"
+
+      Then restart the shell.
+      For other shells, see https://direnv.net/docs/hook.html
+
+      Thanks!
+
+    EOS
+  end
+
   test do
     system bin/"direnv", "status"
   end
