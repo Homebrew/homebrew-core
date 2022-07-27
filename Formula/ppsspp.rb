@@ -20,7 +20,6 @@ class Ppsspp < Formula
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
-  depends_on "libpng"
   depends_on "libzip"
   depends_on "miniupnpc"
   depends_on "sdl2"
@@ -35,6 +34,12 @@ class Ppsspp < Formula
 
   on_linux do
     depends_on "glew"
+  end
+
+  on_intel do
+    # ARM uses a bundled, unreleased libpng.
+    # Make unconditional when we have libpng 1.7.
+    depends_on "libpng"
   end
 
   def install
