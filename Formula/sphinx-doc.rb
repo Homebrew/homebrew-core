@@ -3,8 +3,8 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/b6/3e/cb066e5cb76302f73a20e302b40e6fd5aea9462ce520581165348c008913/Sphinx-5.1.0.tar.gz"
-  sha256 "7893d10d9d852c16673f9b1b7e9eda1606b420b7810270294d6e4b44c0accacc"
+  url "https://files.pythonhosted.org/packages/3a/30/ac07935542607c876f3fcee1c1ab043d253332567009994a1bf71d9b55cd/Sphinx-5.1.1.tar.gz"
+  sha256 "ba3224a4e206e1fbdecf98a4fae4992ef9b24b85ebf7b584bb340156eaf08d89"
   license "BSD-2-Clause"
 
   bottle do
@@ -134,8 +134,8 @@ class SphinxDoc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
-    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
+    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
+    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
   end
 
   def install
