@@ -17,7 +17,7 @@ class Libeatmydata < Formula
   end
 
   def install
-    system "autoreconf", "-vfi"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args,
                           "--disable-option-checking",
                           "--disable-silent-rules"
@@ -26,12 +26,12 @@ class Libeatmydata < Formula
 
   test do
     ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
-    system "#{bin}/eatmydata", "sync"
-    if OS.linux?
-      test_match = "grep -E '(^[a-z]*sync|O_SYNC| exited with 0 )'|wc -l"
-      # Verify via strace(1) that sync(1) just exits under eatmydata without sync(2) being called.
-      assert_match "1\n",
-        shell_output("#{bin}/eatmydata #{Formula["strace"].opt_bin}/strace sync 2>&1|#{test_match}")
-    end
+    system bin/"eatmydata", "sync"
+    return if OS.mac?
+
+    output = shell_output("#{bin}/eatmydata #{Formula["strace"].opt_bin}/strace sync 2>&1")
+    refute_match(/^[a-z]*sync/, output)
+    refute_match("O_SYNC", output)
+    assert_match(" exited with 0 ", output)
   end
 end
