@@ -38,6 +38,7 @@ class Dcmtk < Formula
   uses_from_macos "libxml2"
 
   def install
+    ENV.cxx11 if OS.linux? # due to `icu4c` dependency in `libxml2`
     system "cmake", "-S", ".", "-B", "build/shared", *std_cmake_args,
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}"
