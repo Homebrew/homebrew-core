@@ -1,8 +1,8 @@
 class Mdxmini < Formula
   desc "Plays music in X68000 MDX chiptune format"
   homepage "https://github.com/mistydemeo/mdxmini/"
-  url "https://github.com/mistydemeo/mdxmini/archive/v1.0.0.tar.gz"
-  sha256 "5a407203f35d873c3cd5977213b0c33a1ce283d6b14483e9d434de79b05ca4e2"
+  url "https://github.com/mistydemeo/mdxmini/archive/v2.0.0.tar.gz"
+  sha256 "9b623b365e893a769084f7a2effedc9ece453c6e3861c571ba503f045471a0e0"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -16,7 +16,7 @@ class Mdxmini < Formula
     sha256 cellar: :any, el_capitan:    "d20b94107c25833096401be6336544f283e6956758d4238e207e6a4e34fa5fdf"
   end
 
-  depends_on "sdl"
+  depends_on "sdl2"
 
   resource "test_song" do
     url "https://ftp.modland.com/pub/modules/MDX/-%20unknown/Popful%20Mail/pop-00.mdx"
@@ -24,9 +24,7 @@ class Mdxmini < Formula
   end
 
   def install
-    # Specify Homebrew's cc
-    inreplace "mak/general.mak", "gcc", ENV.cc
-    system "make"
+    system "make", "CC=#{ENV.cc}", "LD=#{ENV.cc}"
 
     # Makefile doesn't build a dylib
     system ENV.cc, "-dynamiclib", "-install_name", "#{lib}/libmdxmini.dylib",
@@ -53,7 +51,7 @@ class Mdxmini < Formula
           printf("%s\\n", title);
       }
     EOS
-    system ENV.cc, "mdxtest.c", "-L#{lib}", "-lmdxmini", "-o", "mdxtest"
+    system ENV.cc, "mdxtest.c", "-L#{lib}", "-L#{HOMEBREW_PREFIX}/lib", "-lmdxmini", "-lSDL2", "-o", "mdxtest"
 
     result = shell_output("#{testpath}/mdxtest #{testpath}/pop-00.mdx #{testpath}").chomp
     result.force_encoding("ascii-8bit") if result.respond_to? :force_encoding
