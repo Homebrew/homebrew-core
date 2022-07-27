@@ -11,8 +11,6 @@ class Theos < Formula
     version "2.6"
   end
 
-  keg_only "it interferes with the default directory for finding templates"
-
   depends_on "ldid"
   depends_on :macos
   depends_on :xcode
@@ -21,9 +19,13 @@ class Theos < Formula
   skip_clean "include", "lib"
 
   def install
+    inreplace "vendor/nic/bin/nic.pl", "\"vendor", "\"opt/#{name}/vendor"
+    inreplace "vendor/nic/bin/nic.pl", "\"templates", "\"opt/#{name}/templates"
+    inreplace "vendor/nic/bin/nic.pl", "\"mod", "\"opt/#{name}/mod"
     rm_rf [Dir["bin/*update*"], "include/.keep", "lib/.keep", "sdks"]
+
     prefix.install Dir["*"]
-    mkdir pkgetc/"sdks"
+    mkdir pkgetc/"sdks" unless (pkgetc/"sdks").exist?
     prefix.install_symlink pkgetc/"sdks"
   end
 
