@@ -30,6 +30,7 @@ class Pike < Formula
   depends_on "pcre"
   depends_on "webp"
 
+  uses_from_macos "krb5"
   uses_from_macos "libxcrypt"
 
   on_macos do
