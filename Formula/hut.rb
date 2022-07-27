@@ -15,13 +15,12 @@ class Hut < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "30c5343766e55c828b77d83a46faed7ee68881e21268005e0267ca00701372cc"
   end
 
-  depends_on "coreutils" => :build # Needed for GNU install in 0.1.0, remove in next release
   depends_on "go" => :build
   depends_on "scdoc" => :build
 
   def install
     system "make"
-    system "make", "install", "PREFIX=#{prefix}", "INSTALL=ginstall"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
