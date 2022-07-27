@@ -5,6 +5,7 @@ class Libpano < Formula
   version "13-2.9.21"
   sha256 "79e5a1452199305e2961462720ef5941152779c127c5b96fc340d2492e633590"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class Libpano < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 
@@ -30,11 +31,9 @@ class Libpano < Formula
   patch :DATA
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 end
 
