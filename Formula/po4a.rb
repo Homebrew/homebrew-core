@@ -8,6 +8,7 @@ class Po4a < Formula
   url "https://github.com/mquinson/po4a/releases/download/v0.67/po4a-0.67.tar.gz"
   sha256 "4a4166a480d9b5bcc80b688604501b5545f1c9f67067e8f5494846de167a18a7"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mquinson/po4a.git", branch: "master"
 
   bottle do
@@ -65,14 +66,35 @@ class Po4a < Formula
     sha256 "bc315fa12e8f1e3ee5e2f430d90b708a5dc7e47c867dba8dce3a6b8fbe257744"
   end
 
+  resource "ExtUtils::CChecker" do
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/ExtUtils-CChecker-0.11.tar.gz"
+    sha256 "117736677e37fc611f5b76374d7f952e1970eb80e1f6ad5150d516e7ae531bf5"
+  end
+
+  resource "XS::Parse::Keyword::Builder" do
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.25.tar.gz"
+    sha256 "f5edb30cf7c7f220d0c6c31dc1eb554032840a99c7c298314f5cc3fef66c72c7"
+  end
+
+  resource "Syntax::Keyword::Try" do
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Syntax-Keyword-Try-0.27.tar.gz"
+    sha256 "246e1b033e3ff22fd5420550d4b6e0d56b438cdcbb9d35cbe8b1b5ba1574de23"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
 
     resources.each do |r|
       r.stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
-        system "make", "install"
+        if File.exist?("Makefile.PL")
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
+          system "make", "install"
+        else
+          system "perl", "Build.PL", "--install_base", libexec
+          system "./Build"
+          system "./Build", "install"
+        end
       end
     end
 
@@ -97,6 +119,8 @@ class Po4a < Formula
   end
 
   test do
+    # LaTeX
+
     (testpath/"en.tex").write <<~EOS
       \\documentclass[a4paper]{article}
       \\begin{document}
@@ -104,7 +128,13 @@ class Po4a < Formula
       \\end{document}
     EOS
 
-    system bin/"po4a-gettextize", "-f", "asciidoc", "-m", "en.tex", "-p", "out.pot"
-    assert_match "Hello from Homebrew!", (testpath/"out.pot").read
+    system bin/"po4a-gettextize", "-f", "latex", "-m", "en.tex", "-p", "latex.pot"
+    assert_match "Hello from Homebrew!", (testpath/"latex.pot").read
+
+    # Markdown
+
+    (testpath/"en.md").write("Hello from Homebrew!")
+    system bin/"po4a-gettextize", "-f", "text", "-m", "en.md", "-p", "text.pot"
+    assert_match "Hello from Homebrew!", (testpath/"text.pot").read
   end
 end
