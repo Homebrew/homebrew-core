@@ -11,9 +11,6 @@ class Libeatmydata < Formula
   depends_on "automake"         => :build
   depends_on "libtool"          => :build
 
-  depends_on "coreutils" => :test
-  depends_on "grep"      => :test
-
   on_linux do
     depends_on "strace" => :test
   end
@@ -27,70 +24,12 @@ class Libeatmydata < Formula
   end
 
   test do
-    # 0 - PASS: Successful test
-    # 1 - FAIL: Result code missing
-    # 2 - FAIL: eatmydata command missing
-    # 3 - FAIL: sync command missing
-    # 4 - FAIL: Unable to export LD_PRELOAD
-    # 5 - FAIL: strace output missing
-    # 6 - FAIL: Library malfunction
-    # 7 - FAIL: Linux shared object missing
-    # 8 - FAIL: Missing macOS dynamic library
-    # 9 - FAIL: Unable to determine OS
-    (testpath/"test.sh").write <<~EOS
-      #!/usr/bin/env sh
-      set -xeu 2> "/dev/null" 2>&1
-      UNAME_S="$(
-        exec 2> "/dev/null"
-        uname -s |
-          tr '[:upper:]' '[:lower:]'
-      )" ||
-        exit 9
-      test -x "#{bin}/eatmydata" 2> "/dev/null" ||
-        exit 2
-      printf '%s\\n' "${UNAME_S:?}" |
-        grep -q "darwin" &&
-          {
-            # More in-depth macOS testing requires root privileges
-            command -v "sync" > "/dev/null" ||
-              exit 3
-            test -f "#{lib}/libeatmydata.dylib" 2> "/dev/null" ||
-              exit 8
-            rc=1
-            "#{bin}/eatmydata" "--" 2>&1 |
-              grep -q "^usage:.*eatmydata" &&
-                {
-                  "#{bin}/eatmydata" "sync"
-                  rc="${?}"
-                }
-            exit ${rc:-1}
-          } ||
-          {
-            LD_PRELOAD="#{lib}/libeatmydata.so"
-            test -f "${LD_PRELOAD:?}" 2> "/dev/null" ||
-              exit 7
-            export LD_PRELOAD ||
-              exit 4
-            "#{Formula["strace"].opt_bin}/strace" -o "${$:?}-test.result.run" "sync"
-            rc="${?}"
-          }
-      test "${rc:-1}" -ne 0 2> "/dev/null" &&
-        exit 1
-      test -f "${$:?}-test.result.run" 2> "/dev/null" ||
-        exit 5
-      set +e
-      grep -E '(^[a-z]*sync|O_SYNC)' "${$:?}-test.result.run"
-      rc="${?}"
-      set -e
-      rm -f "${$:?}-test.result.run" > "/dev/null" 2>&1 ||
-        true
-      test "${rc:-1}" -eq 1 2> "/dev/null" &&
-        exit 0
-      exit 6
-    EOS
-    chmod "+x", "#{testpath}/test.sh"
-    ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
-    ENV.prepend_path "PATH", Formula["grep"].opt_libexec/"gnubin"
-    system "#{testpath}/test.sh"
+    system "#{bin}/eatmydata", "sync"
+    if OS.linux?
+      test_match = "grep -E '(^[a-z]*sync|O_SYNC| exited with 0 )'|wc -l"
+      # Verify via strace(1) that sync(1) just exits under eatmydata without sync(2) being called.
+      assert_match "1\n",
+        shell_output("#{bin}/eatmydata #{Formula["strace"].opt_bin}/strace sync 2>&1|#{test_match}")
+    end
   end
 end
