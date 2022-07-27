@@ -19,9 +19,10 @@ class Theos < Formula
   skip_clean "include", "lib"
 
   def install
-    inreplace "vendor/nic/bin/nic.pl", "\"vendor", "\"opt/#{name}/vendor"
-    inreplace "vendor/nic/bin/nic.pl", "\"templates", "\"opt/#{name}/templates"
-    inreplace "vendor/nic/bin/nic.pl", "\"mod", "\"opt/#{name}/mod"
+    inreplace "vendor/nic/bin/nic.pl", "FindBin::Bin", "FindBin::RealBin"
+    inreplace "vendor/nic/bin/nic.pl", "\"vendor", "\"../../vendor"
+    inreplace "vendor/nic/bin/nic.pl", "\"templates", "\"../../templates"
+    inreplace "vendor/nic/bin/nic.pl", "\"mod", "\"../../mod"
     rm_rf [Dir["bin/*update*"], "include/.keep", "lib/.keep", "sdks"]
 
     prefix.install Dir["*"]
