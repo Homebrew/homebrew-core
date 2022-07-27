@@ -4,6 +4,7 @@ class ArgyllCms < Formula
   url "https://www.argyllcms.com/Argyll_V2.3.1_src.zip"
   sha256 "bd0bcf58cec284824b79ff55baa242903ed361e12b1b37e12228679f9754961c"
   license "AGPL-3.0-only"
+  revision 1
 
   livecheck do
     url "https://www.argyllcms.com/downloadsrc.html"
@@ -20,9 +21,12 @@ class ArgyllCms < Formula
   end
 
   depends_on "jam" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libx11"
@@ -42,18 +46,29 @@ class ArgyllCms < Formula
   end
 
   def install
-    # These two inreplaces make sure /opt/homebrew can be found by the
-    # Jamfile, which otherwise fails to locate system libraries
-    inreplace "Jamtop", "/usr/include/x86_64-linux-gnu$(subd)", "#{HOMEBREW_PREFIX}/include$(subd)"
-    inreplace "Jamtop", "/usr/lib/x86_64-linux-gnu", "#{HOMEBREW_PREFIX}/lib"
-    # These two inreplaces make sure the X11 headers can be found on Linux.
-    unless OS.mac?
-      inreplace "Jamtop", "/usr/X11R6/include", HOMEBREW_PREFIX/"include"
-      inreplace "Jamtop", "/usr/X11R6/lib", HOMEBREW_PREFIX/"lib"
+    # Remove bundled libraries to prevent fallback
+    %w[jpeg png tiff zlib].each { |l| (buildpath/l).rmtree }
+
+    prefixes = deps.map(&:to_formula).select(&:keg_only?).map(&:opt_prefix) + [HOMEBREW_PREFIX]
+    inreplace "Jamtop" do |s|
+      # These two inreplaces make sure all Homebrew libraries can be found by the Jamfile
+      s.gsub! %r{(\|\| \[ GLOB )/usr/local(/include\$\(subd\) :[^\]]*\])}, prefixes.map { |p| "\\1#{p}\\2" }.join(" ")
+      s.gsub! %r{(\|\| \[ GLOB )/usr/local(/lib : lib\$\(lcase\)\.a \])}, prefixes.map { |p| "\\1#{p}\\2" }.join(" ")
+      if OS.linux?
+        # These two inreplaces make sure the X11 headers can be found on Linux.
+        s.gsub! "/usr/X11R6/include", HOMEBREW_PREFIX/"include"
+        s.gsub! "/usr/X11R6/lib", HOMEBREW_PREFIX/"lib"
+      elsif (sdk = MacOS.sdk_path_if_needed)
+        # These two inreplaces make sure system zlib can be found on macOS.
+        s.gsub! "GLOB /usr/include$(subd) ", "GLOB #{sdk}/usr/include$(subd) "
+        s.gsub! "GLOB /usr/lib : lib$(lcase).so ", "GLOB #{sdk}/usr/lib : lib$(lcase).tbd "
+      end
     end
+
+    ENV["NUMBER_OF_PROCESSORS"] = ENV.make_jobs.to_s
     system "sh", "makeall.sh"
     system "./makeinstall.sh"
-    rm "bin/License.txt"
+    (buildpath/"bin/License.txt").unlink
     prefix.install "bin", "ref", "doc"
   end
 
