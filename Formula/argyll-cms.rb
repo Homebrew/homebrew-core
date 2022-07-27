@@ -22,9 +22,12 @@ class ArgyllCms < Formula
   end
 
   depends_on "jam" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "openssl@3"
+
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libx11"
@@ -44,15 +47,29 @@ class ArgyllCms < Formula
   end
 
   def install
-    # These two inreplaces make sure /opt/homebrew can be found by the
-    # Jamfile, which otherwise fails to locate system libraries
-    inreplace "Jamtop", "/usr/include/x86_64-linux-gnu$(subd)", "#{HOMEBREW_PREFIX}/include$(subd)"
-    inreplace "Jamtop", "/usr/lib/x86_64-linux-gnu", "#{HOMEBREW_PREFIX}/lib"
-    # These two inreplaces make sure the X11 headers can be found on Linux.
-    unless OS.mac?
-      inreplace "Jamtop", "/usr/X11R6/include", HOMEBREW_PREFIX/"include"
-      inreplace "Jamtop", "/usr/X11R6/lib", HOMEBREW_PREFIX/"lib"
+    # Remove bundled libraries to prevent fallback
+    %w[jpeg png tiff zlib].each { |l| (buildpath/l).rmtree }
+
+    inreplace "Jamtop" do |s|
+      openssl = Formula["openssl@3"]
+      libname = shared_library("lib$(lcase)")
+
+      # These two inreplaces make sure all Homebrew and SDK libraries can be found by the Jamfile
+      s.gsub! "[ GLOB /usr/include$(subd) : $(lcase).h $(lcase)lib.h ]",
+              "[ GLOB #{openssl.opt_include}$(subd) : $(lcase).h $(lcase)lib.h ] || " \
+              "[ GLOB #{HOMEBREW_PREFIX}/include$(subd) : $(lcase).h $(lcase)lib.h ] || " \
+              "[ GLOB #{MacOS.sdk_path_if_needed}/usr/include$(subd) : $(lcase).h $(lcase)lib.h ]"
+      s.gsub! "[ GLOB /usr/lib : lib$(lcase).so ]",
+              "[ GLOB #{openssl.opt_lib} : #{libname} ] || " \
+              "[ GLOB #{HOMEBREW_PREFIX}/lib : #{libname} ] || " \
+              "[ GLOB #{MacOS.sdk_path_if_needed}/usr/lib : #{libname} lib$(lcase).tbd ]"
+
+      # These two inreplaces make sure the X11 headers can be found on Linux.
+      s.gsub! "/usr/X11R6/include", HOMEBREW_PREFIX/"include"
+      s.gsub! "/usr/X11R6/lib", HOMEBREW_PREFIX/"lib"
     end
+
+    ENV["NUMBER_OF_PROCESSORS"] = ENV.make_jobs.to_s
     system "sh", "makeall.sh"
     system "./makeinstall.sh"
     rm "bin/License.txt"
