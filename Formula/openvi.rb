@@ -4,6 +4,7 @@ class Openvi < Formula
   url "https://github.com/johnsonjh/OpenVi/archive/refs/tags/7.1.18.tar.gz"
   sha256 "39c4ac933f52c65021be06fcece8bfd308fc1ac08e8ff4604b2fdd1994192d08"
   license "BSD-3-Clause"
+  head "https://github.com/johnsonjh/OpenVi.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "68a83e1767c703456c42fe3d38bf5a5cf08e622537256003ec8c9c7f44611955"
