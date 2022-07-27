@@ -4,6 +4,7 @@ class ImagemagickAT6 < Formula
   url "https://imagemagick.org/archive/releases/ImageMagick-6.9.12-59.tar.xz"
   sha256 "19f2a04f20d1ca3fe35cbf31c31ccac4ba7b99053c96901a9bb997efc8b4c6a0"
   license "ImageMagick"
+  revision 1
   head "https://github.com/imagemagick/imagemagick6.git", branch: "main"
 
   livecheck do
@@ -26,7 +27,7 @@ class ImagemagickAT6 < Formula
 
   depends_on "freetype"
   depends_on "ghostscript"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
