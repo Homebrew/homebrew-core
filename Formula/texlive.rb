@@ -8,6 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-source.tar.xz"
   sha256 "5ffa3485e51eb2c4490496450fc69b9d7bd7cb9e53357d92db4bcd4fd6179b56"
   license :public_domain
+  revision 1
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -53,7 +54,7 @@ class Texlive < Formula
   depends_on "libpng"
   depends_on "libxft"
   depends_on "lua"
-  depends_on "luajit-openresty"
+  depends_on "luajit"
   depends_on "mpfr"
   depends_on "openjdk"
   depends_on "openssl@1.1"
@@ -61,7 +62,7 @@ class Texlive < Formula
   depends_on "pixman"
   depends_on "potrace"
   depends_on "pstoedit"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "icu4c"
   uses_from_macos "ncurses"
