@@ -9,9 +9,7 @@ class Tlsx < Formula
   depends_on "go" => :build
 
   def install
-    cd "cmd/tlsx" do
-      system "go", "build", *std_go_args, "main.go"
-    end
+    system "go", "build", *std_go_args, "./cmd/tlsx/main.go"
   end
 
   test do
