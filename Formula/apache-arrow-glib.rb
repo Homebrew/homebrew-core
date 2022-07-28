@@ -20,6 +20,7 @@ class ApacheArrowGlib < Formula
     sha256               x86_64_linux:   "d049b74d0292bb4c61e40f353c4ca6e5a465e47e3a06d60a979eeccd355ca652"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
