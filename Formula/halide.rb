@@ -4,7 +4,8 @@ class Halide < Formula
   url "https://github.com/halide/Halide/archive/v14.0.0.tar.gz"
   sha256 "f9fc9765217cbd10e3a3e3883a60fc8f2dbbeaac634b45c789577a8a87999a01"
   license "MIT"
-  revision 1
+  revision 2
+  head "https://github.com/halide/Halide.git", branch: "main"
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class Halide < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "llvm"
   depends_on "python@3.10"
@@ -29,11 +30,11 @@ class Halide < Formula
   fails_with gcc: "5" # LLVM is built with Homebrew GCC
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DHalide_SHARED_LLVM=ON"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DHalide_SHARED_LLVM=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
