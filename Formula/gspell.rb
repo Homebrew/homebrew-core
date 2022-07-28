@@ -16,6 +16,7 @@ class Gspell < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "glib-utils" => :build
   depends_on "gtk-doc" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
@@ -33,10 +34,8 @@ class Gspell < Formula
   patch :DATA
 
   def install
-    system "autoreconf", "-if"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
