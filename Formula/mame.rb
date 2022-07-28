@@ -76,8 +76,10 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_PUGIXML=1",
                    "USE_SYSTEM_LIB_RAPIDJSON=1",
                    "USE_SYSTEM_LIB_SQLITE3=1",
-                   "USE_SYSTEM_LIB_UTF8PROC=1"
+                   "USE_SYSTEM_LIB_UTF8PROC=1",
+                   "TOOLS=1"
     bin.install "mame"
+    bin.install "chdman"
     cd "docs" do
       # We don't convert SVG files into PDF files, don't load the related extensions.
       inreplace "source/conf.py", "'sphinxcontrib.rsvgconverter',", ""
@@ -85,6 +87,7 @@ class Mame < Formula
       doc.install Dir["build/text/*"]
       system "make", "man"
       man1.install "build/man/MAME.1" => "mame.1"
+      man1.install "man/chdman.1" => "chdman.1"
     end
     pkgshare.install %w[artwork bgfx hash ini keymaps language plugins samples uismall.bdf]
   end
