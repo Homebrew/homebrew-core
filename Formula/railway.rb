@@ -3,8 +3,8 @@ require "language/node"
 class Railway < Formula
   desc "Develop and deploy code with zero configuration"
   homepage "https://railway.app/"
-  url "https://registry.npmjs.org/@railway/cli/-/cli-1.8.3.tgz"
-  sha256 "e664effcb4d089d07bdc42d511b7639a5e95877cb6ac68fc7f8396be381467eb"
+  url "https://registry.npmjs.org/@railway/cli/-/cli-1.8.4.tgz"
+  sha256 "b057db0b76df651e982f79928d9f1f8dd37c6fce91995e41c56bf8ea6559b11c"
   license "MIT"
 
   bottle do
