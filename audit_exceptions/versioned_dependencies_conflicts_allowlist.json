@@ -1,25 +1,12 @@
 [
-  "apache-arrow-glib",
-  "aqbanking",
   "anime-downloader",
-  "arxiv_latex_cleaner",
-  "aws-google-auth",
   "chapel",
-  "coin3d",
   "emscripten",
-  "freedink",
   "hive",
   "jupyterlab",
   "libgaiagraphics",
   "librasterlite",
-  "mpv",
-  "openmodelica",
   "predictionio",
-  "pyqt",
-  "pyside",
-  "pyside@2",
-  "qca",
   "sqoop",
-  "swtpm",
-  "synergy-core"
+  "swtpm"
 ]
