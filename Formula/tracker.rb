@@ -20,6 +20,7 @@ class Tracker < Formula
     sha256 x86_64_linux:   "2b4c9a6c6afffba09852f9b003622ed275d1739455e515c507d73ce7b29a8fd1"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -33,6 +34,7 @@ class Tracker < Formula
   depends_on "libsoup"
   depends_on "sqlite"
 
+  uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "libxml2"
 
   def install
