@@ -14,6 +14,7 @@ class Vte3 < Formula
     sha256 x86_64_linux:   "7fcab5f5558274cf130242c4eaa520a57465787b81e25a6b619967165d34c0a8"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
