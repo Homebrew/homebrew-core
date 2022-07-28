@@ -23,16 +23,29 @@ class Mdxmini < Formula
     sha256 "86f21fbbaf93eb60e79fa07c759b906a782afe4e1db5c7e77a1640e6bf63fd14"
   end
 
+  # Fix build on Linux
+  patch :DATA
+
   def install
     system "make", "CC=#{ENV.cc}", "LD=#{ENV.cc}"
 
     # Makefile doesn't build a dylib
-    system ENV.cc, "-dynamiclib", "-install_name", "#{lib}/libmdxmini.dylib",
-                   "-o", "libmdxmini.dylib", "-undefined", "dynamic_lookup",
-                   *Dir["obj/*"]
+    libmdxmini = shared_library("libmdxmini")
+
+    flags = if OS.mac?
+      %W[
+        -dynamiclib
+        -install_name #{lib/libmdxmini}
+        -undefined dynamic_lookup
+      ]
+    else
+      ["-shared"]
+    end
+
+    system ENV.cc, *flags, "-o", libmdxmini, *Dir["obj/*.o"]
 
     bin.install "mdxplay"
-    lib.install "libmdxmini.dylib"
+    lib.install libmdxmini
     (include/"libmdxmini").install Dir["src/*.h"]
   end
 
@@ -51,7 +64,7 @@ class Mdxmini < Formula
           printf("%s\\n", title);
       }
     EOS
-    system ENV.cc, "mdxtest.c", "-L#{lib}", "-L#{HOMEBREW_PREFIX}/lib", "-lmdxmini", "-lSDL2", "-o", "mdxtest"
+    system ENV.cc, "mdxtest.c", "-L#{lib}", "-L#{Formula["sdl2"].opt_lib}", "-lmdxmini", "-lSDL2", "-o", "mdxtest"
 
     result = shell_output("#{testpath}/mdxtest #{testpath}/pop-00.mdx #{testpath}").chomp
     result.force_encoding("ascii-8bit") if result.respond_to? :force_encoding
@@ -69,3 +82,41 @@ class Mdxmini < Formula
     assert_equal expected.delete!("\n"), result
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 9b63041..ff725c3 100644
+--- a/Makefile
++++ b/Makefile
+@@ -43,6 +43,7 @@ FILES_ORG = COPYING AUTHORS
+ LIB = $(OBJDIR)/lib$(TITLE).a
+
+ LIBS += $(LIB)
++LIBS += -lm
+
+ ZIPSRC = $(TITLE)`date +"%y%m%d"`.zip
+ TOUCH = touch -t `date +"%m%d0000"`
+diff --git a/mak/general.mak b/mak/general.mak
+index 6f88e4c..c552eb3 100644
+--- a/mak/general.mak
++++ b/mak/general.mak
+@@ -17,10 +17,16 @@ CFLAGS = -g -O3
+ OBJDIR = obj
+ endif
+
+-# iconv
++# iconv and -fPIC flags
+ ifneq ($(OS),Windows_NT)
+-CFLAGS += -DUSE_ICONV
+-LIBS += -liconv
++  UNAME_S := $(shell uname -s)
++  ifeq ($(UNAME_S),Darwin)
++    CFLAGS += -DUSE_ICONV
++    LIBS += -liconv
++  endif
++  ifeq ($(UNAME_S),Linux)
++    CFLAGS += -fPIC
++  endif
+ endif
+
+ #
