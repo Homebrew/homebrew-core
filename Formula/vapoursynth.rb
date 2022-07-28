@@ -4,6 +4,7 @@ class Vapoursynth < Formula
   url "https://github.com/vapoursynth/vapoursynth/archive/R59.tar.gz"
   sha256 "d713f767195cb3a9a7ccb97b1e61e0cf5a9332eed86c6362badfff6857792a86"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
   livecheck do
@@ -26,7 +27,7 @@ class Vapoursynth < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "zimg"
 
   on_linux do
@@ -66,7 +67,7 @@ class Vapoursynth < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import vapoursynth"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import vapoursynth"
     system bin/"vspipe", "--version"
   end
 end
