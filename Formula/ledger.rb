@@ -28,6 +28,7 @@ class Ledger < Formula
   depends_on "python@3.10"
 
   uses_from_macos "groff"
+  uses_from_macos "libedit"
 
   # Compatibility with Boost 1.76
   # https://github.com/ledger/ledger/issues/2030
