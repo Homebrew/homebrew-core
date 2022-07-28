@@ -9,6 +9,13 @@ class Creduce < Formula
     url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
     sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
     depends_on "llvm@9"
+
+    # Use shared libraries.
+    # Remove with the next release.
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/e9bb8686c5ef83a961f63744671c5e70066cba4e.patch?full_index=1"
+      sha256 "d5878a2c8fb6ebc5a43ad25943a513ff5226e42b842bb84f466cdd07d7bd626a"
+    end
   end
 
   livecheck do
@@ -58,13 +65,6 @@ class Creduce < Formula
       url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/URI-1.72.tar.gz"
       sha256 "35f14431d4b300de4be1163b0b5332de2d7fbda4f05ff1ed198a8e9330d40a32"
     end
-  end
-
-  # Use shared libraries.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/csmith-project/creduce/commit/e9bb8686c5ef83a961f63744671c5e70066cba4e.patch?full_index=1"
-    sha256 "d5878a2c8fb6ebc5a43ad25943a513ff5226e42b842bb84f466cdd07d7bd626a"
   end
 
   def install
