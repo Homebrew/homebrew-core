@@ -4,7 +4,7 @@ class Mftrace < Formula
   url "https://lilypond.org/downloads/sources/mftrace/mftrace-1.2.20.tar.gz"
   sha256 "626b7a9945a768c086195ba392632a68d6af5ea24ef525dcd0a4a8b199ea5f6f"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -29,7 +29,7 @@ class Mftrace < Formula
 
   depends_on "fontforge"
   depends_on "potrace"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "t1utils"
 
   # Fixed in https://github.com/hanwen/mftrace/pull/14
