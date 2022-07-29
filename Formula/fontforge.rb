@@ -4,6 +4,7 @@ class Fontforge < Formula
   url "https://github.com/fontforge/fontforge/releases/download/20220308/fontforge-20220308.tar.xz"
   sha256 "01e4017f7a0ccecf436c74b8e1f6b374fc04a5283c1d68967996782e15618e59"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "523104e5ae79fddfcf373f8ed9ce4d103ae064009c725cf26f9d5df25a06c7cf"
@@ -23,14 +24,14 @@ class Fontforge < Formula
   depends_on "gettext"
   depends_on "giflib"
   depends_on "glib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libspiro"
   depends_on "libtiff"
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "readline"
 
   uses_from_macos "libxml2"
@@ -40,15 +41,12 @@ class Fontforge < Formula
   patch :DATA
 
   def install
-    mkdir "build" do
-      system "cmake", "..",
-                      "-GNinja",
-                      "-DENABLE_GUI=OFF",
-                      "-DENABLE_FONTFORGE_EXTRAS=ON",
-                      *std_cmake_args
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-GNinja",
+                    "-DENABLE_GUI=OFF",
+                    "-DENABLE_FONTFORGE_EXTRAS=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def caveats
@@ -68,7 +66,7 @@ class Fontforge < Formula
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
   end
 end
 
