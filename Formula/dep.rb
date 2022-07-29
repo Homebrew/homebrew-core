@@ -18,7 +18,8 @@ class Dep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7917c664bc0a540e065deb1e14671a5a818823672ec7a5a5caee34eb8feb664"
   end
 
-  deprecate! date: "2020-11-25", because: :repo_archived
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2020-11-25", because: :repo_archived
 
   depends_on "go"
 
