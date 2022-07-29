@@ -24,7 +24,7 @@ class Ghc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bea0a8011b453e37e99855a6640642303d60c6611db366cb5f2d02a7546da19b"
   end
 
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "m4" => :build
@@ -75,7 +75,7 @@ class Ghc < Formula
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
 
     args = %w[--enable-numa=no]
     if OS.mac?
