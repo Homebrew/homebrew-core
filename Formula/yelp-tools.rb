@@ -1,4 +1,5 @@
 class YelpTools < Formula
+  include Language::Python::Shebang
   include Language::Python::Virtualenv
 
   desc "Tools that help create and edit Mallard or DocBook documentation"
@@ -6,6 +7,7 @@ class YelpTools < Formula
   url "https://download.gnome.org/sources/yelp-tools/42/yelp-tools-42.0.tar.xz"
   sha256 "2cd43063ffa7262df15dd8d379aa3ea3999d42661f07563f4802daa1149f7df4"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ca3f4b5f6ccd93dd16c9a0ee89ebdeb706f248d8f9d07595796ca46d98d4f2c3"
@@ -24,7 +26,7 @@ class YelpTools < Formula
   depends_on "gtk+3"
   depends_on "itstool"
   depends_on "libxml2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxslt"
 
@@ -44,21 +46,17 @@ class YelpTools < Formula
     ENV.prepend_path "PATH", libexec/"bin"
 
     resource("yelp-xsl").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{prefix}"
+      system "./configure", *std_configure_args, "--disable-silent-rules"
       system "make", "install"
       ENV.append_path "PKG_CONFIG_PATH", "#{share}/pkgconfig"
     end
 
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
 
     # Replace shebang with virtualenv python
-    inreplace Dir[bin/"*"], "#!/usr/bin/python3", "#!#{libexec}/bin/python"
+    rewrite_shebang python_shebang_rewrite_info("#{libexec}/bin/python3"), *bin.children
   end
 
   def post_install
