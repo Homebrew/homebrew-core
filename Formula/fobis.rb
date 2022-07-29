@@ -6,7 +6,7 @@ class Fobis < Formula
   url "https://files.pythonhosted.org/packages/53/3a/5533ab0277977027478b4c1285bb20b6beb221b222403b10398fb24e81a2/FoBiS.py-3.0.5.tar.gz"
   sha256 "ef23fde4199277abc693d539a81e0728571c349174da6b7476579f82482ab96c"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b5eb128ceb7ae2931ffc4b3d9559899471bd76517c008a105ffb3abdfcbfd51"
@@ -21,7 +21,7 @@ class Fobis < Formula
 
   depends_on "gcc" # for gfortran
   depends_on "graphviz"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "configparser" do
     url "https://files.pythonhosted.org/packages/e5/7c/d4ccbcde76b4eea8cbd73b67b88c72578e8b4944d1270021596e80b13deb/configparser-5.0.0.tar.gz"
