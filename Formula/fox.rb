@@ -4,7 +4,7 @@ class Fox < Formula
   url "http://fox-toolkit.org/ftp/fox-1.6.56.tar.gz"
   sha256 "c517e5fcac0e6b78ca003cc167db4f79d89e230e5085334253e1d3f544586cb2"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "http://fox-toolkit.org/news.html"
@@ -24,7 +24,7 @@ class Fox < Formula
 
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libx11"
@@ -47,14 +47,13 @@ class Fox < Formula
   def install
     # Needed for libxft to find ftbuild2.h provided by freetype
     ENV.append "CPPFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--enable-release",
-                          "--prefix=#{prefix}",
                           "--with-x",
                           "--with-opengl"
     # Unset LDFLAGS, "-s" causes the linker to crash
     system "make", "install", "LDFLAGS="
-    rm bin/"Adie.stx"
+    (bin/"Adie.stx").unlink
   end
 
   test do
