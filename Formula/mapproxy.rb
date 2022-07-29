@@ -6,6 +6,7 @@ class Mapproxy < Formula
   url "https://files.pythonhosted.org/packages/db/98/d8805c5434d4b636cd2b71d613148b2096d36ded5b6f6ba0e7325d03ba2b/MapProxy-1.15.1.tar.gz"
   sha256 "4952990cb1fc21f74d0f4fc1163fe5aeaa7b04d6a7a73923b93c6548c1a3ba26"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a67990b6cae1a62b8bd22c0034c2d846cc51305f029ce2a0ff935a3fb4b0233b"
@@ -18,7 +19,7 @@ class Mapproxy < Formula
 
   depends_on "pillow"
   depends_on "proj"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "certifi" do
