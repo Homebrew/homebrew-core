@@ -18,7 +18,8 @@ class Mpfi < Formula
 
   # Formula does not build, https://gforge.inria.fr/tracker/index.php?func=detail&aid=21721&group_id=157&atid=709
   # and upstream is not actively maintaining (last commit was on 2019-08-01)
-  deprecate! date: "2021-08-15", because: :unmaintained
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2021-08-15", because: :unmaintained
 
   depends_on "gmp"
   depends_on "mpfr"
