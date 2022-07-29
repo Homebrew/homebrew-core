@@ -25,16 +25,13 @@ class Beagle < Formula
   depends_on "openjdk" => [:build, :test]
 
   def install
-    mkdir "build" do
-      system "cmake",
-        "-DJAVA_HOME=#{Formula["openjdk"].opt_prefix}",
-        "-DJAVA_AWT_LIBRARY=#{Formula["openjdk"].include}",
-        "-DJAVA_JVM_LIBRARY=#{Formula["openjdk"].include}",
-        "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}",
-        ".."
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DJAVA_HOME=#{Formula["openjdk"].opt_prefix}",
+                    "-DJAVA_AWT_LIBRARY=#{Formula["openjdk"].include}",
+                    "-DJAVA_JVM_LIBRARY=#{Formula["openjdk"].include}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
