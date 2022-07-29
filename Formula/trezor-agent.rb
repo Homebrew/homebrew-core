@@ -6,7 +6,7 @@ class TrezorAgent < Formula
   url "https://files.pythonhosted.org/packages/f1/a7/8989377dfce48abf9115055baf6d2cfba55102929a7c5f3e5b9c8e8b5c18/trezor_agent-0.11.0.tar.gz"
   sha256 "139d917d6495bf290bcc21da457f84ccd2e74c78b4d59a649e0cdde4288cd20c"
   license "LGPL-3.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "aec7613e0e5550c77c53b7f361ceb2a174fded1bf4a9f22ded7dd9ad3617ad22"
@@ -20,7 +20,7 @@ class TrezorAgent < Formula
   depends_on "rust" => :build # python-daemon resource depends on cryptography
   depends_on "libusb"
   depends_on "pillow"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   # Gather dependencies for trezor-agent, ledger-agent & keepkey-agent
