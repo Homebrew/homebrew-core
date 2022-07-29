@@ -4,6 +4,7 @@ class Gmsh < Formula
   url "https://gmsh.info/src/gmsh-4.10.5-source.tgz"
   sha256 "cc030c5aee65e7d58f850b8b6f55a68945c89bc871f94e1239279f5a210fc4ea"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
 
   livecheck do
@@ -28,31 +29,25 @@ class Gmsh < Formula
   depends_on "opencascade"
 
   def install
-    args = std_cmake_args + %W[
-      -DENABLE_OS_SPECIFIC_INSTALL=0
-      -DGMSH_BIN=#{bin}
-      -DGMSH_LIB=#{lib}
-      -DGMSH_DOC=#{pkgshare}/gmsh
-      -DGMSH_MAN=#{man}
-      -DENABLE_BUILD_LIB=ON
-      -DENABLE_BUILD_SHARED=ON
-      -DENABLE_NATIVE_FILE_CHOOSER=ON
-      -DENABLE_PETSC=OFF
-      -DENABLE_SLEPC=OFF
-      -DENABLE_OCC=ON
-    ]
-
     ENV["CASROOT"] = Formula["opencascade"].opt_prefix
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DENABLE_OS_SPECIFIC_INSTALL=0",
+                    "-DGMSH_BIN=#{bin}",
+                    "-DGMSH_LIB=#{lib}",
+                    "-DGMSH_DOC=#{pkgshare}/gmsh",
+                    "-DGMSH_MAN=#{man}",
+                    "-DENABLE_BUILD_LIB=ON",
+                    "-DENABLE_BUILD_SHARED=ON",
+                    "-DENABLE_NATIVE_FILE_CHOOSER=ON",
+                    "-DENABLE_PETSC=OFF",
+                    "-DENABLE_SLEPC=OFF",
+                    "-DENABLE_OCC=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-      # Move onelab.py into libexec instead of bin
-      mkdir_p libexec
-      mv bin/"onelab.py", libexec
-    end
+    # Move onelab.py into libexec instead of bin
+    libexec.install bin/"onelab.py"
   end
 
   test do
