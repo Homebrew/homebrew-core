@@ -6,7 +6,7 @@ class Woob < Formula
   url "https://files.pythonhosted.org/packages/70/f2/f443eb3c270a469cefe235eb776062c8adf548604e35cc984193d87bd0ce/woob-3.0.tar.gz"
   sha256 "47864df4906b44a659abe59630c0e28a1aa24ffbc3c90e22454b58f88bef1726"
   license "LGPL-3.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://gitlab.com/woob/woob.git"
@@ -25,7 +25,7 @@ class Woob < Formula
   depends_on "gnupg"
   depends_on "libyaml"
   depends_on "pillow"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libxml2"
@@ -104,14 +104,13 @@ class Woob < Formula
   def install
     virtualenv_install_with_resources
 
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    site_packages = "lib/python#{xy}/site-packages"
+    site_packages = Language::Python.site_packages("python3")
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-woob.pth").write pth_contents
   end
 
   test do
     system bin/"woob", "config", "modules"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import woob"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import woob"
   end
 end
