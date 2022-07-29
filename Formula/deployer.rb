@@ -1,8 +1,8 @@
 class Deployer < Formula
   desc "Deployment tool written in PHP with support for popular frameworks"
   homepage "https://deployer.org/"
-  url "https://deployer.org/releases/v6.8.0/deployer.phar"
-  sha256 "25f639561cb7ebe5c2231b05cb10a0cf62f83469faf6b9248dfa6b7f94e3bd26"
+  url "https://github.com/deployphp/deployer/releases/download/v7.0.0/deployer.phar"
+  sha256 "34a234b6acccd1b6f214df570ff118a9fcea91dc06be53f75d0fc702cc38ace5"
 
   # The first-party download page now uses client-side rendering, so we have to
   # check a JSON file used on the page that contains the version information.
