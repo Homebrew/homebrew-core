@@ -5,6 +5,11 @@ class Ilmbase < Formula
   sha256 "36ecb2290cba6fc92b2ec9357f8dc0e364b4f9a90d727bf9a57c84760695272d"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^v?(2(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3d7b2c18d6ce5020bca1367b97d6cc98592a68b61e26fe42dfed2f990f59469a"
     sha256 cellar: :any,                 arm64_big_sur:  "972c5920255115ab63cc84c699e9cd032d120bbb85095f8a4d1f2865326ceaa8"
