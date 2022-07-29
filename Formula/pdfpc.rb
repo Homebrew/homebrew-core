@@ -5,7 +5,6 @@ class Pdfpc < Formula
   sha256 "4adb42fd1844a7e2ab44709dd043ade618c87f2aaec03db64f7ed659e8d3ddad"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/pdfpc/pdfpc.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "69fcafdc5492f2c38753aac0d2e146c929eeecefe7f0e7091b3a90d2463cdb46"
@@ -17,6 +16,19 @@ class Pdfpc < Formula
     sha256 x86_64_linux:   "7f8c4bf4f879d5785c7c0832ca121e93742d82f7c03a67e3f1648028393a7d55"
   end
 
+  head do
+    url "https://github.com/pdfpc/pdfpc.git", branch: "master"
+
+    depends_on "discount"
+    depends_on "json-glib"
+    depends_on "libsoup@2"
+    depends_on "qrencode"
+
+    on_linux do
+      depends_on "webkitgtk"
+    end
+  end
+
   depends_on "cmake" => :build
   depends_on "vala" => :build
   depends_on "gst-plugins-good"
@@ -26,7 +38,12 @@ class Pdfpc < Formula
   depends_on "poppler"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DMOVIES=ON", "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
+    # NOTE: You can avoid the `libsoup@2` dependency by passing `-DREST=OFF`.
+    # https://github.com/pdfpc/pdfpc/blob/3310efbf87b5457cbff49076447fcf5f822c2269/src/CMakeLists.txt#L38-L40
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}",
+                    "-DMDVIEW=#{OS.linux?}", # Needs webkitgtk
+                    "-DMOVIES=ON"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -35,6 +52,6 @@ class Pdfpc < Formula
     # Gtk-WARNING **: 00:25:01.545: cannot open display
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
 
-    system "#{bin}/pdfpc", "--version"
+    system bin/"pdfpc", "--version"
   end
 end
