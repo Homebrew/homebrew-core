@@ -1,8 +1,8 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://kops.sigs.k8s.io/"
-  url "https://github.com/kubernetes/kops/archive/v1.23.2.tar.gz"
-  sha256 "adfc507517295fa1c1289528459921abb3e8dad1c7f304f6cd2310382f37c3d0"
+  url "https://github.com/kubernetes/kops/archive/v1.24.1.tar.gz"
+  sha256 "011c01528e5906e6d4ffa4371f9f855b8fe8c635f67a056eaeda0b02f8050e92"
   license "Apache-2.0"
   head "https://github.com/kubernetes/kops.git", branch: "master"
 
@@ -24,24 +24,15 @@ class Kops < Formula
   depends_on "kubernetes-cli"
 
   def install
-    ENV["VERSION"] = version unless build.head?
-    ENV["GOPATH"] = buildpath
-    kopspath = buildpath/"src/k8s.io/kops"
-    kopspath.install Dir["*"]
-    system "make", "-C", kopspath
-    bin.install "bin/kops"
+    ldflags = "-s -w -X k8s.io/kops.Version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "k8s.io/kops/cmd/kops"
 
-    # Install bash completion
-    output = Utils.safe_popen_read(bin/"kops", "completion", "bash")
-    (bash_completion/"kops").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(bin/"kops", "completion", "zsh")
-    (zsh_completion/"_kops").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"kops", "completion", "fish")
-    (fish_completion/"kops.fish").write output
+    bash_output = Utils.safe_popen_read(bin/"kops", "completion", "bash")
+    (bash_completion/"kops").write bash_output
+    zsh_output = Utils.safe_popen_read(bin/"kops", "completion", "zsh")
+    (zsh_completion/"_kops").write zsh_output
+    fish_output = Utils.safe_popen_read(bin/"kops", "completion", "fish")
+    (fish_completion/"kops.fish").write fish_output
   end
 
   test do
