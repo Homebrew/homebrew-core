@@ -5,6 +5,7 @@ class Gawk < Formula
   mirror "https://ftpmirror.gnu.org/gawk/gawk-5.1.1.tar.xz"
   sha256 "d87629386e894bbea11a5e00515fc909dc9b7249529dad9e6a3a2c77085f7ea2"
   license "GPL-3.0-or-later"
+  head "https://git.savannah.gnu.org/git/gawk.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "093465f34b94ec8ddeb4ff8dab2a02dafbccf8ec05f6ef0391673b7c4fd0a91f"
@@ -23,6 +24,7 @@ class Gawk < Formula
     because: "both install an `awk` executable"
 
   def install
+    system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
