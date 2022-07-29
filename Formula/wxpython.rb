@@ -6,7 +6,7 @@ class Wxpython < Formula
   url "https://files.pythonhosted.org/packages/b0/4d/80d65c37ee60a479d338d27a2895fb15bbba27a3e6bb5b6d72bb28246e99/wxPython-4.1.1.tar.gz"
   sha256 "00e5e3180ac7f2852f342ad341d57c44e7e4326de0b550b9a5c4a8361b6c3528"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "2b7a373364e93be90a1ef2304a2abe3507f7cbc632dd3a0a141eba7b82788675"
@@ -18,11 +18,15 @@ class Wxpython < Formula
   end
 
   depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "pillow"
+  # The current stable release 4.1.1 is incompatible with Python 3.10.
+  # Requires backporting multiple upstream commits (e.g. PR 2026, 2039, 2062, ...)
+  # TODO: Update to `python@3.10` on next release.
+  # Ref: https://src.fedoraproject.org/rpms/python-wxpython4/commits/
   depends_on "python@3.9"
   depends_on "six"
   depends_on "tcl-tk"
@@ -35,6 +39,10 @@ class Wxpython < Formula
   end
 
   def install
+    # Work around error: [Errno 2] No such file or directory: 'brew'
+    # Try removing in the next release.
+    ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
+
     # Fix build of included wxwidgets:
     # https://github.com/wxWidgets/Phoenix/issues/1247
     # https://github.com/Homebrew/homebrew-core/pull/58988
@@ -46,15 +54,14 @@ class Wxpython < Formula
     inreplace "wscript", "MACOSX_DEPLOYMENT_TARGET = \"10.6\"",
                          "MACOSX_DEPLOYMENT_TARGET = \"#{MacOS.version}\""
 
-    if OS.mac?
-      sdk = MacOS.sdk_path_if_needed
-      ENV.append_to_cflags "-I#{sdk}/usr/include" if sdk
+    if OS.mac? && (sdk = MacOS.sdk_path_if_needed)
+      ENV.append_to_cflags "-I#{sdk}/usr/include"
     end
-    system "python3", *Language::Python.setup_install_args(prefix)
+    system "python3.9", *Language::Python.setup_install_args(prefix)
   end
 
   test do
-    output = shell_output("#{Formula["python@3.9"].opt_bin}/python3 -c 'import wx ; print(wx.__version__)'")
+    output = shell_output("python3.9 -c 'import wx ; print(wx.__version__)'")
     assert_match version.to_s, output
   end
 end
