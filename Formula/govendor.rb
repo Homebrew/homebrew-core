@@ -17,7 +17,8 @@ class Govendor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "24497503629e520a1fe718029ab520b05c012677df065c9fd104afe4d898b8b8"
   end
 
-  deprecate! date: "2020-03-02", because: :repo_archived
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2020-03-02", because: :repo_archived
 
   depends_on "go"
 
