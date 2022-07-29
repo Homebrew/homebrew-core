@@ -6,7 +6,7 @@ class Mkvtomp4 < Formula
   url "https://files.pythonhosted.org/packages/89/27/7367092f0d5530207e049afc76b167998dca2478a5c004018cf07e8a5653/mkvtomp4-2.0.tar.gz"
   sha256 "8514aa744963ea682e6a5c4b3cfab14c03346bfc78194c3cdc8b3a6317902f12"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/gavinbeatty/mkvtomp4.git", branch: "main"
 
   bottle do
@@ -23,7 +23,7 @@ class Mkvtomp4 < Formula
   depends_on "ffmpeg"
   depends_on "gpac"
   depends_on "mkvtoolnix"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
