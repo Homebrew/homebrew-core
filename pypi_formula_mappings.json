@@ -166,6 +166,9 @@
     "exclude_packages": ["six"],
     "extra_packages": ["pyobjc-framework-LocalAuthentication", "SecretStorage", "jeepney"]
   },
+  "git-cola": {
+    "exclude_packages": ["pyqt5"]
+  },
   "git-remote-codecommit": {
     "exclude_packages": ["six"]
   },
