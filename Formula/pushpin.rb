@@ -4,6 +4,7 @@ class Pushpin < Formula
   url "https://github.com/fanout/pushpin/releases/download/v1.35.0/pushpin-1.35.0.tar.bz2"
   sha256 "62fbf32d75818b08fd8bce077035de85da47a06c07753e5ba10201a5dd35ca5e"
   license "AGPL-3.0-or-later"
+  revision 1
   head "https://github.com/fanout/pushpin.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Pushpin < Formula
   depends_on "rust" => :build
   depends_on "condure"
   depends_on "mongrel2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "qt@5"
   depends_on "zeromq"
   depends_on "zurl"
@@ -29,13 +30,14 @@ class Pushpin < Formula
   fails_with gcc: "5"
 
   def install
-    args = *std_configure_args + ["--configdir=#{etc}",
-                                  "--rundir=#{var}/run",
-                                  "--logdir=#{var}/log"]
-
+    args = %W[
+      --configdir=#{etc}
+      --rundir=#{var}/run
+      --logdir=#{var}/log
+    ]
     args << "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}" if OS.mac?
-    system "./configure", *args
 
+    system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
   end
@@ -94,7 +96,7 @@ class Pushpin < Formula
 
     begin
       sleep 3 # make sure pushpin processes have started
-      system Formula["python@3.9"].opt_bin/"python3", runfile
+      system Formula["python@3.10"].opt_bin/"python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
