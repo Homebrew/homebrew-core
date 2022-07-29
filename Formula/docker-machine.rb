@@ -17,7 +17,8 @@ class DockerMachine < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f08e7ba29eb793a79b8126631485ee4100cf07b9e1e5654a7c4db8c2d229d5af"
   end
 
-  deprecate! date: "2021-09-30", because: :repo_archived
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2021-09-30", because: :repo_archived
 
   depends_on "automake" => :build
   depends_on "go" => :build
