@@ -4,7 +4,6 @@ class Beagle < Formula
   url "https://github.com/beagle-dev/beagle-lib/archive/v4.0.0.tar.gz"
   sha256 "d197eeb7fe5879dfbae789c459bcc901cb04d52c9cf5ef14fb07ff7a6b74560b"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
