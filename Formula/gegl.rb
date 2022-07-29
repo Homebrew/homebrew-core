@@ -4,6 +4,7 @@ class Gegl < Formula
   url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.38.tar.xz"
   sha256 "e4a33c8430a5042fba8439b595348e71870f0d95fbf885ff553f9020c1bed750"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
+  revision 1
   head "https://gitlab.gnome.org/GNOME/gegl.git", branch: "master"
 
   livecheck do
@@ -29,7 +30,7 @@ class Gegl < Formula
   depends_on "babl"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "json-glib"
   depends_on "libpng"
 
@@ -40,15 +41,6 @@ class Gegl < Formula
   conflicts_with "coreutils", because: "both install `gcut` binaries"
 
   def install
-    args = std_meson_args + %w[
-      -Ddocs=false
-      -Dcairo=disabled
-      -Djasper=disabled
-      -Dumfpack=disabled
-      -Dlibspiro=disabled
-      --force-fallback-for=libnsgif,poly2tri-c
-    ]
-
     ### Temporary Fix ###
     # Temporary fix for a meson bug
     # Upstream appears to still be deciding on a permanent fix
@@ -59,11 +51,15 @@ class Gegl < Formula
     touch "subprojects/poly2tri-c/EMPTYFILE.c"
     ### END Temporary Fix ###
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build",
+                    "-Ddocs=false",
+                    "-Dcairo=disabled",
+                    "-Djasper=disabled",
+                    "-Dumfpack=disabled",
+                    "-Dlibspiro=disabled",
+                    "--force-fallback-for=libnsgif,poly2tri-c"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   test do
