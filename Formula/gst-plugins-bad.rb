@@ -4,6 +4,7 @@ class GstPluginsBad < Formula
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.20.3.tar.xz"
   sha256 "7a11c13b55dd1d2386dd902219e41cbfcdda8e1e0aa3e738186c95074b35da4f"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git", branch: "master"
 
   livecheck do
@@ -20,6 +21,7 @@ class GstPluginsBad < Formula
     sha256 x86_64_linux:   "3b2c2623d83f2a701b4ec8c09dd7770c6694414d4dc9b290f3ea0c8d5e638792"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -28,7 +30,7 @@ class GstPluginsBad < Formula
   depends_on "faad2"
   depends_on "gettext"
   depends_on "gst-plugins-base"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libnice"
   depends_on "libusrsctp"
   depends_on "openssl@1.1"
@@ -36,6 +38,8 @@ class GstPluginsBad < Formula
   depends_on "orc"
   depends_on "rtmpdump"
   depends_on "srtp"
+
+  uses_from_macos "python" => :build, since: :catalina
 
   on_macos do
     # musepack is not bottled on Linux
@@ -45,20 +49,17 @@ class GstPluginsBad < Formula
 
   def install
     # Plugins with GPL-licensed dependencies: faad
-    args = std_meson_args + %w[
+    args = %w[
       -Dgpl=enabled
       -Dintrospection=enabled
       -Dexamples=disabled
     ]
-
     # The apple media plug-in uses API that was added in Mojave
     args << "-Dapplemedia=disabled" if MacOS.version <= :high_sierra
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build", *args
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   test do
