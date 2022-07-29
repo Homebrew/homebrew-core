@@ -4,6 +4,7 @@ class GstPluginsUgly < Formula
   url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.20.3.tar.xz"
   sha256 "8caa20789a09c304b49cf563d33cca9421b1875b84fcc187e4a385fa01d6aefd"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly.git", branch: "master"
 
   livecheck do
@@ -26,26 +27,23 @@ class GstPluginsUgly < Formula
   depends_on "flac"
   depends_on "gettext"
   depends_on "gst-plugins-base"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libshout"
   depends_on "libvorbis"
   depends_on "pango"
   depends_on "theora"
   depends_on "x264"
 
+  uses_from_macos "python" => :build, since: :catalina
+
   def install
     # Plugins with GPL-licensed dependencies: x264
-    args = std_meson_args + %w[
-      -Dgpl=enabled
-      -Damrnb=disabled
-      -Damrwbdec=disabled
-    ]
-
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build",
+                    "-Dgpl=enabled",
+                    "-Damrnb=disabled",
+                    "-Damrwbdec=disabled"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   test do
