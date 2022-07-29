@@ -21,7 +21,7 @@ class DockerMachineDriverVultr < Formula
   end
 
   # last commit was in 2017
-  deprecate! date: "20-07-29", because: :unmaintained
+  deprecate! date: "2022-07-29", because: :unmaintained
 
   depends_on "go" => :build
   depends_on "docker-machine"
