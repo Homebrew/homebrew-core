@@ -14,6 +14,7 @@ class Gedit < Formula
     sha256 x86_64_linux:   "799ad9372a0590ae0bb113949df29cd769207a46dc3378d83b6b03982f41d1c4"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
