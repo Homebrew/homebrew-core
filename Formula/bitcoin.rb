@@ -41,7 +41,6 @@ class Bitcoin < Formula
   def install
     system "./autogen.sh"
     system "./configure", *std_configure_args,
-                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
     system "make", "install"
