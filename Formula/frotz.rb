@@ -4,6 +4,7 @@ class Frotz < Formula
   url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.54/frotz-2.54.tar.bz2"
   sha256 "bdf9131e6de49108c9f032200cea3cb4011e5ca0c9fbdbf5b0c05f7c56c81395"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/DavidGriffith/frotz.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Frotz < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libao"
   depends_on "libmodplug"
   depends_on "libpng"
