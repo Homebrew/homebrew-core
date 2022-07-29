@@ -5,7 +5,7 @@ class Simgrid < Formula
   homepage "https://simgrid.org/"
   url "https://framagit.org/simgrid/simgrid/uploads/caf09286c8e698d977f11e8f8451ba46/simgrid-3.31.tar.gz"
   sha256 "4b44f77ad40c01cf4e3013957c9cbe39f33dec9304ff0c9c3d9056372ed4c61d"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -25,7 +25,7 @@ class Simgrid < Formula
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "graphviz"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "gcc"
