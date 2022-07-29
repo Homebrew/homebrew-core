@@ -57,6 +57,16 @@ class Ghostscript < Formula
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
   end
 
+  # fmemopen is only supported from 10.13 onwards (https://news.ycombinator.com/item?id=25968777).
+  # For earlier versions of MacOS, needs to be excluded.
+  # This should be removed once patch added to next release of leptonica (which is incorporated by ghostscript in
+  # tarballs).
+  patch do
+    url "https://github.com/DanBloomberg/leptonica/commit/848df62ff7ad06965dd77ac556da1b2878e5e575.patch?full_index=1"
+    sha256 "7de1c4e596aad5c3d2628b309cea1e4fc1ff65e9c255fe64de1922b3fd2d60fc"
+    directory "leptonica"
+  end
+
   def install
     # Fix vendored tesseract build error: 'cstring' file not found
     # Remove when possible to link to system tesseract
