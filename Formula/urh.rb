@@ -6,7 +6,7 @@ class Urh < Formula
   url "https://files.pythonhosted.org/packages/c2/3d/9cbaac6d7101f50c408ac428d9e37668916a4a3e22292f38748b230239e0/urh-2.9.3.tar.gz"
   sha256 "037b91bb87a113ac03d0695e0c2b5cce35d0886469b3ef46ba52d2342c8cfd8c"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
@@ -24,7 +24,7 @@ class Urh < Formula
   depends_on "libcython"
   depends_on "numpy"
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
