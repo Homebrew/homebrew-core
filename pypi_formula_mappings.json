@@ -155,7 +155,7 @@
     "exclude_packages": ["six"]
   },
   "fdroidserver": {
-    "exclude_packages": ["numpy", "pillow"],
+    "exclude_packages": ["numpy", "pillow", "six"],
     "extra_packages": ["wheel"]
   },
   "flintrock": {

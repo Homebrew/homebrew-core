@@ -6,6 +6,7 @@ class Fdroidserver < Formula
   url "https://files.pythonhosted.org/packages/4f/2d/7e81d5bfcc0ba8cc3da96a12e20ce02fca60cd43ee038880875dc8399540/fdroidserver-2.1.tar.gz"
   sha256 "0a8e382d4824d1caef759b8118f540438de37799b3e3a7708bc84db9766e2ebe"
   license "AGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c25fa3ea230a0a94e40e29277cbea4762870d0e63576880655bfb48098a1b915"
@@ -22,8 +23,9 @@ class Fdroidserver < Formula
   depends_on "numpy"
   depends_on "openssl@1.1"
   depends_on "pillow"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "s3cmd"
+  depends_on "six"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -293,11 +295,6 @@ class Fdroidserver < Formula
   resource "ruamel.yaml.clib" do
     url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
     sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "smmap" do
