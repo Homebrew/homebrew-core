@@ -6,6 +6,7 @@ class YleDl < Formula
   url "https://files.pythonhosted.org/packages/6a/2e/30c4ef58bca8bab95860363b08b570eb0c56b441beb4e149282241379e09/yle-dl-20220704.tar.gz"
   sha256 "b81af57852aa0004c9a0ffdc82e27189bcecee1ffaeb1ca90b6d3822c8a328e0"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class YleDl < Formula
   end
 
   depends_on "ffmpeg"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "rtmpdump"
 
   uses_from_macos "libxslt"
