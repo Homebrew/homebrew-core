@@ -2,9 +2,9 @@ class Mesheryctl < Formula
   desc "Command-line utility for Meshery, the cloud native management plane"
   homepage "https://meshery.io"
   url "https://github.com/meshery/meshery.git",
-      tag:      "v0.6.0-rc.6c",
-      revision: "540cb60ea769b22df285f183eee6f6128f69ce95"
-  version "0.6.0-rc.6c"
+      tag:      "v0.6.0-rc.6f",
+      revision: "9489a9ae2622d9302f24d570672755f6a7caf69e"
+  version "0.6.0-rc.6f"
   license "Apache-2.0"
   head "https://github.com/meshery/meshery.git", branch: "master"
 
@@ -24,40 +24,10 @@ class Mesheryctl < Formula
   end
 
   test do
-    (testpath/".meshery/config.yaml").write <<~EOS
-      contexts:
-        local:
-            endpoint: http://localhost:9081
-            token: Default
-            platform: kubernetes
-            components:
-                - meshery-app-mesh
-                - meshery-istio
-                - meshery-linkerd
-                - meshery-consul
-                - meshery-nsm
-                - meshery-kuma
-                - meshery-osm
-                - meshery-traefik-mesh
-                - meshery-nginx-sm
-                - meshery-cilium
-            channel: stable
-            version: latest
-      current-context: local
-      tokens:
-          - name: Default
-            location: auth.json
-    EOS
-
     assert_match version.to_s, shell_output("#{bin}/mesheryctl version 2>&1")
     assert_match "Channel: stable", shell_output("#{bin}/mesheryctl system channel view 2>&1")
 
-    # Test existence of main commands
-    %w[system mesh perf pattern app].each do |subcmd|
-      assert_match "requires at least 1 arg(s)", shell_output("#{bin}/mesheryctl #{subcmd} 2>&1")
-    end
-
     # Test kubernetes error on trying to start meshery
-    assert_match "The Kubernetes cluster is not accessible.", shell_output("#{bin}/mesheryctl system start 2>&1")
+    assert_match "The Kubernetes cluster is not accessible.", shell_output("#{bin}/mesheryctl system start 2>&1", 1)
   end
 end
