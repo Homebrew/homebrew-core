@@ -4,7 +4,7 @@ class Xplanet < Formula
   url "https://downloads.sourceforge.net/project/xplanet/xplanet/1.3.1/xplanet-1.3.1.tar.gz"
   sha256 "4380d570a8bf27b81fb629c97a636c1673407f4ac4989ce931720078a90aece7"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 monterey:     "82befd651c2e7a35aff92bf1f72cc78bbc024f6e320d03259a2e08545f13d13c"
@@ -18,9 +18,15 @@ class Xplanet < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "giflib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
+
+  # Added automake as a build dependency to update config files for ARM support.
+  # Please remove in the future if there is a patch upstream which recognises aarch64 macOS.
+  on_arm do
+    depends_on "automake" => :build
+  end
 
   # patches bug in 1.3.1 with flag -num_times=2 (1.3.2 will contain fix, when released)
   # https://sourceforge.net/p/xplanet/code/208/tree/trunk/src/libdisplay/DisplayOutput.cpp?diff=5056482efd48f8457fc7910a:207
@@ -37,22 +43,27 @@ class Xplanet < Formula
   end
 
   def install
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--without-cspice",
-      "--without-cygwin",
-      "--with-gif",
-      "--with-jpeg",
-      "--with-libtiff",
-      "--without-pango",
-      "--without-pnm",
-      "--without-x",
-      "--without-xscreensaver",
+    # Workaround for ancient config files not recognizing aarch64 macos.
+    if Hardware::CPU.arm?
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
+
+    args = %w[
+      --without-cspice
+      --without-cygwin
+      --with-gif
+      --with-jpeg
+      --with-libtiff
+      --without-pango
+      --without-pnm
+      --without-x
+      --without-xscreensaver
     ]
     args << "--with-aqua" if OS.mac?
-    system "./configure", *args
 
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
