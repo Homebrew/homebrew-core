@@ -6,7 +6,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.36.tar.xz"
   sha256 "130231b830fd980efbd2aab12214392b8841f5d2a5a361aa8c79a79a6035ce40"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -30,7 +30,7 @@ class Notmuch < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "gmime"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "talloc"
   depends_on "xapian"
 
@@ -47,22 +47,18 @@ class Notmuch < Formula
   end
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --mandir=#{man}
-      --emacslispdir=#{elisp}
-      --emacsetcdir=#{elisp}
-      --bashcompletiondir=#{bash_completion}
-      --zshcompletiondir=#{zsh_completion}
-      --without-ruby
-    ]
-
-    site_packages = Language::Python.site_packages("python3")
-    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/site_packages
     ENV.cxx11 if OS.linux?
-
-    system "./configure", *args
-    system "make", "V=1", "install"
+    site_packages = Language::Python.site_packages("python3")
+    with_env(PYTHONPATH: Formula["sphinx-doc"].opt_libexec/site_packages) do
+      system "./configure", "--prefix=#{prefix}",
+                            "--mandir=#{man}",
+                            "--emacslispdir=#{elisp}",
+                            "--emacsetcdir=#{elisp}",
+                            "--bashcompletiondir=#{bash_completion}",
+                            "--zshcompletiondir=#{zsh_completion}",
+                            "--without-ruby"
+      system "make", "V=1", "install"
+    end
 
     elisp.install Dir["emacs/*.el"]
     bash_completion.install "completion/notmuch-completion.bash"
@@ -98,16 +94,19 @@ class Notmuch < Formula
     <<~EOS
       The python CFFI bindings (notmuch2) are not linked into shared site-packages.
       To use them, you may need to update your PYTHONPATH to include the directory
-      #{opt_libexec/Language::Python.site_packages(Formula["python@3.9"].opt_bin/"python3")}
+      #{opt_libexec/Language::Python.site_packages(Formula["python@3.10"].opt_bin/"python3")}
     EOS
   end
 
   test do
-    (testpath/".notmuch-config").write "[database]\npath=#{testpath}/Mail"
+    (testpath/".notmuch-config").write <<~EOS
+      [database]
+      path=#{testpath}/Mail
+    EOS
     (testpath/"Mail").mkpath
     assert_match "0 total", shell_output("#{bin}/notmuch new")
 
-    python = Formula["python@3.9"].opt_bin/"python3"
+    python = Formula["python@3.10"].opt_bin/"python3"
     system python, "-c", "import notmuch"
     with_env(PYTHONPATH: libexec/Language::Python.site_packages(python)) do
       system python, "-c", "import notmuch2"
