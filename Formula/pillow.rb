@@ -4,6 +4,7 @@ class Pillow < Formula
   url "https://files.pythonhosted.org/packages/8c/92/2975b464d9926dc667020ed1abfa6276e68c3571dcb77e43347e15ee9eed/Pillow-9.2.0.tar.gz"
   sha256 "75e636fd3e0fb872693f23ccb8a5ff2cd578801251f3a4f6854c6a5d437d3c04"
   license "HPND"
+  revision 1
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Pillow < Formula
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.8" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libimagequant"
   depends_on "libraqm"
   depends_on "libtiff"
