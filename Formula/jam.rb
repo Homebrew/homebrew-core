@@ -20,7 +20,8 @@ class Jam < Formula
   # The last Perforce release of Jam was version 2.6 in August of 2014. We will
   # keep the Perforce-controlled links and information posted here available
   # until further notice."
-  deprecate! date: "2021-07-10", because: :unmaintained
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2021-07-10", because: :unmaintained
 
   conflicts_with "ftjam", because: "both install a `jam` binary"
 
