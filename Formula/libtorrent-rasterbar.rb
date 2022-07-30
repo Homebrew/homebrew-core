@@ -4,6 +4,7 @@ class LibtorrentRasterbar < Formula
   url "https://github.com/arvidn/libtorrent/releases/download/v2.0.7/libtorrent-rasterbar-2.0.7.tar.gz"
   sha256 "3850a27aacb79fcc4d352c1f02a7a59e0e8322afdaa1f5d58d676c02edfcfa36"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/arvidn/libtorrent.git", branch: "RC_2_0"
 
   livecheck do
@@ -24,7 +25,7 @@ class LibtorrentRasterbar < Formula
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   conflicts_with "libtorrent-rakshasa", because: "they both use the same libname"
 
