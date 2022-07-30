@@ -4,6 +4,7 @@ class Ski < Formula
   desc "Evade the deadly Yeti on your jet-powered skis"
   homepage "http://catb.org/~esr/ski/"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     url "http://www.catb.org/~esr/ski/ski-6.13.tar.gz"
@@ -36,8 +37,8 @@ class Ski < Formula
       ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
       system "make"
     end
-    if MacOS.version <= :mojave
-      rw_info = OS.mac? ? python_shebang_rewrite_info("/usr/bin/env python") : detected_python_shebang
+    if OS.mac? && MacOS.version <= :mojave
+      rw_info = python_shebang_rewrite_info("/usr/bin/env python")
       rewrite_shebang rw_info, "ski"
     end
     bin.install "ski"
