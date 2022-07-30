@@ -26,6 +26,12 @@ class Ghcup < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  # upstream mr: https://gitlab.haskell.org/haskell/ghcup-hs/-/merge_requests/277
+  patch do
+    url "https://gitlab.haskell.org/fishtreesugar/ghcup-hs/-/commit/22f0081303b14ea1da10e6ec5020a41dab591668.diff"
+    sha256 "ae513910d39f5d6b3d00de5d5f4da1420263c581168dabd221f2fe4f941c7c65"
+  end
+
   def install
     system "cabal", "v2-update"
     # `+disable-upgrade` disables the self-upgrade feature.
