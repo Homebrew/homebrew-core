@@ -17,6 +17,9 @@ class GitExtras < Formula
   conflicts_with "git-utils",
     because: "both install a `git-pull-request` script"
 
+  conflicts_with "git-sync",
+    because: "both install a `git-sync` binary"
+
   def install
     system "make", "PREFIX=#{prefix}", "INSTALL_VIA=brew", "install"
     pkgshare.install "etc/git-extras-completion.zsh"
