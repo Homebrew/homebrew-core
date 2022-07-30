@@ -1,11 +1,10 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/llvm-project-14.0.6.src.tar.xz"
-  sha256 "8b3cfd7bc695bd6cea0f37f53f0981f34f87496e79e2529874fd03a2f9dd3a8a"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.0/llvm-project-15.0.0.src.tar.xz"
+  sha256 "caaf8100365b6ebafc39fea803e902ca3ff38b4d5327b9927097808d32964db7"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -33,10 +32,11 @@ class Llvm < Formula
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "python@3.10"
+  depends_on "z3"
+  depends_on "zstd"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
-  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -44,14 +44,24 @@ class Llvm < Formula
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
-    depends_on "gcc"
-    depends_on "glibc" if Formula["glibc"].any_version_installed?
   end
 
   # Fails at building LLDB
   fails_with gcc: "5"
 
+  def python3
+    "python3.10"
+  end
+
   def install
+    # Test only on Monterey ARM.
+    odie "Not testing on this runner!" if Hardware::CPU.intel? || (MacOS.version < :monterey)
+
+    # The clang bindings need a little help finding our libclang.
+    inreplace "clang/bindings/python/clang/cindex.py",
+              /^(\s*library_path\s*=\s*)None$/,
+              "\\1'#{lib}'"
+
     projects = %w[
       clang
       clang-tools-extra
@@ -75,7 +85,7 @@ class Llvm < Formula
     python_versions = Formula.names
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
-    site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
+    site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -102,7 +112,7 @@ class Llvm < Formula
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INCLUDE_TESTS=OFF
       -DLLVM_INSTALL_UTILS=ON
-      -DLLVM_ENABLE_Z3_SOLVER=OFF
+      -DLLVM_ENABLE_Z3_SOLVER=ON
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
@@ -110,7 +120,7 @@ class Llvm < Formula
       -DLLDB_ENABLE_LUA=OFF
       -DLLDB_ENABLE_LZMA=ON
       -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
-      -DLLDB_PYTHON_EXE_RELATIVE_PATH=#{which("python3").relative_path_from(prefix)}
+      -DLLDB_PYTHON_EXE_RELATIVE_PATH=#{which(python3).relative_path_from(prefix)}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF
@@ -136,16 +146,33 @@ class Llvm < Formula
     builtins_cmake_args = []
 
     # Skip the PGO build on HEAD installs or non-bottle source builds
-    pgo_build = build.stable? && build.bottle?
+    # FIXME: The Linux build appears to have a parallelisation issue,
+    #        so avoid a painfully slow serial build until that's resolved.
+    pgo_build = false # No PGO for testing.
 
     if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
+      args << "-DLIBCXX_INSTALL_LIBRARY_DIR=#{lib}/c++"
+      args << "-DLIBCXXABI_INSTALL_LIBRARY_DIR=#{lib}/c++"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
-      runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
+
+      # Prevent CMake from defaulting to `lld` when it's found next to `clang` during PGO or in the runtimes build.
+      args << "-DLLVM_USE_LINKER=ld"
+      [args, runtimes_cmake_args, builtins_cmake_args].each do |arg_array|
+        arg_array << "-DCMAKE_LINKER=ld"
+      end
+
+      runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{loader_path}"
+
+      # Disable builds for OSes not supported by the CLT SDK.
+      clt_sdk_support_flags = %w[I WATCH TV].map { |os| "-DCOMPILER_RT_ENABLE_#{os}OS=OFF" }
+      builtins_cmake_args += clt_sdk_support_flags
     else
       ENV.append_to_cflags "-fpermissive -Wno-free-nonheap-object"
 
+      # Disable `libxml2` which isn't very useful.
+      args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
@@ -208,14 +235,27 @@ class Llvm < Formula
         "-DLLVM_TARGETS_TO_BUILD=Native",
         "-DLLVM_ENABLE_PROJECTS=clang;compiler-rt;lld",
       ]
+      stage1_targets = %w[clang llvm-profdata profile]
 
-      if OS.mac?
+      stage1_targets << if OS.mac?
         extra_args << "-DLLVM_ENABLE_LIBCXX=ON"
-        extra_args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
+        extra_args << "-DLLVM_USE_LINKER=ld"
+        extra_args << "-DCMAKE_LINKER=ld"
+        extra_args += clt_sdk_support_flags
+
+        # NOTE: do not enable LTO on Linux, because this creates static archives that are not portable.
+        #       Bottles are installed on the same version they were built, so portability is not an issue.
+        args << "-DLLVM_ENABLE_LTO=ON"
+        # LTO creates object files not recognised by Apple libtool.
+        args << "-DCMAKE_LIBTOOL=#{llvmpath}/stage1/bin/llvm-libtool-darwin"
+
+        "LTO" # Needed to enable LTO.
       else
         # Make sure CMake doesn't try to pass C++-only flags to C compiler.
         extra_args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
         extra_args << "-DCMAKE_CXX_COMPILER=#{ENV.cxx}"
+
+        "lld" # We use this as the linker on Linux.
       end
 
       cflags = ENV.cflags&.split || []
@@ -228,11 +268,8 @@ class Llvm < Formula
       # to avoid incompatibilities from generating profile data with a newer Clang than
       # the one we consume the data with.
       mkdir llvmpath/"stage1" do
-        system "cmake", "-G", "Unix Makefiles", "..",
-                        *extra_args, *std_cmake_args
-        system "cmake", "--build", ".", "--target", "clang", "llvm-profdata", "profile"
-        # Build lld in stage1 on Linux so we can use it as the linker instead of the ld shim.
-        system "cmake", "--build", ".", "--target", "lld" unless OS.mac?
+        system "cmake", "-G", "Unix Makefiles", "..", *extra_args, *std_cmake_args
+        system "cmake", "--build", ".", "--target", *stage1_targets
       end
 
       # Barring the stage where we generate the profile data, there is no benefit to
@@ -254,40 +291,30 @@ class Llvm < Formula
         cxxflags << "-isystem#{toolchain_path}/usr/include"
         cxxflags << "-isystem#{macos_sdk}/usr/include"
       elsif !OS.mac?
-        gcc = Formula["gcc"]
-        # Link to libstdc++ for brewed GCC rather than the host GCC which is too old.
-        # Also make sure brewed glibc will be used if it is installed.
+        # Make sure brewed glibc will be used if it is installed.
         linux_library_paths = [
-          gcc.opt_lib/"gcc"/gcc.version.major, # libstdc++
           Formula["glibc"].opt_lib,
+          HOMBEREW_PREFIX/"lib",
         ]
         linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
         # Add opt_libs for dependencies to RPATH.
         linux_linker_flags += deps.map(&:to_formula).map { |dep| "-Wl,-rpath,#{dep.opt_lib}" }
-        # Use stage1 lld instead of ld shim so that we can control RPATH.
-        linux_linker_flags << "--ld-path=#{llvmpath}/stage1/bin/ld.lld"
 
-        # Add the linker paths to the arguments passed to the temporary compilers.
-        extra_args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        extra_args << "-DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        extra_args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+        [args, extra_args].each do |arg_array|
+          # Add the linker paths to the arguments passed to the temporary compilers and installed toolchain.
+          arg_array << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+          arg_array << "-DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+          arg_array << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
 
-        # We need these flags for the installed toolchain too.
-        args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        args << "-DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+          # Use stage1 lld instead of ld shim so that we can control RPATH.
+          arg_array << "-DLLVM_USE_LINKER=lld"
+        end
 
-        # Use libstdc++ headers for brewed GCC rather than host GCC which is too old.
         # We also need to make sure we can find headers for other formulae on Linux.
         linux_include_paths = [
-          gcc.opt_include/"c++"/gcc.version.major,
-          gcc.opt_include/"c++"/gcc.version.major/"x86_64-pc-linux-gnu",
           HOMEBREW_PREFIX/"include",
         ]
         linux_include_paths.each { |path| cxxflags << "-isystem#{path}" }
-
-        # Make sure Clang does not try to include any headers from host GCC.
-        cxxflags << "-nostdinc++"
 
         # Unset CMAKE_C_COMPILER and CMAKE_CXX_COMPILER so we can set them below.
         extra_args.reject! { |s| s[/CMAKE_C(XX)?_COMPILER/] }
@@ -320,7 +347,7 @@ class Llvm < Formula
         # coverage. These do not need to succeed.
         begin
           system "cmake", "--build", ".", "--target", "check-clang", "check-llvm", "--", "--keep-going"
-        rescue RuntimeError
+        rescue BuildError
           nil
         end
       end
@@ -336,7 +363,7 @@ class Llvm < Formula
         # This build is for profiling, so it is safe to ignore errors.
         begin
           system "cmake", "--build", ".", "--", "--keep-going"
-        rescue RuntimeError
+        rescue BuildError
           nil
         end
       end
@@ -364,6 +391,9 @@ class Llvm < Formula
     # Now, we can build.
     mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
+      # Linux fails with:
+      # No rule to make target '#{buildpath}/llvm/build/lib/libunwind.so'
+      ENV.deparallelize if OS.linux?
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
     end
@@ -396,7 +426,7 @@ class Llvm < Formula
 
     # Create symlinks so that the Python bindings can be used with alternative Python versions
     python_versions.each do |py_ver|
-      next if py_ver == Language::Python.major_minor_version("python3").to_s
+      next if py_ver == Language::Python.major_minor_version(python3).to_s
 
       (lib/"python#{py_ver}/site-packages").install_symlink (lib/site_packages).children
     end
@@ -411,10 +441,12 @@ class Llvm < Formula
   end
 
   def caveats
-    <<~EOS
-      To use the bundled libc++ please add the following LDFLAGS:
-        LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
-    EOS
+    on_macos do
+      <<~EOS
+        To use the bundled libc++ please add the following LDFLAGS:
+          LDFLAGS="-L#{opt_lib}/c++ -Wl,-rpath,#{opt_lib}/c++"
+      EOS
+    end
   end
 
   test do
@@ -514,12 +546,13 @@ class Llvm < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+    cxx_libdir = OS.mac? ? opt_lib/"c++" : opt_lib
     system "#{bin}/clang++", "-v",
            "-isystem", "#{opt_include}/c++/v1",
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+           "-rtlib=compiler-rt", "-L#{cxx_libdir}", "-Wl,-rpath,#{cxx_libdir}"
     assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
-                    (opt_lib/shared_library("libc++", "1")).to_s
+                    (cxx_libdir/shared_library("libc++", "1")).to_s
     (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
       refute_match(/libstdc\+\+/, lib)
       refute_match(/libgcc/, lib)
@@ -582,11 +615,19 @@ class Llvm < Formula
 
     # Testing mlir
     (testpath/"test.mlir").write <<~EOS
-      func @bad_branch() {
-        br ^missing  // expected-error {{reference to an undefined block}}
-      }
+      func.func @main() {return}
+
+      // -----
+
+      // expected-note @+1 {{see existing symbol definition here}}
+      func.func @foo() { return }
+
+      // ----
+
+      // expected-error @+1 {{redefinition of symbol named 'foo'}}
+      func.func @foo() { return }
     EOS
-    system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
+    system "#{bin}/mlir-opt", "--split-input-file", "--verify-diagnostics", "test.mlir"
 
     (testpath/"scanbuildtest.cpp").write <<~EOS
       #include <iostream>
@@ -598,8 +639,8 @@ class Llvm < Formula
         return 0;
       }
     EOS
-    assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
-      "warning: Use of memory after it is freed"
+    assert_includes shell_output("#{bin}/scan-build make scanbuildtest 2>&1"),
+                    "warning: Use of memory after it is freed"
 
     (testpath/"clangformattest.c").write <<~EOS
       int    main() {
@@ -607,6 +648,14 @@ class Llvm < Formula
     EOS
     assert_equal "int main() { printf(\"Hello world!\"); }\n",
       shell_output("#{bin}/clang-format -style=google clangformattest.c")
+
+    # This will fail if the clang bindings cannot find `libclang`.
+    with_env(PYTHONPATH: prefix/Language::Python.site_packages(python3)) do
+      system python3, "-c", <<~EOS
+        from clang import cindex
+        cindex.Config().get_cindex_library()
+      EOS
+    end
 
     # Ensure LLVM did not regress output of `llvm-config --system-libs` which for a time
     # was known to output incorrect linker flags; e.g., `-llibxml2.tbd` instead of `-lxml2`.
