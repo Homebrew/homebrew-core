@@ -5,6 +5,11 @@ class CargoNextest < Formula
   sha256 "2d14315ad233578611d024e09e0eb44bcdf4c5375701dfaea7e94df906ef5c84"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^cargo-nextest[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d285cdc92ec034d26adbb02b50a1ecf36c36199ddaf859522a8aa86c6e99dc74"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "593a01277434df6a1ec635871c344d6731f24dc232ae7bbf34f61ce9261c1785"
