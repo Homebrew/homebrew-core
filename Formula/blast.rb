@@ -11,12 +11,12 @@ class Blast < Formula
     regex(/v?(\d+(?:\.\d+)+)/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_big_sur: "2bf18560fdbeeba904b1c064de2d7485f5f478ed8608124ba034889b8372518a"
     sha256 monterey:      "8b52442d8fccc8f099cf06b3f5c047eedbb3823326d0ea1a4e61cae535231295"
     sha256 big_sur:       "ee3a1af3ae297a89e2c9faadbf0e9f677d06540777fefa72503fe7d9cde69d56"
     sha256 catalina:      "2a649294c81ba2449ed122c981359b05273bfd51d200c0cd56a0819458808b1f"
-    sha256 x86_64_linux:  "5ed46b12d1329eac692b299b62d19b1785154ea56df348da9592840f73da8880"
   end
 
   depends_on "lmdb"
@@ -27,10 +27,6 @@ class Blast < Formula
 
   on_macos do
     depends_on "libomp"
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   conflicts_with "proj", because: "both install a `libproj.a` library"
