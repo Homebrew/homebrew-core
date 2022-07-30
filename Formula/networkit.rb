@@ -6,6 +6,7 @@ class Networkit < Formula
   url "https://github.com/networkit/networkit/archive/10.0.tar.gz"
   sha256 "77187a96dea59e5ba1f60de7ed63d45672671310f0b844a1361557762c2063f3"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "b3709535d7981e04a3cd541ed56c2cdf44f7c2dfad82089add38847b1ec86f13"
@@ -22,30 +23,25 @@ class Networkit < Formula
 
   depends_on "libnetworkit"
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "scipy"
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     rpath_addons = Formula["libnetworkit"].opt_lib
+    site_packages = Language::Python.site_packages("python3")
 
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python#{xy}/site-packages/"
-    ENV.append_path "PYTHONPATH", Formula["libcython"].opt_libexec/"lib/python#{xy}/site-packages"
-    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build_ext",
-          "--networkit-external-core",
-          "--external-tlx=#{Formula["tlx"].opt_prefix}",
-          "--rpath=@loader_path;#{rpath_addons}"
-    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install",
-           "--single-version-externally-managed",
-           "--record=installed.txt",
-           "--prefix=#{libexec}"
-    site_packages = "lib/python#{xy}/site-packages"
-    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-    (prefix/site_packages/"homebrew-networkit.pth").write pth_contents
+    ENV.prepend_create_path "PYTHONPATH", prefix/site_packages
+    ENV.append_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
+
+    system "python3", "setup.py", "build_ext", "--networkit-external-core",
+                                               "--external-tlx=#{Formula["tlx"].opt_prefix}",
+                                               "--rpath=@loader_path;#{rpath_addons}"
+
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
+    system Formula["python@3.10"].opt_bin/"python3", "-c", <<~EOS
       import networkit as nk
       G = nk.graph.Graph(3)
       G.addEdge(0,1)
