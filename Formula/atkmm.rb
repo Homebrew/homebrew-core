@@ -5,13 +5,13 @@ class Atkmm < Formula
   sha256 "6f62dd99f746985e573605937577ccfc944368f606a71ca46342d70e1cdae079"
   license "LGPL-2.1-or-later"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any, arm64_monterey: "060aaa8eff1cde559d778477b5d3b0b707de855a590a13a9ff9b416ce7a4d2ee"
     sha256 cellar: :any, arm64_big_sur:  "664288c4e6fb17a1d7b496e77ed85ca6f1133aeb56f96ba643cd0d1878544935"
     sha256 cellar: :any, monterey:       "59d500b3a99b28004129b67bdd0e7b01e380641775c3a8f419c8ef946ebfb885"
     sha256 cellar: :any, big_sur:        "6faaf66dbd24fd9a6653cd123c5ea7e3d859f6271889315ebdf53a1c66548ea3"
     sha256 cellar: :any, catalina:       "b90948dbd7c51cc8a6a1cddadb90942b8edec8e682b37f168be4fd5eca3c6cee"
-    sha256               x86_64_linux:   "1d659fec4e9807cd89ff4dfb30ccebcde19856021ff78bc15a85107eded62152"
   end
 
   depends_on "meson" => :build
@@ -19,10 +19,6 @@ class Atkmm < Formula
   depends_on "pkg-config" => :build
   depends_on "atk"
   depends_on "glibmm"
-
-  on_linux do
-    depends_on "gcc" => :build
-  end
 
   fails_with gcc: "5"
 
