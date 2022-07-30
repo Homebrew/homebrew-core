@@ -12,13 +12,13 @@ class Bitcoin < Formula
     regex(/latest version.*?v?(\d+(?:\.\d+)+)/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c084959d808330eb564cf27b7ea51c62497a8008c2d584640466c6019bdc55b9"
     sha256 cellar: :any,                 arm64_big_sur:  "0bbf8b60af0394b210c88202c7319b785eff65635f8cbb55682793a9c674b73a"
     sha256 cellar: :any,                 monterey:       "de3f8d260583f8b12f2159358deaec0c71408cf745c250e72cc43a208c96e5a3"
     sha256 cellar: :any,                 big_sur:        "ee59dc2285d421fac229272894a9297dd97f7538995cc651839494fa184f4cdd"
     sha256 cellar: :any,                 catalina:       "225a9045c66625bb715fc92d4971f4f847ae459e22cb9e93910048f2576fe23e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6565228ccfa1b5c59aa14fde06a7ac901261c89d0d1099bcb78791265d783ae"
   end
 
   depends_on "autoconf" => :build
@@ -31,11 +31,6 @@ class Bitcoin < Formula
   depends_on macos: :catalina
   depends_on "miniupnpc"
   depends_on "zeromq"
-
-  on_linux do
-    depends_on "util-linux" => :build # for `hexdump`
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
