@@ -6,8 +6,9 @@ class TidyViewer < Formula
   license "Unlicense"
 
   livecheck do
-    url :stable
-    strategy :github_latest
+    url "https://github.com/alexhallam/tv/releases?q=prerelease%3Afalse"
+    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)(?:[._-]release)?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
