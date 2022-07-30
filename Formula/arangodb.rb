@@ -11,11 +11,11 @@ class Arangodb < Formula
     regex(/href=.*?ArangoDB[._-]v?(\d+(?:\.\d+)+)(-\d+)?\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 monterey:     "6ce88863c3d64b6e0f80157b81ccada705ba6a364ee8ff827e46f63df16b3b10"
     sha256 big_sur:      "e38065e33bd2ee3eee533bcde177f1ce0c3dfd7c8857f678fe73d4e2e8fcec75"
     sha256 catalina:     "5420623e77cc3c4dd8c272a791ce8d102d46fdceeea983104f2443a6b2cb95c8"
-    sha256 x86_64_linux: "8c311faac036bab8fc2acee10adf136275ccbf5c976795fadae2b08adaefffaf"
   end
 
   depends_on "ccache" => :build
@@ -24,10 +24,6 @@ class Arangodb < Formula
   depends_on "python@3.10" => :build
   depends_on macos: :mojave
   depends_on "openssl@1.1"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
