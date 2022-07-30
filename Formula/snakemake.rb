@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/f8/d9/14b9b637a505a856d2c9e351ab52c77df345c9da4b8e18288066bc01bf3d/snakemake-7.11.0.tar.gz"
-  sha256 "34656cc5a4064c85d8ea7409ed054ecb874af1e049f673c680efa6c99e6a8cb3"
+  url "https://files.pythonhosted.org/packages/82/85/3b22beea9683a1c5b5eb6cabf38567b6690c48232964e06dcf56e51373f4/snakemake-7.12.0.tar.gz"
+  sha256 "ecf447ca60db29e83cd6e692ec628ff2913ac6e9f05402a07bbd33d4ee3f8ef6"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -26,8 +26,8 @@ class Snakemake < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
-    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
   end
 
   resource "certifi" do
@@ -96,8 +96,8 @@ class Snakemake < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/19/0f/89db7764dfb59fc1c2b18c2d63f11375b4827aa3e93ae037166a780d2bed/jsonschema-4.7.2.tar.gz"
-    sha256 "73764f461d61eb97a057c929368610a134d1d1fffd858acfe88864ee94f1f1d3"
+    url "https://files.pythonhosted.org/packages/9d/c7/213df24d4dcf2eb115e2843205c6073c192976684388d6912cf674db2b8a/jsonschema-4.8.0.tar.gz"
+    sha256 "c1d410e379b210ba903bee6adf3fce6d5204cea4c2b622d63f914d2dbfef0993"
   end
 
   resource "jupyter-core" do
