@@ -4,6 +4,7 @@ class Pigz < Formula
   url "https://zlib.net/pigz/pigz-2.7.tar.gz"
   sha256 "b4c9e60344a08d5db37ca7ad00a5b2c76ccb9556354b722d56d55ca7e8b1c707"
   license "Zlib"
+  revision 1
 
   livecheck do
     url :homepage
@@ -19,10 +20,12 @@ class Pigz < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a6ba53a70f69c7db90ab0f69af67ae3abfa95058cdb1ac319b3bfffbdbc6847"
   end
 
+  depends_on "zopfli"
   uses_from_macos "zlib"
 
   def install
-    system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
+    libzopfli = Formula["zopfli"].opt_lib/shared_library("libzopfli")
+    system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "ZOP=#{libzopfli}"
     bin.install "pigz", "unpigz"
     man1.install "pigz.1"
     man1.install_symlink "pigz.1" => "unpigz.1"
