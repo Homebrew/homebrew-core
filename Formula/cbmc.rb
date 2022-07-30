@@ -6,13 +6,13 @@ class Cbmc < Formula
       revision: "64034e0d47f5d79b67fb22310a0e785469d24f01"
   license "BSD-4-Clause"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0a786a1eaefab7a9b0331a27a58287dd0fdcc04249738dc578e9cc547151db41"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3e8056ffd13c5919664209058ad2507783ff36d179f5b89aa7f3f0672604a654"
     sha256 cellar: :any_skip_relocation, monterey:       "044e86d04e53ce090d3d9c9142b1cb5bfe6891f6f2294690416a169b2da22aa0"
     sha256 cellar: :any_skip_relocation, big_sur:        "28107ea839525f15986c3c69cfe8fbeb481f93298d6d25e9825458370d38924e"
     sha256 cellar: :any_skip_relocation, catalina:       "098319a8cbb6a295d8a6db00e2ac3f4957828dedb4bdb737025c72055eea865e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd6ac1f0e18386248a6a2621fafb7bf6bceb26492f1c9586a258b565e3ff20b7"
   end
 
   depends_on "cmake" => :build
@@ -21,10 +21,6 @@ class Cbmc < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
