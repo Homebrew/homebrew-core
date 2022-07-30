@@ -4,7 +4,7 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/a8/e3/4ec401f609d34162b7023a09165da491630879e4cfa2336667fe2102cd06/scipy-1.9.0.tar.gz"
   sha256 "c0dfd7d2429452e7e94904c6a3af63cbaa3cf51b348bd9d35b42db7e9ad42791"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/scipy/scipy.git", branch: "master"
 
   bottle do
@@ -23,16 +23,16 @@ class Scipy < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "pybind11"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   cxxstdlib_check :skip
 
   fails_with gcc: "5"
 
   def install
-    openblas = Formula["openblas"].opt_prefix
+    openblas = Formula["openblas"]
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
-    ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/#{shared_library("libopenblas")}"
+    ENV["BLAS"] = ENV["LAPACK"] = openblas.opt_lib/shared_library("libopenblas")
 
     config = <<~EOS
       [DEFAULT]
@@ -40,21 +40,20 @@ class Scipy < Formula
       include_dirs = #{HOMEBREW_PREFIX}/include
       [openblas]
       libraries = openblas
-      library_dirs = #{openblas}/lib
-      include_dirs = #{openblas}/include
+      library_dirs = #{openblas.opt_lib}
+      include_dirs = #{openblas.opt_include}
     EOS
 
     Pathname("site.cfg").write config
 
     site_packages = Language::Python.site_packages("python3")
-    ENV.prepend_create_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
-    ENV.prepend_create_path "PYTHONPATH", Formula["pythran"].opt_libexec/site_packages
-    ENV.prepend_create_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
+    ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
+    ENV.prepend_path "PYTHONPATH", Formula["pythran"].opt_libexec/site_packages
+    ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
     ENV.prepend_create_path "PYTHONPATH", site_packages
 
-    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build",
-      "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+    system "python3", "setup.py", "build", "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   # cleanup leftover .pyc files from previous installs which can cause problems
@@ -64,6 +63,6 @@ class Scipy < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import scipy"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import scipy"
   end
 end
