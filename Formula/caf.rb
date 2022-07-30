@@ -7,6 +7,7 @@ class Caf < Formula
   license "BSD-3-Clause"
   head "https://github.com/actor-framework/actor-framework.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_monterey: "1313480b89b8ab7151ec4c585b2c7470b756a9b281f8944dbf85eb5ee16b82d7"
@@ -14,15 +15,10 @@ class Caf < Formula
     sha256 cellar: :any,                 monterey:       "d34c094aa418f1fa3b17e0dabc9d31f78b1e33a7e83bbba6e6eb00998cdd3320"
     sha256 cellar: :any,                 big_sur:        "fd895f94627410078a14281a8cf201d8ea0399f3393b55c4c6742da8922f2e90"
     sha256 cellar: :any,                 catalina:       "4e4f922feb8b8da760941ca4dfc3c050536938edaef0b7f3ea3c328b4d23c038"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0604ff641db3478a78639cac72937792e4efe4593a22f2ad027c09cf793f9f5d"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
-
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
 
   fails_with gcc: "5"
 
