@@ -4,6 +4,7 @@ class Openimageio < Formula
   url "https://github.com/OpenImageIO/oiio/archive/v2.3.17.0.tar.gz"
   sha256 "22d38347b40659d218fcafcadc9258d3f6eda0be02029b11969361c9a6fa9f5c"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
   livecheck do
@@ -37,13 +38,18 @@ class Openimageio < Formula
   depends_on "opencolorio"
   depends_on "openexr"
   depends_on "pybind11"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "webp"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
+  def python
+    deps.map(&:to_formula)
+        .find { |f| f.name.match?(/^python@\d\.\d+$/) }
+  end
+
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DCCACHE_FOUND=
       -DEMBEDPLUGINS=ON
       -DUSE_FIELD3D=OFF
@@ -57,24 +63,24 @@ class Openimageio < Formula
     ]
 
     # CMake picks up the system's python shared library, even if we have a brewed one.
-    py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    python3 = python.opt_bin/"python3"
+    py3ver = Language::Python.major_minor_version(python3)
     py3prefix = if OS.mac?
-      Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+      python.opt_frameworks/"Python.framework/Versions"/py3ver
     else
-      Formula["python@3.9"].opt_prefix
+      python.opt_prefix
     end
 
-    ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"
+    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python3)
 
-    args << "-DPython_EXECUTABLE=#{py3prefix}/bin/python3"
+    args << "-DPython_EXECUTABLE=#{python3}"
     args << "-DPYTHON_LIBRARY=#{py3prefix}/lib/#{shared_library("libpython#{py3ver}")}"
     args << "-DPYTHON_INCLUDE_DIR=#{py3prefix}/include/python#{py3ver}"
     args << "-DPYTHON_VERSION=#{py3ver}"
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -87,6 +93,6 @@ class Openimageio < Formula
       import OpenImageIO
       print(OpenImageIO.VERSION_STRING)
     EOS
-    assert_match version.major_minor_patch.to_s, pipe_output(Formula["python@3.9"].opt_bin/"python3", output, 0)
+    assert_match version.major_minor_patch.to_s, pipe_output(python.opt_bin/"python3", output, 0)
   end
 end
