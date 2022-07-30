@@ -7,23 +7,19 @@ class Ccls < Formula
   revision 5
   head "https://github.com/MaskRay/ccls.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256                               arm64_monterey: "7a700c856f8fddcb51898902e141a7bf2b00cf1d534ad44e368761eaea80c6a9"
     sha256                               arm64_big_sur:  "f8de1cf356810a3b604fd13f526608cf4ad4ab4c4e70b8474693b580552b0f8f"
     sha256                               monterey:       "5a6b516516d46abbf4668b5e9eec5e88840c5a2ca73432696d8ab2d9a641a074"
     sha256                               big_sur:        "b68c5cbc9bdfcb100fd62c6b358a3686735d0e3557ce0a1237499dcb8080bf64"
     sha256                               catalina:       "831dfbfb728bffc850add851055b9d6eedf5adb74250a08eed8e05997d760695"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1dbb3ade81ce1ad9d4f63cde3620d72513097d2835b1e74d80e3a9d1999d66e"
   end
 
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
   depends_on "llvm@13"
   depends_on macos: :high_sierra # C++ 17 is required
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
