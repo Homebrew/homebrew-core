@@ -4,6 +4,7 @@ class Gdcm < Formula
   url "https://github.com/malaterre/GDCM/archive/v3.0.14.tar.gz"
   sha256 "12582a87a1f043ce77005590ef1060e92ad36ec07ccf132da49c59f857d413ee"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,7 @@ class Gdcm < Formula
   depends_on "swig" => :build
   depends_on "openjpeg"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "vtk@8.2"
 
   uses_from_macos "expat"
@@ -40,12 +41,10 @@ class Gdcm < Formula
   def install
     ENV.cxx11
 
-    python3 = Formula["python@3.9"].opt_bin/"python3"
-    xy = Language::Python.major_minor_version python3
+    python3 = which("python3")
     python_include =
       Utils.safe_popen_read(python3, "-c", "from distutils import sysconfig;print(sysconfig.get_python_inc(True))")
            .chomp
-    python_executable = Utils.safe_popen_read(python3, "-c", "import sys;print(sys.executable)").chomp
 
     args = std_cmake_args + %W[
       -GNinja
@@ -61,20 +60,17 @@ class Gdcm < Formula
       -DGDCM_USE_SYSTEM_OPENJPEG=ON
       -DGDCM_USE_SYSTEM_OPENSSL=ON
       -DGDCM_WRAP_PYTHON=ON
-      -DPYTHON_EXECUTABLE=#{python_executable}
+      -DPYTHON_EXECUTABLE=#{python3}
       -DPYTHON_INCLUDE_DIR=#{python_include}
-      -DGDCM_INSTALL_PYTHONMODULE_DIR=#{lib}/python#{xy}/site-packages
+      -DGDCM_INSTALL_PYTHONMODULE_DIR=#{prefix/Language::Python.site_packages("python3")}
       -DCMAKE_INSTALL_RPATH=#{lib}
       -DGDCM_NO_PYTHON_LIBS_LINKING=ON
     ]
 
-    mkdir "build" do
-      ENV.append "LDFLAGS", "-undefined dynamic_lookup" if OS.mac?
-
-      system "cmake", "..", *args
-      system "ninja"
-      system "ninja", "install"
-    end
+    ENV.append "LDFLAGS", "-undefined dynamic_lookup" if OS.mac?
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -91,6 +87,6 @@ class Gdcm < Formula
     system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test", "-L#{lib}", "-lgdcmDSED"
     system "./test"
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gdcm"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import gdcm"
   end
 end
