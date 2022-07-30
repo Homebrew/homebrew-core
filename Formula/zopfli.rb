@@ -4,6 +4,7 @@ class Zopfli < Formula
   url "https://github.com/google/zopfli/archive/zopfli-1.0.3.tar.gz"
   sha256 "e955a7739f71af37ef3349c4fa141c648e8775bceb2195be07e86f8e638814bd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/google/zopfli.git", branch: "master"
 
   bottle do
@@ -17,9 +18,12 @@ class Zopfli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5730bbf490205ab8daadcc298b3f4343d4fdd7d146a6789cc136b1da76d959ac"
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "make", "zopfli", "zopflipng"
-    bin.install "zopfli", "zopflipng"
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
