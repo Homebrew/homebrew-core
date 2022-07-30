@@ -4,7 +4,7 @@ class Imake < Formula
   url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.8.tar.bz2"
   sha256 "b8d2e416b3f29cd6482bcffaaf19286d32917a164d07102a0e531ccd41a2a702"
   license "MIT"
-  revision 5
+  revision 6
 
   livecheck do
     url "https://xorg.freedesktop.org/releases/individual/util/"
