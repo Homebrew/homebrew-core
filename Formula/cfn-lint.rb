@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/30/7d/561475781d6dd8a70d5a1998d0344dabf2d698027f0c058fc8c5238fd7f1/cfn-lint-0.61.3.tar.gz"
-  sha256 "3806e010d77901f5e935496df690c10e39676434a738fce1a1161cf9c7bd36a2"
+  url "https://files.pythonhosted.org/packages/2c/04/3247181dbb635e70f72e970ca84bd0305ef2c8100c7d806ae4e29eec6192/cfn-lint-0.61.4.tar.gz"
+  sha256 "54e584cb4f17b96ab02a88820c2e9fcd787d5baa5940d50cf12ca44eb4946dc1"
   license "MIT-0"
 
   bottle do
@@ -20,23 +20,23 @@ class CfnLint < Formula
   depends_on "six"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
-    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/0c/98/c16af074d75feebdb909b0c6a028487d508e7b5001b68d228dcc4666e127/aws-sam-translator-1.47.0.tar.gz"
-    sha256 "d2fe471a126f58a28ef505d03ea2d37a2f282312ce592a3250f4d8c8efca6946"
+    url "https://files.pythonhosted.org/packages/72/0b/6bf9a42493b938ca1f07a607a2a467866ef81d53256b1b1fa9a9bbbe28db/aws-sam-translator-1.48.0.tar.gz"
+    sha256 "7171037323dfa30f8f73e9bccb9210e4c384a585e087219a9518a5204f0a2c44"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f2/ab/460c69e3841c3938b931d5ae9fb77c6cb2cc7e9fb48518eaefa61e3f489e/boto3-1.24.32.tar.gz"
-    sha256 "021f2a71cbcd75c87724b7dfbf28a691f07899345047f6bc999ef646d97461df"
+    url "https://files.pythonhosted.org/packages/31/36/bb7b73a2cd6408b34485fb22e26846a02a300722c3fdd8b22d593fa0645b/boto3-1.24.41.tar.gz"
+    sha256 "11b495be38c2ef1f2dfb6cb1e1ba03416e762737c5e31aa42f2c3004951940dd"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/c7/12/6173d76603ea6a1d4413ee2588e36d8aa97a59dc734311243dc9782157a9/botocore-1.27.32.tar.gz"
-    sha256 "d510a1d1956a18b6fa4b74b1b5dfbe8a7ca83f5ca4f59c43c368e143425f3725"
+    url "https://files.pythonhosted.org/packages/56/4c/5668819c89b0b4f16a6b6a489e66559fa97b51e9b74a266c34f4ad4340fe/botocore-1.27.41.tar.gz"
+    sha256 "927f573be89baf79a007aa9c9013dbc0328a1cc664dde4e23167ddb6c1bc2433"
   end
 
   resource "jmespath" do
@@ -111,8 +111,8 @@ class CfnLint < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
-    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
+    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
+    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
   end
 
   def install
