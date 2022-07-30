@@ -4,6 +4,7 @@ class Bitcoin < Formula
   url "https://bitcoincore.org/bin/bitcoin-core-23.0/bitcoin-23.0.tar.gz"
   sha256 "26748bf49d6d6b4014d0fedccac46bf2bcca42e9d34b3acfd9e3467c415acc05"
   license "MIT"
+  revision 1
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
   livecheck do
@@ -25,7 +26,7 @@ class Bitcoin < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "berkeley-db@4"
-  depends_on "boost@1.76"
+  depends_on "boost"
   depends_on "libevent"
   depends_on macos: :catalina
   depends_on "miniupnpc"
@@ -42,7 +43,7 @@ class Bitcoin < Formula
     system "./autogen.sh"
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--with-boost-libdir=#{Formula["boost@1.76"].opt_lib}"
+                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
     system "make", "install"
     pkgshare.install "share/rpcauth"
   end
