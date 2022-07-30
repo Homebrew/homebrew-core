@@ -7,6 +7,7 @@ class Ccache < Formula
   revision 1
   head "https://github.com/ccache/ccache.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_monterey: "6c7df26513e64e81bd1c34bdecd3c0f244584de42861edc1a10eb47080a2f36e"
@@ -14,7 +15,6 @@ class Ccache < Formula
     sha256 cellar: :any,                 monterey:       "a850bea227e005e5eeb4a06854c3dd409939f0a05921b493c78b0c3a6a4f3179"
     sha256 cellar: :any,                 big_sur:        "fc86f696e7533bbb5c5cb10e72d508667cd0013ed42a3082eceb5608005b4906"
     sha256 cellar: :any,                 catalina:       "0f1e9ffd25cdfc59a40b4ff0d4958aebd4ef6a63ec6adf2e59c2dc741a3a5416"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5339cf0bd2c396f3aa646c0bb853b90276255d14a613c8173e888c7f630bf775"
   end
 
   depends_on "asciidoctor" => :build
@@ -23,10 +23,6 @@ class Ccache < Formula
 
   depends_on "hiredis"
   depends_on "zstd"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
