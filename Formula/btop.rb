@@ -2,7 +2,7 @@ class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   # Remove stable block when patch is no longer needed.
