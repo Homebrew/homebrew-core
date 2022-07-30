@@ -11,13 +11,13 @@ class ApacheArrowGlib < Formula
     formula "apache-arrow"
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any, arm64_monterey: "2b85faa106edf308595c12af9a62a7f05e100cfaba6b337600ec832dba09aa71"
     sha256 cellar: :any, arm64_big_sur:  "9a1924c7eb7853e71ea0dee8a9e062a657849ae2a25343a37b344c684e8470a3"
     sha256 cellar: :any, monterey:       "15f68c3d3eff600ae62bd362e3dc32ea0e97cfd45155f747fa4a73db1624ba4c"
     sha256 cellar: :any, big_sur:        "92e1eb8ccab434bb9d5234ebf620ef4f26e93984778b9864404ceff06af377f0"
     sha256 cellar: :any, catalina:       "249dff425624bda77f3d26f3f60b3c50a11479e8e11234281b039c4d641535f3"
-    sha256               x86_64_linux:   "570d7b532ae126ead199b182cac3eb3de4ccc01fc5b75adf6bd3dd63d8085ca7"
   end
 
   depends_on "glib-utils" => :build
@@ -27,10 +27,6 @@ class ApacheArrowGlib < Formula
   depends_on "pkg-config" => :build
   depends_on "apache-arrow"
   depends_on "glib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
