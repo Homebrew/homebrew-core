@@ -9,13 +9,13 @@ class ArcadeLearningEnvironment < Formula
   license "GPL-2.0-only"
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "69b3c918b471d86a15ddc33ca7d8788b7df97cdb37c24b0f9bf278acea044a92"
     sha256 cellar: :any,                 arm64_big_sur:  "b91365dd433a5aaa6c63e1930fa485a0c7d8f30aee4709f77d47a1c227aad39c"
     sha256 cellar: :any,                 monterey:       "928deddbfd6b71a6683d9baabb34e95e42b2426e306d050cf785e5aa0ea45c07"
     sha256 cellar: :any,                 big_sur:        "385f3c78c9926ea3cf5fb5ea44d0ef363d3c097058e039e822a127d3f7f031f1"
     sha256 cellar: :any,                 catalina:       "6b4982ba66a1dae92d8894c64d10413eefe553bcb3e368770d49a4ea66b6af3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11739052d50db05aac650a0d23c46aeb04535b9ff97b982c3687bb5baac0fbbc"
   end
 
   depends_on "cmake" => :build
@@ -25,10 +25,6 @@ class ArcadeLearningEnvironment < Formula
   depends_on "sdl2"
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc" # for C++17
-  end
 
   fails_with gcc: "5"
 
