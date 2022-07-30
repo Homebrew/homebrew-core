@@ -5,6 +5,11 @@ class TidyViewer < Formula
   sha256 "e9a2fc904f2e115c715df80421c39e0f226b6750a56db96d994acfe9336ec219"
   license "Unlicense"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "53853cd1533e4fac8e60888f9af81b3cf6ecf30ab9f3a05499e4043845180d37"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "557eab650f2badd470f82f807022a9d0a9b310f87744c122ea5f40dbcdadbc8e"
