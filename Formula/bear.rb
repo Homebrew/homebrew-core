@@ -6,13 +6,13 @@ class Bear < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "0771405df1deec6b060a4f3c99439cd49c40a8749d8a7c192b045232e285165f"
     sha256 arm64_big_sur:  "e7c5589671130966af58a5040bc85e58a03e7bf1e58cf24b88a00960a40ce40d"
     sha256 monterey:       "24fa77c3b3d432bd5dafb11cfe17c54ba12140fe187e70050ad9281f438e84d9"
     sha256 big_sur:        "16074e6c469f2ef05ab4cec5806b77fbf3433ec4d81f80c25c7f4188ccf6b3dc"
     sha256 catalina:       "3ca416dc7635e808b58b0e94216d4037bc0c1f2338b6cfaa5f4e39ad527374be"
-    sha256 x86_64_linux:   "1b3443070cb27bb411cbebcbeb4c7d23daecf2ad444b5a7990c59090df53d98a"
   end
 
   depends_on "cmake" => :build
@@ -26,10 +26,6 @@ class Bear < Formula
 
   on_macos do
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   fails_with gcc: "5" # needs C++17
