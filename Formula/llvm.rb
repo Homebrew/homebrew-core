@@ -1,11 +1,10 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/llvm-project-14.0.6.src.tar.xz"
-  sha256 "8b3cfd7bc695bd6cea0f37f53f0981f34f87496e79e2529874fd03a2f9dd3a8a"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.0/llvm-project-15.0.0.src.tar.xz"
+  sha256 "caaf8100365b6ebafc39fea803e902ca3ff38b4d5327b9927097808d32964db7"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -114,6 +113,7 @@ class Llvm < Formula
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF
+      -DCLANG_FORCE_MATCHING_LIBCLANG_SOVERSION=OFF
       -DPACKAGE_VENDOR=#{tap.user}
       -DBUG_REPORT_URL=#{tap.issues_url}
       -DCLANG_VENDOR_UTI=org.#{tap.user.downcase}.clang
@@ -143,6 +143,14 @@ class Llvm < Formula
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
       runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
+
+      # Prevent CMake from defaulting to `lld` when it's found next to `clang`.
+      # This can be removed after CMake 3.25. See:
+      # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/7671
+      args << "-DLLVM_USE_LINKER=ld"
+      [args, runtimes_cmake_args, builtins_cmake_args].each do |arg_array|
+        arg_array << "-DCMAKE_LINKER=ld"
+      end
     else
       ENV.append_to_cflags "-fpermissive -Wno-free-nonheap-object"
 
@@ -211,7 +219,11 @@ class Llvm < Formula
 
       if OS.mac?
         extra_args << "-DLLVM_ENABLE_LIBCXX=ON"
-        extra_args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
+        # Prevent CMake from defaulting to `lld` when it's found next to `clang`.
+        # This can be removed after CMake 3.25. See:
+        # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/7671
+        extra_args << "-DLLVM_USE_LINKER=ld"
+        extra_args << "-DCMAKE_LINKER=ld"
       else
         # Make sure CMake doesn't try to pass C++-only flags to C compiler.
         extra_args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
@@ -320,7 +332,7 @@ class Llvm < Formula
         # coverage. These do not need to succeed.
         begin
           system "cmake", "--build", ".", "--target", "check-clang", "check-llvm", "--", "--keep-going"
-        rescue RuntimeError
+        rescue BuildError
           nil
         end
       end
@@ -336,7 +348,7 @@ class Llvm < Formula
         # This build is for profiling, so it is safe to ignore errors.
         begin
           system "cmake", "--build", ".", "--", "--keep-going"
-        rescue RuntimeError
+        rescue BuildError
           nil
         end
       end
