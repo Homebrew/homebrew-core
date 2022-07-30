@@ -4,6 +4,7 @@ class Opencolorio < Formula
   url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/v2.1.2.tar.gz"
   sha256 "6c6d153470a7dbe56136073e7abea42fa34d06edc519ffc0a159daf9f9962b0b"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "master"
 
   bottle do
@@ -18,21 +19,18 @@ class Opencolorio < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    args = std_cmake_args + %W[
-      -DCMAKE_VERBOSE_MAKEFILE=OFF
+    args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DPYTHON=python3
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/"python3"
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/"python3"
     ]
 
-    mkdir "macbuild" do
-      system "cmake", *args, ".."
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "macbuild", *args, *std_cmake_args
+    system "cmake", "--build", "macbuild"
+    system "cmake", "--install", "macbuild"
   end
 
   def caveats
