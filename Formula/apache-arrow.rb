@@ -7,13 +7,13 @@ class ApacheArrow < Formula
   license "Apache-2.0"
   head "https://github.com/apache/arrow.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "236f3e3d792c5450549703d4baaffb4c272c10495ab5e28e00745e33dd5c8b9f"
     sha256 cellar: :any,                 arm64_big_sur:  "4f410eb8437deb23972cc7c1afee02f589debed45c0e2cd70b5f30735a45a94a"
     sha256 cellar: :any,                 monterey:       "b523d867a39dcd7bb1e6184bf542a7dbe2dcecdf4ce987413e0a4beaa86dcd67"
     sha256 cellar: :any,                 big_sur:        "6c94f65c8985387ff46b26b2d0e6a2a3cf6ce2c34d264d2353580ba73c0fdc7e"
     sha256 cellar: :any,                 catalina:       "1bb210d9cb9bbd851c1d0d51ad88ffc2516f35d87f4b3771b4d4313e65576a68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34c6809c6ecf836b59924fc4ea0f5677bdf17b0fd3cecbeba2cbd8e4f599fbbb"
   end
 
   depends_on "boost" => :build
@@ -34,10 +34,6 @@ class ApacheArrow < Formula
   depends_on "thrift"
   depends_on "utf8proc"
   depends_on "zstd"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
