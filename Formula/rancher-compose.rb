@@ -18,7 +18,7 @@ class RancherCompose < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "824f7aa831c055b0bb1db401881bf4bcdff30e72cb9932ff97e57ba47ff19ecd"
   end
 
-  deprecate! date: "2020-10-18", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "go" => :build
 
