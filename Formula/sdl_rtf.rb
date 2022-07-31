@@ -26,7 +26,7 @@ class SdlRtf < Formula
   end
 
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
-  deprecate! date: "2013-08-17", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   depends_on "sdl"
 
