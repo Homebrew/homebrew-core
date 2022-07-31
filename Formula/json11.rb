@@ -15,7 +15,7 @@ class Json11 < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "e0229fc7e70a26fdd945e3cf666e2608f73d186b20fcc2555d19466e78771d54"
   end
 
-  deprecate! date: "2020-03-25", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "cmake" => :build
 
