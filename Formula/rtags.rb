@@ -39,23 +39,19 @@ class Rtags < Formula
     end
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any, arm64_monterey: "67fde9c9fd4f1ccc4dd3150278f9323974e1a49193f157efb852cd49aa3e6858"
     sha256 cellar: :any, arm64_big_sur:  "271ed75ecc942d6577918b24b7002a5823c0387488d1cdc119858671906fc41d"
     sha256 cellar: :any, monterey:       "1fb01122c1387a7e94fa8a778bee77466b73ee3d4b3f843d06f6bd2d5d0a36e4"
     sha256 cellar: :any, big_sur:        "7d898020bd18e0a52f2e6295ce749c5bd26cbdfadc5b0dd4e03753c875a39e72"
     sha256 cellar: :any, catalina:       "a20866caac99a36a4310a3e157fe898e8dd0e6ed6e2f52e9b397e327060dc2a1"
-    sha256               x86_64_linux:   "de2a6f23bb6620c4790fc5c48c2e9306e82d60cfae5e31e48181b6033c98dcd9"
   end
 
   depends_on "cmake" => :build
   depends_on "emacs"
   depends_on "llvm"
   depends_on "openssl@1.1"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
