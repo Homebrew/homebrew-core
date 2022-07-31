@@ -14,7 +14,7 @@ class Genstats < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "44502f7a2dfcb1355336db69267d6363d6e8b8767b47628b0d3099743513ed5f"
   end
 
-  deprecate! date: "2021-05-20", because: "Upstream website has disappeared"
+  disable! date: "2022-07-31", because: "Upstream website has disappeared"
 
   def install
     # Tried to make this a patch.  Applying the patch hunk would
