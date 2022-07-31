@@ -24,6 +24,7 @@ class Openblas < Formula
 
   depends_on "gcc@12" # for gfortran
   fails_with :clang
+  fails_with gcc: "5" # Compile with gcc-12
 
   def install
     ENV.runtime_cpu_detection
