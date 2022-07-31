@@ -21,7 +21,7 @@ class Netcat6 < Formula
   # Upstream appears to have stopped developing netcat6 and instead recommends
   # using OpenBSD's netcat (which supports IPv6) or Nmap's netcat replacement
   # (ncat).
-  deprecate! date: "2021-03-27", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   def install
     system "./configure", "--disable-dependency-tracking",
