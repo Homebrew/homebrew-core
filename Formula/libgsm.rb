@@ -2,8 +2,9 @@ class Libgsm < Formula
   desc "Lossy speech compression library"
   homepage "http://www.quut.com/gsm/"
   url "http://www.quut.com/gsm/gsm-1.0.20.tar.gz"
-  sha256 "b0e6cf4d5ac81387cf74cbe431f77302db3b2f62fc7cb5e21a5670ac30963979"
+  sha256 "6315c38518b81e899c3fc2ed463cc623af29c5c231a48c137b24302234ae90bf"
   license "TU-Berlin-2.0"
+  revision 1
 
   livecheck do
     url :homepage
@@ -55,6 +56,8 @@ class Libgsm < Formula
     ]
     args << "CC=#{ENV.cc} -fPIC" if OS.linux?
 
+    # We need to `make all` to avoid a parallelisation error.
+    system "make", "all", *args
     system "make", "install", *args
 
     # Our shared library is erroneously installed as `libgsm.a`
