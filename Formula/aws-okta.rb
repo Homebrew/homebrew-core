@@ -16,7 +16,7 @@ class AwsOkta < Formula
   end
 
   # See https://github.com/segmentio/aws-okta/issues/278
-  deprecate! date: "2020-01-20", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   depends_on "go" => :build
 
