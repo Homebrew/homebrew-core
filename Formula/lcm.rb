@@ -4,7 +4,7 @@ class Lcm < Formula
   url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
   license "LGPL-2.1"
-  revision 6
+  revision 7
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Lcm < Formula
   depends_on "glib"
   depends_on "lua"
   depends_on "openjdk"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     # Adding RPATH in #{lib}/lua/X.Y/lcm.so and some #{bin}/*.
@@ -31,7 +31,7 @@ class Lcm < Formula
       -DLCM_ENABLE_EXAMPLES=OFF
       -DLCM_ENABLE_TESTS=OFF
       -DLCM_JAVA_TARGET_VERSION=8
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{which("python3")}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args
