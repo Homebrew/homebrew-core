@@ -18,7 +18,7 @@ class Py2cairo < Formula
 
   # Python 2 support was dropped in version 1.19.0 and this formula is pinned
   # to the last preceding version.
-  deprecate! date: "2021-03-15", because: :versioned_formula
+  disable! date: "2022-07-31", because: :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
