@@ -2,6 +2,7 @@ class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
   license "GPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://gitlab.com/sane-project/backends/uploads/7d30fab4e115029d91027b6a58d64b43/sane-backends-1.1.1.tar.gz"
@@ -29,7 +30,7 @@ class SaneBackends < Formula
   end
 
   head do
-    url "https://gitlab.com/sane-project/backends.git"
+    url "https://gitlab.com/sane-project/backends.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build
@@ -39,19 +40,19 @@ class SaneBackends < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libusb"
   depends_on "net-snmp"
   depends_on "openssl@1.1"
 
+  uses_from_macos "python" => :build
   uses_from_macos "libxml2"
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--localstatedir=#{var}",
                           "--without-gphoto2",
                           "--enable-local-backends",
