@@ -32,7 +32,6 @@ class GitSync < Formula
     cd "docs" do
       doc.install Dir["*"]
     end
-    doc.install ["README.md", "LICENSE"]
   end
 
   test do
