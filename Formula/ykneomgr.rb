@@ -25,7 +25,7 @@ class Ykneomgr < Formula
   end
 
   # Deprecated in favor of YubiKey Manager (ykman)
-  deprecate! date: "2017-01-27", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
