@@ -17,7 +17,7 @@ class ParquetTools < Formula
   end
 
   # See https://issues.apache.org/jira/browse/PARQUET-1666
-  deprecate! date: "2021-03-25", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   depends_on "maven" => :build
   depends_on "openjdk"
