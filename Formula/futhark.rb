@@ -1,8 +1,8 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.21.13.tar.gz"
-  sha256 "6629ed81cea9319b3d3c5375bd791354e4e5dfbcf83a11303382146ad3bdf3d0"
+  url "https://github.com/diku-dk/futhark/archive/v0.21.14.tar.gz"
+  sha256 "9b0e10e87feddac3e1ac4d9c1ee285c2be18e8bf57a841a968d11b938b17d6da"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git", branch: "master"
 
@@ -16,7 +16,7 @@ class Futhark < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "ncurses"
