@@ -15,7 +15,7 @@ class PonyStable < Formula
 
   # "Stable is no longer being developed. It's been replaced by Corral
   # (https://github.com/ponylang/corral)."
-  deprecate! date: "2020-05-12", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "ponyc"
 
