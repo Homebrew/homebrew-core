@@ -16,7 +16,7 @@ class Groovyserv < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:  "51aef6e15608021ae127aaa93e2aa39bfaf52cfea688b45841d315b6a04b55aa"
   end
 
-  deprecate! date: "2020-11-13", because: :does_not_build
+  disable! date: "2022-07-31", because: :does_not_build
 
   depends_on "go" => :build
   depends_on "groovy"
