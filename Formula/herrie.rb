@@ -16,7 +16,7 @@ class Herrie < Formula
     sha256 mojave:         "4e3258f904116ff2eebbe9436ff3ea3bae676fe15bd0ea193d1d934353e2ffe3"
   end
 
-  deprecate! date: "2021-02-09", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
