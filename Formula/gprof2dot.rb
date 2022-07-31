@@ -3,8 +3,8 @@ class Gprof2dot < Formula
 
   desc "Convert the output from many profilers into a Graphviz dot graph"
   homepage "https://github.com/jrfonseca/gprof2dot"
-  url "https://files.pythonhosted.org/packages/0f/80/11d3ec1703cc61606ddc68851747d1d1df3700d5e6c2b559af6dbeb398c5/gprof2dot-2021.2.21.tar.gz"
-  sha256 "1223189383b53dcc8ecfd45787ac48c0ed7b4dbc16ee8b88695d053eea1acabf"
+  url "https://files.pythonhosted.org/packages/ab/0b/fc056b26a90c1836aa6c6e1332372dc13050d384f017e388131854ead8cf/gprof2dot-2022.7.29.tar.gz"
+  sha256 "45b4d298bd36608fccf9511c3fd88a773f7a1abc04d6cd39445b11ba43133ec5"
   license "LGPL-3.0-or-later"
   head "https://github.com/jrfonseca/gprof2dot.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Gprof2dot < Formula
   end
 
   depends_on "graphviz"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "libx11"
