@@ -15,7 +15,7 @@ class Rpg < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "f1c7e5d997a1f0ceb1cca6b1067408912ff8e14522fb411530649f0689f9d042"
   end
 
-  deprecate! date: "2017-11-08", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   def install
     system "./configure", "--prefix=#{prefix}"
