@@ -9,7 +9,7 @@ class Cssembed < Formula
     sha256 cellar: :any_skip_relocation, all: "bc0fbbbe0f39970282d0bbc7a3ec27abcff377cf6a4772948415ee9e018d509a"
   end
 
-  deprecate! date: "2020-11-10", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   def install
     libexec.install "cssembed-#{version}.jar"
