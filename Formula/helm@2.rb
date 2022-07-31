@@ -20,7 +20,7 @@ class HelmAT2 < Formula
   keg_only :versioned_formula
 
   # See: https://helm.sh/blog/helm-v2-deprecation-timeline/
-  deprecate! date: "2020-11-13", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   depends_on "glide" => :build
   depends_on "go" => :build
