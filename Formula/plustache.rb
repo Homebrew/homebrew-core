@@ -16,7 +16,7 @@ class Plustache < Formula
     sha256 cellar: :any, high_sierra:    "046e756acf6694ae9b8768c62981f807a93aaef52d175bbff7005a29bb23aa00"
   end
 
-  deprecate! date: "2020-08-06", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
