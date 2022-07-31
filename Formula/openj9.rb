@@ -10,6 +10,7 @@ class Openj9 < Formula
     { "GPL-2.0-only" => { with: "Classpath-exception-2.0" } },
     { "GPL-2.0-only" => { with: "OpenJDK-assembly-exception-1.0" } },
   ]
+  revision 1
 
   livecheck do
     url :stable
@@ -33,7 +34,7 @@ class Openj9 < Formula
   depends_on "fontconfig"
   depends_on "giflib"
   depends_on "harfbuzz"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "little-cms2"
 
