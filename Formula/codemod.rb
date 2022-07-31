@@ -20,7 +20,7 @@ class Codemod < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf1dd93571d01049de387a06571f81968d273c3028f96888e76121c87b8d6dd7"
   end
 
-  deprecate! date: "2021-07-13", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "python@3.10"
 
