@@ -17,7 +17,7 @@ class Rdesktop < Formula
     sha256 x86_64_linux:   "05b175c2263baf72cb59debeaf49a974d31db23caf9f1c2b5e9eb3007a02e791"
   end
 
-  deprecate! date: "2020-11-12", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   # Added automake as a build dependency to update config files for ARM support.
   depends_on "automake" => :build
