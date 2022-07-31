@@ -12,13 +12,13 @@ class Clazy < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "aaaa160995aa8134003713a92fa61ccf94a2ef918b5f20cd01e646e12537f57a"
     sha256 cellar: :any,                 arm64_big_sur:  "9fbf9d700955ad17fa061447e4d4665781c4e7110f0c7214e5944710f927ce7e"
     sha256 cellar: :any,                 monterey:       "a96fce75ba8454e0fea0b4c7925e9f3c64ecd4f6332ffdc4ddc7a9fcd7c16e2b"
     sha256 cellar: :any,                 big_sur:        "d0130eecf3cffb4ecb14168f7fad810c7f11264bfd9163d67f7bdd8d2dd11aee"
     sha256 cellar: :any,                 catalina:       "b4e73e0bdaf4fd050513f2697b11bac66c8bf4d24ba6a33ec116b3447d296639"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fdc8926cc35d4ca571c707289b6051055e625bb829b57765b880df0e84a18ff"
   end
 
   depends_on "cmake"   => [:build, :test]
@@ -29,10 +29,6 @@ class Clazy < Formula
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # C++17
 
