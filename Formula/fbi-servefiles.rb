@@ -16,7 +16,7 @@ class FbiServefiles < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "093d05e4e564d7dbc6bc426f573389b5ee9d20312f6be354e5dc27f1d9be08bc"
   end
 
-  deprecate! date: "2020-11-12", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "python@3.10"
 
