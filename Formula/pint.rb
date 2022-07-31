@@ -8,7 +8,12 @@ class Pint < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X 'main.version=#{version}' -X 'main.commit=homebrew'"), "./cmd/pint"
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+      -X main.commit=#{tap.user}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/pint"
   end
 
   test do
