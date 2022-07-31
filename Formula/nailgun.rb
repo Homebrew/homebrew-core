@@ -12,7 +12,7 @@ class Nailgun < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "7f5d7051e631b174fd1d7d0c0aea2b957d3b4946e2176828ec687baddaaa4e04"
   end
 
-  deprecate! date: "2020-11-13", because: :does_not_build
+  disable! date: "2022-07-31", because: :does_not_build
 
   depends_on "maven" => :build
   depends_on "openjdk@8"
