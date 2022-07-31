@@ -2,7 +2,7 @@ class Devil < Formula
   desc "Cross-platform image library"
   homepage "https://sourceforge.net/projects/openil/"
   license "LGPL-2.1-only"
-  revision 3
+  revision 4
   head "https://github.com/DentonW/DevIL.git", branch: "master"
 
   stable do
@@ -43,7 +43,7 @@ class Devil < Formula
 
   depends_on "cmake" => :build
   depends_on "jasper"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
@@ -52,10 +52,9 @@ class Devil < Formula
   patch :DATA
 
   def install
-    cd "DevIL" do
-      system "cmake", ".", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", "DevIL", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
