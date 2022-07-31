@@ -12,7 +12,7 @@ class Skafos < Formula
     sha256 cellar: :any, high_sierra: "57dc00bd0e8bfc96998c690cbd77a7c4c6486d50655603bfdf65771e340ee6b6"
   end
 
-  deprecate! date: "2020-12-16", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "libarchive"
