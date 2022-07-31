@@ -4,6 +4,7 @@ class Sdl2Image < Formula
   url "https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.0/SDL2_image-2.6.0.tar.gz"
   sha256 "611c862f40de3b883393aabaa8d6df350aa3ae4814d65030972e402edae85aaa"
   license "Zlib"
+  revision 1
 
   # This formula uses a file from a GitHub release, so we check the latest
   # release version instead of Git tags.
@@ -30,7 +31,7 @@ class Sdl2Image < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "sdl2"
@@ -41,11 +42,11 @@ class Sdl2Image < Formula
 
     system "./autogen.sh" if build.head?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--disable-imageio",
                           "--disable-jpg-shared",
                           "--disable-png-shared",
+                          "--disable-stb-image",
                           "--disable-tif-shared",
                           "--disable-webp-shared"
     system "make", "install"
