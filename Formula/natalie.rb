@@ -17,7 +17,7 @@ class Natalie < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "dd51e00a1969ffdd478e954bed48bedd1c5a9813b67931aa146711f49cb58223"
   end
 
-  deprecate! date: "2020-09-08", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on xcode: ["9.4", :build]
 
