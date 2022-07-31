@@ -19,7 +19,7 @@ class Kedge < Formula
   end
 
   # https://github.com/kedgeproject/kedge/issues/619
-  deprecate! date: "2021-02-21", because: :unsupported
+  disable! date: "2022-07-31", because: :unsupported
 
   depends_on "go" => :build
 
