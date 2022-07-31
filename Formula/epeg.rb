@@ -4,7 +4,7 @@ class Epeg < Formula
   url "https://github.com/mattes/epeg/archive/v0.9.2.tar.gz"
   sha256 "f8285b94dd87fdc67aca119da9fc7322ed6902961086142f345a39eb6e0c4e29"
   license "MIT-enna"
-  revision 1
+  revision 2
   head "https://github.com/mattes/epeg.git", branch: "master"
 
   bottle do
@@ -23,14 +23,11 @@ class Epeg < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libexif"
 
   def install
-    system "./autogen.sh", "--disable-debug",
-                           "--disable-dependency-tracking",
-                           "--disable-silent-rules",
-                           "--prefix=#{prefix}"
+    system "./autogen.sh", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
