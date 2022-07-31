@@ -6,6 +6,7 @@ class Lanraragi < Formula
   url "https://github.com/Difegue/LANraragi/archive/v.0.8.5.tar.gz"
   sha256 "2cf53f7405a6a4e16e6d61a1109bdd87c25471c2ee6cf2fb79129c7f5666fa31"
   license "MIT"
+  revision 1
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
@@ -23,7 +24,7 @@ class Lanraragi < Formula
   depends_on "ghostscript"
   depends_on "giflib"
   depends_on "imagemagick"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "node"
   depends_on "openssl@1.1"
