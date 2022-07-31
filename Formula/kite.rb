@@ -14,7 +14,7 @@ class Kite < Formula
     sha256               x86_64_linux: "45184970c4f76d2230063944b65f3f8b48fa90c8860dc502f6f677db03269a63"
   end
 
-  deprecate! date: "2021-02-12", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   depends_on "bdw-gc"
 
