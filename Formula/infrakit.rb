@@ -15,7 +15,7 @@ class Infrakit < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "8db80c4d2d7842486a4cedfa4952ed06e453f2e61f4e6818a08b17fa694d1a1c"
   end
 
-  deprecate! date: "2020-02-19", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "go" => :build
   depends_on "libvirt" => :build
