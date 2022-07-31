@@ -4,7 +4,7 @@ class Flactag < Formula
   url "https://downloads.sourceforge.net/project/flactag/v2.0.4/flactag-2.0.4.tar.gz"
   sha256 "c96718ac3ed3a0af494a1970ff64a606bfa54ac78854c5d1c7c19586177335b2"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "1a5bde31200979e346adc3a7e9d498ca38479818c53d87a1a8f4a077b0af3b92"
@@ -23,7 +23,7 @@ class Flactag < Formula
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
   depends_on "flac"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libdiscid"
   depends_on "libmusicbrainz"
   depends_on "neon"
@@ -42,8 +42,7 @@ class Flactag < Formula
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.append "LDFLAGS", "-lFLAC"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
