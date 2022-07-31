@@ -12,7 +12,7 @@ class Yeti < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "1c49573337d0ca872a060038e3c7e5496d02b025e442c062314d98a786ab708a"
   end
 
-  deprecate! date: "2020-11-13", because: :does_not_build
+  disable! date: "2022-07-31", because: :does_not_build
 
   depends_on "ant" => :build
   depends_on "openjdk@8"
