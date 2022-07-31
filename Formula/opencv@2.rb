@@ -18,7 +18,7 @@ class OpencvAT2 < Formula
   keg_only :versioned_formula
 
   # https://www.slideshare.net/EugeneKhvedchenya/opencv-30-latest-news-and-the-roadmap
-  deprecate! date: "2015-02-01", because: :unsupported
+  disable! date: "2022-07-31", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
