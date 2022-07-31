@@ -8,7 +8,7 @@ class GitTf < Formula
     sha256 cellar: :any_skip_relocation, all: "ecaa47f7c8b3e5290ac04f79391446a2e15ec19f9b4e25326d2d2f702f5c7df8"
   end
 
-  deprecate! date: "2021-03-04", because: :unsupported
+  disable! date: "2022-07-31", because: :unsupported
 
   depends_on "openjdk"
 
