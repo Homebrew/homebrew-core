@@ -16,7 +16,7 @@ class Gofabric8 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1bfb6f211dbd423cf15ea057c94f42afab57ec7b955b33057086dbc84b2c1f9"
   end
 
-  deprecate! date: "2020-11-27", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "go" => :build
 
