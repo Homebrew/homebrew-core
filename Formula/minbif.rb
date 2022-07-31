@@ -15,7 +15,7 @@ class Minbif < Formula
     sha256 cellar: :any, sierra:        "5b8a0fd609cda94163f95c7d0b6620c143b3ff127178d37a57b76493231c73cc"
   end
 
-  deprecate! date: "2020-12-29", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
