@@ -4,7 +4,7 @@ class Vncsnapshot < Formula
   url "https://downloads.sourceforge.net/project/vncsnapshot/vncsnapshot/1.2a/vncsnapshot-1.2a-src.tar.gz"
   sha256 "20f5bdf6939a0454bc3b41e87e41a5f247d7efd1445f4fac360e271ddbea14ee"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -24,7 +24,7 @@ class Vncsnapshot < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee069bf1de285c225dfb58852e0d760e5593ef5e695b42952b33105a8ea8918a"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
 
   uses_from_macos "zlib"
 
@@ -35,7 +35,17 @@ class Vncsnapshot < Formula
     inreplace "rfb.h", "typedef unsigned long CARD32;",
                        "typedef unsigned int CARD32;"
 
-    system "make"
+    args = [
+      "JPEG_INCLUDE=-I#{Formula["jpeg-turbo"].opt_include}",
+      "JPEG_LIB=-L#{Formula["jpeg-turbo"].opt_lib} -ljpeg",
+    ]
+    if OS.linux?
+      args << "ZLIB_INCLUDE=-I#{Formula["zlib"].opt_include}"
+      args << "ZLIB_LIB=-L#{Formula["zlib"].opt_lib} -lz"
+    end
+
+    ENV.deparallelize
+    system "make", *args
     bin.install "vncsnapshot", "vncpasswd"
     man1.install "vncsnapshot.man1" => "vncsnapshot.1"
   end
