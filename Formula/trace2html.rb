@@ -17,7 +17,7 @@ class Trace2html < Formula
   end
 
   # https://github.com/google/trace-viewer/commit/5f708803
-  deprecate! date: "2015-09-03", because: "has moved upstream repositories"
+  disable! date: "2022-07-31", because: "has moved upstream repositories"
 
   def install
     libexec.install Dir["*"]
