@@ -7,6 +7,7 @@ class Litani < Formula
       tag:      "1.26.0",
       revision: "1307f033fd2c334150b758b569821a1b51acf930"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2f6e7952a1bffed29fef1fe0f1b0dd202512292cf54a8a183f384edc22e41220"
@@ -23,7 +24,7 @@ class Litani < Formula
   depends_on "gnuplot"
   depends_on "graphviz"
   depends_on "ninja"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
