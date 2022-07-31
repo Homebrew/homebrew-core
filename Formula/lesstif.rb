@@ -15,7 +15,7 @@ class Lesstif < Formula
     sha256 x86_64_linux:  "4472bebd72a9ed03121c7cd4c9d2ef99c1da329ebfce7d41a0cf7240ed12cbeb"
   end
 
-  deprecate! date: "2020-11-14", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   depends_on "freetype"
   depends_on "libice"
