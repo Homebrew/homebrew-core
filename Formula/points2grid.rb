@@ -13,7 +13,7 @@ class Points2grid < Formula
     sha256 cellar: :any, mojave:   "d3e4412d6830dc9a2c8bcfc9494497eaeb4d9f606ee0211a74ce10f60382aff8"
   end
 
-  deprecate! date: "2021-05-06", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "boost"
