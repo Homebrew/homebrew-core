@@ -17,7 +17,7 @@ class Namebench < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "3333ef2615f6fbf294cede389d8545487474779a52c18108feb83a4697530cdc"
   end
 
-  deprecate! date: "2021-07-05", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   depends_on :macos # Due to Python 2
 
