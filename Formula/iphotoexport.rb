@@ -10,7 +10,7 @@ class Iphotoexport < Formula
 
   # Replaced by Phoshare app, which was discontinued on 2012-10-10.
   # The current version (1.6.4) is from 2010-05-15.
-  deprecate! date: "2021-06-27", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   depends_on "exiftool"
 
