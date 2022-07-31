@@ -12,13 +12,13 @@ class Simutrans < Formula
     strategy :page_match
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "89c68007e13410b6d7fc4d675f0eabc4487393ad4d4768d2e0830a206ae5dae7"
     sha256 cellar: :any,                 arm64_big_sur:  "aa8073c151259b074563854c6ea63ffaab8a41b268b150e24d3dab93ab75231e"
     sha256 cellar: :any,                 monterey:       "339ac25e7eb60cbe2158c59feece111a66bdb587e23f4104c5045b820c861031"
     sha256 cellar: :any,                 big_sur:        "076b15195eb642b6e97eef391580c62d9333a52c68f8551aeb1812736e9967d1"
     sha256 cellar: :any,                 catalina:       "e618f3935018b641b10d70286fe3d60e366cfcd914125a634d6c51c8e33fad79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c2eb82d4b879f59e2201b78d11cea24a8f8f3fc7ba2859d5c6c3aa41a830355"
   end
 
   depends_on "autoconf" => :build
@@ -30,10 +30,6 @@ class Simutrans < Formula
 
   uses_from_macos "curl"
   uses_from_macos "unzip"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
