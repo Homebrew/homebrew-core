@@ -16,7 +16,7 @@ class GmtAT5 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2021-05-22", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "fftw"
