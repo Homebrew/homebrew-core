@@ -19,7 +19,7 @@ class Rebar < Formula
 
   # Deprecated upstream on 2016-04-13 in favor of rebar3:
   # https://github.com/erlang/rebar3
-  deprecate! date: "2019-03-22", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "erlang"
 
