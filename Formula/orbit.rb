@@ -19,7 +19,7 @@ class Orbit < Formula
   end
 
   # GNOME 2.19 deprecated Orbit2 in 2007; now even their webpage for it is gone as of 2020
-  deprecate! date: "2020-12-25", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "glib"
