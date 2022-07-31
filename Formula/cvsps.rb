@@ -17,7 +17,7 @@ class Cvsps < Formula
 
   # http://www.catb.org/~esr/cvsps/
   # Deprecation warning: this code has been end-of-lifed by its maintainer. Use cvs-fast-export instead.
-  deprecate! date: "2013-12-11", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   depends_on "asciidoc"
   depends_on "docbook"
