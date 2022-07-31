@@ -18,7 +18,7 @@ class PdfRedactTools < Formula
 
   # "This project is no longer maintained. A much better tool is dangerzone:
   # https://dangerzone.rocks"
-  deprecate! date: "2020-05-05", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "exiftool"
   depends_on "ghostscript"
