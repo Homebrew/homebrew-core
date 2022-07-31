@@ -6,6 +6,7 @@ class Dnsviz < Formula
   url "https://files.pythonhosted.org/packages/a5/7c/b38750c866e7e29bc76450c75f61ede6c2560e75cfe36df81e9517612434/dnsviz-0.9.4.tar.gz"
   sha256 "6448d4c6e7c1844aa2a394d60f7cc53721ad985e0e830c30265ef08a74a7aa28"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "56c68dbe7136d4dd190c8f4ca523dc3874f655aba5be6212f266758491d73b8d"
@@ -22,7 +23,7 @@ class Dnsviz < Formula
   depends_on "bind" => :test
   depends_on "graphviz"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     # Fix build error of m2crypto, see https://github.com/crocs-muni/roca/issues/1#issuecomment-336893096
@@ -128,14 +129,14 @@ class Dnsviz < Formula
       example.com.		IN DS 34983 10 1 EC358CFAAEC12266EF5ACFC1FEAF2CAFF083C418
       example.com.		IN DS 34983 10 2 608D3B089D79D554A1947BD10BEC0A5B1BDBE67B4E60E34B1432ED00 33F24B49
     EOS
-    system "#{bin}/dnsviz", "probe", "-d", "0", "-A",
+    system bin/"dnsviz", "probe", "-d", "0", "-A",
       "-x", "example.com:example.com.zone.signed",
       "-N", "example.com:example.com.zone-delegation",
       "-D", "example.com:example.com.zone-delegation",
       "-o", "example.com.json",
       "example.com"
-    system "#{bin}/dnsviz", "graph", "-r", "example.com.json", "-Thtml", "-o", "/dev/null"
-    system "#{bin}/dnsviz", "grok", "-r", "example.com.json", "-o", "/dev/null"
-    system "#{bin}/dnsviz", "print", "-r", "example.com.json", "-o", "/dev/null"
+    system bin/"dnsviz", "graph", "-r", "example.com.json", "-Thtml", "-o", "/dev/null"
+    system bin/"dnsviz", "grok", "-r", "example.com.json", "-o", "/dev/null"
+    system bin/"dnsviz", "print", "-r", "example.com.json", "-o", "/dev/null"
   end
 end
