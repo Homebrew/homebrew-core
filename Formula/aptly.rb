@@ -24,6 +24,8 @@ class Aptly < Formula
 
     bash_completion.install "completion.d/aptly"
     zsh_completion.install "completion.d/_aptly"
+
+    man1.install "man/aptly.1"
   end
 
   test do
