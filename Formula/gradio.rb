@@ -14,7 +14,7 @@ class Gradio < Formula
     sha256 x86_64_linux: "88ba113096595acdaa8529ce24f0ce5735f1b595af740c8c1bd3b77a7c795d4e"
   end
 
-  deprecate! date: "2019-11-16", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "graphviz" => :build # for vala
   depends_on "meson" => :build
