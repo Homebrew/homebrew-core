@@ -16,7 +16,7 @@ class Pow < Formula
 
   # The related GitHub repository (basecamp/pow) was archived sometime between
   # 2018-06-11 and 2019-04-10 (referencing Wayback Machine snapshots)
-  deprecate! date: "2021-04-21", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on :macos
   depends_on "node"
