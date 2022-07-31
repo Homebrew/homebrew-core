@@ -18,7 +18,7 @@ class Qtfaststart < Formula
   end
 
   # See: https://lists.libav.org/pipermail/libav-devel/2020-April/086589.html
-  deprecate! date: "2020-04-16", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   resource "mov" do
     url "https://github.com/van7hu/fanca/raw/master/examples/kmplayer/samples/H264_test4_Talkingheadclipped_mov_480x320.mov"
