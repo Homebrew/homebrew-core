@@ -20,7 +20,7 @@ class DockerSwarm < Formula
   # "Classic Swarm has been archived and is no longer actively developed. You
   # may want to use the Swarm mode built into the Docker Engine instead, or
   # another orchestration system."
-  deprecate! date: "2020-06-11", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "go" => :build
 
