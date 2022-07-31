@@ -31,6 +31,6 @@ class Pint < Formula
     EOS
 
     assert_equal("level=info msg=\"File parsed\" path=#{testpath}/test.yaml rules=1\n",
-      shell_output("#{bin}/pint -n lint #{testpath}/test.yaml 2>&1"))
+                 shell_output("#{bin}/pint -n lint #{testpath}/test.yaml 2>&1"))
   end
 end
