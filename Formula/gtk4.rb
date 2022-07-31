@@ -4,6 +4,7 @@ class Gtk4 < Formula
   url "https://download.gnome.org/sources/gtk/4.6/gtk-4.6.6.tar.xz"
   sha256 "7bbfe4d13569f7c297ed49834ac7263e318b7bf102d3271cb466d5971f59ae70"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,6 +23,7 @@ class Gtk4 < Formula
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
   depends_on "docutils" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -31,7 +33,10 @@ class Gtk4 < Formula
   depends_on "glib"
   depends_on "graphene"
   depends_on "hicolor-icon-theme"
+  depends_on "jpeg-turbo"
   depends_on "libepoxy"
+  depends_on "libpng"
+  depends_on "libtiff"
   depends_on "pango"
 
   uses_from_macos "libxslt" => :build # for xsltproc
@@ -43,7 +48,7 @@ class Gtk4 < Formula
   end
 
   def install
-    args = std_meson_args + %w[
+    args = %w[
       -Dgtk_doc=false
       -Dman-pages=true
       -Dintrospection=enabled
@@ -67,11 +72,9 @@ class Gtk4 < Formula
     # Disable asserts and cast checks explicitly
     ENV.append "CPPFLAGS", "-DG_DISABLE_ASSERT -DG_DISABLE_CAST_CHECKS"
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build", *args
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   def post_install
@@ -89,6 +92,7 @@ class Gtk4 < Formula
         return 0;
       }
     EOS
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["jpeg-turbo"].opt_lib/"pkgconfig"
     flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs gtk4").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
