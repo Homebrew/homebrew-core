@@ -18,7 +18,7 @@ class Stout < Formula
   end
 
   # https://github.com/cloudflare/Stout/issues/58
-  deprecate! date: "2021-02-21", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   depends_on "go" => :build
 
