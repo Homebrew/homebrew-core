@@ -65,6 +65,6 @@ class Firefoxpwa < Formula
 
     # Test launching non-existing site which should fail
     output = shell_output("#{bin}/firefoxpwa site launch 00000000000000000000000000 2>&1", 1)
-    assert_includes output, "Site does not exist"
+    assert_includes output, "Web app does not exist"
   end
 end
