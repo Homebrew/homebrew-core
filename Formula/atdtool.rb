@@ -18,7 +18,7 @@ class Atdtool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e982a3e891104e18964da29892efef84c79da560c3c2525467fcaa48bb28819f"
   end
 
-  deprecate! date: "2020-11-18", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "python@3.10"
 
