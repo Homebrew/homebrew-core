@@ -17,7 +17,7 @@ class Dgraph < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "57fa2f974e4e0313fb58f7e35e2d9547a4d43319af7e84a4fc6619238e862885"
   end
 
-  deprecate! date: "2021-06-10", because: :unsupported
+  disable! date: "2022-07-31", because: :unsupported
 
   depends_on "go" => :build
   depends_on "jemalloc"
