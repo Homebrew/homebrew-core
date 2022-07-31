@@ -8,7 +8,7 @@ class Jp2a < Formula
   url "https://downloads.sourceforge.net/project/jp2a/jp2a/1.0.6/jp2a-1.0.6.tar.gz"
   sha256 "0930ac8a9545c8a8a65dd30ff80b1ae0d3b603f2ef83b04226da0475c7ccce1c"
   license "GPL-2.0"
-  revision 1
+  revision 2
   version_scheme 1
 
   bottle do
@@ -23,13 +23,10 @@ class Jp2a < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "06ca49b6a1b7d58b2a65e998e0e4636c72a13f5e4af51704c36950ef89818356"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
