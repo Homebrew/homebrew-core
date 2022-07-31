@@ -17,7 +17,7 @@ class Teleconsole < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "c143c1ce6d0119de540cd748544c68d55ea414e610c58cf6c02cb3cd9717c307"
   end
 
-  deprecate! date: "2021-05-24", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "go" => :build
 
