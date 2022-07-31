@@ -17,7 +17,7 @@ class CashCli < Formula
     sha256 cellar: :any_skip_relocation, all:           "71505f2abc52d632bcdf71e08c4fcebad55506a9f9b547c81a8dae39cac15a5b"
   end
 
-  deprecate! date: "2021-04-23", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   depends_on "node"
 
