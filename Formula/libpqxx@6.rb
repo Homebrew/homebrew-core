@@ -18,7 +18,7 @@ class LibpqxxAT6 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2020-06-23", because: :versioned_formula
+  disable! date: "2022-07-31", because: :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
