@@ -21,7 +21,7 @@ class Liblwgeom < Formula
   keg_only "conflicts with PostGIS, which also installs liblwgeom.dylib"
 
   # See details in https://github.com/postgis/postgis/pull/348
-  deprecate! date: "2020-11-23", because: "liblwgeom headers are not installed anymore, use librttopo instead"
+  disable! date: "2022-07-31", because: "liblwgeom headers are not installed anymore, use librttopo instead"
 
   depends_on "autoconf@2.69" => :build
   depends_on "automake" => :build
