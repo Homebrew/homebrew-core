@@ -13,7 +13,7 @@ class Mesos < Formula
   end
 
   # See https://lists.apache.org/thread.html/rab2a820507f7c846e54a847398ab20f47698ec5bce0c8e182bfe51ba@<dev.mesos.apache.org>
-  deprecate! date: "2021-04-05", because: :deprecated_upstream
+  disable! date: "2022-07-31", because: :deprecated_upstream
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
