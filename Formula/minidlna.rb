@@ -4,7 +4,7 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.0/minidlna-1.3.0.tar.gz"
   sha256 "47d9b06b4c48801a4c1112ec23d24782728b5495e95ec2195bbe5c81bc2d3c63"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7ee773a739aebde5be347cf63491224cbaeee916f7bceabeaadba57ed6d4d9b4"
@@ -26,7 +26,7 @@ class Minidlna < Formula
 
   depends_on "ffmpeg"
   depends_on "flac"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libexif"
   depends_on "libid3tag"
   depends_on "libogg"
@@ -37,7 +37,7 @@ class Minidlna < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
