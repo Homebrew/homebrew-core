@@ -9,7 +9,7 @@ class HomesickCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "84ac5662175829b833121f38e89eb136906b72d3274378b024a8059829b7026f"
   end
 
-  deprecate! date: "2020-08-10", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   def install
     bash_completion.install "homesick"
