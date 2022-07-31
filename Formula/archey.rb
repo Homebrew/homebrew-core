@@ -26,7 +26,7 @@ class Archey < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f34208326a88d41a2da5abefe270f45294f40b35982f6dfb86c5b908fa447837"
   end
 
-  deprecate! date: "2017-04-28", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on :macos
 
