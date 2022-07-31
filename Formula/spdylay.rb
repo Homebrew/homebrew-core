@@ -19,7 +19,7 @@ class Spdylay < Formula
   end
 
   # The SPDY protocol itself is deprecated and most websites no longer support it
-  deprecate! date: "2020-07-05", because: "is deprecated and not supported by most websites"
+  disable! date: "2022-07-31", because: "is deprecated and not supported by most websites"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
