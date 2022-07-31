@@ -15,7 +15,7 @@ class Pdf2htmlex < Formula
     sha256 high_sierra:   "8a55a7cd0d373d223162ee92bc6f02c269b4f17fe987471ba3388ea257cf870f"
   end
 
-  deprecate! date: "2016-12-12", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "autoconf" => :build # for fontforge
   depends_on "automake" => :build # for fontforge
