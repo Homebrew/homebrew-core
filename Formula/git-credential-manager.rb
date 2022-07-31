@@ -12,7 +12,7 @@ class GitCredentialManager < Formula
 
   # "This project has been superceded by Git Credential Manager Core":
   # https://github.com/microsoft/Git-Credential-Manager-Core
-  deprecate! date: "2020-10-01", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "openjdk"
 
