@@ -19,7 +19,7 @@ class Giflossy < Formula
 
   # "This project has now been officially merged upstream into Gifsicle, so
   # please use that": https://github.com/kohler/gifsicle
-  deprecate! date: "2019-05-27", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
