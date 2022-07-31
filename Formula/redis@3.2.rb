@@ -16,7 +16,7 @@ class RedisAT32 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2020-04-30", because: :versioned_formula
+  disable! date: "2022-07-31", because: :versioned_formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}"
