@@ -18,7 +18,7 @@ class Libav < Formula
   end
 
   # See: https://lists.libav.org/pipermail/libav-devel/2020-April/086589.html
-  deprecate! date: "2020-04-16", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   depends_on "pkg-config" => :build
   # manpages won't be built without texi2html
