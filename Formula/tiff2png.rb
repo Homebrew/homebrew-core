@@ -4,7 +4,7 @@ class Tiff2png < Formula
   url "https://github.com/rillian/tiff2png/archive/v0.92.tar.gz"
   sha256 "64e746560b775c3bd90f53f1b9e482f793d80ea6e7f5d90ce92645fd1cd27e4a"
   license "ISC"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "60208bd0d504537d8c865a88b74a019f407fb941aba58f211a84a13292cbbf07"
@@ -19,7 +19,7 @@ class Tiff2png < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "298c637d45b059fd40dc321a5c3fe2d099cd5a91d6eca45c5272e96e3badf240"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 
