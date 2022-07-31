@@ -13,7 +13,7 @@ class MavenAT33 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2017-04-07", because: :unmaintained
+  disable! date: "2022-07-31", because: :unmaintained
 
   depends_on "openjdk"
 
