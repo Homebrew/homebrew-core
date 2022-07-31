@@ -24,6 +24,11 @@ class Pyinstaller < Formula
     sha256 "ebf2269361b47d97b3b88e696439f6e4cbc607c17c51feb1754f90fb79839158"
   end
 
+  resource "macholib" do
+    url "https://files.pythonhosted.org/packages/16/1b/85fd523a1d5507e9a5b63e25365e0a26410d5b6ee89082426e6ffff30792/macholib-1.16.tar.gz"
+    sha256 "001bf281279b986a66d7821790d734e61150d52f40c080899df8fefae056e9f7"
+  end
+
   resource "pyinstaller-hooks-contrib" do
     url "https://files.pythonhosted.org/packages/a4/75/a0a8e398c4b97a8fa84f110ec8be0f2f11462ed1053087d6fcc6ee4d129c/pyinstaller-hooks-contrib-2022.8.tar.gz"
     sha256 "c4210fc50282c9c6a918e485e0bfae9405592390508e3be9fde19acc2213da56"
