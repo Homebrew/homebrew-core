@@ -6,21 +6,17 @@ class Enzyme < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/EnzymeAD/Enzyme.git", branch: "main"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "aa7aa7c7e4ff4cca33614cb03e0db9e4ab7cf1e91c0b949f1201ae10c212e401"
     sha256 cellar: :any,                 arm64_big_sur:  "2033f7f9ded57262fa9c75c320d3769024dca502b21bdcb316f58b0f50fc2ca8"
     sha256 cellar: :any,                 monterey:       "cc0790ae94df0016b810320b5d8f23c75282ad4059ea1a5cefaed6a8db5f7122"
     sha256 cellar: :any,                 big_sur:        "02b0797a44f4b369a57eb848f7d4b45676efbef344a6ec9f5eedf6fa7c371af3"
     sha256 cellar: :any,                 catalina:       "012c5cc52c4c2632b6ecac144d772c5b96d61fed28a5dc514c57c2a9aa1db2b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e87bc8ec983abb41659e89a73b2769c03c584a9c8b3903c7b318924e434f208f"
   end
 
   depends_on "cmake" => :build
   depends_on "llvm"
-
-  on_linux do
-    depends_on "gcc" => :build
-  end
 
   fails_with gcc: "5"
 
