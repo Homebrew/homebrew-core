@@ -18,7 +18,7 @@ class Libu2fHost < Formula
   end
 
   # See: https://github.com/Yubico/libu2f-host
-  deprecate! date: "2021-05-25", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "pkg-config" => :build
   depends_on "hidapi"
