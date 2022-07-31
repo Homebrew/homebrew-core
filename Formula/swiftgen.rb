@@ -13,7 +13,7 @@ class Swiftgen < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "d23540aaccbe68f26fc50260a29904afa1e84f97c678e76d4c842927215e91e9"
   end
 
-  depends_on xcode: ["13.0", :build]
+  depends_on xcode: ["13.3", :build]
   depends_on :macos
 
   uses_from_macos "ruby" => :build, since: :high_sierra
