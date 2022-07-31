@@ -17,7 +17,7 @@ class Goad < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7c60bf096b4333d3e62e3cd994853dfb6ac2db505f4f453fb52ba734625c14e"
   end
 
-  deprecate! date: "2020-11-27", because: :repo_archived
+  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
