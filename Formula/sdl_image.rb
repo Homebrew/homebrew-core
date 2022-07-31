@@ -1,8 +1,8 @@
 class SdlImage < Formula
   desc "Image file loading library"
-  homepage "https://www.libsdl.org/projects/SDL_image/release-1.2.html"
+  homepage "https://github.com/libsdl-org/SDL_image"
   license "Zlib"
-  revision 7
+  revision 8
 
   stable do
     url "https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz"
@@ -43,7 +43,7 @@ class SdlImage < Formula
   # deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "sdl"
