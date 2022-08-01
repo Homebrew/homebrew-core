@@ -4,7 +4,7 @@ class Grace < Formula
   url "https://deb.debian.org/debian/pool/main/g/grace/grace_5.1.25.orig.tar.gz"
   sha256 "751ab9917ed0f6232073c193aba74046037e185d73b77bab0f5af3e3ff1da2ac"
   license "GPL-2.0-only"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/g/grace/"
@@ -21,7 +21,7 @@ class Grace < Formula
   end
 
   depends_on "fftw"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libice"
   depends_on "libpng"
   depends_on "libsm"
@@ -36,8 +36,7 @@ class Grace < Formula
   def install
     ENV.O1 # https://github.com/Homebrew/homebrew/issues/27840#issuecomment-38536704
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--enable-grace-home=#{prefix}",
                           "--disable-pdfdrv"
     system "make", "install"
