@@ -30,7 +30,10 @@ class Openblas < Formula
     ENV.runtime_cpu_detection
     ENV.deparallelize # build is parallel by default, but setting -j confuses it
 
-    ENV["DYNAMIC_ARCH"] = "1"
+    # Setting `DYNAMIC_ARCH` is broken with binutils 2.38.
+    # https://github.com/xianyi/OpenBLAS/issues/3708
+    # https://sourceware.org/bugzilla/show_bug.cgi?id=29435
+    ENV["DYNAMIC_ARCH"] = "1" if OS.mac?
     ENV["USE_OPENMP"] = "1"
     # Force a large NUM_THREADS to support larger Macs than the VMs that build the bottles
     ENV["NUM_THREADS"] = "56"
