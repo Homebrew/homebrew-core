@@ -14,13 +14,13 @@ class LlvmAT13 < Formula
     regex(/^llvmorg[._-]v?(13(?:\.\d+)+)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "0871109ada8b7b50a210dabb9f354e922ea73b087678cd06849268f1f5cfee71"
     sha256 cellar: :any,                 arm64_big_sur:  "f7231cd86d1ec1f3bfebc586d793565b395fea673287cd62de05212b03972e7d"
     sha256 cellar: :any,                 monterey:       "60ac0ca7260352e807e08591b29423c915971f0e7f1e8532af25b8986848466f"
     sha256 cellar: :any,                 big_sur:        "6089883fc0032bef65d597648758f12c7497e62400f66cecb363be2eb93407a1"
     sha256 cellar: :any,                 catalina:       "bfae7889794444e19c8cca3d1da40a6461c86a0defa8c3378f87932a05fc72bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "139453f124f5e88c575bfc0fdf9c3582ccbc074e5ffb8750d07b34f1492b98b3"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -46,7 +46,6 @@ class LlvmAT13 < Formula
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
-    depends_on "gcc"
   end
 
   # Fails at building LLDB
