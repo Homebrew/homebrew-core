@@ -6,13 +6,13 @@ class Mold < Formula
   license "AGPL-3.0-only"
   head "https://github.com/rui314/mold.git", branch: "main"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any, arm64_monterey: "535645ac73281705d7bb5c3564c2864cc895d7bfc1e38729e2bd66c3cf109088"
     sha256 cellar: :any, arm64_big_sur:  "e51450fdc1d490b94da64c6a3312e406d3d9d9e0a994e42c75c9f1008c06c54e"
     sha256 cellar: :any, monterey:       "98e4fe39d91c35df6f5c42e0b6e49d8d3bc6378f835e9b4e03706d53155d3adb"
     sha256 cellar: :any, big_sur:        "a886cc4ef4785564ce08908b0bb8dee415b3eb5ce1a2b742e0ca44ae5d3fdbb1"
     sha256 cellar: :any, catalina:       "da3549514abf8a29e94939a79ffa3eba4d13677032bd3cce1f8c73fa5376faf4"
-    sha256               x86_64_linux:   "294c9348f55e8661bb25f5f4824857ab4a1d5755381a42759430e5f7b08e533c"
   end
 
   depends_on "tbb"
@@ -23,7 +23,6 @@ class Mold < Formula
   end
 
   on_linux do
-    depends_on "gcc"
     depends_on "mimalloc"
     depends_on "openssl@1.1" # Uses CommonCrypto on macOS
   end
