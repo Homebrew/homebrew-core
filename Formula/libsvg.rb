@@ -4,7 +4,7 @@ class Libsvg < Formula
   url "https://cairographics.org/snapshots/libsvg-0.1.4.tar.gz"
   sha256 "4c3bf9292e676a72b12338691be64d0f38cd7f2ea5e8b67fbbf45f1ed404bc8f"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://cairographics.org/snapshots/"
@@ -29,7 +29,7 @@ class Libsvg < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
 
   uses_from_macos "libxml2"
@@ -45,8 +45,8 @@ class Libsvg < Formula
   patch :DATA
 
   def install
-    system "autoreconf", "-fiv"
-    system "./configure", "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -129,7 +129,9 @@ class Libsvg < Formula
     system ENV.cc, "test.c", "-o", "test",
                    "-I#{include}", "-L#{lib}", "-lsvg",
                    "-L#{Formula["libpng"].opt_lib}", "-lpng",
-                   "-L#{Formula["jpeg"].opt_lib}", "-ljpeg"
+                   "-L#{Formula["jpeg-turbo"].opt_lib}", "-ljpeg",
+                   "-Wl,-rpath,#{Formula["jpeg-turbo"].opt_lib}",
+                   "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
     assert_equal "1\n2\n3\n4\n5\n6\nSUCCESS\n", shell_output("./test")
   end
 end
