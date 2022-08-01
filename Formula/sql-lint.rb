@@ -7,13 +7,13 @@ class SqlLint < Formula
   sha256 "0ee3b71d812af3cc809829b663d9cd747996ec76e2b3e49fd3b7a5969398190e"
   license "MIT"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c41585b38889006247a0d7a66278ba037138d2395321031d0ac899892fa19255"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c41585b38889006247a0d7a66278ba037138d2395321031d0ac899892fa19255"
     sha256 cellar: :any_skip_relocation, monterey:       "56ec39a2f7cd18626231790aaeab98c6f4d7fa648dc6227cd65884dfdddd3d15"
     sha256 cellar: :any_skip_relocation, big_sur:        "56ec39a2f7cd18626231790aaeab98c6f4d7fa648dc6227cd65884dfdddd3d15"
     sha256 cellar: :any_skip_relocation, catalina:       "56ec39a2f7cd18626231790aaeab98c6f4d7fa648dc6227cd65884dfdddd3d15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c41585b38889006247a0d7a66278ba037138d2395321031d0ac899892fa19255"
   end
 
   depends_on "node"
