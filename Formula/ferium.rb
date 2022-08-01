@@ -11,6 +11,7 @@ class Ferium < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "glib"
+    depends_on "gtk+3"
   end
 
   def install
