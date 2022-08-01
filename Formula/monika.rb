@@ -7,13 +7,13 @@ class Monika < Formula
   sha256 "e8ff67bda45653944e772e4912998640bbb5268408bc3c29dfa1085677c3b62f"
   license "MIT"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7ea49ed3a6e291e1253a800e63527254717b68f3ab1f8237468e976529013a14"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "87ac0d429541ad0645203b57858e970aee169148297dbe66aa0599cdf49af51f"
     sha256 cellar: :any_skip_relocation, monterey:       "ffafad74fa6b66e440179ad8a85f6470b40be61ee78b0d290d05a9b2f92ad5b3"
     sha256 cellar: :any_skip_relocation, big_sur:        "f41b2826a2ec61d682bd25b6a3cd875879777c98e381554420c0b7bb2ce682dc"
     sha256 cellar: :any_skip_relocation, catalina:       "4fc0ce0171e815f85d145764e523808ab34205a09d41bb7c11796a097b3b2011"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01fab64a2d960164ad124b6ac0167f060b655f6aced6ce0c36eb1128303aa3b6"
   end
 
   depends_on "node"
