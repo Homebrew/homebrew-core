@@ -21,13 +21,13 @@ class Haxe < Formula
     strategy :github_latest
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ebb6b5472bc7408ce268e357651c2b123abaa2f614260f88838a149289423499"
     sha256 cellar: :any,                 arm64_big_sur:  "380f0f1f640c3f4919d272a4648b2d04fb3afd93820003cec19b9f54be1cba75"
     sha256 cellar: :any,                 monterey:       "8cdccc4df05e252d1094ecad90a97ea898659a5017b9c61c6a157629887e68ad"
     sha256 cellar: :any,                 big_sur:        "dcb8925b9b647939dbf5abbd2ba150f26f581a525fbf8e9c1ce369de58bb6adc"
     sha256 cellar: :any,                 catalina:       "21ddb930758328523200f2ef95d7639bfe32ca1a94a9861972a721b0c96ab968"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cce4723939b40c48dfb88f1ef06cf967aa5bb76a033a774eb207c72bb93abf12"
   end
 
   depends_on "cmake" => :build
