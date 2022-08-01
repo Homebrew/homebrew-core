@@ -9,13 +9,13 @@ class Standardese < Formula
   revision 6
   head "https://github.com/standardese/standardese.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256                               arm64_monterey: "20510779aff9169f62e4a59f6660754ec0d6922cd111c815bf69448fc2cb9332"
     sha256                               arm64_big_sur:  "d33f33d4eee420512ffabc9256224944ece9cd0fdcc6927baf3fa673b9ae89d4"
     sha256                               monterey:       "b0532208ae09b3dac683c18d82124889e487e771727a4e9d1435612b4a83368e"
     sha256                               big_sur:        "f20d482991377fd461a1e877d287faa4023a9d969883f782122ea224e6e767e3"
     sha256                               catalina:       "34d139092ee7b1e1792d4576c11e782e25c23214503f60dab7f4cafc1de85432"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc974babb4114c8acf316df01d2ae24f9822fd31cb0e2e4d87f6fcc2521bf245"
   end
 
   depends_on "cmake" => :build
