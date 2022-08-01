@@ -14,6 +14,7 @@ class Snapcraft < Formula
     strategy :github_latest
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a6dcb83b7b49cf8d66d10fe8b07f618bd738be17f527aa27bb26c12463547463"
     sha256 cellar: :any,                 arm64_big_sur:  "bc26b770bd8c1ea649085e8a77d1b3ab3a29d1b996d796308d20eea851d814f7"
@@ -21,7 +22,6 @@ class Snapcraft < Formula
     sha256 cellar: :any,                 big_sur:        "b442a18012137247cf1822d0db825cca3c0e69bfdb244744de6672db76280e02"
     sha256 cellar: :any,                 catalina:       "a4b036213d992185bd3d61c00b7dc90b0e82dcbc2ec8ab842c1dfed298acd04e"
     sha256 cellar: :any,                 mojave:         "e4cc628cee8d1c5690296b4d60e4d306d92e5c8ad2a619540f4e833e63c54536"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebfa2c4782334025436d67b2d2aec5b76e0429c9a245682c138f1d442e8ce5a3"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -39,7 +39,6 @@ class Snapcraft < Formula
   on_linux do
     depends_on "intltool" => :build # for python-distutils-extra
     depends_on "apt"
-    depends_on "gcc"
 
     # Extra non-PyPI Python resources
 
