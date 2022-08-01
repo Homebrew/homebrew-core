@@ -12,13 +12,13 @@ class Imagemagick < Formula
     regex(/href=.*?ImageMagick[._-]v?(\d+(?:\.\d+)+-\d+)\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "95b0648c58b827d9d9b4480f5cf58dcd70ca3c6e8945c197681abc9ae379cff7"
     sha256 arm64_big_sur:  "87c4079030b4732fd919b96d7b782944ac4b2a2551110d141d53232d10c78489"
     sha256 monterey:       "786f467c6efec4ae9c26311356f5fcc34ee260eeb52791eec76c85f3ca05ee6d"
     sha256 big_sur:        "2cb1cbdf7cb671c1338bba083953a00f1aca30de97f2eb7c7af076c7cdbbaab6"
     sha256 catalina:       "b5c9ea0399df39214ec8f0657528f70abff68f32f912ba0b96fdbe40fa4ae700"
-    sha256 x86_64_linux:   "5e130dbdcdf9ca0f0ac5c1b575dff3d0c200e79facf3ee7dbe956ef06ed268c0"
   end
 
   depends_on "pkg-config" => :build
@@ -46,7 +46,6 @@ class Imagemagick < Formula
   end
 
   on_linux do
-    depends_on "gcc"
     depends_on "libx11"
   end
 
