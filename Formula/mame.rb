@@ -17,13 +17,13 @@ class Mame < Formula
     regex(/>\s*MAME v?(\d+(?:\.\d+)+)/im)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "77512c5761af552bc9da39ab41eb49a5c1894da35bca6d6707d73cf637371980"
     sha256 cellar: :any,                 arm64_big_sur:  "cddd037e1340d22589bcceba76bd342eb681a95f862f0c297a0b0376ba346e66"
     sha256 cellar: :any,                 monterey:       "960e907734ebfdb58ff5422c6c69a85418799069ce6c9be74b21dc1beb63b8f7"
     sha256 cellar: :any,                 big_sur:        "e54bf8622b4a91bc8b88eaff51874ba8f2921f77fe3a21a5e7d4c67e7c0ed578"
     sha256 cellar: :any,                 catalina:       "c8ed1db7af0bb1c31a0137916b79f270941e9c87a1865974075b3e060992b177"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "292d2d95d0a952b65a18e3ed0d10d5a1600e99b1caeaa45a683d3ff500d50039"
   end
 
   depends_on "glm" => :build
@@ -46,7 +46,6 @@ class Mame < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc" # for C++17
     depends_on "pulseaudio"
     depends_on "qt@5"
     depends_on "sdl2_ttf"
