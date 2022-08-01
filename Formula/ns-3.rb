@@ -6,13 +6,13 @@ class Ns3 < Formula
   license "GPL-2.0-only"
   revision 2
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any, arm64_monterey: "4f3d2a4df386be25087fa43898cfd7e5dc3f839ae8654720b5a6ae1453c33ba8"
     sha256 cellar: :any, arm64_big_sur:  "e08ff31e390431d96faa2676104a227d19028837428c2d2d5730fa9e88e436ea"
     sha256 cellar: :any, monterey:       "39baddc92860b4e43331b979ea23d53b05d6a1f60f83bbac23b8a07e7fa621ea"
     sha256 cellar: :any, big_sur:        "d0f2c1d3bd2b1b6eba5cd2d86d7a08ff83ecc0cb3116a8436c49eaa429161bcd"
     sha256 cellar: :any, catalina:       "fe65d59b1528b61d2e6acda4c634e2adf1721113caa0a6433127fffe864134d1"
-    sha256               x86_64_linux:   "c9c36b988db945172517f6563f9b33e93093c259cab21cf07fac8e8faffad99e"
   end
 
   depends_on "boost" => :build
@@ -21,10 +21,6 @@ class Ns3 < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   # `gcc version 5.4.0 older than minimum supported version 7.0.0`
   fails_with gcc: "5"
