@@ -17,13 +17,13 @@ class Mu < Formula
     regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "975f54e33a72351b6f7057076f810b9be94c4f9ee844036e6cf5c6d6b564a2cf"
     sha256 arm64_big_sur:  "3b7b1c9419df158ce507a9ac1a9350bb147ec14342f77b32ff30dbd865639a2a"
     sha256 monterey:       "f9523f30023b4fd09c8879890b7e6657bd893a32d29d3e9210cfe696ba68b944"
     sha256 big_sur:        "1334ad4bfa73d9c71ec880606b35fd14aef86621ad46f3450e0fcc666c8d39dd"
     sha256 catalina:       "3262a6fd56c0f0e690eab3613a901c8c8ee9cd1488b04d22bb30eacec12138c6"
-    sha256 x86_64_linux:   "99c7cccc67f0462743b51f53941b8aa62502daadf3faf95fa8622909db7c41a0"
   end
 
   depends_on "emacs" => :build
@@ -38,10 +38,6 @@ class Mu < Formula
   depends_on "xapian"
 
   uses_from_macos "texinfo" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   conflicts_with "mu-repo", because: "both install `mu` binaries"
 
