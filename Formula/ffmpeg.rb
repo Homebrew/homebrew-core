@@ -13,13 +13,13 @@ class Ffmpeg < Formula
     regex(/href=.*?ffmpeg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "d53118e4fe9d577571267572b9e383cdf5a839bb9729fbaa660cb1c84f4ee972"
     sha256 arm64_big_sur:  "2dceaa058c49ac69c70aa31f19518d3031ef8025a10d5ee29372321a37faf6ed"
     sha256 monterey:       "0248146170adb0890a1d9c131e942df5251049a46c9d8a2705712257b04df9e1"
     sha256 big_sur:        "75bf30d8436dc4469d4963126e1e765cb75257e9868f44f715a72b75785ee35e"
     sha256 catalina:       "563cfc90a7091053eff372a1504795a67c08af265ddc43b67f339b72eff3b42f"
-    sha256 x86_64_linux:   "e0088387de558b90d7f9e4953238881b1269b2953b14209f6c2f18b467b108f3"
   end
 
   depends_on "nasm" => :build
@@ -64,7 +64,6 @@ class Ffmpeg < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "gcc" # because rubberband is compiled with gcc
     depends_on "libxv"
   end
 
