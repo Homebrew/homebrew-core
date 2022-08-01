@@ -7,6 +7,7 @@ class Snowpack < Formula
   sha256 "0cf99f86955b29c3e40332131e488ff38f64045ef23ba649d0a20c2a7cd2d29e"
   license "MIT"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256                               arm64_monterey: "a58108194a509b22ed1f173f6bd1d5debd8a877d5cd536f280d06df5d6f906c8"
     sha256                               arm64_big_sur:  "424c198450962b4be8cf4314d570ff7e8febc23308b22430a47b8aaf0d4f3531"
@@ -14,7 +15,6 @@ class Snowpack < Formula
     sha256                               big_sur:        "fb13d64f32a7d9bdc58cf4dfd6776bf1254b09029b2778c6b6ae8aa1f3af5897"
     sha256                               catalina:       "abed65f5debef77a9380822f5612b17933df211375766e800fb9e481f2829178"
     sha256                               mojave:         "76e0af8a4e5f7fbc2d2095e8c6524c80a8e03ac2c9f9cbc2b8b319fff3dd7056"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78baacecc857f50f7a6fbe7643c4edad620c4e2c09a0f31e336fcfa52f0576e6"
   end
 
   depends_on "node"
