@@ -5,13 +5,13 @@ class Mydumper < Formula
   sha256 "2fc5af9643a27eaca0a2ab37ba11ccac4d82f20bd8a9c14c886961453aafdf24"
   license "GPL-3.0-or-later"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e5599dca1e1ab5f7f591c8f6e3e286561065925c8413df446c1a497c34e3fa31"
     sha256 cellar: :any,                 arm64_big_sur:  "02678d600f5e9f5b61c97f86257b17bd4ffeb16036b1f7018fbb14a09d506aee"
     sha256 cellar: :any,                 monterey:       "5abc3e7f947d591430d659bf00126e37e6ab10865e25102dc3e64d71814eaa5a"
     sha256 cellar: :any,                 big_sur:        "38c194f3ee2c16d038ad3f8d0201941d88ad31aa17b9003623b9e4a652fbcab3"
     sha256 cellar: :any,                 catalina:       "d596ebed1de4da2c66302bf26edfbafae0154bfd911b5909d142e12469f80eb5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f348f0a1ab90a7579da2ae42482b2013bdee1e859d7e690283216a7809ac62b7"
   end
 
   depends_on "cmake" => :build
@@ -23,10 +23,6 @@ class Mydumper < Formula
   depends_on "pcre"
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
