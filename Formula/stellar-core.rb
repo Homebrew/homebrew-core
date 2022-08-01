@@ -7,13 +7,13 @@ class StellarCore < Formula
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "1448e110ca53e698c17c8b03f9624b97cd27a5b850b873a68a2d431f768ee98e"
     sha256 cellar: :any,                 arm64_big_sur:  "3e2d3cb23a83a67588967e7fc6f469a53a6ae368b05c3295dfe7559dabb90306"
     sha256 cellar: :any,                 monterey:       "28bce77a35079c3da0c3553dec91bd0282f29f55a98f015a1e66b04dff37828c"
     sha256 cellar: :any,                 big_sur:        "243a2fcfe423ba6a6023b70df32d044095bfcb5545d571f3ccf63b9d3bfd2f87"
     sha256 cellar: :any,                 catalina:       "c2b043f20dbe8038906076e402cfab67b41f50a97236a60a4b5ab46f51f99721"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9abefc1c4abcd62475c622bc3f433a947d14f8aaf538153bb57cc5173d7ce0bd"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +30,6 @@ class StellarCore < Formula
   uses_from_macos "flex" => :build
 
   on_linux do
-    depends_on "gcc"
     depends_on "libunwind"
   end
 
