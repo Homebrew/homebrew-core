@@ -10,13 +10,13 @@ class Ntopng < Formula
     depends_on "ndpi"
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "65efdae761d1ae845a48d304daf459af893cfeedc004ca598db3c39650c20fdf"
     sha256 arm64_big_sur:  "ad20989ce5163ffe940e954c6eaff38cabf2e5d0922c4aba4a7a86e4e592db30"
     sha256 monterey:       "a7523c2a2d83dc057f360a9656d1475d0cc73d3d5534beabcdd2307126c0a0e6"
     sha256 big_sur:        "bfbbc638a791fe1e2ab951396243faae914a8249441c900b1d8db877fae376bb"
     sha256 catalina:       "dfa4fa4fdaea595da3d102f08d5522737c931aa6a33b136480f7233bec934cbd"
-    sha256 x86_64_linux:   "420bdc0167bc229a009b030100ec612fdc57b19ca09de0896e70278081668a55"
   end
 
   head do
@@ -45,10 +45,6 @@ class Ntopng < Formula
 
   uses_from_macos "curl"
   uses_from_macos "libpcap"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
