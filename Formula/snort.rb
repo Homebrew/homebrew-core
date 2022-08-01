@@ -7,13 +7,13 @@ class Snort < Formula
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "1b85e43d2913c2099bf61f6087cc6c2d43f52fe1d90b438c12cc42e81576e081"
     sha256 cellar: :any,                 arm64_big_sur:  "6255dad20d58f2546b8d14b95def79f75729ec7c78feb2193156f766fd34f6be"
     sha256 cellar: :any,                 monterey:       "298f12f999ca0d2de48429ace04d147af67885584f60c9f76fc1edcbc46b1096"
     sha256 cellar: :any,                 big_sur:        "f68e42f96390ef255c7751e428c7bff8e16e68d1baba019e53de32549ffa60ea"
     sha256 cellar: :any,                 catalina:       "a1e5cdd6f5d3d6da45536247b1c3e3d67b0b12e6c0e430f32ff60e2862808a0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87e0476624996b0cdfb710d67e0af751231de3b03571099e2897c49746cd37eb"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +33,6 @@ class Snort < Formula
 
   on_linux do
     depends_on "libunwind"
-    depends_on "gcc"
   end
 
   # Hyperscan improves IPS performance, but is only available for x86_64 arch.
