@@ -48,7 +48,7 @@ class Openblas < Formula
     lib.install_symlink shared_library("libopenblas") => shared_library("libblas")
     lib.install_symlink shared_library("libopenblas") => shared_library("liblapack")
 
-    (buildpath/"test.c").write <<~EOS
+    (buildpath/"brewtest.c").write <<~EOS
       #include <stdio.h>
       #include <stdlib.h>
       #include <math.h>
@@ -69,8 +69,8 @@ class Openblas < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lopenblas", "-o", "test"
-    system "./test"
+    system ENV.cc, "brewtest.c", "-I#{include}", "-L#{lib}", "-lopenblas", "-o", "brewtest"
+    system "./brewtest"
   end
 
   test do
