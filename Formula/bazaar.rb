@@ -16,8 +16,7 @@ class Bazaar < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "cb1c0c8b5f19abef4043195d8cbd19f363a78581596de1ddcc763621964335b3"
   end
 
-  # This formula is currently needed when downloading with `using: :bzr`.
-  # deprecate! date: "2021-08-19", because: "is not supported. Check out `breezy` instead"
+  disable! date: "2022-10-18", because: "is not supported. Check out `breezy` instead"
 
   depends_on :macos # Due to Python 2
 
