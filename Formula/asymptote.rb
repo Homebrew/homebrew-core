@@ -11,13 +11,13 @@ class Asymptote < Formula
     regex(%r{url=.*?/asymptote[._-]v?(\d+(?:\.\d+)+)\.src\.t}i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "24dafab10c9cb3ce25a5cd58d535b9d483ec1844204f6c6073d1a7e530f2ff82"
     sha256 arm64_big_sur:  "ccd8fb43d61926ddc356291e90bdce81b0a11f7dd97a522f340a647644082280"
     sha256 monterey:       "09bb8447e714ecfc704289df1a3fcbe30623dcafca4f3539f15685c3da0c9a0c"
     sha256 big_sur:        "37f8f552883033592490b83f02da1177356ecddadd0cefdb2e5efc0ac1761ccd"
     sha256 catalina:       "872c509ade405f97b9c35c278118548203ac6a4b6ca9f5ba62460a5efc24ae54"
-    sha256 x86_64_linux:   "7ffa5e3c133c0f8c5be864053fbc94a073299371e2562a4b0e3938eb6368b55b"
   end
 
   depends_on "glm" => :build
