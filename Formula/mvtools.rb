@@ -7,6 +7,7 @@ class Mvtools < Formula
   revision 1
   head "https://github.com/dubhater/vapoursynth-mvtools.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "103ac07596bd7b5e6142b3fbedabf5adffdc553381d8b9eb9e5832a1a8df8f3a"
     sha256 cellar: :any,                 arm64_big_sur:  "d532c9381d9c889e06a0ce330ed9f3a95d5552572981605f233efd28a052b34f"
@@ -15,7 +16,6 @@ class Mvtools < Formula
     sha256 cellar: :any,                 catalina:       "01785cf0cea2080cb2b875df545e027aaaf339fbbddeca53fd5dae8f39bf4726"
     sha256 cellar: :any,                 mojave:         "0809f0353e48e30d8628bbe2124cebfa0ebd1a6add77e2d27798ce968dadb84d"
     sha256 cellar: :any,                 high_sierra:    "0a1bab6b74375cb11959d2100e562bb2cc8124da7115b754975cd70c31e676b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "915cd8e779a5143a86f77cecc9efae2029eda0194358b52e69c4e59811c20c6f"
   end
 
   depends_on "autoconf" => :build
