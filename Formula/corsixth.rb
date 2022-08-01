@@ -7,13 +7,13 @@ class Corsixth < Formula
   revision 1
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "f4d14eb421f532a4a488e679132d306eaf9bf1ebd1b39c2e02e63fbb04bdad4b"
     sha256 arm64_big_sur:  "5beb15c7c0b6ed9f546005d5acbe37517a508e877e96321c9bf6523b3c80d367"
     sha256 monterey:       "e924cb36de87cb61b5eb08d6eaeb28b8be0c9b905cd78f78b39d5ff8a4bcb7cd"
     sha256 big_sur:        "478d7f02be8a3b833146a89f1328323c5278bed101b09e8bb8a1c3381cba07d3"
     sha256 catalina:       "38f468fe76921a98c93b6c136bfeee177abb3e5d17aaf8d0f1e885191661d065"
-    sha256 x86_64_linux:   "3adb8207f243c96478315ccee89c7869a8d9daeb6dc8e41d4fc81b5acc4d0fa7"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +26,6 @@ class Corsixth < Formula
   depends_on "sdl2_mixer"
 
   on_linux do
-    depends_on "gcc"
     depends_on "mesa"
   end
 
