@@ -10,13 +10,13 @@ class Qmmp < Formula
     regex(/href=.*?qmmp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "71a53acc1108adc9c918a979ef90d5af0800eb99d7c0293b7e967049f94125fb"
     sha256 arm64_big_sur:  "e60001ec427e59a06271e08259035db1f8035faede6072ecfe72fec2d93885ed"
     sha256 monterey:       "34bcff555cd200f2466183c88778a371b8e2336dfa34a99e946b0db97bd949d6"
     sha256 big_sur:        "4250889ad41fcd66a89c29b02d580b3f5c43d795784c9c184b79cecf12c6f4d1"
     sha256 catalina:       "b775a1c3af67e426845a72fca215bb66ea3fdfa07d5d492ec6528ce77f639a8e"
-    sha256 x86_64_linux:   "a7e875d93455467c6ab319f96281dd7af62407830596931bc5ebb96cd6aaffdf"
   end
 
   depends_on "cmake"      => :build
@@ -59,10 +59,6 @@ class Qmmp < Formula
     # musepack is not bottled on Linux
     # https://github.com/Homebrew/homebrew-core/pull/92041
     depends_on "musepack"
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
