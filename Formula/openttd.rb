@@ -11,13 +11,13 @@ class Openttd < Formula
     regex(/Download stable \((\d+(\.\d+)+)\)/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any, arm64_monterey: "c8e7924e6b8f1d3fc32c777ab3ab4b2ab1bffbca6d599497560b13799a389661"
     sha256 cellar: :any, arm64_big_sur:  "c7772367d985f9981bee4069208a958a398aab61923d9fd02f03b2a0c2926705"
     sha256 cellar: :any, monterey:       "3331f8d0d63db46dac47418043e24f29c6431fa071f9da5a97103a1464a0787d"
     sha256 cellar: :any, big_sur:        "9f9ff69db98080b7ae62828f639055b5e2b7bbd750271fee2d037e2ac8fa5884"
     sha256 cellar: :any, catalina:       "7d90dc5a119ce92be9347385e872ce40befc6ba68ff0ddf5c7f22caed55e26b6"
-    sha256               x86_64_linux:   "3dfbf841157447caddfb874da41cd9ca806d3b96ce54380b16e085e910f2c74f"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +30,6 @@ class Openttd < Formula
     depends_on "fluid-synth"
     depends_on "fontconfig"
     depends_on "freetype"
-    depends_on "gcc"
     depends_on "mesa"
     depends_on "mesa-glu"
     depends_on "sdl2"
