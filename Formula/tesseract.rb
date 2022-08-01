@@ -11,13 +11,13 @@ class Tesseract < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ad4c2c27f59f9c094d1ca9e81e731614491b785c8995f7dc505404bd8e35f34d"
     sha256 cellar: :any,                 arm64_big_sur:  "70fb8a3f055181efe94973fc4aa2a74460b99620b74b970713bc895666daa79b"
     sha256 cellar: :any,                 monterey:       "c0ea33e79f58f2e7dec3dd9c0f24a2d6e604ab8308d906f2804f0d4455ed9f3a"
     sha256 cellar: :any,                 big_sur:        "94e75d2c6e2ae832c88ed4806dd19e18ee2e8ab8acb2d41ab683f955b80a562e"
     sha256 cellar: :any,                 catalina:       "6a3b145ef65efa99373995eee83fe288f727490d759e56c22eb066bcc348825c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ada571eade45d98869e2cb2de5e091dae975f8b48243217724944aa04f372dd"
   end
 
   depends_on "autoconf" => :build
@@ -26,10 +26,6 @@ class Tesseract < Formula
   depends_on "pkg-config" => :build
   depends_on "leptonica"
   depends_on "libarchive"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
