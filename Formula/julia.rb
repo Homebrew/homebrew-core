@@ -2,7 +2,7 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 1
+  revision 2
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   stable do
