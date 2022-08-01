@@ -7,21 +7,17 @@ class TarsnapGui < Formula
   revision 1
   head "https://github.com/Tarsnap/tarsnap-gui.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f8f2504a74299c6fbcc41df3811498f6d4f8716ade39165f5fb8a2e611ae0aac"
     sha256 cellar: :any,                 arm64_big_sur:  "0e8def1a5aad31ebe64570260d5c622bd350880034c26d35c0d564b2bda46a98"
     sha256 cellar: :any,                 monterey:       "807c80d7626a0e7c1bb318e379e1e5fffe32d1f80bda8cf2cd09063434c0d447"
     sha256 cellar: :any,                 big_sur:        "caa57be13fe93093dfd6fd275d7648f181db9508064308267bd3d5883974d00c"
     sha256 cellar: :any,                 catalina:       "84c04aa45fbc4620b074386f5238731ad053e95b17309e27ce923c9e0439b3c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47b23d0ded49784f629d78b087dc9af73993c59aa0c00108fa41c18b9318843c"
   end
 
   depends_on "qt@5"
   depends_on "tarsnap"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # qt@5 is built with GCC
 
