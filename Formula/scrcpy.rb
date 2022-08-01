@@ -5,13 +5,13 @@ class Scrcpy < Formula
   sha256 "e3054ad453ac577b941f8df0eabc94e842affc6e1d10ba8d21cededfa2eacc73"
   license "Apache-2.0"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "91df79f4024fa176e181472704132910a6738581fa8332de47e52af4874eec75"
     sha256 arm64_big_sur:  "bef49af8e3698d505717df5e1b96c1fddba8ce60e6ec5abde1b49ed47a28dfd3"
     sha256 monterey:       "d78192eddd8e0a55086a8e72ab5e58ed04102edbcd4965cb2689991fa66b80f5"
     sha256 big_sur:        "79796e78b1caa76cd5b4015ff45809cf034589cdfd6fe82d2c3ba136f42db762"
     sha256 catalina:       "50ffe9ea62b01ac23ec09b618d1451bcdac8a81b7d7cd4eede2446997527af5b"
-    sha256 x86_64_linux:   "2230b214d82871edad106d8bfeae19ec53b5c9354f164111021162a4242e851b"
   end
 
   depends_on "meson" => :build
@@ -20,10 +20,6 @@ class Scrcpy < Formula
   depends_on "ffmpeg"
   depends_on "libusb"
   depends_on "sdl2"
-
-  on_linux do
-    depends_on "gcc" => :build
-  end
 
   fails_with gcc: "5"
 
