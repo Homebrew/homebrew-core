@@ -4,7 +4,7 @@ class Ffmpegthumbnailer < Formula
   url "https://github.com/dirkvdb/ffmpegthumbnailer/archive/2.2.2.tar.gz"
   sha256 "8c4c42ab68144a9e2349710d42c0248407a87e7dc0ba4366891905322b331f92"
   license "GPL-2.0-or-later"
-  revision 7
+  revision 8
   head "https://github.com/dirkvdb/ffmpegthumbnailer.git", branch: "master"
 
   # Linux bottle removed for GCC 12 migration
@@ -19,22 +19,18 @@ class Ffmpegthumbnailer < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg@4"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
 
   fails_with gcc: "5" # rubberband is built with GCC
 
   def install
-    args = std_cmake_args
-    args << "-DENABLE_GIO=ON"
-    args << "-DENABLE_THUMBNAILER=ON"
-    args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
-
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DENABLE_GIO=ON",
+                    "-DENABLE_THUMBNAILER=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
