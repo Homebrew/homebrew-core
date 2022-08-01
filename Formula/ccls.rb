@@ -17,7 +17,7 @@ class Ccls < Formula
 
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
-  depends_on "llvm@13"
+  depends_on "llvm"
   depends_on macos: :high_sierra # C++ 17 is required
 
   on_linux do
@@ -26,11 +26,18 @@ class Ccls < Formula
 
   fails_with gcc: "5"
 
+  def llvm
+    deps.reject { |d| d.build? || d.test? }
+        .map(&:to_formula)
+        .find { |f| f.name.match?(/^llvm(@\d+)?$/) }
+  end
+
   def install
-    resource_dir = Utils.safe_popen_read(Formula["llvm@13"].bin/"clang", "-print-resource-dir").chomp
-    resource_dir.gsub! Formula["llvm@13"].prefix.realpath, Formula["llvm@13"].opt_prefix
-    system "cmake", *std_cmake_args, "-DCLANG_RESOURCE_DIR=#{resource_dir}"
-    system "make", "install"
+    resource_dir = Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp
+    resource_dir.gsub! llvm.prefix.realpath, llvm.opt_prefix
+    system "cmake", "-S", ".", "-B", "build", "-DCLANG_RESOURCE_DIR=#{resource_dir}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
