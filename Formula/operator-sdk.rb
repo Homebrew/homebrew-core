@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      tag:      "v1.22.1",
-      revision: "46ab175459a775d2fb9f0454d0b4a8850dd745ed"
+      tag:      "v1.22.2",
+      revision: "da3346113a8a75e11225f586482934000504a60f"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
@@ -13,12 +13,12 @@ class OperatorSdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b267743badd08ccc1de66d20f9fc9e93238de43eccfc7e800ef7ddddc29093db"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc88d0d467fe50014ee1c60c9a7787b61b9fb6aa524daa620ecc23eccfb9795c"
-    sha256 cellar: :any_skip_relocation, monterey:       "9288465f2b8e44f15e88bc9577c8c5fb52c2caaa353cb08fe6ff3690af4c1e96"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a71bddd97b21d58949a53f7fd8c5c20c80b55d2d8c5e312144105016af2dd2a9"
-    sha256 cellar: :any_skip_relocation, catalina:       "8b52499f5f54cff99233f82fa3d60bb7efe249dc77cee04b3d3457bbc548d28e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77c530a04d6f29dbddb60a9ede308a5fd987e19b6766c7febe1038285d65c497"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6e48a2616b66e6107de5daa3bdb0d68bdc06e618ca7771b93c367335eaa93d8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "566a7ca45388bac23b8b1a19a06a636150356872c7d89cc1aeb367ffd481ba97"
+    sha256 cellar: :any_skip_relocation, monterey:       "8946183de60334f8b506e085998fa259ad6879bb1a912e3a2b32e508d0d648e0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9cd4468c635fbeedc682a2ca011655056459969e1f45d70875f2f0cf1e44fa57"
+    sha256 cellar: :any_skip_relocation, catalina:       "d8a589c2d4acff6981d14e3a1c1eb56d2932123b29deb89d22829a37dcda99fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38b62d9aaa15556248c22c8bfddd4bff17f5674413543302c5dca34e32483dbd"
   end
 
   depends_on "go"

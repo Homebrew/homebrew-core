@@ -5,8 +5,8 @@ class Emscripten < Formula
   homepage "https://emscripten.org/"
   # TODO: Remove from versioned dependency conflict allowlist when `python`
   #       symlink is migrated to `python@3.10`.
-  url "https://github.com/emscripten-core/emscripten/archive/3.1.16.tar.gz"
-  sha256 "5e7b89fdc4387dcfc642d2f9094d6a71f57615b9ed8fe806cea07e3e48f3a72c"
+  url "https://github.com/emscripten-core/emscripten/archive/3.1.17.tar.gz"
+  sha256 "dd74aa6155fd58fc7cbce78303bfd2014a2a33db23c948d885a0115507067b60"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -20,12 +20,12 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "bc626fbeecf0c49b926f0fee99f99d148ad3bc8f0114574b324dd2acfc8f929a"
-    sha256 cellar: :any,                 arm64_big_sur:  "b0bc51d772db266a5c6d22b4bb1ef81e087d385a9346d0a086f1f4dc36e92c12"
-    sha256 cellar: :any,                 monterey:       "941979ab08de3a565046fbc7445bd0349bfff7be4fe055f6ec8f90fb7572f44b"
-    sha256 cellar: :any,                 big_sur:        "c382d5ed45874e90c4ce6184e7d1d7ee9d5ccfa94322a01ef6c1c4e18d61b221"
-    sha256 cellar: :any,                 catalina:       "0e4bb3a130431bfb5d4c798feed16ef680cdafcf6fc548877799ad8addb67fe2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "256aac80bd3dc55346cf64ed171481e4ce0457255e3525707ab2535352179d99"
+    sha256 cellar: :any,                 arm64_monterey: "d159cd4f31c223a4cb0812f2ca8dca23d79a5c627db3eb06a66786caafaf5cab"
+    sha256 cellar: :any,                 arm64_big_sur:  "00459b8ec6f3042722b9fd82d6169a1651f6c8eb5ebe75c8001c7f53764971e6"
+    sha256 cellar: :any,                 monterey:       "448d92ef18a1d05054389d949023ab6abbad5192e1115da1893d27c6efb444fe"
+    sha256 cellar: :any,                 big_sur:        "b9e579046ad649d9fc2f7a02e254ae85ea18457d0d666c2b31029175cc28e504"
+    sha256 cellar: :any,                 catalina:       "d53a5b3ad75c5bff857b0d06dc7886870315573431673b289a532803b785227c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbd572f3577984892b87d4373576a324d905097aa63b9574dc2a387373032497"
   end
 
   depends_on "cmake" => :build
@@ -36,7 +36,9 @@ class Emscripten < Formula
   # OpenJDK is needed as a dependency on Linux and ARM64 for google-closure-compiler,
   # an emscripten dependency, because the native GraalVM image will not work.
   on_macos do
-    depends_on "openjdk" if Hardware::CPU.arm?
+    on_arm do
+      depends_on "openjdk"
+    end
   end
 
   on_linux do
@@ -50,7 +52,7 @@ class Emscripten < Formula
   # See llvm resource below for instructions on how to update this.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "4e9f216a1ceae8bc4111fd68bda9fb681e1eeca1"
+        revision: "ed704448a6883e9ee0b2f6284f6b5a7b5e7b4aa9"
   end
 
   # emscripten needs argument '-fignore-exceptions', which is only available in llvm >= 12
@@ -61,7 +63,7 @@ class Emscripten < Formula
   # Then use the listed llvm_project_revision for the resource below.
   resource "llvm" do
     url "https://github.com/llvm/llvm-project.git",
-        revision: "ffa7384f10b89b6322c827d29d25108e34b8f6f0"
+        revision: "661577b5f40bb05534869b9635315e9265c37417"
   end
 
   def install

@@ -4,6 +4,7 @@ class Fltk < Formula
   url "https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz"
   sha256 "f3c1102b07eb0e7a50538f9fc9037c18387165bc70d4b626e94ab725b9d4d1bf"
   license "LGPL-2.0-only" => { with: "FLTK-exception" }
+  revision 1
 
   livecheck do
     url "https://www.fltk.org/software.php"
@@ -11,20 +12,20 @@ class Fltk < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "4c22c41979d57ab6dd11402ee65d16c13f5b8c8aefc380b3b6df86c8c352726a"
-    sha256 arm64_big_sur:  "cac2d0addf36697d05e1f727abab20bc7eebd7d0e7164e9a165e22114016ae26"
-    sha256 monterey:       "eabc4609af02c26d7e5f7470740063ed57bf8ab9c7b53cc5ff9aaca7d836863a"
-    sha256 big_sur:        "2228c7c23d137b575906abd07f10d54dd232cd3aa89565d69ac6b943134b8854"
-    sha256 catalina:       "b17355d7368662d2fb883651f82647f9e84db9f7e0766d833ffd4f10c7780fdb"
-    sha256 x86_64_linux:   "78cdc8e6ef47cc3406dc4cbd5ccf76dd564ecb4914e23876d01862d2421ce56f"
+    sha256 arm64_monterey: "0a4162f4f01767c76acabf13f888dc9a585b3ff72df88545704fad68ce578954"
+    sha256 arm64_big_sur:  "c5e80b820d74af67cdd25a7125b423bbe259930d35507aaabd56b82ebaca0048"
+    sha256 monterey:       "4e35b5a5e6f0c0ef134630be137142aecc42a73ce8d9ee1c1df8c7a478dacb7d"
+    sha256 big_sur:        "604d0e1beb8fb68b0dcf12b83a2209f34c7d0f9d3fc47c3b9b34222c93faa593"
+    sha256 catalina:       "ef38aabd458e85e3cbfb7bfbe1ca96949baad75397a1a4fbb25cdf299a713dfe"
+    sha256 x86_64_linux:   "310ccd7518b730389ca3d5162faa9866fc68d023f84c2c24147c7551b990dc9b"
   end
 
   head do
-    url "https://github.com/fltk/fltk.git"
+    url "https://github.com/fltk/fltk.git", branch: "master"
     depends_on "cmake" => :build
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
 
   on_linux do

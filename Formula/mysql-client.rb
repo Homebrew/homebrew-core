@@ -1,21 +1,21 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.29.tar.gz"
-  sha256 "fd34a84c65fc7b15609d55b1f5d128c4d5543a6b95fa638569c3277c5c7bb048"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.30.tar.gz"
+  sha256 "c331ac7a68099a2116097acbb14fd331423d486fe47ce0e346925111b44df69c"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
     formula "mysql"
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 arm64_monterey: "0570baf2cf4c4b82ee8ea9fbcbe46ed296bf8d35e67af0c8825b9f771dc1b225"
-    sha256 arm64_big_sur:  "a7c4c56992572994ede23bf0439bff5311e3591f84ec88841ba673cb1ae25562"
-    sha256 monterey:       "25d0a5b775dbeb01c853132138b206cff6d5678ffd944ac3e28bc06f67d6a1d5"
-    sha256 big_sur:        "8d952a3e0a7d6c43066aae7cc390a7c1acaef3519d1b25dc3196fc2e55dc320f"
-    sha256 catalina:       "b7db816c2e28cd360ae4f460a2d4829243f7d260df89f8acc6611adde29df196"
-    sha256 x86_64_linux:   "f7f7a44320c99f7ae6fe9eb0cc3da00a255b2070559be9ce9dcae35197983f68"
+    sha256 arm64_monterey: "abccc4fa9808274f5bd66a1b9d02eabc114340738f2b1425eaff658365dddf47"
+    sha256 arm64_big_sur:  "2a7d242c0bd023dd331ac079cc467e7d3f77477b78ab5110cdae68cb7aab17f3"
+    sha256 monterey:       "a8b71724eb655a359756740ca25c755efd927700396935ca641c89de3822187b"
+    sha256 big_sur:        "d9bf8ae6fb0548ee9bb981a88a3f09b9a3efffebc63ab14303979811cb59fee4"
+    sha256 catalina:       "2ff83a77f27bf45216c66002dac0e7da45d11626099324f381ff49b2f323992a"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -27,14 +27,10 @@ class MysqlClient < Formula
   # GCC is not supported either, so exclude for El Capitan.
   depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
   depends_on "openssl@1.1"
+  depends_on "zlib" # Zlib 1.2.12+
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

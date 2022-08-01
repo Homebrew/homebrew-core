@@ -6,19 +6,19 @@ class S3cmd < Formula
   url "https://files.pythonhosted.org/packages/65/6c/f51ba2fbc74916f4fe3883228450306135e13be6dcca03a08d3e91239992/s3cmd-2.2.0.tar.gz"
   sha256 "2a7d2afe09ce5aa9f2ce925b68c6e0c1903dd8d4e4a591cd7047da8e983a99c3"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf33ae13c4d9e22ae99b8508db8377c08abf789a3438efd2f768367469111fa0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0524e011b71b57afc8276cd1df26de6550caf1fddf507abfec590f0f6769dba2"
-    sha256 cellar: :any_skip_relocation, monterey:       "346540c7c9d5898e157df02dfa7b84aef3edd094a06929ca9df7d02a1c4ca9d3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "40be72f6f518aae27bf420abcdb17d04261858b7f66ec58afd89eb56fe03d541"
-    sha256 cellar: :any_skip_relocation, catalina:       "9370607e3fb43d8a466b0daa7c2f4292c6640fa66a4fcfc2802f5980c11712f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0afba47e264b4a94fc0b6b96f69880d51e3cdf126998f7fd3b1079f149587adb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e13cdf4fa4a22bff28b1c6d45e9b6abf3dc32706b5480aecfb795cd78bbb6a1a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28e7375d0037bcfc45a8e78bd25cea0607b2b84889a36c33b01928d665594c9e"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f1bb8a93419af123b4ef632fedee428b53803e768f90e1baf1fc9001d87b688"
+    sha256 cellar: :any_skip_relocation, big_sur:        "902b90e870a713c0317c2c7b9473b864e0e71c55dca645ea05ec6e928f4ab1d3"
+    sha256 cellar: :any_skip_relocation, catalina:       "8f4c613de5672026788b198f0599a1b8f411c052485c9bee0d0afdba8c31ec62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "033fd52dfc82b54e62c50d07244b35d53b1b60f1b4bb6d6e66e17ce121b8ec8d"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "python-dateutil" do

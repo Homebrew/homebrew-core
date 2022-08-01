@@ -1,18 +1,17 @@
 class Grex < Formula
   desc "Command-line tool for generating regular expressions"
   homepage "https://github.com/pemistahl/grex"
-  url "https://github.com/pemistahl/grex/archive/v1.3.0.tar.gz"
-  sha256 "a330ce004fcfdd8958d057a5ae07a85b6546de585fe7d9060d05f0ada7f7686b"
+  url "https://github.com/pemistahl/grex/archive/v1.4.0.tar.gz"
+  sha256 "38610a97665a30a3b66519df41f979a39a0503d2e9ac6e1e3e3394ec305e7987"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3bf37cff4ea82f9b40b13cb1e2a1807330f4857ee354be5dbd1b9a3e6df7fdc8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf7ac074ef21c118ebaee8c4bbf71aa467eb8a45432a9909ef2616fd4e9bec98"
-    sha256 cellar: :any_skip_relocation, monterey:       "83247c922a747faa7b3b0a7e6a86b0e015928f698f23a3af32f6ec6c8f96b1fb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4b0cbb149ea3361e6f29372f8c476328615c69e389b65b4e7f6288df7c408637"
-    sha256 cellar: :any_skip_relocation, catalina:       "1a6cdbda35cbbe7a8d85e08288f7ea16dca180630483aa1aaecd52641c1169ee"
-    sha256 cellar: :any_skip_relocation, mojave:         "b5ddd5d77b6e0ee87f82be555d6b528352e643deff829ee8741578a7ce7ddec7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6dd7656719c14a22a5078fa331132b735eefb8787fac58ee27f1dd054d20891"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "de4fa3ab2dcccdf2ce89b0b26b6ad7c411ca52768193374e09c5a9be498b7c01"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93faa205dcca15ad00a4a2ccbe024e14b7c9e88132bd3dde0556ebe918b235b6"
+    sha256 cellar: :any_skip_relocation, monterey:       "3fe2becef0cb4f6696080ed09016d86315308acc0e948dd7cfa9bf0aae2fcbde"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e9b1d18003ad754a1791960dacd2ace005c50b10ab583b635cf8f74eb0385c1f"
+    sha256 cellar: :any_skip_relocation, catalina:       "3956929a4fdb956eca7ae44648183cb458b01b24fc765c70c551fc13a8dce9b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4009880a091af2ae1148a6d4234100e082d106a4b9644c8c5eb9ce171fd39b0"
   end
 
   depends_on "rust" => :build

@@ -4,8 +4,8 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/v1.8.6/mu-1.8.6.tar.xz"
-  sha256 "ad68072865536c314e7c251fbb65c7bf0c7908ffcc2aa024720eb2af752944f1"
+  url "https://github.com/djcb/mu/releases/download/v1.8.7/mu-1.8.7.tar.xz"
+  sha256 "5a0724a625f43e01d73ffe7f7e5358f0b43dca0696559d70757b62469f629a6f"
   license "GPL-3.0-or-later"
   head "https://github.com/djcb/mu.git", branch: "master"
 
@@ -17,13 +17,13 @@ class Mu < Formula
     regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 arm64_monterey: "f262f611d0b85ed0491392a99e621081a9ae437fb145dec082f0f4334e9af9ae"
-    sha256 arm64_big_sur:  "340213f4317c7e71c57ba0c76c9383fa77a5551e2e5a9afcfe40ef99a2841da8"
-    sha256 monterey:       "491c067e333648356d5814e385028768e8cfc903767814b109ee3db4cb1f2d67"
-    sha256 big_sur:        "510f6d930e205628a572eef152d241ea25d9d2984a61b29a869122c3575d6197"
-    sha256 catalina:       "24f945b97e39687c7ebde66403006d6f6bdc73a2bac6c5dc0a23478261651a31"
-    sha256 x86_64_linux:   "ecba9eda515bea059c7989b95467473513dfaa896475c80686959d7856189bdf"
+    sha256 arm64_monterey: "975f54e33a72351b6f7057076f810b9be94c4f9ee844036e6cf5c6d6b564a2cf"
+    sha256 arm64_big_sur:  "3b7b1c9419df158ce507a9ac1a9350bb147ec14342f77b32ff30dbd865639a2a"
+    sha256 monterey:       "f9523f30023b4fd09c8879890b7e6657bd893a32d29d3e9210cfe696ba68b944"
+    sha256 big_sur:        "1334ad4bfa73d9c71ec880606b35fd14aef86621ad46f3450e0fcc666c8d39dd"
+    sha256 catalina:       "3262a6fd56c0f0e690eab3613a901c8c8ee9cd1488b04d22bb30eacec12138c6"
   end
 
   depends_on "emacs" => :build
@@ -38,10 +38,6 @@ class Mu < Formula
   depends_on "xapian"
 
   uses_from_macos "texinfo" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   conflicts_with "mu-repo", because: "both install `mu` binaries"
 

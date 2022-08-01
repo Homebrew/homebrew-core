@@ -30,8 +30,8 @@ class Monkeysphere < Formula
 
   uses_from_macos "perl"
 
-  on_linux do
-    resource "Crypt::OpenSSL::Guess" do
+  resource "Crypt::OpenSSL::Guess" do
+    on_linux do
       url "https://cpan.metacpan.org/authors/id/A/AK/AKIYM/Crypt-OpenSSL-Guess-0.13.tar.gz"
       sha256 "87c1dd7f0f80fcd3d1396bce9fd9962e7791e748dc0584802f8d10cc9585e743"
     end

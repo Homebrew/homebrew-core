@@ -47,15 +47,15 @@ class Nethacked < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "ncurses"
 
-  on_macos do
-    patch do
+  # Don't remove save folder
+  skip_clean "libexec/save"
+
+  patch do
+    on_macos do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/b40e459/nethacked/1.0.patch"
       sha256 "d32bed5e7b4500515135270d72077bab49534abbdc60d8d040473fbee630f90f"
     end
   end
-
-  # Don't remove save folder
-  skip_clean "libexec/save"
 
   def install
     # Build everything in-order; no multi builds.

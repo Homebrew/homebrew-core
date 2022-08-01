@@ -7,12 +7,13 @@ class Openjpeg < Formula
   head "https://github.com/uclouvain/openjpeg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ca6ecfefa5412308685c26b756bb2ba3017e08fec8f598cf9921f250b7650c46"
-    sha256 cellar: :any,                 arm64_big_sur:  "d75e9349dec836cacb65cd526b4102c42fb565a18a8f22258efc8ead7f02cb7d"
-    sha256 cellar: :any,                 monterey:       "e67b786522a005da2e0588e14b1db6a655ac183b33997e3f74e8020454ed73bf"
-    sha256 cellar: :any,                 big_sur:        "b57d2aae9396057846170004b7ac7048dd1fd3227bd0db8f332601416ec49180"
-    sha256 cellar: :any,                 catalina:       "dfc408c7529b4b391de6fbce4b8e211ab30ba554267cebcbf975bc6dbd3ad6cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "675a1e182e701f6a783d1407506558c7822bf6e377f7684d62eebd8fa23dfcb6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "ad8a83dd4260c0c6cc941a04993b19e230aba83b7c200c9c8808c41d44f2bf93"
+    sha256 cellar: :any,                 arm64_big_sur:  "4fb1a896ad5b273c2cb2b76960a78e1778c6e538f69e411c6cf8e20f5ada2184"
+    sha256 cellar: :any,                 monterey:       "7579e3c9665c0ff274336b0210f3fe87b03a72895b64840ef1565e69b975e48e"
+    sha256 cellar: :any,                 big_sur:        "2b9a55147b5fc89120e86e499cf63425b7b3cac340fec050c19e287efb1f758d"
+    sha256 cellar: :any,                 catalina:       "19d0029651a0dde2c307a8c50058bf8384879a2b94673272acc848faacde2a85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e57a66212ac4fca6dd1c802c80cea7e3157157b16577d549f2b1f4001386ce7"
   end
 
   depends_on "cmake" => :build
@@ -22,8 +23,11 @@ class Openjpeg < Formula
   depends_on "little-cms2"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_DOC=ON"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DBUILD_DOC=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

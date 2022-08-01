@@ -19,9 +19,11 @@ class Bwa < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d875f0b64143cfb58e44681e47102158b46e0004c408d8fc5f10dc976383a94"
   end
 
-  depends_on "sse2neon" => :build if Hardware::CPU.arm?
-
   uses_from_macos "zlib"
+
+  on_arm do
+    depends_on "sse2neon" => :build
+  end
 
   def install
     # PR ref: https://github.com/lh3/bwa/pull/344

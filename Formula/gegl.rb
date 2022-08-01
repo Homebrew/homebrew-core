@@ -4,6 +4,7 @@ class Gegl < Formula
   url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.38.tar.xz"
   sha256 "e4a33c8430a5042fba8439b595348e71870f0d95fbf885ff553f9020c1bed750"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
+  revision 1
   head "https://gitlab.gnome.org/GNOME/gegl.git", branch: "master"
 
   livecheck do
@@ -12,15 +13,15 @@ class Gegl < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e3b8f3e5feaf9c697262e1b1469424f29e211a2f32143f8c6726e5b4eba6e917"
-    sha256 arm64_big_sur:  "d960f0db802df919fab8370732d106bdfe7ff48f3ca9bd97825b86a43a9c898e"
-    sha256 monterey:       "a009fb78d8f660473b439434a5a63bf19b00de4f5397bfd013fc26373c0bf212"
-    sha256 big_sur:        "43fd908bb5129152caf51a455d7ec666f8f5b4bcb7db216c5957958931f2bd8d"
-    sha256 catalina:       "59a7117dc1a029a5e24904f9f40319b53d1c200a41df0a54df53e8da78b2ad60"
-    sha256 x86_64_linux:   "9d82f54188b03437bf8db9c8cdf8be55fde5cdac6cc358e3ea9245212e7933a6"
+    sha256 arm64_monterey: "7fae228b7235df79ae243066dce988aa02e28a4d5c3db84aa6686343cdef4c32"
+    sha256 arm64_big_sur:  "7840f644358bc9699b1f3e74b419b6de9668aad1c97cc7a4b6e86ea996f2b835"
+    sha256 monterey:       "0eeb4fe4db2b41db4dedd32abdeb0003dbce3215798f72be16e78962b14ad11f"
+    sha256 big_sur:        "c97d5001f52ab54f4e98e18db02e3e795420f1c16ef753a7ef8f209201ef5af0"
+    sha256 catalina:       "f3d7aecfadaf13afb9d14760b3f259b6b8b914a37a315f1d4d2689eba2089e21"
+    sha256 x86_64_linux:   "e23c8d7d4fe6608c4020dfac1323994d7d3c352950b8d507e0315f9e9db6e675"
   end
 
-  depends_on "glib" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -29,7 +30,7 @@ class Gegl < Formula
   depends_on "babl"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "json-glib"
   depends_on "libpng"
 
@@ -40,15 +41,6 @@ class Gegl < Formula
   conflicts_with "coreutils", because: "both install `gcut` binaries"
 
   def install
-    args = std_meson_args + %w[
-      -Ddocs=false
-      -Dcairo=disabled
-      -Djasper=disabled
-      -Dumfpack=disabled
-      -Dlibspiro=disabled
-      --force-fallback-for=libnsgif,poly2tri-c
-    ]
-
     ### Temporary Fix ###
     # Temporary fix for a meson bug
     # Upstream appears to still be deciding on a permanent fix
@@ -59,11 +51,15 @@ class Gegl < Formula
     touch "subprojects/poly2tri-c/EMPTYFILE.c"
     ### END Temporary Fix ###
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build",
+                    "-Ddocs=false",
+                    "-Dcairo=disabled",
+                    "-Djasper=disabled",
+                    "-Dumfpack=disabled",
+                    "-Dlibspiro=disabled",
+                    "--force-fallback-for=libnsgif,poly2tri-c"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   test do

@@ -1,9 +1,9 @@
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://megatools.megous.com/"
-  url "https://megatools.megous.com/builds/megatools-1.10.3.tar.gz"
-  sha256 "8dc1ca348633fd49de7eb832b323e8dc295f1c55aefb484d30e6475218558bdb"
-  license "GPL-2.0"
+  url "https://megatools.megous.com/builds/megatools-1.11.0.20220519.tar.gz"
+  sha256 "b30b1d87d916570f7aa6d36777dd378e83215d75ea5a2c14106028b6bddc261b"
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
     url "https://megatools.megous.com/builds/"
@@ -11,17 +11,16 @@ class Megatools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "029b622c6ac6df9447982800db0527a81b8fd83f61be8c51572cbcbdc2559f37"
-    sha256 cellar: :any,                 arm64_big_sur:  "9aa259fd94e583acf13b382bbf3f300632862741b34f78d8f853b976306bc224"
-    sha256 cellar: :any,                 monterey:       "88e01f0fb8a929bad460f1f887a14b66406f4245f63b1a30a75002318d0a14e6"
-    sha256 cellar: :any,                 big_sur:        "cf95741a2c3766205c7e24a56018b07ba5716a6c2ae889ecd35d3bd9990a5f02"
-    sha256 cellar: :any,                 catalina:       "88c7b8cf60517507c7d6e7d9709b53bca671d949c7363c117e27ffb7d860f855"
-    sha256 cellar: :any,                 mojave:         "21844a1f366aec458b92ad00debef361388aca790bdd43583ebe51df22e7f68d"
-    sha256 cellar: :any,                 high_sierra:    "0f295ea8f68a858f114ef09bd4f53b82c5a401664e16beee28af7cca2d1aef5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56f981aea4ce43496323a83ecd3e1c9c6de26ed9b68300700774aeb7f50ad535"
+    sha256 cellar: :any, arm64_monterey: "1d96ad8f3ab6eeee0cbb8b378690dbf385edec19cc84ccd8d206e6db19607f0f"
+    sha256 cellar: :any, arm64_big_sur:  "46ca1a3927faa2401ef76da94d888694e488d85bd2b6f5e651dfb00bd267ddba"
+    sha256 cellar: :any, monterey:       "87cd69892db63c73b019cd66320485970c4d703a279a4193ecb889b0f9356170"
+    sha256 cellar: :any, big_sur:        "405fac1aace5b78db94c3a23bec9c240ca3c93164708baa11b2eedd4746e17e9"
+    sha256 cellar: :any, catalina:       "4520b8dbb5260e663b565d9b57a6f35a9cf180d46f37fd280ab1ddf7cf97f740"
+    sha256               x86_64_linux:   "57eeaa7ca64c95195ac12d5b2aef86fe558902420f91c704012b0afc726d8003"
   end
 
-  depends_on "asciidoc" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "glib-networking"
@@ -30,11 +29,11 @@ class Megatools < Formula
   uses_from_macos "curl"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

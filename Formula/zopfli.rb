@@ -4,22 +4,24 @@ class Zopfli < Formula
   url "https://github.com/google/zopfli/archive/zopfli-1.0.3.tar.gz"
   sha256 "e955a7739f71af37ef3349c4fa141c648e8775bceb2195be07e86f8e638814bd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/google/zopfli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9db9220cbae651ff898f76f91485b486dd69f97b6801620abf2643c0bad1c38f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8713f7f74eeab80dad2dfe679e985c11479f86385e0d4de4673365d47c7683ff"
-    sha256 cellar: :any_skip_relocation, monterey:       "12d9e6837065e018b0562beba8abf42a485163a712e954efc9cda5181db92179"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1d60005d0944419b4f6c570c66b906701411d380030f7b6f148347b3b9fbff04"
-    sha256 cellar: :any_skip_relocation, catalina:       "aa44f1667254347800d442b6347d6df658e3ee24386d2284cce8e88a27e87d6d"
-    sha256 cellar: :any_skip_relocation, mojave:         "521a5185b6881c878be60af7df7c673f5845255f957b88d01307eb9220407a52"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "fb474057725b73aa00261b10d000474cb05c020b7d951d085dcf9ed5b0973030"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5730bbf490205ab8daadcc298b3f4343d4fdd7d146a6789cc136b1da76d959ac"
+    sha256 cellar: :any,                 arm64_monterey: "31f0023436da6f38a1a1df31ca8b2fd82eaac4a7ce1bc2a2b7cf05a0c4ec2f05"
+    sha256 cellar: :any,                 arm64_big_sur:  "2f093e34188e4c0b3d7b2acdd913ecc302ba6dafe722f943e579bf70a09ef15a"
+    sha256 cellar: :any,                 monterey:       "6f02f39b1b143725890fb1d1a33e6f587daf33ef473ff2991189e2fd1d1a5f85"
+    sha256 cellar: :any,                 big_sur:        "64f2102bff6163156d073e4554532c990c3a65669b7a52d2cec83a22d5b32d4c"
+    sha256 cellar: :any,                 catalina:       "288d48544556b28451e536b142dcc2235ea9dfe52dfe79d0b1d5f50db85c16dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6994139461f1d64975551091d1254a906a8957c3ce08c0c2b6d8d5c995b66f05"
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "make", "zopfli", "zopflipng"
-    bin.install "zopfli", "zopflipng"
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

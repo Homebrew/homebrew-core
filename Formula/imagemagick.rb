@@ -1,8 +1,8 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
-  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.0-43.tar.xz"
-  sha256 "5d52aaed5496a193176c443052bac32536230b9a73a9b7bd5f0f794ddddafadd"
+  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.0-45.tar.xz"
+  sha256 "2b5e88d3b895be4a7a6fc70ab4603d02f84477b8c15d3819f0b2c4b3ad1447a0"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
@@ -11,19 +11,20 @@ class Imagemagick < Formula
     regex(/href=.*?ImageMagick[._-]v?(\d+(?:\.\d+)+-\d+)\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 arm64_monterey: "0400965c5e3292014220eccc4c86c781322de2656a73521223dad47a5995d9d2"
-    sha256 arm64_big_sur:  "c8b12081678eddd29bdd48e64d9920159f0ddc4c35e9b5dabc4f32b954b4d111"
-    sha256 monterey:       "7ba74e818a3c320d0246d9d01f063ae1acb1bc7b9682afdb8477a3f9760cf003"
-    sha256 big_sur:        "52a890f084a4dbe6da65b9a93d626b53d970ebccab4b5e7ba72a6f025be07f49"
-    sha256 catalina:       "f1f5c94945b0da6263fd55f206eebf04abfb24745f395f7574b81e2a03e782c5"
-    sha256 x86_64_linux:   "2b7e46bd4f6282f30ae1bd0bbe700460a057df23ea1697f02fd111cca5188f39"
+    sha256 arm64_monterey: "59b175f274e796a0f426c09fd4bfbd6a2def28ed23e2c80c2dca36d16dd44d71"
+    sha256 arm64_big_sur:  "ff67c8a22b12c2e9499981142fcbdd399ed6a49d86eb14b0cae8fb879551c590"
+    sha256 monterey:       "5c3ee32115784d230675ac64372651f4701a84ea7f920a88a6141a504d7ae090"
+    sha256 big_sur:        "249e5aa8c3f0518af1696503283c446600a65d86d3eb945e5c449b92a7bc8a1a"
+    sha256 catalina:       "ee57cb93ab5da15954fd6cabcd0e509589504f4c44f308319ac163b03fa1096a"
+    sha256 x86_64_linux:   "c7b396c47cb3c65fbc5ac1904afbd42594f49d82920249a5beb1779514097d1b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "ghostscript"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libheif"
   depends_on "liblqr"
   depends_on "libpng"
@@ -45,7 +46,6 @@ class Imagemagick < Formula
   end
 
   on_linux do
-    depends_on "gcc"
     depends_on "libx11"
   end
 

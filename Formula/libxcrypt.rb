@@ -16,6 +16,9 @@ class Libxcrypt < Formula
 
   keg_only :provided_by_macos
 
+  link_overwrite "include/crypt.h"
+  link_overwrite "lib/libcrypt.so"
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"

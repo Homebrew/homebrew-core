@@ -4,7 +4,7 @@ class Fox < Formula
   url "http://fox-toolkit.org/ftp/fox-1.6.56.tar.gz"
   sha256 "c517e5fcac0e6b78ca003cc167db4f79d89e230e5085334253e1d3f544586cb2"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "http://fox-toolkit.org/news.html"
@@ -12,19 +12,17 @@ class Fox < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0565eec3e7a0362e8cdc126f4cd02e072edf748b62780ff76f788b037df5243c"
-    sha256 cellar: :any,                 arm64_big_sur:  "9e595940c212b8efb8588736216000490c8e8f4eff89b96be34aa92702538f1f"
-    sha256 cellar: :any,                 monterey:       "78d2f9f4d2fd8cd0480866d53067f975cbbb4f31c26a87d18fe7e811f4e34d48"
-    sha256 cellar: :any,                 big_sur:        "f7988beb83a1343a270ba6107f8693550fb4b6f92632600849eb11f203bfa2fc"
-    sha256 cellar: :any,                 catalina:       "e9f946383a4fc88a230622abd2c38386053f20c35eb632bf62ea8e06e43be7ab"
-    sha256 cellar: :any,                 mojave:         "7017807cda0f8aa8e43338d4556ec842db95626984f7a9eaef4b926a9dff7310"
-    sha256 cellar: :any,                 high_sierra:    "3705392848b062aa09d8be70c0f99b0331eeeceaea685389d684644e86f7fe22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1112c8f6b5628822873dae32f31101f2f05d028629e718b3120e4fdf75e88ad"
+    sha256 cellar: :any,                 arm64_monterey: "41ad7e9c440defe145780c8ba2a3eabe8f48276013dbc88d743540c083bfca3c"
+    sha256 cellar: :any,                 arm64_big_sur:  "ba7b09dfb7926bb605af6793184b2acebb49450e70d8a5c9151a35a51754f4eb"
+    sha256 cellar: :any,                 monterey:       "c70d21e9cae3071d7c83df9b82b10a5ddfcbf292989eb6e436741ea7fcbf1d29"
+    sha256 cellar: :any,                 big_sur:        "13f597f1552171dc9cbb12ebe818234078d3d4b05e381366c7f2b59736c2deb3"
+    sha256 cellar: :any,                 catalina:       "78fae09af588993705203577e978c7846792d7f86215a8c3f63adccfc5b36d18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "230354829d1ed0956e2fda9cb8387632283298708c80ae53440f135480e0a187"
   end
 
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libx11"
@@ -47,14 +45,13 @@ class Fox < Formula
   def install
     # Needed for libxft to find ftbuild2.h provided by freetype
     ENV.append "CPPFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--enable-release",
-                          "--prefix=#{prefix}",
                           "--with-x",
                           "--with-opengl"
     # Unset LDFLAGS, "-s" causes the linker to crash
     system "make", "install", "LDFLAGS="
-    rm bin/"Adie.stx"
+    (bin/"Adie.stx").unlink
   end
 
   test do

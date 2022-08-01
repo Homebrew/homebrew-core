@@ -1,17 +1,17 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/v0.34.tar.gz"
-  sha256 "f715ab86b219fd42462399459bfa1e04a5925268bff4839c4d96bd01264d6847"
+  url "https://github.com/jesseduffield/lazygit/archive/v0.35.tar.gz"
+  sha256 "fe5b2278d7b5b22058d139ec8961a09197d8fd26d7432d263a583fa9c1599d6d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77c0725d4dae58f89a0f97b40f4bd7db99b0895d330e2fe3cacfb9a66e485b71"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbb1adc9a754bb656707cd43fe0a941599a79c449d4f23530857a74a346c3b87"
-    sha256 cellar: :any_skip_relocation, monterey:       "2992aa17a82fc5d61910732b69a2f5632f54dde5df6d7a577a2456a66c863340"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cf4376ea6950a82e9d1dd41849d58fa1f228d3e9bc2c37e7f09ae6a532481f86"
-    sha256 cellar: :any_skip_relocation, catalina:       "a2feb23f65422d7f94c5a47363ad9338c729d49fc29e30d2170314c2327d8290"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7545e46900a94c0677bf159776dee2812e12a4c2d2349f87647e4677e2b3112"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "30867910e32b5580b2d188d5dfe9910c3ad6a4b7fbedcbbda479d4246409fff5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1f23d9c21121a813ca091bd2182c79109396899f881280e03f67be02a5175c11"
+    sha256 cellar: :any_skip_relocation, monterey:       "ce7f4b81e76c51422bd763f7a49803ef73cccdb48149fda1640587c711eb5faa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6bf7b515b825ab7ee5e84bf3c5a9e7de93d9f37ed4ad603ecb80541eb14077c4"
+    sha256 cellar: :any_skip_relocation, catalina:       "f86d5fa19408c09dc28500b003d21c1d376d125ff332e4239288ab1e284c81ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1a4d1ee2a2cf35a17f9c9f03520d91aabced3c6fdfea8e81afe5913219e9e29"
   end
 
   depends_on "go" => :build
@@ -24,7 +24,7 @@ class Lazygit < Formula
   # lazygit is a terminal GUI, but it can be run in 'client mode' for example to write to git's todo file
   test do
     (testpath/"git-rebase-todo").write ""
-    ENV["LAZYGIT_CLIENT_COMMAND"] = "INTERACTIVE_REBASE"
+    ENV["LAZYGIT_DAEMON_KIND"] = "INTERACTIVE_REBASE"
     ENV["LAZYGIT_REBASE_TODO"] = "foo"
     system "#{bin}/lazygit", "git-rebase-todo"
     assert_match "foo", (testpath/"git-rebase-todo").read

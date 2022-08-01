@@ -15,10 +15,12 @@ class Cocoapods < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ruby" if Hardware::CPU.arm?
-
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "ruby", since: :catalina
+
+  on_arm do
+    depends_on "ruby"
+  end
 
   def install
     if MacOS.version >= :mojave && MacOS::CLT.installed?

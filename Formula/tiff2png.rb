@@ -4,22 +4,18 @@ class Tiff2png < Formula
   url "https://github.com/rillian/tiff2png/archive/v0.92.tar.gz"
   sha256 "64e746560b775c3bd90f53f1b9e482f793d80ea6e7f5d90ce92645fd1cd27e4a"
   license "ISC"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "60208bd0d504537d8c865a88b74a019f407fb941aba58f211a84a13292cbbf07"
-    sha256 cellar: :any,                 arm64_big_sur:  "2afce14eed0478fdf2cdfdddf4d69264b91915f19081f5ea57073d9a7a2076e9"
-    sha256 cellar: :any,                 monterey:       "6c4ddd504062c8cd655fc347cf51b188870855c311affb27b1c605109aa5d597"
-    sha256 cellar: :any,                 big_sur:        "6001968757ed9c3dd7f67c8d4f53cb57d3d8ae67de0ab995167bbf761e4a26a6"
-    sha256 cellar: :any,                 catalina:       "7589c830ef81bd43dd0bd3d1ba65483965701dfff8f7c4d8760951f0cf47c378"
-    sha256 cellar: :any,                 mojave:         "e8cf86b68e703c8c5c6fc0f6e9ffee0e2823a103cb685d4a33d21fb626a96439"
-    sha256 cellar: :any,                 high_sierra:    "e20cc758aab7de1c1e9d286e469a444fe9e384bcffe472ec6a52c06b31131ac4"
-    sha256 cellar: :any,                 sierra:         "19951f2ec63fa3c77a43fe2c2444251686ad4fcc1038fbeeb8873fcd528d8954"
-    sha256 cellar: :any,                 el_capitan:     "43f0afaca7d61a7f55489260deb233c0a35619d3101d362f80dc7a765a877599"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "298c637d45b059fd40dc321a5c3fe2d099cd5a91d6eca45c5272e96e3badf240"
+    sha256 cellar: :any,                 arm64_monterey: "4ae4e51389a9abf20d308286994953e52a74a8dc1d9d66a68d36eb168d980f8f"
+    sha256 cellar: :any,                 arm64_big_sur:  "62112cc971b1d4d2d8c13fa77b8a58facd580eff962ef11caabe17c984d92837"
+    sha256 cellar: :any,                 monterey:       "e7600254ecec3dcce2242b572a846e3c4b1bde4d8901f4e4b82f5beea68e8d32"
+    sha256 cellar: :any,                 big_sur:        "a077017df7d61abe471103ae6e7dd8ac7a141d1f1504e1d8466eee1d5d126d22"
+    sha256 cellar: :any,                 catalina:       "2a2365ffef9a676267001e51e9330a8c4fb52c9f70602b7bd6196fc581f85add"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b53c12b60d9b1dbe457e49429351adec592b9cbd2dec004fd5131fd4ae2f739"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 

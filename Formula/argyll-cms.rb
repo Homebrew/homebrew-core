@@ -42,12 +42,6 @@ class ArgyllCms < Formula
   end
 
   def install
-    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    # Reported 20 Aug 2017 to graeme AT argyllcms DOT com
-    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
-      inreplace "numlib/numsup.c", "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH"
-    end
-
     # These two inreplaces make sure /opt/homebrew can be found by the
     # Jamfile, which otherwise fails to locate system libraries
     inreplace "Jamtop", "/usr/include/x86_64-linux-gnu$(subd)", "#{HOMEBREW_PREFIX}/include$(subd)"

@@ -4,23 +4,24 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.62.0-src.tar.gz"
-    sha256 "7d0878809b64d206825acae3eb7f60afb2212d81e3de1adf4c11c6032b36c027"
+    url "https://static.rust-lang.org/dist/rustc-1.62.1-src.tar.gz"
+    sha256 "72acbe6ffcd94f598382a7430b0d85ee8f679e6d0b27f3f566ed1c16c978133f"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
+          tag:      "0.63.0",
           revision: "a748cf5a3e666bc2dcdf54f37adef8ef22196452"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "838909e71da85c754493b4cffcd5a092e97a21c2e6abdb0fc8488d002ffb4199"
-    sha256 cellar: :any,                 arm64_big_sur:  "51be49f828b0675bfee555e1aacd97bf024e56519e369b987c1e3521164a23b4"
-    sha256 cellar: :any,                 monterey:       "ed4f2e41d0b2aa68b68bd419246e112f79540266d5120dfedae360257f4991ca"
-    sha256 cellar: :any,                 big_sur:        "0c30f4ffd326072717f64b3a1ff5d5d779a6d4138e1ebb3d3500770fdc29c899"
-    sha256 cellar: :any,                 catalina:       "3f6634d5562c089c9b94d3d076877b451a192a4894c1720574dfd9dc45e0f58e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f81a723aaa3c9042ee84273ce5eeb4e7976cb11624d40097d0a2dd87d9ddbc23"
+    sha256 cellar: :any,                 arm64_monterey: "a559acc618a575bd0e05b3a7f0dc5317556a77cd61ee71caf09eb7e79bf54c01"
+    sha256 cellar: :any,                 arm64_big_sur:  "6f57dd20872fd28875ee617c19bad45ed3604de9f5e165be41b56e2937842334"
+    sha256 cellar: :any,                 monterey:       "0f1491c1229a80bd1f2842e0015cb249ac8a60675e056539d7a578802ed5375e"
+    sha256 cellar: :any,                 big_sur:        "f4c49f6d04d67c4a1089c652bde624a2053d20801f5344964d7d100b55d8ce52"
+    sha256 cellar: :any,                 catalina:       "e7fa918240ffb72f1b067666995cab5325b603f3f1ff118868d555fe6fb7ffe4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29ce31caf9a4fc7c72a3a750f5946ff70db5feb3acd08c0ecf41124b5f50828f"
   end
 
   head do
@@ -44,10 +45,11 @@ class Rust < Formula
   resource "cargobootstrap" do
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
-      if Hardware::CPU.arm?
+      on_arm do
         url "https://static.rust-lang.org/dist/2022-05-19/cargo-1.61.0-aarch64-apple-darwin.tar.gz"
         sha256 "8099a35548e1ae4773dbbcbe797301c500ec10236435fde0073f52b4937be6c3"
-      else
+      end
+      on_intel do
         url "https://static.rust-lang.org/dist/2022-05-19/cargo-1.61.0-x86_64-apple-darwin.tar.gz"
         sha256 "f2b10ef8c56f37014d2f3e4c36d5e666e3be368d24c597e99cf2e4b21dc40455"
       end

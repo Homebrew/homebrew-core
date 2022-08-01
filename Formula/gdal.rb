@@ -4,6 +4,7 @@ class Gdal < Formula
   url "http://download.osgeo.org/gdal/3.5.1/gdal-3.5.1.tar.xz"
   sha256 "d12c30a9eacdeaab493c0d1c9f88eb337c9cbb5bb40744c751bdd5a5af166ab6"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -11,12 +12,12 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f0c1b8b744a2979ed67892cff0ceb6228df4970541bbcfe97a50740e49ada1ec"
-    sha256 arm64_big_sur:  "4b2c5e84fd44184e4922a7cb2d2ccb30ee9b13fa6967fd99234ef25d1bd579af"
-    sha256 monterey:       "648443c770fda1ec29abace3ce507a9bee7edd2943bc95410db6a75ff30a538c"
-    sha256 big_sur:        "e596f19a061dcb442ed308c04a20fa56d6b22d5f317bd20eb97228ab6e549031"
-    sha256 catalina:       "36d0ad40470782ba1ed00815f59b23109d0d87121a3e684085abf172375fb61d"
-    sha256 x86_64_linux:   "cd2e4bd45d60ef01d793c9c39cfc31045669d31107e58bf9d0680a70ae905f4b"
+    sha256 arm64_monterey: "913d17c33289ba2e65b9beaa5c0f00653207881cb6ddbb277f915c9d0aeff06c"
+    sha256 arm64_big_sur:  "0cb79eefd9446fae2e78ec0cfe03b546fbb83adc10f3f6673e8bd14b8bbd6ee6"
+    sha256 monterey:       "7bf0a9874eee1dbe61b79087450ba8ae32b0719aba13ad1628d83eb023d84e87"
+    sha256 big_sur:        "a0125ca12f72224b6a2a8f381f95077675ce7b5c7446d7f19fef910154817706"
+    sha256 catalina:       "b36fa184f01632796a6d259cba8d4c8cc9be59151a952f04a9b14c270a8f1678"
+    sha256 x86_64_linux:   "9af5a929a9539fc4a4050dab4a93ab6c08fc472b9d4212496003a081d986be4e"
   end
 
   head do
@@ -45,7 +46,7 @@ class Gdal < Formula
   depends_on "numpy"
   depends_on "openjpeg"
   depends_on "pcre2"
-  depends_on "poppler-qt5"
+  depends_on "poppler"
   depends_on "proj"
   depends_on "python@3.9"
   depends_on "sqlite"

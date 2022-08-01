@@ -6,13 +6,13 @@ class Siril < Formula
   license "GPL-3.0-or-later"
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "6e2a517c7c7c697440ef5ca850bed738a117f88e55c4962766c9e7dca72d7d41"
     sha256 arm64_big_sur:  "a6ebd53726bc9d9d24ea3ca857507801ad45e1d99ff3c773bf8ac38ec459730b"
     sha256 monterey:       "cf1b0437f4c1abf99267ec82393cece1d3f44e8e5815de1c8d38b634adb3e802"
     sha256 big_sur:        "1c471f84f0e3635888a951d9addae170d61c1d3b54d15a26ca9f0f2c2450b1d3"
     sha256 catalina:       "ebc5dc9a3e151c417833782f22c48e4af5302ac927e004c99c8e8ca6e5ef0916"
-    sha256 x86_64_linux:   "e3e086e77f6fd437595f7d8e7ff8196d85a9c367aa31e1d6be1e9a599a0fdd8e"
   end
 
   depends_on "autoconf" => :build
@@ -43,10 +43,6 @@ class Siril < Formula
   on_macos do
     depends_on "gtk-mac-integration"
     depends_on "libomp"
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC

@@ -5,8 +5,8 @@ class Kpcli < Formula
 
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.7.pl"
-  sha256 "8c12566c292650451590ba42aba48f117eb60d786aed4309cca19febd4d2d673"
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.8.1.pl"
+  sha256 "6c84f8639245799bf9b2d5ce297c41b5d4ec0789f7f5fa9e8767556816ea472c"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   livecheck do
@@ -15,32 +15,34 @@ class Kpcli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fb2334f285e2e66f31bf4cd5d7087fa09fd7d98bb163854bf376a8e51f509926"
-    sha256 cellar: :any,                 arm64_big_sur:  "9b87bc1033d73c01bf5f72d05c9647d51b4f814f1f0ab6c685b570d795be50df"
-    sha256 cellar: :any,                 monterey:       "d23ea3b4ac917951959fde61c4d923e79f47ee031ae86cba5c3e624cc667cc84"
-    sha256 cellar: :any,                 big_sur:        "f6b94c8937a6827ed804d66412fb4e2c1cf4d791c902a8a4ba3c73714b92fcc9"
-    sha256 cellar: :any,                 catalina:       "286c50adf94e56ef0e71fe440c0bc24f9f4b0e7f7f41b4a61c445e723e3b297a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae9172060c3823a69b5dca9fe83eef8ae7a0c0f978d26821f3961ed418095b4a"
+    sha256 cellar: :any,                 arm64_monterey: "3e5541f5e3c1031e77cbce3f2953f5e6d9865a24afb83cb39827a6f89874d9e7"
+    sha256 cellar: :any,                 arm64_big_sur:  "e29f7d4ceba1334bbbd57b110628eb655ca3a5ee076cc74fc32935d50fdb2ab1"
+    sha256 cellar: :any,                 monterey:       "ad7799e6aacc9bcd1c76e308758036e3eadf1fbc652e7d9c95e28a2b0291d3c6"
+    sha256 cellar: :any,                 big_sur:        "d5c9ca1dee1bf7965ddf8e47d386192f72f1565c98cf5ab21fea51eb18f2c4d6"
+    sha256 cellar: :any,                 catalina:       "165749beb5e97fe99a928abe2ed0e42c85110fc78b06f7c8560664217f7e64df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f6d692a8118172a86bf4f09e37b3b8102c83799ef4d32b6bbaae647c018f6f3"
   end
 
   depends_on "readline"
 
   uses_from_macos "perl"
 
-  on_macos do
-    resource "Mac::Pasteboard" do
+  resource "Mac::Pasteboard" do
+    on_macos do
       url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.103.tar.gz"
       sha256 "2f5e8dd2db0d6445558484ca6d42d839c5a97ee8aa1b250e694d67d5b7f6634c"
     end
   end
 
-  on_linux do
-    resource "Clone" do
+  resource "Clone" do
+    on_linux do
       url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.45.tar.gz"
       sha256 "cbb6ee348afa95432e4878893b46752549e70dc68fe6d9e430d1d2e99079a9e6"
     end
+  end
 
-    resource "TermReadKey" do
+  resource "TermReadKey" do
+    on_linux do
       url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
       sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
     end

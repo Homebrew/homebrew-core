@@ -16,11 +16,14 @@ class Reposurgeon < Formula
   end
 
   depends_on "asciidoctor" => :build
-  depends_on "gawk" => :build if MacOS.version <= :catalina
   depends_on "go" => :build
   depends_on "git" # requires >= 2.19.2
 
   uses_from_macos "ruby"
+
+  on_system :linux, macos: :catalina_or_older do
+    depends_on "gawk" => :build
+  end
 
   def install
     ENV.append_path "GEM_PATH", Formula["asciidoctor"].opt_libexec

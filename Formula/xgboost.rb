@@ -16,8 +16,6 @@ class Xgboost < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "numpy"
-  depends_on "scipy"
 
   on_macos do
     depends_on "libomp"
@@ -47,11 +45,9 @@ class Xgboost < Formula
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
-    mkdir "build" do
-      system "cmake", *std_cmake_args, ".."
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "demo"
   end
 

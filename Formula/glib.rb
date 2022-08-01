@@ -3,18 +3,17 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.72/glib-2.72.2.tar.xz"
-  sha256 "78d599a133dba7fe2036dfa8db8fb6131ab9642783fc9578b07a20995252d2de"
+  url "https://download.gnome.org/sources/glib/2.72/glib-2.72.3.tar.xz"
+  sha256 "4a39a2f624b8512d500d5840173eda7fa85f51c109052eae806acece85d345f0"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_monterey: "af335e6bfa338341ac2c97e7da0f5d1c4191d28acda36b5ce4b2720e875f02bf"
-    sha256 arm64_big_sur:  "60e0ef5296fbec04c0ed32409d6439a0dbcbbd68c5907769777b14f984088fbf"
-    sha256 monterey:       "528f8a75879a9e52ea0a9ab65c018e01333514e22d1b70896be8ff3b96b35189"
-    sha256 big_sur:        "504908c9397c17f97cdf7b32ddbbdc7ac0af4a13937ba83161cb85f8f06b2c75"
-    sha256 catalina:       "151fedd4c8545530c9a8b750ffb6b189db50ce95239ca03d1ec98bf7feefeb55"
-    sha256 x86_64_linux:   "5b23356a0c0fbaea9fb96554e7a2a8d5bab0f16c050acae1df7fa50f344fd32b"
+    sha256 arm64_monterey: "36038c2b4fb7dbede91facedd3dd3062e0ae697149e5ce758bbd17ce0e2448ab"
+    sha256 arm64_big_sur:  "a3265f48c2c88487e5f1db1230ec8f9382a2fb68d5eafe90a9ad75fd7c71de85"
+    sha256 monterey:       "29d582d267be192c3262bbc318af8ac451f067d8e647c671b8685c4ef349d6a8"
+    sha256 big_sur:        "5711f5a9d216f5ace87ec33851ad868623835ca0f940df46e87a62621662f7ac"
+    sha256 catalina:       "605292cae9fba2b545a9a7bfe6a97623dd6aa055a0c05747d3143297a137b0a2"
+    sha256 x86_64_linux:   "6bf1b47d083b90834e59c72f3ba6d6a8edc7637bcecba7d3ff769eff8d66a946"
   end
 
   depends_on "meson" => :build
@@ -29,6 +28,7 @@ class Glib < Formula
     depends_on "util-linux"
   end
 
+  # Sync this with `glib-utils.rb`
   # replace several hardcoded paths with homebrew counterparts
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/43467fd8dfc0e8954892ecc08fab131242dca025/glib/hardcoded-paths.diff"

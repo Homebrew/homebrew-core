@@ -1,18 +1,18 @@
 class Libxcvt < Formula
   desc "VESA CVT standard timing modelines generator"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/lib/libxcvt-0.1.1.tar.xz"
-  sha256 "27ebce180d355f94c1992930bedb40a36f6d7312ee50bf7f0acbcd22f33e8c29"
+  url "https://www.x.org/releases/individual/lib/libxcvt-0.1.2.tar.xz"
+  sha256 "0561690544796e25cfbd71806ba1b0d797ffe464e9796411123e79450f71db38"
   license "MIT"
   head "https://gitlab.freedesktop.org/xorg/lib/libxcvt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "45a0b481cf82676176c62d06cda0836445b94127e671de6ce0954e684d3fd96d"
-    sha256 cellar: :any,                 arm64_big_sur:  "b4b4cf1ccd39350854501b8c4215bfbaff09d8f5561d82cb0bc008116c67a2a1"
-    sha256 cellar: :any,                 monterey:       "6c7977eb664f6386d8f9eb1089617d860ee3493859287bf58432dc28d450f239"
-    sha256 cellar: :any,                 big_sur:        "3c28844529ddab8dbb24d6111c7fb1f0cfab18f22e1fd8624f86abc17f4fc528"
-    sha256 cellar: :any,                 catalina:       "2f2e2f9aca9311bedc6a3a623637071c0c122927d29207b32e5bb86f6cf356ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43dcce13077d13190e041b20e68ccab4c28501790ed9506e2b3f3a37c1b364ec"
+    sha256 cellar: :any,                 arm64_monterey: "7bf701bf10b2f4888d102161d975ba7e65cfe404d66811088c567e04e925435a"
+    sha256 cellar: :any,                 arm64_big_sur:  "98a64b3f8dcd7212b401b486913c75760ab274112330d518d1998426bbf65860"
+    sha256 cellar: :any,                 monterey:       "98f38e88cdc169665f5cb713a7f91ee55baa03161c2d8f9c2728c3e34b2061d0"
+    sha256 cellar: :any,                 big_sur:        "d6f36b386b356f7d50048eee56dbea33b0faff4e19357ff48ade8271b6ca1fe4"
+    sha256 cellar: :any,                 catalina:       "da146a062545c10c45d7adaecda617dd9a3126aac7be26474548ae490c06c5f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7dc66c26952d298964949abc65021064296fcd969efa2d1a93ffc7c8765bea5"
   end
 
   depends_on "meson" => :build

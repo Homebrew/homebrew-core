@@ -11,13 +11,13 @@ class Dvdauthor < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "bc83c8e514066eca33c4ba473f833bbd9e39f37dd98f648d0ed826d7e2c0b2f1"
-    sha256 cellar: :any,                 arm64_big_sur:  "a0b0c601eb1ec9de60de448cab11217c63febd18afd7a9ee6207fdb1427593f5"
-    sha256 cellar: :any,                 monterey:       "1370f3dc33ba0f60e930b946e9eedb0a7eca35ccf87511c0c3dbe6a8f658b1eb"
-    sha256 cellar: :any,                 big_sur:        "c6405e471ac402f1b0ec1e2fbbb2ee3eb4be9dd82f0ef5b8991339928ff2fdb0"
-    sha256 cellar: :any,                 catalina:       "7ebcd748eb4eba1876bd1cb181fa6ec679773dbf753be805845904b69685ee11"
-    sha256 cellar: :any,                 mojave:         "5da2d90859c186ea0795b18210ef2722f96bfbb16f53d3a0cb0aa89084026ce0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6c257894d2aa40c73cef22caac501ade1681f1b452d1d0f5f1fd23bd34b8df4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "0db62ec5affa472a427aecab0add45800f986518df8aba5026e01aff8fbee17e"
+    sha256 cellar: :any,                 arm64_big_sur:  "962690a3bb6779862c3a13bda8e005928743d76106dd5b39e35b22040697b5b3"
+    sha256 cellar: :any,                 monterey:       "7b32bfedcf0a84223d860c886930d507a26006e6f79646fe0746ec681f4228fa"
+    sha256 cellar: :any,                 big_sur:        "0522363b372b042bb8a672ee3d245b8f0551f8dec40bdf791b4c6eb787e810aa"
+    sha256 cellar: :any,                 catalina:       "d79a1513ecb8ba4433fd4a368aaec314416c3ca8c4ab8fcabac6ed1f523e0b14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7837acd0fce47d23873d6b1f1df3ba1dd75985a60e0b5c33778435eeb3094c08"
   end
 
   # Dvdauthor will optionally detect ImageMagick or GraphicsMagick, too.
@@ -27,7 +27,8 @@ class Dvdauthor < Formula
   depends_on "freetype"
   depends_on "libdvdread"
   depends_on "libpng"
-  depends_on "libxml2" if MacOS.version <= :el_capitan
+
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-dependency-tracking",

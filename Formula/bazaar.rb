@@ -16,7 +16,7 @@ class Bazaar < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "cb1c0c8b5f19abef4043195d8cbd19f363a78581596de1ddcc763621964335b3"
   end
 
-  deprecate! date: "2021-08-19", because: "is not supported. Check out `breezy` instead"
+  disable! date: "2022-10-18", because: "is not supported. Check out `breezy` instead"
 
   depends_on :macos # Due to Python 2
 
@@ -45,6 +45,13 @@ class Bazaar < Formula
     libexec.install "bzr", "bzrlib"
 
     (bin/"bzr").write_env_script(libexec/"bzr", BZR_PLUGIN_PATH: "+user:#{HOMEBREW_PREFIX}/share/bazaar/plugins")
+  end
+
+  def caveats
+    <<~EOS
+      This software is no longer maintained. Try `breezy` instead:
+        brew install breezy
+    EOS
   end
 
   test do

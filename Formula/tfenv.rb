@@ -17,6 +17,10 @@ class Tfenv < Formula
 
   uses_from_macos "unzip"
 
+  on_macos do
+    depends_on "grep"
+  end
+
   conflicts_with "terraform", because: "tfenv symlinks terraform binaries"
 
   def install
@@ -25,5 +29,8 @@ class Tfenv < Formula
 
   test do
     assert_match "0.10.0", shell_output("#{bin}/tfenv list-remote")
+    with_env(TFENV_TERRAFORM_VERSION: "0.10.0", TF_AUTO_INSTALL: "false") do
+      assert_equal "0.10.0", shell_output("#{bin}/tfenv version-name").strip
+    end
   end
 end

@@ -1,17 +1,17 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/v0.10.1.tar.gz"
-  sha256 "5d53808eaad2d724bdb071756217f1c53d87a918a1c46d7693154deb5dff0973"
+  url "https://github.com/killercup/cargo-edit/archive/v0.10.4.tar.gz"
+  sha256 "f4a6d94b48b27b6db7bd27d6091f0c9aeddf224c8a8dfe31133750530f096890"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b6c26c32c8c053053d42c1a1b5e3927a7540bad7017218713871a1bb59b790fb"
-    sha256 cellar: :any,                 arm64_big_sur:  "a447fee84c21e1504ff0c074f0eaac4a63dfa82192a9700fd0953073cb9ee4cb"
-    sha256 cellar: :any,                 monterey:       "e424c914ae98dd37942c9c2da00a9f4847afa1c643b606148275d6c00d0816f1"
-    sha256 cellar: :any,                 big_sur:        "e04fccdfe40a3ec79132c952aa1896b5c3ad21867691ece0a0aff22e801ebff9"
-    sha256 cellar: :any,                 catalina:       "f70be8da01348e5344f9403871500f731cd6c2bb9a401c081fda812cac0b70aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32c55893ef736d2f88ce7e2417f11751bc321c76c9ca889cc117347bd1d22c98"
+    sha256 cellar: :any,                 arm64_monterey: "79e2ff6224833ed590141a3b8018d1a0862bc06b7df771cde8de0199ca02da1c"
+    sha256 cellar: :any,                 arm64_big_sur:  "ff9ce02ee3bc5f17e81557d224dac53305c10f6c62572d6f23d77b3abc888182"
+    sha256 cellar: :any,                 monterey:       "aa5daafbf92df46d9b2dc178ef9c956edb5826a12f72c45dca96f6dc7d93955d"
+    sha256 cellar: :any,                 big_sur:        "0f52dc62ab1d579f8eeb86c7f96f0fb71eda72fba5e4a1e134faf2a399ae7c38"
+    sha256 cellar: :any,                 catalina:       "54d7f86bd793147808af3894fe1d6f6ec514ec1c6bff780894b32a57b3515f9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67769ae39556f7addfcc155c0ffd574af5167a9999e73496a6b97344829ff5c3"
   end
 
   depends_on "libgit2"

@@ -6,21 +6,21 @@ class TrezorAgent < Formula
   url "https://files.pythonhosted.org/packages/f1/a7/8989377dfce48abf9115055baf6d2cfba55102929a7c5f3e5b9c8e8b5c18/trezor_agent-0.11.0.tar.gz"
   sha256 "139d917d6495bf290bcc21da457f84ccd2e74c78b4d59a649e0cdde4288cd20c"
   license "LGPL-3.0"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "aec7613e0e5550c77c53b7f361ceb2a174fded1bf4a9f22ded7dd9ad3617ad22"
-    sha256 cellar: :any,                 arm64_big_sur:  "649504c1157a1d26ab9a62498558c69c68660a4c0d0aee91d9f31df05f050a89"
-    sha256 cellar: :any,                 monterey:       "826c736a274a694260f0c5acde787b79ba82c9871a9d809a047fe3861ab317dd"
-    sha256 cellar: :any,                 big_sur:        "6490433e0dca638943777905fd23a0cd4ea450e2b2f4c2bf9deca0fd48b85f7a"
-    sha256 cellar: :any,                 catalina:       "480b6bad50684dc8e8786aeafd42720a0b335a39c0f9745f772cf3cb8b585df4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc3dc53f6a17d83a65ffa2c6a5dfc0a379a778fc0fe1d47ae1d24985cd9b5c70"
+    sha256 cellar: :any,                 arm64_monterey: "a3c0407e4a2171cb1001c39af67ff449963eccef917469b5051feecba3a42bc5"
+    sha256 cellar: :any,                 arm64_big_sur:  "18480abac54aa833d8894c22e079acbe0d2df6d2a9814128250454189f22e13e"
+    sha256 cellar: :any,                 monterey:       "d53ec50296446ef209a150650c9390f8c9ecbe3198b0de08bce1b1179e1e1469"
+    sha256 cellar: :any,                 big_sur:        "8c1c258be622a2fb5c1ddbe9d04e1bceff426665e4c48e2d3c8ce2224c886faf"
+    sha256 cellar: :any,                 catalina:       "8427e4ed7c31bcc8062f094500a74d6da7682609d3846b86ac5d9f6e8df5e999"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9501573cdedb54b1bc69ead7467b2d091b443aafc831c158850131bb201b1ba2"
   end
 
   depends_on "rust" => :build # python-daemon resource depends on cryptography
   depends_on "libusb"
   depends_on "pillow"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   # Gather dependencies for trezor-agent, ledger-agent & keepkey-agent

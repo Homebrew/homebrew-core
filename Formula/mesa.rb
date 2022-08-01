@@ -9,13 +9,13 @@ class Mesa < Formula
   revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "b25ea498bb2762d8ddd64e647c47039c5a83ce2d3d6347cc5c91d370d86fbf83"
     sha256 arm64_big_sur:  "1576db8e33b89a7e647c9f5edbdc14207a647f985242924b4853d69d83ff27a8"
     sha256 monterey:       "f45bca55e3394c71ad1a7bd5fa538f6c1552b1a0475d6ac334d40be00ba1abcd"
     sha256 big_sur:        "9a312c0b271faae42c2c9781fdf88ebd0fed6f2d8b5261ad406df6e367ba2f0e"
     sha256 catalina:       "33f50bb6bceaaaa211e3dd8704223b4ca077ed7c8591cc2eea929e799f011c6a"
-    sha256 x86_64_linux:   "29bc459a87ec012f4bb04407a0c8510baee075c718d6b35825c3164d8e1087fb"
   end
 
   depends_on "bison" => :build # can't use form macOS, needs '> 2.3'
@@ -37,7 +37,6 @@ class Mesa < Formula
 
   on_linux do
     depends_on "elfutils"
-    depends_on "gcc"
     depends_on "gzip"
     depends_on "libdrm"
     depends_on "libva"

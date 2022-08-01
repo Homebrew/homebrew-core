@@ -4,7 +4,7 @@ class Povray < Formula
   url "https://github.com/POV-Ray/povray/archive/v3.7.0.10.tar.gz"
   sha256 "7bee83d9296b98b7956eb94210cf30aa5c1bbeada8ef6b93bb52228bbc83abff"
   license "AGPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/POV-Ray/povray.git", branch: "master"
 
   livecheck do
@@ -13,19 +13,19 @@ class Povray < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "50c1033aa599a0c313e1321ac13556c7010149e55ee8e250f6cd91bba1b90d11"
-    sha256 arm64_big_sur:  "b81e5f00128b2b215a73cd4dacd27829faadb4aea63c10139736e851f9858fe6"
-    sha256 monterey:       "91a6fa846d5220e1b2f7e20ece98f52cf9ee34d301c339cb07f90bc09c4dfd15"
-    sha256 big_sur:        "497cfaba5d266ce6e1d5906fa8724418817b5faff66f521bf434cf6fa33fa5b4"
-    sha256 catalina:       "82bf8090b26e6f470a6c7c76a050ca53ca5c2ae8c0445b172050f01a29cfc070"
-    sha256 x86_64_linux:   "8acd14c9e9e02e4965712979981063184361285aff59695b2a779dad49e022ea"
+    sha256 arm64_monterey: "e6ac3d85cc880f470d6e3d45b8b7c099bfb15a8ab8439bd167711d42b894e8a5"
+    sha256 arm64_big_sur:  "dd7219c0a8f537891038b8efbaf0182a2507955c67bc293d8006d306abc12022"
+    sha256 monterey:       "4d74fda4ef144bed539f6313c4f66bc0610aca47ff7318ddda5340b31321773f"
+    sha256 big_sur:        "54e70887d429f4ce6befb0838e3a6695c4b2f8a4f68a012c36526a05b2556f6f"
+    sha256 catalina:       "437e0a054b986e806c551988735fef73e7b2679d88792519dc1d90597bfa4553"
+    sha256 x86_64_linux:   "0c53bfc03f7cbabc4168461a5a3eacc739c63161186d6c9753ccd468692735d8"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "boost"
   depends_on "imath"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"

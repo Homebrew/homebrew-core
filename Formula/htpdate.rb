@@ -1,8 +1,8 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
   homepage "https://www.vervest.org/htp/"
-  url "https://www.vervest.org/htp/archive/c/htpdate-1.3.4.tar.gz"
-  sha256 "744f9200cfd3b008a5516c5eb6da727af532255a329126a7b8f49a5623985642"
+  url "https://www.vervest.org/htp/archive/c/htpdate-1.3.5.tar.gz"
+  sha256 "a8734d4f1d84d0608d045508608f2d29d8b968da269f83120aaac67709b1bd03"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Htpdate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "306db0e62c4d80d4a1357b8577252f184fc7cbf76f5614ad68319961af4bbe08"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd5953f16f4eefd4e6739bd189abee1d4361c11b29cd3721cea016a4ba118eb0"
-    sha256 cellar: :any_skip_relocation, monterey:       "4574591a62987c84be9f567a0f4c398fa144897e0c234038d8fca2d654221783"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4201b9da6ad9cffc5b60b5ab1bfcb2c93863a57340692b080d09269c9d5a9fd9"
-    sha256 cellar: :any_skip_relocation, catalina:       "ae5e0c72c2cbc815739ac14af64020c229387938acf0a5a886726ad8002027b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a07d9aede354778983c15ee643b631fd3cf198f6b4466a932d65a528db1344a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8698ebff4aab4a1bce12d6be9e0b64571b44d79751234ad47248a2f4fbca1c0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0de31a6a832cdfbb7b00039c1e31ffdf08fe87ec32c54c2d373720df70b2502a"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a1be18748515c708c1ac475b7f7eedd6724ff0729591fb2ab08c068e2f95ed0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cb280f68392cf50ba163dafb87892b22d30529258bb0311ec39516065b204089"
+    sha256 cellar: :any_skip_relocation, catalina:       "84ca480eed1c72b68b753be67a9f9e8e25fb5f2773eef70d2ce228b23d11d035"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8363433943226e0e605ee3cf5ea0690c3aa50e6203a17a202cbfc58babd1e20"
   end
 
   def install

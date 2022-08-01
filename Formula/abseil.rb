@@ -6,20 +6,16 @@ class Abseil < Formula
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "0055d33f047cc5b840cecc5a914fbeaa2b9ab88bd17d8d37bc4fd6e0ff2ccf27"
     sha256 cellar: :any,                 arm64_big_sur:  "131fc67a76243ecd760cf20457de8952649677e4eedf44f20fe5ae613120c18e"
     sha256 cellar: :any,                 monterey:       "24bfd83bbae83e0562e3798e8b86a98f274acfbd456b8836bfb9d2e4b75dfdec"
     sha256 cellar: :any,                 big_sur:        "d694723ee65f04c8727035f49c36ecf1f7fcbe36e5833fd27f5d7d88594a445b"
     sha256 cellar: :any,                 catalina:       "9b5cf436cb57b35260fc2a0d7182259fa9351893be591ee570731d1600d4678b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84a1f15dd86c0ac02ceb06eca0a01fceeaab04c731a31c925b2d40d5d7b2031f"
   end
 
   depends_on "cmake" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # C++17
 

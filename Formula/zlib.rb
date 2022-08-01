@@ -3,6 +3,8 @@ class Zlib < Formula
   homepage "https://zlib.net/"
   url "https://zlib.net/zlib-1.2.12.tar.gz"
   mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.2.12/zlib-1.2.12.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/zlib-1.2.12.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/zlib-1.2.12.tar.gz"
   sha256 "91844808532e5ce316b3c010929493c0244f3d37593afd6de04f71821d5136d9"
   license "Zlib"
   head "https://github.com/madler/zlib.git", branch: "develop"

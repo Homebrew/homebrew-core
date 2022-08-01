@@ -2,19 +2,18 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-      tag:      "v2.0.10",
-      revision: "b97638566ea8431712f0faafe23661da2db0e8ec"
+      tag:      "v2.0.11",
+      revision: "225927b9a25f0d50ea63ea18bc7bb68e404c0cfd"
   license "MIT"
   head "https://github.com/zyedidia/micro.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8a19557c64667e27d9dea4c4321465297ec8669d05566518b7f2bc4b39cd88b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6cb2c86f690a52f3242021d6a567b0f15943f8c68af263298aae17c67bdcfcc4"
-    sha256 cellar: :any_skip_relocation, monterey:       "455091c0d41b4f4bc2bb8f4c7a00f61e1231df00e7b8be557127f652df358603"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5bcf6e60611b745183aeda8294088f9b42bbcc367ba9765c570b6c4224e26047"
-    sha256 cellar: :any_skip_relocation, catalina:       "2915aafc3513241afd778caeadc146ad0df2a7124e03012c1bf2ba867194deb2"
-    sha256 cellar: :any_skip_relocation, mojave:         "35b0c0717cfb5c7c78cfa2f51bf162594f7f6f84ac88243c51e40c0ada9fb496"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a284bc50e33f7792f802e460c2c400ffcbfb392927e6ece1dfba876c5c5d33f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a38c0591d346653f2453d54d2f1a1eb4b38a5f6c252e0908b3f86b9969128bcc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce9b212e2b846daebfff3621773936b2fc346f9cb3364adf7e8529930fe6735d"
+    sha256 cellar: :any_skip_relocation, monterey:       "6aaa311d1521194f4870b70d2b9d9a556a8094e7ea516ede0081ff347c92c8e7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a5c8c80a974e125c90c2b3ced8bafbaa4fd45317707a898f562ce4f9b50dd10c"
+    sha256 cellar: :any_skip_relocation, catalina:       "fb5679cefda546660ece77b25b34d3ab948e899493e4d910a4f2c8c29e6e10b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e8dad268f3cd12cef547100efe87f2ca402fff61d0d1322c60b02dbd8823207"
   end
 
   depends_on "go" => :build

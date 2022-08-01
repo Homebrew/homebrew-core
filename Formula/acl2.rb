@@ -1,23 +1,25 @@
 class Acl2 < Formula
   desc "Logic and programming language in which you can model computer systems"
   homepage "https://www.cs.utexas.edu/users/moore/acl2/index.html"
-  url "https://github.com/acl2/acl2/archive/8.4.tar.gz"
-  sha256 "b440c0048e2988eeb9f477a37a0443c97037a062c076f86a999433a2c762cd8b"
+  url "https://github.com/acl2/acl2/archive/8.5.tar.gz"
+  sha256 "dcc18ab0220027b90f30cd9e5a67d8f603ff0e5b26528f3aab75dc8d3d4ebc0f"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
-    sha256 arm64_monterey: "92d20c471a6e2eb90af1eb1591f85348c4a391b8719bfafc2e445b2063242381"
-    sha256 arm64_big_sur:  "a343ac1505398290e7684d37070de7af6bb28b684f85b0f4b2f46656fcc44400"
-    sha256 monterey:       "75271ea7bdebc5712f193b13a6949072087f19dc672d042be47af046a5df0863"
-    sha256 big_sur:        "75af66ac8a610c78ae4ef5dfe7277983979d73fc2957213502063825253cf583"
-    sha256 catalina:       "bb20280e3e8bd899daa1feba5cecded8fed19a734941bb63d7828f6de22cc4b8"
-    sha256 x86_64_linux:   "a99195c6fc65deb7075cb7650fab416ae0c16f365f0ee35a459a681822f26bc8"
+    sha256 arm64_monterey: "65f160edeb7343a5ea41ec0ab91fbb36902e5a02cd33dca6d0b6e29125c52e31"
+    sha256 arm64_big_sur:  "e28f543c20b73982e8ca1dc3a087a8a9d1d6f942f9288abaf4a4f00de2009723"
+    sha256 monterey:       "48c2b5ddd5b6d6aec6a0a684fd56f7b6f1e1db14b84594cf8f33167c19be71ef"
+    sha256 big_sur:        "ba1e180287693c0aca83a56c7edd076aabfc766f5908b3ffd81e7811c8468892"
+    sha256 catalina:       "6575854b060bce910466c26faba2715f58dd0a046653ca14f38dbf9e04b64f01"
+    sha256 x86_64_linux:   "900df258e2e84228955cda24f7d6851ba953dbb85b7a6fd22fd27cd3b538a395"
   end
 
   depends_on "sbcl"
 
   def install
+    # Remove prebuilt-binary.
+    (buildpath/"books/kestrel/axe/x86/examples/popcount/popcount-macho-64.executable").unlink
+
     system "make",
            "LISP=#{HOMEBREW_PREFIX}/bin/sbcl",
            "ACL2=#{buildpath}/saved_acl2",

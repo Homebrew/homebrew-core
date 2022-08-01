@@ -20,7 +20,8 @@ class Libelf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c72de6e960f70dd98ea52b419d6e254362813c899d4859c4778d385a7c80e0dd"
   end
 
-  deprecate! date: "2019-05-17", because: :unmaintained # and upstream site is gone
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2019-05-17", because: :unmaintained # and upstream site is gone
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

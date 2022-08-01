@@ -3,8 +3,8 @@ class SpiceGtk < Formula
 
   desc "GTK client/libraries for SPICE"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/gtk/spice-gtk-0.40.tar.xz"
-  sha256 "23f5ff7fa80b75647ce73cda5eaf8b322f3432dbbb7f6f3a839634618adbced3"
+  url "https://www.spice-space.org/download/gtk/spice-gtk-0.41.tar.xz"
+  sha256 "d8f8b5cbea9184702eeb8cc276a67d72acdb6e36e7c73349fb8445e5bca0969f"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
 
   livecheck do
@@ -13,21 +13,22 @@ class SpiceGtk < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f8161b28e3cc0d1446594631094a4ad447eedcd0b61d575bb9f922c36a3af592"
-    sha256 arm64_big_sur:  "20739ef4960c33ecb9b47faf65e7b9558ae27a7f69d285914804b0f8e62d4b1a"
-    sha256 monterey:       "668f119fbe839ccecbe5d8ec12e6b65f101d88e1737b04ba2f75a4220392dd10"
-    sha256 big_sur:        "ddc6164a653342713455e30972a7874d399d185dff288fd5b42f1424ff17d80f"
-    sha256 catalina:       "76aa8d0050886028ee2f8e5080069d9d6d74a96529028e698a6f78f6fe1f10db"
-    sha256 x86_64_linux:   "6d40f60a0f8b50bbc672cbc368983f2ed0995b106eb85544379735a031e2b1b9"
+    sha256 arm64_monterey: "4a098429afb405c76f4513e84e002145657d4438f194e91e8d46f2944da9bbe0"
+    sha256 arm64_big_sur:  "53544810c91c90091c172a0207012390c4a006eb1f4b58d96c7af7503c41198c"
+    sha256 monterey:       "e88b7445db383d3bebafd43f508a4d550899a58d289996daf09e47fbc75b4ec9"
+    sha256 big_sur:        "8b199ea4c7842b38ce451e744ef138fd05065b63a53b202c1b1ea654e35807d6"
+    sha256 catalina:       "a7b71c8f7cf80f7e69cb5d8eeda061306215f2b7eda16a29f72f2bcb14a5e4ef"
+    sha256 x86_64_linux:   "1fb150028d89b19a2c8024bcb4169f54f05d61c0d812a48465fd907d4b1dec3e"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "six" => :build
   depends_on "vala" => :build
 
@@ -55,8 +56,8 @@ class SpiceGtk < Formula
   depends_on "usbredir"
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
-    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
+    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
+    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   def install
@@ -64,11 +65,9 @@ class SpiceGtk < Formula
     venv.pip_install resources
     ENV.prepend_path "PATH", buildpath/"venv/bin"
 
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "build", *std_meson_args
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
   end
 
   test do

@@ -6,22 +6,20 @@ class Fobis < Formula
   url "https://files.pythonhosted.org/packages/53/3a/5533ab0277977027478b4c1285bb20b6beb221b222403b10398fb24e81a2/FoBiS.py-3.0.5.tar.gz"
   sha256 "ef23fde4199277abc693d539a81e0728571c349174da6b7476579f82482ab96c"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b5eb128ceb7ae2931ffc4b3d9559899471bd76517c008a105ffb3abdfcbfd51"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bfa1e5a5e7276be1292321294c418e9f1bac7a964f46d227a2d81fc3ad1b984e"
-    sha256 cellar: :any_skip_relocation, monterey:       "5f9140bb6e751bdd01b64abb3a3d181b9f63ff576fdea3a86efb30fa723567b2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "627133905b51d5436b9eb6a8e75080d847a6ea7c36886aa7f81e053fd89970d3"
-    sha256 cellar: :any_skip_relocation, catalina:       "0a1685a770c843092bdcd918de2439bc9ed16e75b49e61e93148386b42d326d1"
-    sha256 cellar: :any_skip_relocation, mojave:         "6b517fdd37dbbdfce2e3ca628afd4f92ef688c18939e78c2b0487dbc1ac7da5e"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "81a5206bdd09bf9b630a9ef4793015283891d88b1790dc8638e759679d892522"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43e2e24bb2e1d5234fe148102d25b910e1a303d3ac9a71fa684ca9c993506b0d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "548370e4f657940d745a496643d34dff59954c4ec0e21c50d08ed90954d4703d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2296b45992dee7b95457824f98a16a949e6edae62dca8ce0af0859930ed8a857"
+    sha256 cellar: :any_skip_relocation, monterey:       "d111f4277a23d35db7520abbcf3dc72051a0b2e995cc98ed11c8469292feb943"
+    sha256 cellar: :any_skip_relocation, big_sur:        "61d0869b525dd5d508f41a55cb63906fbfdec8109c76f54426b1ab500d80fdf4"
+    sha256 cellar: :any_skip_relocation, catalina:       "50ca49669814c6994889fad6f7c0ecb5087e38c6c9dc071b323aed4144ede41e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d032e035815fa280f9759ffef0da5a88e787062c06fcc47dce544dcdfcc6297"
   end
 
   depends_on "gcc" # for gfortran
   depends_on "graphviz"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "configparser" do
     url "https://files.pythonhosted.org/packages/e5/7c/d4ccbcde76b4eea8cbd73b67b88c72578e8b4944d1270021596e80b13deb/configparser-5.0.0.tar.gz"

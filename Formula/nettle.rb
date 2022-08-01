@@ -1,18 +1,18 @@
 class Nettle < Formula
   desc "Low-level cryptographic library"
   homepage "https://www.lysator.liu.se/~nisse/nettle/"
-  url "https://ftp.gnu.org/gnu/nettle/nettle-3.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.8.tar.gz"
-  sha256 "7576c68481c198f644b08c160d1a4850ba9449e308069455b5213319f234e8e6"
+  url "https://ftp.gnu.org/gnu/nettle/nettle-3.8.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.8.1.tar.gz"
+  sha256 "364f3e2b77cd7dcde83fd7c45219c834e54b0c75e428b6f894a23d12dd41cbfe"
   license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1b61086fc1616d167da639ff13fa27f69725d4f13c355dbf232833c0b914d8bf"
-    sha256 cellar: :any,                 arm64_big_sur:  "36a157d168f8d95ccb4bb193a97def7960796e2fa3b480db69f1ead8d8c6a7aa"
-    sha256 cellar: :any,                 monterey:       "222e74d0fd546c335fda1fa1dab2fb14b05fd7947aafd2a1435f17601ec9c283"
-    sha256 cellar: :any,                 big_sur:        "01e96077ec7b8810e209dba7916917d4398533e17652480bb740542c8a46bd30"
-    sha256 cellar: :any,                 catalina:       "480c2fa59555d18bfcfb48fe8dcae7f99c4b3f9efe464d0781cd9cf47adcb878"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89a8eb68fde965bc658f053a0a4b8172e4b54a1951e83cf31b50c1188ff1470c"
+    sha256 cellar: :any,                 arm64_monterey: "f2fa03ad5664fdcf8475c1490a22f66d26056779911fd92ae2cb0d36998319a4"
+    sha256 cellar: :any,                 arm64_big_sur:  "6b169f8f81ec4dae1a1137f7d8738a4acdb24806c1057039791bb58dc9fb67d8"
+    sha256 cellar: :any,                 monterey:       "19eca950c962860d44093db86226b8a07ca045973c15f7d3b0de2acd1cfad3da"
+    sha256 cellar: :any,                 big_sur:        "48493dc5881e45b030b1f39d379fe70d6d8707063766c0f223e20e190d8de4ba"
+    sha256 cellar: :any,                 catalina:       "185a433efd966756372f46bb0669eaaac9883c6f9a149d2d7e0ed33df661d1fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1901826420ae92f7998068673ec444d32550618f38ad1c074acf68be16b9b056"
   end
 
   depends_on "gmp"

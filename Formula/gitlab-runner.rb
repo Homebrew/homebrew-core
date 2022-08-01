@@ -2,8 +2,8 @@ class GitlabRunner < Formula
   desc "Official GitLab CI runner"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      tag:      "v15.1.0",
-      revision: "76984217c7ef0bf669da0eb0d6337a54ba1ff14a"
+      tag:      "v15.2.1",
+      revision: "32fc1585e5334b1a4c4fd4962a7679fcebaf8f49"
   license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git", branch: "main"
 
@@ -13,12 +13,12 @@ class GitlabRunner < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "29e742eddcdd1692ec3bc8ca847210bf9c7df47fc17f710b0924d412b92e8614"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf51de0e33baa813f230099555591e5ddfb26be70919558b336e06f562727848"
-    sha256 cellar: :any_skip_relocation, monterey:       "a3aac69cbb5d587718cd850e7a9ab1c63ca99b6699740234b5e3ad9cf445a703"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e6c2994ee60080bbb263867ebb311e449b3818b67407a2aa71783311413791a0"
-    sha256 cellar: :any_skip_relocation, catalina:       "4e9803b0db3622b31de5175a57969422bc2f7f894ebb6a71e00642f283a7ff08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a70552aa27f87a8de1cd77186f32398eb7e9371f25368f3dd6403e396ebe88ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dce78aaa2fb1e56618f24c05cd30f8ab3fc9eea916309e6d01ac6d6d930583d3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9bebaf16a398aedda69b7f4f1a8826715f736880ef6c8b759668ecca015fdab"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6d2bd828cd5bf144236ab4a191a7809b0a2e63ca4d0347a58fbde48c846a96f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2aea916d3cdd655893113c7c564b18e2634252eaeb9644ec6aab19a675f45583"
+    sha256 cellar: :any_skip_relocation, catalina:       "da59e15974908fcf3d5217b41d3507bad395c8360a15d213fefd216513abb3c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8b7a58206ba527cf5a61e2f8a33536f55e31c7b626f4e4312fe4bb86ef6f964"
   end
 
   # Bump to 1.18 when x/sys is updated (likely 14.9).

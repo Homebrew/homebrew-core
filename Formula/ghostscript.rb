@@ -4,6 +4,7 @@ class Ghostscript < Formula
   url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9561/ghostpdl-9.56.1.tar.xz"
   sha256 "05e64c19853e475290fd608a415289dc21892c4d08ee9086138284b6addcb299"
   license "AGPL-3.0-or-later"
+  revision 1
 
   # We check the tags from the `head` repository because the GitHub tags are
   # formatted ambiguously, like `gs9533` (corresponding to version 9.53.3).
@@ -14,12 +15,12 @@ class Ghostscript < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "29539f2c18615fb82e82e4dab331005fcde1a2310332d7edf1227d77784ef1e6"
-    sha256 arm64_big_sur:  "9909bbaac3747aac9815d27837e8c9d6e1e092dfaeaeec60834ad851dc576271"
-    sha256 monterey:       "3ac4eb5ecab09d810f5a866d6752d18a5cb6bb9ea4ffc2592f4cc77105633fe5"
-    sha256 big_sur:        "2602d48b7b9c23249cf8791c4526988301de44910645d5f4ebab068d3bf40f6c"
-    sha256 catalina:       "5b2e9e395d05d52805e3e22082207425b9ac85613cb02918e336de1809ed26e0"
-    sha256 x86_64_linux:   "c0bb4afef0ba69db933901e280a820e93a02c239a2eddde6b736820de8eb17a3"
+    sha256 arm64_monterey: "c84daf7a848fac53bf2968239151361290ccb277accae6f11b0b39a7acb5f914"
+    sha256 arm64_big_sur:  "a4f21885ac9b57f6e5511a1208b9d36ad0aa473180a2e080a9b4c23de2a5b6e9"
+    sha256 monterey:       "38729b0c92a70014d82ddd57d33190019822f999efdb69d3f95e2e4cbe38fb71"
+    sha256 big_sur:        "d1c4c864b2c954cf10c9023b5468652f60fb943d5ba91c190a85ef9d8224571f"
+    sha256 catalina:       "335d57520e942b8547d79f62b505cc87a8afee12ecc50baccebe9dad32a0f0d0"
+    sha256 x86_64_linux:   "478b2bb55a41d3afbfbdf55956180e6f653a981219dd137ba5728fbce8bed6ea"
   end
 
   head do
@@ -35,7 +36,7 @@ class Ghostscript < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "jbig2dec"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libidn"
   depends_on "libpng"
   depends_on "libtiff"

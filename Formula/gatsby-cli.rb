@@ -4,17 +4,17 @@ class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
   # gatsby-cli should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-4.18.0.tgz"
-  sha256 "64a97fef347a5fa05e7bdc239271083d31bd26c0eb47bb8381f821b06292c083"
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-4.19.0.tgz"
+  sha256 "0a4cf79160d17ff32fbc69207739f4cb24da4e204e04b1281bb66272a1a35676"
   license "MIT"
 
   bottle do
-    sha256                               arm64_monterey: "655d79d6a2fc9771d49ed073c7d6a221c2a1252c0ea23d76d8d87bc8709ada61"
-    sha256                               arm64_big_sur:  "00a418effbd33f8f0b4d2564a4d288f639bc973ef9076730ea17b8d32264f320"
-    sha256                               monterey:       "3efa5b609c9d2818d9b1c00c20e4fae6b729d039da7c3304db6655bd63c0e958"
-    sha256                               big_sur:        "3632d1d249c542898bf7a81981e7169920127beb736456cb880774449678d6a8"
-    sha256                               catalina:       "ccded7ab89b9e78980b4c051a691d992525f0d15ddbf24ba99c2321c41660aa9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "260591ddf22377a3e97dd0aaf272963d3860f4ca4ae5f30fa701ef60d7918b40"
+    sha256                               arm64_monterey: "8754eae2be67eae0f31258bb287b8032ad94d6f430f9d5c846aa838a3837db2a"
+    sha256                               arm64_big_sur:  "60b36e57bd000839cabe3844ffe2d6d64e6280cbbb525859ecb671ece3d1a40a"
+    sha256                               monterey:       "a01b1b8930af991867de72574b392397e2504fd213cc4a236e8e0876a8dd013c"
+    sha256                               big_sur:        "085e554c213dd059412458bb7f7dd04f61abf7f12270899aebfa71ec588a34b2"
+    sha256                               catalina:       "370e2c97b25eaf4b250bd82d1bf14178c55d9763af12881e0e05b88d594d0c02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43b5b886e83f5274d4f9188141786ecd862eb720bde81091930f2b9e56d64373"
   end
 
   depends_on "node"

@@ -3,6 +3,7 @@ class Elinks < Formula
   homepage "http://elinks.or.cz/"
   url "http://elinks.or.cz/download/elinks-0.11.7.tar.bz2"
   sha256 "456db6f704c591b1298b0cd80105f459ff8a1fc07a0ec1156a36c4da6f898979"
+  license "GPL-2.0-only"
   revision 3
 
   livecheck do
@@ -11,15 +12,13 @@ class Elinks < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "202ee1461541e8ab6a7a104921afd683bad3f4cca076db1b403320a6d28bb528"
-    sha256 arm64_big_sur:  "b8a3fabec047d5aa9245312dc431804cc51f8c4d4651556273e2b288a3ec8e2b"
-    sha256 monterey:       "a04ce9e16ae35d09f2e5c88b244551b534d84561d756ec3d19eff62213f9d4d1"
-    sha256 big_sur:        "ba722b4af55c647152cfc0093d75df36af2bbe66898b402a10d9dd9e5b652d78"
-    sha256 catalina:       "67ab168d9d6d5bb65791d4c432e7e1e0109a09076039d4d6b2addec9219bef43"
-    sha256 mojave:         "c48e70700c0ad0c4b66a376e6634417cd84c84de064bad74d384469d8f7597ab"
-    sha256 high_sierra:    "219f12e44db5b6e966e2f8999fc1d5553c834b58645531f5167e6031aaa6e89b"
-    sha256 x86_64_linux:   "9516a2d7465d75934943b8647965a9bcab62505a55ddf9721518cda1fcc277de"
+    rebuild 2
+    sha256 arm64_monterey: "eadfed82fabcfb1b645b28af1d2806e7fb53a4dd0d91d2f4966b1d4bc4180744"
+    sha256 arm64_big_sur:  "a35f5c451853a1d1a2b90755d9caf6585993b2c3a2a0c195aee4b4ba1b4c736d"
+    sha256 monterey:       "263e1f1a669e0144438c9c30d12387766760957520012a1684fc8a329efc6a2e"
+    sha256 big_sur:        "ae280a859da1fc099f51e8916c41c2efb07b7fb0ff278f7ce7d1cccb2a132e19"
+    sha256 catalina:       "47c2068cd97c3579cb8e2fd9362bb41e85ea5e2312f8924ed65e67721e0c8121"
+    sha256 x86_64_linux:   "65e2e052958ee92ca06ebf8d5968b8fe74d11e6c09e06cd0cda7ba53a0b4e4a6"
   end
 
   head do
@@ -30,9 +29,14 @@ class Elinks < Formula
     depends_on "libtool" => :build
   end
 
+  # Warning: No elinks releases in the last 10 years, recommend using the actively maintained felinks instead
+  deprecate! date: "2022-07-25", because: "No releases since 2012; consider using the maintained felinks instead"
+
   depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
+
+  conflicts_with "felinks", because: "both install the same binaries"
 
   # Two patches for compatibility with OpenSSL 1.1, from FreeBSD:
   # https://www.freshports.org/www/elinks/

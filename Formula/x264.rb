@@ -1,15 +1,12 @@
 class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
+  # the latest commit on the stable branch
+  url "https://code.videolan.org/videolan/x264.git",
+      revision: "baee400fa9ced6f5481a728138fed6e867b0ff7f"
+  version "r3095"
   license "GPL-2.0-only"
   head "https://code.videolan.org/videolan/x264.git", branch: "master"
-
-  stable do
-    # the latest commit on the stable branch
-    url "https://code.videolan.org/videolan/x264.git",
-        revision: "baee400fa9ced6f5481a728138fed6e867b0ff7f"
-    version "r3095"
-  end
 
   # Cross-check the abbreviated commit hashes from the release filenames with
   # the latest commits in the `stable` Git branch:
@@ -42,21 +39,25 @@ class X264 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "723ef739ad0f22c6ae8fc19c0212135d470bbb53e3946c8b2efbb0203026b9a5"
-    sha256 cellar: :any,                 arm64_big_sur:  "259e1196ad11c986c09dbda6bcb46f9eb34f5dbbee7b3f7f143f44c1867b0c1c"
-    sha256 cellar: :any,                 monterey:       "76b53eea1fd91010a1dd1a3e8fdab21af559bfc6240869e81be6bf719b239dd6"
-    sha256 cellar: :any,                 big_sur:        "98e1861b0c647c01a9138d8e4634b8bec00f9b9eb8a97302f14d3d240731715e"
-    sha256 cellar: :any,                 catalina:       "915934596a3584dcae66bd6f439007e351ecce767a337aeaf6ac2d3ea5613446"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac0f2d23ac3e1e91fec032d9712e6992d0b56c23d1c874caa31cfee067819a3e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "b3748da590329fe70fb41861508badcfcc1b8ffb0c6b0ac45d4a7e49dfc1dad2"
+    sha256 cellar: :any,                 arm64_big_sur:  "f1be2560ce48268a304fe501add92441dd3cee52fac2e59701cbe00e67aa4b23"
+    sha256 cellar: :any,                 monterey:       "98f235930f557572e2fcf3015ef25a285941b0d5529a6816194811632759ee18"
+    sha256 cellar: :any,                 big_sur:        "15d10f8f5114325242ebf74d0906456d86843d7eae0676475c9a35cb439a2a82"
+    sha256 cellar: :any,                 catalina:       "b5248ababfa2e909aeb6ed38a41b12361866fbd02ab65f61b6920e15b405f650"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21bd89d6cc7283c8f77b9a2655b6bfe9f7c8d1d6d098b5c402a33fac27d9f8bb"
   end
 
   depends_on "nasm" => :build
 
-  if MacOS.version <= :high_sierra
-    # Stack realignment requires newer Clang
-    # https://code.videolan.org/videolan/x264/-/commit/b5bc5d69c580429ff716bafcd43655e855c31b02
-    depends_on "gcc"
-    fails_with :clang
+  on_macos do
+    depends_on "gcc" if DevelopmentTools.clang_build_version <= 902
+  end
+
+  # https://code.videolan.org/videolan/x264/-/commit/b5bc5d69c580429ff716bafcd43655e855c31b02
+  fails_with :clang do
+    build 902
+    cause "Stack realignment requires newer Clang"
   end
 
   def install

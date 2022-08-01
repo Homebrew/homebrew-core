@@ -4,14 +4,15 @@ class JpegXl < Formula
   url "https://github.com/libjxl/libjxl/archive/v0.6.1.tar.gz"
   sha256 "ccbd5a729d730152303be399f033b905e608309d5802d77a61a95faa092592c5"
   license "BSD-3-Clause"
+  revision 1
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "299002d5c10f0009bcdf7b2f5c4d544e4b84fc36dd109a0b3dd5eee780dbb5f7"
-    sha256 cellar: :any,                 arm64_big_sur:  "ad8d741fe5ff44ed35f407ff6f692763c937d74e51156563fb3e8245ac534898"
-    sha256 cellar: :any,                 monterey:       "a311fe41c7dc098c82269b42fd819ef20ce7248f9df444ce4890576005124204"
-    sha256 cellar: :any,                 big_sur:        "77882f055f5509900e8f913352386201a3cb57cbae04f7de254416416d9638d7"
-    sha256 cellar: :any,                 catalina:       "ef47fc0d2de7c6623c1504d6df8b9b041763bec532c4f907793f4ffedc6f3050"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "011b3fd5a6bfdd494edaddf64cb4432cadf6ad71adf24201a9555848eb2717c4"
+    sha256 cellar: :any,                 arm64_monterey: "a603bfaffbd444d11e882f8d72beaf3833cbf91473c4bb8c964c00bd94b07d65"
+    sha256 cellar: :any,                 arm64_big_sur:  "d1ba28b49a63312dd1632bfe5a5fd2dfe91c5ca8f3d4c5961ea61a65f5c96834"
+    sha256 cellar: :any,                 monterey:       "e310aca584c333e593054342050241e58b88676c408aedd5442a317f10597870"
+    sha256 cellar: :any,                 big_sur:        "797bd4ddd8716f8feaf99d725c832b616273a49cb0ed779c10e90d8bebc359bf"
+    sha256 cellar: :any,                 catalina:       "946101b747602ef79712852a3fdb0517cb0c6341c485639aa9b65dbae67649fb"
   end
 
   depends_on "cmake" => :build
@@ -19,17 +20,13 @@ class JpegXl < Formula
   depends_on "brotli"
   depends_on "giflib"
   depends_on "imath"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "openexr"
   depends_on "webp"
 
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build # for xsltproc
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
   fails_with gcc: "6"

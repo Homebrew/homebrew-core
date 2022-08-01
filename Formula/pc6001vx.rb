@@ -6,13 +6,13 @@ class Pc6001vx < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "1fd959ab3d6b3527a09659b2db4df78f8892714758b106a3e47b76fcb4f2dec0"
     sha256 cellar: :any,                 arm64_big_sur:  "76c031d32a5e08a6662aa4eb9fb608624132d40981928fe3123b4609abd8f9ef"
     sha256 cellar: :any,                 monterey:       "cd638bc927e069d8705fb94da9b09095b2e567b86d431370b03b0f3605f74a24"
     sha256 cellar: :any,                 big_sur:        "aae1f5343fcb87b2a21181db473beecba98fabb17bb64ee7189f89834137b6ea"
     sha256 cellar: :any,                 catalina:       "e7cec22ab3e5307aceb886347da8c66a519d46cfdf17a31841a1903ea2314a3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56f1db0284c4dc6393c2130f21cfd0da50dccd0d40fb0dca31019ec4d927913e"
   end
 
   depends_on "pkg-config" => :build

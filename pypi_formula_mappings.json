@@ -155,7 +155,7 @@
     "exclude_packages": ["six"]
   },
   "fdroidserver": {
-    "exclude_packages": ["numpy", "pillow"],
+    "exclude_packages": ["numpy", "pillow", "six"],
     "extra_packages": ["wheel"]
   },
   "flintrock": {
@@ -165,6 +165,9 @@
     "package_name": "gimme-aws-creds",
     "exclude_packages": ["six"],
     "extra_packages": ["pyobjc-framework-LocalAuthentication", "SecretStorage", "jeepney"]
+  },
+  "git-cola": {
+    "exclude_packages": ["pyqt5"]
   },
   "git-remote-codecommit": {
     "exclude_packages": ["six"]
@@ -342,8 +345,8 @@
     "exclude_packages": ["six"]
   },
   "regipy": {
-    "exclude_packages": ["tabulate"],
-    "extra_packages": ["click", "libfwsi-python"]
+    "package_name": "regipy[cli]",
+    "exclude_packages": ["tabulate"]
   },
   "remarshal": {
     "exclude_packages": ["six"]

@@ -1,23 +1,27 @@
 class OpenexrAT2 < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/openexr/archive/v2.5.7.tar.gz"
-  sha256 "36ecb2290cba6fc92b2ec9357f8dc0e364b4f9a90d727bf9a57c84760695272d"
+  url "https://github.com/AcademySoftwareFoundation/openexr/archive/v2.5.8.tar.gz"
+  sha256 "db261a7fcc046ec6634e4c5696a2fc2ce8b55f50aac6abe034308f54c8495f55"
   license "BSD-3-Clause"
 
+  livecheck do
+    formula "ilmbase"
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d9df4040f4e6de9a8d2179eee19776c614bbb8ed43358e2a315450757a5d9c63"
-    sha256 cellar: :any,                 arm64_big_sur:  "77d6fcb5f018066f870b1d8a94afe04a55b84e2e3250c4b399d3cdd370692515"
-    sha256 cellar: :any,                 monterey:       "b9bb922d794b5e3b002876bed20a0b1fb2d9f694094175a97972dba149d81aab"
-    sha256 cellar: :any,                 big_sur:        "428f7841d12c75fdcf614c636aaf078a079ae16fce6f40510c5c0b3494814e06"
-    sha256 cellar: :any,                 catalina:       "514fa634d8cb6fe9d677526ccfa29001765bb1fe7bdd96e03f59dad14bea2c57"
-    sha256 cellar: :any,                 mojave:         "4c4fb29b1ba3789441448da68276d373838cff0e72424ac7ea4cb4dbcaed88a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a52a794a021982ff6639a29567529dd9911b677b29d90dc6f3bc1fdb52444be"
+    sha256 cellar: :any,                 arm64_monterey: "f7c2ccf2e653530b225b40b9bf1335d6b9d52b012cf8c62d95e3d059467c69be"
+    sha256 cellar: :any,                 arm64_big_sur:  "dc090a9d4021cf97628c0e81fe80b88b2a96c1d0551e3a842bfc0881e41553bb"
+    sha256 cellar: :any,                 monterey:       "02e353301cea377a3626c5808dcacca9e56df56d7604387615e3a113e5261db9"
+    sha256 cellar: :any,                 big_sur:        "4eff58e68aa817929e3b925bb429825d2b1c2f9ce4885053cd438597aebcb688"
+    sha256 cellar: :any,                 catalina:       "ba23000d17c6dd21b2db620aebeb96e04eb6dfd630b9714965b4256ff0d81736"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54ea5e352139db9724ee3c1c11629a24523bb33d1e0e7d08b8b8f15f455b302c"
   end
 
   keg_only :versioned_formula
 
-  deprecate! date: "2021-04-01", because: :unsupported
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2021-04-01", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build

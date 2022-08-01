@@ -3,17 +3,17 @@ class PythonYq < Formula
 
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://kislyuk.github.io/yq/"
-  url "https://files.pythonhosted.org/packages/fc/0b/93a830fe6f75acaf2c052966b2c5f98aa3a18c08ca99b1621b60dd74e453/yq-3.0.2.tar.gz"
-  sha256 "e47ff2479a3746f90bdbb77f84e3ebdb789ce46a092b1c261ae5b1f5f914f8e8"
+  url "https://files.pythonhosted.org/packages/55/b2/0c4409c0e677ea9e6870538b4cdf4959fad92a8aaa73ee41cf03876bddf9/yq-3.1.0.tar.gz"
+  sha256 "30a84aa22486c749ba269256bd586c0bcd370b7e2a71e76c3924ead4867e74f2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c35399b698ad7bfa396283e5bbba732c92a9bf3b3ef2318725492b2faed806a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22959c8c896e3e9ec2fab51a3f93f4a34da8d0ff8117c8c1620264d2bffb2289"
-    sha256 cellar: :any_skip_relocation, monterey:       "c96d9dbf20bc4ac51d7b5098bb3dcfb8b801277c1c763d32ccecf03765412e04"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fd0172b1e01cee07350d5470fb7bdafffaf6fdac28a44e7569bcf2a21e5027a9"
-    sha256 cellar: :any_skip_relocation, catalina:       "294354a91a83c14236afc950dcd5f2a46ab0ba0224a08513b57177ea7beda855"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d116658979f0cec62acf579bb9e93177c90d8405019f063252c9b6642b5d3317"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "22fa2dcf0dd119763e22ec1a0c978e2679ec55851f8890740b38faee86f3379d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "19f4e41594f42119106b8d2ec8f9265efd0765f9b5486eaf3f8cb2ca644d90f9"
+    sha256 cellar: :any_skip_relocation, monterey:       "bfdac2875046eb01447e25fd9ef60f297806e3c307cf319fe0e0a7ba63136138"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ab7037ff95e933ab88f90fcb5c7d6f05f6fcb823110f5c675cbd397c99ae5091"
+    sha256 cellar: :any_skip_relocation, catalina:       "f71b841046cc531d0b777ce606bc6845c2bb841b393171e7dca92ed2e1edfc6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f42debb39fdc2c4d078efce41e46565282b4e1d3808ce027b7459facbe82f0fb"
   end
 
   depends_on "jq"

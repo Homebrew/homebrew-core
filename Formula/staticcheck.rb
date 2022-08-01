@@ -1,18 +1,18 @@
 class Staticcheck < Formula
   desc "State of the art linter for the Go programming language"
   homepage "https://staticcheck.io/"
-  url "https://github.com/dominikh/go-tools/archive/2022.1.2.tar.gz"
-  sha256 "807a3b3e5375c3b3b591567dc49e1e1f014498681bb89d6508ef2cc3a76307ab"
+  url "https://github.com/dominikh/go-tools/archive/2022.1.3.tar.gz"
+  sha256 "b95691c8e7cfff90120249dbd827ee021f23031a498e201713d4dec23deb5974"
   license "MIT"
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "38d74621b53ded5b915f21ef62152215759027116f06bafec98811bf7ebe66c2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "58205509e1542d817cc58904ec5a9d31d5677d7e6380d454cb51d5b9177979b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a5d9af86316c34004576b74a0e00e1fbf067cc86738ee6ff70b4f9dc70ba05f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "deb46a2f6e77c78e9da39888efec116d6875c93b4341b0827fbdf0cabf7963fa"
-    sha256 cellar: :any_skip_relocation, catalina:       "4c7e30316982c82cc30bcaeef391d0e2b5da706eb29b95a730e162ed59e3b68e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e92149a6b5592da3f05539bb972121e9b8ab41eb4f0bf1284783ba83bf227eb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "796446395086877328615acec37c81a1edc4410c49f179516ac6260934a46638"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67447db0bf46527f21fc2ac8b3a11c0628516c20d8ab7da5799993ec674ff23b"
+    sha256 cellar: :any_skip_relocation, monterey:       "303e35bb9bd4b378f7ed86cdb6d58c2b54cd16818ede6d9f5fbd8b4a2001a3a4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e689ef99aebf15b523e668a507ae791352a0bdc608c672ef476a002ca3365305"
+    sha256 cellar: :any_skip_relocation, catalina:       "1638b6f0c9fa5e3f7604ebe780118af69cdf6e0c658cf88e64ca162b25d375eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "015fea1a4798a30c0aff8b612f5f1ac00e8716504c43b4f6f05dc976c686a823"
   end
 
   depends_on "go"

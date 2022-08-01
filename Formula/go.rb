@@ -30,13 +30,22 @@ class Go < Formula
       "linux-amd64"  => "013a489ebb3e24ef3d915abe5b94c3286c070dfe0818d5bca8108f1d6e8440d2",
     }
 
-    arch = Hardware::CPU.intel? ? :amd64 : Hardware::CPU.arch
-    platform = "#{OS.kernel_name.downcase}-#{arch}"
+    arch = "arm64"
+    platform = "darwin"
+
+    on_intel do
+      arch = "amd64"
+    end
+
+    on_linux do
+      platform = "linux"
+    end
+
     boot_version = "1.16"
 
-    url "https://storage.googleapis.com/golang/go#{boot_version}.#{platform}.tar.gz"
+    url "https://storage.googleapis.com/golang/go#{boot_version}.#{platform}-#{arch}.tar.gz"
     version boot_version
-    sha256 checksums[platform]
+    sha256 checksums["#{platform}-#{arch}"]
   end
 
   def install

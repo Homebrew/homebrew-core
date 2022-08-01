@@ -13,13 +13,13 @@ class GraphTool < Formula
     regex(/href=.*?graph-tool[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256                               arm64_monterey: "c90658944301e77bfeb51664141b52a8bc6195eebfc4806b0cca019d3b04c6c7"
     sha256                               arm64_big_sur:  "c2ea288670c08046aaf54d8b705ae7110ece6b6c77281eea710a537273e5738b"
     sha256                               monterey:       "236e817aab65a6f4c796bcf943789aa193e46e7ec4f423f938b4cbb477507886"
     sha256                               big_sur:        "cae1f9f5656e605bc5b27158416e8bb4c07a9c16edb3242b5dd4a4bb9a965f4b"
     sha256                               catalina:       "9f9c6524eb7446691924c7abe51d1144125929549723839f0ebb153d110f84c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58bda14067b62c15b3f62488b2532604305bf20478addd5dc3410353f92b076e"
   end
 
   depends_on "autoconf" => :build
@@ -42,10 +42,6 @@ class GraphTool < Formula
   depends_on "six"
 
   uses_from_macos "expat" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

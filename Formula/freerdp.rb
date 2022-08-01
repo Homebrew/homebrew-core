@@ -1,27 +1,27 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/archive/2.7.0.tar.gz"
-  sha256 "2350097b2dc865e54a3e858bce0b13a99711428d397ee51d60cf91ccb56c0415"
+  url "https://github.com/FreeRDP/FreeRDP/archive/2.8.0.tar.gz"
+  sha256 "86f1ce8ef71aff73881a48b40d31dda2fc2a94bdbe37e1c1af8447a0e4fa5cc8"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_monterey: "cde0fdb6e408786ef74ae5d8222315ad4c145844e0cf257bd9f4d05d090e6ad6"
-    sha256 arm64_big_sur:  "bcbbdf87d558f4db4cfa4e0019a3415204439fb9753ddede27ecfa98bb931382"
-    sha256 monterey:       "a09cfd0938ba202fc66e6a8a367c5cf3d90745f0835267db9e333290dae6f290"
-    sha256 big_sur:        "01f2093ad7930301f8c8105538dbb96094dad55ef288c364de32f789d1062687"
-    sha256 catalina:       "9e21a6fc520a86ceb856a26b5832f1e55c78ab47e05595f62d38e6b1bbdf4b6b"
-    sha256 x86_64_linux:   "5d1352efc56c8386f8b0d62f76b759fbf225dd7c10986e60148118095e8fbdd7"
+    sha256 arm64_monterey: "c2c39da782f4df06eca40f1ef6cf8b398bcd623d0b9f071d6d5c3ac2ab7047d8"
+    sha256 arm64_big_sur:  "5e065d087692150df9dbc8675ca19f165c03114766ea48fe77c5ce043e25d052"
+    sha256 monterey:       "96ce94fde80de2a05572fbc9434c79945d977b494c8ea64f87fa12881628f340"
+    sha256 big_sur:        "b408af2edaf7862ae59c9f47fbc03b3ec08a681bc8b7134dabe4b78da063995a"
+    sha256 catalina:       "3f07f042a33e76153df32a8b57bb727843d3c8ff3ff90cb6715fc7ca65c78eb4"
+    sha256 x86_64_linux:   "471e90a3aca9bb342a617d59cf1f933a7bb96335a912dce471aa2863246d87ef"
   end
 
   head do
-    url "https://github.com/FreeRDP/FreeRDP.git"
+    url "https://github.com/FreeRDP/FreeRDP.git", branch: "master"
     depends_on xcode: :build
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libusb"
   depends_on "libx11"
   depends_on "libxcursor"
@@ -45,12 +45,13 @@ class Freerdp < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args,
-                         "-DWITH_X11=ON",
-                         "-DBUILD_SHARED_LIBS=ON",
-                         "-DWITH_JPEG=ON",
-                         "-DCMAKE_INSTALL_NAME_DIR=#{lib}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DWITH_X11=ON",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DWITH_JPEG=ON",
+                    "-DCMAKE_INSTALL_NAME_DIR=#{lib}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

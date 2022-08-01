@@ -5,6 +5,7 @@ class Libpano < Formula
   version "13-2.9.21"
   sha256 "79e5a1452199305e2961462720ef5941152779c127c5b96fc340d2492e633590"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,16 +13,16 @@ class Libpano < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "dcbafccb35edcaa11f257d32dfb9e712f9171493d84c37782ab19e17293b8759"
-    sha256 cellar: :any,                 arm64_big_sur:  "1ddf2d1cc08c78844ac583dc51252c73eb14fd21f3a696e06d838302fed18e2b"
-    sha256 cellar: :any,                 monterey:       "d86bbb785bcdd59229e04d1125949c9e33554741cb306981483c44edbc0ab085"
-    sha256 cellar: :any,                 big_sur:        "73ea3c14c4f95c7b34b8e92d728d2e69b8d396a7785fe6afb8122e7e61f5f258"
-    sha256 cellar: :any,                 catalina:       "eaeb95055eb6c09fa473ff41dfe71f8927078a6da552ce74acc35e26548b936a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "126a0aa926ee6ac920f8045c5b7f89375c927061446316271a16631050de0c14"
+    sha256 cellar: :any,                 arm64_monterey: "70958ca67b42e1da36ad393b0243c7d182d5413f1c8e83e5d6c47b513b0f3ff6"
+    sha256 cellar: :any,                 arm64_big_sur:  "bcafb2c87069bcbc4072ad10e5d0e971761d55b66470f5020b9571b1fbd48c23"
+    sha256 cellar: :any,                 monterey:       "cc0ce40a573784a891039fa691945d6ccc357bfaf0cfee2ae030bd8f6fbf813f"
+    sha256 cellar: :any,                 big_sur:        "86d6ebc7e57157f40337083697758ad334cda89dd1b6f98eb470cae7bd8ffa01"
+    sha256 cellar: :any,                 catalina:       "23a591c1c9367006f7477e1dc8633f17452082d36197536bdf768e1e51692302"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "824c6d89f876646cf10dafe0db21c13fd7493495c923c1c0b9158cb5aa93d33a"
   end
 
   depends_on "cmake" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 
@@ -30,11 +31,9 @@ class Libpano < Formula
   patch :DATA
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 end
 

@@ -1,21 +1,20 @@
 class GrafanaAgent < Formula
   desc "Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces"
   homepage "https://grafana.com/docs/agent/"
-  url "https://github.com/grafana/agent/archive/refs/tags/v0.25.1.tar.gz"
-  sha256 "a8bf90eed088fc40bdafbc741080a995f5ded73c2dc83d45a654fd40c65874bf"
+  url "https://github.com/grafana/agent/archive/refs/tags/v0.26.1.tar.gz"
+  sha256 "a9c67f3a0d964e0b70d12f436d81d217857495386541d8a769614a2007301f0c"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0be2dd902955f68cd3d4e95d4b2c75ba30eaf9125d31facd0c7d141caf323121"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd7cad2ece9e5817f9e048197e20b32a09f97eb81a4ff01f71146b9daa45a3de"
-    sha256 cellar: :any_skip_relocation, monterey:       "125d57a1995fbd85f7e264e6a15383850e1ee2fd67f4800399e0ab6cbd21cc9b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "603f4f57bc555a82027723df8c81659afabe6604640f70cdebf25ea9a75a82af"
-    sha256 cellar: :any_skip_relocation, catalina:       "c490955cd699cb583f31938ac7993ec1ab86ca513799ed19a115ad5e8ee40440"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd0ecd7e2503b86ae3a27c254ddd5495a607e4b7e50548d20eebbe65e94cac9c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0794498441723a7c6399ffb1a087656e1fc207200030a6dd20e7ed46047f6da"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "639d9e2c018658dad257dbf0c907ef000937e154b2c53cd10f0c097524d45346"
+    sha256 cellar: :any_skip_relocation, monterey:       "711be6d7569f6c7af910fdd1715ad9b68038cc69780a8d6a0b0f7b61a14d576a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "df6abc888bb344de87f2a7c6eec57476007df7b2719b5aee3948664b2186fd14"
+    sha256 cellar: :any_skip_relocation, catalina:       "8c4817a8637e6feea17063890eb210bce38f7049c2c6e545bb3fe0b9a0940fb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87371dd011f148c37d32d2113277d74e82da8dc37f25b263015b279a034dd0d8"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   on_linux do
     depends_on "systemd" => :build
@@ -23,13 +22,16 @@ class GrafanaAgent < Formula
 
   def install
     ldflags = %W[
+      -s -w
       -X github.com/grafana/agent/pkg/build.Branch=HEAD
       -X github.com/grafana/agent/pkg/build.Version=v#{version}
       -X github.com/grafana/agent/pkg/build.BuildUser=#{tap.user}
       -X github.com/grafana/agent/pkg/build.BuildDate=#{time.rfc3339}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/agent"
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "-o", bin/"grafana-agentctl", "./cmd/agentctl"
+    args = std_go_args(ldflags: ldflags.join(" ")) + %w[-tags=noebpf]
+
+    system "go", "build", *args, "./cmd/agent"
+    system "go", "build", *args, "-o", bin/"grafana-agentctl", "./cmd/agentctl"
   end
 
   def post_install
@@ -61,15 +63,14 @@ class GrafanaAgent < Formula
     (testpath/"grafana-agent.yaml").write <<~EOS
       server:
         log_level: info
-        http_listen_port: #{port}
-        grpc_listen_port: #{free_port}
     EOS
 
     system "#{bin}/grafana-agentctl", "config-check", "#{testpath}/grafana-agent.yaml"
 
     fork do
       exec bin/"grafana-agent", "-config.file=#{testpath}/grafana-agent.yaml",
-        "-metrics.wal-directory=#{testpath}/wal"
+        "-metrics.wal-directory=#{testpath}/wal", "-server.http.address=127.0.0.1:#{port}",
+        "-server.grpc.address=127.0.0.1:#{free_port}"
     end
     sleep 10
 

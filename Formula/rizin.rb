@@ -1,18 +1,18 @@
 class Rizin < Formula
   desc "UNIX-like reverse engineering framework and command-line toolset"
   homepage "https://rizin.re"
-  url "https://github.com/rizinorg/rizin/releases/download/v0.3.4/rizin-src-v0.3.4.tar.xz"
-  sha256 "eea49b396387c09d19705aab02a617cdb15682fca67f101ff2b27eef94a710e9"
+  url "https://github.com/rizinorg/rizin/releases/download/v0.4.0/rizin-src-v0.4.0.tar.xz"
+  sha256 "09eba8684fe813cf42a716b59a86d3d65afce013d7e8b275e145e849d3366b5a"
   license "LGPL-3.0-only"
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
-    sha256 arm64_monterey: "ea7541a46a6e4b0fdbd60ea2f8653affdb3398acc4a14dcf363b897dd09f3d13"
-    sha256 arm64_big_sur:  "0fd28a886e5274608e8c4b9df330ebc2e6ab4dcb5170e1f2ee1b4770bfd52f40"
-    sha256 monterey:       "51860beb6fcebc2715afef2347191ae85f8024a467afdce18e2def8460872ffa"
-    sha256 big_sur:        "ab5125b4cd17fc30e81a24430cc417b044b6a6c674b1e6978d3a08b88fb66edd"
-    sha256 catalina:       "c5e76ca21376cf458b03ac71ae82b2b5776accadfef94c457a12627f1d9221e6"
-    sha256 x86_64_linux:   "c4ac63f6cb764721c72490a884700a03a28f443db91ef4e3b2cc319483bfc6d4"
+    sha256 arm64_monterey: "3f487bf1891f3ae635b5e38773a8b0e149c384e6d676d63192c10f33e2dbc8e0"
+    sha256 arm64_big_sur:  "a3d46b04566bf06e4a654d051725bc9f4fbe570b19eeeea23fd0bd6c6126311c"
+    sha256 monterey:       "60c9cc6547b53c0f365e4f071d7950ff8f89be136054ab73734d3630ea4e4442"
+    sha256 big_sur:        "f4e26de5f4f0d2a2a41b2d361c246f7aa2f3d07a7577561eaf39cece5c8db431"
+    sha256 catalina:       "4dbe1219f669b093a0477f1ab544aa8cac937a472b0919142973f6b93e677f08"
+    sha256 x86_64_linux:   "cacc8f922ebe8deb752054183c7435815d16f63723e9d24c97f0ff43fee9332c"
   end
 
   depends_on "meson" => :build
@@ -40,14 +40,14 @@ class Rizin < Formula
         "-Duse_sys_tree_sitter=enabled",
         "-Duse_sys_libuv=enabled",
         "-Duse_sys_openssl=enabled",
+        "-Duse_sys_libzip_openssl=true",
         "-Duse_sys_capstone=enabled",
         "-Duse_sys_xxhash=enabled",
         "-Duse_sys_magic=enabled",
         "-Drizin_plugins=#{HOMEBREW_PREFIX}/lib/rizin/plugins",
-        "-Drizin_extras=#{HOMEBREW_PREFIX}/lib/rizin/extras",
-        "-Drizin_bindings=#{HOMEBREW_PREFIX}/lib/rizin/bindings",
         "-Denable_tests=false",
         "-Denable_rz_test=false",
+        "--wrap-mode=nodownload",
       ]
 
       system "meson", *std_meson_args, *args, ".."
@@ -58,8 +58,6 @@ class Rizin < Formula
 
   def post_install
     (HOMEBREW_PREFIX/"lib/rizin/plugins").mkpath
-    (HOMEBREW_PREFIX/"lib/rizin/extras").mkpath
-    (HOMEBREW_PREFIX/"lib/rizin/bindings").mkpath
   end
 
   def caveats

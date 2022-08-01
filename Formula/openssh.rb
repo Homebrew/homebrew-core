@@ -6,6 +6,7 @@ class Openssh < Formula
   version "9.0p1"
   sha256 "03974302161e9ecce32153cfa10012f1e65c8f3750f573a73ab1befd5972a28a"
   license "SSH-OpenSSH"
+  revision 1
 
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -13,12 +14,12 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "c454b2fe36648ffaeb7605dbfbf73bab8cbcdf70c3bac48a1cd1f0dcb62dbe53"
-    sha256 arm64_big_sur:  "0cda32b4701e2690377d7ad1485f6464460c9cf571c551fa836e5c3325cd350b"
-    sha256 monterey:       "951d6e5db1ef489e0b0fdf47cdb5077ea1c5c4007d2a2ee383eab9ec64c03c64"
-    sha256 big_sur:        "faf41afc4718429fb7620d2da26d20f0eea15c8ef090c03f8d375cf48a40dbc1"
-    sha256 catalina:       "2e77eaa779d114c252e07659e9f9c9f9fdd9258ee10bbff4203909ec11eb1cee"
-    sha256 x86_64_linux:   "8bb34a70ffa4b5235215ee756495939bb2ea835074928d7f50c9188e4622142d"
+    sha256 arm64_monterey: "dc8a68702befc83e394381378cc20c9c5c9440b9f31a8e491ba4605f14c31f44"
+    sha256 arm64_big_sur:  "6c77da617ec1fdc44037faef2e0242cbef97a9acc26025f2386c884d467865a2"
+    sha256 monterey:       "e0ba7d39ae68ecd653bc5bbe73ceb252f148a51bd5e7257ed6316973023bb73c"
+    sha256 big_sur:        "2aeab07efa1366184ce592a5c172440a74f4c8ed2b68d6b8c0a70740f274e519"
+    sha256 catalina:       "fccb117717bad0d24f7cd48eb3b075299ead1d1153e8dde2a95e0de31a7990d0"
+    sha256 x86_64_linux:   "8e7f4971bbad2e288324a409b473215e582915ef297c34f645b346413c018664"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -32,15 +33,18 @@ class Openssh < Formula
   uses_from_macos "lsof" => :test
   uses_from_macos "krb5"
   uses_from_macos "libedit"
+  uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   on_macos do
     # Both these patches are applied by Apple.
+    # https://github.com/apple-oss-distributions/OpenSSH/blob/main/openssh/sandbox-darwin.c#L66
     patch do
       url "https://raw.githubusercontent.com/Homebrew/patches/1860b0a745f1fe726900974845d1b0dd3c3398d6/openssh/patch-sandbox-darwin.c-apple-sandbox-named-external.diff"
       sha256 "d886b98f99fd27e3157b02b5b57f3fb49f43fd33806195970d4567f12be66e71"
     end
 
+    # https://github.com/apple-oss-distributions/OpenSSH/blob/main/openssh/sshd.c#L532
     patch do
       url "https://raw.githubusercontent.com/Homebrew/patches/d8b2d8c2612fd251ac6de17bf0cc5174c3aab94c/openssh/patch-sshd.c-apple-sandbox-named-external.diff"
       sha256 "3505c58bf1e584c8af92d916fe5f3f1899a6b15cc64a00ddece1dc0874b2f78f"
@@ -52,7 +56,7 @@ class Openssh < Formula
   end
 
   resource "com.openssh.sshd.sb" do
-    url "https://opensource.apple.com/source/OpenSSH/OpenSSH-240.40.1/com.openssh.sshd.sb"
+    url "https://raw.githubusercontent.com/apple-oss-distributions/OpenSSH/OpenSSH-268.100.4/com.openssh.sshd.sb"
     sha256 "a273f86360ea5da3910cfa4c118be931d10904267605cdd4b2055ced3a829774"
   end
 
@@ -65,8 +69,7 @@ class Openssh < Formula
       inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh"
     end
 
-    args = %W[
-      --prefix=#{prefix}
+    args = *std_configure_args + %W[
       --sysconfdir=#{etc}/ssh
       --with-ldns
       --with-libedit

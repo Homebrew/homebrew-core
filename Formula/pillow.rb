@@ -4,22 +4,23 @@ class Pillow < Formula
   url "https://files.pythonhosted.org/packages/8c/92/2975b464d9926dc667020ed1abfa6276e68c3571dcb77e43347e15ee9eed/Pillow-9.2.0.tar.gz"
   sha256 "75e636fd3e0fb872693f23ccb8a5ff2cd578801251f3a4f6854c6a5d437d3c04"
   license "HPND"
+  revision 1
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "1e711fdd9a6037ef3b5c38a7315a8abf348ca6d37c158c28c29e5ee44299e395"
-    sha256 cellar: :any, arm64_big_sur:  "0405a844258ef3936071721cd469d208fe26a7555ddcc9c937f00592f1ee1bc9"
-    sha256 cellar: :any, monterey:       "6cdb4abb1233c3d0027b7fc5f65d6fcd34bcbff24ebad5a5354bb74bd38f7725"
-    sha256 cellar: :any, big_sur:        "480b975ceb439446c5a5e290377ebee8fd2e254d2ce01b967f9145a97f08393f"
-    sha256 cellar: :any, catalina:       "e4000316af483495b4005f455bd23c104771de896b20f82103e9514267fd7630"
-    sha256               x86_64_linux:   "d0a95895bbf1eb40225fc217f9d9258c9c8d13840acf30c986a67d904a4e0dbe"
+    sha256 cellar: :any, arm64_monterey: "9a3eb1845a35dafbd990d12cc12cd9e0e6de41098ac67617b53a744772896942"
+    sha256 cellar: :any, arm64_big_sur:  "d13473d06a1e7fd317d1b8be831e318ebf00c7b49798363110acdaf3ba5f5fb3"
+    sha256 cellar: :any, monterey:       "0c327a8af9a584b658199789a366a11e222f04fe82794047fcbb4dad3684547b"
+    sha256 cellar: :any, big_sur:        "bbe1d3a93c30fe441d98ac5d2666b4f9acf5d8f6bbc0fbd750f329c77e0e7940"
+    sha256 cellar: :any, catalina:       "4c4319607c799298f960486a27eb275939671ba92dab58866e29d3af089184c5"
+    sha256               x86_64_linux:   "7a47d6a91bc57a3d38adbb92bc3987b36d5c1bd5c47ca9e04e4a15e2b3b64640"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.8" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libimagequant"
   depends_on "libraqm"
   depends_on "libtiff"

@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.104.0",
-      revision: "8976e37cbd603d2d0348cabbf3b45343527f70c9"
+      tag:      "v0.107.0",
+      revision: "f44a61db8359a8ec4fa265ec3dce3a157b08aff1"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "60656ca8b47f527a7f8b3919a2ebf2a507d6d4794014c37f0471492c16f42714"
-    sha256 cellar: :any, arm64_big_sur:  "bc2fe460bc7998b3330095081d69a7b999296c8ddef5048fa015ac001843ff54"
-    sha256 cellar: :any, monterey:       "081b4fa5447001cbe334728fdcfdcb9416e23969e3b6dc82671d6916f64db730"
-    sha256 cellar: :any, big_sur:        "997f55ff0e99852ef2c0ad427d04ad38ddf0a827c1dc1508c30864838080d3cc"
-    sha256 cellar: :any, catalina:       "ae6d1fa71f1d18cf2a22d290d873771fec766b73ae81ac5cedb3f39c548a4fea"
-    sha256               x86_64_linux:   "5f63f36ad5f37baa5b9c4ddc4bfb6fd5df1b4678735027d695fa15fda63caa95"
+    sha256 cellar: :any, arm64_monterey: "03d7837ee10c4cb49853029905026c25dedd9cad7c8f4cb39c87ef0048a1ab51"
+    sha256 cellar: :any, arm64_big_sur:  "74c6bfd37533538b16d323d488b4c489a25e316758e52c5180ee27bfcd4efa46"
+    sha256 cellar: :any, monterey:       "532971286a41f469ed56c0597735cc544cb9d16ef464a630697a5bb0df51ba9e"
+    sha256 cellar: :any, big_sur:        "458cfaa068101b7e648560e0dd6b5cf26b270c28bb9ecf5a2e84567dd222dc77"
+    sha256 cellar: :any, catalina:       "02fef83c45c7e71a956d854ad3dc7144971fb8e390cf51117e09e2b3ba2b50c1"
+    sha256               x86_64_linux:   "a31842f3fa8b8aa7b84179bc06d08dbfd90f2144cd51b87d80c836847c1eb196"
   end
 
   depends_on "cmake" => :build
@@ -103,8 +103,8 @@ class Semgrep < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/19/0f/89db7764dfb59fc1c2b18c2d63f11375b4827aa3e93ae037166a780d2bed/jsonschema-4.7.2.tar.gz"
-    sha256 "73764f461d61eb97a057c929368610a134d1d1fffd858acfe88864ee94f1f1d3"
+    url "https://files.pythonhosted.org/packages/9d/c7/213df24d4dcf2eb115e2843205c6073c192976684388d6912cf674db2b8a/jsonschema-4.8.0.tar.gz"
+    sha256 "c1d410e379b210ba903bee6adf3fce6d5204cea4c2b622d63f914d2dbfef0993"
   end
 
   resource "packaging" do
@@ -163,8 +163,8 @@ class Semgrep < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
-    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
+    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
+    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
   end
 
   resource "wcmatch" do

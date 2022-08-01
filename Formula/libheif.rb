@@ -4,20 +4,20 @@ class Libheif < Formula
   url "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz"
   sha256 "e1ac2abb354fdc8ccdca71363ebad7503ad731c84022cf460837f0839e171718"
   license "LGPL-3.0-only"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6285488bd07d49e996a1be0dfe7296051ade71cc2078ecbaa2243afd05afe560"
-    sha256 cellar: :any,                 arm64_big_sur:  "ccf8a9fecc4629a5ae7b7cdb2db8e86c74cf70ab345f960d513e45b57f646174"
-    sha256 cellar: :any,                 monterey:       "b2cadb8ecf0985f007340e54853ffa685f57fd4dba8cae4bae37499119a9fe04"
-    sha256 cellar: :any,                 big_sur:        "6a82cb078278ee9e6240b6c738308974ca3a4ef545c30016f8395967bb6f4959"
-    sha256 cellar: :any,                 catalina:       "9ed1d527c347fa67d346d5d638b1760177693819d167c7dc549ebabcaabc428c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6382a34a85ddc5cb1a8359de883c18867340294b2f662e84650b287f04324484"
+    sha256 cellar: :any,                 arm64_monterey: "e6b5488552092caa2741a3c18b443895eb418928f45acbe78ad443fa430cc353"
+    sha256 cellar: :any,                 arm64_big_sur:  "9d1cbc5abeafe2dd4c28c8509f70402c9ebbe2e6988b9542430b7b439214e449"
+    sha256 cellar: :any,                 monterey:       "5560c274fcd7bd4e378f9b05cbe359ad350b9e7cb8dc4aef80568621781eac50"
+    sha256 cellar: :any,                 big_sur:        "1d1010a85df362aa99790b11411f937e78765a38c72eb18c0f1b6cdabda4aaf6"
+    sha256 cellar: :any,                 catalina:       "3cb661d104c3c9ca427072ffaf46672216b570c4d48d55a248749345969126f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "911716d44b3a2f160ef24ff965cc5b0ff29a084a098be261982e40e60d97c04b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "aom"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libde265"
   depends_on "libpng"
   depends_on "shared-mime-info"
@@ -30,9 +30,7 @@ class Libheif < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
     pkgshare.install "examples/example.heic"
     pkgshare.install "examples/example.avif"

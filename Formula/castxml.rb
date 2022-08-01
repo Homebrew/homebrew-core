@@ -12,21 +12,17 @@ class Castxml < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7710e2667427b667c27907905a50084a3ff9466e308dd12f4825983ebd3eb0a6"
     sha256 cellar: :any,                 arm64_big_sur:  "6e21cb15925d1398805313b022281cdf61bac37d06b17768dbb736952c213813"
     sha256 cellar: :any,                 monterey:       "c12e6bf4714e1f208d6c2467ecc48c2931dd7fa2b7b74971a487ab328ce72c94"
     sha256 cellar: :any,                 big_sur:        "60dfbc11e9850fe6df0f13925173db6b6d8a349eac98c997ea70bfd28d888e33"
     sha256 cellar: :any,                 catalina:       "d46e70cbcd7bdd674c3f0595f4eace13286bdca0167a5dc11e92a8587077faef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89162f0cf120b5d29671c08176e408a0a7e6f62862ad7b56b8a782f2710228e0"
   end
 
   depends_on "cmake" => :build
   depends_on "llvm"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

@@ -4,7 +4,7 @@ class Libraw < Formula
   url "https://www.libraw.org/data/LibRaw-0.20.2.tar.gz"
   sha256 "dc1b486c2003435733043e4e05273477326e51c3ea554c6864a4eafaff1004a6"
   license any_of: ["LGPL-2.1-only", "CDDL-1.0"]
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.libraw.org/download/"
@@ -12,12 +12,12 @@ class Libraw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "18c36994429964daaa9946aa3850f94f9fd6ba7c75692d81f2a5de422c7d2f1e"
-    sha256 cellar: :any,                 arm64_big_sur:  "edce6b5fa1e302705761e0d9b851422a04a98fa9e4acfa855544d13ecfa18565"
-    sha256 cellar: :any,                 monterey:       "e5e88f0e87405beceb2f0e0dcb7f7f0621f43173cf93a4d0e543a94688daf062"
-    sha256 cellar: :any,                 big_sur:        "6e1dc8ff8d4a11db7aab2dad4a310050b50dceb853f0fb5a8f49644f748dc2d9"
-    sha256 cellar: :any,                 catalina:       "bed8bf5d99ea03bd19b8fe962824518d1ce5b1b1cc7292decad833556b7079c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bb0248790c8d19f90e486b5ffefe19499f443523a484ca74745a72efe5e16d6"
+    sha256 cellar: :any,                 arm64_monterey: "8fabdbb3e0bea64967859d1566709b7a1eb20100548f8dde61300a0982f3d78c"
+    sha256 cellar: :any,                 arm64_big_sur:  "5587bd22619b0f9942337f66054fbf8f3dc943aeb09f258bd1216eea779439e6"
+    sha256 cellar: :any,                 monterey:       "7c67db7c1d4da6c580782470bc3b9ca9b2ab310d912bae0d04b0fe1b400da1ff"
+    sha256 cellar: :any,                 big_sur:        "49845b546bb0df84878d6a9e9dec4f5ce210c76ce57713f1fe9aa73cb0af56e6"
+    sha256 cellar: :any,                 catalina:       "a0207e575f4846216b3e7485d8e384bf3f7f5357adc68fb93537555f859223cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2ad0da2bae19eea705cdfdc0841a5acf80d5a8abb65a72fe1e560059591da2d"
   end
 
   depends_on "autoconf" => :build
@@ -25,7 +25,7 @@ class Libraw < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "jasper"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "little-cms2"
 
   uses_from_macos "zlib"

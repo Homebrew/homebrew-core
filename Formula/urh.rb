@@ -6,17 +6,16 @@ class Urh < Formula
   url "https://files.pythonhosted.org/packages/c2/3d/9cbaac6d7101f50c408ac428d9e37668916a4a3e22292f38748b230239e0/urh-2.9.3.tar.gz"
   sha256 "037b91bb87a113ac03d0695e0c2b5cce35d0886469b3ef46ba52d2342c8cfd8c"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/jopohl/urh.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "c5acb232a2004f08f20d9369b6cd32f5a65b1395106e5b1a231212241195bc4d"
-    sha256 cellar: :any,                 arm64_big_sur:  "d0e14502e070b7c0133c58435fc4a1f6ba8b0128e0b5dbf19ed0c3a9a9678847"
-    sha256 cellar: :any,                 monterey:       "4577d99a40fd2bd4ce977d609cec2df9be42ad4c8927f0d62b0ddf312c6f6e47"
-    sha256 cellar: :any,                 big_sur:        "dd663c9c07deab9e895f2c36af4e14bf10f8595b7f03796cd1de115ee9fec2ce"
-    sha256 cellar: :any,                 catalina:       "7f186f12b566ba25bb43960694891bd9f4907ec3b44499a75ce4c7cae7355717"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3c1d3a4d3e6b5175e8034b37147c43f38d0839e9ea6fea7719b34dcde5f7cd2"
+    sha256 cellar: :any,                 arm64_monterey: "d88fd08049e3eb1fb74ad3adaca2e00a3a7f6bd38ce54cbd38a4ae5bc611f362"
+    sha256 cellar: :any,                 arm64_big_sur:  "9424a7749801f6715bd090550243c8648476fd7a9341478601ecc97733479694"
+    sha256 cellar: :any,                 monterey:       "de9494a90a16e95c9b56c8a8c6754a4bca1ec8877b80c4ea8fd74cbfa6c155ed"
+    sha256 cellar: :any,                 big_sur:        "e9d8335313cd3438bb1f3f3cc15876e25550f6b9e9a06c190f53bd28c24f9e19"
+    sha256 cellar: :any,                 catalina:       "8251c7319b097610a58503876afe9b72b6af903cd89e9f06cac863f4ca318c59"
   end
 
   depends_on "pkg-config" => :build
@@ -24,7 +23,7 @@ class Urh < Formula
   depends_on "libcython"
   depends_on "numpy"
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"

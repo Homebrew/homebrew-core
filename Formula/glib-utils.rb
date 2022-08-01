@@ -3,17 +3,17 @@ class GlibUtils < Formula
 
   desc "Python utilities for GLib"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.72/glib-2.72.2.tar.xz"
-  sha256 "78d599a133dba7fe2036dfa8db8fb6131ab9642783fc9578b07a20995252d2de"
+  url "https://download.gnome.org/sources/glib/2.72/glib-2.72.3.tar.xz"
+  sha256 "4a39a2f624b8512d500d5840173eda7fa85f51c109052eae806acece85d345f0"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "786c4fc510905fef2048aff6d74656e214a703a4ea7605a61d12045d25435309"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "786c4fc510905fef2048aff6d74656e214a703a4ea7605a61d12045d25435309"
-    sha256 cellar: :any_skip_relocation, monterey:       "8102ba6f4371afcb9c682a1807b7786993f0d9f98d72da5d778e48dd76b26240"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8102ba6f4371afcb9c682a1807b7786993f0d9f98d72da5d778e48dd76b26240"
-    sha256 cellar: :any_skip_relocation, catalina:       "8102ba6f4371afcb9c682a1807b7786993f0d9f98d72da5d778e48dd76b26240"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f57f6e41d235d9f709fecb6a3aeee9a014cb0fe9bce3d86bd6377baf4853282"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ceda984462487b0c9bb77dc0fdbc8d7642eaf7e55e319cac2eb3327dc3da2977"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ceda984462487b0c9bb77dc0fdbc8d7642eaf7e55e319cac2eb3327dc3da2977"
+    sha256 cellar: :any_skip_relocation, monterey:       "b944e164376801f4f695457b9638fb6da2d330422d8d48b59cb26faaa771cb5b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b944e164376801f4f695457b9638fb6da2d330422d8d48b59cb26faaa771cb5b"
+    sha256 cellar: :any_skip_relocation, catalina:       "b944e164376801f4f695457b9638fb6da2d330422d8d48b59cb26faaa771cb5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb8428940a0b3059df1edc89ed5ad6cf13c85f4b9548fa53cdb8980da3e27cde"
   end
 
   depends_on "meson" => :build
@@ -22,16 +22,16 @@ class GlibUtils < Formula
   depends_on "glib"
   depends_on "python@3.10"
 
+  # Sync this with `glib.rb`
+  # replace several hardcoded paths with homebrew counterparts
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/43467fd8dfc0e8954892ecc08fab131242dca025/glib/hardcoded-paths.diff"
+    sha256 "d81c9e8296ec5b53b4ead6917f174b06026eeb0c671dfffc4965b2271fb6a82c"
+  end
+
   def install
-    # TODO: This is a workaround for `brew audit --new-formula`.
-    #       Use `patch` rather than `inreplace` (see also `glib`).
-    # replace several hardcoded paths with homebrew counterparts
-    inreplace "gio/xdgmime/xdgmime.c",
-              'xdg_data_dirs = "/usr/local/share/:/usr/share/";',
-              "xdg_data_dirs = \"#{HOMEBREW_PREFIX}/share/:/usr/local/share/:/usr/share/\";"
-    inreplace "glib/gutils.c",
-              'data_dirs = "/usr/local/share/:/usr/share/";',
-              "data_dirs = \"#{HOMEBREW_PREFIX}/share/:/usr/local/share/:/usr/share/\";"
+    inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c],
+      "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
     # Point the headers and libraries to `glib`.
     # The headers and libraries will be removed later because they are provided by `glib`.

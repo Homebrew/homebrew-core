@@ -19,12 +19,15 @@ class Volk < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "cpu_features" if Hardware::CPU.intel?
   depends_on "orc"
   depends_on "python@3.9"
 
   on_linux do
     depends_on "gcc"
+  end
+
+  on_intel do
+    depends_on "cpu_features"
   end
 
   fails_with gcc: "5" # https://github.com/gnuradio/volk/issues/375

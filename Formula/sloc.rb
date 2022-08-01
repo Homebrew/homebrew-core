@@ -7,6 +7,7 @@ class Sloc < Formula
   sha256 "fb56f1763b7dadfd0566f819665efc0725ba8dfbec13c75da3839edf309596e6"
   license "MIT"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebd1c159ad1f9f263528431a12b45bea9bffb4e0bf28393da414e9ccb62f9942"
     sha256 cellar: :any_skip_relocation, big_sur:       "28fb222768fc7ca90e6a9fa29c97d5f79f11bd9a928024ae84aabe8dfb8f0ff9"
@@ -14,7 +15,6 @@ class Sloc < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "f241a7bf03cb7bb97bb061f5f46442d7a40de893697a5335c821049d471e9466"
     sha256 cellar: :any_skip_relocation, high_sierra:   "345308d671b83edb390c143554c64958135cf37bc7cd365ce613011da682a8b7"
     sha256 cellar: :any_skip_relocation, sierra:        "1386a024efebe74829d85c8d75d07ae9f09f8c8a8104aa41424a5ea8c425fca5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48646678b61d6a776462692734af1f5048d0c31faf8e2c6118e452ab48b553d4"
     sha256 cellar: :any_skip_relocation, all:           "bf12e86a52f11e012ab47f6ce03f690ecaf0e80b2250271378fcc3ef645ed7b6"
   end
 

@@ -1,18 +1,18 @@
 class Maturin < Formula
   desc "Build and publish Rust crates as Python packages"
   homepage "https://github.com/PyO3/maturin"
-  url "https://github.com/PyO3/maturin/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "b44a22c65ccb00f25c53540889ee0358f79a40673adee38e8c75411deef60576"
+  url "https://github.com/PyO3/maturin/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "9258fd7ce202ba57956f95f557310c6fcdf6c7715b4eee06630355885d227962"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4c2f24fc40496a8950711f833f929f82fa3a3efd4c3ddb2c0e19b75bf391264"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "37ed408cf8926d196e5558ffb7f98fa3750dab8b587cdd161b33a22475c81e33"
-    sha256 cellar: :any_skip_relocation, monterey:       "558f7de845744294934abd17182ffb701d8383ae85c4f34bce10e20d7863a12e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3b82dcca7c1582bda6ee466966c1c734c6120988de5c4d49eb7429c604dd2604"
-    sha256 cellar: :any_skip_relocation, catalina:       "9a0364f7de73de37a6470d57f7851c7b086bf81946122bf884d92d7e5f8b1645"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8733fd68f82cef6a55d7ce41ee4e79e408f9271aba13ef4b626509749fba583e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "930d59c44c29a9d32b905b7687835a0c645e5dc049551943995ba3f64635d600"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27072e5c1d65af7f5056499b20f347ff6bb338a8e70a4b51bfc6331a5fad4c25"
+    sha256 cellar: :any_skip_relocation, monterey:       "be719ec7f54fabf0d6c2ebf9d1d0953343ee0d82bd2e77d6140d2381e5357067"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8f3aafb8196fd6d076b3de984b40da661184e2e05ba5365e45a0662b2bad8cca"
+    sha256 cellar: :any_skip_relocation, catalina:       "67c9e87405dfbcf68ac62f2dfe21a322de205bbf38eeac48b9ac5c37f88d0645"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bab921bb0e08026d110565d342b8deed8fd96b6cefd13bf575d21fb79530edcc"
   end
 
   depends_on "python@3.10" => :test

@@ -3,18 +3,18 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/67/dd/fb958596df5013c57a6dd9e934f1aca25ac532e3a27e1007ed96af5cd126/platformio-6.1.1.tar.gz"
-  sha256 "eef0c2056c70c12f481c3959fa0423e6740ed2ff95d0f66d27d3d8040e293bdd"
+  url "https://files.pythonhosted.org/packages/1f/7a/a1ba9282b3efe26ac84760773aba00dd33a582a77b1310a28286d76cb1fa/platformio-6.1.3.tar.gz"
+  sha256 "a1e738be028c2e54040c9a6784c22ee8d56390cde7bf927e520c224c881749a8"
   license "Apache-2.0"
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "569b3b164962739fae031acea67bb443428eb9debc3d0a389abbabdba7bbd0b5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "883496592f54b2fbd49ca7a538aabb672a65b4c67bdb90a5dfbcaec3494c9dbe"
-    sha256 cellar: :any_skip_relocation, monterey:       "2d326683e717b0383f9f9565b582f07e531c404a6ca19a926ee59358a994334d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cce73eda11044e7845d93f23990382cd4341d5016a23557b8ea6d22f45d511dc"
-    sha256 cellar: :any_skip_relocation, catalina:       "58b2d846c648b73fd556c75468f49a0c16750de73a97d55eca3e172564f20925"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d1604e9c2eb0aee81b6d67a07751556e93bafc3e7d7fde6b1d0099208e58272"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bef4c9d2924b212dc00aec5ed68355d050cb54ad8b9c0e9c8561056712fb1f6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "26b568793e5229697a410cc6be0e277d000da919cfd9f8ee9da31b0b8dedfdb3"
+    sha256 cellar: :any_skip_relocation, monterey:       "be2d45191916e4419479ea0a966fce2806d1ccb890535c29230fc6d2732b53ed"
+    sha256 cellar: :any_skip_relocation, big_sur:        "235564d4ee4d3d14583ae2fb97983807db265812a138941eab4293fd9c095ad9"
+    sha256 cellar: :any_skip_relocation, catalina:       "bb5b3639ba4b2734c7aded48bfc72b17f8aafd4351f84a7985745593a9c93b2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bafdbd5f1ea73e50f1527e7fdfd9a894e2a75536e547018d5dce8b83e913d7a7"
   end
 
   depends_on "libpython-tabulate"

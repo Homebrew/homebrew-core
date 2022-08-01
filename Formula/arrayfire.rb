@@ -5,13 +5,13 @@ class Arrayfire < Formula
   sha256 "13edaeb329826e7ca51b5db2d39b8dbdb9edffb6f5b88aef375e115443155668"
   license "BSD-3-Clause"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c91188803bdb170202adc8fcc0b26294057e119e0bdefa1843ab158602ddd0b9"
     sha256 cellar: :any,                 arm64_big_sur:  "3b7d5567de48d187d18c4e5a12d7a292d0c4dfebb9e181222ef4030a9b7115fc"
     sha256 cellar: :any,                 monterey:       "2e28ca14205729d079b08b01eeb91d6c090d9c50caa7321a2fb7fa55a8bfd376"
     sha256 cellar: :any,                 big_sur:        "4b59cd0db04eaf807b459f872b4fe2e6401cc5c9ae3675bdafb7af52f742ca3e"
     sha256 cellar: :any,                 catalina:       "81f15373fb946ee09ed96d57731a07c06d85a522db953ed131b2de747f18fe0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a34242e438745f4309147b5b0adbc2440ee9d1292dbadc2b7dff2707eb61a217"
   end
 
   depends_on "boost" => :build
@@ -20,10 +20,6 @@ class Arrayfire < Formula
   depends_on "fftw"
   depends_on "freeimage"
   depends_on "openblas"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

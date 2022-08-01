@@ -1,8 +1,8 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.29.0/ldc-1.29.0-src.tar.gz"
-  sha256 "d0c066eb965467625d9c5e75c00c583451b9ffa363601f9e37275ca8a8aea140"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.30.0/ldc-1.30.0-src.tar.gz"
+  sha256 "fdbb376f08242d917922a6a22a773980217fafa310046fc5d6459490af23dacd"
   license "BSD-3-Clause"
   head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
@@ -11,32 +11,32 @@ class Ldc < Formula
     strategy :github_latest
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 arm64_monterey: "73cf7c5d2fef44f20d1572eb6df3404d3e5669e3218a573b96ec77b987aa76c1"
-    sha256 arm64_big_sur:  "f5e4db7df43b34689898bd2dbed85f0db1097c3b9c79995427006a3bc6076747"
-    sha256 monterey:       "14e7af742428839eb82d45281862b44ccf71010d5d93bceb1ae0c4f8955c33f8"
-    sha256 big_sur:        "b9004c94ca080627d484d680a78de4d91d85ecab38e992a7f66e9f34455b7c26"
-    sha256 catalina:       "00e5907a5628b93578a61f81730e90923666353fc108012c1a6b58f2f4c60c48"
-    sha256 x86_64_linux:   "efd8dd1c816d77b608944563d037efaadca7a3ba51414dc211a29cadc3e647e3"
+    sha256 arm64_monterey: "703a1b7cc6dea61112183cbc21cd77faf686a7527b105bb61db7e3d92c0bd6a6"
+    sha256 arm64_big_sur:  "660bc67a5e12896a19427be2f39d58fad9f2c78d3f5948792706d20e80f351db"
+    sha256 monterey:       "c2b1c19deb39e815c8f1ddf0f8f1fdab63e849e6777c7e3e092399f3891110b1"
+    sha256 big_sur:        "c3fbdc34a89752a66e633ace1416e4f31eec1e4067f37d2cd12855323a068e15"
+    sha256 catalina:       "574931fec5e3746c83d7fb67a25af715d8c51efde11f70a48d037abecf2824ea"
   end
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkg-config" => :build
-  depends_on "llvm@12"
+  depends_on "llvm"
 
   uses_from_macos "libxml2" => :build
-  # CompilerSelectionError: ldc cannot be built with any available compilers.
-  uses_from_macos "llvm" => [:build, :test]
 
   fails_with :gcc
 
   resource "ldc-bootstrap" do
     on_macos do
-      if Hardware::CPU.intel?
+      on_intel do
         url "https://github.com/ldc-developers/ldc/releases/download/v1.28.1/ldc2-1.28.1-osx-x86_64.tar.xz"
         sha256 "9aa43e84d94378f3865f69b08041331c688e031dd2c5f340eb1f3e30bdea626c"
-      else
+      end
+
+      on_arm do
         url "https://github.com/ldc-developers/ldc/releases/download/v1.28.1/ldc2-1.28.1-osx-arm64.tar.xz"
         sha256 "9bddeb1b2c277019cf116b2572b5ee1819d9f99fe63602c869ebe42ffb813aed"
       end
@@ -60,15 +60,34 @@ class Ldc < Formula
     ENV.cxx11
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
 
-    # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
-    ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib if OS.linux?
-
     args = %W[
       -DLLVM_ROOT_DIR=#{llvm.opt_prefix}
       -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
       -DD_COMPILER=#{buildpath}/ldc-bootstrap/bin/ldmd2
     ]
-    args << "-DCMAKE_INSTALL_RPATH=#{rpath};@loader_path/#{llvm.opt_lib.relative_path_from(lib)}" if OS.mac?
+
+    if OS.mac?
+      args << "-DCMAKE_INSTALL_RPATH=#{rpath};@loader_path/#{llvm.opt_lib.relative_path_from(lib)}"
+    else
+      # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
+      ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib if OS.linux?
+
+      gcc = Formula["gcc"]
+      # Link to libstdc++ for brewed GCC rather than the host GCC which is too old.
+      libstdcxx_lib = gcc.opt_lib/"gcc"/gcc.version.major
+      linux_linker_flags = "-L#{libstdcxx_lib} -Wl,-rpath,#{libstdcxx_lib}"
+
+      # Use libstdc++ headers for brewed GCC rather than host GCC which is too old.
+      libstdcxx_include = gcc.opt_include/"c++"/gcc.version.major
+      linux_cxx_flags = "-nostdinc++ -isystem#{libstdcxx_include} -isystem#{libstdcxx_include}/x86_64-pc-linux-gnu"
+
+      args += %W[
+        -DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags}
+        -DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags}
+        -DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags}
+        -DCMAKE_CXX_FLAGS=#{linux_cxx_flags}
+      ]
+    end
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"

@@ -11,13 +11,13 @@ class Ffmpeg2theora < Formula
     regex(/href=.*?ffmpeg2theora[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "fda3d3ece47a930bb675a3bfcf9bb9f9565ee64ffb8249ec1b282dc52d886b15"
     sha256 cellar: :any,                 arm64_big_sur:  "821bc4ec0b0900b41bc8236edfba9087b0637ddccbb58b60bf393f96177d6858"
     sha256 cellar: :any,                 monterey:       "c1da252c4ada9b2dc39ae83a1af5d1d2a449191173a35a2fb05c1667224fada9"
     sha256 cellar: :any,                 big_sur:        "83c525d0923c3b2b550e00b78dd6257dc4ff4ed9639464e6d360ed6784b9d09e"
     sha256 cellar: :any,                 catalina:       "33be387b709b49ebd87f07c95f396b24aabbe09dc4ee74d71067b08ae13978a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1e1607b67fd2b486a89e6eff86cea8f05f5715b93baef49aa839ab844f71c43"
   end
 
   depends_on "pkg-config" => :build
@@ -27,10 +27,6 @@ class Ffmpeg2theora < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "theora"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 

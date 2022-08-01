@@ -6,23 +6,19 @@ class Assimp < Formula
   license :cannot_represent
   head "https://github.com/assimp/assimp.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "67d6e7b43419f11e105b6ac7e4a147ce07aef50b933c41fbfdf02382508abff5"
     sha256 cellar: :any,                 arm64_big_sur:  "7caf721e862862f3c4dbcaba048fe8707368a9ec148b7ec578ee34cebaaa3455"
     sha256 cellar: :any,                 monterey:       "f5fdb9347de7b36866ac711c002366412971219d02c365af91fd7a620f9ab88f"
     sha256 cellar: :any,                 big_sur:        "b9402a7cc394876768c95b76e4e9893ac32a2c0dcd7c4ce893e77ba6582d91cf"
     sha256 cellar: :any,                 catalina:       "f0b432d116da9f388c812fdc39c05dfe8bab467f285b4046f29023a3bee2f073"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3489f9eba0842af02276b74aec5da76188f48b5d13366c9cb0a69e36135a27f"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

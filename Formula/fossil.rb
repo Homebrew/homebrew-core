@@ -1,8 +1,8 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/home/"
-  url "https://fossil-scm.org/home/tarball/version-2.18/fossil-src-2.18.tar.gz"
-  sha256 "300c1d5cdd6224ec6e8c88ab3f38d50f80e4071b503731b75bd61274cf310733"
+  url "https://fossil-scm.org/home/tarball/version-2.19/fossil-src-2.19.tar.gz"
+  sha256 "4f135659ec9a3958a10eec98f79d4d3fc10edeae2605b4b38e0a58826800b490"
   license "BSD-2-Clause"
   head "https://www.fossil-scm.org/", using: :fossil
 
@@ -12,15 +12,15 @@ class Fossil < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "84d5f38c5c255511f45d83f92021c5cb35d97487615267f4cb5e4adf3273850c"
-    sha256 cellar: :any,                 arm64_big_sur:  "90f5144c381820554b28de7f37d6a74b07dccf0e9244098a4f45d9b5110343b3"
-    sha256 cellar: :any,                 monterey:       "fe99b0cf0e77a8b7801bcf40bb6fdc17720c10d42a96356a05c7fe3db35bf2c9"
-    sha256 cellar: :any,                 big_sur:        "4d809209bcdb6c15a896e27718c4bf0ce0383bb43dd36d46f9e3fc186c9cdd86"
-    sha256 cellar: :any,                 catalina:       "c6275833e4dff742fdf394cc769078aab4dd2a5df9cad261fc655470e55229c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f021d8c90ad5e56e6dec0e7adf455c69ae481592b946815b41fb193f7b64d014"
+    sha256 cellar: :any,                 arm64_monterey: "148769ddfba888a2cf0150ae0e5847abb136624b3016b89369447f35d6087516"
+    sha256 cellar: :any,                 arm64_big_sur:  "53d47387a9272b68a7a0e722461445bd7d8b767e60d1ff047c386e1412219c30"
+    sha256 cellar: :any,                 monterey:       "34e2496a017d02b6ac9311b4c0448f8315b2e1616b4b69fcbf6779a041c8a121"
+    sha256 cellar: :any,                 big_sur:        "c2b0c25ec37321818a2fe83d0ced4ae6ce03974abea56e3e13a6fa880dc15f30"
+    sha256 cellar: :any,                 catalina:       "25abcda832bcd63e3ab02f128a7441871e4e3ed3e5b40f3a5a3c7c6bede6c5d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efda12d36d3a799e3ef547f22d32451dbb75d0b9da1dd144a071734b642de1c6"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   uses_from_macos "zlib"
 
   def install

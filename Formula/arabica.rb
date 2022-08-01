@@ -35,6 +35,8 @@ class Arabica < Formula
 
   uses_from_macos "expat"
 
+  conflicts_with "nss", because: "both install `mangle` binaries"
+
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

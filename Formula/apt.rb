@@ -1,8 +1,8 @@
 class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
-  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.5.1.tar.xz"
-  sha256 "dafeab05f985a4851daa6baf4e3358c6585a161a1d6c6867db1a538a6a71fbb1"
+  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.5.2.tar.xz"
+  sha256 "cc5c374c2831c9e390d9c5f08029a81c3ca2b778abc0dd1426c81c657628fe9d"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,7 +11,7 @@ class Apt < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "93d176d1663b80fcd06b1a522eaa72913fa8d79ba8d1206f54e2b57dea978d84"
+    sha256 x86_64_linux: "da7230a82bcceb2f521b5235d3d1693d1da1ba5a7d1c0556c42b9e5c004a49da"
   end
 
   depends_on "cmake" => :build
@@ -41,6 +41,12 @@ class Apt < Formula
   end
 
   fails_with gcc: "5"
+
+  # List this first as the modules below require it.
+  resource "Module::Build" do
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
+    sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
+  end
 
   resource "SGMLS" do
     url "https://cpan.metacpan.org/authors/id/R/RA/RAAB/SGMLSpm-1.1.tar.gz"
@@ -77,14 +83,24 @@ class Apt < Formula
     sha256 "bc315fa12e8f1e3ee5e2f430d90b708a5dc7e47c867dba8dce3a6b8fbe257744"
   end
 
-  resource "Module::Build" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
-    sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
-  end
-
   resource "Pod::Parser" do
     url "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-1.63.tar.gz"
     sha256 "dbe0b56129975b2f83a02841e8e0ed47be80f060686c66ea37e529d97aa70ccd"
+  end
+
+  resource "ExtUtils::CChecker" do
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/ExtUtils-CChecker-0.11.tar.gz"
+    sha256 "117736677e37fc611f5b76374d7f952e1970eb80e1f6ad5150d516e7ae531bf5"
+  end
+
+  resource "XS::Parse::Keyword::Builder" do
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.25.tar.gz"
+    sha256 "f5edb30cf7c7f220d0c6c31dc1eb554032840a99c7c298314f5cc3fef66c72c7"
+  end
+
+  resource "Syntax::Keyword::Try" do
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Syntax-Keyword-Try-0.27.tar.gz"
+    sha256 "246e1b033e3ff22fd5420550d4b6e0d56b438cdcbb9d35cbe8b1b5ba1574de23"
   end
 
   def install
@@ -102,27 +118,32 @@ class Apt < Formula
     cpan_resources = resources.map(&:name).to_set - ["triehash"]
     cpan_resources.each do |r|
       resource(r).stage do
-        chmod 0644, "MYMETA.yml" if r == "SGMLS"
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}"
-        system "make"
-        system "make", "install"
+        if File.exist?("Build.PL") && r != "Module::Build"
+          system "perl", "Build.PL", "--install_base", buildpath
+          system "./Build"
+          system "./Build", "install"
+        else
+          chmod 0644, "MYMETA.yml" if r == "SGMLS"
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}"
+          system "make"
+          system "make", "install"
+        end
       end
     end
 
-    mkdir "build" do
-      system "cmake", "..",
-             "-DDPKG_DATADIR=#{Formula["dpkg"].opt_libexec}/share/dpkg",
-             "-DDOCBOOK_XSL=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
-             "-DBERKELEY_INCLUDE_DIRS=#{Formula["berkeley-db"].opt_include}",
-             *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DDPKG_DATADIR=#{Formula["dpkg"].opt_libexec}/share/dpkg",
+                    "-DDOCBOOK_XSL=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
+                    "-DBERKELEY_INCLUDE_DIRS=#{Formula["berkeley-db"].opt_include}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    mkdir_p etc/"apt/apt.conf.d/"
+    (pkgetc/"apt.conf.d").mkpath
   end
 
   test do
     assert_match "The package lists or status file could not be parsed or opened.",
-      shell_output("#{bin}/apt list 2>&1", 100)
+                 shell_output("#{bin}/apt list 2>&1", 100)
   end
 end

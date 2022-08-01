@@ -13,6 +13,8 @@ class Winexe < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:  "58080b3729c9b261a65c7db2072ec867176bfd6a802c23f9b343feb44592789a"
   end
 
+  deprecate! date: "2022-07-26", because: "depends on Python 2 to build"
+
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
 

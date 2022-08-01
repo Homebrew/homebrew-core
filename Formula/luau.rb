@@ -1,25 +1,21 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau-lang.org"
-  url "https://github.com/Roblox/luau/archive/0.536.tar.gz"
-  sha256 "e6de36e83e9c537d92bcc94852ab498e3c15a310fd2c4cc4e21c616d8ae1a84f"
+  url "https://github.com/Roblox/luau/archive/0.538.tar.gz"
+  sha256 "8a1240e02a7daacf1e5cff249040a3298c013157fc496c66adce6dcb21cc30be"
   license "MIT"
   head "https://github.com/Roblox/luau.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "224db1475a1a328c97704231ed14cb5e82a35682256328dae8f3db97e5f033c5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb2714431b748b57fc23c1f0696f207af1035009145e5bed136a42610da0bb88"
-    sha256 cellar: :any_skip_relocation, monterey:       "16d3bb600c4cc99ec943a30b1e631827be925152a6b86941808be4508aa51d26"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b9984c18bf5dc7d557b1ae37de616437e735af26beba68539e8cbffe59d9b472"
-    sha256 cellar: :any_skip_relocation, catalina:       "74eae1fcf483bcedcfe06f88af6c8bb7c84c5ab5699b66e22783f99ef7921972"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0538fcbb1e4c8dbd20dcaa5ef5837aae9b648d76b06e20c55cd548d251371a1b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8929ad274e7e292afe92af6d448d705014b57751b49a0d9adc09a79147d5993"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffa1b7e0bd5950a4b1bbf517504ad2abf51e391c33c3fcb7c00f5512bd74414c"
+    sha256 cellar: :any_skip_relocation, monterey:       "b41e5884b3e79b93393cd273cc979446c5601b67b6240763f18e24583ad2bf58"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0d628a2a984d3fbf4e3e1052197c10ddd2d7c64f6c2d5b52e50b87b620e02f55"
+    sha256 cellar: :any_skip_relocation, catalina:       "ba017f42bc41e4aed5a0f162e28cf7a61cdd4b62ff0eeef6068124837088d87a"
   end
 
   depends_on "cmake" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

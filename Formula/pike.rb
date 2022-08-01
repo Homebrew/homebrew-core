@@ -6,6 +6,7 @@ class Pike < Formula
   # Homepage has an expired SSL cert as of 16/12/2020, so we add a Debian mirror
   sha256 "1033bc90621896ef6145df448b48fdfa342dbdf01b48fd9ae8acf64f6a31b92a"
   license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "MPL-1.1"]
+  revision 1
 
   livecheck do
     url "https://pike.lysator.liu.se/download/pub/pike/latest-stable/"
@@ -13,27 +14,27 @@ class Pike < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "ffc4be44537cbfdee288908954eba9770285f1125605d1572ae07cc5cb957e74"
-    sha256 arm64_big_sur:  "f0b5027d1b973ae8032a248b61a947a0310c0aad40d973cfa55ed0f0f21444cf"
-    sha256 monterey:       "c8a4f96f3d11502a5b8f86cc50c2fcad1785bb5319989b7812b3bd9354a7a7ac"
-    sha256 big_sur:        "ba630c7d573cb8079a2493a22ee092061ea7c041ceb61c7c2264fd23ebb7de97"
-    sha256 catalina:       "ac8c57905aaa692ecd95f716a4e5daab9d7b030470cefd99a3b2043ceb19e5de"
-    sha256 x86_64_linux:   "d1b09df6210744180a51992d93ba0d4344fea5fff256b6434486f909f0457a94"
+    sha256 arm64_monterey: "c4e37ca2994a9ba373c02a02517fcc48bc519a9a8a0e5c57e402380a208b0b9d"
+    sha256 arm64_big_sur:  "ba08b3b50818a356a82d795f38b689cba16493c97adf778f1fc138307b5c7eda"
+    sha256 monterey:       "fcbcae19d940140648fa7325ff71e57ab1fc1f928d70b7478e2febe8ba4fda2b"
+    sha256 big_sur:        "2fbf0d3dbef364f3b48c4d560814799ce04fcb1eed4b4fdf2ffcdffb263fcece"
+    sha256 catalina:       "8e89a5064e6ea44933c277ee883cfe7b8c2ee7c0f97db022b00d1ee24f173e4f"
+    sha256 x86_64_linux:   "57379ff0971a0c74960edf4db1d3b8ea2e0b552bd5e6aae431fee24078cc9c90"
   end
 
+  depends_on "gettext"
   depends_on "gmp"
+  depends_on "jpeg-turbo"
   depends_on "libtiff"
   depends_on "nettle"
   depends_on "pcre"
+  depends_on "webp"
 
+  uses_from_macos "krb5"
   uses_from_macos "libxcrypt"
 
   on_macos do
     depends_on "gnu-sed" => :build
-  end
-
-  on_linux do
-    depends_on "jpeg"
   end
 
   def install

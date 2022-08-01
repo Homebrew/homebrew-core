@@ -1,22 +1,22 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.21.13.tar.gz"
-  sha256 "6629ed81cea9319b3d3c5375bd791354e4e5dfbcf83a11303382146ad3bdf3d0"
+  url "https://github.com/diku-dk/futhark/archive/v0.21.14.tar.gz"
+  sha256 "9b0e10e87feddac3e1ac4d9c1ee285c2be18e8bf57a841a968d11b938b17d6da"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b86af361a6661dd55df6c36ad0deae4e3a3135527900ba0999163e03d26a8884"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "90a2eb53841a3e9ec66816a4bba4ecaf5b568e857378ceb4932624915cb1bf59"
-    sha256 cellar: :any_skip_relocation, monterey:       "0610d16a55bfb897df0699fcfee3deeede4cfde07ab907d017e36284b5e2815b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3c052220584ca9a0e35eee45c8acc69b9fd9a3a135a8bba8359f14e4620b09de"
-    sha256 cellar: :any_skip_relocation, catalina:       "f8004b0aaa556a2bbd7314d492de7f5a565e102391247c84e661f6873365bcd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e075d4c1bdd1c9835c9debd221d5b51e9bd55b22f60fd5b6ccbc016182a0bf3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a40786e114125a7ea32a24b36311ee766a003b392a65b70a1f7d5ca933db57f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d7a580c4b2eb5c8acd9661ce196bcfcf8fd5bb55cf458d8ee5b2286a986e7f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "2f84eef9d562af3dd8c9447f8c62880cf99153b06b53d8fff0b3297a3c8aa1cd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e9dd701e80e755ba1ba2725f17460a4c68d9eb171f2bc4d4f3ecb1e2dad53902"
+    sha256 cellar: :any_skip_relocation, catalina:       "0a621a6a493851480ef699403970d1aac545ab46c81704649869a897179a4760"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08d04153a601da2be42d3589ef0c2d9b0eaa8d2126e9c990c0e8d717dda1b1db"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "ncurses"

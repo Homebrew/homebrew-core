@@ -18,13 +18,13 @@ class Kdoctools < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5a601f32bffe4dc8e216a93dd2f2b861e4b663770fc9868bf62a83d611d91143"
     sha256 cellar: :any,                 arm64_big_sur:  "155b77b3477dd88469faa9bf40b46216a97b7995ed914f9cf0ae896a961994e1"
     sha256 cellar: :any,                 monterey:       "def28a011b015afae3dc352fa8f48fb58eea76822bea22de7b47fa328773319b"
     sha256 cellar: :any,                 big_sur:        "17dab58fd1c185c2bb201d305e1f395a5e1dfd1d7f173d958fb0a186ca21e4d9"
     sha256 cellar: :any,                 catalina:       "936ca4a58e5cc12ff1ea0ae2d6ebaacd57902e40a5b07e248dc36bfa8dd54119"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a24f2f3cd23d1e603b1905372ac8158db06267cb0b011ab60b0e21e0a0357ee3"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -39,10 +39,6 @@ class Kdoctools < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "perl"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

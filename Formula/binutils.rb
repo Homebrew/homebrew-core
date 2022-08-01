@@ -22,12 +22,10 @@ class Binutils < Formula
 
   on_linux do
     depends_on "glibc@2.13" => :build
+    depends_on "linux-headers@4.4" => :build
   end
 
   def install
-    # Fix error: 'LONG_MIN' undeclared
-    ENV.append "CFLAGS", "-DHAVE_LIMITS_H -DHAVE_FCNTL_H" unless OS.mac?
-
     args = [
       "--disable-debug",
       "--disable-dependency-tracking",

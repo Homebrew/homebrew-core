@@ -11,13 +11,13 @@ class Caffe < Formula
     strategy :github_latest
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7f5a96c8328e6138829acf81276427238d869cf19f1c71e24022dc2d5b5d420a"
     sha256 cellar: :any,                 arm64_big_sur:  "b8f034785b485867f7886103c4bd3fd4bd4f540b7bb0a5b7cde01714c4b9e945"
     sha256 cellar: :any,                 monterey:       "cd851e5cba512ad56c70ddf31adcb0961e2598a540d56196bfaf3b39d4c0c904"
     sha256 cellar: :any,                 big_sur:        "a94881877f3695dbf486e63e149e0a94cfead9ae0e9bb8f7e56dacad6aa29ee9"
     sha256 cellar: :any,                 catalina:       "e080ed2516787bd3a43e627488e2ada20d60aa166b3919dc87e83cefe9fd35e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1717e247dc12a01921efc4dacc4507bd9e7ed645ad2f154359fdf90b2c1f106"
   end
 
   depends_on "cmake" => :build
@@ -31,11 +31,6 @@ class Caffe < Formula
   depends_on "opencv"
   depends_on "protobuf"
   depends_on "snappy"
-
-  on_linux do
-    depends_on "gcc"
-    depends_on "openblas"
-  end
 
   fails_with gcc: "5" # opencv is compiled with GCC
 
@@ -75,7 +70,6 @@ class Caffe < Formula
       -DUSE_OPENCV=ON
       -DUSE_OPENMP=OFF
     ]
-    args << "-DBLAS=Open" if OS.linux?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

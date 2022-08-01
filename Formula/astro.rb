@@ -2,16 +2,22 @@ class Astro < Formula
   desc "To build and run Airflow DAGs locally and interact with the Astronomer API"
   homepage "https://www.astronomer.io/"
   url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "578410a9dcda1797ff223601317afbc636ca546d6de4998c899e3e347b229be4"
+  sha256 "349d1411950d323de0e5af166444c0abdab77ba22bf5c7a3749cc277ab4791d9"
   license "Apache-2.0"
+  revision 1
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1f3ab581a6816c6e6daac635176dd23cb449f20040d55bfe554eca9834f19a8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1f3ab581a6816c6e6daac635176dd23cb449f20040d55bfe554eca9834f19a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "ad6ec94da92e05b2d086785811ac75e874e71d132ddc0a4c27ded682cdc8b753"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ad6ec94da92e05b2d086785811ac75e874e71d132ddc0a4c27ded682cdc8b753"
-    sha256 cellar: :any_skip_relocation, catalina:       "ad6ec94da92e05b2d086785811ac75e874e71d132ddc0a4c27ded682cdc8b753"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0074bba204d68f66be549e1c30b83409121e3a320517dfc27a82947cb727623"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "74ec9fbecb9bbf6996b889ca7f89ef1b3bac2dd6e5d8245d34cef6a979608f90"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "74ec9fbecb9bbf6996b889ca7f89ef1b3bac2dd6e5d8245d34cef6a979608f90"
+    sha256 cellar: :any_skip_relocation, monterey:       "300cae06021b8612c5dcac17a5d8be75c5bd05883f10e98a8bed113be9714d2f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "300cae06021b8612c5dcac17a5d8be75c5bd05883f10e98a8bed113be9714d2f"
+    sha256 cellar: :any_skip_relocation, catalina:       "300cae06021b8612c5dcac17a5d8be75c5bd05883f10e98a8bed113be9714d2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d333e64d37ceb27c459ccfccc4fb3644a96d07e4b29c7114036e27b440750ac"
   end
 
   depends_on "go" => :build

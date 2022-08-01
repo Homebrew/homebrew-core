@@ -8,15 +8,14 @@ class Insect < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "96e11f28d24dd5050085aef60bbe72791ca77bebeeb8b1db91eb13960f43507c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e5a925fd6688be20cf8c5b931a6edb423bf3e7dbef8a3cfc4347c6ce86f0ab70"
-    sha256 cellar: :any_skip_relocation, catalina:      "e5a925fd6688be20cf8c5b931a6edb423bf3e7dbef8a3cfc4347c6ce86f0ab70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c1883f188bed11649803d4732f861e8193cae22e6d165b65d569f22c8c55abd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a8a99e43f97ba135beb8299d903e8b37e932bb9bb38c8f7c0626fa7015b0099"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96e11f28d24dd5050085aef60bbe72791ca77bebeeb8b1db91eb13960f43507c"
+    sha256 cellar: :any_skip_relocation, monterey:       "7aa86a55bde309754bb5c4118368f5a1def6a99e4752d94d55430d1fbd9f5c70"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e5a925fd6688be20cf8c5b931a6edb423bf3e7dbef8a3cfc4347c6ce86f0ab70"
+    sha256 cellar: :any_skip_relocation, catalina:       "e5a925fd6688be20cf8c5b931a6edb423bf3e7dbef8a3cfc4347c6ce86f0ab70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c1883f188bed11649803d4732f861e8193cae22e6d165b65d569f22c8c55abd"
   end
 
-  depends_on "psc-package" => :build
-  depends_on "pulp" => :build
-  depends_on "purescript" => :build
   depends_on "node"
 
   on_linux do

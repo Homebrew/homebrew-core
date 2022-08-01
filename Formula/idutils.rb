@@ -8,21 +8,19 @@ class Idutils < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "61f32269c9b9d859cb3f0951b7bcdb433e68d0a199335631ff94619ffdbe29e3"
-    sha256 arm64_big_sur:  "226783d59f2f9d0d57462e16af1985c475af17ade456463c3c576804646adfe9"
-    sha256 monterey:       "634de9338f14b22d4f5edc452dd828c11fed4b0753bf03fc42635f55d07d35b6"
-    sha256 big_sur:        "566c400425874363c736ef591555cadffe7a09875ae5d1e07cbd1c224effbd4d"
-    sha256 catalina:       "5df54c76ae786e54f6994c1c65821adaa746c8a6b1aecbafbe3cd9f4f77f7c62"
-    sha256 mojave:         "b48a4caf24a1eba916f1932c85970294e56a0559603a8289fe732c124fbf0811"
-    sha256 high_sierra:    "95f118aa56026de98d148bccc5a807d609a2bfc54749e1d9051a5dce80f603ef"
-    sha256 x86_64_linux:   "287179d81db15f091f9363fd7f1411d5a8d00313ed569d84654a7e14816cf923"
+    rebuild 2
+    sha256 arm64_monterey: "072b4846a5c749954544e7b747d2951d4ee43a4bd6f024e817ac74743cdeefa7"
+    sha256 arm64_big_sur:  "321fd582b7e17f7f912f76f0b5e8f57d16ebf9ea6c8721854c2567df8136fe28"
+    sha256 monterey:       "e3fc421fedb08ac46a82fb2dd8127f4c7c03c6103d943b53a49e8220406ed157"
+    sha256 big_sur:        "4e20dbb5fa6efb604aba5c3fab7b2fe948517c16569a3c27fa5b314e0d0730bf"
+    sha256 catalina:       "7e27c7bad2b5d30c4ee26ffb21cf0412706e83c17d0d55b7cefd1f63c919063c"
+    sha256 x86_64_linux:   "54a8af17aba2695b61bd976d6ae4bf2f13c45cec787b1c14b497080d5bac9ce9"
   end
 
   conflicts_with "coreutils", because: "both install `gid` and `gid.1`"
 
-  if MacOS.version >= :high_sierra
-    patch :p0 do
+  patch :p0 do
+    on_high_sierra :or_newer do
       url "https://raw.githubusercontent.com/macports/macports-ports/b76d1e48dac/editors/nano/files/secure_snprintf.patch"
       sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
     end
@@ -35,14 +33,6 @@ class Idutils < Formula
   patch :DATA
 
   def install
-    # Work around unremovable, nested dirs bug that affects lots of
-    # GNU projects. See:
-    # https://github.com/Homebrew/homebrew/issues/45273
-    # https://github.com/Homebrew/homebrew/issues/44993
-    # This is thought to be an El Capitan bug:
-    # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-lispdir=#{elisp}"

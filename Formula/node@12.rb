@@ -20,7 +20,7 @@ class NodeAT12 < Formula
   deprecate! date: "2022-04-30", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.9" => :build # fails with Python 3.10
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
@@ -28,6 +28,7 @@ class NodeAT12 < Formula
   depends_on "libuv"
   depends_on "openssl@1.1"
 
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
@@ -36,7 +37,7 @@ class NodeAT12 < Formula
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3")
+    ENV["PYTHON"] = python = Formula["python@3.9"].opt_bin/"python3"
 
     args = %W[
       --prefix=#{prefix}
@@ -59,7 +60,7 @@ class NodeAT12 < Formula
       --shared-cares-libpath=#{Formula["c-ares"].lib}
       --openssl-use-def-ca-store
     ]
-    system "python3", "configure.py", *args
+    system python, "configure.py", *args
     system "make", "install"
 
     term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
@@ -89,8 +90,12 @@ class NodeAT12 < Formula
     output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"de-DE\").format(1234.56))'").strip
     assert_equal "1.234,56", output
 
-    # make sure npm can find node
+    # make sure npm can find node and python
     ENV.prepend_path "PATH", opt_bin
+    if MacOS.version >= :monterey
+      (testpath/"bin").install_symlink Utils.safe_popen_read("xcrun", "-find", "python3").chomp => "python"
+      ENV.prepend_path "PATH", testpath/"bin"
+    end
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
     assert_equal which("node"), opt_bin/"node"
     assert_predicate bin/"npm", :exist?, "npm must exist"

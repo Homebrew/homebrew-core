@@ -28,8 +28,8 @@ class Prodigal < Formula
   # https://github.com/hyattpd/Prodigal/issues/34
   # https://github.com/hyattpd/Prodigal/issues/41
   # https://github.com/hyattpd/Prodigal/pull/35
-  on_linux do
-    patch do
+  patch do
+    on_linux do
       url "https://github.com/hyattpd/Prodigal/commit/cbbb5db21d120f100724b69d5212cf1275ab3759.patch?full_index=1"
       sha256 "fd292c0a98412a7f2ed06d86e0e3f96a9ad698f6772990321ad56985323b99a6"
     end

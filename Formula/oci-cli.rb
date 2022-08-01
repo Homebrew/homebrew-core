@@ -3,18 +3,18 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/7f/56/3e3c28b6595231e7970385e59a2e249e106a3b674ac9511ceaed2abee42e/oci-cli-3.11.0.tar.gz"
-  sha256 "899f08b808855a669a97a96e735e648623968ba9aad0059c32aa68583a004d88"
+  url "https://files.pythonhosted.org/packages/46/75/400bdf19f854637d0dcba118dd774035c07d741eb6f3faf27ac51bd6bae2/oci-cli-3.12.0.tar.gz"
+  sha256 "b8264a32692593ee57cf77fbd44ffd24777d5c39384ac4140275f2f7cdd497ad"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "95e8d79002db01baf8782c0d18a3e13e691abeff84326137a7db61032cb45762"
-    sha256 cellar: :any,                 arm64_big_sur:  "0530072bba9e2a5d5b0ac505322bba010798d0aa2b3043b98099a8399999218b"
-    sha256 cellar: :any,                 monterey:       "a73882a2885be8b01bc176b6901bd3dcbfbee622875bdf47b181b4295b22a48c"
-    sha256 cellar: :any,                 big_sur:        "33dada768021315e80e01208b95c19278d7b3d84601ec3878c5be76bbb7ecb37"
-    sha256 cellar: :any,                 catalina:       "cfbb79db798c487e9da045f95062d3a04fc08b31180da3423b829f876e18f550"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f04ee370f23183e6867c0d12ed97c08366c1eb0232ba2ccb358425bf91434630"
+    sha256 cellar: :any,                 arm64_monterey: "8b9057b6969cb4ee5860ec73ca43fca89b73d6aff4bd58bcae75dc2523a13cd5"
+    sha256 cellar: :any,                 arm64_big_sur:  "dbb2d3062d14a2222cefe36deb8a0de7f691197f3f3b61acd520c11d7b802f5b"
+    sha256 cellar: :any,                 monterey:       "7154617bc9ac0dd26120138b91e4e1a6d8de6b6c48b76e7399423e40af691104"
+    sha256 cellar: :any,                 big_sur:        "9f433c9586b0d9e0bd0119751e1b967c1495ee163501f4c6be0d7098ba6908b6"
+    sha256 cellar: :any,                 catalina:       "018be1cee48e410778cc4efd1e896c3aee3d49be70c22f3836f575a243846d20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "704749dfaeb4de5aa9617aaec1dbdb355c17ef3fac8ecc73cf27a1c791fa6fe9"
   end
 
   depends_on "rust" => :build
@@ -37,8 +37,8 @@ class OciCli < Formula
   end
 
   resource "circuitbreaker" do
-    url "https://files.pythonhosted.org/packages/27/3f/2e8de6f352fddfd07eca3072b4757f68f5dd2032d4b2ad8e115c6b1bf5bc/circuitbreaker-1.3.2.tar.gz"
-    sha256 "747d4ced5c0797e2ab1d3e00a03b312db23e7ec65106148fc63beec25bbba50f"
+    url "https://files.pythonhosted.org/packages/92/ec/7f1dd19e3878f5391afb508e6a2fd8d9e5b176ca2992b90b55926c7341d8/circuitbreaker-1.4.0.tar.gz"
+    sha256 "80b7bda803d9a20e568453eb26f3530cd9bf602d6414f6ff6a74c611603396d2"
   end
 
   resource "click" do
@@ -47,8 +47,8 @@ class OciCli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/51/05/bb2b681f6a77276fc423d04187c39dafdb65b799c8d87b62ca82659f9ead/cryptography-37.0.2.tar.gz"
+    sha256 "f224ad253cc9cea7568f49077007d2263efa57396a2f2f78114066fd54b5c68e"
   end
 
   resource "jmespath" do
@@ -57,8 +57,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/38/0a/e3fb157ffb47ea151dd3ff6972e0123ebf1eac442af065dbe937ff4c24ea/oci-2.75.0.tar.gz"
-    sha256 "69494e42048c991c6b4920b8b4351b0edda262b5de1fd627ff729caac7cf75a1"
+    url "https://files.pythonhosted.org/packages/4d/7f/e90e23e549b96bf2cd8276b1e431020f8ceb2c9a1f35a1b33cc46a133e99/oci-2.76.0.tar.gz"
+    sha256 "219a806716e3fa36126413c79cfd1e48d2f05ce0101cc6198ddc3442858613d7"
   end
 
   resource "prompt-toolkit" do
@@ -72,8 +72,8 @@ class OciCli < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0d/1d/6cc4bd4e79f78be6640fab268555a11af48474fac9df187c3361a1d1d2f0/pyOpenSSL-19.1.0.tar.gz"
-    sha256 "9a24494b2602aaf402be5c9e30a0b82d4a5c67528fe8fb475e3f3bc00dd69507"
+    url "https://files.pythonhosted.org/packages/35/d3/d6a9610f19d943e198df502ae660c6b5acf84cc3bc421a2aa3c0fb6b21d1/pyOpenSSL-22.0.0.tar.gz"
+    sha256 "660b1b1425aac4a1bea1d94168a85d99f0b3144c869dd4390d27629d0087f1bf"
   end
 
   resource "python-dateutil" do

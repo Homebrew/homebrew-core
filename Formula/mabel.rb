@@ -2,18 +2,18 @@ class Mabel < Formula
   desc "Fancy BitTorrent client for the terminal"
   homepage "https://github.com/smmr-software/mabel"
   url "https://github.com/smmr-software/mabel.git",
-      tag:      "v0.1.3",
-      revision: "fab9619f85a47e17959a7d00316466c1714747c6"
+      tag:      "v0.1.4",
+      revision: "9232e54a58602b9b128a6070b84295c29aa24b27"
   license "GPL-3.0-or-later"
   head "https://github.com/smmr-software/mabel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d65612058c6fba548cdc354774fb7823407a8fbf88063a1d5373de9514a57d13"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c601135efec31d13150d06f247941fd90ded1eacb1fd375e7655cf7f6fdb4048"
-    sha256 cellar: :any_skip_relocation, monterey:       "7140c60b8c79d4e09c413e82ce38b2cc5b48f595ad2a0de50a69b0d819bb0214"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a26316c82e2d73349eed2abffb6189ce730e6d0a25b60840ba31955fcc7fc56d"
-    sha256 cellar: :any_skip_relocation, catalina:       "67b759ab59fcc778a35243a2dc1bfcd2fdda8d29a8d12f78446b14d0c5f1f890"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "620083e94d2960ee0b692e07ec994842f779d0f3b3d83d5acac7be4e20723c6f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a23960e59fe71026596b30f9bebbc16e4a39ff7e072d165ecaff127d55e0941f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab556e901b131b2fc6d9f94ec20dd5cc84929dd24772afd6b62c6939c4901b73"
+    sha256 cellar: :any_skip_relocation, monterey:       "279d19a2e45d86503c03547678bff0696ec50a28a7a1d96f3b6598d5aeca8169"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1587e1486203466e8bdafb79858d22d14b543730a2e1b7bbed39f89af2beaf08"
+    sha256 cellar: :any_skip_relocation, catalina:       "a768c23d24d13566cdbbb75929767141a8fcbbee20aab3a01df019c08ef57e14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4f2edb7ea7410b9568effafed6c4f57ff2c95ebce6b380cc003423c73badfef"
   end
 
   depends_on "go" => :build

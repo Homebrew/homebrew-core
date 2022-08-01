@@ -37,9 +37,6 @@ class Libvpx < Formula
       args << "--enable-runtime-cpu-detect"
     end
 
-    # https://bugs.chromium.org/p/webm/issues/detail?id=1475
-    args << "--disable-avx512" if MacOS.version <= :el_capitan
-
     mkdir "macbuild" do
       system "../configure", *args
       system "make", "install"

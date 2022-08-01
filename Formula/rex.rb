@@ -3,21 +3,20 @@ class Rex < Formula
   homepage "https://www.rexify.org"
   url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.13.4.tar.gz"
   sha256 "a86e9270159b41c9a8fce96f9ddc97c5caa68167ca4ed33e97908bfce17098cf"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "656a990a252550d057e8cea6994e1270081c7263b1978ebaf4dd21a5d59783f8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cee1b2c63e0123547566a2e3faf8569d55708cca6a5617c8797b4980c124521"
-    sha256 cellar: :any_skip_relocation, monterey:       "bb2fbd2b2a675df48693d4c25287a9072904f0fe75e8fb3482028bd64f25472c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dfe95c2a7c71ad25c596a989b30294f24bcd8f7e17bb01b22d97d68ad73903e9"
-    sha256 cellar: :any_skip_relocation, catalina:       "de0ca43e439023982668c5563f41340a82d3ae8c45159b457749c1ab0f15d3c5"
-    sha256 cellar: :any_skip_relocation, mojave:         "24da3a602c3b434d0069244f546ed33f14e8bd3bbee1f7a99b91ca97a48b0c37"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "dc0b2bb90327f2fc716eb95655366fd7a3ac36d7880f25a69777c9976260d508"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84905c6bacd76ee95deacca3830ccbb2927bbb5d946e472a7b3f65e0e5ad7ecb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f298c2f718406756536bd571aa58ad510e8b29b17e2a1cf3a1921affde39f954"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "191daba59b48d777de85ccbff1500c46ce422274911fbc70818b9017102d2907"
+    sha256 cellar: :any_skip_relocation, monterey:       "88a8982c502280a6a7d137f922d300d6bc318eae91a872873067aef2459b63e5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd29c062470ff6efcf12e43bba2c5ac8d2f71e4069bad912858b858f9643a712"
+    sha256 cellar: :any_skip_relocation, catalina:       "442d8d513cd938ff72eb2a4340618f4eaa26d9ecf755ccbaa94557981f3593b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aef159c2c11cc5d544c7b450eb0b783ad6658342b9631e6c8b5890cbd634190a"
   end
 
-  uses_from_macos "perl"
+  uses_from_macos "perl", since: :big_sur
 
-  if MacOS.version < :big_sur
+  on_system :linux, macos: :catalina_or_older do
     resource "Module::Build" do
       # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
       # MacOS Perl installation has 0.4003
@@ -50,18 +49,11 @@ class Rex < Formula
       sha256 "5030a6d6cbffaf12583050bf552aa800d4646ca9678c187add649227f57479cd"
     end
 
-    resource "ExtUtils::MakeMaker" do
-      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.64.tar.gz"
-      sha256 "4a6ac575815c0413b1f58967043cc9f2e166446b73c687f9bc62b5eaed9464a0"
-    end
-
     resource "File::ShareDir::Install" do
       url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.14.tar.gz"
       sha256 "8f9533b198f2d4a9a5288cbc7d224f7679ad05a7a8573745599789428bc5aea0"
     end
-  end
 
-  on_linux do
     resource "Devel::Caller" do
       url "https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Devel-Caller-2.06.tar.gz"
       sha256 "6a73ae6a292834255b90da9409205425305fcfe994b148dcb6d2d6ef628db7df"
@@ -77,11 +69,6 @@ class Rex < Formula
       sha256 "176fa02771f542a4efb1dbc2a4c928e8f4391bf4078473bd6040d8f11adb0ec1"
     end
 
-    resource "ExtUtils::MakeMaker" do
-      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.64.tar.gz"
-      sha256 "4a6ac575815c0413b1f58967043cc9f2e166446b73c687f9bc62b5eaed9464a0"
-    end
-
     resource "File::Listing" do
       url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Listing-6.15.tar.gz"
       sha256 "46c4fb9f9eb9635805e26b7ea55b54455e47302758a10ed2a0b92f392713770c"
@@ -90,11 +77,6 @@ class Rex < Formula
     resource "File::ShareDir" do
       url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.118.tar.gz"
       sha256 "3bb2a20ba35df958dc0a4f2306fc05d903d8b8c4de3c8beefce17739d281c958"
-    end
-
-    resource "File::ShareDir::Install" do
-      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.14.tar.gz"
-      sha256 "8f9533b198f2d4a9a5288cbc7d224f7679ad05a7a8573745599789428bc5aea0"
     end
 
     resource "HTML::Parser" do
@@ -292,13 +274,7 @@ class Rex < Formula
       system "./Build", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "./Build", "install"
     elsif File.exist? "Makefile.PL"
-      on_macos do
-        path = "#{MacOS.sdk_path}/System/Library/Perl/#{MacOS.preferred_perl_version}/darwin-thread-multi-2level/CORE"
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INC=-I#{path}"
-      end
-      on_linux do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      end
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "make", "install"
     else

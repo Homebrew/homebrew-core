@@ -69,10 +69,10 @@ class Lsyncd < Formula
       "12.3"    => ["xnu-8020.101.4.tar.gz",      "df715e7b2bd5db0ba212b5b0613fbbc85c3cbc4e61f6ee355a8b6cf9a87d3374"],
     }
 
-    macos_version = if MacOS.version >= :big_sur
-      MacOS.full_version.major_minor # Ignore bugfix/security updates
-    else
-      MacOS.full_version
+    macos_version = MacOS.full_version.major_minor # Ignore bugfix/security updates
+
+    on_catalina :or_older do
+      macos_version = MacOS.full_version
     end
     tarball, checksum = if xnu_headers.key? macos_version
       xnu_headers.fetch(macos_version)

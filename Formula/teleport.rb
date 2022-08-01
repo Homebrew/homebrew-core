@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v10.0.1.tar.gz"
-  sha256 "8089d29aec84d8a09525b7455c77f4e73fc3cc2188b35a8e40a698e65a0e7c8b"
+  url "https://github.com/gravitational/teleport/archive/v10.0.2.tar.gz"
+  sha256 "c843ea347c79ff8707b65d578e38f0faae6e27c0c88cb66b3266f7272070c0a5"
   license "Apache-2.0"
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -16,15 +16,17 @@ class Teleport < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a65589b4fc91c8602211f628b53c9f0390cbe9041eda569a739a917932c8ef0d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7934b866289673e88f195c4b186938f05b31974f32b641721fdb429c4c8f0728"
-    sha256 cellar: :any_skip_relocation, monterey:       "f16fbdc5c71ae93833fd04fd479475c82b3c7f93b6e1f9e4e5610c9bbc3c3446"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2a09671566a90c0a495f74c5aac5c92e89324dc913d9ab67c5eb177bf79073b1"
-    sha256 cellar: :any_skip_relocation, catalina:       "3cfe33d8be9923607c42cee84c450545968f6cf1bac6a2fecafab4bfc14a28e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "602323d343550bef72da13e776efd9958e735ab115e72b03402fa08ea2629324"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "21a441a0ab43effd522c6af0d5407496f31c56d6cb9fa36d3122f2a67b1efd6b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f63f000f66e016fcb18db4bf91da8cbf673ca0e839a2a3f7ee5b7b80251be9a"
+    sha256 cellar: :any_skip_relocation, monterey:       "afdf3db6551998f87b9a9a7904c0790d3986dce8d00113c2deca5f626deb9e8a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ec82fefa40954e558b746df9cd2275fd61c38113b187999367ff682abfb2014b"
+    sha256 cellar: :any_skip_relocation, catalina:       "53afbfe07596291ba98a18e2acb9c59bfc113a8949ce27d1feac185a30790bee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93169ed6c121f537b379e075dbf43edc2174a6eade96ba3dada855a5251ee54b"
   end
 
   depends_on "go" => :build
+  depends_on "libfido2"
 
   uses_from_macos "curl" => :test
   uses_from_macos "netcat" => :test
@@ -40,7 +42,7 @@ class Teleport < Formula
 
   def install
     (buildpath/"webassets").install resource("webassets")
-    ENV.deparallelize { system "make", "full" }
+    ENV.deparallelize { system "make", "full", "FIDO2=dynamic" }
     bin.install Dir["build/*"]
   end
 

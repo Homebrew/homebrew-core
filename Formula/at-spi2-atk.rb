@@ -12,7 +12,7 @@ class AtSpi2Atk < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "at-spi2-core"
   depends_on "atk"
   depends_on "libxml2"

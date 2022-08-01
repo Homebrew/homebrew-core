@@ -79,8 +79,8 @@ class GccAT49 < Formula
   end
 
   # Fix issues with macOS 10.13 headers and parallel build on APFS
-  if MacOS.version == :high_sierra
-    patch do
+  patch do
+    on_high_sierra do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/b7c7883d/gcc%404.9/high_sierra_2.patch"
       sha256 "c7bcad4657292f6939b7322eb5e821c4a110c4f326fd5844890f0e9a85da8cae"
     end

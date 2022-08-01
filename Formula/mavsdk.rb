@@ -4,23 +4,22 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v1.4.3",
-      revision: "2d2d85c60123c7d071b1bf50354fc6c06c12115b"
+      tag:      "v1.4.4",
+      revision: "8b974d8df8fe3cec60ec14c5d9380c8984b6813e"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9a3d659ac695cc66d6824d6841123dd49a027b691425b5f3510546ede3382d90"
-    sha256 cellar: :any,                 arm64_big_sur:  "2404efb71b328479bd12ace2e2b32afe22770e864cbb72d6872dfaa1a5e927aa"
-    sha256 cellar: :any,                 monterey:       "51a7ecdb8c1bde2957ee5a962006e204b675b42c5097852411249e5ee1e6414d"
-    sha256 cellar: :any,                 big_sur:        "9acad60e5bd6986243b1c52db5bb72fc834876f0d6ee05f6b7651acef25e28d9"
-    sha256 cellar: :any,                 catalina:       "0cffc77ab9733b18a174169e6644b7b226d1a86f6ac6af3424d90ef1b74d9d76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd1c96c913aaef4c7bb2313d39be452aaebd539cb5e91f4bad8c69c489e0fc22"
+    sha256 cellar: :any,                 arm64_monterey: "5aa08d40b5ef46b7216c436201f195cac1a0bad817cb54260623023e59f152d1"
+    sha256 cellar: :any,                 arm64_big_sur:  "6c6377dfeefb7de5ff42b64b60a80a5855abadc893c38cc5071afc2f9051284c"
+    sha256 cellar: :any,                 monterey:       "780f725ea8c022fd1b7536cc11a519711df390c6177b41241119fe0d3c9895dd"
+    sha256 cellar: :any,                 big_sur:        "f86d329776bdb7c70a26d1ffdec2ae1c1b04131760d93b9025c485bf4fac0c08"
+    sha256 cellar: :any,                 catalina:       "25a5f566b4729aa1e4e9b9e07f0c5d3c85bc1ec191d6393617cd9494e9b2d6c7"
   end
 
   depends_on "cmake" => :build
@@ -40,10 +39,6 @@ class Mavsdk < Formula
 
   on_macos do
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   fails_with :clang do

@@ -27,7 +27,10 @@ class AppstreamGlib < Formula
   depends_on "json-glib"
   depends_on "libarchive"
   depends_on "libsoup@2"
-  depends_on "util-linux"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   # see https://github.com/hughsie/appstream-glib/issues/258
   patch :DATA

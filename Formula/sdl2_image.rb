@@ -4,6 +4,7 @@ class Sdl2Image < Formula
   url "https://github.com/libsdl-org/SDL_image/releases/download/release-2.6.0/SDL2_image-2.6.0.tar.gz"
   sha256 "611c862f40de3b883393aabaa8d6df350aa3ae4814d65030972e402edae85aaa"
   license "Zlib"
+  revision 1
 
   # This formula uses a file from a GitHub release, so we check the latest
   # release version instead of Git tags.
@@ -13,12 +14,12 @@ class Sdl2Image < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4fee7d1294af38943891f173ed8d85e489376bb6cca38b09df6db0d7551fbdae"
-    sha256 cellar: :any,                 arm64_big_sur:  "b6bb839868d441e6d8fabc08efd86d3ffdf554c48279380fcfa83dd2297aef90"
-    sha256 cellar: :any,                 monterey:       "62806004dbe03f3a95d36eacfc751b09c11db0d01678645b15dadb916441051c"
-    sha256 cellar: :any,                 big_sur:        "349c266ef7b099824f3666a40cd9231b8831e7d889bd566221f1e6ab1bf62db0"
-    sha256 cellar: :any,                 catalina:       "d4038db5c17229d4ddfdf9567b4523dda82ee505c0a83dfc5ddaf7b242d228dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10a7b8122f1cfcc8cab265e80baa84093cf7c573004df8d98ed25cb5a5abace3"
+    sha256 cellar: :any,                 arm64_monterey: "bf747bd43cbd3cacc593b5ba80db92d163369e94ed7d026d6c5e6ea3026d961c"
+    sha256 cellar: :any,                 arm64_big_sur:  "42d1afab7256736c0d8388226d392942f54c97532f23731a04341eca7241374b"
+    sha256 cellar: :any,                 monterey:       "cf375ec6014ed15cad4e3e3f25fd9796781ba42662a1fc4272c7fa94c7b73242"
+    sha256 cellar: :any,                 big_sur:        "04993039224965866d9c28ffe73bd477557e24b0462f30ae07b410306fd86a6b"
+    sha256 cellar: :any,                 catalina:       "538e45e7c2e6ae8a4e00cc18802fa9f22f73504365e1b095c43783e0ffbfabcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a24ee1889e1ead85e6f9b3a46898875154c4a84c870c2e70eaabb5572cfbbe3c"
   end
 
   head do
@@ -30,7 +31,7 @@ class Sdl2Image < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "sdl2"
@@ -41,11 +42,11 @@ class Sdl2Image < Formula
 
     system "./autogen.sh" if build.head?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--disable-imageio",
                           "--disable-jpg-shared",
                           "--disable-png-shared",
+                          "--disable-stb-image",
                           "--disable-tif-shared",
                           "--disable-webp-shared"
     system "make", "install"

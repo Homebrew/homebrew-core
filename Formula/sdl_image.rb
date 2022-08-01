@@ -1,8 +1,8 @@
 class SdlImage < Formula
   desc "Image file loading library"
-  homepage "https://www.libsdl.org/projects/SDL_image/release-1.2.html"
+  homepage "https://github.com/libsdl-org/SDL_image"
   license "Zlib"
-  revision 7
+  revision 8
 
   stable do
     url "https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz"
@@ -18,16 +18,12 @@ class SdlImage < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e69657726447aeb89029fa4fd47a615f8a53506f6ff594a947ae6fbf3d77b925"
-    sha256 cellar: :any,                 arm64_big_sur:  "9720413694ba49519d1d1c5213607dbdf177939ae0ee081c03ab2c1d478e2fe3"
-    sha256 cellar: :any,                 monterey:       "9d4fa42d89970868e4dc7779a6960f31790f25905e157e8e944963e98f4a850a"
-    sha256 cellar: :any,                 big_sur:        "67495888095b02d6716cc51f5a522f2a872c29de418f19210ecd586d23684b81"
-    sha256 cellar: :any,                 catalina:       "af782fa2905042005df213106578123c7fd1d6d3111af8bd16e1ec63e273bb8d"
-    sha256 cellar: :any,                 mojave:         "eb27003d54259c16f08795435e2afc34086598e7f1d1f1ae4c2fe5a70a6bf57d"
-    sha256 cellar: :any,                 high_sierra:    "eeb44401862df80a1d1f77dde4164b265d82993458325e753285566b56477695"
-    sha256 cellar: :any,                 sierra:         "d74d6e853e78b65a7e7f266be6733bdb5839f956bcb19061b68a46c16e080a94"
-    sha256 cellar: :any,                 el_capitan:     "4304e6b83a7afa176a0462e8ba20485bc098731a16bd375261f9f449a8f8f7d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d8a3d6067fce20c398a6cfbe5ba87136f9d5968569a613b8a29e3bc3eef4817"
+    sha256 cellar: :any,                 arm64_monterey: "b5d527b57fe9b8bf75202d9151479c53cf95f6880b5b55dfc5551b06fd730959"
+    sha256 cellar: :any,                 arm64_big_sur:  "069b2a802ced9f3ef86bb672dbdea9eb7ee8d4d4a3b20a3e94199e74d540f051"
+    sha256 cellar: :any,                 monterey:       "59eebbfccda7ba1872090e7ee0890aa232091d458d26a37cfb2574caaa559c9b"
+    sha256 cellar: :any,                 big_sur:        "f77908b33aa70b26bce713423c397e6447cd1b50b01deff330d961a8b150239c"
+    sha256 cellar: :any,                 catalina:       "271768b08ae1095c1c6898d6521b3f3d877e008517c9ae4524270c2d7c878239"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "22749cfbcd2aca9869f0c0190a76bc1367f821fd1ab3d687bc820949c9027106"
   end
 
   head do
@@ -39,10 +35,11 @@ class SdlImage < Formula
   end
 
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
-  deprecate! date: "2013-08-17", because: :deprecated_upstream
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "sdl"

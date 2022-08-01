@@ -1,24 +1,29 @@
 class Ilmbase < Formula
   desc "OpenEXR ILM Base libraries (high dynamic-range image file format)"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/openexr/archive/v2.5.7.tar.gz"
-  sha256 "36ecb2290cba6fc92b2ec9357f8dc0e364b4f9a90d727bf9a57c84760695272d"
+  url "https://github.com/AcademySoftwareFoundation/openexr/archive/v2.5.8.tar.gz"
+  sha256 "db261a7fcc046ec6634e4c5696a2fc2ce8b55f50aac6abe034308f54c8495f55"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^v?(2(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3d7b2c18d6ce5020bca1367b97d6cc98592a68b61e26fe42dfed2f990f59469a"
-    sha256 cellar: :any,                 arm64_big_sur:  "972c5920255115ab63cc84c699e9cd032d120bbb85095f8a4d1f2865326ceaa8"
-    sha256 cellar: :any,                 monterey:       "c248dbaa4a43933316a046c32a616f1a2ac559f137fe3795e2c18ac323439870"
-    sha256 cellar: :any,                 big_sur:        "71c8e6cedb938d2c5ec99fea9343805f293013b070ad561e2fa652194f84a59c"
-    sha256 cellar: :any,                 catalina:       "e505a83ecb7ab3aee3f5cb38973612a559ec106a96d7142bc0f245556512a670"
-    sha256 cellar: :any,                 mojave:         "a3416415f8a68fc12922080e36e24481833343d89a06aad74ad57034b2200eb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de87ab59dcd306ea5dadae39afd1fa62304843e3af6cde221b197d9756005598"
+    sha256 cellar: :any,                 arm64_monterey: "398bd979380275b9c0db5577df3a5d334e1d9d94022479f8677b5871998231cd"
+    sha256 cellar: :any,                 arm64_big_sur:  "d616fac56b2bb43a3fdbfcd7f02cd25afae16e90b004fead3f45e69100bc00f5"
+    sha256 cellar: :any,                 monterey:       "d7be04686035d70c27ce4b4bba6d03cb1c0c2ea9bd6b39b889d1d0f5ef2744a3"
+    sha256 cellar: :any,                 big_sur:        "bdf07479c3091736bacc2084f4559453278303432233e911c5f68e3861b56fab"
+    sha256 cellar: :any,                 catalina:       "604258f3462b62c34dd27ea064097da000e558e4db3d5cc68746aa8a7ab69e52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c12083e35dab46f88283fc50b6cb1b93c595db07102814e0effef211f669a968"
   end
 
   keg_only "ilmbase conflicts with `openexr` and `imath`"
 
   # https://github.com/AcademySoftwareFoundation/openexr/pull/929
-  deprecate! date: "2021-04-05", because: :unsupported
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2021-04-05", because: :unsupported
 
   depends_on "cmake" => :build
 

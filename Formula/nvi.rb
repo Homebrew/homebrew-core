@@ -3,6 +3,7 @@ class Nvi < Formula
   homepage "https://sites.google.com/a/bostic.com/keithbostic/vi/"
   url "https://deb.debian.org/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   sha256 "8bc348889159a34cf268f80720b26f459dbd723b5616107d36739d007e4c978d"
+  license "BSD-3-Clause"
   revision 5
 
   bottle do

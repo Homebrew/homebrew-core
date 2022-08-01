@@ -8,13 +8,13 @@ class Serverless < Formula
   license "MIT"
   head "https://github.com/serverless/serverless.git", branch: "main"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bbd2953055332c0a596e53d102e8f80f1c47f5b9c3d1566ef743c8cce4ac9871"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bbd2953055332c0a596e53d102e8f80f1c47f5b9c3d1566ef743c8cce4ac9871"
     sha256 cellar: :any_skip_relocation, monterey:       "1e7a2e2409fb564f0596edc002e897e326737c9e868e3212466baffbc8b42895"
     sha256 cellar: :any_skip_relocation, big_sur:        "1e7a2e2409fb564f0596edc002e897e326737c9e868e3212466baffbc8b42895"
     sha256 cellar: :any_skip_relocation, catalina:       "1e7a2e2409fb564f0596edc002e897e326737c9e868e3212466baffbc8b42895"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82efe8bad35c6f421da6d2aa201219fee02ac195584913f93a2dd37ad1fe8d74"
   end
 
   depends_on "node"

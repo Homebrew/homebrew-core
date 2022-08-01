@@ -24,17 +24,17 @@ class Snappy < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
-  on_linux do
-    # Fix for build failure. Remove with next release.
-    patch do
-      url "https://github.com/google/snappy/commit/0c716d435abe65250100c2caea0e5126ac4e14bd.patch?full_index=1"
-      sha256 "12ff7d1182a35298de3287db32ef8581b8ef600efd6d9509fcc894d3d2056c80"
-    end
-  end
-
   fails_with :clang do
     build 1100
     cause "error: invalid output constraint '=@ccz' in asm"
+  end
+
+  # Fix for build failure. Remove with next release.
+  patch do
+    on_linux do
+      url "https://github.com/google/snappy/commit/0c716d435abe65250100c2caea0e5126ac4e14bd.patch?full_index=1"
+      sha256 "12ff7d1182a35298de3287db32ef8581b8ef600efd6d9509fcc894d3d2056c80"
+    end
   end
 
   # Fix issue where `snappy` setting -fno-rtti causes build issues on `folly`

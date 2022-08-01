@@ -8,12 +8,13 @@ class GnuTar < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "68b05e32ab65f9d196f7c27921ee9b517078023a095484180cc8712878d53342"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3abefa0307a46f6ff26f3801e329e1c9c44cf51879db396533278e1953741b6f"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc04edcba6fb8c7df23e7a97eedb84a2ea9026b12e9c2a8efe78a9c7b41de1ec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a40e1e3d3f573e0c124286f0548e89929d51282369488028f962baa28c8131ab"
-    sha256 cellar: :any_skip_relocation, catalina:       "6d7e3c0ad1386d482b70ff70de07ff6e10c3eb57db7f74ad8b9aedcc6167df51"
-    sha256                               x86_64_linux:   "d0488c8e6bc4d603f0820c8d84fb2cacaee44d59917b9be8cc896d0b48ee7a1e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d30acbafc1fafafd0e20b926fae992e246c8eb7f833ef349b9af330ca1c104f6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "984b478a4567b7435d3e5ccda4adecea05b076f7d906a5e38a2941b125cf9182"
+    sha256 cellar: :any_skip_relocation, monterey:       "50e95002e10bc01900248602282baf407d2984ee0037bce5ae7aa179c052e393"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2c70eed37ee410279978ea44a4444e8116ddb303626c592545ebf50fd65ae423"
+    sha256 cellar: :any_skip_relocation, catalina:       "1db42ebdaa7724d0fb55e861a4e2ac59b0736f9c4d183bd628c658b70c395e92"
+    sha256                               x86_64_linux:   "f23b93a35c0a48f57fd6e2f8eb6edb7688b6e13ab7d8124d6053422738a16229"
   end
 
   head do
@@ -29,14 +30,6 @@ class GnuTar < Formula
   end
 
   def install
-    # Work around unremovable, nested dirs bug that affects lots of
-    # GNU projects. See:
-    # https://github.com/Homebrew/homebrew/issues/45273
-    # https://github.com/Homebrew/homebrew/issues/44993
-    # This is thought to be an el_capitan bug:
-    # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
-
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}

@@ -4,18 +4,18 @@ class Cassandra < Formula
 
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/4.0.4/apache-cassandra-4.0.4-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/4.0.4/apache-cassandra-4.0.4-bin.tar.gz"
-  sha256 "d0d22ac83c16591b6449d5610f252507648c83a427b9dea53497676d6614a54f"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/4.0.5/apache-cassandra-4.0.5-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/4.0.5/apache-cassandra-4.0.5-bin.tar.gz"
+  sha256 "5a6517ceb20e5b7193e933c25b4cf402eac6637cb7b32b007c574c4366912575"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dcdc49d1ce6f965662c233a3b3cf578f0cba3101eab7de744d6a024eb7683309"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a8c893d2b296bd881e066b357937e09b66055deff936266ec4c86b1b4071dc99"
-    sha256 cellar: :any_skip_relocation, monterey:       "54b931a2446007539aa2184aedbc3da3f4687a193db301978afff2294133dcc3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "75bd18bfd3f28270d90002272571527c5c680dc25e655209dcae9daff9cdc901"
-    sha256 cellar: :any_skip_relocation, catalina:       "97b4d6b7eff6396bbe600a59f6591a43570c5efd969885fbb2fd7a02e6ba4c65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "248a7168509f878c18fc0e891cdedc7f0f74435e1ff962fb1eb303207f850c3a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "41021cded84dfb81731086aa5abd08b62ef44b43a5723329c33f6b701296abde"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed7de65df633bff4a6b240f2d2160a6c23cc6ed7500aab9db49b8ccbb664eabe"
+    sha256 cellar: :any_skip_relocation, monterey:       "8604b1522a279618f676e22bc955621155be805c70efcd854e5208b7312ba552"
+    sha256 cellar: :any_skip_relocation, big_sur:        "821dbd2804a7907ec20c989b6ca3731c1f5986c7b37b7f7e8182861018d445c5"
+    sha256 cellar: :any_skip_relocation, catalina:       "85ae7deb5cf9633fb4674d8337baeb52b2d421c4ac6203d358e0a39b8ac8c409"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f2d15e1a171cbff25b36bb535649179bd858f71e86a896400523e67eb54cc51"
   end
 
   depends_on "libcython" => :build

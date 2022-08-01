@@ -23,13 +23,16 @@ class Lrzip < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "nasm" => :build if Hardware::CPU.intel?
   depends_on "pkg-config" => :build
   depends_on "lz4"
   depends_on "lzo"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  on_intel do
+    depends_on "nasm" => :build
+  end
 
   def install
     # Attempting to build the ASM/x86 folder as a compilation unit fails (even on Intel). Removing this compilation

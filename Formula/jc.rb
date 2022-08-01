@@ -3,17 +3,17 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/a8/bd/2ed8782ecbc2f764bffcb90803f376dda95f65a684b0dd9dac50e9385a4f/jc-1.20.2.tar.gz"
-  sha256 "781dad6aa5541715746f184a674d480eba042e1b3dd62d449d76be959e7aaa28"
+  url "https://files.pythonhosted.org/packages/45/d8/92927765b10e27b2bc9099626a3d8196439dd2fc61854e4633a8f47843d0/jc-1.20.4.tar.gz"
+  sha256 "28a4cbb1f52231d479fe2bbf935af504870a7e9072b5f0b259767f4f15feaa0b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9dfd4fc7b53f33b7a5a977dcab8ccf5407e4c06b0a25cc04f7af046d9e141b85"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45fde8d7a48c7cb39515b3241ffb317871b28fa20bfb833724bbc80f278a7470"
-    sha256 cellar: :any_skip_relocation, monterey:       "36643e294b2bb4ea7570d661b74c2f10e24e999ca95821ea4d9f12e6b48cc5ff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "85b1c1954fdd3d780b0d65d61bb8176824611abe0dd389b4a3cf13bb84edf14e"
-    sha256 cellar: :any_skip_relocation, catalina:       "282dcc4abb0596a97cdd0ac1f9e9c6ec2f6ae85c6cca9405fc11c80cd94ddb41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d7d91ba0612cfb4cc6042c4c5129b506f73d755611565aeeb363403bb284d10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fe58cda3c0a0d60d9f17b3ee922d0322d4c5272c20511844eb3d549a2c9eccae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "092e5533dc5d3ee572ac1eed97d0e1fb55e7554d77f69739bc4f28f3c7371af1"
+    sha256 cellar: :any_skip_relocation, monterey:       "a2f59fd4153a85bfc4bf0b81697f35fb5a9385d943f66b31ce04bc6da5eeda9f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bdbe1c6adc772bd62f583d95c4ead23f981cd712de29d5f8b173114ffee58365"
+    sha256 cellar: :any_skip_relocation, catalina:       "4985c8c769454c60da7672d30f35c7df7bdf89347d972e028da170461e0efba4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "777d419d516a5391d2b6ada57bc61aa392946921e223258ce79c324dd76a2e17"
   end
 
   depends_on "python@3.10"

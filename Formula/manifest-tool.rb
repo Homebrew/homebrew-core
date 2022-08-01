@@ -1,17 +1,17 @@
 class ManifestTool < Formula
   desc "Command-line tool to create and query container image manifest list/indexes"
   homepage "https://github.com/estesp/manifest-tool/"
-  url "https://github.com/estesp/manifest-tool/archive/refs/tags/v2.0.4.tar.gz"
-  sha256 "3adff8238c21a81ac51dda1f5d83ce8ed6da0d151bf4f3371a1d0e8833e351f3"
+  url "https://github.com/estesp/manifest-tool/archive/refs/tags/v2.0.5.tar.gz"
+  sha256 "e7af6f7206e58dfaf4336169298a481de71c2e2b1dea457c17a241632ce2d9b6"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d9bcebc44d534b820503f879a743511dc7d5e93686cd49e6c1df49e4742e981"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a932de46a01d6ad46870c799d9b83e9084bdd5849925699a8b8299ddc2fe39c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "394160bd3c1344414711ae7c50898e0b936f9a6258f3b60a229dbd8ea2d19af4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c04d1da20bf4577be2a0759b9b21db918052513bd698e2f3032578066dfc1d06"
-    sha256 cellar: :any_skip_relocation, catalina:       "81b13917fe55b2cf66b8bb3a4f158cfa3f7755c75f6e08b58c6f819159fc2e0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b7009064fcc43d54309790bd3ebd63d6972a436255c8f29c43e910a98b4b444"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d6a12ae584f23e1940f972f4a672e1cb48c69dd8184b1eb801fe10a1ddaf52fc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5dca5344a17ae9648e59674d1030ca0c82c43f205fb7ad53a9cbd1489ee6343b"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a96c9beb33f49a728814fff6ecb912400d30742e2cca52ff690318b49d4ac95"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bcf583dede09cb63b100109857e5cace05161ac0cf1cf95bf94e2194e257ad1b"
+    sha256 cellar: :any_skip_relocation, catalina:       "16fb73f39fc8fe038d345a921951e2c2a6c4438d29959680f6fc587388bb43d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fcca7bd37323cd666b96ff851b390e786c04ec1639fdb9c161e50515adaae153"
   end
 
   depends_on "go" => :build

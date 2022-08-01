@@ -6,7 +6,8 @@ class Libnl < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 x86_64_linux: "17a90fc0e510aeaee7135f7ddf604e29c95d4d0dc1f71c3a23d6febd3b48e79b"
+    rebuild 1
+    sha256 x86_64_linux: "f8763b4ead5dedac63ba5721a5c52981bf14e76ec89ffaafa7e65398f87d54e3"
   end
 
   depends_on "pkg-config" => :test
@@ -16,7 +17,7 @@ class Libnl < Formula
   uses_from_macos "flex" => :build
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", *std_configure_args, "--disable-silent-rules", "--sysconfdir=#{etc}"
     system "make", "install"
   end
 

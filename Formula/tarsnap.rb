@@ -11,12 +11,13 @@ class Tarsnap < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2f1ea86aae6e6e464e2e78b7e984fdb884e62ab350b3d20058e0db069d7b191e"
-    sha256 cellar: :any,                 arm64_big_sur:  "cf93e896315ebb2a3fefb2ff032b6e39c12fa6fd800aea3b92ef0634d31858eb"
-    sha256 cellar: :any,                 monterey:       "c0f9c6e1b236cb7090f165e6d0446bf7ebbeec5c376e86f95c4780914986f241"
-    sha256 cellar: :any,                 big_sur:        "1c48cabb8d20ad07878301d4569f1aaf9c170ba8a966822dbcf4f24f50b4d00c"
-    sha256 cellar: :any,                 catalina:       "46c31d5b91537dfe098c9cdf09b56585fbfa0d096035a71dd6d2ff9746841456"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d753f70ee86f887511c3a1a1dbcea99b4da13b77f21b74d56fc1e5190a5c9c6c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "2f85cb28a47e95f3c56f4e8f46fd0dbc93fd08e4bba009316496d0cfbcbf97c7"
+    sha256 cellar: :any,                 arm64_big_sur:  "1568e243b45336f4056edd5b318089467241896d2e61495cc96d0ad69cdf3faf"
+    sha256 cellar: :any,                 monterey:       "f63b7b06c773b38efe542a851cd978b21019c2387c54afb63be12b4341637e30"
+    sha256 cellar: :any,                 big_sur:        "d5e0ed53466a5fe9b2a0be1cc1870ca6a98a06a34068ea6549b57de7b7a1862e"
+    sha256 cellar: :any,                 catalina:       "4240cae3fe32207826e333930377408f7832a4404fd033d6cba331d56cd98c09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d95c422ceceb7439b60c44c9412639deb8eb9a9a9a5c539fdb3a164cc11e0e92"
   end
 
   head do
@@ -35,13 +36,6 @@ class Tarsnap < Formula
   end
 
   def install
-    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    # Reported 20 Aug 2017 https://github.com/Tarsnap/tarsnap/issues/286
-    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
-      inreplace "libcperciva/util/monoclock.c", "CLOCK_MONOTONIC",
-                                                "UNDEFINED_GIBBERISH"
-    end
-
     system "autoreconf", "-iv" if build.head?
 
     args = %W[

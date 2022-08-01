@@ -7,14 +7,15 @@ class Litani < Formula
       tag:      "1.26.0",
       revision: "1307f033fd2c334150b758b569821a1b51acf930"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f6e7952a1bffed29fef1fe0f1b0dd202512292cf54a8a183f384edc22e41220"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "729ff463dc94112cec2317cc6bec848a4b61416126a310e92daea1a6beaf0150"
-    sha256 cellar: :any_skip_relocation, monterey:       "a585933f6c70e38fa504a6c092846e0e3fac9d00d46c2dac6b871dc43c25cd4c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c914ffd1accbcac1a0a2a550df79e640fa9a72f6eec98cd78d6a707d719ee052"
-    sha256 cellar: :any_skip_relocation, catalina:       "c3b1b69be5dff970d0db1382bfda789993e86116b722acbfdcec1669768e1908"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aeb7f0870e2a0aa434986c4ee6650f3fea88cdbf155526ab1b6b3670ac3f02b1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb309da5e4bab604d3f0f1ed3b8d3422f9644d6a3f7827b74383e934b2732a6b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "001d85edff69787b30ed9b74422ab3d70729c6bd8d418be39d6c3ade4773d833"
+    sha256 cellar: :any_skip_relocation, monterey:       "dddd84436cbdb324d5b4aa46f8ff3b8abb3af0fa2a294a26008ee8b316aa52bf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "94ff46095c0815126a6f4f4e18b115e00e807fdf35d22532ac8ea02a0ad6ad1b"
+    sha256 cellar: :any_skip_relocation, catalina:       "abfa7708b28bfc7605f1c5bb6a8d46c4b0d8f4e8515cd63c5bfe10bcb8630289"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30ed4bcad2a0f69ec2319b59c7bafb8b51547e66fcce76d10a6f5d921783dca4"
   end
 
   depends_on "coreutils" => :build
@@ -23,7 +24,7 @@ class Litani < Formula
   depends_on "gnuplot"
   depends_on "graphviz"
   depends_on "ninja"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"

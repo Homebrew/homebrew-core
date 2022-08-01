@@ -3,17 +3,17 @@ require "language/node"
 class Mongosh < Formula
   desc "MongoDB Shell to connect, configure, query, and work with your MongoDB database"
   homepage "https://github.com/mongodb-js/mongosh#readme"
-  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.5.1.tgz"
-  sha256 "4a9d093a4475960d3c692c5a5e7dc26da3c5ed099b81a211037ecd5de2b7881d"
+  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.5.4.tgz"
+  sha256 "b2163fbf1decf33f19a75c888f6a1365be26edcf21ee2e2181a700f70475af28"
   license "Apache-2.0"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256                               arm64_monterey: "065a34d8a8ac8ef424795d44be74b1ea8f5248242af114301534a9ae69ca9e2c"
-    sha256                               arm64_big_sur:  "c219c1d134399e978bcadcca1316442fd6b043032e63809d6cd19f5ec0522fc7"
-    sha256                               monterey:       "062d16073860c04e285268bd441ebc2d7d19c4e06c2164f3ee8f9cb27a7b1bfc"
-    sha256                               big_sur:        "7d57fd2a425b19bc382b769d8cdb1358d2e4b12eed6b26b33581c054eff4217d"
-    sha256                               catalina:       "62d4b2eab04f6cc1d78750813f74b2be7a27554c24a92a7310f7ddf7f46cba14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c25e48346fe0bce0f115c0dd3bbf852d7280d7737634f9eadb67b490535ab3e1"
+    sha256 arm64_monterey: "afd60961e76713fcd598cf7241a94006057e527ce0ec254746c3e26103d8e644"
+    sha256 arm64_big_sur:  "bab14dc4f97a33337d77aeb1d7a1eedcbd00d1842e4451b35c666658d1daf996"
+    sha256 monterey:       "b618e101c7591f80c4138074da22cf956a4d9ab7e37834840ceab6b7f4bc3c4c"
+    sha256 big_sur:        "593e89a8fda1465886b55776d840c55bbd490e3a32caedfffe3e093ce099b137"
+    sha256 catalina:       "525cf115b605f561e3eb9ff507d6573826dabd1565e6cd94da887b7e92d47d9f"
   end
 
   depends_on "node@16"

@@ -3,18 +3,18 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://www.linode.com/products/cli/"
-  url "https://github.com/linode/linode-cli/archive/refs/tags/5.21.0.tar.gz"
-  sha256 "461aa43f4d7f7231a8f549a98b945022c2fd16cd138a7eb73871baebaf59a01d"
+  url "https://github.com/linode/linode-cli/archive/refs/tags/5.22.0.tar.gz"
+  sha256 "81ae9a4d650f2a8b88a5d7a6be1b529f4ff11d2a2d1ea0f95906f63e4c2f5ae8"
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3833ed520cafa1bf8f19d4be753c09e9273f6b37e37687f61f505883353b7b64"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7dfda0f3db749ff1067926dd294d218dca8cf8eab346cbbc5414e2d17a34ab55"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e4dcdcc06de03b7daa76515ecdb36fb84835ff3c4222108122f20bb782ff3bc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b1ba0396cd034a007569a1af412b232325cccc00a13b4bc234806cd5d38b99a6"
-    sha256 cellar: :any_skip_relocation, catalina:       "478629f67b780730713df0ed749a10e759eda7ec9857dd8e761b00877b33e34a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef08cee3830b897c90caf786d146040c7971551c206f7441387df6f7b7daaafa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f39408472e4382c84e29f7fca6a86d599aa916757c6c0f4bda9d45d976253e34"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d13ee8f604607ed7552c209e29e4611423f95efdbfe7d741f2a11118bb352ea7"
+    sha256 cellar: :any_skip_relocation, monterey:       "8151659e42349dab2dae41704efd78eb430f3879252bdfddc3366dc85f621489"
+    sha256 cellar: :any_skip_relocation, big_sur:        "689ddec95cbea7d69ba49228674a0627f3e2f237a989290f8274488f76db953e"
+    sha256 cellar: :any_skip_relocation, catalina:       "8216d747476318a5d8cac9e0d1c2e5c1ad9191c2444ae0be13f1f0b60a91571b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b7311e8c5c43dad3f346fd54509549f233a618ea43d63942b3e930004ae820f"
   end
 
   depends_on "poetry" => :build # for terminaltables

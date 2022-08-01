@@ -10,6 +10,7 @@ class Antlr4CppRuntime < Formula
     regex(/href=.*?antlr4-cpp-runtime[._-]v?(\d+(?:\.\d+)+)-source\.zip/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_monterey: "c513a0222e04b43c0013ac15a77d2acef6890f2e7fbbdb42a264e4143ecaa5a1"
@@ -17,16 +18,9 @@ class Antlr4CppRuntime < Formula
     sha256 cellar: :any,                 monterey:       "d06a0114f1d079d7b5f29ae64ebdf1868eb7b9f04410e049161226a2a1e76d6c"
     sha256 cellar: :any,                 big_sur:        "024707eebab37c6f5504ca3a4f2e81d4869e084208c6733bc14c8b6341472515"
     sha256 cellar: :any,                 catalina:       "2fd4f6cb6c5d2580e32d177ae6ef8c8e67be0e23768b19cc27f5796b0cba25f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54f86b03137aad378c8640cc49c7f07bb1634e735784183e6fa593f76c50a3ee"
   end
 
   depends_on "cmake" => :build
-
-  on_linux do
-    depends_on "pkg-config" => :build
-    depends_on "gcc"
-    depends_on "util-linux"
-  end
 
   fails_with gcc: "5"
 

@@ -1,18 +1,12 @@
 class Deployer < Formula
   desc "Deployment tool written in PHP with support for popular frameworks"
   homepage "https://deployer.org/"
-  url "https://deployer.org/releases/v6.8.0/deployer.phar"
-  sha256 "25f639561cb7ebe5c2231b05cb10a0cf62f83469faf6b9248dfa6b7f94e3bd26"
-
-  # The first-party download page now uses client-side rendering, so we have to
-  # check a JSON file used on the page that contains the version information.
-  livecheck do
-    url "https://deployer.org/manifest.json"
-    regex(%r{\\?/releases\\?/v?(\d+(?:\.\d+)+)\\?/deployer\.phar}i)
-  end
+  url "https://github.com/deployphp/deployer/releases/download/v7.0.0/deployer.phar"
+  sha256 "34a234b6acccd1b6f214df570ff118a9fcea91dc06be53f75d0fc702cc38ace5"
+  license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c8f15a518a11552ea9bdf2ff350918e20b14b4e31b1fab1c2471b24c6ee743f4"
+    sha256 cellar: :any_skip_relocation, all: "ed7260dc5eb44314da6c26f8011961042f01b8731af4fae1a533d85ef5b0f4e4"
   end
 
   depends_on "php"
@@ -24,7 +18,7 @@ class Deployer < Formula
   end
 
   test do
-    system "#{bin}/dep", "init", "--template=Common"
+    system "#{bin}/dep", "init", "--no-interaction"
     assert_predicate testpath/"deploy.php", :exist?
   end
 end

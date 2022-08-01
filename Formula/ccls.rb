@@ -1,37 +1,40 @@
 class Ccls < Formula
   desc "C/C++/ObjC language server"
   homepage "https://github.com/MaskRay/ccls"
-  url "https://github.com/MaskRay/ccls/archive/0.20210330.tar.gz"
-  sha256 "28c228f49dfc0f23cb5d581b7de35792648f32c39f4ca35f68ff8c9cb5ce56c2"
+  url "https://github.com/MaskRay/ccls/archive/0.20220729.tar.gz"
+  sha256 "af19be36597c2a38b526ce7138c72a64c7fb63827830c4cff92256151fc7a6f4"
   license "Apache-2.0"
-  revision 5
   head "https://github.com/MaskRay/ccls.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256                               arm64_monterey: "7a700c856f8fddcb51898902e141a7bf2b00cf1d534ad44e368761eaea80c6a9"
-    sha256                               arm64_big_sur:  "f8de1cf356810a3b604fd13f526608cf4ad4ab4c4e70b8474693b580552b0f8f"
-    sha256                               monterey:       "5a6b516516d46abbf4668b5e9eec5e88840c5a2ca73432696d8ab2d9a641a074"
-    sha256                               big_sur:        "b68c5cbc9bdfcb100fd62c6b358a3686735d0e3557ce0a1237499dcb8080bf64"
-    sha256                               catalina:       "831dfbfb728bffc850add851055b9d6eedf5adb74250a08eed8e05997d760695"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1dbb3ade81ce1ad9d4f63cde3620d72513097d2835b1e74d80e3a9d1999d66e"
+    sha256                               arm64_monterey: "b8c13816cd75809e6ea41113e55f37c547aeba195c648c47af3863921ac85115"
+    sha256                               arm64_big_sur:  "11204e506ee765088067057072547cb7b190fb466ff719d8a1de0fd0b4116a7f"
+    sha256                               monterey:       "a6eecb14e3e58561d8e4d76049624d31df4ea00921ba77116d0dc5e100caf5a9"
+    sha256                               big_sur:        "c48483f72436fd6e4b1a8c3928b436bd48047e396540ce47de06914554b5b064"
+    sha256                               catalina:       "338d1b8848c2a3b380e65551a1a5f38da4c9eb8d8f6968fdef694daf529023e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1da50c69833e7af97b6ebf40b1b6a1d45ba1577b3a80baede95990ed8270488"
   end
 
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
-  depends_on "llvm@13"
+  depends_on "llvm"
   depends_on macos: :high_sierra # C++ 17 is required
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
+  def llvm
+    deps.reject { |d| d.build? || d.test? }
+        .map(&:to_formula)
+        .find { |f| f.name.match?(/^llvm(@\d+)?$/) }
+  end
+
   def install
-    resource_dir = Utils.safe_popen_read(Formula["llvm@13"].bin/"clang", "-print-resource-dir").chomp
-    resource_dir.gsub! Formula["llvm@13"].prefix.realpath, Formula["llvm@13"].opt_prefix
-    system "cmake", *std_cmake_args, "-DCLANG_RESOURCE_DIR=#{resource_dir}"
-    system "make", "install"
+    resource_dir = Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp
+    resource_dir.gsub! llvm.prefix.realpath, llvm.opt_prefix
+    system "cmake", "-S", ".", "-B", "build", "-DCLANG_RESOURCE_DIR=#{resource_dir}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

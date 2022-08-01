@@ -6,19 +6,20 @@ class Mapproxy < Formula
   url "https://files.pythonhosted.org/packages/db/98/d8805c5434d4b636cd2b71d613148b2096d36ded5b6f6ba0e7325d03ba2b/MapProxy-1.15.1.tar.gz"
   sha256 "4952990cb1fc21f74d0f4fc1163fe5aeaa7b04d6a7a73923b93c6548c1a3ba26"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a67990b6cae1a62b8bd22c0034c2d846cc51305f029ce2a0ff935a3fb4b0233b"
-    sha256 cellar: :any,                 arm64_big_sur:  "3941b1ddb52dfde608a8116588b695a37b9003cec1bf8a21f71f642e5161a4f8"
-    sha256 cellar: :any,                 monterey:       "70f01371595e686a9244655e0c5e5682a83720247b07db8c00cc266b5f1a88e3"
-    sha256 cellar: :any,                 big_sur:        "2f93d2df55a61d86b4c246d842dad5d36c43716caef1ff996212fd439a229b14"
-    sha256 cellar: :any,                 catalina:       "c83481e63a7b6eae74f6f5963041bf7f8fa08c19b5df52670f515bdd5fc41107"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60402f962e783b1863afe3ab984b204d45337822acfdbafcfe255b14198af8ed"
+    sha256 cellar: :any,                 arm64_monterey: "2396ba7893fa3d7b0831ebb18533a2f73c8f6e4b30e61ca0eb38641f19ad1a5f"
+    sha256 cellar: :any,                 arm64_big_sur:  "7cb053b16e7c06746d420c410797e9c294311fd1213000e5485f6aa2c99b9dee"
+    sha256 cellar: :any,                 monterey:       "c4fdec843abd2a725d2a6ed834a1122dd55bca8441f68373a90ae44afbadef90"
+    sha256 cellar: :any,                 big_sur:        "92b661037da1ad2a9981f194325f43ecc15c27f11e09bd375ad5cc7bba0c73e8"
+    sha256 cellar: :any,                 catalina:       "3b1adaa856106a10da076232b6c33a0fbce2971199cc6b09926a39cd34e3533e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b74e416776f291996c52dd4e195be77b7154107d3102cf7d1c49be9cd5d947ff"
   end
 
   depends_on "pillow"
   depends_on "proj"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "certifi" do

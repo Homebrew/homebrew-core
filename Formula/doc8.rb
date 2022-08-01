@@ -3,25 +3,25 @@ class Doc8 < Formula
 
   desc "Style checker for Sphinx documentation"
   homepage "https://github.com/PyCQA/doc8"
-  url "https://files.pythonhosted.org/packages/e0/38/af1889fbcfae4b66eb936f0f43ceaa315b19b8d4ae1123e1bcab0d9d0738/doc8-0.11.2.tar.gz"
-  sha256 "c35a231f88f15c204659154ed3d499fa4d402d7e63d41cba7b54cf5e646123ab"
+  url "https://files.pythonhosted.org/packages/75/8b/6df640e943a1334bebaf96e0017911763d882748e8b8fd748f109c8c3279/doc8-1.0.0.tar.gz"
+  sha256 "1e999a14fe415ea96d89d5053c790d01061f19b6737706b817d1579c2a07cc16"
   license "Apache-2.0"
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aac650bb05fb736a569228fdb1c1f75f45aeea6c60f2324253f0e3ec69601609"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21bee28d0330f49a70b3ae4572d6d41aba3bc622d252a1264b0d13be4bfd7692"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae21f8ecfcd761044aeb5b442bfc2714b0ecb36b3271b3627670c14d2310e9c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "978fb08a7e2a9fbd5b7a85dee5e7b92567abf52d76c04ed30c46f6c5aa84765b"
-    sha256 cellar: :any_skip_relocation, catalina:       "b013492fdace28d5b4ee51aa8453e6a578a42dad076fbd27b1fff74566b22d67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4cfd64de939bb1961e65f9d18629244bcd8d63c3befc1025d26a3c70823011d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2a822998b2a39e570065d75a3fcfb52e9532b62fa5838a00788a8ece7f09a6c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8fd71f85c355beb5d7843a871e22971cef5fd160b0d37744dcc820f48e4731ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "af757567616bc402dedb16d4fc38f8027f7c99dcceaed4a74d2c0b6dc1f5951b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4145a4f2de02c2731eb6c71f68d53bace2ffdb97d5beeb88957230ecb06eeb70"
+    sha256 cellar: :any_skip_relocation, catalina:       "ce70b5a82f3cc3a1944775053e63da6226a00f6a589b8378249f89f93f03184c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c6893383d7d5854ae0c796ca99ae4be4783fdea457556b741061164d7901283"
   end
 
   depends_on "python@3.10"
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/57/b1/b880503681ea1b64df05106fc7e3c4e3801736cf63deffc6fa7fc5404cf5/docutils-0.18.1.tar.gz"
-    sha256 "679987caf361a7539d76e584cbeddc311e3aee937877c87346f31debc63e9d06"
+    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
+    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "pbr" do
@@ -40,8 +40,13 @@ class Doc8 < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/67/73/cd693fde78c3b2397d49ad2c6cdb082eb0b6a606188876d61f53bae16293/stevedore-3.5.0.tar.gz"
-    sha256 "f40253887d8712eaa2bb0ea3830374416736dc8ec0e22f5a65092c1174c44335"
+    url "https://files.pythonhosted.org/packages/f5/70/7953626fd19faa7a0852779c1949650e825f650ee6060f68658a84584c26/stevedore-4.0.0.tar.gz"
+    sha256 "f82cc99a1ff552310d19c379827c2c64dd9f85a38bcd5559db2470161867b786"
+  end
+
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   def install

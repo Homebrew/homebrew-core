@@ -3,18 +3,18 @@ class Fava < Formula
 
   desc "Web interface for the double-entry bookkeeping software Beancount"
   homepage "https://beancount.github.io/fava/"
-  url "https://files.pythonhosted.org/packages/14/ee/d32f328f7a7884e8b87e15a4db263fe09fb1e3a544ffae1ad4b9ee0c376c/fava-1.22.1.tar.gz"
-  sha256 "82d7b5378ddbf40a24984a8e35dbc471a1970cf21e19f96c93ec2ec43b53791e"
+  url "https://files.pythonhosted.org/packages/94/f6/6155000641db725e405a50f83f978987228749c1e02c922b014430ee9481/fava-1.22.3.tar.gz"
+  sha256 "7bcfd53a7d169ab50eebdc7fe21286b602ae8f5d54d50bfb39485f38bfe9e43b"
   license "MIT"
   head "https://github.com/beancount/fava.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b4da2c2fff5059d3996445ac7c4f26652f266ecb1eec7fa5fafa76270de3690"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d6fda97165325e19fc6b8c476ea7b96968e4271e7df4bda68716849d23cb259"
-    sha256 cellar: :any_skip_relocation, monterey:       "b750d46b5b4221cf3ed5fe46e243b01564d80c86ba5c21a35988844267e8cc96"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3a22c4ad08fdae38446dd6ce0742f5cc3f39645a601e7058120994cc28f72dfb"
-    sha256 cellar: :any_skip_relocation, catalina:       "c2f20ed9b9842e0354e53b5e523a24d9d74e89c9a6ca3949a55ee2c93141532b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae372781c5a893e9fdd6f35428c2c75da3a1d3e563c4e42cf8ee8b01a62f135a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0975254c0a91a0e7d38734c9553414ec0fe00423545d294281f845b58ddb8264"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "737a09f396188c1407ac907d0ed65dd61adfabd5e246866b7b1cc48dab00d1da"
+    sha256 cellar: :any_skip_relocation, monterey:       "32b0b712034344224356320d03772cf2b24ef9cce39e54fdb5d96fdc0d615673"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e4e790adf89dc199f038c666aaab231836bc8127cca43f258d71a818fe438119"
+    sha256 cellar: :any_skip_relocation, catalina:       "8f8754b5205bb890f930077d879d3b6936269099759ca4f923274a667bbc02ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3a48f2fc170f9beedf3da394a638958b1f674ec40900ab48574d28a9fd6057e"
   end
 
   depends_on "python@3.10"
@@ -23,8 +23,8 @@ class Fava < Formula
   uses_from_macos "libxslt"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
-    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
   end
 
   resource "Babel" do
@@ -93,8 +93,8 @@ class Fava < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/a2/e5/44cac8e47820a9a8b4231305119becc15ec94568f55954a759276b74fb8f/google-api-python-client-2.52.0.tar.gz"
-    sha256 "0ae3fa7cad2102e24a587986cee53afdbc95bd69b58f2c08f8fd881a20da5f14"
+    url "https://files.pythonhosted.org/packages/98/ac/3c1a4b068515b214757931d573b659525b213fb7ca7ef05d47a841c032e9/google-api-python-client-2.55.0.tar.gz"
+    sha256 "1766c700eee14809ca1f7f52868c937755153289ea77ecdfd73dea6910e9a34d"
   end
 
   resource "google-auth" do
@@ -133,8 +133,8 @@ class Fava < Formula
   end
 
   resource "jaraco.functools" do
-    url "https://files.pythonhosted.org/packages/1e/c8/6733dc1c6afca663c08534e7f4e7b14751019f6dd3476c40dbecb3904449/jaraco.functools-3.5.0.tar.gz"
-    sha256 "31e0e93d1027592b7b0bec6ad468db850338981ebee76ba5e212e235f4c7dda0"
+    url "https://files.pythonhosted.org/packages/e2/61/12a154326f2d4f403193fb207aa867b4e1ce6ccdfa0b425ab4a25873b39e/jaraco.functools-3.5.1.tar.gz"
+    sha256 "d0adcf91710a0853efe9f23a78fad586bf67df572f0d6d8e0fa36d289ae1c1d9"
   end
 
   resource "Jinja2" do
@@ -178,8 +178,8 @@ class Fava < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/28/01/d85a74fb076a172519f9d24cc68cdcf9a0cdc7c62ec6ae27feb33a88b602/protobuf-4.21.2.tar.gz"
-    sha256 "863f65e137d9de4a76cac39ae731a19bea1c30997f512ecf0dc9348112313401"
+    url "https://files.pythonhosted.org/packages/41/74/805a785b4d1415fab34f62c62af1706b58da3164b3cf4b23b87b1a40a0ba/protobuf-4.21.4.tar.gz"
+    sha256 "5783dc0d6edae631145337fabb18503b4f77274f94cdd22a4b26b9fe5029e718"
   end
 
   resource "py" do
@@ -228,8 +228,8 @@ class Fava < Formula
   end
 
   resource "rsa" do
-    url "https://files.pythonhosted.org/packages/8c/ee/4022542e0fed77dd6ddade38e1e4dea3299f873b7fd4e6d78319953b0f83/rsa-4.8.tar.gz"
-    sha256 "5c6bd9dc7a543b7fe4304a631f8a8a3b674e2bbfc49c2ae96200cdbe55df6b17"
+    url "https://files.pythonhosted.org/packages/aa/65/7d973b89c4d2351d7fb232c2e452547ddfa243e93131e7cfa766da627b52/rsa-4.9.tar.gz"
+    sha256 "e38464a49c6c85d7f1351b0126661487a7e0a14a50f1675ec50eb34d4f20ef21"
   end
 
   resource "simplejson" do
@@ -253,13 +253,13 @@ class Fava < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
-    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
+    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
+    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
   end
 
   resource "Werkzeug" do
-    url "https://files.pythonhosted.org/packages/9b/da/568076b989828f8ec3ea1bb710d069216b747b9f939b671bc8b9b116b7ae/Werkzeug-2.2.0a1.tar.gz"
-    sha256 "6a3fe061435495aed49c1ea54dbdf1529b6333bb7ddbe20089e4360250b040ec"
+    url "https://files.pythonhosted.org/packages/32/19/a92cdbd9fb795928dfca1031278ae8a7f051e78a2c057c224ad2d4cdd95e/Werkzeug-2.2.1.tar.gz"
+    sha256 "4d7013ef96fd197d1cdeb03e066c6c5a491ccb44758a5b2b91137319383e5a5a"
   end
 
   def install

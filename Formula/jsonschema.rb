@@ -3,26 +3,26 @@ class Jsonschema < Formula
 
   desc "Implementation of JSON Schema for Python"
   homepage "https://github.com/python-jsonschema/jsonschema"
-  url "https://files.pythonhosted.org/packages/19/0f/89db7764dfb59fc1c2b18c2d63f11375b4827aa3e93ae037166a780d2bed/jsonschema-4.7.2.tar.gz"
-  sha256 "73764f461d61eb97a057c929368610a134d1d1fffd858acfe88864ee94f1f1d3"
+  url "https://files.pythonhosted.org/packages/02/96/901e5735f16cb438eccff95b534d0bdd058237dab1ae4731b5e1e1ddc9b4/jsonschema-4.9.0.tar.gz"
+  sha256 "df10e65c8f3687a48e93d0d348ce0ce5f897b5a28e9bbcbbe8f7c7eaf019e850"
   license "MIT"
   head "https://github.com/python-jsonschema/jsonschema.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "41fe96ccabab5b90e5023c1077be28fe716d12fad98ad0b127d3cdc53d18eae6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db4cd67a470103911a30e741cb0c7ddb7e34ed28ea063b0a35085601e6139722"
-    sha256 cellar: :any_skip_relocation, monterey:       "f4d6f43487121067b252daa89c616554dfcfdeadff1a3ab7f9b2161537d4274f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0e9ae96d595e70a1a336c44c4a21d7e10dd1e38fdaf7538201a2a9698da0fbba"
-    sha256 cellar: :any_skip_relocation, catalina:       "b42b1bd1824acec8027295b5406160039ad86125b0da266f629db38b9c1f2343"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a9da0ceb1967ec25abad0214db671d25498e7a0e665728b82b046828bada670"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea7b54959686945e498599a5c629c2c27e5970eed12363d2fbaccb4543eb83c0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc9a5243fd2d5076b43ec5de8d019d3292601584d8a5b2c763d03ad463482597"
+    sha256 cellar: :any_skip_relocation, monterey:       "88985c86562a555d16be6a7dd0612ec93b7a5832b207ba64362ae6cbc9e9d51c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f9e3f59b87a6b95f637c26265828e38b5f106ce4d9d463d99ef4d51cd3f8c7f5"
+    sha256 cellar: :any_skip_relocation, catalina:       "e65742706193fda3c1d151ded62890935b5addca4e251340a9d141ba8d2af749"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97545bef9ec6d56bb06e680ef8ffafc93bbbbcfa1a070018e131b019aa025b97"
   end
 
   depends_on "python@3.10"
   depends_on "six"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
-    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
   end
 
   resource "pyrsistent" do

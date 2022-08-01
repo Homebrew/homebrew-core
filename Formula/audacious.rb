@@ -18,13 +18,13 @@ class Audacious < Formula
     regex(/href=.*?audacious[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "c35e7535ae9705ac9d9a7e28b760081d86c1abdae99c5e722e0cdb7ed5707987"
     sha256 arm64_big_sur:  "aff5aaeab24180aff1ae91da6421edf7d58d81af57c1f5c6a049db247316fbd2"
     sha256 monterey:       "7893f401cc6bc9e7a4f8d22cf18b551ef3ea152711887f3c6037b55f446e351b"
     sha256 big_sur:        "22a2be0cacb4ae5d259e494bd08cb59cb5b38e28e2de8b492ae7d27bd676b12c"
     sha256 catalina:       "853a11fdf1db841cb70cd9af5ef80109356ef398cea6b44a39119bae18f31815"
-    sha256 x86_64_linux:   "2fc678cf70ed5f060c0dc24be179a95f314b3a859491f5403b74fe3462744d7f"
   end
 
   head do
@@ -58,10 +58,6 @@ class Audacious < Formula
   depends_on "qt@5"
   depends_on "sdl2"
   depends_on "wavpack"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

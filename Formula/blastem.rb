@@ -29,7 +29,7 @@ class Blastem < Formula
   depends_on "openjpeg" => :build
   depends_on "pillow" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on arch: :x86_64
   depends_on "glew"
   depends_on "sdl2"

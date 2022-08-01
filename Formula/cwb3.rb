@@ -1,10 +1,9 @@
 class Cwb3 < Formula
   desc "Tools for managing and querying large text corpora with linguistic annotations"
   homepage "https://cwb.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cwb/cwb/cwb-3.5-RC/cwb-3.4.33-src.tar.gz"
-  sha256 "856b72785522d42f13f4a0528d2b80c2bf422c10411234a8e4b61df111af77dd"
+  url "https://downloads.sourceforge.net/project/cwb/cwb/cwb-3.5/source/cwb-3.5.0-src.tar.gz"
+  sha256 "20bbd00b7c830389ce384fe70124bc0f55ea7f3d70afc3a159e6530d51b24059"
   license "GPL-2.0-or-later"
-  revision 2
   head "svn://svn.code.sf.net/p/cwb/code/cwb/trunk"
 
   livecheck do
@@ -13,12 +12,12 @@ class Cwb3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fce8071b9fe5b2c2bdd9b237ddac22d2df6b4fe2c08d29eb8bea456b7ab814d8"
-    sha256 cellar: :any,                 arm64_big_sur:  "8f4fdd05b181e8f3c819c88d9cb7456b370a148ade914b5336ed7943c2725774"
-    sha256 cellar: :any,                 monterey:       "157899904d915f2bc5dfe1cc7fd6e89899c91bd61c801c6854e831b811fde037"
-    sha256 cellar: :any,                 big_sur:        "b8fec5b9f028d8f3ee3d98938bab86ac083ede05efe740504cd7abdb7ebc509e"
-    sha256 cellar: :any,                 catalina:       "194365652e3e8e6478dfa0cc4c6e8fadf5d2191b253abc02d9e05ff0cbf7b792"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "574689b505bbb71eb7f626203b2d1e611208958ab5a9f320b805def38fe26a63"
+    sha256 cellar: :any,                 arm64_monterey: "0095bcb1957680c0111d0350bb709ea9c5944eb0375654ef76b7d9f455fbc531"
+    sha256 cellar: :any,                 arm64_big_sur:  "1cd5c987e8f41b62244439ba320bb77f92b7bfbb528d31b75726071ad9822a58"
+    sha256 cellar: :any,                 monterey:       "9271d4472d3ce7e71c65755e33ba8d303edcc603ce7e493c12d6c870a7f84f0f"
+    sha256 cellar: :any,                 big_sur:        "af3c7316e0a0678d7cf11d151c109cbbd0f36b9df36c9b1d2c210ce6654e6030"
+    sha256 cellar: :any,                 catalina:       "a15fdf57dceb390674290d8a1aaabdf93385b60a675de29a0af5219d85116d95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36c736d9eee76fc6c3db520901f42677e8dfc1ea390b319264c4e0d75b612ccc"
   end
 
   depends_on "pkg-config" => :build

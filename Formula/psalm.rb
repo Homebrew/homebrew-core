@@ -1,17 +1,17 @@
 class Psalm < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://psalm.dev"
-  url "https://github.com/vimeo/psalm/releases/download/4.24.0/psalm.phar"
-  sha256 "2b319d86c61ff03fb8d293cd8ebdebaab71e938c5f2bd04ff466fee01211c006"
+  url "https://github.com/vimeo/psalm/releases/download/v4.25.0/psalm.phar"
+  sha256 "6c4bfd63307270df9fb370de014fd0a6e3afb265052e0ae5b4611ed8ab943347"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "21ab927df8b98fbfc9f37c160c8a7a62740d422aeb04d45710e40c00ca084bf6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21ab927df8b98fbfc9f37c160c8a7a62740d422aeb04d45710e40c00ca084bf6"
-    sha256 cellar: :any_skip_relocation, monterey:       "aeb509abf26566ef661c00949bfff2292b50d05838f5233ed5542333a7a79bc2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aeb509abf26566ef661c00949bfff2292b50d05838f5233ed5542333a7a79bc2"
-    sha256 cellar: :any_skip_relocation, catalina:       "aeb509abf26566ef661c00949bfff2292b50d05838f5233ed5542333a7a79bc2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21ab927df8b98fbfc9f37c160c8a7a62740d422aeb04d45710e40c00ca084bf6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0818017a7ceddb3b777f10ec454b11834b3c8de5616cc076e8ae5d72b2afe39"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0818017a7ceddb3b777f10ec454b11834b3c8de5616cc076e8ae5d72b2afe39"
+    sha256 cellar: :any_skip_relocation, monterey:       "4afd007897a8d570691adc96d0846ef4c19a3849169c7c0a1f4def8046998019"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4afd007897a8d570691adc96d0846ef4c19a3849169c7c0a1f4def8046998019"
+    sha256 cellar: :any_skip_relocation, catalina:       "4afd007897a8d570691adc96d0846ef4c19a3849169c7c0a1f4def8046998019"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0818017a7ceddb3b777f10ec454b11834b3c8de5616cc076e8ae5d72b2afe39"
   end
 
   depends_on "composer" => :test
@@ -19,7 +19,9 @@ class Psalm < Formula
 
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
   on_macos do
-    pour_bottle? only_if: :default_prefix if Hardware::CPU.intel?
+    on_intel do
+      pour_bottle? only_if: :default_prefix
+    end
   end
 
   def install

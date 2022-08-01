@@ -1,18 +1,18 @@
 class Imgproxy < Formula
   desc "Fast and secure server for resizing and converting remote images"
   homepage "https://imgproxy.net"
-  url "https://github.com/imgproxy/imgproxy/archive/v3.6.0.tar.gz"
-  sha256 "eb98d90313379a09d0d7421a1f0f9c0b42439d75f21bd746b2bcbb607caf65a6"
+  url "https://github.com/imgproxy/imgproxy/archive/v3.7.0.tar.gz"
+  sha256 "2c68077714672400ccb7c029f6f1844daff597966f411c24cba60077828fa6a5"
   license "MIT"
   head "https://github.com/imgproxy/imgproxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "049fe74403c708285388147ef8555907ae64c4b03c2f77476cb925aca2998fa6"
-    sha256 cellar: :any,                 arm64_big_sur:  "c42d065fe58819dc3108bbd3ea55ddeedaa7bbc99bd85fa82f30144c9b079691"
-    sha256 cellar: :any,                 monterey:       "814c3ce37c3d5a66f60a16ff41e51defd515ae0cf0452b745034b89b952784ec"
-    sha256 cellar: :any,                 big_sur:        "d4a48151cc5325af9b59052553f083d543c6a8bed94934f9e53a82f3f4558646"
-    sha256 cellar: :any,                 catalina:       "4d5016e594a91578b2b107c4ebe98f3c846b1314f77bfb0dd1bd15d0605911d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc3df1ecebb8f3eaf1bd6b046493905fb8c05893b82bf1b507fb1a0620ec18f3"
+    sha256 cellar: :any,                 arm64_monterey: "6d3aa0b27a428630fe5d431e3e46e2e922ac3f31f024d92f497a0f5de5f7ac05"
+    sha256 cellar: :any,                 arm64_big_sur:  "8cd05a722e3c4a44912a79a2b4a5947103de6800abd931f923b52dd76e8a068a"
+    sha256 cellar: :any,                 monterey:       "98575188a5689992ac46642eafc6d79e2cb8e17a8169558fab3efd3906afe240"
+    sha256 cellar: :any,                 big_sur:        "aa588b29830852f151dc379fd1bb1e6074fbfeaa0efe0c0e6518b6fbbe98c328"
+    sha256 cellar: :any,                 catalina:       "5372a5c430fa0cd157f65a6b1442199ff482bdd81330c95519722bafbc0682e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2daaf387f7a028599678357ebcbc8ec147abab4f75b80923b88d4397bce81e43"
   end
 
   depends_on "go" => :build

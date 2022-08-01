@@ -7,13 +7,13 @@ class Lc0 < Formula
   license "GPL-3.0-or-later"
   revision 2
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2d8bfca5ebff386f71840281f15ec3c04e2436f1fcb3529ce1eb5d10facbc9db"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bdc7f840a570db9c0f54a5055091fd16ab04399b68381d05e75071d5c61fd8e9"
     sha256 cellar: :any_skip_relocation, monterey:       "97af5c15368b7ccc506055dd37a7dabefb3fa437eafe3326b7c9a094ae6583f1"
     sha256 cellar: :any_skip_relocation, big_sur:        "981faff9f38f2d4d40ea716e837f8ba45ea63dc627f80078af043110074204b0"
     sha256 cellar: :any_skip_relocation, catalina:       "bb01f65bcf9aa37e511b8235ffd2108dcc9176a4a6ab1c20eca909eb0f8146bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbe3c6e9c3e92df13902470ddae27d1cc2cebc26d395b5be01a82465ec940575"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +26,6 @@ class Lc0 < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc" # for C++17
     depends_on "openblas"
   end
 

@@ -35,10 +35,10 @@ class Dbus < Formula
 
   uses_from_macos "expat"
 
-  on_macos do
-    # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
-    # Homebrew pr/issue: 50219
-    patch do
+  # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
+  # Homebrew pr/issue: 50219
+  patch do
+    on_macos do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/0a8a55872e/d-bus/org.freedesktop.dbus-session.plist.osx.diff"
       sha256 "a8aa6fe3f2d8f873ad3f683013491f5362d551bf5d4c3b469f1efbc5459a20dc"
     end

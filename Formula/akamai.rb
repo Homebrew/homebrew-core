@@ -1,17 +1,17 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "58269ab6ab93a4b4e0a773fd62efae5f1aefc74fc6bdfcf0fdf5dbce75998146"
+  url "https://github.com/akamai/cli/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "33e4e41ea3697bf84d99354f993edab5ef45a160f92f8e5da094cb12c624980c"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c04de087fa3bf49fb5239092e2ed831443c05747454a92b7c8ed17a2efb3ec35"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac792120d6f52a46a04a536217af4594f2dfae11e96bd3020b22e97c17a494c1"
-    sha256 cellar: :any_skip_relocation, monterey:       "616c69e301a7525d974fcc30c0d64359d5d5e9e151fcefb661142e0fc98dfe5a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cfe705aa36be796ef2144ab07b78438e08a9477ec40c2908ff510493088b3283"
-    sha256 cellar: :any_skip_relocation, catalina:       "3107e221c3b1c4b5ce873bcfa2db8195214c0819cf70820c3e57935135fef3ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d24468b68f88b0a87d9411672f9f644bc7f528c7be70d56160d9e5fb7d2dc8f9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0b2a860ee65e6e249894d19f0a03b423f4b0e774105066f5836c6449b53131a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b06521e34515aecdb81e1dad94b442ed5e9f1062f2ba320d1bf0e0079d2ea185"
+    sha256 cellar: :any_skip_relocation, monterey:       "3f3091301abecbdddf70e049839b142f15b028aa3847948d660499a4cf88f33f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dd39fdf7552c28df9cccc57e8d607705ee0f507c2562c6fe1b38e82042e72a98"
+    sha256 cellar: :any_skip_relocation, catalina:       "ce6876e71487eda4afd75fc8b5c6ffcad506f9c47258aaa7522bd94b2228f3e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2b41487911bfb7001c932fa5c94ceda01818c57bc350b86999f7f64791a62f2"
   end
 
   depends_on "go" => [:build, :test]

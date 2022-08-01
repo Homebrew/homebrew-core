@@ -7,13 +7,13 @@ class Gmt < Formula
   license "LGPL-3.0-or-later"
   head "https://github.com/GenericMappingTools/gmt.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "049f3bbd857920614205a7680206e97fe757e2d3ee3f69e3a84c833abc7b6a7a"
     sha256 arm64_big_sur:  "4034c75ff52c4b2c539339a2e2129f80a4b841aa65169831d24b6de81747272e"
     sha256 monterey:       "fcd2a33c09b6c4f30b208f658ec5edf9036f54c7dc7ef5fb0ea9d68610930660"
     sha256 big_sur:        "b0187d3a3888c19665c0747a1e2d0dc3fafdc3600ac5a0b5b82d3e57c5907821"
     sha256 catalina:       "49b528a8402984592297ba31dbbf3c6c2a2fb214d18f67cfbb464aee5a963025"
-    sha256 x86_64_linux:   "1dedbccfceb6e6e01a68f9725360cb5cd0d368ae02759ee06392e26991f1980b"
   end
 
   depends_on "cmake" => :build

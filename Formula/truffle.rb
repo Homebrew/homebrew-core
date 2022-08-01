@@ -7,11 +7,11 @@ class Truffle < Formula
   sha256 "d2062c5ba8ba177cd2768ab7c411310174b9ed504905f5c72b54089e39f22ebe"
   license "MIT"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256                               monterey:     "98002dbc9de2d94c8b9c8b5f52bc270c06b5f3f0a52e7bf9f2f4ea43538b2076"
     sha256                               big_sur:      "ae31bf9eb686e8a8bbaaf87d306dfeb7af93f03ade5381aa33ff7116d2740b88"
     sha256                               catalina:     "29415be18c64be31abfdd822482d05a9927f2bcb89d9eab91e4d0151de1109a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4d9131a259af1c1c59ca8a90ae9a64b6d5f7af57b9c7804dbc8a1dbeea735c90"
   end
 
   depends_on "node"

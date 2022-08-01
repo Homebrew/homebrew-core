@@ -7,6 +7,7 @@ class Graphqurl < Formula
   sha256 "c6dfb4106d5b8b0860c0df5dffd0cc75095d280ad4841bda25a6ef0b9a75e199"
   license "Apache-2.0"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8f189f4e958a6f06e820be1734fcdacf427b7ae67d7230347ee05a067ac5035"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "138b68d4fffc64cd4ce86e07b618ccfa561aa15a700e8c08c66b20b65797ba70"
@@ -14,7 +15,6 @@ class Graphqurl < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "5300156ac1794e98e8e9e8f261f469ae7a6749631dfd55c8374054f425e83cb4"
     sha256 cellar: :any_skip_relocation, catalina:       "5300156ac1794e98e8e9e8f261f469ae7a6749631dfd55c8374054f425e83cb4"
     sha256 cellar: :any_skip_relocation, mojave:         "5300156ac1794e98e8e9e8f261f469ae7a6749631dfd55c8374054f425e83cb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0c19d5f82887b811d0b9f5cdaad5efcfb8da33e970c253af8af63faae597f02"
   end
 
   depends_on "node"

@@ -11,13 +11,13 @@ class Grokj2k < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "170f081aa1ef55cdc4069a72a7bda2444c4de2613f74d8544984693336234558"
     sha256 cellar: :any,                 arm64_big_sur:  "a27907174c61509e3acbb630a3b477ca17ae718e35be464d64339a5b404c8235"
     sha256 cellar: :any,                 monterey:       "eac8d5c35074aa79606d23643dfce579e5ac817aeb55a5f8aa6e7e3f3ab54bec"
     sha256 cellar: :any,                 big_sur:        "6fcd4632599e9119d23d900a864d5f9065a797f2cd18e567d660aafc513dc014"
     sha256 cellar: :any,                 catalina:       "d60b4de529b9bb09b69e69be0b25ffde2d697dd42ba5ba09afb9ea9a06b505af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35b19ec573881184b88a8e165d4a693effcdaf6c5148a110debecbd2a4c2ae08"
   end
 
   depends_on "cmake" => :build
@@ -36,10 +36,6 @@ class Grokj2k < Formula
   on_macos do
     # HACK: this should not be a test dependency but is due to a limitation with fails_with
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version >= 1205
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   # https://github.com/GrokImageCompression/grok/blob/master/INSTALL.md#compilers

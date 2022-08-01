@@ -30,7 +30,9 @@ class Inetutils < Formula
   def noshadow
     # List of binaries that do not shadow macOS utils
     list = %w[dnsdomainname rcp rexec rlogin rsh]
-    list += %w[ftp telnet] if MacOS.version >= :high_sierra
+    on_high_sierra :or_newer do
+      list += %w[ftp telnet]
+    end
     list
   end
 

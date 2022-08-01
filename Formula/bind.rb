@@ -8,8 +8,8 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.18.4/bind-9.18.4.tar.xz"
-  sha256 "f277ae50159a00c300eb926a9c5d51953038a936bd8242d6913dfb6eac42761d"
+  url "https://downloads.isc.org/isc/bind9/9.18.5/bind-9.18.5.tar.xz"
+  sha256 "0cee078d74f0bdc4ec374435026b25de7892f26540a18b22a02ef728a11dcae7"
   license "MPL-2.0"
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
@@ -22,12 +22,12 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "8352de7a0d861019a3e0b526a100947868c2cf8046a128a9256de9455e346d56"
-    sha256 arm64_big_sur:  "9856aab0a5b725fe728cb807feb9fd574d8f1f85d166dc75ec523a2ed4778eca"
-    sha256 monterey:       "2ea19ccf8e427da708a01f2d856ff9b39b9404aa1c38eebc1381bbff60307078"
-    sha256 big_sur:        "97826f190b21b8b851be8b8137f5a1325440b246f6f530e93cf5b904cf1272ab"
-    sha256 catalina:       "9b4998d51f2c65e898d693ef0a939531c5317b49d75163652194798b95682174"
-    sha256 x86_64_linux:   "ec147c4dccef99e0b669993996c2a8bf18b6e8ef28c17c90aac50a41fdbc297f"
+    sha256 arm64_monterey: "d165eb76abb57579d31d961b6d9d76051f91f9c9c6c16d12c7d881e17c7b5b82"
+    sha256 arm64_big_sur:  "8f8f9e5226175b4fb654b2d10bf632aad11c7ef28aa289547a0b1d8269e7c20f"
+    sha256 monterey:       "2588513dd61f5689b71207eb029bda2db547da9b133edef253b5bd01be419ea9"
+    sha256 big_sur:        "0116fc960ffbe3f0e62abe8c4dcb940abd6094457d3e149e7ea4ed9b0056b28e"
+    sha256 catalina:       "827455fd194be4c5308e38c802bae04b30ae6ad5666b5260b0ab9187e3890707"
+    sha256 x86_64_linux:   "de2cc9fc567375ba9ec9358c6266fc778d8cf6ecd6c43b21221b293fc4a2c39e"
   end
 
   depends_on "pkg-config" => :build
@@ -35,7 +35,7 @@ class Bind < Formula
   depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = [
@@ -44,7 +44,7 @@ class Bind < Formula
       "--localstatedir=#{var}",
       "--with-json-c",
       "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
-      "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+      "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
       "--without-lmdb",
     ]
     args << "--disable-linux-caps" if OS.linux?

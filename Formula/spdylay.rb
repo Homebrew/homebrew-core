@@ -28,11 +28,10 @@ class Spdylay < Formula
   depends_on "libevent"
   depends_on "openssl@1.1"
 
+  uses_from_macos "xz"
   uses_from_macos "zlib"
 
   def install
-    ENV["ac_cv_search_clock_gettime"] = "no" if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-
     Formula["libxml2"].stable.stage { (buildpath/"m4").install "libxml.m4" }
 
     system "autoreconf", "-fiv"

@@ -4,13 +4,14 @@ class MoltenVk < Formula
   url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.10.tar.gz"
   sha256 "fac11c2501195c9ce042103685c7778e35484562e6c084963a22072dd0a602e0"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "63331fa43116526b4c08c082fee1caf55ca667eaf74b5392d22f84838b750c47"
-    sha256 cellar: :any, arm64_big_sur:  "59ab209832acb5ef3fcd998376d7065fffa230cf48717dabf2b2dd6ef6835206"
-    sha256 cellar: :any, monterey:       "26e6dfe583fd12b4339eb54b933ff19b9daa2fe3d974be7e227d14d0986b1686"
-    sha256 cellar: :any, big_sur:        "517fd7868e2e478fd8d8332c0c6d7a0565fcd5e67c0418116a1be213c6278bfe"
-    sha256 cellar: :any, catalina:       "996f7d2eaab657046ccaa9a533e12f8bcd5eddf17dad996ea9b9bd85fbbcf465"
+    sha256 cellar: :any, arm64_monterey: "db4bd2f19ea7d78b956d802fb1c56891c14ee3789351496d8caeb6b200e97ac3"
+    sha256 cellar: :any, arm64_big_sur:  "ea03822343ee3e0b8e4bb8058e4893927f56632b99d5133d981140a9c0418b29"
+    sha256 cellar: :any, monterey:       "bcfcade5f4b8c52683671dd1456ea1ff52f2ffce77ca9e6c365637545b557a50"
+    sha256 cellar: :any, big_sur:        "dabba76e226f9423af84dcb107850f85e7daa806fec11f3f31c35c2c316efda2"
+    sha256 cellar: :any, catalina:       "cbbf37ddeecf29e9e6b562436c995c14e022253a0ae545a507587cbd815a3898"
   end
 
   depends_on "cmake" => :build
@@ -143,6 +144,9 @@ class MoltenVk < Formula
     include.install Dir["Package/Release/MoltenVKShaderConverter/include/" \
                         "MoltenVKShaderConverter"]
 
+    inreplace "MoltenVK/icd/MoltenVK_icd.json",
+              "./libMoltenVK.dylib",
+              (lib/"libMoltenVK.dylib").relative_path_from(share/"vulkan/icd.d")
     (share/"vulkan").install "MoltenVK/icd" => "icd.d"
   end
 

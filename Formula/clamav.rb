@@ -1,9 +1,9 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.105.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/clamav-0.105.0.tar.gz"
-  sha256 "270203a54c458049db54fcd93683ff5b2db19151f363c48e82cecefdde2b35d4"
+  url "https://www.clamav.net/downloads/production/clamav-0.105.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/clamav-0.105.1.tar.gz"
+  sha256 "d2bc16374db889a6e5a6ac40f8c6e700254a039acaa536885a09eeea4b8529f6"
   license "GPL-2.0-or-later"
   head "https://github.com/Cisco-Talos/clamav-devel.git", branch: "main"
 
@@ -13,12 +13,12 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "79b91acbd865d0bf76674c385015e0af22337e45fd7c5841de1f93a1e842ebad"
-    sha256 arm64_big_sur:  "62a16e224a6f63ef2c3bc5f3b208319501b92dc11aad9a60b7251001980525cd"
-    sha256 monterey:       "77f29444d4ed6456de811a729613f3977cbfb1c714eee6e5def70aeff09ef240"
-    sha256 big_sur:        "e71a1d20ea61d124b010f6467c835b95d5278b83d83ab5cc23214b0834007779"
-    sha256 catalina:       "0fe9bdebb3ba0a4762fe2cf9129b328157390c3f84b7b3d8eb3b5a5d4a821d42"
-    sha256 x86_64_linux:   "6f519799945f5557b0c455b66aaf44ae606ff08adb79559566f9c43cef6d82ae"
+    sha256 arm64_monterey: "6c9e5236fd4fc487e5c38df622694a334e8c5d176d56947ba87e17c4af18d92d"
+    sha256 arm64_big_sur:  "81fca3d2d734d723b269167c5624383612f53a1317d7f02e09f9a2ca7672b47d"
+    sha256 monterey:       "ebc6f714302bfc91b7f068e3558b2f1593c6fba7d96cd81e00df38a97e7deeb7"
+    sha256 big_sur:        "ee05ec3fc098bc5ad4ab216cc575ca35c117cc2b933e1b5ed570164074fd7f53"
+    sha256 catalina:       "b29973a04291285d23c984f59173276396b63de709b8ba69986ccf437ee46942"
+    sha256 x86_64_linux:   "63943c5d3d97b86635fb6ae095d2897591d05a1d599da583175d4b2eb84da343"
   end
 
   depends_on "cmake" => :build

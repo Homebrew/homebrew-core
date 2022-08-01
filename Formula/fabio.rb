@@ -1,18 +1,18 @@
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/fabiolb/fabio"
-  url "https://github.com/fabiolb/fabio/archive/v1.6.0.tar.gz"
-  sha256 "2a3a678a3ee7a5415512a1b3b799352186859f5d4dd50330d1117b21a643c398"
+  url "https://github.com/fabiolb/fabio/archive/v1.6.1.tar.gz"
+  sha256 "dafb85fb89a8d23a8edc6e96da54c4bdc0b86fce936fa6378e9f49fa70a04793"
   license "MIT"
   head "https://github.com/fabiolb/fabio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b80a286a30fac7a23bece1d65c150cc6fc1c2eeeda3766c5c93c6c8ada8ef20"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0c59dfa1ba7258ed97881ca221973703b31eb6de8fb0deed61661aaf3458bd3"
-    sha256 cellar: :any_skip_relocation, monterey:       "397c08ca7a84a394aa612e7150b8b74a7383c39924c682f9c881fef35bf4f07c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4557d5ed59085c4bba46bba43edb6350a6c6b845bdec43ecb14c135fac046cec"
-    sha256 cellar: :any_skip_relocation, catalina:       "8024546a68136e01f7283b5d9ae216ba405fd2867a34bf4dda47e56a5910cd5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92e136b546ee472869e27a7bd8ee4584a79ac953a5370d01aaa1b2555dae148c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d22b3de3f85aea8a2df28ae49222c57a2366dc010247ecdf9d824e470a13dbaa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bca2e5b5ac02f928aad22fe2e0f123ccee4f68fb02a94ef18ed198676c849fcf"
+    sha256 cellar: :any_skip_relocation, monterey:       "9de1458ceb4e43d0d6cc71c47190cdb35c536648060a97c1836b7f0b8ee350e4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e8d272e1512b3f6f9f2d80404861b80006a17f4ee2a58542adf9a517ac24421d"
+    sha256 cellar: :any_skip_relocation, catalina:       "47f122ee01e27213de38affc8cc1a9fddcd3581942276324cbeeab1113f98c50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00d00f71de9ed14f4b8b867afd7cc7a9b777f94e5111f53d7c939e53656bed73"
   end
 
   depends_on "go" => :build

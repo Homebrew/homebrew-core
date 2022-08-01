@@ -4,6 +4,7 @@ class Onscripter < Formula
   url "https://onscripter.osdn.jp/onscripter-20220123.tar.gz"
   sha256 "5da41dc3471eeec8c93153906b39dac0a32edbb2bcefce0fa0a976c148b448ca"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,16 +12,16 @@ class Onscripter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6df121cc439c63ec6804ab3c781c0062b4bca08af5362bc866a1ca0565da8982"
-    sha256 cellar: :any,                 arm64_big_sur:  "608b9e37d9da7ec4edb68d3542fe45d0593b6bd52d64e234caa5c681086ff993"
-    sha256 cellar: :any,                 monterey:       "4b917a20089f1917708e638862a7b09034409e65b6309b2cce72351d62fff52d"
-    sha256 cellar: :any,                 big_sur:        "a76c2fb8593c7e5d66c281ba69b59e8c4ee763eef572763ec44c2cca1bace610"
-    sha256 cellar: :any,                 catalina:       "be36e240be9435dc871afeddb024aa23aec53364d8843d19ba88a7bd260915c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f37f7590b3c8e52cc551875e0cef051e922d51a0d0fbc28eae1e6a9637868444"
+    sha256 cellar: :any,                 arm64_monterey: "a781358b2699b5aa3d992d9270843a8ebe80801d988cabff27f91f061922abf9"
+    sha256 cellar: :any,                 arm64_big_sur:  "3609369970e2d5012139a19112ac0ecdba89d59a9ddaa7f80e5c7524184e0d25"
+    sha256 cellar: :any,                 monterey:       "d9b796717af24b8eaa0e4d29216a798ccaaf494a835fdb94c3595f320e9d6efa"
+    sha256 cellar: :any,                 big_sur:        "4fee891a894c2fdc9c49a041a0dcf67e37d71113ab3b81e6b7db2f66a64c8a03"
+    sha256 cellar: :any,                 catalina:       "c8be7c98084d6b74d4ad097c0c96411aa172dcbd89f5284f8d3ad16a38df4984"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c30b7f50bd386e488c9ced755daf2d5096176c80aca9e321937e03d50a09013c"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "lua"
   depends_on "sdl"
   depends_on "sdl_image"
@@ -42,14 +43,14 @@ class Onscripter < Formula
     incs = [
       `pkg-config --cflags sdl SDL_ttf SDL_image SDL_mixer`.chomp,
       `smpeg-config --cflags`.chomp,
-      "-I#{Formula["jpeg"].include}",
+      "-I#{Formula["jpeg-turbo"].include}",
       "-I#{Formula["lua"].opt_include}/lua",
     ]
 
     libs = [
       `pkg-config --libs sdl SDL_ttf SDL_image SDL_mixer`.chomp,
       `smpeg-config --libs`.chomp,
-      "-ljpeg",
+      "-L#{Formula["jpeg-turbo"].opt_lib} -ljpeg",
       "-lbz2",
       "-L#{Formula["lua"].opt_lib} -llua",
     ]

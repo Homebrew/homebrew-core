@@ -5,16 +5,15 @@ class Ctl < Formula
   url "https://github.com/ampas/CTL/archive/ctl-1.5.2.tar.gz"
   sha256 "d7fac1439332c4d84abc3c285b365630acf20ea041033b154aa302befd25e0bd"
   license "AMPAS"
-  revision 6
+  revision 7
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "eadc16c6d81b7d6ac0b4c15954575c3da812903b4af0273eacc5d9b0b7e1d6c9"
-    sha256                               arm64_big_sur:  "44e972aad69a12929209b71a8ce3f0cd2c64c3619d38fe8e99f9118dfd231877"
-    sha256 cellar: :any,                 monterey:       "cf416b8ac487a6ae5bd3845338e5efdaa9399cfb28c41c1d44d3e520be7af958"
-    sha256                               big_sur:        "ff72d9eb8d78bfbc8be7e2df6c5b12ebe84539599f2874df9a63cdeab65d0e93"
-    sha256                               catalina:       "348b69fc01982990dc24ba16332bd99851f8fbab4ccd25d05753288f4ff76344"
-    sha256                               mojave:         "37dce198f7d3aa8dab4ea3519da23f8a02ffacd61569323d6ee24a9b18c35190"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "058763c1d8b05ea4a1f1143ef678628d957d96aa0b73f20aac9ff5fff33fe8a6"
+    sha256 cellar: :any,                 arm64_monterey: "98141badc00f97bdb0ee0eb39907f17b5fefc66997eaf8afda40804946dac8de"
+    sha256 cellar: :any,                 arm64_big_sur:  "c235c302216f52be88e6f0a5f9e7faef084a47c798ed0bccbb9614359d98dc91"
+    sha256 cellar: :any,                 monterey:       "3dcbd25335f8fb6c3caf487683a31d26a065c80f72d8e64f2bb07f3816244894"
+    sha256 cellar: :any,                 big_sur:        "bc7e4ae104c61190d92029ceb8ab28492b454319f9ba23a8e64952f2f4bff931"
+    sha256 cellar: :any,                 catalina:       "e542c0ecc0914cee1d95ec473a38424229ba74a45299122f0f4cb6fa3a880066"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32a5b3715f75d4916d2488ba2382ba5f9dbc8e3562dff192eb279eb9b7b44d1c"
   end
 
   depends_on "cmake" => :build

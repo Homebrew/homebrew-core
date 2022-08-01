@@ -1,17 +1,17 @@
 class Mydumper < Formula
   desc "How MySQL DBA & support engineer would imagine 'mysqldump' ;-)"
   homepage "https://launchpad.net/mydumper"
-  url "https://github.com/mydumper/mydumper/archive/v0.12.5-2.tar.gz"
-  sha256 "809b18dc038c129262c8d6da3377f62253d074344410667fb18f028ec066b87a"
+  url "https://github.com/mydumper/mydumper/archive/v0.12.5-3.tar.gz"
+  sha256 "2fc5af9643a27eaca0a2ab37ba11ccac4d82f20bd8a9c14c886961453aafdf24"
   license "GPL-3.0-or-later"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e47e5b2a18e71c0fe871a995ee5b046b63d6c813ec7374888d22e96848ec0a42"
-    sha256 cellar: :any,                 arm64_big_sur:  "a09f2c280a35ee5d063fcd796ad687d6331f908a2903d4a6187d11f66ded8437"
-    sha256 cellar: :any,                 monterey:       "cc6dc43f2fb41b89deec1356eaf74b63c50d763bbc6c6331d04a75827580d49d"
-    sha256 cellar: :any,                 big_sur:        "697998297657008e729f550b2e76a5decec6fe6aa158c4e2a1829d97202d8ed6"
-    sha256 cellar: :any,                 catalina:       "4e63d6cf3c3e34f78ce432f414fe71a90e794a74bf2a98aabad4d75548d5b525"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7832ad06b4d148ff74b88a00807abbbce04bb72cb620dfa33f1cf338598d5967"
+    sha256 cellar: :any,                 arm64_monterey: "e5599dca1e1ab5f7f591c8f6e3e286561065925c8413df446c1a497c34e3fa31"
+    sha256 cellar: :any,                 arm64_big_sur:  "02678d600f5e9f5b61c97f86257b17bd4ffeb16036b1f7018fbb14a09d506aee"
+    sha256 cellar: :any,                 monterey:       "5abc3e7f947d591430d659bf00126e37e6ab10865e25102dc3e64d71814eaa5a"
+    sha256 cellar: :any,                 big_sur:        "38c194f3ee2c16d038ad3f8d0201941d88ad31aa17b9003623b9e4a652fbcab3"
+    sha256 cellar: :any,                 catalina:       "d596ebed1de4da2c66302bf26edfbafae0154bfd911b5909d142e12469f80eb5"
   end
 
   depends_on "cmake" => :build
@@ -23,10 +23,6 @@ class Mydumper < Formula
   depends_on "pcre"
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

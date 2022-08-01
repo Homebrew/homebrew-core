@@ -23,13 +23,16 @@ class LastpassCli < Formula
   depends_on "cmake" => :build
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
-  # Avoid crashes on Mojave's version of libcurl (https://github.com/lastpass/lastpass-cli/issues/427)
-  depends_on "curl" if MacOS.version >= :mojave
   depends_on "openssl@1.1"
   depends_on "pinentry"
 
   uses_from_macos "curl"
   uses_from_macos "libxslt"
+
+  # Avoid crashes on Mojave's version of libcurl (https://github.com/lastpass/lastpass-cli/issues/427)
+  on_mojave :or_newer do
+    depends_on "curl"
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

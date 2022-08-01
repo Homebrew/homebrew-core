@@ -16,13 +16,13 @@ class Grpc < Formula
     strategy :page_match
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "411cb6fee11f213c11a70ee53df501c678ecaf0f6e6175c47a2bb96af6f3bb4d"
     sha256 cellar: :any,                 arm64_big_sur:  "155c7aa6a2e27a8ad7e0bb0fef2cac926aa813e7b72e9aaf52e5c302f4a8306c"
     sha256 cellar: :any,                 monterey:       "af1af10670b534d46aff09659eb027289663c023a20ae7d7c1bda5afa86c2d87"
     sha256 cellar: :any,                 big_sur:        "2253e27ef584c9f31b4c913da871332ea2e8492766c95d1aa1e11bc1cd9126d2"
     sha256 cellar: :any,                 catalina:       "987c9bb65a74af1dc4fe52dc3a9ef743cae482a8324d1c3c9978bf471c2ead12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00a0ab3614637d6573db1303d16bfe390f3ad69d7923d4b7fd53e1d86e6881a0"
   end
 
   depends_on "autoconf" => :build
@@ -42,10 +42,6 @@ class Grpc < Formula
     # This shouldn't be needed for `:test`, but there's a bug in `brew`:
     # CompilerSelectionError: pdnsrec cannot be built with any available compilers.
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   fails_with :clang do

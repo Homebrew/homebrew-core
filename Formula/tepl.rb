@@ -15,6 +15,7 @@ class Tepl < Formula
     sha256 x86_64_linux:   "869fd24987a560c0ccb3bf06535cbdadcd921fc4905eaa3fd1b9d8586c7b65a9"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -25,11 +26,9 @@ class Tepl < Formula
   depends_on "uchardet"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dgtk_doc=false", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build", "-Dgtk_doc=false"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   test do

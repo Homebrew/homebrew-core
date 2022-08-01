@@ -10,6 +10,7 @@ class Bcpp < Formula
     regex(/id=.*?t(\d{6,8})["' >]/im)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1ef362f6583a9a5779f8fb0a5237cc554615161d4f7f9fd5b054e0a59b51d917"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c7332e45d68c7c34e04b36935495e8e189944442650379f2c920757f2b210b7"
@@ -17,15 +18,10 @@ class Bcpp < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "447070d7c227cdb2e5c8df360c8ea31c8f9fa89b39e2092a3a888a40caedb523"
     sha256 cellar: :any_skip_relocation, catalina:       "1f2a9da46190bde2855e3bdc5d430302c831e3ff0eb3e3c34f8754bbe73744da"
     sha256 cellar: :any_skip_relocation, mojave:         "1872e08cd8d7addb8459865d451622d05ed4f4fc2f91e3a6f144ba1fe483b27a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec23404179ff7f080c3af852e5df992e01126b5a7d22b34ff509c20c863f7e18"
   end
 
-  # Build succeeds with system gcc (5.4.0) but seems to segfault at runtime.
+  # Build succeeds with gcc 5 but seems to segfault at runtime.
   # Unclear whether this is an issue with the compiler itself or the libc++ runtime.
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install

@@ -22,13 +22,13 @@ class OrTools < Formula
     strategy :github_latest
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "70bc042453a171a4ddfc617431495877022c3c9b39cf20e6b36977758e8b11e4"
     sha256 cellar: :any,                 arm64_big_sur:  "d7051adeec3d981e66813c1041c60772f4de566e024964f383fe9c42b65daf61"
     sha256 cellar: :any,                 monterey:       "d76faae4705c9f29fe71cf0daf2d50157f8daf0dfb1800b03ff58c0b8ed9f62f"
     sha256 cellar: :any,                 big_sur:        "3a88edaf5a3fdb34afe1202790fac3157a45d9dfdde3b48f2256d195e58d3bc5"
     sha256 cellar: :any,                 catalina:       "3cbf768fb36c903c77c3d35f5f818fb9d87c00128dfa5a8dcc4b579845c496f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "619a54c8667620263c8d35ed08fd1ac8104ca4abef13bfa08efb94a21a1fc327"
   end
 
   depends_on "cmake" => :build
@@ -45,10 +45,6 @@ class OrTools < Formula
   depends_on "re2"
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

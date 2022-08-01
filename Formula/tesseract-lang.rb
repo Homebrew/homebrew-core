@@ -5,12 +5,12 @@ class TesseractLang < Formula
   sha256 "d0e3bb6f3b4e75748680524a1d116f2bfb145618f8ceed55b279d15098a530f9"
   license "Apache-2.0"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3ce8f09d799cc3483cfba6c3a238b10271507c9e309828521b1f86325a2f79b0"
     sha256 cellar: :any_skip_relocation, big_sur:       "7a4a2646cf813ffa6778f4b110d98666144d2b44dde177f66a663de313f781bb"
     sha256 cellar: :any_skip_relocation, catalina:      "93f7d390e6f209f2f452a181a832d0d88e21b7afc171515cf9eeb3a9ba500ffd"
     sha256 cellar: :any_skip_relocation, mojave:        "28d91c5d2a8efc9f33d5ccc4d8eb76bf0c6649f604d1f9a52e06c3b8e3a2daef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "589b4e7851f76924cf8bd77155f53ffda95bb92cbb19327aed1766000a203760"
     sha256 cellar: :any_skip_relocation, all:           "589b4e7851f76924cf8bd77155f53ffda95bb92cbb19327aed1766000a203760"
   end
 

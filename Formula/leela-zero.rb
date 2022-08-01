@@ -9,15 +9,22 @@ class LeelaZero < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "13e77cee07ba6d6094bfc552c3f0f34217e12a53dae301f8a1697734a69f8b7f"
-    sha256 cellar: :any, arm64_big_sur:  "93db2d839cea6cd971be9192383ef281a2b561f145165f141f21714c9f52fafa"
-    sha256 cellar: :any, monterey:       "f854d4a6da72d191a2db1511cd004ba8fb434a785f87a3540bf70bc45187e5ea"
-    sha256 cellar: :any, big_sur:        "77af83d8aec2ae9d8e127189245fa49a66b849c4671a37aab8eb59b8ce6b278c"
-    sha256 cellar: :any, catalina:       "79bb3fe211cf9cb867d70264d17cc6bdab93b9afbee02614f6d93992d151a345"
+    sha256 cellar: :any,                 arm64_monterey: "13e77cee07ba6d6094bfc552c3f0f34217e12a53dae301f8a1697734a69f8b7f"
+    sha256 cellar: :any,                 arm64_big_sur:  "93db2d839cea6cd971be9192383ef281a2b561f145165f141f21714c9f52fafa"
+    sha256 cellar: :any,                 monterey:       "f854d4a6da72d191a2db1511cd004ba8fb434a785f87a3540bf70bc45187e5ea"
+    sha256 cellar: :any,                 big_sur:        "77af83d8aec2ae9d8e127189245fa49a66b849c4671a37aab8eb59b8ce6b278c"
+    sha256 cellar: :any,                 catalina:       "79bb3fe211cf9cb867d70264d17cc6bdab93b9afbee02614f6d93992d151a345"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27538c14a70f31c8b9ce6c4b71fe80657421d051ac2ceb01d2d34e4c1dfa3578"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
+
+  on_linux do
+    depends_on "opencl-headers" => :build
+    depends_on "ocl-icd"
+    depends_on "pocl"
+  end
 
   resource "network" do
     url "https://zero.sjeng.org/networks/00ff08ebcdc92a2554aaae815fbf5d91e8d76b9edfe82c9999427806e30eae77.gz", using: :nounzip

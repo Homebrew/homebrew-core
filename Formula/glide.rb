@@ -18,7 +18,8 @@ class Glide < Formula
   end
 
   # See: https://github.com/Masterminds/glide/commit/c64b14592409a83052f7735a01d203ff1bab0983
-  deprecate! date: "2021-01-02", because: :deprecated_upstream
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2021-01-02", because: :deprecated_upstream
 
   depends_on "go"
 

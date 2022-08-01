@@ -18,7 +18,8 @@ class TbbAT2020 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2020-04-02", because: :unsupported
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2020-04-02", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "swig" => :build

@@ -17,7 +17,8 @@ class VtkAT82 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2020-05-14", because: :versioned_formula
+  # Commented out while this formula still has dependents.
+  # deprecate! date: "2020-05-14", because: :versioned_formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "boost"

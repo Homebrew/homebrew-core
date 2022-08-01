@@ -16,10 +16,11 @@ class Syntaxerl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e47e3fbad8b97527b59bf69db9d9d765e04352e6a408827bd995091f6400f65"
   end
 
+  depends_on "rebar3" => :build
   depends_on "erlang"
 
   def install
-    system "make"
+    system "make", "REBAR3=#{which("rebar3")}"
     bin.install "_build/default/bin/syntaxerl"
   end
 

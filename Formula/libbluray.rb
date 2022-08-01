@@ -1,8 +1,8 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/videolan/libbluray/1.3.1/libbluray-1.3.1.tar.bz2"
-  sha256 "c24b0f41c5b737bbb65c544fe63495637a771c10a519dfc802e769f112b43b75"
+  url "https://download.videolan.org/videolan/libbluray/1.3.2/libbluray-1.3.2.tar.bz2"
+  sha256 "456814db9f07c1eecdef7e840fcbb20976ef814df875428bfb81ecf45851f170"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libbluray < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e680c8af00d95066d5ef7894bed7ce94061242ebf6e460184352828b0b312892"
-    sha256 cellar: :any,                 arm64_big_sur:  "d9a4488093c31eadb48532b98fc81681fc8fe6682a75a4d75c8b0d609300b92a"
-    sha256 cellar: :any,                 monterey:       "8f2c34dd07b155183309014a966a9218cb386af5f028681fb2ad5a06319a82f9"
-    sha256 cellar: :any,                 big_sur:        "263d41816556be074b45f72fc3362c953c91c0b98aa61872c83ef1459d8bb611"
-    sha256 cellar: :any,                 catalina:       "e9ca85381212db088482193f9fc598284af4a3ac4d300a7b102f6fd7c202bab4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "950457b5ef1e53c1bb2e59c32e5baf99d9288d56658f39eb7a21f01c71f40960"
+    sha256 cellar: :any,                 arm64_monterey: "ad906ee5fd5ef4913989acf3eec9a28fdaed7d1a64939e699f6490765522927a"
+    sha256 cellar: :any,                 arm64_big_sur:  "8a83ed6cd9d2dac0beb72f756b27850843d9cac1120b431b4a5cf4328c83ec9e"
+    sha256 cellar: :any,                 monterey:       "356b4b7982107b4945562a7ec635c23f70df5c9d7d639d9770413ff2b10354d2"
+    sha256 cellar: :any,                 big_sur:        "c98f79dc9aabdb616de7a5ee1ea8a0bc893d23c0af71369b65b093d215bc1d3e"
+    sha256 cellar: :any,                 catalina:       "432eaf039acf5b061fa49b290e136e510b78123af081d2d0ed68f3b834e7da1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdbbadffa598be6ad26e857531b15352a3fa1416926f4ff29cb0328eff5309af"
   end
 
   head do

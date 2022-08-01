@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v18.6.0/node-v18.6.0.tar.xz"
-  sha256 "5f8b0c33a12fcaec9643b4367a5daa94314bf26f9b75b5f431c4f14b37bc054c"
+  url "https://nodejs.org/dist/v18.7.0/node-v18.7.0.tar.xz"
+  sha256 "8834a33c92dfe6ba8903e6715caeaa25dff4657e703c54cd06ec113493e2c3c2"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -11,13 +11,13 @@ class Node < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8b420368d645afc4bd782ac72c3e4204b46a1fc1c2708e05920972b32e3f76e9"
-    sha256 cellar: :any,                 arm64_big_sur:  "47895583cb2fd1f3ed6479242e17f4e1058787895e5ae8a851ed18e21783999e"
-    sha256 cellar: :any,                 monterey:       "505665694e612fdf11b2c3ada51463d38ad1b9157f068d19fda7a5cf07aeea97"
-    sha256 cellar: :any,                 big_sur:        "0788b7bf9767fa05b8e2d9b0a3ef83e03a42df402b6284308f1c93e6c0de4c49"
-    sha256 cellar: :any,                 catalina:       "c6a5e2b83886eec06116f02ebc092e45f530b8b10149f883acc1752716380e7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9bded069b73b6f88b8ea4859ca307cf76c19a8fcf22ce9e04ba0ae539a452ed"
+    sha256 cellar: :any,                 arm64_monterey: "5bc3bbc7796679a30ef86748accee8170fad11bccea0fcc1fc129f2a51b4b6fa"
+    sha256 cellar: :any,                 arm64_big_sur:  "e29c164c7303516f06817f5b5aeec5e857b53d2f35d20d0eaeb32081a97d3ca9"
+    sha256 cellar: :any,                 monterey:       "cbcfe985fe9bdc27d487144feffd68e8ae0fdc247c312588ad3cf52e80e02183"
+    sha256 cellar: :any,                 big_sur:        "ce4293b284db54f3a1144728a7b0c8226c9fe026847cda4aad50b7a52ca87c1e"
+    sha256 cellar: :any,                 catalina:       "da43d1de42d234e2385bcbc97b12c63b7592aa7e5489ee02c97e6773487d7888"
   end
 
   depends_on "pkg-config" => :build
@@ -36,10 +36,6 @@ class Node < Formula
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with :clang do
     build 1100
     cause <<~EOS
@@ -52,8 +48,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.13.2.tgz"
-    sha256 "5a3ceb5e6897cb59debb4871d1a0316c66dde1ba201ed28401987babec668140"
+    url "https://registry.npmjs.org/npm/-/npm-8.15.0.tgz"
+    sha256 "6bdf219336595f7bffde7cb3996fffc96fcc2bdac3f1952491937d6a9d89db92"
   end
 
   def install

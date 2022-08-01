@@ -3,19 +3,18 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/c1/af/c4f6ac11d1855e1b2fbfc74acbfc1fb5f13d6d38555f74f726e35973bd31/bzt-1.16.8.tar.gz"
-  sha256 "a7d8cd956e356f946d6680391131be945796b73dd2d0c9d44ea89a4bffe569dc"
+  url "https://files.pythonhosted.org/packages/c5/20/92b6b2e4938b0490f56872a1c0bd3959cc2089e8ba3d951965ae9c359210/bzt-1.16.9.tar.gz"
+  sha256 "2d8af77525035081e7cb6a9c4d8c55984385bb53e0889088ba86b0a82d87e18c"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1bc302952ac9c287429a7564b82160d50f326cac7399b7419850faed126b7221"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b027e6df8b42b90b049e92fe6f55b9d52159f53e5ad76c171bccc110616dbcc5"
-    sha256 cellar: :any_skip_relocation, monterey:       "4374eedfd18e99905b1a5c4f11fc2de8e674c68184576a2394ae89185d31f057"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92e4bcb5bb19a901ccc2d8cb8fae2557a01d368e71b571abb22ac0a18ae3b44f"
-    sha256 cellar: :any_skip_relocation, catalina:       "37784d28c1ff531d6ed5aa918445dbeefab483c5abcc63c1c1b475bb7e87fa0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7f1883785b9b1959cda9f5f438eeb93f8eb339aa5de92e8c9df3d4e8dbc3235"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "75294da4472dcf2c6f0e1dc7b9dfff5a4fa6a3664d90cb4b60a6621e51b27bfc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41e46d64e66e9ec04b3d8fb1805aa8ec824ede4ca5a8a3dd00fdc07bd7dd1b2d"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a01343008a23082f39d01faae2c15619ce213c3b7907612b4c4c646d05fed58"
+    sha256 cellar: :any_skip_relocation, big_sur:        "db8b46805ea82582bda6ec766bda7071f5bbe9e3a294b75eb97377b685062efd"
+    sha256 cellar: :any_skip_relocation, catalina:       "6986e877a9de6ccc2a90469f49be1ff898c49e38ea0cc3582d26b84cc3a5e131"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45d49fc9b04028069daeb04fb2929b0e08062aedfd0874acb9a3c07c1977fff8"
   end
 
   depends_on "cmake" => :build
@@ -109,8 +108,8 @@ class Bzt < Formula
   end
 
   resource "jarowinkler" do
-    url "https://files.pythonhosted.org/packages/ce/8f/5efa1249a5aeca64fa0e92a3788609121404a1b6887a239ddd632b53686f/jarowinkler-1.1.2.tar.gz"
-    sha256 "1899cdd09fb1bfa6f32dad30ff8bc9c64b4ad2cb4fe8875306192752ff0cf8f6"
+    url "https://files.pythonhosted.org/packages/40/19/88f42d48b9807cfa7e8b74eac53b023ec25ed078e9bcf442c1c371dd243b/jarowinkler-1.2.0.tar.gz"
+    sha256 "7118976b9c1dca4ad77c97a0595d3917cead5f9b2856b14948a3bcf5f2438c44"
   end
 
   resource "lxml" do
@@ -154,8 +153,8 @@ class Bzt < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/e3/88/cf29bcbee7de754253f6c48b09adc672d28009f774a0e705d91ea78768fc/rapidfuzz-2.1.3.tar.gz"
-    sha256 "7c32a83a28476cfe8cfc9a955f535c31ad0499493a6ab316c3fb31eef58e00d6"
+    url "https://files.pythonhosted.org/packages/80/2a/0841832a010c57b69a1d515fb9725ada03367a0d028acc960e65e6c31f5f/rapidfuzz-2.2.0.tar.gz"
+    sha256 "acb8839aac452ec61a419fdc8799e8a6e6cd21bed53d04678cdda6fba1247e2f"
   end
 
   resource "requests" do
@@ -189,22 +188,7 @@ class Bzt < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-
-    # Avoid building `cmake` and `ninja`. Resources can use formulae instead.
-    cmake_build_resources = %w[jarowinkler rapidfuzz]
-    cmake_build_resources.each do |r|
-      resource(r).stage do
-        inreplace "pyproject.toml" do |s|
-          s.sub!(/\s*"cmake;[^"]*",/, "")
-          s.sub!(/\s*"ninja;[^"]*",/, "")
-        end
-        venv.pip_install Pathname.pwd
-      end
-    end
-
-    venv.pip_install resources.reject { |r| cmake_build_resources.include? r.name }
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do

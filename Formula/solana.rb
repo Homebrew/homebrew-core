@@ -1,8 +1,8 @@
 class Solana < Formula
   desc "Web-Scale Blockchain for decentralized apps and marketplaces"
   homepage "https://solana.com"
-  url "https://github.com/solana-labs/solana/archive/v1.10.28.tar.gz"
-  sha256 "3c2c8e1a4cc8cdb4ef626c3d1cd6775588ab3a4fe9c5f25b7ed21fb29176fe5f"
+  url "https://github.com/solana-labs/solana/archive/v1.10.32.tar.gz"
+  sha256 "a6dbb7f4bc32ad984411378947caceca4e2459032d38f6ef46f468a39626a6b1"
   license "Apache-2.0"
 
   # This formula tracks the stable channel but the "latest" release on GitHub
@@ -15,12 +15,12 @@ class Solana < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47a62afaea8faea4d72b912321ef4b19eed9749b454b13827dd354970c9e83ab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbdcf6b7824d47a7e46ce90f0bf3a9bf405e4b0222a99b422a0fb0884d4cb03f"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b1808e8e9b36e61e31df4a7af78b21445016a7321118548c89e87728917c4af"
-    sha256 cellar: :any_skip_relocation, big_sur:        "33b41757c0bc181ac73fec597b59d1f2cf9cd92c656fe7e90d8751352c8e04b2"
-    sha256 cellar: :any_skip_relocation, catalina:       "3c5f94cd630593c9b51fdb0c8116b12afa8f61c44d008b8e0e80fe9d3c87f133"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b6fdac117ba30502973b9cf27381068056de70a94fcb075e9e6377889040691"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1bc52511671c18d4bbb30eb8be896795af3fd3af68962cfe7e770dd2b28750fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d79564786445f83fb027a384e80999d6017fff3f69b2cd4a7e679ebabf18e4da"
+    sha256 cellar: :any_skip_relocation, monterey:       "abae0c95d0ddd01e9646c88f6673659d53de68ba87b40b7695410d5c0298dfcd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "44c149df14b76a16f68566b0db37f2e0ad6dfe6868333b58dd70c0e9db19455e"
+    sha256 cellar: :any_skip_relocation, catalina:       "cbb2dd8ee8d2d7c1470723a0b17ea6041545ceb7675550544ded930cbfef632b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "436849b6d09799a59eebc39b5b905e8123fe681a6f0ef6db6d73f34914b97092"
   end
 
   depends_on "protobuf" => :build

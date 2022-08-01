@@ -1,28 +1,29 @@
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
-  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.2.2.tar.gz"
-  sha256 "7656532f837af5f4cec3ff6bafe552c044dc39bf453587bd5b77450802f4aee6"
+  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.2.3.tar.gz"
+  sha256 "f5d7ab2390b06b8a934a4fc35784291b3885b557780d099bd32f09241f9d83f9"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "44dfabbbc585237b1f52d517186ec33ea0f65398667559a5164d0013881ded77"
-    sha256 cellar: :any,                 arm64_big_sur:  "9b8ae542d86b3faa7cf531d1cb2d1a410a55ece8d635302b783d122702ba3246"
-    sha256 cellar: :any,                 monterey:       "58169ef7b31ed2980685c05a7fc1d874a67802f7be0def4c295135ee73796d11"
-    sha256 cellar: :any,                 big_sur:        "3f1bdbf8361bdcb55d722c0007e4056e7a535234b8e7fe0cff6016dc48e1c8a9"
-    sha256 cellar: :any,                 catalina:       "5cf57e838f218193d7543de1b50093185e72fa368b7334a3ee58ea4b2268e994"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10c1f70224b629c8eb550469e51379c29f0996bd87690304f3c226a1fb930677"
+    sha256 cellar: :any,                 arm64_monterey: "c421bfcdd0b6e294554c8db1361880f1c2336421f33d7429b5e2882635982599"
+    sha256 cellar: :any,                 arm64_big_sur:  "0174c48cd6b6ef60529d9ed22f38d871d80e70a2b23fcebdbfc269b47e7218e5"
+    sha256 cellar: :any,                 monterey:       "aeb7b8d7d4e6738c171d8078205ffbfa9ccfe3aa03436b564b34febc816d5274"
+    sha256 cellar: :any,                 big_sur:        "f8ee3c889b0f61ce396fc6e3bd37a0511168c144f2519ad6372e062d0f23c1cd"
+    sha256 cellar: :any,                 catalina:       "708e35dfe3d8e88b996d74dc0b7447e4a1df708515c0b4f6fc9b41c959e351a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0d531bfdd8cb06b09a60e07bd731d8f9a50e90f15cf26623b45e47adecdf577"
   end
 
   head do
-    url "https://chromium.googlesource.com/webm/libwebp.git"
+    url "https://chromium.googlesource.com/webm/libwebp.git", branch: "main"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "giflib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 

@@ -1,8 +1,8 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2022.04.tar.bz2"
-  sha256 "68e065413926778e276ec3abd28bb32fa82abaa4a6898d570c1f48fbdb08bcd0"
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2022.07.tar.bz2"
+  sha256 "92b08eb49c24da14c1adbf70a71ae8f37cc53eeb4230e859ad8b6733d13dcf5e"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "BSD-3-Clause"]
 
   livecheck do
@@ -11,12 +11,12 @@ class UBootTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c545e0aadb914f5b535149ce3423fcbafa5f7931b514ed630e9518a65862116f"
-    sha256 cellar: :any,                 arm64_big_sur:  "f3d13f8b5f7cbda3a7714a70eb05a2f2026972de55735de95e58b8df2d43dac8"
-    sha256 cellar: :any,                 monterey:       "6028f04c201c11d97174bc4a03a7a84fe6c58cf013ed8f1e3fab873db1329541"
-    sha256 cellar: :any,                 big_sur:        "a7b15c98c78d8527fe852a8a8416f5ead7016515c31e8d537e22bb0448540e8c"
-    sha256 cellar: :any,                 catalina:       "f42d910896dcccb113a2d3749ab727b48c5d267180d6bcf71d2049f171796c43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dea488937c1c9374a39d0bb07cb376079da1860fdbd1c6b9e70a6290648188e"
+    sha256 cellar: :any,                 arm64_monterey: "6c3767e26ec0d6455e1ff73dbc4be110af93f705edf57370ea05c3b3ac07d524"
+    sha256 cellar: :any,                 arm64_big_sur:  "d241fd0f84e4e7c351da99249290fa2c569b1f8a864e44accf6ceb8823ef7065"
+    sha256 cellar: :any,                 monterey:       "f37e3945cbfc998b992d58ff24ba9d804c3fcf7fb9487b7ea4a541ebf00a1a49"
+    sha256 cellar: :any,                 big_sur:        "81865f1b1670454c2b7d48a8b5776d375e3feabd9f2c2343ba780ae2818b1545"
+    sha256 cellar: :any,                 catalina:       "ca5d9a0d173442a9e513036d2a424cf0f2a4bfd1bfa0f2bebe58429939921dae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b5f4f6b68eb747d764a5e51060705d2c27b16a45d83eea10f35a093b3cc1658"
   end
 
   depends_on "coreutils" => :build # Makefile needs $(gdate)

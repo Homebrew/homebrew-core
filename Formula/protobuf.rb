@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v21.2/protobuf-all-21.2.tar.gz"
-  sha256 "9ae699200f3a80c735f9dc3b20e46d447584266f4601403e8fe5b97005f204dd"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v21.4/protobuf-all-21.4.tar.gz"
+  sha256 "6c5e1b0788afba4569aeebb2cfe205cb154aa01deacaba0cd26442f3b761a836"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Protobuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f4e5326f0b8505f31e9cf1d67e8fc088f9fd8c9b3cbc13da5f8795336bb5f46e"
-    sha256 cellar: :any,                 arm64_big_sur:  "406101657c3c404d7a3e1d3a6ef05590ade52a6d9dfe4cd64c7ff600cb8fac78"
-    sha256 cellar: :any,                 monterey:       "4b9161a1b48bb336f7688cb9acb7b19be036b87b59c9c75176ca5d480672c37c"
-    sha256 cellar: :any,                 big_sur:        "c1731ca98919d87f8598ef295f36f9b1455e50fa9a7b3e8a56917c4331798f93"
-    sha256 cellar: :any,                 catalina:       "77f8f708271676ee69abe5b2cea78b28fcf23803f6936add15f40ef0d45aef73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "389956d7ba144da578c25c55c1dd74e520ec59f62b90df1bca1d536389086cf6"
+    sha256 cellar: :any,                 arm64_monterey: "85457c7bc72c6969617973e11254df3a0333b9d0738948ffb2c3fb03727b477f"
+    sha256 cellar: :any,                 arm64_big_sur:  "9fa073077f61aa63d4892121e94f254cdc8531095514d5d358a702044468abc7"
+    sha256 cellar: :any,                 monterey:       "62e6914629cc1f2616cd8b9d91df4683986a19713349ed4c302e201ebcdb4b2d"
+    sha256 cellar: :any,                 big_sur:        "48b2d6a2fc3c9c2190e82966be6d282779f9313fd47db8227aca2a9b7af558ad"
+    sha256 cellar: :any,                 catalina:       "4bc7d85fcbb65b1996a82cdb6f24a49f88ebd52b80a03f5391ec0bc036263190"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e2f6d4d5572bc90e15b3825af94bccff75055196adbf778de2c3f72e5d5e7e3"
   end
 
   head do

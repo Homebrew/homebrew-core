@@ -2,18 +2,18 @@ class Packetbeat < Formula
   desc "Lightweight Shipper for Network Data"
   homepage "https://www.elastic.co/products/beats/packetbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v8.3.2",
-      revision: "45f722f492dcf1d13698c6cf618b339b1d4907be"
+      tag:      "v8.3.3",
+      revision: "1755b5dd3127bf755ee39deb25a802438bdac620"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb61a07dd01526b77f321551772d19bfaa2888f721670b13c5d1d8f01f664ea7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f6fedaa741f2799a493615936005f5d15e4d120db5e70b44deaa7b5d91992d49"
-    sha256 cellar: :any_skip_relocation, monterey:       "087a7d4895cfdd52df484b985a005cb560120f64daaa150432a50e41a353f9b5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "87e149e548358d1a0b885f8bc45fe338d8f92852d657b9d75d14f9047ba78e8e"
-    sha256 cellar: :any_skip_relocation, catalina:       "ff9bac46b905ade75278b3bf99d552b09285483389164088eeca920e8178e608"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e9132c2dbb66a6c2d90fadac2a668fc4b11b2354814134260392e0aeca7098f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a6d711c88aafa71b47d80d0dfabfb1bb07eee55e248e3fea668446a648e30a8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cab3e125d7f1dcdbbaa2b31073377e8d78d05a9ff62dd07465da2f4c3711417"
+    sha256 cellar: :any_skip_relocation, monterey:       "e44d28f54d47cce76f4140a13d3f91d2b3a7d86160b552825215df0736c20b96"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cd72fbe39060b9440237d60bf8c62c5bb7386673a45ce724323109284812506a"
+    sha256 cellar: :any_skip_relocation, catalina:       "3fff1bf0c4d60f69099368caff0b60f39b98ff221498f3753b4c1a25c334be24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0744a2db2c4dcb15530428bcb915fcbf08a5c649d3044dcb7710b7bc2c1251b4"
   end
 
   depends_on "go" => :build

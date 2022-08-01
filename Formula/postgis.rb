@@ -1,10 +1,9 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-3.2.1.tar.gz"
-  sha256 "fbab68dde6ca3934b24ba08c8ab0cff2594f57f93deab41a15c82ae1bb69893e"
+  url "https://download.osgeo.org/postgis/source/postgis-3.2.2.tar.gz"
+  sha256 "18cf3d013f45b1aa8ed59d78bc707e9e125e250d8f0615396ae9bfe3dd7c3d7c"
   license "GPL-2.0-or-later"
-  revision 4
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -12,12 +11,12 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b4d02adb46f275667aee3742ccccb6fdac81015e0a67a4292fb4ed6e49b8cba5"
-    sha256 cellar: :any,                 arm64_big_sur:  "fe819e3bcfb07dd724b822024e19fafa34f20674d1f65485cef502d7c8483033"
-    sha256 cellar: :any,                 monterey:       "afb961e1a4a97069b152c114de82f9c64170a993e63e5118b25849ef2bb4284f"
-    sha256 cellar: :any,                 big_sur:        "156dc79e006a2746627a69b9c005fa97301b8a35c27e22d20ce92b0873e8d1e7"
-    sha256 cellar: :any,                 catalina:       "557444ec064e2471cc4508ea6f5c3550a321e12fbbc508bc654456557e19bebe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32378b22ed5304f279eba0d8f5f4aadf3d4b1ef6883690117bea5a7ac5d4b1ba"
+    sha256 cellar: :any,                 arm64_monterey: "245a94c149f25e01b06dbf2d30298ff4b03207ed3b4292b3e971916e21c22fcb"
+    sha256 cellar: :any,                 arm64_big_sur:  "6d73e54d1f796be0dfa0876a86f1b4fabbcea5260869536fdf52071fa39b1e02"
+    sha256 cellar: :any,                 monterey:       "055e53418d68221971e8e300bf44b43ad1a4604596b1b3c99191fe74857ea8f4"
+    sha256 cellar: :any,                 big_sur:        "8d50249aff88c1b7c4652cfe695ad0122c652d824fd82dbc6a11d3225d268afb"
+    sha256 cellar: :any,                 catalina:       "1ec9cef18b77e26ce96393660db374fd2c99e962d01a4d2ee48c031b372a56c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e7c6a13204329c37e54cd042e98a2d847c46b2bfca6082214317b49c52eb59d"
   end
 
   head do

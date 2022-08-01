@@ -16,10 +16,11 @@ class GccAT7 < Formula
   end
 
   bottle do
-    sha256 big_sur:      "f53816251cabd7c7cc5818af052ad0cccab189156fd63243be2b1bee21d8a0b7"
-    sha256 catalina:     "359aee8f81fae1591bb685a6c38dbcace62d32d1ba7a69b01c15061ce29e61bb"
-    sha256 mojave:       "95659aa77c264356df8c2eb9d24800aba62f0d308b86d601e0d259885700aebf"
-    sha256 x86_64_linux: "a4e1eccf168ea1fb7b02b186f3dbe9f5c3c44b95fb815ddf692b5f13698d78ca"
+    rebuild 1
+    sha256                               monterey:     "485a30f3812ce487ea861c68e8e3f1ddb209fb223bb1ef8c078a03615469b805"
+    sha256                               big_sur:      "66814f42364cea53786f3bb5d5b87caa9c89d43da6c743c38c84f06cfa368376"
+    sha256                               catalina:     "22a7358ee5e81ef25f858fbc6305669daa53c659d7d32198c9170a0ef83ed4c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e653d70c78fb9bcd714a6904775dcd9c3b2e661efd633722519f347e190c7c8f"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -46,6 +47,22 @@ class GccAT7 < Formula
   end
 
   def install
+    # Fix flat namespace use on macOS.
+    configure_paths = %w[
+      libatomic
+      libgfortran
+      libgomp
+      libitm
+      libobjc
+      libquadmath
+      libssp
+      libstdc++-v3
+    ]
+    configure_paths.each do |path|
+      inreplace buildpath/path/"configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress",
+                                            "${wl}-undefined ${wl}dynamic_lookup"
+    end
+
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 

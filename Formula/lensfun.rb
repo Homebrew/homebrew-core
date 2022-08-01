@@ -11,6 +11,7 @@ class Lensfun < Formula
     "CC-BY-3.0",
     :public_domain,
   ]
+  revision 1
   version_scheme 1
   head "https://github.com/lensfun/lensfun.git", branch: "master"
 
@@ -20,12 +21,12 @@ class Lensfun < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "b7c1472fdec4cfa0c78c7be1d84cf62f1c1b5b9f243ea19d47a7d65d591029ee"
-    sha256 arm64_big_sur:  "b4f90befa38fc5f0a2d7b981c63712cd53b98704f989f7d373ac072e38effab5"
-    sha256 monterey:       "5dca57fa7d6429e104ab925f41e16f08d66adf767def8c523034c797721b50ce"
-    sha256 big_sur:        "2c8cf34ada4b76d9d5a48cd05f0fb81dbdfc161fc0613dde4f393171021d3a22"
-    sha256 catalina:       "f4e3e086ea86dc1475152084544beddfb8f6f2ec53b43c96b1be58b4cfdd65e0"
-    sha256 x86_64_linux:   "58a7d7e275aa8eea9088f385d3801c4b0264fed650831f619823cd80d3b78173"
+    sha256 arm64_monterey: "9486d22108299332ec92369f4e7338111a744f214c52ebb384db654ff7379699"
+    sha256 arm64_big_sur:  "98cfcaef6655bb8a9a67b1a9feaca1eba526f3b8ce46e35f40449f43902844cc"
+    sha256 monterey:       "1545b2a59105bb4906394498c6e21c2b4d1398d2a3301c6fc58c3106ccb37bae"
+    sha256 big_sur:        "07e1c1cca921506244057b958860353249aa676fd36d7bfc66d20da2d3281851"
+    sha256 catalina:       "1130d39462b5b1957109a78b93c31e3f1618860f37270c71e51213173193d2b8"
+    sha256 x86_64_linux:   "35c9b93d5196c8cd249b00ab7a7ad8347cb72ad57326fd4753f8fce01aaa55f2"
   end
 
   depends_on "cmake" => :build
@@ -33,13 +34,20 @@ class Lensfun < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     # setuptools>=60 prefers its own bundled distutils, which breaks the installation
     ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+
+    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
+    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
+    site_packages = prefix/Language::Python.site_packages("python3")
+    inreplace "apps/CMakeLists.txt", "${SETUP_PY} install ", "\\0 --install-lib=#{site_packages} "
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     rewrite_shebang detected_python_shebang,
       bin/"lensfun-add-adapter", bin/"lensfun-convert-lcp", bin/"lensfun-update-data"

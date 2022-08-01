@@ -1,17 +1,17 @@
 class Plow < Formula
   desc "High-performance and real-time metrics displaying HTTP benchmarking tool"
   homepage "https://github.com/six-ddc/plow"
-  url "https://github.com/six-ddc/plow/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "bd57418d6842ae79a675ede027cd986d1e719edb163febfaec812d1a7cde4304"
+  url "https://github.com/six-ddc/plow/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "0ae69218fc61d4bc036a62f3cc8a4e5f29fad0edefe9e991f0446f71d9e6d9ba"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "950704a53979a9b0380eea38d28fbeb3a66a75c7c70b98cf520b27c173ea365f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1b8d9d830b45deefdd51587d41207e24be13ffa94243635285ad533d21cc539"
-    sha256 cellar: :any_skip_relocation, monterey:       "120d725087be1cd4ca85f80eb276f6b09f137604fd8cfda088245c0f915dd2c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3809db189ca62f72ae3a9f984849d8189dff597e636a4b7b16665b7f91379abe"
-    sha256 cellar: :any_skip_relocation, catalina:       "ae918fe58274757e2de7d7b530f6d651292f111d64d6156ebb6aa4a433c82a5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ee6813afc113044fa3308ba268eabc9e85794cc72cd393b5494514fb292cfac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "95bcacbe5e2365ee02b20f50b0609284ec45c16735bf770e3d4d1e9780855456"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0cef52ae418363789cabb8e8ebf61e0ed8b3e1583c2c824021af33e23d9adff"
+    sha256 cellar: :any_skip_relocation, monterey:       "c7964c4b495698886328bfd10dd83c5295fe25e3c704725954713e7a0c46aff0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bf726164d5c53c61efdd3087164201ebd3b8232a18dee414edd691a53b514f1b"
+    sha256 cellar: :any_skip_relocation, catalina:       "e3b8f6c2f84ab9b4d2bff2087c7daf59143f98141dac1d4d56e466a9c0839b1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43f1369e3579ddb48a31eb7b987543ee4dfdcc56d79238462c1285b91727c313"
   end
 
   depends_on "go" => :build

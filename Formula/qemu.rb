@@ -8,12 +8,13 @@ class Qemu < Formula
   head "https://git.qemu.org/git/qemu.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "d0640f2fa4be667c881a9364a5eabe40626b5cc887a6ade53d0b5701aaae3054"
-    sha256 arm64_big_sur:  "cd0ea798d387018e571253f99084d8f976e73c4c696830af57c365426638f054"
-    sha256 monterey:       "545187ab2b386fc4ce48735ab4247c17783bd420a56ddb4800565c4868da141a"
-    sha256 big_sur:        "68cedd112c5442d88767b8ebf1da68f0915ba4a7b2441d54453c098889b87d5a"
-    sha256 catalina:       "50d9981998568aa2c724aa41b9c7c1be34af187667f53235469938a5cad464c1"
-    sha256 x86_64_linux:   "7e606b9abfc143d599f567ae3391ece34da5929fc9304ce6ffd4b558d9c3bbd6"
+    rebuild 1
+    sha256 arm64_monterey: "f392a90d2ffce27b0dc370bf2d487b68bf15c174c5c22124f3ffef1bf77c3e6c"
+    sha256 arm64_big_sur:  "961dd7152f2aa4cd3f87429a6928c77307748fdda00ad55c359b2b77c383d99c"
+    sha256 monterey:       "083ca77ed158f6df966acbeeefd086fcb922ea5fe14cea4ff390475403c98686"
+    sha256 big_sur:        "334d48d38b97e7724a64dacd2548594e5264e9995d117f8c4e81351574325090"
+    sha256 catalina:       "806796c78fbb4c453361e94a502e1c0bdef1711959a6307334e4a97380475986"
+    sha256 x86_64_linux:   "200b3d9d2b454dac6e6a0de585ca3267a1b3aab8de327548650de59b895498bd"
   end
 
   depends_on "libtool" => :build
@@ -49,6 +50,13 @@ class Qemu < Formula
   resource "homebrew-test-image" do
     url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/official/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
+  end
+
+  # Fixes RDTSCP not being exposed to hosts
+  # See https://gitlab.com/qemu-project/qemu/-/issues/1011
+  patch do
+    url "https://gitlab.com/qemu-project/qemu/-/commit/d8cf2c29cc1077cd8f8ab0580b285bff92f09d1c.diff"
+    sha256 "b7c0db81e136fb3b9692e56f4c95abbcbd196dc0b7feb517241dda20d9ec3166"
   end
 
   def install

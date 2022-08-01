@@ -1,18 +1,18 @@
 class Eget < Formula
   desc "Easily install prebuilt binaries from GitHub"
   homepage "https://github.com/zyedidia/eget"
-  url "https://github.com/zyedidia/eget/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "0075a032e31e0525a8171b326ed8fb923e3d1e5e30201557d6820cf2ffd047ee"
+  url "https://github.com/zyedidia/eget/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "e2a81c68cbd70de6cd89c87e4497a700974a058366bb5bb1f4244a5115995b21"
   license "MIT"
   head "https://github.com/zyedidia/eget.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "548de2b28e6d215babe224db1504b37e9c3087b4b59af415127315891b6504b4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc1ef91411d1e4705fd10672c4212e8cf7f465b74b074ccd856430edaa50b22d"
-    sha256 cellar: :any_skip_relocation, monterey:       "7ef7a49209b6424a7eb3721129e32dbf3a6352127028ed8ed58b4f0a4b153084"
-    sha256 cellar: :any_skip_relocation, big_sur:        "22b9470d78fb564e71dd745d62de0da2883e53421e16d96c91df8d57cfbde07a"
-    sha256 cellar: :any_skip_relocation, catalina:       "307bc4010946398399bba50019c8bfe0e97e32a8d36d1928a1c3c3eb41c35813"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66cc98e8941a3aab5f3ffa460017a74af2858ec922b4beae9b371e10454ae0d3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c387fd9c614f8a31ca0f7768df223d076a7c8986c0193f5da1d573b34d2b0d8d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55f7aa069977eb88a51bd957a14c2a501586da378addf726a78689d8ed688c6b"
+    sha256 cellar: :any_skip_relocation, monterey:       "40ed2b53ba0b0f6dbe03645e9b8a1b7296d7dfcb31884795f1fe0bab51f3d269"
+    sha256 cellar: :any_skip_relocation, big_sur:        "204c13b6c32b05d82fe7ab558d4ca11d109b6f6fd246ac15f3ffe955483ee106"
+    sha256 cellar: :any_skip_relocation, catalina:       "192a66dea56af109df582b2460e0630bf4abf278f6233782ca91c21e5b8b275b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac5f5829e6a9e498de766545e5a9bdd054b5c89cbed1416bc9c06512c7da16f2"
   end
 
   depends_on "go" => :build

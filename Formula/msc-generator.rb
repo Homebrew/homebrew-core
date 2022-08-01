@@ -26,6 +26,10 @@ class MscGenerator < Formula
   depends_on "sdl2"
   depends_on "tinyxml2"
 
+  on_linux do
+    depends_on "mesa"
+  end
+
   fails_with :clang # needs std::range
 
   fails_with :gcc do

@@ -4,15 +4,16 @@ class Corsixth < Formula
   url "https://github.com/CorsixTH/CorsixTH/archive/v0.66.tar.gz"
   sha256 "9f87ff002405501b12798a715b691496775a4f9727188eeba167143816992a0f"
   license "MIT"
+  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 arm64_monterey: "1983163d306715a37bd59ff24f0d6bce2535bed34bc1643cc7ffffb7ad78dad5"
-    sha256 arm64_big_sur:  "c90c4533b838f558b553138b17ac2710cd6642cd054e38a06f974e292b876bff"
-    sha256 monterey:       "bb64f6ad5d2c46f97aff23de1295ff587aab58a1ce6501990afc06221705e2dc"
-    sha256 big_sur:        "69d34ae25d49ddfe6554b67ce7a05ed93a5f535dd89982f196d17adcdbb293be"
-    sha256 catalina:       "3221e324484ba66c0f9767d87ee5888910947f7a53cb09f08b80ed86b5381689"
-    sha256 x86_64_linux:   "0cd0b245a8f0d201098f2bfc9e34ebb36e6e2c839900c0a137b20f162cbfd9e9"
+    sha256 arm64_monterey: "f4d14eb421f532a4a488e679132d306eaf9bf1ebd1b39c2e02e63fbb04bdad4b"
+    sha256 arm64_big_sur:  "5beb15c7c0b6ed9f546005d5acbe37517a508e877e96321c9bf6523b3c80d367"
+    sha256 monterey:       "e924cb36de87cb61b5eb08d6eaeb28b8be0c9b905cd78f78b39d5ff8a4bcb7cd"
+    sha256 big_sur:        "478d7f02be8a3b833146a89f1328323c5278bed101b09e8bb8a1c3381cba07d3"
+    sha256 catalina:       "38f468fe76921a98c93b6c136bfeee177abb3e5d17aaf8d0f1e885191661d065"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,6 @@ class Corsixth < Formula
   depends_on "sdl2_mixer"
 
   on_linux do
-    depends_on "gcc"
     depends_on "mesa"
   end
 

@@ -24,16 +24,16 @@ class Srecord < Formula
 
   uses_from_macos "groff" => :build
 
+  on_linux do
+    depends_on "ghostscript" => :build # for ps2pdf
+  end
+
   # Use macOS's pstopdf
-  on_macos do
-    patch do
+  patch do
+    on_macos do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/srecord/1.64.patch"
       sha256 "140e032d0ffe921c94b19145e5904538233423ab7dc03a9c3c90bf434de4dd03"
     end
-  end
-
-  on_linux do
-    depends_on "ghostscript" => :build # for ps2pdf
   end
 
   def install

@@ -1,18 +1,18 @@
 class Lefthook < Formula
   desc "Fast and powerful Git hooks manager for any type of projects"
   homepage "https://github.com/evilmartians/lefthook"
-  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "a824e1e3a2426fffb50c6ad49b3761262df8dabdc371e8ca414af1b2b115bba7"
+  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.0.5.tar.gz"
+  sha256 "6a14d0354ba635c8fc188c351e59dbc057d61de3dc6a8d6a17fb4cecde260114"
   license "MIT"
   head "https://github.com/evilmartians/lefthook.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "973faa1ea3c0a69abcaf8a15f095bcfd3bce9b057b6f4c3ee5e8d55dd0f981b0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f3ebc1cd8c8d296568ba15f3e8fd6978bac6e06dc4c971ffa206cf28dc6e9050"
-    sha256 cellar: :any_skip_relocation, monterey:       "2b84b2c8b49ec898d677b6e71e8f8eee985f86aa4607591fc931e5a68244e4e6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8f956cfbfc7bc37a1dc6c48fb62bd90927a6ebc694f17b4e0983c6408c3cbe48"
-    sha256 cellar: :any_skip_relocation, catalina:       "fbd174620b3c8107bbb0c2afcfd5692875344f71368205e5f81b6dfb60d159c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2887a9f988a9ea35ff6f12245afb99f79e5a56f19629a921fc7a9676bba53d91"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8cbed72a1ff745afa5c9ce58bd32b443c89d1b7495073846a54dd97819c18d82"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fdf425065f1492298537520975b3edc9d48f698a694054cd398627f855749eb0"
+    sha256 cellar: :any_skip_relocation, monterey:       "c4c62e6b42642ebd1e9a1bbeb67f306907fda7be8a14a42bd1048ff701e6441e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0e9f898e2e7600402a1112962429c283981f19b8325356ecd858fe318add8660"
+    sha256 cellar: :any_skip_relocation, catalina:       "8d142d956cc277d56a9132d53679f171d9081abfd71b0b10070188fc653b38b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f0f9d0f5267faee32672bc0a84198066a0b5078271e8941cab837c08f695b7c"
   end
 
   # Bump to 1.18 on the next release, if possible.

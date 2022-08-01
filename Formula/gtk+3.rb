@@ -21,6 +21,7 @@ class Gtkx3 < Formula
 
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build

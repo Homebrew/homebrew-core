@@ -15,6 +15,7 @@ class Libchamplain < Formula
     sha256               x86_64_linux:  "292cd694f9167c38d48b8aba733960db987135857f6954bfff79908a57878413"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gnome-common" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
@@ -24,6 +25,7 @@ class Libchamplain < Formula
   depends_on "clutter-gtk"
   depends_on "gtk+3"
   depends_on "libsoup@2"
+  depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
 
   on_linux do
     depends_on "vala" => :build

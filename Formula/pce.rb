@@ -18,9 +18,12 @@ class Pce < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b219c1e06cdb370c7865c4e2a39eb50df89889585a7b77320acfb758bbe13696"
   end
 
-  depends_on "nasm" => :build if MacOS.version >= :high_sierra
   depends_on "readline"
   depends_on "sdl"
+
+  on_high_sierra :or_newer do
+    depends_on "nasm" => :build
+  end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

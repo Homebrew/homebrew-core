@@ -22,12 +22,14 @@ class Librealsense < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  # Build on Apple Silicon fails when generating Unix Makefiles.
-  # Ref: https://github.com/IntelRealSense/librealsense/issues/8090
-  depends_on xcode: :build if Hardware::CPU.arm?
   depends_on "glfw"
   depends_on "libusb"
   depends_on "openssl@1.1"
+  # Build on Apple Silicon fails when generating Unix Makefiles.
+  # Ref: https://github.com/IntelRealSense/librealsense/issues/8090
+  on_arm do
+    depends_on xcode: :build
+  end
 
   def install
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@1.1"].prefix

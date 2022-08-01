@@ -18,7 +18,7 @@ class Gom < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
@@ -26,10 +26,10 @@ class Gom < Formula
   uses_from_macos "sqlite"
 
   def install
-    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    site_packages = prefix/Language::Python.site_packages("python3")
 
     mkdir "build" do
-      system "meson", *std_meson_args, "-Dpygobject-override-dir=#{lib}/python#{pyver}/site-packages", ".."
+      system "meson", *std_meson_args, "-Dpygobject-override-dir=#{site_packages}", ".."
       system "ninja"
       system "ninja", "install"
     end

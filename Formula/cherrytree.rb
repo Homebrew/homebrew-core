@@ -29,6 +29,7 @@ class Cherrytree < Formula
   depends_on "gtksourceviewmm3"
   depends_on "libxml++"
   depends_on "spdlog"
+  depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
   depends_on "uchardet"
 
   uses_from_macos "curl"

@@ -22,13 +22,13 @@ class NetSnmp < Formula
 
   keg_only :provided_by_macos
 
-  if Hardware::CPU.arm?
+  depends_on "openssl@1.1"
+
+  on_arm do
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
-
-  depends_on "openssl@1.1"
 
   # Fix -flat_namespace being used on x86_64 Big Sur and later.
   patch do

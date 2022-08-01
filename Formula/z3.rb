@@ -1,8 +1,8 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.9.1.tar.gz"
-  sha256 "ca08ba933481242507b2f8b303c3ebdf5d16b0005d397fb45018321dc639a0d7"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.10.2.tar.gz"
+  sha256 "889fd035b833775c8cd2eb4723eb011bf916a3e9bf08ce66b31c548acee7a321"
   license "MIT"
   head "https://github.com/Z3Prover/z3.git", branch: "develop"
 
@@ -13,12 +13,12 @@ class Z3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e5b63794ddd3b4d29baa8b23a9007013bca679279aa9fc6c8d1bb931a3f85dac"
-    sha256 cellar: :any,                 arm64_big_sur:  "9d79b5d64370f784f973972ef5a90e36e3b8bee364127782531b29434dd4311a"
-    sha256 cellar: :any,                 monterey:       "0eba7a76ddf9e29b1807cb4d2d5858c0d24e4c476e3d67bb29ff28405009ee9f"
-    sha256 cellar: :any,                 big_sur:        "5a52eeda5fb6524c03b0b49ee8938108b80f769842de66a4cad89e00a19b23e7"
-    sha256 cellar: :any,                 catalina:       "2511e7c11b540bc05a172611b01a2ed2e6c923ec6b560b31658deb322ea13a63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d1294d682cd1e53880af6744999a1e9e17991a22a3c1ac1eb30c62b563ed794"
+    sha256 cellar: :any,                 arm64_monterey: "eb0123d654aa2ae195581711ba49909e0b8f2d561325c96cef3b18b0ba195f4b"
+    sha256 cellar: :any,                 arm64_big_sur:  "5452e5ff7b81055b5f2ba2829b88dc34271c3a974e23952d93d6c7b329eaff28"
+    sha256 cellar: :any,                 monterey:       "296b6f17a19866e5584f2c0726419d6acf9aee85165c46027e2dfb0b380c458d"
+    sha256 cellar: :any,                 big_sur:        "26c5ad374df3af8bf04f8dec610eab02513099c0681816122e774dd9aa658680"
+    sha256 cellar: :any,                 catalina:       "8142a915cc19ac71d057fda89c993b593fcaffdf97b930833f9cf5149ec72bcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e700c8d8b9ed45b0e14a73e3a6dc8a471ee0e47f41ab2a7d9c9170b0a92c4c9"
   end
 
   # Has Python bindings but are supplementary to the main library

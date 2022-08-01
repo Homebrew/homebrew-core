@@ -33,10 +33,9 @@ class Mkcue < Formula
     system "#{bin}/mkcue", "test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     if ENV["HOMEBREW_GITHUB_ACTIONS"]
-      on_macos do
+      if OS.mac?
         system "#{bin}/mkcue", "test"
-      end
-      on_linux do
+      elsif OS.linux?
         assert_match "Cannot read table of contents", shell_output("#{bin}/mkcue test 2>&1", 2)
       end
     end

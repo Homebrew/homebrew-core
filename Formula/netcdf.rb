@@ -13,12 +13,13 @@ class Netcdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d92a3204eecc153bbf9966661db110d60f7b1c84754eb5c399c09994715dabe4"
-    sha256 cellar: :any,                 arm64_big_sur:  "0a2e47a711557af0072384291301d92e3f41979e34a699715c83e3d972377605"
-    sha256 cellar: :any,                 monterey:       "d196d30c8c3dec1691c6879d4826c1a5be6736a4dfc2254fc92a05a6b3d2fe40"
-    sha256 cellar: :any,                 big_sur:        "b361f2ed89acf572442211a48e357819eb407e5087da70ce02ac7d4c83031af9"
-    sha256 cellar: :any,                 catalina:       "158be184ccf345494367384cbf53824e82af4349a9758e77e296cd72480bcb95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d25d07108941a3974fd6881e0c12df1b25f890bac13e07a06bb16767b2930ee"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "d60a8042de5cc5cc62ed9eb79fabddade5d88e4f70360b5b793566b5f601ed63"
+    sha256 cellar: :any,                 arm64_big_sur:  "f3afbed42ee2f16a125fed4f4195dab61265645991bc6b611cefe5997472ea45"
+    sha256 cellar: :any,                 monterey:       "4116d43312130dd84f24154880cf376152dd1347569f4a4d2c57b1c9a06e1542"
+    sha256 cellar: :any,                 big_sur:        "2deb28d80ce93556f52152df2670893ac32d86fb72bb5fb61b0b6ef20bd3be3b"
+    sha256 cellar: :any,                 catalina:       "0b93b2bb0131842c248871008bbe7221ca1616feb8cadafa72a43c85c822218e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ee9135286cb4c082d41b4953541832d1677e3ff8e95454e17627fe7e165e2fc"
   end
 
   depends_on "cmake" => :build
@@ -47,7 +48,6 @@ class Netcdf < Formula
 
     mkdir "build" do
       args = common_args.dup
-      args << "-DNC_EXTRA_DEPS=-lmpi" if Tab.for_name("hdf5").with? "mpi"
       args << "-DENABLE_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
 
       # Extra CMake flags for compatibility with hdf5 1.12
@@ -105,15 +105,7 @@ class Netcdf < Formula
       lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
     ], Superenv.shims_path/ENV.cc, ENV.cc
 
-    if OS.linux?
-      inreplace bin/"ncxx4-config", Superenv.shims_path/ENV.cxx, ENV.cxx
-    else
-      # SIP causes system Python not to play nicely with @rpath
-      libnetcdf = (lib/"libnetcdf.dylib").readlink
-      macho = MachO.open("#{lib}/libnetcdf-cxx4.dylib")
-      macho.change_dylib("@rpath/#{libnetcdf}", "#{lib}/#{libnetcdf}")
-      macho.write!
-    end
+    inreplace bin/"ncxx4-config", Superenv.shims_path/ENV.cxx, ENV.cxx if OS.linux?
   end
 
   test do

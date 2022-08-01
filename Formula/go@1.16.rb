@@ -17,7 +17,9 @@ class GoAT116 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-03-15", because: :unsupported
+  # Original date: 2022-03-15
+  # The date below was adjusted to match `kubernetes-cli@1.22`.
+  deprecate! date: "2022-08-28", because: :unsupported
 
   depends_on "go" => :build
 

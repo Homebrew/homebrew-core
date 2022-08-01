@@ -15,11 +15,13 @@ class Bowtie2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "46f6e5aa64fd0f9564d15f21aa0ac84d9960fb79424539599c284d0f7724e096"
   end
 
-  depends_on "simde"
-  depends_on "tbb"
-
-  uses_from_macos "python"
+  uses_from_macos "perl"
+  uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
+
+  on_arm do
+    depends_on "simde" => :build
+  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

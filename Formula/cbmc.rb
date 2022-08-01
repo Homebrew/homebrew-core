@@ -2,17 +2,17 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-5.61.0",
-      revision: "8f147113c34b06a03e1308b5ef4f5a496f76cd6a"
+      tag:      "cbmc-5.62.0",
+      revision: "64034e0d47f5d79b67fb22310a0e785469d24f01"
   license "BSD-4-Clause"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d375bb18ae140386579c98dcfa47c650690ce927b98ad1d886013a99bdbb126"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c7fc52c64ad41c67bf53734d634b5e679d0c3555d1b962ca00f7a08f9f50e04"
-    sha256 cellar: :any_skip_relocation, monterey:       "43cc2245e1b041988733dfc0cef7647ad52b524443a6ed5a4d86fa30a3aef69b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "67e0f152bdb1fbdd0495212bfd26ec456aaedf16292a4070465c87a7034a77a0"
-    sha256 cellar: :any_skip_relocation, catalina:       "17824331878a73ced0d6b05ac8037d853bd2d790fb0282127ecbdceaa5f2df59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "579d060e49739a22e5461d211732342520ed5184f589712b5cd4402aa64a6a21"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a786a1eaefab7a9b0331a27a58287dd0fdcc04249738dc578e9cc547151db41"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3e8056ffd13c5919664209058ad2507783ff36d179f5b89aa7f3f0672604a654"
+    sha256 cellar: :any_skip_relocation, monterey:       "044e86d04e53ce090d3d9c9142b1cb5bfe6891f6f2294690416a169b2da22aa0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "28107ea839525f15986c3c69cfe8fbeb481f93298d6d25e9825458370d38924e"
+    sha256 cellar: :any_skip_relocation, catalina:       "098319a8cbb6a295d8a6db00e2ac3f4957828dedb4bdb737025c72055eea865e"
   end
 
   depends_on "cmake" => :build
@@ -21,10 +21,6 @@ class Cbmc < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

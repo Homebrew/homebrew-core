@@ -4,17 +4,16 @@ class Lcm < Formula
   url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
   license "LGPL-2.1"
-  revision 6
+  revision 7
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "b30cc36445aaa0c3b1f5c784608fb4bfcc5e9f2e1d3afa9c5d58c6185340c5e7"
-    sha256 cellar: :any,                 arm64_big_sur:  "c7ad845ea866ae04b14650ff23482f4093ba7ab0973bbb920180d201c3b31b80"
-    sha256 cellar: :any,                 monterey:       "a05d1bd7f4b43968e99c05f80f0ef707eed4179a5c511a80a5e3fad656b5d666"
-    sha256 cellar: :any,                 big_sur:        "0ee183d544cf79575e1d23b84109b3439ab1adf3fc9de53bb726b272658a9dc0"
-    sha256 cellar: :any,                 catalina:       "f54ed2743dd01a817b91e881695c5bab06b42123269e5e1586256fb70ab81c62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc2ac51e1a23482d573e071493c49089c7de08be39be0002b523bbccfec4758b"
+    sha256 cellar: :any,                 arm64_monterey: "a9fd491e4ac81b5ac1d6e53f4c878c0e99ae93e1ef35a1fb1db57a4c215fa961"
+    sha256 cellar: :any,                 arm64_big_sur:  "900f60952dde555d041ffcd3ed4cb531e7f444de49f0ea394530c40c691d2a10"
+    sha256 cellar: :any,                 monterey:       "cf6d8a33a2a4e9759453f0d83d8f70f94d15871a093fa2689414f7385ade3d5d"
+    sha256 cellar: :any,                 big_sur:        "07b9ccb0e05db6969b1dad98dbda75df66851a34a84157bd7c4f487b8a07439c"
+    sha256 cellar: :any,                 catalina:       "ed606aa227cf0de039cf27e070fd76273242fcc2bda96f8705a75dcb73194676"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32cedab1ef9208cdd44df820032e093b533d11cd9eb3391c7dde04b25a4a8d95"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +21,7 @@ class Lcm < Formula
   depends_on "glib"
   depends_on "lua"
   depends_on "openjdk"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     # Adding RPATH in #{lib}/lua/X.Y/lcm.so and some #{bin}/*.
@@ -31,7 +30,7 @@ class Lcm < Formula
       -DLCM_ENABLE_EXAMPLES=OFF
       -DLCM_ENABLE_TESTS=OFF
       -DLCM_JAVA_TARGET_VERSION=8
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{which("python3")}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args

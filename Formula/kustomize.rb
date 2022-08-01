@@ -2,8 +2,8 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      tag:      "kustomize/v4.5.5",
-      revision: "daa3e5e2c2d3a4b8c94021a7384bfb06734bcd26"
+      tag:      "kustomize/v4.5.6",
+      revision: "29ca6935bde25565795e1b4e13ca211c4aa56417"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kustomize.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Kustomize < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5919e64168ab4a65cbf976b65215849c7a5d9b71ce8f9f57ea89d3b7d7aea65"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f337db7acba53a1066073f8f05bb3fd24cbf15beb90f9ee4d3458ba89b815716"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8cba8c955b392279f9a95be294d8c005ccfb3dc98b2ea87d8633dea04e1ec63"
-    sha256 cellar: :any_skip_relocation, big_sur:        "61942059da88f6e67803118f4c7b4918ac51e540592c5e337717d1b303bdb2cd"
-    sha256 cellar: :any_skip_relocation, catalina:       "80c0830923dd4515686eb0cd5c5288844b9c845febcb5cece85b4a9f3ec78d77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b422cba0c7950fdb51513875404fe5f01398621a2d11a9a08750c2df27f49fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ea453c9787b6f397ff01d089fbd2cccfac4c40d43bf14fe11ca0f1ba8336303"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6bfab4a38897992fb9d93d11a0c25419fa5db5192210450e0acbd89bd58882ac"
+    sha256 cellar: :any_skip_relocation, monterey:       "fdcbf55e2f4a3ce77a4fa3a9867097bf0617d4b322ae34ac01ba40ca250aec35"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a22d9fbd4cc8f1ea41f7374b20c6962ed1514efb97e421c996772d9b3933cdab"
+    sha256 cellar: :any_skip_relocation, catalina:       "a15d4f2f75819f6a7efc1e2d81c02c3aa121393ae0026895c63bb19979a1656f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50c68b811ad54c09b9ab70935a69059ec333e4afd53b1d240faf6537c8acfb04"
   end
 
   depends_on "go" => :build

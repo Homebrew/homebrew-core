@@ -18,13 +18,13 @@ class Klee < Formula
     end
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "6a31c472578a5aa4b679654b8df2da201e27089fa22a26e41bc159db3a2cbc78"
     sha256 arm64_big_sur:  "523865bd65c97e2b4a82dea38d394b32fef36bfce275b156357b092c78fdaa44"
     sha256 monterey:       "dcee52e30664b74d8be8b6a6c5916b8e617af263f4b17a16185490e550459adf"
     sha256 big_sur:        "5faee0cd2b6385f27c247ddda8909f210cb33c1aba4a88fb5c538e13e1a0f71c"
     sha256 catalina:       "a5390272bbd5454688b7014cc422b48dbbc38333d7592a76a3defd45403d5448"
-    sha256 x86_64_linux:   "03e64c52ceb8a2a660d2c01b78ecbcab730b7cfe9da438c28d83f917937a6095"
   end
 
   depends_on "cmake" => :build
@@ -39,10 +39,6 @@ class Klee < Formula
   depends_on "z3"
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

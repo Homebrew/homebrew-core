@@ -18,6 +18,13 @@ class Clinfo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "cb20a0053dd57a483815485e804884ba93cafde11b2d265285a7ad0b49fd3705"
     sha256 cellar: :any_skip_relocation, catalina:       "fe9953456ce92ca4701c040d4971be611671ab058c4743802c4721a5313e2bf1"
     sha256 cellar: :any_skip_relocation, mojave:         "6165806150adf656308b999a1fac88effdf0fe5128b39d21c4faa0cda9b3c491"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99db424979264c6c3e4f8e3b1eeb9a9911fac5129558ba5c801eb302b0f9c91d"
+  end
+
+  on_linux do
+    depends_on "opencl-headers" => :build
+    depends_on "ocl-icd"
+    depends_on "pocl"
   end
 
   def install

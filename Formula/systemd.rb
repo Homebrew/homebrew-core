@@ -4,10 +4,11 @@ class Systemd < Formula
   url "https://github.com/systemd/systemd/archive/v251.tar.gz"
   sha256 "0ecc8bb28d3062c8e58a64699a9b16534554bb6a01efb8d5507c893db39f8d51"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 x86_64_linux: "ad7e1fb14c91831ef3d851e874facf9559bc49d2b8394a479f571334a87310a9"
+    sha256 x86_64_linux: "96f4b17b8519f82398df5faf793f2e08cc794b4227f91d2ba8eb59c50b07945e"
   end
 
   depends_on "coreutils" => :build
@@ -33,6 +34,8 @@ class Systemd < Formula
   depends_on "util-linux" # for libmount
   depends_on "xz"
   depends_on "zstd"
+
+  uses_from_macos "libxcrypt"
 
   def install
     ENV["PYTHONPATH"] = Formula["jinja2-cli"].opt_libexec/Language::Python.site_packages("python3")

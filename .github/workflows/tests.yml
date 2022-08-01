@@ -186,13 +186,11 @@ jobs:
     strategy:
       matrix:
         include:
-          # - runner: '12-arm64-${{github.run_id}}-${{github.run_attempt}}'
-          #   ephemeral: true
           - runner: '12-arm64'
-          - runner: '12'
+          - runner: '12-${{github.run_id}}-${{github.run_attempt}}'
           - runner: '11-arm64'
-          - runner: '11'
-          - runner: '10.15'
+          - runner: '11-${{github.run_id}}-${{github.run_attempt}}'
+          - runner: '10.15-${{github.run_id}}-${{github.run_attempt}}'
           - runner: ${{needs.setup_tests.outputs.linux-runner}}
             container:
               image: ghcr.io/homebrew/ubuntu16.04:master
@@ -215,8 +213,6 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
-          # TODO: remove the line below once set in the runner .env file
-          echo 'GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED=1' >> $GITHUB_ENV
 
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -304,7 +300,7 @@ jobs:
         run: rm -rvf bottles/failed
 
       - name: Upload bottles
-        if: always() && steps.bottles.outputs.count > 0 && !matrix.ephemeral
+        if: always() && steps.bottles.outputs.count > 0
         uses: actions/upload-artifact@main
         with:
           name: bottles

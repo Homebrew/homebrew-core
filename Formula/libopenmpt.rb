@@ -11,13 +11,13 @@ class Libopenmpt < Formula
     regex(/href=.*?libopenmpt[._-]v?(\d+(?:\.\d+)+)\+release\.autotools\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ae0ff7a657ec01c58021a43af5b329c475f0aca41a3fbd7732a9f796321a85b8"
     sha256 cellar: :any,                 arm64_big_sur:  "87abd6b76d93a0ba472036c8c1f28635ea3d24b7976ca6a9920cfb2011167dfa"
     sha256 cellar: :any,                 monterey:       "4838e76c64ca27cdf6cdc81ca9e9a5250605f2dfe7bd79a027e985429462a6d6"
     sha256 cellar: :any,                 big_sur:        "793c68af688bf11d6d9fd8657cdcc8ac91da8023112187b6e83a271c78c91dc4"
     sha256 cellar: :any,                 catalina:       "8eae0f6145e36a73818c516a9ed0099428e467057f3224623b03df47b9c759d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "446de3b35d25cf8a71bcac2b8466c1ad96f9a41c5b641e2b1921e7ceb6337e5b"
   end
 
   depends_on "pkg-config" => :build
@@ -32,7 +32,6 @@ class Libopenmpt < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc"
     depends_on "pulseaudio"
   end
 

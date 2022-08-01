@@ -4,23 +4,22 @@ class Jpegoptim < Formula
   url "https://github.com/tjko/jpegoptim/archive/RELEASE.1.4.7.tar.gz"
   sha256 "9d2a13b7c531d122f360209422645206931c74ada76497c4aeb953610f0d70c1"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/tjko/jpegoptim.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a8d8940a75e3fb32f7ad434f214d793a0ef30fe83c9e7cf22f6a9e5a13f0f7df"
-    sha256 cellar: :any,                 arm64_big_sur:  "74f6b6eec2834729de1a29478a5436ef2457d7bd91af03a3da8709f225c07a45"
-    sha256 cellar: :any,                 monterey:       "daf609700653d6b983e782785a07ca608251372b5a723d6eaa0690f070df362c"
-    sha256 cellar: :any,                 big_sur:        "1dc492177f3bf6aa90d6bbc88fa62194fc6654038b62d64442a14c0621b54ed4"
-    sha256 cellar: :any,                 catalina:       "dcab93fd24b80d50e3b3a460bc37559391246c05fd9037897c3d239a2f97a481"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02b5e35d2887c7bc6e8c84ccfa1f6df8991b2bc33f7202f250096c8e1daeb950"
+    sha256 cellar: :any,                 arm64_monterey: "e6d9c5e8553dc145485bf7ac4f51769fa784db83a3a9c32f1a3104efe44ce7b4"
+    sha256 cellar: :any,                 arm64_big_sur:  "3a86e5222a263e8839fa4cc5a1718867db725fbb586c9a835aab536f4c61ccbb"
+    sha256 cellar: :any,                 monterey:       "63e2cf66cd28f76ba91fe51e9b48aa41355c87376469305a39caa2597b5af576"
+    sha256 cellar: :any,                 big_sur:        "cd7e4b0eebb6a3ea8f46012f34e18631efe9e5d966d7c09d8ca3bddb74802285"
+    sha256 cellar: :any,                 catalina:       "f3cea036b0c5dd14edadeb0e809add5fb2dd9cca19dceafa5cfb990a336942b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58ce46f0434d04bb363eb84e89a9043c429163733a502716db6e1f7b52afdbf2"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     ENV.deparallelize # Install is not parallel-safe
     system "make", "install"
   end

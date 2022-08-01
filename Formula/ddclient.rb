@@ -75,14 +75,9 @@ class Ddclient < Formula
     end
 
     # Install sample files
-    inreplace "sample-ddclient-wrapper.sh",
-      "/etc/ddclient", "#{etc}/ddclient"
-
-    inreplace "sample-etc_cron.d_ddclient",
-      "/usr/sbin/ddclient", "#{sbin}/ddclient"
-
-    inreplace "sample-etc_ddclient.conf",
-      "/var/run/ddclient.pid", "#{var}/run/ddclient/pid"
+    inreplace "sample-ddclient-wrapper.sh", "/etc/ddclient", "#{etc}/ddclient"
+    inreplace "sample-etc_cron.d_ddclient", %r{/usr/s?bin/ddclient}, "#{sbin}/ddclient"
+    inreplace "sample-etc_ddclient.conf", "/var/run/ddclient.pid", "#{var}/run/ddclient/pid"
 
     doc.install %w[
       sample-ddclient-wrapper.sh

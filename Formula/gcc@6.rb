@@ -16,10 +16,11 @@ class GccAT6 < Formula
   end
 
   bottle do
-    sha256 big_sur:      "9fae646d3b49a384c6c524620f128ee5d7ee06811d5b2c9e67a06baa6e45201b"
-    sha256 catalina:     "8b18ff45d42f712a6b384a75e0850b6c6a9a369cc186e8ec31e766742a86d4eb"
-    sha256 mojave:       "9bec2c923e6cdcefc18b4c716b1b2bd93ce18ea30e8327aff93c0aaa3465c8b5"
-    sha256 x86_64_linux: "61e54a4996eff5e7cde22c4f74c731a01adc699622cae5a239b307dc1ef33065"
+    rebuild 1
+    sha256                               monterey:     "6c06fbf374a3d102b63992b16c4d4af3e1631db7a6b7a73663de40abdbee276f"
+    sha256                               big_sur:      "21f48173ffbe41bb31e74e5276af5c8423f740d353a9e5a553a042e296c00003"
+    sha256                               catalina:     "7565805ad5e57c7c30e36b2db160279ac04b713d4fadfbdb9df4f34ad591f36f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d5e892d3533fd82835741f2da3384e76ebc1d2c3c36e3b42e821ba8106475e19"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -56,6 +57,22 @@ class GccAT6 < Formula
   end
 
   def install
+    # Fix flat namespace use on macOS.
+    configure_paths = %w[
+      libatomic
+      libgfortran
+      libgomp
+      libitm
+      libobjc
+      libquadmath
+      libssp
+      libstdc++-v3
+    ]
+    configure_paths.each do |path|
+      inreplace buildpath/path/"configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress",
+                                            "${wl}-undefined ${wl}dynamic_lookup"
+    end
+
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
@@ -106,6 +123,9 @@ class GccAT6 < Formula
       # Ensure correct install names when linking against libgcc_s;
       # see discussion in https://github.com/Homebrew/homebrew/pull/34303
       inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+
+      # Fix bug reported in https://gcc.gnu.org/bugzilla/show_bug.cgi?id=92061.
+      inreplace "gcc/genconditions.c", "#if GCC_VERSION >= 3001", "#if GCC_VERSION >= 3001 && __clang_major__ < 9"
     else
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"

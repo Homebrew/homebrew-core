@@ -5,22 +5,22 @@ class Genometools < Formula
   url "https://github.com/genometools/genometools/archive/v1.6.2.tar.gz"
   sha256 "974825ddc42602bdce3d5fbe2b6e2726e7a35e81b532a0dc236f6e375d18adac"
   license "ISC"
+  revision 1
   head "https://github.com/genometools/genometools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "08242bc47368b56715af9ff71c75e61bf65d1b74e545007b53411a85c286dd2c"
-    sha256 cellar: :any,                 arm64_big_sur:  "1bdde783ed231c4a60b1b9b1ca43e1ad1115140a83c98ed8b709bd1a9c73d011"
-    sha256 cellar: :any,                 monterey:       "5806462e96ba7622cc672e8179c42ec153c99e231032ae1d30d6671cab1cca9d"
-    sha256 cellar: :any,                 big_sur:        "8adf70e333da419e3ee99a7da16c72c32cd2b03584bf0210d69ee7dcb3106d63"
-    sha256 cellar: :any,                 catalina:       "41a9e52f2f0853eb1826e7136a43ae17410292fdc277860eef8f56980f124572"
-    sha256 cellar: :any,                 mojave:         "606831c946666247431971c496c9d028434c04537a4cbf67f9965a83508f54d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6007cc8d2b711a4a49af59d58bfc18478f837635a2de07c85c9ef73fdafc521e"
+    sha256 cellar: :any,                 arm64_monterey: "b09bb366e3e15f77d94aab5e6bdb072e9304534245a730783df426deccfe040a"
+    sha256 cellar: :any,                 arm64_big_sur:  "f350d9c4cac62bcb0b3de1153d4f2fd760b529f02bd9a43f21c91ecfa5e0b47b"
+    sha256 cellar: :any,                 monterey:       "27d16515d739177e10547d62c76b0b20af221979572f05982d3a37392bf52dcd"
+    sha256 cellar: :any,                 big_sur:        "b97131de84349e7e805095564ba995eb6d06e99b8e0f9b4f5b943e42af17997e"
+    sha256 cellar: :any,                 catalina:       "4b59bf76b39c797a21e6cd2acb90fdf273316ff73cd3c97ede296f672493a42a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ee8f9d26f65607d15f8113c45c9ccf670fd01a9d12e4ca764d9ee3a0e4705b1"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "libpthread-stubs" => :build
@@ -45,6 +45,6 @@ class Genometools < Formula
 
   test do
     system "#{bin}/gt", "-test"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gt"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import gt"
   end
 end

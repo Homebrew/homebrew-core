@@ -1,26 +1,17 @@
 class Spandsp < Formula
   desc "DSP functions library for telephony"
-  homepage "https://www.soft-switch.org/"
-  url "https://www.soft-switch.org/downloads/spandsp/spandsp-0.0.6.tar.gz"
+  homepage "https://web.archive.org/web/20220504064130/https://www.soft-switch.org/"
+  url "https://web.archive.org/web/20220329161120/https://www.soft-switch.org/downloads/spandsp/spandsp-0.0.6.tar.gz"
   sha256 "cc053ac67e8ac4bb992f258fd94f275a7872df959f6a87763965feabfdcc9465"
-  revision 1
-
-  livecheck do
-    url "https://www.soft-switch.org/downloads/spandsp/?C=M&O=D"
-    regex(/href=.*?spandsp[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "126dae630e017d020ecdb42a862a1d25cf4cf0d45a9b8572a952939ab19a9a77"
-    sha256 cellar: :any,                 arm64_big_sur:  "79f15cdc3b76b6348f828252f94d0f6f1408a9c68d11b139e9da930015c4ca12"
-    sha256 cellar: :any,                 monterey:       "6e6beb3e14b2e89e3d6cab0053450c78a2c0d7358c40fd14fe044f7489f80d5c"
-    sha256 cellar: :any,                 big_sur:        "05ff257a953dbb0d88f955fc2f467c7dcf47784a55c53e7b9f9d564767225bf8"
-    sha256 cellar: :any,                 catalina:       "8a34a25e8108c8a5343d00a031d52c1003422a5ad84186ded83fbed819a834e5"
-    sha256 cellar: :any,                 mojave:         "d38722be71b9d6b3311ee51cb85bc406b2bc34eaf5741851c3b4ed432aecacf2"
-    sha256 cellar: :any,                 high_sierra:    "0b4bb6795c931452181252754da3db80189e6557c344e743296de823cb711efa"
-    sha256 cellar: :any,                 sierra:         "c0b8349525680304f99e464d328df804279be85398969974f2b708e5167c89fe"
-    sha256 cellar: :any,                 el_capitan:     "428120be3841ca77961f2d19fe8f98f1615972db4f568e3cfa2c0a44cae44e77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40a9fe616eb15d9ce66c1144c1f56ebabbbae50783ad188f9674b387b5725324"
+    sha256 cellar: :any,                 arm64_monterey: "68c43cb9a49a874a31020e96acf041e7a81c83abebebd03f81e4b24e2f462c7b"
+    sha256 cellar: :any,                 arm64_big_sur:  "16f6c6a36a3c1cc4f322f1ecff38a6784e1aacc83c05c23dc0a15a74dc31fb5c"
+    sha256 cellar: :any,                 monterey:       "11a2c48bd52753bb1f907fafb5d1defda7509eec0df434fc15e3b7dd5929d839"
+    sha256 cellar: :any,                 big_sur:        "e07fb092214a411f46e4f3a7b1203f9265c247d533d89b8e48cc69315c1fd0ca"
+    sha256 cellar: :any,                 catalina:       "a473944f4d1a3896e9b630aaff267d43d5681071e8bdede3a9ef34ab0bd6ed0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2970d79b9d79452fe323a3df25ff24355c308337c80cdeb7007fd7352837efc8"
   end
 
   depends_on "libtiff"
@@ -33,10 +24,7 @@ class Spandsp < Formula
 
   def install
     ENV.deparallelize
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
   end

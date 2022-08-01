@@ -3,17 +3,17 @@ class Glances < Formula
 
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://files.pythonhosted.org/packages/62/ae/e78752833a1a198bd62bc5ad633b2f5762ba1240e55c45605a9920c5d6e4/Glances-3.2.6.4.tar.gz"
-  sha256 "43f4abd140e3e83bbcd514e8b88af99c3b11803141197f4e5de486dd7174186b"
+  url "https://files.pythonhosted.org/packages/d9/0e/f1ede21301911f5f4a66b418b28d81ac8942b40dff49f3037b941ac68849/Glances-3.2.7.tar.gz"
+  sha256 "56ec34293aba3e09d801c890e1ccd799c2b9e8614c9435d74ffdf14cdfeb9492"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "42205b8f86e07152b04e3b7fe3306fd74d5f8da9174a7295678a0b494d36acec"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b53e981929fd2585113a55bfb229d47eceb7e9a8201dc0a328ac20bca0e452d8"
-    sha256 cellar: :any_skip_relocation, monterey:       "5a90eeb85dfe91a1279e9be81a6e5e973b758f224206d8904145b0a11a2a03c9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a782823dec42d7e427ec7f98aedb5fa24b11e2ae4a3a9af46f56fc4fcb47ed57"
-    sha256 cellar: :any_skip_relocation, catalina:       "9358ab788b1381e6162a4e590eb5539f06ff86806c7b8e3038e0e54dafcc15ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d3d70c53e8856b67281133e5677c5854dee698c4306f9129bfeb866c0275324"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb3ee634537487d23c20576ca36ec5f9d2ed6ca19fcc86c6814fcafe3f6a1b4a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9db8bec3dcc0f592bd13c5555255ef4bd8af7cadf75b7d9ff461012997a239f"
+    sha256 cellar: :any_skip_relocation, monterey:       "c2271504cdfc31be24c4ee5beac66c0a48be209c21cd67c4799f684fa1411359"
+    sha256 cellar: :any_skip_relocation, big_sur:        "635ed142c4c9ac96b72806bcf2f201fcc1e29e13a547b82dbda5d66f5fdbdd63"
+    sha256 cellar: :any_skip_relocation, catalina:       "2209c12929b64c5f26f391f1200ea96720910a0ccb6e03417877a58fd386b38e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ce45d08247195a753f069fdf578d0ee69a72b1fae0e5eecb09d65ec1533465d"
   end
 
   depends_on "python@3.10"

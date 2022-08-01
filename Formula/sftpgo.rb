@@ -1,17 +1,17 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.1/sftpgo_v2.3.1_src_with_deps.tar.xz"
-  sha256 "dd4d0f7b7e7618f01ccecee7ea8045a6adcee2c2e29ab011a85eef8c80a0ac55"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.2/sftpgo_v2.3.2_src_with_deps.tar.xz"
+  sha256 "5711129bc1a74384032b27424391ece8bff2fb20e03eb6998869c4dc7a0196ce"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 arm64_monterey: "9f206b453542f1e113f7c32ed957aa2e3ad83ff17e8633f1deeda08fbb0b42c9"
-    sha256 arm64_big_sur:  "0e31b410f5c9e81f78570ea7690c15097eb0a742ecf64d3a7ddb1560e95347da"
-    sha256 monterey:       "002d45406bd9c33651427c1114454193bde4e3fecbf1ccc806187f081bfe6142"
-    sha256 big_sur:        "536ee83cd3e33f243b77460a2f66c4f6940599d505611ceaa4a5f596968a5900"
-    sha256 catalina:       "dc89326ebf0835b5d5543b9a3c383150361f6490af9b2905f1781afdede603d9"
-    sha256 x86_64_linux:   "b78756f3bf09d1e6f8fd410eb61dc34a2b72afeb6b5e6bbf44b2e82021380279"
+    sha256 arm64_monterey: "c7a53a2ec8f5ff0489a5802ac7912b41c8c3dfbdd4be0f920146d3bb04b78994"
+    sha256 arm64_big_sur:  "9990a67f9271d90eb9509aed752014ac4f9e1bad96403c4d86334ed7ea28cd4b"
+    sha256 monterey:       "8ee580632f72f07ecd1ec6acb1fe976162f270e1fcffc259f2648d8fe7445f0c"
+    sha256 big_sur:        "1e593fc58f2255060d5854c7b1b355924763843fb743ae086c57ee89b10e1310"
+    sha256 catalina:       "371bdd06c187620d14d34ff1c020ae34ec6c032214fa9068c1250ed8494171bb"
+    sha256 x86_64_linux:   "dc10606e40cf36f9217fea235ca6ab68b23899b7f0f120a8b988ab64e33cc128"
   end
 
   depends_on "go" => :build

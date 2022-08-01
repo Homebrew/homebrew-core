@@ -3,18 +3,18 @@ class Vermin < Formula
 
   desc "Concurrently detect the minimum Python versions needed to run code"
   homepage "https://github.com/netromdk/vermin"
-  url "https://github.com/netromdk/vermin/archive/v1.4.0.tar.gz"
-  sha256 "984773ed6af60329e700b39c58b7584032acbc908a00b5a76d1ce5468c825c70"
+  url "https://github.com/netromdk/vermin/archive/v1.4.1.tar.gz"
+  sha256 "ee69d5e84f0d446e0d6574ec60c428798de6e6c8d055589f65ac02f074a7da25"
   license "MIT"
   head "https://github.com/netromdk/vermin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "979e49dcf59072276cf1f26ef959b72285a34dbf50be7fd9b3d1a17691ba7782"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "979e49dcf59072276cf1f26ef959b72285a34dbf50be7fd9b3d1a17691ba7782"
-    sha256 cellar: :any_skip_relocation, monterey:       "b161ec94326e573a7b96c5cc887ea932d17a1b4b3a501ba9f0522873ac997903"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b161ec94326e573a7b96c5cc887ea932d17a1b4b3a501ba9f0522873ac997903"
-    sha256 cellar: :any_skip_relocation, catalina:       "b161ec94326e573a7b96c5cc887ea932d17a1b4b3a501ba9f0522873ac997903"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dddfe95d6b2572b6b3e354219b638dea36d7d03a80740c51cf315510fcaa4af"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "da21abb658da7cd0933a3a8e4707f55f1e98be0779a0a079bc953878ea3f1ad9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da21abb658da7cd0933a3a8e4707f55f1e98be0779a0a079bc953878ea3f1ad9"
+    sha256 cellar: :any_skip_relocation, monterey:       "e6342067906c2748f93a63baf1ecfbdd7f65a4140875f333ba456dcb03d19fad"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e6342067906c2748f93a63baf1ecfbdd7f65a4140875f333ba456dcb03d19fad"
+    sha256 cellar: :any_skip_relocation, catalina:       "e6342067906c2748f93a63baf1ecfbdd7f65a4140875f333ba456dcb03d19fad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bbf39bf561a03de3412452d1e61c2a756bbf87c0d3e0c5bbeca67b39d302e50"
   end
 
   depends_on "python@3.10"

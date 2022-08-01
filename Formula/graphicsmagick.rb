@@ -4,6 +4,7 @@ class Graphicsmagick < Formula
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.38/GraphicsMagick-1.3.38.tar.xz"
   sha256 "d60cd9db59351d2b9cb19beb443170acaa28f073d13d258f67b3627635e32675"
   license "MIT"
+  revision 1
   head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
   livecheck do
@@ -11,18 +12,18 @@ class Graphicsmagick < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "60a324b98f4e6a8015f0b304df612b70fb64b5f51ad2d43bfcddfb951257125d"
-    sha256 arm64_big_sur:  "17e64fd18bd459648e31e463e6765fc8a39496324c2df9b977ce7b6d27ba77b6"
-    sha256 monterey:       "4aabbd3fa3fb9a3dbdf111d2d06cc1b78bf8fdfb8f1ea9f440aeabd6f40e9627"
-    sha256 big_sur:        "357ff0c2523d8015ec3000ad3aeca4b474c5816cd055ed3ee2435200ba580deb"
-    sha256 catalina:       "a7138441a365f8cb115b325d30f462e5ee1e5c9ec4454240cadf6cc7172be8d7"
-    sha256 x86_64_linux:   "77642a448d7ce30d4324b45eb0ec62e710e2b9c6c813ad240d2a05a756360d81"
+    sha256 arm64_monterey: "69c5aa5a28c4b5675addde198e3779134128ee132354dae82b9be85c5fab4817"
+    sha256 arm64_big_sur:  "7e1ad64d06e3e1e310879361dabe3e8c66d4a8f4c645c6a9fc5b69d8168d2c6a"
+    sha256 monterey:       "04b039ead7edb17e0da005dd679dfe51d886dc34e481aec4d3df0f5951d0836a"
+    sha256 big_sur:        "b9bf139790e2854a0d1c510af638fa31acacf6e809dcd1b71b940a5a3eb8bb2d"
+    sha256 catalina:       "1696c632ecb433129619bf445cf5dd9e227389484c5ddd87dd1ce744257dcfcd"
+    sha256 x86_64_linux:   "ff6447deef369947c767bfbad348e28f882e753ebbea58ad9e59dbea0446cb2e"
   end
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "jasper"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"

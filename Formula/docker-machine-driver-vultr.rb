@@ -20,6 +20,9 @@ class DockerMachineDriverVultr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "60610ec215e212a442adf660b34f651db0c97a75cfe7ca908e00c8d450ccd8f4"
   end
 
+  # last commit was in 2017
+  deprecate! date: "2022-07-29", because: :unmaintained
+
   depends_on "go" => :build
   depends_on "docker-machine"
 

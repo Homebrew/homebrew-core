@@ -1,9 +1,9 @@
 class UniversalCtags < Formula
   desc "Maintained ctags implementation"
   homepage "https://github.com/universal-ctags/ctags"
-  url "https://github.com/universal-ctags/ctags/archive/refs/tags/p5.9.20220717.0.tar.gz"
-  version "p5.9.20220717.0"
-  sha256 "4f6e9191f2f74cb8adf50da72ce12513a53835aace3bd68579c1d16fcf233275"
+  url "https://github.com/universal-ctags/ctags/archive/refs/tags/p5.9.20220731.0.tar.gz"
+  version "p5.9.20220731.0"
+  sha256 "0ba7415586107afc7793e3425df068a22748c09df5a184fd8b81b83f55968337"
   license "GPL-2.0-only"
   head "https://github.com/universal-ctags/ctags.git", branch: "master"
 
@@ -13,12 +13,12 @@ class UniversalCtags < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "85e9879ab94c8c0de85b7924f56f4ef89d026cd2905d2e67c6c8b8f3ccff4b6e"
-    sha256 cellar: :any,                 arm64_big_sur:  "006d86b9ffe49a4b4fef4c38ddc4f2abb607824b01428bcc7cf080f86fae4133"
-    sha256 cellar: :any,                 monterey:       "8edb81a4b16b8080155113bb655ae2c23168df5d94faf6dff3a368b7dad34fd9"
-    sha256 cellar: :any,                 big_sur:        "6c7b03a723996233de5a31a5a1fe65a64326e34a79bde17ed8891099b649073c"
-    sha256 cellar: :any,                 catalina:       "a89028fb88663efe1c1168e30bfcae364e8dbeeb58ea564e5f2ba7ef89dc44da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cf9a4961cd840852b997ed917fc80edac766b02720f3bd425d8084a8bcdb5f2"
+    sha256 cellar: :any,                 arm64_monterey: "79fc6fb7eccc27e5ca5fde54086f1a932617622b906e084018257ff36f498578"
+    sha256 cellar: :any,                 arm64_big_sur:  "6aa553c3f9fdd5d60389fc734d3e4c0f17c1c9953c9ae8709bb50485f2e182ef"
+    sha256 cellar: :any,                 monterey:       "83af19674ab179e0bc10cb1d712b823f781e017e4358d1dbe920e985608c0606"
+    sha256 cellar: :any,                 big_sur:        "5e87935ef030a0bb8a07b72ebece85cfcc4e247f6f4f6e381ef6ed784595a690"
+    sha256 cellar: :any,                 catalina:       "3460cef65d37fe0405ed80a09c6e476c9093a77f603cc2c212f10fe750103e24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "938a521f4143eb974923c98650435ee3337c67024121afd9d1dda559a5bb8ad8"
   end
 
   depends_on "autoconf" => :build
