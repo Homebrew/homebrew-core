@@ -7,13 +7,13 @@ class SimpleTiles < Formula
   revision 16
   head "https://github.com/propublica/simple-tiles.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e1feae5d81d6053c7250b215f0479498e9b1c877a5fe9c4250912a4d68a4e24f"
     sha256 cellar: :any,                 arm64_big_sur:  "6a6fb456fa5ddbb46efd66c33f6146a8a690be8339d075900a71cb2822f8ca4f"
     sha256 cellar: :any,                 monterey:       "34c7b1151f1d76c0960fd51fe58be239c1f5500ce899a751f80f35324285f7c0"
     sha256 cellar: :any,                 big_sur:        "c0a0749749fcaff01e88bf679bad4fc6b592ddb6b01565b5e1a213a81ed840ab"
     sha256 cellar: :any,                 catalina:       "74bf35c12b55c9906e7ff0e07cd4f9b379f936735efe376267c41c57e49e276d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cecab0695264296890e13713b6ab3b890a93df255cfcf488a4e705a8d45e895b"
   end
 
   depends_on "pkg-config" => :build
