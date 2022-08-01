@@ -8,13 +8,13 @@ class Lanraragi < Formula
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5aa823c1f1838e971751b56f2a3cd42bd815c9513b13d327e432e9017570b970"
     sha256 cellar: :any,                 arm64_big_sur:  "2e1ef247998188562bc78cfef1689cbee1134cd834280fd243a0c1452b1a28aa"
     sha256 cellar: :any,                 monterey:       "aa53aeb1ec9499a301c79f7011e3b228655ebe4c03e19de3f935478da467d969"
     sha256 cellar: :any,                 big_sur:        "879f9384947c8453d3c803edf591f2c61decab4a5d39d4205c3db799d2ce2d23"
     sha256 cellar: :any,                 catalina:       "44bb28ad1890524464db94ca26c07c838bf287c6ba784d6d60ddef7645552b16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a80e239000c32a4f07b7aebc708bca123526653e5e995841eee6de002b4ffd9"
   end
 
   depends_on "nettle" => :build
