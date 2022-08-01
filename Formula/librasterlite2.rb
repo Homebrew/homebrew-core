@@ -4,7 +4,7 @@ class Librasterlite2 < Formula
   url "https://www.gaia-gis.it/gaia-sins/librasterlite2-sources/librasterlite2-1.1.0-beta1.tar.gz"
   sha256 "f7284cdfc07ad343a314e4878df0300874b0145d9d331b063b096b482e7e44f4"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "6926eed7e1e104406e4a815f4d9e8fab13e2735b84dda7392fca457b2940bd06"
@@ -15,14 +15,14 @@ class Librasterlite2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "23befb28023f4b87d3c18e6d49a19016ce17e4d8640b9506e3b82eea84fab7b5"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "freexl"
   depends_on "geos"
   depends_on "giflib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libgeotiff"
   depends_on "libpng"
   depends_on "librttopo"
@@ -52,12 +52,11 @@ class Librasterlite2 < Formula
     # Reported upstream at https://www.gaia-gis.it/fossil/librasterlite2/tktview?name=3e9183941f.
     # Check if this can be removed with the next release.
     inreplace "headers/rasterlite2_private.h",
-      "#ifndef DOXYGEN_SHOULD_SKIP_THIS",
-      "#include <time.h>\n\n#ifndef DOXYGEN_SHOULD_SKIP_THIS"
+              "#ifndef DOXYGEN_SHOULD_SKIP_THIS",
+              "#include <time.h>\n\n#ifndef DOXYGEN_SHOULD_SKIP_THIS"
 
     # Ensure Homebrew SQLite libraries are found before the system SQLite
-    sqlite = Formula["sqlite"]
-    ENV.append "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
+    ENV.append "LDFLAGS", "-L#{Formula["sqlite"].opt_lib} -lsqlite3"
     system "./configure", *std_configure_args
     system "make", "install"
   end
