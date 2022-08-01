@@ -3,6 +3,7 @@ class Djvulibre < Formula
   homepage "https://djvu.sourceforge.io/"
   url "https://downloads.sourceforge.net/djvu/djvulibre-3.5.28.tar.gz"
   sha256 "fcd009ea7654fde5a83600eb80757bd3a76998e47d13c66b54c8db849f8f2edc"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,7 +23,7 @@ class Djvulibre < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libtiff"
 
   def install
