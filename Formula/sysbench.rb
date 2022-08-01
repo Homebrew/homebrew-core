@@ -7,13 +7,13 @@ class Sysbench < Formula
   revision 2
   head "https://github.com/akopytov/sysbench.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "40f5fc3a27f285b45dd864fc58d86dbcb5323e85539986973675bd2bd8a62029"
     sha256 cellar: :any,                 arm64_big_sur:  "cd5ffec8e0c4467c339ea6da2017c160acc695afda9e0e7572092eb6a2bf5a13"
     sha256 cellar: :any,                 monterey:       "b1cd2a8cd2e4a116976d7082b3e4c38b3df986a2033fe6e81745e6e9da25efe9"
     sha256 cellar: :any,                 big_sur:        "a79024100f669f978e69d22869dcfef53f15a7d2760e0268f94888a354068299"
     sha256 cellar: :any,                 catalina:       "df79e63911a44aa9f6a4b3eb0f9c74a1dd8ca5810b5f6d1a70ae79b1a58f29d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66d8aad04cd69ea97d38693e07231aba70312c269bf4687cd47f3d5dd3c98b8c"
   end
 
   depends_on "autoconf" => :build
