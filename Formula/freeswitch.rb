@@ -5,7 +5,7 @@ class Freeswitch < Formula
       tag:      "v1.10.7",
       revision: "883d2cb662bed0316e157bd3beb9853e96c60d02"
   license "MPL-1.1"
-  revision 4
+  revision 5
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
 
   livecheck do
@@ -29,7 +29,7 @@ class Freeswitch < Formula
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
   depends_on "ffmpeg@4"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "ldns"
   depends_on "libpq"
   depends_on "libsndfile"
@@ -140,14 +140,15 @@ class Freeswitch < Formula
       system "make"
       ENV.deparallelize { system "make", "install" }
 
-      ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/spandsp/lib/pkgconfig"
+      ENV.append_path "PKG_CONFIG_PATH", libexec/"spandsp/lib/pkgconfig"
     end
 
     resource("libks").stage do
-      system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_PREFIX=#{libexec}/libks"
-      system "make", "install"
+      system "cmake", ".", *std_cmake_args(install_prefix: libexec/"libks")
+      system "cmake", "--build", "."
+      system "cmake", "--install", "."
 
-      ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/libks/lib/pkgconfig"
+      ENV.append_path "PKG_CONFIG_PATH", libexec/"libks/lib/pkgconfig"
       ENV.append "CFLAGS", "-I#{libexec}/libks/include"
 
       # Add RPATH to libks.pc so libks.so can be found by freeswitch modules.
@@ -157,10 +158,11 @@ class Freeswitch < Formula
     end
 
     resource("signalwire-c").stage do
-      system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_PREFIX=#{libexec}/signalwire-c"
-      system "make", "install"
+      system "cmake", ".", *std_cmake_args(install_prefix: libexec/"signalwire-c")
+      system "cmake", "--build", "."
+      system "cmake", "--install", "."
 
-      ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/signalwire-c/lib/pkgconfig"
+      ENV.append_path "PKG_CONFIG_PATH", libexec/"signalwire-c/lib/pkgconfig"
 
       # Add RPATH to signalwire_client.pc so libsignalwire_client.so
       # can be found by freeswitch modules.
@@ -171,7 +173,7 @@ class Freeswitch < Formula
 
     system "./bootstrap.sh", "-j"
 
-    args = std_configure_args + %W[
+    args = %W[
       --enable-shared
       --enable-static
       --exec_prefix=#{prefix}
@@ -179,7 +181,7 @@ class Freeswitch < Formula
     # Fails on ARM: https://github.com/signalwire/freeswitch/issues/1450
     args << "--disable-libvpx" if Hardware::CPU.arm?
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "all"
     system "make", "install"
 
