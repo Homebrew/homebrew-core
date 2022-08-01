@@ -6,13 +6,13 @@ class Groestlcoin < Formula
   license "MIT"
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8bccdc0813d7919a5234933088b4bba0905444d3e01c61edea1cd8da300698d3"
     sha256 cellar: :any,                 arm64_big_sur:  "2a3beec995b7397d1bdae6c85c84d04cd3a6073d4513d1e3d75e65b882301fc5"
     sha256 cellar: :any,                 monterey:       "c4833ca54a9cfc86b354ad5d9ebe4e0222b08270b629da53fe3f181690562e40"
     sha256 cellar: :any,                 big_sur:        "bc3d72136cdc501ebb45737c857a5846f2810001fdfbeecec8f6f46c96c31e8c"
     sha256 cellar: :any,                 catalina:       "45e2c1608558470482b260f7ee9dc8439dfacdbb98c6fd14d548ee139cbe698a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9d90eedf379fc2c28e9dc89ef5f562630146dacd6a9017ee4c85278eff0c5d1"
   end
 
   depends_on "autoconf" => :build
@@ -28,7 +28,6 @@ class Groestlcoin < Formula
 
   on_linux do
     depends_on "util-linux" => :build # for `hexdump`
-    depends_on "gcc"
   end
 
   fails_with gcc: "5"
