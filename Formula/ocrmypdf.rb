@@ -7,13 +7,13 @@ class Ocrmypdf < Formula
   sha256 "ed2ad72ef796770c38edf5eb43392c6d166eb8959ad14a19ea0350c510b9c121"
   license "MPL-2.0"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "66e50541111f954b7d2a6cee31ca2caa8ac511107f02e5b95cc0873bd3d7ad05"
     sha256 cellar: :any,                 arm64_big_sur:  "169508ca01bd84ce5babcb206027c19d0f75aaa20908e60038c4b1f83fb4623d"
     sha256 cellar: :any,                 monterey:       "8d0cead07a1213cf2ae14adfd4de600c50ae37740b5f8b821ff48fa2cfd6cab2"
     sha256 cellar: :any,                 big_sur:        "f91d15101da26cd53fa7cf37a89d8c97b4ac5b5ef4d1c693aa2f5e82331eae77"
     sha256 cellar: :any,                 catalina:       "ab99a98994914f6e7e75de8a020d1dbf3983742b62398c306a1b4fb886c2b358"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7752d3a34c6bec9708df080ff45ca3f2469cf5cd693f4cb30c0ec0801209bc75"
   end
 
   depends_on "pkg-config" => :build
@@ -33,10 +33,6 @@ class Ocrmypdf < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
