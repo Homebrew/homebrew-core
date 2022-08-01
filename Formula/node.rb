@@ -11,13 +11,13 @@ class Node < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5bc3bbc7796679a30ef86748accee8170fad11bccea0fcc1fc129f2a51b4b6fa"
     sha256 cellar: :any,                 arm64_big_sur:  "e29c164c7303516f06817f5b5aeec5e857b53d2f35d20d0eaeb32081a97d3ca9"
     sha256 cellar: :any,                 monterey:       "cbcfe985fe9bdc27d487144feffd68e8ae0fdc247c312588ad3cf52e80e02183"
     sha256 cellar: :any,                 big_sur:        "ce4293b284db54f3a1144728a7b0c8226c9fe026847cda4aad50b7a52ca87c1e"
     sha256 cellar: :any,                 catalina:       "da43d1de42d234e2385bcbc97b12c63b7592aa7e5489ee02c97e6773487d7888"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "151dbd4c085946efe2da970d1fbd4859393a7ce72ba7ad68aa0a6b33572ccccf"
   end
 
   depends_on "pkg-config" => :build
@@ -34,10 +34,6 @@ class Node < Formula
 
   on_macos do
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   fails_with :clang do
