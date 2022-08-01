@@ -13,13 +13,13 @@ class Gnuradio < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "301fbc8b1f8b95c2097e5797d1b58677c5eb8fd6b332568cfac2a3e2e3f56561"
     sha256 cellar: :any,                 arm64_big_sur:  "f24da651f3c3dafd954b7ff78ebe013c147f2ea3e494f205e9ea22afc7a194ed"
     sha256 cellar: :any,                 monterey:       "8fb7e72f3591148a11751896eea5f52289d2101f59bcd635c2b4a74c9269437a"
     sha256 cellar: :any,                 big_sur:        "38b9564c51a22ac784cffc0ccf321187af550757575f95e64d79a9b0cb5341bb"
     sha256 cellar: :any,                 catalina:       "4756f550760246261db3dd9933d2201c75417fdfff15d9fedefabb2c9e4c76b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "003a6f6e6cd01fd4e1d169d01695d03f2080d9197dc45ff3e6ca21616d8dbe4a"
   end
 
   depends_on "cmake" => :build
@@ -49,10 +49,6 @@ class Gnuradio < Formula
   depends_on "uhd"
   depends_on "volk"
   depends_on "zeromq"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
