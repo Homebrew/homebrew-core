@@ -6,13 +6,13 @@ class JpegXl < Formula
   license "BSD-3-Clause"
   revision 1
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a603bfaffbd444d11e882f8d72beaf3833cbf91473c4bb8c964c00bd94b07d65"
     sha256 cellar: :any,                 arm64_big_sur:  "d1ba28b49a63312dd1632bfe5a5fd2dfe91c5ca8f3d4c5961ea61a65f5c96834"
     sha256 cellar: :any,                 monterey:       "e310aca584c333e593054342050241e58b88676c408aedd5442a317f10597870"
     sha256 cellar: :any,                 big_sur:        "797bd4ddd8716f8feaf99d725c832b616273a49cb0ed779c10e90d8bebc359bf"
     sha256 cellar: :any,                 catalina:       "946101b747602ef79712852a3fdb0517cb0c6341c485639aa9b65dbae67649fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "362eb1bd31e6f791f8e8ff44290932c87ed0652d941c71bc1f3fca3559a60538"
   end
 
   depends_on "cmake" => :build
@@ -27,10 +27,6 @@ class JpegXl < Formula
 
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build # for xsltproc
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
   fails_with gcc: "6"
