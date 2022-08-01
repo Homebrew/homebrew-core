@@ -2,7 +2,7 @@ class Libgeotiff < Formula
   desc "Library and tools for dealing with GeoTIFF"
   homepage "https://github.com/OSGeo/libgeotiff"
   license "MIT"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/OSGeo/libgeotiff/releases/download/1.7.1/libgeotiff-1.7.1.tar.gz"
@@ -30,23 +30,20 @@ class Libgeotiff < Formula
   end
 
   head do
-    url "https://github.com/OSGeo/libgeotiff.git"
+    url "https://github.com/OSGeo/libgeotiff.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libtiff"
   depends_on "proj"
 
   def install
     system "./autogen.sh" if build.head?
-
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-jpeg"
+    system "./configure", *std_configure_args, "--with-jpeg"
     system "make" # Separate steps or install fails
     system "make", "install"
   end
@@ -84,6 +81,6 @@ class Libgeotiff < Formula
                    "-L#{Formula["libtiff"].opt_lib}", "-ltiff", "-o", "test"
     system "./test", "test.tif"
     output = shell_output("#{bin}/listgeo test.tif")
-    assert_match(/GeogInvFlatteningGeoKey.*123.456/, output)
+    assert_match(/GeogInvFlatteningGeoKey.*123\.456/, output)
   end
 end
