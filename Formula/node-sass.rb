@@ -7,13 +7,13 @@ class NodeSass < Formula
   sha256 "e47a1e370f78990f1f6f3047a86f166ea6184f3a4e37193b16df08f9950b555b"
   license "MIT"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7c68a97888aad640d3fb00bc9f41b1d155870d5f06cdfad8f9e1e5b8643a23e6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7c68a97888aad640d3fb00bc9f41b1d155870d5f06cdfad8f9e1e5b8643a23e6"
     sha256 cellar: :any_skip_relocation, monterey:       "7c68a97888aad640d3fb00bc9f41b1d155870d5f06cdfad8f9e1e5b8643a23e6"
     sha256 cellar: :any_skip_relocation, big_sur:        "7c68a97888aad640d3fb00bc9f41b1d155870d5f06cdfad8f9e1e5b8643a23e6"
     sha256 cellar: :any_skip_relocation, catalina:       "7c68a97888aad640d3fb00bc9f41b1d155870d5f06cdfad8f9e1e5b8643a23e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52cc2831b05ad9829d1889418fc61835623fb0c1ecabc3310bf790bf088d8ca8"
   end
 
   depends_on "node"
