@@ -13,13 +13,13 @@ class Mavsdk < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5aa08d40b5ef46b7216c436201f195cac1a0bad817cb54260623023e59f152d1"
     sha256 cellar: :any,                 arm64_big_sur:  "6c6377dfeefb7de5ff42b64b60a80a5855abadc893c38cc5071afc2f9051284c"
     sha256 cellar: :any,                 monterey:       "780f725ea8c022fd1b7536cc11a519711df390c6177b41241119fe0d3c9895dd"
     sha256 cellar: :any,                 big_sur:        "f86d329776bdb7c70a26d1ffdec2ae1c1b04131760d93b9025c485bf4fac0c08"
     sha256 cellar: :any,                 catalina:       "25a5f566b4729aa1e4e9b9e07f0c5d3c85bc1ec191d6393617cd9494e9b2d6c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3d62255c66092bc1d2ffbb9b50c4b076f04f1afd46e1463bcd4bc7cdac6430c"
   end
 
   depends_on "cmake" => :build
@@ -39,10 +39,6 @@ class Mavsdk < Formula
 
   on_macos do
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   fails_with :clang do
