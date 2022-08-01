@@ -4,7 +4,7 @@ class Nvi < Formula
   url "https://deb.debian.org/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   sha256 "8bc348889159a34cf268f80720b26f459dbd723b5616107d36739d007e4c978d"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
 
   bottle do
     rebuild 1
@@ -18,7 +18,7 @@ class Nvi < Formula
   end
 
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
-  depends_on "berkeley-db"
+  depends_on "berkeley-db@5"
 
   uses_from_macos "ncurses"
 
