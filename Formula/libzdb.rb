@@ -11,13 +11,13 @@ class Libzdb < Formula
     regex(%r{href=.*?dist/libzdb[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a984ed34d47824121c308a122c397e06429fa80db31c5511de5dbd38a5a12ed7"
     sha256 cellar: :any,                 arm64_big_sur:  "82e9b70755a848d0d9386c42ff2e771a2acdad6d2497251d6dd9d0b96a26edf9"
     sha256 cellar: :any,                 monterey:       "406b423b65940127d9d6ba6c7d20c5926be12a1445539e40e376e746e19323e5"
     sha256 cellar: :any,                 big_sur:        "75c8ff67e93358dc8733bc0505b7a2a7f18be1da23bdbf1c19e97de60c03cf08"
     sha256 cellar: :any,                 catalina:       "4ae11691a08964b1c88aaded3dc7d9c7b5ac47cf2389fa790e76aa48c874497e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abb34c1e09a5fbac337d3eaa3b722bf51824ae2a811712e29b2f2dfc01444f52"
   end
 
   depends_on macos: :high_sierra # C++ 17 is required
@@ -25,10 +25,6 @@ class Libzdb < Formula
   depends_on "openssl@1.1"
   depends_on "postgresql"
   depends_on "sqlite"
-
-  on_linux do
-    depends_on "gcc" # C++ 17 is required
-  end
 
   fails_with gcc: "5"
 
