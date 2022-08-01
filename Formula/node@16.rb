@@ -10,13 +10,13 @@ class NodeAT16 < Formula
     regex(%r{href=["']?v?(16(?:\.\d+)+)/?["' >]}i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5c6ae1e595e060427f9bad74738707d2d20eb953c79a732d9394a4064488601c"
     sha256 cellar: :any,                 arm64_big_sur:  "992decc76b2647e59d8b24d0d8994eb8e2b02573c8aad97ef1697ff35be69fcc"
     sha256 cellar: :any,                 monterey:       "2ce0ecc46ad0015945f9a062af463917420a76eea32c6624e6cb9526cb7cbf91"
     sha256 cellar: :any,                 big_sur:        "8758ad0e68a656f5409e07f961718b682cad25016a6f7c8ca92cd31abdd0ea63"
     sha256 cellar: :any,                 catalina:       "9e3f1e7befb1692654166c6127f48640602ec8062bc122d6b139a75b2eb88601"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f41eb233087c9c957accdf022702ba2b37f6a3e7d9eb3d3f77e5ebc20c2b715"
   end
 
   keg_only :versioned_formula
@@ -32,10 +32,6 @@ class NodeAT16 < Formula
 
   uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with :clang do
     build 1099
