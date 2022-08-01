@@ -4,7 +4,7 @@ class DockerMachine < Formula
   url "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git",
       tag:      "v0.16.2-gitlab.18",
       revision: "cd8285a7e2310276c7d20575f15bba40a0678ed9"
-  version "0.16.2-18"
+  version "0.16.2-gitlab.18"
   license "Apache-2.0"
   head "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git", branch: "master"
 
