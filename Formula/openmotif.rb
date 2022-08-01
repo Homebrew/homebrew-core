@@ -4,7 +4,7 @@ class Openmotif < Formula
   url "https://downloads.sourceforge.net/project/motif/Motif%202.3.8%20Source%20Code/motif-2.3.8.tar.gz"
   sha256 "859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "04764ff04cd2dd89cca22efe8e477f35ea48b5e1e82899a1cc741929c3269051"
@@ -20,7 +20,7 @@ class Openmotif < Formula
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libice"
   depends_on "libpng"
   depends_on "libsm"
@@ -53,9 +53,7 @@ class Openmotif < Formula
         "\\1 -lX11"
     end
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
 
