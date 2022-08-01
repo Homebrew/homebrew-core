@@ -4,6 +4,7 @@ class WxwidgetsAT30 < Formula
   url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5.1/wxWidgets-3.0.5.1.tar.bz2"
   sha256 "440f6e73cf5afb2cbf9af10cec8da6cdd3d3998d527598a53db87099524ac807"
   license "wxWindows"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,7 +21,7 @@ class WxwidgetsAT30 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "95db78aedb56c161b988c02a398fe1bda727b6a5f3e770fa1367331d7c4748a5"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 
@@ -70,20 +71,12 @@ class WxwidgetsAT30 < Formula
     # this ensures that Python software trying to locate wxpython headers
     # using wx-config can find both wxwidgets and wxpython headers,
     # which are linked to the same place
-    inreplace "#{bin}/wx-config", prefix, HOMEBREW_PREFIX
+    inreplace bin/"wx-config", prefix, HOMEBREW_PREFIX
 
     # Move some files out of the way to prevent conflict with `wxwidgets`
-    bin.install "#{bin}/wx-config" => "wx-config-#{version.major_minor}"
+    bin.install bin/"wx-config" => "wx-config-#{version.major_minor}"
     (bin/"wxrc").unlink
     (share/"wx"/version.major_minor).install share/"aclocal", share/"bakefile"
-    Dir.glob(share/"locale/**/*.mo") { |file| add_suffix file, version.major_minor }
-  end
-
-  def add_suffix(file, suffix)
-    dir = File.dirname(file)
-    ext = File.extname(file)
-    base = File.basename(file, ext)
-    File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
   def caveats
