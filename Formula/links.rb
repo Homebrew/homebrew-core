@@ -4,6 +4,7 @@ class Links < Formula
   url "http://links.twibright.com/download/links-2.27.tar.bz2"
   sha256 "d8ddcbfcede7cdde80abeb0a236358f57fa6beb2bcf92e109624e9b896f9ebb4"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "http://links.twibright.com/download.php"
@@ -20,22 +21,16 @@ class Links < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
-  depends_on "librsvg"
-  depends_on "libtiff"
   depends_on "openssl@1.1"
 
-  def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --mandir=#{man}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
-      --without-lzma
-    ]
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
-    system "./configure", *args
+  def install
+    system "./configure", *std_configure_args,
+                          "--mandir=#{man}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--without-lzma"
     system "make", "install"
     doc.install Dir["doc/*"]
   end
