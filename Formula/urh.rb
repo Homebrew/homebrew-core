@@ -9,13 +9,13 @@ class Urh < Formula
   revision 2
   head "https://github.com/jopohl/urh.git", branch: "master"
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "d88fd08049e3eb1fb74ad3adaca2e00a3a7f6bd38ce54cbd38a4ae5bc611f362"
     sha256 cellar: :any,                 arm64_big_sur:  "9424a7749801f6715bd090550243c8648476fd7a9341478601ecc97733479694"
     sha256 cellar: :any,                 monterey:       "de9494a90a16e95c9b56c8a8c6754a4bca1ec8877b80c4ea8fd74cbfa6c155ed"
     sha256 cellar: :any,                 big_sur:        "e9d8335313cd3438bb1f3f3cc15876e25550f6b9e9a06c190f53bd28c24f9e19"
     sha256 cellar: :any,                 catalina:       "8251c7319b097610a58503876afe9b72b6af903cd89e9f06cac863f4ca318c59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc49d62af0b2ddb9b6a3cca62f44cb734b5f49c3b99c10a88715f2af19dc2ef8"
   end
 
   depends_on "pkg-config" => :build
