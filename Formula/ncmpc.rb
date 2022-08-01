@@ -10,13 +10,13 @@ class Ncmpc < Formula
     regex(/href=.*?ncmpc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any, arm64_monterey: "9c5a751cf1cdf763576b2a5af746ae5f0042cbc2eceb1fb2057ce8f0d4a7e3fc"
     sha256 cellar: :any, arm64_big_sur:  "59fb26a2c225c8f652a4bd075e3536677f435a804d5acf774f893759cf1e5ce5"
     sha256 cellar: :any, monterey:       "3c0eeb6d9f4de139daf1ed63d8f8e9fbe8f5ca41b47d93aae5b2d14dedff4888"
     sha256 cellar: :any, big_sur:        "630160a894df86a9f369740acde9e92880c36b7262fab5a75857123d67ea8aa8"
     sha256 cellar: :any, catalina:       "07e7f1e1a017591372496368045eda2e871a1d5d2a9bfcf57f5408b3608335c5"
-    sha256               x86_64_linux:   "69a523557e8f1de3e7d0b97501f0806c2f6f98fe838ad991aea423a8648b663e"
   end
 
   depends_on "boost" => :build
@@ -26,10 +26,6 @@ class Ncmpc < Formula
   depends_on "gettext"
   depends_on "libmpdclient"
   depends_on "pcre2"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
