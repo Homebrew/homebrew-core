@@ -10,17 +10,13 @@ class Openfst < Formula
     regex(/href=.*?openfst[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "9c205f655815ece696db66cb6d951bc421187a7d5e564a5c9c147d5077ba7dba"
     sha256 cellar: :any,                 arm64_big_sur:  "677eca1e0c86c76cf78a05d193074065e96bd121b3000f5636e596d211ce4ad8"
     sha256 cellar: :any,                 monterey:       "35b01a7251c02f16c451a8dd961c3461bae8715289bb529f6580aaee90b0defd"
     sha256 cellar: :any,                 big_sur:        "61788460f5d24b7feb792e36158722880048512a56b67bd93a185c613944471b"
     sha256 cellar: :any,                 catalina:       "7a279be4687687d2aba95247292e72e9b51cdad00343478069f56d72360fde1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d09e40d67f808e45549c67a15b4f8beca5e13dac9c30603411c3095ad07fa4e8"
-  end
-
-  on_linux do
-    depends_on "gcc" # for C++17
   end
 
   fails_with gcc: "5"
