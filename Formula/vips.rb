@@ -10,13 +10,13 @@ class Vips < Formula
     strategy :github_latest
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "bbf11a1d4492d79d56af32c725bb9944008ebb06fd7c0713e732808469b724c5"
     sha256 arm64_big_sur:  "718fbfdbc1b5cc74cbd94be9655925aa67724922df09ecc02c8c2535f1268ba8"
     sha256 monterey:       "4308057d78329ef549c8cc7ddd2309ff531331a4528adcd63ecba6b319745ad8"
     sha256 big_sur:        "b974dbf15eada9ddd3643e1df5cc5ae6f1dbbfe3ec1465f6e2329ac599b9aa2f"
     sha256 catalina:       "d2d9541bf5a5dd860a5f49c2be06499d7eb272cefef3624806fb7766b85c478b"
-    sha256 x86_64_linux:   "e7e6805890f686d446384a341b6c18d4d0927e5356126dbb0a5dfde0c7e9db7e"
   end
 
   depends_on "glib-utils" => :build
@@ -53,10 +53,6 @@ class Vips < Formula
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
