@@ -4,7 +4,7 @@ class Openslide < Formula
   url "https://github.com/openslide/openslide/releases/download/v3.4.1/openslide-3.4.1.tar.xz"
   sha256 "9938034dba7f48fadc90a2cdf8cfe94c5613b04098d1348a5ff19da95b990564"
   license "LGPL-2.1-only"
-  revision 6
+  revision 7
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2998607f92e8f01e4345d91de86c543c1e497f8299081375df950424757440fe"
@@ -19,7 +19,7 @@ class Openslide < Formula
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libxml2"
@@ -33,8 +33,7 @@ class Openslide < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
