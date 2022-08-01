@@ -9,13 +9,13 @@ class MysqlClient < Formula
     formula "mysql"
   end
 
+  # Linux bottle removed for GCC 12 migration
   bottle do
     sha256 arm64_monterey: "abccc4fa9808274f5bd66a1b9d02eabc114340738f2b1425eaff658365dddf47"
     sha256 arm64_big_sur:  "2a7d242c0bd023dd331ac079cc467e7d3f77477b78ab5110cdae68cb7aab17f3"
     sha256 monterey:       "a8b71724eb655a359756740ca25c755efd927700396935ca641c89de3822187b"
     sha256 big_sur:        "d9bf8ae6fb0548ee9bb981a88a3f09b9a3efffebc63ab14303979811cb59fee4"
     sha256 catalina:       "2ff83a77f27bf45216c66002dac0e7da45d11626099324f381ff49b2f323992a"
-    sha256 x86_64_linux:   "6b0ae42f32c53f05cdf52c4fd1db04177e5a693dc748b8083d813a7eaf2a5875"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -31,10 +31,6 @@ class MysqlClient < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
