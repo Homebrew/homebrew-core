@@ -1,8 +1,8 @@
 class ClickhouseCpp < Formula
   desc "C++ client library for ClickHouse"
   homepage "https://github.com/ClickHouse/clickhouse-cpp#readme"
-  url "https://github.com/ClickHouse/clickhouse-cpp/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "d724df55f9d4e13b3028355141c6af08fc7f2cd184d8b531e57f0d4f4a376db9"
+  url "https://github.com/ClickHouse/clickhouse-cpp/archive/refs/tags/v2.2.1.tar.gz"
+  sha256 "53eaccb1dbb96f82d27400a8e336bbf59c9bcb15495458c09e4c569717314f17"
   license "Apache-2.0"
   head "https://github.com/ClickHouse/clickhouse-cpp.git", branch: "master"
 
