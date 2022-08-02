@@ -35,7 +35,6 @@ class GitSync < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"
     expected_output = "fatal: repository '127.0.0.1/x' does not exist"
     assert_match expected_output, shell_output("#{bin}/#{name} --repo=127.0.0.1/x --root=/tmp/x 2>&1", 1)
   end
