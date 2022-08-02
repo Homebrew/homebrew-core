@@ -4,6 +4,7 @@ class Vice < Formula
   url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.6.1.tar.gz"
   sha256 "20df84c851aaf2f5000510927f6d31b32f269916d351465c366dc0afc9dc150c"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   livecheck do
@@ -23,6 +24,7 @@ class Vice < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "dos2unix" => :build
+  depends_on "glib-utils" => :build
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
   depends_on "xa" => :build
@@ -34,13 +36,14 @@ class Vice < Formula
   depends_on "giflib"
   depends_on "glew"
   depends_on "gtk+3"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "lame"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "librsvg"
   depends_on "libvorbis"
 
+  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   on_linux do
@@ -48,26 +51,21 @@ class Vice < Formula
   end
 
   def install
-    configure_flags = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --disable-arch
-      --disable-pdf-docs
-      --enable-native-gtk3ui
-      --enable-midi
-      --enable-lame
-      --enable-external-ffmpeg
-      --enable-ethernet
-      --enable-cpuhistory
-      --with-flac
-      --with-vorbis
-      --with-gif
-      --with-jpeg
-      --with-png
-    ]
-
     system "./autogen.sh"
-    system "./configure", *configure_flags
+    system "./configure", *std_configure_args,
+                          "--disable-arch",
+                          "--disable-pdf-docs",
+                          "--enable-native-gtk3ui",
+                          "--enable-midi",
+                          "--enable-lame",
+                          "--enable-external-ffmpeg",
+                          "--enable-ethernet",
+                          "--enable-cpuhistory",
+                          "--with-flac",
+                          "--with-vorbis",
+                          "--with-gif",
+                          "--with-jpeg",
+                          "--with-png"
     system "make", "install"
   end
 
