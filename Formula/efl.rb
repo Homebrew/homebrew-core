@@ -4,7 +4,7 @@ class Efl < Formula
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.26.2.tar.xz"
   sha256 "2979cfbc728a1a1f72ad86c2467d861ed91e664d3f17ef03190fb5c5f405301c"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
-  revision 3
+  revision 4
 
   livecheck do
     url "https://download.enlightenment.org/rel/libs/efl/"
@@ -33,14 +33,14 @@ class Efl < Formula
   depends_on "glib"
   depends_on "gst-plugins-good"
   depends_on "gstreamer"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libraw"
   depends_on "librsvg"
   depends_on "libsndfile"
   depends_on "libspectre"
   depends_on "libtiff"
-  depends_on "luajit-openresty"
+  depends_on "luajit"
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "poppler"
@@ -61,7 +61,7 @@ class Efl < Formula
   patch :DATA
 
   def install
-    args = std_meson_args + %w[
+    args = %w[
       -Davahi=false
       -Dbuild-examples=false
       -Dbuild-tests=false
@@ -82,11 +82,9 @@ class Efl < Formula
     inreplace "dbus-services/meson.build", "dep.get_pkgconfig_variable('session_bus_services_dir')",
                                            "'#{share}/dbus-1/services'"
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build", *args
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   def post_install
