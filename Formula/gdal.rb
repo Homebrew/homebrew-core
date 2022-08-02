@@ -4,7 +4,7 @@ class Gdal < Formula
   url "http://download.osgeo.org/gdal/3.5.1/gdal-3.5.1.tar.xz"
   sha256 "d12c30a9eacdeaab493c0d1c9f88eb337c9cbb5bb40744c751bdd5a5af166ab6"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -33,7 +33,7 @@ class Gdal < Formula
   depends_on "geos"
   depends_on "giflib"
   depends_on "hdf5"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "json-c"
   depends_on "libdap"
   depends_on "libgeotiff"
@@ -48,7 +48,7 @@ class Gdal < Formula
   depends_on "pcre2"
   depends_on "poppler"
   depends_on "proj"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sqlite"
   depends_on "unixodbc"
   depends_on "webp"
@@ -67,6 +67,10 @@ class Gdal < Formula
   conflicts_with "cpl", because: "both install cpl_error.h"
 
   fails_with gcc: "5"
+
+  def python3
+    "python3.10"
+  end
 
   def install
     args = [
@@ -89,7 +93,7 @@ class Gdal < Formula
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
       "--with-geotiff=#{Formula["libgeotiff"].opt_prefix}",
       "--with-gif=#{Formula["giflib"].opt_prefix}",
-      "--with-jpeg=#{Formula["jpeg"].opt_prefix}",
+      "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}",
       "--with-libjson-c=#{Formula["json-c"].opt_prefix}",
       "--with-libtiff=#{Formula["libtiff"].opt_prefix}",
       "--with-pg=yes",
@@ -163,9 +167,8 @@ class Gdal < Formula
     system "make", "install"
 
     # Build Python bindings
-    python = "python3.9"
     cd "swig/python" do
-      system python, *Language::Python.setup_install_args(prefix, python)
+      system python3, *Language::Python.setup_install_args(prefix, python3)
     end
     bin.install buildpath.glob("swig/python/scripts/*.py")
 
@@ -181,6 +184,6 @@ class Gdal < Formula
     system bin/"gdalinfo", "--formats"
     system bin/"ogrinfo", "--formats"
     # Changed Python package name from "gdal" to "osgeo.gdal" in 3.2.0.
-    system "python3.9", "-c", "import osgeo.gdal"
+    system python3, "-c", "import osgeo.gdal"
   end
 end
