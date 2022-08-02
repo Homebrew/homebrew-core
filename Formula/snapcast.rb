@@ -14,6 +14,10 @@ class Snapcast < Formula
   depends_on "pkg-config"
   depends_on "pulseaudio"
   uses_from_macos "expat"
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "avahi"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
