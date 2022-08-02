@@ -1,10 +1,9 @@
 class Libgsm < Formula
   desc "Lossy speech compression library"
   homepage "http://www.quut.com/gsm/"
-  url "http://www.quut.com/gsm/gsm-1.0.20.tar.gz"
-  sha256 "6315c38518b81e899c3fc2ed463cc623af29c5c231a48c137b24302234ae90bf"
+  url "http://www.quut.com/gsm/gsm-1.0.21.tar.gz"
+  sha256 "7d8439fc6ed8bfba1a85011f26800b2afee78b96555c9ed9ce9d3024d4da7754"
   license "TU-Berlin-2.0"
-  revision 1
 
   livecheck do
     url :homepage
