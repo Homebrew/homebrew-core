@@ -18,8 +18,8 @@ class Snapcast < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    # Needed to pass the audit
-    system "chmod", "755", "#{share}/snapserver/plug-ins/meta_mpd.py" 
+    # Fix permissions
+    chmod(0555, "#{share}/snapserver/plug-ins/meta_mpd.py")
   end
 
   test do
