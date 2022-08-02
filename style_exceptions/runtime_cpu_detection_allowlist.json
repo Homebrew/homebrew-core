@@ -6,5 +6,6 @@
   "libvpx",
   "luajit",
   "openblas",
+  "opencv",
   "open-mpi"
 ]
