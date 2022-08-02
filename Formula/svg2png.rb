@@ -4,7 +4,7 @@ class Svg2png < Formula
   url "https://cairographics.org/snapshots/svg2png-0.1.3.tar.gz"
   sha256 "e658fde141eb7ce981ad63d319339be5fa6d15e495d1315ee310079cbacae52b"
   license "LGPL-2.1"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://cairographics.org/snapshots/"
@@ -31,15 +31,11 @@ class Svg2png < Formula
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
     # Remove after migration to 18.04.
     unless OS.mac?
-      inreplace "src/Makefile.in",
-                "$(LINK) $(svg2png_LDFLAGS) $(svg2png_OBJECTS)",
-                "$(LINK) $(svg2png_OBJECTS) $(svg2png_LDFLAGS)"
+      inreplace "src/Makefile.in", "$(LINK) $(svg2png_LDFLAGS) $(svg2png_OBJECTS)",
+                                   "$(LINK) $(svg2png_OBJECTS) $(svg2png_LDFLAGS)"
     end
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
   end
 
