@@ -1,9 +1,9 @@
 class GoAT117 < Formula
   desc "Go programming environment (1.17)"
   homepage "https://golang.org"
-  url "https://go.dev/dl/go1.17.12.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.17.12.src.tar.gz"
-  sha256 "0d51b5b3f280c0f01f534598c0219db5878f337da6137a9ee698777413607209"
+  url "https://go.dev/dl/go1.17.13.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.17.13.src.tar.gz"
+  sha256 "a1a48b23afb206f95e7bbaa9b898d965f90826f6f1d1fc0c1d784ada0cd300fd"
   license "BSD-3-Clause"
 
   livecheck do
