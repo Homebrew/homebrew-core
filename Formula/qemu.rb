@@ -1,11 +1,21 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-7.0.0.tar.xz"
-  sha256 "f6b375c7951f728402798b0baabb2d86478ca53d44cedbefabbe1c46bf46f839"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://git.qemu.org/git/qemu.git", branch: "master"
+
+  stable do
+    url "https://download.qemu.org/qemu-7.0.0.tar.xz"
+    sha256 "f6b375c7951f728402798b0baabb2d86478ca53d44cedbefabbe1c46bf46f839"
+
+    # Fixes RDTSCP not being exposed to hosts
+    # See https://gitlab.com/qemu-project/qemu/-/issues/1011
+    patch do
+      url "https://gitlab.com/qemu-project/qemu/-/commit/d8cf2c29cc1077cd8f8ab0580b285bff92f09d1c.diff"
+      sha256 "b7c0db81e136fb3b9692e56f4c95abbcbd196dc0b7feb517241dda20d9ec3166"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -24,7 +34,7 @@ class Qemu < Formula
 
   depends_on "glib"
   depends_on "gnutls"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libslirp"
   depends_on "libssh"
@@ -50,13 +60,6 @@ class Qemu < Formula
   resource "homebrew-test-image" do
     url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/official/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
-  end
-
-  # Fixes RDTSCP not being exposed to hosts
-  # See https://gitlab.com/qemu-project/qemu/-/issues/1011
-  patch do
-    url "https://gitlab.com/qemu-project/qemu/-/commit/d8cf2c29cc1077cd8f8ab0580b285bff92f09d1c.diff"
-    sha256 "b7c0db81e136fb3b9692e56f4c95abbcbd196dc0b7feb517241dda20d9ec3166"
   end
 
   def install
@@ -88,9 +91,11 @@ class Qemu < Formula
     # Samba installations from external taps.
     args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
 
-    args << "--disable-gtk" if OS.mac?
-    args << "--enable-cocoa" if OS.mac?
-    args << "--enable-gtk" if OS.linux?
+    args += if OS.mac?
+      ["--disable-gtk", "--enable-cocoa"]
+    else
+      ["--enable-gtk"]
+    end
 
     system "./configure", *args
     system "make", "V=1", "install"
