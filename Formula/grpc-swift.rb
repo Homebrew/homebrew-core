@@ -1,8 +1,8 @@
 class GrpcSwift < Formula
   desc "Swift language implementation of gRPC"
   homepage "https://github.com/grpc/grpc-swift"
-  url "https://github.com/grpc/grpc-swift/archive/1.8.2.tar.gz"
-  sha256 "84643fb635aee686dba1887824de71a04ab5dd38bac9d7fafd1991e8d778c564"
+  url "https://github.com/grpc/grpc-swift/archive/1.9.0.tar.gz"
+  sha256 "81b03f5233102df9f0adee75a79d84b798c9eb38eabe1ab5fd1c912d2c690b10"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc-swift.git", branch: "main"
 
