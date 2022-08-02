@@ -24,13 +24,26 @@ class Snapcast < Formula
   end
 
   test do
-    pid = fork do
+    server_pid = fork do
       exec ("#{bin}/snapserver")
     end
-    sleep 2
-    output = shell_output("timeout 2 #{bin}/snapclient", 124)
+
+    output = ""
+    client_pid = spawn("#{bin}/snapclient") do |stdout|
+      stdout.each { |line| output << line }
+      rescue EOFError
+        break
+    end
+
+    begin
+      timeout(2) { Process.wait(client_pid) }
+    rescue Timeout::Error
+      break
+    end
+
     assert_match(/Connected to/m, output)
   ensure
-    Process.kill("SIGTERM", pid)
+    Process.kill("SIGTERM", server_pid)
+    Process.kill("SIGTERM", client_pid)
   end
 end
