@@ -4,7 +4,7 @@ class Poppler < Formula
   url "https://poppler.freedesktop.org/poppler-22.06.0.tar.xz"
   sha256 "a0f9aaa3918bad781039fc307a635652a14d1b391cd559b66edec4bedba3c5d7"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
   livecheck do
@@ -22,6 +22,7 @@ class Poppler < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
@@ -29,7 +30,7 @@ class Poppler < Formula
   depends_on "freetype"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
@@ -70,20 +71,22 @@ class Poppler < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
-    system "cmake", ".", *args
-    system "make", "install"
-    system "make", "clean"
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=OFF", *args
-    system "make"
-    lib.install "libpoppler.a"
-    lib.install "cpp/libpoppler-cpp.a"
-    lib.install "glib/libpoppler-glib.a"
+    system "cmake", "-S", ".", "-B", "build_shared", *args
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
+
+    system "cmake", "-S", ".", "-B", "build_static", *args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "build_static"
+    lib.install "build_static/libpoppler.a"
+    lib.install "build_static/cpp/libpoppler-cpp.a"
+    lib.install "build_static/glib/libpoppler-glib.a"
+
     resource("font-data").stage do
       system "make", "install", "prefix=#{prefix}"
     end
   end
 
   test do
-    system "#{bin}/pdfinfo", test_fixtures("test.pdf")
+    system bin/"pdfinfo", test_fixtures("test.pdf")
   end
 end
