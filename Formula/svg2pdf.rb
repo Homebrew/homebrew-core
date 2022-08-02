@@ -4,7 +4,7 @@ class Svg2pdf < Formula
   url "https://cairographics.org/snapshots/svg2pdf-0.1.3.tar.gz"
   sha256 "854a870722a9d7f6262881e304a0b5e08a1c61cecb16c23a8a2f42f2b6a9406b"
   license "LGPL-2.1"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://cairographics.org/snapshots/"
@@ -36,15 +36,11 @@ class Svg2pdf < Formula
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
     # Remove after migration to 18.04.
     unless OS.mac?
-      inreplace "src/Makefile.in",
-        "$(svg2pdf_LDFLAGS) $(svg2pdf_OBJECTS)",
-        "$(svg2pdf_OBJECTS) $(svg2pdf_LDFLAGS)"
+      inreplace "src/Makefile.in", "$(svg2pdf_LDFLAGS) $(svg2pdf_OBJECTS)",
+                                   "$(svg2pdf_OBJECTS) $(svg2pdf_LDFLAGS)"
     end
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
   end
 
