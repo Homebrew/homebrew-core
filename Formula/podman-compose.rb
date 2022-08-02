@@ -6,6 +6,7 @@ class PodmanCompose < Formula
   url "https://files.pythonhosted.org/packages/c7/aa/0997e5e387822e80fb19627b2d4378db065a603c4d339ae28440a8104846/podman-compose-1.0.3.tar.gz"
   sha256 "9c9fe8249136e45257662272ade33760613e2d9ca6153269e1e970400ea14675"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "36fde080e8321d2b63565019f3d0b55bd2f826aa1350d863a6a95cc0d75134e3"
@@ -19,7 +20,7 @@ class PodmanCompose < Formula
   # currently install on Linux.
   depends_on :macos
   depends_on "podman"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "python-dotenv" do
     url "https://files.pythonhosted.org/packages/02/ee/43e1c862a3e7259a1f264958eaea144f0a2fac9f175c1659c674c34ea506/python-dotenv-0.20.0.tar.gz"
