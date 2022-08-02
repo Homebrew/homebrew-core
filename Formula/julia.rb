@@ -96,6 +96,13 @@ class Julia < Formula
     sha256 "cfe498a090d0026b92f9db4ed65ac3818c2efa5ec83bcefed728d27abff73081"
   end
 
+  # Link against libgcc_s.1.1.dylib, not libgcc_s.1.dylib
+  # https://github.com/JuliaLang/julia/pull/46240
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/eca8ecc1/julia/libgcc_s.diff"
+    sha256 "48caa1200dc3bd2bf5ae4f03331693619ba9a811e6962e3bc7b52c23bdcd4344"
+  end
+
   def install
     # Build documentation available at
     # https://github.com/JuliaLang/julia/blob/v#{version}/doc/build/build.md
