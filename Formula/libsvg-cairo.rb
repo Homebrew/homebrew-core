@@ -4,7 +4,7 @@ class LibsvgCairo < Formula
   url "https://cairographics.org/snapshots/libsvg-cairo-0.1.6.tar.gz"
   sha256 "a380be6a78ec2938100ce904363815a94068fca372c666b8cc82aa8711a0215c"
   license "LGPL-2.1"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://cairographics.org/snapshots/"
@@ -38,9 +38,8 @@ class LibsvgCairo < Formula
   patch :DATA
 
   def install
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
