@@ -4,7 +4,7 @@ class OpencvAT3 < Formula
   url "https://github.com/opencv/opencv/archive/3.4.16.tar.gz"
   sha256 "5e37b791b2fe42ed39b52d9955920b951ee42d5da95f79fbc9765a08ef733399"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256                               arm64_monterey: "37dca7d346b0857889147bd647a5b42e5f4dfd74c51e7a9bb586f34819de48fb"
@@ -24,13 +24,15 @@ class OpencvAT3 < Formula
   depends_on "ffmpeg@4"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "openexr"
-  depends_on "python@3.9"
+  depends_on "protobuf"
+  depends_on "python@3.10"
   depends_on "tbb"
+  depends_on "webp"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
@@ -46,6 +48,12 @@ class OpencvAT3 < Formula
     sha256 "a125f962ea07f0656869cbd97433f0e465013effc13c97a414752e0d25ed9a7d"
   end
 
+  # allow cmake to find OpenEXR 3+.
+  patch do
+    url "https://github.com/opencv/opencv/commit/f43fec7ee674d9fc65be21119066c3e67c856357.patch?full_index=1"
+    sha256 "b46e4e9dc93878bccd2351c79795426797d27f54a4720d51f805c118770e6f4a"
+  end
+
   def install
     ENV.cxx11
 
@@ -54,21 +62,29 @@ class OpencvAT3 < Formula
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
 
+    # Remove bundled libraries to make sure formula dependencies are used
+    libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr protobuf tbb zlib]
+    libdirs.each { |l| (buildpath/"3rdparty"/l).rmtree }
+
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
-      -DBUILD_JPEG=ON
+      -DBUILD_JPEG=OFF
       -DBUILD_OPENEXR=OFF
       -DBUILD_PERF_TESTS=OFF
       -DBUILD_PNG=OFF
+      -DBUILD_PROTOBUF=OFF
+      -DBUILD_TBB=OFF
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
+      -DBUILD_WEBP=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
       -DBUILD_opencv_text=OFF
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
+      -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
@@ -83,26 +99,24 @@ class OpencvAT3 < Formula
       -DWITH_VTK=OFF
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPYTHON3_EXECUTABLE=#{which("python3")}
     ]
 
-    if Hardware::CPU.intel?
+    if Hardware::CPU.intel? && build.bottle?
       args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
       args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
     end
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      inreplace "modules/core/version_string.inc", Superenv.shims_path, ""
-      system "make"
-      system "make", "install"
-      system "make", "clean"
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
-      inreplace "modules/core/version_string.inc", Superenv.shims_path, ""
-      system "make"
-      lib.install Dir["lib/*.a"]
-      lib.install Dir["3rdparty/**/*.a"]
-    end
+    system "cmake", "-S", ".", "-B", "build_shared", *args
+    inreplace "build_shared/modules/core/version_string.inc", "#{Superenv.shims_path}/", ""
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
+
+    system "cmake", "-S", ".", "-B", "build_static", *args, "-DBUILD_SHARED_LIBS=OFF"
+    inreplace "build_static/modules/core/version_string.inc", "#{Superenv.shims_path}/", ""
+    system "cmake", "--build", "build_static"
+    lib.install Dir["build_static/lib/*.a"]
+    lib.install Dir["build_static/3rdparty/**/*.a"]
   end
 
   test do
@@ -115,11 +129,11 @@ class OpencvAT3 < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
-    assert_equal `./test`.strip, version.to_s
+    assert_equal shell_output("./test").strip, version.to_s
 
-    py3_version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV["PYTHONPATH"] = lib/"python#{py3_version}/site-packages"
-    output = shell_output(Formula["python@3.9"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
+    python = Formula["python@3.10"].opt_bin/"python3"
+    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python)
+    output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end
