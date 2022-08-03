@@ -32,9 +32,9 @@ class LlvmAT9 < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
     depends_on "elfutils" # openmp requires <gelf.h>
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "python@3.8"
   end
 
