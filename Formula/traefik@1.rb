@@ -19,10 +19,10 @@ class TraefikAT1 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69adbe00d348f14f732bbd9fe57d57e6f513f6f1c72f5ff2f4e09fae5b4ee2d9"
   end
 
+  keg_only :versioned_formula
+
   # support ended 2021-12-31: https://doc.traefik.io/traefik/deprecation/releases/
   disable! date: "2022-12-31", because: :unsupported
-
-  keg_only :versioned_formula
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
