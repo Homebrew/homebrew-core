@@ -25,10 +25,13 @@ class Openjdk < Formula
   depends_on xcode: :build
   depends_on macos: :catalina
 
+  uses_from_macos "cups"
+  uses_from_macos "unzip"
+  uses_from_macos "zip"
+
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
-    depends_on "cups"
     depends_on "fontconfig"
     depends_on "gcc"
     depends_on "libx11"
@@ -37,8 +40,6 @@ class Openjdk < Formula
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
-    depends_on "unzip"
-    depends_on "zip"
 
     ignore_missing_libraries "libjvm.so"
   end
