@@ -36,11 +36,11 @@ class R < Formula
   uses_from_macos "icu4c"
 
   on_linux do
-    depends_on "pango"
     depends_on "libice"
+    depends_on "libtirpc"
     depends_on "libx11"
     depends_on "libxt"
-    depends_on "libtirpc"
+    depends_on "pango"
   end
 
   # needed to preserve executable permissions on files without shebangs
