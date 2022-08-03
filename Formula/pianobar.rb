@@ -1,10 +1,9 @@
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
-  url "https://6xq.net/pianobar/pianobar-2020.11.28.tar.bz2"
-  sha256 "653bfb96b548259e3ac360752f66fdb77e8e220312e52a43c652f7eb96e7d4fe"
+  url "https://6xq.net/pianobar/pianobar-2022.04.01.tar.bz2"
+  sha256 "1670b28865a8b82a57bb6dfea7f16e2fa4145d2f354910bb17380b32c9b94763"
   license "MIT"
-  revision 2
   head "https://github.com/PromyLOPh/pianobar.git", branch: "master"
 
   bottle do
