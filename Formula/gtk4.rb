@@ -43,8 +43,8 @@ class Gtk4 < Formula
   uses_from_macos "cups"
 
   on_linux do
-    depends_on "libxkbcommon"
     depends_on "libxcursor"
+    depends_on "libxkbcommon"
   end
 
   def install
