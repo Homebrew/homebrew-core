@@ -37,9 +37,9 @@ class LlvmAT8 < Formula
   end
 
   on_linux do
-    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
     depends_on "elfutils" # openmp requires <gelf.h>
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
   end
 
   resource "clang" do
