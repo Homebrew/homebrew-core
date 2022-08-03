@@ -42,8 +42,8 @@ class Gtkx3 < Formula
     depends_on "cairo"
     depends_on "iso-codes"
     depends_on "libxkbcommon"
-    depends_on "xorgproto"
     depends_on "wayland-protocols"
+    depends_on "xorgproto"
   end
 
   def install
