@@ -36,10 +36,10 @@ class LlvmAT12 < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
 
     # Apply patches slated for the 12.0.x release stream
     # to allow building with GCC 5 and 6. Upstream bug:
