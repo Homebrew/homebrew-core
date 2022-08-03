@@ -32,8 +32,8 @@ class Snort < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "libunwind"
     depends_on "gcc"
+    depends_on "libunwind"
   end
 
   # Hyperscan improves IPS performance, but is only available for x86_64 arch.
