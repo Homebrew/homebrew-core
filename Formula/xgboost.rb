@@ -18,8 +18,8 @@ class Xgboost < Formula
   depends_on "cmake" => :build
 
   on_macos do
-    depends_on "libomp"
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
+    depends_on "libomp"
   end
 
   on_linux do
