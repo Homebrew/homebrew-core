@@ -42,11 +42,11 @@ class LlvmAT13 < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
     depends_on "gcc"
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
   end
 
   # Fails at building LLDB
