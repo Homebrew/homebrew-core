@@ -19,7 +19,9 @@ class Logcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c745400ce81042f0445ff608af40939b2207ecc0c8ae78b33f3d845d4f5c128"
   end
 
-  depends_on "go" => :build
+  # Required latest https://pkg.go.dev/go4.org/unsafe/assume-no-moving-gc
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
   depends_on "loki" => :test
 
   resource "testdata" do
