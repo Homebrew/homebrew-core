@@ -25,11 +25,12 @@ class Fastnetmon < Formula
   depends_on macos: :big_sur # We need C++ 20 available for build which is available from Big Sur
   depends_on "mongo-c-driver"
   depends_on "openssl@1.1"
+
+  uses_from_macos "libpcap"
   uses_from_macos "ncurses"
 
   on_linux do
     depends_on "gcc"
-    depends_on "libpcap"
   end
 
   fails_with gcc: "5"
