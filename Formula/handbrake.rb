@@ -31,6 +31,7 @@ class Handbrake < Formula
   uses_from_macos "m4" => :build
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
+  uses_from_macos "xz"
   uses_from_macos "zlib"
 
   on_linux do
@@ -45,7 +46,6 @@ class Handbrake < Formula
     depends_on "speex"
     depends_on "theora"
     depends_on "x264"
-    depends_on "xz"
   end
 
   def install
