@@ -94,12 +94,12 @@ class Qt < Formula
     depends_on "sdl2"
     depends_on "snappy"
     depends_on "systemd"
+    depends_on "wayland"
     depends_on "xcb-util"
     depends_on "xcb-util-image"
     depends_on "xcb-util-keysyms"
     depends_on "xcb-util-renderutil"
     depends_on "xcb-util-wm"
-    depends_on "wayland"
   end
 
   fails_with gcc: "5"
