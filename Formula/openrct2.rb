@@ -32,8 +32,9 @@ class Openrct2 < Formula
   depends_on "sdl2"
   depends_on "speexdsp"
 
+  uses_from_macos "curl"
+
   on_linux do
-    depends_on "curl"
     depends_on "fontconfig"
     depends_on "mesa"
   end
