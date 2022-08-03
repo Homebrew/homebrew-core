@@ -4,6 +4,7 @@ class Libgphoto2 < Formula
   url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.30/libgphoto2-2.5.30.tar.bz2"
   sha256 "ee61a1dac6ad5cf711d114e06b90a6d431961a6e7ec59f4b757a7cd77b1c0fb4"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,7 +21,7 @@ class Libgphoto2 < Formula
   end
 
   head do
-    url "https://github.com/gphoto/libgphoto2.git"
+    url "https://github.com/gphoto/libgphoto2.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -29,11 +30,16 @@ class Libgphoto2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gd"
+  depends_on "jpeg-turbo"
+  depends_on "libexif"
   depends_on "libtool"
   depends_on "libusb-compat"
 
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
+
   def install
-    system "autoreconf", "-fvi" if build.head?
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
