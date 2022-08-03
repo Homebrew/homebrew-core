@@ -29,11 +29,11 @@ class Cvs < Formula
   depends_on "automake" => :build
   depends_on "gettext"
 
+  uses_from_macos "vim" => :build # a text editor must be detected by the configure script
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "vim" => :build # a text editor must be detected by the configure script
     depends_on "linux-pam"
   end
 
