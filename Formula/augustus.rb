@@ -22,6 +22,11 @@ class Augustus < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8271784fc43729dd82e83e031ef63bb278771c6ba271ff7c7bc17908abc56646"
   end
 
+  # Fails to build with GCC 12
+  # https://github.com/Homebrew/homebrew-core/pull/106755
+  # https://github.com/Homebrew/homebrew-core/pull/40220
+  deprecate! date: "2022-08-03", because: :does_not_build
+
   depends_on "boost" => :build
   depends_on "bamtools"
 
