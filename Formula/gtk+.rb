@@ -47,11 +47,11 @@ class Gtkx < Formula
 
   on_linux do
     depends_on "cairo"
-    depends_on "libxinerama"
     depends_on "libxcomposite"
     depends_on "libxcursor"
     depends_on "libxdamage"
     depends_on "libxfixes"
+    depends_on "libxinerama"
     depends_on "libxrandr"
   end
 
