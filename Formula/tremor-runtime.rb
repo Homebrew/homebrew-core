@@ -18,10 +18,11 @@ class TremorRuntime < Formula
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
+  uses_from_macos "llvm"
+
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "gcc"
-    depends_on "llvm"
     depends_on "openssl@1.1"
   end
 
