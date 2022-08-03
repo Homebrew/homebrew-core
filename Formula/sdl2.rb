@@ -33,8 +33,8 @@ class Sdl2 < Formula
     depends_on "libxcursor"
     depends_on "libxscrnsaver"
     depends_on "libxxf86vm"
-    depends_on "xinput"
     depends_on "pulseaudio"
+    depends_on "xinput"
   end
 
   def install
