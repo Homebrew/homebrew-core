@@ -20,7 +20,9 @@ class Xray < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7245e312db9a34b636df22f8ab02c1f72e27db34e7a5f8360b709f9f70a81064"
   end
 
-  depends_on "go" => :build
+  # Required lucas-clemente/quic-go >= 0.28
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
 
   resource "geoip" do
     url "https://github.com/v2fly/geoip/releases/download/202204280105/geoip.dat"
