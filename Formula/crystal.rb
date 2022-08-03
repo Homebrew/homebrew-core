@@ -47,8 +47,8 @@ class Crystal < Formula
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
   on_linux do
-    depends_on "gcc"
     depends_on arch: :x86_64
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"
