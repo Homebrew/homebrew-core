@@ -40,6 +40,7 @@ class Mesa < Formula
   depends_on "libxext"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "gzip"
   uses_from_macos "llvm"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
@@ -47,7 +48,6 @@ class Mesa < Formula
   on_linux do
     depends_on "elfutils"
     depends_on "gcc"
-    depends_on "gzip"
     depends_on "libdrm"
     depends_on "libva"
     depends_on "libvdpau"
