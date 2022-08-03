@@ -19,7 +19,9 @@ class Brev < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1903f0f640b60a813d92ae1de93f7c42c55a613fd71f1d5c6762e6fd583fcac7"
   end
 
-  depends_on "go" => :build
+  # Required latest gvisor.dev/gvisor/pkg/gohacks instead of inet.af/netstack/gohacks
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
 
   def install
     ldflags = "-X github.com/brevdev/brev-cli/pkg/cmd/version.Version=v#{version}"
