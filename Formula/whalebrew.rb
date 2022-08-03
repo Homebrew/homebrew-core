@@ -3,7 +3,7 @@ class Whalebrew < Formula
   homepage "https://github.com/whalebrew/whalebrew"
   url "https://github.com/whalebrew/whalebrew.git",
       tag:      "0.4.0",
-      revision: "1722002db3f1618f7af9d400343bf502d03b508f"
+      revision: "bdf94887abf0397341c1d241974eea790626ae7c"
   license "Apache-2.0"
   head "https://github.com/whalebrew/whalebrew.git", branch: "master"
 
