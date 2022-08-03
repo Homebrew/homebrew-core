@@ -4,7 +4,7 @@ class Libwmf < Formula
   url "https://downloads.sourceforge.net/project/wvware/libwmf/0.2.8.4/libwmf-0.2.8.4.tar.gz"
   sha256 "5b345c69220545d003ad52bfd035d5d6f4f075e65204114a9e875e84895a7cf8"
   license "LGPL-2.1-only" # http://wvware.sourceforge.net/libwmf.html#download
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -24,15 +24,14 @@ class Libwmf < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "gd"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--with-png=#{Formula["libpng"].opt_prefix}",
                           "--with-freetype=#{Formula["freetype"].opt_prefix}",
-                          "--with-jpeg=#{Formula["jpeg"].opt_prefix}"
+                          "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}"
     system "make"
     ENV.deparallelize # yet another rubbish Makefile
     system "make", "install"
