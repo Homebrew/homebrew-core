@@ -21,7 +21,9 @@ class Flyctl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dfe7068fda69d4f5aa1199c808960df56815d270c69c97ef1da7ab9c1a825a4"
   end
 
-  depends_on "go" => :build
+  # Required latest gvisor.dev/gvisor/pkg/gohacks
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
 
   def install
     ENV["CGO_ENABLED"] = "0"
