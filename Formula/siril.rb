@@ -4,6 +4,7 @@ class Siril < Formula
   url "https://free-astro.org/download/siril-1.0.3.tar.bz2"
   sha256 "2fefa7b7e1378f4ba277818c92ec7c4fca1fdcaa6df95bb65aed0163750be2c6"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   bottle do
@@ -29,7 +30,7 @@ class Siril < Formula
   depends_on "gnuplot"
   depends_on "gsl"
   depends_on "gtk+3"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "json-glib"
   depends_on "libconfig"
   depends_on "libraw"
