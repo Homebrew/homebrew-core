@@ -15,8 +15,10 @@ class Traefik < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "417dfc79bd3b7e669213859114a578405120306139a5b4e36bf781b0112a5393"
   end
 
-  depends_on "go" => :build
   depends_on "go-bindata" => :build
+  # Required lucas-clemente/quic-go >= 0.28
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
 
   def install
     ldflags = %W[
