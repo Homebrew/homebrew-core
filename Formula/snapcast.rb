@@ -23,7 +23,8 @@ class Snapcast < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    # Fix permissions
+    # FIXME: if permissions aren't changed, the install fails with:
+    # Error: Failed to read Mach-O binary: share/snapserver/plug-ins/meta_mpd.py
     chmod(0555, "#{share}/snapserver/plug-ins/meta_mpd.py")
   end
 
