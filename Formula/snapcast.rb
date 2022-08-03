@@ -7,11 +7,11 @@ class Snapcast < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "flac"
   depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "opus"
-  depends_on "pkg-config"
   depends_on "pulseaudio"
   uses_from_macos "expat"
   on_linux do
