@@ -4,7 +4,7 @@ class Blastem < Formula
   url "https://www.retrodev.com/repos/blastem/archive/v0.6.2.tar.gz"
   sha256 "d460632eff7e2753a0048f6bd18e97b9d7c415580c358365ff35ac64af30a452"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://www.retrodev.com/repos/blastem", using: :hg
 
   livecheck do
@@ -21,12 +21,7 @@ class Blastem < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "e55cd02a092ef31e3d13db74b551bdab7909fc5bdec0953a608407542976bf92"
   end
 
-  depends_on "freetype" => :build
-  depends_on "gettext" => :build
   depends_on "imagemagick" => :build
-  depends_on "jpeg" => :build
-  depends_on "libpng" => :build
-  depends_on "openjpeg" => :build
   depends_on "pillow" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
@@ -34,7 +29,7 @@ class Blastem < Formula
   depends_on "glew"
   depends_on "sdl2"
 
-  uses_from_macos "libffi"
+  uses_from_macos "zlib"
 
   resource "vasm" do
     url "http://phoenix.owl.de/tags/vasm1_8i.tar.gz"
@@ -48,24 +43,17 @@ class Blastem < Formula
   end
 
   def install
-    if MacOS.sdk_path_if_needed
-      ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
-      ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" # libffi
-    end
-
     resource("vasm").stage do
       system "make", "CPU=m68k", "SYNTAX=mot"
       (buildpath/"tool").install "vasmm68k_mot"
     end
+    ENV.prepend_path "PATH", buildpath/"tool"
 
     # Use imagemagick to convert XCF files instead of xcftools, which is unmaintained and broken.
     # Fix was sent to upstream developer.
     inreplace "Makefile", "xcf2png \$< > \$@", "convert $< $@"
 
-    ENV.prepend_path "PATH", buildpath/"tool"
-
-    system "make", "menu.bin"
-    system "make"
+    system "make", "all", "menu.bin", "HOST_ZLIB=1"
     libexec.install %w[blastem default.cfg menu.bin rom.db shaders]
     bin.write_exec_script libexec/"blastem"
   end
