@@ -26,11 +26,11 @@ class Openimageio < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "boost-python3"
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "freetype"
   depends_on "giflib"
   depends_on "imath"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libheif"
   depends_on "libpng"
   depends_on "libraw"
@@ -53,7 +53,7 @@ class Openimageio < Formula
       -DCCACHE_FOUND=
       -DEMBEDPLUGINS=ON
       -DUSE_FIELD3D=OFF
-      -DUSE_JPEGTURBO=OFF
+      -DUSE_JPEGTURBO=ON
       -DUSE_NUKE=OFF
       -DUSE_OPENCV=OFF
       -DUSE_OPENGL=OFF
