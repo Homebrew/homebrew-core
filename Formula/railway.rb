@@ -17,7 +17,7 @@ class Railway < Formula
   end
 
   def install
-    system "./install"
+    system "./install.sh"
 
     # Install shell completions
     output = Utils.safe_popen_read(bin/"railway", "completion", "bash")
