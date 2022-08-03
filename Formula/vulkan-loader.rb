@@ -22,9 +22,9 @@ class VulkanLoader < Formula
   depends_on "vulkan-headers"
 
   on_linux do
+    depends_on "libxrandr" => :build
     depends_on "libx11"
     depends_on "libxcb"
-    depends_on "libxrandr" => :build
     depends_on "wayland"
   end
 
