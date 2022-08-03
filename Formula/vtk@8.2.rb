@@ -33,6 +33,7 @@ class VtkAT82 < Formula
   depends_on "qt@5"
 
   uses_from_macos "expat"
+  uses_from_macos "icu4c"
   uses_from_macos "libxml2"
   uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
@@ -43,7 +44,6 @@ class VtkAT82 < Formula
 
   on_linux do
     depends_on "gcc"
-    depends_on "icu4c"
     depends_on "libaec"
     depends_on "libxt"
     depends_on "mesa-glu"
