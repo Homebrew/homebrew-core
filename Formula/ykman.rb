@@ -23,10 +23,10 @@ class Ykman < Formula
   depends_on "python@3.10"
 
   uses_from_macos "libffi"
+  uses_from_macos "pcsc-lite"
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "pcsc-lite"
   end
 
   resource "cffi" do
