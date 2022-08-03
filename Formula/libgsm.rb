@@ -20,9 +20,6 @@ class Libgsm < Formula
   end
 
   def install
-    # Use symlinks instead of hardlinks.
-    inreplace "Makefile", "ln $? $@", "$(LN) $? $@"
-
     # Only the targets for which a directory exists will be installed
     bin.mkpath
     lib.mkpath
