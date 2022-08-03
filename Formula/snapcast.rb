@@ -14,6 +14,7 @@ class Snapcast < Formula
   depends_on "opus"
   depends_on "pulseaudio"
   uses_from_macos "expat"
+
   on_linux do
     depends_on "alsa-lib"
     depends_on "avahi"
@@ -25,16 +26,16 @@ class Snapcast < Formula
     system "cmake", "--install", "build"
     # FIXME: if permissions aren't changed, the install fails with:
     # Error: Failed to read Mach-O binary: share/snapserver/plug-ins/meta_mpd.py
-    chmod(0555, "#{share}/snapserver/plug-ins/meta_mpd.py")
+    chmod 0555, share/"snapserver/plug-ins/meta_mpd.py"
   end
 
   test do
     server_pid = fork do
-      exec ("#{bin}/snapserver")
+      exec bin/"snapserver"
     end
 
     r, w = IO.pipe
-    client_pid = spawn("#{bin}/snapclient", out: w)
+    client_pid = spawn bin/"snapclient", out: w
     w.close
 
     sleep 5
@@ -43,9 +44,8 @@ class Snapcast < Formula
     output = r.read
     r.close
 
-    assert_match(/Connected to/m, output)
+    assert_match("Connected to", output)
   ensure
     Process.kill("SIGTERM", server_pid)
-    Process.kill("SIGTERM", client_pid)
   end
 end
