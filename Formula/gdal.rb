@@ -59,8 +59,8 @@ class Gdal < Formula
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "util-linux"
     depends_on "gcc"
+    depends_on "util-linux"
   end
 
   conflicts_with "avce00", because: "both install a cpl_conv.h header"
