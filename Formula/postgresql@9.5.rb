@@ -30,11 +30,11 @@ class PostgresqlAT95 < Formula
   uses_from_macos "perl"
 
   on_linux do
+    depends_on "autoconf@2.69" => :build
     depends_on "linux-pam"
     depends_on "util-linux"
 
     # configure patch to deal with OpenLDAP 2.5
-    depends_on "autoconf@2.69" => :build
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/10fe8d35eb7323bb882c909a0ec065ae01401626/postgresql/openldap-2.5.patch"
       sha256 "7b1e1a88752482c59f6971dfd17a2144ed60e6ecace8538200377ee9b1b7938c"
