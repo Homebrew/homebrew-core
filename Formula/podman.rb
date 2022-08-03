@@ -29,8 +29,10 @@ class Podman < Formula
     end
   end
 
-  depends_on "go" => :build
   depends_on "go-md2man" => :build
+  # Required latest gvisor.dev/gvisor/pkg/gohacks
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
   depends_on "qemu"
 
   # Fixes compatability with qemu 7.0.0. Can be removed next release.
