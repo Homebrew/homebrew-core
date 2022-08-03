@@ -32,18 +32,15 @@ class Snapcast < Formula
       exec ("#{bin}/snapserver")
     end
 
-    output = ""
-    client_pid = spawn("#{bin}/snapclient") do |stdout|
-      stdout.each { |line| output << line }
-      rescue EOFError
-        break
-    end
+    r, w = IO.pipe
+    client_pid = spawn("#{bin}/snapclient", out: w)
+    w.close
 
-    begin
-      timeout(2) { Process.wait(client_pid) }
-    rescue Timeout::Error
-      break
-    end
+    sleep 5
+    Process.kill("SIGTERM", client_pid)
+
+    output = r.read
+    r.close
 
     assert_match(/Connected to/m, output)
   ensure
