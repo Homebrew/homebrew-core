@@ -4,7 +4,7 @@ class Circumflex < Formula
   url "https://github.com/bensadeh/circumflex/archive/refs/tags/2.2.tar.gz"
   sha256 "6a2467bf6bad00fb3fe3a7b9bdb4e6ea6d8a721b1c9905e6161324cfb3f34c01"
   license "AGPL-3.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "16ca677cc0336d37cec75b9436f82315bb1cb48b8af0524bd68d157c6828b48d"
@@ -22,6 +22,7 @@ class Circumflex < Formula
 
   def install
     system "go", "build", *std_go_args(output: bin/"clx", ldflags: "-s -w")
+    man1.install "share/man/clx.1"
   end
 
   test do
