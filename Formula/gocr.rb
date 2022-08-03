@@ -3,7 +3,7 @@ class Gocr < Formula
   homepage "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/"
   url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/gocr-0.52.tar.gz"
   sha256 "df906463105f5f4273becc2404570f187d4ea52bd5769d33a7a8661a747b8686"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/download.html"
@@ -21,7 +21,7 @@ class Gocr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fc5af66eb1d5e1345c1599d57da5a4695f7d37975ba96bfa97dd481ec3a7b1c"
   end
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "netpbm"
 
   # Edit makefile to install libs per developer documentation
@@ -31,9 +31,7 @@ class Gocr < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
 
     # --mandir doesn't work correctly; fix broken Makefile
     inreplace "man/Makefile" do |s|
@@ -45,6 +43,6 @@ class Gocr < Formula
   end
 
   test do
-    system "#{bin}/gocr", "--help"
+    system bin/"gocr", "--help"
   end
 end
