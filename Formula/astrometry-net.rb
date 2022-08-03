@@ -6,7 +6,7 @@ class AstrometryNet < Formula
   url "https://github.com/dstndstn/astrometry.net/releases/download/0.89/astrometry.net-0.89.tar.gz"
   sha256 "98e955a6f747cde06904e461df8e09cd58fe14b1ecceb193e3619d0f5fc64acb"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -27,11 +27,11 @@ class AstrometryNet < Formula
   depends_on "cairo"
   depends_on "cfitsio"
   depends_on "gsl"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "netpbm"
   depends_on "numpy"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "wcslib"
 
   resource "fitsio" do
@@ -39,23 +39,41 @@ class AstrometryNet < Formula
     sha256 "3e7e5d4fc025d8b6328ae330e72628b92784d4c2bb2f1f0caeb75e730b2f91a5"
   end
 
+  # Three patches to fix building with numpy 1.23+
+  # https://github.com/dstndstn/astrometry.net/issues/262
+  patch do
+    url "https://github.com/dstndstn/astrometry.net/commit/ae47640f8abe0593a2a757c2654201e650460445.patch?full_index=1"
+    sha256 "41e245ef699cfd7f04199e678942071822eb5bea071b6d11e82013d4af703c1b"
+  end
+
+  patch do
+    url "https://github.com/dstndstn/astrometry.net/commit/816976ae7e15fd1b9c589312a7aadc802f6915fe.patch?full_index=1"
+    sha256 "02bfe7523791672896e7ec9a16e2c0968149d9f1dc79c37803748d60da123ac9"
+  end
+
+  patch do
+    url "https://github.com/dstndstn/astrometry.net/commit/943c61dc42fb9a57167fab4e4fd7a88f058ab3fc.patch?full_index=1"
+    sha256 "6034b689a172f27a95a7fb10c718005c862ad3d84c44a41ce191c9c82fee850d"
+  end
+
   def install
     # astrometry-net doesn't support parallel build
     # See https://github.com/dstndstn/astrometry.net/issues/178#issuecomment-592741428
     ENV.deparallelize
 
+    python = Formula["python@3.10"].opt_bin/"python3"
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = python
 
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, python)
     venv.pip_install resources
 
     ENV["INSTALL_DIR"] = prefix
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV["PY_BASE_INSTALL_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
-    ENV["PY_BASE_LINK_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
+    site_packages = Language::Python.site_packages(python)
+    ENV["PY_BASE_INSTALL_DIR"] = libexec/site_packages/"astrometry"
+    ENV["PY_BASE_LINK_DIR"] = libexec/site_packages/"astrometry"
     ENV["PYTHON_SCRIPT"] = libexec/"bin/python3"
 
     system "make"
@@ -66,18 +84,18 @@ class AstrometryNet < Formula
   end
 
   test do
-    system "#{bin}/image2pnm", "-h"
-    system "#{bin}/build-astrometry-index", "-d", "3", "-o", "index-9918.fits",
+    system bin/"image2pnm", "-h"
+    system bin/"build-astrometry-index", "-d", "3", "-o", "index-9918.fits",
                                             "-P", "18", "-S", "mag", "-B", "0.1",
                                             "-s", "0", "-r", "1", "-I", "9918", "-M",
-                                            "-i", "#{prefix}/examples/tycho2-mag6.fits"
+                                            "-i", prefix/"examples/tycho2-mag6.fits"
     (testpath/"99.cfg").write <<~EOS
       add_path .
       inparallel
       index index-9918.fits
     EOS
-    system "#{bin}/solve-field", "--config", "99.cfg", "#{prefix}/examples/apod4.jpg",
-                                 "--continue", "--dir", "."
+    system bin/"solve-field", "--config", "99.cfg", prefix/"examples/apod4.jpg",
+                              "--continue", "--dir", "."
     assert_predicate testpath/"apod4.solved", :exist?
     assert_predicate testpath/"apod4.wcs", :exist?
   end
