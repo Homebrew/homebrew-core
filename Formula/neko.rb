@@ -24,11 +24,11 @@ class Neko < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  uses_from_macos "apr"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "apr"
     depends_on "apr-util"
     depends_on "gtk+" # On mac, neko uses carbon. On Linux it uses gtk2
     depends_on "httpd"
