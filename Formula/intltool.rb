@@ -18,11 +18,11 @@ class Intltool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9506dfd59eb01b9cd5735dde05523feded67cc2fc039053704dbbd46e02a49f8"
   end
 
-  on_linux do
-    depends_on "expat"
-    depends_on "perl"
+  uses_from_macos "expat"
+  uses_from_macos "perl"
 
-    resource "XML::Parser" do
+  resource "XML::Parser" do
+    on_linux do
       url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
       sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
     end
