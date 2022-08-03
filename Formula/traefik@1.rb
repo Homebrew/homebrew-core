@@ -20,7 +20,7 @@ class TraefikAT1 < Formula
   end
 
   # support ended 2021-12-31: https://doc.traefik.io/traefik/deprecation/releases/
-  deprecate! date: "2022-12-31", because: :unsupported
+  disable! date: "2022-12-31", because: :unsupported
 
   keg_only :versioned_formula
 
