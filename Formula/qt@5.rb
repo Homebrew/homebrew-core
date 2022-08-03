@@ -36,6 +36,7 @@ class QtAT5 < Formula
   uses_from_macos "gperf" => :build
   uses_from_macos "bison"
   uses_from_macos "flex"
+  uses_from_macos "icu4c"
   uses_from_macos "krb5"
   uses_from_macos "libxslt"
   uses_from_macos "sqlite"
@@ -46,7 +47,6 @@ class QtAT5 < Formula
     depends_on "fontconfig"
     depends_on "gcc"
     depends_on "harfbuzz"
-    depends_on "icu4c"
     depends_on "libdrm"
     depends_on "libevent"
     depends_on "libice"
