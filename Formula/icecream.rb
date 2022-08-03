@@ -23,8 +23,9 @@ class Icecream < Formula
   depends_on "lzo"
   depends_on "zstd"
 
+  uses_from_macos "llvm" => :test
+
   on_linux do
-    depends_on "llvm" => :test
     depends_on "libcap-ng"
   end
 
