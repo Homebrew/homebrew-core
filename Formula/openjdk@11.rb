@@ -23,10 +23,13 @@ class OpenjdkAT11 < Formula
 
   depends_on "autoconf" => :build
 
+  uses_from_macos "cups"
+  uses_from_macos "unzip"
+  uses_from_macos "zip"
+
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
-    depends_on "cups"
     depends_on "fontconfig"
     depends_on "libx11"
     depends_on "libxext"
@@ -34,8 +37,6 @@ class OpenjdkAT11 < Formula
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
-    depends_on "unzip"
-    depends_on "zip"
 
     ignore_missing_libraries "libjvm.so"
   end
