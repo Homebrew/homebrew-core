@@ -6,8 +6,8 @@ class Bun < Formula
   stable do
     # pull from git tag to get submodules
     url "https://github.com/oven-sh/bun.git",
-      tag:      "bun-v0.1.5",
-      revision: "52144c057793cb38e18645ad0e93247f5fd9f2ac"
+      tag:      "bun-v0.1.6",
+      revision: "fcce3ff5ac821de270e5d0094d665ec079ef205e"
 
     # Requires unreleased zig version (0.10.0)
     # Commit from latest fork: https://github.com/Jarred-Sumner/zig
