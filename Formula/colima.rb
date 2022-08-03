@@ -21,7 +21,9 @@ class Colima < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "16a92215d353ae0e2550ec2272edbb68bde22dc1d2e35d15b3c0bb12efabc328"
   end
 
-  depends_on "go" => :build
+  # Required latest gvisor.dev/gvisor/pkg/gohacks
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
   depends_on "lima"
 
   def install
