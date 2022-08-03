@@ -45,44 +45,39 @@ class Mapserver < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-
-    args = %W[
-      -DWITH_CLIENT_WFS=ON
-      -DWITH_CLIENT_WMS=ON
-      -DWITH_CURL=ON
-      -DWITH_FCGI=ON
-      -DWITH_FRIBIDI=OFF
-      -DWITH_GDAL=ON
-      -DWITH_GEOS=ON
-      -DWITH_HARFBUZZ=OFF
-      -DWITH_KML=ON
-      -DWITH_OGR=ON
-      -DWITH_POSTGIS=ON
-      -DWITH_PYTHON=ON
-      -DWITH_SOS=ON
-      -DWITH_WFS=ON
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin/"python3"}
-      -DPHP_EXTENSION_DIR=#{lib}/php/extensions
-      -DCMAKE_INSTALL_RPATH=#{rpath}
-    ]
+    python = which("python3.9")
 
     # Install within our sandbox
-    inreplace "mapscript/python/CMakeLists.txt" do |s|
-      s.gsub! "${PYTHON_LIBRARIES}", "-Wl,-undefined,dynamic_lookup"
-    end
+    inreplace "mapscript/python/CMakeLists.txt", "${PYTHON_LIBRARIES}", "-Wl,-undefined,dynamic_lookup" if OS.mac?
 
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DWITH_CLIENT_WFS=ON",
+                    "-DWITH_CLIENT_WMS=ON",
+                    "-DWITH_CURL=ON",
+                    "-DWITH_FCGI=ON",
+                    "-DWITH_FRIBIDI=OFF",
+                    "-DWITH_GDAL=ON",
+                    "-DWITH_GEOS=ON",
+                    "-DWITH_HARFBUZZ=OFF",
+                    "-DWITH_KML=ON",
+                    "-DWITH_OGR=ON",
+                    "-DWITH_POSTGIS=ON",
+                    "-DWITH_PYTHON=ON",
+                    "-DWITH_SOS=ON",
+                    "-DWITH_WFS=ON",
+                    "-DPYTHON_EXECUTABLE=#{python}",
+                    "-DPHP_EXTENSION_DIR=#{lib}/php/extensions"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     cd "build/mapscript/python" do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system python, *Language::Python.setup_install_args(prefix, python)
     end
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/mapserv -v")
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import mapscript"
+    system "python3.9", "-c", "import mapscript"
   end
 end
