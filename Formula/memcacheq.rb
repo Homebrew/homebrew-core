@@ -3,7 +3,8 @@ class Memcacheq < Formula
   homepage "https://code.google.com/archive/p/memcacheq/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/memcacheq/memcacheq-0.2.0.tar.gz"
   sha256 "b314c46e1fb80d33d185742afe3b9a4fadee5575155cb1a63292ac2f28393046"
-  revision 4
+  license "BSD-3-Clause"
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "69df72fe5723c21da07de2aba455a85c72f3a6b653759b523b6a18eaa2e5b51a"
@@ -17,7 +18,7 @@ class Memcacheq < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "42513283d3c7b3f42678cc887b73446cc2b216bda5feb2c1a8d1ab0b47d352e8"
   end
 
-  depends_on "berkeley-db"
+  depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL incompatibility
   depends_on "libevent"
 
   def install
