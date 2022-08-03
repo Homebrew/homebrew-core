@@ -15,7 +15,9 @@ class Cloudflared < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e271b7e7ed6c87b05fa07bc52f584f27b44192bec7b02a63c3cc62f5a5cac8c9"
   end
 
-  depends_on "go" => :build
+  # Required lucas-clemente/quic-go >= 0.28
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
 
   def install
     system "make", "install",
