@@ -22,10 +22,10 @@ class Autopsy < Formula
 
   depends_on "sleuthkit"
 
+  uses_from_macos "file-formula"
   uses_from_macos "perl"
 
   on_linux do
-    depends_on "file-formula"
     depends_on "grep"
     depends_on "md5sha1sum"
   end
