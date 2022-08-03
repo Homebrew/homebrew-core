@@ -1,11 +1,11 @@
-require "language/node"
-
 class Railway < Formula
   desc "Develop and deploy code with zero configuration"
   homepage "https://railway.app/"
-  url "https://registry.npmjs.org/@railway/cli/-/cli-1.8.4.tgz"
-  sha256 "b057db0b76df651e982f79928d9f1f8dd37c6fce91995e41c56bf8ea6559b11c"
+  url "https://github.com/railwayapp/cli.git",
+      tag:      "v2.0.5",
+      revision: "6f8f9a6e61fb1cba4a6c800128dffaaf28ed7963"
   license "MIT"
+  head "https://github.com/railwayapp/cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a4fa8e05f74aa696ee22ef23635a7830851faa96ac939faff170a5fe933cafe"
@@ -16,11 +16,8 @@ class Railway < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f82ce3fe592056a356c7ce02806fd4ed8666b4ea78fa876079bf492ab4e1bf4"
   end
 
-  depends_on "node"
-
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "./install"
 
     # Install shell completions
     output = Utils.safe_popen_read(bin/"railway", "completion", "bash")
