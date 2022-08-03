@@ -30,9 +30,8 @@ class Neko < Formula
   on_linux do
     depends_on "apr"
     depends_on "apr-util"
+    depends_on "gtk+" # On mac, neko uses carbon. On Linux it uses gtk2
     depends_on "httpd"
-    # On mac, neko uses carbon. On Linux it uses gtk2
-    depends_on "gtk+"
   end
 
   # Don't redefine MSG_NOSIGNAL -- https://github.com/HaxeFoundation/neko/pull/217
