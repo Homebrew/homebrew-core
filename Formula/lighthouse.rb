@@ -16,14 +16,13 @@ class Lighthouse < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
+  depends_on "protobuf"
 
+  uses_from_macos "llvm" => :build
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "llvm" => :build
-  end
-
   def install
+    ENV["PROTOC_NO_VENDOR"] = "1"
     system "cargo", "install", *std_cargo_args(path: "./lighthouse")
   end
 
