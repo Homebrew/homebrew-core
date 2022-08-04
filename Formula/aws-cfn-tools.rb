@@ -10,7 +10,7 @@ class AwsCfnTools < Formula
     sha256 cellar: :any_skip_relocation, all: "62fe9878c486068d70c77637c2b2ce55d3f4fbb07b6aba7c65ecd8f1aaaee7c4"
   end
 
-  deprecate! date: "2022-04-03", because: :deprecated_upstream
+  disable! date: "2022-08-04", because: :deprecated_upstream
 
   depends_on "ec2-api-tools"
   depends_on "openjdk"
