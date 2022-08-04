@@ -4,6 +4,7 @@ class Timg < Formula
   url "https://github.com/hzeller/timg/archive/refs/tags/v1.4.4.tar.gz"
   sha256 "66d2e00b50068fd6638bb8be1859c50ca4f24caef751f9dc95b303f37fb07b1e"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class Timg < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "graphicsmagick"
   depends_on "jpeg-turbo"
   depends_on "libexif"
@@ -31,8 +32,9 @@ class Timg < Formula
   fails_with gcc: "5" # rubberband is built with GCC
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
