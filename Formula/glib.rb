@@ -6,6 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.72/glib-2.72.3.tar.xz"
   sha256 "4a39a2f624b8512d500d5840173eda7fa85f51c109052eae806acece85d345f0"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "36038c2b4fb7dbede91facedd3dd3062e0ae697149e5ce758bbd17ce0e2448ab"
@@ -79,6 +80,20 @@ class Glib < Formula
     #       `dirs.select(&:empty?).map(&:rmdir)` will not work because it will not delete
     #       directories that only contain empty directories.
     prefix.find.select(&:directory?).reverse_each { |d| d.rmdir if d.empty? }
+
+    # Python executables are removed and ship with `glib-utils`.
+    # Fix the pkg-config variable paths.
+    glib_utils_bin = Formula["glib-utils"].opt_bin
+    inreplace lib/"pkgconfig"/"gio-2.0.pc" do |s|
+      s.gsub! "${bindir}/gdbus-codegen",
+              "#{glib_utils_bin}/gdbus-codegen"
+    end
+    inreplace lib/"pkgconfig"/"glib-2.0.pc" do |s|
+      s.gsub! "${bindir}/glib-genmarshal",
+              "#{glib_utils_bin}/glib-genmarshal"
+      s.gsub! "${bindir}/glib-mkenums",
+              "#{glib_utils_bin}/glib-mkenums"
+    end
 
     if OS.mac?
       # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
