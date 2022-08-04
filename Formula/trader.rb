@@ -1,8 +1,8 @@
 class Trader < Formula
   desc "Star Traders"
   homepage "https://www.zap.org.au/projects/trader/"
-  url "https://ftp.zap.org.au/pub/trader/unix/trader-7.16.tar.xz"
-  sha256 "7fced3adfe61099679cec67dd7d7187314b0f6d4378a4aece1a1b5eab9f81ef2"
+  url "https://ftp.zap.org.au/pub/trader/unix/trader-7.18.tar.xz"
+  sha256 "3730b2fedd339adfc34c1640b309b3413b10b3d78969dcd71f07fd76b4514e85"
   license "GPL-3.0-or-later"
 
   livecheck do
