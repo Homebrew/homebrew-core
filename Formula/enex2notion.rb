@@ -156,7 +156,7 @@ class Enex2notion < Formula
       </en-export>
     EOF
 
-    system bin/"enex2notion", "test.enex"
+    assert_match "No token provided", shell_output("#{bin}/enex2notion test.enex 2>&1")
 
     assert_match version.to_s, shell_output("#{bin}/enex2notion --version")
   end
