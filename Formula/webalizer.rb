@@ -5,7 +5,7 @@ class Webalizer < Formula
   mirror "https://deb.debian.org/debian/pool/main/w/webalizer/webalizer_2.23.08.orig.tar.gz"
   sha256 "edaddb5aa41cc4a081a1500e3fa96615d4b41bc12086bcedf9938018ce79ed8d"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_monterey: "83f6bd5042bab75a5ffbfc154d31217c4a7ca770d105ae8fa19163d398f196d9"
@@ -22,7 +22,7 @@ class Webalizer < Formula
 
   deprecate! date: "2022-05-29", because: :unmaintained
 
-  depends_on "berkeley-db"
+  depends_on "berkeley-db@5"
   depends_on "gd"
   depends_on "libpng"
 
