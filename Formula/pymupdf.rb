@@ -12,10 +12,10 @@ class Pymupdf < Formula
   depends_on "python@3.10"
 
   on_linux do
-    depends_on "mujs"
     depends_on "gumbo-parser"
     depends_on "harfbuzz"
     depends_on "jbig2dec"
+    depends_on "mujs"
     depends_on "openjpeg"
   end
 
