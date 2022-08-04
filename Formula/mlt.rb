@@ -2,8 +2,9 @@ class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
   url "https://github.com/mltframework/mlt/releases/download/v7.8.0/mlt-7.8.0.tar.gz"
-  sha256 "4165e62e007e37d65e96517a45817517067897eedef4d83de7208dbd74b1f0f7"
+  sha256 "66606d79f91b400a4d9380a911a5d771a48bd6413447fa2f3713459eba70242d"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Mlt < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "fftw"
   depends_on "frei0r"
   depends_on "gdk-pixbuf"
@@ -41,23 +42,20 @@ class Mlt < Formula
     rpaths = [rpath]
     rpaths << "@loader_path/../../lib" if OS.mac?
 
-    args = std_cmake_args + %W[
-      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
-      -DGPL=ON
-      -DGPL3=ON
-      -DMOD_OPENCV=ON
-      -DMOD_JACKRACK=OFF
-      -DMOD_SDL1=OFF
-      -DRELOCATABLE=OFF
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
+                    "-DGPL=ON",
+                    "-DGPL3=ON",
+                    "-DMOD_OPENCV=ON",
+                    "-DMOD_JACKRACK=OFF",
+                    "-DMOD_SDL1=OFF",
+                    "-DRELOCATABLE=OFF"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     # Workaround as current `mlt` doesn't provide an unversioned mlt++.pc file.
     # Remove if mlt readds or all dependents (e.g. `synfig`) support versioned .pc
-    (lib/"pkgconfig").install_symlink "mlt++-7.pc" => "mlt++.pc"
+    (lib/"pkgconfig").install_symlink "mlt++-#{version.major}.pc" => "mlt++.pc"
   end
 
   test do
