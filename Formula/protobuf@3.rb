@@ -22,6 +22,13 @@ class ProtobufAT3 < Formula
 
   uses_from_macos "zlib"
 
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.match?(/python@\d\.\d+/) }
+        .map(&:opt_bin)
+        .map { |bin| bin/"python3" }
+  end
+
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
@@ -30,8 +37,7 @@ class ProtobufAT3 < Formula
     ENV.cxx11
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", "--with-zlib"
+    system "./configure", *std_configure_args, "--with-zlib"
     system "make"
     system "make", "install"
 
@@ -43,11 +49,8 @@ class ProtobufAT3 < Formula
     ENV.append_to_cflags "-L#{lib}"
 
     cd "python" do
-      ["3.9", "3.10"].each do |xy|
-        site_packages = prefix/Language::Python.site_packages("python#{xy}")
-        system "python#{xy}", *Language::Python.setup_install_args(prefix),
-                              "--install-lib=#{site_packages}",
-                              "--cpp_implementation"
+      pythons.each do |python|
+        system python, *Language::Python.setup_install_args(prefix, python), "--cpp_implementation"
       end
     end
   end
@@ -65,7 +68,10 @@ class ProtobufAT3 < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import google.protobuf"
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import google.protobuf"
+    pythons.each do |python|
+      with_env(PYTHONPATH: prefix/Language::Python.site_packages(python)) do
+        system python, "-c", "import google.protobuf"
+      end
+    end
   end
 end
