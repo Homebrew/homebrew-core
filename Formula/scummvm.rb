@@ -1,28 +1,10 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  # TODO: Update license to GPL-3.0-or-later and remove from
-  # permitted_formula_license_mismatches.json on next release
-  license "GPL-2.0-or-later"
-  revision 1
+  url "https://downloads.scummvm.org/frs/scummvm/2.6.0/scummvm-2.6.0.tar.xz"
+  sha256 "1c1438e8d0c9d9e15fd129e2e9e2d2227715bd7559f83b2e7208f5d8704ffc17"
+  license "GPL-3.0-or-later"
   head "https://github.com/scummvm/scummvm.git", branch: "master"
-
-  stable do
-    url "https://downloads.scummvm.org/frs/scummvm/2.5.1/scummvm-2.5.1.tar.xz"
-    sha256 "9fd8db38e4456144bf8c34dacdf7f204e75f18e8e448ec01ce08ce826a035f01"
-
-    # Fix Apple Silicon build: ld: unaligned pointer(s) for architecture arm64
-    # clang: error: linker command failed with exit code 1 (use -v to see invocation)
-    # Remove on the next release.
-    patch do
-      url "https://github.com/scummvm/scummvm/commit/7003cf793f2ddc5b773293088a2b5e485bc8c105.patch?full_index=1"
-      sha256 "616fd3c2e8128c0c4c9d7bb56622f0abc27a101bc45cc7d2d79078d77cc03dbd"
-    end
-    patch do
-      url "https://github.com/scummvm/scummvm/commit/6791dc23196cd71d09ecc44c510c6dd35a3f0787.patch?full_index=1"
-      sha256 "45c6c6e70a3bae70d02b09f139d9f47cafe561524dfff9939c0e5bd63f7386b2"
-    end
-  end
 
   livecheck do
     url "https://www.scummvm.org/downloads/"
@@ -65,6 +47,6 @@ class Scummvm < Formula
     # Test fails on headless CI: Could not initialize SDL: No available video device
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "#{bin}/scummvm", "-v"
+    system bin/"scummvm", "-v"
   end
 end
