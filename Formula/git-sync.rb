@@ -18,7 +18,6 @@ class GitSync < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ENV["GOFLAGS"] = "-mod=vendor"
     inreplace "cmd/#{name}/main.go", "\"mv\", \"-T\"", "\"#{Formula["coreutils"].opt_bin}/gmv\", \"-T\"" if OS.mac?
     modpath = Utils.safe_popen_read("go", "list", "-m").chomp
     ldflags = "-X #{modpath}/pkg/version.VERSION=v#{version}"
