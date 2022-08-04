@@ -10,7 +10,7 @@ class ElbTools < Formula
     sha256 cellar: :any_skip_relocation, all: "8dd3007e8367fe8e0c4b4b85889a68d7196a954a27add9cb163c5965daa51da1"
   end
 
-  deprecate! date: "2022-04-03", because: :deprecated_upstream
+  disable! date: "2022-08-04", because: :deprecated_upstream
 
   depends_on "ec2-api-tools"
   depends_on "openjdk"
