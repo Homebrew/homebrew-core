@@ -7,8 +7,8 @@ class Enex2notion < Formula
   sha256 "8cddc157cd4f5999127584430cf173921b6846e91eb05585380158d64f63aed7"
   license "MIT"
 
-  depends_on "python@3.10"
   depends_on "pymupdf"
+  depends_on "python@3.10"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/e8/b0/cd2b968000577ec5ce6c741a54d846dfa402372369b8b6861720aa9ecea7/beautifulsoup4-4.11.1.tar.gz"
