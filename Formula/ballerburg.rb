@@ -3,7 +3,8 @@ class Ballerburg < Formula
   homepage "https://baller.tuxfamily.org/"
   url "https://download.tuxfamily.org/baller/ballerburg-1.2.1.tar.gz"
   sha256 "3f4ad9465f01c256dd1b37cc62c9fd8cbca372599753dbb21726629f042a6e62"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
+  revision 1
   head "https://git.tuxfamily.org/baller/baller.git", branch: "master"
 
   livecheck do
@@ -21,10 +22,11 @@ class Ballerburg < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "sdl"
+  depends_on "sdl2"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 end
