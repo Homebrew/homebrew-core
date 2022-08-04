@@ -25,11 +25,9 @@ class Glew < Formula
   end
 
   def install
-    cd "build" do
-      system "cmake", "./cmake", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", "./build/cmake", "-B", "_build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "--build", "_build"
+    system "cmake", "--install", "_build"
     doc.install Dir["doc/*"]
   end
 
