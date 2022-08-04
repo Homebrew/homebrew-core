@@ -3,6 +3,7 @@ class Libbpg < Formula
   homepage "https://bellard.org/bpg/"
   url "https://bellard.org/bpg/libbpg-0.9.8.tar.gz"
   sha256 "c0788e23bdf1a7d36cb4424ccb2fae4c7789ac94949563c4ad0e2569d3bf0095"
+  revision 1
 
   livecheck do
     url :homepage
@@ -23,7 +24,7 @@ class Libbpg < Formula
 
   depends_on "cmake" => :build
   depends_on "yasm" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
 
   def install
@@ -35,7 +36,7 @@ class Libbpg < Formula
   end
 
   test do
-    system "#{bin}/bpgenc", test_fixtures("test.png")
+    system bin/"bpgenc", test_fixtures("test.png")
     assert_predicate testpath/"out.bpg", :exist?
   end
 end
