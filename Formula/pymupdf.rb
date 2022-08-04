@@ -13,10 +13,10 @@ class Pymupdf < Formula
 
   on_linux do
     depends_on "mujs"
-    depends_on "openjpeg"
     depends_on "gumbo-parser"
     depends_on "harfbuzz"
     depends_on "jbig2dec"
+    depends_on "openjpeg"
   end
 
   def install
