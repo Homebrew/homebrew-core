@@ -19,7 +19,7 @@ class Immudb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "64b809adca6510ce7879397985ca33f8e1de676bb5453f594b0b753314cb2483"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.16" => :build
 
   def install
     ENV["WEBCONSOLE"] = "default"
