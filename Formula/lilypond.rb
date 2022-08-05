@@ -9,6 +9,7 @@ class Lilypond < Formula
     :public_domain,
     "MIT",
   ]
+  revision 1
 
   stable do
     url "https://lilypond.org/download/sources/v2.22/lilypond-2.22.2.tar.gz"
@@ -55,7 +56,7 @@ class Lilypond < Formula
   depends_on "ghostscript"
   depends_on "guile@2"
   depends_on "pango"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
