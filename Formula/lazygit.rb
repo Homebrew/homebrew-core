@@ -4,6 +4,7 @@ class Lazygit < Formula
   url "https://github.com/jesseduffield/lazygit/archive/v0.35.tar.gz"
   sha256 "fe5b2278d7b5b22058d139ec8961a09197d8fd26d7432d263a583fa9c1599d6d"
   license "MIT"
+  head "https://github.com/jesseduffield/lazygit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "30867910e32b5580b2d188d5dfe9910c3ad6a4b7fbedcbbda479d4246409fff5"
