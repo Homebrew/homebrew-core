@@ -1,8 +1,8 @@
 class InfluxdbAT1 < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v1.9.8.tar.gz"
-  sha256 "c013f167437522475f47772f3506d10bab2a818f38aa4c0005a5b75cf78fd8da"
+  url "https://github.com/influxdata/influxdb/archive/v1.10.0.tar.gz"
+  sha256 "2efe515ba55e4fee18a994902bb3de242f0d498e3662e6cec1548c7f700d8278"
   license "MIT"
 
   livecheck do
