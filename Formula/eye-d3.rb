@@ -7,6 +7,7 @@ class EyeD3 < Formula
   mirror "https://files.pythonhosted.org/packages/fb/f2/27b42a10b5668df27ce87aa22407e5115af7fce9b1d68f09a6d26c3874ec/eyeD3-0.9.6.tar.gz"
   sha256 "4b5064ec0fb3999294cca0020d4a27ffe4f29149e8292fdf7b2de9b9cabb7518"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/nicfit/eyeD3.git"
@@ -23,7 +24,7 @@ class EyeD3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a85e5aba1fe2b28c9b7587e06cbea8b65585b0d5eb958a22fb760948092b0826"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # Looking for documentation? Please submit a PR to build some!
   # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
@@ -60,16 +61,12 @@ class EyeD3 < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3")
-    python_path = libexec/Language::Python.site_packages("python3")
-    ENV.prepend_path "PYTHONPATH", python_path
-
     venv.pip_install resources
-    system "python3", "setup.py", "build"
-    system "python3", "setup.py", "install", "--prefix=#{libexec}",
-      "--single-version-externally-managed", "--root=/"
-    share.install Dir["docs/*"]
 
-    (bin/"eyeD3").write_env_script(libexec/"bin/eyeD3", PYTHONPATH: ENV["PYTHONPATH"])
+    bin_before = Dir[libexec/"bin/*"].to_set
+    system libexec/"bin/python3", *Language::Python.setup_install_args(libexec)
+    bin.install_symlink (Dir[libexec/"bin/*"].to_set - bin_before).to_a
+    share.install Dir["docs/*"]
   end
 
   test do
