@@ -42,6 +42,6 @@ class Ykdl < Formula
   end
 
   test do
-    system bin/"ykdl", "--info", "https://v.youku.com/v_show/id_XNTAzNDM5NTQ5Mg==.html"
+    system bin/"ykdl", "--info", "https://v.youku.com/v_show/id_XNTAwNjY3MjU3Mg==.html"
   end
 end
