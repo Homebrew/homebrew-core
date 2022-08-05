@@ -18,7 +18,6 @@ class Llnode < Formula
   end
 
   depends_on "node" => :build
-  depends_on "python@3.9" => :build
 
   uses_from_macos "llvm"
 
@@ -58,7 +57,7 @@ class Llnode < Formula
   end
 
   def install
-    ENV.append_path "PATH", "#{Formula["node"].libexec}/lib/node_modules/npm/node_modules/node-gyp/bin"
+    ENV.append_path "PATH", Formula["node"].libexec/"lib/node_modules/npm/node_modules/node-gyp/bin"
     inreplace "Makefile", "node-gyp", "node-gyp.js"
 
     # Make sure the buildsystem doesn't try to download its own copy
