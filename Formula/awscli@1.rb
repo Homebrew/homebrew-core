@@ -7,6 +7,7 @@ class AwscliAT1 < Formula
   url "https://files.pythonhosted.org/packages/84/3f/a0a22dcdef169fad571391c9b2c7eb242a03c4c3a91c68e0752309ad1e4a/awscli-1.25.40.tar.gz"
   sha256 "caf75fdc8b57aad17327a1d01b05ad503959092c7c02c2ba0fe7c077c6fd3108"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://github.com/aws/aws-cli.git"
@@ -25,8 +26,7 @@ class AwscliAT1 < Formula
   keg_only :versioned_formula
 
   depends_on "libyaml" # for faster PyYAML
-  # Some AWS APIs require TLS1.2, which system Python doesn't have before High Sierra
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "groff"
@@ -82,12 +82,7 @@ class AwscliAT1 < Formula
   end
 
   def install
-    # setuptools>=60 prefers its own bundled distutils, which is incompatabile with docutils~=0.15
-    # Force the previous behavior of using distutils from the stdlib
-    # Remove when fixed upstream: https://github.com/aws/aws-cli/pull/6011
-    with_env(SETUPTOOLS_USE_DISTUTILS: "stdlib") do
-      virtualenv_install_with_resources
-    end
+    virtualenv_install_with_resources
     pkgshare.install "awscli/examples"
 
     rm Dir["#{bin}/{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
