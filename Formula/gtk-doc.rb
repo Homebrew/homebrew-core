@@ -6,6 +6,7 @@ class GtkDoc < Formula
   url "https://download.gnome.org/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz"
   sha256 "cc1b709a20eb030a278a1f9842a362e00402b7f834ae1df4c1998a723152bf43"
   license "GPL-2.0-or-later"
+  revision 1
 
   # We use a common regex because gtk-doc doesn't use GNOME's
   # "even-numbered minor is stable" version scheme.
@@ -30,7 +31,7 @@ class GtkDoc < Formula
   depends_on "docbook"
   depends_on "docbook-xsl"
   depends_on "libxml2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libxslt"
 
@@ -57,16 +58,9 @@ class GtkDoc < Formula
     venv.pip_install resources
     ENV.prepend_path "PATH", libexec/"bin"
 
-    args = std_meson_args + %w[
-      -Dtests=false
-      -Dyelp_manual=false
-    ]
-
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build", "-Dtests=false", "-Dyelp_manual=false"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   test do
