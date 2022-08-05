@@ -26,13 +26,14 @@ class Ptex < Formula
   uses_from_macos "zlib"
 
   resource "wtest" do
-    url "https://raw.githubusercontent.com/wdas/ptex/v2.4.1/src/tests/wtest.cpp"
+    url "https://raw.githubusercontent.com/wdas/ptex/v2.4.2/src/tests/wtest.cpp"
     sha256 "95c78f97421eac034401b579037b7ba4536a96f4b356f8f1bb1e87b9db752444"
   end
 
   def install
-    system "make", "prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
