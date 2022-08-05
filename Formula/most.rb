@@ -3,6 +3,7 @@ class Most < Formula
   homepage "https://www.jedsoft.org/most/"
   url "https://www.jedsoft.org/releases/most/most-5.2.0.tar.gz"
   sha256 "9455aeb8f826fa8385c850dc22bf0f22cf9069b3c3423fba4bf2c6f6226d9903"
+  license "GPL-2.0-or-later"
   head "git://git.jedsoft.org/git/most.git", branch: "master"
 
   livecheck do
