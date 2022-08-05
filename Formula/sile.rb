@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.13.3/sile-0.13.3.tar.xz"
-  sha256 "1ab1c6f1898440822c1f85186f8b4676bab3eda3ad947d838ea0d991fb301c75"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.0/sile-0.14.0.tar.xz"
+  sha256 "cc7afa333b3696b62f85abd47417b3bd7189770dc53f5b4905781ccd2cb8734c"
   license "MIT"
 
   bottle do
@@ -34,11 +34,6 @@ class Sile < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
-  resource "stdlib" do
-    url "https://luarocks.org/manifests/gvvaughan/stdlib-41.2.2-1.src.rock"
-    sha256 "67eadaccbb2b6037ea70129f9616da49eaeeaf1477652a8e2cc77740286531cf"
-  end
-
   resource "bit32" do
     url "https://luarocks.org/manifests/siffiejoe/bit32-5.3.5.1-1.src.rock"
     sha256 "0e273427f2b877270f9cec5642ebe2670242926ba9638d4e6df7e4e1263ca12c"
@@ -54,7 +49,7 @@ class Sile < Formula
     sha256 "e0d0d687897f06588558168eeb1902ac41a11edd1b58f1aa61b99d0ea0abbfbc"
   end
 
-  # Depends on lpeg
+  # depends on lpeg
   resource "cosmo" do
     url "https://luarocks.org/manifests/mascarenhas/cosmo-16.06.04-1.src.rock"
     sha256 "9c83d50c8b734c0d405f97df9940ddb27578214033fd0e3cfc3e7420c999b9a9"
@@ -109,8 +104,8 @@ class Sile < Formula
 
   # depends on luafilesystem
   resource "penlight" do
-    url "https://luarocks.org/manifests/tieske/penlight-1.12.0-2.src.rock"
-    sha256 "bcf2b591fb0ff650007211a99256c15acbfb927a7e7e779cae15ae52cb8d6bea"
+    url "https://luarocks.org/manifests/tieske/penlight-1.13.1-1.src.rock"
+    sha256 "fa028f7057cad49cdb84acdd9fe362f090734329ceca8cc6abb2d95d43b91835"
   end
 
   # depends on penlight
@@ -119,13 +114,13 @@ class Sile < Formula
     sha256 "965e2917b2d06b1c416935be4d7a59aa438e9bad5015b2aefd055f0efdd79758"
   end
 
-  # Depends on cldr, luaepnf, penlight
+  # depends on cldr, luaepnf, penlight
   resource "fluent" do
     url "https://luarocks.org/manifests/alerque/fluent-0.2.0-0.src.rock"
     sha256 "ea915c689dfce2a7ef5551eb3c09d4620bae60a51c20d48d85c14b69bf3f28ba"
   end
 
-  # Depends on luafilesystem, penlight
+  # depends on luafilesystem, penlight
   resource "cassowary" do
     url "https://luarocks.org/manifests/simoncozens/cassowary-2.3.2-1.src.rock"
     sha256 "2d3c3954eeb8b5da1d7b1b56c209ed3ae11d221220967c159f543341917ce726"
