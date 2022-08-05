@@ -14,6 +14,7 @@ class Evince < Formula
     sha256 x86_64_linux:   "71c54a195b220570d7cb9b40a44021a752d795a61008a8c79cbdab1d40771699"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
@@ -30,30 +31,23 @@ class Evince < Formula
   depends_on "libsecret"
   depends_on "libspectre"
   depends_on "poppler"
-  depends_on "python@3.9"
 
   def install
     ENV["DESTDIR"] = "/"
-
-    args = %w[
-      -Dnautilus=false
-      -Dcomics=enabled
-      -Ddjvu=enabled
-      -Dpdf=enabled
-      -Dps=enabled
-      -Dtiff=enabled
-      -Dxps=enabled
-      -Dgtk_doc=false
-      -Dintrospection=true
-      -Ddbus=false
-      -Dgspell=enabled
-    ]
-
-    mkdir "build" do
-      system "meson", *std_meson_args, *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build",
+                    "-Dnautilus=false",
+                    "-Dcomics=enabled",
+                    "-Ddjvu=enabled",
+                    "-Dpdf=enabled",
+                    "-Dps=enabled",
+                    "-Dtiff=enabled",
+                    "-Dxps=enabled",
+                    "-Dgtk_doc=false",
+                    "-Dintrospection=true",
+                    "-Ddbus=false",
+                    "-Dgspell=enabled"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   def post_install
