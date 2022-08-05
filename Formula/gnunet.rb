@@ -25,6 +25,7 @@ class Gnunet < Formula
   depends_on "libmicrohttpd"
   depends_on "libsodium"
   depends_on "libunistring"
+  depends_on "sphinx-doc"
 
   uses_from_macos "curl"
   uses_from_macos "sqlite"
