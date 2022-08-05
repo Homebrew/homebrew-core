@@ -1,8 +1,8 @@
 class Most < Formula
   desc "Powerful paging program"
   homepage "https://www.jedsoft.org/most/"
-  url "https://www.jedsoft.org/releases/most/most-5.1.0.tar.gz"
-  sha256 "db805d1ffad3e85890802061ac8c90e3c89e25afb184a794e03715a3ed190501"
+  url "https://www.jedsoft.org/releases/most/most-5.2.0.tar.gz"
+  sha256 "9455aeb8f826fa8385c850dc22bf0f22cf9069b3c3423fba4bf2c6f6226d9903"
   head "git://git.jedsoft.org/git/most.git", branch: "master"
 
   livecheck do
