@@ -6,6 +6,7 @@ class Gupnp < Formula
   url "https://download.gnome.org/sources/gupnp/1.4/gupnp-1.4.3.tar.xz"
   sha256 "14eda777934da2df743d072489933bd9811332b7b5bf41626b8032efb28b33ba"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "1937e917519b9784475606a21cc66d5b2ed5914c2008105c992b91a04bee834f"
@@ -17,6 +18,7 @@ class Gupnp < Formula
   end
 
   depends_on "docbook-xsl" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -27,21 +29,18 @@ class Gupnp < Formula
   depends_on "gssdp"
   depends_on "libsoup@2"
   depends_on "libxml2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
     ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    mkdir "build" do
-      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-      rewrite_shebang detected_python_shebang, *bin.children
-    end
+    system "meson", *std_meson_args, "build"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
+    rewrite_shebang detected_python_shebang, *bin.children
   end
 
   test do
