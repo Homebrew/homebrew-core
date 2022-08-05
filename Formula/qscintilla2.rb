@@ -4,6 +4,7 @@ class Qscintilla2 < Formula
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.13.3/QScintilla_src-2.13.3.tar.gz"
   sha256 "711d28e37c8fccaa8229e8e39a5b3b2d97f3fffc63da10b71c71b84fa3649398"
   license "GPL-3.0-only"
+  revision 1
 
   # The downloads page also lists pre-release versions, which use the same file
   # name format as stable versions. The only difference is that files for
@@ -29,7 +30,7 @@ class Qscintilla2 < Formula
 
   # TODO: use qt when octave can migrate to qt6
   depends_on "pyqt@5"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "qt@5"
 
   on_linux do
@@ -107,6 +108,6 @@ class Qscintilla2 < Formula
       assert("QsciLexer" in dir(PyQt#{pyqt.version.major}.Qsci))
     EOS
 
-    system Formula["python@3.9"].opt_bin/"python3", "test.py"
+    system Formula["python@3.10"].opt_bin/"python3", "test.py"
   end
 end
