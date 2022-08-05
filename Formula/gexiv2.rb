@@ -4,6 +4,7 @@ class Gexiv2 < Formula
   url "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.0.tar.xz"
   sha256 "e58279a6ff20b6f64fa499615da5e9b57cf65ba7850b72fafdf17221a9d6d69e"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "990b477bf1f0d51b110bb91a59d8a50f0953c5d2029b06383e6c203d544ead21"
@@ -21,19 +22,17 @@ class Gexiv2 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "pygobject3" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "vala" => :build
   depends_on "exiv2"
   depends_on "glib"
 
   def install
-    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    site_packages = prefix/Language::Python.site_packages("python3")
 
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dpython3_girdir=#{lib}/python#{pyver}/site-packages/gi/overrides", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", *std_meson_args, "build", "-Dpython3_girdir=#{site_packages}/gi/overrides"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -45,14 +44,11 @@ class Gexiv2 < Formula
       }
     EOS
 
-    flags = [
-      "-I#{HOMEBREW_PREFIX}/include/glib-2.0",
-      "-I#{HOMEBREW_PREFIX}/lib/glib-2.0/include",
-      "-L#{lib}",
-      "-lgexiv2",
-    ]
-
-    system ENV.cc, "test.c", "-o", "test", *flags
+    system ENV.cc, "test.c", "-o", "test",
+                   "-I#{HOMEBREW_PREFIX}/include/glib-2.0",
+                   "-I#{HOMEBREW_PREFIX}/lib/glib-2.0/include",
+                   "-L#{lib}",
+                   "-lgexiv2"
     system "./test"
   end
 end
