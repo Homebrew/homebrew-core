@@ -6,7 +6,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1.tar.xz"
   sha256 "51114e789485fdb6b35d112dfd7c7abb38326325ac51221b6341564a1c3cc726"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
+  revision 2
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -124,21 +124,20 @@ class Qt < Formula
 
   # Apply patch to fix chromium build with glibc < 2.27. See here for details:
   # https://libc-alpha.sourceware.narkive.com/XOENQFwL/add-fcntl-sealing-interfaces-from-linux-3-17-to-bits-fcntl-linux-h
+  # FIXME: Remove once migrated to glibc 2.35.
   patch :DATA
 
   def install
+    python = "python3.10"
     # Install python dependencies for QtWebEngine
-    venv = virtualenv_create(buildpath/"venv", "python3")
-    resources.each do |r|
-      venv.pip_install r
-    end
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_path "PYTHONPATH", buildpath/"venv/lib/python#{xy}/site-packages"
-    ENV.prepend_path "PATH", Formula["python@3.10"].libexec/"bin"
+    venv_root = buildpath/"venv"
+    venv = virtualenv_create(venv_root, python)
+    venv.pip_install resources
+    ENV.prepend_path "PYTHONPATH", venv_root/Language::Python.site_packages(python)
 
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/apple/toolchain.gni",
-       'rebase_path("$clang_base_path/bin/", root_build_dir)', '""'
+              'rebase_path("$clang_base_path/bin/", root_build_dir)', '""'
 
     # FIXME: See https://bugreports.qt.io/browse/QTBUG-89559
     # and https://codereview.qt-project.org/c/qt/qtbase/+/327393
@@ -146,14 +145,15 @@ class Qt < Formula
     # because on macOS `/tmp` -> `/private/tmp`
     inreplace "qtwebengine/src/3rdparty/gn/src/base/files/file_util_posix.cc",
               "FilePath(full_path)", "FilePath(input)"
-    %w[
+    realpath_files = %w[
       qtwebengine/cmake/Gn.cmake
       qtwebengine/cmake/Functions.cmake
       qtwebengine/src/core/api/CMakeLists.txt
       qtwebengine/src/CMakeLists.txt
       qtwebengine/src/gn/CMakeLists.txt
       qtwebengine/src/process/CMakeLists.txt
-    ].each { |s| inreplace s, "REALPATH", "ABSOLUTE" }
+    ]
+    inreplace realpath_files, "REALPATH", "ABSOLUTE"
 
     config_args = %W[
       -release
@@ -174,13 +174,6 @@ class Qt < Formula
       -no-sql-psql
     ]
 
-    if OS.mac?
-      config_args << "-sysroot" << MacOS.sdk_path.to_s
-      # NOTE: `chromium` should be built with the latest SDK because it uses
-      # `___builtin_available` to ensure compatibility.
-      config_args << "-skip" << "qtwebengine" if DevelopmentTools.clang_build_version <= 1200
-    end
-
     cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
 
@@ -194,7 +187,12 @@ class Qt < Formula
       -DQT_FEATURE_webengine_kerberos=ON
     ]
 
-    unless OS.mac?
+    if OS.mac?
+      config_args << "-sysroot" << MacOS.sdk_path.to_s
+      # NOTE: `chromium` should be built with the latest SDK because it uses
+      # `___builtin_available` to ensure compatibility.
+      config_args << "-skip" << "qtwebengine" if DevelopmentTools.clang_build_version <= 1200
+    else
       # Explicitly specify QT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX so
       # that cmake does not think $HOMEBREW_PREFIX/lib is the install prefix.
       cmake_args << "-DQT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX=#{prefix}"
@@ -222,8 +220,10 @@ class Qt < Formula
       ]
 
       # Change default mkspec for qmake on Linux to use brewed GCC
-      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}gcc", ENV.cc
-      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}g++", ENV.cxx
+      inreplace("qtbase/mkspecs/common/g++-base.conf") do |s|
+        s.change_make_var! "QMAKE_CC", ENV.cc
+        s.change_make_var! "QMAKE_CXX", ENV.cxx
+      end
     end
 
     system "./configure", *config_args, "--", *cmake_args
@@ -232,7 +232,7 @@ class Qt < Formula
 
     rm bin/"qt-cmake-private-install.cmake"
 
-    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", Superenv.shims_path, ""
+    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", "#{Superenv.shims_path}/", ""
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
@@ -246,11 +246,23 @@ class Qt < Formula
       include.install_symlink f/"Headers" => f.stem
     end
 
-    if OS.mac?
-      bin.glob("*.app") do |app|
-        libexec.install app
-        bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
-      end
+    return unless OS.mac?
+
+    bin.glob("*.app") do |app|
+      libexec.install app
+      bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+    end
+  end
+
+  def post_install
+    return if OS.mac?
+
+    # Ensure the hard-coded versioned `gcc` reference does not go stale.
+    ohai "Fixing up GCC references..."
+    gcc_version = Formula["gcc"].any_installed_version.major
+    inreplace(pkgshare/"mkspecs/common/g++-base.conf") do |s|
+      s.change_make_var! "QMAKE_CC", "gcc-#{gcc_version}"
+      s.change_make_var! "QMAKE_CXX", "g++-#{gcc_version}"
     end
   end
 
