@@ -5,6 +5,7 @@ class Gdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-12.1.tar.xz"
   sha256 "0e1793bf8f2b54d53f46dea84ccfd446f48f81b297b28c4f7fc017b818d69fed"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
@@ -21,6 +22,7 @@ class Gdb < Formula
 
   uses_from_macos "texinfo" => :build
   uses_from_macos "expat"
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
 
   on_linux do
