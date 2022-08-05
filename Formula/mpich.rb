@@ -30,6 +30,7 @@ class Mpich < Formula
 
   depends_on "gcc" # for gfortran
   depends_on "hwloc"
+  uses_from_macos "python" => :build
 
   on_macos do
     conflicts_with "libfabric", because: "both install `fabric.h`"
