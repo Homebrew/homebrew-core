@@ -4,6 +4,7 @@ class Verilator < Formula
   url "https://github.com/verilator/verilator/archive/refs/tags/v4.224.tar.gz"
   sha256 "010ff2b5c76d4dbc2ed4a3278a5599ba35c8ed4c05690e57296d6b281591367b"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "686255a009c570b835da458c87443e30046c3823987ed828a08cb8c6ec480792"
@@ -41,6 +42,18 @@ class Verilator < Formula
     # `make` and `make install` need to be separate for parallel builds
     system "make"
     system "make", "install"
+  end
+
+  def post_install
+    return if OS.mac?
+
+    # Ensure the hard-coded versioned `gcc` reference does not go stale.
+    ohai "Fixing up GCC references..."
+    gcc_version = Formula["gcc"].any_installed_version.major
+    inreplace(pkgshare/"include/verilated.mk") do |s|
+      s.change_make_var! "CXX", "g++-#{gcc_version}"
+      s.change_make_var! "LINK", "g++-#{gcc_version}"
+    end
   end
 
   test do
