@@ -25,6 +25,7 @@ class Ice < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "libedit"
+  uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "openssl@3"
