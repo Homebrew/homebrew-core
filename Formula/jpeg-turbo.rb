@@ -4,6 +4,7 @@ class JpegTurbo < Formula
   url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.1.3/libjpeg-turbo-2.1.3.tar.gz"
   sha256 "467b310903832b033fe56cd37720d1b73a6a3bd0171dbf6ff0b620385f4f76d0"
   license "IJG"
+  revision 1
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git", branch: "main"
 
   bottle do
@@ -15,23 +16,33 @@ class JpegTurbo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfc674d48947c45d2018420a3e0eb4ae4d0778984ad5a478e165498cafe9b118"
   end
 
-  keg_only "libjpeg-turbo is not linked to prevent conflicts with the standard libjpeg"
-
   depends_on "cmake" => :build
-  depends_on "nasm" => :build
+
+  on_intel do
+    # Required only for x86 SIMD extensions.
+    depends_on "nasm" => :build
+  end
+
+  # These conflict with `jpeg`, which is now keg-only.
+  link_overwrite "bin/cjpeg", "bin/djpeg", "bin/jpegtran", "bin/rdjpgcom", "bin/wrjpgcom"
+  link_overwrite "include/jconfig.h", "include/jerror.h", "include/jmorecfg.h", "include/jpeglib.h"
+  link_overwrite "lib/libjpeg.dylib", "lib/libjpeg.so", "lib/libjpeg.a", "lib/pkgconfig/libjpeg.pc"
+  link_overwrite "share/man/man1/cjpeg.1", "share/man/man1/djpeg.1", "share/man/man1/jpegtran.1",
+                 "share/man/man1/rdjpgcom.1", "share/man/man1/wrjpgcom.1"
 
   def install
-    args = std_cmake_args - %w[-DCMAKE_INSTALL_LIBDIR=lib]
-    system "cmake", ".", "-DWITH_JPEG8=1",
-                         "-DCMAKE_INSTALL_LIBDIR=#{lib}",
-                         *args
-    system "make"
-    system "make", "test"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DWITH_JPEG8=1", *std_cmake_args(install_libdir: lib)
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "test"
+    system "cmake", "--install", "build"
   end
 
   test do
-    system "#{bin}/jpegtran", "-crop", "1x1", "-transpose", "-perfect",
-                              "-outfile", "out.jpg", test_fixtures("test.jpg")
+    system bin/"jpegtran", "-crop", "1x1",
+                           "-transpose",
+                           "-perfect",
+                           "-outfile", "out.jpg",
+                           test_fixtures("test.jpg")
+    assert_predicate testpath/"out.jpg", :exist?
   end
 end
