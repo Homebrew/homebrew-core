@@ -2,8 +2,8 @@ class Arkade < Formula
   desc "Open Source Kubernetes Marketplace"
   homepage "https://blog.alexellis.io/kubernetes-marketplace-two-year-update/"
   url "https://github.com/alexellis/arkade.git",
-      tag:      "0.8.28",
-      revision: "650ceaa1f922602f55bec71b70fe8f239f2b7b2b"
+      tag:      "0.8.30",
+      revision: "f80689248728d4ba1385fb46d858fb494ffd5743"
   license "MIT"
 
   livecheck do
@@ -36,7 +36,7 @@ class Arkade < Formula
     (bash_completion/"arkade").write Utils.safe_popen_read(bin/"arkade", "completion", "bash")
     (fish_completion/"arkade.fish").write Utils.safe_popen_read(bin/"arkade", "completion", "fish")
     # make zsh completion also work for `ark` symlink
-    inreplace zsh_completion/"_arkade", "#compdef _arkade arkade", "#compdef _arkade arkade ark=arkade"
+    inreplace zsh_completion/"_arkade", "#compdef arkade", "#compdef arkade ark=arkade"
   end
 
   test do
