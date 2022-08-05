@@ -3,8 +3,8 @@ class NicotinePlus < Formula
 
   desc "Graphical client for the Soulseek file sharing network"
   homepage "https://nicotine-plus.github.io/nicotine-plus/"
-  url "https://files.pythonhosted.org/packages/8d/60/a0a7b9d9066a4edcc4b9965d71e31794fc5faf2f8624619d46a8c484d272/nicotine-plus-3.2.2.tar.gz"
-  sha256 "32bb50559bb67b0b6d1760d4a11eec0660f841d00607a1f165292c967b6001c9"
+  url "https://files.pythonhosted.org/packages/87/0e/803cd7362970056d8e8f824b47ce6a73227c91021fbe27e79737735e5d7d/nicotine-plus-3.2.3.tar.gz"
+  sha256 "3facd5984f219e6c3fc8b3011ff6f8788d7c8b08fccdbd89e08d96694f0b2b8e"
   license "GPL-3.0-or-later"
   head "https://github.com/Nicotine-Plus/nicotine-plus.git", branch: "master"
 
