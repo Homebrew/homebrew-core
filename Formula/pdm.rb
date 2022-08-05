@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/10/3c/922238ec072210da3757d63f8761aeeee14a0b30743c1d38113df3adf2bc/pdm-2.1.0.tar.gz"
-  sha256 "fcd287ce1b60aac5edde849543ffe4d2acb4a72c60dc3ec811ab2548c5266b8e"
+  url "https://files.pythonhosted.org/packages/9f/d4/796b969bb682021246d96c818082c2049168fd1515021bcb83fd5707a8fa/pdm-2.1.1.tar.gz"
+  sha256 "6df7ce8e0452eaf87b4c30fdd06c135f622897981668539fdbe984139ad44d6a"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -91,8 +91,8 @@ class Pdm < Formula
   end
 
   resource "pep517" do
-    url "https://files.pythonhosted.org/packages/0a/65/6e656d49c679136edfba25f25791f45ffe1ea4ae2ec1c59fe9c35e061cd1/pep517-0.12.0.tar.gz"
-    sha256 "931378d93d11b298cf511dd634cf5ea4cb249a28ef84160b3247ee9afb4e8ab0"
+    url "https://files.pythonhosted.org/packages/4d/19/e11fcc88288f68ae48e3aa9cf5a6fd092a88e629cb723465666c44d487a0/pep517-0.13.0.tar.gz"
+    sha256 "ae69927c5c172be1add9203726d4b84cf3ebad1edcd5f71fcdc746e66e829f59"
   end
 
   resource "platformdirs" do
@@ -136,8 +136,8 @@ class Pdm < Formula
   end
 
   resource "shellingham" do
-    url "https://files.pythonhosted.org/packages/9c/c9/a3e3bc667c8372a74aa4b16649c3466364cd84f7aacb73453c51b0c2c8a7/shellingham-1.4.0.tar.gz"
-    sha256 "4855c2458d6904829bd34c299f11fdeed7cfefbf8a2c522e4caea6cd76b3171e"
+    url "https://files.pythonhosted.org/packages/bd/e6/fdf53ebbf08016dba98f2b047d4db95790157f0e2eed3b14bb5754271475/shellingham-1.5.0.tar.gz"
+    sha256 "72fb7f5c63103ca2cb91b23dee0c71fe8ad6fbfd46418ef17dbe40db51592dad"
   end
 
   resource "tomli" do
@@ -161,8 +161,8 @@ class Pdm < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/9d/17/5a822952d90f791947f9d1d11c84c055ffc3b7a315c2552d4f46a0d6cd12/virtualenv-20.16.2.tar.gz"
-    sha256 "0ef5be6d07181946891f5abc8047fda8bc2f0b4b9bf222c64e6e8963baee76db"
+    url "https://files.pythonhosted.org/packages/3c/ea/a39a173e7943a8f001e1f97326f88e1535b945a3aec31130c3029dce19df/virtualenv-20.16.3.tar.gz"
+    sha256 "d86ea0bb50e06252d79e6c241507cb904fcd66090c3271381372d6221a3970f9"
   end
 
   resource "wheel" do
