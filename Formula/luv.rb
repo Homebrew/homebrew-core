@@ -17,6 +17,7 @@ class Luv < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "lua" => [:build, :test]
   depends_on "luajit" => [:build, :test]
   depends_on "libuv"
 
@@ -28,19 +29,28 @@ class Luv < Formula
   def install
     resource("lua-compat-5.3").stage buildpath/"deps/lua-compat-5.3" unless build.head?
 
-    args = std_cmake_args + %W[
+    args = %W[
       -DWITH_SHARED_LIBUV=ON
-      -DWITH_LUA_ENGINE=LuaJIT
       -DLUA_BUILD_TYPE=System
       -DLUA_COMPAT53_DIR=#{buildpath}/deps/lua-compat-5.3
       -DBUILD_MODULE=ON
-      -DBUILD_SHARED_LIBS=ON
-      -DBUILD_STATIC_LIBS=ON
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "buildjit",
+                    "-DWITH_LUA_ENGINE=LuaJIT",
+                    "-DBUILD_STATIC_LIBS=ON",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    *args, *std_cmake_args
+    system "cmake", "--build", "buildjit"
+    system "cmake", "--install", "buildjit"
+
+    system "cmake", "-S", ".", "-B", "buildlua",
+                    "-DWITH_LUA_ENGINE=Lua",
+                    "-DBUILD_STATIC_LIBS=OFF",
+                    "-DBUILD_SHARED_LIBS=OFF",
+                    *args, *std_cmake_args
+    system "cmake", "--build", "buildlua"
+    system "cmake", "--install", "buildlua"
   end
 
   test do
@@ -54,6 +64,13 @@ class Luv < Formula
       print("Sleeping");
       uv.run()
     EOS
-    assert_equal "Sleeping\nAwake!\n", shell_output("luajit test.lua")
+
+    expected = <<~EOS
+      Sleeping
+      Awake!
+    EOS
+
+    assert_equal expected, shell_output("luajit test.lua")
+    assert_equal expected, shell_output("lua test.lua")
   end
 end
