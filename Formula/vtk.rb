@@ -4,7 +4,7 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.1/VTK-9.1.0.tar.gz"
   sha256 "8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
   head "https://github.com/Kitware/VTK.git", branch: "master"
 
   bottle do
@@ -119,6 +119,10 @@ class Vtk < Formula
     # Force use of Apple Clang on macOS that needs LLVM to build
     ENV.clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
+    vtk_dir = lib/"cmake/vtk-#{version.major_minor}"
+    vtk_cmake_module = vtk_dir/"VTK-vtk-module-find-packages.cmake"
+    assert_match Formula["boost"].version.to_s, vtk_cmake_module.read, "VTK needs to be rebuilt against Boost!"
+
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
       project(Distance2BetweenPoints LANGUAGES CXX)
@@ -138,9 +142,7 @@ class Vtk < Formula
       }
     EOS
 
-    vtk_dir = Dir[opt_lib/"cmake/vtk-*"].first
-    system "cmake", "-DCMAKE_BUILD_TYPE=Debug", "-DCMAKE_VERBOSE_MAKEFILE=ON",
-      "-DVTK_DIR=#{vtk_dir}", "."
+    system "cmake", "-DCMAKE_BUILD_TYPE=Debug", "-DCMAKE_VERBOSE_MAKEFILE=ON", "-DVTK_DIR=#{vtk_dir}", "."
     system "make"
     system "./Distance2BetweenPoints"
 
