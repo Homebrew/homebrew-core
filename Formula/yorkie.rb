@@ -16,7 +16,9 @@ class Yorkie < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a2488fedc8d33e5cd7fffd222b3714b204487b9cfc3d0f148ccbd2510b43ef9"
   end
 
-  depends_on "go" => :build
+  # Doesn't build with latest go
+  # See https://github.com/yorkie-team/yorkie/issues/378
+  depends_on "go@1.18" => :build
 
   def install
     system "make", "build"
