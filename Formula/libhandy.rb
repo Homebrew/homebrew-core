@@ -15,6 +15,7 @@ class Libhandy < Formula
   end
 
   depends_on "gettext" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -23,11 +24,9 @@ class Libhandy < Formula
   depends_on "gtk+3"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dglade_catalog=disabled", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args, "-Dglade_catalog=disabled"
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
   end
 
   test do
