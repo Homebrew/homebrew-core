@@ -1,8 +1,8 @@
 class Moarvm < Formula
-  desc "Virtual machine for NQP and Rakudo Perl 6"
+  desc "VM with adaptive optimization and JIT compilation, built for Rakudo"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2022.04/MoarVM-2022.04.tar.gz"
-  sha256 "ae06f50ba5562721a4e5eb6457e2fea2d07eda63e2abaa8c939c9daf70774804"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2022.07/MoarVM-2022.07.tar.gz"
+  sha256 "337ef04d16f826f99465c653b92006028fe220be68d3dcfd0729612f4f6b5b46"
   license "Artistic-2.0"
 
   livecheck do
@@ -20,17 +20,18 @@ class Moarvm < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libffi"
   depends_on "libtommath"
   depends_on "libuv"
+  depends_on "zstd"
 
   uses_from_macos "perl" => :build
+  uses_from_macos "libffi"
 
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2022.04/nqp-2022.04.tar.gz"
-    sha256 "556d458e25d3c0464af9f04ea3e92bbde10046066b329188a88663943bd4e79c"
+    url "https://github.com/Raku/nqp/releases/download/2022.07/nqp-2022.07.tar.gz"
+    sha256 "58081c106d672a5406018fd69912c8d485fd12bf225951325c50c929a8232268"
   end
 
   def install
