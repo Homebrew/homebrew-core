@@ -32,15 +32,9 @@ class Libadwaita < Formula
   depends_on "gtk4"
 
   def install
-    args = std_meson_args + %w[
-      -Dtests=false
-    ]
-
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args, "-Dtests=false"
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
   end
 
   test do
