@@ -40,11 +40,9 @@ class Gedit < Formula
     ENV["DESTDIR"] = "/"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/gedit" if OS.linux?
 
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   def post_install
@@ -53,6 +51,9 @@ class Gedit < Formula
   end
 
   test do
+    # Remove when `jpeg-turbo` is no longer keg-only.
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["jpeg-turbo"].opt_lib/"pkgconfig"
+
     # main executable test
     system bin/"gedit", "--version"
     # API test
