@@ -22,6 +22,7 @@ class Libadwaita < Formula
     sha256 x86_64_linux:   "f7e787217cdde92973ef1a6f2d2036adebcbb406f43750d0ea4186547873ded1"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
