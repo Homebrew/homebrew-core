@@ -1,9 +1,14 @@
 class Rakudo < Formula
-  desc "Perl 6 compiler targeting MoarVM"
+  desc "Mature, production-ready implementation of the Raku language"
   homepage "https://rakudo.org"
-  url "https://github.com/rakudo/rakudo/releases/download/2022.04/rakudo-2022.04.tar.gz"
-  sha256 "7e13a8cc927efbe86b8ff7b19155a60a6f6e2b6e2952bd690dcacef2d02a1c74"
+  url "https://github.com/rakudo/rakudo/releases/download/2022.07/rakudo-2022.07.tar.gz"
+  sha256 "7a3bc9d654e1d2792a055b4faf116ef36d141f6b6adde7aa70317705f26090ad"
   license "Artistic-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 arm64_monterey: "bcb4a1aa20bd3fbb3897ee9aaf4492a1a8985e4214060bcc902b29033851ee48"
@@ -14,9 +19,13 @@ class Rakudo < Formula
     sha256 x86_64_linux:   "a31955817038c274cd2cf4677a80d1f5a5018e4b4f727007771f9ee7c9df6ba6"
   end
 
+  depends_on "libtommath"
+  depends_on "libuv"
   depends_on "nqp"
+  depends_on "zstd"
 
   uses_from_macos "perl" => :build
+  uses_from_macos "libffi"
 
   conflicts_with "rakudo-star"
 
@@ -27,11 +36,11 @@ class Rakudo < Formula
                    "--with-nqp=#{Formula["nqp"].bin}/nqp"
     system "make"
     system "make", "install"
-    bin.install "tools/install-dist.p6" => "perl6-install-dist"
+    bin.install "tools/install-dist.raku" => "raku-install-dist"
   end
 
   test do
-    out = shell_output("#{bin}/perl6 -e 'loop (my $i = 0; $i < 10; $i++) { print $i }'")
+    out = shell_output("#{bin}/raku -e 'loop (my $i = 0; $i < 10; $i++) { print $i }'")
     assert_equal "0123456789", out
   end
 end
