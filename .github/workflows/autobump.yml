@@ -601,7 +601,6 @@ env:
     pmd
     pngquant
     pnpm
-    pocsuite3
     podman
     postgis
     powerman
