@@ -31,6 +31,7 @@ class Sile < Formula
   depends_on "lua"
   depends_on "openssl@1.1"
 
+  uses_from_macos "unzip" => :build
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
