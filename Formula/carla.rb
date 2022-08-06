@@ -4,7 +4,6 @@ class Carla < Formula
   url "https://github.com/falkTX/Carla/archive/v2.5.0.tar.gz"
   sha256 "f1077caa97b52fedc0d567f7f0e561b466031b5b34b760cd68efe836e19d408d"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/falkTX/Carla.git", branch: "main"
 
   livecheck do
