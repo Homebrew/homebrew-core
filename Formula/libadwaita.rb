@@ -38,6 +38,9 @@ class Libadwaita < Formula
   end
 
   test do
+    # Remove when `jpeg-turbo` is no longer keg-only.
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["jpeg-turbo"].opt_lib/"pkgconfig"
+
     (testpath/"test.c").write <<~EOS
       #include <adwaita.h>
 
