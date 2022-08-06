@@ -1,8 +1,8 @@
 class Kics < Formula
   desc "Detect vulnerabilities, compliance issues, and misconfigurations"
   homepage "https://kics.io/"
-  url "https://github.com/Checkmarx/kics/archive/refs/tags/v1.5.12.tar.gz"
-  sha256 "46505525675cd8ca31dae1bde767e1de66c2e7a6364ad01ab45aac4ae5c6ca1d"
+  url "https://github.com/Checkmarx/kics/archive/refs/tags/v1.5.13.tar.gz"
+  sha256 "0d95b132459b1658d2d547f89385c26dcd32d7546e3c8c97a953a362db795c63"
   license "Apache-2.0"
   head "https://github.com/Checkmarx/kics.git", branch: "master"
 
