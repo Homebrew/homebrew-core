@@ -41,7 +41,7 @@ class Gcc < Formula
   cxxstdlib_check :skip
 
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
-  # Apple Silicon support, located at https://github.com/iains/gcc-darwin-arm64
+  # Apple Silicon support, located at https://github.com/iains/gcc-12-branch
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/76677f2b/gcc/gcc-12.1.0-arm.diff"
     sha256 "a000f1d9cb1dd98c7c4ef00df31435cd5d712d2f9d037ddc044f8bf82a16cf35"
