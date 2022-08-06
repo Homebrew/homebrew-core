@@ -4,7 +4,7 @@ class LittleCms < Formula
   url "https://downloads.sourceforge.net/project/lcms/lcms/1.19/lcms-1.19.tar.gz"
   sha256 "80ae32cb9f568af4dc7ee4d3c05a4c31fc513fc3e31730fed0ce7378237273a9"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2ffcd73342ab7d70a8a355578f62947ed40701d3fd2a443ff505235bbb9a26fc"
@@ -21,13 +21,11 @@ class LittleCms < Formula
 
   deprecate! date: "2022-06-12", because: :unmaintained
 
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libtiff"
 
   def install
-    args = %W[--disable-dependency-tracking --disable-debug --prefix=#{prefix}]
-    system "./configure", *args
-
+    system "./configure", *std_configure_args
     system "make"
     ENV.deparallelize
     system "make", "install"
