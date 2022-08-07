@@ -11,8 +11,7 @@ class Burst < Formula
   depends_on "boost"
 
   def install
-    cmake_args = std_cmake_args + ["-DCMAKE_BUILD_TYPE=Release"]
-    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build", "--target", "check"
     system "cmake", "--build", "build", "--target", "install"
   end
