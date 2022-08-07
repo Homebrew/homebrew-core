@@ -21,10 +21,7 @@ class Fastfec < Formula
 
   def install
     ENV["ZIG_SYSTEM_LINKER_HACK"] = "1"
-    args = [
-      # Use brew's pcre
-      "-Dvendored-pcre=false",
-    ]
+    args = []
     if OS.linux?
       args << "--search-prefix"
       args << Formula["curl"].opt_prefix
@@ -35,7 +32,7 @@ class Fastfec < Formula
   end
 
   test do
-    system "#{bin}/fastfec", "--no-stdin", "13425"
+    system("curl https://docquery.fec.gov/dcdev/posted/13425.fec | #{bin}/fastfec 13425")
     assert_predicate testpath/"output/13425/F3XN.csv", :exist?
     assert_predicate testpath/"output/13425/header.csv", :exist?
     assert_predicate testpath/"output/13425/SA11A1.csv", :exist?
