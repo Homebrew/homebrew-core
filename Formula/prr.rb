@@ -1,8 +1,8 @@
 class Prr < Formula
   desc "Mailing list style code reviews for github"
   homepage "https://github.com/danobi/prr"
-  url "https://github.com/danobi/prr/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "becebd6746b62380ff354e0d4e92b515c0aac719e9d504f33b6d9321b2d80853"
+  url "https://github.com/danobi/prr/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "249a50487af9e947cea12597e6024041ed21bb4ebe6214d147e0750508e134c3"
   license "GPL-2.0-only"
   head "https://github.com/danobi/prr.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Prr < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   def install
