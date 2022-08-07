@@ -23,8 +23,6 @@ class PythonAT310 < Formula
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? only_if: :clt_installed
 
-  keg_only :versioned_formula
-
   depends_on "pkg-config" => :build
   depends_on "gdbm"
   depends_on "mpdecimal"
@@ -44,6 +42,22 @@ class PythonAT310 < Formula
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7", "bin/pip-3.8", "bin/pip-3.9"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6",
               "bin/easy_install-3.7", "bin/easy_install-3.8", "bin/easy_install-3.9"
+
+  link_overwrite "bin/2to3"
+  link_overwrite "bin/idle3"
+  link_overwrite "bin/pip3"
+  link_overwrite "bin/pydoc3"
+  link_overwrite "bin/python3"
+  link_overwrite "bin/python3-config"
+  link_overwrite "bin/wheel3"
+  link_overwrite "share/man/man1/python3.1"
+  link_overwrite "lib/libpython3.so"
+  link_overwrite "lib/pkgconfig/python3.pc"
+  link_overwrite "lib/pkgconfig/python3-embed.pc"
+  link_overwrite "Frameworks/Python.framework/Headers"
+  link_overwrite "Frameworks/Python.framework/Python"
+  link_overwrite "Frameworks/Python.framework/Resources"
+  link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   # Always update to latest release
   resource "setuptools" do
@@ -253,7 +267,7 @@ class PythonAT310 < Formula
       --no-build-isolation
     ]
     whl_build = buildpath/"whl_build"
-    system bin/"python3", "-m", "venv", whl_build
+    system bin/"python#{version.major_minor}", "-m", "venv", whl_build
     resource("wheel").stage do
       system whl_build/"bin/pip3", "install", *common_pip_args, "."
       system whl_build/"bin/pip3", "wheel", *common_pip_args,
@@ -282,10 +296,10 @@ class PythonAT310 < Formula
 
     # Install unversioned symlinks in libexec/bin.
     {
-      "idle"          => "idle3",
-      "pydoc"         => "pydoc3",
-      "python"        => "python3",
-      "python-config" => "python3-config",
+      "idle"          => "idle#{version.major_minor}",
+      "pydoc"         => "pydoc#{version.major_minor}",
+      "python"        => "python#{version.major_minor}",
+      "python-config" => "python#{version.major_minor}-config",
     }.each do |unversioned_name, versioned_name|
       (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
     end
@@ -316,7 +330,7 @@ class PythonAT310 < Formula
     rm_rf Dir["#{site_packages}/pip[-_.][0-9]*", "#{site_packages}/pip"]
     rm_rf Dir["#{site_packages}/wheel[-_.][0-9]*", "#{site_packages}/wheel"]
 
-    system bin/"python3", "-m", "ensurepip"
+    system bin/"python#{version.major_minor}", "-m", "ensurepip"
 
     # Install desired versions of setuptools, pip, wheel using the version of
     # pip bootstrapped by ensurepip.
@@ -324,7 +338,7 @@ class PythonAT310 < Formula
     # ensurepip actually used them, since other existing installations could
     # have been picked up (and we can't pass --ignore-installed).
     bundled = lib_cellar/"ensurepip/_bundled"
-    system bin/"python3", "-m", "pip", "install", "-v",
+    system bin/"python#{version.major_minor}", "-m", "pip", "install", "-v",
             "--no-deps",
             "--no-index",
             "--upgrade",
@@ -340,14 +354,20 @@ class PythonAT310 < Formula
     rmdir site_packages/"bin"
 
     rm_rf bin/"pip"
-    mv bin/"wheel", bin/"wheel3"
+    mv bin/"wheel", bin/"wheel#{version.major_minor}"
+    bin.install_symlink "wheel#{version.major_minor}" => "wheel3"
 
     # Install unversioned symlinks in libexec/bin.
     {
-      "pip"   => "pip3",
-      "wheel" => "wheel3",
+      "pip"   => "pip#{version.major_minor}",
+      "wheel" => "wheel#{version.major_minor}",
     }.each do |unversioned_name, versioned_name|
       (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
+    end
+
+    # post_install happens after link
+    %W[wheel3 pip3 wheel#{version.major_minor} pip#{version.major_minor}].each do |e|
+      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
   end
 
@@ -406,14 +426,14 @@ class PythonAT310 < Formula
   def caveats
     <<~EOS
       Python has been installed as
-        #{opt_bin}/python3
+        #{HOMEBREW_PREFIX}/bin/python3
 
       Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
       `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
         #{opt_libexec}/bin
 
       You can install Python packages with
-        #{opt_bin}/pip3 install <package>
+        pip3 install <package>
       They will install into the site-package directory
         #{HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"}
 
@@ -456,6 +476,6 @@ class PythonAT310 < Formula
     EOS
     system "#{bin}/python#{version.major_minor}", "dbm_test.py"
 
-    system bin/"pip3", "list", "--format=columns"
+    system bin/"pip#{version.major_minor}", "list", "--format=columns"
   end
 end
