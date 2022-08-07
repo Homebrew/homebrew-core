@@ -1,8 +1,8 @@
 class Lastz < Formula
   desc "Pairwise aligner for DNA sequences"
   homepage "https://lastz.github.io/lastz/"
-  url "https://github.com/lastz/lastz/archive/refs/tags/1.04.15.tar.gz"
-  sha256 "46a5cfb1fd41911a36fce5d3a2721ebfec9146952943b302e78b0dfffddd77f8"
+  url "https://github.com/lastz/lastz/archive/refs/tags/1.04.22.tar.gz"
+  sha256 "4c829603ba4aed7ddf64255b528cd88850e4557382fca29580d3576c25c5054a"
   license "MIT"
   head "https://github.com/lastz/lastz.git", branch: "master"
 
