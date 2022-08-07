@@ -30,9 +30,9 @@ class Libharu < Formula
     system "cmake", "--install", "build"
 
     # Build static library
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
-    system "cmake", "--build", "build"
-    lib.install "build/src/libharu.a"
+    system "cmake", "-S", ".", "-B", "build-static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "build-static"
+    lib.install "build-static/src/libharu.a"
   end
 
   test do
