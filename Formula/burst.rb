@@ -6,7 +6,7 @@ class Burst < Formula
   license "BSL-1.0"
   head "https://github.com/izvolov/burst.git", branch: "master"
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "doctest" => :build
   depends_on "boost"
 
