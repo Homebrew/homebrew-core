@@ -92,10 +92,10 @@ class PythonAT310 < Formula
 
   def lib_cellar
     on_macos do
-      return prefix/"Frameworks/Python.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}"
+      return frameworks/"Python.framework/Versions"/version.major_minor/"lib/python#{version.major_minor}"
     end
     on_linux do
-      return prefix/"lib/python#{version.major_minor}"
+      return lib/"python#{version.major_minor}"
     end
   end
 
@@ -177,7 +177,7 @@ class PythonAT310 < Formula
     # superenv makes cc always find includes/libs!
     inreplace "setup.py",
       /do_readline = self.compiler.find_library_file\(self.lib_dirs,\s*readline_lib\)/,
-      "do_readline = '#{Formula["readline"].opt_lib}/#{shared_library("libhistory")}'"
+      "do_readline = '#{Formula["readline"].opt_lib/shared_library("libhistory")}'"
 
     inreplace "setup.py" do |s|
       s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
@@ -191,9 +191,8 @@ class PythonAT310 < Formula
       # a 32-bit system ncurses (conflicts with the brewed 64-bit one).
       # See https://github.com/Homebrew/linuxbrew-core/pull/22307#issuecomment-781896552
       # We want our ncurses! Override system ncurses includes!
-      inreplace "configure",
-        'CPPFLAGS="$CPPFLAGS -I/usr/include/ncursesw"',
-        "CPPFLAGS=\"$CPPFLAGS -I#{Formula["ncurses"].opt_include}\""
+      inreplace "configure", 'CPPFLAGS="$CPPFLAGS -I/usr/include/ncursesw"',
+                             "CPPFLAGS=\"$CPPFLAGS -I#{Formula["ncurses"].opt_include}\""
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -220,23 +219,30 @@ class PythonAT310 < Formula
       system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
     end
 
-    # Any .app get a " 3" attached, so it does not conflict with python 2.x.
-    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
-
     if OS.mac?
+      # Any .app get a " 3" attached, so it does not conflict with python 2.x.
+      prefix.glob("*.app") { |app| mv app, app.to_s.sub(/\.app$/, " 3.app") }
+
+      pc_dir = frameworks/"Python.framework/Versions"/version.major_minor/"lib/pkgconfig"
+      # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
+      (lib/"pkgconfig").install_symlink pc_dir.children
+
       # Prevent third-party packages from building against fragile Cellar paths
-      inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py",
-                    lib_cellar/"config*/Makefile",
-                    frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3*.pc"],
-                prefix, opt_prefix
+      bad_cellar_path_files = [
+        lib_cellar/"_sysconfigdata__darwin_darwin.py",
+        lib_cellar/"config-#{version.major_minor}-darwin/Makefile",
+        pc_dir/"python-#{version.major_minor}.pc",
+        pc_dir/"python-#{version.major_minor}-embed.pc",
+      ]
+      inreplace bad_cellar_path_files, prefix, opt_prefix
 
       # Help third-party packages find the Python framework
-      inreplace Dir[lib_cellar/"config*/Makefile"],
+      inreplace lib_cellar/"config-#{version.major_minor}-darwin/Makefile",
                 /^LINKFORSHARED=(.*)PYTHONFRAMEWORKDIR(.*)/,
                 "LINKFORSHARED=\\1PYTHONFRAMEWORKINSTALLDIR\\2"
 
       # Fix for https://github.com/Homebrew/homebrew-core/issues/21212
-      inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py"],
+      inreplace lib_cellar/"_sysconfigdata__darwin_darwin.py",
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
     else
@@ -251,9 +257,6 @@ class PythonAT310 < Formula
                 'prefix_real=$(installed_prefix "$0")',
                 "prefix_real=#{opt_prefix}"
     end
-
-    # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
-    (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/#{version.major_minor}/lib/pkgconfig/*"]
 
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
@@ -276,7 +279,7 @@ class PythonAT310 < Formula
     end
 
     # Replace bundled setuptools/pip with our own.
-    rm Dir["#{lib_cellar}/ensurepip/_bundled/{setuptools,pip}-*.whl"]
+    rm lib_cellar.glob("ensurepip/_bundled/{setuptools,pip}-*.whl")
     %w[setuptools pip].each do |r|
       resource(r).stage do
         system whl_build/"bin/pip3", "wheel", *common_pip_args,
@@ -300,8 +303,8 @@ class PythonAT310 < Formula
       "pydoc"         => "pydoc#{version.major_minor}",
       "python"        => "python#{version.major_minor}",
       "python-config" => "python#{version.major_minor}-config",
-    }.each do |unversioned_name, versioned_name|
-      (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
+    }.each do |short_name, long_name|
+      (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
   end
 
@@ -339,14 +342,14 @@ class PythonAT310 < Formula
     # have been picked up (and we can't pass --ignore-installed).
     bundled = lib_cellar/"ensurepip/_bundled"
     system bin/"python#{version.major_minor}", "-m", "pip", "install", "-v",
-            "--no-deps",
-            "--no-index",
-            "--upgrade",
-            "--isolated",
-            "--target=#{site_packages}",
-            bundled/"setuptools-#{resource("setuptools").version}-py3-none-any.whl",
-            bundled/"pip-#{resource("pip").version}-py3-none-any.whl",
-            libexec/"wheel-#{resource("wheel").version}-py2.py3-none-any.whl"
+           "--no-deps",
+           "--no-index",
+           "--upgrade",
+           "--isolated",
+           "--target=#{site_packages}",
+           bundled/"setuptools-#{resource("setuptools").version}-py3-none-any.whl",
+           bundled/"pip-#{resource("pip").version}-py3-none-any.whl",
+           libexec/"wheel-#{resource("wheel").version}-py2.py3-none-any.whl"
 
     # pip install with --target flag will just place the bin folder into the
     # target, so move its contents into the appropriate location
@@ -361,8 +364,8 @@ class PythonAT310 < Formula
     {
       "pip"   => "pip#{version.major_minor}",
       "wheel" => "wheel#{version.major_minor}",
-    }.each do |unversioned_name, versioned_name|
-      (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
+    }.each do |short_name, long_name|
+      (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
 
     # post_install happens after link
@@ -435,7 +438,7 @@ class PythonAT310 < Formula
       You can install Python packages with
         pip3 install <package>
       They will install into the site-package directory
-        #{HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"}
+        #{HOMEBREW_PREFIX}/lib/python#{version.major_minor}/site-packages
 
       tkinter is no longer included with this formula, but it is available separately:
         brew install python-tk@#{version.major_minor}
@@ -447,21 +450,21 @@ class PythonAT310 < Formula
   test do
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
-    system "#{bin}/python#{version.major_minor}", "-c", "import sqlite3"
+    system bin/"python#{version.major_minor}", "-c", "import sqlite3"
 
     # check to see if we can create a venv
-    system "#{bin}/python#{version.major_minor}", "-m", "venv", testpath/"myvenv"
+    system bin/"python#{version.major_minor}", "-m", "venv", testpath/"myvenv"
 
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python#{version.major_minor}", "-c", "import _ctypes"
-    system "#{bin}/python#{version.major_minor}", "-c", "import _decimal"
-    system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
-    system "#{bin}/python#{version.major_minor}", "-c", "import pyexpat"
-    system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
+    system bin/"python#{version.major_minor}", "-c", "import _ctypes"
+    system bin/"python#{version.major_minor}", "-c", "import _decimal"
+    system bin/"python#{version.major_minor}", "-c", "import _gdbm"
+    system bin/"python#{version.major_minor}", "-c", "import pyexpat"
+    system bin/"python#{version.major_minor}", "-c", "import zlib"
 
     # tkinter is provided in a separate formula
     assert_match "ModuleNotFoundError: No module named '_tkinter'",
-                  shell_output("#{bin}/python#{version.major_minor} -Sc 'import tkinter' 2>&1", 1)
+                 shell_output("#{bin}/python#{version.major_minor} -Sc 'import tkinter' 2>&1", 1)
 
     # Verify that the selected DBM interface works
     (testpath/"dbm_test.py").write <<~EOS
@@ -474,7 +477,7 @@ class PythonAT310 < Formula
           assert b"foo \\xbd" in db
           assert db[b"foo \\xbd"] == b"bar \\xbd"
     EOS
-    system "#{bin}/python#{version.major_minor}", "dbm_test.py"
+    system bin/"python#{version.major_minor}", "dbm_test.py"
 
     system bin/"pip#{version.major_minor}", "list", "--format=columns"
   end
