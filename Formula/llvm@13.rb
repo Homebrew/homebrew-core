@@ -46,7 +46,6 @@ class LlvmAT13 < Formula
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
-    depends_on "gcc"
     depends_on "glibc" if Formula["glibc"].any_version_installed?
   end
 
