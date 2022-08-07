@@ -108,6 +108,10 @@ class PythonAT310 < Formula
     HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"
   end
 
+  def python3
+    bin/"python#{version.major_minor}"
+  end
+
   def install
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
@@ -270,7 +274,7 @@ class PythonAT310 < Formula
       --no-build-isolation
     ]
     whl_build = buildpath/"whl_build"
-    system bin/"python#{version.major_minor}", "-m", "venv", whl_build
+    system python3, "-m", "venv", whl_build
     resource("wheel").stage do
       system whl_build/"bin/pip3", "install", *common_pip_args, "."
       system whl_build/"bin/pip3", "wheel", *common_pip_args,
@@ -333,7 +337,7 @@ class PythonAT310 < Formula
     rm_rf Dir["#{site_packages}/pip[-_.][0-9]*", "#{site_packages}/pip"]
     rm_rf Dir["#{site_packages}/wheel[-_.][0-9]*", "#{site_packages}/wheel"]
 
-    system bin/"python#{version.major_minor}", "-m", "ensurepip"
+    system python3, "-m", "ensurepip"
 
     # Install desired versions of setuptools, pip, wheel using the version of
     # pip bootstrapped by ensurepip.
@@ -341,7 +345,7 @@ class PythonAT310 < Formula
     # ensurepip actually used them, since other existing installations could
     # have been picked up (and we can't pass --ignore-installed).
     bundled = lib_cellar/"ensurepip/_bundled"
-    system bin/"python#{version.major_minor}", "-m", "pip", "install", "-v",
+    system python3, "-m", "pip", "install", "-v",
            "--no-deps",
            "--no-index",
            "--upgrade",
@@ -450,21 +454,21 @@ class PythonAT310 < Formula
   test do
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
-    system bin/"python#{version.major_minor}", "-c", "import sqlite3"
+    system python3, "-c", "import sqlite3"
 
     # check to see if we can create a venv
-    system bin/"python#{version.major_minor}", "-m", "venv", testpath/"myvenv"
+    system python3, "-m", "venv", testpath/"myvenv"
 
     # Check if some other modules import. Then the linked libs are working.
-    system bin/"python#{version.major_minor}", "-c", "import _ctypes"
-    system bin/"python#{version.major_minor}", "-c", "import _decimal"
-    system bin/"python#{version.major_minor}", "-c", "import _gdbm"
-    system bin/"python#{version.major_minor}", "-c", "import pyexpat"
-    system bin/"python#{version.major_minor}", "-c", "import zlib"
+    system python3, "-c", "import _ctypes"
+    system python3, "-c", "import _decimal"
+    system python3, "-c", "import _gdbm"
+    system python3, "-c", "import pyexpat"
+    system python3, "-c", "import zlib"
 
     # tkinter is provided in a separate formula
     assert_match "ModuleNotFoundError: No module named '_tkinter'",
-                 shell_output("#{bin}/python#{version.major_minor} -Sc 'import tkinter' 2>&1", 1)
+                 shell_output("#{python3} -Sc 'import tkinter' 2>&1", 1)
 
     # Verify that the selected DBM interface works
     (testpath/"dbm_test.py").write <<~EOS
@@ -477,7 +481,7 @@ class PythonAT310 < Formula
           assert b"foo \\xbd" in db
           assert db[b"foo \\xbd"] == b"bar \\xbd"
     EOS
-    system bin/"python#{version.major_minor}", "dbm_test.py"
+    system python3, "dbm_test.py"
 
     system bin/"pip#{version.major_minor}", "list", "--format=columns"
   end
