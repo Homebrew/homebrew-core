@@ -27,10 +27,6 @@ class Suil < Formula
   depends_on "lv2"
   depends_on "qt@5"
 
-  # Fix build issue, remove in next release
-  # upstream commit ref, https://github.com/lv2/suil/commit/7183178b8e35b9a05f2a90e1d091b34c5f846ef5
-  patch :DATA
-
   def install
     ENV.cxx11
     ENV.prepend_path "PATH", Formula["python@3.10"].libexec/"bin"
@@ -64,40 +60,3 @@ class Suil < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/src/gtk2_in_qt5.cpp b/src/gtk2_in_qt5.cpp
-index a5c98f1..47c8271 100644
---- a/src/gtk2_in_qt5.cpp
-+++ b/src/gtk2_in_qt5.cpp
-@@ -41,6 +41,7 @@ SUIL_DISABLE_GTK_WARNINGS
- #include <gtk/gtk.h>
- SUIL_RESTORE_WARNINGS
-
-+#include <cstdint>
- #include <cstdlib>
-
- extern "C" {
-@@ -95,8 +96,7 @@ wrapper_wrap(SuilWrapper* wrapper, SuilInstance* instance)
-   gtk_container_add(GTK_CONTAINER(plug), widget);
-   gtk_widget_show_all(plug);
-
--  const WId wid =
--    static_cast<WId>(gtk_plug_get_id(reinterpret_cast<GtkPlug*>(plug)));
-+  const WId wid = (WId)gtk_plug_get_id(GTK_PLUG(plug));
-
-   QWindow* window = QWindow::fromWinId(wid);
-   QWidget* container =
-diff --git a/src/qt5_in_gtk.cpp b/src/qt5_in_gtk.cpp
-index 6277daa..1c614c7 100644
---- a/src/qt5_in_gtk.cpp
-+++ b/src/qt5_in_gtk.cpp
-@@ -125,7 +125,7 @@ suil_qt_wrapper_realize(GtkWidget* w, gpointer)
- {
-   SuilQtWrapper* const wrap = SUIL_QT_WRAPPER(w);
-   GtkSocket* const     s    = GTK_SOCKET(w);
--  const WId            id   = static_cast<WId>(gtk_socket_get_id(s));
-+  const WId            id   = (WId)gtk_socket_get_id(s);
-
-   wrap->qembed->winId();
-   wrap->qembed->windowHandle()->setParent(QWindow::fromWinId(id));
