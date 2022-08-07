@@ -19,25 +19,14 @@ class Libharu < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fe78364fa33562f2bdee06c1dfabb867ebbf50810f64fbb5d05f127dc74b106"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "libpng"
+  uses_from_macos "zlib"
 
   def install
-    system "./buildconf.sh", "--force"
-
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --with-png=#{Formula["libpng"].opt_prefix}
-    ]
-
-    args << "--with-zlib=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
-
-    system "./configure", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
