@@ -29,6 +29,7 @@ class Root < Formula
   depends_on "cfitsio"
   depends_on "davix"
   depends_on "fftw"
+  depends_on "freetype"
   depends_on "gcc" # for gfortran
   depends_on "gl2ps"
   depends_on "glew"
@@ -78,7 +79,7 @@ class Root < Formula
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -DCMAKE_CXX_STANDARD=17
       -Dbuiltin_cfitsio=OFF
-      -Dbuiltin_freetype=ON
+      -Dbuiltin_freetype=OFF
       -Dbuiltin_glew=OFF
       -Ddavix=ON
       -Dfftw3=ON
