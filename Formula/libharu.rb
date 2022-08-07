@@ -24,9 +24,15 @@ class Libharu < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Build shared library
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Build static library
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "build"
+    lib.install "build/src/libharu.a"
   end
 
   test do
@@ -50,7 +56,7 @@ class Libharu < Formula
         return result;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lhpdf", "-lz", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lharu", "-lz", "-o", "test"
     system "./test"
   end
 end
