@@ -1,8 +1,8 @@
 class Burst < Formula
   desc "Radix sort, lazy ranges and iterators, and more. Boost-like header-only library"
   homepage "https://github.com/izvolov/burst"
-  url "https://github.com/izvolov/burst/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "12089244b7dbb26c3198f2ea5b80555050c38efe0a33ce4de4c1fff9b1e7532d"
+  url "https://github.com/izvolov/burst/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "ee58c7b98ca1709dd452b9ba46cb4c91fc0b2952edd020ed5bc2d600b3edeae7"
   license "BSL-1.0"
   head "https://github.com/izvolov/burst.git", branch: "master"
 
@@ -20,7 +20,7 @@ class Burst < Formula
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.8.2)
       project(TestBurst)
-      find_package(Burst 3.1.0 REQUIRED)
+      find_package(Burst 3.1.1 REQUIRED)
 
       add_executable(test_burst test_burst.cpp)
       target_link_libraries(test_burst PRIVATE Burst::burst)
