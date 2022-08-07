@@ -28,7 +28,7 @@ class Nali < Formula
     ip = "1.1.1.1"
     # Default database used by program is in Chinese, while downloading an English one
     # requires an third-party account.
-    # This example reads "US APNIC&CloudFlare Public DNS Server".
-    assert_match "#{ip} [美国 APNIC&CloudFlare公共DNS服务器]", shell_output("#{bin}/nali #{ip}")
+    # This example reads "Australia APNIC/CloudFlare Public DNS Server".
+    assert_match "#{ip} [澳大利亚 APNIC/CloudFlare公共DNS服务器]", shell_output("#{bin}/nali #{ip}")
   end
 end
