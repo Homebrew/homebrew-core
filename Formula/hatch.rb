@@ -198,7 +198,7 @@ class Hatch < Formula
       system bin/"hatch", "config", "set", "dirs.env.virtual", ".venv"
       system bin/"hatch", "env", "create"
       output = shell_output("#{bin}/hatch env run -- python -c 'import requests;print(requests.__version__)'")
-      assert_equal "2.24.0", output.strip
+      assert_match "2.24.0", output.strip
     end
   end
 end
