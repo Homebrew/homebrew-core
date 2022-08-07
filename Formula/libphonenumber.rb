@@ -33,18 +33,11 @@ class Libphonenumber < Formula
 
   fails_with gcc: "5" # For abseil and C++17
 
-  # Use Homebrew abseil.
-  # https://github.com/google/libphonenumber/pull/2791
-  patch do
-    url "https://github.com/google/libphonenumber/commit/035901b78dbe5a6fddc9e758f0069c310750db72.patch?full_index=1"
-    sha256 "006843f29cb42e0d8ef820ccc7a90fffd139fe7666c1357a1504a8795f0c5db6"
-  end
-
   def install
     system "cmake", "-S", "cpp", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=17", # keep in sync with C++ standard in abseil.rb
                     "-DGTEST_INCLUDE_DIR=#{Formula["googletest"].opt_include}",
-                      *std_cmake_args
+                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
