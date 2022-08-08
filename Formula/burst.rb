@@ -14,8 +14,6 @@ class Burst < Formula
     cause "Requires C++14 constexpr"
   end
 
-  fails_with gcc: "12"
-
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DBURST_TESTING=OFF",
