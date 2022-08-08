@@ -11,7 +11,7 @@ class Burst < Formula
   depends_on "boost"
 
   on_linux do
-    depends_on "gcc"
+    depends_on "gcc@9"
   end
 
   fails_with :gcc do
