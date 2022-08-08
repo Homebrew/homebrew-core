@@ -10,10 +10,6 @@ class Burst < Formula
   depends_on "doctest" => :build
   depends_on "boost"
 
-  on_linux do
-    depends_on "gcc@9"
-  end
-
   fails_with :gcc do
     version "6"
     cause "Requires C++14 constexpr"
