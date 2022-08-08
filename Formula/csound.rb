@@ -5,7 +5,7 @@ class Csound < Formula
       tag:      "6.17.0",
       revision: "f5b4258794a82c99f7d85f1807c6638f2e80ccac"
   license "LGPL-2.1-or-later"
-  revision 5
+  revision 6
   head "https://github.com/csound/csound.git", branch: "master"
 
   livecheck do
@@ -42,7 +42,7 @@ class Csound < Formula
   depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "stk"
 
   uses_from_macos "bison" => :build
@@ -55,6 +55,7 @@ class Csound < Formula
   end
 
   on_linux do
+    depends_on "alsa-lib"
     depends_on "gcc"
   end
 
@@ -84,64 +85,76 @@ class Csound < Formula
     sha256 "6b58cc960634d0ecf17679ba12f8e8cfe4e36b25a5fa821925d55c42ff38a64e"
   end
 
+  def python3
+    deps.map(&:to_formula)
+        .find { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .opt_bin/"python3"
+  end
+
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home
+    site_packages = prefix/Language::Python.site_packages(python3)
+    rpaths = [rpath]
+    rpaths << "@loader_path/../Frameworks" if OS.mac?
 
-    args = [
-      "-DBUILD_JAVA_INTERFACE=ON",
-      "-DBUILD_LUA_INTERFACE=OFF",
-      "-DCS_FRAMEWORK_DEST=#{frameworks}",
-      "-DJAVA_MODULE_INSTALL_DIR=#{libexec}",
-    ]
-    args << "-DCMAKE_INSTALL_RPATH=@loader_path/../Frameworks;#{rpath}" if OS.mac?
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
+                    "-DBUILD_JAVA_INTERFACE=ON",
+                    "-DBUILD_LUA_INTERFACE=OFF",
+                    "-DBUILD_TESTS=OFF",
+                    "-DCS_FRAMEWORK_DEST=#{frameworks}",
+                    "-DJAVA_MODULE_INSTALL_DIR=#{libexec}",
+                    "-DPYTHON3_MODULE_INSTALL_DIR=#{site_packages}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    # On Linux, csound depends on binutils, but both formulae install `srconv` binaries
-    rm_f bin/"srconv" if OS.linux?
-
-    include.install_symlink frameworks/"CsoundLib64.framework/Headers" => "csound" if OS.mac?
-
-    libexec.install buildpath/"interfaces/ctcsound.py"
-
-    (prefix/Language::Python.site_packages("python3")/"homebrew-csound.pth").write <<~EOS
-      import site; site.addsitedir('#{libexec}')
-    EOS
+    if OS.mac?
+      include.install_symlink frameworks/"CsoundLib64.framework/Headers" => "csound"
+      site_packages.install buildpath/"interfaces/ctcsound.py"
+    else
+      # On Linux, csound depends on binutils, but both formulae install `srconv` binaries
+      (bin/"srconv").unlink
+    end
 
     resource("csound-plugins").stage do
       resource("ableton-link").stage buildpath/"ableton-link"
       resource("getfem").stage { cp_r "src/gmm", buildpath }
 
-      args = [
-        "-DABLETON_LINK_HOME=#{buildpath}/ableton-link",
-        "-DBUILD_ABLETON_LINK_OPCODES=ON",
-        "-DBUILD_CHUA_OPCODES=ON",
-        "-DBUILD_CUDA_OPCODES=OFF",
-        "-DBUILD_FAUST_OPCODES=ON",
-        "-DBUILD_FLUID_OPCODES=ON",
-        "-DBUILD_HDF5_OPCODES=ON",
-        "-DBUILD_IMAGE_OPCODES=ON",
-        "-DBUILD_JACK_OPCODES=ON",
-        "-DBUILD_LINEAR_ALGEBRA_OPCODES=ON",
-        "-DBUILD_MP3OUT_OPCODE=ON",
-        "-DBUILD_OPENCL_OPCODES=OFF",
-        "-DBUILD_PYTHON_OPCODES=ON",
-        "-DBUILD_STK_OPCODES=ON",
-        "-DBUILD_WEBSOCKET_OPCODE=ON",
-        "-DGMM_INCLUDE_DIR=#{buildpath}",
-        "-DUSE_FLTK=ON",
+      args = %W[
+        -DABLETON_LINK_HOME=#{buildpath}/ableton-link
+        -DBUILD_ABLETON_LINK_OPCODES=ON
+        -DBUILD_CHUA_OPCODES=ON
+        -DBUILD_CUDA_OPCODES=OFF
+        -DBUILD_FAUST_OPCODES=ON
+        -DBUILD_FLUID_OPCODES=ON
+        -DBUILD_HDF5_OPCODES=ON
+        -DBUILD_IMAGE_OPCODES=ON
+        -DBUILD_JACK_OPCODES=ON
+        -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
+        -DBUILD_MP3OUT_OPCODE=ON
+        -DBUILD_OPENCL_OPCODES=OFF
+        -DBUILD_PYTHON_OPCODES=ON
+        -DBUILD_STK_OPCODES=ON
+        -DBUILD_WEBSOCKET_OPCODE=ON
+        -DGMM_INCLUDE_DIR=#{buildpath}
+        -DPython3_EXECUTABLE=#{python3}
+        -DUSE_FLTK=ON
       ]
-      if OS.mac?
-        args << "-DBUILD_P5GLOVE_OPCODES=ON"
-        args << "-DBUILD_WIIMOTE_OPCODES=ON"
-        args << "-DCSOUND_FRAMEWORK=#{frameworks}/CsoundLib64.framework"
-        args << "-DCSOUND_INCLUDE_DIR=#{include}/csound"
-        args << "-DPLUGIN_INSTALL_DIR=#{frameworks}/CsoundLib64.framework/Resources/Opcodes64"
+      args += if OS.mac?
+        %W[
+          -DBUILD_P5GLOVE_OPCODES=ON
+          -DBUILD_WIIMOTE_OPCODES=ON
+          -DCSOUND_FRAMEWORK=#{frameworks}/CsoundLib64.framework
+          -DCSOUND_INCLUDE_DIR=#{include}/csound
+          -DPLUGIN_INSTALL_DIR=#{frameworks}/CsoundLib64.framework/Resources/Opcodes64
+        ]
       else
-        args << "-DBUILD_P5GLOVE_OPCODES=OFF"
-        args << "-DBUILD_WIIMOTE_OPCODES=OFF"
+        %w[
+          -DBUILD_P5GLOVE_OPCODES=OFF
+          -DBUILD_WIIMOTE_OPCODES=OFF
+        ]
       end
+
       system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
@@ -234,7 +247,7 @@ class Csound < Formula
       system bin/"csound", "--orc", "--syntax-check-only", "mac-opcode-existence.orc"
     end
 
-    system Formula["python@3.9"].bin/"python3", "-c", "import ctcsound"
+    system python3, "-c", "import ctcsound"
 
     (testpath/"test.java").write <<~EOS
       import csnd6.*;
