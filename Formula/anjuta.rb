@@ -16,6 +16,7 @@ class Anjuta < Formula
     sha256 x86_64_linux:   "9d232f13f3f221cd68ea362c23b2c7b236eae999fa1186c0223c2ba9abc345c2"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
@@ -28,7 +29,7 @@ class Anjuta < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libgda"
   depends_on "libxml2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "shared-mime-info"
   depends_on "vala"
   depends_on "vte3"
@@ -38,9 +39,13 @@ class Anjuta < Formula
   uses_from_macos "perl" => :build
 
   def install
-    ENV["PYTHON"] = which("python3")
-    ENV.append "LDFLAGS", "-Wl,-undefined,dynamic_lookup" if OS.mac?
-    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+    ENV["PYTHON"] = which("python3.10")
+
+    if OS.mac?
+      ENV.append "LDFLAGS", "-Wl,-undefined,dynamic_lookup"
+    else
+      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
+    end
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -48,24 +53,28 @@ class Anjuta < Formula
                           "--prefix=#{prefix}",
                           "--disable-schemas-compile"
 
-    ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages("python3")
+    ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages("python3.10")
     system "make", "install"
   end
 
   def post_install
     hshare = HOMEBREW_PREFIX/"share"
 
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", hshare/"glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", hshare/"icons/hicolor"
+    system Formula["glib"].opt_bin/"glib-compile-schemas", hshare/"glib-2.0/schemas"
+    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", "-f", "-t", hshare/"icons/hicolor"
+
     # HighContrast is provided by gnome-themes-standard
-    if File.file?("#{hshare}/icons/HighContrast/.icon-theme.cache")
-      system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", hshare/"icons/HighContrast"
+    if (hshare/"icons/HighContrast/.icon-theme.cache").file?
+      system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", "-f", "-t", hshare/"icons/HighContrast"
     end
-    system "#{Formula["shared-mime-info"].opt_bin}/update-mime-database", hshare/"mime"
+
+    system Formula["shared-mime-info"].opt_bin/"update-mime-database", hshare/"mime"
   end
 
   test do
     # Disable this part of the test on Linux because a display is not available.
-    system "#{bin}/anjuta", "--version" if OS.mac?
+    return if OS.linux?
+
+    system bin/"anjuta", "--version"
   end
 end
