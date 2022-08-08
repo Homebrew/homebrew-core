@@ -22,7 +22,7 @@ class Solo2Cli < Formula
 
   test do
     assert_match 'cmd+="__version"', shell_output("#{bin}/solo2 completion bash")
-    assert_match "", shell_output("#{bin}/solo2 ls")
+    assert_equal "", shell_output("#{bin}/solo2 ls")
     shell_output("#{bin}/solo2 pki web", 1)
     assert_match version.to_s, shell_output("#{bin}/solo2 --version")
   end
