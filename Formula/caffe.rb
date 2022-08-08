@@ -4,7 +4,7 @@ class Caffe < Formula
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
   license "BSD-2-Clause"
-  revision 40
+  revision 41
 
   livecheck do
     url :stable
@@ -85,9 +85,8 @@ class Caffe < Formula
 
   test do
     resource("homebrew-test_model").stage do
-      system "#{bin}/caffe", "test",
-             "-model", "lenet_train_test.prototxt",
-             "-weights", "lenet_iter_10000.caffemodel"
+      system bin/"caffe", "test", "-model", "lenet_train_test.prototxt",
+                                  "-weights", "lenet_iter_10000.caffemodel"
     end
   end
 end
