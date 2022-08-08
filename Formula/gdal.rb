@@ -4,7 +4,7 @@ class Gdal < Formula
   url "http://download.osgeo.org/gdal/3.5.1/gdal-3.5.1.tar.xz"
   sha256 "d12c30a9eacdeaab493c0d1c9f88eb337c9cbb5bb40744c751bdd5a5af166ab6"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -48,7 +48,7 @@ class Gdal < Formula
   depends_on "pcre2"
   depends_on "poppler"
   depends_on "proj"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sqlite"
   depends_on "unixodbc"
   depends_on "webp"
@@ -165,22 +165,23 @@ class Gdal < Formula
 
     # Build Python bindings
     cd "swig/python" do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system "python3.10", *Language::Python.setup_install_args(prefix, "python3.10")
     end
-    bin.install Dir["swig/python/scripts/*.py"]
+    bin.install buildpath.glob("swig/python/scripts/*.py")
 
     system "make", "man" if build.head?
     # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
     system "make", "install-man", "INST_MAN=#{man}"
     # Clean up any stray doxygen files
-    Dir.glob("#{bin}/*.dox") { |p| rm p }
+    bin.glob("*.dox").map(&:unlink)
   end
 
   test do
     # basic tests to see if third-party dylibs are loading OK
-    system "#{bin}/gdalinfo", "--formats"
-    system "#{bin}/ogrinfo", "--formats"
+    system bin/"gdalinfo", "--formats"
+    system bin/"ogrinfo", "--formats"
+
     # Changed Python package name from "gdal" to "osgeo.gdal" in 3.2.0.
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import osgeo.gdal"
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import osgeo.gdal"
   end
 end
