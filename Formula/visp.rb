@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.5.0.tar.gz"
   sha256 "494a648b2570da2a200ba326ed61a14e785eb9ee08ef12d3ad178b2f384d3d30"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -24,7 +24,7 @@ class Visp < Formula
   depends_on "pkg-config" => :build
   depends_on "eigen"
   depends_on "gsl"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libdc1394"
   depends_on "libpng"
   depends_on "opencv"
@@ -67,8 +67,8 @@ class Visp < Formula
                          "-DGSL_cblas_LIBRARY=#{Formula["gsl"].opt_lib/shared_library("libgslcblas")}",
                          "-DGSL_gsl_LIBRARY=#{Formula["gsl"].opt_lib/shared_library("libgsl")}",
                          "-DUSE_JPEG=ON",
-                         "-DJPEG_INCLUDE_DIR=#{Formula["jpeg"].opt_include}",
-                         "-DJPEG_LIBRARY=#{Formula["jpeg"].opt_lib/shared_library("libjpeg")}",
+                         "-DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}",
+                         "-DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib/shared_library("libjpeg")}",
                          "-DUSE_LAPACK=ON",
                          "-DUSE_LIBUSB_1=OFF",
                          "-DUSE_OPENCV=ON",
@@ -101,7 +101,8 @@ class Visp < Formula
       "unix-install/VISPConfig.cmake",
     ]
     inreplace opencv_references, opencv.prefix.realpath, opencv.opt_prefix
-    system "make", "install"
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
 
     # Make sure software built against visp don't reference opencv's cellar path either
     inreplace lib/"pkgconfig/visp.pc", opencv.prefix.realpath, opencv.opt_prefix
