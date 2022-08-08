@@ -7,7 +7,6 @@ class Burst < Formula
   head "https://github.com/izvolov/burst.git", branch: "master"
 
   depends_on "cmake" => [:build, :test]
-  depends_on "doctest" => :build
   depends_on "boost"
 
   fails_with :gcc do
