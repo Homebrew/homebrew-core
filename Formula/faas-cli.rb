@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://www.openfaas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      tag:      "0.14.2",
-      revision: "b1c09c0243f69990b6c81a17d7337f0fd23e7542"
+      tag:      "0.14.5",
+      revision: "3534df71572fe06356fb7085780ebeb3870ead37"
   license "MIT"
   head "https://github.com/openfaas/faas-cli.git", branch: "master"
 
@@ -21,8 +21,7 @@ class FaasCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8eff9b23ae2028d8b3e5f116d5815c02cacb23ccac61bd96e5dae10d770f871a"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     ENV["XC_OS"] = OS.kernel_name.downcase
