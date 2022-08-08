@@ -14,6 +14,7 @@ class Burst < Formula
     version "6"
     cause "Requires C++14 constexpr"
   end
+
   fails_with gcc: "12"
 
   def install
