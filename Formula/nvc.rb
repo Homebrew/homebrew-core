@@ -51,6 +51,7 @@ class Nvc < Formula
                              "--with-system-cc=#{ENV.cc}",
                              "--enable-vhpi",
                              "--disable-silent-rules"
+      inreplace ["Makefile", "config.h"], Superenv.shims_path/ENV.cc, ENV.cc
       ENV.deparallelize
       system "make", "V=1"
       system "make", "V=1", "install"
@@ -59,6 +60,6 @@ class Nvc < Formula
 
   test do
     resource("homebrew-test").stage testpath
-    system "#{bin}/nvc", "-a", "#{testpath}/basic_library/very_common_pkg.vhd"
+    system bin/"nvc", "-a", testpath/"basic_library/very_common_pkg.vhd"
   end
 end
