@@ -3,7 +3,7 @@ class Pytouhou < Formula
   homepage "https://pytouhou.linkmauve.fr/"
   url "https://hg.linkmauve.fr/touhou", revision: "5270c34b4c00", using: :hg
   version "634"
-  revision 8
+  revision 9
   head "https://hg.linkmauve.fr/touhou", using: :hg
 
   bottle do
@@ -19,40 +19,34 @@ class Pytouhou < Formula
   depends_on "pkg-config" => :build
   depends_on "glfw"
   depends_on "gtk+3"
+  depends_on "libcython"
   depends_on "libepoxy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
-
-  resource "Cython" do
-    url "https://files.pythonhosted.org/packages/a5/1f/c7c5450c60a90ce058b47ecf60bb5be2bfe46f952ed1d3b95d1d677588be/Cython-0.29.13.tar.gz"
-    sha256 "c29d069a4a30f472482343c866f7486731ad638ef9af92bfe5fca9c7323d638e"
-  end
 
   # Fix for parallel cythonize
   # It just put setup call in `if __name__ == '__main__'` block
   patch :p0, :DATA
 
   def install
-    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{pyver}/site-packages"
-    resource("Cython").stage do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
-    end
+    python = "python3.10"
+    ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/Language::Python.site_packages(python)
 
     # hg can't determine revision number (no .hg on the stage)
     inreplace "setup.py", /(version)=.+,$/, "\\1='#{version}',"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
+
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python)
+    system python, *Language::Python.setup_install_args(libexec, python)
 
     # Set default game path to pkgshare
-    inreplace "#{libexec}/bin/pytouhou", /('path'): '\.'/, "\\1: '#{pkgshare}/game'"
+    inreplace libexec/"bin/pytouhou", /('path'): '\.'/, "\\1: '#{pkgshare}/game'"
 
-    bin.install Dir[libexec/"bin/*"]
+    bin.install (libexec/"bin").children
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
@@ -65,7 +59,7 @@ class Pytouhou < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    system "#{bin}/pytouhou", "--help"
+    system bin/"pytouhou", "--help"
   end
 end
 
