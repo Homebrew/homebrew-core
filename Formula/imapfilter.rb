@@ -16,7 +16,7 @@ class Imapfilter < Formula
   end
 
   depends_on "lua"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   def install
