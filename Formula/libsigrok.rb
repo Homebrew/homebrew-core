@@ -4,7 +4,7 @@ class Libsigrok < Formula
   # libserialport is LGPL3+
   # fw-fx2lafw is GPL-2.0-or-later and LGPL-2.1-or-later"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
 
   stable do
     url "https://sigrok.org/download/source/libsigrok/libsigrok-0.5.2.tar.gz"
@@ -65,7 +65,7 @@ class Libsigrok < Formula
   depends_on "nettle"
   depends_on "numpy"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "fw-fx2lafw" do
     url "https://sigrok.org/download/binary/sigrok-firmware-fx2lafw/sigrok-firmware-fx2lafw-bin-0.1.7.tar.gz"
@@ -73,11 +73,13 @@ class Libsigrok < Formula
   end
 
   def install
+    python = "python3.10"
+
     resource("fw-fx2lafw").stage do
       if build.head?
         system "./autogen.sh"
       else
-        system "autoreconf", "-fiv"
+        system "autoreconf", "--force", "--install", "--verbose"
       end
 
       mkdir "build" do
@@ -90,7 +92,7 @@ class Libsigrok < Formula
       if build.head?
         system "./autogen.sh"
       else
-        system "autoreconf", "-fiv"
+        system "autoreconf", "--force", "--install", "--verbose"
       end
 
       mkdir "build" do
@@ -102,19 +104,23 @@ class Libsigrok < Formula
     # We need to use the Makefile to generate all of the dependencies
     # for setup.py, so the easiest way to make the Python libraries
     # work is to adjust setup.py's arguments here.
+    prefix_site_packages = prefix/Language::Python.site_packages(python)
     inreplace "Makefile.am" do |s|
       s.gsub!(/^(setup_py =.*setup\.py .*)/, "\\1 --no-user-cfg")
-      s.gsub!(/(\$\(setup_py\) install)/, "\\1 --single-version-externally-managed --record=installed.txt")
+      s.gsub!(
+        /(\$\(setup_py\) install)/,
+        "\\1 --single-version-externally-managed --record=installed.txt --install-lib=#{prefix_site_packages}",
+      )
     end
 
     if build.head?
       system "./autogen.sh"
     else
-      system "autoreconf", "-fiv"
+      system "autoreconf", "--force", "--install", "--verbose"
     end
 
     mkdir "build" do
-      ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+      ENV["PYTHON"] = python
       ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
       args = %w[
         --disable-java
@@ -145,7 +151,7 @@ class Libsigrok < Formula
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", <<~EOS
       import sigrok.core as sr
       sr.Context_create()
     EOS
