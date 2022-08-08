@@ -40,7 +40,7 @@ class GstPython < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
+    system Formula["python@3.9"].opt_bin/"python3.9", "-c", <<~EOS
       import gi
       gi.require_version('Gst', '1.0')
       from gi.repository import Gst
