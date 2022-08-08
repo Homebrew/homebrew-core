@@ -49,7 +49,6 @@ class Nvc < Formula
       system "../configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                              "--prefix=#{prefix}",
                              "--with-system-cc=#{ENV.cc}",
-                             "--enable-vhpi",
                              "--disable-silent-rules"
       inreplace ["Makefile", "config.h"], Superenv.shims_path/ENV.cc, ENV.cc
       ENV.deparallelize
