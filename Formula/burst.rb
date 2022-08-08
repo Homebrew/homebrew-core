@@ -18,7 +18,10 @@ class Burst < Formula
   fails_with gcc: "12"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBURST_TESTING=OFF",
+                    "-DBURST_BENCHMARKING=OFF",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
