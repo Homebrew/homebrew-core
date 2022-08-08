@@ -22,7 +22,7 @@ class Burst < Formula
                     "-DBURST_TESTING=OFF",
                     "-DBURST_BENCHMARKING=OFF",
                     *std_cmake_args
-    system "cmake", "--build", "build"
+    # Skip `cmake --build build` to avoid running tests.
     system "cmake", "--install", "build"
   end
 
