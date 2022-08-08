@@ -11,15 +11,16 @@ class Flume < Formula
   end
 
   depends_on "hadoop"
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     rm_f Dir["bin/*.cmd", "bin/*.ps1"]
     libexec.install %w[conf docs lib tools]
-    bin.install Dir["bin/*"]
-    bin.env_script_all_files libexec/"bin",
-                             JAVA_HOME:  Formula["openjdk"].opt_prefix,
-                             FLUME_HOME: libexec
+    prefix.install "bin"
+
+    flume_env = Language::Java.java_home_env("11")
+    flume_env[:FLUME_HOME] = libexec
+    bin.env_script_all_files libexec/"bin", flume_env
   end
 
   test do
