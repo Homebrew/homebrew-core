@@ -44,14 +44,17 @@ class Nvc < Formula
       inreplace "configure", "#define LINKER_PATH \"$linker_path\"", "#define LINKER_PATH \"ld\""
     end
 
-    system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
-                          "--prefix=#{prefix}",
-                          "--with-system-cc=#{ENV.cc}",
-                          "--enable-vhpi",
-                          "--disable-silent-rules"
-    ENV.deparallelize
-    system "make", "V=1"
-    system "make", "V=1", "install"
+    # In-tree builds are not supported.
+    mkdir "build" do
+      system "../configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
+                             "--prefix=#{prefix}",
+                             "--with-system-cc=#{ENV.cc}",
+                             "--enable-vhpi",
+                             "--disable-silent-rules"
+      ENV.deparallelize
+      system "make", "V=1"
+      system "make", "V=1", "install"
+    end
   end
 
   test do
