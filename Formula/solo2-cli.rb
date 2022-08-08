@@ -10,7 +10,15 @@ class Solo2Cli < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "libusb"
+    depends_on "pcsc-lite"
+    depends_on "systemd"
+  end
 
   def install
     system "cargo", "install", "--all-features", *std_cargo_args
