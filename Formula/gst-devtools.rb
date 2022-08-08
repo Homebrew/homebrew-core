@@ -6,6 +6,7 @@ class GstDevtools < Formula
   url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.20.3.tar.xz"
   sha256 "bbbd45ead703367ea8f4be9b3c082d7b62bef47b240a39083f27844e28758c47"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://gitlab.freedesktop.org/gstreamer/gst-devtools.git", branch: "master"
 
   livecheck do
@@ -22,6 +23,7 @@ class GstDevtools < Formula
     sha256 x86_64_linux:   "96b52680c3f8999abff8363a896924843c976937255d9f7223fcdb735278d359"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -30,25 +32,23 @@ class GstDevtools < Formula
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "json-glib"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    args = std_meson_args + %w[
+    args = %w[
       -Dintrospection=enabled
       -Dvalidate=enabled
       -Dtests=disabled
     ]
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
 
     rewrite_shebang detected_python_shebang, bin/"gst-validate-launcher"
   end
 
   test do
-    system "#{bin}/gst-validate-launcher", "--usage"
+    system bin/"gst-validate-launcher", "--usage"
   end
 end
