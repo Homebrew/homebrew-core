@@ -6,7 +6,7 @@ class Gitfs < Formula
   url "https://github.com/presslabs/gitfs/archive/0.5.2.tar.gz"
   sha256 "921e24311e3b8ea3a5448d698a11a747618ee8dd62d5d43a85801de0b111cbf3"
   license "Apache-2.0"
-  revision 9
+  revision 10
   head "https://github.com/presslabs/gitfs.git", branch: "master"
 
   bottle do
@@ -48,8 +48,8 @@ class Gitfs < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/7e/8c/c162e50ad20c36b457aa97a9d96536fde316d90052fb03fc4ae22a7fe9ea/pygit2-1.9.0.tar.gz"
-    sha256 "c5e8588acad5e32fa0595582571059e6b90ec7c487c58b4e53c2800dcbde44c8"
+    url "https://files.pythonhosted.org/packages/e7/8a/e52a1c8b9878e9d9743089393f8289bb9c8a81eaab722df22df46a38b9e9/pygit2-1.10.0.tar.gz"
+    sha256 "7c751eee88c731b922e4e487ee287e2e40906b2bd32d0bfd2105947f63e867de"
   end
 
   resource "six" do
