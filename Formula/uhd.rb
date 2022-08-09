@@ -6,6 +6,7 @@ class Uhd < Formula
       tag:      "v4.2.0.1",
       revision: "321295fba49fb66ede365afbd9ef62971cdfbfca"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
+  revision 1
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
@@ -27,7 +28,7 @@ class Uhd < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "gcc"
@@ -46,21 +47,18 @@ class Uhd < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    python = "python3.10"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages(python)
 
     resources.each do |r|
       r.stage do
-        system Formula["python@3.9"].opt_bin/"python3",
-              *Language::Python.setup_install_args(libexec/"vendor")
+        system python, *Language::Python.setup_install_args(libexec/"vendor", python)
       end
     end
 
-    mkdir "host/build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_TESTS=OFF"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", "host", "-B", "host/build", "-DENABLE_TESTS=OFF", *std_cmake_args
+    system "cmake", "--build", "host/build"
+    system "cmake", "--install", "host/build"
   end
 
   test do
