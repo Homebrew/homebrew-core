@@ -6,6 +6,7 @@ class Terminator < Formula
   url "https://github.com/gnome-terminator/terminator/archive/refs/tags/v2.1.1.tar.gz"
   sha256 "ee1907bc9bfe03244f6d8074b214ef1638a964b38e21ca2ad4cca993d0c1d31e"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2c180712581d30b046b14a4ee5279f2cea55b3bff7a62b2737b21693e993996c"
@@ -18,7 +19,7 @@ class Terminator < Formula
   end
 
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
   depends_on "vte3"
 
