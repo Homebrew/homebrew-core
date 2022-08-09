@@ -4,6 +4,7 @@ class Soapysdr < Formula
   url "https://github.com/pothosware/SoapySDR/archive/soapy-sdr-0.8.1.tar.gz"
   sha256 "a508083875ed75d1090c24f88abef9895ad65f0f1b54e96d74094478f0c400e6"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/pothosware/SoapySDR.git", branch: "master"
 
   bottle do
@@ -18,10 +19,10 @@ class Soapysdr < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DENABLE_PYTHON=OFF
       -DENABLE_PYTHON3=ON
       -DSOAPY_SDR_ROOT=#{HOMEBREW_PREFIX}
@@ -29,10 +30,9 @@ class Soapysdr < Formula
     ]
     args << "-DSOAPY_SDR_EXTVER=release" unless build.head?
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
