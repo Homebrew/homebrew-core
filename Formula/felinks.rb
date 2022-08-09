@@ -1,8 +1,8 @@
 class Felinks < Formula
   desc "Text mode browser and Gemini, NNTP, FTP, Gopher, Finger, and BitTorrent client"
   homepage "https://github.com/rkd77/elinks#readme"
-  url "https://github.com/rkd77/elinks/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "49e261fb7a6b061b51ca38b7152712caba90c8eaa6996bcf4c00fe2867a7f366"
+  url "https://github.com/rkd77/elinks/archive/refs/tags/v0.15.1.tar.gz"
+  sha256 "a3ebb14e179fcf97f93874b7771b4b05c1b7fdc704807334e865273d9de8428f"
   license "GPL-2.0-only"
   head "https://github.com/rkd77/elinks.git", branch: "master"
 
