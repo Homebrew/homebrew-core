@@ -4,7 +4,7 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
-  revision 8
+  revision 9
 
   bottle do
     sha256                               arm64_monterey: "b249cb4defffee5aac3aa5058a5d4f4e909bd91991b3fa580a77cdcb798b1692"
@@ -18,13 +18,13 @@ class VtkAT82 < Formula
   keg_only :versioned_formula
 
   # Commented out while this formula still has dependents.
-  # deprecate! date: "2020-05-14", because: :versioned_formula
+  deprecate! date: "2020-05-14", because: :versioned_formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "boost"
   depends_on "fontconfig"
   depends_on "hdf5"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "netcdf"
@@ -94,8 +94,8 @@ class VtkAT82 < Formula
     # Adapted from https://bugs.gentoo.org/attachment.cgi?id=641488&action=diff
     inreplace "CMake/VTKGenerateExportHeader.cmake", "[3-9]", "[1-9][0-9]" if OS.linux?
 
-    pyver = Language::Python.major_minor_version "python3"
-    args = std_cmake_args + %W[
+    python3 = "python3.9"
+    args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
@@ -114,8 +114,8 @@ class VtkAT82 < Formula
       -DVTK_USE_SYSTEM_ZLIB=ON
       -DVTK_WRAP_PYTHON=ON
       -DVTK_PYTHON_VERSION=3
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
-      -DVTK_INSTALL_PYTHON_MODULE_DIR=#{lib}/python#{pyver}/site-packages
+      -DPYTHON_EXECUTABLE=#{which(python3)}
+      -DVTK_INSTALL_PYTHON_MODULE_DIR=#{prefix/Language::Python.site_packages(python3)}
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON
       -DVTK_WRAP_PYTHON_SIP=ON
@@ -124,11 +124,9 @@ class VtkAT82 < Formula
 
     args << "-DVTK_USE_COCOA=ON" if OS.mac?
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Avoid hard-coding HDF5's Cellar path
     inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
@@ -179,8 +177,7 @@ class VtkAT82 < Formula
     EOS
 
     vtk_dir = Dir[opt_lib/"cmake/vtk-*"].first
-    system "cmake", "-DCMAKE_BUILD_TYPE=Debug", "-DCMAKE_VERBOSE_MAKEFILE=ON",
-      "-DVTK_DIR=#{vtk_dir}", "."
+    system "cmake", ".", "-DCMAKE_BUILD_TYPE=Debug", "-DCMAKE_VERBOSE_MAKEFILE=ON", "-DVTK_DIR=#{vtk_dir}"
     system "make"
     system "./Distance2BetweenPoints"
 
