@@ -4,6 +4,7 @@ class Exim < Formula
   url "https://ftp.exim.org/pub/exim/exim4/exim-4.96.tar.xz"
   sha256 "299a56927b2eb3477daafd3c5bda02bc67e5c4e5898a7aeaf2740875278cf1a3"
   license "GPL-2.0-or-later"
+  revision 1
 
   # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
   # to check both the main `exim4` directory and the `fixes` subdirectory to
@@ -37,7 +38,7 @@ class Exim < Formula
     sha256 x86_64_linux:   "03b233d5f4c5c4c0c3cc4cfde54260177d241084152d927ae02cb6bb478f2673"
   end
 
-  depends_on "berkeley-db@4"
+  depends_on "berkeley-db@5"
   depends_on "openssl@1.1"
   depends_on "pcre2"
   uses_from_macos "libxcrypt"
@@ -65,15 +66,15 @@ class Exim < Formula
       s << "LOOKUP_LIBS=-L#{HOMEBREW_PREFIX}/lib\n"
     end
 
-    bdb4 = Formula["berkeley-db@4"]
+    bdb5 = Formula["berkeley-db@5"]
 
     cp "OS/unsupported/Makefile-Darwin", "OS/Makefile-Darwin"
     cp "OS/unsupported/os.h-Darwin", "OS/os.h-Darwin"
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
-      # Add include and lib paths for BDB 4
-      s.gsub! "# Exim: OS-specific make file for Darwin (Mac OS X).", "INCLUDE=-I#{bdb4.include}"
-      s.gsub! "DBMLIB =", "DBMLIB=#{bdb4.lib}/libdb-4.dylib"
+      # Add include and lib paths for BDB 5
+      s.gsub! "# Exim: OS-specific make file for Darwin (Mac OS X).", "INCLUDE=-I#{bdb5.include}"
+      s.gsub! "DBMLIB =", "DBMLIB=#{bdb5.lib}/libdb-5.dylib"
     end
 
     # The compile script ignores CPPFLAGS
