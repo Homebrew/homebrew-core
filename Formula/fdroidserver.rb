@@ -19,7 +19,6 @@ class Fdroidserver < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libffi"
   depends_on "numpy"
   depends_on "openssl@1.1"
   depends_on "pillow"
@@ -27,6 +26,7 @@ class Fdroidserver < Formula
   depends_on "s3cmd"
   depends_on "six"
 
+  uses_from_macos "libffi", since: :catalina
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
