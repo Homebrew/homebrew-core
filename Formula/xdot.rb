@@ -6,6 +6,7 @@ class Xdot < Formula
   url "https://files.pythonhosted.org/packages/8b/f5/f5282a470a1c0f16b6600edae18ffdc3715cdd6ac8753205df034650cebe/xdot-1.2.tar.gz"
   sha256 "3df91e6c671869bd2a6b2a8883fa3476dbe2ba763bd2a7646cf848a9eba71b70"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/jrfonseca/xdot.py.git", branch: "master"
 
   bottle do
@@ -24,7 +25,7 @@ class Xdot < Formula
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "graphviz" do
     url "https://files.pythonhosted.org/packages/43/ae/a0ee0dbddc06dbecfaece65c45c8c4729c394b5eb62e04e711e6495cdf64/graphviz-0.20.zip"
