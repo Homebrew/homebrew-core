@@ -6,6 +6,7 @@ class NicotinePlus < Formula
   url "https://files.pythonhosted.org/packages/e5/19/b4a0816ef995cb485443ac7e5976680d0ae207081bafefecdc83fe4d4f9b/nicotine-plus-3.2.4.tar.gz"
   sha256 "0b6b9fdeec7e331bef587930b1eef3f8cf4dd8d4f77d253e2dbd7ef5ce96f54e"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/Nicotine-Plus/nicotine-plus.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class NicotinePlus < Formula
   depends_on "gtk+3"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
