@@ -32,7 +32,7 @@ class Ecl < Formula
   depends_on "texinfo" => :build # Apple's is too old
   depends_on "bdw-gc"
   depends_on "gmp"
-  depends_on "libffi"
+  uses_from_macos "libffi", since: :catalina
 
   def install
     ENV.deparallelize
@@ -40,12 +40,17 @@ class Ecl < Formula
     # Avoid -flat_namespace usage on macOS
     inreplace "src/configure", "-flat_namespace -undefined suppress ", "" if OS.mac?
 
+    libffi_prefix = if MacOS.version >= :catalina
+      MacOS.sdk_path
+    else
+      Formula["libffi"].opt_prefix
+    end
     system "./configure", "--prefix=#{prefix}",
                           "--enable-threads=yes",
                           "--enable-boehm=system",
                           "--enable-gmp=system",
                           "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
-                          "--with-libffi-prefix=#{Formula["libffi"].opt_prefix}",
+                          "--with-libffi-prefix=#{libffi_prefix}",
                           "--with-libgc-prefix=#{Formula["bdw-gc"].opt_prefix}"
     system "make"
     system "make", "install"
@@ -91,7 +96,7 @@ index c6ec0a6..a1fa9fd 100644
 @@ -181,10 +181,30 @@
  (defun wt-temp (temp)
    (wt "T" temp))
- 
+
 +(defun wt-fixnum (value &optional vv)
 +  (declare (ignore vv))
 +  (princ value *compiler-output1*)
@@ -113,7 +118,7 @@ index c6ec0a6..a1fa9fd 100644
  (defun wt-number (value &optional vv)
 +  (declare (ignore vv))
    (wt value))
- 
+
  (defun wt-character (value &optional vv)
 +  (declare (ignore vv))
    ;; We do not use the '...' format because this creates objects of type
@@ -124,7 +129,7 @@ index 0c87a3c..4449602 100644
 --- a/src/cmp/cmptables.lsp
 +++ b/src/cmp/cmptables.lsp
 @@ -182,7 +182,7 @@
- 
+
      (temp . wt-temp)
      (lcl . wt-lcl-loc)
 -    (fixnum-value . wt-number)
