@@ -4,6 +4,7 @@ class GstPython < Formula
   url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.20.3.tar.xz"
   sha256 "db348120eae955b8cc4de3560a7ea06e36d6e1ddbaa99a7ad96b59846601cfdc"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-python/"
@@ -23,7 +24,7 @@ class GstPython < Formula
   depends_on "ninja" => :build
   depends_on "gst-plugins-base"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # See https://gitlab.freedesktop.org/gstreamer/gst-python/-/merge_requests/41
   patch do
@@ -32,15 +33,22 @@ class GstPython < Formula
   end
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    python = "python3.10"
+    site_packages = prefix/Language::Python.site_packages(python)
+
+    # This shouldn't be needed, but this fails to link with libpython3.10.so.
+    # TODO: Remove this when `python@3.10` is no longer keg-only.
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["python@3.10"].opt_lib}" if OS.linux?
+
+    system "meson", "setup", "build", "-Dpygi-overrides-dir=#{site_packages}/gi/overrides",
+                                      "-Dpython=#{python}",
+                                      *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3.9", "-c", <<~EOS
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", <<~EOS
       import gi
       gi.require_version('Gst', '1.0')
       from gi.repository import Gst
