@@ -4,6 +4,7 @@ class Libpeas < Formula
   url "https://download.gnome.org/sources/libpeas/1.32/libpeas-1.32.0.tar.xz"
   sha256 "d625520fa02e8977029b246ae439bc218968965f1e82d612208b713f1dcc3d0e"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "95e58fd14df242b90173b9ba0d5d40b8234e84f87cc6ebc30b3824928cbf205e"
@@ -14,6 +15,7 @@ class Libpeas < Formula
     sha256 x86_64_linux:   "f994ca714e319d0cdff07e30f37fc0794887fee5389fff0dfb818e104e65621d"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -22,10 +24,14 @@ class Libpeas < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
-    args = std_meson_args + %w[
+    # This shouldn't be needed, but this fails to link with libpython3.10.so.
+    # TODO: Remove this when `python@3.10` is no longer keg-only.
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["python@3.10"].opt_lib}" if OS.linux?
+
+    args = %w[
       -Dpython3=true
       -Dintrospection=true
       -Dvapi=true
@@ -33,11 +39,9 @@ class Libpeas < Formula
       -Ddemos=false
     ]
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
