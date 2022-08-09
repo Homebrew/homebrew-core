@@ -16,9 +16,8 @@ class Gforth < Formula
   end
 
   depends_on "emacs" => :build
-  depends_on "libffi"
   depends_on "libtool"
-  depends_on "pcre"
+  uses_from_macos "libffi"
 
   def install
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
