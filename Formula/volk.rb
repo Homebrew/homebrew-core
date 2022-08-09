@@ -6,7 +6,7 @@ class Volk < Formula
   url "https://github.com/gnuradio/volk/releases/download/v2.5.1/volk-2.5.1.tar.gz"
   sha256 "8f7f2f8918c6ba63ebe8375fe87add347046b8b3acbba2fb582577bebd8852df"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "cd08be9bd078c3132652c270cfd6af087adc72855e36f2919e049d39fc22ba3a"
@@ -20,7 +20,7 @@ class Volk < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "orc"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "gcc"
@@ -38,10 +38,12 @@ class Volk < Formula
   end
 
   def install
+    python = "python3.10"
+
     # Set up Mako
     venv_root = libexec/"venv"
-    ENV.prepend_create_path "PYTHONPATH", venv_root/Language::Python.site_packages("python3")
-    venv = virtualenv_create(venv_root, "python3")
+    ENV.prepend_create_path "PYTHONPATH", venv_root/Language::Python.site_packages(python)
+    venv = virtualenv_create(venv_root, python)
     venv.pip_install resource("Mako")
 
     # Avoid references to the Homebrew shims directory
@@ -61,9 +63,9 @@ class Volk < Formula
     system "cmake", "--install", "build"
 
     # Set up volk_modtool paths
-    site_packages = prefix/Language::Python.site_packages("python3")
+    site_packages = prefix/Language::Python.site_packages(python)
     pth_contents = "import site; site.addsitedir('#{site_packages}')\n"
-    (venv_root/Language::Python.site_packages("python3")/"homebrew-volk.pth").write pth_contents
+    (venv_root/Language::Python.site_packages(python)/"homebrew-volk.pth").write pth_contents
   end
 
   test do
