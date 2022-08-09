@@ -23,10 +23,9 @@ class Duck < Formula
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
   depends_on xcode: ["13.1", :build]
-
-  depends_on "libffi"
   depends_on "openjdk"
 
+  uses_from_macos "libffi", since: :monterey # Uses `FFI_BAD_ARGTYPE`.
   uses_from_macos "zlib"
 
   on_linux do
@@ -60,12 +59,18 @@ class Duck < Formula
     # Consider creating a formula for this if other formulae need the same library
     resource("jna").stage do
       os = if OS.mac?
-        # Add linker flags for libffi because Makefile call to pkg-config doesn't seem to work properly.
-        inreplace "native/Makefile", "LIBS=", "LIBS=-L#{Formula["libffi"].opt_lib} -lffi"
-        # Force shared library to have dylib extension on macOS instead of jnilib
-        inreplace "native/Makefile",
-                  "LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(JNISFX)",
-                  "LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(LIBSFX)"
+        inreplace "native/Makefile" do |s|
+          libffi_libdir = if MacOS.version >= :monterey
+            MacOS.sdk_path/"usr/lib"
+          else
+            Formula["libffi"].opt_lib
+          end
+          # Add linker flags for libffi because Makefile call to pkg-config doesn't seem to work properly.
+          s.change_make_var! "LIBS", "-L#{libffi_libdir} -lffi"
+          library_var = s.get_make_var("LIBRARY")
+          # Force shared library to have dylib extension on macOS instead of jnilib
+          s.change_make_var! "LIBRARY", library_var.sub("JNISFX", "LIBSFX")
+        end
 
         "mac"
       else
@@ -89,10 +94,12 @@ class Duck < Formula
         ENV.deparallelize
         ENV["JAVA_HOME"] = Language::Java.java_home(Formula["openjdk"].version.major.to_s)
 
-        # Fix zip error on macOS because libjnidispatch.dylib is not in file list
-        inreplace "build.sh", "libjnidispatch.so", "libjnidispatch.so libjnidispatch.dylib" if OS.mac?
-        # Fix relative path in build script, which is designed to be run out extracted zip archive
-        inreplace "build.sh", "cd native", "cd ../native"
+        inreplace "build.sh" do |s|
+          # Fix zip error on macOS because libjnidispatch.dylib is not in file list
+          s.gsub! "libjnidispatch.so", "libjnidispatch.so libjnidispatch.dylib" if OS.mac?
+          # Fix relative path in build script, which is designed to be run out extracted zip archive
+          s.gsub! "cd native", "cd ../native"
+        end
 
         system "sh", "build.sh"
         buildpath.install shared_library("libjnidispatch")
