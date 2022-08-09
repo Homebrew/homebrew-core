@@ -26,10 +26,9 @@ class Numpy < Formula
 
   def pythons
     deps.map(&:to_formula)
-        .select { |f| f.name.match?(/python@\d\.\d+/) }
+        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
         .sort_by(&:version) # so that `bin/f2py` and `bin/f2py3` use python3.10
-        .map(&:opt_bin)
-        .map { |bin| bin/"python3" }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
@@ -52,8 +51,7 @@ class Numpy < Formula
 
       system python, "setup.py", "build", "--fcompiler=#{Formula["gcc"].opt_bin}/gfortran",
                                           "--parallel=#{ENV.make_jobs}"
-      system python, *Language::Python.setup_install_args(prefix),
-                     "--install-lib=#{prefix/site_packages}"
+      system python, *Language::Python.setup_install_args(prefix, python)
     end
   end
 
