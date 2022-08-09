@@ -18,16 +18,15 @@ class LibpythonTabulate < Formula
 
   def pythons
     deps.map(&:to_formula)
-        .select { |f| f.name.match?(/python@\d\.\d+/) }
-        .map(&:opt_bin)
-        .map { |bin| bin/"python3" }
+        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
     pythons.each do |python|
-      system python, *Language::Python.setup_install_args(prefix),
-                     "--install-lib=#{prefix/Language::Python.site_packages(python)}"
+      system python, *Language::Python.setup_install_args(prefix, python)
     end
+
     # Remove bin folder, use tabulate from the python-tabulate formula instead.
     # This is necessary to keep all the Python versions as build/test
     # dependencies only for the libpython-tabulate
