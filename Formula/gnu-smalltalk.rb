@@ -22,12 +22,12 @@ class GnuSmalltalk < Formula
   depends_on "pkg-config" => :build
   depends_on "gdbm"
   depends_on "gnutls"
-  depends_on "libffi"
   depends_on "libsigsegv"
   depends_on "libtool"
   depends_on "readline"
 
   uses_from_macos "zip" => :build
+  uses_from_macos "libffi", since: :catalina
 
   def install
     args = %W[
