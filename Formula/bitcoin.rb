@@ -4,7 +4,7 @@ class Bitcoin < Formula
   url "https://bitcoincore.org/bin/bitcoin-core-23.0/bitcoin-23.0.tar.gz"
   sha256 "26748bf49d6d6b4014d0fedccac46bf2bcca42e9d34b3acfd9e3467c415acc05"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
   livecheck do
@@ -31,6 +31,8 @@ class Bitcoin < Formula
   depends_on macos: :catalina
   depends_on "miniupnpc"
   depends_on "zeromq"
+
+  uses_from_macos "sqlite"
 
   on_linux do
     depends_on "util-linux" => :build # for `hexdump`
