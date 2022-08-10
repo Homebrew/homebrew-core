@@ -1,8 +1,8 @@
 class GitBranchless < Formula
   desc "High-velocity, monorepo-scale workflow for Git"
   homepage "https://github.com/arxanas/git-branchless"
-  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.3.12.tar.gz"
-  sha256 "a73fa82a961bdc6219499b1a5f818f82bea30e6069701dd3227ce32f6c7ee5f2"
+  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "773eadf51fadf503b90f4a4dfb6ea38662294d9a98ec797d4b68592a731de4e0"
   license "GPL-2.0-only"
   head "https://github.com/arxanas/git-branchless.git", branch: "master"
 
@@ -16,7 +16,6 @@ class GitBranchless < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
 
