@@ -22,7 +22,7 @@ class PostgresqlAT13 < Formula
   keg_only :versioned_formula
 
   # https://www.postgresql.org/support/versioning/
-  deprecate! date: "2024-11-13", because: :unsupported
+  deprecate! date: "2025-11-13", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
@@ -142,36 +142,19 @@ class PostgresqlAT13 < Formula
     caveats = ""
 
     # Extract the version from the formula name
-    pg_formula_version = name.split("@", 2).last
+    pg_formula_version = version.major.to_s
     # ... and check it against the old data dir postgres version number
     # to see if we need to print a warning re: data dir
     if old_postgresql_datadir_version == pg_formula_version
-      caveats += if postgresql_formula_present?
-        # Both PostgreSQL and PostgreSQL@13 are installed
-        <<~EOS
-          Previous versions of this formula used the same data directory as
-          the regular PostgreSQL formula. This causes a conflict if you
-          try to use both at the same time.
+      caveats += <<~EOS
+        Previous versions of postgresql shared the same data directory.
 
-          In order to avoid this conflict, you should make sure that the
-          #{name} data directory is located at:
-            #{postgresql_datadir}
+        You can migrate to a versioned data directory by running:
+          mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
 
-        EOS
-      else
-        # Only PostgreSQL@13 is installed, not PostgreSQL
-        <<~EOS
-          Previous versions of #{name} used the same data directory as
-          the postgresql formula. This will cause a conflict if you
-          try to use both at the same time.
+        (Make sure PostgreSQL is stopped before executing this command)
 
-          You can migrate to a versioned data directory by running:
-            mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
-
-          (Make sure PostgreSQL is stopped before executing this command)
-
-        EOS
-      end
+      EOS
     end
 
     caveats += <<~EOS
@@ -185,10 +168,10 @@ class PostgresqlAT13 < Formula
   end
 
   service do
-    run [opt_bin/"postgres", "-D", var/"postgresql@13"]
+    run [opt_bin/"postgres", "-D", f.postgresql_datadir]
     keep_alive true
-    log_path var/"log/postgresql@13.log"
-    error_log_path var/"log/postgresql@13.log"
+    log_path f.postgresql_log_path
+    error_log_path f.postgresql_log_path
     working_dir HOMEBREW_PREFIX
   end
 
