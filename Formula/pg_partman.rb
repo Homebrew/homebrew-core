@@ -4,6 +4,7 @@ class PgPartman < Formula
   url "https://github.com/pgpartman/pg_partman/archive/refs/tags/v4.7.0.tar.gz"
   sha256 "c5d2653a705c98e544819ed48b04c84a18953b73aa1c45a2300d00f8c6506436"
   license "PostgreSQL"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d30c2f67029fef09fc8a7c50d518a1cef89a62b42de03e5a95a832e2a724dde2"
@@ -14,34 +15,38 @@ class PgPartman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba38a04262870382a5bb6e986852beac780a922def9857456eafa92b43b98aa1"
   end
 
-  depends_on "postgresql"
+  depends_on "postgresql@14"
+
+  def postgresql
+    Formula["postgresql@14"]
+  end
 
   def install
+    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
+
     system "make"
-    (prefix/"lib/postgresql").install "src/pg_partman_bgw.so"
-    (prefix/"share/postgresql/extension").install "pg_partman.control"
-    (prefix/"share/postgresql/extension").install Dir["sql/pg_partman--*.sql"]
-    (prefix/"share/postgresql/extension").install Dir["updates/pg_partman--*.sql"]
+    (lib/postgresql.name).install "src/pg_partman_bgw.so"
+    (share/postgresql.name/"extension").install "pg_partman.control"
+    (share/postgresql.name/"extension").install Dir["sql/pg_partman--*.sql"]
+    (share/postgresql.name/"extension").install Dir["updates/pg_partman--*.sql"]
   end
 
   test do
-    # Testing steps:
-    # - create new temporary postgres database
-    system "pg_ctl", "initdb", "-D", testpath/"test"
-
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
     port = free_port
-    # - enable pg_partman in temporary database
-    (testpath/"test/postgresql.conf").write("\nshared_preload_libraries = 'pg_partman_bgw'\n", mode: "a+")
-    (testpath/"test/postgresql.conf").write("\nport = #{port}\n", mode: "a+")
 
-    # - restart temporary postgres
-    system "pg_ctl", "start", "-D", testpath/"test", "-l", testpath/"log"
+    system pg_ctl, "initdb", "-D", testpath/"test"
+    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
 
-    # - create extension in temp database
-    system "psql", "-p", port.to_s,
-           "-c", "CREATE SCHEMA partman; CREATE EXTENSION pg_partman SCHEMA partman;", "postgres"
-
-    # - shutdown temp postgres
-    system "pg_ctl", "stop", "-D", testpath/"test"
+      shared_preload_libraries = 'pg_partman_bgw'
+      port = #{port}
+    EOS
+    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    begin
+      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"pg_partman\";", "postgres"
+    ensure
+      system pg_ctl, "stop", "-D", testpath/"test"
+    end
   end
 end
