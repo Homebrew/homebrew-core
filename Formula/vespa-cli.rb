@@ -29,9 +29,7 @@ class VespaCli < Formula
       end
       bin.install "bin/vespa"
       man1.install Dir["share/man/man1/vespa*.1"]
-      (bash_completion/"vespa").write Utils.safe_popen_read(bin/"vespa", "completion", "bash")
-      (fish_completion/"vespa.fish").write Utils.safe_popen_read(bin/"vespa", "completion", "fish")
-      (zsh_completion/"_vespa").write Utils.safe_popen_read(bin/"vespa", "completion", "zsh")
+      generate_completions_from_executable(bin/"vespa", "completion", base_name: "vespa")
     end
   end
 
