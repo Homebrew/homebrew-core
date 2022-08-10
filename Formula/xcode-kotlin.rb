@@ -19,7 +19,7 @@ class XcodeKotlin < Formula
   depends_on :macos
 
   def install
-    suffix = Hardware::CPU.arch == :x86_64 ? "X64" : "Arm64"
+    suffix = (Hardware::CPU.arch == :x86_64) ? "X64" : "Arm64"
     system "gradle", "--no-daemon", "linkReleaseExecutableMacos#{suffix}", "preparePlugin"
     bin.install "build/bin/macos#{suffix}/releaseExecutable/xcode-kotlin.kexe" => "xcode-kotlin"
     share.install Dir["build/share/*"]
