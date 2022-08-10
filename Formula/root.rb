@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.26.06.source.tar.gz"
   sha256 "b1f73c976a580a5c56c8c8a0152582a1dfc560b4dd80e1b7545237b65e6c89cb"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
@@ -40,7 +41,7 @@ class Root < Formula
   depends_on "openblas"
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sqlite"
   depends_on "tbb"
   depends_on :xcode
@@ -62,6 +63,8 @@ class Root < Formula
   fails_with gcc: "5"
 
   def install
+    python = Formula["python@3.10"].opt_bin/"python3.10"
+
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root"
 
     inreplace "cmake/modules/SearchInstalledSoftware.cmake" do |s|
@@ -75,7 +78,7 @@ class Root < Formula
     args = std_cmake_args + %W[
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{python}
       -DCMAKE_CXX_STANDARD=17
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=OFF
@@ -99,23 +102,19 @@ class Root < Formula
       -GNinja
     ]
 
-    # Homebrew now sets CMAKE_INSTALL_LIBDIR to /lib, which is incorrect
-    # for ROOT with gnuinstall, so we set it back here.
-    args << "-DCMAKE_INSTALL_LIBDIR=lib/root"
-
     # Workaround the shim directory being embedded into the output
     inreplace "build/unix/compiledata.sh", "`type -path $CXX`", ENV.cxx
 
-    mkdir "builddir" do
-      system "cmake", "..", *args
-      system "ninja", "install"
+    # Homebrew now sets CMAKE_INSTALL_LIBDIR to /lib, which is incorrect
+    # for ROOT with gnuinstall, so we set it back here.
+    system "cmake", "-S", ".", "-B", "builddir", *args, *std_cmake_args(install_libdir: "lib/root")
+    system "cmake", "--build", "builddir"
+    system "cmake", "--install", "builddir"
 
-      chmod 0755, Dir[bin/"*.*sh"]
+    chmod 0755, bin.glob("*.*sh")
 
-      version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-      pth_contents = "import site; site.addsitedir('#{lib}/root')\n"
-      (prefix/"lib/python#{version}/site-packages/homebrew-root.pth").write pth_contents
-    end
+    pth_contents = "import site; site.addsitedir('#{lib}/root')\n"
+    (prefix/Language::Python.site_packages(python)/"homebrew-root.pth").write pth_contents
   end
 
   def caveats
@@ -164,6 +163,6 @@ class Root < Formula
     assert_equal "Hello, world!\n", shell_output("./a.out")
 
     # Test Python module
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
   end
 end
