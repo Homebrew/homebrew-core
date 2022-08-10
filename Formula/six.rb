@@ -21,7 +21,8 @@ class Six < Formula
 
   def install
     pythons.each do |python|
-      system python.opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      python_exe = python.opt_libexec/"bin/python"
+      system python_exe, *Language::Python.setup_install_args(prefix, python_exe)
     end
   end
 
@@ -38,7 +39,7 @@ class Six < Formula
 
   test do
     pythons.each do |python|
-      system python.opt_bin/"python3", "-c", <<~EOS
+      system python.opt_libexec/"bin/python", "-c", <<~EOS
         import six
         assert not six.PY2
         assert six.PY3
