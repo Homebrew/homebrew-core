@@ -34,9 +34,7 @@ class Colima < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/colima"
 
-    (bash_completion/"colima").write Utils.safe_popen_read(bin/"colima", "completion", "bash")
-    (zsh_completion/"_colima").write Utils.safe_popen_read(bin/"colima", "completion", "zsh")
-    (fish_completion/"colima.fish").write Utils.safe_popen_read(bin/"colima", "completion", "fish")
+    generate_completions_from_executable(bin/"colima", "completion")
   end
 
   test do
