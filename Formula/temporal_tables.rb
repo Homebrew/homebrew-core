@@ -4,7 +4,7 @@ class TemporalTables < Formula
   url "https://github.com/arkhipov/temporal_tables/archive/v1.2.0.tar.gz"
   sha256 "e6d1b31a124e8597f61b86f08b6a18168f9cd9da1db77f2a8dd1970b407b7610"
   license "BSD-2-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c0f993c548b4712d06a62910c41a8a3353f4787c150993066bc9065234e1c040"
@@ -16,7 +16,7 @@ class TemporalTables < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0156446fd9b2de02039e4904e7198bf4ca036be805692a0f49c22fa9abfcc564"
   end
 
-  depends_on "postgresql"
+  depends_on "postgresql@14"
 
   # Fix for postgresql 11 compatibility:
   # https://github.com/arkhipov/temporal_tables/issues/38
@@ -39,20 +39,39 @@ class TemporalTables < Formula
     sha256 "c1e63befec23efbeff26492a390264cbc7875eaa3992aa98f3e3a53a9612d0e0"
   end
 
+  def postgresql
+    Formula["postgresql@14"]
+  end
+
   def install
-    ENV["PG_CONFIG"] = Formula["postgresql"].opt_bin/"pg_config"
+    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
 
     # Use stage directory to prevent installing to pg_config-defined dirs,
     # which would not be within this package's Cellar.
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    pgsql_prefix = Formula["postgresql"].prefix.realpath
-    pgsql_stage_path = File.join("stage", pgsql_prefix)
-    share.install (buildpath/pgsql_stage_path/"share").children
-
     stage_path = File.join("stage", HOMEBREW_PREFIX)
     lib.install (buildpath/stage_path/"lib").children
     share.install (buildpath/stage_path/"share").children
+  end
+
+  test do
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
+    port = free_port
+
+    system pg_ctl, "initdb", "-D", testpath/"test"
+    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
+
+      shared_preload_libraries = 'temporal_tables'
+      port = #{port}
+    EOS
+    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    begin
+      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"temporal_tables\";", "postgres"
+    ensure
+      system pg_ctl, "stop", "-D", testpath/"test"
+    end
   end
 end
