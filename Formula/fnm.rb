@@ -27,9 +27,7 @@ class Fnm < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    (bash_completion/"fnm").write Utils.safe_popen_read(bin/"fnm", "completions", "--shell=bash")
-    (fish_completion/"fnm.fish").write Utils.safe_popen_read(bin/"fnm", "completions", "--shell=fish")
-    (zsh_completion/"_fnm").write Utils.safe_popen_read(bin/"fnm", "completions", "--shell=zsh")
+    generate_completions_from_executable(bin/"fnm", "completions", "--shell")
   end
 
   test do
