@@ -22,9 +22,7 @@ class Glab < Formula
 
     system "make", "GLAB_VERSION=#{version}"
     bin.install "bin/glab"
-    (bash_completion/"glab").write Utils.safe_popen_read(bin/"glab", "completion", "--shell=bash")
-    (zsh_completion/"_glab").write Utils.safe_popen_read(bin/"glab", "completion", "--shell=zsh")
-    (fish_completion/"glab.fish").write Utils.safe_popen_read(bin/"glab", "completion", "--shell=fish")
+    generate_completions_from_executable(bin/"glab", "completion", "--shell")
   end
 
   test do
