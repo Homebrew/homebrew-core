@@ -123,10 +123,10 @@ class PostgresqlAT11 < Formula
   end
 
   service do
-    run [opt_bin/"postgres", "-D", var/"postgresql@11"]
+    run [opt_bin/"postgres", "-D", f.postgresql_datadir]
     keep_alive true
-    log_path var/"log/postgresql@11.log"
-    error_log_path var/"log/postgresql@11.log"
+    log_path f.postgresql_log_path
+    error_log_path f.postgresql_log_path
     working_dir HOMEBREW_PREFIX
   end
 
