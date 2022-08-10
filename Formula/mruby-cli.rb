@@ -35,7 +35,7 @@ class MrubyCli < Formula
 
     (buildpath/"build_config.rb").write <<~EOS
       MRuby::Build.new do |conf|
-        toolchain :#{ENV.compiler == :gcc ? "gcc" : "clang"}
+        toolchain :#{(ENV.compiler == :gcc) ? "gcc" : "clang"}
 
         conf.gem File.expand_path(File.dirname(__FILE__))
         conf.gem :github => 'iij/mruby-io'
