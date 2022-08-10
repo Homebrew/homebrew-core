@@ -39,17 +39,16 @@ class PythonTkAT39 < Formula
               ]
         )
       EOS
-      system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(libexec),
-                                                  "--install-lib=#{libexec}"
-      rm_r Dir[libexec/"*.egg-info"]
+      system "python3.9", *Language::Python.setup_install_args(libexec), "--install-lib=#{libexec}"
+      rm_r libexec.glob("*.egg-info")
     end
   end
 
   test do
-    system Formula["python@3.9"].bin/"python3", "-c", "import tkinter"
+    system "python3.9", "-c", "import tkinter"
 
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system Formula["python@3.9"].bin/"python3", "-c", "import tkinter; root = tkinter.Tk()"
+    system "python3.9", "-c", "import tkinter; root = tkinter.Tk()"
   end
 end
