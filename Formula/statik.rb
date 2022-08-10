@@ -18,6 +18,9 @@ class Statik < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "49cda36e4e735309ce918096589820e44039a1779f34b861646475a31782ab7b"
   end
 
+  # pystache requirement sets use_2to3 which was removed in setuptools 58.
+  deprecate! date: "2022-08-09", because: :does_not_build
+
   depends_on "libpq"
   depends_on "python@3.9"
 
