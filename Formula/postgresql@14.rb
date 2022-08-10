@@ -1,24 +1,18 @@
-class Postgresql < Formula
+class PostgresqlAT14 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v14.5/postgresql-14.5.tar.bz2"
   sha256 "d4f72cb5fb857c9a9f75ec8cf091a1771272802f2178f0b2e65b7b6ff64f4a30"
   license "PostgreSQL"
-  head "https://github.com/postgres/postgres.git", branch: "master"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    regex(%r{href=["']?v?(14+(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle do
-    sha256 arm64_monterey: "a5e6220e0a3307c9039883a54b58867bccc93e09cc27c701598bf3bfd791e821"
-    sha256 arm64_big_sur:  "0317e7a1b3a3cc5c377e07766009cf4204215757931a95fa4f4e06d56efa13f7"
-    sha256 monterey:       "79424d1734dec0e6df0a88d58c3f2311455e584fc51d5918fea9533e0082ca43"
-    sha256 big_sur:        "329986717572e1d01132bf028007a5450493f07a6713ae4e5e044cf12efd2ef6"
-    sha256 catalina:       "295b1598b158ca020be23a2c7300b2e498046d250193f98dbc065ebded4c6123"
-    sha256 x86_64_linux:   "1250bdb04d8a2f9276b299ff99982147592f0f174145fade4543c8f79876038b"
-  end
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2026-11-12", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
@@ -48,11 +42,9 @@ class Postgresql < Formula
     args = %W[
       --disable-debug
       --prefix=#{prefix}
-      --datadir=#{HOMEBREW_PREFIX}/share/postgresql
-      --libdir=#{HOMEBREW_PREFIX}/lib
-      --includedir=#{HOMEBREW_PREFIX}/include
-      --sysconfdir=#{etc}
-      --docdir=#{doc}
+      --datadir=#{HOMEBREW_PREFIX}/share/#{name}
+      --libdir=#{HOMEBREW_PREFIX}/lib/#{name}
+      --includedir=#{HOMEBREW_PREFIX}/include/#{name}
       --enable-thread-safety
       --with-gssapi
       --with-icu
@@ -64,6 +56,7 @@ class Postgresql < Formula
       --with-pam
       --with-perl
       --with-uuid=e2fs
+      --with-extra-version=\ (#{tap.user})
     ]
     if OS.mac?
       args += %w[
@@ -79,15 +72,15 @@ class Postgresql < Formula
     system "./configure", *args
     system "make"
     system "make", "install-world", "datadir=#{pkgshare}",
-                                    "libdir=#{lib}",
-                                    "pkglibdir=#{lib}/postgresql",
-                                    "includedir=#{include}",
-                                    "pkgincludedir=#{include}/postgresql",
-                                    "includedir_server=#{include}/postgresql/server",
-                                    "includedir_internal=#{include}/postgresql/internal"
+                                    "libdir=#{lib}/#{name}",
+                                    "pkglibdir=#{lib}/#{name}",
+                                    "includedir=#{include}/#{name}",
+                                    "pkgincludedir=#{include}/#{name}",
+                                    "includedir_server=#{include}/#{name}/server",
+                                    "includedir_internal=#{include}/#{name}/internal"
 
     if OS.linux?
-      inreplace lib/"postgresql/pgxs/src/Makefile.global",
+      inreplace lib/name/"pgxs/src/Makefile.global",
                 "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
                 "LD = #{HOMEBREW_PREFIX}/bin/ld"
     end
@@ -104,41 +97,74 @@ class Postgresql < Formula
   end
 
   def postgresql_datadir
-    var/"postgres"
+    if old_postgres_data_dir.exist?
+      old_postgres_data_dir
+    else
+      var/name
+    end
   end
 
   def postgresql_log_path
-    var/"log/postgres.log"
+    var/"log/#{name}.log"
   end
 
   def pg_version_exists?
     (postgresql_datadir/"PG_VERSION").exist?
   end
 
-  def caveats
-    <<~EOS
-      To migrate existing data from a previous major version of PostgreSQL run:
-        brew postgresql-upgrade-database
+  def old_postgres_data_dir
+    var/"postgres"
+  end
 
+  # Figure out what version of PostgreSQL the old data dir is
+  # using
+  def old_postgresql_datadir_version
+    pg_version = old_postgres_data_dir/"PG_VERSION"
+    pg_version.exist? && pg_version.read.chomp
+  end
+
+  def caveats
+    caveats = ""
+
+    # Extract the version from the formula name
+    pg_formula_version = version.major.to_s
+    # ... and check it against the old data dir postgres version number
+    # to see if we need to print a warning re: data dir
+    if old_postgresql_datadir_version == pg_formula_version
+      caveats += <<~EOS
+        Previous versions of postgresql shared the same data directory.
+
+        You can migrate to a versioned data directory by running:
+          mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
+
+        (Make sure PostgreSQL is stopped before executing this command)
+
+      EOS
+    end
+
+    caveats += <<~EOS
       This formula has created a default database cluster with:
         initdb --locale=C -E UTF-8 #{postgresql_datadir}
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
+
+    caveats
   end
 
   service do
-    run [opt_bin/"postgres", "-D", var/"postgres"]
+    run [opt_bin/"postgres", "-D", f.postgresql_datadir]
     keep_alive true
-    log_path var/"log/postgres.log"
-    error_log_path var/"log/postgres.log"
+    log_path f.postgresql_log_path
+    error_log_path f.postgresql_log_path
     working_dir HOMEBREW_PREFIX
   end
 
   test do
-    system "#{bin}/initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
-    assert_equal "#{HOMEBREW_PREFIX}/share/postgresql", shell_output("#{bin}/pg_config --sharedir").chomp
-    assert_equal "#{HOMEBREW_PREFIX}/lib", shell_output("#{bin}/pg_config --libdir").chomp
-    assert_equal "#{HOMEBREW_PREFIX}/lib/postgresql", shell_output("#{bin}/pg_config --pkglibdir").chomp
+    system bin/"initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
+    assert_equal "#{HOMEBREW_PREFIX}/share/#{name}", shell_output("#{bin}/pg_config --sharedir").chomp
+    assert_equal "#{HOMEBREW_PREFIX}/lib/#{name}", shell_output("#{bin}/pg_config --libdir").chomp
+    assert_equal "#{HOMEBREW_PREFIX}/lib/#{name}", shell_output("#{bin}/pg_config --pkglibdir").chomp
+    assert_equal "#{HOMEBREW_PREFIX}/include/#{name}", shell_output("#{bin}/pg_config --includedir").chomp
   end
 end
