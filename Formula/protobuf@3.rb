@@ -17,16 +17,14 @@ class ProtobufAT3 < Formula
   keg_only :versioned_formula
 
   depends_on "python@3.10" => [:build, :test]
-  # The Python3.9 bindings can be removed when Python3.9 is made keg-only.
   depends_on "python@3.9" => [:build, :test]
 
   uses_from_macos "zlib"
 
   def pythons
     deps.map(&:to_formula)
-        .select { |f| f.name.match?(/python@\d\.\d+/) }
-        .map(&:opt_bin)
-        .map { |bin| bin/"python3" }
+        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
@@ -68,6 +66,7 @@ class ProtobufAT3 < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
+
     pythons.each do |python|
       with_env(PYTHONPATH: prefix/Language::Python.site_packages(python)) do
         system python, "-c", "import google.protobuf"
