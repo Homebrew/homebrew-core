@@ -112,7 +112,7 @@ class Mailcatcher < Formula
       when "sqlite"
         system "gem", "install", r.cached_download, "--ignore-dependencies",
                 "--no-document", "--install-dir", libexec, "--",
-                ENV.compiler == :clang ? "--with-cflags=-fdeclspec" : ""
+                (ENV.compiler == :clang) ? "--with-cflags=-fdeclspec" : ""
       when "bundler"
         # bundler is needed only at build-time
       else
