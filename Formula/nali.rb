@@ -19,9 +19,7 @@ class Nali < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
-    (bash_completion/"nali").write Utils.safe_popen_read(bin/"nali", "completion", "bash")
-    (fish_completion/"nali.fish").write Utils.safe_popen_read(bin/"nali", "completion", "fish")
-    (zsh_completion/"_nali").write Utils.safe_popen_read(bin/"nali", "completion", "zsh")
+    generate_completions_from_executable(bin/"nali", "completion")
   end
 
   test do
