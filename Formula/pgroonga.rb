@@ -4,6 +4,7 @@ class Pgroonga < Formula
   url "https://packages.groonga.org/source/pgroonga/pgroonga-2.3.8.tar.gz"
   sha256 "ff1967c2750c5bb26e51c4a76545789ea08572b7c60ef5d3a33ec82729070862"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://packages.groonga.org/source/pgroonga/"
@@ -21,9 +22,15 @@ class Pgroonga < Formula
 
   depends_on "pkg-config" => :build
   depends_on "groonga"
-  depends_on "postgresql"
+  depends_on "postgresql@14"
+
+  def postgresql
+    Formula["postgresql@14"]
+  end
 
   def install
+    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
+
     system "make"
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
@@ -35,7 +42,21 @@ class Pgroonga < Formula
   end
 
   test do
-    expected = "PGroonga database management module"
-    assert_match expected, (share/"postgresql/extension/pgroonga_database.control").read
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
+    port = free_port
+
+    system pg_ctl, "initdb", "-D", testpath/"test"
+    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
+
+      shared_preload_libraries = 'pgroonga'
+      port = #{port}
+    EOS
+    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    begin
+      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"pgroonga\";", "postgres"
+    ensure
+      system pg_ctl, "stop", "-D", testpath/"test"
+    end
   end
 end
