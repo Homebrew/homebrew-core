@@ -31,9 +31,7 @@ class Pulumi < Formula
     bin.install Dir["#{ENV["GOPATH"]}/bin/pulumi*"]
 
     # Install shell completions
-    (bash_completion/"pulumi.bash").write Utils.safe_popen_read(bin/"pulumi", "gen-completion", "bash")
-    (zsh_completion/"_pulumi").write Utils.safe_popen_read(bin/"pulumi", "gen-completion", "zsh")
-    (fish_completion/"pulumi.fish").write Utils.safe_popen_read(bin/"pulumi", "gen-completion", "fish")
+    generate_completions_from_executable(bin/"pulumi", "gen-completion")
   end
 
   test do
