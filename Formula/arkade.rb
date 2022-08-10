@@ -32,9 +32,7 @@ class Arkade < Formula
 
     bin.install_symlink "arkade" => "ark"
 
-    (zsh_completion/"_arkade").write Utils.safe_popen_read(bin/"arkade", "completion", "zsh")
-    (bash_completion/"arkade").write Utils.safe_popen_read(bin/"arkade", "completion", "bash")
-    (fish_completion/"arkade.fish").write Utils.safe_popen_read(bin/"arkade", "completion", "fish")
+    generate_completions_from_executable(bin/"arkade", "completion")
     # make zsh completion also work for `ark` symlink
     inreplace zsh_completion/"_arkade", "#compdef arkade", "#compdef arkade ark=arkade"
   end
