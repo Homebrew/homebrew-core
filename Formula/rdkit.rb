@@ -4,7 +4,7 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/Release_2022_03_5.tar.gz"
   sha256 "38e6fb9f063b6132310f17e654f2c4350876f9164b0a17b49fe3df7d0555a744"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -31,13 +31,17 @@ class Rdkit < Formula
   depends_on "eigen"
   depends_on "freetype"
   depends_on "numpy"
-  depends_on "postgresql"
+  depends_on "postgresql@14"
   depends_on "py3cairo"
   depends_on "python@3.10"
 
   def python
     deps.map(&:to_formula)
         .find { |f| f.name.match?(/^python@\d\.\d+$/) }
+  end
+
+  def postgresql
+    Formula["postgresql@14"]
   end
 
   def install
@@ -57,6 +61,10 @@ class Rdkit < Formula
     py3include = py3prefix/"include/python#{py3ver}"
     site_packages = Language::Python.site_packages(python_executable)
     numpy_include = Formula["numpy"].opt_prefix/site_packages/"numpy/core/include"
+
+    pg_config = postgresql.opt_bin/"pg_config"
+    postgresql_lib = Utils.safe_popen_read(pg_config, "--pkglibdir").chomp
+    postgresql_include = Utils.safe_popen_read(pg_config, "--includedir-server").chomp
 
     # set -DMAEPARSER and COORDGEN_FORCE_BUILD=ON to avoid conflicts with some formulae i.e. open-babel
     args = %W[
@@ -78,6 +86,8 @@ class Rdkit < Formula
       -DPYTHON_INCLUDE_DIR=#{py3include}
       -DPYTHON_EXECUTABLE=#{python_executable}
       -DPYTHON_NUMPY_INCLUDE_PATH=#{numpy_include}
+      -DPostgreSQL_LIBRARY=#{postgresql_lib}
+      -DPostgreSQL_INCLUDE_DIR=#{postgresql_include}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
