@@ -32,9 +32,7 @@ class MongodbAtlasCli < Formula
     end
     bin.install "bin/atlas"
 
-    (bash_completion/"atlas").write Utils.safe_popen_read(bin/"atlas", "completion", "bash")
-    (fish_completion/"atlas.fish").write Utils.safe_popen_read(bin/"atlas", "completion", "fish")
-    (zsh_completion/"_atlas").write Utils.safe_popen_read(bin/"atlas", "completion", "zsh")
+    generate_completions_from_executable(bin/"atlas", "completion", base_name: "atlas")
   end
 
   test do
