@@ -4,6 +4,7 @@ class PgCron < Formula
   url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.4.2.tar.gz"
   sha256 "3652722ea98d94d8e27bf5e708dd7359f55a818a43550d046c5064c98876f1a8"
   license "PostgreSQL"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f6fcd81a5ec19b8b509025cb119aad529c3cb2a903c03a9ba7f3eb8048f4ddfb"
@@ -14,35 +15,37 @@ class PgCron < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3d6023e5fa0efd86869d27265a919c6d69dda937890e95c5d052f7a871dd4c8"
   end
 
-  depends_on "postgresql"
+  depends_on "postgresql@14"
+
+  def postgresql
+    Formula["postgresql@14"]
+  end
 
   def install
+    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
+
     system "make"
-    (lib/"postgresql").install "pg_cron.so"
-    (share/"postgresql/extension").install Dir["pg_cron--*.sql"]
-    (share/"postgresql/extension").install "pg_cron.control"
+    (lib/postgresql.name).install "pg_cron.so"
+    (share/postgresql.name/"extension").install Dir["pg_cron--*.sql"]
+    (share/postgresql.name/"extension").install "pg_cron.control"
   end
 
   test do
-    # Testing steps:
-    # - create new temporary postgres database
-    system "pg_ctl", "initdb", "-D", testpath/"test"
-
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
     port = free_port
-    # - enable pg_cron in temporary database
+
+    system pg_ctl, "initdb", "-D", testpath/"test"
     (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
 
       shared_preload_libraries = 'pg_cron'
       port = #{port}
     EOS
-
-    # - restart temporary postgres
-    system "pg_ctl", "start", "-D", testpath/"test", "-l", testpath/"log"
-
-    # - run "CREATE EXTENSION pg_cron;" in temp database
-    system "psql", "-p", port.to_s, "-c", "CREATE EXTENSION pg_cron;", "postgres"
-
-    # - shutdown temp postgres
-    system "pg_ctl", "stop", "-D", testpath/"test"
+    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    begin
+      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"pg_cron\";", "postgres"
+    ensure
+      system pg_ctl, "stop", "-D", testpath/"test"
+    end
   end
 end
