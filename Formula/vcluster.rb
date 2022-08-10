@@ -28,8 +28,7 @@ class Vcluster < Formula
       -X main.version=#{version}
     ]
     system "go", "build", "-mod", "vendor", *std_go_args(ldflags: ldflags), "./cmd/vclusterctl/main.go"
-    (zsh_completion/"_vcluster").write Utils.safe_popen_read(bin/"vcluster", "completion", "zsh")
-    (bash_completion/"vcluster").write Utils.safe_popen_read(bin/"vcluster", "completion", "bash")
+    generate_completions_from_executable(bin/"vcluster", "completion", shells: [:zsh, :bash])
   end
 
   test do
