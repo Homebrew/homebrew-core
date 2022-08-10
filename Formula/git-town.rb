@@ -25,9 +25,7 @@ class GitTown < Formula
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     # Install shell completions
-    (bash_completion/"git-town").write Utils.safe_popen_read(bin/"git-town", "completions", "bash")
-    (zsh_completion/"_git-town").write Utils.safe_popen_read(bin/"git-town", "completions", "zsh")
-    (fish_completion/"git-town.fish").write Utils.safe_popen_read(bin/"git-town", "completions", "fish")
+    generate_completions_from_executable(bin/"git-town", "completions")
   end
 
   test do
