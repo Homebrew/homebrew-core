@@ -14,7 +14,7 @@ class Cpptoml < Formula
 
   def install
     args = %W[
-      -DENABLE_LIBCXX=#{ENV.compiler == :clang ? "ON" : "OFF"}
+      -DENABLE_LIBCXX=#{(ENV.compiler == :clang) ? "ON" : "OFF"}
       -DCPPTOML_BUILD_EXAMPLES=OFF
     ]
 
