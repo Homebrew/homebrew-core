@@ -372,6 +372,13 @@ class PythonAT39 < Formula
       include_dirs=#{include_dirs.join ":"}
       library_dirs=#{library_dirs.join ":"}
     EOS
+
+    # setuptools 63.2.0+ breaks when used inside superenv.
+    # https://github.com/pypa/distutils/pull/155
+    # https://github.com/pypa/distutils/issues/158
+    inreplace site_packages/"setuptools/_distutils/command/_framework_compat.py",
+              /^(\s+homebrew_prefix\s+=\s+).*/,
+              "\\1'#{HOMEBREW_PREFIX}'"
   end
 
   def sitecustomize
