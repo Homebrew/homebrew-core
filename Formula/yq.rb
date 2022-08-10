@@ -29,9 +29,7 @@ class Yq < Formula
     system "go", "build", *std_go_args(ldflags: "-s -w")
 
     # Install shell completions
-    (bash_completion/"yq").write Utils.safe_popen_read(bin/"yq", "shell-completion", "bash")
-    (zsh_completion/"_yq").write Utils.safe_popen_read(bin/"yq", "shell-completion", "zsh")
-    (fish_completion/"yq.fish").write Utils.safe_popen_read(bin/"yq", "shell-completion", "fish")
+    generate_completions_from_executable(bin/"yq", "shell-completion")
 
     # Install man pages
     system "./scripts/generate-man-page-md.sh"
