@@ -5,6 +5,7 @@ class Coccinelle < Formula
       tag:      "1.1.1",
       revision: "5444e14106ff17404e63d7824b9eba3c0e7139ba"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/coccinelle/coccinelle.git", branch: "master"
 
   livecheck do
@@ -60,7 +61,8 @@ class Coccinelle < Formula
                             "--enable-ocaml",
                             "--enable-opt",
                             "--with-pdflatex=no",
-                            "--prefix=#{prefix}"
+                            "--prefix=#{prefix}",
+                            "--libdir=#{lib}"
       ENV.deparallelize
       system "opam", "config", "exec", "--", "make"
       system "make", "install"
