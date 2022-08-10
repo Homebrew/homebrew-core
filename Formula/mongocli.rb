@@ -31,9 +31,7 @@ class Mongocli < Formula
     end
     bin.install "bin/mongocli"
 
-    (bash_completion/"mongocli").write Utils.safe_popen_read(bin/"mongocli", "completion", "bash")
-    (fish_completion/"mongocli.fish").write Utils.safe_popen_read(bin/"mongocli", "completion", "fish")
-    (zsh_completion/"_mongocli").write Utils.safe_popen_read(bin/"mongocli", "completion", "zsh")
+    generate_completions_from_executable(bin/"mongocli", "completion")
   end
 
   test do
