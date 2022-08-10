@@ -32,9 +32,7 @@ class K3sup < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    (bash_completion/"k3sup").write Utils.safe_popen_read(bin/"k3sup", "completion", "bash")
-    (zsh_completion/"_k3sup").write Utils.safe_popen_read(bin/"k3sup", "completion", "zsh")
-    (fish_completion/"k3sup.fish").write Utils.safe_popen_read(bin/"k3sup", "completion", "fish")
+    generate_completions_from_executable(bin/"k3sup", "completion")
   end
 
   test do
