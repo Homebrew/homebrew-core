@@ -1,10 +1,11 @@
 class Xsane < Formula
   desc "Graphical scanning frontend"
-  homepage "https://wiki.ubuntuusers.de/XSane/"
+  homepage "https://gitlab.com/sane-project/frontend/xsane"
   url "https://ftp.osuosl.org/pub/blfs/conglomeration/xsane/xsane-0.999.tar.gz"
   mirror "https://fossies.org/linux/misc/xsane-0.999.tar.gz"
   sha256 "5782d23e67dc961c81eef13a87b17eb0144cae3d1ffc5cf7e0322da751482b4b"
-  revision 4
+  license "GPL-2.0-or-later"
+  revision 5
 
   livecheck do
     url "https://ftp.osuosl.org/pub/blfs/conglomeration/xsane/"
@@ -25,6 +26,9 @@ class Xsane < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
+  depends_on "libtiff"
   depends_on "sane-backends"
 
   # Needed to compile against libpng 1.5, Project appears to be dead.
