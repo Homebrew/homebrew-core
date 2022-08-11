@@ -27,12 +27,7 @@ class Kops < Formula
     ldflags = "-s -w -X k8s.io/kops.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "k8s.io/kops/cmd/kops"
 
-    bash_output = Utils.safe_popen_read(bin/"kops", "completion", "bash")
-    (bash_completion/"kops").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"kops", "completion", "zsh")
-    (zsh_completion/"_kops").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"kops", "completion", "fish")
-    (fish_completion/"kops.fish").write fish_output
+    generate_completions_from_executable(bin/"kops", "completion")
   end
 
   test do
