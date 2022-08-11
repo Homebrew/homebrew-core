@@ -1,8 +1,8 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "https://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/13.0.0/bacula-13.0.0.tar.gz"
-  sha256 "4119d48bbfe1518b3224a88e7365c2fa5f7d1679c815e7d15f26631883a8a0c6"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/13.0.1/bacula-13.0.1.tar.gz"
+  sha256 "d63848d695ac15c1ccfc117892753314bcb9232a852c40e32cca88c0e918978a"
 
   bottle do
     sha256                               arm64_monterey: "5ce02dd71c35475c7ce92c54c45e8617b2e5935418317619fda4f5713daf82a3"
