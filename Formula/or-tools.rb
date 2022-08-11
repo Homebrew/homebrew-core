@@ -2,19 +2,11 @@ class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   stable do
-    url "https://github.com/google/or-tools/archive/v9.3.tar.gz"
-    sha256 "6fe981326563136fbb7a697547dc0fe6495914b5b42df559c2d88b35f6bcc661"
-
-    # Allow building with `re2` formula rather than bundled & patched copy.
-    # TODO: remove in the next release
-    patch do
-      url "https://github.com/google/or-tools/commit/0d3572bda874ce30b35af161a713ecd1793cd296.patch?full_index=1"
-      sha256 "b15dcbaf130ce1e6f51dccfd2e97e92ad43694e3019d2179a9c1765909b7ffb8"
-    end
+    url "https://github.com/google/or-tools/archive/v9.4.tar.gz"
+    sha256 "180fbc45f6e5ce5ff153bea2df0df59b15346f2a7f8ffbd7cb4aed0fb484b8f6"
   end
 
   livecheck do
