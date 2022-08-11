@@ -5,6 +5,11 @@ class CargoCrev < Formula
   sha256 "b37ca10e252bcd352634aed7ea366dfa84900446dbd74888f3178c0c10068d10"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ede0b15fa734e7730c69fbc3a4550ab6b6b960a33c345f98e8fd978b16bc1e88"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a62e0e3f0295fd02f155bb97e2eaad9aee0f42ad9fb8aeb5c99ca1028a6726d0"
