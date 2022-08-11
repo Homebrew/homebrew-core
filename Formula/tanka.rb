@@ -25,8 +25,12 @@ class Tanka < Formula
   depends_on "kubernetes-cli"
 
   def install
-    system "make", "static"
-    bin.install "tk"
+    ENV["CGO_ENABLED"] = 0
+    ldflags = %W[
+      -s -w
+      -X github.com/grafana/tanka/pkg/tanka.CURRENT_VERSION=#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" "), output: bin/"tk"), "./cmd/tk"
   end
 
   test do
