@@ -32,14 +32,7 @@ class ArduinoCli < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "bash")
-    (bash_completion/"arduino-cli").write output
-
-    output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "zsh")
-    (zsh_completion/"_arduino-cli").write output
-
-    output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "fish")
-    (fish_completion/"arduino-cli.fish").write output
+    generate_completions_from_executable(bin/"arduino-cli", "completion")
   end
 
   test do
