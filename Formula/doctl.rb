@@ -28,9 +28,7 @@ class Doctl < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/doctl"
 
-    (bash_completion/"doctl").write `#{bin}/doctl completion bash`
-    (zsh_completion/"_doctl").write `#{bin}/doctl completion zsh`
-    (fish_completion/"doctl.fish").write `#{bin}/doctl completion fish`
+    generate_completions_from_executable(bin/"doctl", "completion")
   end
 
   test do
