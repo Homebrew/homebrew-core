@@ -19,12 +19,7 @@ class Zellij < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_output = Utils.safe_popen_read(bin/"zellij", "setup", "--generate-completion", "bash")
-    (bash_completion/"zellij").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"zellij", "setup", "--generate-completion", "zsh")
-    (zsh_completion/"_zellij").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"zellij", "setup", "--generate-completion", "fish")
-    (fish_completion/"zellij.fish").write fish_output
+    generate_completions_from_executable(bin/"zellij", "setup", "--generate-completion")
   end
 
   test do
