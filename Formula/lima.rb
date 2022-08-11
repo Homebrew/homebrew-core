@@ -25,12 +25,7 @@ class Lima < Formula
     share.install Dir["_output/share/*"]
 
     # Install shell completions
-    output = Utils.safe_popen_read("#{bin}/limactl", "completion", "bash")
-    (bash_completion/"limactl").write output
-    output = Utils.safe_popen_read("#{bin}/limactl", "completion", "zsh")
-    (zsh_completion/"_limactl").write output
-    output = Utils.safe_popen_read("#{bin}/limactl", "completion", "fish")
-    (fish_completion/"limactl.fish").write output
+    generate_completions_from_executable(bin/"limactl", "completion", base_name: "limactl")
   end
 
   test do
