@@ -24,14 +24,7 @@ class Minikube < Formula
     system "make"
     bin.install "out/minikube"
 
-    output = Utils.safe_popen_read(bin/"minikube", "completion", "bash")
-    (bash_completion/"minikube").write output
-
-    output = Utils.safe_popen_read(bin/"minikube", "completion", "zsh")
-    (zsh_completion/"_minikube").write output
-
-    output = Utils.safe_popen_read(bin/"minikube", "completion", "fish")
-    (fish_completion/"minikube.fish").write output
+    generate_completions_from_executable(bin/"minikube", "completion")
   end
 
   test do
