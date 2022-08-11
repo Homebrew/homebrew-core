@@ -1,9 +1,9 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.4.7.8.tar.gz"
-  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.7.8.tar.gz"
-  sha256 "9e9a5c67ad2acdd5f0f8be14ed591fed076b1708abf8344066990a0fa66fe195"
+  url "https://www.torproject.org/dist/tor-0.4.7.9.tar.gz"
+  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.7.9.tar.gz"
+  sha256 "d39d38598208f4d6201d7edc6ad573b3a898a932a5c68d3074016a9525519b22"
   # Complete list of licenses:
   # https://gitweb.torproject.org/tor.git/plain/LICENSE
   license all_of: [
@@ -30,7 +30,7 @@ class Tor < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "libscrypt"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -41,7 +41,7 @@ class Tor < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --with-openssl-dir=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl-dir=#{Formula["openssl@3"].opt_prefix}
     ]
 
     system "./configure", *args
