@@ -28,14 +28,7 @@ class Starship < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_output = Utils.safe_popen_read("#{bin}/starship", "completions", "bash")
-    (bash_completion/"starship").write bash_output
-
-    zsh_output = Utils.safe_popen_read("#{bin}/starship", "completions", "zsh")
-    (zsh_completion/"_starship").write zsh_output
-
-    fish_output = Utils.safe_popen_read("#{bin}/starship", "completions", "fish")
-    (fish_completion/"starship.fish").write fish_output
+    generate_completions_from_executable(bin/"starship", "completions")
   end
 
   test do
