@@ -21,17 +21,7 @@ class KtConnect < Formula
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"ktctl"), "./cmd/ktctl"
 
-    # Install bash completion
-    output = Utils.safe_popen_read(bin/"ktctl", "completion", "bash")
-    (bash_completion/"ktctl").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(bin/"ktctl", "completion", "zsh")
-    (zsh_completion/"_ktctl").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"ktctl", "completion", "fish")
-    (fish_completion/"ktctl.fish").write output
+    generate_completions_from_executable(bin/"ktctl", "completion", base_name: "ktctl")
   end
 
   test do
