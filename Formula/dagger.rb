@@ -28,14 +28,7 @@ class Dagger < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/dagger"
 
-    output = Utils.safe_popen_read(bin/"dagger", "completion", "bash")
-    (bash_completion/"dagger").write output
-
-    output = Utils.safe_popen_read(bin/"dagger", "completion", "zsh")
-    (zsh_completion/"_dagger").write output
-
-    output = Utils.safe_popen_read(bin/"dagger", "completion", "fish")
-    (fish_completion/"dagger.fish").write output
+    generate_completions_from_executable(bin/"dagger", "completion")
   end
 
   test do
