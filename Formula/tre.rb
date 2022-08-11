@@ -3,6 +3,12 @@ class Tre < Formula
   homepage "https://laurikari.net/tre/"
   url "https://laurikari.net/tre/tre-0.8.0.tar.bz2"
   sha256 "8dc642c2cde02b2dac6802cdbe2cda201daf79c4ebcbb3ea133915edf1636658"
+  license "BSD-2-Clause"
+
+  livecheck do
+    url "https://laurikari.net/tre/download/"
+    regex(/href=.*?tre[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "eed6c3c934fdeb27988331fe31137cd3849a46c877ff05e614f544e140ff9ab8"
