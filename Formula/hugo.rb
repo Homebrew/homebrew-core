@@ -20,17 +20,7 @@ class Hugo < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags", "extended"
 
-    # Install bash completion
-    output = Utils.safe_popen_read(bin/"hugo", "completion", "bash")
-    (bash_completion/"hugo").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(bin/"hugo", "completion", "zsh")
-    (zsh_completion/"_hugo").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"hugo", "completion", "fish")
-    (fish_completion/"hugo.fish").write output
+    generate_completions_from_executable(bin/"hugo", "completion")
 
     # Build man pages; target dir man/ is hardcoded :(
     (Pathname.pwd/"man").mkpath
