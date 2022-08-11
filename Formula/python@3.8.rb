@@ -69,10 +69,10 @@ class PythonAT38 < Formula
 
   def lib_cellar
     on_macos do
-      return prefix/"Frameworks/Python.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}"
+      return frameworks/"Python.framework/Versions"/version.major_minor/"lib/python#{version.major_minor}"
     end
     on_linux do
-      return prefix/"lib/python#{version.major_minor}"
+      return lib/"python#{version.major_minor}"
     end
   end
 
@@ -83,6 +83,10 @@ class PythonAT38 < Formula
   # The HOMEBREW_PREFIX location of site-packages.
   def site_packages
     HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"
+  end
+
+  def python3
+    bin/"python#{version.major_minor}"
   end
 
   def install
@@ -145,7 +149,7 @@ class PythonAT38 < Formula
     # superenv makes cc always find includes/libs!
     inreplace "setup.py",
       "do_readline = self.compiler.find_library_file(self.lib_dirs, 'readline')",
-      "do_readline = '#{Formula["readline"].opt_lib}/#{shared_library("libhistory")}'"
+      "do_readline = '#{Formula["readline"].opt_lib/shared_library("libhistory")}'"
 
     inreplace "setup.py" do |s|
       s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
@@ -159,9 +163,8 @@ class PythonAT38 < Formula
       # a 32-bit system ncurses (conflicts with the brewed 64-bit one).
       # See https://github.com/Homebrew/linuxbrew-core/pull/22307#issuecomment-781896552
       # We want our ncurses! Override system ncurses includes!
-      inreplace "configure",
-        'CPPFLAGS="$CPPFLAGS -I/usr/include/ncursesw"',
-        "CPPFLAGS=\"$CPPFLAGS -I#{Formula["ncurses"].opt_include}\""
+      inreplace "configure", 'CPPFLAGS="$CPPFLAGS -I/usr/include/ncursesw"',
+                             "CPPFLAGS=\"$CPPFLAGS -I#{Formula["ncurses"].opt_include}\""
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -192,23 +195,30 @@ class PythonAT38 < Formula
       system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
     end
 
-    # Any .app get a " 3" attached, so it does not conflict with python 2.x.
-    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
-
     if OS.mac?
+      # Any .app get a " 3" attached, so it does not conflict with python 2.x.
+      prefix.glob("*.app") { |app| mv app, app.to_s.sub(/\.app$/, " 3.app") }
+
+      pc_dir = frameworks/"Python.framework/Versions"/version.major_minor/"lib/pkgconfig"
+      # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
+      (lib/"pkgconfig").install_symlink pc_dir.children
+
       # Prevent third-party packages from building against fragile Cellar paths
-      inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py",
-                    lib_cellar/"config*/Makefile",
-                    frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3.?.pc"],
-                prefix, opt_prefix
+      bad_cellar_path_files = [
+        lib_cellar/"_sysconfigdata__darwin_darwin.py",
+        lib_cellar/"config-#{version.major_minor}-darwin/Makefile",
+        pc_dir/"python-#{version.major_minor}.pc",
+        pc_dir/"python-#{version.major_minor}-embed.pc",
+      ]
+      inreplace bad_cellar_path_files, prefix, opt_prefix
 
       # Help third-party packages find the Python framework
-      inreplace Dir[lib_cellar/"config*/Makefile"],
+      inreplace lib_cellar/"config-#{version.major_minor}-darwin/Makefile",
                 /^LINKFORSHARED=(.*)PYTHONFRAMEWORKDIR(.*)/,
                 "LINKFORSHARED=\\1PYTHONFRAMEWORKINSTALLDIR\\2"
 
       # Fix for https://github.com/Homebrew/homebrew-core/issues/21212
-      inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py"],
+      inreplace lib_cellar/"_sysconfigdata__darwin_darwin.py",
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
 
@@ -229,9 +239,6 @@ class PythonAT38 < Formula
       # Remove symlinks that conflict with the main Python formula.
       rm lib/"libpython3.so"
     end
-
-    # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
-    (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/#{version.major_minor}/lib/pkgconfig/*"]
 
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
@@ -274,7 +281,7 @@ class PythonAT38 < Formula
     site_packages_cellar.parent.install_symlink site_packages
 
     # Write our sitecustomize.py
-    rm_rf Dir["#{site_packages}/sitecustomize.py[co]"]
+    rm_rf site_packages.glob("sitecustomize.py[co]")
     (site_packages/"sitecustomize.py").atomic_write(sitecustomize)
 
     # Remove old setuptools installations that may still fly around and be
@@ -287,11 +294,11 @@ class PythonAT38 < Formula
 
     %w[setuptools pip wheel].each do |pkg|
       (libexec/pkg).cd do
-        system bin/"python#{version.major_minor}", "-s", "setup.py", "--no-user-cfg", "install",
-               "--force", "--verbose", "--install-scripts=#{bin}",
-               "--install-lib=#{site_packages}",
-               "--single-version-externally-managed",
-               "--record=installed.txt"
+        system python3, "-s", "setup.py", "--no-user-cfg", "install",
+                        "--force", "--verbose", "--install-scripts=#{bin}",
+                        "--install-lib=#{site_packages}",
+                        "--single-version-externally-managed",
+                        "--record=installed.txt"
       end
     end
 
@@ -378,7 +385,7 @@ class PythonAT38 < Formula
       You can install Python packages with
         pip#{version.major_minor} install <package>
       They will install into the site-package directory
-        #{HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"}
+        #{HOMEBREW_PREFIX}/lib/python#{version.major_minor}/site-packages
 
       If you do not need a specific version of Python, and always want Homebrew's `python3` in your PATH:
         brew install python3
@@ -390,21 +397,21 @@ class PythonAT38 < Formula
   test do
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
-    system "#{bin}/python#{version.major_minor}", "-c", "import sqlite3"
+    system python3, "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python#{version.major_minor}", "-c", "import _decimal"
-    system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
-    system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
-    system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()" if OS.mac?
+    system python3, "-c", "import _decimal"
+    system python3, "-c", "import _gdbm"
+    system python3, "-c", "import zlib"
+    system python3, "-c", "import tkinter; root = tkinter.Tk()" if OS.mac?
 
     system bin/"pip#{version.major_minor}", "list", "--format=columns"
 
     if OS.mac?
       assert_match "#{opt_frameworks}/Python.framework/Versions/#{version.major_minor}",
-                         shell_output("#{bin}/python#{version.major_minor}-config --prefix")
+                   shell_output("#{bin}/python#{version.major_minor}-config --prefix")
     else
       assert_match opt_prefix.to_s,
-                         shell_output("#{bin}/python#{version.major_minor}-config --prefix")
+                   shell_output("#{bin}/python#{version.major_minor}-config --prefix")
       assert_match opt_lib.to_s,
                    shell_output("#{bin}/python#{version.major_minor}-config --ldflags")
     end
