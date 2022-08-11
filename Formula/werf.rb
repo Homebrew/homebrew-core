@@ -32,12 +32,7 @@ class Werf < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags), "-tags", tags, "./cmd/werf"
 
-    bash_output = Utils.safe_popen_read(bin/"werf", "completion", "bash")
-    (bash_completion/"werf").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"werf", "completion", "zsh")
-    (zsh_completion/"_werf").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"werf", "completion", "fish")
-    (fish_completion/"werf.fish").write fish_output
+    generate_completions_from_executable(bin/"werf", "completion")
   end
 
   test do
