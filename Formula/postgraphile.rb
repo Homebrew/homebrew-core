@@ -6,6 +6,7 @@ class Postgraphile < Formula
   url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.12.11.tgz"
   sha256 "553191171d304b35846d8fc8c40beace5649f85982d4363da13b992fd2aad3d3"
   license "MIT"
+  revision 1
   head "https://github.com/graphile/postgraphile.git", branch: "main"
 
   bottle do
@@ -17,8 +18,9 @@ class Postgraphile < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "079f749387e1b4e48a548f89be058aeb148633e8dfa4b52033a2240c63109920"
   end
 
+  depends_on "postgresql" => :test
+  depends_on "libpq"
   depends_on "node"
-  depends_on "postgresql"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
