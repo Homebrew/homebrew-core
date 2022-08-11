@@ -24,7 +24,8 @@ class Pandoc < Formula
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
-    (bash_completion/"pandoc").write `#{bin}/pandoc --bash-completion`
+    generate_completions_from_executable(bin/"pandoc", "--bash-completion",
+                                         shells: [:bash], shell_parameter_format: :none)
     man1.install "man/pandoc.1"
   end
 
