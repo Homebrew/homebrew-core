@@ -20,12 +20,7 @@ class Cue < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X cuelang.org/go/cmd/cue/cmd.version=v#{version}"), "./cmd/cue"
 
-    bash_output = Utils.safe_popen_read(bin/"cue", "completion", "bash")
-    (bash_completion/"cue").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"cue", "completion", "zsh")
-    (zsh_completion/"_cue").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"cue", "completion", "fish")
-    (fish_completion/"cue.fish").write fish_output
+    generate_completions_from_executable(bin/"cue", "completion")
   end
 
   test do
