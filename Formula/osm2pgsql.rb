@@ -4,7 +4,7 @@ class Osm2pgsql < Formula
   url "https://github.com/openstreetmap/osm2pgsql/archive/1.6.0.tar.gz"
   sha256 "0ec8b58ab972ac8356185af4161270c1b625a77299f09e5fb7f45e616ef1a9a5"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
   head "https://github.com/openstreetmap/osm2pgsql.git", branch: "master"
 
   bottle do
@@ -20,9 +20,11 @@ class Osm2pgsql < Formula
   depends_on "lua" => :build
   depends_on "boost"
   depends_on "geos"
-  depends_on "luajit-openresty"
-  depends_on "postgresql"
+  depends_on "libpq"
+  depends_on "luajit"
   depends_on "proj"
+
+  uses_from_macos "expat"
 
   def install
     # This is essentially a CMake disrespects superenv problem
