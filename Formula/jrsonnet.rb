@@ -28,12 +28,12 @@ class Jrsonnet < Formula
       system "cargo", "install", *std_cargo_args
     end
 
-    bash_output = Utils.safe_popen_read(bin/"jrsonnet", "--generate", "bash", "-")
-    (bash_completion/"jrsonnet").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"jrsonnet", "--generate", "zsh", "-")
-    (zsh_completion/"_jrsonnet").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"jrsonnet", "--generate", "fish", "-")
-    (fish_completion/"jrsonnet.fish").write fish_output
+    generate_completions_from_executable(bin/"jrsonnet", "--generate", "bash", "-",
+                                         shells: [:bash], shell_parameter_format: :none)
+    generate_completions_from_executable(bin/"jrsonnet", "--generate", "zsh", "-",
+                                         shells: [:zsh], shell_parameter_format: :none)
+    generate_completions_from_executable(bin/"jrsonnet", "--generate", "fish", "-",
+                                         shells: [:fish], shell_parameter_format: :none)
   end
 
   test do
