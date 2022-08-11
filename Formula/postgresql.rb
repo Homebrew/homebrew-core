@@ -69,6 +69,7 @@ class Postgresql < Formula
       args += %w[
         --with-bonjour
         --with-tcl
+        --with-python
       ]
     end
 
