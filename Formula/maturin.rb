@@ -21,12 +21,7 @@ class Maturin < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_output = Utils.safe_popen_read(bin/"maturin", "completions", "bash")
-    (bash_completion/"maturin").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"maturin", "completions", "zsh")
-    (zsh_completion/"_maturin").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"maturin", "completions", "fish")
-    (fish_completion/"maturin.fish").write fish_output
+    generate_completions_from_executable(bin/"maturin", "completions")
   end
 
   test do
