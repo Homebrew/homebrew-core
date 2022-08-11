@@ -20,14 +20,7 @@ class SSearch < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/"s"
 
-    output = Utils.safe_popen_read("#{bin}/s", "--completion", "bash")
-    (bash_completion/"s-completion.bash").write output
-
-    output = Utils.safe_popen_read("#{bin}/s", "--completion", "zsh")
-    (zsh_completion/"_s").write output
-
-    output = Utils.safe_popen_read("#{bin}/s", "--completion", "fish")
-    (fish_completion/"s.fish").write output
+    generate_completions_from_executable(bin/"s", "--completion", base_name: "s")
   end
 
   test do
