@@ -4,7 +4,7 @@ class Osm2pgrouting < Formula
   url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.8.tar.gz"
   sha256 "e3a58bcacf0c8811e0dcf3cf3791a4a7cc5ea2a901276133eacf227b30fd8355"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/pgRouting/osm2pgrouting.git", branch: "main"
 
   bottle do
@@ -19,10 +19,10 @@ class Osm2pgrouting < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "expat"
+  depends_on "libpq"
   depends_on "libpqxx"
   depends_on "pgrouting"
   depends_on "postgis"
-  depends_on "postgresql"
 
   on_linux do
     depends_on "gcc"
