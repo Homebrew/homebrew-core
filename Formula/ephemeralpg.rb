@@ -4,6 +4,7 @@ class Ephemeralpg < Formula
   url "https://eradman.com/ephemeralpg/code/ephemeralpg-3.2.tar.gz"
   sha256 "c07df30687191dc632460d96997561d0adfc32b198f3b59b14081783f4a1b95d"
   license "ISC"
+  revision 1
 
   livecheck do
     url "https://eradman.com/ephemeralpg/code/"
@@ -19,7 +20,7 @@ class Ephemeralpg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "476f081d37f2ea07c6f196b27190943b51e2f8d68a0c5775fd943b0078de9a56"
   end
 
-  depends_on "postgresql"
+  depends_on "libpq"
 
   def install
     system "make"
