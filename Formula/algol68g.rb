@@ -7,6 +7,7 @@ class Algol68g < Formula
   mirror "https://jmvdveer.home.xs4all.nl/algol68g-2.8.5.tar.gz"
   sha256 "0f757c64a8342fe38ec501bde68b61d26d051dffd45742ca58b7288a99c7e2d8"
   license "GPL-3.0-or-later"
+  revision 1
 
   # The homepage hasn't been updated for the latest release (2.8.5), even though
   # the related archive is available on the site. Until the website is updated
@@ -29,7 +30,7 @@ class Algol68g < Formula
   end
 
   on_linux do
-    depends_on "postgresql"
+    depends_on "libpq"
   end
 
   def install
