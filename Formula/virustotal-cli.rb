@@ -22,11 +22,7 @@ class VirustotalCli < Formula
             "-X cmd.Version=#{version}",
             "-o", bin/"vt", "./vt/main.go"
 
-    output = Utils.safe_popen_read("#{bin}/vt", "completion", "bash")
-    (bash_completion/"vt").write output
-
-    output = Utils.safe_popen_read("#{bin}/vt", "completion", "zsh")
-    (zsh_completion/"_vt").write output
+    generate_completions_from_executable(bin/"vt", "completion", base_name: "vt", shells: [:bash, :zsh])
   end
 
   test do
