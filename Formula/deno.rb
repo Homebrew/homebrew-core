@@ -119,12 +119,7 @@ class Deno < Formula
     # Issue ref: https://github.com/denoland/deno/issues/9244
     system "cargo", "install", "-vv", "-j1", *std_cargo_args(path: "cli")
 
-    bash_output = Utils.safe_popen_read(bin/"deno", "completions", "bash")
-    (bash_completion/"deno").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"deno", "completions", "zsh")
-    (zsh_completion/"_deno").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"deno", "completions", "fish")
-    (fish_completion/"deno.fish").write fish_output
+    generate_completions_from_executable(bin/"deno", "completions")
   end
 
   test do
