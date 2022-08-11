@@ -20,9 +20,7 @@ class Autorestic < Formula
 
   def install
     system "go", "build", *std_go_args, "./main.go"
-    (bash_completion/"autorestic").write Utils.safe_popen_read("#{bin}/autorestic", "completion", "bash")
-    (zsh_completion/"_autorestic").write Utils.safe_popen_read("#{bin}/autorestic", "completion", "zsh")
-    (fish_completion/"autorestic.fish").write Utils.safe_popen_read("#{bin}/autorestic", "completion", "fish")
+    generate_completions_from_executable(bin/"autorestic", "completion")
   end
 
   test do
