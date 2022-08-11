@@ -31,14 +31,7 @@ class Mesheryctl < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./mesheryctl/cmd/mesheryctl"
 
-    output = Utils.safe_popen_read("#{bin}/mesheryctl", "completion", "bash")
-    (bash_completion/"mesheryctl").write output
-
-    output = Utils.safe_popen_read("#{bin}/mesheryctl", "completion", "zsh")
-    (zsh_completion/"_mesheryctl").write output
-
-    output = Utils.safe_popen_read("#{bin}/mesheryctl", "completion", "fish")
-    (fish_completion/"mesheryctl.fish").write output
+    generate_completions_from_executable(bin/"mesheryctl", "completion")
   end
 
   test do
