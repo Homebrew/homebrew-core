@@ -38,17 +38,7 @@ class Istioctl < Formula
     system "make", "istioctl"
     bin.install "out/#{os}_#{arch}/istioctl"
 
-    # Install bash completion
-    output = Utils.safe_popen_read(bin/"istioctl", "completion", "bash")
-    (bash_completion/"istioctl").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(bin/"istioctl", "completion", "zsh")
-    (zsh_completion/"_istioctl").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"istioctl", "completion", "fish")
-    (fish_completion/"istioctl.fish").write output
+    generate_completions_from_executable(bin/"istioctl", "completion")
   end
 
   test do
