@@ -4,7 +4,7 @@ class PgTop < Formula
   url "https://ftp.postgresql.org/pub/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
   mirror "https://mirrorservice.org/sites/ftp.postgresql.org/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
   sha256 "c48d726e8cd778712e712373a428086d95e2b29932e545ff2a948d043de5a6a2"
-  revision 3
+  revision 4
 
   # 4.0.0 is out, but unfortunatley no longer supports OS/X.  Therefore
   # we only look for the latest 3.x release until upstream adds OS/X support back.
@@ -27,7 +27,7 @@ class PgTop < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "postgresql"
+  depends_on "libpq"
 
   uses_from_macos "ncurses"
 
@@ -35,7 +35,7 @@ class PgTop < Formula
     system "autoreconf", "-fvi"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-postgresql=#{Formula["postgresql"].opt_prefix}"
+                          "--with-postgresql=#{Formula["libpq"].opt_prefix}"
     (buildpath/"config.h").append_lines "#define HAVE_DECL_STRLCPY 1"
     # On modern OS/X [v]snprinf() are macros that optionally add some security checks
     # In c.h this package provides their own declaration of these assuming they're
