@@ -27,14 +27,7 @@ class Driftctl < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    output = Utils.safe_popen_read("#{bin}/driftctl", "completion", "bash")
-    (bash_completion/"driftctl").write output
-
-    output = Utils.safe_popen_read("#{bin}/driftctl", "completion", "zsh")
-    (zsh_completion/"_driftctl").write output
-
-    output = Utils.safe_popen_read("#{bin}/driftctl", "completion", "fish")
-    (fish_completion/"driftctl.fish").write output
+    generate_completions_from_executable(bin/"driftctl", "completion")
   end
 
   test do
