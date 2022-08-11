@@ -1,11 +1,26 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/v2.3.18.0.tar.gz"
-  sha256 "09c7fa0685fdb34f696f2e5d44c2ba2336b5ca6ad8851cb516575508fe06397a"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
+
+  stable do
+    url "https://github.com/OpenImageIO/oiio/archive/v2.3.18.0.tar.gz"
+    sha256 "09c7fa0685fdb34f696f2e5d44c2ba2336b5ca6ad8851cb516575508fe06397a"
+
+    # Upstream changes to cleanly apply subsequent PR commit. Remove in the next release.
+    patch do
+      url "https://github.com/OpenImageIO/oiio/commit/c3740921b6fd09a0769bd403dab99ba9061228b0.patch?full_index=1"
+      sha256 "61764eb19f936f3ced3b23d1b6a27b7aad4f38ccfd52f6591c354b6f4ebcadf6"
+    end
+
+    # Fix CMake detection of FFmpeg 5.1+. Remove after PR is merged and in a release.
+    # PR ref: https://github.com/OpenImageIO/oiio/pull/3516
+    patch do
+      url "https://github.com/OpenImageIO/oiio/commit/a86911a3e0bc5b2406856428295938d960760368.patch?full_index=1"
+      sha256 "e38a50b98dbab81bd50a460a87aa3970f25a49959796c01db6888a0e62e3af62"
+    end
+  end
 
   livecheck do
     url :stable
@@ -27,6 +42,7 @@ class Openimageio < Formula
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "ffmpeg"
+  depends_on "fmt"
   depends_on "freetype"
   depends_on "giflib"
   depends_on "imath"
@@ -37,22 +53,26 @@ class Openimageio < Formula
   depends_on "libtiff"
   depends_on "opencolorio"
   depends_on "openexr"
+  depends_on "pugixml"
   depends_on "pybind11"
   depends_on "python@3.10"
   depends_on "webp"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
-  def python
-    deps.map(&:to_formula)
-        .find { |f| f.name.match?(/^python@\d\.\d+$/) }
-  end
-
   def install
-    args = %w[
+    python3 = which("python3.10")
+    py3ver = Language::Python.major_minor_version python3
+    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python3)
+
+    args = %W[
+      -DPython_EXECUTABLE=#{python3}
+      -DPYTHON_VERSION=#{py3ver}
+      -DBUILD_MISSING_FMT=OFF
       -DCCACHE_FOUND=
       -DEMBEDPLUGINS=ON
-      -DUSE_FIELD3D=OFF
+      -DOIIO_BUILD_TESTS=OFF
+      -DUSE_EXTERNAL_PUGIXML=ON
       -DUSE_JPEGTURBO=ON
       -DUSE_NUKE=OFF
       -DUSE_OPENCV=OFF
@@ -61,22 +81,6 @@ class Openimageio < Formula
       -DUSE_PTEX=OFF
       -DUSE_QT=OFF
     ]
-
-    # CMake picks up the system's python shared library, even if we have a brewed one.
-    python3 = python.opt_bin/"python3"
-    py3ver = Language::Python.major_minor_version(python3)
-    py3prefix = if OS.mac?
-      python.opt_frameworks/"Python.framework/Versions"/py3ver
-    else
-      python.opt_prefix
-    end
-
-    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python3)
-
-    args << "-DPython_EXECUTABLE=#{python3}"
-    args << "-DPYTHON_LIBRARY=#{py3prefix}/lib/#{shared_library("libpython#{py3ver}")}"
-    args << "-DPYTHON_INCLUDE_DIR=#{py3prefix}/include/python#{py3ver}"
-    args << "-DPYTHON_VERSION=#{py3ver}"
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -93,6 +97,7 @@ class Openimageio < Formula
       import OpenImageIO
       print(OpenImageIO.VERSION_STRING)
     EOS
-    assert_match version.major_minor_patch.to_s, pipe_output(python.opt_bin/"python3", output, 0)
+    python = Formula["python@3.10"].opt_bin/"python3.10"
+    assert_match version.major_minor_patch.to_s, pipe_output(python, output, 0)
   end
 end
