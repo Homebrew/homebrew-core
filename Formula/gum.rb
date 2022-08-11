@@ -23,14 +23,7 @@ class Gum < Formula
     man_page = Utils.safe_popen_read(bin/"gum", "man")
     (man1/"gum.1").write man_page
 
-    bash_output = Utils.safe_popen_read(bin/"gum", "completion", "bash")
-    (bash_completion/"gum").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"gum", "completion", "zsh")
-    (zsh_completion/"_gum").write zsh_output
-
-    fish_output = Utils.safe_popen_read(bin/"gum", "completion", "fish")
-    (fish_completion/"gum.fish").write fish_output
+    generate_completions_from_executable(bin/"gum", "completion")
   end
 
   test do
