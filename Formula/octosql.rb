@@ -21,14 +21,7 @@ class Octosql < Formula
     ldflags = "-s -w -X github.com/cube2222/octosql/cmd.VERSION=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    bash_output = Utils.safe_popen_read(bin/"octosql", "completion", "bash")
-    (bash_completion/"octosql").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"octosql", "completion", "zsh")
-    (zsh_completion/"_octosql").write zsh_output
-
-    fish_output = Utils.safe_popen_read(bin/"octosql", "completion", "fish")
-    (fish_completion/"octosql.fish").write fish_output
+    generate_completions_from_executable(bin/"octosql", "completion")
   end
 
   test do
