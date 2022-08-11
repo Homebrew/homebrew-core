@@ -22,12 +22,7 @@ class NewrelicCli < Formula
     system "make", "compile-only"
     bin.install "bin/#{OS.kernel_name.downcase}/newrelic"
 
-    output = Utils.safe_popen_read(bin/"newrelic", "completion", "--shell", "bash")
-    (bash_completion/"newrelic").write output
-    output = Utils.safe_popen_read(bin/"newrelic", "completion", "--shell", "zsh")
-    (zsh_completion/"_newrelic").write output
-    output = Utils.safe_popen_read(bin/"newrelic", "completion", "--shell", "fish")
-    (fish_completion/"newrelic.fish").write output
+    generate_completions_from_executable(bin/"newrelic", "completion", "--shell", base_name: "newrelic")
   end
 
   test do
