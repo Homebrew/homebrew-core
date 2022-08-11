@@ -4,6 +4,7 @@ class Postgrest < Formula
   url "https://github.com/PostgREST/postgrest/archive/v9.0.1.tar.gz"
   sha256 "45ea15e617c209fffbbff90d90f55237cd15d62a4600d1bf86c87693fb973702"
   license "MIT"
+  revision 1
   head "https://github.com/PostgREST/postgrest.git", branch: "main"
 
   livecheck do
@@ -22,7 +23,7 @@ class Postgrest < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "postgresql"
+  depends_on "libpq"
 
   def install
     system "cabal", "v2-update"
