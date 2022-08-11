@@ -26,8 +26,7 @@ class Kubekey < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kk"), "./cmd"
 
-    (zsh_completion/"_kk").write Utils.safe_popen_read(bin/"kk", "completion", "--type", "zsh")
-    (bash_completion/"kk").write Utils.safe_popen_read(bin/"kk", "completion", "--type", "bash")
+    generate_completions_from_executable(bin/"kk", "completion", "--type", shells: [:bash, :zsh], base_name: "kk")
   end
 
   test do
