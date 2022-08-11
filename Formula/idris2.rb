@@ -25,7 +25,8 @@ class Idris2 < Formula
     system "make", "install", "PREFIX=#{libexec}"
     bin.install_symlink libexec/"bin/idris2"
     lib.install_symlink Dir["#{libexec}/lib/#{shared_library("*")}"]
-    (bash_completion/"idris2").write Utils.safe_popen_read(bin/"idris2", "--bash-completion-script", "idris2")
+    generate_completions_from_executable(bin/"idris2", "--bash-completion-script", "idris2",
+                                         shells: [:bash], shell_parameter_format: :none)
   end
 
   test do
