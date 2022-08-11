@@ -4,7 +4,7 @@ class Pex < Formula
   url "https://github.com/petere/pex/archive/1.20140409.tar.gz"
   sha256 "5047946a2f83e00de4096cd2c3b1546bc07be431d758f97764a36b32b8f0ae57"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2affe95fc76da2a2f6d289f2fb93a4ac16ace824fd1835d756d0664bc8e9ca25"
@@ -18,7 +18,7 @@ class Pex < Formula
     sha256 cellar: :any_skip_relocation, all:           "59626635064ff1c2378a5eb62df32fc06657919d4afe141b545d0e41c51fd1cd"
   end
 
-  depends_on "postgresql"
+  depends_on "libpq"
 
   def install
     system "make", "install", "prefix=#{prefix}", "mandir=#{man}"
