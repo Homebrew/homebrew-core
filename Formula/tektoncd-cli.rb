@@ -25,12 +25,7 @@ class TektoncdCli < Formula
     system "make", "bin/tkn"
     bin.install "bin/tkn" => "tkn"
 
-    output = Utils.safe_popen_read(bin/"tkn", "completion", "bash")
-    (bash_completion/"tkn").write output
-    output = Utils.safe_popen_read(bin/"tkn", "completion", "zsh")
-    (zsh_completion/"_tkn").write output
-    output = Utils.safe_popen_read(bin/"tkn", "completion", "fish")
-    (fish_completion/"tkn.fish").write output
+    generate_completions_from_executable(bin/"tkn", "completion", base_name: "tkn")
   end
 
   test do
