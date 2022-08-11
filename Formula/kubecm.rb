@@ -20,17 +20,7 @@ class Kubecm < Formula
     ldflags = "-s -w -X github.com/sunny0826/kubecm/cmd.kubecmVersion=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    # Install bash completion
-    output = Utils.safe_popen_read(bin/"kubecm", "completion", "bash")
-    (bash_completion/"kubecm").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(bin/"kubecm", "completion", "zsh")
-    (zsh_completion/"_kubecm").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"kubecm", "completion", "fish")
-    (fish_completion/"kubecm.fish").write output
+    generate_completions_from_executable(bin/"kubecm", "completion")
   end
 
   test do
