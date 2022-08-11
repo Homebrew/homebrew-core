@@ -55,8 +55,10 @@ class Spago < Formula
     end
 
     system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"
-    (bash_completion/"spago").write `#{bin}/spago --bash-completion-script #{bin}/spago`
-    (zsh_completion/"_spago").write `#{bin}/spago --zsh-completion-script #{bin}/spago`
+    generate_completions_from_executable(bin/"spago", "--bash-completion-script", bin/"spago",
+                                         shells: [:bash], shell_parameter_format: :none)
+    generate_completions_from_executable(bin/"spago", "--zsh-completion-script", bin/"spago",
+                                         shells: [:zsh], shell_parameter_format: :none)
   end
 
   test do
