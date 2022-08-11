@@ -29,12 +29,7 @@ class Kubescape < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    output = Utils.safe_popen_read(bin/"kubescape", "completion", "bash")
-    (bash_completion/"kubescape").write output
-    output = Utils.safe_popen_read(bin/"kubescape", "completion", "zsh")
-    (zsh_completion/"_kubescape").write output
-    output = Utils.safe_popen_read(bin/"kubescape", "completion", "fish")
-    (fish_completion/"kubescape.fish").write output
+    generate_completions_from_executable(bin/"kubescape", "completion")
   end
 
   test do
