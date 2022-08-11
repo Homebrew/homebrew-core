@@ -36,11 +36,7 @@ class Clusterctl < Formula
     system "make", "clusterctl"
     prefix.install "bin"
 
-    bash_output = Utils.safe_popen_read(bin/"clusterctl", "completion", "bash")
-    (bash_completion/"clusterctl").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"clusterctl", "completion", "zsh")
-    (zsh_completion/"_clusterctl").write zsh_output
+    generate_completions_from_executable(bin/"clusterctl", "completion", shells: [:bash, :zsh])
   end
 
   test do
