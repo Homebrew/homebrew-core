@@ -19,12 +19,7 @@ class Miniserve < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_output = Utils.safe_popen_read("#{bin}/miniserve", "--print-completions", "bash")
-    (bash_completion/"miniserve").write bash_output
-    zsh_output = Utils.safe_popen_read("#{bin}/miniserve", "--print-completions", "zsh")
-    (zsh_completion/"_miniserve").write zsh_output
-    fish_output = Utils.safe_popen_read("#{bin}/miniserve", "--print-completions", "fish")
-    (fish_completion/"miniserve.fish").write fish_output
+    generate_completions_from_executable(bin/"miniserve", "--print-completions")
   end
 
   test do
