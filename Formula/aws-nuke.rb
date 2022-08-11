@@ -35,9 +35,7 @@ class AwsNuke < Formula
 
     pkgshare.install "config"
 
-    (bash_completion/"aws-nuke").write Utils.safe_popen_read("#{bin}/aws-nuke", "completion", "bash")
-    (fish_completion/"aws-nuke.fish").write Utils.safe_popen_read("#{bin}/aws-nuke", "completion", "fish")
-    (zsh_completion/"_aws-nuke").write Utils.safe_popen_read("#{bin}/aws-nuke", "completion", "zsh")
+    generate_completions_from_executable(bin/"aws-nuke", "completion")
   end
 
   test do
