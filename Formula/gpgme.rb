@@ -35,16 +35,21 @@ class Gpgme < Formula
   end
 
   def install
-    ENV["PYTHON"] = which("python3")
+    python = "python3.10"
+    ENV["PYTHON"] = python
     # setuptools>=60 prefers its own bundled distutils, which breaks the installation
     # Remove when distutils is no longer used. Related PR: https://dev.gnupg.org/D545
     ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
+
+    # Uses generic lambdas.
+    # error: 'auto' not allowed in lambda parameter
+    ENV.append "CXXFLAGS", "-std=c++14"
 
     # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
     # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
     inreplace "lang/python/Makefile.in",
               /^\s*install\s*\\\n\s*--prefix "\$\(DESTDIR\)\$\(prefix\)"/,
-              "\\0 --install-lib=#{prefix/Language::Python.site_packages("python3")}"
+              "\\0 --install-lib=#{prefix/Language::Python.site_packages(python)}"
 
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
@@ -58,6 +63,6 @@ class Gpgme < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import gpg; print(gpg.version.versionstr)"
   end
 end
