@@ -4,6 +4,7 @@ class QtPostgresql < Formula
   url "https://download.qt.io/official_releases/qt/6.3/6.3.1/submodules/qtbase-everywhere-src-6.3.1.tar.xz"
   sha256 "0a64421d9c2469c2c48490a032ab91d547017c9cc171f3f8070bc31888f24e03"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
 
   livecheck do
     formula "qt"
@@ -20,7 +21,7 @@ class QtPostgresql < Formula
 
   depends_on "cmake" => [:build, :test]
 
-  depends_on "postgresql"
+  depends_on "libpq"
   depends_on "qt"
 
   on_linux do
