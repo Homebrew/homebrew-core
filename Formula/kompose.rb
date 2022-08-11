@@ -20,14 +20,7 @@ class Kompose < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
 
-    output = Utils.safe_popen_read(bin/"kompose", "completion", "bash")
-    (bash_completion/"kompose").write output
-
-    output = Utils.safe_popen_read(bin/"kompose", "completion", "zsh")
-    (zsh_completion/"_kompose").write output
-
-    output = Utils.safe_popen_read(bin/"kompose", "completion", "fish")
-    (fish_completion/"kompose.fish").write output
+    generate_completions_from_executable(bin/"kompose", "completion")
   end
 
   test do
