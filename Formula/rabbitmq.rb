@@ -51,7 +51,8 @@ class Rabbitmq < Formula
 
     sbin.install prefix/"plugins/rabbitmq_management-#{version}/priv/www/cli/rabbitmqadmin"
     (sbin/"rabbitmqadmin").chmod 0755
-    (bash_completion/"rabbitmqadmin.bash").write Utils.safe_popen_read("#{sbin}/rabbitmqadmin", "--bash-completion")
+    generate_completions_from_executable(sbin/"rabbitmqadmin", "--bash-completion", shells: [:bash],
+                                         base_name: "rabbitmqadmin", shell_parameter_format: :none)
   end
 
   def caveats
