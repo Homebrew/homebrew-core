@@ -21,17 +21,7 @@ class Kind < Formula
   def install
     system "go", "build", *std_go_args
 
-    # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/kind", "completion", "bash")
-    (bash_completion/"kind").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/kind", "completion", "zsh")
-    (zsh_completion/"_kind").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read("#{bin}/kind", "completion", "fish")
-    (fish_completion/"kind.fish").write output
+    generate_completions_from_executable(bin/"kind", "completion")
   end
 
   test do
