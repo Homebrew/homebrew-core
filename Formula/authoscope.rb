@@ -27,12 +27,7 @@ class Authoscope < Formula
     system "cargo", "install", *std_cargo_args
     man1.install "docs/authoscope.1"
 
-    bash_output = Utils.safe_popen_read(bin/"authoscope", "completions", "bash")
-    (bash_completion/"authoscope").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"authoscope", "completions", "zsh")
-    (zsh_completion/"_authoscope").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"authoscope", "completions", "fish")
-    (fish_completion/"authoscope.fish").write fish_output
+    generate_completions_from_executable(bin/"authoscope", "completions")
   end
 
   test do
