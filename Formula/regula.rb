@@ -27,12 +27,7 @@ class Regula < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    bash_output = Utils.safe_popen_read(bin/"regula", "completion", "bash")
-    (bash_completion/"regula").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"regula", "completion", "zsh")
-    (zsh_completion/"_regula").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"regula", "completion", "fish")
-    (fish_completion/"regula.fish").write fish_output
+    generate_completions_from_executable(bin/"regula", "completion")
   end
 
   test do
