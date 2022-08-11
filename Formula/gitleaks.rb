@@ -20,14 +20,7 @@ class Gitleaks < Formula
     ldflags = "-X github.com/zricethezav/gitleaks/v#{version.major}/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    bash_output = Utils.safe_popen_read(bin/"gitleaks", "completion", "bash")
-    (bash_completion/"gitleaks").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"gitleaks", "completion", "zsh")
-    (zsh_completion/"_gitleaks").write zsh_output
-
-    fish_output = Utils.safe_popen_read(bin/"gitleaks", "completion", "fish")
-    (fish_completion/"gitleaks.fish").write fish_output
+    generate_completions_from_executable(bin/"gitleaks", "completion")
   end
 
   test do
