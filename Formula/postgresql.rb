@@ -68,8 +68,8 @@ class Postgresql < Formula
     if OS.mac?
       args += %w[
         --with-bonjour
-        --with-tcl
         --with-python
+        --with-tcl
       ]
     end
 
