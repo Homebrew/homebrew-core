@@ -4,6 +4,7 @@ class Pgloader < Formula
   url "https://github.com/dimitri/pgloader/releases/download/v3.6.6/pgloader-bundle-3.6.6.tgz"
   sha256 "1837565d8fcedb132c68885a40893ec3c590b7da9ebcef1c0e580b19f353544d"
   license "PostgreSQL"
+  revision 1
   head "https://github.com/dimitri/pgloader.git", branch: "master"
 
   livecheck do
@@ -21,8 +22,8 @@ class Pgloader < Formula
 
   depends_on "buildapp" => :build
   depends_on "freetds"
+  depends_on "libpq"
   depends_on "openssl@1.1"
-  depends_on "postgresql"
   depends_on "sbcl"
 
   def install
