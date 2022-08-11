@@ -21,14 +21,7 @@ class Rbw < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_output = Utils.safe_popen_read(bin/"rbw", "gen-completions", "bash")
-    (bash_completion/"rbw").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"rbw", "gen-completions", "zsh")
-    (zsh_completion/"_rbw").write zsh_output
-
-    fish_output = Utils.safe_popen_read(bin/"rbw", "gen-completions", "fish")
-    (fish_completion/"rbw.fish").write fish_output
+    generate_completions_from_executable(bin/"rbw", "gen-completions")
   end
 
   test do
