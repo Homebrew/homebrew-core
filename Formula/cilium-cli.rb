@@ -20,12 +20,7 @@ class CiliumCli < Formula
     ldflags = "-s -w -X github.com/cilium/cilium-cli/internal/cli/cmd.Version=#{version}"
     system "go", "build", *std_go_args(output: bin/"cilium", ldflags: ldflags), "./cmd/cilium"
 
-    bash_output = Utils.safe_popen_read(bin/"cilium", "completion", "bash")
-    (bash_completion/"cilium").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"cilium", "completion", "zsh")
-    (zsh_completion/"_cilium").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"cilium", "completion", "fish")
-    (fish_completion/"cilium.fish").write fish_output
+    generate_completions_from_executable(bin/"cilium", "completion", base_name: "cilium")
   end
 
   test do
