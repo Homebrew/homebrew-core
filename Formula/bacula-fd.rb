@@ -4,7 +4,7 @@ class BaculaFd < Formula
   url "https://downloads.sourceforge.net/project/bacula/bacula/13.0.1/bacula-13.0.1.tar.gz"
   sha256 "d63848d695ac15c1ccfc117892753314bcb9232a852c40e32cca88c0e918978a"
   license "AGPL-3.0-only"
-  
+
   bottle do
     sha256                               arm64_monterey: "5ce02dd71c35475c7ce92c54c45e8617b2e5935418317619fda4f5713daf82a3"
     sha256                               arm64_big_sur:  "ee765d178fc42c263064233cc263d1861c0736ac7a937c7581f8cfa2efb5f9d7"
