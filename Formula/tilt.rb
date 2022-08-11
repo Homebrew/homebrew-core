@@ -33,17 +33,8 @@ class Tilt < Formula
       -X main.date=#{time.iso8601}
     ].join(" ")
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/tilt"
-    # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/tilt", "completion", "bash")
-    (bash_completion/"tilt").write output
 
-    # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/tilt", "completion", "zsh")
-    (zsh_completion/"_tilt").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read("#{bin}/tilt", "completion", "fish")
-    (fish_completion/"tilt.fish").write output
+    generate_completions_from_executable(bin/"tilt", "completion")
   end
 
   test do
