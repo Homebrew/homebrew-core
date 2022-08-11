@@ -19,14 +19,7 @@ class Ko < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/google/ko/pkg/commands.Version=#{version}")
 
-    bash_output = Utils.safe_popen_read(bin/"ko", "completion", "bash")
-    (bash_completion/"ko").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"ko", "completion", "zsh")
-    (zsh_completion/"_ko").write zsh_output
-
-    fish_output = Utils.safe_popen_read(bin/"ko", "completion", "fish")
-    (fish_completion/"ko.fish").write fish_output
+    generate_completions_from_executable(bin/"ko", "completion")
   end
 
   test do
