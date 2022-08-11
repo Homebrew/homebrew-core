@@ -35,8 +35,7 @@ class FaasCli < Formula
     system "go", "build", *std_go_args(ldflags: ldflags), "-a", "-installsuffix", "cgo"
     bin.install_symlink "faas-cli" => "faas"
 
-    (bash_completion/"faas-cli").write Utils.safe_popen_read(bin/"faas-cli", "completion", "--shell", "bash")
-    (zsh_completion/"_faas-cli").write Utils.safe_popen_read(bin/"faas-cli", "completion", "--shell", "zsh")
+    generate_completions_from_executable(bin/"faas-cli", "completion", "--shell", shells: [:bash, :zsh])
     # make zsh completions also work for `faas` symlink
     inreplace zsh_completion/"_faas-cli", "#compdef faas-cli", "#compdef faas-cli\ncompdef faas=faas-cli"
   end
