@@ -23,12 +23,8 @@ class Cdktf < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
-    # completion script currently requires --help run without error https://github.com/hashicorp/terraform-cdk/issues/1905
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, libexec/"bin/cdktf", "completion", "--help")
-    (bash_completion/"cdktf").write output
-
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, libexec/"bin/cdktf", "completion", "--help")
-    (zsh_completion/"_cdktf").write output
+    generate_completions_from_executable(libexec/"bin/cdktf", "completion",
+                                         shells: [:bash, :zsh], shell_parameter_format: :none)
   end
 
   test do
