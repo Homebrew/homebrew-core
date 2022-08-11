@@ -30,11 +30,7 @@ class Kamel < Formula
     system "make", "build-kamel"
     bin.install "kamel"
 
-    output = Utils.safe_popen_read("#{bin}/kamel", "completion", "bash")
-    (bash_completion/"kamel").write output
-
-    output = Utils.safe_popen_read("#{bin}/kamel", "completion", "zsh")
-    (zsh_completion/"_kamel").write output
+    generate_completions_from_executable(bin/"kamel", "completion", shells: [:bash, :zsh])
   end
 
   test do
