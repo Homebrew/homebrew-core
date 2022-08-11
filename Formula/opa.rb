@@ -23,14 +23,7 @@ class Opa < Formula
     system "./build/gen-man.sh", "man1"
     man.install "man1"
 
-    bash_output = Utils.safe_popen_read(bin/"opa", "completion", "bash")
-    (bash_completion/"opa").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"opa", "completion", "zsh")
-    (zsh_completion/"_opa").write zsh_output
-
-    fish_output = Utils.safe_popen_read(bin/"opa", "completion", "fish")
-    (fish_completion/"opa.fish").write fish_output
+    generate_completions_from_executable(bin/"opa", "completion")
   end
 
   test do
