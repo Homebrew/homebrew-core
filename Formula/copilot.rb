@@ -35,14 +35,7 @@ class Copilot < Formula
 
     bin.install "bin/local/copilot"
 
-    output = Utils.safe_popen_read(bin/"copilot", "completion", "bash")
-    (bash_completion/"copilot").write output
-
-    output = Utils.safe_popen_read(bin/"copilot", "completion", "zsh")
-    (zsh_completion/"_copilot").write output
-
-    output = Utils.safe_popen_read(bin/"copilot", "completion", "fish")
-    (fish_completion/"copilot.fish").write output
+    generate_completions_from_executable(bin/"copilot", "completion")
   end
 
   test do
