@@ -173,10 +173,7 @@ class Poetry < Formula
   def install
     virtualenv_install_with_resources
 
-    # Install shell completions
-    (bash_completion/"poetry").write Utils.safe_popen_read(libexec/"bin/poetry", "completions", "bash")
-    (fish_completion/"poetry.fish").write Utils.safe_popen_read(libexec/"bin/poetry", "completions", "fish")
-    (zsh_completion/"_poetry").write Utils.safe_popen_read(libexec/"bin/poetry", "completions", "zsh")
+    generate_completions_from_executable(libexec/"bin/poetry", "completions")
   end
 
   test do
