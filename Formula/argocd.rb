@@ -30,10 +30,7 @@ class Argocd < Formula
     system "make", "cli-local"
     bin.install "dist/argocd"
 
-    output = Utils.safe_popen_read("#{bin}/argocd", "completion", "bash")
-    (bash_completion/"argocd").write output
-    output = Utils.safe_popen_read("#{bin}/argocd", "completion", "zsh")
-    (zsh_completion/"_argocd").write output
+    generate_completions_from_executable(bin/"argocd", "completion", shells: [:bash, :zsh])
   end
 
   test do
