@@ -21,14 +21,7 @@ class Stern < Formula
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/stern/stern/cmd.version=#{version}")
 
     # Install shell completion
-    output = Utils.safe_popen_read("#{bin}/stern", "--completion=bash")
-    (bash_completion/"stern").write output
-
-    output = Utils.safe_popen_read("#{bin}/stern", "--completion=zsh")
-    (zsh_completion/"_stern").write output
-
-    output = Utils.safe_popen_read("#{bin}/stern", "--completion=fish")
-    (fish_completion/"stern.fish").write output
+    generate_completions_from_executable(bin/"stern", "--completion")
   end
 
   test do
