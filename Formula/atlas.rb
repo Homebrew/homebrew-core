@@ -26,14 +26,7 @@ class Atlas < Formula
       system "go", "build", *std_go_args(ldflags: ldflags)
     end
 
-    bash_output = Utils.safe_popen_read(bin/"atlas", "completion", "bash")
-    (bash_completion/"atlas").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"atlas", "completion", "zsh")
-    (zsh_completion/"_atlas").write zsh_output
-
-    fish_output = Utils.safe_popen_read(bin/"atlas", "completion", "fish")
-    (fish_completion/"atlas.fish").write fish_output
+    generate_completions_from_executable(bin/"atlas", "completion")
   end
 
   test do
