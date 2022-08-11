@@ -26,14 +26,7 @@ class K9s < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    bash_output = Utils.safe_popen_read(bin/"k9s", "completion", "bash")
-    (bash_completion/"k9s").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"k9s", "completion", "zsh")
-    (zsh_completion/"_k9s").write zsh_output
-
-    fish_output = Utils.safe_popen_read(bin/"k9s", "completion", "fish")
-    (fish_completion/"k9s.fish").write fish_output
+    generate_completions_from_executable(bin/"k9s", "completion")
   end
 
   test do
