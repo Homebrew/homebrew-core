@@ -21,8 +21,8 @@ class Cpr < Formula
   uses_from_macos "curl"
 
   def install
-    args = std_cmake_args + %w[
-      -DCPR_USE_SYSTEM_CURL=ON
+    args = std_cmake_args + %W[
+      -DCPR_FORCE_USE_SYSTEM_CURL=ON
       -DCPR_BUILD_TESTS=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
