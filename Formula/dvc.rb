@@ -699,8 +699,7 @@ class Dvc < Formula
 
     virtualenv_install_with_resources
 
-    (bash_completion/"dvc").write Utils.safe_popen_read(bin/"dvc", "completion", "-s", "bash")
-    (zsh_completion/"_dvc").write Utils.safe_popen_read(bin/"dvc", "completion", "-s", "zsh")
+    generate_completions_from_executable(bin/"dvc", "completion", "-s", shells: [:bash, :zsh])
   end
 
   test do
