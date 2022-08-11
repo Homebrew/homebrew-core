@@ -34,7 +34,6 @@
   ["libnetworkit", "networkit"],
   ["libnghttp2", "nghttp2"],
   ["libngspice", "ngspice"],
-  ["libpq", "postgresql"],
   ["libqalculate", "qalculate-gtk"],
   ["libvnc", "libvncserver"],
   ["logcli", "loki", "promtail"],
