@@ -20,12 +20,7 @@ class Hubble < Formula
     ldflags = "-s -w -X github.com/cilium/hubble/pkg.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    bash_output = Utils.safe_popen_read(bin/"hubble", "completion", "bash")
-    (bash_completion/"hubble").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"hubble", "completion", "zsh")
-    (zsh_completion/"_hubble").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"hubble", "completion", "fish")
-    (fish_completion/"hubble.fish").write fish_output
+    generate_completions_from_executable(bin/"hubble", "completion")
   end
 
   test do
