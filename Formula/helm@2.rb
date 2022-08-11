@@ -41,11 +41,7 @@ class HelmAT2 < Formula
       bin.install "bin/tiller"
       man1.install Dir["docs/man/man1/*"]
 
-      output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"helm", "completion", "bash")
-      (bash_completion/"helm").write output
-
-      output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"helm", "completion", "zsh")
-      (zsh_completion/"_helm").write output
+      generate_completions_from_executable(bin/"helm", "completion", base_name: "helm", shells: [:bash, :zsh])
 
       prefix.install_metafiles
     end
