@@ -26,12 +26,7 @@ class Liqoctl < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/liqoctl"
 
-    output = Utils.safe_popen_read(bin/"liqoctl", "completion", "bash")
-    (bash_completion/"liqoctl").write output
-    output = Utils.safe_popen_read(bin/"liqoctl", "completion", "zsh")
-    (zsh_completion/"_liqoctl").write output
-    output = Utils.safe_popen_read(bin/"liqoctl", "completion", "fish")
-    (fish_completion/"liqoctl").write output
+    generate_completions_from_executable(bin/"liqoctl", "completion")
   end
 
   test do
