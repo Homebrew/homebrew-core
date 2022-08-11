@@ -31,22 +31,24 @@ class ManDb < Formula
   end
 
   def install
+    man_db_conf = etc/"man_db.conf"
     args = %W[
-      --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
       --disable-cache-owner
       --disable-setuid
       --disable-nls
       --program-prefix=g
-      --with-config-file=#{etc}/man_db.conf
+      --localstatedir=#{var}
+      --with-config-file=#{man_db_conf}
       --with-systemdtmpfilesdir=#{etc}/tmpfiles.d
       --with-systemdsystemunitdir=#{etc}/systemd/system
     ]
 
-    system "./configure", *args
-
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+
+    # Use Homebrew's `var` directory instead of `/var`.
+    inreplace man_db_conf, "/var", var
 
     # Symlink commands without 'g' prefix into libexec/bin and
     # man pages into libexec/man
