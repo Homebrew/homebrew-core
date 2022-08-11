@@ -23,12 +23,7 @@ class Railway < Formula
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     # Install shell completions
-    output = Utils.safe_popen_read(bin/"railway", "completion", "bash")
-    (bash_completion/"railway").write output
-    output = Utils.safe_popen_read(bin/"railway", "completion", "zsh")
-    (zsh_completion/"_railway").write output
-    output = Utils.safe_popen_read(bin/"railway", "completion", "fish")
-    (fish_completion/"railway.fish").write output
+    generate_completions_from_executable(bin/"railway", "completion")
   end
 
   test do
