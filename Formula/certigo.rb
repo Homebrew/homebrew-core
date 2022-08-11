@@ -26,13 +26,8 @@ class Certigo < Formula
     system "./build"
     bin.install "bin/certigo"
 
-    # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/certigo", "--completion-script-bash")
-    (bash_completion/"certigo").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/certigo", "--completion-script-zsh")
-    (zsh_completion/"_certigo").write output
+    generate_completions_from_executable(bin/"certigo", shell_parameter_format: "--completion-script-",
+                                                        shells:                 [:bash, :zsh])
   end
 
   test do
