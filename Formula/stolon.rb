@@ -5,6 +5,7 @@ class Stolon < Formula
       tag:      "v0.17.0",
       revision: "dc942da234caf016a69df599d0bb455c0716f5b6"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da91318804a2a44ef42d195448013fe9696c5d8a6634d28f48c42d12af20e27a"
@@ -18,7 +19,7 @@ class Stolon < Formula
 
   depends_on "go" => :build
   depends_on "consul" => :test
-  depends_on "postgresql"
+  depends_on "libpq"
 
   def install
     system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
