@@ -19,14 +19,7 @@ class Scw < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/scw"
 
-    zsh_output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"scw", "autocomplete", "script")
-    (zsh_completion/"_scw").write zsh_output
-
-    bash_output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"scw", "autocomplete", "script")
-    (bash_completion/"scw").write bash_output
-
-    fish_output = Utils.safe_popen_read({ "SHELL" => "fish" }, bin/"scw", "autocomplete", "script")
-    (fish_completion/"scw.fish").write fish_output
+    generate_completions_from_executable(bin/"scw", "autocomplete", "script", shell_parameter_format: :none)
   end
 
   test do
