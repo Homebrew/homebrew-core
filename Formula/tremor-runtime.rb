@@ -36,9 +36,7 @@ class TremorRuntime < Formula
 
     system "cargo", "install", *std_cargo_args(path: "tremor-cli")
 
-    (bash_completion/"tremor").write Utils.safe_popen_read("#{bin}/tremor", "completions", "bash")
-    (zsh_completion/"_tremor").write Utils.safe_popen_read("#{bin}/tremor", "completions", "zsh")
-    (fish_completion/"tremor.fish").write Utils.safe_popen_read("#{bin}/tremor", "completions", "fish")
+    generate_completions_from_executable(bin/"tremor", "completions", base_name: "tremor")
 
     # main binary
     bin.install "target/release/tremor"
