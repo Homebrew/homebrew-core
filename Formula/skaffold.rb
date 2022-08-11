@@ -38,10 +38,7 @@ class Skaffold < Formula
   def install
     system "make"
     bin.install "out/skaffold"
-    output = Utils.safe_popen_read("#{bin}/skaffold", "completion", "bash")
-    (bash_completion/"skaffold").write output
-    output = Utils.safe_popen_read("#{bin}/skaffold", "completion", "zsh")
-    (zsh_completion/"_skaffold").write output
+    generate_completions_from_executable(bin/"skaffold", "completion", shells: [:bash, :zsh])
   end
 
   test do
