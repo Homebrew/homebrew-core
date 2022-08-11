@@ -23,17 +23,7 @@ class Velero < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "-installsuffix", "static", "./cmd/velero"
 
-    # Install bash completion
-    output = Utils.safe_popen_read(bin/"velero", "completion", "bash")
-    (bash_completion/"velero").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(bin/"velero", "completion", "zsh")
-    (zsh_completion/"_velero").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"velero", "completion", "fish")
-    (fish_completion/"velero.fish").write output
+    generate_completions_from_executable(bin/"velero", "completion")
   end
 
   test do
