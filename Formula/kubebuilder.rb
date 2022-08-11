@@ -31,12 +31,7 @@ class Kubebuilder < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
 
-    output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "bash")
-    (bash_completion/"kubebuilder").write output
-    output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "zsh")
-    (zsh_completion/"_kubebuilder").write output
-    output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "fish")
-    (fish_completion/"kubebuilder.fish").write output
+    generate_completions_from_executable(bin/"kubebuilder", "completion")
   end
 
   test do
