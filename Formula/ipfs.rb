@@ -32,8 +32,7 @@ class Ipfs < Formula
     system "make", "build"
     bin.install "cmd/ipfs/ipfs"
 
-    bash_output = Utils.safe_popen_read(bin/"ipfs", "commands", "completion", "bash")
-    (bash_completion/"ipfs-completion.bash").write bash_output
+    generate_completions_from_executable(bin/"ipfs", "commands", "completion", shells: [:bash])
   end
 
   service do
