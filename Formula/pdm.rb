@@ -172,9 +172,7 @@ class Pdm < Formula
 
   def install
     virtualenv_install_with_resources
-    (bash_completion/"pdm").write Utils.safe_popen_read("#{bin}/pdm", "completion", "bash")
-    (zsh_completion/"_pdm").write Utils.safe_popen_read("#{bin}/pdm", "completion", "zsh")
-    (fish_completion/"pdm.fish").write Utils.safe_popen_read("#{bin}/pdm", "completion", "fish")
+    generate_completions_from_executable(bin/"pdm", "completion")
   end
 
   test do
