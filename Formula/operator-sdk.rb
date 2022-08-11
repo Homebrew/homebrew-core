@@ -27,17 +27,7 @@ class OperatorSdk < Formula
     ENV["GOBIN"] = libexec/"bin"
     system "make", "install"
 
-    # Install bash completion
-    output = Utils.safe_popen_read(libexec/"bin/operator-sdk", "completion", "bash")
-    (bash_completion/"operator-sdk").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(libexec/"bin/operator-sdk", "completion", "zsh")
-    (zsh_completion/"_operator-sdk").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(libexec/"bin/operator-sdk", "completion", "fish")
-    (fish_completion/"operator-sdk.fish").write output
+    generate_completions_from_executable(libexec/"bin/operator-sdk", "completion")
 
     output = libexec/"bin/operator-sdk"
     (bin/"operator-sdk").write_env_script(output, PATH: "$PATH:#{Formula["go@1.17"].opt_bin}")
