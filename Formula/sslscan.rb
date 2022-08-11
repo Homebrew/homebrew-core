@@ -26,12 +26,12 @@ class Sslscan < Formula
     inreplace "Makefile", "static: openssl/libcrypto.a",
                           "static: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libcrypto")}"
 
-    system "make", "static"
+    system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
-    assert_match "static", shell_output("#{bin}/sslscan --version")
+    assert_match version.to_s, shell_output("#{bin}/sslscan --version")
     system "#{bin}/sslscan", "google.com"
   end
 end
