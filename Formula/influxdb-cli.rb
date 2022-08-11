@@ -35,11 +35,7 @@ class InfluxdbCli < Formula
 
     system "go", "build", *std_go_args(output: bin/"influx", ldflags: ldflags), "./cmd/influx"
 
-    output = Utils.safe_popen_read(bin/"influx", "completion", "bash")
-    (bash_completion/"influx").write output
-
-    output = Utils.safe_popen_read(bin/"influx", "completion", "zsh")
-    (zsh_completion/"_influx").write output
+    generate_completions_from_executable(bin/"influx", "completion", base_name: "influx", shells: [:bash, :zsh])
   end
 
   test do
