@@ -31,14 +31,7 @@ class Kumactl < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./app/kumactl"
 
-    output = Utils.safe_popen_read("#{bin}/kumactl", "completion", "bash")
-    (bash_completion/"kumactl").write output
-
-    output = Utils.safe_popen_read("#{bin}/kumactl", "completion", "zsh")
-    (zsh_completion/"_kumactl").write output
-
-    output = Utils.safe_popen_read("#{bin}/kumactl", "completion", "fish")
-    (fish_completion/"kumactl.fish").write output
+    generate_completions_from_executable(bin/"kumactl", "completion")
   end
 
   test do
