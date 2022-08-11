@@ -1,11 +1,20 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.1.0/mapnik-v3.1.0.tar.bz2"
-  sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
   license "LGPL-2.1-or-later"
-  revision 11
+  revision 12
   head "https://github.com/mapnik/mapnik.git", branch: "master"
+
+  stable do
+    url "https://github.com/mapnik/mapnik/releases/download/v3.1.0/mapnik-v3.1.0.tar.bz2"
+    sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
+
+    # Allow Makefile to use PYTHON set in the environment. Remove in the next release.
+    patch do
+      url "https://github.com/mapnik/mapnik/commit/a53c90172c664d29cd877302de9790a6ee9b5330.patch?full_index=1"
+      sha256 "9e0e06fd64d16b9fbe59d72402e805c94335397385ab57c49a6b468b9cc5a39c"
+    end
+  end
 
   livecheck do
     url :stable
@@ -29,7 +38,7 @@ class Mapnik < Formula
   depends_on "gdal"
   depends_on "harfbuzz"
   depends_on "icu4c"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libtiff"
@@ -38,8 +47,7 @@ class Mapnik < Formula
 
   def install
     ENV.cxx11
-
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = "python3.9"
 
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
@@ -49,7 +57,7 @@ class Mapnik < Formula
     freetype = Formula["freetype"].opt_prefix
     harfbuzz = Formula["harfbuzz"].opt_prefix
     icu = Formula["icu4c"].opt_prefix
-    jpeg = Formula["jpeg"].opt_prefix
+    jpeg = Formula["jpeg-turbo"].opt_prefix
     libpng = Formula["libpng"].opt_prefix
     libtiff = Formula["libtiff"].opt_prefix
     proj = Formula["proj"].opt_prefix
@@ -83,8 +91,6 @@ class Mapnik < Formula
       WEBP_INCLUDES=#{webp}/include
       WEBP_LIBS=#{webp}/lib
     ]
-
-    inreplace "Makefile", "PYTHON = python", "PYTHON = python3"
 
     system "./configure", *args
     system "make"
