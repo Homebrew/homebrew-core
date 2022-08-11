@@ -28,10 +28,7 @@ class Mmctl < Formula
     system "go", "build", *std_go_args(ldflags: ldflags), "-mod=vendor"
 
     # Install shell completions
-    output = Utils.safe_popen_read(bin/"mmctl", "completion", "bash")
-    (bash_completion/"mmctl").write output
-    output = Utils.safe_popen_read(bin/"mmctl", "completion", "zsh")
-    (zsh_completion/"_mmctl").write output
+    generate_completions_from_executable(bin/"mmctl", "completion", shells: [:bash, :zsh])
   end
 
   test do
