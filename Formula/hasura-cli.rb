@@ -42,10 +42,7 @@ class HasuraCli < Formula
       cp "../cli-ext/bin/cli-ext-hasura", "./internal/cliext/static-bin/#{os}/#{arch}/cli-ext"
       system "go", "build", *std_go_args(output: bin/"hasura", ldflags: ldflags), "./cmd/hasura/"
 
-      output = Utils.safe_popen_read("#{bin}/hasura", "completion", "bash")
-      (bash_completion/"hasura").write output
-      output = Utils.safe_popen_read("#{bin}/hasura", "completion", "zsh")
-      (zsh_completion/"_hasura").write output
+      generate_completions_from_executable(bin/"hasura", "completion", base_name: "hasura", shells: [:bash, :zsh])
     end
   end
 
