@@ -3,6 +3,7 @@ class Psqlodbc < Formula
   homepage "https://odbc.postgresql.org"
   url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-13.02.0000.tar.gz"
   sha256 "b39b7e5c41fd6475c551112fa724bf57c4a446175ec4188a90e2844cc1612585"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/odbc/versions/src/"
@@ -26,8 +27,8 @@ class Psqlodbc < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "libpq"
   depends_on "openssl@1.1"
-  depends_on "postgresql"
   depends_on "unixodbc"
 
   def install
