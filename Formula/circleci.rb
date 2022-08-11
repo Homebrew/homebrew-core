@@ -32,11 +32,8 @@ class Circleci < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    output = Utils.safe_popen_read("#{bin}/circleci", "--skip-update-check", "completion", "bash")
-    (bash_completion/"circleck").write output
-
-    output = Utils.safe_popen_read("#{bin}/circleci", "--skip-update-check", "completion", "zsh")
-    (zsh_completion/"_circleci").write output
+    generate_completions_from_executable(bin/"circleci", "--skip-update-check", "completion",
+                                        shells: [:bash, :zsh])
   end
 
   test do
