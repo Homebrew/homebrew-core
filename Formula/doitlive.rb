@@ -54,11 +54,8 @@ class Doitlive < Formula
   def install
     virtualenv_install_with_resources
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, libexec/"bin/doitlive", "completion")
-    (bash_completion/"doitlive").write output
-
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, libexec/"bin/doitlive", "completion")
-    (zsh_completion/"_doitlive").write output
+    generate_completions_from_executable(libexec/"bin/doitlive", "completion",
+                                         shells: [:bash, :zsh], shell_parameter_format: :none)
   end
 
   test do
