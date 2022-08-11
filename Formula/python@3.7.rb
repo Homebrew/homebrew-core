@@ -199,6 +199,14 @@ class PythonAT37 < Formula
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
     Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
+    # `brew` mishandles hardlinks, so replace with a symlink.
+    (bin/"python#{version.major_minor}m").unlink # Hardlink to "python#{version.major_minor}"
+    bin.install_symlink "python#{version.major_minor}" => "python#{version.major_minor}m"
+
+    # Fix missing symlinks from `altinstall`.
+    bin.install_symlink "python#{version.major_minor}m-config" => "python#{version.major_minor}-config"
+    bin.install_symlink "pyvenv-#{version.major_minor}" => "pyvenv"
+
     if OS.mac?
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py",
