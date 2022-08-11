@@ -15,6 +15,10 @@ class Kubescape < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8f380152c0c592450d46da3f3731853a452de6fe0a2fe824212465711ff6a9d"
   end
 
+  # Kubescape has been disabled since it fails to build with libgit2 upstream
+  # https://github.com/Homebrew/homebrew-core/pull/106523
+  disable! date: "2022-08-11", because: :does_not_build
+
   depends_on "go" => :build
 
   def install

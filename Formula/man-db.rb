@@ -12,12 +12,13 @@ class ManDb < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "a981901cd2341fa8b062d30ad8ce33e93d8d244307b61bb8dbbe795e8381fa7d"
-    sha256 arm64_big_sur:  "9b8c9d4933d144a1efed248b7a26790225d900c533cf5f87ba2662ac2867a015"
-    sha256 monterey:       "05e657d34074c4076ca2f07d401a331d9c5349052b46cbd78de41ad24b20755b"
-    sha256 big_sur:        "068eb7bbbad5a8e6eac3cd5d1a95f3d1975dea8fed52f7a347b486b3a0cb879d"
-    sha256 catalina:       "07b99f008c2c747276e1d995086a95c44a1a8458160afcd70ac8eba9320fd0a0"
-    sha256 x86_64_linux:   "88ddaf0f8afe906218f0888aa5209c2e8fc07d734518854bc8aea2b82a00886c"
+    rebuild 1
+    sha256 arm64_monterey: "883f4fd5751b69d951ebdb4e2de9e76f0149b573720ed9affb3bd088c24cb303"
+    sha256 arm64_big_sur:  "90ebf9877c5aa6d1a2b70685da43dfdb0431644fc108ec878dc33010d137d79c"
+    sha256 monterey:       "ccde90f81fad87af2496c6cda537ad5ce2afcbb104f705ef88959de565e2ae4f"
+    sha256 big_sur:        "f0f874894907bcf1c9bd2cfbfbe70e45758c55475468841a438f81c48fe2792c"
+    sha256 catalina:       "afee12759ff8f4b1eea2fa4356297bcd53af776d11305111a949baacce1c6f12"
+    sha256 x86_64_linux:   "2921653b3a7b781564dc65f0cea507c6c37d46bc80b4a6509056e03c4fcdbf5e"
   end
 
   depends_on "pkg-config" => :build
@@ -31,22 +32,24 @@ class ManDb < Formula
   end
 
   def install
+    man_db_conf = etc/"man_db.conf"
     args = %W[
-      --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
       --disable-cache-owner
       --disable-setuid
       --disable-nls
       --program-prefix=g
-      --with-config-file=#{etc}/man_db.conf
+      --localstatedir=#{var}
+      --with-config-file=#{man_db_conf}
       --with-systemdtmpfilesdir=#{etc}/tmpfiles.d
       --with-systemdsystemunitdir=#{etc}/systemd/system
     ]
 
-    system "./configure", *args
-
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+
+    # Use Homebrew's `var` directory instead of `/var`.
+    inreplace man_db_conf, "/var", var
 
     # Symlink commands without 'g' prefix into libexec/bin and
     # man pages into libexec/man
