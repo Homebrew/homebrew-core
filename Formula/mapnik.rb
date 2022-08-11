@@ -4,7 +4,7 @@ class Mapnik < Formula
   url "https://github.com/mapnik/mapnik/releases/download/v3.1.0/mapnik-v3.1.0.tar.bz2"
   sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
   license "LGPL-2.1-or-later"
-  revision 10
+  revision 11
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
@@ -31,8 +31,8 @@ class Mapnik < Formula
   depends_on "icu4c"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "libpq"
   depends_on "libtiff"
-  depends_on "postgresql"
   depends_on "proj"
   depends_on "webp"
 
@@ -73,7 +73,7 @@ class Mapnik < Formula
       JPEG_INCLUDES=#{jpeg}/include
       JPEG_LIBS=#{jpeg}/lib
       NIK2IMG=False
-      PG_CONFIG=#{Formula["postgresql"].opt_bin}/pg_config
+      PG_CONFIG=#{Formula["libpq"].opt_bin}/pg_config
       PNG_INCLUDES=#{libpng}/include
       PNG_LIBS=#{libpng}/lib
       PROJ_INCLUDES=#{proj}/include
