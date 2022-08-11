@@ -26,10 +26,7 @@ class Kubecfg < Formula
       prefix.install_metafiles
     end
 
-    output = Utils.safe_popen_read("#{bin}/kubecfg", "completion", "--shell", "bash")
-    (bash_completion/"kubecfg").write output
-    output = Utils.safe_popen_read("#{bin}/kubecfg", "completion", "--shell", "zsh")
-    (zsh_completion/"_kubecfg").write output
+    generate_completions_from_executable(bin/"kubecfg", "completion", "--shell", shells: [:bash, :zsh])
   end
 
   test do
