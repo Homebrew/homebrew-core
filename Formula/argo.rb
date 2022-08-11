@@ -25,10 +25,7 @@ class Argo < Formula
     system "make", "dist/argo"
     bin.install "dist/argo"
 
-    output = Utils.safe_popen_read("#{bin}/argo", "completion", "bash")
-    (bash_completion/"argo").write output
-    output = Utils.safe_popen_read("#{bin}/argo", "completion", "zsh")
-    (zsh_completion/"_argo").write output
+    generate_completions_from_executable(bin/"argo", "completion", shells: [:bash, :zsh])
   end
 
   test do
