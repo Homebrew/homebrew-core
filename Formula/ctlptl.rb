@@ -24,17 +24,7 @@ class Ctlptl < Formula
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/ctlptl"
 
-    # Install bash completion
-    output = Utils.safe_popen_read(bin/"ctlptl", "completion", "bash")
-    (bash_completion/"ctlptl").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(bin/"ctlptl", "completion", "zsh")
-    (zsh_completion/"_ctlptl").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"ctlptl", "completion", "fish")
-    (fish_completion/"ctlptl.fish").write output
+    generate_completions_from_executable(bin/"ctlptl", "completion")
   end
 
   test do
