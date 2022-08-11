@@ -24,12 +24,7 @@ class PySpy < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_output = Utils.safe_popen_read(bin/"py-spy", "completions", "bash")
-    (bash_completion/"py-spy").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"py-spy", "completions", "zsh")
-    (zsh_completion/"_py-spy").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"py-spy", "completions", "fish")
-    (fish_completion/"py-spy.fish").write fish_output
+    generate_completions_from_executable(bin/"py-spy", "completions")
   end
 
   test do
