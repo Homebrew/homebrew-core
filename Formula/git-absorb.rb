@@ -22,9 +22,7 @@ class GitAbsorb < Formula
     system "cargo", "install", *std_cargo_args
     man1.install "Documentation/git-absorb.1"
 
-    (zsh_completion/"_git-absorb").write Utils.safe_popen_read("#{bin}/git-absorb", "--gen-completions", "zsh")
-    (bash_completion/"git-absorb").write Utils.safe_popen_read("#{bin}/git-absorb", "--gen-completions", "bash")
-    (fish_completion/"git-absorb.fish").write Utils.safe_popen_read("#{bin}/git-absorb", "--gen-completions", "fish")
+    generate_completions_from_executable(bin/"git-absorb", "--gen-completions")
   end
 
   test do
