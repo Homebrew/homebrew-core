@@ -37,14 +37,7 @@ class Kustomize < Formula
       system "go", "build", *std_go_args(ldflags: ldflags)
     end
 
-    output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "bash")
-    (bash_completion/"kustomize").write output
-
-    output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "zsh")
-    (zsh_completion/"_kustomize").write output
-
-    output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "fish")
-    (fish_completion/"kustomize.fish").write output
+    generate_completions_from_executable(bin/"kustomize", "completion")
   end
 
   test do
