@@ -32,9 +32,7 @@ class Gh < Formula
     end
     bin.install "bin/gh"
     man1.install Dir["share/man/man1/gh*.1"]
-    (bash_completion/"gh").write `#{bin}/gh completion -s bash`
-    (fish_completion/"gh.fish").write `#{bin}/gh completion -s fish`
-    (zsh_completion/"_gh").write `#{bin}/gh completion -s zsh`
+    generate_completions_from_executable(bin/"gh", "completion", "-s")
   end
 
   test do
