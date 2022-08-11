@@ -21,12 +21,8 @@ class Lab < Formula
   def install
     ldflags = "-X main.version=#{version} -s -w"
     system "go", "build", *std_go_args(ldflags: ldflags)
-    output = Utils.safe_popen_read("#{bin}/lab", "completion", "bash")
-    (bash_completion/"lab").write output
-    output = Utils.safe_popen_read("#{bin}/lab", "completion", "zsh")
-    (zsh_completion/"_lab").write output
-    output = Utils.safe_popen_read("#{bin}/lab", "completion", "fish")
-    (fish_completion/"lab.fish").write output
+
+    generate_completions_from_executable(bin/"lab", "completion")
   end
 
   test do
