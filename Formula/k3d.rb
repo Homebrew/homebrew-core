@@ -41,17 +41,7 @@ class K3d < Formula
            "-mod", "vendor",
            *std_go_args(ldflags: ldflags)
 
-    # Install bash completion
-    output = Utils.safe_popen_read(bin/"k3d", "completion", "bash")
-    (bash_completion/"k3d").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(bin/"k3d", "completion", "zsh")
-    (zsh_completion/"_k3d").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"k3d", "completion", "fish")
-    (fish_completion/"k3d.fish").write output
+    generate_completions_from_executable(bin/"k3d", "completion")
   end
 
   test do
