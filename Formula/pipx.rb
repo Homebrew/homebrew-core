@@ -48,12 +48,8 @@ class Pipx < Formula
     virtualenv_install_with_resources
     bin.install_symlink libexec/"bin/register-python-argcomplete"
 
-    # Install shell completions
-    output = Utils.safe_popen_read(libexec/"bin/register-python-argcomplete", "--shell=bash", "pipx")
-    (bash_completion/"pipx").write output
-
-    output = Utils.safe_popen_read(libexec/"bin/register-python-argcomplete", "--shell=fish", "pipx")
-    (fish_completion/"pipx.fish").write output
+    generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "pipx", "--shell",
+                                         shells: [:bash, :fish])
   end
 
   test do
