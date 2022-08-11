@@ -40,17 +40,7 @@ class KubernetesCli < Formula
     system "make", "WHAT=cmd/kubectl"
     bin.install "_output/bin/kubectl"
 
-    # Install bash completion
-    output = Utils.safe_popen_read(bin/"kubectl", "completion", "bash")
-    (bash_completion/"kubectl").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read(bin/"kubectl", "completion", "zsh")
-    (zsh_completion/"_kubectl").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"kubectl", "completion", "fish")
-    (fish_completion/"kubectl.fish").write output
+    generate_completions_from_executable(bin/"kubectl", "completion", base_name: "kubectl")
 
     # Install man pages
     # Leave this step for the end as this dirties the git tree
