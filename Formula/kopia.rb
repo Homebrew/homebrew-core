@@ -28,11 +28,8 @@ class Kopia < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    output = Utils.safe_popen_read(bin/"kopia", "--completion-script-bash")
-    (bash_completion/"kopia").write output
-
-    output = Utils.safe_popen_read(bin/"kopia", "--completion-script-zsh")
-    (zsh_completion/"_kopia").write output
+    generate_completions_from_executable(bin/"kopia", shells:                 [:bash, :zsh],
+                                                      shell_parameter_format: "--completion-script-")
 
     output = Utils.safe_popen_read(bin/"kopia", "--help-man")
     (man1/"kopia.1").write output
