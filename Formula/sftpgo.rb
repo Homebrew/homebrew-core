@@ -24,9 +24,7 @@ class Sftpgo < Formula
     system "go", "build", *std_go_args(ldflags: ldflags)
     system bin/"sftpgo", "gen", "man", "-d", man1
 
-    (zsh_completion/"_sftpgo").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "zsh")
-    (bash_completion/"sftpgo").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "bash")
-    (fish_completion/"sftpgo.fish").write Utils.safe_popen_read(bin/"sftpgo", "gen", "completion", "fish")
+    generate_completions_from_executable(bin/"sftpgo", "gen", "completion")
 
     inreplace "sftpgo.json" do |s|
       s.gsub! "\"users_base_dir\": \"\"", "\"users_base_dir\": \"#{var}/sftpgo/data\""
