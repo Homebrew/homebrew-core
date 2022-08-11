@@ -26,9 +26,7 @@ class RosaCli < Formula
 
   def install
     system "go", "build", *std_go_args(output: bin/"rosa"), "./cmd/rosa"
-    (bash_completion/"rosa").write Utils.safe_popen_read("#{bin}/rosa", "completion", "bash")
-    (zsh_completion/"_rosa").write Utils.safe_popen_read("#{bin}/rosa", "completion", "zsh")
-    (fish_completion/"rosa.fish").write Utils.safe_popen_read("#{bin}/rosa", "completion", "fish")
+    generate_completions_from_executable(bin/"rosa", "completion", base_name: "rosa")
   end
 
   test do
