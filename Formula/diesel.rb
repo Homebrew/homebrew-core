@@ -31,12 +31,7 @@ class Diesel < Formula
       system "cargo", "install", *std_cargo_args
     end
 
-    bash_output = Utils.safe_popen_read(bin/"diesel", "completions", "bash")
-    (bash_completion/"diesel").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"diesel", "completions", "zsh")
-    (zsh_completion/"_diesel").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"diesel", "completions", "fish")
-    (fish_completion/"diesel.fish").write fish_output
+    generate_completions_from_executable(bin/"diesel", "completions")
   end
 
   test do
