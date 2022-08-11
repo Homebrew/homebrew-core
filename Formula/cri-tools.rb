@@ -26,14 +26,7 @@ class CriTools < Formula
       system "make", "install", "VERSION=#{version}"
     end
 
-    output = Utils.safe_popen_read("#{bin}/crictl", "completion", "bash")
-    (bash_completion/"crictl").write output
-
-    output = Utils.safe_popen_read("#{bin}/crictl", "completion", "zsh")
-    (zsh_completion/"_crictl").write output
-
-    output = Utils.safe_popen_read("#{bin}/crictl", "completion", "fish")
-    (fish_completion/"crictl.fish").write output
+    generate_completions_from_executable(bin/"crictl", "completion", base_name: "crictl")
   end
 
   test do
