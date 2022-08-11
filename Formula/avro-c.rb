@@ -1,9 +1,9 @@
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.11.0/c/avro-c-1.11.0.tar.gz"
-  mirror "https://archive.apache.org/dist/avro/avro-1.11.0/c/avro-c-1.11.0.tar.gz"
-  sha256 "0652590a54ad8e4aa58a2b9ff1f4ce71a64a41b0a05c4529d1c518c61e760643"
+  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.11.1/c/avro-c-1.11.1.tar.gz"
+  mirror "https://archive.apache.org/dist/avro/avro-1.11.1/c/avro-c-1.11.1.tar.gz"
+  sha256 "12588c4e3103e7f44a1e05ab583f1dd04adaf6a10aa2fd73e1ccf59045535f92"
   license "Apache-2.0"
 
   bottle do
