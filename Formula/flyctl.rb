@@ -38,12 +38,7 @@ class Flyctl < Formula
 
     bin.install_symlink "flyctl" => "fly"
 
-    bash_output = Utils.safe_popen_read("#{bin}/flyctl", "completion", "bash")
-    (bash_completion/"flyctl").write bash_output
-    zsh_output = Utils.safe_popen_read("#{bin}/flyctl", "completion", "zsh")
-    (zsh_completion/"_flyctl").write zsh_output
-    fish_output = Utils.safe_popen_read("#{bin}/flyctl", "completion", "fish")
-    (fish_completion/"flyctl.fish").write fish_output
+    generate_completions_from_executable(bin/"flyctl", "completion")
   end
 
   test do
