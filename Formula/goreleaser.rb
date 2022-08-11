@@ -29,14 +29,7 @@ class Goreleaser < Formula
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     # Install shell completions
-    output = Utils.safe_popen_read("#{bin}/goreleaser", "completion", "bash")
-    (bash_completion/"goreleaser").write output
-
-    output = Utils.safe_popen_read("#{bin}/goreleaser", "completion", "zsh")
-    (zsh_completion/"_goreleaser").write output
-
-    output = Utils.safe_popen_read("#{bin}/goreleaser", "completion", "fish")
-    (fish_completion/"goreleaser.fish").write output
+    generate_completions_from_executable(bin/"goreleaser", "completion")
   end
 
   test do
