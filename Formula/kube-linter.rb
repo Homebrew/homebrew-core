@@ -22,14 +22,7 @@ class KubeLinter < Formula
     ldflags = "-s -w -X golang.stackrox.io/kube-linter/internal/version.version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/kube-linter"
 
-    bash_output = Utils.safe_popen_read(bin/"kube-linter", "completion", "bash")
-    (bash_completion/"kube-linter").write bash_output
-
-    zsh_output = Utils.safe_popen_read(bin/"kube-linter", "completion", "zsh")
-    (zsh_completion/"_kube-linter").write zsh_output
-
-    fish_output = Utils.safe_popen_read(bin/"kube-linter", "completion", "fish")
-    (fish_completion/"kube-linter.fish").write fish_output
+    generate_completions_from_executable(bin/"kube-linter", "completion")
   end
 
   test do
