@@ -35,6 +35,7 @@ class Gauche < Formula
 
   test do
     output = shell_output("#{bin}/gosh -V")
-    assert_match "Gauche scheme shell, version #{version}", output
+    assert_match "(version \"#{version}\")", output
+    assert_match "(gauche.net.tls mbedtls)", output
   end
 end
