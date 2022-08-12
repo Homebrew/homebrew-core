@@ -25,13 +25,6 @@ class Xz < Formula
     sha256               x86_64_linux:   "5308bba4329d4ca980f8a2a8cb6b26e746f498e5dc76cc32b02ff97a7a61a49c"
   end
 
-  # Fix arbitrary-file-write vulnerability in `xzgrep`.
-  # https://seclists.org/oss-sec/2022/q2/18
-  patch do
-    url "https://tukaani.org/xz/xzgrep-ZDI-CAN-16587.patch"
-    sha256 "98c6cb1042284fe704ec30083f3fc87364ce9ed2ea51f62bbb0ee9d3448717ec"
-  end
-
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
