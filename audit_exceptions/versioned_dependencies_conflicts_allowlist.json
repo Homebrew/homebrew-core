@@ -1,9 +1,6 @@
 [
-  "anime-downloader",
   "emscripten",
-  "graph-tool",
   "hive",
-  "jupyterlab",
   "libgaiagraphics",
   "librasterlite",
   "predictionio",
