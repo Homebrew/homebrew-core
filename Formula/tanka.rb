@@ -25,7 +25,7 @@ class Tanka < Formula
   depends_on "kubernetes-cli"
 
   def install
-    ENV["CGO_ENABLED"] = 0
+    ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
       -s -w
       -X github.com/grafana/tanka/pkg/tanka.CURRENT_VERSION=#{version}
