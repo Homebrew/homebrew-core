@@ -1,8 +1,8 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.38/glade-3.38.2.tar.xz"
-  sha256 "98fc87647d88505c97dd2f30f2db2d3e9527515b3af11694787d62a8d28fbab7"
+  url "https://download.gnome.org/sources/glade/3.40/glade-3.40.0.tar.xz"
+  sha256 "31c9adaea849972ab9517b564e19ac19977ca97758b109edc3167008f53e3d9c"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -16,6 +16,7 @@ class Glade < Formula
   end
 
   depends_on "docbook-xsl" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
@@ -31,17 +32,6 @@ class Glade < Formula
 
   on_macos do
     depends_on "gtk-mac-integration"
-  end
-
-  # Apply 2 upstream commits to fix build with newer meson.  Remove with next release.
-  patch do
-    url "https://gitlab.gnome.org/GNOME/glade/-/commit/6da47128e8da04edccccdfcbc9101940fc15fe3a.diff"
-    sha256 "81eaacf4c9dd1c1a907f99582a81db248447935b4048e5084098041c78f9b3fb"
-  end
-
-  patch do
-    url "https://gitlab.gnome.org/GNOME/glade/-/commit/efdd5338b034a11c5d617684d92d11edc600965e.diff"
-    sha256 "37badb7b5af87d51c3eea7677547b93deb5bda51c2fc710c64de1b7cf843bf4b"
   end
 
   def install
