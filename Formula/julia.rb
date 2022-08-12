@@ -45,6 +45,12 @@ class Julia < Formula
       url "https://github.com/JuliaLang/julia/commit/4d7fc8465ed9eb820893235a6ff3d40274b643a7.patch?full_index=1"
       sha256 "3a34a2cd553929c2aee74aba04c8e42ccb896f9d491fb677537cd4bca9ba7caa"
     end
+
+    # Fixes for gcc12 https://github.com/Homebrew/homebrew-core/pull/107875#issuecomment-1214216233
+    patch :p0 do
+      url "https://raw.githubusercontent.com/archlinux/svntogit-community/bee1243b4ec66da31097f84600b37451435cfb1e/trunk/julia-gcc-12.patch?full_index=1"
+      sha256 "b903859c262048057f873e4a39c4837382896d3059860465443823133a5a59da"
+    end
   end
 
   bottle do
