@@ -15,7 +15,7 @@ class Sourcekitten < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "77e05bd04bb3701b01740f1e74725776a9df6f0d2be370db7d5bd450665dd2a1"
   end
 
-  depends_on xcode: ["12.0", :build]
+  depends_on xcode: ["13.0", :build]
   depends_on :macos
   depends_on xcode: "6.0"
 
