@@ -25,6 +25,12 @@ class Cdo < Formula
   depends_on "netcdf"
   depends_on "proj"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # C++17
+
   def install
     args = %W[
       --disable-dependency-tracking
