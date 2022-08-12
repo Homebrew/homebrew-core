@@ -1,7 +1,4 @@
 class Pillow < Formula
-  # TODO: Remove when we no longer need the `setuptools` resource.
-  include Language::Python::Virtualenv
-
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.org"
   url "https://files.pythonhosted.org/packages/8c/92/2975b464d9926dc667020ed1abfa6276e68c3571dcb77e43347e15ee9eed/Pillow-9.2.0.tar.gz"
@@ -34,12 +31,6 @@ class Pillow < Formula
   depends_on "webp"
 
   uses_from_macos "zlib"
-
-  # FIXME: Remove when Python formulae use the latest setuptools.
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/5b/ff/69fd395c5237da934753752b71c38e95e137bd0603d5640df70ddaea8038/setuptools-63.4.3.tar.gz"
-    sha256 "521c833d1e5e1ef0869940e7f486a83de7773b9f029010ad0c2fe35453a9dad9"
-  end
 
   def pythons
     deps.map(&:to_formula)
@@ -74,13 +65,6 @@ class Pillow < Formula
 
     pythons.each do |python|
       prefix_site_packages = prefix/Language::Python.site_packages(python)
-
-      # TODO: Remove virtualenv code when `setuptools` resource is no longer needed.
-      venv_root = buildpath/"venv"/Language::Python.major_minor_version(python)
-      venv = virtualenv_create(venv_root, python)
-      venv.pip_install resource("setuptools")
-      python = venv_root/"bin/python"
-
       system python, "setup.py",
                      "build_ext", *build_ext_args,
                      "install", *install_args,
