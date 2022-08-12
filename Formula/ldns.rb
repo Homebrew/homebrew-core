@@ -1,10 +1,9 @@
 class Ldns < Formula
   desc "DNS library written in C"
   homepage "https://nlnetlabs.nl/projects/ldns/"
-  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.1.tar.gz"
-  sha256 "958229abce4d3aaa19a75c0d127666564b17216902186e952ca4aef47c6d7fa3"
+  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.2.tar.gz"
+  sha256 "b92b001cdd382de653620a05445e42e17a827eec93d64ee587ad291a533cc1e9"
   license "BSD-3-Clause"
-  revision 1
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
