@@ -4,6 +4,7 @@ class Suricata < Formula
   url "https://www.openinfosecfoundation.org/download/suricata-6.0.6.tar.gz"
   sha256 "00173634fa76aee636e38a90b1c02616c903e42173107d47b4114960b5fbe839"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://suricata.io/download/"
@@ -29,7 +30,7 @@ class Suricata < Formula
   depends_on "nspr"
   depends_on "nss"
   depends_on "pcre"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libpcap"
 
@@ -56,10 +57,18 @@ class Suricata < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages("python3")
+    python = "python3.10"
+
+    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
+    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
+    inreplace %w[python/Makefile.in suricata-update/Makefile.in],
+              /@HAVE_PYTHON_TRUE@.*\sinstall --prefix \$\(DESTDIR\)\$\(prefix\)$/,
+              "\\0 --install-scripts=#{bin} --install-lib=#{prefix/Language::Python.site_packages(python)}"
+
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages(python)
     resources.each do |r|
       r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system python, *Language::Python.setup_install_args(libexec/"vendor", python)
       end
     end
 
@@ -105,6 +114,6 @@ class Suricata < Formula
   end
 
   test do
-    assert_match(/#{version}/, shell_output("#{bin}/suricata --build-info"))
+    assert_match version.to_s, shell_output("#{bin}/suricata --build-info")
   end
 end
