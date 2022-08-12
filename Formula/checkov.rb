@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/8f/5a/5e59e4b8dce53f4901a80a3fad3bf5133b0f5d9d36049318ff568780d82f/checkov-2.1.105.tar.gz"
-  sha256 "efeb09ecb6579e5347421ea58be336beabd83c1759fec7ddda10988623227005"
+  url "https://files.pythonhosted.org/packages/ba/ff/c8c48e3b05b92456991dee9837daec7fbf1a8b45608dc0557b759bf791f9/checkov-2.1.120.tar.gz"
+  sha256 "cc5dd17dee766d9365da90e77dc8eca8ec34fe9b9e51261e5ed6c8bc83e38a4d"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7a/77/6f0a4f4a40f2525dbc55cbd6b39948f97a983f026ef6496dc5aad55c89c1/boto3-1.24.47.tar.gz"
-    sha256 "02b30776fd1b6c0fdf2d72d1365e5adcc6f0baa6540a450946b1a02db3a5ace6"
+    url "https://files.pythonhosted.org/packages/80/ca/c973f4cb2f0ccb54b4b61653fa8304701249aaa9589844ec48609a79a639/boto3-1.24.50.tar.gz"
+    sha256 "28fefb77fb85b521a87ffd932621b14aabf4bb65ec4f9d9ce7399d093b2ad8bd"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/55/99/fc0d1a88c697df3f7bdd0234e39555801e95498f7f8b7c659ff1eaae3aa6/botocore-1.27.47.tar.gz"
-    sha256 "160a3fa8e3062a48299a1b44ef2ec81f9a58cd3edd0da58808e5c2cc8dd9257f"
+    url "https://files.pythonhosted.org/packages/db/7c/1116dd55dee06d99d4ea304b9554fa1d8e78724fb40ed1259d2672b173bf/botocore-1.27.50.tar.gz"
+    sha256 "0a3e2eef7a60c20e46be47eaf45cf5ea7a946aecdb68d829886d4f2506ac657c"
   end
 
   resource "cached-property" do
@@ -267,8 +267,8 @@ class Checkov < Formula
   end
 
   resource "pycares" do
-    url "https://files.pythonhosted.org/packages/99/da/d3d20bc7bd5baadeea04ee84db16f1f07557138c313bd6200e1cffab5bee/pycares-4.2.1.tar.gz"
-    sha256 "735b4f75fd0f595c4e9184da18cd87737f46bc81a64ea41f4edce2b6b68d46d2"
+    url "https://files.pythonhosted.org/packages/ac/a3/21594384c2398420dd7f6e8656aeb5a2c15128ddf2b85ef5f4403342e18d/pycares-4.2.2.tar.gz"
+    sha256 "e1f57a8004370080694bd6fb969a1ffc9171a59c6824d54f791c1b2e4d298385"
   end
 
   resource "pycep-parser" do
