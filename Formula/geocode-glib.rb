@@ -19,9 +19,9 @@ class GeocodeGlib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "glib"
   depends_on "gtk+3"
   depends_on "json-glib"
-  depends_on "glib"
   depends_on "libsoup@2"
 
   def install
