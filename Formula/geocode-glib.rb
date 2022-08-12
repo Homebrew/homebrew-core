@@ -14,12 +14,14 @@ class GeocodeGlib < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5087451ab0d29991b1760b263802a81a2497f5a157f40ac931570c2146de42a8"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
   depends_on "json-glib"
+  depends_on "glib"
   depends_on "libsoup@2"
 
   def install
