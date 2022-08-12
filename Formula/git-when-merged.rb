@@ -1,10 +1,10 @@
 class GitWhenMerged < Formula
-  include Language::Python::Shebang
+  include Language::Python::Virtualenv
 
   desc "Find where a commit was merged in git"
-  homepage "https://github.com/mhagger/git-when-merged"
-  url "https://github.com/mhagger/git-when-merged/archive/v1.2.1.tar.gz"
-  sha256 "46ba5076981862ac2ad0fa0a94b9a5401ef6b5c5b0506c6e306b76e5798e1f58"
+  homepage "https://pypi.org/project/git-when-merged/"
+  url "https://files.pythonhosted.org/packages/35/45/a2696a3a133838739baaa20fbb180b98c2c053970b2723b4384cbbc1f4a0/git-when-merged-1.2.1.tar.gz"
+  sha256 "0b1addf54e9b5e428ab577a2ace5b7ebc167d067301f96447eccfc82bbad65fe"
   license "GPL-2.0-only"
 
   bottle do
@@ -14,8 +14,7 @@ class GitWhenMerged < Formula
   depends_on "python@3.10"
 
   def install
-    rewrite_shebang detected_python_shebang, "bin/git-when-merged"
-    bin.install "bin/git-when-merged"
+    virtualenv_install_with_resources
   end
 
   test do
