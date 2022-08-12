@@ -1,8 +1,8 @@
 class Poac < Formula
   desc "Package manager for C++"
   homepage "https://github.com/poacpm/poac"
-  url "https://github.com/poacpm/poac/archive/refs/tags/0.3.10.tar.gz"
-  sha256 "faadd38212638887effd129c282b3ca38e082c77a0a0845d9c11ca5600b44ba5"
+  url "https://github.com/poacpm/poac/archive/refs/tags/0.4.0.tar.gz"
+  sha256 "8f201e6f1f773797191a0b2b84273789a9e38acf4ea6fbfdc8e72216f9470e4b"
   license "Apache-2.0"
   head "https://github.com/poacpm/poac.git", branch: "main"
 
