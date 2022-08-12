@@ -3,8 +3,8 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://github.com/openSUSE/osc/archive/0.179.0.tar.gz"
-  sha256 "543a9e1a4f2dc722a5228b41a8da92867a35fa52f9701dc213108fa9b35085e8"
+  url "https://github.com/openSUSE/osc/archive/0.181.0.tar.gz"
+  sha256 "ef97c1454a4c8416e3bbb3e378afde85e42fe381fff8a135ddb9c8c4fedd5697"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
@@ -24,14 +24,17 @@ class Osc < Formula
   uses_from_macos "curl"
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
-    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
+    url "https://files.pythonhosted.org/packages/31/a2/12c090713b3d0e141f367236d3a8bdc3e5fca0d83ff3647af4892c16c205/chardet-5.0.0.tar.gz"
+    sha256 "0368df2bfd78b5fc20572bb4e9bb7fb53e2c094f60ae9993339e8671d0afb8aa"
   end
 
   resource "M2Crypto" do
     url "https://files.pythonhosted.org/packages/2c/52/c35ec79dd97a8ecf6b2bbd651df528abb47705def774a4a15b99977274e8/M2Crypto-0.38.0.tar.gz"
     sha256 "99f2260a30901c949a8dc6d5f82cd5312ffb8abc92e76633baf231bbbcb2decb"
   end
+
+  # upstream issue tracker, https://github.com/openSUSE/osc/issues/1101
+  patch :DATA
 
   def install
     openssl = Formula["openssl@1.1"]
@@ -46,3 +49,25 @@ class Osc < Formula
     system bin/"osc", "--version"
   end
 end
+
+__END__
+diff --git a/osc/util/git_version.py b/osc/util/git_version.py
+index 69022cf..67a12e4 100644
+--- a/osc/util/git_version.py
++++ b/osc/util/git_version.py
+@@ -3,6 +3,7 @@ import subprocess
+
+
+ def get_git_archive_version():
++    return None
+     """
+     Return version that is set by git during `git archive`.
+     The returned format is equal to what `git describe --tags` returns.
+@@ -18,6 +19,7 @@ def get_git_archive_version():
+
+
+ def get_git_version():
++    return None
+     """
+     Determine version from git repo by calling `git describe --tags`.
+     """
