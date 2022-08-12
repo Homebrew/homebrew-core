@@ -231,7 +231,7 @@ jobs:
 
       - name: Failures Summary and Bottle Result
         if: always()
-        uses: mohzulfikar/actions@main
+        uses: Homebrew/actions/failures-summary-and-bottle-result@master
         with:
           workdir: ${{matrix.workdir || github.workspace}}
 
