@@ -36,15 +36,12 @@ class E2fsprogs < Formula
   patch :DATA
 
   def install
-    # Fix "unknown type name 'loff_t'" issue
-    inreplace "lib/ext2fs/imager.c", "loff_t", "off_t"
-    inreplace "misc/e2fuzz.c", "loff_t", "off_t"
-
     # Enforce MKDIR_P to work around a configure bug
     # see https://github.com/Homebrew/homebrew-core/pull/35339
     # and https://sourceforge.net/p/e2fsprogs/discussion/7053/thread/edec6de279/
     args = [
       "--prefix=#{prefix}",
+      "--sysconfdir=#{etc}",
       "--disable-e2initrd-helper",
       "MKDIR_P=mkdir -p",
     ]
