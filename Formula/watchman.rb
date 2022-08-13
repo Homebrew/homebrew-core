@@ -2,6 +2,7 @@ class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
   license "MIT"
+  revision 1
 
   stable do
     url "https://github.com/facebook/watchman/archive/v2022.08.08.00.tar.gz"
@@ -50,7 +51,7 @@ class Watchman < Formula
   depends_on "glog"
   depends_on "libevent"
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "python@3.10"
 
   on_linux do
