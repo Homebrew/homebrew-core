@@ -5,6 +5,11 @@ class Zet < Formula
   sha256 "b001632ecff545411908a9b365dbac6f930e563233547a4cb0ad210d3066952b"
   license any_of: ["Apache-2.0", "MIT"]
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d1efc8a1c86b3f42944a27c67605171646b9305bab4e26c5952564f74b37ac09"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c6e7d941904683befbbb15613f071a946a144add3cac297592c104d6928dc364"
