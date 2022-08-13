@@ -14,18 +14,24 @@ class Osslsigncode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2549903650fdd0189c1083a177af1c789364758080828b8ea6cf46c376ed6d65"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "cmake" => :build
+  depends_on "openssl@3"
 
   uses_from_macos "curl"
 
+  # Fix file INSTALL issue and install completion as part of `install` step
+  patch :DATA
+
   def install
-    system "./bootstrap"
-    system "./configure", *std_configure_args
-    system "make", "install"
+    # Fixing libcurl linker issue with `curl_version`
+    curl_lib = OS.mac? ? MacOS.sdk_path_if_needed/"usr/lib" : Formula["curl"].opt_lib
+    ENV.append "LDFLAGS", "-L#{curl_lib} -lcurl"
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    bash_completion.install "osslsigncode.bash" => "osslsigncode"
   end
 
   test do
@@ -33,3 +39,17 @@ class Osslsigncode < Formula
     assert_match "osslsigncode", shell_output("#{bin}/osslsigncode --version")
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 484f142..1019ddf 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -33,7 +33,6 @@ include(FindCURL)
+
+ # load CMake project modules
+ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
+-include(SetBashCompletion)
+ include(FindHeaders)
+
+ # define the target
