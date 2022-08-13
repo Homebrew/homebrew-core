@@ -42,6 +42,7 @@ class Binutils < Formula
       "--with-system-zlib",
       "--disable-nls",
       "--disable-gold",
+      "--disable-gprofng", # Fails to build on Linux
     ]
     system "./configure", *args
     # Pass MAKEINFO=true to disable generation of HTML documentation.
