@@ -19,15 +19,18 @@ class Sord < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c469e65f11e0450f094a593428d865a70398a28085eaf7aaae8dd02b9efc6a5"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
   depends_on "pcre"
   depends_on "serd"
 
   def install
-    system "python3", "./waf", "configure", "--prefix=#{prefix}"
-    system "python3", "./waf"
-    system "python3", "./waf", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dtests=disabled", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
