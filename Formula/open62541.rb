@@ -5,6 +5,11 @@ class Open62541 < Formula
   sha256 "65511f7268bf1a311296b21e5ebdef6e48edf04383518570117ed2a490a42855"
   license "MPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "50bd8ee76efb0497b5cf1e85f5b1d17a27c76779aad15d2457fe10a9c5deea72"
     sha256 cellar: :any,                 arm64_big_sur:  "7aec0d3112b68e0437bb80ec58495b8ae8cc2730b856fc7944561027e1b9ae98"
