@@ -20,7 +20,6 @@ class Binutils < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "bison" => :build # Needs 3.0.4+, Linux-only.
     depends_on "glibc@2.13" => :build
     depends_on "linux-headers@4.4" => :build
   end
