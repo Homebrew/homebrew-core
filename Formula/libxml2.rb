@@ -129,7 +129,7 @@ class Libxml2 < Formula
     orig_pypath = ENV["PYTHONPATH"]
     ["3.9", "3.10"].each do |xy|
       ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-      system Formula["python@#{xy}"].opt_bin/"python3", "-c", "import libxml2"
+      system Formula["python@#{xy}"].opt_bin/"python#{xy}", "-c", "import libxml2"
       ENV["PYTHONPATH"] = orig_pypath
     end
   end

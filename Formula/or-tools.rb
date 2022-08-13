@@ -1,21 +1,10 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
+  url "https://github.com/google/or-tools/archive/v9.4.tar.gz"
+  sha256 "180fbc45f6e5ce5ff153bea2df0df59b15346f2a7f8ffbd7cb4aed0fb484b8f6"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/google/or-tools.git", branch: "stable"
-
-  stable do
-    url "https://github.com/google/or-tools/archive/v9.3.tar.gz"
-    sha256 "6fe981326563136fbb7a697547dc0fe6495914b5b42df559c2d88b35f6bcc661"
-
-    # Allow building with `re2` formula rather than bundled & patched copy.
-    # TODO: remove in the next release
-    patch do
-      url "https://github.com/google/or-tools/commit/0d3572bda874ce30b35af161a713ecd1793cd296.patch?full_index=1"
-      sha256 "b15dcbaf130ce1e6f51dccfd2e97e92ad43694e3019d2179a9c1765909b7ffb8"
-    end
-  end
 
   livecheck do
     url :stable
@@ -23,12 +12,12 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "70bc042453a171a4ddfc617431495877022c3c9b39cf20e6b36977758e8b11e4"
-    sha256 cellar: :any,                 arm64_big_sur:  "d7051adeec3d981e66813c1041c60772f4de566e024964f383fe9c42b65daf61"
-    sha256 cellar: :any,                 monterey:       "d76faae4705c9f29fe71cf0daf2d50157f8daf0dfb1800b03ff58c0b8ed9f62f"
-    sha256 cellar: :any,                 big_sur:        "3a88edaf5a3fdb34afe1202790fac3157a45d9dfdde3b48f2256d195e58d3bc5"
-    sha256 cellar: :any,                 catalina:       "3cbf768fb36c903c77c3d35f5f818fb9d87c00128dfa5a8dcc4b579845c496f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "619a54c8667620263c8d35ed08fd1ac8104ca4abef13bfa08efb94a21a1fc327"
+    sha256 cellar: :any,                 arm64_monterey: "f0281aa3585c24d9dd3c5df3b7aa76369b038f43ac0075185e66cd56e689fa4c"
+    sha256 cellar: :any,                 arm64_big_sur:  "ff9b55d2576d5d5eb880fc9f947007e92a3532a7221169eee36bdb81be6ad901"
+    sha256 cellar: :any,                 monterey:       "6e9e707a6bfaa9ef91fee6c842ed5b2e7558b7ad924eca82c63792a469abc4be"
+    sha256 cellar: :any,                 big_sur:        "f34c901fc0a95da5c4c7dfd7877ceddd516f8006ac8d5fb8bd7998ed98dd55b6"
+    sha256 cellar: :any,                 catalina:       "42c9d0b4b468ba1c4ad16eb512cdf3d06b7b6eeba86ef84290ac51f8e33314ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abed14d2017029233ae30b93815d3a6212ee80efea41d91acbfd1bb3e7b3ac13"
   end
 
   depends_on "cmake" => :build

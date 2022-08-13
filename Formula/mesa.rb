@@ -7,8 +7,8 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   stable do
-    url "https://mesa.freedesktop.org/archive/mesa-22.1.3.tar.xz"
-    sha256 "b98f32ba7aa2a1ff5725fb36eb999c693079f0ca16f70aa2f103e2b6c3f093e3"
+    url "https://mesa.freedesktop.org/archive/mesa-22.1.6.tar.xz"
+    sha256 "22ced061eb9adab8ea35368246c1995c09723f3f71653cd5050c5cec376e671a"
 
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/f0a40cf7d70ee5a25639b91d9a8088749a2dd04e/mesa/fix-build-on-macOS.patch"
@@ -17,12 +17,12 @@ class Mesa < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "df0b44f3ab436ebee487b9ef7fd5fb8c7f55b39cf404fd7e412691caedb46971"
-    sha256 arm64_big_sur:  "10fb7ce402bbdb407905023b73adf88bcd535cb52d76b0ffa1acc5af9158fb6d"
-    sha256 monterey:       "8935c48e5a08fd6edea4baa586f13ec6e241608f383e04a4c169221d805d3c18"
-    sha256 big_sur:        "788fa30f51a03af78553905f900989554edb699021e44ee46aa6c7594190c3f3"
-    sha256 catalina:       "6799552f24d2e1068f630432d7dbbf127f4b4baca8e41046d783e59f5d2e1178"
-    sha256 x86_64_linux:   "c2d4b64047befa1b2af07905a2df8bf64fc7cdc3cf29fecc3294e873a221c535"
+    sha256 arm64_monterey: "87da04057de203edfc208456e85e0dabd8b66c233275c9b775cd1f5e90d99e4e"
+    sha256 arm64_big_sur:  "2c3512be97664e86678d9c1e6cc130ff32e946510a19b73958b5b41ad0241329"
+    sha256 monterey:       "866578843f07b41fb329311969361b342104668fb714ed708c65339944b4ffc3"
+    sha256 big_sur:        "b81343ed36a45a5cbc383a107111cb23ed748782cb3f4d7f05810f422d35453c"
+    sha256 catalina:       "ebd91beda4b0bb526e9103704eecb6a0e33937f8611d7b9e34cb84e39c184274"
+    sha256 x86_64_linux:   "9027fc39ef7b852f696582f286e2b5c88c20ae75851216da00bf8da198400df3"
   end
 
   depends_on "bison" => :build # can't use form macOS, needs '> 2.3'

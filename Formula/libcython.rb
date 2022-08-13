@@ -28,16 +28,14 @@ class Libcython < Formula
 
   def pythons
     deps.map(&:to_formula)
-        .select { |f| f.name.match?(/python@\d\.\d+/) }
-        .map(&:opt_bin)
-        .map { |bin| bin/"python3" }
+        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
     pythons.each do |python|
       ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python)
-      system python, *Language::Python.setup_install_args(libexec),
-             "--install-lib=#{libexec/Language::Python.site_packages(python)}"
+      system python, *Language::Python.setup_install_args(libexec, python)
     end
   end
 

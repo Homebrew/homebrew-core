@@ -4,7 +4,7 @@ class Libzdb < Formula
   url "https://tildeslash.com/libzdb/dist/libzdb-3.2.2.tar.gz"
   sha256 "d51e4e21ee1ee84ac8763de91bf485360cd76860b951ca998e891824c4f195ae"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
@@ -12,18 +12,18 @@ class Libzdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a984ed34d47824121c308a122c397e06429fa80db31c5511de5dbd38a5a12ed7"
-    sha256 cellar: :any,                 arm64_big_sur:  "82e9b70755a848d0d9386c42ff2e771a2acdad6d2497251d6dd9d0b96a26edf9"
-    sha256 cellar: :any,                 monterey:       "406b423b65940127d9d6ba6c7d20c5926be12a1445539e40e376e746e19323e5"
-    sha256 cellar: :any,                 big_sur:        "75c8ff67e93358dc8733bc0505b7a2a7f18be1da23bdbf1c19e97de60c03cf08"
-    sha256 cellar: :any,                 catalina:       "4ae11691a08964b1c88aaded3dc7d9c7b5ac47cf2389fa790e76aa48c874497e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abb34c1e09a5fbac337d3eaa3b722bf51824ae2a811712e29b2f2dfc01444f52"
+    sha256 cellar: :any,                 arm64_monterey: "fd195f268e04cb92867eb892ce7f6c4d745d2a332d7e556ba15446c0c913df4c"
+    sha256 cellar: :any,                 arm64_big_sur:  "add84b2009e944ba199b3cebd460b8fddb31e15b594d89b5e092d7cfc433d7eb"
+    sha256 cellar: :any,                 monterey:       "c032c8f4adde4a7d1ad48276bed4a9fd1dc8d532b5abbf1d558e94382c298f17"
+    sha256 cellar: :any,                 big_sur:        "738890ada6a9d80e2e32fc4b0deee492c4932fadcc51926d7d147d9888d82065"
+    sha256 cellar: :any,                 catalina:       "949c8e505af733fab357fc76fc6f8aef95b1e6693321d2e1e8e9a8cb4c6dc62a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0290aa392b46bab411f016ec05594625507d61e7737721673fed5778b2b89c52"
   end
 
+  depends_on "libpq"
   depends_on macos: :high_sierra # C++ 17 is required
   depends_on "mysql-client"
   depends_on "openssl@1.1"
-  depends_on "postgresql"
   depends_on "sqlite"
 
   on_linux do

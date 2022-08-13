@@ -1,9 +1,9 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://www.mpg123.de/download/mpg123-1.30.1.tar.bz2"
-  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.30.1/mpg123-1.30.1.tar.bz2"
-  sha256 "1b20c9c751bea9be556749bd7f97cf580f52ed11f2540756e9af26ae036e4c59"
+  url "https://www.mpg123.de/download/mpg123-1.30.2.tar.bz2"
+  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.30.2/mpg123-1.30.2.tar.bz2"
+  sha256 "c7ea863756bb79daed7cba2942ad3b267a410f26d2dfbd9aaf84451ff28a05d7"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -12,12 +12,12 @@ class Mpg123 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "4b591ea40988ad60cec49f545d8d16ca5d293bde798eaeeda05293c7538a9a2f"
-    sha256 arm64_big_sur:  "807d6194b9a03cf521a000e934d4ad7755b1ff0762a441761c01714d38aeb70d"
-    sha256 monterey:       "359d0ef12c2877f61dca8be72cb8abe681fcd0c03ba45091ae065ddef48dc9c7"
-    sha256 big_sur:        "cde0f7e476f0b96b343e929ea62c4b45b4290990ad3bae4b25006b67edbd9e07"
-    sha256 catalina:       "19bd71f268ede8d39635f9fe7f0a1636965a214c509370b4034a52210aa86f71"
-    sha256 x86_64_linux:   "c94544bc4a74b0feac3dc8e087cb43cfaf6573b32581972ecc7877e39694a5aa"
+    sha256 arm64_monterey: "d71da0632cdba1d3598772f244d792a2ab4962070097b16d61e1c0c0573ae163"
+    sha256 arm64_big_sur:  "fbff9273dd2c45330edcfcf1ec0ddf5f5b33da0566674c5cc91b0e23eb9f1096"
+    sha256 monterey:       "80e4eee2600339433292ec488698edc3b90471558d06b36549b56800c70bfe76"
+    sha256 big_sur:        "567cbfd37c899a29e1e437ddbe7845432690d5dcc2cdc7eed7b712b628fd4563"
+    sha256 catalina:       "0e46a112ea2f18ded17acfbefd30e9857426d4dd88652193d8cea866e8f9ea9b"
+    sha256 x86_64_linux:   "ce20ec291724c55c8c38e34be4ea37dc83e817011046f2c63d5cbb3a8c0188f4"
   end
 
   def install

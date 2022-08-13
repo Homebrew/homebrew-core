@@ -7,6 +7,7 @@ class Algol68g < Formula
   mirror "https://jmvdveer.home.xs4all.nl/algol68g-2.8.5.tar.gz"
   sha256 "0f757c64a8342fe38ec501bde68b61d26d051dffd45742ca58b7288a99c7e2d8"
   license "GPL-3.0-or-later"
+  revision 1
 
   # The homepage hasn't been updated for the latest release (2.8.5), even though
   # the related archive is available on the site. Until the website is updated
@@ -18,18 +19,16 @@ class Algol68g < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "98edac632999d9493f86e738c6fdec7782cde8d07768c6a495681cd5de0103a4"
-    sha256                               arm64_big_sur:  "5e90719ca013bddd6066b0e1e87d6162094ee73ef300233f1f75d9833bf4dc42"
-    sha256                               monterey:       "1f5961932f3fac98be74b6d33e23f1a91cfe48e3173ef4b5c9cb94743cdeb10a"
-    sha256                               big_sur:        "7b7bb03b6cbe89d253b5e88294ecc4edf61a0687c4534f26ffb7422efe22e52d"
-    sha256                               catalina:       "046ba5e9ec0d0856557085fdf1acde227cd829d9955da28046e98c9a5ee84c09"
-    sha256                               mojave:         "7e1acd53615ebc407aaae64eb23af6047dbbd42f967e422b3fcfa0c6d01307b6"
-    sha256                               high_sierra:    "18013401e3eed914022e0a34c6b9b1ed415ec679113de78970d74aa52b0a35e8"
-    sha256                               x86_64_linux:   "3db30a51c50dc264cf0f7d261fb936a17ffad5cb14f73b105e44a69a10d56f30"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fb1d792d8f777ca08e22372c092a74ac6db17225fd5f110e516b891a02ceeec"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c0bde6c0a8205ec17f4d9a6c8084da44ec9c99beaf09eb7f4184042fcca2818"
+    sha256                               monterey:       "90017642701aa5b8c7cc9bf49937dcd0efdd75a7d25792aa4f6bdbef30ac98b6"
+    sha256                               big_sur:        "14b3262c6aff2d74889e253bf8bf5dd132bd1ff5ed3847b4f6e5e5e7c8728913"
+    sha256                               catalina:       "38110a685728de5d40abb532e6e295d4a13cc55cc6a4d3357c66ff5ef031513e"
+    sha256                               x86_64_linux:   "849e07720d6bd959b0eb91073395850d91f97e9cd94ccd07c19a32db765916cb"
   end
 
   on_linux do
-    depends_on "postgresql"
+    depends_on "libpq"
   end
 
   def install

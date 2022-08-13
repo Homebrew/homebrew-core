@@ -1,17 +1,17 @@
 class Driftctl < Formula
   desc "Detect, track and alert on infrastructure drift"
   homepage "https://driftctl.com"
-  url "https://github.com/snyk/driftctl/archive/v0.36.0.tar.gz"
-  sha256 "8bb8c30fbf39d6e2a9a91e7c725b574f5eea487d4ee1fe1fb2e9274792210f73"
+  url "https://github.com/snyk/driftctl/archive/v0.37.0.tar.gz"
+  sha256 "6eb05e26edd1d53182e58ae1ed7b5231bf2fb05f5b7b04ab4be39e38461b965f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d21e8c83225a0ffff6f6c9728267fe6eb3eb7ece92d66464c3f3c572608daf0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d21e8c83225a0ffff6f6c9728267fe6eb3eb7ece92d66464c3f3c572608daf0"
-    sha256 cellar: :any_skip_relocation, monterey:       "94da93082ff8911c56a911ae2da35566f517d0bdc6d9f6fcb4ccfa5d39f070e1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94da93082ff8911c56a911ae2da35566f517d0bdc6d9f6fcb4ccfa5d39f070e1"
-    sha256 cellar: :any_skip_relocation, catalina:       "94da93082ff8911c56a911ae2da35566f517d0bdc6d9f6fcb4ccfa5d39f070e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88617b8800a8523981d6de4b183f68c625e34d9390c4e36f1f036f95c02107ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d60fcea535fcdcde789047ab4f29bb05effd38865fbaabd0b9641073d9d1dfe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d60fcea535fcdcde789047ab4f29bb05effd38865fbaabd0b9641073d9d1dfe"
+    sha256 cellar: :any_skip_relocation, monterey:       "9725833cb1dc6513ef37495f94e4d13eebbb40b120ed2883e9c617b60b700829"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9725833cb1dc6513ef37495f94e4d13eebbb40b120ed2883e9c617b60b700829"
+    sha256 cellar: :any_skip_relocation, catalina:       "9725833cb1dc6513ef37495f94e4d13eebbb40b120ed2883e9c617b60b700829"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7cf0f3521517bd8e32a7e905e4cd2c0553ccb31949cf627f813c9b8e8ba6156"
   end
 
   depends_on "go" => :build

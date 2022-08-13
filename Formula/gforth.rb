@@ -6,19 +6,18 @@ class Gforth < Formula
   revision 3
 
   bottle do
-    sha256 arm64_monterey: "f47658e3c308e214021ce37684fbfe76c3ee9924557410e82ff93e52a59a1ff3"
-    sha256 arm64_big_sur:  "8a0195117bbc39e675d17c3b7fd0015cccd13c98be46d47e6f56e027b666d571"
-    sha256 monterey:       "b431d8e24b0742d297aaf850066c097f4db5ab9db4a752d3c36e72663bf508ec"
-    sha256 big_sur:        "9ccd086cd3885b5eb3b82459902f3a52516019d833a83f0253036c9eb3a34dfd"
-    sha256 catalina:       "391af03b52dcc608abc5d796b9dd517ac1a5c3b70c56dc1ca5264003fe8643c6"
-    sha256 mojave:         "e77595f6933d861063bbd5c91a668abb9608434f777f4c8e8c2bee99eba1e102"
-    sha256 x86_64_linux:   "18788da5e0deb12b17cb6b08c9633825e69f60c7ed9206f34dead33b77ecf144"
+    rebuild 1
+    sha256 arm64_monterey: "88e70671a76d3012c1a968056b7a48e006e10cf1e9115322e627c6d90ea3b504"
+    sha256 arm64_big_sur:  "abb4ada62e3e52e94056c16e69258b058360592e2408ec19d1f5fc803da6ecf0"
+    sha256 monterey:       "679a6c16f2b39d18f1430f02e0904a4f1102675e9de018f6032f9b2d7c727479"
+    sha256 big_sur:        "95ea067782d74310f18e223546a868bcec0a7f4869e335d6c15c30e559e5ef95"
+    sha256 catalina:       "f8acb137af0f0005116a15761d2ef72cd721416f6ed1d88ad86f2a0655296e1e"
+    sha256 x86_64_linux:   "187183a4751b63734bccc9021f00f44c118623d4bf8c2bddc1c167c9194e6be3"
   end
 
   depends_on "emacs" => :build
-  depends_on "libffi"
   depends_on "libtool"
-  depends_on "pcre"
+  uses_from_macos "libffi"
 
   def install
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version

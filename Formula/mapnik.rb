@@ -4,7 +4,7 @@ class Mapnik < Formula
   url "https://github.com/mapnik/mapnik/releases/download/v3.1.0/mapnik-v3.1.0.tar.bz2"
   sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
   license "LGPL-2.1-or-later"
-  revision 10
+  revision 11
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Mapnik < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "36fb7b653dc307abd2a2e651fce70a9cd26d654d5c5246e8897b9223af233ff5"
-    sha256 cellar: :any,                 arm64_big_sur:  "ce98179cc220bcb4ebd21e75070a51f51827a6cf57d1f3c9c352ab5e25c5142e"
-    sha256 cellar: :any,                 monterey:       "f396081ed525d2bdcdceca8ee2e97cd77147d38d2242f893140597e901e9f5ef"
-    sha256 cellar: :any,                 big_sur:        "28df77440d6afdd58b92bdb0724cc384154b43108ef2f403636693d989646736"
-    sha256 cellar: :any,                 catalina:       "3d6f7c0a733ae01a27bd7cdbaa000d677f1eba5d7ce94227a56eee8426065dbd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16b058888065c463e0a724b65fe2eb0f0d4746c86b6955bdfa145fe961913861"
+    sha256 cellar: :any,                 arm64_monterey: "687baaff1f0fc30fa02fe065d3aa0d9478cd69536bcb8e292ee70731abc0a71e"
+    sha256 cellar: :any,                 arm64_big_sur:  "f69643fc4b62a5f6c1b5e016149552e0a0a6e0ba56454b908638fcdb6693ce5e"
+    sha256 cellar: :any,                 monterey:       "debcd40aba920e5b223383bc8fa0c15a51163408d6288e72ed8bfaa99f4652d2"
+    sha256 cellar: :any,                 big_sur:        "8a0de35f92f305c2eb531029e7da35c0cb445ac01cc9404986d454e0380dbe19"
+    sha256 cellar: :any,                 catalina:       "a00a963a2647cbffb710fd3d3f55923a017b7ddefa3d010d11fdfa62ae95673d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fc6ae200e9a45b098f6b40dd0d2268c73db13b75c75309e586a4a306db57f47"
   end
 
   depends_on "pkg-config" => :build
@@ -31,8 +31,8 @@ class Mapnik < Formula
   depends_on "icu4c"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "libpq"
   depends_on "libtiff"
-  depends_on "postgresql"
   depends_on "proj"
   depends_on "webp"
 
@@ -73,7 +73,7 @@ class Mapnik < Formula
       JPEG_INCLUDES=#{jpeg}/include
       JPEG_LIBS=#{jpeg}/lib
       NIK2IMG=False
-      PG_CONFIG=#{Formula["postgresql"].opt_bin}/pg_config
+      PG_CONFIG=#{Formula["libpq"].opt_bin}/pg_config
       PNG_INCLUDES=#{libpng}/include
       PNG_LIBS=#{libpng}/lib
       PROJ_INCLUDES=#{proj}/include

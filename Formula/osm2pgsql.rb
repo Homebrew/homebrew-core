@@ -4,25 +4,27 @@ class Osm2pgsql < Formula
   url "https://github.com/openstreetmap/osm2pgsql/archive/1.6.0.tar.gz"
   sha256 "0ec8b58ab972ac8356185af4161270c1b625a77299f09e5fb7f45e616ef1a9a5"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
   head "https://github.com/openstreetmap/osm2pgsql.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "2b1c23342805ddc22b8c69c2f91a24d33703fab6fcbb381870c2f60179058f70"
-    sha256 arm64_big_sur:  "77e304190222d4da2d28b9db1c468a1b172cbf29d90598bcd683c7418840d0f8"
-    sha256 monterey:       "278ba1a3e688722170d489a157fdf8ea6011483133bad8dbaefccc05dc07c8d1"
-    sha256 big_sur:        "0751305ff2a2d2cf937234c7741e6919a26978e8fa992444287c1904fa34713f"
-    sha256 catalina:       "49ac82bbb990d26771605e6dd82dce3594cccb5d8717ced6632b807d16f88395"
-    sha256 x86_64_linux:   "b81aa6a292f1edcee0fc87f495925e09081d4c821b64371535251e759b9154e4"
+    sha256 arm64_monterey: "e5cfe24753f30f192f3a51dc714250c74dcf41294700495442977f3db18dc091"
+    sha256 arm64_big_sur:  "7e4512d8cbf14c168340c5f569c9c4caa8f9666eb5fe4f5324b99cdfb77cbc34"
+    sha256 monterey:       "c55c28a4a7d61e2ecc74e439d178c2479ba6bb1f70d5a4c8a419432141d477f8"
+    sha256 big_sur:        "461f444d3d7da2f549b445e3d16839ac42105c01aa859b086d6ca7f9f8c141ca"
+    sha256 catalina:       "2094de94b79ac68652e5671b360d9fa158146b6c3d0263dee84f5008c7c52d99"
+    sha256 x86_64_linux:   "753d07bfe5ff3a913144fb09cd892918f77569e9a5b44977fc37ad7d93c27a97"
   end
 
   depends_on "cmake" => :build
   depends_on "lua" => :build
   depends_on "boost"
   depends_on "geos"
-  depends_on "luajit-openresty"
-  depends_on "postgresql"
+  depends_on "libpq"
+  depends_on "luajit"
   depends_on "proj"
+
+  uses_from_macos "expat"
 
   def install
     # This is essentially a CMake disrespects superenv problem

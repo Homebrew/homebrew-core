@@ -1,19 +1,18 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support"
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.7.10/eigenpy-2.7.10.tar.gz"
-  sha256 "f427c05f6daae05b9e898132c12aa5ef4c6541e841b9e65344cb4eab22371af0"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.7.11/eigenpy-2.7.11.tar.gz"
+  sha256 "cbd7ae9b4fd027afbcaeee5bf06aed02fad83a603bec90987c09b50dde2ce1e3"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1fac4a7078d6629201cf864c5144fd37d0b98a7020c1cd102c95d5a7e8dfcb33"
-    sha256 cellar: :any,                 arm64_big_sur:  "7428a07c06b2166740522dd25402e488d30defde04db0bbd91c7473e85b158aa"
-    sha256 cellar: :any,                 monterey:       "af26e5e2c894353b9639f995152cbdad52f7fa2c850f7df5103e1aa372968f43"
-    sha256 cellar: :any,                 big_sur:        "ed8d1316508e0c32b060a3208c3e6fe479150c0efb70976625e1faca642d24c3"
-    sha256 cellar: :any,                 catalina:       "1c340ab63e35532373ea6f5cce33cbe8e0a3777f438d3e38f555583fa8f025b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56bacb98f5cd33a3596f2bbc062b2a1f4bca15c1139c57b4dfcd1a1af24966bb"
+    sha256 cellar: :any,                 arm64_monterey: "ae3b4b1958521a69012289f81f054e285e9cd6cae6df4e3d83d25a275cefe325"
+    sha256 cellar: :any,                 arm64_big_sur:  "9ae5d1a0ff58522652966b4209a7b95482eb1b9b90ec0c2df9a802c0d93199a6"
+    sha256 cellar: :any,                 monterey:       "1bede84650cd002a8cd8eeabaee4d2f881526bee71eeca7dddb40247c4894ecb"
+    sha256 cellar: :any,                 big_sur:        "b632c9720070adcf8b973312513e7996bd9a6987e0be80602d1db98ea6f6fc1b"
+    sha256 cellar: :any,                 catalina:       "0d59a306150ec88c808047bcd4a0f6680aa325b58c462ab843e31839c1d65fef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5caf6266627ccf7ab66f7abbfa75cb99687e40cd28905211be91d26065f8b61"
   end
 
   depends_on "boost" => :build

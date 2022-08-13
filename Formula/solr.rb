@@ -53,7 +53,7 @@ class Solr < Formula
     shell_output(bin/"solr start -p #{port}", 1)
     # Stop a Solr node => exit code 0
     # Exit code is 1 in a docker container, see https://github.com/apache/solr/pull/250
-    shell_output(bin/"solr stop -p #{port}", OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"] ? 1 : 0)
+    shell_output(bin/"solr stop -p #{port}", (OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]) ? 1 : 0)
     # No Solr node left to stop => exit code 1
     shell_output(bin/"solr stop -p #{port}", 1)
   end

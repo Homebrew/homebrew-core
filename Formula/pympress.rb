@@ -6,15 +6,16 @@ class Pympress < Formula
   url "https://files.pythonhosted.org/packages/f6/a0/93d92200dd3febe3c83fbf491a353aed2bb8199cfc22f3b684ea77cdbecf/pympress-1.7.2.tar.gz"
   sha256 "2c5533ac61ebf23994aa821c2a8902d203435665b51146658fd788f860f272f2"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Cimbali/pympress.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ab969d6e68b811d59fec774c4d1286354f622da7f28b79a44be8a52197799f4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2e83c0c8f7e2d0bdf92e96c165ab861862dc389568744f7b5d4ca4bff8d56dd"
-    sha256 cellar: :any_skip_relocation, monterey:       "d9851f0c99410614009969db4f3eec9be23807dc278d6559cbf9750db4fb0018"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1c5bfa7090a6c1b7203597f0e744604f2f9c99c24ce34454a2898e26d08c3be"
-    sha256 cellar: :any_skip_relocation, catalina:       "92dd534f96c7bad50daed8d695ee22af97a7033c65799e45da2ce3e8a5e819be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "090e9d8438bbb18499bd50d6cb872f172a38da49239a8cb810b2d6c07c895732"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb706b6cc0981b97daed3da8ef4d91706f06d783216d41cdcce862cb3593f880"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0358890f1207e2b1c942879e76aef1f27dde25c7e8e7210b65b7038df84798ea"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c2f636c96df736d8f859a9f43b7a7fb7df8bf619ee3c4340199087be8b8a42a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "275a8a4123fcabd193e9f054c69bf4ba6f74a5537273114adce0463c26fb26ce"
+    sha256 cellar: :any_skip_relocation, catalina:       "214402f0a35fac37cc7a563ce7224de750f32b69515334780c1aaf00198081fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "381e24b30713ddf630d52e7775fd03b7262ecbffa21e588eb1027e721f888ce4"
   end
 
   depends_on "gobject-introspection"
@@ -27,7 +28,7 @@ class Pympress < Formula
   depends_on "libyaml"
   depends_on "poppler"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   resource "watchdog" do
     url "https://files.pythonhosted.org/packages/b3/d2/a04951838e0b0cea20aff5214109144e6869101818e7f90bf3b68ea2facf/watchdog-2.1.7.tar.gz"

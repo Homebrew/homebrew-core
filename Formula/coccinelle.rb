@@ -5,6 +5,7 @@ class Coccinelle < Formula
       tag:      "1.1.1",
       revision: "5444e14106ff17404e63d7824b9eba3c0e7139ba"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/coccinelle/coccinelle.git", branch: "master"
 
   livecheck do
@@ -13,13 +14,12 @@ class Coccinelle < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ec7ef55264ac1fca61319d7f7df11cf3d6cfd4702a53e726209f62555e9b71d3"
-    sha256 cellar: :any,                 arm64_big_sur:  "78e87db9e0aabffbddde513ae5100fc015792fd75c5bd1d5ca91bb53342b575c"
-    sha256 cellar: :any,                 monterey:       "bc4160ec45c892d9b0df334eb6830474554d64bc398fc6735d7de7b532f9a663"
-    sha256 cellar: :any,                 big_sur:        "f050cd80796be603afea32e24bd860c98543162d7e95e195902f5c267c2edaeb"
-    sha256 cellar: :any,                 catalina:       "61befc08516da9ace4eecc7f4bbd8e8b041ed709ee5f9fc8024bf2667056c3e6"
-    sha256 cellar: :any,                 mojave:         "4f2ca36bdd4c52eb8a074f047c231f41c941b5a1a4aa1624ec5301735e478c91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ca3ce2e6886652238f53154bc32828ddf9902151c1f06c2650510279c407534"
+    sha256 arm64_monterey: "6d709b2576f84260edf15ed3a6c4e4b4e0cc73bde3819f9d9085f964c761b155"
+    sha256 arm64_big_sur:  "43e22010b8b1f3bf93817d161e2d0e96d907f4a38972d27f91d0231042f70860"
+    sha256 monterey:       "9e00a25cc6afe398d4a5ae42300bacd883bf1f570e6c1523ffb43bd3d330ae30"
+    sha256 big_sur:        "270fe7690278277362ebf04707665ae41e3831c21e33d945408f2e7d9737669e"
+    sha256 catalina:       "27b442146b362f44848997fa840389ff9df05317e915147d289a74e1ef4c5a68"
+    sha256 x86_64_linux:   "29a0aeaeb102990cac27cdc3ecc713f2af6366f38c5d3cefb520ef70dcd2fa84"
   end
 
   depends_on "autoconf" => :build
@@ -60,7 +60,8 @@ class Coccinelle < Formula
                             "--enable-ocaml",
                             "--enable-opt",
                             "--with-pdflatex=no",
-                            "--prefix=#{prefix}"
+                            "--prefix=#{prefix}",
+                            "--libdir=#{lib}"
       ENV.deparallelize
       system "opam", "config", "exec", "--", "make"
       system "make", "install"

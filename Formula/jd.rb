@@ -1,17 +1,17 @@
 class Jd < Formula
   desc "JSON diff and patch"
   homepage "https://github.com/josephburnett/jd"
-  url "https://github.com/josephburnett/jd/archive/v1.6.0.tar.gz"
-  sha256 "33c996e962094477169ec247ab5bd9f23a303dd5df40d6d5da39710c77ba97aa"
+  url "https://github.com/josephburnett/jd/archive/v1.6.1.tar.gz"
+  sha256 "3e81a8dadb125628430a31e3ea67b8b3053c346d684b74784c6bf0451cc2def0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "162568ea67afe2f06aedb24f151aca19954751fc8269905771fadf19659aef6d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1230b40bffc88513cdb699943da2ed3cbc4a921ccee373bc62bcc004538d92b"
-    sha256 cellar: :any_skip_relocation, monterey:       "6abadd8c7432050e03389f1b447b3570c360188f334a0821171ad321b5b8d3df"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1cc3053fa3d814aecd682f78f9f9d0f509a439773a0e9a2529888bac06ad4ea3"
-    sha256 cellar: :any_skip_relocation, catalina:       "84df3f3bdcfefb7ec2dee8472f54947881f7cc39121b78b2d62c19d234201051"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4345fa43d0bb2d624184c744cb7625a14d9e99403591e94364ddb80925a8bd6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "150ed5128112728670d002d0e499b64b33cf9580c52696c42a85a2bf8b74eec4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "464a7b3b8736329c9415ec9613730f9827cf4481e6907eb51e3b801080b6f682"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa9d0b17b270bf97d46e0a64789b3fbfcc779586b999f0e14f87246dfc690bf4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "98deeb2becde902f3ea470330433f430543054624619512b20dc33c273fea970"
+    sha256 cellar: :any_skip_relocation, catalina:       "9a71da0f9235ca3ff552451fdc1c5219d7391dd267b09622932077351a793b45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2eefc094cd2d2e9b17dfcd46b04652974e73d9cc8c72c77a114eb12fa0e75f2"
   end
 
   depends_on "go" => :build

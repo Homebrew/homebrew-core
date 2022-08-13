@@ -1,18 +1,27 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2022.07.04.00.tar.gz"
-  sha256 "6b270c1865c53b39f5d815cc2d97879a17dde6c77c5c127ede2a962ef3ab24b1"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git", branch: "main"
 
+  stable do
+    url "https://github.com/facebook/folly/archive/v2022.08.08.00.tar.gz"
+    sha256 "ad27468c3c8dddacd592baa688b5d9b0a1de30c8f57e959fb88ba68a231f853d"
+
+    # Fix CMake bugs for x86_64 builds. Remove in the next release.
+    patch do
+      url "https://github.com/facebook/folly/commit/10fc2e449038d9ffda5cd53999edb9875c4cb151.patch?full_index=1"
+      sha256 "23b7a26530d83b391a5e587e5ba6c88c2831dc516b2438a99eb27c6d1b9e7e1d"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "03f9148ba3607548d9a4607f63e868d9353cfade1a3e5c2a198e832ec17747d4"
-    sha256 cellar: :any,                 arm64_big_sur:  "67036d5d4eb0b321c37a789ce604f1f0f2b641b5e88d19e810b79c73f11f050d"
-    sha256 cellar: :any,                 monterey:       "6462097eaf7026ddbe101e01ff03f0d1e3fc393178b87f80b21a11de6358077f"
-    sha256 cellar: :any,                 big_sur:        "863ade220942581d663f5d62f547ee825b85bac65ce54a36ddc22584d526a0fb"
-    sha256 cellar: :any,                 catalina:       "5e1e1cb25d7590ed3aa3c3ce8558065c3cf89061a04020aa349448760b143308"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86dfe421565dfdbaef318c48b40bfb3eb339af8460ca3e3a8a3f87ed89ee2b35"
+    sha256 cellar: :any,                 arm64_monterey: "c1362885393d8e5d552b360cc59a2128e95f003309bb933da6310c14d041e9fe"
+    sha256 cellar: :any,                 arm64_big_sur:  "872870fa85cbe47023b145c7ac63fad7ebe5cbe984152121aeb0fb693c870ec5"
+    sha256 cellar: :any,                 monterey:       "ddf0ba5d360641df24e121b8c83f133703be050664d6626695fe03b05079b748"
+    sha256 cellar: :any,                 big_sur:        "bf9fbdfb96d9dc917392df3dc3cefd361e72654e7d2cf5af0f2684f1fe06dce9"
+    sha256 cellar: :any,                 catalina:       "fbdda39a066c1d2ea8a82c3f9b9a5ec1dc434300d484a41a1ebeda588220aee5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08b6c73ad56d96885f4f109bf2c941d4adbd506c5c4cf170ecd8d1bae7844559"
   end
 
   depends_on "cmake" => :build
@@ -51,7 +60,8 @@ class Folly < Formula
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
+      -DCMAKE_LIBRARY_ARCHITECTURE=#{Hardware::CPU.arch}
       -DFOLLY_USE_JEMALLOC=OFF
     ]
 

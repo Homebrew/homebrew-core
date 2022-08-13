@@ -3,17 +3,17 @@ class Esptool < Formula
 
   desc "ESP8266 and ESP32 serial bootloader utility"
   homepage "https://github.com/espressif/esptool"
-  url "https://files.pythonhosted.org/packages/17/4d/10ae2314a7f34da4a3820d0ac394d8e747b2953196ec0f0214b5d6f8ddd4/esptool-4.2.tar.gz"
-  sha256 "c584bd81e382167e798901ff6623cd98d6871ce505266c60d77e8a1f2ef30113"
+  url "https://files.pythonhosted.org/packages/68/a7/40f80078ad06f064ff8fb52d7f2d37f0bcb3f4005fe4fbc6619a47a4990a/esptool-4.2.1.tar.gz"
+  sha256 "b967faed94dd43f547953fde362d3ba5b63dddca0a0ff7982750054702cbc238"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "136a2ba0bca99ac49815691d558c7940cc2274fb04c3ccdc1e19a0b7d979e542"
-    sha256 cellar: :any,                 arm64_big_sur:  "0313fc8251f01e48fc903228a0ee791bdb428868743a6f7f470820b8f875f4e6"
-    sha256 cellar: :any,                 monterey:       "e47d01aea13ccfb944fbb71a03cc19fde36566892023f95b12e58150c6ee61be"
-    sha256 cellar: :any,                 big_sur:        "ca304cee2ca276e1594fcdd962c30cbd8f835d0115f249037319ec337433c457"
-    sha256 cellar: :any,                 catalina:       "e57e823d9a33444acf4c86f4dd90b453fb9e350a77b63cd30c80f869ac65c54f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1643e69bd1e310bad10fcacb903bdadc93027062644b99b2abbaadc39f6f9d1c"
+    sha256 cellar: :any,                 arm64_monterey: "f58c10509f5cea34bb2104adb1da50469fbcf667015ff497bd27b8cde4a3676a"
+    sha256 cellar: :any,                 arm64_big_sur:  "c56c622e3eec3914fdf9a621ea2b32102fda7e4660623d19504b7160b17599dd"
+    sha256 cellar: :any,                 monterey:       "979f599061e511bf718c42ee623d606369d1608dd5c760bdb246bc25ac5d0719"
+    sha256 cellar: :any,                 big_sur:        "89934ece6913b2d143309961c3f384cf48ae715308d0c4ba011de7e4313b9def"
+    sha256 cellar: :any,                 catalina:       "e4ad9f966b9095e4719bd28cabe1fc8d014d78b99fda25f0d56ceddc89a6785b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c17800a8b2a9d6240a7385c7492eff581769582d3066b36d2eb77125a88e1410"
   end
 
   depends_on "rust" => :build

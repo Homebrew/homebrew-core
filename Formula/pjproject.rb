@@ -36,7 +36,7 @@ class Pjproject < Formula
     system "make"
     system "make", "install"
 
-    arch = OS.mac? && Hardware::CPU.arm? ? "arm" : Hardware::CPU.arch.to_s
+    arch = (OS.mac? && Hardware::CPU.arm?) ? "arm" : Hardware::CPU.arch.to_s
     target = OS.mac? ? "apple-darwin#{OS.kernel_version}" : "unknown-linux-gnu"
 
     bin.install "pjsip-apps/bin/pjsua-#{arch}-#{target}" => "pjsua"

@@ -4,23 +4,23 @@ class QtPostgresql < Formula
   url "https://download.qt.io/official_releases/qt/6.3/6.3.1/submodules/qtbase-everywhere-src-6.3.1.tar.xz"
   sha256 "0a64421d9c2469c2c48490a032ab91d547017c9cc171f3f8070bc31888f24e03"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
 
   livecheck do
     formula "qt"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c37f34707f8229699684f741fce8e555a290f7903f0fb7b3e1514df9fffd2184"
-    sha256 cellar: :any,                 arm64_big_sur:  "df4c92846a5239140c4b150716cc13925a9b4c168198c07d4c9a195aa65583c1"
-    sha256 cellar: :any,                 monterey:       "fc4b2dd092830166b3d382923365b576b1551ad6ea53dc71cb99eceb6006aee5"
-    sha256 cellar: :any,                 big_sur:        "739c9145a5126114e7f975b11d9e0c1dd223a2469e2abfba7fd961c6c9b6c0a1"
-    sha256 cellar: :any,                 catalina:       "4fcdbcd599012582fc4264a2e5c50b27586c399d43a42a52f723be7cfd0b8753"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db64756aca724b6197652beee557f296b0621a98e225199cbe273473d46d97f8"
+    sha256 cellar: :any, arm64_monterey: "04287a1cb16a674c9201e5e2d566fb82f32154708a4442a697e130c13db708da"
+    sha256 cellar: :any, arm64_big_sur:  "25722b12d564c57701067aea781e14d1ddf3481e1749d7daaeb13a4784a7b42c"
+    sha256 cellar: :any, monterey:       "db1ccf0327f8fb3e259d8bffaa529c6143228130cf95e278921b902a35be5630"
+    sha256 cellar: :any, big_sur:        "eb0aec2a32e84eb4061c8f2af114ef0cb4296ad66a28d1026753bc13e992e093"
+    sha256 cellar: :any, catalina:       "30bc980bfa86ce6a5f15d4e4400a912d7a63eeedd41622b6f25635b0d5aa5e78"
   end
 
   depends_on "cmake" => [:build, :test]
 
-  depends_on "postgresql"
+  depends_on "libpq"
   depends_on "qt"
 
   on_linux do

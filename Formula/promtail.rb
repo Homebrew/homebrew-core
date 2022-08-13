@@ -19,7 +19,9 @@ class Promtail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d04c1fb084e997340dd03a306343b114c9b59ab16e7526a2468e6c3ddeb3f7cc"
   end
 
-  depends_on "go" => :build
+  # Required latest https://pkg.go.dev/go4.org/unsafe/assume-no-moving-gc
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
 
   on_linux do
     depends_on "systemd"

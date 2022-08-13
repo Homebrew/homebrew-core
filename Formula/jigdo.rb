@@ -7,7 +7,7 @@ class Jigdo < Formula
   url "http://atterer.org/sites/atterer/files/2009-08/jigdo/jigdo-0.7.3.tar.bz2"
   sha256 "875c069abad67ce67d032a9479228acdb37c8162236c0e768369505f264827f0"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
-  revision 7
+  revision 8
 
   livecheck do
     url "https://www.einval.com/~steve/software/jigdo/download/"
@@ -15,16 +15,16 @@ class Jigdo < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "6b92895930451607520eeff3ea375e903400a47ca928db9787a6c2547b90de02"
-    sha256 arm64_big_sur:  "567951eab25efcfe4d9e27243fdf76433cf8bba33933853cbc35ed488c1d67df"
-    sha256 monterey:       "71f954c903845a482a955406e508eaedf808da4cb59463a8f1669c8799af3c3b"
-    sha256 big_sur:        "e7cc73b1ab506df548bbb52c9efd259bb48ba34918609791bd9d25b80dbcab99"
-    sha256 catalina:       "fc399efb9d6d89d0eb26c8d335868e903d785e1dc9632b3312dacb91c9599932"
-    sha256 x86_64_linux:   "e32201e532a2fe0d2a2026b31bef95465f9bcb3f34e078341f8fa6efe8447637"
+    sha256 arm64_monterey: "87d951b1c24be108f740eae7378dde28ba28dd7994bfd6758161a6d0bc8bb15d"
+    sha256 arm64_big_sur:  "bc9b2ee804e6a0f51b5317ee21f7692b38fe6129b6319037e5bb6069ba80a0f3"
+    sha256 monterey:       "ee860a28d3dc2f0c9c51dbe5e245a048b11cb5fef3b4e71f7846f0c5e014cb4e"
+    sha256 big_sur:        "af5dd0ccfda2a1e1e7355c9dd3fab85c4b7024bb8d95b29aa3e0ca84c5d25458"
+    sha256 catalina:       "12f14d188a937f63899fd28c436597f15867440d952538f0bc73ee9d9628852d"
+    sha256 x86_64_linux:   "fd0973ae7891e7ea56eaffd85a57afd00688c035586fe00856b5b34544a5f3d4"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "berkeley-db@4" # keep berkeley-db < 6 to avoid AGPL incompatibility
+  depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL incompatibility
   depends_on "wget"
 
   uses_from_macos "bzip2"

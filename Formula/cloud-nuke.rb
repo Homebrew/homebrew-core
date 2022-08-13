@@ -1,18 +1,18 @@
 class CloudNuke < Formula
   desc "CLI tool to nuke (delete) cloud resources"
   homepage "https://gruntwork.io/"
-  url "https://github.com/gruntwork-io/cloud-nuke/archive/v0.16.2.tar.gz"
-  sha256 "86866760a9bcf872a497fd3b227c56119ef09f4333ab5c21d5e9e918c19e1858"
+  url "https://github.com/gruntwork-io/cloud-nuke/archive/v0.16.4.tar.gz"
+  sha256 "9e1b425b997ef8e737f8440ebf50ffc0bb59f8892b9fd5b1094cedc98e01dce3"
   license "MIT"
   head "https://github.com/gruntwork-io/cloud-nuke.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "020fb99661394d4c42e94571d46cfa24746cafc2244a542e9f1c3a071c5c24de"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be608197e6c86fdc7abe07fe9c21042cf9375147bc3c61e6f820fa389d4ec23d"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa24d6eaa77a70a8205009e28df570f6c2f2cfb05dfc5a1640f0dd8d9f7f3252"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fcc62634c197531ef18edcd461114636b167f873252b2bc86dfb5c7e50810da6"
-    sha256 cellar: :any_skip_relocation, catalina:       "c95f6c2257c446ec2a7ab05ced9490673a77f7b52be568d43a7329390786e70d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06c394add28d50bbcccdc80cdf406f0f86c59fe8246578d08831aa4878684aeb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9653a6ce611ee0faa50ddc4f8b983a94a9b7fbb462990d486b75caef9875b397"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd3103e213cd9a32330131dafc2dbea312672ee117fa97c07993e6fed228400f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ba698f83a98dcf2512a41c7dab5d8de36a1c864d1252336e07839be12ddb2815"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5cf3cb4a7deaec1062f91be40dcd2e789b7707613576294bbe2037a9e07d550a"
+    sha256 cellar: :any_skip_relocation, catalina:       "af6e0d1a75ac9285ecf8111ac1e6620b4b75a61c4e53da86e43b8e2baa2ba1da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "908ea185f7d4142310169369816d0ad9065e0318780bfa78fdbfb060e5f40ab5"
   end
 
   depends_on "go" => :build

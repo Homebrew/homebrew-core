@@ -6,6 +6,7 @@ class Uhd < Formula
       tag:      "v4.2.0.1",
       revision: "321295fba49fb66ede365afbd9ef62971cdfbfca"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
+  revision 1
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
@@ -14,12 +15,12 @@ class Uhd < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "bc85f64768e494482a19797e4fc2ed1c116a374ba6dd7f30b4a33fc7db13555b"
-    sha256 arm64_big_sur:  "9d0863dd30ca3234df2cd754e7eeef970c9cc0d78ee87a03458e1cd88eb85357"
-    sha256 monterey:       "f721cdd00592267dad989844228c2d36df824829b80512f503456ae04913fa15"
-    sha256 big_sur:        "5c2c8947a6cbc27093e2d97539ecd42a860588c4fb5595d0481a471d99916acb"
-    sha256 catalina:       "9349f14593757fe6c896f6a20378471e8ba456aba766921858c2a8fb512cb028"
-    sha256 x86_64_linux:   "5a3a2f4af23c41d2dca63ad6e16814adb2a4132da71bcd1f7402f25a29e2c259"
+    sha256 arm64_monterey: "0643876ee78155b69c5a3f74c20c9a250f39e149fd1ef686d6d262c3a8db7257"
+    sha256 arm64_big_sur:  "ce05ba23746f4a6e6cf0032ba0e3a89bb0469c6c6978639cb315dc437ad4c58a"
+    sha256 monterey:       "f1da72f1e2e80b77e7bed5e3de8e128f189a292612e343cd5d99695435baf2ba"
+    sha256 big_sur:        "c880ad483752e7a28ed3b908f3c9dada4dfe382dda27d1655c123a80fa54b14f"
+    sha256 catalina:       "a8a587efd44045da5a5f7c0c2a21c40c6084369902bd4c45db387f26f9a61904"
+    sha256 x86_64_linux:   "45989f1da0a5e1980fd653cb014793d80666eaffbacdf4c82ecdb35c5a0cb61f"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +28,7 @@ class Uhd < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "gcc"
@@ -46,21 +47,18 @@ class Uhd < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    python = "python3.10"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages(python)
 
     resources.each do |r|
       r.stage do
-        system Formula["python@3.9"].opt_bin/"python3",
-              *Language::Python.setup_install_args(libexec/"vendor")
+        system python, *Language::Python.setup_install_args(libexec/"vendor", python)
       end
     end
 
-    mkdir "host/build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_TESTS=OFF"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", "host", "-B", "host/build", "-DENABLE_TESTS=OFF", *std_cmake_args
+    system "cmake", "--build", "host/build"
+    system "cmake", "--install", "host/build"
   end
 
   test do

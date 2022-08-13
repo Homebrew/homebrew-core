@@ -1,8 +1,8 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://github.com/cli/cli"
-  url "https://github.com/cli/cli/archive/v2.14.3.tar.gz"
-  sha256 "b674f04ff9954564ba74488fc22817f5548bcddb5d9d582720d2421604988270"
+  url "https://github.com/cli/cli/archive/v2.14.4.tar.gz"
+  sha256 "be93380e5a7f2822a1bfeff80f23231ee72ca297b9bc05bba0a1c688f9f53ccf"
   license "MIT"
 
   head "https://github.com/cli/cli.git", branch: "trunk"
@@ -13,12 +13,12 @@ class Gh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e320e0062ce98af816dfdf5325801a452d2c875f3d5e8287a9fcfefb4410d6e2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42cd9afa5e97b83bec6073bb080f0219007ac74ce3bc316c9399c92415515370"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf80fe4528c6c962449146a7e0780b073a118da29746971c817bb4f1b41c60bc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dfa696296d9cf897b68b5da8a8742e4de636b9cebb768ce2a296d1aec01fba25"
-    sha256 cellar: :any_skip_relocation, catalina:       "0b573cdc34455e56549a59aaa767f6fde008e134ca0d1b3396368ef479afa535"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0747a6be7f1444f01dca53f18a3c3a5f7d12a3be9045c8b6ae84e4c557ba31c0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a58908d4c96a8133d785b39fb81d0279c3575d311a39485590bcee6535c5334d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6fcfef6a72be19fd332777372747b451370707d8a52b2905503bdf61957d02eb"
+    sha256 cellar: :any_skip_relocation, monterey:       "41d7e6721726f83c944859ac684b4f6b1f1fe0de20fa8485ffd6fcd56556b8b3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e6b3b66960b5775645e254f016828376131447591656496e706c4e905b586281"
+    sha256 cellar: :any_skip_relocation, catalina:       "0ba7cfe2a437fed202485049a030c5acf17be8ae4a7520c190b6449319529bda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47a5c3409e7df7d7a0eb32fe76ebccb8b128361e06f93f1f5b5796b58e84c985"
   end
 
   depends_on "go" => :build

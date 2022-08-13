@@ -1,23 +1,30 @@
 class Nqp < Formula
-  desc "Lightweight Perl 6-like environment for virtual machines"
+  desc "Lightweight Raku-like environment for virtual machines"
   homepage "https://github.com/Raku/nqp"
-  url "https://github.com/Raku/nqp/releases/download/2022.04/nqp-2022.04.tar.gz"
-  sha256 "556d458e25d3c0464af9f04ea3e92bbde10046066b329188a88663943bd4e79c"
+  url "https://github.com/Raku/nqp/releases/download/2022.07/nqp-2022.07.tar.gz"
+  sha256 "58081c106d672a5406018fd69912c8d485fd12bf225951325c50c929a8232268"
   license "Artistic-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 arm64_monterey: "96bf32b98852990200a2c1af4bd599089bffaa4b3eee61f9dd00644343f844ee"
-    sha256 arm64_big_sur:  "0785544010d6d154145f2f01c88e7016ecdcb2e79298ff6f0f2ed8f796d02429"
-    sha256 monterey:       "ac4a36b97a26107ba0170048e8a689a68db643a185d84b455f88fe91464e0204"
-    sha256 big_sur:        "39b6baf2607cdb1843f1419786dcb8a2940498e351a5990330dfea2d96cfce62"
-    sha256 catalina:       "59f28fef93a815c2fa15be4b3c448886a2bd9cc59fcae8c58fcdb554fc8e3d07"
-    sha256 x86_64_linux:   "36ff4fcc84b071b261501dea0500acf9539cf631d4b6ffa2e5bb7dbdebf400e5"
+    sha256 arm64_monterey: "f594a0a65bb4335864a011a9e184e7c35ece4a7441ffdb7d576bb9406699503e"
+    sha256 arm64_big_sur:  "cb61da491155f138a9847a34cc84c6abe717050cdc0143908c58e73b7028f98e"
+    sha256 monterey:       "6b9b73cc13a7d53b006af8445cffa6a379671b2ae4fddfc94fe7c8197c967958"
+    sha256 big_sur:        "b8705e7496a17ebca1f805f1cde66490195a13ca6c3fb25a3f3306b1e86da1d8"
+    sha256 catalina:       "c46961f64c53996d4701db8a72e29966e0353312371422f35227bef83efa7630"
+    sha256 x86_64_linux:   "9c33f17ee8f23aeddc0c76b4e111551f80a89aa311a1c3e36539cf561ae72069"
   end
 
   depends_on "libtommath"
+  depends_on "libuv"
   depends_on "moarvm"
 
   uses_from_macos "perl" => :build
+  uses_from_macos "libffi"
 
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with nqp included"
 

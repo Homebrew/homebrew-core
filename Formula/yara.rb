@@ -1,18 +1,18 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.2.2.tar.gz"
-  sha256 "20bd56857c4b037c4baae71587b7d22d0b7bbb075a7afa516ba35dae50fadd25"
+  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.2.3.tar.gz"
+  sha256 "1cd84fc2db606e83084a648152eb35103c3e30350825cb7553448d5ccde02a0d"
   license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "35ec01dc4e5556036793494dbae83847be7ce02e578b04c20433197a63304819"
-    sha256 cellar: :any,                 arm64_big_sur:  "59ac9a06b2a421e29f6ff2ac5fe5059fd953f8e8762b3f823464cd57db725a88"
-    sha256 cellar: :any,                 monterey:       "773531a3d7ad2c360ec1d57f052b63c6b8547a0f4830591829ba05f6d4119a17"
-    sha256 cellar: :any,                 big_sur:        "878154681e559545dae2eccfdfcd43616c109724e3e90ecb9bdedf938ee32ad1"
-    sha256 cellar: :any,                 catalina:       "9dbf5097af9c14a455cc54634e9819da19b0e91dcf89f36c31b470e164c0556e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cf5ecd9956d77e340486a6a5e5fbbfbe2095502344c830372ecbbeeb20e0643"
+    sha256 cellar: :any,                 arm64_monterey: "1ede25b74551c487e9b6ec1309a86fcf081880fbe42b1f0ea944b6c15e07bc41"
+    sha256 cellar: :any,                 arm64_big_sur:  "f47558bcc6944b7d360234eb52d0412b8ccecae34d55408f6fe5c12cd5e2eea7"
+    sha256 cellar: :any,                 monterey:       "3199dc6269f68fdb846d1778f8d608f03a0ce57e8eaf08864cb12fb7fdd9dd40"
+    sha256 cellar: :any,                 big_sur:        "39c5f918530817ce24797ce4d683c535978540b35a6575a696017fb3793acb5b"
+    sha256 cellar: :any,                 catalina:       "9267afdd5160d9fb2761853d9907f4a5923f3e1a88c8d46575372fa39630818b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5d9377099a2f5f977f26ac7597ed5b3ac65891963bcd23f16168e111a8a882a"
   end
 
   depends_on "autoconf" => :build

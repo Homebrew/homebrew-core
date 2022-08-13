@@ -12,12 +12,13 @@ class Libgccjit < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "93bee860e09ee962940e3712911423c422877e9de65eac907424e68b142d43d3"
-    sha256 arm64_big_sur:  "aaab2cde21e55256ce17eb0088781b5e2ea5eaae03ec001825f0edfd7e2bc510"
-    sha256 monterey:       "4085b269e228adb8e37e90e0b2f7511049ba18e46d81bbff3fdbcebe4b60423c"
-    sha256 big_sur:        "112d2085e2ac5b990c99c64fa4babf9024e29d65eecee874e0033ddec0963534"
-    sha256 catalina:       "56d3f92b35e2d34e53bb335f207eb113cead46bce042989de803ca192a0d6a02"
-    sha256 x86_64_linux:   "084b6ac80df111ce8f1beba4a137fbeb4fed200222ea575c8a9ec88aa080be01"
+    rebuild 1
+    sha256 arm64_monterey: "ed8bba73b3d91f04994d7b77e470a6dcb83cc2eda1fd7848dff4feda26031bc1"
+    sha256 arm64_big_sur:  "820cbd38ac9cd16ed51013991362959fa86ddb267498cf4aa24af19acb6bd008"
+    sha256 monterey:       "8fabbd9232cfdfd51fea5bfb6f4cf999d1881309aed52cb23a8702b5891b75a3"
+    sha256 big_sur:        "09a3c9d90d7ad7e315e86f40d3994772dc7f1cf1bfd979b3176dd3d403577e52"
+    sha256 catalina:       "a4c5a1a85d78c4be6cb42e9bbade0edf1a6a2e3e463c5ffc39f76d19d98ec8f3"
+    sha256 x86_64_linux:   "89b5daeb046cfdf7ebbd1c1459fe1d68e077b48d26b772d3132cda3aa28a1439"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -37,10 +38,10 @@ class Libgccjit < Formula
   cxxstdlib_check :skip
 
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
-  # Apple Silicon support, located at https://github.com/iains/gcc-darwin-arm64
+  # Apple Silicon support, located at https://github.com/iains/gcc-12-branch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d61235ed/gcc/gcc-12.1.0-arm.diff"
-    sha256 "1e8b95e2649866678bf3aaa358028e8c5c611593c61f90e41aaa937ad5f589ed"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/76677f2b/gcc/gcc-12.1.0-arm.diff"
+    sha256 "a000f1d9cb1dd98c7c4ef00df31435cd5d712d2f9d037ddc044f8bf82a16cf35"
   end
 
   def install

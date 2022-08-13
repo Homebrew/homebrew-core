@@ -3,26 +3,27 @@ class Libsixel < Formula
   homepage "https://github.com/saitoha/sixel"
   url "https://github.com/libsixel/libsixel/archive/refs/tags/v1.10.3.tar.gz"
   sha256 "028552eb8f2a37c6effda88ee5e8f6d87b5d9601182ddec784a9728865f821e0"
+  revision 1
+  head "https://github.com/libsixel/libsixel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2e12a4b625632cd3eb3eeead931b300dbf743ea67d34e9ca046c56c70d260eed"
-    sha256 cellar: :any,                 arm64_big_sur:  "ca3a3b1a9f9369271138c0e22d538e405b4804f481cd75cae2ce7b81bd02324d"
-    sha256 cellar: :any,                 monterey:       "403618069640d51e6c2b6d32bdd909318668cef7878064054c64e67f9e8e3c5e"
-    sha256 cellar: :any,                 big_sur:        "e47a3603e25d8f58593cb20438d1a49eae52a69660dedc06190bf67a7467c722"
-    sha256 cellar: :any,                 catalina:       "ce396e62152d7ecb357d5a3c49254bd1c0ac446da262be84b7b76492dd25b440"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e16c474f371c89589255512c6e840080222b9388bb8eb9acd8252ca03567e68"
+    sha256 cellar: :any,                 arm64_monterey: "056f4c105631db9ec5d1ac420ec491a51a130c03707147d5962383611d4d4aba"
+    sha256 cellar: :any,                 arm64_big_sur:  "6742e20e9eef3d16fd501c327abe0ceb535089eea12e07d6ad7a736ff6766400"
+    sha256 cellar: :any,                 monterey:       "43658b6a576c0792e99734ef9d82e9a9d767fddeaf86e4f7c724cd21ee941746"
+    sha256 cellar: :any,                 big_sur:        "920afd79faa01b7ec960901564a0b38e466ac9a7a29f7742be1d452c83b5e4f3"
+    sha256 cellar: :any,                 catalina:       "1e2c787edf46446c7fd9b40313dc2a72fe8dfa681030d0cf2f213568e8ea460d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f496efefbc5166488888d41e05cbdef0d9c581d152d6c79181a1bdffd0f36ff7"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "..", "-Dgdk-pixbuf2=disabled", "-Dtests=disabled"
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build", "-Dgdk-pixbuf2=disabled", "-Dtests=disabled"
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   test do

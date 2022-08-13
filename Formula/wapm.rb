@@ -1,8 +1,8 @@
 class Wapm < Formula
   desc "WebAssembly Package Manager (CLI)"
   homepage "https://wapm.io/"
-  url "https://github.com/wasmerio/wapm-cli/archive/v0.5.4.tar.gz"
-  sha256 "783e1187dbcc78021180c1f7d35ea7d165415b736488c72c9ff6ea390d3c4de0"
+  url "https://github.com/wasmerio/wapm-cli/archive/v0.5.5.tar.gz"
+  sha256 "145b91406b55671a88bb238bf8545d9e354da1a7e82fba7739b81fffaabd7d88"
   license "MIT"
   head "https://github.com/wasmerio/wapm-cli.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Wapm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f9317de931934fd7f162b6a359edb28a89ca85f8d1aba713a51e9df717f4645"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe1397a70ed0a3ba24920014ce59573f4aa0475e66125615a3fd5efd57cf8492"
-    sha256 cellar: :any_skip_relocation, monterey:       "76421b76f33bf57add17cb62072fec9963610d4b4a95625f37b741dc6267d619"
-    sha256 cellar: :any_skip_relocation, big_sur:        "93665738e27a68c4d59244b111bed071ede27ab4e93d1dfed352ac64d2089c23"
-    sha256 cellar: :any_skip_relocation, catalina:       "b6af98436de52f5d3ce7275c2cd5c1a5781dfde99197f5faf11ceed6d553d247"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46e7311ec4d57ef19ace21e3a4e744444228f91acf1d981242bf40763c1e289d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a093b63c39b9c617108856c98451f34ba169c23e36d168a702069781752caaa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0680cb4ab9b5d07b73171cf9b4576f489c078dfad56badfba4842a2cd9eb693f"
+    sha256 cellar: :any_skip_relocation, monterey:       "93cd7e9fc3a35b92d6a207d4b76626d25ea8813090d8b359da5f2be0bd3bfa0c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7a2a7059be7e50ef39edb720ef6dfc092ec75566ea2212f170d4f44402cde5d5"
+    sha256 cellar: :any_skip_relocation, catalina:       "a42c89ed41ca92935a82eaeb540656a2b5acce62ce6cc43658fc17d92734eb86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77fc66f518f82bb2272b35d8c5cb4fdff6b8d2520c7f332f124a403001991194"
   end
 
   depends_on "rust" => :build

@@ -20,7 +20,9 @@ class Syncthing < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "13d8b93233ba1ed97f2c5e0c66d3915ff3c736573c2a9fc80db81a40fe1d427e"
   end
 
-  depends_on "go" => :build
+  # Required lucas-clemente/quic-go >= 0.28
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
 
   def install
     build_version = build.head? ? "v0.0.0-#{version}" : "v#{version}"

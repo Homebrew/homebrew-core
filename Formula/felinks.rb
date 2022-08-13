@@ -1,18 +1,18 @@
 class Felinks < Formula
   desc "Text mode browser and Gemini, NNTP, FTP, Gopher, Finger, and BitTorrent client"
   homepage "https://github.com/rkd77/elinks#readme"
-  url "https://github.com/rkd77/elinks/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "49e261fb7a6b061b51ca38b7152712caba90c8eaa6996bcf4c00fe2867a7f366"
+  url "https://github.com/rkd77/elinks/archive/refs/tags/v0.15.1.tar.gz"
+  sha256 "a3ebb14e179fcf97f93874b7771b4b05c1b7fdc704807334e865273d9de8428f"
   license "GPL-2.0-only"
   head "https://github.com/rkd77/elinks.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7a070cd5babe443b93682187f5e21a4a7af5511325742051bcf3aeb0dd2b54a0"
-    sha256 cellar: :any,                 arm64_big_sur:  "53cba55f13fc1a0116269e0ee3d4008e68e531445a4cbd346372f06ccdee49af"
-    sha256 cellar: :any,                 monterey:       "33c90d200713f6b3ea7cfe769b9ed58d12b628e36db1a81b25adb2a3fb41d80e"
-    sha256 cellar: :any,                 big_sur:        "d238453ea8cc15e9b620c51b3d8eb04829109cd93972811e6de4da691b6a9f78"
-    sha256 cellar: :any,                 catalina:       "78b779010dce7a5329f9e403e6cb542e591a53e190dfd067b4c7074b8cf299b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e83d713d25d71bdca270848cde391df40879c94c1fd84e45c8112ee53e74c27"
+    sha256 cellar: :any,                 arm64_monterey: "62fb5bbd61d30658befb6916bbb5af4699fb2777286746dcaa94e9828abd2d2c"
+    sha256 cellar: :any,                 arm64_big_sur:  "1576662f71a70f08b3bb2b74fa32b8315a9f7a0012979457c805ae01daa770e9"
+    sha256 cellar: :any,                 monterey:       "9c4d8fa6827abd2147a9b20fe30de764acd9a05c6496ac3d751d94041151d39c"
+    sha256 cellar: :any,                 big_sur:        "7e382952edc473bcfd458d9bbce990acd5120588d62af6d3f37c5db55c9785d2"
+    sha256 cellar: :any,                 catalina:       "6338231bbe0e52aaa943e88aa437876604bc45c726b37e91769450b9808c8e43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c130f71e181e3a807ad0e1951b2b0f97301f7107829d21fb3817d263f918c977"
   end
 
   depends_on "autoconf" => :build

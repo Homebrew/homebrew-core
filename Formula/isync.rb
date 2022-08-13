@@ -4,20 +4,21 @@ class Isync < Formula
   url "https://downloads.sourceforge.net/project/isync/isync/1.4.4/isync-1.4.4.tar.gz"
   sha256 "7c3273894f22e98330a330051e9d942fd9ffbc02b91952c2f1896a5c37e700ff"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://git.code.sf.net/p/isync/isync.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c218fe3f0a32e6b92575ea508a02bfd1ad97574526f9c2ed5711aae2c447d26a"
-    sha256 cellar: :any,                 arm64_big_sur:  "7d62490dde63229ca06419e7178e13e8197dba53695c08de3f1a561814d5b808"
-    sha256 cellar: :any,                 monterey:       "d40f4b9b028d2f87b2278fa9f8012dc5262c574041454858de970082059f478a"
-    sha256 cellar: :any,                 big_sur:        "4f688d29553610b29be265fe2078cc53b842b1c466cb72cb266c8c839240e54d"
-    sha256 cellar: :any,                 catalina:       "2d15adbeb9a739af8bf729f08b8277cafcea4d9f031600e01efd8359cef287f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a40c0b2101f61fe74f4d724a9763cbd777ee00f82d8276603195988830b6451"
+    sha256 cellar: :any,                 arm64_monterey: "95afd09cb00be9960ded1846393a3ba9954d7e65dda8704dd6678ee31564d588"
+    sha256 cellar: :any,                 arm64_big_sur:  "20bdf52bc6b10d073dbca79b20c6d7008d7639ad5109e20b98e7b05e1a5b8412"
+    sha256 cellar: :any,                 monterey:       "9fabb93ff8e3edacf208eccb77cc6e456eb52146839fb8df8f11fbaf34a1b118"
+    sha256 cellar: :any,                 big_sur:        "42d8ad7a8728df819720a4a0ded2bdbbba86a1c730f4593a0659af9808637435"
+    sha256 cellar: :any,                 catalina:       "bf1041694107d4d5173b2a79eb447a1ef568d6ad79783ede8ef5ac2157d78102"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28a71e46d89483ffde37b91ed00f9a7a60933c184db724c6103fee86392bdad3"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "berkeley-db"
+  depends_on "berkeley-db@5"
   depends_on "openssl@1.1"
 
   uses_from_macos "zlib"

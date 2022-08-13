@@ -1,18 +1,18 @@
 class RiemannClient < Formula
   desc "C client library for the Riemann monitoring system"
-  homepage "https://github.com/algernon/riemann-c-client"
-  url "https://github.com/algernon/riemann-c-client/archive/riemann-c-client-2.0.1.tar.gz"
-  sha256 "2ed963eeef5517f7be921790ef0cde13c7bcac172ac14ce5818d84a261cc3b31"
+  homepage "https://git.madhouse-project.org/algernon/riemann-c-client"
+  url "https://git.madhouse-project.org/algernon/riemann-c-client/archive/riemann-c-client-2.1.0.tar.gz"
+  sha256 "e1a4439ee23f4557d7563a88c67044d50c384641cf160d95114480404c547085"
   license "LGPL-3.0-or-later"
-  head "https://github.com/algernon/riemann-c-client.git", branch: "master"
+  head "https://git.madhouse-project.org/algernon/riemann-c-client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b4d9f270930a03bd6d14c2e0673b37274b2dbe88601d9d5eed4e23b1651360d6"
-    sha256 cellar: :any,                 arm64_big_sur:  "a903c8865839e11d8161aecead89d3446aaa02cec90ce473ff3581b07ef2901e"
-    sha256 cellar: :any,                 monterey:       "0781e42d0d4650a9265d89c2dee9256d461816cf3b7e5f41de213e1ada9c221e"
-    sha256 cellar: :any,                 big_sur:        "ef200e9b62011f846805a5a4b05e778b46fe4599d8b8a7600a6611a8a43c1832"
-    sha256 cellar: :any,                 catalina:       "c328701c5ea1aa6101c54a3db32c39a5798fa27d88d898dd5ca2bad512f50175"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f50dd475e3edc8145db2e9808ee16dd2d0cf795ee727d8a4d4d30d28af3960ca"
+    sha256 cellar: :any,                 arm64_monterey: "304cf14a65977bdf52fd553dc7c9b9ecdad0e34dcf7ba3d26d4d415154439001"
+    sha256 cellar: :any,                 arm64_big_sur:  "6bb8a167fd979ed2d95b77d2fa5802454c42fce025070bd262925425f41fc6fa"
+    sha256 cellar: :any,                 monterey:       "86f04b64fd3ef3984698c0587bb8944907856d876fb9b2855b4564dc3efd84d2"
+    sha256 cellar: :any,                 big_sur:        "f724a20b8eb444be7c01ecf3467eb0b57d8896b9dcebb3a09926e98bbfb4fdd7"
+    sha256 cellar: :any,                 catalina:       "0a92ea87867b322edda329832975bd269f4baf18319b4a256f36bf24f09ed19c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb6ad40b5c2ec40cc9d3894ef3de12fa8cd3a612e22a6e58b58178e5792187fd"
   end
 
   depends_on "autoconf" => :build

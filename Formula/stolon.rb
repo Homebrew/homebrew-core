@@ -5,20 +5,20 @@ class Stolon < Formula
       tag:      "v0.17.0",
       revision: "dc942da234caf016a69df599d0bb455c0716f5b6"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da91318804a2a44ef42d195448013fe9696c5d8a6634d28f48c42d12af20e27a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4094f00039a0b1684471e1c4e5cb4758e3e7789577dd7d5f00cb3b532a1ef6ac"
-    sha256 cellar: :any_skip_relocation, monterey:       "4ef48e603eb0ea38a2b67ae20b6bcb3553e1f208db93b60f2a16b39d63f6d6f0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b0a56f3249029127bbee0714cabddf2aa1bd6fd8f8ddfa3d930318be36914c06"
-    sha256 cellar: :any_skip_relocation, catalina:       "ced3403c83e7d19c21117acb58056756538c9c76dd76c8cf28330c0c4c261ee9"
-    sha256 cellar: :any_skip_relocation, mojave:         "544b80f00ebb9447d95a1cb981147b95dbbe668abb0cf6037e5307460602d563"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7b19327fb4e9f472bd1c830a8c4f33a121a1c0a589f59a64dd6b322cabf87b2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17af62bc7751903d4f85e447907825f3bf4df255263487c47b44e299a9b196be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "767212e3c8d9dc59a030aa96083a48f42be86fa4c43b1df2158c6d3d9fa50f54"
+    sha256 cellar: :any_skip_relocation, monterey:       "6e82da7f0cd74193592f16415ba7386c7483bf9006814177df8086cc96e7b57a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2955ce82d16c3601d928d8f7125bda27dde894fd9e8b8c8e2025a178c38cb640"
+    sha256 cellar: :any_skip_relocation, catalina:       "6f8469a79e442788d8a8c774c7097ee45d1deeebb17968c79e4efbd37965e69f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30ca55abf39725e1760d6610e38ea05f089fd382724da55c170f2cf914ee1050"
   end
 
   depends_on "go" => :build
   depends_on "consul" => :test
-  depends_on "postgresql"
+  depends_on "libpq"
 
   def install
     system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",

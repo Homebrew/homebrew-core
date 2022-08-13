@@ -1,8 +1,8 @@
 class Liblinear < Formula
   desc "Library for large linear classification"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/liblinear/"
-  url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.44.tar.gz"
-  sha256 "45572b99d4eeffc3e8ad7b72c27370be867edf3523c396d8b278a2c873bfbb5c"
+  url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.45.tar.gz"
+  sha256 "3c64eec45c01943a656baac7aeb8ffd782fe0aea53629aa9f5fdb8eec177c92f"
   license "BSD-3-Clause"
   head "https://github.com/cjlin1/liblinear.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Liblinear < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "975c5b08255f53fbbacbb035c510c01814ceb06af50b45a977cc67ce540ccb90"
-    sha256 cellar: :any,                 arm64_big_sur:  "39e6e1934920fb81cfdc79e7a819fd2d0ef4caf5a253e97fa2b539c22789e198"
-    sha256 cellar: :any,                 monterey:       "0e4819da9732ad41046313ecd8860bd62b85b83d6ac06d44cd854a387b441683"
-    sha256 cellar: :any,                 big_sur:        "c0bd8407043a6ad8486ffd3306cf584d43eeffb9a06cdccf17219ffbc415eb2c"
-    sha256 cellar: :any,                 catalina:       "c9b6d361976c6fa8350c9c34cc2f2b4a648d597f86d24752a1a0504697041794"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "724bc7db06767acccb409cba7b7722bd3fd7eed64aa436c87f07331953b01ffc"
+    sha256 cellar: :any,                 arm64_monterey: "1dc65a0cd23d37bc4ef5676080e6a0e6b953289152532586791f6117d51c2ffa"
+    sha256 cellar: :any,                 arm64_big_sur:  "729f76538f19c370424f033c884e46a9cb83cdb99d64703d6e5f7345bb170cce"
+    sha256 cellar: :any,                 monterey:       "5a5b15fee1584548ebdeb166c81efda7038d6941501b685be49775f9ed4775c2"
+    sha256 cellar: :any,                 big_sur:        "356369ca1df9b188b922ce4bfd74f1e215eaa766a656b6ae0e9085314138d351"
+    sha256 cellar: :any,                 catalina:       "a610ba5a1bcb6ee808f10c1bb2877139ee95d67406beb917f89eabf266445cfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d65dafb6eac0a56233687510ad736495633467dbdb1f15c976ece952ecca15be"
   end
 
   # Fix sonames

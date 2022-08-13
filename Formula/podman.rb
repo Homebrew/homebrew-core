@@ -4,21 +4,22 @@ class Podman < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/containers/podman/archive/v4.1.1.tar.gz"
-    sha256 "27bf32e9b1afee94cb08ebd59389104788d687f402a541f3631f94c7916b10a5"
+    url "https://github.com/containers/podman/archive/v4.2.0.tar.gz"
+    sha256 "15f8bc59025ccd97dc9212a552e7274dfb79e1633b02d6a2a7f63d747eadb2f4"
+
     resource "gvproxy" do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.3.0.tar.gz"
-      sha256 "6ca454ae73fce3574fa2b615e6c923ee526064d0dc2bcf8dab3cca57e9678035"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.4.0.tar.gz"
+      sha256 "896cf02fbabce9583a1bba21e2b384015c0104d634a73a16d2f44552cf84d972"
     end
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0389d5ec1489959bc7ff0a558ebf9816317942d5de988cf1739e1c0fc667b598"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11d99816bb8cd41781a5d312a1547a89180536fb445445336c637c7d46e9ded3"
-    sha256 cellar: :any_skip_relocation, monterey:       "f04d10389ef24a0a258ce1e5ddf14f290420eaff555f58ecdf1495f930ae90f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3a8967d5b501cbccd23f943971d56b36ac7f0694962ea153c50e6727f933a9a3"
-    sha256 cellar: :any_skip_relocation, catalina:       "2fbadb9d67779137c4a26f402bd7f8414d98e693c6809268131b7abc8e4a9a09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1997012b073de38e3c113c15e29f3dae12b0e09f93cc3e30fc6003a6e808102"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "90ed05f03840e3c98397fb9833d65deef5c14640ded372fddf58beda91980bb3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bdf752ce452ab9af35be05228806e99c9655b840cac5b9081424338ee21d0025"
+    sha256 cellar: :any_skip_relocation, monterey:       "189613a7061ed62fca23c0bb92553536fafb503f19072d3552485268ac1d4fe6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d9ad0036f5b4a2c83c1d3ac4cf8e7d6931e46ce62febd69a50c9fcf803a10461"
+    sha256 cellar: :any_skip_relocation, catalina:       "db46307c9571b23459e979336906f56376a21920f5b6a0447c79c65d5cd48a80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "291babc343bc2976a95d55ab2c81735f3cd48b3932a098d156d3dc9395679cf9"
   end
 
   head do
@@ -29,16 +30,11 @@ class Podman < Formula
     end
   end
 
-  depends_on "go" => :build
   depends_on "go-md2man" => :build
+  # Required latest gvisor.dev/gvisor/pkg/gohacks
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
   depends_on "qemu"
-
-  # Fixes compatability with qemu 7.0.0. Can be removed next release.
-  # See: https://github.com/containers/podman/issues/14303
-  patch do
-    url "https://github.com/containers/podman/commit/9fac1b335f681400a029e9d8014f45fa5634ec40.patch?full_index=1"
-    sha256 "161a0ce3d1012ae030790a16857278e4417b3b410dce68927a6b02a43cf090ba"
-  end
 
   def install
     ENV["CGO_ENABLED"] = "1"
@@ -48,10 +44,11 @@ class Podman < Formula
               "/usr/local/libexec/podman",
               libexec
 
-    system "make", "podman-remote-#{os}"
+    system "make", "podman-remote"
     if OS.mac?
       bin.install "bin/#{os}/podman" => "podman-remote"
       bin.install_symlink bin/"podman-remote" => "podman"
+      system "make", "podman-mac-helper"
       bin.install "bin/#{os}/podman-mac-helper" => "podman-mac-helper"
     else
       bin.install "bin/podman-remote"

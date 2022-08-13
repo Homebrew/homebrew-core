@@ -3,17 +3,17 @@ require "language/node"
 class ReleaseIt < Formula
   desc "Generic CLI tool to automate versioning and package publishing related tasks"
   homepage "https://github.com/release-it/release-it"
-  url "https://registry.npmjs.org/release-it/-/release-it-15.2.0.tgz"
-  sha256 "f63b77054968285d6000f66cf4703bfd95ba341c8f48ba4683831c0324d86be0"
+  url "https://registry.npmjs.org/release-it/-/release-it-15.3.0.tgz"
+  sha256 "33448b3782659e39d4096cf73ab20b4a360b38d14844360133c5a0c546a52c8d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "627e77cb75b653cba2e3b401c29a0d7992f6bf076798b83aca1512204b030854"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "627e77cb75b653cba2e3b401c29a0d7992f6bf076798b83aca1512204b030854"
-    sha256 cellar: :any_skip_relocation, monterey:       "c438e519ac77da1147a1642ca17b76c3c152222a0323a3231ba8cfea23cabf16"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c438e519ac77da1147a1642ca17b76c3c152222a0323a3231ba8cfea23cabf16"
-    sha256 cellar: :any_skip_relocation, catalina:       "c438e519ac77da1147a1642ca17b76c3c152222a0323a3231ba8cfea23cabf16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "627e77cb75b653cba2e3b401c29a0d7992f6bf076798b83aca1512204b030854"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cab9752ea26dcb32890b0ef79922c360dec471534fab89f23b05a3894b3cde63"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cab9752ea26dcb32890b0ef79922c360dec471534fab89f23b05a3894b3cde63"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c81a8573630e4de45ff311e06fb8a0ee86931848f8a01e04b6e7e370e0f5673"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3c81a8573630e4de45ff311e06fb8a0ee86931848f8a01e04b6e7e370e0f5673"
+    sha256 cellar: :any_skip_relocation, catalina:       "3c81a8573630e4de45ff311e06fb8a0ee86931848f8a01e04b6e7e370e0f5673"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cab9752ea26dcb32890b0ef79922c360dec471534fab89f23b05a3894b3cde63"
   end
 
   depends_on "node"

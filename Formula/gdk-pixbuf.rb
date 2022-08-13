@@ -1,18 +1,17 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "https://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.42/gdk-pixbuf-2.42.8.tar.xz"
-  sha256 "84acea3acb2411b29134b32015a5b1aaa62844b19c4b1ef8b8971c6b0759f4c6"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.42/gdk-pixbuf-2.42.9.tar.xz"
+  sha256 "28f7958e7bf29a32d4e963556d241d0a41a6786582ff6a5ad11665e0347fc962"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_monterey: "adb33eafb55f4e85e8087c7ef6f00d289b4a7e7f39db833fa0333ef0759d182f"
-    sha256 arm64_big_sur:  "981123d2398d5d8991b53954e428ce29ebd68b672cffa91cd1fb45a6150d38d1"
-    sha256 monterey:       "a64f2ae0d341ef27f80b1b9af5bed1067363bb66ebd85be09c985be97c044e9d"
-    sha256 big_sur:        "6861ff1ff13b9517f89cbc41eb3096a458b0f0b5762c6e948513228f3254ed5e"
-    sha256 catalina:       "26d216a2f647fdb1062da471baf90a20f18cd82c6197192fd79b46b2487d31d1"
-    sha256 x86_64_linux:   "f83a3373cd1396e0a817b1567ccc05da620e22d5a3b90cf985e58b7c8b22ba30"
+    sha256 arm64_monterey: "4334da20455e617c5f1f57946a00fc38e8fea1209fef3a71e445bc2c7f9c38d0"
+    sha256 arm64_big_sur:  "88eff9d23c848e9ac08e0942aec394764f11d92594b7396dfa56fbda186ab298"
+    sha256 monterey:       "9264fc9ee4225861eb92af4e7975b8d5b1d1d4c3ac7688f995409dd675c6699e"
+    sha256 big_sur:        "71b86b2e14a8dbc7d6e8266547fadfd545aead3b7351df3b7c63ebc35b8c02e6"
+    sha256 catalina:       "12b0f0f5e221b3b5f4cb8f0d37c7070dabefe944c53680dd8cfa6e449cebd55b"
+    sha256 x86_64_linux:   "35e1c0a98e6035a693dedb9212165dc0d557941b7d72dad0d6a4594b72eb4709"
   end
 
   depends_on "glib-utils" => :build

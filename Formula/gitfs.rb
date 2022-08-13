@@ -90,8 +90,8 @@ class Gitfs < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    python = "python3.9"
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python)
 
     (testpath/"test.py").write <<~EOS
       import gitfs
@@ -99,7 +99,7 @@ class Gitfs < Formula
       pygit2.init_repository('testing/.git', True)
     EOS
 
-    system Formula["python@3.9"].opt_bin/"python3", "test.py"
+    system python, "test.py"
     assert_predicate testpath/"testing/.git/config", :exist?
     cd "testing" do
       system "git", "remote", "add", "homebrew", "https://github.com/Homebrew/homebrew-core.git"

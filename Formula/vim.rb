@@ -5,6 +5,7 @@ class Vim < Formula
   url "https://github.com/vim/vim/archive/v9.0.0150.tar.gz"
   sha256 "50a7633d11419ddb30b8b63da320ae98d66904eacd5b8ae666288cb419c62193"
   license "Vim"
+  revision 1
   head "https://github.com/vim/vim.git", branch: "master"
 
   # The Vim repository contains thousands of tags and the `Git` strategy isn't
@@ -17,12 +18,12 @@ class Vim < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e13fb47d05416028c3c0671de43602121ca68220c964ba5b3ca8e66974bf55b5"
-    sha256 arm64_big_sur:  "a74903772ef86315decc9905b270db52aad486bedca733ca872bb924111f823b"
-    sha256 monterey:       "1558181e0a79d3ff53b9784478d0fd82f6ce31efa8e1d3e3e11af4014dde7f41"
-    sha256 big_sur:        "527b2baca046c097a6673f2e665c9755cd1c756404305e9a358055d403d9c00e"
-    sha256 catalina:       "dc93055eb53e8f427c65ea1bfdf166b472ec3b8b45903fbf915bd09ae6d7a1dc"
-    sha256 x86_64_linux:   "5c0871cb2e3397bb01f3820a2f0d15aabab692f2f28301390fc59071e64be016"
+    sha256 arm64_monterey: "d7e5e01bf0efa392b485635dcca075e1f5ae5292a5e67b9bf789dc91b9091fa2"
+    sha256 arm64_big_sur:  "2a7c4b6f97038d625362175e6d8472c75e0a4aef22c68627d446190c1c72b948"
+    sha256 monterey:       "705ac63c80e345d8be44b1de0e907fb6e7aab3fa213ace1ad2517a6286d91fac"
+    sha256 big_sur:        "c7af2d5c2f3634b66761aa79cb1576356ade233ef93a14623a88dadba59e135d"
+    sha256 catalina:       "3c371a395b23ace41d2ae71e264d1279a74860243ba3dc195ea1e76fe8a90416"
+    sha256 x86_64_linux:   "147c41b75cbb0877c60c6c2e7c1ae27b0c2bdf9d8e1b162dcfedcbe8adc59db0"
   end
 
   depends_on "gettext"

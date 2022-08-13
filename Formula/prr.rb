@@ -1,25 +1,25 @@
 class Prr < Formula
   desc "Mailing list style code reviews for github"
   homepage "https://github.com/danobi/prr"
-  url "https://github.com/danobi/prr/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "becebd6746b62380ff354e0d4e92b515c0aac719e9d504f33b6d9321b2d80853"
+  url "https://github.com/danobi/prr/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "249a50487af9e947cea12597e6024041ed21bb4ebe6214d147e0750508e134c3"
   license "GPL-2.0-only"
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59bd84af58d14624f61a14c8b3e279c55581abcd7cf8e88e5c67fea0bfd5b2a8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d1a7488e4c639a257e34823d3dc41089a911963673c3c4d67a7abd0092775c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "ff0387d269840c94c40e278e005503f2e1d5c686301ae91319c31b2678e1bddb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0d091440093e25e0a68163aaa3110612429a7f96d0e8de826651c2d7c6e2664a"
-    sha256 cellar: :any_skip_relocation, catalina:       "1fcaaeb1c014be63ced0e6813bb3399ff0bd91314202d226b778f53cd323bd05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd206a8a29697fd10a28d666243354feb6cdaf135dd2a2be2bcfe6bad03b26f8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c6547be0918cb4bf48a65ebabe4676f195054b55a483f62f09f012f759c428c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c983c6f377274015d35e6e5d1c6293c2181feebe2f00d57135dec566dd4ba7c"
+    sha256 cellar: :any_skip_relocation, monterey:       "8b0e195a99a1e888d178e7fa2ff524113bdb419c213f1d8afe3dc764e217f3fa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5d3d253a2498a52df17d0c0fb83daf024ef5f9199727d9cb83f27551e309d01c"
+    sha256 cellar: :any_skip_relocation, catalina:       "7604a13cf21a13c66dceb07bb3b6d7fcb5c6501a8c602c72543525c08e650e56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ecaa3243521d2b217fdfdf2c6bfc3e9609f26131aaee4d0aec8a77577403612"
   end
 
   depends_on "rust" => :build
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   def install

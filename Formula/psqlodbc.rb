@@ -3,6 +3,7 @@ class Psqlodbc < Formula
   homepage "https://odbc.postgresql.org"
   url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-13.02.0000.tar.gz"
   sha256 "b39b7e5c41fd6475c551112fa724bf57c4a446175ec4188a90e2844cc1612585"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/odbc/versions/src/"
@@ -10,13 +11,12 @@ class Psqlodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ed1b6837baffae5f6c56b867601f01a2e3afe17706a0807181f313bb433689d5"
-    sha256 cellar: :any,                 arm64_big_sur:  "45bf96f7600543acf57ff529ac884ce9da5d84ab3df2fba8c799c318988b17a8"
-    sha256 cellar: :any,                 monterey:       "9acc450ccbb8c63aebbc866a17f2b71b75297740ac8f6c9ea6bab5883f74e4a6"
-    sha256 cellar: :any,                 big_sur:        "8109e135efa71d1e0369b2433181819ef275bec48934a5b3107f99fcdce73efb"
-    sha256 cellar: :any,                 catalina:       "6da4ec9d0ec4ce763dc117b4e8c465289a90ea05c5c4d8bc954789334ea8021c"
-    sha256 cellar: :any,                 mojave:         "c766f5701dba28974ac654fcba040715fcef30a6fc9974802d7b61a5d63e0584"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de683e7933da22982cc7d6804a8d5ebb0333c87c8cff49aa3ec23c8e2119ea8b"
+    sha256 cellar: :any,                 arm64_monterey: "7dd883dc59524fede6ffb7b688bcc0326de3d3a427803351aa6cbabb599f9954"
+    sha256 cellar: :any,                 arm64_big_sur:  "ef418d0c0adec1d244558dca6a0c9b40b9422885dfe10913b043f8b390ffef78"
+    sha256 cellar: :any,                 monterey:       "36cc02c09e0c5a11ff94dec512b68cdd79eff6efd4c172eeb4cfb9a5efa06460"
+    sha256 cellar: :any,                 big_sur:        "6b0e7ea093735cfa54ce55031b3fc3ead89f69d62fd45e4da15889d4b560f321"
+    sha256 cellar: :any,                 catalina:       "eacd7323b46bf02bb9774e75a705e08a8847903c5627c98e84ed6f6b69dddbe9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73ab22c2d6963e7b60ab6213c0858167c47a9d519397c2398f379d4595c9ac6e"
   end
 
   head do
@@ -26,8 +26,8 @@ class Psqlodbc < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "libpq"
   depends_on "openssl@1.1"
-  depends_on "postgresql"
   depends_on "unixodbc"
 
   def install

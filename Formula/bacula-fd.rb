@@ -1,16 +1,17 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "https://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/13.0.0/bacula-13.0.0.tar.gz"
-  sha256 "4119d48bbfe1518b3224a88e7365c2fa5f7d1679c815e7d15f26631883a8a0c6"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/13.0.1/bacula-13.0.1.tar.gz"
+  sha256 "d63848d695ac15c1ccfc117892753314bcb9232a852c40e32cca88c0e918978a"
+  license "AGPL-3.0-only"
 
   bottle do
-    sha256                               arm64_monterey: "5ce02dd71c35475c7ce92c54c45e8617b2e5935418317619fda4f5713daf82a3"
-    sha256                               arm64_big_sur:  "ee765d178fc42c263064233cc263d1861c0736ac7a937c7581f8cfa2efb5f9d7"
-    sha256                               monterey:       "16649b7fe5c0b0986425b878ae6354d2b22dcf90c45f248548f99e32370643c5"
-    sha256                               big_sur:        "24ebca4a60a923795d78e923444b0d34c64234a59fb8815140979d1a7a0eeae3"
-    sha256                               catalina:       "3269766474c655143cfede969df75a3d0075f9ace9a2a143351fb15ed1d467fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70b6cea2fd1c8fc6504340e4c82027264e428583e6ade75914045ef23ae6cf60"
+    sha256                               arm64_monterey: "42489dd6be579995365266af6ac1e9e0efb0f059114ca11aea2e403d7f07c6bc"
+    sha256                               arm64_big_sur:  "10036f12b6348491a9b6721c8df2a1ea79158e6e8c50710aeece83b513c9bbaa"
+    sha256                               monterey:       "bad36d8e6a56caf6ec72230e48d71fcf513a09c7dc019a24f1fa3970f6509d1b"
+    sha256                               big_sur:        "4026b2d20490a6be9d3648e74b074f615c54af6257d9dbb8b2a6608e5bda8e26"
+    sha256                               catalina:       "aee4a24eac06896ca037c18918c264e73e71c5e5ab10cb64758a4baf85ee411d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48579a00a95f1864cb86adf6b9e43bb59faee5b76e7f78d20c9e20159d0e627f"
   end
 
   depends_on "openssl@1.1"

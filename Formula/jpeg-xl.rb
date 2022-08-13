@@ -6,6 +6,11 @@ class JpegXl < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a603bfaffbd444d11e882f8d72beaf3833cbf91473c4bb8c964c00bd94b07d65"
     sha256 cellar: :any,                 arm64_big_sur:  "d1ba28b49a63312dd1632bfe5a5fd2dfe91c5ca8f3d4c5961ea61a65f5c96834"

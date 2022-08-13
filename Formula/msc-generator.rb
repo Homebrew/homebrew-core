@@ -1,18 +1,17 @@
 class MscGenerator < Formula
   desc "Draws signalling charts from textual description"
   homepage "https://gitlab.com/msc-generator/msc-generator"
-  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.1/msc-generator-8.1.tar.gz"
-  sha256 "d5812a1d24d42e319b5caab0316ae04d2de908db0f73c84f2797f20ebdf302a6"
+  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.2/msc-generator-8.2.tar.gz"
+  sha256 "643efd48958f4fc20d40af56ea1be6c2d2e2c80c055b622c91971a3e1e5252ca"
   license "AGPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_monterey: "48eec1368f3cb38598fb8f66cd6ad63f1272d94153756edf8dd45d6069365307"
-    sha256 arm64_big_sur:  "a2e7cae9c6d9cf8ac8bf2ec45aa4c8f1161b5689d37c99f87f31d6880ba9209b"
-    sha256 monterey:       "e68b99c84b24850dcc71d05f79d9d6593831ce0f43afe4a24d94c8e19157cac6"
-    sha256 big_sur:        "fd425110b06dc264e7b265251835899579759abef7b11feed968f195e3512808"
-    sha256 catalina:       "0e4d38f4a904d6f6685f48e1800bb814a7dd6006244da36fa7ec962a76e987d6"
-    sha256 x86_64_linux:   "4fc8f06dfe3df87243441234964ed11b2db4620a4510261f746b533475509e8b"
+    sha256 arm64_monterey: "f9746df56efcfd9b2e6084306587e9ac7ab8a05931f6c6e1a7ead4ca783506ad"
+    sha256 arm64_big_sur:  "5eeea19b32e3195143c54da11acdb05b411d9efd24c0ed399a917579f82b84a5"
+    sha256 monterey:       "abf0e87f36a6714637e2770205ac2f0ef05219df1dadc031960ecbdaea2f4c93"
+    sha256 big_sur:        "47e891b3ed5a64789fa5060ef7640c9fe71d12a4fa57d8432302aa46f245e98a"
+    sha256 catalina:       "ca52e1f668b9249096c0921e457f463adb3141e53fcddb5de7711d687b26c64b"
+    sha256 x86_64_linux:   "6f86d646eb14e18be7d5a0976334415ff9fa6ce40d6ead350aecfe9f08ae9752"
   end
 
   depends_on "autoconf" => :build

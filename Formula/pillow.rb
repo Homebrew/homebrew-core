@@ -34,9 +34,8 @@ class Pillow < Formula
 
   def pythons
     deps.map(&:to_formula)
-        .select { |f| f.name.match?(/python@\d\.\d+/) }
-        .map(&:opt_bin)
-        .map { |bin| bin/"python3" }
+        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
@@ -65,9 +64,11 @@ class Pillow < Formula
     inreplace "setup.py", "DEBUG = False", "DEBUG = True"
 
     pythons.each do |python|
+      prefix_site_packages = prefix/Language::Python.site_packages(python)
       system python, "setup.py",
                      "build_ext", *build_ext_args,
-                     "install", *install_args, "--install-lib=#{prefix/Language::Python.site_packages(python)}"
+                     "install", *install_args,
+                     "--install-lib=#{prefix_site_packages}"
     end
   end
 

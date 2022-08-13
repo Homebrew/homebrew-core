@@ -1,10 +1,9 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.17.1.tar.bz2"
-  sha256 "711eabf5dd661b9b04be9edc9ace2a7bc031f6bd9d37a768d02d0efdef108f5f"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.18.0.tar.bz2"
+  sha256 "361d4eae47ce925dba0ea569af40e7b52c645c4ae2e65e5621bf1b6cdd8b0e9e"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgme/"
@@ -12,12 +11,12 @@ class Gpgme < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5c3c3b5cc635574cec5670ecd56c7c3f7fb209b07feac5d06ed15ae27eabde35"
-    sha256 cellar: :any,                 arm64_big_sur:  "a1a1ff0f3fcd571c3a33f3d2498a94784cdcc42d34ebce0210d7d2bac7a47f8c"
-    sha256 cellar: :any,                 monterey:       "15d0bb6dc60e5b5625e7dfab00f298049b44f64fea848bae947d38db0819509a"
-    sha256 cellar: :any,                 big_sur:        "9a1e47bde50a16222dd2844af84f61fac80caf2db6af0682c05b41bd01948cec"
-    sha256 cellar: :any,                 catalina:       "73ee81d3ec9fafdc4568b2f32b2290072ee304df497ff92df2da69bcce75c068"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a6ea6f488a90c3921d2ceef44c22c6c138e5aa61fb59f66c8326b54ca3083ca"
+    sha256 cellar: :any,                 arm64_monterey: "599b8b1949126487b1c24443b6dd8eb2842eac3884b0e0b3f2d19f5209762a4d"
+    sha256 cellar: :any,                 arm64_big_sur:  "fd420b38b733615029bad30f1fdd1f8eadd8dc7530617e6d101fcf0f08d1dd78"
+    sha256 cellar: :any,                 monterey:       "aad0354292aa298b7c318dd7b08a09fc60ec153d71a7f60c0d92174f6df3dae1"
+    sha256 cellar: :any,                 big_sur:        "52b3c86c85fe3ec3af6581bc23a89416354c75457f01a26b6a1cc5f853d4f1cf"
+    sha256 cellar: :any,                 catalina:       "0e1b99075c6656336f906821bf8dfdf2b7610f2182cd7fc901608f02590b74e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "452ff2184c01bbea45b034d71799f3575ea0858b5427c71554ca8360832f1f64"
   end
 
   depends_on "python@3.10" => [:build, :test]
@@ -36,16 +35,21 @@ class Gpgme < Formula
   end
 
   def install
-    ENV["PYTHON"] = which("python3")
+    python = "python3.10"
+    ENV["PYTHON"] = python
     # setuptools>=60 prefers its own bundled distutils, which breaks the installation
     # Remove when distutils is no longer used. Related PR: https://dev.gnupg.org/D545
     ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
+
+    # Uses generic lambdas.
+    # error: 'auto' not allowed in lambda parameter
+    ENV.append "CXXFLAGS", "-std=c++14"
 
     # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
     # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
     inreplace "lang/python/Makefile.in",
               /^\s*install\s*\\\n\s*--prefix "\$\(DESTDIR\)\$\(prefix\)"/,
-              "\\0 --install-lib=#{prefix/Language::Python.site_packages("python3")}"
+              "\\0 --install-lib=#{prefix/Language::Python.site_packages(python)}"
 
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
@@ -59,6 +63,6 @@ class Gpgme < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import gpg; print(gpg.version.versionstr)"
   end
 end

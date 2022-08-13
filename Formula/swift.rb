@@ -455,11 +455,11 @@ class Swift < Formula
     assert_match "www.swift.org\n", output
 
     # Test Swift Package Manager
+    ENV["SWIFTPM_MODULECACHE_OVERRIDE"] = module_cache
     mkdir "swiftpmtest" do
-      if OS.mac?
-        # Swift Package Manager does not currently support using SDKROOT.
-        ENV.remove_macosxsdk
-      end
+      # Swift Package Manager does not currently support using SDKROOT.
+      ENV.remove_macosxsdk if OS.mac?
+
       system "#{bin}/swift", "package", "init", "--type=executable"
       cp "../foundation-test.swift", "Sources/swiftpmtest/main.swift"
       system "#{bin}/swift", "build", "--verbose", "--disable-sandbox"
@@ -469,10 +469,10 @@ class Swift < Formula
     # Make sure the default resource directory is not using a Cellar path
     default_resource_dir = JSON.parse(shell_output("#{bin}/swift -print-target-info"))["paths"]["runtimeResourcePath"]
     expected_resource_dir = if OS.mac?
-      (opt_prefix/"Swift-#{version.major_minor}.xctoolchain/usr/lib/swift").to_s
+      opt_prefix/"Swift-#{version.major_minor}.xctoolchain/usr/lib/swift"
     else
-      (opt_libexec/"lib/swift").to_s
-    end
+      opt_libexec/"lib/swift"
+    end.to_s
     assert_equal expected_resource_dir, default_resource_dir
   end
 end

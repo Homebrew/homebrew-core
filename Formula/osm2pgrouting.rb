@@ -4,25 +4,25 @@ class Osm2pgrouting < Formula
   url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.8.tar.gz"
   sha256 "e3a58bcacf0c8811e0dcf3cf3791a4a7cc5ea2a901276133eacf227b30fd8355"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/pgRouting/osm2pgrouting.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "235fcf5acf4a0b5e63d55505b12fac3fa4eef7a379568da78f854b8816738fcf"
-    sha256 cellar: :any,                 arm64_big_sur:  "e33e1d08bb7b945b8b82f2f18aa59cac766442af2ce71110782dfac031146fac"
-    sha256 cellar: :any,                 monterey:       "c098f59fda09a8e865d694130889d912e79d2399f3f67c9b52bc388863cce0c4"
-    sha256 cellar: :any,                 big_sur:        "a8821651a9d8fe0d3d60226ba1fd41fa51157ddd9ffa402b09cc4e670f1b82e2"
-    sha256 cellar: :any,                 catalina:       "8fec29b2e6de42c4d46f1328d3214733b2636fa55a10eab4d9f0c373bf9ad9c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a84374245284b0691602ca06d078c4d229513a54c2662f94d400cd4f8782654"
+    sha256 cellar: :any,                 arm64_monterey: "655fce8ebc42541f74c19891cb7f95cb3ea349a5a9f56a55eaf9d48b86142f81"
+    sha256 cellar: :any,                 arm64_big_sur:  "5221c89b5f7ad69f683919032ed1f08c69a2854d249ec3cbd1ea32ed4a2a5c78"
+    sha256 cellar: :any,                 monterey:       "1b2baeec219eb69778e7e393ec47705bb3971d716c360d3ad96a8edba35c21e2"
+    sha256 cellar: :any,                 big_sur:        "82155e14a81382a35fc23b64169b76fc934e4fd0121c30f21733adc49a05c5c5"
+    sha256 cellar: :any,                 catalina:       "c1623261ff58d3e98dd528da974fc6828c7d39915551004f0b20c17042efe856"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "702b3512f5944637b24477d057329a7c379202a479eff7fd25f7029b1285e434"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "expat"
+  depends_on "libpq"
   depends_on "libpqxx"
   depends_on "pgrouting"
   depends_on "postgis"
-  depends_on "postgresql"
 
   on_linux do
     depends_on "gcc"

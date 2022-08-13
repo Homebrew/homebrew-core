@@ -4,6 +4,7 @@ class GstPython < Formula
   url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.20.3.tar.xz"
   sha256 "db348120eae955b8cc4de3560a7ea06e36d6e1ddbaa99a7ad96b59846601cfdc"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-python/"
@@ -11,19 +12,19 @@ class GstPython < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "d2ec9fdb1aacd15f3e15e74c4fe3874dc4026fca340343e7b33ce36cc547d74d"
-    sha256 arm64_big_sur:  "a80064fa901949301635f6fed07cab928163ab540db94d1ad337b153d19bf8d8"
-    sha256 monterey:       "6f50fe5339425c4bef2fa24301ab9232c76fe1620aaabecbfecd4be322f9f3c6"
-    sha256 big_sur:        "9a91dae7c2006db63427324837713bf4a629541dcb0d66d6d4535bd926f1e196"
-    sha256 catalina:       "e88ade86caf15f19ccf0ac48649e64433f7d5e9fc6a7577c2712b4f66b2a79f4"
-    sha256 x86_64_linux:   "7f6e66d3e2e2e5922cbd99aedfe3f5d0f4b6134ce5daaf757e2bc3909de33548"
+    sha256 arm64_monterey: "c7bd54bf59d884fece2bd93a8aa87156b1711fb792769e2e824b7980fe804fbd"
+    sha256 arm64_big_sur:  "46577a49c80650c862830b1dfc739962dcf3181b03ec2af19f6e03adb3731d31"
+    sha256 monterey:       "7726dbe8e9697fc1704c7ed442fcfdcb7f5308b0b7ca573fee7d697b42978e8c"
+    sha256 big_sur:        "a12e52607ac75e19ee6712dddd5d6d27f403dd5feb4d4fa942ce432c566f2ce3"
+    sha256 catalina:       "6677dc74dee5380d456c0615390eeaefa55cdc3ec7e892c66cbb95a8c78e863c"
+    sha256 x86_64_linux:   "a3ed0216139c282fa4c8304a40c52da5e97d7a2403c9cd135fb3801d17ff82a1"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "gst-plugins-base"
   depends_on "pygobject3"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   # See https://gitlab.freedesktop.org/gstreamer/gst-python/-/merge_requests/41
   patch do
@@ -32,15 +33,22 @@ class GstPython < Formula
   end
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    python = "python3.10"
+    site_packages = prefix/Language::Python.site_packages(python)
+
+    # This shouldn't be needed, but this fails to link with libpython3.10.so.
+    # TODO: Remove this when `python@3.10` is no longer keg-only.
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["python@3.10"].opt_lib}" if OS.linux?
+
+    system "meson", "setup", "build", "-Dpygi-overrides-dir=#{site_packages}/gi/overrides",
+                                      "-Dpython=#{python}",
+                                      *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", <<~EOS
       import gi
       gi.require_version('Gst', '1.0')
       from gi.repository import Gst

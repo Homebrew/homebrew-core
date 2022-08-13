@@ -1,22 +1,21 @@
 class GitBranchless < Formula
   desc "High-velocity, monorepo-scale workflow for Git"
   homepage "https://github.com/arxanas/git-branchless"
-  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.3.12.tar.gz"
-  sha256 "a73fa82a961bdc6219499b1a5f818f82bea30e6069701dd3227ce32f6c7ee5f2"
+  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "773eadf51fadf503b90f4a4dfb6ea38662294d9a98ec797d4b68592a731de4e0"
   license "GPL-2.0-only"
   head "https://github.com/arxanas/git-branchless.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "53962c81cda4bbe10d80008702213c4988fc23cc424ab7361a013cee8b117274"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e19c5d719f3bdbbf052a06d61bfe9c279391f237dcf209f09ca8436f53f9f77"
-    sha256 cellar: :any_skip_relocation, monterey:       "aac1b9d97f7020ad032fbf87739db54a8741c97f36f307c6d1739df8eebf4c6b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a9c2f9587aa52889075f06732e30a0e1589528af04ea1f8f999d3d274a85123b"
-    sha256 cellar: :any_skip_relocation, catalina:       "559b66bc5274fbc1ce27130f3beed497d9af36ed380fd2bd46cade1b4a8e4973"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "149d55d7613de2f649e81f23be5a645101e9d96fb0b20ea80ff20ec9fd60ccdf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4f649e311a98cd075ad03b44b5e73cbd5b5dcc8fcbad0b1078fbda82314833a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f49d2dcd8a4dc826d4e540b1808c79b2b9c55a75b8fb429f24fa4292931f5736"
+    sha256 cellar: :any_skip_relocation, monterey:       "d1cd42d896e207718eb25b506215f79599bee9d6821cc00f6ad36f39af036d69"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0d07fd7dc467642015b81bb5de1b014eee59720714f5a7f186c3e16b59396a2a"
+    sha256 cellar: :any_skip_relocation, catalina:       "b336c0c7a94a5b19060134978cb20f724c3b2f408e1365b3584bc74fa4a9aa80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c90a497b062a5e47126c63407182697241136b617bbd3a3f073720bf8d40dd73"
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
 

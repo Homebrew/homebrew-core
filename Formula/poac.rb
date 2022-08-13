@@ -1,19 +1,18 @@
 class Poac < Formula
   desc "Package manager for C++"
   homepage "https://github.com/poacpm/poac"
-  url "https://github.com/poacpm/poac/archive/refs/tags/0.3.10.tar.gz"
-  sha256 "faadd38212638887effd129c282b3ca38e082c77a0a0845d9c11ca5600b44ba5"
+  url "https://github.com/poacpm/poac/archive/refs/tags/0.4.1.tar.gz"
+  sha256 "3717a873120a7125fcdcc99227f5c7d42c4e170f7572feee19ab458d657f9451"
   license "Apache-2.0"
   head "https://github.com/poacpm/poac.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_monterey: "624235bc402344357a6bd82ea19516c7f9a3482aa9fd93d59b209f93cb70fa5f"
-    sha256 cellar: :any,                 arm64_big_sur:  "d0c6378d8d978eadbac5de2f372f202448ae905c4b5b76fee408e8a3fb65bb96"
-    sha256 cellar: :any,                 monterey:       "c517859d58d37c4575d43d317ca8ef31a0f32c7febec84c35bf4c59952c0b0eb"
-    sha256 cellar: :any,                 big_sur:        "a4db0158be1620600148953dfd37c4216328a60f3b165489b56e2e79ff40ddb9"
-    sha256 cellar: :any,                 catalina:       "6e4a8b15b9edb5091c4c41d22ec8c3231a59887ed32643825d25e6fd50d1ce7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de32506d803db57c0a7f77c6c6de881c1404a86f992c2b46d419f61e057dacc0"
+    sha256 cellar: :any,                 arm64_monterey: "a1e435fa85041a1d49ecaf7f4bb08311b3029bf77dd9ae6a3e5f703d9d4c78a0"
+    sha256 cellar: :any,                 arm64_big_sur:  "158ea3d2209f006a4c03023b0c8eb043a584e93a1c6937a1e2cabf74142f5c61"
+    sha256 cellar: :any,                 monterey:       "50c6ff526cf6e7349ca48e78c4b4329bae928d30f5ea083beeb4b9d31878f953"
+    sha256 cellar: :any,                 big_sur:        "2edd13afa73814fddc411e1ac0d43cb9dc05822c120348df97d250f69d0dae93"
+    sha256 cellar: :any,                 catalina:       "c298a8f708f054c68ff60a7b569d36c1ab22576abe831aa1488e1c19d188b262"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a459369bd757e66b7b7e696cd886021d8648b8384dd785da168c33c041173aef"
   end
 
   depends_on "cmake" => :build

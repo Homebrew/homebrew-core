@@ -1,17 +1,17 @@
 class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
-  url "https://github.com/cheat/cheat/archive/refs/tags/4.3.0.tar.gz"
-  sha256 "1e5bbaeca1bd3406afb03d696bd5e250189b4e11574c0077554150c2f054b8ce"
+  url "https://github.com/cheat/cheat/archive/refs/tags/4.3.1.tar.gz"
+  sha256 "10011b4dd8e66976decd7f3252e3221cb2c5a290740648ac3a70f3b20bac3109"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c7bc9f3dce680fa74e76dec57b348f4b7d2c3b15ff7624f13065f958ea2fb7d9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf1547313d3bedd3e2b5b82656aaa69387f561831b5fa7459c9738a504d96ba1"
-    sha256 cellar: :any_skip_relocation, monterey:       "88206de162113a944ccb885d96818d4e45f40384d3a1131b74995425529eac8c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98d1722f991d3173f8d26e5a08f1a03cc55a258bc80a0caecc3135f8aa3bd9ab"
-    sha256 cellar: :any_skip_relocation, catalina:       "9a17c87ca34307607bab3db039d16e3f2f82b95caad13529b62be369a5734158"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2605aec7f33cb0a77c36260ecca46e96b1269d9145fd7192d3a3b1316ed83b06"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "121d27d1a87358cd60bcf160cf82c88b8215e2c46f565042f15b5325a41c5819"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ae30160905fd00b53011c7fcbcf37c1bf830de37373886ae8ac5e80042a273b"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac1d16ed17d4761165afd30a9ace29ce712c3a67fb1110b2357841b736f0387d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1b14a3ab0ab902355a82655d5d5fae66d03daeff57952d01beaa4446516f402f"
+    sha256 cellar: :any_skip_relocation, catalina:       "f0766a528955e0217bf4c220bfc65ed2cb92abee178209ab772c2090c6de0f43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d1f0eee745da72d3261c6390228381458a812dee94ece209bb48b98afe53b51"
   end
 
   depends_on "go" => :build
@@ -30,6 +30,6 @@ class Cheat < Formula
     assert_match version.to_s, shell_output("#{bin}/cheat --version")
 
     output = shell_output("#{bin}/cheat --init 2>&1")
-    assert_match "editor: vim", output
+    assert_match "editor: EDITOR_PATH", output
   end
 end

@@ -22,16 +22,13 @@ class Py3cairo < Formula
 
   def pythons
     deps.map(&:to_formula)
-        .select { |f| f.name.match?(/python@\d\.\d+/) }
-        .map(&:opt_bin)
-        .map { |bin| bin/"python3" }
+        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
     pythons.each do |python|
-      system python, *Language::Python.setup_install_args(prefix),
-                     "--install-lib=#{prefix/Language::Python.site_packages(python)}",
-                     "--install-data=#{prefix}"
+      system python, *Language::Python.setup_install_args(prefix, python), "--install-data=#{prefix}"
     end
   end
 

@@ -4,6 +4,7 @@ class Postgrest < Formula
   url "https://github.com/PostgREST/postgrest/archive/v9.0.1.tar.gz"
   sha256 "45ea15e617c209fffbbff90d90f55237cd15d62a4600d1bf86c87693fb973702"
   license "MIT"
+  revision 1
   head "https://github.com/PostgREST/postgrest.git", branch: "main"
 
   livecheck do
@@ -12,17 +13,17 @@ class Postgrest < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "362080485eb1f0774ce8b55c590c03a492e80b9b335d89e9ba76eca5ff697b65"
-    sha256 cellar: :any,                 arm64_big_sur:  "68b0de62dcba433134d60302e30739ae14aeb34d4ead2b370b96d48fecb0d351"
-    sha256 cellar: :any,                 monterey:       "6070e9de0d2ba5954fb2f85d0ca853d841138b33c7c8ab174c6a9eed023333e0"
-    sha256 cellar: :any,                 big_sur:        "cf0cca247489219a05c38b9dca79b8dd2f83ee23e31eb578c8790ea5c47f0af5"
-    sha256 cellar: :any,                 catalina:       "a3c2c2529b32b090c71e137ccab2cbfddb1c434b14a07e9ca56bb5eab2523913"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a20bb76251eeb3b4a7a4a320e2c1aef4f6c50e634fde423f1c89ecf3c85e9846"
+    sha256 cellar: :any,                 arm64_monterey: "15b72ee71268c9156d221265d509c07feb99f45646a56b6784fce43c5eb0f3d1"
+    sha256 cellar: :any,                 arm64_big_sur:  "8a642b6a8fc800a7c220bec7001fec71f49e0050c75b5be631d9b3a760e84585"
+    sha256 cellar: :any,                 monterey:       "ee82d1076f4b0a898f4b0a63f8f9d605a96baaf24dde831082c18d913bcfcc47"
+    sha256 cellar: :any,                 big_sur:        "85e62c97f2ac55cbcc143442303e96c021ac33056ea2fa8c2e54cf072af14e1d"
+    sha256 cellar: :any,                 catalina:       "2c2222981454971ff56a14f856a0a6cafdcb974a42191314d6ec8aac9802c198"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12c0c392024003dc26a03dbaf1ed2a5d562fbcf27a760119119b73b1107962c1"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "postgresql"
+  depends_on "libpq"
 
   def install
     system "cabal", "v2-update"

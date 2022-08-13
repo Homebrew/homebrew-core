@@ -1,18 +1,18 @@
 class Nomino < Formula
   desc "Batch rename utility"
   homepage "https://github.com/yaa110/nomino"
-  url "https://github.com/yaa110/nomino/archive/1.2.1.tar.gz"
-  sha256 "5814b18ce9a10bc955154b1cab96422e0c1fcb8b13169026198a78c07fbe3ed4"
+  url "https://github.com/yaa110/nomino/archive/1.2.2.tar.gz"
+  sha256 "d9c925a09e509c20f10aba6b8130412f6f6cf91cfa398933e432da2a6626b83e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yaa110/nomino.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "be009a3126715ce645e0c5a983b7018a6d02ec613ceb6279bdc669556d314735"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1fff5952fb89aa4a7c5bc9ae2d146db39e7d004e9411d6b66b4526b9e2517a7"
-    sha256 cellar: :any_skip_relocation, monterey:       "1c888714aaa85fa5dd03ab92dd72cf0f175a20ec751716ca8b744b14cbdcadb5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "21c1c1411e56531ca01858d7c397bee3b960d0f13ea6a237491025679e33f4de"
-    sha256 cellar: :any_skip_relocation, catalina:       "7260f98ba725e23a743ba6cf6a5ca2a873b1e3c9b248112fc36e5b07eeecd975"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03106420aa812dc997c6d3733490385ef3366cf6575b845ca5b67f8c4b097d41"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3242084099a30e161727977b3dcb5095758d84f3a75ec4d3bb782edbda04c1f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aad0076d622c8490155076f8aa47074c3391965ead1ca81633284c1e858fa424"
+    sha256 cellar: :any_skip_relocation, monterey:       "e59071ecb110e1d95855ebd6ac62a5910b8ffe187768c862a5428052769e3ff5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7ecc1a559be5387e04e708f38427dfd9b1b38f52772c70e1aae349cc67bb8e02"
+    sha256 cellar: :any_skip_relocation, catalina:       "621c85741ac046026ebd63732f910416ca14e39eb6ae6e06fa67a29fbf0e5cf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f80c9cabfc011c3f566b9ae4c982eade843f42d08dd3c16611aa08025ae0e84a"
   end
 
   depends_on "rust" => :build

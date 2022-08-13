@@ -3,13 +3,12 @@ class GitWhenMerged < Formula
 
   desc "Find where a commit was merged in git"
   homepage "https://github.com/mhagger/git-when-merged"
-  url "https://github.com/mhagger/git-when-merged/archive/v1.2.0.tar.gz"
-  sha256 "3fb3ee2f186103c2dae1e4a2e104bc37199641f4ffdb38d85ca612cf16636982"
+  url "https://github.com/mhagger/git-when-merged/archive/v1.2.1.tar.gz"
+  sha256 "46ba5076981862ac2ad0fa0a94b9a5401ef6b5c5b0506c6e306b76e5798e1f58"
   license "GPL-2.0-only"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e17a93477d9712acb9acb0c77f18c646d3a25faa19e7f9875d1a31cb44560003"
+    sha256 cellar: :any_skip_relocation, all: "cef2e377082bfa5b6457f6b6d19066fd7a74312860533b85fb62d6e16c0986b7"
   end
 
   depends_on "python@3.10"

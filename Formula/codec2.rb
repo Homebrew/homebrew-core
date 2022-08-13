@@ -2,9 +2,8 @@ class Codec2 < Formula
   desc "Open source speech codec"
   homepage "https://www.rowetel.com/?page_id=452"
   # Linked from https://freedv.org/
-  url "https://github.com/drowe67/codec2/archive/v1.03.tar.gz"
-  version "1.0.3"
-  sha256 "d1b156035b806fd89a29371a5ab0eefca3ccecfeff303dac0672c59d5c0c1235"
+  url "https://github.com/drowe67/codec2/archive/refs/tags/v1.0.5.tar.gz"
+  sha256 "cd9a065dd1c3477f6172a0156294f767688847e4d170103d1f08b3a075f82826"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -21,12 +20,12 @@ class Codec2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "090856f39e5957c5d3badc83d370aa70bb89d1d5cc6120446d6c3b877581d94d"
-    sha256 cellar: :any,                 arm64_big_sur:  "ae72433df0f211abb44fa154af2f7d404a56202a4caec2b5716816e8d69471e3"
-    sha256 cellar: :any,                 monterey:       "c4260dad2bfca1133bc167c632602c685abcd3372cd3a2f2c02d913a2ee0c6a6"
-    sha256 cellar: :any,                 big_sur:        "68afdf2fe3058e49234d468fe4e17508815d799cdff6883b29debb233690c5d2"
-    sha256 cellar: :any,                 catalina:       "9bb3ae4a8ae3c08d24e6a2b0d6823f8e3cc88edb4ac556c91ef1474b6f00c894"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b34f238df3fca8b0446be087f81f1e5e10528a0efcda57e6fee97a78b2210259"
+    sha256 cellar: :any,                 arm64_monterey: "cd00d6cd6f106536cbc112c99467c6dc74b2acbffb1ea00bf7c01e3ca0217962"
+    sha256 cellar: :any,                 arm64_big_sur:  "a338784e3a2208443d87601cb991671049de6c1ccafbe1b67c6138ecc7d8e327"
+    sha256 cellar: :any,                 monterey:       "27a4827a1f91d6c03080ce82f59269de4f47240927f00d4a12006dba5d016cc8"
+    sha256 cellar: :any,                 big_sur:        "0321ce7f26dadb87386fb44a40d88e6536b87b2b66f50152104c58628b4d419c"
+    sha256 cellar: :any,                 catalina:       "5b359ad9a7919a7df40fd5048ad6f2b54a374fba46ffb7f0796e1627a8326a32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a16d4e19103a603da6ab2c02534a2cbf1d9bf77a00b29a75ced47d2e52292f96"
   end
 
   depends_on "cmake" => :build

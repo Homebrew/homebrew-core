@@ -24,9 +24,8 @@ class Pygobject3 < Formula
 
   def pythons
     deps.map(&:to_formula)
-        .select { |f| f.name.match?(/python@\d\.\d+/) }
-        .map(&:opt_bin)
-        .map { |bin| bin/"python3" }
+        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def site_packages(python)
@@ -35,17 +34,17 @@ class Pygobject3 < Formula
 
   def install
     pythons.each do |python|
-      mkdir "buildpy3" do
-        system "meson", *std_meson_args,
-                        "-Dpycairo=enabled",
-                        "-Dpython=#{python}",
-                        "-Dpython.platlibdir=#{site_packages(python)}",
-                        "-Dpython.purelibdir=#{site_packages(python)}",
-                        ".."
-        system "ninja", "-v"
-        system "ninja", "install", "-v"
-      end
-      rm_rf "buildpy3"
+      xy = Language::Python.major_minor_version(python)
+      builddir = "buildpy#{xy}".delete(".")
+
+      system "meson", "setup", builddir, "-Dpycairo=enabled",
+                                         "-Dpython=#{python}",
+                                         "-Dpython.platlibdir=#{site_packages(python)}",
+                                         "-Dpython.purelibdir=#{site_packages(python)}",
+                                         *std_meson_args
+
+      system "meson", "compile", "-C", builddir, "--verbose"
+      system "meson", "install", "-C", builddir
     end
   end
 
@@ -59,7 +58,6 @@ class Pygobject3 < Formula
     EOS
 
     pythons.each do |python|
-      ENV.prepend_path "PYTHONPATH", site_packages(python)
       system python, "test.py"
     end
   end

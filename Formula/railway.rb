@@ -1,18 +1,18 @@
 class Railway < Formula
   desc "Develop and deploy code with zero configuration"
   homepage "https://railway.app/"
-  url "https://github.com/railwayapp/cli/archive/refs/tags/v2.0.7.tar.gz"
-  sha256 "6b12e279935fc7a2f37caa558d507bb5746fd05e5afba23a66c8a8a3f661ddb9"
+  url "https://github.com/railwayapp/cli/archive/refs/tags/v2.0.8.tar.gz"
+  sha256 "4dfc6869ee125127741ae5182163698d7072450eb1c37f173895a22273bfcdaa"
   license "MIT"
   head "https://github.com/railwayapp/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "878619c4be0b517467b4061e43c3a2a1f9340b8f75d5e7794a3980a619e39ba4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "878619c4be0b517467b4061e43c3a2a1f9340b8f75d5e7794a3980a619e39ba4"
-    sha256 cellar: :any_skip_relocation, monterey:       "f5d86fa92b11a33f05520271817f2b12a27146d99236692953d943a2a06b15c5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f5d86fa92b11a33f05520271817f2b12a27146d99236692953d943a2a06b15c5"
-    sha256 cellar: :any_skip_relocation, catalina:       "f5d86fa92b11a33f05520271817f2b12a27146d99236692953d943a2a06b15c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9710333a455ef382d3bec605a25565e20f863c517e1de8b2529df25bf92004c0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce563bf835a59c803af430125a1915b6b5d6da35aeb02ba589fbc3dea24ef3e4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce563bf835a59c803af430125a1915b6b5d6da35aeb02ba589fbc3dea24ef3e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "f37495f511e06d203b35e60f99f35f1344feb42345e5a418cd73c95e180289c7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f37495f511e06d203b35e60f99f35f1344feb42345e5a418cd73c95e180289c7"
+    sha256 cellar: :any_skip_relocation, catalina:       "f37495f511e06d203b35e60f99f35f1344feb42345e5a418cd73c95e180289c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34ff8aefb89cf39692d1908c5bb18735aa80a38a3a4dc7c312774915ea0bc42a"
   end
 
   depends_on "go" => :build

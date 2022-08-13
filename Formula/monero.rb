@@ -2,8 +2,8 @@ class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      tag:      "v0.18.0.0",
-      revision: "b6a029f222abada36c7bc6c65899a4ac969d7dee"
+      tag:      "v0.18.1.0",
+      revision: "727bc5b6878170332bf2d838f2c60d1c8dc685c8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class Monero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "df214a6b2ae451ea85f98f0d003b90e364444abf4e4ef7c103d66f2e9a2a0b2b"
-    sha256 cellar: :any,                 arm64_big_sur:  "0c1e6c031d2f6e3eadc7330a8968a9a05decfd69984f82b9ebb7fddf806b5504"
-    sha256 cellar: :any,                 monterey:       "94e7316944e0ee57000c92079a30214966f3eff8d63a9cd7d96927a3f81c89e7"
-    sha256 cellar: :any,                 big_sur:        "e6b033ff49441bb9a6543dae7ff095472ac7ba94f2e5d564aa4a4a92bb831f99"
-    sha256 cellar: :any,                 catalina:       "94f49c2470780f7ce88f4365b5cbb8f49adf4a0006bf2f82924e2920aaaad216"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab76bfd31dc58b33f08a3c92efe4a628d25d3b25de5ac36aa757d1b817aa0d2c"
+    sha256 cellar: :any,                 arm64_monterey: "523c2be47fde6ab7f46f26bacc7bf77e5b1f08ad52c434908c2027ee8b075253"
+    sha256 cellar: :any,                 arm64_big_sur:  "f8591ff32653ea7e2c2293c6bc53343b557f843693678015667c429878541d11"
+    sha256 cellar: :any,                 monterey:       "2394940c2bd5f4e2f436c523a2293d941af3e8859b6642bede2f31a0f41dce05"
+    sha256 cellar: :any,                 big_sur:        "c552280c43b388b945c2533798cb2238f431784a8f1bae2a2df5ca81db7f3758"
+    sha256 cellar: :any,                 catalina:       "50e80c2bad64908f3d3674bf6084dda6f28c8a34a1f5785e31bb1b9a73917913"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31d4263b3407bda3463c5a71ebbac05840e7c7a655ae60b1b7c2756c4473e4fb"
   end
 
   depends_on "cmake" => :build

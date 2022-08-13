@@ -4,6 +4,7 @@ class Pdal < Formula
   url "https://github.com/PDAL/PDAL/releases/download/2.4.3/PDAL-2.4.3-src.tar.gz"
   sha256 "abac604c6dcafdcd8a36a7d00982be966f7da00c37d89db2785637643e963e4c"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes tags a commit with only a
@@ -18,12 +19,12 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "b84b2fb140510a9b5d3680d1691c3d7f6cc81340ea94a04f993b0484d1639a41"
-    sha256                               arm64_big_sur:  "eb4474b7a6140cb6ff98891180f53515deb8d95434f00aa2819b28d38f121ad2"
-    sha256                               monterey:       "8cd7e403577a17080b80fd152c1ab9198d435f8f3d9d9c848939eba195c31d94"
-    sha256                               big_sur:        "6a7017e70c9c15607694d95adceec3ce38ae3620c16bb755495a209c993024ab"
-    sha256                               catalina:       "5ae6f2196d0ef0016360e85dd4d65e2c5ac32c3c08ed7a131b5ddbee24ce05ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae490e0ed9971d8cacbf03fc5027b48bbbe4859ad2490ca83ae5fb3b606dde78"
+    sha256                               arm64_monterey: "9c1c9ed099f4d4d3d6e568e3aeeeb6b782961efe8e6f1eaff0d4fd191a701370"
+    sha256                               arm64_big_sur:  "9dec68d14c25a0988c046a3a45a46a833c61418f12876ae182fdcaf35d78a643"
+    sha256                               monterey:       "ed1a9e84ad79ab1ea15087e3b1786afa81fa5714480e7d33945d7727a92a9af9"
+    sha256                               big_sur:        "1ee3f4714addecbb9f515386df4b22460776941b230235513ae17784915abb1d"
+    sha256                               catalina:       "6a75d3c7357f7e71ee03bdb077060bf5415d9d976a43b952f10b5ae5fa71bb68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7257a3eb8a20b527f9e357f63f9cd1f203722e86055debf5bc8e6d31d2883942"
   end
 
   depends_on "cmake" => :build
@@ -31,9 +32,9 @@ class Pdal < Formula
   depends_on "gdal"
   depends_on "hdf5"
   depends_on "laszip"
+  depends_on "libpq"
   depends_on "numpy"
   depends_on "pcl"
-  depends_on "postgresql"
 
   on_linux do
     depends_on "gcc"

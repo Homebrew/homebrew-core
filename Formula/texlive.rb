@@ -8,6 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-source.tar.xz"
   sha256 "5ffa3485e51eb2c4490496450fc69b9d7bd7cb9e53357d92db4bcd4fd6179b56"
   license :public_domain
+  revision 1
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -33,12 +34,12 @@ class Texlive < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "7b5516dc4a93e9049b043b433939babe9fc49d601b79c28d5e89ae65c4239ea3"
-    sha256 arm64_big_sur:  "53e6c100505c281b4aaeb1d9f2e59f85f1bd326347555a8a1892705d95a9a0e1"
-    sha256 monterey:       "1cb83a23e1232b4a01c84e430af0b3b7b448ccd663c420009df8b700fb92c76a"
-    sha256 big_sur:        "8a9bcdd4d7195bdaeb641fd17338e1164109aad64d55aaff2ced36aec50e6975"
-    sha256 catalina:       "dce2568d9351a7c67e118f708cd51e160d96bb419f2cbdb74f148990a45d8028"
-    sha256 x86_64_linux:   "79a742ddce49de12bbfa53f0f33a184650edbbafb7d246acc8a63887c15670c1"
+    sha256 arm64_monterey: "0c445592adf5bbebb9d130787148a14e1012db891da27d6f806f2c9bcb002c49"
+    sha256 arm64_big_sur:  "e4a3b7f7a79acd37d3528369be06e70e2bec7150f0dc5e18a155e3318012d718"
+    sha256 monterey:       "739eb9e72386da81a78562d1f2440222ba686ee87d55c7dce63a02cdf3c299a9"
+    sha256 big_sur:        "f840c75a4a08a5f1675d9055f39753fd958f0b80e3170364583fd77f83f5ce6d"
+    sha256 catalina:       "8d8c444e9b22da67bc2fc57be175f36e301d7fef929f141e93f80b3f27ffaed1"
+    sha256 x86_64_linux:   "4c57ed5ae6c4c57a73b511b14dde237729a2c624e547b5dcc4e85564fc954885"
   end
 
   depends_on "cairo"
@@ -53,7 +54,7 @@ class Texlive < Formula
   depends_on "libpng"
   depends_on "libxft"
   depends_on "lua"
-  depends_on "luajit-openresty"
+  depends_on "luajit"
   depends_on "mpfr"
   depends_on "openjdk"
   depends_on "openssl@1.1"
@@ -61,7 +62,7 @@ class Texlive < Formula
   depends_on "pixman"
   depends_on "potrace"
   depends_on "pstoedit"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "icu4c"
   uses_from_macos "ncurses"

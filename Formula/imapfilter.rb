@@ -1,22 +1,21 @@
 class Imapfilter < Formula
   desc "IMAP message processor/filter"
   homepage "https://github.com/lefcha/imapfilter/"
-  url "https://github.com/lefcha/imapfilter/archive/v2.7.5.tar.gz"
-  sha256 "ab19f840712e6951e51c29e44c43b3b2fa42e93693f98f8969cc763a4fad56bf"
+  url "https://github.com/lefcha/imapfilter/archive/v2.7.6.tar.gz"
+  sha256 "e9063ca210cefe6c47771b400c9f3620bd7a5dce2dfd4d46aeaa86f4cac1d87d"
   license "MIT"
 
   bottle do
-    sha256 arm64_monterey: "c1b533dde74bd8ad2cb391dc22661a8706e61eae9fa96e402c5cae6d6aee6c2d"
-    sha256 arm64_big_sur:  "e49fed469e38c13b29df94f07ce45bb40bdcf167961ba08e7199192346ce8cd7"
-    sha256 monterey:       "c7ce821d215d9a32ea42f6a9d0857a0d1cf477a8a0d5d0552e25359f8e64a450"
-    sha256 big_sur:        "a3f6c7500a3206466979cb184c75e5d06f2a478c04ba7de9a671e0ae4e578a65"
-    sha256 catalina:       "4033f3f9c51c811a9bce55523d337f5d61ab987c742a90c02c12f97c00b768cb"
-    sha256 mojave:         "aa77cdfd4279e290c68fe6aa1af6d40d820e10f3f53513d17c4867fcfcade11e"
-    sha256 x86_64_linux:   "a66823eaad995dd58721eeb74212851946232ade9cd10789f754480c303e14f4"
+    sha256 arm64_monterey: "be36c8bcf1e5077761a963a80adbfe360a3090cdb99d073dd663d74df79cd6c5"
+    sha256 arm64_big_sur:  "62d9824157d64977da4fade83fd71b752825b7cadadce847cd93a2266ee22d61"
+    sha256 monterey:       "cd9a9a84255d108443bb6b32dde91aca01a51b27763664b77de595ca66345cec"
+    sha256 big_sur:        "3829da19784bd85c8a219b697ab71a3c547375580c819ed26b3700d2bf800199"
+    sha256 catalina:       "9b8300f60e29f5eca3d454fcc0b4b3897f7d4f246d498f14c06daada5ea535e2"
+    sha256 x86_64_linux:   "4f2cd0900d481f7fcac24b90128b4cb9edaf89e7c0fe2ded6af3f13533bb1a51"
   end
 
   depends_on "lua"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   def install

@@ -2,18 +2,18 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   url "https://github.com/hrydgard/ppsspp.git",
-      tag:      "v1.13",
-      revision: "a92e764c65b3248d1ddd7107ffa4c598a2ef4ff2"
+      tag:      "v1.13.1",
+      revision: "5083b206365a226fb51288e09424f8f5f5a3392a"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a25a3a0c33cca0ec27c32d0f7b56ad53dfccbd18b0e3b62f7a0659ac2b6c51a8"
-    sha256 cellar: :any,                 arm64_big_sur:  "051ea42d0c3f37d3e85f92b86742215e95f8bc59ee21f72ace785ca7f5c47048"
-    sha256 cellar: :any,                 monterey:       "bafa6ebde88a590cf9fb9b53c4a82bdf1bc6956425b4dfbc117958e94d248d62"
-    sha256 cellar: :any,                 big_sur:        "c83b163c67a04a8a5a01621960e557f6cc4a748c08373ab6b385f95c23e71d07"
-    sha256 cellar: :any,                 catalina:       "263b31cf0ce17aaf426478cfd8bc6695019652c88375f976c773979b70dcf7dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05ec83a56ab12d7f24c15894745d0a5a64974d2624dbc700372aa59fd0d87314"
+    sha256 cellar: :any,                 arm64_monterey: "0f56c1b7d8006f006dcb52fa17da1dac70eb75b579f7ef4747720b444b55ab59"
+    sha256 cellar: :any,                 arm64_big_sur:  "675c479f19ef32ee316d7e40a46794d1892e59a39e0d0a4a2b2393864e97286b"
+    sha256 cellar: :any,                 monterey:       "25beafe716d6c84433141371a42ba7676d4a35262d3ca8963a62d605ac78eccf"
+    sha256 cellar: :any,                 big_sur:        "ca2231ca179fb88fa754e56dfc4cab9057edc2df4e040ffd0234ae79393fd740"
+    sha256 cellar: :any,                 catalina:       "784525d911a61aeb88364eb2b73db2e947448d204c37e29d0b2a7aa3d9b4c802"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd91c2958904e972ed4969072265bde06c9ec6a61ed44c6f87ba092eefe4c05e"
   end
 
   depends_on "cmake" => :build

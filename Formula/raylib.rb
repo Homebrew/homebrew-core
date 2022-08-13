@@ -1,18 +1,18 @@
 class Raylib < Formula
   desc "Simple and easy-to-use library to learn videogames programming"
   homepage "https://www.raylib.com/"
-  url "https://github.com/raysan5/raylib/archive/4.0.0.tar.gz"
-  sha256 "11f6087dc7bedf9efb3f69c0c872f637e421d914e5ecea99bbe7781f173dc38c"
+  url "https://github.com/raysan5/raylib/archive/4.2.0.tar.gz"
+  sha256 "5fd2e7d825f345924800c38291f44423bcbcc036bd72fa2e3abedfc54e5b68b5"
   license "Zlib"
   head "https://github.com/raysan5/raylib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a661eadd8041310193930de3d8c945a9e0907e695423d944f0a54d1d559d8923"
-    sha256 cellar: :any,                 arm64_big_sur:  "ac23867f939f0132beb5e0da421d8d6d668d4f5ca70cffc07e13fdecf75380a9"
-    sha256 cellar: :any,                 monterey:       "7df796fdcda7fe67f7a115bd571ffd0aa55f8850be85a21f8e105c5674f26024"
-    sha256 cellar: :any,                 big_sur:        "688d9af987c7c67aa3afac744c35d81a8e8c57d1d6b5afed1edb95791cdb7205"
-    sha256 cellar: :any,                 catalina:       "a2c90a09cdbd887cfee09ac7caac37953401b32ee60643e4f25521bd8d6318b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7e03b969c31d5af57fff44d13ee2741198083cca3360ac126db73f555b4cd48"
+    sha256 cellar: :any,                 arm64_monterey: "69e93e7dc849db008bca6c8c0a0cf107ecd890cd0f4a00b96ea28023a58d4e26"
+    sha256 cellar: :any,                 arm64_big_sur:  "d7293b2408c9a266e0500d1f278a066ed40461d43e1b89517d04da5e96b67402"
+    sha256 cellar: :any,                 monterey:       "bb1e50ec7d16791024f9597bb9c8ecdf7fec7efa1fe68dca386a9436754d4054"
+    sha256 cellar: :any,                 big_sur:        "998493ec15c8aae5e4dd9566f51acd14839732b06f516f2b4f8eec2bd5a12448"
+    sha256 cellar: :any,                 catalina:       "5a8f902f781f5a9b0b6650aab32257a1ddb682f200b00bfb6bb7c1cad6382b5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8f53583e14f95f4ddc15583aed1dcf69a7d49c803567974e9041a32aee4e126"
   end
 
   depends_on "cmake" => :build

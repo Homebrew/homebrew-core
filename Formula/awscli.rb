@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.7.21.tar.gz"
-  sha256 "5798b8a93f350f7e7df6d5d619b41823cfd7402e2a16bcb8411dd6e1c87810ec"
+  url "https://github.com/aws/aws-cli/archive/2.7.22.tar.gz"
+  sha256 "85c5a926daa0ab0ad73a7b97b670e092a0bcdf2749d383291076fd04e1eca502"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "29a47fea66b863742c0db6ecca5eb78d7d7da2fe09245831ab571f2bf5afce65"
-    sha256 cellar: :any,                 arm64_big_sur:  "2c8099add2e1472d06e497a25a02b03ff96e9235c0eec2c33d69ab61c42c9432"
-    sha256 cellar: :any,                 monterey:       "36257c0dd004311b05c45964861abfd435763e5b5bf49b90121fdcec38f16037"
-    sha256 cellar: :any,                 big_sur:        "62c41074f0174940431a3c612ef38659453a41e51f294693e1ded52baaa9d579"
-    sha256 cellar: :any,                 catalina:       "8a2d3beca57a882dd6c08101fcca4ad670d8784bdbf878637eeee372260ee70a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16e1f5e236012fcd5be939d4bcad57a543450c11d54fc9ab6bdd00bb1286bf51"
+    sha256 cellar: :any,                 arm64_monterey: "40ab9ab277387e859de7f0993583252c2ae81e370c97726b80dc9b08f138ae84"
+    sha256 cellar: :any,                 arm64_big_sur:  "a24156906087ee0acc6ed5f8c19d5119a7ae744099254260f1d38ac6759bc5eb"
+    sha256 cellar: :any,                 monterey:       "918ef3a4f11ea18ad3fffdcb7fa76667e2489626a34c76240007ef3d3a722117"
+    sha256 cellar: :any,                 big_sur:        "9e2a6775640be4f9e232e5cbc4ae9f81c73be354a1cf1b5bdfef03d2075fe8b6"
+    sha256 cellar: :any,                 catalina:       "d22d84c14e27f68f017376ecfdfdc5c2da67d99d39379f4b1b740ff2faf9b282"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af37cc2ba790679165b02d806d442ac65d4d151e52d1f43f415fff82f3845ed2"
   end
 
   depends_on "cmake" => :build

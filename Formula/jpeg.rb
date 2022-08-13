@@ -20,14 +20,14 @@ class Jpeg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b15c19b1cfdee81b6c3ebb96b1a743157da600030f943c9e18cbbda0612924a"
   end
 
+  keg_only "it conflicts with `jpeg-turbo`"
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/djpeg", test_fixtures("test.jpg")
+    system bin/"djpeg", test_fixtures("test.jpg")
   end
 end

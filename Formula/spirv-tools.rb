@@ -1,17 +1,17 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2022.2.tar.gz"
-  sha256 "909fc7e68049dca611ca2d57828883a86f503b0353ff78bc594eddc65eb882b9"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2022.3.tar.gz"
+  sha256 "df6dc5ed5351f99aaaa6acc78111342d3400b27b99f18148d3be408570144a70"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "73eedf8672bb4660413af6790faf4ecfcab17d8b8fde2ecef260fda42fa3cff3"
-    sha256 cellar: :any,                 arm64_big_sur:  "819165a5ff7d8815bd18b1fcf8c15533399d4686772b676f19687763dff8237f"
-    sha256 cellar: :any,                 monterey:       "bd3b1cdb5f1affa95854149d5747d2633049812fab57c715cd811ebcbff45c92"
-    sha256 cellar: :any,                 big_sur:        "2758dddd127ece04c24b971fb35f82db495c1c87500e3deecbd471df3d1dd9aa"
-    sha256 cellar: :any,                 catalina:       "872b21f30c08220149a9ac2da611902a6e033f47e74487495a39d45df3dc9661"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77696fd69bce9603fdb397e4968682c68943a291d50642aaf8a7c7ffd8bb8a01"
+    sha256 cellar: :any,                 arm64_monterey: "3676eb82afbaed373d6890f396c776894e203462236e54dc78c875752d49c1cd"
+    sha256 cellar: :any,                 arm64_big_sur:  "bff478f3a0a4568b59a334ffa58ca36bf28fd2c231d7c45da751748dd959ba6a"
+    sha256 cellar: :any,                 monterey:       "fdd9b70b3a5bb37bcf950d92fdf935858fbe28fddcfdeb26d6cffd6fa20ac384"
+    sha256 cellar: :any,                 big_sur:        "2fd8180138dd9ce986b05a3c99949a1f93e74401c77861108164e0cc858d29c6"
+    sha256 cellar: :any,                 catalina:       "cf5831027fb19732eb90e87581569d21bcf60041abfa0e275aac18f19d9b0cc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a23cff43a7e33773b6eb205fe5be7a9b28c24863186f148633c5d42ffd4386c5"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +20,7 @@ class SpirvTools < Formula
   resource "re2" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/re2.git",
-        revision: "0c5616df9c0aaa44c9440d87422012423d91c7d1"
+        revision: "5723bb8950318135ed9cf4fc76bed988a087f536"
   end
 
   resource "effcee" do
@@ -32,7 +32,7 @@ class SpirvTools < Formula
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "4995a2f2723c401eb0ea3e10c81298906bf1422b"
+        revision: "b2a156e1c0434bc8c99aaebba1c7be98be7ac580"
   end
 
   def install

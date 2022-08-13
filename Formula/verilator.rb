@@ -4,14 +4,15 @@ class Verilator < Formula
   url "https://github.com/verilator/verilator/archive/refs/tags/v4.224.tar.gz"
   sha256 "010ff2b5c76d4dbc2ed4a3278a5599ba35c8ed4c05690e57296d6b281591367b"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
+  revision 1
 
   bottle do
-    sha256 arm64_monterey: "686255a009c570b835da458c87443e30046c3823987ed828a08cb8c6ec480792"
-    sha256 arm64_big_sur:  "3434410fec0fd311ac6cc071b4e4afe4bf2347dba9aebc9a716b57e51c267574"
-    sha256 monterey:       "815fc7c251037f2fcfc9e546c5547501b38d639c898589ea2280370a5508102a"
-    sha256 big_sur:        "22f09955d314f24fc3352c71b5fffda8c402598fdfda5806005320fefa73147c"
-    sha256 catalina:       "40058c5b667deec2037f713ab77076509a42316d67b5d8bd0cd52f4fe3eb6374"
-    sha256 x86_64_linux:   "cb55ba0cc3b9679c6ca07d98036f139ffb3e8d77c3a55cc4f3afe56b576d1a96"
+    sha256 arm64_monterey: "0f392a05260a1d258e671cc6e384a9321735489733a33a4576ce17a511009132"
+    sha256 arm64_big_sur:  "ae6b2b5cdb712a50df941fac529646c651431644025add1a065ed6f673ec100d"
+    sha256 monterey:       "4432deac82c07067bb80378b050c98420f25fbea08c59fcbe46f1b70f46e0131"
+    sha256 big_sur:        "7f2ae75b4ac1c9ecdf1317f2abeb8c701cdce091abfb9045dd1979df4f6f2fdb"
+    sha256 catalina:       "cf2bab6f0013a54bb38e94c100ef41ee9bddbbe1c456bbcee3b50a95945de6f7"
+    sha256 x86_64_linux:   "174147ec666a24525913cd9c30249bea5b6741760c8e76507ee5cd21e199b653"
   end
 
   head do
@@ -41,6 +42,18 @@ class Verilator < Formula
     # `make` and `make install` need to be separate for parallel builds
     system "make"
     system "make", "install"
+  end
+
+  def post_install
+    return if OS.mac?
+
+    # Ensure the hard-coded versioned `gcc` reference does not go stale.
+    ohai "Fixing up GCC references..."
+    gcc_version = Formula["gcc"].any_installed_version.major
+    inreplace(pkgshare/"include/verilated.mk") do |s|
+      s.change_make_var! "CXX", "g++-#{gcc_version}"
+      s.change_make_var! "LINK", "g++-#{gcc_version}"
+    end
   end
 
   test do

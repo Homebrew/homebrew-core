@@ -1,10 +1,9 @@
 class GoCritic < Formula
   desc "Opinionated Go source code linter"
   homepage "https://go-critic.com"
-  url "https://github.com/go-critic/go-critic/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "74fd0995f401c49206b569f4c11be867da01f627e8979861d67ac8ea60173d7d"
+  url "https://github.com/go-critic/go-critic/archive/refs/tags/v0.6.4.tar.gz"
+  sha256 "5116902a2972ed8c729eb982bf512c84203e2afe40a45bfb3f0fb682cc02ed64"
   license "MIT"
-  revision 1
   head "https://github.com/go-critic/go-critic.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,12 @@ class GoCritic < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f58f12f36c5a1712de6db574598a80105c75fee96232d856c9b6ec0ad430d0b6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c2300ce205e6355a4b49fcdcbc96c630061915f79671928cb6a255129fbe790c"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a0e97bd399a51910a9fc521393dd4503b55804fc43dcbeff78c5e6b68de8b02"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b62070bbd343a72289f5691667129b75c5aff68d615e8e73701521fb7a027734"
-    sha256 cellar: :any_skip_relocation, catalina:       "b9ed78da1fddff6d8ba0b8233f4cc63ae7077dafbfe6d57a9e8c0c5b123ec40c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a02266c34317c1b76bb1735cc4932b59465c05531642d39328a429dcbf72c10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "45e767285d0a9ef074588503f5f0df9436a5e249a996f344823f37de0b791081"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "865f8482139ec2583e0d3d6e28d4c86cca00dc5d1b5b0c9a1400773624e0b05d"
+    sha256 cellar: :any_skip_relocation, monterey:       "6e866c19a692a8b2d9d5eda2135acfd0166ddef4ecc35e7db49c727daa71cb1d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cbee92db712e502ec417857befd4ad9ac2d66fe92095dab87acb700d7cf2931c"
+    sha256 cellar: :any_skip_relocation, catalina:       "26959062f1aba68b61b9dd1139b559d61c6bb5a13a28df20fbd0b71ae337f2e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b38fb5d4b775c7376c48e92be3f856d6a44b78860f7c43db46e6928274fd65fd"
   end
 
   depends_on "go"

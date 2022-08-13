@@ -6,14 +6,15 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.72/gobject-introspection-1.72.0.tar.xz"
   sha256 "02fe8e590861d88f83060dd39cda5ccaa60b2da1d21d0f95499301b186beaabc"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   bottle do
-    sha256 arm64_monterey: "f99f2db1c00cdde18f0cbfa00e70604dfaea7aa512256750eabc31cbb0181204"
-    sha256 arm64_big_sur:  "49ce2c6051e3e993326f45e8d29ee9c5ad4827acc7a49f69726e33c4c49e035f"
-    sha256 monterey:       "691d417a183544a9b772e10d51c4279d153e3e0261ccfaff592b44099d02d843"
-    sha256 big_sur:        "5cb0f78a5c9b1bd0c834b073ad8fffe0349a3b34428244374cb04eef05b88097"
-    sha256 catalina:       "aa6e5ba50fc0702af44f8d43539447d1fc8d2a018c41fca919564308d91ae634"
-    sha256 x86_64_linux:   "a5fa6b022fa051a18dc59c4bdd92411bc15cfc2bb6c768da5d62dd302ca24974"
+    sha256 arm64_monterey: "0043e3c72a3ddc9b6a055b0d79637016a8532139b5229bfd197d43642f0fee30"
+    sha256 arm64_big_sur:  "ddcee5e4d9847792e17bbf8923d560c70a905d0e369344d9b8da3468ea3dc145"
+    sha256 monterey:       "1d45b0f2f77aa6ae4be032b407b49960b2e1bba8d4a76e01dbb8803bc14b6cd2"
+    sha256 big_sur:        "485256ac6a604a5059235dc2aa7aff6e571a5ddcb523f35b80e82c81728dacba"
+    sha256 catalina:       "e933e2f8e839ec0d3a7024ebfa28f09d3c211d1bd86caec79153271868768355"
+    sha256 x86_64_linux:   "002e7a8ced205f24b6801b2ca9de449a4bb614dd454cd9d0f4d21e917dd4e1e8"
   end
 
   depends_on "bison" => :build
@@ -21,11 +22,12 @@ class GobjectIntrospection < Formula
   depends_on "ninja" => :build
   depends_on "cairo"
   depends_on "glib"
-  depends_on "libffi"
   depends_on "pkg-config"
-  depends_on "python@3.9"
+  # TODO: Consider using `uses_from_macos "python"` instead.
+  depends_on "python@3.10"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "libffi", since: :catalina
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",
@@ -47,19 +49,16 @@ class GobjectIntrospection < Formula
       "config.set_quoted('GOBJECT_INTROSPECTION_LIBDIR', join_paths(get_option('prefix'), get_option('libdir')))",
       "config.set_quoted('GOBJECT_INTROSPECTION_LIBDIR', '#{HOMEBREW_PREFIX}/lib')"
 
-    mkdir "build" do
-      system "meson", *std_meson_args,
-        "-Dpython=#{Formula["python@3.9"].opt_bin}/python3",
-        "-Dextra_library_paths=#{HOMEBREW_PREFIX}/lib",
-        ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-      rewrite_shebang detected_python_shebang, *bin.children
-    end
+    system "meson", "setup", "build", "-Dpython=#{Formula["python@3.10"].opt_bin}/python3.10",
+                                      "-Dextra_library_paths=#{HOMEBREW_PREFIX}/lib",
+                                      *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+
+    rewrite_shebang detected_python_shebang, *bin.children
   end
 
   test do
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libffi"].opt_lib/"pkgconfig"
     resource("tutorial").stage testpath
     system "make"
     assert_predicate testpath/"Tut-0.1.typelib", :exist?
