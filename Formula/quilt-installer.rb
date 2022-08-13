@@ -6,8 +6,8 @@ class QuiltInstaller < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://meta.quiltmc.org/v3/versions/installer"
-    regex(/["']url["']:\s*["'][^"']*?quilt-installer[._-]v?(\d+(?:\.\d+)+)\.jar/i)
+    url "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/maven-metadata.xml"
+    regex(%r{<version>v?(\d+(?:\.\d+)+)</version>}i)
   end
 
   depends_on "openjdk"
