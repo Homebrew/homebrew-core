@@ -1,8 +1,8 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.22.2%20%28Stable%29/asio-1.22.2.tar.bz2"
-  sha256 "776bb781eee8022a3eed71de28f05bf8ba09741db2e57ad8cc420aa0884cbc6c"
+  url "https://downloads.sourceforge.net/project/asio/asio/1.24.0%20%28Stable%29/asio-1.24.0.tar.bz2"
+  sha256 "8976812c24a118600f6fcf071a20606630a69afe4c0abee3b0dea528e682c585"
   license "BSL-1.0"
   head "https://github.com/chriskohlhoff/asio.git", branch: "master"
 
@@ -23,11 +23,6 @@ class Asio < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "openssl@1.1"
-
-  # Tarball is missing `src/examples/cpp20`, which causes error:
-  # config.status: error: cannot find input file: `src/examples/cpp20/Makefile.in'
-  # TODO: Remove in the next release
-  patch :DATA
 
   def install
     ENV.cxx11
@@ -63,15 +58,3 @@ class Asio < Formula
     end
   end
 end
-
-__END__
-diff --git a/configure.ac b/configure.ac
-index 56365c2..84045ba 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -241,4 +241,4 @@ AC_OUTPUT([
-   src/examples/cpp11/Makefile
-   src/examples/cpp14/Makefile
-   src/examples/cpp17/Makefile
--  src/examples/cpp20/Makefile])
-+])
