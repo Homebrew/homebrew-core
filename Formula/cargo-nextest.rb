@@ -1,8 +1,8 @@
 class CargoNextest < Formula
   desc "Next-generation test runner for Rust"
   homepage "https://nexte.st"
-  url "https://github.com/nextest-rs/nextest/archive/refs/tags/cargo-nextest-0.9.33.tar.gz"
-  sha256 "f75c53b4df3c72ae5a89e75c15d571645ee6719d86bb1171d64d0281eb71361f"
+  url "https://github.com/nextest-rs/nextest/archive/refs/tags/cargo-nextest-0.9.34.tar.gz"
+  sha256 "ab86ba322627d1a895b7ef5ca91bb4fd77f49c72007931d78457894ced0d078b"
   license "Apache-2.0"
 
   livecheck do
