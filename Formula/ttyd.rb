@@ -1,10 +1,9 @@
 class Ttyd < Formula
   desc "Command-line tool for sharing terminal over the web"
   homepage "https://tsl0922.github.io/ttyd/"
-  url "https://github.com/tsl0922/ttyd/archive/1.6.3.tar.gz"
-  sha256 "1116419527edfe73717b71407fb6e06f46098fc8a8e6b0bb778c4c75dc9f64b9"
+  url "https://github.com/tsl0922/ttyd/archive/1.7.0.tar.gz"
+  sha256 "47bc98d43cf2060af06378a2113605b229c46895a391613bdaa5a1197bfe5d47"
   license "MIT"
-  revision 6
   head "https://github.com/tsl0922/ttyd.git", branch: "main"
 
   bottle do
