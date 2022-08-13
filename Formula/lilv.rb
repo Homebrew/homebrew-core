@@ -19,7 +19,8 @@ class Lilv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fa51df59b201664494b9ecd8f0bcce145cc448bd1fabb1a21d95497e9e9a1a4"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "lv2"
   depends_on "serd"
@@ -27,9 +28,9 @@ class Lilv < Formula
   depends_on "sratom"
 
   def install
-    system "python3", "./waf", "configure", "--prefix=#{prefix}"
-    system "python3", "./waf"
-    system "python3", "./waf", "install"
+    system "meson", "build", *std_meson_args
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
   end
 
   test do
