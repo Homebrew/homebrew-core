@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/10.2.154.4.tar.gz"
-  sha256 "6f4865ffe499f51da3e422cf7e4d85d3dab1b0a99b2d5bf204910ce423505597"
+  url "https://github.com/v8/v8/archive/10.4.132.20.tar.gz"
+  sha256 "ef3f38fd8f8a0ceebe707065f04fd483803e27bb4754048b98cea36f94ce989b"
   license "BSD-3-Clause"
 
   livecheck do
@@ -37,13 +37,13 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.2.154.4/DEPS#43
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.4.132.20/DEPS#46
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "ae110f8b525009255ba1f9ae96982176d3bfad3d"
+        revision: "37baefb026b199605affa7bcb24810d1724ce373"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.2.154.4/DEPS#84
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.4.132.20/DEPS#92
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
         revision: "d115b033c4e53666b535cbd1985ffe60badad082"
@@ -51,7 +51,7 @@ class V8 < Formula
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "b37c340767cf9e7777d4ca5a588c34c5744df9b2"
+        revision: "a56852668f892151fc97343b57af15e82db2e798"
   end
 
   resource "v8/third_party/googletest/src" do
@@ -61,7 +61,7 @@ class V8 < Formula
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "1fd0dbea04448c3f73fe5cb7599f9472f0f107f1"
+        revision: "165825933050109d8331d0faa56cc9f52460fbbf"
   end
 
   resource "v8/third_party/jinja2" do
@@ -76,7 +76,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "a6d209ab932df0f1c9d5b7dc67cfa74e8a3272c0"
+        revision: "64bbf988543996eb8df9a86877b32917187eba8f"
   end
 
   # Apply patch to fix v8 build with glibc < 2.27. See here for details:
