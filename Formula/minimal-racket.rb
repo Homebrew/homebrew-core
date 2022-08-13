@@ -25,6 +25,7 @@ class MinimalRacket < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "libffi"
+  uses_from_macos "zlib"
 
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
