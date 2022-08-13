@@ -29,8 +29,11 @@ class Lilv < Formula
   depends_on "sratom"
 
   def install
-    system "meson", "build", *std_meson_args
-    system "meson", "compile", "-C", "build"
+    system "meson", "setup", "build", "-Dtests=disabled",
+                                      "-Dbindings_py=enabled",
+                                      "-Dtools=enabled",
+                                      *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
@@ -46,6 +49,6 @@ class Lilv < Formula
     system ENV.cc, "test.c", "-I#{include}/lilv-0", "-L#{lib}", "-llilv-0", "-o", "test"
     system "./test"
 
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import lilv"
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import lilv"
   end
 end
