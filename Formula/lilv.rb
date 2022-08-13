@@ -30,9 +30,14 @@ class Lilv < Formula
   depends_on "sratom"
 
   def install
+    # FIXME: Meson tries to install into `prefix/HOMEBREW_PREFIX/lib/python3.10/site-packages`
+    #        without setting `python.*libdir`.
+    prefix_site_packages = prefix/Language::Python.site_packages("python3.10")
     system "meson", "setup", "build", "-Dtests=disabled",
                                       "-Dbindings_py=enabled",
                                       "-Dtools=enabled",
+                                      "-Dpython.platlibdir=#{prefix_site_packages}",
+                                      "-Dpython.purelibdir=#{prefix_site_packages}",
                                       *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
