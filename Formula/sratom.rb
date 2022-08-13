@@ -19,16 +19,19 @@ class Sratom < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c5d244a598c32fbe980203c1370f5589d431d6e67793e9e98a665cae26e43aa"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
   depends_on "lv2"
   depends_on "serd"
   depends_on "sord"
 
   def install
-    system "python3", "./waf", "configure", "--prefix=#{prefix}"
-    system "python3", "./waf"
-    system "python3", "./waf", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dtests=disabled", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
