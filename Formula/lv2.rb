@@ -4,8 +4,8 @@ class Lv2 < Formula
 
   desc "Portable plugin standard for audio systems"
   homepage "https://lv2plug.in/"
-  url "https://lv2plug.in/spec/lv2-1.18.6.tar.xz"
-  sha256 "a552b60d615241a914f71b1100a64652e4760664354a26f2d2ac392dc9566241"
+  url "https://lv2plug.in/spec/lv2-1.18.8.tar.xz"
+  sha256 "b404cf14f776af40ca43808b45f4219dfa850a4f47aa33f89fa96ae719e174c8"
   license "ISC"
   head "https://gitlab.com/lv2/lv2.git", branch: "master"
 
@@ -48,10 +48,6 @@ class Lv2 < Formula
     sha256 "62dc3c86d1712db0f55785baf8047f63731fa59b2682be03219cb89262065942"
   end
 
-  # Fix for finding our `share` directory,  remove on next release
-  # https://gitlab.com/lv2/lv2/-/commit/53cce2dce0956239718f5f48793d1811cf543793
-  patch :DATA
-
   def install
     # Python resources and virtualenv are for the lv2specgen.py script that is installed
     venv = virtualenv_create(libexec, "python3")
@@ -85,22 +81,3 @@ class Lv2 < Formula
            "-o", shared_library("amp")
   end
 end
-
-__END__
-diff --git a/lv2specgen/lv2specgen.py b/lv2specgen/lv2specgen.py
-index da58e4f..0c5a87d 100755
---- a/lv2specgen/lv2specgen.py
-+++ b/lv2specgen/lv2specgen.py
-@@ -1515,9 +1515,9 @@ if __name__ == "__main__":
-     for d in _data_dirs():
-         path = os.path.join(d, "lv2specgen")
-         if (
--            os.path.exists(os.path.join(d, "template.html"))
--            and os.path.exists(os.path.join(d, "style.css"))
--            and os.path.exists(os.path.join(d, "pygments.css"))
-+            os.path.exists(os.path.join(path, "template.html"))
-+            and os.path.exists(os.path.join(path, "style.css"))
-+            and os.path.exists(os.path.join(path, "pygments.css"))
-         ):
-             data_dir = path
-             break
