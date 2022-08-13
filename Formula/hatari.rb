@@ -28,8 +28,8 @@ class Hatari < Formula
 
   # Download EmuTOS ROM image
   resource "emutos" do
-    url "https://downloads.sourceforge.net/project/emutos/emutos/1.1.1/emutos-512k-1.1.1.zip"
-    sha256 "71ac9b7f093b0d078ce1fe6f291fb60914d80bcbdc7662137afeeb78b340b94b"
+    url "https://downloads.sourceforge.net/project/emutos/emutos/1.2/emutos-1024k-1.2.zip"
+    sha256 "65933ffcda6cba87ab013b5e799c3a0896b9a7cb2b477032f88f091ab8578b2a"
   end
 
   def install
@@ -46,9 +46,9 @@ class Hatari < Formula
     end
     resource("emutos").stage do
       if OS.mac?
-        (prefix/"Hatari.app/Contents/Resources").install "etos512k.img" => "tos.img"
+        (prefix/"Hatari.app/Contents/Resources").install "etos1024k.img" => "tos.img"
       else
-        pkgshare.install "etos512k.img" => "tos.img"
+        pkgshare.install "etos1024k.img" => "tos.img"
       end
     end
   end
