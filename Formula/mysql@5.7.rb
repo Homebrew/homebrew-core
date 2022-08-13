@@ -25,6 +25,7 @@ class MysqlAT57 < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "libedit"
+  uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "pkg-config" => :build
