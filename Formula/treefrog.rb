@@ -53,16 +53,15 @@ class Treefrog < Formula
 
   test do
     ENV.delete "CPATH"
-    # FIXME: We set `QMAKE_CC` and `QMAKE_CXX` to avoid using stale
-    #        compiler references that we've baked into Qt on Linux.
-    # https://github.com/Homebrew/homebrew-core/blob/9341434f/Formula/qt.rb#L224-L226
-    ENV["QMAKE_CC"] = ENV.cc
-    ENV["QMAKE_CXX"] = ENV.cxx
-
     system bin/"tspawn", "new", "hello"
     assert_predicate testpath/"hello", :exist?
     cd "hello" do
       assert_predicate Pathname.pwd/"hello.pro", :exist?
+      # FIXME: `qmake` has a broken mkspecs file on Linux.
+      # Remove when the following PR is merged:
+      # https://github.com/Homebrew/homebrew-core/pull/107400
+      return if OS.linux?
+
       system Formula["qt"].opt_bin/"qmake"
       assert_predicate Pathname.pwd/"Makefile", :exist?
       system "make"
