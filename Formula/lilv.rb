@@ -29,10 +29,14 @@ class Lilv < Formula
   depends_on "sord"
   depends_on "sratom"
 
+  def python3
+    "python3.10"
+  end
+
   def install
-    # FIXME: Meson tries to install into `prefix/HOMEBREW_PREFIX/lib/python3.10/site-packages`
+    # FIXME: Meson tries to install into `prefix/HOMEBREW_PREFIX/lib/pythonX.Y/site-packages`
     #        without setting `python.*libdir`.
-    prefix_site_packages = prefix/Language::Python.site_packages("python3.10")
+    prefix_site_packages = prefix/Language::Python.site_packages(python3)
     system "meson", "setup", "build", "-Dtests=disabled",
                                       "-Dbindings_py=enabled",
                                       "-Dtools=enabled",
@@ -55,6 +59,6 @@ class Lilv < Formula
     system ENV.cc, "test.c", "-I#{include}/lilv-0", "-L#{lib}", "-llilv-0", "-o", "test"
     system "./test"
 
-    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import lilv"
+    system python3, "-c", "import lilv"
   end
 end
