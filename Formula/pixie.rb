@@ -9,7 +9,7 @@ class Pixie < Formula
 
   livecheck do
     url :stable
-    regex(%r{^releases/cli/v?(\d+(?:\.\d+)+)$}i)
+    regex(%r{^release/cli/v?(\d+(?:\.\d+)+)$}i)
   end
 
   bottle do
