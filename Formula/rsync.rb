@@ -1,12 +1,11 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.4.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.4.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.4.tar.gz"
-  sha256 "6f761838d08052b0b6579cf7f6737d93e47f01f4da04c5d24d3447b7f2a5fad1"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.5.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.5.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.5.tar.gz"
+  sha256 "2ac4d21635cdf791867bc377c35ca6dda7f50d919a58be45057fd51600c69aba"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://rsync.samba.org/ftp/rsync/?C=M&O=D"
@@ -52,10 +51,6 @@ class Rsync < Formula
     # SIMD code throws ICE or is outright unsupported due to lack of support for
     # function multiversioning on older versions of macOS
     args << "--disable-simd" if MacOS.version < :catalina
-
-    # Fixes https://github.com/WayneD/rsync/issues/317
-    # remove with the next release
-    args << "rsync_cv_SIGNED_CHAR_OK=yes" if Hardware::CPU.arm?
 
     system "./configure", *args
     system "make"
