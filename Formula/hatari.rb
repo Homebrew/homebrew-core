@@ -22,7 +22,6 @@ class Hatari < Formula
 
   depends_on "cmake" => :build
   depends_on "libpng"
-  depends_on "portaudio"
   depends_on "python@3.10"
   depends_on "sdl2"
 
