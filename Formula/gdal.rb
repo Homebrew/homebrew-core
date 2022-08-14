@@ -158,29 +158,29 @@ class Gdal < Formula
       ENV.append "CFLAGS", "-I#{buildpath}/gnm"
     end
 
-    ENV.append "CXXFLAGS", "-std=c++17" # poppler-qt5 uses std::optional
     system "./configure", *args
     system "make"
     system "make", "install"
 
     # Build Python bindings
+    python = "python3.9"
     cd "swig/python" do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system python, *Language::Python.setup_install_args(prefix, python)
     end
-    bin.install Dir["swig/python/scripts/*.py"]
+    bin.install buildpath.glob("swig/python/scripts/*.py")
 
     system "make", "man" if build.head?
     # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
     system "make", "install-man", "INST_MAN=#{man}"
     # Clean up any stray doxygen files
-    Dir.glob("#{bin}/*.dox") { |p| rm p }
+    bin.glob("*.dox").map(&:unlink)
   end
 
   test do
     # basic tests to see if third-party dylibs are loading OK
-    system "#{bin}/gdalinfo", "--formats"
-    system "#{bin}/ogrinfo", "--formats"
+    system bin/"gdalinfo", "--formats"
+    system bin/"ogrinfo", "--formats"
     # Changed Python package name from "gdal" to "osgeo.gdal" in 3.2.0.
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import osgeo.gdal"
+    system "python3.9", "-c", "import osgeo.gdal"
   end
 end
