@@ -38,6 +38,7 @@ class Yorkie < Formula
     end
     # sleep to let yorkie get ready
     sleep 3
+    system bin/"yorkie", "login", "-u", "admin", "-p", "admin"
 
     test_project = "test"
     output = shell_output("#{bin}/yorkie project create #{test_project}")
