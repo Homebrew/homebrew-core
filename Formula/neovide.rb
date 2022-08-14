@@ -32,14 +32,12 @@ class Neovide < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    if OS.mac?
-      # https://github.com/burtonageo/cargo-bundle/issues/118
-      with_env(TERM: "xterm") { system "cargo", "bundle", "--release" }
-      prefix.install "target/release/bundle/osx/Neovide.app"
-      bin.install_symlink prefix/"Neovide.app/Contents/MacOS/neovide"
-    else
-      bin.install "target/release/neovide"
-    end
+    return unless OS.mac?
+
+    # https://github.com/burtonageo/cargo-bundle/issues/118
+    with_env(TERM: "xterm") { system "cargo", "bundle", "--release" }
+    prefix.install "target/release/bundle/osx/Neovide.app"
+    bin.install_symlink prefix/"Neovide.app/Contents/MacOS/neovide"
   end
 
   test do
