@@ -1,8 +1,8 @@
 class Anyenv < Formula
   desc "All in one for **env"
   homepage "https://anyenv.github.io/"
-  url "https://github.com/anyenv/anyenv/archive/v1.1.4.tar.gz"
-  sha256 "efb5663ea44ba53c692bb1db439f4b9cf69099614030d0950fdd083f07a2e3c7"
+  url "https://github.com/anyenv/anyenv/archive/v1.1.5.tar.gz"
+  sha256 "ed086fb8f5ee6bd8136364c94a9a76a24c65e0a950bb015e1b83389879a56ba8"
   license "MIT"
 
   bottle do
