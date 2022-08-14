@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.38/util-linux-2.38.tar.xz"
-  sha256 "6d111cbe4d55b336db2f1fbeffbc65b89908704c01136371d32aa9bec373eb64"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.38/util-linux-2.38.1.tar.xz"
+  sha256 "60492a19b44e6cf9a3ddff68325b333b8b52b6c59ce3ebd6a0ecaa4c5117e84f"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -12,7 +12,6 @@ class UtilLinux < Formula
     "LGPL-2.1-or-later",
     :public_domain,
   ]
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "c9653e2676398fa31ef966b4708dd77598d940567ae98bf8a358bf6e3f9795d3"
@@ -40,12 +39,6 @@ class UtilLinux < Formula
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
     depends_on "pkg-config" => :build
-
-    # Fix ./include/statfs_magic.h:4:10: fatal error: 'sys/statfs.h' file not found
-    patch do
-      url "https://github.com/util-linux/util-linux/commit/478b9d477ecdd8f4e3a7b488524e1d4c6a113525.patch?full_index=1"
-      sha256 "576c26c3d15642f1c44548d0120b192b855cceeebf8ad97fb5e300350e88a3f7"
-    end
 
     # Fix lib/procfs.c:9:10: fatal error: 'sys/vfs.h' file not found
     patch do
