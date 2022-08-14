@@ -1,8 +1,8 @@
 class Neovide < Formula
   desc "No Nonsense Neovim Client in Rust"
   homepage "https://github.com/neovide/neovide"
-  url "https://github.com/neovide/neovide/archive/tags/0.9.0.tar.gz"
-  sha256 "a4c68cd2f3633f1478dc22ac5f27c636de236fdfe6641f558d65b846d1fbe1c8"
+  url "https://github.com/neovide/neovide/archive/tags/0.10.0.tar.gz"
+  sha256 "3ae859b3f1ba5e733d413071e3a33082350ca6bf14500b437a2259c5d5c4b706"
   license "MIT"
   head "https://github.com/neovide/neovide.git", branch: "main"
 
