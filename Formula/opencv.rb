@@ -92,7 +92,7 @@ class Opencv < Formula
       -DWITH_VTK=ON
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPYTHON3_EXECUTABLE=#{which("python3.9")}
     ]
 
     # Disable precompiled headers and force opencv to use brewed libraries on Linux
@@ -147,7 +147,7 @@ class Opencv < Formula
                     "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    output = shell_output(Formula["python@3.9"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
+    output = shell_output("python3.9 -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end
