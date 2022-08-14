@@ -1,8 +1,8 @@
 class Monolith < Formula
   desc "CLI tool for saving complete web pages as a single HTML file"
   homepage "https://github.com/Y2Z/monolith"
-  url "https://github.com/Y2Z/monolith/archive/v2.6.1.tar.gz"
-  sha256 "dc08e6fa786c2cdfc7a8f6c307022c368d875c172737b695222c2b2f3bfe2a72"
+  url "https://github.com/Y2Z/monolith/archive/v2.6.2.tar.gz"
+  sha256 "15287b101b021f17cba13ca0b64c58a8be54bb061ba4b7c291eb57faf799977b"
   license "CC0-1.0"
 
   bottle do
@@ -17,7 +17,10 @@ class Monolith < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
