@@ -1,10 +1,9 @@
 class MoltenVk < Formula
   desc "Implementation of the Vulkan graphics and compute API on top of Metal"
   homepage "https://github.com/KhronosGroup/MoltenVK"
-  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.10.tar.gz"
-  sha256 "fac11c2501195c9ce042103685c7778e35484562e6c084963a22072dd0a602e0"
+  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.11.tar.gz"
+  sha256 "938ea0ba13c6538b0ee505ab391a3020f206ab9d29c869f20dd19318a4ee8997"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "db4bd2f19ea7d78b956d802fb1c56891c14ee3789351496d8caeb6b200e97ac3"
@@ -33,37 +32,37 @@ class MoltenVk < Formula
   resource "Vulkan-Headers" do
     # ExternalRevisions/Vulkan-Headers_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-        revision: "3ef4c97fd6ea001d75a8e9da408ee473c180e456"
-  end
-
-  resource "SPIRV-Cross" do
-    # ExternalRevisions/SPIRV-Cross_repo_revision
-    url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-        revision: "50b4d5389b6a06f86fb63a2848e1a7da6d9755ca"
-  end
-
-  resource "glslang" do
-    # ExternalRevisions/glslang_repo_revision
-    url "https://github.com/KhronosGroup/glslang.git",
-        revision: "adbf0d3106b26daa237b10b9bf72b1af7c31092d"
-  end
-
-  resource "SPIRV-Tools" do
-    # known_good.json in the glslang repository
-    url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        revision: "b930e734ea198b7aabbbf04ee1562cf6f57962f0"
-  end
-
-  resource "SPIRV-Headers" do
-    # known_good.json in the glslang repository
-    url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "5a121866927a16ab9d49bed4788b532c7fcea766"
+        revision: "c896e2f920273bfee852da9cca2a356bc1c2031e"
   end
 
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-        revision: "ef9db7a8ec52f6c56158d83f5d57ef388c1abec1"
+        revision: "497f232680b046db34ba9e9da065e6303a125851"
+  end
+
+  resource "SPIRV-Cross" do
+    # ExternalRevisions/SPIRV-Cross_repo_revision
+    url "https://github.com/KhronosGroup/SPIRV-Cross.git",
+        revision: "61c603f3baa5270e04bcfb6acf83c654e3c57679"
+  end
+
+  resource "glslang" do
+    # ExternalRevisions/glslang_repo_revision
+    url "https://github.com/KhronosGroup/glslang.git",
+        revision: "73c9630da979017b2f7e19c6549e2bdb93d9b238"
+  end
+
+  resource "SPIRV-Tools" do
+    # known_good.json in the glslang repository
+    url "https://github.com/KhronosGroup/SPIRV-Tools.git",
+        revision: "5e61ea2098220059e89523f1f47b0bcd8c33b89a"
+  end
+
+  resource "SPIRV-Headers" do
+    # known_good.json in the glslang repository
+    url "https://github.com/KhronosGroup/SPIRV-Headers.git",
+        revision: "b2a156e1c0434bc8c99aaebba1c7be98be7ac580"
   end
 
   def install
