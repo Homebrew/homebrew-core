@@ -19,16 +19,16 @@ class MdaLv2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa6b5b92eb36d3dc33c0fa271c2fd61ba0986737a8dc4097682c88d9862ae8ce"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "python@3.10" => :build
   depends_on "sord" => :test
   depends_on "lv2"
 
   def install
-    ENV.cxx11
-    system "python3", "./waf", "configure", "--prefix=#{prefix}", "--lv2dir=#{lib}/lv2"
-    system "python3", "./waf"
-    system "python3", "./waf", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
   end
 
   test do
