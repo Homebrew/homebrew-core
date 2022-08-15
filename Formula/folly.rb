@@ -1,19 +1,10 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
+  url "https://github.com/facebook/folly/archive/v2022.08.15.00.tar.gz"
+  sha256 "6cc4a357779c1ceac4b855946651903068d1bbcf057f560946a418bb8d399ee0"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git", branch: "main"
-
-  stable do
-    url "https://github.com/facebook/folly/archive/v2022.08.08.00.tar.gz"
-    sha256 "ad27468c3c8dddacd592baa688b5d9b0a1de30c8f57e959fb88ba68a231f853d"
-
-    # Fix CMake bugs for x86_64 builds. Remove in the next release.
-    patch do
-      url "https://github.com/facebook/folly/commit/10fc2e449038d9ffda5cd53999edb9875c4cb151.patch?full_index=1"
-      sha256 "23b7a26530d83b391a5e587e5ba6c88c2831dc516b2438a99eb27c6d1b9e7e1d"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c1362885393d8e5d552b360cc59a2128e95f003309bb933da6310c14d041e9fe"
