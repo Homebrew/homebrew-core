@@ -1,11 +1,21 @@
 class Glslviewer < Formula
   desc "Live-coding console tool that renders GLSL Shaders"
   homepage "http://patriciogonzalezvivo.com/2015/glslViewer/"
-  url "https://github.com/patriciogonzalezvivo/glslViewer.git",
-      tag:      "2.1.2",
-      revision: "c6eaf01456db4baa61f876762fdb2d8bf49727e4"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
+
+  stable do
+    url "https://github.com/patriciogonzalezvivo/glslViewer.git",
+        tag:      "2.1.2",
+        revision: "c6eaf01456db4baa61f876762fdb2d8bf49727e4"
+
+    # Fix error: 'strstr' is not a member of 'std'. Remove in the next release
+    patch do
+      url "https://github.com/patriciogonzalezvivo/glslViewer/commit/2e517b7cb10a82dc863a250d31040d5b5d021c2a.patch?full_index=1"
+      sha256 "fec27080bd7951a061183e8ad09c5f20fa1b74648aa24e400204cd1ac89a8ebc"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a6e97c198e04daf58e857bd4840806edada831fcf5e28e9b42920fd9828ffba5"
@@ -18,7 +28,7 @@ class Glslviewer < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "glfw"
 
   on_linux do
