@@ -1,10 +1,19 @@
 class Suil < Formula
   desc "Lightweight C library for loading and wrapping LV2 plugin UIs"
   homepage "https://drobilla.net/software/suil.html"
-  url "https://download.drobilla.net/suil-0.10.16.tar.xz"
-  sha256 "bc9f36c13863e70fd65bf7134afc2b7b141e9ca4b279590efae1d4b25f4211f9"
   license "ISC"
   head "https://gitlab.com/lv2/suil.git", branch: "master"
+
+  stable do
+    url "https://download.drobilla.net/suil-0.10.16.tar.xz"
+    sha256 "bc9f36c13863e70fd65bf7134afc2b7b141e9ca4b279590efae1d4b25f4211f9"
+
+    # remove in next version
+    patch do
+      url "https://github.com/lv2/suil/commit/ecebfdb35fd8af72dc918ff34ae3f3366521925d.patch?full_index=1"
+      sha256 "d12cc51870da6009555e8f40fddd64931b68e6e09362224eec0ee227d97fe62d"
+    end
+  end
 
   livecheck do
     url "https://download.drobilla.net/"
