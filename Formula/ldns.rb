@@ -1,8 +1,8 @@
 class Ldns < Formula
   desc "DNS library written in C"
   homepage "https://nlnetlabs.nl/projects/ldns/"
-  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.2.tar.gz"
-  sha256 "b92b001cdd382de653620a05445e42e17a827eec93d64ee587ad291a533cc1e9"
+  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.3.tar.gz"
+  sha256 "c3f72dd1036b2907e3a56e6acf9dfb2e551256b3c1bbd9787942deeeb70e7860"
   license "BSD-3-Clause"
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
