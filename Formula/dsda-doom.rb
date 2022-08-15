@@ -58,7 +58,7 @@ class DsdaDoom < Formula
   end
 
   test do
-    expected_output = "IdentifyVersion: IWAD not found"
+    expected_output = "dsda-doom v#{version.major_minor_patch}"
     assert_match expected_output, shell_output("#{bin}/dsda-doom -iwad invalid_wad 2>&1", 255)
   end
 end
