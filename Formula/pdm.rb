@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/9f/d4/796b969bb682021246d96c818082c2049168fd1515021bcb83fd5707a8fa/pdm-2.1.1.tar.gz"
-  sha256 "6df7ce8e0452eaf87b4c30fdd06c135f622897981668539fdbe984139ad44d6a"
+  url "https://files.pythonhosted.org/packages/91/ce/8c4b4cb321df2c87e65630a17344fb0239b844845850bc3e185f26efed9b/pdm-2.1.2.tar.gz"
+  sha256 "53c697b24ab73dd2155cd8544d9ed3551cdae1d7b166885e1ced463b46869dea"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -51,13 +51,13 @@ class Pdm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/f3/c7/5c1aef87f1197d2134a096c0264890969213c9cbfb8a4102087e8d758b5c/filelock-3.7.1.tar.gz"
-    sha256 "3a0fd85166ad9dbab54c9aec96737b744106dc5f15c0b09a6744a445299fcf04"
+    url "https://files.pythonhosted.org/packages/95/55/b897882bffb8213456363e646bf9e9fa704ffda5a7d140edf935a9e02c7b/filelock-3.8.0.tar.gz"
+    sha256 "55447caa666f2198c5b6b13a26d2084d26fa5b115c00d065664b2124680c4edc"
   end
 
   resource "findpython" do
-    url "https://files.pythonhosted.org/packages/17/16/7e7e7f6ae157e903c3285533f5d52f34fa8f25c8f4745699294b154e83fc/findpython-0.2.0.tar.gz"
-    sha256 "c2099ee0b71fc2714b64f68fd1f40bc0ee47f49dfe9547fb64d7cbcc02fe0871"
+    url "https://files.pythonhosted.org/packages/56/85/3a587047aaab86970157497e9a56fd48947ed6e284112d8c5c810a773526/findpython-0.2.1.tar.gz"
+    sha256 "4394a1cbcdbcf8d10ea3439e2d8086b2ec074507097b6e6dbee18028c6e52b08"
   end
 
   resource "idna" do
@@ -86,8 +86,8 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/24/b6/1b06ac9506f531ef952217a20063413523c4192642b2e984433b2dc97919/pdm-pep517-1.0.3.tar.gz"
-    sha256 "0212afdd968c1da0ce5249e61b754c5bebb6778c9fd94f70a48711606c45207f"
+    url "https://files.pythonhosted.org/packages/8a/8f/799f7b88c1333115db197dfc0ea3c3a7d57f1b9fb7d9f9151a92ebd2d2d6/pdm-pep517-1.0.4.tar.gz"
+    sha256 "392f8c2b47c6ec20550cb8e19e24b9dbd27373413f067b56ecd75f9767f93015"
   end
 
   resource "pep517" do
@@ -146,8 +146,8 @@ class Pdm < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/1e/81/93889ea6641154b22f26036bc4ef800b06df84fc647a6ded5abdc2f06dcf/tomlkit-0.11.1.tar.gz"
-    sha256 "61901f81ff4017951119cd0d1ed9b7af31c821d6845c8c477587bbdcd5e5854e"
+    url "https://files.pythonhosted.org/packages/84/51/092a8b945edc3b93f2de091ab9596006673caac063e3fac14f0fa6c69b1c/tomlkit-0.11.4.tar.gz"
+    sha256 "3235a9010fae54323e727c3ac06fb720752fe6635b3426e379daec60fbd44a83"
   end
 
   resource "unearth" do
