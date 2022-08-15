@@ -21,11 +21,16 @@ class DsdaDoom < Formula
     depends_on "mesa-glu"
   end
 
+  def doomwaddir(root)
+    root/"share/games/doom"
+  end
+
   def install
     # Patch for Linux builds until kraflab/dsda-doom#122 is merged and added to a release
     inreplace "prboom2/src/d_deh.c", "uint64_t", "uint_64_t"
 
     system "cmake", "-S", "prboom2", "-B", "build",
+                    "-DDOOMWADDIR=#{doomwaddir(prefix)}",
                     "-DBUILD_GL=ON",
                     "-DWITH_DUMB=OFF",
                     "-DWITH_IMAGE=ON",
@@ -38,6 +43,18 @@ class DsdaDoom < Formula
                     *std_cmake_args
     system "cmake", "--build", "build", "--config", "Release"
     system "cmake", "--install", "build", "--config", "Release"
+
+    # We need to move these elsewhere so we can symlink them to the right place in `postinstall`.
+    pkgshare.install doomwaddir(prefix).children
+    doomwaddir(prefix).rmtree
+  end
+
+  def post_install
+    doomwaddir(HOMEBREW_PREFIX).mkpath
+    doomwaddir(HOMEBREW_PREFIX).install_symlink pkgshare.children
+
+    # Make sure `dsda-doom` also checks the DOOMWADDIR in HOMEBREW_PREFIX.
+    doomwaddir(prefix).parent.install_symlink doomwaddir(HOMEBREW_PREFIX)
   end
 
   test do
