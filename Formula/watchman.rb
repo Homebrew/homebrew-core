@@ -2,19 +2,18 @@ class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
   license "MIT"
-  revision 1
 
   stable do
-    url "https://github.com/facebook/watchman/archive/v2022.08.08.00.tar.gz"
-    sha256 "216cd998559f1799012c362468e4e8cd7beadebd71aceb4c2d1e475770ce72a4"
+    url "https://github.com/facebook/watchman/archive/v2022.08.15.00.tar.gz"
+    sha256 "8b95b0ac3de81bd7bc7d243e4785d4e9f8e8c41d70a0fb8b03425c078bdcc434"
 
     # `edencommon` currently doesn't provide tagged releases, so we just use a commit
     # around release time of `watchman`. For example, we can use the `edencommon` commit
     # that updates folly-rev.txt file to match `folly` formula version release commit.
     # TODO: Once tags are available, either switch to tag or create a dedicated formula.
     resource "edencommon" do
-      url "https://github.com/facebookexperimental/edencommon/archive/d356bb7a9a28f09f00d72a81f7b60f8f27ce249c.tar.gz"
-      sha256 "d5c5277bb697f131abd591d52d8b9cb905309d516fd767a4d6cdf3b156659060"
+      url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2022.08.15.00.tar.gz"
+      sha256 "5e04fc7a0577160f5736a411097086bd85eeef5066f44387b00305b107b0563a"
     end
   end
 
