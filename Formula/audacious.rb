@@ -2,14 +2,15 @@ class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.2.tar.bz2"
     sha256 "feb304e470a481fe2b3c4ca1c9cb3b23ec262540c12d0d1e6c22a5eb625e04b3"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.1.tar.bz2"
-      sha256 "dad6fc625055349d589e36e8e5c8ae7dfafcddfe96894806509696d82bb61d4c"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.2.tar.bz2"
+      sha256 "6fa0f69c3a1041eb877c37109513ab4a2a0a56a77d9e8c13a1581cf1439a417f"
     end
   end
 
@@ -28,10 +29,10 @@ class Audacious < Formula
   end
 
   head do
-    url "https://github.com/audacious-media-player/audacious.git"
+    url "https://github.com/audacious-media-player/audacious.git", branch: "master"
 
     resource "plugins" do
-      url "https://github.com/audacious-media-player/audacious-plugins.git"
+      url "https://github.com/audacious-media-player/audacious-plugins.git", branch: "master"
     end
   end
 
@@ -40,7 +41,7 @@ class Audacious < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "faad2"
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "flac"
   depends_on "fluid-synth"
   depends_on "glib"
