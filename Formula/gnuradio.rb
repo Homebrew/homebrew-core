@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.3.0.tar.gz"
   sha256 "957108a67ec75d99adaad8f3b10be8ae08760a9cef0b659a5c815a4e33898a75"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -97,8 +97,16 @@ class Gnuradio < Formula
     sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
-  # Fix upstreamed here: https://github.com/gnuradio/gnuradio/pull/6002.
+  # Fix build with newer GCC
+  # https://github.com/gnuradio/gnuradio/pull/6002.
   patch :DATA
+
+  # Fix build with fmt 9+
+  # https://github.com/gnuradio/gnuradio/pull/6053
+  patch do
+    url "https://github.com/gnuradio/gnuradio/commit/e63ee41fd455cdd39ae983c258d8632c3ea57fc6.patch?full_index=1"
+    sha256 "be4373f13ffe8ae8ddc7216eb2b7ddb436b7be345cc0e108ae60b5010935a859"
+  end
 
   def install
     python = "python3.10"
