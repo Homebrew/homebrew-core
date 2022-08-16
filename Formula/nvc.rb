@@ -38,11 +38,7 @@ class Nvc < Formula
     system "./autogen.sh" if build.head?
 
     # Avoid hardcoding path to the `ld` shim.
-    if build.head? && OS.linux?
-      inreplace "configure", "#define LINKER_PATH \\\"$linker_path\\\"", "#define LINKER_PATH \\\"ld\\\""
-    elsif OS.linux?
-      inreplace "configure", "#define LINKER_PATH \"$linker_path\"", "#define LINKER_PATH \"ld\""
-    end
+    inreplace "configure", "#define LINKER_PATH \\\"$linker_path\\\"", "#define LINKER_PATH \\\"ld\\\"" if OS.linux?
 
     # In-tree builds are not supported.
     mkdir "build" do
