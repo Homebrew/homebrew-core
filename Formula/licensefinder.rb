@@ -5,6 +5,7 @@ class Licensefinder < Formula
       tag:      "v7.0.1",
       revision: "b938cbfb33e8ec4eb9f2a4abcfb6e3462d226621"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "64d7159ca202de5e3b51a6ab6833ca7e87219a899ef5bfa908f530aba8fb2af7"
@@ -15,9 +16,7 @@ class Licensefinder < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fad2104fa2186844235e5628d8afe03f34b08e7b9c62631399dde2b3947b493"
   end
 
-  on_system :linux, macos: :mojave_or_older do
-    depends_on "ruby@2.7"
-  end
+  uses_from_macos "ruby", since: :catalina
 
   def install
     ENV["GEM_HOME"] = libexec
@@ -30,7 +29,7 @@ class Licensefinder < Formula
   test do
     gem_home = testpath/"gem_home"
     ENV["GEM_HOME"] = gem_home
-    gem_command = (MacOS.version <= :mojave) ? Formula["ruby@2.7"].bin/"gem" : "gem"
+    gem_command = (MacOS.version <= :mojave) ? Formula["ruby"].bin/"gem" : "gem"
     system gem_command, "install", "bundler"
 
     mkdir "test"
