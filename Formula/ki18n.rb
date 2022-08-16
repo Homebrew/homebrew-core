@@ -30,6 +30,7 @@ class Ki18n < Formula
   depends_on "doxygen" => :build
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "graphviz" => :build
+  depends_on "python@3.10" => :build
   depends_on "gettext"
   depends_on "iso-codes"
   depends_on "qt@5"
