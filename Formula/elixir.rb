@@ -4,6 +4,7 @@ class Elixir < Formula
   url "https://github.com/elixir-lang/elixir/archive/v1.13.4.tar.gz"
   sha256 "95daf2dd3052e6ca7d4d849457eaaba09de52d65ca38d6933c65bc1cdf6b8579"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/elixir-lang/elixir.git", branch: "main"
 
   bottle do
@@ -30,6 +31,6 @@ class Elixir < Formula
   end
 
   test do
-    system "#{bin}/elixir", "-v"
+    assert_match(%r{(compiled with Erlang/OTP 25)}, shell_output("#{bin}/elixir -v"))
   end
 end
