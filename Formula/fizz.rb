@@ -35,6 +35,13 @@ class Fizz < Formula
 
   fails_with gcc: "5"
 
+  # Disable `liboqs` requirement. Remove in next release.
+  # https://github.com/facebookincubator/fizz/issues/79
+  patch do
+    url "https://github.com/facebookincubator/fizz/commit/6e237b10a58a8d90ed5f1819abd7842c423fb956.patch?full_index=1"
+    sha256 "d9eda54340d4f61641c8f19974ffa51417871ca2f7a0bd581818fa5560860117"
+  end
+
   def install
     args = []
     args << "-DLIBRT_LIBRARY=/usr/lib/x86_64-linux-gnu/librt.so" if OS.linux?
