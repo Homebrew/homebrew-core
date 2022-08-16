@@ -7,15 +7,14 @@ class TomcatAT7 < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ff26a7e915f64090817e9a62811f3b02142723553f2f5e2e8f7b1b2b594d8477"
   end
 
   keg_only :versioned_formula
+
+  # End of life was 2021-03-31: https://tomcat.apache.org/tomcat-70-eol.html
+  deprecate! date: "2022-08-15", because: :deprecated_upstream
 
   depends_on "openjdk"
 

@@ -1,18 +1,18 @@
 class Neovide < Formula
   desc "No Nonsense Neovim Client in Rust"
   homepage "https://github.com/neovide/neovide"
-  url "https://github.com/neovide/neovide/archive/tags/0.9.0.tar.gz"
-  sha256 "a4c68cd2f3633f1478dc22ac5f27c636de236fdfe6641f558d65b846d1fbe1c8"
+  url "https://github.com/neovide/neovide/archive/tags/0.10.1.tar.gz"
+  sha256 "b94b5cc387b1aea03c6d967b738b487bf8e3ca876690716f34bd5ba6a7964d13"
   license "MIT"
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57b422b9f77432bc1b86525154544118eaadaa979e0f75f31902dbd391e4a13c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4368fe7d62d5cb3badaeb6df4c4b0c57bbc99eeb704254f60b68f1f4547dde73"
-    sha256 cellar: :any_skip_relocation, monterey:       "322b08968b36531c6e2aacefb28614c8061a49478b1041383ab47cf00b2d9e59"
-    sha256 cellar: :any_skip_relocation, big_sur:        "84b78067f83ad6e54330012bf16339bfecdb347287abc10ab78dfe6729a183d4"
-    sha256 cellar: :any_skip_relocation, catalina:       "cca988f7a7d89732a8c7a35c4e0d8236555b77437842353dc3510c274715aa3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc3a8ca19e8f8eef623b85acfb501bcb834af528091c9c768b9b4a8a451bd483"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "61512b2f78a01c962ecf13c2e278132ee316d8689d54cabd67779790bc29e170"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38d8ebcc087d78c82dd4de73ad8c5193b24282e79c5219cd7708286817e24506"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c3a188230cee5a04dc9218b406cc0db3445924cfa88b1ec6d83825dd88cb824"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2b037725a8be019e939b2e11d11b3c6d3fe559a89cf13558357c053e436fb466"
+    sha256 cellar: :any_skip_relocation, catalina:       "b08fc23beb4353a0c8a3f0f92fb7d3687636bbc82cedf525c77af9a35949fb2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c1116998199528bf87425fcf9b8cc839bceabfc44344d0ba0e3d69f1d96843f"
   end
 
   depends_on "rust" => :build
@@ -32,14 +32,12 @@ class Neovide < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    if OS.mac?
-      # https://github.com/burtonageo/cargo-bundle/issues/118
-      with_env(TERM: "xterm") { system "cargo", "bundle", "--release" }
-      prefix.install "target/release/bundle/osx/Neovide.app"
-      bin.install_symlink prefix/"Neovide.app/Contents/MacOS/neovide"
-    else
-      bin.install "target/release/neovide"
-    end
+    return unless OS.mac?
+
+    # https://github.com/burtonageo/cargo-bundle/issues/118
+    with_env(TERM: "xterm") { system "cargo", "bundle", "--release" }
+    prefix.install "target/release/bundle/osx/Neovide.app"
+    bin.install_symlink prefix/"Neovide.app/Contents/MacOS/neovide"
   end
 
   test do

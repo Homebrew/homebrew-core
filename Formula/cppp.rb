@@ -1,8 +1,8 @@
 class Cppp < Formula
   desc "Partial Preprocessor for C"
   homepage "https://www.muppetlabs.com/~breadbox/software/cppp.html"
-  url "https://www.muppetlabs.com/~breadbox/pub/software/cppp-2.8.tar.gz"
-  sha256 "a369cec68cbc3b9ad595ee83c130ae7ce7d5f74479387755c22a4a5ff7387ff5"
+  url "https://www.muppetlabs.com/~breadbox/pub/software/cppp-2.9.tar.gz"
+  sha256 "76a95b46c3e36d55c0a98175c0aa72b17b219e68062c2c2c26f971e749951c07"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Cppp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c7e7662822fbe71dbfd415f18987b2f4d3213964b4cb29c63ff5c5309da4568"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd8536a2f531ecf9e8de49d13f3f1479307ea83087f52d34a106ac0015b1c511"
-    sha256 cellar: :any_skip_relocation, monterey:       "24b11b6ca7f8f06f0b79145b3a7364678f69b25eba90231a6809a7c8bdd402b0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c9af5eecf774998c43a7355e9d3751bbea079282a6df1acbfa9003e123bfe383"
-    sha256 cellar: :any_skip_relocation, catalina:       "8f99bf2fa57d4a16f4a198841bbd878fdf11b94eaadff0fdd54e71c3b229864e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdbacd12270ad5f7276b58daba29cffad0a995bfb895e375edb5a5e5a49c1698"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1926109416735a823a7ab9a534be30f4c5a64f9cc72d36b52e125c70f8d28d3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32559caedf75a13cad737826acd6d83b2d7e8cc69c5ecc18bdaecb37856d5a26"
+    sha256 cellar: :any_skip_relocation, monterey:       "f815f392d7b8ec92a327c2d543bf962a70cae5f1f6991e1e4d695ee25c1fecb8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "549a5a56c7173307a1fe50415ac029d31ffa80d4aba09bca2c387dff8b6fd71e"
+    sha256 cellar: :any_skip_relocation, catalina:       "539d3f0e5376e354018c7d91eb458194fc2654785af7075bb646584618493f9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afb41f54440bb5ee1dc17adb0729f4577dbe156e2c63548becd5d0cc5abd2691"
   end
 
   def install

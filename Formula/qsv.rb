@@ -1,18 +1,18 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://github.com/jqnatividad/qsv"
-  url "https://github.com/jqnatividad/qsv/archive/0.61.4.tar.gz"
-  sha256 "d82093b4b3fbae9469000b1970c34ad31b9e59918f617ffab6d9ba5eb785e04a"
+  url "https://github.com/jqnatividad/qsv/archive/0.62.0.tar.gz"
+  sha256 "815ff78ad54eee874027336fd24fe55abe5bc4efa9f02fd79c65988e7a9c4022"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/jqnatividad/qsv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9cf8b118c1678f03de938cac644c8b9e51d47722bccc7ab42973fa3bbd6b1b90"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68eaf91e63cc58938d125c0c13080a32c2c0d5996017e24154dd4b2d44875bd6"
-    sha256 cellar: :any_skip_relocation, monterey:       "37bfc3f28ff8824b6aebd77758c30e3265f03098df2e9547b39f131713a35747"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c5c1551d71fc701e094c7797e48d3ac1ff4f67264c2ab1e5dbb27163718f7991"
-    sha256 cellar: :any_skip_relocation, catalina:       "0e8d1081f654f988ca569a66c0cce7625fd9b31f8f1ea10ea14ebdb583efa660"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "766321b39a70a3394ff7d5033abefbfd2041f089097d294ab98ae770dce7d6f8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86b2be6c6b22fd2a4e8fb946d8f4131170592ff996cdb47d93d58771a1b3f783"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5316783efc557ba0c7ca57391433febf9efa2b8d5d0ce59dab1ebd2c02ce4623"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a131a313564f857625cf8d4a715727f09ace605925c90e98269bf7eff4fd139"
+    sha256 cellar: :any_skip_relocation, big_sur:        "adc501915305be933a70c4f16625435f6e633d4ad5baf40dc9f4b4185d9d9636"
+    sha256 cellar: :any_skip_relocation, catalina:       "b7cb60698dff4c75fa9c5544031f891b98f81d31de32c2ce33284680b2400469"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "648c47d5db0a0cd1989ead722f3b7c256503726af6dfc054ad3c3cd8cef5a357"
   end
 
   depends_on "rust" => :build

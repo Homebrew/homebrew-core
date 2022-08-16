@@ -5,10 +5,9 @@ class PerconaToolkit < Formula
 
   desc "Command-line tools for MySQL, MariaDB and system tasks"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.3.1/source/tarball/percona-toolkit-3.3.1.tar.gz"
-  sha256 "60fc106b195b6716f1ebb3ca16b401692228c1a2a885da72111a93391fd12090"
+  url "https://www.percona.com/downloads/percona-toolkit/3.4.0/source/tarball/percona-toolkit-3.4.0.tar.gz"
+  sha256 "330c56723d4e6b966d0ad89f556efdf867a46f89462dd894eda331596aa88008"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
-  revision 1
   head "lp:percona-toolkit", using: :bzr
 
   livecheck do
@@ -17,12 +16,12 @@ class PerconaToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8f6bb6f309b86e299dd07068d8ffbc4f522211710c583256c5b7528ee24eb436"
-    sha256 cellar: :any,                 arm64_big_sur:  "c4894d911c4f3e0adad36c3f2aa3a67e74dd309faadb6dffb7c9ce543944bc2e"
-    sha256 cellar: :any,                 monterey:       "344ba40041a33e4b8daf56129ebf4523b5c198d43ea064c5aebb59c997183497"
-    sha256 cellar: :any,                 big_sur:        "9274b60c27cacce29aec88b890899ab988f003ae440108fe919692d0f852ea57"
-    sha256 cellar: :any,                 catalina:       "93c759128255833a67e8b365610eb8ccb4877d82f1bf66176ad4b597b90217fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bccfdd6284fc9a2c1226cb148a446180209d48b7b9070ea5b4779f429a31c984"
+    sha256 cellar: :any,                 arm64_monterey: "02b8645c31c1dbc613049b92beea76566521953538733109d749c86bb9178902"
+    sha256 cellar: :any,                 arm64_big_sur:  "cc026046227611a83c3f3d081d15119a83a518eec51d5626dc80b995a5314d42"
+    sha256 cellar: :any,                 monterey:       "f5768c6c6498278a2fafca391fe498ff8c6cd06e2463cf22a5bfead8b8d23799"
+    sha256 cellar: :any,                 big_sur:        "31a91aef0643e348de8653b5563c1897f484a83d18172eb42f9fdc12c832f498"
+    sha256 cellar: :any,                 catalina:       "bc616aebe1a63d674e4fe0c366425a42c13d4b0020696b698be0636cc87bb819"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d01ccdce731c74a3b19d37dde24a9854afe3e51431f7d53eb215caf974423a70"
   end
 
   depends_on "mysql-client"

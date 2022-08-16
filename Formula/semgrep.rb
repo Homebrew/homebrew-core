@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.109.0",
-      revision: "bc9f795658a3beab85626d8100c27921fc18581d"
+      tag:      "v0.110.0",
+      revision: "818c2e189825686e95b611f337a69243ac2edf79"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "61152671d1e1df16fa3d3c46bfce09b16684ca16d9f7b0d2b6e22a95f76d0347"
-    sha256 cellar: :any, arm64_big_sur:  "7d62fbbdbbd453324e26fcb65174c5ab76e4048e0b8beaa4f246531ef10aa7f9"
-    sha256 cellar: :any, monterey:       "e419d6dd0368b0102cbda3b2817ce0b2b9ae26906aff6f519e69be5574401fc5"
-    sha256 cellar: :any, big_sur:        "63e923261760e5cb29b8ada42598211269b32f9ee1cce0a956d264844730fd66"
-    sha256 cellar: :any, catalina:       "96ec7f8ccae464a0240a036c69d41ac58efdb13a22e41c4dc907e208b6d954e5"
-    sha256               x86_64_linux:   "6a6037d2e57bb12c1a41e3e7dafb3865a685fa176b4c367e39aa75dc305b328e"
+    sha256 cellar: :any, arm64_monterey: "14cf5f0a9a258cc3d208b611cf493bff8f16ed50be965cdfdfa9aaaf42e55852"
+    sha256 cellar: :any, arm64_big_sur:  "bd1a91075dd3044a05d82ea38fb0ad3aaaa03f8489d8cb9d9ebbc8c00c0a433d"
+    sha256 cellar: :any, monterey:       "a495d82d8f43104458e7ae4c41adfb14d763c83f1f31dc4f2713de54790f8ab7"
+    sha256 cellar: :any, big_sur:        "e652d8e844703b519d28cca742cf79874e8ee30fdc299e2cbc224826a75a837a"
+    sha256 cellar: :any, catalina:       "0cabe091d4f897bb3dabadf4168f1f8a97d93a6a5b5fe00ce27be07d6607795f"
+    sha256               x86_64_linux:   "4778293a460bcf082bc6ee1088bfcff26e45a83c9df005cec28e942adb7fc1e4"
   end
 
   depends_on "cmake" => :build

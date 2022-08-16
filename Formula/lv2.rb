@@ -4,8 +4,8 @@ class Lv2 < Formula
 
   desc "Portable plugin standard for audio systems"
   homepage "https://lv2plug.in/"
-  url "https://lv2plug.in/spec/lv2-1.18.6.tar.xz"
-  sha256 "a552b60d615241a914f71b1100a64652e4760664354a26f2d2ac392dc9566241"
+  url "https://lv2plug.in/spec/lv2-1.18.8.tar.xz"
+  sha256 "b404cf14f776af40ca43808b45f4219dfa850a4f47aa33f89fa96ae719e174c8"
   license "ISC"
   head "https://gitlab.com/lv2/lv2.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Lv2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c779a2bdcc5e2fe16c654f4dce7a2431b6b69604290c11cbbddace913762225"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "713c9d23988b6efa19642df60680068b7bee5f1b811c178d34a85dcef57dbb0b"
-    sha256 cellar: :any_skip_relocation, monterey:       "b34f9fb3c117c3d59cebc4befdeb2f62c396a8dc5cfb534b0f2866d7d3919ad4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "de621f9b73c50276e64ea60ebd5001c6151c2b9648f25c4664efee5f4d4ab6c2"
-    sha256 cellar: :any_skip_relocation, catalina:       "6db7da8717d6cfe061c132693fe141bc88da3c1c0c447c59452a995a02a3a8e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d1abb14fbaabc01ac4329148014da9bb6c85a961b5f9223df6a52e834a96de3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "daa87f384b7273e4427129ceac5ad31c907bcb622fd2f5db62bdcd6cdc3eb1f8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed23068fd5e5a95776bbf324ea617c55047d7318572afb5c1a1e755ac00c1415"
+    sha256 cellar: :any_skip_relocation, monterey:       "b67b0e37486e087da361df78f53848ea6058ac70015fa85c4560b3dc4d33d532"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d4b428f002f2f9c28f74f98c5009dd5f5da351c26499b5721ec60927a2ad7979"
+    sha256 cellar: :any_skip_relocation, catalina:       "a7a7509601ab20a9115cd3117b8c577e3fc0a155f632950609f1ac21f0e24dbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7b0ba1633dd9a21b03f682406f60814218806fd23f68a89abee5f2200b80b25"
   end
 
   depends_on "meson" => :build
@@ -47,10 +47,6 @@ class Lv2 < Formula
     url "https://files.pythonhosted.org/packages/fc/8d/2d1c8a08471b4333657c98a3048642095f844f10cd1d4e28f9b08725c7bd/rdflib-6.2.0.tar.gz"
     sha256 "62dc3c86d1712db0f55785baf8047f63731fa59b2682be03219cb89262065942"
   end
-
-  # Fix for finding our `share` directory,  remove on next release
-  # https://gitlab.com/lv2/lv2/-/commit/53cce2dce0956239718f5f48793d1811cf543793
-  patch :DATA
 
   def install
     # Python resources and virtualenv are for the lv2specgen.py script that is installed
@@ -85,22 +81,3 @@ class Lv2 < Formula
            "-o", shared_library("amp")
   end
 end
-
-__END__
-diff --git a/lv2specgen/lv2specgen.py b/lv2specgen/lv2specgen.py
-index da58e4f..0c5a87d 100755
---- a/lv2specgen/lv2specgen.py
-+++ b/lv2specgen/lv2specgen.py
-@@ -1515,9 +1515,9 @@ if __name__ == "__main__":
-     for d in _data_dirs():
-         path = os.path.join(d, "lv2specgen")
-         if (
--            os.path.exists(os.path.join(d, "template.html"))
--            and os.path.exists(os.path.join(d, "style.css"))
--            and os.path.exists(os.path.join(d, "pygments.css"))
-+            os.path.exists(os.path.join(path, "template.html"))
-+            and os.path.exists(os.path.join(path, "style.css"))
-+            and os.path.exists(os.path.join(path, "pygments.css"))
-         ):
-             data_dir = path
-             break

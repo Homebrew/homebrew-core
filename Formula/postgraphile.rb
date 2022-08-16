@@ -19,7 +19,6 @@ class Postgraphile < Formula
   end
 
   depends_on "postgresql" => :test
-  depends_on "libpq"
   depends_on "node"
 
   def install

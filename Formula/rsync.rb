@@ -1,12 +1,11 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.4.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.4.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.4.tar.gz"
-  sha256 "6f761838d08052b0b6579cf7f6737d93e47f01f4da04c5d24d3447b7f2a5fad1"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.5.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.5.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.5.tar.gz"
+  sha256 "2ac4d21635cdf791867bc377c35ca6dda7f50d919a58be45057fd51600c69aba"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://rsync.samba.org/ftp/rsync/?C=M&O=D"
@@ -14,12 +13,12 @@ class Rsync < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "08fa9554d1b59cb8527e512fb229ce42601d667637b48632f8bbcae66e577431"
-    sha256 cellar: :any,                 arm64_big_sur:  "61dac9ffea0f0a40eaf9314c3b1ceba2fa8c8a9a87d0d5c0fd3a20799535a339"
-    sha256 cellar: :any,                 monterey:       "a2db12f600e356b534b4f474e80532b6c51bdf08143f955071e39151bb8c1ea0"
-    sha256 cellar: :any,                 big_sur:        "a159bf383a27f7457b2c33faac2ea59783e19d603e6536685ca003029b7d1de9"
-    sha256 cellar: :any,                 catalina:       "b33b761cc75d35245f73b3b5223629b92f37a23a6d42e460f94ec31581bad2a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c03f0aac78c37c2b2d15dfd79208d23056143b936b2df867db7eee371e143ae"
+    sha256 cellar: :any,                 arm64_monterey: "e81cbf8b5c10a45c292323ac21d2dddc30e75b055254561e5c39ad1ecde5013d"
+    sha256 cellar: :any,                 arm64_big_sur:  "ba293d27c4c615fe8afc1ad3bfa1e22b68856579fe75939d40a213368e769111"
+    sha256 cellar: :any,                 monterey:       "7a1103d28fe70a3e4a79d27da3b8cadef1b046f427731c5b2501e22aa17eed24"
+    sha256 cellar: :any,                 big_sur:        "801ad0f88a3db6c9339825cd3e100a2f22b756ff7c84c3f0e9874ed99cf1210e"
+    sha256 cellar: :any,                 catalina:       "ac69d4ef788e0eb998cf0c0ab128f1dba057ab87c603ac75420445cce03133c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f67e2ca6df78af1f225a415e124687992e5810c488b6846c1743bab36b79c60"
   end
 
   depends_on "lz4"
@@ -52,10 +51,6 @@ class Rsync < Formula
     # SIMD code throws ICE or is outright unsupported due to lack of support for
     # function multiversioning on older versions of macOS
     args << "--disable-simd" if MacOS.version < :catalina
-
-    # Fixes https://github.com/WayneD/rsync/issues/317
-    # remove with the next release
-    args << "rsync_cv_SIGNED_CHAR_OK=yes" if Hardware::CPU.arm?
 
     system "./configure", *args
     system "make"

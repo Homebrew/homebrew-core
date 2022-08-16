@@ -132,19 +132,12 @@ jobs:
         if: always() && runner.os == 'Linux'
         run: docker cp ${{github.sha}}:/tmp/bottles .
 
-      - name: Failures summary for brew test-bot --only-formulae
+      - name: Failures Summary and Bottle Result
         if: always()
-        run: |
-          touch bottles/steps_output.txt
-          cat bottles/steps_output.txt
-          rm bottles/steps_output.txt
-
-      - name: Output brew bottle result
-        if: always()
-        run: |
-          cat bottles/bottle_output.txt
-          rm bottles/bottle_output.txt
-
+        uses: Homebrew/actions/failures-summary-and-bottle-result@master
+        with:
+          workdir: ${{matrix.workdir || github.workspace}}
+          
       - name: Upload logs
         if: always()
         uses: actions/upload-artifact@main

@@ -1,8 +1,8 @@
 class Iperf < Formula
   desc "Tool to measure maximum TCP and UDP bandwidth"
   homepage "https://sourceforge.net/projects/iperf2/"
-  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.1.7.tar.gz"
-  sha256 "1aba2e1d7aa43641ef841951ed88e16cffba898460e0c51e6b2806f3ff20e9d4"
+  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.1.8.tar.gz"
+  sha256 "8e2cf2fbc9d0d4d1cf9d109b1e328459f9622993dc9a4c5a7dc8a2088fb7beaf"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Iperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1515e76ee5871013496697add5d40ee8b080083cbf021f77be6f205738b095a2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "40befdbb1c830f1968b956c57ea6fa1ad2583cf2ba3b9504663da6ad1a5e43e6"
-    sha256 cellar: :any_skip_relocation, monterey:       "770cfb03124e6b4f9e12c30e593ffed8fa3b0b80e76893455256d863d255e417"
-    sha256 cellar: :any_skip_relocation, big_sur:        "963cd5836ada12db6f996d21a74662de33a978855fa02a017b129740dd222942"
-    sha256 cellar: :any_skip_relocation, catalina:       "3dcfebdc27fd6572518154f7ce55243f7f6b40cb1b4d89785e0606496eb6ad0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b943de1f9fef01d95fe3ca2458898d0277777f8683f1e5d3ac43f70bf8ce113d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "40ebdb5ef396a522db73aaba0f3232b8af14c247fd5f503b39f9f3da2e90f50b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f3a7478e33428ce4f5d6fbd0b8cc2d8082b54298ccb8a71b29e60b52ff2b4b8"
+    sha256 cellar: :any_skip_relocation, monterey:       "a3a130ee28a7969fd6e6f4d8c316c55588e178cf3c2b33a337e98cf55a2812b7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c039d85e7ef0e1d4f265f11ae90a68a9b4b7c992b2d0df6ecca20db96dd0c1d5"
+    sha256 cellar: :any_skip_relocation, catalina:       "8f89f4022a0f9a21dc5b768e9b081c0597583fedf8d705abcfb53a42a574d705"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "786e18cafe8103a4ac02fb1a318f1501911ba8a67f4e18fe439c7335721350c5"
   end
 
   def install

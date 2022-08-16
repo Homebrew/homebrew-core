@@ -4,7 +4,7 @@ class Caffe < Formula
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
   license "BSD-2-Clause"
-  revision 40
+  revision 41
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class Caffe < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7f5a96c8328e6138829acf81276427238d869cf19f1c71e24022dc2d5b5d420a"
-    sha256 cellar: :any,                 arm64_big_sur:  "b8f034785b485867f7886103c4bd3fd4bd4f540b7bb0a5b7cde01714c4b9e945"
-    sha256 cellar: :any,                 monterey:       "cd851e5cba512ad56c70ddf31adcb0961e2598a540d56196bfaf3b39d4c0c904"
-    sha256 cellar: :any,                 big_sur:        "a94881877f3695dbf486e63e149e0a94cfead9ae0e9bb8f7e56dacad6aa29ee9"
-    sha256 cellar: :any,                 catalina:       "e080ed2516787bd3a43e627488e2ada20d60aa166b3919dc87e83cefe9fd35e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1717e247dc12a01921efc4dacc4507bd9e7ed645ad2f154359fdf90b2c1f106"
+    sha256 cellar: :any,                 arm64_monterey: "0b541442a6d65a4bd33be673e3e65600e03572d2a8ba7297ce591a45dff1a936"
+    sha256 cellar: :any,                 arm64_big_sur:  "6bd1fbd55fb47274ca9a00742ce531a6489be521a1a8e5854609470403881b98"
+    sha256 cellar: :any,                 monterey:       "005bad8638ff49a119722ab5eac1c570f07fd233653a6a2de2dac546a39fc994"
+    sha256 cellar: :any,                 big_sur:        "f3296808a8390757a22c4c6bff6581e8393b22cf9fead83b9027881d22b29f0d"
+    sha256 cellar: :any,                 catalina:       "19fd2287e31575e952b735c707a050bd94a8001ebe0471a51856d60ae0a0c348"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "105f09dd49c082b65850593f88c9c39dc6f0a3aee093b3d50a7a282a8aa3235e"
   end
 
   depends_on "cmake" => :build
@@ -85,9 +85,8 @@ class Caffe < Formula
 
   test do
     resource("homebrew-test_model").stage do
-      system "#{bin}/caffe", "test",
-             "-model", "lenet_train_test.prototxt",
-             "-weights", "lenet_iter_10000.caffemodel"
+      system bin/"caffe", "test", "-model", "lenet_train_test.prototxt",
+                                  "-weights", "lenet_iter_10000.caffemodel"
     end
   end
 end

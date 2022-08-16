@@ -70,11 +70,10 @@ class Mold < Formula
       int main(void) { return 0; }
     EOS
 
-    # GCC 12.1.0+ can also use `-fuse-ld=mold`
     linker_flag = case ENV.compiler
-    when :clang then "-fuse-ld=mold"
-    when /^gcc(-\d+)?$/ then "-B#{libexec}/mold"
-    else raise "unexpected compiler"
+    when /^gcc(-(\d|10|11))?$/ then "-B#{libexec}/mold"
+    when :clang, /^gcc-\d{2,}$/ then "-fuse-ld=mold"
+    else odie "unexpected compiler"
     end
 
     system ENV.cc, linker_flag, "test.c"

@@ -1,17 +1,22 @@
 class Open62541 < Formula
   desc "Open source implementation of OPC UA"
   homepage "https://open62541.org/"
-  url "https://github.com/open62541/open62541/archive/refs/tags/v1.3.2.tar.gz"
-  sha256 "65511f7268bf1a311296b21e5ebdef6e48edf04383518570117ed2a490a42855"
+  url "https://github.com/open62541/open62541/archive/refs/tags/v1.3.3.tar.gz"
+  sha256 "52c049c0f107b4cc382c9e480d677a6360cdd96c472f84689af91b423bd108cb"
   license "MPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "50bd8ee76efb0497b5cf1e85f5b1d17a27c76779aad15d2457fe10a9c5deea72"
-    sha256 cellar: :any,                 arm64_big_sur:  "7aec0d3112b68e0437bb80ec58495b8ae8cc2730b856fc7944561027e1b9ae98"
-    sha256 cellar: :any,                 monterey:       "5934f68d7d8422904a46c3db83c743126c1ad7916c7ae27f44613b049676e793"
-    sha256 cellar: :any,                 big_sur:        "d83ec9266ccd19c0276187a39b3f9e0493526b07dcf020f419e04943a3cf63a9"
-    sha256 cellar: :any,                 catalina:       "c86de6fc572b8e1c3c7b9d5a71eb16efe07216d9beca0a8c60ac9214767b13be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28bf2cde54de317f66eb561f7f26bcabf16d5da874e26008fc28d03d0f05a8c4"
+    sha256 cellar: :any,                 arm64_monterey: "3b90f3197319fc805c95e69a4d799bf1f2f55e9196659e31616be7daae5925e0"
+    sha256 cellar: :any,                 arm64_big_sur:  "87413da0058cdb3979d7615ce2e4c05b5099c5a3a8885eaf720bb8e35d1bac70"
+    sha256 cellar: :any,                 monterey:       "4b7c16700c7bebd1b82661c65de8ac7339c77923b0b8f67bdb0c081eaf98dbd1"
+    sha256 cellar: :any,                 big_sur:        "3e1da93619f98eca294d208a10e8efa6a8b4b892edc9d3b58c672e35c9bf5384"
+    sha256 cellar: :any,                 catalina:       "fc998f5e579a05c37b4c5657339aae3ee1ff0405f17fa847d72a8881679e9e3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39d0747e1d15e9bbb3b14da2e9cb2c1cbfb42ab86f3fb6cb830491922654e77b"
   end
 
   depends_on "cmake" => :build

@@ -1,21 +1,21 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.38/glade-3.38.2.tar.xz"
-  sha256 "98fc87647d88505c97dd2f30f2db2d3e9527515b3af11694787d62a8d28fbab7"
+  url "https://download.gnome.org/sources/glade/3.40/glade-3.40.0.tar.xz"
+  sha256 "31c9adaea849972ab9517b564e19ac19977ca97758b109edc3167008f53e3d9c"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_monterey: "2fa733feec86b8379ad38126164c4f4e14500cd72c8564afe505110f503c66f3"
-    sha256 arm64_big_sur:  "2a55e22c571d0d158c1b66bf18c35c44aeaed0694d139f13c48f5a6642b4785b"
-    sha256 monterey:       "a232d76fa175b219228c15125b8e1b7ba47a5e6788787dd55fdd4773186bae1e"
-    sha256 big_sur:        "0fb77b21e6176c6690410a76d843f4582c1ef833e54ce5efa620bfce514e7af7"
-    sha256 catalina:       "e5c239c3d05350ff8a8710ce6beecf7fd22461336e77d55febb338b6a1456a61"
-    sha256 mojave:         "0b641d56f385a798fafe8fe424191de83207dea5b0edcf9d06c8b8b03ad0c68f"
-    sha256 x86_64_linux:   "1ab1f368edebbb88fd763659089ffa8f987f2416583f3f59fb732300088b4f8e"
+    sha256 arm64_monterey: "3204eb2e65d9f7ee7bb01278866cd651584379e17bc3d9deb84fa3a9407e8c92"
+    sha256 arm64_big_sur:  "90b87f046dff0347c67730ecc5e616477add043a717d3014fe6a5d585c0b87c8"
+    sha256 monterey:       "29586d6ceb94728ae1dc1195e512a9a53da6a67c0efa52786f9860f768f43b73"
+    sha256 big_sur:        "6ecb0865146c646602a1cfc885992a0d5f0e6b2a5b2eda31af6a6b05a3d25e2f"
+    sha256 catalina:       "5268fbbba91775b3c1c12b3b7bdbe614c59ec60c16b72c20d7a4981d17dedbde"
+    sha256 x86_64_linux:   "a00c2411a4290e3b5c38f49a7c69a74050e8997ae51a4f12ea11133c49eed945"
   end
 
   depends_on "docbook-xsl" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
@@ -31,17 +31,6 @@ class Glade < Formula
 
   on_macos do
     depends_on "gtk-mac-integration"
-  end
-
-  # Apply 2 upstream commits to fix build with newer meson.  Remove with next release.
-  patch do
-    url "https://gitlab.gnome.org/GNOME/glade/-/commit/6da47128e8da04edccccdfcbc9101940fc15fe3a.diff"
-    sha256 "81eaacf4c9dd1c1a907f99582a81db248447935b4048e5084098041c78f9b3fb"
-  end
-
-  patch do
-    url "https://gitlab.gnome.org/GNOME/glade/-/commit/efdd5338b034a11c5d617684d92d11edc600965e.diff"
-    sha256 "37badb7b5af87d51c3eea7677547b93deb5bda51c2fc710c64de1b7cf843bf4b"
   end
 
   def install

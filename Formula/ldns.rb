@@ -1,10 +1,9 @@
 class Ldns < Formula
   desc "DNS library written in C"
   homepage "https://nlnetlabs.nl/projects/ldns/"
-  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.1.tar.gz"
-  sha256 "958229abce4d3aaa19a75c0d127666564b17216902186e952ca4aef47c6d7fa3"
+  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.3.tar.gz"
+  sha256 "c3f72dd1036b2907e3a56e6acf9dfb2e551256b3c1bbd9787942deeeb70e7860"
   license "BSD-3-Clause"
-  revision 1
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
@@ -14,12 +13,12 @@ class Ldns < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "22b2b872527449468ba6130f9bdf330a838a9fcd2d028b52cce5e7428f13d715"
-    sha256 cellar: :any,                 arm64_big_sur:  "08f0b1b77c2a87bdd4e438b030f5c9a59c870361d41fb6c7ec2a29814bd5a68f"
-    sha256 cellar: :any,                 monterey:       "947d38fc950a3cd99476e0febe4caa829691a0af42c258ae7e0e215daa630dde"
-    sha256 cellar: :any,                 big_sur:        "1647f6ad21b0e0e4f816f4271bbbc34387638911d95852fbf63a837bbb37d195"
-    sha256 cellar: :any,                 catalina:       "fc3aa818724923b5dab20d1e0dcdf98c4e572144b66d822176d41bda1df82ec2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59751769c238a663381d6d1ce43ff5b70f260279aba8eece350ee6cf77eaedc4"
+    sha256 cellar: :any,                 arm64_monterey: "84fa570a26a953f4a793d8498c95fd4d2e63646673e514566b43096e6d01944b"
+    sha256 cellar: :any,                 arm64_big_sur:  "c165e0faa3f490a9f7c7baebb538cf79b48c1334fa4ea6da3a19ca0401b36bef"
+    sha256 cellar: :any,                 monterey:       "424b3710704a509032718b9e82c3814c7eeb3391b7ac4cc8fd2ce7e7fda8946d"
+    sha256 cellar: :any,                 big_sur:        "2187a1082edbca32be2bf59a8222f05c6fb68c371324116d288547c5cca60ce3"
+    sha256 cellar: :any,                 catalina:       "5e9493ff659d9b2e8587494f94df59bb7f97897dca0292c1880d4ebe9cef28e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d82fc8ab9aa3917ad9e3d565271a6e32231eb3aa914445002f4b52053e640455"
   end
 
   depends_on "swig" => :build

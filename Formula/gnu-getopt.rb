@@ -1,17 +1,17 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.38/util-linux-2.38.tar.xz"
-  sha256 "6d111cbe4d55b336db2f1fbeffbc65b89908704c01136371d32aa9bec373eb64"
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.38/util-linux-2.38.1.tar.xz"
+  sha256 "60492a19b44e6cf9a3ddff68325b333b8b52b6c59ce3ebd6a0ecaa4c5117e84f"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "96d951b721c22830f976066f8704424bb065f1814fbd6d86fcd5f3996679db81"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7185fed500da9746d2249185f6fdbb93a7d08dd85661c5699c768004927e010e"
-    sha256 cellar: :any_skip_relocation, monterey:       "eee08bd48c1ad6adb71687db5599fe6d593769351d2cd5f9f1f2d485fc69c9b8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4951cfe10db08f60f663b717a03a01be7a774ac717be30d19a2c36fdbb38c7ca"
-    sha256 cellar: :any_skip_relocation, catalina:       "858025570517573d8254ee63717256cdfaea66def67cc0a5675a800deb0c674f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44292ce4da02a035699014bc56f714825399406ab8e3b9b5480a9e293a90af2f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ff319b6a576b32e06c5c3227eff3d3aeb9cc4c4ecf82fe894d43b4594735ef0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "257fddc790f816ced676ce58a3bdfccebceb2c0357d4f0d64fe43fb88fd7cd8a"
+    sha256 cellar: :any_skip_relocation, monterey:       "a2ec1d844554f167042583afb86dadeae8a63fd1351c8abb88a2d59a95ea8261"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c25031c8bc41e5edb2ee9e52fd163ed31be33cdfa9eb41583c77880e9e8df9fb"
+    sha256 cellar: :any_skip_relocation, catalina:       "2be0ba0cdb76b0f56f5032f1097f5e42897075ca87454b776eae0c6062ed42a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d2f5de09e2e8b566cb82a21602389c3c76eb39c04082f11e601127e70d32cb7"
   end
 
   keg_only :provided_by_macos

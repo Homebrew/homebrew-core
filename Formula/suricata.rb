@@ -4,6 +4,7 @@ class Suricata < Formula
   url "https://www.openinfosecfoundation.org/download/suricata-6.0.6.tar.gz"
   sha256 "00173634fa76aee636e38a90b1c02616c903e42173107d47b4114960b5fbe839"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://suricata.io/download/"
@@ -11,12 +12,12 @@ class Suricata < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "bb2595de1c9cb6e2844c368edb5d33e9b8794fc5ac98ac08ff4fb0346e50e812"
-    sha256 arm64_big_sur:  "3120134a41f3b40661601c6d7d8a2979e59a67fff4a55dd12e09e760d5facba0"
-    sha256 monterey:       "101bed9879dec18a6dbcd1f4017f98b56aade302e58dfc1b5569e168bb2474ac"
-    sha256 big_sur:        "d1837502a422205904afafea0a3001fb6dc41031272c1d203b7d7db737325919"
-    sha256 catalina:       "cae10715c28a6efeb7597428c59c577bb24967f05da58ec313d604ecb8c23b1e"
-    sha256 x86_64_linux:   "ea9ece149754a206fd1de53d3944329306d73504bc57f7b14860f9a4622edb1e"
+    sha256 arm64_monterey: "32e600f511c10198384a23dfb754fd70bb92193b453a76d737ee5e6dc95ad4d6"
+    sha256 arm64_big_sur:  "9fccd6e06e5f06df3eceb47f4f3653d96cb27dc67d96ea28879afa1b91743357"
+    sha256 monterey:       "bd42c43ba07d28f30910a8dc090173e8ce97b88f879767a2741ae4415b641301"
+    sha256 big_sur:        "bcfb220f88ff563ca02c4becf785d09ec91e6dce4f0b4ea25be51ea209be01b0"
+    sha256 catalina:       "48e0b96c18a0537b7710676437c29eaa7ccee87f544797175119fc0ffc4caefe"
+    sha256 x86_64_linux:   "af456f3cc561b997b884849a35106ed77bd6dea30853ae0b4002219971e0ff57"
   end
 
   depends_on "pkg-config" => :build
@@ -29,7 +30,7 @@ class Suricata < Formula
   depends_on "nspr"
   depends_on "nss"
   depends_on "pcre"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   uses_from_macos "libpcap"
 
@@ -56,10 +57,18 @@ class Suricata < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages("python3")
+    python = "python3.10"
+
+    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
+    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
+    inreplace %w[python/Makefile.in suricata-update/Makefile.in],
+              /@HAVE_PYTHON_TRUE@.*\sinstall --prefix \$\(DESTDIR\)\$\(prefix\)$/,
+              "\\0 --install-scripts=#{bin} --install-lib=#{prefix/Language::Python.site_packages(python)}"
+
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages(python)
     resources.each do |r|
       r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system python, *Language::Python.setup_install_args(libexec/"vendor", python)
       end
     end
 
@@ -105,6 +114,6 @@ class Suricata < Formula
   end
 
   test do
-    assert_match(/#{version}/, shell_output("#{bin}/suricata --build-info"))
+    assert_match version.to_s, shell_output("#{bin}/suricata --build-info")
   end
 end

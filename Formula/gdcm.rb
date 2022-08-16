@@ -37,17 +37,19 @@ class Gdcm < Formula
 
   fails_with gcc: "5"
 
+  def python3
+    which("python3.9")
+  end
+
   def install
     ENV.cxx11
 
-    python3 = Formula["python@3.9"].opt_bin/"python3"
-    xy = Language::Python.major_minor_version python3
     python_include =
       Utils.safe_popen_read(python3, "-c", "from distutils import sysconfig;print(sysconfig.get_python_inc(True))")
            .chomp
     python_executable = Utils.safe_popen_read(python3, "-c", "import sys;print(sys.executable)").chomp
 
-    args = std_cmake_args + %W[
+    args = %W[
       -GNinja
       -DGDCM_BUILD_APPLICATIONS=ON
       -DGDCM_BUILD_SHARED_LIBS=ON
@@ -63,18 +65,16 @@ class Gdcm < Formula
       -DGDCM_WRAP_PYTHON=ON
       -DPYTHON_EXECUTABLE=#{python_executable}
       -DPYTHON_INCLUDE_DIR=#{python_include}
-      -DGDCM_INSTALL_PYTHONMODULE_DIR=#{lib}/python#{xy}/site-packages
+      -DGDCM_INSTALL_PYTHONMODULE_DIR=#{prefix/Language::Python.site_packages(python3)}
       -DCMAKE_INSTALL_RPATH=#{lib}
       -DGDCM_NO_PYTHON_LIBS_LINKING=ON
     ]
 
-    mkdir "build" do
-      ENV.append "LDFLAGS", "-undefined dynamic_lookup" if OS.mac?
+    ENV.append "LDFLAGS", "-undefined dynamic_lookup" if OS.mac?
 
-      system "cmake", "..", *args
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -91,6 +91,6 @@ class Gdcm < Formula
     system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test", "-L#{lib}", "-lgdcmDSED"
     system "./test"
 
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import gdcm"
+    system python3, "-c", "import gdcm"
   end
 end

@@ -1,18 +1,18 @@
 class Libvatek < Formula
   desc "User library to control VATek chips"
   homepage "https://github.com/VisionAdvanceTechnologyInc/vatek_sdk_2"
-  url "https://github.com/VisionAdvanceTechnologyInc/vatek_sdk_2/archive/v3.04.tar.gz"
-  sha256 "a2a380fe653f83445153b2043cb00fa3ac63464499e467aa3d1633b715dec1ed"
+  url "https://github.com/VisionAdvanceTechnologyInc/vatek_sdk_2/archive/v3.05.tar.gz"
+  sha256 "35cabadc9a626460f030959ed86ad8619ce070ddb5fa528abf15dfa34c10619d"
   license "BSD-2-Clause"
   head "https://github.com/VisionAdvanceTechnologyInc/vatek_sdk_2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "220f72cc369ab7e69b3547f6a71e4c078dfeeec1485e6a331eb4755743c529bb"
-    sha256 cellar: :any,                 arm64_big_sur:  "4a7a98f3ab3ab91232086cfc10a448f8ef1df4d94fb664550ba970c7fdb933a5"
-    sha256 cellar: :any,                 monterey:       "e8f1907b5f376fb41fc5a72f4b1965252cbdcb0c871c2469c8c8bfabad0f438f"
-    sha256 cellar: :any,                 big_sur:        "72cbbe10f0973578f4137045f1bd9278a18c4f207f7ea396d46d4e4c18241465"
-    sha256 cellar: :any,                 catalina:       "8fc16b833cf8a37dcd54289bb3927fd9dd7e672e8ebec4029f8de182e161f25b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "daab2851756390d5d1a854c2f03fde280e296ef69ae631198db4c13b327b753f"
+    sha256 cellar: :any,                 arm64_monterey: "e5cf4d77087718a4e0eb9442a3711f755d33addaf57e534e81f79d6a96be89a4"
+    sha256 cellar: :any,                 arm64_big_sur:  "de11f06a7c23727ce70d3cb9c48f70d35a42f1824ad04a306f89f7e18b970c7d"
+    sha256 cellar: :any,                 monterey:       "68295da03b7831b568b396297668674c0749648067920172a2c24da373e9bd25"
+    sha256 cellar: :any,                 big_sur:        "06dc7b585a2d66bb9fd642a218f6037aff52a0bd53179b642b21145e632491e3"
+    sha256 cellar: :any,                 catalina:       "3613ba84bc530faee9f59b30a6a37d2857baf38d698faab6d90ced6359b201fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43a1b8ab023dab39bc9613c6178d064996725a900865298a3220e058b66f74a5"
   end
 
   depends_on "cmake" => :build

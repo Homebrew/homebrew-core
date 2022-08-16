@@ -1,19 +1,17 @@
 class Zlog < Formula
   desc "High-performance C logging library"
   homepage "https://github.com/HardySimpson/zlog"
-  url "https://github.com/HardySimpson/zlog/archive/1.2.15.tar.gz"
-  sha256 "00037ab8d52772a95d645f1dcfd2c292b7cea326b54e63e219a5b7fdcb7e6508"
+  url "https://github.com/HardySimpson/zlog/archive/1.2.16.tar.gz"
+  sha256 "742401902f2134eb272c49631fe5c38d7aeb9a2ad56fa3ec3d15219b371ba655"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3328780426e5d4b751d8e2d2be3e521443426e60ab2e3acc0738e4215c846b88"
-    sha256 cellar: :any,                 arm64_big_sur:  "d2798cae6a89a001fed3fafe113fd26594d34c6c2d61d08fcd1e84ec513fb889"
-    sha256 cellar: :any,                 monterey:       "025232893c2e856b7551f64659c4250b724b903c6fd18b7af2d8575658b68dad"
-    sha256 cellar: :any,                 big_sur:        "07b323ff8ba13c92bf8c720b6fd0a760a776b5e9d6f46356700066ef2b3643a6"
-    sha256 cellar: :any,                 catalina:       "31352f21933854c635450c9cc5c00f1dc1370a62a331a691879bea2eaba45582"
-    sha256 cellar: :any,                 mojave:         "170ffd446913b23c344d82160c19bfb1c8325c07dc31490a636e72345abe1c7b"
-    sha256 cellar: :any,                 high_sierra:    "332ed23525b10970bd5bc81052bae67755aee5f2651fdaafed5dd036da470239"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54d50cc28304b4841a04e49e269eef63c28be2be50031119ddf80cd1fb9ec2fc"
+    sha256 cellar: :any,                 arm64_monterey: "16588f7d867f7426696693b19ee0221ff7483c2d7a34a856e3acb32c46c8ea41"
+    sha256 cellar: :any,                 arm64_big_sur:  "04ed8b2ebcbbf23a3e6ad76b8d80914f939e6fc6cadfd297b91c3d4d1d29b8b0"
+    sha256 cellar: :any,                 monterey:       "19cf707f5b5720aefa8f7cbb851a032a9a16900b7b17685530aa59081cbb0ee5"
+    sha256 cellar: :any,                 big_sur:        "f1384547bacef98381ae766dc90efc690a6a2a87dca0763a0572a3288ad68aee"
+    sha256 cellar: :any,                 catalina:       "62f3fbab6a72eb27a201c1c31cdb2cf8d4170053fdbfbe27130452026d01da69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "204935c1271f0c1cca1543ba6e71f7b1fcfcb611b97c6b32057c452abc1c2478"
   end
 
   def install

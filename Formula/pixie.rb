@@ -7,6 +7,11 @@ class Pixie < Formula
   license "Apache-2.0"
   head "https://github.com/pixie-io/pixie.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(%r{^release/cli/v?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e4e011905afa7d997e4629ebac4b698ad2609e6b7ebc24f26171aa64d2e19df8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b98312a2a6d3f5522b496672257548451f322b9583cc433e1b85ce3d2fc405bd"

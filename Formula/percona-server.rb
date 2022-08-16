@@ -1,10 +1,9 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.28-20/source/tarball/percona-server-8.0.28-20.tar.gz"
-  sha256 "88890e081d70901f938e39b688663d4514910773488fca42cd6de0f4371fb157"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.29-21/source/tarball/percona-server-8.0.29-21.tar.gz"
+  sha256 "a54c45b23719d4f6ba1e409bb2916c59dc0c9aaae98e24299ff26f150ad4f735"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-Server-LATEST/"
@@ -12,12 +11,12 @@ class PerconaServer < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "c9e4666a211c4518fb8ec476d31787a7444052eee170f795c9627827c63ed340"
-    sha256 arm64_big_sur:  "f0053fa76ffddda44648fc661b4b78598adbd56d6f0b8da44bc87b264edceae4"
-    sha256 monterey:       "ad7bc723035a9751aaf5759dcaa145d946edb804af2e5b912416035a2e6e2d81"
-    sha256 big_sur:        "64073166682704e24987ab8a0fb0390e8dd69b63beddb4522f68c0c6555be1f1"
-    sha256 catalina:       "d39e4d11773084c919425316bdad2d58fdf2bca38b56103376e48c926a31b170"
-    sha256 x86_64_linux:   "36eb30e92549e3277d3792a27f3f4ec44123f519e653a7bb8e804967861eff89"
+    sha256 arm64_monterey: "c98ddb4d66cb8edbc1f6e72ea82fa74c3b9e53c437337fc803fe0ead0a8ab1da"
+    sha256 arm64_big_sur:  "db7b2941016ec6821f1f2177c34e8596363547e4873b7a17be47895dc1fd286d"
+    sha256 monterey:       "c9bed490b931dd4966b9c89b7af4f1a20dfaf7f00b627b607260d8520eb559f1"
+    sha256 big_sur:        "0b017bcbe082ceee94ae73c2c202e9086a3a17414318e0417014cc24cdb1212e"
+    sha256 catalina:       "1b1ea52887f1b51349e90e5f8975332c9460510558647a7b7ccbf7d57fde9ba3"
+    sha256 x86_64_linux:   "986d323ad8643214c5518b2486a2eb82b2465ba237add55bff5d6a36575fa8ee"
   end
 
   depends_on "cmake" => :build
@@ -62,15 +61,8 @@ class PerconaServer < Formula
 
   # https://github.com/percona/percona-server/blob/Percona-Server-#{version}/cmake/boost.cmake
   resource "boost" do
-    url "https://boostorg.jfrog.io/artifactory/main/release/1.73.0/source/boost_1_73_0.tar.bz2"
-    sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
-  end
-
-  # Fix libfibo2 finding; fix unneeded copying of openssl@1.1 libs
-  # Remove in the next version (8.0.29)
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3e668c9996eef41f7d7fa4e2d647f2b80da699e1/percona-server/8.0.28-19.diff"
-    sha256 "1410c30b8634c2bb011de08a45ea2b2c7edce13b846871a8447658c1c262ddbf"
+    url "https://boostorg.jfrog.io/artifactory/main/release/1.77.0/source/boost_1_77_0.tar.bz2"
+    sha256 "fc9f85fc030e233142908241af7a846e60630aa7388de9a5fafb1f3a26840854"
   end
 
   def install

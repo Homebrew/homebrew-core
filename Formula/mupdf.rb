@@ -1,10 +1,9 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.20.0-source.tar.lz"
-  sha256 "68dbb1cf5e31603380ce3f1c7f6c431ad442fa735d048700f50ab4de4c3b0f82"
+  url "https://mupdf.com/downloads/archive/mupdf-1.20.3-source.tar.lz"
+  sha256 "6f73f63ef8aa81991dfd023d4426a548827d1d74e0bfcf2a013acad63b651868"
   license "AGPL-3.0-or-later"
-  revision 1
   head "https://git.ghostscript.com/mupdf.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,12 @@ class Mupdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ede506c4bc48b3092f01c6cf28b010bc97335fecdd82868b26906fb2b40d7657"
-    sha256 cellar: :any,                 arm64_big_sur:  "47a750c5a8496636ec95b6cb795f5d8c69fd8276a7d82bfa56f7c335f3752449"
-    sha256 cellar: :any,                 monterey:       "521afd339695b937ee947ac532bee1167f4f9d0eacc78d7e7d85bbd6dd001555"
-    sha256 cellar: :any,                 big_sur:        "fdf5620f1d447bbdfe12f933717500d018f0848d7dbf785d6c8b632a9037435b"
-    sha256 cellar: :any,                 catalina:       "53fa93d6ad092065f3b2d734a275ea0c1123036978c11ba76791d6285fec102b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e02cd29a6a482eb30cf82bd599cf014db70d70fd965d7c832d914f044afd128"
+    sha256 cellar: :any,                 arm64_monterey: "fd53c923bf3ef8d6dfbc4e17d964dea8f654f33895ab17bc68a13e7257f31d99"
+    sha256 cellar: :any,                 arm64_big_sur:  "d4de8eca45bddbaaffa4f967810e4cccf6bea5fddada820dd485e32459091e8f"
+    sha256 cellar: :any,                 monterey:       "ba5d902321147f9c470410c4cc2cd65e4f327a48ed604ba10afe807aff2494cd"
+    sha256 cellar: :any,                 big_sur:        "e1ca6bb0d8578b49f7bd53377fc52e8c55b98e8861b849199855b5c70430188a"
+    sha256 cellar: :any,                 catalina:       "453fe6af4893acd064313e020018e96a9928abbd24e9fb9132247c217635cde7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d2ad0097c293160cbb9d3932ae311a11cb4c13f47d11577c654d0827c95b831"
   end
 
   depends_on "pkg-config" => :build

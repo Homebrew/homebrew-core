@@ -1,24 +1,25 @@
 class GeocodeGlib < Formula
   desc "GNOME library for gecoding and reverse geocoding"
-  homepage "https://developer.gnome.org/geocode-glib"
-  url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz"
-  sha256 "01fe84cfa0be50c6e401147a2bc5e2f1574326e2293b55c69879be3e82030fd1"
+  homepage "https://gitlab.gnome.org/GNOME/geocode-glib"
+  url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.4.tar.xz"
+  sha256 "2d9a6826d158470449a173871221596da0f83ebdcff98b90c7049089056a37aa"
   license "GPL-2.0-or-later"
-  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "21cca31313c96d334bf20a5db535619d0114128474f2f38bb09e4bbf422b721d"
-    sha256 cellar: :any,                 monterey:      "d25cc02e785d8f10bedca31db01bf00c1cf0f2553f8ab4cac8266ad02fc7ed9e"
-    sha256 cellar: :any,                 big_sur:       "41432c280b4a1244a1a55466059170cd470d5e86fddf1cf3ca7bc4f5f7d14960"
-    sha256 cellar: :any,                 catalina:      "a0bdd13a694d1f4ee94de206de6fc03ad01df82ce3ca7ea7850e274eb86772b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5087451ab0d29991b1760b263802a81a2497f5a157f40ac931570c2146de42a8"
+    sha256 cellar: :any, arm64_monterey: "e05e16cff98263e502be86ba8e0dacc2b9db8c206ab2e39328aa251958fa46ff"
+    sha256 cellar: :any, arm64_big_sur:  "5dc4f7038ee843898bc1d66c831de594045bc07d75803d9ceeb439979e974635"
+    sha256 cellar: :any, monterey:       "a852370762b744056678baa6be4c500f2ed664ac62e7e8f5158601b076526216"
+    sha256 cellar: :any, big_sur:        "641b09e8c9fc3bfcd486651f28cac679dde0d14c7d70d026030d8cb2e05848f7"
+    sha256 cellar: :any, catalina:       "d89e09d0947a2aaf675a5039e7199518592f19611a5cd21f0edda22cbf4d16d2"
+    sha256               x86_64_linux:   "e0224472f08ddfa0a81deb972c4bb6e15e1ff8ae53df5cbe47d130f20a7aa8fc"
   end
 
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "glib"
   depends_on "gtk+3"
   depends_on "json-glib"
   depends_on "libsoup@2"
@@ -36,7 +37,7 @@ class GeocodeGlib < Formula
   end
 
   def post_install
-    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/gnome"
+    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do

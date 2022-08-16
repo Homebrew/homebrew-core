@@ -4,19 +4,20 @@ class Pianobar < Formula
   url "https://6xq.net/pianobar/pianobar-2022.04.01.tar.bz2"
   sha256 "1670b28865a8b82a57bb6dfea7f16e2fa4145d2f354910bb17380b32c9b94763"
   license "MIT"
+  revision 1
   head "https://github.com/PromyLOPh/pianobar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f4aac768566d7d4f836ce686199b08585d4eec473e9d5f200901c2f7cfa1e434"
-    sha256 cellar: :any,                 arm64_big_sur:  "0e70e3e20027f3ff0e0d1861b748652e8ab246f94b1fda4d9fd3c94cc5cad767"
-    sha256 cellar: :any,                 monterey:       "64635847e06da3d6e266f1b40c96dee5426c105ed9b729bc89f6c140b8a1dd3f"
-    sha256 cellar: :any,                 big_sur:        "35bc90ee98a331be04276847b798f182735edac577e08fe52eec3cc7b797290f"
-    sha256 cellar: :any,                 catalina:       "bfd957e751c983b93c60bbd35f4bb559a4404984abb7868072d7e5a7053d9ac0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ee38d829cc76f5e0af0d6622d5b3039d9223b2ed22ab33ee06589a4571f4fa5"
+    sha256 cellar: :any,                 arm64_monterey: "7c33a6f2e9b9ae1d701f14a520292c89caa7ea330e8211c9987ee391f20618d4"
+    sha256 cellar: :any,                 arm64_big_sur:  "530a99e4e0542d8464ae5230de3c45603476d1c6bf8c1a08ffba215959753b99"
+    sha256 cellar: :any,                 monterey:       "6233ef41fd8d56e42636aa74ccb7ef2612f13d55f7117a2fe0241da90f003bd0"
+    sha256 cellar: :any,                 big_sur:        "cc1f2870b2bcfd05cd880aec0587fba5208ec42897c1338ae8ea89f8abf713b8"
+    sha256 cellar: :any,                 catalina:       "5eba43deaa835d05bbc03636fc3277d7a40120e381ba8ba2430d07ab6d272fa8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99e93aa0bf38508bc6f7174b91dc72dcf32ee79dbe92d4c6057864b3d8009206"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "json-c"
   depends_on "libao"
   depends_on "libgcrypt"

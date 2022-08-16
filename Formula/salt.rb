@@ -6,16 +6,16 @@ class Salt < Formula
   url "https://files.pythonhosted.org/packages/78/47/0acfc5d43fcf4b01c3f650ce884525dd2330b8827364e4509819f7e925d3/salt-3004.2.tar.gz"
   sha256 "2fa644f6200d4e36b55846cb372b6e67b6ca0fbec0697f1d8d73e771b665ed70"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/saltstack/salt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e62a03420f4859b5d7370b7b4800b73b7b198f97a6ebae2a04d9e77e340a32dd"
-    sha256 cellar: :any,                 arm64_big_sur:  "76308937ea092c4dfc0c661c228cca5c1114d2413ef50be71257d6dc4ee213ac"
-    sha256 cellar: :any,                 monterey:       "cd8258f57d8bd3b0d47ff3aae83ad0180784fcf312a647b33175e51b3a2de34a"
-    sha256 cellar: :any,                 big_sur:        "1aee80b0ed6be7c2cda3fecba7ca5e7aea559945d96bafeb5fabea208c5b7a37"
-    sha256 cellar: :any,                 catalina:       "9f81d609b9fbac2571099386ffaf3af3608b96fc03a411b04398051138513a76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24c490917bab507a7bcf60a0b53669182eb75369416da07b71b3eb983767c2de"
+    sha256 cellar: :any,                 arm64_monterey: "a90839141ecc09e48bc5a3d902683d7aae10ee6b8a08a0d0d5f44ee105d4d060"
+    sha256 cellar: :any,                 arm64_big_sur:  "aa572566e8b4fe00467e62d83054c9ecd317bc66600f71e6a588d38b0fc881d8"
+    sha256 cellar: :any,                 monterey:       "49bf8704443a81b0cf0da86474cb4ee3bebe7293f5a34e82281b331a513db041"
+    sha256 cellar: :any,                 big_sur:        "bd0a8f8957d8b5072a7d8a70d71fa39f5746273bf79e14d2744e166cf4c905b9"
+    sha256 cellar: :any,                 catalina:       "615c5d3d6f42d493c67e44a9e5368de45057ca8a4a77939560cd352a23a58595"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d9d4fd019be45f330c67728bb4b2c2e044f09f91af184e359eaec5c71ac18f0"
   end
 
   depends_on "swig" => :build
@@ -185,8 +185,8 @@ class Salt < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/15/69/95baec94618352fad36a5c53ed1a7a96f7de96d2b36c5ac3fc2a5017b78a/pygit2-1.9.2.tar.gz"
-    sha256 "20894433df1146481aacae37e2b0f3bbbfdea026db2f55061170bd9823e40b19"
+    url "https://files.pythonhosted.org/packages/e7/8a/e52a1c8b9878e9d9743089393f8289bb9c8a81eaab722df22df46a38b9e9/pygit2-1.10.0.tar.gz"
+    sha256 "7c751eee88c731b922e4e487ee287e2e40906b2bd32d0bfd2105947f63e867de"
   end
 
   resource "pyOpenSSL" do

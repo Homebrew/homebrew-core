@@ -2,18 +2,18 @@ class Yorkie < Formula
   desc "Document store for collaborative applications"
   homepage "https://yorkie.dev/"
   url "https://github.com/yorkie-team/yorkie.git",
-    tag:      "v0.2.13",
-    revision: "0cca5e25b8b83ad5b389f84735324a016f9691f9"
+    tag:      "v0.2.16",
+    revision: "b5321a49607ec6c52f7d46594cb7f16a0ebd41c9"
   license "Apache-2.0"
   head "https://github.com/yorkie-team/yorkie.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cbf51dfd6da4098091f48698645aa459331c4e5553bc08de8ad7a909b4a9ed1b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f957da810b7f1cf514f87d9b7a56f9b9ddc46adc6babc9e4ade4618e336d65d3"
-    sha256 cellar: :any_skip_relocation, monterey:       "2b766ff897dadd0e55950d7c7a02ab1b02c5829e51433f294084c7f44305f7bd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "da4de907109e36d42866752fb77bdf2b70833ad9b598149674b5fe697eeffee0"
-    sha256 cellar: :any_skip_relocation, catalina:       "0a07b6e773941a452920e5e5c3836245af0253ea8a58dfb1a998ac1c62e149dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a2488fedc8d33e5cd7fffd222b3714b204487b9cfc3d0f148ccbd2510b43ef9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3347f51efceb0a6b54a4abd9e9e4c9af38804ba61cd695fcea1f2b4f0a3d72f9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a9459dea7d576e5a71b232c0cbb3a591a14e638196bf27634f5b6fe74407ce9"
+    sha256 cellar: :any_skip_relocation, monterey:       "d1fa1c50ccf0af19f4f46ba76ab27d779aa4f60169beb3c3706fdf60fce85dd2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fbc1ce5e5dd831eaff66aca1acf37101786f64f942bfe8b51ec828dabec1fa9d"
+    sha256 cellar: :any_skip_relocation, catalina:       "5f1c4752b90bda4cdb6065ba40ff9bb14501584a33e3eadf55d170406d92ee5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db807b8b9f8e83b62e176ec2da0c7787830f4644b401151903e330c249314315"
   end
 
   # Doesn't build with latest go
@@ -38,6 +38,7 @@ class Yorkie < Formula
     end
     # sleep to let yorkie get ready
     sleep 3
+    system bin/"yorkie", "login", "-u", "admin", "-p", "admin"
 
     test_project = "test"
     output = shell_output("#{bin}/yorkie project create #{test_project}")

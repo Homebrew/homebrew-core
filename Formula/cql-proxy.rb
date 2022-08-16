@@ -1,17 +1,17 @@
 class CqlProxy < Formula
   desc "DataStax cql-proxy enables Cassandra apps to use Astra DB without code changes"
   homepage "https://github.com/datastax/cql-proxy"
-  url "https://github.com/datastax/cql-proxy/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "25cd9a87078c11caed7da14d2b8b85e5240bfe1aff5b666d0dcad9e73c15b305"
+  url "https://github.com/datastax/cql-proxy/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "961c002d9cdc12d78c37f35775e8a18f42f96657681894dd9e7edcb22e546c37"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c40edbb5b8f950de21ac5ab40e99e4e4c3dffa5f854907ae8be3b97b453bcb8a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c79d8cdd3f900c4096c5e9acf193dd7d03b17eb3713d514772e314d1b35b231"
-    sha256 cellar: :any_skip_relocation, monterey:       "4234a8f0300765647a7bf841efdda05fe83d42a6f46ff0fe95df85e10a03259b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "636a68d6a6a45db32ead9cf6dfb8d0e6e2cdc3909be8ff675fd55db875432a73"
-    sha256 cellar: :any_skip_relocation, catalina:       "bf932c54fd666e1d902672a5bf69a021a3479b2326766b9521079c9457b139f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cc1203816a51f1a3322145f36a9aae27d82def0a32d8883c859c1da94aeb966"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c70df3d91138d2b9a45ace13e9dc06183d3706277923a7b9aa148ba10633d1ea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "39fda7fc2620dfe85c51c6ae4e4a610ff8dc8a1c14fb54cdec5dd5404e5ba0e5"
+    sha256 cellar: :any_skip_relocation, monterey:       "c11803b4600192258ddf4404cf67d9f922e34b490cd6e4a80d430826b0beded6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "67986132bd8266cd944bcce9001c1673633f9d4781b6f51cb5d4d582617d8358"
+    sha256 cellar: :any_skip_relocation, catalina:       "c27fbf050c448cfd5e4b95832701f9c12f540bad3b4aac424d49c33b2e8cf32e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "372e5a3a6f903bcf11cffa51d4841e0806f7b4dfb7d1ed29439d97decc0814b2"
   end
 
   depends_on "go" => :build

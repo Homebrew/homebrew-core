@@ -1,8 +1,8 @@
 class Csvq < Formula
   desc "SQL-like query language for csv"
   homepage "https://mithrandie.github.io/csvq"
-  url "https://github.com/mithrandie/csvq/archive/v1.17.8.tar.gz"
-  sha256 "2e5c189d62f2dfd4f7a593be640893925626e49ea44ad020c1b141d82849e128"
+  url "https://github.com/mithrandie/csvq/archive/v1.17.10.tar.gz"
+  sha256 "0285f2d1e11eb3d571809d5bb4c2cf568b22c5dec68193c828b2f1c89f59da4e"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Csvq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e722263a74d2bd27fb9c482ad995430d5420d313aa84d82d031d93116dde8f7c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "90b662b18ded864dce93a3b0ac1d2466103fe65d5d5dd4ad0fbb97a9a9061886"
-    sha256 cellar: :any_skip_relocation, monterey:       "b382c184bebde54b435b972ef5e718054a06e3a14dd97a7b311c53e44de67d0f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8a37a855e55d914e82d62ce43133736fbaf00f1b42a98cf87cdc78c1d9e6bf06"
-    sha256 cellar: :any_skip_relocation, catalina:       "bc1ebc16ec26777f6ea83b323eaf22dbab40afc4c17bdce5e537cecc1fa629b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef1f38071b02c212fc12ebf2b47b426576c986edce0165c2b66e9038f047c421"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "32c77a4f4c69a1b75523af4767bf9a9b6b16141799aa01f370e05aa9b5612de8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "201bade79a136fe172b91154f5cea4f20866c1ffc2ab2ca0b7e1f0446c32bf8a"
+    sha256 cellar: :any_skip_relocation, monterey:       "55ef3795fa0977fa726cf56d15875d0786f480612ae3532cb04cb77cb951eb5f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "206878815431a29b9f7a74ddd2d8f7fa9256bda68a452fb08d19974a6bffb4d7"
+    sha256 cellar: :any_skip_relocation, catalina:       "b36ae6f75dcb1af8051ac311bc40c956cd0f03e2cd235f33124132e913019ebb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cff744d07f89372e4cacb2c31b29c3a0a9d449d3b91bbdbfcf22e9d2ce0e77b0"
   end
 
   depends_on "go" => :build

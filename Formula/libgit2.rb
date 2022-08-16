@@ -1,8 +1,8 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v1.4.4.tar.gz"
-  sha256 "e9923e9916a32f54c661d55d79c28fa304cb23617639e68bff9f94d3e18f2d4b"
+  url "https://github.com/libgit2/libgit2/archive/v1.5.0.tar.gz"
+  sha256 "8de872a0f201b33d9522b817c92e14edb4efad18dae95cf156cf240b2efff93e"
   license "GPL-2.0-only"
   head "https://github.com/libgit2/libgit2.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Libgit2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "332c012c8f5218acc8e02d076d6f588a7a894544d53fc8b38d11bf3eb6c9cc3d"
-    sha256 cellar: :any,                 arm64_big_sur:  "ce3c004de97ade23b818f3e039fb1b512d9d6a0e1b10e199ca497bd7ed202bb7"
-    sha256 cellar: :any,                 monterey:       "fc0f26f5383d478d225ee126ed802656b0490817a69f5b066f7902c168ec2576"
-    sha256 cellar: :any,                 big_sur:        "79f8276aa1edb0286d573ae91e06f009e951ed0fbe5dedb5dead84d1106a5de0"
-    sha256 cellar: :any,                 catalina:       "49b7ca1f4c469f91b91a1232f6fad32f507bcf5a57c45ee4c362b012d4ce7350"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5e2330130e07eefae1c03d7e563335d197cd055ce6b2fa4ebe630f4b0c9c089"
+    sha256 cellar: :any,                 arm64_monterey: "1a3d957e46a244f78689420ad9c5d3fa0072ff08672bae7d5f2ce3ec426a82d3"
+    sha256 cellar: :any,                 arm64_big_sur:  "914aa3e7cae6be1ee2eb580859114df902a495f1169219f57225180684d401ff"
+    sha256 cellar: :any,                 monterey:       "a377a03747dbd5e8cebc9ea437bad644a41f60c24bafaf3ae239f42edb69e992"
+    sha256 cellar: :any,                 big_sur:        "81760fb5880774ed47c470aca07bdcf1945a241c7a2bc9c9727ba4c1d8f18bca"
+    sha256 cellar: :any,                 catalina:       "ecfb9a5ac0a3d99b576ea500dbde84c6370bac68a1d896b7c7deb1b2d3c5f704"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5645a27c2804fb54b79a269690d7cdba4a59f5f65859dcca866eb5f80af707b9"
   end
 
   depends_on "cmake" => :build

@@ -4,7 +4,7 @@ class Gdal < Formula
   url "http://download.osgeo.org/gdal/3.5.1/gdal-3.5.1.tar.xz"
   sha256 "d12c30a9eacdeaab493c0d1c9f88eb337c9cbb5bb40744c751bdd5a5af166ab6"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -12,12 +12,12 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "913d17c33289ba2e65b9beaa5c0f00653207881cb6ddbb277f915c9d0aeff06c"
-    sha256 arm64_big_sur:  "0cb79eefd9446fae2e78ec0cfe03b546fbb83adc10f3f6673e8bd14b8bbd6ee6"
-    sha256 monterey:       "7bf0a9874eee1dbe61b79087450ba8ae32b0719aba13ad1628d83eb023d84e87"
-    sha256 big_sur:        "a0125ca12f72224b6a2a8f381f95077675ce7b5c7446d7f19fef910154817706"
-    sha256 catalina:       "b36fa184f01632796a6d259cba8d4c8cc9be59151a952f04a9b14c270a8f1678"
-    sha256 x86_64_linux:   "9af5a929a9539fc4a4050dab4a93ab6c08fc472b9d4212496003a081d986be4e"
+    sha256 arm64_monterey: "69a59365a67724fd99ab58e276fde7135cc155ad9243db52e4158d4fc1ecb981"
+    sha256 arm64_big_sur:  "a3d7e42ef4a2e8dacd26c23d02e7e47082a0b4d96b398b4b8c9d9612689c0cbf"
+    sha256 monterey:       "a007b881b98ed5b0947e40007968f1b2fc8ad6e2ae6b040c89bcc686019ff9aa"
+    sha256 big_sur:        "42b241e13ce236b34a23785f5237c5f4167c3def7e408d4905e19ce338200986"
+    sha256 catalina:       "c3d255d56b82b43f24cbbc9e930425431f7bac31bf68593c00191a94d41eefc6"
+    sha256 x86_64_linux:   "843e7d8c6bf82251d48028bf343e082d9c2bfd8c4e86b59efa2ab1778fd4c207"
   end
 
   head do
@@ -33,7 +33,7 @@ class Gdal < Formula
   depends_on "geos"
   depends_on "giflib"
   depends_on "hdf5"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "json-c"
   depends_on "libdap"
   depends_on "libgeotiff"
@@ -48,7 +48,7 @@ class Gdal < Formula
   depends_on "pcre2"
   depends_on "poppler"
   depends_on "proj"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "sqlite"
   depends_on "unixodbc"
   depends_on "webp"
@@ -67,6 +67,10 @@ class Gdal < Formula
   conflicts_with "cpl", because: "both install cpl_error.h"
 
   fails_with gcc: "5"
+
+  def python3
+    "python3.10"
+  end
 
   def install
     args = [
@@ -89,7 +93,7 @@ class Gdal < Formula
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
       "--with-geotiff=#{Formula["libgeotiff"].opt_prefix}",
       "--with-gif=#{Formula["giflib"].opt_prefix}",
-      "--with-jpeg=#{Formula["jpeg"].opt_prefix}",
+      "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}",
       "--with-libjson-c=#{Formula["json-c"].opt_prefix}",
       "--with-libtiff=#{Formula["libtiff"].opt_prefix}",
       "--with-pg=yes",
@@ -158,29 +162,28 @@ class Gdal < Formula
       ENV.append "CFLAGS", "-I#{buildpath}/gnm"
     end
 
-    ENV.append "CXXFLAGS", "-std=c++17" # poppler-qt5 uses std::optional
     system "./configure", *args
     system "make"
     system "make", "install"
 
     # Build Python bindings
     cd "swig/python" do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system python3, *Language::Python.setup_install_args(prefix, python3)
     end
-    bin.install Dir["swig/python/scripts/*.py"]
+    bin.install buildpath.glob("swig/python/scripts/*.py")
 
     system "make", "man" if build.head?
     # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
     system "make", "install-man", "INST_MAN=#{man}"
     # Clean up any stray doxygen files
-    Dir.glob("#{bin}/*.dox") { |p| rm p }
+    bin.glob("*.dox").map(&:unlink)
   end
 
   test do
     # basic tests to see if third-party dylibs are loading OK
-    system "#{bin}/gdalinfo", "--formats"
-    system "#{bin}/ogrinfo", "--formats"
+    system bin/"gdalinfo", "--formats"
+    system bin/"ogrinfo", "--formats"
     # Changed Python package name from "gdal" to "osgeo.gdal" in 3.2.0.
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import osgeo.gdal"
+    system python3, "-c", "import osgeo.gdal"
   end
 end

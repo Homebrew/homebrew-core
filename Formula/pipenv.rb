@@ -3,17 +3,17 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/f2/4f/846ce0d3c9a9e274703312fcc58aecf7fc2464cc7a47c1a635a75917f377/pipenv-2022.8.5.tar.gz"
-  sha256 "6cc26b3b2095c2fbc71a5157443e98d80f779b0613e201bf77f745258ee036fb"
+  url "https://files.pythonhosted.org/packages/5d/c6/aaf4e5e8eb2cd854c27e13f3efdacdcbf519d52760a06851ad96c1d9675c/pipenv-2022.8.15.tar.gz"
+  sha256 "bd9bf3963290bfd2e3bcd0dc453b819ffcbe9e849852d86683c9bb385fb271cb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e78093b972b3a7f5690d3badcf91d00b0c292813fd5c2ce7744ad17f4b10d3dc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9060a3ac726e292519eb1b266352eec8df8c9d3f6856f0ae6b2716610c75838"
-    sha256 cellar: :any_skip_relocation, monterey:       "b0676608671bdfb57b8a69d3ad79183e6e9afb9340a44b947d95284008da0610"
-    sha256 cellar: :any_skip_relocation, big_sur:        "85f6c3e6f1336cfaee91a3c6eee0e683a0558ba8837971a9bf537f9544125b9f"
-    sha256 cellar: :any_skip_relocation, catalina:       "efe22c2c4f695986c55f510ad5844b3c5193fd8b26d4363cd44d6a0cb8c29f38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2facb4e137e6f9c7c561d88d79245f442c32a8afa4aacbfc24d456ff390393e4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ccb6c8cdfc2187bfe922a748bf40cad6e9cda39c5be2f5ddaef4e161184791a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b9bc04aec2369148820b33460c369d4ed8102870f79fab152e88c22a45f44af0"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d8008e7bd80591078e251dd9e67e3a639da40373c464dfb37f0d0490475fe6d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ab870d1ab9dc4308fc826811a14c707edf31d97a31e9f286ef080ad26e54bf5b"
+    sha256 cellar: :any_skip_relocation, catalina:       "0b24ae3954f9669fa4f9030d4cd7c06b4b56cfb0fe95d91df4b9b4e56e1bd2c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9f9e05551d7ed8da1d42a65f354820f2ad49daf67cd51165d6e825d70e828d6"
   end
 
   depends_on "python@3.10"
@@ -30,8 +30,8 @@ class Pipenv < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/f3/c7/5c1aef87f1197d2134a096c0264890969213c9cbfb8a4102087e8d758b5c/filelock-3.7.1.tar.gz"
-    sha256 "3a0fd85166ad9dbab54c9aec96737b744106dc5f15c0b09a6744a445299fcf04"
+    url "https://files.pythonhosted.org/packages/95/55/b897882bffb8213456363e646bf9e9fa704ffda5a7d140edf935a9e02c7b/filelock-3.8.0.tar.gz"
+    sha256 "55447caa666f2198c5b6b13a26d2084d26fa5b115c00d065664b2124680c4edc"
   end
 
   resource "platformdirs" do

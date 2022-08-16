@@ -1,19 +1,18 @@
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
   homepage "https://www.libjpeg-turbo.org/"
-  url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.1.3/libjpeg-turbo-2.1.3.tar.gz"
-  sha256 "467b310903832b033fe56cd37720d1b73a6a3bd0171dbf6ff0b620385f4f76d0"
+  url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.1.4/libjpeg-turbo-2.1.4.tar.gz"
+  sha256 "d3ed26a1131a13686dfca4935e520eb7c90ae76fbc45d98bb50a8dc86230342b"
   license "IJG"
-  revision 1
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6a614ed2a59f896d9ddf7a291b55a36a13bee559ce05d407636cea8ec592ddfd"
-    sha256 cellar: :any,                 arm64_big_sur:  "f3b0032dac493b4ac3ad56e33bdc9e8948131419433ab28c0e5d954a71e791e5"
-    sha256 cellar: :any,                 monterey:       "a66e3544895b4aeb671a113dad6754f3470fd5247b21e4bd22bd202398837f59"
-    sha256 cellar: :any,                 big_sur:        "4a8ced6c2bba4c506a36c895b393ab7df6446d491fff2d4817daff1f5dbb0558"
-    sha256 cellar: :any,                 catalina:       "0d0336c43da8db6d4cff0988fd881cc8960c95bd27a614e5e07e03b82779b9db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4715fd09fa55e2dedb1f68e1199119927177005157b2b2a7911a832c726cef2"
+    sha256 cellar: :any,                 arm64_monterey: "c9dbfe3df4b1c8cd4ac7ef18a3643c923c8081e6acdf9936ebff79b7514f14cd"
+    sha256 cellar: :any,                 arm64_big_sur:  "02e7859fbd2d7ac8336600bde67184ff78339146da99525b404ba683d184dff7"
+    sha256 cellar: :any,                 monterey:       "d2d17e1b59fd7aff903b1b6d15209aa304de4bf974881c11700600f0d7bd486a"
+    sha256 cellar: :any,                 big_sur:        "c2cbe03545e80c2b438a3d7f9b96fbcb7db4130b39ddae267a3b199f58f99c1c"
+    sha256 cellar: :any,                 catalina:       "8b3fc1875533efe903b131b285074e745c7cbd5888eaec72407a2e1b8a8d150b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dda8e2acfdedd64381f39301191955822d082c8c9c65a2dd4b9cece33267408c"
   end
 
   depends_on "cmake" => :build

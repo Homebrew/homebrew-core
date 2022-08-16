@@ -1,17 +1,18 @@
 class Gaze < Formula
   desc "Execute commands for you"
   homepage "https://github.com/wtetsu/gaze"
-  url "https://github.com/wtetsu/gaze/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "02bac4bfeded4e8e951af2d255a26ea3554dbbf4fd124cc9cfad5e29265e0a4d"
+  url "https://github.com/wtetsu/gaze/archive/refs/tags/v1.1.1a.tar.gz"
+  version "1.1.1a"
+  sha256 "8364648dbe55c069db71e9e943ef8a1225aa4b4896af5be65b923128e34400ca"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bcc5376767d8967574e34cab01548c2bd18334425bab843cb9d5c1bdca2c3534"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1bf19f01c4c3be1eda780a9f4318453fadde3a719634c93049ac9a2eaba2b658"
-    sha256 cellar: :any_skip_relocation, monterey:       "f661e00d7b3ce2981d25b9b678a5a9a737b6a392bd281d40c67fb247e4df21d7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4e40eac0fccc67d48ef0bae1f7477dd1fe13db949afb17fe6d08791fcb7029be"
-    sha256 cellar: :any_skip_relocation, catalina:       "bfb9d2695e93863c6cfb44f657a97d36d93b6b577e0f326132179b3043999e66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb0ee917847513e3e05f1973b195d9b4c4d5a409babc621e5679b705bccece20"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8eb8e9be30445e9cf2b89da843c1658e76dcb368537295655800b5eb3d44612"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebecb5e90711f5156824bfa59a4bf123364349225b27716a9297c8c369ac7a9d"
+    sha256 cellar: :any_skip_relocation, monterey:       "bc9608ed9269d536ab7c6ac57b71976b154cf5e2f68936417cf76192ef352011"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b83cc8d8c7e765e4cc1844a044ebe6d46ccedcf0d52eb8ecc54bc496b9500565"
+    sha256 cellar: :any_skip_relocation, catalina:       "27a5bfb76379fa3b22e340939ef1878871513ebffdca4d1595eb5a65b892336d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be6e273ee53f4dc47ed78c9d54f0b3671f6193cc2f24f4759cf21ca47f684f82"
   end
 
   depends_on "go" => :build

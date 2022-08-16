@@ -229,24 +229,17 @@ jobs:
           cd bottles
           brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
 
-      - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
+      - name: Failures Summary and Bottle Result
         if: always()
-        run: |
-          touch bottles/steps_output.txt
-          cat bottles/steps_output.txt
-          rm bottles/steps_output.txt
+        uses: Homebrew/actions/failures-summary-and-bottle-result@master
+        with:
+          workdir: ${{matrix.workdir || github.workspace}}
 
       - name: Output brew linkage result
         if: always()
         run: |
           cat bottles/linkage_output.txt
           rm bottles/linkage_output.txt
-
-      - name: Output brew bottle result
-        if: always()
-        run: |
-          cat bottles/bottle_output.txt
-          rm bottles/bottle_output.txt
 
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
         if: ${{(success() || failure()) && fromJson(needs.setup_tests.outputs.test-dependents)}}

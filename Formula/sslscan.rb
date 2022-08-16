@@ -7,12 +7,13 @@ class Sslscan < Formula
   head "https://github.com/rbsec/sslscan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a6c11ea960d56ce6637daf7c5bda05e6d6bbf6dd04b6bf4171b60f7d63fae499"
-    sha256 cellar: :any,                 arm64_big_sur:  "bbef0feb49d55b17a6dc1be5d7544b7afea935cb8486a06ce1a000397082ea3f"
-    sha256 cellar: :any,                 monterey:       "c6db8bd7356bc42a6762ffc3bb46f52d13c0cdc6b9873e3977b314b51cda56ca"
-    sha256 cellar: :any,                 big_sur:        "a730c123c4487fe5b8d3a7a3da7fa6d3709b618f8b8269cf457d5e56c234ec01"
-    sha256 cellar: :any,                 catalina:       "0c419d351ba903c3a1730e344a1d3e5b954b11fd68f339bc94fffc00c1967432"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f447f3e86abae4d2416993b72e4a32068478203e4a2fbdb10c3de410f0dc90a4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "eb8f8ad40b64c81597429af23975a0139e5a694298b07d9490953b99b18dde47"
+    sha256 cellar: :any,                 arm64_big_sur:  "adb5286beba7c576529052e28b772307356a6e3810bba69b28293d25af2a7d20"
+    sha256 cellar: :any,                 monterey:       "1caaf3acce4bc823da5447ac2b7ebdaf0187e342ce517dee0031952703466ea8"
+    sha256 cellar: :any,                 big_sur:        "b528f5d73f4b397ce34b045b5f1afba9d443a34e7793b0d5f5e6af71dfe564df"
+    sha256 cellar: :any,                 catalina:       "81a1b69fa2b4059b214d3b3489a4383b3e6a169f712c2cdbe28752ba97a15b8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "944b95bab55036638b1ef17d1acd7613f6ba7357b080f777ead8e7d9b3d0ee64"
   end
 
   depends_on "openssl@1.1"
@@ -26,12 +27,12 @@ class Sslscan < Formula
     inreplace "Makefile", "static: openssl/libcrypto.a",
                           "static: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libcrypto")}"
 
-    system "make", "static"
+    system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
-    assert_match "static", shell_output("#{bin}/sslscan --version")
+    assert_match version.to_s, shell_output("#{bin}/sslscan --version")
     system "#{bin}/sslscan", "google.com"
   end
 end

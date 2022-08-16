@@ -1,22 +1,22 @@
 class Starship < Formula
   desc "Cross-shell prompt for astronauts"
   homepage "https://starship.rs"
-  url "https://github.com/starship/starship/archive/v1.9.1.tar.gz"
-  sha256 "2b54bee07bf67504a1bb170d37dc8d6accab4594d35731bbdf0e8a631c8d1585"
+  url "https://github.com/starship/starship/archive/v1.10.1.tar.gz"
+  sha256 "0dcf3a087748c241207a8c86a8c7b6e4d5558916d22deb4348942797d58c3ed9"
   license "ISC"
   head "https://github.com/starship/starship.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "71c94041630159e74d5778d63aff52e6ca37c5c72bd9fec8210defb303a15775"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e405f5a2ebb6bf494bf6ac2e6848787dacacb2ba2318d0e5bda2ad52f44594fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "560e6b0b6897cf2cef0eb17ee228436011739ff46551f5173de661fdcb91ee9a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aa029997e1255728b0abe6b5e3173ca1cbfc7405f48ecb5a94f6e60e7caed169"
-    sha256 cellar: :any_skip_relocation, catalina:       "8be90a68173e7a9dd2263142a9591736da7f486ab13572c17b55d87521e23004"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "415f8ec29ddc7c7b6c7152ae076bd64a26912d709906e5fdec3ba3285b2ce120"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "327b8a1be38939af3aaf9fc4db794c8a43dd0b21a23f3aaff76370df518f1126"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7dfa9a213f99582f86b894a9cae80482a3e10bd6e36975af6fdf4cac139365e2"
+    sha256 cellar: :any_skip_relocation, monterey:       "b61447477a564b4828afd764074f41b0ab7631df0fa0bbb5badb29b42fe1e6ef"
+    sha256 cellar: :any_skip_relocation, big_sur:        "237231ec5762a53219db291533b1404c27e7f6258a8b8aa8db23653b0827e220"
+    sha256 cellar: :any_skip_relocation, catalina:       "c285e04fba5ab6eef694d12b16f5833a34f7da3c7e6f57c45ab9e26249a4f9cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66cd47a00659f213af4d9efa61ab3081d0e486cb7b7394aed3b1768f2d47003a"
   end
 
+  depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
 

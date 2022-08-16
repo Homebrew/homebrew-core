@@ -1,10 +1,9 @@
 class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
-  url "https://github.com/dimitri/pgloader/releases/download/v3.6.6/pgloader-bundle-3.6.6.tgz"
-  sha256 "1837565d8fcedb132c68885a40893ec3c590b7da9ebcef1c0e580b19f353544d"
+  url "https://github.com/dimitri/pgloader/releases/download/v3.6.7/pgloader-bundle-3.6.7.tgz"
+  sha256 "25f1767a5d2f2630c0c81da5dc7e1d2e010882799796b094558283a63da33356"
   license "PostgreSQL"
-  revision 1
   head "https://github.com/dimitri/pgloader.git", branch: "master"
 
   livecheck do
@@ -13,11 +12,11 @@ class Pgloader < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "a95d9ebc8ff9c3140cdb070434f9a79c2a99872bbcb9a7ce969b0b9d4b5c62f5"
-    sha256 cellar: :any, arm64_big_sur:  "2f9cb725bc9fa65a14b0048503c6f9396a0d465d8eda3f64fb05bf69cf2a58ab"
-    sha256 cellar: :any, monterey:       "c0eca2b1beac15e03853b366cca450129b4a40017fcf0e09dd405192507be46b"
-    sha256 cellar: :any, big_sur:        "02d2b43ec234904659d4f254f21ea5300bfd8d6785381e57bf755f17518a897d"
-    sha256 cellar: :any, catalina:       "d23a5354cb53d4e4d9a20c5f8eb6bcfb79b5f406026de7f157f7bd6b41056beb"
+    sha256 cellar: :any, arm64_monterey: "e8f8544529e1d6c8934f17c5c92c5bad0ee1082a4366b65e2dd534f9d8d378f3"
+    sha256 cellar: :any, arm64_big_sur:  "449f4d45a3ff33c3bbedaa299763a90b13a6dd150826ed83f8fae1fdf0fb89c3"
+    sha256 cellar: :any, monterey:       "b262feb4f5af872aed21e8b49a307c562f749b9282d81bf15275b340ec864690"
+    sha256 cellar: :any, big_sur:        "e0e509ad7d4cb90507d6fcf47f41c55b70157d4877cced859977c4453aab6f50"
+    sha256 cellar: :any, catalina:       "a65ab10ee01510e3d2fa664d3049fe116dc09a5d6580f3ef28302dae4584346f"
   end
 
   depends_on "buildapp" => :build

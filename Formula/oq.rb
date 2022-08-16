@@ -1,17 +1,17 @@
 class Oq < Formula
   desc "Performant, and portable jq wrapper to support formats other than JSON"
   homepage "https://blacksmoke16.github.io/oq"
-  url "https://github.com/Blacksmoke16/oq/archive/v1.3.2.tar.gz"
-  sha256 "5216b16a874e7c0e74d4e735c593c1d353061f91fac4e455f6af7975c6c22bc3"
+  url "https://github.com/Blacksmoke16/oq/archive/v1.3.3.tar.gz"
+  sha256 "ed5d27756ea33ecbc93b967febf8cb57b35ea56c61999756cc35b414144ad23d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "19e3bc805ea2cf7d917d938c560078e2ef3b5b6720e9b0b8869614fcbc6d32ca"
-    sha256 cellar: :any,                 arm64_big_sur:  "976004ae7d622ea1c449cb3381cdd5457300e22c684ae2773bbe66271e6b1948"
-    sha256 cellar: :any,                 monterey:       "85a970d2c18b511f53ff54a73bad26856e46ac5b4efdf823b4366232ba945353"
-    sha256 cellar: :any,                 big_sur:        "155234140af19151527c1d013022607ae26bb9cefd252107948b6603848599b3"
-    sha256 cellar: :any,                 catalina:       "101c46e52411f19a6387a48079e370f91d3b52310934a39072b71bddcf75266f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "070c9576e4e700a55cf88c2b1084b04de4033e3fbfa7c44538988bb91f897e96"
+    sha256 cellar: :any,                 arm64_monterey: "4d13bb000503aebdf29c78c53b248e1bbc8e2efe32388befb625207330b2b098"
+    sha256 cellar: :any,                 arm64_big_sur:  "bbafa275bd45dd001016ff46bddb5981582f177adee5f3f6609a339d36450fcb"
+    sha256 cellar: :any,                 monterey:       "7cd9fb09249d6097ed2636f226a336f986cda0bb3547a683b737de8685ac161b"
+    sha256 cellar: :any,                 big_sur:        "00fa7ef4617cdc24b2eee5ec1927cf0c51f43c6ba3456c0d7bd15887662e6e93"
+    sha256 cellar: :any,                 catalina:       "e75135511b22133e7ca7c3000431b0b6b9ea491e57ca4350a3bc657d2cfd41a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cd57ce55d729c1974884bd38548b3698fa73a272760515ee6aa2f4a86df2fc2"
   end
 
   depends_on "crystal" => :build

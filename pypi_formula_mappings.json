@@ -124,6 +124,9 @@
   "docker-squash": {
     "exclude_packages": ["six"]
   },
+  "doitlive": {
+    "exclude_packages": ["six"]
+  },
   "duplicity": {
     "extra_packages": [
       "azure-storage-blob", "b2sdk", "boto", "boto3", "boxsdk[jwt]",

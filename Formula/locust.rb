@@ -3,17 +3,17 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/97/9f/e76da3c3d972d4eb5d9b8ace5af075a2aad0e3a3eac9eefd372367da6ac8/locust-2.10.2.tar.gz"
-  sha256 "e5571de2510bb6293daee6245b3e01a614dce5935b1d5283f709ce5b49125492"
+  url "https://files.pythonhosted.org/packages/65/40/6fbf71d843e693436f9ac39540c4f536091cee4037ede456bd90f90c7792/locust-2.11.0.tar.gz"
+  sha256 "b1855b1c6413e56f333de86eb6f92df643bdd605369f7a258e8bfdcd9117b833"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9415e049444bce96affcc86781bd9de9e627d9c940872ede1ee6d7beaeabbf7c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01a86c95475867d8176b1d53b59d88857294c44f68f32c0239ddafb84688def4"
-    sha256 cellar: :any_skip_relocation, monterey:       "c86450ba7d3d739f8d0309c01d9f71e2f1713fab2581cb4387082102d2f4da21"
-    sha256 cellar: :any_skip_relocation, big_sur:        "15edf1fa09c6f0be818c82254d88089ac9fdaa953494fa5e335c99d83ddebabd"
-    sha256 cellar: :any_skip_relocation, catalina:       "25006e9afd04f88d780e3ea4d675f78cb7e9723189c9647ff7f2ac294e2be0af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b19ba494ebf75164eee166c8d9d27df2ad2f1c70f65676902ec5fae15591fa40"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "819f81cfc8fb6719685f5e852e73f8247c4755a3a3eef1ff331e5fc4248f7de7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98dcd9fbae9e82eb0210407b95dbac8a2350ae2e296de072eb18bace546e5c5c"
+    sha256 cellar: :any_skip_relocation, monterey:       "25d86a90c49d05761ca14211ac7767cdd7f774d486d859be4f1f01ee83a1fe04"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f22cc57d012f8b0dc1b37e859629b22dc54c68566e32a94c0be2e3047aec259e"
+    sha256 cellar: :any_skip_relocation, catalina:       "bde6bf55761eb1bfd7c58326665356c7f9150f9ed2e0b6714b8a016b9de415c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef0c08db91e3dca45052698ef5feedf6ad7231ac5d9d3ea24f4a5bdde2e5655e"
   end
 
   depends_on "python@3.10"
@@ -45,8 +45,8 @@ class Locust < Formula
   end
 
   resource "Flask" do
-    url "https://files.pythonhosted.org/packages/dd/2e/6efff09194bd056e2dc3d4b87028cf835dfbde5b324570db351ef04b868a/Flask-2.2.0.tar.gz"
-    sha256 "98b33b13ad76ee9c7a80d2f56a6c578780e55bf8281790c62d50d4b7fadec2b8"
+    url "https://files.pythonhosted.org/packages/69/b6/53cfa30eed5aa7343daff36622843688ba8c6fe9829bb2b92e193ab1163f/Flask-2.2.2.tar.gz"
+    sha256 "642c450d19c4ad482f96729bd2a8f6d32554aa1e231f4f6b4e7e5264b16cca2b"
   end
 
   resource "Flask-BasicAuth" do
@@ -115,8 +115,8 @@ class Locust < Formula
   end
 
   resource "roundrobin" do
-    url "https://files.pythonhosted.org/packages/3e/5d/60ce8f2ad7b8c8f7124a78eead5ecfc7f702ba80d8ad1e93b25337419a75/roundrobin-0.0.2.tar.gz"
-    sha256 "ac30cb78570a36bb0ce0db7b907af9394ec7a5610ece2ede072280e8dd867caa"
+    url "https://files.pythonhosted.org/packages/38/97/6508c09e3af7eaee96e7b66a7dc7bbdbe8e6b85b8d2bbbb89612cf621bad/roundrobin-0.0.4.tar.gz"
+    sha256 "7e9d19a5bd6123d99993fb935fa86d25c88bb2096e493885f61737ed0f5e9abd"
   end
 
   resource "typing-extensions" do
@@ -130,8 +130,8 @@ class Locust < Formula
   end
 
   resource "Werkzeug" do
-    url "https://files.pythonhosted.org/packages/32/19/a92cdbd9fb795928dfca1031278ae8a7f051e78a2c057c224ad2d4cdd95e/Werkzeug-2.2.1.tar.gz"
-    sha256 "4d7013ef96fd197d1cdeb03e066c6c5a491ccb44758a5b2b91137319383e5a5a"
+    url "https://files.pythonhosted.org/packages/f8/c1/1c8e539f040acd80f844c69a5ef8e2fccdf8b442dabb969e497b55d544e1/Werkzeug-2.2.2.tar.gz"
+    sha256 "7ea2d48322cc7c0f8b3a215ed73eabd7b5d75d0b50e31ab006286ccff9e00b8f"
   end
 
   resource "zope.event" do

@@ -1,23 +1,21 @@
 class Cloudflared < Formula
   desc "Cloudflare Tunnel client (formerly Argo Tunnel)"
   homepage "https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide"
-  url "https://github.com/cloudflare/cloudflared/archive/refs/tags/2022.8.0.tar.gz"
-  sha256 "8200c1ee1064a0cdc222329328520ed3e93f689d8d0538095a1eb16b9885b1e7"
+  url "https://github.com/cloudflare/cloudflared/archive/refs/tags/2022.8.2.tar.gz"
+  sha256 "45ff0c9b95997e2f1795b08af5c3ed2fc19d2d3cb35391c01452163003b858a1"
   license "Apache-2.0"
   head "https://github.com/cloudflare/cloudflared.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3855c75339c3d91ad9e5fa5aaa6bd1126d38b07c3806ea3707ae5e49abf390c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ada2d71de0833d5d7d5e3420aa7de5ee8599b8eccdb295ef16ac2b298bbb00a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "4ddfb12bca3d79994a0cb737263f6a03201b553110fc14567eacc5f1a9990eea"
-    sha256 cellar: :any_skip_relocation, big_sur:        "abfea8aa39c55cace023cd45e6a25b1e3087b9dcf53e51c5075e4c3ea65bcadf"
-    sha256 cellar: :any_skip_relocation, catalina:       "dc47e5b41f388639ad4c3245719b884cfabe27a4e810f746323a5988b1c572ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1391a70f9871ed051bfb3e76d3c9c02e236dad0d79f5097d8c92ed8fc65d5d7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eba36b930c073bb4afe1402b171ac98e57a44d08794fcdb8517e0982351f3410"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f53025a0c0d6a3a36211521acbc945051c3a031ddf779e37ac0fd3ec9d9e6da"
+    sha256 cellar: :any_skip_relocation, monterey:       "8f5d190122e7339a29455966c67becbfd812d68290991a5ca4fca41bca13d245"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e03fa1c15d6e7bd9a05ddcb3a216e122c9bed353918ca57ca9a24b68a2b1b479"
+    sha256 cellar: :any_skip_relocation, catalina:       "a49cb9a9a9071fcd6fb282f643dd8da1701000daceb22322815c9887b32daf5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34ab308fb0d2bd6e897f2a440625d04bd54b9fd79f64585f9ec4ab198ee574a6"
   end
 
-  # Required lucas-clemente/quic-go >= 0.28
-  # Try to switch to the latest go on the next release
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "make", "install",

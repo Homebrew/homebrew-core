@@ -6,15 +6,16 @@ class Lanraragi < Formula
   url "https://github.com/Difegue/LANraragi/archive/v.0.8.5.tar.gz"
   sha256 "2cf53f7405a6a4e16e6d61a1109bdd87c25471c2ee6cf2fb79129c7f5666fa31"
   license "MIT"
+  revision 1
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5aa823c1f1838e971751b56f2a3cd42bd815c9513b13d327e432e9017570b970"
-    sha256 cellar: :any,                 arm64_big_sur:  "2e1ef247998188562bc78cfef1689cbee1134cd834280fd243a0c1452b1a28aa"
-    sha256 cellar: :any,                 monterey:       "aa53aeb1ec9499a301c79f7011e3b228655ebe4c03e19de3f935478da467d969"
-    sha256 cellar: :any,                 big_sur:        "879f9384947c8453d3c803edf591f2c61decab4a5d39d4205c3db799d2ce2d23"
-    sha256 cellar: :any,                 catalina:       "44bb28ad1890524464db94ca26c07c838bf287c6ba784d6d60ddef7645552b16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a80e239000c32a4f07b7aebc708bca123526653e5e995841eee6de002b4ffd9"
+    sha256 cellar: :any,                 arm64_monterey: "a3363af204c7b6489702eb8a1f8b5e39718b4e459aa33b7967fc19efca332502"
+    sha256 cellar: :any,                 arm64_big_sur:  "09bb5384768e75a4c321c7a744ebc88df64cc8d5dc4fcbe2e833d33c1df565a1"
+    sha256 cellar: :any,                 monterey:       "c3a8f4b0fd86b4e971168ba07fad19b0c21ab4296b66261e5317a90742dcb970"
+    sha256 cellar: :any,                 big_sur:        "ed44ad2162ac09f72051686301dae71f2031a6751441940b25006197d1077c77"
+    sha256 cellar: :any,                 catalina:       "ae51afa1d9e566690b5ffb0ce8b169e523272d32301f0a09c2443622ac881c1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f50d249996df53026dbca0f24bc61c7f870b96b748f168189190c350f4c84991"
   end
 
   depends_on "nettle" => :build
@@ -23,7 +24,7 @@ class Lanraragi < Formula
   depends_on "ghostscript"
   depends_on "giflib"
   depends_on "imagemagick"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "node"
   depends_on "openssl@1.1"

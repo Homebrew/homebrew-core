@@ -62,6 +62,9 @@ class Mpd < Formula
 
     # Replace symbols available only on macOS 12+ with their older versions.
     # https://github.com/MusicPlayerDaemon/MPD/issues/1580
+    #
+    # This workaround can be removed when the following commit lands in a tagged release (likely 0.23.9):
+    # https://github.com/MusicPlayerDaemon/MPD/commit/bbc088ae4ea19767c102ca740765a30b98ffa96b
     if MacOS.version <= :big_sur
       new_syms = ["kAudioObjectPropertyElementMain", "kAudioHardwareServiceDeviceProperty_VirtualMainVolume"]
       # Doing `ENV.append_to_cflags` twice results in line length errors.

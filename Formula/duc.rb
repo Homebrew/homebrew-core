@@ -1,22 +1,18 @@
 class Duc < Formula
   desc "Suite of tools for inspecting disk usage"
   homepage "https://duc.zevv.nl/"
-  url "https://github.com/zevv/duc/releases/download/1.4.4/duc-1.4.4.tar.gz"
-  sha256 "f4e7483dbeca4e26b003548f9f850b84ce8859bba90da89c55a7a147636ba922"
+  url "https://github.com/zevv/duc/releases/download/1.4.5/duc-1.4.5.tar.gz"
+  sha256 "c69512ca85b443e42ffbb4026eedd5492307af612047afb9c469df923b468bfd"
   license "LGPL-3.0"
-  revision 1
   head "https://github.com/zevv/duc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ddafd5a26ee09470e18b2a56f389de3ed734ee83e5d149aa99de6c7b7b8bb576"
-    sha256 cellar: :any,                 arm64_big_sur:  "12a17be05c5e063d0ec11c0a7844a88b51ebe89e615310b4e0180ebacfb23bac"
-    sha256 cellar: :any,                 monterey:       "b373a172afb2ca7eb5db7d977d5d1b35a643071a039ffe720e8fb9ea65451a94"
-    sha256 cellar: :any,                 big_sur:        "3b8e26bbb5e2356049e0849a889c178a6a89d7137433f5358463bcf188873363"
-    sha256 cellar: :any,                 catalina:       "0c6b9ba499943a6523e2618f7d9534892d5eb19250b1d250f9615d6692c64cb8"
-    sha256 cellar: :any,                 mojave:         "a6482213346ed6dfb26066b3442722a856cb8348d6123aecfe72929251e6b20a"
-    sha256 cellar: :any,                 high_sierra:    "d74b95c03260c0b14fd85e296835047bd88dbbc2f4fd0d62dc3a43409178c18c"
-    sha256 cellar: :any,                 sierra:         "9bde89536984080777e870473934584417fb4c34a0e44074b08a07a5db1a98d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "396955296946ce11e195b3c82a5b6e259f3bd6a4f4de0f41eebb37258fb8f6dd"
+    sha256 cellar: :any,                 arm64_monterey: "672f0a2f6ce1dd2ce3eac59e247af247c254ffac22b962f0931e3c637aede1e7"
+    sha256 cellar: :any,                 arm64_big_sur:  "d70515b63c95de8ae52fb7e8ca11ef6fb6f98c1ab0661b4ce452fce2907cd35a"
+    sha256 cellar: :any,                 monterey:       "36c158318b3407f306c82914ba1d63d9492c39644ae0ef1ad627ea20ef38351b"
+    sha256 cellar: :any,                 big_sur:        "4c95e3a0b2a6222344c157b9a12a26cb9ee78a447788f124a8eb8d9968368779"
+    sha256 cellar: :any,                 catalina:       "cc7f8ef4f7d6b1f310786032f0fab27aab42e17d57ee9393098f09e8b019cf50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8068dbd6bfa637aa4718113cff03ce8f8b641e65a379f489827b8acd3411f0e8"
   end
 
   depends_on "pkg-config" => :build
@@ -36,9 +32,11 @@ class Duc < Formula
   end
 
   test do
+    db_file = testpath/"duc.db"
+    touch db_file
     system "dd", "if=/dev/zero", "of=test", "count=1"
-    system "#{bin}/duc", "index", "."
-    system "#{bin}/duc", "graph", "-o", "duc.png"
+    system "#{bin}/duc", "index", "-d", db_file, "."
+    system "#{bin}/duc", "graph", "-d", db_file, "-o", "duc.png"
     assert_predicate testpath/"duc.png", :exist?, "Failed to create duc.png!"
   end
 end

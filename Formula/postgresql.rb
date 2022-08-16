@@ -1,8 +1,8 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v14.4/postgresql-14.4.tar.bz2"
-  sha256 "c23b6237c5231c791511bdc79098617d6852e9e3bdf360efd8b5d15a1a3d8f6a"
+  url "https://ftp.postgresql.org/pub/source/v14.5/postgresql-14.5.tar.bz2"
+  sha256 "d4f72cb5fb857c9a9f75ec8cf091a1771272802f2178f0b2e65b7b6ff64f4a30"
   license "PostgreSQL"
   head "https://github.com/postgres/postgres.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Postgresql < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "148b28ec301378520e83e53869452afdb82cce0b29eae4c7966dce23a110d546"
-    sha256 arm64_big_sur:  "441b6519f16ff4b6d9bdce9c116b804d27d3c0b3537cade961ee28eec2ec89f8"
-    sha256 monterey:       "1e258c37f55737787151ee3a5276e805e0aa4e30cf5d166bdc2208d0d7f812c2"
-    sha256 big_sur:        "04247388a3fcade374189d6777ff6685f4b3450cf14f90bb6859eb5e2eec4b8c"
-    sha256 catalina:       "3fa8b21ec3952be003c0803a4d7e58d478c219e1a75a0948b93e2ffebd250e7f"
-    sha256 x86_64_linux:   "431a89f854eb55b6eeed149515ea1876d0a425bede3c512cff40e49491223062"
+    sha256 arm64_monterey: "a5e6220e0a3307c9039883a54b58867bccc93e09cc27c701598bf3bfd791e821"
+    sha256 arm64_big_sur:  "0317e7a1b3a3cc5c377e07766009cf4204215757931a95fa4f4e06d56efa13f7"
+    sha256 monterey:       "79424d1734dec0e6df0a88d58c3f2311455e584fc51d5918fea9533e0082ca43"
+    sha256 big_sur:        "329986717572e1d01132bf028007a5450493f07a6713ae4e5e044cf12efd2ef6"
+    sha256 catalina:       "295b1598b158ca020be23a2c7300b2e498046d250193f98dbc065ebded4c6123"
+    sha256 x86_64_linux:   "1250bdb04d8a2f9276b299ff99982147592f0f174145fade4543c8f79876038b"
   end
 
   depends_on "pkg-config" => :build

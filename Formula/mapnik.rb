@@ -1,11 +1,20 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.1.0/mapnik-v3.1.0.tar.bz2"
-  sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
   license "LGPL-2.1-or-later"
-  revision 11
+  revision 12
   head "https://github.com/mapnik/mapnik.git", branch: "master"
+
+  stable do
+    url "https://github.com/mapnik/mapnik/releases/download/v3.1.0/mapnik-v3.1.0.tar.bz2"
+    sha256 "43d76182d2a975212b4ad11524c74e577576c11039fdab5286b828397d8e6261"
+
+    # Allow Makefile to use PYTHON set in the environment. Remove in the next release.
+    patch do
+      url "https://github.com/mapnik/mapnik/commit/a53c90172c664d29cd877302de9790a6ee9b5330.patch?full_index=1"
+      sha256 "9e0e06fd64d16b9fbe59d72402e805c94335397385ab57c49a6b468b9cc5a39c"
+    end
+  end
 
   livecheck do
     url :stable
@@ -13,12 +22,12 @@ class Mapnik < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "687baaff1f0fc30fa02fe065d3aa0d9478cd69536bcb8e292ee70731abc0a71e"
-    sha256 cellar: :any,                 arm64_big_sur:  "f69643fc4b62a5f6c1b5e016149552e0a0a6e0ba56454b908638fcdb6693ce5e"
-    sha256 cellar: :any,                 monterey:       "debcd40aba920e5b223383bc8fa0c15a51163408d6288e72ed8bfaa99f4652d2"
-    sha256 cellar: :any,                 big_sur:        "8a0de35f92f305c2eb531029e7da35c0cb445ac01cc9404986d454e0380dbe19"
-    sha256 cellar: :any,                 catalina:       "a00a963a2647cbffb710fd3d3f55923a017b7ddefa3d010d11fdfa62ae95673d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fc6ae200e9a45b098f6b40dd0d2268c73db13b75c75309e586a4a306db57f47"
+    sha256 cellar: :any,                 arm64_monterey: "70c54685e9c338ec1c6d59f4e211246c2a46740a8e787489ed00be96308df0a5"
+    sha256 cellar: :any,                 arm64_big_sur:  "66b393d6f0bc4a86761b71cd9116241cbc20f180cdf3f37f5ee324d5525ae785"
+    sha256 cellar: :any,                 monterey:       "c65411cd5d745660d7cf66fa268ae7b38b40528743a1492225819d4d9fe1eff5"
+    sha256 cellar: :any,                 big_sur:        "162d97f4a0d7f8a60a4e7e189e93ae95e6ff97c875b61d1d2f3d94be0b4df2de"
+    sha256 cellar: :any,                 catalina:       "8bb8a2c261c895f6e578add13551948667de359a0960a2493f65c0298d6b25df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10e9692b15bfbc7cc6e4eddebe2d9e50f88b28f91ca1508ae3a1af259ec5f9a5"
   end
 
   depends_on "pkg-config" => :build
@@ -29,7 +38,7 @@ class Mapnik < Formula
   depends_on "gdal"
   depends_on "harfbuzz"
   depends_on "icu4c"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libtiff"
@@ -38,8 +47,7 @@ class Mapnik < Formula
 
   def install
     ENV.cxx11
-
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = "python3.9"
 
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
@@ -49,7 +57,7 @@ class Mapnik < Formula
     freetype = Formula["freetype"].opt_prefix
     harfbuzz = Formula["harfbuzz"].opt_prefix
     icu = Formula["icu4c"].opt_prefix
-    jpeg = Formula["jpeg"].opt_prefix
+    jpeg = Formula["jpeg-turbo"].opt_prefix
     libpng = Formula["libpng"].opt_prefix
     libtiff = Formula["libtiff"].opt_prefix
     proj = Formula["proj"].opt_prefix
@@ -83,8 +91,6 @@ class Mapnik < Formula
       WEBP_INCLUDES=#{webp}/include
       WEBP_LIBS=#{webp}/lib
     ]
-
-    inreplace "Makefile", "PYTHON = python", "PYTHON = python3"
 
     system "./configure", *args
     system "make"

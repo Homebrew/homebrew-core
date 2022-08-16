@@ -7,19 +7,20 @@ class JsonnetBundler < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c12a0b7fa5a7ebfd3390975141ef9270041d16cad5e50ac2c037250b063ab3f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fca099b90eb7ee638a511421b92a18d62976a27f26daadc81591c62780009df2"
-    sha256 cellar: :any_skip_relocation, monterey:       "c5e1dfd5b88514d02f92c58561d8fe999920df9484240272986c10c2f61ebd61"
-    sha256 cellar: :any_skip_relocation, big_sur:        "adf174c8284ad175985632eff78208530c367d6522f364b75964380433706a5b"
-    sha256 cellar: :any_skip_relocation, catalina:       "6b1a393f6110771bc8b8e241acd1f6a4c86d9fe66f2148a39ffc2ecb3ea411ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2123283a83d290e3106e6adeee62832ae7b9f352f785909bd08b52fb712e6fd2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "da0e2063b13ad8a08dbfa82dc3ef8507c090ad48295d2e259486d020b016e9bb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da0e2063b13ad8a08dbfa82dc3ef8507c090ad48295d2e259486d020b016e9bb"
+    sha256 cellar: :any_skip_relocation, monterey:       "4c9a5ae896aca771eaa394910f56796c93422988e5f91d25222654ffd5b27ba9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4c9a5ae896aca771eaa394910f56796c93422988e5f91d25222654ffd5b27ba9"
+    sha256 cellar: :any_skip_relocation, catalina:       "4c9a5ae896aca771eaa394910f56796c93422988e5f91d25222654ffd5b27ba9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f4a145b4ab60388043e11d940b521396f341281fbaab8c7578fb0b9bcd40d43"
   end
 
   depends_on "go" => :build
 
   def install
-    system "make", "static"
-    bin.install "_output/jb"
+    ENV["CGO_ENABLED"] = "0"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}", output: bin/"jb"), "./cmd/jb"
   end
 
   test do

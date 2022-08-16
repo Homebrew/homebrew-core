@@ -1,18 +1,18 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/0.49.14.tar.gz"
-  sha256 "3a890e8582d78088db43cfe6bc84a98fd3176b4dacdd3ee10d04b044e96d91c3"
+  url "https://github.com/nicklockwood/SwiftFormat/archive/0.49.16.tar.gz"
+  sha256 "7a559b8d219eb98fc1f4085ad5e23c6105ad57e2709ec983791c2ff72f186ffe"
   license "MIT"
   head "https://github.com/nicklockwood/SwiftFormat.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f8d9c244ced7e092cb18af0a36e1b64414e28dfbbc18beabe25fe0080aa3bca"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1c062ceb1c7d933edb1e94f0cb1cb1b79b33821d565d26ebfbdf805def3b8f9"
-    sha256 cellar: :any_skip_relocation, monterey:       "a3242f98aee8736737fac5091c35ed34532c6e9a7ec66532e9418731b12ce158"
-    sha256 cellar: :any_skip_relocation, big_sur:        "76d9cd1efe09137f656c94c6498b80c2d9d7ca1f9cbd5a98d0699aa15629bd52"
-    sha256 cellar: :any_skip_relocation, catalina:       "ac73b68d0225d794f415d5aedf0e2ffdbd1251e68e874a95f43c43431eeac518"
-    sha256                               x86_64_linux:   "89ba5a1898f9e5ce08582cd56399d18713c4091cb2b56a91ef839420dae49096"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f8fe7d540663a5269dcb8d7e905ef59d3001cd531c00eb32dbe2045fe0a7c33"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "908af0cb113c16ef5e9188534aa1fa32765ddc22d0017a2cd2e1e86c2bdc992a"
+    sha256 cellar: :any_skip_relocation, monterey:       "c1e884440f3fb83890d0c7d3dea5af8126c014e052e93c0d20c906f7f09a06b7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7a4fa617ff27b49be2c6915c937c7bb2c043513f9a82da2266266513f0ce52a7"
+    sha256 cellar: :any_skip_relocation, catalina:       "933be72e016c325cff8ba063adfdf14192e79de99d7b16ca92e2d3b08272e995"
+    sha256                               x86_64_linux:   "82105b483bd7b0d66e5fe20becf14175b82db22519f98f3ce71e424c14850beb"
   end
 
   depends_on xcode: ["10.1", :build]

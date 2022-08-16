@@ -1,18 +1,18 @@
 class Nali < Formula
   desc "Tool for querying IP geographic information and CDN provider"
   homepage "https://github.com/zu1k/nali"
-  url "https://github.com/zu1k/nali/archive/v0.5.0.tar.gz"
-  sha256 "fd3dabda33a381d0072f9c657098c3c01c793195bc6326015b36c8a168943f1c"
+  url "https://github.com/zu1k/nali/archive/v0.5.3.tar.gz"
+  sha256 "e47c330bd66f6969b625571843451913f5667a25b2852e254ab028b3f3ed575b"
   license "MIT"
   head "https://github.com/zu1k/nali.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c874ad083efbca720a668e07bbf9eecb499bee273f64ffa2ac8cbe3c1342aba1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9eb618cd6ed25d8f4ee744eccaae11dd3f3bba89a49ff67f64686bbb99d832ec"
-    sha256 cellar: :any_skip_relocation, monterey:       "19e362fcc1905828d2297e1b11d97f7a0c802f323192d530370d8b4bc49a65ba"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4bfc642e53e56d6cdc5cf872be552fe85e427482dfe1dd06f6c03089d17a85ec"
-    sha256 cellar: :any_skip_relocation, catalina:       "59782e1f2332781f5f28434a0ded16d145b4bbdfc4ceafdb3178a6b5aec0b8aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d8dec59bd3ddca451e89da327c5be991816162dfc2cdcc34d3d3305af47f01a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "14f512b35424185762a13b4530c21670019f13cec57d010c627c779115f4d4dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b75b5a25571a4bad4cb7222ecdf7414cb656ecb1f8a147bc6c69e38fb40ee80"
+    sha256 cellar: :any_skip_relocation, monterey:       "5727378720de8ee209ddb413d9431c1eae775f7ea6abf7588fb9341b7d665269"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b5b5912bbad0cd1f51dc017ced4905e422b8408846424fe9bf1dbf4b5c34be2e"
+    sha256 cellar: :any_skip_relocation, catalina:       "0f35d78a2eeac2ff6c2cf27644ce093ba0ad2777251174525f6a31c01b2e4f9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "669b5c4bbfebbc8570ff49c5b6b611cb1d426d2ff9d80bcaa70846588f83d9e6"
   end
 
   depends_on "go" => :build

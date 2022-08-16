@@ -1,18 +1,18 @@
 class Opam < Formula
   desc "OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.1.2/opam-full-2.1.2.tar.gz"
-  sha256 "de1e3efffd5942e0101ef83dcdead548cc65a93e13986aecb4a264a059457ede"
+  url "https://github.com/ocaml/opam/releases/download/2.1.3/opam-full-2.1.3.tar.gz"
+  sha256 "cb2ab00661566178318939918085aa4b5c35c727df83751fd92d114fdd2fa001"
   license "LGPL-2.1-only"
   head "https://github.com/ocaml/opam.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d6d0d434b180b861eb18ffae3b70bc8235479b00956248e5cc485ccae2f8d26"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c9b2b9d9e17b328ed640a3b656e5cdf917f2854fe2678cf56392199142814a3"
-    sha256 cellar: :any_skip_relocation, monterey:       "316167256d1f2754a45ca9cac05b6c055057902093413f0edd6df736521f70be"
-    sha256 cellar: :any_skip_relocation, big_sur:        "35c725a04e60011bbb4dec521b5dfb66725d363010e995e1a6cffa969c1b2da0"
-    sha256 cellar: :any_skip_relocation, catalina:       "186d8a3aa61e1bab81dda6832f295239fb308ae997dad0727d8170e2fc70b358"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e30f437ea3e56fee4f7849ebedc5cf27eb09818c1ca5b6fa52485c793a7c678"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8563eb7d39ff28e820a742a93b43a792b51015abefb7f717addeb37940749000"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c36da51223f65fd44a96d112fe39541fa7250a73350bad309d5a65ba2e894ef"
+    sha256 cellar: :any_skip_relocation, monterey:       "b716d483047de32ecef958e0a0169240735fa1193522746c673e09414bd3acd0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "78675942dcb92da0acc6c0f156a86a5068aa628e093f661ec6d0bbbc4bcbd968"
+    sha256 cellar: :any_skip_relocation, catalina:       "dfa026d9771b2942d7eb6157eb8cff877b94de1f15f581ad2b7e3c48db8535ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2034d975561c9fd928d95cb82c45268f8a15f1fe30c7d6e953b22f99ba3f43e2"
   end
 
   depends_on "ocaml" => [:build, :test]
