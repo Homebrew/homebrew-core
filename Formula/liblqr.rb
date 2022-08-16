@@ -1,7 +1,7 @@
 class Liblqr < Formula
   desc "C/C++ seam carving library"
   homepage "https://liblqr.wikidot.com/"
-  license "LGPL-3.0"
+  license "LGPL-3.0-only"
   revision 1
   head "https://github.com/carlobaldassi/liblqr.git", branch: "master"
 
@@ -32,8 +32,30 @@ class Liblqr < Formula
   depends_on "glib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--enable-install-man"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <lqr.h>
+      int main() {
+        guchar* buffer = calloc(1, sizeof(guchar));
+
+        LqrCarver *carver = lqr_carver_new(buffer, 1, 1, 1);
+        if (carver == NULL) return 1;
+
+        lqr_carver_destroy(carver);
+
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "test.c",
+      "-I#{include}/lqr-1",
+      "-I#{Formula["glib"].opt_include}/glib-2.0",
+      "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+      "-L#{lib}", "-llqr-1"
+    system "./a.out"
   end
 end
