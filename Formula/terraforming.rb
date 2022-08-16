@@ -16,6 +16,10 @@ class Terraforming < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eff0a68d600af8a5176b41a04c443da66ae1b27884d31547c7c7010a7aa7704e"
   end
 
+  # Upstream declared project "no longer actively maintained" on 2021-12-11.
+  # https://github.com/dtan4/terraforming#project-status-2021-12-11-no-longer-actively-maintained
+  deprecate! date: "2022-08-16", because: :unmaintained
+
   on_linux do
     depends_on "ruby@2.7"
   end
