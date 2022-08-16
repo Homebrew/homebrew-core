@@ -6,11 +6,6 @@ class PerlAT518 < Formula
   license "Artistic-1.0-Perl"
   revision 1
 
-  livecheck do
-    url "https://www.cpan.org/src/5.0/"
-    regex(/href=.*?perl[._-]v?(5\.18(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 arm64_monterey: "c331f308c1f7b2df92aaa51b30a4ff049454e2c1218843ae9e493db403ec165f"
     sha256 arm64_big_sur:  "6c250f7fbbb0cbc997ad0068b88802f5d097f3b3a635d5c64d7267c3ab39340f"
@@ -23,6 +18,10 @@ class PerlAT518 < Formula
   end
 
   keg_only :versioned_formula
+
+  # https://www.cpan.org/src/ lists 5.18 as end-of-life and also
+  # states that "branches earlier than 5.20 are no longer supported"
+  deprecate! date: "2022-08-16", because: :deprecated_upstream
 
   def install
     ENV.deparallelize if MacOS.version >= :catalina
