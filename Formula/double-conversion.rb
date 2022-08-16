@@ -18,15 +18,13 @@ class DoubleConversion < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "dc-build" do
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-      system "make", "install"
-      system "make", "clean"
+    system "cmake", "-S", ".", "-B", "shared", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "--build", "shared"
+    system "cmake", "--install", "shared"
 
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
-      system "make"
-      lib.install "libdouble-conversion.a"
-    end
+    system "cmake", "-S", ".", "-B", "static", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
+    system "cmake", "--build", "static"
+    lib.install "static/libdouble-conversion.a"
   end
 
   test do
