@@ -47,6 +47,13 @@ class Fbthrift < Formula
 
   fails_with gcc: "5" # C++ 17
 
+  # Fix missing `#include`. Can likely be removed in the next release.
+  # https://github.com/facebook/fbthrift/pull/513
+  patch do
+    url "https://github.com/facebook/fbthrift/commit/cda0b24feb1cb93e177473ec6ca2e4714c14c931.patch?full_index=1"
+    sha256 "ff03957befef34ee90270dd81b3bdff4dadc1aa0bd0a0d618882dc1a17dc7edc"
+  end
+
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
