@@ -32,14 +32,12 @@ class Hwloc < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--enable-shared",
                           "--enable-static",
-                          "--prefix=#{prefix}",
                           "--disable-cairo",
                           "--without-x"
-    system "make", "install"
+    system "make", "install", "bashcompletionsdir=#{bash_completion}"
 
     pkgshare.install "tests"
 
