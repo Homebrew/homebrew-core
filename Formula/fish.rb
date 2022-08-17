@@ -20,7 +20,7 @@ class Fish < Formula
   end
 
   head do
-    url "https://github.com/fish-shell/fish-shell.git"
+    url "https://github.com/fish-shell/fish-shell.git", branch: "master"
 
     depends_on "sphinx-doc" => :build
   end
@@ -32,12 +32,11 @@ class Fish < Formula
   depends_on "pcre2"
 
   def install
-    args = %W[
-      -Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
-      -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
-      -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
-    ]
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}",
+                    "-Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d",
+                    "-Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d",
+                    "-Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
