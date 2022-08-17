@@ -37,7 +37,7 @@ class NodeAT12 < Formula
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = python = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = python = Formula["python@3.9"].opt_bin/"python3.9"
 
     args = %W[
       --prefix=#{prefix}
