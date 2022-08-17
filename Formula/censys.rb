@@ -3,8 +3,8 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/aa/b8/17959203372592a4ab522875ef9a0315c45e10e70bcf7f066b427de6089e/censys-2.1.7.tar.gz"
-  sha256 "cea64c98de8ba75a52028f0dcb3d2f23e874ac1e412c31f41d610ff23db189bb"
+  url "https://files.pythonhosted.org/packages/1e/27/b4fa1b19e919caa1e680a89e9d566b3f4376e59f585fa38ba40456f040e4/censys-2.1.8.tar.gz"
+  sha256 "2ddd6d0ee6df70acf15792328df8bb4d0dd5a76b50883adac62989f1641820c1"
   license "Apache-2.0"
 
   bottle do
@@ -44,8 +44,8 @@ class Censys < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
-    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
+    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
+    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "requests" do
