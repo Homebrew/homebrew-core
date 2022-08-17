@@ -33,6 +33,7 @@ class Widelands < Formula
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
+  uses_from_macos "python" => :build
   uses_from_macos "curl"
 
   # Fix build with Boost 1.77+.
@@ -44,19 +45,16 @@ class Widelands < Formula
 
   def install
     ENV.cxx11
-    mkdir "build" do
-      system "cmake", "..",
-                      # Without the following option, Cmake intend to use the library of MONO framework.
-                      "-DPNG_PNG_INCLUDE_DIR:PATH=#{Formula["libpng"].opt_include}",
-                      "-DWL_INSTALL_DATADIR=#{pkgshare}/data",
-                       *std_cmake_args
-      system "make", "install"
-
-      (bin/"widelands").write <<~EOS
-        #!/bin/sh
-        exec #{prefix}/widelands "$@"
-      EOS
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    # Without the following option, Cmake intend to use the library of MONO framework.
+                    "-DPNG_PNG_INCLUDE_DIR:PATH=#{Formula["libpng"].opt_include}",
+                    "-DWL_INSTALL_DATADIR=#{pkgshare}/data",
+                    # older versions of macOS may not have `python3`
+                    "-DPYTHON_EXECUTABLE=#{which("python3") || which("python")}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+    bin.write_exec_script prefix/"widelands"
   end
 
   test do
