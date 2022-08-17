@@ -69,7 +69,7 @@ class DsdaDoom < Formula
   def caveats
     <<~EOS
       For DSDA-Doom to find your WAD files, place them in:
-      #{doomwaddir(HOMEBREW_PREFIX)}
+        #{doomwaddir(HOMEBREW_PREFIX)}
     EOS
   end
 
