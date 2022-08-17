@@ -3,8 +3,8 @@ require "language/node"
 class Fanyi < Formula
   desc "Mandarin and english translate tool in your command-line"
   homepage "https://github.com/afc163/fanyi"
-  url "https://registry.npmjs.org/fanyi/-/fanyi-6.0.0.tgz"
-  sha256 "cc239b942f657285616cae934f8a1f918b8d8ddfc8e6a0770092fac0cef68404"
+  url "https://registry.npmjs.org/fanyi/-/fanyi-6.0.1.tgz"
+  sha256 "507676c5a45579c6b3d4d5607cdc0d20bd770920f19e4ffad136cdfc69d04903"
   license "MIT"
 
   bottle do
