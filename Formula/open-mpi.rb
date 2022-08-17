@@ -54,25 +54,24 @@ class OpenMpi < Formula
     ENV.runtime_cpu_detection
 
     args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
       --disable-silent-rules
       --enable-ipv6
       --enable-mca-no-build=reachable-netlink
+      --sysconfdir=#{etc}
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
 
     system "./autogen.pl", "--force" if build.head?
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "all"
     system "make", "check"
     system "make", "install"
 
     # Fortran bindings install stray `.mod` files (Fortran modules) in `lib`
     # that need to be moved to `include`.
-    include.install Dir["#{lib}/*.mod"]
+    include.install lib.glob("*.mod")
   end
 
   test do
