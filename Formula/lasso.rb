@@ -21,17 +21,19 @@ class Lasso < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
-  depends_on "six" => :build
   depends_on "glib"
+  depends_on "libxml2"
   depends_on "libxmlsec1"
   depends_on "openssl@1.1"
 
-  uses_from_macos "libxml2"
+  uses_from_macos "python" => :build
+
+  on_linux do
+    depends_on "six" => :build # macOS Python has `six` installed.
+  end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    ENV["PYTHON"] = "python3"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-java",
@@ -52,11 +54,10 @@ class Lasso < Formula
         return lasso_init();
       }
     EOS
-    libxml = OS.mac? ? MacOS.sdk_path/"usr/include/libxml2" : Formula["libxml2"].include/"libxml2"
     system ENV.cc, "test.c",
                    "-I#{Formula["glib"].include}/glib-2.0",
                    "-I#{Formula["glib"].lib}/glib-2.0/include",
-                   "-I#{libxml}",
+                   "-I#{Formula["libxml2"].include}/libxml2",
                    "-I#{Formula["libxmlsec1"].include}/xmlsec1",
                    "-L#{lib}", "-llasso", "-o", "test"
     system "./test"
