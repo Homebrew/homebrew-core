@@ -2,15 +2,16 @@ class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+  head "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git", branch: "master"
 
   stable do
-    url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz"
-    sha256 "75d3f7742c1ae449049a4c88900e454b8b350ecaa8c544f3488a2562a9ff66f1"
+    url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-16.1.tar.xz"
+    sha256 "8eef32ce91d47979f95fd9a935e738cd7eb7463430dabc72863251751e504ae4"
 
-    # Fix -flat_namespace being used on Big Sur and later.
+    # Make gio-2.0 optional. Remove in the next release.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+      url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/commit/de8b0c11242a49c335abdae292d0bb9f6d71d2dd.diff"
+      sha256 "d2d259b887908b37d63564ee1eb93fa98a6bffc5600876c6181758c6ca59b95e"
     end
   end
 
@@ -30,17 +31,10 @@ class Pulseaudio < Formula
     sha256 x86_64_linux:   "35c1358237eefe762c268cbbbf86015b425e8ff3bdff697afb93e8449fae2ae3"
   end
 
-  head do
-    url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "intltool" => :build
-  end
-
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "json-c"
+  depends_on "gettext"
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "libtool"
@@ -57,8 +51,8 @@ class Pulseaudio < Formula
     depends_on "libcap"
 
     resource "XML::Parser" do
-      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
-      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.46.tar.gz"
+      sha256 "d331332491c51cccfb4cb94ffc44f9cd73378e618498d4a37df9e043661c515d"
     end
   end
 
@@ -72,46 +66,18 @@ class Pulseaudio < Formula
       end
     end
 
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --disable-neon-opt
-      --disable-nls
-      --disable-x11
-    ]
-
-    if OS.mac?
-      args << "--enable-coreaudio-output"
-      args << "--with-mac-sysroot=#{MacOS.sdk_path}"
-      args << "--with-mac-version-min=#{MacOS.version}"
-    else
-      # Perl depends on gdbm.
-      # If the dependency of pulseaudio on perl is build-time only,
-      # pulseaudio detects and links gdbm at build-time, but cannot locate it at run-time.
-      # Thus, we have to
-      #  - specify not to use gdbm, or
-      #  - add a dependency on gdbm if gdbm is wanted (not implemented).
-      # See Linuxbrew/homebrew-core#8148
-      args << "--with-database=simple"
-
-      # Tell pulseaudio to use the brewed udev rules dir instead of the system one,
-      # which it does not have permission to modify
-      args << "--with-udev-rules-dir=#{lib}/udev/rules.d"
-    end
-
-    if build.head?
-      # autogen.sh runs bootstrap.sh then ./configure
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
-    system "make", "install"
-
-    if OS.linux?
-      # https://stackoverflow.com/questions/56309056/is-gschemas-compiled-architecture-specific-can-i-ship-it-with-my-python-library
-      rm "#{share}/glib-2.0/schemas/gschemas.compiled"
-    end
+    system "meson", *std_meson_args, "build",
+                    "-Dbashcompletiondir=#{bash_completion}",
+                    "-Ddatabase=simple", # Default `tdb` isn't available in Homebrew
+                    "-Ddoxygen=false",
+                    "-Dlocalstatedir=#{var}",
+                    "-Dman=true",
+                    "-Dsysconfdir=#{etc}",
+                    "-Dtests=false",
+                    "-Dudevrulesdir=#{lib}/udev/rules.d",
+                    "-Dx11=disabled"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   service do
