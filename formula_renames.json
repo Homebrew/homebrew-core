@@ -45,6 +45,7 @@
   "geth": "ethereum",
   "gitlab-ci-multi-runner": "gitlab-runner",
   "giflib@5": "giflib",
+  "glib-utils": "glib",
   "glibmm@2.64": "glibmm@2.66",
   "glfw3": "glfw",
   "gloo-ctl": "glooctl",
