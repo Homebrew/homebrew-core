@@ -3,7 +3,7 @@ class Snapcast < Formula
   homepage "https://github.com/badaix/snapcast"
   url "https://github.com/badaix/snapcast/archive/refs/tags/v0.26.0.tar.gz"
   sha256 "166353267a5c461a3a0e7cbd05d78c4bfdaebeda078801df3b76820b54f27683"
-  license "GPL-3.0-only"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "1d823dd68d442d23045e039425160c775a8c6657de72d80b2d1bbe6bce5ff785"
@@ -20,12 +20,13 @@ class Snapcast < Formula
   depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "opus"
-  depends_on "pulseaudio"
+
   uses_from_macos "expat"
 
   on_linux do
     depends_on "alsa-lib"
     depends_on "avahi"
+    depends_on "pulseaudio"
   end
 
   def install
