@@ -1,10 +1,26 @@
 class DsdaDoom < Formula
   desc "Fork of prboom+ with a focus on speedrunning"
   homepage "https://github.com/kraflab/dsda-doom"
-  url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.24.3.tar.gz"
-  sha256 "d4cfc82eea029068329d6b6a2dcbe0b316b31a60af12e6dc5ad3e1d2c359d913"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
+
+  stable do
+    url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.24.3.tar.gz"
+    sha256 "d4cfc82eea029068329d6b6a2dcbe0b316b31a60af12e6dc5ad3e1d2c359d913"
+
+    # Patch for Linux builds
+    patch do
+      url "https://github.com/kraflab/dsda-doom/commit/1af0987c190f183d870b6b44aaab670d777df7fe.patch?full_index=1"
+      sha256 "800eca74126d991a7490b37e403778a6b2ea764abd7ed4648d48db2d2ccf42da"
+    end
+
+    # Patch allowing to set a custom location for dsda-doom.wad
+    patch do
+      url "https://github.com/kraflab/dsda-doom/commit/40e29a41b39341a579767b5a88030cdf90f31429.patch?full_index=1"
+      sha256 "21bc7241ff81db9138f4c7a7cfdfd80f1de6fa4789a501f215f3c876463de256"
+    end
+  end
 
   livecheck do
     url :stable
@@ -40,11 +56,9 @@ class DsdaDoom < Formula
   end
 
   def install
-    # Patch for Linux builds until kraflab/dsda-doom#122 is merged and added to a release
-    inreplace "prboom2/src/d_deh.c", "uint64_t", "uint_64_t"
-
     system "cmake", "-S", "prboom2", "-B", "build",
-                    "-DDOOMWADDIR=#{doomwaddir(prefix)}",
+                    "-DDOOMWADDIR=#{doomwaddir(HOMEBREW_PREFIX)}",
+                    "-DDSDAPWADDIR=#{libexec}",
                     "-DBUILD_GL=ON",
                     "-DWITH_DUMB=OFF",
                     "-DWITH_IMAGE=ON",
@@ -57,18 +71,10 @@ class DsdaDoom < Formula
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    # We need to move these elsewhere so we can symlink them to the right place in `postinstall`.
-    pkgshare.install doomwaddir(prefix).children
-    doomwaddir(prefix).rmtree
   end
 
   def post_install
     doomwaddir(HOMEBREW_PREFIX).mkpath
-    doomwaddir(HOMEBREW_PREFIX).install_symlink pkgshare.children
-
-    # Make sure `dsda-doom` also checks the DOOMWADDIR in HOMEBREW_PREFIX.
-    doomwaddir(prefix).parent.install_symlink doomwaddir(HOMEBREW_PREFIX)
   end
 
   def caveats
