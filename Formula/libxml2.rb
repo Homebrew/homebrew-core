@@ -2,11 +2,10 @@ class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
   license "MIT"
-  revision 3
 
   stable do
-    url "https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz"
-    sha256 "60d74a257d1ccec0475e749cba2f21559e48139efba6ff28224357c7c798dfee"
+    url "https://download.gnome.org/sources/libxml2/2.10/libxml2-2.10.0.tar.xz"
+    sha256 "2dd33110ea778676de14bea4999ee1173c4ca55d5ff1452bca224e06f0152595"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
