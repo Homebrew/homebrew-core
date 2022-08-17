@@ -4,6 +4,7 @@ class Mpd < Formula
   url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.9.tar.xz"
   sha256 "2becaba980402e8dc7972ccc3476e493b7ae2eeb720d31fa6712472ed48e9f2d"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   livecheck do
