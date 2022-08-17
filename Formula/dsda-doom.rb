@@ -6,6 +6,11 @@ class DsdaDoom < Formula
   license "GPL-2.0-only"
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7d678f7e71e2eb80e55b131402765c634beac3385ab94b414f7ebe45074e2e61"
     sha256 cellar: :any,                 arm64_big_sur:  "478f1e2ee08721d7127b844b84a87f0c96b57fa5666ecba88ebdbc7d03d5304b"
