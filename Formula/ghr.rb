@@ -1,8 +1,8 @@
 class Ghr < Formula
   desc "Upload multiple artifacts to GitHub Release in parallel"
   homepage "https://tcnksm.github.io/ghr"
-  url "https://github.com/tcnksm/ghr/archive/v0.14.0.tar.gz"
-  sha256 "e48f6080f81960ec12dad0d104cb0afe876134bab862a229c9aed91f9f618c1e"
+  url "https://github.com/tcnksm/ghr/archive/v0.15.0.tar.gz"
+  sha256 "89180208e62bc56e1bc401ca5171291c75c2589d47732c34d8647b3e5e0522e5"
   license "MIT"
 
   bottle do
