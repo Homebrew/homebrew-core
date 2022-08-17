@@ -1,10 +1,9 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://osm2pgsql.org"
-  url "https://github.com/openstreetmap/osm2pgsql/archive/1.6.0.tar.gz"
-  sha256 "0ec8b58ab972ac8356185af4161270c1b625a77299f09e5fb7f45e616ef1a9a5"
+  url "https://github.com/openstreetmap/osm2pgsql/archive/1.7.0.tar.gz"
+  sha256 "0f722baf0f04eda387d934d86228aae07d848993900db6b9e7ab312c91fd84e5"
   license "GPL-2.0-only"
-  revision 4
   head "https://github.com/openstreetmap/osm2pgsql.git", branch: "master"
 
   bottle do
