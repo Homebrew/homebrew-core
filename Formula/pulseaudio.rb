@@ -56,6 +56,23 @@ class Pulseaudio < Formula
     end
   end
 
+  # Fix macOS build errors:
+  # - ld: unknown option: -z
+  # - ld: unknown option: -version-script=/private/tmp/pulseaudio-...
+  # - ld: unknown option: --no-undefined
+  # - Undefined symbols for architecture x86_64:
+  #     "_AbsoluteToNanoseconds", referenced from:
+  #         _pa_rtclock_age in pulsecore_core-rtclock.c.o
+  #         _pa_rtclock_get in pulsecore_core-rtclock.c.o
+  #         _pa_rtclock_from_wallclock in pulsecore_core-rtclock.c.o
+  #         _pa_timeval_rtstore in pulsecore_core-rtclock.c.o
+  #     "_pa_poll", referenced from:
+  #         _pa_autospawn_lock_acquire in pulsecore_lock-autospawn.c.o
+  #
+  # FIXME: test error:
+  # - E: [] ltdl-bind-now.c: Failed to open module .../module-allow-passthrough.so
+  patch :DATA
+
   def install
     if OS.linux?
       ENV.prepend_create_path "PERL5LIB", buildpath/"lib/perl5"
@@ -88,6 +105,140 @@ class Pulseaudio < Formula
   end
 
   test do
-    assert_match "module-sine", shell_output("#{bin}/pulseaudio --dump-modules")
+    output = shell_output("#{bin}/pulseaudio --dump-modules 2>&1")
+    assert_match "module-sine", output
+    refute_match "Failed to open module", output
   end
 end
+
+__END__
+diff --git a/meson.build b/meson.build
+index 9f47b2f02..133749ffd 100644
+--- a/meson.build
++++ b/meson.build
+@@ -150,7 +150,11 @@ cdata.set_quoted('PA_MACHINE_ID', join_paths(sysconfdir, 'machine-id'))
+ cdata.set_quoted('PA_MACHINE_ID_FALLBACK', join_paths(localstatedir, 'lib', 'dbus', 'machine-id'))
+ cdata.set_quoted('PA_SRCDIR', join_paths(meson.current_source_dir(), 'src'))
+ cdata.set_quoted('PA_BUILDDIR', meson.current_build_dir())
+-cdata.set_quoted('PA_SOEXT', '.so')
++if host_machine.system() == 'darwin'
++  cdata.set_quoted('PA_SOEXT', '.dylib')
++else
++  cdata.set_quoted('PA_SOEXT', '.so')
++endif
+ cdata.set_quoted('PA_DEFAULT_CONFIG_DIR', pulsesysconfdir)
+ cdata.set('PA_DEFAULT_CONFIG_DIR_UNQUOTED', pulsesysconfdir)
+ cdata.set_quoted('PA_BINARY', join_paths(bindir, 'pulseaudio'))
+@@ -425,12 +429,8 @@ cdata.set('MESON_BUILD', 1)
+ # On ELF systems we don't want the libraries to be unloaded since we don't clean them up properly,
+ # so we request the nodelete flag to be enabled.
+ # On other systems, we don't really know how to do that, but it's welcome if somebody can tell.
+-# Windows doesn't support this flag.
+-if host_machine.system() != 'windows'
+-  nodelete_link_args = ['-Wl,-z,nodelete']
+-else
+-  nodelete_link_args = []
+-endif
++# macOS and Windows don't support this flag.
++nodelete_link_args = cc.get_supported_link_arguments('-Wl,-z,nodelete')
+
+ # Code coverage
+
+diff --git a/src/meson.build b/src/meson.build
+index 9efb561d8..a6132f710 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -186,6 +186,11 @@ else
+     'pulsecore/thread-posix.c'
+   ]
+ endif
++if host_machine.system() == 'darwin'
++  libpulsecommon_sources += [
++    'pulsecore/poll-posix.c'
++  ]
++endif
+ # FIXME: Do SIMD things
+
+ if not get_option('client')
+diff --git a/src/modules/meson.build b/src/modules/meson.build
+index 1e12569dc..c52f789f0 100644
+--- a/src/modules/meson.build
++++ b/src/modules/meson.build
+@@ -315,7 +315,7 @@ foreach m : all_modules
+     install_rpath : rpath_dirs,
+     install_dir : modlibexecdir,
+     dependencies : [thread_dep, libpulse_dep, libpulsecommon_dep, libpulsecore_dep, libintl_dep, platform_dep, platform_socket_dep] + extra_deps,
+-    link_args : [nodelete_link_args, '-Wl,--no-undefined' ],
++    link_args : [nodelete_link_args, cc.get_supported_link_arguments('-Wl,--no-undefined')],
+     link_with : extra_libs,
+     name_prefix : '',
+     implicit_include_directories : false)
+diff --git a/src/pulse/meson.build b/src/pulse/meson.build
+index 1b82c807c..79f811a13 100644
+--- a/src/pulse/meson.build
++++ b/src/pulse/meson.build
+@@ -74,7 +74,7 @@ run_target('update-map-file',
+   command : [ join_paths(meson.source_root(), 'scripts/generate-map-file.sh'), 'map-file',
+               [ libpulse_headers, 'simple.h', join_paths(meson.build_root(), 'src', 'pulse', 'version.h') ] ])
+
+-versioning_link_args = '-Wl,-version-script=' + join_paths(meson.source_root(), 'src', 'pulse', 'map-file')
++versioning_link_args = cc.get_supported_link_arguments('-Wl,-version-script=' + join_paths(meson.source_root(), 'src', 'pulse', 'map-file'))
+
+ libpulse = shared_library('pulse',
+   libpulse_sources,
+diff --git a/src/pulsecore/core-rtclock.c b/src/pulsecore/core-rtclock.c
+index 2c2e28631..d0cf15731 100644
+--- a/src/pulsecore/core-rtclock.c
++++ b/src/pulsecore/core-rtclock.c
+@@ -65,19 +65,7 @@ pa_usec_t pa_rtclock_age(const struct timeval *tv) {
+
+ struct timeval *pa_rtclock_get(struct timeval *tv) {
+
+-#if defined(OS_IS_DARWIN)
+-    uint64_t val, abs_time = mach_absolute_time();
+-    Nanoseconds nanos;
+-
+-    nanos = AbsoluteToNanoseconds(*(AbsoluteTime *) &abs_time);
+-    val = *(uint64_t *) &nanos;
+-
+-    tv->tv_sec = val / PA_NSEC_PER_SEC;
+-    tv->tv_usec = (val % PA_NSEC_PER_SEC) / PA_NSEC_PER_USEC;
+-
+-    return tv;
+-
+-#elif defined(HAVE_CLOCK_GETTIME)
++#if defined(HAVE_CLOCK_GETTIME)
+     struct timespec ts;
+
+ #ifdef CLOCK_MONOTONIC
+@@ -97,6 +85,17 @@ struct timeval *pa_rtclock_get(struct timeval *tv) {
+     tv->tv_sec = ts.tv_sec;
+     tv->tv_usec = ts.tv_nsec / PA_NSEC_PER_USEC;
+
++    return tv;
++#elif defined(OS_IS_DARWIN)
++    uint64_t val, abs_time = mach_absolute_time();
++    Nanoseconds nanos;
++
++    nanos = AbsoluteToNanoseconds(*(AbsoluteTime *) &abs_time);
++    val = *(uint64_t *) &nanos;
++
++    tv->tv_sec = val / PA_NSEC_PER_SEC;
++    tv->tv_usec = (val % PA_NSEC_PER_SEC) / PA_NSEC_PER_USEC;
++
+     return tv;
+ #elif defined(OS_IS_WIN32)
+     if (counter_freq > 0) {
+diff --git a/src/pulsecore/creds.h b/src/pulsecore/creds.h
+index b599b569c..b5b1c9f37 100644
+--- a/src/pulsecore/creds.h
++++ b/src/pulsecore/creds.h
+@@ -34,7 +34,7 @@
+ typedef struct pa_creds pa_creds;
+ typedef struct pa_cmsg_ancil_data pa_cmsg_ancil_data;
+
+-#if defined(SCM_CREDENTIALS) || defined(SCM_CREDS)
++#if defined(SCM_CREDENTIALS) || (defined(SCM_CREDS) && !defined(__APPLE__))
+
+ #define HAVE_CREDS 1
+
