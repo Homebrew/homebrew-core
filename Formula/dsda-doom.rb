@@ -41,8 +41,8 @@ class DsdaDoom < Formula
                     "-DWITH_VORBISFILE=ON",
                     "-DWITH_ZLIB=ON",
                     *std_cmake_args
-    system "cmake", "--build", "build", "--config", "Release"
-    system "cmake", "--install", "build", "--config", "Release"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # We need to move these elsewhere so we can symlink them to the right place in `postinstall`.
     pkgshare.install doomwaddir(prefix).children
@@ -55,6 +55,13 @@ class DsdaDoom < Formula
 
     # Make sure `dsda-doom` also checks the DOOMWADDIR in HOMEBREW_PREFIX.
     doomwaddir(prefix).parent.install_symlink doomwaddir(HOMEBREW_PREFIX)
+  end
+
+  def caveats
+    <<~EOS
+      For DSDA-Doom to find your WAD files, place them in:
+      #{doomwaddir(HOMEBREW_PREFIX)}
+    EOS
   end
 
   test do
