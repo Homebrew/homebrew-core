@@ -54,8 +54,8 @@ class Julia < Formula
   # Link against libgcc_s.1.1.dylib, not libgcc_s.1.dylib
   # https://github.com/JuliaLang/julia/pull/46240
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/eca8ecc1/julia/libgcc_s.diff"
-    sha256 "48caa1200dc3bd2bf5ae4f03331693619ba9a811e6962e3bc7b52c23bdcd4344"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/dd7279eea22d92688d2a821c245d92c4f8406fcf/julia/libgcc_s.diff"
+    sha256 "f12c11db53390145b4a9b1ea3b412019eee89c0d197eef6c78b0565bf7fd7aaf"
   end
 
   def install
