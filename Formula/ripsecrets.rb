@@ -6,11 +6,6 @@ class Ripsecrets < Formula
   license "MIT"
   head "https://github.com/sirwart/ripsecrets.git", branch: "main"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   depends_on "rust" => :build
 
   def install
