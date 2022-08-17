@@ -4,6 +4,7 @@ class Libxmlsec1 < Formula
   url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.34.tar.gz"
   sha256 "52ced4943f35bd7d0818a38298c1528ca4ac8a54440fd71134a07d2d1370a262"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.aleksey.com/xmlsec/download/"
