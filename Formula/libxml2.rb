@@ -12,13 +12,6 @@ class Libxml2 < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
-
-    # Don't require ICU headers when using libxml2's public headers.
-    # Remove with 2.10 or later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a248d94d777c70f440d07032956a13c8158b7f0a/libxml2/2.9-icu-headers.diff"
-      sha256 "4b139cf66913fbeb60e9beef8872060c7a533d974b5a46ec81b85234a75a1430"
-    end
   end
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
