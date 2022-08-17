@@ -13,12 +13,6 @@ class Julia < Formula
       url "https://raw.githubusercontent.com/archlinux/svntogit-community/cd813138d8a6fd496d0972a033d55028613be06d/trunk/julia-libgit-1.4.patch"
       sha256 "cfe498a090d0026b92f9db4ed65ac3818c2efa5ec83bcefed728d27abff73081"
     end
-
-    # Fixes for gcc12 https://github.com/Homebrew/homebrew-core/pull/107875#issuecomment-1214216233
-    patch :p0 do
-      url "https://raw.githubusercontent.com/archlinux/svntogit-community/bee1243b4ec66da31097f84600b37451435cfb1e/trunk/julia-gcc-12.patch"
-      sha256 "b903859c262048057f873e4a39c4837382896d3059860465443823133a5a59da"
-    end
   end
 
   bottle do
