@@ -31,6 +31,10 @@ class MinimalRacket < Formula
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
 
+  def racket_config
+    etc/"racket/config.rktd"
+  end
+
   def install
     # configure racket's package tool (raco) to do the Right Thing
     # see: https://docs.racket-lang.org/raco/config-file.html
@@ -55,13 +59,20 @@ class MinimalRacket < Formula
       system "make"
       system "make", "install"
     end
+
+    inreplace racket_config, prefix, opt_prefix
   end
 
   def post_install
     # Run raco setup to make sure core libraries are properly compiled.
     # Sometimes the mtimes of .rkt and .zo files are messed up after a fresh
     # install, making Racket take 15s to start up because interpreting is slow.
-    system "#{bin}/raco", "setup"
+    system bin/"raco", "setup"
+
+    return unless racket_config.read.include?(HOMEBREW_CELLAR)
+
+    ohai "Fixing up Cellar references in #{racket_config}..."
+    inreplace racket_config, %r{#{Regexp.escape(HOMEBREW_CELLAR)}/minimal-racket/[^/]}o, opt_prefix
   end
 
   def caveats
