@@ -48,6 +48,10 @@ class Spidermonkey < Formula
   end
 
   def install
+    # Avoid installing into HOMEBREW_PREFIX.
+    # https://github.com/Homebrew/homebrew-core/pull/98809
+    ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
+
     # Remove the broken *(for anyone but FF) install_name
     # _LOADER_PATH := @executable_path
     inreplace "config/rules.mk",
