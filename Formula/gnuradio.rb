@@ -97,6 +97,12 @@ class Gnuradio < Formula
     sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
+  # pygccxml only published a .whl file on PyPi
+  resource "pygccxml" do
+    url "https://github.com/CastXML/pygccxml/archive/refs/tags/v2.2.1.tar.gz"
+    sha256 "9815a12e3bf6b83b2e9d8c88335fb3fa0e2b4067d7fbaaed09c3bf26c6206cc7"
+  end
+
   # Fix build with newer GCC
   # https://github.com/gnuradio/gnuradio/pull/6002.
   patch :DATA
@@ -145,11 +151,12 @@ class Gnuradio < Formula
       -DENABLE_INTERNAL_VOLK=OFF
     ]
 
-    enabled = %w[GNURADIO_RUNTIME GR_ANALOG GR_AUDIO GR_BLOCKS GRC
-                 GR_CHANNELS GR_DIGITAL GR_DTV GR_FEC GR_FFT GR_FILTER
-                 GR_MODTOOL GR_NETWORK GR_QTGUI GR_SOAPY GR_TRELLIS
-                 GR_UHD GR_UTILS GR_VOCODER GR_WAVELET GR_ZEROMQ PYTHON VOLK]
-    enabled.each do |c|
+    enabled = %w[GNURADIO_RUNTIME GRC PYTHON VOLK]
+    enabled_modules = %w[GR_ANALOG GR_AUDIO GR_BLOCKS GR_BLOCKTOOL
+                         GR_CHANNELS GR_DIGITAL GR_DTV GR_FEC GR_FFT GR_FILTER
+                         GR_MODTOOL GR_NETWORK GR_QTGUI GR_SOAPY GR_TRELLIS
+                         GR_UHD GR_UTILS GR_VOCODER GR_WAVELET GR_ZEROMQ GR_PDU]
+    (enabled + enabled_modules).each do |c|
       args << "-DENABLE_#{c}=ON"
     end
 
