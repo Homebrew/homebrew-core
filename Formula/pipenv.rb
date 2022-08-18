@@ -66,15 +66,10 @@ class Pipenv < Formula
     }
     (bin/"pipenv").write_env_script(libexec/"bin/pipenv", env)
 
-    output = Utils.safe_popen_read(
-      { "_PIPENV_COMPLETE" => "zsh_source" }, libexec/"bin/pipenv", { err: :err }
-    )
-    (zsh_completion/"_pipenv").write output
-
-    output = Utils.safe_popen_read(
-      { "_PIPENV_COMPLETE" => "fish_source" }, libexec/"bin/pipenv", { err: :err }
-    )
-    (fish_completion/"pipenv.fish").write output
+    (zsh_completion/"_pipenv").write Utils.safe_popen_read({ "_PIPENV_COMPLETE" => "zsh_source" },
+                                                           libexec/"bin/pipenv", { err: :err })
+    (fish_completion/"pipenv.fish").write Utils.safe_popen_read({ "_PIPENV_COMPLETE" => "fish_source" },
+                                                                libexec/"bin/pipenv", { err: :err })
   end
 
   # Avoid relative paths
