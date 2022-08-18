@@ -177,11 +177,8 @@ class Hatch < Formula
   def install
     virtualenv_install_with_resources
 
-    output = Utils.safe_popen_read({ "_HATCH_COMPLETE" => "zsh_source" }, bin/"hatch")
-    (zsh_completion/"_hatch").write output
-
-    output = Utils.safe_popen_read({ "_HATCH_COMPLETE" => "fish_source" }, bin/"hatch")
-    (fish_completion/"hatch.fish").write output
+    (zsh_completion/"_hatch").write Utils.safe_popen_read({ "_HATCH_COMPLETE" => "zsh_source" }, bin/"hatch")
+    (fish_completion/"hatch.fish").write Utils.safe_popen_read({ "_HATCH_COMPLETE" => "fish_source" }, bin/"hatch")
   end
 
   test do
