@@ -229,7 +229,7 @@ jobs:
           cd bottles
           brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
 
-      - name: Failures summary for brew test-bot --only-formula
+      - name: Failures summary for brew test-bot --only-formulae
         if: always()
         uses: Homebrew/actions/failures-summary-and-bottle-result@master
         with:
@@ -261,10 +261,11 @@ jobs:
 
       - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
         if: ${{always() && fromJson(needs.setup_tests.outputs.test-dependents) == true}}
-        run: |
-          touch bottles/steps_output.txt
-          cat bottles/steps_output.txt
-          rm bottles/steps_output.txt
+        uses: Homebrew/actions/failures-summary-and-bottle-result@master
+        with:
+          workdir: ${{matrix.workdir || github.workspace}}
+          result_path: bottles/steps_output.txt
+          step_name: 'Dependent summary on ${{ matrix.runner }}'
 
       - name: Upload logs
         if: always()
