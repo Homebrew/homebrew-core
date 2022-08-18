@@ -88,7 +88,7 @@ class Mold < Formula
       homebrew_clang = Utils.safe_popen_read("clang", "--version").include?("Homebrew")
       untested << "syslibroot" if homebrew_clang
       testpath.glob("test/macho/{#{untested.join(",")}}.sh").map(&:unlink)
-      (testpath/"test/macho").children.each { |t| system t }
+      testpath.glob("test/macho/*.sh").each { |t| system t }
     else
       system bin/"mold", "-run", ENV.cc, "test.c", "-o", "test"
       system "./test"
