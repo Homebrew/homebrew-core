@@ -8,9 +8,9 @@ class Objconv < Formula
 
   livecheck do
     url :homepage
-    regex(/objconv.*last\s+modified:\s+(\d{4}-(?:[A-Z][a-z]{2}|\d{2})+-\d{2})/i)
+    regex(/objconv\.zip,.*?last\s+modified:\s+(\d{4}-(?:[a-z]+|\d{2})-\d{2})/im)
     strategy :page_match do |page, regex|
-      date = page.scan(regex).flatten.first
+      date = page[regex, 1]
       next if date.blank?
 
       Date.parse(date).strftime("%Y-%m-%d")
