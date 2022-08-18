@@ -1,8 +1,8 @@
 class Hatari < Formula
   desc "Atari ST/STE/TT/Falcon emulator"
   homepage "https://hatari.tuxfamily.org"
-  url "https://download.tuxfamily.org/hatari/2.4.0/hatari-2.4.0.tar.bz2"
-  sha256 "3e481b08c45cb65d3423157c4e912b458cb72941ff52478362f9abd791cb1ed7"
+  url "https://download.tuxfamily.org/hatari/2.4.1/hatari-2.4.1.tar.bz2"
+  sha256 "2a5da1932804167141de4bee6c1c5d8d53030260fe7fe7e31e5e71a4c00e0547"
   license "GPL-2.0-or-later"
   head "https://git.tuxfamily.org/hatari/hatari.git", branch: "master"
 
