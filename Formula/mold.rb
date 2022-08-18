@@ -1,4 +1,8 @@
+require "language/python"
+
 class Mold < Formula
+  include Language::Python::Shebang
+
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
   url "https://github.com/rui314/mold/archive/v1.4.1.tar.gz"
@@ -15,6 +19,7 @@ class Mold < Formula
     sha256               x86_64_linux:   "25d98acdaf7133398a274037d6bae48b1624f357f7a05b1893acd8c868a5c747"
   end
 
+  depends_on "python@3.10" => :build # needed to run update-git-hash.py
   depends_on "tbb"
   uses_from_macos "zlib"
 
@@ -41,6 +46,8 @@ class Mold < Formula
   def install
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
+
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "update-git-hash.py"
 
     args = %W[
       PREFIX=#{prefix}
