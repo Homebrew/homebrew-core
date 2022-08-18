@@ -140,8 +140,10 @@ class Llvm < Formula
     if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
+      args << "-DLIBCXX_INSTALL_LIBRARY_DIR=#{lib}/c++"
+      args << "-DLIBCXXABI_INSTALL_LIBRARY_DIR=#{lib}/c++"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
-      runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
+      runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{loader_path}"
 
       # Prevent CMake from defaulting to `lld` when it's found next to `clang`.
       # This can be removed after CMake 3.25. See:
@@ -150,6 +152,10 @@ class Llvm < Formula
       [args, runtimes_cmake_args, builtins_cmake_args].each do |arg_array|
         arg_array << "-DCMAKE_LINKER=ld"
       end
+
+      # Disable builds for OSes not supported by the CLT SDK.
+      clt_sdk_support_flags = %w[I WATCH TV].map { |os| "-DCOMPILER_RT_ENABLE_#{os}OS=OFF" }
+      builtins_cmake_args += clt_sdk_support_flags
     else
       ENV.append_to_cflags "-fpermissive -Wno-free-nonheap-object"
 
@@ -225,6 +231,7 @@ class Llvm < Formula
         # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/7671
         extra_args << "-DLLVM_USE_LINKER=ld"
         extra_args << "-DCMAKE_LINKER=ld"
+        extra_args += clt_sdk_support_flags
       else
         # Make sure CMake doesn't try to pass C++-only flags to C compiler.
         extra_args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
@@ -424,10 +431,12 @@ class Llvm < Formula
   end
 
   def caveats
-    <<~EOS
-      To use the bundled libc++ please add the following LDFLAGS:
-        LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
-    EOS
+    on_macos do
+      <<~EOS
+        To use the bundled libc++ please add the following LDFLAGS:
+          LDFLAGS="-L#{opt_lib}/c++ -Wl,-rpath,#{opt_lib}/c++"
+      EOS
+    end
   end
 
   test do
@@ -527,12 +536,13 @@ class Llvm < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+    cxx_libdir = OS.mac? ? opt_lib/"c++" : opt_lib
     system "#{bin}/clang++", "-v",
            "-isystem", "#{opt_include}/c++/v1",
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+           "-rtlib=compiler-rt", "-L#{cxx_libdir}", "-Wl,-rpath,#{cxx_libdir}"
     assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
-                    (opt_lib/shared_library("libc++", "1")).to_s
+                    (cxx_libdir/shared_library("libc++", "1")).to_s
     (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
       refute_match(/libstdc\+\+/, lib)
       refute_match(/libgcc/, lib)
