@@ -7,7 +7,7 @@ class Theos < Formula
   stable do
     url "https://github.com/theos/theos.git",
       branch:   "master",
-      revision: "e53ec51e92a3716def537c7ff1b5b2a86930700c"
+      revision: "97a91fe9a4a7d3391f50923cc2be910ed81f75be"
     version "2.6"
   end
 
