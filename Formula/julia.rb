@@ -5,8 +5,9 @@ class Julia < Formula
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   stable do
-    url "https://github.com/JuliaLang/julia/archive/refs/tags/v1.8.0.tar.gz"
-    sha256 "fba888fdf86ab3e7c0a0d1247e78946fee1f7f5b4930588606a8ac6a13f92491"
+    # Use the `-full` tarball to avoid having to download during the build.
+    url "https://github.com/JuliaLang/julia/releases/download/v1.8.0/julia-1.8.0-full.tar.gz"
+    sha256 "fe278b2e8d59bb60abfd64cfad4074e23ee0353c26615423d70a5085de4124e1"
 
     # Fix compatibility with LibGit2 1.4.0+
     patch do
