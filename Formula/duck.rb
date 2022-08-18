@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-8.4.2.38090.tar.gz"
-  sha256 "5886df6796c372816d22fb6a7c218ef494bd0758d4d2c2170ca135d25a321ef0"
+  url "https://dist.duck.sh/duck-src-8.4.3.38269.tar.gz"
+  sha256 "21d84f81080ff7a7b610b3705bd856de39f5de89c93a52b9df57c0a331f0f2ea"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
