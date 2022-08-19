@@ -4,6 +4,7 @@ class Luaradio < Formula
   url "https://github.com/vsergeev/luaradio/archive/v0.10.0.tar.gz"
   sha256 "d540aac3363255c4a1f47313888d9133b037cc5d1edca0d428499a272710b992"
   license "MIT"
+  revision 1
   head "https://github.com/vsergeev/luaradio.git", branch: "master"
 
   bottle do
@@ -18,26 +19,10 @@ class Luaradio < Formula
   depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "liquid-dsp"
-  depends_on "luajit-openresty"
+  depends_on "luajit"
 
   def install
-    cd "embed" do
-      # Ensure file placement is compatible with HOMEBREW_SANDBOX.
-      inreplace "Makefile" do |s|
-        s.gsub! "install -d $(DESTDIR)$(INSTALL_CMOD)",
-                "install -d $(PREFIX)/lib/lua/5.1"
-        s.gsub! "$(DESTDIR)$(INSTALL_CMOD)/radio.so",
-                "$(PREFIX)/lib/lua/5.1/radio.so"
-      end
-      system "make", "install", "PREFIX=#{prefix}"
-    end
-
-    env = {
-      PATH:      "#{Formula["luajit-openresty"].opt_bin}:$PATH",
-      LUA_CPATH: "#{lib}/lua/5.1/?.so${LUA_CPATH:+;$LUA_CPATH};;",
-    }
-
-    bin.env_script_all_files libexec/"bin", env
+    system "make", "-C", "embed", "PREFIX=#{prefix}", "INSTALL_CMOD=#{lib}/lua/5.1", "install"
   end
 
   test do
