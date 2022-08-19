@@ -99,12 +99,13 @@ class Alot < Formula
   def install
     virtualenv_install_with_resources
 
+    python = "python3.10"
     # Add path configuration file to use notmuch CFFI bindings
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python)
     pth_contents = "import site; site.addsitedir('#{Formula["notmuch"].opt_libexec/site_packages}')\n"
     (libexec/site_packages/"homebrew-notmuch2.pth").write pth_contents
 
-    pkgshare.install Dir["extra/*"] - %w[extra/completion]
+    pkgshare.install Pathname("extra").children - [Pathname("extra/completion")]
     zsh_completion.install "extra/completion/alot-completion.zsh" => "_alot"
 
     ENV["LC_ALL"] = "en_US.UTF-8"
@@ -113,7 +114,7 @@ class Alot < Formula
       system "make", "pickle"
       system "make", "man", "html"
       man1.install "build/man/alot.1"
-      doc.install Dir["build/html/*"]
+      doc.install Pathname("build/html").children
     end
   end
 
