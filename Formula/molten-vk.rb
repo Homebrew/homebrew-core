@@ -66,38 +66,31 @@ class MoltenVk < Formula
     url "https://github.com/KhronosGroup/MoltenVK.git", branch: "master"
 
     resource "cereal" do
-      url "https://github.com/USCiLab/cereal.git",
-          branch:   "master"
+      url "https://github.com/USCiLab/cereal.git", branch: "master"
     end
 
     resource "Vulkan-Headers" do
-      url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-          branch:   "main"
+      url "https://github.com/KhronosGroup/Vulkan-Headers.git", branch: "main"
     end
 
     resource "SPIRV-Cross" do
-      url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-          branch:   "master"
+      url "https://github.com/KhronosGroup/SPIRV-Cross.git", branch: "master"
     end
 
     resource "glslang" do
-      url "https://github.com/KhronosGroup/glslang.git",
-          branch:   "master"
+      url "https://github.com/KhronosGroup/glslang.git", branch: "master"
     end
 
     resource "SPIRV-Tools" do
-      url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          branch:   "master"
+      url "https://github.com/KhronosGroup/SPIRV-Tools.git", branch: "master"
     end
 
     resource "SPIRV-Headers" do
-      url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          branch:   "master"
+      url "https://github.com/KhronosGroup/SPIRV-Headers.git", branch: "master"
     end
 
     resource "Vulkan-Tools" do
-      url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-          branch:   "master"
+      url "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "master"
     end
   end
 
