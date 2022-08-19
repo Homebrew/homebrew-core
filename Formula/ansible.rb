@@ -557,9 +557,7 @@ class Ansible < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
-
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     # Install all of the resources declared on the formula into the virtualenv.
     resources.each do |r|
       # ansible-core provides all ansible binaries
@@ -572,7 +570,7 @@ class Ansible < Formula
     venv.pip_install_and_link buildpath
 
     resource("ansible-core").stage do
-      man1.install Dir["docs/man/man1/*.1"]
+      man1.install Pathname.glob("docs/man/man1/*.1")
     end
   end
 
@@ -588,14 +586,14 @@ class Ansible < Formula
     EOS
     (testpath/"hosts.ini").write [
       "localhost ansible_connection=local",
-      " ansible_python_interpreter=#{Formula["python@3.10"].opt_bin}/python3",
+      " ansible_python_interpreter=#{Formula["python@3.10"].opt_bin}/python3.10",
       "\n",
     ].join
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"
 
     # Ensure requests[security] is activated
     script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
-    system libexec/"bin/python3", "-c", script
+    system libexec/"bin/python", "-c", script
 
     # Ensure ansible-vault can encrypt/decrypt files.
     (testpath/"vault-password.txt").write("12345678")
