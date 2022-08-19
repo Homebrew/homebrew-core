@@ -47,7 +47,7 @@ class Zeromq < Formula
     # https://github.com/Homebrew/homebrew-core/pull/35940#issuecomment-454177261
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "--with-libsodium"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "--with-libsodium", "--enable-drafts"
     system "make"
     system "make", "install"
   end
