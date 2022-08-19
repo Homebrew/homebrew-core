@@ -508,7 +508,7 @@ class Biber < Formula
   end
   resource "test.bcf" do
     url "https://downloads.sourceforge.net/project/biblatex-biber/biblatex-biber/testfiles/test.bcf"
-    sha256 "7239ac502a8fc6d90fcaf9e9630d939a21e28456312ee7e041f6627ebb8fed24"
+    sha256 "79c15ae27c0e4760a44360858e2f21af5d7a333a415aa9c1caa058d353b7edf6"
   end
 
   def install
