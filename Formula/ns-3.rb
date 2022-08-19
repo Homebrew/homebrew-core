@@ -16,13 +16,13 @@ class Ns3 < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "gsl" => :build
   depends_on "ninja" => :build
-  depends_on "open-mpi" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on xcode: [:build, "11"]
 
-  uses_from_macos "libxcrypt"
+  depends_on "gsl"
+  depends_on "open-mpi"
+  depends_on "python@3.10"
+
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
 
@@ -30,6 +30,9 @@ class Ns3 < Formula
     depends_on "gcc"
   end
 
+  # Needs GCC 8 or above
+  fails_with gcc: "5"
+  fails_with gcc: "6"
   fails_with gcc: "7"
 
   resource "pybindgen" do
@@ -50,7 +53,8 @@ class Ns3 < Formula
     system "./ns3", "install"
 
     # Starting 3.36, bindings are no longer installed
-    (lib/"python3.10/site-packages").install Dir["build/bindings/python/*"]
+    site_packages = Language::Python.site_packages("python3.10")
+    (prefix/site_packages).install (buildpath/"build/bindings/python").children
 
     pkgshare.install "examples/tutorial/first.cc", "examples/tutorial/first.py"
   end
@@ -62,6 +66,6 @@ class Ns3 < Formula
            "-std=c++17", "-o", "test"
     system "./test"
 
-    system Formula["python@3.10"].opt_bin/"python3", pkgshare/"first.py"
+    system Formula["python@3.10"].opt_bin/"python3.10", pkgshare/"first.py"
   end
 end
