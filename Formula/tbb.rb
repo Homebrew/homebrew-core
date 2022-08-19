@@ -23,37 +23,56 @@ class Tbb < Formula
   # See https://github.com/oneapi-src/oneTBB/issues/343
   patch :DATA
 
+  # Fix thread creation under heavy load.
+  # https://github.com/oneapi-src/oneTBB/pull/824
+  # Needed for mold: https://github.com/rui314/mold/releases/tag/v1.4.0
+  patch do
+    url "https://github.com/oneapi-src/oneTBB/commit/f12c93efd04991bc982a27e2fa6142538c33ca82.patch?full_index=1"
+    sha256 "637a65cca11c81fa696112aca714879a2202a20e426eff2be8d2318e344ae15c"
+  end
+
   def install
-    args = *std_cmake_args + %w[
+    args = %w[
       -DTBB_TEST=OFF
       -DTBB4PY_BUILD=ON
     ]
 
-    mkdir "build" do
-      system "cmake", "..", *args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      system "make"
-      system "make", "install"
-      system "make", "clean"
-      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=OFF"
-      system "make"
-      lib.install Dir["**/libtbb*.a"]
-    end
+    system "cmake", "-S", ".", "-B", "build/shared",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *args, *std_cmake_args
+    system "cmake", "--build", "build/shared"
+    system "cmake", "--install", "build/shared"
+
+    system "cmake", "-S", ".", "-B", "build/static",
+                    "-DBUILD_SHARED_LIBS=OFF",
+                    *args, *std_cmake_args
+    system "cmake", "--build", "build/static"
+    lib.install buildpath.glob("build/static/*/libtbb*.a")
 
     cd "python" do
       ENV.append_path "CMAKE_PREFIX_PATH", prefix.to_s
-      ENV["LDFLAGS"] = "-rpath #{opt_lib}" if OS.mac?
-      python = Formula["python@3.10"].opt_bin/"python3"
+      python = Formula["python@3.10"].opt_bin/"python3.10"
+
+      tbb_site_packages = prefix/Language::Python.site_packages(python)/"tbb"
+      ENV["LDFLAGS"] = "-Wl,-rpath,@loader_path/#{lib.relative_path_from(tbb_site_packages)}" if OS.mac?
 
       ENV["TBBROOT"] = prefix
-      system python, *Language::Python.setup_install_args(prefix),
-                     "--install-lib=#{prefix/Language::Python.site_packages(python)}"
+      system python, *Language::Python.setup_install_args(prefix, python)
     end
 
+    return unless OS.linux?
+
     inreplace_files = prefix.glob("rml/CMakeFiles/irml.dir/{flags.make,build.make,link.txt}")
-    inreplace inreplace_files, Superenv.shims_path/ENV.cxx, ENV.cxx if OS.linux?
+    inreplace inreplace_files, Superenv.shims_path/ENV.cxx, ENV.cxx
   end
 
   test do
+    # The glob that installs these might fail,
+    # so let's check their existence.
+    assert_path_exists lib/"libtbb.a"
+    assert_path_exists lib/"libtbbmalloc.a"
+
     (testpath/"sum1-100.cpp").write <<~EOS
       #include <iostream>
       #include <tbb/blocked_range.h>
@@ -82,7 +101,7 @@ class Tbb < Formula
     system ENV.cxx, "sum1-100.cpp", "--std=c++14", "-L#{lib}", "-ltbb", "-o", "sum1-100"
     assert_equal "5050", shell_output("./sum1-100").chomp
 
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import tbb"
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import tbb"
   end
 end
 
