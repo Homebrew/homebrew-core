@@ -5,12 +5,6 @@ class Sdl2 < Formula
   sha256 "91e4c34b1768f92d399b078e171448c6af18cafda743987ed2064a28954d6d97"
   license "Zlib"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/release[._-]v?(\d+(?:\.\d+)+)["' >]}i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "d299f67194020898fa457130d11ecc89beab6020d2d8ed6cb6c546ca91858f03"
     sha256 cellar: :any,                 arm64_big_sur:  "77512d6fc260326313d7c02d8442a967740d4b7e616a6995e87844dcf7a2f523"
