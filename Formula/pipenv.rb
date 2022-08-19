@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/67/6f/81ff57ed9f487a185ea7b0bb2517950f7ad661e3dc7f72e8ab28a8894d7a/pipenv-2022.8.17.tar.gz"
-  sha256 "863d75dcd8b3ca8fcd7bfce49978454622dd80fbed1e547d2f43de13c6e1723c"
+  url "https://files.pythonhosted.org/packages/92/72/6d99dd79ccc71a5d8f39df5cbd9f74c1d025789fccaca21e09b2e438ccd6/pipenv-2022.8.19.tar.gz"
+  sha256 "44013256601acf66f3cbb68c922804a67a8d1b328fe01884851f16e49898852f"
   license "MIT"
 
   bottle do
