@@ -2,10 +2,9 @@ class ErlangAT24 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/releases/download/OTP-24.3.4.2/otp_src_24.3.4.2.tar.gz"
-  sha256 "0376d50f867a29426d47600056e8cc49c95b51ef172b6b9030628e35aecd46af"
+  url "https://github.com/erlang/otp/releases/download/OTP-24.3.4.3/otp_src_24.3.4.3.tar.gz"
+  sha256 "1f80c90a973863622b66f6b590508473c173c9bd267fadb6d5b6e0657caec861"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -23,12 +22,12 @@ class ErlangAT24 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "wxwidgets" # for GUI apps like observer
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-24.3.4.2/otp_doc_html_24.3.4.2.tar.gz"
-    sha256 "712ffbc37f668ff92aa35a97fbf43d4bc2ac2648fa14f3b3cbaee6c03342c948"
+    url "https://github.com/erlang/otp/releases/download/OTP-24.3.4.3/otp_doc_html_24.3.4.3.tar.gz"
+    sha256 "4655cd8211303c08996310cdf89b5198bf7850b5245d6e808b478aa3a90a4257"
   end
 
   def install
@@ -49,7 +48,7 @@ class ErlangAT24 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-javac
     ]
 
