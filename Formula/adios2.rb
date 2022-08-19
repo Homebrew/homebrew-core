@@ -22,13 +22,17 @@ class Adios2 < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc" => :build
+  depends_on "nlohmann-json" => :build
   depends_on "c-blosc"
   depends_on "libfabric"
   depends_on "libpng"
   depends_on "mpi4py"
   depends_on "numpy"
   depends_on "open-mpi"
+  depends_on "pugixml"
+  depends_on "pybind11"
   depends_on "python@3.10"
+  depends_on "yaml-cpp"
   depends_on "zeromq"
 
   uses_from_macos "bzip2"
@@ -72,6 +76,7 @@ class Adios2 < Formula
       -DCMAKE_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages(python3)}
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
+      -DADIOS2_USE_EXTERNAL_DEPENDENCIES=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
