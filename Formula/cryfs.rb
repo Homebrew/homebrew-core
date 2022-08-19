@@ -6,7 +6,7 @@ class Cryfs < Formula
   url "https://github.com/cryfs/cryfs/releases/download/0.11.2/cryfs-0.11.2.tar.gz"
   sha256 "a89ab8fea2d494b496867107ec0a3772fe606ebd71ef12152fcd233f463a2c00"
   license "LGPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "935f41c05b34ed2edb6bcc8597445bd368412e8b9a2bb660c3720f52c74a0362"
@@ -43,12 +43,22 @@ class Cryfs < Formula
     sha256 "9f0e9a2cb5ef521cbfd104d43a208dd9124dfb4accfa72d694e0d0430a0142bc"
   end
 
+  # Fix build with fmt 9+
+  # https://github.com/cryfs/cryfs/pull/433
+  patch do
+    url "https://github.com/cryfs/cryfs/commit/01cf1d5fc98b6c9ac4d7dacb59c6fb787225ea48.patch?full_index=1"
+    sha256 "1ad5022b6054e9ee98721c30cd8c038bf5f2fb5750047a954df62aefbd1ee3fd"
+  end
+
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3")
+    python = "python3.10"
+    venv_root = buildpath/"venv"
+
+    venv = virtualenv_create(venv_root, python)
     venv.pip_install resource("versioneer")
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_path "PYTHONPATH", buildpath/"venv/lib/python#{xy}/site-packages"
-    ENV.prepend_path "PATH", buildpath/"venv/bin"
+
+    ENV.prepend_path "PYTHONPATH", venv_root/Language::Python.site_packages(python)
+    ENV.prepend_path "PATH", venv_root/"bin"
 
     configure_args = [
       "-DBUILD_TESTING=off",
