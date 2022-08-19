@@ -34,6 +34,10 @@ class Adios2 < Formula
 
   uses_from_macos "bzip2"
 
+  def python3
+    "python3.10"
+  end
+
   def install
     # fix `include/adios2/common/ADIOSConfig.h` file audit failure
     inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|
@@ -41,7 +45,7 @@ class Adios2 < Formula
       s.gsub! ": @CMAKE_CXX_COMPILER@", ": #{ENV.cxx}"
     end
 
-    args = std_cmake_args + %W[
+    args = %W[
       -DADIOS2_USE_Blosc=ON
       -DADIOS2_USE_BZip2=ON
       -DADIOS2_USE_DataSpaces=OFF
@@ -60,12 +64,13 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_FLEX=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
-      -DPython_EXECUTABLE=#{which("python3")}
-      -DCMAKE_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages("python3")}
+      -DPython_EXECUTABLE=#{which(python3)}
+      -DCMAKE_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages(python3)}
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
     ]
-    system "cmake", "-S", ".", "-B", "build", *args
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -74,16 +79,13 @@ class Adios2 < Formula
   end
 
   test do
-    adios2_config_flags = `adios2-config --cxx`.chomp.split
-    system "mpic++",
-           (pkgshare/"test/helloBPWriter.cpp"),
-           *adios2_config_flags
+    adios2_config_flags = Utils.safe_popen_read(bin/"adios2-config", "--cxx").chomp.split
+    system "mpic++", pkgshare/"test/helloBPWriter.cpp", *adios2_config_flags
     system "./a.out"
     assert_predicate testpath/"myVector_cpp.bp", :exist?
 
-    python = Formula["python@3.10"].opt_bin/"python3"
-    system python, "-c", "import adios2"
-    system python, (pkgshare/"test/helloBPWriter.py")
+    system python3, "-c", "import adios2"
+    system python3, pkgshare/"test/helloBPWriter.py"
     assert_predicate testpath/"npArray.bp", :exist?
   end
 end
