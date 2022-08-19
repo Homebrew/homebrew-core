@@ -21,6 +21,10 @@ class X8664LinuxGnuBinutils < Formula
 
   uses_from_macos "texinfo"
 
+  on_linux do
+    keg_only "it conflicts with `binutils`"
+  end
+
   def install
     ENV.cxx11
 
