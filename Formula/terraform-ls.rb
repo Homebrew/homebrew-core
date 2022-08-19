@@ -23,7 +23,12 @@ class TerraformLs < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+      -X main.versionPrerelease=#{tap.user}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
   end
 
   test do
