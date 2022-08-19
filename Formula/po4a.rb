@@ -8,7 +8,7 @@ class Po4a < Formula
   url "https://github.com/mquinson/po4a/releases/download/v0.67/po4a-0.67.tar.gz"
   sha256 "4a4166a480d9b5bcc80b688604501b5545f1c9f67067e8f5494846de167a18a7"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/mquinson/po4a.git", branch: "master"
 
   bottle do
