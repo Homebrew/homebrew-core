@@ -4,7 +4,7 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v10.0.0.tar.bz2"
   sha256 "ba6b430aed72c63a3768531f6a3ffc2b0fde2c57a3b251450dcf489a894f0894"
   license "ZPL-2.1"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -29,16 +29,9 @@ class MingwW64 < Formula
   depends_on "mpfr"
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.38.tar.xz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.38.tar.xz"
-    sha256 "e316477a914f567eccc34d5d29785b8b0f5a10208d36bbacedcc39048ecfe024"
-
-    # Fix dlltool failures during parallel builds until the release after 2.38, upstream patch
-    # https://sourceware.org/bugzilla/show_bug.cgi?id=28885
-    #
-    # patch is from https://sourceware.org/git/?p=binutils-gdb.git;a=patch;h=d65c0ddddd85645cab6f11fd711d21638a74489f
-    # with ChangeLog patch removed
-    patch :DATA
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.39.tar.xz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.39.tar.xz"
+    sha256 "645c25f563b8adc0a81dbd6a41cffbf4d37083a382e02d5d3df4f65c09516d00"
   end
 
   resource "gcc" do
@@ -233,24 +226,3 @@ class MingwW64 < Formula
     end
   end
 end
-
-__END__
-diff --git a/binutils/dlltool.c b/binutils/dlltool.c
-index d95bf3f5470..89871510b45 100644
---- a/binutils/dlltool.c
-+++ b/binutils/dlltool.c
-@@ -3992,10 +3992,11 @@ main (int ac, char **av)
-   if (tmp_prefix == NULL)
-     {
-       /* If possible use a deterministic prefix.  */
--      if (dll_name)
-+      if (imp_name || delayimp_name)
-         {
--          tmp_prefix = xmalloc (strlen (dll_name) + 2);
--          sprintf (tmp_prefix, "%s_", dll_name);
-+          const char *input = imp_name ? imp_name : delayimp_name;
-+          tmp_prefix = xmalloc (strlen (input) + 2);
-+          sprintf (tmp_prefix, "%s_", input);
-           for (i = 0; tmp_prefix[i]; i++)
-             if (!ISALNUM (tmp_prefix[i]))
-               tmp_prefix[i] = '_';
