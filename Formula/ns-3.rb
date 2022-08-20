@@ -16,7 +16,6 @@ class Ns3 < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "ninja" => :build
   depends_on xcode: [:build, "11"]
 
   depends_on "gsl"
@@ -25,6 +24,12 @@ class Ns3 < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
+
+  # Clears the Python3_LIBRARIES variable. Removing `PRIVATE ${Python3_LIBRARIES}`
+  # in ns3-module-macros is not sufficient as it doesn't apply to visualizer.so.
+  on_macos do
+    patch :DATA
+  end
 
   on_linux do
     depends_on "gcc"
@@ -42,15 +47,23 @@ class Ns3 < Formula
 
   def install
     resource("pybindgen").stage buildpath/"../pybindgen"
+    ENV.append "PYTHONPATH", "#{buildpath}/../pybindgen"
 
-    system "./ns3", "configure", "--prefix=#{prefix}",
-                                 "-d", "release",
-                                 "--disable-gtk",
-                                 "--enable-python-bindings",
-                                 "--enable-mpi",
-                                 "--", "-DCMAKE_INSTALL_RPATH=#{rpath}"
-    system "./ns3", "build", "--jobs=#{ENV.make_jobs}"
-    system "./ns3", "install"
+    # Avoid explicit linkage with python
+    linker_flags = "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
+
+    # Fix binding's rpath
+    linker_flags << " -Wl,-rpath,@loader_path" if OS.mac?
+    linker_flags << " -Wl,-rpath,$ORIGIN" if OS.linux?
+
+    system "cmake", "-S", ".", "-B", "build",
+                                 "-DNS3_GTK3=OFF",
+                                 "-DNS3_PYTHON_BINDINGS=ON",
+                                 "-DNS3_MPI=ON",
+                                 linker_flags,
+                                 *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Starting 3.36, bindings are no longer installed
     site_packages = Language::Python.site_packages("python3.10")
@@ -69,3 +82,19 @@ class Ns3 < Formula
     system Formula["python@3.10"].opt_bin/"python3.10", pkgshare/"first.py"
   end
 end
+
+__END__
+diff --git a/build-support/macros-and-definitions.cmake b/build-support/macros-and-definitions.cmake
+index 304ccdde7..64ae322c5 100644
+--- a/build-support/macros-and-definitions.cmake
++++ b/build-support/macros-and-definitions.cmake
+@@ -723,7 +723,8 @@ macro(process_options)
+   if(${Python3_Interpreter_FOUND})
+     if(${Python3_Development_FOUND})
+       set(Python3_FOUND TRUE)
+-      if(APPLE)
++      set(Python3_LIBRARIES "")
++      if(FALSE)
+         # Apple is very weird and there could be a lot of conflicting python
+         # versions which can generate conflicting rpaths preventing the python
+         # bindings from working
