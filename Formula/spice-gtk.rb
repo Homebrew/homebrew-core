@@ -22,7 +22,6 @@ class SpiceGtk < Formula
     sha256 x86_64_linux:   "b7fa19f888be06a726f69c2bc0a12c28b2663f0fc7b72a82073559442e5cc77d"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
