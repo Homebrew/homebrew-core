@@ -14,7 +14,6 @@ class GeocodeGlib < Formula
     sha256               x86_64_linux:   "e0224472f08ddfa0a81deb972c4bb6e15e1ff8ae53df5cbe47d130f20a7aa8fc"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
