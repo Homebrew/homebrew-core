@@ -16,7 +16,6 @@ class Gspell < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "glib-utils" => :build
   depends_on "gtk-doc" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
