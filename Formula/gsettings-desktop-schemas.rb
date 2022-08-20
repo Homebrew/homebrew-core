@@ -14,7 +14,6 @@ class GsettingsDesktopSchemas < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff08511c0988eec4bbe0c5a37bbbcbc7070ead8581d9e7ffa49fbe842d6bd562"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
