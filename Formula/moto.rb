@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/36/ec/ca59c9466ccdf2c1d3ccbd6d06c2de58e1d7fccc96abddd75a7dd07efbbe/moto-3.1.18.tar.gz"
-  sha256 "1e05276a62aa5a4aa821b441647c2cbaa2ea175388980b10d5de88d41b327cf7"
+  url "https://files.pythonhosted.org/packages/d5/ae/5c324d5b00cd2c7407dfbb1a2011adbd7ba5e8783fbbcbd45d7bf3f8b666/moto-4.0.0.tar.gz"
+  sha256 "742567fa300b9d51cf63f7b1d0524c70b975e85c6a50e3d94346a6984c19d6e0"
   license "Apache-2.0"
 
   bottle do
@@ -26,8 +26,8 @@ class Moto < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/42/bf/343dbbd9faaf916273d566ac8f62bfa0c1d22a87c1bdcdb583d1d216ba5b/aws-sam-translator-1.49.0.tar.gz"
-    sha256 "a0d3bba2fb16d72e1e4fc5ef50e227e8e6a869f4c417dd760191d26470dca91f"
+    url "https://files.pythonhosted.org/packages/7b/c1/e7933aefe6c8ff8d2320fafc2f7160a6306e540c2c6372797a1f7f8f66d3/aws-sam-translator-1.50.0.tar.gz"
+    sha256 "85bea2739e1b4a61b3e4add8a12f727d7a8e459e3da195dfd0cd2e756be054ec"
   end
 
   resource "aws-xray-sdk" do
@@ -36,13 +36,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/97/e0/b02a98830ba237fd822fdcc41299fed9ec510aac070d3b840a273d8cbb62/boto3-1.24.51.tar.gz"
-    sha256 "ca8352b4af67cf15a8f399f71dfc31c6a0e5a7725afcf299c50aaaaa9f1e6782"
+    url "https://files.pythonhosted.org/packages/4d/0a/db320589aee830cb9f455094d98f4d88d30860167e6a9ed34fa2a19c6204/boto3-1.24.56.tar.gz"
+    sha256 "9fab8acec76008797be4671d514f39f1163ba044c0a0bce8d5afe8b52cbd5550"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a4/99/0314c7e02c489c2f85bf24c397a951564255226de52a2ee9362600e06dba/botocore-1.27.51.tar.gz"
-    sha256 "328d2baca30e66016acdf9ad3c5e6fa6522fca249f54c5affce8774c0faa564f"
+    url "https://files.pythonhosted.org/packages/6d/5e/1eb5ae8b11738fa483f52d231a6004b70070f92b14147d32ad95f7ea524c/botocore-1.27.56.tar.gz"
+    sha256 "81101abab2013992a84019739d85a6fa8ec6f1f42fb09ad07e0bf4c8f0efce60"
   end
 
   resource "certifi" do
@@ -56,13 +56,13 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/20/d2/6bcc3ad87e3c6d6737dcc07bef23dbfa18e9de8e08947b8ff5ebfd6ecfab/cfn-lint-0.61.5.tar.gz"
-    sha256 "ad43d971f559319c33580e50e9afbae88553512bd944eb3c33bb15fbc21a7df8"
+    url "https://files.pythonhosted.org/packages/89/1d/58aad5d3f86b6974bf5acbc8ff9b2240cd18722d06ae871c42a382522898/cfn-lint-0.62.0.tar.gz"
+    sha256 "68c66bf65ca984acd8fa6df2879ec447227b85aa8f28526fde4aabcf171a2dca"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/93/1d/d9392056df6670ae2a29fcb04cfa5cee9f6fbde7311a1bb511d4115e9b7a/charset-normalizer-2.1.0.tar.gz"
-    sha256 "575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413"
+    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
+    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
   end
 
   resource "click" do
@@ -76,8 +76,8 @@ class Moto < Formula
   end
 
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/ab/d2/45ea0ee13c6cffac96c32ac36db0299932447a736660537ec31ec3a6d877/docker-5.0.3.tar.gz"
-    sha256 "d916a26b62970e7c2f554110ed6af04c7ccff8e9f81ad17d0d40c75637e227fb"
+    url "https://files.pythonhosted.org/packages/1a/d1/c41d51a0b5192533885545e031ee1b98ee6dc93ceb0c1deb4ecfe212a9a8/docker-6.0.0.tar.gz"
+    sha256 "19e330470af40167d293b0352578c1fa22d74b34d3edf5d4ff90ebc203bbb2f1"
   end
 
   resource "ecdsa" do
@@ -173,6 +173,11 @@ class Moto < Formula
   resource "openapi-spec-validator" do
     url "https://files.pythonhosted.org/packages/37/41/199441b0ae1f9522ce511fd65cbcd9e8634aed733bd0ab2a9235fe29dec6/openapi-spec-validator-0.4.0.tar.gz"
     sha256 "97f258850afc97b048f7c2653855e0f88fa66ac103c2be5077c7960aca2ad49a"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "pbr" do
