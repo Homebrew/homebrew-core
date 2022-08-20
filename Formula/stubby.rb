@@ -1,10 +1,19 @@
 class Stubby < Formula
   desc "DNS privacy enabled stub resolver service based on getdns"
   homepage "https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Daemon+-+Stubby"
-  url "https://github.com/getdnsapi/stubby/archive/v0.4.1.tar.gz"
-  sha256 "e195f278d16c861a2fb998f075f48b4b5b905b17fc0f33859da03f884b4a4cad"
   license "BSD-3-Clause"
   head "https://github.com/getdnsapi/stubby.git", branch: "develop"
+
+  stable do
+    url "https://github.com/getdnsapi/stubby/archive/v0.4.1.tar.gz"
+    sha256 "e195f278d16c861a2fb998f075f48b4b5b905b17fc0f33859da03f884b4a4cad"
+
+    # Fix test yml reference issue, remove in next version
+    patch do
+      url "https://github.com/getdnsapi/stubby/commit/cf9e0f5d97e518f2edb1c21801f2ccf133467f2b.patch?full_index=1"
+      sha256 "9d888aab5448b47e844731e640ef9fa9ec6085128247824b3bb2c949d92a1a8d"
+    end
+  end
 
   bottle do
     rebuild 1
