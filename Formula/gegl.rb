@@ -21,7 +21,6 @@ class Gegl < Formula
     sha256 x86_64_linux:   "e23c8d7d4fe6608c4020dfac1323994d7d3c352950b8d507e0315f9e9db6e675"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
