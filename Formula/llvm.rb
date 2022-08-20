@@ -49,6 +49,10 @@ class Llvm < Formula
   # Fails at building LLDB
   fails_with gcc: "5"
 
+  def python3
+    "python3.10"
+  end
+
   def install
     # The clang bindings need a little help finding our libclang.
     inreplace "clang/bindings/python/clang/cindex.py",
@@ -78,7 +82,7 @@ class Llvm < Formula
     python_versions = Formula.names
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
-    site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
+    site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -113,7 +117,7 @@ class Llvm < Formula
       -DLLDB_ENABLE_LUA=OFF
       -DLLDB_ENABLE_LZMA=ON
       -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
-      -DLLDB_PYTHON_EXE_RELATIVE_PATH=#{which("python3").relative_path_from(prefix)}
+      -DLLDB_PYTHON_EXE_RELATIVE_PATH=#{which(python3).relative_path_from(prefix)}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF
@@ -421,7 +425,7 @@ class Llvm < Formula
 
     # Create symlinks so that the Python bindings can be used with alternative Python versions
     python_versions.each do |py_ver|
-      next if py_ver == Language::Python.major_minor_version("python3").to_s
+      next if py_ver == Language::Python.major_minor_version(python3).to_s
 
       (lib/"python#{py_ver}/site-packages").install_symlink (lib/site_packages).children
     end
@@ -635,6 +639,14 @@ class Llvm < Formula
     EOS
     assert_equal "int main() { printf(\"Hello world!\"); }\n",
       shell_output("#{bin}/clang-format -style=google clangformattest.c")
+
+    # This will fail if the clang bindings cannot find `libclang`.
+    with_env(PYTHONPATH: prefix/Language::Python.site_packages(python3)) do
+      system python3, "-c", <<~EOS
+        from clang import cindex
+        cindex.Config().get_cindex_library()
+      EOS
+    end
 
     # Ensure LLVM did not regress output of `llvm-config --system-libs` which for a time
     # was known to output incorrect linker flags; e.g., `-llibxml2.tbd` instead of `-lxml2`.
