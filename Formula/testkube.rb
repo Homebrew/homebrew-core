@@ -4,6 +4,12 @@ class Testkube < Formula
   url "https://github.com/kubeshop/testkube/archive/v1.4.29.tar.gz"
   sha256 "9a924d623422830f1b1b2c92bba4222e19b3c32a0d4c5a98792b301e9de3a689"
   license "MIT"
+  head "https://github.com/kubeshop/testkube.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c0db4dbe5d2f0b3d4a6b1d6dd4ff2c195644129a66b57cfaef77118cffec7043"
