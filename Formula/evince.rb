@@ -14,7 +14,6 @@ class Evince < Formula
     sha256 x86_64_linux:   "71c54a195b220570d7cb9b40a44021a752d795a61008a8c79cbdab1d40771699"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
