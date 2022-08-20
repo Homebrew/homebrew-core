@@ -9,7 +9,6 @@ class AtSpi2Core < Formula
     sha256 x86_64_linux: "f30c087e00d06e8b89ce75d4b0360dee93541a30e07a9e89ff5cab3f36a6f189"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "meson" => :build
