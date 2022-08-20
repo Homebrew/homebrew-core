@@ -15,7 +15,6 @@ class Libpeas < Formula
     sha256 x86_64_linux:   "06dca0f0281702151b8809b797f6b1931ff69b05f73ed266f0e0af725b563e4f"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
