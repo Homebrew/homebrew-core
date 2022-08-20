@@ -3,8 +3,8 @@ class TrashCli < Formula
 
   desc "Command-line interface to the freedesktop.org trashcan"
   homepage "https://github.com/andreafrancia/trash-cli"
-  url "https://files.pythonhosted.org/packages/36/d2/6415cda6cdd81ee0eb07b357e96a03c96a78af324d7eb2c52ff51d080210/trash-cli-0.22.4.16.tar.gz"
-  sha256 "ec60ff1a038402f4b1e7360b32707bc36dc275fa32e512bb81274c0375d20003"
+  url "https://files.pythonhosted.org/packages/89/8d/ca21ac5cab9967023806fc666ee874ed211e441b70276be92d3f2ba08ecf/trash-cli-0.22.8.19.tar.gz"
+  sha256 "f1e92eac01bff0bf878ce62e9689589bc6d856b58959f8f0c74ce9787f049f5f"
   license "GPL-2.0-or-later"
   head "https://github.com/andreafrancia/trash-cli.git", branch: "master"
 
@@ -23,8 +23,8 @@ class TrashCli < Formula
   conflicts_with "trash", because: "both install a `trash` binary"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/47/b6/ea8a7728f096a597f0032564e8013b705aa992a0990becd773dcc4d7b4a7/psutil-5.9.0.tar.gz"
-    sha256 "869842dbd66bb80c3217158e629d6fceaecc3a3166d3d1faee515b05dd26ca25"
+    url "https://files.pythonhosted.org/packages/d6/de/0999ea2562b96d7165812606b18f7169307b60cd378bc29cf3673322c7e9/psutil-5.9.1.tar.gz"
+    sha256 "57f1819b5d9e95cdfb0c881a8a5b7d542ed0b7c522d575706a80bedc848c8954"
   end
 
   def install
