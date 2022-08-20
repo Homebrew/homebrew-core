@@ -20,7 +20,6 @@ class LibvirtGlib < Formula
     sha256 x86_64_linux:   "9ba421c50085712b450e1986d20e22b09b334548c70257cd83ca9afda92b07ed"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "meson" => :build
