@@ -24,7 +24,6 @@ class Vice < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "dos2unix" => :build
-  depends_on "glib-utils" => :build
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
   depends_on "xa" => :build
