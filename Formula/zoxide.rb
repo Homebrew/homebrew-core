@@ -21,6 +21,7 @@ class Zoxide < Formula
     bash_completion.install "contrib/completions/zoxide.bash" => "zoxide"
     zsh_completion.install "contrib/completions/_zoxide"
     fish_completion.install "contrib/completions/zoxide.fish"
+    share.install "man"
   end
 
   test do
