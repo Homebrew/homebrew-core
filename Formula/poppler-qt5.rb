@@ -23,7 +23,6 @@ class PopplerQt5 < Formula
   keg_only "it conflicts with poppler"
 
   depends_on "cmake" => :build
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
