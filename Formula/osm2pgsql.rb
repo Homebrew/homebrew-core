@@ -25,6 +25,12 @@ class Osm2pgsql < Formula
 
   uses_from_macos "expat"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # C++17
+
   def install
     # This is essentially a CMake disrespects superenv problem
     # rather than an upstream issue to handle.
