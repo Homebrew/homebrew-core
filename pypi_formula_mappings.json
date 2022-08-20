@@ -145,6 +145,9 @@
   "dxpy": {
     "exclude_packages": ["six"]
   },
+  "enex2notion": {
+    "exclude_packages": ["PyMuPDF", "six"]
+  },
   "esphome": {
     "exclude_packages": ["protobuf", "six", "tabulate"]
   },
