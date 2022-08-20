@@ -2,8 +2,8 @@ class ZeroInstall < Formula
   desc "Decentralised cross-platform software installation system"
   homepage "https://0install.net/"
   url "https://github.com/0install/0install.git",
-      tag:      "v2.17",
-      revision: "4a837bd638d93905b96d073c28c644894f8d4a0b"
+      tag:      "v2.18",
+      revision: "b58af5db6afd496cfd4a5f85fb23f30ba8dfbc87"
   license "LGPL-2.1-or-later"
   head "https://github.com/0install/0install.git", branch: "master"
 
