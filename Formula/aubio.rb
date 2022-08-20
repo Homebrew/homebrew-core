@@ -37,15 +37,13 @@ class Aubio < Formula
     # Needed due to issue with recent clang (-fno-fused-madd))
     ENV.refurbish_args
 
-    # Ensure `python` references use our python3
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+    python = "python3.10"
 
-    system "python3", "./waf", "configure", "--prefix=#{prefix}"
-    system "python3", "./waf", "build"
-    system "python3", "./waf", "install"
+    system python, "./waf", "configure", "--prefix=#{prefix}"
+    system python, "./waf", "build"
+    system python, "./waf", "install"
 
-    system "python3", *Language::Python.setup_install_args(prefix),
-                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
+    system python, *Language::Python.setup_install_args(prefix, python)
   end
 
   test do
