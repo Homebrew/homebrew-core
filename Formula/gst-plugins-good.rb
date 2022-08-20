@@ -21,7 +21,6 @@ class GstPluginsGood < Formula
     sha256 x86_64_linux:   "17eaf185e0943aa1c8b4fc1a270ba0ca76dac7a65f8edf27ca8ad6e744e94b53"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
