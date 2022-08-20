@@ -43,7 +43,7 @@ class AstrometryNet < Formula
     # See https://github.com/dstndstn/astrometry.net/issues/178#issuecomment-592741428
     ENV.deparallelize
 
-    python = Formula["python@3.10"].opt_bin/"python3"
+    python = Formula["python@3.10"].opt_bin/"python3.10"
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"
@@ -56,7 +56,7 @@ class AstrometryNet < Formula
     site_packages = Language::Python.site_packages(python)
     ENV["PY_BASE_INSTALL_DIR"] = libexec/site_packages/"astrometry"
     ENV["PY_BASE_LINK_DIR"] = libexec/site_packages/"astrometry"
-    ENV["PYTHON_SCRIPT"] = libexec/"bin/python3"
+    ENV["PYTHON_SCRIPT"] = libexec/"bin/python"
 
     system "make"
     system "make", "py"
