@@ -43,6 +43,8 @@ class ApacheArrow < Formula
   fails_with gcc: "5"
 
   def install
+    python = "python3.10"
+
     # https://github.com/Homebrew/homebrew-core/issues/76537
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
 
@@ -72,7 +74,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_BROTLI=ON
       -DARROW_WITH_UTF8PROC=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
-      -DPython3_EXECUTABLE=#{which("python3")}
+      -DPython3_EXECUTABLE=#{which(python)}
     ]
 
     args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?
