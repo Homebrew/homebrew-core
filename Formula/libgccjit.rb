@@ -1,11 +1,21 @@
 class Libgccjit < Formula
   desc "JIT library for the GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz"
-  sha256 "62fd634889f31c02b64af2c468f064b47ad1ca78411c45abe6ac4b5f8dd19c7b"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
+
+  stable do
+    url "https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz"
+    sha256 "e549cf9cf3594a00e27b6589d4322d70e0720cdd213f39beb4181e06926230ff"
+
+    # Branch from the Darwin maintainer of GCC, with a few generic fixes and
+    # Apple Silicon support, located at https://github.com/iains/gcc-12-branch
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1d184289/gcc/gcc-12.2.0-arm.diff"
+      sha256 "a7843b5c6bf1401e40c20c72af69c8f6fc9754ae980bb4a5f0540220b3dcb62d"
+    end
+  end
 
   livecheck do
     formula "gcc"
@@ -37,13 +47,6 @@ class Libgccjit < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Branch from the Darwin maintainer of GCC, with a few generic fixes and
-  # Apple Silicon support, located at https://github.com/iains/gcc-12-branch
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/76677f2b/gcc/gcc-12.1.0-arm.diff"
-    sha256 "a000f1d9cb1dd98c7c4ef00df31435cd5d712d2f9d037ddc044f8bf82a16cf35"
-  end
-
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
@@ -73,10 +76,7 @@ class Libgccjit < Formula
 
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
-      if sdk
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{sdk}"
-      end
+      args << "--with-sysroot=#{sdk}" if sdk
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
