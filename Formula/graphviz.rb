@@ -2,8 +2,8 @@ class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
   url "https://gitlab.com/graphviz/graphviz.git",
-      tag:      "5.0.0",
-      revision: "f7e586644a2665a69eaac4248977f438feda2a18"
+      tag:      "5.0.1",
+      revision: "c53b650011e0ea6bbba867ebb0d040c6fd0f7ab7"
   license "EPL-1.0"
   version_scheme 1
   head "https://gitlab.com/graphviz/graphviz.git", branch: "main"
@@ -29,6 +29,7 @@ class Graphviz < Formula
   depends_on "pango"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "byacc" => :build
