@@ -21,7 +21,6 @@ class Libgit2Glib < Formula
     sha256               x86_64_linux:   "f083f73ef071f7dbe11a419ec255511eb731a20d1421b280a2442db347266952"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
