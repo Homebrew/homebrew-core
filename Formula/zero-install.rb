@@ -30,6 +30,7 @@ class ZeroInstall < Formula
   depends_on "python@3.10" => :build
   depends_on "gnupg"
 
+  uses_from_macos "unzip" => :build
   uses_from_macos "curl"
 
   on_linux do
