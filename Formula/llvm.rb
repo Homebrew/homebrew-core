@@ -50,6 +50,11 @@ class Llvm < Formula
   fails_with gcc: "5"
 
   def install
+    # The clang bindings need a little help finding our libclang.
+    inreplace "clang/bindings/python/clang/cindex.py",
+              /^(\s*library_path\s*=\s*)None$/,
+              "\\1'#{lib}'"
+
     projects = %w[
       clang
       clang-tools-extra
