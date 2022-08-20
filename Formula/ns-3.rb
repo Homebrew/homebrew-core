@@ -25,12 +25,6 @@ class Ns3 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
 
-  # Clears the Python3_LIBRARIES variable. Removing `PRIVATE ${Python3_LIBRARIES}`
-  # in ns3-module-macros is not sufficient as it doesn't apply to visualizer.so.
-  on_macos do
-    patch :DATA
-  end
-
   on_linux do
     depends_on "gcc"
   end
@@ -46,22 +40,30 @@ class Ns3 < Formula
   end
 
   def install
-    resource("pybindgen").stage buildpath/"../pybindgen"
-    ENV.append "PYTHONPATH", "#{buildpath}/../pybindgen"
-
-    # Avoid explicit linkage with python
-    linker_flags = "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
+    resource("pybindgen").stage buildpath.parent/"pybindgen"
+    ENV.append "PYTHONPATH", buildpath.parent/"pybindgen"
 
     # Fix binding's rpath
-    linker_flags << " -Wl,-rpath,@loader_path" if OS.mac?
-    linker_flags << " -Wl,-rpath,$ORIGIN" if OS.linux?
+    linker_flags = if OS.mac?
+      "-Wl,-undefined,dynamic_lookup,-rpath,@loader_path"
+    else
+      "-Wl,-rpath,$ORIGIN"
+    end
+
+    if OS.mac?
+      # Clears the Python3_LIBRARIES variable. Removing `PRIVATE ${Python3_LIBRARIES}`
+      # in ns3-module-macros is not sufficient as it doesn't apply to visualizer.so.
+      inreplace "build-support/macros-and-definitions.cmake",
+                "set(Python3_FOUND TRUE)\n      if(APPLE)",
+                "set(Python3_FOUND TRUE)\nset(Python3_LIBRARIES \"\")\nif(FALSE)"
+    end
 
     system "cmake", "-S", ".", "-B", "build",
-                                 "-DNS3_GTK3=OFF",
-                                 "-DNS3_PYTHON_BINDINGS=ON",
-                                 "-DNS3_MPI=ON",
-                                 linker_flags,
-                                 *std_cmake_args
+                    "-DNS3_GTK3=OFF",
+                    "-DNS3_PYTHON_BINDINGS=ON",
+                    "-DNS3_MPI=ON",
+                    "-DCMAKE_SHARED_LINKER_FLAGS=#{linker_flags}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -82,19 +84,3 @@ class Ns3 < Formula
     system Formula["python@3.10"].opt_bin/"python3.10", pkgshare/"first.py"
   end
 end
-
-__END__
-diff --git a/build-support/macros-and-definitions.cmake b/build-support/macros-and-definitions.cmake
-index 304ccdde7..64ae322c5 100644
---- a/build-support/macros-and-definitions.cmake
-+++ b/build-support/macros-and-definitions.cmake
-@@ -723,7 +723,8 @@ macro(process_options)
-   if(${Python3_Interpreter_FOUND})
-     if(${Python3_Development_FOUND})
-       set(Python3_FOUND TRUE)
--      if(APPLE)
-+      set(Python3_LIBRARIES "")
-+      if(FALSE)
-         # Apple is very weird and there could be a lot of conflicting python
-         # versions which can generate conflicting rpaths preventing the python
-         # bindings from working
