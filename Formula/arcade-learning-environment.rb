@@ -7,6 +7,7 @@ class ArcadeLearningEnvironment < Formula
       tag:      "v0.7.5",
       revision: "db3728264f382402120913d76c4fa0dc320ef59f"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
@@ -32,42 +33,46 @@ class ArcadeLearningEnvironment < Formula
 
   fails_with gcc: "5"
 
-  # Issue building with older setuptools currently included with Python 3.10.4.
-  # TODO: remove after next python update
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4a/25/ec29a23ef38b9456f9965c57a9e1221e6c246d87abbf2a31158799bca201/setuptools-62.3.2.tar.gz"
-    sha256 "a43bdedf853c670e5fed28e5623403bad2f73cf02f9a2774e91def6bda8265a7"
-  end
-
   resource "importlib-resources" do
     url "https://files.pythonhosted.org/packages/07/3c/4e27ef7d4cea5203ed4b52b7fe96ddd08559d9f147a2a4307e7d6d98c035/importlib_resources-5.7.1.tar.gz"
     sha256 "b6062987dfc51f0fcb809187cffbd60f35df7acb4589091f154214af6d0d49d3"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DCMAKE_INSTALL_NAME_DIR=#{opt_lib}",
-                    "-DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON",
+    system "cmake", "-S", ".", "-B", "build",
                     "-DSDL_SUPPORT=ON",
-                    "-DSDL_DYNLOAD=ON"
+                    "-DSDL_DYNLOAD=ON",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "tests/resources/tetris.bin"
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
     # error: no member named 'signbit' in the global namespace
     inreplace "setup.py", "cmake_args = [", "\\0\"-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}\"," if OS.mac?
 
     # `venv.pip_install_and_link buildpath` fails to install scripts, so manually run setup.py instead
-    bin_before = Dir[libexec/"bin/*"].to_set
-    system libexec/"bin/python3", *Language::Python.setup_install_args(libexec)
-    bin.install_symlink (Dir[libexec/"bin/*"].to_set - bin_before).to_a
+    bin_before = (libexec/"bin").children.to_set
+    system libexec/"bin/python", *Language::Python.setup_install_args(libexec)
+    bin.install_symlink ((libexec/"bin").children.to_set - bin_before).to_a
 
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python3)
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-ale-py.pth").write pth_contents
+
+    # Replace vendored `libSDL2` with a symlink to our own.
+    libsdl2 = Formula["sdl2"].opt_lib/shared_library("libSDL2")
+    vendored_libsdl2_dir = libexec/site_packages/"ale_py"
+    (vendored_libsdl2_dir/shared_library("libSDL2")).unlink
+
+    # Use `ln_s` to avoid referencing a Cellar path.
+    ln_s libsdl2.relative_path_from(vendored_libsdl2_dir), vendored_libsdl2_dir
   end
 
   test do
@@ -90,7 +95,7 @@ class ArcadeLearningEnvironment < Formula
       assert len(ale.getLegalActionSet()) == 18
     EOS
 
-    output = shell_output("#{Formula["python@3.10"].opt_bin}/python3 test.py 2>&1")
+    output = shell_output("#{python3} test.py 2>&1")
     assert_match <<~EOS, output
       Game console created:
         ROM file:  tetris.bin
