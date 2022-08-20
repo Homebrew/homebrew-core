@@ -17,7 +17,6 @@ class LibsoupAT2 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
