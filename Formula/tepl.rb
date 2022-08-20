@@ -15,7 +15,6 @@ class Tepl < Formula
     sha256 x86_64_linux:   "869fd24987a560c0ccb3bf06535cbdadcd921fc4905eaa3fd1b9d8586c7b65a9"
   end
 
-  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
