@@ -6,6 +6,11 @@ class VulkanLoader < Formula
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Loader.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 arm64_monterey: "7147a78644f277fc09a60789110a45a6ad90eb7f61db88a28b55f75f47b1c72a"
     sha256 arm64_big_sur:  "ef77b8ec5cc86fd233f0c46c1af787e950a2ed809098421c81ed3dd855ab77d3"
