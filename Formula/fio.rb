@@ -5,6 +5,11 @@ class Fio < Formula
   sha256 "077100819a243d0e00f232eb7c53fe1d30f4c54fba4d82847d5747eae1d255ab"
   license "GPL-2.0-only"
 
+  livecheck do
+    url :stable
+    regex(/^fio[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6af40c3d39cd9bf09446f954141f3234da2f6abb483d238481e707e04f07528c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "91dc44382f9e77161d9075a0bf7c0b86e2853859081e1c992c204d2af14bfb2f"
