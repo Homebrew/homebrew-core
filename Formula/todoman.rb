@@ -18,7 +18,6 @@ class Todoman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "715db55e55809a33bd410ab3726fb35f6a203504013d4e992d2a8c4fa8971e52"
   end
 
-  depends_on "libpython-tabulate"
   depends_on "python@3.10"
   depends_on "six"
 
