@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/93/98/704e970c6bb641c3042041636669198b5ce31da836059efcf84ab9f10fa7/commitizen-2.31.0.tar.gz"
-  sha256 "a326874c88748d37e28ed75e2f01eb42e72de99c1d951ac20d8ddd94bd3762d4"
+  url "https://files.pythonhosted.org/packages/e8/dc/f4961e848fcc34a18813ebeca401a66231bfdb7b4cac913d0875f1632fea/commitizen-2.32.1.tar.gz"
+  sha256 "b825e72af25f69d5c52669e8bb7a17af90febdeefcca22089136ee61d0db4dc9"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
@@ -25,8 +25,8 @@ class Commitizen < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/93/1d/d9392056df6670ae2a29fcb04cfa5cee9f6fbde7311a1bb511d4115e9b7a/charset-normalizer-2.1.0.tar.gz"
-    sha256 "575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413"
+    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
+    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
   end
 
   resource "colorama" do
