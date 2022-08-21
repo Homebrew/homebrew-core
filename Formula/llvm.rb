@@ -614,11 +614,19 @@ class Llvm < Formula
 
     # Testing mlir
     (testpath/"test.mlir").write <<~EOS
-      func @bad_branch() {
-        br ^missing  // expected-error {{reference to an undefined block}}
-      }
+      func.func @main() {return}
+
+      // -----
+
+      // expected-note @+1 {{see existing symbol definition here}}
+      func.func @foo() { return }
+
+      // ----
+
+      // expected-error @+1 {{redefinition of symbol named 'foo'}}
+      func.func @foo() { return }
     EOS
-    system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
+    system "#{bin}/mlir-opt", "--split-input-file", "--verify-diagnostics", "test.mlir"
 
     (testpath/"scanbuildtest.cpp").write <<~EOS
       #include <iostream>
