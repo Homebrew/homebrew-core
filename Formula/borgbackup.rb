@@ -44,16 +44,16 @@ class Borgbackup < Formula
   end
 
   def install
-    bash_completion.install "scripts/shell_completions/bash/borg"
-    fish_completion.install "scripts/shell_completions/fish/borg.fish"
-    zsh_completion.install "scripts/shell_completions/zsh/_borg"
-
     ENV["BORG_LIBB2_PREFIX"] = Formula["libb2"].prefix
     ENV["BORG_LIBLZ4_PREFIX"] = Formula["lz4"].prefix
     ENV["BORG_LIBXXHASH_PREFIX"] = Formula["xxhash"].prefix
     ENV["BORG_LIBZSTD_PREFIX"] = Formula["zstd"].prefix
     ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@1.1"].prefix
     virtualenv_install_with_resources
+
+    bash_completion.install "scripts/shell_completions/bash/borg"
+    fish_completion.install "scripts/shell_completions/fish/borg.fish"
+    zsh_completion.install "scripts/shell_completions/zsh/_borg"
   end
 
   test do
