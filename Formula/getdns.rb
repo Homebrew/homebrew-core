@@ -1,10 +1,9 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-7-0/getdns-1.7.0.tar.gz"
-  sha256 "ea8713ce5e077ac76b1418ceb6afd25e6d4e39e9600f6f5e81d3a3a13a60f652"
+  url "https://getdnsapi.net/releases/getdns-1-7-2/getdns-1.7.2.tar.gz"
+  sha256 "db89fd2a940000e03ecf48d0232b4532e5f0602e80b592be406fd57ad76fdd17"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/getdnsapi/getdns.git", branch: "develop"
 
   # We check the GitHub releases instead of https://getdnsapi.net/releases/,
@@ -32,6 +31,12 @@ class Getdns < Formula
   depends_on "libuv"
   depends_on "openssl@1.1"
   depends_on "unbound"
+
+  # Fix build issue, remove in next release
+  patch do
+    url "https://github.com/getdnsapi/getdns/commit/9c076ca34b9569eb60861da9a99f895a49d5a7b4.patch?full_index=1"
+    sha256 "67d01ef565b74a7d70681488a24e448927adc518db95c281822a07007b6a0ef9"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",
