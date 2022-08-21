@@ -7,6 +7,11 @@ class Snort < Formula
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "95f1d08c65ed23065b57f32472813b412ffc32d596a4c30b573cfce422d8c3c5"
     sha256 cellar: :any,                 arm64_big_sur:  "83b97cfdba2c19c87fb39d223bca36cd51e1ed98d66158c16749012a0219ce25"
