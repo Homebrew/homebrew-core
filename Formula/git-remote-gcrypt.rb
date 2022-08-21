@@ -1,8 +1,8 @@
 class GitRemoteGcrypt < Formula
   desc "GPG-encrypted git remotes"
   homepage "https://spwhitton.name/tech/code/git-remote-gcrypt/"
-  url "https://github.com/spwhitton/git-remote-gcrypt/archive/1.4.tar.gz"
-  sha256 "12567395bbbec0720d20ec0f89f6f54a7fae4cafedab0fc917164f0deb6b1ef5"
+  url "https://github.com/spwhitton/git-remote-gcrypt/archive/1.5.tar.gz"
+  sha256 "0a0b8359eccdd5d63eaa3b06b7a24aea813d7f1e8bf99536bdd60bc7f18dca03"
   license "GPL-3.0"
 
   livecheck do
