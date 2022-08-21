@@ -3,8 +3,8 @@ require "language/node"
 class MarkdownlintCli < Formula
   desc "CLI for Node.js style checker and lint tool for Markdown files"
   homepage "https://github.com/igorshubovych/markdownlint-cli"
-  url "https://registry.npmjs.org/markdownlint-cli/-/markdownlint-cli-0.32.1.tgz"
-  sha256 "ef81c388144e9b29b3df7576a73628e00e8e39e345cd4dc149f03e9b05d1ef91"
+  url "https://registry.npmjs.org/markdownlint-cli/-/markdownlint-cli-0.32.2.tgz"
+  sha256 "0a0dc00260b09102f8111ce33833b7c797cea419b14f955e5a24d82bf179553a"
   license "MIT"
 
   bottle do
