@@ -80,8 +80,8 @@ class Openj9 < Formula
 
   resource "openj9-openjdk-jdk" do
     url "https://github.com/ibmruntimes/openj9-openjdk-jdk17.git",
-        branch:   "v0.32.0-release",
-        revision: "1d9d16830f713e97410e8eeed1c350e58f34fadb"
+        tag:      "openj9-0.33.1",
+        revision: "1f4d354e6540e1aee3634ef067d3949516a337f5"
   end
 
   def install
