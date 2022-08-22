@@ -4,7 +4,7 @@ class Clazy < Formula
   url "https://download.kde.org/stable/clazy/1.11/src/clazy-1.11.tar.xz"
   sha256 "66165df33be8785218720c8947aa9099bae6d06c90b1501953d9f95fdfa0120a"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://invent.kde.org/sdk/clazy.git", branch: "master"
 
   livecheck do
@@ -24,15 +24,11 @@ class Clazy < Formula
   depends_on "cmake"   => [:build, :test]
   depends_on "qt"      => :test
   depends_on "coreutils"
-  depends_on "llvm"
+  depends_on "llvm@14"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # C++17
 
@@ -44,8 +40,6 @@ class Clazy < Formula
   end
 
   test do
-    gcc_version = Formula["gcc"].version.major unless OS.mac?
-
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION #{Formula["cmake"].version})
 
@@ -53,12 +47,6 @@ class Clazy < Formula
 
       set(CMAKE_CXX_STANDARD 17)
       set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-      if (UNIX AND NOT APPLE)
-        include_directories(#{Formula["gcc"].opt_include}/c++/#{gcc_version})
-        include_directories(#{Formula["gcc"].opt_include}/c++/#{gcc_version}/x86_64-pc-linux-gnu)
-        link_directories(#{Formula["gcc"].opt_lib}/gcc/#{gcc_version})
-      endif()
 
       set(CMAKE_AUTOMOC ON)
       set(CMAKE_AUTORCC ON)
@@ -83,7 +71,8 @@ class Clazy < Formula
       int main() { return 0; }
     EOS
 
-    ENV["CLANGXX"] = Formula["llvm"].opt_bin/"clang++"
+    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
+    ENV["CLANGXX"] = llvm.opt_bin/"clang++"
     system "cmake", "-DCMAKE_CXX_COMPILER=#{bin}/clazy", "."
     assert_match "warning: qgetenv().isEmpty() allocates. Use qEnvironmentVariableIsEmpty() instead",
       shell_output("make VERBOSE=1 2>&1")
