@@ -50,6 +50,7 @@ class Graphicsmagick < Formula
       --without-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-wmf
+      --without-jxl
     ]
 
     # versioned stuff in main tree is pointless for us
