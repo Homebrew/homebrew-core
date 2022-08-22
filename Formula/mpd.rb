@@ -54,29 +54,11 @@ class Mpd < Formula
 
   fails_with gcc: "5"
 
-  # Fix build with FFmpeg 5.1. Backported from
-  # https://github.com/MusicPlayerDaemon/MPD/commit/59792cb0b801854ee41be72d33db9542735df754
-  patch :DATA
-
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
     # that against libstdc++ anyway, which won't work.
     # The build is fine with G++.
     ENV.libcxx
-
-    # Replace symbols available only on macOS 12+ with their older versions.
-    # https://github.com/MusicPlayerDaemon/MPD/issues/1580
-    #
-    # This workaround can be removed when the following commit lands in a tagged release (likely 0.23.9):
-    # https://github.com/MusicPlayerDaemon/MPD/commit/bbc088ae4ea19767c102ca740765a30b98ffa96b
-    if MacOS.version <= :big_sur
-      new_syms = ["kAudioObjectPropertyElementMain", "kAudioHardwareServiceDeviceProperty_VirtualMainVolume"]
-      # Doing `ENV.append_to_cflags` twice results in line length errors.
-      new_syms.each do |new_sym|
-        old_sym = new_sym.sub("Main", "Master")
-        ENV.append_to_cflags "-D#{new_sym}=#{old_sym}"
-      end
-    end
 
     args = %W[
       --sysconfdir=#{etc}
