@@ -4,7 +4,7 @@ class PysideAT2 < Formula
   url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.5-src/pyside-setup-opensource-src-5.15.5.tar.xz"
   sha256 "3920a4fb353300260c9bc46ff70f1fb975c5e7efa22e9d51222588928ce19b33"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "bb63893e4d24dd37ef7a89670c453594655be3cc317a64ddcd3566af00225ff0"
@@ -12,21 +12,24 @@ class PysideAT2 < Formula
     sha256 cellar: :any,                 monterey:       "d917186f4b00f32829bfe91021a62df99210babc71d1bd7044fe547e393dfcb5"
     sha256 cellar: :any,                 big_sur:        "2fad23020fb67a16912d8d736c56531eab4ec04bad2018ae8f93b750af8e84c5"
     sha256 cellar: :any,                 catalina:       "a9b8e595d66326276456bc19f577b3e431accdea286f8d3363cc9e4fbd1f7cd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6ffe08b20ee437a8f6c229595eaf44d472a96eaa7ede50348f7a07f2cbafb9e"
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "llvm"
   depends_on "python@3.10"
   depends_on "qt@5"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
+  on_macos do
+    depends_on "llvm"
+  end
+
   on_linux do
     depends_on "libxcb"
+    depends_on "llvm@14" # Needed until Mesa 22.2.0.
     depends_on "mesa"
   end
 
