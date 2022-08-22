@@ -22,6 +22,11 @@ class Podman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "291babc343bc2976a95d55ab2c81735f3cd48b3932a098d156d3dc9395679cf9"
   end
 
+  # The path to libexec where `gvproxy` can be found is hardcoded into the Go binary.
+  # Therefore, only use pre-built bottle if installing in default prefix.
+  # Otherwise, rebuild from source.
+  pour_bottle? only_if: :default_prefix
+
   head do
     url "https://github.com/containers/podman.git", branch: "main"
 
