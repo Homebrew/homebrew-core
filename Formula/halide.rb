@@ -4,7 +4,7 @@ class Halide < Formula
   url "https://github.com/halide/Halide/archive/v14.0.0.tar.gz"
   sha256 "f9fc9765217cbd10e3a3e3883a60fc8f2dbbeaac634b45c789577a8a87999a01"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/halide/Halide.git", branch: "main"
 
   livecheck do
@@ -24,7 +24,7 @@ class Halide < Formula
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "llvm"
+  depends_on "llvm@14"
   depends_on "python@3.10"
 
   fails_with gcc: "5" # LLVM is built with Homebrew GCC
