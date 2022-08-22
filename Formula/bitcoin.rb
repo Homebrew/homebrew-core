@@ -4,7 +4,7 @@ class Bitcoin < Formula
   url "https://bitcoincore.org/bin/bitcoin-core-23.0/bitcoin-23.0.tar.gz"
   sha256 "26748bf49d6d6b4014d0fedccac46bf2bcca42e9d34b3acfd9e3467c415acc05"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
   livecheck do
@@ -25,7 +25,10 @@ class Bitcoin < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "berkeley-db@5"
+  # berkeley db should be kept at version 4
+  # https://github.com/bitcoin/bitcoin/blob/master/doc/build-osx.md
+  # https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
+  depends_on "berkeley-db@4"
   depends_on "boost"
   depends_on "libevent"
   depends_on macos: :catalina
@@ -56,5 +59,15 @@ class Bitcoin < Formula
 
   test do
     system "#{bin}/test_bitcoin"
+
+    # Test that we're using the right version of `berkeley-db`.
+    port = free_port
+    bitcoind = spawn bin/"bitcoind", "-regtest", "-rpcport=#{port}", "-listen=0", "-datadir=#{testpath}"
+    sleep 15
+    # This command will fail if we have too new a version.
+    system bin/"bitcoin-cli", "-regtest", "-datadir=#{testpath}", "-rpcport=#{port}",
+                              "createwallet", "test-wallet", "false", "false", "", "false", "false"
+  ensure
+    Process.kill "TERM", bitcoind
   end
 end
