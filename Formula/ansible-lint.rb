@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/62/38/a8934bb70c7ff25f8074112b511ca419a9af9f2bbac4723c93e04b9488c9/ansible-lint-6.4.0.tar.gz"
-  sha256 "c5a76306cae906a260cf7286ca87c4d03ba4492b2ed7bfea21ad11fdf3c7e8d1"
+  url "https://files.pythonhosted.org/packages/c9/fc/91a23a31f91978ca6ea42a4887ff748636a13d0d466f93cf6c27cd1776d9/ansible-lint-6.5.0.tar.gz"
+  sha256 "5efc0d8dc67501f4ac550f84a4eaca1b25c94732ec3f8c8e63971a256c961282"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -28,8 +28,8 @@ class AnsibleLint < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/d9/17/bf5942b888027ca15b7a7e46317d250830a5616e29aaca74320f3d0c840e/ansible-core-2.13.2.tar.gz"
-    sha256 "b779d0e55a97717c0ee5e86b486aa67c07c2809ef477be2ac84ad091a8dd2ddb"
+    url "https://files.pythonhosted.org/packages/71/4e/9c6b365a6c49c9d2c7f63c72dfc35cf36f9261f50015166dc4a5ffc88a55/ansible-core-2.13.3.tar.gz"
+    sha256 "eec5042530ff1c0c8d13a36fa047c6dd9157efeefd464a856b4ce38be4cd1988"
   end
 
   resource "attrs" do
@@ -62,9 +62,9 @@ class AnsibleLint < Formula
     sha256 "0a2ab0d2931dff8947012602d1234d2a3ee002d9a355b5d70be6bf5466008893"
   end
 
-  resource "iniconfig" do
-    url "https://files.pythonhosted.org/packages/23/a2/97899f6bd0e873fed3a7e67ae8d3a08b21799430fb4da15cfedf10d6e2c2/iniconfig-1.1.1.tar.gz"
-    sha256 "bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32"
+  resource "filelock" do
+    url "https://files.pythonhosted.org/packages/95/55/b897882bffb8213456363e646bf9e9fa704ffda5a7d140edf935a9e02c7b/filelock-3.8.0.tar.gz"
+    sha256 "55447caa666f2198c5b6b13a26d2084d26fa5b115c00d065664b2124680c4edc"
   end
 
   resource "Jinja2" do
@@ -73,8 +73,8 @@ class AnsibleLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/9d/c7/213df24d4dcf2eb115e2843205c6073c192976684388d6912cf674db2b8a/jsonschema-4.8.0.tar.gz"
-    sha256 "c1d410e379b210ba903bee6adf3fce6d5204cea4c2b622d63f914d2dbfef0993"
+    url "https://files.pythonhosted.org/packages/35/ee/889aee424a43066a06ac68e499335877775eac9b4409f7860f6af94c6688/jsonschema-4.14.0.tar.gz"
+    sha256 "15062f4cc6f591400cd528d2c355f2cfa6a57e44c820dc783aee5e23d36a831f"
   end
 
   resource "MarkupSafe" do
@@ -92,24 +92,14 @@ class AnsibleLint < Formula
     sha256 "e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1"
   end
 
-  resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/a1/16/db2d7de3474b6e37cbb9c008965ee63835bba517e22cdb8c35b5116b5ce1/pluggy-1.0.0.tar.gz"
-    sha256 "4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"
-  end
-
-  resource "py" do
-    url "https://files.pythonhosted.org/packages/98/ff/fec109ceb715d2a6b4c4a85a61af3b40c723a961e8828319fbcb15b868dc/py-1.11.0.tar.gz"
-    sha256 "51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"
-  end
-
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
     sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
-    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
+    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
+    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "pyparsing" do
@@ -120,11 +110,6 @@ class AnsibleLint < Formula
   resource "pyrsistent" do
     url "https://files.pythonhosted.org/packages/42/ac/455fdc7294acc4d4154b904e80d964cc9aae75b087bbf486be04df9f2abd/pyrsistent-0.18.1.tar.gz"
     sha256 "d4d61f8b993a7255ba714df3aca52700f8125289f84f704cf80916517c46eb96"
-  end
-
-  resource "pytest" do
-    url "https://files.pythonhosted.org/packages/4e/1f/34657c6ac56f3c58df650ba41f8ffb2620281ead8e11bcdc7db63cf72a78/pytest-7.1.2.tar.gz"
-    sha256 "a06a0425453864a270bc45e71f783330a7428defb4230fb5e6a731fde06ecd45"
   end
 
   resource "PyYAML" do
@@ -155,11 +140,6 @@ class AnsibleLint < Formula
   resource "subprocess-tee" do
     url "https://files.pythonhosted.org/packages/48/20/a38a078b58532bd44c4c189c85cc650268d1894a1dcc7080b6e7e9cfe7bb/subprocess-tee-0.3.5.tar.gz"
     sha256 "ff5cced589a4b8ac973276ca1ba21bb6e3de600cde11a69947ff51f696efd577"
-  end
-
-  resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "wcmatch" do
