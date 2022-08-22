@@ -25,7 +25,7 @@ class Guichan < Formula
   end
 
   resource "fixedfont.bmp" do
-    url "https://guichan.sourceforge.io/oldsite/images/fixedfont.bmp"
+    url "http://guichan.sourceforge.io/oldsite/images/fixedfont.bmp"
     sha256 "fc6144c8fefa27c207560820450abb41378c705a0655f536ce33e44a5332c5cc"
   end
 
