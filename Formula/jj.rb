@@ -20,7 +20,6 @@ class Jj < Formula
 
   test do
     system bin/"jj", "init", "--git"
-
     assert_predicate testpath/".jj", :exist?
   end
 end
