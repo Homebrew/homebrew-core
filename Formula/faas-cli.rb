@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://www.openfaas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      tag:      "0.14.5",
-      revision: "3534df71572fe06356fb7085780ebeb3870ead37"
+      tag:      "0.14.6",
+      revision: "fcf50cef7b3510d93dd109606fb300705bb509f2"
   license "MIT"
   head "https://github.com/openfaas/faas-cli.git", branch: "master"
 
