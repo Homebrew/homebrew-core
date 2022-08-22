@@ -196,6 +196,11 @@ class Semgrep < Formula
       system "opam", "install", "-y", "--deps-only", "--no-depexts", "./semgrep-core/src/ocaml-tree-sitter-core"
       system "opam", "install", "-y", "--deps-only", "--no-depexts", "./semgrep-core"
 
+      # Run configure script in ocaml-tree-sitter-core
+      cd "semgrep-core/src/ocaml-tree-sitter-core" do
+        exec "./configure"
+      end
+
       # Install semgrep-core and spacegrep
       cd "semgrep-core" do
         system "opam", "install", "--deps-only", "-y", "."
