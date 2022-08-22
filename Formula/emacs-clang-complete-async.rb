@@ -2,7 +2,7 @@ class EmacsClangCompleteAsync < Formula
   desc "Emacs plugin using libclang to complete C/C++ code"
   homepage "https://github.com/Golevka/emacs-clang-complete-async"
   license "GPL-3.0"
-  revision 6
+  revision 7
   head "https://github.com/Golevka/emacs-clang-complete-async.git", branch: "master"
 
   stable do
