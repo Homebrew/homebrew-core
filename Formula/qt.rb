@@ -6,7 +6,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1.tar.xz"
   sha256 "51114e789485fdb6b35d112dfd7c7abb38326325ac51221b6341564a1c3cc726"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 3
+  revision 4
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -58,6 +58,7 @@ class Qt < Formula
   uses_from_macos "flex"  => :build
   uses_from_macos "gperf" => :build
   uses_from_macos "perl"  => :build
+  uses_from_macos "llvm" => :test # Our test relies on `clang++` in `PATH`.
 
   uses_from_macos "cups"
   uses_from_macos "krb5"
@@ -70,7 +71,6 @@ class Qt < Formula
     # TODO: depends_on "bluez"
     # TODO: depends_on "ffmpeg"
     depends_on "fontconfig"
-    depends_on "gcc"
     depends_on "gstreamer"
     # TODO: depends_on "gypsy"
     depends_on "harfbuzz"
@@ -121,11 +121,6 @@ class Qt < Formula
     sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
     directory "qtbase"
   end
-
-  # Apply patch to fix chromium build with glibc < 2.27. See here for details:
-  # https://libc-alpha.sourceware.narkive.com/XOENQFwL/add-fcntl-sealing-interfaces-from-linux-3-17-to-bits-fcntl-linux-h
-  # FIXME: Remove once migrated to glibc 2.35.
-  patch :DATA
 
   def install
     python = "python3.10"
@@ -218,12 +213,6 @@ class Qt < Formula
         -DQT_FEATURE_webengine_system_pulseaudio=ON
         -DQT_FEATURE_webengine_system_zlib=ON
       ]
-
-      # Change default mkspec for qmake on Linux to use brewed GCC
-      inreplace("qtbase/mkspecs/common/g++-base.conf") do |s|
-        s.change_make_var! "QMAKE_CC", ENV.cc
-        s.change_make_var! "QMAKE_CXX", ENV.cxx
-      end
     end
 
     system "./configure", *config_args, "--", *cmake_args
@@ -251,18 +240,6 @@ class Qt < Formula
     bin.glob("*.app") do |app|
       libexec.install app
       bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
-    end
-  end
-
-  def post_install
-    return if OS.mac?
-
-    # Ensure the hard-coded versioned `gcc` reference does not go stale.
-    ohai "Fixing up GCC references..."
-    gcc_version = Formula["gcc"].any_installed_version.major
-    inreplace(pkgshare/"mkspecs/common/g++-base.conf") do |s|
-      s.change_make_var! "QMAKE_CC", "gcc-#{gcc_version}"
-      s.change_make_var! "QMAKE_CXX", "g++-#{gcc_version}"
     end
   end
 
@@ -347,25 +324,3 @@ class Qt < Formula
     system "./test"
   end
 end
-
-__END__
---- a/qtwebengine/src/3rdparty/chromium/base/macros.h
-+++ b/qtwebengine/src/3rdparty/chromium/base/macros.h
-@@ -36,6 +36,17 @@
- // work around this bug, wrap the entire expression in this macro...
- #define CR_EXPAND_ARG(arg) arg
-
-+// Add constants from linux/fcntl.h which were not copied to glibc
-+// bits/fcntl-linux.h until glibc 2.27.
-+#ifndef F_ADD_SEALS
-+#define F_ADD_SEALS 1033
-+#define F_GET_SEALS 1034
-+#define F_SEAL_SEAL 0x0001
-+#define F_SEAL_SHRINK 0x0002
-+#define F_SEAL_GROW 0x0004
-+#define F_SEAL_WRITE 0x0008
-+#endif
-+
- // Used to explicitly mark the return value of a function as unused. If you are
- // really sure you don't want to do anything with the return value of a function
- // that has been marked WARN_UNUSED_RESULT, wrap it with this. Example:
