@@ -67,6 +67,7 @@ class Ns3 < Formula
     system "cmake", "--install", "build"
 
     # Starting 3.36, bindings are no longer installed
+    # https://gitlab.com/nsnam/ns-3-dev/-/merge_requests/1060
     site_packages = Language::Python.site_packages("python3.10")
     (prefix/site_packages).install (buildpath/"build/bindings/python").children
 
