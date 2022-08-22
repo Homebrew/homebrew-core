@@ -24,7 +24,7 @@ permissions:
 jobs:
   upload:
     runs-on: ${{github.event.inputs.self_hosted == 'true' && 'linux-self-hosted-1' || 'ubuntu-latest'}}
-    container: ${{github.event.inputs.self_hosted == 'true' && fromJson('{"image":"ghcr.io/homebrew/ubuntu16.04:master","options":"--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"}') || ''}}
+    container: ${{github.event.inputs.self_hosted == 'true' && fromJson('{"image":"ghcr.io/homebrew/ubuntu22.04:master","options":"--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"}') || ''}}
     steps:
       - name: Post comment once started
         uses: Homebrew/actions/post-comment@master

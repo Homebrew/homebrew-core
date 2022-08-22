@@ -24,7 +24,7 @@ jobs:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu16.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:master
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     outputs:
@@ -186,14 +186,14 @@ jobs:
     strategy:
       matrix:
         include:
-          - runner: '12-arm64'
-          - runner: '12-${{github.run_id}}-${{github.run_attempt}}'
-          - runner: '11-arm64'
-          - runner: '11-${{github.run_id}}-${{github.run_attempt}}'
-          - runner: '10.15-${{github.run_id}}-${{github.run_attempt}}'
+          - runner: "12-arm64"
+          - runner: "12-${{github.run_id}}-${{github.run_attempt}}"
+          - runner: "11-arm64"
+          - runner: "11-${{github.run_id}}-${{github.run_attempt}}"
+          - runner: "10.15-${{github.run_id}}-${{github.run_attempt}}"
           - runner: ${{needs.setup_tests.outputs.linux-runner}}
             container:
-              image: ghcr.io/homebrew/ubuntu16.04:master
+              image: ghcr.io/homebrew/ubuntu22.04:master
               options: --user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED
             workdir: /github/home
             timeout: 4320

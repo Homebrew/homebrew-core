@@ -8,7 +8,7 @@ on:
         required: false
   schedule:
     # Every day at 5am
-    - cron: '0 5 * * *'
+    - cron: "0 5 * * *"
 
 env:
   HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
@@ -847,7 +847,7 @@ jobs:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu16.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:master
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew

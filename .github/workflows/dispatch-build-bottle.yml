@@ -92,7 +92,7 @@ jobs:
             --env-file <(env | egrep 'HOMEBREW|GITHUB') \
             --workdir /tmp/bottles \
             --pull always \
-            ghcr.io/homebrew/ubuntu16.04:master \
+            ghcr.io/homebrew/ubuntu22.04:master \
             sleep inf
           # Fix working directory permissions
           docker exec --user root ${{github.sha}} chmod 777 /tmp/bottles
