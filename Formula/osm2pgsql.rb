@@ -12,7 +12,6 @@ class Osm2pgsql < Formula
     sha256 monterey:       "c55c28a4a7d61e2ecc74e439d178c2479ba6bb1f70d5a4c8a419432141d477f8"
     sha256 big_sur:        "461f444d3d7da2f549b445e3d16839ac42105c01aa859b086d6ca7f9f8c141ca"
     sha256 catalina:       "2094de94b79ac68652e5671b360d9fa158146b6c3d0263dee84f5008c7c52d99"
-    sha256 x86_64_linux:   "753d07bfe5ff3a913144fb09cd892918f77569e9a5b44977fc37ad7d93c27a97"
   end
 
   depends_on "cmake" => :build
@@ -24,12 +23,6 @@ class Osm2pgsql < Formula
   depends_on "proj"
 
   uses_from_macos "expat"
-
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5" # C++17
 
   def install
     # This is essentially a CMake disrespects superenv problem
