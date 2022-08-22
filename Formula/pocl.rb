@@ -4,6 +4,7 @@ class Pocl < Formula
   url "http://portablecl.org/downloads/pocl-3.0.tar.gz"
   sha256 "a3fd3889ef7854b90b8e4c7899c5de48b7494bf770e39fba5ad268a5cbcc719d"
   license "MIT"
+  revision 1
   head "https://github.com/pocl/pocl.git", branch: "master"
 
   bottle do
@@ -19,16 +20,14 @@ class Pocl < Formula
   depends_on "opencl-headers" => :build
   depends_on "pkg-config" => :build
   depends_on "hwloc"
-  depends_on "llvm"
+  depends_on "llvm@14"
   depends_on "ocl-icd"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # LLVM is built with GCC
 
   def install
+    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
+
     # Install the ICD into #{prefix}/etc rather than #{etc} as it contains the realpath
     # to the shared library and needs to be kept up-to-date to work with an ICD loader.
     # This relies on `brew link` automatically creating and updating #{etc} symlinks.
@@ -37,7 +36,7 @@ class Pocl < Formula
       -DCMAKE_INSTALL_RPATH=#{lib};#{lib}/pocl
       -DENABLE_EXAMPLES=OFF
       -DENABLE_TESTS=OFF
-      -DLLVM_BINDIR=#{Formula["llvm"].opt_bin}
+      -DLLVM_BINDIR=#{llvm.opt_bin}
     ]
     # Avoid installing another copy of OpenCL headers on macOS
     args << "-DOPENCL_H=#{Formula["opencl-headers"].opt_include}/CL/opencl.h" if OS.mac?
