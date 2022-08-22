@@ -1,9 +1,9 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://mariadb.org/download/?tab=connector&prod=connector-c"
-  url "https://downloads.mariadb.com/Connectors/c/connector-c-3.3.1/mariadb-connector-c-3.3.1-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.3.1-src.tar.gz/"
-  sha256 "29993f4ae4c975662724978792d1a503b9ee760fbb194d321a754253cbe60aad"
+  url "https://downloads.mariadb.com/Connectors/c/connector-c-3.3.2/mariadb-connector-c-3.3.2-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.3.2-src.tar.gz/"
+  sha256 "7e0722e07d30bb906fac9fe10fb582cde1e148e05a83d9ca7b6fcc884b68fbce"
   license "LGPL-2.1-or-later"
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.3"
 
