@@ -4,6 +4,7 @@ class Castxml < Formula
   url "https://github.com/CastXML/CastXML/archive/v0.4.6.tar.gz"
   sha256 "8dcdbc1f23a130e4bdb0b09f57c30761a02a346b4db4037555048af2a293d66a"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/CastXML/castxml.git", branch: "master"
 
   livecheck do
@@ -21,19 +22,15 @@ class Castxml < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
-
-  on_linux do
-    depends_on "gcc"
-  end
+  depends_on "llvm@14"
+  uses_from_macos "llvm" => :test # Our test uses `clang++`.
 
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -42,7 +39,7 @@ class Castxml < Formula
         return 0;
       }
     EOS
-    system "#{bin}/castxml", "-c", "-x", "c++", "--castxml-cc-gnu", "clang++",
-                             "--castxml-gccxml", "-o", "test.xml", "test.cpp"
+    system bin/"castxml", "-c", "-x", "c++", "--castxml-cc-gnu", "clang++",
+                          "--castxml-gccxml", "-o", "test.xml", "test.cpp"
   end
 end
