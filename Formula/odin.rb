@@ -6,6 +6,7 @@ class Odin < Formula
       revision: "74458ab09676d3b66364f8c4679afb53fcf1b4f7"
   version "2022-09"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Odin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a12d2857a52e0757a1e6f15288d1d72fdc77cf2ba114ef8358f32bbdcae7bbc"
   end
 
-  depends_on "llvm"
+  depends_on "llvm@14"
   # Build failure on macOS 10.15 due to `__ulock_wait2` usage.
   # Issue ref: https://github.com/odin-lang/Odin/issues/1773
   depends_on macos: :big_sur
@@ -24,6 +25,8 @@ class Odin < Formula
   fails_with gcc: "5" # LLVM is built with GCC
 
   def install
+    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
+
     # Keep version number consistent and reproducible for tagged releases.
     # Issue ref: https://github.com/odin-lang/Odin/issues/1772
     inreplace "build_odin.sh", "dev-$(date +\"%Y-%m\")", "dev-#{version}" unless build.head?
@@ -32,7 +35,7 @@ class Odin < Formula
     libexec.install "odin", "core", "shared"
     (bin/"odin").write <<~EOS
       #!/bin/bash
-      export PATH="#{Formula["llvm"].opt_bin}:$PATH"
+      export PATH="#{llvm.opt_bin}:$PATH"
       exec -a odin "#{libexec}/odin" "$@"
     EOS
     pkgshare.install "examples"
