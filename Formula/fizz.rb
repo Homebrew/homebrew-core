@@ -1,8 +1,8 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
-  url "https://github.com/facebookincubator/fizz/releases/download/v2022.08.15.00/fizz-v2022.08.15.00.tar.gz"
-  sha256 "580c784f9302814daa2bab9e5fa68c29751470b4d95a65dd36f6b2b70f3d7ad4"
+  url "https://github.com/facebookincubator/fizz/releases/download/v2022.08.22.00/fizz-v2022.08.22.00.tar.gz"
+  sha256 "4f32c2a54ce856f87a57d144a9b70d46f621f8904ae3b90b56184bb16c975150"
   license "BSD-2-Clause"
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
@@ -34,13 +34,6 @@ class Fizz < Formula
   end
 
   fails_with gcc: "5"
-
-  # Disable `liboqs` requirement. Remove in next release.
-  # https://github.com/facebookincubator/fizz/issues/79
-  patch do
-    url "https://github.com/facebookincubator/fizz/commit/6e237b10a58a8d90ed5f1819abd7842c423fb956.patch?full_index=1"
-    sha256 "d9eda54340d4f61641c8f19974ffa51417871ca2f7a0bd581818fa5560860117"
-  end
 
   def install
     args = []
