@@ -4,6 +4,7 @@ class Ldc < Formula
   url "https://github.com/ldc-developers/ldc/releases/download/v1.30.0/ldc-1.30.0-src.tar.gz"
   sha256 "fdbb376f08242d917922a6a22a773980217fafa310046fc5d6459490af23dacd"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
   livecheck do
@@ -23,9 +24,14 @@ class Ldc < Formula
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkg-config" => :build
-  depends_on "llvm"
+  depends_on "llvm@14"
 
   uses_from_macos "libxml2" => :build
+
+  on_linux do
+    # Superenv does not support building with a versioned LLVM.
+    depends_on "llvm" => [:build, :test]
+  end
 
   fails_with :gcc
 
@@ -70,23 +76,7 @@ class Ldc < Formula
       ["-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: lib, target: llvm.opt_lib)}"]
     else
       # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
-      ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib if OS.linux?
-
-      gcc = Formula["gcc"]
-      # Link to libstdc++ for brewed GCC rather than the host GCC which is too old.
-      libstdcxx_lib = gcc.opt_lib/"gcc"/gcc.version.major
-      linux_linker_flags = "-L#{libstdcxx_lib} -Wl,-rpath,#{libstdcxx_lib}"
-
-      # Use libstdc++ headers for brewed GCC rather than host GCC which is too old.
-      libstdcxx_include = gcc.opt_include/"c++"/gcc.version.major
-      linux_cxx_flags = "-nostdinc++ -isystem#{libstdcxx_include} -isystem#{libstdcxx_include}/x86_64-pc-linux-gnu"
-
-      %W[
-        -DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags}
-        -DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags}
-        -DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags}
-        -DCMAKE_CXX_FLAGS=#{linux_cxx_flags}
-      ]
+      ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].opt_lib
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
