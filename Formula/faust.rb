@@ -4,7 +4,7 @@ class Faust < Formula
   url "https://github.com/grame-cncm/faust/releases/download/2.41.1/faust-2.41.1.tar.gz"
   sha256 "72145e1d4ffcdd8e687ed7960d1d0717fa2c1dd2566e0bbc3a78fa95bb8b683e"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "17aa5ee61ab5a17820f9d045befcab14088af6ca1d82bea63e35dbd0fa1bcfed"
@@ -19,7 +19,7 @@ class Faust < Formula
   depends_on "pkg-config" => :build
   depends_on "libmicrohttpd"
   depends_on "libsndfile"
-  depends_on "llvm"
+  depends_on "llvm@14" # Needs LLVM 14 for `csound`.
 
   fails_with gcc: "5"
 
