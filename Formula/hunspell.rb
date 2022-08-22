@@ -1,10 +1,9 @@
 class Hunspell < Formula
   desc "Spell checker and morphological analyzer"
   homepage "https://hunspell.github.io"
-  url "https://github.com/hunspell/hunspell/archive/v1.7.0.tar.gz"
-  sha256 "bb27b86eb910a8285407cf3ca33b62643a02798cf2eef468c0a74f6c3ee6bc8a"
+  url "https://github.com/hunspell/hunspell/archive/v1.7.1.tar.gz"
+  sha256 "6e3557624c608b3e6525b8bd277706db4f5a857c28fdb3cfa8d0d2b67776da8a"
   license "GPL-2.0"
-  revision 2
 
   bottle do
     rebuild 1
