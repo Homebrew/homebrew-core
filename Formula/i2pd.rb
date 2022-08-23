@@ -1,10 +1,9 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.42.1.tar.gz"
-  sha256 "d52b55cf144a6eedbb3433214c035161c07f776090074daba0e5e83c01d09139"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.43.0.tar.gz"
+  sha256 "db1679653491a411dd16fa329488d840296c8f680e0691f9fe0d0e796e5d7bca"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "9f7800b89ff5c1aabd77d70469644c35d0f88b3c1f94ce80756afa42743c40d5"
@@ -29,8 +28,6 @@ class I2pd < Formula
 
     args << "USE_AESNI=no" if Hardware::CPU.arm?
 
-    # Homebrew-specific fix to make sure documentation is installed in `share`.
-    inreplace "Makefile.linux", "${PREFIX}/usr/share", "${PREFIX}/share"
     system "make", "install", *args
 
     # preinstall to prevent overwriting changed by user configs
