@@ -25,10 +25,6 @@ class Zlib < Formula
 
   keg_only :provided_by_macos
 
-  on_linux do
-    depends_on "glibc@2.13" => :build
-  end
-
   # https://zlib.net/zlib_how.html
   resource "test_artifact" do
     url "https://zlib.net/zpipe.c"
