@@ -198,7 +198,7 @@ class Semgrep < Formula
 
       # Run configure script in ocaml-tree-sitter-core
       cd "semgrep-core/src/ocaml-tree-sitter-core" do
-        system "./configure", "--prefix", "#{prefix}"
+        system "./configure"
       end
 
       # Install semgrep-core and spacegrep
