@@ -128,24 +128,3 @@ class Mpd < Formula
     end
   end
 end
-
-__END__
-diff --git a/src/decoder/plugins/FfmpegIo.cxx b/src/decoder/plugins/FfmpegIo.cxx
-index 2e22d9599102ac445fc269c69863f4c2c34bfe1c..5b5c8b40e3a0b95fbf5e75a0cf9b53e2c416a36f 100644
---- a/src/decoder/plugins/FfmpegIo.cxx
-+++ b/src/decoder/plugins/FfmpegIo.cxx
-@@ -21,10 +21,13 @@
- #define __STDC_CONSTANT_MACROS
- 
- #include "FfmpegIo.hxx"
--#include "libavutil/mem.h"
- #include "../DecoderAPI.hxx"
- #include "input/InputStream.hxx"
- 
-+extern "C" {
-+#include <libavutil/mem.h>
-+}
-+
- AvioStream::~AvioStream()
- {
- 	if (io != nullptr) {
