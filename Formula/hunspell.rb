@@ -3,7 +3,7 @@ class Hunspell < Formula
   homepage "https://hunspell.github.io"
   url "https://github.com/hunspell/hunspell/archive/v1.7.1.tar.gz"
   sha256 "6e3557624c608b3e6525b8bd277706db4f5a857c28fdb3cfa8d0d2b67776da8a"
-  license "LGPL-2.1"
+  license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
     rebuild 1
