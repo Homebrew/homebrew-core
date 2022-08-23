@@ -4,7 +4,7 @@ class GccAT5 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  revision 7
+  revision 8
 
   livecheck do
     url :stable
@@ -127,12 +127,6 @@ class GccAT5 < Formula
       # Change the default directory name for 64-bit libraries to `lib`
       # https://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc-pass2.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
-
-      # Fix for system gccs that do not support -static-libstdc++
-      # gengenrtl: error while loading shared libraries: libstdc++.so.6
-      mkdir_p lib
-      ln_s Utils.safe_popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
-      ln_s Utils.safe_popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
     end
 
     mkdir "build" do
@@ -144,23 +138,6 @@ class GccAT5 < Formula
       else
 
         system "make", "install-strip"
-      end
-
-      # Add symlinks for libgcc, libgomp, libquadmath and libstdc++ so that bottles
-      # built in CI can find these libraries when using brewed gcc@5
-      if OS.linux?
-        lib.install_symlink lib/"gcc/#{version_suffix}/libgcc_s.so"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libgcc_s.a"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libgcc_s.so.1"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libgomp.so"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libgomp.a"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libgomp.so.1"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libquadmath.so"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libquadmath.a"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libquadmath.so.0"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libstdc++.so"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libstdc++.a"
-        lib.install_symlink lib/"gcc/#{version_suffix}/libstdc++.so.6"
       end
     end
 
