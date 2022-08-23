@@ -5,6 +5,7 @@ class Guile < Formula
   mirror "https://ftpmirror.gnu.org/guile/guile-3.0.8.tar.xz"
   sha256 "daa7060a56f2804e9b74c8d7e7fe8beed12b43aab2789a38585183fcc17b8a13"
   license "LGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "dc6e5dccbc34d5171fba0bc0a0f96381dad52a9837b6f0a1aa6eba2851b6137d"
@@ -34,6 +35,7 @@ class Guile < Formula
   depends_on "readline"
 
   uses_from_macos "gperf"
+  uses_from_macos "libxcrypt"
 
   def install
     # Avoid superenv shim
