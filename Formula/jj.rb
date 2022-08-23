@@ -7,7 +7,7 @@ class Jj < Formula
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
   depends_on "rust" => :build
-  uses_from_macos "openssl@1.1"
+  depends_on "openssl@1.1"
   uses_from_macos "zlib"
 
   on_linux do
