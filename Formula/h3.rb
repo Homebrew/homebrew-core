@@ -1,8 +1,8 @@
 class H3 < Formula
   desc "Hexagonal hierarchical geospatial indexing system"
   homepage "https://uber.github.io/h3/"
-  url "https://github.com/uber/h3/archive/v3.7.2.tar.gz"
-  sha256 "803a7fbbeb01f1f65cae9398bda9579a0529e7bafffc6e0e0a6d81a71b305629"
+  url "https://github.com/uber/h3/archive/v4.0.0.tar.gz"
+  sha256 "218ce453cf7548a843fc23271dc48523cd6a601b6d26d9dd8d23a35b6128793b"
   license "Apache-2.0"
 
   bottle do
@@ -27,7 +27,7 @@ class H3 < Formula
   end
 
   test do
-    result = pipe_output("#{bin}/geoToH3 -r 10 --lat 40.689167 --lon -74.044444")
+    result = pipe_output("#{bin}/latLngToCell -r 10 --lat 40.689167 --lng -74.044444")
     assert_equal "8a2a1072b59ffff", result.chomp
   end
 end
