@@ -4,6 +4,7 @@ class Ruby < Formula
   url "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.2.tar.gz"
   sha256 "61843112389f02b735428b53bb64cf988ad9fb81858b8248e22e57336f24a83e"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -32,6 +33,7 @@ class Ruby < Formula
   depends_on "readline"
 
   uses_from_macos "libffi"
+  uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   # Should be updated only when Ruby is updated (if an update is available).
