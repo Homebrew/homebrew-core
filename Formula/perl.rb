@@ -4,6 +4,7 @@ class Perl < Formula
   url "https://www.cpan.org/src/5.0/perl-5.34.0.tar.xz"
   sha256 "82c2e5e5c71b0e10487a80d79140469ab1f8056349ca8545140a224dbbed7ded"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
   head "https://github.com/perl/perl5.git", branch: "blead"
 
   livecheck do
@@ -25,6 +26,7 @@ class Perl < Formula
   depends_on "gdbm"
 
   uses_from_macos "expat"
+  uses_from_macos "libxcrypt"
 
   # Prevent site_perl directories from being removed
   skip_clean "lib/perl5/site_perl"
@@ -32,19 +34,19 @@ class Perl < Formula
   def install
     args = %W[
       -des
-      -Dprefix=#{prefix}
-      -Dprivlib=#{lib}/perl5/#{version}
-      -Dsitelib=#{lib}/perl5/site_perl/#{version}
-      -Dotherlibdirs=#{HOMEBREW_PREFIX}/lib/perl5/site_perl/#{version}
+      -Dinstallprefix=#{prefix}
+      -Dprefix=#{opt_prefix}
+      -Dprivlib=#{opt_lib}/perl5/#{version.major_minor}
+      -Dsitelib=#{opt_lib}/perl5/site_perl/#{version.major_minor}
+      -Dotherlibdirs=#{HOMEBREW_PREFIX}/lib/perl5/site_perl/#{version.major_minor}
       -Dperlpath=#{opt_bin}/perl
       -Dstartperl=#!#{opt_bin}/perl
-      -Dman1dir=#{man1}
-      -Dman3dir=#{man3}
+      -Dman1dir=#{opt_share}/man/man1
+      -Dman3dir=#{opt_share}/man/man3
       -Duseshrplib
       -Duselargefiles
       -Dusethreads
     ]
-    args << "-Dsed=/usr/bin/sed" if OS.mac?
 
     args << "-Dusedevel" if build.head?
 
