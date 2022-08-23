@@ -167,6 +167,9 @@
   "flintrock": {
     "exclude_packages": ["six"]
   },
+  "fonttools": {
+    "extra_packages": ["Brotli"]
+  },
   "gimme-aws-creds": {
     "package_name": "gimme-aws-creds",
     "exclude_packages": ["six"],
