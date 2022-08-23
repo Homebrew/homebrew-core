@@ -53,6 +53,7 @@
   "gnome-icon-theme": "adwaita-icon-theme",
   "gnupg2": "gnupg",
   "gnuplot4": "gnuplot@4",
+  "gold": "binutils",
   "google-app-engine": "app-engine-python",
   "google-perftools": "gperftools",
   "grakn": "typedb",
