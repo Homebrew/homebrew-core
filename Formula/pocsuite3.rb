@@ -3,8 +3,8 @@ class Pocsuite3 < Formula
 
   desc "Open-sourced remote vulnerability testing framework"
   homepage "https://pocsuite.org/"
-  url "https://files.pythonhosted.org/packages/c9/f6/211b0c61892793a11ebe26b6cdf6ceb7d9d30b75a96279b71548637a97ea/pocsuite3-1.9.8.tar.gz"
-  sha256 "2354b833b858a0ac556501524ec351ad176336297c0657b82795ffd037c8b7bf"
+  url "https://files.pythonhosted.org/packages/06/bc/863729e47d9f56b907af0e3deb28189d2e73e355a9f298cf1dc5d2f57657/pocsuite3-1.9.9.tar.gz"
+  sha256 "aba7e688b8bf7059c5da546bb304094115d1078babd6b410ec78043c3d3df7b5"
   license "GPL-2.0-only"
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
@@ -37,8 +37,8 @@ class Pocsuite3 < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/93/1d/d9392056df6670ae2a29fcb04cfa5cee9f6fbde7311a1bb511d4115e9b7a/charset-normalizer-2.1.0.tar.gz"
-    sha256 "575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413"
+    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
+    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
   end
 
   resource "colorama" do
@@ -52,8 +52,8 @@ class Pocsuite3 < Formula
   end
 
   resource "Faker" do
-    url "https://files.pythonhosted.org/packages/60/78/d6a75e9b58f22659c9e46b24a7d601c2d738b719b53b542f14248ab6177d/Faker-13.15.1.tar.gz"
-    sha256 "7c3f8ee807d3916415568169a172bf0893ea9cc3371ab55e4e5f5170d2185bea"
+    url "https://files.pythonhosted.org/packages/a0/7d/703389ad9c0356491d6fc982217e1e31c143d0c376b10f80615dc6c42c0a/Faker-14.1.0.tar.gz"
+    sha256 "0e00bfa1eadf1493f15662edb181222fea4847764cf3f9ff3e66ee0f95c9a644"
   end
 
   resource "idna" do
@@ -102,8 +102,8 @@ class Pocsuite3 < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
-    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   resource "wcwidth" do
