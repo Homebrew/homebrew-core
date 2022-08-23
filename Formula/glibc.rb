@@ -127,6 +127,7 @@ class Glibc < Formula
         "--disable-silent-rules",
         "--prefix=#{prefix}",
         "--enable-obsolete-rpc",
+        "--without-gd",
         "--without-selinux",
         "--with-binutils=#{Formula["binutils"].bin}",
         "--with-headers=#{Formula["linux-headers"].include}",
