@@ -5,6 +5,7 @@ class Binutils < Formula
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.39.tar.xz"
   sha256 "645c25f563b8adc0a81dbd6a41cffbf4d37083a382e02d5d3df4f65c09516d00"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
+  revision 1
 
   bottle do
     sha256                               arm64_monterey: "21246762701565862a0d235039d4b559df0dac2fb98e0ef0a3078c45129c3885"
@@ -17,12 +18,13 @@ class Binutils < Formula
 
   keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "texinfo" => :build
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "glibc@2.13" => :build
-    depends_on "linux-headers@4.4" => :build
-  end
+  link_overwrite "bin/gold"
+  link_overwrite "bin/ld.gold"
+  link_overwrite "bin/dwp"
 
   def install
     args = [
@@ -36,27 +38,25 @@ class Binutils < Formula
       "--enable-interwork",
       "--enable-multilib",
       "--enable-64-bit-bfd",
+      "--enable-gold",
       "--enable-plugins",
       "--enable-targets=all",
       "--with-system-zlib",
       "--disable-nls",
-      "--disable-gold",
-      "--disable-gprofng", # Fails to build on Linux
     ]
     system "./configure", *args
-    # Pass MAKEINFO=true to disable generation of HTML documentation.
-    # This avoids a build time dependency on texinfo.
-    make_args = OS.mac? ? [] : ["MAKEINFO=true"]
-    system "make", *make_args
-    system "make", "install", *make_args
+    system "make"
+    system "make", "install"
 
     if OS.mac?
       Dir["#{bin}/*"].each do |f|
         bin.install_symlink f => "g" + File.basename(f)
       end
     else
+      bin.install_symlink "ld.gold" => "gold"
       # Reduce the size of the bottle.
-      system "strip", *bin.children, *lib.glob("*.a")
+      bin_files = bin.children.select(&:elf?)
+      system "strip", *bin_files, *lib.glob("*.a")
     end
   end
 
