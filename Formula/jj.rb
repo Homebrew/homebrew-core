@@ -7,7 +7,7 @@ class Jj < Formula
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  uses_from_macos "openssl@1.1"
   uses_from_macos "zlib"
 
   on_linux do
@@ -15,7 +15,7 @@ class Jj < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--no-default-features", *std_cargo_args
   end
 
   test do
