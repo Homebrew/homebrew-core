@@ -12,7 +12,7 @@ class ApacheSpark < Formula
     sha256 cellar: :any_skip_relocation, all: "70d5e3f211b3c2ffceacd171066bff9089a67ce11624288c53a9b654fd4decee"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   def install
     # Rename beeline to distinguish it from hive's beeline
