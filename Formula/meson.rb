@@ -1,6 +1,4 @@
 class Meson < Formula
-  include Language::Python::Virtualenv
-
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.63.1/meson-0.63.1.tar.gz"
@@ -21,9 +19,29 @@ class Meson < Formula
   depends_on "python@3.10"
 
   def install
-    virtualenv_install_with_resources
+    python = "python3.10"
+    system python, *Language::Python.setup_install_args(prefix, python), "--install-data=#{prefix}"
+
     bash_completion.install "data/shell-completions/bash/meson"
     zsh_completion.install "data/shell-completions/zsh/_meson"
+    vim_plugin_dir = buildpath/"data/syntax-highlighting/vim"
+    (share/"vim/vimfiles").install %w[ftdetect ftplugin indent syntax].map { |dir| vim_plugin_dir/dir }
+
+    # Make the bottles uniform. This also ensures meson checks `HOMEBREW_PREFIX`
+    # for fulfilling dependencies rather than just `/usr/local`.
+    mesonbuild = prefix/Language::Python.site_packages(python)/"mesonbuild"
+    inreplace_files = %w[
+      coredata.py
+      dependencies/boost.py
+      dependencies/cuda.py
+      dependencies/qt.py
+      mesonlib/universal.py
+      modules/python.py
+    ].map { |f| mesonbuild/f }
+    inreplace_files << (bash_completion/"meson")
+
+    # Passing `build.stable?` ensures a failed `inreplace` won't fail HEAD installs.
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX, build.stable?
   end
 
   test do
@@ -38,9 +56,10 @@ class Meson < Formula
       executable('hello', 'helloworld.c')
     EOS
 
-    mkdir testpath/"build" do
-      system bin/"meson", ".."
-      assert_predicate testpath/"build/build.ninja", :exist?
-    end
+    system bin/"meson", "setup", "build"
+    assert_predicate testpath/"build/build.ninja", :exist?
+
+    system "meson", "compile", "-C", "build", "--verbose"
+    assert_equal "hi", shell_output("build/hello").chomp
   end
 end
