@@ -21,7 +21,7 @@ class ApacheSpark < Formula
     rm_f Dir["bin/*.cmd"]
     libexec.install Dir["*"]
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk@11"].opt_prefix)
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk@17"].opt_prefix)
     # TODO: how to add the arg '--driver-java-options=-Dio.netty.tryReflectionSetAccessible=true' on 'pyspark' binary
   end
 
