@@ -4,7 +4,7 @@ class LinuxPam < Formula
   url "https://github.com/linux-pam/linux-pam/releases/download/v1.5.2/Linux-PAM-1.5.2.tar.xz"
   sha256 "e4ec7131a91da44512574268f493c6d8ca105c87091691b8e9b56ca685d4f94d"
   license any_of: ["BSD-3-Clause", "GPL-1.0-only"]
-  revision 1
+  revision 2
   head "https://github.com/linux-pam/linux-pam.git", branch: "master"
 
   bottle do
@@ -13,6 +13,7 @@ class LinuxPam < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libnsl"
   depends_on "libprelude"
   depends_on "libtirpc"
   depends_on "libxcrypt"
