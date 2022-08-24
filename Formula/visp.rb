@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.5.0.tar.gz"
   sha256 "494a648b2570da2a200ba326ed61a14e785eb9ee08ef12d3ad178b2f384d3d30"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -36,6 +36,7 @@ class Visp < Formula
 
   on_linux do
     depends_on "gcc"
+    depends_on "libnsl"
   end
 
   fails_with gcc: "5"
