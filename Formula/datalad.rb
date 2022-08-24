@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/17/dd/653c922fc279735bc3a9eef9de377edebcfe18745da1dfb116e2298db8fe/datalad-0.17.2.tar.gz"
-  sha256 "80fb4a133b6942f63f5d84552ce08cbccd1706adb32732531772157e35126724"
+  url "https://files.pythonhosted.org/packages/f8/37/3baed5c68f35f62ee22ac8e54c1b5028401f0841c01a6e1c893c52028406/datalad-0.17.3.tar.gz"
+  sha256 "349489a73e59c1ae09a3cb79a1a9a8a7891f0628424573a74cdd97d3d59710a1"
   license "MIT"
 
   bottle do
@@ -40,8 +40,8 @@ class Datalad < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/93/1d/d9392056df6670ae2a29fcb04cfa5cee9f6fbde7311a1bb511d4115e9b7a/charset-normalizer-2.1.0.tar.gz"
-    sha256 "575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413"
+    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
+    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
   end
 
   resource "distro" do
@@ -55,8 +55,8 @@ class Datalad < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/cb/77/8d28a520bc30a5a875ce341e2acd9c18ffb03d8c02116257330017394fa9/humanize-4.2.3.tar.gz"
-    sha256 "2bc1fdd831cd00557d3010abdd84d3e41b4a96703a3eaf6c24ee290b26b75a44"
+    url "https://files.pythonhosted.org/packages/a0/0e/93e7c308611ff2ac3142dd5b1cef6bc02364affae21ba84342896470a868/humanize-4.3.0.tar.gz"
+    sha256 "0dfac79fe8c1c0c734c14177b07b857bad9ae30dd50daa0a14e2c3d8054ee0c4"
   end
 
   resource "idna" do
@@ -70,8 +70,8 @@ class Datalad < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/01/92/9a1973e6132089e1263b0dc545a021d0733bf5d5b6fa19cc7e641e1925ae/keyring-23.7.0.tar.gz"
-    sha256 "782e1cd1132e91bf459fcd243bcf25b326015c1ac0b198e4408f91fa6791062b"
+    url "https://files.pythonhosted.org/packages/a7/d8/ca70a209ea09e97e4d9feba2f6b38b4eaf918de15a7ada3f3a2246c26cf9/keyring-23.8.2.tar.gz"
+    sha256 "0d9973f8891850f1ade5f26aafd06bb16865fbbae3fc56b0defb6a14a2624003"
   end
 
   resource "keyrings.alt" do
@@ -105,8 +105,8 @@ class Datalad < Formula
   end
 
   resource "python-gitlab" do
-    url "https://files.pythonhosted.org/packages/67/e5/f503f9b421454eb9dcfc394b56a06206e004d154434f80b04591acded642/python-gitlab-3.6.0.tar.gz"
-    sha256 "901c54ff926f10479cb591a34d65f0a3022f2bcc41074f9a192c7fa7e4c57061"
+    url "https://files.pythonhosted.org/packages/c4/b8/399c07ceb7322356d1e8d37728e3cdc2330bb3b201148daa12a7705e0c37/python-gitlab-3.8.1.tar.gz"
+    sha256 "e1db25076520e118c7c26becb0d074a7a68127439870d43b8636342206b1e091"
   end
 
   resource "requests" do
@@ -130,8 +130,8 @@ class Datalad < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
-    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   resource "Whoosh" do
