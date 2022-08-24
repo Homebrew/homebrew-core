@@ -26,8 +26,12 @@ class Flatbuffers < Formula
   conflicts_with "osrm-backend", because: "both install flatbuffers headers"
 
   def install
-    system "cmake", "-G", "Unix Makefiles", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DFLATBUFFERS_BUILD_SHAREDLIB=ON",
+                    "-DFLATBUFFERS_BUILD_TESTS=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
