@@ -3,8 +3,8 @@ class StoneSoup < Formula
 
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://github.com/crawl/crawl/archive/0.28.0.tar.gz"
-  sha256 "287f35476d20bbe8aaa3e663140704462b4e304a4e1ed5c2b5da1d273dd1f383"
+  url "https://github.com/crawl/crawl/archive/0.29.0.tar.gz"
+  sha256 "4b32d3c3a07fe969cc1e9d12430b4c143c36e92746b3715ccdb8416720fdc59f"
   license "GPL-2.0-or-later"
 
   livecheck do
