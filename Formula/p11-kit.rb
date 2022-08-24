@@ -4,6 +4,7 @@ class P11Kit < Formula
   url "https://github.com/p11-glue/p11-kit/releases/download/0.24.1/p11-kit-0.24.1.tar.xz"
   sha256 "d8be783efd5cd4ae534cee4132338e3f40f182c3205d23b200094ec85faaaef8"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "a1c85ddc587d4b0e6ad38f7b58420ed0fc4a1ccdb038bee1451d9d81fc3fb434"
@@ -25,8 +26,9 @@ class P11Kit < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ca-certificates"
-  depends_on "libffi"
   depends_on "libtasn1"
+
+  uses_from_macos "libffi", since: :catalina
 
   def install
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
