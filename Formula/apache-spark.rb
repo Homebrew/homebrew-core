@@ -6,6 +6,7 @@ class ApacheSpark < Formula
   version "3.3.0"
   sha256 "306b550f42ce1b06772d6084c545ef8448414f2bf451e0b1175405488f2a322f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/spark.git", branch: "master"
 
   bottle do
