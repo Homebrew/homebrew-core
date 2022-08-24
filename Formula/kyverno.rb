@@ -3,7 +3,7 @@ class Kyverno < Formula
   homepage "https://kyverno.io/"
   url "https://github.com/kyverno/kyverno.git",
       tag:      "v1.7.3",
-      revision: "01394f33805347626d8437f06040d4764b25c586"
+      revision: "f2b63cef77d31697191c63aeef9972ee534974d3"
   license "Apache-2.0"
   head "https://github.com/kyverno/kyverno.git", branch: "main"
 
