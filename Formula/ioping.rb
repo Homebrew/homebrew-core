@@ -1,8 +1,8 @@
 class Ioping < Formula
   desc "Tool to monitor I/O latency in real time"
   homepage "https://github.com/koct9i/ioping"
-  url "https://github.com/koct9i/ioping/archive/v1.2.tar.gz"
-  sha256 "d3e4497c653a1e96df67c72ce2b70da18e9f5e3b93179a5bb57a6e30ceacfa75"
+  url "https://github.com/koct9i/ioping/archive/v1.3.tar.gz"
+  sha256 "7aa48e70aaa766bc112dea57ebbe56700626871052380709df3a26f46766e8c8"
   license "GPL-3.0-or-later"
   head "https://github.com/koct9i/ioping.git", branch: "master"
 
