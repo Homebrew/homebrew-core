@@ -1,8 +1,8 @@
 class Mill < Formula
   desc "Scala build tool"
   homepage "https://com-lihaoyi.github.io/mill/mill/Intro_to_Mill.html"
-  url "https://github.com/com-lihaoyi/mill/releases/download/0.10.5/0.10.5-assembly"
-  sha256 "a33eb5b4960dc064042267a0d9f30828720a540d8873a9c5e551b9790b777006"
+  url "https://github.com/com-lihaoyi/mill/releases/download/0.10.6/0.10.6-assembly"
+  sha256 "e256d6ef9e512e05b28a18de6ff281e42c10b01c170730d3e0f512c814224a91"
   license "MIT"
 
   livecheck do
