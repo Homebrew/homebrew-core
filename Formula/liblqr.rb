@@ -50,10 +50,10 @@ class Liblqr < Formula
     EOS
 
     system ENV.cc, "test.c",
-      "-I#{include}/lqr-1",
-      "-I#{Formula["glib"].opt_include}/glib-2.0",
-      "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
-      "-L#{lib}", "-llqr-1"
+                   "-I#{include}/lqr-1",
+                   "-I#{Formula["glib"].opt_include}/glib-2.0",
+                   "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+                   "-L#{lib}", "-llqr-1"
     system "./a.out"
   end
 end
