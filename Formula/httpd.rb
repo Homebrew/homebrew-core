@@ -5,6 +5,7 @@ class Httpd < Formula
   mirror "https://downloads.apache.org/httpd/httpd-2.4.54.tar.bz2"
   sha256 "eb397feeefccaf254f8d45de3768d9d68e8e73851c49afd5b7176d1ecf80c340"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "629e972fa257879e1fa9c7ada3c77d074f695a4a17d703b6237b8ff08cef4ea5"
