@@ -5,7 +5,7 @@ class Guile < Formula
   mirror "https://ftpmirror.gnu.org/guile/guile-3.0.8.tar.xz"
   sha256 "daa7060a56f2804e9b74c8d7e7fe8beed12b43aab2789a38585183fcc17b8a13"
   license "LGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "ddea69a117d2b8b32ff86b770f9cf8333a5ac4408c5f9f48ad8d3a1455a47b2c"
@@ -28,13 +28,13 @@ class Guile < Formula
   depends_on "gnu-sed" => :build
   depends_on "bdw-gc"
   depends_on "gmp"
-  depends_on "libffi"
   depends_on "libtool"
   depends_on "libunistring"
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
 
   uses_from_macos "gperf"
+  uses_from_macos "libffi", since: :catalina
   uses_from_macos "libxcrypt"
 
   def install
@@ -66,7 +66,7 @@ class Guile < Formula
     # of opt_prefix usage everywhere.
     inreplace lib/"pkgconfig/guile-3.0.pc" do |s|
       s.gsub! Formula["bdw-gc"].prefix.realpath, Formula["bdw-gc"].opt_prefix
-      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix
+      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix if MacOS.version < :catalina
     end
 
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.scm"]
