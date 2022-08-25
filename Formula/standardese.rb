@@ -2,12 +2,23 @@ class Standardese < Formula
   desc "Next-gen documentation generator for C++"
   homepage "https://standardese.github.io"
   # TODO: use resource blocks for vendored deps
-  url "https://github.com/standardese/standardese.git",
-      tag:      "0.5.2",
-      revision: "0b23537e235690e01ba7f8362a22d45125e7b675"
   license "MIT"
-  revision 6
+  revision 7
   head "https://github.com/standardese/standardese.git", branch: "master"
+
+  # Remove stable block when patch is no longer needed.
+  stable do
+    url "https://github.com/standardese/standardese.git",
+        tag:      "0.5.2",
+        revision: "0b23537e235690e01ba7f8362a22d45125e7b675"
+
+    # Fix build with new GCC.
+    # https://github.com/standardese/standardese/pull/233
+    patch do
+      url "https://github.com/standardese/standardese/commit/15e05be2301fe43d1e209b2f749c99a95c356e04.patch?full_index=1"
+      sha256 "e5f03ea321572dd52b9241c2a01838dfe7e6df7e363a8d19bfeac5861baf5d3f"
+    end
+  end
 
   bottle do
     sha256                               arm64_monterey: "20510779aff9169f62e4a59f6660754ec0d6922cd111c815bf69448fc2cb9332"
