@@ -24,8 +24,6 @@ class Dolt < Formula
   def install
     chdir "go" do
       system "go", "build", *std_go_args, "./cmd/dolt"
-      system "go", "build", *std_go_args(output: bin/"git-dolt"), "./cmd/git-dolt"
-      system "go", "build", *std_go_args(output: bin/"git-dolt-smudge"), "./cmd/git-dolt-smudge"
     end
   end
 
