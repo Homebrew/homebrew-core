@@ -45,13 +45,12 @@ class SwiProlog < Formula
       end
     end
 
-    args = ["-DSWIPL_PACKAGES_JAVA=OFF", "-DSWIPL_PACKAGES_X=OFF"]
-    args << "-DCMAKE_INSTALL_RPATH=@loader_path" if OS.mac?
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec), *args
+    args = ["-DSWIPL_PACKAGES_JAVA=OFF", "-DSWIPL_PACKAGES_X=OFF", "-DCMAKE_INSTALL_RPATH=#{loader_path}"]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: libexec)
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
+    bin.write_exec_script (libexec/"bin").children
   end
 
   test do
