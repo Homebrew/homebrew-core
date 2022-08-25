@@ -89,6 +89,7 @@ class Glib < Formula
       end
     end
 
+    rm "gio/completion/.gitignore"
     bash_completion.install (buildpath/"gio/completion").children
     rewrite_shebang detected_python_shebang(use_python_from_path: true), *bin.children
   end
