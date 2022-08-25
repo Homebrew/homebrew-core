@@ -21,7 +21,6 @@ class Ocrmypdf < Formula
   depends_on "freetype"
   depends_on "ghostscript"
   depends_on "jbig2enc"
-  depends_on "libffi"
   depends_on "libpng"
   depends_on "pillow"
   depends_on "pngquant"
@@ -31,6 +30,7 @@ class Ocrmypdf < Formula
   depends_on "tesseract"
   depends_on "unpaper"
 
+  uses_from_macos "libffi", since: :catalina
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
