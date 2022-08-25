@@ -2,8 +2,8 @@ class K3d < Formula
   desc "Little helper to run CNCF's k3s in Docker"
   homepage "https://k3d.io"
   url "https://github.com/k3d-io/k3d.git",
-    tag:      "v5.4.4",
-    revision: "85841a1b1640cf3548372d2e4730c564365f6bac"
+    tag:      "v5.4.5",
+    revision: "3a7d85f3d1c801d6f47eda5eab37268fbc257850"
   license "MIT"
 
   livecheck do
@@ -20,9 +20,7 @@ class K3d < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "61a22fa1f5be965e2fdff4f40b9617f10dd00f57ebd1a20d45f581aab977f269"
   end
 
-  # Required latest https://pkg.go.dev/go4.org/unsafe/assume-no-moving-gc
-  # Try to switch to the latest go on the next release
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     require "net/http"
@@ -37,9 +35,7 @@ class K3d < Formula
       -X github.com/k3d-io/k3d/v#{version.major}/version.K3sVersion=#{k3s_version}
     ]
 
-    system "go", "build",
-           "-mod", "vendor",
-           *std_go_args(ldflags: ldflags)
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags: ldflags)
 
     # Install bash completion
     output = Utils.safe_popen_read(bin/"k3d", "completion", "bash")
