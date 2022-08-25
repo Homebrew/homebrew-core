@@ -28,9 +28,10 @@ class Caf < Formula
 
   def install
     tools = pkgshare/"tools"
-    args = ["-DCAF_ENABLE_TESTING=OFF"]
-    args << "-DCMAKE_INSTALL_RPATH=#{rpath};@loader_path/#{lib.relative_path_from(tools)}" if OS.mac?
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    rpaths = [rpath, rpath(source: tools)]
+    args = ["-DCAF_ENABLE_TESTING=OFF", "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}"]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
