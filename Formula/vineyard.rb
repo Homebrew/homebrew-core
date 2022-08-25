@@ -31,6 +31,9 @@ class Vineyard < Formula
   def install
     # We install the libclang from pypi for build as the `clang` package
     # bundled in LLVM cannot find libclang.dylib easily.
+    #
+    # The requirement for libclang python package will be removed once
+    # LLVM been upgrade to 15, see also: Homebrew/homebrew-core#106925
     venv = virtualenv_create(buildpath/"venv", "python3")
     venv.pip_install resource("libclang")
 
