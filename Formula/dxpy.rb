@@ -20,13 +20,14 @@ class Dxpy < Formula
   depends_on "python@3.10"
   depends_on "six"
 
+  uses_from_macos "libffi"
+
   on_macos do
     depends_on "readline"
   end
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "libffi"
   end
 
   resource "argcomplete" do
