@@ -1,10 +1,9 @@
 class Gel < Formula
   desc "Modern gem manager"
   homepage "https://gel.dev"
-  url "https://github.com/gel-rb/gel/archive/v0.3.0.tar.gz"
-  sha256 "fe7c4bd67a2ea857b85b754f5b4d336e26640eda7199bc99b9a1570043362551"
+  url "https://github.com/gel-rb/gel/archive/v0.8.0.pre1.tar.gz"
+  sha256 "8383f2657e61029f9f5f6c6376bac98a8ec009d8e9c4ea9aabac5e0d40e82bc2"
   license "MIT"
-  revision 1
   head "https://github.com/gel-rb/gel.git", branch: "main"
 
   bottle do
