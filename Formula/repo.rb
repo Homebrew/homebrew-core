@@ -13,13 +13,16 @@ class Repo < Formula
     sha256 cellar: :any_skip_relocation, all: "10c36d9f4c20d38bbaff9763f7980726b8c0bca1bddaa9908d0b7796998c9cba"
   end
 
-  depends_on "python@3.10"
+  uses_from_macos "python"
 
   def install
     bin.install "repo"
-    rewrite_shebang detected_python_shebang, bin/"repo"
-
     doc.install (buildpath/"docs").children
+
+    # Need Catalina+ for `python3`.
+    return if OS.mac? && MacOS.version < :catalina
+
+    rewrite_shebang detected_python_shebang, bin/"repo"
   end
 
   test do
