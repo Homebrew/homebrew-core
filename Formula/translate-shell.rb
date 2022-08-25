@@ -1,8 +1,8 @@
 class TranslateShell < Formula
   desc "Command-line translator using Google Translate and more"
   homepage "https://www.soimort.org/translate-shell"
-  url "https://github.com/soimort/translate-shell/archive/v0.9.6.12.tar.gz"
-  sha256 "4c4843a8c66276190535b8435775ecb5d9c8286083a33cdbe2db608eba93ca97"
+  url "https://github.com/soimort/translate-shell/archive/v0.9.7.tar.gz"
+  sha256 "fe328bff9670a925f6dd6f80629ed92b078edd9a4c3f8414fbb3d921365c59a7"
   license "Unlicense"
   head "https://github.com/soimort/translate-shell.git", branch: "develop"
 
