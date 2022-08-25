@@ -22,7 +22,7 @@ class Repo < Formula
     # Need Catalina+ for `python3`.
     return if OS.mac? && MacOS.version < :catalina
 
-    rewrite_shebang detected_python_shebang, bin/"repo"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), bin/"repo"
   end
 
   test do
