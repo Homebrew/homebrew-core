@@ -4,7 +4,6 @@ class Mesheryctl < Formula
   url "https://github.com/meshery/meshery.git",
       tag:      "v0.6.2",
       revision: "155fccf915641e05058cd9b219c528e09ece5614"
-  version "0.6.2"
   license "Apache-2.0"
   head "https://github.com/meshery/meshery.git", branch: "master"
 
