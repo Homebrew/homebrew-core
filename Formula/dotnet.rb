@@ -2,10 +2,9 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.104",
-      revision: "915d644e451858f4f7c6e1416ea202695ddd54fb"
+      tag:      "v6.0.108",
+      revision: "4e3a463d2b2ad382a04bdf570e9154c8ec7fe37e"
   license "MIT"
-  revision 1
 
   # https://github.com/dotnet/source-build/#support
   livecheck do
