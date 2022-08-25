@@ -15,8 +15,8 @@ class Babel < Formula
   depends_on "node"
 
   resource "babel-cli" do
-    url "https://registry.npmjs.org/@babel/cli/-/cli-7.18.9.tgz"
-    sha256 "8966ea88caa56f09e339c3b9afce43347eb9c406cdcc9dd42da28b2dd15443c6"
+    url "https://registry.npmjs.org/@babel/cli/-/cli-7.18.10.tgz"
+    sha256 "9bda888e2b4feb37e343657b2a7eff5e0480c8fc1713d8919b368a24c8164f69"
   end
 
   def install
