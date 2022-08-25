@@ -19,6 +19,7 @@ class DartSdk < Formula
 
   uses_from_macos "curl" => :build
   uses_from_macos "python" => :build
+  uses_from_macos "xz" => :build
 
   resource "depot-tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
