@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.24.3/deno_src.tar.gz"
-  sha256 "92d8e03dc3a76d13cc3f4853e82d68e3d96f6b9c877616cbdf8edd429be95821"
+  url "https://github.com/denoland/deno/releases/download/v1.25.0/deno_src.tar.gz"
+  sha256 "6cafe6c40d08f4228030dec96a1b8938fdeadec40cf86774d3ba7410c736eeb6"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -30,18 +30,22 @@ class Deno < Formula
     depends_on "pkg-config" => :build
     depends_on "gcc"
     depends_on "glib"
-
-    # Temporary v8 resource to work around build failure due to missing MFD_CLOEXEC in Homebrew's glibc.
-    # We use the crate as GitHub tarball lacks submodules and this allows us to avoid git overhead.
-    # TODO: Remove when deno's v8 is on 10.5.x, a backport/patch is added, or Homebrew uses a newer glibc.
-    # Ref: https://chromium.googlesource.com/v8/v8.git/+/3d67ad243ce92b9fb162cc85da1dc1a0ebe4c78b
-    resource "v8" do
-      url "https://static.crates.io/crates/v8/v8-0.47.1.crate"
-      sha256 "be156dece7a023d5959a72dc0d398d6c95100ec601a2cea10d868da143e85166"
-    end
   end
 
   fails_with gcc: "5"
+
+  # Temporary resources to work around build failure due to files missing from crate
+  # We use the crate as GitHub tarball lacks submodules and this allows us to avoid git overhead.
+  # TODO: Remove this and `v8` resource when https://github.com/denoland/rusty_v8/pull/1063 is released
+  resource "rusty-v8" do
+    url "https://static.crates.io/crates/v8/v8-0.49.0.crate"
+    sha256 "5a1cbad73336d67babcbe5e3b03c907c8d2ff77fc6f997570af219bbd9fdb6ce"
+  end
+
+  resource "v8" do
+    url "https://github.com/denoland/v8/archive/1f7df8c39451f3d53e9acef4b7b0476cf4f5eb66.tar.gz"
+    sha256 "5098e515c62e42c0c0754b0daf832f16c081bc53d27b7121bc917fb52759c65a"
+  end
 
   # To find the version of gn used:
   # 1. Find v8 version: https://github.com/denoland/deno/blob/v#{version}/core/Cargo.toml
@@ -61,27 +65,18 @@ class Deno < Formula
   end
 
   def install
-    # Work around Homebrew's old glibc using same temporary patch as `v8` formula.
-    # TODO: Remove this at the same time as `v8` resource
-    if OS.linux?
-      (buildpath/"v8").mkpath
-      resource("v8").stage do |r|
-        system "tar", "--strip-components", "1", "-xzvf", "v8-#{r.version}.crate", "-C", buildpath/"v8"
-      end
-      inreplace "v8/v8/src/base/platform/platform-posix.cc" do |s|
-        s.sub!(/^namespace v8 {$/, <<~EOS)
-          #ifndef MFD_CLOEXEC
-          #define MFD_CLOEXEC 0x0001U
-          #define MFD_ALLOW_SEALING 0x0002U
-          #endif
-
-          namespace v8 {
-        EOS
-      end
-      inreplace %w[core/Cargo.toml serde_v8/Cargo.toml],
-                /^v8 = { version = ("[\d.]+"),.*}$/,
-                "v8 = { version = \\1, path = \"../v8\" }"
+    # Work around files missing from crate
+    # TODO: Remove this at the same time as `rusty-v8` + `v8` resources
+    (buildpath/"v8").mkpath
+    resource("rusty-v8").stage do |r|
+      system "tar", "--strip-components", "1", "-xzvf", "v8-#{r.version}.crate", "-C", buildpath/"v8"
     end
+    resource("v8").stage do
+      cp_r "tools/builtins-pgo", buildpath/"v8/v8/tools/builtins-pgo"
+    end
+    inreplace %w[core/Cargo.toml serde_v8/Cargo.toml],
+              /^v8 = { version = ("[\d.]+"),.*}$/,
+              "v8 = { version = \\1, path = \"../v8\" }"
 
     if OS.mac? && (MacOS.version < :mojave)
       # Overwrite Chromium minimum SDK version of 10.15
