@@ -19,14 +19,13 @@ class Inko < Formula
 
   depends_on "coreutils" => :build
   depends_on "rust" => :build
-  depends_on "libffi"
 
+  uses_from_macos "libffi", since: :catalina
   uses_from_macos "ruby", since: :sierra
 
   def install
-    system "make", "build", "PREFIX=#{libexec}", "FEATURES=libinko/libffi-system"
-    system "make", "install", "PREFIX=#{libexec}"
-    bin.install Dir[libexec/"bin/*"]
+    system "make", "build", "PREFIX=#{prefix}", "FEATURES=libinko/libffi-system"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
