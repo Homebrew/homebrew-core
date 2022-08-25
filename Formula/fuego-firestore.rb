@@ -1,5 +1,5 @@
 class FuegoFirestore < Formula
-  desc "Fuego is a command-line client for the firestore database"
+  desc "Command-line client for the Firestore database"
   homepage "https://github.com/sgarciac/fuego"
   url "https://github.com/sgarciac/fuego/archive/refs/tags/0.31.1.tar.gz"
   sha256 "4657ba2854a28d3cf58c0818c2088b650979cfd3cb5c1dd3be4669b88b1cd870"
