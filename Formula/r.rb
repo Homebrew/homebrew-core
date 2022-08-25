@@ -25,7 +25,6 @@ class R < Formula
   depends_on "gcc" # for gfortran
   depends_on "gettext"
   depends_on "jpeg-turbo"
-  depends_on "libffi"
   depends_on "libpng"
   depends_on "openblas"
   depends_on "pcre2"
@@ -35,6 +34,7 @@ class R < Formula
 
   uses_from_macos "curl"
   uses_from_macos "icu4c"
+  uses_from_macos "libffi", since: :catalina
 
   on_linux do
     depends_on "libice"
