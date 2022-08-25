@@ -4,7 +4,7 @@ class GuileAT2 < Formula
   url "https://ftp.gnu.org/gnu/guile/guile-2.2.7.tar.xz"
   mirror "https://ftpmirror.gnu.org/guile/guile-2.2.7.tar.xz"
   sha256 "cdf776ea5f29430b1258209630555beea6d2be5481f9da4d64986b077ff37504"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "ff0c7976f8d78bbcb0ee5f6425b2c937dcd2fd82b711a0eea116dcd2321fb1fd"
@@ -24,11 +24,13 @@ class GuileAT2 < Formula
   depends_on "gnu-sed" => :build
   depends_on "bdw-gc"
   depends_on "gmp"
-  depends_on "libffi"
   depends_on "libtool"
   depends_on "libunistring"
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
+
+  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libxcrypt"
 
   def install
     # Avoid superenv shim
@@ -41,7 +43,7 @@ class GuileAT2 < Formula
     system "make", "install"
 
     # A really messed up workaround required on macOS --mkhl
-    Pathname.glob("#{lib}/*.dylib") do |dylib|
+    lib.glob("*.dylib") do |dylib|
       lib.install_symlink dylib.basename => "#{dylib.basename(".dylib")}.so"
     end
 
@@ -51,10 +53,10 @@ class GuileAT2 < Formula
     # of opt_prefix usage everywhere.
     inreplace lib/"pkgconfig/guile-2.2.pc" do |s|
       s.gsub! Formula["bdw-gc"].prefix.realpath, Formula["bdw-gc"].opt_prefix
-      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix
+      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix if MacOS.version < :catalina
     end
 
-    (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.scm"]
+    (share/"gdb/auto-load").install lib.glob("*-gdb.scm")
   end
 
   test do
