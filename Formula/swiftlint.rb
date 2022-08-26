@@ -15,7 +15,7 @@ class Swiftlint < Formula
     sha256                               x86_64_linux:   "8aa64a4dce96e961898e41c2240b192a030575571ae9fe0d3a41bb79424fe9b1"
   end
 
-  depends_on xcode: ["13.0", :build]
+  depends_on xcode: ["13.3", :build]
   depends_on xcode: "8.0"
 
   uses_from_macos "swift"
