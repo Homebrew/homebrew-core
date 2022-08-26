@@ -11,12 +11,16 @@ class LinuxHeadersAT515 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "rsync" => :build
   depends_on :linux
 
   def install
-    system "make", "headers_install", "INSTALL_HDR_PATH=#{prefix}"
-    rm prefix.glob("**/{.install,..install.cmd}")
+    system "make", "headers"
+
+    cd "usr/include" do
+      Pathname.glob("**/*.h").each do |header|
+        (include/header.dirname).install header
+      end
+    end
   end
 
   test do
