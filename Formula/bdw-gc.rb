@@ -1,20 +1,9 @@
 class BdwGc < Formula
   desc "Garbage collector for C and C++"
   homepage "https://www.hboehm.info/gc/"
+  url "https://github.com/ivmai/bdwgc/releases/download/v8.2.2/gc-8.2.2.tar.gz"
+  sha256 "f30107bcb062e0920a790ffffa56d9512348546859364c23a14be264b38836a0"
   license "MIT"
-
-  # Remove stable block when patch is removed
-  stable do
-    url "https://github.com/ivmai/bdwgc/releases/download/v8.0.6/gc-8.0.6.tar.gz"
-    sha256 "3b4914abc9fa76593596773e4da671d7ed4d5390e3d46fbf2e5f155e121bea11"
-
-    # Extension to handle multithreading. Remove in v8.2.0.
-    # https://github.com/ivmai/bdwgc/pull/277
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f14c259aef209e5f5df302b834b2119381dd36d5/bdw-gc/crystal-mt.patch"
-      sha256 "18380da9c5451c9b7668ccf5e1f106f8cf8115992d9a403e32444fb487566c33"
-    end
-  end
 
   livecheck do
     url :stable
