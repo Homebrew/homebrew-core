@@ -93,10 +93,9 @@ class Vineyard < Formula
 
     # prepare vineyardd
     vineyardd_pid = fork do
-      exec bin/"vineyardd",
-        "--norpc",
-        "--meta=local",
-        "--socket=#{testpath}/vineyard.sock"
+      exec bin/"vineyardd", "--norpc",
+                            "--meta=local",
+                            "--socket=#{testpath}/vineyard.sock"
     end
 
     # sleep to let vineyardd get its wits about it
