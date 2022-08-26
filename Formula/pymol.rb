@@ -76,11 +76,10 @@ class Pymol < Formula
     ENV.append "CPPFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
     # Point to vendored mmtf headers.
     ENV.append "CPPFLAGS", "-I#{buildpath}/mmtf/include"
-    site_packages = Language::Python.site_packages(python3)
 
     args = %W[
       --install-scripts=#{libexec}/bin
-      --install-lib=#{libexec/Language::Python.site_packages(python3)}
+      --install-lib=#{libexec/site_packages}
       --glut
       --use-msgpackc=c++11
     ]
