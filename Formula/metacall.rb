@@ -18,14 +18,12 @@ class Metacall < Formula
     args = std_cmake_args + %W[
       -Wno-dev
       -DCMAKE_BUILD_TYPE=Release
-      -DOPTION_BUILD_SECURITY=OFF
-      -DOPTION_FORK_SAFE=OFF
       -DOPTION_BUILD_SCRIPTS=OFF
       -DOPTION_BUILD_TESTS=OFF
       -DOPTION_BUILD_EXAMPLES=OFF
       -DOPTION_BUILD_LOADERS_PY=ON
       -DOPTION_BUILD_LOADERS_NODE=ON
-      -DNodeJS_INSTALL_PREFIX=/usr/local/Cellar/metacall/#{version}
+      -DNodeJS_INSTALL_PREFIX=/tmp/#{version}
       -DOPTION_BUILD_LOADERS_JAVA=ON
       -DOPTION_BUILD_LOADERS_JS=OFF
       -DOPTION_BUILD_LOADERS_C=OFF
