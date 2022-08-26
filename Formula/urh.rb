@@ -6,7 +6,7 @@ class Urh < Formula
   url "https://files.pythonhosted.org/packages/c2/3d/9cbaac6d7101f50c408ac428d9e37668916a4a3e22292f38748b230239e0/urh-2.9.3.tar.gz"
   sha256 "037b91bb87a113ac03d0695e0c2b5cce35d0886469b3ef46ba52d2342c8cfd8c"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
   head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
@@ -31,8 +31,15 @@ class Urh < Formula
   end
 
   def install
-    site_packages = Language::Python.site_packages("python3")
-    ENV.prepend_create_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
+    python3 = "python3.10"
+
+    # Enable finding cython, which is keg-only
+    site_packages = Language::Python.site_packages(python3)
+    pth_contents = <<~EOS
+      import site; site.addsitedir('#{Formula["libcython"].opt_libexec/site_packages}')
+    EOS
+    (libexec/site_packages/"homebrew-libcython.pth").write pth_contents
+
     virtualenv_install_with_resources
   end
 
