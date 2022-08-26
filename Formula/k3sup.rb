@@ -39,6 +39,6 @@ class K3sup < Formula
 
   test do
     output = shell_output("#{bin}/k3sup install 2>&1", 1).split("\n").pop
-    assert_match "unable to load the ssh key", output
+    assert_match "Error: trying to get ip value of flag of type string", output
   end
 end
