@@ -4,6 +4,7 @@ class Pgrouting < Formula
   url "https://github.com/pgRouting/pgrouting/releases/download/v3.3.1/pgrouting-3.3.1.tar.gz"
   sha256 "70b97a7abab1813984706dffafe29aeb3ad98fbe160fda074fd792590db106b6"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
   livecheck do
@@ -24,33 +25,42 @@ class Pgrouting < Formula
   depends_on "boost"
   depends_on "cgal"
   depends_on "gmp"
-  depends_on "libpq"
   depends_on "postgis"
+  depends_on "postgresql@14"
+
+  def postgresql
+    Formula["postgresql@14"]
+  end
 
   def install
     mkdir "stage"
     mkdir "build" do
-      system "cmake", "-DWITH_DD=ON", "..", *std_cmake_args
+      system "cmake", "-DPOSTGRESQL_PG_CONFIG=#{postgresql.opt_bin}/pg_config", "..", *std_cmake_args
       system "make"
       system "make", "install", "DESTDIR=#{buildpath}/stage"
     end
 
-    libpq_prefix = Formula["libpq"].prefix.realpath
-    libpq_stage_path = File.join("stage", libpq_prefix)
-    share.install (buildpath/libpq_stage_path/"share").children
-
-    libpq_opt_prefix = Formula["libpq"].prefix
-    libpq_opt_stage_path = File.join("stage", libpq_opt_prefix)
-    lib.install (buildpath/libpq_opt_stage_path/"lib").children
-
-    # write the postgres version in the install to ensure rebuilds on new major versions
-    inreplace share/"postgresql/extension/pgrouting.control",
-      "# pgRouting Extension",
-      "# pgRouting Extension for PostgreSQL #{Formula["postgresql"].version.major}"
+    stage_path = File.join("stage", HOMEBREW_PREFIX)
+    lib.install (buildpath/stage_path/"lib").children
+    share.install (buildpath/stage_path/"share").children
   end
 
   test do
-    expected = "for PostgreSQL #{Formula["postgresql"].version.major}"
-    assert_match expected, (share/"postgresql/extension/pgrouting.control").read
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
+    port = free_port
+
+    system pg_ctl, "initdb", "-D", testpath/"test"
+    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
+
+      shared_preload_libraries = 'libpgrouting-#{version.major_minor}'
+      port = #{port}
+    EOS
+    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    begin
+      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"pgrouting\" CASCADE;", "postgres"
+    ensure
+      system pg_ctl, "stop", "-D", testpath/"test"
+    end
   end
 end
