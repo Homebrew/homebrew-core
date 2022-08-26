@@ -1,9 +1,10 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/helmfile/helmfile"
-  url "https://github.com/helmfile/helmfile/archive/v0145.4.tar.gz"
-  sha256 "a2ad467614309e8aad6c030ec2f3aa4dfa4aad59ecf6a41c91e77c8179710e10"
+  url "https://github.com/helmfile/helmfile/archive/v0.145.4.tar.gz"
+  sha256 "1bfc5e805525c3629d2c28b30747ef5da7cbcce2c482cd163c0e716898f4f8be"
   license "MIT"
+  version_scheme 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6e7bfa18780228a9b74465bb773af2d472006a146901e1fd3261c2612b928cef"
@@ -18,8 +19,11 @@ class Helmfile < Formula
   depends_on "helm"
 
   def install
-    system "go", "build", "-ldflags", "-X github.com/helmfile/helmfile/pkg/app/version.Version=v#{version}",
-             "-o", bin/"helmfile", "-v", "github.com/helmfile/helmfile"
+    ldflags = %W[
+      -s -w
+      -X github.com/helmfile/helmfile/pkg/app/version.Version=v#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
