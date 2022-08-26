@@ -26,8 +26,8 @@ class Trino < Formula
   depends_on "python@3.10"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/375.tar.gz", using: :nounzip
-    sha256 "bab8287f387931faa228b698a30886c084f2981c4313b8ebef4340c685c490c8"
+    url "https://github.com/trinodb/trino/archive/393.tar.gz", using: :nounzip
+    sha256 "05577eee0f74aa5ba33bc880135c2d068fe1fb1c60a36cd6e89042be5f6ad8b0"
   end
 
   resource "trino-cli" do
