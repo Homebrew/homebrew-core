@@ -1,8 +1,8 @@
 class Vile < Formula
   desc "Vi Like Emacs Editor"
   homepage "https://invisible-island.net/vile/"
-  url "https://invisible-island.net/archives/vile/current/vile-9.8v.tgz"
-  sha256 "240edec7bbf3d9df48b3042754bf9854d9a233d371d50bba236ec0edd708eed5"
+  url "https://invisible-island.net/archives/vile/current/vile-9.8w.tgz"
+  sha256 "78253ec3f7ae5f4f9d4799a3c8bc35b85b47d456f2ac172810008a48e4609815"
   license "GPL-2.0-or-later"
 
   bottle do
