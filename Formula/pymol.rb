@@ -49,7 +49,8 @@ class Pymol < Formula
   end
 
   def install
-    ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_prefix/Language::Python.site_packages(python3)
+    site_packages = Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
 
     resource("mmtf-cpp").stage do
       system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: buildpath/"mmtf")
