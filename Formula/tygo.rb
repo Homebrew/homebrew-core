@@ -2,8 +2,8 @@ class Tygo < Formula
   desc "Generate Typescript types from Golang source code"
   homepage "https://github.com/gzuidhof/tygo"
   url "https://github.com/gzuidhof/tygo.git",
-      tag:      "v0.2.2",
-      revision: "6921feb342328cd1c3030cfbfb8491381aad9e50"
+      tag:      "v0.2.3",
+      revision: "8d1f7f32209636f2d3127ffbf56ecd50a641579f"
   license "MIT"
   head "https://github.com/gzuidhof/tygo.git", branch: "main"
 
