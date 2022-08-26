@@ -2,9 +2,10 @@ class K3d < Formula
   desc "Little helper to run CNCF's k3s in Docker"
   homepage "https://k3d.io"
   url "https://github.com/k3d-io/k3d.git",
-    tag:      "v5.4.5",
-    revision: "3a7d85f3d1c801d6f47eda5eab37268fbc257850"
+    tag:      "v5.4.4",
+    revision: "85841a1b1640cf3548372d2e4730c564365f6bac"
   license "MIT"
+  version_scheme 1
 
   livecheck do
     url :stable
@@ -20,7 +21,9 @@ class K3d < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba76378b208f4fb00c0f37287b3de9543c2a9c9f70df92c68e558d6e1b118bc5"
   end
 
-  depends_on "go" => :build
+  # Required latest https://pkg.go.dev/go4.org/unsafe/assume-no-moving-gc
+  # Try to switch to the latest go on the next release
+  depends_on "go@1.18" => :build
 
   def install
     require "net/http"
