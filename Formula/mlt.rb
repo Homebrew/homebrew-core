@@ -39,17 +39,17 @@ class Mlt < Formula
   fails_with gcc: "5"
 
   def install
-    rpaths = [rpath]
-    rpaths << "@loader_path/../../lib" if OS.mac?
+    rpaths = [rpath, rpath(source: lib/"mlt")]
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+    system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     "-DGPL=ON",
                     "-DGPL3=ON",
                     "-DMOD_OPENCV=ON",
                     "-DMOD_JACKRACK=OFF",
                     "-DMOD_SDL1=OFF",
-                    "-DRELOCATABLE=OFF"
+                    "-DRELOCATABLE=OFF",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
