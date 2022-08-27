@@ -20,6 +20,8 @@ class Lcrack < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "90d22ccc708ed4d14fd35364f07ee9cc7342dbeba5a8da0f051d39b699e84125"
   end
 
+  deprecate! date: "2022-08-28", because: :repo_removed
+
   def install
     system "./configure"
     system "make"
