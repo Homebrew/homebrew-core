@@ -30,7 +30,6 @@ class GccAT5 < Formula
 
   on_linux do
     depends_on "binutils"
-    depends_on "glibc" if OS::Linux::Glibc.system_version < Formula["glibc"].version
   end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
