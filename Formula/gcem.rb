@@ -1,8 +1,8 @@
 class Gcem < Formula
   desc "C++ compile-time math library"
   homepage "https://gcem.readthedocs.io/en/latest/"
-  url "https://github.com/kthohr/gcem/archive/refs/tags/v1.15.0.tar.gz"
-  sha256 "ec570f4c4e4dab9a9e929b61fd9cc06303f4bd7943e5489e62fdd577016323b1"
+  url "https://github.com/kthohr/gcem/archive/refs/tags/v1.16.0.tar.gz"
+  sha256 "119c742b9371c0adc7d9cd710c3cbc575459a98fb63f6be4c636215dcf8404ce"
   license "Apache-2.0"
 
   bottle do
