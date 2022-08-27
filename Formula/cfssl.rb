@@ -1,8 +1,8 @@
 class Cfssl < Formula
   desc "CloudFlare's PKI toolkit"
   homepage "https://cfssl.org/"
-  url "https://github.com/cloudflare/cfssl/archive/v1.6.1.tar.gz"
-  sha256 "00f5316e8f065a48eeb02b7359aa67699a5c1362b09c6e8faa19d8f35451c1d8"
+  url "https://github.com/cloudflare/cfssl/archive/v1.6.2.tar.gz"
+  sha256 "8285ebc135a04ed4e927f8ec9253b683976cf73f683f3be7d11af677f3435341"
   license "BSD-2-Clause"
   head "https://github.com/cloudflare/cfssl.git", branch: "master"
 
