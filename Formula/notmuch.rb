@@ -6,6 +6,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.37.tar.xz"
   sha256 "0e766df28b78bf4eb8235626ab1f52f04f1e366649325a8ce8d3c908602786f6"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
