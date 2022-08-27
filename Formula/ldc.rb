@@ -66,8 +66,8 @@ class Ldc < Formula
       -DD_COMPILER=#{buildpath}/ldc-bootstrap/bin/ldmd2
     ]
 
-    if OS.mac?
-      args << "-DCMAKE_INSTALL_RPATH=#{rpath};@loader_path/#{llvm.opt_lib.relative_path_from(lib)}"
+    args += if OS.mac?
+      ["-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: lib, target: llvm.opt_lib)}"]
     else
       # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
       ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib if OS.linux?
@@ -81,7 +81,7 @@ class Ldc < Formula
       libstdcxx_include = gcc.opt_include/"c++"/gcc.version.major
       linux_cxx_flags = "-nostdinc++ -isystem#{libstdcxx_include} -isystem#{libstdcxx_include}/x86_64-pc-linux-gnu"
 
-      args += %W[
+      %W[
         -DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags}
         -DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags}
         -DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags}
@@ -89,7 +89,7 @@ class Ldc < Formula
       ]
     end
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
