@@ -51,17 +51,14 @@ class Ns3 < Formula
     ENV.append "PYTHONPATH", buildpath.parent/"pybindgen"
 
     # Fix binding's rpath
-    linker_flags = if OS.mac?
-      "-Wl,-undefined,dynamic_lookup,-rpath,@loader_path"
-    else
-      "-Wl,-rpath,$ORIGIN"
-    end
+    linker_flags = ["-Wl,-rpath,#{loader_path}"]
+    linker_flags << "-Wl,-undefined,dynamic_lookup" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DNS3_GTK3=OFF",
                     "-DNS3_PYTHON_BINDINGS=ON",
                     "-DNS3_MPI=ON",
-                    "-DCMAKE_SHARED_LINKER_FLAGS=#{linker_flags}",
+                    "-DCMAKE_SHARED_LINKER_FLAGS=#{linker_flags.join(" ")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
