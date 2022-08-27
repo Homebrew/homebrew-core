@@ -56,7 +56,7 @@ class Tbb < Formula
       python = Formula["python@3.10"].opt_bin/"python3.10"
 
       tbb_site_packages = prefix/Language::Python.site_packages(python)/"tbb"
-      ENV["LDFLAGS"] = "-Wl,-rpath,@loader_path/#{lib.relative_path_from(tbb_site_packages)}" if OS.mac?
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(source: tbb_site_packages)}"
 
       ENV["TBBROOT"] = prefix
       system python, *Language::Python.setup_install_args(prefix, python)
