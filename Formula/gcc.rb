@@ -112,10 +112,14 @@ class Gcc < Formula
       system "../configure", *args
       system "make"
 
+      # Do not strip the binaries on macOS, it makes them unsuitable
+      # for loading plugins
+      install_target = OS.mac? ? "install" : "install-strip"
+
       # To make sure GCC does not record cellar paths, we configure it with
       # opt_prefix as the prefix. Then we use DESTDIR to install into a
       # temporary location, then move into the cellar path.
-      system "make", "install-strip", "DESTDIR=#{Pathname.pwd}/../instdir"
+      system "make", install_target, "DESTDIR=#{Pathname.pwd}/../instdir"
       mv Dir[Pathname.pwd/"../instdir/#{opt_prefix}/*"], prefix
     end
 
