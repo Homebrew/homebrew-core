@@ -15,16 +15,18 @@ class SagittariusScheme < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "bdw-gc"
-  depends_on "libffi"
   depends_on "openssl@1.1"
   depends_on "unixodbc"
 
+  uses_from_macos "libffi", since: :catalina
   uses_from_macos "zlib"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DODBC_LIBRARIES=odbc"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DODBC_LIBRARIES=odbc", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
