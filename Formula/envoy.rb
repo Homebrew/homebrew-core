@@ -8,8 +8,8 @@ class Envoy < Formula
 
   stable do
     url "https://github.com/envoyproxy/envoy.git",
-        tag:      "v1.22.2",
-        revision: "c919bdec19d79e97f4f56e4095706f8e6a383f1c"
+        tag:      "v1.23.1",
+        revision: "edd69583372955fdfa0b8ca3820dd7312c094e46"
 
     # Fix build on Apple Silicon which fails on undefined symbol:
     # v8::internal::trap_handler::TryHandleSignal(int, __siginfo*, void*)
