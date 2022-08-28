@@ -24,7 +24,7 @@ class Metacall < Formula
       -DOPTION_BUILD_EXAMPLES=OFF
       -DOPTION_BUILD_LOADERS_PY=ON
       -DOPTION_BUILD_LOADERS_NODE=ON
-      -DNodeJS_INSTALL_PREFIX=/tmp/#{version}
+      -DNodeJS_INSTALL_PREFIX=#{buildpath}
       -DOPTION_BUILD_LOADERS_JAVA=ON
       -DOPTION_BUILD_LOADERS_JS=OFF
       -DOPTION_BUILD_LOADERS_C=OFF
@@ -35,7 +35,7 @@ class Metacall < Formula
       -DOPTION_BUILD_LOADERS_FILE=ON
       -DOPTION_BUILD_PORTS=ON
       -DOPTION_BUILD_PORTS_PY=ON
-      -DOPTION_BUILD_PORTS_NODE=OFF
+      -DOPTION_BUILD_PORTS_NODE=ON
     ]
     system "cmake", *args, ".."
     system "cmake", "--build", ".", "--target", "install"
@@ -44,16 +44,16 @@ class Metacall < Formula
     # debug = "set -euxo pipefail\n"
 
     metacall_extra = [
-      "LOC=/usr/local/Cellar/metacall/#{version}\n",
-      "export LOADER_LIBRARY=\"$LOC/lib\"\n",
-      "export SERIAL_LIBRARY_PATH=\"$LOC/lib\"\n",
-      "export DETOUR_LIBRARY_PATH=\"$LOC/lib\"\n",
-      "export PORT_LIBRARY_PATH=\"$LOC/lib\"\n",
-      "export CONFIGURATION_PATH=\"$LOC/configurations/global.json\"\n",
+      "LOC=#{prefix}\n",
+      "export LOADER_LIBRARY=\"#{lib}\"\n",
+      "export SERIAL_LIBRARY_PATH=\"#{lib}\"\n",
+      "export DETOUR_LIBRARY_PATH=\"#{lib}\"\n",
+      "export PORT_LIBRARY_PATH=\"#{lib}\"\n",
+      "export CONFIGURATION_PATH=\"#{prefix}/configurations/global.json\"\n",
     ]
     cmds = [shebang, *metacall_extra]
     cmds.append("export LOADER_SCRIPT_PATH=\"\${LOADER_SCRIPT_PATH:-\`pwd\`}\"\n")
-    cmds.append("$LOC/metacallcli $@\n")
+    cmds.append("#{prefix}/metacallcli $@\n")
 
     File.open("metacall.sh", "w") do |f|
       f.write(*cmds)
