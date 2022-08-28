@@ -1,23 +1,10 @@
 class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
+  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.2.9.tar.gz"
+  sha256 "0f8c3434a9c4c132a34415a9cc4f048595b8a4d1a94e94223ac3a795e1c16531"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/aristocratos/btop.git", branch: "main"
-
-  # Remove stable block when patch is no longer needed.
-  stable do
-    url "https://github.com/aristocratos/btop/archive/refs/tags/v1.2.8.tar.gz"
-    sha256 "7944b06e3181cc1080064adf1e9eb4f466af0b84a127df6697430736756a89ac"
-
-    # Fix finding themes on ARM
-    # https://github.com/aristocratos/btop/issues/344
-    # https://github.com/Homebrew/homebrew-core/issues/105708
-    patch do
-      url "https://github.com/aristocratos/btop/commit/a84a7e6a5c3fe16b5e1d1a9824422638aca2f975.patch?full_index=1"
-      sha256 "f7dd836f5fcb06fe4497e9d7f2c0706bbe91a1b8a1d9b95187762527372fb38c"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f84048ddc55ba0f2374aa1d971b0bfdff25ac79c15a7ecf89e9c0092fbe3e246"
