@@ -18,10 +18,10 @@ class Txr < Formula
     sha256 cellar: :any, catalina:       "166ac7a487e200f42cc6dc5752b6750c5e8e35458b5fdd2f8d996e6b8467e7f5"
   end
 
-  depends_on "libffi"
-
+  depends_on "pkg-config" => :build
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "libffi", since: :catalina
 
   def install
     system "./configure", "--prefix=#{prefix}", "--inline=static inline"
@@ -30,6 +30,6 @@ class Txr < Formula
   end
 
   test do
-    assert_equal "3", shell_output(bin/"txr -p '(+ 1 2)'").chomp
+    assert_equal "3", shell_output("#{bin}/txr -p '(+ 1 2)'").chomp
   end
 end
