@@ -4,7 +4,7 @@ class PythonAT310 < Formula
   url "https://www.python.org/ftp/python/3.10.6/Python-3.10.6.tgz"
   sha256 "848cb06a5caa85da5c45bd7a9221bb821e33fc2bdcba088c127c58fad44e6343"
   license "Python-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -39,6 +39,10 @@ class PythonAT310 < Formula
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libnsl"
+  end
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7", "bin/pip-3.8", "bin/pip-3.9"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6",
