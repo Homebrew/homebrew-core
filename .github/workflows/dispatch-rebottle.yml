@@ -20,6 +20,9 @@ on:
         description: "Whether to fail immediately on a single OS version failure (default: true)"
         default: "true"
         required: false
+        
+permissions:
+  contents: read
 
 env:
   HOMEBREW_DEVELOPER: 1
@@ -161,6 +164,8 @@ jobs:
           bot: BrewTestBot
 
   upload:
+    permissions:
+      issues: write # for Homebrew/actions/post-comment
     runs-on: ubuntu-latest
     needs: bottle
     if: github.event.inputs.upload
