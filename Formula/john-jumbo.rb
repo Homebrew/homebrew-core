@@ -5,6 +5,7 @@ class JohnJumbo < Formula
   version "1.9.0"
   sha256 "f5d123f82983c53d8cc598e174394b074be7a77756f5fb5ed8515918c81e7f3b"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/openwall/john.git"
@@ -28,6 +29,7 @@ class JohnJumbo < Formula
   depends_on "gmp"
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   conflicts_with "john", because: "both install the same binaries"
