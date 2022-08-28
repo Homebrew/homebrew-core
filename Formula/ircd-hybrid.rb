@@ -1,8 +1,8 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "https://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.41/ircd-hybrid-8.2.41.tgz"
-  sha256 "ce0ea69654601047bd86423ddc0023c0795570249990011eaa6c41d6372b0454"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.42/ircd-hybrid-8.2.42.tgz"
+  sha256 "692d217bfc7ea37c4e4391fb86b0a92780bc32eb144f69623349721755b81f6a"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -19,7 +19,7 @@ class IrcdHybrid < Formula
     sha256 x86_64_linux:   "5c45e00bfae1c00c4909144592b46ce21755d20eb7287f179b69d0147b159ed5"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
 
@@ -36,7 +36,7 @@ class IrcdHybrid < Formula
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
-                          "--enable-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--enable-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
     etc.install "doc/reference.conf" => "ircd.conf"
   end
