@@ -45,7 +45,7 @@ class Metacall < Formula
 
     metacall_extra = [
       "LOC=#{prefix}\n",
-      "export LOADER_LIBRARY=\"#{lib}\"\n",
+      "export LOADER_LIBRARY_PATH=\"#{lib}\"\n",
       "export SERIAL_LIBRARY_PATH=\"#{lib}\"\n",
       "export DETOUR_LIBRARY_PATH=\"#{lib}\"\n",
       "export PORT_LIBRARY_PATH=\"#{lib}\"\n",
