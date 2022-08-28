@@ -1,8 +1,8 @@
 class Libxaw3d < Formula
   desc "X.Org: 3D Athena widget set based on the Xt library"
   homepage "https://www.x.org"
-  url "https://www.x.org/archive/individual/lib/libXaw3d-1.6.3.tar.bz2"
-  sha256 "2dba993f04429ec3d7e99341e91bf46be265cc482df25963058c15f1901ec544"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXaw3d-1.6.4.tar.gz"
+  sha256 "09fecfdab9d7d5953567883e2074eb231bc7a122a06e5055f9c119090f1f76a7"
   license "MIT"
 
   bottle do
