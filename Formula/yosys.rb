@@ -17,11 +17,11 @@ class Yosys < Formula
 
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
-  depends_on "libffi"
   depends_on "python@3.10"
   depends_on "readline"
 
   uses_from_macos "flex"
+  uses_from_macos "libffi", since: :catalina
   uses_from_macos "tcl-tk"
 
   def install
@@ -29,6 +29,6 @@ class Yosys < Formula
   end
 
   test do
-    system "#{bin}/yosys", "-p", "hierarchy; proc; opt; techmap; opt;", "-o", "synth.v", "#{pkgshare}/adff2dff.v"
+    system bin/"yosys", "-p", "hierarchy; proc; opt; techmap; opt;", "-o", "synth.v", pkgshare/"adff2dff.v"
   end
 end
