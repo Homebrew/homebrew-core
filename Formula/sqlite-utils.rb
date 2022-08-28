@@ -2,8 +2,8 @@ class SqliteUtils < Formula
   include Language::Python::Virtualenv
   desc "CLI utility for manipulating SQLite databases"
   homepage "https://sqlite-utils.datasette.io/"
-  url "https://files.pythonhosted.org/packages/fe/2b/2ed48c411a590a250cb6c06ea7822b2292835d92d7f69e3c86af2b60ba0e/sqlite-utils-3.28.tar.gz"
-  sha256 "790b01f4be16c32756b9b5eae07b6b7c905b6613ca538d646877c50b05b0a53a"
+  url "https://files.pythonhosted.org/packages/2f/6d/3b874297ef2c65871e714f298ee63d29aa87682ec65e86be30bd9c983baf/sqlite-utils-3.29.tar.gz"
+  sha256 "d9ea1026a9c007a895cdd04abdcbe3cd2ac03515c2a2ebbad9233939aa111f5b"
   license "Apache-2.0"
 
   bottle do
@@ -35,8 +35,8 @@ class SqliteUtils < Formula
   end
 
   resource "sqlite-fts4" do
-    url "https://files.pythonhosted.org/packages/62/30/63e64b7b8fa69aabf97b14cbc204cb9525eb2132545f82231c04a6d40d5c/sqlite-fts4-1.0.1.tar.gz"
-    sha256 "b2d4f536a28181dc4ced293b602282dd982cc04f506cf3fc491d18b824c2f613"
+    url "https://files.pythonhosted.org/packages/c2/6d/9dad6c3b433ab8912ace969c66abd595f8e0a2ccccdb73602b1291dbda29/sqlite-fts4-1.0.3.tar.gz"
+    sha256 "78b05eeaf6680e9dbed8986bde011e9c086a06cb0c931b3cf7da94c214e8930c"
   end
 
   def install
