@@ -88,23 +88,24 @@ class Csound < Formula
   def python3
     deps.map(&:to_formula)
         .find { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .opt_bin/"python3"
+        .opt_libexec/"bin/python"
   end
 
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home
     site_packages = prefix/Language::Python.site_packages(python3)
     rpaths = [rpath]
-    rpaths << "@loader_path/../Frameworks" if OS.mac?
+    rpaths << rpath(target: frameworks) if OS.mac?
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+    system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     "-DBUILD_JAVA_INTERFACE=ON",
                     "-DBUILD_LUA_INTERFACE=OFF",
                     "-DBUILD_TESTS=OFF",
                     "-DCS_FRAMEWORK_DEST=#{frameworks}",
                     "-DJAVA_MODULE_INSTALL_DIR=#{libexec}",
-                    "-DPYTHON3_MODULE_INSTALL_DIR=#{site_packages}"
+                    "-DPYTHON3_MODULE_INSTALL_DIR=#{site_packages}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
