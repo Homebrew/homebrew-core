@@ -22,7 +22,7 @@ class Bedtools < Formula
   uses_from_macos "zlib"
 
   def install
-    inreplace "Makefile", "python", "python3"
+    inreplace "Makefile", "python", "python3.10"
 
     system "make"
     system "make", "install", "prefix=#{prefix}"
