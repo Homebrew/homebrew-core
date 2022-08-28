@@ -8,7 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-source.tar.xz"
   sha256 "5ffa3485e51eb2c4490496450fc69b9d7bd7cb9e53357d92db4bcd4fd6179b56"
   license :public_domain
-  revision 1
+  revision 2
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -74,6 +74,7 @@ class Texlive < Formula
     depends_on "pkg-config" => :build
     depends_on "gcc"
     depends_on "libice"
+    depends_on "libnsl"
     depends_on "libsm"
     depends_on "libx11"
     depends_on "libxaw"
