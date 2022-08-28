@@ -9,7 +9,7 @@
 CODEOWNERS            @MikeMcQuaid @Homebrew/plc @Homebrew/tsc
 CONTRIBUTING.md       @MikeMcQuaid @Homebrew/tsc
 tap_migrations.json   @MikeMcQuaid @Homebrew/tsc
-.github/              @MikeMcQuaid @dawidd6 @Homebrew/tsc
+.github/              @MikeMcQuaid @Homebrew/tsc
 cmd/                  @MikeMcQuaid
 
 LICENSE.txt           @Homebrew/plc @MikeMcQuaid
