@@ -20,14 +20,18 @@ class Autojump < Formula
   depends_on "python@3.10"
 
   def install
-    system Formula["python@3.10"].opt_bin/"python3", "install.py", "-d", prefix, "-z", zsh_completion
+    python3 = Formula["python@3.10"]
+    system python3.opt_bin/"python3.10", "install.py", "-d", prefix, "-z", zsh_completion
+
+    # ensure uniform bottles
+    inreplace prefix/"etc/profile.d/autojump.sh", "/usr/local", HOMEBREW_PREFIX
 
     # Backwards compatibility for users that have the old path in .bash_profile
     # or .zshrc
     (prefix/"etc").install_symlink prefix/"etc/profile.d/autojump.sh"
 
     libexec.install bin
-    (bin/"autojump").write_env_script libexec/"bin/autojump", PATH: "#{Formula["python@3.10"].libexec}/bin:$PATH"
+    (bin/"autojump").write_env_script libexec/"bin/autojump", PATH: "#{python3.opt_libexec}/bin:$PATH"
   end
 
   def caveats
