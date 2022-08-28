@@ -23,9 +23,8 @@ class Doxygen < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
-
+  depends_on "python@3.10" => :build # Fails to build with macOS Python3
   uses_from_macos "flex" => :build, since: :big_sur
-  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "gcc"
@@ -36,17 +35,16 @@ class Doxygen < Formula
   fails_with gcc: "6"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "install"
-      system "cmake", "-Dbuild_doc=1", "..", *std_cmake_args
-      man1.install Dir["man/*.1"]
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    system "cmake", "-S", ".", "-B", "build", "-Dbuild_doc=1", *std_cmake_args
+    man1.install buildpath.glob("build/man/*.1")
   end
 
   test do
-    system "#{bin}/doxygen", "-g"
-    system "#{bin}/doxygen", "Doxyfile"
+    system bin/"doxygen", "-g"
+    system bin/"doxygen", "Doxyfile"
   end
 end
