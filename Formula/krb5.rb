@@ -25,14 +25,11 @@ class Krb5 < Formula
 
   uses_from_macos "bison"
 
-  on_linux do
-    depends_on "gettext"
-  end
-
   def install
     cd "src" do
       system "./configure", "--disable-debug",
                             "--disable-dependency-tracking",
+                            "--disable-nls",
                             "--disable-silent-rules",
                             "--prefix=#{prefix}",
                             "--without-system-verto",
