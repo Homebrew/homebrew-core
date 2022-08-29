@@ -4,6 +4,7 @@ class Atop < Formula
   url "https://github.com/Atoptool/atop/archive/refs/tags/v2.7.1.tar.gz"
   sha256 "ce79220b7b1511ae462470a559109322616701845e47275f7449192d379fb843"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Atoptool/atop.git", branch: "master"
 
   bottle do
@@ -11,7 +12,7 @@ class Atop < Formula
   end
 
   depends_on :linux
-  depends_on "linux-headers@4.15"
+  depends_on "linux-headers@5.15"
   depends_on "ncurses"
   depends_on "zlib"
 
