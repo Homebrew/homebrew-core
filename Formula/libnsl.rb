@@ -4,7 +4,7 @@ class Libnsl < Formula
   url "https://github.com/thkukuk/libnsl/releases/download/v2.0.0/libnsl-2.0.0.tar.xz"
   sha256 "2da075ef1893ebdfc5f074f83ac811873dc06fd5c62bc9a4729fd2e27a40341a"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ed70b285939e2ab21ba53d122ce2d4beab4cd0f9c86925c3d3a2cfb1b0eeecb3"
@@ -12,7 +12,6 @@ class Libnsl < Formula
 
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
-  depends_on "libtirpc"
   depends_on :linux
 
   link_overwrite "include/rpcsvc"
@@ -21,7 +20,8 @@ class Libnsl < Formula
 
   def install
     system "./configure", *std_configure_args,
-                          "--disable-silent-rules"
+                          "--disable-silent-rules",
+                          "HAVE_TIRPC=0"
     system "make"
     system "make", "install"
   end
