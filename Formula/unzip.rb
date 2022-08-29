@@ -5,7 +5,7 @@ class Unzip < Formula
   version "6.0"
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
   license "Info-ZIP"
-  revision 7
+  revision 8
 
   livecheck do
     url :stable
@@ -27,11 +27,11 @@ class Unzip < Formula
   uses_from_macos "zip" => :test
   uses_from_macos "bzip2"
 
-  # Upstream is unmaintained so we use the Debian patchset:
-  # https://packages.debian.org/buster/unzip
+  # Upstream is unmaintained so we use the Ubuntu patchset:
+  # https://packages.ubuntu.com/kinetic/unzip
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-26.debian.tar.xz"
-    sha256 "88cb7c0f1fd13252b662dfd224b64b352f9e75cd86389557fcb23fa6d2638599"
+    url "http://archive.ubuntu.com/ubuntu/pool/main/u/unzip/unzip_6.0-27ubuntu1.debian.tar.xz"
+    sha256 "9249780437220a5dc81518f2e4c5213b502bf56899c03992572cf9bb5caf724e"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch
       patches/02-this-is-debian-unzip.patch
@@ -53,6 +53,7 @@ class Unzip < Formula
       patches/18-cve-2014-9913-unzip-buffer-overflow.patch
       patches/19-cve-2016-9844-zipinfo-buffer-overflow.patch
       patches/20-cve-2018-1000035-unzip-buffer-overflow.patch
+      patches/20-unzip60-alt-iconv-utf8.patch
       patches/21-fix-warning-messages-on-big-files.patch
       patches/22-cve-2019-13232-fix-bug-in-undefer-input.patch
       patches/23-cve-2019-13232-zip-bomb-with-overlapped-entries.patch
@@ -60,13 +61,24 @@ class Unzip < Formula
       patches/25-cve-2019-13232-fix-bug-in-uzbunzip2.patch
       patches/26-cve-2019-13232-fix-bug-in-uzinflate.patch
       patches/27-zipgrep-avoid-test-errors.patch
+      patches/28-cve-2022-0529-and-cve-2022-0530.patch
     ]
   end
 
   def install
+    # These macros also follow Ubuntu, and are required:
+    # - to correctly handle large archives (> 4GB)
+    # - extract & print archive contents with non-latin characters
+    loc_macros = %w[
+      -DLARGE_FILE_SUPPORT
+      -DUNICODE_SUPPORT
+      -DUNICODE_WCHAR
+      -DUTF8_MAYBE_NATIVE
+      -DNO_WORKING_ISPRINT
+    ]
     args = %W[
       CC=#{ENV.cc}
-      LOC=-DLARGE_FILE_SUPPORT
+      LOC=#{loc_macros.join(" ")}
       D_USE_BZ2=-DUSE_BZIP2
       L_BZ2=-lbz2
       macosx
