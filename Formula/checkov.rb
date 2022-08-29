@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/2a/dd/847d10bb8ec2e4f27845351bcaa4d58e5741e1be1ccb5aa85b765c705efc/checkov-2.1.150.tar.gz"
-  sha256 "907adc6126dd7d1e1f6312a14572614abe1633c9e4b33e572e73fc3b1fcd4c6f"
+  url "https://files.pythonhosted.org/packages/bb/f0/9b5721c50270a0e9d9b5acc92da42d3a7ffe904b12eaa22062c018e4cd12/checkov-2.1.165.tar.gz"
+  sha256 "1150cd6c84323a847d04a0b95df07d428f68914b2632ddf2288720374af35c4b"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/3f/3b/eac5f57a495da702f34eb7c1f34a325d122c4e2f9ffd99bac5eddf7ddbd1/boto3-1.24.59.tar.gz"
-    sha256 "a50b4323f9579cfe22fcf5531fbd40b567d4d74c1adce06aeb5c95fce2a6fb40"
+    url "https://files.pythonhosted.org/packages/07/c1/518382f907b2fce495be0ee7d7c188042ac6b72c321237f9662be656bcda/boto3-1.24.62.tar.gz"
+    sha256 "818a40b82e4f66b4bdd4fa38fcc3ed0fb26542f7d8c4d15279d4ba1d4762cd95"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/94/29/b8ef249300edf4584384f725d20db126b6caf6147aac4d02efebca239dce/botocore-1.27.59.tar.gz"
-    sha256 "eda4aed6ee719a745d1288eaf1beb12f6f6448ad1fa12f159405db14ba9c92cf"
+    url "https://files.pythonhosted.org/packages/fd/ab/a26d4b3c0a55441244f53fdd418453886f30ba17eda5d74abdcfe89f4350/botocore-1.27.62.tar.gz"
+    sha256 "8563c7d8b80e8041667cf35b397f1c399537f6c887e1c501f0064bfd7ae541ba"
   end
 
   resource "cached-property" do
@@ -262,8 +262,8 @@ class Checkov < Formula
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/10/88/ef38a6e4bc375600d3031e405a8d3b3dc4a154fccffd21d5d06e66c96230/prettytable-3.3.0.tar.gz"
-    sha256 "118eb54fd2794049b810893653b20952349df6d3bc1764e7facd8a18064fa9b0"
+    url "https://files.pythonhosted.org/packages/63/42/b8b24cfe616a8217515011fc54ed37b45077cd4467230b3a0132166696a1/prettytable-3.4.0.tar.gz"
+    sha256 "d16747b5108c252bf065ea1cd239aab3c87bd8bb10a9f7973c9f192bbcfed26e"
   end
 
   resource "pycares" do
