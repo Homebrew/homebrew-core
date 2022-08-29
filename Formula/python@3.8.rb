@@ -4,7 +4,7 @@ class PythonAT38 < Formula
   url "https://www.python.org/ftp/python/3.8.13/Python-3.8.13.tar.xz"
   sha256 "6f309077012040aa39fe8f0c61db8c0fa1c45136763299d375c9e5756f09cf57"
   license "Python-2.0"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -43,6 +43,7 @@ class PythonAT38 < Formula
 
   on_linux do
     depends_on "libnsl"
+    depends_on "libtirpc"
   end
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7", "bin/pip-3.8"
