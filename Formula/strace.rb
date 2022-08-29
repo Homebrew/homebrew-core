@@ -4,6 +4,7 @@ class Strace < Formula
   url "https://github.com/strace/strace/releases/download/v5.19/strace-5.19.tar.xz"
   sha256 "aa3dc1c8e60e4f6ff3d396514aa247f3c7bf719d8a8dc4dd4fa793be786beca3"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "9ba536e2732edb93fd7bb140eb499e9968f131eacda072c6e232852488836a06"
@@ -16,7 +17,7 @@ class Strace < Formula
   end
 
   depends_on :linux
-  depends_on "linux-headers@4.4"
+  depends_on "linux-headers@5.15"
 
   def install
     system "./bootstrap" if build.head?
