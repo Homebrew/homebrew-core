@@ -3,8 +3,8 @@ class West < Formula
 
   desc "Zephyr meta-tool"
   homepage "https://github.com/zephyrproject-rtos/west"
-  url "https://files.pythonhosted.org/packages/f4/6e/abf9f0bbfc9803b988ed2a98143480ba121cb5c55e799fab829c64fdff9f/west-0.13.1.tar.gz"
-  sha256 "07a07bb2167c14ce69c97cd792726ff66c2bf8446ae24884cd17f98cb4c289c3"
+  url "https://files.pythonhosted.org/packages/ae/9c/16f4df520be759b8de1b35d6959fabb86ec81b44ba0300ec68d5d869f006/west-0.14.0.tar.gz"
+  sha256 "9a52a78565fd4d69c64b75c549f61b131892b1b6d26c1cc162cdead1a3cf4b8f"
   license "Apache-2.0"
   head "https://github.com/zephyrproject-rtos/west.git", branch: "main"
 
@@ -21,8 +21,8 @@ class West < Formula
   depends_on "six"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
-    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
+    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
   end
 
   resource "docopt" do
@@ -41,8 +41,8 @@ class West < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
-    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
+    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
+    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   resource "python-dateutil" do
