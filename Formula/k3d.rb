@@ -2,8 +2,8 @@ class K3d < Formula
   desc "Little helper to run CNCF's k3s in Docker"
   homepage "https://k3d.io"
   url "https://github.com/k3d-io/k3d.git",
-    tag:      "v5.4.5",
-    revision: "3a7d85f3d1c801d6f47eda5eab37268fbc257850"
+    tag:      "v5.4.6",
+    revision: "f6838597ddf1cab5bcdb391f883748c6e4d69b48"
   license "MIT"
 
   livecheck do
