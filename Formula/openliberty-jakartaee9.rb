@@ -1,8 +1,8 @@
 class OpenlibertyJakartaee9 < Formula
   desc "Lightweight open framework for Java (Jakarta EE 9)"
   homepage "https://openliberty.io"
-  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/22.0.0.8/openliberty-jakartaee9-22.0.0.8.zip"
-  sha256 "4789e403d2f437430a6f2fec3865b52e30ba7d42e5ddb95e7770ce070cc818cf"
+  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/22.0.0.9/openliberty-jakartaee9-22.0.0.9.zip"
+  sha256 "1c09e123f2c706355b353f68d8a3abd0356f78856a1a68d4513c1a8409fdc027"
   license "EPL-1.0"
 
   livecheck do
