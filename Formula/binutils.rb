@@ -19,7 +19,6 @@ class Binutils < Formula
   keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"
 
   uses_from_macos "bison" => :build
-  uses_from_macos "texinfo" => :build
   uses_from_macos "zlib"
 
   link_overwrite "bin/gold"
@@ -27,6 +26,10 @@ class Binutils < Formula
   link_overwrite "bin/dwp"
 
   def install
+    # Workaround https://sourceware.org/bugzilla/show_bug.cgi?id=28909
+    touch "gas/doc/.dirstamp", mtime: Time.utc(2022, 1, 1)
+    make_args = OS.mac? ? [] : ["MAKEINFO=true"] # for gprofng
+
     args = [
       "--disable-debug",
       "--disable-dependency-tracking",
@@ -45,8 +48,8 @@ class Binutils < Formula
       "--disable-nls",
     ]
     system "./configure", *args
-    system "make"
-    system "make", "install"
+    system "make", *make_args
+    system "make", "install", *make_args
 
     if OS.mac?
       Dir["#{bin}/*"].each do |f|
