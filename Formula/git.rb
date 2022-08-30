@@ -33,13 +33,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.37.2.tar.xz"
-    sha256 "156afd46528593ba0347e041dc25db67ae55952b72407b084aaf1c8d3df5d99b"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.37.3.tar.xz"
+    sha256 "abbc43fe994622bc414d4d1282a84ebe665e49fe03ea944a67a9b905821874c2"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.37.2.tar.xz"
-    sha256 "df0613fe38702dee9e981aba800362c843bb81de0b54581448e87bff5d4816fe"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.37.3.tar.xz"
+    sha256 "9c5373549ae6131d4fc7bc04f6e064e33f5038710aacfb65c95e78e479927414"
   end
 
   resource "Net::SMTP::SSL" do
