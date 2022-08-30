@@ -2,8 +2,8 @@ class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/fluxcd/flux"
   url "https://github.com/fluxcd/flux.git",
-      tag:      "1.25.3",
-      revision: "0fa27a98c4c370607c7a4e647bdf439dfc5345f1"
+      tag:      "1.25.4",
+      revision: "95493343346f2000299996bab0fc49caf31201dd"
   license "Apache-2.0"
 
   livecheck do
