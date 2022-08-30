@@ -3,8 +3,8 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/8f/83/284c721dfaa4a0cd55958c4a9511b94a5a83b97379da0fd7cbab0684cf75/bzt-1.16.11.tar.gz"
-  sha256 "fe3273cb25ac4e9dfa22c9992492ce3ae85f8c93d24901984e61dc6d6e11048d"
+  url "https://files.pythonhosted.org/packages/b7/c3/b455300e91ba0ae79c55681e4cb891dfd17ee10a94f0667f056924f75682/bzt-1.16.12.tar.gz"
+  sha256 "0fa3263f7a275db3489981bfe16c69ab7369f3113612b988e2739d971378e276"
   license "Apache-2.0"
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
@@ -63,13 +63,13 @@ class Bzt < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/93/1d/d9392056df6670ae2a29fcb04cfa5cee9f6fbde7311a1bb511d4115e9b7a/charset-normalizer-2.1.0.tar.gz"
-    sha256 "575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413"
+    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
+    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/8e/8f/1537ebed273d43edd3bb21f1e5861549b7cfcb1d47523d7277cab988cec2/colorlog-6.6.0.tar.gz"
-    sha256 "344f73204009e4c83c5b6beb00b3c45dc70fcdae3c80db919e0a4171d006fde8"
+    url "https://files.pythonhosted.org/packages/78/6b/4e5481ddcdb9c255b2715f54c863629f1543e97bc8c309d1c5c131ad14f2/colorlog-6.7.0.tar.gz"
+    sha256 "bd94bd21c1e13fac7bd3153f4bc3a7dc0eb0974b8bc2fdf1a989e474f6e582e5"
   end
 
   resource "cssselect" do
@@ -108,8 +108,8 @@ class Bzt < Formula
   end
 
   resource "jarowinkler" do
-    url "https://files.pythonhosted.org/packages/40/19/88f42d48b9807cfa7e8b74eac53b023ec25ed078e9bcf442c1c371dd243b/jarowinkler-1.2.0.tar.gz"
-    sha256 "7118976b9c1dca4ad77c97a0595d3917cead5f9b2856b14948a3bcf5f2438c44"
+    url "https://files.pythonhosted.org/packages/68/f9/06c40775785b7f427b327cf0f6faaa7cce3b1b33ff52d280fd59663b3cbd/jarowinkler-1.2.1.tar.gz"
+    sha256 "206364a885ce296f7f79c669734317f2741f6bbd964907e49e3b9ea0e9de5029"
   end
 
   resource "lxml" do
@@ -153,8 +153,8 @@ class Bzt < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/29/50/e73eeccef303e638bd2e78a4c7fe7579e2e94f8f7ddd48602abc510e192e/rapidfuzz-2.4.2.tar.gz"
-    sha256 "5046d8beaa829e4bc172014a006fa78825643fa39589cbf96f0e7bb098f1e973"
+    url "https://files.pythonhosted.org/packages/7b/f5/ceef0929aff61069870ec31d8d203bd386d27900f76a4f6fb02f612672ca/rapidfuzz-2.6.0.tar.gz"
+    sha256 "cda1aacaf03cf71cd110a6268c4a9671b5af30ac50fe14ac4d76254241089ee6"
   end
 
   resource "requests" do
@@ -168,8 +168,8 @@ class Bzt < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
-    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   resource "urwid" do
