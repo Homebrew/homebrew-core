@@ -166,6 +166,8 @@ jobs:
   upload:
     permissions:
       issues: write # for Homebrew/actions/post-comment
+      contents: write # for Homebrew/actions/git-try-push
+      packages: write # for brew pr-upload
     runs-on: ubuntu-latest
     needs: bottle
     if: github.event.inputs.upload
