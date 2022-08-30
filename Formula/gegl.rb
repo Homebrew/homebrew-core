@@ -37,8 +37,6 @@ class Gegl < Formula
     depends_on "cairo"
   end
 
-  conflicts_with "coreutils", because: "both install `gcut` binaries"
-
   def install
     ### Temporary Fix ###
     # Temporary fix for a meson bug
