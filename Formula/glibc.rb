@@ -55,9 +55,9 @@ class Glibc < Formula
     sha256 x86_64_linux: "cd51b67e67b9a5d27880efc06a2b01b71e0b7b8b2cc207e6e961e46c423018e3"
   end
 
+  depends_on "linux-headers@5.15" => :build
   depends_on BrewedGlibcNotOlderRequirement
   depends_on :linux
-  depends_on "linux-headers@5.15"
   depends_on LinuxKernelRequirement
 
   resource "bootstrap-binutils" do
