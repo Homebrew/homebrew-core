@@ -10,7 +10,6 @@ class Libnsl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ed70b285939e2ab21ba53d122ce2d4beab4cd0f9c86925c3d3a2cfb1b0eeecb3"
   end
 
-  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "libtirpc"
   depends_on :linux
