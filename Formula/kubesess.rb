@@ -13,6 +13,27 @@ class Kubesess < Formula
   end
 
   test do
-    assert_match "USAGE:", shell_output("#{bin}/kubesess -h 2>&1")
+    (testpath/".kube/config").write <<~EOS
+      kind: Config
+      apiVersion: v1
+      current-context: docker-desktop
+      preferences: {}
+      clusters:
+      - cluster:
+          server: https://kubernetes.docker.internal:6443
+        name: docker-desktop
+      contexts:
+      - context:
+          namespace: monitoring
+          cluster: docker-desktop
+          user: docker-desktop
+        name: docker-desktop
+      users:
+      - user:
+        name: docker-desktop
+    EOS
+
+    output = shell_output("#{bin}/kubesess -v docker-desktop context 2>&1")
+    assert_match "docker-desktop", output
   end
 end
