@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/09/45/fd7bd81e18104f77214430ff846ab356f85f2ac24d1aa328e3c3ed2b2bb3/pipenv-2022.8.24.tar.gz"
-  sha256 "edbff81766d4328115b28738df0e5240cb2299a34ff0c60d524ad2855df18c69"
+  url "https://files.pythonhosted.org/packages/18/6e/55b5e77915b56a495394786622fb8a580c876ceed97e773c7ce6386032d1/pipenv-2022.8.30.tar.gz"
+  sha256 "41475adbc5ade17184643bcfdfa99632e7f61513a17ec71c4832031b8862cbab"
   license "MIT"
 
   bottle do
@@ -25,8 +25,8 @@ class Pipenv < Formula
   end
 
   resource "distlib" do
-    url "https://files.pythonhosted.org/packages/31/d5/e2aa0aa3918c8d88c4c8e4ebbc50a840e101474b98cd83d3c1712ffe5bb4/distlib-0.3.5.tar.gz"
-    sha256 "a7f75737c70be3b25e2bee06288cec4e4c221de18455b2dd037fe2a795cab2fe"
+    url "https://files.pythonhosted.org/packages/58/07/815476ae605bcc5f95c87a62b95e74a1bce0878bc7a3119bc2bf4178f175/distlib-0.3.6.tar.gz"
+    sha256 "14bad2d9b04d3a36127ac97f30b12a19268f211063d8f8ee4f47108896e11b46"
   end
 
   resource "filelock" do
@@ -40,8 +40,8 @@ class Pipenv < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/3c/ea/a39a173e7943a8f001e1f97326f88e1535b945a3aec31130c3029dce19df/virtualenv-20.16.3.tar.gz"
-    sha256 "d86ea0bb50e06252d79e6c241507cb904fcd66090c3271381372d6221a3970f9"
+    url "https://files.pythonhosted.org/packages/62/2d/06980235e155c7ee1971f77439cbbc3069e98de49540e89f2291905eb4a8/virtualenv-20.16.4.tar.gz"
+    sha256 "014f766e4134d0008dcaa1f95bafa0fb0f575795d07cae50b1bee514185d6782"
   end
 
   resource "virtualenv-clone" do
