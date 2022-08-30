@@ -4,6 +4,7 @@ class Xkbcomp < Formula
   url "https://www.x.org/releases/individual/app/xkbcomp-1.4.5.tar.bz2"
   sha256 "6851086c4244b6fd0cc562880d8ff193fb2bbf1e141c73632e10731b31d4b05e"
   license all_of: ["HPND", "MIT-open-group"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "da94cb771debb09217e45550470e2299982cd7a01ecb648d3ea0ddd940c80f04"
@@ -20,9 +21,11 @@ class Xkbcomp < Formula
   depends_on "libxkbfile"
 
   def install
-    system "./configure", *std_configure_args
+    system "./configure", *std_configure_args, "--with-xkb-config-root=#{HOMEBREW_PREFIX}/share/X11/xkb"
     system "make"
     system "make", "install"
+    # avoid cellar in bindir
+    inreplace lib/"pkgconfig/xkbcomp.pc", prefix, opt_prefix
   end
 
   test do
