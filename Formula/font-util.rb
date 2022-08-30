@@ -4,6 +4,7 @@ class FontUtil < Formula
   url "https://www.x.org/archive/individual/font/font-util-1.3.3.tar.xz"
   sha256 "e791c890779c40056ab63aaed5e031bb6e2890a98418ca09c534e6261a2eebd2"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e2205892be19c7afd594a119f156c34be0bbb2ff558e27f607a1abfd4aa39e4"
@@ -18,17 +19,15 @@ class FontUtil < Formula
   depends_on "util-macros" => :build
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_configure_args + %W[
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --disable-dependency-tracking
-      --disable-silent-rules
+      --with-fontrootdir=#{HOMEBREW_PREFIX}/share/fonts/X11
     ]
 
     system "./configure", *args
     system "make"
-    system "make", "install"
+    system "make", "fontrootdir=#{share}/fonts/X11", "install"
   end
 
   def post_install
