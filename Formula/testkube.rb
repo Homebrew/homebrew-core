@@ -21,6 +21,8 @@ class Testkube < Formula
   end
 
   depends_on "go" => :build
+  depends_on "helm"
+  depends_on "kubernetes-cli"
 
   def install
     ENV["CGO_ENABLED"] = "0"
