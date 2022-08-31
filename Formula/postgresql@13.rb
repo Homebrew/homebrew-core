@@ -128,10 +128,6 @@ class PostgresqlAT13 < Formula
     var/"postgres"
   end
 
-  def postgresql_formula_present?
-    Formula["postgresql"].any_version_installed?
-  end
-
   # Figure out what version of PostgreSQL the old data dir is
   # using
   def old_postgresql_datadir_version
