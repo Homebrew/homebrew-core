@@ -42,32 +42,38 @@ class Gdcm < Formula
   end
 
   def install
-    ENV.cxx11
-    ENV.append "LDFLAGS", "-undefined dynamic_lookup" if OS.mac?
-
     python_include =
       Utils.safe_popen_read(python3, "-c", "from distutils import sysconfig;print(sysconfig.get_python_inc(True))")
            .chomp
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-GNinja",
-                    "-DGDCM_BUILD_APPLICATIONS=ON",
-                    "-DGDCM_BUILD_SHARED_LIBS=ON",
-                    "-DGDCM_BUILD_TESTING=OFF",
-                    "-DGDCM_BUILD_EXAMPLES=OFF",
-                    "-DGDCM_BUILD_DOCBOOK_MANPAGES=OFF",
-                    "-DGDCM_USE_VTK=OFF", # No VTK 9 support: https://sourceforge.net/p/gdcm/bugs/509/
-                    "-DGDCM_USE_SYSTEM_EXPAT=ON",
-                    "-DGDCM_USE_SYSTEM_ZLIB=ON",
-                    "-DGDCM_USE_SYSTEM_UUID=ON",
-                    "-DGDCM_USE_SYSTEM_OPENJPEG=ON",
-                    "-DGDCM_USE_SYSTEM_OPENSSL=ON",
-                    "-DGDCM_WRAP_PYTHON=ON",
-                    "-DPYTHON_EXECUTABLE=#{python3}",
-                    "-DPYTHON_INCLUDE_DIR=#{python_include}",
-                    "-DGDCM_INSTALL_PYTHONMODULE_DIR=#{prefix/Language::Python.site_packages(python3)}",
-                    "-DCMAKE_INSTALL_RPATH=#{lib}",
-                    "-DGDCM_NO_PYTHON_LIBS_LINKING=ON"
+    prefix_site_packages = prefix/Language::Python.site_packages(python3)
+    args = [
+      "-DCMAKE_CXX_STANDARD=11",
+      "-DGDCM_BUILD_APPLICATIONS=ON",
+      "-DGDCM_BUILD_SHARED_LIBS=ON",
+      "-DGDCM_BUILD_TESTING=OFF",
+      "-DGDCM_BUILD_EXAMPLES=OFF",
+      "-DGDCM_BUILD_DOCBOOK_MANPAGES=OFF",
+      "-DGDCM_USE_VTK=OFF", # No VTK 9 support: https://sourceforge.net/p/gdcm/bugs/509/
+      "-DGDCM_USE_SYSTEM_EXPAT=ON",
+      "-DGDCM_USE_SYSTEM_ZLIB=ON",
+      "-DGDCM_USE_SYSTEM_UUID=ON",
+      "-DGDCM_USE_SYSTEM_OPENJPEG=ON",
+      "-DGDCM_USE_SYSTEM_OPENSSL=ON",
+      "-DGDCM_WRAP_PYTHON=ON",
+      "-DPYTHON_EXECUTABLE=#{python3}",
+      "-DPYTHON_INCLUDE_DIR=#{python_include}",
+      "-DGDCM_INSTALL_PYTHONMODULE_DIR=#{prefix_site_packages}",
+      "-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: prefix_site_packages)}",
+      "-DGDCM_NO_PYTHON_LIBS_LINKING=#{OS.mac?}",
+    ]
+    if OS.mac?
+      %w[EXE SHARED MODULE].each do |type|
+        args << "-DCMAKE_#{type}_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -liconv"
+      end
+    end
+
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
