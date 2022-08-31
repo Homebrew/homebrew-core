@@ -1,9 +1,8 @@
 class Okpt < Formula
   desc "Healthcare ecosystem built for everyone"
   homepage "https://openkoppeltaal.nl"
-  url "https://github.com/openkoppeltaal/homebrew-okpt.git"
-  version "0.0.1"
-  sha256 "761bce8f13727f395aadceefeca36b5cb675855643da1a8c1485ff0682170d9b"
+  url "https://github.com/openkoppeltaal/homebrew-okpt/archive/refs/tags/0.0.1.tar.gz"
+  sha256 "caad25a46eb99ee8e02fc73f99873e9036599d4bf940d1b9829f932078f00956"
   license "MIT"
 
   depends_on "go" => :build
