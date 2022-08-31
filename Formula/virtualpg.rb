@@ -22,6 +22,7 @@ class Virtualpg < Formula
 
   depends_on "libspatialite"
   depends_on "postgis"
+  depends_on "postgresql@14"
 
   def install
     # New SQLite3 extension won't load via SELECT load_extension('mod_virtualpg');
@@ -34,7 +35,7 @@ class Virtualpg < Formula
 
     system "./configure", "--enable-shared=yes",
                           "--disable-dependency-tracking",
-                          "--with-pgconfig=#{Formula["postgresql"].opt_bin}/pg_config",
+                          "--with-pgconfig=#{Formula["postgresql@14"].opt_bin}/pg_config",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
