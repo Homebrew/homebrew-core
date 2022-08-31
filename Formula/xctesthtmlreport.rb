@@ -6,8 +6,8 @@ class Xctesthtmlreport < Formula
   license "MIT"
   head "https://github.com/XCTestHTMLReport/XCTestHTMLReport.git", branch: "main"
 
-  depends_on xcode: "13.0"
   depends_on :macos
+  depends_on xcode: "13.0"
 
   resource "testdata" do
     url "https://raw.githubusercontent.com/tylervick/XCTestHTMLReport/sanity-xcresult/Tests/XCTestHTMLReportTests/Resources/SanityResults.xcresult.tar.gz"
