@@ -7,13 +7,6 @@ class Qemu < Formula
   stable do
     url "https://download.qemu.org/qemu-7.1.0.tar.xz"
     sha256 "a0634e536bded57cf38ec8a751adb124b89c776fe0846f21ab6c6728f1cbbbe6"
-
-    # Fixes RDTSCP not being exposed to hosts
-    # See https://gitlab.com/qemu-project/qemu/-/issues/1011
-    patch do
-      url "https://gitlab.com/qemu-project/qemu/-/commit/d8cf2c29cc1077cd8f8ab0580b285bff92f09d1c.diff"
-      sha256 "b7c0db81e136fb3b9692e56f4c95abbcbd196dc0b7feb517241dda20d9ec3166"
-    end
   end
 
   bottle do
