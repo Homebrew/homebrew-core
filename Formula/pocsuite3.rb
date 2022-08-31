@@ -3,8 +3,8 @@ class Pocsuite3 < Formula
 
   desc "Open-sourced remote vulnerability testing framework"
   homepage "https://pocsuite.org/"
-  url "https://files.pythonhosted.org/packages/06/bc/863729e47d9f56b907af0e3deb28189d2e73e355a9f298cf1dc5d2f57657/pocsuite3-1.9.9.tar.gz"
-  sha256 "aba7e688b8bf7059c5da546bb304094115d1078babd6b410ec78043c3d3df7b5"
+  url "https://files.pythonhosted.org/packages/8c/b8/9cb13cfcc3ca85df1ccc6e0c8585a74f7c2d946dd5c2771bf87b51e1d1a6/pocsuite3-1.9.10.tar.gz"
+  sha256 "055e697902e6ef67991313eb7282e8561dcf7e43a58178c2149f7fbab16958ed"
   license "GPL-2.0-only"
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
@@ -47,13 +47,13 @@ class Pocsuite3 < Formula
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/8e/8f/1537ebed273d43edd3bb21f1e5861549b7cfcb1d47523d7277cab988cec2/colorlog-6.6.0.tar.gz"
-    sha256 "344f73204009e4c83c5b6beb00b3c45dc70fcdae3c80db919e0a4171d006fde8"
+    url "https://files.pythonhosted.org/packages/78/6b/4e5481ddcdb9c255b2715f54c863629f1543e97bc8c309d1c5c131ad14f2/colorlog-6.7.0.tar.gz"
+    sha256 "bd94bd21c1e13fac7bd3153f4bc3a7dc0eb0974b8bc2fdf1a989e474f6e582e5"
   end
 
   resource "Faker" do
-    url "https://files.pythonhosted.org/packages/a0/7d/703389ad9c0356491d6fc982217e1e31c143d0c376b10f80615dc6c42c0a/Faker-14.1.0.tar.gz"
-    sha256 "0e00bfa1eadf1493f15662edb181222fea4847764cf3f9ff3e66ee0f95c9a644"
+    url "https://files.pythonhosted.org/packages/e5/a6/0b3fc71ca4f9ac05b194f983f9cd106caea94c5de18d87bdd948bfa3ee92/Faker-14.1.1.tar.gz"
+    sha256 "2d506c09aeafa87296f834fd15c6efa87182320f8bf4f709bd3d882397c18076"
   end
 
   resource "idna" do
@@ -62,8 +62,8 @@ class Pocsuite3 < Formula
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/10/88/ef38a6e4bc375600d3031e405a8d3b3dc4a154fccffd21d5d06e66c96230/prettytable-3.3.0.tar.gz"
-    sha256 "118eb54fd2794049b810893653b20952349df6d3bc1764e7facd8a18064fa9b0"
+    url "https://files.pythonhosted.org/packages/63/42/b8b24cfe616a8217515011fc54ed37b45077cd4467230b3a0132166696a1/prettytable-3.4.0.tar.gz"
+    sha256 "d16747b5108c252bf065ea1cd239aab3c87bd8bb10a9f7973c9f192bbcfed26e"
   end
 
   resource "pycryptodomex" do
