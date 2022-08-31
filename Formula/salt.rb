@@ -18,6 +18,8 @@ class Salt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d9d4fd019be45f330c67728bb4b2c2e044f09f91af184e359eaec5c71ac18f0"
   end
 
+  deprecate! date: "2022-08-31", because: "next version will require a vendored python"
+
   depends_on "swig" => :build
   depends_on "libgit2"
   depends_on "libyaml"
