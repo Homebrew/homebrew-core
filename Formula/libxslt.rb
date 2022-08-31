@@ -4,8 +4,8 @@ class Libxslt < Formula
   license "X11"
 
   stable do
-    url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.36.tar.xz"
-    sha256 "12848f0a4408f65b530d3962cd9ff670b6ae796191cfeff37522b5772de8dc8e"
+    url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.37.tar.xz"
+    sha256 "3a4b27dc8027ccd6146725950336f1ec520928f320f144eb5fa7990ae6123ab4"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
