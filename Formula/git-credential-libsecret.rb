@@ -1,8 +1,8 @@
 class GitCredentialLibsecret < Formula
   desc "Git helper for accessing credentials via libsecret"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.37.2.tar.xz"
-  sha256 "1c3d9c821c4538e7a6dac30a4af8bd8dcfe4f651f95474c526b52f83406db003"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.37.3.tar.xz"
+  sha256 "814641d7f61659cfbc17825d0462499ca1403e39ff53d76a8512050e6483e87a"
   license "GPL-2.0-or-later"
   head "https://github.com/git/git.git", branch: "master"
 
@@ -11,12 +11,12 @@ class GitCredentialLibsecret < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f751a64e600e7cad741a1cbd2ea6a376134fee6d2b3fde763fa8b26124282474"
-    sha256 cellar: :any,                 arm64_big_sur:  "e41d342bc92b888994c618aa600b3c2937115df9e9a230ebbc0dcd5399a47cb2"
-    sha256 cellar: :any,                 monterey:       "311afdc0bf085041b16562865be82431a621bd5b0cfdb83ddb1e350a919533d3"
-    sha256 cellar: :any,                 big_sur:        "7cadab4f70b6e1734025bdb650eee4381039dff6267521dc28b1fcad4a63b414"
-    sha256 cellar: :any,                 catalina:       "f207c9f45ddeae9df28fa11184ad68944cb9fdf2aa25ce052b61487e18f51386"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "325bdd60161df62231ab6c16db19d948aabf05903fc45280f27fcbfd6b744444"
+    sha256 cellar: :any,                 arm64_monterey: "6992aff0aa77859e90e437df6847911234de6df6ebd6681273490bcdffcefc36"
+    sha256 cellar: :any,                 arm64_big_sur:  "cca356a297eb0c622df34b8328ce10bce5e298d56a8595452213773552b2c9eb"
+    sha256 cellar: :any,                 monterey:       "5fae0716b65b11de4bdf251fc91fe2a44f4097f5bd7003b06b701873c2ad4504"
+    sha256 cellar: :any,                 big_sur:        "be738e8cb519560d5d43c29065f0de7dd7af3ba5835dc9ec0d57349140a2e8f9"
+    sha256 cellar: :any,                 catalina:       "1cda59c93db7ccd00ecdfcb03b80f84e97d71f5cb93b3b6787bd8f40df1d4fe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9f3d924cf8e11f3d3103ef369b9c26dc16381ff3d9e41c0dc6ee8d31bce582d"
   end
 
   depends_on "pkg-config" => :build

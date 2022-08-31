@@ -4,15 +4,16 @@ class Wolfmqtt < Formula
   url "https://github.com/wolfSSL/wolfMQTT/archive/refs/tags/v1.14.0.tar.gz"
   sha256 "23a073bfac172e08331ccdd01d9fb19e029fdcab5a8b4aad0e8dd4719ea97c31"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/wolfSSL/wolfMQTT.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "66fc14eda504001802e840be169b42c9ebd5277e8398f1f3c6b847fd1759694f"
-    sha256 cellar: :any,                 arm64_big_sur:  "4d2277007b418315f275aeff78509f9e457fccd637c1cbf037bfa6266d8a770f"
-    sha256 cellar: :any,                 monterey:       "58511d1f1831e23450c04ea253de94eb574f562ccb861adbda9982405f3e4fd7"
-    sha256 cellar: :any,                 big_sur:        "db56763b1dfb92c3b156957bafe799ebcad2e6f40616e85779a6e0fcd3697de3"
-    sha256 cellar: :any,                 catalina:       "53dc13a3daff4b64e31044a8e6da20ac9e2fa66ac3aadffc15631b7b04e10873"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4802e1a9d7c97da0d9a50af8d4fe03778cb31a721618538d2a4a711d2018a95"
+    sha256 cellar: :any,                 arm64_monterey: "ec59fe07c81cebcefca5f84bf4eaa5dadbd7bbc1bb7e67f58936886e05d0f8c2"
+    sha256 cellar: :any,                 arm64_big_sur:  "e63498f832d0fdfb16fb12fa750aa552f8abfbe3eecd45efbb3547e5c15a6b6d"
+    sha256 cellar: :any,                 monterey:       "b75dec93dfdc8f785ea6f4260aeabc57a16bbbc4930d19e4caf91a59369eb7eb"
+    sha256 cellar: :any,                 big_sur:        "e939570bc9f65a7df18e928ba535de1933086f51176d58aa0b1f36084a50d88a"
+    sha256 cellar: :any,                 catalina:       "620a99be33560c5300398c3ced6370a75ed9af044de1471f500822b73eae7492"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23df65d7dc4404cadb1c2c4a099b00a3bfc67b0300285288802bd1d26acca385"
   end
 
   depends_on "autoconf" => :build
