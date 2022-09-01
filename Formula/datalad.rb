@@ -14,6 +14,7 @@ class Datalad < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "e3a517a6a3914d82a7cddfb4836f5c9c5e1a15176ebb88b3791b15349b80fbb7"
   end
 
+  depends_on "rust" => :build # for cryptography
   depends_on "git-annex"
   depends_on "p7zip"
   depends_on "python@3.10"
