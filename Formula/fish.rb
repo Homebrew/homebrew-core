@@ -10,6 +10,8 @@ class Fish < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  pour_bottle? only_if: :default_prefix
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_monterey: "13e8e8cbb8dff7100071fa3c6b6ac1c8020391bebb6ee6bc09a30f6596b745b6"
