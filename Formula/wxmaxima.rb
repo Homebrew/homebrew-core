@@ -1,10 +1,9 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-22.05.0.tar.gz"
-  sha256 "a0140b9f6171540556bd40c6b5617eb9ea224debe592014cbfabd0c095594b93"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-22.09.0.tar.gz"
+  sha256 "dbe6b1cba9a14116c4d79b0811f042b318b362eb2cc5b41533967693c0caae95"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
   bottle do
