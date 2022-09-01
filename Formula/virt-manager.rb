@@ -6,6 +6,7 @@ class VirtManager < Formula
   url "https://virt-manager.org/download/sources/virt-manager/virt-manager-4.1.0.tar.gz"
   sha256 "950681d7b32dc61669278ad94ef31da33109bf6fcf0426ed82dfd7379aa590a2"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
@@ -43,8 +44,8 @@ class VirtManager < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/93/1d/d9392056df6670ae2a29fcb04cfa5cee9f6fbde7311a1bb511d4115e9b7a/charset-normalizer-2.1.0.tar.gz"
-    sha256 "575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413"
+    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
+    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
   end
 
   resource "idna" do
@@ -53,8 +54,8 @@ class VirtManager < Formula
   end
 
   resource "libvirt-python" do
-    url "https://files.pythonhosted.org/packages/02/13/1719711d9da5376df239ef185e1bc4aae2c59ae112a2eb6cf7ca612d1a3a/libvirt-python-8.6.0.tar.gz"
-    sha256 "81f49a648a4f3fbebf4abf3f8d4b1468654689d4df6fd21a303d1c1ca9344871"
+    url "https://files.pythonhosted.org/packages/02/19/e694910782b77468b54848e7562072641e8fb39e3f4b0b825534b0cd9d3f/libvirt-python-8.7.0.tar.gz"
+    sha256 "60dcb571e44b6f0d7ca812addb513feac863c3c6c02282871cdfdcda5104dbb3"
   end
 
   resource "requests" do
@@ -63,8 +64,8 @@ class VirtManager < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
-    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   def install
