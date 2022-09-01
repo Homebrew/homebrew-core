@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.2/sile-0.14.2.tar.xz"
-  sha256 "a3de247d9c21a3b26e9bef10865dc04ccf72021285aa1197365519a36f5062e0"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.3/sile-0.14.3.tar.xz"
+  sha256 "7f9735bb2bdea5004b226037baa85bbb684d9de1653d65faa5d1dc0677a6f6d8"
   license "MIT"
 
   bottle do
@@ -22,13 +22,13 @@ class Sile < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "luarocks" => :build
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "harfbuzz"
   depends_on "icu4c"
   depends_on "libpng"
   depends_on "lua"
+  depends_on "luarocks"
   depends_on "openssl@1.1"
 
   uses_from_macos "unzip" => :build
