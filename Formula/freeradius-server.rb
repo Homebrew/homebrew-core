@@ -2,6 +2,7 @@ class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
   head "https://github.com/FreeRADIUS/freeradius-server.git", branch: "master"
 
   stable do
@@ -29,9 +30,13 @@ class FreeradiusServer < Formula
     sha256 x86_64_linux:   "768b37acaefc41960a324a7bf1f1ca41459c44c90a45e4bbd9a05f6bfdf571ca"
   end
 
+  depends_on "collectd"
   depends_on "openssl@1.1"
   depends_on "talloc"
 
+  uses_from_macos "krb5"
+  uses_from_macos "libpcap"
+  uses_from_macos "libxcrypt"
   uses_from_macos "perl"
   uses_from_macos "sqlite"
 
