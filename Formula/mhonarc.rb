@@ -24,8 +24,9 @@ class Mhonarc < Formula
   end
 
   def install
-    # Handle the hardcoded binary script
-    inreplace "mhonarc", "#!/usr/bin/perl", "#!/usr/bin/env perl"
+    # Using Perl's `installprefix` rather than `prefix` allows install.me to use
+    # Homebrew Perl directory structure even if the prefixes are different paths.
+    inreplace "install.me", "$Config{'prefix'}", "$Config{'installprefix'}"
 
     system "perl", "install.me",
            "-batch",
