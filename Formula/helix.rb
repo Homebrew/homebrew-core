@@ -37,6 +37,6 @@ class Helix < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/hx -V")
-    assert_match "✔", shell_output("#{bin}/hx --health")
+    assert_match "✓", shell_output("#{bin}/hx --health")
   end
 end
