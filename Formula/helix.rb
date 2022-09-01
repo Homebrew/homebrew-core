@@ -1,8 +1,8 @@
 class Helix < Formula
   desc "Post-modern modal text editor"
   homepage "https://helix-editor.com"
-  url "https://github.com/helix-editor/helix/releases/download/22.05/helix-22.05-source.tar.xz"
-  sha256 "b5de56c98fcc177cb06ac802c7f466e069743f3dcd09d3910f4c08bead9c52ef"
+  url "https://github.com/helix-editor/helix/releases/download/22.08/helix-22.08-source.tar.xz"
+  sha256 "2c96c00d2c7df98d4426884ee3b217aaadb985f3301f5399e2436db6440373a3"
   license "MPL-2.0"
   head "https://github.com/helix-editor/helix.git", branch: "master"
 
