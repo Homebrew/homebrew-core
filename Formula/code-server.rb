@@ -15,7 +15,6 @@ class CodeServer < Formula
 
   depends_on "bash" => :build
   depends_on "python@3.10" => :build
-  depends_on "yarn" => :build
   depends_on "node@16"
 
   on_linux do
@@ -27,7 +26,7 @@ class CodeServer < Formula
 
   def install
     node = Formula["node@16"]
-    system "yarn", "--production", "--frozen-lockfile"
+    system "npm", "install", "--unsafe-perm"
     # @parcel/watcher bundles all binaries for other platforms & architectures
     # This deletes the non-matching architecture otherwise brew audit will complain.
     prebuilds = buildpath/"lib/vscode/node_modules/@parcel/watcher/prebuilds"
