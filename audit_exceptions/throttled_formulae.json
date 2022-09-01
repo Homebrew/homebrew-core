@@ -7,5 +7,6 @@
   "gatsby-cli": 10,
   "netlify-cli": 5,
   "quicktype": 10,
+  "testkube": 5,
   "vim": 50
 }
