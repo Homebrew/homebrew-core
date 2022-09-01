@@ -22,11 +22,9 @@ class Libdrm < Formula
   depends_on :linux
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dcairo-tests=false", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", "-Dcairo-tests=disabled", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
