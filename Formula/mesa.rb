@@ -4,6 +4,7 @@ class Mesa < Formula
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
   license "MIT"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   stable do
@@ -124,6 +125,9 @@ class Mesa < Formula
     system "meson", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build"
     system "meson", "install", "-C", "build"
+    inreplace lib/"pkgconfig/dri.pc" do |s|
+      s.change_make_var! "dridriverdir", HOMEBREW_PREFIX/"lib/dri"
+    end
 
     if OS.linux?
       # Strip executables/libraries/object files to reduce their size
