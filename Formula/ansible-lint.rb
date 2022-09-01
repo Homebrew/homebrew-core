@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/c0/54/4264152d0f486f0004c7c982cfe82c916be11dfaafbd9625d904301a143d/ansible-lint-6.5.1.tar.gz"
-  sha256 "b02c5222450c469196c9cc28d3128e50f6bcf9549d5dd15c3cfbf47c70b5b06e"
+  url "https://files.pythonhosted.org/packages/46/5a/b9d8b7ab2cc018e5835d220ab5159710713245b3b7f84c8dc1e2aae5d234/ansible-lint-6.5.2.tar.gz"
+  sha256 "f4432c74c0f28b2870a188b4999592f6338042f30d0c6f4ee11b32440ca9ffe4"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -37,6 +37,11 @@ class AnsibleLint < Formula
     sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
   end
 
+  resource "black" do
+    url "https://files.pythonhosted.org/packages/3a/1b/38a013f75022fae724ed766fdac5f6777544c45eecbe00a6d8fd91a2a26b/black-22.8.0.tar.gz"
+    sha256 "792f7eb540ba9a17e8656538701d3eb1afcb134e3b45b71f20b25c77a8db7e6e"
+  end
+
   resource "bracex" do
     url "https://files.pythonhosted.org/packages/b3/96/d53e290ddf6215cfb24f93449a1835eff566f79a1f332cf046a978df0c9e/bracex-2.3.post1.tar.gz"
     sha256 "e7b23fc8b2cd06d3dec0692baabecb249dda94e06a617901ff03a6c56fd71693"
@@ -45,6 +50,11 @@ class AnsibleLint < Formula
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
     sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
+  end
+
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
+    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "commonmark" do
@@ -73,13 +83,18 @@ class AnsibleLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/35/ee/889aee424a43066a06ac68e499335877775eac9b4409f7860f6af94c6688/jsonschema-4.14.0.tar.gz"
-    sha256 "15062f4cc6f591400cd528d2c355f2cfa6a57e44c820dc783aee5e23d36a831f"
+    url "https://files.pythonhosted.org/packages/7c/0d/d19c78ccd17814818497fb4be515638fd707afd98d7dc102f0ad7297e0da/jsonschema-4.15.0.tar.gz"
+    sha256 "21f4979391bdceb044e502fd8e79e738c0cdfbdc8773f9a49b5769461e82fe1e"
   end
 
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
     sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
+  end
+
+  resource "mypy-extensions" do
+    url "https://files.pythonhosted.org/packages/63/60/0582ce2eaced55f65a4406fc97beba256de4b7a95a0034c6576458c6519f/mypy_extensions-0.4.3.tar.gz"
+    sha256 "2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"
   end
 
   resource "packaging" do
@@ -88,8 +103,13 @@ class AnsibleLint < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/f6/33/436c5cb94e9f8902e59d1d544eb298b83c84b9ec37b5b769c5a0ad6edb19/pathspec-0.9.0.tar.gz"
-    sha256 "e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1"
+    url "https://files.pythonhosted.org/packages/03/45/41884de3da7c1012c729fc6fdad25d6b7906c69f5aaf4b23238ac8acfced/pathspec-0.10.0.tar.gz"
+    sha256 "01eecd304ba0e6eeed188ae5fa568e99ef10265af7fd9ab737d6412b4ee0ab85"
+  end
+
+  resource "platformdirs" do
+    url "https://files.pythonhosted.org/packages/ff/7b/3613df51e6afbf2306fc2465671c03390229b55e3ef3ab9dd3f846a53be6/platformdirs-2.5.2.tar.gz"
+    sha256 "58c8abb07dcb441e6ee4b11d8df0ac856038f944ab98b7be6b27b2a3c7feef19"
   end
 
   resource "pycparser" do
@@ -140,6 +160,11 @@ class AnsibleLint < Formula
   resource "subprocess-tee" do
     url "https://files.pythonhosted.org/packages/48/20/a38a078b58532bd44c4c189c85cc650268d1894a1dcc7080b6e7e9cfe7bb/subprocess-tee-0.3.5.tar.gz"
     sha256 "ff5cced589a4b8ac973276ca1ba21bb6e3de600cde11a69947ff51f696efd577"
+  end
+
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "wcmatch" do
