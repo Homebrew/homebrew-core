@@ -8,7 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-source.tar.xz"
   sha256 "5ffa3485e51eb2c4490496450fc69b9d7bd7cb9e53357d92db4bcd4fd6179b56"
   license :public_domain
-  revision 2
+  revision 3
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -108,6 +108,11 @@ class Texlive < Formula
     sha256 "372b2b07b1f7d1dd12766cfc7f6656e22c34a5a20d03c1fe80510129361a3f16"
   end
 
+  resource "Pygments" do
+    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
+    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
+  end
+
   resource "Module::Build" do
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
     sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
@@ -164,8 +169,8 @@ class Texlive < Formula
   end
 
   resource "URI" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.10.tar.gz"
-    sha256 "16325d5e308c7b7ab623d1bf944e1354c5f2245afcfadb8eed1e2cae9a0bd0b5"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.12.tar.gz"
+    sha256 "66abe0eaddd76b74801ecd28ec1411605887550fc0a45ef6aa744fdad768d9b3"
   end
 
   resource "TimeDate" do
@@ -219,8 +224,8 @@ class Texlive < Formula
   end
 
   resource "HTTP::Request::Common" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.36.tar.gz"
-    sha256 "576a53b486af87db56261a36099776370c06f0087d179fc8c7bb803b48cddd76"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.37.tar.gz"
+    sha256 "0e59da0a85e248831327ebfba66796314cb69f1bfeeff7a9da44ad766d07d802"
   end
 
   resource "HTML::Tagset" do
@@ -229,8 +234,8 @@ class Texlive < Formula
   end
 
   resource "HTML::Parser" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.76.tar.gz"
-    sha256 "64d9e2eb2b420f1492da01ec0e6976363245b4be9290f03f10b7d2cb63fa2f61"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.78.tar.gz"
+    sha256 "22564002f206af94c1dd8535f02b0d9735125d9ebe89dd0ff9cd6c000e29c29d"
   end
 
   resource "HTML::TreeBuilder" do
@@ -254,8 +259,8 @@ class Texlive < Formula
   end
 
   resource "File::Listing" do
-    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Listing-6.14.tar.gz"
-    sha256 "15b3a4871e23164a36f226381b74d450af41f12cc94985f592a669fcac7b48ff"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Listing-6.15.tar.gz"
+    sha256 "46c4fb9f9eb9635805e26b7ea55b54455e47302758a10ed2a0b92f392713770c"
   end
 
   resource "HTTP::Cookies" do
@@ -264,8 +269,8 @@ class Texlive < Formula
   end
 
   resource "HTTP::Daemon" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.13.tar.gz"
-    sha256 "d184d1f3e51e690d60e4b00195aa69f679169c858f2aab419997c70892014516"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.14.tar.gz"
+    sha256 "f0767e7f3cbb80b21313c761f07ad8ed253bce9fa2d0ba806b3fb72d309b2e1d"
   end
 
   resource "HTTP::Negotiate" do
@@ -284,8 +289,8 @@ class Texlive < Formula
   end
 
   resource "LWP" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.61.tar.gz"
-    sha256 "2f69069bd0df0ee222e25d41093bcc42e58d0a45885fba400356454c25621a5f"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.67.tar.gz"
+    sha256 "96eec40a3fd0aa1bd834117be5eb21c438f73094d861a1a7e5774f0b1226b723"
   end
 
   resource "CGI" do
@@ -294,8 +299,8 @@ class Texlive < Formula
   end
 
   resource "HTML::Form" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Form-6.07.tar.gz"
-    sha256 "7daa8c7eaff4005501c3431c8bf478d58bbee7b836f863581aa14afe1b4b6227"
+    url "https://cpan.metacpan.org/authors/id/S/SI/SIMBABQUE/HTML-Form-6.10.tar.gz"
+    sha256 "df8393e35e495a0839f06a63fb65d6922842c180d260554137728a9f092df9d3"
   end
 
   resource "HTTP::Server::Simple" do
@@ -304,8 +309,8 @@ class Texlive < Formula
   end
 
   resource "WWW::Mechanize" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-2.06.tar.gz"
-    sha256 "d97cd31e35fd1ff7078d3f568b62e3fe3911843a64d3c2d078eebd3ff9b8b38d"
+    url "https://cpan.metacpan.org/authors/id/S/SI/SIMBABQUE/WWW-Mechanize-2.15.tar.gz"
+    sha256 "91d0dc3235027d19fc485e93833ec92497bc508e31d391eb07ee664f988ca9b3"
   end
 
   resource "Mozilla::CA" do
@@ -333,12 +338,8 @@ class Texlive < Formula
     sha256 "32aa7271a6bdfedc3330119b3825daddd0aa4b5c936f84ad74eabb932a200a5e"
   end
 
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
-    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
-  end
-
   def install
+    python3 = "python3.10"
     # Install Perl resources
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV["PERL_MM_USE_DEFAULT"] = "1"
@@ -367,7 +368,7 @@ class Texlive < Formula
     end
 
     # Install Python resources
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resource("Pygments")
 
     # Install TeXLive resources
@@ -483,7 +484,7 @@ class Texlive < Formula
     end
 
     # Wrap some Python scripts so they can find dependencies and fix depythontex.
-    python_path = libexec/Language::Python.site_packages("python3")
+    python_path = libexec/Language::Python.site_packages(python3)
     ENV.prepend_path "PYTHONPATH", python_path
     rm bin/"pygmentex"
     rm bin/"pythontex"
@@ -557,7 +558,7 @@ class Texlive < Formula
       \\begin{equation} \\label{eu_eqn}
       e^{\\pi i} + 1 = 0
       \\end{equation}
-      The beautiful equation \\ref{eu_eqn} is known as the Euler equation.
+      The beautiful equation \\ref{eu_eqn} is known as Euler's identity.
 
       \\section*{Lorem Ipsum}
       \\lipsum[3]
