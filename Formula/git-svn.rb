@@ -30,7 +30,9 @@ class GitSvn < Formula
                                             .match(/v((\d+\.\d+)(?:\.\d+)?)/).captures
 
     ENV["PERL_PATH"] = perl
-    ENV["PERLLIB_EXTRA"] = Formula["subversion"].opt_lib/"perl5/site_perl"/perl_version/"darwin-thread-multi-2level"
+    subversion = Formula["subversion"]
+    os_tag = OS.mac? ? "darwin-thread-multi-2level" : "x86_64-linux-thread-multi"
+    ENV["PERLLIB_EXTRA"] = subversion.opt_lib/"perl5/site_perl"/perl_version/os_tag
     if OS.mac?
       ENV["PERLLIB_EXTRA"] += ":" + %W[
         #{MacOS.active_developer_dir}
