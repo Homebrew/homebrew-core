@@ -1,6 +1,8 @@
 class Testkube < Formula
   desc "Kubernetes-native framework for test definition and execution"
   homepage "https://testkube.io"
+  # TODO: Merge addition to `throttled_formulae` when version is a multiple of 5.
+  # https://github.com/Homebrew/homebrew-core/pull/109371
   url "https://github.com/kubeshop/testkube/archive/v1.5.9.tar.gz"
   sha256 "0580b7c3eb454928784623638c68ddb211662e5623e5c97b95b99be13f36d793"
   license "MIT"
