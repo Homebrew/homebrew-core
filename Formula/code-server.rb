@@ -26,7 +26,7 @@ class CodeServer < Formula
 
   def install
     node = Formula["node@16"]
-    system "npm", "install", "--unsafe-perm"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--unsafe-perm"
     # @parcel/watcher bundles all binaries for other platforms & architectures
     # This deletes the non-matching architecture otherwise brew audit will complain.
     prebuilds = buildpath/"lib/vscode/node_modules/@parcel/watcher/prebuilds"
