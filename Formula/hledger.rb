@@ -10,7 +10,7 @@ class Hledger < Formula
   # page instead.
   livecheck do
     url "https://hledger.org/install.html"
-    regex(%r{href=.*?/tag/(?:hledger[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(%r{href=.*?/tag/(?:hledger[._-])?v?(\d+(?:\.\d+)+)(?:#[^"' >]+?)?["' >]}i)
   end
 
   bottle do
