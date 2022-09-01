@@ -85,6 +85,7 @@ class Grokj2k < Formula
     # See https://github.com/GrokImageCompression/grok/issues/241
     ENV.append "CXXFLAGS", "-DCMS_NO_REGISTER_KEYWORD=1"
 
+    perl = DevelopmentTools.locate("perl")
     if OS.mac?
       # Workaround Perl 5.18 issues with C++11: pad.h:323:17: error: invalid suffix on literal
       ENV.append "CXXFLAGS", "-Wno-reserved-user-defined-literal" if MacOS.version <= :catalina
@@ -92,9 +93,9 @@ class Grokj2k < Formula
       # Without this, CMake outputs: Could NOT find PerlLibs (missing: PERL_INCLUDE_PATH)
       perl_path = MacOS.sdk_path/"System/Library/Perl"/MacOS.preferred_perl_version
       args << "-DPERL_INCLUDE_PATH=#{perl_path}/darwin-thread-multi-2level/CORE"
+      args << "-DPERL_EXECUTABLE=#{perl}"
     else
       # Fix linkage error due to RPATH missing directory with libperl.so
-      perl = DevelopmentTools.locate("perl")
       perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
       ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
     end
