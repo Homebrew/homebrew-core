@@ -30,12 +30,6 @@ class Objconv < Formula
   test do
     (testpath/"foo.c").write "int foo() { return 0; }\n"
 
-    # objconv can only translate x86_64 object files
-    if OS.mac? && Hardware::CPU.arm?
-      ENV.append_to_cflags "-arch x86_64"
-      ENV.append "LDFLAGS", "-Wl,-arch,x86_64"
-    end
-
     system "make", "foo.o"
     assert_match "foo", shell_output("nm foo.o")
 
@@ -44,10 +38,6 @@ class Objconv < Formula
     system bin/"objconv", "-nr:#{sym_prefix}foo:#{sym_prefix}main", "foo.o", "bar.o"
     system "make", "bar"
     refute_match "foo", shell_output("nm bar")
-
-    # We're about to execute an x86_64 binary, but we might not have Rosetta installed.
-    return if OS.mac? && Hardware::CPU.arm?
-
     system "./bar"
   end
 end
