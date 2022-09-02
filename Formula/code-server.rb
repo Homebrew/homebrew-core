@@ -28,7 +28,7 @@ class CodeServer < Formula
 
   def install
     node = Formula["node@16"]
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--unsafe-perm"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--unsafe-perm", "--omit", "dev"
     libexec.install Dir["*"]
     env = { PATH: "#{node.opt_bin}:$PATH" }
     (bin/"code-server").write_env_script "#{libexec}/out/node/entry.js", env
