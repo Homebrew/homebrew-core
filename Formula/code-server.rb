@@ -1,3 +1,5 @@
+require "language/node"
+
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
