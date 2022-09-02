@@ -26,6 +26,9 @@ class Bazelisk < Formula
   end
 
   def install
+    # upstream PR ref, https://github.com/bazelbuild/bazelisk/pull/355
+    inreplace "httputil/httputil.go", "github.com/bgentry/go-netrc", "github.com/bgentry/go-netrc/netrc"
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.BazeliskVersion=#{version}")
 
     bin.install_symlink "bazelisk" => "bazel"
