@@ -3,10 +3,9 @@ class Openmodelica < Formula
   homepage "https://openmodelica.org/"
   # GitHub's archives lack submodules, must pull:
   url "https://github.com/OpenModelica/OpenModelica.git",
-      tag:      "v1.18.0",
-      revision: "49be4faa5a625a18efbbd74cc2f5be86aeea37bb"
+      tag:      "v1.19.3",
+      revision: "9baf633d57e68d869af5992310f18d56de3a4ead"
   license "GPL-3.0-only"
-  revision 5
   head "https://github.com/OpenModelica/OpenModelica.git", branch: "master"
 
   bottle do
