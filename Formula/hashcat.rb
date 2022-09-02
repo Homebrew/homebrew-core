@@ -23,6 +23,7 @@ class Hashcat < Formula
   end
 
   depends_on "gnu-sed" => :build
+  depends_on macos: :high_sierra # Metal implementation requirement
   depends_on "minizip"
   depends_on "xxhash"
 
@@ -33,10 +34,6 @@ class Hashcat < Formula
     depends_on "ocl-icd"
     depends_on "pocl"
   end
-
-  # Fix build failure from missing include for limits.h.
-  # Upstreamed here: https://github.com/hashcat/hashcat/pull/3387
-  patch :DATA
 
   def install
     args = %W[
@@ -49,27 +46,13 @@ class Hashcat < Formula
     ]
     system "make", *args
     system "make", "install", *args
+    bin.install "hashcat" => "hashcat_bin"
+    (bin/"hashcat").write_env_script bin/"hashcat_bin", XDG_DATA_HOME: share
   end
 
   test do
     ENV["XDG_DATA_HOME"] = testpath
-    ENV["XDG_CACHE_HOME"] = testpath
-    cp_r pkgshare.children, testpath
-    cp bin/"hashcat", testpath
-    system testpath/"hashcat --benchmark -m 0 -D 1,2 -w 2"
+    mkdir testpath/"hashcat"
+    assert_match "Hash-Mode 0 (MD5)", shell_output("#{bin}/hashcat_bin --benchmark -m 0 -D 1,2 -w 2")
   end
 end
-
-__END__
-diff --git a/src/filehandling.c b/src/filehandling.c
-index 345d451..05baae9 100644
---- a/src/filehandling.c
-+++ b/src/filehandling.c
-@@ -5,6 +5,7 @@
- 
- #include "common.h"
- #include "types.h"
-+#include "limits.h"
- #include "memory.h"
- #include "shared.h"
- #include "filehandling.h"
