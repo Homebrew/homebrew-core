@@ -22,7 +22,7 @@ class Kubecfg < Formula
     cd "src/github.com/kubecfg/kubecfg" do
       system "make", "VERSION=v#{version}"
       bin.install "kubecfg"
-      pkgshare.install %w[examples testdata].map { |dir| (buildpath/dir).children }
+      pkgshare.install Dir["examples/*", "testdata/*"]
       prefix.install_metafiles
     end
 
