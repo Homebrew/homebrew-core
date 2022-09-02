@@ -35,10 +35,17 @@ class Nmap < Formula
   conflicts_with "ndiff", because: "both install `ndiff` binaries"
 
   def install
+    # Needed for compatibility with `openssl@1.1`.
+    # https://www.openssl.org/docs/manmaster/man7/OPENSSL_API_COMPAT.html
+    # TODO: Remove when resolved upstream, or switching to `openssl@3`.
+    #   https://github.com/nmap/nmap/issues/2516
+    ENV.append_to_cflags "-DOPENSSL_API_COMPAT=10101"
+
     (buildpath/"configure").read.lines.grep(/lua/) do |line|
       lua_minor_version = line[%r{lua/?5\.?(\d+)}, 1]
       next if lua_minor_version.blank?
-      raise "Lua dependency needs updating!" if lua_minor_version.to_i > 3
+
+      odie "Lua dependency needs updating!" if lua_minor_version.to_i > 3
     end
 
     ENV.deparallelize
@@ -57,10 +64,10 @@ class Nmap < Formula
     system "make" # separate steps required otherwise the build fails
     system "make", "install"
 
-    rm_f Dir[bin/"uninstall_*"] # Users should use brew uninstall.
+    bin.glob("uninstall_*").map(&:unlink) # Users should use brew uninstall.
   end
 
   test do
-    system "#{bin}/nmap", "-p80,443", "google.com"
+    system bin/"nmap", "-p80,443", "google.com"
   end
 end
