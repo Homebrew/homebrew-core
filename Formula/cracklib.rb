@@ -1,10 +1,9 @@
 class Cracklib < Formula
   desc "LibCrack password checking library"
   homepage "https://github.com/cracklib/cracklib"
-  url "https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7.tar.bz2"
-  sha256 "fe82098509e4d60377b998662facf058dc405864a8947956718857dbb4bc35e6"
+  url "https://github.com/cracklib/cracklib/releases/download/v2.9.8/cracklib-2.9.8.tar.bz2"
+  sha256 "1f9d34385ea3aa7cd7c07fa388dc25810aea9d3c33e260c713a3a5873d70e386"
   license "LGPL-2.1"
-  revision 1
 
   livecheck do
     url :stable
