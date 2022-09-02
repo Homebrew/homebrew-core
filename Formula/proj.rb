@@ -29,8 +29,8 @@ class Proj < Formula
 
   # The datum grid files are required to support datum shifting
   resource "proj-data" do
-    url "https://download.osgeo.org/proj/proj-data-1.9.zip"
-    sha256 "6880bfe2c4f6bc69fec398e9b356f50a05d559a59ab05bd65401bf45f4a4b6da"
+    url "https://download.osgeo.org/proj/proj-data-1.11.tar.gz"
+    sha256 "a67b7ce4622c30be6bce3a43461e8d848da153c3b171beebbbea28f64d4ef363"
   end
 
   def install
