@@ -10,16 +10,25 @@ class Spaceship < Formula
     sha256 cellar: :any_skip_relocation, all: "ecaafd4b16aafc13fc96c336ebe876c383653ab3a6f49c470e23fad63bbbe421"
   end
 
-  depends_on "zsh" => :test
+  depends_on "zsh-async"
+  uses_from_macos "zsh" => :test
 
   def install
-    libexec.install "spaceship.zsh", "lib", "sections"
-    zsh_function.install_symlink libexec/"spaceship.zsh" => "prompt_spaceship_setup"
+    system "make", "compile"
+    prefix.install Dir["*"]
+  end
+
+  def caveats
+    <<~EOS
+      To activate Spaceship, add the following line to ~/.zshrc:
+        source "#{opt_prefix}/spaceship.zsh"
+
+      If your .zshrc sets ZSH_THEME, remove that line.
+    EOS
   end
 
   test do
-    ENV["SPACESHIP_CHAR_SYMBOL"] = "🍺"
-    prompt = "setopt prompt_subst; autoload -U promptinit; promptinit && prompt -p spaceship"
-    assert_match ENV["SPACESHIP_CHAR_SYMBOL"], shell_output("zsh -c '#{prompt}'")
+    assert_match "SUCCESS",
+      shell_output("zsh -fic '. #{opt_prefix}/spaceship.zsh && (( ${+SPACESHIP_VERSION} )) && echo SUCCESS'")
   end
 end
