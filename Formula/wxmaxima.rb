@@ -22,17 +22,15 @@ class Wxmaxima < Formula
   depends_on "wxwidgets"
 
   def install
-    mkdir "build-wxm" do
-      system "cmake", "..", "-GNinja", *std_cmake_args
-      system "ninja"
-      system "ninja", "install"
-
-      prefix.install "src/wxMaxima.app" if OS.mac?
-    end
-
+    system "cmake", "-S", ".", "-B", "build-wxm", "-G", "Ninja", *std_cmake_args
+    system "cmake", "--build", "build-wxm"
+    system "cmake", "--install", "build-wxm"
     bash_completion.install "data/wxmaxima"
 
-    bin.write_exec_script "#{prefix}/wxMaxima.app/Contents/MacOS/wxmaxima" if OS.mac?
+    return unless OS.mac?
+
+    prefix.install "build-wxm/src/wxMaxima.app"
+    bin.write_exec_script prefix/"wxMaxima.app/Contents/MacOS/wxmaxima"
   end
 
   def caveats
