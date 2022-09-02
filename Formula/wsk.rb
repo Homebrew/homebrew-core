@@ -23,6 +23,9 @@ class Wsk < Formula
                           "wski18n/i18n_resources.go", "wski18n/resources"
 
     system "go", "build", *std_go_args
+
+    generate_completions_from_executable(bin/"wsk", "sdk", "install", "bashauto", "--stdout",
+                                         shells: [:bash], shell_parameter_format: :none)
   end
 
   test do
