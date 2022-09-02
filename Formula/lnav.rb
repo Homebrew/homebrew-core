@@ -31,6 +31,7 @@ class Lnav < Formula
   depends_on "pcre"
   depends_on "readline"
   depends_on "sqlite"
+  uses_from_macos "curl"
 
   on_linux do
     depends_on "gcc"
