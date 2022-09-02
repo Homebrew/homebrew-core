@@ -1,13 +1,8 @@
 class Rfcstrip < Formula
   desc "Strips headers and footers from RFCs and Internet-Drafts"
-  homepage "https://trac.tools.ietf.org/tools/rfcstrip/"
-  url "https://trac.tools.ietf.org/tools/rfcstrip/rfcstrip-1.03.tgz"
-  sha256 "db5cccb14b2dfdb5e0e3b4ac98d5af29d1f2f647787bcd470a866e02173d4e5b"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?rfcstrip[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  homepage "https://github.com/mbj4668/rfcstrip"
+  url "https://github.com/mbj4668/rfcstrip/archive/1.3.tar.gz"
+  sha256 "bba42a64535f55bfd1eae0cf0b85f781dacf5f3ce323b16515f32cefff920c6b"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4756e7bca511bbeaeea367e84a845854cd86079ec2d66c6a505b91e7431313a0"
@@ -20,7 +15,6 @@ class Rfcstrip < Formula
 
   def install
     bin.install "rfcstrip"
-    doc.install %w[about todo]
   end
 
   test do
