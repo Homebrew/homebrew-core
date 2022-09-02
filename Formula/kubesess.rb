@@ -4,6 +4,7 @@ class Kubesess < Formula
   url "https://github.com/Ramilito/kubesess/archive/refs/tags/1.2.5.tar.gz"
   sha256 "1ce69422fc29bde69ac02a209eb7b27a447598c39a3870759aa4c83e553b2e52"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "72c05d171ea280936f7ed0db94f6293cbb236e4a3015911cae919a9e9ae8cd03"
@@ -19,6 +20,13 @@ class Kubesess < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    bash_completion.install "scripts/sh/completion.sh"
+    zsh_function.install "scripts/sh/kubesess.sh"
+
+    %w[kc kn knd kcd].each do |basename|
+      fish_completion.install "scripts/fish/completions/#{basename}.fish"
+      fish_function.install "scripts/fish/functions/#{basename}.fish"
+    end
   end
 
   test do
