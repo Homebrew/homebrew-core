@@ -1,10 +1,9 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
-  url "https://download.gnome.org/sources/libsoup/3.0/libsoup-3.0.7.tar.xz"
-  sha256 "ebdf90cf3599c11acbb6818a9d9e3fc9d2c68e56eb829b93962972683e1bf7c8"
+  url "https://download.gnome.org/sources/libsoup/3.0/libsoup-3.0.8.tar.xz"
+  sha256 "c8739dc1c23c2b1e3b816d7598b3fa1764a3e1a2a2f5257b1bc4466d867caced"
   license "LGPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_monterey: "ce9be7a6430e5ad4130b5119695c18fca50ceeaa4b48e2070e086e5671b2b906"
