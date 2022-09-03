@@ -12,7 +12,6 @@ class Wxmaxima < Formula
     sha256 monterey:       "2e9c6669e599f27521441335baf9c2f0080b6c046e6bb25b04938175ef600f8d"
     sha256 big_sur:        "7853c4c1e1edb1781cfe06f62b4bfb99e2b75c19452393594c7834ed97046fba"
     sha256 catalina:       "c4849f6ed0a27363d6b3d3ecb8303887ad8d8e2e7841483cbae8bee3ecae2d4b"
-    sha256 x86_64_linux:   "46115cdf5170522d9ec330253e6ad97c98b10dc75c0b4b3b8fb4978a6c155090"
   end
 
   depends_on "cmake" => :build
