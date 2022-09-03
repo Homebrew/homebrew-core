@@ -1,9 +1,9 @@
 class Gsasl < Formula
   desc "SASL library command-line interface"
   homepage "https://www.gnu.org/software/gsasl/"
-  url "https://ftp.gnu.org/gnu/gsasl/gsasl-2.0.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gsasl/gsasl-2.0.1.tar.gz"
-  sha256 "322c7542008841bcd8ba4ae0933b220211d190a7b56a70dd61f6556decc01b7a"
+  url "https://ftp.gnu.org/gnu/gsasl/gsasl-2.2.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gsasl/gsasl-2.2.0.tar.gz"
+  sha256 "79b868e3b9976dc484d59b29ca0ae8897be96ce4d36d32aed5d935a7a3307759"
   license "GPL-3.0-or-later"
 
   bottle do
