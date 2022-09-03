@@ -3,8 +3,8 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "http://jrnl.sh/en/stable/"
-  url "https://files.pythonhosted.org/packages/5f/ae/f5a75aae2eddc1ad31f535b5d1350da60c588b18a7e917cddb571344f567/jrnl-3.1.tar.gz"
-  sha256 "f1c1438b26f01f09266693870c7e81e2cb9d28b9b4d3b7c60ccda06da4189a8b"
+  url "https://files.pythonhosted.org/packages/a5/3d/16a198a7875e63d1260ae83601d260d88771e2e628f4691ed42dcb73e278/jrnl-3.2.tar.gz"
+  sha256 "c164cc83fbd010124fdbe0165ea50e73c04b4ae7d3d379368ed9d8e9f2636364"
   license "GPL-3.0-only"
 
   bottle do
@@ -51,14 +51,19 @@ class Jrnl < Formula
     sha256 "63f9c17c0e2474ccbebc9302ce2f07b55b3b3fcb211ded18a42d5764f5c10a82"
   end
 
-  resource "jeepney" do
-    url "https://files.pythonhosted.org/packages/d6/f4/154cf374c2daf2020e05c3c6a03c91348d59b23c5366e968feb198306fdf/jeepney-0.8.0.tar.gz"
-    sha256 "5efe48d255973902f6badc3ce55e2aa6c5c3b3bc642059ef3a91247bcfcc5806"
+  resource "jaraco.classes" do
+    url "https://files.pythonhosted.org/packages/fe/8b/7876fbd69f5a8ebfbda73c8c1a5346171ee5ac0db28e9f5b2bb80ee3e73b/jaraco.classes-3.2.2.tar.gz"
+    sha256 "6745f113b0b588239ceb49532aa09c3ebb947433ce311ef2f8e3ad64ebb74594"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a7/d8/ca70a209ea09e97e4d9feba2f6b38b4eaf918de15a7ada3f3a2246c26cf9/keyring-23.8.2.tar.gz"
-    sha256 "0d9973f8891850f1ade5f26aafd06bb16865fbbae3fc56b0defb6a14a2624003"
+    url "https://files.pythonhosted.org/packages/86/81/ceec3ed3e7bf7e35101dbe306aa0e4f814c26320f462e1f2f5d10081aba7/keyring-23.9.0.tar.gz"
+    sha256 "4c32a31174faaee48f43a7e2c7e9c3216ec5e95acf22a2bebfb4a1d05056ee44"
+  end
+
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/c7/0c/fad24ca2c9283abc45a32b3bfc2a247376795683449f595ff1280c171396/more-itertools-8.14.0.tar.gz"
+    sha256 "c09443cd3d5438b8dafccd867a6bc1cb0894389e90cb53d227456b0b0bccb750"
   end
 
   resource "parsedatetime" do
@@ -104,11 +109,6 @@ class Jrnl < Formula
   resource "ruamel.yaml.clib" do
     url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
     sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
-  end
-
-  resource "SecretStorage" do
-    url "https://files.pythonhosted.org/packages/53/a4/f48c9d79cb507ed1373477dbceaba7401fd8a23af63b837fa61f1dcd3691/SecretStorage-3.3.3.tar.gz"
-    sha256 "2403533ef369eca6d2ba81718576c5e0f564d5cca1b58f73a8b23e7d4eeebd77"
   end
 
   resource "textwrap3" do
