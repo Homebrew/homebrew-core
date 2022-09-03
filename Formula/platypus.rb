@@ -1,8 +1,8 @@
 class Platypus < Formula
   desc "Create macOS applications from {Perl,Ruby,sh,Python} scripts"
   homepage "https://sveinbjorn.org/platypus"
-  url "https://sveinbjorn.org/files/software/platypus/platypus5.3.src.zip"
-  sha256 "b5b707d4f664ab6f60eed545d49a7d38da7557ce8268cc4791886eee7b3ca571"
+  url "https://sveinbjorn.org/files/software/platypus/platypus5.4.src.zip"
+  sha256 "102755d77088e6fd1a30d6dc7d282cee4644c92dae296d7d0eee546baebc015e"
   license "BSD-3-Clause"
   head "https://github.com/sveinbjornt/Platypus.git", branch: "master"
 
@@ -15,20 +15,20 @@ class Platypus < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d46dd428161d8ed7febf5ea4109f9bcddfa65c75d4e67619781745587c6b6f55"
   end
 
-  depends_on xcode: ["8.0", :build]
+  depends_on xcode: ["13.3", :build]
   depends_on :macos
 
   def install
     xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst",
                "-project", "Platypus.xcodeproj",
-               "-target", "platypus",
+               "-target", "Platypus",
                "-target", "ScriptExec",
                "CODE_SIGN_IDENTITY=", "CODE_SIGNING_REQUIRED=NO",
                "clean",
                "install"
 
     man1.install "CLT/man/platypus.1"
-    bin.install "dst/platypus_clt" => "platypus"
+    bin.install "build/Deployment/platypus_clt" => "platypus"
 
     cd "build/UninstalledProducts/macosx/ScriptExec.app/Contents" do
       pkgshare.install "Resources/MainMenu.nib", "MacOS/ScriptExec"
