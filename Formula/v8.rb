@@ -133,7 +133,7 @@ class V8 < Formula
     # use clang from homebrew llvm formula, because the system clang is unreliable
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
     # Make sure private libraries can be found from lib
-    ENV.prepend "LDFLAGS", "-Wl,-rpath,#{libexec}"
+    ENV.prepend "LDFLAGS", "-Wl,-rpath,#{rpath(target: libexec)}"
 
     # Transform to args string
     gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
@@ -144,15 +144,20 @@ class V8 < Formula
 
     # Install libraries and headers into libexec so d8 can find them, and into standard directories
     # so other packages can find them and they are linked into HOMEBREW_PREFIX
-    (libexec/"include").install Dir["include/*"]
-    include.install_symlink Dir[libexec/"include/*"]
+    libexec.install "include"
 
-    libexec.install Dir["out.gn/d8", "out.gn/icudtl.dat"]
+    # Make sure we don't symlink non-headers into `include`.
+    header_files_and_directories = (libexec/"include").children.select do |child|
+      (child.extname == ".h") || child.directory?
+    end
+    include.install_symlink header_files_and_directories
+
+    libexec.install "out.gn/d8", "out.gn/icudtl.dat"
     bin.write_exec_script libexec/"d8"
 
-    libexec.install Dir["out.gn/#{shared_library("*")}"]
-    lib.install_symlink Dir[libexec/shared_library("libv8*")]
-    rm Dir[lib/"*.TOC"] if OS.linux? # Remove symlinks to .so.TOC text files
+    libexec.install Pathname.glob("out.gn/#{shared_library("*")}")
+    lib.install_symlink libexec.glob(shared_library("libv8*"))
+    lib.glob("*.TOC").map(&:unlink) if OS.linux? # Remove symlinks to .so.TOC text files
   end
 
   test do
@@ -173,8 +178,9 @@ class V8 < Formula
 
     # link against installed libc++
     system ENV.cxx, "-std=c++14", "test.cpp",
-      "-I#{include}",
-      "-L#{lib}", "-lv8", "-lv8_libplatform"
+                    "-I#{include}", "-L#{lib}",
+                    "-Wl,-rpath,#{libexec}",
+                    "-lv8", "-lv8_libplatform"
   end
 end
 
