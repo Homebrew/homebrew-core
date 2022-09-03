@@ -2,7 +2,7 @@ class Hatch < Formula
   include Language::Python::Virtualenv
 
   desc "Modern, extensible Python project management"
-  homepage "https://hatch.pypa.io/latest"
+  homepage "https://hatch.pypa.io/latest/"
   url "https://files.pythonhosted.org/packages/83/b8/b5f6c0050ab9620af40961b1790a030ec0c4dabd40c2a8b3410dcea36494/hatch-1.5.0.tar.gz"
   sha256 "cdd9bdcf6bd8fccbde26c4f84f8fc14859d912d078cd0348d350c973bed073f4"
   license "MIT"
