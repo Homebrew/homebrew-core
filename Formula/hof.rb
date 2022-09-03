@@ -27,12 +27,7 @@ class Hof < Formula
     ENV["HOF_TELEMETRY_DISABLED"] = "1"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/hof"
 
-    bash_output = Utils.safe_popen_read(bin/"hof", "completion", "bash")
-    (bash_completion/"hof").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"hof", "completion", "zsh")
-    (zsh_completion/"_hof").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"hof", "completion", "fish")
-    (fish_completion/"hof.fish").write fish_output
+    generate_completions_from_executable(bin/"hof", "completion")
   end
 
   test do
