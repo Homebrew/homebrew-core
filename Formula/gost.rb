@@ -1,8 +1,8 @@
 class Gost < Formula
   desc "GO Simple Tunnel - a simple tunnel written in golang"
   homepage "https://github.com/ginuerzh/gost"
-  url "https://github.com/ginuerzh/gost/archive/v2.11.3.tar.gz"
-  sha256 "2e3a696c4147b188da2b2a91db91ce0608d6b41478fd7e77e1b009916f3bff09"
+  url "https://github.com/ginuerzh/gost/archive/v2.11.4.tar.gz"
+  sha256 "aa3211282fce695584795fac20da77a2ac68d3e08602118afb0747bd64c1eac4"
   license "MIT"
   head "https://github.com/ginuerzh/gost.git", branch: "master"
 
@@ -15,8 +15,7 @@ class Gost < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa9b695ece2ed1a5f9d95c8ea08b76dd35ce5701f200caf77fbedd6f6838e215"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args, "./cmd/gost"
