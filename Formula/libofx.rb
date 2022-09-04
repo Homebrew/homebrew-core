@@ -1,8 +1,8 @@
 class Libofx < Formula
   desc "Library to support OFX command responses"
   homepage "https://github.com/libofx/libofx"
-  url "https://github.com/libofx/libofx/releases/download/0.10.5/libofx-0.10.5.tar.gz"
-  sha256 "570ea744fb654750ed9c60456c771e7cbb035465f409e9ee1118f671b47b3bc3"
+  url "https://github.com/libofx/libofx/releases/download/0.10.6/libofx-0.10.6.tar.gz"
+  sha256 "05b263642cac763d6656316b9065fe2f4d2684239a99fe45368f367603257971"
   license "GPL-2.0-or-later"
 
   bottle do
