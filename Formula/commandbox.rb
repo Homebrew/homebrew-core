@@ -1,8 +1,8 @@
 class Commandbox < Formula
   desc "CFML embedded server, package manager, and app scaffolding tools"
   homepage "https://www.ortussolutions.com/products/commandbox"
-  url "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.6.0/commandbox-bin-5.6.0.zip"
-  sha256 "d2fc81030feab7b074b5f2e2791dccb9a560a2025df0db5044ce8ab54470c683"
+  url "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.6.1/commandbox-bin-5.6.1.zip"
+  sha256 "4a9ea32cf310b131b1c7982991bb1aac2cc841c01e2602a7eb2f02140a350d85"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -18,8 +18,8 @@ class Commandbox < Formula
   depends_on "openjdk@11"
 
   resource "apidocs" do
-    url "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.6.0/commandbox-apidocs-5.6.0.zip"
-    sha256 "685093aa530706bc0c25e2d6daed9a7425e63707842654d7094128405511ee92"
+    url "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.6.1/commandbox-apidocs-5.6.1.zip"
+    sha256 "516086b4e03fdb8b39e90754f5f201dd9fa9f67c0810900803340ff7540f4f0c"
   end
 
   def install
