@@ -31,6 +31,7 @@ class Nvc < Formula
 
   resource "homebrew-test" do
     url "https://github.com/suoto/vim-hdl-examples.git",
+        branch:   "master",
         revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
   end
 
@@ -38,7 +39,7 @@ class Nvc < Formula
     system "./autogen.sh" if build.head?
 
     # Avoid hardcoding path to the `ld` shim.
-    inreplace "configure", "#define LINKER_PATH \\\"$linker_path\\\"", "#define LINKER_PATH \\\"ld\\\"" if OS.linux?
+    inreplace "configure", "#define LINKER_PATH \"$linker_path\"", "#define LINKER_PATH \"ld\"" if OS.linux?
 
     # In-tree builds are not supported.
     mkdir "build" do
