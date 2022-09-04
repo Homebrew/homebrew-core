@@ -1,8 +1,8 @@
 class Libltc < Formula
   desc "POSIX-C Library for handling Linear/Logitudinal Time Code (LTC)"
   homepage "https://x42.github.io/libltc/"
-  url "https://github.com/x42/libltc/releases/download/v1.3.1/libltc-1.3.1.tar.gz"
-  sha256 "50e63eb3b767151bc0159a3cc5d426d03a42fd69029bc9b3b7c346555f4b709c"
+  url "https://github.com/x42/libltc/releases/download/v1.3.2/libltc-1.3.2.tar.gz"
+  sha256 "0a6d42cd6c21e925a27fa560dc45ac80057d275f23342102825909c02d3b1249"
   license "LGPL-3.0"
 
   bottle do
