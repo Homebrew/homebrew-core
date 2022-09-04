@@ -26,15 +26,12 @@ class Pyenv < Formula
   depends_on "pkg-config"
   depends_on "readline"
 
+  uses_from_macos "python" => :test
   uses_from_macos "bzip2"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "xz"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "python@3.9" => :test
-  end
 
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX
