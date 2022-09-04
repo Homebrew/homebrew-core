@@ -41,7 +41,9 @@ class YelpTools < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    python = "python3.10"
+
+    venv = virtualenv_create(libexec, python)
     venv.pip_install resource("lxml")
     ENV.prepend_path "PATH", libexec/"bin"
 
@@ -56,7 +58,7 @@ class YelpTools < Formula
     system "meson", "install", "-C", "build"
 
     # Replace shebang with virtualenv python
-    rewrite_shebang python_shebang_rewrite_info("#{libexec}/bin/python3"), *bin.children
+    rewrite_shebang python_shebang_rewrite_info("#{libexec}/bin/#{python}"), *bin.children
   end
 
   def post_install
