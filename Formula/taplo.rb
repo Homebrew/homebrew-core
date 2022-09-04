@@ -6,6 +6,11 @@ class Taplo < Formula
   license "MIT"
   head "https://github.com/tamasfe/taplo.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^release-taplo-cli[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "77dc396f2ee94895dbbc440810530018307acf6dd645d63e6f6f6b39c2a7f7f7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "20bedf8ec362a6c9830225aa9335636afb3021ed61431ad544cfa177138ad9b9"
