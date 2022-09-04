@@ -5,8 +5,8 @@ class Openimageio < Formula
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
   stable do
-    url "https://github.com/OpenImageIO/oiio/archive/v2.3.18.0.tar.gz"
-    sha256 "09c7fa0685fdb34f696f2e5d44c2ba2336b5ca6ad8851cb516575508fe06397a"
+    url "https://github.com/OpenImageIO/oiio/archive/v2.3.19.0.tar.gz"
+    sha256 "602c146aebee775f123459a6c6be753054144b8d82777de26965f2cc3e88113a"
 
     # Upstream changes to cleanly apply subsequent PR commit. Remove in the next release.
     patch do
