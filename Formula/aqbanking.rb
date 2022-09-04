@@ -31,7 +31,6 @@ class Aqbanking < Formula
   def install
     ENV.deparallelize
     inreplace "aqbanking-config.in.in", "@PKG_CONFIG@", "pkg-config"
-    system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
