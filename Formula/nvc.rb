@@ -34,15 +34,6 @@ class Nvc < Formula
         revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
   end
 
-  patch do
-    # Fix build with glibc < 2.36
-    # Remove in the next release
-    on_linux do
-      url "https://github.com/nickg/nvc/commit/3f1a495360d4c97bf6537e62eb77c1269297dcb2.patch?full_index=1"
-      sha256 "d5bda0f89c346f618b9bc5ce96095be5bb9eb8e0fec3caea4ebddfe1ae2dee23"
-    end
-  end
-
   def install
     system "./autogen.sh" if build.head?
 
