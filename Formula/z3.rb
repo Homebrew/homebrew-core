@@ -32,7 +32,7 @@ class Z3 < Formula
   fails_with gcc: "5"
 
   def install
-    python3 = Formula["python@3.10"].opt_bin/"python3"
+    python3 = Formula["python@3.10"].opt_bin/"python3.10"
     system python3, "scripts/mk_make.py",
                      "--prefix=#{prefix}",
                      "--python",
