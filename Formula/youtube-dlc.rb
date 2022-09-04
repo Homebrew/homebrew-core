@@ -23,7 +23,7 @@ class YoutubeDlc < Formula
   uses_from_macos "zip" => :build
 
   def install
-    system "make", "PYTHON=#{which("python3")}"
+    system "make", "PYTHON=#{which("python3.10")}"
     bin.install "youtube-dlc"
     bash_completion.install "youtube-dlc.bash-completion"
     zsh_completion.install "youtube-dlc.zsh"
