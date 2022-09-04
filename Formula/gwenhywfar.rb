@@ -37,7 +37,8 @@ class Gwenhywfar < Formula
 
   def install
     inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
-    system "autoreconf", "-fiv" # needed because of the patch. Otherwise only needed for head build (if build.head?)
+    # Fix `-flat_namespace` flag on Big Sur and later.
+    system "autoreconf", "--force", "--install", "--verbose"
     guis = ["cpp", "qt5"]
     guis << "cocoa" if OS.mac?
     system "./configure", "--disable-debug",
