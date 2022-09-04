@@ -25,18 +25,18 @@ class FbiServefiles < Formula
     venv.pip_install_and_link buildpath/"servefiles"
   end
 
+  def test_socket
+    server = TCPServer.new(5000)
+    client = server.accept
+    client.puts "\n"
+    client_response = client.gets
+    client.close
+    server.close
+    client_response
+  end
+
   test do
     require "socket"
-
-    def test_socket
-      server = TCPServer.new(5000)
-      client = server.accept
-      client.puts "\n"
-      client_response = client.gets
-      client.close
-      server.close
-      client_response
-    end
 
     begin
       pid = fork do
