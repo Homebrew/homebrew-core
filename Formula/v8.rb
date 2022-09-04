@@ -41,7 +41,7 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.2.154.4/DEPS#43
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "ae110f8b525009255ba1f9ae96982176d3bfad3d"
+        revision: "9ef321772ecc161937db69acb346397e0ccc484d"
   end
 
   # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.2.154.4/DEPS#84
@@ -52,7 +52,7 @@ class V8 < Formula
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "b37c340767cf9e7777d4ca5a588c34c5744df9b2"
+        revision: "7aa22279f03f25ac8919a3a72bc03af7f56512f4"
   end
 
   resource "v8/third_party/googletest/src" do
@@ -62,7 +62,7 @@ class V8 < Formula
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "1fd0dbea04448c3f73fe5cb7599f9472f0f107f1"
+        revision: "50ec7b3822a90d73aa761b21fc941b485a1cb9d6"
   end
 
   resource "v8/third_party/jinja2" do
@@ -77,7 +77,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "a6d209ab932df0f1c9d5b7dc67cfa74e8a3272c0"
+        revision: "64bbf988543996eb8df9a86877b32917187eba8f"
   end
 
   # Apply patch to fix v8 build with glibc < 2.27. See here for details:
@@ -178,7 +178,7 @@ class V8 < Formula
     EOS
 
     # link against installed libc++
-    system ENV.cxx, "-std=c++14", "test.cpp",
+    system ENV.cxx, "-std=c++17", "test.cpp",
                     "-I#{include}", "-L#{lib}",
                     "-Wl,-rpath,#{libexec}",
                     "-lv8", "-lv8_libplatform"
