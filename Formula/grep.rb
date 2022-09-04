@@ -5,6 +5,7 @@ class Grep < Formula
   mirror "https://ftpmirror.gnu.org/grep/grep-3.8.tar.xz"
   sha256 "498d7cc1b4fb081904d87343febb73475cf771e424fb7e6141aff66013abc382"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "19f74ff07a70ef50f90ce31a4f02967146469a94c2a3a4136221fc770a4a2e68"
@@ -16,7 +17,7 @@ class Grep < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "pcre"
+  depends_on "pcre2"
 
   def install
     args = %W[
@@ -59,12 +60,12 @@ class Grep < Formula
     text_file.write "This line should be matched"
 
     if OS.mac?
-      grepped = shell_output("#{bin}/ggrep match #{text_file}")
+      grepped = shell_output("#{bin}/ggrep -P match #{text_file}")
       assert_match "should be matched", grepped
 
-      grepped = shell_output("#{opt_libexec}/gnubin/grep match #{text_file}")
+      grepped = shell_output("#{opt_libexec}/gnubin/grep -P match #{text_file}")
     else
-      grepped = shell_output("#{bin}/grep match #{text_file}")
+      grepped = shell_output("#{bin}/grep -P match #{text_file}")
     end
     assert_match "should be matched", grepped
   end
