@@ -16,6 +16,9 @@ class Scry < Formula
     sha256 x86_64_linux:   "9aa343ca7529d5b803fa98ef2c702cc63423233a376963ea590a89458de61545"
   end
 
+  # https://github.com/crystal-lang-tools/scry/issues/186
+  disable! date: "2023-01-01", because: :does_not_build
+
   depends_on "bdw-gc"
   depends_on "crystal"
   depends_on "libevent"
@@ -28,13 +31,13 @@ class Scry < Formula
     bin.install "bin/scry"
   end
 
-  test do
-    def rpc(json)
-      "Content-Length: #{json.size}\r\n" \
-        "\r\n" \
-        "#{json}"
-    end
+  def rpc(json)
+    "Content-Length: #{json.size}\r\n" \
+      "\r\n" \
+      "#{json}"
+  end
 
+  test do
     input = rpc '{ "jsonrpc": "2.0", "id": 1, "method": "initialize", "params": ' \
                 '{ "processId": 1, "rootPath": "/dev/null", "capabilities": {}, "trace": "off" } }'
     input += rpc '{ "jsonrpc": "2.0", "method": "initialized", "params": {} }'
