@@ -1,6 +1,8 @@
 class SynergyCore < Formula
   desc "Synergy, the keyboard and mouse sharing tool"
   homepage "https://symless.com/synergy"
+  url "https://github.com/symless/synergy-core/archive/refs/tags/1.14.5.17.tar.gz"
+  sha256 "ed48717ad664773aa3492e34f085873cab43fb84e8fe3717db485588b67ae1d1"
 
   # The synergy-core/LICENSE file contains the following preamble:
   #   This program is released under the GPL with the additional exemption
@@ -16,13 +18,7 @@ class SynergyCore < Formula
   #   audit_exceptions/permitted_formula_license_mismatches.json
   # That exception can be removed if the nonfree GitHub Licenses API is fixed.
   license :cannot_represent
-
   head "https://github.com/symless/synergy-core.git", branch: "master"
-
-  stable do
-    url "https://github.com/symless/synergy-core/archive/refs/tags/v1.14.4.37-stable.tar.gz"
-    sha256 "081735f032a2909c65322d43bcaf463bca05f88a05882c706762c959cd4bbec6"
-  end
 
   # This repository contains old 2.0.0 tags, one of which uses a stable tag
   # format (`v2.0.0-stable`), despite being marked as "pre-release" on GitHub.
