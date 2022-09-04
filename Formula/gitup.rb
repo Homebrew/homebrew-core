@@ -45,17 +45,17 @@ class Gitup < Formula
     virtualenv_install_with_resources
   end
 
-  test do
-    def prepare_repo(uri, local_head)
-      system "git", "init"
-      system "git", "remote", "add", "origin", uri
-      system "git", "fetch", "origin"
-      system "git", "checkout", local_head
-      system "git", "reset", "--hard"
-      system "git", "checkout", "-b", "master"
-      system "git", "branch", "--set-upstream-to=origin/master", "master"
-    end
+  def prepare_repo(uri, local_head)
+    system "git", "init"
+    system "git", "remote", "add", "origin", uri
+    system "git", "fetch", "origin"
+    system "git", "checkout", local_head
+    system "git", "reset", "--hard"
+    system "git", "checkout", "-b", "master"
+    system "git", "branch", "--set-upstream-to=origin/master", "master"
+  end
 
+  test do
     first_head_start = "f47ab45abdbc77e518776e5dc44f515721c523ae"
     mkdir "first" do
       prepare_repo("https://github.com/pr0d1r2/homebrew-contrib.git", first_head_start)
