@@ -127,13 +127,13 @@ class Po4a < Formula
       \\end{document}
     EOS
 
-    system bin/"po4a-gettextize", "-f", "latex", "-m", "en.tex", "-p", "latex.pot"
+    system bin/"po4a-updatepo", "-f", "latex", "-m", "en.tex", "-p", "latex.pot"
     assert_match "Hello from Homebrew!", (testpath/"latex.pot").read
 
     # Markdown
 
     (testpath/"en.md").write("Hello from Homebrew!")
-    system bin/"po4a-gettextize", "-f", "text", "-m", "en.md", "-p", "text.pot"
+    system bin/"po4a-updatepo", "-f", "text", "-m", "en.md", "-p", "text.pot"
     assert_match "Hello from Homebrew!", (testpath/"text.pot").read
   end
 end
