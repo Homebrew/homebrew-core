@@ -13,12 +13,14 @@ class XcbProto < Formula
   depends_on "python@3.10" => :build
 
   def install
+    python = "python3.10"
+
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --disable-silent-rules
-      PYTHON=python3
+      PYTHON=#{python}
     ]
 
     system "./configure", *args
