@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/10.2.154.4.tar.gz"
-  sha256 "6f4865ffe499f51da3e422cf7e4d85d3dab1b0a99b2d5bf204910ce423505597"
+  url "https://github.com/v8/v8/archive/10.5.218.7.tar.gz"
+  sha256 "41c55174f9179792a03730313d06603bf9f31f99f5016c58ba8b46c222d29aa9"
   license "BSD-3-Clause"
 
   livecheck do
