@@ -28,7 +28,7 @@ class Libharu < Formula
     # Build static library
     system "cmake", "-S", ".", "-B", "build-static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
     system "cmake", "--build", "build-static"
-    lib.install "build-static/src/libharu.a"
+    lib.install "build-static/src/libhpdf.a"
   end
 
   test do
@@ -52,7 +52,7 @@ class Libharu < Formula
         return result;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lharu", "-lz", "-lm", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lhpdf", "-lz", "-lm", "-o", "test"
     system "./test"
   end
 end
