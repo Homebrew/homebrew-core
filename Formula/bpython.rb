@@ -87,9 +87,9 @@ class Bpython < Formula
     venv.pip_install buildpath
 
     # Make the Homebrew site-packages available in the interpreter environment
-    xy = Language::Python.major_minor_version python3
-    ENV.prepend_path "PYTHONPATH", HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
-    ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    site_packages = Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", HOMEBREW_PREFIX/site_packages
+    ENV.prepend_path "PYTHONPATH", libexec/site_packages
     combined_pythonpath = ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH"
     %w[bpdb bpython].each do |cmd|
       (bin/cmd).write_env_script libexec/"bin/#{cmd}", PYTHONPATH: combined_pythonpath
