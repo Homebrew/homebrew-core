@@ -42,8 +42,12 @@ class Xapian < Formula
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
-    python = Formula["python@3.10"].opt_bin/"python3"
+    python = Formula["python@3.10"].opt_bin/python3
     ENV["PYTHON"] = python
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -69,6 +73,6 @@ class Xapian < Formula
 
   test do
     system bin/"xapian-config", "--libs"
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import xapian"
+    system Formula["python@3.10"].opt_bin/python3, "-c", "import xapian"
   end
 end
