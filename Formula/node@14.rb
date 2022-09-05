@@ -37,9 +37,13 @@ class NodeAT14 < Formula
     depends_on "macos-term-size"
   end
 
+  def python3
+    Formula["python@3.10"]
+  end
+
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3")
+    ENV["PYTHON"] = python = python3.opt_bin/"python3.10"
 
     args = %W[
       --prefix=#{prefix}
@@ -62,7 +66,7 @@ class NodeAT14 < Formula
       --shared-cares-libpath=#{Formula["c-ares"].lib}
       --openssl-use-def-ca-store
     ]
-    system "python3", "configure.py", *args
+    system python, "configure.py", *args
     system "make", "install"
 
     term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
@@ -94,7 +98,7 @@ class NodeAT14 < Formula
 
     # make sure npm can find node and python
     ENV.prepend_path "PATH", opt_bin
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" if OS.mac?
+    ENV.prepend_path "PATH", python3.opt_libexec/"bin" if OS.mac?
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
     assert_equal which("node"), opt_bin/"node"
     assert_predicate bin/"npm", :exist?, "npm must exist"
