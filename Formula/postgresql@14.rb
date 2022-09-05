@@ -145,8 +145,10 @@ class PostgresqlAT14 < Formula
 
         You can migrate to a versioned data directory by running:
           mv -v "#{old_postgres_data_dir}" "#{var/name}"
+          sed -i.bak "s|<string>#{old_postgres_data_dir}</string>|<string>#{var/name}</string>|" #{opt_prefix}/homebrew.mxcl.postgresql@14.plist
+          sed -i.bak "s|-D #{old_postgres_data_dir}$|-D #{var/name}|" #{opt_prefix}/homebrew.postgresql@14.service
 
-        (Make sure PostgreSQL is stopped before executing this command)
+        (Make sure PostgreSQL is stopped before executing these commands)
 
       EOS
     end
