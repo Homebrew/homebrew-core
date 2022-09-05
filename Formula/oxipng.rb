@@ -1,8 +1,8 @@
 class Oxipng < Formula
   desc "Multithreaded PNG optimizer written in Rust"
   homepage "https://github.com/shssoichiro/oxipng"
-  url "https://github.com/shssoichiro/oxipng/archive/v5.0.1.tar.gz"
-  sha256 "aff72d2f627617f3f36d9796e65b83eb34f24d2c94f3a55612ade2df8ab8d946"
+  url "https://github.com/shssoichiro/oxipng/archive/v6.0.0.tar.gz"
+  sha256 "4e75dd57519ba3a00eaf1fab56a5ee57dd17cf22d704f6ad7d3c5f08f483e7bf"
   license "MIT"
 
   bottle do
