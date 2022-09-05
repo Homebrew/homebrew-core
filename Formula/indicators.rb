@@ -60,7 +60,7 @@ class Indicators < Formula
     output = shell_output("./test")
 
     assert_equal output.scan(/(?=Brewing...)/).count, 100
-    (0..99).each do |n|
+    100.times do |n|
       assert_match "#{n}%", output
     end
   end
