@@ -2,8 +2,8 @@ class ErlangAT23 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.16/otp_src_23.3.4.16.tar.gz"
-  sha256 "e3ecb3ac2cc549ab90cd9f8921eaebc8613f4d5c89972a3987e5a762d5a2df08"
+  url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.17/otp_src_23.3.4.17.tar.gz"
+  sha256 "9e45974c2a44b929ded178b05e4e14a6eb34592f025957b38c7b093a67feda0b"
   license "Apache-2.0"
 
   livecheck do
@@ -26,8 +26,8 @@ class ErlangAT23 < Formula
   depends_on "wxwidgets" # for GUI apps like observer
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.16/otp_doc_html_23.3.4.16.tar.gz"
-    sha256 "68af4e188200bd6c998ef6b34cbd05bcaa91e322bd8f4dbecb2fbd220b6542c5"
+    url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.17/otp_doc_html_23.3.4.17.tar.gz"
+    sha256 "0846cf776f13decb8e10e2b28b1c07e23f53263351c07092f3778d1eec896edc"
   end
 
   def install
