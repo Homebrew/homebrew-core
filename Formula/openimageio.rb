@@ -1,26 +1,10 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
+  url "https://github.com/OpenImageIO/oiio/archive/v2.3.19.0.tar.gz"
+  sha256 "602c146aebee775f123459a6c6be753054144b8d82777de26965f2cc3e88113a"
   license "BSD-3-Clause"
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
-
-  stable do
-    url "https://github.com/OpenImageIO/oiio/archive/v2.3.19.0.tar.gz"
-    sha256 "602c146aebee775f123459a6c6be753054144b8d82777de26965f2cc3e88113a"
-
-    # Upstream changes to cleanly apply subsequent PR commit. Remove in the next release.
-    patch do
-      url "https://github.com/OpenImageIO/oiio/commit/c3740921b6fd09a0769bd403dab99ba9061228b0.patch?full_index=1"
-      sha256 "61764eb19f936f3ced3b23d1b6a27b7aad4f38ccfd52f6591c354b6f4ebcadf6"
-    end
-
-    # Fix CMake detection of FFmpeg 5.1+. Remove after PR is merged and in a release.
-    # PR ref: https://github.com/OpenImageIO/oiio/pull/3516
-    patch do
-      url "https://github.com/OpenImageIO/oiio/commit/a86911a3e0bc5b2406856428295938d960760368.patch?full_index=1"
-      sha256 "e38a50b98dbab81bd50a460a87aa3970f25a49959796c01db6888a0e62e3af62"
-    end
-  end
 
   livecheck do
     url :stable
