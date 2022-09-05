@@ -69,6 +69,6 @@ class Igraph < Formula
     EOS
     system ENV.cc, "test.c", "-I#{include}/igraph", "-L#{lib}",
                    "-ligraph", "-lm", "-o", "test"
-    assert_match "Diameter = 9", shell_output("./test")
+    assert_match "Diameter = 8", shell_output("./test")
   end
 end
