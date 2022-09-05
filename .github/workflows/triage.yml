@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   triage:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Check commit format
         uses: Homebrew/actions/check-commit-format@master

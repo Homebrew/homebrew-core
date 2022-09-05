@@ -16,7 +16,7 @@ permissions:
 jobs:
   recreate:
     if: github.repository == 'Homebrew/homebrew-core'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       # TODO agree on one label for all runners
       RUNNER_LABEL: TODO

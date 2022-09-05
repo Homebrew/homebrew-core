@@ -32,7 +32,7 @@ env:
 
 jobs:
   setup:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
     outputs:
@@ -168,7 +168,7 @@ jobs:
       issues: write # for Homebrew/actions/post-comment
       contents: write # for Homebrew/actions/git-try-push
       packages: write # for brew pr-upload
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: bottle
     if: github.event.inputs.upload
     env:

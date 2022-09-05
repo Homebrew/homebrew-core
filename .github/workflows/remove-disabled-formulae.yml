@@ -18,7 +18,7 @@ permissions:
 jobs:
   remove-disabled-formulae:
     if: startsWith(github.repository, 'Homebrew/')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew

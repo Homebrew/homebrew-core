@@ -31,7 +31,7 @@ permissions:
 
 jobs:
   prepare:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       runners: ${{steps.runner-matrix.outputs.result}}
     steps:
@@ -221,7 +221,7 @@ jobs:
           bot_body: ":x: Bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
           bot: BrewTestBot
   upload:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: bottle
     if: github.event.inputs.upload
     env:
