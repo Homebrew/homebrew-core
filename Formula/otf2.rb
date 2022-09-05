@@ -71,7 +71,7 @@ class Otf2 < Formula
       rm_rf "./ArchivePath"
       system Formula["open-mpi"].opt_bin/"mpirun", "-n", "2", "./otf2_mpi_writer_example"
       assert_predicate workdir/"ArchivePath/ArchiveName.otf2", :exist?
-      (0...2).each do |n|
+      2.times do |n|
         assert_predicate workdir/"ArchivePath/ArchiveName/#{n}.evt", :exist?
       end
       system Formula["open-mpi"].opt_bin/"mpirun", "-n", "2", "./otf2_mpi_reader_example"
