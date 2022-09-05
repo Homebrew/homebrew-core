@@ -1,10 +1,9 @@
 class X3270 < Formula
   desc "IBM 3270 terminal emulator for the X Window System and Windows"
   homepage "http://x3270.bgp.nu/"
-  url "http://x3270.bgp.nu/download/04.02/suite3270-4.2ga4-src.tgz"
-  sha256 "6a89ebdc7817bc204f79ebcdc6b5e7fef8c19aedfbc80284fedc647caa086790"
+  url "http://x3270.bgp.nu/download/04.02/suite3270-4.2ga5-src.tgz"
+  sha256 "bed21cc51572f0248c9a11436d0f8b79ab971a65dae6b5a857625b173798bf9e"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://x3270.miraheze.org/wiki/Downloads"
@@ -23,13 +22,6 @@ class X3270 < Formula
   depends_on "readline"
 
   uses_from_macos "tcl-tk"
-
-  # Apply patch on 4.2ga4. Remove after next release
-  # https://github.com/pmattes/x3270/issues/36
-  patch do
-    url "https://github.com/pmattes/x3270/commit/80168fbc69544fee00517fb5b14bc662501929b8.patch?full_index=1"
-    sha256 "a1a00c9396e565879e3cb5ff230861c914ebdf82e44911dd2799c43e2e2ccfad"
-  end
 
   def install
     args = %W[
