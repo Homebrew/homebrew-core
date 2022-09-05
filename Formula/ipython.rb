@@ -167,7 +167,8 @@ class Ipython < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    python3 = "python3.10"
+    venv = virtualenv_create(libexec, python3)
     res = resources.reject { |r| r.name == "appnope" && OS.linux? }
     venv.pip_install res
     venv.pip_install_and_link buildpath
@@ -177,7 +178,7 @@ class Ipython < Formula
 
     # Enable the kernel to be shared across envs (see also `post_install`)
     # https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3")
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
     Dir.mktmpdir do |tmpdir|
       system libexec/"bin/ipython", "kernel", "install", "--prefix", tmpdir
       (share/"jupyter/kernels/python3").install Dir["#{tmpdir}/share/jupyter/kernels/python3/*"]
