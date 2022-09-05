@@ -81,12 +81,13 @@ class Bpython < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
+    python3 = Formula["python@3.10"].opt_bin/"python3.10"
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     venv.pip_install buildpath
 
     # Make the Homebrew site-packages available in the interpreter environment
-    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
     ENV.prepend_path "PYTHONPATH", HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
     ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     combined_pythonpath = ENV["PYTHONPATH"] + "${PYTHONPATH:+:}$PYTHONPATH"
