@@ -80,7 +80,7 @@ class Httpie < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources
 
     # We use a special file called __build_channel__.py to denote which source
