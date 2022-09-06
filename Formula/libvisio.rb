@@ -12,12 +12,12 @@ class Libvisio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7e680fc261f5931963c064165e477f2f9db5be3671e35b702ad6bc2d4a476c95"
-    sha256 cellar: :any,                 arm64_big_sur:  "ecbbbde8509b32ae1d382dc37676993561c7dfc1eac82502cd6a1aafac054059"
-    sha256 cellar: :any,                 monterey:       "928901f88d373e8e0f45f59da46cdec7e44b0d22414203a1333986431a20dc4b"
-    sha256 cellar: :any,                 big_sur:        "3c66b712f07830c60a548d529a67eebc443a8dc3ca655b59ce78ffd7020bc5cc"
-    sha256 cellar: :any,                 catalina:       "4fd2ae7f2b825a64f2a246e1bff48440dff2b133745f0f4833cc72cdb30dce1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce944eadfcdd306e2d490035577631ba05cbb2dc8a63976e967033b4ceae06cb"
+    sha256 cellar: :any,                 arm64_monterey: "b6914749c1bda7f6796c1f2908dda35f564860830cfc202ed9bb9f1652ce3562"
+    sha256 cellar: :any,                 arm64_big_sur:  "ee945d14878160dba16e983ede8c3fefbc5c82b028d340851d5c8b2ce486e0b9"
+    sha256 cellar: :any,                 monterey:       "9db99dc5397773cd0628ed1ce6c183eea4c0deab7aee30f483eb96941cfa2a24"
+    sha256 cellar: :any,                 big_sur:        "2153b5bd416812b4d5448e5f38554dd93d4baf82cf21672abb24215669f21e5f"
+    sha256 cellar: :any,                 catalina:       "99d2f84618430bdc6a7876512a65a365da8cdeb94aa6198193b2eb933aeb8556"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "728b3e6817c2d78dd463de90ebdbde10d5e8a468357b7d6b66759444da0286ab"
   end
 
   depends_on "cppunit" => :build
