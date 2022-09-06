@@ -1,8 +1,8 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/boost-1.79.0.tar.gz"
-  sha256 "3e46a4b8d54603acdb478c15e791de772678d2c002711e41187b2d9b7fb55418"
+  url "https://github.com/boostorg/build/archive/boost-1.80.0.tar.gz"
+  sha256 "84f4f5842ba35652de9d75800bfca7f4aefc733c41386bfe5d10cb17868025e7"
   license "BSL-1.0"
   version_scheme 1
   head "https://github.com/boostorg/build.git", branch: "develop"
@@ -26,7 +26,6 @@ class BoostBuild < Formula
   def install
     system "./bootstrap.sh"
     system "./b2", "--prefix=#{prefix}", "install"
-    pkgshare.install "boost-build.jam"
   end
 
   test do
