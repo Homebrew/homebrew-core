@@ -7,12 +7,12 @@ class Libical < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c27b4e5e0183e2a3c00df25be49016a32eabefe48df38495607cbe77cd1c4488"
-    sha256 cellar: :any,                 arm64_big_sur:  "44b5d5d2e1004e59c723d21a30446bb642fab78cff44c48fb337e311d2c17509"
-    sha256 cellar: :any,                 monterey:       "813ff353ca32c4f9c33d5141805fb244829872ed01333a75cabc1f9901ed2513"
-    sha256 cellar: :any,                 big_sur:        "9db5384e8ca7edde36eeeddd905e53bf2019d3bf6fbb9b038954cf9a05d481d4"
-    sha256 cellar: :any,                 catalina:       "77a6f2be525f7cd45016b36ebc34ffb018649864cf08ec7e52c98f17e158a65c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1143254b83d4f1fc88a23bad553c7ea335f094ac79fae35c3f93f16f53c225c2"
+    sha256 cellar: :any,                 arm64_monterey: "fd4d453a3cef1834346adea58fa384587c466649dfc9ad120c31dcea6d185199"
+    sha256 cellar: :any,                 arm64_big_sur:  "4a869794441e4433f054246f57a8e6bb2951f5425c21a1aa93164fd5b7417ed2"
+    sha256 cellar: :any,                 monterey:       "bd794dbb4e37466516dcbe502e715b6fff10201b2e439aed5b3a17988eb76df8"
+    sha256 cellar: :any,                 big_sur:        "ace3392af1b83116561a2e4caee6c808a96e6017ab2b5dccfc34952d81ba3dd8"
+    sha256 cellar: :any,                 catalina:       "9903de75b25ee53b2c0881b8e812733a85e32022b3c17a53146415a200610ed9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0459f752a32ae67a4e4f29d69d6085d7ae1b5bebed208b41adf96710e99cad2"
   end
 
   depends_on "cmake" => :build
