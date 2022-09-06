@@ -1,10 +1,9 @@
 class PythonAT39 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.9.13/Python-3.9.13.tar.xz"
-  sha256 "125b0c598f1e15d2aa65406e83f792df7d171cdf38c16803b149994316a3080f"
+  url "https://www.python.org/ftp/python/3.9.14/Python-3.9.14.tar.xz"
+  sha256 "651304d216c8203fe0adf1a80af472d8e92c3b0e0a7892222ae4d9f3ae4debcf"
   license "Python-2.0"
-  revision 4
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -50,8 +49,8 @@ class PythonAT39 < Formula
 
   # Always update to latest release
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/5b/ff/69fd395c5237da934753752b71c38e95e137bd0603d5640df70ddaea8038/setuptools-63.4.3.tar.gz"
-    sha256 "521c833d1e5e1ef0869940e7f486a83de7773b9f029010ad0c2fe35453a9dad9"
+    url "https://files.pythonhosted.org/packages/cc/83/7ea9d9b3a6ff3225aca2fce5e4df373bee7e0a74c539711a4fbfda53374f/setuptools-65.3.0.tar.gz"
+    sha256 "7732871f4f7fa58fb6bdcaeadb0161b2bd046c85905dbaa066bdcbcc81953b57"
   end
 
   resource "pip" do
