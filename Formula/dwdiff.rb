@@ -12,12 +12,12 @@ class Dwdiff < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "c6ac8bd5755d425b521cd053dffb6b8ed743576e23f3f32691af25eff05dcaa5"
-    sha256 arm64_big_sur:  "5e1721a6b5e82ffd1e96912c68b130b56c757cc1dc838101f6ca35c033e71a8c"
-    sha256 monterey:       "532f53fb5ce20b15ae8ab16fb7a73cae4c2e606529dfa16e57c72f35242c3154"
-    sha256 big_sur:        "068d3426506689419160ae59cdb21cd8546622b05965fefff4e310b32862bf5b"
-    sha256 catalina:       "1bfc80e8d237eaafb2144c225a1c34e86934c35021df7ae98a5743de35ad21fb"
-    sha256 x86_64_linux:   "3efef1cf3d0b820d21bfc5e2c6d9258224527f98233b0f45be5ea90d3304f72b"
+    sha256 arm64_monterey: "8aa1396ab3b78bace6d6ff64c8cfcd593156460e86ea256e1105bda2e93165f9"
+    sha256 arm64_big_sur:  "ca849606872add6c7df910772860a608e893c1c14ef2fb303c57b8ce20b78c29"
+    sha256 monterey:       "8abac55ea99ea01f90957249680f274c4c45186cd3ca9b77eae35b1964201f88"
+    sha256 big_sur:        "bb50e9bad7e0d652734d7e42faf7f32df8fdde7c41d7961a3937449c1a630ad1"
+    sha256 catalina:       "469e6223c42f3ac5bea6ccb85ccfadecbc2b38d6cad3fefc37ee74cdb0390d41"
+    sha256 x86_64_linux:   "bc1ffee74e3fe8bc169769c6b0e76ea467c48b103e1569033736834541dadfc5"
   end
 
   depends_on "pkg-config" => :build
