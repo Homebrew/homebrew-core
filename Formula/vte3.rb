@@ -7,12 +7,12 @@ class Vte3 < Formula
   revision 1
 
   bottle do
-    sha256 arm64_monterey: "7a222faea3146bcf8e1a3664cdbeb3590c4c54fd42e8ffc1a67a9dd4879da992"
-    sha256 arm64_big_sur:  "3d8a1cd65b167256f178776e8fa7b19809930b2a714f24387a8ac41671a31882"
-    sha256 monterey:       "0f710f6639e52a2467ae59d71fe15fbc82788e131b54ee9ab63549c8e4937b71"
-    sha256 big_sur:        "a3686bcb148e407698481364e5af292aa95e148644c17c2645b965af2e5dfd28"
-    sha256 catalina:       "628f861c0000531ac4a04269de6f34e38c8701594fb2f470e17510082ac8a844"
-    sha256 x86_64_linux:   "7fcab5f5558274cf130242c4eaa520a57465787b81e25a6b619967165d34c0a8"
+    sha256 arm64_monterey: "5956f0ff63ffc5af08896373d884a6e12f831f714d7c01fc78774ff1cb618515"
+    sha256 arm64_big_sur:  "7aee3f3e6e07847f7b65110b53873a3e74b5fc14268518fe0b345b9793b4ec5c"
+    sha256 monterey:       "dd1a7f9a98338987adff46db075170cd029ed8a13be293855d3d70c654349582"
+    sha256 big_sur:        "71c257c8137523518d2a1276cbf3961ee60a11ea585d1353bbda4709fda22095"
+    sha256 catalina:       "06344a53569cb93939f93e0a49e142f4af269090a200ee4a5e8eb395a9c41f80"
+    sha256 x86_64_linux:   "bf4c3ae25efa4c8d1b3d8bd22eb7a2bb25d4eaecef95f1634715c7c62b0ee584"
   end
 
   depends_on "gobject-introspection" => :build
