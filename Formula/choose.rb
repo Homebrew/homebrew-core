@@ -28,11 +28,11 @@ class Choose < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    python3 = "python3.10"
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
 
     resource("urwid").stage do
-      system "python3", *Language::Python.setup_install_args(libexec)
+      system python3, *Language::Python.setup_install_args(libexec, python3)
     end
 
     bin.install "choose"
