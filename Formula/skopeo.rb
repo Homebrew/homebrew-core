@@ -15,6 +15,7 @@ class Skopeo < Formula
   end
 
   depends_on "go" => :build
+  depends_on "go-md2man" => :build
   depends_on "gpgme"
 
   on_linux do
@@ -25,7 +26,7 @@ class Skopeo < Formula
   def install
     ENV["CGO_ENABLED"] = "1"
     ENV.append "CGO_FLAGS", ENV.cppflags
-    ENV.append "CGO_FLAGS", Utils.safe_popen_read("#{Formula["gpgme"].bin}/gpgme-config", "--cflags")
+    ENV.append "CGO_FLAGS", Utils.safe_popen_read(Formula["gpgme"].opt_bin/"gpgme-config", "--cflags")
 
     buildtags = [
       "containers_image_ostree_stub",
@@ -34,16 +35,17 @@ class Skopeo < Formula
       Utils.safe_popen_read("hack/libdm_tag.sh").chomp,
     ].uniq.join(" ")
 
-    ldflags = [
-      "-X main.gitCommit=",
-      "-X github.com/containers/image/v5/docker.systemRegistriesDirPath=#{etc/"containers/registries.d"}",
-      "-X github.com/containers/image/v5/internal/tmpdir.unixTempDirForBigFiles=/var/tmp",
-      "-X github.com/containers/image/v5/signature.systemDefaultPolicyPath=#{etc/"containers/policy.json"}",
-      "-X github.com/containers/image/v5/pkg/sysregistriesv2.systemRegistriesConfPath=" \
-      "#{etc/"containers/registries.conf"}",
-    ].join(" ")
+    ldflag_prefix = "github.com/containers/image/v5"
+    ldflags = %W[
+      -X main.gitCommit=
+      -X #{ldflag_prefix}/docker.systemRegistriesDirPath=#{etc}/containers/registries.d
+      -X #{ldflag_prefix}/internal/tmpdir.unixTempDirForBigFiles=/var/tmp
+      -X #{ldflag_prefix}/signature.systemDefaultPolicyPath=#{etc}/containers/policy.json
+      -X #{ldflag_prefix}/pkg/sysregistriesv2.systemRegistriesConfPath=#{etc}/containers/registries.conf
+    ]
 
-    system "go", "build", "-tags", buildtags, "-ldflags", ldflags, *std_go_args, "./cmd/skopeo"
+    system "go", "build", "-tags", buildtags, *std_go_args(ldflags: ldflags), "./cmd/skopeo"
+    system "make", "PREFIX=#{prefix}", "GOMD2MAN=go-md2man", "install-docs"
 
     (etc/"containers").install "default-policy.json" => "policy.json"
     (etc/"containers/registries.d").install "default.yaml"
