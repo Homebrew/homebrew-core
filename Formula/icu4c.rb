@@ -15,12 +15,12 @@ class Icu4c < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "43cf787a35559b90597db8e1aaba95dbeedb84b1ee3d2e942be8938ae618724c"
-    sha256 cellar: :any,                 arm64_big_sur:  "c3c22a25dd864a6494d2371bea6b8b9d5e49f8c401b2f6cda00f4c349f57e975"
-    sha256 cellar: :any,                 monterey:       "321592eb1aebb7c6edc7a5e91393598725ebcc63362f059072b993c27f3bf979"
-    sha256 cellar: :any,                 big_sur:        "f124a30b9ecb4bfe61cd8ab5e46d58877fd5acb319360dae446648730a4b3ad8"
-    sha256 cellar: :any,                 catalina:       "8773ed472307dff9a522558503e0f12aa77433510e856136946a558ae3087c0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04f36c9e1047fb1a9e1f1889eae2ade68d6518fb847a90e7947cc87ca94512ef"
+    sha256 cellar: :any,                 arm64_monterey: "0bf3c66f005e2d7662375b4baadd3022d57294947f421f9f8628799008a987f4"
+    sha256 cellar: :any,                 arm64_big_sur:  "5cbb7c32192790d114f179ca9456df9a5cbd0094a9e2383c9ae8e4ec5e5cd568"
+    sha256 cellar: :any,                 monterey:       "87617a04333c53236f5174f5a3fa70458d61d735024ed477c0484adf2c3f80d3"
+    sha256 cellar: :any,                 big_sur:        "4c2904b4e7af60796e202d9f5ced39443ffd657b61a007b67bd109534b00c03f"
+    sha256 cellar: :any,                 catalina:       "0182e3999a76593888bc2b5d54c275b6d7f0eb75db354a3a37925179a9e91d84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89bcfb2f075f7ea40053a09804479bef4457b1f7f606617fb15116edef53c2e9"
   end
 
   keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
