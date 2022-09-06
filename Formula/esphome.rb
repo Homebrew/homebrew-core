@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/72/de/2b98619e7844355a5cf5bb6edf375e9e3e05ad76e690abcdba083455ff79/esphome-2022.8.1.tar.gz"
-  sha256 "f9ad25b0b431df4c53a7038dee0aebb6dd38c32997e907607b0bb7d757af9438"
+  url "https://files.pythonhosted.org/packages/b2/51/52aab59e7cce2752aeea1e6dd784f00824f7b2d7b4507746459c0e6092a6/esphome-2022.8.2.tar.gz"
+  sha256 "a4a1f6ea2ef293edab1301b441aa279b333010a224ffac7c5d9a23c241b1de45"
   license "MIT"
 
   bottle do
@@ -198,8 +198,8 @@ class Esphome < Formula
   end
 
   resource "sniffio" do
-    url "https://files.pythonhosted.org/packages/a6/ae/44ed7978bcb1f6337a3e2bef19c941de750d73243fc9389140d62853b686/sniffio-1.2.0.tar.gz"
-    sha256 "c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"
+    url "https://files.pythonhosted.org/packages/cd/50/d49c388cae4ec10e8109b1b833fd265511840706808576df3ada99ecb0ac/sniffio-1.3.0.tar.gz"
+    sha256 "e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"
   end
 
   resource "starlette" do
