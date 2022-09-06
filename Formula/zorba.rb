@@ -7,13 +7,12 @@ class Zorba < Formula
   revision 16
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "e27b8ee893f4bb7c428a34c92665f9ef7a1e2fd121197acde433afc8a38040e2"
-    sha256 arm64_big_sur:  "be6aa751dbe3d108bb39fcd8bcdab9006b3ca1ca9680242b0da3dd8933ad74f1"
-    sha256 monterey:       "b260f705dc1d3ece53480160273003dedb98fe5c0806fa3cfc311c9c599b52ce"
-    sha256 big_sur:        "6e2a8dc08bf94709be952db4c1e4a791faf2d8c199441ca32bee457c46fe12c2"
-    sha256 catalina:       "2dad59eb368c4d9480f68265441ab8899d8eddf1d2041f934ad22801bb6bcf2b"
-    sha256 x86_64_linux:   "c5f0f199ddc34c3c6bbf5ac55d8b5bca6da6428684ed3f2d930a5d442c85863d"
+    sha256 arm64_monterey: "46f70d378fe9bb29b11e1e8c36a89d6e87a8edd31506414d7bdc898ee9a38f3b"
+    sha256 arm64_big_sur:  "1ec7839bf4f2c5c894ab97e022af5299411509da28b0591f5fa317cfd6b90cfd"
+    sha256 monterey:       "e7989cc9ae5f1f69ec450cbb266eace9e9b69040360b087dd9e1f9b960429207"
+    sha256 big_sur:        "df9a7d6bd090be66e98299e32be821425ae0618ea3f865e5a3da9967149b2fb0"
+    sha256 catalina:       "3edcef6b795ce703533f54ebe944a8f0ecfc05211e3fece3d5275d887544aa56"
+    sha256 x86_64_linux:   "4cc2c7b15623b2ba658a0a50a9556d905aeb5a4f3824f713b74709f86266a89e"
   end
 
   depends_on "cmake" => :build
