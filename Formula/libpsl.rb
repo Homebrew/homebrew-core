@@ -7,12 +7,12 @@ class Libpsl < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "52877267862937c5097b44524683cdeb205298fe3fa651b6f83c83b940c0892a"
-    sha256 cellar: :any, arm64_big_sur:  "78ab442965d78a50490623107591c851b04a0f4728033e32820f0bb8de034b03"
-    sha256 cellar: :any, monterey:       "8b8f8ec3a0109a21c4f7bbb69dd464ac40222a4082f87eef57a3bc2c9e855ad3"
-    sha256 cellar: :any, big_sur:        "1eb5c356cc0e6a3ee625cd9863eec0bfa5d0a200385e21886633e8e3f90ddee8"
-    sha256 cellar: :any, catalina:       "e2a728ee40470514e776e529e6ea1341467b20558c9bddd216336a0d925442eb"
-    sha256               x86_64_linux:   "a3826e9daf5f44f094ac7d5723db2072d62507d285dff24f37ce0715b823d223"
+    sha256 cellar: :any,                 arm64_monterey: "e557dadaa6ae91265e67c280cd809c0cbf5e6b02215a6345115f6e0f8d52d315"
+    sha256 cellar: :any,                 arm64_big_sur:  "99118a8a981f19bbc3ce71e1fabbebf92cda62f94d4294c5d58ada5f50f6e859"
+    sha256 cellar: :any,                 monterey:       "2a9b432b666f483235e80cafa9201920df70b1c8e4ad53f819f8d4607818d0e2"
+    sha256 cellar: :any,                 big_sur:        "9a7d0cf58a69d6b388775d32c093365e6ae8d56cf0b362af6be6b4c067202a5b"
+    sha256 cellar: :any,                 catalina:       "a6a89728976c0687f579b4c13fa0537b82d38e1aa01dfe965518e00192e4052b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b67f7d46ea88425ee5b1a0ebba7b6c28ed7d035c1752862613eb40682bea319c"
   end
 
   depends_on "meson" => :build
