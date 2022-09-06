@@ -7,7 +7,7 @@ class Webkitgtk < Formula
   revision 1
 
   bottle do
-    sha256 x86_64_linux: "580a996b665685bf6469f3bc865e90fe3ffe08977900de3c6012c95a80823bab"
+    sha256 x86_64_linux: "90f2c0014bd5314a458fcde137e51e1c398c21d539820b87f021799c676991b9"
   end
 
   depends_on "cmake" => :build
