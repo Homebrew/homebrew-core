@@ -11,12 +11,12 @@ class EasyrpgPlayer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a2c5273f9a76fb0b87bfc06025bf31b0eef7cb6f76c239dae727b58ad311b090"
-    sha256 cellar: :any,                 arm64_big_sur:  "993ae4fbe9fb337134aedae988cefbc62d24c0ea56519f9dd1c1525ade0695d0"
-    sha256 cellar: :any,                 monterey:       "e0d23fd23007b642cacfcfee7b29c41f46fe760bd601749b9639a871b6a9731f"
-    sha256 cellar: :any,                 big_sur:        "65d0605d32d94a3d4bb5279c56b8b16d09ed9565c03b7bb514bad0cecff7d021"
-    sha256 cellar: :any,                 catalina:       "5ec244da200a93b1f6dc7459351f3ab4b2835a975b530f4755d7faa45389c352"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b538c2063295c29c8c5c61c2afcc655d4af2234950f905577834da7623cd4ca2"
+    sha256 cellar: :any,                 arm64_monterey: "71895da3ee0ae93fff96e9dba48afa5609c4b2d2b42102a862da4673605e366c"
+    sha256 cellar: :any,                 arm64_big_sur:  "7fd2cb62de865ab95efc459f40961ac22226f1734ba59f1b9b0317bbd38be072"
+    sha256 cellar: :any,                 monterey:       "7d663c0d68fbaca66bfdaa49f8d20c96ad28806193e0c76c0a28225b6999212a"
+    sha256 cellar: :any,                 big_sur:        "8b3ce92dc8aa8cccbbfdc395c523d2e9309a64d0073fe7c12488d3abc9f7e308"
+    sha256 cellar: :any,                 catalina:       "a0ab488ffe50144343477885b1b76d0a17976c410087600848e664b46cd9458c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac4dcac0b158f6af96b65178da115aaa8dbed80b0912d47039eb89e5d1daf7e8"
   end
 
   depends_on "cmake" => :build
