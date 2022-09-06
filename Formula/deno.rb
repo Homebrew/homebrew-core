@@ -83,9 +83,10 @@ class Deno < Formula
       ENV["FORCE_MAC_SDK_MIN"] = MacOS.version
     end
 
+    python3 = "python3.10"
     # env args for building a release build with our python3, ninja and gn
     ENV.prepend_path "PATH", Formula["python@3.10"].libexec/"bin"
-    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/python3
     ENV["GN"] = buildpath/"gn/out/gn"
     ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
     # build rusty_v8 from source
@@ -96,7 +97,7 @@ class Deno < Formula
 
     resource("gn").stage buildpath/"gn"
     cd "gn" do
-      system "python3", "build/gen.py"
+      system python3, "build/gen.py"
       system "ninja", "-C", "out"
     end
 
