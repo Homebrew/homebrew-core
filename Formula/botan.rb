@@ -44,7 +44,7 @@ class Botan < Formula
       --with-sqlite3
     ]
 
-    system "python3", "configure.py", *args
+    system "python3.10", "configure.py", *args
     system "make", "install"
   end
 
