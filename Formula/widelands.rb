@@ -12,12 +12,12 @@ class Widelands < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "bb327c0a61a6f7d34a49adc7348cfc0612f99388df3a360e642003b6f271cdc2"
-    sha256 arm64_big_sur:  "b271f78a4f64c24649aa7f434875d833db9dc450693851b762d475bd55710ccb"
-    sha256 monterey:       "6841c81de61bf890330d1525f265803e331cb053005fc283a774ad014860da06"
-    sha256 big_sur:        "c871a2c1f34ccb2a392de9096f271736290d7b95f7608c76db072f5a1dd4419e"
-    sha256 catalina:       "696f0dca61b246ecb2e5b50eb3f2be2e89703c0f359136beeae9825fcf1f24e8"
-    sha256 x86_64_linux:   "006b742ffc51ffb20b479c042c1bf62daa7b30cb5aa2ad16386a0f0246b8c1ed"
+    sha256 arm64_monterey: "2e16b0011802b992345db50c775930eda8d4556b3b8f412da7ea52810d4ebbea"
+    sha256 arm64_big_sur:  "7697f542dff17d616555e5976968278dbd4ae49b1ed7cc0cdb05b5e87a2d50f4"
+    sha256 monterey:       "3f7db3068889e5b705d520ab15bb3705474328d62e58febea3590a75ca3e9ccd"
+    sha256 big_sur:        "175f7154f8371717603de77de6da9a5b421fd18fa6af3741edd7ac4a48b86cd0"
+    sha256 catalina:       "202f69205c91984c0b7f6a9b134f996d431ad7334d834068aa78ea2b62555d81"
+    sha256 x86_64_linux:   "1032792700cccdbaa04827dbc6849c309fa75d649f3253bd0c7568a1fd5d6770"
   end
 
   depends_on "cmake" => :build
