@@ -3,8 +3,8 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/sumneko/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/sumneko/lua-language-server.git",
-      tag:      "3.5.3",
-      revision: "dacf711d57cddbf106937abd64f544a9298f3349"
+      tag:      "3.5.4",
+      revision: "efe82edce8af8160c3a6e0977bee935f7f8655d5"
   license "MIT"
   head "https://github.com/sumneko/lua-language-server.git", branch: "master"
 
@@ -48,7 +48,7 @@ class LuaLanguageServer < Formula
     require "pty"
     output = /^Content-Length: \d+\s*$/
 
-    stdout, stdin, lua_ls = PTY.spawn bin/"lua-language-server"
+    stdout, stdin, lua_ls = PTY.spawn bin/"lua-language-server", "--logpath=#{testpath}/log"
     sleep 5
     stdin.write "\n"
     sleep 25
