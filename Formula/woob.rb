@@ -101,16 +101,20 @@ class Woob < Formula
     sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     virtualenv_install_with_resources
 
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python3)
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-woob.pth").write pth_contents
   end
 
   test do
     system bin/"woob", "config", "modules"
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import woob"
+    system Formula["python@3.10"].opt_bin/python3, "-c", "import woob"
   end
 end
