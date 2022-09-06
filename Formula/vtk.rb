@@ -3,7 +3,7 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   license "BSD-3-Clause"
-  revision 6
+  revision 7
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   stable do
@@ -62,7 +62,6 @@ class Vtk < Formula
   end
 
   on_linux do
-    depends_on "gcc"
     depends_on "libaec"
     depends_on "mesa-glu"
   end
