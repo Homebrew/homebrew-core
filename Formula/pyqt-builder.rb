@@ -16,13 +16,16 @@ class PyqtBuilder < Formula
   depends_on "python@3.10"
   depends_on "sip"
 
+  def python3
+    "python3.10"
+  end
+
   def install
-    system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(prefix),
-           "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
+    system Formula["python@3.10"].opt_bin/python3, *Language::Python.setup_install_args(prefix, python3)
   end
 
   test do
     system bin/"pyqt-bundle", "-V"
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import pyqtbuild"
+    system Formula["python@3.10"].opt_bin/python3, "-c", "import pyqtbuild"
   end
 end
