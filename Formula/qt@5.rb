@@ -11,12 +11,12 @@ class QtAT5 < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e37b064c7fe7fc1d0c3a5be70de69211be80fc3ca72d6823e888244ed595f92d"
-    sha256 cellar: :any,                 arm64_big_sur:  "ead12a6fa247706a09548308910b9c67462e3eee7d87b889510f1f228c3c3c63"
-    sha256 cellar: :any,                 monterey:       "5f3b5cd894343416acb2b8596beb4dc63d0ec8728c20a7b07d774de1c4b50615"
-    sha256 cellar: :any,                 big_sur:        "b7aa1ee4202791fa12420802ffdf0367b0e8037ff0024c6cbfc1e9bbfda236fe"
-    sha256 cellar: :any,                 catalina:       "11784f01c72fbd560aa147f85ab6fd942cd8fca74da6f74ff75685c319352d2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c08655ba3a8c3a039b3550a87716004d44730a8dcdd6fad9ca5d608ef5e5ed7e"
+    sha256 cellar: :any,                 arm64_monterey: "886dd5ce9d42b493243dd6acfb19e1df02db721b71a7f763cd6a38e280de13c3"
+    sha256 cellar: :any,                 arm64_big_sur:  "d850b52300c76f43a020e8a8f40f738abda4b7a49c8aa127fd1995ff6d21dae3"
+    sha256 cellar: :any,                 monterey:       "e3d3ea19bd773803ad001f01d28f9e7591eab22f13a2219e58d75bf0c9b580c2"
+    sha256 cellar: :any,                 big_sur:        "b3da3a73a96ad85fb78cc1e7b848ce58e6756be7f2c449b8671146a976f53699"
+    sha256 cellar: :any,                 catalina:       "f5544342b62de9c137383ec54cdb3311fbd3240d9f60c352a55fe42e53408c74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72def3e805136f7892ab754cf7d9d5894b52a263d040a978788644d29adc3e4d"
   end
 
   keg_only :versioned_formula
