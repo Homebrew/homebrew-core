@@ -749,7 +749,7 @@ class AzureCli < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3", system_site_packages: false)
+    venv = virtualenv_create(libexec, "python3.10", system_site_packages: false)
     venv.pip_install resources
 
     # Get the CLI components we'll install
