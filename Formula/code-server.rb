@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.6.0.tgz"
-  sha256 "010ba1b4349730f412c72255f842c56f292d6944c2220e10d7f5b5bf34491f82"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.6.1-1.tgz"
+  sha256 "6c66bbb59e06dc38ded2492af5806e6d1987ec42551ab66fd887231ec874f4b6"
   license "MIT"
 
   bottle do
