@@ -68,17 +68,11 @@ class Readline < Formula
   uses_from_macos "ncurses"
 
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--with-curses" if OS.linux?
-    system "./configure", *args
-
-    args = []
-    args << "SHLIB_LIBS=-lcurses" if OS.linux?
-    # There is no termcap.pc in the base system, so we have to comment out
-    # the corresponding Requires.private line.
-    # Otherwise, pkg-config will consider the readline module unusable.
-    inreplace "readline.pc", /^(Requires.private: .*)$/, "# \\1"
-    system "make", "install", *args
+    system "./configure", "--prefix=#{prefix}", "--with-curses"
+    # TODO: Work out why we need to set `SHLIB_LIBS` at all.
+    #       This is needed only on Linux, and is a no-op on macOS.
+    #       Arch does something similar, but Debian doesn't.
+    system "make", "install", "SHLIB_LIBS=-lncurses"
   end
 
   test do
