@@ -67,7 +67,7 @@ class Vapoursynth < Formula
   end
 
   test do
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import vapoursynth"
+    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import vapoursynth"
     system bin/"vspipe", "--version"
   end
 end
