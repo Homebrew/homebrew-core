@@ -21,7 +21,7 @@ class Bup < Formula
   depends_on "python@3.10"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3.10"
 
     system "make", "PREFIX=#{prefix}", "install"
   end
