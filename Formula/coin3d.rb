@@ -63,6 +63,10 @@ class Coin3d < Formula
     depends_on "mesa-glu"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     # Create an empty directory for cpack to make the build system
     # happy. This is a workaround for a build issue on upstream that
@@ -87,8 +91,7 @@ class Coin3d < Formula
     resource("pivy").stage do
       ENV.append_path "CMAKE_PREFIX_PATH", prefix.to_s
       ENV["LDFLAGS"] = "-Wl,-rpath,#{opt_lib}"
-      system "python3", *Language::Python.setup_install_args(prefix),
-                         "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
+      system python3, *Language::Python.setup_install_args(prefix, python3)
     end
   end
 
@@ -111,12 +114,11 @@ class Coin3d < Formula
     system ENV.cc, "test.cpp", "-L#{lib}", "-lCoin", *opengl_flags, "-o", "test"
     system "./test"
 
-    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
-    ENV.append_path "PYTHONPATH", "#{Formula["pyside@2"].opt_lib}/python#{xy}/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["pyside@2"].opt_prefix/Language::Python.site_packages(python3)
     # Set QT_QPA_PLATFORM to minimal to avoid error:
     # "This application failed to start because no Qt platform plugin could be initialized."
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-    system Formula["python@3.10"].opt_bin/"python3", "-c", <<~EOS
+    system python3, "-c", <<~EOS
       import shiboken2
       from pivy.sogui import SoGui
       assert SoGui.init("test") is not None
