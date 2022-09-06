@@ -5,7 +5,7 @@ class Swiftlint < Formula
       tag:      "0.49.1",
       revision: "57dc1c9532d660ff547dd8ba2176ad82c1175787"
   license "MIT"
-  head "https://github.com/realm/SwiftLint.git", branch: "master"
+  head "https://github.com/realm/SwiftLint.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d983879e2d9ea075bf80e223da5adb258f01d9fab4fc6f71f83c4add80490290"
