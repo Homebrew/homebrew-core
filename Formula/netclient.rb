@@ -6,8 +6,8 @@ class Netclient < Formula
   license "SSPL-1.0"
   head "https://github.com/gravitl/netmaker.git", branch: "master"
 
-  depends_on "wireguard-tools"
   depends_on "go" => :build
+  depends_on "wireguard-tools"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X 'main.version=v#{version}'"), "netclient/main.go"
