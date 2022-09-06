@@ -14,12 +14,12 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "aad4ec5ba5ba331479a55099f0f6b0626e8e281bea21d558d8b7bb603c65acce"
-    sha256 cellar: :any,                 arm64_big_sur:  "312a74f68085ff119e7d6644e21aa955a8329823fed685a11eb3b936d052ec31"
-    sha256 cellar: :any,                 monterey:       "0aa5922dc7646d806eaf8efa8eac78351ab7047dc18ae8367edd1be990a02f0d"
-    sha256 cellar: :any,                 big_sur:        "62587b40e504626594a7df29118cffeab613e52e2448a9e19a53489c4d27768a"
-    sha256 cellar: :any,                 catalina:       "09dc14b8ee059c96fc3ded6f86224dce423b80b8bf71d5ea5ecde01ca8b359d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0dd0ad4470a17f0e7114b622314959e2278e2c884d8d8c43e6d5e381c4da32b7"
+    sha256 cellar: :any,                 arm64_monterey: "68923a6eafab8d61f0e4af4cc464a87c19e25a8b5f25d80c974062d5e5b7c779"
+    sha256 cellar: :any,                 arm64_big_sur:  "d750f5fa03336aa57dd2929e179da3c2535501ba7c21ca5d785b03de14c452b3"
+    sha256                               monterey:       "1c4383b5c82344730574669cfdf0eb3686165bd6e13685d361b8c38018a4ea1d"
+    sha256                               big_sur:        "8292d82ce5bf7111ddd14889304a6880902911d9b4f4ddd850768c3ae2c93c36"
+    sha256                               catalina:       "03be144a864ff9c821f745e1dacf4645329f49e495ee8579a60a71dab13d7223"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62a9293ccdd5b30b32426c322a5dd737a53cba4ed4de1584fb75ca2d1dca9e35"
   end
 
   depends_on "cmake" => :build
