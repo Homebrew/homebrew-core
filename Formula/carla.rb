@@ -47,7 +47,7 @@ class Carla < Formula
     system "make", "install", "PREFIX=#{prefix}"
 
     inreplace bin/"carla", "PYTHON=$(which python3 2>/dev/null)",
-                           "PYTHON=#{Formula["python@3.10"].opt_bin}/python3"
+                           "PYTHON=#{Formula["python@3.10"].opt_bin}/python3.10"
   end
 
   test do
