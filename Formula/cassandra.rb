@@ -52,7 +52,8 @@ class Cassandra < Formula
     (var/"lib/cassandra").mkpath
     (var/"log/cassandra").mkpath
 
-    venv = virtualenv_create(libexec/"vendor", "python3")
+    python3 = "python3.10"
+    venv = virtualenv_create(libexec/"vendor", python3)
     venv.pip_install resources
 
     inreplace "conf/cassandra.yaml", "/var/lib/cassandra", var/"lib/cassandra"
@@ -125,7 +126,7 @@ class Cassandra < Formula
               pkgshare/"cassandra-tools.in.sh"
 
     venv_bin = libexec/"vendor/bin"
-    rw_info = python_shebang_rewrite_info(venv_bin/"python")
+    rw_info = python_shebang_rewrite_info(venv_bin/python3)
     rewrite_shebang rw_info, libexec/"bin/cqlsh.py"
 
     # Make sure tools are available
