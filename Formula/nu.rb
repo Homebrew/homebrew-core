@@ -7,12 +7,10 @@ class Nu < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "bceb7b3b986c2b6861645b7044dae295ee1d0cdeefe1af8990accff06bbac370"
-    sha256 cellar: :any,                 big_sur:      "f99e9ccd7919c4e2058299e3c545c26ac2fca23a241550fd306afcee6c790d98"
-    sha256 cellar: :any,                 catalina:     "d785730e9226dbfe78513a268657bfa50bacd5427b8779f838d00f1c312cc2a8"
-    sha256 cellar: :any,                 mojave:       "a3e605c8fca139258b5b5d49f85ac4d57a781017ae0deac8096a74d491219121"
-    sha256 cellar: :any,                 high_sierra:  "119f4f3eed1bf677c4e8d0248bd4d042d6c7333d21e6442b90440504bb2e276a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3f11c4023a9a1b16f8528aeff1d0c40c627e6f7d1d6b0df8a229cd8f448538e8"
+    sha256 cellar: :any,                 monterey:     "a2a1bdb6473b6afd30cde5def27158415fb38f92851b8a252498631f7e2f350d"
+    sha256 cellar: :any,                 big_sur:      "bde3090df08b5cf2a6038aab4b80daf3981fcf2d7cb19653a8bb507eb5a2349a"
+    sha256 cellar: :any,                 catalina:     "4cace319187e0c057a0437dd17f83022e9e5ac20f478cc317fd2be8b2ca8c2ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1413e8674c855798fc973e5f9a00af4575e6fece5427e1f16b8814e40c338cf2"
   end
 
   depends_on "pcre"
