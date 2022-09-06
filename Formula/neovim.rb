@@ -3,15 +3,25 @@ class Neovim < Formula
   homepage "https://neovim.io/"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/neovim/neovim.git", branch: "master"
 
   # Remove `stable` block when `gperf` is no longer needed.
   stable do
     url "https://github.com/neovim/neovim/archive/v0.7.2.tar.gz"
     sha256 "ccab8ca02a0c292de9ea14b39f84f90b635a69282de38a6b4ccc8565bc65d096"
+
+    # Libtool is needed to build `libvterm`.
+    # Remove this dependency when we use the formula.
+    depends_on "libtool" => :build
     # GPerf was removed in https://github.com/neovim/neovim/pull/18544.
     # Remove dependency when relevant commits are in a stable release.
     uses_from_macos "gperf" => :build
+
+    # TODO: Use `libvterm` formula when the following is released:
+    # https://github.com/neovim/neovim/pull/17329
+    resource "libvterm" do
+      url "https://www.leonerd.org.uk/code/libvterm/libvterm-0.1.4.tar.gz"
+      sha256 "bc70349e95559c667672fc8c55b9527d9db9ada0fb80a3beda533418d782d3dd"
+    end
   end
 
   livecheck do
@@ -29,10 +39,13 @@ class Neovim < Formula
     sha256 x86_64_linux:   "be762f679f83c41fb982d32f067229ca3480f991fdcbc7b15147fdef932312a1"
   end
 
+  # Remove `head` block when `stable` depends on `libvterm`.
+  head do
+    url "https://github.com/neovim/neovim.git", branch: "master"
+    depends_on "libvterm"
+  end
+
   depends_on "cmake" => :build
-  # Libtool is needed to build `libvterm`.
-  # Remove this dependency when we use the formula.
-  depends_on "libtool" => :build
   depends_on "luarocks" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
@@ -48,13 +61,6 @@ class Neovim < Formula
 
   on_linux do
     depends_on "libnsl"
-  end
-
-  # TODO: Use `libvterm` formula when the following is resolved:
-  # https://github.com/neovim/neovim/pull/16219
-  resource "libvterm" do
-    url "https://www.leonerd.org.uk/code/libvterm/libvterm-0.1.4.tar.gz"
-    sha256 "bc70349e95559c667672fc8c55b9527d9db9ada0fb80a3beda533418d782d3dd"
   end
 
   # Keep resources updated according to:
@@ -98,10 +104,12 @@ class Neovim < Formula
         end
       end
 
-      # Build libvterm. Remove when we use the formula.
-      cd "libvterm" do
-        system "make", "install", "PREFIX=#{buildpath}/deps-build", "LDFLAGS=-static #{ENV.ldflags}"
-        ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"deps-build/lib/pkgconfig"
+      if build.stable?
+        # Build libvterm. Remove when we use the formula.
+        cd "libvterm" do
+          system "make", "install", "PREFIX=#{buildpath}/deps-build", "LDFLAGS=-static #{ENV.ldflags}"
+          ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"deps-build/lib/pkgconfig"
+        end
       end
     end
 
