@@ -8,12 +8,12 @@ class Apngasm < Formula
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "80b90951415a88eff1da221b4826a2f1511fa5322ba04c449f3aeec393e0999b"
-    sha256 cellar: :any,                 arm64_big_sur:  "d4bbbe2f3dce2bf221ee011f7f192ca1b5c2e1440214bc0105d09a0c0be356bd"
-    sha256 cellar: :any,                 monterey:       "2cfe286cfa16d59d200bb5b1b5f37afa66d01e270c976cc179f82dc70e6e1fe5"
-    sha256 cellar: :any,                 big_sur:        "4b7399bdb7991330dee6a26a00ee1ec58e6074895b026fda608950b0372525d7"
-    sha256 cellar: :any,                 catalina:       "bcba805553ae564c117609755b2f4c3e06f1c23579430505fa89fda8c126c06c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "428941624e3fc27d7ac937ac7eaa016724abafa63119969b01bfd4159421cbba"
+    sha256 cellar: :any,                 arm64_monterey: "417ef627abddb455da5fda0eb6615b1c23fe0b0fe6f2920cffa6eb73f0a7930e"
+    sha256 cellar: :any,                 arm64_big_sur:  "b20fcddf36955cc5233687bb2090f95877970501f63569c5b0cae6f743063373"
+    sha256 cellar: :any,                 monterey:       "d44e728d2f8000e6e46ad8f231f047cc21da5be3f2734faf043fe54d92f24c2c"
+    sha256 cellar: :any,                 big_sur:        "973092d55f2cdc1e30030c73c6f90b5ab5622f4c63e285233aaeff73f05fc690"
+    sha256 cellar: :any,                 catalina:       "c576196db665297b539c284175b7fc76e04d7b2e71d64602e3d81259331e8193"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5308106ba734492bd70672e601539937771e254ec43c0ca747fe30245d53a71"
   end
 
   depends_on "cmake" => :build
