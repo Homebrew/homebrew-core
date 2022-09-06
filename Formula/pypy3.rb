@@ -1,10 +1,17 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.7-v7.3.9-src.tar.bz2"
-  sha256 "70426163b194ee46009986eea6d9426098a3ffb552d9cdbd3dfaa64a47373f49"
   license "MIT"
-  head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.7"
+  head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.8"
+
+  stable do
+    # M1 support is planned to be included in the next release
+    # See https://www.pypy.org/posts/2022/07/m1-support-for-pypy.html
+    depends_on arch: :x86_64
+
+    url "https://downloads.python.org/pypy/pypy3.8-v7.3.9-src.tar.bz2"
+    sha256 "5b5d9d9256f12a129af8384e2f581bdfab3bc0fbbe3a0a480d9c1d2e95490eb1"
+  end
 
   livecheck do
     url "https://downloads.python.org/pypy/"
@@ -20,7 +27,6 @@ class Pypy3 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "pypy" => :build
-  depends_on arch: :x86_64
   depends_on "gdbm"
   depends_on "openssl@1.1"
   depends_on "sqlite"
@@ -100,7 +106,7 @@ class Pypy3 < Formula
     # we want to avoid putting PyPy's Python.h somewhere that configure
     # scripts will find it.
     bin.install_symlink libexec/"bin/pypy3"
-    bin.install_symlink libexec/"bin/pypy" => "pypy3.7"
+    bin.install_symlink libexec/"bin/pypy" => "pypy3.8"
     lib.install_symlink libexec/"lib/#{shared_library("libpypy3-c")}"
 
     # Delete two files shipped which we do not want to deliver
