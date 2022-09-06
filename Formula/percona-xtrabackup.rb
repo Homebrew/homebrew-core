@@ -11,12 +11,12 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "fc54dad62178c3c7b905d58d103574e8209ce5c12addaacfe817d7086822883d"
-    sha256 arm64_big_sur:  "c86acf9edab9e497ceee26dc70a9e7cec820bd81903e7074ed87a59dfaf0c2d6"
-    sha256 monterey:       "a7a25a2c842e82fa003bc9297eabda944501aae4ac02bd696b681717516e9cc4"
-    sha256 big_sur:        "996b08da75765b490125b274551d1d6d46937404837740e67c6b644c763c47a1"
-    sha256 catalina:       "bfc482b2e3d06afef7d33868fd5351ebf118057c7f15d105d8b49ad1e206db47"
-    sha256 x86_64_linux:   "e61bac4b38a30e37180bd2235d3ee7f924a06e77b29fa53086385e9efbd50014"
+    sha256 arm64_monterey: "d9a7df183adbf0b110a8ee77f3c1b63fc2cecd9396abd6f3e501b3844d9e9237"
+    sha256 arm64_big_sur:  "8fd06340af32fa1cdb683a58e6349c42054b1d84ddfdc103958c751d3093e45b"
+    sha256 monterey:       "bcc90c168eb91de14eaccdd378863f86b4811abef2fb95b4f8a97c2c99530ae3"
+    sha256 big_sur:        "9899079ceeea9a760f164942bd908603ef70f24abf845da9dec297bc562fe61c"
+    sha256 catalina:       "cea653756f8e0efd3d5d968eb0bcf63c89176b4b0dc8a05ebb78ac41d4aff28b"
+    sha256 x86_64_linux:   "31955d893cd0a25c7d19e3815979117ec0dc900aa4d2a6b5b2d68cb060bcd7ac"
   end
 
   depends_on "cmake" => :build
