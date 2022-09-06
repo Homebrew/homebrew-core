@@ -26,8 +26,8 @@ class Polynote < Formula
   end
 
   def install
-    site_packages = libexec/"vendor"/Language::Python.site_packages("python3")
-    ENV.prepend_create_path "PYTHONPATH", site_packages
+    python3 = "python3.10"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages(python3)
 
     with_env(JAVA_HOME: Language::Java.java_home) do
       resource("jep").stage do
@@ -37,8 +37,7 @@ class Polynote < Formula
           ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["openjdk"].libexec}/lib/server"
         end
 
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor"),
-                          "--install-lib=#{site_packages}"
+        system python3, *Language::Python.setup_install_args(libexec/"vendor", python3)
       end
     end
 
