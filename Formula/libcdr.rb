@@ -12,12 +12,12 @@ class Libcdr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1cd7f98c2ed9c75d64d62587f7957698afab80c4d729e273c56ea16d34fbecd3"
-    sha256 cellar: :any,                 arm64_big_sur:  "5d9393327ba3a8153d2a543377b60a5b121d368c9cc0a1471ff797691b8881b2"
-    sha256 cellar: :any,                 monterey:       "62e0c275e354b6fe98abfe16c895032d8438104f5ddeff70e66b9bc4d61a0ced"
-    sha256 cellar: :any,                 big_sur:        "2757bc8bbcb63a596f652edef9528b62f5d4b7e188c4b9bdb4c527fbb1a4aaa6"
-    sha256 cellar: :any,                 catalina:       "32cd06182f7b3272eb891e0a632ff2fa06f8e9611b80cfce5e5a8577ad216755"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59f662d6f647cd5d2115b48e59f999e474f5c825fb1811735f3d33a62f4baf31"
+    sha256 cellar: :any,                 arm64_monterey: "d989d83c9a258d96ac00a54a25a7b71c2cc3fde0c79d7c265ad92f856c4965b9"
+    sha256 cellar: :any,                 arm64_big_sur:  "f81e9a7ceeaaa6d1fca79a35c1a6c8f1d082e710d5563ab4cd5fb71b38e5ad8d"
+    sha256 cellar: :any,                 monterey:       "b15778df4e7ada6bd037466bf5ce04ac7d598dd9beafa00d7fdd59c0f023aa77"
+    sha256 cellar: :any,                 big_sur:        "09cf51a1689edb6f7c3114dd02462e3076ffc81ddd91b2200fbcd49644a26d8f"
+    sha256 cellar: :any,                 catalina:       "3f609d4dd59bf7bba036003ab23c99bfe91768bd55a4ced75e94cb1bcc947ec6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab941fc0fe3c07b68d2ede656e338c948a14bd1fd268a4240ab294b9d7df5876"
   end
 
   depends_on "cppunit" => :build
