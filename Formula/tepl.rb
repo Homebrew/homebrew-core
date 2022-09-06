@@ -8,12 +8,12 @@ class Tepl < Formula
   revision 1
 
   bottle do
-    sha256 arm64_monterey: "7d56f260b4611183b3fc7b01fa1f28bacb42a82f0b719ca9c2a1ca64b5ce9d85"
-    sha256 arm64_big_sur:  "2c8df9d1f47f82511b50b3dd0bcfe9c88f50f3320ddbd6a035b4a6f7b0892f87"
-    sha256 monterey:       "b5648b6a9896189fe4c9d03121b793b34e1f3e6b2b778904d935607791799348"
-    sha256 big_sur:        "1cb57e720dc1dac92b54d56baad192550c2d397572d1ef7eda63fa85bda90168"
-    sha256 catalina:       "148d63d57bfdb37c4f7862581960c6df83ef6b5c87f95adfc10fa6847ed3ff73"
-    sha256 x86_64_linux:   "869fd24987a560c0ccb3bf06535cbdadcd921fc4905eaa3fd1b9d8586c7b65a9"
+    sha256 arm64_monterey: "07940e3b541b093e135209af85e1ddd789c11017a47f0fb678bc5ac00aa18407"
+    sha256 arm64_big_sur:  "539dc3dd69c7b6d4f25ed7c4dc2370327c51f61f52062e58243e88421345ff06"
+    sha256 monterey:       "4cdfae729a09db4baa0ba34b48f6586bfec57910dd0ba6f0265e38408ff66c29"
+    sha256 big_sur:        "9b33524b90c42436a431ce54b22f8165db29efac4d4f31b669cdb90a73461043"
+    sha256 catalina:       "48a87f65d0c693c7ef36694a10e329c2e0a6a76f85a023ca18301ea6cb874d54"
+    sha256 x86_64_linux:   "b2bcdcf44555d49b6f85b40f439d07aaf252fcc1f52187f402b0b46d9f4446bd"
   end
 
   depends_on "gobject-introspection" => :build
