@@ -13,12 +13,12 @@ class Couchdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2fab358208981deafd146d0c49f3e533a06bb412a4d02d5d7afa5e828e89df57"
-    sha256 cellar: :any,                 arm64_big_sur:  "0fcb0bf58416bb2ad58e578ea70e63982de166a6645e9370733191729a2375a6"
-    sha256 cellar: :any,                 monterey:       "475a734c8519a6cd0982b008e234a7b6ddc15caec38a8ce4ed14b0510464573d"
-    sha256 cellar: :any,                 big_sur:        "73ba80635c07e059358000befd3065dca3b6e4d9bac445b34f54af645316bcc9"
-    sha256 cellar: :any,                 catalina:       "8f6a375c94f538db7bc63228bbf6c832c8bdd063b26b214ee13822ce0ae28cc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8804f85eb24a94f2e5168ed8eb70f1b3cf6850fb2554d9cac95b68284586416"
+    sha256 cellar: :any,                 arm64_monterey: "ddb892cb6f2a02d4d1e5d6630aed89a48b6686c3381ce5a6349ed7c3e839be61"
+    sha256 cellar: :any,                 arm64_big_sur:  "b6f4d442b6d2fcaf448d1af0c9b3810c411952fb6e070dffdce23fae741bc0ae"
+    sha256 cellar: :any,                 monterey:       "e14a6b5f93a966a14ebd70615958f3d46421169a2782647e3b9932b64f3a6fd1"
+    sha256 cellar: :any,                 big_sur:        "4d90068a7d02af344f2a809ff3e913b297b7990b9ccaf3df3f6f3d56d4962b4c"
+    sha256 cellar: :any,                 catalina:       "3aca18a0ea3cb5b4728b79d4ddc3bbb2d2e2e617606f3a056119d57b20bec450"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b26f1923046f7c0bfce8c328dcff24add7a47482a2a40d0a3aabb30024bff4c"
   end
 
   depends_on "autoconf" => :build
