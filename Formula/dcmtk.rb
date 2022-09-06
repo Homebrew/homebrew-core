@@ -1,7 +1,7 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
   homepage "https://dicom.offis.de/dcmtk.php.en"
-  revision 1
+  revision 2
   head "https://git.dcmtk.org/dcmtk.git", branch: "master"
 
   stable do
@@ -13,7 +13,7 @@ class Dcmtk < Formula
     # TODO: Remove in the next release along with stable block
     patch do
       url "https://git.dcmtk.org/?p=dcmtk.git;a=patch;h=5fba853b6f7c13b02bed28bd9f7d3f450e4c72bb"
-      sha256 "533cfe46414f6c76dcdf56fd9633a399f813707a0cb8fe2630126cbd747134c8"
+      sha256 "189966c15406898d4a38f49d76806356378ee51557dff114420d7ae897ad17d6"
     end
   end
 
