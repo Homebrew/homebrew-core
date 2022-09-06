@@ -36,7 +36,7 @@ class CodeServer < Formula
     (prebuilds/"darwin-x64").rmtree if Hardware::CPU.arm?
     (prebuilds/"darwin-arm64").rmtree if Hardware::CPU.intel?
     libexec.install Dir["*"]
-    env = { PATH: "#{HOMEBREW_PREFIX}/opt/node/bin:$PATH" }
+    env = { PATH: "#{node.opt_bin}:$PATH" }
     (bin/"code-server").write_env_script "#{libexec}/out/node/entry.js", env
   end
 
