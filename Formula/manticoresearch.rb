@@ -20,12 +20,12 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "06bebc9c1ac2ca722dda99885d5157dfaf369311d5fee875746f08aadea40028"
-    sha256 arm64_big_sur:  "50d35bf3d23482bb5b8667d4017c030b2635f2fcc3f1a5dc82e3f738382d7ac9"
-    sha256 monterey:       "360caa77c18f7578c09d28a537f80708ffbc5b07f2481deac1ae4175de5e105d"
-    sha256 big_sur:        "170351c742a0942ac1c56108c8d58feef9ccca906cba72316e887c6eb8c875c1"
-    sha256 catalina:       "7698255e8b7e7781402b3ff2e3168f6f26f60beb994a01ce6864ed067228a8bc"
-    sha256 x86_64_linux:   "609611a0c37c36f012ab85034e3bed51ca3b53e378ffb2de0e121b534a374fc1"
+    sha256 arm64_monterey: "0d31819a20010dd00d54cd895a1b9afc7da46fbb6d7650b83f1d6388676d8583"
+    sha256 arm64_big_sur:  "da661fd25ac664003e7ebe7837ea6f1904884b8926e3365fd424e9b4a04b52c8"
+    sha256 monterey:       "bf3d26100dc52e4db781a92dd78da63486e1f0ab1b61845ae08c46fe68a1cef6"
+    sha256 big_sur:        "697b60f5f866ef32d24225286bf6a87da48481359b93a858b8806f2cdf832d81"
+    sha256 catalina:       "9546799a9aefe73f36368839ae8d00c31c4aca4046771cf72e327063b6c420c8"
+    sha256 x86_64_linux:   "ce6a2f0ce1bd4dabc0eb3dedff7b5ba24a7351a4d6318e424b2a9253459cf6f0"
   end
 
   depends_on "boost" => :build
