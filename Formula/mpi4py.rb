@@ -19,19 +19,22 @@ class Mpi4py < Formula
   depends_on "open-mpi"
   depends_on "python@3.10"
 
-  def install
-    system "python3", *Language::Python.setup_install_args(libexec),
-                      "--install-lib=#{libexec/Language::Python.site_packages("python3")}"
+  def python3
+    "python3.10"
+  end
 
-    system "python3", "setup.py",
-                      "build", "--mpicc=mpicc -shared", "--parallel=#{ENV.make_jobs}",
-                      "install", "--prefix=#{prefix}",
-                      "--single-version-externally-managed", "--record=installed.txt",
-                      "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
+  def install
+    system python3, *Language::Python.setup_install_args(libexec, python3)
+
+    system python3, "setup.py",
+                    "build", "--mpicc=mpicc -shared", "--parallel=#{ENV.make_jobs}",
+                    "install", "--prefix=#{prefix}",
+                    "--single-version-externally-managed", "--record=installed.txt",
+                    "--install-lib=#{prefix/Language::Python.site_packages(python3)}"
   end
 
   test do
-    python = Formula["python@3.10"].opt_bin/"python3"
+    python = Formula["python@3.10"].opt_bin/python3
 
     system python, "-c", "import mpi4py"
     system python, "-c", "import mpi4py.MPI"
