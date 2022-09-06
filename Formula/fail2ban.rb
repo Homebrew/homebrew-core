@@ -45,8 +45,9 @@ class Fail2ban < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3")
-    ENV["PYTHON"] = which("python3")
+    python3 = "python3.10"
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
+    ENV["PYTHON"] = which(python3)
 
     rm "setup.cfg"
     Dir["config/paths-*.conf"].each do |r|
@@ -98,9 +99,7 @@ class Fail2ban < Formula
     inreplace "setup.py", "platform_system in ('linux',", "platform_system in ('linux', 'darwin',"
 
     system "./fail2ban-2to3"
-    system "python3", *Language::Python.setup_install_args(libexec),
-                      "--install-lib=#{libexec/Language::Python.site_packages("python3")}",
-                      "--without-tests"
+    system python3, *Language::Python.setup_install_args(libexec, python3), "--without-tests"
 
     cd "doc" do
       system "make", "dirhtml", "SPHINXBUILD=sphinx-build"
