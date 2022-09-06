@@ -41,16 +41,15 @@ class Sip < Formula
   end
 
   def install
-    python = Formula["python@3.10"]
-    venv = virtualenv_create(libexec, python.bin/"python3")
+    python3 = "python3.10"
+    venv = virtualenv_create(libexec, python3)
     resources.each do |r|
       venv.pip_install r
     end
 
-    system python.bin/"python3", *Language::Python.setup_install_args(prefix),
-                                 "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
+    system python3, *Language::Python.setup_install_args(prefix, python3)
 
-    site_packages = Language::Python.site_packages(python)
+    site_packages = Language::Python.site_packages(python3)
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-sip.pth").write pth_contents
   end
