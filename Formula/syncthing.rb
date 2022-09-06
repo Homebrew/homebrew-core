@@ -1,8 +1,8 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
-  url "https://github.com/syncthing/syncthing/archive/v1.20.4.tar.gz"
-  sha256 "0a2a26188d30bcb92a14c7f795790df9f44157118248dc4c9faca42967ce7ce7"
+  url "https://github.com/syncthing/syncthing/archive/v1.21.0.tar.gz"
+  sha256 "ea7506249b407da930fdf8c7ce5f2f74940a2ad20f57d58b1b36d2b63aeebe69"
   license "MPL-2.0"
   head "https://github.com/syncthing/syncthing.git", branch: "main"
 
@@ -20,9 +20,7 @@ class Syncthing < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "13d8b93233ba1ed97f2c5e0c66d3915ff3c736573c2a9fc80db81a40fe1d427e"
   end
 
-  # Required lucas-clemente/quic-go >= 0.28
-  # Try to switch to the latest go on the next release
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     build_version = build.head? ? "v0.0.0-#{version}" : "v#{version}"
