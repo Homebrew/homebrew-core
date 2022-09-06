@@ -8,12 +8,12 @@ class Liblcf < Formula
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "35a263d892d4bbde6669efaa33eef17676a038add327c38f230dea635e294a8e"
-    sha256 cellar: :any,                 arm64_big_sur:  "2bc63c7a01e2dca4b6e701be0f696c2aff0da5e451e0ffed456a37ffd9507129"
-    sha256 cellar: :any,                 monterey:       "b1824bb8df43c238e9ea5717b3cf34a4083ac4104565ede72b61313c32c05821"
-    sha256 cellar: :any,                 big_sur:        "86d3d392e551484d23cbba9ada5069984f4213ca486ca4980f65375f8e03faa9"
-    sha256 cellar: :any,                 catalina:       "9fb8b516f6420faf872102d14c6e6085a14f382b1aef5de71952b88650bf66ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a10abcb630c5b44108dff330404ed34b57a5af31ebda4d6a2582e391b8dce4e"
+    sha256 cellar: :any,                 arm64_monterey: "68e94e4f58730ea5e6c9feeeea014c1bb698473749280327cc2aafa402e46cd1"
+    sha256 cellar: :any,                 arm64_big_sur:  "c53896d6203b499b21cfe49e23b8f9c8b8e9821f6fa15507e612ef4cc1d9be39"
+    sha256 cellar: :any,                 monterey:       "78dc57cba649af4c239fdb76883bb01e810511072cfaec1724d9ad5548392749"
+    sha256 cellar: :any,                 big_sur:        "f4e5fcf1451d07aa37cf64b068a76b2b7eb6c0c7eb4cfc67f76cd906a82494ac"
+    sha256 cellar: :any,                 catalina:       "dbaa6069c2a9b1e2991e718e02c54fcf47ac369db007030b1f5123028beb4e52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40f199d20953a9bb89a29829807573fe4ebcdd3ff6b3bc22b90ed8fce2cf26cb"
   end
 
   depends_on "cmake" => :build
