@@ -28,6 +28,10 @@ class Scipy < Formula
 
   fails_with gcc: "5"
 
+  def python3
+    "python3.10"
+  end
+
   def install
     openblas = Formula["openblas"]
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
@@ -45,14 +49,14 @@ class Scipy < Formula
 
     Pathname("site.cfg").write config
 
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python3)
     ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
     ENV.prepend_path "PYTHONPATH", Formula["pythran"].opt_libexec/site_packages
     ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
     ENV.prepend_create_path "PYTHONPATH", site_packages
 
-    system "python3", "setup.py", "build", "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
-    system "python3", *Language::Python.setup_install_args(prefix)
+    system python3, "setup.py", "build", "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
+    system python3, *Language::Python.setup_install_args(prefix, python3)
   end
 
   # cleanup leftover .pyc files from previous installs which can cause problems
@@ -62,6 +66,6 @@ class Scipy < Formula
   end
 
   test do
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import scipy"
+    system python3, "-c", "import scipy"
   end
 end
