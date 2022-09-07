@@ -35,9 +35,9 @@ class Liblouis < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+    python3 = "python3.10"
     cd "python" do
-      system "python3", *Language::Python.setup_install_args(prefix),
-                        "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
+      system python3, *Language::Python.setup_install_args(prefix, python3)
     end
     mkdir "#{prefix}/tools"
     mv "#{bin}/lou_maketable", "#{prefix}/tools/", force: true
