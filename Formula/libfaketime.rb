@@ -26,8 +26,17 @@ class Libfaketime < Formula
   end
 
   test do
-    cp "/bin/date", testpath/"date" # Work around SIP.
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      #include <time.h>
+
+      int main(void) {
+        printf("%d\\n",(int)time(NULL));
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-o", "test"
     assert_match "1230106542",
-      shell_output(%Q(TZ=UTC #{bin}/faketime -f "2008-12-24 08:15:42" #{testpath}/date +%s)).strip
+      shell_output(%Q(#{bin}/faketime -f "2008-12-24 08:15:42" ./test)).strip
   end
 end
