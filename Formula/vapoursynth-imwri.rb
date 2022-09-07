@@ -44,7 +44,7 @@ class VapoursynthImwri < Formula
     python = Formula["vapoursynth"].deps
                                    .find { |d| d.name.match?(/^python@\d\.\d+$/) }
                                    .to_formula
-                                   .opt_bin/"python3"
+                                   .opt_libexec/"bin/python"
     system python, "-c", "from vapoursynth import core; core.imwri"
   end
 end
