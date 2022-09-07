@@ -36,10 +36,6 @@ class Semgrep < Formula
 
   uses_from_macos "rsync" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "attrs" do
