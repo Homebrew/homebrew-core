@@ -3,6 +3,7 @@ class Udis86 < Formula
   homepage "https://udis86.sourceforge.io"
   url "https://downloads.sourceforge.net/project/udis86/udis86/1.7/udis86-1.7.2.tar.gz"
   sha256 "9c52ac626ac6f531e1d6828feaad7e797d0f3cce1e9f34ad4e84627022b3c2f4"
+  license "BSD-2-Clause"
   revision 1
 
   livecheck do
