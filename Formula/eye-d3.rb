@@ -59,11 +59,12 @@ class EyeD3 < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    python3 = "python3.10"
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
     bin_before = Dir[libexec/"bin/*"].to_set
-    system libexec/"bin/python3", *Language::Python.setup_install_args(libexec)
+    system libexec/"bin"/python3, *Language::Python.setup_install_args(libexec, python3)
     bin.install_symlink (Dir[libexec/"bin/*"].to_set - bin_before).to_a
     share.install Dir["docs/*"]
   end
