@@ -57,11 +57,15 @@ class Pyqt < Formula
     sha256 "c3d1f5527b4b15f44102d617c59b1d74d9af50f821629e9335f13df47de8f007"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     # HACK: there is no option to set the plugindir
     inreplace "project.py", "builder.qt_configuration['QT_INSTALL_PLUGINS']", "'#{share}/qt/plugins'"
 
-    site_packages = prefix/Language::Python.site_packages("python3")
+    site_packages = prefix/Language::Python.site_packages(python3)
     args = %W[
       --target-dir #{site_packages}
       --scripts-dir #{bin}
@@ -70,8 +74,7 @@ class Pyqt < Formula
     system "sip-install", *args
 
     resource("PyQt6-sip").stage do
-      system "python3", *Language::Python.setup_install_args(prefix),
-                        "--install-lib=#{prefix/Language::Python.site_packages("python3")}"
+      system python3, *Language::Python.setup_install_args(prefix, python3)
     end
 
     resources.each do |r|
@@ -91,7 +94,7 @@ class Pyqt < Formula
     system bin/"pyuic#{version.major}", "-V"
     system bin/"pylupdate#{version.major}", "-V"
 
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
+    system Formula["python@3.10"].opt_bin/python3, "-c", "import PyQt#{version.major}"
     pyqt_modules = %w[
       3DAnimation
       3DCore
@@ -111,6 +114,6 @@ class Pyqt < Formula
     ]
     # Don't test WebEngineCore bindings on macOS if the SDK is too old to have built qtwebengine in qt.
     pyqt_modules << "WebEngineCore" if OS.linux? || DevelopmentTools.clang_build_version > 1200
-    pyqt_modules.each { |mod| system Formula["python@3.10"].opt_bin/"python3", "-c", "import PyQt#{version.major}.Qt#{mod}" }
+    pyqt_modules.each { |mod| system Formula["python@3.10"].opt_bin/python3, "-c", "import PyQt#{version.major}.Qt#{mod}" }
   end
 end
