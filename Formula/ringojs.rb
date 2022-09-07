@@ -1,8 +1,8 @@
 class Ringojs < Formula
   desc "CommonJS-based JavaScript runtime"
   homepage "https://ringojs.org"
-  url "https://github.com/ringo/ringojs/releases/download/v3.0.0/ringojs-3.0.0.tar.gz"
-  sha256 "7f37388f5c0f05deec29c429151478a3758510566707bc0baf91f865126ca526"
+  url "https://github.com/ringo/ringojs/releases/download/v4.0.0/ringojs-4.0.0.tar.gz"
+  sha256 "9aea219fc6b4929a7949a34521cb96207073d29aa88f89f9a8833e31e84b14d5"
   license "Apache-2.0"
 
   livecheck do
@@ -19,14 +19,14 @@ class Ringojs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b5975c01f8c0407cdbfb815fb7535f9cb008b2dd141446c10f167714bd88f6e"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   def install
     rm Dir["bin/*.cmd"]
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
     env = { RINGO_HOME: libexec }
-    env.merge! Language::Java.overridable_java_home_env("11")
+    env.merge! Language::Java.overridable_java_home_env("17")
     bin.env_script_all_files libexec/"bin", env
   end
 
