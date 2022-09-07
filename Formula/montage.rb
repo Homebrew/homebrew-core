@@ -1,8 +1,8 @@
 class Montage < Formula
   desc "Toolkit for assembling FITS images into custom mosaics"
   homepage "http://montage.ipac.caltech.edu"
-  url "http://montage.ipac.caltech.edu/download/Montage_v4.0.tar.gz"
-  sha256 "de143e4d4b65086f04bb75cf482dfa824965a5a402f3431f9bceb395033df5fe"
+  url "http://montage.ipac.caltech.edu/download/Montage_v6.0.tar.gz"
+  sha256 "1f540a7389d30fcf9f8cd9897617cc68b19350fbcde97c4d1cdc5634de1992c6"
   license "BSD-3-Clause"
   head "https://github.com/Caltech-IPAC/Montage.git", branch: "main"
 
