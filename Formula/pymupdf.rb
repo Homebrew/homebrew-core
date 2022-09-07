@@ -28,6 +28,10 @@ class Pymupdf < Formula
     depends_on "openjpeg"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     if OS.linux?
       ENV.append_path "CPATH", Formula["mupdf"].include/"mupdf"
@@ -38,7 +42,7 @@ class Pymupdf < Formula
     # https://github.com/pymupdf/PyMuPDF/blob/1.20.0/setup.py#L447
     ENV["PYMUPDF_SETUP_MUPDF_BUILD"] = ""
 
-    system "python3", *Language::Python.setup_install_args(prefix), "build"
+    system python3, *Language::Python.setup_install_args(prefix, python3), "build"
   end
 
   test do
@@ -62,7 +66,7 @@ class Pymupdf < Formula
     in_pdf = test_fixtures("test.pdf")
     out_png = testpath/"test.png"
 
-    system Formula["python@3.10"].opt_bin/"python3", testpath/"test.py", in_pdf, out_png
+    system python3, testpath/"test.py", in_pdf, out_png
     assert_predicate out_png, :exist?
   end
 end
