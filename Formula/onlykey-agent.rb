@@ -193,10 +193,11 @@ class OnlykeyAgent < Formula
   end
 
   def install
+    python3 = "python3.10"
     # prevent "fatal error: libusb.h: No such file or directory" when building hidapi on linux
     ENV.append_to_cflags "-I#{Formula["libusb"].include}/libusb-1.0"
     # replacement for virtualenv_install_with_resources per https://docs.brew.sh/Python-for-Formula-Authors
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, python3)
     # build hidapi
     resource("hidapi").stage do
       # monkey patch hidapi's include paths to be the homebrew-installed path instead
@@ -206,14 +207,14 @@ class OnlykeyAgent < Formula
         s.gsub! "/usr/include/libusb-1.0", "#{Formula["libusb"].opt_include}/libusb-1.0"
         s.gsub! "/usr/include/hidapi", "#{Formula["hidapi"].opt_include}/hidapi"
       end
-      system libexec/"bin/python3", *Language::Python.setup_install_args(libexec), "--with-system-hidapi"
+      system python3, *Language::Python.setup_install_args(libexec, python3), "--with-system-hidapi"
     end
     # now have pip build other resources except hidapi:
     venv.pip_install resources.reject { |r| r.name == "hidapi" }
     venv.pip_install_and_link buildpath
 
     # add path configuration file to find cython
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python3)
     pth_contents = <<~EOS
       import site; site.addsitedir('#{Formula["libcython"].opt_libexec/site_packages}')
     EOS
