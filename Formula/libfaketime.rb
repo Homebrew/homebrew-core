@@ -36,6 +36,6 @@ class Libfaketime < Formula
       }
     EOS
     system ENV.cc, "test.c", "-o", "test"
-    assert_match "1230106542", shell_output("#{bin}/faketime -f '2008-12-24 08:15:42' ./test").strip
+    assert_match "1230106542", shell_output("TZ=UTC #{bin}/faketime -f '2008-12-24 08:15:42' ./test").strip
   end
 end
