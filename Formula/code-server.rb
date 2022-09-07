@@ -29,8 +29,8 @@ class CodeServer < Formula
 
   def install
     node = Formula["node@16"]
-    system "npm", "install", *Language::Node.local_npm_install_args , "--unsafe-perm", "--omit", "dev"
-     # @parcel/watcher bundles all binaries for other platforms & architectures
+    system "npm", "install", *Language::Node.local_npm_install_args, "--unsafe-perm", "--omit", "dev"
+    # @parcel/watcher bundles all binaries for other platforms & architectures
     # This deletes the non-matching architecture otherwise brew audit will complain.
     prebuilds = buildpath/"lib/vscode/node_modules/@parcel/watcher/prebuilds"
     (prebuilds/"darwin-x64").rmtree if Hardware::CPU.arm?
