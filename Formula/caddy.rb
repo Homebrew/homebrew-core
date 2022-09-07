@@ -28,6 +28,8 @@ class Caddy < Formula
     resource("xcaddy").stage do
       system "go", "run", "cmd/xcaddy/main.go", "build", revision, "--output", bin/"caddy"
     end
+
+    generate_completions_from_executable("go", "run", "cmd/caddy/main.go", "completion")
   end
 
   service do
