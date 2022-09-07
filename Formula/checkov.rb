@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/5c/35/5e4ac0b53247e6a6ffcd0b3e56fb258acd9e827602a5c1dc3e14756afbb1/checkov-2.1.180.tar.gz"
-  sha256 "623ab5efe11df3bce2f5f33ce3964aa6d0358e86ffbc676ead8d2f427318a9f3"
+  url "https://files.pythonhosted.org/packages/43/6d/0d1a6d93482c84cf95c07c645cd24f9d6a636a7c7fae93c5b8af61f78025/checkov-2.1.195.tar.gz"
+  sha256 "fc735ad50bdce4d85e89b8af71d9d4b6522e56619f21b83b151d51f567ba8d29"
   license "Apache-2.0"
 
   bottle do
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f0/1a/12be085a7c2ecb0ad356982ea71564956702feb756017a5e1a7e79005a2a/boto3-1.24.65.tar.gz"
-    sha256 "e32ce034ac1acaff3607dd31766b4096036cdc5539d76cad41370d6d2a29a881"
+    url "https://files.pythonhosted.org/packages/af/88/0aa54a60d9627bef23b9fe7c3f76c4761064d5f331edd92a2071e4cba358/boto3-1.24.67.tar.gz"
+    sha256 "2b9309a98fd7264788ff1d1b19146406cc4191e53ed9a03aca03e8837303fae2"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/4f/a8/711b69bdc9b4a7074f0e1274a3cc57368e922f272c3df4f7f37aa3da2066/botocore-1.27.65.tar.gz"
-    sha256 "17bde907b09a3a869ec2281e35dd3dbaa702a34c19aa81c19d0a142127d57be7"
+    url "https://files.pythonhosted.org/packages/57/60/e307245349b8914d423064f53dca3f8a81dac6a7fe69972797067a909314/botocore-1.27.67.tar.gz"
+    sha256 "b00894d2eee8a795ecedf9f4cbc454fa449a7bb11af1390c7414755243f90610"
   end
 
   resource "cached-property" do
@@ -352,8 +352,8 @@ class Checkov < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
-    sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
+    url "https://files.pythonhosted.org/packages/c1/c2/d8a40e5363fb01806870e444fc1d066282743292ff32a9da54af51ce36a2/tqdm-4.64.1.tar.gz"
+    sha256 "5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"
   end
 
   resource "typing-extensions" do
@@ -377,8 +377,8 @@ class Checkov < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/71/aa/69c635c6d209a3e67cfcaa0cf6d2de71cf7575347f63d5976c8792b8be2e/websocket-client-1.4.0.tar.gz"
-    sha256 "79d730c9776f4f112f33b10b78c8d209f23b5806d9a783e296b3813fc5add2f1"
+    url "https://files.pythonhosted.org/packages/99/11/01fe7ebcb7545a1990c53c11f31230afe1388b0b34256e3fd20e49482245/websocket-client-1.4.1.tar.gz"
+    sha256 "f9611eb65c8241a67fb373bef040b3cf8ad377a9f6546a12b620b6511e8ea9ef"
   end
 
   resource "yarl" do
