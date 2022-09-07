@@ -27,6 +27,8 @@ class Kubeless < Formula
     system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
            "-o", bin/"kubeless", "./cmd/kubeless"
     prefix.install_metafiles
+
+    generate_completions_from_executable(bin/"kubeless", "completion")
   end
 
   test do
