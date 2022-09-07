@@ -30,7 +30,7 @@ class Udis86 < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-shared",
-                          "--with-python=#{which("python3")}"
+                          "--with-python=#{which("python3.10")}"
     system "make"
     system "make", "install"
   end
