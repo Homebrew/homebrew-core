@@ -19,6 +19,8 @@ class Vkectl < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/volcengine/vkectl/pkg/version.version=v#{version}"), "./main"
+
+    generate_completions_from_executable(bin/"vkectl", "completion")
   end
 
   test do
