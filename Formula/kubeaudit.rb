@@ -25,6 +25,8 @@ class Kubeaudit < Formula
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
+
+    generate_completions_from_executable(bin/"kubeaudit", "completion")
   end
 
   test do
