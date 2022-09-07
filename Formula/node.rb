@@ -62,7 +62,7 @@ class Node < Formula
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3")
+    ENV["PYTHON"] = which("python3.10")
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
