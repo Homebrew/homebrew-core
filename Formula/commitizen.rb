@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/63/97/0bafc692337806c2af14bd09c170bcca477676f792f73a9cd0ed5f03e1e6/commitizen-2.32.2.tar.gz"
-  sha256 "44be55e35e727fdcbbb35fbe62e4cafedd8844393461906d753f7afc8ab62b0d"
+  url "https://files.pythonhosted.org/packages/48/88/4f13bc41c85d6c8a349ac2804d3be460d297d3a845b0aeda5df4a272bccb/commitizen-2.32.3.tar.gz"
+  sha256 "6f1aa9b8eab335fb34c678f05fea2e54d6fcaca75d20ace01773ee8d4cfd515e"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
@@ -55,8 +55,8 @@ class Commitizen < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/c5/7e/71693dc21d20464e4cd7c600f2d8fad1159601a42ed55566500272fe69b5/prompt_toolkit-3.0.30.tar.gz"
-    sha256 "859b283c50bde45f5f97829f77a4674d1c1fcd88539364f1b28a37805cfd89c0"
+    url "https://files.pythonhosted.org/packages/80/76/c94cf323ca362dd7baca8d8ddf3b5fe1576848bc0156522ad581c04f8446/prompt_toolkit-3.0.31.tar.gz"
+    sha256 "9ada952c9d1787f52ff6d5f3484d0b4df8952787c087edf6a1f7c2cb1ea88148"
   end
 
   resource "pyparsing" do
