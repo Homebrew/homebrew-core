@@ -50,14 +50,15 @@ class Liquidctl < Formula
     ENV["DIST_NAME"] = "homebrew"
     ENV["DIST_PACKAGE"] = "liquidctl #{version}"
 
-    venv = virtualenv_create(libexec, "python3")
+    python3 = "python3.10"
+    venv = virtualenv_create(libexec, python3)
 
     resource("hidapi").stage do
       inreplace "setup.py" do |s|
         s.gsub! "/usr/include/libusb-1.0", "#{Formula["libusb"].opt_include}/libusb-1.0"
         s.gsub! "/usr/include/hidapi", "#{Formula["hidapi"].opt_include}/hidapi"
       end
-      system libexec/"bin/python3", *Language::Python.setup_install_args(libexec), "--with-system-hidapi"
+      system python3, *Language::Python.setup_install_args(libexec, python3), "--with-system-hidapi"
     end
 
     venv.pip_install resources.reject { |r| r.name == "hidapi" }
