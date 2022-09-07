@@ -25,6 +25,8 @@ class SourceToImage < Formula
     system "hack/build-go.sh"
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     bin.install "_output/local/bin/#{OS.kernel_name.downcase}/#{arch}/s2i"
+
+    generate_completions_from_executable(bin/"s2i", "completion", shells: [:bash, :zsh], base_name: "s2i")
   end
 
   test do
