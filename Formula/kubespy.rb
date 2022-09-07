@@ -1,8 +1,8 @@
 class Kubespy < Formula
   desc "Tools for observing Kubernetes resources in realtime"
   homepage "https://github.com/pulumi/kubespy"
-  url "https://github.com/pulumi/kubespy/archive/v0.6.0.tar.gz"
-  sha256 "ff8f54a2a495d8ebb57242989238a96c2c07d26601c382a25419498170fc3351"
+  url "https://github.com/pulumi/kubespy/archive/v0.6.1.tar.gz"
+  sha256 "431f4b54ac3cc890cd3ddd0c83d4e8ae8a36cf036dfb6950b76577a68b6d2157"
   license "Apache-2.0"
 
   bottle do
