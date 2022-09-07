@@ -57,7 +57,7 @@ class Traildb < Formula
     ENV["PREFIX"] = prefix
     ENV.append "CFLAGS", "-I#{judyprefix}/include"
     ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
-    system "python3", "./waf", "configure", "install"
+    system "python3.10", "./waf", "configure", "install"
   end
 
   test do
