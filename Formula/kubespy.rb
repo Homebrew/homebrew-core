@@ -25,8 +25,7 @@ class Kubespy < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/kubespy version")
 
-    assert_match "invalid configuration: no configuration has been provided, " \
-                 "try setting KUBERNETES_MASTER environment variable",
-shell_output("#{bin}/kubespy status v1 Pod nginx 2>&1", 1)
+    assert_match "invalid configuration: no configuration has been provided",
+                 shell_output("#{bin}/kubespy status v1 Pod nginx 2>&1", 1)
   end
 end
