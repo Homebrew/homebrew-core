@@ -19,8 +19,8 @@ class Bupstash < Formula
   depends_on "libsodium"
 
   resource "man" do
-    url "https://github.com/andrewchambers/bupstash/releases/download/v0.11.0/bupstash-v0.11.0-man.tar.gz"
-    sha256 "74645f4a243f786261123667e1849085cc2eda095bf3ebbb792cb0195adeeae9"
+    url "https://github.com/andrewchambers/bupstash/releases/download/v0.11.1/bupstash-v0.11.1-man.tar.gz"
+    sha256 "abbf79420e15e2619deb379d966e0b118ad67fcd411e52b1e642d8ba80b730bf"
   end
 
   def install
