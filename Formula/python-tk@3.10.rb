@@ -23,6 +23,10 @@ class PythonTkAT310 < Formula
   depends_on "python@3.10"
   depends_on "tcl-tk"
 
+  def python3
+    "python3.10"
+  end
+
   def install
     cd "Modules" do
       tcltk_version = Formula["tcl-tk"].any_installed_version.major_minor
@@ -41,17 +45,17 @@ class PythonTkAT310 < Formula
               ]
         )
       EOS
-      system Formula["python@3.10"].bin/"python3", *Language::Python.setup_install_args(libexec),
-                                                  "--install-lib=#{libexec}"
+      system python3, *Language::Python.setup_install_args(libexec, python3),
+                      "--install-lib=#{libexec}"
       rm_r Dir[libexec/"*.egg-info"]
     end
   end
 
   test do
-    system Formula["python@3.10"].bin/"python3", "-c", "import tkinter"
+    system python3, "-c", "import tkinter"
 
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system Formula["python@3.10"].bin/"python3", "-c", "import tkinter; root = tkinter.Tk()"
+    system python3, "-c", "import tkinter; root = tkinter.Tk()"
   end
 end
