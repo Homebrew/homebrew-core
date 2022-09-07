@@ -2,6 +2,7 @@ class Clisp < Formula
   desc "GNU CLISP, a Common Lisp implementation"
   homepage "https://clisp.sourceforge.io/"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/gnu-clisp/clisp.git", branch: "master"
 
   stable do
@@ -33,6 +34,7 @@ class Clisp < Formula
 
   depends_on "libsigsegv"
   depends_on "readline"
+  uses_from_macos "libxcrypt"
 
   def install
     system "./configure", *std_configure_args,
