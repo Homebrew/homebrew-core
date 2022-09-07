@@ -34,10 +34,6 @@ class NodeAT16 < Formula
   uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with :clang do
     build 1099
     cause "Node requires Xcode CLT 11+"
@@ -46,8 +42,9 @@ class NodeAT16 < Formula
   fails_with gcc: "5"
 
   def install
+    python3 = "python3.10"
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3")
+    ENV["PYTHON"] = which(python3)
 
     args = %W[
       --prefix=#{prefix}
@@ -70,7 +67,7 @@ class NodeAT16 < Formula
       --shared-cares-libpath=#{Formula["c-ares"].lib}
       --openssl-use-def-ca-store
     ]
-    system "python3", "configure.py", *args
+    system python3, "configure.py", *args
     system "make", "install"
   end
 
