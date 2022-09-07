@@ -108,7 +108,8 @@ class OrganizeTool < Formula
   end
 
   test do
-    (testpath/"config.yaml").write <<~EOS
+    config_file = testpath/"config.yaml"
+    config_file.write <<~EOS
       rules:
         - locations: #{testpath}
           filters:
@@ -120,8 +121,8 @@ class OrganizeTool < Formula
 
     touch testpath/"homebrew.txt"
 
-    assert_match "Found: homebrew.txt", shell_output("#{bin}/organize sim")
-    system bin/"organize", "run"
+    assert_match "Found: homebrew.txt", shell_output("#{bin}/organize sim #{config_file}")
+    system bin/"organize", "run", config_file
     refute_predicate testpath/"homebrew.txt", :exist?
   end
 end
