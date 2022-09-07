@@ -163,17 +163,23 @@ class Ipython < Formula
 
   def install
     python3 = "python3.10"
+    site_packages = libexec/Language::Python.site_packages(python3)
     venv = virtualenv_create(libexec, python3)
     res = resources.reject { |r| r.name == "appnope" && OS.linux? }
     venv.pip_install res
     venv.pip_install_and_link buildpath
+
+    # Remove non-native binaries
+    if OS.mac? && Hardware::CPU.arm?
+      (site_packages/"debugpy/_vendored/pydevd/pydevd_attach_to_process/attach_x86_64.dylib").unlink
+    end
 
     # Install man page
     man1.install libexec/"share/man/man1/ipython.1"
 
     # Enable the kernel to be shared across envs (see also `post_install`)
     # https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
+    ENV.prepend_create_path "PYTHONPATH", site_packages
     Dir.mktmpdir do |tmpdir|
       system libexec/"bin/ipython", "kernel", "install", "--prefix", tmpdir
       (share/"jupyter/kernels/python3").install Dir["#{tmpdir}/share/jupyter/kernels/python3/*"]
