@@ -1,8 +1,8 @@
 class Genact < Formula
   desc "Nonsense activity generator"
   homepage "https://github.com/svenstaro/genact"
-  url "https://github.com/svenstaro/genact/archive/v0.12.0.tar.gz"
-  sha256 "fbbbcf5e65b370fde6765a2257c6d2f12cb9568bdce785b0f548c2be28d08cd7"
+  url "https://github.com/svenstaro/genact/archive/v1.0.0.tar.gz"
+  sha256 "4a1414dfa1b6070e6809b24e4b653a9e8a675896df3d5a34ad127f42023d7e29"
   license "MIT"
 
   bottle do
