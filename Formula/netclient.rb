@@ -24,7 +24,7 @@ class Netclient < Formula
   service do
     run [opt_bin/"netclient", "daemon"]
     keep_alive true
-    environment_variables PATH: "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+    environment_variables PATH: std_service_path_env
   end
 
   test do
