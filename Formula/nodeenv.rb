@@ -16,8 +16,7 @@ class Nodeenv < Formula
 
   def install
     if OS.linux? || MacOS.version >= :catalina
-      rw_info = python_shebang_rewrite_info("/usr/bin/env python3")
-      rewrite_shebang rw_info, "nodeenv.py"
+      rewrite_shebang detected_python_shebang(use_python_from_path: true), "nodeenv.py"
     end
     bin.install "nodeenv.py" => "nodeenv"
   end
