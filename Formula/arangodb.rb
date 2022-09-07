@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.9.2.tar.bz2"
-  sha256 "35ac1678b91c0cc448454ef3a76637682d095328570674a5765ae5d060c5721b"
+  url "https://download.arangodb.com/Source/ArangoDB-3.9.3.tar.bz2"
+  sha256 "7650781ba21723b6a361d4cf8a03acbf45a1091bc77704236597a934768b059d"
   license "Apache-2.0"
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
@@ -21,12 +21,12 @@ class Arangodb < Formula
   depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "go@1.17" => :build
+  depends_on "openssl@1.1" => :build
   depends_on "python@3.10" => :build
   depends_on macos: :mojave
-  depends_on "openssl@1.1"
 
-  on_linux do
-    depends_on "gcc"
+  on_macos do
+    depends_on "llvm@13" => :build
   end
 
   fails_with gcc: "5"
@@ -38,12 +38,6 @@ class Arangodb < Formula
     url "https://github.com/arangodb-helper/arangodb.git",
         tag:      "0.15.4",
         revision: "ed743d2293efd763309f3ba0a1ba6fb68ac4a41a"
-  end
-
-  # Fix compilation with Apple clang 13.1.6, remove in next release
-  patch do
-    url "https://github.com/arangodb/arangodb/commit/fd43fbc27.patch?full_index=1"
-    sha256 "0298670362e04ec0870f6b7032dff83bfcdf9a04f2fa4763ce5186d4e10a3abb"
   end
 
   def install
@@ -73,7 +67,10 @@ class Arangodb < Formula
       -DUSE_GOOGLE_TESTS=Off
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
     ]
-    args << "-DTARGET_ARCHITECTURE=nehalem" if build.bottle? && Hardware::CPU.intel?
+    llvm = Formula["llvm@13"] if OS.mac?
+    args << "-DCMAKE_C_COMPILER=#{llvm.opt_bin}/clang" if OS.mac?
+    args << "-DCMAKE_CXX_COMPILER=#{llvm.opt_bin}/clang++" if OS.mac?
+    args << "-DTARGET_ARCHITECTURE=sandy-bridge" if build.bottle? && Hardware::CPU.intel?
 
     ENV["V8_CXXFLAGS"] = "-O3 -g -fno-delete-null-pointer-checks" if ENV.compiler == "gcc-6"
 
