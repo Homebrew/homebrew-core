@@ -4,8 +4,8 @@ class Podman < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/containers/podman/archive/v4.2.0.tar.gz"
-    sha256 "15f8bc59025ccd97dc9212a552e7274dfb79e1633b02d6a2a7f63d747eadb2f4"
+    url "https://github.com/containers/podman/archive/v4.2.1.tar.gz"
+    sha256 "b10004e91a9f5528da450466ec8e6f623eaa28ada79e3044c238895b2c8d1df3"
 
     # Allow specifying helper dirs with $BINDIR as base directory. Use a `$BINDIR` magic
     # token as a prefix in the helper path to indicate it should be relative to the
