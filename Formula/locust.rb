@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/46/0d/2aa034e7901a7cd17e6c2a0af214945d64335fca4f29032d175c1b3d2773/locust-2.11.1.tar.gz"
-  sha256 "2c8ead881ade240d8988c1c94a9d84b1d38f3df0583f5a7b3bc8ddbd93181dfe"
+  url "https://files.pythonhosted.org/packages/90/20/1b2b4ac6dccebb645e7c31b21d81ab005f756e784c43accdd77f5b373bc4/locust-2.12.0.tar.gz"
+  sha256 "864fbbf3a6170a7a632f03c5d51d9e76c6e6a5adbdbd8f136078459f00173198"
   license "MIT"
 
   bottle do
@@ -65,8 +65,8 @@ class Locust < Formula
   end
 
   resource "geventhttpclient" do
-    url "https://files.pythonhosted.org/packages/bf/31/8d53afca1b63dbdaca9d6f1637715868e8e09a86017022a99331a8e65304/geventhttpclient-2.0.tar.gz"
-    sha256 "49e8332daa27f341de08d938878289b3b773695cdb96f2296518c2d6e3ebec92"
+    url "https://files.pythonhosted.org/packages/68/98/1ee9fbab4ae97d5f0f05035059a56a61a9c966331e6c837f974b402fdf63/geventhttpclient-2.0.2.tar.gz"
+    sha256 "8135a85200b170def7293d01dd1557931fcd1bec1ac78c52ad7cedd22368b9ba"
   end
 
   resource "greenlet" do
@@ -100,13 +100,13 @@ class Locust < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/de/0999ea2562b96d7165812606b18f7169307b60cd378bc29cf3673322c7e9/psutil-5.9.1.tar.gz"
-    sha256 "57f1819b5d9e95cdfb0c881a8a5b7d542ed0b7c522d575706a80bedc848c8954"
+    url "https://files.pythonhosted.org/packages/8f/57/828ac1f70badc691a716e77bfae258ef5db76bb7830109bf4bcf882de020/psutil-5.9.2.tar.gz"
+    sha256 "feb861a10b6c3bb00701063b37e4afc754f8217f0f09c42280586bd6ac712b5c"
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/6c/95/d37e7db364d7f569e71068882b1848800f221c58026670e93a4c6d50efe7/pyzmq-22.3.0.tar.gz"
-    sha256 "8eddc033e716f8c91c6a2112f0a8ebc5e00532b4a6ae1eb0ccc48e027f9c671c"
+    url "https://files.pythonhosted.org/packages/72/37/d5603f352522e249e44ee767a8a59b3fe7cf7f708a94fd40a637c6890add/pyzmq-23.2.1.tar.gz"
+    sha256 "2b381aa867ece7d0a82f30a0c7f3d4387b7cf2e0697e33efaa5bed6c5784abcd"
   end
 
   resource "requests" do
