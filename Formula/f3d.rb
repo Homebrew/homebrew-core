@@ -1,10 +1,9 @@
 class F3d < Formula
   desc "Fast and minimalist 3D viewer"
   homepage "https://f3d-app.github.io/f3d/"
-  url "https://github.com/f3d-app/f3d/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "0d72cc465af1adefdf71695481ceea95d4a94ee9e00125bc98c9f32b14ac2bf4"
+  url "https://github.com/f3d-app/f3d/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "44292c023af6b59cf882e1e02e8049944bd6843a7303c364a2dfe03ae9fcb018"
   license "BSD-3-Clause"
-  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "ac70f7b75dd20fbb59976ad90a62a14db3190c90f2f97294c39771e74efaf48e"
