@@ -24,6 +24,8 @@ class Fluxctl < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/fluxctl"
+
+    generate_completions_from_executable(bin/"fluxctl", "completion")
   end
 
   test do
