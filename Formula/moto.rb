@@ -101,8 +101,8 @@ class Moto < Formula
 
     # build patch for manifest pyproject.toml, remove in next release
     patch do
-      url "https://github.com/graphql-python/graphql-core/commit/628b232b73c29c1faedd2e09c3230f5434531105.patch?full_index=1"
-      sha256 "4cb2153299c9ad32110260249675b1da931123872f6dd0151e138f9a17593300"
+      url "https://github.com/graphql-python/graphql-core/commit/dcde601a0baf524ebf4a100b4ebf4c9a274c638f.patch?full_index=1"
+      sha256 "6e13ce0726ca317de3ff031b806700b3404c11bb16ea5c75aa476e553566be34"
     end
   end
 
