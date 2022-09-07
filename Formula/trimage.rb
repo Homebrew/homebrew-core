@@ -19,8 +19,9 @@ class Trimage < Formula
   depends_on "python@3.10"
 
   def install
-    python = Formula["python@3.10"].opt_bin/"python3"
-    system python, *Language::Python.setup_install_args(prefix, python), "--install-data=#{prefix}"
+    python3 = "python3.10"
+    system python3, *Language::Python.setup_install_args(prefix, python3),
+                    "--install-data=#{prefix}"
   end
 
   test do
