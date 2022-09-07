@@ -53,10 +53,14 @@ class CrosstoolNg < Formula
 
     ENV["BISON"] = Formula["bison"].opt_bin/"bison"
     ENV["M4"] = Formula["m4"].opt_bin/"m4"
-    ENV["MAKE"] = Formula["make"].opt_bin/"gmake" if OS.mac?
-    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
-    ENV.append "LDFLAGS", "-lintl" if OS.mac?
-    ENV.append "CFLAGS", "-I#{Formula["ncurses"].include}/ncursesw" unless OS.mac?
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3.10"
+
+    if OS.mac?
+      ENV["MAKE"] = Formula["make"].opt_bin/"gmake"
+      ENV.append "LDFLAGS", "-lintl"
+    else
+      ENV.append "CFLAGS", "-I#{Formula["ncurses"].include}/ncursesw"
+    end
 
     system "./configure", "--prefix=#{prefix}"
 
@@ -64,11 +68,7 @@ class CrosstoolNg < Formula
     system "make"
     system "make", "install"
 
-    unless OS.mac?
-      [bin/"ct-ng", pkgshare/"paths.sh"].each do |file|
-        inreplace file, Superenv.shims_path/"make", "make"
-      end
-    end
+    inreplace [bin/"ct-ng", pkgshare/"paths.sh"], Superenv.shims_path/"make", "make" unless OS.mac?
   end
 
   test do
