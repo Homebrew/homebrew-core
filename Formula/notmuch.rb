@@ -46,9 +46,13 @@ class Notmuch < Formula
     sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     ENV.cxx11 if OS.linux?
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python3)
     with_env(PYTHONPATH: Formula["sphinx-doc"].opt_libexec/site_packages) do
       system "./configure", "--prefix=#{prefix}",
                             "--mandir=#{man}",
@@ -68,10 +72,10 @@ class Notmuch < Formula
     (prefix/"vim").install "vim/syntax"
 
     cd "bindings/python" do
-      system "python3", *Language::Python.setup_install_args(prefix)
+      system python3, *Language::Python.setup_install_args(prefix, python3)
     end
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     venv.pip_install buildpath/"bindings/python-cffi"
 
@@ -94,7 +98,7 @@ class Notmuch < Formula
     <<~EOS
       The python CFFI bindings (notmuch2) are not linked into shared site-packages.
       To use them, you may need to update your PYTHONPATH to include the directory
-      #{opt_libexec/Language::Python.site_packages(Formula["python@3.10"].opt_bin/"python3")}
+      #{opt_libexec/Language::Python.site_packages(python3)}
     EOS
   end
 
@@ -106,10 +110,9 @@ class Notmuch < Formula
     (testpath/"Mail").mkpath
     assert_match "0 total", shell_output("#{bin}/notmuch new")
 
-    python = Formula["python@3.10"].opt_bin/"python3"
-    system python, "-c", "import notmuch"
-    with_env(PYTHONPATH: libexec/Language::Python.site_packages(python)) do
-      system python, "-c", "import notmuch2"
+    system python3, "-c", "import notmuch"
+    with_env(PYTHONPATH: libexec/Language::Python.site_packages(python3)) do
+      system python3, "-c", "import notmuch2"
     end
   end
 end
