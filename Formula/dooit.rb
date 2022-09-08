@@ -217,7 +217,7 @@ class Dooit < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources
     poetry = Formula["poetry"].opt_bin/"poetry"
     system poetry, "build", "--format", "wheel", "--verbose", "--no-interaction"
