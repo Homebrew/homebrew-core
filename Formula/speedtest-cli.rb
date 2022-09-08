@@ -29,6 +29,9 @@ class SpeedtestCli < Formula
   end
 
   test do
-    system bin/"speedtest"
+    assert_match "speedtest-cli",
+                 shell_output(bin/"speedtest --version")
+    assert_match "Command line interface for testing internet bandwidth using speedtest.net",
+                 shell_output(bin/"speedtest --help")
   end
 end
