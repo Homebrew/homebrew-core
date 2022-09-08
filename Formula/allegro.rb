@@ -33,7 +33,6 @@ class Allegro < Formula
   depends_on "webp"
 
   on_linux do
-    depends_on "gcc"
     depends_on "jpeg-turbo"
     depends_on "libpng"
     depends_on "libx11"
@@ -68,8 +67,8 @@ class Allegro < Formula
       }
     EOS
 
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lallegro", "-lallegro_main",
-                    "-o", "allegro_test", "allegro_test.cpp"
+    system ENV.cxx, "allegro_test.cpp", "-I#{include}", "-L#{lib}",
+                    "-lallegro", "-lallegro_main", "-o", "allegro_test"
     system "./allegro_test"
   end
 end
