@@ -32,6 +32,8 @@ class Llvm < Formula
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "python@3.10"
+  depends_on "z3"
+  depends_on "zstd"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
@@ -107,7 +109,7 @@ class Llvm < Formula
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INCLUDE_TESTS=OFF
       -DLLVM_INSTALL_UTILS=ON
-      -DLLVM_ENABLE_Z3_SOLVER=OFF
+      -DLLVM_ENABLE_Z3_SOLVER=ON
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
@@ -239,6 +241,12 @@ class Llvm < Formula
         extra_args << "-DLLVM_USE_LINKER=ld"
         extra_args << "-DCMAKE_LINKER=ld"
         extra_args += clt_sdk_support_flags
+
+        # NOTE: do not enable LTO on Linux, because this creates static archives that are not portable.
+        #       This is not an issue on macOS, where bottles are built and installed on the same version.
+        args << "-DLLVM_ENABLE_LTO=ON"
+        # LTO creates object files not recognised by Apple libtool.
+        args << "-DCMAKE_LIBTOOL=#{llvmpath}/stage1/bin/llvm-libtool-darwin"
       else
         # Make sure CMake doesn't try to pass C++-only flags to C compiler.
         extra_args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
@@ -255,11 +263,8 @@ class Llvm < Formula
       # to avoid incompatibilities from generating profile data with a newer Clang than
       # the one we consume the data with.
       mkdir llvmpath/"stage1" do
-        system "cmake", "-G", "Unix Makefiles", "..",
-                        *extra_args, *std_cmake_args
-        system "cmake", "--build", ".", "--target", "clang", "llvm-profdata", "profile"
-        # Build lld in stage1 on Linux so we can use it as the linker instead of the ld shim.
-        system "cmake", "--build", ".", "--target", "lld" unless OS.mac?
+        system "cmake", "-G", "Unix Makefiles", "..", *extra_args, *std_cmake_args
+        system "cmake", "--build", "."
       end
 
       # Barring the stage where we generate the profile data, there is no benefit to
