@@ -62,7 +62,7 @@ class LinodeCli < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3", system_site_packages: false)
+    venv = virtualenv_create(libexec, "python3.10", system_site_packages: false)
     non_pip_resources = %w[terminaltables linode-api-spec]
     venv.pip_install resources.reject { |r| non_pip_resources.include? r.name }
 
