@@ -187,11 +187,17 @@ jobs:
       matrix:
         include:
           - runner: "12-arm64"
+            ephemeral: false
           - runner: "12-${{github.run_id}}-${{github.run_attempt}}"
+            ephemeral: true
           - runner: "11-arm64"
+            ephemeral: false
           - runner: "11-${{github.run_id}}-${{github.run_attempt}}"
+            ephemeral: true
           - runner: "10.15-${{github.run_id}}-${{github.run_attempt}}"
+            ephemeral: true
           - runner: ${{needs.setup_tests.outputs.linux-runner}}
+            ephemeral: true
             container:
               image: ghcr.io/homebrew/ubuntu22.04:master
               options: --user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED
@@ -218,7 +224,9 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - run: brew test-bot --only-cleanup-before
+      - name: Run brew test-bot --only-cleanup-before
+        if: ${{ !matrix.ephemeral }}
+        run: brew test-bot --only-cleanup-before
 
       - run: brew test-bot --only-setup
 
@@ -316,7 +324,7 @@ jobs:
           path: ${{matrix.workdir || github.workspace}}/bottles
 
       - name: Post cleanup
-        if: always()
+        if: always() && !matrix.ephemeral
         run: |
           brew test-bot --only-cleanup-after
           rm -rvf bottles
