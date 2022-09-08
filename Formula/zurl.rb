@@ -23,10 +23,6 @@ class Zurl < Formula
 
   uses_from_macos "curl"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "pyzmq" do
