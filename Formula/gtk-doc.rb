@@ -53,7 +53,7 @@ class GtkDoc < Formula
     # To avoid recording pkg-config shims path
     ENV.prepend_path "PATH", Formula["pkg-config"].bin
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources
     ENV.prepend_path "PATH", libexec/"bin"
 
