@@ -31,7 +31,7 @@ class MpsYoutube < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
 
     %w[youtube_dl pafy].each do |r|
       venv.pip_install resource(r)
