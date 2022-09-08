@@ -109,7 +109,7 @@ class Copier < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
 
     # Handle missing `VERSION` file
     resource("jinja2-ansible-filters").stage do |r|
