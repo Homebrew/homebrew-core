@@ -30,15 +30,16 @@ class Redo < Formula
   end
 
   def install
+    python3 = "python3.10"
     # Prevent system Python 2 from being detected
-    inreplace "redo/whichpython.do", " python python3 python2 python2.7;", " python3;"
+    inreplace "redo/whichpython.do", " python python3 python2 python2.7;", " #{python3};"
 
     # Prepare build-only virtualenv for generating manpages.
-    venv = virtualenv_create(buildpath/"venv", "python3")
+    venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
 
     # Set PYTHONPATH rather than prepending PATH with venv as shebangs are set to detected python.
-    ENV.prepend_path "PYTHONPATH", buildpath/"venv"/Language::Python.site_packages("python3")
+    ENV.prepend_path "PYTHONPATH", buildpath/"venv"/Language::Python.site_packages(python3)
 
     ENV["DESTDIR"] = ""
     ENV["PREFIX"] = prefix
