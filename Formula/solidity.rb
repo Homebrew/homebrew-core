@@ -23,10 +23,6 @@ class Solidity < Formula
   depends_on xcode: ["11.0", :build]
   depends_on "boost"
 
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
-
   fails_with gcc: "5"
 
   def install
