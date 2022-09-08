@@ -27,10 +27,6 @@ class StoneSoup < Formula
   depends_on "pcre"
   depends_on "sqlite"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "PyYAML" do
@@ -41,10 +37,10 @@ class StoneSoup < Formula
   def install
     ENV.cxx11
     ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
+    python3 = "python3.10"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor"/Language::Python.site_packages(python3)
 
-    venv = virtualenv_create(buildpath/"vendor", "python3")
+    venv = virtualenv_create(buildpath/"vendor", python3)
     venv.pip_install resource("PyYAML")
 
     cd "crawl-ref/source" do
