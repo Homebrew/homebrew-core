@@ -52,10 +52,6 @@ class Gnuradio < Formula
   depends_on "volk"
   depends_on "zeromq"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "Cheetah3" do
@@ -222,12 +218,12 @@ class Gnuradio < Formula
         top.run();
       }
     EOS
-    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lgnuradio-blocks",
-           "-lgnuradio-runtime", "-lgnuradio-pmt",
+    system ENV.cxx, testpath/"test.c++", "-std=c++11", "-L#{lib}",
+           "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
            "-L#{Formula["boost"].opt_lib}", "-lboost_system",
            "-L#{Formula["log4cpp"].opt_lib}", "-llog4cpp",
            "-L#{Formula["fmt"].opt_lib}", "-lfmt",
-           testpath/"test.c++", "-o", testpath/"test"
+           "-o", testpath/"test"
     system "./test"
 
     (testpath/"test.py").write <<~EOS
