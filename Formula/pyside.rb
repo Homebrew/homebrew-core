@@ -32,24 +32,20 @@ class Pyside < Formula
   uses_from_macos "libxslt"
 
   on_linux do
-    depends_on "gcc"
     depends_on "mesa"
   end
 
   fails_with gcc: "5"
 
+  def python3
+    "python3.10"
+  end
+
   def install
     ENV.append_path "PYTHONPATH", buildpath/"build/sources"
 
     extra_include_dirs = [Formula["qt"].opt_include]
-    unless OS.mac?
-      gcc_version = Formula["gcc"].version.major
-      extra_include_dirs += [
-        Formula["gcc"].opt_include/"c++"/gcc_version,
-        Formula["gcc"].opt_include/"c++"/gcc_version/"x86_64-pc-linux-gnu",
-        Formula["mesa"].opt_include,
-      ]
-    end
+    extra_include_dirs << Formula["mesa"].opt_include if OS.linux?
 
     # upstream issue: https://bugreports.qt.io/browse/PYSIDE-1684
     inreplace "sources/pyside6/cmake/Macros/PySideModules.cmake",
@@ -65,7 +61,7 @@ class Pyside < Formula
 
     args = std_cmake_args + [
       "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}",
-      "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3",
+      "-DPYTHON_EXECUTABLE=#{which(python3)}",
       "-DBUILD_TESTS=OFF",
       "-DNO_QT_TOOLS=yes",
       "-DCMAKE_INSTALL_RPATH=#{lib}",
@@ -81,8 +77,8 @@ class Pyside < Formula
   end
 
   test do
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import PySide6"
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import shiboken6"
+    system python3, "-c", "import PySide6"
+    system python3, "-c", "import shiboken6"
 
     modules = %w[
       Core
@@ -97,11 +93,17 @@ class Pyside < Formula
 
     modules << "WebEngineCore" if OS.linux? || (DevelopmentTools.clang_build_version > 1200)
 
-    modules.each { |mod| system Formula["python@3.10"].opt_bin/"python3", "-c", "import PySide6.Qt#{mod}" }
+    modules.each { |mod| system python3, "-c", "import PySide6.Qt#{mod}" }
 
-    pyincludes = shell_output("#{Formula["python@3.10"].opt_bin}/python3-config --includes").chomp.split
-    pylib = shell_output("#{Formula["python@3.10"].opt_bin}/python3-config --ldflags --embed").chomp.split
-    pylib << "-Wl,-rpath,#{Formula["python@3.10"].opt_lib}" unless OS.mac?
+    python3_config = Formula["python@3.10"].opt_bin/"#{python3}-config"
+    pyincludes = shell_output("#{python3_config} --includes").chomp.split
+    pylib = shell_output("#{python3_config} --ldflags --embed").chomp.split
+    if OS.linux?
+      pylib += %W[
+        -Wl,-rpath,#{Formula["python@3.10"].opt_lib}
+        -Wl,-rpath,#{lib}
+      ]
+    end
 
     (testpath/"test.cpp").write <<~EOS
       #include <shiboken.h>
