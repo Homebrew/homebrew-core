@@ -19,10 +19,6 @@ class Qjson < Formula
   depends_on "cmake" => :build
   depends_on "qt@5"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
@@ -48,7 +44,8 @@ class Qjson < Formula
       [
         "-fPIC",
         "-L#{Formula["qt@5"].opt_lib}", "-lQt5Core",
-        "-Wl,-rpath,#{Formula["qt@5"].opt_lib}"
+        "-Wl,-rpath,#{Formula["qt@5"].opt_lib}",
+        "-Wl,-rpath,#{lib}"
       ]
     end
     system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-I#{include}",
