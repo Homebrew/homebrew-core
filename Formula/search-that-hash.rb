@@ -121,8 +121,12 @@ class SearchThatHash < Formula
     sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, python3)
 
     resources.each do |r|
       venv.pip_install r
@@ -132,7 +136,7 @@ class SearchThatHash < Formula
     system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
     venv.pip_install_and_link Dir["dist/search_that_hash-*.whl"].first
 
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python3)
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-search_that_hash.pth").write pth_contents
   end
@@ -143,6 +147,6 @@ class SearchThatHash < Formula
     assert_match "#{hash}\n", output
     assert_match "Text : password\nType : MD5\n", output
 
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "from search_that_hash import api"
+    system python3, "-c", "from search_that_hash import api"
   end
 end
