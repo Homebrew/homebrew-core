@@ -22,10 +22,12 @@ class V2rayPlugin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ad295c462b215b5a36d4b8087f03675ef1e0e1508d53dfb96c63bc0be688d8c"
   end
 
-  depends_on "go" => :build
+  # upstream support issue for go1.19,
+  # https://github.com/shadowsocks/v2ray-plugin/issues/292
+  depends_on "go@1.16" => :build
 
   def install
-    system "go", "build", "-ldflags", "-X main.VERSION=v#{version}", "-o", bin/"v2ray-plugin"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.VERSION=#{version}")
   end
 
   test do
