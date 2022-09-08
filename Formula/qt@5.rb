@@ -8,7 +8,7 @@ class QtAT5 < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.5/single/qt-everywhere-opensource-src-5.15.5.tar.xz"
   sha256 "5a97827bdf9fd515f43bc7651defaf64fecb7a55e051c79b8f80510d0e990f06"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "886dd5ce9d42b493243dd6acfb19e1df02db721b71a7f763cd6a38e280de13c3"
@@ -44,7 +44,6 @@ class QtAT5 < Formula
     depends_on "alsa-lib"
     depends_on "at-spi2-core"
     depends_on "fontconfig"
-    depends_on "gcc"
     depends_on "harfbuzz"
     depends_on "icu4c"
     depends_on "libdrm"
@@ -198,10 +197,6 @@ class QtAT5 < Formula
         -webengine-pulseaudio
         -webengine-webp
       ]
-
-      # Change default mkspec for qmake on Linux to use brewed GCC
-      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}gcc", ENV.cc
-      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}g++", ENV.cxx
 
       # Homebrew-specific workaround to ignore spurious linker warnings on Linux.
       inreplace "qtwebengine/src/3rdparty/chromium/build/config/compiler/BUILD.gn",
