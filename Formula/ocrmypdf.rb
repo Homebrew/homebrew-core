@@ -35,10 +35,6 @@ class Ocrmypdf < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "cffi" do
@@ -122,7 +118,7 @@ class Ocrmypdf < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     resource("reportlab").stage do
       (Pathname.pwd/"local-setup.cfg").write <<~EOS
         [FREETYPE_PATHS]
