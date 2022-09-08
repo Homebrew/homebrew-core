@@ -137,6 +137,15 @@ class Neovim < Formula
     system "cmake", "--install", "build"
   end
 
+  def caveats
+    return if latest_head_version.blank?
+
+    <<~EOS
+      HEAD installs of Neovim do not include any tree-sitter parsers.
+      You can use the `nvim-treesitter` plugin to install them.
+    EOS
+  end
+
   test do
     (testpath/"test.txt").write("Hello World from Vim!!")
     system bin/"nvim", "--headless", "-i", "NONE", "-u", "NONE",
