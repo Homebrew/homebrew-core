@@ -39,10 +39,6 @@ class Karchive < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
@@ -65,6 +61,7 @@ class Karchive < Formula
       -DQt5Core_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Core
       -DQT_MAJOR_VERSION=5
     ]
+    args << "-DCMAKE_BUILD_RPATH=#{lib}" if OS.linux?
 
     %w[bzip2gzip
        helloworld
