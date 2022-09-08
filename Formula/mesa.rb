@@ -4,7 +4,7 @@ class Mesa < Formula
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
   license "MIT"
-  revision 1
+  revision 2
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   stable do
@@ -42,7 +42,6 @@ class Mesa < Formula
   depends_on "libxext"
 
   uses_from_macos "flex" => :build
-  uses_from_macos "llvm"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -58,6 +57,7 @@ class Mesa < Formula
     depends_on "libxv"
     depends_on "libxvmc"
     depends_on "libxxf86vm"
+    depends_on "llvm@14" # Change to `uses_from_macos "llvm"` after Mesa 22.2.0.
     depends_on "lm-sensors"
     depends_on "wayland"
     depends_on "wayland-protocols"
