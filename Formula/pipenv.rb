@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/47/f4/fc774e32fb48febd5297141bd85081dc55d36da69937fcc9abb168c8ffe2/pipenv-2022.9.4.tar.gz"
-  sha256 "923a1c06ff70b1486ad6e7bd8279dfb3c599f560b0e392e5b7a98dfafa97115f"
+  url "https://files.pythonhosted.org/packages/c3/42/7a3162ec0e17b4258528853d50639c77e511c78d3541a5d60d49314758c6/pipenv-2022.9.8.tar.gz"
+  sha256 "b6dfff06dea56e3bade92fc267c2da1f0807c5c7b0903eef6115fdb899c2b4b6"
   license "MIT"
 
   bottle do
@@ -40,8 +40,8 @@ class Pipenv < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/62/2d/06980235e155c7ee1971f77439cbbc3069e98de49540e89f2291905eb4a8/virtualenv-20.16.4.tar.gz"
-    sha256 "014f766e4134d0008dcaa1f95bafa0fb0f575795d07cae50b1bee514185d6782"
+    url "https://files.pythonhosted.org/packages/07/a3/bd699eccc596c3612c67b06772c3557fda69815972eef4b22943d7535c68/virtualenv-20.16.5.tar.gz"
+    sha256 "227ea1b9994fdc5ea31977ba3383ef296d7472ea85be9d6732e42a91c04e80da"
   end
 
   resource "virtualenv-clone" do
