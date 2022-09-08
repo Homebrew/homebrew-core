@@ -51,7 +51,7 @@ class Remarshal < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources
     system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
     venv.pip_install_and_link Dir["dist/remarshal-*.whl"].first
