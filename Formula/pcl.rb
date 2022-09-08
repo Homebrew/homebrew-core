@@ -33,10 +33,6 @@ class Pcl < Formula
     depends_on "libomp"
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # qt@5 is built with GCC
 
   patch do
@@ -121,8 +117,9 @@ class Pcl < Formula
       # revision without bumping this formula's revision as well
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["eigen"].opt_share/"pkgconfig"
       ENV.delete "CPATH" # `error: no member named 'signbit' in the global namespace`
-      system "cmake", "..", "-DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5",
-                            *std_cmake_args
+      args = std_cmake_args + ["-DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5"]
+      args << "-DCMAKE_BUILD_RPATH=#{lib}" if OS.linux?
+      system "cmake", "..", *args
       system "make"
       system "./pcd_write"
       assert_predicate (testpath/"build/test_pcd.pcd"), :exist?
