@@ -27,8 +27,12 @@ class Folderify < Formula
         revision: "d3b43f1dd5e1e8ff60d2dbb4df4e872388d2cd10"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
-    venv = virtualenv_create(libexec, "python3", system_site_packages: false)
+    venv = virtualenv_create(libexec, python3, system_site_packages: false)
     venv.pip_install_and_link buildpath
 
     # Replace bundled pre-built `seticon` with one we built ourselves.
@@ -41,13 +45,13 @@ class Folderify < Formula
                  "CONFIGURATION_BUILD_DIR=build",
                  "SYMROOT=."
 
-      (libexec/Language::Python.site_packages("python3")/"folderify/lib").install "build/seticon"
+      (libexec/Language::Python.site_packages(python3)/"folderify/lib").install "build/seticon"
     end
   end
 
   test do
     # Copies an example icon
-    site_packages = libexec/Language::Python.site_packages(Formula["python@3.10"].opt_bin/"python3")
+    site_packages = libexec/Language::Python.site_packages(python3)
     cp(
       "#{site_packages}/folderify/GenericFolderIcon.Yosemite.iconset/icon_16x16.png",
       "icon.png",
