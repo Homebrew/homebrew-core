@@ -73,10 +73,10 @@ class Sslyze < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources.reject { |r| r.name == "nassl" }
 
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", libexec/"bin"
     resource("nassl").stage do
       system "invoke", "build.all"
       venv.pip_install Pathname.pwd
