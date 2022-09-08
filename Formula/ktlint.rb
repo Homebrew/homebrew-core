@@ -14,10 +14,7 @@ class Ktlint < Formula
   def install
     libexec.install "ktlint"
     (libexec/"ktlint").chmod 0755
-    (bin/"ktlint").write_env_script libexec/"ktlint",
-                                    Language::Java.java_home_env.merge(
-                                      PATH: "#{Formula["openjdk"].opt_bin}:${PATH}",
-                                    )
+    (bin/"ktlint").write_env_script libexec/"ktlint", Language::Java.java_home_env
   end
 
   test do
