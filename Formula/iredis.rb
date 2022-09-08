@@ -87,7 +87,7 @@ class Iredis < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
 
     # Install pytzdata using brewed poetry to avoid build dependency on Rust.
     resource("pytzdata").stage do
