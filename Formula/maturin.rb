@@ -25,10 +25,10 @@ class Maturin < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_bin
+    python = Formula["python@3.10"].opt_bin/"python3.10"
     system "cargo", "new", "hello_world", "--bin"
     system bin/"maturin", "build", "-m", "hello_world/Cargo.toml", "-b", "bin", "-o", "dist", "--compatibility", "off"
-    system "python3", "-m", "pip", "install", "hello_world", "--no-index", "--find-links", testpath/"dist"
-    system "python3", "-m", "pip", "uninstall", "-y", "hello_world"
+    system python, "-m", "pip", "install", "hello_world", "--no-index", "--find-links", testpath/"dist"
+    system python, "-m", "pip", "uninstall", "-y", "hello_world"
   end
 end
