@@ -31,7 +31,6 @@ class V8 < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "gcc"
     depends_on "glib"
   end
 
@@ -79,10 +78,6 @@ class V8 < Formula
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
         revision: "a6d209ab932df0f1c9d5b7dc67cfa74e8a3272c0"
   end
-
-  # Apply patch to fix v8 build with glibc < 2.27. See here for details:
-  # https://libc-alpha.sourceware.narkive.com/XOENQFwL/add-fcntl-sealing-interfaces-from-linux-3-17-to-bits-fcntl-linux-h
-  patch :DATA
 
   def install
     (buildpath/"build").install resource("v8/build")
@@ -184,18 +179,3 @@ class V8 < Formula
                     "-lv8", "-lv8_libplatform"
   end
 end
-
-__END__
---- a/src/base/platform/platform-posix.cc
-+++ b/src/base/platform/platform-posix.cc
-@@ -88,6 +88,11 @@ extern int madvise(caddr_t, size_t, int);
- extern "C" void* __libc_stack_end;
- #endif
-
-+#ifndef MFD_CLOEXEC
-+#define MFD_CLOEXEC 0x0001U
-+#define MFD_ALLOW_SEALING 0x0002U
-+#endif
-+
- namespace v8 {
- namespace base {
