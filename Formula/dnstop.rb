@@ -5,6 +5,11 @@ class Dnstop < Formula
   sha256 "b4b03d02005b16e98d923fa79957ea947e3aa6638bb267403102d12290d0c57a"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "http://dns.measurement-factory.com/tools/dnstop/src/"
+    regex(/href=.*?dnstop[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7e991cd5c68fcbefb7c45ac7b977b3f9e51a719cae0dbead9aa7172dbfebeb3f"
