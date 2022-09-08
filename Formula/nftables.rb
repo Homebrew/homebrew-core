@@ -24,7 +24,7 @@ class Nftables < Formula
   uses_from_macos "ncurses"
 
   def install
-    virtualenv_create(libexec, Formula["python@3.10"].bin/"python3")
+    virtualenv_create(libexec, Formula["python@3.10"].bin/"python3.10")
     system "./configure", *std_configure_args, "--disable-silent-rules",
       "--with-python-bin=#{libexec}/bin/python3"
     system "make", "install"
