@@ -92,7 +92,7 @@ class OrganizeTool < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     dependencies = resources.map(&:name).to_set
     if OS.linux?
       # `macos-tags` and its dependencies are only needed on macOS
