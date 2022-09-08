@@ -50,7 +50,7 @@ class Lv2 < Formula
 
   def install
     # Python resources and virtualenv are for the lv2specgen.py script that is installed
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources
     rw_info = python_shebang_rewrite_info("#{libexec}/bin/python3")
     rewrite_shebang rw_info, *Dir.glob("lv2specgen/*.py")
