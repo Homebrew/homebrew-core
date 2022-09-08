@@ -44,7 +44,7 @@ class Eralchemy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources.reject { |r| r.name == "er_example" }
     venv.pip_install_and_link buildpath
   end
