@@ -22,10 +22,6 @@ class Terraform < Formula
 
   depends_on "go" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
 
   # Needs libraries at runtime:
