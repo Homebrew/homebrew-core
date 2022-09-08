@@ -48,7 +48,7 @@ class Sslmate < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resource("boto")
 
     resources.each do |r|
