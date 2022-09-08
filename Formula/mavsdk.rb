@@ -77,7 +77,7 @@ class Mavsdk < Formula
 
     # Install protoc-gen-mavsdk deps
     venv_dir = buildpath/"bootstrap"
-    venv = virtualenv_create(venv_dir, "python3")
+    venv = virtualenv_create(venv_dir, "python3.10")
     venv.pip_install resources
 
     # Install protoc-gen-mavsdk
