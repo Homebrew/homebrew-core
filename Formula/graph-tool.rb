@@ -43,10 +43,6 @@ class GraphTool < Formula
 
   uses_from_macos "expat" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "Cycler" do
@@ -87,7 +83,7 @@ class GraphTool < Formula
   def python3
     deps.map(&:to_formula)
         .find { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .opt_bin/"python3"
+        .opt_libexec/"bin/python"
   end
 
   def install
