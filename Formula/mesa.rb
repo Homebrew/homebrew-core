@@ -47,7 +47,6 @@ class Mesa < Formula
 
   on_linux do
     depends_on "elfutils"
-    depends_on "gcc"
     depends_on "gzip"
     depends_on "libdrm"
     depends_on "libva"
@@ -91,10 +90,8 @@ class Mesa < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
-
     venv_root = buildpath/"venv"
-    venv = virtualenv_create(venv_root, "python3")
+    venv = virtualenv_create(venv_root, "python3.10")
 
     %w[Mako Pygments MarkupSafe].each do |res|
       venv.pip_install resource(res)
