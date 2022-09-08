@@ -40,7 +40,7 @@ class Condure < Formula
     ipcfile = testpath/"client"
     runfile = testpath/"test.py"
 
-    venv = virtualenv_create(testpath/"vendor", Formula["python@3.10"].opt_bin/"python3")
+    venv = virtualenv_create(testpath/"vendor", "python3.10")
     venv.pip_install resource("pyzmq")
     venv.pip_install resource("tnetstring3")
 
