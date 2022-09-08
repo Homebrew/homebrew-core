@@ -184,7 +184,7 @@ class ReconNg < Formula
 
   def install
     libexec.install Dir["*"]
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resources
 
     # Replace shebang with virtualenv python
