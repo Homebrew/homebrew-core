@@ -27,7 +27,6 @@ class Ciphey < Formula
 
   on_linux do
     depends_on "rust" => :build
-    depends_on "gcc" # For C++20
   end
 
   fails_with gcc: "5"
@@ -167,9 +166,13 @@ class Ciphey < Formula
     sha256 "b62ffa81fb85f4332a4f609cab4ac40709470da05643a082ec1eb88e6d9b97d7"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
-    venv = virtualenv_create(libexec, "python3")
-    xy = Language::Python.major_minor_version "python3"
+    venv = virtualenv_create(libexec, python3)
+    xy = Language::Python.major_minor_version python3
     python_path = if OS.mac?
       Formula["python@#{xy}"].opt_frameworks/"Python.framework/Versions/#{xy}"
     else
@@ -197,7 +200,7 @@ class Ciphey < Formula
     end
     venv.pip_install_and_link buildpath
 
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python3)
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-ciphey.pth").write pth_contents
   end
@@ -207,8 +210,7 @@ class Ciphey < Formula
     expected_text = "Hello from Homebrew"
     assert_equal shell_output("#{bin}/ciphey -g -t #{input_string}").chomp, expected_text
 
-    python = Formula["python@3.10"].opt_bin/"python3"
-    system python, "-c", "from ciphey import decrypt"
-    system python, "-c", "from ciphey.iface import Config"
+    system python3, "-c", "from ciphey import decrypt"
+    system python3, "-c", "from ciphey.iface import Config"
   end
 end
