@@ -42,8 +42,6 @@ class Llvm < Formula
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
-    depends_on "gcc"
-    depends_on "glibc" if Formula["glibc"].any_version_installed?
   end
 
   # Fails at building LLDB
@@ -283,40 +281,30 @@ class Llvm < Formula
         cxxflags << "-isystem#{toolchain_path}/usr/include"
         cxxflags << "-isystem#{macos_sdk}/usr/include"
       elsif !OS.mac?
-        gcc = Formula["gcc"]
-        # Link to libstdc++ for brewed GCC rather than the host GCC which is too old.
-        # Also make sure brewed glibc will be used if it is installed.
+        # Make sure brewed glibc will be used if it is installed.
         linux_library_paths = [
-          gcc.opt_lib/"gcc"/gcc.version.major, # libstdc++
           Formula["glibc"].opt_lib,
+          HOMBEREW_PREFIX/"lib",
         ]
         linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
         # Add opt_libs for dependencies to RPATH.
         linux_linker_flags += deps.map(&:to_formula).map { |dep| "-Wl,-rpath,#{dep.opt_lib}" }
-        # Use stage1 lld instead of ld shim so that we can control RPATH.
-        linux_linker_flags << "--ld-path=#{llvmpath}/stage1/bin/ld.lld"
 
-        # Add the linker paths to the arguments passed to the temporary compilers.
-        extra_args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        extra_args << "-DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        extra_args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+        [args, extra_args].each do |arg_array|
+          # Add the linker paths to the arguments passed to the temporary compilers and installed toolchain.
+          arg_array << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+          arg_array << "-DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+          arg_array << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
 
-        # We need these flags for the installed toolchain too.
-        args << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        args << "-DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-        args << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
+          # Use stage1 lld instead of ld shim so that we can control RPATH.
+          arg_array << "-DLLVM_USE_LINKER=lld"
+        end
 
-        # Use libstdc++ headers for brewed GCC rather than host GCC which is too old.
         # We also need to make sure we can find headers for other formulae on Linux.
         linux_include_paths = [
-          gcc.opt_include/"c++"/gcc.version.major,
-          gcc.opt_include/"c++"/gcc.version.major/"x86_64-pc-linux-gnu",
           HOMEBREW_PREFIX/"include",
         ]
         linux_include_paths.each { |path| cxxflags << "-isystem#{path}" }
-
-        # Make sure Clang does not try to include any headers from host GCC.
-        cxxflags << "-nostdinc++"
 
         # Unset CMAKE_C_COMPILER and CMAKE_CXX_COMPILER so we can set them below.
         extra_args.reject! { |s| s[/CMAKE_C(XX)?_COMPILER/] }
