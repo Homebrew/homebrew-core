@@ -30,10 +30,6 @@ class Vapoursynth < Formula
   depends_on "python@3.10"
   depends_on "zimg"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
