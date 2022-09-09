@@ -28,6 +28,8 @@ class Kn < Formula
     ]
 
     system "go", "build", "-mod=vendor", *std_go_args(ldflags: ldflags), "./cmd/..."
+
+    generate_completions_from_executable(bin/"kn", "completion", shells: [:bash, :zsh])
   end
 
   test do
