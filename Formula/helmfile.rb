@@ -24,6 +24,8 @@ class Helmfile < Formula
       -X github.com/helmfile/helmfile/pkg/app/version.Version=v#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    generate_completions_from_executable(bin/"helmfile", "completion")
   end
 
   test do
