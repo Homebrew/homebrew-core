@@ -26,6 +26,8 @@ class Brev < Formula
   def install
     ldflags = "-X github.com/brevdev/brev-cli/pkg/cmd/version.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    generate_completions_from_executable(bin/"brev", "completion")
   end
 
   test do
