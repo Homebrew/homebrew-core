@@ -22,10 +22,6 @@ class Xgboost < Formula
     depends_on "libomp"
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with :clang do
     build 1100
     cause <<-EOS
