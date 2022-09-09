@@ -54,7 +54,6 @@ class Sysdig < Formula
   on_linux do
     depends_on "libb64" => :build
     depends_on "elfutils"
-    depends_on "gcc"
     depends_on "grpc"
     depends_on "jq"
     depends_on "protobuf"
