@@ -34,6 +34,8 @@ class Heartbeat < Formula
 
       (etc/"heartbeat").install Dir["heartbeat.*", "fields.yml"]
       (libexec/"bin").install "heartbeat"
+
+      generate_completions_from_executable(bin/"heartbeat", "completion", shells: [:bash, :zsh])
     end
 
     (bin/"heartbeat").write <<~EOS
