@@ -25,6 +25,8 @@ class Tm < Formula
     ].join(" ")
 
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    generate_completions_from_executable(bin/"tm", "completion")
   end
 
   test do
