@@ -21,10 +21,6 @@ class Scrcpy < Formula
   depends_on "libusb"
   depends_on "sdl2"
 
-  on_linux do
-    depends_on "gcc" => :build
-  end
-
   fails_with gcc: "5"
 
   resource "prebuilt-server" do
