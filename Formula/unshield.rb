@@ -4,6 +4,7 @@ class Unshield < Formula
   url "https://github.com/twogood/unshield/archive/1.5.1.tar.gz"
   sha256 "34cd97ff1e6f764436d71676e3d6842dc7bd8e2dd5014068da5c560fe4661f60"
   license "MIT"
+  revision 1
   head "https://github.com/twogood/unshield.git", branch: "master"
 
   bottle do
@@ -21,11 +22,13 @@ class Unshield < Formula
   uses_from_macos "zlib"
 
   def install
+    # cmake check for libiconv will miss the OS library without this hint
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
   test do
-    system bin/"unshield", "-V"
+    system bin/"unshield", "-e", "sjis", "-V"
   end
 end
