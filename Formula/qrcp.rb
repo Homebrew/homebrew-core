@@ -20,6 +20,8 @@ class Qrcp < Formula
 
   def install
     system "go", "build", *std_go_args
+
+    generate_completions_from_executable(bin/"qrcp", "completion")
   end
 
   test do
