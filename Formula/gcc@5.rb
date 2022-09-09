@@ -6,11 +6,6 @@ class GccAT5 < Formula
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
   revision 8
 
-  livecheck do
-    url :stable
-    regex(%r{href=.*?gcc[._-]v?(5(?:\.\d+)+)(?:/?["' >]|\.t)}i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "a3e52eeea5f2dc3fa99e021ee2e06034efd5ad27ccc331e751cf7f92110c7434"
   end
@@ -18,6 +13,9 @@ class GccAT5 < Formula
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
+
+  # https://gcc.gnu.org/gcc-5/
+  deprecate! date: "2022-09-09", because: :deprecated_upstream
 
   depends_on maximum_macos: [:high_sierra, :build]
 
