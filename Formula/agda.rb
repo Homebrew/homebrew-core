@@ -2,6 +2,7 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
+  revision 1
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.2.2/Agda-2.6.2.2.tar.gz"
@@ -34,45 +35,18 @@ class Agda < Formula
   depends_on "emacs"
   depends_on "ghc"
 
+  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  resource "alex" do
-    url "https://hackage.haskell.org/package/alex-3.2.7.1/alex-3.2.7.1.tar.gz"
-    sha256 "9bd2f1a27e8f1b2ffdb5b2fbd3ed82b6f0e85191459a1b24ffcbef4e68a81bec"
-  end
-
-  resource "cpphs" do
-    url "https://hackage.haskell.org/package/cpphs-1.20.9.1/cpphs-1.20.9.1.tar.gz"
-    sha256 "7f59b10bc3374004cee3c04fa4ee4a1b90d0dca84a3d0e436d5861a1aa3b919f"
-  end
-
-  resource "happy" do
-    url "https://hackage.haskell.org/package/happy-1.20.0/happy-1.20.0.tar.gz"
-    sha256 "3b1d3a8f93a2723b554d9f07b2cd136be1a7b2fcab1855b12b7aab5cbac8868c"
-  end
-
   def install
-    ENV["CABAL_DIR"] = prefix/"cabal"
     system "cabal", "v2-update"
-    cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
-
-    # happy must be installed before alex
-    %w[happy alex cpphs].each do |r|
-      r_installdir = libexec/r/"bin"
-      ENV.prepend_path "PATH", r_installdir
-
-      resource(r).stage do
-        mkdir r_installdir
-        system "cabal", "v2-install", *cabal_args, "--installdir=#{r_installdir}"
-      end
-    end
-
-    system "cabal", "v2-install", "-f", "cpphs", *std_cabal_v2_args
+    system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
 
     # generate the standard library's documentation and vim highlighting files
     resource("stdlib").stage lib/"agda"
     cd lib/"agda" do
-      system "cabal", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
+      cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
+      system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
       system "./GenerateEverything"
       system bin/"agda", "-i", ".", "-i", "src", "--html", "--vim", "README.agda"
     end
