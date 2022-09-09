@@ -28,6 +28,8 @@ class DockerBuildx < Formula
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/buildx"
 
     doc.install Dir["docs/reference/*.md"]
+
+    generate_completions_from_executable(bin/"docker-buildx", "completion")
   end
 
   def caveats
