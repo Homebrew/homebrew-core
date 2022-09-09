@@ -36,10 +36,6 @@ class Zeek < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
-
   fails_with gcc: "5"
 
   def install
