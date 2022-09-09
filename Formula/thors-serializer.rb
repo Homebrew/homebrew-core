@@ -19,10 +19,6 @@ class ThorsSerializer < Formula
   depends_on "bzip2"
   depends_on "libyaml"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
