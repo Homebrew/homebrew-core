@@ -32,6 +32,8 @@ class Scorecard < Formula
     system "go", "build", *std_go_args(ldflags: ldflags)
     system "make", "generate-docs"
     doc.install "docs/checks.md"
+
+    generate_completions_from_executable(bin/"scorecard", "completion")
   end
 
   test do
