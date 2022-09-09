@@ -23,6 +23,8 @@ class Oras < Formula
       -X oras.land/oras/internal/version.BuildMetadata=Homebrew
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/oras"
+
+    generate_completions_from_executable(bin/"oras", "completion")
   end
 
   test do
