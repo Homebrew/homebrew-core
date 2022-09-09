@@ -18,6 +18,8 @@ class Cointop < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X github.com/cointop-sh/cointop/cointop.version=#{version}")
+
+    generate_completions_from_executable(bin/"cointop", "completion")
   end
 
   test do
