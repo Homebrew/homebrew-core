@@ -27,10 +27,6 @@ class Libphonenumber < Formula
   depends_on "protobuf"
   depends_on "re2"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # For abseil and C++17
 
   def install
