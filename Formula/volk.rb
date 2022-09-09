@@ -21,10 +21,6 @@ class Volk < Formula
   depends_on "orc"
   depends_on "python@3.10"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   on_intel do
     depends_on "cpu_features"
   end
