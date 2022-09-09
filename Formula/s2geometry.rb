@@ -25,10 +25,6 @@ class S2geometry < Formula
   depends_on "glog"
   depends_on "openssl@1.1"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # C++17
 
   def install
