@@ -5,6 +5,7 @@ class Snort < Formula
   mirror "https://fossies.org/linux/misc/snort3-3.1.40.0.tar.gz"
   sha256 "d787d954f21d4cd6a048e10b8c53c78cb6287ec448108fc573b951639c8947b3"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/snort3/snort3.git", branch: "master"
 
   livecheck do
@@ -29,7 +30,7 @@ class Snort < Formula
   depends_on "hwloc"
   depends_on "libdnet"
   depends_on "libpcap" # macOS version segfaults
-  depends_on "luajit-openresty"
+  depends_on "luajit"
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "xz" # for lzma.h
@@ -37,7 +38,6 @@ class Snort < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc"
     depends_on "libunwind"
   end
 
