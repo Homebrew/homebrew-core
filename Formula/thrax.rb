@@ -6,6 +6,7 @@ class Thrax < Formula
   url "https://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.8.tar.gz"
   sha256 "e21c449798854f7270bb5ac723f6a8d292e149fc6bbe24fd9f345c85aabc7cd4"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://www.openfst.org/twiki/bin/view/GRM/ThraxDownload"
@@ -28,11 +29,7 @@ class Thrax < Formula
   depends_on "libtool" => :build
 
   depends_on "openfst"
-
-  on_linux do
-    depends_on "gcc"
-    depends_on "python@3.10"
-  end
+  uses_from_macos "python", since: :catalina
 
   fails_with gcc: "5"
 
@@ -40,7 +37,7 @@ class Thrax < Formula
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
-    rewrite_shebang detected_python_shebang, bin/"thraxmakedep" if OS.linux?
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), bin/"thraxmakedep"
   end
 
   test do
