@@ -11,10 +11,6 @@ class RangeV3 < Formula
 
   depends_on "cmake" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
