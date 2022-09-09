@@ -28,7 +28,7 @@ class Netclient < Formula
   end
 
   test do
-    output = pipe_output "'#{bin}/netclient' 2>&1"
+    output = shell_output("#{bin}/netclient 2>&1", 1)
     assert_match "This program must be run with elevated privileges", output
   end
 end
