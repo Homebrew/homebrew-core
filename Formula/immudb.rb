@@ -24,7 +24,11 @@ class Immudb < Formula
   def install
     ENV["WEBCONSOLE"] = "default"
     system "make", "all"
-    bin.install %w[immudb immuclient immuadmin]
+
+    %w[immudb immuclient immuadmin].each do |binary|
+      bin.install binary
+      generate_completions_from_executable(bin/binary, "completion")
+    end
   end
 
   def post_install
