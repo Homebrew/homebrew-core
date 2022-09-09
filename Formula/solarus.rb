@@ -28,7 +28,6 @@ class Solarus < Formula
   depends_on "sdl2_ttf"
 
   on_linux do
-    depends_on "gcc"
     depends_on "mesa"
     depends_on "openal-soft"
   end
