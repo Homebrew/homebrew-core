@@ -2,16 +2,15 @@ class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
   license "GPL-3.0-or-later"
-  revision 2
 
   stable do
-    url "https://downloads.sourceforge.net/project/synfig/releases/1.4.2/synfig-1.4.2.tar.gz"
-    mirror "https://github.com/synfig/synfig/releases/download/v1.4.2/synfig-1.4.2.tar.gz"
-    sha256 "e66688b908ab2f05f87cc5a364f958a1351f101ccab3b3ade33a926453002f4e"
+    url "https://downloads.sourceforge.net/project/synfig/development/1.5.1/synfig-1.5.1.tar.gz"
+    mirror "https://github.com/synfig/synfig/releases/download/v1.5.1/synfig-1.5.1.tar.gz"
+    sha256 "aa91593c28a89f269be1be9c8bd9ecca6491f9e6af26744d1c160c6553ee2ced"
 
-    # Fix build with FFmpeg 5. Remove in the next release.
-    # Backport of upstream commit due to NULL -> nullptr changes.
-    # PR ref: https://github.com/synfig/synfig/pull/2734
+    # Apply upstream commit to fix build with ffmpeg:
+    # https://github.com/synfig/synfig/commit/f684b24f0db31ab8ea7aadc417fc23e3084b4138
+    # Removew with next release.
     patch :DATA
   end
 
@@ -40,9 +39,11 @@ class Synfig < Formula
   depends_on "boost"
   depends_on "cairo"
   depends_on "etl"
+  depends_on "ffmpeg"
   depends_on "fftw"
   depends_on "freetype"
   depends_on "gettext"
+  depends_on "imagemagick"
   depends_on "libpng"
   depends_on "libsigc++@2"
   depends_on "libtool"
@@ -52,10 +53,6 @@ class Synfig < Formula
   depends_on "pango"
 
   uses_from_macos "perl" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
@@ -100,7 +97,7 @@ class Synfig < Formula
     pixman = Formula["pixman"]
     flags = %W[
       -I#{cairo.opt_include}/cairo
-      -I#{etl.opt_include}
+      -I#{etl.opt_include}/ETL
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gettext.opt_include}
@@ -152,33 +149,35 @@ class Synfig < Formula
 end
 
 __END__
+diff --git a/src/modules/mod_libavcodec/trgt_av.cpp b/src/modules/mod_libavcodec/trgt_av.cpp
+index 6baccb4..bea55cc 100644
 --- a/src/modules/mod_libavcodec/trgt_av.cpp
 +++ b/src/modules/mod_libavcodec/trgt_av.cpp
-@@ -41,6 +41,7 @@
+@@ -38,6 +38,7 @@
  extern "C"
  {
  #ifdef HAVE_LIBAVFORMAT_AVFORMAT_H
-+#	include <libavcodec/avcodec.h>
++#   include <libavcodec/avcodec.h>
  #	include <libavformat/avformat.h>
  #elif defined(HAVE_AVFORMAT_H)
  #	include <avformat.h>
-@@ -234,12 +235,14 @@ class Target_LibAVCodec::Internal
+@@ -232,12 +233,14 @@ public:
  		close();
-
+ 
  		if (!av_registered) {
 +#if LIBAVCODEC_VERSION_MAJOR < 59 // FFMPEG < 5.0
  			av_register_all();
 +#endif
  			av_registered = true;
  		}
-
+ 
  		// guess format
 -		AVOutputFormat *format = av_guess_format(NULL, filename.c_str(), NULL);
 +		const AVOutputFormat *format = av_guess_format(NULL, filename.c_str(), NULL);
  		if (!format) {
  			synfig::warning("Target_LibAVCodec: unable to guess the output format, defaulting to MPEG");
  			format = av_guess_format("mpeg", NULL, NULL);
-@@ -254,6 +257,7 @@ class Target_LibAVCodec::Internal
+@@ -252,6 +255,7 @@ public:
  		context = avformat_alloc_context();
  		assert(context);
  		context->oformat = format;
@@ -186,18 +185,18 @@ __END__
  		if (filename.size() + 1 > sizeof(context->filename)) {
  			synfig::error(
  				"Target_LibAVCodec: filename too long, max length is %d, filename is '%s'",
-@@ -263,6 +267,14 @@ class Target_LibAVCodec::Internal
+@@ -261,6 +265,14 @@ public:
  			return false;
  		}
  		memcpy(context->filename, filename.c_str(), filename.size() + 1);
 +#else
-+		context->url = av_strndup(filename.c_str(), filename.size());
-+		if (!context->url) {
-+			synfig::error("Target_LibAVCodec: cannot allocate space for filename");
-+			close();
-+			return false;
-+		}
++ 		context->url = av_strndup(filename.c_str(), filename.size());
++ 		if (!context->url) {
++ 			synfig::error("Target_LibAVCodec: cannot allocate space for filename");
++ 			close();
++ 			return false;
++ 		}
 +#endif
-
+ 
  		packet = av_packet_alloc();
  		assert(packet);
