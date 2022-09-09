@@ -27,10 +27,6 @@ class LibxmlxxAT4 < Formula
 
   uses_from_macos "libxml2"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
