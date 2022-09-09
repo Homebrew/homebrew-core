@@ -11,22 +11,19 @@ class Xpdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "609baf11a3fcb6329bae23a823b83211a6f48d9cab4492e5cfa659740ffbaff6"
-    sha256 cellar: :any,                 arm64_big_sur:  "65d202da357fd658a3e739a907d32d8a033f5887387cf4962486b159cc0f986c"
-    sha256 cellar: :any,                 monterey:       "afa2e4bc4335c584c62893c18bfbc8fd4050f36638ec15c0bfaa576d49c4449b"
-    sha256 cellar: :any,                 big_sur:        "69111a8ce5871e43fa7d9a0beaac826001afca06e5cfbaed45a621575be73508"
-    sha256 cellar: :any,                 catalina:       "2078a6e70ae0e9d321b3f49610f6a2cc904eb30249a859e003fcbc97be01ef98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e5c6c069c929a71c97efd2afed4adde3a4657bdc37048de69d09445cdceb3b0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "fc5aad549b5099ce8f3d51227bfd419a4766c8b78138c8f894ac738dcb446a5f"
+    sha256 cellar: :any,                 arm64_big_sur:  "015fcf888d527fab0465f6623df5dfa4166f8d0231350bd9820ec5a5e8e4c478"
+    sha256 cellar: :any,                 monterey:       "f90629e090df683656a1ef289e797d24b8a4a68be0c0123ef0cfb6565512e3a9"
+    sha256 cellar: :any,                 big_sur:        "2ffeda7163a03d8978f9d81203fff3a2e7ab1d868e0dfae6ef6873690dbeaa22"
+    sha256 cellar: :any,                 catalina:       "1bca9dd3f72b9af25632b95ba5fa3cb9a85fa7698a7e72b61e0cdb3ec039b105"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3aa57e1f93effd94b34991085a501b30f2329caff22885c2b9ebbf5e47b4277"
   end
 
   depends_on "cmake" => :build
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "qt@5"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   conflicts_with "pdf2image", "pdftohtml", "poppler",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"

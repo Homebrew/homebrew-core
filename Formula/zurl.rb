@@ -8,12 +8,13 @@ class Zurl < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f4f20dfa4fa21116538bf6150b3ed05fb8e1ade026fa0a08b67d00f033c13de1"
-    sha256 cellar: :any,                 arm64_big_sur:  "dbe3e4510bfb54034ca28ad3eb228314d9bde1c68e666af0c76b7676136c105b"
-    sha256 cellar: :any,                 monterey:       "10197ca2f6b2b2e783781b0e33800f76c3a17d05cd423c19c228113c3b7d074b"
-    sha256 cellar: :any,                 big_sur:        "156dbba9a7152ab28f5f70670de6692857c7910a00449e7040fb7ae89431a08c"
-    sha256 cellar: :any,                 catalina:       "5d251122a34705e001a53b33539895698a31e8aad29a3bf7e0c6eaa3579b6a1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b83d6978ef49ead8934309eb8d3db989e849479bbcc0eb695f80df53a460db5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "cbf5027867ea9729a019902d2f491b4ec2bf06c9b6e628b5b64e761b406a166e"
+    sha256 cellar: :any,                 arm64_big_sur:  "52fa23c3cda835f52109102ddc9ccbe7ed64bb1b4ac5e8d2826b2019d7b3f5df"
+    sha256 cellar: :any,                 monterey:       "732931b515e27cd2e89a605a561561981c73d46606ff71e80c64fe48a1708030"
+    sha256 cellar: :any,                 big_sur:        "d56d33c65d948e66b3a8cf470d8e889c301e7cf6d71972e2e5b0668962e5fdfd"
+    sha256 cellar: :any,                 catalina:       "4f7fb91c8fc4f34e43faad72bd1b172c254e09a5d68cf9bd48300afab7a79032"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54f1a67d9c39bc3084dd751ba43dfb967d167cb93a0b636f8b953202632c3e5e"
   end
 
   depends_on "pkg-config" => :build
@@ -22,10 +23,6 @@ class Zurl < Formula
   depends_on "zeromq"
 
   uses_from_macos "curl"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

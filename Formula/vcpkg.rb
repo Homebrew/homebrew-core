@@ -17,21 +17,18 @@ class Vcpkg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2de454e03fedee3166f2a4be0c1f59297f699e058427be3ced8e3bc41d305c2d"
-    sha256 cellar: :any,                 arm64_big_sur:  "a7242d2bf802deb9ca3b793c7c83787fc1a04a8d7c321abf5b2451d546ab1c7c"
-    sha256 cellar: :any,                 monterey:       "a82e7e4b09f453de0b3badfd28bf38c394935b36e9c7d373a1e2d600132d531f"
-    sha256 cellar: :any,                 big_sur:        "6e5641ac22030db3792eaf997be464ae9f0dff508f5e22a9bb6f6ccb1d4c5320"
-    sha256 cellar: :any,                 catalina:       "30f3eb90c5b5db20bc0f26f8ab45b80ae309f28d0b0921a34776a76ab80d144f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c6744de38a161beec485edfbd8d9ba7e2ee04b6eb5d5312e195806cdf1cb363"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "0ef4c2d5ad9e805e72ab14ec249507a552f05bd5c25f79fd1f2507573e4c6acd"
+    sha256 cellar: :any,                 arm64_big_sur:  "8ea88c4b5374948089d77758a0367f7b2ad32c4c485dfe0c1e892bbc1ab1e812"
+    sha256 cellar: :any,                 monterey:       "4e083328d0521418de251afb9cae430da44e8d43a0f76192014daf24123edfbe"
+    sha256 cellar: :any,                 big_sur:        "0350014bd128b538c5223cf8dc3ae18994960a5e8c76d247f144a633af37404c"
+    sha256 cellar: :any,                 catalina:       "cac45071ae9efeeb7fd535270cd660c5fd918cc319985ea344e774cac94fc502"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b59faa7888c6596e3d082508d1d49b76b64f5cae1f6e23cb8619c281ea05587"
   end
 
   depends_on "cmake" => :build
   depends_on "fmt"
   depends_on "ninja" # This will install its own copy at runtime if one isn't found.
-
-  on_linux do
-    depends_on "gcc" # for C++17
-  end
 
   fails_with gcc: "5"
 

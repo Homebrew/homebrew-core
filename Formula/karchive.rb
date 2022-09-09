@@ -19,12 +19,13 @@ class Karchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b8ea0d068ccb226233cfba1cddbde1fbb0094812bf9fba5baf8e089776da4072"
-    sha256 cellar: :any,                 arm64_big_sur:  "482a553a7e8928dc62d6ab13204139349ccaceb1916351396abae67bfadcf77f"
-    sha256 cellar: :any,                 monterey:       "0b1a5d0e5df84fd9fac3967a1d302c936ddc947193887cff012e40ef5190540b"
-    sha256 cellar: :any,                 big_sur:        "f8fbcf8d3a8dcc008eee5349395a8847b4a6c2a345d88d38b4b03351179d7159"
-    sha256 cellar: :any,                 catalina:       "e62a95e48c84b902c781ebcea4a50486138fd10b9b4da6e7bf0ce91235e874b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8175110177ddecdccde56888bfb35e2292494782f784141f4441a9365c9c83dd"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "a2de818dc3cc8dcde26aadf4587921ca186bfa5fb5f88a9fa90e940081636427"
+    sha256 cellar: :any,                 arm64_big_sur:  "472e96063818f7cd08414df483b057e16fa5409f80b0f5a023ad71cc1df30300"
+    sha256 cellar: :any,                 monterey:       "1666cec73015d49a24e4b501e08b8f2c25777bdeb8a60ceeed9a4bf0d2546c7a"
+    sha256 cellar: :any,                 big_sur:        "d8c125a0c6827905056ff233367d296315792218eac1f20d807d7205d408b45e"
+    sha256 cellar: :any,                 catalina:       "14736b595f81734e1872e4b342bd60ad1fd22b659caf9beb7b25560037484e6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cad2078570a30de54c5c9e5d548a81033de5ac04dc7f87946d42681697217451"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -38,10 +39,6 @@ class Karchive < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
@@ -65,6 +62,7 @@ class Karchive < Formula
       -DQt5Core_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Core
       -DQT_MAJOR_VERSION=5
     ]
+    args << "-DCMAKE_BUILD_RPATH=#{lib}" if OS.linux?
 
     %w[bzip2gzip
        helloworld

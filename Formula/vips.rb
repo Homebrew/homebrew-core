@@ -11,12 +11,13 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "321af8d4643cefc321ca350800d059ccd0671fcd2d5550a3d52869d5de1b5bbf"
-    sha256 arm64_big_sur:  "0bce10169f0d654aaf4a54925e20a90707280df2f0e1ffdb34cbfe53d0fb77f9"
-    sha256 monterey:       "8396cca72483ff7702006b6c38fdc0931dbedc5f7a3bd02bb396bd9571487f2f"
-    sha256 big_sur:        "75d86a0a03df9781be556632d059fb2587a001c4de7f1338bbc8971452c678a8"
-    sha256 catalina:       "9a2b7a0442105de8aa6773786c1c666abe7de3829dd94d6d70d51f386d470bef"
-    sha256 x86_64_linux:   "5b15129a3f66a817e4e7a19fe0d63d6d407f9cb8b2ebaad2c57c257b504052a8"
+    rebuild 1
+    sha256 arm64_monterey: "d80754b65c0cebadfec262509bdb1d3ba612ac4d2816b58de4930b4adacb36c2"
+    sha256 arm64_big_sur:  "813ca47272e8d3b88c2d30d5c190137aa2b525fbae626ea459a043f6fb18e023"
+    sha256 monterey:       "4c5882f10591209eb3337c6f6f1a96b7c4a214dd5f64b2470ada7280259ee951"
+    sha256 big_sur:        "eae9f30e6d1a22e41472facf37f78a9a285bd003ab0dce5a02aa9a91bc1f0f14"
+    sha256 catalina:       "bb36f709353d7f7128dbec7b4f500bd12fb87e174dc149e191a1c31067a593e8"
+    sha256 x86_64_linux:   "a246cde2f92677386854e7249e644c26f7af4a9f70ab2fa8806cf205377d77a0"
   end
 
   depends_on "gobject-introspection" => :build
@@ -52,10 +53,6 @@ class Vips < Formula
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

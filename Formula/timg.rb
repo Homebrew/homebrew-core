@@ -8,12 +8,13 @@ class Timg < Formula
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "544ece49b78ce94cc86b051f79c7d482a422f703eb6a6ac9629cec6e407ab636"
-    sha256 cellar: :any,                 arm64_big_sur:  "0194db39ce6bdd677cbe6ab0fb0ae04f15079d59966714c8452e1a2e6fb0f552"
-    sha256 cellar: :any,                 monterey:       "32c07c228f70b47fa944f87c6c966a4eebac41cfc82df9670af9aeabae465e53"
-    sha256 cellar: :any,                 big_sur:        "072b04b7a2888e2d2b5e3b727cb915a757743d3b4eb7b7e28df4f78d7ee06c10"
-    sha256 cellar: :any,                 catalina:       "476d093d5d8b40f92b8aaa050a5dfa071b581e1cf87fa3c1820c71c8d7a8f620"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80bd1ea0746bbe5a216c29ebb345631329ec9cf2a5c3b1c2e90bad48bb7752e5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "be4ca4b2e169c3ef834df9f61d00fb23758361dcc588fd2d6bfd2442dfe41426"
+    sha256 cellar: :any,                 arm64_big_sur:  "29cb0704f3d3b4ad4aff526358a6613ecd78e077970b015cf8f1d2483175ca04"
+    sha256 cellar: :any,                 monterey:       "e0fe70320d537417d3715f3aa6f27349506db40c49b9b1dd3dded5aac648b659"
+    sha256 cellar: :any,                 big_sur:        "879ce842653d7f41044688cf8fd421090580b15f366964321babcbd1f0fff1bf"
+    sha256 cellar: :any,                 catalina:       "567e278622c286895367fc61fe01b736f0b64f0c78de2b841f8a51ff9878a5d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa0ec5657396c90ace6275db5bf210343c46724f2459295a871753ceeaa2e380"
   end
 
   depends_on "cmake" => :build
@@ -24,10 +25,6 @@ class Timg < Formula
   depends_on "libpng"
   depends_on "openslide"
   depends_on "webp"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # rubberband is built with GCC
 

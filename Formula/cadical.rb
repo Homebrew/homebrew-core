@@ -1,10 +1,9 @@
 class Cadical < Formula
   desc "Clean and efficient state-of-the-art SAT solver"
   homepage "http://fmv.jku.at/cadical/"
-  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-1.5.2.tar.gz"
-  sha256 "4a4251bf0191677ca8cda275cb7bf5e0cf074ae0056819642d5a7e5c1a952e6e"
+  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-1.5.3.tar.gz"
+  sha256 "0ff521ed36d57478a8dbc610e0d27536c9d3a2154d859152f33f8733a6dca31e"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Cadical < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "56c14010ece80c5889af1c9f4f87b0e7890dad48a686c8f5c8430299812eaf48"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2ede739d74122cd47e687aab34bcaae1ed69e0c7ff41e2b8390befd0c959d31"
-    sha256 cellar: :any_skip_relocation, monterey:       "bec982b9cd3bd2ffe04b0226dd34cdde9278f1fe54184fde851d9648b0932cee"
-    sha256 cellar: :any_skip_relocation, big_sur:        "abf51a356e0c2567a306981f4178a76279169e7040fdb0cbed914c5ef0f67c66"
-    sha256 cellar: :any_skip_relocation, catalina:       "b31d7cb63660964c6382e78f49065b67a106ba19d7ba0b0e108e7438413bb058"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a508084a9b72046fda4f6cf6543b4402626aa14705b12813f73bd343edaf57f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec9e2713567e9f62cd478b9c96607fe7d032f3aea1ddab337a77f02d192e704f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4777a3ac3fc0e14bf667dd44bbf627e5040e8fd00d15be121726fb2def064ced"
+    sha256 cellar: :any_skip_relocation, monterey:       "107ff93ffbd3c268e32968e874ca4ecb11c0461c5d272df9bab6144eba58b011"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e63ad10d509d4ae8ab24720fce6c1a047ae4e9c24e80cdfd284c019354fddaa3"
+    sha256 cellar: :any_skip_relocation, catalina:       "52e0376f6e047b6cd0ef4a3fb82aa3c59c48060bd8a13841f1443f9dd8c18c4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "553648100266b8cf18af31b37f805be91581efcd48b457ef339cf6dfd9babea3"
   end
 
   def install

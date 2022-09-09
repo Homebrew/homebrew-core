@@ -18,12 +18,13 @@ class Mame < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "dcceea446442b0d9cf0e1f51bf50a2fa4b841c9ca4d0da3cbf9a9ba7dfca544e"
-    sha256 cellar: :any,                 arm64_big_sur:  "c862eda45de322d46c18358238614395fa8d85e81083fe0f7aa6f070b7bc8166"
-    sha256 cellar: :any,                 monterey:       "5145501ea9384f35341c919ca7c06065d7a77a3deaf3c2fbfe7037266a4e7357"
-    sha256 cellar: :any,                 big_sur:        "946e83becacc2e9ac31adc145166b7cbdf9c0229a76ab0b555ae47290f593bc7"
-    sha256 cellar: :any,                 catalina:       "2fe3d3299cf3ef169a5b6d7f0f171846b7ad7e6d60c5bea8ace4a8349b08be29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66a602af59d763aa00038c6de89832f767808332347112e269fd953ca01a602f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "8b85104aeb4df0e63ecff656bc91469e76f894f2ac40a6280933c87b147e52eb"
+    sha256 cellar: :any,                 arm64_big_sur:  "9abea62aa0844c16cebfffeaf968989d9e0981b1f865a8180550890e18f8e22c"
+    sha256 cellar: :any,                 monterey:       "c81171ed848761fc7343180bb00835cb6bee4e3d278f7eb1437cf78412c4547a"
+    sha256 cellar: :any,                 big_sur:        "d26b39533730b980a23dcd493abbbe4f6154bd210920e354b1493d2b512e402c"
+    sha256 cellar: :any,                 catalina:       "b2b437fd4daf9aac15d425838fe7dfb2a99cab30bac0e37e76b1f09d5848f61e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f49c92dd9ccc9f4a1c59624979ff6b008a7660902931720b4e1135d3cafe03f8"
   end
 
   depends_on "glm" => :build
@@ -46,7 +47,6 @@ class Mame < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc" # for C++17
     depends_on "pulseaudio"
     depends_on "qt@5"
     depends_on "sdl2_ttf"
@@ -62,7 +62,7 @@ class Mame < Formula
     # Use bundled asio and lua instead of latest version.
     # https://github.com/mamedev/mame/issues/5721
     # https://github.com/mamedev/mame/issues/5349
-    system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3",
+    system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3.10",
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",

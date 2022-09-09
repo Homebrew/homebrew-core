@@ -12,21 +12,18 @@ class Treefrog < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "8712234dd9f9658c56354abfc1938ad472b6f8380876e0eec3aadbdfeddd9367"
-    sha256 arm64_big_sur:  "6a5556cf97c1d63684db9ea24c9aaa1dc22d7de4cb29e49252aee3d2bff81649"
-    sha256 monterey:       "c0be4dc67572d563f76a1887a3e3cd44ae07da1c3231538cbe0606283c908fee"
-    sha256 big_sur:        "5013810aa9eee1fc1bdbb0db23192ebfaa503d0ac8a13368e7d287827b35ab50"
-    sha256 catalina:       "3c7bd7108e070f1abc86404197d4e40e7c8280e50c711d2efd300d7b855e554f"
-    sha256 x86_64_linux:   "ae87c48444739c06ca1063e70bbc9f2863ed786e57493a0cbb89dff44a98853c"
+    rebuild 1
+    sha256 arm64_monterey: "50a95c4bfbbdb9b917d2fa7d48c4088d8562ab7bc0fee4577b77233beb5110ee"
+    sha256 arm64_big_sur:  "6f9ab601a283b8d09ed126ea56c211a20c6402e3a1f435bb3414106404cdf206"
+    sha256 monterey:       "1f978cde3384620e8949fe82bf351d0c9a41cbfd305d3fb4003045ef3319a4e4"
+    sha256 big_sur:        "4cac5c40a0e13a60b65924c31fda01accdc64d4a941c70f216937abf7efd5e07"
+    sha256 catalina:       "51beca49fe3504df480e5dda142d4feefbeb4007fcdf35158cafdd71820e29fb"
+    sha256 x86_64_linux:   "c779dc8dde4b68594fc501e53a49f17b193a0c507335e608663479bde6022b35"
   end
 
   depends_on xcode: :build
   depends_on "mongo-c-driver"
   depends_on "qt"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

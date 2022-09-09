@@ -1,20 +1,18 @@
 class Luv < Formula
   desc "Bare libuv bindings for lua"
   homepage "https://github.com/luvit/luv"
-  url "https://github.com/luvit/luv/archive/1.44.2-0.tar.gz"
-  sha256 "44ccda27035bfe683e6325a2a93f2c254be1eb76bde6efc2bd37c56a7af7b00a"
+  url "https://github.com/luvit/luv/archive/1.44.2-1.tar.gz"
+  sha256 "f8c69908e17ec8ab370253d1508e23deaecfc0c4752d2efb77e427e579501104"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/luvit/luv.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "769a34818f15194c233183046646e3881e3626ca82bee92117c46e61b3a98e22"
-    sha256 cellar: :any,                 arm64_big_sur:  "e9fda6e3530e971e96fbc3458418c9a2f2c125c8450e1853bf633c691d4d1865"
-    sha256 cellar: :any,                 monterey:       "c8e50d366b41546c45179a058269feb68bc207ec90133e4dd788f365cfa6b76b"
-    sha256 cellar: :any,                 big_sur:        "08a838d498a73ce82ac070ee30233a0e975357b0eeec641fbae707e78f7cf106"
-    sha256 cellar: :any,                 catalina:       "9f665a63fafd76131c8bb7bd99307f577f1c7798b4e56bf52f18238fa27e8373"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b5c519b4d10229b6e69fcff9ad59bf89618d7da14eea0935b900d4623ae2739"
+    sha256 cellar: :any,                 arm64_monterey: "1d5aaf149019d3d775b093efaa51fda452248eccf109e961325d0a8de917f947"
+    sha256 cellar: :any,                 arm64_big_sur:  "ce3cf05ca363a0978151a8f1ae096bb1d13d26718d2dfc25c3618e6156a4f6e2"
+    sha256 cellar: :any,                 monterey:       "1644986934f6275f3f7f632e074cdc9866ad3c2b83661035cd99f5f7912831c9"
+    sha256 cellar: :any,                 big_sur:        "4c93fce6a32d76a35e365d1fb23b08c3bcfaf0de2426f8490d38128c9d2d8781"
+    sha256 cellar: :any,                 catalina:       "c2d5d6718df8309860cd392047a071770d3c298f29a441f4639d47d909cd873a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c1bd86d334299bd8b6af4f0d4080f2b5dab6033778e65a90424be090f10374b"
   end
 
   depends_on "cmake" => :build

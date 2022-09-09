@@ -332,7 +332,7 @@ class Fdroidserver < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.10")
 
     resource("ptyprocess").stage do
       # Without removing this file, `pip` will ignore the `setup.py` file and

@@ -7,12 +7,13 @@ class Trafficserver < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_monterey: "ef9e8dbeb1d0a7641e07d22bea716e70f7c1b6e405acc68a521422b7f52e9a91"
-    sha256 arm64_big_sur:  "3ec4d70534efa2685f0af42c5d1cf3d976e0e5e11e750c20ac8debd64ba3b69a"
-    sha256 monterey:       "970141715408a567173a2363e40fe16d15d8343cbd05281ad46e9415e0e1d73c"
-    sha256 big_sur:        "c1d6b953daa4fe80b578dad4b29652ecedf76ee9d0cf666a65545662ad9bc79e"
-    sha256 catalina:       "9e180b50a512165d3ca4492bf07ec1f46ba2cc1789225dab686231b8bc48f043"
-    sha256 x86_64_linux:   "83cad1def656b877a48b269690c575dd3a0c8f7faacbca9bb87f3d7a80732d39"
+    rebuild 1
+    sha256 arm64_monterey: "ad1c4081325f16e88ab2e0a5b28fd40e73773ddd991aa58e6e34245ddb186e22"
+    sha256 arm64_big_sur:  "56104bf78296d6ae59562fadeda12ea162c14a201c28cb17a5d492c9ecbb2d13"
+    sha256 monterey:       "9514ddec436b6ca4e6b15745a82bc8e34a442c661422a603bfa5b9bd7c79746b"
+    sha256 big_sur:        "4f106b8242e5f85b470d7ee182426a4fd7f10d4cb48c77cd15b2d494fdf0981a"
+    sha256 catalina:       "cdef360aff3c14b9811e69da4c543bc62edbac14b02c36e3a1a8d70e856a07d2"
+    sha256 x86_64_linux:   "de988a5a2170b86814d457217b72f7f5c0f82f166fbfbea233b25177f3282b0a"
   end
 
   head do
@@ -36,10 +37,6 @@ class Trafficserver < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool"  => :build
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   fails_with gcc: "5" # needs C++17

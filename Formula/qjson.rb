@@ -7,21 +7,17 @@ class Qjson < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "50e66e18c82d7808bc50db9a48d9c45bf1fe44cc1089c518d72ac07f41c1e37d"
-    sha256 cellar: :any,                 arm64_big_sur:  "4f0e62ecfb61f24dcc04fac054e6c1c2caf56fe674f4f548bcaa16d5dd1c3d3f"
-    sha256 cellar: :any,                 monterey:       "8117225aa84d5a3cb87d50728bec05abc0585efdf88de5c04012263fe2b91ebf"
-    sha256 cellar: :any,                 big_sur:        "37704aff31b79e0ebe73592149836706f579a2a3dd5231aa4e992647eff07ad5"
-    sha256 cellar: :any,                 catalina:       "b262d77517e48cdd798e237e787c2058d4fad0acf71457c82c17113635898fed"
-    sha256 cellar: :any,                 mojave:         "c7b92230e40e860996163997a092575b6317c631221db79cd1031aec61c13b2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7012cc503b1b95936f84000cd16a38d5c7cde462a0541a416cca4fa3d5d25066"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "f9bf3676c0e2b53c3820eb8b9fc6b8a3b3222c86836a925531c4a1ec902bb346"
+    sha256 cellar: :any,                 arm64_big_sur:  "073b41a1515c6da30255c50957567eed6f70243aa6845c919fc4d525516fed61"
+    sha256 cellar: :any,                 monterey:       "49c80dc061c008fb20ebc722596d17845973ee735236be19b8b26cb5293cd043"
+    sha256 cellar: :any,                 big_sur:        "282f4fa0cccf91b2f993e6742c295e57016a5a25dc89acd1d5c0f19fdf661734"
+    sha256 cellar: :any,                 catalina:       "23138020da1a1d5fc965e242d40ee73838cd233498c1f6aa06fa0146aa895b94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b64e82e4791c3dc66f6304add6ac44a993b82a9d88d02704af280daa080f5d64"
   end
 
   depends_on "cmake" => :build
   depends_on "qt@5"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
@@ -48,7 +44,8 @@ class Qjson < Formula
       [
         "-fPIC",
         "-L#{Formula["qt@5"].opt_lib}", "-lQt5Core",
-        "-Wl,-rpath,#{Formula["qt@5"].opt_lib}"
+        "-Wl,-rpath,#{Formula["qt@5"].opt_lib}",
+        "-Wl,-rpath,#{lib}"
       ]
     end
     system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-I#{include}",

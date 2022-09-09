@@ -2,18 +2,18 @@ class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
   url "https://github.com/bazelbuild/bazelisk.git",
-      tag:      "v1.13.2",
-      revision: "cc9d95ab373df9476d4e9a05562d9d9369fde645"
+      tag:      "v1.14.0",
+      revision: "4dd53d9473795acb1ab4401428d038507b26321b"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/bazelisk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "244f8ea62d782486de472b06e2ef5b15c9692287a74394ed59804be67f4ca4ee"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1cc123db545ce0d677ab68ba45bc545b0220d695626fcffb6b3ff8675125253"
-    sha256 cellar: :any_skip_relocation, monterey:       "3983b8070de9fee187f04077811e552694c7786af07c9ca9de1432d96fca622f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "300c27793dc9f37567810cfae30fe607b739a216448de3314c0a70fb5c8e4ca8"
-    sha256 cellar: :any_skip_relocation, catalina:       "ae3934fbef48a06a45f192b34c8d0d01e8053fb8c3f4e91feff8d2b9db01211c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7ba0c0b43650c0154080131e2eb1e4a50b11d04ff9c1f0cac2f58e8522e9a52"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "50baed347ac647c9250516ac5a13338e60c589c86c85547466d5e230163f0686"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "327ec7fc0ef1f8558a2944ef893156a225cf9872ebd045167c19f4290411852d"
+    sha256 cellar: :any_skip_relocation, monterey:       "53279b4380ac171a52abd666e4d2789effe2f386eecb62d3dc1d85f1a8bd27ef"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6862f66bf4adce9d04951f2c4d056c71b729fffa58c9f1f9002d627ca097694d"
+    sha256 cellar: :any_skip_relocation, catalina:       "ebcf90d6643964308afb30c4fccda9ddae994ab4b3876bd48ece4f83aa5f5739"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d3abd36e1dc56ad09700297d36694def14a66e37fe03997c90a35bff52fc19a"
   end
 
   depends_on "go" => :build

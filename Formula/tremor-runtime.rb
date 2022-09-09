@@ -7,12 +7,13 @@ class TremorRuntime < Formula
   head "https://github.com/tremor-rs/tremor-runtime.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "202ddb35f73ce9bb8d1ab2c89566f75f0809446507622ff4c43a4ec52ce72bad"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "05cb773b04b1c03bba787e40bc0520853b8d574eb9c161f8eb2fb82ccc3812a0"
-    sha256 cellar: :any_skip_relocation, monterey:       "c04fbb0f649887f947c7eb3ed049a8a2782a9816e30736981dc94ae9d0012612"
-    sha256 cellar: :any_skip_relocation, big_sur:        "44a6ff3a678844a77ecb77c64d32e74ee75f5751d05b3ab3c55a3384a5606219"
-    sha256 cellar: :any_skip_relocation, catalina:       "8a881392fcaf3024ab726943f3d7f16566992c1897136695e410692f5ccbe726"
-    sha256                               x86_64_linux:   "838286df7058c45fce9f5507793d5e5b20d760d82929812392a3c594058f7fee"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0d58f90918cf00d4adca64e53935ba29e5c0fb0ff08d6f2a6ce8ebc8bc6df12"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f8c977361698fecc8d63b749f54ebdd482c82af98ca72b3678e365e74c5a54a"
+    sha256 cellar: :any_skip_relocation, monterey:       "53fdb05b8cd063bc63223cde126aa0ec5452c69fcd7b94ccd1afac215912e396"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7383fe3a97615a0723f4726f66c3d399ee62dbd5d48e63fe49fa4a8a3734a344"
+    sha256 cellar: :any_skip_relocation, catalina:       "049f89157dadffbe38688c1b60a422f1befccd6ab1625cc7bb5a9a9345ed330c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12c9d851db248e68c21e1a0f016d1c18ce965d39be48a17bf3420ffe860c4977"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +21,6 @@ class TremorRuntime < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "gcc"
     depends_on "llvm"
     depends_on "openssl@1.1"
   end

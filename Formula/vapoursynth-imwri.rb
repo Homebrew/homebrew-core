@@ -8,12 +8,13 @@ class VapoursynthImwri < Formula
   head "https://github.com/vapoursynth/vs-imwri.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "ad45a8cee9ad643838d50cf96b81de7a4d9970e1440a1532a55e757068fd1448"
-    sha256 cellar: :any, arm64_big_sur:  "26e4a9de02278ce275b3341cd95761421e713dddf9921c207c906e5c77a09711"
-    sha256 cellar: :any, monterey:       "de583d45e9ddea5093874936f99a795ddc53a793ea98106df897abd88eda24b8"
-    sha256 cellar: :any, big_sur:        "4cba2294a138c7518c11e2f98687aa681c9eca9848dc10921484f8f8eeb7d887"
-    sha256 cellar: :any, catalina:       "3fff5e28b75d26a74370e6bfa78ab60112676440874d21530d51dfb0f4d8fb9c"
-    sha256               x86_64_linux:   "ed81cf127676bd493d426d8381e3511ccee2bab3c7207420271533afe2bba087"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "7ac213c90b5bdddce15d0e72b3f790560c9dcc3cd411874daa81bfe5164ddf67"
+    sha256 cellar: :any, arm64_big_sur:  "a3bf24671c674731b767334263fc0a8ae86d8aca14d3c9e0f3e0425bed7e5e3a"
+    sha256 cellar: :any, monterey:       "9f7a746dc9d06d744b246ab6486cb01dfc0862a239945c9da43f3fc2fd35a281"
+    sha256 cellar: :any, big_sur:        "6e695d666d479b69bff01083f0a3ac68e79f055c26cc30ef5253dfaff7d6ac78"
+    sha256 cellar: :any, catalina:       "83f865c98f2b83384a2714589824beddabe0f1180fc028fd529e01c1ba873655"
+    sha256               x86_64_linux:   "b06f11cf0fe16bc8447d1d66a9c56c2fa19ec9900bed475f4330500fec591d6c"
   end
 
   depends_on "meson" => :build
@@ -21,10 +22,6 @@ class VapoursynthImwri < Formula
   depends_on "pkg-config" => :build
   depends_on "imagemagick"
   depends_on "vapoursynth"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

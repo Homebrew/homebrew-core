@@ -12,20 +12,17 @@ class Wabt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ed9228130cae7caaf99878bbb659c2ffd6004b2ce8fb1d93105aa0e0f993c4b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35c8a5d9cbe6e488251dcb3dd8c0d129230585b4e3911ec0b0621d31257109d1"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c56b047954e585faa6f5870104f4ced672c4d5f87b3fc38463cdca98ccc714b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "373276a1f3bb3cf8569facf06baece468478d3eaab13f92d0d780c5215044b2b"
-    sha256 cellar: :any_skip_relocation, catalina:       "6d1178fb069d4e7a109ae7a5105d8290a1e753670bcb2b205815abf113043e88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cfeafe8d40277ebc638324223ea361dd4e1711dcba42006b9483dcb74b7456d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02e681e9b25d6171252c035319de538781d0fdf597556314d945ffe946d6a21e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e69c6b33949769cbcc9af2ea6e7d9bb63329d93c354d1d0d6577d223981c36e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "b12757b5ae82647afa2a2642eea763616bdf2f75b2ac2558e7c3eb8514502ce9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "63d035b7f213271905159ef1244a6d771b3b7ae856bc34c610da8a9406f85c06"
+    sha256 cellar: :any_skip_relocation, catalina:       "9916c18c358a468f9364742cf4727b426caa1f0c183e55b384292853cd24f7c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47407a00ee59170838d074e8a4882f60b2307dbd8bfcb4a30334ef1c00925337"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.10" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # C++17
 

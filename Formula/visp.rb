@@ -12,12 +12,13 @@ class Visp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1948179b3f2f586cb10bde0ac4a6c3adeaff84ebf1e466c159f5ede0d9dfe460"
-    sha256 cellar: :any,                 arm64_big_sur:  "03783982c3fd31b9abaaf3edd10a9f23364a65f4cd99568b2258954ce69e7063"
-    sha256 cellar: :any,                 monterey:       "6a105431466eb33f2a223802da127f1923d051587b902f52639ebece90ecfb22"
-    sha256 cellar: :any,                 big_sur:        "21da77fd8d3ef94dfca1654af113c5cdce96abae8594aa894bde08b71d7424da"
-    sha256 cellar: :any,                 catalina:       "a4418195290be2fb2c9b82865d106453469217776ca8f865530b67e034106802"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cb149320dc918faa2a3c81e0fdf5947e379a086bd2f9090b8c11055c23b96b0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "fecbe2ce737967f712f32d5ae64f00c31d2dfa4cabb117a1f06c32c666a884dd"
+    sha256 cellar: :any,                 arm64_big_sur:  "3c1244cc2b4f23958717043a607e8ca8fc578790c172adc3b67704f20f860115"
+    sha256 cellar: :any,                 monterey:       "d959e8ae260882359ae3eb79d556dd7722afd2645bca7de9da7938d01737b5b9"
+    sha256 cellar: :any,                 big_sur:        "1ef854161678265eefe57582f14609ab1e4c4345f31fd0558cd765fbcca9125a"
+    sha256 cellar: :any,                 catalina:       "63f27f3350b6239b6734ef06965c1c2ee5ea92d6c72dd2698c57e2a1822f0967"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "295b6f80fd2a437fc818b7e64c17e82f61984318a070e9e4a1bc46c2a329c159"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +36,6 @@ class Visp < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc"
     depends_on "libnsl"
   end
 

@@ -46,11 +46,14 @@ class NameThatHash < Formula
     sha256 "a83bff83309687e1859c75b499879738b135d700738dd2721c22965497af05bd"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     virtualenv_install_with_resources
 
-    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/"python3"
-    site_packages = "lib/python#{xy}/site-packages"
+    site_packages = Language::Python.site_packages(python3)
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-name_that_hash.pth").write pth_contents
   end
@@ -61,6 +64,6 @@ class NameThatHash < Formula
     assert_match "#{hash}\n", output
     assert_match "MD5, HC: 0 JtR: raw-md5 Summary: Used for Linux Shadow files.\n", output
 
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "from name_that_hash import runner"
+    system python3, "-c", "from name_that_hash import runner"
   end
 end

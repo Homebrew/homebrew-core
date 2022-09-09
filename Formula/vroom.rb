@@ -7,12 +7,13 @@ class Vroom < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e9a7ee0f8a0259a58411b2fe63b3b3a22d7f01d96ee145af0fb66685decb8775"
-    sha256 cellar: :any,                 arm64_big_sur:  "5c0936d8a7b8b2a87da21b81359f149a125cb9a4ae3185d494e451ec29545989"
-    sha256 cellar: :any,                 monterey:       "03e44a724805d4d18a2867bbef8e5f68b02c2d8dc2db4746e1efa2b89eef2d69"
-    sha256 cellar: :any,                 big_sur:        "defbedaba408253b4bc6ac2f6ac648efe79592ac6aed073f94ae217a030abc5c"
-    sha256 cellar: :any,                 catalina:       "f547779b1b2a4ed66b8cc674807039d0de3e7c5f64000e019ab4010cbcb6becc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57dc7a44a6adef1dd566a0bd8bde4844923d83a7bcf2c761bdcdc1888e91b18f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "1495ca27a49a728916039d42c97f86f95d793f624cf3f8aa7eddf282a84c0f87"
+    sha256 cellar: :any,                 arm64_big_sur:  "707ac7ece7545ed7818a66524c5efb19fe4d0fe14fd67fe1add5c2ec3d3bd451"
+    sha256 cellar: :any,                 monterey:       "167d61c9e3cbbe0ee0318f810c69a317e91a02333041bf8474f946d67640d672"
+    sha256 cellar: :any,                 big_sur:        "eb61354f6427688d143431e2e5b71a1d4af65f86d3ed5e2a88ef2bab70b4e48c"
+    sha256 cellar: :any,                 catalina:       "b3932899fd64627e5fe686bdd356f7fcdab4dafcc330642b92c9d49e3ffa7c85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72332ff619680bb368ff0472869c18dda1cf59b52b7b514d27c35171b8a5f3c7"
   end
 
   depends_on "cxxopts" => :build
@@ -21,10 +22,6 @@ class Vroom < Formula
   depends_on "asio"
   depends_on macos: :mojave # std::optional C++17 support
   depends_on "openssl@1.1"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 

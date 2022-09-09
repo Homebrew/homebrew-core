@@ -13,12 +13,13 @@ class Zeek < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "46ced01bacc4f82b9122ebaceb6f800e704f99f3be4109f4a1acd537bfa4815b"
-    sha256 arm64_big_sur:  "caf2f0fe2bed3f277d656dd8177ad37a41854113e5fc279c8be59dabbf6d9d5a"
-    sha256 monterey:       "10e46a4560e844abf4541fc75f8d40d012514c78ed19a30950b49b96dfee0b7f"
-    sha256 big_sur:        "aa399a38142bd865a731288010db4e519450695fbadc608992a03ac50b66a84f"
-    sha256 catalina:       "f71f4c6d8735cd80e135e0c41c73f2c35a797e483f999074e400ce3b1a62fa6f"
-    sha256 x86_64_linux:   "82b22596007b90674142d6dd107d6a264a0d379a9e600c17b5637a4faca07680"
+    rebuild 1
+    sha256 arm64_monterey: "79cff929180fbf3e76c1b263a96cf16db2b7ae8ebbc48b7e7c19f7edb6b3deb7"
+    sha256 arm64_big_sur:  "1dbab06ef418f7be7a2af05e74a8397ad8da0e62bf48ac9a5b9c80ce18128fd5"
+    sha256 monterey:       "9f0c7484c6c89089e496da6a82126f1ad6150a091ec7ac1e3365123bc9e73ae3"
+    sha256 big_sur:        "eb6cec7c6008e645889203c0f9160a23e4bd747cb45df1b6f44070c9b45e3679"
+    sha256 catalina:       "77328d64c938ee428b22d21937902848b52c098760cd63d3049ec43fae211982"
+    sha256 x86_64_linux:   "9f3b8561dcb40db17c4ac25ac2e5ac9269c24294b065287402d1de475439491b"
   end
 
   depends_on "bison" => :build
@@ -35,10 +36,6 @@ class Zeek < Formula
   uses_from_macos "libpcap"
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
 
   fails_with gcc: "5"
 

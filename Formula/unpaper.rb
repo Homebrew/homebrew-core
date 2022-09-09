@@ -7,12 +7,13 @@ class Unpaper < Formula
   head "https://github.com/unpaper/unpaper.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "74997b9a9738930333b8c4cb000a055d2bc9dd42510be3e9d6d2f96a80908eba"
-    sha256 cellar: :any,                 arm64_big_sur:  "d0b6c4e384cc73092163b88989eed3a87a5d489e693ecafcebfa5770f4e3d6d3"
-    sha256 cellar: :any,                 monterey:       "1dad125fcaf9aa24d1b347a575d286dbad91c7e5e475813314f3084ee1dd3947"
-    sha256 cellar: :any,                 big_sur:        "3e23cbc93bf46fce64ebd7277e23207090c1275b067294f360d3437778cf9c03"
-    sha256 cellar: :any,                 catalina:       "58134afe9017002e684e0ff392e77ee1eca707fa8e323ee7283858054be811eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abeb5bcc20a8037dd4629cb662d1eaf71ebcf901474e508b13e911d65dce1317"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "3280a9ca24994ce8177a652bd6e6f8aef1b14689877b6f9d390cc298f760bcdd"
+    sha256 cellar: :any,                 arm64_big_sur:  "0d18daf8c6731c254b00ba8a14ae88165fe6c517311c72eded94d1775127aa2e"
+    sha256 cellar: :any,                 monterey:       "db689261f4f9c450f13cc531ea7e3554154cfc5ab0a1388f95cb9a59034f8444"
+    sha256 cellar: :any,                 big_sur:        "8547a8225076be35086c103d79133a05f415b73938feeaf2af30a75a340bd76e"
+    sha256 cellar: :any,                 catalina:       "84d445ef496a6e41803c598ace4f6649aabdb6e40a56e6db680cefdd9419617d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "784f4c2c287f116305b77a221dd7ca33fa205c919ca20e432bd8eae35f89da9f"
   end
 
   depends_on "meson" => :build
@@ -20,10 +21,6 @@ class Unpaper < Formula
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "ffmpeg"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 

@@ -6,21 +6,16 @@ class Yacas < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f0be1f32ea2b38ee4066785a1b32d0872a526f9808a9bf5c1b001d044a187b7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a063eb4d6d3cef50d8168b87d663da647231f526e2fd9cf3d912b377523161ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "5d8e13fe887d88634e484d584ab263ee01c42f9a1852c03f9a5ab24bf23cf553"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dfdc56a32f326522a385c3617b185381d056c860cab7aa7f97dde25ea32b29e8"
-    sha256 cellar: :any_skip_relocation, catalina:       "be746c1eb1e965cb3d87195fd0094eee7987dbd74b5f3945e1cfe3e6df3a73cb"
-    sha256 cellar: :any_skip_relocation, mojave:         "80089e9a9b1e3d64648af1cc34b1142d79332510c6797ea3a2a922d4bf4ccbc2"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "10557868ce4e8aa9d146a15b79e0c13e30d3d73c5fee3edaff8e0475678d31bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5ebea55387b89efbff789561075f32ce00b0ffa39df63caf4402365c3b281b5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd6b1d30d48f91c16cf3ca17747ca75fc7c1b12a3f01a6403ba1cf91cca898a5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "143e5dae60ab7011781c9b6f3ce1be4e90f8b1f6914736a8d6ab941a1bacdaf0"
+    sha256 cellar: :any_skip_relocation, monterey:       "bb3448a3fa65b7a2f59240f7d434354e1a4c353ac37721e3c9490e6ce9067b7e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3a0cccf6e345290321cf12858a60f9fd3ccbc3e7f05ad30f544d61b2946566b5"
+    sha256 cellar: :any_skip_relocation, catalina:       "304721aa2947579ecf84d13afca543a252a6ee6ec5d3efe1490d598988116497"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a754ab2fbf89ee984bdca70f8cdfec48f2323a8d4acba7813d7b7aa621df99d9"
   end
 
   depends_on "cmake" => :build
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with :gcc do
     version "6"

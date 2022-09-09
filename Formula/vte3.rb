@@ -4,15 +4,15 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.68/vte-0.68.0.tar.xz"
   sha256 "13e7d4789ca216a33780030d246c9b13ddbfd04094c6316eea7ff92284dd1749"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_monterey: "5956f0ff63ffc5af08896373d884a6e12f831f714d7c01fc78774ff1cb618515"
-    sha256 arm64_big_sur:  "7aee3f3e6e07847f7b65110b53873a3e74b5fc14268518fe0b345b9793b4ec5c"
-    sha256 monterey:       "dd1a7f9a98338987adff46db075170cd029ed8a13be293855d3d70c654349582"
-    sha256 big_sur:        "71c257c8137523518d2a1276cbf3961ee60a11ea585d1353bbda4709fda22095"
-    sha256 catalina:       "06344a53569cb93939f93e0a49e142f4af269090a200ee4a5e8eb395a9c41f80"
-    sha256 x86_64_linux:   "bf4c3ae25efa4c8d1b3d8bd22eb7a2bb25d4eaecef95f1634715c7c62b0ee584"
+    sha256 arm64_monterey: "e03f6fb50ea51b211a7ee70e56bd05a3f9a02781a77698eae701ca88cbb981e9"
+    sha256 arm64_big_sur:  "dd452cbcde42abbbb021e441ab8448073197cbfe4fa7087238245cb3d9275d66"
+    sha256 monterey:       "32563336f31025537a1435a9a92620acbde78cedab5d536de3c3d416a7abbe6c"
+    sha256 big_sur:        "bc2c38d838cd439492568645c78e241f3c73c9e9e13a53b9f2a23544b04f4c81"
+    sha256 catalina:       "e8ab441bc30d07f110db4f6e196dc833c1d755fcb192cb1a9f08812fe859b5fd"
+    sha256 x86_64_linux:   "ca48a95a6e91124df1356528678a953f3a6e3d0cf213f8a443028d0e302039d6"
   end
 
   depends_on "gobject-introspection" => :build
@@ -32,8 +32,7 @@ class Vte3 < Formula
   end
 
   on_linux do
-    depends_on "linux-headers@4.15" => :build
-    depends_on "gcc" # for C++20
+    depends_on "linux-headers@5.15" => :build
     depends_on "systemd"
   end
 

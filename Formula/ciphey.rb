@@ -9,12 +9,13 @@ class Ciphey < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f6efe61151d368b2a15bb60b174f5bc77dd8d5043a785ef4edbcf8937c9f8c06"
-    sha256 cellar: :any,                 arm64_big_sur:  "7c00cf266a0dd04eccf11e840ea6852bb7656dc6bdbc0b66b954409f7c5b0fb5"
-    sha256 cellar: :any,                 monterey:       "ab4681f7668add33c0836a81533cb7aa9356074e749f35cd5ea4e1add9ec20f6"
-    sha256 cellar: :any,                 big_sur:        "da76643297f0731893e1af4dcfd7987f9262d25627ca124fba10ac0d5ca0d873"
-    sha256 cellar: :any,                 catalina:       "7578b31b2de470f7add9fd11144f24cfe8371465c9647d0d3c6a8008a108940f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "887565d25156ddb01c1bd0e7bba52b2558ec3e1f75c88b83376a369037e3cfac"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "8549423a0b8f5dbae34104539e9ae4a02ee373153b1be5e51e6fb19b0e2f5d65"
+    sha256 cellar: :any,                 arm64_big_sur:  "c274722247b6a42d5d841f6aa0ff1f849f4d4f47883a93c06728a6b4136fb07f"
+    sha256 cellar: :any,                 monterey:       "e324b009c010fd48f6d1cc742bd99fcce19bc233501d46cc9b9e82bb09a317e4"
+    sha256 cellar: :any,                 big_sur:        "72e540064c7254d0e035b5ea05160b845aff94bc2a68871381315c219fda76ca"
+    sha256 cellar: :any,                 catalina:       "81c331bdaf8ff4a1a8e9cc0632a3efb293ec14ebd1c1f3d1fc46f1f7ab19a12f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1911d9ca626a6fc6b0be8b4c65ef77a4904a018a650e434b857918e6d1baa60f"
   end
 
   depends_on "boost" => :build
@@ -27,7 +28,6 @@ class Ciphey < Formula
 
   on_linux do
     depends_on "rust" => :build
-    depends_on "gcc" # For C++20
   end
 
   fails_with gcc: "5"
@@ -167,9 +167,13 @@ class Ciphey < Formula
     sha256 "b62ffa81fb85f4332a4f609cab4ac40709470da05643a082ec1eb88e6d9b97d7"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
-    venv = virtualenv_create(libexec, "python3")
-    xy = Language::Python.major_minor_version "python3"
+    venv = virtualenv_create(libexec, python3)
+    xy = Language::Python.major_minor_version python3
     python_path = if OS.mac?
       Formula["python@#{xy}"].opt_frameworks/"Python.framework/Versions/#{xy}"
     else
@@ -197,7 +201,7 @@ class Ciphey < Formula
     end
     venv.pip_install_and_link buildpath
 
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python3)
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-ciphey.pth").write pth_contents
   end
@@ -207,8 +211,7 @@ class Ciphey < Formula
     expected_text = "Hello from Homebrew"
     assert_equal shell_output("#{bin}/ciphey -g -t #{input_string}").chomp, expected_text
 
-    python = Formula["python@3.10"].opt_bin/"python3"
-    system python, "-c", "from ciphey import decrypt"
-    system python, "-c", "from ciphey.iface import Config"
+    system python3, "-c", "from ciphey import decrypt"
+    system python3, "-c", "from ciphey.iface import Config"
   end
 end

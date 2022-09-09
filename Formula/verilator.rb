@@ -6,12 +6,13 @@ class Verilator < Formula
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
 
   bottle do
-    sha256 arm64_monterey: "ef87fc6399d3f6da48ff60b67c1e009202f19c42fb7f1d59737ccc1743c92be2"
-    sha256 arm64_big_sur:  "10c1c488e94765f5531281f4dc4fd4640938d1db83947f8c5a55f7db85c6bff2"
-    sha256 monterey:       "9dfee8b25d4ba52111c841ef109b0aabd7f27089aaeb5ec689a59fd97b442aa4"
-    sha256 big_sur:        "7ff4ff84a34df0c65da91b144aa7a3b0e1194f3960c264d201b3305d77f9abb9"
-    sha256 catalina:       "c47ed2b560a824281e2a8af2a4d301556cd2ad4830e9a11c3d5e5fdd365730ea"
-    sha256 x86_64_linux:   "bb2b488c700f8bc421a3cc217d018dda191bc2a4201f9b99b8aaf7cbbefa38f2"
+    rebuild 1
+    sha256 arm64_monterey: "8e5f635658b007f27fecaece0588bd715f1e12ae4aead2170a45a0bedc3bd766"
+    sha256 arm64_big_sur:  "4905b78faa6c65c317680e8904704bc0c11d0cb5e4a5d6d51390adafbc8056aa"
+    sha256 monterey:       "669276002757d11080befc9a6cb22bcd491e4df70390a63db9674fe56a02f54c"
+    sha256 big_sur:        "696a5c432c02769cf383d279e0aad7de1fbca58262f3c03cd1a2608b8a512c10"
+    sha256 catalina:       "66810bc435954d3f8dfb3016ac31d7e557bd5c7ff2932c91f614ba505f9592df"
+    sha256 x86_64_linux:   "41b0a1e5d3f0ba30284ef69f887a49e2af4e9bb76c546c3a7f6c204cc347b2ae"
   end
 
   head do
@@ -26,10 +27,6 @@ class Verilator < Formula
   uses_from_macos "flex"
   uses_from_macos "perl"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
   # error: specialization of 'template<class _Tp> struct std::hash' in different namespace
@@ -41,18 +38,6 @@ class Verilator < Formula
     # `make` and `make install` need to be separate for parallel builds
     system "make"
     system "make", "install"
-  end
-
-  def post_install
-    return if OS.mac?
-
-    # Ensure the hard-coded versioned `gcc` reference does not go stale.
-    ohai "Fixing up GCC references..."
-    gcc_version = Formula["gcc"].any_installed_version.major
-    inreplace(pkgshare/"include/verilated.mk") do |s|
-      s.change_make_var! "CXX", "g++-#{gcc_version}"
-      s.change_make_var! "LINK", "g++-#{gcc_version}"
-    end
   end
 
   test do

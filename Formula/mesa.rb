@@ -18,12 +18,13 @@ class Mesa < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "eb24ef3abf412137e0a551d162349d75432d1daab95175d68fd9c70fd6d6371f"
-    sha256 arm64_big_sur:  "328f9499edbddc7c8079b1a7da70a67fd60fd8e0ae8d0d3034fe16de7db662c9"
-    sha256 monterey:       "8310ebf3896c2710671d0b6f74838733ffff862e56e736ece591e3077a76e481"
-    sha256 big_sur:        "cf68a05e61e2198a269af6b98f21c6a9d2693ea327b86036856ce4c65c49ef80"
-    sha256 catalina:       "3303c3d7ca5ebd638ef14dd9fc171c5bc693e7264b142e3d4dcf8bb3fe6f77e0"
-    sha256 x86_64_linux:   "4700e831c33251e451d9453fbed51f07291f67f9b72adb504c92063fafdc7223"
+    rebuild 1
+    sha256 arm64_monterey: "99906f4d5cb7ca2f4fc0470e08edf89fc7442de5532e2e99e5839df01e575070"
+    sha256 arm64_big_sur:  "7d9f86a2fa7e13671de3901eaa5d5fd7679b4d3028e3914c686593303d77a654"
+    sha256 monterey:       "acff85dd9ddd4808cc26b8d9aca22a54fe54abe1cb522d8ad6e9517ec3137559"
+    sha256 big_sur:        "dc18723753279eab273ec28cd7a12bbecad6b482365e5f7ddc5f33bd096696b5"
+    sha256 catalina:       "f2fa797da0adcab6d531ac12a387a39dac62b1d163235d4b48faca0043a35f71"
+    sha256 x86_64_linux:   "c5de795292f15cbec53848f19912d0812f92c6100a1cd1f238bafc84ec23525a"
   end
 
   depends_on "bison" => :build # can't use form macOS, needs '> 2.3'
@@ -47,7 +48,6 @@ class Mesa < Formula
 
   on_linux do
     depends_on "elfutils"
-    depends_on "gcc"
     depends_on "gzip"
     depends_on "libdrm"
     depends_on "libva"
@@ -91,10 +91,8 @@ class Mesa < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
-
     venv_root = buildpath/"venv"
-    venv = virtualenv_create(venv_root, "python3")
+    venv = virtualenv_create(venv_root, "python3.10")
 
     %w[Mako Pygments MarkupSafe].each do |res|
       venv.pip_install resource(res)

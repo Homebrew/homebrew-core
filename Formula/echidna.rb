@@ -1,18 +1,18 @@
 class Echidna < Formula
   desc "Ethereum smart contract fuzzer"
   homepage "https://github.com/crytic/echidna"
-  url "https://github.com/crytic/echidna/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "169f1086e6276f3f932bd2f9e062f203c22e8829ef07788f7f74c989ed8327e3"
+  url "https://github.com/crytic/echidna/archive/refs/tags/v2.0.3.tar.gz"
+  sha256 "117808e1d9b3bdd7c3400c5849b5e5a5461b4ad8035ca9a899b0713e7a5ea40c"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/echidna.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f824fb087daa0510609545dcd039b64b45632a5d33ad40877f86ee4eeb5d0223"
-    sha256 cellar: :any,                 arm64_big_sur:  "b1253ae03416bb1d0d54a083c98fff0e68eee584df18a4ba4cf563af0dfeb3ed"
-    sha256 cellar: :any,                 monterey:       "988aed91e01be93981b6af2178e57cbd99fa73bd415aa801cb5ed8081e93521d"
-    sha256 cellar: :any,                 big_sur:        "bd56181a5ab3aa08e3873cb33f3594b02101283d0fc2b21d4cb0ad6b79b023cf"
-    sha256 cellar: :any,                 catalina:       "485ae8b9dcc8270e01a116ed903e0c26ebbd20506726c6b1a80adf2a73089d4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4acf4152b058040edff48a064be7357c534e937265a25b43eed303c779e4e139"
+    sha256 cellar: :any,                 arm64_monterey: "fbba243e373034caa449125e764dada8e86f83c3cf33fa2349c51a76550f90db"
+    sha256 cellar: :any,                 arm64_big_sur:  "f9c643103e2d3f148340bfea740d5e51199142e3bd893ddd1dea8c8c2dccc8a6"
+    sha256 cellar: :any,                 monterey:       "f0db6c31ad1fea50f906079f8fe7cb528256436653f84954cf3f6e60735acf85"
+    sha256 cellar: :any,                 big_sur:        "c4f75d7be997bd45fa20dd926feec2b7d9808a3353ab377e87cc884fb68025d7"
+    sha256 cellar: :any,                 catalina:       "b094e223745a31304dd729e7259b82af0dd47583439080f15307952117ac779b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f83a538ed7a694f95992cbd16ce8d70a0d55788dd593c0b984857443acd2e65d"
   end
 
   depends_on "autoconf" => :build
