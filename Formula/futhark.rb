@@ -16,7 +16,7 @@ class Futhark < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9" => :build
+  depends_on "ghc" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "ncurses"
