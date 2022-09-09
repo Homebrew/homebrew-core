@@ -49,6 +49,9 @@ class Auditbeat < Formula
         --path.logs #{var}/log/auditbeat \
         "$@"
     EOS
+
+    chmod 0555, bin/"auditbeat"
+    generate_completions_from_executable(bin/"auditbeat", "completion", shells: [:bash, :zsh])
   end
 
   def post_install
