@@ -31,6 +31,8 @@ class Osm < Formula
     ENV["BUILD_DATE"] = time.strftime("%Y-%m-%d-%H:%M")
     system "make", "build-osm"
     bin.install "bin/osm"
+
+    generate_completions_from_executable(bin/"osm", "completion")
   end
 
   test do
