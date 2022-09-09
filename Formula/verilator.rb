@@ -26,10 +26,6 @@ class Verilator < Formula
   uses_from_macos "flex"
   uses_from_macos "perl"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
   # error: specialization of 'template<class _Tp> struct std::hash' in different namespace
@@ -41,18 +37,6 @@ class Verilator < Formula
     # `make` and `make install` need to be separate for parallel builds
     system "make"
     system "make", "install"
-  end
-
-  def post_install
-    return if OS.mac?
-
-    # Ensure the hard-coded versioned `gcc` reference does not go stale.
-    ohai "Fixing up GCC references..."
-    gcc_version = Formula["gcc"].any_installed_version.major
-    inreplace(pkgshare/"include/verilated.mk") do |s|
-      s.change_make_var! "CXX", "g++-#{gcc_version}"
-      s.change_make_var! "LINK", "g++-#{gcc_version}"
-    end
   end
 
   test do
