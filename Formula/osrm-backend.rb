@@ -1,11 +1,14 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.26.0.tar.gz"
-  sha256 "45e986db540324bd0fc881b746e96477b054186698e8d14610ff7c095e906dcd"
   license "BSD-2-Clause"
   revision 2
-  head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
+
+  stable do
+    url "https://github.com/Project-OSRM/osrm-backend/archive/v5.26.0.tar.gz"
+    sha256 "45e986db540324bd0fc881b746e96477b054186698e8d14610ff7c095e906dcd"
+    depends_on "tbb@2020"
+  end
 
   livecheck do
     url :stable
@@ -21,27 +24,30 @@ class OsrmBackend < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e78299d0601d9aefce6ba8d0597e256ae57dfc7890b88a9f03701e10155d08a"
   end
 
+  head do
+    url "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
+    depends_on "tbb"
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "libzip"
   depends_on "lua"
-  depends_on "tbb@2020"
 
   conflicts_with "flatbuffers", because: "both install flatbuffers headers"
 
   def install
     lua = Formula["lua"]
     luaversion = lua.version.major_minor
-    mkdir "build" do
-      system "cmake", "..", "-DENABLE_CCACHE:BOOL=OFF",
-                            "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
-                            "-DLUA_LIBRARY=#{lua.opt_lib}/#{shared_library("liblua", luaversion)}",
-                            *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DENABLE_CCACHE:BOOL=OFF",
+                    "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
+                    "-DLUA_LIBRARY=#{lua.opt_lib/shared_library("liblua", luaversion)}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "profiles"
   end
 
