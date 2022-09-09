@@ -24,6 +24,8 @@ class Datree < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/datreeio/datree/cmd.CliVersion=#{version}"), "-tags", "main"
+
+    generate_completions_from_executable(bin/"datree", "completion")
   end
 
   test do
