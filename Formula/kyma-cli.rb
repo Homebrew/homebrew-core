@@ -24,6 +24,8 @@ class KymaCli < Formula
     ]
 
     system "go", "build", *std_go_args(output: bin/"kyma", ldflags: ldflags), "./cmd"
+
+    generate_completions_from_executable(bin/"kyma", "completion", base_name: "kyma")
   end
 
   test do
