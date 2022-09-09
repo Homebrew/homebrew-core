@@ -20,6 +20,8 @@ class ArgocdAutopilot < Formula
   def install
     system "make", "cli-package", "DEV_MODE=false"
     bin.install "dist/argocd-autopilot"
+
+    generate_completions_from_executable(bin/"argocd-autopilot", "completion")
   end
 
   test do
