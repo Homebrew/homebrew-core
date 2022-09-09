@@ -21,10 +21,6 @@ class Unpaper < Formula
   depends_on "sphinx-doc" => :build
   depends_on "ffmpeg"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
