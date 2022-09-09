@@ -4,7 +4,7 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.68/vte-0.68.0.tar.xz"
   sha256 "13e7d4789ca216a33780030d246c9b13ddbfd04094c6316eea7ff92284dd1749"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "5956f0ff63ffc5af08896373d884a6e12f831f714d7c01fc78774ff1cb618515"
@@ -32,8 +32,7 @@ class Vte3 < Formula
   end
 
   on_linux do
-    depends_on "linux-headers@4.15" => :build
-    depends_on "gcc" # for C++20
+    depends_on "linux-headers@5.15" => :build
     depends_on "systemd"
   end
 
