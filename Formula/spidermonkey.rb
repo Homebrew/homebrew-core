@@ -36,10 +36,6 @@ class Spidermonkey < Formula
   uses_from_macos "m4" => :build
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "narwhal", because: "both install a js binary"
 
   # From python/mozbuild/mozbuild/test/configure/test_toolchain_configure.py
