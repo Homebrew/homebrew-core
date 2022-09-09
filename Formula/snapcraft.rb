@@ -39,7 +39,6 @@ class Snapcraft < Formula
   on_linux do
     depends_on "intltool" => :build # for python-distutils-extra
     depends_on "apt"
-    depends_on "gcc"
 
     # Extra non-PyPI Python resources
 
