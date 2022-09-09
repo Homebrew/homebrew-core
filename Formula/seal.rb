@@ -20,10 +20,6 @@ class Seal < Formula
 
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "hexl" do
