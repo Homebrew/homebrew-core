@@ -20,6 +20,8 @@ class Sqlc < Formula
 
   def install
     system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/sqlc"
+
+    generate_completions_from_executable(bin/"sqlc", "completion")
   end
 
   test do
