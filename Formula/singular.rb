@@ -1,10 +1,39 @@
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
-  url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-3-1/singular-4.3.1p1.tar.gz"
-  version "4.3.1p1"
-  sha256 "1f1cba3ffd612b26d056859ca7f4cbeef5ce95cabd5782b035acd1c58ff01d30"
+  url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-3-1/singular-4.3.1p2.tar.gz"
+  version "4.3.1p2"
+  sha256 "95814bba0f0bd0290cd9799ec1d2ecc6f4c8a4e6429d9a02eb7f9c4e5649682a"
   license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/"
+    regex(%r{href=["']?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
+    strategy :page_match do |page, regex|
+      # Match versions from directories
+      versions = page.scan(regex)
+                     .flatten
+                     .uniq
+                     .map { |v| Version.new(v.tr("-", ".")) }
+                     .reject { |v| v.patch >= 90 }
+                     .sort
+      next versions if versions.blank?
+
+      # Assume the last-sorted version is newest
+      newest_version = versions.last
+
+      # Fetch the page for the newest version directory
+      dir_page = Homebrew::Livecheck::Strategy.page_content(
+        URI.join(@url, "#{newest_version.to_s.tr(".", "-")}/"),
+      )
+      next versions if dir_page[:content].blank?
+
+      # Identify versions from files in the version directory
+      dir_versions = dir_page[:content].scan(/href=.*?singular[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i).flatten
+
+      dir_versions || versions
+    end
+  end
 
   bottle do
     sha256 arm64_monterey: "318d66e582a30a56b3174e2d951440ab97fa9258b3f45eb8a4ca2a15a6ae7a1e"
