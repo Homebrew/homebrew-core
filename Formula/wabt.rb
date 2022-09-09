@@ -23,10 +23,6 @@ class Wabt < Formula
   depends_on "cmake" => :build
   depends_on "python@3.10" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # C++17
 
   def install
