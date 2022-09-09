@@ -21,6 +21,8 @@ class Mockery < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/vektra/mockery/v2/pkg/config.SemVer=v#{version}")
+
+    generate_completions_from_executable(bin/"mockery", "completion")
   end
 
   test do
