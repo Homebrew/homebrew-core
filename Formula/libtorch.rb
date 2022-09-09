@@ -44,7 +44,7 @@ class Libtorch < Formula
   end
 
   def install
-    venv = virtualenv_create(buildpath/"venv", Formula["python@3.10"].opt_bin/"python3")
+    venv = virtualenv_create(buildpath/"venv", "python3.10")
     venv.pip_install resources
 
     args = %W[
