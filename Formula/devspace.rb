@@ -31,6 +31,8 @@ class Devspace < Formula
       -X main.version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    generate_completions_from_executable(bin/"devspace", "completion")
   end
 
   test do
