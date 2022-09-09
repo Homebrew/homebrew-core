@@ -32,10 +32,7 @@ class Tcpflow < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libpcap"
-
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
+  uses_from_macos "zlib"
 
   fails_with gcc: "5"
 
