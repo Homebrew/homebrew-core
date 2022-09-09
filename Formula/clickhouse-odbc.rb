@@ -2,10 +2,9 @@ class ClickhouseOdbc < Formula
   desc "Official ODBC driver implementation for accessing ClickHouse as a data source"
   homepage "https://github.com/ClickHouse/clickhouse-odbc#readme"
   url "https://github.com/ClickHouse/clickhouse-odbc.git",
-      tag:      "v1.1.10.20210822",
-      revision: "c7aaff6860e448acee523f5f7d3ee97862fd07d2"
+      tag:      "1.2.1.20220905",
+      revision: "fab6efc57d671155c3a386f49884666b2a02c7b7"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   livecheck do
