@@ -20,7 +20,6 @@ class TremorRuntime < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "gcc"
     depends_on "llvm"
     depends_on "openssl@1.1"
   end
