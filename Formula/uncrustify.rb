@@ -18,10 +18,6 @@ class Uncrustify < Formula
   depends_on "cmake" => :build
   uses_from_macos "python" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
