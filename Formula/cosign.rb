@@ -29,6 +29,8 @@ class Cosign < Formula
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/cosign"
+
+    generate_completions_from_executable(bin/"cosign", "completion")
   end
 
   test do
