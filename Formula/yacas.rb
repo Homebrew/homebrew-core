@@ -18,10 +18,6 @@ class Yacas < Formula
 
   depends_on "cmake" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with :gcc do
     version "6"
     cause "needs std::string_view"
