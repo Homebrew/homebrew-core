@@ -30,11 +30,11 @@ class Rsync < Formula
   uses_from_macos "zlib"
 
   # hfs-compression.diff has been marked by upstream as broken since 3.1.3
-  # and has not been reported fixed as of 3.2.4
+  # and has not been reported fixed as of 3.2.6
   patch do
-    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.2.4.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.2.4.tar.gz"
-    sha256 "70a597590af6c61cf3d05d663429ff9f60ffe24e44f9c73a4cdc69ebdc1322a4"
+    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.2.6.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.2.6.tar.gz"
+    sha256 "c3d13132b560f456fd8fc9fdf9f59377e91adf0dfc8117e33800d14b483d1a85"
     apply "patches/fileflags.diff"
   end
 
