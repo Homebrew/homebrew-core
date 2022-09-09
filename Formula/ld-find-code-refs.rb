@@ -20,6 +20,8 @@ class LdFindCodeRefs < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/ld-find-code-refs"
+
+    generate_completions_from_executable(bin/"ld-find-code-refs", "completion")
   end
 
   test do
