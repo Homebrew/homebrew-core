@@ -50,7 +50,6 @@ class SynergyCore < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "gcc" # For C++17 support.
     depends_on "gdk-pixbuf"
     depends_on "glib"
     depends_on "libnotify"
