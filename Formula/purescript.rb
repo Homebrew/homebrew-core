@@ -16,7 +16,7 @@ class Purescript < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "65086d3ff503c3ceb31b06b04e7d427a31dafe63b9fbe200050c36f69860ac94"
   end
 
-  depends_on "ghc@9" => :build
+  depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
 
   uses_from_macos "ncurses"
