@@ -28,6 +28,8 @@ class ArgocdVaultPlugin < Formula
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    generate_completions_from_executable(bin/"argocd-vault-plugin", "completion")
   end
 
   test do
