@@ -50,6 +50,9 @@ class Packetbeat < Formula
         --path.logs #{var}/log/packetbeat \
         "$@"
     EOS
+
+    chmod 0555, bin/"packetbeat" # generate_completions_from_executable fails otherwise
+    generate_completions_from_executable(bin/"packetbeat", "completion", shells: [:bash, :zsh])
   end
 
   service do
