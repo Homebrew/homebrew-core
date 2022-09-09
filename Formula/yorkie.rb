@@ -23,6 +23,8 @@ class Yorkie < Formula
   def install
     system "make", "build"
     prefix.install "bin"
+
+    generate_completions_from_executable(bin/"yorkie", "completion")
   end
 
   service do
