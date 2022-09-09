@@ -54,6 +54,9 @@ class Filebeat < Formula
         --path.logs #{var}/log/filebeat \
         "$@"
     EOS
+
+    chmod 0555, bin/"filebeat" # generate_completions_from_executable fails otherwise
+    generate_completions_from_executable(bin/"filebeat", "completion", shells: [:bash, :zsh])
   end
 
   service do
