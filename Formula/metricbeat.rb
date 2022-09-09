@@ -48,6 +48,9 @@ class Metricbeat < Formula
         --path.logs #{var}/log/metricbeat \
         "$@"
     EOS
+
+    chmod 0555, bin/"metricbeat" # generate_completions_from_executable fails otherwise
+    generate_completions_from_executable(bin/"metricbeat", "completion", shells: [:bash, :zsh])
   end
 
   service do
