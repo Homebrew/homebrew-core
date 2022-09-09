@@ -20,10 +20,6 @@ class Stockfish < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "87210cffd22b657169dfc10428a1ab92ebfd3029f5c051fdc5006e35cc61b5fb"
   end
 
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
-
   fails_with gcc: "5"
 
   def install
