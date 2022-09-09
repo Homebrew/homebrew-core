@@ -25,6 +25,8 @@ class FlowCli < Formula
   def install
     system "make", "cmd/flow/flow", "VERSION=v#{version}"
     bin.install "cmd/flow/flow"
+
+    generate_completions_from_executable(bin/"flow", "completion", base_name: "flow")
   end
 
   test do
