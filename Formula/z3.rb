@@ -25,10 +25,6 @@ class Z3 < Formula
   # which does not need Python.
   depends_on "python@3.10" => :build
 
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
-
   fails_with gcc: "5"
 
   def install
@@ -51,8 +47,8 @@ class Z3 < Formula
   end
 
   test do
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lz3",
-           pkgshare/"examples/c/test_capi.c", "-o", testpath/"test"
+    system ENV.cc, pkgshare/"examples/c/test_capi.c",
+           "-I#{include}", "-L#{lib}", "-lz3", "-o", testpath/"test"
     system "./test"
   end
 end
