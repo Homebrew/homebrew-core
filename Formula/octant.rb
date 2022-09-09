@@ -62,6 +62,8 @@ class Octant < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags),
            "-tags", tags, "-v", "./cmd/octant"
+
+    generate_completions_from_executable(bin/"octant", "completion")
   end
 
   test do
