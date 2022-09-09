@@ -38,10 +38,6 @@ class Trafficserver < Formula
     depends_on "libtool"  => :build
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # needs C++17
 
   fails_with :clang do
