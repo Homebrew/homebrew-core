@@ -18,6 +18,8 @@ class Packr < Formula
 
   def install
     system "go", "build", *std_go_args, "-o", bin/"packr2", "./packr2"
+
+    generate_completions_from_executable(bin/"packr2", "completion", base_name: "packr2")
   end
 
   test do
