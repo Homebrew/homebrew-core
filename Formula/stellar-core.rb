@@ -30,7 +30,6 @@ class StellarCore < Formula
   uses_from_macos "flex" => :build
 
   on_linux do
-    depends_on "gcc"
     depends_on "libunwind"
   end
 
