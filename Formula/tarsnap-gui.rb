@@ -19,10 +19,6 @@ class TarsnapGui < Formula
   depends_on "qt@5"
   depends_on "tarsnap"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # qt@5 is built with GCC
 
   # Work around build error: Set: Entry, ":CFBundleGetInfoString", Does Not Exist
