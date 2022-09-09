@@ -10,11 +10,6 @@ class GccAT6 < Formula
   ]
   revision 7
 
-  livecheck do
-    url :stable
-    regex(%r{href=.*?gcc[._-]v?(6(?:\.\d+)+)(?:/?["' >]|\.t)}i)
-  end
-
   bottle do
     rebuild 1
     sha256                               monterey:     "6c06fbf374a3d102b63992b16c4d4af3e1631db7a6b7a73663de40abdbee276f"
@@ -26,6 +21,9 @@ class GccAT6 < Formula
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
+
+  # https://gcc.gnu.org/gcc-6/
+  deprecate! date: "2022-09-09", because: :deprecated_upstream
 
   depends_on arch: :x86_64
   depends_on "gmp"
