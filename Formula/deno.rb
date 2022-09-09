@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.25.1/deno_src.tar.gz"
-  sha256 "a00fc3723377ed13a7b3eb3cc8e6564fc6604e50f7493c50d8189a8c6d457a8c"
+  url "https://github.com/denoland/deno/releases/download/v1.25.2/deno_src.tar.gz"
+  sha256 "eff1388028c8f7bd91a37eff18fa55a00a0b96f22ef11fec2d10c46d5347a44b"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -28,7 +28,6 @@ class Deno < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "gcc"
     depends_on "glib"
   end
 
