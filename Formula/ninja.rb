@@ -21,11 +21,11 @@ class Ninja < Formula
   end
 
   # Ninja only needs Python for some non-core functionality.
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.10" => :build
+  uses_from_macos "python" => :test, since: :catalina
 
   def install
-    py = Formula["python@3.10"].opt_bin/"python3"
-    system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=python3"
+    system "python3.10", "./configure.py", "--bootstrap", "--verbose", "--with-python=python3"
 
     bin.install "ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
@@ -36,7 +36,6 @@ class Ninja < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_bin
     (testpath/"build.ninja").write <<~EOS
       cflags = -Wall
 
@@ -50,7 +49,7 @@ class Ninja < Formula
     fork do
       exec bin/"ninja", "-t", "browse", "--port=#{port}", "--hostname=127.0.0.1", "--no-browser", "foo.o"
     end
-    sleep 2
+    sleep 15
     assert_match "foo.c", shell_output("curl -s http://127.0.0.1:#{port}?foo.o")
   end
 end
