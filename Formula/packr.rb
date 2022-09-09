@@ -16,10 +16,14 @@ class Packr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "76c1441bae5ded86a2f6f032b5d69030bdddd94d1a9f10ae4d7a28050612c683"
   end
 
+  deprecate! date: "2022-11-27", because: :repo_archived
+
   depends_on "go" => [:build, :test]
 
   def install
     system "go", "build", *std_go_args, "-o", bin/"packr2", "./packr2"
+
+    generate_completions_from_executable(bin/"packr2", "completion", base_name: "packr2")
   end
 
   test do
