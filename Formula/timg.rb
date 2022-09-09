@@ -25,10 +25,6 @@ class Timg < Formula
   depends_on "openslide"
   depends_on "webp"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # rubberband is built with GCC
 
   def install
