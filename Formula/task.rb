@@ -4,6 +4,7 @@ class Task < Formula
   url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v2.6.2/task-2.6.2.tar.gz"
   sha256 "b1d3a7f000cd0fd60640670064e0e001613c9e1cb2242b9b3a9066c78862cfec"
   license "MIT"
+  revision 1
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "develop"
 
   livecheck do
@@ -24,8 +25,7 @@ class Task < Formula
   depends_on "gnutls"
 
   on_linux do
-    depends_on "gcc"
-    depends_on "linux-headers@4.4"
+    depends_on "linux-headers@5.15"
     depends_on "readline"
     depends_on "util-linux"
   end
