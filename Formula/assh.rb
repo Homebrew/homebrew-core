@@ -19,6 +19,8 @@ class Assh < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+
+    generate_completions_from_executable(bin/"assh", "completion")
   end
 
   test do
