@@ -26,6 +26,11 @@ class Tendermint < Formula
   def install
     system "make", "build", "VERSION=#{version}"
     bin.install "build/tendermint"
+
+    generate_completions_from_executable(bin/"tendermint", "completion",
+                                         shells: [:bash], shell_parameter_format: :none)
+    generate_completions_from_executable(bin/"tendermint", "completion", "--zsh",
+                                         shells: [:zsh], shell_parameter_format: :none)
   end
 
   test do
