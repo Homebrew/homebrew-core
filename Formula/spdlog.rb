@@ -19,10 +19,6 @@ class Spdlog < Formula
   depends_on "cmake" => :build
   depends_on "fmt"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   # error: specialization of 'template<class T, ...> struct fmt::v8::formatter' in different namespace
   fails_with gcc: "5"
 
