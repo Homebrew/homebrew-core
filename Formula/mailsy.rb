@@ -7,10 +7,6 @@ class Mailsy < Formula
   sha256 "0895bf590d3844f03d50f4d6eea4d982a562c7f9d4b921943bf6a02286ddac1f"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   depends_on "node"
 
   def install
