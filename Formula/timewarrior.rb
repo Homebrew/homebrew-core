@@ -22,7 +22,6 @@ class Timewarrior < Formula
 
   on_linux do
     depends_on "man-db" => :test
-    depends_on "gcc"
   end
 
   fails_with gcc: "5"
