@@ -30,10 +30,6 @@ class Uhd < Formula
   depends_on "libusb"
   depends_on "python@3.10"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "Mako" do
