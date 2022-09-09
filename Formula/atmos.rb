@@ -18,6 +18,8 @@ class Atmos < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X 'github.com/cloudposse/atmos/cmd.Version=#{version}'")
+
+    generate_completions_from_executable(bin/"atmos", "completion")
   end
 
   test do
