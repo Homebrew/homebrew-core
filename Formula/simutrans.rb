@@ -21,8 +21,7 @@ class Simutrans < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c2eb82d4b879f59e2201b78d11cea24a8f8f3fc7ba2859d5c6c3aa41a830355"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "libpng"
@@ -30,10 +29,6 @@ class Simutrans < Formula
 
   uses_from_macos "curl"
   uses_from_macos "unzip"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
@@ -46,34 +41,17 @@ class Simutrans < Formula
     # These translations are dynamically generated.
     system "./get_lang_files.sh"
 
-    args = %w[
-      BACKEND=sdl2
-      MULTI_THREAD=1
-      OPTIMISE=1
-      USE_FREETYPE=1
-      USE_UPNP=0
-      USE_ZSTD=0
-    ]
-    if OS.mac?
-      args << "AV_FOUNDATION=1" if MacOS.version >= :sierra
-      args << "OSTYPE=mac"
-    elsif OS.linux?
-      args << "OSTYPE=linux"
-    end
+    system "cmake", "-B", "build", "-S", ".", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "makeobj"
+    system "cmake", "--build", "build", "--target", "nettool"
 
-    system "autoreconf", "-ivf"
-    system "./configure", "--prefix=#{prefix}", "CC=#{ENV.cc}"
-    system "make", "all", *args
-    cd "themes.src" do
-      ln_s "../makeobj/makeobj", "makeobj"
-      system "./build_themes.sh"
-    end
-
-    libexec.install "sim" => "simutrans"
+    simutrans_path = OS.mac? ? "simutrans/simutrans.app/Contents/MacOS" : "simutrans"
+    libexec.install "build/#{simutrans_path}/simutrans" => "simutrans"
     libexec.install Dir["simutrans/*"]
     bin.write_exec_script libexec/"simutrans"
-    bin.install "makeobj/makeobj"
-    bin.install "nettools/nettool"
+    bin.install "build/makeobj/makeobj"
+    bin.install "build/nettools/nettool"
 
     libexec.install resource("pak64")
   end
