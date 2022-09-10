@@ -2,7 +2,7 @@ class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.2.tar.bz2"
@@ -59,10 +59,6 @@ class Audacious < Formula
   depends_on "qt@5"
   depends_on "sdl2"
   depends_on "wavpack"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
