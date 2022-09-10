@@ -144,7 +144,9 @@ class Llvm < Formula
     builtins_cmake_args = []
 
     # Skip the PGO build on HEAD installs or non-bottle source builds
-    pgo_build = build.stable? && build.bottle?
+    # FIXME: The Linux build appears to have a parallelisation issue,
+    #        so avoid a painfully slow serial build until that's resolved.
+    pgo_build = build.stable? && build.bottle? && OS.mac?
 
     if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
@@ -386,6 +388,9 @@ class Llvm < Formula
     # Now, we can build.
     mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
+      # Linux fails with:
+      # No rule to make target '#{buildpath}/llvm/build/lib/libunwind.so'
+      ENV.deparallelize if OS.linux?
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
     end
