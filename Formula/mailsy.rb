@@ -15,6 +15,6 @@ class Mailsy < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/mailsy --version")
+    system "#{bin}/mailsy", "--version"
   end
 end
