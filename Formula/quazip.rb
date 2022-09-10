@@ -18,10 +18,6 @@ class Quazip < Formula
   depends_on xcode: :build
   depends_on "qt"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # C++17
 
   def install
