@@ -4,6 +4,7 @@ class HaskellLanguageServer < Formula
   url "https://github.com/haskell/haskell-language-server/archive/1.6.1.0.tar.gz"
   sha256 "e5c336ad2de8d021c882cdac5bbc26bf6427df8d2a5bd244c05cf18296a9bfdc"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
 
   # we need :github_latest here because otherwise
@@ -23,7 +24,7 @@ class HaskellLanguageServer < Formula
   end
 
   depends_on "cabal-install" => [:build, :test]
-  depends_on "ghc" => [:build, :test]
+  depends_on "ghc@8.10" => [:build, :test]
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
@@ -39,9 +40,12 @@ class HaskellLanguageServer < Formula
         .sort_by(&:version)
   end
 
+  def newest_ghc
+    ghcs.max_by(&:version)
+  end
+
   def install
     system "cabal", "v2-update"
-    newest_ghc = ghcs.max_by(&:version)
 
     ghcs.each do |ghc|
       # for --enable-executable-dynamic flag, explained in
@@ -62,7 +66,7 @@ class HaskellLanguageServer < Formula
     <<~EOS
       #{name} is built for GHC versions #{ghc_versions}.
       You need to provide your own GHC or install one with
-        brew install ghc
+        brew install #{newest_ghc}
     EOS
   end
 
