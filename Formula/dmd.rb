@@ -120,7 +120,7 @@ class Dmd < Formula
   end
 
   test do
-    system bin/"dmd", pkgshare/"samples/hello.d"
+    system bin/"dmd", "-fPIC", pkgshare/"samples/hello.d"
     system "./hello"
   end
 end
