@@ -4,6 +4,7 @@ class Googletest < Formula
   url "https://github.com/google/googletest/archive/release-1.12.1.tar.gz"
   sha256 "81964fe578e9bd7c94dfdb09c8e4d6e6759e19967e397dbea48d1c10e45d0df2"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c75a394780e2dbc934c42e0d35beeff272000cf0ef6773e7a84683b8630f39b3"
