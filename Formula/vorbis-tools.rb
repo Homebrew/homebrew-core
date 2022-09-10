@@ -4,6 +4,7 @@ class VorbisTools < Formula
   url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz", using: :homebrew_curl
   mirror "https://ftp.osuosl.org/pub/xiph/releases/vorbis/vorbis-tools-1.4.2.tar.gz"
   sha256 "db7774ec2bf2c939b139452183669be84fda5774d6400fc57fde37f77624f0b0"
+  revision 1
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/vorbis/?C=M&O=D"
