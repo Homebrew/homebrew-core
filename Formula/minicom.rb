@@ -4,7 +4,6 @@ class Minicom < Formula
   url "https://deb.debian.org/debian/pool/main/m/minicom/minicom_2.8.orig.tar.bz2"
   sha256 "38cea30913a20349326ff3f1763ee1512b7b41601c24f065f365e18e9db0beba"
   license "GPL-2.0-or-later"
-  head "https://salsa.debian.org/minicom-team/minicom.git", branch: "master"
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/m/minicom/"
@@ -21,9 +20,12 @@ class Minicom < Formula
     sha256 x86_64_linux:   "7d1b0aae1f169968d42e4dea644dff5a4f18010b59b334439aa2bd276c6e913a"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "pkg-config" => :build
+  head do
+    url "https://salsa.debian.org/minicom-team/minicom.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "gettext"
 
   uses_from_macos "ncurses"
@@ -32,7 +34,7 @@ class Minicom < Formula
     # There is a silly bug in the Makefile where it forgets to link to iconv. Workaround below.
     ENV["LIBS"] = "-liconv" if OS.mac?
 
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
 
