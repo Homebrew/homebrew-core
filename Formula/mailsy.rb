@@ -3,8 +3,8 @@ require "language/node"
 class Mailsy < Formula
   desc "Quickly generate a temporary email address"
   homepage "https://github.com/BalliAsghar/Mailsy#readme"
-  url "https://registry.npmjs.org/mailsy/-/mailsy-3.0.4.tgz"
-  sha256 "0895bf590d3844f03d50f4d6eea4d982a562c7f9d4b921943bf6a02286ddac1f"
+  url "https://registry.npmjs.org/mailsy/-/mailsy-3.0.7.tgz"
+  sha256 "f59c8269315be57bdd5ce6e1488aa8bab213a03e5e0812dc2b0c4572f919adc8"
   license "MIT"
 
   depends_on "node"
@@ -15,6 +15,6 @@ class Mailsy < Formula
   end
 
   test do
-    system "#{bin}/mailsy", "v"
+    assert_match version.to_s, shell_output("#{bin}/mailsy --version")
   end
 end
