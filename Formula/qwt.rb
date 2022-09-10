@@ -23,10 +23,6 @@ class Qwt < Formula
 
   depends_on "qt"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   # Update designer plugin linking back to qwt framework/lib after install
