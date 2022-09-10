@@ -4,6 +4,7 @@ class Snapcast < Formula
   url "https://github.com/badaix/snapcast/archive/refs/tags/v0.26.0.tar.gz"
   sha256 "166353267a5c461a3a0e7cbd05d78c4bfdaebeda078801df3b76820b54f27683"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "1d823dd68d442d23045e039425160c775a8c6657de72d80b2d1bbe6bce5ff785"
