@@ -1,4 +1,6 @@
 class Stgit < Formula
+  include Language::Python::Shebang
+
   desc "Manage Git commits as a stack of patches"
   homepage "https://stacked-git.github.io"
   url "https://github.com/stacked-git/stgit/releases/download/v1.5/stgit-1.5.tar.gz"
@@ -20,7 +22,12 @@ class Stgit < Formula
   depends_on "python@3.10"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3.10"
+
+    site_packages = prefix/Language::Python.site_packages("python3.10")
+    inreplace "Makefile", "$(PYTHON) setup.py install",
+                          "$(PYTHON) setup.py install --install-lib=#{site_packages} --install-scripts=#{prefix}/bin"
+
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make", "prefix=#{prefix}", "all"
     system "make", "prefix=#{prefix}", "install"
