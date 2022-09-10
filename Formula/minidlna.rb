@@ -4,7 +4,7 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.0/minidlna-1.3.0.tar.gz"
   sha256 "47d9b06b4c48801a4c1112ec23d24782728b5495e95ec2195bbe5c81bc2d3c63"
   license "GPL-2.0-only"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "1c7913138763b5a466470cbda993c72da2236e6286badc45728c48084d2e4e0e"
