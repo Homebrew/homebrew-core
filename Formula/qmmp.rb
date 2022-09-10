@@ -4,6 +4,7 @@ class Qmmp < Formula
   url "https://qmmp.ylsoftware.com/files/qmmp/2.1/qmmp-2.1.1.tar.bz2"
   sha256 "d16fa33d066ec3e4993070b7dee8336df39869560a54a36d5d9659935ef0057f"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -59,10 +60,6 @@ class Qmmp < Formula
     # musepack is not bottled on Linux
     # https://github.com/Homebrew/homebrew-core/pull/92041
     depends_on "musepack"
-  end
-
-  on_linux do
-    depends_on "gcc"
   end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
