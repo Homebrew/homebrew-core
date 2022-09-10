@@ -4,10 +4,9 @@ class ArcadeLearningEnvironment < Formula
   desc "Platform for AI research"
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment.git",
-      tag:      "v0.7.5",
-      revision: "db3728264f382402120913d76c4fa0dc320ef59f"
+      tag:      "v0.8.0",
+      revision: "d59d00688b58c5c14dff5fc79db5c22e86987f5d"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
