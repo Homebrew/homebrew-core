@@ -3,12 +3,11 @@
 class QtAT5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.5/single/qt-everywhere-opensource-src-5.15.5.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.5/single/qt-everywhere-opensource-src-5.15.5.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.5/single/qt-everywhere-opensource-src-5.15.5.tar.xz"
-  sha256 "5a97827bdf9fd515f43bc7651defaf64fecb7a55e051c79b8f80510d0e990f06"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.6/single/qt-everywhere-opensource-src-5.15.6.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.6/single/qt-everywhere-opensource-src-5.15.6.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.6/single/qt-everywhere-opensource-src-5.15.6.tar.xz"
+  sha256 "ebc77d27934b70b25b3dc34fbec7c4471eb451848e891c42b32409ea30fe309f"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "9cc2107aad296f6c16f0c7122fd41e4072e4186b2f72741f83904e3092db5657"
@@ -119,15 +118,15 @@ class QtAT5 < Formula
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtbase/commit/ccc0f5cd016eb17e4ff0db03ffed76ad32c8894d.patch"
-    sha256 "ad97b5dbb13875f95a6d9ffc1ecf89956f8249771a4e485bd5ddcbe0c8ba54e8"
+    url "https://invent.kde.org/qt/qt/qtbase/commit/92646a2e0a4264dc9da97bc5e884a0116c0a32fb.patch"
+    sha256 "bd1a637da853e841259a9824481fe05b9c01563cc4e077e95fa8e0a7a479c653"
     directory "qtbase"
   end
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/8da88589929a1d82103c8bbfa80210f3c1af3714.patch"
-    sha256 "9faedb41c80f23d4776f0be64f796415abd00ef722a318b3f7c1311a8f82e66d"
+    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/2e36092b74206315a637fd68eceb5e864e6dd0dd.patch"
+    sha256 "430ca28652821421aac942de51387ca42de20383b6b1e84137665b4f5a37414f"
     directory "qtdeclarative"
   end
 
@@ -284,7 +283,7 @@ __END__
 @@ -43,4 +43,6 @@
  #include <qpa/qplatformgraphicsbuffer.h>
  #include <private/qcore_mac_p.h>
-+ 
++
 +#include <CoreGraphics/CGColorSpace.h>
 
  QT_BEGIN_NAMESPACE
