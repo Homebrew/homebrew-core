@@ -26,7 +26,6 @@ class Minicom < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
 
-  uses_from_macos "libiconv"
   uses_from_macos "ncurses"
 
   def install
