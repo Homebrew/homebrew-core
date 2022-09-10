@@ -26,8 +26,6 @@ class Minicom < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "gettext"
-
   uses_from_macos "ncurses"
 
   def install
