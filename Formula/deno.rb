@@ -1,18 +1,18 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.25.1/deno_src.tar.gz"
-  sha256 "a00fc3723377ed13a7b3eb3cc8e6564fc6604e50f7493c50d8189a8c6d457a8c"
+  url "https://github.com/denoland/deno/releases/download/v1.25.2/deno_src.tar.gz"
+  sha256 "eff1388028c8f7bd91a37eff18fa55a00a0b96f22ef11fec2d10c46d5347a44b"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6f8488d83850416ad7eb653e904582c5d1725727dc078b217a3090183c86d65"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0fd1fde0352bc5c831731156ff4d4e47f81aa738eef076dadfa6d581ec51e08"
-    sha256 cellar: :any_skip_relocation, monterey:       "8e33ea92a836b75d19bb199e0941842a56a0c9f8845ceaf5a8a86728603dbd47"
-    sha256 cellar: :any_skip_relocation, big_sur:        "17655d35b6d2213d8d8a8b19dfc6bd1eef0edaa07a398652fae36d28f08044c3"
-    sha256 cellar: :any_skip_relocation, catalina:       "93f7235aa1d1e69f9d858d52ba71b660847d5f76f84b1c6555e2d59a139a6823"
-    sha256                               x86_64_linux:   "58810560d478d14e011fe583597c44046caa47840e187fe155af96845144a29a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1cb89e15ef431c9f32ed057b21bd84f783b11d03676682b88206a0b91cd8081"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3db49300d931b8b65ae3fbe363dc7886106eb21fbcf7490d5dff30f2de33821d"
+    sha256 cellar: :any_skip_relocation, monterey:       "6ccfa9d8a64e3a70763e368e4174edae69f517b075cb69845a70597465fb1e5e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "45de0cc5cc1b2ca4600dffcd84baf81a04a63c8e554ebc3c73f1fbcc811762b3"
+    sha256 cellar: :any_skip_relocation, catalina:       "d545d22b4ad595ac4523aeb4fe69098b72086a8259bdf9b57065960617cebe2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "22fb6138f8ff6fe482096fdb2595471414054fe770d4c939178daa97668d9613"
   end
 
   depends_on "llvm" => :build
@@ -28,7 +28,6 @@ class Deno < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "gcc"
     depends_on "glib"
   end
 
