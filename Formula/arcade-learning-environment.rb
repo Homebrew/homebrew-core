@@ -26,15 +26,11 @@ class ArcadeLearningEnvironment < Formula
 
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc" # for C++17
-  end
-
   fails_with gcc: "5"
 
   resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/07/3c/4e27ef7d4cea5203ed4b52b7fe96ddd08559d9f147a2a4307e7d6d98c035/importlib_resources-5.7.1.tar.gz"
-    sha256 "b6062987dfc51f0fcb809187cffbd60f35df7acb4589091f154214af6d0d49d3"
+    url "https://files.pythonhosted.org/packages/38/b6/bc58f9261c70abb5fd670f9ad5d84445a402b4b473f308c5bf699cd379e0/importlib_resources-5.9.0.tar.gz"
+    sha256 "5481e97fb45af8dcf2f798952625591c58fe599d0735d86b10f54de086a61681"
   end
 
   def python3
