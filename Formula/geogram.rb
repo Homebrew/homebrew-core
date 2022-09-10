@@ -1,9 +1,15 @@
 class Geogram < Formula
   desc "Programming library of geometric algorithms"
-  homepage "http://alice.loria.fr/software/geogram/doc/html/index.html"
-  url "https://members.loria.fr/BLevy/PACKAGES/geogram_1.7.8.tar.gz"
-  sha256 "28e70b353705faec555700d8a7b7b9d703687702f46866bad09e033f86a96faf"
+  homepage "https://brunolevy.github.io/geogram/"
+  url "https://brunolevy.github.io/geogram/Releases/geogram_1.8.0.tar.gz"
+  sha256 "7e59db5176ca22580055a5c48862d6fd50399f33551ab9bc20c80a4cc0adeb9e"
   license all_of: ["BSD-3-Clause", :public_domain, "LGPL-3.0-or-later", "MIT"]
+  head "https://github.com/BrunoLevy/geogram.git", branch: "main"
+
+  livecheck do
+    url "https://brunolevy.github.io/geogram/Releases/"
+    regex(/href=.*?geogram[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 monterey:     "14eae5569bb7755822db7dd6db76569ff6b3a9ec14d52ebcd32a01d859209db8"
