@@ -15,6 +15,7 @@ class Mailsy < Formula
   end
 
   test do
-    system "#{bin}/mailsy", "--version"
+    assert_match "Account not created yet", shell_output("#{bin}/mailsy me")
+    assert_match "Account not created yet", shell_output("#{bin}/mailsy d")
   end
 end
