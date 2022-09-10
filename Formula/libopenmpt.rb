@@ -5,6 +5,7 @@ class Libopenmpt < Formula
   version "0.6.5"
   sha256 "f22abe977cdae405f685b75150e7fb155b2c7896b4700fd54abe68840f66e9c0"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://lib.openmpt.org/files/libopenmpt/src/"
@@ -32,7 +33,6 @@ class Libopenmpt < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc"
     depends_on "pulseaudio"
   end
 
