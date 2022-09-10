@@ -91,6 +91,7 @@
   "libcppa": "caf",
   "libmongoclient": "mongo-cxx-driver",
   "libsasl2": "cyrus-sasl",
+  "libtorch": "pytorch",
   "linux-headers": "linux-headers@4.4",
   "lua51": "lua@5.1",
   "mat": "mat2",
