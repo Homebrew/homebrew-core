@@ -22,7 +22,7 @@ class Torchvision < Formula
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "libtorch"
+  depends_on "pytorch"
 
   on_macos do
     depends_on "libomp"
@@ -47,7 +47,7 @@ class Torchvision < Formula
         assert(ops.size() == 1);
       }
     EOS
-    libtorch = Formula["libtorch"]
+    pytorch = Formula["pytorch"]
     openmp_flags = if OS.mac?
       libomp = Formula["libomp"]
       %W[
@@ -59,9 +59,9 @@ class Torchvision < Formula
       %w[-fopenmp]
     end
     system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test", *openmp_flags,
-                    "-I#{libtorch.opt_include}",
-                    "-I#{libtorch.opt_include}/torch/csrc/api/include",
-                    "-L#{libtorch.opt_lib}", "-ltorch", "-ltorch_cpu", "-lc10",
+                    "-I#{pytorch.opt_include}",
+                    "-I#{pytorch.opt_include}/torch/csrc/api/include",
+                    "-L#{pytorch.opt_lib}", "-ltorch", "-ltorch_cpu", "-lc10",
                     "-L#{lib}", "-ltorchvision"
 
     system "./test"
