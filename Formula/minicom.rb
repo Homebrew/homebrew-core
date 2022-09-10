@@ -32,14 +32,8 @@ class Minicom < Formula
     # There is a silly bug in the Makefile where it forgets to link to iconv. Workaround below.
     ENV["LIBS"] = "-liconv" if OS.mac?
 
-    if build.head?
-      system "./autogen.sh"
-      system "./configure", *std_configure_args, "--prefix=#{prefix}", "--mandir=#{man}"
-    else
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}",
-                            "--mandir=#{man}"
-    end
+    system "./autogen.sh"
+    system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
 
     (prefix/"etc").mkdir
