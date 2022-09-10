@@ -1,8 +1,8 @@
 class Libxft < Formula
   desc "X.Org: X FreeType library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXft-2.3.5.tar.xz"
-  sha256 "684fd6ec83db80b391b8111f604d9225772b26bb78bba261d77a5eaddab6a1ee"
+  url "https://www.x.org/archive/individual/lib/libXft-2.3.6.tar.xz"
+  sha256 "60a6e7319fc938bbb8d098c9bcc86031cc2327b5d086d3335fc5c76323c03022"
   license "MIT"
 
   bottle do
