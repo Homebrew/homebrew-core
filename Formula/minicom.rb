@@ -67,6 +67,14 @@ class Minicom < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/minicom -v", 1)
+    if build.head?
+      version_pattern = /minicom\ version\ \d+\.\d+/
+      version_rc = 0
+    else
+      version_pattern = "minicom version #{version}"
+      # minicom -v return code is still 1 on 2.8
+      version_rc = 1
+    end
+    assert_match version_pattern, shell_output("#{bin}/minicom -v", version_rc)
   end
 end
