@@ -21,12 +21,6 @@ class QuickLintJs < Formula
   depends_on "boost"
   depends_on "simdjson"
 
-  on_linux do
-    # Use Homebrew's C++ compiler in case the host's C++
-    # compiler is too old.
-    depends_on "gcc"
-  end
-
   # quick-lint-js requires some C++17 features, thus
   # requires GCC 8 or newer.
   fails_with gcc: "5"
