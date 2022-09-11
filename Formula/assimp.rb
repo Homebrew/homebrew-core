@@ -23,16 +23,15 @@ class Assimp < Formula
   fails_with gcc: "5"
 
   def install
-    args = std_cmake_args + %W[
-      -GNinja
+    args = %W[
       -DASSIMP_BUILD_TESTS=OFF
+      -DASSIMP_BUILD_ASSIMP_TOOLS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
-    mkdir "build" do
-      system "cmake", *args, ".."
-      system "ninja", "install"
-    end
+    system "cmake", " -S", ".", "-B", "build", "-G", "Ninja", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
