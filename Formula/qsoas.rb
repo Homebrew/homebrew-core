@@ -26,10 +26,6 @@ class Qsoas < Formula
 
   uses_from_macos "ruby"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   # Needs mruby 2, see https://github.com/fourmond/QSoas/issues/2
