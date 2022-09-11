@@ -21,10 +21,6 @@ class Patchelf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "37ebeb67ddc023af88a2e3e7ef9d84c49f40abace008d660f5ab0d6a203e91e8"
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # Needs std::optional
 
   resource "homebrew-helloworld" do
