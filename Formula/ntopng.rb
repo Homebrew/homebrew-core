@@ -46,10 +46,6 @@ class Ntopng < Formula
   uses_from_macos "curl"
   uses_from_macos "libpcap"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   # Allow dynamic linking with nDPI
