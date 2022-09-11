@@ -26,7 +26,7 @@ class Gexiv2 < Formula
   depends_on "glib"
 
   def install
-    site_packages = prefix/Language::Python.site_packages("python3")
+    site_packages = prefix/Language::Python.site_packages("python3.10")
 
     system "meson", *std_meson_args, "build", "-Dpython3_girdir=#{site_packages}/gi/overrides"
     system "meson", "compile", "-C", "build", "-v"
