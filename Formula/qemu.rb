@@ -37,7 +37,6 @@ class Qemu < Formula
 
   on_linux do
     depends_on "attr"
-    depends_on "gcc"
     depends_on "gtk+3"
     depends_on "libcap-ng"
   end
