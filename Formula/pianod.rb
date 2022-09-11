@@ -33,7 +33,6 @@ class Pianod < Formula
   on_linux do
     # pianod uses avfoundation on macOS, ffmpeg on Linux
     depends_on "ffmpeg@4"
-    depends_on "gcc"
     depends_on "gnutls"
     depends_on "libbsd"
   end
