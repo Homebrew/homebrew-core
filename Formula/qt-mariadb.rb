@@ -23,10 +23,6 @@ class QtMariadb < Formula
   depends_on "mariadb"
   depends_on "qt"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "qt-mysql", "qt-percona-server",
     because: "qt-mysql, qt-mariadb, and qt-percona-server install the same binaries"
 
