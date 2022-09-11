@@ -18,10 +18,6 @@ class Pdftoipe < Formula
   depends_on "pkg-config" => :build
   depends_on "poppler"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   # https://github.com/otfried/ipe-tools/pull/48
