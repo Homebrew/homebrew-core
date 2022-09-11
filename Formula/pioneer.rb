@@ -26,10 +26,6 @@ class Pioneer < Formula
   depends_on "sdl2"
   depends_on "sdl2_image"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
