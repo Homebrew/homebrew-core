@@ -30,10 +30,6 @@ class Pdnsrec < Formula
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with :clang do
     build 1100
     cause <<-EOS
