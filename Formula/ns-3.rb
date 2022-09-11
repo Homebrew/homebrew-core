@@ -32,10 +32,6 @@ class Ns3 < Formula
     patch :DATA
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   # Needs GCC 8 or above
   fails_with gcc: "5"
   fails_with gcc: "6"
