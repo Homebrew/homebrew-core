@@ -127,13 +127,13 @@ class Dynare < Formula
     io = resource("io")
     testpath.install statistics, io
 
-    cp lib/"dynare/examples/bkk.mod", testpath
+    cp lib/"dynare/examples/example1.mod", testpath
 
     (testpath/"dyn_test.m").write <<~EOS
       pkg prefix #{testpath}/octave
       pkg install io-#{io.version}.tar.gz
       pkg install statistics-#{statistics.version}.tar.gz
-      dynare bkk.mod console
+      dynare example1.mod console
     EOS
 
     system Formula["octave"].opt_bin/"octave", "--no-gui",
