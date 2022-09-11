@@ -29,7 +29,6 @@ class OpenjdkAT17 < Formula
     depends_on "alsa-lib"
     depends_on "cups"
     depends_on "fontconfig"
-    depends_on "gcc"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxrandr"
