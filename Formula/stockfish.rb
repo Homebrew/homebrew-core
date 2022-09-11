@@ -21,7 +21,7 @@ class Stockfish < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9f92ead9b38a5ffcac5fc72b052a6c63953c0cd057a142ffa7f8215cb7146c6"
   end
 
-  fails_with gcc: "5"
+  fails_with gcc: "5" # For C++17
 
   def install
     arch = Hardware::CPU.arm? ? "apple-silicon" : "x86-64-modern"
