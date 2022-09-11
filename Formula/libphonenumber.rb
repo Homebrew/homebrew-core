@@ -30,6 +30,7 @@ class Libphonenumber < Formula
   fails_with gcc: "5" # For abseil and C++17
 
   def install
+    ENV.append_to_cflags "-Wno-sign-compare" # Avoid build failure on Linux.
     system "cmake", "-S", "cpp", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=17", # keep in sync with C++ standard in abseil.rb
                     "-DGTEST_INCLUDE_DIR=#{Formula["googletest"].opt_include}",
