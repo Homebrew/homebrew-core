@@ -42,7 +42,6 @@ class PerconaXtrabackup < Formula
 
   on_linux do
     depends_on "patchelf" => :build
-    depends_on "gcc" # Requires GCC 7.1 or later
     depends_on "libaio"
   end
 
