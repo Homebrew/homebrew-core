@@ -30,7 +30,6 @@ class Openttd < Formula
     depends_on "fluid-synth"
     depends_on "fontconfig"
     depends_on "freetype"
-    depends_on "gcc"
     depends_on "mesa"
     depends_on "mesa-glu"
     depends_on "sdl2"
