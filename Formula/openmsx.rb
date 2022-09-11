@@ -37,7 +37,6 @@ class Openmsx < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "gcc"
   end
 
   fails_with gcc: "5"
@@ -45,6 +44,7 @@ class Openmsx < Formula
   def install
     # Hardcode prefix
     inreplace "build/custom.mk", "/opt/openMSX", prefix
+    inreplace "build/probe.py", "platform == 'darwin'", "platform == 'linux'" if OS.linux?
     inreplace "build/probe.py", "/usr/local", HOMEBREW_PREFIX
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
