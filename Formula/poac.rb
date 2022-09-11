@@ -29,10 +29,6 @@ class Poac < Formula
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1200
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with :clang do
     build 1200
     cause "Requires C++20"
