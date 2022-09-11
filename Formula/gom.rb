@@ -26,7 +26,7 @@ class Gom < Formula
   uses_from_macos "sqlite"
 
   def install
-    site_packages = prefix/Language::Python.site_packages("python3")
+    site_packages = prefix/Language::Python.site_packages("python3.10")
 
     mkdir "build" do
       system "meson", *std_meson_args, "-Dpygobject-override-dir=#{site_packages}", ".."
