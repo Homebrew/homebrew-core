@@ -35,10 +35,6 @@ class OrTools < Formula
 
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
@@ -55,21 +51,21 @@ class OrTools < Formula
 
   test do
     # Linear Solver & Glop Solver
-    system ENV.cxx, "-std=c++17",
+    system ENV.cxx, "-std=c++17", pkgshare/"simple_lp_program.cc",
            "-I#{include}", "-L#{lib}", "-lortools",
            "-L#{Formula["abseil"].opt_lib}", "-labsl_time",
-           pkgshare/"simple_lp_program.cc", "-o", "simple_lp_program"
+           "-o", "simple_lp_program"
     system "./simple_lp_program"
     # Routing Solver
-    system ENV.cxx, "-std=c++17",
+    system ENV.cxx, "-std=c++17", pkgshare/"simple_routing_program.cc",
            "-I#{include}", "-L#{lib}", "-lortools",
-           pkgshare/"simple_routing_program.cc", "-o", "simple_routing_program"
+           "-o", "simple_routing_program"
     system "./simple_routing_program"
     # Sat Solver
-    system ENV.cxx, "-std=c++17",
+    system ENV.cxx, "-std=c++17", pkgshare/"simple_sat_program.cc",
            "-I#{include}", "-L#{lib}", "-lortools",
            "-L#{Formula["abseil"].opt_lib}", "-labsl_raw_hash_set",
-           pkgshare/"simple_sat_program.cc", "-o", "simple_sat_program"
+           "-o", "simple_sat_program"
     system "./simple_sat_program"
   end
 end
