@@ -14,10 +14,6 @@ class Pict < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "89c9e0a586a093c3fcbbce59dcb05d54a16c111e18ac02cbe4c9cfc7ca74ef6a"
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "testfile" do
