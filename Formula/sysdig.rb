@@ -2,7 +2,7 @@ class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   stable do
     url "https://github.com/draios/sysdig/archive/0.29.3.tar.gz"
@@ -43,7 +43,7 @@ class Sysdig < Formula
   depends_on "nlohmann-json" => :build
   depends_on "c-ares"
   depends_on "jsoncpp"
-  depends_on "luajit-openresty"
+  depends_on "luajit"
   depends_on "openssl@1.1"
   depends_on "tbb"
   depends_on "yaml-cpp"
