@@ -2,8 +2,8 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      tag:      "v4.2.2",
-      revision: "40eb7f80378284202e52e6c45299cac10abf07ab"
+      tag:      "v5.0.1",
+      revision: "66eaf5d7c769ee65588e4b14b39203a55f39b3ac"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
@@ -24,6 +24,7 @@ class Zeek < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
+  depends_on "flex" => :build
   depends_on "swig" => :build
   depends_on "caf"
   depends_on "geoip"
@@ -32,7 +33,6 @@ class Zeek < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.10"
 
-  uses_from_macos "flex"
   uses_from_macos "libpcap"
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
