@@ -21,10 +21,6 @@ class Pangomm < Formula
   depends_on "glibmm"
   depends_on "pango"
 
-  on_linux do
-    depends_on "gcc" => :build
-  end
-
   fails_with gcc: "5"
 
   def install
