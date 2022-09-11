@@ -23,10 +23,6 @@ class QtPostgresql < Formula
   depends_on "libpq"
   depends_on "qt"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
