@@ -27,10 +27,7 @@ class Oclgrind < Formula
 
   on_linux do
     depends_on "opencl-headers" => :test
-    depends_on "gcc"
   end
-
-  fails_with gcc: "5" # LLVM is built with GCC
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
