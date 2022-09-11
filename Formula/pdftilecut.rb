@@ -4,6 +4,7 @@ class Pdftilecut < Formula
   url "https://github.com/oxplot/pdftilecut/archive/v0.6.tar.gz"
   sha256 "fd2383ee0d0acfa56cf6e80ac62881bd6dda4555adcd7f5a397339e7d3eca9ac"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2c5121b94c0d057a347e8770437d18bcce632226dad2cf826ac49119c2f5460c"
