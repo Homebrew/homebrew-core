@@ -35,7 +35,7 @@ class MbedtlsAT2 < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
-                    "-DPython3_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3",
+                    "-DPython3_EXECUTABLE=#{which("python3.10")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     # We run CTest because this is a crypto library. Running tests in parallel causes failures.
