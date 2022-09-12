@@ -46,7 +46,7 @@ class Harfbuzz < Formula
     ]
 
     system "meson", "setup", "build", *std_meson_args, *args
-    system "meson", "compile", "-C", "build"
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
@@ -55,6 +55,6 @@ class Harfbuzz < Formula
       shape = `echo 'സ്റ്റ്' | #{bin}/hb-shape 270b89df543a7e48e206a2d830c0e10e5265c630.ttf`.chomp
       assert_equal "[glyph201=0+1183|U0D4D=0+0]", shape
     end
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "from gi.repository import HarfBuzz"
+    system "python3.10", "-c", "from gi.repository import HarfBuzz"
   end
 end
