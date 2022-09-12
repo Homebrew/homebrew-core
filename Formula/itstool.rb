@@ -3,7 +3,7 @@ class Itstool < Formula
   homepage "http://itstool.org/"
   url "https://github.com/itstool/itstool/archive/2.0.7.tar.gz"
   sha256 "fba78a37dc3535e4686c7f57407b97d03c676e3a57beac5fb2315162b0cc3176"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 1
   head "https://github.com/itstool/itstool.git", branch: "master"
 
@@ -22,9 +22,10 @@ class Itstool < Formula
   depends_on "python@3.10"
 
   def install
-    ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages("python3")
+    python3 = "python3.10"
+    ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages(python3)
 
-    system "./autogen.sh", "--prefix=#{libexec}", "PYTHON=#{which("python3")}"
+    system "./autogen.sh", "--prefix=#{libexec}", "PYTHON=#{which(python3)}"
     system "make", "install"
 
     bin.install Dir["#{libexec}/bin/*"]
