@@ -21,8 +21,9 @@ class Duckdb < Formula
   def install
     ENV.deparallelize if OS.linux? # amalgamation builds take GBs of RAM
     mkdir "build/amalgamation"
-    system Formula["python@3.10"].opt_bin/"python3", "scripts/amalgamation.py", "--extended"
-    system Formula["python@3.10"].opt_bin/"python3", "scripts/parquet_amalgamation.py"
+    python3 = "python3.10"
+    system python3, "scripts/amalgamation.py", "--extended"
+    system python3, "scripts/parquet_amalgamation.py"
     cd "src/amalgamation" do
       system "cmake", "../..", *std_cmake_args
       system "make"
