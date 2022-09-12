@@ -13,14 +13,7 @@ class Netclient < Formula
     system "go", "build", *std_go_args(ldflags: "-X 'main.version=v#{version}'"), "netclient/main.go"
   end
 
-  def caveats
-    <<~EOS
-      Netclient requires a daemon to function properly.
-      This daemon needs to run as root, and can be enabled using:
-        sudo brew services start netclient
-    EOS
-  end
-
+  plist_options startup: true
   service do
     run [opt_bin/"netclient", "daemon"]
     keep_alive true
