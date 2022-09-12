@@ -66,7 +66,7 @@ class Fontforge < Formula
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
+    system "python3.10", "-c", "import fontforge; fontforge.font()"
   end
 end
 
