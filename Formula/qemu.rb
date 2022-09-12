@@ -21,6 +21,7 @@ class Qemu < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
 
+  depends_on "capstone"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "jpeg-turbo"
@@ -59,6 +60,7 @@ class Qemu < Formula
       --host-cc=#{ENV.cc}
       --disable-bsd-user
       --disable-guest-agent
+      --enable-capstone
       --enable-curses
       --enable-libssh
       --enable-slirp=system
@@ -68,9 +70,6 @@ class Qemu < Formula
       --extra-cflags=-DNCURSES_WIDECHAR=1
       --disable-sdl
     ]
-
-    # Please remove this line when the CI gets updated to a recent version of Ubuntu(kernel version >= 4.9)
-    args << "--disable-linux-user"
 
     # Sharing Samba directories in QEMU requires the samba.org smbd which is
     # incompatible with the macOS-provided version. This will lead to
