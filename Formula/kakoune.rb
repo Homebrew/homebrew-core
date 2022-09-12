@@ -27,9 +27,8 @@ class Kakoune < Formula
 
   on_linux do
     depends_on "binutils" => :build
-    depends_on "linux-headers@4.4" => :build
+    depends_on "linux-headers@5.15" => :build
     depends_on "pkg-config" => :build
-    depends_on "gcc"
   end
 
   fails_with gcc: "5"
