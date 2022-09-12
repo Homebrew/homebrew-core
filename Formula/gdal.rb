@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "http://download.osgeo.org/gdal/3.5.1/gdal-3.5.1.tar.xz"
-  sha256 "d12c30a9eacdeaab493c0d1c9f88eb337c9cbb5bb40744c751bdd5a5af166ab6"
+  url "http://download.osgeo.org/gdal/3.5.2/gdal-3.5.2.tar.xz"
+  sha256 "0874dfdeb9ac42e53c37be4184b19350be76f0530e1f4fa8004361635b9030c2"
   license "MIT"
-  revision 3
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
