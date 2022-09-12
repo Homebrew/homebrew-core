@@ -32,6 +32,10 @@ class Cryptominisat < Formula
     sha256 "a75998d5060d1de13f2173514b85b2c3ce13ad13085ef624b0d711e062fc6289"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
     inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
@@ -41,7 +45,7 @@ class Cryptominisat < Formula
 
     # fix error: could not create '/usr/local/lib/python3.10/site-packages/pycryptosat.cpython-310-darwin.so':
     # Operation not permitted
-    site_packages = prefix/Language::Python.site_packages("python3")
+    site_packages = prefix/Language::Python.site_packages(python3)
     inreplace "python/CMakeLists.txt",
               "COMMAND ${PYTHON_EXECUTABLE} ${SETUP_PY} install",
               "COMMAND ${PYTHON_EXECUTABLE} ${SETUP_PY} install --install-lib=#{site_packages}"
@@ -73,6 +77,6 @@ class Cryptominisat < Formula
       solver.add_clause([-1, 2, 3])
       print(solver.solve()[1])
     EOS
-    assert_equal "(None, True, False, True)\n", shell_output("#{Formula["python@3.10"].opt_bin}/python3 test.py")
+    assert_equal "(None, True, False, True)\n", shell_output("#{python3} test.py")
   end
 end
