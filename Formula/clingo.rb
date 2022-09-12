@@ -39,15 +39,17 @@ class Clingo < Formula
   link_overwrite "bin/reify"
 
   def install
-    system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
-                         "-DCLINGO_BUILD_PY_SHARED=ON",
-                         "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
-                         "-DPYCLINGO_USER_INSTALL=OFF",
-                         "-DCLINGO_BUILD_WITH_LUA=ON",
-                         "-DPython_EXECUTABLE=#{which("python3")}",
-                         "-DPYCLINGO_DYNAMIC_LOOKUP=OFF",
-                         *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCLINGO_BUILD_WITH_PYTHON=ON",
+                    "-DCLINGO_BUILD_PY_SHARED=ON",
+                    "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
+                    "-DPYCLINGO_USER_INSTALL=OFF",
+                    "-DCLINGO_BUILD_WITH_LUA=ON",
+                    "-DPython_EXECUTABLE=#{which("python3.10")}",
+                    "-DPYCLINGO_DYNAMIC_LOOKUP=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
