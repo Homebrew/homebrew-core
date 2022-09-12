@@ -29,15 +29,14 @@ class Onnxruntime < Formula
     cmake_args = %W[
       -Donnxruntime_RUN_ONNX_TESTS=OFF
       -Donnxruntime_GENERATE_TEST_REPORTS=OFF
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{which("python3.10")}
       -Donnxruntime_BUILD_SHARED_LIB=ON
       -Donnxruntime_BUILD_UNIT_TESTS=OFF
     ]
 
-    mkdir "build" do
-      system "cmake", "../cmake", *std_cmake_args, *cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", "cmake", "-B", "build", *cmake_args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
