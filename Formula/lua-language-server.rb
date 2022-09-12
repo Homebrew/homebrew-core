@@ -19,11 +19,7 @@ class LuaLanguageServer < Formula
 
   depends_on "ninja" => :build
 
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
-
-  fails_with gcc: 5
+  fails_with gcc: 5 # For C++17
 
   def install
     ENV.cxx11
