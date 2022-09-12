@@ -40,7 +40,7 @@ class I386ElfGdb < Formula
       --disable-debug
       --disable-dependency-tracking
       --with-lzma
-      --with-python=#{Formula["python@3.10"].opt_bin}/python3
+      --with-python=#{which("python3.10")}
       --with-system-zlib
       --disable-binutils
     ]
