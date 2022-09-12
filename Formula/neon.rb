@@ -1,9 +1,9 @@
 class Neon < Formula
   desc "HTTP and WebDAV client library with a C interface"
   homepage "https://notroj.github.io/neon/"
-  url "https://notroj.github.io/neon/neon-0.32.3.tar.gz"
-  mirror "https://fossies.org/linux/www/neon-0.32.3.tar.gz"
-  sha256 "94cb875dc6dbfcdee58f039b763c674b0232886cdfd7a5de91be5cdfa2b7596a"
+  url "https://notroj.github.io/neon/neon-0.32.4.tar.gz"
+  mirror "https://fossies.org/linux/www/neon-0.32.4.tar.gz"
+  sha256 "b1e2120e4ae07df952c4a858731619733115c5f438965de4fab41d6bf7e7a508"
   license "LGPL-2.0-or-later"
 
   livecheck do
