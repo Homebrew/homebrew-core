@@ -21,10 +21,6 @@ class Khiva < Formula
   depends_on "arrayfire"
   depends_on "eigen"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
