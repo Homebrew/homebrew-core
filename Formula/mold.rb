@@ -4,6 +4,7 @@ class Mold < Formula
   url "https://github.com/rui314/mold/archive/v1.4.2.tar.gz"
   sha256 "47e6c48d20f49e5b47dfb8197dd9ffcb11a8833d614f7a03bd29741c658a69cd"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/rui314/mold.git", branch: "main"
 
   bottle do
@@ -24,7 +25,6 @@ class Mold < Formula
   end
 
   on_linux do
-    depends_on "gcc"
     depends_on "mimalloc"
     depends_on "openssl@1.1" # Uses CommonCrypto on macOS
   end
