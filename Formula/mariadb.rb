@@ -44,7 +44,6 @@ class Mariadb < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc"
     depends_on "linux-pam"
     depends_on "readline" # uses libedit on macOS
   end
