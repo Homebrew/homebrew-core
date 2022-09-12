@@ -23,7 +23,6 @@ env:
     alluxio
     ammonite-repl
     angular-cli
-    annie
     ansible-lint
     ant
     ant@1.9
@@ -471,6 +470,7 @@ env:
     log4cxx
     lout
     luau
+    lux
     lychee
     macchina
     mage
@@ -562,6 +562,7 @@ env:
     ooniprobe
     opa
     openrtsp
+    openiothub-server
     opensearch
     operator-sdk
     or-tools
@@ -606,7 +607,7 @@ env:
     powerman
     pre-commit
     prestd
-    presto
+    prestodb
     principalmapper
     procs
     protoc-gen-go-grpc
@@ -660,7 +661,6 @@ env:
     selenium-server
     seqkit
     ser2net
-    server-go
     serverless
     shadowenv
     sheldon
