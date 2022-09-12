@@ -93,7 +93,7 @@ class Pushpin < Formula
 
     begin
       sleep 3 # make sure pushpin processes have started
-      system Formula["python@3.10"].opt_bin/"python3", runfile
+      system Formula["python@3.10"].opt_bin/"python3.10", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
