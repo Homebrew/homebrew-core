@@ -208,6 +208,8 @@ class Poetry < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
+    # The poetry add command would fail in CI when keyring is enabled
+    ENV["PYTHON_KEYRING_BACKEND"] = "keyring.backends.null.Keyring"
 
     assert_match version.to_s, shell_output("#{bin}/poetry --version")
     assert_match "Created package", shell_output("#{bin}/poetry new homebrew")
