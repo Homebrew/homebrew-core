@@ -28,13 +28,14 @@ class Ldns < Formula
   conflicts_with "drill", because: "both install a `drill` binary"
 
   def install
+    python3 = "python3.10"
     args = %W[
       --prefix=#{prefix}
       --with-drill
       --with-examples
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pyldns
-      PYTHON_SITE_PKG=#{prefix/Language::Python.site_packages("python3")}
+      PYTHON_SITE_PKG=#{prefix/Language::Python.site_packages(python3)}
       --disable-dane-verify
       --without-xcode-sdk
     ]
@@ -42,7 +43,7 @@ class Ldns < Formula
     # Fixes: ./contrib/python/ldns_wrapper.c:2746:10: fatal error: 'ldns.h' file not found
     inreplace "contrib/python/ldns.i", "#include \"ldns.h\"", "#include <ldns/ldns.h>"
 
-    ENV["PYTHON"] = which("python3")
+    ENV["PYTHON"] = which(python3)
     system "./configure", *args
 
     if OS.mac?
