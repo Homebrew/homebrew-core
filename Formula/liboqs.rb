@@ -24,10 +24,6 @@ class Liboqs < Formula
   depends_on "ninja" => :build
   depends_on "openssl@1.1"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
@@ -41,7 +37,7 @@ class Liboqs < Formula
 
   test do
     cp pkgshare/"tests/example_kem.c", "test.c"
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-loqs", "-o", "test", "test.c"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-loqs", "-o", "test"
     assert_match "operations completed", shell_output("./test")
   end
 end
