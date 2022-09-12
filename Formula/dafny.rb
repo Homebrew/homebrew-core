@@ -40,7 +40,7 @@ class Dafny < Formula
     dst_z3_bin.mkpath
 
     resource("z3").stage do
-      ENV["PYTHON"] = which("python3")
+      ENV["PYTHON"] = which("python3.10")
       system "./configure"
       system "make", "-C", "build"
       mv("build/z3", dst_z3_bin/"z3")
