@@ -26,8 +26,9 @@ class Norm < Formula
   end
 
   def install
-    system "python3", "./waf", "configure", "--prefix=#{prefix}"
-    system "python3", "./waf", "install"
+    python3 = "python3.10"
+    system python3, "./waf", "configure", "--prefix=#{prefix}"
+    system python3, "./waf", "install"
 
     include.install "include/normApi.h"
   end
