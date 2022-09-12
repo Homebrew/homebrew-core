@@ -51,9 +51,10 @@ class Nanomsgxx < Formula
       --prefix=#{prefix}
     ]
 
-    system "python3", "./waf", "configure", *args
-    system "python3", "./waf", "build"
-    system "python3", "./waf", "install"
+    python3 = "python3.10"
+    system python3, "./waf", "configure", *args
+    system python3, "./waf", "build"
+    system python3, "./waf", "install"
   end
 
   test do
