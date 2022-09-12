@@ -39,10 +39,6 @@ class Mu < Formula
 
   uses_from_macos "texinfo" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "mu-repo", because: "both install `mu` binaries"
 
   fails_with gcc: "5"
