@@ -25,10 +25,6 @@ class Fb303 < Formula
   depends_on "openssl@1.1"
   depends_on "wangle"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # C++17
 
   def install
