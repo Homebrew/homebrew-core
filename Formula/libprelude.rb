@@ -27,6 +27,13 @@ class Libprelude < Formula
   depends_on "python@3.10"
 
   def install
+    python3 = "python3.10"
+    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
+    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
+    inreplace "bindings/python/Makefile.in",
+              "--prefix @prefix@",
+              "\\0 --install-lib=#{prefix/Language::Python.site_packages(python3)}"
+
     ENV["HAVE_CXX"] = "yes"
     args = %W[
       --disable-dependency-tracking
@@ -37,7 +44,7 @@ class Libprelude < Formula
       --without-perl
       --without-swig
       --without-python2
-      --with-python3=python#{Language::Python.major_minor_version("python3")}
+      --with-python3=#{python3}
       --with-libgnutls-prefix=#{Formula["gnutls"].opt_prefix}
     ]
 
