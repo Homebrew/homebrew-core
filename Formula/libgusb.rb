@@ -29,17 +29,19 @@ class Libgusb < Formula
   depends_on "python@3.10" => :build
   depends_on "vala" => :build
   depends_on "glib"
+  depends_on "json-glib"
   depends_on "libusb"
   depends_on "usb.ids"
 
   def install
     rewrite_shebang detected_python_shebang, "contrib/generate-version-script.py"
 
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Ddocs=false", "-Dusb_ids=#{Formula["usb.ids"].opt_share}/misc/usb.ids", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build",
+                    "-Ddocs=false",
+                    "-Dusb_ids=#{Formula["usb.ids"].opt_share}/misc/usb.ids",
+                    *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
