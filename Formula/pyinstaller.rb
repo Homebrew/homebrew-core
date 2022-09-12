@@ -36,7 +36,7 @@ class Pyinstaller < Formula
 
   def install
     cd "bootloader" do
-      system "python3", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
+      system "python3.10", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
     end
     virtualenv_install_with_resources
   end
