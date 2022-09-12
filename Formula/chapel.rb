@@ -1,10 +1,9 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.27.0/chapel-1.27.0.tar.gz"
-  sha256 "558b1376fb7757a5e1f254c717953f598a3e89850c8edd1936b8d09c464f3e8b"
+  url "https://chapel-lang.org/tmp/chapel-1.28.0.tar.gz"
+  sha256 "162db408d2ae6efcbaaf121eb0797e686b1caac2f16005af6ca69af15d210073"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
   bottle do
@@ -18,16 +17,9 @@ class Chapel < Formula
 
   depends_on "gmp"
   depends_on "python@3.10"
-
-  # fatal error: cannot open file './sys_basic.h': No such file or directory
-  # Issue ref: https://github.com/Homebrew/homebrew-core/issues/96915
-  on_catalina :or_older do
-    depends_on "llvm@11"
-  end
-
-  on_system :linux, macos: :big_sur_or_newer do
-    depends_on "llvm"
-  end
+  # Chapel only supports  LLVM 14 and older. When LLVM15 releases,  our formula would need to change
+  # this line to llvm@14. 
+  depends_on "llvm"
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
@@ -45,6 +37,8 @@ class Chapel < Formula
   def install
     # Always detect Python used as dependency rather than needing aliased Python formula
     python = "python3.10"
+    # It should be noted that this will expand to: 'for cmd in python3.10 python3 python python2; do' 
+    # in our find-python.sh script.  
     inreplace "util/config/find-python.sh", /^(for cmd in )(python3 )/, "\\1#{python} \\2"
 
     libexec.install Dir["*"]
