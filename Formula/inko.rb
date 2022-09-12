@@ -23,15 +23,19 @@ class Inko < Formula
   uses_from_macos "ruby", since: :sierra
 
   def install
-    system "make", "build", "PREFIX=#{prefix}", "FEATURES=libinko/libffi-system"
+    system "make", "build", "PREFIX=#{prefix}", "FEATURES=libffi/system"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
     (testpath/"hello.inko").write <<~EOS
-      import std::stdio::stdout
+      import std::stdio::STDOUT
 
-      stdout.print('Hello, world!')
+      class async Main {
+        fn async main {
+          STDOUT.new.print('Hello, world!')
+        }
+      }
     EOS
     assert_equal "Hello, world!\n", shell_output("#{bin}/inko hello.inko")
   end
