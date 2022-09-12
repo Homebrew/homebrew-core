@@ -44,9 +44,10 @@ class Jack < Formula
       ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
-    system Formula["python@3.10"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}", "--example-tools"
-    system Formula["python@3.10"].opt_bin/"python3", "./waf", "build"
-    system Formula["python@3.10"].opt_bin/"python3", "./waf", "install"
+    python3 = "python3.10"
+    system python3, "./waf", "configure", "--prefix=#{prefix}", "--example-tools"
+    system python3, "./waf", "build"
+    system python3, "./waf", "install"
   end
 
   service do
