@@ -6,6 +6,7 @@ class Poetry < Formula
   url "https://files.pythonhosted.org/packages/d6/75/2603419dcfafb3e777b304c9cb2813a8a4090db04356b750a662663c3c01/poetry-1.2.0.tar.gz"
   sha256 "17c527d5d5505a5a7c5c14348d87f077d643cf1f186321530cde68e530bba59f"
   license "MIT"
+  revision 1
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
   bottle do
@@ -36,8 +37,8 @@ class Poetry < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/90/c2/4e37394b66e7211ad120f216fc2e8b38d4f43b89c8100dd3917c9da9bfc6/certifi-2022.6.15.1.tar.gz"
+    sha256 "cffdcd380919da6137f76633531a5817e3a9f268575c128249fb637e4f9e73fb"
   end
 
   resource "cffi" do
@@ -66,8 +67,8 @@ class Poetry < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/8e/99/7f139ec0e9d224542115ef070c79503bcb271edaaf0c1e049a5fbdaad6a5/dulwich-0.20.45.tar.gz"
-    sha256 "70710dd9ca2a442190c7e506892db074c318ac762e221f7529b8ce34802041b7"
+    url "https://files.pythonhosted.org/packages/4c/61/85f17dd9e744e027d23bee2bbafc8438fab26c175a089b1a06b664deae21/dulwich-0.20.46.tar.gz"
+    sha256 "4f0e88ffff5db1523d93d92f1525fe5fa161318ffbaad502c1b9b3be7a067172"
   end
 
   resource "filelock" do
@@ -85,19 +86,29 @@ class Poetry < Formula
     sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
   end
 
+  resource "jaraco.classes" do
+    url "https://files.pythonhosted.org/packages/fe/8b/7876fbd69f5a8ebfbda73c8c1a5346171ee5ac0db28e9f5b2bb80ee3e73b/jaraco.classes-3.2.2.tar.gz"
+    sha256 "6745f113b0b588239ceb49532aa09c3ebb947433ce311ef2f8e3ad64ebb74594"
+  end
+
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/35/ee/889aee424a43066a06ac68e499335877775eac9b4409f7860f6af94c6688/jsonschema-4.14.0.tar.gz"
-    sha256 "15062f4cc6f591400cd528d2c355f2cfa6a57e44c820dc783aee5e23d36a831f"
+    url "https://files.pythonhosted.org/packages/cf/54/8923ba38b5145f2359d57e5516715392491d674c83f446cd4cd133eeb4d6/jsonschema-4.16.0.tar.gz"
+    sha256 "165059f076eff6971bae5b742fc029a7b4ef3f9bcf04c14e4776a7605de14b23"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a7/d8/ca70a209ea09e97e4d9feba2f6b38b4eaf918de15a7ada3f3a2246c26cf9/keyring-23.8.2.tar.gz"
-    sha256 "0d9973f8891850f1ade5f26aafd06bb16865fbbae3fc56b0defb6a14a2624003"
+    url "https://files.pythonhosted.org/packages/99/00/072e2e03d32286c12b963a236f41040a528316a5a5c2fac6ff4029c85386/keyring-23.9.1.tar.gz"
+    sha256 "39e4f6572238d2615a82fcaa485e608b84b503cf080dc924c43bbbacb11c1c18"
   end
 
   resource "lockfile" do
     url "https://files.pythonhosted.org/packages/17/47/72cb04a58a35ec495f96984dddb48232b551aafb95bde614605b754fe6f7/lockfile-0.12.2.tar.gz"
     sha256 "6aed02de03cba24efabcd600b30540140634fc06cfa603822d508d5361e9f799"
+  end
+
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/c7/0c/fad24ca2c9283abc45a32b3bfc2a247376795683449f595ff1280c171396/more-itertools-8.14.0.tar.gz"
+    sha256 "c09443cd3d5438b8dafccd867a6bc1cb0894389e90cb53d227456b0b0bccb750"
   end
 
   resource "msgpack" do
@@ -186,8 +197,8 @@ class Poetry < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/62/2d/06980235e155c7ee1971f77439cbbc3069e98de49540e89f2291905eb4a8/virtualenv-20.16.4.tar.gz"
-    sha256 "014f766e4134d0008dcaa1f95bafa0fb0f575795d07cae50b1bee514185d6782"
+    url "https://files.pythonhosted.org/packages/07/a3/bd699eccc596c3612c67b06772c3557fda69815972eef4b22943d7535c68/virtualenv-20.16.5.tar.gz"
+    sha256 "227ea1b9994fdc5ea31977ba3383ef296d7472ea85be9d6732e42a91c04e80da"
   end
 
   resource "webencodings" do
