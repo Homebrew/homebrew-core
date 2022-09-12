@@ -23,10 +23,6 @@ class Mysqlxx < Formula
 
   depends_on "mysql-client"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
