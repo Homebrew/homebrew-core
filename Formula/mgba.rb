@@ -31,12 +31,6 @@ class Mgba < Formula
   depends_on "sdl2"
   depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
 
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5" # ffmpeg is compiled with GCC
-
   def install
     # Install .app bundle into prefix, not prefix/Applications
     inreplace "src/platform/qt/CMakeLists.txt", "Applications", "."
