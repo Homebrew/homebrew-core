@@ -25,9 +25,12 @@ class Newt < Formula
   depends_on "python@3.10"
   depends_on "s-lang"
 
+  def python3
+    "python3.10"
+  end
+
   def install
-    xy = Language::Python.major_minor_version("python3")
-    args = %W[--prefix=#{prefix} --without-tcl --with-python=python#{xy}]
+    args = %W[--prefix=#{prefix} --without-tcl --with-python=#{python3}]
 
     if OS.mac?
       inreplace "Makefile.in" do |s|
@@ -50,7 +53,7 @@ class Newt < Formula
 
   test do
     ENV["TERM"] = "xterm"
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import snack"
+    system python3, "-c", "import snack"
 
     (testpath/"test.c").write <<~EOS
       #import <newt.h>
