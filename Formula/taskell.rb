@@ -23,9 +23,16 @@ class Taskell < Formula
   uses_from_macos "zlib"
 
   def install
+    # Work around build failure from Brick v1 API.
+    # src/Taskell.hs:64:13: error:
+    #     Not in scope: 'Brick.continue'
+    #     Module 'Brick' does not export 'continue'.
+    # Issue ref: https://github.com/smallhadroncollider/taskell/issues/125
+    cabal_install_constraints = ["--constraint=brick<1"]
+
     system "hpack"
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", *std_cabal_v2_args, *cabal_install_constraints
   end
 
   test do
