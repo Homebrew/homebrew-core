@@ -1,10 +1,9 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_0.99.48.tar.xz"
-  sha256 "4bba4f19d23560e8aa59f2ab1e76f128f7f02adaebb5813e826e1753ee5d81fa"
+  url "https://www.giuspen.com/software/cherrytree_0.99.49.tar.xz"
+  sha256 "cb3f48903716c3dfca7b4638c57137642d99c76f1bfc2f5f9f5b442baff2cde1"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :homepage
@@ -34,10 +33,6 @@ class Cherrytree < Formula
   depends_on "uchardet"
 
   uses_from_macos "curl"
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5" # Needs std::optional
 
