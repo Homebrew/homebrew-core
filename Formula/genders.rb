@@ -4,7 +4,7 @@ class Genders < Formula
   url "https://github.com/chaos/genders/archive/genders-1-27-3.tar.gz"
   version "1.27.3"
   sha256 "c176045a7dd125313d44abcb7968ded61826028fe906028a2967442426229894"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -35,7 +35,7 @@ class Genders < Formula
   end
 
   def install
-    ENV["PYTHON"] = which("python3")
+    ENV["PYTHON"] = which("python3.10")
     system "./configure", "--prefix=#{prefix}", "--with-java-extensions=no"
     system "make", "install"
 
