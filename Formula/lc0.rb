@@ -26,11 +26,10 @@ class Lc0 < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc" # for C++17
     depends_on "openblas"
   end
 
-  fails_with gcc: "5"
+  fails_with gcc: "5" # for C++17
 
   resource "network" do
     url "https://training.lczero.org/get_network?sha=00af53b081e80147172e6f281c01daf5ca19ada173321438914c730370aa4267", using: :nounzip
