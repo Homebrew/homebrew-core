@@ -19,17 +19,12 @@ class Minizinc < Formula
   depends_on "cbc"
   depends_on "gecode"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "cmake", "--build", ".", "--target", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
