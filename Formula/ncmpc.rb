@@ -30,13 +30,9 @@ class Ncmpc < Formula
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dcolors=false",
-                                       "-Dnls=disabled",
-                                       "-Dregex=enabled",
-                                       ".."
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", "-Dcolors=false", "-Dnls=enabled", "-Dregex=enabled", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
