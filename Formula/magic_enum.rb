@@ -11,11 +11,7 @@ class MagicEnum < Formula
 
   depends_on "cmake" => :build
 
-  on_linux do
-    depends_on "gcc" # C++17
-  end
-
-  fails_with gcc: "5"
+  fails_with gcc: "5" # C++17
 
   def install
     system "cmake", ".", *std_cmake_args
