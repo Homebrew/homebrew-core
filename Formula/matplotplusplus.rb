@@ -24,9 +24,7 @@ class Matplotplusplus < Formula
   depends_on "libtiff"
   depends_on "openexr"
 
-  on_linux do
-    depends_on "gcc"
-  end
+  uses_from_macos "zlib"
 
   fails_with :clang do
     build 1100
