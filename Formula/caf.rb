@@ -20,11 +20,7 @@ class Caf < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
-
-  fails_with gcc: "5"
+  fails_with gcc: "5" # For C++17
 
   def install
     tools = pkgshare/"tools"
