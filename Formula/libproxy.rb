@@ -28,7 +28,7 @@ class Libproxy < Formula
   def install
     args = std_cmake_args + %W[
       ..
-      -DPYTHON3_SITEPKG_DIR=#{prefix/Language::Python.site_packages("python3")}
+      -DPYTHON3_SITEPKG_DIR=#{prefix/Language::Python.site_packages("python3.10")}
       -DWITH_PERL=OFF
       -DWITH_PYTHON2=OFF
     ]
