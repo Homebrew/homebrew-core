@@ -47,19 +47,19 @@ class Zeek < Formula
       s.gsub! "@ZEEK_CONFIG_ZLIB_INCLUDE_DIR@", ""
     end
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                      "-DBROKER_DISABLE_TESTS=on",
-                      "-DBUILD_SHARED_LIBS=on",
-                      "-DINSTALL_AUX_TOOLS=on",
-                      "-DINSTALL_ZEEKCTL=on",
-                      "-DUSE_GEOIP=on",
-                      "-DCAF_ROOT=#{Formula["caf"].opt_prefix}",
-                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
-                      "-DZEEK_ETC_INSTALL_DIR=#{etc}",
-                      "-DZEEK_LOCAL_STATE_DIR=#{var}"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBROKER_DISABLE_TESTS=on",
+                    "-DBUILD_SHARED_LIBS=on",
+                    "-DINSTALL_AUX_TOOLS=on",
+                    "-DINSTALL_ZEEKCTL=on",
+                    "-DUSE_GEOIP=on",
+                    "-DCAF_ROOT=#{Formula["caf"].opt_prefix}",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                    "-DZEEK_ETC_INSTALL_DIR=#{etc}",
+                    "-DZEEK_LOCAL_STATE_DIR=#{var}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
