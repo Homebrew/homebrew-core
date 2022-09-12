@@ -7,6 +7,13 @@ class HaskellStack < Formula
   stable do
     url "https://github.com/commercialhaskell/stack/archive/v2.7.5.tar.gz"
     sha256 "7e77a91c9e2366b6be292188c1a36c96f8830f8a5f4a079fae7f73b9b0d2c8b6"
+
+    # Fix build using cabal by adding upper bound for persistent.
+    # Remove in the next release
+    patch do
+      url "https://github.com/commercialhaskell/stack/commit/f2daad981556e9065e63de417504aabaa0f0a10a.patch?full_index=1"
+      sha256 "7775284eee5ee902bb0ac0368fab69aa3f179e5e33e2332638c5bf4b373a3542"
+    end
   end
 
   livecheck do
@@ -24,7 +31,7 @@ class HaskellStack < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.10" => :build # TODO: Switch to `ghc` on next release
 
   uses_from_macos "zlib"
 
