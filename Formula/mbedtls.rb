@@ -34,7 +34,7 @@ class Mbedtls < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
-                    "-DPython3_EXECUTABLE=#{which("python3")}",
+                    "-DPython3_EXECUTABLE=#{which("python3.10")}",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DGEN_FILES=OFF",
                     *std_cmake_args
