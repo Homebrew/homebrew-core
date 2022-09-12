@@ -19,11 +19,18 @@ class Sphinx < Formula
     sha256 x86_64_linux:   "3736780f2809b0449953cfb4ed85cc7d65b86e6c5c55aa98186062f8aff81d99"
   end
 
-  # Some CVEs and corresponding Debian patches:
-  # - CVE-2019-14511: https://sources.debian.org/patches/sphinxsearch/2.2.11-8/config-default-to-localhost.patch/
-  # - CVE-2020-29050: https://sources.debian.org/patches/sphinxsearch/2.2.11-8/06-CVE-2020-29050.patch/
   # Ref: https://github.com/sphinxsearch/sphinx#sphinx
   deprecate! date: "2022-08-15", because: "is using unsupported v2 and source for v3 is not publicly available"
+
+  patch do
+    url "https://sources.debian.org/data/main/s/sphinxsearch/2.2.11-8/debian/patches/config-default-to-localhost.patch"
+    sha256 "04e5e9c3503b3a2d69076bfe25b6b764ccfa3a54"
+  end
+
+  patch do
+    url "https://sources.debian.org/data/main/s/sphinxsearch/2.2.11-8/debian/patches/06-CVE-2020-29050.patch"
+    sha256 "0b6173d12045e72b59e0a7601161bbad66d4e67d"
+  end
 
   depends_on "mysql@5.7"
   depends_on "openssl@1.1"
