@@ -40,10 +40,6 @@ class Kdoctools < Formula
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "URI::Escape" do
