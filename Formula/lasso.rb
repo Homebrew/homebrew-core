@@ -33,7 +33,7 @@ class Lasso < Formula
   end
 
   def install
-    ENV["PYTHON"] = "python3"
+    ENV["PYTHON"] = which("python3.10")
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-java",
