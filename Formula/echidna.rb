@@ -17,7 +17,7 @@ class Echidna < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.10" => :build
   depends_on "haskell-stack" => :build
   depends_on "libtool" => :build
 
