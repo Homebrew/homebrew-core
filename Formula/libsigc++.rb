@@ -18,10 +18,7 @@ class Libsigcxx < Formula
   depends_on "ninja" => :build
   depends_on macos: :high_sierra # needs C++17
 
-  on_linux do
-    depends_on "m4" => :build
-    depends_on "gcc"
-  end
+  uses_from_macos "m4" => :build
 
   fails_with gcc: "5"
 
