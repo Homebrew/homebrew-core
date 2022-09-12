@@ -34,8 +34,9 @@ class Hatari < Formula
   def install
     # Set .app bundle destination
     inreplace "src/CMakeLists.txt", "/Applications", prefix
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-      "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DPYTHON_EXECUTABLE=#{which("python3.10")}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     if OS.mac?
       prefix.install "build/src/Hatari.app"
