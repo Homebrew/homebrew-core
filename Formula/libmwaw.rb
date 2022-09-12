@@ -17,10 +17,6 @@ class Libmwaw < Formula
   depends_on "pkg-config" => :build
   depends_on "librevenge"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   resource "homebrew-test_document" do
