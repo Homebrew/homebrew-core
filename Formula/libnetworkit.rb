@@ -26,10 +26,6 @@ class Libnetworkit < Formula
     depends_on "libomp"
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
