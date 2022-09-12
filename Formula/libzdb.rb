@@ -26,11 +26,7 @@ class Libzdb < Formula
   depends_on "openssl@1.1"
   depends_on "sqlite"
 
-  on_linux do
-    depends_on "gcc" # C++ 17 is required
-  end
-
-  fails_with gcc: "5"
+  fails_with gcc: "5" # C++ 17 is required
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
