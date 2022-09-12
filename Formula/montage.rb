@@ -16,8 +16,14 @@ class Montage < Formula
   end
 
   conflicts_with "wdiff", because: "both install an `mdiff` executable"
+  
+  depends_on "bzip2"
+  depends_on "cfitsio"
+  depends_on "freetype"
+  depends_on "jpeg-8b"
 
   def install
+    rm_rf "lib/src"
     system "make"
     bin.install Dir["bin/m*"]
   end
