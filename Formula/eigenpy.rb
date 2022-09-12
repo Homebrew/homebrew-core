@@ -26,7 +26,7 @@ class Eigenpy < Formula
   def python3
     deps.map(&:to_formula)
         .find { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .opt_bin/"python3"
+        .opt_libexec/"bin/python"
   end
 
   def install
