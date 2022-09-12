@@ -42,10 +42,6 @@ class Manticoresearch < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "sphinx", because: "manticoresearch is a fork of sphinx"
 
   fails_with gcc: "5"
