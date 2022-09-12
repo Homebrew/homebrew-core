@@ -34,10 +34,6 @@ class Lean < Formula
   depends_on "jemalloc"
   depends_on macos: :mojave
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "elan-init", because: "`lean` and `elan-init` install the same binaries"
 
   fails_with gcc: "5"
