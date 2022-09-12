@@ -3,8 +3,8 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/b7/c3/b455300e91ba0ae79c55681e4cb891dfd17ee10a94f0667f056924f75682/bzt-1.16.12.tar.gz"
-  sha256 "0fa3263f7a275db3489981bfe16c69ab7369f3113612b988e2739d971378e276"
+  url "https://files.pythonhosted.org/packages/bc/42/3fc6410dd05a834d839ebabbf0f7dbb908896cdaeb9ea01291338788f6d4/bzt-1.16.13.tar.gz"
+  sha256 "3e20a6df8584a4bf0ddddd60e5edf2f135fad252a5f4609d069d4f82c0a78acf"
   license "Apache-2.0"
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
@@ -58,8 +58,8 @@ class Bzt < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/90/c2/4e37394b66e7211ad120f216fc2e8b38d4f43b89c8100dd3917c9da9bfc6/certifi-2022.6.15.1.tar.gz"
+    sha256 "cffdcd380919da6137f76633531a5817e3a9f268575c128249fb637e4f9e73fb"
   end
 
   resource "charset-normalizer" do
@@ -138,8 +138,8 @@ class Bzt < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/de/0999ea2562b96d7165812606b18f7169307b60cd378bc29cf3673322c7e9/psutil-5.9.1.tar.gz"
-    sha256 "57f1819b5d9e95cdfb0c881a8a5b7d542ed0b7c522d575706a80bedc848c8954"
+    url "https://files.pythonhosted.org/packages/8f/57/828ac1f70badc691a716e77bfae258ef5db76bb7830109bf4bcf882de020/psutil-5.9.2.tar.gz"
+    sha256 "feb861a10b6c3bb00701063b37e4afc754f8217f0f09c42280586bd6ac712b5c"
   end
 
   resource "PyVirtualDisplay" do
@@ -153,8 +153,8 @@ class Bzt < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/7b/f5/ceef0929aff61069870ec31d8d203bd386d27900f76a4f6fb02f612672ca/rapidfuzz-2.6.0.tar.gz"
-    sha256 "cda1aacaf03cf71cd110a6268c4a9671b5af30ac50fe14ac4d76254241089ee6"
+    url "https://files.pythonhosted.org/packages/46/3f/342cbc9d755b917b31dccf8c091cedde18924cb2a248185952c89037502a/rapidfuzz-2.8.0.tar.gz"
+    sha256 "6a6f426e71889305a9af3612677b495156f85fc304e7e203df560d04dba0c5b2"
   end
 
   resource "requests" do
