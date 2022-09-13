@@ -457,8 +457,8 @@ class Dvc < Formula
   end
 
   resource "hydra-core" do
-    url "https://files.pythonhosted.org/packages/da/39/6e6cd72ef4949ba8a48d981fc95c73bd019c33effc34262ea27dee760941/hydra-core-1.2.0.tar.gz"
-    sha256 "4990721ce4ac69abafaffee566d6b63a54faa6501ecce65b338d3251446ff634"
+    url "https://github.com/facebookresearch/hydra/archive/refs/tags/v1.2.0.tar.gz"
+    sha256 "19b203fc614426cd6e4bb7c51e73a25a1ceb4606450ec0203345aec67a0a4f6a"
   end
 
   resource "idna" do
