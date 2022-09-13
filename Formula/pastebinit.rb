@@ -21,7 +21,7 @@ class Pastebinit < Formula
 
   def install
     inreplace "pastebinit" do |s|
-      s.gsub! "/usr/bin/python3", Formula["python@3.10"].opt_bin/"python3"
+      s.gsub! "/usr/bin/python3", which("python3.10")
       s.gsub! "/usr/local/etc/pastebin.d", etc/"pastebin.d"
     end
 
