@@ -20,7 +20,12 @@ class StylishHaskell < Formula
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    # Work around build failure by enabling `ghc-lib` flag
+    # lib/Language/Haskell/Stylish/GHC.hs:71:32: error:
+    #     • Couldn't match expected type 'GHC.Settings'
+    #                   with actual type 'ghc-lib-parser-9.2.4.20220729:GHC.Settings.Settings'
+    # Issue ref: https://github.com/haskell/stylish-haskell/issues/405
+    system "cabal", "v2-install", *std_cabal_v2_args, "--flags=+ghc-lib"
   end
 
   test do
