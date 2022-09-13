@@ -2,7 +2,7 @@ class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
   url "https://chapel-lang.org/tmp/chapel-1.28.0.tar.gz"
-  sha256 "162db408d2ae6efcbaaf121eb0797e686b1caac2f16005af6ca69af15d210073"
+  sha256 "64eacfb5915e1b3c487e865f819faf9bb8771c9f83aac6512698ded1baab250e"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
