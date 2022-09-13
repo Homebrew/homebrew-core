@@ -57,20 +57,24 @@ class Libgusb < Formula
     EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
+    json_glib = Formula["json-glib"]
     libusb = Formula["libusb"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
+      -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libusb.opt_include}/libusb-1.0
       -I#{include}/gusb-1
       -D_REENTRANT
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
+      -L#{json_glib.opt_lib}
       -L#{libusb.opt_lib}
       -L#{lib}
       -lgio-2.0
       -lglib-2.0
+      -ljson-glib-1.0
       -lgobject-2.0
       -lusb-1.0
       -lgusb
