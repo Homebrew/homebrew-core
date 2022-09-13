@@ -1,10 +1,9 @@
 class Jython < Formula
   desc "Python implementation written in Java (successor to JPython)"
   homepage "https://www.jython.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.2/jython-installer-2.7.2.jar"
-  sha256 "36e40609567ce020a1de0aaffe45e0b68571c278c14116f52e58cc652fb71552"
+  url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.3/jython-installer-2.7.3.jar"
+  sha256 "3ffc25c5257d2028b176912a4091fe048c45c7d98218e52d7ce3160a62fdc9fc"
   license "PSF-2.0"
-  revision 2
 
   livecheck do
     url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/"
