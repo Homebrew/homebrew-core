@@ -1,8 +1,8 @@
 class Atuin < Formula
   desc "Improved shell history for zsh and bash"
   homepage "https://github.com/ellie/atuin"
-  url "https://github.com/ellie/atuin/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "a1da22c31053e27c7d602ff0dd70fba2fa585d580c96b22dccccdc42fda643ef"
+  url "https://github.com/ellie/atuin/archive/refs/tags/v11.0.0.tar.gz"
+  sha256 "29689906e3fd6bc680c60c3b2f41f756da5bd677a4f4aea3d26eff87f5bebac4"
   license "MIT"
 
   bottle do
