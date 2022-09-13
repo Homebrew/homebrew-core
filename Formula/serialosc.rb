@@ -21,6 +21,7 @@ class Serialosc < Formula
   depends_on "confuse"
   depends_on "liblo"
   depends_on "libmonome"
+  depends_on "libuv"
 
   on_linux do
     depends_on "avahi"
@@ -28,9 +29,10 @@ class Serialosc < Formula
   end
 
   def install
-    system "python3", "./waf", "configure", "--prefix=#{prefix}"
-    system "python3", "./waf", "build"
-    system "python3", "./waf", "install"
+    python3 = "python3.10"
+    system python3, "./waf", "configure", "--enable-system-libuv", "--prefix=#{prefix}"
+    system python3, "./waf", "build"
+    system python3, "./waf", "install"
   end
 
   service do
