@@ -3,7 +3,7 @@ class Saldl < Formula
   homepage "https://saldl.github.io/"
   url "https://github.com/saldl/saldl/archive/v41.tar.gz"
   sha256 "fc9980922f1556fd54a8c04fd671933fdc5b1e6847c1493a5fec89e164722d8e"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
   head "https://github.com/saldl/saldl.git", branch: "master"
 
   bottle do
@@ -36,9 +36,10 @@ class Saldl < Formula
     # head uses git describe to acquire a version
     args << "--saldl-version=v#{version}" unless build.head?
 
-    system "python3", "./waf", "configure", *args
-    system "python3", "./waf", "build"
-    system "python3", "./waf", "install"
+    python3 = "python3.10"
+    system python3, "./waf", "configure", *args
+    system python3, "./waf", "build"
+    system python3, "./waf", "install"
   end
 
   test do
