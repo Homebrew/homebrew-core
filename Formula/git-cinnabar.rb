@@ -27,7 +27,7 @@ class GitCinnabar < Formula
     prefix.install "cinnabar"
     bin.install "git-cinnabar", "git-cinnabar-helper", "git-remote-hg"
     bin.env_script_all_files(libexec, PYTHONPATH:          prefix,
-                                      GIT_CINNABAR_PYTHON: Formula["python@3.10"].opt_bin/"python3")
+                                      GIT_CINNABAR_PYTHON: which("python3.10"))
   end
 
   test do
