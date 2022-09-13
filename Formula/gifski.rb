@@ -20,10 +20,6 @@ class Gifski < Formula
 
   uses_from_macos "llvm" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # rubberband is built with GCC
 
   def install
