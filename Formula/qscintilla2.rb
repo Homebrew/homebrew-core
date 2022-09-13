@@ -36,6 +36,10 @@ class Qscintilla2 < Formula
 
   fails_with gcc: "5"
 
+  def python3
+    "python3.10"
+  end
+
   def install
     args = []
     spec = ""
@@ -49,7 +53,7 @@ class Qscintilla2 < Formula
 
     pyqt = Formula["pyqt@5"]
     qt = Formula["qt@5"]
-    site_packages = Language::Python.site_packages("python3")
+    site_packages = Language::Python.site_packages(python3)
 
     cd "src" do
       inreplace "qscintilla.pro" do |s|
@@ -105,6 +109,6 @@ class Qscintilla2 < Formula
       assert("QsciLexer" in dir(PyQt#{pyqt.version.major}.Qsci))
     EOS
 
-    system Formula["python@3.10"].opt_bin/"python3", "test.py"
+    system python3, "test.py"
   end
 end
