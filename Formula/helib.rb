@@ -20,11 +20,7 @@ class Helib < Formula
   depends_on "gmp"
   depends_on "ntl"
 
-  on_linux do
-    depends_on "gcc" # for C++17
-  end
-
-  fails_with gcc: "5"
+  fails_with gcc: "5" # for C++17
 
   def install
     mkdir "build" do
