@@ -1,8 +1,8 @@
 class Libxp < Formula
   desc "X Print Client Library"
   homepage "https://gitlab.freedesktop.org/xorg/lib/libxp"
-  url "https://gitlab.freedesktop.org/xorg/lib/libxp/-/archive/libXp-1.0.3/libxp-libXp-1.0.3.tar.bz2"
-  sha256 "bd1e449572359921dd5fa20707757f57d7535aff1772570ab2c29c6b49b86266"
+  url "https://gitlab.freedesktop.org/xorg/lib/libxp/-/archive/libXp-1.0.4/libxp-libXp-1.0.4.tar.bz2"
+  sha256 "81468f6d5d8d8f847aac50af60b36c43d84d976d907ab1dfd667683dbfb5fb90"
   license "MIT"
 
   livecheck do
