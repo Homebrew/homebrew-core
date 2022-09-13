@@ -15,14 +15,56 @@ class GitAnnex < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
   depends_on "libmagic"
 
+  on_arm do
+    # An llc process leak in GHC 8.10 causes build to fail on ARM CI.
+    # Since some `git-annex` Haskell dependencies don't cleanly build
+    # with GHC 9.2+, we add workarounds to successfully build.
+    #
+    # Ref: https://github.com/Homebrew/homebrew-core/pull/99021
+    depends_on "ghc" => :build
+
+    resource "aws" do
+      url "https://hackage.haskell.org/package/aws-0.22.1/aws-0.22.1.tar.gz"
+      sha256 "c49a23513a113a2fa08bdb44c400182ae874171fbcbb4ee85da7e94c4870e87f"
+    end
+
+    resource "bloomfilter" do
+      url "https://hackage.haskell.org/package/bloomfilter-2.0.1.0/bloomfilter-2.0.1.0.tar.gz"
+      sha256 "6c5e0d357d5d39efe97ae2776e8fb533fa50c1c05397c7b85020b0f098ad790f"
+
+      # Fix build with GHC 9.2
+      # PR ref: https://github.com/bos/bloomfilter/pull/20
+      patch do
+        url "https://github.com/bos/bloomfilter/commit/fb79b39c44404fd791a3bed973e9d844fb084f1e.patch?full_index=1"
+        sha256 "c91c45fbdeb92f9dcb9b55412d14603b4e480139f6638e8b6ed651acd92409f3"
+      end
+    end
+  end
+  on_intel do
+    depends_on "ghc@8.10" => :build
+  end
+
   def install
+    # Add workarounds to build with GHC 9.2
+    if Hardware::CPU.arm?
+      (buildpath/"homebrew/aws").install resource("aws")
+      (buildpath/"homebrew/bloomfilter").install resource("bloomfilter")
+
+      # aws constraint bytestring<0.11 is not compatible with GHC 9.2
+      inreplace buildpath/"homebrew/aws/aws.cabal", /( bytestring .*<) 0\.11,/, "\\1 0.12,"
+
+      (buildpath/"cabal.project.local").write <<~EOS
+        packages: .
+                  homebrew/aws/
+                  homebrew/bloomfilter/
+      EOS
+    end
+
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args,
-                    "--flags=+S3"
+    system "cabal", "v2-install", *std_cabal_v2_args, "--flags=+S3"
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
