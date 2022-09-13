@@ -30,10 +30,6 @@ class Gnuplot < Formula
   depends_on "qt@5"
   depends_on "readline"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
