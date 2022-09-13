@@ -20,10 +20,6 @@ class Glibmm < Formula
   depends_on "glib"
   depends_on "libsigc++"
 
-  on_linux do
-    depends_on "gcc" => :build
-  end
-
   fails_with gcc: "5"
 
   def install
