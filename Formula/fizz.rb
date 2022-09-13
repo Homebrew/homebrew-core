@@ -33,7 +33,7 @@ class Fizz < Formula
 
   def install
     args = []
-    args << "-DLIBRT_LIBRARY=/usr/lib/x86_64-linux-gnu/librt.so" if OS.linux?
+    args << "-DLIBRT_LIBRARY=/usr/lib/x86_64-linux-gnu/librt.a" if OS.linux?
 
     system "cmake", "-S", "fizz", "-B", "build",
                     "-DBUILD_TESTS=OFF",
