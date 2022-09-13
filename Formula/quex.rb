@@ -25,7 +25,7 @@ class Quex < Formula
     # Use a shim script to set QUEX_PATH on the user's behalf
     (bin/"quex").write <<~EOS
       #!/bin/bash
-      QUEX_PATH="#{libexec}" "#{Formula["python@3.10"].opt_bin}/python3" "#{libexec}/quex-exe.py" "$@"
+      QUEX_PATH="#{libexec}" "python3.10" "#{libexec}/quex-exe.py" "$@"
     EOS
 
     if build.head?
