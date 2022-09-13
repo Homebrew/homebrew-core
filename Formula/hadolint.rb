@@ -14,7 +14,7 @@ class Hadolint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "80adffee09ee9cf1121b7d286871c6751806a8ce2b81115e77a106c4e27d3866"
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.10" => :build
   depends_on "haskell-stack" => :build
 
   uses_from_macos "xz"
