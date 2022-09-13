@@ -22,10 +22,6 @@ class Gjs < Formula
   depends_on "readline"
   depends_on "spidermonkey"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # meson ERROR: SpiderMonkey sanity check: DID NOT COMPILE
 
   def install
