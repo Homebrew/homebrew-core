@@ -17,11 +17,7 @@ class Helix < Formula
 
   depends_on "rust" => :build
 
-  on_linux do
-    depends_on "gcc" # For C++17
-  end
-
-  fails_with gcc: "5"
+  fails_with gcc: "5" # For C++17
 
   def install
     system "cargo", "install", "-vv", *std_cargo_args(root: libexec, path: "helix-term")
