@@ -3,8 +3,8 @@ class AwsSsoUtil < Formula
 
   desc "Smooth out the rough edges of AWS SSO (temporarily, until AWS makes it better)"
   homepage "https://github.com/benkehoe/aws-sso-util"
-  url "https://files.pythonhosted.org/packages/b4/c3/917e6858249056e5d0bba19f52813e726fba29da456c2db7952053048529/aws-sso-util-4.28.0.tar.gz"
-  sha256 "2300079d57aec85f7ed4e8c01548b5c8ea49e6f838b8532701bf91c975dbba1d"
+  url "https://files.pythonhosted.org/packages/f7/eb/ab159867dec525c0a17a17bce55ed751ef9eb9f2e3e4e3ebffa26b3f0522/aws-sso-util-4.29.0.tar.gz"
+  sha256 "b78dba34a678564ca0ffe9e5fba7e2229675f69a8806fd89ef0839258d084384"
   license "Apache-2.0"
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
@@ -26,8 +26,8 @@ class AwsSsoUtil < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
-    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
   end
 
   resource "aws-error-utils" do
@@ -36,28 +36,28 @@ class AwsSsoUtil < Formula
   end
 
   resource "aws-sso-lib" do
-    url "https://files.pythonhosted.org/packages/64/97/f2c08a8a1b60d42d8083392669962a2218cdf4ed7e4d62f961a89f4a4375/aws-sso-lib-1.11.0.tar.gz"
-    sha256 "ec95a1a690e618961b9304554c647c933aeb17e2ef5bad290a83e554bea24008"
+    url "https://files.pythonhosted.org/packages/78/06/fb9f7af1dfafb98ae253b314625c116091e86fa4aa2dd2bab4ab42f68bbc/aws-sso-lib-1.12.0.tar.gz"
+    sha256 "a12579823deace1db78efb223cb74a758127ca6b74e6adbd2b1add1c9b45b717"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/fd/2f/fe2b44be11e97d8056f56e6881666d2e215ab3ed1aa18e6f9d4da56f6326/boto3-1.21.29.tar.gz"
-    sha256 "127ebdf58c8825b53f1eff111e08c49ffffeb1f6d7a5665c9907ce8128fe14b1"
+    url "https://files.pythonhosted.org/packages/72/63/baebfcb18a2ff05b26b6603fd73f262ce5155c1cbc9adb7f00240ad82dd9/boto3-1.24.71.tar.gz"
+    sha256 "0ee555dc0f362d2761d86e0264ee79985b09de4289334fbec7de384b39ccce72"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/72/c2/beeb5b9efbd2bf9353898ad07968acc443d7bb376b02d8193b93d2590ede/botocore-1.24.29.tar.gz"
-    sha256 "b467d64cd773dc4d49ef31b18a8dded554f284f799720bd12e989fe2138fd5b8"
+    url "https://files.pythonhosted.org/packages/d5/20/458287e7879f8a1fbe50076370b1487a3a3e6b1299543cfdf706f27a9edf/botocore-1.27.71.tar.gz"
+    sha256 "91dc4e8ae768db3a5c26ef8acd6425bbbec4b17636350d526c226a5879d3c613"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
+    url "https://files.pythonhosted.org/packages/90/c2/4e37394b66e7211ad120f216fc2e8b38d4f43b89c8100dd3917c9da9bfc6/certifi-2022.6.15.1.tar.gz"
+    sha256 "cffdcd380919da6137f76633531a5817e3a9f268575c128249fb637e4f9e73fb"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
-    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
+    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
+    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
   end
 
   resource "click" do
@@ -71,8 +71,8 @@ class AwsSsoUtil < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/06/7e/44686b986ef9ca6069db224651baaa8300b93af2a085a5b135997bf659b3/jmespath-1.0.0.tar.gz"
-    sha256 "a490e280edd1f57d6de88636992d05b71e97d69a26a19f058ecf7d304474bf5e"
+    url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
+    sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
   end
 
   resource "jsonschema" do
@@ -96,18 +96,18 @@ class AwsSsoUtil < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
+    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/7e/19/f82e4af435a19b28bdbfba63f338ea20a264f4df4beaf8f2ab9bfa34072b/s3transfer-0.5.2.tar.gz"
-    sha256 "95c58c194ce657a5f4fb0b9e60a84968c808888aed628cd98ab8771fe1db98ed"
+    url "https://files.pythonhosted.org/packages/e1/eb/e57c93d5cd5edf8c1d124c831ef916601540db70acd96fa21fe60cef1365/s3transfer-0.6.0.tar.gz"
+    sha256 "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
-    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   def install
