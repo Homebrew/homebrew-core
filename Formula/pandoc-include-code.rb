@@ -19,7 +19,7 @@ class PandocIncludeCode < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.10" => :build
   depends_on "pandoc"
 
   # patch for pandoc 2.11, remove in the next release
