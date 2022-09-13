@@ -37,7 +37,6 @@ class RomTools < Formula
     depends_on "pulseaudio" => :build
     depends_on "qt@5" => :build
     depends_on "sdl2_ttf" => :build
-    depends_on "gcc" # for C++17
   end
 
   fails_with gcc: "5"
@@ -50,7 +49,7 @@ class RomTools < Formula
     # Use bundled asio instead of latest version.
     # See: <https://github.com/mamedev/mame/issues/5721>
     args = %W[
-      PYTHON_EXECUTABLE=#{which("python3")}
+      PYTHON_EXECUTABLE=#{which("python3.10")}
       TOOLS=1
       USE_LIBSDL=1
       USE_SYSTEM_LIB_EXPAT=1
