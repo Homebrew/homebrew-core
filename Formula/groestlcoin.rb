@@ -28,7 +28,6 @@ class Groestlcoin < Formula
 
   on_linux do
     depends_on "util-linux" => :build # for `hexdump`
-    depends_on "gcc"
   end
 
   fails_with gcc: "5"
