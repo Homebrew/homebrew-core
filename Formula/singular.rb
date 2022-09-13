@@ -70,7 +70,7 @@ class Singular < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-python=#{Formula["python@3.10"].opt_bin}/python3",
+                          "--with-python=#{which("python3.10")}",
                           "CXXFLAGS=-std=c++11"
     system "make", "install"
   end
