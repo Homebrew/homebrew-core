@@ -147,6 +147,7 @@ class Subversion < Formula
     openjdk = deps.map(&:to_formula).find { |f| f.name.match? "^openjdk" }
     perl = DevelopmentTools.locate("perl")
     ruby = DevelopmentTools.locate("ruby")
+    python3 = "python3.10"
 
     args = %W[
       --prefix=#{prefix}
@@ -168,7 +169,7 @@ class Subversion < Formula
       --without-gpg-agent
       --without-jikes
       PERL=#{perl}
-      PYTHON=#{Formula["python@3.10"].opt_bin}/python3
+      PYTHON=#{python3}
       RUBY=#{ruby}
     ]
     if openjdk
@@ -195,7 +196,7 @@ class Subversion < Formula
 
     system "make", "swig-py"
     system "make", "install-swig-py"
-    (lib/"python3.10/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
+    (prefix/Language::Python.site_packages(python3)).install_symlink Dir["#{lib}/svn-python/*"]
 
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415
