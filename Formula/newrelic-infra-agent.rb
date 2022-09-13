@@ -22,8 +22,6 @@ class NewrelicInfraAgent < Formula
   end
 
   depends_on "go" => :build
-  # https://github.com/newrelic/infrastructure-agent/issues/695
-  depends_on arch: :x86_64
 
   def install
     goarch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
@@ -31,6 +29,7 @@ class NewrelicInfraAgent < Formula
     ENV["VERSION"] = version.to_s
     ENV["GOOS"] = os
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
+    ENV["GOARCH"] = goarch
 
     system "make", "dist-for-os"
     bin.install "dist/#{os}-newrelic-infra_#{os}_#{goarch}/newrelic-infra"
