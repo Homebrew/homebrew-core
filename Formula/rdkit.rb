@@ -40,6 +40,11 @@ class Rdkit < Formula
         .find { |f| f.name.match?(/^python@\d\.\d+$/) }
   end
 
+  # Get Python location
+  def python_executable
+    python.opt_libexec/"bin/python"
+  end
+
   def postgresql
     Formula["postgresql@14"]
   end
@@ -50,8 +55,6 @@ class Rdkit < Formula
     ENV.append "CFLAGS", "-Wno-parentheses -Wno-logical-op-parentheses -Wno-format"
     ENV.append "CXXFLAGS", "-Wno-parentheses -Wno-logical-op-parentheses -Wno-format"
 
-    # Get Python location
-    python_executable = python.opt_bin/"python3"
     py3ver = Language::Python.major_minor_version python_executable
     py3prefix = if OS.mac?
       python.opt_frameworks/"Python.framework/Versions"/py3ver
@@ -106,10 +109,10 @@ class Rdkit < Formula
   end
 
   test do
-    system python.opt_bin/"python3", "-c", "import rdkit"
+    system python_executable, "-c", "import rdkit"
     (testpath/"test.py").write <<~EOS
       from rdkit import Chem ; print(Chem.MolToSmiles(Chem.MolFromSmiles('C1=CC=CN=C1')))
     EOS
-    assert_match "c1ccncc1", shell_output("#{python.opt_bin}/python3 test.py 2>&1")
+    assert_match "c1ccncc1", shell_output("#{python_executable} test.py 2>&1")
   end
 end
