@@ -16,10 +16,10 @@ class Chapel < Formula
   end
 
   depends_on "gmp"
-  depends_on "python@3.10"
   # Chapel only supports  LLVM 14 and older. When LLVM15 releases,  our formula would need to change
-  # this line to llvm@14. 
+  # this line to llvm@14.
   depends_on "llvm"
+  depends_on "python@3.10"
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
@@ -37,8 +37,8 @@ class Chapel < Formula
   def install
     # Always detect Python used as dependency rather than needing aliased Python formula
     python = "python3.10"
-    # It should be noted that this will expand to: 'for cmd in python3.10 python3 python python2; do' 
-    # in our find-python.sh script.  
+    # It should be noted that this will expand to: 'for cmd in python3.10 python3 python python2; do'
+    # in our find-python.sh script.
     inreplace "util/config/find-python.sh", /^(for cmd in )(python3 )/, "\\1#{python} \\2"
 
     libexec.install Dir["*"]
