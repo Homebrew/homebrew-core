@@ -24,10 +24,6 @@ class Highlight < Formula
   depends_on "pkg-config" => :build
   depends_on "lua"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5" # needs C++17
 
   def install
