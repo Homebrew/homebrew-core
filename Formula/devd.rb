@@ -1,10 +1,25 @@
 class Devd < Formula
   desc "Local webserver for developers"
   homepage "https://github.com/cortesi/devd"
-  url "https://github.com/cortesi/devd/archive/v0.9.tar.gz"
-  sha256 "5aee062c49ffba1e596713c0c32d88340360744f57619f95809d01c59bff071f"
   license "MIT"
   head "https://github.com/cortesi/devd.git", branch: "master"
+
+  stable do
+    url "https://github.com/cortesi/devd/archive/v0.9.tar.gz"
+    sha256 "5aee062c49ffba1e596713c0c32d88340360744f57619f95809d01c59bff071f"
+
+    # Get go.mod and go.sum from commit after v0.9 release.
+    # Ref: https://github.com/cortesi/devd/commit/4ab3fc9061542fd35b5544627354e5755fa74c1c
+    # TODO: Remove in the next release.
+    resource "go.mod" do
+      url "https://raw.githubusercontent.com/cortesi/devd/4ab3fc9061542fd35b5544627354e5755fa74c1c/go.mod"
+      sha256 "483b4294205cf2dea2d68b8f99aefcf95aadac229abc2a299f4d1303f645e6b0"
+    end
+    resource "go.sum" do
+      url "https://raw.githubusercontent.com/cortesi/devd/4ab3fc9061542fd35b5544627354e5755fa74c1c/go.sum"
+      sha256 "3fb5d8aa8edfefd635db6de1fda8ca079328b6af62fea704993e06868cfb3199"
+    end
+  end
 
   bottle do
     rebuild 3
@@ -17,21 +32,24 @@ class Devd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "19d3cb4f63a05ccd30e3e819940ce9f7f50732d4478a04a65cb6d54d31852a7c"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
-  # Support go 1.17, remove when upstream patch is merged/released
-  # Patch is the `dep` equivalent of https://github.com/cortesi/devd/pull/117
-  patch :DATA
-
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/cortesi/devd").install buildpath.children
-    cd "src/github.com/cortesi/devd" do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/devd"
+    if build.stable?
+      buildpath.install resource("go.mod")
+      buildpath.install resource("go.sum")
+
+      # Update x/sys to support go 1.17.
+      # PR ref: https://github.com/cortesi/devd/pull/117
+      inreplace "go.mod", "golang.org/x/sys v0.0.0-20181221143128-b4a75ba826a6",
+                          "golang.org/x/sys v0.0.0-20210819135213-f52c844e1c1c"
+      (buildpath/"go.sum").append_lines <<~EOS
+        golang.org/x/sys v0.0.0-20210819135213-f52c844e1c1c h1:Lyn7+CqXIiC+LOR9aHD6jDK+hPcmAuCfuXztd1v4w1Q=
+        golang.org/x/sys v0.0.0-20210819135213-f52c844e1c1c/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+      EOS
     end
+
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/devd"
   end
 
   test do
@@ -47,27 +65,3 @@ class Devd < Formula
     assert_equal "Hello World!\n", output
   end
 end
-
-__END__
-diff --git a/Gopkg.lock b/Gopkg.lock
-index 437a8b5..257a307 100644
---- a/Gopkg.lock
-+++ b/Gopkg.lock
-@@ -172,14 +172,15 @@
-
- [[projects]]
-   branch = "master"
--  digest = "1:e6d1805ead5b8f2439808f76187f54042ed35ee26eb9ca63127259a0e612b119"
-+  digest = "1:d5b479606f9456b8e3200dbe988b32e211f824d6a612c4cfac46c1a31458d568"
-   name = "golang.org/x/sys"
-   packages = [
-+    "internal/unsafeheader",
-     "unix",
-     "windows",
-   ]
-   pruneopts = ""
--  revision = "b4a75ba826a64a70990f11a225237acd6ef35c9f"
-+  revision = "63515b42dcdf9544f4e6a02fd7632793fde2f72d"
-
- [[projects]]
-   digest = "1:15d017551627c8bb091bde628215b2861bed128855343fdd570c62d08871f6e1"
