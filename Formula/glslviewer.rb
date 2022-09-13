@@ -31,12 +31,6 @@ class Glslviewer < Formula
   depends_on "ffmpeg"
   depends_on "glfw"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5" # rubberband is built with GCC
-
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
