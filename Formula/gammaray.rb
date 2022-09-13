@@ -20,10 +20,6 @@ class Gammaray < Formula
   depends_on "graphviz"
   depends_on "qt@5"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
