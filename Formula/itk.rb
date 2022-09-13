@@ -33,7 +33,6 @@ class Itk < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "gcc"
     depends_on "unixodbc"
 
     ignore_missing_libraries "libjvm.so"
