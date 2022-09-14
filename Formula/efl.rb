@@ -50,12 +50,6 @@ class Efl < Formula
 
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5" # poppler is built with GCC
-
   # Remove LuaJIT 2.0 linker args -pagezero_size and -image_base
   # to fix ARM build using LuaJIT 2.1+ via `luajit-openresty`
   patch :DATA
