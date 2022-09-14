@@ -5,6 +5,12 @@ class Mydumper < Formula
   sha256 "2fc5af9643a27eaca0a2ab37ba11ccac4d82f20bd8a9c14c886961453aafdf24"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+(-\d+)?)["' >]}i)
+    strategy :github_latest
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_monterey: "23abb2679cb427ac27a21eb2f861b2ff0e8473ca15ade8b8b2aae766942b2068"
