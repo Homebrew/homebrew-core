@@ -15,7 +15,7 @@ class Bsponmpi < Formula
   end
 
   # SConstruct is written in Python 2 but Homebrew `scons` is built for Python 3
-  deprecate! date: "2021-08-08", because: :does_not_build
+  disable! date: "2022-09-14", because: :does_not_build
 
   depends_on "scons" => :build
   depends_on :macos
