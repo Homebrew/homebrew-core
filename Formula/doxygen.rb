@@ -26,10 +26,6 @@ class Doxygen < Formula
   depends_on "python@3.10" => :build # Fails to build with macOS Python3
   uses_from_macos "flex" => :build, since: :big_sur
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   # Need gcc>=7.2. See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66297
   fails_with gcc: "5"
   fails_with gcc: "6"
