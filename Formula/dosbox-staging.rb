@@ -35,7 +35,6 @@ class DosboxStaging < Formula
   depends_on "sdl2_net"
 
   on_linux do
-    depends_on "gcc"
     depends_on "mesa"
     depends_on "mesa-glu"
   end
