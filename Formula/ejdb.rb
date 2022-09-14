@@ -20,10 +20,6 @@ class Ejdb < Formula
 
   uses_from_macos "curl" => :build
 
-  on_linux do
-    depends_on "gcc" => [:build, :test]
-  end
-
   fails_with :gcc do
     version "7"
     cause <<-EOS
