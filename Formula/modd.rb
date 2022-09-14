@@ -16,7 +16,7 @@ class Modd < Formula
   end
 
   # https://github.com/cortesi/modd/issues/96
-  deprecate! date: "2021-08-27", because: :unmaintained
+  disable! date: "2022-09-14", because: :unmaintained
 
   depends_on "go@1.16" => :build
 
