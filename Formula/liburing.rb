@@ -3,7 +3,7 @@ class Liburing < Formula
   homepage "https://github.com/axboe/liburing"
   url "https://github.com/axboe/liburing/archive/refs/tags/liburing-2.2.tar.gz"
   sha256 "e092624af6aa244ade2d52181cc07751ac5caba2f3d63e9240790db9ed130bbc"
-  license any_of: ["MIT", "LGL-3.0-only"]
+  license any_of: ["MIT", "LGPL-2.1-only"]
   head "https://github.com/axboe/liburing.git", branch: "master"
 
   depends_on :linux
