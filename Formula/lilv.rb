@@ -1,8 +1,8 @@
 class Lilv < Formula
   desc "C library to use LV2 plugins"
   homepage "https://drobilla.net/software/lilv.html"
-  url "https://download.drobilla.net/lilv-0.24.18.tar.xz"
-  sha256 "f65814ae60be54d65f1671dff7538aeddcda3610cb6e46ec96de47f84ab0f3b8"
+  url "https://download.drobilla.net/lilv-0.24.20.tar.xz"
+  sha256 "4fb082b9b8b286ea92bbb71bde6b75624cecab6df0cc639ee75a2a096212eebc"
   license "ISC"
 
   livecheck do
