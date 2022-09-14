@@ -17,7 +17,7 @@ class Ironcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "65022e0f3c0a56a87bceb8bd8dd8d6a786b77d70c00c9170e5fc30e473a79264"
   end
 
-  deprecate! date: "2021-07-29", because: :unmaintained
+  disable! date: "2022-09-14", because: :unmaintained
 
   depends_on "dep" => :build
   depends_on "go" => :build
