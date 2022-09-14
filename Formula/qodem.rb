@@ -4,6 +4,7 @@ class Qodem < Formula
   url "https://downloads.sourceforge.net/project/qodem/qodem/1.0.1/qodem-1.0.1.tar.gz"
   sha256 "dedc73bfa73ced5c6193f1baf1ffe91f7accaad55a749240db326cebb9323359"
   license :public_domain
+  head "https://gitlab.com/AutumnMeowMeow/qodem.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "230b60c0f6dbd68eb6842acc073e21b0fb2bb5e4e47a8f37b2fd812980849c7f"
@@ -14,8 +15,6 @@ class Qodem < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "e5b1c53c02b9111a447d2eae8d74231ba3f9374ba7775215bd1559eb1b326e61"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "19414f9b69d7423a5f2ab1ecb2690bf1bd285f96832d151835741867f22f2e6e"
   end
-
-  deprecate! date: "2022-05-07", because: :repo_removed
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
