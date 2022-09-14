@@ -6,6 +6,11 @@ class Tendermint < Formula
   license "Apache-2.0"
   head "https://github.com/tendermint/tendermint.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2d0f6f119ae6ad63d371f13d02bb6a8e4be6c4024ba5a191a6529fed4160d780"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d0f6f119ae6ad63d371f13d02bb6a8e4be6c4024ba5a191a6529fed4160d780"
