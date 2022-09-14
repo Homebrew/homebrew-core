@@ -23,10 +23,6 @@ class DiffPdf < Formula
   depends_on "poppler"
   depends_on "wxwidgets"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
