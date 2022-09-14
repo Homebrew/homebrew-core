@@ -4,7 +4,7 @@ class Opencoarrays < Formula
   url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.0/OpenCoarrays-2.10.0.tar.gz"
   sha256 "c08717aea6ed5c68057f80957188a621b9862ad0e1460470e7ec82cdd84ae798"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   bottle do
@@ -51,5 +51,6 @@ class Opencoarrays < Formula
     EOS
     system "#{bin}/caf", "tally.f90", "-o", "tally"
     system "#{bin}/cafrun", "-np", "3", "--oversubscribe", "./tally"
+    assert_match Formula["open-mpi"].lib.realpath.to_s, shell_output("#{bin}/caf --show")
   end
 end
