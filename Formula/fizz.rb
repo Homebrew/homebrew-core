@@ -32,14 +32,11 @@ class Fizz < Formula
   fails_with gcc: "5"
 
   def install
-    args = []
-    args << "-DLIBRT_LIBRARY=/usr/lib/x86_64-linux-gnu/librt.a" if OS.linux?
-
     system "cmake", "-S", "fizz", "-B", "build",
                     "-DBUILD_TESTS=OFF",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    *std_cmake_args, *args
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
