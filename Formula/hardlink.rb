@@ -18,7 +18,7 @@ class Hardlink < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b849b6cdc2d96380221c9dddc48a4c6485db0f4257ea7c48ade59b50e29f7bfd"
   end
 
-  deprecate! date: "2021-02-17", because: "has been merged into `util-linux`"
+  disable! date: "2022-09-14", because: "has been merged into `util-linux`"
 
   depends_on "pkg-config" => :build
   depends_on "gnu-getopt"
