@@ -16,7 +16,7 @@ class Opentsdb < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "5bcdc828069e124c16e1e6c8b2eb6732d0ef88533c27f60fcbb0bec369aca375"
   end
 
-  deprecate! date: "2020-11-13", because: :does_not_build
+  disable! date: "2022-09-14", because: :does_not_build
 
   depends_on "gnuplot"
   depends_on "hbase"
