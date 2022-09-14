@@ -36,6 +36,10 @@ class Ola < Formula
     sha256 "e06ffef1610c3b09807212d113138dae8bdc7fc8400843c25c396fa486594ebf"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
@@ -52,7 +56,7 @@ class Ola < Formula
       --with-python_exec_prefix=#{prefix}
     ]
 
-    ENV["PYTHON"] = "python3"
+    ENV["PYTHON"] = python3
     system "autoreconf", "-fvi"
     system "./configure", *args
     system "make", "install"
@@ -60,6 +64,6 @@ class Ola < Formula
 
   test do
     system bin/"ola_plugin_state", "-h"
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "from ola.ClientWrapper import ClientWrapper"
+    system python3, "-c", "from ola.ClientWrapper import ClientWrapper"
   end
 end
