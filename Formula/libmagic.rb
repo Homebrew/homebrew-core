@@ -1,8 +1,8 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "https://astron.com/pub/file/file-5.42.tar.gz"
-  sha256 "c076fb4d029c74073f15c43361ef572cfb868407d347190ba834af3b1639b0e4"
+  url "https://astron.com/pub/file/file-5.43.tar.gz"
+  sha256 "8c8015e91ae0e8d0321d94c78239892ef9dbc70c4ade0008c0e95894abfb1991"
   # libmagic has a BSD-2-Clause-like license
   license :cannot_represent
 
