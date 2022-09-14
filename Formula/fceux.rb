@@ -26,7 +26,6 @@ class Fceux < Formula
   depends_on "x264"
 
   on_linux do
-    depends_on "gcc"
     depends_on "mesa-glu"
   end
 
