@@ -4,7 +4,7 @@ class Tea < Formula
   url "https://gitea.com/gitea/tea/archive/v0.9.0.tar.gz"
   sha256 "b7658a074508c117c2af3a55b7b37abf194f84fe94939c9b6b7ff324696258b9"
   license "MIT"
-  head "https://gitea.com/gitea/tea.git", branch: "master"
+  head "https://gitea.com/gitea/tea.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "72ed7e62d0351ce4fa2e436d936cc71c013ebd8b661c9089b07089b400d96bc2"
