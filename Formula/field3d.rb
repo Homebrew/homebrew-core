@@ -20,10 +20,6 @@ class Field3d < Formula
   depends_on "hdf5"
   depends_on "ilmbase"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
@@ -39,13 +35,14 @@ class Field3d < Formula
   end
 
   test do
-    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lField3D",
+    system ENV.cxx, "-std=c++11", "-I#{include}",
+           pkgshare/"sample_code/create_and_write/main.cpp",
+           "-L#{lib}", "-lField3D",
            "-I#{Formula["boost"].opt_include}",
            "-L#{Formula["boost"].opt_lib}", "-lboost_system",
            "-I#{Formula["hdf5"].opt_include}",
            "-L#{Formula["hdf5"].opt_lib}", "-lhdf5",
            "-I#{Formula["ilmbase"].opt_include}",
-           pkgshare/"sample_code/create_and_write/main.cpp",
            "-o", "test"
     system "./test"
   end
