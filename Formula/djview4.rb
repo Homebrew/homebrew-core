@@ -28,11 +28,9 @@ class Djview4 < Formula
   depends_on "djvulibre"
   depends_on "qt@5"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5" # qt@5 is built with GCC
+  # Fix QT detection when multiple Xcode installations are present.
+  # Submitted upstream: https://sourceforge.net/p/djvu/patches/44/
+  patch :DATA
 
   def install
     system "autoreconf", "-fiv"
@@ -65,3 +63,18 @@ class Djview4 < Formula
     assert_predicate prefix/name, :exist?
   end
 end
+
+__END__
+diff --git a/config/acinclude.m4 b/config/acinclude.m4
+index 3c78d41..8eb0575 100644
+--- a/config/acinclude.m4
++++ b/config/acinclude.m4
+@@ -314,7 +314,7 @@ message(QT_INSTALL_BINS="$$[QT_INSTALL_BINS]")
+ changequote([, ])dnl
+ EOF
+   if ( cd conftest.d && $QMAKE > conftest.out 2>&1 ) ; then
+-    sed -e 's/^.*: *//' < conftest.d/conftest.out > conftest.d/conftest.sh
++    grep "Project MESSAGE:" < conftest.d/conftest.out | sed -e 's/^.*: *//' > conftest.d/conftest.sh
+     . conftest.d/conftest.sh
+     rm -rf conftest.d
+   else
