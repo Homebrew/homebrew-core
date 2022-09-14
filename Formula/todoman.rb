@@ -18,6 +18,7 @@ class Todoman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "715db55e55809a33bd410ab3726fb35f6a203504013d4e992d2a8c4fa8971e52"
   end
 
+  depends_on "jq" # Needed for ZSH completions.
   depends_on "python@3.10"
   depends_on "six"
 
@@ -75,6 +76,9 @@ class Todoman < Formula
 
   def install
     virtualenv_install_with_resources
+
+    bash_completion.install "contrib/completion/bash/_todo" => "todo"
+    zsh_completion.install "contrib/completion/zsh/_todo"
   end
 
   test do
