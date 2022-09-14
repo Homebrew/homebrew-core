@@ -1,8 +1,8 @@
 class LdFindCodeRefs < Formula
   desc "Build tool for sending feature flag code references to LaunchDarkly"
   homepage "https://github.com/launchdarkly/ld-find-code-refs"
-  url "https://github.com/launchdarkly/ld-find-code-refs/archive/v2.6.3.tar.gz"
-  sha256 "d778dc9b80d42011a1b6ad55cf072d61528f0a35a10496f011bcefa3f5d83464"
+  url "https://github.com/launchdarkly/ld-find-code-refs/archive/v2.7.0.tar.gz"
+  sha256 "4793197ded1d5747be765aab04d7c7f9fb47f94cad591cb778a9b1ef221b1ae0"
   license "Apache-2.0"
   head "https://github.com/launchdarkly/ld-find-code-refs.git", branch: "master"
 
