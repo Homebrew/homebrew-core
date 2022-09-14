@@ -49,12 +49,6 @@ class Freeswitch < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5" # ffmpeg is compiled with GCC
-
   # https://github.com/Homebrew/homebrew/issues/42865
 
   #----------------------- Begin sound file resources -------------------------
@@ -181,6 +175,7 @@ class Freeswitch < Formula
     # Fails on ARM: https://github.com/signalwire/freeswitch/issues/1450
     args << "--disable-libvpx" if Hardware::CPU.arm?
 
+    ENV.append_to_cflags "-D_ANSI_SOURCE" if OS.linux?
     system "./configure", *std_configure_args, *args
     system "make", "all"
     system "make", "install"
