@@ -6,7 +6,7 @@ class Lv2 < Formula
   homepage "https://lv2plug.in/"
   url "https://lv2plug.in/spec/lv2-1.18.10.tar.xz"
   sha256 "78c51bcf21b54e58bb6329accbb4dae03b2ed79b520f9a01e734bd9de530953f"
-  license "ISC"
+  license any_of: ["0BSD", "ISC"]
   head "https://gitlab.com/lv2/lv2.git", branch: "master"
 
   livecheck do
