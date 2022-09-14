@@ -22,10 +22,11 @@ class Opencolorio < Formula
   depends_on "python@3.10"
 
   def install
+    python3 = "python3.10"
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DPYTHON=python3
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/"python3"
+      -DPYTHON=#{python3}
+      -DPYTHON_EXECUTABLE=#{which(python3)}
     ]
 
     system "cmake", "-S", ".", "-B", "macbuild", *args, *std_cmake_args
