@@ -28,12 +28,6 @@ class Ffmpeg2theora < Formula
   depends_on "libvorbis"
   depends_on "theora"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
-  fails_with gcc: "5" # ffmpeg is compiled with GCC
-
   # Use python3 print()
   patch do
     url "https://salsa.debian.org/multimedia-team/ffmpeg2theora/-/raw/master/debian/patches/0002-Use-python3-print.patch"
