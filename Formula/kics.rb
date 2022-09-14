@@ -45,7 +45,7 @@ class Kics < Formula
     ENV["KICS_QUERIES_PATH"] = pkgshare/"assets/queries"
     ENV["DISABLE_CRASH_REPORT"] = "0"
 
-    assert_match "No files were scanned", shell_output("#{bin}/kics scan -p #{testpath}")
+    assert_match "Files scanned: 0", shell_output("#{bin}/kics scan -p #{testpath}")
     assert_match version.to_s, shell_output("#{bin}/kics version")
   end
 end
