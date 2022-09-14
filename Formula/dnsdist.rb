@@ -34,7 +34,6 @@ class Dnsdist < Formula
 
   on_linux do
     depends_on "linux-headers@5.16" => :build
-    depends_on "gcc"
   end
 
   fails_with gcc: "5"
