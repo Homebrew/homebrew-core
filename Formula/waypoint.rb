@@ -24,8 +24,8 @@ class Waypoint < Formula
   end
 
   test do
-    assert_match "Initial Waypoint configuration created!", shell_output("#{bin}/waypoint init")
-    assert_match "# An application to deploy.", File.read("waypoint.hcl")
+    output = shell_output("#{bin}/waypoint context list")
+    assert_match "No contexts. Create one with `waypoint context create`.", output
 
     assert_match "! failed to create client: no server connection configuration found",
       shell_output("#{bin}/waypoint server bootstrap 2>&1", 1)
