@@ -4,8 +4,8 @@ class Lv2 < Formula
 
   desc "Portable plugin standard for audio systems"
   homepage "https://lv2plug.in/"
-  url "https://lv2plug.in/spec/lv2-1.18.8.tar.xz"
-  sha256 "b404cf14f776af40ca43808b45f4219dfa850a4f47aa33f89fa96ae719e174c8"
+  url "https://lv2plug.in/spec/lv2-1.18.10.tar.xz"
+  sha256 "78c51bcf21b54e58bb6329accbb4dae03b2ed79b520f9a01e734bd9de530953f"
   license "ISC"
   head "https://gitlab.com/lv2/lv2.git", branch: "master"
 
