@@ -4,7 +4,7 @@ class OpenBabel < Formula
   url "https://github.com/openbabel/openbabel/archive/openbabel-3-1-1.tar.gz"
   version "3.1.1"
   sha256 "c97023ac6300d26176c97d4ef39957f06e68848d64f1a04b0b284ccff2744f02"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   revision 2
   head "https://github.com/openbabel/openbabel.git", branch: "master"
 
@@ -29,7 +29,7 @@ class OpenBabel < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DRUN_SWIG=ON",
                     "-DPYTHON_BINDINGS=ON",
-                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3"
+                    "-DPYTHON_EXECUTABLE=#{which("python3.10")}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
