@@ -19,6 +19,12 @@ class Jdupes < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b03a8221e4d828bed9072894e8a78151478a70283ec9ca98f95dbdc83eeeeb8"
   end
 
+  # Fix build failure. Remove in next release.
+  patch do
+    url "https://github.com/jbruchon/jdupes/commit/8f5b06109b44a9e4316f9445da3044590a6c63e2.patch?full_index=1"
+    sha256 "0dd00247bdee3252750c629e3a9c00cb63e8d5cfe383b9a9989ac6748d264880"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "ENABLE_DEDUPE=1"
   end
