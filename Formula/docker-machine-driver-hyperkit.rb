@@ -18,7 +18,7 @@ class DockerMachineDriverHyperkit < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "92bef33ec9ad5fbdfb887fcabe550603c886065c8ec3c677732a55f84a4c7520"
   end
 
-  deprecate! date: "2021-07-29", because: :unmaintained
+  disable! date: "2022-09-14", because: :unmaintained
 
   depends_on "go" => :build
   depends_on "docker-machine"
