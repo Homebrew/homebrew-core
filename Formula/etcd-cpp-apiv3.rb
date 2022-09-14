@@ -23,12 +23,6 @@ class EtcdCppApiv3 < Formula
   depends_on "openssl@1.1"
   depends_on "protobuf"
 
-  # grpc requrires high version of gcc and are built with high version of gcc,
-  # thus gcc 5 won't work
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
