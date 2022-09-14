@@ -34,6 +34,7 @@ class RpkiClient < Formula
   end
 
   test do
-    assert_match "rpki-client-portable 8.0", shell_output("#{sbin}/rpki-client -V 2>&1").lines.last
+    assert_match "VRP Entries: 0 (0 unique)", shell_output("#{sbin}/rpki-client -n -d . -R . 2>&1")
+    assert_match "rpki-client-portable #{version}", shell_output("#{sbin}/rpki-client -V 2>&1")
   end
 end
