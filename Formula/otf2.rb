@@ -38,7 +38,7 @@ class Otf2 < Formula
   end
 
   def install
-    ENV["PYTHON"] = which("python3")
+    ENV["PYTHON"] = which("python3.10")
     ENV["SPHINX"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
 
     system "./configure", *std_configure_args, "--disable-silent-rules"
