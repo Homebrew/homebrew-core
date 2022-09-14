@@ -1,5 +1,6 @@
 class Liburing < Formula
-  desc "This is the io_uring library, liburing"
+  desc "helpers to setup and
+teardown io_uring instances"
   homepage "https://github.com/axboe/liburing"
   url "https://github.com/axboe/liburing/archive/refs/tags/liburing-2.2.tar.gz"
   sha256 "e092624af6aa244ade2d52181cc07751ac5caba2f3d63e9240790db9ed130bbc"
