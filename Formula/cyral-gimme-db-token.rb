@@ -134,7 +134,7 @@ class CyralGimmeDbToken < Formula
   test do
     ENV["LANG"] = "en_US.UTF-8"
     assert_match version.to_s, shell_output("#{bin}/gimme_db_token --version")
-    assert_match "Please continue the authentication in the opened browser window",
+    assert_match "There was an error fetching your token.",
       shell_output("#{bin}/gimme_db_token --address localhost --timeout 1")
     assert_match "Error: Invalid value", shell_output("#{bin}/gimme_db_token unsupported 2>&1", 2)
   end
