@@ -37,7 +37,6 @@ class EasyrpgPlayer < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
-    depends_on "gcc"
   end
 
   fails_with gcc: "5"
