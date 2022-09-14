@@ -27,6 +27,7 @@ class GstPluginsBad < Formula
   depends_on "pkg-config" => :build
   depends_on "faac"
   depends_on "faad2"
+  depends_on "fdk-aac"
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "jpeg-turbo"
@@ -64,6 +65,8 @@ class GstPluginsBad < Formula
   test do
     gst = Formula["gstreamer"].opt_bin/"gst-inspect-1.0"
     output = shell_output("#{gst} --plugin dvbsuboverlay")
+    assert_match version.to_s, output
+    output = shell_output("#{gst} --plugin fdkaac")
     assert_match version.to_s, output
   end
 end
