@@ -16,7 +16,7 @@ class Kestrel < Formula
   end
 
   # See: https://github.com/twitter-archive/kestrel#status
-  deprecate! date: "2016-01-22", because: :deprecated_upstream
+  disable! date: "2022-09-14", because: :deprecated_upstream
 
   def install
     inreplace "scripts/kestrel.sh" do |s|
