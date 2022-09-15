@@ -20,10 +20,6 @@ class Autodiff < Formula
   depends_on "eigen"
   depends_on "pybind11"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
