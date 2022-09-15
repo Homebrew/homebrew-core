@@ -22,10 +22,6 @@ class Ctemplate < Formula
   depends_on "libtool" => :build
   depends_on "python@3.10" => :build
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
@@ -46,8 +42,8 @@ class Ctemplate < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}",
-                    "-lctemplate_nothreads", "test.cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
+                    "-lctemplate_nothreads", "-o", "test"
     system "./test"
   end
 end
