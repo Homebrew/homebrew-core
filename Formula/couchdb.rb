@@ -38,10 +38,6 @@ class Couchdb < Formula
   # https://github.com/apache/couchdb/blob/#{version}/src/couch/rebar.config.script
   depends_on "spidermonkey"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "ejabberd", because: "both install `jiffy` lib"
 
   fails_with :gcc do
