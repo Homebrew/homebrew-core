@@ -3,7 +3,7 @@ class LinkGrammar < Formula
   homepage "https://www.abisource.com/projects/link-grammar/"
   url "https://www.abisource.com/downloads/link-grammar/5.10.5/link-grammar-5.10.5.tar.gz"
   sha256 "324710cd8132975ff9ccb53509732f7558473b1c19f17892000a3dedb8618aed"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/opencog/link-grammar.git", branch: "master"
 
   livecheck do
@@ -40,7 +40,7 @@ class LinkGrammar < Formula
 
     # Work around error due to install using detected path inside Python formula.
     # install: .../site-packages/linkgrammar.pth: Operation not permitted
-    site_packages = prefix/Language::Python.site_packages("python3")
+    site_packages = prefix/Language::Python.site_packages("python3.10")
     system "make", "install", "pythondir=#{site_packages}",
                               "pyexecdir=#{site_packages}"
   end
