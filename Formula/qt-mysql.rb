@@ -1,8 +1,8 @@
 class QtMysql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.3/6.3.1/submodules/qtbase-everywhere-src-6.3.1.tar.xz"
-  sha256 "0a64421d9c2469c2c48490a032ab91d547017c9cc171f3f8070bc31888f24e03"
+  url "https://download.qt.io/official_releases/qt/6.3/6.3.2/submodules/qtbase-everywhere-src-6.3.2.tar.xz"
+  sha256 "7929ba4df870b6b30870bc0aed2525cfc606ed7091107b23cf7ed7e434caa9a6"
   license all_of: ["LGPL-2.1-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -15,7 +15,6 @@ class QtMysql < Formula
     sha256 cellar: :any,                 monterey:       "f10db7a54011ab4101a5e7a5a4ae6de3567b4c2dd6121d3b593e3a1cff2c5144"
     sha256 cellar: :any,                 big_sur:        "9f09d1a4229164d698a06e623259495797fff4e9408a5de7916c4b9d6c16cf58"
     sha256 cellar: :any,                 catalina:       "7d1874d375a1b0dc77263513283e8f9b753b2496c92d65d1b3816338a146bde8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa5aa3053025c0761003a50feb9cd7c0ac19bd505b75ddec4d2e36c679829f61"
   end
 
   depends_on "cmake" => [:build, :test]
