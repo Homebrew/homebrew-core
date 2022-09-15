@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/38/bc/8248d04c683fde693a9fa0a60ebb6ac81a719192be4f2e09b085a5dcc965/dvc-2.25.0.tar.gz"
-  sha256 "130bee2c1a49dc66e30d13c48edad1b48024ba0d56b726410b04f879aa84ccb4"
+  url "https://files.pythonhosted.org/packages/a1/e7/ec97b5f9fa6b1a5361e5a8183b409a8a0aa769408e85895dd1e73ebbd9b3/dvc-2.26.0.tar.gz"
+  sha256 "9348f5d711acbd6c8061e4cc57bb06d95ec923f075f8e16701eb800d7f74b90b"
   license "Apache-2.0"
 
   bottle do
@@ -172,8 +172,8 @@ class Dvc < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/05/a8/e0966dcf948a9ab9321f23f121a37b96be191b15dc28e9134927fd42a8af/certifi-2022.6.15.2.tar.gz"
-    sha256 "aa08c101214127b9b0472ca6338315113c9487d45376fd3e669201b477c71003"
+    url "https://files.pythonhosted.org/packages/ca/48/88ec470f8b68319b6782ca3a0570789886ad5ca24c1af2f3771699135baa/certifi-2022.9.14.tar.gz"
+    sha256 "36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5"
   end
 
   resource "cffi" do
@@ -267,8 +267,8 @@ class Dvc < Formula
   end
 
   resource "dvc-data" do
-    url "https://files.pythonhosted.org/packages/db/b7/89f003088e4ef2ffce048cea556ec834da66804e913fd7bdf85b1a3684cb/dvc-data-0.7.1.tar.gz"
-    sha256 "cfaad80532cf8821922f13b716f924a73646432804ece0d0204ee500104fb9dd"
+    url "https://files.pythonhosted.org/packages/03/d5/0752bbc3e82edd356b4f0c69a11c9711eb09deabd1a6a8f948e2da46818d/dvc-data-0.8.0.tar.gz"
+    sha256 "12c31c054eea4caf13d058624afbf0998ee0794268360314105a66f5fd311bf5"
   end
 
   resource "dvc-gdrive" do
@@ -382,8 +382,8 @@ class Dvc < Formula
   end
 
   resource "google-api-core" do
-    url "https://files.pythonhosted.org/packages/79/ed/a8fa14ea999c72670fb7c788b5c349ca7fef9c7998f45f4ab1f0d64a5988/google-api-core-2.10.0.tar.gz"
-    sha256 "1d053734f14591939e7764e99c31253fed46bf2578da0dcd82821f17a6dd991c"
+    url "https://files.pythonhosted.org/packages/0e/a9/d000e7562c27b3c7c037bc11dfe18093197e225dc712cc9120932e33e0ab/google-api-core-2.10.1.tar.gz"
+    sha256 "e16c15a11789bc5a3457afb2818a3540a03f341e6e710d7f9bbf6cde2ef4a7c8"
   end
 
   resource "google-api-python-client" do
@@ -402,8 +402,8 @@ class Dvc < Formula
   end
 
   resource "google-auth-oauthlib" do
-    url "https://files.pythonhosted.org/packages/1e/92/cd8f07a70ea224de1b4f9b2f2a5f6bf960fe874f0b0f6186fb9c5fcb77e1/google-auth-oauthlib-0.5.2.tar.gz"
-    sha256 "d5e98a71203330699f92a26bc08847a92e8c3b1b8d82a021f1af34164db143ae"
+    url "https://files.pythonhosted.org/packages/f0/d0/3521515d13827eb4c68d3b45972ad49a21b02e486c589fdd3c2aee9b9065/google-auth-oauthlib-0.5.3.tar.gz"
+    sha256 "307d21918d61a0741882ad1fd001c67e68ad81206451d05fc4d26f79de56fc90"
   end
 
   resource "google-cloud-core" do
