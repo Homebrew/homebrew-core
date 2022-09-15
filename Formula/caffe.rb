@@ -33,11 +33,8 @@ class Caffe < Formula
   depends_on "snappy"
 
   on_linux do
-    depends_on "gcc"
     depends_on "openblas"
   end
-
-  fails_with gcc: "5" # opencv is compiled with GCC
 
   resource "homebrew-test_model" do
     url "https://github.com/nandahkrishna/CaffeMNIST/archive/2483b0ba9b04728041f7d75a3b3cf428cb8edb12.tar.gz"
