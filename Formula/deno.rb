@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.25.2/deno_src.tar.gz"
-  sha256 "eff1388028c8f7bd91a37eff18fa55a00a0b96f22ef11fec2d10c46d5347a44b"
+  url "https://github.com/denoland/deno/releases/download/v1.25.3/deno_src.tar.gz"
+  sha256 "b20a5a223aae4c654e9a1f5e1c5efd7aed2162d4863e2d3fb7ac271ef3f7d2d8"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -56,13 +56,6 @@ class Deno < Formula
         revision: "bf4e17dc67b2a2007475415e3f9e1d1cf32f6e35"
   end
 
-  # To find the version of tinycc used, check the commit hash referenced from
-  # https://github.com/denoland/deno/tree/v#{version}/ext/ffi
-  resource "tinycc" do
-    url "https://github.com/TinyCC/tinycc.git",
-        revision: "afc136262e93ae85fb3643005b36dbfc30d99c42"
-  end
-
   def install
     # Work around files missing from crate
     # TODO: Remove this at the same time as `rusty-v8` + `v8` resources
@@ -99,15 +92,6 @@ class Deno < Formula
       system python3, "build/gen.py"
       system "ninja", "-C", "out"
     end
-
-    resource("tinycc").stage buildpath/"tinycc"
-    cd "tinycc" do
-      ENV.append_to_cflags "-fPIE" if OS.linux?
-      system "./configure", "--cc=#{ENV.cc}"
-      system "make"
-    end
-
-    ENV["TCC_PATH"] = buildpath/"tinycc"
 
     # cargo seems to build rusty_v8 twice in parallel, which causes problems,
     # hence the need for -j1
