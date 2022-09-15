@@ -23,7 +23,7 @@ class Duck < Formula
   depends_on "ant" => :build
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: :build
+  depends_on xcode: ["13.1", :build]
 
   depends_on "libffi"
   depends_on "openjdk"
@@ -43,8 +43,8 @@ class Duck < Formula
   end
 
   resource "jna" do
-    url "https://github.com/java-native-access/jna/archive/refs/tags/5.11.0.tar.gz"
-    sha256 "219086c61f804300871c2ec2ee220b6aac0fb8b6cbcc72dc53d4f35dc7f61fb6"
+    url "https://github.com/java-native-access/jna/archive/refs/tags/5.12.1.tar.gz"
+    sha256 "2046655137ecd7f03e57a14bbe05e14d8299440604f993cef171c449daa3789c"
   end
 
   resource "rococoa" do
