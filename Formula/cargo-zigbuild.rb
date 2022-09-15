@@ -1,8 +1,8 @@
 class CargoZigbuild < Formula
   desc "Compile Cargo project with zig as linker"
   homepage "https://github.com/messense/cargo-zigbuild"
-  url "https://github.com/messense/cargo-zigbuild/archive/refs/tags/v0.12.2.tar.gz"
-  sha256 "90397c5170eb02ebcf8c378e499f2c9be3b1b63c85d20e1e0584aec459321ed7"
+  url "https://github.com/messense/cargo-zigbuild/archive/refs/tags/v0.12.3.tar.gz"
+  sha256 "2fc6775aa9724622aeb63418676c732eb341f253abcb3db9bb11181d1673abbc"
   license "MIT"
   head "https://github.com/messense/cargo-zigbuild.git", branch: "main"
 
