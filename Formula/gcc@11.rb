@@ -5,6 +5,7 @@ class GccAT11 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-11.3.0/gcc-11.3.0.tar.xz"
   sha256 "b47cf2818691f5b1e21df2bb38c795fac2cfbd640ede2d0a5e1c89e338a3ac39"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
 
   livecheck do
     url :stable
@@ -121,6 +122,18 @@ class GccAT11 < Formula
     # Work around GCC install bug
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105664
     rm_rf bin.glob("*-gcc-tmp")
+
+    return unless OS.linux?
+
+    # Create ld.so.conf.d directories
+    (prefix/"etc/ld.so.conf.d").mkpath
+    chmod_R "go-w", prefix/"etc/ld.so.conf.d"
+
+    # Add gcc to ld search paths
+    (prefix/"etc/ld.so.conf.d/50-homebrew-gcc@#{version.major}.conf").atomic_write <<~EOS
+      #{opt_lib}/gcc/#{version.major}
+    EOS
+    chmod "u=rw,go-wx", prefix/"etc/ld.so.conf.d/50-homebrew-gcc@#{version.major}.conf"
   end
 
   def add_suffix(file, suffix)
