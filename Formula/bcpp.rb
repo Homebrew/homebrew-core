@@ -20,12 +20,6 @@ class Bcpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec23404179ff7f080c3af852e5df992e01126b5a7d22b34ff509c20c863f7e18"
   end
 
-  # Build succeeds with system gcc (5.4.0) but seems to segfault at runtime.
-  # Unclear whether this is an issue with the compiler itself or the libc++ runtime.
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
