@@ -4,6 +4,7 @@ class RpkiClient < Formula
   url "https://ftp.openbsd.org/pub/OpenBSD/rpki-client/rpki-client-8.0.tar.gz"
   sha256 "5b710ccee2e7e949587e54daf823811671174a50c671746e5a276afaa0ce55be"
   license "ISC"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "68bf3dee8842b4377f8756903973f9a1097c86080d3411407c52180f3fad2c2f"
@@ -16,9 +17,11 @@ class RpkiClient < Formula
   depends_on "pkg-config" => :build
   depends_on "libressl"
   depends_on :macos
+  depends_on "rsync"
 
   def install
     system "./configure", *std_configure_args,
+                          "--with-rsync=#{Formula["rsync"].opt_bin}/rsync",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
