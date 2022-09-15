@@ -27,10 +27,6 @@ class ApacheArrowGlib < Formula
   depends_on "apache-arrow"
   depends_on "glib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
