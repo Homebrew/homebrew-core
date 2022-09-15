@@ -16,8 +16,8 @@ class RpkiClient < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libressl"
-  depends_on :macos
   depends_on "rsync"
+  uses_from_macos "expat"
 
   def install
     system "./configure", *std_configure_args,
