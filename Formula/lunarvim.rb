@@ -6,6 +6,9 @@ class Lunarvim < Formula
   license "GPL-3.0-or-later"
 
   depends_on "neovim"
+  depends_on "node"
+  depends_on "python@3.10"
+  depends_on "rust"
 
   def install
     inreplace "#{buildpath}/utils/bin/lvim.template" do |s|
@@ -22,15 +25,6 @@ class Lunarvim < Formula
 
     bin.mkpath
     bin.install lvim_root/"utils/bin/lvim.template" => "lvim"
-  end
-
-  def caveats
-    <<-INFO
-      LunarVim has runtime dependencies upon Node, Python and Rust. These are NOT specified
-      as dependencies in this formula, as they are not required to perform the installation.
-      However, functionality will be lost without having access to those supporting libraries.
-      It is strongly recommended that each of these tools be installed, as well.
-    INFO
   end
 
   test do
