@@ -1,9 +1,9 @@
 class CmarkGfm < Formula
   desc "C implementation of GitHub Flavored Markdown"
   homepage "https://github.com/github/cmark-gfm"
-  url "https://github.com/github/cmark-gfm/archive/0.29.0.gfm.5.tar.gz"
-  version "0.29.0.gfm.5"
-  sha256 "f665079062e05abc44ae933a74f1bdc5c89af1e1d2f4152042fc1ec5571093fe"
+  url "https://github.com/github/cmark-gfm/archive/0.29.0.gfm.6.tar.gz"
+  version "0.29.0.gfm.6"
+  sha256 "b17d86164c0822b5db3818780b44cb130ff30e9c6ec6a64f199b6d142684dba0"
   license "BSD-2-Clause"
 
   bottle do
