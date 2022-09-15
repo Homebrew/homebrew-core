@@ -24,7 +24,7 @@ class LtexLs < Formula
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     ENV["TMPDIR"] = buildpath
 
-    system "python3", "-u", "tools/createCompletionLists.py"
+    system "python3.10", "-u", "tools/createCompletionLists.py"
 
     system "mvn", "-B", "-e", "-DskipTests", "package"
 
