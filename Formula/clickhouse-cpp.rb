@@ -19,10 +19,6 @@ class ClickhouseCpp < Formula
   depends_on "abseil"
   depends_on "openssl@1.1"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
   fails_with gcc: "6"
 
