@@ -36,6 +36,6 @@ class Lunarvim < Formula
   test do
     assert_match shell_output("#{bin}/lvim -v").start_with? "NVIM"
 
-    assert_match `printf "foo\n" | lvim -Es +"%print"`.chomp, "foo"
+    assert_equal "foo", pipe_output("#{bin}/lvim -Es +%print", "foo\n").strip
   end
 end
