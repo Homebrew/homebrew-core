@@ -25,12 +25,6 @@ class Faudio < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      FAudio is built without FFmpeg support for decoding xWMA resources.
-    EOS
-  end
-
   test do
     (testpath/"test.c").write <<~EOS
       #include <FAudio.h>
