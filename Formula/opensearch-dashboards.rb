@@ -5,7 +5,7 @@ class OpensearchDashboards < Formula
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
       tag:      "2.3.0",
-      revision: "d8e4d4d6b09bc800d3250dbad17631c225388fa1"
+      revision: "5f7541eaa91699b9de9d82e5636d1e6abaa8f414"
   license "Apache-2.0"
 
   bottle do
