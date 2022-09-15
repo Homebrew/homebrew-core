@@ -31,8 +31,8 @@ class Hurl < Formula
     system "cargo", "install", *std_cargo_args(path: "packages/hurl")
     system "cargo", "install", *std_cargo_args(path: "packages/hurlfmt")
 
-    man1.install "docs/man/hurl.1"
-    man1.install "docs/man/hurlfmt.1"
+    man1.install "docs/manual/hurl.1"
+    man1.install "docs/manual/hurlfmt.1"
   end
 
   test do
