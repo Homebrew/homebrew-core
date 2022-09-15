@@ -1,9 +1,9 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-7.1.1.tgz"
-  mirror "https://fossies.org/linux/www/varnish-7.1.1.tgz"
-  sha256 "2cafbe2590e7d58a7bac8ad99be92e440fe4d38ada6816dd8836f22fa513a190"
+  url "https://varnish-cache.org/_downloads/varnish-7.2.0.tgz"
+  mirror "https://fossies.org/linux/www/varnish-7.2.0.tgz"
+  sha256 "1da8a97ed5f7b7d4d5e04fc5c96fc9a85cb3a20d076eba2b18951f4b306c9686"
   license "BSD-2-Clause"
 
   livecheck do
