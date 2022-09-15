@@ -22,10 +22,6 @@ class Ccache < Formula
   depends_on "hiredis"
   depends_on "zstd"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
