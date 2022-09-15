@@ -639,8 +639,10 @@ class Llvm < Formula
         return 0;
       }
     EOS
-    assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
-                    "warning: Use of memory after it is freed"
+    with_env(CPATH: nil) do
+      assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
+                      "warning: Use of memory after it is freed"
+    end
 
     (testpath/"clangformattest.c").write <<~EOS
       int    main() {
