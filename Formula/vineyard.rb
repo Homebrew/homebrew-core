@@ -3,8 +3,8 @@ class Vineyard < Formula
 
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.7.2/v6d-0.7.2.tar.gz"
-  sha256 "d0cbb4bf894c8b089fc4c612dcf198656e57cd4612918c38efb3112bf7581a06"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.8.2/v6d-0.8.2.tar.gz"
+  sha256 "75f93b718bebbe97ce3ce7d678a5b0d05baa86196ab111c44fcab8f087411676"
   license "Apache-2.0"
 
   bottle do
