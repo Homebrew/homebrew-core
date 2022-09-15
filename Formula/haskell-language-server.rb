@@ -1,10 +1,9 @@
 class HaskellLanguageServer < Formula
   desc "Integration point for ghcide and haskell-ide-engine. One IDE to rule them all"
   homepage "https://github.com/haskell/haskell-language-server"
-  url "https://github.com/haskell/haskell-language-server/archive/1.6.1.0.tar.gz"
-  sha256 "e5c336ad2de8d021c882cdac5bbc26bf6427df8d2a5bd244c05cf18296a9bfdc"
+  url "https://github.com/haskell/haskell-language-server/archive/1.8.0.0.tar.gz"
+  sha256 "e1081ac581d21547d835beb8561e815573944aa0babe752a971479da3a207235"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
 
   # we need :github_latest here because otherwise
@@ -24,6 +23,7 @@ class HaskellLanguageServer < Formula
   end
 
   depends_on "cabal-install" => [:build, :test]
+  depends_on "ghc" => [:build, :test]
   depends_on "ghc@8.10" => [:build, :test]
 
   uses_from_macos "ncurses"
@@ -40,23 +40,16 @@ class HaskellLanguageServer < Formula
         .sort_by(&:version)
   end
 
-  def newest_ghc
-    ghcs.max_by(&:version)
-  end
-
   def install
     system "cabal", "v2-update"
 
     ghcs.each do |ghc|
-      # for --enable-executable-dynamic flag, explained in
-      # https://haskell-language-server.readthedocs.io/en/latest/troubleshooting.html#support-for-template-haskell
-      args = ["-w", ghc.bin/"ghc", "--enable-executable-dynamic"]
-      system "cabal", "v2-install", *args, *std_cabal_v2_args
+      system "cabal", "v2-install", "--with-compiler=#{ghc.bin}/ghc", "--flags=-dynamic", *std_cabal_v2_args
 
       hls = "haskell-language-server"
       bin.install bin/hls => "#{hls}-#{ghc.version}"
       bin.install_symlink "#{hls}-#{ghc.version}" => "#{hls}-#{ghc.version.major_minor}"
-      rm bin/"#{hls}-wrapper" unless ghc == newest_ghc
+      (bin/"#{hls}-wrapper").unlink unless ghc == ghcs.last
     end
   end
 
@@ -66,7 +59,7 @@ class HaskellLanguageServer < Formula
     <<~EOS
       #{name} is built for GHC versions #{ghc_versions}.
       You need to provide your own GHC or install one with
-        brew install #{newest_ghc}
+        brew install #{ghcs.last}
     EOS
   end
 
