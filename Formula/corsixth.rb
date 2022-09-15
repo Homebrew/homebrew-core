@@ -26,11 +26,8 @@ class Corsixth < Formula
   depends_on "sdl2_mixer"
 
   on_linux do
-    depends_on "gcc"
     depends_on "mesa"
   end
-
-  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "lpeg" do
     url "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.2.tar.gz"
