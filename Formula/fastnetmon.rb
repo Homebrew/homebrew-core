@@ -4,7 +4,7 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.2.tar.gz"
   sha256 "4de0fe9390673f7e2fc8f3f1e3696a1455ea659049430c4870fcf82600c2ea2d"
   license "GPL-2.0-only"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "841a62fb46aa93d424eb53283d9ffe607758dcfa21dba9cb18c0b433b529e60e"
@@ -28,7 +28,6 @@ class Fastnetmon < Formula
   uses_from_macos "ncurses"
 
   on_linux do
-    depends_on "gcc"
     depends_on "libpcap"
   end
 
