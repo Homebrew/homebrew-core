@@ -29,10 +29,6 @@ class Blast < Formula
     depends_on "libomp"
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "proj", because: "both install a `libproj.a` library"
 
   fails_with gcc: "5" # C++17
