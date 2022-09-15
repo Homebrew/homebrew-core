@@ -20,6 +20,20 @@ class OpenclIcdLoader < Formula
     (pkgshare/"loader_test").install "test/inc/platform", "test/log/icd_test_log.c"
   end
 
+  def caveats
+    s = "The default vendors directory is #{etc}/OpenCL/vendors\n"
+    on_linux do
+      s += <<~EOS
+        No OpenCL implementation is pre-installed, so all dependents will require either
+        installing a compatible formula or creating an ".icd" file mapping to an externally
+        installed implementation. Any ".icd" files copied or symlinked into
+        `#{etc}/OpenCL/vendors` will automatically be detected by `opencl-icd-loader`.
+        A portable OpenCL implementation is available via the `pocl` formula.
+      EOS
+    end
+    s
+  end
+
   test do
     cp_r (pkgshare/"loader_test").children, testpath
     system ENV.cc, *testpath.glob("*.c"), "-o", "icd_loader_test",
