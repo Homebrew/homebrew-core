@@ -19,10 +19,6 @@ class Cpi < Formula
 
   uses_from_macos "llvm"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
