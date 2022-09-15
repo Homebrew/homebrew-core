@@ -177,6 +177,13 @@ jobs:
               console.log('No CI-skip-recursive-dependents label found. Not passing --skip-recursive-dependents to brew test-bot.')
             }
 
+            if (label_names.includes('CI-skip-livecheck')) {
+              console.log('CI-skip-livecheck label found. Passing --skip-livecheck to brew test-bot.')
+              test_bot_formulae_args.push('--skip-livecheck')
+            } else {
+              console.log('No CI-skip-livecheck label found. Not passing --skip-livecheck to brew test-bot.')
+            }
+
             core.setOutput('test-bot-formulae-args', test_bot_formulae_args.join(" "))
             core.setOutput('test-bot-dependents-args', test_bot_dependents_args.join(" "))
 
