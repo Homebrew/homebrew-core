@@ -16,6 +16,11 @@ class Wput < Formula
     sha256                               x86_64_linux: "0fb27e180b9a6f8ef2b3508530874b467449fdac55a347c63f2e86ca360db073"
   end
 
+  on_arm do
+    # Added automake as a build dependency to update config files for ARM support.
+    depends_on "automake" => :build
+  end
+
   # The patch is to skip inclusion of malloc.h only on OSX. Upstream:
   # https://sourceforge.net/p/wput/patches/22/
   patch do
@@ -24,8 +29,13 @@ class Wput < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    if Hardware::CPU.arm?
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
+    system "./configure", *std_configure_args
     system "make"
     ENV.deparallelize
     system "make", "install"
