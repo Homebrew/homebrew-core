@@ -15,7 +15,6 @@ class Terragrunt < Formula
   end
 
   depends_on "go" => :build
-  depends_on "terraform"
 
   conflicts_with "tgenv", because: "tgenv symlinks terragrunt binaries"
 
