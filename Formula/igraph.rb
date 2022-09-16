@@ -19,7 +19,6 @@ class Igraph < Formula
   depends_on "glpk"
   depends_on "gmp"
   depends_on "openblas"
-  depends_on "suite-sparse"
 
   uses_from_macos "libxml2"
 
@@ -42,7 +41,6 @@ class Igraph < Formula
                       "-DIGRAPH_GRAPHML_SUPPORT=ON",
                       "-DIGRAPH_USE_INTERNAL_ARPACK=OFF",
                       "-DIGRAPH_USE_INTERNAL_BLAS=OFF",
-                      "-DIGRAPH_USE_INTERNAL_CXSPARSE=OFF",
                       "-DIGRAPH_USE_INTERNAL_GLPK=OFF",
                       "-DIGRAPH_USE_INTERNAL_GMP=OFF",
                       "-DIGRAPH_USE_INTERNAL_LAPACK=OFF",
