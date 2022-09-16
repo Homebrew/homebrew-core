@@ -40,10 +40,6 @@ class Poppler < Formula
   uses_from_macos "curl", since: :catalina # 7.55.0 required by poppler
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
