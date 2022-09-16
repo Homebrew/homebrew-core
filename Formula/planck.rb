@@ -28,7 +28,6 @@ class Planck < Formula
   uses_from_macos "libffi"
 
   on_linux do
-    depends_on "gcc"
     depends_on "glib"
     depends_on "pcre"
     depends_on "webkitgtk"
