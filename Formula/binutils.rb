@@ -16,7 +16,7 @@ class Binutils < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "efa7497e2ea56d9b68ce41363cdc1a41cad032b3ae2fa2cbe819459011651809"
   end
 
-  keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"
+  keg_only "it shadows the host toolchain"
 
   uses_from_macos "bison" => :build
   uses_from_macos "zlib"
