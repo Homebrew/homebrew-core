@@ -1,8 +1,8 @@
 class Libksba < Formula
   desc "X.509 and CMS library"
   homepage "https://www.gnupg.org/related_software/libksba/"
-  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.6.0.tar.bz2"
-  sha256 "dad683e6f2d915d880aa4bed5cea9a115690b8935b78a1bbe01669189307a48b"
+  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.6.1.tar.bz2"
+  sha256 "40750864c3ca11fa0833227938db6603661f6c1a3cc267485e81fa140cc6ea04"
   license any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"]
 
   livecheck do
