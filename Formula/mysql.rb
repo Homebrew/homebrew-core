@@ -37,13 +37,12 @@ class Mysql < Formula
 
   on_linux do
     depends_on "patchelf" => :build
-    depends_on "gcc" # for C++17
   end
 
   conflicts_with "mariadb", "percona-server",
     because: "mysql, mariadb, and percona install the same binaries"
 
-  fails_with gcc: "5"
+  fails_with gcc: "5" # for C++17
 
   # Patch out check for Homebrew `boost`.
   # This should not be necessary when building inside `brew`.
