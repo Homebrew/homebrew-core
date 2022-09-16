@@ -16,84 +16,55 @@ class Llnode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7ec466d2950af84ec1bd3afb5f1170592cca5458b15eaec2d05f70d6b23d110"
   end
 
-  depends_on "node" => :build
-
+  depends_on "llvm" => :build
+  depends_on "node" => [:build, :test]
   uses_from_macos "llvm"
 
-  resource "lldb" do
-    on_macos do
-      if DevelopmentTools.clang_build_version >= 1000
-        # lldb release_60 branch tip of tree commit from 10 Apr 2018
-        url "https://github.com/llvm-mirror/lldb.git",
-            revision: "b6df24ff1b258b18041161b8f32ac316a3b5d8d9"
-      elsif DevelopmentTools.clang_build_version >= 900
-        # lldb release_40 branch tip of tree commit from 12 Jan 2017
-        url "https://github.com/llvm-mirror/lldb.git",
-            revision: "fcd2aac9f179b968a20cf0231c3386dcef8a6659"
-      elsif DevelopmentTools.clang_build_version >= 802
-        # lldb 390
-        url "https://github.com/llvm-mirror/lldb.git",
-            revision: "d556e60f02a7404b291d07cac2f27512c73bc743"
-      elsif DevelopmentTools.clang_build_version >= 800
-        # lldb 360.1
-        url "https://github.com/llvm-mirror/lldb.git",
-            revision: "839b868e2993dcffc7fea898a1167f1cec097a82"
-      else
-        # It claims it to be lldb 350.0 for Xcode 7.3, but in fact it is based
-        # of 34.
-        # Xcode < 7.3 uses 340.4, so I assume we should be safe to go with this.
-        url "https://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/", using: :svn
-      end
-    end
-  end
-
-  resource "lldb" do
-    on_linux do
-      # lldb release_60 branch tip of tree commit from 10 Apr 2018
-      url "https://github.com/llvm-mirror/lldb.git",
-          revision: "b6df24ff1b258b18041161b8f32ac316a3b5d8d9"
-    end
+  def llnode_so(root = lib)
+    root/"llnode"/shared_library("llnode")
   end
 
   def install
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.append_path "PATH", Formula["node"].libexec/"lib/node_modules/npm/node_modules/node-gyp/bin"
     inreplace "Makefile", "node-gyp", "node-gyp.js"
 
-    # Make sure the buildsystem doesn't try to download its own copy
-    target = if DevelopmentTools.clang_build_version >= 900 || OS.linux?
-      "lldb-3.9"
-    elsif DevelopmentTools.clang_build_version >= 802
-      "lldb-3.8"
-    else
-      "lldb-3.4"
-    end
-    (buildpath/target).install resource("lldb")
-
+    ENV["LLNODE_LLDB_INCLUDE_DIR"] = Formula["llvm"].opt_include
     system "make", "plugin"
-    prefix.install shared_library("llnode")
+    bin.install "llnode.js" => "llnode"
+    llnode_so.dirname.install shared_library("llnode")
+
+    # Needed by the `llnode` script.
+    (lib/"node_modules/llnode").install_symlink llnode_so
   end
 
   def caveats
+    llnode = llnode_so(opt_lib)
     <<~EOS
       `brew install llnode` does not link the plugin to LLDB PlugIns dir.
 
       To load this plugin in LLDB, one will need to either
 
-      * Type `plugin load #{opt_prefix/shared_library("llnode")}` on each run of lldb
+      * Type `plugin load #{llnode}` on each run of lldb
       * Install plugin into PlugIns dir manually (macOS only):
 
-          mkdir -p ~/Library/Application\\ Support/LLDB/PlugIns
-          ln -sf #{opt_prefix}/llnode.dylib \\
-              ~/Library/Application\\ Support/LLDB/PlugIns/
+          mkdir -p "$HOME/Library/Application Support/LLDB/PlugIns"
+          ln -sf '#{llnode}' "$HOME/Library/Application Support/LLDB/PlugIns/"
     EOS
   end
 
   test do
     lldb_out = pipe_output "lldb", <<~EOS
-      plugin load #{opt_prefix/shared_library("llnode")}
+      plugin load #{llnode_so}
       help v8
       quit
     EOS
     assert_match "v8 bt", lldb_out
+
+    llnode_out = pipe_output bin/"llnode", <<~EOS
+      help v8
+      quit
+    EOS
+    assert_match "v8 bt", llnode_out
   end
 end
