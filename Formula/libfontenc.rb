@@ -4,6 +4,7 @@ class Libfontenc < Formula
   url "https://xorg.freedesktop.org/archive/individual/lib/libfontenc-1.1.6.tar.gz"
   sha256 "c103543a47ce5c0200fb1867f32df5e754a7c3ef575bf1fe72187117eac22a53"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "1702ab755edeefdc9cf36a96083102cad9f031db459d5d520013ba5e3d3a7d57"
