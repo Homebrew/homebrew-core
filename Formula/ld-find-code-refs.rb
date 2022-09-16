@@ -28,7 +28,8 @@ class LdFindCodeRefs < Formula
     system "git", "add", "README", ".gitignore"
     system "git", "commit", "-m", "Initial commit"
 
-    assert_match "git branch: master",
-      shell_output(bin/"ld-find-code-refs --dryRun --ignoreServiceErrors -t=xx -p=test -r=test -d=.")
+    assert_match "could not retrieve flag key",
+      shell_output(bin/"ld-find-code-refs --dryRun " \
+                      "--ignoreServiceErrors -t=xx -p=test -r=test -d=. 2>&1", 1)
   end
 end
