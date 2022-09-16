@@ -3,10 +3,9 @@ class Pgcli < Formula
 
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/f8/2a/f23f103e28b32fe005862441c461c9b0022cb1dd4f7b248dd983440628d5/pgcli-3.4.1.tar.gz"
-  sha256 "f03930187e27d60df658ca8a04fb601ec5d7476c735f2b1542c6adec5cac8fe2"
+  url "https://files.pythonhosted.org/packages/a7/2c/5ec926b4ef08c23126875e29923bb803f2aee56d597aa248d429385d2887/pgcli-3.5.0.tar.gz"
+  sha256 "cc448d95159fc0903d36182992778a096eda5752d660d47671383c8e2bf633f1"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "42f3418781082af3e55990a78522ae32f2e79d3215bc9aa554b6354680221b10"
@@ -30,8 +29,8 @@ class Pgcli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
-    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
+    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
+    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "configobj" do
@@ -45,23 +44,23 @@ class Pgcli < Formula
   end
 
   resource "pgspecial" do
-    url "https://files.pythonhosted.org/packages/5e/eb/a5fe6dd01ededd9eb9a6400fd9a2bfa1e67a6c3f1f8cdb974d5a933d55c1/pgspecial-1.13.1.tar.gz"
-    sha256 "d5dab96690908275916dc2c622efae217f142e08165fa366949d41cbc5658701"
+    url "https://files.pythonhosted.org/packages/64/4d/e135172d93a1870897dbc01483f12b80c7f251ee08b583ec11a4b5888a08/pgspecial-2.0.1.tar.gz"
+    sha256 "64443bbc9ad09b57d0f4dcbb38eff44d52853b7418c9ea52f5857abe1bb534ec"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/37/34/c34c376882305c5051ed7f086daf07e68563d284015839bfb74d6e61d402/prompt_toolkit-3.0.28.tar.gz"
-    sha256 "9f1cd16b1e86c2968f2519d7fb31dd9d669916f515612c269d14e9ed52b51650"
+    url "https://files.pythonhosted.org/packages/80/76/c94cf323ca362dd7baca8d8ddf3b5fe1576848bc0156522ad581c04f8446/prompt_toolkit-3.0.31.tar.gz"
+    sha256 "9ada952c9d1787f52ff6d5f3484d0b4df8952787c087edf6a1f7c2cb1ea88148"
   end
 
-  resource "psycopg2" do
-    url "https://files.pythonhosted.org/packages/d1/1e/b450599a27b1809bccbd4e369f397cb18dc56b875778d961f9ae180b54b7/psycopg2-2.9.3.tar.gz"
-    sha256 "8e841d1bf3434da985cc5ef13e6f75c8981ced601fd70cc6bf33351b91562981"
+  resource "psycopg" do
+    url "https://files.pythonhosted.org/packages/3e/9b/2af032b1befdfdb8c9af1cf9e88cf1b3ad54b03d0135af3f60e421e6befc/psycopg-3.1.1.tar.gz"
+    sha256 "3ee0af9cf944d9579441c15702835a949788b5a57894823f0a916c2598c96f40"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
-    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
+    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
+    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "python-dateutil" do
@@ -75,13 +74,18 @@ class Pgcli < Formula
   end
 
   resource "setproctitle" do
-    url "https://files.pythonhosted.org/packages/a1/7f/a1d4f4c7b66f0fc02f35dc5c85f45a8b4e4a7988357a29e61c14e725ef86/setproctitle-1.2.2.tar.gz"
-    sha256 "7dfb472c8852403d34007e01d6e3c68c57eb66433fb8a5c77b13b89a160d97df"
+    url "https://files.pythonhosted.org/packages/b5/47/ac709629ddb9779fee29b7d10ae9580f60a4b37e49bce72360ddf9a79cdc/setproctitle-1.3.2.tar.gz"
+    sha256 "b9fb97907c830d260fa0658ed58afd48a86b2b88aac521135c352ff7fd3477fd"
   end
 
   resource "sqlparse" do
     url "https://files.pythonhosted.org/packages/32/fe/8a8575debfd924c8160295686a7ea661107fc34d831429cce212b6442edb/sqlparse-0.4.2.tar.gz"
     sha256 "0c00730c74263a94e5a9919ade150dfc3b19c574389985446148402998287dae"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/9e/1d/d128169ff58c501059330f1ad96ed62b79114a2eb30b8238af63a2e27f70/typing_extensions-4.3.0.tar.gz"
+    sha256 "e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"
   end
 
   resource "wcwidth" do
@@ -92,12 +96,19 @@ class Pgcli < Formula
   def install
     venv = virtualenv_create(libexec, "python3.10")
 
-    resource("pytzdata").stage do
-      system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
-      venv.pip_install Dir["dist/pytzdata-*.whl"].first
+    resource("psycopg").stage do
+      inreplace "psycopg/pq/_pq_ctypes.py", "libname = find_libpq_full_path()",
+                                            "libname = '#{Formula["libpq"].opt_lib/shared_library("libpq")}'"
+      venv.pip_install Pathname.pwd
     end
 
-    venv.pip_install resources.reject { |r| r.name == "pytzdata" }
+    resource("pytzdata").stage do
+      system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
+      venv.pip_install Pathname.glob("dist/pytzdata-*.whl").first
+    end
+
+    skip = %w[psycopg pytzdata]
+    venv.pip_install resources.reject { |r| skip.include? r.name }
     venv.pip_install_and_link buildpath
   end
 
