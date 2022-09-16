@@ -24,15 +24,23 @@ class Yamcha < Formula
 
   depends_on "tinysvm"
 
+  on_arm do
+    # Added automake as a build dependency to update config files for ARM support.
+    depends_on "automake" => :build
+  end
+
   # Fix build failure because of missing #include <cstring>/"stdlib.h" on Linux.
   # Patch submitted to author by email.
   patch :DATA
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    if Hardware::CPU.arm?
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
+    system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
   end
 
