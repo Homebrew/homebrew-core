@@ -1,8 +1,8 @@
 class Xpipe < Formula
   desc "Split input and feed it into the given utility"
   homepage "https://www.netmeister.org/apps/xpipe.html"
-  url "https://www.netmeister.org/apps/xpipe-1.0.tar.gz"
-  sha256 "6f15286f81720c23f1714d6f4999d388d29f67b6ac6cef427a43563322fb6dc1"
+  url "https://www.netmeister.org/apps/xpipe-2.1.tar.gz"
+  sha256 "0d0656a738fcec16dc01e5a6a62e9d9e00016ea750bc5f972ee077022dd04715"
   license "BSD-2-Clause"
 
   livecheck do
@@ -19,7 +19,12 @@ class Xpipe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1fb6f5f72fbbd4ff9ded0038aaa143230461f90292521cbf63df97c8d050fd2"
   end
 
+  on_linux do
+    depends_on "libbsd"
+  end
+
   def install
+    inreplace "Makefile", "${PREFIX}/include/bsd", "#{Formula["libbsd"].opt_include}/bsd"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
