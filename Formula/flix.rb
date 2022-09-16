@@ -33,6 +33,6 @@ class Flix < Formula
   test do
     system bin/"flix", "init"
     assert_match "Hello World!", shell_output("#{bin/"flix"} run")
-    assert_match "Tests Passed!", shell_output("#{bin/"flix"} test")
+    assert_match "Running 1 tests...", shell_output("#{bin/"flix"} test")
   end
 end
