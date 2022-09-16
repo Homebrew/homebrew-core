@@ -29,27 +29,27 @@ class Pyqt < Formula
     sha256 "6d87a3ee5872d7511b76957d68a32109352caf3b7a42a01d9ee20032b350d979"
   end
 
-  resource "3d" do
+  resource "PyQt6-3D" do
     url "https://files.pythonhosted.org/packages/79/bc/5e2c0919b787eb59346a13b0938ec00ea2223c4b7b882af44f31b8242e55/PyQt6_3D-6.3.0.tar.gz"
     sha256 "fab024b7fb3245d9b463029e0000f46cff95f0bdab603b875fabcaa53d9fe63f"
   end
 
-  resource "charts" do
+  resource "PyQt6-Charts" do
     url "https://files.pythonhosted.org/packages/b9/f7/669fdd84d0bbd18f1a3c01dff3bcdd12f866d01fa212cf05f2ffc06f5efb/PyQt6_Charts-6.3.1.tar.gz"
     sha256 "e6bbb17a3d5503508cb28a7b8f44dfedd659c43ff62adb64182a004fbd968f2f"
   end
 
-  resource "datavis" do
+  resource "PyQt6-DataVisualization" do
     url "https://files.pythonhosted.org/packages/6e/4d/281a11a6b2147167014285142d8dbfba8f8ac8d4de3dc8c8e7c66d152dbb/PyQt6_DataVisualization-6.3.1.tar.gz"
     sha256 "7509f24a84f92d127e17129ec18cb208f96bd3d12a0e4b6f57d57e955527ec34"
   end
 
-  resource "networkauth" do
+  resource "PyQt6-NetworkAuth" do
     url "https://files.pythonhosted.org/packages/3c/75/64bd1f9c9ff50f28e3b5e6938d10b82ee10f9669c1e140ad08b9aec8e7a9/PyQt6_NetworkAuth-6.3.0.tar.gz"
     sha256 "b1434b349e0820649341accf78689e9efd2c73543ed7d5474f660aaea2708454"
   end
 
-  resource "webengine" do
+  resource "PyQt6-WebEngine" do
     url "https://files.pythonhosted.org/packages/90/99/59acbe75fb0ad284945d27e40f68c642850c7a186bfc9cc338c3f638d0dc/PyQt6_WebEngine-6.3.1.tar.gz"
     sha256 "c3d1f5527b4b15f44102d617c59b1d74d9af50f821629e9335f13df47de8f007"
   end
@@ -77,7 +77,7 @@ class Pyqt < Formula
     resources.each do |r|
       next if r.name == "PyQt6-sip"
       # Don't build WebEngineCore bindings on macOS if the SDK is too old to have built qtwebengine in qt.
-      next if r.name == "webengine" && OS.mac? && DevelopmentTools.clang_build_version <= 1200
+      next if r.name == "PyQt6-WebEngine" && OS.mac? && DevelopmentTools.clang_build_version <= 1200
 
       r.stage do
         inreplace "pyproject.toml", "[tool.sip.project]",
