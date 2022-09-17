@@ -22,6 +22,10 @@ class SagittariusScheme < Formula
   uses_from_macos "zlib"
 
   def install
+    # Work around build error on Apple Silicon by forcing little endian.
+    # src/sagittarius/private/sagittariusdefs.h:200:3: error: Failed to detect endian
+    ENV.append_to_cflags "-D_LITTLE_ENDIAN" if OS.mac? && Hardware::CPU.arm?
+
     system "cmake", "-S", ".", "-B", "build", "-DODBC_LIBRARIES=odbc", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
