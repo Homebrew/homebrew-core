@@ -26,7 +26,19 @@ class Sgrep < Formula
 
   uses_from_macos "m4"
 
+  on_arm do
+    # Added automake as a build dependency to update config files for ARM support.
+    depends_on "automake" => :build
+  end
+
   def install
+    if Hardware::CPU.arm?
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--datadir=#{pkgshare}"
