@@ -40,6 +40,7 @@ class Yamcha < Formula
         cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
       end
     end
+    ENV.append "CPPFLAGS", "-std=c++03" if OS.linux?
     system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
   end
