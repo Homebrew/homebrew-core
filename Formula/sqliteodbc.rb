@@ -24,6 +24,11 @@ class Sqliteodbc < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  on_arm do
+    # Added automake as a build dependency to update config files for ARM support.
+    depends_on "automake" => :build
+  end
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
@@ -31,6 +36,13 @@ class Sqliteodbc < Formula
   end
 
   def install
+    if Hardware::CPU.arm?
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
+
     lib.mkdir
     args = ["--with-odbc=#{Formula["unixodbc"].opt_prefix}",
             "--with-sqlite3=#{Formula["sqlite"].opt_prefix}"]
