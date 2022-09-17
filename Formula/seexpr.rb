@@ -24,45 +24,45 @@ class Seexpr < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DUSE_PYTHON=FALSE"
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DUSE_PYTHON=FALSE"
       system "make", "doc"
       system "make", "install"
     end
   end
 
   test do
-    actual_output = shell_output("#{bin}/asciigraph2").lines.map(&:rstrip).join("\n")
+    actual_output = shell_output("#{bin}/asciigraph2 'x^3-8*x'").lines.map(&:rstrip).join("\n")
     expected_output = <<~EOS
-                                    |
-                                    |
-                                    |
-                                    |
-                                   ###
-                                  # |#
-                                 ## |##
-                                 #  | #
-                                ##  | ##
-                                #   |  #
-                               ##   |  ##
-                               #    |   #
-                               #    |   ##
-                   ####       #     |    #       ####
-      #######-----##--###-----#-----|----##-----##--###-----######
-            ######      ##   #      |     #    #      ######
-                         ## ##      |     ## ##
-                          ###       |      ###
-                                    |
-                                    |
-                                    |
-                                    |
-                                    |
-                                    |
-                                    |
-                                    |
-                                    |
-                                    |
-                                    |
-                                    |
+                                    |        #
+                              ##    |        #
+                              ###   |
+                             #  #   |        #
+                             #  ##  |        #
+                             #   #  |        #
+                            ##   #  |        #
+                            #    ## |        #
+                            #     # |        #
+                            #     # |        #
+                            #     # |        #
+                            #      #|       #
+                           #       #|       #
+                           #       #|       #
+      ---------------------#-------##-------#---------------------
+                           #        #       #
+                           #        #       #
+                           #        #       #
+                           #        ##      #
+                           #        |#     #
+                          #         |#     #
+                          #         |#     #
+                          #         |##    #
+                          #         | #    #
+                          #         | #   #
+                          #         | ##  #
+                          #         |  #  #
+                                    |  ###
+                          #         |   ##
+                          #         |
     EOS
 
     assert_equal actual_output, expected_output.rstrip
