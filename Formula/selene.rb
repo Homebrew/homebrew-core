@@ -29,6 +29,7 @@ class Selene < Formula
   end
 
   test do
+    (testpath/"selene.toml").write("std = \"lua52\"")
     (testpath/"test.lua").write("print(1 / 0)")
     assert_match "warning[divide_by_zero]", shell_output("#{bin}/selene #{testpath}/test.lua", 1)
   end
