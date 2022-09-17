@@ -4,6 +4,7 @@ class Gdal < Formula
   url "http://download.osgeo.org/gdal/3.5.2/gdal-3.5.2.tar.xz"
   sha256 "0874dfdeb9ac42e53c37be4184b19350be76f0530e1f4fa8004361635b9030c2"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -150,7 +151,7 @@ class Gdal < Formula
 
     if OS.mac?
       args << "--with-curl=/usr/bin/curl-config"
-      args << "--with-opencl"
+      args << (Hardware::CPU.arm? ? "--without-opencl" : "--with-opencl")
     else
       args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
 
