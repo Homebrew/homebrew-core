@@ -35,6 +35,7 @@ class Wput < Formula
         cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
       end
     end
+    ENV.append_to_cflags "-fcommon" if OS.linux?
     system "./configure", *std_configure_args
     system "make"
     ENV.deparallelize
