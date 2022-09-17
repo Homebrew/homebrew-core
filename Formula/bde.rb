@@ -28,6 +28,14 @@ class Bde < Formula
     sha256 "7d66eb149c7e59021467c386ba5c6149a8923e836c6a61b815651b3cac019a7d"
   end
 
+  # Backport support for Apple Silicon. Remove in the next release
+  patch do
+    on_arm do
+      url "https://github.com/bloomberg/bde/commit/39a52e09c83eec761874be2260b692b715117fae.patch?full_index=1"
+      sha256 "d3721d8a297687ddd2003386845aaa6ec3f8664ab81551b1ef581fe65ad1cb96"
+    end
+  end
+
   def install
     buildpath.install resource("bde-tools")
 
