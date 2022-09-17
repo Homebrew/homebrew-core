@@ -22,16 +22,31 @@ class Seexpr < Formula
   depends_on "doxygen" => :build
   depends_on "libpng"
 
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DUSE_PYTHON=FALSE"
+      args = std_cmake_args + %W[
+        -DCMAKE_INSTALL_RPATH=#{rpath}
+        -DUSE_PYTHON=FALSE
+      ]
+      if OS.linux?
+        args << "-DENABLE_LLVM_BACKEND=FALSE"
+        args << "-DENABLE_QT5=FALSE"
+      end
+      system "cmake", "..", *args
       system "make", "doc"
       system "make", "install"
     end
   end
 
   test do
-    actual_output = shell_output("#{bin}/asciigraph2 'x^3-8*x'").lines.map(&:rstrip).join("\n")
+    actual_output = shell_output("#{bin}/asciiGraph2 'x^3-8*x'").lines.map(&:rstrip).join("\n")
     expected_output = <<~EOS
                                     |        #
                               ##    |        #
