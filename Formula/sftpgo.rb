@@ -1,8 +1,8 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.4/sftpgo_v2.3.4_src_with_deps.tar.xz"
-  sha256 "18184cede2c4b29d801ad6276b9b257ead8ec4070d8683dee72fecb77122e625"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.5/sftpgo_v2.3.5_src_with_deps.tar.xz"
+  sha256 "99dca9e97549124d4238ce53732c396ce54d600b5287d3bc61832bd74a00add4"
   license "AGPL-3.0-only"
 
   bottle do
@@ -17,9 +17,12 @@ class Sftpgo < Formula
   depends_on "go" => :build
 
   def install
+    git_sha = (buildpath/"VERSION.txt").read.lines.second.strip
     ldflags = %W[
       -s -w
       -X github.com/drakkan/sftpgo/v2/util.additionalSharedDataSearchPath=#{opt_pkgshare}
+      -X github.com/drakkan/sftpgo/v2/version.commit=#{git_sha}
+      -X github.com/drakkan/sftpgo/v2/version.date=#{time.iso8601}
     ].join(" ")
     system "go", "build", *std_go_args(ldflags: ldflags)
     system bin/"sftpgo", "gen", "man", "-d", man1
