@@ -96,6 +96,7 @@ class Pgcli < Formula
   def install
     venv = virtualenv_create(libexec, "python3.10")
 
+    # Help `psycopg` find our `libpq`, which is keg-only so its attempt to use `pg_config --libdir` fails
     resource("psycopg").stage do
       inreplace "psycopg/pq/_pq_ctypes.py", "libname = find_libpq_full_path()",
                                             "libname = '#{Formula["libpq"].opt_lib/shared_library("libpq")}'"
