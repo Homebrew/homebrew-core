@@ -16,23 +16,26 @@ class Box2d < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "doctest" => :test
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DBOX2D_BUILD_UNIT_TESTS=OFF
       -DBOX2D_BUILD_TESTBED=OFF
       -DBOX2D_BUILD_EXAMPLES=OFF
     ]
 
-    system "cmake", ".", *args
+    system "cmake", ".", *args, *std_cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
-    pkgshare.install "unit-test/hello_world.cpp", "unit-test/doctest.h"
+    pkgshare.install "unit-test/hello_world.cpp"
   end
 
   test do
-    system ENV.cxx, pkgshare/"hello_world.cpp", "-L#{lib}", "-lbox2d",
-      "-std=c++11", "-o", testpath/"test"
+    system ENV.cxx, pkgshare/"hello_world.cpp",
+                    "-I#{Formula["doctest"].opt_include}/doctest",
+                    "-L#{lib}", "-lbox2d",
+                    "-std=c++11", "-o", testpath/"test"
     assert_match "[doctest] Status: SUCCESS!", shell_output("./test")
   end
 end
