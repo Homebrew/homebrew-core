@@ -39,6 +39,7 @@ class Seexpr < Formula
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "doc"
     system "cmake", "--install", "build"
   end
 
