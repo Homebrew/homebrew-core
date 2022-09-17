@@ -25,6 +25,11 @@ class X8664LinuxGnuBinutils < Formula
     keg_only "it conflicts with `binutils`"
   end
 
+  resource "homebrew-sysroot" do
+    url "https://commondatastorage.googleapis.com/chrome-linux-sysroot/toolchain/2028cdaf24259d23adcff95393b8cc4f0eef714b/debian_bullseye_amd64_sysroot.tar.xz"
+    sha256 "1be60e7c456abc590a613c64fab4eac7632c81ec6f22734a61b53669a4407346"
+  end
+
   def install
     ENV.cxx11
 
@@ -54,10 +59,20 @@ class X8664LinuxGnuBinutils < Formula
     assert_match "f()", shell_output("#{bin}/x86_64-linux-gnu-c++filt _Z1fv")
     return if OS.linux?
 
+    (testpath/"sysroot").install resource("homebrew-sysroot")
     (testpath/"hello.c").write <<~EOS
-      void hello() {}
+      #include <stdio.h>
+      int main() { printf("hello!\\n"); }
     EOS
-    system ENV.cc, "--target=x86_64-pc-linux-gnu", "-c", "hello.c"
-    assert_match "hello", shell_output("#{bin}/x86_64-linux-gnu-nm hello.o")
+
+    ENV.remove_macosxsdk
+    system ENV.cc, "-v", "--target=x86_64-pc-linux-gnu", "--sysroot=#{testpath}/sysroot", "-c", "hello.c"
+    assert_match "main", shell_output("#{bin}/x86_64-linux-gnu-nm hello.o")
+
+    system ENV.cc, "-v", "--target=x86_64-pc-linux-gnu", "--sysroot=#{testpath}/sysroot",
+                   "-fuse-ld=#{bin}/x86_64-linux-gnu-ld", "hello.o", "-o", "hello"
+    assert_match "ELF", shell_output("file ./hello")
+    assert_match "libc.so", shell_output("#{bin}/x86_64-linux-gnu-readelf -d ./hello")
+    system bin/"x86_64-linux-gnu-strip", "./hello"
   end
 end
