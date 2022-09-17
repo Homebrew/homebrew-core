@@ -1,11 +1,25 @@
 class Rp < Formula
   desc "Tool to find ROP sequences in PE/Elf/Mach-O x86/x64 binaries"
   homepage "https://github.com/0vercl0k/rp"
-  url "https://github.com/0vercl0k/rp/archive/v1.tar.gz"
-  version "1.0"
-  sha256 "3bf69aee23421ffdc5c7fc3ce6c30eb7510640d384ce58f4a820bae02effebe3"
   license "MIT"
   head "https://github.com/0vercl0k/rp.git", branch: "master"
+
+  stable do
+    url "https://github.com/0vercl0k/rp/archive/refs/tags/v2.0.2.tar.gz"
+    sha256 "97aa4c84045f5777951b3d34fdf6e7c9579e46aebb18422c808c537e8b1044da"
+
+    # Add ARM64 support. Remove in the next release.
+    on_arm do
+      patch do
+        url "https://github.com/0vercl0k/rp/commit/da82af33da229dc98da7f7be8b3559c557924273.patch?full_index=1"
+        sha256 "6cd21e38acbb7a4ef15272019634876bdc9c53ca218b4956abda09f9b8b3adc5"
+      end
+      patch do
+        url "https://github.com/0vercl0k/rp/commit/7a2ffb789c0bf8803b31840304bc66768f56e6cf.patch?full_index=1"
+        sha256 "ae63c6e9958fdbd55f4906cd3c53ae47d7fd160182d44fd237b123809bf9cbf0"
+      end
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "470af1a486ea35fe801dbc487a1a0cd1b855fdeffe68532f3b1110efa841f8e2"
@@ -20,34 +34,21 @@ class Rp < Formula
 
   depends_on "cmake" => :build
 
-  # In order to have the same binary name in 32 and 64 bits.
-  patch :DATA
-
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-    end
+    system "cmake", "-S", "src", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+
     os = OS.mac? ? "osx" : "lin"
-    bin.install "bin/rp-#{os}"
+    rp = buildpath.glob("build/rp-#{os}-*").first
+    bin.install rp
+    bin.install_symlink bin/rp.basename => "rp-#{os}"
+  end
+
+  test do
+    os = OS.mac? ? "osx" : "lin"
+    rp = bin/"rp-#{os}"
+    output = shell_output("#{rp} --file #{rp} --rop=1 --unique")
+    assert_match "FileFormat: #{OS.mac? ? "Mach-o" : "Elf"}", output
+    assert_match(/\d+ unique gadgets found/, output)
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 79d576b..34c2afa 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -36,12 +36,10 @@ set(RP_NAME "${RP_NAME}-${RP_PLAT}")
-
- if(CMAKE_SIZEOF_VOID_P EQUAL 8 AND NOT(optX86BUILD))
-     set(FLAG_CXX "-m64")
--    set(RP_NAME "${RP_NAME}-x64")
-     set(BEA_LIBRARY "BeaEngine.x64.${RP_PLAT}.${EXTENSION_LIBRARY}")
-     set(ARGTABLE_LIBRARY "argtable2.x64.${RP_PLAT}.${EXTENSION_LIBRARY}")
- else()
-     set(FLAG_CXX "-m32")
--    set(RP_NAME "${RP_NAME}-x86")
-     set(BEA_LIBRARY "BeaEngine.x86.${RP_PLAT}.${EXTENSION_LIBRARY}")
-     set(ARGTABLE_LIBRARY "argtable2.x86.${RP_PLAT}.${EXTENSION_LIBRARY}")
- endif(CMAKE_SIZEOF_VOID_P EQUAL 8 AND NOT(optX86BUILD))
