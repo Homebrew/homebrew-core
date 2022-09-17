@@ -30,19 +30,17 @@ class Seexpr < Formula
   end
 
   def install
-    mkdir "build" do
-      args = std_cmake_args + %W[
-        -DCMAKE_INSTALL_RPATH=#{rpath}
-        -DUSE_PYTHON=FALSE
-      ]
-      if OS.linux?
-        args << "-DENABLE_LLVM_BACKEND=FALSE"
-        args << "-DENABLE_QT5=FALSE"
-      end
-      system "cmake", "..", *args
-      system "make", "doc"
-      system "make", "install"
-    end
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DUSE_PYTHON=FALSE
+      -DENABLE_LLVM_BACKEND=FALSE
+      -DENABLE_QT5=FALSE
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "test"
+    system "cmake", "--install", "build"
   end
 
   test do
