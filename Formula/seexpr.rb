@@ -30,16 +30,15 @@ class Seexpr < Formula
   end
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DUSE_PYTHON=FALSE
       -DENABLE_LLVM_BACKEND=FALSE
       -DENABLE_QT5=FALSE
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
-    system "cmake", "--build", "build", "--target", "test"
     system "cmake", "--install", "build"
   end
 
