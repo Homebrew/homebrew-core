@@ -18,6 +18,14 @@ class Ssdb < Formula
   depends_on "autoconf" => :build
 
   def install
+    # Avoid building the bundled leveldb with `-msse4.2 -DLEVELDB_PLATFORM_POSIX_SSE`
+    # in order to work around an Apple Silicon build error on SSE code:
+    # port/port_posix_sse.cc:58:3: error: use of undeclared identifier '__get_cpuid'
+    # TODO: Remove when bundled leveldb is updated or build allows linking system library
+    if Hardware::CPU.arm?
+      inreplace "deps/leveldb-1.20/build_detect_platform", /(PLATFORM_SSEFLAGS=)"-msse4\.2"$/, "\\1"
+    end
+
     inreplace "tools/ssdb-cli", /^DIR=.*$/, "DIR=#{prefix}"
 
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
