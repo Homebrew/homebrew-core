@@ -21,6 +21,8 @@ class AflFuzz < Formula
     sha256 x86_64_linux: "f5d1ccfa91754283abf27bc096aeb33ac130dfab750b9e3547cb59a584c5b6c7"
   end
 
+  deprecate! date: "2022-09-17", because: :repo_archived
+
   def install
     system "make", "PREFIX=#{prefix}", "AFL_NO_X86=1"
     system "make", "install", "PREFIX=#{prefix}", "AFL_NO_X86=1"
