@@ -29,7 +29,6 @@ class Openj9 < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on arch: :x86_64 # https://github.com/eclipse-openj9/openj9/issues/11164
   depends_on "fontconfig"
   depends_on "giflib"
   depends_on "harfbuzz"
@@ -61,10 +60,17 @@ class Openj9 < Formula
   end
 
   # From https://github.com/eclipse-openj9/openj9/blob/openj9-#{version}/doc/build-instructions/
+  # We use JDK 17 to bootstrap on Apple Silicon since there is no JDK 16 prebuilt.
   resource "boot-jdk" do
     on_macos do
-      url "https://github.com/AdoptOpenJDK/semeru16-binaries/releases/download/jdk-16.0.2%2B7_openj9-0.27.0/ibm-semeru-open-jdk_x64_mac_16.0.2_7_openj9-0.27.0.tar.gz"
-      sha256 "89e807261145243a358a2a626f64340944c03622f34eaa35429053e2085d7aef"
+      on_arm do
+        url "https://github.com/AdoptOpenJDK/semeru17-binaries/releases/download/jdk-17.0.4.1%2B1_openj9-0.33.1/ibm-semeru-open-jdk_aarch64_mac_17.0.4.1_1_openj9-0.33.1.tar.gz"
+        sha256 "50e4c324e7ffcf18c2e3ea7b1bfa870672203dab3fe61520c09fb2bdbe81f2c0"
+      end
+      on_intel do
+        url "https://github.com/AdoptOpenJDK/semeru16-binaries/releases/download/jdk-16.0.2%2B7_openj9-0.27.0/ibm-semeru-open-jdk_x64_mac_16.0.2_7_openj9-0.27.0.tar.gz"
+        sha256 "89e807261145243a358a2a626f64340944c03622f34eaa35429053e2085d7aef"
+      end
     end
     on_linux do
       url "https://github.com/AdoptOpenJDK/semeru16-binaries/releases/download/jdk-16.0.2%2B7_openj9-0.27.0/ibm-semeru-open-jdk_x64_linux_16.0.2_7_openj9-0.27.0.tar.gz"
@@ -137,6 +143,9 @@ class Openj9 < Formula
         --with-fontconfig=#{Formula["fontconfig"].opt_prefix}
       ]
     end
+    # Ref: https://github.com/eclipse-openj9/openj9/issues/13767
+    # TODO: Remove once compressed refs mode is supported on Apple Silicon
+    config_args << "--with-noncompressedrefs" if OS.mac? && Hardware::CPU.arm?
 
     ENV["CMAKE_CONFIG_TYPE"] = "Release"
 
