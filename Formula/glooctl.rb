@@ -28,6 +28,8 @@ class Glooctl < Formula
   def install
     system "make", "glooctl", "VERSION=v#{version}"
     bin.install "_output/glooctl"
+
+    generate_completions_from_executable(bin/"glooctl", "completion", shells: [:bash, :zsh])
   end
 
   test do
@@ -36,8 +38,6 @@ class Glooctl < Formula
 
     version_output = shell_output("#{bin}/glooctl version 2>&1")
     assert_match "Client: {\"version\":\"v#{version}\"}", version_output
-
-    version_output = shell_output("#{bin}/glooctl version 2>&1")
     assert_match "Server: version undefined", version_output
 
     # Should error out as it needs access to a Kubernetes cluster to operate correctly
