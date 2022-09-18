@@ -3,8 +3,8 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/d4/1a/a518411edbe28df377b2f4aca4be61b86b52f625592c3c5bfd68f25f4131/copier-6.1.0.tar.gz"
-  sha256 "d3b399285763e97a1c3c49cbc7e0d3b3cea2f05b680f652ff58d59a5b59f3a3c"
+  url "https://files.pythonhosted.org/packages/f7/f5/a8a9a43efaf030c25b579ddcdab7bf051a6df8b5d3f801111dc02cd48d8a/copier-6.2.0.tar.gz"
+  sha256 "792c66ed1a6eddd85690ba12035fdbf087a65b18c8b07c2527e3581296e29649"
   license "MIT"
 
   bottle do
@@ -19,13 +19,13 @@ class Copier < Formula
   depends_on "python@3.10"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
-    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
+    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
   end
 
   resource "dunamai" do
-    url "https://files.pythonhosted.org/packages/e6/4b/57276a5edd2ddbd89f00d08ee78419f6c6432a3090125cb41d472d5155c8/dunamai-1.12.0.tar.gz"
-    sha256 "fac4f09e2b8a105bd01f8c50450fea5aa489a6c439c949950a65f0dd388b0d20"
+    url "https://files.pythonhosted.org/packages/2d/e4/d92c4e1ac3115575c9a8d528625adf08ad3a980f8236a34486e49a7ad381/dunamai-1.13.0.tar.gz"
+    sha256 "5bf9e5baaa673b692a9613e4961b18b6d2d9743412f7bbcf4a39c84a979f47e2"
   end
 
   resource "iteration-utilities" do
@@ -39,8 +39,8 @@ class Copier < Formula
   end
 
   resource "jinja2-ansible-filters" do
-    url "https://files.pythonhosted.org/packages/bc/30/2a0e94ff558bea376f48beedfcdaaa2de46fee6c4ae0fd18db94f066f3fe/jinja2-ansible-filters-1.3.1.tar.gz"
-    sha256 "baa04873c2d31a82df67f5a313988630fb713c625d858226314d283f0b12879a"
+    url "https://files.pythonhosted.org/packages/1a/27/fa186af4b246eb869ffca8ffa42d92b05abaec08c99329e74d88b2c46ec7/jinja2-ansible-filters-1.3.2.tar.gz"
+    sha256 "07c10cf44d7073f4f01102ca12d9a2dc31b41d47e4c61ed92ef6a6d2669b356b"
   end
 
   resource "MarkupSafe" do
@@ -54,8 +54,8 @@ class Copier < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/f6/33/436c5cb94e9f8902e59d1d544eb298b83c84b9ec37b5b769c5a0ad6edb19/pathspec-0.9.0.tar.gz"
-    sha256 "e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1"
+    url "https://files.pythonhosted.org/packages/24/9f/a9ae1e6efa11992dba2c4727d94602bd2f6ee5f0dedc29ee2d5d572c20f7/pathspec-0.10.1.tar.gz"
+    sha256 "7ace6161b621d31e7902eb6b5ae148d12cfd23f4a249b9ffb6b9fee12084323d"
   end
 
   resource "plumbum" do
@@ -64,18 +64,18 @@ class Copier < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/59/68/4d80f22e889ea34f20483ae3d4ca3f8d15f15264bcfb75e52b90fb5aefa5/prompt_toolkit-3.0.29.tar.gz"
-    sha256 "bd640f60e8cecd74f0dc249713d433ace2ddc62b65ee07f96d358e0b152b6ea7"
+    url "https://files.pythonhosted.org/packages/80/76/c94cf323ca362dd7baca8d8ddf3b5fe1576848bc0156522ad581c04f8446/prompt_toolkit-3.0.31.tar.gz"
+    sha256 "9ada952c9d1787f52ff6d5f3484d0b4df8952787c087edf6a1f7c2cb1ea88148"
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/d0/a5/e4a25a0becf35530a3d90459a88855743e942f2e502da49ca5b10aa78568/pydantic-1.9.1.tar.gz"
-    sha256 "1ed987c3ff29fff7fd8c3ea3a3ea877ad310aae2ef9889a119e22d3f2db0691a"
+    url "https://files.pythonhosted.org/packages/7d/7d/58dd62f792b002fa28cce4e83cb90f4359809e6d12db86eedf26a752895c/pydantic-1.10.2.tar.gz"
+    sha256 "91b8e218852ef6007c2b98cd861601c6a09f1aa32bbbb74fab5b1c33d4a1e410"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
-    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
+    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
+    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "pyparsing" do
@@ -99,8 +99,8 @@ class Copier < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/fe/71/1df93bd59163c8084d812d166c907639646e8aac72886d563851b966bf18/typing_extensions-4.2.0.tar.gz"
-    sha256 "f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"
+    url "https://files.pythonhosted.org/packages/9e/1d/d128169ff58c501059330f1ad96ed62b79114a2eb30b8238af63a2e27f70/typing_extensions-4.3.0.tar.gz"
+    sha256 "e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"
   end
 
   resource "wcwidth" do
@@ -109,16 +109,7 @@ class Copier < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
-
-    # Handle missing `VERSION` file
-    resource("jinja2-ansible-filters").stage do |r|
-      inreplace "setup.cfg", "version = file: VERSION", "version = #{r.version}"
-      venv.pip_install Pathname.pwd
-    end
-
-    venv.pip_install resources.reject { |r| r.name == "jinja2-ansible-filters" }
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
