@@ -4,7 +4,7 @@ class Freeciv < Formula
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.0/3.0.3/freeciv-3.0.3.tar.xz"
   sha256 "13215adc96be9f2894d5f3a12c78b8ebb9ae06ecdab25fe6bb1794f6e6d2b61b"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -31,7 +31,7 @@ class Freeciv < Formula
 
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "atk"
+  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "freetype"
   depends_on "gdk-pixbuf"
