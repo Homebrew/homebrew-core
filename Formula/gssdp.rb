@@ -21,12 +21,11 @@ class Gssdp < Formula
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "libsoup@2"
+  depends_on "libsoup"
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
-    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
+    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup"].opt_share
 
     system "meson", "setup", "build", "-Dsniffer=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
