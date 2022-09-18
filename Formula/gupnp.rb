@@ -25,13 +25,12 @@ class Gupnp < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gssdp"
-  depends_on "libsoup@2"
+  depends_on "libsoup"
   depends_on "libxml2"
   depends_on "python@3.10"
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
-    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
+    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup"].opt_share
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
@@ -79,7 +78,7 @@ class Gupnp < Formula
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-L#{Formula["glib"].opt_lib}",
            "-lglib-2.0", "-lgobject-2.0",
-           "-I#{Formula["libsoup@2"].opt_include}/libsoup-2.4",
+           "-I#{Formula["libsoup"].opt_include}/libsoup-3.0",
            libxml2, "-o", testpath/"test"
     system "./test"
   end
