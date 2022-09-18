@@ -71,8 +71,10 @@ class JacocoCli < Formula
 
     # Use jacoco-cli to generate xml coverage report
     (testpath/"output").mkpath
-    system bin/"jacoco-cli", "report", testpath/"build/jacoco/test.exec", "--classfiles", testpath/"build/classes/",
-      "--sourcefiles", testpath/"src/main/java/", "--xml", testpath/"output/unitTestCoverage.xml"
+    system bin/"jacoco-cli", "report", testpath/"build/jacoco/test.exec",
+                             "--classfiles", testpath/"build/classes/",
+                             "--sourcefiles", testpath/"src/main/java/",
+                             "--xml", testpath/"output/unitTestCoverage.xml"
 
     # Compare key node in generated xml coverage report with expected value
     assert_match "covered=\"2\"",
