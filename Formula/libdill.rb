@@ -26,6 +26,13 @@ class Libdill < Formula
     depends_on "llvm" => :test
   end
 
+  # Apply upstream commit to fix build with newer GCC.
+  # Remove with next release.
+  patch do
+    url "https://github.com/sustrik/libdill/commit/775bc53e2cf92672cf03cc43019e12948e669c04.patch?full_index=1"
+    sha256 "4002852086909a5572c406f3c629df994d06647690e3db113f2701a42e976413"
+  end
+
   def install
     system "./autogen.sh"
     system "./configure", *std_configure_args, "--disable-silent-rules"
