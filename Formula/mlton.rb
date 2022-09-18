@@ -62,6 +62,7 @@ class Mlton < Formula
       PREFIX=#{prefix}
       MAN_PREFIX_EXTRA=/share
     ]
+    args << "OLD_MLTON_COMPILE_ARGS=-link-opt '-no-pie'" if OS.linux?
     system "make", *(args + ["all"])
     system "make", *(args + ["install"])
   end
