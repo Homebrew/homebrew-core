@@ -1,8 +1,8 @@
 class Dc3dd < Formula
   desc "Patched GNU dd that is intended for forensic acquisition of data"
   homepage "https://sourceforge.net/projects/dc3dd/"
-  url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.zip", using: :nounzip
-  sha256 "c4e325e5cbdae49e3855b0849ea62fed17d553428724745cea53fe6d91fd2b7f"
+  url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.7z"
+  sha256 "d26d5c1eaa413a10dfcdb2525a9fd8135902eb0b0a8f4632529fbebb06430d95"
   revision 2
 
   bottle do
@@ -24,43 +24,43 @@ class Dc3dd < Formula
     sha256 "909d47954697e7c04218f972915b787bd1244d75e3bd01620bc167d5bbc49c15"
   end
 
+  # Apply patch to fix gnulib with newer glibc.
+  # Reported upstream here: https://sourceforge.net/p/dc3dd/bugs/19.
+  patch do
+    url "http://distfiles.lesslinux.org/dc3dd-7.2.646_glibc-2.28-1.patch"
+    sha256 "0c3ef49b7bf4952ed94df1e54495ca1df2f081cba34cd421c14cff267cb9866c"
+  end
+
   def install
-    # Regular zip files created by 7-zip can upset /usr/bin/unzip by reporting a
-    # non-zero size for dirs. Work around this.
-    # Reported 32 Oct 2016 https://sourceforge.net/p/dc3dd/bugs/14/
-    system "unzip dc3dd-#{version}.zip ; true"
-
-    cd "dc3dd-#{version}" do
-      ENV.prepend_create_path "PERL5LIB", buildpath/"gettext-pm/lib/perl5"
-      resource("gettext-pm").stage do
-        inreplace "Makefile.PL", "$libs = \"-lintl\"",
-                                 "$libs = \"-L#{Formula["gettext"].opt_lib} -lintl\""
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/gettext-pm"
-        system "make"
-        system "make", "install"
-      end
-
-      # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
-      # Patch comes from gnulib upstream (see https://sourceforge.net/p/dc3dd/bugs/17/)
-      inreplace "lib/vasnprintf.c",
-                "# if !(__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 3) " \
-                "|| ((defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__))",
-                "# if !(defined __APPLE__ && defined __MACH__)"
-
-      chmod 0555, ["build-aux/install-sh", "configure"]
-
-      args = %W[
-        --disable-debug
-        --disable-dependency-tracking
-        --prefix=#{prefix}
-        --infodir=#{info}
-        gl_cv_func_stpncpy=yes
-      ]
-      system "./configure", *args
+    ENV.prepend_create_path "PERL5LIB", buildpath/"gettext-pm/lib/perl5"
+    resource("gettext-pm").stage do
+      inreplace "Makefile.PL", "$libs = \"-lintl\"",
+                               "$libs = \"-L#{Formula["gettext"].opt_lib} -lintl\""
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/gettext-pm"
       system "make"
       system "make", "install"
-      prefix.install %w[Options_Reference.txt Sample_Commands.txt]
     end
+
+    # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
+    # Patch comes from gnulib upstream (see https://sourceforge.net/p/dc3dd/bugs/17/)
+    inreplace "lib/vasnprintf.c",
+              "# if !(__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 3) " \
+              "|| ((defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__))",
+              "# if !(defined __APPLE__ && defined __MACH__)"
+
+    chmod 0555, ["build-aux/install-sh", "configure"]
+
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --infodir=#{info}
+      gl_cv_func_stpncpy=yes
+    ]
+    system "./configure", *args
+    system "make"
+    system "make", "install"
+    prefix.install %w[Options_Reference.txt Sample_Commands.txt]
   end
 
   test do
