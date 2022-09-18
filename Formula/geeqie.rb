@@ -4,7 +4,7 @@ class Geeqie < Formula
   url "https://github.com/BestImageViewer/geeqie/releases/download/v1.7.3/geeqie-1.7.3.tar.xz"
   sha256 "25b1f71cf91bd9a96f399d2a9e70507e54bb377a56e64d89521c0f7a9ce5dd38"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -25,7 +25,7 @@ class Geeqie < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "atk"
+  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "exiv2"
   depends_on "gdk-pixbuf"
