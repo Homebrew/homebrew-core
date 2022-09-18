@@ -3,10 +3,9 @@ class Gupnp < Formula
 
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/1.4/gupnp-1.4.3.tar.xz"
-  sha256 "14eda777934da2df743d072489933bd9811332b7b5bf41626b8032efb28b33ba"
+  url "https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.0.tar.xz"
+  sha256 "32c49dae4778cd3ef8fd9a60f6375e9c87768eee6c3c05b33d8a79f91e08bdcb"
   license "LGPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "20a8225bd3f69fb56b37b09260e43699ac2ca88529178593c09b3b0ac6a05516"
