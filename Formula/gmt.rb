@@ -5,6 +5,7 @@ class Gmt < Formula
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.4.0-src.tar.xz"
   sha256 "b46effe59cf96f50c6ef6b031863310d819e63b2ed1aa873f94d70c619490672"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/GenericMappingTools/gmt.git", branch: "master"
 
   bottle do
@@ -39,28 +40,27 @@ class Gmt < Formula
     (buildpath/"dcw").install resource("dcw")
 
     # GMT_DOCDIR and GMT_MANDIR must be relative paths
-    args = std_cmake_args.concat %W[
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
+    args = %W[
       -DGMT_DOCDIR=share/doc/gmt
       -DGMT_MANDIR=share/man
       -DGSHHG_ROOT=#{buildpath}/gshhg
       -DCOPY_GSHHG:BOOL=TRUE
       -DDCW_ROOT=#{buildpath}/dcw
       -DCOPY_DCW:BOOL=TRUE
+      -DPCRE_ROOT=FALSE
       -DFFTW3_ROOT=#{Formula["fftw"].opt_prefix}
       -DGDAL_ROOT=#{Formula["gdal"].opt_prefix}
       -DNETCDF_ROOT=#{Formula["netcdf"].opt_prefix}
-      -DPCRE_ROOT=#{Formula["pcre2"].opt_prefix}
+      -DPCRE2_ROOT=#{Formula["pcre2"].opt_prefix}
       -DFLOCK:BOOL=TRUE
       -DGMT_INSTALL_MODULE_LINKS:BOOL=FALSE
       -DGMT_INSTALL_TRADITIONAL_FOLDERNAMES:BOOL=FALSE
       -DLICENSE_RESTRICTED:BOOL=FALSE
     ]
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     inreplace bin/"gmt-config", Superenv.shims_path/ENV.cc, DevelopmentTools.locate(ENV.cc)
   end
 
