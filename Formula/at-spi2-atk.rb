@@ -9,6 +9,8 @@ class AtSpi2Atk < Formula
     sha256 x86_64_linux: "f68be9dbb59804bc1f6de1615def3c73bf3b7d994e94844e521806cd5331686d"
   end
 
+  deprecate! date: "2022-09-18", because: "merged into at-spi2-core"
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
