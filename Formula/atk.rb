@@ -14,11 +14,15 @@ class Atk < Formula
     sha256               x86_64_linux:   "4ffb42482b22fe9150193395fc3fc0a41d1f92e3a8c0aa7e9dd17aaef8ff6f7c"
   end
 
+  deprecate! date: "2022-09-18", because: "merged into at-spi2-core"
+
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
+
+  conflicts_with "at-spi2-core", because: "both install `atk` toolkit"
 
   def install
     mkdir "build" do
