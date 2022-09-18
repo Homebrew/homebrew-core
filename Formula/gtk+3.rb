@@ -4,6 +4,7 @@ class Gtkx3 < Formula
   url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.34.tar.xz"
   sha256 "dbc69f90ddc821b8d1441f00374dc1da4323a2eafa9078e61edbe5eeefa852ec"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,7 @@ class Gtkx3 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "atk"
+  depends_on "at-spi2-core"
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gsettings-desktop-schemas"
