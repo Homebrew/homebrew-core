@@ -322,7 +322,9 @@ class Qt < Formula
         delete handler; handler = nullptr;
         auto *root = new Qt3DCore::QEntity();
         delete root; root = nullptr;
+        #ifdef __APPLE__
         Q_ASSERT(QSqlDatabase::isDriverAvailable("QSQLITE"));
+        #endif
         const auto &list = QImageReader::supportedImageFormats();
         for(const char* fmt:{"bmp", "cur", "gif",
           #ifdef __APPLE__
