@@ -38,6 +38,9 @@ class Gtkx < Formula
     depends_on "libtool" => :build
   end
 
+  # https://blog.gtk.org/2020/12/16/gtk-4-0/
+  deprecate! date: "2022-09-18", because: :unmaintained
+
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "atk"
