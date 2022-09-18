@@ -21,11 +21,11 @@ class Hyperestraier < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "67da1265df5336838e42f563b8b90041d83d848739bf7972950de444cef78650"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "qdbm"
 
   def install
-    system "./configure", "--disable-debug", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking"
+    system "./configure", *std_configure_args
     if OS.mac?
       system "make", "mac"
       system "make", "check-mac"
