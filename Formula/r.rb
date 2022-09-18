@@ -4,7 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.2.1.tar.gz"
   sha256 "4d52db486d27848e54613d4ee977ad952ec08ce17807e1b525b10cd4436c643f"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -46,6 +46,11 @@ class R < Formula
 
   # needed to preserve executable permissions on files without shebangs
   skip_clean "lib/R/bin", "lib/R/doc"
+
+  fails_with :gcc do
+    version "11"
+    cause "Unknown. FIXME."
+  end
 
   def install
     # BLAS detection fails with Xcode 12 due to missing prototype
