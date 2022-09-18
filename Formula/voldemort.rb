@@ -18,6 +18,9 @@ class Voldemort < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "c9b88175b71d839d1afe3d4a3407f982f14f31194065f87bbaff8dbc33198e0b"
   end
 
+  # https://github.com/voldemort/voldemort/issues/500#issuecomment-931424229
+  deprecate! date: "2022-09-17", because: :unmaintained
+
   depends_on "gradle" => :build
   depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
@@ -31,6 +34,7 @@ class Voldemort < Formula
     (etc/"voldemort").mkpath
 
     env = Language::Java.overridable_java_home_env("1.8")
+    env["PATH"] = "$JAVA_HOME/bin:$PATH"
     env["VOLDEMORT_HOME"] = libexec
     env["VOLDEMORT_CONFIG_DIR"] = etc/"voldemort"
     bin.env_script_all_files(libexec/"bin", env)
