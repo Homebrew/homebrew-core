@@ -27,7 +27,7 @@ class R < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "openblas"
-  depends_on "pcre2"
+  depends_on "pcre"
   depends_on "readline"
   depends_on "tcl-tk"
   depends_on "xz"
