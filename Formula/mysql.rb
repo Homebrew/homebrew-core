@@ -150,7 +150,7 @@ class Mysql < Formula
       MySQL is configured to only allow connections from localhost by default
 
       To connect run:
-          mysql -uroot
+          mysql -u root
     EOS
     if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
       s += <<~EOS
