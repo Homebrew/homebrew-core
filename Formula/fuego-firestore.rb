@@ -1,8 +1,8 @@
 class FuegoFirestore < Formula
   desc "Command-line client for the Firestore database"
   homepage "https://github.com/sgarciac/fuego"
-  url "https://github.com/sgarciac/fuego/archive/refs/tags/0.31.1.tar.gz"
-  sha256 "4657ba2854a28d3cf58c0818c2088b650979cfd3cb5c1dd3be4669b88b1cd870"
+  url "https://github.com/sgarciac/fuego/archive/refs/tags/0.32.0.tar.gz"
+  sha256 "ed16bcdef7e3463fbd12bd5daba80b36401ed0ea2ea4acc699eecde3d91b17fd"
   license "GPL-3.0-only"
 
   depends_on "go" => :build
