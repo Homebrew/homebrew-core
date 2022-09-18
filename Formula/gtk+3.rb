@@ -38,7 +38,6 @@ class Gtkx3 < Formula
 
   on_linux do
     depends_on "cmake" => :build
-    depends_on "at-spi2-atk"
     depends_on "cairo"
     depends_on "iso-codes"
     depends_on "libxkbcommon"
