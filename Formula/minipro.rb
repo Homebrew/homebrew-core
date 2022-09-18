@@ -10,8 +10,8 @@ class Minipro < Formula
 
     # Fix version number, remove in next release
     patch do
-      url "https://gitlab.com/DavidGriffith/minipro/-/commit/6b0074466ea5e2c2664362b5fcba4bc8b0172a44.patch?full_index=1"
-      sha256 "de30aa74a3ebf511801a3c75898f5b4ce78c9d786507bcffa11650425725fd77"
+      url "https://gitlab.com/DavidGriffith/minipro/-/commit/6b0074466ea5e2c2664362b5fcba4bc8b0172a44.diff"
+      sha256 "a71e107701ff17d1731c3aa57868a822106b0fe1f808f40a88cfbe236faed289"
     end
   end
 
