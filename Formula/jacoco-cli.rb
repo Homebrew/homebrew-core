@@ -77,9 +77,10 @@ class JacocoCli < Formula
                              "--xml", testpath/"output/unitTestCoverage.xml"
 
     # Compare key node in generated xml coverage report with expected value
-    assert_match "covered=\"2\"",
-      shell_output("xmllint --xpath \
-        '/report/package/sourcefile[@name=\"SimpleAddition.java\"]/counter[@type=\"LINE\"]/@covered' \
-         #{testpath}/output/unitTestCoverage.xml")
+    args = %W[
+      --xpath /report/package/sourcefile[@name="SimpleAddition.java"]/counter[@type="LINE"]/@covered
+      #{testpath}/output/unitTestCoverage.xml
+    ]
+    assert_match 'covered="2"', shell_output("xmllint #{args.join(" ")}")
   end
 end
