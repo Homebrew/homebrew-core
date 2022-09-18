@@ -34,7 +34,7 @@ class Dc3dd < Formula
       ENV.prepend_create_path "PERL5LIB", buildpath/"gettext-pm/lib/perl5"
       resource("gettext-pm").stage do
         inreplace "Makefile.PL", "$libs = \"-lintl\"",
-                                 "$libs = \"-L/usr/local/opt/gettext/lib -lintl\""
+                                 "$libs = \"-L#{Formula["gettext"].opt_lib} -lintl\""
         system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/gettext-pm"
         system "make"
         system "make", "install"
