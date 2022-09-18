@@ -5,7 +5,7 @@ class Glooctl < Formula
   # no longer marked as "Pre-release" before creating a PR for a new version.
   url "https://github.com/solo-io/gloo.git",
       tag:      "v1.12.19",
-      revision: "3fb00e34b9c0ed7c8420851fc17c16275d9b40cd"
+      revision: "2ae44e598d479753ff31ec488b52552586622b0b"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git", branch: "master"
 
