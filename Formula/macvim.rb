@@ -2,9 +2,9 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-173.tar.gz"
-  version "9.0.0065"
-  sha256 "2b9208fa7d201aa1a5b1ac8f7ebba6d75f37cbfbaaae3b55b81d27c80eb50785"
+  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-174.tar.gz"
+  version "9.0.472"
+  sha256 "9481eeca43cfc0a7cf0604088c4b536f274821adb62b0daefada978aa7f4c41b"
   license "Vim"
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
