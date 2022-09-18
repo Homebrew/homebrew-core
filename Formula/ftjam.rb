@@ -24,11 +24,24 @@ class Ftjam < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "03bc2f284df267e0e2f669480b142ae11c5bf15066eebc0dc7de69c42e116d41"
   end
 
+  deprecate! date: "2022-09-18", because: :unmaintained
+
   uses_from_macos "bison" => :build
+
+  on_arm do
+    # Added automake as a build dependency to update config files for ARM support.
+    depends_on "automake" => :build
+  end
 
   conflicts_with "jam", because: "both install a `jam` binary"
 
   def install
+    if Hardware::CPU.arm?
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, "builds/unix/#{fn}"
+      end
+    end
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
