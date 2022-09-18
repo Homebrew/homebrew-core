@@ -4,6 +4,7 @@ class Atkmm < Formula
   url "https://download.gnome.org/sources/atkmm/2.36/atkmm-2.36.2.tar.xz"
   sha256 "6f62dd99f746985e573605937577ccfc944368f606a71ca46342d70e1cdae079"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -18,7 +19,7 @@ class Atkmm < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "atk"
+  depends_on "at-spi2-core"
   depends_on "glibmm"
 
   fails_with gcc: "5"
