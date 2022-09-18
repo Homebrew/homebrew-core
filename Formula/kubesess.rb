@@ -1,8 +1,8 @@
 class Kubesess < Formula
   desc "Manage multiple kubernetes cluster at the same time"
   homepage "https://rentarami.se/posts/2022-08-05-kube-context-2/"
-  url "https://github.com/Ramilito/kubesess/archive/refs/tags/1.2.6.tar.gz"
-  sha256 "a801b5e2b25a613954c948223fade30b5cae1abe7c7df6e9d7294efd86f0db16"
+  url "https://github.com/Ramilito/kubesess/archive/refs/tags/1.2.8.tar.gz"
+  sha256 "e6402843c670d7a77e02cde2c89985e6cc1dc97c266161a19b2d906505555e46"
   license "MIT"
 
   bottle do
