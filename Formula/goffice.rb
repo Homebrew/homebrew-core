@@ -2,6 +2,7 @@ class Goffice < Formula
   desc "Gnumeric spreadsheet program"
   homepage "https://gitlab.gnome.org/GNOME/goffice"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.52.tar.xz"
@@ -33,7 +34,7 @@ class Goffice < Formula
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "atk"
+  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "gettext"
