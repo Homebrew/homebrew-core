@@ -4,6 +4,7 @@ class GupnpTools < Formula
   url "https://download.gnome.org/sources/gupnp-tools/0.10/gupnp-tools-0.10.3.tar.xz"
   sha256 "457f4d923935b078415cd2ba88d78db60079b725926b7ee106e4565efe3204de"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "4a8eeaa71391a753f942f64f84a8f025b513e0252c773f7e819516323dfa7be9"
@@ -22,18 +23,16 @@ class GupnpTools < Formula
   depends_on "gtksourceview4"
   depends_on "gupnp"
   depends_on "gupnp-av"
-  depends_on "libsoup@2"
+  depends_on "libsoup"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
-    system "#{bin}/gupnp-universal-cp", "-h"
-    system "#{bin}/gupnp-av-cp", "-h"
+    system bin/"gupnp-universal-cp", "-h"
+    system bin/"gupnp-av-cp", "-h"
   end
 end
