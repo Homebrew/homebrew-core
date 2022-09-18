@@ -4,6 +4,7 @@ class AtkmmAT228 < Formula
   url "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.3.tar.xz"
   sha256 "7c2088b486a909be8da2b18304e56c5f90884d1343c8da7367ea5cd3258b9969"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,7 +23,7 @@ class AtkmmAT228 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "atk"
+  depends_on "at-spi2-core"
   depends_on "glibmm@2.66"
 
   def install
