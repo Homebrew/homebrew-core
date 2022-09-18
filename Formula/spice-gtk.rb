@@ -6,7 +6,7 @@ class SpiceGtk < Formula
   url "https://www.spice-space.org/download/gtk/spice-gtk-0.41.tar.xz"
   sha256 "d8f8b5cbea9184702eeb8cc276a67d72acdb6e36e7c73349fb8445e5bca0969f"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
@@ -32,7 +32,7 @@ class SpiceGtk < Formula
   depends_on "six" => :build
   depends_on "vala" => :build
 
-  depends_on "atk"
+  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "gettext"
