@@ -2,6 +2,7 @@ class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
   license "LGPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz"
@@ -40,7 +41,7 @@ class Gtkx < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "atk"
+  depends_on "at-spi2-core"
   depends_on "gdk-pixbuf"
   depends_on "hicolor-icon-theme"
   depends_on "pango"
