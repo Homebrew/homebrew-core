@@ -15,15 +15,25 @@ class Montage < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:  "503c3e946aa0d8f277b5e4a5aab75086d5c895551fa679a3129183b95f89b236"
   end
 
-  conflicts_with "wdiff", because: "both install an `mdiff` executable"
-  
-  depends_on "bzip2"
   depends_on "cfitsio"
   depends_on "freetype"
-  depends_on "jpeg-8b"
+  depends_on "jpeg-turbo"
+
+  uses_from_macos "bzip2"
+
+  conflicts_with "wdiff", because: "both install an `mdiff` executable"
 
   def install
-    rm_rf "lib/src"
+    # Avoid building bundled libraries
+    libs = %w[bzip2 cfitsio freetype jpeg]
+    buildpath.glob("lib/src/{#{libs.join(",")}}*").map(&:rmtree)
+    inreplace "lib/src/Makefile", /^[ \t]*\(cd (?:#{libs.join("|")}).*\)$/, ""
+    inreplace "MontageLib/Makefile", %r{^.*/lib/src/(?:#{libs.join("|")}).*$\n}, ""
+    inreplace "MontageLib/Viewer/Makefile.#{OS.kernel_name.upcase}",
+              "-I../../lib/freetype/include/freetype2",
+              "-I#{Formula["freetype"].opt_include}/freetype2"
+
+    ENV.deparallelize # Build requires targets to be built in specific order
     system "make"
     bin.install Dir["bin/m*"]
   end
