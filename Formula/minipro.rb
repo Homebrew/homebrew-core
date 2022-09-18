@@ -1,10 +1,19 @@
 class Minipro < Formula
   desc "Open controller for the MiniPRO TL866xx series of chip programmers"
   homepage "https://gitlab.com/DavidGriffith/minipro/"
-  url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.6/minipro-0.6.tar.gz"
-  sha256 "16b4220b5fc07dddc4d1d49cc181a2c6a735c833cc27f24ab73eac2572c9304a"
   license "GPL-3.0-or-later"
   head "https://gitlab.com/DavidGriffith/minipro.git", branch: "master"
+
+  stable do
+    url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.6/minipro-0.6.tar.gz"
+    sha256 "16b4220b5fc07dddc4d1d49cc181a2c6a735c833cc27f24ab73eac2572c9304a"
+
+    # Fix version number, remove in next release
+    patch do
+      url "https://gitlab.com/DavidGriffith/minipro/-/commit/6b0074466ea5e2c2664362b5fcba4bc8b0172a44.patch?full_index=1"
+      sha256 "de30aa74a3ebf511801a3c75898f5b4ce78c9d786507bcffa11650425725fd77"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -29,8 +38,6 @@ class Minipro < Formula
   test do
     output_minipro = shell_output("#{bin}/minipro 2>&1", 1)
     assert_match "minipro version #{version}", output_minipro
-    output_miniprohex = shell_output("#{bin}/miniprohex 2>&1", 1)
-    assert_match "miniprohex by Al Williams", output_miniprohex
 
     output_minipro_read_nonexistent = shell_output("#{bin}/minipro -p \"ST21C325@DIP7\" -b 2>&1", 1)
     if output_minipro_read_nonexistent.exclude?("Device ST21C325@DIP7 not found!") &&
