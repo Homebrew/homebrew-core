@@ -23,6 +23,8 @@ class AtSpi2Core < Formula
   depends_on :linux
   depends_on "xorgproto"
 
+  conflicts_with "atk", because: "both install `atk` toolkit"
+
   def install
     ENV.refurbish_args
 
