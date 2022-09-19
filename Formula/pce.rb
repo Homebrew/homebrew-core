@@ -3,7 +3,7 @@ class Pce < Formula
   homepage "http://www.hampa.ch/pce/"
   url "http://www.hampa.ch/pub/pce/pce-0.2.2.tar.gz"
   sha256 "a8c0560fcbf0cc154c8f5012186f3d3952afdbd144b419124c09a56f9baab999"
-  revision 2
+  revision 3
   head "git://git.hampa.ch/pce.git", branch: "master"
 
   bottle do
@@ -19,7 +19,7 @@ class Pce < Formula
   end
 
   depends_on "readline"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   on_high_sierra :or_newer do
     depends_on "nasm" => :build
