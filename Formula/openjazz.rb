@@ -4,6 +4,7 @@ class Openjazz < Formula
   url "https://github.com/AlisterT/openjazz/archive/20190106.tar.gz"
   sha256 "27da3ab32cb6b806502a213c435e1b3b6ecebb9f099592f71caf6574135b1662"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/AlisterT/openjazz.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class Openjazz < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "libmodplug"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   uses_from_macos "zlib"
 
