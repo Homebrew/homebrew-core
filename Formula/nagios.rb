@@ -82,10 +82,10 @@ class Nagios < Formula
     (var/"lib/nagios/rw").mkpath
 
     config = etc/"nagios/nagios.cfg"
-    return unless File.exist?(config)
-    return if File.read(config).include?(ENV["USER"])
+    return unless config.exist?
+    return if config.read.include?("nagios_user=#{ENV["USER"]}")
 
-    inreplace config, "brew", ENV["USER"]
+    inreplace config, /^nagios_user=.*/, "nagios_user=#{ENV["USER"]}"
   end
 
   def caveats
