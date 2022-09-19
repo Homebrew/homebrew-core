@@ -4,6 +4,7 @@ class Abuse < Formula
   url "http://abuse.zoy.org/raw-attachment/wiki/download/abuse-0.8.tar.gz"
   sha256 "0104db5fd2695c9518583783f7aaa7e5c0355e27c5a803840a05aef97f9d3488"
   license all_of: [:public_domain, "GPL-2.0-or-later", "WTFPL"]
+  revision 1
   head "svn://svn.zoy.org/abuse/abuse/trunk"
 
   livecheck do
@@ -29,7 +30,7 @@ class Abuse < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libvorbis"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "sdl_mixer"
 
   on_linux do
@@ -71,7 +72,7 @@ class Abuse < Formula
                           "--prefix=#{prefix}",
                           "--disable-sdltest",
                           "--with-assetdir=#{pkgshare}",
-                          "--with-sdl-prefix=#{Formula["sdl"].opt_prefix}"
+                          "--with-sdl-prefix=#{Formula["sdl12-compat"].opt_prefix}"
 
     if OS.mac?
       # Use Framework OpenGL, not libGl
