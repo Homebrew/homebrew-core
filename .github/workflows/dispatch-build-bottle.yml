@@ -41,26 +41,38 @@ jobs:
         with:
           script: |
             const intelMacOSRegex = /^\d+(?:\.\d+)?$/;
+            const linuxRegex = /^(ubuntu-|linux-self-hosted-)/;
             return context.payload.inputs.runner.split(",")
                                                 .map(s => s.trim())
                                                 .filter(Boolean)
                                                 .map(s => {
               if (intelMacOSRegex.test(s)) // Ephemeral runners
-                return `${s}-${context.runId}-${process.env.GITHUB_RUN_ATTEMPT}`
+                return {runner: `${s}-${context.runId}-${process.env.GITHUB_RUN_ATTEMPT}`};
+              else if (linuxRegex.test(s))
+                return {
+                  runner:    s,
+                  container: {
+                    image:   "ghcr.io/homebrew/ubuntu22.04:master",
+                    options: "--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"
+                  },
+                  workdir:   "/github/home"
+                };
               else
-                return s
+                return {runner: s};
             });
 
   bottle:
     needs: prepare
     strategy:
       matrix:
-        runner: ${{fromJson(needs.prepare.outputs.runners)}}
+        include: ${{fromJson(needs.prepare.outputs.runners)}}
     runs-on: ${{matrix.runner}}
+    container: ${{matrix.container}}
     timeout-minutes: ${{fromJson(github.event.inputs.timeout)}}
     defaults:
       run:
         shell: /bin/bash -e {0}
+        working-directory: ${{matrix.workdir || github.workspace}}
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -80,57 +92,19 @@ jobs:
         run: |
           echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
 
-      - name: Run Docker container
-        if: runner.os == 'Linux'
-        env:
-          TAP_PATH: /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
-        run: |
-          docker run \
-            --detach \
-            --user linuxbrew \
-            --name ${{github.sha}} \
-            --env-file <(env | egrep 'HOMEBREW|GITHUB') \
-            --workdir /tmp/bottles \
-            --pull always \
-            ghcr.io/homebrew/ubuntu22.04:master \
-            sleep inf
-          # Fix working directory permissions
-          docker exec --user root ${{github.sha}} chmod 777 /tmp/bottles
-
-          docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-url origin ${{github.event.repository.html_url}}
-          docker exec --workdir "$TAP_PATH" ${{github.sha}} git fetch origin ${{github.sha}} '+refs/heads/*:refs/remotes/origin/*'
-          docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-head origin --auto
-          docker exec --workdir "$TAP_PATH" ${{github.sha}} git checkout --force -B master FETCH_HEAD
-
       - name: Set up Homebrew
         id: set-up-homebrew
-        if: runner.os == 'macOS'
         uses: Homebrew/actions/setup-homebrew@master
 
-      - if: runner.os == 'macOS'
-        run: brew test-bot --only-cleanup-before
+      - run: brew test-bot --only-cleanup-before
 
-      - name: Run brew test-bot --only-setup
-        run: |
-          if [ "$RUNNER_OS" = 'macOS' ]; then
-            brew test-bot --only-setup
-          else
-            docker exec ${{github.sha}} brew test-bot --only-setup
-          fi
+      - run: brew test-bot --only-setup
 
       - name: Run brew test-bot --only-formulae --keep-old --only-json-tab --skip-online-checks --skip-dependents ${{github.event.inputs.formula}}
         run: |
-          if [ "$RUNNER_OS" = 'macOS' ]; then
-            mkdir bottles
-            cd bottles
-            brew test-bot --only-formulae --keep-old --only-json-tab --skip-online-checks --skip-dependents ${{github.event.inputs.formula}}
-          else
-            docker exec ${{github.sha}} brew test-bot --only-formulae --keep-old --only-json-tab --skip-online-checks --skip-dependents ${{github.event.inputs.formula}}
-          fi
-
-      - name: Copy bottles from container
-        if: always() && runner.os == 'Linux'
-        run: docker cp ${{github.sha}}:/tmp/bottles .
+          mkdir bottles
+          cd bottles
+          brew test-bot --only-formulae --keep-old --only-json-tab --skip-online-checks --skip-dependents ${{github.event.inputs.formula}}
 
       - name: Failures summary for brew test-bot --only-formulae
         if: always()
@@ -158,10 +132,10 @@ jobs:
 
       - name: Upload logs
         if: always()
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v3
         with:
-          name: logs
-          path: bottles/logs
+          name: logs-${{ matrix.runner }}
+          path: ${{matrix.workdir || github.workspace}}/bottles/logs
 
       - name: Delete logs and home
         if: always()
@@ -183,10 +157,10 @@ jobs:
 
       - name: Upload failed bottles
         if: always() && steps.bottles.outputs.failures > 0
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v3
         with:
           name: bottles-${{ matrix.runner }}
-          path: bottles/failed
+          path: ${{matrix.workdir || github.workspace}}/bottles/failed
 
       # Must be run before the `Upload bottles` step so that failed
       # bottles are not included in the `bottles` artifact.
@@ -194,21 +168,17 @@ jobs:
         if: always()
         run: rm -rvf bottles/failed
 
-      - name: Upload bottles to GitHub Actions
+      - name: Upload bottles
         if: always() && steps.bottles.outputs.count > 0
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v3
         with:
           name: bottles
-          path: bottles
+          path: ${{matrix.workdir || github.workspace}}/bottles
 
       - name: Post cleanup
         if: always()
         run: |
-          if [ "$RUNNER_OS" = 'Linux' ]; then
-            docker rm -f ${{github.sha}}
-          else
-            brew test-bot --only-cleanup-after
-          fi
+          brew test-bot --only-cleanup-after
           rm -rvf bottles
 
       - name: Post comment on failure
@@ -232,7 +202,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Download bottles from GitHub Actions
-        uses: actions/download-artifact@main
+        uses: actions/download-artifact@v3
         with:
           name: bottles
           path: ~/bottles/
