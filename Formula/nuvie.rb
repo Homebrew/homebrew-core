@@ -4,6 +4,7 @@ class Nuvie < Formula
   url "https://downloads.sourceforge.net/project/nuvie/Nuvie/0.5/nuvie-0.5.tgz"
   sha256 "ff026f6d569d006d9fe954f44fdf0c2276dbf129b0fc5c0d4ef8dce01f0fc257"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -23,7 +24,7 @@ class Nuvie < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   def install
     inreplace "./nuvie.cpp" do |s|
