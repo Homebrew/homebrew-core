@@ -1,7 +1,7 @@
 class SdlTtf < Formula
   desc "Library for using TrueType fonts in SDL applications"
   homepage "https://www.libsdl.org/projects/SDL_ttf/release-1.2.html"
-  revision 1
+  revision 2
 
   stable do
     url "https://www.libsdl.org/projects/SDL_ttf/release/SDL_ttf-2.0.11.tar.gz"
@@ -42,17 +42,14 @@ class SdlTtf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   def install
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
     inreplace "SDL_ttf.pc.in", "@prefix@", HOMEBREW_PREFIX
 
     system "./autogen.sh" if build.head?
-
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-sdltest"
+    system "./configure", *std_configure_args, "--disable-sdltest"
     system "make", "install"
   end
 end
