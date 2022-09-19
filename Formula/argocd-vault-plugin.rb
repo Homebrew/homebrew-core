@@ -2,8 +2,8 @@ class ArgocdVaultPlugin < Formula
   desc "Argo CD plugin to retrieve secrets from Secret Management tools"
   homepage "https://argocd-vault-plugin.readthedocs.io"
   url "https://github.com/argoproj-labs/argocd-vault-plugin.git",
-      tag:      "v1.12.0",
-      revision: "9c7288a5b2d395fea19c1100f2cd07b547cc1ee2"
+      tag:      "v1.13.0",
+      revision: "6866b7206719e9b5b2ea4d7cb870e18f76534637"
   license "Apache-2.0"
 
   bottle do
