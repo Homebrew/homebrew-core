@@ -4,6 +4,7 @@ class Xsw < Formula
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/xsw/xsw-0.3.5.tar.gz"
   sha256 "d7f86047716d9c4d7b2d98543952d59ce871c7d11c63653f2e21a90bcd7a6085"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "4d2182fe5decfd5b2675e6715b8731676412d33ee8cde600f8c521f34ab44d15"
@@ -18,7 +19,7 @@ class Xsw < Formula
     sha256 x86_64_linux:   "94274156a1fbb7c7c13a36ed0ededbad7cca62427ff73c7b8450ff2f7d8ecc99"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "sdl_gfx"
   depends_on "sdl_image"
   depends_on "sdl_ttf"
