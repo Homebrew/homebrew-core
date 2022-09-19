@@ -5,6 +5,7 @@ class Libagg < Formula
   url "https://ftp.osuosl.org/pub/blfs/8.0/a/agg-2.5.tar.gz"
   sha256 "ab1edc54cc32ba51a62ff120d501eecd55fceeedf869b9354e7e13812289911f"
   license "GPL-2.0"
+  revision 1
 
   # The homepage for this formula is a copy of the original and was created
   # after the original was discontinued. There will be no further releases of
@@ -33,7 +34,7 @@ class Libagg < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   # Fix build with clang; last release was in 2006
   patch :DATA
