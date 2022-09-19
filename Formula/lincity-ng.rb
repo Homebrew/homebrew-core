@@ -4,7 +4,7 @@ class LincityNg < Formula
   url "https://github.com/lincity-ng/lincity-ng/archive/lincity-ng-2.0.tar.gz"
   sha256 "e05a2c1e1d682fbf289caecd0ea46ca84b0db9de43c7f1b5add08f0fdbf1456b"
   license "GPL-2.0"
-  revision 2
+  revision 3
   head "https://github.com/lincity-ng/lincity-ng.git", branch: "master"
 
   bottle do
@@ -23,7 +23,7 @@ class LincityNg < Formula
   depends_on "jam" => :build
   depends_on "pkg-config" => :build
   depends_on "physfs"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "sdl_gfx"
   depends_on "sdl_image"
   depends_on "sdl_mixer"
