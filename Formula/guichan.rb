@@ -3,6 +3,7 @@ class Guichan < Formula
   homepage "https://guichan.sourceforge.io/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/guichan/guichan-0.8.2.tar.gz"
   sha256 "eedf206eae5201eaae027b133226d0793ab9a287bfd74c5f82c7681e3684eeab"
+  revision 1
 
   bottle do
     rebuild 1
@@ -176,7 +177,7 @@ class Guichan < Formula
 
     flags = [
       "-I#{HOMEBREW_PREFIX}/include/SDL",
-      "-L#{Formula["sdl"].opt_lib}",
+      "-L#{Formula["sdl12-compat"].opt_lib}",
       "-L#{Formula["sdl_image"].opt_lib}",
       "-lSDL", "-lSDLmain", "-lSDL_image",
       "-L#{lib}", "-lguichan", "-lguichan_sdl"
