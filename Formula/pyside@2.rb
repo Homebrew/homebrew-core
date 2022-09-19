@@ -56,6 +56,12 @@ class PysideAT2 < Formula
       inreplace "sources/pyside2/cmake/Macros/PySideModules.cmake",
                 "--include-paths=${shiboken_include_dirs}",
                 "--include-paths=${shiboken_include_dirs}:#{extra_include_dirs.join(":")}"
+
+      # Avoid shim reference.
+      inreplace "sources/shiboken2/ApiExtractor/CMakeLists.txt",
+                "${CMAKE_CXX_COMPILER}",
+                "/usr/bin/c++"
+
       # Add rpath to qt@5 because it is keg-only.
       [lib, Formula["qt@5"].opt_lib]
     end
