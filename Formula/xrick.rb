@@ -5,6 +5,7 @@ class Xrick < Formula
   # There is a repo at https://github.com/zpqrtbnk/xrick but it is organized
   # differently than the tarball
   sha256 "aa8542120bec97a730258027a294bd16196eb8b3d66134483d085f698588fc2b"
+  revision 1
 
   bottle do
     rebuild 2
@@ -17,7 +18,7 @@ class Xrick < Formula
     sha256 x86_64_linux:   "d75168c2036f46eac7dec382ad49aadce2df5253df37f94a5f47a286d3810904"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   uses_from_macos "zlib"
 
