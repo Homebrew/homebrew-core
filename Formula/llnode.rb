@@ -23,7 +23,6 @@ class Llnode < Formula
   end
 
   def install
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.append_path "PATH", Formula["node"].libexec/"lib/node_modules/npm/node_modules/node-gyp/bin"
     inreplace "Makefile", "node-gyp", "node-gyp.js"
 
