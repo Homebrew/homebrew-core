@@ -1,6 +1,7 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
+  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   url "https://github.com/denoland/deno/releases/download/v1.25.3/deno_src.tar.gz"
   sha256 "b20a5a223aae4c654e9a1f5e1c5efd7aed2162d4863e2d3fb7ac271ef3f7d2d8"
   license "MIT"
