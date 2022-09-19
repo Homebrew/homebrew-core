@@ -4,6 +4,7 @@ class NeopopSdl < Formula
   url "https://nih.at/NeoPop-SDL/NeoPop-SDL-0.2.tar.bz2", using: :homebrew_curl
   sha256 "2df1b717faab9e7cb597fab834dc80910280d8abf913aa8b0dcfae90f472352e"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e266df28b76e1da41cb04954d23f5f7fc02f82b852434dd02e0defc9531fbe57"
@@ -32,7 +33,7 @@ class NeopopSdl < Formula
   # Added automake as a build dependency to update config files for ARM support.
   depends_on "automake" => :build
   depends_on "libpng"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "sdl_net"
 
   def install
