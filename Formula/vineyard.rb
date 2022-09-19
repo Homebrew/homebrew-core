@@ -18,6 +18,7 @@ class Vineyard < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.10" => :build
   depends_on "apache-arrow"
   depends_on "boost"
   depends_on "etcd"
@@ -33,30 +34,15 @@ class Vineyard < Formula
 
   fails_with gcc: "5"
 
-  resource "libclang" do
-    url "https://files.pythonhosted.org/packages/ea/ec/94fefe778caa8f2ecf9bb996917535a49b36580846af908b2f38fe6396c9/libclang-14.0.1.tar.gz"
-    sha256 "332e539201b46cd4676bee992bbf4b3e50450fc17f71ff33d4afc9da09cf46cb"
-  end
-
   def install
-    # We install the libclang from pypi for build as the `clang` package
-    # bundled in LLVM cannot find libclang.dylib easily.
-    #
-    # The requirement for libclang python package will be removed once
-    # LLVM been upgrade to 15, see also: Homebrew/homebrew-core#106925
-    venv = virtualenv_create(buildpath/"venv", "python3")
-    venv.pip_install resource("libclang")
-
-    # make libclang.so/libclang.dll findable by clang.cindex.Index.create()
-    ENV["LIBCLANG_LIBRARY_PATH"] = Formula["llvm"].opt_lib
-
-    # link against system libc++ instead of llvm provided libc++
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    python = "python3.10"
+    # LLVM is keg-only.
+    ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/Language::Python.site_packages(python)
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=14",
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
-                    "-DPYTHON_EXECUTABLE=#{buildpath}/venv/bin/python",
+                    "-DPYTHON_EXECUTABLE=#{which(python)}",
                     "-DUSE_EXTERNAL_ETCD_LIBS=ON",
                     "-DUSE_EXTERNAL_TBB_LIBS=ON",
                     "-DUSE_EXTERNAL_NLOHMANN_JSON_LIBS=ON",
