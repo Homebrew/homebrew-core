@@ -3,6 +3,7 @@ class SdlGfx < Formula
   homepage "https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/"
   url "https://www.ferzkopp.net/Software/SDL_gfx-2.0/SDL_gfx-2.0.26.tar.gz"
   sha256 "7ceb4ffb6fc63ffba5f1290572db43d74386cd0781c123bc912da50d34945446"
+  revision 1
 
   livecheck do
     url :homepage
@@ -22,7 +23,7 @@ class SdlGfx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "afc79cf763efc61c743e30cd6593c65676857b812643947abffff3a607a96dc9"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   def install
     extra_args = []
