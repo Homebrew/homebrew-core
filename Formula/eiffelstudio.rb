@@ -31,6 +31,14 @@ class Eiffelstudio < Formula
       system "tar", "cjf", "c.tar.bz2", "C"
     end
 
+    # Use ENV.cc to link shared objects instead of directly invoking ld.
+    if OS.linux?
+      system "tar", "xf", "c.tar.bz2"
+      inreplace "C/CONFIGS/linux-x86-64", "sharedlink='ld'", "sharedlink='#{ENV.cc}'"
+      inreplace "C/CONFIGS/linux-x86-64", "ldflags=\"-m elf_x86_64\"", "ldflags=''"
+      system "tar", "cjf", "c.tar.bz2", "C"
+    end
+
     os = OS.mac? ? "macosx" : OS.kernel_name.downcase
     os_tag = "#{os}-x86-64"
     system "./compile_exes", os_tag
