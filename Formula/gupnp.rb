@@ -41,7 +41,7 @@ class Gupnp < Formula
   end
 
   test do
-    system bin/"gupnp-binding-tool-1.2", "--help"
+    system bin/"gupnp-binding-tool-1.6", "--help"
     (testpath/"test.c").write <<~EOS
       #include <libgupnp/gupnp-control-point.h>
 
@@ -71,9 +71,9 @@ class Gupnp < Formula
       "-I#{Formula["libxml2"].include}/libxml2"
     end
 
-    system ENV.cc, testpath/"test.c", "-I#{include}/gupnp-1.2", "-L#{lib}", "-lgupnp-1.2",
-           "-I#{Formula["gssdp"].opt_include}/gssdp-1.2",
-           "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-1.2",
+    system ENV.cc, testpath/"test.c", "-I#{include}/gupnp-1.6", "-L#{lib}", "-lgupnp-1.6",
+           "-I#{Formula["gssdp"].opt_include}/gssdp-1.6",
+           "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-1.6",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-L#{Formula["glib"].opt_lib}",
