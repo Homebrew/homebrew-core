@@ -4,6 +4,7 @@ class Sz81 < Formula
   url "https://downloads.sourceforge.net/project/sz81/sz81/2.1.7/sz81-2.1.7-source.tar.gz"
   sha256 "4ad530435e37c2cf7261155ec43f1fc9922e00d481cc901b4273f970754144e1"
   license "GPL-2.0"
+  revision 1
   head "https://svn.code.sf.net/p/sz81/code/sz81"
 
   bottle do
@@ -19,7 +20,7 @@ class Sz81 < Formula
     sha256 x86_64_linux:   "a9d7763f36159bd7cbba2ca56357e61de0dc72fe906c2f6e2feb53d9f14a941c"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   def install
     args = %W[
