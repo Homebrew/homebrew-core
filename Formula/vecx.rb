@@ -4,6 +4,7 @@ class Vecx < Formula
   url "https://github.com/jhawthorn/vecx/archive/v1.1.tar.gz"
   sha256 "206ab30db547b9c711438455917b5f1ee96ff87bd025ed8a4bd660f109c8b3fb"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/jhawthorn/vecx.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Vecx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1214cbb429b4a346a039b95f8e383b5c887d109e70fabaf7f741db447414d744"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "sdl_gfx"
   depends_on "sdl_image"
 
