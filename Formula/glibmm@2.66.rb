@@ -1,8 +1,8 @@
 class GlibmmAT266 < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.2.tar.xz"
-  sha256 "b2a4cd7b9ae987794cbb5a1becc10cecb65182b9bb841868625d6bbb123edb1d"
+  url "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.5.tar.xz"
+  sha256 "7b384662dd6ec3b86c0570331d32af05db2bd99a791602b767b4a0b2566ec149"
   license "LGPL-2.1-or-later"
 
   livecheck do
