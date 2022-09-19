@@ -1,8 +1,8 @@
 class Libharu < Formula
   desc "Library for generating PDF files"
   homepage "https://github.com/libharu/libharu"
-  url "https://github.com/libharu/libharu/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "d1c38c0492257c61fb60c85238d500c05184fd8e9e68fecba9cf304ff2d8726d"
+  url "https://github.com/libharu/libharu/archive/refs/tags/v2.4.3.tar.gz"
+  sha256 "a2c3ae4261504a0fda25b09e7babe5df02b21803dd1308fdf105588f7589d255"
   license "Zlib"
   head "https://github.com/libharu/libharu.git", branch: "master"
 
@@ -29,7 +29,7 @@ class Libharu < Formula
     # Build static library
     system "cmake", "-S", ".", "-B", "build-static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
     system "cmake", "--build", "build-static"
-    lib.install "build-static/src/libharu.a"
+    lib.install "build-static/src/libhpdf.a"
   end
 
   test do
@@ -53,7 +53,7 @@ class Libharu < Formula
         return result;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lharu", "-lz", "-lm", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lhpdf", "-lz", "-lm", "-o", "test"
     system "./test"
   end
 end
