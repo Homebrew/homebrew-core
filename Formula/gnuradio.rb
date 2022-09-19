@@ -94,10 +94,6 @@ class Gnuradio < Formula
     sha256 "9815a12e3bf6b83b2e9d8c88335fb3fa0e2b4067d7fbaaed09c3bf26c6206cc7"
   end
 
-  # Fix build with newer GCC
-  # https://github.com/gnuradio/gnuradio/pull/6002.
-  patch :DATA
-
   # Fix build with fmt 9+
   # https://github.com/gnuradio/gnuradio/pull/6053
   patch do
@@ -247,42 +243,3 @@ class Gnuradio < Formula
     system Formula["python@3.10"].opt_bin/"python3.10", testpath/"test.py"
   end
 end
-
-__END__
-diff --git a/gr-qtgui/lib/FrequencyDisplayPlot.cc b/gr-qtgui/lib/FrequencyDisplayPlot.cc
-index f6f673e..2171f26 100644
---- a/gr-qtgui/lib/FrequencyDisplayPlot.cc
-+++ b/gr-qtgui/lib/FrequencyDisplayPlot.cc
-@@ -16,7 +16,7 @@
- #include <gnuradio/qtgui/qtgui_types.h>
- #include <qwt_scale_draw.h>
- #include <QColor>
--
-+#include <cmath>
-
- /***********************************************************************
-  * Widget to provide mouse pointer coordinate text
-diff --git a/gr-qtgui/lib/VectorDisplayPlot.cc b/gr-qtgui/lib/VectorDisplayPlot.cc
-index d5c2ecc..e047437 100644
---- a/gr-qtgui/lib/VectorDisplayPlot.cc
-+++ b/gr-qtgui/lib/VectorDisplayPlot.cc
-@@ -17,6 +17,7 @@
- #include <qwt_legend.h>
- #include <qwt_scale_draw.h>
- #include <QColor>
-+#include <cmath>
-
- #if QWT_VERSION < 0x060100
- #include <qwt_legend_item.h>
-diff --git a/gr-qtgui/lib/WaterfallDisplayPlot.cc b/gr-qtgui/lib/WaterfallDisplayPlot.cc
-index 69d82fd..d1e42e9 100644
---- a/gr-qtgui/lib/WaterfallDisplayPlot.cc
-+++ b/gr-qtgui/lib/WaterfallDisplayPlot.cc
-@@ -19,6 +19,7 @@
- #include <qwt_plot_layout.h>
- #include <qwt_scale_draw.h>
- #include <QColor>
-+#include <cmath>
-
- #if QWT_VERSION < 0x060100
- #include <qwt_legend_item.h>
