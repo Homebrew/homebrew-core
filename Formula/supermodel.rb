@@ -3,6 +3,7 @@ class Supermodel < Formula
   homepage "https://www.supermodel3.com/"
   url "https://www.supermodel3.com/Files/Supermodel_0.2a_Src.zip"
   sha256 "ecaf3e7fc466593e02cbf824b722587d295a7189654acb8206ce433dcff5497b"
+  revision 1
   head "https://svn.code.sf.net/p/model3emu/code/trunk"
 
   livecheck do
@@ -24,7 +25,7 @@ class Supermodel < Formula
     sha256 x86_64_linux:   "b2df7a275879a52bbd6bd875041b0e7634212eec38ebf224e8ef7ae2b153e942"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   uses_from_macos "zlib"
 
@@ -39,7 +40,7 @@ class Supermodel < Formula
       inreplace makefile_dir do |s|
         # Set up SDL library correctly
         s.gsub! "-framework SDL", "`sdl-config --libs`"
-        s.gsub!(/(\$\(COMPILER_FLAGS\))/, "\\1 -I#{Formula["sdl"].opt_prefix}/include")
+        s.gsub!(/(\$\(COMPILER_FLAGS\))/, "\\1 -I#{Formula["sdl12-compat"].opt_prefix}/include")
       end
     else
       makefile_dir = "Makefiles/Makefile.SDL.UNIX.GCC"
