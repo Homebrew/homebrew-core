@@ -1,6 +1,7 @@
 class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
+  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   url "https://github.com/dmlc/xgboost.git",
       tag:      "v1.6.2",
       revision: "b9934246faa9a25e10a12339685dfbe56d56f70b"
