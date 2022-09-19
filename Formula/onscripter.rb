@@ -4,6 +4,7 @@ class Onscripter < Formula
   url "https://onscripter.osdn.jp/onscripter-20220816.tar.gz"
   sha256 "e2bea400a51777e91a10e6a30e2bb4060e30fe7eb1d293c659b4a9668742d5d5"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -22,7 +23,7 @@ class Onscripter < Formula
   depends_on "pkg-config" => :build
   depends_on "jpeg-turbo"
   depends_on "lua"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "sdl_image"
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
