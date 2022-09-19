@@ -3,6 +3,7 @@ class Einstein < Formula
   homepage "https://github.com/lksj/einstein-puzzle"
   url "https://github.com/lksj/einstein-puzzle/archive/refs/tags/v2.1.1.tar.gz"
   sha256 "46cf0806c3792b995343e46bec02426065f66421c870781475d6d365522c10fc"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "40ca9b96841289d975500232b4f60c89359b68d81837231f8fa8f363e13f1c9a"
@@ -13,7 +14,7 @@ class Einstein < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fa7dcdc2fdb1ed00d35a14215d27da414e32d94818c76cc15da63a293371f06"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
 
