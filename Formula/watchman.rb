@@ -4,12 +4,12 @@ class Watchman < Formula
   license "MIT"
 
   stable do
-    url "https://github.com/facebook/watchman/archive/v2022.09.12.00.tar.gz"
-    sha256 "5143afc1641233839356c915b4361a1e097e3a56a326e1024ac2ae3ac419d4c7"
+    url "https://github.com/facebook/watchman/archive/v2022.09.19.00.tar.gz"
+    sha256 "2f85a30434f889222dc10fdb7921b9f0898b0dfcb0dec18cdef224c50834e302"
 
     resource "edencommon" do
-      url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2022.09.12.00.tar.gz"
-      sha256 "68a4376681c09ccf05f982fb74176bbc3de0785ac16fb62f6fb99bde3109cd8b"
+      url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2022.09.19.00.tar.gz"
+      sha256 "66a51e14fceacbf84fd1e0e5ef5499c3b76de6a9125a9ad0e75fb84e830e3201"
     end
   end
 
