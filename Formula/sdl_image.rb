@@ -2,7 +2,7 @@ class SdlImage < Formula
   desc "Image file loading library"
   homepage "https://github.com/libsdl-org/SDL_image"
   license "Zlib"
-  revision 8
+  revision 9
 
   stable do
     url "https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz"
@@ -42,7 +42,7 @@ class SdlImage < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "webp"
 
   def install
