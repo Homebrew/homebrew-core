@@ -2,6 +2,7 @@ class Smpeg < Formula
   desc "SDL MPEG Player Library"
   homepage "https://icculus.org/smpeg/"
   url "svn://svn.icculus.org/smpeg/tags/release_0_4_5/", revision: "399"
+  revision 1
 
   livecheck do
     url "https://svn.icculus.org/smpeg/tags/"
@@ -26,7 +27,7 @@ class Smpeg < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch :DATA
@@ -34,7 +35,7 @@ class Smpeg < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --with-sdl-prefix=#{Formula["sdl"].opt_prefix}
+      --with-sdl-prefix=#{Formula["sdl12-compat"].opt_prefix}
       --disable-dependency-tracking
       --disable-debug
       --disable-gtk-player
