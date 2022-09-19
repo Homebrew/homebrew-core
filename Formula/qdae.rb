@@ -4,7 +4,7 @@ class Qdae < Formula
   url "https://www.seasip.info/Unix/QDAE/qdae-0.0.10.tar.gz"
   sha256 "780752c37c9ec68dd0cd08bd6fe288a1028277e10f74ef405ca200770edb5227"
   license "GPL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -20,7 +20,7 @@ class Qdae < Formula
     sha256 x86_64_linux:   "e89eeee0fb9a7b290003f85e0338ab747c18cbd2724737e20cd742bb3c5634ef"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   uses_from_macos "libxml2"
 
