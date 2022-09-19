@@ -3,6 +3,7 @@ class Dgen < Formula
   homepage "https://dgen.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/dgen/dgen/1.33/dgen-sdl-1.33.tar.gz"
   sha256 "99e2c06017c22873c77f88186ebcc09867244eb6e042c763bb094b02b8def61e"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 monterey:     "56176497529b9b9e348c9f81e8e3eaa35a02a86d8158d6eaf9083d2506b43e90"
@@ -23,7 +24,7 @@ class Dgen < Formula
   end
 
   depends_on "libarchive"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   def install
     args = %W[
