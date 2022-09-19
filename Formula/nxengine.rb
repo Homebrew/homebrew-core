@@ -5,6 +5,7 @@ class Nxengine < Formula
   version "1.0.0.6"
   sha256 "cf9cbf15dfdfdc9936720a714876bb1524afbd2931e3eaa4c89984a40b21ad68"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -17,7 +18,7 @@ class Nxengine < Formula
     sha256 cellar: :any, high_sierra:    "79eece70c7ab5ddb92c8c711a609b996456ff5b7c6c8a008166a351e6889797f"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "sdl_ttf"
 
   # Freeware Cave Story 1.0.0.6 pre-patched with Aeon Genesis English translation
