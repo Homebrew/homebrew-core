@@ -4,6 +4,7 @@ class Pmdmini < Formula
   url "https://github.com/mistydemeo/pmdmini/archive/v1.0.1.tar.gz"
   sha256 "5c866121d58fbea55d9ffc28ec7d48dba916c8e1bed1574453656ef92ee5cea9"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "745674eb2082c84263dc0a96f5c4634aeaf1f66487c2ea03061678c7f00cf356"
@@ -18,7 +19,7 @@ class Pmdmini < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b3b2912d858cab1995fece6ba18b8bb80e111ace5184b322c37a3b0a2821e10"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   resource "test_song" do
     url "https://ftp.modland.com/pub/modules/PMD/Shiori%20Ueno/His%20Name%20Is%20Diamond/dd06.m"
