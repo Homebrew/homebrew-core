@@ -7,7 +7,7 @@ class Got < Formula
 
   livecheck do
     url "https://gameoftrees.org/releases/portable/"
-    regex(/href=.*?got[._-]portable[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?got-portable[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
