@@ -128,7 +128,7 @@ class Pypy3 < Formula
     # so that user-installed Python software survives minor updates, such
     # as going from 1.7.0 to 1.7.1.
 
-    # Create a site-packages in the prefix.
+    # Create a site-packages in HOMEBREW_PREFIX/lib/pypy3/site-packages
     prefix_site_packages.mkpath
 
     # Symlink the prefix site-packages into the cellar.
@@ -143,7 +143,11 @@ class Pypy3 < Formula
 
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do
-        system bin/"pypy3", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
+        system bin/"pypy3", "-s", "setup.py", "--no-user-cfg", "install",
+                            "--force", "--verbose", "--install-scripts=#{bin}",
+                            "--install-lib=#{site_packages}",
+                            "--single-version-externally-managed",
+                            "--record=installed.txt"
       end
     end
 
