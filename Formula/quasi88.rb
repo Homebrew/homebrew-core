@@ -3,6 +3,7 @@ class Quasi88 < Formula
   homepage "https://www.eonet.ne.jp/~showtime/quasi88/"
   url "https://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.6.4.tgz"
   sha256 "2c4329f9f77e02a1e1f23c941be07fbe6e4a32353b5d012531f53b06996881ff"
+  revision 1
 
   livecheck do
     url "https://www.eonet.ne.jp/~showtime/quasi88/download.html"
@@ -22,7 +23,7 @@ class Quasi88 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "96d4f4f49723f1a6309bfa403c2cee367425301794c7da4cc7ffb51f3d802927"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   def install
     args = %W[
