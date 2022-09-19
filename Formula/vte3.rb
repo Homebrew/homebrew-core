@@ -1,6 +1,7 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
+  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   url "https://download.gnome.org/sources/vte/0.68/vte-0.68.0.tar.xz"
   sha256 "13e7d4789ca216a33780030d246c9b13ddbfd04094c6316eea7ff92284dd1749"
   license "LGPL-2.0-or-later"
