@@ -47,10 +47,10 @@ class Gssdp < Formula
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/gssdp-1.2
+      -I#{include}/gssdp-1.6
       -D_REENTRANT
       -L#{lib}
-      -lgssdp-1.2
+      -lgssdp-1.6
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
