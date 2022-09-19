@@ -1,6 +1,7 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
+  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   url "https://github.com/grpc/grpc.git",
       tag:      "v1.49.0",
       revision: "8f8edfd04b46ee67f90454b3f6a70aa58ff82c2d"
