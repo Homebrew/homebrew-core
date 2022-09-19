@@ -3,7 +3,7 @@ class Nagios < Formula
   homepage "https://www.nagios.org/"
   url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.7/nagios-4.4.7.tar.gz"
   sha256 "6429d93cc7db688bc529519a020cad648dc55b5eff7e258994f21c83fbf16c4d"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   revision 1
 
   livecheck do
