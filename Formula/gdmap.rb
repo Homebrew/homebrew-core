@@ -17,6 +17,8 @@ class Gdmap < Formula
     sha256 x86_64_linux:   "89e1c3ad339cc74e03548a784171f218f5d8f7216749ee9c0a8bed3086c5aae1"
   end
 
+  deprecate! date: "2022-09-18", because: :unmaintained
+
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
