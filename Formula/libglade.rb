@@ -18,6 +18,9 @@ class Libglade < Formula
     sha256 x86_64_linux:   "bcdaaabe9019e832d451948a90c49f999d28b576610d4c46ea6bf2594b1fbc66"
   end
 
+  # GNOME repo was also moved to Archive: https://gitlab.gnome.org/Archive/libglade
+  deprecate! date: "2022-09-18", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "gtk+"
   depends_on "libxml2"
