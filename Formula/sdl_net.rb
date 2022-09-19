@@ -3,6 +3,7 @@ class SdlNet < Formula
   homepage "https://www.libsdl.org/projects/SDL_net/release-1.2.html"
   url "https://www.libsdl.org/projects/SDL_net/release/SDL_net-1.2.8.tar.gz"
   sha256 "5f4a7a8bb884f793c278ac3f3713be41980c5eedccecff0260411347714facb4"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "b6f4e4483d738b76aac5414a6cf7a91a3c60353cbaf6f84f4d514cf910e5a99b"
@@ -30,7 +31,7 @@ class SdlNet < Formula
   # deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   def install
     system "./autogen.sh" if build.head?
