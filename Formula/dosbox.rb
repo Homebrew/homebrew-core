@@ -4,6 +4,7 @@ class Dosbox < Formula
   url "https://downloads.sourceforge.net/project/dosbox/dosbox/0.74-3/dosbox-0.74-3.tar.gz"
   sha256 "c0d13dd7ed2ed363b68de615475781e891cd582e8162b5c3669137502222260a"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "17d82e44047546d286b0674ba2acff78432f57f67c72111cf9ad6c0780ec43cb"
@@ -24,7 +25,7 @@ class Dosbox < Formula
   end
 
   depends_on "libpng"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "sdl_net"
   depends_on "sdl_sound"
 
