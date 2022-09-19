@@ -1,10 +1,9 @@
 class DosboxStaging < Formula
   desc "Modernized DOSBox soft-fork"
   homepage "https://dosbox-staging.github.io/"
-  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.78.1.tar.gz"
-  sha256 "dcd93ce27f5f3f31e7022288f7cbbc1f1f6eb7cc7150c2c085eeff8ba76c3690"
+  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.79.0.tar.gz"
+  sha256 "4c45dff631b6edbcec76f88be6e800b373d0303ef66189a6769a5a18fef106f2"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/dosbox-staging/dosbox-staging.git", branch: "main"
 
   # New releases of dosbox-staging are indicated by a GitHub release (and
