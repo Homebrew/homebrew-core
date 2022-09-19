@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/c5/5b/2600ed2ad6da430a08c49343d71ee42a29302507805f634881150ffee573/commitizen-2.33.1.tar.gz"
-  sha256 "b4c032516bd4afc446af5a15bb8a1d5ac1011af4314e3f3ffc5f0fe0363249e4"
+  url "https://files.pythonhosted.org/packages/9c/af/3159946bf8ce7bad5f223c01abde8c289de9a6a383d8647382d4d1539629/commitizen-2.34.0.tar.gz"
+  sha256 "03a27229fa22ae745aee12e6156a8bf0ec40bbad74906f150c6ee523e661c479"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
@@ -22,8 +22,8 @@ class Commitizen < Formula
   depends_on "pyyaml"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz"
-    sha256 "2c7dbffd8c045ea534921e63b0be6fe65e88599990d8dc408ac8c542b72a5445"
+    url "https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz"
+    sha256 "6372ad78c89d662035101418ae253668445b391755cfe94ea52f1b9d22425b20"
   end
 
   resource "charset-normalizer" do
@@ -72,8 +72,8 @@ class Commitizen < Formula
   end
 
   resource "termcolor" do
-    url "https://files.pythonhosted.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz"
-    sha256 "1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"
+    url "https://files.pythonhosted.org/packages/c1/ee/ad1f448e360e4b662fbff9e75cd210b73ad79998ce6483086e9df5b8e7e2/termcolor-2.0.1.tar.gz"
+    sha256 "6b2cf769e93364a2676e1de56a7c0cff2cf5bd07f37e9cc80b0dd6320ebfe388"
   end
 
   resource "tomlkit" do
