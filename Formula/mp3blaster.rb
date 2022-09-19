@@ -4,6 +4,7 @@ class Mp3blaster < Formula
   url "https://downloads.sourceforge.net/project/mp3blaster/mp3blaster/mp3blaster-3.2.6/mp3blaster-3.2.6.tar.gz"
   sha256 "43d9f656367d16aaac163f93dc323e9843c3dd565401567edef3e1e72b9e1ee0"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "fd1f48b5c9a6b564fbc5cd37cf597c7955f50b142ee33e0f074451210b9e40c4"
@@ -18,7 +19,7 @@ class Mp3blaster < Formula
     sha256 x86_64_linux:   "3d3c3a98bbdf2ad483c1dcb5df27963a3a62caa61a29af39e7b6c127e80b848d"
   end
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   uses_from_macos "ncurses"
 
