@@ -39,10 +39,12 @@ class Standardese < Formula
     # Don't build shared libraries to avoid having to manually install and relocate
     # libstandardese, libtiny-process-library, and libcppast. These libraries belong
     # to no install targets and are not used elsewhere.
+    # Disable building test objects because they use an outdated vendored version of catch2.
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=OFF",
                     "-DCMARK_LIBRARY=#{Formula["cmark-gfm"].opt_lib/shared_library("libcmark-gfm")}",
                     "-DCMARK_INCLUDE_DIR=#{Formula["cmark-gfm"].opt_include}",
+                    "-DSTANDARDESE_BUILD_TEST=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
