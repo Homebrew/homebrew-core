@@ -4,6 +4,7 @@ class Sdl12Compat < Formula
   url "https://github.com/libsdl-org/sdl12-compat/archive/refs/tags/release-1.2.56.tar.gz"
   sha256 "f62f3e15f95aade366ee6c03f291e8825c4689390a6be681535259a877259c58"
   license all_of: ["Zlib", "MIT-0"]
+  revision 1
   head "https://github.com/libsdl-org/sdl12-compat.git", branch: "main"
 
   bottle do
@@ -18,8 +19,6 @@ class Sdl12Compat < Formula
   depends_on "cmake" => :build
   depends_on "sdl2"
 
-  conflicts_with "sdl", because: "sdl12-compat is a drop-in replacement for sdl"
-
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DSDL2_PATH=#{Formula["sdl2"].opt_prefix}",
@@ -30,6 +29,10 @@ class Sdl12Compat < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     (lib/"pkgconfig").install_symlink "sdl12_compat.pc" => "sdl.pc"
+
+    # we have to do this because most build scripts assume that all sdl modules
+    # are installed to the same prefix. Consequently SDL stuff cannot be keg-only
+    inreplace [bin/"sdl-config", lib/"pkgconfig/sdl12_compat.pc"], prefix, HOMEBREW_PREFIX
   end
 
   test do
