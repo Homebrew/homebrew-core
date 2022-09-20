@@ -70,7 +70,7 @@ class Arangodb < Formula
     llvm = Formula["llvm@13"] if OS.mac?
     args << "-DCMAKE_C_COMPILER=#{llvm.opt_bin}/clang" if OS.mac?
     args << "-DCMAKE_CXX_COMPILER=#{llvm.opt_bin}/clang++" if OS.mac?
-    args << "-DTARGET_ARCHITECTURE=sandy-bridge" if build.bottle? && Hardware::CPU.intel?
+    args << "-DTARGET_ARCHITECTURE=#{Hardware.oldest_cpu}" if build.bottle? && Hardware::CPU.intel?
 
     ENV["V8_CXXFLAGS"] = "-O3 -g -fno-delete-null-pointer-checks" if ENV.compiler == "gcc-6"
 
