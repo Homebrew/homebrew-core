@@ -4,7 +4,7 @@ class Tldr < Formula
   url "https://github.com/tldr-pages/tldr-c-client/archive/v1.5.0.tar.gz"
   sha256 "8e3f0c3f471896f8cfadbf9000aa8f2eff61fc3d76e25203ddc7640331c2a2af"
   license "MIT"
-  head "https://github.com/tldr-pages/tldr-c-client.git", branch: "master"
+  head "https://github.com/tldr-pages/tldr-c-client.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "3f969a50b717145b7711c699aeff9290e98c43833a9e9d01119fa5c22c87b861"
