@@ -31,6 +31,10 @@ class SwiftFormat < Formula
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/swift-format"
     doc.install "Documentation/Configuration.md"
+    
+    if OS.mac?
+      lib.install ".build/release/lib_InternalSwiftSyntaxParser.dylib"
+    end
   end
 
   test do
