@@ -144,8 +144,8 @@ class Pypy3 < Formula
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do
         system bin/"pypy3", "-s", "setup.py", "--no-user-cfg", "install",
-                            "--force", "--verbose", "--install-scripts=#{bin}",
-                            "--install-lib=#{site_packages}",
+                            "--force", "--verbose", "--install-scripts=#{scripts_folder}",
+                            "--install-lib=#{prefix_site_packages}",
                             "--single-version-externally-managed",
                             "--record=installed.txt"
       end
