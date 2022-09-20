@@ -32,7 +32,7 @@ class Libav < Formula
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opus"
-  depends_on "sdl"
+  depends_on "sdl12-compat"
   depends_on "theora"
   depends_on "x264"
   depends_on "xvid"
