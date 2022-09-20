@@ -37,7 +37,6 @@ class Gitg < Formula
   depends_on "libgit2-glib"
   depends_on "libpeas"
   depends_on "libsecret"
-  depends_on "libsoup@2"
 
   # Apply upstream commit to fix build.  Remove with next release.
   patch do
@@ -47,12 +46,9 @@ class Gitg < Formula
 
   def install
     ENV["DESTDIR"] = "/"
-
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dpython=false", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", *std_meson_args, "build", "-Dpython=false"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   def post_install
@@ -89,7 +85,6 @@ class Gitg < Formula
     libgit2 = Formula["libgit2"]
     libgit2_glib = Formula["libgit2-glib"]
     libpng = Formula["libpng"]
-    libsoup = Formula["libsoup@2"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
     flags = %W[
@@ -112,7 +107,6 @@ class Gitg < Formula
       -I#{libgit2}/include
       -I#{libgit2_glib.opt_include}/libgit2-glib-1.0
       -I#{libpng.opt_include}/libpng16
-      -I#{libsoup.opt_include}/libsoup-2.4
       -I#{pango.opt_include}/pango-1.0
       -I#{pixman.opt_include}/pixman-1
       -DGIT_SSH=1
@@ -127,7 +121,6 @@ class Gitg < Formula
       -L#{libgee.opt_lib}
       -L#{libgit2.opt_lib}
       -L#{libgit2_glib.opt_lib}
-      -L#{libsoup.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
