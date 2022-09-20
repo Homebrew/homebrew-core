@@ -4,6 +4,7 @@ class Openjdk < Formula
   url "https://github.com/openjdk/jdk18u/archive/jdk-18.0.2.1-ga.tar.gz"
   sha256 "06fad73665af281e36e1cc5fb0c8ed5e88e1e821989f1421539cb012065d7722"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
+  revision 1
 
   livecheck do
     url :stable
@@ -40,6 +41,9 @@ class Openjdk < Formula
     depends_on "unzip"
     depends_on "zip"
 
+    # FIXME: This should not be needed because of the `-rpath` flag
+    #        we set in `--with-extra-ldflags`, but this configuration
+    #        does not appear to have made it to the linker.
     ignore_missing_libraries "libjvm.so"
   end
 
@@ -86,10 +90,12 @@ class Openjdk < Formula
       --without-version-pre
     ]
 
+    ldflags = ["-Wl,-rpath,#{loader_path}/server"]
     args += if OS.mac?
+      ldflags << "-headerpad_max_install_names"
+
       %W[
         --enable-dtrace
-        --with-extra-ldflags=-headerpad_max_install_names
         --with-sysroot=#{MacOS.sdk_path}
       ]
     else
@@ -99,6 +105,7 @@ class Openjdk < Formula
         --with-fontconfig=#{HOMEBREW_PREFIX}
       ]
     end
+    args << "--with-extra-ldflags=#{ldflags.join(" ")}"
 
     chmod 0755, "configure"
     system "./configure", *args
