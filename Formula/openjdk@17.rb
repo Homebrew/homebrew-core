@@ -4,6 +4,7 @@ class OpenjdkAT17 < Formula
   url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.4.1-ga.tar.gz"
   sha256 "9b3e2558590fbb06ae4c02355919b1f75af9c696b786b113088ab6630e425824"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
+  revision 1
 
   livecheck do
     url :stable
@@ -39,6 +40,9 @@ class OpenjdkAT17 < Formula
     depends_on "unzip"
     depends_on "zip"
 
+    # FIXME: This should not be needed because of the `-rpath` flag
+    #        we set in `--with-extra-ldflags`, but this configuration
+    #        does not appear to have made it to the linker.
     ignore_missing_libraries "libjvm.so"
   end
 
@@ -85,10 +89,12 @@ class OpenjdkAT17 < Formula
       --without-version-pre
     ]
 
+    ldflags = ["-Wl,-rpath,#{loader_path}/server"]
     args += if OS.mac?
+      ldflags << "-headerpad_max_install_names"
+
       %W[
         --enable-dtrace
-        --with-extra-ldflags=-headerpad_max_install_names
         --with-sysroot=#{MacOS.sdk_path}
       ]
     else
@@ -98,6 +104,7 @@ class OpenjdkAT17 < Formula
         --with-fontconfig=#{HOMEBREW_PREFIX}
       ]
     end
+    args << "--with-extra-ldflags=#{ldflags.join(" ")}"
 
     chmod 0755, "configure"
     system "./configure", *args
