@@ -1,7 +1,7 @@
 class Wrangler < Formula
   desc "Refactoring tool for Erlang with emacs and Eclipse integration"
   homepage "https://www.cs.kent.ac.uk/projects/wrangler/Wrangler/"
-  revision 3
+  revision 4
   head "https://github.com/RefactoringTools/wrangler.git", branch: "master"
 
   stable do
@@ -19,6 +19,12 @@ class Wrangler < Formula
       url "https://github.com/RefactoringTools/wrangler/commit/1149d6150eb92dcfefb91445179e7566952e184f.patch?full_index=1"
       sha256 "e84cba2ead98f47a16d9bb50182bbf3edf3ea27afefa36b78adc5afdf4aeabd5"
     end
+
+    # upstream commit "Update to work with newest OTP"
+    patch do
+      url "https://github.com/RefactoringTools/wrangler/commit/d3d84879b4269759b26d009013edc5bcff49a1af.patch?full_index=1"
+      sha256 "cc37f3042433d2c862f4cd4caa0d5a6b0716bdcb8f4840098ba1b46bca52f24b"
+    end
   end
 
   bottle do
@@ -32,9 +38,13 @@ class Wrangler < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c8a35606fb2501dd17a67ea29bcf606444c84526256e386d4351134869f60f3"
   end
 
-  depends_on "erlang@22"
+  depends_on "erlang"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # suffix_tree.o:(.bss+0x10): multiple definition of `ST_ERROR'; main.o:(.bss+0x0): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
