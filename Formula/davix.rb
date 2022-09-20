@@ -31,6 +31,7 @@ class Davix < Formula
     args = std_cmake_args + %W[
       -DEMBEDDED_LIBCURL=FALSE
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DLIB_SUFFIX=
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args
