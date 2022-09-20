@@ -32,6 +32,7 @@ class Eiffelstudio < Formula
     end
 
     # Use ENV.cc to link shared objects instead of directly invoking ld.
+    # Reported upstream: https://support.eiffel.com/report_detail/19873.
     if OS.linux?
       system "tar", "xf", "c.tar.bz2"
       inreplace "C/CONFIGS/linux-x86-64", "sharedlink='ld'", "sharedlink='#{ENV.cc}'"
