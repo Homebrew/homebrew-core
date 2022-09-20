@@ -24,9 +24,13 @@ class S2n < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "build/shared", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "--build", "build/shared"
+    system "cmake", "--install", "build/shared"
+
+    system "cmake", "-S", ".", "-B", "build/static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "build/static"
+    system "cmake", "--install", "build/static"
   end
 
   test do
