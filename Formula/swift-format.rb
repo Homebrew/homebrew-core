@@ -32,7 +32,7 @@ class SwiftFormat < Formula
     bin.install ".build/release/swift-format"
     doc.install "Documentation/Configuration.md"
 
-    if os.mac?
+    if OS.mac?
       deuniversalize_machos ".build/release/lib_InternalSwiftSyntaxParser.dylib"
       lib.install ".build/release/lib_InternalSwiftSyntaxParser.dylib"
     end
