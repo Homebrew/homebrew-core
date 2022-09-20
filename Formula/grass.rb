@@ -29,11 +29,13 @@ class Grass < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "pdal"
+  depends_on "pillow"
   depends_on "postgresql@14"
   depends_on "proj"
   depends_on "python@3.10"
   depends_on "r"
   depends_on "readline"
+  depends_on "six"
   depends_on "unixodbc"
   depends_on "wxpython"
   depends_on "wxwidgets"
@@ -47,11 +49,6 @@ class Grass < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
-  end
-
-  resource "python-six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "python-matplotlib" do
@@ -69,16 +66,6 @@ class Grass < Formula
     sha256 "63ad2eaf1801c919cbeca60a62c099b330338740c8cc4422717b236f3c8f98a7"
   end
 
-  resource "python-pillow" do
-    url "https://files.pythonhosted.org/packages/8c/92/2975b464d9926dc667020ed1abfa6276e68c3571dcb77e43347e15ee9eed/Pillow-9.2.0.tar.gz"
-    sha256 "75e636fd3e0fb872693f23ccb8a5ff2cd578801251f3a4f6854c6a5d437d3c04"
-  end
-
-  def majmin_ver
-    ver_split = version.to_s.split(".")
-    ver_split[0] + ver_split[1]
-  end
-
   def install
     flags = [
       "--with-cxx",
@@ -87,7 +74,6 @@ class Grass < Formula
       "--with-nls",
       "--with-includes=#{HOMEBREW_PREFIX}/include",
       "--with-libs=#{HOMEBREW_PREFIX}/LIB",
-      # "--with-python=#{libexec}/vendor/bin/python-config",
       "--with-tcltk",
       "--with-netcdf=#{Formula["netcdf"].opt_bin}/nc-config",
       "--with-zstd",
@@ -129,8 +115,6 @@ class Grass < Formula
       "--with-png-includes=#{Formula["libpng"].opt_include}",
       "--with-png-libs=#{Formula["libpng"].opt_lib}",
       "--with-regex",
-      # "--with-regex-includes=#{Formula["regex-opt"].opt_lib}",
-      # "--with-regex-libs=#{Formula["regex-opt"].opt_lib}",
       "--with-fftw",
       "--with-fftw-includes=#{Formula["fftw"].opt_include}",
       "--with-fftw-libs=#{Formula["fftw"].opt_lib}",
@@ -143,14 +127,10 @@ class Grass < Formula
       "--with-postgres",
       "--with-postgres-includes=#{Formula["postgresql"].opt_include}",
       "--with-postgres-libs=#{Formula["postgresql"].opt_lib}",
-      # Error: liblas has been disabled because it is not supported upstream!
-      # "--with-liblas",
-      # "--with-liblas-includes=#{Formula["liblas"].opt_include}",
-      # "--with-liblas-libs=#{Formula["liblas"].opt_lib}",
       "--with-opengl=macosx",
       "--with-opencl",
       "--with-openmp",
-      "--with-openmp-includes=#{Formula["libomp"].opt_include}",
+      "--with-openmp-includes=#{Formula["gcc"].opt_include}",
       "--with-openmp-libs=#{Formula["gcc"].opt_lib}/gcc/current",
       "--enable-macosx-app",
     ]
@@ -167,186 +147,16 @@ class Grass < Formula
     flags << "--with-opencl-includes=#{sdk_frameworkspath}/OpenCL.framework/Versions/Current/Headers"
     flags << "--with-opencl-libs=#{sdk_frameworkspath}/OpenCL.framework/Versions/Current/Headers"
 
-    resource("python-six").stage { system "python", *Language::Python.setup_install_args(libexec/"vendor") }
-
     system "./configure", "--prefix=#{prefix}", *flags
-    # system "./configure", "--prefix=#{env['HOME']}/Applications", *flags
-
-    system "sed", "-ibak", "s|/Library|~/Library|g", "macosx/Makefile"
-
-    system "make", "-j", Hardware::CPU.cores
-    system "make", "-j", Hardware::CPU.cores, "install"
-
-    post_install
-  end
-
-  def post_install
-    grass_macos_app = Dir["#{prefix}/GRASS*.app"][0]
-
-    # # And fix "ValueError: unknown locale: UTF-8"
-    # # if exist: rm "#{bin}/grass#{majmin_ver}"
-    # ToDo: use heredoc
-
-    file = <<~EOS
-      #!/bin/bash
-
-      export LANG=en_US.UTF-8
-      export LC_CTYPE=en_US.UTF-8
-      export LC_ALL=en_US.UTF-8
-
-      app_dir=\"$(cd \"$(dirname \"$0\")/../..\"; pwd -P)\"
-
-      trap \"echo 'User break!' ; exit\" 2 3 9 15
-      export GISBASE=$app_dir/Contents/MacOS
-      grass_ver=$(cut -d . -f 1-2 \"$GISBASE/etc/VERSIONNUMBER\")
-      export GISBASE_USER=\"$HOME/Library/GRASS/$grass_ver\"
-      export GISBASE_SYSTEM=\"/Library/GRASS/$grass_ver\"
-
-      mkdir -p \"$GISBASE_USER/Addons/bin\"
-      mkdir -p \"$GISBASE_USER/Addons/scripts\"
-
-      if [ ! \"$GRASS_ADDON_BASE\" ] ; then
-      GRASS_ADDON_BASE=\"$GISBASE_USER/Addons\"
-      fi
-
-      export GRASS_ADDON_BASE
-
-      mkdir -p \"$GISBASE_USER/Addons/etc\"
-      addpath=\"$GISBASE_USER/Addons/etc:$GISBASE_SYSTEM/Addons/etc\"
-
-      if [ \"$GRASS_ADDON_ETC\" ] ; then
-      GRASS_ADDON_ETC=\"$GRASS_ADDON_ETC:$addpath\"
-      else
-      GRASS_ADDON_ETC=\"$addpath\"
-      fi
-      export GRASS_ADDON_ETC
-
-      mkdir -p \"$GISBASE_USER/Addons/lib\"
-
-      mkdir -p \"$GISBASE_USER/Addons/lib\"
-      mkdir -p \"$GISBASE_USER/Addons/docs/html\"
-
-      \"$app_dir/Contents/MacOS/etc/build_html_user_index.sh\" \"$GISBASE\"
-      \"$app_dir/Contents/MacOS/etc/build_gui_user_menu.sh\"
-
-      if [ ! \"$GRASS_FONT_CAP\" ] ; then
-      GRASS_FONT_CAP=\"$GISBASE_USER/Addons/etc/fontcap\"
-      fi
-      export GRASS_FONT_CAP
-
-      export GDAL_DATA=\"$GISBASE/share/gdal\"
-
-      # set Python
-      export GRASS_PYTHON=\"python3\"
-
-      # Add the GRASS start command
-      export cmd=\"$GRASS_PYTHON $GISBASE/grass --gui $@\"
-
-      # Use AppleScript to open a new terminal window and open GRASS
-      osascript -  \"$cmd\"  <<EOF
-      on run argv -- argv is a list of strings
-      tell application \"Terminal\"
-      if not (exists window 1) then reopen
-      activate
-      do script (item 1 of argv) in window 1
-      end tell
-      end run
-    EOS
-
-    File.write("#{grass_macos_app}/Contents/MacOS/grass.sh", file)
-    chmod("+x", "#{grass_macos_app}/Contents/MacOS/grass.sh")
-
-    config = <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-      <key>CFBundleDevelopmentRegion</key>
-      <string>en</string>
-      <key>CFBundleExecutable</key>
-      <string>grass.sh</string>
-      <key>NSHumanReadableCopyright</key>
-      <string>Copyright © 1999–2022 GRASS Development Team</string>
-      <key>CFBundleIconFile</key>
-      <string>AppIcon</string>
-      <key>CFBundleName</key>
-      <string>GRASS-#{version}</string>
-      <key>CFBundleDisplayName</key>
-      <string>GRASS-#{version}</string>
-      <key>CFBundleIdentifier</key>
-      <string>org.osgeo.grass</string>
-      <key>CFBundleInfoDictionaryVersion</key>
-      <string>6.0</string>
-      <key>CFBundlePackageType</key>
-      <string>APPL</string>
-      <key>CFBundleShortVersionString</key>
-      <string>#{version}</string>
-      <key>CFBundleVersion</key>
-      <string>#{version}</string>
-      <key>CFBundleDocumentTypes</key>
-      <array>
-        <dict>
-          <key>CFBundleTypeName</key>
-          <string>GRASS Workspace File</string>
-          <key>CFBundleTypeExtensions</key>
-          <array>
-            <string>gxw</string>
-          </array>
-          <key>CFBundleTypeIconFile</key>
-          <string>GRASSDocument_gxw</string>
-        </dict>
-      </array>
-      <key>LSMinimumSystemVersion</key>
-      <string>12.3</string>
-      <key>LSHasLocalizedDisplayName</key>
-      <true/>
-        </dict>
-      </plist>
-    EOS
-
-    # File.open("#{grass_macos_app}/Contents/Info.plist", "w") { |file| file.write(config) }
-    File.write("#{grass_macos_app}/Contents/Info.plist", config)
-  end
-
-  def caveats
-    s = <<~EOS
-      If it is the case that you can change the shebang at the beginning of
-      the script to enforce Python 3 usage.
-
-        \e[32m#!/usr/bin/env python\e[0m
-
-      Should be changed into
-
-        \e[32m#!/usr/bin/env python3\e[0m
-
-    EOS
-
-    if head_only?
-      s += <<~EOS
-        This build of GRASS has been compiled without the WxPython GUI.
-
-        The command line tools remain fully functional.
-      EOS
-    end
-
-    s += <<~EOS
-      You may also copy \e[32mGRASS.app\e[0m to \e[32m/Applications\e[0m or \e[32m~/Applications\e[0m:
-
-        \e[32mcp -r `find $(brew --prefix) -name "GRASS*.app"` /Applications/GRASS.app\e[0m
-    EOS
-    s
+    inreplace "macosx/Makefile", "/Library", "~/Library"
+    system "make"
+    system "make", "install"
   end
 
   test do
-    system bin/"grass#{majmin_ver}", "--version"
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test grass`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
+    grass_bin = "#{prefix}/GRASS-#{version.major_minor}.app/Contents/MacOS/GRASS"
+    system grass_bin, "--version"
+    system grass_bin, "-c", "epsg:4326", "grass_testdir", "-e"
+    assert_predicate testpath/"grass_testdir", :exist?
   end
 end
