@@ -28,7 +28,7 @@ class SdlRtf < Formula
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
   disable! date: "2022-07-31", because: :deprecated_upstream
 
-  depends_on "sdl"
+  depends_on "sdl12-compat"
 
   def install
     system "./autogen.sh" if build.head?
