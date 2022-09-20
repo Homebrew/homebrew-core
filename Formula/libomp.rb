@@ -27,16 +27,23 @@ class Libomp < Formula
   end
 
   def install
+    # ExtendPath does not exist, thus comment it out
+    # upstream issue report, https://github.com/llvm/llvm-project/issues/57579
+    inreplace "runtime/src/CMakeLists.txt", "include(ExtendPath)", "#include(ExtendPath)"
+
     # Disable LIBOMP_INSTALL_ALIASES, otherwise the library is installed as
     # libgomp alias which can conflict with GCC's libgomp.
-    args = ["-DLIBOMP_INSTALL_ALIASES=OFF"]
+    args = %W[
+      -DLIBOMP_INSTALL_ALIASES=OFF
+      -DOPENMP_LLVM_TOOLS_DIR=#{Formula["llvm"].opt_bin}
+    ]
     args << "-DOPENMP_ENABLE_LIBOMPTARGET=OFF" if OS.linux?
 
-    system "cmake", "-S", "openmp-#{version}.src", "-B", "build/shared", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build/shared", *std_cmake_args, *args
     system "cmake", "--build", "build/shared"
     system "cmake", "--install", "build/shared"
 
-    system "cmake", "-S", "openmp-#{version}.src", "-B", "build/static",
+    system "cmake", "-S", ".", "-B", "build/static",
                     "-DLIBOMP_ENABLE_SHARED=OFF",
                     *std_cmake_args, *args
     system "cmake", "--build", "build/static"
