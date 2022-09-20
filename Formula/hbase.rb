@@ -1,9 +1,9 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.14/hbase-2.4.14-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/2.4.14/hbase-2.4.14-bin.tar.gz"
-  sha256 "04d5c2f46ce4d1e1b80dcf4740d7c8e6c6a371f4a44f5561dfc55c703df00b1e"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.5.0/hbase-2.5.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.5.0/hbase-2.5.0-bin.tar.gz"
+  sha256 "f5554c50960dd40d80d212837088c153d7a31504b451c0f27188e463d045463c"
   # We bundle hadoop-lzo which is GPL-3.0-or-later
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
