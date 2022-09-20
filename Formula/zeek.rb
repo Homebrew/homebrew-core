@@ -24,6 +24,7 @@ class Zeek < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
+  depends_on "flex" => :build
   depends_on "swig" => :build
   depends_on "caf"
   depends_on "geoip"
@@ -32,7 +33,6 @@ class Zeek < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.10"
 
-  uses_from_macos "flex"
   uses_from_macos "libpcap"
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
