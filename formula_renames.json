@@ -134,6 +134,7 @@
   "saltstack": "salt",
   "scala211": "scala@2.11",
   "screenbrightness": "brightness",
+  "sdl": "sdl12-compat",
   "selenium-server-standalone": "selenium-server",
   "server-go": "openiothub-server",
   "sonar": "sonarqube",
