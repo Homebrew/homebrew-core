@@ -6,11 +6,6 @@ class ErlangAT22 < Formula
   sha256 "ee281e4638c8d671dd99459a11381345ee9d70f1f8338f5db31fc082349a370e"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/^OTP[._-]v?(22(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2ba527cab790a8626160c04d7de0cf7278c2cf1e5aac1b21e50e174dc4a32e04"
     sha256 cellar: :any,                 arm64_big_sur:  "b28d77105c4f07dd1f56d186d5b0936b2285571d45ffdb996db374bc79b7d752"
@@ -21,6 +16,9 @@ class ErlangAT22 < Formula
   end
 
   keg_only :versioned_formula
+
+  # EOL with OTP-25 release
+  deprecate! date: "2022-09-20", because: :unsupported
 
   depends_on "openssl@1.1"
   depends_on "wxwidgets" # for GUI apps like observer
