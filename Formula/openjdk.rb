@@ -1,10 +1,10 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk18u/archive/jdk-18.0.2.1-ga.tar.gz"
-  sha256 "06fad73665af281e36e1cc5fb0c8ed5e88e1e821989f1421539cb012065d7722"
+  url "https://github.com/openjdk/jdk19u/archive/jdk-19+36.tar.gz"
+  version "19"
+  sha256 "e79d5f9cde685a28d7afe9ee13107a11d1a183bbbea973b2c1d9981400a3cb36"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
-  revision 1
 
   livecheck do
     url :stable
@@ -23,23 +23,30 @@ class Openjdk < Formula
   keg_only :shadowed_by_macos
 
   depends_on "autoconf" => :build
+  depends_on "pkg-config" => :build
   depends_on xcode: :build
+  depends_on "giflib"
+  depends_on "harfbuzz"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
+  depends_on "little-cms2"
   depends_on macos: :catalina
 
+  uses_from_macos "cups"
+  uses_from_macos "unzip"
+  uses_from_macos "zip"
+  uses_from_macos "zlib"
+
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "alsa-lib"
-    depends_on "cups"
     depends_on "fontconfig"
-    depends_on "gcc"
+    depends_on "freetype"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxrandr"
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
-    depends_on "unzip"
-    depends_on "zip"
 
     # FIXME: This should not be needed because of the `-rpath` flag
     #        we set in `--with-extra-ldflags`, but this configuration
@@ -53,22 +60,35 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_macos-aarch64_bin.tar.gz"
-        sha256 "602d7de72526368bb3f80d95c4427696ea639d2e0cc40455f53ff0bbb18c27c8"
+        url "https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_macos-aarch64_bin.tar.gz"
+        sha256 "c05aec589f55517b8bedd01463deeba80f666da3fb193be024490c9d293097a8"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_macos-x64_bin.tar.gz"
-        sha256 "b85c4aaf7b141825ad3a0ea34b965e45c15d5963677e9b27235aa05f65c6df06"
+        url "https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_macos-x64_bin.tar.gz"
+        sha256 "604ba4b3ccb594973a3a73779a367363c53dd91e5a9de743f4fbfae89798f93a"
       end
     end
     on_linux do
-      url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz"
-      sha256 "0022753d0cceecacdd3a795dd4cea2bd7ffdf9dc06e22ffd1be98411742fbb44"
+      on_arm do
+        url "https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_linux-aarch64_bin.tar.gz"
+        sha256 "79900237a5912045f8c9f1065b5204a474803cbbb4d075ab9620650fb75dfc1b"
+      end
+      on_intel do
+        url "https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_linux-x64_bin.tar.gz"
+        sha256 "3bfdb59fc38884672677cebca9a216902d87fe867563182ae8bc3373a65a2ebd"
+      end
     end
   end
 
+  # Fix build failure on Monterey with Clang 14+ due to function warning attribute.
+  # Remove if backported to JDK 19.
+  patch do
+    url "https://github.com/openjdk/jdk/commit/0599a05f8c7e26d4acae0b2cc805a65bdd6c6f67.patch?full_index=1"
+    sha256 "6a645cedccb54b4409f4226ba672b50687e18a3f5dfa0485ce1db6f5bc35f3d0"
+  end
+
   def install
-    boot_jdk = Pathname.pwd/"boot-jdk"
+    boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
     boot_jdk /= "Contents/Home" if OS.mac?
     java_options = ENV.delete("_JAVA_OPTIONS")
@@ -88,6 +108,12 @@ class Openjdk < Formula
       --with-version-build=#{revision}
       --without-version-opt
       --without-version-pre
+      --with-giflib=system
+      --with-harfbuzz=system
+      --with-lcms=system
+      --with-libjpeg=system
+      --with-libpng=system
+      --with-zlib=system
     ]
 
     ldflags = ["-Wl,-rpath,#{loader_path}/server"]
@@ -103,30 +129,29 @@ class Openjdk < Formula
         --with-x=#{HOMEBREW_PREFIX}
         --with-cups=#{HOMEBREW_PREFIX}
         --with-fontconfig=#{HOMEBREW_PREFIX}
+        --with-freetype=system
+        --with-stdc++lib=dynamic
       ]
     end
     args << "--with-extra-ldflags=#{ldflags.join(" ")}"
 
-    chmod 0755, "configure"
-    system "./configure", *args
+    system "bash", "configure", *args
 
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
+    jdk = libexec
     if OS.mac?
-      jdk = Dir["build/*/images/jdk-bundle/*"].first
-      libexec.install jdk => "openjdk.jdk"
-      bin.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/bin/*"]
-      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/*.h"]
-      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/darwin/*.h"]
-      man1.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/man/man1/*"]
+      libexec.install Dir["build/*/images/jdk-bundle/*"].first => "openjdk.jdk"
+      jdk /= "openjdk.jdk/Contents/Home"
     else
-      libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
-      bin.install_symlink Dir[libexec/"bin/*"]
-      include.install_symlink Dir[libexec/"include/*.h"]
-      include.install_symlink Dir[libexec/"include/linux/*.h"]
-      man1.install_symlink Dir[libexec/"man/man1/*"]
+      libexec.install Dir["build/linux-*-server-release/images/jdk/*"]
     end
+
+    bin.install_symlink Dir[jdk/"bin/*"]
+    include.install_symlink Dir[jdk/"include/*.h"]
+    include.install_symlink Dir[jdk/"include"/OS.kernel_name.downcase/"*.h"]
+    man1.install_symlink Dir[jdk/"man/man1/*"]
   end
 
   def caveats

@@ -1,4 +1,5 @@
 [
+  "couchdb-lucene",
   "emscripten",
   "hive",
   "libgaiagraphics",
@@ -6,5 +7,6 @@
   "predictionio",
   "sqoop",
   "swtpm",
-  "synergy-core"
+  "synergy-core",
+  "tomcat-native"
 ]
