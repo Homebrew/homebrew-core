@@ -35,7 +35,7 @@ class VespaCli < Formula
 
   test do
     ENV["VESPA_CLI_HOME"] = testpath
-    assert_match "vespa version #{version}", shell_output("#{bin}/vespa version")
+    assert_match "Vespa CLI version #{version}", shell_output("#{bin}/vespa version")
     doc_id = "id:mynamespace:music::a-head-full-of-dreams"
     assert_match "Error: Request failed", shell_output("#{bin}/vespa document get #{doc_id} 2>&1", 1)
     system "#{bin}/vespa", "config", "set", "target", "cloud"
