@@ -31,6 +31,12 @@ class Devd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c82a9adb431d63c5ac65d04c6f27592e6fe23a3ffa0e5a118fd34a113d32af4"
   end
 
+  # Current release is from 2019-01-20 and needs deprecated `dep` to build.
+  # We backported upstream support for Go modules, but have not received
+  # a response on request for a new release since 2021-01-21.
+  # Issue ref: https://github.com/cortesi/devd/issues/115
+  deprecate! date: "2022-09-21", because: :unmaintained
+
   depends_on "go" => :build
 
   def install
