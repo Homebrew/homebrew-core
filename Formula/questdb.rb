@@ -18,6 +18,11 @@ class Questdb < Formula
     inreplace libexec/"questdb.sh", "/usr/local/var/questdb", var/"questdb"
   end
 
+  def post_install
+    # Make sure the var/questdb directory exists
+    (var/"questdb").mkpath
+  end
+
   service do
     run [opt_bin/"questdb", "start", "-d", var/"questdb", "-n", "-f"]
     keep_alive successful_exit: false
