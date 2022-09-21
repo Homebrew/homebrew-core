@@ -3,10 +3,20 @@ class GiDocgen < Formula
 
   desc "Documentation tool for GObject-based libraries"
   homepage "https://gnome.pages.gitlab.gnome.org/gi-docgen/"
-  url "https://files.pythonhosted.org/packages/25/11/64ea759ba610d7442e8827306d1adba233ca69547d2a0e974f5ea74fa320/gi-docgen-2022.1.tar.gz"
-  sha256 "f91d879ff28d7d5265cde84275ee510e32386bfeb7ec6203a647342aead55cec"
   license any_of: ["Apache-2.0", "GPL-3.0-or-later"]
+  revision 1
   head "https://gitlab.gnome.org/GNOME/gi-docgen.git", branch: "main"
+
+  stable do
+    url "https://files.pythonhosted.org/packages/25/11/64ea759ba610d7442e8827306d1adba233ca69547d2a0e974f5ea74fa320/gi-docgen-2022.1.tar.gz"
+    sha256 "f91d879ff28d7d5265cde84275ee510e32386bfeb7ec6203a647342aead55cec"
+
+    # Make log.log() thread safe to avoid corrupt text. Remove in the next release.
+    patch do
+      url "https://gitlab.gnome.org/GNOME/gi-docgen/-/commit/26e3cb5ddf26bb6f33c2fdf171f409a57364be9e.diff"
+      sha256 "767e664d14c2b0344650af3ed359b70316deaab4b8abc20782810843ce75e81e"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b896b52edaa0ae0af8f9ad8f275539df09e886c80c1d0f92c86f7322767a37c"
@@ -86,7 +96,8 @@ class GiDocgen < Formula
       </repository>
     EOS
 
-    assert_empty shell_output("#{bin}/gi-docgen generate --quiet -C brew.toml brew.gir").chomp
+    output = shell_output("#{bin}/gi-docgen generate -C brew.toml brew.gir")
+    assert_match "Creating namespace index file for brew-1.0", output
     assert_predicate testpath/"brew-1.0/index.html", :exist?
     assert_predicate testpath/"brew-1.0/struct.Formula.html", :exist?
     assert_match %r{Website.*>https://brew.sh/}, (testpath/"brew-1.0/index.html").read
