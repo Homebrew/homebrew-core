@@ -1,10 +1,14 @@
 class Webkitgtk < Formula
   desc "GTK interface to WebKit"
   homepage "https://webkitgtk.org"
-  url "https://webkitgtk.org/releases/webkitgtk-2.36.3.tar.xz"
-  sha256 "732fcf8c4ec644b8ed28b46ebbd7c1ebab9d9e0afea9bdf5e5d12786afc478d1"
+  url "https://webkitgtk.org/releases/webkitgtk-2.38.0.tar.xz"
+  sha256 "f9ce6375a3b6e1329b0b609f46921e2627dc7ad6224b37b967ab2ea643bc0fbd"
   license "GPL-3.0-or-later"
-  revision 1
+
+  livecheck do
+    url "https://webkitgtk.org/releases/"
+    regex(/webkitgtk[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
 
   bottle do
     sha256 x86_64_linux: "90f2c0014bd5314a458fcde137e51e1c398c21d539820b87f021799c676991b9"
@@ -18,7 +22,6 @@ class Webkitgtk < Formula
   depends_on "enchant"
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "gcc"
   depends_on "glib"
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
@@ -52,20 +55,20 @@ class Webkitgtk < Formula
   fails_with gcc: "5"
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DPORT=GTK
+      -DENABLE_BUBBLEWRAP_SANDBOX=OFF
+      -DENABLE_DOCUMENTATION=OFF
       -DENABLE_GAMEPAD=OFF
-      -DENABLE_GTKDOC=OFF
       -DENABLE_MINIBROWSER=ON
       -DUSE_AVIF=ON
+      -DUSE_GSTREAMER_GL=OFF
       -DUSE_JPEGXL=ON
       -DUSE_LIBHYPHEN=OFF
       -DUSE_WPE_RENDERER=OFF
-      -DENABLE_BUBBLEWRAP_SANDBOX=OFF
-      -DUSE_GSTREAMER_GL=OFF
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
