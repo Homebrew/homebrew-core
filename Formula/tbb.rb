@@ -1,10 +1,9 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://github.com/oneapi-src/oneTBB"
-  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.5.0.tar.gz"
-  sha256 "e5b57537c741400cf6134b428fc1689a649d7d38d9bb9c1b6d64f092ea28178a"
+  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.6.0.tar.gz"
+  sha256 "4897dd106d573e9dacda8509ca5af1a0e008755bf9c383ef6777ac490223031f"
   license "Apache-2.0"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "d429069173b1bbc6a4fc473596b1f56f9ae505961420d141f91e1fd6134ad766"
@@ -18,7 +17,6 @@ class Tbb < Formula
   depends_on "cmake" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "swig" => :build
-  depends_on "hwloc"
 
   # Fix installation of Python components
   # See https://github.com/oneapi-src/oneTBB/issues/343
