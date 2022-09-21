@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/v3.6.3.tar.gz"
-  sha256 "69eac483e65524fb863e67816b3758c300d1c4bfdab01c6ea5f91144209d7d7c"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/v3.7.0.tar.gz"
+  sha256 "1c96e1ffb992ab8dd2b287af623b9861653149b8215be2b4e33cebc14219e729"
   license "Apache-2.0"
 
   livecheck do
