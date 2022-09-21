@@ -40,7 +40,7 @@ class JpegXl < Formula
   # https://github.com/libjxl/libjxl/tree/v#{version}/third_party
   resource "highway" do
     url "https://github.com/google/highway.git",
-        revision: "e2397743fe092df68b760d358253773699a16c93"
+        revision: "22e3d7276f4157d4a47586ba9fd91dd6303f441a"
   end
 
   resource "lodepng" do
