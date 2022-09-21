@@ -4,6 +4,7 @@ class VertX < Formula
   url "https://search.maven.org/remotecontent?filepath=io/vertx/vertx-stack-manager/4.1.5/vertx-stack-manager-4.1.5-full.tar.gz"
   sha256 "67b4d6d55ffafae0e499883593b93ac132f6b199fe7c694dc177e81954689cf8"
   license any_of: ["EPL-2.0", "Apache-2.0"]
+  revision 1
 
   livecheck do
     url "https://search.maven.org/remotecontent?filepath=io/vertx/vertx-stack-manager/"
@@ -19,12 +20,13 @@ class VertX < Formula
     sha256 cellar: :any_skip_relocation, all:           "5cc770ceb48f5a39fae9abb3677c48fb3c6250b3c55af486d45c08117997a449"
   end
 
-  depends_on "openjdk"
+  # Unrecognized VM option 'UseBiasedLocking' since JDK 19
+  depends_on "openjdk@17"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin conf lib]
-    (bin/"vertx").write_env_script "#{libexec}/bin/vertx", Language::Java.overridable_java_home_env
+    (bin/"vertx").write_env_script libexec/"bin/vertx", Language::Java.overridable_java_home_env("17")
   end
 
   test do
