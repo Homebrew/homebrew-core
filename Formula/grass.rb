@@ -17,6 +17,7 @@ class Grass < Formula
   depends_on "freetype"
   depends_on "gdal"
   depends_on "geos"
+  depends_on "bzip2"
   depends_on "lbzip2"
   depends_on "libpng"
   depends_on "libtiff"
