@@ -1,11 +1,9 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
-  url "https://download.gnome.org/sources/vte/0.68/vte-0.68.0.tar.xz"
-  sha256 "13e7d4789ca216a33780030d246c9b13ddbfd04094c6316eea7ff92284dd1749"
+  url "https://download.gnome.org/sources/vte/0.70/vte-0.70.0.tar.xz"
+  sha256 "93e0dd4a1bc2a7a1a62da64160a274cce456976ea1567d98591da96e2d265ae6"
   license "LGPL-2.0-or-later"
-  revision 2
 
   bottle do
     sha256 arm64_monterey: "e03f6fb50ea51b211a7ee70e56bd05a3f9a02781a77698eae701ca88cbb981e9"
@@ -51,24 +49,22 @@ class Vte3 < Formula
   patch :DATA
 
   def install
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    # Work around for ../src/widget.cc:765:30: error: use of undeclared identifier 'W_EXITCODE'
+    # Issue ref: https://gitlab.gnome.org/GNOME/vte/-/issues/2592
+    # TODO: Remove once issue is fixed upstream.
+    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
 
-    args = std_meson_args + %w[
-      -Dgir=true
-      -Dgtk3=true
-      -Dgnutls=true
-      -Dvapi=true
-      -D_b_symbolic_functions=false
-    ]
-
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build",
+                    "-Dgir=true",
+                    "-Dgtk3=true",
+                    "-Dgnutls=true",
+                    "-Dvapi=true",
+                    "-D_b_symbolic_functions=false"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
