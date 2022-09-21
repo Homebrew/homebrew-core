@@ -7,7 +7,6 @@ class Grass < Formula
   sha256 "621c3304a563be19c0220ae28f931a5e9ba74a53218c5556cd3f7fbfcca33a80"
   license "GPL-2.0-or-later"
 
-  # GCC is added as a build dependency to use it for libgomp
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gcc" => :build
@@ -19,7 +18,6 @@ class Grass < Formula
   depends_on "gdal"
   depends_on "geos"
   depends_on "lbzip2"
-  depends_on "libomp"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "mesa"
