@@ -19,11 +19,9 @@ class YelpTools < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gtk+3"
   depends_on "itstool"
   depends_on "libxml2"
   depends_on "python@3.10"
@@ -50,25 +48,20 @@ class YelpTools < Formula
     resource("yelp-xsl").stage do
       system "./configure", *std_configure_args, "--disable-silent-rules"
       system "make", "install"
-      ENV.append_path "PKG_CONFIG_PATH", "#{share}/pkgconfig"
+      ENV.append_path "PKG_CONFIG_PATH", share/"pkgconfig"
     end
 
     system "meson", *std_meson_args, "build"
-    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
 
     # Replace shebang with virtualenv python
     rewrite_shebang python_shebang_rewrite_info("#{libexec}/bin/#{python}"), *bin.children
   end
 
-  def post_install
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache",
-           "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
-  end
-
   test do
-    system "#{bin}/yelp-new", "task", "ducksinarow"
-    system "#{bin}/yelp-build", "html", "ducksinarow.page"
-    system "#{bin}/yelp-check", "validate", "ducksinarow.page"
+    system bin/"yelp-new", "task", "ducksinarow"
+    system bin/"yelp-build", "html", "ducksinarow.page"
+    system bin/"yelp-check", "validate", "ducksinarow.page"
   end
 end
