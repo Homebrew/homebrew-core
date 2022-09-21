@@ -1,8 +1,8 @@
 class GopassJsonapi < Formula
   desc "Gopass Browser Bindings"
   homepage "https://github.com/gopasspw/gopass-jsonapi"
-  url "https://github.com/gopasspw/gopass-jsonapi/releases/download/v1.14.6/gopass-jsonapi-1.14.6.tar.gz"
-  sha256 "3ce434ee44c2cd17ac241bfc4a62e95d98d0e78e068f78a7d71106a4d555c6b3"
+  url "https://github.com/gopasspw/gopass-jsonapi/releases/download/v1.14.7/gopass-jsonapi-1.14.7.tar.gz"
+  sha256 "15475190dadcab03e54092b66f460a65e4fe4a5ce6ef9914372c444d5803337d"
   license "MIT"
 
   bottle do
