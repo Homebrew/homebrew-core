@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/c3/42/7a3162ec0e17b4258528853d50639c77e511c78d3541a5d60d49314758c6/pipenv-2022.9.8.tar.gz"
-  sha256 "b6dfff06dea56e3bade92fc267c2da1f0807c5c7b0903eef6115fdb899c2b4b6"
+  url "https://files.pythonhosted.org/packages/5f/bc/779ccbc80b2cf29320ae49dbfc5deb2ed154c727ce5da3581d257e71abef/pipenv-2022.9.21.tar.gz"
+  sha256 "65ecfb395fdf7d76a28b212a86bdb1de68e406109ed3c39d6e6d72bfd7838fed"
   license "MIT"
 
   bottle do
@@ -20,8 +20,8 @@ class Pipenv < Formula
   depends_on "six"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/ca/48/88ec470f8b68319b6782ca3a0570789886ad5ca24c1af2f3771699135baa/certifi-2022.9.14.tar.gz"
+    sha256 "36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5"
   end
 
   resource "distlib" do
