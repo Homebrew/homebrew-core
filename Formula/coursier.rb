@@ -21,6 +21,9 @@ class Coursier < Formula
     (libexec/"bin").install "coursier.jar"
     chmod 0755, libexec/"bin/coursier.jar"
     (bin/"coursier").write_env_script libexec/"bin/coursier.jar", Language::Java.overridable_java_home_env
+
+    chmod 0555, bin/"coursier"
+    generate_completions_from_executable(bin/"coursier", "completions", shells: [:bash, :zsh])
   end
 
   test do
