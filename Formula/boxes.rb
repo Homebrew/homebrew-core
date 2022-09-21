@@ -1,8 +1,8 @@
 class Boxes < Formula
   desc "Draw boxes around text"
   homepage "https://boxes.thomasjensen.com/"
-  url "https://github.com/ascii-boxes/boxes/archive/v2.1.1.tar.gz"
-  sha256 "95ae6b46e057a79c6414b8c0b5b561c3e9d886ab8123a4085d256edccce625f9"
+  url "https://github.com/ascii-boxes/boxes/archive/v2.2.0.tar.gz"
+  sha256 "98b8e3cf5008f46f096d5775d129c34db9f718728bffb0f5d67ae89bb494102e"
   license "GPL-2.0-only"
   head "https://github.com/ascii-boxes/boxes.git", branch: "master"
 
