@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/22/c7/b74b451646f292f6f55630ad79bd103374e019b8b53eb6af04f043b83c82/datalad-0.17.5.tar.gz"
-  sha256 "a221312c58b0b9b57605cc1a2288838f24932491b2e50475dd7a940151cafccd"
+  url "https://files.pythonhosted.org/packages/41/de/544f7e47cdc264172d2cdcfa8736dccbc19cab0948bbbd7c186bfca222da/datalad-0.17.6.tar.gz"
+  sha256 "b9e2667dac2af7b816c875ea7920431efa7a16248e20276f502e3cb5aa0cc554"
   license "MIT"
 
   bottle do
@@ -33,13 +33,13 @@ class Datalad < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/ca/48/88ec470f8b68319b6782ca3a0570789886ad5ca24c1af2f3771699135baa/certifi-2022.9.14.tar.gz"
+    sha256 "36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
-    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
+    url "https://files.pythonhosted.org/packages/31/a2/12c090713b3d0e141f367236d3a8bdc3e5fca0d83ff3647af4892c16c205/chardet-5.0.0.tar.gz"
+    sha256 "0368df2bfd78b5fc20572bb4e9bb7fb53e2c094f60ae9993339e8671d0afb8aa"
   end
 
   resource "charset-normalizer" do
@@ -53,18 +53,18 @@ class Datalad < Formula
   end
 
   resource "fasteners" do
-    url "https://files.pythonhosted.org/packages/bd/f4/148f44998c1bdb064a508e7cbcf9e50b34572b3d36fcc378a5d61b7dc8c5/fasteners-0.17.3.tar.gz"
-    sha256 "a9a42a208573d4074c77d041447336cf4e3c1389a256fd3e113ef59cf29b7980"
+    url "https://files.pythonhosted.org/packages/f5/9a/e613fc7f7fa157bea028d8d823a13ba5583a49a2dea926ca86b6cbf0fd00/fasteners-0.18.tar.gz"
+    sha256 "cb7c13ef91e0c7e4fe4af38ecaf6b904ec3f5ce0dda06d34924b6b74b869d953"
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/a0/0e/93e7c308611ff2ac3142dd5b1cef6bc02364affae21ba84342896470a868/humanize-4.3.0.tar.gz"
-    sha256 "0dfac79fe8c1c0c734c14177b07b857bad9ae30dd50daa0a14e2c3d8054ee0c4"
+    url "https://files.pythonhosted.org/packages/51/19/3e1adf0e7a8c8361496b085edcab2ddcd85410735a2b6fdd044247fc5b75/humanize-4.4.0.tar.gz"
+    sha256 "efb2584565cc86b7ea87a977a15066de34cdedaf341b11c851cfcfd2b964779c"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
   resource "iso8601" do
@@ -72,14 +72,24 @@ class Datalad < Formula
     sha256 "27f503220e6845d9db954fb212b95b0362d8b7e6c1b2326a87061c3de93594b1"
   end
 
+  resource "jaraco.classes" do
+    url "https://files.pythonhosted.org/packages/fe/8b/7876fbd69f5a8ebfbda73c8c1a5346171ee5ac0db28e9f5b2bb80ee3e73b/jaraco.classes-3.2.2.tar.gz"
+    sha256 "6745f113b0b588239ceb49532aa09c3ebb947433ce311ef2f8e3ad64ebb74594"
+  end
+
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a7/d8/ca70a209ea09e97e4d9feba2f6b38b4eaf918de15a7ada3f3a2246c26cf9/keyring-23.8.2.tar.gz"
-    sha256 "0d9973f8891850f1ade5f26aafd06bb16865fbbae3fc56b0defb6a14a2624003"
+    url "https://files.pythonhosted.org/packages/2a/ef/28d3d5428108111dae4304a2ebec80d113aea9e78c939e25255425d486ff/keyring-23.9.3.tar.gz"
+    sha256 "69b01dd83c42f590250fe7a1f503fc229b14de83857314b1933a3ddbf595c4a5"
   end
 
   resource "keyrings.alt" do
-    url "https://files.pythonhosted.org/packages/66/a5/21276d87d43dc8941a4f19e6b1a330e5bd093854e4e385ab7dfbd3989f48/keyrings.alt-4.1.1.tar.gz"
-    sha256 "e87152b9562fa822b5130ee31025512b4da6e6db0daf38c870566d08b84aded6"
+    url "https://files.pythonhosted.org/packages/88/4e/2af12a91eb8245b7ff24fdc0afbe5a1d62e9d5ec24ffdb53972753cec644/keyrings.alt-4.2.0.tar.gz"
+    sha256 "2ba3d56441ba0637f5f9c096068f67010ac0453f9d0b626de2aa3019353b6431"
+  end
+
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/c7/0c/fad24ca2c9283abc45a32b3bfc2a247376795683449f595ff1280c171396/more-itertools-8.14.0.tar.gz"
+    sha256 "c09443cd3d5438b8dafccd867a6bc1cb0894389e90cb53d227456b0b0bccb750"
   end
 
   resource "msgpack" do
@@ -128,8 +138,8 @@ class Datalad < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
-    sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
+    url "https://files.pythonhosted.org/packages/c1/c2/d8a40e5363fb01806870e444fc1d066282743292ff32a9da54af51ce36a2/tqdm-4.64.1.tar.gz"
+    sha256 "5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"
   end
 
   resource "urllib3" do
