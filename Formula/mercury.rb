@@ -4,6 +4,7 @@ class Mercury < Formula
   url "https://dl.mercurylang.org/release/mercury-srcdist-22.01.3.tar.gz"
   sha256 "d5b4b4b7b3a4a63a18731d97034b44f131bf589b6d1b10e8ebc4becef000d048"
   license all_of: ["GPL-2.0-only", "LGPL-2.0-only", "MIT"]
+  revision 1
 
   livecheck do
     url "https://dl.mercurylang.org/"
@@ -21,18 +22,18 @@ class Mercury < Formula
 
   depends_on "openjdk"
 
-  uses_from_macos "flex"
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "./configure", "--prefix=#{prefix}",
-            "--mandir=#{man}",
-            "--infodir=#{info}",
-            "mercury_cv_is_littleender=yes" # Fix broken endianness detection
-
+                          "--mandir=#{man}",
+                          "--infodir=#{info}",
+                          "mercury_cv_is_littleender=yes" # Fix broken endianness detection
     system "make", "install", "PARALLEL=-j"
 
     # Remove batch files for windows.
-    rm Dir.glob("#{bin}/*.bat")
+    bin.glob("*.bat").map(&:unlink)
   end
 
   test do
@@ -48,12 +49,12 @@ class Mercury < Formula
           io.write_string("#{test_string}", IOState_in, IOState_out).
     EOS
 
-    system "#{bin}/mmc", "-o", "hello_c", "hello"
+    system bin/"mmc", "-o", "hello_c", "hello"
     assert_predicate testpath/"hello_c", :exist?
 
     assert_equal test_string, shell_output("#{testpath}/hello_c")
 
-    system "#{bin}/mmc", "--grade", "java", "hello"
+    system bin/"mmc", "--grade", "java", "hello"
     assert_predicate testpath/"hello", :exist?
 
     assert_equal test_string, shell_output("#{testpath}/hello")
