@@ -17,7 +17,6 @@ class Grass < Formula
   depends_on "freetype"
   depends_on "gdal"
   depends_on "geos"
-  depends_on "bzip2"
   depends_on "lbzip2"
   depends_on "libpng"
   depends_on "libtiff"
@@ -41,6 +40,7 @@ class Grass < Formula
   depends_on :xcode
   depends_on "zstd"
   uses_from_macos "bison"
+  uses_from_macos "bzip2"
   uses_from_macos "flex"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
