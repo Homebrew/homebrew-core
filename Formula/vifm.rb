@@ -1,8 +1,8 @@
 class Vifm < Formula
   desc "Ncurses-based file manager with vi-like keybindings"
   homepage "https://vifm.info/"
-  url "https://github.com/vifm/vifm/releases/download/v0.12/vifm-0.12.tar.bz2"
-  sha256 "33a9618f32b35b5b8c64483884f9ad09963ca8465b2935def79159028e27b2c0"
+  url "https://github.com/vifm/vifm/releases/download/v0.12.1/vifm-0.12.1.tar.bz2"
+  sha256 "8fe2813ebdcccfe99aece02b05d62a20991525d46b0ccfbaec3af614c6655688"
   license "GPL-2.0-or-later"
   head "https://github.com/vifm/vifm.git", branch: "master"
 
