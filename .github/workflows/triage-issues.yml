@@ -29,7 +29,7 @@ jobs:
           contains(github.event.pull_request.labels.*.name, 'stale')
         )
       )
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Mark/Close Stale Issues and Pull Requests
         uses: actions/stale@v5
@@ -55,7 +55,7 @@ jobs:
           contains(github.event.pull_request.labels.*.name, 'stale')
         )
       )
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Mark/Close Stale `bump-formula-pr` and `bump-cask-pr` Pull Requests
         uses: actions/stale@v5
@@ -72,7 +72,7 @@ jobs:
 
   lock-threads:
     if: startsWith(github.repository, 'Homebrew/') && github.event_name != 'issue_comment'
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Lock Outdated Threads
         uses: dessant/lock-threads@e460dfeb36e731f3aeb214be6b0c9a9d9a67eda6
