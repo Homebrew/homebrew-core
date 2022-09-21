@@ -18,8 +18,8 @@ class Caddy < Formula
   depends_on "go" => :build
 
   resource "xcaddy" do
-    url "https://github.com/caddyserver/xcaddy/archive/v0.3.0.tar.gz"
-    sha256 "1a59ff6f51959072a512002e7ec280ea96775361277ba046a8af5a820a37aacd"
+    url "https://github.com/caddyserver/xcaddy/archive/v0.3.1.tar.gz"
+    sha256 "b99d989590724deac893859002c3fc573fb66b3606c1012c425ae563d0971440"
   end
 
   def install
