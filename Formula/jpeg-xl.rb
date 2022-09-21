@@ -58,12 +58,6 @@ class JpegXl < Formula
         revision: "64374756e03700d649f897dbd98c95e78c30c7da"
   end
 
-  # remove when https://github.com/libjxl/libjxl/commit/88fe3fff3dc70c72405f57c69feffd9823930034 is in a tag
-  patch do
-    url "https://github.com/libjxl/libjxl/commit/88fe3fff3dc70c72405f57c69feffd9823930034.patch?full_index=1"
-    sha256 "a1dba15e75093dea2d16d4fb1341e1ba8ba8400be723cb887a190d4d525ce9a6"
-  end
-
   def install
     resources.each { |r| r.stage buildpath/"third_party"/r.name }
     mkdir "build" do
