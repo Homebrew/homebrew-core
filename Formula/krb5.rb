@@ -24,6 +24,7 @@ class Krb5 < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "bison"
+  uses_from_macos "libedit"
 
   def install
     cd "src" do
