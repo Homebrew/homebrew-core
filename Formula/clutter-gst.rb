@@ -18,6 +18,9 @@ class ClutterGst < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "18921a2acf74c92279704d160c2780d96d8c8205beee06cd3cc1715b8355fed8"
   end
 
+  # https://blogs.gnome.org/clutter/2022/02/16/retiring-clutter/
+  deprecate! date: "2022-09-21", because: :deprecated_upstream
+
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "clutter"
