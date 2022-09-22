@@ -46,19 +46,19 @@ class Rust < Formula
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       on_arm do
-        url "https://static.rust-lang.org/dist/2022-06-30/cargo-1.62.0-aarch64-apple-darwin.tar.gz"
-        sha256 "8a4c0f52491382d537753531a51a45355135e0b19f85f20588785d604f1eff2b"
+        url "https://static.rust-lang.org/dist/2022-08-11/cargo-1.63.0-aarch64-apple-darwin.tar.gz"
+        sha256 "4ae53dd1a0c059ba4a02a728c9250c785e39bd4f51550e2d3040e96457db4731"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2022-06-30/cargo-1.62.0-x86_64-apple-darwin.tar.gz"
-        sha256 "4957c596cc5327921be523fb1de935b1072caa12f9cedaa68cff3e85898fd09a"
+        url "https://static.rust-lang.org/dist/2022-08-11/cargo-1.63.0-x86_64-apple-darwin.tar.gz"
+        sha256 "91fe0d3477036b0630b09db2a9ef340c29b8be56c48ed244428e2490043ca841"
       end
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
-      url "https://static.rust-lang.org/dist/2022-06-30/cargo-1.62.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "fb0141db9fdea4606beb106ca10494548f24866b39a10bde8d1e162f653e94d8"
+      url "https://static.rust-lang.org/dist/2022-08-11/cargo-1.63.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "43445b2131cefa466943ed4867876f5835fcb17243a18e1db1c8231417a1b27e"
     end
   end
 
