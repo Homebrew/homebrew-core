@@ -15,7 +15,7 @@ class Nuvie < Formula
   end
 
   head do
-    url "https://github.com/nuvie/nuvie.git"
+    url "https://github.com/nuvie/nuvie.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -23,6 +23,11 @@ class Nuvie < Formula
   depends_on "sdl12-compat"
 
   def install
+    # Work around GCC 11 failure due to default C++17 standard.
+    # We use C++03 standard as C++11 standard needs upstream fix.
+    # Ref: https://github.com/nuvie/nuvie/commit/69fb52d35d5eaffcf3bca56929ab58a99defec3d
+    ENV.append "CXXFLAGS", "-std=c++03" if OS.linux?
+
     inreplace "./nuvie.cpp" do |s|
       s.gsub! 'datadir", "./data"',
               "datadir\", \"#{lib}/data\""
@@ -36,10 +41,7 @@ class Nuvie < Formula
               "#{var}/nuvie/"
     end
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-sdltest",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-sdltest"
     system "make"
     bin.install "nuvie"
     pkgshare.install "data"
