@@ -32,6 +32,7 @@ class Make < Formula
 
     if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gmake" =>"make"
+      (libexec/"gnubin").install_symlink bin/"gnumake" =>"make"
       (libexec/"gnuman/man1").install_symlink man1/"gmake.1" => "make.1"
     end
 
