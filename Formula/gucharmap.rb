@@ -1,10 +1,9 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://download.gnome.org/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz"
-  sha256 "39de8aad9d7f0af33c29db1a89f645e76dad2fce00d1a0f7c8a689252a2c2155"
+  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/15.0.0/gucharmap-15.0.0.tar.bz2"
+  sha256 "c85c1554923df5028de1247bbba782e61ba15f2d21a711a68b23cd3a35788c97"
   license "GPL-3.0-or-later"
-  revision 4
 
   bottle do
     sha256 arm64_monterey: "04be31ca892b6d00aabe5025063abb525630883ff1dd1a99f4f6fc1e8de48802"
@@ -17,35 +16,39 @@ class Gucharmap < Formula
     sha256 x86_64_linux:   "6604c5046dbae96f07f30c6e4ee45c9b2e6e5a1030ae44c5dcd03870361c8fc4"
   end
 
-  depends_on "coreutils" => :build
   depends_on "desktop-file-utils" => :build
-  depends_on "intltool" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "gtk-doc" => :build
   depends_on "itstool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "vala" => :build
   depends_on "gtk+3"
 
-  uses_from_macos "perl" => :build
+  resource "ucd" do
+    url "https://www.unicode.org/Public/15.0.0/ucd/UCD.zip"
+    sha256 "5fbde400f3e687d25cc9b0a8d30d7619e76cb2f4c3e85ba9df8ec1312cb6718c"
+  end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  resource "unihan" do
+    url "https://www.unicode.org/Public/15.0.0/ucd/Unihan.zip", using: :nounzip
+    sha256 "24b154691fc97cb44267b925d62064297086b3f896b57a8181c7b6d42702a026"
   end
 
   def install
-    ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages("python3.10")
-    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
-    ENV["WGET"] = "curl"
+    ENV["DESTDIR"] = "/"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--disable-Bsymbolic",
-                          "--disable-schemas-compile",
-                          "--enable-introspection=no",
-                          "--with-unicode-data=download"
-    system "make", "WGETFLAGS=--remote-name --remote-time --connect-timeout 30 --retry 8"
-    system "make", "install"
+    (buildpath/"unicode").install resource("ucd")
+    (buildpath/"unicode").install resource("unihan")
+
+    # ERROR: Assert failed: -Wl,-Bsymbolic-functions is required but not supported
+    inreplace "meson.build", "'-Wl,-Bsymbolic-functions'", "" if OS.mac?
+
+    system "meson", *std_meson_args, "build", "-Ducd_path=#{buildpath}/unicode"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   def post_install
