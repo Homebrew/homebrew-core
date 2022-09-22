@@ -15,6 +15,13 @@ class Libchamplain < Formula
     sha256               x86_64_linux:  "292cd694f9167c38d48b8aba733960db987135857f6954bfff79908a57878413"
   end
 
+  # It needs deprecated `cogl` and `clutter`. There isn't a plan to rewrite and homepage says:
+  # "Starting with GTK4, it is recommended to use libshumate instead of libchamplain"
+  # Ref: https://wiki.gnome.org/Projects/libchamplain
+  # Ref: https://gitlab.gnome.org/GNOME/libchamplain/-/issues/50
+  # Ref: https://gitlab.gnome.org/GNOME/libchamplain/-/issues/52
+  deprecate! date: "2022-09-21", because: :unmaintained
+
   depends_on "gnome-common" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
