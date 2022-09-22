@@ -1,10 +1,10 @@
 class Libnghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.49.0/nghttp2-1.49.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.49.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/legacy/nghttp2-1.49.0.tar.gz"
-  sha256 "14dd5654e369227afebfba5198793a1788a0af9d30cddb19af3ec275d110a7a6"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.50.0/nghttp2-1.50.0.tar.gz"
+  mirror "http://fresh-center.net/linux/www/nghttp2-1.50.0.tar.gz"
+  mirror "http://fresh-center.net/linux/www/legacy/nghttp2-1.50.0.tar.gz"
+  sha256 "d162468980dba58e54e31aa2cbaf96fd2f0890e6dd141af100f6bd1b30aa73c6"
   license "MIT"
 
   livecheck do
