@@ -1,9 +1,9 @@
 class Flac < Formula
   desc "Free lossless audio codec"
   homepage "https://xiph.org/flac/"
-  url "https://downloads.xiph.org/releases/flac/flac-1.4.0.tar.xz", using: :homebrew_curl
-  mirror "https://ftp.osuosl.org/pub/xiph/releases/flac/flac-1.4.0.tar.xz"
-  sha256 "af41c0733c93c237c3e52f64dd87e3b0d9af38259f1c7d11e8cbf583c48c2506"
+  url "https://downloads.xiph.org/releases/flac/flac-1.4.1.tar.xz", using: :homebrew_curl
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/flac/flac-1.4.1.tar.xz"
+  sha256 "91303c3e5dfde52c3e94e75976c0ab3ee14ced278ab8f60033a3a12db9209ae6"
   license all_of: [
     "BSD-3-Clause",
     "GPL-2.0-or-later",
