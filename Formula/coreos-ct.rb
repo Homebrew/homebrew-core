@@ -1,8 +1,8 @@
 class CoreosCt < Formula
   desc "Convert a Container Linux Config into Ignition"
-  homepage "https://coreos.com/os/docs/latest/configuration.html"
-  url "https://github.com/coreos/container-linux-config-transpiler/archive/v0.9.0.tar.gz"
-  sha256 "140c2a5bfd2562a069882e66c4aee01290417f35ef0db06e11e74b2ccf52de7f"
+  homepage "https://flatcar-linux.org/docs/latest/provisioning/config-transpiler/"
+  url "https://github.com/flatcar/container-linux-config-transpiler/archive/v0.9.4.tar.gz"
+  sha256 "c173ced842a6d178000f9bf01b26e9a8c296b1256ab713834f18d3f0883c4263"
   license "Apache-2.0"
 
   bottle do
@@ -13,8 +13,6 @@ class CoreosCt < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "8f09ba9875fe34e55de7fd25514493f41276d5c5e9f3cd37e00288fb6d44323e"
     sha256 cellar: :any_skip_relocation, el_capitan:  "9a48da5217b7e4b57e56702ee884fbc3067ccd895c2144cf7b02571cbcb80b42"
   end
-
-  disable! date: "2022-07-31", because: :repo_archived
 
   depends_on "go" => :build
 
