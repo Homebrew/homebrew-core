@@ -1,10 +1,29 @@
 class Gpredict < Formula
   desc "Real-time satellite tracking/prediction application"
   homepage "http://gpredict.oz9aec.net/"
-  url "https://github.com/csete/gpredict/releases/download/v2.2.1/gpredict-2.2.1.tar.bz2"
-  sha256 "e759c4bae0b17b202a7c0f8281ff016f819b502780d3e77b46fe8767e7498e43"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
+
+  stable do
+    url "https://github.com/csete/gpredict/releases/download/v2.2.1/gpredict-2.2.1.tar.bz2"
+    sha256 "e759c4bae0b17b202a7c0f8281ff016f819b502780d3e77b46fe8767e7498e43"
+
+    # Dependencies to regenerate configure for patch. Remove in the next release
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+
+    # Fix compilation with GCC 10+. Remove in the next release.
+    # Issue ref: https://github.com/csete/gpredict/issues/195
+    patch do
+      url "https://github.com/csete/gpredict/commit/c565bb3d48777bfe17114b5d01cd81150521f056.patch?full_index=1"
+      sha256 "fbefbb898a565cb830006996803646d755729bd4d5307a3713274729d1778462"
+    end
+
+    # Backport support for GooCanvas 3. Remove in the next release along with `autoreconf`
+    # Ref: https://github.com/csete/gpredict/commit/86fb71aad0bba311268352539b61225bf1f1e279
+    patch :DATA
+  end
 
   livecheck do
     url :stable
@@ -23,6 +42,14 @@ class Gpredict < Formula
     sha256 x86_64_linux:   "e87f34490c8549a80627a714275d1ab1f9b73285ea76f28c91b6f45a360963bc"
   end
 
+  head do
+    url "https://github.com/csete/gpredict.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
@@ -37,10 +64,15 @@ class Gpredict < Formula
 
   def install
     # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" if OS.linux?
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" if OS.linux?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    if build.head?
+      inreplace "autogen.sh", "libtoolize", "glibtoolize"
+      system "./autogen.sh", *std_configure_args
+    else
+      system "autoreconf", "--force", "--install", "--verbose" # TODO: remove in the next release
+      system "./configure", *std_configure_args
+    end
     system "make", "install"
   end
 
@@ -50,3 +82,46 @@ class Gpredict < Formula
     assert_match "real-time", shell_output("#{bin}/gpredict -h")
   end
 end
+
+__END__
+diff --git a/configure.ac b/configure.ac
+index e3fe564..d50615f 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -44,12 +44,19 @@ else
+     AC_MSG_ERROR(Gpredict requires libglib-dev 2.32 or later)
+ fi
+ 
+-# check for goocanvas (depends on gtk and glib)
++# check for goocanvas 2 or 3 (depends on gtk and glib)
+ if pkg-config --atleast-version=2.0 goocanvas-2.0; then
+     CFLAGS="$CFLAGS `pkg-config --cflags goocanvas-2.0`"
+     LIBS="$LIBS `pkg-config --libs goocanvas-2.0`"
++    havegoocanvas2=true
+ else
+-    AC_MSG_ERROR(Gpredict requires libgoocanvas-2.0-dev)
++	if pkg-config --atleast-version=3.0 goocanvas-3.0; then
++		CFLAGS="$CFLAGS `pkg-config --cflags goocanvas-3.0`"
++		LIBS="$LIBS `pkg-config --libs goocanvas-3.0`"
++		havegoocanvas3=true
++	else
++		AC_MSG_ERROR(Gpredict requires libgoocanvas-2.0-dev)
++	fi
+ fi
+ 
+ # check for libgps (optional)
+@@ -93,8 +100,13 @@ GIO_V=`pkg-config --modversion gio-2.0`
+ GTHR_V=`pkg-config --modversion gthread-2.0`
+ GDK_V=`pkg-config --modversion gdk-3.0`
+ GTK_V=`pkg-config --modversion gtk+-3.0`
+-GOOC_V=`pkg-config --modversion goocanvas-2.0`
+ CURL_V=`pkg-config --modversion libcurl`
++if test "$havegoocanvas2" = true ;  then
++	GOOC_V=`pkg-config --modversion goocanvas-2.0`
++fi
++if test "$havegoocanvas3" = true ;  then
++	GOOC_V=`pkg-config --modversion goocanvas-3.0`
++fi
+ if test "$havelibgps" = true ; then
+    GPS_V=`pkg-config --modversion libgps`
+ fi
