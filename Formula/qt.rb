@@ -30,7 +30,9 @@ class Qt < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
   depends_on "six" => :build
+  depends_on "vulkan-headers" => [:build, :test]
   depends_on xcode: :build
+  depends_on "vulkan-loader" => :test
 
   depends_on "assimp"
   depends_on "brotli"
@@ -63,6 +65,10 @@ class Qt < Formula
   uses_from_macos "krb5"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "molten-vk" => [:build, :test]
+  end
 
   on_linux do
     depends_on "alsa-lib"
