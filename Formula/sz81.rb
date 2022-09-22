@@ -18,6 +18,10 @@ class Sz81 < Formula
   depends_on "sdl12-compat"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # /usr/bin/ld: common.o:(.bss+0x127e0): multiple definition of `sdl_zx80rom'
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     args = %W[
       PREFIX=#{prefix}
       BINDIR=#{bin}
