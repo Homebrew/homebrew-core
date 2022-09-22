@@ -16,6 +16,9 @@ class Clutter < Formula
     sha256 x86_64_linux:   "90f6ab166d1dba5dc5bfb9760dfc54ae8d20ac16948ea76783aedb16499487e5"
   end
 
+  # https://blogs.gnome.org/clutter/2022/02/16/retiring-clutter/
+  deprecate! date: "2022-09-21", because: :deprecated_upstream
+
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "atk"
