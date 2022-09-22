@@ -16,6 +16,9 @@ class Anjuta < Formula
     sha256 x86_64_linux:   "9d232f13f3f221cd68ea362c23b2c7b236eae999fa1186c0223c2ba9abc345c2"
   end
 
+  # Repo has been archived: https://gitlab.gnome.org/Archive/anjuta.git
+  deprecate! date: "2022-09-21", because: :unmaintained
+
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
