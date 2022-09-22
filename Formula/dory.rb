@@ -1,8 +1,8 @@
 class Dory < Formula
   desc "Development proxy for docker"
   homepage "https://github.com/freedomben/dory"
-  url "https://github.com/FreedomBen/dory/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "1571e54dab39bc7884523aabeedde71921e64a11ef25b9c59a7b63282f97a237"
+  url "https://github.com/FreedomBen/dory/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "8c385d898aed2de82f7d0ab5c776561ffe801dd4b222a07e25e5837953355b81"
   license "MIT"
 
   bottle do
