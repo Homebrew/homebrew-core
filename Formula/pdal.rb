@@ -35,7 +35,6 @@ class Pdal < Formula
   depends_on "laszip"
   depends_on "libpq"
   depends_on "numpy"
-  depends_on "pcl"
 
   fails_with gcc: "5" # gdal is compiled with GCC
 
@@ -44,7 +43,6 @@ class Pdal < Formula
                          "-DWITH_LASZIP=TRUE",
                          "-DBUILD_PLUGIN_GREYHOUND=ON",
                          "-DBUILD_PLUGIN_ICEBRIDGE=ON",
-                         "-DBUILD_PLUGIN_PCL=ON",
                          "-DBUILD_PLUGIN_PGPOINTCLOUD=ON",
                          "-DBUILD_PLUGIN_PYTHON=ON",
                          "-DBUILD_PLUGIN_SQLITE=ON"
