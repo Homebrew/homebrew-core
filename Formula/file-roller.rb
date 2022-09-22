@@ -1,8 +1,8 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.42/file-roller-3.42.0.tar.xz"
-  sha256 "1c438e6d53ec10ff4f2eb5b22d7bbf28a7c2a84957ab64a751c1cdf3c52302c7"
+  url "https://download.gnome.org/sources/file-roller/43/file-roller-43.0.tar.xz"
+  sha256 "298729fdbdb9da8132c0bbc60907517d65685b05618ae05167335e6484f573a1"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -27,16 +27,20 @@ class FileRoller < Formula
   depends_on "libmagic"
 
   def install
+    # Patch out gnome.post_install to avoid failing when unused commands are missing.
+    # TODO: Remove when build no longer fails, which may be possible in following scenarios:
+    # - gnome.post_install avoids failing on missing commands when `DESTDIR` is set
+    # - gnome.post_install works with Homebrew's distribution of `gtk+3`
+    # - `file-roller` moves to `gtk4`
+    inreplace "meson.build", /^gnome\.post_install\([^)]*\)$/, ""
+
     ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
     ENV.append "LIBS", "-L#{Formula["libmagic"].opt_lib}"
+    ENV["DESTDIR"] = "/"
 
-    # stop meson_post_install.py from doing what needs to be done in the post_install step
-    ENV["DESTDIR"] = ""
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dpackagekit=false", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", *std_meson_args, "build", "-Dpackagekit=false", "-Duse_native_appchooser=false"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   def post_install
