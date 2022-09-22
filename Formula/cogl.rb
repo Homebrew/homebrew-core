@@ -17,6 +17,9 @@ class Cogl < Formula
     sha256 x86_64_linux:   "2e1af63ab7d9ffcfca78804cdcab02d3b60969c52c038d89a7a7caa42afd4c00"
   end
 
+  # https://blogs.gnome.org/clutter/2022/02/16/retiring-clutter/
+  deprecate! date: "2022-09-21", because: :deprecated_upstream
+
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
