@@ -1,9 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
-  url "https://github.com/denoland/deno/releases/download/v1.25.3/deno_src.tar.gz"
-  sha256 "b20a5a223aae4c654e9a1f5e1c5efd7aed2162d4863e2d3fb7ac271ef3f7d2d8"
+  url "https://github.com/denoland/deno/releases/download/v1.25.4/deno_src.tar.gz"
+  sha256 "2668ccc733706a0dd5be13a8fa0b7c01678d0669c709c7c9530823194b16ad27"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -38,13 +37,13 @@ class Deno < Formula
   # We use the crate as GitHub tarball lacks submodules and this allows us to avoid git overhead.
   # TODO: Remove this and `v8` resource when https://github.com/denoland/rusty_v8/pull/1063 is released
   resource "rusty-v8" do
-    url "https://static.crates.io/crates/v8/v8-0.49.0.crate"
-    sha256 "5a1cbad73336d67babcbe5e3b03c907c8d2ff77fc6f997570af219bbd9fdb6ce"
+    url "https://static.crates.io/crates/v8/v8-0.51.0.crate"
+    sha256 "e72791f754a6517e86d88e4521baad3a7d428ce54e266ba560b8747b2a99b946"
   end
 
   resource "v8" do
-    url "https://github.com/denoland/v8/archive/1f7df8c39451f3d53e9acef4b7b0476cf4f5eb66.tar.gz"
-    sha256 "5098e515c62e42c0c0754b0daf832f16c081bc53d27b7121bc917fb52759c65a"
+    url "https://github.com/denoland/v8/archive/652f540e7eb25fba4598c66be9cd875c171e1810.tar.gz"
+    sha256 "4fedc7fe94f6164e2ffdbc465a5a8d5808b6b057e05993d384524cd77e195d5a"
   end
 
   # To find the version of gn used:
@@ -86,7 +85,6 @@ class Deno < Formula
     ENV["V8_FROM_SOURCE"] = "1"
     # Build with llvm and link against system libc++ (no runtime dep)
     ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
 
     resource("gn").stage buildpath/"gn"
     cd "gn" do
