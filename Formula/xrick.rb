@@ -20,7 +20,12 @@ class Xrick < Formula
   uses_from_macos "zlib"
 
   def install
-    inreplace "src/xrick.c", "data.zip", "#{pkgshare}/data.zip"
+    # Work around failure from GCC 10+ using default of `-fno-common`:
+    # scr_xrick.o:(.data.rel.local+0x18): multiple definition of `IMG_SPLASH'
+    # Makefile override environment variables so we need to inreplace.
+    inreplace "Makefile", "echo \"CFLAGS=", "\\0-fcommon " if OS.linux?
+
+    inreplace "src/xrick.c", "data.zip", pkgshare/"data.zip"
     system "make"
     bin.install "xrick"
     man6.install "xrick.6.gz"
