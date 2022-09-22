@@ -17,7 +17,7 @@ class Seqkit < Formula
 
   depends_on "go" => :build
 
-  resource "testdata" do
+  resource "homebrew-testdata" do
     url "https://raw.githubusercontent.com/shenwei356/seqkit/e37d70a7e0ca0e53d6dbd576bd70decac32aba64/tests/seqs4amplicon.fa"
     sha256 "b0f09da63e3c677cc698d5cdff60e2d246368263c22385937169a9a4c321178a"
   end
@@ -27,7 +27,7 @@ class Seqkit < Formula
   end
 
   test do
-    resource("testdata").stage do
+    resource("homebrew-testdata").stage do
       assert_equal ">seq1\nCCCACTGAAA",
       shell_output("#{bin}/seqkit amplicon --quiet -F CCC -R TTT seqs4amplicon.fa").strip
     end
