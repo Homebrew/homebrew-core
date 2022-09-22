@@ -17,9 +17,9 @@ class TrzszGo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"trz", "./cmd/trz"
-    system "go", "build", "-o", bin/"tsz", "./cmd/tsz"
-    system "go", "build", "-o", bin/"trzsz", "./cmd/trzsz"
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"trz"), "./cmd/trz"
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"tsz"), "./cmd/tsz"
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"trzsz"), "./cmd/trzsz"
   end
 
   test do
