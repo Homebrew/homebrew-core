@@ -18,6 +18,10 @@ class K9s < Formula
 
   depends_on "go" => :build
 
+  on_linux do
+    depends_on "libx11"
+  end
+
   def install
     ldflags = %W[
       -s -w
