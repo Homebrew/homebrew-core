@@ -1,8 +1,8 @@
 class Gtksourceview5 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/5.6/gtksourceview-5.6.0.tar.xz"
-  sha256 "0ca3df1d2af61bde3608d0d3f233e4a41f958e2ae59b9fc209c3df6102e8afdd"
+  url "https://download.gnome.org/sources/gtksourceview/5.6/gtksourceview-5.6.1.tar.xz"
+  sha256 "659d9cc9d034a114f07e7e134ee80d77dec0497cb1516ae5369119c2fcb9da16"
   license "LGPL-2.1-or-later"
 
   livecheck do
