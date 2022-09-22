@@ -1,8 +1,8 @@
 class Gokart < Formula
   desc "Static code analysis for securing Go code"
   homepage "https://github.com/praetorian-inc/gokart"
-  url "https://github.com/praetorian-inc/gokart/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "a3f4bbd980f64fb92c7e250bdd9753b4c2473d88e3c5ed00510a5de6aa9f19d5"
+  url "https://github.com/praetorian-inc/gokart/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "81bf1e26531117de4da9b160ede80aa8f6c4d4984cc1d7dea398083b8e232eb7"
   license "Apache-2.0"
   head "https://github.com/praetorian-inc/gokart.git", branch: "main"
 
