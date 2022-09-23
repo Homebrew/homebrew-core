@@ -33,8 +33,14 @@ class Fontforge < Formula
   depends_on "pango"
   depends_on "python@3.10"
   depends_on "readline"
+  depends_on "woff2"
 
   uses_from_macos "libxml2"
+
+  resource "homebrew-testdata" do
+    url "https://raw.githubusercontent.com/fontforge/fontforge/1346ce6e4c004c312589fdb67e31d4b2c32a1656/tests/fonts/Ambrosia.sfd"
+    sha256 "6a22acf6be4ab9e5c5a3373dc878030b4b8dc4652323395388abe43679ceba81"
+  end
 
   # Fix for rpath on ARM
   # https://github.com/fontforge/fontforge/issues/4658
@@ -67,6 +73,15 @@ class Fontforge < Formula
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
     system "python3.10", "-c", "import fontforge; fontforge.font()"
+
+    resource("homebrew-testdata").stage do
+      ffscript = "fontforge.open('Ambrosia.sfd').generate('#{testpath}/Ambrosia.woff2')"
+      system bin/"fontforge", "-c", ffscript
+    end
+    assert_predicate testpath/"Ambrosia.woff2", :exist?
+
+    fileres = shell_output("/usr/bin/file #{testpath}/Ambrosia.woff2")
+    assert_match "Web Open Font Format (Version 2)", fileres
   end
 end
 
