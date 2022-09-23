@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/89/05/840eff3c642a8c26406f4a9d48f35f621423500cfbd487c5f41059e64c5f/ansible-lint-6.6.1.tar.gz"
-  sha256 "b5b3eae0271fbb5799dd5f8a111aa69ccd97ff2cc45253bd4101bf31b8f6beb7"
+  url "https://files.pythonhosted.org/packages/8a/ce/c1e82535851508d7a0e05d82e83d9b4fb1a90ef3dbb9e4df24bae2147cb1/ansible-lint-6.7.0.tar.gz"
+  sha256 "a111295152d2de812857cac6bb2c6b003315826d9cae1410a4f10e3eeb255b09"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -24,8 +24,8 @@ class AnsibleLint < Formula
   depends_on "yamllint"
 
   resource "ansible-compat" do
-    url "https://files.pythonhosted.org/packages/b0/5b/f65a7008ed0880b8585d0e4c3fab785c061cc28f62ee6c2beecee0d99238/ansible-compat-2.2.0.tar.gz"
-    sha256 "676db8ec0449d1f07038625b8ebb8ceef5f8ad3a1af3ee82d4ed66b9b04cb6fa"
+    url "https://files.pythonhosted.org/packages/e7/20/3cbc78afd3bee6a30b95506819b57e70e4e12c3c69da4de35ce2dd03a216/ansible-compat-2.2.1.tar.gz"
+    sha256 "7a012753a0a02dab2f22b0e574e3e7b00399f660606154474ffe25621fa80d3b"
   end
 
   resource "black" do
