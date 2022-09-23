@@ -2,8 +2,8 @@ class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
   # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
-  url "https://nodejs.org/dist/v18.9.0/node-v18.9.0.tar.xz"
-  sha256 "c75cc89afead976791900accde02a7b1e7e762702f0f6fa68eaacb01984d9654"
+  url "https://nodejs.org/dist/v18.9.1/node-v18.9.1.tar.xz"
+  sha256 "f381963d43568ba699915c88629dc6da4a1963804dcd37b2e6e1d10d923dd5d9"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
