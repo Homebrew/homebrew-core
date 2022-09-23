@@ -4,6 +4,7 @@ class Nift < Formula
   url "https://github.com/nifty-site-manager/nsm/archive/v2.4.12.tar.gz"
   sha256 "7a28987114cd5e4717b31a96840c0be505d58a07e20dcf26b25add7dbdf2668b"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 monterey:     "0594705207068ce496955651d2aca3e9430d76dfddb6ae038568bd1cb7672848"
@@ -13,10 +14,18 @@ class Nift < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "e8fed0b8f27357e6414545556caf0c1bffd34273b5966e17c8ef4f554eb2c4a8"
   end
 
-  depends_on "luajit-openresty"
+  depends_on "luajit"
+
+  # Fix build on Apple Silicon by removing -pagezero_size/-image_base flags.
+  # TODO: Remove if upstream PR is merged and included in release.
+  # PR ref: https://github.com/nifty-site-manager/nsm/pull/33
+  patch do
+    url "https://github.com/nifty-site-manager/nsm/commit/00b3ef1ea5ffe2dedc501f0603d16a9a4d57d395.patch?full_index=1"
+    sha256 "c05f0381feef577c493d3b160fc964cee6aeb3a444bc6bde70fda4abc96be8bf"
+  end
 
   def install
-    inreplace "Lua.h", "/usr/local/include", Formula["luajit-openresty"].opt_include
+    inreplace "Lua.h", "/usr/local/include", Formula["luajit"].opt_include
     system "make", "BUNDLED=0", "LUAJIT_VERSION=2.1"
     system "make", "install", "PREFIX=#{prefix}"
   end
