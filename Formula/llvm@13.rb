@@ -7,14 +7,6 @@ class LlvmAT13 < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
   revision 1
 
-  # This should be removed when LLVM 15 is released, so we only check the
-  # current version (the `llvm` formula) and one major version before it
-  # (to catch any patch version that may appear, however uncommon).
-  livecheck do
-    url :stable
-    regex(/^llvmorg[._-]v?(13(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "b480466716f06633140ddadb009d774b0998e99eaa0fdba68d1f2b7863d5da3b"
     sha256 cellar: :any,                 arm64_big_sur:  "51aa0ba0cd01aed95eff270131ee2d43fe903a9dba74ca26be72a6ae2a39e72c"
