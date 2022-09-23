@@ -67,6 +67,7 @@ class JpegXl < Formula
         "-DJPEGXL_ENABLE_JNI=OFF",
         "-DJPEGXL_VERSION=#{version}",
         "-DJPEGXL_ENABLE_MANPAGES=OFF",
+        "-DCMAKE_INSTALL_RPATH=#{rpath}",
         *std_cmake_args
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
