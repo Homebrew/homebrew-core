@@ -15,12 +15,11 @@ class Overmind < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "162e1a133b3a55c485c8149a375b442bc3e01ef1306f7f28fab381f7559225d7"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
   depends_on "tmux"
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"overmind"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
     prefix.install_metafiles
   end
 
