@@ -18,9 +18,7 @@ class Dynein < Formula
   end
 
   test do
-    assert_match "To find all tables in all regions",
-      shell_output("#{bin}/dy desc 2>&1", 1)
-
+    assert_match "To find all tables in all regions", shell_output("#{bin}/dy desc 2>&1", 1)
     assert_match version.to_s, shell_output("#{bin}/dy --version")
   end
 end
