@@ -4,6 +4,7 @@ class Uftrace < Formula
   url "https://github.com/namhyung/uftrace/archive/v0.12.tar.gz"
   sha256 "2aad01f27d4f18717b681824c7a28ac3e1efd5e7bbed3ec888a3ea5af60e3700"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/namhyung/uftrace.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class Uftrace < Formula
   depends_on "elfutils"
   depends_on "libunwind"
   depends_on :linux
-  depends_on "luajit-openresty"
+  depends_on "luajit"
   depends_on "ncurses"
   depends_on "python@3.10"
 
