@@ -60,6 +60,8 @@ class Audacious < Formula
   depends_on "sdl2"
   depends_on "wavpack"
 
+  uses_from_macos "curl"
+
   fails_with gcc: "5"
 
   def install
