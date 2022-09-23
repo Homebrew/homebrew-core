@@ -22,7 +22,11 @@ class Vecx < Formula
   def install
     # Fix missing symobls for inline functions
     # https://github.com/jhawthorn/vecx/pull/3
-    inreplace ["e6809.c", "vecx.c"], /__inline/, 'static \1' if OS.mac?
+    if OS.mac?
+      inreplace ["e6809.c", "vecx.c"], /__inline/, 'static \1'
+    else
+      inreplace "Makefile", /^CFLAGS :=/, "\\0 -fgnu89-inline "
+    end
 
     system "make"
     bin.install "vecx"
