@@ -1,9 +1,9 @@
 class Unum < Formula
   desc "Interconvert numbers, Unicode, and HTML/XHTML entities"
   homepage "https://www.fourmilab.ch/webtools/unum/"
-  url "https://www.fourmilab.ch/webtools/unum/prior-releases/3.4-14.0.0/unum.tar.gz"
-  version "3.4-14.0.0"
-  sha256 "23f49b6c56ce7ce94abd127e881d3c3feb26960a3101bc7778a856d251d5fa15"
+  url "https://www.fourmilab.ch/webtools/unum/prior-releases/3.5-15.0.0/unum.tar.gz"
+  version "3.5-15.0.0"
+  sha256 "7723433fc5eeda0e9ea01befde15d76523792177f2325980083c270fb62043ae"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   livecheck do
