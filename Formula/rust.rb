@@ -10,8 +10,8 @@ class Rust < Formula
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.64.0",
-          revision: "fd9c4297ccbee36d39e9a79067edab0b614edb5a"
+          tag:      "0.65.0",
+          revision: "387270bc7f446d17869c7f208207c73231d6a252"
     end
   end
 
