@@ -19,16 +19,22 @@ class Qdae < Formula
     sha256 catalina:       "9b52e69dfcbeed51cacae5189cd2833da3bafda73ebb155b7d6a3c57eb8152fd"
   end
 
+  deprecate! date: "2022-09-23", because: :unmaintained
+
   depends_on "sdl12-compat"
 
   uses_from_macos "libxml2"
 
   def install
+    # Fix build failure with newer glibc:
+    # /usr/bin/ld: ../lib/.libs/libdsk.a(drvlinux.o): in function `linux_open':
+    # drvlinux.c:(.text+0x168): undefined reference to `major'
+    # /usr/bin/ld: ../lib/.libs/libdsk.a(compress.o): in function `comp_open':
+    # compress.c:(.text+0x268): undefined reference to `major'
+    ENV.append_to_cflags "-include sys/sysmacros.h" if OS.linux?
+
     ENV.cxx11
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
