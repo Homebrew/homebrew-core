@@ -14,8 +14,7 @@ class Ucloud < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "80e2fbdc7a7b717b71d2704fa7ab24b769449304091d8e00aa3b48fc4a22b920"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     dir = buildpath/"src/github.com/ucloud/ucloud-cli"
