@@ -15,8 +15,7 @@ class Lefthook < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "de993e5beffca2b77065e1d3d612656517fe637e9e6a2da68f8ed6c95669b2b2"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
