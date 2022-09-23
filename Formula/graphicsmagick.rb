@@ -24,6 +24,7 @@ class Graphicsmagick < Formula
   depends_on "freetype"
   depends_on "jasper"
   depends_on "jpeg-turbo"
+  depends_on "jpeg-xl"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
@@ -50,7 +51,7 @@ class Graphicsmagick < Formula
       --without-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-wmf
-      --without-jxl
+      --with-jxl
     ]
 
     # versioned stuff in main tree is pointless for us
