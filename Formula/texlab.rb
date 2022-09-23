@@ -21,13 +21,11 @@ class Texlab < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  test do
-    def rpc(json)
-      "Content-Length: #{json.size}\r\n" \
-        "\r\n" \
-        "#{json}"
-    end
+  def rpc(json)
+    "Content-Length: #{json.size}\r\n\r\n#{json}"
+  end
 
+  test do
     input = rpc <<-EOF
     {
       "jsonrpc":"2.0",
