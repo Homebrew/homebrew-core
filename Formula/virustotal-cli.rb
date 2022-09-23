@@ -14,13 +14,10 @@ class VirustotalCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c89d82d495056117ab909ce0365d5229236694c4bffdcc52784be1905bdbe10"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags",
-            "-X cmd.Version=#{version}",
-            "-o", bin/"vt", "./vt/main.go"
+    system "go", "build", *std_go_args(output: bin/"vt", ldflags: "-X cmd.Version=#{version}"), "./vt/main.go"
 
     generate_completions_from_executable(bin/"vt", "completion", base_name: "vt", shells: [:bash, :zsh])
   end
