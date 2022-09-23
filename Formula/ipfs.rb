@@ -24,9 +24,7 @@ class Ipfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a79c98ad0011a0c05176ded94c8c63568947f53bd09ab0117b3518479990a8c"
   end
 
-  # Required lucas-clemente/quic-go >= 0.28
-  # Try to switch to the latest go on the next release
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "make", "build"
