@@ -14,8 +14,7 @@ class Grpcui < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a243154ac04bccb01591b0f07c7c56dbf86e48ffbdea0d296295f7a91f18ca82"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/grpcui"
