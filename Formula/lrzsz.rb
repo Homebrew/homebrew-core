@@ -39,7 +39,7 @@ class Lrzsz < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/macports/macports-ports/ed7e89d/comms/lrzsz/files/patch-zglobal.h.diff"
+    url "https://raw.githubusercontent.com/macports/macports-ports/ed7e89dfbf638daf6f217274e7a366ebc3c7e34e/comms/lrzsz/files/patch-zglobal.h.diff"
     sha256 "16c2097ceb2c5c9a6c4872aa9f903b57b557b428765d0f981579206c68f927b9"
   end
 
