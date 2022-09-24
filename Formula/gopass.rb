@@ -23,11 +23,7 @@ class Gopass < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}/"
-
-    bash_completion.install "bash.completion" => "gopass.bash"
-    fish_completion.install "fish.completion" => "gopass.fish"
-    zsh_completion.install "zsh.completion" => "_gopass"
-    man1.install "gopass.1"
+    bash_completion.install share/"bash-completion/completions/gopass"
   end
 
   test do
