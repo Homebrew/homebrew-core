@@ -1,14 +1,16 @@
 class Expat < Formula
   desc "XML 1.0 parser"
   homepage "https://libexpat.github.io/"
-  url "https://github.com/libexpat/libexpat/releases/download/R_2_4_8/expat-2.4.8.tar.xz"
-  sha256 "f79b8f904b749e3e0d20afeadecf8249c55b2e32d4ebb089ae378df479dcaf25"
+  url "https://github.com/libexpat/libexpat/releases/download/R_2_4_9/expat-2.4.9.tar.xz"
+  sha256 "6e8c0728fe5c7cd3f93a6acce43046c5e4736c7b4b68e032e9350daa0efc0354"
   license "MIT"
 
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(/href=.*?expat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(%r{href=["']?[^"' >]*?/tag/\D*?(\d+(?:[._]\d+)*)["' >]}i)
+    strategy :github_latest do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("_", ".") }
+    end
   end
 
   bottle do
@@ -21,7 +23,7 @@ class Expat < Formula
   end
 
   head do
-    url "https://github.com/libexpat/libexpat.git"
+    url "https://github.com/libexpat/libexpat.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "docbook2x" => :build
