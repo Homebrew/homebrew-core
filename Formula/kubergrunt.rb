@@ -14,8 +14,7 @@ class Kubergrunt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "de0c5491615d82a8284fdd63e999711351f2647aceeb925b1c29ab2874a89edc"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.VERSION=v#{version}"), "./cmd"
