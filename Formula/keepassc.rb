@@ -1,4 +1,6 @@
 class Keepassc < Formula
+  include Language::Python::Virtualenv
+
   desc "Curses-based password manager for KeePass v.1.x and KeePassX"
   homepage "https://github.com/raymontag/keepassc"
   url "https://files.pythonhosted.org/packages/c8/87/a7d40d4a884039e9c967fb2289aa2aefe7165110a425c4fb74ea758e9074/keepassc-1.8.2.tar.gz"
@@ -29,24 +31,8 @@ class Keepassc < Formula
   end
 
   def install
-    pyver = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
-    install_args = %W[setup.py install --prefix=#{libexec}]
-
-    resource("pycryptodomex").stage do
-      system "python3", *install_args, "--single-version-externally-managed", "--record=installed.txt"
-    end
-
-    resource("kppy").stage do
-      system "python3", *install_args
-    end
-
-    system "python3", *install_args
-
-    man1.install Dir["*.1"]
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"]
+    virtualenv_install_with_resources
+    man1.install_symlink libexec.glob("share/man/man1/*.1")
   end
 
   test do
