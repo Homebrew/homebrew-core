@@ -2,7 +2,7 @@ require "language/node"
 
 class Cdktf < Formula
   desc "Cloud Development Kit for Terraform"
-  homepage "https://github.com/hashicorp/terraform-cdk"
+  homepage "https://www.terraform.io/cdktf"
   url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.12.2.tgz"
   sha256 "9b2e97c530a32d5523f95220b111d8aa44c93926d94595b8feae0d8f75883d83"
   license "MPL-2.0"
@@ -16,8 +16,8 @@ class Cdktf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba5b8e53e095c31190d725d5b1bfc8292d6f73da31da893bd257e6fc71747d45"
   end
 
+  depends_on "terraform" => :test
   depends_on "node"
-  depends_on "terraform"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
