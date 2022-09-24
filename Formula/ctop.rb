@@ -15,8 +15,7 @@ class Ctop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "30607fe87d023df1ab88efe82c18af28e5276cfb8281de6b51bdedea41b5179e"
   end
 
-  # Bump to 1.18 on the next release (0.7.7 or later).
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "make", "build"
