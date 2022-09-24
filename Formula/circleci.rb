@@ -17,8 +17,7 @@ class Circleci < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2ee2c4b309d2b783c91908cbb47fb96684f1b73307ac8f37c8b38e955f4497a"
   end
 
-  # Bump to 1.18 when the x/sys dependency is updated upstream.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
   depends_on "packr" => :build
 
   def install
