@@ -21,6 +21,8 @@ Thanks for contributing!
   * `--tag=...` and `--revision=...`
   * `--version=...`
 
+* for casks, use `brew bump-cask-pr foo` instead.
+
 ### To add a new formula for `foo` version `2.3.4` from `$URL`
 
 * read [the Formula Cookbook](https://docs.brew.sh/Formula-Cookbook) or: `brew create $URL` and make edits
