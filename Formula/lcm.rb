@@ -25,15 +25,15 @@ class Lcm < Formula
 
   def install
     # Adding RPATH in #{lib}/lua/X.Y/lcm.so and some #{bin}/*.
-    args = std_cmake_args + %W[
+    args = %W[
       -DCMAKE_INSTALL_RPATH=#{lib}
       -DLCM_ENABLE_EXAMPLES=OFF
       -DLCM_ENABLE_TESTS=OFF
       -DLCM_JAVA_TARGET_VERSION=8
-      -DPYTHON_EXECUTABLE=#{which("python3")}
+      -DPYTHON_EXECUTABLE=#{which("python3.10")}
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
