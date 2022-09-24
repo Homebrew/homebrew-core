@@ -4,7 +4,7 @@ class Zinit < Formula
   url "https://github.com/zdharma-continuum/zinit/archive/refs/tags/v3.7.tar.gz"
   sha256 "dcd7ded70255a576a4612edb743650f83e688bd4a4b473bbdafeddb473bde3c9"
   license "MIT"
-  head "https://github.com/zdharma-continuum/zinit.git", branch: "master"
+  head "https://github.com/zdharma-continuum/zinit.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "afcbf0b575f8770b92070e69d701fa4bd3fee4d612d09584d37ecac78e56bf83"
