@@ -433,7 +433,7 @@
     "exclude_packages": ["six"]
   },
   "schemathesis": {
-    "exclude_packages": ["six", "typing-extensions"]
+    "exclude_packages": ["six", "PyYAML", "jsonschema", "attrs", "pyrsistent",  "typing-extensions"]
   },
   "scipy": {
     "exclude_packages": ["numpy"]
