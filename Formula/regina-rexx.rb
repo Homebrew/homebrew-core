@@ -4,6 +4,7 @@ class ReginaRexx < Formula
   url "https://downloads.sourceforge.net/project/regina-rexx/regina-rexx/3.9.5/regina-rexx-3.9.5.tar.gz"
   sha256 "08e9a9061bee0038cfb45446de20766ffdae50eea37f6642446ec4e73a2abc51"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "c97635f3169b3c26ebe86c3efb2cc591c936052f4b06a71144488e5917b911fd"
@@ -18,8 +19,13 @@ class ReginaRexx < Formula
 
   def install
     ENV.deparallelize # No core usage for you, otherwise race condition = missing files.
-    system "./configure", *std_configure_args
-    system "make", "install"
+    system "./configure", *std_configure_args,
+                          "--with-addon-dir=#{HOMEBREW_PREFIX}/lib/regina-rexx/addons",
+                          "--with-brew-addon-dir=#{lib}/regina-rexx/addons"
+    system "make"
+
+    install_targets = OS.mac? ? ["installbase", "installbrewlib"] : ["install"]
+    system "make", *install_targets
   end
 
   test do
