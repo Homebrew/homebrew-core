@@ -3,8 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/22/4b/29f04fdc363b1801909417aa558db3351b9dbacce436aecfd7e5dbb11b1d/dxpy-0.328.0.tar.gz"
-  sha256 "365ef9290dc1d4ecb6963e41ce7c5a7848615ee465a74b0e82a55c21559e5b90"
+  url "https://files.pythonhosted.org/packages/5a/1e/adf8e844e962cede2f8294e5e999e7e353c99af19ec6f0ab80d8daf17355/dxpy-0.329.0.tar.gz"
+  sha256 "9511cf8034943ea16833beac55f37a9af7bb4b1fe923487d195413dea532aa4f"
   license "Apache-2.0"
 
   bottle do
@@ -36,8 +36,8 @@ class Dxpy < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "cffi" do
@@ -56,8 +56,8 @@ class Dxpy < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
   resource "psutil" do
