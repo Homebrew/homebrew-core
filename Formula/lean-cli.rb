@@ -15,8 +15,7 @@ class LeanCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "50699b68f8cd4adc66f438591ff8dc3fa1d2912fa126167ccd4d6808783d2e9f"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     build_from = build.head? ? "homebrew-head" : "homebrew"
