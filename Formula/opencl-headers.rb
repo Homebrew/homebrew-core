@@ -1,8 +1,8 @@
 class OpenclHeaders < Formula
   desc "C language header files for the OpenCL API"
   homepage "https://www.khronos.org/registry/OpenCL/"
-  url "https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2022.05.18.tar.gz"
-  sha256 "88a1177853b279eaf574e2aafad26a84be1a6f615ab1b00c20d5af2ace95c42e"
+  url "https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2022.09.23.tar.gz"
+  sha256 "dfaded8acf44473e47e7829373c6bb5fba148dc36a38ccd6ef7b6c1ebb78ae68"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/OpenCL-Headers.git", branch: "main"
 
