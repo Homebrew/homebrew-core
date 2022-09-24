@@ -27,6 +27,18 @@ class Gopass < Formula
   end
 
   test do
+    # TODO: Debugging Linux. Remove before merge
+    require "pty"
+    PTY.spawn(bin/"gopass", "version") do |r, _w, pid|
+      sleep 5
+      Process.kill "TERM", pid
+      begin
+        r.each_line { |line| ohai line }
+      rescue Errno::EIO
+        # Debugging
+      end
+    end
+
     assert_match version.to_s, shell_output("#{bin}/gopass version")
 
     (testpath/"batch.gpg").write <<~EOS
