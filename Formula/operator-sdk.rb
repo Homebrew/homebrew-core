@@ -24,13 +24,10 @@ class OperatorSdk < Formula
   depends_on "go"
 
   def install
-    ENV["GOBIN"] = libexec/"bin"
+    ENV["GOBIN"] = bin
     system "make", "install"
 
-    generate_completions_from_executable(libexec/"bin/operator-sdk", "completion")
-
-    output = libexec/"bin/operator-sdk"
-    (bin/"operator-sdk").write_env_script(output, PATH: "$PATH:#{Formula["go@1.17"].opt_bin}")
+    generate_completions_from_executable(bin/"operator-sdk", "completion")
   end
 
   test do
