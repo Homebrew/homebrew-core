@@ -31,7 +31,7 @@ class Libtensorflow < Formula
       "-march=native"
     end
     ENV["CC_OPT_FLAGS"] = optflag
-    ENV["PYTHON_BIN_PATH"] = Formula["python@3.10"].opt_bin/"python3"
+    ENV["PYTHON_BIN_PATH"] = which("python3.10")
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
     ENV["TF_NEED_GCP"] = "0"
@@ -60,6 +60,13 @@ class Libtensorflow < Formula
       --linkopt=-Wl,-rpath,#{rpath}
       --verbose_failures
     ]
+    if OS.linux?
+      env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+      bazel_args += %W[
+        --action_env=PATH=#{env_path}
+        --host_action_env=PATH=#{env_path}
+      ]
+    end
     targets = %w[
       tensorflow:libtensorflow.so
       tensorflow:install_headers
