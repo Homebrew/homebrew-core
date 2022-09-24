@@ -9,11 +9,6 @@ class Aacgain < Formula
   sha256 "2bb8e27aa8f8434a4861fdbc70adb9cb4b47e1dfe472910d62d6042cb80a2ee1"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url "https://aacgain.altosdesign.com/alvarez/"
-    regex(/href=.*?aacgain[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4c8bc457323db05d4c0ccd01187cc74d4367d5704953ced03883e7a806715b05"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d09e7e41cb2fa9ab670f19797812669151b4b74c308ced6f00dfa8cfc83de0c"
@@ -25,6 +20,8 @@ class Aacgain < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "2d7ea587b06feb7ccb4f6dfaee3a6d7b329e041cc80af969afb8b5d1631997e8"
     sha256 cellar: :any_skip_relocation, el_capitan:     "b97aaaf19fee69734b4a29e22c498becaa94b3025a192a7ef8f1ecfb0a2ce87c"
   end
+
+  deprecate! date: "2022-09-26", because: :unmaintained
 
   def install
     system "./configure", "--disable-debug",
