@@ -29,7 +29,7 @@ class Bluepill < Formula
   def install
     pbxprojs = ["bluepill", "bp"].map { |name| "#{name}/#{name}.xcodeproj/project.pbxproj" }
     inreplace pbxprojs, "x86_64", Hardware::CPU.arch.to_s
-    
+
     xcodebuild "-workspace", "Bluepill.xcworkspace",
                "-scheme", "bluepill",
                "-configuration", "Release",
