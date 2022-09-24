@@ -1,6 +1,6 @@
 class Twty < Formula
   desc "Command-line twitter client written in golang"
-  homepage "https://mattn.kaoriya.net/"
+  homepage "https://github.com/mattn/twty/"
   url "https://github.com/mattn/twty/archive/refs/tags/v0.0.13.tar.gz"
   sha256 "4e76ada5e7c5f2e20881fbf303fb50d3d4a443a8e37f2444371a90102737e49b"
   license "MIT"
@@ -14,8 +14,7 @@ class Twty < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb45326df2a5cb80531378ae156fc20400346d5c5c8d82548429b62463ec603e"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
