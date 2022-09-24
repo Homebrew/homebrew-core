@@ -1,8 +1,8 @@
 class ImagemagickAT6 < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://legacy.imagemagick.org/"
-  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.12-63.tar.xz"
-  sha256 "a71f2cf51dde4fbafb3d59c8791604e2977b5a36e39404f4c015056f58fd2cc5"
+  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.12-64.tar.xz"
+  sha256 "57003a171b689e95de1a85f9201194715d7b6d2f2a6241a5efcbcd43f6768603"
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git", branch: "main"
 
