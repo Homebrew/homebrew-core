@@ -15,8 +15,7 @@ class Tfschema < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2215c0ed4688650a185e0dd4342ca5b89c6238a6ae46531a404dcdb2705a6fc"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
   depends_on "terraform" => :test
 
   def install
