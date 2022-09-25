@@ -1,8 +1,8 @@
 class Libcap < Formula
   desc "User-space interfaces to POSIX 1003.1e capabilities"
   homepage "https://sites.google.com/site/fullycapable/"
-  url "https://mirrors.edge.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.65.tar.xz"
-  sha256 "73e350020cc31fe15360879d19384ffa3395a825f065fcf6bda3a5cdf965bebd"
+  url "https://mirrors.edge.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.66.tar.xz"
+  sha256 "15c40ededb3003d70a283fe587a36b7d19c8b3b554e33f86129c059a4bb466b2"
   license all_of: ["BSD-3-Clause", "GPL-2.0-or-later"]
 
   livecheck do
