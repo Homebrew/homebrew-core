@@ -16,9 +16,6 @@ class Mtools < Formula
 
   conflicts_with "multimarkdown", because: "both install `mmd` binaries"
 
-  # 4.0.25 doesn't include the proper osx locale headers.
-  patch :DATA
-
   def install
     args = %W[
       --disable-debug
@@ -42,18 +39,3 @@ class Mtools < Formula
     assert_match version.to_s, shell_output("#{bin}/mtools --version")
   end
 end
-
-__END__
-diff --git a/sysincludes.h b/sysincludes.h
-index 056218e..ba3677b 100644
---- a/sysincludes.h
-+++ b/sysincludes.h
-@@ -279,6 +279,8 @@ extern int errno;
- #include <pwd.h>
- #endif
- 
-+#include <xlocale.h>
-+#include <strings.h>
- 
- #ifdef HAVE_STRING_H
- # include <string.h>
