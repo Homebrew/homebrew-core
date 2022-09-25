@@ -441,6 +441,9 @@
   "semgrep": {
     "exclude_packages": ["jsonschema", "attrs", "pyrsistent"]
   },
+  "sgr": {
+    "exclude_packages": ["typing-extensions", "jsonschema", "attrs", "pyrsistent"]
+  },
   "shallow-backup": {
     "exclude_packages": ["six"]
   },
