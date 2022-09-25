@@ -6,6 +6,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -64,7 +65,6 @@ class Ffmpeg < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "gcc" # because rubberband is compiled with gcc
     depends_on "libxv"
   end
 
