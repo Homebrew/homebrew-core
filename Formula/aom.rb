@@ -5,6 +5,7 @@ class Aom < Formula
       tag:      "v3.5.0",
       revision: "bcfe6fbfed315f83ee8a95465c654ee8078dbff9"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "94c2b1eba87e6b46f0a63ff709352505f05bcc9b9b11f77e496948619ee08bb8"
