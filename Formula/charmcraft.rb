@@ -21,6 +21,7 @@ class Charmcraft < Formula
   depends_on "jsonschema"
   depends_on "libpython-tabulate"
   depends_on "libsodium"
+  depends_on "python-typing-extensions"
   depends_on "python@3.10"
   depends_on "pyyaml"
   depends_on "six"
@@ -213,11 +214,6 @@ class Charmcraft < Formula
   resource "types-Deprecated" do
     url "https://files.pythonhosted.org/packages/45/2f/c0e57815699277d3ecb3cc974c4ffee0afc37a593437328766a42a525dd2/types-Deprecated-1.2.9.tar.gz"
     sha256 "e04ce58929509865359e91dcc38720123262b4cd68fa2a8a90312d50390bb6fa"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/9e/1d/d128169ff58c501059330f1ad96ed62b79114a2eb30b8238af63a2e27f70/typing_extensions-4.3.0.tar.gz"
-    sha256 "e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"
   end
 
   resource "urllib3" do
