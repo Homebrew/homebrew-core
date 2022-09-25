@@ -1,8 +1,8 @@
 class Texlab < Formula
   desc "Implementation of the Language Server Protocol for LaTeX"
   homepage "https://texlab.netlify.com/"
-  url "https://github.com/latex-lsp/texlab/archive/v4.2.2.tar.gz"
-  sha256 "db5426766c7d9f23fb269fa27c725af459728a3d3a1b0642dc823fb7b26a8f93"
+  url "https://github.com/latex-lsp/texlab/archive/v4.3.0.tar.gz"
+  sha256 "fb70d072c822dc7b5b5573f5771a68d5099dc8f50cbce2e967966c9db6ac7728"
   license "GPL-3.0-only"
   head "https://github.com/latex-lsp/texlab.git", branch: "master"
 
