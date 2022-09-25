@@ -2,8 +2,8 @@ class Bartycrouch < Formula
   desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/FlineDev/BartyCrouch"
   url "https://github.com/FlineDev/BartyCrouch.git",
-      tag:      "4.11.0",
-      revision: "31c4cb250caae44dc3ab62c84becd3a85e55e8ad"
+      tag:      "4.12.0",
+      revision: "cccf0b38109f70ef0c84ad419dfb25c5b297a868"
   license "MIT"
   head "https://github.com/FlineDev/BartyCrouch.git", branch: "main"
 
