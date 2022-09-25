@@ -101,7 +101,7 @@ class Libtensorflow < Formula
         printf("%s", TF_Version());
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-ltensorflow", "-o", "test_tf", "test.c"
+    system ENV.cc, "test.c", "-L#{lib}", "-ltensorflow", "-o", "test_tf"
     assert_equal version, shell_output("./test_tf")
 
     resource("homebrew-test-model").stage(testpath)
