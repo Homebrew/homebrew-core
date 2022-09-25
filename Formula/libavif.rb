@@ -4,7 +4,7 @@ class Libavif < Formula
   url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v0.10.1.tar.gz"
   sha256 "66e82854ceb84a3e542bc140a343bc90e56c68f3ecb4fff63e636c136ed9a05e"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "8a87d1f6d545e4f3b30ad302bc40d2b113fd0a5e7aef3b881f30ce67733af3a3"
