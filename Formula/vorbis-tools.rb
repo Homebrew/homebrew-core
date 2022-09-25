@@ -21,12 +21,13 @@ class VorbisTools < Formula
   end
 
   depends_on "pkg-config" => :build
+  # FIXME: This should be `uses_from_macos "curl"`, but linkage with Homebrew curl
+  #        is unavoidable because this does `using: :homebrew_curl` above.
+  depends_on "curl"
   depends_on "flac"
   depends_on "libao"
   depends_on "libogg"
   depends_on "libvorbis"
-
-  uses_from_macos "curl"
 
   def install
     system "./configure", *std_configure_args, "--disable-nls"
