@@ -5,6 +5,7 @@ class Lzlib < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.13.tar.gz"
   sha256 "a1ab58f3148ba4b2674e938438166042137a9275bed747306641acfddc9ffb80"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/lzip/lzlib/"
