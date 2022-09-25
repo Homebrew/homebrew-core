@@ -1,9 +1,9 @@
 class Backupninja < Formula
   desc "Backup automation tool"
   homepage "https://0xacab.org/riseuplabs/backupninja"
-  url "https://sourcearchive.raspbian.org/main/b/backupninja/backupninja_1.1.0.orig.tar.gz"
-  mirror "https://debian.ethz.ch/ubuntu/ubuntu/pool/universe/b/backupninja/backupninja_1.1.0.orig.tar.gz"
-  sha256 "abe444d0c7520ede7847b9497da4b1253a49579f59293b043c47b1dd9833280a"
+  url "https://sourcearchive.raspbian.org/main/b/backupninja/backupninja_1.2.1.orig.tar.gz"
+  mirror "https://debian.ethz.ch/ubuntu/ubuntu/pool/universe/b/backupninja/backupninja_1.2.1.orig.tar.gz"
+  sha256 "833277d36993ddf684b164b581a504b38bbcff16221e416428c90aaf63ed85d4"
   license "GPL-2.0"
 
   livecheck do
@@ -33,7 +33,8 @@ class Backupninja < Formula
     system "./configure", "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
-                          "--localstatedir=#{var}"
+                          "--localstatedir=#{var}",
+                          "BASH=#{Formula["bash"].opt_bin}/bash"
     system "make", "install", "SED=sed"
   end
 
@@ -42,6 +43,6 @@ class Backupninja < Formula
   end
 
   test do
-    assert_match "root", shell_output("#{sbin}/backupninja -h", 1)
+    assert_match "root", shell_output("#{sbin}/backupninja -h", 3)
   end
 end
