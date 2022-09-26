@@ -1,7 +1,7 @@
 class Aubio < Formula
   desc "Extract annotations from audio signals"
-  homepage "https://aubio.org/"
-  url "https://aubio.org/pub/aubio-0.4.9.tar.bz2"
+  homepage "https://github.com/aubio/aubio"
+  url "http://sources.buildroot.net/aubio/aubio-0.4.9.tar.bz2"
   sha256 "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
   revision 3
 
@@ -29,8 +29,8 @@ class Aubio < Formula
   end
 
   resource "aiff" do
-    url "http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Samples/CCRMA/wood24.aiff"
-    sha256 "a87279e3a101162f6ab0d4f70df78594d613e16b80e6257cf19c5fc957a375f9"
+    url "https://archive.org/download/TestAifAiffFile/02DayIsDone.aif"
+    sha256 "bca81e8d13f3f6526cd54110ec1196afd5bda6c93b16a7ba5023e474901e050d"
   end
 
   def install
@@ -48,7 +48,7 @@ class Aubio < Formula
 
   test do
     testpath.install resource("aiff")
-    system bin/"aubiocut", "--verbose", "wood24.aiff"
-    system bin/"aubioonset", "--verbose", "wood24.aiff"
+    system bin/"aubiocut", "--verbose", "02DayIsDone.aif"
+    system bin/"aubioonset", "--verbose", "02DayIsDone.aif"
   end
 end
