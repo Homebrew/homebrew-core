@@ -1,16 +1,10 @@
 class Augustus < Formula
   desc "Predict genes in eukaryotic genomic sequences"
   homepage "https://bioinf.uni-greifswald.de/augustus/"
-  url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
-  sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
+  url "https://github.com/Gaius-Augustus/Augustus/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "5ed6ce6106303b800c5e91d37a250baff43b20824657b853ae04d11ad8bdd686"
   license "Artistic-1.0"
-  revision 2
   head "https://github.com/Gaius-Augustus/Augustus.git", branch: "master"
-
-  livecheck do
-    url "https://bioinf.uni-greifswald.de/augustus/binaries/"
-    regex(/href=.*?augustus[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "48d4e709de88d93f6c00b751cd2b70238eeed73c748267973aea6ef0a50a76c6"
@@ -22,54 +16,27 @@ class Augustus < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8271784fc43729dd82e83e031ef63bb278771c6ba271ff7c7bc17908abc56646"
   end
 
-  # Fails to build with GCC 12
-  # https://github.com/Homebrew/homebrew-core/pull/106755
-  # https://github.com/Homebrew/homebrew-core/pull/40220
-  deprecate! date: "2022-08-03", because: :does_not_build
-
-  depends_on "boost" => :build
   depends_on "bamtools"
+  depends_on "boost"
+  depends_on "htslib"
 
+  uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "gcc"
-  end
-
   def install
-    # Avoid "fatal error: 'sam.h' file not found" by not building bam2wig
-    inreplace "auxprogs/Makefile", "cd bam2wig; make;", "#cd bam2wig; make;"
-
-    # Fix error: api/BamReader.h: No such file or directory
-    inreplace "auxprogs/bam2hints/Makefile",
-      "INCLUDES = /usr/include/bamtools",
-      "INCLUDES = #{Formula["bamtools"].include/"bamtools"}"
-    inreplace "auxprogs/filterBam/src/Makefile",
-      "BAMTOOLS = /usr/include/bamtools",
-      "BAMTOOLS= #{Formula["bamtools"].include/"bamtools"}"
-
-    # Prevent symlinking into /usr/local/bin/
-    inreplace "Makefile", %r{ln -sf.*/usr/local/bin/}, "#ln -sf"
-
     # Compile executables for macOS. Tarball ships with executables for Linux.
     system "make", "clean"
 
-    cd "src" do
-      if OS.mac?
-        # Clang breaks proteinprofile on macOS. This issue has been first reported
-        # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
-        # See also https://github.com/Gaius-Augustus/Augustus/issues/64
-        gcc_major_ver = Formula["gcc"].any_installed_version.major
-        with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
-          system "make"
-        end
-      else
-        system "make"
-      end
-    end
+    system "make", "COMPGENEPRED=false",
+                   "INCLUDE_PATH_BAMTOOLS=-I#{Formula["bamtools"].opt_include}/bamtools",
+                   "LIBRARY_PATH_BAMTOOLS=-L#{Formula["bamtools"].opt_lib}",
+                   "INCLUDE_PATH_HTSLIB=-I#{Formula["htslib"].opt_include}/htslib",
+                   "LIBRARY_PATH_HTSLIB=-L#{Formula["htslib"].opt_lib}"
 
-    system "make"
-    system "make", "install", "INSTALLDIR=#{prefix}"
+    # Set PREFIX to prevent symlinking into /usr/local/bin/
+    (buildpath/"tmp/bin").mkpath
+    system "make", "install", "INSTALLDIR=#{prefix}", "PREFIX=#{buildpath}/tmp"
+
     bin.env_script_all_files libexec/"bin", AUGUSTUS_CONFIG_PATH: prefix/"config"
     pkgshare.install "examples"
   end
