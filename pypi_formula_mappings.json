@@ -297,9 +297,6 @@
   "mycli": {
     "exclude_packages": ["tabulate"]
   },
-  "mypy": {
-    "exclude_packages": ["typing-extensions"]
-  },
   "nbdime": {
     "exclude_packages": ["six"]
   },

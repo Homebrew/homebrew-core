@@ -3,8 +3,8 @@ class Mypy < Formula
 
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
-  url "https://files.pythonhosted.org/packages/5e/66/00f7f751140fe6953603fb0cd56dee0314842cfe358884ca3025589ca81c/mypy-0.971.tar.gz"
-  sha256 "40b0f21484238269ae6a57200c807d80debc6459d444c0489a102d7c6a75fa56"
+  url "https://files.pythonhosted.org/packages/98/d1/39861ecddba2616663f3cb52920fd70c465867b8cfe858d377fac0dd1b4b/mypy-0.981.tar.gz"
+  sha256 "ad77c13037d3402fbeffda07d51e3f228ba078d1c7096a73759c9419ea031bf4"
   license "MIT"
   head "https://github.com/python/mypy.git", branch: "master"
 
@@ -15,7 +15,6 @@ class Mypy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "929f59cbdf068995a3caa9b52d241c76abd2bcf030ca3556da42ba65ca6dae20"
   end
 
-  depends_on "python-typing-extensions"
   depends_on "python@3.10"
 
   resource "mypy-extensions" do
@@ -26,6 +25,11 @@ class Mypy < Formula
   resource "tomli" do
     url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
     sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/9e/1d/d128169ff58c501059330f1ad96ed62b79114a2eb30b8238af63a2e27f70/typing_extensions-4.3.0.tar.gz"
+    sha256 "e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"
   end
 
   def install
