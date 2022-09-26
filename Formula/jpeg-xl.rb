@@ -4,6 +4,7 @@ class JpegXl < Formula
   url "https://github.com/libjxl/libjxl/archive/v0.7.0.tar.gz"
   sha256 "3114bba1fabb36f6f4adc2632717209aa6f84077bc4e93b420e0d63fa0455c5e"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,6 +24,7 @@ class JpegXl < Formula
   depends_on "pkg-config" => :build
   depends_on "brotli"
   depends_on "giflib"
+  depends_on "highway"
   depends_on "imath"
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -37,11 +39,6 @@ class JpegXl < Formula
 
   # These resources are versioned according to the script supplied with jpeg-xl to download the dependencies:
   # https://github.com/libjxl/libjxl/tree/v#{version}/third_party
-  resource "highway" do
-    url "https://github.com/google/highway.git",
-        revision: "22e3d7276f4157d4a47586ba9fd91dd6303f441a"
-  end
-
   resource "lodepng" do
     url "https://github.com/lvandeve/lodepng.git",
         revision: "48e5364ef48ec2408f44c727657ac1b6703185f8"
@@ -62,6 +59,7 @@ class JpegXl < Formula
     # disable manpages due to problems with asciidoc 10
     system "cmake", "-S", ".", "-B", "build",
                     "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON",
+                    "-DJPEGXL_FORCE_SYSTEM_HWY=ON",
                     "-DJPEGXL_ENABLE_JNI=OFF",
                     "-DJPEGXL_VERSION=#{version}",
                     "-DJPEGXL_ENABLE_MANPAGES=OFF",
