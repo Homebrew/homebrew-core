@@ -1,8 +1,8 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://github.com/malaterre/GDCM/archive/v3.0.18.tar.gz"
-  sha256 "d3e9d83d73f05f5d33a72725d3cf7c33adaa2fbbf136a2dd95087b47933a4cfc"
+  url "https://github.com/malaterre/GDCM/archive/v3.0.19.tar.gz"
+  sha256 "52ee78a70aaee7e179d584c1b7116da607dbc59905c833dadbd85944c301769a"
   license "BSD-3-Clause"
 
   livecheck do
