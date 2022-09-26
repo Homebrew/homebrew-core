@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/77/2a/c1c339b29ad216ee966e7e687bb4a087bf63284d11c435a6db0727a785f0/snakemake-7.14.0.tar.gz"
-  sha256 "fe22082e4f322ffafb9018d896670ae4088e984117db670de9003a199f491447"
+  url "https://files.pythonhosted.org/packages/1d/d1/44446a368369ce3b7e589d59d6513cbf5caa2cbeea9742c9964c1b8bf508/snakemake-7.14.1.tar.gz"
+  sha256 "1148383a7fcbda3a073fab0779333855ab0ba30613396c12a4bf3bc10f8c9f90"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -30,8 +30,8 @@ class Snakemake < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "charset-normalizer" do
@@ -70,8 +70,8 @@ class Snakemake < Formula
   end
 
   resource "fastjsonschema" do
-    url "https://files.pythonhosted.org/packages/2f/ca/b8cd48dde1f4f1811c7ffd49253af87c1cb6523d2aaa5402a83d9fecc197/fastjsonschema-2.16.1.tar.gz"
-    sha256 "d6fa3ffbe719768d70e298b9fb847484e2bdfdb7241ed052b8d57a9294a8c334"
+    url "https://files.pythonhosted.org/packages/7a/62/6df03bacda3544b5872d0b30f79c599ab84fc598858c77a77e1587d61ba3/fastjsonschema-2.16.2.tar.gz"
+    sha256 "01e366f25d9047816fe3d288cbfc3e10541daf0af2044763f3d0ade42476da18"
   end
 
   resource "gitdb" do
@@ -85,8 +85,8 @@ class Snakemake < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
   resource "Jinja2" do
@@ -105,8 +105,8 @@ class Snakemake < Formula
   end
 
   resource "nbformat" do
-    url "https://files.pythonhosted.org/packages/2c/ed/ce3e63f5e757442cbb01ac45683fb0338d48f7e824606957d933bc831a58/nbformat-5.4.0.tar.gz"
-    sha256 "44ba5ca6acb80c5d5a500f1e5b83ede8cbe364d5a495c4c8cf60aaf1ba656501"
+    url "https://files.pythonhosted.org/packages/1f/c4/8ab9b68546028866410c291830f9af1ef634b45f570212a0f8f00ba395c2/nbformat-5.6.0.tar.gz"
+    sha256 "6f9edb3b70119d82ba89b74b0ecfdbb83f35af8661e491e49ac0893657042674"
   end
 
   resource "plac" do
@@ -115,8 +115,8 @@ class Snakemake < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/de/0999ea2562b96d7165812606b18f7169307b60cd378bc29cf3673322c7e9/psutil-5.9.1.tar.gz"
-    sha256 "57f1819b5d9e95cdfb0c881a8a5b7d542ed0b7c522d575706a80bedc848c8954"
+    url "https://files.pythonhosted.org/packages/8f/57/828ac1f70badc691a716e77bfae258ef5db76bb7830109bf4bcf882de020/psutil-5.9.2.tar.gz"
+    sha256 "feb861a10b6c3bb00701063b37e4afc754f8217f0f09c42280586bd6ac712b5c"
   end
 
   resource "PuLP" do
@@ -145,8 +145,8 @@ class Snakemake < Formula
   end
 
   resource "smart-open" do
-    url "https://files.pythonhosted.org/packages/dc/9c/607fcf509f0019188fa7e0c3f6e1870abadb119bf6d7d673fba2105a5ef2/smart_open-6.1.0.tar.gz"
-    sha256 "c8fd9e9f90f0e285f1346481b0ae0fb57bd04b1138826c5e826ee98b2029d7f3"
+    url "https://files.pythonhosted.org/packages/62/d8/c25a41a4a652984706b1e3529ebb1150c07dd1d7c69892f8a6d5ac1b792c/smart_open-6.2.0.tar.gz"
+    sha256 "1b4df5c8365218f3852c507451920ccad606c80b0acb4e67508e50ba9b5d2632"
   end
 
   resource "smmap" do
@@ -165,8 +165,8 @@ class Snakemake < Formula
   end
 
   resource "traitlets" do
-    url "https://files.pythonhosted.org/packages/b2/ed/3c842dbe5a8f0f1ebf3f5b74fc1a46601ed2dfe0a2d256c8488d387b14dd/traitlets-5.3.0.tar.gz"
-    sha256 "0bb9f1f9f017aa8ec187d8b1b2a7a6626a2a1d877116baba52a129bfa124f8e2"
+    url "https://files.pythonhosted.org/packages/a2/4d/1f59a77fba6e8e9feea7a168652030564089d66c06492ba5670e73b0e078/traitlets-5.4.0.tar.gz"
+    sha256 "3f2c4e435e271592fe4390f1746ea56836e3a080f84e7833f0f801d9613fec39"
   end
 
   resource "urllib3" do
