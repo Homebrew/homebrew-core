@@ -22,8 +22,8 @@ class Cryptominisat < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.10" => [:build, :test]
   depends_on "boost"
-  depends_on "python@3.10"
 
   def python3
     "python3.10"
@@ -33,19 +33,15 @@ class Cryptominisat < Formula
     # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
     inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
-    # fix error: could not create '/usr/local/lib/python3.10/site-packages/pycryptosat.cpython-310-darwin.so':
-    # Operation not permitted
-    site_packages = prefix/Language::Python.site_packages(python3)
-    inreplace "python/CMakeLists.txt",
-              "COMMAND ${PYTHON_EXECUTABLE} ${SETUP_PY} install",
-              "COMMAND ${PYTHON_EXECUTABLE} ${SETUP_PY} install --install-lib=#{site_packages}"
-
     system "cmake", "-S", ".", "-B", "build",
                     "-DNOM4RI=ON",
+                    "-DMIT=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    system python3, *Language::Python.setup_install_args(prefix, python3)
   end
 
   test do
