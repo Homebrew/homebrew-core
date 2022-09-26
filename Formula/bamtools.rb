@@ -4,6 +4,7 @@ class Bamtools < Formula
   url "https://github.com/pezmaster31/bamtools/archive/v2.5.2.tar.gz"
   sha256 "4d8b84bd07b673d0ed41031348f10ca98dd6fa6a4460f9b9668d6f1d4084dfc8"
   license "MIT"
+  revision 1
   head "https://github.com/pezmaster31/bamtools.git", branch: "master"
 
   bottle do
@@ -17,13 +18,27 @@ class Bamtools < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "jsoncpp"
+
   uses_from_macos "zlib"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    # Delete bundled jsoncpp to avoid fallback
+    (buildpath/"src/third_party/jsoncpp").rmtree
+
+    # Build shared library
+    system "cmake", "-S", ".", "-B", "build_shared",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
+
+    # Build static library
+    system "cmake", "-S", ".", "-B", "build_static", *std_cmake_args
+    system "cmake", "--build", "build_static"
+    lib.install "build_static/src/libbamtools.a"
   end
 
   test do
