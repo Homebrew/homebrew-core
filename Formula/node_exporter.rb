@@ -24,12 +24,11 @@ class NodeExporter < Formula
 
   def install
     ldflags = %W[
+      -s -w
       -X github.com/prometheus/common/version.Version=#{version}
       -X github.com/prometheus/common/version.BuildUser=Homebrew
     ]
-    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
-           "-o", bin/"node_exporter"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     touch etc/"node_exporter.args"
 
