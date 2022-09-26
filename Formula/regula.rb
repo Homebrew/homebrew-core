@@ -23,7 +23,7 @@ class Regula < Formula
       -s -w
       -X github.com/fugue/regula/v2/pkg/version.Version=#{version}
       -X github.com/fugue/regula/v2/pkg/version.GitCommit=#{Utils.git_short_head}
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)
 
