@@ -1,10 +1,9 @@
 class Cdo < Formula
   desc "Climate Data Operators"
   homepage "https://code.mpimet.mpg.de/projects/cdo"
-  url "https://code.mpimet.mpg.de/attachments/download/26823/cdo-2.0.5.tar.gz"
-  sha256 "edeebbf1c3b1a1f0c642dae6bc8c7624e0c54babe461064dc5c7daca4a5b0dce"
+  url "https://code.mpimet.mpg.de/attachments/download/27276/cdo-2.0.6.tar.gz"
+  sha256 "ef120dea9032b1be80a4cfa201958c3b910107205beb6674195675f1ee8ed402"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://code.mpimet.mpg.de/projects/cdo/files"
@@ -25,6 +24,10 @@ class Cdo < Formula
   depends_on "libaec"
   depends_on "netcdf"
   depends_on "proj"
+
+  # Fix build error from missing include. Remove in the next release.
+  # Ref: https://code.mpimet.mpg.de/boards/2/topics/13186?r=13240#message-13240
+  patch :DATA
 
   def install
     args = %W[
@@ -49,3 +52,16 @@ class Cdo < Formula
     assert_predicate testpath/"test.nc", :exist?
   end
 end
+
+__END__
+diff --git a/src/cdo_fft.cc b/src/cdo_fft.cc
+index 887a3d3..86ac107 100644
+--- a/src/cdo_fft.cc
++++ b/src/cdo_fft.cc
+@@ -1,5 +1,6 @@
+ // This source code is copied from PINGO version 1.5
+ 
++#include <algorithm>
+ #include <cmath>
+ 
+ namespace cdo
