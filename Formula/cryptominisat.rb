@@ -33,9 +33,6 @@ class Cryptominisat < Formula
     # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
     inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
-    # fix building C++ with the value of PY_C_CONFIG
-    inreplace "python/setup.py.in", "cconf +", "cconf + ['-std=gnu++11'] +"
-
     # fix error: could not create '/usr/local/lib/python3.10/site-packages/pycryptosat.cpython-310-darwin.so':
     # Operation not permitted
     site_packages = prefix/Language::Python.site_packages(python3)
