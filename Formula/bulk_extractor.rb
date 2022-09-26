@@ -1,14 +1,13 @@
 class BulkExtractor < Formula
   desc "Stream-based forensics tool"
   homepage "https://github.com/simsong/bulk_extractor/wiki"
-  url "https://downloads.digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-1.5.5.tar.gz"
-  sha256 "297a57808c12b81b8e0d82222cf57245ad988804ab467eb0a70cf8669594e8ed"
+  url "https://github.com/simsong/bulk_extractor/releases/download/v2.0.0/bulk_extractor-2.0.0.tar.gz"
+  sha256 "6b3c7d36217dd9e374f4bb305e27cbed0eb98735b979ad0a899f80444f91c687"
   license "MIT"
-  revision 3
 
   livecheck do
-    url "https://downloads.digitalcorpora.org/downloads/bulk_extractor/"
-    regex(/href=.*?bulk_extractor[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -22,44 +21,15 @@ class BulkExtractor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "70e164f1f80f037e9d3026da89caad2913c2c2390a7ba69a9a161b314e75d6c9"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "boost"
   depends_on "openssl@1.1"
 
   uses_from_macos "flex" => :build
   uses_from_macos "expat"
-
-  # Upstream commits for OpenSSL 1.1 compatibility in dfxm:
-  # https://github.com/simsong/dfxml/commits/master/src/hash_t.h
-  # Three commits are picked:
-  #   - https://github.com/simsong/dfxml/commit/8198685d
-  #   - https://github.com/simsong/dfxml/commit/f2482de7
-  #   - https://github.com/simsong/dfxml/commit/c3122462
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/78bb67a8/bulk_extractor/openssl-1.1.diff"
-    sha256 "996fd9b3a8d1d77a1b22f2dbb9d0e5c501298d2fd95ad84a7ea3234d51e3ebe2"
-  end
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
-    # Source contains to copies of dfxml, keep them in sync
-    # (because of the patch). Remove in next version.
-    rm_rf "plugins/dfxml"
-    cp_r "src/dfxml", "plugins"
-
-    # Regenerate configure after applying the patch.
-    # Remove in next version.
-    system "autoreconf", "-f"
-
-    # configure cannot find boost libs on Apple Silicon without them being specified
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --with-boost=#{Formula["boost"].opt_prefix}
-    ]
-
-    system "./configure", *args
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
 
