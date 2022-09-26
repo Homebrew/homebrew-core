@@ -25,12 +25,6 @@ class Cryptominisat < Formula
   depends_on "boost"
   depends_on "python@3.10"
 
-  # Fix build error with setuptools 61+
-  patch do
-    url "https://github.com/msoos/cryptominisat/commit/a01179ffd6b0dd47bfdef2d9350d80b575571f24.patch?full_index=1"
-    sha256 "a75998d5060d1de13f2173514b85b2c3ce13ad13085ef624b0d711e062fc6289"
-  end
-
   def python3
     "python3.10"
   end
