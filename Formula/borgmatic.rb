@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/07/76/ff953d01e2852aee43c3ffc2df44d6386125819f41b9d834b295752eaf3d/borgmatic-1.6.6.tar.gz"
-  sha256 "cbb95c0a19a8da1796af25bf09ed9158005b6c72be18790db43d2bffda2fa32b"
+  url "https://files.pythonhosted.org/packages/68/1e/44064b7d6f922dc700a5b4918b7a00e2833344d4ec43572e4a94470b22e6/borgmatic-1.7.2.tar.gz"
+  sha256 "d28dad2a0ec17e190db7f93c5dd6756a069227128ee4ec41e5a691815f483de5"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -19,18 +19,18 @@ class Borgmatic < Formula
   depends_on "python@3.10"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
-    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/93/1d/d9392056df6670ae2a29fcb04cfa5cee9f6fbde7311a1bb511d4115e9b7a/charset-normalizer-2.1.0.tar.gz"
-    sha256 "575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413"
+    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
+    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
   end
 
   resource "colorama" do
@@ -39,13 +39,13 @@ class Borgmatic < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/19/0f/89db7764dfb59fc1c2b18c2d63f11375b4827aa3e93ae037166a780d2bed/jsonschema-4.7.2.tar.gz"
-    sha256 "73764f461d61eb97a057c929368610a134d1d1fffd858acfe88864ee94f1f1d3"
+    url "https://files.pythonhosted.org/packages/cf/54/8923ba38b5145f2359d57e5516715392491d674c83f446cd4cd133eeb4d6/jsonschema-4.16.0.tar.gz"
+    sha256 "165059f076eff6971bae5b742fc029a7b4ef3f9bcf04c14e4776a7605de14b23"
   end
 
   resource "pyrsistent" do
@@ -69,8 +69,8 @@ class Borgmatic < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/25/36/f056e5f1389004cf886bb7a8514077f24224238a7534497c014a6b9ac770/urllib3-1.26.10.tar.gz"
-    sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   def install
@@ -145,16 +145,17 @@ class Borgmatic < Formula
     system bin/"generate-borgmatic-config", "--destination", config_path
 
     # Replace defaults values
-    config_content = File.read(config_path)
-                         .gsub(/# ?local_path: borg1/, "local_path: #{borg}")
-                         .gsub(/user@backupserver:sourcehostname.borg/, repo_path)
-                         .gsub("- user@backupserver:{fqdn}", "")
-                         .gsub("- /var/log/syslog*", "")
-                         .gsub("- /home/user/path with spaces", "")
-    File.open(config_path, "w") { |file| file.puts config_content }
+    inreplace config_path do |s|
+      s.gsub!(/# ?local_path: borg1/, "local_path: #{borg}")
+      s.gsub! "- ssh://user@backupserver/./sourcehostname.borg", "- #{repo_path}"
+      s.gsub! "- ssh://user@backupserver/./{fqdn}", ""
+      s.gsub! "- /var/local/backups/local.borg", ""
+      s.gsub! "- /var/log/syslog*", ""
+      s.gsub! "- /home/user/path with spaces", ""
+    end
 
     # Initialize Repo
-    system bin/"borgmatic", "-v", "2", "--config", config_path, "--init", "--encryption", "repokey"
+    system bin/"borgmatic", "-v", "2", "--config", config_path, "init", "--encryption", "repokey"
 
     # Create a backup
     system bin/"borgmatic", "--config", config_path
@@ -166,18 +167,17 @@ class Borgmatic < Formula
     log_content = File.read(log_path)
 
     # Assert that the proper borg commands were executed
-    assert_equal <<~EOS, log_content
+    assert_match <<~EOS, log_content
       --version --debug --show-rc
       info --json #{repo_path}
       init --encryption repokey --debug #{repo_path}
       --version
-      prune --keep-daily 7 --prefix {hostname}- #{repo_path}
+      prune --keep-daily 7 --glob-archives {hostname}-* #{repo_path}
       compact #{repo_path}
       create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home
       info --json #{repo_path}
-      check --prefix {hostname}- #{repo_path}
+      check --glob-archives {hostname}-* #{repo_path}
       --version
-      list --json #{repo_path}
     EOS
   end
 end
