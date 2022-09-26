@@ -5,11 +5,13 @@ class Ghostscript < Formula
   sha256 "8f2b7941f60df694b4f5c029b739007f7c4e0d43858471ae481e319a967d5d8b"
   license "AGPL-3.0-or-later"
 
-  # We check the tags from the `head` repository because the GitHub tags are
-  # formatted ambiguously, like `gs9533` (corresponding to version 9.53.3).
+  # The GitHub tags omit delimiters (e.g. `gs9533` for version 9.53.3). The
+  # `head` repository tags are formatted fine (e.g. `ghostpdl-9.53.3`) but a
+  # version may be tagged before the release is available on GitHub, so we
+  # check the version from the first-party website instead.
   livecheck do
-    url :head
-    regex(/^ghostpdl[._-]v?(\d+(?:\.\d+)+)$/i)
+    url "https://www.ghostscript.com/json/settings.json"
+    regex(/["']GS_VER["']:\s*?["']v?(\d+(?:\.\d+)+)["']/i)
   end
 
   bottle do
