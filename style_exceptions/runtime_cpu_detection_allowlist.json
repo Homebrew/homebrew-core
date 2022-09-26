@@ -3,6 +3,7 @@
   "apache-arrow",
   "blis",
   "fftw",
+  "highway",
   "libvpx",
   "luajit",
   "openblas",
