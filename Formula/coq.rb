@@ -31,6 +31,7 @@ class Coq < Formula
 
   def install
     ENV.prepend_path "OCAMLPATH", Formula["ocaml-zarith"].opt_lib/"ocaml"
+    ENV.prepend_path "OCAMLPATH", Formula["ocaml-findlib"].opt_lib/"ocaml"
     system "./configure", "-prefix", prefix,
                           "-mandir", man,
                           "-docdir", pkgshare/"latex",
