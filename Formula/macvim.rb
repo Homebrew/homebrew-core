@@ -6,6 +6,7 @@ class Macvim < Formula
   version "9.0.472"
   sha256 "9481eeca43cfc0a7cf0604088c4b536f274821adb62b0daefada978aa7f4c41b"
   license "Vim"
+  revision 1
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
   bottle do
@@ -24,8 +25,7 @@ class Macvim < Formula
   depends_on "python@3.10"
   depends_on "ruby"
 
-  conflicts_with "vim",
-    because: "vim and macvim both install vi* binaries"
+  conflicts_with "vim", because: "vim and macvim both install vi* binaries"
 
   def install
     # Avoid issues finding Ruby headers
@@ -33,6 +33,10 @@ class Macvim < Formula
 
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
+
+    # We don't want the deployment target to include the minor version on Big Sur and newer.
+    # https://github.com/Homebrew/homebrew-core/issues/111693
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
     # make sure that CC is set to "clang"
     ENV.clang
