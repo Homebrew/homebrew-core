@@ -3,8 +3,8 @@ class Solargraph < Formula
   homepage "https://solargraph.org"
   # Must be git, because solargraph.gemspec uses git ls-files
   url "https://github.com/castwide/solargraph.git",
-      tag:      "v0.46.0",
-      revision: "8c03e57437ff3b61850a9b2b577309775b4fc37e"
+      tag:      "v0.47.0",
+      revision: "f90c17e8db083f80b0991b11ca1a469806cf8191"
   license "MIT"
 
   bottle do
