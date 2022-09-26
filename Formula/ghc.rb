@@ -26,6 +26,7 @@ class Ghc < Formula
 
   depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
+  depends_on macos: :catalina
 
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
