@@ -15,14 +15,13 @@ class Nb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "da16faa9f1367225d86a4e92705fbfef1ace28c9a897256d7cb13f06deb40b5f"
   end
 
+  depends_on "bash"
   depends_on "bat"
   depends_on "nmap"
   depends_on "pandoc"
   depends_on "ripgrep"
   depends_on "tig"
   depends_on "w3m"
-
-  uses_from_macos "bash"
 
   def install
     bin.install "nb", "bin/bookmark"
