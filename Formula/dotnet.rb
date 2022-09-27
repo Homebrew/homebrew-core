@@ -2,10 +2,9 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.104",
-      revision: "915d644e451858f4f7c6e1416ea202695ddd54fb"
+      tag:      "v6.0.109",
+      revision: "58a93139d80490d0724b4d862ba8ee00ceae45d3"
   license "MIT"
-  revision 1
 
   # https://github.com/dotnet/source-build/#support
   livecheck do
@@ -15,7 +14,7 @@ class Dotnet < Formula
       index = JSON.parse(page)["releases-index"]
 
       # Find latest release channel still supported.
-      avoid_phases = ["preview", "eol"].freeze
+      avoid_phases = ["preview", "rc", "eol"].freeze
       valid_channels = index.select do |release|
         avoid_phases.exclude?(release["support-phase"])
       end
@@ -49,19 +48,12 @@ class Dotnet < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
-  depends_on xcode: :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
 
-  # HACK: this should not be a test dependency but is due to a limitation with fails_with
-  uses_from_macos "llvm" => [:build, :test]
+  uses_from_macos "llvm" => :build
   uses_from_macos "krb5"
   uses_from_macos "zlib"
-
-  on_macos do
-    # arcade fails to build with BSD `sed` due to `-i` usage in SourceBuild.props
-    depends_on "gnu-sed" => :build
-  end
 
   on_linux do
     depends_on "libunwind"
@@ -72,8 +64,18 @@ class Dotnet < Formula
   # GCC builds have limited support via community.
   fails_with :gcc
 
+  # Apple Silicon build fails due to latest dotnet-install.sh downloading x64 dotnet-runtime.
+  # We work around the issue by using an older working copy of dotnet-install.sh script.
+  # Bug introduced with https://github.com/dotnet/install-scripts/pull/314
+  # TODO: Remove once script is fixed.
+  # Issue ref: https://github.com/dotnet/install-scripts/issues/318
+  resource "dotnet-install.sh" do
+    url "https://raw.githubusercontent.com/dotnet/install-scripts/dac53157fcb7e02638507144bf5f8f019c1d23a8/src/dotnet-install.sh"
+    sha256 "e96eabccea61bbbef3402e23f1889d385a6ae7ad84fe1d8f53f2507519ad86f7"
+  end
+
   # Fixes race condition in MSBuild.
-  # Remove with 6.0.3xx or later.
+  # TODO: Remove with 6.0.3xx or later.
   resource "homebrew-msbuild-patch" do
     url "https://github.com/dotnet/msbuild/commit/64edb33a278d1334bd6efc35fecd23bd3af4ed48.patch?full_index=1"
     sha256 "5870bcdd12164668472094a2f9f1b73a4124e72ac99bbbe43028370be3648ccd"
@@ -81,54 +83,66 @@ class Dotnet < Formula
 
   # Fix build failure on macOS due to missing ILAsm/ILDAsm
   # Fix build failure on macOS ARM due to `osx-x64` override
+  # Issue ref: https://github.com/dotnet/source-build/issues/2795
   patch :DATA
 
   def install
-    if OS.linux?
-      ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib
-    else
-      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
-    end
+    ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib if OS.linux?
 
+    (buildpath/".dotnet").install resource("dotnet-install.sh")
     (buildpath/"src/SourceBuild/tarball/patches/msbuild").install resource("homebrew-msbuild-patch")
-
-    # Fix usage of GNU-specific flag.
-    # TODO: Remove this when upstreamed
-    inreplace "src/SourceBuild/tarball/content/repos/Directory.Build.targets",
-              "--block-size=1M", "-m"
 
     Dir.mktmpdir do |sourcedir|
       system "./build.sh", "/p:ArcadeBuildTarball=true", "/p:TarballDir=#{sourcedir}"
-
       cd sourcedir
 
       # Use our libunwind rather than the bundled one.
-      inreplace Dir["src/runtime.*/eng/SourceBuild.props"],
+      inreplace "src/runtime/eng/SourceBuild.props",
                 "/p:BuildDebPackage=false",
                 "\\0 --cmakeargs -DCLR_CMAKE_USE_SYSTEM_LIBUNWIND=ON"
 
+      # Fix Clang 15 error: definition of builtin function '__cpuid'.
+      # TODO: Remove with v7.0.0 release which should have merged fix
+      # Ref: https://github.com/dotnet/runtime/commit/992cf8c97cc71d4ca9a0a11e6604a6716ed4cefc
+      inreplace "src/runtime/src/coreclr/vm/amd64/unixstubs.cpp",
+                /^ *void (__cpuid|__cpuidex)\([^}]*}$/,
+                "#if !__has_builtin(\\1)\n\\0\n#endif"
+
       # Fix missing macOS conditional for system unwind searching.
-      # TODO: Remove this when upstreamed
-      inreplace Dir["src/runtime.*/src/native/corehost/apphost/static/CMakeLists.txt"],
+      # TODO: Remove with v7.0.0 release which should have merged fix
+      # Ref: https://github.com/dotnet/runtime/commit/97c9a11e3e6ca68adf0c60155fa82ab3aae953a5
+      inreplace "src/runtime/src/native/corehost/apphost/static/CMakeLists.txt",
                 "if(CLR_CMAKE_USE_SYSTEM_LIBUNWIND)",
                 "if(CLR_CMAKE_USE_SYSTEM_LIBUNWIND AND NOT CLR_CMAKE_TARGET_OSX)"
+
+      # Work around arcade build failure with BSD `sed` due to non-compatible `-i`.
+      # TODO: Remove with v7.0.0 release which has removed GNU `sed -i` usage
+      # Ref: https://github.com/dotnet/arcade/commit/b8007eed82adabd50c604a9849277a6e7be5c971
+      inreplace "src/arcade/eng/SourceBuild.props", "\"sed -i ", "\"sed -i.bak " if OS.mac?
 
       # Workaround for error MSB4018 while building 'installer in tarball' due
       # to trying to find aspnetcore-runtime-internal v6.0.0 rather than current.
       # TODO: Remove when packaging is fixed
-      inreplace Dir["src/installer.*/src/redist/targets/GenerateLayout.targets"].first,
+      # Issue ref: https://github.com/dotnet/source-build/issues/2795
+      inreplace "src/installer/src/redist/targets/GenerateLayout.targets",
                 "$(MicrosoftAspNetCoreAppRuntimePackageVersion)",
                 "$(MicrosoftAspNetCoreAppRuntimewinx64PackageVersion)"
 
       # Rename patch fails on case-insensitive systems like macOS
       # TODO: Remove whenever patch is no longer used
-      rm Dir["src/nuget-client.*/eng/source-build-patches/0001-Rename-NuGet.Config*.patch"].first if OS.mac?
+      rename_patch = "0001-Rename-NuGet.Config-to-NuGet.config-to-account-for-a.patch"
+      (Pathname.pwd/"src/nuget-client/eng/source-build-patches"/rename_patch).unlink if OS.mac?
+
       system "./prep.sh", "--bootstrap"
-      system "./build.sh", "--", "/p:CleanWhileBuilding=true"
+      system "./build.sh", "--clean-while-building"
 
       libexec.mkpath
       tarball = Dir["artifacts/*/Release/dotnet-sdk-#{version}-*.tar.gz"].first
       system "tar", "-xzf", tarball, "--directory", libexec
+
+      bash_completion.install "src/sdk/scripts/register-completions.bash" => "dotnet"
+      zsh_completion.install "src/sdk/scripts/register-completions.zsh" => "_dotnet"
+      man1.install Dir["src/sdk/documentation/manpages/sdk/*.1"]
     end
 
     doc.install Dir[libexec/"*.txt"]
