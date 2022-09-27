@@ -1,8 +1,8 @@
 class Ncdc < Formula
   desc "NCurses direct connect"
   homepage "https://dev.yorhel.nl/ncdc"
-  url "https://dev.yorhel.nl/download/ncdc-1.23.tar.gz"
-  sha256 "804abae41fcca969e87f650483ae7e3a237419dabbd320897e25fe8851f0a2cb"
+  url "https://dev.yorhel.nl/download/ncdc-1.23.1.tar.gz"
+  sha256 "95881214077a5b3c24fbbaf020ada0d084ee3b596a7c3cc1e0e68aaac4c9b5e6"
   license "MIT"
 
   livecheck do
