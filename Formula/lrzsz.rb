@@ -62,6 +62,7 @@ class Lrzsz < Formula
 
     system "make", "install"
     bin.install_symlink "lrz" => "rz", "lsz" => "sz"
+    bin.install_symlink "lsz" => "sb"
   end
 
   test do
