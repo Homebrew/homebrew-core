@@ -1,6 +1,6 @@
 name: Dispatch build bottle (for chosen OS versions)
 
-run-name: ${{ inputs.formula }}
+run-name: Build bottle of ${{ inputs.formula }} on ${{ inputs.runner }}
 
 on:
   workflow_dispatch:

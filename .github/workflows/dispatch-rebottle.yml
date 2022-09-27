@@ -1,6 +1,6 @@
 name: Dispatch rebottle (for all currently bottled OS versions)
 
-run-name: ${{ inputs.formula }}
+run-name: Rebuild bottles of ${{ inputs.formula }}
 
 on:
   workflow_dispatch:

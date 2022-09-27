@@ -1,6 +1,6 @@
 name: Publish and commit bottles
 
-run-name: ${{ inputs.pull_request }}
+run-name: "Publish PR #${{ inputs.pull_request }}"
 
 on:
   workflow_dispatch:
