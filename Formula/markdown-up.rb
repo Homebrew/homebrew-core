@@ -1,7 +1,7 @@
 class MarkdownUp < Formula
   include Language::Python::Virtualenv
 
-  desc "The command-line launcher for MarkdownUp, a Markdown viewer"
+  desc "Command-line launcher for MarkdownUp, a Markdown viewer"
   homepage "https://github.com/craigahobbs/markdown-up#readme"
   url "https://files.pythonhosted.org/packages/34/8d/9512cf3aa5f93a7fb2ab3f0e6de279df3d2e37deb33c5772b96f89077f26/markdown-up-1.4.10.tar.gz"
   sha256 "05fe52902b8e9a81fe715bd308b6b8d08d11637c3054d268fc93107ff17410b5"
