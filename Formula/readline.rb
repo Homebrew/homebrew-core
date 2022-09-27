@@ -72,8 +72,11 @@ class Readline < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L", lib, "test.c", "-L#{lib}", "-lreadline", "-o", "test"
-    assert_equal "test> Hello, World!\nHello, World!",
-      pipe_output("./test", "Hello, World!\n").strip
+
+    ncurses_flags = []
+    ncurses_flags += ["-L#{Formula["ncurses"].opt_lib}", "-lncurses"] if OS.linux?
+
+    system ENV.cc, "-L", lib, "test.c", "-L#{lib}", "-lreadline", *ncurses_flags, "-o", "test"
+    assert_equal "test> Hello, World!\nHello, World!", pipe_output("./test", "Hello, World!\n").strip
   end
 end
