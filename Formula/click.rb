@@ -1,8 +1,8 @@
 class Click < Formula
   desc "Command-line interactive controller for Kubernetes"
   homepage "https://github.com/databricks/click"
-  url "https://github.com/databricks/click/archive/v0.6.1.tar.gz"
-  sha256 "2c424337fe760868ade72a96edf22113ad485cf0552f2c38f8259e80eb05e7ba"
+  url "https://github.com/databricks/click/archive/v0.6.2.tar.gz"
+  sha256 "8caa28e3dd3af40e0a8686e86457baa65d0c8cea2c8c530ad4834f44694c31e4"
   license "Apache-2.0"
   head "https://github.com/databricks/click.git", branch: "master"
 
@@ -26,7 +26,7 @@ class Click < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   def install
