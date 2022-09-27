@@ -3,7 +3,7 @@ class Dagger < Formula
   homepage "https://dagger.io"
   url "https://github.com/dagger/dagger.git",
       tag:      "v0.2.35",
-      revision: "46adf1fbd36cd8bd1052ed4e19f10f26df39540d"
+      revision: "00cde752120b87478e5cfc00877935164396afe8"
   license "Apache-2.0"
   head "https://github.com/dagger/dagger.git", branch: "main"
 
