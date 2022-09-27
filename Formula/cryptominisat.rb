@@ -33,11 +33,8 @@ class Cryptominisat < Formula
     # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
     inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DNOM4RI=ON",
-                    "-DMIT=ON",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    *std_cmake_args
+    args = %W[-DNOM4RI=ON -DMIT=ON -DCMAKE_INSTALL_RPATH=#{rpath}]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
