@@ -57,10 +57,7 @@ class Readline < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-curses"
-    # TODO: Work out why we need to set `SHLIB_LIBS` at all.
-    #       This is needed only on Linux, and is a no-op on macOS.
-    #       Arch does something similar, but Debian doesn't.
-    system "make", "install", "SHLIB_LIBS=-lncurses"
+    system "make", "install"
   end
 
   test do
