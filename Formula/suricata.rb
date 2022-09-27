@@ -54,12 +54,6 @@ class Suricata < Formula
   def install
     python = "python3.10"
 
-    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
-    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
-    inreplace %w[python/Makefile.in suricata-update/Makefile.in],
-              /@HAVE_PYTHON_TRUE@.*\sinstall --prefix \$\(DESTDIR\)\$\(prefix\)$/,
-              "\\0 --install-scripts=#{bin} --install-lib=#{prefix/Language::Python.site_packages(python)}"
-
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages(python)
     resources.each do |r|
       r.stage do
