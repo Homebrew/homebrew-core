@@ -1,20 +1,10 @@
 class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
+  url "https://github.com/commercialhaskell/stack/archive/v2.9.1.tar.gz"
+  sha256 "512d0188c195073d7c452f4b54ca005005ce7b865052a4856dc9975140051d9c"
   license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git", branch: "master"
-
-  stable do
-    url "https://github.com/commercialhaskell/stack/archive/v2.7.5.tar.gz"
-    sha256 "7e77a91c9e2366b6be292188c1a36c96f8830f8a5f4a079fae7f73b9b0d2c8b6"
-
-    # Fix build using cabal by adding upper bound for persistent.
-    # Remove in the next release
-    patch do
-      url "https://github.com/commercialhaskell/stack/commit/f2daad981556e9065e63de417504aabaa0f0a10a.patch?full_index=1"
-      sha256 "7775284eee5ee902bb0ac0368fab69aa3f179e5e33e2332638c5bf4b373a3542"
-    end
-  end
 
   livecheck do
     url :stable
@@ -31,7 +21,7 @@ class HaskellStack < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.10" => :build # TODO: Switch to `ghc` on next release
+  depends_on "ghc" => :build
 
   uses_from_macos "zlib"
 
@@ -47,11 +37,8 @@ class HaskellStack < Formula
   end
 
   def install
-    # https://github.com/JustusAdam/mustache/issues/41
-    cabal_install_constraints = ["--constraint=mustache^>=2.3.1"]
-
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args, *cabal_install_constraints
+    system "cabal", "v2-install", *std_cabal_v2_args
 
     bin.env_script_all_files libexec, PATH: "${PATH}:#{Formula["llvm@12"].opt_bin}" if Hardware::CPU.arm?
   end
