@@ -1,22 +1,10 @@
 class Readline < Formula
   desc "Library for command-line editing"
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
-  url "https://ftp.gnu.org/gnu/readline/readline-8.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz"
-  version "8.1.2"
-  sha256 "f8ceb4ee131e3232226a17f51b164afc46cd0b9e6cef344be87c65962cb82b02"
+  url "https://ftp.gnu.org/gnu/readline/readline-8.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/readline/readline-8.2.tar.gz"
+  sha256 "3feb7171f16a84ee82ca18a36d7b9be109a52c04f492a053331d7d1095007c35"
   license "GPL-3.0-or-later"
-
-  %w[
-    001 682a465a68633650565c43d59f0b8cdf149c13a874682d3c20cb4af6709b9144
-    002 e55be055a68cb0719b0ccb5edc9a74edcc1d1f689e8a501525b3bc5ebad325dc
-  ].each_slice(2) do |p, checksum|
-    patch :p0 do
-      url "https://ftp.gnu.org/gnu/readline/readline-8.1-patches/readline81-#{p}"
-      mirror "https://ftpmirror.gnu.org/readline/readline-8.1-patches/readline81-#{p}"
-      sha256 checksum
-    end
-  end
 
   # We're not using `url :stable` here because we need `url` to be a string
   # when we use it in the `strategy` block.
