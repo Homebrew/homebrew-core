@@ -25,70 +25,50 @@ class Fail2ban < Formula
 
   def install
     python3 = "python3.10"
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
     ENV["PYTHON"] = which(python3)
 
     rm "setup.cfg"
-    Dir["config/paths-*.conf"].each do |r|
-      next if /paths-common\.conf|paths-osx\.conf/.match?(File.basename(r))
-
-      rm r
-    end
+    Pathname.glob("config/paths-*.conf").reject do |pn|
+      pn.fnmatch?("config/paths-common.conf") || pn.fnmatch?("config/paths-osx.conf")
+    end.map(&:unlink)
 
     # Replace paths in config
     inreplace "config/jail.conf", "before = paths-debian.conf", "before = paths-osx.conf"
 
     # Replace hardcoded paths
-    inreplace "setup.py" do |s|
-      s.gsub! %r{/etc}, etc
-      s.gsub! %r{/var}, var
-    end
-
-    inreplace Dir["config/{action,filter}.d/**/*"].select { |ff| File.file?(ff) }.each do |s|
-      s.gsub! %r{/etc}, etc, false
-      s.gsub! %r{/var}, var, false
-    end
-
-    inreplace ["config/fail2ban.conf", "config/paths-common.conf", "doc/run-rootless.txt"].each do |s|
-      s.gsub! %r{/etc}, etc
-      s.gsub! %r{/var}, var
-    end
-
-    inreplace Dir["fail2ban/client/*"].each do |s|
-      s.gsub! %r{/etc}, etc, false
-      s.gsub! %r{/var}, var, false
-    end
+    inreplace_etc_var("setup.py")
+    inreplace_etc_var(Pathname.glob("config/{action,filter}.d/**/*").select(&:file?), audit_result: false)
+    inreplace_etc_var(["config/fail2ban.conf", "config/paths-common.conf", "doc/run-rootless.txt"])
+    inreplace_etc_var(Pathname.glob("fail2ban/client/*"), audit_result: false)
 
     inreplace "fail2ban/server/asyncserver.py", "/var/run/fail2ban/fail2ban.sock",
               var/"run/fail2ban/fail2ban.sock"
 
-    inreplace Dir["fail2ban/tests/**/*"].select { |ff| File.file?(ff) }.each do |s|
-      s.gsub! %r{/etc}, etc, false
-      s.gsub! %r{/var}, var, false
-    end
-
-    inreplace Dir["man/*"].each do |s|
-      s.gsub! %r{/etc}, etc, false
-      s.gsub! %r{/var}, var, false
-    end
+    inreplace_etc_var(Pathname.glob("fail2ban/tests/**/*").select(&:file?), audit_result: false)
+    inreplace_etc_var(Pathname.glob("man/*"), audit_result: false)
 
     # Fix doc compilation
-    inreplace "setup.py", "/usr/share/doc/fail2ban", (share/"doc")
+    inreplace "setup.py", "/usr/share/doc/fail2ban", doc
     inreplace "setup.py", "if os.path.exists('#{var}/run')", "if True"
     inreplace "setup.py", "platform_system in ('linux',", "platform_system in ('linux', 'darwin',"
 
     system "./fail2ban-2to3"
-    system python3, *Language::Python.setup_install_args(libexec, python3), "--without-tests"
+    system python3, *Language::Python.setup_install_args(prefix, python3)
 
     cd "doc" do
       system "make", "dirhtml", "SPHINXBUILD=sphinx-build"
-      (share/"doc").install "build/dirhtml"
+      doc.install "build/dirhtml"
     end
 
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
-    man1.install Dir["man/*.1"]
+    man1.install Pathname.glob("man/*.1")
     man5.install "man/jail.conf.5"
+  end
+
+  def inreplace_etc_var(targets, audit_result: true)
+    inreplace targets do |s|
+      s.gsub! %r{/etc}, etc, audit_result
+      s.gsub! %r{/var}, var, audit_result
+    end
   end
 
   def post_install
