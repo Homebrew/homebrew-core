@@ -1,10 +1,9 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.4.0.tar.gz"
-  sha256 "5d4f06f7041fe14a108780bdb953aa520f7e556773a7b9fb8435e9b92fef614d"
+  url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.5.0.tar.gz"
+  sha256 "96f1b1b4fd58e86f152b691202a15593815949dc9250fab9ab02f2346f5c2c52"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
   bottle do
@@ -33,23 +32,11 @@ class Pcb2gcode < Formula
   depends_on "boost"
   depends_on "gerbv"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
-  # Apply upstream commit to fix build with GCC 11.  Remove with next release.
-  patch do
-    url "https://github.com/pcb2gcode/pcb2gcode/commit/01cd18a6d859ab1aac6c532c99be9109f083448d.patch?full_index=1"
-    sha256 "b5b316b14e9b615ee9114261eb5d04a0b234823847a18bb5ab4d8e2af4210750"
-  end
-
   def install
-    system "autoreconf", "-fvi"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
