@@ -37,7 +37,6 @@ class Dynare < Formula
     sha256 cellar: :any, monterey:       "31b80cc41d34278e8a20ec410c0f2e8aa51b39051fc99f99216384ba76e53114"
     sha256 cellar: :any, big_sur:        "b132c70628fbf91bfda7ad89254106f44d0cae4d1b6f918c0e9dc6546b682270"
     sha256 cellar: :any, catalina:       "2ad82626a67004ec88a33688e51e08a9b07f0d4a3ef67a459ec1ba73be21360e"
-    sha256               x86_64_linux:   "13bb74fafff238cb14e388f3fe6784da7d38ad3563d2b82e07eafb72ca622faa"
   end
 
   head do
