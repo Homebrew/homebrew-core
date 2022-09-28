@@ -4,7 +4,7 @@ class Oclgrind < Formula
   url "https://github.com/jrprice/Oclgrind/archive/v21.10.tar.gz"
   sha256 "b40ea81fcf64e9012d63c3128640fde9785ef4f304f9f876f53496595b8e62cc"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
