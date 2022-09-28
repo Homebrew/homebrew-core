@@ -1,8 +1,8 @@
 class Atlas < Formula
   desc "Database toolkit"
   homepage "https://atlasgo.io/"
-  url "https://github.com/ariga/atlas/archive/v0.7.1.tar.gz"
-  sha256 "1fcefa4df30452a61feee9dca45000fc51388bf9506081b1ec723091dca84190"
+  url "https://github.com/ariga/atlas/archive/v0.7.2.tar.gz"
+  sha256 "29c866f7b29dad1f4ae2341bd7ba0e85f229c16dec11de8a70affc404ade1bef"
   license "Apache-2.0"
   head "https://github.com/ariga/atlas.git", branch: "master"
 
