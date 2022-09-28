@@ -15,8 +15,20 @@ class Libdbi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ac0e87e837a96a2147f0f95157ecbf6df333145cbbbfec466a9c18d794ffe8c1"
   end
 
+  on_arm do
+    # Added automake as a build dependency to update config files for ARM support.
+    depends_on "automake" => :build
+  end
+
   def install
-    system "./configure", "--disable-debug", "--prefix=#{prefix}"
+    if Hardware::CPU.arm?
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        (buildpath/fn).unlink
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
