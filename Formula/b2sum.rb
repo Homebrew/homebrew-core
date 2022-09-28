@@ -18,6 +18,7 @@ class B2sum < Formula
 
   def install
     cd "b2sum" do
+      inreplace "makefile", "../sse", "../neon" if Hardware::CPU.arm?
       system "make", "NO_OPENMP=1"
       system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
     end
