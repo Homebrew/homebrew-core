@@ -3,8 +3,8 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://files.pythonhosted.org/packages/52/16/2c2de8fac0437fb81d8f31558111fddcedf56eb56d90dea6ec922fcd588a/mkdocs-1.3.1.tar.gz"
-  sha256 "a41a2ff25ce3bbacc953f9844ba07d106233cd76c88bac1f59cb1564ac0d87ed"
+  url "https://files.pythonhosted.org/packages/da/a2/6c05983e8f42213ec71900cf419a6465aeb1dc605e56ccb58ecff2f3c812/mkdocs-1.4.0.tar.gz"
+  sha256 "e5549a22d59e7cb230d6a791edd2c3d06690908454c0af82edc31b35d57e3069"
   license "BSD-2-Clause"
 
   bottle do
@@ -29,11 +29,6 @@ class Mkdocs < Formula
   resource "ghp-import" do
     url "https://files.pythonhosted.org/packages/d9/29/d40217cbe2f6b1359e00c6c307bb3fc876ba74068cbab3dde77f03ca0dc4/ghp-import-2.1.0.tar.gz"
     sha256 "9c535c4c61193c2df8871222567d7fd7e5014d835f97dc7b7439069e2413d343"
-  end
-
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/1a/16/441080c907df829016729e71d8bdd42d99b9bdde48b01492ed08912c0aa9/importlib_metadata-4.12.0.tar.gz"
-    sha256 "637245b8bab2b6502fcbc752cc4b7a6f6243bb02b31c5c26156ad103d3d45670"
   end
 
   resource "Jinja2" do
@@ -79,11 +74,6 @@ class Mkdocs < Formula
   resource "watchdog" do
     url "https://files.pythonhosted.org/packages/42/f7/da8e889f8626786eac9454e8d2718fc79359ed517be20cdd50c647167d39/watchdog-2.1.9.tar.gz"
     sha256 "43ce20ebb36a51f21fa376f76d1d4692452b2527ccd601950d69ed36b9e21609"
-  end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/3b/e3/fb79a1ea5f3a7e9745f688855d3c673f2ef7921639a380ec76f7d4d83a85/zipp-3.8.1.tar.gz"
-    sha256 "05b45f1ee8f807d0cc928485ca40a07cb491cf092ff587c0df9cb1fd154848d2"
   end
 
   def install
