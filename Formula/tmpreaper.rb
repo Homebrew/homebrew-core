@@ -1,10 +1,15 @@
 class Tmpreaper < Formula
   desc "Clean up files in directories based on their age"
   homepage "https://packages.debian.org/sid/tmpreaper"
-  url "https://deb.debian.org/debian/pool/main/t/tmpreaper/tmpreaper_1.6.16.tar.gz"
-  mirror "https://fossies.org/linux/misc/tmpreaper_1.6.16.tar.gz"
-  sha256 "e543acdd55bb50102c42015e6d399e8abb36ad818cbd3ca6cb1c905b5781e202"
+  url "https://deb.debian.org/debian/pool/main/t/tmpreaper/tmpreaper_1.6.17.tar.gz"
+  mirror "https://fossies.org/linux/misc/tmpreaper_1.6.17.tar.gz"
+  sha256 "1ca94d156eb68160ec9b6ed8b97d70fbee996de21437f0cf7d0c3b46709fecbc"
   license "GPL-2.0-only"
+
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/t/tmpreaper/"
+    regex(/href=.*?tmpreaper[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f4f03eff7847b9b95990d19a92ce37a4c713526e9f8bc757499f87e4403d114"
