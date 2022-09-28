@@ -2,12 +2,12 @@ class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
   license "MIT"
-  revision 1
+  revision 2
 
   stable do
     url "https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz"
     sha256 "38cf4e84481f5facc766ba72783e7462e08d6d29a5d47e3b75c8ee3142485210"
-    depends_on "llvm@13"
+    depends_on "llvm@13" => :build
   end
 
   bottle do
@@ -21,7 +21,7 @@ class Zig < Formula
 
   head do
     url "https://github.com/ziglang/zig.git", branch: "master"
-    depends_on "llvm"
+    depends_on "llvm" => :build
   end
 
   depends_on "cmake" => :build
@@ -29,8 +29,10 @@ class Zig < Formula
   fails_with gcc: "5" # LLVM is built with GCC
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DZIG_STATIC_LLVM=ON"
-    system "make", "install"
+    odie "HEAD installs of `zig` are broken until ziglang/zig#12923 is resolved!" if build.head?
+    system "cmake", "-S", ".", "-B", "build", "-DZIG_STATIC_LLVM=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
