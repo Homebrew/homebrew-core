@@ -1,10 +1,9 @@
 class Beagle < Formula
   desc "Evaluate the likelihood of sequence evolution on trees"
   homepage "https://github.com/beagle-dev/beagle-lib"
-  url "https://github.com/beagle-dev/beagle-lib/archive/v3.1.2.tar.gz"
-  sha256 "dd872b484a3a9f0bce369465e60ccf4e4c0cd7bd5ce41499415366019f236275"
-  license "LGPL-3.0-or-later"
-  revision 1
+  url "https://github.com/beagle-dev/beagle-lib/archive/v4.0.0.tar.gz"
+  sha256 "d197eeb7fe5879dfbae789c459bcc901cb04d52c9cf5ef14fb07ff7a6b74560b"
+  license "MIT"
 
   livecheck do
     url :stable
@@ -22,19 +21,20 @@ class Beagle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1af7280eaec10e6a5e335326793ca36e36e8b41e507ea891ff3bbfdb3d453d01"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "doxygen" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "openjdk" => [:build, :test]
 
-  def install
-    args = std_configure_args + %w[--without-cuda --disable-libtool-dev]
-    args << "--disable-sse" if Hardware::CPU.arm?
+  # Reinstate versioning for libhmsbeagle. Remove in the next release
+  patch do
+    url "https://github.com/beagle-dev/beagle-lib/commit/2af91163d48bed8edfbf64af46d5877305546fd1.patch?full_index=1"
+    sha256 "2b16b2441083890bacb85ed082b3a7667a83621564b30a132b7ba8538f7d1d6f"
+  end
 
-    system "./autogen.sh"
-    system "./configure", *args
-    system "make", "install"
+  def install
+    ENV["JAVA_HOME"] = Language::Java.java_home
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
