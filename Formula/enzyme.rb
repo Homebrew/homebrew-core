@@ -25,7 +25,11 @@ class Enzyme < Formula
   end
 
   def install
-    system "cmake", "-S", "enzyme", "-B", "build", *std_cmake_args, "-DLLVM_DIR=#{llvm.opt_lib}/cmake/llvm"
+    args = ["-DLLVM_DIR=#{llvm.opt_lib}/cmake/llvm"]
+    # Needed for `ld` to be able to parse our LTOed object files.
+    args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-lto_library,#{llvm.opt_lib/shared_library("libLTO")}" if OS.mac?
+
+    system "cmake", "-S", "enzyme", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
