@@ -1,8 +1,8 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
-  url "https://www.abisource.com/downloads/link-grammar/5.10.5/link-grammar-5.10.5.tar.gz"
-  sha256 "324710cd8132975ff9ccb53509732f7558473b1c19f17892000a3dedb8618aed"
+  url "https://www.abisource.com/downloads/link-grammar/5.11.0/link-grammar-5.11.0.tar.gz"
+  sha256 "bdb9a359f877ff95d60f44d1780387324fa3763de5084ba1817dbf561a0ebed4"
   license "LGPL-2.1-or-later"
   head "https://github.com/opencog/link-grammar.git", branch: "master"
 
