@@ -1,10 +1,9 @@
 class Fpp < Formula
   desc "CLI program that accepts piped input and presents files for selection"
   homepage "https://facebook.github.io/PathPicker/"
-  url "https://github.com/facebook/PathPicker/releases/download/0.9.2/fpp.0.9.2.tar.gz"
-  sha256 "f2b233b1e18bdafb1cd1728305e926aabe217406e65091f1e58589e6157e1952"
+  url "https://github.com/facebook/PathPicker/archive/refs/tags/0.9.5.tar.gz"
+  sha256 "b0142676ed791085d619d9b3d28d28cab989ffc3b260016766841c70c97c2a52"
   license "MIT"
-  revision 3
   head "https://github.com/facebook/pathpicker.git", branch: "main"
 
   bottle do
@@ -16,13 +15,15 @@ class Fpp < Formula
     sha256 cellar: :any_skip_relocation, all:           "6efaf75a2e334b6c87e51be515d5bd32ba6ad1aedc8cd64253020772a9be63da"
   end
 
-  depends_on "python@3.10"
+  uses_from_macos "python", since: :catalina
 
   def install
+    (buildpath/"src/tests").rmtree
     # we need to copy the bash file and source python files
-    libexec.install Dir["*"]
+    libexec.install "fpp", "src"
     # and then symlink the bash file
     bin.install_symlink libexec/"fpp"
+    man1.install "debian/usr/share/man/man1/fpp.1"
   end
 
   test do
