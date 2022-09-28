@@ -23,26 +23,6 @@ class Fail2ban < Formula
   depends_on "sphinx-doc" => :build
   depends_on "python@3.10"
 
-  # fixes https://github.com/fail2ban/fail2ban/issues/3098 remove in the next release
-  patch do
-    url "https://github.com/fail2ban/fail2ban/commit/5ac303df8a171f748330d4c645ccbf1c2c7f3497.patch?full_index=1"
-    sha256 "4f22a39ae708b0c0fb59d29054e86b7c3f478a79925508833fd21f000b86aadb"
-  end
-
-  # fixes https://github.com/fail2ban/fail2ban/issues/2931 remove in the next release
-  patch do
-    url "https://github.com/fail2ban/fail2ban/commit/2b6bb2c1bed8f7009631e8f8c306fa3160324a49.patch?full_index=1"
-    sha256 "ff0aa188dbcfedaff6f882dba00963f4faf3fa774da9cfeb7f96030050e9d8e3"
-  end
-  patch do
-    url "https://github.com/fail2ban/fail2ban/commit/42dee38ad2ac5c3f23bdf297d824022923270dd9.patch?full_index=1"
-    sha256 "b8755368fe3de255aca948d850afa9dbdc66676029c98ebf1869def14b4638f0"
-  end
-  patch do
-    url "https://github.com/fail2ban/fail2ban/commit/9f1d1f4fbd0804695a976beb191f2c49a2739834.patch?full_index=1"
-    sha256 "81a71e608a2ce8bfe484651fa3ab744709dfab7d769699f0d937d15519082350"
-  end
-
   def install
     python3 = "python3.10"
     ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
