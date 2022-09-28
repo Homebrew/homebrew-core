@@ -444,6 +444,17 @@ class Llvm < Formula
   end
 
   test do
+    # Use brewed glibc if installed.
+    glibc_args = if OS.linux?
+      glibc = Formula["glibc"]
+      if glibc.any_version_installed?
+        [
+          "-Wl,-dynamic-linker=#{HOMEBREW_PREFIX}/lib/ld.so",
+          "-B#{glibc.opt_lib}", "-L#{glibc.opt_lib}"
+        ]
+      end
+    end
+
     llvm_version = Version.new(Utils.safe_popen_read(bin/"llvm-config", "--version").strip)
     soversion = llvm_version.major.to_s
     soversion << "git" if head?
@@ -469,7 +480,8 @@ class Llvm < Formula
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{llvm_version.major_minor_patch}/include",
-                           "omptest.c", "-o", "omptest"
+                           "omptest.c", "-o", "omptest",
+                           *glibc_args
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
@@ -544,7 +556,8 @@ class Llvm < Formula
     system "#{bin}/clang++", "-v",
            "-isystem", "#{opt_include}/c++/v1",
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-rtlib=compiler-rt", "-L#{cxx_libdir}", "-Wl,-rpath,#{cxx_libdir}"
+           "-rtlib=compiler-rt", "-L#{cxx_libdir}", "-Wl,-rpath,#{cxx_libdir}",
+           *glibc_args
     assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
                     (cxx_libdir/shared_library("libc++", "1")).to_s
     (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
