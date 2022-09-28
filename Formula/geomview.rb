@@ -38,9 +38,12 @@ class Geomview < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    # Work around for build error due to `finite`/`isfinite` detection on macOS.
+    # ../../../../include/porting.h:68:19: error: expected identifier or '('
+    # static inline int finite(double v)
+    ENV["ac_cv_func_finite"] = "yes" if OS.mac? && Hardware::CPU.arm?
+
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
     (bin/"hvectext").unlink
   end
