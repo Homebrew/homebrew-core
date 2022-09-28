@@ -53,6 +53,9 @@ class Enzyme < Formula
     opt = llvm.opt_bin/"opt"
     ENV["CC"] = llvm.opt_bin/"clang"
 
+    # `-Xclang -no-opaque-pointers` is a transitional flag for LLVM 15, and will
+    # likely be need to removed in LLVM 16. See:
+    # https://llvm.org/docs/OpaquePointers.html#version-support
     system ENV.cc, "-v", testpath/"test.c", "-S", "-emit-llvm", "-o", "input.ll", "-O2",
                    "-fno-vectorize", "-fno-slp-vectorize", "-fno-unroll-loops",
                    "-Xclang", "-no-opaque-pointers"
