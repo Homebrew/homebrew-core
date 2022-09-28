@@ -128,10 +128,6 @@ class LlvmAT14 < Formula
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
-    # The latest stage builds avoid the shims, and the build
-    # will target Penryn unless otherwise specified
-    ENV.append_to_cflags "-march=#{Hardware.oldest_cpu}" if Hardware::CPU.intel?
-
     runtimes_cmake_args = []
     builtins_cmake_args = []
 
@@ -142,6 +138,14 @@ class LlvmAT14 < Formula
       args << "-DLIBCXXABI_INSTALL_LIBRARY_DIR=#{lib}/c++"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
       runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{loader_path}"
+
+      # Prevent CMake from defaulting to `lld` when it's found next to `clang`.
+      # This can be removed after CMake 3.25. See:
+      # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/7671
+      args << "-DLLVM_USE_LINKER=ld"
+      [args, runtimes_cmake_args, builtins_cmake_args].each do |arg_array|
+        arg_array << "-DCMAKE_LINKER=ld"
+      end
     else
       ENV.append_to_cflags "-fpermissive -Wno-free-nonheap-object"
 
@@ -204,10 +208,8 @@ class LlvmAT14 < Formula
     end
 
     if OS.mac?
-      # Get the version from `llvm-config` to get the correct HEAD version too.
       llvm_version = Version.new(Utils.safe_popen_read(bin/"llvm-config", "--version").strip)
       soversion = llvm_version.major.to_s
-      soversion << "git" if build.head?
 
       # Install versioned symlink, or else `llvm-config` doesn't work properly
       lib.install_symlink "libLLVM.dylib" => "libLLVM-#{soversion}.dylib"
@@ -257,9 +259,8 @@ class LlvmAT14 < Formula
   test do
     llvm_version = Version.new(Utils.safe_popen_read(bin/"llvm-config", "--version").strip)
     soversion = llvm_version.major.to_s
-    soversion << "git" if head?
 
-    assert_equal version, llvm_version unless head?
+    assert_equal version, llvm_version
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
     assert_equal "-lLLVM-#{soversion}", shell_output("#{bin}/llvm-config --libs").chomp
     assert_equal (lib/shared_library("libLLVM-#{soversion}")).to_s,
