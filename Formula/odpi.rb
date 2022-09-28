@@ -1,8 +1,8 @@
 class Odpi < Formula
   desc "Oracle Database Programming Interface for Drivers and Applications"
   homepage "https://oracle.github.io/odpi/"
-  url "https://github.com/oracle/odpi/archive/v4.4.1.tar.gz"
-  sha256 "c5fc27ef90d12417cb3c2bab32ed539bb4c389fde24ceb6d1df06a0985543c1a"
+  url "https://github.com/oracle/odpi/archive/v4.5.0.tar.gz"
+  sha256 "f87042ed1467f158e729f6e763d4467fd4bca4ab7005eefcf6a6b7d6fb210b0b"
   license any_of: ["Apache-2.0", "UPL-1.0"]
 
   bottle do
@@ -16,9 +16,7 @@ class Odpi < Formula
 
   def install
     system "make"
-
-    lib.install Dir["lib/*"]
-    include.install Dir["include/*"]
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
