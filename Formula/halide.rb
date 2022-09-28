@@ -1,11 +1,15 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
-  url "https://github.com/halide/Halide/archive/v14.0.0.tar.gz"
-  sha256 "f9fc9765217cbd10e3a3e3883a60fc8f2dbbeaac634b45c789577a8a87999a01"
   license "MIT"
-  revision 3
-  head "https://github.com/halide/Halide.git", branch: "main"
+  revision 4
+
+  # Remove `stable` when we switch to `llvm`.
+  stable do
+    url "https://github.com/halide/Halide/archive/v14.0.0.tar.gz"
+    sha256 "f9fc9765217cbd10e3a3e3883a60fc8f2dbbeaac634b45c789577a8a87999a01"
+    depends_on "llvm@14"
+  end
 
   livecheck do
     url :stable
@@ -21,18 +25,31 @@ class Halide < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f311085eeae716f884dc957c31fb7640c1159afb32d17a3985093dca68c8be30"
   end
 
+  head do
+    url "https://github.com/halide/Halide.git", branch: "main"
+    depends_on "llvm"
+  end
+
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "llvm@14"
+  depends_on "pybind11"
   depends_on "python@3.10"
 
   fails_with gcc: "5" # LLVM is built with Homebrew GCC
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DHalide_SHARED_LLVM=ON"
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DHalide_SHARED_LLVM=ON
+      -DPYBIND11_USE_FETCHCONTENT=OFF
+    ]
+    llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
+               .to_formula
+    # Apple libLTO cannot parse our object files.
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-lto_library,#{llvm.opt_lib/shared_library("libLTO")}" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
