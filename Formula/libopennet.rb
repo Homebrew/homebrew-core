@@ -21,13 +21,22 @@ class Libopennet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:    "d12f92e4c1e648507685be0a40102bbf253da35bc2bf2bc25b412e8900165a6d"
   end
 
+  on_arm do
+    # Added automake as a build dependency to update config files for ARM support.
+    depends_on "automake" => :build
+  end
+
   def install
+    if Hardware::CPU.arm?
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
     # Fix flat namespace usage.
     inreplace "configure", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make"
     system "make", "install"
   end
