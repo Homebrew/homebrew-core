@@ -3,10 +3,9 @@ class Pyside < Formula
 
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.3.1-src/pyside-setup-opensource-src-6.3.1.tar.xz"
-  sha256 "e5a85ed68834eb8324e3486283a9451b030d7221809e2a9533162e6b93899977"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.3.2-src/pyside-setup-opensource-src-6.3.2.tar.xz"
+  sha256 "d19979589e8946488e1b5e01ac0da75ab73b40c901726723335e160241a56892"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
-  revision 1
 
   livecheck do
     url "https://download.qt.io/official_releases/QtForPython/pyside6/"
@@ -25,18 +24,14 @@ class Pyside < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on xcode: :build
+  depends_on "llvm"
   depends_on "python@3.10"
   depends_on "qt"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
-  on_macos do
-    depends_on "llvm"
-  end
-
   on_linux do
-    depends_on "llvm@14" # Needed until Mesa 22.2.0.
     depends_on "mesa"
   end
 
