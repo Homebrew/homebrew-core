@@ -5,7 +5,7 @@ class LlvmAT13 < Formula
   sha256 "326335a830f2e32d06d0a36393b5455d17dc73e0bd1211065227ee014f92cbf8"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "b480466716f06633140ddadb009d774b0998e99eaa0fdba68d1f2b7863d5da3b"
@@ -26,11 +26,10 @@ class LlvmAT13 < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "python@3.10" => :build
-  depends_on "swig" => :build
 
+  uses_from_macos "python" => :test
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
-  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -38,10 +37,14 @@ class LlvmAT13 < Formula
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
-    depends_on "glibc" if Formula["glibc"].any_version_installed?
   end
 
   def install
+    # The clang bindings need a little help finding our libclang.
+    inreplace "clang/bindings/python/clang/cindex.py",
+              /^(\s*library_path\s*=\s*)None$/,
+              "\\1'#{lib}'"
+
     projects = %w[
       clang
       clang-tools-extra
@@ -108,21 +111,27 @@ class LlvmAT13 < Formula
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
-    # The latest stage builds avoid the shims, and the build
-    # will target Penryn unless otherwise specified
-    ENV.append_to_cflags "-march=#{Hardware.oldest_cpu}" if Hardware::CPU.intel?
-
     runtimes_cmake_args = []
     builtins_cmake_args = []
 
     if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
+      args << "-DLIBCXX_INSTALL_LIBRARY_DIR=#{lib}/c++"
+      args << "-DLIBCXXABI_INSTALL_LIBRARY_DIR=#{lib}/c++"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
-      runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
-    else
-      ENV.append_to_cflags "-fpermissive -Wno-free-nonheap-object"
+      runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{loader_path}"
 
+      # Prevent CMake from defaulting to `lld` when it's found next to `clang`.
+      # This can be removed after CMake 3.25. See:
+      # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/7671
+      args << "-DLLVM_USE_LINKER=ld"
+      [args, runtimes_cmake_args, builtins_cmake_args].each do |arg_array|
+        arg_array << "-DCMAKE_LINKER=ld"
+      end
+    else
+      # Disable `libxml2` which isn't very useful.
+      args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
@@ -220,10 +229,12 @@ class LlvmAT13 < Formula
   end
 
   def caveats
-    <<~EOS
-      To use the bundled libc++ please add the following LDFLAGS:
-        LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
-    EOS
+    on_macos do
+      <<~EOS
+        To use the bundled libc++ please add the following LDFLAGS:
+          LDFLAGS="-L#{opt_lib}/c++ -Wl,-rpath,#{opt_lib}/c++"
+      EOS
+    end
   end
 
   test do
@@ -322,12 +333,14 @@ class LlvmAT13 < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+    cxx_libdir = opt_lib
+    cxx_libdir /= "c++" if OS.mac?
     system "#{bin}/clang++", "-v",
            "-isystem", "#{opt_include}/c++/v1",
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+           "-rtlib=compiler-rt", "-L#{cxx_libdir}", "-Wl,-rpath,#{cxx_libdir}"
     assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
-                    (opt_lib/shared_library("libc++", "1")).to_s
+                    (cxx_libdir/shared_library("libc++", "1")).to_s
     (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
       refute_match(/libstdc\+\+/, lib)
       refute_match(/libgcc/, lib)
@@ -406,8 +419,8 @@ class LlvmAT13 < Formula
         return 0;
       }
     EOS
-    assert_includes shell_output("#{bin}/scan-build #{bin}/clang++ scanbuildtest.cpp 2>&1"),
-      "warning: Use of memory after it is freed"
+    assert_includes shell_output("#{bin}/scan-build make scanbuildtest 2>&1"),
+                    "warning: Use of memory after it is freed"
 
     (testpath/"clangformattest.c").write <<~EOS
       int    main() {
@@ -415,6 +428,14 @@ class LlvmAT13 < Formula
     EOS
     assert_equal "int main() { printf(\"Hello world!\"); }\n",
       shell_output("#{bin}/clang-format -style=google clangformattest.c")
+
+    # This will fail if the clang bindings cannot find `libclang`.
+    with_env(PYTHONPATH: prefix/Language::Python.site_packages("python3")) do
+      system "python3", "-c", <<~EOS
+        from clang import cindex
+        cindex.Config().get_cindex_library()
+      EOS
+    end
 
     # Ensure LLVM did not regress output of `llvm-config --system-libs` which for a time
     # was known to output incorrect linker flags; e.g., `-llibxml2.tbd` instead of `-lxml2`.
