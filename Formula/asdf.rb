@@ -26,12 +26,7 @@ class Asdf < Formula
     libexec.install Dir["*"]
     touch libexec/"asdf_updates_disabled"
 
-    # TODO: Remove these placeholders on 31 August 2022
     bin.write_exec_script libexec/"bin/asdf"
-    (prefix/"asdf.sh").write ". #{libexec}/asdf.sh\n"
-    (prefix/"asdf.fish").write "source #{libexec}/asdf.fish\n"
-    (lib/"asdf.sh").write ". #{libexec}/lib/asdf.sh\n"
-    (lib/"asdf.fish").write "source #{libexec}/lib/asdf.fish\n"
   end
 
   def caveats
