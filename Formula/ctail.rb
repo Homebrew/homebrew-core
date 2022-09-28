@@ -26,11 +26,12 @@ class Ctail < Formula
   conflicts_with "byobu", because: "both install `ctail` binaries"
 
   def install
-    system "./configure",
-        "--prefix=#{prefix}",
-        "--disable-debug",
-        "--with-apr=#{Formula["apr"].opt_bin}",
-        "--with-apr-util=#{Formula["apr-util"].opt_bin}"
+    # Workaround for ancient config files not recognizing aarch64 macos.
+    system "autoreconf", "--force", "--install", "--verbose" if Hardware::CPU.arm?
+
+    system "./configure", *std_configure_args,
+                          "--with-apr=#{Formula["apr"].opt_bin}",
+                          "--with-apr-util=#{Formula["apr-util"].opt_bin}"
     system "make", "LIBTOOL=glibtool --tag=CC"
     system "make", "install"
   end
