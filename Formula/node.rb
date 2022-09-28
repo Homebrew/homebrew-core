@@ -1,9 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
-  url "https://nodejs.org/dist/v18.9.1/node-v18.9.1.tar.xz"
-  sha256 "f381963d43568ba699915c88629dc6da4a1963804dcd37b2e6e1d10d923dd5d9"
+  url "https://nodejs.org/dist/v18.10.0/node-v18.10.0.tar.xz"
+  sha256 "ad711b54e2be4a7d24f37c73fb2801adeaf6d26d298d431be98d6abc0202e89f"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -49,12 +48,11 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.19.1.tgz"
-    sha256 "00a29eaa1fa8d44f6c3f3a114becc3b677a019dde90d87b41fd855663fe47742"
+    url "https://registry.npmjs.org/npm/-/npm-8.19.2.tgz"
+    sha256 "439fb2276f7039d2fba2739e361006f3bc25d6a6b3f88c1edb4d28ab5a7eb3f7"
   end
 
   def install
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     # make sure subprocesses spawned by make are using our Python 3
