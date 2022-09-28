@@ -3,10 +3,9 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://files.pythonhosted.org/packages/b6/71/1b7b4b74cfe2c3ec0ec25da29555d487c0a68be03112246a34d1f380dfec/translate-toolkit-3.6.2.tar.gz"
-  sha256 "91b247b159f4fa2ae2ed9b0a6c88a2dc207f1cd3cb93f754a9059e7eaebe8c54"
+  url "https://files.pythonhosted.org/packages/09/75/527fd0f2edd605e25cbe18acdf499b8ecaa83070092b7ef7dad5c9df148f/translate-toolkit-3.7.3.tar.gz"
+  sha256 "14e44dc9b187ccf51c215c57a37475a6bd3719da68104d89dc0b8f33d973dc3e"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/translate/translate.git", branch: "master"
 
   bottle do
@@ -29,6 +28,9 @@ class TranslateToolkit < Formula
   end
 
   def install
+    # Workaround to avoid creating libexec/bin/__pycache__ which gets linked to bin
+    ENV["PYTHONPYCACHEPREFIX"] = buildpath/"pycache"
+
     virtualenv_install_with_resources
   end
 
