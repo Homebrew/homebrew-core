@@ -28,10 +28,6 @@ class Libvpx < Formula
       --enable-vp9-highbitdepth
     ]
 
-    # `configure` misdetects Monterey as `generic-gnu`.
-    # Reported via email to https://groups.google.com/a/webmproject.org/group/codec-devel
-    args << "--target=#{Hardware::CPU.arch}-darwin20-gcc" if OS.mac? && MacOS.version >= :monterey
-
     if Hardware::CPU.intel?
       ENV.runtime_cpu_detection
       args << "--enable-runtime-cpu-detect"
