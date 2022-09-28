@@ -22,6 +22,10 @@ class Nim < Formula
 
   depends_on "help2man" => :build
 
+  on_linux do
+    depends_on "openssl@1.1"
+  end
+
   def install
     if build.head?
       # this will clone https://github.com/nim-lang/csources_v1
