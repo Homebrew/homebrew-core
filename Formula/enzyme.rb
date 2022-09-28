@@ -21,7 +21,7 @@ class Enzyme < Formula
   fails_with gcc: "5"
 
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+    deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
   end
 
   def install
@@ -53,8 +53,9 @@ class Enzyme < Formula
     opt = llvm.opt_bin/"opt"
     ENV["CC"] = llvm.opt_bin/"clang"
 
-    system ENV.cc, testpath/"test.c", "-S", "-emit-llvm", "-o", "input.ll", "-O2",
-                   "-fno-vectorize", "-fno-slp-vectorize", "-fno-unroll-loops"
+    system ENV.cc, "-v", testpath/"test.c", "-S", "-emit-llvm", "-o", "input.ll", "-O2",
+                   "-fno-vectorize", "-fno-slp-vectorize", "-fno-unroll-loops",
+                   "-Xclang", "-no-opaque-pointers"
     system opt, "input.ll", "--enable-new-pm=0",
                 "-load=#{opt_lib/shared_library("LLVMEnzyme-#{llvm.version.major}")}",
                 "--enzyme-attributor=0", "-enzyme", "-o", "output.ll", "-S"
