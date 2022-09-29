@@ -3,7 +3,7 @@ class Mcap < Formula
   homepage "https://mcap.dev"
   url "https://github.com/foxglove/mcap/archive/releases/mcap-cli/v0.0.20.tar.gz"
   sha256 "82066fd241eeb034b108213ebe540064fdb2b493e07afc86e24f244006a95acc"
-  license "Apache-2.0"
+  license "MIT"
   head "https://github.com/foxglove/mcap.git", branch: "main"
 
   livecheck do
@@ -22,9 +22,19 @@ class Mcap < Formula
 
   depends_on "go" => :build
 
-  resource "homebrew-testdata" do
-    url "https://media.githubusercontent.com/media/foxglove/mcap/releases/mcap-cli/v0.0.10/tests/conformance/data/OneMessage/OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap"
-    sha256 "9db644f7fad2a256b891946a011fb23127b95d67dc03551b78224aa6cad8c5db"
+  resource "homebrew-testdata-OneMessage" do
+    url "https://github.com/foxglove/mcap/raw/releases/mcap-cli/v0.0.20/tests/conformance/data/OneMessage/OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap"
+    sha256 "16e841dbae8aae5cc6824a63379c838dca2e81598ae08461bdcc4e7334e11da4"
+  end
+
+  resource "homebrew-testdata-OneAttachment" do
+    url "https://github.com/foxglove/mcap/raw/releases/mcap-cli/v0.0.20/tests/conformance/data/OneAttachment/OneAttachment-ax-pad-st-sum.mcap"
+    sha256 "f9dde0a5c9f7847e145be73ea874f9cdf048119b4f716f5847513ee2f4d70643"
+  end
+
+  resource "homebrew-testdata-OneMetadata" do
+    url "https://github.com/foxglove/mcap/raw/releases/mcap-cli/v0.0.20/tests/conformance/data/OneMetadata/OneMetadata-mdx-pad-st-sum.mcap"
+    sha256 "cb779e0296d288ad2290d3c1911a77266a87c0bdfee957049563169f15d6ba8e"
   end
 
   def install
@@ -32,30 +42,21 @@ class Mcap < Formula
       system "make", "build", "VERSION=v#{version}"
       bin.install "bin/mcap"
     end
+    generate_completions_from_executable(bin/"mcap", "completion", shells: [:bash, :zsh, :fish])
   end
 
   test do
-    assert_equal "v#{version}", pipe_output("#{bin}/mcap version").strip
+    assert_equal "v#{version}", shell_output("#{bin}/mcap version").strip
 
-    resource("homebrew-testdata").stage do
+    resource("homebrew-testdata-OneMessage").stage do
       assert_equal "2 example [Example] [1 2 3]",
-      pipe_output("#{bin}/mcap cat", File.read("OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap")).strip
-
-      expected_info = <<~EOF
-        library:
-        profile:
-        messages: 1
-        duration: 0s
-        start: 0.000
-        end: 0.000
-        compression:
-        	: [1/1 chunks] (0.00%)
-        channels:
-          	(1) example  1 msgs (+Inf Hz)   : Example [c]
-        attachments: 0
-      EOF
-      assert_equal expected_info.lines.map(&:strip),
-        shell_output("#{bin}/mcap info OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap").lines.map(&:strip)
+      shell_output("#{bin}/mcap cat OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap").strip
+    end
+    resource("homebrew-testdata-OneAttachment").stage do
+      assert_equal "\x01\x02\x03", shell_output("#{bin}/mcap get attachment OneAttachment-ax-pad-st-sum.mcap --name myFile")
+    end
+    resource("homebrew-testdata-OneMetadata").stage do
+      assert_equal({"foo" => "bar"}, JSON.parse(shell_output("#{bin}/mcap get metadata OneMetadata-mdx-pad-st-sum.mcap --name myMetadata")))
     end
   end
 end
