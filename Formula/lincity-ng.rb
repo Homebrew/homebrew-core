@@ -31,6 +31,13 @@ class LincityNg < Formula
   end
 
   def install
+    # Workaround for ancient config files not recognizing aarch64 macos.
+    if Hardware::CPU.arm?
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, "mk/autoconf/#{fn}"
+      end
+    end
+
     # Generate CREDITS
     system 'cat data/gui/creditslist.xml | grep -v "@" | cut -d\> -f2 | cut -d\< -f1 >CREDITS'
     system "./autogen.sh"
