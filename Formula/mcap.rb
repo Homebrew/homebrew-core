@@ -53,10 +53,12 @@ class Mcap < Formula
       shell_output("#{bin}/mcap cat OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap").strip
     end
     resource("homebrew-testdata-OneAttachment").stage do
-      assert_equal "\x01\x02\x03", shell_output("#{bin}/mcap get attachment OneAttachment-ax-pad-st-sum.mcap --name myFile")
+      assert_equal "\x01\x02\x03",
+      shell_output("#{bin}/mcap get attachment OneAttachment-ax-pad-st-sum.mcap --name myFile")
     end
     resource("homebrew-testdata-OneMetadata").stage do
-      assert_equal({"foo" => "bar"}, JSON.parse(shell_output("#{bin}/mcap get metadata OneMetadata-mdx-pad-st-sum.mcap --name myMetadata")))
+      assert_equal({ "foo" => "bar" },
+      JSON.parse(shell_output("#{bin}/mcap get metadata OneMetadata-mdx-pad-st-sum.mcap --name myMetadata")))
     end
   end
 end
