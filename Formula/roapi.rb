@@ -19,7 +19,7 @@ class Roapi < Formula
   def install
     # skip default features like snmalloc which errs on ubuntu 16.04
     system "cargo", "install", "--no-default-features",
-                               "--features", "rustls",
+                               "--features", "simd,rustls,database",
                                *std_cargo_args(path: "roapi")
   end
 
