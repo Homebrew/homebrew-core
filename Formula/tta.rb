@@ -22,11 +22,10 @@ class Tta < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--enable-sse4"
+    args = ["--disable-silent-rules"]
+    args << "--enable-#{MacOS.version.requires_sse4? ? "sse4" : "sse2"}" if Hardware::CPU.intel?
+
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 end
