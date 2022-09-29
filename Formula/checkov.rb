@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/3f/7f/8754c17f462fb4edecd6e91311a6aebe7d7c6b299e22553800038b6de84e/checkov-2.1.225.tar.gz"
-  sha256 "02e17408723ba821e33d447f765453bd9fe05a50396808eb94d30de9374a64bf"
+  url "https://files.pythonhosted.org/packages/01/53/fe6c54104a960c0e1d855201dda5ffb02f7e838f4e0e87da7a2802a5dea0/checkov-2.1.240.tar.gz"
+  sha256 "536751de080b7d7b5a2cc019f9799b17b3856d1346b3bebbcc760b3b990f376e"
   license "Apache-2.0"
 
   bottle do
@@ -72,13 +72,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/68/02/4b54cf30d200058b0e80f9cca789cea1aa3fca079ce8850bcf546e036cd6/boto3-1.24.78.tar.gz"
-    sha256 "da672d9133852dbb36ce9cd156dffcb28a2dc098af1731791ab614969a34f9f5"
+    url "https://files.pythonhosted.org/packages/e8/b5/f6f8e8455c7fc2d66dd33eceb3843fef1457042a05ebe378e5465d3c28bc/boto3-1.24.82.tar.gz"
+    sha256 "2a9b283cd4208cfcea873baac29e5ceb011afbd5a5c5b7a35cb305f377c39f60"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d5/d8/3b4f537c10d56ed76aaaa75abad1f79ab9221f82956cd33fc6bda87d1618/botocore-1.27.78.tar.gz"
-    sha256 "b45ae0680699ce100386ac1478e03fd3f29ef22d6bfb5a19169ffee6e67c5293"
+    url "https://files.pythonhosted.org/packages/52/fa/a7d3568b26623f69f19bc639836c95bcd90ee6f9bbebe8231aa9396d25b4/botocore-1.27.82.tar.gz"
+    sha256 "b122c7048a79fef53f3d45f7ca2999c2559e15fc4531653824ebd3154d77ede5"
   end
 
   resource "cached-property" do
@@ -92,8 +92,8 @@ class Checkov < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/ca/48/88ec470f8b68319b6782ca3a0570789886ad5ca24c1af2f3771699135baa/certifi-2022.9.14.tar.gz"
-    sha256 "36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "cffi" do
