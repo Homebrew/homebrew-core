@@ -1,11 +1,10 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0247.tar.gz"
-  version "0.247"
-  sha256 "a2486d34b15f13c3d7028436f7da373d37c7fd47f34a2ea19ff48cf57daf29e1"
+  url "https://github.com/mamedev/mame/archive/mame0248.tar.gz"
+  version "0.248"
+  sha256 "7eef82527a4b66647e02625948d42e3502f13183192ea48e6fc2786d6f9222a0"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/mamedev/mame.git", branch: "master"
 
   # MAME tags (and filenames) are formatted like `mame0226`, so livecheck will
