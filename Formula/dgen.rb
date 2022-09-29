@@ -29,6 +29,7 @@ class Dgen < Formula
       --disable-sdltest
       --prefix=#{prefix}
     ]
+    args << "--disable-asm" if Hardware::CPU.arm?
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"
