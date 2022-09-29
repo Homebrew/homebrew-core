@@ -65,6 +65,7 @@ class Zim < Formula
     )
     system bin/"zim", "--index", "./Notes"
     system bin/"zim", "--export", "-r", "-o", "HTML", "./Notes"
-    system "grep", '<a href="https://brew.sh".*Homebrew</a>', "HTML/Homebrew/Homebrew.html"
+    assert_match "Homebrew:Homebrew", (testpath/"HTML/Homebrew/Homebrew.html").read
+    assert_match "https://brew.sh|Homebrew", (testpath/"Notes/Homebrew/Homebrew.txt").read
   end
 end
