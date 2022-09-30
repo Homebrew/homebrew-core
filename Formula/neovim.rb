@@ -1,13 +1,10 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
+  url "https://github.com/neovim/neovim/archive/v0.8.0.tar.gz"
+  sha256 "505e3dfb71e2f73495c737c034a416911c260c0ba9fd2092c6be296655be4d18"
   license "Apache-2.0"
-
-  # Remove `stable` block when `gperf` is no longer needed.
-  stable do
-    url "https://github.com/neovim/neovim/archive/v0.8.0.tar.gz"
-    sha256 "505e3dfb71e2f73495c737c034a416911c260c0ba9fd2092c6be296655be4d18"
-  end
+  head "https://github.com/neovim/neovim.git", branch: "master"
 
   livecheck do
     url :stable
@@ -22,10 +19,6 @@ class Neovim < Formula
     sha256 big_sur:        "463dc2636ebd9ce5d0f44369dddbd3d5715dc00466a4869e282d0c8dc2f565ee"
     sha256 catalina:       "b9f6078ef504308896213a3e979733ccb93dca8c4873a8c686b6d3f607fcd8d8"
     sha256 x86_64_linux:   "be762f679f83c41fb982d32f067229ca3480f991fdcbc7b15147fdef932312a1"
-  end
-
-  head do
-    url "https://github.com/neovim/neovim.git", branch: "master"
   end
 
   depends_on "cmake" => :build
