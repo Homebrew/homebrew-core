@@ -2,8 +2,8 @@ class Vcluster < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
   url "https://github.com/loft-sh/vcluster.git",
-      tag:      "v0.12.0",
-      revision: "eba499bcdff242e4ca73c9450020f9fb4ab9afa7"
+      tag:      "v0.12.1",
+      revision: "86603ca11282e12dd25ecf7c8649dfc93bf196eb"
   license "Apache-2.0"
   head "https://github.com/loft-sh/vcluster.git", branch: "main"
 
