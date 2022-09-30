@@ -1,8 +1,8 @@
 class Rubberband < Formula
   desc "Audio time stretcher tool and library"
   homepage "https://breakfastquay.com/rubberband/"
-  url "https://breakfastquay.com/files/releases/rubberband-3.0.0.tar.bz2"
-  sha256 "df6530b403c8300a23973df22f36f3c263f010d53792063e411f633cebb9ed85"
+  url "https://breakfastquay.com/files/releases/rubberband-3.1.0.tar.bz2"
+  sha256 "b95a76da5cdb3966770c60115ecd838f84061120f884c3bfdc904f75931ec9aa"
   license "GPL-2.0-or-later"
   head "https://hg.sr.ht/~breakfastquay/rubberband", using: :hg
 
