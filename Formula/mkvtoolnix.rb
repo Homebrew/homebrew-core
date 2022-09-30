@@ -5,7 +5,7 @@ class Mkvtoolnix < Formula
   mirror "https://fossies.org/linux/misc/mkvtoolnix-70.0.0.tar.xz"
   sha256 "64324b7ee6b4aa6fab5f517ca93667d12260a4ea92ea80b97575beda3a91693a"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://mkvtoolnix.download/sources/"
