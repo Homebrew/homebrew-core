@@ -1,12 +1,13 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://www.nickle.org/release/nickle-2.90.tar.gz"
-  sha256 "fbb3811aa0ac4b31e1702ea643dd3a6a617b2516ad6f9cfab76ec2779618e5a4"
+  url "https://deb.debian.org/debian/pool/main/n/nickle/nickle_2.91.tar.xz"
+  sha256 "a27a063d4cb93701d2d05a5fb2895b51b28fa7a2b32463a829496fb5f63833b6"
   license "MIT"
+  head "https://keithp.com/cgit/nickle.git", branch: "master"
 
   livecheck do
-    url "https://www.nickle.org/release/"
+    url "https://deb.debian.org/debian/pool/main/n/nickle/"
     regex(/href=.*?nickle[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
@@ -18,11 +19,15 @@ class Nickle < Formula
     sha256 x86_64_linux: "a80572816adbeb145a3dd76b327bff79653d6ff504eba14b9fb767e73c64a992"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "flex" => :build # conflicting types for 'yyget_leng'
   depends_on "readline"
 
+  uses_from_macos "bison" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./autogen.sh", *std_configure_args
     system "make", "install"
   end
 
