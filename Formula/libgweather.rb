@@ -10,7 +10,9 @@ class Libgweather < Formula
   # https://gitlab.gnome.org/GNOME/libgweather/-/merge_requests/120#note_1286867
   livecheck do
     url :stable
-    regex(/libgweather[._-]v?((?:[0-35-9]\d*|4|4[1-9]\d*|40\d+)\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+    strategy :gnome do |page, regex|
+      page.scan(regex).select { |match| Version.new(match.first) < 40 }.flatten
+    end
   end
 
   bottle do
