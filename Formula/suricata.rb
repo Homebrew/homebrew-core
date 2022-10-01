@@ -33,16 +33,6 @@ class Suricata < Formula
 
   uses_from_macos "libpcap"
 
-  resource "argparse" do
-    url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
-    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
-  end
-
-  resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/7a/47/c7cc3d4ed15f09917838a2fb4e1759eafb6d2f37ebf7043af984d8b36cf7/simplejson-3.17.6.tar.gz"
-    sha256 "cf98038d2abf63a1ada5730e91e84c642ba6c225b0198c3684151b1f80c5f8a6"
-  end
-
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
@@ -51,23 +41,12 @@ class Suricata < Formula
   end
 
   def install
-    python = "python3.10"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages(python)
-    resources.each do |r|
-      r.stage do
-        system python, *Language::Python.setup_install_args(libexec/"vendor", python)
-      end
-    end
-
     jansson = Formula["jansson"]
     libmagic = Formula["libmagic"]
     libnet = Formula["libnet"]
 
     args = %W[
-      --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --with-libjansson-includes=#{jansson.opt_include}
@@ -87,15 +66,10 @@ class Suricata < Formula
       args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
     end
 
-    system "./configure", *args
-    # setuptools>=60 prefers its own bundled distutils, which breaks the installation
-    # pkg_resources.DistributionNotFound: The 'suricata-update==1.2.3' distribution was not found
-    # Remove when deprecated distutils installation is no longer used
-    with_env(SETUPTOOLS_USE_DISTUTILS: "stdlib") do
-      system "make", "install-full"
-    end
+    system "./configure", *std_configure_args, *args
+    system "make", "install-full"
 
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: lib/"suricata/python")
 
     # Leave the magic-file: prefix in otherwise it overrides a commented out line rather than intended line.
     inreplace etc/"suricata/suricata.yaml", %r{magic-file: /.+/magic}, "magic-file: #{libmagic.opt_share}/misc/magic"
@@ -103,5 +77,6 @@ class Suricata < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/suricata --build-info")
+    assert_match "Found Suricata", shell_output("#{bin}/suricata-update list-sources")
   end
 end
