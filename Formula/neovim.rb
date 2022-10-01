@@ -1,10 +1,35 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.8.0.tar.gz"
-  sha256 "505e3dfb71e2f73495c737c034a416911c260c0ba9fd2092c6be296655be4d18"
   license "Apache-2.0"
   head "https://github.com/neovim/neovim.git", branch: "master"
+
+  stable do
+    url "https://github.com/neovim/neovim/archive/v0.8.0.tar.gz"
+    sha256 "505e3dfb71e2f73495c737c034a416911c260c0ba9fd2092c6be296655be4d18"
+
+    # TODO: Consider shipping these as separate formulae instead. See discussion at
+    #       https://github.com/orgs/Homebrew/discussions/3611
+    resource "tree-sitter-c" do
+      url "https://github.com/tree-sitter/tree-sitter-c/archive/v0.20.2.tar.gz"
+      sha256 "af66fde03feb0df4faf03750102a0d265b007e5d957057b6b293c13116a70af2"
+    end
+
+    resource "tree-sitter-lua" do
+      url "https://github.com/MunifTanjim/tree-sitter-lua/archive/v0.0.13.tar.gz"
+      sha256 "564594fe0ffd2f2fb3578a15019b723e1bc94ac82cb6a0103a6b3b9ddcc6f315"
+    end
+
+    resource "tree-sitter-vim" do
+      url "https://github.com/vigoux/tree-sitter-viml/archive/v0.2.0.tar.gz"
+      sha256 "608dcc31a7948cb66ae7f45494620e2e9face1af75598205541f80d782ec4501"
+    end
+
+    resource "tree-sitter-help" do
+      url "https://github.com/neovim/tree-sitter-vimdoc/archive/v1.1.0.tar.gz"
+      sha256 "4c0ef80c6dc09acab362478950ec6be58a4ab1cbf2d95754b8fbb566e4c647a1"
+    end
+  end
 
   livecheck do
     url :stable
@@ -77,6 +102,20 @@ class Neovim < Formula
           unpack_dir = output.split("\n")[-2]
           cd unpack_dir do
             system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
+          end
+        end
+      end
+
+      if build.stable?
+        Dir["tree-sitter-*"].each do |ts_dir|
+          cd ts_dir do
+            cp buildpath/"cmake.deps/cmake/TreesitterParserCMakeLists.txt", "CMakeLists.txt"
+
+            parser_name = ts_dir[/^tree-sitter-(\w+)$/, 1]
+            system "cmake", "-S", ".", "-B", "build", "-DPARSERLANG=#{parser_name}", *std_cmake_args
+            system "cmake", "--build", "build"
+
+            (lib/"nvim/parser").install "build/#{parser_name}.so"
           end
         end
       end
