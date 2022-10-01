@@ -27,6 +27,6 @@ class Aztfy < Formula
     assert_match version.to_s, version_output
 
     no_resource_group_specified_output = shell_output("#{bin}/aztfy rg 2>&1", 1)
-    assert_match("Error: No resource group specified", no_resource_group_specified_output)
+    assert_match("Error: retrieving subscription id from CLI", no_resource_group_specified_output)
   end
 end
