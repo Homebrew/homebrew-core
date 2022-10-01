@@ -82,6 +82,7 @@ class Upscaledb < Formula
       ]
 
       shim_reference_files.each do |file|
+        ohai "Removing shim references from #{file} (exist: #{(pkgshare/"samples"/file).exist?})"
         inreplace pkgshare/"samples"/file, Superenv.shims_path, ""
       end
     end
