@@ -4,7 +4,7 @@ class Dspdfviewer < Formula
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   license "GPL-2.0-or-later"
-  revision 14
+  revision 15
   head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
   bottle do
@@ -32,17 +32,15 @@ class Dspdfviewer < Formula
   depends_on "poppler-qt5"
   depends_on "qt@5"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with gcc: "5"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DRunDualScreenTests=OFF",
                     "-DUsePrerenderedPDF=ON",
-                    "-DUseQtFive=ON"
+                    "-DUseQtFive=ON",
+                    "-DCMAKE_CXX_STANDARD=14",
+                    "-DCMAKE_CXX_FLAGS=-Wno-deprecated-declarations"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
