@@ -11,8 +11,8 @@ on:
       args:
         description: "Extra arguments to `brew pr-pull`"
         default: ""
-      self_hosted:
-        description: "Whether to run the upload job on a self-hosted runner (default: false)"
+      large_runner:
+        description: "Whether to run the upload job on a large runner (default: false)"
         required: false
 
 env:
@@ -25,8 +25,7 @@ permissions:
 
 jobs:
   upload:
-    runs-on: ${{github.event.inputs.self_hosted == 'true' && 'linux-self-hosted-1' || 'ubuntu-22.04'}}
-    container: ${{github.event.inputs.self_hosted == 'true' && fromJson('{"image":"ghcr.io/homebrew/ubuntu22.04:master","options":"--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"}') || ''}}
+    runs-on: ${{github.event.inputs.large_runner == 'true' && 'homebrew-large-bottle-upload' || 'ubuntu-22.04'}}
     steps:
       - name: Post comment once started
         uses: Homebrew/actions/post-comment@master
@@ -46,13 +45,11 @@ jobs:
       # Workaround until the `cache` action uses the changes from
       # https://github.com/actions/toolkit/pull/580.
       - name: Unlink workspace
-        if: github.event.inputs.self_hosted != 'true'
         run: |
           mv "${GITHUB_WORKSPACE}" "${GITHUB_WORKSPACE}-link"
           mkdir "${GITHUB_WORKSPACE}"
 
       - name: Cache gems
-        if: github.event.inputs.self_hosted != 'true'
         uses: actions/cache@v2
         with:
           path: ${{steps.set-up-homebrew.outputs.gems-path}}
@@ -62,13 +59,11 @@ jobs:
       # Workaround until the `cache` action uses the changes from
       # https://github.com/actions/toolkit/pull/580.
       - name: Re-link workspace
-        if: github.event.inputs.self_hosted != 'true'
         run: |
           rmdir "${GITHUB_WORKSPACE}"
           mv "${GITHUB_WORKSPACE}-link" "${GITHUB_WORKSPACE}"
 
       - name: Install gems
-        if: github.event.inputs.self_hosted != 'true'
         run: brew install-bundler-gems
 
       - name: Configure Git user
@@ -119,7 +114,6 @@ jobs:
       # Workaround until the `cache` action uses the changes from
       # https://github.com/actions/toolkit/pull/580.
       - name: Unlink workspace
-        if: github.event.inputs.self_hosted != 'true'
         run: |
           rm "${GITHUB_WORKSPACE}"
           mkdir "${GITHUB_WORKSPACE}"
