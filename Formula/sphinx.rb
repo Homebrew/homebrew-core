@@ -3,8 +3,8 @@ class Sphinx < Formula
   homepage "https://sphinxsearch.com/"
   url "https://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
   sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
-  license "GPL-2.0"
-  revision 3
+  license "GPL-2.0-or-later"
+  revision 4
   head "https://github.com/sphinxsearch/sphinx.git", branch: "master"
 
   bottle do
@@ -22,16 +22,6 @@ class Sphinx < Formula
   # Ref: https://github.com/sphinxsearch/sphinx#sphinx
   deprecate! date: "2022-08-15", because: "is using unsupported v2 and source for v3 is not publicly available"
 
-  patch do
-    url "https://sources.debian.org/data/main/s/sphinxsearch/2.2.11-8/debian/patches/config-default-to-localhost.patch"
-    sha256 "04e5e9c3503b3a2d69076bfe25b6b764ccfa3a54"
-  end
-
-  patch do
-    url "https://sources.debian.org/data/main/s/sphinxsearch/2.2.11-8/debian/patches/06-CVE-2020-29050.patch"
-    sha256 "0b6173d12045e72b59e0a7601161bbad66d4e67d"
-  end
-
   depends_on "mysql@5.7"
   depends_on "openssl@1.1"
 
@@ -42,6 +32,16 @@ class Sphinx < Formula
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
         revision: "9b58e92c965cd7e3208247ace3cc00d173397f3c"
+  end
+
+  patch do
+    url "https://sources.debian.org/data/main/s/sphinxsearch/2.2.11-8/debian/patches/config-default-to-localhost.patch"
+    sha256 "41fdbc5c93c90c3390eb05da5ea6ccb62006886ade74a91b8c28f7dcf30646a3"
+  end
+
+  patch do
+    url "https://sources.debian.org/data/main/s/sphinxsearch/2.2.11-8/debian/patches/06-CVE-2020-29050.patch"
+    sha256 "a52e065880b7293d95b6278f1013825b7ac52a1f2c28e8a69ed739882a4a5c3a"
   end
 
   def install
