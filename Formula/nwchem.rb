@@ -68,7 +68,7 @@ class Nwchem < Formula
       inreplace "util/util_nwchemrc.F", "/etc/nwchemrc", "#{etc}/nwchemrc"
 
       # needed to use python 3.X to skip using default python2
-      ENV["PYTHONVERSION"] = Language::Python.major_minor_version "python3"
+      ENV["PYTHONVERSION"] = Language::Python.major_minor_version "python3.10"
       ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["LAPACK_LIB"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["BLAS_SIZE"] = "4"
