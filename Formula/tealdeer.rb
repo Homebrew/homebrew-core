@@ -1,8 +1,8 @@
 class Tealdeer < Formula
   desc "Very fast implementation of tldr in Rust"
   homepage "https://github.com/dbrgn/tealdeer"
-  url "https://github.com/dbrgn/tealdeer/archive/v1.5.0.tar.gz"
-  sha256 "00902a50373ab75fedec4578c6c2c02523fad435486918ad9a86ed01f804358a"
+  url "https://github.com/dbrgn/tealdeer/archive/v1.6.0.tar.gz"
+  sha256 "7e957b8f440264524822d855af856a634d48a8150a11089bcf8252e42a9ec5e4"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
@@ -18,13 +18,11 @@ class Tealdeer < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
   end
 
   conflicts_with "tldr", because: "both install `tldr` binaries"
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix if OS.linux?
     system "cargo", "install", *std_cargo_args
     bash_completion.install "bash_tealdeer" => "tldr"
     zsh_completion.install "zsh_tealdeer" => "_tldr"
