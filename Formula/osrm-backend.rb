@@ -2,7 +2,7 @@ class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/Project-OSRM/osrm-backend/archive/v5.26.0.tar.gz"
@@ -45,6 +45,7 @@ class OsrmBackend < Formula
                     "-DENABLE_CCACHE:BOOL=OFF",
                     "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
                     "-DLUA_LIBRARY=#{lua.opt_lib/shared_library("liblua", luaversion)}",
+                    "-DENABLE_GOLD_LINKER=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
