@@ -3,6 +3,7 @@ class Dc3dd < Formula
   homepage "https://sourceforge.net/projects/dc3dd/"
   url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.7z"
   sha256 "d26d5c1eaa413a10dfcdb2525a9fd8135902eb0b0a8f4632529fbebb06430d95"
+  license "GPL-3.0-or-later"
   revision 2
 
   bottle do
