@@ -32,9 +32,12 @@ class Parallel < Formula
 
     inreplace_files = [
       bin/"parallel",
+      doc/"parallel.texi",
       doc/"parallel_design.texi",
+      doc/"parallel_examples.texi",
       man1/"parallel.1",
       man7/"parallel_design.7",
+      man7/"parallel_examples.7",
     ]
 
     # Ignore `inreplace` failures when building from HEAD or not building a bottle.
