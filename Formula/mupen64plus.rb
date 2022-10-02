@@ -4,7 +4,7 @@ class Mupen64plus < Formula
   url "https://github.com/mupen64plus/mupen64plus-core/releases/download/2.5/mupen64plus-bundle-src-2.5.tar.gz"
   sha256 "9c75b9d826f2d24666175f723a97369b3a6ee159b307f7cc876bbb4facdbba66"
   license "GPL-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -46,6 +46,11 @@ class Mupen64plus < Formula
     inreplace "source/mupen64plus-video-glide64mk2/src/Glide64/3dmath.cpp",
               "__builtin_ia32_storeups", "_mm_storeu_ps"
 
+    if OS.linux?
+      ENV.append "CFLAGS", "-fcommon"
+      ENV.append "CFLAGS", "-fpie"
+    end
+
     args = ["install", "PREFIX=#{prefix}"]
     args << if OS.mac?
       "INSTALL_STRIP_FLAG=-S"
@@ -78,7 +83,7 @@ class Mupen64plus < Formula
     end
 
     cd "source/mupen64plus-ui-console/projects/unix" do
-      system "make", *args
+      system "make", *args, "PIE=1"
     end
   end
 
