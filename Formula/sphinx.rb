@@ -35,11 +35,6 @@ class Sphinx < Formula
   end
 
   patch do
-    url "https://sources.debian.org/data/main/s/sphinxsearch/2.2.11-8/debian/patches/config-default-to-localhost.patch"
-    sha256 "41fdbc5c93c90c3390eb05da5ea6ccb62006886ade74a91b8c28f7dcf30646a3"
-  end
-
-  patch do
     url "https://sources.debian.org/data/main/s/sphinxsearch/2.2.11-8/debian/patches/06-CVE-2020-29050.patch"
     sha256 "a52e065880b7293d95b6278f1013825b7ac52a1f2c28e8a69ed739882a4a5c3a"
   end
@@ -58,6 +53,13 @@ class Sphinx < Formula
       --with-mysql
       --without-pgsql
     ]
+
+    # Security fix: default to localhost
+    # https://sources.debian.org/data/main/s/sphinxsearch/2.2.11-8/debian/patches/config-default-to-localhost.patch
+    inreplace %w[sphinx-min.conf.in sphinx.conf.in] do |s|
+      s.gsub! "9312", "127.0.0.1:9312"
+      s.gsub! "9306:mysql41", "127.0.0.1:9306:mysql41"
+    end
 
     system "./configure", *args
     system "make", "install"
