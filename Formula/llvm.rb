@@ -432,6 +432,24 @@ class Llvm < Formula
 
     # Install Emacs modes
     elisp.install llvmpath.glob("utils/emacs/*.el") + share.glob("clang/*.el")
+
+    return if OS.linux? || !pgo_build
+
+    # Convert LTO-generated bitcode in our static archives to MachO. Adapted from Fedora:
+    # https://src.fedoraproject.org/rpms/redhat-rpm-config/blob/rawhide/f/brp-llvm-compile-lto-elf
+    lib.glob("*.a").each do |static_archive|
+      mktemp do
+        system bin/"llvm-ar", "x", static_archive
+        Pathname.glob("*.o").each do |bc_file|
+          file_type = Utils.safe_popen_read("file", bc_file)
+          next unless file_type.match?("LLVM bitcode")
+
+          system bin/"clang", "-fno-lto", "-Wno-unused-command-line-argument",
+                              "-x", "ir", bc_file, "-c", "-o", bc_file
+          system bin/"llvm-ar", "r", static_archive, bc_file
+        end
+      end
+    end
   end
 
   def caveats
@@ -643,6 +661,17 @@ class Llvm < Formula
     assert_equal "int main() { printf(\"Hello world!\"); }\n",
       shell_output("#{bin}/clang-format -style=google clangformattest.c")
 
+    # Test static analyzer
+    (testpath/"unreachable.c").write <<~EOS
+      unsigned int func(unsigned int a) {
+        unsigned int *z = 0;
+        if ((a & 1) && ((a & 1) ^1))
+          return *z; // unreachable
+        return 0;
+      }
+    EOS
+    system bin/"clang", "--analyze", "-Xanalyzer", "-analyzer-constraints=z3", "unreachable.c"
+
     # This will fail if the clang bindings cannot find `libclang`.
     with_env(PYTHONPATH: prefix/Language::Python.site_packages(python3)) do
       system python3, "-c", <<~EOS
@@ -650,6 +679,10 @@ class Llvm < Formula
         cindex.Config().get_cindex_library()
       EOS
     end
+
+    # Check that lldb can use Python
+    lldb_script_interpreter_info = JSON.parse(shell_output("#{bin}/lldb --print-script-interpreter-info"))
+    assert_equal "python", lldb_script_interpreter_info["language"]
 
     # Ensure LLVM did not regress output of `llvm-config --system-libs` which for a time
     # was known to output incorrect linker flags; e.g., `-llibxml2.tbd` instead of `-lxml2`.
