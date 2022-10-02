@@ -17,6 +17,7 @@ class Tmuxp < Formula
   end
 
   depends_on "python@3.10"
+  depends_on "pyyaml"
   depends_on "tmux"
 
   resource "click" do
