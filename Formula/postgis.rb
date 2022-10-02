@@ -4,7 +4,7 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.2.3.tar.gz"
   sha256 "1b4d8b5c756e5aba59efbc1833b22efe4d6562778eeca56fa497feb2eb13668c"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -38,10 +38,6 @@ class Postgis < Formula
   depends_on "proj"
   depends_on "protobuf-c" # for MVT (map vector tiles) support
   depends_on "sfcgal" # for advanced 2D/3D functions
-
-  on_linux do
-    depends_on "gcc"
-  end
 
   fails_with gcc: "5"
 
