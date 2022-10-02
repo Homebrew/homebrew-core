@@ -80,6 +80,9 @@ class LlvmAT11 < Formula
     sha256 "744aaebcc8da875892a00cbe2ebc6bb16db97431808b49f134adf70e64cf0e91"
   end
 
+  # Fix build with GCC 11
+  patch :DATA
+
   def install
     projects = %w[
       clang
@@ -97,8 +100,9 @@ class LlvmAT11 < Formula
       libunwind
     ]
 
-    py_ver = Language::Python.major_minor_version("python3")
-    site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
+    python3 = "python3.10"
+    py_ver = Language::Python.major_minor_version(python3)
+    site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -407,3 +411,17 @@ class LlvmAT11 < Formula
     end
   end
 end
+
+__END__
+diff --git a/llvm/utils/benchmark/src/benchmark_register.h b/llvm/utils/benchmark/src/benchmark_register.h
+index 0705e219f2fa..4caa5ad4da07 100644
+--- a/llvm/utils/benchmark/src/benchmark_register.h
++++ b/llvm/utils/benchmark/src/benchmark_register.h
+@@ -1,6 +1,7 @@
+ #ifndef BENCHMARK_REGISTER_H
+ #define BENCHMARK_REGISTER_H
+
++#include <limits>
+ #include <vector>
+
+ #include "check.h"
