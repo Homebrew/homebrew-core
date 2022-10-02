@@ -16,17 +16,13 @@ class Tealdeer < Formula
 
   depends_on "rust" => :build
 
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
-
   conflicts_with "tldr", because: "both install `tldr` binaries"
 
   def install
     system "cargo", "install", *std_cargo_args
-    bash_completion.install "bash_tealdeer" => "tldr"
-    zsh_completion.install "zsh_tealdeer" => "_tldr"
-    fish_completion.install "fish_tealdeer" => "tldr.fish"
+    bash_completion.install "completion/bash_tealdeer" => "tldr"
+    zsh_completion.install "completion/zsh_tealdeer" => "_tldr"
+    fish_completion.install "completion/fish_tealdeer" => "tldr.fish"
   end
 
   test do
