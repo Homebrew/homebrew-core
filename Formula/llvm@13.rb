@@ -39,6 +39,10 @@ class LlvmAT13 < Formula
     depends_on "elfutils" # openmp requires <gelf.h>
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     # The clang bindings need a little help finding our libclang.
     inreplace "clang/bindings/python/clang/cindex.py",
@@ -67,7 +71,7 @@ class LlvmAT13 < Formula
     python_versions = Formula.names
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
-    site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
+    site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -214,7 +218,7 @@ class LlvmAT13 < Formula
 
     # Create symlinks so that the Python bindings can be used with alternative Python versions
     python_versions.each do |py_ver|
-      next if py_ver == Language::Python.major_minor_version("python3").to_s
+      next if py_ver == Language::Python.major_minor_version(python3).to_s
 
       (lib/"python#{py_ver}/site-packages").install_symlink (lib/site_packages).children
     end
