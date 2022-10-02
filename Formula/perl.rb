@@ -57,6 +57,7 @@ class Perl < Formula
 
     args << "-Dusedevel" if build.head?
 
+    inreplace "./Configure", "installstyle=$dflt", "installstyle='lib/perl5'"
     system "./Configure", *args
 
     system "make"
