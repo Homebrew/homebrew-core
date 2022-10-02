@@ -54,6 +54,10 @@ class OpencvAT3 < Formula
     sha256 "b46e4e9dc93878bccd2351c79795426797d27f54a4720d51f805c118770e6f4a"
   end
 
+  def python3
+    "python3.10"
+  end
+
   def install
     ENV.cxx11
 
@@ -99,7 +103,7 @@ class OpencvAT3 < Formula
       -DWITH_VTK=OFF
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON3_EXECUTABLE=#{which("python3")}
+      -DPYTHON3_EXECUTABLE=#{which(python3)}
     ]
 
     if Hardware::CPU.intel? && build.bottle?
@@ -131,7 +135,7 @@ class OpencvAT3 < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal shell_output("./test").strip, version.to_s
 
-    python = Formula["python@3.10"].opt_bin/"python3"
+    python = Formula["python@3.10"].opt_bin/python3
     ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python)
     output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
