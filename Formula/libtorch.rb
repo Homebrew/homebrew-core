@@ -43,6 +43,12 @@ class Libtorch < Formula
     sha256 "e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"
   end
 
+  # Fix build on Intel Mac: https://github.com/pytorch/pytorch/issues/85956
+  patch do
+    url "https://github.com/pytorch/pytorch/commit/481def752cc001ff8ac7e3b723ece11aa1110c77?full_index=1"
+    sha256 "eb5925ef6bc5489682e4c8a3a16ffe845ba63b04851ea2d040b7b9fec8ecc879"
+  end
+
   def install
     venv = virtualenv_create(buildpath/"venv", "python3.10")
     venv.pip_install resources
