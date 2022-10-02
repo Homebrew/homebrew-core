@@ -43,6 +43,12 @@ jobs:
         with:
           test-bot: false
 
+      - name: Install `skopeo` for bottle upload
+        if: github.event.inputs.self_hosted
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y skopeo
+
       # Workaround until the `cache` action uses the changes from
       # https://github.com/actions/toolkit/pull/580.
       - name: Unlink workspace
