@@ -2,11 +2,10 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2022-09",
-      revision: "74458ab09676d3b66364f8c4679afb53fcf1b4f7"
-  version "2022-09"
+      tag:      "dev-2022-10",
+      revision: "79fe30321ab571038f8d3822ce989becd2336306"
+  version "2022-10"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
@@ -18,9 +17,6 @@ class Odin < Formula
   end
 
   depends_on "llvm@14"
-  # Build failure on macOS 10.15 due to `__ulock_wait2` usage.
-  # Issue ref: https://github.com/odin-lang/Odin/issues/1773
-  depends_on macos: :big_sur
 
   fails_with gcc: "5" # LLVM is built with GCC
 
