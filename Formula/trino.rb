@@ -3,8 +3,8 @@ class Trino < Formula
 
   desc "Distributed SQL query engine for big data"
   homepage "https://trino.io"
-  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/396/trino-server-396.tar.gz", using: :nounzip
-  sha256 "99bb7dce00178fa40cdf9f8f731c18b749637bf9fe32118870cad1de0febd2a1"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/398/trino-server-398.tar.gz", using: :nounzip
+  sha256 "db97001cc927856f349783654f42ebe8501bb1c5be01aec08e9201464c09a684"
   license "Apache-2.0"
 
   livecheck do
@@ -21,13 +21,13 @@ class Trino < Formula
   depends_on "python@3.10"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/refs/tags/396.tar.gz", using: :nounzip
-    sha256 "9557a088f3878097feb8cf9ee3fc26c0565bdcfe898880107170b884054a4dba"
+    url "https://github.com/trinodb/trino/archive/refs/tags/398.tar.gz"
+    sha256 "70a433c7591ded384c99ea4a9ec29a37381c3f0d79e579eaab3d40976790f28c"
   end
 
   resource "trino-cli" do
-    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/396/trino-cli-396-executable.jar"
-    sha256 "438347986c281a2cf419131ce999d6db1bb37488b141f68de62325e1cbbc927a"
+    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/398/trino-cli-398-executable.jar"
+    sha256 "0ad45427ddf50feea977fc1b2b73e8730720a30dbfdb2062e5b2cc8aab9373e8"
   end
 
   def install
@@ -36,18 +36,6 @@ class Trino < Formula
     # Ref: https://github.com/Homebrew/brew/pull/13154
     libexec.mkpath
     system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "trino-server-#{version}.tar.gz"
-
-    # Manually untar, since macOS-bundled tar produces the error:
-    #   trino-363/plugin/trino-hive/src/test/resources/<truncated>.snappy.orc.crc: Failed to restore metadata
-    # Remove when https://github.com/trinodb/trino/issues/8877 is fixed
-    resource("trino-src").stage do |r|
-      ENV.prepend_path "PATH", Formula["gnu-tar"].opt_libexec/"gnubin"
-      system "tar", "-xzf", "trino-#{r.version}.tar.gz"
-      (libexec/"etc").install Dir["trino-#{r.version}/core/docker/default/etc/*"]
-      inreplace libexec/"etc/node.properties", "docker", tap.user.downcase
-      inreplace libexec/"etc/node.properties", "/data/trino", var/"trino/data"
-      inreplace libexec/"etc/jvm.config", %r{^-agentpath:/usr/lib/trino/bin/libjvmkill.so$\n}, ""
-    end
 
     rewrite_shebang detected_python_shebang, libexec/"bin/launcher.py"
     (bin/"trino-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
