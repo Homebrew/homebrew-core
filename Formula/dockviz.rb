@@ -2,8 +2,8 @@ class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
   url "https://github.com/justone/dockviz.git",
-      tag:      "v0.6.3",
-      revision: "15f77275c4f7e459eb7d9f824b5908c165cd0ba4"
+      tag:      "v0.6.4",
+      revision: "3ebdb75ed393d6f2eb0b38d83ee22d75c68f6524"
   license "Apache-2.0"
   head "https://github.com/justone/dockviz.git", branch: "master"
 
