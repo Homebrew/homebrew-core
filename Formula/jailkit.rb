@@ -24,7 +24,7 @@ class Jailkit < Formula
   depends_on "python@3.10"
 
   def install
-    ENV["PYTHONINTERPRETER"] = Formula["python@3.10"].opt_bin/"python3"
+    ENV["PYTHONINTERPRETER"] = Formula["python@3.10"].opt_bin/"python3.10"
 
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
