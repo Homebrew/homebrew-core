@@ -3,8 +3,8 @@ class Tmuxp < Formula
 
   desc "Tmux session manager. Built on libtmux"
   homepage "https://tmuxp.git-pull.com/"
-  url "https://files.pythonhosted.org/packages/b5/7b/321352ec6763e80fdd2e0ddd0a406c3125d1e220d9063174246031fd578b/tmuxp-1.15.2.tar.gz"
-  sha256 "9b6bd7ab29368f6b4c96c4b9dbeb90be58e687300298728c134197c404b5a777"
+  url "https://files.pythonhosted.org/packages/fb/1c/ad297105e1b3a5faa57a215ae1d106203ce1fd8a9166484d01da10c670c2/tmuxp-1.16.0.tar.gz"
+  sha256 "8fbbb615c79681bfbd323a3d5d8b27b840540cf0160821999eb197c82666f59d"
   license "MIT"
 
   bottle do
@@ -29,19 +29,9 @@ class Tmuxp < Formula
     sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
   end
 
-  resource "kaptan" do
-    url "https://files.pythonhosted.org/packages/94/64/f492edfcac55d4748014b5c9f9a90497325df7d97a678c5d56443f881b7a/kaptan-0.5.12.tar.gz"
-    sha256 "1abd1f56731422fce5af1acc28801677a51e56f5d3c3e8636db761ed143c3dd2"
-  end
-
   resource "libtmux" do
     url "https://files.pythonhosted.org/packages/e7/ff/57093d287ae579f4fbf357a072b92551663cca95588c4835a86fd0130ff3/libtmux-0.15.7.tar.gz"
     sha256 "dee2a138e0eab14256472d140ac816c923c303406b894e27c068cc39f5f8bfb4"
-  end
-
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   def install
