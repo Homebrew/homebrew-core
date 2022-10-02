@@ -2,7 +2,7 @@ class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/cruppstahl/upscaledb.git", branch: "master"
 
   stable do
@@ -65,27 +65,8 @@ class Upscaledb < Formula
 
     pkgshare.install "samples"
 
-    unless OS.mac?
-      shim_reference_files = %w[
-        db1
-        db2
-        db3
-        db4
-        db5
-        db6
-        env1
-        env2
-        env3
-        uqi1
-        uqi2
-        Makefile
-      ]
-
-      shim_reference_files.each do |file|
-        ohai "Removing shim references from #{file} (exist: #{(pkgshare/"samples"/file).exist?})"
-        inreplace pkgshare/"samples"/file, Superenv.shims_path, ""
-      end
-    end
+    # Fix shim reference on Linux
+    inreplace pkgshare/"samples/Makefile", Superenv.shims_path, "" unless OS.mac?
   end
 
   test do
