@@ -21,7 +21,7 @@ class HgFastExport < Formula
     # See https://github.com/Homebrew/homebrew-core/pull/90709#issuecomment-988548657
     %w[hg-fast-export.sh hg-reset.sh].each do |f|
       inreplace f, "for python_cmd in ",
-                   "for python_cmd in '#{which("python3")}' "
+                   "for python_cmd in '#{which("python3.10")}' "
     end
 
     libexec.install Dir["*"]
@@ -41,6 +41,7 @@ class HgFastExport < Formula
     end
 
     mkdir testpath/"git-repo" do
+      system "git", "config", "--global", "init.defaultBranch", "master"
       system "git", "init"
       system "git", "config", "core.ignoreCase", "false"
       system "hg-fast-export.sh", "-r", "#{testpath}/hg-repo"
