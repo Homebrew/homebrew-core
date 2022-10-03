@@ -4,7 +4,6 @@ class Libxcb < Formula
   url "https://xcb.freedesktop.org/dist/libxcb-1.15.tar.gz"
   sha256 "1cb65df8543a69ec0555ac696123ee386321dfac1964a3da39976c9a05ad724d"
   license "MIT"
-  revision 1
 
   bottle do
     rebuild 1
