@@ -1,8 +1,8 @@
 class GitGui < Formula
   desc "Tcl/Tk UI for the git revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.37.3.tar.xz"
-  sha256 "814641d7f61659cfbc17825d0462499ca1403e39ff53d76a8512050e6483e87a"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.38.0.tar.xz"
+  sha256 "923eade26b1814de78d06bda8e0a9f5da8b7c4b304b3f9050ffb464f0310320a"
   license "GPL-2.0-only"
   head "https://github.com/git/git.git", branch: "master"
 
