@@ -1,18 +1,10 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
+  url "https://github.com/facebook/watchman/archive/v2022.10.03.00.tar.gz"
+  sha256 "998d8aa2cc836335eb342a72b50d5a754fe6b6dbdfc1ddc75a9973d8a4408b60"
   license "MIT"
-  revision 1
-
-  stable do
-    url "https://github.com/facebook/watchman/archive/v2022.09.26.00.tar.gz"
-    sha256 "cc7c5f5a7d74383e1e360c373b3a1b973b95851366168392c297ce440e108fd5"
-
-    resource "edencommon" do
-      url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2022.09.26.00.tar.gz"
-      sha256 "1fc2724a346f27f01007a9e4f695460437788903d326ebbb52f874c98e7052b5"
-    end
-  end
+  head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "f7d53e8f298b5265ca86239c14eca32be8554648a0f9aff6bc912c01baf3e7e7"
@@ -26,20 +18,13 @@ class Watchman < Formula
   # https://github.com/facebook/watchman/issues/963
   pour_bottle? only_if: :default_prefix
 
-  head do
-    url "https://github.com/facebook/watchman.git", branch: "main"
-
-    resource "edencommon" do
-      url "https://github.com/facebookexperimental/edencommon.git", branch: "main"
-    end
-  end
-
   depends_on "cmake" => :build
   depends_on "cpptoml" => :build
   depends_on "googletest" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "boost"
+  depends_on "edencommon"
   depends_on "fb303"
   depends_on "fmt"
   depends_on "folly"
@@ -53,13 +38,6 @@ class Watchman < Formula
   fails_with gcc: "5"
 
   def install
-    resource("edencommon").stage do
-      system "cmake", "-S", ".", "-B", "_build",
-                      *std_cmake_args(install_prefix: buildpath/"edencommon")
-      system "cmake", "--build", "_build"
-      system "cmake", "--install", "_build"
-    end
-
     # Fix build failure on Linux. Borrowed from Fedora:
     # https://src.fedoraproject.org/rpms/watchman/blob/rawhide/f/watchman.spec#_70
     inreplace "CMakeLists.txt", /^t_test/, "#t_test" if OS.linux?
@@ -70,7 +48,6 @@ class Watchman < Formula
     #       if they are built as shared libraries. They're not used by any other
     #       formulae, so let's link them statically instead. This is done by default.
     system "cmake", "-S", ".", "-B", "build",
-                    "-Dedencommon_DIR=#{buildpath}/edencommon/lib/cmake/edencommon",
                     "-DENABLE_EDEN_SUPPORT=ON",
                     "-DWATCHMAN_VERSION_OVERRIDE=#{version}",
                     "-DWATCHMAN_BUILDINFO_OVERRIDE=#{tap.user}",
