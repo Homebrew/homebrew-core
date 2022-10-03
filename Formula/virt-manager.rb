@@ -6,7 +6,7 @@ class VirtManager < Formula
   url "https://virt-manager.org/download/sources/virt-manager/virt-manager-4.1.0.tar.gz"
   sha256 "950681d7b32dc61669278ad94ef31da33109bf6fcf0426ed82dfd7379aa590a2"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
@@ -39,8 +39,8 @@ class VirtManager < Formula
   # Resources are for Python `libvirt-python` and `requests` packages
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "charset-normalizer" do
@@ -49,13 +49,13 @@ class VirtManager < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
   resource "libvirt-python" do
-    url "https://files.pythonhosted.org/packages/02/19/e694910782b77468b54848e7562072641e8fb39e3f4b0b825534b0cd9d3f/libvirt-python-8.7.0.tar.gz"
-    sha256 "60dcb571e44b6f0d7ca812addb513feac863c3c6c02282871cdfdcda5104dbb3"
+    url "https://files.pythonhosted.org/packages/77/64/066990abfec62e6976e5e74a6fc6e8403fcc8b4f6d266deb85a31994f34f/libvirt-python-8.8.0.tar.gz"
+    sha256 "3441dd34c8936393e195a1b046bc2cab1b14d35d66772e8a51fe4d9735ec6349"
   end
 
   resource "requests" do
