@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://rgbds.gbdev.io"
-  url "https://github.com/gbdev/rgbds/archive/v0.5.2.tar.gz"
-  sha256 "29172a43c7a4f41e5809d8c40cb76b798a0d01dfc9f5340b160a405b89b3b182"
+  url "https://github.com/gbdev/rgbds/archive/v0.6.0.tar.gz"
+  sha256 "dcf26588b52a8ccfa28aa47c14f6b222f096f1109c658b3fe57dd6ff150cd0ab"
   license "MIT"
   head "https://github.com/gbdev/rgbds.git", branch: "master"
 
@@ -26,15 +26,8 @@ class Rgbds < Formula
   depends_on "libpng"
 
   resource "rgbobj" do
-    url "https://github.com/gbdev/rgbobj/archive/refs/tags/v0.1.0.tar.gz"
-    sha256 "359a3504dc5a5f7812dfee602a23aec80163d1d9ec13f713645b5495aeef2a9b"
-
-    # Fix support for clap 3.2+. Remove in the next release.
-    # Issue ref: https://github.com/gbdev/rgbobj/issues/4
-    patch do
-      url "https://github.com/gbdev/rgbobj/commit/b4e1fe42dbc297d67d67ed17004a3f6956de199f.patch?full_index=1"
-      sha256 "27aceed0020c7561e8259308df0868d19e0b7f21ad5e0f2a389d591e8b60027d"
-    end
+    url "https://github.com/gbdev/rgbobj/archive/refs/tags/v0.2.1.tar.gz"
+    sha256 "3d91fb91c79974700e8b0379dcf5c92334f44928ed2fde88df281f46e3f6d7d1"
   end
 
   def install
