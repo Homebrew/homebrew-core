@@ -4,7 +4,7 @@ class GitSvn < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.37.3.tar.xz"
   sha256 "814641d7f61659cfbc17825d0462499ca1403e39ff53d76a8512050e6483e87a"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
