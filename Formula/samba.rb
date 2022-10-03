@@ -38,6 +38,10 @@ class Samba < Formula
     depends_on "openssl@1.1"
   end
 
+  on_linux do
+    depends_on "libtirpc"
+  end
+
   resource "Parse::Yapp" do
     url "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
     sha256 "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5"
