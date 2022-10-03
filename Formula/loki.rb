@@ -6,6 +6,11 @@ class Loki < Formula
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "721a009f4330a15efe56180635ecb04fe9efc196cf31257db8eb8aed004b2486"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a64e295b739fb8ea34a90e160123ff4f12212f04f1858af01550b89b7acf987"
