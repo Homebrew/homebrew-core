@@ -2,17 +2,11 @@ class Carla < Formula
   desc "Audio plugin host supporting LADSPA, LV2, VST2/3, SF2 and more"
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/falkTX/Carla.git", branch: "main"
 
   stable do
-    url "https://github.com/falkTX/Carla/archive/v2.4.3.tar.gz"
-    sha256 "0092926e5167f3a5eb592f0055e5491803354ae42947e706db0dc548d9e786d3"
-
-    # Fix build failure on Monterey.
-    # This change was merged in https://github.com/falkTX/Carla/commit/1e5c9900ae0341ada21b18a58219cbfb70559653
-    # Remove with next release.
-    patch :DATA
+    url "https://github.com/falkTX/Carla/archive/v2.5.1.tar.gz"
+    sha256 "c47eea999b2880bde035fbc30d7b42b49234a81327127048a56967ec884dfdba"
   end
 
   livecheck do
@@ -52,21 +46,3 @@ class Carla < Formula
     system lib/"carla/carla-discovery-native", "internal", ":all"
   end
 end
-
-__END__
-diff --git a/source/discovery/carla-discovery.cpp b/source/discovery/carla-discovery.cpp
-index e5a1fec..5c01d85 100644
---- a/source/discovery/carla-discovery.cpp
-+++ b/source/discovery/carla-discovery.cpp
-@@ -58,11 +58,9 @@
- #ifdef CARLA_OS_MAC
- # define Component CocoaComponent
- # define MemoryBlock CocoaMemoryBlock
--# define Point CocoaPoint
- # import <Foundation/Foundation.h>
- # undef Component
- # undef MemoryBlock
--# undef Point
- # include "CarlaMacUtils.cpp"
- # include <spawn.h>
- # if defined(USING_JUCE) && defined(__aarch64__)
