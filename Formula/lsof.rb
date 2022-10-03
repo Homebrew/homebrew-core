@@ -17,6 +17,10 @@ class Lsof < Formula
 
   keg_only :provided_by_macos
 
+  on_linux do
+    depends_on "libtirpc"
+  end
+
   def install
     if OS.mac?
       ENV["LSOF_INCLUDE"] = MacOS.sdk_path/"usr/include"
