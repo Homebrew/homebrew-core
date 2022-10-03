@@ -1,8 +1,8 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2022.09.05.00.tar.gz"
-  sha256 "d7c856ec21b0630ed48c6714c5b8e692f10d8d027554b11aa0c3117d84a2c318"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2022.09.26.00.tar.gz"
+  sha256 "1fc2724a346f27f01007a9e4f695460437788903d326ebbb52f874c98e7052b5"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
@@ -13,13 +13,9 @@ class Edencommon < Formula
   depends_on "glog"
 
   def install
-    system "cmake", "-S", ".", "-B", "_build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "_build", *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
-
-    system "cmake", "-S", ".", "-B", "_build_static", *std_cmake_args
-    system "cmake", "--build", "_build_static"
-    lib.install "_build_static/eden/common/utils/libedencommon_utils.a"
   end
 
   test do
