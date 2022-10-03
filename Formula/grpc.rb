@@ -3,8 +3,8 @@ class Grpc < Formula
   homepage "https://grpc.io/"
   # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.49.0",
-      revision: "8f8edfd04b46ee67f90454b3f6a70aa58ff82c2d"
+      tag:      "v1.49.1",
+      revision: "a80a8f74b8f2ff0a89b8b1d3510d14d87efa7d06"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git", branch: "master"
 
