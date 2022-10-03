@@ -4,7 +4,7 @@ class GetFlashVideos < Formula
   url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.99.03.tar.gz"
   sha256 "37267b41c7b0c240d99ed1f5e7ba04d00f98a8daff82ac9edd2b12c3bca83d73"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7556fc02fefbb77d6af0abba77201d802f3cad9532e68e998231e0fc7fe63cf5"
