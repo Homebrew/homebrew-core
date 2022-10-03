@@ -3,7 +3,7 @@ class Rex < Formula
   homepage "https://www.rexify.org"
   url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.13.4.tar.gz"
   sha256 "a86e9270159b41c9a8fce96f9ddc97c5caa68167ca4ed33e97908bfce17098cf"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f298c2f718406756536bd571aa58ad510e8b29b17e2a1cf3a1921affde39f954"
