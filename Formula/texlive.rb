@@ -72,7 +72,6 @@ class Texlive < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "gcc"
     depends_on "libice"
     depends_on "libnsl"
     depends_on "libsm"
