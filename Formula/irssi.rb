@@ -4,7 +4,7 @@ class Irssi < Formula
   url "https://github.com/irssi/irssi/releases/download/1.2.3/irssi-1.2.3.tar.xz"
   sha256 "a647bfefed14d2221fa77b6edac594934dc672c4a560417b1abcbbc6b88d769f"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   # This formula uses a file from a GitHub release, so we check the latest
   # release version instead of Git tags.
