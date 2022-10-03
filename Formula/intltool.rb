@@ -4,6 +4,7 @@ class Intltool < Formula
   url "https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz"
   sha256 "67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "273d2b13868310fda429c3fbf1ddc347de0cab3189bf47639fd6c64adb8ec0cb"
