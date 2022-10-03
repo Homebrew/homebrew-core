@@ -31,13 +31,6 @@ class Vcpkg < Formula
 
   fails_with gcc: "5"
 
-  # Fix build with fmt 9+
-  # https://github.com/microsoft/vcpkg-tool/pull/634
-  patch do
-    url "https://github.com/microsoft/vcpkg-tool/commit/5fba654cc47c175202491a5d80f280c0e39b364d.patch?full_index=1"
-    sha256 "e9a61b8fc8e2ce21ae5eae36bf36b5e5214b0a624ef7c938ddea0e739a61340a"
-  end
-
   def install
     # Improve error message when user fails to set `VCPKG_ROOT`.
     inreplace ["include/vcpkg/base/messages.h", "locales/messages.json", "locales/messages.en.json"],
