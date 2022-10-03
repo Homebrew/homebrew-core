@@ -20,7 +20,7 @@
   ["docker", "docker-completion"],
   ["etl", "synfig"],
   ["file-formula", "libmagic"],
-  ["fb303", "fbthrift", "fizz", "folly", "wangle", "watchman"],
+  ["edencommon", "fb303", "fbthrift", "fizz", "folly", "wangle", "watchman"],
   ["frpc", "frps"],
   ["gcc", "libgccjit"],
   ["gdb", "i386-elf-gdb", "x86_64-elf-gdb"],
