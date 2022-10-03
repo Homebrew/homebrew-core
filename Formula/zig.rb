@@ -31,7 +31,6 @@ class Zig < Formula
   fails_with gcc: "5" # LLVM is built with GCC
 
   def install
-    odie "HEAD installs of `zig` are broken until ziglang/zig#12923 is resolved!" if build.head?
     system "cmake", "-S", ".", "-B", "build", "-DZIG_STATIC_LLVM=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
