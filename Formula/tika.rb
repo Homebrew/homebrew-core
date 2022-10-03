@@ -13,9 +13,9 @@ class Tika < Formula
   depends_on "openjdk"
 
   resource "server" do
-    url "https://www.apache.org/dyn/closer.lua?path=tika/2.4.1/tika-server-standard-2.4.1.jar"
-    mirror "https://archive.apache.org/dist/tika/2.4.1/tika-server-standard-2.4.1.jar"
-    sha256 "7dd0ce47f8943e8d04b5f7c79a2d0ab131be18d11512a3e3173a60d530df08dc"
+    url "https://www.apache.org/dyn/closer.lua?path=tika/2.5.0/tika-server-standard-2.5.0.jar"
+    mirror "https://archive.apache.org/dist/tika/2.5.0/tika-server-standard-2.5.0.jar"
+    sha256 "3866ce84f8f889d410a369bc0a3682efa43305140e68574a2d76fab9a56c43b2"
   end
 
   def install
