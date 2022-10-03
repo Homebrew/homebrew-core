@@ -17,7 +17,6 @@ class Grass < Formula
   depends_on "freetype"
   depends_on "gdal"
   depends_on "geos"
-  depends_on "lbzip2"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "mesa"
@@ -94,8 +93,6 @@ class Grass < Formula
       "--with-zlib-includes=#{Formula["zlib"].opt_include}",
       "--with-zlib-libs=#{Formula["zlib"].opt_lib}",
       "--with-bzlib",
-      "--with-bzlib-includes=#{Formula["bzip2"].opt_include}",
-      "--with-bzlib-libs=#{Formula["bzip2"].opt_lib}",
       "--with-cairo",
       "--with-cairo-includes=#{Formula["cairo"].opt_include}/cairo",
       "--with-cairo-libs=#{Formula["cairo"].opt_lib}",
