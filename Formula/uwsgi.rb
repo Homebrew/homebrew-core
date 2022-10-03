@@ -4,7 +4,7 @@ class Uwsgi < Formula
   url "https://files.pythonhosted.org/packages/24/fd/93851e4a076719199868d4c918cc93a52742e68370188c1c570a6e42a54f/uwsgi-2.0.20.tar.gz"
   sha256 "88ab9867d8973d8ae84719cf233b7dafc54326fcaec89683c3f9f77c002cdff9"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
