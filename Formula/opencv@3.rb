@@ -54,6 +54,12 @@ class OpencvAT3 < Formula
     sha256 "b46e4e9dc93878bccd2351c79795426797d27f54a4720d51f805c118770e6f4a"
   end
 
+  # Fix build against lapack 3.10.0, https://github.com/opencv/opencv/pull/21114
+  patch do
+    url "https://github.com/opencv/opencv/commit/54c180092d2ca02e0460eac7176cab23890fc11e.patch?full_index=1"
+    sha256 "66fd79afe33ddd4d6bb2002d56ca43029a68ab5c6ce9fd7d5ca34843bc5db902"
+  end
+
   def python3
     "python3.10"
   end
