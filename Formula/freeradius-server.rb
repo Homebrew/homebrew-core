@@ -2,7 +2,7 @@ class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 2
+  revision 3
   head "https://github.com/FreeRADIUS/freeradius-server.git", branch: "master"
 
   stable do
