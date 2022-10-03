@@ -4,8 +4,8 @@ class Strongswan < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://download.strongswan.org/strongswan-5.9.7.tar.bz2"
-    sha256 "9e64a2ba62efeac81abff1d962522404ebc6ed6c0d352a23ab7c0b2c639e3fcf"
+    url "https://download.strongswan.org/strongswan-5.9.8.tar.bz2"
+    sha256 "d3303a43c0bd7b75a12b64855e8edcb53696f06190364f26d1533bde1f2e453c"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -38,7 +38,7 @@ class Strongswan < Formula
     depends_on "pkg-config" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = %W[
