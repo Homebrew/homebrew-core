@@ -11,6 +11,7 @@ class Grass < Formula
   depends_on "automake" => :build
   depends_on "gcc" => :build
   depends_on "pkg-config" => :build
+  depends_on "boost"
   depends_on "cairo"
   depends_on "ffmpeg"
   depends_on "fftw"
