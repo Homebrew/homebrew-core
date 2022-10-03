@@ -61,6 +61,7 @@ class Nut < Formula
       --sysconfdir=#{etc}/nut
       --with-statepath=#{var}/state/ups
       --with-pidpath=#{var}/run
+      --with-systemdtmpfilesdir=#{pkgshare}
       --with-openssl
       --with-serial
       --with-usb
