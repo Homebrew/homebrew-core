@@ -5,8 +5,8 @@ class Suil < Formula
   head "https://gitlab.com/lv2/suil.git", branch: "master"
 
   stable do
-    url "https://download.drobilla.net/suil-0.10.16.tar.xz"
-    sha256 "bc9f36c13863e70fd65bf7134afc2b7b141e9ca4b279590efae1d4b25f4211f9"
+    url "https://download.drobilla.net/suil-0.10.18.tar.xz"
+    sha256 "84ada094fbe17ad3e765379002f3a0c7149b43b020235e4d7fa41432f206f85f"
 
     # remove in next version
     patch do
