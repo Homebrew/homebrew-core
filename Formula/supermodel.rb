@@ -43,6 +43,8 @@ class Supermodel < Formula
     inreplace makefile_dir do |s|
       # Fix missing label issue for auto-generated code
       s.gsub! %r{(\$\(OBJ_DIR\)/m68k\w+)\.o: \1.c (.*)\n(\s*\$\(CC\)) \$<}, "\\1.o: \\2\n\\3 \\1.c"
+      # Add -std=c++14
+      s.gsub! "$(CPPFLAGS)", "$(CPPFLAGS) -std=c++14" if OS.linux?
     end
 
     # Use /usr/local/var/supermodel for saving runtime files
