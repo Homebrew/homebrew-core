@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://ocrmypdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/64/e1/c137413049488435a2568d2c01dc1d44b09e39533e5276671eb99d68ba86/ocrmypdf-14.0.0.tar.gz"
-  sha256 "19e29601a117ec7ea4d4ced6ad5e94f29f8a378d7d41862de31ef1de7e67f0f1"
+  url "https://files.pythonhosted.org/packages/33/84/eda42f333d0a0d7111ba73fa7c83d931222a8ae24bce051a2dcf42ae808a/ocrmypdf-14.0.1.tar.gz"
+  sha256 "77fdd52cb925bb94291ae62d22f2cb8253fb4199d0bf33b43e7fb7f078cac51c"
   license "MPL-2.0"
 
   bottle do
@@ -87,8 +87,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/4a/0b/29c9d91186861472a6594083a4da2683febab57ada2b62c414f5d7cbefcf/pikepdf-6.0.2.tar.gz"
-    sha256 "eab4823438a95b849699de02cb8780d4853b0c9de89548dd1ff4e3327371d7d4"
+    url "https://files.pythonhosted.org/packages/a2/e7/e52fe97fff88d002d054b4e31198d1e5de52b33508e594fa2dc2d067510d/pikepdf-6.1.0.tar.gz"
+    sha256 "d140fa7c6ef4b8c91fa1ee360628110cd3e636d0f85717da22f2d772d509a3ed"
   end
 
   resource "pluggy" do
