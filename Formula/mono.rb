@@ -23,6 +23,13 @@ class Mono < Formula
   depends_on "python@3.10"
 
   uses_from_macos "unzip" => :build
+  uses_from_macos "krb5"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openssl@1.1" => :build
+    depends_on "ca-certificates"
+  end
 
   on_arm do
     depends_on "autoconf" => :build
@@ -67,6 +74,15 @@ class Mono < Formula
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
         revision: "63458bd6cb3a98b5a062bb18bd51ffdea4aa3001"
+
+    # Fix build to use bash shebangs as the scripts have bashisms.
+    # Patch is from mono's official packaging repo.
+    on_linux do
+      patch do
+        url "https://raw.githubusercontent.com/mono/linux-packaging-msbuild/de271a45e29b60a248b7b797cb49df6f3bedcb52/debian/patches/fix_bashisms.patch"
+        sha256 "81985224eeac5b9a2d6d8e3799d13eb9f083a1596d7adb713a49dd4db757aa61"
+      end
+    end
   end
 
   # Remove use of -flat_namespace. Upstreamed at
@@ -86,6 +102,18 @@ class Mono < Formula
   end
 
   def install
+    # Replace hardcoded /usr/share directory. Paths like /usr/share/.mono,
+    # /usr/share/.isolatedstorage, and /usr/share/template are referenced in code.
+    inreplace_files = %w[
+      external/corefx/src/System.Runtime.Extensions/src/System/Environment.Unix.cs
+      mcs/class/corlib/System/Environment.cs
+      mcs/class/corlib/System/Environment.iOS.cs
+      man/mono-configuration-crypto.1
+      man/mono.1
+      man/mozroots.1
+    ]
+    inreplace inreplace_files, %r{/usr/share(?=[/"])}, pkgshare
+
     # Regenerate configure to fix ARM build: no member named '__r' in 'struct __darwin_arm_thread_state64'
     # Also apply our `patch :DATA` to Makefile.am as Makefile.in will be overwritten.
     # TODO: Remove once upstream release has a regenerated configure.
@@ -103,6 +131,9 @@ class Mono < Formula
     # run directly, so we move them out of bin
     libexec.install bin/"mono-gdb.py", bin/"mono-sgen-gdb.py"
 
+    # Populate temporary certificate store to allow MSBuild to access NuGet service index on Linux
+    system bin/"cert-sync", "--user", Formula["ca-certificates"].pkgetc/"cert.pem" if OS.linux?
+
     # We'll need mono for msbuild, and then later msbuild for fsharp
     ENV.prepend_path "PATH", bin
 
@@ -114,7 +145,8 @@ class Mono < Formula
       resource("msbuild").stage do
         system "./eng/cibuild_bootstrapped_msbuild.sh", "--host_type", "mono",
                                                         "--configuration", "Release",
-                                                        "--skip_tests"
+                                                        "--skip_tests",
+                                                        "/p:DisableNerdbankVersioning=true"
 
         system "./stage1/mono-msbuild/msbuild", "mono/build/install.proj",
                                                 "/p:MonoInstallPrefix=#{prefix}",
@@ -127,8 +159,15 @@ class Mono < Formula
     resource("fsharp").stage do
       # Temporary fix for use propper .NET SDK remove in next release
       inreplace "./global.json", "3.1.302", "3.1.405"
+
+      # Help .NET SDK run by providing path to libraries or disabling features
+      if OS.linux?
+        ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
+        ENV["LD_LIBRARY_PATH"] = "#{Formula["openssl@1.1"].opt_lib}:#{HOMEBREW_PREFIX}/lib"
+      end
+
       with_env(version: "") do
-        system "./build.sh", "-c", "Release"
+        system "./build.sh", "--configuration", "Release"
       end
       with_env(version: "") do
         system "./.dotnet/dotnet", "restore", "setup/Swix/Microsoft.FSharp.SDK/Microsoft.FSharp.SDK.csproj",
@@ -136,6 +175,10 @@ class Mono < Formula
       end
       system "bash", buildpath/"packaging/MacSDK/fsharp-layout.sh", ".", prefix
     end
+  end
+
+  def post_install
+    system bin/"cert-sync", Formula["ca-certificates"].pkgetc/"cert.pem" if OS.linux?
   end
 
   def caveats
