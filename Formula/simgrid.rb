@@ -3,9 +3,9 @@ class Simgrid < Formula
 
   desc "Studies behavior of large-scale distributed systems"
   homepage "https://simgrid.org/"
-  url "https://framagit.org/simgrid/simgrid/uploads/caf09286c8e698d977f11e8f8451ba46/simgrid-3.31.tar.gz"
-  sha256 "4b44f77ad40c01cf4e3013957c9cbe39f33dec9304ff0c9c3d9056372ed4c61d"
-  revision 3
+  url "https://framagit.org/simgrid/simgrid/-/archive/v3.32/simgrid-v3.32.tar.bz2"
+  sha256 "b544b33ce13324c4c50bb76ce912db8f2fd874100ecda5e55a34e5cbc62641ce"
+  license "LGPL-2.1-only"
 
   livecheck do
     url :homepage
@@ -28,12 +28,6 @@ class Simgrid < Formula
   depends_on "python@3.10"
 
   fails_with gcc: "5"
-
-  # Fix build with graphviz>=3 as headers no longer define NIL macros
-  patch do
-    url "https://framagit.org/simgrid/simgrid/-/commit/33ef49cf9e1ad1aeea86dca9a009d5a6e15e2920.diff"
-    sha256 "3bf50df79fd1f58e1919d0c3fa1cd808d50ed0133712e8d596805f25e27933ea"
-  end
 
   def install
     # Avoid superenv shim references
