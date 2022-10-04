@@ -3,8 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/5a/1e/adf8e844e962cede2f8294e5e999e7e353c99af19ec6f0ab80d8daf17355/dxpy-0.329.0.tar.gz"
-  sha256 "9511cf8034943ea16833beac55f37a9af7bb4b1fe923487d195413dea532aa4f"
+  url "https://files.pythonhosted.org/packages/1c/a7/e82f76b05cf7b5924365e72de11d3e70b4c3afd8f4ce9279b65a1e192eff/dxpy-0.330.0.tar.gz"
+  sha256 "176f49bdffccdde868dbac465963e18ecc62a043c2a66d353193dfa8664a2500"
   license "Apache-2.0"
 
   bottle do
