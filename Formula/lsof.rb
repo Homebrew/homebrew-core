@@ -30,6 +30,8 @@ class Lsof < Formula
         dialects/darwin/kmem/machine.h
         dialects/darwin/libproc/machine.h
       ], "/usr/include", MacOS.sdk_path/"usr/include"
+    else
+      ENV["LSOF_INCLUDE"] = HOMEBREW_PREFIX/"include"
     end
 
     ENV["LSOF_CC"] = ENV.cc
