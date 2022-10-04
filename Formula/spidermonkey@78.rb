@@ -27,10 +27,6 @@ class SpidermonkeyAT78 < Formula
   uses_from_macos "llvm" => :build # for llvm-objdump
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   # From python/mozbuild/mozbuild/test/configure/test_toolchain_configure.py
   fails_with :gcc do
     version "6"
