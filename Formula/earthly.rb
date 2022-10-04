@@ -2,8 +2,8 @@ class Earthly < Formula
   desc "Build automation tool for the container era"
   homepage "https://earthly.dev/"
   url "https://github.com/earthly/earthly.git",
-      tag:      "v0.6.24",
-      revision: "20339818277375d1addc9cc20066a9890483761e"
+      tag:      "v0.6.25",
+      revision: "b9a16aa25c15201998ddc7781efca5934c1f7660"
   license "MPL-2.0"
   head "https://github.com/earthly/earthly.git", branch: "main"
 
