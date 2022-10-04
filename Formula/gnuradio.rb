@@ -101,7 +101,10 @@ class Gnuradio < Formula
     sha256 "be4373f13ffe8ae8ddc7216eb2b7ddb436b7be345cc0e108ae60b5010935a859"
   end
 
-  # Fix missing include
+  # Fix missing includes. Fixed upstream by:
+  # https://github.com/gnuradio/gnuradio/pull/6188
+  # https://github.com/gnuradio/gnuradio/commit/463c3477549b26b32d9b73eef30044e97c4eee64
+  # Remove with next release.
   patch :DATA
 
   def install
