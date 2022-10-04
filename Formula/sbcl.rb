@@ -1,10 +1,20 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.2.9/sbcl-2.2.9-source.tar.bz2"
-  sha256 "7ebebd6d2023fff7077b0372fa1171f880529bdec6104f20983297c2feb7c172"
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
   head "https://git.code.sf.net/p/sbcl/sbcl.git", branch: "master"
+
+  # Remove `stable` block when patch is no longer needed.
+  stable do
+    url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.2.9/sbcl-2.2.9-source.tar.bz2"
+    sha256 "7ebebd6d2023fff7077b0372fa1171f880529bdec6104f20983297c2feb7c172"
+
+    # Fix Catalina build. Remove in next version.
+    patch do
+      url "https://github.com/sbcl/sbcl/commit/171cef936ad8c68a5892d59b758930c99fcea1cc.patch?full_index=1"
+      sha256 "f86e289d002c76065a72d643ac786646e778080d77ce543d832d683e0d30bea8"
+    end
+  end
 
   livecheck do
     url "https://sourceforge.net/projects/sbcl/rss?path=/sbcl"
