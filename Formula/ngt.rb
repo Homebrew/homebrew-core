@@ -25,6 +25,10 @@ class Ngt < Formula
     depends_on "libomp"
   end
 
+  on_linux do
+    depends_on "openblas"
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
