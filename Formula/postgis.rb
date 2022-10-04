@@ -1,10 +1,9 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-3.2.3.tar.gz"
-  sha256 "1b4d8b5c756e5aba59efbc1833b22efe4d6562778eeca56fa497feb2eb13668c"
+  url "https://download.osgeo.org/postgis/source/postgis-3.3.1.tar.gz"
+  sha256 "91be800a72d748c5a3a4a00d82ac1de42023e29da61ece6ebf9c77fe228fcb1a"
   license "GPL-2.0-or-later"
-  revision 3
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -63,6 +62,12 @@ class Postgis < Formula
     ]
 
     system "./autogen.sh" if build.head?
+    # Fixes config/install-sh: No such file or directory
+    # This is caused by a misalignment between ./configure in postgres@14 and postgis
+    mv "build-aux", "config"
+    inreplace %w[configure utils/Makefile.in] do |s|
+      s.gsub! "build-aux", "config"
+    end
     system "./configure", *args
     system "make"
 
@@ -87,7 +92,7 @@ class Postgis < Formula
     # Extension scripts
     bin.install %w[
       utils/create_undef.pl
-      utils/postgis_proc_upgrade.pl
+      utils/create_upgrade.pl
       utils/postgis_restore.pl
       utils/profile_intersects.pl
       utils/test_estimation.pl
