@@ -25,7 +25,7 @@ class Pmdmini < Formula
 
   def install
     # Add -fPIC on Linux
-    inreplace "mak/general.mak", "CFLAGS = -O2", "CFLAGS = -fPIC -O2 -fpermissive" unless OS.mac?
+    inreplace "mak/general.mak", "CFLAGS = -O2", "CFLAGS = -fPIC -O2 -fpermissive"
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}", "LD=#{ENV.cxx}"
 
     # Makefile doesn't build a dylib
