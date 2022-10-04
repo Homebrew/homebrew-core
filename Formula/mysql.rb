@@ -37,6 +37,7 @@ class Mysql < Formula
 
   on_linux do
     depends_on "patchelf" => :build
+    depends_on "libtirpc"
   end
 
   conflicts_with "mariadb", "percona-server",
