@@ -21,10 +21,12 @@ class Pmdmini < Formula
   end
 
   # Add missing include
+  # Upstreamed here: https://github.com/mistydemeo/pmdmini/pull/3
   patch :DATA
 
   def install
     # Add -fPIC on Linux
+    # Upstreamed here: https://github.com/mistydemeo/pmdmini/pull/3
     inreplace "mak/general.mak", "CFLAGS = -O2", "CFLAGS = -fPIC -O2 -fpermissive"
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}", "LD=#{ENV.cxx}"
 
