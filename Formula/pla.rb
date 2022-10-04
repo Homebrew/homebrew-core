@@ -24,6 +24,8 @@ class Pla < Formula
   depends_on "cairo"
 
   def install
+    # Ubuntu-specific fix to add --no-as-needed linker flag on Linux.
+    inreplace "Makefile", "LDFLAGS = -lm", "LDFLAGS = -lm -Wl,--no-as-needed" if OS.linux?
     system "make"
     bin.install "pla"
   end
