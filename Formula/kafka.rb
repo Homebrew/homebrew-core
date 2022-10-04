@@ -5,6 +5,7 @@ class Kafka < Formula
   mirror "https://archive.apache.org/dist/kafka/3.3.1/kafka_2.13-3.3.1.tgz"
   sha256 "18ad8a365fb111de249d3bb8bf3c96cd1af060ec8fb3e3d1fc4a7ae10d9042de"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://kafka.apache.org/downloads"
@@ -27,6 +28,15 @@ class Kafka < Formula
     data = var/"lib"
     inreplace "config/server.properties",
       "log.dirs=/tmp/kafka-logs", "log.dirs=#{data}/kafka-logs"
+
+    inreplace "config/kraft/server.properties",
+      "log.dirs=/tmp/kraft-combined-logs", "log.dirs=#{data}/kraft-combined-logs"
+
+    inreplace "config/kraft/controller.properties",
+      "log.dirs=/tmp/kraft-controller-logs", "log.dirs=#{data}/kraft-controller-logs"
+
+    inreplace "config/kraft/broker.properties",
+      "log.dirs=/tmp/kraft-broker-logs", "log.dirs=#{data}/kraft-broker-logs"
 
     inreplace "config/zookeeper.properties",
       "dataDir=/tmp/zookeeper", "dataDir=#{data}/zookeeper"
