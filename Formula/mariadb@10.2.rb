@@ -33,7 +33,6 @@ class MariadbAT102 < Formula
   # This upstream commit was added for MariaDB 10.3+, but not 10.2. If it is not
   # added in the next release, we should open an upstream PR to do so.
   on_linux do
-    depends_on "gcc"
     depends_on "linux-pam"
   end
 
