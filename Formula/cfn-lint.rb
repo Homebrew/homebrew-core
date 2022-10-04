@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/d5/2c/70cdc9da61b7cc27733735d0d52832aaa32747e7dbcffe321892ec694c00/cfn-lint-0.66.0.tar.gz"
-  sha256 "d786da1199575e7fff4e156185365bb5f93fb4a7d678cabcfe804fa00ed8a06f"
+  url "https://files.pythonhosted.org/packages/8f/f2/fd47a4c136f2cb9c23f2f85d7e8e31c58933f037aa40fc7fda4b1ec76bc5/cfn-lint-0.66.1.tar.gz"
+  sha256 "779e3752d534ef9bf61111165e48aaeebb7d71a3df84f6966651816feca58fd0"
   license "MIT-0"
 
   bottle do
@@ -31,13 +31,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/9f/e8/844f0d8f0e26e049f8599324e71602ae9b769d529cef29073d4b33526d84/boto3-1.24.83.tar.gz"
-    sha256 "b10d9ecaba3f0ed844192828d2c2b26bfa1dfd2b40ccccc25507575f28097e32"
+    url "https://files.pythonhosted.org/packages/e7/98/e057477f2252048a1288303c7cd90b1d7748f9605e75a6e37c833957ef40/boto3-1.24.85.tar.gz"
+    sha256 "2c9004c1f0a47807c73247abe8cb2b8a7054c34b9cf6e90f448d51560de20ca1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e5/1d/f3044b25b8ae773183528e32360352cd7206725c4fdc7717679f5788e395/botocore-1.27.83.tar.gz"
-    sha256 "c57f74322cf672405f0ec7ee8fda7d80d323a9c664a90926c11313ca3bfbca91"
+    url "https://files.pythonhosted.org/packages/e5/ce/522b34ab02eea095467862f929d5a99aa43adec4261988652c0f7a7ff6fc/botocore-1.27.85.tar.gz"
+    sha256 "2b4c86178b5a5a2baa0a065aaf9ef9d33a7ac67bf3f30e39005de151b0408cac"
   end
 
   resource "jmespath" do
@@ -77,8 +77,8 @@ class CfnLint < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/d9/c6/ad9dc9195c0e5d8879d2a28667aa45e087631576b40f9c954a086693a36d/networkx-2.8.6.tar.gz"
-    sha256 "bd2b7730300860cbd2dafe8e5af89ff5c9a65c3975b352799d87a6238b4301a6"
+    url "https://files.pythonhosted.org/packages/9e/89/90846e0da5c412cbffb66d1f976b056cd46c6f2aa7f2f1eb271573b5fefb/networkx-2.8.7.tar.gz"
+    sha256 "815383fd52ece0a7024b5fd8408cc13a389ea350cd912178b82eed8b96f82cd3"
   end
 
   resource "pbr" do
