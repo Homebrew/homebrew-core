@@ -43,7 +43,6 @@ class VtkAT82 < Formula
   end
 
   on_linux do
-    depends_on "gcc"
     depends_on "icu4c"
     depends_on "libaec"
     depends_on "libxt"
