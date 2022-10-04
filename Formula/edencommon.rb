@@ -13,7 +13,7 @@ class Edencommon < Formula
   depends_on "glog"
 
   def install
-    system "cmake", "-S", ".", "-B", "_build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "_build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
   end
@@ -43,7 +43,10 @@ class Edencommon < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++17", "-I#{include}", "test.cc", "-L#{lib}", "-ledencommon_utils", "-o", "test"
+    system ENV.cxx, "-std=c++17", "-I#{include}", "test.cc",
+                    "-L#{lib}", "-L#{Formula["folly"].opt_lib}",
+                    "-L#{Formula["boost"].opt_lib}", "-L#{Formula["glog"].opt_lib}",
+                    "-ledencommon_utils", "-lfolly", "-lboost_context-mt", "-lglog", "-o", "test"
     assert_match "ruby", shell_output("./test #{Process.pid}")
   end
 end
