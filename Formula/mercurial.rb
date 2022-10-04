@@ -3,8 +3,8 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-6.1.4.tar.gz"
-  sha256 "f361f9802b36e357ac019ceb712ca11de8332b07deadeed8dfa904f05bf7ca78"
+  url "https://www.mercurial-scm.org/release/mercurial-6.2.3.tar.gz"
+  sha256 "98d1ae002f68adf53d65c5947fe8b7a379f98cf05d9b8ea1f4077d2ca5dce9db"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -25,26 +25,22 @@ class Mercurial < Formula
 
   def install
     ENV["HGPYTHON3"] = "1"
+    ENV["PYTHON"] = python3 = which("python3.10")
 
     # FIXME: python@3.10 formula's "prefix scheme" patch tries to install into
     # HOMEBREW_PREFIX/{lib,bin}, which fails due to sandbox. As workaround,
     # manually set the installation paths to behave like prior python versions.
-    site_packages = prefix/Language::Python.site_packages("python3")
-    inreplace "Makefile",
-              "--prefix=\"$(PREFIX)\"",
-              "\\0 --install-lib=\"#{site_packages}\" --install-scripts=\"#{prefix}/bin\""
+    setup_install_args = %W[
+      --install-lib="#{prefix/Language::Python.site_packages(python3)}"
+      --install-scripts="#{bin}"
+      --install-data="#{prefix}"
+    ]
+    inreplace "Makefile", / setup\.py .* --prefix="\$\(PREFIX\)"/, "\\0 #{setup_install_args.join(" ")}"
 
-    system "make", "PREFIX=#{prefix}",
-                   "PYTHON=#{which("python3")}",
-                   "install-bin"
+    system "make", "install-bin", "PREFIX=#{prefix}"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
-    cd "contrib/chg" do
-      system "make", "PREFIX=#{prefix}",
-                     "PYTHON=#{which("python3")}",
-                     "HGPATH=#{bin}/hg", "HG=#{bin}/hg"
-      bin.install "chg"
-    end
+    system "make", "-C", "contrib/chg", "install", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg", "HG=#{bin}/hg"
 
     # Configure a nicer default pager
     (buildpath/"hgrc").write <<~EOS
@@ -58,9 +54,8 @@ class Mercurial < Formula
     man1.install "doc/hg.1"
     man5.install "doc/hgignore.5", "doc/hgrc.5"
 
-    # install the completion scripts
-    bash_completion.install "contrib/bash_completion" => "hg-completion.bash"
-    zsh_completion.install "contrib/zsh_completion" => "_hg"
+    # Move the bash completion script
+    bash_completion.install share/"bash-completion/completions/hg"
   end
 
   def caveats
