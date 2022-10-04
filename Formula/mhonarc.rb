@@ -15,7 +15,7 @@ class Mhonarc < Formula
     sha256 cellar: :any_skip_relocation, all: "bf14803e198aabe4b95f50db39691499f43fa2aff77d7c90760782eeb4c9cbdb"
   end
 
-  depends_on "perl"
+  uses_from_macos "perl"
 
   # Apply a bugfix for syntax. https://savannah.nongnu.org/bugs/?49997
   patch do
@@ -30,7 +30,7 @@ class Mhonarc < Formula
 
     system "perl", "install.me",
            "-batch",
-           "-perl", Formula["perl"].opt_bin/"perl",
+           "-perl", which("perl"),
            "-prefix", prefix
 
     bin.install "mhonarc"
