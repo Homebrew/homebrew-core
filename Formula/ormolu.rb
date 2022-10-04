@@ -1,8 +1,8 @@
 class Ormolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://github.com/tweag/ormolu"
-  url "https://github.com/tweag/ormolu/archive/0.4.0.0.tar.gz"
-  sha256 "c87b2e09cef54aa7568b9bc990bb6ffd7b8dae3d8b950557fbe60ec286039353"
+  url "https://github.com/tweag/ormolu/archive/0.5.0.1.tar.gz"
+  sha256 "589e7e93eb71ba12cdffed9c439025bfa8524d33d66ffd300c195af57720503a"
   license "BSD-3-Clause"
   head "https://github.com/tweag/ormolu.git", branch: "master"
 
@@ -20,7 +20,7 @@ class Ormolu < Formula
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", "-f-fixity-th", *std_cabal_v2_args
   end
 
   test do
