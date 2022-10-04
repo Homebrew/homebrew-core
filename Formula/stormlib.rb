@@ -25,10 +25,6 @@ class Stormlib < Formula
   patch :DATA
 
   def install
-    # remove in the next release
-    inreplace "src/StormLib.h", "dwCompressionNext = MPQ_COMPRESSION_NEXT_SAME",
-                                  "dwCompressionNext"
-
     system "cmake", ".", *std_cmake_args
     system "make", "install"
     system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
@@ -52,10 +48,10 @@ end
 
 __END__
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index bd8d336..927a47d 100644
+index 9cf1050..b33e544 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -314,7 +314,6 @@ if(BUILD_SHARED_LIBS)
+@@ -340,7 +340,6 @@ if(BUILD_SHARED_LIBS)
      message(STATUS "Linking against dependent libraries dynamically")
 
      if(APPLE)
@@ -63,14 +59,3 @@ index bd8d336..927a47d 100644
          set_target_properties(${LIBRARY_NAME} PROPERTIES LINK_FLAGS "-framework Carbon")
      endif()
      if(UNIX)
-diff --git a/src/StormLib.h b/src/StormLib.h
-index f254290..43fefb8 100644
---- a/src/StormLib.h
-+++ b/src/StormLib.h
-@@ -480,7 +480,9 @@ typedef void (WINAPI * SFILE_ADDFILE_CALLBACK)(void * pvUserData, DWORD dwBytesW
- typedef void (WINAPI * SFILE_COMPACT_CALLBACK)(void * pvUserData, DWORD dwWorkType, ULONGLONG BytesProcessed, ULONGLONG TotalBytes);
-
- struct TFileStream;
-+typedef struct TFileStream TFileStream;
- struct TMPQBits;
-+typedef struct TMPQBits TMPQBits;
