@@ -20,9 +20,12 @@ class Pmdmini < Formula
     sha256 "36be8cfbb1d3556554447c0f77a02a319a88d8c7a47f9b7a3578d4a21ac85510"
   end
 
+  # Add missing include
+  patch :DATA
+
   def install
     # Add -fPIC on Linux
-    inreplace "mak/general.mak", "CFLAGS = -O2", "CFLAGS = -fPIC -O2" unless OS.mac?
+    inreplace "mak/general.mak", "CFLAGS = -O2", "CFLAGS = -fPIC -O2 -fpermissive" unless OS.mac?
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}", "LD=#{ENV.cxx}"
 
     # Makefile doesn't build a dylib
@@ -62,3 +65,13 @@ class Pmdmini < Formula
     assert_equal "mus #06", result
   end
 end
+
+__END__
+diff --git a/sdlplay.c b/sdlplay.c
+index 14c721e..1338cf9 100644
+--- a/sdlplay.c
++++ b/sdlplay.c
+@@ -1,3 +1,4 @@
++#include <signal.h>
+ #include <stdio.h>
+ #include <SDL.h>
