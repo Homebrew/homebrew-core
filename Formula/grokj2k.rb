@@ -1,11 +1,9 @@
 class Grokj2k < Formula
   desc "JPEG 2000 Library"
   homepage "https://github.com/GrokImageCompression/grok"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
-  url "https://github.com/GrokImageCompression/grok/archive/v9.7.1.tar.gz"
-  sha256 "a7d433dca92b035349ef8203eb44cb6d0b2c9b41aecd2d12872a9ca2761e0606"
+  url "https://github.com/GrokImageCompression/grok/archive/v10.0.4.tar.gz"
+  sha256 "8b9e3f1f2dc9f8475221aa7c94fbdf08898ae45a8e8453aed9f0594dd7ba272f"
   license "AGPL-3.0-or-later"
-  revision 2
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
   livecheck do
@@ -35,8 +33,12 @@ class Grokj2k < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    # HACK: this should not be a test dependency but is due to a limitation with fails_with
-    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version >= 1205
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1200
+  end
+
+  fails_with :clang do
+    build 1200
+    cause "Requires C++20"
   end
 
   # https://github.com/GrokImageCompression/grok/blob/master/INSTALL.md#compilers
@@ -45,55 +47,42 @@ class Grokj2k < Formula
     cause "GNU compiler version must be at least 10.0"
   end
 
-  # Build failed with Apple clang version 12.0.5 and 13.0.0.
-  # clang: error: unable to execute command: Segmentation fault: 11
-  # clang: error: clang frontend command failed due to signal (use -v to see invocation)
-  # Upstream issue closed as Apple clang bug: https://github.com/GrokImageCompression/grok/issues/256
-  fails_with :clang if DevelopmentTools.clang_build_version >= 1205
-
-  resource "test_image" do
+  resource "homebrew-test_image" do
     url "https://raw.githubusercontent.com/GrokImageCompression/input_image_test_suite/173de0ae73371751f857d16fdaf2c3301e54a3a6/exif-samples/tiff/Tless0.tiff"
     sha256 "32f6aab90dc2d284a83040debe379e01333107b83a98c1aa2e6dabf56790b48a"
   end
 
   def install
-    args = ["-DBUILD_DOC=ON"]
-
-    if DevelopmentTools.clang_build_version >= 1205
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-      ENV.llvm_clang
-      # Workaround issue with LLVM install_name_tool, which causes errors during install.
-      # .../llvm/bin/install_name_tool: error: unsupported load command (cmd=0x80000034)
-      args << "-DCMAKE_INSTALL_NAME_TOOL=/usr/bin/install_name_tool"
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
 
     # Fix: ExifTool Perl module not found
     ENV.prepend_path "PERL5LIB", Formula["exiftool"].opt_libexec/"lib"
 
     # Ensure we use Homebrew little-cms2
+    %w[liblcms2 libpng libtiff libz].each { |l| (buildpath/"thirdparty"/l).rmtree }
     inreplace "thirdparty/CMakeLists.txt" do |s|
       s.gsub! "add_subdirectory(liblcms2)", ""
       s.gsub! %r{(set\(LCMS_INCLUDE_DIRNAME) \$\{GROK_SOURCE_DIR\}/thirdparty/liblcms2/include},
               "\\1 #{Formula["little-cms2"].opt_include}"
     end
 
-    # Workaround to fix build when using Homebrew little-cms2 headers with C++17.
-    # lcms2.h:1279:44: error: ISO C++17 does not allow 'register' storage class specifier
-    # See https://github.com/GrokImageCompression/grok/issues/241
-    ENV.append "CXXFLAGS", "-DCMS_NO_REGISTER_KEYWORD=1"
-
     perl = DevelopmentTools.locate("perl")
+    perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
+    args = %W[
+      -DGRK_BUILD_DOC=ON
+      -DGRK_BUILD_LIBPNG=OFF
+      -DGRK_BUILD_LIBTIFF=OFF
+      -DPERL_EXECUTABLE=#{perl}
+    ]
+
     if OS.mac?
       # Workaround Perl 5.18 issues with C++11: pad.h:323:17: error: invalid suffix on literal
       ENV.append "CXXFLAGS", "-Wno-reserved-user-defined-literal" if MacOS.version <= :catalina
       # Help CMake find Perl libraries, which are needed to enable ExifTool feature.
       # Without this, CMake outputs: Could NOT find PerlLibs (missing: PERL_INCLUDE_PATH)
-      perl_path = MacOS.sdk_path/"System/Library/Perl"/MacOS.preferred_perl_version
-      args << "-DPERL_INCLUDE_PATH=#{perl_path}/darwin-thread-multi-2level/CORE"
-      args << "-DPERL_EXECUTABLE=#{perl}"
+      args << "-DPERL_INCLUDE_PATH=#{MacOS.sdk_path_if_needed}/#{perl_archlib}/CORE"
     else
       # Fix linkage error due to RPATH missing directory with libperl.so
-      perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
       ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
     end
 
@@ -102,13 +91,10 @@ class Grokj2k < Formula
     system "cmake", "--install", "build"
     include.install_symlink "grok-#{version.major_minor}" => "grok"
 
-    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
+    bin.env_script_all_files libexec, PERL5LIB: ENV["PERL5LIB"]
   end
 
   test do
-    # Force use of Clang on macOS 11+
-    ENV.clang if DevelopmentTools.clang_build_version >= 1205
-
     (testpath/"test.c").write <<~EOS
       #include <grok/grok.h>
 
@@ -127,10 +113,10 @@ class Grokj2k < Formula
     system "./test"
 
     # Test Exif metadata retrieval
-    resource("test_image").stage do
-      system bin/"grk_compress", "-InputFile", "Tless0.tiff",
-                                 "-OutputFile", "test.jp2", "-OutFor", "jp2",
-                                 "-TransferExifTags"
+    resource("homebrew-test_image").stage do
+      system bin/"grk_compress", "-in_file", "Tless0.tiff",
+                                 "-out_file", "test.jp2", "-out_fmt", "jp2",
+                                 "-transfer_exif_tags"
       output = shell_output("#{Formula["exiftool"].bin}/exiftool test.jp2")
 
       [
