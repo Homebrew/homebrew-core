@@ -30,19 +30,10 @@ class Libnetworkit < Formula
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      flags = ["-DNETWORKIT_EXT_TLX=#{Formula["tlx"].opt_prefix}"]
-      # GCC includes libgomp for OpenMP support and does not need any extra flags to use it.
-      if OS.mac?
-        flags += [
-          "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I#{Formula["libomp"].opt_prefix}/include'",
-          "-DOpenMP_CXX_LIB_NAMES='omp'",
-          "-DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_prefix}/lib/libomp.dylib",
-        ]
-      end
-      system "cmake", ".", *std_cmake_args, *flags, ".."
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DNETWORKIT_EXT_TLX=#{Formula["tlx"].opt_prefix}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -55,7 +46,8 @@ class Libnetworkit < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lnetworkit", "-o", "test", "-std=c++14"
+    omp_flags = OS.mac? ? ["-I#{Formula["libomp"].opt_include}"] : []
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lnetworkit", "-o", "test", "-std=c++14", *omp_flags
     system "./test"
   end
 end
