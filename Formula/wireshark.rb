@@ -38,6 +38,7 @@ class Wireshark < Formula
 
   def install
     args = std_cmake_args + %W[
+      -DENABLE_PCAP=#{OS.mac? ? "ON" : "OFF"}
       -DENABLE_CARES=ON
       -DENABLE_GNUTLS=ON
       -DENABLE_MAXMINDDB=ON
