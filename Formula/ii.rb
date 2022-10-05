@@ -23,8 +23,8 @@ class Ii < Formula
   def install
     # macOS already provides strlcpy
     if OS.mac?
-      inreplace "config.mk" do |s|
-        s.gsub! "= -DNEED_STRLCPY -Os", "= -Os"
+      inreplace "Makefile" do |s|
+        s.gsub! "-D_DEFAULT_SOURCE -DNEED_STRLCPY", "-D_DEFAULT_SOURCE"
         s.gsub! "= strlcpy.o", "="
       end
     end
