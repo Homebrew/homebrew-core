@@ -33,17 +33,21 @@ class Libtorch < Formula
     depends_on "libomp"
   end
 
-  # Fix build on Intel Mac: https://github.com/pytorch/pytorch/issues/85956
-  patch do
-    url "https://github.com/pytorch/pytorch/commit/481def752cc001ff8ac7e3b723ece11aa1110c77.patch?full_index=1"
-    sha256 "74662e29dadddb8c77c82c4f1575be98bb20858baff6ce793850d489fe6be4d1"
+  # Update fbgemm to a version that works with macOS on Intel.
+  # Remove with next release.
+  resource "fbgemm" do
+    url "https://github.com/pytorch/FBGEMM.git",
+    revision: "0d98c261561524cce92e37fe307ea6596664309a"
   end
 
   def install
-    args = %W[
+    rm_r "third_party/fbgemm"
+
+    resource("fbgemm").stage(buildpath/"third_party/fbgemm")
+
+    args = %w[
       -DBUILD_CUSTOM_PROTOBUF=OFF
       -DBUILD_PYTHON=OFF
-      -DPYTHON_EXECUTABLE=#{buildpath}/venv/bin/python
       -DUSE_CUDA=OFF
       -DUSE_METAL=OFF
       -DUSE_MKLDNN=OFF
@@ -55,14 +59,13 @@ class Libtorch < Formula
     # Remove when https://github.com/pytorch/pytorch/issues/67974 is addressed
     args << "-DUSE_SYSTEM_BIND11=ON"
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, *args
+    system "cmake", "-B", "build", "-S", ".", *std_cmake_args, *args
 
-      # Avoid references to Homebrew shims
-      inreplace "caffe2/core/macros.h", Superenv.shims_path/ENV.cxx, ENV.cxx
+    # Avoid references to Homebrew shims
+    inreplace "build/caffe2/core/macros.h", Superenv.shims_path/ENV.cxx, ENV.cxx
 
-      system "cmake", "--build", ".", "--target", "install"
-    end
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
