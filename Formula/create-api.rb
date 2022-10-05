@@ -1,8 +1,8 @@
 class CreateApi < Formula
   desc "Delightful code generator for OpenAPI specs"
   homepage "https://github.com/CreateAPI/CreateAPI"
-  url "https://github.com/CreateAPI/CreateAPI/archive/refs/tags/0.1.0.tar.gz"
-  sha256 "eb05a0129153841e9af300acae10533a6926689fd6e5ed67ddb69c1c18b85e36"
+  url "https://github.com/CreateAPI/CreateAPI/archive/refs/tags/0.1.1.tar.gz"
+  sha256 "2a0529e700a1e3dd4a0dbbaa3c68340adf7ce6a331b85bfbcd42b494e5cf5ddb"
   license "MIT"
   head "https://github.com/CreateAPI/CreateAPI.git", branch: "main"
 
