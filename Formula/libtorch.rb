@@ -1,6 +1,4 @@
 class Libtorch < Formula
-  include Language::Python::Virtualenv
-
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
@@ -28,31 +26,20 @@ class Libtorch < Formula
   depends_on "libyaml"
   depends_on "protobuf"
   depends_on "pybind11"
+  depends_on "python-typing-extensions"
+  depends_on "pyyaml"
 
   on_macos do
     depends_on "libomp"
   end
 
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
-    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/9e/1d/d128169ff58c501059330f1ad96ed62b79114a2eb30b8238af63a2e27f70/typing_extensions-4.3.0.tar.gz"
-    sha256 "e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"
-  end
-
   # Fix build on Intel Mac: https://github.com/pytorch/pytorch/issues/85956
   patch do
-    url "https://github.com/pytorch/pytorch/commit/481def752cc001ff8ac7e3b723ece11aa1110c77?full_index=1"
-    sha256 "eb5925ef6bc5489682e4c8a3a16ffe845ba63b04851ea2d040b7b9fec8ecc879"
+    url "https://github.com/pytorch/pytorch/commit/481def752cc001ff8ac7e3b723ece11aa1110c77.patch?full_index=1"
+    sha256 "74662e29dadddb8c77c82c4f1575be98bb20858baff6ce793850d489fe6be4d1"
   end
 
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3.10")
-    venv.pip_install resources
-
     args = %W[
       -DBUILD_CUSTOM_PROTOBUF=OFF
       -DBUILD_PYTHON=OFF
