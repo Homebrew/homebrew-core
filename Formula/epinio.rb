@@ -1,8 +1,8 @@
 class Epinio < Formula
   desc "CLI for Epinio, the Application Development Engine for Kubernetes"
   homepage "https://epinio.io/"
-  url "https://github.com/epinio/epinio/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "54c194a3877074b3e9790d086abaa3d7004ace5970f856947098dcc65948fdb3"
+  url "https://github.com/epinio/epinio/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "4ac5924deb7b10119bcd51edd37bd32e20d3885cc760f23dbfe1a928564c0e32"
   license "Apache-2.0"
 
   bottle do
