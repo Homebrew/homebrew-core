@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/f4/63/63dddb3d086e3fd8f85bf56eb42e4ef69582c510a8d2cfb14a7e3949ecdc/pdm-2.1.4.tar.gz"
-  sha256 "9ca09db613e085e051e1bc92430c34239788f0ae48ccb8718930826274119272"
+  url "https://files.pythonhosted.org/packages/69/c2/b2a6562c6abe254355d2f2056a11aa7fb4b960856d65155eca95c7b4aed0/pdm-2.1.5.tar.gz"
+  sha256 "5bee41d497cec93a49693fa57b5cf1c833701804eb12bc4d347c3ec7955d7ce7"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -31,8 +31,8 @@ class Pdm < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/ca/48/88ec470f8b68319b6782ca3a0570789886ad5ca24c1af2f3771699135baa/certifi-2022.9.14.tar.gz"
-    sha256 "36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "charset-normalizer" do
@@ -126,8 +126,8 @@ class Pdm < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/bb/2d/c902484141330ded63c6c40d66a9725f8da5e818770f67241cf429eef825/rich-12.5.1.tar.gz"
-    sha256 "63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"
+    url "https://files.pythonhosted.org/packages/11/23/814edf09ec6470d52022b9e95c23c1bef77f0bc451761e1504ebd09606d3/rich-12.6.0.tar.gz"
+    sha256 "ba3a3775974105c221d31141f2c116f4fd65c5ceb0698657a11e9f295ec93fd0"
   end
 
   resource "shellingham" do
@@ -141,8 +141,8 @@ class Pdm < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/84/51/092a8b945edc3b93f2de091ab9596006673caac063e3fac14f0fa6c69b1c/tomlkit-0.11.4.tar.gz"
-    sha256 "3235a9010fae54323e727c3ac06fb720752fe6635b3426e379daec60fbd44a83"
+    url "https://files.pythonhosted.org/packages/0c/2b/7823f215c6aec294f5ab5ff2f529aca1d85e8bec2208ae7ea89ca1413620/tomlkit-0.11.5.tar.gz"
+    sha256 "571854ebbb5eac89abcb4a2e47d7ea27b89bf29e09c35395da6f03dd4ae23d1c"
   end
 
   resource "unearth" do
