@@ -77,10 +77,10 @@ If you're still stuck: don't fret. Leave a comment on your PR describing what yo
 
 ### Homebrew Docker container
 
-Linux CI runs on a Docker container running Ubuntu 16.04. If you have Docker installed, you can use our container with:
+Linux CI runs on a Docker container running Ubuntu 22.04. If you have Docker installed, you can use our container with:
 
 ```
-docker run --interactive --tty --rm --pull always homebrew/ubuntu16.04:latest /bin/bash
+docker run --interactive --tty --rm --pull always homebrew/ubuntu22.04:latest /bin/bash
 ```
 
 If you don't have Docker installed:
