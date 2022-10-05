@@ -1,8 +1,8 @@
 class Ii < Formula
   desc "Minimalist IRC client"
   homepage "https://tools.suckless.org/ii/"
-  url "https://dl.suckless.org/tools/ii-1.9.tar.gz"
-  sha256 "850cb323b583d261b51bda9993ee733334352a8e6ca1e2f02b57c154bf568c17"
+  url "https://dl.suckless.org/tools/ii-2.0.tar.gz"
+  sha256 "4f67afcd208c07939b88aadbf21497a702ad0a07f9b5a6ce861f9f39ffe5425b"
   license "MIT"
   head "https://git.suckless.org/ii", using: :git, branch: "master"
 
