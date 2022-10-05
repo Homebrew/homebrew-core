@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/c3/47/c565a405fe1cc4e4ee9f79f1fb0773b14b7ed1c605c074aa4b189e01def0/snakemake-7.14.2.tar.gz"
-  sha256 "d128b51803b54736dd6b804fb86fab8843d5698f96db30237c258487a61ede3a"
+  url "https://files.pythonhosted.org/packages/c1/3a/c423a3ac07f7f4ddb6c653dce90b4b04e1c39d13ad6730831ac140ae57f2/snakemake-7.15.1.tar.gz"
+  sha256 "8d5bc68dc8e1a747f107b72052865b740f96cbafa53250de63e95f3f1a91a0b8"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -51,11 +51,6 @@ class Snakemake < Formula
   resource "datrie" do
     url "https://files.pythonhosted.org/packages/9d/fe/db74bd405d515f06657f11ad529878fd389576dca4812bea6f98d9b31574/datrie-0.8.2.tar.gz"
     sha256 "525b08f638d5cf6115df6ccd818e5a01298cd230b2dac91c8ff2e6499d18765d"
-  end
-
-  resource "decorator" do
-    url "https://files.pythonhosted.org/packages/66/0c/8d907af351aa16b42caae42f9d6aa37b900c67308052d10fdce809f8d952/decorator-5.1.1.tar.gz"
-    sha256 "637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"
   end
 
   resource "docutils" do
@@ -123,11 +118,6 @@ class Snakemake < Formula
     sha256 "4b4f7e1e954453e1b233720be23aea2f10ff068a835ac10c090a93d8e2eb2e8d"
   end
 
-  resource "py" do
-    url "https://files.pythonhosted.org/packages/98/ff/fec109ceb715d2a6b4c4a85a61af3b40c723a961e8828319fbcb15b868dc/py-1.11.0.tar.gz"
-    sha256 "51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"
-  end
-
   resource "ratelimiter" do
     url "https://files.pythonhosted.org/packages/5b/e0/b36010bddcf91444ff51179c076e4a09c513674a56758d7cfea4f6520e29/ratelimiter-1.2.0.post0.tar.gz"
     sha256 "5c395dcabdbbde2e5178ef3f89b568a3066454a6ddc223b76473dac22f89b4f7"
@@ -138,9 +128,9 @@ class Snakemake < Formula
     sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
   end
 
-  resource "retry" do
-    url "https://files.pythonhosted.org/packages/9d/72/75d0b85443fbc8d9f38d08d2b1b67cc184ce35280e4a3813cda2f445f3a4/retry-0.9.2.tar.gz"
-    sha256 "f8bfa8b99b69c4506d6f5bd3b0aabf77f98cdb17f3c9fc3f5ca820033336fba4"
+  resource "reretry" do
+    url "https://files.pythonhosted.org/packages/d3/75/4e53865926a372de99299c2fb1f00d508c33e00d9a32e9dacaf8a4001861/reretry-0.11.1.tar.gz"
+    sha256 "4ae1840ae9e443822bb70543c485bb9c45d1d009e32bd6809f2a9f2839149f5d"
   end
 
   resource "smart-open" do
