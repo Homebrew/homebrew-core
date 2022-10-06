@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/10.5.218.8.tar.gz"
-  sha256 "05370b626e7e6a3b5562abb46e11b01a34f8810b371e26cc5cf30b2d0a7e98cb"
+  url "https://github.com/v8/v8/archive/10.6.194.17.tar.gz"
+  sha256 "98dca639c6814209c1cd00a0974c03727570bd1637a072150977ddfc0cae3ef9"
   license "BSD-3-Clause"
 
   livecheck do
@@ -36,21 +36,21 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.5.218.8/DEPS#46
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.6.194.17/DEPS#46
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "9ef321772ecc161937db69acb346397e0ccc484d"
+        revision: "0bcd37bd2b83f1a9ee17088037ebdfe6eab6d31a"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.5.218.8/DEPS#92
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.6.194.17/DEPS#92
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        revision: "d115b033c4e53666b535cbd1985ffe60badad082"
+        revision: "2ba7a48ca6167ee8ef311a7f3bc60b5e5cf5ee79"
   end
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "7aa22279f03f25ac8919a3a72bc03af7f56512f4"
+        revision: "339f8c652787781e6dd39ce0624c1a012f69ece8"
   end
 
   resource "v8/third_party/googletest/src" do
@@ -60,7 +60,7 @@ class V8 < Formula
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "50ec7b3822a90d73aa761b21fc941b485a1cb9d6"
+        revision: "b3070c52557323463e6b9827e2343e60e1b91f85"
   end
 
   resource "v8/third_party/jinja2" do
@@ -75,7 +75,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "64bbf988543996eb8df9a86877b32917187eba8f"
+        revision: "8d1d3e341948009ed8dc807a545204e7a1854c33"
   end
 
   def install
