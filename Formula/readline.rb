@@ -3,8 +3,19 @@ class Readline < Formula
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
   url "https://ftp.gnu.org/gnu/readline/readline-8.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/readline/readline-8.2.tar.gz"
+  version "8.2.1"
   sha256 "3feb7171f16a84ee82ca18a36d7b9be109a52c04f492a053331d7d1095007c35"
   license "GPL-3.0-or-later"
+
+  %w[
+    001 bbf97f1ec40a929edab5aa81998c1e2ef435436c597754916e6a5868f273aff7
+  ].each_slice(2) do |p, checksum|
+    patch :p0 do
+      url "https://ftp.gnu.org/gnu/readline/readline-8.2-patches/readline82-#{p}"
+      mirror "https://ftpmirror.gnu.org/readline/readline-8.2-patches/readline82-#{p}"
+      sha256 checksum
+    end
+  end
 
   # We're not using `url :stable` here because we need `url` to be a string
   # when we use it in the `strategy` block.
@@ -57,7 +68,11 @@ class Readline < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-curses"
-    system "make", "install"
+    # FIXME: Setting `SHLIB_LIBS` should not be needed, but, on Linux,
+    #        many dependents expect readline to link with ncurses and
+    #        are broken without it. Readline should be agnostic about
+    #        the terminfo library on Linux.
+    system "make", "install", "SHLIB_LIBS=-lcurses"
   end
 
   test do
@@ -73,10 +88,7 @@ class Readline < Formula
       }
     EOS
 
-    ncurses_flags = []
-    ncurses_flags += ["-L#{Formula["ncurses"].opt_lib}", "-lncurses"] if OS.linux?
-
-    system ENV.cc, "-L", lib, "test.c", "-L#{lib}", "-lreadline", *ncurses_flags, "-o", "test"
+    system ENV.cc, "-L", lib, "test.c", "-L#{lib}", "-lreadline", "-o", "test"
     assert_equal "test> Hello, World!\nHello, World!", pipe_output("./test", "Hello, World!\n").strip
   end
 end
