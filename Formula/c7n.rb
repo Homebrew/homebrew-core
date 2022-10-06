@@ -3,8 +3,8 @@ class C7n < Formula
 
   desc "Rules engine for cloud security, cost optimization, and governance"
   homepage "https://github.com/cloud-custodian/cloud-custodian"
-  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.19.0.tar.gz"
-  sha256 "3b6273b5e01a34b6a3b75cdae9a72f38754000e6a1fb5de6f99c991ec1581ed3"
+  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.18.0.tar.gz"
+  sha256 "7b88f4b8935455b6f14c17d848574ac9488e65632034ccbf1fd616c6a6e3c2c8"
   license "Apache-2.0"
 
   livecheck do
@@ -13,12 +13,13 @@ class C7n < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "808d9e70cca73de9cc2d5c9e110467faa7d60f080bf1821dc3cc2749ca863227"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b60184289cd0b9627820c16f39db744a862351b76519a20f26e70597cf17bdc"
-    sha256 cellar: :any_skip_relocation, monterey:       "bd763c3db01a6db1353d9396bc5081361ef8927d0f5c2c14d0c2dda68c61a66d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f33b9a209ce5a3a0c3b17dc8ada01daaefdd635021305a7bc06a407e29cd65cb"
-    sha256 cellar: :any_skip_relocation, catalina:       "b1fbe139445d158afab4b4e773b6eb3ace620f0463c15509a4a2bd195fc93845"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2105ef9ab5d09a46d9a997ff86b4057782b0d33c6ccccd9ca33dece645aaedc3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f9485276743b1cadf6cbd9a5d0f47e234f6d03028744d557a985585cf4518e2b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2cca1f09c4aa1958430e08d1cc0b0fca53f9feed3d22ccda552139dcff4a345d"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b98fca2b3f91ce46b891c11626a93db3b0dcf92fc8ac094cd7db90924639413"
+    sha256 cellar: :any_skip_relocation, big_sur:        "989907a6191958f74f0bd876684c8a60d1731019fce3b56041ff23db8e9a835d"
+    sha256 cellar: :any_skip_relocation, catalina:       "5556595cb12a55be6c82568845d4e8c757b582b6a9d79d139e4396633d2190b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31278cf584af6ec8c6fde6b1d96a15f74b276fd1199e9d5a8d0fc59a92714562"
   end
 
   depends_on "jsonschema"

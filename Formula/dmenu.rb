@@ -1,8 +1,8 @@
 class Dmenu < Formula
   desc "Dynamic menu for X11"
   homepage "https://tools.suckless.org/dmenu/"
-  url "https://dl.suckless.org/tools/dmenu-5.2.tar.gz"
-  sha256 "d4d4ca77b59140f272272db537e05bb91a5914f56802652dc57e61a773d43792"
+  url "https://dl.suckless.org/tools/dmenu-5.1.tar.gz"
+  sha256 "1f4d709ebba37eb7326eba0e665e0f13be4fa24ee35c95b0d79c30f14a348fd5"
   license "MIT"
   head "https://git.suckless.org/dmenu/", using: :git, branch: "master"
 
@@ -12,12 +12,12 @@ class Dmenu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a38c53bfcb397d64e0d2711133111952681107e90c312fce10e2c05e00453910"
-    sha256 cellar: :any,                 arm64_big_sur:  "e0780e17a41fb6825390ab8ea583335cb5be93450bbf5feba9f2bfb3ba62d743"
-    sha256 cellar: :any,                 monterey:       "d1ee5fd7bddff131aa64cb50985001d002b127c84253348a789186e9d7b67ec8"
-    sha256 cellar: :any,                 big_sur:        "ae03a3e95ded418ebd8a249ccbf0a026efd64a41cccb53090075519a72670fc7"
-    sha256 cellar: :any,                 catalina:       "30477f6f373029ad6e4629c28e45d579770b3f89c2c8027d5245ae4b41ed18bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b0e7be290b1206f50abe98659c2594d1d4ef4983cd7e63932108cb0b19d892e"
+    sha256 cellar: :any,                 arm64_monterey: "1e24f7e58c83a9d5e7b8aa03d6f585e126238f4eaf4e9a0cdfb5fc6a066b7430"
+    sha256 cellar: :any,                 arm64_big_sur:  "4e7b1c05be6aec0421ce1a0504047b80ca4f6acef5cebf25fbd0ff51e83e4c9c"
+    sha256 cellar: :any,                 monterey:       "4ea5c73d6392527698e9e82db9c541c0e1eb3944e7103363163f59c3573fcabd"
+    sha256 cellar: :any,                 big_sur:        "c84d2df11a31969f91e8d03aae0b6e21220835f8e0c12d81808ed9126aa0283b"
+    sha256 cellar: :any,                 catalina:       "d28486b555358a932c8d4f93aa7d2c2384f867426fa060812ae3fce7204a9013"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eab4d7dc460c98e3c4f7e8f418f2d3d5fe13c040a6dc05b23c27772717b62169"
   end
 
   depends_on "fontconfig"
