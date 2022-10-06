@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.115.0",
-      revision: "92d8a161609f6e08f8cca4a8d32384078f0a0df7"
+      tag:      "v0.116.0",
+      revision: "4c028c15c5a8c71bc4706b2e9d2554f4002a4f27"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -51,8 +51,8 @@ class Semgrep < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/ca/48/88ec470f8b68319b6782ca3a0570789886ad5ca24c1af2f3771699135baa/certifi-2022.9.14.tar.gz"
-    sha256 "36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "charset-normalizer" do
@@ -101,8 +101,8 @@ class Semgrep < Formula
   end
 
   resource "peewee" do
-    url "https://files.pythonhosted.org/packages/00/e2/636151cde2cb3fe479a06c3940352c69b51b858b0a56a1b08729244207a9/peewee-3.15.2.tar.gz"
-    sha256 "94d8eb7fc2b8d97d6216382bf5961239645dc9e2473b0e732eb6c79c920c4768"
+    url "https://files.pythonhosted.org/packages/b7/4a/ba48c5a99a86cad44f89766dfa9937efe18f8d61d8fb55d0cd9073d2b40c/peewee-3.15.3.tar.gz"
+    sha256 "cc934286d0c0842203abe66a3c6583d1463371e633b03d6da054d0f74e70706f"
   end
 
   resource "pyparsing" do
@@ -151,8 +151,8 @@ class Semgrep < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/95/b3/597b79292584de5b790146871e50cf3cb3bf37cf845232a20123fc784ef2/wcmatch-8.4.tar.gz"
-    sha256 "ba4fc5558f8946bf1ffc7034b05b814d825d694112499c86035e0e4d398b6a67"
+    url "https://files.pythonhosted.org/packages/b7/94/5dd083fc972655f6689587c3af705aabc8b8e781bacdf22d6d2282fe6142/wcmatch-8.4.1.tar.gz"
+    sha256 "b1f042a899ea4c458b7321da1b5e3331e3e0ec781583434de1301946ceadb943"
   end
 
   def install
