@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/8a/ce/c1e82535851508d7a0e05d82e83d9b4fb1a90ef3dbb9e4df24bae2147cb1/ansible-lint-6.7.0.tar.gz"
-  sha256 "a111295152d2de812857cac6bb2c6b003315826d9cae1410a4f10e3eeb255b09"
+  url "https://files.pythonhosted.org/packages/ef/11/18aba68a4b16b3879982633df3cf3ae63b9c8a64c660a534383ca81aed69/ansible-lint-6.8.0.tar.gz"
+  sha256 "804dc715436cde6a74f44e808445c2f11d7efd016541b27bb6ec58cfdb1b1f6d"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -48,11 +48,6 @@ class AnsibleLint < Formula
     sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
   end
 
-  resource "enrich" do
-    url "https://files.pythonhosted.org/packages/bb/77/cb9b3d6f2e2e5f8104e907ea4c4d575267238f52c51cf9f864b865a99710/enrich-1.2.7.tar.gz"
-    sha256 "0a2ab0d2931dff8947012602d1234d2a3ee002d9a355b5d70be6bf5466008893"
-  end
-
   resource "filelock" do
     url "https://files.pythonhosted.org/packages/95/55/b897882bffb8213456363e646bf9e9fa704ffda5a7d140edf935a9e02c7b/filelock-3.8.0.tar.gz"
     sha256 "55447caa666f2198c5b6b13a26d2084d26fa5b115c00d065664b2124680c4edc"
@@ -84,8 +79,8 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/bb/2d/c902484141330ded63c6c40d66a9725f8da5e818770f67241cf429eef825/rich-12.5.1.tar.gz"
-    sha256 "63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"
+    url "https://files.pythonhosted.org/packages/11/23/814edf09ec6470d52022b9e95c23c1bef77f0bc451761e1504ebd09606d3/rich-12.6.0.tar.gz"
+    sha256 "ba3a3775974105c221d31141f2c116f4fd65c5ceb0698657a11e9f295ec93fd0"
   end
 
   resource "ruamel.yaml" do
