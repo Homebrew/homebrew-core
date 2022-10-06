@@ -34,6 +34,7 @@ class TranslateShell < Formula
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
     assert_equal "hello\n",
       shell_output("#{bin}/trans -no-init -b -s es -t en hola").downcase
   end
