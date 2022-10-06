@@ -4,7 +4,7 @@ class Mimirtool < Formula
     url "https://github.com/grafana/mimir/releases/"
     version "2.3.1"
     sha256 "6ce99ef47d98bf240ada2acfe0b8e91641c326baf6f280e1c3db57f1cae6e0b6"
-    license "AGPL-3.0"
+    license "AGPL-3.0-only"
   
     on_macos do
       if Hardware::CPU.arm?
@@ -45,7 +45,7 @@ class Mimirtool < Formula
     end
   
     test do
-      assert_match "mimirtool: error: required flag --id not provided, try --help",
-        shell_output("#{bin}/mimirtool alertmanager get", 1)
+      assert_match "Mimirtool, version 2.3.1 (branch: release-2.3, revision: 64a71a566)",
+        shell_output("#{bin}/mimirtool version", 0)
     end
   end
