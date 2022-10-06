@@ -23,6 +23,8 @@ class SdlSound < Formula
     depends_on "libtool" => :build
   end
 
+  keg_only "it conflicts with `sdl2_sound`"
+
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
   # Commented out while this formula still has dependents.
   # deprecate! date: "2013-08-17", because: :deprecated_upstream
