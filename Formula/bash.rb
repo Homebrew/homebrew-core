@@ -1,13 +1,30 @@
 class Bash < Formula
   desc "Bourne-Again SHell, a UNIX command interpreter"
   homepage "https://www.gnu.org/software/bash/"
-  url "https://ftp.gnu.org/gnu/bash/bash-5.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/bash/bash-5.2.tar.gz"
-  mirror "https://mirrors.kernel.org/gnu/bash/bash-5.2.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.2.tar.gz"
-  sha256 "a139c166df7ff4471c5e0733051642ee5556c1cc8a4a78f145583c5c81ab32fb"
   license "GPL-3.0-or-later"
   head "https://git.savannah.gnu.org/git/bash.git", branch: "master"
+
+  stable do
+    url "https://ftp.gnu.org/gnu/bash/bash-5.2.tar.gz"
+    mirror "https://ftpmirror.gnu.org/bash/bash-5.2.tar.gz"
+    mirror "https://mirrors.kernel.org/gnu/bash/bash-5.2.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.2.tar.gz"
+    sha256 "a139c166df7ff4471c5e0733051642ee5556c1cc8a4a78f145583c5c81ab32fb"
+    version "5.2.2"
+
+    %w[
+      001 f42f2fee923bc2209f406a1892772121c467f44533bedfe00a176139da5d310a
+      002 45cc5e1b876550eee96f95bffb36c41b6cb7c07d33f671db5634405cd00fd7b8
+    ].each_slice(2) do |p, checksum|
+      patch :p0 do
+        url "https://ftp.gnu.org/gnu/bash/bash-5.2-patches/bash52-#{p}"
+        mirror "https://ftpmirror.gnu.org/bash/bash-5.2-patches/bash52-#{p}"
+        mirror "https://mirrors.kernel.org/gnu/bash/bash-5.2-patches/bash52-#{p}"
+        mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.2-patches/bash52-#{p}"
+        sha256 checksum
+      end
+    end
+  end
 
   # We're not using `url :stable` here because we need `url` to be a string
   # when we use it in the `strategy` block.
