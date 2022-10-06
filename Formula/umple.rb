@@ -2,13 +2,13 @@ class Umple < Formula
   desc "Modeling tool/programming language that enables Model-Oriented Programming"
   homepage "https://www.umple.org"
   url "https://github.com/umple/umple/releases/download/v1.31.1/umple-1.31.1.5860.78bb27cc6.jar"
-  version "1.31.1.5860.78bb27cc6"
+  version "1.31.1"
   sha256 "686beb3c8aa3c0546f4a218dad353f4efce05aed056c59ccf3d5394747c0e13d"
   license "MIT"
+  version_scheme 1
 
   livecheck do
     url :stable
-    regex(/href=.*?umple[._-]v?(\d+(?:\.\d+)+(?:\.[\da-f]+)?)\.jar/i)
     strategy :github_latest
   end
 
@@ -24,8 +24,10 @@ class Umple < Formula
   depends_on "openjdk"
 
   def install
-    libexec.install "umple-#{version}.jar"
-    bin.write_jar_script libexec/"umple-#{version}.jar", "umple"
+    filename = File.basename(stable.url)
+
+    libexec.install filename
+    bin.write_jar_script libexec/filename, "umple"
   end
 
   test do
