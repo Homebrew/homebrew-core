@@ -14,7 +14,7 @@ class Sourcery < Formula
   end
 
   depends_on :macos # Linux support is still a WIP: https://github.com/krzysztofzablocki/Sourcery/issues/306
-  depends_on xcode: "13.0"
+  depends_on xcode: "13.3"
 
   uses_from_macos "ruby" => :build
 
