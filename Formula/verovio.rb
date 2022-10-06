@@ -9,14 +9,20 @@ class Verovio < Formula
   depends_on "cmake" => :build
 
   def install
-    cd "tools" do
-      system "cmake", "../cmake", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", "./cmake", "-B", "tools", *std_cmake_args
+    system "cmake", "--build", "tools"
+    system "cmake", "--install", "tools"
+  end
+
+  resource("testdata") do
+    url "https://www.verovio.org/examples/downloads/Ahle_Jesu_meines_Herzens_Freud.mei"
+    sha256 "d08735930f5591b6d86250ed93795af156b8d0297ed38256fed84dc9739ed381"
   end
 
   test do
     system bin/"verovio", "--version"
+    resource("testdata").stage do
+      shell_output("#{bin}/verovio Ahle_Jesu_meines_Herzens_Freud.mei")
+    end
   end
 end
