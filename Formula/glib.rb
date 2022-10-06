@@ -42,6 +42,10 @@ class Glib < Formula
     sha256 "d81c9e8296ec5b53b4ead6917f174b06026eeb0c671dfffc4965b2271fb6a82c"
   end
 
+  # Temporary fix to disable usage of close_range by gspawn since the syscall
+  # is blocked by a Docker bug in CI.  Remove when this has been fixed.
+  patch :DATA
+
   def install
     inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c], "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
@@ -120,3 +124,19 @@ class Glib < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/glib/gspawn.c b/glib/gspawn.c
+index 4e029ee..d8dd71f 100644
+--- a/glib/gspawn.c
++++ b/glib/gspawn.c
+@@ -21,6 +21,9 @@
+  */
+
+ #include "config.h"
++#ifdef __linux__
++#undef HAVE_CLOSE_RANGE
++#endif
+
+ #include <sys/time.h>
+ #include <sys/types.h>
