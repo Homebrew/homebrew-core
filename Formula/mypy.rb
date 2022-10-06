@@ -6,6 +6,7 @@ class Mypy < Formula
   url "https://files.pythonhosted.org/packages/0d/75/a1ec1af4153f7b7ae825705ada667bf445418277153c76972ba0ad782bb9/mypy-0.982.tar.gz"
   sha256 "85f7a343542dc8b1ed0a888cdd34dca56462654ef23aa673907305b260b3d746"
   license "MIT"
+  revision 1
   head "https://github.com/python/mypy.git", branch: "master"
 
   bottle do
@@ -35,6 +36,8 @@ class Mypy < Formula
   end
 
   def install
+    ENV["MYPY_USE_MYPYC"] = "1"
+    ENV["MYPYC_OPT_LEVEL"] = "3"
     virtualenv_install_with_resources
   end
 
@@ -46,5 +49,8 @@ class Mypy < Formula
     EOS
     output = pipe_output("#{bin}/mypy broken.py 2>&1")
     assert_match '"p" does not return a value', output
+
+    output = pipe_output("#{bin}/mypy --version 2>&1")
+    assert_match "(compiled: yes)", output
   end
 end
