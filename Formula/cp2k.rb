@@ -34,6 +34,7 @@ class Cp2k < Formula
 
   def install
     resource("libint").stage do
+      ENV.append "FCFLAGS", "-fPIE" if OS.linux?
       system "./configure", "--prefix=#{libexec}", "--enable-fortran"
       system "make"
       ENV.deparallelize { system "make", "install" }
