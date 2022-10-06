@@ -19,12 +19,15 @@ class Uriparser < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF",
-                         "-DURIPARSER_BUILD_DOCS=OFF",
-                         "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                         *std_cmake_args
-    system "make"
-    system "make", "install"
+    args = %W[
+      -DURIPARSER_BUILD_TESTS=OFF
+      -DURIPARSER_BUILD_DOCS=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
