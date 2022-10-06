@@ -5,14 +5,14 @@ class Jbig2dec < Formula
   sha256 "279476695b38f04939aa59d041be56f6bade3422003a406a85e9792c27118a37"
   license "AGPL-3.0-or-later"
 
-  # Not every GhostPDL release contains a jbig2dec archive, so we have to check
-  # the GitHub releases page (which we otherwise avoid) instead of the tags.
-  # We avoid checking the jbig2dec homepage because it has been very slow to
-  # update in the past when new versions were released.
+  # Not every GhostPDL release on GitHub provides a jbig2dec archive, so it's
+  # necessary to check releases until we find one. Since the assets list HTML
+  # is no longer part of release pages, it would take several requests to do
+  # this. As it stands, this checks the homepage, even though it has typically
+  # been slow to update the tarball link when a new version is released.
   livecheck do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases?q=prerelease%3Afalse"
+    url :homepage
     regex(%r{href=.*?/jbig2dec[._-]v?(\d+(?:\.\d+)+)\.t}i)
-    strategy :page_match
   end
 
   bottle do
