@@ -31,9 +31,9 @@ class Halide < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pybind11" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "pybind11"
   depends_on "python@3.10"
 
   fails_with gcc: "5" # LLVM is built with Homebrew GCC
@@ -44,10 +44,6 @@ class Halide < Formula
       -DHalide_SHARED_LLVM=ON
       -DPYBIND11_USE_FETCHCONTENT=OFF
     ]
-    llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
-               .to_formula
-    # Apple libLTO cannot parse our object files.
-    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-lto_library,#{llvm.opt_lib/shared_library("libLTO")}" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
