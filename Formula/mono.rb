@@ -175,6 +175,10 @@ class Mono < Formula
       end
       system "bash", buildpath/"packaging/MacSDK/fsharp-layout.sh", ".", prefix
     end
+
+    # Try to work around `brew bottle` error from leftover processes
+    # Error: Text file busy @ rb_sysopen - /home/linuxbrew/.linuxbrew/Cellar/mono/6.12.0.182/bin/mono-sgen
+    sleep 30 if OS.linux?
   end
 
   def post_install
