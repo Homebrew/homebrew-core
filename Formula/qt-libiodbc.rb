@@ -23,10 +23,6 @@ class QtLibiodbc < Formula
   depends_on "libiodbc"
   depends_on "qt"
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   conflicts_with "qt-unixodbc",
     because: "qt-unixodbc and qt-libiodbc install the same binaries"
 
