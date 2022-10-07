@@ -4,6 +4,7 @@ class Vapor < Formula
   url "https://github.com/vapor/toolbox/archive/18.6.0.tar.gz"
   sha256 "fa41a5ef847fcb86ce9f2a9837adc9d80ba99839519d230115f2b00ff7a64156"
   license "MIT"
+  revision 1
   head "https://github.com/vapor/toolbox.git", branch: "main"
 
   bottle do
