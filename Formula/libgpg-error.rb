@@ -29,7 +29,7 @@ class LibgpgError < Formula
     system "make", "install"
 
     # avoid triggering mandatory rebuilds of software that hard-codes this path
-    inreplace [bin/"gpg-error-config", bin/"gpgrt-config"], prefix, opt_prefix
+    inreplace [bin/"gpg-error-config", lib/"pkgconfig/gpg-error.pc"], prefix, opt_prefix
   end
 
   test do
