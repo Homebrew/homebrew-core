@@ -8,7 +8,7 @@ class Verovio < Formula
 
   depends_on "cmake" => :build
 
-  resource("testdata") do
+  resource "homebrew-testdata" do
     url "https://www.verovio.org/examples/downloads/Ahle_Jesu_meines_Herzens_Freud.mei"
     sha256 "d08735930f5591b6d86250ed93795af156b8d0297ed38256fed84dc9739ed381"
   end
