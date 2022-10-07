@@ -5,12 +5,12 @@ class Crystal < Formula
   revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.5.1.tar.gz"
-    sha256 "d6d2ed257c688a81c68bad63a9796d34aab3a5667f7e3a86d22f9fce2f8c56fc"
+    url "https://github.com/crystal-lang/crystal/archive/1.6.0.tar.gz"
+    sha256 "8119bc099d898be0d2e5055f783d41325a10e4b7824240272eb6ecb30c8c9a2e"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.17.0.tar.gz"
-      sha256 "b3f0a2261437b21b3e2465b7755edf0c33f0305a112bd9a36e1b3ec74f96b098"
+      url "https://github.com/crystal-lang/shards/archive/v0.17.1.tar.gz"
+      sha256 "cfae162980ef9260120f00ba530273fc2e1b595906b6d39db0cd41323f936e03"
     end
   end
 
@@ -65,12 +65,12 @@ class Crystal < Formula
     end
 
     checksums = {
-      "darwin-universal" => "e7f9b3e1e866dc909a0a310238907182f1ee8b3c09bd8da5ecd0072d99c1fc5c",
-      "linux-x86_64"     => "a5bdf1b78897b3cdc7d715b5f7adff79e84401d39b7ab546ab3249dc17fc770c",
+      "darwin-universal" => "432c2fc992247f666db7e55fb15509441510831a72beba34affa2d76b6f2e092",
+      "linux-x86_64"     => "a475c3d99dbe0f2d5a72d471fa25e03c124b599e47336eed746973b4b4d787bc",
     }
 
     if checksums.include? platform
-      boot_version = Version.new("1.4.1-1")
+      boot_version = Version.new("1.5.1-1")
 
       url "https://github.com/crystal-lang/crystal/releases/download/#{boot_version.major_minor_patch}/crystal-#{boot_version}-#{platform}.tar.gz"
       version boot_version
