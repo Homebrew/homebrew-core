@@ -4,6 +4,7 @@ class Publish < Formula
   url "https://github.com/JohnSundell/Publish/archive/0.9.0.tar.gz"
   sha256 "e098a48e8763d3aef9abd1a673b8b28b4b35f8dbad15218125e18461104874ca"
   license "MIT"
+  revision 1
   head "https://github.com/JohnSundell/Publish.git", branch: "master"
 
   bottle do
