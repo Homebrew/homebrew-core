@@ -4,6 +4,7 @@ class Swiftdraw < Formula
   url "https://github.com/swhitty/SwiftDraw/archive/0.13.2.tar.gz"
   sha256 "f9a13610b38b7eb78112769fa94cd79466b10a532261c383adacbe438c20e83f"
   license "Zlib"
+  revision 1
   head "https://github.com/swhitty/SwiftDraw.git", branch: "main"
 
   bottle do
