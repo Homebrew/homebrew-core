@@ -43,6 +43,13 @@ class OpensslAT3 < Formula
     end
   end
 
+  # Fix compile on older macOS (Xcode 10.1 and earlier).
+  # Remove with the next release.
+  patch do
+    url "https://github.com/openssl/openssl/commit/c95e2030c34646176b4843b5f0f48720d896f427.patch?full_index=1"
+    sha256 "91b4ef7049aec75bd3c2784472b70652cc1bad60e66f6a7129d5061d6004af43"
+  end
+
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
   # be obvious to everyone, so explicitly state it for now to
