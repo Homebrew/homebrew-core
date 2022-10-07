@@ -21,7 +21,7 @@ class Verovio < Formula
 
   test do
     system bin/"verovio", "--version"
-    resource("testdata").stage do
+    resource("homebrew-testdata").stage do
       shell_output("#{bin}/verovio Ahle_Jesu_meines_Herzens_Freud.mei -o #{testpath}/output.svg")
       assert_predicate testpath/"output.svg", :exist?
     end
