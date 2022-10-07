@@ -3,8 +3,8 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/30/49/683008b43febe29317da753a9509f6233e76c6bdef5ef9783f79d5dab4f2/FORD-6.1.15.tar.gz"
-  sha256 "d90000f528878738fc55f0f28aa34f36c5cb7f4819d851d10977f8499bf0cae6"
+  url "https://files.pythonhosted.org/packages/de/0f/f3e5202c7bcdc81d0577ff42e2358b697e3bad554b74e81d7f8983d1c298/FORD-6.1.16.tar.gz"
+  sha256 "5bbb1a2d87186bc8617c5907c23b11cc03ad67eb61746d2f354a7fec95891801"
   license "GPL-3.0-or-later"
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
@@ -39,13 +39,14 @@ class Ford < Formula
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/d6/58/79df20de6e67a83f0d0bbfe6c19bb82adf68cdf362885257eb01099f930a/Markdown-3.3.7.tar.gz"
-    sha256 "cbb516f16218e643d8e0a95b309f77eb118cb138d39a4f27851e6a63581db874"
+    url "https://files.pythonhosted.org/packages/85/7e/133e943e97a943d2f1d8bae0c5060f8ac50e6691754eb9dbe036b047a9bb/Markdown-3.4.1.tar.gz"
+    sha256 "3b809086bb6efad416156e00a0da66fe47618a5d6918dd688f53f40c8e4cfeff"
   end
 
+  # upstream issue with pypi artifact, https://github.com/cmacmackin/markdown-include/issues/35
   resource "markdown-include" do
-    url "https://files.pythonhosted.org/packages/34/ce/289d5d459c274a59379f79af95f3f36ae29cb9d787206ad9b45dda48e3ce/markdown-include-0.6.0.tar.gz"
-    sha256 "6f5d680e36f7780c7f0f61dca53ca581bd50d1b56137ddcd6353efafa0c3e4a2"
+    url "https://github.com/cmacmackin/markdown-include/archive/refs/tags/v0.7.0.tar.gz"
+    sha256 "5944cac326e3f071188ce902c6edeacbf5ae7c33273875594debf93e5d850a72"
   end
 
   resource "MarkupSafe" do
@@ -74,8 +75,8 @@ class Ford < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
-    sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
+    url "https://files.pythonhosted.org/packages/c1/c2/d8a40e5363fb01806870e444fc1d066282743292ff32a9da54af51ce36a2/tqdm-4.64.1.tar.gz"
+    sha256 "5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"
   end
 
   def install
