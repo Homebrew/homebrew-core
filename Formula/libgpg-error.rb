@@ -25,6 +25,7 @@ class LibgpgError < Formula
                           "--prefix=#{prefix}",
                           "--enable-static"
     system "make", "install"
+    bin.install "src/gpg-error-config"
 
     # avoid triggering mandatory rebuilds of software that hard-codes this path
     inreplace bin/"gpg-error-config", prefix, opt_prefix
