@@ -1,8 +1,8 @@
 class Nuclei < Formula
   desc "HTTP/DNS scanner configurable via YAML templates"
   homepage "https://nuclei.projectdiscovery.io/"
-  url "https://github.com/projectdiscovery/nuclei/archive/v2.7.7.tar.gz"
-  sha256 "1b80ed46281e25f637ee16fcfd84ca2c458d1d4b4ff04f0087f01bcd2d589de5"
+  url "https://github.com/projectdiscovery/nuclei/archive/v2.7.8.tar.gz"
+  sha256 "91ce140b8dbe0e8cd1f4e49fc80bfa1ec51b841919afd24328419334382832ea"
   license "MIT"
   head "https://github.com/projectdiscovery/nuclei.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Nuclei < Formula
 
   def install
     cd "v2/cmd/nuclei" do
-      system "go", "build", *std_go_args, "main.go"
+      system "go", "build", *std_go_args(ldflags: "-s -w"), "main.go"
     end
   end
 
