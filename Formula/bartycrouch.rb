@@ -14,7 +14,7 @@ class Bartycrouch < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "91e75b3257969acc5a38e0bff550fdfea6f8b8d54bed52443b88b32451be0512"
   end
 
-  depends_on xcode: ["12.5", :build]
+  depends_on xcode: ["14.0", :build]
   depends_on :macos
 
   def install
