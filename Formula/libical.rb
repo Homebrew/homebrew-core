@@ -1,10 +1,9 @@
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
-  url "https://github.com/libical/libical/releases/download/v3.0.14/libical-3.0.14.tar.gz"
-  sha256 "4284b780356f1dc6a01f16083e7b836e63d3815e27ed0eaaad684712357ccc8f"
+  url "https://github.com/libical/libical/releases/download/v3.0.15/libical-3.0.15.tar.gz"
+  sha256 "019085ba99936f25546d86cb3e34852e5fe2b5a7d5f1cb4423a0cc42e399f629"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "fd4d453a3cef1834346adea58fa384587c466649dfc9ad120c31dcea6d185199"
