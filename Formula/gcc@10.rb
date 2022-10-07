@@ -184,7 +184,7 @@ class GccAT10 < Formula
       #   * `-idirafter <dir>` instructs gcc to search system header
       #     files after gcc internal header files.
       # For libraries:
-      #   * `-nostdlib -L#{libgcc}` instructs gcc to use brewed glibc
+      #   * `-nostdlib -L#{libgcc} -L#{glibc.opt_lib}` instructs gcc to use brewed glibc
       #     if applied.
       #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
       #     libraries. It is essential if there are multiple brewed gcc
@@ -198,7 +198,7 @@ class GccAT10 < Formula
         + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
 
         *link_libgcc:
-        #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
+        #{glibc_installed ? "-nostdlib -L#{libgcc} -L#{glibc.opt_lib}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
 
         *link:
         + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir} -rpath #{HOMEBREW_PREFIX}/lib
