@@ -4,6 +4,7 @@ class Xclogparser < Formula
   url "https://github.com/MobileNativeFoundation/XCLogParser/archive/v0.2.34.tar.gz"
   sha256 "25e1275229064e314ce6f1107541891a5a6438c76a10ecc6d2b592f5a441713b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "994fa1ec0e1e3f31bf142c624b757eeb919b6768ad26537cac04b7210ceb9fd3"
