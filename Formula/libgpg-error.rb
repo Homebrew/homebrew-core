@@ -20,18 +20,19 @@ class LibgpgError < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
+    # NOTE: gpg-error-config is deprecated upstream, so we should remove this at some point.
+    # https://dev.gnupg.org/T5683
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
+                          "--enable-install-gpg-error-config",
                           "--enable-static"
     system "make", "install"
-    bin.install "src/gpg-error-config"
 
     # avoid triggering mandatory rebuilds of software that hard-codes this path
-    inreplace bin/"gpg-error-config", prefix, opt_prefix
+    inreplace [bin/"gpg-error-config", bin/"gpgrt-config"], prefix, opt_prefix
   end
 
   test do
-    system "#{bin}/gpg-error-config", "--libs"
+    system bin/"gpgrt-config", "--libs"
   end
 end
