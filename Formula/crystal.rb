@@ -2,7 +2,6 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 1
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/1.6.0.tar.gz"
@@ -91,7 +90,7 @@ class Crystal < Formula
                                     .map(&:to_formula)
                                     .reject(&:keg_only?)
 
-    (buildpath/"boot").install resource("boot")
+    resource("boot").stage "boot"
     ENV.append_path "PATH", "boot/bin"
     ENV["LLVM_CONFIG"] = llvm.opt_bin/"llvm-config"
     ENV["CRYSTAL_LIBRARY_PATH"] = ENV["HOMEBREW_LIBRARY_PATHS"]
@@ -132,7 +131,7 @@ class Crystal < Formula
       available_molinillo_version = resource("molinillo").version.to_s
       odie "`molinillo` resource is outdated!" unless required_molinillo_version == available_molinillo_version
 
-      (Pathname.pwd/"lib/molinillo").install resource("molinillo")
+      resource("molinillo").stage "lib/molinillo"
 
       shards_build_opts = release_flags + [
         "CRYSTAL=#{buildpath}/bin/crystal",
