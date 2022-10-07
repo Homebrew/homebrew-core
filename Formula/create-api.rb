@@ -4,6 +4,7 @@ class CreateApi < Formula
   url "https://github.com/CreateAPI/CreateAPI/archive/refs/tags/0.1.1.tar.gz"
   sha256 "2a0529e700a1e3dd4a0dbbaa3c68340adf7ce6a331b85bfbcd42b494e5cf5ddb"
   license "MIT"
+  revision 1
   head "https://github.com/CreateAPI/CreateAPI.git", branch: "main"
 
   bottle do
