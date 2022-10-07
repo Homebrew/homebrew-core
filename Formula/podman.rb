@@ -1,35 +1,10 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  license "Apache-2.0"
-
-  stable do
-    url "https://github.com/containers/podman/archive/v4.2.1.tar.gz"
-    sha256 "b10004e91a9f5528da450466ec8e6f623eaa28ada79e3044c238895b2c8d1df3"
-
-    # Allow specifying helper dirs with $BINDIR as base directory. Use a `$BINDIR` magic
-    # token as a prefix in the helper path to indicate it should be relative to the
-    # directory where the binary is located.
-    # This patch can be dropped on upgrade to podman 4.3.0.
-    patch do
-      url "https://github.com/containers/common/commit/030b7518103cfd7b930b54744d4a4510b659fdc2.patch?full_index=1"
-      sha256 "7c00abe7728d6438abcdb69ce6efa43503dcbb93bcb2d737f6ca4aa553e2eeb5"
-      directory "vendor/github.com/containers/common"
-    end
-
-    # Update Darwin config to include '$BINDIR/../libexec/podman' in helper search path.
-    # This patch can be dropped on upgrade to podman 4.3.0.
-    patch do
-      url "https://github.com/containers/common/commit/4e6828877b0067557b435ec8810bda7f5cb48a4f.patch?full_index=1"
-      sha256 "01c4c67159f83f636a7b3a6007a010b1336c83246e4fb8c34b67be32fd6c2206"
-      directory "vendor/github.com/containers/common"
-    end
-
-    resource "gvproxy" do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.4.0.tar.gz"
-      sha256 "896cf02fbabce9583a1bba21e2b384015c0104d634a73a16d2f44552cf84d972"
-    end
-  end
+  url "https://github.com/containers/podman/archive/v4.3.0.tar.gz"
+  sha256 "55a3a09b80f23f78aaeb74fbf878fa0b1ef1842e5b282ad61e82a9dc4c74bf34"
+  license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
+  head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7a7443b447e60d3f96b523e16f6f87f2ce85373ca8d9225ae21b172fc95a1ea6"
@@ -40,58 +15,166 @@ class Podman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d64e188e78c05935c6d73713f69ffae54452082e01b9d3f8f7a64c160c302fe9"
   end
 
-  head do
-    url "https://github.com/containers/podman.git", branch: "main"
-
-    resource "gvproxy" do
-      url "https://github.com/containers/gvisor-tap-vsock.git", branch: "main"
-    end
-  end
-
   depends_on "go-md2man" => :build
   # Required latest gvisor.dev/gvisor/pkg/gohacks
   # Try to switch to the latest go on the next release
   depends_on "go@1.18" => :build
-  depends_on "qemu"
+
+  on_macos do
+    depends_on "qemu"
+  end
+
+  on_linux do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "pkg-config" => :build
+    depends_on "rust" => :build
+    depends_on "conmon"
+    depends_on "crun"
+    depends_on "fuse-overlayfs"
+    depends_on "gpgme"
+    depends_on "libseccomp"
+    depends_on "slirp4netns"
+    depends_on "systemd"
+  end
+
+  resource "gvproxy" do
+    on_macos do
+      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.4.0.tar.gz"
+      sha256 "896cf02fbabce9583a1bba21e2b384015c0104d634a73a16d2f44552cf84d972"
+    end
+  end
+
+  resource "catatonit" do
+    on_linux do
+      url "https://github.com/openSUSE/catatonit/archive/refs/tags/v0.1.7.tar.gz"
+      sha256 "e22bc72ebc23762dad8f5d2ed9d5ab1aaad567bdd54422f1d1da775277a93296"
+
+      # Fix autogen.sh. Delete on next catatonit release.
+      patch do
+        url "https://github.com/openSUSE/catatonit/commit/99bb9048f532257f3a2c3856cfa19fe957ab6cec.patch?full_index=1"
+        sha256 "cc0828569e930ae648e53b647a7d779b1363bbb9dcbd8852eb1cd02279cdbe6c"
+      end
+    end
+  end
+
+  resource "netavark" do
+    on_linux do
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.2.0.tar.gz"
+      sha256 "35b710197f321a2e45c59460fd8faf67b7b8ebc345d22aa8ecccf806790c6edc"
+    end
+  end
+
+  resource "aardvark-dns" do
+    on_linux do
+      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.2.0.tar.gz"
+      sha256 "434163027660feebb87e288d9c9f8468a1a9d1a632d1f9fe0a84585dfde3f4dd"
+    end
+  end
 
   def install
-    ENV["CGO_ENABLED"] = "1"
-    os = OS.kernel_name.downcase
-
-    # Update helper binary location to look at libexec/podman inside the keg.
-    # This is not needed on Mac because config_darwin.go already includes this
-    # location, but Linux doesn't so let's add it through the environment
-    # variable. Note that we want a literal `$BINDIR`, so we need to escape
-    # the `$` for Makefile syntax, so we need to double it as `$$BINDIR`.
-    ENV["HELPER_BINARIES_DIR"] = "$$BINDIR/../libexec/podman" if OS.linux?
-    system "make", "podman-remote"
     if OS.mac?
-      bin.install "bin/#{os}/podman" => "podman-remote"
+      ENV["CGO_ENABLED"] = "1"
+
+      system "make", "podman-remote"
+      bin.install "bin/darwin/podman" => "podman-remote"
       bin.install_symlink bin/"podman-remote" => "podman"
+
       system "make", "podman-mac-helper"
-      bin.install "bin/#{os}/podman-mac-helper" => "podman-mac-helper"
+      bin.install "bin/darwin/podman-mac-helper" => "podman-mac-helper"
+
+      resource("gvproxy").stage do
+        system "make", "gvproxy"
+        (libexec/"podman").install "bin/gvproxy"
+      end
+
+      system "make", "podman-remote-darwin-docs"
+      man1.install Dir["docs/build/remote/darwin/*.1"]
+
+      bash_completion.install "completions/bash/podman"
+      zsh_completion.install "completions/zsh/_podman"
+      fish_completion.install "completions/fish/podman.fish"
     else
-      bin.install "bin/podman-remote"
+      paths = Dir["**/*.go"].select do |file|
+        (buildpath/file).read.lines.grep(%r{/etc/containers/}).any?
+      end
+      inreplace paths, "/etc/containers/", etc/"containers/"
+
+      ENV.O0
+      ENV["PREFIX"] = prefix
+      ENV["HELPER_BINARIES_DIR"] = opt_libexec/"podman"
+
+      system "make"
+      system "make", "install", "install.completions"
+
+      (prefix/"etc/containers/policy.json").write <<~EOS
+        {"default":[{"type":"insecureAcceptAnything"}]}
+      EOS
+
+      (prefix/"etc/containers/storage.conf").write <<~EOS
+        [storage]
+        driver="overlay"
+      EOS
+
+      (prefix/"etc/containers/registries.conf").write <<~EOS
+        unqualified-search-registries=["docker.io"]
+      EOS
+
+      resource("catatonit").stage do
+        system "./autogen.sh"
+        system "./configure"
+        system "make"
+        mv "catatonit", libexec/"podman/"
+      end
+
+      resource("netavark").stage do
+        system "cargo", "install", *std_cargo_args
+        mv bin/"netavark", libexec/"podman/"
+      end
+
+      resource("aardvark-dns").stage do
+        system "cargo", "install", *std_cargo_args
+        mv bin/"aardvark-dns", libexec/"podman/"
+      end
     end
+  end
 
-    resource("gvproxy").stage do
-      system "make", "gvproxy"
-      (libexec/"podman").install "bin/gvproxy"
+  def caveats
+    on_linux do
+      <<~EOS
+        You need "newuidmap" and "newgidmap" binaries installed system-wide
+        for rootless containers to work properly.
+      EOS
     end
+  end
 
-    system "make", "podman-remote-#{os}-docs"
-    man1.install Dir["docs/build/remote/#{os}/*.1"]
-
-    bash_completion.install "completions/bash/podman"
-    zsh_completion.install "completions/zsh/_podman"
-    fish_completion.install "completions/fish/podman.fish"
+  service do
+    run [opt_bin/"podman", "system", "service", "--time=0"]
+    environment_variables PATH: std_service_path_env
+    working_dir HOMEBREW_PREFIX
   end
 
   test do
     assert_match "podman-remote version #{version}", shell_output("#{bin}/podman-remote -v")
-    assert_match(/Cannot connect to Podman/i, shell_output("#{bin}/podman-remote info 2>&1", 125))
+    out = shell_output("#{bin}/podman-remote info 2>&1", 125)
+    assert_match "Cannot connect to Podman", out
 
-    machineinit_output = shell_output("podman-remote machine init --image-path fake-testi123 fake-testvm 2>&1", 125)
-    assert_match "Error: open fake-testi123: no such file or directory", machineinit_output
+    if OS.mac?
+      out = shell_output("#{bin}/podman-remote machine init --image-path fake-testi123 fake-testvm 2>&1", 125)
+      assert_match "Error: open fake-testi123: no such file or directory", out
+    else
+      assert_equal %W[
+        #{bin}/podman
+        #{bin}/podman-remote
+      ].sort, Dir[bin/"*"].sort
+      assert_equal %W[
+        #{libexec}/podman/catatonit
+        #{libexec}/podman/netavark
+        #{libexec}/podman/aardvark-dns
+        #{libexec}/podman/rootlessport
+      ].sort, Dir[libexec/"podman/*"].sort
+      out = shell_output("file #{libexec}/podman/catatonit")
+      assert_match "statically linked", out
+    end
   end
 end
