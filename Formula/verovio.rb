@@ -10,7 +10,7 @@ class Verovio < Formula
 
   resource "homebrew-testdata" do
     url "https://www.verovio.org/examples/downloads/Ahle_Jesu_meines_Herzens_Freud.mei"
-    sha256 "d08735930f5591b6d86250ed93795af156b8d0297ed38256fed84dc9739ed381"
+    sha256 "79e6e062f7f0300e8f0f4364c4661835a0baffc3c1468504a555a5b3f9777cc9"
   end
 
   def install
