@@ -1,15 +1,15 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.84.0.tar.gz"
-  sha256 "564fbf8f0ab090c8b32bc38637c8204358c386b9cbffcb4f99a81bc82fddbad7"
+  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.84.1.tar.gz"
+  sha256 "d5ba5b3d87b0dc69d70f6c9701eec36772bbc3716e0b201b74ec73d4b3ff38cc"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(/^dosbox-x[._-]v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
@@ -43,7 +43,7 @@ class DosboxX < Formula
       --disable-dependency-tracking
       --disable-sdltest
     ]
-    build_script = OS.mac? ? "./build-macosx" : "./build"
+    build_script = OS.mac? ? "./build-macos-sdl2" : "./build"
     system build_script, *args
     system "make", "install"
   end
