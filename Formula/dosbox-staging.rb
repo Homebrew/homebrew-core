@@ -27,6 +27,7 @@ class DosboxStaging < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
+  depends_on "iir1"
   depends_on "libpng"
   depends_on "libslirp"
   depends_on "mt32emu"
@@ -42,11 +43,10 @@ class DosboxStaging < Formula
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Db_lto=true", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", "-Db_lto=true", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+
     mv bin/"dosbox", bin/"dosbox-staging"
     mv man1/"dosbox.1", man1/"dosbox-staging.1"
   end
