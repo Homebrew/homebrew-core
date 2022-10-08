@@ -4,6 +4,7 @@ class Jimtcl < Formula
   url "https://github.com/msteveb/jimtcl/archive/0.81.tar.gz"
   sha256 "ab7eb3680ba0d16f4a9eb1e05b7fcbb7d23438e25185462c55cd032a1954a985"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "7731222d5d1fc542b7bcfe89b34b634d58a4748256227aa3ebaf1a486f9cf8f1"
@@ -14,11 +15,17 @@ class Jimtcl < Formula
     sha256 x86_64_linux:   "f39bff291903330771406c56f255af5a8d0711cf715ca152d9e10b3994dce13f"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
+
+  # Fix EOF detection with openssl@3. Remove in the next release.
+  patch do
+    url "https://github.com/msteveb/jimtcl/commit/b0271cca8e335a1ebe4e3d6a8889bd4d7d5e30e6.patch?full_index=1"
+    sha256 "dbeeb8bb9a1174c4c0d44d8dafc1958994417014176c12d959daa8b31aa4b5b0"
+  end
 
   def install
     system "./configure", "--disable-debug",
