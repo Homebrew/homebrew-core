@@ -4,6 +4,7 @@ class Biosig < Formula
   url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-2.4.2.src.tar.xz"
   sha256 "eedffd9b9c19ff0be23315b690d66754fdd73c43aacb708a56e803d558271fdb"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -33,10 +34,7 @@ class Biosig < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-           "--disable-dependency-tracking",
-           "--disable-silent-rules",
-           "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
   end
