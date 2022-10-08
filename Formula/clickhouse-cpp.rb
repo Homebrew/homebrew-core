@@ -4,6 +4,7 @@ class ClickhouseCpp < Formula
   url "https://github.com/ClickHouse/clickhouse-cpp/archive/refs/tags/v2.2.1.tar.gz"
   sha256 "53eaccb1dbb96f82d27400a8e336bbf59c9bcb15495458c09e4c569717314f17"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ClickHouse/clickhouse-cpp.git", branch: "master"
 
   bottle do
@@ -18,14 +19,16 @@ class ClickhouseCpp < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "abseil"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   fails_with gcc: "5"
   fails_with gcc: "6"
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-      "-DWITH_OPENSSL=ON", "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}", *std_cmake_args
+                    "-DWITH_OPENSSL=ON",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
