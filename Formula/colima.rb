@@ -21,14 +21,13 @@ class Colima < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d9b638131065532666f6f443164de6972dcbefb8b01c5687ee854a2c5b33a3e"
   end
 
-  # Required latest gvisor.dev/gvisor/pkg/gohacks
-  # Try to switch to the latest go on the next release
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
   depends_on "lima"
 
   def install
     project = "github.com/abiosoft/colima"
     ldflags = %W[
+      -s -w
       -X #{project}/config.appVersion=#{version}
       -X #{project}/config.revision=#{Utils.git_head}
     ]
