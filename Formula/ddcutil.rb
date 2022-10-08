@@ -5,6 +5,11 @@ class Ddcutil < Formula
   sha256 "822faa342b0bcbb41f15c1910a2bc9d50ffd78f695d6dd04387964010b69cba1"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://www.ddcutil.com/releases/"
+    regex(/href=.*?ddcutil[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "cf0178655ff935497c7790df894ff2d01207ef5be117528498d44b6e4e7c85ab"
   end
