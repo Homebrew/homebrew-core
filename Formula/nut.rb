@@ -4,7 +4,7 @@ class Nut < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://networkupstools.org/source/2.8/nut-2.8.0.tar.gz"
+    url "https://github.com/networkupstools/nut/releases/download/v2.8.0/nut-2.8.0.tar.gz"
     sha256 "c3e5a708da797b7c70b653d37b1206a000fcb503b85519fe4cdf6353f792bfe5"
 
     # fix build failure
@@ -16,8 +16,8 @@ class Nut < Formula
   end
 
   livecheck do
-    url "https://networkupstools.org/download.html"
-    regex(/href=.*?nut[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
