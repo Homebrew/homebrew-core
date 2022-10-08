@@ -35,10 +35,10 @@ class Wireshark < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "python" => :build
+  uses_from_macos "libpcap"
 
   def install
     args = std_cmake_args + %W[
-      -DENABLE_PCAP=#{OS.mac? ? "ON" : "OFF"}
       -DENABLE_CARES=ON
       -DENABLE_GNUTLS=ON
       -DENABLE_MAXMINDDB=ON
