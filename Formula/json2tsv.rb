@@ -5,6 +5,11 @@ class Json2tsv < Formula
   sha256 "04e6a60d6b33603a8a19d28e94038b63b17d49c65a0495cd761cf7f22616de9b"
   license "ISC"
 
+  livecheck do
+    url "https://codemadness.org/releases/json2tsv/"
+    regex(/href=.*?json2tsv[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d04512803537d4cde3bf6e23a668c9bc5dade0a758ffa1526f223d1171bb76b0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf9ea5403bd945f5296fcc8be5f93c38d89219bc6d56b4591d3f9c5d5f97528f"
