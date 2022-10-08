@@ -3,8 +3,8 @@ class Simgrid < Formula
 
   desc "Studies behavior of large-scale distributed systems"
   homepage "https://simgrid.org/"
-  url "https://framagit.org/simgrid/simgrid/-/archive/v3.32/simgrid-v3.32.tar.bz2"
-  sha256 "b544b33ce13324c4c50bb76ce912db8f2fd874100ecda5e55a34e5cbc62641ce"
+  url "https://framagit.org/simgrid/simgrid/uploads/c45f7fd6872b3b0d26b9ba2e607d6e3a/simgrid-3.32.tar.gz"
+  sha256 "837764eb81562f04e49dd20fbd8518d9eb1f94df00a4e4555e7ec7fa8aa341f0"
   license "LGPL-2.1-only"
 
   livecheck do
