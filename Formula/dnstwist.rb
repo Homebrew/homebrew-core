@@ -125,7 +125,6 @@ class Dnstwist < Formula
   test do
     output = shell_output("#{bin}/dnstwist -rsw brew.sh 2>&1")
 
-    assert_match version.to_s, output
     assert_match "brew.sh", output
     assert_match "NS:ns1.dnsimple.com", output
   end
