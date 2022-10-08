@@ -5,7 +5,7 @@ class ActivemqCpp < Formula
   mirror "https://archive.apache.org/dist/activemq/activemq-cpp/3.9.5/activemq-cpp-library-3.9.5-src.tar.bz2"
   sha256 "6bd794818ae5b5567dbdaeb30f0508cc7d03808a4b04e0d24695b2501ba70c15"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "4edbf0e904c82cfd6257eb1addfcfedf7e90ea1d5c20429adb92fc42ddbfff5f"
@@ -21,7 +21,7 @@ class ActivemqCpp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "apr"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
