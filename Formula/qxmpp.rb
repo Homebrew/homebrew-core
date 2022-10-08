@@ -40,6 +40,7 @@ class Qxmpp < Formula
       INCLUDEPATH += #{include}
       LIBPATH     += #{lib}
       LIBS        += -lqxmpp
+      QMAKE_RPATHDIR += #{lib}
     EOS
 
     (testpath/"test.cpp").write <<~EOS
