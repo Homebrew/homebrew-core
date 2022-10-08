@@ -11,6 +11,7 @@ class SNail < Formula
     "HPND-sell-variant", # GSSAPI code
     "RSA-MD", # MD5 code
   ]
+  revision 1
 
   livecheck do
     url :homepage
@@ -26,14 +27,13 @@ class SNail < Formula
     sha256 x86_64_linux:   "1783d8ab84a3d696f709685f91dff33cc1decbc5424271d9f2adc0f39e43aeef"
   end
 
-  depends_on "awk" => :build
-  depends_on "libidn"
-  depends_on "openssl@1.1"
+  depends_on "libidn2"
+  depends_on "openssl@3"
 
   def install
     system "make", "CC=#{ENV.cc}",
-                   "C_INCLUDE_PATH=#{Formula["openssl@1.1"].opt_include}",
-                   "LDFLAGS=-L#{Formula["openssl@1.1"].opt_lib}",
+                   "C_INCLUDE_PATH=#{Formula["openssl@3"].opt_include}",
+                   "LDFLAGS=-L#{Formula["openssl@3"].opt_lib}",
                    "VAL_PREFIX=#{prefix}",
                    "OPT_DOTLOCK=no",
                    "config"
