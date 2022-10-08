@@ -1,10 +1,20 @@
 class Ncrack < Formula
   desc "Network authentication cracking tool"
   homepage "https://nmap.org/ncrack/"
-  url "https://github.com/nmap/ncrack/archive/0.7.tar.gz"
-  sha256 "f3f971cd677c4a0c0668cb369002c581d305050b3b0411e18dd3cb9cc270d14a"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/nmap/ncrack.git", branch: "master"
+
+  stable do
+    url "https://github.com/nmap/ncrack/archive/refs/tags/0.7.tar.gz"
+    sha256 "f3f971cd677c4a0c0668cb369002c581d305050b3b0411e18dd3cb9cc270d14a"
+
+    # Fix build with GCC 10+. Remove in the next release.
+    patch do
+      url "https://github.com/nmap/ncrack/commit/af4a9f15a26fea76e4b461953aa34ec0865d078a.patch?full_index=1"
+      sha256 "273df2e3bc0733b97a258a9bea2145c4ea36e10b5beaeb687b341e8c8a82eb42"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -17,16 +27,13 @@ class Ncrack < Formula
     sha256 x86_64_linux:   "7e269a772c515bb8dfdd7f000bc8989f4e4609fa7f1aedbffa6176fcc035f761"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Work around configure issues with Xcode 12 (at least in the opensshlib component)
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make"
     system "make", "install"
   end
