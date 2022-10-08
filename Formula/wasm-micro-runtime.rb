@@ -6,6 +6,11 @@ class WasmMicroRuntime < Formula
   license "Apache-2.0"
   head "https://github.com/bytecodealliance/wasm-micro-runtime.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^WAMR[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "76b7d0f9fe1be60e1b33091acece2afec12545561663cba4abc75f76a89d10da"
     sha256 cellar: :any,                 arm64_big_sur:  "607bae21939f03e76ad9b6bdaeea3c2a7aec478a6a859d92e596f72c21837e34"
