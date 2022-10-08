@@ -37,6 +37,10 @@ class Pike < Formula
     depends_on "gnu-sed" => :build
   end
 
+  on_linux do
+    depends_on "libnsl"
+  end
+
   def install
     ENV.append "CFLAGS", "-m64"
     ENV.deparallelize
