@@ -1,8 +1,8 @@
 class WasmMicroRuntime < Formula
   desc "WebAssembly Micro Runtime (WAMR)"
   homepage "https://github.com/bytecodealliance/wasm-micro-runtime"
-  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-1.0.0.tar.gz"
-  sha256 "b5c147f91fe02b3457188bf7067ecfd7e00d91c65a08bdd629e65999422a78c4"
+  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-1.1.0.tar.gz"
+  sha256 "608933db9273de222dc183cee3d32f084f91b90205c420d000a3276c522f9263"
   license "Apache-2.0"
   head "https://github.com/bytecodealliance/wasm-micro-runtime.git", branch: "main"
 
