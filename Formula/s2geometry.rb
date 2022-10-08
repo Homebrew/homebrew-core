@@ -4,7 +4,7 @@ class S2geometry < Formula
   url "https://github.com/google/s2geometry/archive/v0.10.0.tar.gz"
   sha256 "1c17b04f1ea20ed09a67a83151ddd5d8529716f509dde49a8190618d70532a3d"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
@@ -24,7 +24,7 @@ class S2geometry < Formula
   depends_on "cmake" => :build
   depends_on "abseil"
   depends_on "glog"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   fails_with gcc: "5" # C++17
 
@@ -32,9 +32,8 @@ class S2geometry < Formula
     # Abseil is built with C++17 and s2geometry needs to use the same C++ standard.
     inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD 17)"
 
-    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@1.1"].opt_prefix
-
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
       -DWITH_GFLAGS=1
       -DWITH_GLOG=1
     ]
@@ -118,7 +117,7 @@ class S2geometry < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
-                    "-I#{Formula["openssl@1.1"].opt_include}",
+                    "-I#{Formula["openssl@3"].opt_include}",
                     "-L#{lib}", "-ls2"
     system "./test"
   end
