@@ -27,10 +27,12 @@ class Wabt < Formula
   fails_with gcc: "5" # C++17
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DBUILD_TESTS=OFF", "-DWITH_WASI=ON", *std_cmake_args
-      system "make", "install"
-    end
+    # PR ref, https://github.com/WebAssembly/wabt/pull/2017
+    mv "include/wabt/interp/wasi_api.def", "src/interp/wasi_api.def"
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_TESTS=OFF", "-DWITH_WASI=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
