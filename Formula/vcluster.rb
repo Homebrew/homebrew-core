@@ -28,7 +28,7 @@ class Vcluster < Formula
       -X main.version=#{version}
     ]
     system "go", "build", "-mod", "vendor", *std_go_args(ldflags: ldflags), "./cmd/vclusterctl/main.go"
-    generate_completions_from_executable(bin/"vcluster", "completion", shells: [:zsh, :bash])
+    generate_completions_from_executable(bin/"vcluster", "completion")
   end
 
   test do
