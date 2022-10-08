@@ -1,8 +1,8 @@
 class Libxtst < Formula
   desc "X.Org: Client API for the XTEST & RECORD extensions"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXtst-1.2.3.tar.bz2"
-  sha256 "4655498a1b8e844e3d6f21f3b2c4e2b571effb5fd83199d428a6ba7ea4bf5204"
+  url "https://www.x.org/archive/individual/lib/libXtst-1.2.4.tar.gz"
+  sha256 "01366506aeb033f6dffca5326af85f670746b0cabbfd092aabefb046cf48c445"
   license "MIT"
 
   bottle do
