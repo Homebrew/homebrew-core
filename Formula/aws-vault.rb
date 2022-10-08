@@ -4,7 +4,6 @@ class AwsVault < Formula
   url "https://github.com/99designs/aws-vault/archive/v6.6.0.tar.gz"
   sha256 "c9973d25047dc2487f413b86f91ccc4272b385fea3132e397c3a921baa01c885"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
