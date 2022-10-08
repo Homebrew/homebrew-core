@@ -4,7 +4,7 @@ class I2pd < Formula
   url "https://github.com/PurpleI2P/i2pd/archive/2.43.0.tar.gz"
   sha256 "db1679653491a411dd16fa329488d840296c8f680e0691f9fe0d0e796e5d7bca"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a12f86351082bae3f4a75a69307cfaa741fca3e79db07c15a6bb29507bbe21bc"
@@ -17,7 +17,7 @@ class I2pd < Formula
 
   depends_on "boost"
   depends_on "miniupnpc"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = %W[
@@ -25,8 +25,9 @@ class I2pd < Formula
       HOMEBREW=1
       USE_UPNP=yes
       PREFIX=#{prefix}
+      BREWROOT=#{HOMEBREW_PREFIX}
+      SSLROOT=#{Formula["openssl@3"].opt_prefix}
     ]
-
     args << "USE_AESNI=no" if Hardware::CPU.arm?
 
     system "make", "install", *args
