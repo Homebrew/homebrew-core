@@ -1,10 +1,9 @@
 class Qsoas < Formula
   desc "Versatile software for data analysis"
   homepage "https://bip.cnrs.fr/groups/bip06/software/"
-  url "https://bip.cnrs.fr/wp-content/uploads/qsoas/qsoas-3.0.tar.gz"
-  sha256 "54b54f54363f69a9845b3e9aa4da7dae9ceb7bb0f3ed59ba92ffa3b408163850"
+  url "https://bip.cnrs.fr/wp-content/uploads/qsoas/qsoas-3.1.tar.gz"
+  sha256 "0c8f013fef6746b833dc59477aa476eeb10f53c9dcb2e0f960c86122892f6c15"
   license "GPL-2.0-only"
-  revision 2
 
   livecheck do
     url "https://github.com/fourmond/QSoas.git"
