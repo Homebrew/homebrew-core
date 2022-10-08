@@ -66,9 +66,6 @@ class Pythran < Formula
     rm_f testpath/"dprod.py"
     assert_equal "11", shell_output("#{python} -c 'import dprod; print(dprod.dprod([1,2], [3,4]))'").chomp
 
-    # FIXME: This test case fails with Linux trying to execute `gcc-5`, which does not exist.
-    return if OS.linux? && Formula["python@3.10"].version < "3.10.7"
-
     (testpath/"arc_distance.py").write <<~EOS
       #pythran export arc_distance(float[], float[], float[], float[])
       import numpy as np
@@ -95,9 +92,5 @@ class Pythran < Formula
       )
       assert ([1.927, 1., 1.975, 1.83, 1.032] == np.round(d, 3)).all()
     EOS
-
-    return if OS.mac?
-
-    odie "The python3.10 version check should be removed! See Homebrew/homebrew-core#111909."
   end
 end
