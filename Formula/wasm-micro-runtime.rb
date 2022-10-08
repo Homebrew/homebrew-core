@@ -22,7 +22,7 @@ class WasmMicroRuntime < Formula
 
   depends_on "cmake" => :build
 
-  resource "fib_wasm" do
+  resource "homebrew-fib_wasm" do
     url "https://github.com/wasm3/wasm3/raw/main/test/lang/fib.c.wasm"
     sha256 "e6fafc5913921693101307569fc1159d4355998249ca8d42d540015433d25664"
   end
@@ -51,7 +51,7 @@ class WasmMicroRuntime < Formula
   end
 
   test do
-    resource("fib_wasm").stage testpath
+    resource("homebrew-fib_wasm").stage testpath
     system "#{bin}/iwasm", "-f", "fib", "#{testpath}/fib.c.wasm"
   end
 end
