@@ -4,7 +4,7 @@ class QuickLintJs < Formula
   url "https://c.quick-lint-js.com/releases/2.9.0/source/quick-lint-js-2.9.0.tar.gz"
   sha256 "b0010e2025c3250106df9c2cd2aa67f4643c037159c2f05ba97cbc9b02b04837"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/quick-lint/quick-lint-js.git", branch: "master"
 
   bottle do
@@ -22,11 +22,10 @@ class QuickLintJs < Formula
   depends_on "boost"
   depends_on "simdjson"
 
-  # quick-lint-js requires some C++17 features, thus
-  # requires GCC 8 or newer.
-  fails_with gcc: "5"
-  fails_with gcc: "6"
-  fails_with gcc: "7"
+  fails_with :gcc do
+    version "7"
+    cause "requires C++17"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",
