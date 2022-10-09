@@ -3,8 +3,8 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://pyinstaller.org/"
-  url "https://files.pythonhosted.org/packages/18/9e/dbee87c405633be8ae926520d5e91c29cd76c969328ad4c724e6983e2b58/pyinstaller-5.4.1.tar.gz"
-  sha256 "2a09e6bd6e121eb1a71fadb223797dc502e4fd4168931c31a5f87faa10eb5b4c"
+  url "https://files.pythonhosted.org/packages/1e/d7/214b25c912d5f7d9c31d266821a8be6a35df80535056fe83997688721927/pyinstaller-5.5.tar.gz"
+  sha256 "88993dfc6429dce8dd1f9a73c08e259af71dd3a227d3002ccb8e959151757dc3"
   license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
@@ -20,13 +20,8 @@ class Pyinstaller < Formula
   depends_on "python@3.10"
 
   resource "altgraph" do
-    url "https://files.pythonhosted.org/packages/a9/f1/62830c4915178dbc6948687916603f1cd37c2c299634e4a8ee0efc9977e7/altgraph-0.17.2.tar.gz"
-    sha256 "ebf2269361b47d97b3b88e696439f6e4cbc607c17c51feb1754f90fb79839158"
-  end
-
-  resource "macholib" do
-    url "https://files.pythonhosted.org/packages/16/1b/85fd523a1d5507e9a5b63e25365e0a26410d5b6ee89082426e6ffff30792/macholib-1.16.tar.gz"
-    sha256 "001bf281279b986a66d7821790d734e61150d52f40c080899df8fefae056e9f7"
+    url "https://files.pythonhosted.org/packages/5a/13/a7cfa43856a7b8e4894848ec8f71cd9e1ac461e51802391a3e2101c60ed6/altgraph-0.17.3.tar.gz"
+    sha256 "ad33358114df7c9416cdb8fa1eaa5852166c505118717021c6a8c7c7abbd03dd"
   end
 
   resource "pyinstaller-hooks-contrib" do
