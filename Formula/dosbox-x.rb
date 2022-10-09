@@ -26,11 +26,15 @@ class DosboxX < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
+  depends_on "freetype"
+  depends_on "libpng"
+  depends_on "libslirp"
   depends_on macos: :high_sierra # needs futimens
+  depends_on "sdl2"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-headers@5.15" => :build
-    depends_on "sdl2"
   end
 
   fails_with gcc: "5"
@@ -38,13 +42,18 @@ class DosboxX < Formula
   def install
     ENV.cxx11
 
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
+    # See flags in `build-macos-sdl2`.
+    args = %w[
+      --enable-core-inline
+      --enable-sdl2
+      --disable-sdl2test
+      --disable-sdl
       --disable-sdltest
     ]
-    build_script = OS.mac? ? "./build-macos-sdl2" : "./build"
-    system build_script, *args
+
+    system "./autogen.sh"
+    system "./configure", *std_configure_args, *args
+    system "make" # Needs to be called separately from `make install`.
     system "make", "install"
   end
 
