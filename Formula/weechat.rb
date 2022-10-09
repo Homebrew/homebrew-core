@@ -1,10 +1,9 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-3.6.tar.xz"
-  sha256 "9d85d71b3b7d04c03bd35ab6501afa8b5b3c609dce7691709ec740fecc31f2de"
+  url "https://weechat.org/files/src/weechat-3.7.tar.xz"
+  sha256 "6bd6962581331d31f4d4f8da489a1d0e8315038001bc00afcd306e58db0a0c54"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
