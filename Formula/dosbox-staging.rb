@@ -46,8 +46,9 @@ class DosboxStaging < Formula
   fails_with gcc: "5"
 
   def install
+    (buildpath/"subprojects").rmtree # Ensure we don't use vendored dependencies
     system_libs = %w[fluidsynth glib iir mt32emu opusfile png sdl2 sdl2_net slirp speexdsp zlib]
-    args = %W[-Db_lto=true -Dtracy=false -Dsystem_libraries=#{system_libs.join(",")}]
+    args = %W[-Ddefault_library=shared -Db_lto=true -Dtracy=false -Dsystem_libraries=#{system_libs.join(",")}]
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
