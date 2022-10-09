@@ -17,29 +17,24 @@ class Ldid < Formula
   end
 
   depends_on "libplist"
-  depends_on :macos
   depends_on "openssl@1.1"
+  uses_from_macos "libxml2"
 
   def install
-    system ENV.cc, "-c",
-                   "-o", "lookup2.o", "lookup2.c",
-                   "-I."
-    system ENV.cxx, "-std=c++11",
-                    "-o", "ldid", "lookup2.o", "ldid.cpp",
-                    "-I.",
-                    "-framework", "CoreFoundation",
-                    "-framework", "Security",
-                    "-lcrypto", "-lplist-2.0", "-lxml2"
+    ENV.append_to_cflags "-I."
+    ENV.append "CXXFLAGS", "-std=c++11"
+    linker_flags = %w[lookup2.o -lcrypto -lplist-2.0 -lxml2]
+    linker_flags += %w[-framework CoreFoundation -framework Security] if OS.mac?
+
+    system "make", "lookup2.o"
+    system "make", "ldid", "LDLIBS=#{linker_flags.join(" ")}"
+
     bin.install "ldid"
-    ln_s bin/"ldid", bin/"ldid2"
+    bin.install_symlink "ldid" => "ldid2"
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
-      int main(int argc, char **argv) { return 0; }
-    EOS
-
-    system ENV.cc, "test.c", "-o", "test"
-    system bin/"ldid", "-S", "test"
+    cp test_fixtures("mach/a.out"), testpath
+    system bin/"ldid", "-S", "a.out"
   end
 end
