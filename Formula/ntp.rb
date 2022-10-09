@@ -5,14 +5,9 @@ class Ntp < Formula
   version "4.2.8p15"
   sha256 "f65840deab68614d5d7ceb2d0bb9304ff70dcdedd09abb79754a87536b849c19"
 
-  # This approach is a temporary workaround while www.ntp.org is experiencing
-  # SSL certificate issues. Once this issue is resolved, we should reinstate
-  # the previous check.
   livecheck do
-    # url "https://www.ntp.org/downloads.html"
-    # regex(/href=.*?ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
-    url "https://support.ntp.org/rss/releases.xml"
-    regex(%r{/ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t}i)
+    url "https://www.ntp.org/downloads.html"
+    regex(/href=.*?ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
   end
 
   bottle do
