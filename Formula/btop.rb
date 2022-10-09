@@ -15,16 +15,17 @@ class Btop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "177872d7a8a5e136fc90a82b2d9ea796beb9343b156c9cd880e4f5eef783918e"
   end
 
-  depends_on "coreutils" => :build
-  depends_on "gcc"
+  on_macos do
+    depends_on "coreutils" => :build
+    depends_on "gcc"
+  end
 
   fails_with :clang # -ftree-loop-vectorize -flto=12 -s
-  # GCC 10 at least is required
-  fails_with gcc: "5"
-  fails_with gcc: "6"
-  fails_with gcc: "7"
-  fails_with gcc: "8"
-  fails_with gcc: "9"
+
+  fails_with :gcc do
+    version "9"
+    cause "requires GCC 10+"
+  end
 
   def install
     system "make", "CXX=#{ENV.cxx}", "STRIP=true"
