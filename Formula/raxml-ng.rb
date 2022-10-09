@@ -16,15 +16,15 @@ class RaxmlNg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "17a1c0ffcb195cdcf3d3ed4aa70f7de5b863452b3139e9b01851a3a25b939ef5"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "cmake" => :build
-  depends_on "libtool" => :build
   depends_on "gmp"
-  depends_on "open-mpi"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "open-mpi"
+  end
 
   # Backport ARM support. Remove in the next release.
   # Ref: https://github.com/amkozlov/raxml-ng/commit/6a8f3d98ba0243b9f1452e0f7aab928e45d59b6f
@@ -44,21 +44,23 @@ class RaxmlNg < Formula
 
   def install
     args = std_cmake_args + ["-DUSE_GMP=ON"]
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
-    mkdir "build_mpi" do
-      ENV["CC"] = "mpicc"
-      ENV["CXX"] = "mpicxx"
-      system "cmake", "..", *args, "-DUSE_MPI=ON", "-DRAXML_BINARY_NAME=raxml-ng-mpi"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # Upstream doesn't support building MPI variant on macOS.
+    # The build ignores USE_MPI=ON and forces ENABLE_MPI=OFF.
+    # This causes necessary flags like -D_RAXML_MPI to not get set.
+    return if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build_mpi", *args, "-DUSE_MPI=ON"
+    system "cmake", "--build", "build_mpi"
+    system "cmake", "--install", "build_mpi"
   end
 
   test do
     testpath.install resource("homebrew-example")
-    system "#{bin}/raxml-ng", "--msa", "dna.phy", "--start", "--model", "GTR"
+    system bin/"raxml-ng", "--msa", "dna.phy", "--start", "--model", "GTR"
   end
 end
 
