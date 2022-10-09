@@ -71,7 +71,7 @@
   },
   "bpytop": "bpytop",
   "breezy": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["six", "PyYAML"]
   },
   "buku": {
     "package_name": "buku[server]",

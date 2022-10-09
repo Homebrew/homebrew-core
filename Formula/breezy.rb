@@ -4,8 +4,8 @@ class Breezy < Formula
   desc "Version control system implemented in Python with multi-format support"
   # homepage "https://www.breezy-vcs.org" temporary? 503
   homepage "https://github.com/breezy-team/breezy"
-  url "https://files.pythonhosted.org/packages/e4/56/bc9f139cfb5eaeb9f0e155bbe2071f97167994b7cbc4c2cced04c48e4a80/breezy-3.2.2.tar.gz"
-  sha256 "187a6e45208dd05d81750736720c83710cf48094f547ec4081c571259559a4d5"
+  url "https://files.pythonhosted.org/packages/42/05/abb86dd4d32d72a70ba4aeb7fa0eed5bfca8f23b911de66716f46fac224c/breezy-3.3.0.tar.gz"
+  sha256 "f4d51f18e13555a2c04520bcf33cb97c6ee4551b286828c342f1d4df9dc5041c"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -20,17 +20,13 @@ class Breezy < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "libcython" => :build
+  depends_on "rust" => :build
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+  depends_on "pyyaml"
   depends_on "six"
 
   conflicts_with "bazaar", because: "both install `bzr` binaries"
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
-  end
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
@@ -38,27 +34,36 @@ class Breezy < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/28/0d/e89036c08fd49722ca7091cc574c0f133d667a7ec37bbdff763b15ec0913/dulwich-0.20.35.tar.gz"
-    sha256 "953f6301a9df8a091fa88d55eed394a88bf9988cde8be341775354910918c196"
+    url "https://files.pythonhosted.org/packages/d1/20/4c2ea55d6547460a93dce9112599953be1c939155eae7a8e11a17c4d0b2c/dulwich-0.20.50.tar.gz"
+    sha256 "50a941796b2c675be39be728d540c16b5b7ce77eb9e1b3f855650ece6832d2be"
   end
 
   resource "fastbencode" do
-    url "https://files.pythonhosted.org/packages/27/8c/b98694c74535f984f220c3762842e7aa17c60d5c12103093e0ce0da8edb0/fastbencode-0.0.7.tar.gz"
-    sha256 "b6bc9abe542d0663793529576f49ba8891508554f85d09b5d6d5ed7af7e0c6e4"
+    url "https://files.pythonhosted.org/packages/cd/e1/94ff8d7ce12ca1fa76b7299af27819829cc8feea125615e6e1f805e8f4e6/fastbencode-0.1.tar.gz"
+    sha256 "c1a978e75a5048bba833d90d6e748a55950ca8b59f12e917c2a2c8e7ca7eb6f5"
+  end
+
+  resource "merge3" do
+    url "https://files.pythonhosted.org/packages/1b/ef/6543392d9dcca7694c9c9bff93562107c3a3c104165f98348de41a080cd3/merge3-0.0.11.tar.gz"
+    sha256 "859ee1c31595c148f0961c55402779bc98c1c63dfdfca2f2cd7d443be6f0ab9c"
   end
 
   resource "patiencediff" do
-    url "https://files.pythonhosted.org/packages/90/ca/13cdabb3c491a0ccd7d580419b96abce3d227d4a6ba674364e6b19d4d67e/patiencediff-0.2.2.tar.gz"
-    sha256 "456d9fc47fe43f9aea863059ea2c6df5b997285590e4b7f9ee8fbb6c3419b5a7"
+    url "https://files.pythonhosted.org/packages/28/48/ea6ff771aac65eb732f513f53eee22acc4020c0297e0597e3c517205ca73/patiencediff-0.2.7.tar.gz"
+    sha256 "f4aff7ea161f692f3b6114c1492511eedc210738dc723dda6ff7d39124a7eb0e"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
-    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   def install
     virtualenv_install_with_resources
+    bin.each_child do |f|
+      f.unlink
+      f.write_env_script libexec/"bin"/f.basename, PATH: "#{libexec}/bin:$PATH"
+    end
     man1.install_symlink Dir[libexec/"man/man1/*.1"]
 
     # Replace bazaar with breezy
