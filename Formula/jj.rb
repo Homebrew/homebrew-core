@@ -21,7 +21,6 @@ class Jj < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "gcc"
   end
 
   def install
