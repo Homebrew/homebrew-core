@@ -22,7 +22,11 @@ class Helmfile < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/helmfile/helmfile/pkg/app/version.Version=v#{version}
+      -X go.szostok.io/version.version=v#{version}
+      -X go.szostok.io/version.buildDate=#{time.iso8601}
+      -X go.szostok.io/version.commit="brew"
+      -X go.szostok.io/version.commitDate=#{time.iso8601}
+      -X go.szostok.io/version.dirtyBuild=false
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
