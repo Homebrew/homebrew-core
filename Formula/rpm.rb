@@ -43,23 +43,6 @@ class Rpm < Formula
     depends_on "libomp"
   end
 
-  # Fix `fstat64` detection for Apple Silicon.
-  # https://github.com/rpm-software-management/rpm/pull/1775
-  # https://github.com/rpm-software-management/rpm/pull/1897
-  patch do
-    on_arm do
-      url "https://github.com/rpm-software-management/rpm/commit/ad87ced3990c7e14b6b593fa411505e99412e248.patch?full_index=1"
-      sha256 "a129345c6ba026b337fe647763874bedfcaf853e1994cf65b1b761bc2c7531ad"
-    end
-  end
-
-  # Remove defunct Lua rex extension, which causes linking errors with Homebrew's Lua.
-  # https://github.com/rpm-software-management/rpm/pull/1797/files
-  patch do
-    url "https://github.com/rpm-software-management/rpm/commit/83d781c442158ce61286ac68cc350d10c2d3837e.patch?full_index=1"
-    sha256 "5dc9fb093ad46657575e5782d257d9b47d3c8119914283794464a84a7aef50b0"
-  end
-
   def install
     ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
     ENV.append "LDFLAGS", "-lomp" if OS.mac?
