@@ -23,17 +23,14 @@ class Kahip < Formula
     depends_on "gcc"
   end
 
-  def install
-    if OS.mac?
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
-      ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
-      ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{gcc_major_ver}"
-    end
+  fails_with :clang do
+    cause "needs OpenMP support"
+  end
 
-    mkdir "build" do
-      system "cmake", *std_cmake_args, ".."
-      system "make", "install"
-    end
+  def install
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
