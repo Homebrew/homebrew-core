@@ -16,6 +16,15 @@ class Licensed < Formula
     system "gem", "install", "licensed-#{version}.gem"
     bin.install libexec/"bin/licensed"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
+
+    # Avoid references to the Homebrew shims directory
+    shims_references = Dir[
+      libexec/"extensions/**/rugged-*/gem_make.out",
+      libexec/"extensions/**/rugged-*/mkmf.log",
+      libexec/"gems/rugged-*/vendor/libgit2/build/CMakeCache.txt",
+      libexec/"gems/rugged-*/vendor/libgit2/build/**/CMakeFiles/**/*",
+    ].select { |f| File.file? f }
+    inreplace shims_references, Superenv.shims_path.to_s, "<**Reference to the Homebrew shims directory**>", false
   end
 
   test do
