@@ -5,6 +5,7 @@ class Fastd < Formula
       tag:      "v22",
       revision: "0f47d83eac2047d33efdab6eeaa9f81f17e3ebd1"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/NeoRaider/fastd.git", branch: "main"
 
   bottle do
@@ -25,7 +26,7 @@ class Fastd < Formula
   depends_on "json-c"
   depends_on "libsodium"
   depends_on "libuecc"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "libcap"
