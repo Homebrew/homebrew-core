@@ -240,6 +240,10 @@
   "http-prompt": {
     "exclude_packages": ["six", "PyYAML"]
   },
+  "huggingface-cli": {
+    "package_name": "huggingface-hub",
+    "exclude_packages": ["PyYAML", "typing-extensions"]
+  },
   "internetarchive": {
     "exclude_packages": ["six"]
   },
