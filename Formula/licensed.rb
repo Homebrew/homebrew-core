@@ -6,8 +6,8 @@ class Licensed < Formula
       revision: "76727f75d486a24758890a030e540ebf87bba78b"
   license "MIT"
 
-  depends_on "cmake"
-  depends_on "pkg-config"
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "ruby@2.7"
 
   def install
