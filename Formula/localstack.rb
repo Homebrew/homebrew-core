@@ -6,6 +6,7 @@ class Localstack < Formula
   url "https://files.pythonhosted.org/packages/58/dc/b6cb5992d54d637abb83e8e32cf6c9f89c69b1759da81a58c821e18775c1/localstack-1.2.0.tar.gz"
   sha256 "cbcc0b79526256e5d113e307e0f91263616a035600d891e5bb22d8a4c035da53"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 2
@@ -21,8 +22,8 @@ class Localstack < Formula
 
   depends_on "rust" => :build # for cryptography
   depends_on "docker" => :test
-  depends_on "libpython-tabulate"
   depends_on "pygments"
+  depends_on "python-tabulate"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
