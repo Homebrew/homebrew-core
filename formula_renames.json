@@ -91,6 +91,7 @@
   "letsencrypt": "certbot",
   "libcppa": "caf",
   "libmongoclient": "mongo-cxx-driver",
+  "libpython-tabulate": "python-tabulate",
   "libsasl2": "cyrus-sasl",
   "libtorch": "pytorch",
   "linux-headers": "linux-headers@4.4",
