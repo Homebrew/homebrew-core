@@ -4,7 +4,7 @@ class Tbb < Formula
   url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.5.0.tar.gz"
   sha256 "e5b57537c741400cf6134b428fc1689a649d7d38d9bb9c1b6d64f092ea28178a"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -19,6 +19,7 @@ class Tbb < Formula
   depends_on "cmake" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "swig" => :build
+  depends_on "hwloc"
 
   # Fix installation of Python components
   # See https://github.com/oneapi-src/oneTBB/issues/343
