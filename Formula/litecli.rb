@@ -6,7 +6,7 @@ class Litecli < Formula
   url "https://files.pythonhosted.org/packages/c1/92/b2eb5f098446a05b9a92e548bd83442f2169f87f3e1b37ffed7a5315c264/litecli-1.9.0.tar.gz"
   sha256 "21af2cfa083dd4df1e3ccaa2a2117129b5f17212756f596ea090e296776c27a1"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -20,7 +20,7 @@ class Litecli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d086d289d846f6891a8f565be0b958ee1ef554680af0c63f095383ea84c1554"
   end
 
-  depends_on "libpython-tabulate"
+  depends_on "python-tabulate"
   depends_on "python@3.11"
   depends_on "six"
 
