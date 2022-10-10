@@ -6,6 +6,7 @@ class Pgcli < Formula
   url "https://files.pythonhosted.org/packages/a7/2c/5ec926b4ef08c23126875e29923bb803f2aee56d597aa248d429385d2887/pgcli-3.5.0.tar.gz"
   sha256 "cc448d95159fc0903d36182992778a096eda5752d660d47671383c8e2bf633f1"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     rebuild 3
@@ -20,9 +21,9 @@ class Pgcli < Formula
   end
 
   depends_on "libpq"
-  depends_on "libpython-tabulate"
   depends_on "openssl@1.1"
   depends_on "pygments"
+  depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "six"
