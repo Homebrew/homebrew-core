@@ -6,6 +6,7 @@ class Sgr < Formula
   url "https://github.com/splitgraph/sgr/archive/refs/tags/v0.3.12.tar.gz"
   sha256 "e5153944383a0160efe4d56a2c4a6d11f74bb1a04d097df95806ddcbc1ab5618"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -17,11 +18,11 @@ class Sgr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "df6df3e3cb72fb8d7f91aea11964d65c012bacc3d10f219461445b8e3e7a26d2"
   end
 
-  depends_on "libpython-tabulate" => :build
   depends_on "poetry" => :build
   depends_on "rust" => :build # for cryptography
   depends_on "jsonschema"
   depends_on "libpq" # for psycopg2-binary
+  depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.10"
 
