@@ -1,14 +1,10 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.27.0.tar.gz"
+  sha256 "e356cafb0742a9270a7422ea8b9ce6100c6fca3c69206142ab6cd196c557a704"
   license "BSD-2-Clause"
-  revision 3
-
-  stable do
-    url "https://github.com/Project-OSRM/osrm-backend/archive/v5.26.0.tar.gz"
-    sha256 "45e986db540324bd0fc881b746e96477b054186698e8d14610ff7c095e906dcd"
-    depends_on "tbb@2020"
-  end
+  head "https://github.com/Project-OSRM/osrm-backend.git"
 
   livecheck do
     url :stable
@@ -24,17 +20,13 @@ class OsrmBackend < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e4ae0bf5395b1ce3ee5ae26c4397d36ffb414815c20cb34564ef62f8d024199"
   end
 
-  head do
-    url "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
-    depends_on "tbb"
-  end
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "libzip"
   depends_on "lua"
+  depends_on "tbb"
 
   conflicts_with "flatbuffers", because: "both install flatbuffers headers"
 
