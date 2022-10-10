@@ -42,8 +42,7 @@ class Yorkie < Formula
 
     test_project = "test"
     output = shell_output("#{bin}/yorkie project create #{test_project}")
-    project_info = JSON.parse(output)
-    assert_equal test_project, project_info.fetch("name")
+    assert_match test_project, output
   ensure
     # clean up the process before we leave
     Process.kill("HUP", yorkie_pid)
