@@ -2,8 +2,8 @@ class CloudflareQuiche < Formula
   desc "Savoury implementation of the QUIC transport protocol and HTTP/3"
   homepage "https://docs.quic.tech/quiche/"
   url "https://github.com/cloudflare/quiche.git",
-      tag:      "0.15.0",
-      revision: "39db87204ade573270a19d9218ef79503d01e21e"
+      tag:      "0.16.0",
+      revision: "24a959abf115923910ce18985aa199d85fb602d7"
   license "BSD-2-Clause"
   head "https://github.com/cloudflare/quiche.git", branch: "master"
 
