@@ -6,6 +6,7 @@ class Regipy < Formula
   url "https://files.pythonhosted.org/packages/cd/bd/1c168ee5bd3cb11f157befe9e498ff8d70013d0c239f918a1e8cbd345d12/regipy-3.1.0.tar.gz"
   sha256 "7d65ed76eb0232fd37537751e5ae54264afdeae5678807eee6b6006387ee0377"
   license "MIT"
+  revision 1
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
@@ -20,7 +21,7 @@ class Regipy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7d3776813d6e0a006b904a8413ce2447ef4da280d6e9bf18c7156617c480c1b"
   end
 
-  depends_on "libpython-tabulate"
+  depends_on "python-tabulate"
   depends_on "python@3.11"
 
   resource "attrs" do
