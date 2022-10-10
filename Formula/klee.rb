@@ -4,7 +4,7 @@ class Klee < Formula
   desc "Symbolic Execution Engine"
   homepage "https://klee.github.io/"
   license "NCSA"
-  revision 2
+  revision 3
   head "https://github.com/klee/klee.git", branch: "master"
 
   stable do
@@ -37,9 +37,9 @@ class Klee < Formula
 
   depends_on "cmake" => :build
   depends_on "gperftools"
-  depends_on "libpython-tabulate"
   # LLVM 14 support in progress at https://github.com/klee/klee/pull/1477
   depends_on "llvm@13"
+  depends_on "python-tabulate"
   depends_on "python@3.10"
   depends_on "sqlite"
   depends_on "stp"
