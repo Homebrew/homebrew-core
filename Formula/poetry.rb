@@ -3,8 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/fa/73/e0870cd0049aff899a03ed04b9f3dc2642cce083f2c0eb6e276906b5c1ea/poetry-1.2.1.tar.gz"
-  sha256 "2750bb2b636ef435d8beac51dde0b13d06199017a1d9b96cba899863d1e81024"
+  url "https://files.pythonhosted.org/packages/98/4b/35736a678ef820e71e5ba895e853bc0e93eaa69c5621f47a559ce21bc588/poetry-1.2.2.tar.gz"
+  sha256 "6d9ed0b1b826a0a79190f2078d7d78483fa24bf2494f3b170e354eaa5e7b5ea1"
   license "MIT"
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
@@ -32,8 +32,8 @@ class Poetry < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/ca/48/88ec470f8b68319b6782ca3a0570789886ad5ca24c1af2f3771699135baa/certifi-2022.9.14.tar.gz"
-    sha256 "36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "cffi" do
@@ -82,13 +82,13 @@ class Poetry < Formula
   end
 
   resource "jaraco.classes" do
-    url "https://files.pythonhosted.org/packages/fe/8b/7876fbd69f5a8ebfbda73c8c1a5346171ee5ac0db28e9f5b2bb80ee3e73b/jaraco.classes-3.2.2.tar.gz"
-    sha256 "6745f113b0b588239ceb49532aa09c3ebb947433ce311ef2f8e3ad64ebb74594"
+    url "https://files.pythonhosted.org/packages/bf/02/a956c9bfd2dfe60b30c065ed8e28df7fcf72b292b861dca97e951c145ef6/jaraco.classes-3.2.3.tar.gz"
+    sha256 "89559fa5c1d3c34eff6f631ad80bb21f378dbcbb35dd161fd2c6b93f5be2f98a"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/99/00/072e2e03d32286c12b963a236f41040a528316a5a5c2fac6ff4029c85386/keyring-23.9.1.tar.gz"
-    sha256 "39e4f6572238d2615a82fcaa485e608b84b503cf080dc924c43bbbacb11c1c18"
+    url "https://files.pythonhosted.org/packages/2a/ef/28d3d5428108111dae4304a2ebec80d113aea9e78c939e25255425d486ff/keyring-23.9.3.tar.gz"
+    sha256 "69b01dd83c42f590250fe7a1f503fc229b14de83857314b1933a3ddbf595c4a5"
   end
 
   resource "more-itertools" do
@@ -122,13 +122,13 @@ class Poetry < Formula
   end
 
   resource "poetry-core" do
-    url "https://files.pythonhosted.org/packages/27/ba/611a561ef300abdae81a576445334fb7a41e62c295b050338a4f54fa76d4/poetry-core-1.2.0.tar.gz"
-    sha256 "ceccec95487e46c63a41761fbac5211b809bca22658e25a049f4c7da96269f71"
+    url "https://files.pythonhosted.org/packages/0d/07/2a30643e4177c8edafa037c8ee3c62e4390950ab01d5ebc86e04379e2ba7/poetry-core-1.3.2.tar.gz"
+    sha256 "0ab006a40cb38d6a38b97264f6835da2f08a96912f2728ce668e9ac6a34f686f"
   end
 
   resource "poetry-plugin-export" do
-    url "https://files.pythonhosted.org/packages/af/ba/17455f3fb81eb2518f3d52c85de0b3c36a9d5111cf24bf4968aa900260cc/poetry-plugin-export-1.0.7.tar.gz"
-    sha256 "f6ac707ae227b06b2481249ed2678ff6b810b3487cac0fbb66eb0dc2bfd6ecf1"
+    url "https://files.pythonhosted.org/packages/d5/b4/5d38ab61a05f93c38818ae3e223282e7d0873031e1e0f2c17cb974594530/poetry-plugin-export-1.1.2.tar.gz"
+    sha256 "5e92525dd63f38ce74a51ed68ea91d753523f21ce5f9ef8d3b793e2a4b2222ef"
   end
 
   resource "ptyprocess" do
@@ -167,8 +167,8 @@ class Poetry < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/84/51/092a8b945edc3b93f2de091ab9596006673caac063e3fac14f0fa6c69b1c/tomlkit-0.11.4.tar.gz"
-    sha256 "3235a9010fae54323e727c3ac06fb720752fe6635b3426e379daec60fbd44a83"
+    url "https://files.pythonhosted.org/packages/0c/2b/7823f215c6aec294f5ab5ff2f529aca1d85e8bec2208ae7ea89ca1413620/tomlkit-0.11.5.tar.gz"
+    sha256 "571854ebbb5eac89abcb4a2e47d7ea27b89bf29e09c35395da6f03dd4ae23d1c"
   end
 
   resource "urllib3" do
