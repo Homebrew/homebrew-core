@@ -6,6 +6,7 @@ class Esphome < Formula
   url "https://files.pythonhosted.org/packages/30/36/56ca271d94cc0f93618ff131f25a62ce0af0fb0a9b0d8088e84fbefe6177/esphome-2022.11.3.tar.gz"
   sha256 "2f5be87e46030e7e0ff49978708e585d7ce200027a696967c7392b3202960eea"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "99698e89820a6ddf84ee277ec940e6e7eaa971f78096854a1d3f75bd15de6608"
@@ -19,8 +20,8 @@ class Esphome < Formula
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "libpython-tabulate"
   depends_on "protobuf"
+  depends_on "python-tabulate"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
