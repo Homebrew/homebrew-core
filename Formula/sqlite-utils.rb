@@ -5,6 +5,7 @@ class SqliteUtils < Formula
   url "https://files.pythonhosted.org/packages/ba/8d/9660dc531135779a1980e670d78d1402506e02fc1aaa10556da6ecf9960c/sqlite-utils-3.30.tar.gz"
   sha256 "30005c12d5f13445659f791766beb6a9900c25f442bea1f980f21d38b75f6e33"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -18,7 +19,7 @@ class SqliteUtils < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe8b5518af041b66e3ece458fcf37134a1f3a9c270a52bb9bbec81f307dd7c38"
   end
 
-  depends_on "libpython-tabulate"
+  depends_on "python-tabulate"
   depends_on "python@3.11"
   depends_on "six"
 
