@@ -20,6 +20,13 @@ class Highway < Formula
   # These used to be bundled with `jpeg-xl`.
   link_overwrite "include/hwy/*", "lib/pkgconfig/libhwy*"
 
+  # Fix missing missing exec_prefix variable in libhwy_test.pc.
+  # Remove with the next release.
+  patch do
+    url "https://github.com/google/highway/commit/357e21beabb1af037f20130b4195fa5d0e6bbbfb.patch?full_index=1"
+    sha256 "35ae4d7cd0cdaaca83c5b6da01b9c19f34c3f293b6892f3c3afdb202255f523a"
+  end
+
   def install
     ENV.runtime_cpu_detection
     system "cmake", "-S", ".", "-B", "builddir",
