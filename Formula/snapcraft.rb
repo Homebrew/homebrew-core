@@ -7,6 +7,7 @@ class Snapcraft < Formula
       tag:      "7.1.4",
       revision: "725d3935aad23331087328f2c65ea3d112a7db4f"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -26,9 +27,9 @@ class Snapcraft < Formula
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "libpython-tabulate"
   depends_on "libsodium"
   depends_on "lxc"
+  depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
