@@ -1,10 +1,14 @@
 class Freediameter < Formula
   desc "Open source Diameter (Authentication) protocol implementation"
   homepage "http://www.freediameter.net"
-  url "http://www.freediameter.net/hg/freeDiameter/archive/1.5.0.tar.gz"
-  sha256 "2500f75b70d428ea75dd25eedcdddf8fb6a8ea809b02c82bf5e35fe206cbbcbc"
   license "BSD-3-Clause"
-  head "http://www.freediameter.net/hg/freeDiameter", using: :hg
+
+  # TODO: Switch to `libidn2` on next release and remove stable & head blocks
+  stable do
+    url "http://www.freediameter.net/hg/freeDiameter/archive/1.5.0.tar.gz"
+    sha256 "2500f75b70d428ea75dd25eedcdddf8fb6a8ea809b02c82bf5e35fe206cbbcbc"
+    depends_on "libidn"
+  end
 
   livecheck do
     url "http://www.freediameter.net/hg/freeDiameter/json-tags"
@@ -22,21 +26,25 @@ class Freediameter < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1be75ed61dff3fcd06cd4c3516843ab0c516e59009d7767b7a38ded9a09431e"
   end
 
+  head do
+    url "https://github.com/freeDiameter/freeDiameter.git", branch: "master"
+    depends_on "libidn2"
+  end
+
   depends_on "cmake" => :build
   depends_on "gnutls"
   depends_on "libgcrypt"
-  depends_on "libidn"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DDEFAULT_CONF_PATH=#{etc}",
-                      "-DDISABLE_SCTP=ON"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DDEFAULT_CONF_PATH=#{etc}",
+                    "-DDISABLE_SCTP=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     doc.install Dir["doc/*"]
     pkgshare.install "contrib"
