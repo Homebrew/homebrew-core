@@ -6,6 +6,7 @@ class Charmcraft < Formula
   url "https://files.pythonhosted.org/packages/12/03/c4b18948845fc40203094748d08d3f68a31fdaef33c386cf4c2683c4736d/charmcraft-2.1.0.tar.gz"
   sha256 "904a402cdcafe1885e3dcba4d7ea488891870a83cfe6df1cb5dae1adcc958f21"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -21,8 +22,8 @@ class Charmcraft < Formula
 
   depends_on "rust" => :build
   depends_on "jsonschema"
-  depends_on "libpython-tabulate"
   depends_on "libsodium"
+  depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.10"
   depends_on "pyyaml"
