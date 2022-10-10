@@ -1,10 +1,9 @@
 class Felinks < Formula
   desc "Text mode browser and Gemini, NNTP, FTP, Gopher, Finger, and BitTorrent client"
   homepage "https://github.com/rkd77/elinks#readme"
-  url "https://github.com/rkd77/elinks/archive/refs/tags/v0.15.1.tar.gz"
-  sha256 "a3ebb14e179fcf97f93874b7771b4b05c1b7fdc704807334e865273d9de8428f"
+  url "https://github.com/rkd77/elinks/releases/download/v0.15.1/elinks-0.15.1.tar.xz"
+  sha256 "cca1864d472f2314dc6ffb40d1f20126f09866a55a0d154961907f054095944f"
   license "GPL-2.0-only"
-  head "https://github.com/rkd77/elinks.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "62fb5bbd61d30658befb6916bbb5af4699fb2777286746dcaa94e9828abd2d2c"
@@ -15,19 +14,20 @@ class Felinks < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c130f71e181e3a807ad0e1951b2b0f97301f7107829d21fb3817d263f918c977"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "groff" => :build
-  depends_on "libtool" => :build
-  depends_on "xmlto" => :build
+  head do
+    url "https://github.com/rkd77/elinks.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
 
+  depends_on "pkg-config" => :build
   depends_on "brotli"
   depends_on "libidn"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "tre"
   depends_on "zstd"
 
-  uses_from_macos "bison"
+  uses_from_macos "bison" => :build
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "zlib"
@@ -37,7 +37,7 @@ class Felinks < Formula
   def install
     # https://github.com/rkd77/elinks/issues/47#issuecomment-1190547847 parallelization issue.
     ENV.deparallelize
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args,
                           "--disable-nls",
                           "--enable-256-colors",
@@ -57,6 +57,7 @@ class Felinks < Formula
                           "--without-gnutls",
                           "--without-perl",
                           "--without-spidermonkey",
+                          "--without-x",
                           "--without-xterm"
     system "make"
     system "make", "install"
