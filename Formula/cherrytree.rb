@@ -1,8 +1,8 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_0.99.49.tar.xz"
-  sha256 "cb3f48903716c3dfca7b4638c57137642d99c76f1bfc2f5f9f5b442baff2cde1"
+  url "https://www.giuspen.com/software/cherrytree_0.99.50.tar.xz"
+  sha256 "b548ae880b6c3fab558d983bdeb26a78fcb5ac0820265cca49f5c1646e1fcf2d"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -31,6 +31,7 @@ class Cherrytree < Formula
   depends_on "spdlog"
   depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
   depends_on "uchardet"
+  depends_on "vte3"
 
   uses_from_macos "curl"
 
