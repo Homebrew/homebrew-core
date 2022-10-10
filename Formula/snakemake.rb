@@ -6,6 +6,7 @@ class Snakemake < Formula
   url "https://files.pythonhosted.org/packages/0b/8d/d3344b72156f0073a88386879d6155ed1d233c73d6057cdb5a68c533c163/snakemake-7.18.2.tar.gz"
   sha256 "23f52b9a0c86da3b974a3cfc097fa82b41c49dab05543c0d18377c854852f771"
   license "MIT"
+  revision 1
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
@@ -22,7 +23,7 @@ class Snakemake < Formula
   depends_on "cbc"
   depends_on "docutils"
   depends_on "jsonschema"
-  depends_on "libpython-tabulate"
+  depends_on "python-tabulate"
   depends_on "python@3.10"
   depends_on "pyyaml"
 
