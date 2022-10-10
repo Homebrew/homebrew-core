@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/74/4f/22ef1aace6d703a7b5bf80d09b8ca3315fd68bcba89bf2d625d8b330310b/pipenv-2022.9.24.tar.gz"
-  sha256 "d682375d6a6edd2f1ed2f76085b7191de149ff8381bce6c1aaf7f55061b04457"
+  url "https://files.pythonhosted.org/packages/77/b8/83365b1e214c22b8a66eb39977bdd366af38abbe0b4faf3c4951425a841a/pipenv-2022.10.12.tar.gz"
+  sha256 "a4d88f6667cbcd9ea432d626a8b373cd3101886b9fb964ea7e7f9650a83fc307"
   license "MIT"
 
   bottle do
@@ -91,9 +91,9 @@ class Pipenv < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     assert_match "Commands", shell_output("#{bin}/pipenv")
-    system "#{bin}/pipenv", "--python", which(python3)
-    system "#{bin}/pipenv", "install", "requests"
-    system "#{bin}/pipenv", "install", "boto3"
+    system bin/"pipenv", "--python", which(python3)
+    system bin/"pipenv", "install", "requests"
+    system bin/"pipenv", "install", "boto3"
     assert_predicate testpath/"Pipfile", :exist?
     assert_predicate testpath/"Pipfile.lock", :exist?
     assert_match "requests", (testpath/"Pipfile").read
