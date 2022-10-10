@@ -3,8 +3,8 @@ class GitMachete < Formula
 
   desc "Git repository organizer & rebase workflow automation tool"
   homepage "https://github.com/VirtusLab/git-machete"
-  url "https://pypi.org/packages/source/g/git-machete/git-machete-3.12.3.tar.gz"
-  sha256 "9020ff06b1110ad7b8d92ea43f523bdba25e63785c2e9cd0aa65385965e65efe"
+  url "https://pypi.org/packages/source/g/git-machete/git-machete-3.12.4.tar.gz"
+  sha256 "dfebd62944838c6c2404ed8967f9cf8999577936dd7dbd296f3793b85c306a76"
   license "MIT"
 
   bottle do
