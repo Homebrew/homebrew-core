@@ -52,6 +52,6 @@ class Himalaya < Formula
       smtp-passwd-cmd = "security find-internet-password -gs gmail -w"
     EOS
 
-    assert_match "Error: cannot login to IMAP server", shell_output("#{bin}/himalaya 2>&1", 1)
+    assert_match "Error: cannot get imap password: password is empty", shell_output("#{bin}/himalaya 2>&1", 1)
   end
 end
