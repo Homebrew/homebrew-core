@@ -26,7 +26,6 @@ class Apt < Formula
   depends_on "berkeley-db"
   depends_on "bzip2"
   depends_on "dpkg"
-  depends_on "gcc"
   depends_on "gettext"
   depends_on "gnupg"
   depends_on "gnutls"
