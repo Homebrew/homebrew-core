@@ -1,10 +1,9 @@
 class CaCertificates < Formula
   desc "Mozilla CA certificate store"
   homepage "https://curl.se/docs/caextract.html"
-  url "https://curl.se/ca/cacert-2022-07-19.pem"
-  sha256 "6ed95025fba2aef0ce7b647607225745624497f876d74ef6ec22b26e73e9de77"
+  url "https://curl.se/ca/cacert-2022-10-11.pem"
+  sha256 "2cff03f9efdaf52626bd1b451d700605dc1ea000c5da56bd0fc59f8f43071040"
   license "MPL-2.0"
-  revision 1
 
   livecheck do
     url :homepage
