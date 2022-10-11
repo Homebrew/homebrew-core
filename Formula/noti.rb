@@ -19,12 +19,17 @@ class Noti < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=vendor", "-o", "#{bin}/noti", "cmd/noti/main.go"
-    man1.install "docs/man/noti.1"
-    man5.install "docs/man/noti.yaml.5"
+    ldflags = %W[
+      -s -w
+      -X github.com/variadico/noti/internal/command.Version=#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags), "cmd/noti/main.go"
+    man1.install "docs/man/dist/noti.1"
+    man5.install "docs/man/dist/noti.yaml.5"
   end
 
   test do
-    system "#{bin}/noti", "-t", "Noti", "-m", "'Noti recipe installation test has finished.'"
+    assert_equal "noti version #{version}", shell_output("#{bin}/noti --version").chomp
+    system bin/"noti", "-t", "Noti", "-m", "'Noti recipe installation test has finished.'"
   end
 end
