@@ -20,11 +20,14 @@ class MscGenerator < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "gcc"
   depends_on "glpk"
   depends_on "graphviz"
   depends_on "sdl2"
   depends_on "tinyxml2"
+
+  on_macos do
+    depends_on "gcc"
+  end
 
   on_linux do
     depends_on "mesa"
@@ -45,7 +48,11 @@ class MscGenerator < Formula
     # for Objective-C++ sources. This workaround should be removed once brew supports
     # setting separate compilers for C/C++ and Objective-C/C++.
     extra_args = []
-    extra_args << "OBJCXX=/usr/bin/clang++" if OS.mac?
+    if OS.mac?
+      extra_args << "OBJCXX=/usr/bin/clang++"
+      ENV.append_to_cflags "-DNDEBUG"
+    end
+
     system "./configure", *std_configure_args, "--disable-font-checks", *extra_args
     system "make", "V=1", "-C", "src", "install"
     system "make", "-C", "doc", "msc-gen.1"
