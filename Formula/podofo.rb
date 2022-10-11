@@ -23,7 +23,7 @@ class Podofo < Formula
   depends_on "libidn"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     args = std_cmake_args + %W[
