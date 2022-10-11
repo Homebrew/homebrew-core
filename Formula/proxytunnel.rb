@@ -17,7 +17,7 @@ class Proxytunnel < Formula
 
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
