@@ -3,8 +3,8 @@ class Dnstwist < Formula
 
   desc "Test domains for typo squatting, phishing and corporate espionage"
   homepage "https://github.com/elceef/dnstwist"
-  url "https://files.pythonhosted.org/packages/af/d5/006ba620b442c62db7134247efe8f785c458715b40c9a14ceced3e8b1db5/dnstwist-20221008.tar.gz"
-  sha256 "9569401081f77cc942f8e1c90221a1cd500263aa444e910c11b9f9ff96d9b851"
+  url "https://files.pythonhosted.org/packages/8c/73/0f0190774441b03e67429dfeeee5b98570fa13d204c64a4d3a1ba12ced7f/dnstwist-20221011.tar.gz"
+  sha256 "aafe27c9bb566a265859485466e1c5de05a7e4330d39235d7e8c0464a5670926"
   license "Apache-2.0"
 
   bottle do
