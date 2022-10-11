@@ -1,10 +1,9 @@
 class Sophus < Formula
   desc "C++ implementation of Lie Groups using Eigen"
   homepage "https://strasdat.github.io/Sophus/"
-  url "https://github.com/strasdat/Sophus/archive/refs/tags/v22.04.1.tar.gz"
-  sha256 "635dc536e7768c91e89d537608226b344eef901b51fbc51c9f220c95feaa0b54"
+  url "https://github.com/strasdat/Sophus/archive/refs/tags/v22.10.tar.gz"
+  sha256 "270709b83696da179447cf743357e36a8b9bc8eed5ff4b9d66d33fe691010bad"
   license "MIT"
-  revision 1
   head "https://github.com/strasdat/Sophus.git", branch: "master"
 
   bottle do
