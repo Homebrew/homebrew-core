@@ -6,8 +6,8 @@ class Ballerina < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://ballerina.io/downloads/"
-    regex(%r{href=.*?/downloads/.*?ballerina[._-]v?(\d+(?:\.\d+)+)\.}i)
+    url "https://github.com/ballerina-platform/ballerina-lang.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
