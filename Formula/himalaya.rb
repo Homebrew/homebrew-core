@@ -22,7 +22,7 @@ class Himalaya < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "cli")
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
