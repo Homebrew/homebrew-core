@@ -4,7 +4,7 @@ class Ophcrack < Formula
   url "https://downloads.sourceforge.net/project/ophcrack/ophcrack/3.8.0/ophcrack-3.8.0.tar.bz2"
   mirror "https://deb.debian.org/debian/pool/main/o/ophcrack/ophcrack_3.8.0.orig.tar.bz2"
   sha256 "048a6df57983a3a5a31ac7c4ec12df16aa49e652a29676d93d4ef959d50aeee0"
-  license "GPL-2.0-or-later"
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
   revision 1
 
   bottle do
@@ -19,7 +19,7 @@ class Ophcrack < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2bf28a5dccb7020470c149992f9afc7cf2d407b4a92be3fcf81855bd2951eb0"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "expat"
 
@@ -27,7 +27,7 @@ class Ophcrack < Formula
     args = %W[
       --disable-debug
       --disable-gui
-      --with-libssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-libssl=#{Formula["openssl@3"].opt_prefix}
       --prefix=#{prefix}
     ]
     args << "--with-libexpat=#{Formula["expat"].opt_prefix}" if OS.linux?
