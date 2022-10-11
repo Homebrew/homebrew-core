@@ -21,7 +21,7 @@ class Lftp < Formula
   end
 
   depends_on "libidn2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -37,9 +37,9 @@ class Lftp < Formula
     # https://github.com/lavv17/lftp/issues/611
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
                           "--with-libidn2=#{Formula["libidn2"].opt_prefix}"
 
