@@ -28,5 +28,6 @@ class Ferium < Formula
     system "ferium", "add", "sodium"
     system "ferium", "list", "--verbose"
     system "ferium", "upgrade"
+    !Dir.glob("#{testpath}/mods/*.jar").empty?
   end
 end
