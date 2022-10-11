@@ -23,7 +23,7 @@ class BareosClient < Formula
   depends_on "cmake" => :build
   depends_on "jansson"
   depends_on "lzo"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -39,16 +39,21 @@ class BareosClient < Formula
   conflicts_with "bacula-fd", because: "both install a `bconsole` executable"
 
   def install
+    # Work around Linux build failure by disabling warning:
+    # lmdb/mdb.c:2282:13: error: variable 'rc' set but not used [-Werror=unused-but-set-variable]
+    # TODO: Try to remove in the next release which has various compiler warning changes
+    ENV.append_to_cflags "-Wno-unused-but-set-variable" if OS.linux?
+
     # Work around hardcoded paths to /usr/local Homebrew installation,
     # forced static linkage on macOS, and openssl formula alias usage.
     inreplace "core/CMakeLists.txt" do |s|
       s.gsub! "/usr/local/opt/gettext/lib/libintl.a", Formula["gettext"].opt_lib/shared_library("libintl")
-      s.gsub! "/usr/local/opt/openssl", Formula["openssl@1.1"].opt_prefix
+      s.gsub! "/usr/local/opt/openssl", Formula["openssl@3"].opt_prefix
       s.gsub! "/usr/local/", "#{HOMEBREW_PREFIX}/"
     end
     inreplace "core/src/plugins/CMakeLists.txt" do |s|
       s.gsub! "/usr/local/opt/gettext/include", Formula["gettext"].opt_include
-      s.gsub! "/usr/local/opt/openssl/include", Formula["openssl@1.1"].opt_include
+      s.gsub! "/usr/local/opt/openssl/include", Formula["openssl@3"].opt_include
     end
     inreplace "core/cmake/BareosFindAllLibraries.cmake" do |s|
       s.gsub! "/usr/local/opt/lzo/lib/liblzo2.a", Formula["lzo"].opt_lib/shared_library("liblzo2")
