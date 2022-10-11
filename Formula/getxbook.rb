@@ -23,7 +23,7 @@ class Getxbook < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "14dc92ce6828cfccce34307bfa2f750faf8612ef92f126797cd5b86e6fb5978b"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
