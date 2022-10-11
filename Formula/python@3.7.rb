@@ -1,8 +1,8 @@
 class PythonAT37 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.7.14/Python-3.7.14.tar.xz"
-  sha256 "4157ae31eb81af19e81c36882610491b0fb8f50e00fa8a17b095c88908b9c45c"
+  url "https://www.python.org/ftp/python/3.7.15/Python-3.7.15.tar.xz"
+  sha256 "5911475a07ac2b53d746e88a0716af6d2b4734941919136ea0d33fb9c75b9714"
   license "Python-2.0"
 
   livecheck do
@@ -46,8 +46,8 @@ class PythonAT37 < Formula
              "bin/easy_install-3.6", "bin/easy_install-3.7"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/cc/83/7ea9d9b3a6ff3225aca2fce5e4df373bee7e0a74c539711a4fbfda53374f/setuptools-65.3.0.tar.gz"
-    sha256 "7732871f4f7fa58fb6bdcaeadb0161b2bd046c85905dbaa066bdcbcc81953b57"
+    url "https://files.pythonhosted.org/packages/03/c9/7b050ea4cc4144d0328f15e0b43c839e759c6c639370a3b932ecf4c6358f/setuptools-65.4.1.tar.gz"
+    sha256 "3050e338e5871e70c72983072fe34f6032ae1cdeeeb67338199c2f74e083a80e"
   end
 
   resource "pip" do
