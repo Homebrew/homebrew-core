@@ -1,8 +1,8 @@
 class WaylandProtocols < Formula
   desc "Additional Wayland protocols"
   homepage "https://wayland.freedesktop.org"
-  url "https://wayland.freedesktop.org/releases/wayland-protocols-1.26.tar.xz"
-  sha256 "c553384c1c68afd762fa537a2569cc9074fe7600da12d3472761e77a2ba56f13"
+  url "https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.27/downloads/wayland-protocols-1.27.tar.xz"
+  sha256 "9046f10a425d4e2a00965a03acfb6b3fb575a56503ac72c2b86821c69653375c"
   license "MIT"
 
   livecheck do
