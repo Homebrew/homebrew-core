@@ -27,8 +27,9 @@ class Ircii < Formula
     sha256 x86_64_linux:   "94729a716fd12dbf1b984e8d87c746876dd46e3a5e77ee7ef5513965c78c3d0f"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
 
   def install
