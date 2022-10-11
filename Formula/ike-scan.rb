@@ -3,7 +3,7 @@ class IkeScan < Formula
   homepage "https://github.com/royhills/ike-scan"
   url "https://github.com/royhills/ike-scan/archive/1.9.5.tar.gz"
   sha256 "5152bf06ac82d0cadffb93a010ffb6bca7efd35ea169ca7539cf2860ce2b263f"
-  license "GPL-3.0-or-later"
+  license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
   head "https://github.com/royhills/ike-scan.git", branch: "master"
 
   bottle do
