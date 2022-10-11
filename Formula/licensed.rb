@@ -8,7 +8,7 @@ class Licensed < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ruby@2.7"
+  uses_from_macos "ruby"
 
   def install
     ENV["GEM_HOME"] = libexec
