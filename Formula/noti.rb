@@ -29,7 +29,7 @@ class Noti < Formula
   end
 
   test do
-    assert_equal "noti version #{version}", shell_output("#{bin}/noti --version").chomp
+    assert_match "noti version #{version}", shell_output("#{bin}/noti --version").chomp
     system bin/"noti", "-t", "Noti", "-m", "'Noti recipe installation test has finished.'"
   end
 end
