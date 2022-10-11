@@ -5,12 +5,6 @@ class Web100clt < Formula
   sha256 "bd298eb333d4c13f191ce3e9386162dd0de07cddde8fe39e9a74fde4e072cdd9"
   revision 1
 
-  # This page gives a 403 Forbidden response over HTTPS, so we use HTTP.
-  livecheck do
-    url "http://software.internet2.edu/sources/ndt/"
-    regex(/href=.*?ndt[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_monterey: "0f11892f73529eceb8c6b1fd51c52e7c71b9a3a6bb3ae3f4dfc876c6fbb085d2"
@@ -23,6 +17,8 @@ class Web100clt < Formula
     sha256 cellar: :any,                 sierra:         "a6c81629d7e8171694cc14ebd5a1fc2280f23643be442f1103ac5a84403e344a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "99e17a9830b0b6458263ce8851ed8c8f98d8c2b6bd4b8998e7e82fe88dbaf918"
   end
+
+  deprecate! date: "2022-10-11", because: :deprecated_upstream
 
   depends_on "i2util"
   depends_on "jansson"
