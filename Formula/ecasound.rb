@@ -1,11 +1,12 @@
 class Ecasound < Formula
   desc "Multitrack-capable audio recorder and effect processor"
-  homepage "https://www.eca.cx/ecasound/"
+  homepage "https://ecasound.seul.org/ecasound/"
   url "https://ecasound.seul.org/download/ecasound-2.9.3.tar.gz"
   sha256 "468bec44566571043c655c808ddeb49ae4f660e49ab0072970589fd5a493f6d4"
+  license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://www.eca.cx/ecasound/download.php"
+    url "https://ecasound.seul.org/ecasound/download.php"
     regex(/href=.*?ecasound[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
