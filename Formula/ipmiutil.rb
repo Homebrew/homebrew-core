@@ -13,19 +13,23 @@ class Ipmiutil < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "97654675eb07ff4c52dfc12434302e4c57a50be29e18839d063e9f2acf4955b1"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "openssl@1.1"
+  on_macos do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
   conflicts_with "renameutils", because: "both install `icmd` binaries"
 
   def install
     # Darwin does not exist only on PowerPC
-    inreplace "configure.ac", "test \"$archp\" = \"powerpc\"", "true"
-    system "autoreconf", "-fiv"
+    if OS.mac?
+      inreplace "configure.ac", "test \"$archp\" = \"powerpc\"", "true"
+      system "autoreconf", "--force", "--install", "--verbose"
+    end
 
     system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--disable-lanplus",
                           "--enable-sha256",
                           "--enable-gpl"
