@@ -23,7 +23,13 @@ class Pwsafe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "45c3ced398e2ae04a1449deb1bf23b033a9d82a44d00d1d7da788ce04f81fde1"
   end
 
-  depends_on "openssl@1.1"
+  head do
+    url "https://github.com/nsd20463/pwsafe.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
+  depends_on "openssl@3"
   depends_on "readline"
 
   # A password database for testing is provided upstream. How nice!
@@ -33,9 +39,10 @@ class Pwsafe < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "./configure", *std_configure_args,
+                          "--mandir=#{man}",
+                          "--without-x"
     system "make", "install"
   end
 
