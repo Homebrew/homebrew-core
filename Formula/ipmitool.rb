@@ -1,11 +1,9 @@
 class Ipmitool < Formula
   desc "Utility for IPMI control with kernel driver or LAN interface"
   homepage "https://github.com/ipmitool/ipmitool"
-  url "https://downloads.sourceforge.net/project/ipmitool/ipmitool/1.8.18/ipmitool-1.8.18.tar.bz2"
-  mirror "https://deb.debian.org/debian/pool/main/i/ipmitool/ipmitool_1.8.18.orig.tar.bz2"
-  sha256 "0c1ba3b1555edefb7c32ae8cd6a3e04322056bc087918f07189eeedfc8b81e01"
+  url "https://github.com/ipmitool/ipmitool/archive/refs/tags/IPMITOOL_1_8_19.tar.gz"
+  sha256 "48b010e7bcdf93e4e4b6e43c53c7f60aa6873d574cbd45a8d86fa7aaeebaff9c"
   license "BSD-3-Clause"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "3223279b0188313a5d87ede24617f6bda5921acc1ce135c30c7c43823f14913f"
@@ -18,36 +16,20 @@ class Ipmitool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "34d7e08574ee45e07c513a90b38c7de24636f7889e940daf8f0d87c3a9739977"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "openssl@3"
 
-  # https://sourceforge.net/p/ipmitool/bugs/433/#89ea and
-  # https://sourceforge.net/p/ipmitool/bugs/436/ (prematurely closed):
-  # Fix segfault when prompting for password
-  # Re-reported 12 July 2017 https://sourceforge.net/p/ipmitool/mailman/message/35942072/
-  patch do
-    url "https://gist.githubusercontent.com/adaugherity/87f1466b3c93d5aed205a636169d1c58/raw/29880afac214c1821e34479dad50dca58a0951ef/ipmitool-getpass-segfault.patch"
-    sha256 "fc1cff11aa4af974a3be191857baeaf5753d853024923b55c720eac56f424038"
-  end
-
-  # Patch for compatibility with OpenSSL 1.1.1
-  # https://reviews.freebsd.org/D17527
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/10f4f68f/ipmitool/openssl-1.1.diff"
-    sha256 "8ad4e19d7c39d1bf95a0219d03f4d8490727ac79cb297a36639443ef030bb76a"
+  on_linux do
+    depends_on "readline"
   end
 
   def install
-    # Fix ipmi_cfgp.c:33:10: fatal error: 'malloc.h' file not found
-    # Upstream issue from 8 Nov 2016 https://sourceforge.net/p/ipmitool/bugs/474/
-    inreplace "lib/ipmi_cfgp.c", "#include <malloc.h>", ""
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --mandir=#{man}
-      --disable-intf-usb
-    ]
-    system "./configure", *args
+    system "./bootstrap"
+    system "./configure", *std_configure_args,
+                          "--mandir=#{man}",
+                          "--disable-intf-usb"
     system "make", "check"
     system "make", "install"
   end
