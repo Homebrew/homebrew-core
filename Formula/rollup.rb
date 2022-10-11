@@ -3,8 +3,8 @@ require "language/node"
 class Rollup < Formula
   desc "Next-generation ES module bundler"
   homepage "https://rollupjs.org/"
-  url "https://registry.npmjs.org/rollup/-/rollup-2.79.1.tgz"
-  sha256 "fddd207a54c9d3bd2bf69278292a3a58aeff827aa96b341a5c1a1336cbfb0d1b"
+  url "https://registry.npmjs.org/rollup/-/rollup-3.0.0.tgz"
+  sha256 "d43e54465996ab150abf8ed55069fee5c4fd90a2a3524b70ed7a8ad8a2c6d3e0"
   license all_of: ["ISC", "MIT"]
 
   bottle do
