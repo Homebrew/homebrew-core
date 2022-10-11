@@ -29,5 +29,19 @@ class Licensed < Formula
 
   test do
     assert_equal version.to_s, shell_output("#{bin}/licensed version").strip
+
+    (testpath/"Gemfile").write <<~EOS
+      source 'https://rubygems.org'
+      gem 'licensed', '#{version}'
+    EOS
+
+    (testpath/".licensed.yml").write <<~EOS
+      name: 'test'
+      allowed:
+        - mit
+    EOS
+
+    assert_match "Caching dependency records for test",
+                        shell_output(bin/"licensed cache")
   end
 end
