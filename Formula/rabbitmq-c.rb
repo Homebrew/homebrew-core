@@ -19,14 +19,22 @@ class RabbitmqC < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "xmlto" => :build
+  depends_on "openssl@3"
   depends_on "popt"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_EXAMPLES=OFF",
-                         "-DBUILD_TESTS=OFF", "-DBUILD_API_DOCS=OFF",
-                         "-DBUILD_TOOLS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"
-    system "make", "install"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_API_DOCS=OFF",
+                    "-DBUILD_EXAMPLES=OFF",
+                    "-DBUILD_TESTS=OFF",
+                    "-DBUILD_TOOLS=ON",
+                    "-DBUILD_TOOLS_DOCS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
