@@ -1,8 +1,8 @@
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   homepage "https://lnav.org/"
-  url "https://github.com/tstack/lnav/releases/download/v0.11.0/lnav-0.11.0.tar.gz"
-  sha256 "d3fa5909af8e5eb2aa7818b90120cae35aa7dd1775a3b0d2097d7e6075b8f935"
+  url "https://github.com/tstack/lnav/releases/download/v0.11.1/lnav-0.11.1.tar.gz"
+  sha256 "7685b7b3c61c54a1318b655f78c932aca25fa0f5b20ea9b0ea6a58c7f9852cd0"
   license "BSD-2-Clause"
 
   livecheck do
@@ -29,7 +29,7 @@ class Lnav < Formula
   end
 
   depends_on "libarchive"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "readline"
   depends_on "sqlite"
   uses_from_macos "curl"
