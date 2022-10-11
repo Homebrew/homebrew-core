@@ -4,6 +4,7 @@ class ShibbolethSp < Formula
   url "https://shibboleth.net/downloads/service-provider/3.3.0/shibboleth-sp-3.3.0.tar.bz2"
   sha256 "f175bd0dc695a8b7cbe78f6156b14f7f407e1742d045d9a8e3f2cf1078c04704"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://shibboleth.net/downloads/service-provider/latest/"
