@@ -3,7 +3,7 @@ class Himalaya < Formula
   homepage "https://github.com/soywod/himalaya"
   url "https://github.com/soywod/himalaya/archive/v0.6.0.tar.gz"
   sha256 "b9d88506de8b00ce5c80981f19989b2da062c80f8b35a70c60d349e51628cbb7"
-  license "BSD-4-Clause"
+  license "MIT"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ff6ee45d34052bdba6d8da86f2f0e3251cf74fd2ad18ea7f0254e166311bfe54"
