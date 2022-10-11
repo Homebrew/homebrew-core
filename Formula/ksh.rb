@@ -16,7 +16,7 @@ class Ksh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a6f8d5a96eaf9d91da32c58e453d7aacc4f47acea57f6a2b3db7cc108bbcd1f"
   end
 
-  deprecate! date: "2020-05-01", because: "abandoned, unmaintained, no releases since 2019; consider ksh93 instead"
+  deprecate! date: "2020-05-01", because: "is abandoned, unmaintained, no releases since 2019; consider ksh93 instead"
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
