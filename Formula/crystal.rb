@@ -155,6 +155,7 @@ class Crystal < Formula
 
     bash_completion.install "etc/completion.bash" => "crystal"
     zsh_completion.install "etc/completion.zsh" => "_crystal"
+    fish_completion.install "etc/completion.fish" => "crystal.fish"
 
     man1.install "man/crystal.1"
   end
