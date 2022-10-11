@@ -39,11 +39,13 @@ class Himalaya < Formula
       default = true
       email = "your.email@gmail.com"
 
+      backend = "imap"
       imap-host = "imap.gmail.com"
       imap-port = 993
       imap-login = "your.email@gmail.com"
       imap-passwd-cmd = "pass show gmail"
 
+      sender = "smtp"
       smtp-host = "smtp.gmail.com"
       smtp-port = 465
       smtp-login = "your.email@gmail.com"
