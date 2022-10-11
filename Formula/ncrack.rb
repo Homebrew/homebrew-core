@@ -1,7 +1,9 @@
 class Ncrack < Formula
   desc "Network authentication cracking tool"
   homepage "https://nmap.org/ncrack/"
-  license "GPL-2.0-only"
+  # License is GPL-2.0-only with non-representable exceptions and an OpenSSL exception.
+  # See the installed COPYING file for full details of license terms.
+  license :cannot_represent
   revision 1
   head "https://github.com/nmap/ncrack.git", branch: "master"
 
