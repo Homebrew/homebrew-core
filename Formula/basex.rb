@@ -1,9 +1,9 @@
 class Basex < Formula
   desc "Light-weight XML database and XPath/XQuery processor"
   homepage "https://basex.org"
-  url "https://files.basex.org/releases/10.2/BaseX102.zip"
-  version "10.2"
-  sha256 "6f2c75818fedcd499d8b5db4b50cd4cb08fd5eba0bcb161531be148a590284d9"
+  url "https://files.basex.org/releases/10.3/BaseX103.zip"
+  version "10.3"
+  sha256 "efd9845822f517612c77582de3c71971c16cff9998bd242acf8623471a8185fd"
   license "BSD-3-Clause"
 
   livecheck do
