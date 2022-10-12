@@ -1,10 +1,9 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/0.9.3.tar.gz"
-  sha256 "692ff0ac50e18380df0ff3ee83071f9926715200d0dceedd9d16a028a59537a0"
+  url "https://github.com/mgba-emu/mgba/archive/0.10.0.tar.gz"
+  sha256 "e2d66d9ce7c51b1ef3b339b04e871287bf166f6a1d7125ef112dbf53ab8bbd48"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/mgba-emu/mgba.git", branch: "master"
 
   livecheck do
@@ -24,13 +23,27 @@ class Mgba < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "libepoxy"
   depends_on "libpng"
   depends_on "libzip"
+  depends_on "lua"
   depends_on "qt@5"
   depends_on "sdl2"
-  depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
+
+  uses_from_macos "sqlite"
+
+  on_macos do
+    depends_on "libelf" => :build
+  end
+
+  on_linux do
+    depends_on "elfutils"
+  end
+
+  # discussions in here, https://github.com/mgba-emu/mgba/issues/2700
+  # commit reference, https://github.com/mgba-emu/mgba/commit/981d01134b15c1d8214d9a7e5944879852588063
+  patch :DATA
 
   def install
     # Install .app bundle into prefix, not prefix/Applications
@@ -53,3 +66,25 @@ class Mgba < Formula
     system "#{bin}/mGBA", "-h"
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ce8e4d687..a8116d3ea 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -718,8 +718,13 @@ if (USE_LZMA)
+ endif()
+
+ if(USE_EPOXY)
+-	list(APPEND FEATURE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gl.c ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gles2.c)
+-	list(APPEND FEATURE_DEFINES BUILD_GL BUILD_GLES2 BUILD_GLES3)
++	if(APPLE AND MACOSX_SDK VERSION_GREATER 10.14)
++		list(APPEND FEATURE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gles2.c)
++		list(APPEND FEATURE_DEFINES BUILD_GLES2 BUILD_GLES3)
++	else()
++		list(APPEND FEATURE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gl.c ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gles2.c)
++		list(APPEND FEATURE_DEFINES BUILD_GL BUILD_GLES2 BUILD_GLES3)
++	endif()
+ 	list(APPEND FEATURES EPOXY)
+ 	include_directories(AFTER ${EPOXY_INCLUDE_DIRS})
+ 	link_directories(${EPOXY_LIBRARY_DIRS})
