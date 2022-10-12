@@ -19,7 +19,7 @@ class Apib < Formula
 
   depends_on "cmake" => :build
   depends_on "libev"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cmake", ".", *std_cmake_args
