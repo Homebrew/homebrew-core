@@ -20,6 +20,8 @@ class WxwidgetsAT30 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f58f8970733e21c551874dd7085899a041b886b283dd15f29bf3880237c125e5"
   end
 
+  deprecate! date: "2022-10-12", because: :versioned_formula
+
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
