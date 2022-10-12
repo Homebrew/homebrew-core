@@ -5,7 +5,6 @@ class Coursier < Formula
   version "2.1.0-M6"
   sha256 "68c4380b16f424047b48ac33c426fa2750f3424a9907e37fcf0c8b111081aa6a"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
