@@ -3,7 +3,7 @@ class Tinc < Formula
   homepage "https://www.tinc-vpn.org/"
   url "https://tinc-vpn.org/packages/tinc-1.0.36.tar.gz"
   sha256 "40f73bb3facc480effe0e771442a706ff0488edea7a5f2505d4ccb2aa8163108"
-  license "GPL-2.0-or-later"
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
     url "https://www.tinc-vpn.org/download/"
@@ -23,13 +23,13 @@ class Tinc < Formula
   end
 
   depends_on "lzo"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
