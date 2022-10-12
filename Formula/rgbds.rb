@@ -32,7 +32,7 @@ class Rgbds < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_BUILD_TYPE=Release"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build", "-j"
     system "cmake", "--install", "build", "--prefix", prefix.to_s, "--strip"
     resource("rgbobj").stage do
