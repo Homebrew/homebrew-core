@@ -3,7 +3,10 @@ class Xxhash < Formula
   homepage "https://github.com/Cyan4973/xxHash"
   url "https://github.com/Cyan4973/xxHash/archive/v0.8.1.tar.gz"
   sha256 "3bb6b7d6f30c591dd65aaaff1c8b7a5b94d81687998ca9400082c739a690436c"
-  license "BSD-2-Clause"
+  license all_of: [
+    "BSD-2-Clause", # library
+    "GPL-2.0-or-later", # `xxhsum` command line utility
+  ]
 
   livecheck do
     url :stable
@@ -22,6 +25,7 @@ class Xxhash < Formula
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
+    prefix.install "cli/COPYING"
   end
 
   test do
