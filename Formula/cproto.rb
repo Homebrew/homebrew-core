@@ -4,11 +4,7 @@ class Cproto < Formula
   url "https://invisible-mirror.net/archives/cproto/cproto-4.7t.tgz"
   mirror "https://deb.debian.org/debian/pool/main/c/cproto/cproto_4.7t.orig.tar.gz"
   sha256 "3cce82a71687b69e0a3e23489fe825ba72e693e559ccf193395208ac0eb96fe5"
-  license all_of: [
-    :public_domain,
-    "MIT",
-    "GPL-3.0-or-later" => { with: "Autoconf-exception-3.0" },
-  ]
+  license :public_domain
 
   livecheck do
     url "https://invisible-mirror.net/archives/cproto/"
