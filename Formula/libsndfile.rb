@@ -24,12 +24,12 @@ class Libsndfile < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  # TODO: check if this can be `uses_from_macos "python" => :build`.
-  depends_on "python@3.10" => :build
   depends_on "flac"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "opus"
+
+  uses_from_macos "python" => :build
 
   # Fix unsubstituted variable @EXTERNAL_MPEG_LIBS@ in sndfile.pc
   # PR ref: https://github.com/libsndfile/libsndfile/pull/828
@@ -41,7 +41,7 @@ class Libsndfile < Formula
 
   def install
     system "autoreconf", "-fvi"
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
