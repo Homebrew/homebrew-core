@@ -1,10 +1,9 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/0.9.3.tar.gz"
-  sha256 "692ff0ac50e18380df0ff3ee83071f9926715200d0dceedd9d16a028a59537a0"
+  url "https://github.com/mgba-emu/mgba/archive/0.10.0.tar.gz"
+  sha256 "e2d66d9ce7c51b1ef3b339b04e871287bf166f6a1d7125ef112dbf53ab8bbd48"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/mgba-emu/mgba.git", branch: "master"
 
   livecheck do
@@ -24,13 +23,14 @@ class Mgba < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
   depends_on "libepoxy"
   depends_on "libpng"
   depends_on "libzip"
   depends_on "qt@5"
   depends_on "sdl2"
-  depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
+
+  uses_from_macos "sqlite"
 
   def install
     # Install .app bundle into prefix, not prefix/Applications
