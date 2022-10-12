@@ -32,23 +32,21 @@ class GstPython < Formula
     sha256 "d6522bb29f1894d3d426ee6c262a18669b0759bd084a6d2a2ea1ba0612a80068"
   end
 
+  def python3
+    which("python3.10")
+  end
+
   def install
-    python = "python3.10"
-    site_packages = prefix/Language::Python.site_packages(python)
-
-    # This shouldn't be needed, but this fails to link with libpython3.10.so.
-    # TODO: Remove this when `python@3.10` is no longer keg-only.
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["python@3.10"].opt_lib}" if OS.linux?
-
+    site_packages = prefix/Language::Python.site_packages(python3)
     system "meson", "setup", "build", "-Dpygi-overrides-dir=#{site_packages}/gi/overrides",
-                                      "-Dpython=#{python}",
+                                      "-Dpython=#{python3}",
                                       *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
   test do
-    system Formula["python@3.10"].opt_bin/"python3.10", "-c", <<~EOS
+    system python3, "-c", <<~EOS
       import gi
       gi.require_version('Gst', '1.0')
       from gi.repository import Gst
