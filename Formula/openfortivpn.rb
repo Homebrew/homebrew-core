@@ -3,7 +3,7 @@ class Openfortivpn < Formula
   homepage "https://github.com/adrienverge/openfortivpn"
   url "https://github.com/adrienverge/openfortivpn/archive/v1.19.0.tar.gz"
   sha256 "9e244c3b63176269ce433349e67f8fd6e532f7c8d515f4c97558911a449152c3"
-  license "GPL-3.0-or-later"
+  license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
     sha256 arm64_monterey: "2f65a3ce47bfa55079ece31bf270b4111ddd9ac81ac742a8243afe1c6600e932"
