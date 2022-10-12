@@ -37,6 +37,13 @@ class Watchman < Formula
 
   fails_with gcc: "5"
 
+  # Fix build against fmt 9+. Can likely be removed in the next release.
+  # https://github.com/facebook/watchman/pull/1064
+  patch do
+    url "https://github.com/facebook/watchman/commit/224187aa798a0acab9983ac2b96011497d1c7b7d.patch?full_index=1"
+    sha256 "3a40fc8a6e67aa3bf3e22d90ecf423a98c198622ed68ccbbf7c0634e1c971e85"
+  end
+
   def install
     # Fix build failure on Linux. Borrowed from Fedora:
     # https://src.fedoraproject.org/rpms/watchman/blob/rawhide/f/watchman.spec#_70
