@@ -3,7 +3,7 @@ class Uftp < Formula
   homepage "https://uftp-multicast.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-5.0.1.tar.gz"
   sha256 "f0435fbc8e9ffa125e05600cb6c7fc933d7d587f5bae41b257267be4f2ce0e61"
-  license "GPL-3.0-or-later"
+  license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
     url :stable
@@ -19,13 +19,13 @@ class Uftp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab28f1ccdf3f8f1aff8c2123122fb41f32bd6e5f235945e37322241696f32191"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    system "make", "OPENSSL=#{Formula["openssl@1.1"].opt_prefix}", "DESTDIR=#{prefix}", "install"
+    system "make", "OPENSSL=#{Formula["openssl@3"].opt_prefix}", "DESTDIR=#{prefix}", "install"
     # the makefile installs into DESTDIR/usr/..., move everything up one and remove usr
     # the project maintainer was contacted via sourceforge on 12-Feb, he responded WONTFIX on 13-Feb
-    prefix.install Dir["#{prefix}/usr/*"]
+    prefix.install (prefix/"usr").children
     (prefix/"usr").unlink
   end
 
