@@ -3,8 +3,8 @@ class Sip < Formula
 
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://files.pythonhosted.org/packages/28/09/87e20f2be19051bea42df699947aba30f84422908ec2b8d827bcdf0ab365/sip-6.7.1.tar.gz"
-  sha256 "28170fdf880f937026fc87faa9c177b062c353c5d169ea3242b07802614ddd0c"
+  url "https://files.pythonhosted.org/packages/90/05/07013eaf1b67fb3d3e6424edab495cde912d80d9ae4ea54c2b70a4bae9ac/sip-6.7.2.tar.gz"
+  sha256 "325016c787d0bff20999c420339ad816fbfd39a7c49b2c4dcda12b63c379dbda"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
