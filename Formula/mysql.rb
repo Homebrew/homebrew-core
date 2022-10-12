@@ -1,10 +1,9 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.30.tar.gz"
-  sha256 "c331ac7a68099a2116097acbb14fd331423d486fe47ce0e346925111b44df69c"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.31.tar.gz"
+  sha256 "7867f3fd8ca423d283a6162c819c766863ecffbf9b59b4756dc7bb81184c1d6a"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
