@@ -3,7 +3,7 @@ class Pdnsrec < Formula
   homepage "https://www.powerdns.com/recursor.html"
   url "https://downloads.powerdns.com/releases/pdns-recursor-4.7.3.tar.bz2"
   sha256 "206d766cc8f0189f79d69af64d8d937ecc61a4d13e8ea6594d78fe30e61405f2"
-  license "GPL-2.0-only"
+  license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
   revision 1
 
   livecheck do
@@ -26,9 +26,7 @@ class Pdnsrec < Formula
   depends_on "openssl@3"
 
   on_macos do
-    # This shouldn't be needed for `:test`, but there's a bug in `brew`:
-    # CompilerSelectionError: pdnsrec cannot be built with any available compilers.
-    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
   fails_with :clang do
