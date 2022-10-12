@@ -16,17 +16,9 @@ class Sslscan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "944b95bab55036638b1ef17d1acd7613f6ba7357b080f777ead8e7d9b3d0ee64"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    # use `libcrypto.dylib|so` built from `openssl@1.1`
-    inreplace "Makefile", "./openssl/libssl.a",
-                          "#{Formula["openssl@1.1"].opt_lib}/#{shared_library("libssl")}"
-    inreplace "Makefile", "./openssl/libcrypto.a",
-                          "#{Formula["openssl@1.1"].opt_lib}/#{shared_library("libcrypto")}"
-    inreplace "Makefile", "static: openssl/libcrypto.a",
-                          "static: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libcrypto")}"
-
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
