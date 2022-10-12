@@ -25,10 +25,6 @@ class Libpeas < Formula
   depends_on "python@3.10"
 
   def install
-    # This shouldn't be needed, but this fails to link with libpython3.10.so.
-    # TODO: Remove this when `python@3.10` is no longer keg-only.
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["python@3.10"].opt_lib}" if OS.linux?
-
     args = %w[
       -Dpython3=true
       -Dintrospection=true
