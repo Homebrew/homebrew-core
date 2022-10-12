@@ -29,6 +29,7 @@ class MysqlAT57 < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "libtirpc"
   end
 
   def datadir
