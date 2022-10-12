@@ -33,8 +33,8 @@ class Rgbds < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
-    system "cmake", "--build", "build", "-j"
-    system "cmake", "--install", "build", "--prefix", prefix.to_s, "--strip"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     resource("rgbobj").stage do
       system "cargo", "install", *std_cargo_args
       man1.install "rgbobj.1"
