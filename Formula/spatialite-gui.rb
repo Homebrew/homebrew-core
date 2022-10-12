@@ -4,6 +4,7 @@ class SpatialiteGui < Formula
   url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-2.1.0-beta1.tar.gz"
   sha256 "ba48d96df18cebc3ff23f69797207ae1582cce62f4596b69bae300ca3c23db33"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/"
@@ -35,7 +36,7 @@ class SpatialiteGui < Formula
   depends_on "sqlite"
   depends_on "virtualpg"
   depends_on "webp"
-  depends_on "wxwidgets@3.0"
+  depends_on "wxwidgets"
   depends_on "xz"
   depends_on "zstd"
 
@@ -44,8 +45,6 @@ class SpatialiteGui < Formula
   uses_from_macos "zlib"
 
   def install
-    wxwidgets = Formula["wxwidgets@3.0"]
-
     # Link flags for sqlite don't seem to get passed to make, which
     # causes builds to fatally error out on linking.
     # https://github.com/Homebrew/homebrew/issues/44003
@@ -54,7 +53,7 @@ class SpatialiteGui < Formula
     ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
 
     system "./configure", "--prefix=#{prefix}",
-           "--with-wxconfig=#{wxwidgets.opt_bin}/wx-config-#{wxwidgets.version.major_minor}"
+                          "--with-wxconfig=#{Formula["wxwidgets"].opt_bin}/wx-config"
     system "make", "install"
   end
 end
