@@ -22,7 +22,7 @@ on:
         description: "Whether to fail immediately on a single OS version failure (default: true)"
         default: "true"
         required: false
-        
+
 permissions:
   contents: read
 
@@ -140,7 +140,7 @@ jobs:
           cd bottles
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
-          echo "::set-output name=count::$count"
+          echo "count=$count" >> $GITHUB_OUTPUT
 
       - name: Upload bottles to GitHub Actions
         if: always() && steps.bottles.outputs.count > 0

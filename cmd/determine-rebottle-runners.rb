@@ -82,6 +82,9 @@ module Homebrew
       end
     end.compact
 
-    puts "::set-output name=runners::#{runners.to_json}"
+    github_output = ENV.fetch("GITHUB_OUTPUT") { raise "GITHUB_OUTPUT is not defined" }
+    File.open(github_output, "a") do |f|
+      f.puts("runners=#{runners.to_json}")
+    end
   end
 end
