@@ -1,23 +1,10 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
+  url "https://www.vtk.org/files/release/9.2/VTK-9.2.2.tar.gz"
+  sha256 "1c5b0a2be71fac96ff4831af69e350f7a0ea3168981f790c000709dcf9121075"
   license "BSD-3-Clause"
-  revision 7
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
-
-  stable do
-    url "https://www.vtk.org/files/release/9.1/VTK-9.1.0.tar.gz"
-    sha256 "8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96"
-
-    # Fix vtkpython support for Python 3.10. Remove in the next release.
-    # First patch backports part of older commit so we can directly patch in upstream commit.
-    patch :DATA
-    patch do
-      url "https://gitlab.kitware.com/vtk/vtk/-/commit/3eea0e12acfb608a76d6ae36fb36566a4a6b0e9b.diff"
-      sha256 "1c1c4622a58f8c852d196759c8d9036e4d513a5ebe16fe0bfa14583832886572"
-    end
-  end
 
   bottle do
     sha256                               arm64_monterey: "47ef1952f28dc2c10f1030d65900bcdba0174431bcf99a86ce85749a8a990b2c"
@@ -74,10 +61,7 @@ class Vtk < Formula
   fails_with :clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
   def install
-    if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-      ENV.llvm_clang
-    end
+    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
     args = %W[
       -DBUILD_SHARED_LIBS:BOOL=ON
@@ -166,18 +150,3 @@ class Vtk < Formula
     system bin/"vtkpython", "Distance2BetweenPoints.py"
   end
 end
-
-__END__
-diff --git a/Documentation/release/dev/python-3.10-wheels.md b/Documentation/release/dev/python-3.10-wheels.md
-new file mode 100644
-index 0000000000000000000000000000000000000000..f4e81411c73f30724ad420ccb7f3c6c07a6f8e3d
---- /dev/null
-+++ b/Documentation/release/dev/python-3.10-wheels.md
-@@ -0,0 +1,7 @@
-+## Python 3.10 wheels
-+
-+VTK now generates Python 3.10 wheels. Note that `vtkpython` and other tools
-+using `vtkPythonInterpreter` still do not support the new initialization
-+behaviors introduced in Python 3.10. See [this issue][vtk-python-3.10-support].
-+
-+[vtk-python-3.10.support]: https://gitlab.kitware.com/vtk/vtk/-/issues/18317
