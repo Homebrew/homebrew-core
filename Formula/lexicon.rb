@@ -3,8 +3,8 @@ class Lexicon < Formula
 
   desc "Manipulate DNS records on various DNS providers in a standardized way"
   homepage "https://github.com/AnalogJ/lexicon"
-  url "https://files.pythonhosted.org/packages/ca/e6/c87afe904ca8a757949161d917f4663a8455249921039fb13398ad4dbada/dns_lexicon-3.11.5.tar.gz"
-  sha256 "030c6134ab098c9ac2d5d4a0527f04db3ee9f5256e3245cc4cd2f586b9fe2e9a"
+  url "https://files.pythonhosted.org/packages/94/26/0394bc0d3da5a4d51b255efec699098d95d68d505966b57250a3f1e7e4dc/dns_lexicon-3.11.6.tar.gz"
+  sha256 "f94f542fbf3ff7561f1f5e94127f7202abc276d66745241a6ba53a1c9e92886b"
   license "MIT"
   head "https://github.com/AnalogJ/lexicon.git", branch: "master"
 
@@ -81,8 +81,8 @@ class Lexicon < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6d/0c/5e67831007ba6cd7e52c4095f053cf45c357739b0a7c46a45ddd50049019/cryptography-38.0.1.tar.gz"
-    sha256 "1db3d807a14931fa317f96435695d9ec386be7b84b618cc61cfa5d08b0ae33d7"
+    url "https://files.pythonhosted.org/packages/63/82/a6e21842f2e31b3874f01c112093b8bf8af119f5ed999bbd667a81de720b/cryptography-38.0.2.tar.gz"
+    sha256 "7a022ec87c7a8bdad99f516a4ee6ffcb3a2bc31487577f9eccbc9b2edb1a8fd4"
   end
 
   resource "dnspython" do
