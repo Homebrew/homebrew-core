@@ -3,8 +3,8 @@ require "language/node"
 class Vite < Formula
   desc "Next generation frontend tooling. It's fast!"
   homepage "https://vitejs.dev/"
-  url "https://registry.npmjs.org/vite/-/vite-3.1.7.tgz"
-  sha256 "ba383539dc19f8d087267b569cf3f2481f1757b529bad13879fdbb97abf3c423"
+  url "https://registry.npmjs.org/vite/-/vite-3.1.8.tgz"
+  sha256 "73fac18cdbbbde55c81ab60f8cb5a4b5e143d352b0985639156ab0175ea1524a"
   license "MIT"
 
   bottle do
