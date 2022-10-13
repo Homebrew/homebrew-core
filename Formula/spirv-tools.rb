@@ -1,8 +1,8 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2022.3.tar.gz"
-  sha256 "df6dc5ed5351f99aaaa6acc78111342d3400b27b99f18148d3be408570144a70"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2022.4.tar.gz"
+  sha256 "a156215a2d7c6c5b267933ed691877a9a66f07d75970da33ce9ad627a71389d7"
   license "Apache-2.0"
 
   bottle do
@@ -20,19 +20,19 @@ class SpirvTools < Formula
   resource "re2" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/re2.git",
-        revision: "5723bb8950318135ed9cf4fc76bed988a087f536"
+        revision: "d2836d1b1c34c4e330a85a1006201db474bf2c8a"
   end
 
   resource "effcee" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/effcee.git",
-        revision: "ddf5e2bb92957dc8a12c5392f8495333d6844133"
+        revision: "35912e1b7778ec2ddcff7e7188177761539e59e0"
   end
 
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "b2a156e1c0434bc8c99aaebba1c7be98be7ac580"
+        revision: "85a1ed200d50660786c1a88d9166e871123cce39"
   end
 
   def install
