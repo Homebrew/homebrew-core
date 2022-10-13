@@ -16,16 +16,16 @@ class RpkiClient < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libressl"
+  depends_on "libretls"
+  depends_on "openssl@3"
   depends_on "rsync"
+
   uses_from_macos "expat"
 
   def install
     system "./configure", *std_configure_args,
                           "--with-rsync=#{Formula["rsync"].opt_bin}/rsync",
-                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}"
     system "make", "install"
