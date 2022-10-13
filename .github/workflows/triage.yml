@@ -65,7 +65,7 @@ jobs:
               except:
                 - Formula/openssl@1.1.rb
                 - Formula/openssl@3.rb
-                - Formula/python@3.10
+                - Formula/python@3.10.rb
                 - Formula/python-tk@3.10.rb
 
             - label: missing license
