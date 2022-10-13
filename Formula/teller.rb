@@ -2,8 +2,8 @@ class Teller < Formula
   desc "Secrets management tool for developers built in Go"
   homepage "https://tlr.dev/"
   url "https://github.com/SpectralOps/teller.git",
-      tag:      "v1.5.5",
-      revision: "97ef49b9e9129caefff7c3c74ac851a5d489415e"
+      tag:      "v1.5.6",
+      revision: "7b714bc2f1d5e14920f2add828fdf7425148ff6b"
   license "Apache-2.0"
   head "https://github.com/SpectralOps/teller.git", branch: "master"
 
