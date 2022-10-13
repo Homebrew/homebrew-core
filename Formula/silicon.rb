@@ -16,10 +16,10 @@ class Silicon < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "fontconfig"
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "fontconfig"
     depends_on "freetype"
     depends_on "libxcb"
     depends_on "xclip"
