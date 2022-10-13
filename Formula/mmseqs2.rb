@@ -1,9 +1,9 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/13-45111.tar.gz"
-  version "13-45111"
-  sha256 "6444bb682ebf5ced54b2eda7a301fa3e933c2a28b7661f96ef5bdab1d53695a2"
+  url "https://github.com/soedinglab/MMseqs2/archive/14-7e284.tar.gz"
+  version "14-7e284"
+  sha256 "a15fd59b121073fdcc8b259fc703e5ce4c671d2c56eb5c027749f4bd4c28dfe1"
   license "GPL-3.0-or-later"
   head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
@@ -33,7 +33,7 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        revision: "790eb1b49f460d6054d5b8a6a643b8543f166388"
+        revision: "4cd4a50c83d72dc60d75dc79afe1b9b67b5e775d"
   end
 
   resource "testdata" do
