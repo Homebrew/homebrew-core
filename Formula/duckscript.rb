@@ -19,13 +19,11 @@ class Duckscript < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1" # Uses Secure Transport on macOS
+    depends_on "openssl@3" # Uses Secure Transport on macOS
   end
 
   def install
-    cd "duckscript_cli" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", "--features", "tls-native", *std_cargo_args(path: "duckscript_cli")
   end
 
   test do
