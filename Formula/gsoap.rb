@@ -3,7 +3,15 @@ class Gsoap < Formula
   homepage "https://www.genivia.com/products.html"
   url "https://downloads.sourceforge.net/project/gsoap2/gsoap_2.8.123.zip"
   sha256 "e018500ac942bb7627612cc9a8229610efe293a450359c413da1a006eb7c193d"
-  license any_of: ["GPL-2.0-or-later", "gSOAP-1.3b"]
+  # Parts of the software are alternatively licensed under gSOAP-1.3b, but this
+  # license is considered non-free by Debian and Fedora due to section 3.2:
+  #
+  # 3.2. Availability of Source Code.
+  # Any Modification created by You will be provided to the Initial Developer in
+  # Source Code form and are subject to the terms of the License.
+  #
+  # Ref: https://salsa.debian.org/ellert/gsoap/-/blob/master/debian/copyright#L7-26
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
     url :stable
@@ -20,14 +28,14 @@ class Gsoap < Formula
   end
 
   depends_on "autoconf" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
-  uses_from_macos "bison"
-  uses_from_macos "flex"
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
   end
