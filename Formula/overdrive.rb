@@ -11,9 +11,14 @@ class Overdrive < Formula
   end
 
   depends_on "tidy-html5"
+
   uses_from_macos "curl"
-  uses_from_macos "libressl"
   uses_from_macos "libxml2"
+
+  on_linux do
+    depends_on "openssl@1.1" # for openssl (non keg-only)
+    depends_on "util-linux" # for uuidgen
+  end
 
   def install
     bin.install "overdrive.sh" => "overdrive"
