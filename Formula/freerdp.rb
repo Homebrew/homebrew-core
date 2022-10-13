@@ -1,8 +1,8 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/archive/2.8.0.tar.gz"
-  sha256 "86f1ce8ef71aff73881a48b40d31dda2fc2a94bdbe37e1c1af8447a0e4fa5cc8"
+  url "https://github.com/FreeRDP/FreeRDP/archive/2.8.1.tar.gz"
+  sha256 "80afdf3fd4304bfc96d4792632660c5fb65ecf5c04c8872cb838a02f4b4cced3"
   license "Apache-2.0"
 
   bottle do
@@ -32,7 +32,7 @@ class Freerdp < Formula
   depends_on "libxrandr"
   depends_on "libxrender"
   depends_on "libxv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "cups"
 
