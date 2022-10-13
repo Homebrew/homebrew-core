@@ -3,7 +3,7 @@ class Libgit2 < Formula
   homepage "https://libgit2.github.com/"
   url "https://github.com/libgit2/libgit2/archive/v1.5.0.tar.gz"
   sha256 "8de872a0f201b33d9522b817c92e14edb4efad18dae95cf156cf240b2efff93e"
-  license "GPL-2.0-only"
+  license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
   head "https://github.com/libgit2/libgit2.git", branch: "main"
 
   livecheck do
