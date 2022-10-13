@@ -36,14 +36,6 @@ class Gnupg < Formula
     depends_on "libidn"
   end
 
-  # Fixes a regression using Yubikey devices as smart cards.
-  # Committed upstream, will be in the next release.
-  # https://dev.gnupg.org/T6070
-  patch do
-    url "https://dev.gnupg.org/rGf34b9147eb3070bce80d53febaa564164cd6c977?diff=1"
-    sha256 "0a54359e00ea5e5f0e53220571a4502b28a05cf687cb73b360fb4c777e2f421b"
-  end
-
   def install
     libusb = Formula["libusb"]
     ENV.append "CPPFLAGS", "-I#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
