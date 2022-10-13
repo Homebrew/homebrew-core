@@ -3,7 +3,7 @@ class Libgcrypt < Formula
   homepage "https://gnupg.org/related_software/libgcrypt/"
   url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.10.1.tar.bz2"
   sha256 "ef14ae546b0084cd84259f61a55e07a38c3b53afc0f546bffcef2f01baffe9de"
-  license "GPL-2.0-only"
+  license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/libgcrypt/"
