@@ -1,10 +1,19 @@
 class Tfel < Formula
   desc "Code generation tool dedicated to material knowledge for numerical mechanics"
   homepage "https://thelfer.github.io/tfel/web/index.html"
-  url "https://github.com/thelfer/tfel/archive/refs/tags/TFEL-4.0.tar.gz"
-  sha256 "ed3fb2f59c6b8c9896606ef92276f81942433dd5f60d8130ba07c3af80b039e2"
   license "GPL-1.0-or-later"
   head "https://github.com/thelfer/tfel.git", using: :git, branch: "master"
+
+  stable do
+    url "https://github.com/thelfer/tfel/archive/refs/tags/TFEL-4.0.tar.gz"
+    sha256 "ed3fb2f59c6b8c9896606ef92276f81942433dd5f60d8130ba07c3af80b039e2"
+
+    # Fix CMake link Flags for bython bindings
+    patch do
+      url "https://github.com/thelfer/tfel/raw/fca68680750847fd56315664ecad19089bf9f0b7/patches/homebrew/tfel-4.0.0.patch"
+      sha256 "ef0b78b1c59d066afe67ee7d3054828008fe364020e5a9204f19a315fdc87e48"
+    end
+  end
 
   bottle do
     sha256 arm64_monterey: "76becea0d88eda0120ab478674d1da58d06431229ca13f6fcbf1c3dd3cfa7f64"
@@ -17,7 +26,8 @@ class Tfel < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc" => :build
-  depends_on "python@3.10" => :build
+  depends_on "boost-python3"
+  depends_on "python@3.10"
   fails_with gcc: "5"
 
   def install
@@ -27,6 +37,8 @@ class Tfel < Formula
       "-Denable-website=OFF",
       "-Dlocal-castem-header=ON",
       "-Denable-python=ON",
+      "-Denable-python-bindings=ON",  # requires boost-python
+      "-Denable-numpy-support=OFF",
       "-Denable-fortran=ON",
       "-Denable-cyrano=ON",
       "-Denable-lsdyna=ON",
@@ -37,6 +49,8 @@ class Tfel < Formula
       "-Denable-diana-fea=ON",
       "-Denable-ansys=ON",
       "-Denable-europlexus=ON",
+      "-Dpython-static-interpreter-workaround=ON",
+
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
