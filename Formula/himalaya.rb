@@ -1,8 +1,8 @@
 class Himalaya < Formula
   desc "CLI email client written in Rust"
   homepage "https://github.com/soywod/himalaya"
-  url "https://github.com/soywod/himalaya/archive/v0.6.0.tar.gz"
-  sha256 "b9d88506de8b00ce5c80981f19989b2da062c80f8b35a70c60d349e51628cbb7"
+  url "https://github.com/soywod/himalaya/archive/v0.6.1.tar.gz"
+  sha256 "e0627eab2758b470051309e4c60bd4e2b0b22cc7a4d6810d94d629648a06d81e"
   license "MIT"
 
   bottle do
@@ -18,7 +18,7 @@ class Himalaya < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   def install
