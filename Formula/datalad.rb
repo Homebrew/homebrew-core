@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/41/de/544f7e47cdc264172d2cdcfa8736dccbc19cab0948bbbd7c186bfca222da/datalad-0.17.6.tar.gz"
-  sha256 "b9e2667dac2af7b816c875ea7920431efa7a16248e20276f502e3cb5aa0cc554"
+  url "https://files.pythonhosted.org/packages/29/1d/6633388afc6f3e1e9adc8e611fa321bf921a98a443754d92ef114eceb00e/datalad-0.17.7.tar.gz"
+  sha256 "937ef47f270d556b5ec65ac2dc2c56d281dc8a05b87fbb702e99305fc0a6b100"
   license "MIT"
 
   bottle do
@@ -33,13 +33,13 @@ class Datalad < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/ca/48/88ec470f8b68319b6782ca3a0570789886ad5ca24c1af2f3771699135baa/certifi-2022.9.14.tar.gz"
-    sha256 "36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/31/a2/12c090713b3d0e141f367236d3a8bdc3e5fca0d83ff3647af4892c16c205/chardet-5.0.0.tar.gz"
-    sha256 "0368df2bfd78b5fc20572bb4e9bb7fb53e2c094f60ae9993339e8671d0afb8aa"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "charset-normalizer" do
@@ -48,8 +48,8 @@ class Datalad < Formula
   end
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/b5/7e/ddfbd640ac9a82e60718558a3de7d5988a7d4648385cf00318f60a8b073a/distro-1.7.0.tar.gz"
-    sha256 "151aeccf60c216402932b52e40ee477a939f8d58898927378a02abbe852c1c39"
+    url "https://files.pythonhosted.org/packages/4b/89/eaa3a3587ebf8bed93e45aa79be8c2af77d50790d15b53f6dfc85b57f398/distro-1.8.0.tar.gz"
+    sha256 "02e111d1dc6a50abb8eed6bf31c3e48ed8b0830d1ea2a1b78c61765c2513fdd8"
   end
 
   resource "fasteners" do
@@ -68,13 +68,13 @@ class Datalad < Formula
   end
 
   resource "iso8601" do
-    url "https://files.pythonhosted.org/packages/28/97/d2d3d96952c77e7593e0f4a634656fb384f7282327f7fef74b726b3b4c1c/iso8601-1.0.2.tar.gz"
-    sha256 "27f503220e6845d9db954fb212b95b0362d8b7e6c1b2326a87061c3de93594b1"
+    url "https://files.pythonhosted.org/packages/31/8c/1c342fdd2f4af0857684d16af766201393ef53318c15fa785fcb6c3b7c32/iso8601-1.1.0.tar.gz"
+    sha256 "32811e7b81deee2063ea6d2e94f8819a86d1f3811e49d23623a41fa832bef03f"
   end
 
   resource "jaraco.classes" do
-    url "https://files.pythonhosted.org/packages/fe/8b/7876fbd69f5a8ebfbda73c8c1a5346171ee5ac0db28e9f5b2bb80ee3e73b/jaraco.classes-3.2.2.tar.gz"
-    sha256 "6745f113b0b588239ceb49532aa09c3ebb947433ce311ef2f8e3ad64ebb74594"
+    url "https://files.pythonhosted.org/packages/bf/02/a956c9bfd2dfe60b30c065ed8e28df7fcf72b292b861dca97e951c145ef6/jaraco.classes-3.2.3.tar.gz"
+    sha256 "89559fa5c1d3c34eff6f631ad80bb21f378dbcbb35dd161fd2c6b93f5be2f98a"
   end
 
   resource "keyring" do
@@ -118,8 +118,8 @@ class Datalad < Formula
   end
 
   resource "python-gitlab" do
-    url "https://files.pythonhosted.org/packages/a8/9b/9406073c64d9a9cb066f75cb12590c436e2788f90b341dbb9346703e4334/python-gitlab-3.9.0.tar.gz"
-    sha256 "5fc5e88f81f366e11851cb8b4b9a5b827491ce20ba7585446b74c9b097726ba3"
+    url "https://files.pythonhosted.org/packages/64/a2/be201be6cde26f2c6a9202040a1cee511132d73653fe0ccd03b36bb85f87/python-gitlab-3.10.0.tar.gz"
+    sha256 "14930a16fdd7f36f67b9373e7d4d4720e8e374800028380289db3306e9f74614"
   end
 
   resource "requests" do
@@ -128,8 +128,8 @@ class Datalad < Formula
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/28/30/7bf7e5071081f761766d46820e52f4b16c8a08fef02d2eb4682ca7534310/requests-toolbelt-0.9.1.tar.gz"
-    sha256 "968089d4584ad4ad7c171454f0a5c6dac23971e9472521ea3b6d49d610aa6fc0"
+    url "https://files.pythonhosted.org/packages/57/d6/20857446a2b81136dd02eed6d198343ce7a045ce8c06d4cb73fd2fee9001/requests-toolbelt-0.10.0.tar.gz"
+    sha256 "f695d6207931200b46c8ef6addbc8a921fb5d77cc4cd209c2e7d39293fcd2b30"
   end
 
   resource "simplejson" do
