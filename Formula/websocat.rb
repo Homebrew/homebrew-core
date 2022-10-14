@@ -19,11 +19,11 @@ class Websocat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f51fbae6e8d881ea4701adcffba0640dfadfe5558389738e87c9077a79c81c1c"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@1.1"
+    depends_on "pkg-config" => :build
+    depends_on "openssl@3"
   end
 
   def install
