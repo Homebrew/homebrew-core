@@ -23,14 +23,17 @@ class Gauche < Formula
     sha256 x86_64_linux:   "5a3f90926fd31d7fc2d29e85dd119fa1e65ce7e0033916661d21d533949561ea"
   end
 
+  depends_on "ca-certificates"
   depends_on "mbedtls"
 
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   def install
-    system "./configure", *std_configure_args,
-                          "--enable-multibyte=utf-8"
+    system "./configure",
+           *std_configure_args,
+           "--enable-multibyte=utf-8",
+           "--with-ca-bundle=#{HOMEBREW_PREFIX}/share/ca-certificates/cacert.pem"
     system "make"
     system "make", "install"
   end
