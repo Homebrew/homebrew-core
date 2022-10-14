@@ -8,11 +8,16 @@ class Libgrapheme < Formula
 
   def install
     args = if OS.mac?
+      soflags = %w[
+        -dynamiclib
+        -installname 'libgrapheme.$(VERSION_MAJOR).dylib'
+        -current_version '$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)'
+        -compatibility_version '$(VERSION_MAJOR).$(VERSION_MINOR).0'
+      ]
+
       [
         "PREFIX=#{prefix}",
-        "SOFLAGS=-dynamiclib -install_name 'libgrapheme.$(VERSION_MAJOR).dylib' " \
-        "-current_version '$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)' " \
-        "-compatibility_version '$(VERSION_MAJOR).$(VERSION_MINOR).0'",
+        "SOFLAGS=#{soflags.join(" ")}",
         "SONAME=libgrapheme.$(VERSION_MAJOR).dylib",
         "SOSYMLINK=false",
         "LDCONFIG=",
