@@ -27,7 +27,7 @@ class Libpq < Formula
   depends_on "krb5"
 
   depends_on "openssl@1.1"
-  
+
   uses_from_macos "libz"
 
   on_linux do
