@@ -3,6 +3,14 @@ class Wrk < Formula
   homepage "https://github.com/wg/wrk"
   url "https://github.com/wg/wrk/archive/4.2.0.tar.gz"
   sha256 "e255f696bff6e329f5d19091da6b06164b8d59d62cb9e673625bdcd27fe7bdad"
+  # License is modified Apache 2.0 with addition to Section 4 Redistribution:
+  #
+  # (e) If the Derivative Work includes substantial changes to features
+  #     or functionality of the Work, then you must remove the name of
+  #     the Work, and any derivation thereof, from all copies that you
+  #     distribute, whether in Source or Object form, except as required
+  #     in copyright, patent, trademark, and attribution notices.
+  license :cannot_represent
   head "https://github.com/wg/wrk.git", branch: "master"
 
   bottle do
@@ -14,21 +22,21 @@ class Wrk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "971a44b8fc296eb7148763277306af8e022210f4ed518a0a290c82730bd1bfef"
   end
 
-  depends_on "openssl@1.1"
-
-  uses_from_macos "unzip" => :build
-
-  on_linux do
-    depends_on "makedepend" => :build
-    depends_on "pkg-config" => :build
-  end
+  depends_on "luajit"
+  depends_on "openssl@3"
 
   conflicts_with "wrk-trello", because: "both install `wrk` binaries"
 
   def install
     ENV.deparallelize
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-    system "make"
+    ENV.append_to_cflags "-I#{Formula["luajit"].opt_include}/luajit-2.1"
+    args = %W[
+      WITH_LUAJIT=#{Formula["luajit"].opt_prefix}
+      WITH_OPENSSL=#{Formula["openssl@3"].opt_prefix}
+    ]
+    args << "VER=#{version}" unless build.head?
+    system "make", *args
     bin.install "wrk"
   end
 
