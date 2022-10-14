@@ -16,6 +16,7 @@ class B2Tools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a99bd595cdfb0f104c60666214a7f4d9282e4780beccd8522a25fd00617df361"
   end
 
+  depends_on "docutils"
   depends_on "python@3.10"
   depends_on "six"
 
@@ -39,11 +40,6 @@ class B2Tools < Formula
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
     sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "idna" do
@@ -93,6 +89,11 @@ class B2Tools < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # we depend on docutils, but that's a separate formula, so install a `.pth` file to link them
+    site_packages = Language::Python.site_packages("python3.10")
+    docutils = Formula["docutils"].opt_libexec
+    (libexec/site_packages/"homebrew-docutils.pth").write docutils/site_packages
 
     bash_completion.install "contrib/bash_completion/b2" => "b2-tools-completion.bash"
     pkgshare.install (buildpath/"contrib").children
