@@ -3,6 +3,7 @@ class Urweb < Formula
   homepage "http://www.impredicative.com/ur/"
   url "https://github.com/urweb/urweb/releases/download/20200209/urweb-20200209.tar.gz"
   sha256 "ac3010c57f8d90f09f49dfcd6b2dc4d5da1cdbb41cbf12cb386e96e93ae30662"
+  license "BSD-3-Clause"
   revision 6
 
   bottle do
@@ -20,7 +21,7 @@ class Urweb < Formula
   depends_on "mlton" => :build
   depends_on "gmp"
   depends_on "icu4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Patch to fix build for icu4c 68.2
   patch do
@@ -35,18 +36,12 @@ class Urweb < Formula
   end
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
-      --prefix=#{prefix}
-      SITELISP=$prefix/share/emacs/site-lisp/urweb
-      ICU_INCLUDES=-I#{Formula["icu4c"].opt_include}
-      ICU_LIBS=-L#{Formula["icu4c"].opt_lib}
-    ]
-
-    system "./configure", *args
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          "SITELISP=$prefix/share/emacs/site-lisp/urweb",
+                          "ICU_INCLUDES=-I#{Formula["icu4c"].opt_include}",
+                          "ICU_LIBS=-L#{Formula["icu4c"].opt_lib}"
     system "make", "install"
   end
 
