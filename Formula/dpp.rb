@@ -2,8 +2,8 @@ class Dpp < Formula
   desc "Directly include C headers in D source code"
   homepage "https://github.com/atilaneves/dpp"
   url "https://github.com/atilaneves/dpp.git",
-      tag:      "v0.4.12",
-      revision: "06a340250792eac4bb3c7ff2661cc76e1e75b5c7"
+      tag:      "v0.4.13",
+      revision: "a29b2931cfc9c43fd2cc29a9795d6a0b2e5c2e39"
   license "BSL-1.0"
 
   bottle do
