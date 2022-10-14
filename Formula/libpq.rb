@@ -28,7 +28,7 @@ class Libpq < Formula
 
   depends_on "openssl@1.1"
 
-  uses_from_macos "libz"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "readline"
