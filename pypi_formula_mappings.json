@@ -471,7 +471,8 @@
     "exclude_packages": ["tabulate", "PyYAML", "jsonschema", "attrs", "pyrsistent"]
   },
   "sphinx-doc": {
-    "extra_packages": ["numpydoc"]
+    "extra_packages": ["numpydoc"],
+    "exclude_packages": ["docutils"]
   },
   "sqlfluff": {
     "exclude_packages": ["PyYAML", "typing-extensions"]
