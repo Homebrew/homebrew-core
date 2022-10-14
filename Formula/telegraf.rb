@@ -42,7 +42,7 @@ class Telegraf < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin/telegraf} --version")
+    assert_match version.to_s, shell_output("#{bin}/telegraf --version")
     (testpath/"config.toml").write shell_output("#{bin}/telegraf -sample-config")
     system "#{bin}/telegraf", "-config", testpath/"config.toml", "-test",
            "-input-filter", "cpu:mem"
