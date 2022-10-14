@@ -3,7 +3,7 @@ class Virtuoso < Formula
   homepage "https://virtuoso.openlinksw.com/wiki/main/"
   url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.7/virtuoso-opensource-7.2.7.tar.gz"
   sha256 "02480b930d5fb414cb328f10cfd200faa658adc10f9c68ef7034c6aa81a5a3a0"
-  license "GPL-2.0-only"
+  license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c30c0e74ff6eabda834e2df9c46df1b201f759b94969c811a893a78549500383"
@@ -24,11 +24,12 @@ class Virtuoso < Formula
 
   # If gawk isn't found, make fails deep into the process.
   depends_on "gawk" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "gperf" => :build
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "net-tools" => :build
@@ -40,8 +41,9 @@ class Virtuoso < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--without-internal-zlib"
     system "make", "install"
   end
 
