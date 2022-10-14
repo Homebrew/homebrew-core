@@ -3,7 +3,7 @@ class Zabbix < Formula
   homepage "https://www.zabbix.com/"
   url "https://cdn.zabbix.com/zabbix/sources/stable/6.2/zabbix-6.2.3.tar.gz"
   sha256 "2be7e57fb33a55fee71480598e317ffa6a8ee5a39639a7e1b42b2ea6872107b5"
-  license "GPL-2.0-or-later"
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
   head "https://github.com/zabbix/zabbix.git", branch: "master"
 
   livecheck do
