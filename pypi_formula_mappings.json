@@ -140,6 +140,9 @@
   },
   "diffoscope": "diffoscope[cmdline]",
   "dnstwist": "dnstwist[full]",
+  "doc8": {
+    "exclude_packages": ["docutils"]
+  },
   "docker-squash": {
     "exclude_packages": ["six"]
   },

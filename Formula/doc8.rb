@@ -17,12 +17,8 @@ class Doc8 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c6893383d7d5854ae0c796ca99ae4be4783fdea457556b741061164d7901283"
   end
 
+  depends_on "docutils"
   depends_on "python@3.10"
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
-  end
 
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/96/9f/f4bc832eeb4ae723b86372277da56a5643b0ad472a95314e8f516a571bb0/pbr-5.9.0.tar.gz"
@@ -51,6 +47,11 @@ class Doc8 < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # we depend on docutils, but that's a separate formula, so install a `.pth` file to link them
+    site_packages = Language::Python.site_packages("python3.10")
+    docutils = Formula["docutils"].opt_libexec
+    (libexec/site_packages/"homebrew-docutils.pth").write docutils/site_packages
   end
 
   test do
