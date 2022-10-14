@@ -36,6 +36,14 @@ class Gnupg < Formula
     depends_on "libidn"
   end
 
+  # Fixes a build failure without ldap.
+  # Committed upstream, will be in the next release.
+  # https://dev.gnupg.org/T6239
+  patch do
+    url "https://dev.gnupg.org/rG7011286ce6e1fb56c2989fdafbd11b931c489faa?diff=1"
+    sha256 "407011d4ae9799f50008b431df60cd5b781dca0f572e956fd46245aa209af7e8"
+  end
+
   def install
     libusb = Formula["libusb"]
     ENV.append "CPPFLAGS", "-I#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
