@@ -25,9 +25,9 @@ class Rebar3 < Formula
     system "./bootstrap"
     bin.install "rebar3"
 
-    bash_completion.install "priv/shell-completion/bash/rebar3"
-    zsh_completion.install "priv/shell-completion/zsh/_rebar3"
-    fish_completion.install "priv/shell-completion/fish/rebar3.fish"
+    bash_completion.install "apps/rebar/priv/shell-completion/bash/rebar3"
+    zsh_completion.install "apps/rebar/priv/shell-completion/zsh/_rebar3"
+    fish_completion.install "apps/rebar/priv/shell-completion/fish/rebar3.fish"
   end
 
   test do
