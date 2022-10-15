@@ -82,6 +82,6 @@ module Homebrew
       end
     end.compact
 
-    puts "::set-output name=runners::#{runners.to_json}"
+    File.open("#{ENV.fetch("GITHUB_ENV")}", 'w') { |file| file.write("runners=#{runners.to_json}") }
   end
 end
