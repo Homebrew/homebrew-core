@@ -16,12 +16,15 @@ class Sccache < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "openssl@3" # Uses Secure Transport on macOS
+  end
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix if OS.linux?
 
     system "cargo", "install", "--features", "all", *std_cargo_args
   end
