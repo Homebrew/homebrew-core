@@ -4,6 +4,7 @@ class Cp2k < Formula
   url "https://github.com/cp2k/cp2k/releases/download/v2022.2/cp2k-2022.2.tar.bz2"
   sha256 "1a473dea512fe264bb45419f83de432d441f90404f829d89cbc3a03f723b8354"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_monterey: "fcec80a4940fa50e97a5265b1c0130b8da6de936de63f680651ffa0b6bc7ff38"
