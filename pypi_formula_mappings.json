@@ -511,6 +511,9 @@
   "sqlite-utils": {
     "exclude_packages": ["tabulate", "six"]
   },
+  "sslyze": {
+    "exclude_packages": ["typing-extensions"]
+  },
   "stormssh": {
     "exclude_packages": ["six"]
   },
