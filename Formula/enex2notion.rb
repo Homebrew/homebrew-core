@@ -3,8 +3,8 @@ class Enex2notion < Formula
 
   desc "Import Evernote ENEX files to Notion"
   homepage "https://github.com/vzhd1701/enex2notion"
-  url "https://files.pythonhosted.org/packages/4d/f8/c5125f731621b83742dc741f80ad28a985ad15af024d13b04e44ddc31da6/enex2notion-0.2.22.tar.gz"
-  sha256 "897994118498972d1042442a9f5f9f00f4b297e04f54e18c8721d742e9521374"
+  url "https://files.pythonhosted.org/packages/cf/96/b8542d7f4b92fd972de5ce188968983cc409d1e1c8c4c353d4288eac3660/enex2notion-0.2.23.tar.gz"
+  sha256 "8e5161adfa06c7ef2d6f05615ad00083400b9422a4bb20c54738460cec7d4cd0"
   license "MIT"
 
   bottle do
@@ -116,8 +116,8 @@ class Enex2notion < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/1f/7a/ca39b0a6f86686816e675fb8bcd99f5f9ab413b1faff8578ab3f5a4bb9f9/tzdata-2022.4.tar.gz"
-    sha256 "ada9133fbd561e6ec3d1674d3fba50251636e918aa97bd59d63735bef5a513bb"
+    url "https://files.pythonhosted.org/packages/95/91/5df9da4fd97126743d3c27442fbd0978cc2323b4ff512dee22a2ec83fbc2/tzdata-2022.5.tar.gz"
+    sha256 "e15b2b3005e2546108af42a0eb4ccab4d9e225e2dfbf4f77aad50c70a4b1f3ab"
   end
 
   resource "tzlocal" do
