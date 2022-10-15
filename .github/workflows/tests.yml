@@ -297,10 +297,10 @@ jobs:
           cd bottles
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
-          echo "::set-output name=count::$count"
+          echo "count=$count" >> $GITHUB_OUTPUT
           failures=$(ls failed/*.json | wc -l | xargs echo -n)
           echo "$failures failed bottles"
-          echo "::set-output name=failures::$failures"
+          echo "failures=$failures" >> $GITHUB_OUTPUT
 
       - name: Upload failed bottles
         if: always() && steps.bottles.outputs.failures > 0
