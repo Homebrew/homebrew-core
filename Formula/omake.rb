@@ -29,7 +29,7 @@ class Omake < Formula
   conflicts_with "etsh", because: "both install 'osh' binaries"
 
   def install
-    system "./configure", "-prefix", prefix, "--mandir=#{man}"
+    system "./configure", "-prefix", prefix
     system "make"
     system "make", "install"
 
