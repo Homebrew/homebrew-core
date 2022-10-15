@@ -1,8 +1,8 @@
 class RancherCli < Formula
   desc "Unified tool to manage your Rancher server"
   homepage "https://github.com/rancher/cli"
-  url "https://github.com/rancher/cli/archive/v2.6.7.tar.gz"
-  sha256 "aee5b0233e88e194694ddf4eb1cf47b32dcc84ae067a95ced3a8b7ca014e5dc3"
+  url "https://github.com/rancher/cli/archive/v2.6.9.tar.gz"
+  sha256 "96117167845c00808332ad770ea5eba8859b13d947f925ff93af2cd4026288c2"
   license "Apache-2.0"
   head "https://github.com/rancher/cli.git", branch: "master"
 
