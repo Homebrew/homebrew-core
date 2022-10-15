@@ -3,8 +3,8 @@ class Codespell < Formula
 
   desc "Fix common misspellings in source code and text files"
   homepage "https://github.com/codespell-project/codespell"
-  url "https://files.pythonhosted.org/packages/71/66/d5e8b69e1572e0165be57fd980ef74394dcea0f49d810407eab2c46449ef/codespell-2.2.1.tar.gz"
-  sha256 "569b67e5e5c3ade02a1e23f6bbc56c64b608a3ab48ddd943ece0a03e6c346ed1"
+  url "https://files.pythonhosted.org/packages/42/57/2b07dc5eb131d34a820bbc08a4437ca2ddfff7a47476bffd1822437de910/codespell-2.2.2.tar.gz"
+  sha256 "c4d00c02b5a2a55661f00d5b4b3b5a710fa803ced9a9d7e45438268b099c319c"
   license "GPL-2.0-only"
 
   bottle do
