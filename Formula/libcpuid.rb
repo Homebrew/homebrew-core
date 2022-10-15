@@ -1,8 +1,8 @@
 class Libcpuid < Formula
   desc "Small C library for x86 CPU detection and feature extraction"
   homepage "https://github.com/anrieff/libcpuid"
-  url "https://github.com/anrieff/libcpuid/archive/v0.5.1.tar.gz"
-  sha256 "36d62842ef43c749c0ba82237b10ede05b298d79a0e39ef5fd1115ba1ff8e126"
+  url "https://github.com/anrieff/libcpuid/archive/v0.6.0.tar.gz"
+  sha256 "202f334e29c46f45a0a54c9209e04816f2a703fdeefdd9b18acc119589d6eafa"
   license "BSD-2-Clause"
   head "https://github.com/anrieff/libcpuid.git", branch: "master"
 
@@ -17,21 +17,21 @@ class Libcpuid < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  # libcpuid is x86 tool
   depends_on arch: :x86_64
 
   def install
     system "autoreconf", "-ivf"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system bin/"cpuid_tool"
-    assert_predicate testpath/"raw.txt", :exist?
-    assert_predicate testpath/"report.txt", :exist?
-    assert_match "CPUID is present", File.read(testpath/"report.txt")
+    assert_match "Alder Lake-S", shell_output("#{bin}/cpuid_tool --cpulist 2>&1")
+
+    system bin/"cpuid_tool", "--outfile=report.txt", "--report"
+    assert_match "CPUID is present", (testpath/"report.txt").read
+
+    assert_match version.to_s, shell_output("#{bin}/cpuid_tool --version")
   end
 end
