@@ -1,9 +1,9 @@
 class Tkdiff < Formula
   desc "Graphical side by side diff utility"
   homepage "https://tkdiff.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/tkdiff/tkdiff/5.5.2/tkdiff-5-5-2.zip"
-  version "5.5.2"
-  sha256 "31718411fa181ea4a6c9c7f8eea115a7b86c50dff5a1a070bc7ad26381d7176b"
+  url "https://downloads.sourceforge.net/project/tkdiff/tkdiff/5.5.3/tkdiff-5-5-3.zip"
+  version "5.5.3"
+  sha256 "459837e26fa9ad5c7cd9b4c22ad8ac887c4f0ab1a64c398091479416db58179a"
   license "GPL-2.0-only"
 
   livecheck do
