@@ -29,7 +29,7 @@ class Libcpuid < Formula
   test do
     assert_match "Alder Lake-S", shell_output("#{bin}/cpuid_tool --cpulist 2>&1")
 
-    system bin/"cpuid_tool", "--outfile=report.txt", "--report"
+    system bin/"cpuid_tool", "--outfile=#{testpath}/report.txt", "--report"
     assert_match "CPUID is present", (testpath/"report.txt").read
 
     assert_match version.to_s, shell_output("#{bin}/cpuid_tool --version")
