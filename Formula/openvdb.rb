@@ -25,7 +25,7 @@ class Openvdb < Formula
 
   fails_with gcc: "5"
 
-  resource "test_file" do
+  resource "homebrew-test_file" do
     url "https://artifacts.aswf.io/io/aswf/openvdb/models/cube.vdb/1.0.0/cube.vdb-1.0.0.zip"
     sha256 "05476e84e91c0214ad7593850e6e7c28f777aa4ff0a1d88d91168a7dd050f922"
   end
@@ -45,7 +45,7 @@ class Openvdb < Formula
   end
 
   test do
-    resource("test_file").stage testpath
+    resource("homebrew-test_file").stage testpath
     system bin/"vdb_print", "-m", "cube.vdb"
   end
 end
