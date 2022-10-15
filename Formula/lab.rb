@@ -1,8 +1,8 @@
 class Lab < Formula
   desc "Git wrapper for GitLab"
   homepage "https://zaquestion.github.io/lab"
-  url "https://github.com/zaquestion/lab/archive/v0.23.0.tar.gz"
-  sha256 "8f20d5f1931e9b5daa0aa2d30fc3176d82dcca91b368905a1e1c05e2b36254b9"
+  url "https://github.com/zaquestion/lab/archive/v0.25.1.tar.gz"
+  sha256 "f8cccdfbf1ca5a2c76f894321a961dfe0dc7a781d95baff5181eafd155707d79"
   license "CC0-1.0"
   head "https://github.com/zaquestion/lab.git", branch: "master"
 
@@ -35,10 +35,9 @@ class Lab < Formula
     ENV["GIT_COMMITTER_NAME"] = "test user"
     ENV["GIT_COMMITTER_EMAIL"] = "test@example.com"
 
-    system "git", "init"
-    %w[haunted house].each { |f| touch testpath/f }
-    system "git", "add", "haunted", "house"
-    system "git", "commit", "-a", "-m", "Initial Commit"
-    assert_match "haunted\nhouse", shell_output("#{bin}/lab ls-files").strip
+    output = shell_output("#{bin}/lab todo done 1 2>&1", 1)
+    assert_match "POST https://gitlab.com/api/v4/todos/1/mark_as_done", output
+
+    assert_match version.to_s, shell_output("#{bin}/lab version")
   end
 end
