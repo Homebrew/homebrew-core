@@ -21,6 +21,7 @@ class Libphonenumber < Formula
 
   depends_on "cmake" => :build
   depends_on "googletest" => :build
+  depends_on "openjdk" => :build
   depends_on "abseil"
   depends_on "boost"
   depends_on "icu4c"
