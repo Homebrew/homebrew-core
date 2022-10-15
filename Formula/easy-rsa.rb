@@ -55,6 +55,6 @@ class EasyRsa < Formula
   test do
     ENV["EASYRSA_PKI"] = testpath/"pki"
     assert_match "'init-pki' complete; you may now create a CA or requests.",
-      shell_output("easyrsa init-pki")
+      shell_output("#{bin}/easyrsa init-pki")
   end
 end
