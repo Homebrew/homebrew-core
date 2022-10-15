@@ -45,6 +45,9 @@ class MysqlAT57 < Formula
       # against `_ZN17Gcs_debug_options12m_debug_noneB5cxx11E' can not be used when making
       # a shared object; recompile with -fPIC
       ENV.append_to_cflags "-fPIC"
+      # Work around failure from GCC 10+ using default of `-fno-common
+      # innodb_engine.c.o:(.bss.ib_cb_cfg_trx_level+0x0): multiple definition of `ib_cb_cfg_trx_level';
+      ENV.append_to_cflags "-fcommon"
     end
 
     # Fixes loading of VERSION file; used in conjunction with patch
