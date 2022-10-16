@@ -30,7 +30,7 @@ class AllRepos < Formula
   test do
     (testpath/"all-repos.json").write <<~EOS
       {
-        "output_dir": ".",
+        "output_dir": "out",
         "source": "all_repos.source.json_file",
         "source_settings": {"filename": "repos.json"},
         "push": "all_repos.push.readonly",
@@ -43,8 +43,8 @@ class AllRepos < Formula
     EOS
 
     system "all-repos-clone"
-    assert_predicate testpath/"discussions", :exist?
+    assert_predicate testpath/"out/discussions", :exist?
     output = shell_output("#{bin}/all-repos-grep discussions")
-    assert_match "./discussions:README.md", output
+    assert_match "out/discussions:README.md", output
   end
 end
