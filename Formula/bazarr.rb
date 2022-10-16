@@ -5,13 +5,10 @@ class Bazarr < Formula
 
   desc "Companion to Sonarr and Radarr for managing and downloading subtitles"
   homepage "https://www.bazarr.media"
+  url "https://github.com/morpheus65535/bazarr/releases/download/v1.1.2/bazarr.zip"
+  sha256 "7134917e7318032a0ea13cb4c31f2cc6ac92f76ccfe8666ef1a1f9851453c54e"
   license "GPL-3.0-or-later"
   head "https://github.com/morpheus65535/bazarr.git", branch: "master"
-
-  stable do
-    url "https://github.com/morpheus65535/bazarr/releases/download/v1.1.2/bazarr.zip"
-    sha256 "7134917e7318032a0ea13cb4c31f2cc6ac92f76ccfe8666ef1a1f9851453c54e"
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7e7502fd86287ae876a205a97f46324d76b5866decce960cdd46638d567b1797"
@@ -35,13 +32,13 @@ class Bazarr < Formula
   uses_from_macos "zlib"
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/3b/94/e2b1b3bad91d15526c7e38918795883cee18b93f6785ea8ecf13f8ffa01e/lxml-4.8.0.tar.gz"
-    sha256 "f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23"
+    url "https://files.pythonhosted.org/packages/70/bb/7a2c7b4f8f434aa1ee801704bf08f1e53d7b5feba3d5313ab17003477808/lxml-4.9.1.tar.gz"
+    sha256 "fe749b052bb7233fe5d072fcb549221a8cb1a16725c47c37e42b0b9cb3ff2c3f"
   end
 
   resource "webrtcvad-wheels" do
-    url "https://files.pythonhosted.org/packages/1c/37/56ddf05b6eaf4023b2d3eb069954fd9150b452ee326d0ea20af1d0d4b0c2/webrtcvad-wheels-2.0.10.post2.tar.gz"
-    sha256 "151bf3998fb731afff90dba77808326235370a6bb467a2d1b81345b10d1de10d"
+    url "https://files.pythonhosted.org/packages/59/d9/17fe64f981a2d33c6e95e115c29e8b6bd036c2a0f90323585f1af639d5fc/webrtcvad-wheels-2.0.11.post1.tar.gz"
+    sha256 "aa1f749b5ea5ce209df9bdef7be9f4844007e630ac87ab9dbc25dda73fd5d2b7"
   end
 
   def install
