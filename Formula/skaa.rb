@@ -15,7 +15,7 @@ class Skaa < Formula
   uses_from_macos "curl"
 
   on_macos do
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   fails_with :clang
