@@ -1,8 +1,8 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v21.2.tar.gz"
-  sha256 "dec6ba261b423ea08e3a62a146ffd5db2b49a0b954a37fc37b24b35da2f7f773"
+  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v21.3.tar.gz"
+  sha256 "51b7b4e22e3cadeddf3188a9207181560f67ac6fb578b9c94826a9b97b743f20"
   license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://github.com/cjdelisle/cjdns.git", branch: "master"
 
@@ -16,15 +16,12 @@ class Cjdns < Formula
   end
 
   depends_on "node" => :build
-  # Fails to build with python@3.10.
-  # AttributeError: module 'collections' has no attribute 'MutableSet'
-  # Related PR: https://github.com/cjdelisle/cjdns/pull/1246
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "rust" => :build
 
   def install
     # Libuv build fails on macOS with: env: python: No such file or directory
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" if OS.mac?
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" if OS.mac?
 
     # Avoid using -march=native
     inreplace "node_build/make.js",
