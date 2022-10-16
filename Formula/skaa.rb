@@ -24,11 +24,7 @@ class Skaa < Formula
   end
 
   test do
-    executable_path = "#{bin}/7kaa"
-
-    return false unless File.file?(executable_path)
-
-    pid = fork { exec executable_path, "-win", "-demo" }
+    pid = fork { exec bin/"7kaa", "-win", "-demo" }
     sleep 5
     system "kill", "-9", pid
   end
