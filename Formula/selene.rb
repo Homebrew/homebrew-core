@@ -1,8 +1,8 @@
 class Selene < Formula
   desc "Blazing-fast modern Lua linter"
   homepage "https://kampfkarren.github.io/selene"
-  url "https://github.com/Kampfkarren/selene/archive/0.21.1.tar.gz"
-  sha256 "a0f43dc3afd71674ade4e47adfd8243c07aca7e27ed83f20b354958a59d908f1"
+  url "https://github.com/Kampfkarren/selene/archive/0.22.0.tar.gz"
+  sha256 "4062413f6f07b8290d9fc9265436426980903a55cb034e5bf239284d099f3d8a"
   license "MPL-2.0"
   head "https://github.com/Kampfkarren/selene.git", branch: "main"
 
@@ -16,7 +16,6 @@ class Selene < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
 
   on_linux do
     depends_on "pkg-config" => :build
