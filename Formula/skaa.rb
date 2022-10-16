@@ -10,6 +10,9 @@ class Skaa < Formula
 
   depends_on "enet"
   depends_on "gettext"
+
+  depends_on :macos
+
   depends_on "sdl2"
 
   uses_from_macos "curl"
