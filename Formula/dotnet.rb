@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.109",
-      revision: "58a93139d80490d0724b4d862ba8ee00ceae45d3"
+      tag:      "v6.0.402",
+      revision: "68624187969147694f78da1cc12444330b06fb1d"
   license "MIT"
 
   # https://github.com/dotnet/source-build/#support
@@ -72,13 +72,6 @@ class Dotnet < Formula
   resource "dotnet-install.sh" do
     url "https://raw.githubusercontent.com/dotnet/install-scripts/dac53157fcb7e02638507144bf5f8f019c1d23a8/src/dotnet-install.sh"
     sha256 "e96eabccea61bbbef3402e23f1889d385a6ae7ad84fe1d8f53f2507519ad86f7"
-  end
-
-  # Fixes race condition in MSBuild.
-  # TODO: Remove with 6.0.3xx or later.
-  resource "homebrew-msbuild-patch" do
-    url "https://github.com/dotnet/msbuild/commit/64edb33a278d1334bd6efc35fecd23bd3af4ed48.patch?full_index=1"
-    sha256 "5870bcdd12164668472094a2f9f1b73a4124e72ac99bbbe43028370be3648ccd"
   end
 
   # Fix build failure on macOS due to missing ILAsm/ILDAsm
