@@ -83,7 +83,6 @@ class Dotnet < Formula
     ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib if OS.linux?
 
     (buildpath/".dotnet").install resource("dotnet-install.sh")
-    (buildpath/"src/SourceBuild/tarball/patches/msbuild").install resource("homebrew-msbuild-patch")
 
     Dir.mktmpdir do |sourcedir|
       system "./build.sh", "/p:ArcadeBuildTarball=true", "/p:TarballDir=#{sourcedir}"
