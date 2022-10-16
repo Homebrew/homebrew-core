@@ -1,8 +1,8 @@
 class Hyperkit < Formula
   desc "Toolkit for embedding hypervisor capabilities in your application"
   homepage "https://github.com/moby/hyperkit"
-  url "https://github.com/moby/hyperkit/archive/v0.20200908.tar.gz"
-  sha256 "e13bdb9dc5c18ca59ae6cd2b447d704d8d58f27cf4ae5a1f0a026deeb13bd0d7"
+  url "https://github.com/moby/hyperkit/archive/v0.20210107.tar.gz"
+  sha256 "095f5f5ef550d7cad10e4d13e9c9ce8b58cc319d654a6d837d8d87ee70537835"
   license "BSD-2-Clause"
 
   bottle do
@@ -11,9 +11,8 @@ class Hyperkit < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "f057fe7b3856421d0fdf1df3d9981e0729ee77c27ed3d4cb918e9523f7d5d9be"
   end
 
-  depends_on "aspcud" => :build
   depends_on "ocaml" => :build
-  depends_on "opam" => :build
+  depends_on "opam" => [">=2.0", :build]
   depends_on xcode: ["9.0", :build]
   depends_on "libev"
   depends_on :macos # Uses Hypervisor.framework, a component of macOS.
@@ -27,20 +26,19 @@ class Hyperkit < Formula
     system "opam", "init", "--disable-sandboxing", "--no-setup"
     opam_dir = "#{buildpath}/.brew_home/.opam"
     ENV["CAML_LD_LIBRARY_PATH"] = "#{opam_dir}/system/lib/stublibs:#{Formula["ocaml"].opt_lib}/ocaml/stublibs"
-    ENV["OPAMEXTERNALSOLVER"] = "aspcud"
     ENV["OPAMUTF8MSGS"] = "1"
     ENV["PERL5LIB"] = "#{opam_dir}/system/lib/perl5"
     ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
     ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
 
-    system "opam", "config", "exec", "--",
-           "opam", "install", "-y", "uri.3.1.0", "qcow.0.11.0", "conduit.2.1.0", "lwt.5.3.0",
+    system "opam", "exec", "--",
+           "opam", "install", "-y", "uri.4.2.0", "qcow.0.11.0", "conduit.2.1.0", "lwt.5.3.0",
            "qcow-tool.0.11.0", "mirage-block-unix.2.12.0", "conf-libev.4-11", "logs.0.7.0", "fmt.0.8.8",
            "mirage-unix.4.0.0", "prometheus-app.0.7"
 
     args = []
     args << "GIT_VERSION=#{version}"
-    system "opam", "config", "exec", "--", "make", *args
+    system "opam", "exec", "--", "make", *args
 
     bin.install "build/hyperkit"
     man1.install "hyperkit.1"
