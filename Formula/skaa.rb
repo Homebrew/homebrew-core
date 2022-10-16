@@ -15,6 +15,10 @@ class Skaa < Formula
     depends_on "gcc"
   end
 
+  on_linux do
+    depends_on "openal-soft"
+  end
+
   fails_with :clang
 
   def install
