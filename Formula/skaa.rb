@@ -5,9 +5,6 @@ class Skaa < Formula
   sha256 "350a2681985feb4b71d20677d1a6d11921b9e3d97facbc94e4f020e848d8ab2b"
   license "GPL-2.0-only"
 
-  # ARM is unsupported
-  depends_on arch: :x86_64
-
   depends_on "enet"
   depends_on "gettext"
 
