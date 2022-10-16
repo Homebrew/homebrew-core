@@ -21,13 +21,10 @@ class Skaa < Formula
     depends_on "gcc" => :build
   end
 
-  fails_with "clang"
+  fails_with :clang
 
   def install
-    # ensure we use gcc for building the app, Clang will fail
-    ENV["CXX"] = "/usr/local/bin/g++-12"
-
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
   end
