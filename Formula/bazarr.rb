@@ -9,8 +9,8 @@ class Bazarr < Formula
   head "https://github.com/morpheus65535/bazarr.git", branch: "master"
 
   stable do
-    url "https://github.com/morpheus65535/bazarr/releases/download/v1.1.1/bazarr.zip"
-    sha256 "0a55474e185c7f84246218097af4caae805ed33d18657f37a8a141d2d847e9e3"
+    url "https://github.com/morpheus65535/bazarr/releases/download/v1.1.2/bazarr.zip"
+    sha256 "7134917e7318032a0ea13cb4c31f2cc6ac92f76ccfe8666ef1a1f9851453c54e"
   end
 
   bottle do
