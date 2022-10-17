@@ -19,6 +19,9 @@ class Shairport < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "23ac06f0eaec53520dfd24e0c2aef2376464f1d3bf9e975aaa0378d74ac500e1"
   end
 
+  # https://github.com/abrasive/shairport#shairport-is-no-longer-maintained
+  deprecate! date: "2022-10-16", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
