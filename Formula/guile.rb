@@ -2,7 +2,7 @@ class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
   license "LGPL-3.0-or-later"
-  revision 3
+  revision 4
 
   stable do
     url "https://ftp.gnu.org/gnu/guile/guile-3.0.8.tar.xz"
