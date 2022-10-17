@@ -4,6 +4,7 @@ class Baresip < Formula
   url "https://github.com/baresip/baresip/archive/v2.8.2.tar.gz"
   sha256 "b2e3f1f0faf04b24a82007f6cbe7636f9dc760ce565cec69e2e07a706003db08"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "6f6e04207e628d7bb34d408a581b7a0c5dbc7ae4434d433790780f35fa4823e5"
@@ -20,20 +21,20 @@ class Baresip < Formula
   def install
     libre = Formula["libre"]
     librem = Formula["librem"]
-    # NOTE: `LIBRE_SO` is a directory but `LIBREM_SO` is a shared library.
     args = %W[
       PREFIX=#{prefix}
       LIBRE_MK=#{libre.opt_share}/re/re.mk
       LIBRE_INC=#{libre.opt_include}/re
       LIBRE_SO=#{libre.opt_lib}
       LIBREM_PATH=#{librem.opt_prefix}
-      LIBREM_SO=#{librem.opt_lib/shared_library("librem")}
+      LIBREM_SO=#{librem.opt_lib}
       MOD_AUTODETECT=
       USE_G711=1
       USE_OPENGL=1
       USE_STDIO=1
       USE_UUID=1
       HAVE_GETOPT=1
+      RELEASE=1
       V=1
     ]
     if OS.mac?
