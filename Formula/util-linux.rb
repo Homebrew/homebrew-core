@@ -27,13 +27,12 @@ class UtilLinux < Formula
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
 
   depends_on "asciidoctor" => :build
-  depends_on "gettext"
 
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  # Everything in following macOS block is for temporary patches
+  # Everything in following macOS block is for temporary patches other than `gettext`.
   # TODO: Remove in the next release.
   on_macos do
     depends_on "autoconf" => :build
@@ -41,6 +40,7 @@ class UtilLinux < Formula
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
     depends_on "pkg-config" => :build
+    depends_on "gettext" # for libintl
 
     # Fix lib/procfs.c:9:10: fatal error: 'sys/vfs.h' file not found
     patch do
@@ -50,6 +50,8 @@ class UtilLinux < Formula
   end
 
   on_linux do
+    depends_on "readline"
+
     conflicts_with "bash-completion", because: "both install `mount`, `rfkill`, and `rtcwake` completions"
     conflicts_with "rename", because: "both install `rename` binaries"
   end
@@ -69,7 +71,6 @@ class UtilLinux < Formula
     else
       args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
       args << "--disable-kill" # Conflicts with coreutils.
-      args << "--disable-cal" # Conflicts with bsdmainutils
       args << "--without-systemd" # Do not install systemd files
       args << "--with-bashcompletiondir=#{bash_completion}"
       args << "--disable-chfn-chsh"
