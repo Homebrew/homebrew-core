@@ -4,6 +4,7 @@ class Notcurses < Formula
   url "https://github.com/dankamongmen/notcurses/archive/v3.0.9.tar.gz"
   sha256 "e5cc02aea82814b843cdf34dedd716e6e1e9ca440cf0f899853ca95e241bd734"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "34d3a21fa36154110b37ad9cfac9c40044342ea33484288120d66e22ddd943a5"
