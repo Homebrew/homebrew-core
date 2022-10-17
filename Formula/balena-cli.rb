@@ -3,8 +3,8 @@ require "language/node"
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://www.balena.io/docs/reference/cli/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-14.3.1.tgz"
-  sha256 "0a1c4034b3a073352f05df9480da5c1afcb430ad252fc41daf5c3a002b9e13b2"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-14.4.1.tgz"
+  sha256 "5207d2a2ccb785add01096efac5514317f524ec4bec7004c399c631c374bd3af"
   license "Apache-2.0"
 
   livecheck do
