@@ -81,7 +81,7 @@ class MariadbAT105 < Formula
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_SYSCONFDIR=#{etc}
-      -DCOMPILATION_COMMENT=#{tap.user}
+      -DCOMPILATION_COMMENT=#{tap&.user}
     ]
 
     if OS.linux?
