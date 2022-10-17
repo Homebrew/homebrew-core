@@ -4,6 +4,7 @@ class SharedMimeInfo < Formula
   url "https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.2/shared-mime-info-2.2.tar.bz2"
   sha256 "418c480019d9865f67f922dfb88de00e9f38bf971205d55cdffab50432919e61"
   license "GPL-2.0-only"
+  head "https://gitlab.freedesktop.org/xdg/shared-mime-info.git", branch: "master"
 
   livecheck do
     url "https://gitlab.freedesktop.org/api/v4/projects/1205/releases"
@@ -21,26 +22,18 @@ class SharedMimeInfo < Formula
     sha256               x86_64_linux:   "42873f1d296084b1afe36a085f96b9b4074b1337b290cc0daf9a81859cf6766a"
   end
 
-  head do
-    url "https://gitlab.freedesktop.org/xdg/shared-mime-info.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "intltool" => :build
-  end
-
-  depends_on "intltool" => :build
+  depends_on "gettext" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
+  depends_on "xmlto" => :build
   depends_on "glib"
-  depends_on "xmlto"
 
   uses_from_macos "libxml2"
 
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     # Disable the post-install update-mimedb due to crash
     mkdir "build" do
       system "meson", *std_meson_args, ".."
