@@ -15,10 +15,10 @@ class Slowhttptest < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "97fccd25208c4636eca7e904d1b0f482e4392a6f0c1e7c4ce4d72678112b89f4"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
