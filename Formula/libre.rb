@@ -4,6 +4,7 @@ class Libre < Formula
   url "https://github.com/baresip/re/archive/refs/tags/v2.8.0.tar.gz"
   sha256 "6aa9622bc0fee6881770e0b374161df44edb395b5d295fc8c56e7b6fa18a8ea2"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "c9d13f5cfd19e445ee6940ada9a205928e7fa4e251e21ca77a194c2ab0da7dc7"
@@ -14,13 +15,13 @@ class Libre < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dece71198fb227417401bbb6ccf50c841ae7cea2c7978e92b8439e208939562d"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
     sysroot = "SYSROOT=#{MacOS.sdk_path}/usr" if OS.mac?
-    system "make", *sysroot, "install", "PREFIX=#{prefix}"
+    system "make", *sysroot, "install", "PREFIX=#{prefix}", "RELEASE=1", "V=1"
   end
 
   test do
