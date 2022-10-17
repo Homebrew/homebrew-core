@@ -26,7 +26,7 @@ class Chisel < Formula
     # modifying a code signed binary will invalidate the signature. To prevent
     # broken signing, this build specifies the target install name up front,
     # in which case brew doesn't perform its modifications.
-    system "make", "-C", "Chisel", "install", "PREFIX=#{lib}", \
+    system "make", "-C", "Chisel", "install", "PREFIX=#{lib}",
       "LD_DYLIB_INSTALL_NAME=#{opt_prefix}/lib/Chisel.framework/Chisel"
   end
 
@@ -38,9 +38,9 @@ class Chisel < Formula
   end
 
   test do
-    xcode_path = `xcode-select --print-path`.strip
-    lldb_rel_path = "Contents/SharedFrameworks/LLDB.framework/Resources/Python"
-    ENV["PYTHONPATH"] = "#{xcode_path}/../../#{lldb_rel_path}"
-    system "python", "#{libexec}/fbchisellldb.py"
+    ENV["PYTHONPATH"] = Utils.safe_popen_read("/usr/bin/lldb", "--python-path").chomp
+    # This *must* be `/usr/bin/python3`. `fbchisellldb.py` does `import lldb`,
+    # which will segfault if imported with a Python that does not match `/usr/bin/lldb`.
+    system "/usr/bin/python3", libexec/"fbchisellldb.py"
   end
 end
