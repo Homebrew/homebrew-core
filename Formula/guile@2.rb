@@ -4,7 +4,7 @@ class GuileAT2 < Formula
   url "https://ftp.gnu.org/gnu/guile/guile-2.2.7.tar.xz"
   mirror "https://ftpmirror.gnu.org/guile/guile-2.2.7.tar.xz"
   sha256 "cdf776ea5f29430b1258209630555beea6d2be5481f9da4d64986b077ff37504"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_ventura:  "97c512b6352e46223d1d499ccbd2280177a66d6f9076fadbabf2bd84b5125b08"
