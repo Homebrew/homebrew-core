@@ -6,11 +6,6 @@ class Voldemort < Formula
   license "Apache-2.0"
   revision 2
 
-  livecheck do
-    url :stable
-    regex(/(?:release-)?v?(\d+(?:\.\d+)+)(?:-cutoff)?/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "e50c8b4278d1c10e0374fd08c569e6dfc121b33ca778f6db241f92f220c746fc"
     sha256 cellar: :any_skip_relocation, big_sur:      "dfd48d6516ae04989d577dc18fe490a678c2fccc562d62f9832e2dcc0449a191"
