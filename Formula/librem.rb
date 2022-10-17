@@ -4,6 +4,7 @@ class Librem < Formula
   url "https://github.com/baresip/rem/archive/refs/tags/v2.8.0.tar.gz"
   sha256 "7f2b4e8db0fbf2d8dc593fb3037d4752aecf3bf50658c3762fe53494cd508cee"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "bd7208a5a64cef0213aaabbfa80abb3f1d21543e5d2ddd7ac8e1deaaf6e13c4e"
