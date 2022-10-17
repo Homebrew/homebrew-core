@@ -29,6 +29,7 @@ class Mesa < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "pygments" => :build
   depends_on "python@3.10" => :build
   depends_on "xorgproto" => :build
 
@@ -69,11 +70,6 @@ class Mesa < Formula
     sha256 "7fde96466fcfeedb0eed94f187f20b23d85e4cb41444be0e542e2c8c65c396cd"
   end
 
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
-  end
-
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
     sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
@@ -93,7 +89,7 @@ class Mesa < Formula
     venv_root = buildpath/"venv"
     venv = virtualenv_create(venv_root, "python3.10")
 
-    %w[Mako Pygments MarkupSafe].each do |res|
+    %w[Mako MarkupSafe].each do |res|
       venv.pip_install resource(res)
     end
 
