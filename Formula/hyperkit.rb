@@ -12,7 +12,8 @@ class Hyperkit < Formula
   end
 
   depends_on "ocaml" => :build
-  depends_on "opam" => [">=2.0", :build]
+  depends_on "opam" => :build
+  depends_on "pkg-config" => :build
   depends_on xcode: ["9.0", :build]
   depends_on "libev"
   depends_on :macos # Uses Hypervisor.framework, a component of macOS.
