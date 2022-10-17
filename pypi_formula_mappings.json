@@ -178,7 +178,7 @@
   },
   "dvc": {
     "package_name": "dvc[all]",
-    "exclude_packages": ["protobuf", "pyarrow", "six", "tabulate", "PyYAML", "typing-extensions"]
+    "exclude_packages": ["protobuf", "pyarrow", "six", "tabulate", "PyYAML", "typing-extensions", "Pygments"]
   },
   "dxpy": {
     "exclude_packages": ["six"]
