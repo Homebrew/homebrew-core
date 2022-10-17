@@ -5,6 +5,7 @@ class Bigloo < Formula
   version "4.4c-4"
   sha256 "4ed71a86c6d762c35352e9f04871a11fe90fa5dbc974e728a86d9e8229d7c70f"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www-sop.inria.fr/indes/fp/Bigloo/download.html"
