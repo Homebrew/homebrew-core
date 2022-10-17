@@ -5,7 +5,7 @@ class Mailutils < Formula
   mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.15.tar.gz"
   sha256 "91c221eb989e576ca78df05f69bf900dd029da222efb631cb86c6895a2b5a0dd"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_ventura:  "fe6df858b6fffac5a923a492688f5ce932cef0db1ab5e72cf4d14bbe92942c68"
