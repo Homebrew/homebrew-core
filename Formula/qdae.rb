@@ -3,13 +3,8 @@ class Qdae < Formula
   homepage "https://www.seasip.info/Unix/QDAE/"
   url "https://www.seasip.info/Unix/QDAE/qdae-0.0.10.tar.gz"
   sha256 "780752c37c9ec68dd0cd08bd6fe288a1028277e10f74ef405ca200770edb5227"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?qdae[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 arm64_monterey: "e8bb72388f0c79baa7bc75a5820a3a77a6f61c2466c0b6d0ca0cf06073d4eb71"
