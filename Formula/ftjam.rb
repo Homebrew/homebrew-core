@@ -5,14 +5,6 @@ class Ftjam < Formula
   sha256 "e89773500a92912de918e9febffabe4b6bce79d69af194435f4e032b8a6d66a3"
   license :cannot_represent
 
-  # We check the "ftjam" directory page since versions aren't present in the
-  # RSS feed as of writing.
-  livecheck do
-    url "https://sourceforge.net/projects/freetype/files/ftjam/"
-    strategy :page_match
-    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09eb3674d68bc70c0a968bab37408395e82acb51ab594f36baae4275972ff9f2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c40cff88de5ed098fbc6373f6ceaf998a63b1f8189e930afbdeb7ab352e207e"
