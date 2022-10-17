@@ -6,11 +6,6 @@ class Elinks < Formula
   license "GPL-2.0-only"
   revision 3
 
-  livecheck do
-    url "http://elinks.or.cz/download/"
-    regex(/href=.*?elinks[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 2
     sha256 arm64_monterey: "eadfed82fabcfb1b645b28af1d2806e7fb53a4dd0d91d2f4966b1d4bc4180744"
@@ -22,7 +17,7 @@ class Elinks < Formula
   end
 
   head do
-    url "http://elinks.cz/elinks.git"
+    url "http://elinks.cz/elinks.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
