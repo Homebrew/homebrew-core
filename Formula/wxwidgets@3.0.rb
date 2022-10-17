@@ -6,11 +6,6 @@ class WxwidgetsAT30 < Formula
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
   revision 1
 
-  livecheck do
-    url :stable
-    regex(/^v?(3\.0(?:\.\d+)*)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "192d4777a1ed701f1cbb83fc089d5ab252b5f2114373878bf4afe0640fa061ea"
     sha256 cellar: :any,                 arm64_big_sur:  "856dac13f581c42ae3c176bbb3cb0054809d98b9d085ea97414737c5ddda2e8f"
