@@ -48,7 +48,7 @@ jobs:
                                                 .map(s => s.trim())
                                                 .filter(Boolean)
                                                 .map(s => {
-              if (intelMacOSRegex.test(s)) // Ephemeral runners
+              if (intelMacOSRegex.test(s) || s == "13-arm64") // Ephemeral runners
                 return {runner: `${s}-${context.runId}-${process.env.GITHUB_RUN_ATTEMPT}`};
               else if (linuxRegex.test(s))
                 return {

@@ -48,10 +48,13 @@ module Homebrew
         if macos_version.outdated_release? || macos_version.prerelease?
           nil
         else
-          macos_runners = [{
-            runner: "#{macos_version}-#{ENV.fetch("GITHUB_RUN_ID")}-#{ENV.fetch("GITHUB_RUN_ATTEMPT")}",
-          }]
-          macos_runners << { runner: "#{macos_version}-arm64" } if macos_version >= :big_sur
+          ephemeral_suffix = "-#{ENV.fetch("GITHUB_RUN_ID")}-#{ENV.fetch("GITHUB_RUN_ATTEMPT")}"
+          macos_runners = [{ runner: "#{macos_version}#{ephemeral_suffix}" }]
+          if macos_version >= :ventura
+            macos_runners << { runner: "#{macos_version}-arm64#{ephemeral_suffix}" }
+          elsif macos_version >= :big_sur
+            macos_runners << { runner: "#{macos_version}-arm64" }
+          end
           macos_runners
         end
       end << linux_runner_spec
@@ -63,10 +66,9 @@ module Homebrew
           nil # Don't rebottle for older macOS versions (no CI to build them).
         else
           runner = macos_version.to_s
-          runner += if tag.arch == :x86_64
-            "-#{ENV.fetch("GITHUB_RUN_ID")}-#{ENV.fetch("GITHUB_RUN_ATTEMPT")}"
-          else
-            "-#{tag.arch}"
+          runner += "-#{tag.arch}" if tag.arch != :x86_64
+          if tag.arch == :x86_64 || macos_version >= :ventura
+            runner += "-#{ENV.fetch("GITHUB_RUN_ID")}-#{ENV.fetch("GITHUB_RUN_ATTEMPT")}"
           end
           { runner: runner }
         end
