@@ -3,24 +3,11 @@ class Envoy < Formula
   homepage "https://www.envoyproxy.io/index.html"
   # Switch to a tarball when the following issue is resolved:
   # https://github.com/envoyproxy/envoy/issues/2181
+  url "https://github.com/envoyproxy/envoy.git",
+      tag:      "v1.24.0",
+      revision: "15baf56003f33a07e0ab44f82f75a660040db438"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
-
-  stable do
-    url "https://github.com/envoyproxy/envoy.git",
-        tag:      "v1.23.1",
-        revision: "edd69583372955fdfa0b8ca3820dd7312c094e46"
-
-    # Fix build failure on macOS 10.15 due to error at
-    # source/extensions/filters/http/file_system_buffer/filter.cc:402:53:
-    # error: no viable constructor or deduction guide for deduction of template arguments of 'weak_ptr'.
-    # For the next v1.23.x release, this can be removed after https://github.com/envoyproxy/envoy/pull/23177
-    # is merged.
-    patch do
-      url "https://github.com/envoyproxy/envoy/commit/68aa00067bbeb7aaf13599f75e54e8837cfb13ef.patch?full_index=1"
-      sha256 "0efbefd5cab5ada6c46845535644339733c4198ac21582401ba038605bc4ed5b"
-    end
-  end
 
   livecheck do
     url :stable
