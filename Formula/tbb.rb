@@ -33,9 +33,15 @@ class Tbb < Formula
   end
 
   def install
+    # Prevent `setup.py` from installing tbb4py directly into HOMEBREW_PREFIX.
+    # We need this due to our `python@3.10` patch.
+    python = Formula["python@3.10"].opt_bin/"python3.10"
+    site_packages = Language::Python.site_packages(python)
+    inreplace "python/CMakeLists.txt", "@@SITE_PACKAGES@@", site_packages
+
     args = %w[
       -DTBB_TEST=OFF
-      -DTBB4PY_BUILD=OFF
+      -DTBB4PY_BUILD=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build/shared",
@@ -53,9 +59,8 @@ class Tbb < Formula
 
     cd "python" do
       ENV.append_path "CMAKE_PREFIX_PATH", prefix.to_s
-      python = Formula["python@3.10"].opt_bin/"python3.10"
 
-      tbb_site_packages = prefix/Language::Python.site_packages(python)/"tbb"
+      tbb_site_packages = prefix/site_packages/"tbb"
       ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(source: tbb_site_packages)}"
 
       ENV["TBBROOT"] = prefix
@@ -111,6 +116,15 @@ diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
 index 1d2b05f..81ba8de 100644
 --- a/python/CMakeLists.txt
 +++ b/python/CMakeLists.txt
+@@ -40,7 +40,7 @@ add_custom_target(
+     ${PYTHON_EXECUTABLE} ${PYTHON_BUILD_WORK_DIR}/setup.py
+         build -b${PYTHON_BUILD_WORK_DIR}
+         build_ext ${TBB4PY_INCLUDE_STRING} -L$<TARGET_FILE_DIR:TBB::tbb>
+-        install --prefix ${PYTHON_BUILD_WORK_DIR}/build -f
++        install --prefix ${PYTHON_BUILD_WORK_DIR}/build --install-lib ${PYTHON_BUILD_WORK_DIR}/build/@@SITE_PACKAGES@@ -f
+     COMMENT "Build and install to work directory the oneTBB Python module"
+ )
+ 
 @@ -49,7 +49,7 @@ add_test(NAME python_test
                   -DPYTHON_MODULE_BUILD_PATH=${PYTHON_BUILD_WORK_DIR}/build
                   -P ${PROJECT_SOURCE_DIR}/cmake/python/test_launcher.cmake)
