@@ -3,8 +3,8 @@ require "language/node"
 class PurescriptLanguageServer < Formula
   desc "Language Server Protocol server for PureScript"
   homepage "https://github.com/nwolverson/purescript-language-server"
-  url "https://registry.npmjs.org/purescript-language-server/-/purescript-language-server-0.16.6.tgz"
-  sha256 "b7a705c51c7bad8cc1c2e8d9e827a57140e90c2e290f1381e64fb16418453e99"
+  url "https://registry.npmjs.org/purescript-language-server/-/purescript-language-server-0.17.0.tgz"
+  sha256 "eec44b6c9838a8b066e7cdb2fb7f6d77c5ef1a92e2efff5bd52a05fc3ef56815"
   license "MIT"
 
   bottle do
