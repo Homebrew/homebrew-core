@@ -1,8 +1,8 @@
 class Lsof < Formula
   desc "Utility to list open files"
   homepage "https://github.com/lsof-org/lsof"
-  url "https://github.com/lsof-org/lsof/archive/4.96.3-freebsd.tar.gz"
-  sha256 "bcb673c547d234da327a8ee0d1ef59d3b7eac12e0c066242ec13cb706485560d"
+  url "https://github.com/lsof-org/lsof/archive/refs/tags/4.96.4.tar.gz"
+  sha256 "b5a052cac8d6b2726bbb1de2b98c6d9204c7619263fb63e9b6b1bd6bbb37bf14"
   license "Zlib"
 
   bottle do
