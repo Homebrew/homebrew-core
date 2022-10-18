@@ -39,6 +39,9 @@ class Tbb < Formula
     site_packages = Language::Python.site_packages(python)
     inreplace "python/CMakeLists.txt", "@@SITE_PACKAGES@@", site_packages
 
+    tbb_site_packages = prefix/site_packages/"tbb"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath},-rpath,#{rpath(source: tbb_site_packages)}"
+
     args = %w[
       -DTBB_TEST=OFF
       -DTBB4PY_BUILD=ON
@@ -59,11 +62,8 @@ class Tbb < Formula
 
     cd "python" do
       ENV.append_path "CMAKE_PREFIX_PATH", prefix.to_s
-
-      tbb_site_packages = prefix/site_packages/"tbb"
-      ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(source: tbb_site_packages)}"
-
       ENV["TBBROOT"] = prefix
+
       system python, *Language::Python.setup_install_args(prefix, python)
     end
 
