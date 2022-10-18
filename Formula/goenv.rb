@@ -24,7 +24,6 @@ class Goenv < Formula
       "test/goenv.bats",
       "test/test_helper.bash",
     ]
-    inreplace_files << "test/init.bats" unless build.head?
     inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
 
     prefix.install Dir["*"]
