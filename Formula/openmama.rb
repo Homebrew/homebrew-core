@@ -24,25 +24,28 @@ class Openmama < Formula
 
   uses_from_macos "flex" => :build
 
-  on_macos do
-    depends_on "ossp-uuid"
-  end
-
   # UUID is provided by util-linux on Linux.
   on_linux do
     depends_on "util-linux"
   end
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DAPR_ROOT=#{Formula["apr"].opt_prefix}",
-                            "-DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}",
-                            "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                            "-DINSTALL_RUNTIME_DEPENDENCIES=OFF",
-                            "-DWITH_TESTTOOLS=OFF",
-                            *std_cmake_args
-      system "make", "install"
+    uuid_args = if OS.mac?
+      ["-DUUID_INCLUDE_DIRS=#{MacOS.sdk_path_if_needed}/usr/include", "-DUUID_LIBRARIES=c"]
+    else
+      []
     end
+
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DAPR_ROOT=#{Formula["apr"].opt_prefix}",
+                    "-DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DINSTALL_RUNTIME_DEPENDENCIES=OFF",
+                    "-DWITH_TESTTOOLS=OFF",
+                    *uuid_args,
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
