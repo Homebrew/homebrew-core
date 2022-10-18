@@ -1,8 +1,6 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.5/e2fsprogs-1.46.5.tar.gz"
-  sha256 "b7430d1e6b7b5817ce8e36d7c8c7c3249b3051d0808a96ffd6e5c398e4e2fbb9"
   license all_of: [
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # lib/ex2fs
@@ -11,6 +9,15 @@ class E2fsprogs < Formula
     "MIT",               # lib/et, lib/ss
   ]
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git", branch: "master"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.5/e2fsprogs-1.46.5.tar.gz"
+    sha256 "b7430d1e6b7b5817ce8e36d7c8c7c3249b3051d0808a96ffd6e5c398e4e2fbb9"
+
+    # Remove `-flat_namespace` flag and fix M1 shared library build.
+    # Sent via email to theodore.tso@gmail.com
+    patch :DATA
+  end
 
   livecheck do
     url :stable
@@ -31,11 +38,14 @@ class E2fsprogs < Formula
   keg_only "this installs several executables which shadow macOS system commands"
 
   depends_on "pkg-config" => :build
-  depends_on "gettext"
 
-  # Remove `-flat_namespace` flag and fix M1 shared library build.
-  # Sent via email to theodore.tso@gmail.com
-  patch :DATA
+  on_macos do
+    depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     # Enforce MKDIR_P to work around a configure bug
@@ -47,10 +57,17 @@ class E2fsprogs < Formula
       "--disable-e2initrd-helper",
       "MKDIR_P=mkdir -p",
     ]
-    args << if OS.linux?
-      "--enable-elf-shlibs"
+    args += if OS.linux?
+      %w[
+        --enable-elf-shlibs
+        --disable-fsck
+        --disable-uuidd
+        --disable-libuuid
+        --disable-libblkid
+        --without-crond-dir
+      ]
     else
-      "--enable-bsd-shlibs"
+      ["--enable-bsd-shlibs"]
     end
 
     system "./configure", *args
@@ -65,7 +82,7 @@ class E2fsprogs < Formula
   end
 
   test do
-    assert_equal 36, shell_output("#{bin}/uuidgen").strip.length
+    assert_equal 36, shell_output("#{bin}/uuidgen").strip.length if OS.mac?
     system bin/"lsattr", "-al"
   end
 end
