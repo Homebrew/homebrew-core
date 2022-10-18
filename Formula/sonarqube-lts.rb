@@ -1,8 +1,8 @@
 class SonarqubeLts < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.9.56886.zip"
-  sha256 "bc31dcdadf85edcbde51fff9c0977412a5e87996f4f51f68a053ec7a44cdb818"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.10.61524.zip"
+  sha256 "9a8e1edae1a687356b2895b0d3fd60034a8e59b535e653563de605d1e2b17960"
   license "LGPL-3.0-or-later"
 
   livecheck do
