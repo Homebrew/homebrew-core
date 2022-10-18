@@ -2,12 +2,11 @@ class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 3
   head "https://github.com/FreeRADIUS/freeradius-server.git", branch: "master"
 
   stable do
-    url "https://github.com/FreeRADIUS/freeradius-server/archive/refs/tags/release_3_2_0.tar.gz"
-    sha256 "2b8817472847e0b49395facd670be97071133730ffa825bb56386c89c18174f5"
+    url "https://github.com/FreeRADIUS/freeradius-server/archive/refs/tags/release_3_2_1.tar.gz"
+    sha256 "95c18c5489564b5a07ef5e64f6685dbe1415f690ceb46f0706d422b8e8a29b52"
 
     # Fix -flat_namespace being used
     patch do
@@ -32,6 +31,7 @@ class FreeradiusServer < Formula
 
   depends_on "collectd"
   depends_on "openssl@1.1"
+  depends_on "python@3.10"
   depends_on "talloc"
 
   uses_from_macos "krb5"
@@ -56,6 +56,8 @@ class FreeradiusServer < Formula
       --with-talloc-lib-dir=#{Formula["talloc"].opt_lib}
       --with-talloc-include-dir=#{Formula["talloc"].opt_include}
     ]
+
+    args << "--without-rlm_python" if OS.mac?
 
     system "./configure", *args
     system "make"
