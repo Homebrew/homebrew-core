@@ -28,7 +28,6 @@ class Emscripten < Formula
 
   depends_on "cmake" => :build
   depends_on "node"
-  # TODO: Check if we can use `uses_from_macos "python"`.
   depends_on "python@3.10"
   depends_on "yuicompressor"
 
