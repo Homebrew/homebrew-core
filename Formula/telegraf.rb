@@ -23,7 +23,7 @@ class Telegraf < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/influxdata/telegraf/internal.Version=#{version}-brew"), "./cmd/telegraf"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/influxdata/telegraf/internal.Version=#{version}"), "./cmd/telegraf"
     etc.install "etc/telegraf.conf" => "telegraf.conf"
   end
 
