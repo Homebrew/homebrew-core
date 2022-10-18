@@ -31,7 +31,7 @@ class Okteto < Formula
     assert_match "Please run 'okteto context' to select one context",
       shell_output(bin/"okteto init --context test 2>&1", 1)
 
-    assert_match "No contexts are available.",
+    assert_match "Your context is not set",
       shell_output(bin/"okteto context list 2>&1", 1)
   end
 end
