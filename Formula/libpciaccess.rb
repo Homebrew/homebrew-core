@@ -1,8 +1,8 @@
 class Libpciaccess < Formula
   desc "Generic PCI access library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/pub/individual/lib/libpciaccess-0.16.tar.bz2"
-  sha256 "214c9d0d884fdd7375ec8da8dcb91a8d3169f263294c9a90c575bf1938b9f489"
+  url "https://www.x.org/pub/individual/lib/libpciaccess-0.17.tar.gz"
+  sha256 "bf6985a77d2ecb00e2c79da3edfb26b909178ffca3f2e9d14ed0620259ab733b"
   license "MIT"
 
   bottle do
