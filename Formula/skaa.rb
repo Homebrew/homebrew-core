@@ -1,4 +1,4 @@
-class Skaa < Formula
+class SevenKingdoms < Formula
   desc "Seven Kingdoms: Ancient Adversaries"
   homepage "https://7kfans.com"
   url "https://github.com/the3dfxdude/7kaa/releases/download/v2.15.5/7kaa-2.15.5.tar.xz"
