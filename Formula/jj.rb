@@ -24,7 +24,7 @@ class Jj < Formula
   end
 
   def install
-    system "cargo", "install", "--no-default-features", *std_cargo_args
+    system "cargo", "install", "--no-default-features", "--bin", "jj", *std_cargo_args
   end
 
   test do
