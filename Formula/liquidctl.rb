@@ -3,8 +3,8 @@ class Liquidctl < Formula
 
   desc "Cross-platform tool and drivers for liquid coolers and other devices"
   homepage "https://github.com/liquidctl/liquidctl"
-  url "https://files.pythonhosted.org/packages/af/ef/9b7f0296108ec0a778e867e996bb6014d9d12005c452b9cd1c97d1cc266a/liquidctl-1.10.0.tar.gz"
-  sha256 "f9dc1dacaf1d3a44b80000baac490b44c5fa7443159bd8d2ef4dbb1af49cc7ba"
+  url "https://files.pythonhosted.org/packages/4b/03/7fc3d602c03be8d3789ab993423ac649e080a5a4c2c458bbec9bc62537ad/liquidctl-1.11.0.tar.gz"
+  sha256 "a3b53e317ba9211e05be88d9158efdc02c51ae067ee974d3d9f0b79716cf7ba3"
   license "GPL-3.0-or-later"
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
@@ -19,6 +19,7 @@ class Liquidctl < Formula
 
   depends_on "hidapi"
   depends_on "libusb"
+  depends_on "pillow"
   depends_on "python@3.10"
 
   on_linux do
@@ -26,8 +27,13 @@ class Liquidctl < Formula
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/8e/8f/1537ebed273d43edd3bb21f1e5861549b7cfcb1d47523d7277cab988cec2/colorlog-6.6.0.tar.gz"
-    sha256 "344f73204009e4c83c5b6beb00b3c45dc70fcdae3c80db919e0a4171d006fde8"
+    url "https://files.pythonhosted.org/packages/78/6b/4e5481ddcdb9c255b2715f54c863629f1543e97bc8c309d1c5c131ad14f2/colorlog-6.7.0.tar.gz"
+    sha256 "bd94bd21c1e13fac7bd3153f4bc3a7dc0eb0974b8bc2fdf1a989e474f6e582e5"
+  end
+
+  resource "crcmod" do
+    url "https://files.pythonhosted.org/packages/6b/b0/e595ce2a2527e169c3bcd6c33d2473c1918e0b7f6826a043ca1245dd4e5b/crcmod-1.7.tar.gz"
+    sha256 "dc7051a0db5f2bd48665a990d3ec1cc305a466a77358ca4492826f41f283601e"
   end
 
   resource "docopt" do

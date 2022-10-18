@@ -280,6 +280,9 @@
   "legit": {
     "exclude_packages": ["six"]
   },
+  "liquidctl": {
+    "exclude_packages": ["pillow"]
+  },
   "litecli": {
     "exclude_packages": ["six", "tabulate"]
   },
