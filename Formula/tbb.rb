@@ -14,6 +14,8 @@ class Tbb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e97e1ba13401a2f358a5a2477ca0d78fe806a75375d2636dfa39cc198f6fbce"
   end
 
+  # If adding `hwloc` for TBBBind, you *must* add a test for its functionality.
+  # https://github.com/oneapi-src/oneTBB/blob/690aaf497a78a75ff72cddb084579427ab0a8ffc/CMakeLists.txt#L226-L228
   depends_on "cmake" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "swig" => :build
@@ -33,7 +35,7 @@ class Tbb < Formula
   def install
     args = %w[
       -DTBB_TEST=OFF
-      -DTBB4PY_BUILD=ON
+      -DTBB4PY_BUILD=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build/shared",
