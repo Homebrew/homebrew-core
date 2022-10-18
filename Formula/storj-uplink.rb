@@ -1,8 +1,8 @@
 class StorjUplink < Formula
   desc "Uplink CLI for the Storj network"
   homepage "https://storj.io"
-  url "https://github.com/storj/storj/archive/refs/tags/v1.64.1.tar.gz"
-  sha256 "691a9b10a9e723f73a23d3bd5ece14ab9fc4ec571a58fabd8b2952388aabf56d"
+  url "https://github.com/storj/storj/archive/refs/tags/v1.65.1.tar.gz"
+  sha256 "05dfedab488e44aedb7d8d35ce9565fcb622b86b474b4613534726acaa9efccf"
   license "AGPL-3.0-only"
 
   livecheck do
