@@ -1,8 +1,8 @@
 class Libxshmfence < Formula
   desc "X.Org: Shared memory 'SyncFence' synchronization primitive"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libxshmfence-1.3.tar.bz2"
-  sha256 "b884300d26a14961a076fbebc762a39831cb75f92bed5ccf9836345b459220c7"
+  url "https://www.x.org/archive/individual/lib/libxshmfence-1.3.1.tar.xz"
+  sha256 "1129f95147f7bfe6052988a087f1b7cb7122283d2c47a7dbf7135ce0df69b4f8"
   license "MIT"
 
   bottle do
