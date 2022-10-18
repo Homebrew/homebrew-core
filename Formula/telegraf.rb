@@ -4,7 +4,6 @@ class Telegraf < Formula
   url "https://github.com/influxdata/telegraf/archive/v1.24.2.tar.gz"
   sha256 "e0b4bc65dc46a87b14a164c1226f6cee15fabfff14f355344bede3ef3e585925"
   license "MIT"
-  revision 1
   head "https://github.com/influxdata/telegraf.git", branch: "master"
 
   livecheck do
