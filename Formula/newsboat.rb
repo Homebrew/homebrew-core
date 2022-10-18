@@ -1,8 +1,8 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.28/newsboat-2.28.tar.xz"
-  sha256 "2508713ac850f1f2ae156e4b42cbc75a1c9e399d804e007b5773019115d3b0ec"
+  url "https://newsboat.org/releases/2.29/newsboat-2.29.tar.xz"
+  sha256 "18b9801e0c2948f29248bfd8f319a9f9f670993fdbd494c6464aaab9e325fd6b"
   license "MIT"
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
@@ -27,6 +27,10 @@ class Newsboat < Formula
   uses_from_macos "libxslt"
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
+
+  on_macos do
+    depends_on "make"
+  end
 
   # Newsboat have their own libstfl fork. Upstream libsftl is gone:
   # https://github.com/Homebrew/homebrew-core/pull/89981
@@ -83,7 +87,11 @@ class Newsboat < Formula
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{libexec}/lib"
 
-    system "make", "install", "prefix=#{prefix}"
+    if OS.mac?
+      system Formula["make"].opt_bin/"gmake", "install", "prefix=#{prefix}"
+    else
+      system "make", "install", "prefix=#{prefix}"
+    end
   end
 
   test do
