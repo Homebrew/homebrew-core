@@ -21,7 +21,7 @@ class CargoAudit < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -30,11 +30,9 @@ class CargoAudit < Formula
   end
 
   def install
-    cd "cargo-audit" do
-      system "cargo", "install", *std_cargo_args
-      # test cargo-audit
-      pkgshare.install "tests/support"
-    end
+    system "cargo", "install", *std_cargo_args(path: "cargo-audit")
+    # test cargo-audit
+    pkgshare.install "cargo-audit/tests/support"
   end
 
   test do
