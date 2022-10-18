@@ -4,6 +4,7 @@ class Verilator < Formula
   url "https://github.com/verilator/verilator/archive/refs/tags/v4.228.tar.gz"
   sha256 "be6af6572757013802be5b0ff9c64cbf509e98066737866abaae692fe04edf09"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
+  head "https://github.com/verilator/verilator.git", branch: "master"
 
   bottle do
     sha256 arm64_monterey: "892ffbcd0e96b47dd1117f4496feed9ac0135036efe1d054a21e23c6c91920b1"
@@ -14,17 +15,13 @@ class Verilator < Formula
     sha256 x86_64_linux:   "71517024181695b5103200682a331fc57964924b965c74a76b920b3e828bc98d"
   end
 
-  head do
-    url "https://github.com/verilator/verilator.git", using: :git
-  end
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.10" => :build
 
-  uses_from_macos "bison"
-  uses_from_macos "flex"
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "perl"
+  uses_from_macos "python", since: :catalina
 
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
@@ -56,7 +53,7 @@ class Verilator < Formula
           exit(0);
       }
     EOS
-    system "/usr/bin/perl", bin/"verilator", "-Wall", "--cc", "test.v", "--exe", "test.cpp"
+    system bin/"verilator", "-Wall", "--cc", "test.v", "--exe", "test.cpp"
     cd "obj_dir" do
       system "make", "-j", "-f", "Vtest.mk", "Vtest"
       expected = <<~EOS
