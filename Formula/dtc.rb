@@ -22,11 +22,11 @@ class Dtc < Formula
 
   depends_on "pkg-config" => :build
 
-  uses_from_macos "bison"
-  uses_from_macos "flex"
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
-    inreplace "libfdt/Makefile.libfdt", "libfdt.$(SHAREDLIB_EXT).1", "libfdt.1.$(SHAREDLIB_EXT)"
+    inreplace "libfdt/Makefile.libfdt", "libfdt.$(SHAREDLIB_EXT).1", "libfdt.1.$(SHAREDLIB_EXT)" if OS.mac?
     system "make", "NO_PYTHON=1"
     system "make", "NO_PYTHON=1", "DESTDIR=#{prefix}", "PREFIX=", "install"
   end
