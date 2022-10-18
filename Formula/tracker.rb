@@ -1,10 +1,9 @@
 class Tracker < Formula
   desc "Library and daemon that is an efficient search engine and triplestore"
   homepage "https://gnome.pages.gitlab.gnome.org/tracker/"
-  url "https://download.gnome.org/sources/tracker/3.3/tracker-3.3.3.tar.xz"
-  sha256 "4094f704e338f2247fa6b94633279cfd07f7e952bb24627128fab78edb242464"
+  url "https://download.gnome.org/sources/tracker/3.4/tracker-3.4.0.tar.xz"
+  sha256 "b3b380c9571d7c7423b5f401e4a2f2d78de47143b035eb2c1281e2423c59218b"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 1
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version scheme.
   livecheck do
