@@ -1,8 +1,8 @@
 class XcbUtilCursor < Formula
   desc "XCB cursor library (replacement for libXcursor)"
   homepage "https://xcb.freedesktop.org"
-  url "https://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.3.tar.bz2"
-  sha256 "05a10a0706a1a789a078be297b5fb663f66a71fb7f7f1b99658264c35926394f"
+  url "https://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.4.tar.xz"
+  sha256 "28dcfe90bcab7b3561abe0dd58eb6832aa9cc77cfe42fcdfa4ebe20d605231fb"
   license "X11"
 
   bottle do
