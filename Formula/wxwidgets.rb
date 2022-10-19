@@ -20,18 +20,26 @@ class Wxwidgets < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd1dfab011909114af44d0949d6473e077355a226ac212db9261f04aa035c98f"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "pcre2"
+
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "gtk+3"
     depends_on "libsm"
     depends_on "mesa-glu"
   end
 
   def install
+    # Remove all bundled libraries excluding `nanosvg` which isn't available as formula
+    %w[catch pcre].each { |l| (buildpath/"3rdparty"/l).rmtree }
+    %w[expat jpeg png tiff zlib].each { |l| (buildpath/"src"/l).rmtree }
+
     args = [
       "--prefix=#{prefix}",
       "--enable-clipboard",
@@ -50,6 +58,8 @@ class Wxwidgets < Formula
       "--with-libtiff",
       "--with-opengl",
       "--with-zlib",
+      "--disable-dependency-tracking",
+      "--disable-tests",
       "--disable-precomp-headers",
       # This is the default option, but be explicit
       "--disable-monolithic",
