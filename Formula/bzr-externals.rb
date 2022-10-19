@@ -8,7 +8,7 @@ class BzrExternals < Formula
     sha256 cellar: :any_skip_relocation, all: "f99c72d0a05f987beb57d609527ab543e93fb1db7245c454193a932f6e5c01df"
   end
 
-  deprecate! date: "2021-08-19", because: :unsupported
+  disable! date: "2022-10-19", because: :unsupported
 
   depends_on "bazaar"
 
