@@ -1,8 +1,8 @@
 class XcbUtilRenderutil < Formula
   desc "Convenience functions for the X Render extension"
   homepage "https://xcb.freedesktop.org"
-  url "https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2"
-  sha256 "c6e97e48fb1286d6394dddb1c1732f00227c70bd1bedb7d1acabefdd340bea5b"
+  url "https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.10.tar.gz"
+  sha256 "e04143c48e1644c5e074243fa293d88f99005b3c50d1d54358954404e635128a"
   license all_of: ["X11", "HPND-sell-variant"]
 
   bottle do
