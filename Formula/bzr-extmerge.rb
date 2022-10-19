@@ -8,7 +8,7 @@ class BzrExtmerge < Formula
     sha256 cellar: :any_skip_relocation, all: "8aa67f424683414f0e2553170e9835caf54aad70e99517ad79da66a46c3ff6bd"
   end
 
-  deprecate! date: "2021-08-19", because: :unsupported
+  disable! date: "2022-10-19", because: :unsupported
 
   depends_on "bazaar"
 
