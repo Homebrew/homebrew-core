@@ -16,7 +16,7 @@ class Earthly < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "26b0b7e9d5092ad0c1934bcaead536a40ba13bdcf1ef3366423696bfac8d080b"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.19" => :build
 
   def install
     ldflags = %W[
