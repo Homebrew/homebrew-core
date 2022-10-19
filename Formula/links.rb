@@ -3,7 +3,7 @@ class Links < Formula
   homepage "http://links.twibright.com/"
   url "http://links.twibright.com/download/links-2.28.tar.bz2"
   sha256 "2fd5499b13dee59457c132c167b8495c40deda75389489c6cccb683193f454b4"
-  license "GPL-2.0-or-later"
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
     url "http://links.twibright.com/download.php"
@@ -20,7 +20,7 @@ class Links < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
@@ -28,7 +28,7 @@ class Links < Formula
   def install
     system "./configure", *std_configure_args,
                           "--mandir=#{man}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--without-lzma"
     system "make", "install"
     doc.install Dir["doc/*"]
