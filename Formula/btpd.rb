@@ -18,11 +18,10 @@ class Btpd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b2e4da63e65ec96199c8152d3e5e45f5c10c80d2f1e407c9cff9cd26a761ba9"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
