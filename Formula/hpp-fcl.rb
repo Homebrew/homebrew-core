@@ -7,6 +7,11 @@ class HppFcl < Formula
   revision 1
   head "https://github.com/humanoid-path-planner/hpp-fcl.git", branch: "devel"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+){2})$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "821fd8af881f90d339ef761de7a6a26b6f196560bac1096798964cfe77c81a3e"
     sha256 cellar: :any,                 arm64_big_sur:  "e8b7f398967271eca2793d9dd4a233a5dd3d75c0d1dd86d3a3b07f3aae86c208"
