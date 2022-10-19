@@ -1,8 +1,8 @@
 class Libpinyin < Formula
   desc "Library to deal with pinyin"
   homepage "https://github.com/libpinyin/libpinyin"
-  url "https://github.com/libpinyin/libpinyin/archive/2.6.2.tar.gz"
-  sha256 "73f428a1c76a44a9ff666ae3c71b9ce4d96d07bc5b5af8081a85ef66a0383777"
+  url "https://github.com/libpinyin/libpinyin/archive/2.7.92.tar.gz"
+  sha256 "83ec10e3aa2b51c30d270bbb6078284863e24afcedff7527b92e8306ff3c4f5b"
   license "GPL-3.0-or-later"
 
   bottle do
