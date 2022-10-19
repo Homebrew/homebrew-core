@@ -35,7 +35,7 @@ class Pinocchio < Formula
   end
 
   test do
-    system python3, "-c", <<~EOS
+    system bin/"python3.10", "-c", <<~EOS
       import pinocchio
       model = pinocchio.Model()
       data = model.createData()
