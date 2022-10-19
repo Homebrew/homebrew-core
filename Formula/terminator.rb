@@ -3,10 +3,9 @@ class Terminator < Formula
 
   desc "Multiple GNOME terminals in one window"
   homepage "https://gnome-terminator.org"
-  url "https://github.com/gnome-terminator/terminator/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "ee1907bc9bfe03244f6d8074b214ef1638a964b38e21ca2ad4cca993d0c1d31e"
+  url "https://github.com/gnome-terminator/terminator/archive/refs/tags/v2.1.2.tar.gz"
+  sha256 "8239dfa28a51b288c463459a937225d3f657cde926f4db481be49f1691bd5083"
   license "GPL-2.0-only"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "098c77a630f6f02fa66e6eb7a592f3229bd70cb91584ac2de78c75944bd8fa19"
