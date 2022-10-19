@@ -15,7 +15,7 @@ class Rsstail < Formula
     sha256 cellar: :any, high_sierra:   "29b1cd5b6cbfbd66d250586450e2e24e5706da80b03aa1b54834bd0c01e73202"
   end
 
-  deprecate! date: "2021-05-20", because: :repo_removed
+  disable! date: "2022-10-19", because: :repo_removed
 
   depends_on "libmrss"
 
