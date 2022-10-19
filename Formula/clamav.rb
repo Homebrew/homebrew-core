@@ -5,6 +5,7 @@ class Clamav < Formula
   mirror "https://fossies.org/linux/misc/clamav-0.105.1.tar.gz"
   sha256 "d2bc16374db889a6e5a6ac40f8c6e700254a039acaa536885a09eeea4b8529f6"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Cisco-Talos/clamav-devel.git", branch: "main"
 
   livecheck do
@@ -44,6 +45,7 @@ class Clamav < Formula
   def install
     args = std_cmake_args + %W[
       -DAPP_CONFIG_DIRECTORY=#{etc}/clamav
+      -DDATABASE_DIRECTORY=#{var}/lib/clamav
       -DENABLE_JSON_SHARED=ON
       -DENABLE_STATIC_LIB=ON
       -DENABLE_SHARED_LIB=ON
@@ -65,7 +67,7 @@ class Clamav < Formula
   end
 
   test do
-    system "#{bin}/clamav-config", "--version"
+    assert_match "Database directory: #{var}/lib/clamav", shell_output("#{bin}/clamconf")
     (testpath/"freshclam.conf").write <<~EOS
       DNSDatabaseInfo current.cvd.clamav.net
       DatabaseMirror database.clamav.net
