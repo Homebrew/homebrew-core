@@ -18,7 +18,7 @@ class Sxiv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "83e501a472f4a821202cfc62a9076c35655d340e127b6465384ceb9d535ddf86"
   end
 
-  deprecate! date: "2021-09-23", because: :repo_archived
+  disable! date: "2022-10-19", because: :repo_archived
 
   depends_on "giflib"
   depends_on "imlib2"
