@@ -3,7 +3,7 @@ class Tcpflow < Formula
   homepage "https://github.com/simsong/tcpflow"
   url "https://downloads.digitalcorpora.org/downloads/tcpflow/tcpflow-1.6.1.tar.gz"
   sha256 "436f93b1141be0abe593710947307d8f91129a5353c3a8c3c29e2ba0355e171e"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   livecheck do
     url "https://downloads.digitalcorpora.org/downloads/tcpflow/"
@@ -21,14 +21,14 @@ class Tcpflow < Formula
   end
 
   head do
-    url "https://github.com/simsong/tcpflow.git"
+    url "https://github.com/simsong/tcpflow.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "boost" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bzip2"
   uses_from_macos "libpcap"
@@ -38,9 +38,16 @@ class Tcpflow < Formula
 
   def install
     system "bash", "./bootstrap.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--mandir=#{man}"
     system "make", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/tcpflow -v -r #{test_fixtures("test.pcap")} 2>&1")
+    assert_match "Total flows processed: 2", output
+    assert_match "Total packets processed: 11", output
+    assert_match "<title>Test</title>", (testpath/"192.168.001.118.00080-192.168.001.115.51613").read
   end
 end
