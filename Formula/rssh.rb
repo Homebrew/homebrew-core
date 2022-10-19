@@ -16,7 +16,7 @@ class Rssh < Formula
     sha256 el_capitan:     "23891b0317ef29a36b0b8ee9f140193d17ae616983c13f2179d5b317b33e1eee"
   end
 
-  deprecate! date: "2021-01-22", because: :unmaintained
+  disable! date: "2022-10-19", because: :unmaintained
 
   # Submitted upstream:
   # https://sourceforge.net/p/rssh/mailman/message/32251335/
