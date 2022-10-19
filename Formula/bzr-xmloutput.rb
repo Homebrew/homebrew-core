@@ -8,7 +8,7 @@ class BzrXmloutput < Formula
     sha256 cellar: :any_skip_relocation, all: "cb0f2bde2a3d23624cf9d0215149d0f72c1c52f9be66fcfea51e833255a42245"
   end
 
-  deprecate! date: "2021-08-19", because: :unsupported
+  disable! date: "2022-10-19", because: :unsupported
 
   depends_on "bazaar"
 
