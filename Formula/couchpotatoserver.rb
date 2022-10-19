@@ -11,7 +11,7 @@ class Couchpotatoserver < Formula
     sha256 cellar: :any_skip_relocation, all: "f8c2e92a584c48ec2a693d5e7e4cf48ef29fe40b3501668d0205357b4c901c8c"
   end
 
-  deprecate! date: "2021-09-30", because: :repo_archived
+  disable! date: "2022-10-19", because: :repo_archived
 
   def install
     prefix.install_metafiles
