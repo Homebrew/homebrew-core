@@ -1,8 +1,8 @@
 class XcbUtilWm < Formula
   desc "Client and window-manager helpers for EWMH and ICCCM"
   homepage "https://xcb.freedesktop.org"
-  url "https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2"
-  sha256 "28bf8179640eaa89276d2b0f1ce4285103d136be6c98262b6151aaee1d3c2a3f"
+  url "https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.2.tar.gz"
+  sha256 "dcecaaa535802fd57c84cceeff50c64efe7f2326bf752e16d2b77945649c8cd7"
   license "X11"
 
   bottle do
