@@ -22,7 +22,7 @@ class Tcpdump < Formula
   end
 
   depends_on "libpcap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -35,7 +35,7 @@ class Tcpdump < Formula
     output = shell_output("#{bin}/tcpdump --help 2>&1")
     assert_match "tcpdump version #{version}", output
     assert_match "libpcap version #{Formula["libpcap"].version}", output
-    assert_match "OpenSSL #{Formula["openssl@1.1"].version}", output
+    assert_match "OpenSSL #{Formula["openssl@3"].version}", output
 
     match = if OS.mac?
       "tcpdump: (cannot open BPF device) /dev/bpf0: Operation not permitted"
