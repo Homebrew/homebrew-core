@@ -9,7 +9,7 @@ class HppFcl < Formula
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+){2})$/i)
+    strategy :github_latest
   end
 
   bottle do
