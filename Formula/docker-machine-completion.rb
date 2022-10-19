@@ -10,7 +10,7 @@ class DockerMachineCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "a953e0a6776024c35f839a0f4a23a782e186318fd07fdaa0a8405f41fadbd01a"
   end
 
-  deprecate! date: "2021-09-30", because: :repo_archived
+  disable! date: "2022-10-19", because: :repo_archived
 
   conflicts_with "docker-machine",
     because: "docker-machine already includes completion scripts"
