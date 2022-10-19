@@ -8,7 +8,7 @@ class BzrUpload < Formula
     sha256 cellar: :any_skip_relocation, all: "1ed703bbd059cad6589230219b1425f5bfc4d67c15819da557e6b72813b0b476"
   end
 
-  deprecate! date: "2021-08-19", because: :unsupported
+  disable! date: "2022-10-19", because: :unsupported
 
   depends_on "bazaar"
 
