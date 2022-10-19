@@ -8,7 +8,7 @@ class BzrColo < Formula
     sha256 cellar: :any_skip_relocation, all: "3174aca6218d012389e14dba29a075e90201bb6436a42350164626b223f5818d"
   end
 
-  deprecate! date: "2021-08-19", because: :unsupported
+  disable! date: "2022-10-19", because: :unsupported
 
   depends_on "bazaar"
 
