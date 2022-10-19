@@ -21,17 +21,16 @@ class AmqpCpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    ENV.cxx11
-
-    system "cmake", "-DBUILD_SHARED=ON",
-                    "-DCMAKE_MACOSX_RPATH=1",
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DAMQP-CPP_BUILD_SHARED=ON",
                     "-DAMQP-CPP_LINUX_TCP=ON",
+                    "-DCMAKE_MACOSX_RPATH=1",
                     *std_cmake_args
-    system "make"
-    system "make", "install"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
