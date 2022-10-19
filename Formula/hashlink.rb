@@ -30,11 +30,18 @@ class Hashlink < Formula
   end
 
   def install
-    # On Linux, also set RPATH in LIBFLAGS, so that the linker will also add the RPATH to .hdll files.
-    inreplace "Makefile", "LIBFLAGS =", "LIBFLAGS = -Wl,-rpath,${INSTALL_LIB_DIR}" unless OS.mac?
+    # remove with 1.13 release:
     inreplace "Makefile", /PCRE_INCLUDE =/, "PCRE_FLAGS =" unless build.head?
 
-    system "make", "PREFIX=#{libexec}"
+    if OS.mac?
+      # make file doesn't set rpath on mac yet
+      system "make", "PREFIX=#{libexec}", "EXTRA_LFLAGS=-Wl,-rpath,#{libexec}/lib"
+    else
+      # On Linux, also set RPATH in LIBFLAGS, so that the linker will also add the RPATH to .hdll files.
+      inreplace "Makefile", "LIBFLAGS =", "LIBFLAGS = -Wl,-rpath,${INSTALL_LIB_DIR}"
+      system "make", "PREFIX=#{libexec}"
+    end
+
     system "make", "install", "PREFIX=#{libexec}"
     bin.install_symlink Dir[libexec/"bin/*"]
   end
