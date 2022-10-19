@@ -19,7 +19,7 @@ class Httping < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0090bfe517e71dd18d61ed96c5f5cf2cc1bf252399c9d49b521b9a53bc7a46b8"
   end
 
-  deprecate! date: "2021-05-20", because: :repo_removed
+  disable! date: "2022-10-19", because: :repo_removed
 
   depends_on "gettext"
   depends_on "openssl@1.1"
