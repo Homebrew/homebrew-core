@@ -1,8 +1,8 @@
 class XcbUtilImage < Formula
   desc "XCB port of Xlib's XImage and XShmImage"
   homepage "https://xcb.freedesktop.org"
-  url "https://xcb.freedesktop.org/dist/xcb-util-image-0.4.0.tar.bz2"
-  sha256 "2db96a37d78831d643538dd1b595d7d712e04bdccf8896a5e18ce0f398ea2ffc"
+  url "https://xcb.freedesktop.org/dist/xcb-util-image-0.4.1.tar.gz"
+  sha256 "0ebd4cf809043fdeb4f980d58cdcf2b527035018924f8c14da76d1c81001293b"
   license "X11"
 
   bottle do
