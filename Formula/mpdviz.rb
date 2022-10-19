@@ -18,7 +18,7 @@ class Mpdviz < Formula
   end
 
   # https://github.com/lucy/mpdviz/issues/7
-  deprecate! date: "2021-02-22", because: :unmaintained
+  disable! date: "2022-10-19", because: :unmaintained
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
