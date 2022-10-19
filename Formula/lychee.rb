@@ -16,16 +16,14 @@ class Lychee < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "pkg-config" => :build
   end
 
   def install
-    cd "lychee-bin" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "lychee-bin")
   end
 
   test do
