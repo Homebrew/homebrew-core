@@ -12,7 +12,7 @@ class DockerComposeCompletion < Formula
   end
 
   # See: https://github.com/docker/compose/issues/8550
-  deprecate! date: "2021-10-02", because: "no upstream support for v2"
+  disable! date: "2022-10-19", because: "no upstream support for v2"
 
   def install
     bash_completion.install "contrib/completion/bash/docker-compose"
