@@ -1,8 +1,8 @@
 class JfrogCli < Formula
   desc "Command-line interface for JFrog products"
   homepage "https://www.jfrog.com/confluence/display/CLI/JFrog+CLI"
-  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.27.1.tar.gz"
-  sha256 "ecf54de4bcb1ee222671a572329fa7c93534622d44b0149730a575478d1a7556"
+  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.27.2.tar.gz"
+  sha256 "408013e9bc87eddb1f546372be7d418407bd5ae8132bd565cc3b7fd69a70af56"
   license "Apache-2.0"
 
   bottle do
