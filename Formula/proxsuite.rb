@@ -15,25 +15,19 @@ class Proxsuite < Formula
   depends_on "scipy"
   depends_on "simde"
 
-  def python3
-    Formula["python@3.10"].opt_libexec/"bin/python"
-  end
-
   def install
     if build.head?
       system "git", "submodule", "update", "--init"
       system "git", "pull", "--unshallow", "--tags"
     end
 
-    ENV.prepend_path "PYTHONPATH", Formula["eigenpy"].opt_prefix/Language::Python.site_packages(python3)
-    ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
+    ENV.prepend_path "PYTHONPATH", Formula["eigenpy"].opt_prefix/Language::Python.site_packages
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{python3}",
+                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_libexec/"bin/python"}",
                     "-DBUILD_UNIT_TESTS=OFF",
                     "-DBUILD_PYTHON_INTERFACE=ON",
                     "-DINSTALL_DOCUMENTATION=ON",
-                    "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.15",
                     "-DSimde_INCLUDE_DIR=#{Formula["simde"].opt_prefix/"include"}",
                     *std_cmake_args
     system "cmake", "--build", "build"
@@ -41,7 +35,8 @@ class Proxsuite < Formula
   end
 
   test do
-    system python3, "-c", <<~EOS
+    python_exe = Formula["python@3.10"].opt_libexec/"bin/python"
+    system python_exe, "-c", <<~EOS
       import proxsuite
       qp = proxsuite.proxqp.dense.QP(10,0,0)
       assert qp.model.H.shape[0] == 10 and qp.model.H.shape[1] == 10
