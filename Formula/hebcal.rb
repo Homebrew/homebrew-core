@@ -4,6 +4,7 @@ class Hebcal < Formula
   url "https://github.com/hebcal/hebcal/archive/v5.2.1.tar.gz"
   sha256 "764fd843759d52f90c2c6b6aa89a3cb82d05ff26e2064b9109c908f7fd131daf"
   license "GPL-2.0-or-later"
+  head "https://github.com/hebcal/hebcal.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ffe7d52bdd0161226a866115f12a3774c568c301d5d46e68d487aafc8905768"
@@ -14,14 +15,10 @@ class Hebcal < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a6810c26023bc92628a7ebe1c024949f1f7f60969c6def544c48ef65442699b"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  uses_from_macos "gperf" => :build
+  depends_on "go" => :build
 
   def install
-    system "autoreconf", "-fiv"
-    system "./configure", "--prefix=#{prefix}", "ACLOCAL=aclocal", "AUTOMAKE=automake"
-    system "make", "install"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
