@@ -17,7 +17,7 @@ class Libevhtp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "944924e814dc284b4f34bd754190c976c55b9ec6cf8e614ae0950b45655ff86b"
   end
 
-  deprecate! date: "2021-07-13", because: :repo_archived
+  disable! date: "2022-10-19", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
