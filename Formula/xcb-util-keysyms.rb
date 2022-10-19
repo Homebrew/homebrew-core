@@ -1,8 +1,8 @@
 class XcbUtilKeysyms < Formula
   desc "Standard X constants and conversion to/from keycodes"
   homepage "https://xcb.freedesktop.org"
-  url "https://xcb.freedesktop.org/dist/xcb-util-keysyms-0.4.0.tar.bz2"
-  sha256 "0ef8490ff1dede52b7de533158547f8b454b241aa3e4dcca369507f66f216dd9"
+  url "https://xcb.freedesktop.org/dist/xcb-util-keysyms-0.4.1.tar.gz"
+  sha256 "1fa21c0cea3060caee7612b6577c1730da470b88cbdf846fa4e3e0ff78948e54"
   license "X11"
 
   bottle do
