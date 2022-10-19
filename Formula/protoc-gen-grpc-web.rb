@@ -20,21 +20,15 @@ class ProtocGenGrpcWeb < Formula
   depends_on "cmake" => :build
   depends_on "node" => :test
   depends_on "typescript" => :test
-  depends_on "protobuf@3"
+  depends_on "protobuf"
+  depends_on "protoc-gen-js"
 
   def install
     bin.mkpath
     system "make", "install-plugin", "PREFIX=#{prefix}"
-
-    # Remove these two lines when this formula depends on unversioned `protobuf`.
-    libexec.install bin/"protoc-gen-grpc-web"
-    (bin/"protoc-gen-grpc-web").write_env_script libexec/"protoc-gen-grpc-web",
-                                                 PATH: "#{Formula["protobuf@3"].opt_bin}:${PATH}"
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["protobuf@3"].opt_bin
-
     # First use the plugin to generate the files.
     testdata = <<~EOS
       syntax = "proto3";
