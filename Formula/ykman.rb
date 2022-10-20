@@ -19,7 +19,7 @@ class Ykman < Formula
 
   depends_on "rust" => :build
   depends_on "swig" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
   depends_on "python@3.10"
 
   uses_from_macos "libffi"
