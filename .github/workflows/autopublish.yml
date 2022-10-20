@@ -1,0 +1,31 @@
+name: Publish and commit bottles on schedule
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Once every hour
+    - cron: "*/60 * * * *"
+
+concurrency:
+  group: autopublish
+  cancel-in-progress: true
+
+env:
+  HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+
+permissions:
+  contents: read
+
+jobs:
+  autopublish:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Run automerge
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+        run: brew pr-automerge --verbose --publish

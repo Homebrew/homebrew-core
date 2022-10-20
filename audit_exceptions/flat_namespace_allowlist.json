@@ -1,0 +1,23 @@
+[
+  "adios2",
+  "arpack",
+  "bind",
+  "blast",
+  "e2fsprogs",
+  "gnuradio",
+  "hdf5-mpi",
+  "lablgtk",
+  "libvirt",
+  "mpich",
+  "omniorb",
+  "open-mpi",
+  "pypy",
+  "pypy3",
+  "scalapack",
+  "soapysdr",
+  "soci",
+  "tcl-tk",
+  "uhd",
+  "xmlrpc-c",
+  "xvid"
+]

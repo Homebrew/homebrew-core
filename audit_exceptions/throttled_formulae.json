@@ -1,0 +1,11 @@
+{
+  "aws-sdk-cpp": 10,
+  "awscli@1": 10,
+  "checkov": 15,
+  "contentful-cli": 5,
+  "gatsby-cli": 10,
+  "netlify-cli": 5,
+  "quicktype": 10,
+  "testkube": 5,
+  "vim": 50
+}

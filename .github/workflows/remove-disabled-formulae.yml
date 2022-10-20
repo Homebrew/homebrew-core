@@ -1,0 +1,53 @@
+name: Remove disabled formulae
+
+on:
+  push:
+    paths:
+      - .github/workflows/remove-disabled-formulae.yml
+  schedule:
+    # Once every day at midnight UTC
+    - cron: "0 0 * * *"
+
+concurrency:
+  group: remove-disabled-formulae
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  remove-disabled-formulae:
+    if: startsWith(github.repository, 'Homebrew/')
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Configure Git user
+        uses: Homebrew/actions/git-user-config@master
+        with:
+          username: BrewTestBot
+
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@master
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
+
+      - name: Remove disabled formulae
+        id: remove_disabled
+        uses: Homebrew/actions/remove-disabled-formulae@master
+        env:
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+
+      - name: Create pull request
+        if: ${{ steps.remove_disabled.outputs.formulae-removed == 'true' }}
+        uses: peter-evans/create-pull-request@45c510e1f68ba052e3cd911f661a799cfb9ba3a3
+        with:
+          token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
+          branch: remove-disabled-formulae
+          title: Remove disabled formulae
+          body: >
+            This pull request was created automatically by the
+            [`remove-disabled-formulae`](https://github.com/Homebrew/homebrew-core/blob/HEAD/.github/workflows/remove-disabled-formulae.yml)
+            workflow.
