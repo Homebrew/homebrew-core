@@ -22,6 +22,9 @@ class NodeAT16 < Formula
 
   keg_only :versioned_formula
 
+  # https://nodejs.org/en/about/releases/
+  # disable! date: "2023-09-11", because: :unsupported
+
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
   depends_on "brotli"
