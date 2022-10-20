@@ -27,6 +27,7 @@ class Gitversion < Formula
       --runtime #{os}-#{arch}
       --no-self-contained
       -p:PublishSingleFile=true
+      -p:Version=#{version}
     ]
     args << "-p:OsxArm64=true" if OS.mac? && Hardware::CPU.arm?
 
