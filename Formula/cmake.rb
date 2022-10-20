@@ -29,7 +29,7 @@ class Cmake < Formula
   uses_from_macos "ncurses"
 
   on_linux do
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   # The completions were removed because of problems with system bash
