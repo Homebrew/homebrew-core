@@ -19,6 +19,6 @@ class Telepresence < Formula
   end
 
   test do
-    assert_match("Root Daemon: Not running", shell_output("#{bin}/telepresence status"))
+    assert_match "Root Daemon: Not running", shell_output("#{bin}/telepresence status")
   end
 end
