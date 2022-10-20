@@ -1,9 +1,18 @@
 class BulkExtractor < Formula
   desc "Stream-based forensics tool"
   homepage "https://github.com/simsong/bulk_extractor/wiki"
-  url "https://github.com/simsong/bulk_extractor/releases/download/v2.0.0/bulk_extractor-2.0.0.tar.gz"
-  sha256 "6b3c7d36217dd9e374f4bb305e27cbed0eb98735b979ad0a899f80444f91c687"
   license "MIT"
+
+  stable do
+    url "https://github.com/simsong/bulk_extractor/releases/download/v2.0.0/bulk_extractor-2.0.0.tar.gz"
+    sha256 "6b3c7d36217dd9e374f4bb305e27cbed0eb98735b979ad0a899f80444f91c687"
+
+    # Fix --disable-rar build. Remove in the next release.
+    patch do
+      url "https://github.com/simsong/bulk_extractor/commit/1a9fde225aad0fe2ffd634bdc741b4c65586297c.patch?full_index=1"
+      sha256 "1c3cd2c87bae46d3163fe526def879d0e057fb700b3909362b8356be2ba2318e"
+    end
+  end
 
   livecheck do
     url :stable
@@ -19,7 +28,13 @@ class BulkExtractor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d89721d67c9460edc181f54c0c92f3dd56dd0f70cba83356b9cc3dffecb5c995"
   end
 
-  depends_on "openssl@1.1"
+  head do
+    url "https://github.com/simsong/bulk_extractor.git", branch: "main"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
+  depends_on "openssl@3"
 
   uses_from_macos "flex" => :build
   uses_from_macos "expat"
@@ -27,7 +42,9 @@ class BulkExtractor < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./bootstrap.sh" if build.head?
+    # Disable RAR to avoid problematic UnRAR license
+    system "./configure", *std_configure_args, "--disable-rar", "--disable-silent-rules"
     system "make"
     system "make", "install"
 
@@ -42,7 +59,7 @@ class BulkExtractor < Formula
     input_file.write "https://brew.sh\n(201)555-1212\n"
 
     output_dir = testpath/"output"
-    system "#{bin}/bulk_extractor", "-o", output_dir, input_file
+    system bin/"bulk_extractor", "-o", output_dir, input_file
 
     assert_match "https://brew.sh", (output_dir/"url.txt").read
     assert_match "(201)555-1212", (output_dir/"telephone.txt").read
