@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/b3/04/9a00642513ff1080a6f23c0397dbeb3cd839d4215f5204e3e4e0b0eabcb5/moto-4.0.7.tar.gz"
-  sha256 "869cac77cfc2e03be955453a224f6c3e887878f4b43f2d68477f236e615bd462"
+  url "https://files.pythonhosted.org/packages/71/74/1a51bee4b94b15eeef117bccf5a63a6f5127f957496bfc25635738b1783a/moto-4.0.8.tar.gz"
+  sha256 "3bd8a72dc385819c84ed3f9d18c386985634041c6ae544d957bd8ab88c6c15f1"
   license "Apache-2.0"
 
   bottle do
@@ -23,8 +23,8 @@ class Moto < Formula
   depends_on "six"
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/16/c2/f66a1863ca010f7555358142584b8d6e529160e7830fdb2d161bc5bf858f/aws-sam-translator-1.52.0.tar.gz"
-    sha256 "1b5f156695a6772170aefe3f5fe91882c7f2e1cf1ccaa9bb32502c5d96fcc3ea"
+    url "https://files.pythonhosted.org/packages/41/5f/7a38af115796ad4f134e6caab373a6931d867a4fc08e3312a794f1256c0c/aws-sam-translator-1.53.0.tar.gz"
+    sha256 "392ed4f5fb08f72cb68a8800f0bc278d2a3b6609bd1ac66bfcdeaaa94cdc18e5"
   end
 
   resource "aws-xray-sdk" do
@@ -33,13 +33,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/97/a0/20dd887905e5056c597c959a0adb452d88aac992418578e18567e2109f23/boto3-1.24.89.tar.gz"
-    sha256 "d0d8ffcdc10821c4562bc7f935cdd840033bbc342ac0e14b6bdd348b3adf4c04"
+    url "https://files.pythonhosted.org/packages/d5/0c/34f4d8778db6058d828086b5f5c8c8d2cda49e85ca7624b0cd4a5421c628/boto3-1.24.94.tar.gz"
+    sha256 "f4842b395d1580454756622069f4ca0408993885ecede967001d2c101201cdfa"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/bd/cb/af3d2851d43200724720ba4e81af15cbadeaf5b190eedd1b75582296627e/botocore-1.27.89.tar.gz"
-    sha256 "621f5413be8f97712b7e36c1b075a8791d1d1b9971a7ee060cdcdf5e2debf6c1"
+    url "https://files.pythonhosted.org/packages/d6/a2/de653e65e7c80d945edd8069834bdc81fdbf531e626dab7023ad77edc82e/botocore-1.27.94.tar.gz"
+    sha256 "572224608a0b7662966fc303b768e2eba61bf53bdbf314481cd9e63a0d8e1a66"
   end
 
   resource "certifi" do
@@ -53,8 +53,8 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/8f/f2/fd47a4c136f2cb9c23f2f85d7e8e31c58933f037aa40fc7fda4b1ec76bc5/cfn-lint-0.66.1.tar.gz"
-    sha256 "779e3752d534ef9bf61111165e48aaeebb7d71a3df84f6966651816feca58fd0"
+    url "https://files.pythonhosted.org/packages/93/3e/d0cdabb490c5933908a6572d8ff8924a40087187ac923f4cc8a8646ddcb4/cfn-lint-0.68.0.tar.gz"
+    sha256 "3c68a6f912e5780e4fa23e5033b9c9d65e7612cc1b4b0cfb01d03260af120a3e"
   end
 
   resource "charset-normalizer" do
@@ -68,8 +68,8 @@ class Moto < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6d/0c/5e67831007ba6cd7e52c4095f053cf45c357739b0a7c46a45ddd50049019/cryptography-38.0.1.tar.gz"
-    sha256 "1db3d807a14931fa317f96435695d9ec386be7b84b618cc61cfa5d08b0ae33d7"
+    url "https://files.pythonhosted.org/packages/63/82/a6e21842f2e31b3874f01c112093b8bf8af119f5ed999bbd667a81de720b/cryptography-38.0.2.tar.gz"
+    sha256 "7a022ec87c7a8bdad99f516a4ee6ffcb3a2bc31487577f9eccbc9b2edb1a8fd4"
   end
 
   resource "docker" do
@@ -83,8 +83,8 @@ class Moto < Formula
   end
 
   resource "Flask" do
-    url "https://files.pythonhosted.org/packages/5b/77/3accd62b8771954e9584beb03f080385b32ddcad30009d2a4fe4068a05d9/Flask-2.1.3.tar.gz"
-    sha256 "15972e5017df0575c3d6c090ba168b6db90259e620ac8d7ea813a396bad5b6cb"
+    url "https://files.pythonhosted.org/packages/69/b6/53cfa30eed5aa7343daff36622843688ba8c6fe9829bb2b92e193ab1163f/Flask-2.2.2.tar.gz"
+    sha256 "642c450d19c4ad482f96729bd2a8f6d32554aa1e231f4f6b4e7e5264b16cca2b"
   end
 
   resource "Flask-Cors" do
@@ -203,8 +203,8 @@ class Moto < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/31/da/2d48d3499b59c7f3c5d5e1c79fcee5537c320c8ab7b7a0cd2db578bc34b3/pytz-2022.4.tar.gz"
-    sha256 "48ce799d83b6f8aab2020e369b627446696619e79645419610b9facd909b3174"
+    url "https://files.pythonhosted.org/packages/fe/dd/182cc5ed8e64a0d6d6c34fd27391041d542270000825410d294bd6902207/pytz-2022.5.tar.gz"
+    sha256 "c4d88f472f54d615e9cd582a5004d1e5f624854a6a27a6211591c251f22a6914"
   end
 
   resource "requests" do
@@ -213,8 +213,8 @@ class Moto < Formula
   end
 
   resource "responses" do
-    url "https://files.pythonhosted.org/packages/6d/db/b949a6bf2a75c64caea0a6b39d05e433aa2e51bea78ae9d5dda1110b31a5/responses-0.21.0.tar.gz"
-    sha256 "b82502eb5f09a0289d8e209e7bad71ef3978334f56d09b444253d5ad67bf5253"
+    url "https://files.pythonhosted.org/packages/03/cc/c15e28fdbc81909ac18a4c22bebe8517bbafef43947a072da6f042fbd4d5/responses-0.22.0.tar.gz"
+    sha256 "396acb2a13d25297789a5866b4881cf4e46ffd49cc26c43ab1117f40b973102e"
   end
 
   resource "rsa" do
@@ -237,6 +237,16 @@ class Moto < Formula
     sha256 "3020ed4f8c846849299370fbe98ff4157b0ccc1accec105e07cfa9ae4bb55064"
   end
 
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+  end
+
+  resource "types-toml" do
+    url "https://files.pythonhosted.org/packages/76/d0/11897ab7b3b2211be5c733e241d83401f5d37473c961ea5c9460393c6f45/types-toml-0.10.8.tar.gz"
+    sha256 "b7e7ea572308b1030dc86c3ba825c5210814c2825612ec679eb7814f8dd9295a"
+  end
+
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
     sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
@@ -248,8 +258,8 @@ class Moto < Formula
   end
 
   resource "Werkzeug" do
-    url "https://files.pythonhosted.org/packages/10/cf/97eb1a3847c01ae53e8376bc21145555ac95279523a935963dc8ff96c50b/Werkzeug-2.1.2.tar.gz"
-    sha256 "1ce08e8093ed67d638d63879fd1ba3735817f7a80de3674d293f5984f25fb6e6"
+    url "https://files.pythonhosted.org/packages/f8/c1/1c8e539f040acd80f844c69a5ef8e2fccdf8b442dabb969e497b55d544e1/Werkzeug-2.2.2.tar.gz"
+    sha256 "7ea2d48322cc7c0f8b3a215ed73eabd7b5d75d0b50e31ab006286ccff9e00b8f"
   end
 
   resource "wrapt" do
