@@ -15,10 +15,6 @@ class Pinocchio < Formula
   depends_on "python@3.10"
   depends_on "urdfdom"
 
-  def python3
-    Formula["python@3.10"].opt_libexec/"bin/python"
-  end
-
   def install
     if build.head?
       system "git", "submodule", "update", "--init"
@@ -35,7 +31,8 @@ class Pinocchio < Formula
   end
 
   test do
-    system bin/"python3.10", "-c", <<~EOS
+    python_exe = Formula["python@3.10"].opt_libexec/"bin/python"
+    system python_exe, "-c", <<~EOS
       import pinocchio
       model = pinocchio.Model()
       data = model.createData()
