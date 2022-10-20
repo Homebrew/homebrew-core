@@ -47,7 +47,7 @@ class Kafka < Formula
     libexec.install "libs"
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env)
+    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env)
     Dir["#{bin}/*.sh"].each { |f| mv f, f.to_s.gsub(/.sh$/, "") }
 
     mv "config", "kafka"
