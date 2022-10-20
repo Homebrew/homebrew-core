@@ -20,7 +20,7 @@ class GrinWallet < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1" # Uses Secure Transport on macOS
+    depends_on "openssl@3" # Uses Secure Transport on macOS
   end
 
   def install
