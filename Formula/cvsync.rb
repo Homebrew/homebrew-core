@@ -23,7 +23,7 @@ class Cvsync < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a20f451681f3519d67c49bc202f0db2297c3c799bfbbec9f27c85ae97a5a425"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
