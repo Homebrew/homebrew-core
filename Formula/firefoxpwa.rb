@@ -20,7 +20,8 @@ class Firefoxpwa < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
+    depends_on "bzip2" # not used on macOS
+    depends_on "openssl@3"
   end
 
   def install
