@@ -11,7 +11,7 @@ class Gocryptfs < Formula
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_macos do
     disable! date: "2021-04-08", because: "requires closed-source macFUSE"
@@ -23,7 +23,8 @@ class Gocryptfs < Formula
 
   def install
     system "./build.bash"
-    bin.install "gocryptfs"
+    bin.install "gocryptfs", "gocryptfs-xray/gocryptfs-xray"
+    man1.install "Documentation/gocryptfs.1", "Documentation/gocryptfs-xray.1"
   end
 
   def caveats
