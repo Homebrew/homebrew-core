@@ -15,7 +15,7 @@ class Dura < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -37,6 +37,8 @@ class Dura < Formula
 
   test do
     system "git", "init"
+    system "git", "config", "user.name", "BrewTestBot"
+    system "git", "config", "user.email", "BrewTestBot@test.com"
     touch "foo"
     system "git", "add", "foo"
     system "git", "commit", "-m", "bar"
