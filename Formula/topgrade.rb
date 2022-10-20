@@ -1,9 +1,10 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
-  homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v9.0.1.tar.gz"
-  sha256 "70a1cf2c6a4de41e4c708409842968f3cf05dd5f238efac7ca0f1c9064be670a"
+  homepage "https://github.com/topgrade-rs/topgrade"
+  url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v9.1.0.tar.gz"
+  sha256 "0ea5640effeeb51c0e07d65846c52e14eb4ebcd3fbad60f5da4dda41fd5f2936"
   license "GPL-3.0-or-later"
+
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb8afeb38439c5087560050ef61394601e02260ed6b24dc90617fa4447ae3e79"
