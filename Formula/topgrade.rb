@@ -2,7 +2,7 @@ class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/topgrade-rs/topgrade"
   url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v10.0.0.tar.gz"
-  sha256 "0ea5640effeeb51c0e07d65846c52e14eb4ebcd3fbad60f5da4dda41fd5f2936"
+  sha256 "a097659309f3f19e471766043d57e24ba458c81164102eac3b03ccf92fffc240"
   license "GPL-3.0-or-later"
 
   bottle do
