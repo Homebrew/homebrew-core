@@ -27,7 +27,7 @@ class Libu2fServer < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Compatibility with json-c 0.14. Remove with the next release.
   patch do
@@ -40,7 +40,7 @@ class Libu2fServer < Formula
     ENV["LIBCRYPTO_LIBS"] = "-lcrypto -lz"
     ENV["PKG_CONFIG"] = "#{Formula["pkg-config"].opt_bin}/pkg-config"
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
