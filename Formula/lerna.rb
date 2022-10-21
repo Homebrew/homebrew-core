@@ -21,6 +21,17 @@ class Lerna < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Remove incompatible pre-built binaries
+    node_modules = libexec/"lib/node_modules/#{name}/node_modules"
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    if OS.linux?
+      %w[@lmdb/lmdb @msgpackr-extract/msgpackr-extract].each do |mod|
+        node_modules.glob("#{mod}-linux-#{arch}/*.musl.node")
+                    .map(&:unlink)
+                    .empty? && raise("Unable to find #{mod} musl library to delete.")
+      end
+    end
   end
 
   test do
