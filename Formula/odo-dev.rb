@@ -2,8 +2,8 @@ class OdoDev < Formula
   desc "Developer-focused CLI for Kubernetes and OpenShift"
   homepage "https://odo.dev"
   url "https://github.com/redhat-developer/odo.git",
-      tag:      "v2.5.1",
-      revision: "ae0c553090e7644c3eda585639151419a8c3fb6b"
+      tag:      "v3.0.0",
+      revision: "8694f19469ddde9f74e9292b8c7438a56ec9cb99"
   license "Apache-2.0"
   head "https://github.com/redhat-developer/odo.git", branch: "main"
 
@@ -28,17 +28,19 @@ class OdoDev < Formula
     # try set preference
     ENV["GLOBALODOCONFIG"] = "#{testpath}/preference.yaml"
     system bin/"odo", "preference", "set", "ConsentTelemetry", "false"
+    system bin/"odo", "preference", "add", "registry", "StagingRegistry", "https://registry.stage.devfile.io"
     assert_predicate testpath/"preference.yaml", :exist?
 
     # test version
     version_output = shell_output("#{bin}/odo version --client 2>&1").strip
     assert_match(/odo v#{version} \([a-f0-9]{9}\)/, version_output)
 
-    # try to creation new component
-    system bin/"odo", "create", "nodejs"
+    # try to create a new component
+    system bin/"odo", "init", "--devfile", "nodejs", "--name", "test", "--devfile-registry", "StagingRegistry"
     assert_predicate testpath/"devfile.yaml", :exist?
 
-    push_output = shell_output("#{bin}/odo push 2>&1", 1).strip
+
+    push_output = shell_output("#{bin}/odo dev", 1).strip
     assert_match("invalid configuration", push_output)
   end
 end
