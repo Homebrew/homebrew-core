@@ -39,7 +39,7 @@ class OdoDev < Formula
     system bin/"odo", "init", "--devfile", "nodejs", "--name", "test", "--devfile-registry", "StagingRegistry"
     assert_predicate testpath/"devfile.yaml", :exist?
 
-    push_output = shell_output("#{bin}/odo dev", 1).strip
-    assert_match("invalid configuration", push_output)
+    dev_output = shell_output("#{bin}/odo dev 2>&1", 1).strip
+    assert_match "invalid configuration", dev_output
   end
 end
