@@ -59,6 +59,10 @@ class Clamav < Formula
     system "cmake", "--install", "build"
   end
 
+  def post_install
+    (var/"lib/clamav").mkpath
+  end
+
   def caveats
     <<~EOS
       To finish installation & run clamav you will need to edit
