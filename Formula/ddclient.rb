@@ -39,6 +39,17 @@ class Ddclient < Formula
   def post_install
     (var/"run").mkpath
     chmod "go-r", etc/"ddclient.conf"
+
+    # Migrate old configuration files to the new location that `ddclient` checks.
+    # Remove on 31/12/2023.
+    old_config_file = pkgetc/"ddclient.conf"
+    return unless old_config_file.exist?
+
+    new_config_file = etc/"ddclient.conf"
+    ohai "Migrating `#{old_config_file}` to `#{new_config_file}`..."
+    etc.install new_config_file => "ddclient.conf.default" if new_config_file.exist?
+    etc.install old_config_file
+    pkgetc.rmtree if pkgetc.empty?
   end
 
   def caveats
