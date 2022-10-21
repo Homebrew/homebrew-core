@@ -33,9 +33,6 @@ class Mgba < Formula
 
   uses_from_macos "sqlite"
 
-  # discussions in here, https://github.com/mgba-emu/mgba/issues/2700
-  patch :DATA
-
   on_macos do
     depends_on "libelf" => :build
   end
@@ -43,6 +40,10 @@ class Mgba < Formula
   on_linux do
     depends_on "elfutils"
   end
+
+  # discussions in here, https://github.com/mgba-emu/mgba/issues/2700
+  # commit reference, https://github.com/mgba-emu/mgba/commit/981d01134b15c1d8214d9a7e5944879852588063
+  patch :DATA
 
   def install
     # Install .app bundle into prefix, not prefix/Applications
