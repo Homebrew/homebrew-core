@@ -1,10 +1,9 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.6.3.tar.bz2"
-  sha256 "acd06b89ca01d1adf61b906604614f0e1d77a1e94eeecade8ff5d53a16db7389"
+  url "https://downloads.powerdns.com/releases/pdns-4.7.0.tar.bz2"
+  sha256 "b57b75b780ace64e232c6757f17a8fa617016d0128256c66f22da5f4b5e839e7"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
