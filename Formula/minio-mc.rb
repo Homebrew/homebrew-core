@@ -31,17 +31,17 @@ class MinioMc < Formula
 
   def install
     if build.head?
-      system "go", "build", "-trimpath", "-o", bin/"mc"
+      system "go", "build", *std_go_args(output: bin/"mc")
     else
-      minio_release = `git tag --points-at HEAD`.chomp
+      minio_release = stable.specs[:tag]
       minio_version = minio_release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
       proj = "github.com/minio/mc"
-
-      system "go", "build", "-trimpath", "-o", bin/"mc", "-ldflags", <<~EOS
+      ldflags = %W[
         -X #{proj}/cmd.Version=#{minio_version}
         -X #{proj}/cmd.ReleaseTag=#{minio_release}
         -X #{proj}/cmd.CommitID=#{Utils.git_head}
-      EOS
+      ]
+      system "go", "build", *std_go_args(output: bin/"mc", ldflags: ldflags)
     end
   end
 
