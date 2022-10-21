@@ -1,10 +1,9 @@
 class Fastnetmon < Formula
   desc "DDoS detection tool with sFlow, Netflow, IPFIX and port mirror support"
   homepage "https://github.com/pavel-odintsov/fastnetmon/"
-  url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "4de0fe9390673f7e2fc8f3f1e3696a1455ea659049430c4870fcf82600c2ea2d"
+  url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.3.tar.gz"
+  sha256 "72f364ff5557afe5670bb9444e975841bf2c2db4eb13d2425e5d2903ca8fcf22"
   license "GPL-2.0-only"
-  revision 9
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "cb74138117b205fd0785e4326277fa4a5be02f604a242782b7096b30395c4528"
@@ -33,6 +32,13 @@ class Fastnetmon < Formula
   end
 
   fails_with gcc: "5"
+
+  # patch macOS build, remove in next release
+  # upstream PR ref, https://github.com/pavel-odintsov/fastnetmon/pull/950
+  patch do
+    url "https://github.com/pavel-odintsov/fastnetmon/commit/94d88b6bdfd438eaeac63f39441d4fc7e2bd76f0.patch?full_index=1"
+    sha256 "0b70fd1a9e47f2f1de3580564089e355905a89f5a05bfecd6d10f5b29a7d569a"
+  end
 
   def install
     system "cmake", "-S", "src", "-B", "build",
