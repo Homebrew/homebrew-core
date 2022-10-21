@@ -27,6 +27,7 @@ class Mgba < Formula
   depends_on "libepoxy"
   depends_on "libpng"
   depends_on "libzip"
+  depends_on "lua"
   depends_on "qt@5"
   depends_on "sdl2"
 
@@ -34,6 +35,14 @@ class Mgba < Formula
 
   # discussions in here, https://github.com/mgba-emu/mgba/issues/2700
   patch :DATA
+
+  on_macos do
+    depends_on "libelf" => :build
+  end
+
+  on_linux do
+    depends_on "elfutils"
+  end
 
   def install
     # Install .app bundle into prefix, not prefix/Applications
