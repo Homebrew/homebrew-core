@@ -1,8 +1,8 @@
 class Podiff < Formula
   desc "Compare textual information in two PO files"
   homepage "https://puszcza.gnu.org.ua/software/podiff/"
-  url "https://download.gnu.org.ua/pub/release/podiff/podiff-1.3.tar.gz"
-  sha256 "edfa62c7e1a45ec7e94609e41ed93589717a20b1eb8bb06d52134f2bab034050"
+  url "https://download.gnu.org.ua/pub/release/podiff/podiff-1.4.tar.gz"
+  sha256 "231531f3b0b17615a1f0ca9d712a3c196686df9f1a641688c74a2574af78b22a"
   license "GPL-3.0-or-later"
 
   livecheck do
