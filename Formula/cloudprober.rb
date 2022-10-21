@@ -13,6 +13,28 @@ class Cloudprober < Formula
   end
 
   test do
-    assert_match "v#{version}", shell_output("#{bin}/cloudprober --version").strip
+    require "pty"
+    require "timeout"
+
+    res = PTY.spawn(bin/"cloudprober --logtostderr 2>&1")
+    r = res[0]
+    w = res[1]
+    pid = res[2]
+
+    listening = Timeout.timeout(10) do
+      li = false
+      r.each do |l|
+        if /Initialized status surfacer/.match?(l)
+          li = true
+          break
+        end
+      end
+      li
+    end
+
+    Process.kill("TERM", pid)
+    w.close
+    r.close
+    listening
   end
 end
