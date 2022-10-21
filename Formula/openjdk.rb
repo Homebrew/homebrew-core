@@ -2,7 +2,6 @@ class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
   url "https://github.com/openjdk/jdk19u/archive/refs/tags/jdk-19.0.1-ga.tar.gz"
-  version "19.0.1"
   sha256 "26ebf4d182a0d4bba7a0387a931af576a538745a98ef6eb2c70e22655e846a45"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
