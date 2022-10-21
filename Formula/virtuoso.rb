@@ -1,8 +1,8 @@
 class Virtuoso < Formula
   desc "High-performance object-relational SQL database"
   homepage "https://virtuoso.openlinksw.com/wiki/main/"
-  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.7/virtuoso-opensource-7.2.7.tar.gz"
-  sha256 "02480b930d5fb414cb328f10cfd200faa658adc10f9c68ef7034c6aa81a5a3a0"
+  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.8/virtuoso-opensource-7.2.8.tar.gz"
+  sha256 "979d221d1ddeb7898db0a928ad883897d9ddcd39886a54042fae9a9b9b551bfa"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
