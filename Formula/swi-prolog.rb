@@ -27,7 +27,7 @@ class SwiProlog < Formula
   depends_on "gmp"
   depends_on "libarchive"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "readline"
   depends_on "unixodbc"
