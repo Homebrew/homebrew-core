@@ -4,6 +4,7 @@ class Ddclient < Formula
   url "https://github.com/ddclient/ddclient/archive/v3.10.0.tar.gz"
   sha256 "34b6d9a946290af0927e27460a965ad018a7c525625063b0f380cbddffc01c1b"
   license "GPL-2.0-or-later"
+  head "https://github.com/ddclient/ddclient.git", branch: "develop"
 
   livecheck do
     url :stable
@@ -19,62 +20,31 @@ class Ddclient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "90860f823cc3568a81e12dda3412adbe8d6fdcf13ea50b343489c584c9d3d384"
   end
 
-  head do
-    url "https://github.com/ddclient/ddclient.git", branch: "develop"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   uses_from_macos "perl"
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5" if resources.present?
-
-    resources.each do |r|
-      r.stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make"
-        system "make", "install"
-      end
-    end
-
-    if build.head?
-      system "./autogen"
-      system "./configure", *std_configure_args, "--sysconfdir=#{etc}", "--localstatedir=#{var}", "CURL=curl"
-      system "make", "install", "CURL=curl"
-    else
-      # Adjust default paths in script
-      inreplace "ddclient" do |s|
-        s.gsub! "/etc/ddclient", "#{etc}/ddclient"
-        s.gsub! "/var/cache/ddclient", "#{var}/run/ddclient"
-      end
-
-      sbin.install "ddclient"
-      sbin.env_script_all_files(libexec/"sbin", PERL5LIB: ENV["PERL5LIB"])
-    end
+    system "./autogen"
+    system "./configure", *std_configure_args, "--sysconfdir=#{etc}", "--localstatedir=#{var}", "CURL=curl"
+    system "make", "install", "CURL=curl"
 
     # Install sample files
     inreplace "sample-ddclient-wrapper.sh", "/etc/ddclient", "#{etc}/ddclient"
-    inreplace "sample-etc_cron.d_ddclient", %r{/usr/s?bin/ddclient}, "#{sbin}/ddclient"
-    inreplace "sample-etc_ddclient.conf", "/var/run/ddclient.pid", "#{var}/run/ddclient/pid"
+    inreplace "sample-etc_cron.d_ddclient", "/usr/bin/ddclient", "#{opt_bin}/ddclient"
 
-    doc.install %w[
-      sample-ddclient-wrapper.sh
-      sample-etc_cron.d_ddclient
-      sample-etc_ddclient.conf
-    ]
+    doc.install %w[sample-ddclient-wrapper.sh sample-etc_cron.d_ddclient]
   end
 
   def post_install
-    (etc/"ddclient").mkpath
-    (var/"run/ddclient").mkpath
+    (var/"run").mkpath
+    chmod "go-r", etc/"ddclient.conf"
   end
 
   def caveats
     <<~EOS
-      For ddclient to work, you will need to create a configuration file
-      in #{etc}/ddclient. A sample configuration can be found in
-      #{opt_share}/doc/ddclient.
+      For ddclient to work, you will need to customise the configuration
+      file at `#{etc}/ddclient.conf`.
 
       Note: don't enable daemon mode in the configuration file; see
       additional information below.
@@ -89,7 +59,7 @@ class Ddclient < Formula
   plist_options startup: true
 
   service do
-    run [opt_sbin/"ddclient", "-file", etc/"ddclient/ddclient.conf"]
+    run [opt_bin/"ddclient", "-file", etc/"ddclient.conf"]
     run_type :interval
     interval 300
     working_dir etc/"ddclient"
@@ -98,7 +68,7 @@ class Ddclient < Formula
   test do
     begin
       pid = fork do
-        exec sbin/"ddclient", "-file", doc/"sample-etc_ddclient.conf", "-debug", "-verbose", "-noquiet"
+        exec bin/"ddclient", "-file", etc/"ddclient.conf", "-debug", "-verbose", "-noquiet"
       end
       sleep 1
     ensure
