@@ -16,19 +16,18 @@ class Libtins < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libpcap"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DLIBTINS_ENABLE_CXX11=1"
-      system "make", "install"
-      doc.install "examples"
-    end
-
-    # Clean up the build file garbage that has been installed.
-    rm_r Dir[share/"doc/libtins/**/CMakeFiles/"]
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DLIBTINS_BUILD_EXAMPLES=OFF",
+                    "-DLIBTINS_BUILD_TESTS=OFF",
+                    "-DLIBTINS_ENABLE_CXX11=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
