@@ -23,8 +23,8 @@ class Ortp < Formula
   # https://github.com/BelledonneCommunications/bctoolbox
   resource "bctoolbox" do
     # Don't forget to change both instances of the version in the URL.
-    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.1.64/bctoolbox-5.1.64.tar.bz2"
-    sha256 "c8a73e92e5ef0cb21362c4cda904ca1c4dcb4b831cf8fd24b57159dc265255d0"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.1.66/bctoolbox-5.1.66.tar.bz2"
+    sha256 "bda99d3d245cba5e49c462213d6748c43202536007cd3d83147134bdf7020f72"
   end
 
   def install
