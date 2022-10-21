@@ -1,12 +1,12 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v4/squid-4.17.tar.xz"
-  sha256 "cb928ac08c7c86b151b1c8f827abe1a84d83181a2a86e0d512286163e1e31418"
+  url "http://www.squid-cache.org/Versions/v5/squid-5.7.tar.xz"
+  sha256 "6b0753aaba4c9c4efd333e67124caecf7ad6cc2d38581f19d2f0321f5b7ecd81"
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "http://www.squid-cache.org/Versions/v4/"
+    url "http://www.squid-cache.org/Versions/v5/"
     regex(/href=.*?squid[._-]v?(\d+(?:\.\d+)+)-RELEASENOTES\.html/i)
   end
 
@@ -28,7 +28,9 @@ class Squid < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
+
+  uses_from_macos "libxcrypt"
 
   def install
     # https://stackoverflow.com/questions/20910109/building-squid-cache-on-os-x-mavericks
