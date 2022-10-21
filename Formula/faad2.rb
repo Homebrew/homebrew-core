@@ -1,8 +1,8 @@
 class Faad2 < Formula
   desc "ISO AAC audio decoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://github.com/knik0/faad2/archive/refs/tags/2_10_0.tar.gz"
-  sha256 "0c6d9636c96f95c7d736f097d418829ced8ec6dbd899cc6cc82b728480a84bfb"
+  url "https://github.com/knik0/faad2/archive/refs/tags/2.10.1.tar.gz"
+  sha256 "4c16c71295ca0cbf7c3dfe98eb11d8fa8d0ac3042e41604cfd6cc11a408cf264"
   license "GPL-2.0-or-later"
 
   bottle do
