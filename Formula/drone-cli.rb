@@ -20,9 +20,8 @@ class DroneCli < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
-           bin/"drone", "drone/main.go"
-    prefix.install_metafiles
+    ldflags = "-s -w -X main.version=#{version}"
+    system "go", "build", *std_go_args(output: bin/"drone", ldflags: ldflags), "drone/main.go"
   end
 
   test do
