@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/93/3e/d0cdabb490c5933908a6572d8ff8924a40087187ac923f4cc8a8646ddcb4/cfn-lint-0.68.0.tar.gz"
-  sha256 "3c68a6f912e5780e4fa23e5033b9c9d65e7612cc1b4b0cfb01d03260af120a3e"
+  url "https://files.pythonhosted.org/packages/67/b7/24eaac3f3b1145ecf98ecc03d4bd371e7f7b70a275afcb9b4fe6851de19b/cfn-lint-0.68.1.tar.gz"
+  sha256 "3f3258290b5a0d32eb948494a4ad4b89bc5ae2fec6d658c715868c5bd772ebf0"
   license "MIT-0"
 
   bottle do
@@ -31,13 +31,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6c/54/0b88f03a606410f399d5ce511bec606bd9051bf4c658d0388660537cc90e/boto3-1.24.93.tar.gz"
-    sha256 "7881fc380f2f489ae9b3a2f2448334aef9f7be58d85a7a0e8c10458247b09afa"
+    url "https://files.pythonhosted.org/packages/23/86/5f74fdd24ba90bac6399ec5e3aea2983d43fc1905aa06feba91644205b08/boto3-1.24.95.tar.gz"
+    sha256 "285d29042c1684f8fc68492ddf20180d28b94aac1f19dd7161bcad3067c01314"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/1b/42/6baa60b44655bc3fc520e2fe8a6e37fdc790662b39cd627b7d40a5a8a361/botocore-1.27.93.tar.gz"
-    sha256 "d5200f7b9150cdb91c9d3994980870d7bb4554e19c4d9d847f64626d8ceacf95"
+    url "https://files.pythonhosted.org/packages/22/f6/8f9ce17b9ca9aa93e10abfc46756bd61300ad2985427b11fea31d6e621c5/botocore-1.27.95.tar.gz"
+    sha256 "0b90945aa7080179a0c4941a3809ce4df30792931e16b9b6ef3c739c4f2b7a59"
   end
 
   resource "jmespath" do
@@ -82,8 +82,8 @@ class CfnLint < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/b4/40/4c5d3681b141a10c24c890c28345fac915dd67f34b8c910df7b81ac5c7b3/pbr-5.10.0.tar.gz"
-    sha256 "cfcc4ff8e698256fc17ea3ff796478b050852585aa5bae79ecd05b2ab7b39b9a"
+    url "https://files.pythonhosted.org/packages/52/fb/630d52aaca8fc7634a0711b6ae12a0e828b6f9264bd8051225025c3ed075/pbr-5.11.0.tar.gz"
+    sha256 "b97bc6695b2aff02144133c2e7399d5885223d42b7912ffaec2ca3898e673bfe"
   end
 
   resource "pyrsistent" do
