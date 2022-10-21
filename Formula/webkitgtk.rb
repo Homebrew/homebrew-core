@@ -1,10 +1,9 @@
 class Webkitgtk < Formula
   desc "GTK interface to WebKit"
   homepage "https://webkitgtk.org"
-  url "https://webkitgtk.org/releases/webkitgtk-2.38.0.tar.xz"
-  sha256 "f9ce6375a3b6e1329b0b609f46921e2627dc7ad6224b37b967ab2ea643bc0fbd"
+  url "https://webkitgtk.org/releases/webkitgtk-2.38.1.tar.xz"
+  sha256 "02e195b3fb9e057743b3364ee7f1eec13f71614226849544c07c32a73b8f1848"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://webkitgtk.org/releases/"
