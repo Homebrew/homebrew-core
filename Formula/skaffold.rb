@@ -2,8 +2,8 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-      tag:      "v1.39.3",
-      revision: "81e44af02f368afe411e29d095a9ed5494018e66"
+      tag:      "v2.0.0",
+      revision: "6c50b2a6b1f3293918db05decacb175537834613"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
@@ -32,8 +32,7 @@ class Skaffold < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "230f780699881cc6b8cf5d04d0c9a76f1ed84c85fc3b3ba23c272cc2ecee6c74"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "make"
