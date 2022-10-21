@@ -1,21 +1,11 @@
 class Glslviewer < Formula
   desc "Live-coding console tool that renders GLSL Shaders"
   homepage "http://patriciogonzalezvivo.com/2015/glslViewer/"
+  url "https://github.com/patriciogonzalezvivo/glslViewer.git",
+      tag:      "3.0.1",
+      revision: "d816b5d7ab6c9d1a0b1007b8a27c24a1e330b76b"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
-
-  stable do
-    url "https://github.com/patriciogonzalezvivo/glslViewer.git",
-        tag:      "2.1.2",
-        revision: "c6eaf01456db4baa61f876762fdb2d8bf49727e4"
-
-    # Fix error: 'strstr' is not a member of 'std'. Remove in the next release
-    patch do
-      url "https://github.com/patriciogonzalezvivo/glslViewer/commit/2e517b7cb10a82dc863a250d31040d5b5d021c2a.patch?full_index=1"
-      sha256 "fec27080bd7951a061183e8ad09c5f20fa1b74648aa24e400204cd1ac89a8ebc"
-    end
-  end
 
   bottle do
     rebuild 1
