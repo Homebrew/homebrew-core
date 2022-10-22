@@ -25,10 +25,6 @@ class Openldap < Formula
 
   depends_on "openssl@1.1"
 
-  on_ventura :or_newer do
-    depends_on "groff" => :build
-  end
-
   on_linux do
     depends_on "util-linux"
   end
@@ -63,13 +59,12 @@ class Openldap < Formula
       --enable-translucent
       --enable-unique
       --enable-valsort
+      --without-systemd
     ]
 
-    if OS.linux?
-      args << "--without-systemd"
-
+    if OS.linux? || MacOS.version >= :ventura
       # Disable manpage generation, because it requires groff which has a huge
-      # dependency tree on Linux
+      # dependency tree on Linux and isn't included on macOS since Ventura.
       inreplace "Makefile.in" do |s|
         s.change_make_var! "SUBDIRS", "include libraries clients servers"
       end
