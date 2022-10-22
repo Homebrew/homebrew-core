@@ -3,8 +3,8 @@ class Ddgr < Formula
 
   desc "DuckDuckGo from the terminal"
   homepage "https://github.com/jarun/ddgr"
-  url "https://github.com/jarun/ddgr/archive/v2.0.tar.gz"
-  sha256 "7e46430b0a8c479a5feca832adb73f2f09804bf603dedc50f4cf2e1da4c75f88"
+  url "https://github.com/jarun/ddgr/archive/v2.1.tar.gz"
+  sha256 "fb6601ad533f2925d2d6299ab9e6dd48da0b75e99ef9ed9068f37e516380b5e6"
   license "GPL-3.0-or-later"
 
   bottle do
