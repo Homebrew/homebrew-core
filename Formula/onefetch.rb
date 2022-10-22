@@ -14,6 +14,7 @@ class Onefetch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6fba076a2d577312cc34fb2eabaca97e4767cf822f6e7698578f624f1f4e1d8"
   end
 
+  depends_on "cmake" => :build
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
@@ -29,6 +30,7 @@ class Onefetch < Formula
     system "git", "init"
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "BrewTestBot@test.com"
+    system "git", "remote", "add", "origin", "https://github.com/user/repo.git"
     system "echo \"puts 'Hello, world'\" > main.rb && git add main.rb && git commit -m \"First commit\""
     assert_match("Ruby (100.0 %)", shell_output("#{bin}/onefetch").chomp)
   end
