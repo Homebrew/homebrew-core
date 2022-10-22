@@ -16,8 +16,11 @@ class Dav1d < Formula
   end
 
   depends_on "meson" => :build
-  depends_on "nasm" => :build
   depends_on "ninja" => :build
+
+  on_intel do
+    depends_on "nasm" => :build
+  end
 
   resource "00000000.ivf" do
     url "https://code.videolan.org/videolan/dav1d-test-data/raw/1.0.0/8-bit/data/00000000.ivf"
