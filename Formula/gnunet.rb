@@ -15,6 +15,8 @@ class Gnunet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad6d518e300932c28f367ca5e340677ac064bcb592944bb9d0928cadbaafa5cb"
   end
 
+  # macOS `ld64` does not like the `.la` files created during the build.
+  depends_on "llvm" => :build if DevelopmentTools.clang_build_version >= 1400
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
@@ -31,6 +33,8 @@ class Gnunet < Formula
 
   def install
     ENV.deparallelize if OS.linux?
+    # Workaround for Xcode 14 ld.
+    ENV.append_to_cflags "-fuse-ld=lld" if DevelopmentTools.clang_build_version >= 1400
     system "./configure", *std_configure_args, "--disable-documentation"
     system "make", "install"
   end
