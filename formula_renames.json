@@ -84,6 +84,7 @@
   "kibana@6.8": "kibana@6",
   "kibana@7.8": "kibana@7",
   "kotlin-compiler": "kotlin",
+  "ksh": "ksh93",
   "kubernetes-helm": "helm",
   "latexila": "gnome-latex",
   "ledger26": "ledger@2.6",
