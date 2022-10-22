@@ -16,7 +16,9 @@ class Libvpx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "763bca80c18bed0bea0704494e7370b919a498ac3521ff6f6f193a8902f78295"
   end
 
-  depends_on "yasm" => :build
+  on_intel do
+    depends_on "yasm" => :build
+  end
 
   def install
     args = %W[
