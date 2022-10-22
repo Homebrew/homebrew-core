@@ -1,8 +1,8 @@
 class Onefetch < Formula
-  desc "Git repository summary on your terminal"
+  desc "Command-line Git information tool"
   homepage "https://github.com/o2sh/onefetch"
-  url "https://github.com/o2sh/onefetch/archive/v2.12.0.tar.gz"
-  sha256 "f57b16dfa2bb95dd1fb805257a1761baa20d69eb9ce7c311d369609894c53897"
+  url "https://github.com/o2sh/onefetch/archive/v2.13.1.tar.gz"
+  sha256 "551b59102965e968e24c41de6bb6cb5c1f062d94ada6baac77a54c2ec412cb2f"
   license "MIT"
 
   bottle do
@@ -14,9 +14,8 @@ class Onefetch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6fba076a2d577312cc34fb2eabaca97e4767cf822f6e7698578f624f1f4e1d8"
   end
 
+  depends_on "cmake" => :build
   depends_on "rust" => :build
-
-  uses_from_macos "zlib"
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -29,6 +28,7 @@ class Onefetch < Formula
     system "git", "init"
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "BrewTestBot@test.com"
+    system "git", "remote", "add", "origin", "https://github.com/user/repo.git"
     system "echo \"puts 'Hello, world'\" > main.rb && git add main.rb && git commit -m \"First commit\""
     assert_match("Ruby (100.0 %)", shell_output("#{bin}/onefetch").chomp)
   end
