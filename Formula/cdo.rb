@@ -25,10 +25,6 @@ class Cdo < Formula
   depends_on "netcdf"
   depends_on "proj"
 
-  # Fix build error from missing include. Remove in the next release.
-  # Ref: https://code.mpimet.mpg.de/boards/2/topics/13186?r=13240#message-13240
-  patch :DATA
-
   def install
     args = %W[
       --disable-dependency-tracking
@@ -52,16 +48,3 @@ class Cdo < Formula
     assert_predicate testpath/"test.nc", :exist?
   end
 end
-
-__END__
-diff --git a/src/cdo_fft.cc b/src/cdo_fft.cc
-index 887a3d3..86ac107 100644
---- a/src/cdo_fft.cc
-+++ b/src/cdo_fft.cc
-@@ -1,5 +1,6 @@
- // This source code is copied from PINGO version 1.5
- 
-+#include <algorithm>
- #include <cmath>
- 
- namespace cdo
