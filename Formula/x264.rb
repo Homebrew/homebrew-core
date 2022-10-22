@@ -49,10 +49,12 @@ class X264 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "21bd89d6cc7283c8f77b9a2655b6bfe9f7c8d1d6d098b5c402a33fac27d9f8bb"
   end
 
-  depends_on "nasm" => :build
-
   on_macos do
     depends_on "gcc" if DevelopmentTools.clang_build_version <= 902
+  end
+
+  on_intel do
+    depends_on "nasm" => :build
   end
 
   # https://code.videolan.org/videolan/x264/-/commit/b5bc5d69c580429ff716bafcd43655e855c31b02
