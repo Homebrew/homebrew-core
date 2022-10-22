@@ -17,13 +17,16 @@ class Aom < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "yasm" => :build
 
   # `jpeg-xl` is currently not bottled on Linux
   on_macos do
     depends_on "pkg-config" => :build
     depends_on "jpeg-xl"
     depends_on "libvmaf"
+  end
+
+  on_intel do
+    depends_on "yasm" => :build
   end
 
   resource "homebrew-bus_qcif_15fps.y4m" do
