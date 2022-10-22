@@ -1,8 +1,8 @@
 class Rubberband < Formula
   desc "Audio time stretcher tool and library"
   homepage "https://breakfastquay.com/rubberband/"
-  url "https://breakfastquay.com/files/releases/rubberband-3.1.0.tar.bz2"
-  sha256 "b95a76da5cdb3966770c60115ecd838f84061120f884c3bfdc904f75931ec9aa"
+  url "https://breakfastquay.com/files/releases/rubberband-3.1.1.tar.bz2"
+  sha256 "a442551fe7d26fb4a54dd1c34178733dc9c76ac9ce051a02325f5cb35d154381"
   license "GPL-2.0-or-later"
   head "https://hg.sr.ht/~breakfastquay/rubberband", using: :hg
 
@@ -22,7 +22,6 @@ class Rubberband < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "libsamplerate"
   depends_on "libsndfile"
