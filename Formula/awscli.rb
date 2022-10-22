@@ -22,10 +22,6 @@ class Awscli < Formula
   depends_on "python@3.10"
   depends_on "six"
 
-  on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version >= 1400
-  end
-
   on_system :linux, macos: :ventura_or_newer do
     depends_on "groff"
   end
@@ -111,7 +107,8 @@ class Awscli < Formula
   def install
     # Temporary workaround for Xcode 14's ld causing build failure (without logging a reason):
     # ld: fatal warning(s) induced error (-fatal_warnings)
-    ENV.append "LDFLAGS", "-fuse-ld=lld" if OS.mac? && (DevelopmentTools.clang_build_version >= 1400)
+    # Ref: https://github.com/python/cpython/issues/97524
+    ENV.append "LDFLAGS", "-Wl,-no_fixup_chains" if DevelopmentTools.clang_build_version >= 1400
 
     # The `awscrt` package uses its own libcrypto.a on Linux. When building _awscrt.*.so,
     # Homebrew's default environment causes issues, which may be due to `openssl` flags.
@@ -124,7 +121,7 @@ class Awscli < Formula
       ENV.prepend "LDFLAGS", "-L./build/temp.linux-x86_64-#{python_version}/deps/install/lib"
     end
 
-    # setuptools>=60 prefers its own bundled distutils, which is incompatabile with docutils~=0.15
+    # setuptools>=60 prefers its own bundled distutils, which is incompatible with docutils~=0.15
     # Force the previous behavior of using distutils from the stdlib
     # Remove when fixed upstream: https://github.com/aws/aws-cli/pull/6011
     with_env(SETUPTOOLS_USE_DISTUTILS: "stdlib") do
