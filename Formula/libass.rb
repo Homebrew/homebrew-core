@@ -22,7 +22,6 @@ class Libass < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "fribidi"
@@ -30,6 +29,10 @@ class Libass < Formula
 
   on_linux do
     depends_on "fontconfig"
+  end
+
+  on_intel do
+    depends_on "nasm" => :build
   end
 
   def install
