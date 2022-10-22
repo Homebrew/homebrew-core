@@ -25,6 +25,10 @@ class Openldap < Formula
 
   depends_on "openssl@1.1"
 
+  on_ventura :or_newer do
+    depends_on "groff" => :build
+  end
+
   on_linux do
     depends_on "util-linux"
   end
