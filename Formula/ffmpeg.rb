@@ -22,7 +22,6 @@ class Ffmpeg < Formula
     sha256 x86_64_linux:   "ea00042bb37e8657093e10b9798d0ccacd02c0660069d301d9e61a92d505a682"
   end
 
-  depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "aom"
   depends_on "dav1d"
@@ -65,6 +64,10 @@ class Ffmpeg < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "libxv"
+  end
+
+  on_intel do
+    depends_on "nasm" => :build
   end
 
   fails_with gcc: "5"
