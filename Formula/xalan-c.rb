@@ -20,13 +20,20 @@ class XalanC < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "809520d5fb3e9f89472b262c52884303ee41b8e4cf845a36783c042419882c85"
   end
 
+  # https://marc.info/?l=xalan-dev&m=166603389016762&w=2
+  deprecate! date: "2022-10-22", because: :deprecated_upstream
+
   depends_on "cmake" => :build
   depends_on "xerces-c"
 
   def install
     ENV.cxx11
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-Dtranscoder=default",
+                    "-Dmessage-loader=inmemory",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
