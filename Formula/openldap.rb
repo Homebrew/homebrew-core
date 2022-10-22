@@ -66,7 +66,8 @@ class Openldap < Formula
       # Disable manpage generation, because it requires groff which has a huge
       # dependency tree on Linux and isn't included on macOS since Ventura.
       inreplace "Makefile.in" do |s|
-        s.change_make_var! "SUBDIRS", "include libraries clients servers"
+        subdirs = s.get_make_var("SUBDIRS").split - ["doc"]
+        s.change_make_var! "SUBDIRS", subdirs.join(" ")
       end
     end
 
