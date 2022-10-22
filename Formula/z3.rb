@@ -36,6 +36,7 @@ class Z3 < Formula
 
   def install
     # LTO on Intel Monterey produces segfaults.
+    # https://github.com/Z3Prover/z3/issues/6414
     do_lto = MacOS.version != :monterey || Hardware::CPU.arm?
     args = %W[
       -DZ3_LINK_TIME_OPTIMIZATION=#{do_lto ? "ON" : "OFF"}
