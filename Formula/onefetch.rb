@@ -14,6 +14,7 @@ class Onefetch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6fba076a2d577312cc34fb2eabaca97e4767cf822f6e7698578f624f1f4e1d8"
   end
 
+  depends_on "cmake" => :build
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
