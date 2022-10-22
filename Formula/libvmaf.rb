@@ -16,8 +16,11 @@ class Libvmaf < Formula
   end
 
   depends_on "meson" => :build
-  depends_on "nasm" => :build
   depends_on "ninja" => :build
+
+  on_intel do
+    depends_on "nasm" => :build
+  end
 
   def install
     Dir.chdir("libvmaf") do
