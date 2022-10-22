@@ -22,8 +22,11 @@ class Rav1e < Formula
   end
 
   depends_on "cargo-c" => :build
-  depends_on "nasm" => :build
   depends_on "rust" => :build
+
+  on_intel do
+    depends_on "nasm" => :build
+  end
 
   resource "bus_qcif_7.5fps.y4m" do
     url "https://media.xiph.org/video/derf/y4m/bus_qcif_7.5fps.y4m"
