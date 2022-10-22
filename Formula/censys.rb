@@ -3,8 +3,8 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/1e/27/b4fa1b19e919caa1e680a89e9d566b3f4376e59f585fa38ba40456f040e4/censys-2.1.8.tar.gz"
-  sha256 "2ddd6d0ee6df70acf15792328df8bb4d0dd5a76b50883adac62989f1641820c1"
+  url "https://files.pythonhosted.org/packages/73/34/4a770e29e823242e8e9c8d9456193662754b9245d061686b7aea6f9d151f/censys-2.1.9.tar.gz"
+  sha256 "caccc151083232c9ea989b705c676a5629743b51e5d8d3998012be08bb921001"
   license "Apache-2.0"
 
   bottle do
@@ -21,18 +21,18 @@ class Censys < Formula
   depends_on "python@3.10"
 
   resource "backoff" do
-    url "https://files.pythonhosted.org/packages/3b/22/53182ff2977aa653cb61f30592cbfb5d3e0764368c8eaa8ec096e6899b7a/backoff-2.1.2.tar.gz"
-    sha256 "407f1bc0f22723648a8880821b935ce5df8475cf04f7b6b5017ae264d30f6069"
+    url "https://files.pythonhosted.org/packages/47/d7/5bbeb12c44d7c4f2fb5b56abce497eb5ed9f34d85701de869acedd602619/backoff-2.2.1.tar.gz"
+    sha256 "03f829f5bb1923180821643f8753b0502c3b682293992485b0eef2807afa5cba"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/93/1d/d9392056df6670ae2a29fcb04cfa5cee9f6fbde7311a1bb511d4115e9b7a/charset-normalizer-2.1.0.tar.gz"
-    sha256 "575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413"
+    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
+    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
   end
 
   resource "commonmark" do
@@ -41,8 +41,8 @@ class Censys < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
   resource "requests" do
@@ -51,13 +51,13 @@ class Censys < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/bb/2d/c902484141330ded63c6c40d66a9725f8da5e818770f67241cf429eef825/rich-12.5.1.tar.gz"
-    sha256 "63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"
+    url "https://files.pythonhosted.org/packages/11/23/814edf09ec6470d52022b9e95c23c1bef77f0bc451761e1504ebd09606d3/rich-12.6.0.tar.gz"
+    sha256 "ba3a3775974105c221d31141f2c116f4fd65c5ceb0698657a11e9f295ec93fd0"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
-    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   def install
