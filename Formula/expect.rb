@@ -4,7 +4,7 @@ class Expect < Formula
   url "https://downloads.sourceforge.net/project/expect/Expect/5.45.4/expect5.45.4.tar.gz"
   sha256 "49a7da83b0bdd9f46d04a04deec19c7767bb9a323e40c4781f89caf760b92c34"
   license :public_domain
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -31,13 +31,14 @@ class Expect < Formula
   conflicts_with "ircd-hybrid", because: "both install an `mkpasswd` binary"
 
   def install
+    tcltk = Formula["tcl-tk"]
     args = %W[
       --prefix=#{prefix}
       --exec-prefix=#{prefix}
       --mandir=#{man}
       --enable-shared
       --enable-64bit
-      --with-tcl=#{Formula["tcl-tk"].opt_lib}
+      --with-tcl=#{tcltk.opt_lib}
     ]
 
     # Temporarily workaround build issues with building 5.45.4 using Xcode 12.
@@ -60,9 +61,17 @@ class Expect < Formula
     system "make"
     system "make", "install"
     lib.install_symlink Dir[lib/"expect*/libexpect*"]
+    if OS.mac?
+      bin.env_script_all_files libexec/"bin",
+                               PATH:       "#{tcltk.opt_bin}:$PATH",
+                               TCLLIBPATH: lib.to_s
+      # "expect" is already linked to "tcl-tk", no shim required
+      bin.install libexec/"bin/expect"
+    end
   end
 
   test do
-    system "#{bin}/mkpasswd"
+    assert_match "works", shell_output("echo works | #{bin}/timed-read 1")
+    assert_equal "", shell_output("{ sleep 3; echo fails; } | #{bin}/timed-read 1 2>&1")
   end
 end
