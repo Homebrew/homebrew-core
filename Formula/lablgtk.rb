@@ -1,10 +1,9 @@
 class Lablgtk < Formula
   desc "Objective Caml interface to gtk+"
   homepage "http://lablgtk.forge.ocamlcore.org"
-  url "https://github.com/garrigue/lablgtk/archive/2.18.12.tar.gz"
-  sha256 "43b2640b6b6d6ba352fa0c4265695d6e0b5acb8eb1da17290493e99ae6879b18"
+  url "https://github.com/garrigue/lablgtk/archive/3.1.3.tar.gz"
+  sha256 "02dd8e08d894b6603212589cec371f3a73f2a31916cbd5a659bc1ab55735697f"
   license "LGPL-2.1"
-  revision 1
 
   livecheck do
     url :stable
