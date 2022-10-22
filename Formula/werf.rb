@@ -1,8 +1,8 @@
 class Werf < Formula
   desc "Consistent delivery tool for Kubernetes"
   homepage "https://werf.io/"
-  url "https://github.com/werf/werf/archive/refs/tags/v1.2.180.tar.gz"
-  sha256 "f69784435cb86b90ea9979fce56f54e8ad4129e7c26648646b4b329e61cc7e90"
+  url "https://github.com/werf/werf/archive/refs/tags/v1.2.184.tar.gz"
+  sha256 "27fb874542b7449291d9fdde966338ee473fca47d1245b14531c2c56275bdf6f"
   license "Apache-2.0"
   head "https://github.com/werf/werf.git", branch: "main"
 
@@ -28,7 +28,7 @@ class Werf < Formula
 
   def install
     ldflags = "-s -w -X github.com/werf/werf/pkg/werf.Version=#{version}"
-    tags = "dfrunmount dfssh containers_image_openpgp"
+    tags = "dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp"
 
     system "go", "build", *std_go_args(ldflags: ldflags), "-tags", tags, "./cmd/werf"
 
