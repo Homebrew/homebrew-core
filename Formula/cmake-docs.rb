@@ -13,6 +13,7 @@ class CmakeDocs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "41495bd8cf550ebc67c548faa7e2c395d11c8169fbe5bd34ce813359de1be9db"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "34668ff1872bc7cb6acda3bd1e1cd8c0151b4d81bd7c9dc33787c0c6b4921b55"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34668ff1872bc7cb6acda3bd1e1cd8c0151b4d81bd7c9dc33787c0c6b4921b55"
     sha256 cellar: :any_skip_relocation, monterey:       "cd60c83393cc001950ee7539bcfc14017166d15c9a11367e415a1f2a7f7b5dfa"
