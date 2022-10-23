@@ -9,6 +9,7 @@ class S3cmd < Formula
   head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9a4e6596c26ef114a09fdcfe42e7f6911e9936223576a9c2d8a3ae49cb332a6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb414acde1db4bb6928bcd7d324ece8d76789d2317dcc1e7bba62d68b3c5ca1c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d0c5b731e391732e95079cb1f9d77a06f573c0d8399ea75c130796decfb6d35"
     sha256 cellar: :any_skip_relocation, monterey:       "b5bce6966cadc7ded6bc9665dd46cb0139fbbe0a77c015ee0815700ea057eb18"
