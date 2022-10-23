@@ -11,6 +11,7 @@ class Libomp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1387ef9782bf62ec3d4e6e4a04757505b38fd8b4b777354b428ec01970049d33"
     sha256 cellar: :any,                 arm64_monterey: "22dd6e89f3e9fc50a5958448cc4d97ddd6704959e824895fec6907c4973720f5"
     sha256 cellar: :any,                 arm64_big_sur:  "1d542abe4221cf0f414aa1e0ab23aaab216b78a54b4f85b2cab908e3f5dfb9e2"
     sha256 cellar: :any,                 monterey:       "dc2e03f72742bcc6a59b74b69ad97e068df7e1eb10201a168ca7fab92ce672a4"
