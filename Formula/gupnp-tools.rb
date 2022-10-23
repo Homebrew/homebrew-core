@@ -18,6 +18,7 @@ class GupnpTools < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
+  depends_on "gssdp"
   depends_on "gtk+3"
   depends_on "gtksourceview4"
   depends_on "gupnp"
