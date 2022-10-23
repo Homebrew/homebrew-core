@@ -8,6 +8,7 @@ class Istioctl < Formula
   head "https://github.com/istio/istio.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc1f2097974290906a81c9113f9da3dcc68ae65158c2cf797dbaa7b8ac090d4e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bc1f2097974290906a81c9113f9da3dcc68ae65158c2cf797dbaa7b8ac090d4e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc1f2097974290906a81c9113f9da3dcc68ae65158c2cf797dbaa7b8ac090d4e"
     sha256 cellar: :any_skip_relocation, monterey:       "235c4f96b924156e9814639ad7f461b26d5b993e71223df9e034a80faa9ed6e9"
