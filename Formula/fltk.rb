@@ -12,6 +12,7 @@ class Fltk < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "629a76ecd1a0cab83c01e1bf5488d85515f0115c0a1f638b0aa25dbc9f3146cd"
     sha256 arm64_monterey: "0a4162f4f01767c76acabf13f888dc9a585b3ff72df88545704fad68ce578954"
     sha256 arm64_big_sur:  "c5e80b820d74af67cdd25a7125b423bbe259930d35507aaabd56b82ebaca0048"
     sha256 monterey:       "4e35b5a5e6f0c0ef134630be137142aecc42a73ce8d9ee1c1df8c7a478dacb7d"
