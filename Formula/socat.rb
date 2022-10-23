@@ -11,6 +11,7 @@ class Socat < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ab2340163b0bc994193a3df5a71c915914665a1bdd311ce8000a91ac4106a85e"
     sha256 cellar: :any,                 arm64_monterey: "6ec140eff3260a12b045bef839bf7540f7b7a0c9b708403217995f7f084e6423"
     sha256 cellar: :any,                 arm64_big_sur:  "f3e91fc6dd04e6f5402f18fcd949d883dbd48bd292e24c3861e1a9499781cf0a"
     sha256 cellar: :any,                 monterey:       "73fd0ea6e6726d59213e04a5e494107dedfab96035a86b0cd1e6393a31e1fb4a"
