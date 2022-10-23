@@ -7,6 +7,7 @@ class Harfbuzz < Formula
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "bd01909faec051992aeaa2502fe4edf4337db65ba05f225b23f9301a00c114b6"
     sha256 cellar: :any, arm64_monterey: "803fcb07d34c251e167a73bceaaf67767cd46ac0e78abd29decd4a6f8ddac726"
     sha256 cellar: :any, arm64_big_sur:  "d7b50e0495c29f6982184114efc333ced03da42ab324f22751d95def09b39e19"
     sha256 cellar: :any, monterey:       "6f5a6b534c5888351a448dc08aa3ad81c3c28492bc9973fc614499b59cb93ca0"
