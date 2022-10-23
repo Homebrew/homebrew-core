@@ -11,6 +11,7 @@ class Librevenge < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "02082db928080285104a380cf205938ef06c106bc2a2bbd0c32d58146c35617d"
     sha256 cellar: :any,                 arm64_monterey: "eef439971cbe16f67f670c7e1946de49eda50e9842961d6469ffae004041bb4f"
     sha256 cellar: :any,                 arm64_big_sur:  "12c1a58e87956b8c15090873bb46f21b6124e8728ba897f2442fc4b2167bea4f"
     sha256 cellar: :any,                 monterey:       "3849e2f6b167bb98f29923ae7bfadad06a63346a790aad3c9edf56fcf26a7622"
