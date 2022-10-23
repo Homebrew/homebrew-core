@@ -12,6 +12,7 @@ class Halibut < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed4000bb616ed6fcf26b2cb79659a1fec79d6e6728b05be5b3f53c1dea03ae7a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "15128f8454d3cbfbe26c615f8a49daeeb3f7a6566be8f390370bf1b789ec3aa1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b45d0f3af3aba76ea7e2b5e0c447f0ae7674db57330c2d03c6a6dc8e5ef9a53"
     sha256 cellar: :any_skip_relocation, monterey:       "edef3d404fd16343e22399f1f559d6b937585e4e6dbd6f2ff2a3a954f2147cba"
