@@ -8,6 +8,7 @@ class Pylint < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fdb69387b56ab4e683e9a538dcec5204b57f9ad723ca8fc482fca179638c3b62"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f8deaca2d9877d69c2f08cf76eec9bc26e39d8e676fe8183979236e509c9e335"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7d721b6385b479cd11292de648359906a2e373dfa30782eef55beaab06feee7"
     sha256 cellar: :any_skip_relocation, monterey:       "f99a84d17b2dbcba89e3f9d92d1505f072f06023e3f8f795153df237cf694d1b"
