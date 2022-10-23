@@ -11,6 +11,7 @@ class AtkmmAT228 < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "27e688d6ee177a411294848acda3aa39ced89fc8a9a12dc3822f3d42131e2673"
     sha256 cellar: :any, arm64_monterey: "876683a0c5f4da334dadb0142c564fb2007d9a3a66c7696dbfdc03dfb9162f9f"
     sha256 cellar: :any, arm64_big_sur:  "1b957048c912011d829c1b4842c8e7cb94526e80500046d732010881d33109ec"
     sha256 cellar: :any, monterey:       "8ca4c71ef66437838731e95a460d66430554fd3468b3c8856e638b09d94f2bc5"
