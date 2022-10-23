@@ -13,6 +13,7 @@ class Openssh < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "30dbc217ba91a3b7246dd21cc8662d1fd3bcf19d0f869c4bdfdb61a126711bf4"
     sha256 arm64_monterey: "0a542c0f11d8d94245d96a26700dc2169a61d5e6712ae1f692a7eaa36aa0c91e"
     sha256 arm64_big_sur:  "50e41ea5da92f0a11fa766f769c1f95a71c5902d7f2b4efb1d7c47cd5652faa9"
     sha256 monterey:       "b1ed4e0f37f5b600403036fc2d14de298a81c57ff1ee96fba6b87103f2970982"
