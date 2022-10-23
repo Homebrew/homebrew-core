@@ -16,6 +16,7 @@ class SdlTtf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "92fc8bfc2e879eab0c05baac2a75e8423c10a14ba7488a33a6c66c27d9520143"
     sha256 cellar: :any,                 arm64_monterey: "0e89bd1b3868b572e95b2d3419132baf15d21e28a7580df1eba477a031774267"
     sha256 cellar: :any,                 arm64_big_sur:  "1e70767306907c70b57d7cffe00526f1f006db2590422dc4d68f92ff1a355838"
     sha256 cellar: :any,                 monterey:       "f8515e231b0fd3df331de4e008b01eea709ce67b87d3cdf7e484646be2b0c204"
