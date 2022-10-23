@@ -9,6 +9,7 @@ class Fabric < Formula
   head "https://github.com/fabric/fabric.git"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "022395b67cf99b898616535c20668ac24607c8f9e98b0da9acfc89cf6f4181e1"
     sha256 cellar: :any,                 arm64_monterey: "ceb5d0436663d80fd692da94e9fa2a9d2798a574f832fdeaf20ca718cf0be7c4"
     sha256 cellar: :any,                 arm64_big_sur:  "3e7e5ea721d3d528e6ad783125048b9f57a0de8ed07ff133ea2f80af639dd472"
     sha256 cellar: :any,                 monterey:       "6b595acc35ecb5440680b7a9767f423dd4c689a1b558fe8f415d42369fc68848"
