@@ -35,13 +35,6 @@ class Widelands < Formula
   uses_from_macos "python" => :build
   uses_from_macos "curl"
 
-  # Fix build with Boost 1.77+.
-  # Remove with the next release (1.1).
-  patch do
-    url "https://github.com/widelands/widelands/commit/316eaea209754368a57f445ea4dd016ecf8eded6.patch?full_index=1"
-    sha256 "358cae53bbc854e7e9248bdea0ca5af8bce51e188626a7f366bc6a87abd33dc9"
-  end
-
   def install
     ENV.cxx11
     system "cmake", "-S", ".", "-B", "build",
