@@ -14,6 +14,7 @@ class CeresSolver < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "4854064146581d467e76483acf43e32cac3870cd0d9d12b7ac2bf7b3b7924806"
     sha256 cellar: :any,                 arm64_monterey: "8853908633eb208b01f8c837f25f21d26e7ab25467989a1e41d8fb169818a9e3"
     sha256 cellar: :any,                 arm64_big_sur:  "c2248770066bdb4efaed2e8cdd28665d2b250b0f22323e3fb081e78ebfc5e558"
     sha256 cellar: :any,                 monterey:       "5ec1c84cbbae986126cb0876f46bd74621ff9b1a562ac60e5ae4bcc69c893468"
