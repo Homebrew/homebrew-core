@@ -7,6 +7,7 @@ class Smartmontools < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "6190562fe7445bde716f75236a35951fb9215fa0712c7dee9aa92d9a89630007"
     sha256 arm64_monterey: "de5a9816fe979e1f6e95727f2b23946e8d6594718b0b0fcb77da6b3b01bd47b3"
     sha256 arm64_big_sur:  "3ae9274990e2845f9d833e267c3443da5d8ef6daedf0293233847710b2116c72"
     sha256 monterey:       "7df715580bf7adde46c4abac502ee920cd2384be22a279f8da5813db2f974253"
