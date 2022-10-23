@@ -12,6 +12,7 @@ class GlibmmAT266 < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "3ab9f5d7eb75a7cbef3445eaa784406643f4178bbc6b765dc4997bbaa0a2d0b5"
     sha256 cellar: :any, arm64_monterey: "5131ab5c66e574bb30d696dc0a078eef37c3fbbdbbd4962a1f8fec468e1774a3"
     sha256 cellar: :any, arm64_big_sur:  "239fdbfe8fb891068c1d62e67c9cd047af78997d722b4d315c336e4355d95e25"
     sha256 cellar: :any, monterey:       "f253fabbcde2fe8419b4892b2d89b065af94c86ee9214801392734e7aef6d26d"
