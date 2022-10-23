@@ -10,6 +10,7 @@ class Gpp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f95e24da21e5bebe2701cdbc11e1d4e59fa1a0fd329ac31c04cbf9284e08388f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ccc07b5dd7a91cb1c0272648203721da1217ff473d1ced08670e1fc1b0e4a5eb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "614ed514c4443f444c66ba9f7da0a17ec8f3e2abb2469898e2c148462755893f"
     sha256 cellar: :any_skip_relocation, monterey:       "4af1b38dba8ef539286e03110f6a93081e8b46392918a28f3fd2ddd98295811c"
