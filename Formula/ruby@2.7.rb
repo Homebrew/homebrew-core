@@ -12,6 +12,7 @@ class RubyAT27 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "57f737ab0ae4ab7b5f8808635f895698062636ccd0bdf8c57b8901c4097bd4da"
     sha256 arm64_monterey: "efb3bc1db53bbde6746a41181abbdb26dac2cdd3b8a504e0296f14653d2bcd9f"
     sha256 arm64_big_sur:  "6cefedc69d5be3f339cbd93b58396abc0a6aad5a6f426b30648deb6744e143ab"
     sha256 monterey:       "6083bfcbff65e642c9a6b98a2d5255b10abd5cd5164b802efc093297232f17d0"
