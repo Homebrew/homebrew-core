@@ -7,6 +7,7 @@ class Blueutil < Formula
   head "https://github.com/toy/blueutil.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bfc27ffc84b837c882787d2f3f3cd0a37ebae88c9e00c747b1b6f3e6019667e5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "adcb4a19c564cbd895f7e216df0a3293e17a009b243f5710edb9ba60965231db"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e29ddccdf7253406a3685f4099f3424ffb6d399ff2643f2d79f281ad97b93a67"
     sha256 cellar: :any_skip_relocation, monterey:       "bdcffcaabd1270881f5b28da53aa1a6a28b93cbeb134d2b08891861653364b92"
