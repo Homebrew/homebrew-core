@@ -10,6 +10,7 @@ class Cassandra < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4eff44bc07ae3605bf9ebe93ce6cad7881402ccb5accab39206b8ffbdc2e2cc3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b366a17ac367a87f153e0199ffc03c9f27660ad70bebda7f363a94492007a584"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7e3ea8d6192df791b56b0bf8654cea3eacd05bb1f9183a018c80bd90b4d9de0"
     sha256 cellar: :any_skip_relocation, monterey:       "950f0706dfeb0c7281798dcc74b9e00549b410f0333e71db9e80233ba2a68b71"
