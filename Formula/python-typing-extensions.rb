@@ -6,6 +6,7 @@ class PythonTypingExtensions < Formula
   license "Python-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db438b8a8ded095acfc017dc18ab3f4c1753331fde0797a5f3c7ac9b66862943"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4948e0e29f8b619d95103fb01c72487f6bc2e57766edc03eae2da17107032cd5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97b78929c4c889cc85ea2c5a46acdb3b02dc8ba90b0430440d4549b671e02d4a"
     sha256 cellar: :any_skip_relocation, monterey:       "9330397d24f3f86ba3fa5f8e4cf1c81f8941182a9ad45e4a4b25e5c13441602c"
