@@ -6,6 +6,7 @@ class Tlx < Formula
   license "BSL-1.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4a3813275fd74097015538e989b512c2e9c7e1bb770402a80a8fb02f49e897c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7ca6c8f813d2992803a39d3c707c0d56f9a0d4c5e9ea1afdf5c28bd24c456408"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d08dae9b28680ddbdb24ef98a60110e743d72d702bf8df24eb0568eac35bb536"
     sha256 cellar: :any_skip_relocation, monterey:       "5f0fa9dcfbeeac87aacadbe122cdd0c77cd1c78145acd55751c68689b178f157"
