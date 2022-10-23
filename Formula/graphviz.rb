@@ -2,8 +2,8 @@ class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
   url "https://gitlab.com/graphviz/graphviz.git",
-      tag:      "6.0.2",
-      revision: "fc13ea9684066d28b3bcb61670202d28c6110d60"
+      tag:      "7.0.0",
+      revision: "fbb04b2847e76a717f22277908eb4b3451fcc63c"
   license "EPL-1.0"
   version_scheme 1
   head "https://gitlab.com/graphviz/graphviz.git", branch: "main"
