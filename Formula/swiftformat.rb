@@ -7,6 +7,7 @@ class Swiftformat < Formula
   head "https://github.com/nicklockwood/SwiftFormat.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fca75bfe7fda2151c2972e7e9262e9ca6ce2f50e3fc562e0688dd817550813c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f03398746b42c97a4057eb74c740a842b96b7fbb49b003057daf114d72db74b4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff1b0f20ebaaa03a580817e8f4c670e54227c86c3c53d813899c276d03415461"
     sha256 cellar: :any_skip_relocation, monterey:       "5dddca5459af2ad28f1a9ef1e664da40ed664ae907c0351dc92b3cd0af52c29e"
