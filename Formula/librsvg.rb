@@ -6,6 +6,7 @@ class Librsvg < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256                               arm64_ventura:  "9b55452c4b2b330cc80d24e441189ca85d53cd5101d278f0433d2385efbffdae"
     sha256                               arm64_monterey: "34020ec3131a92abd25bd8423d79c4fceb17419710b58e6fff9a92846a97d38b"
     sha256                               arm64_big_sur:  "153866720725f181604fa65a378e48666be149364737c35cf54785183d972bb0"
     sha256                               monterey:       "b07a80b9c9c979c7a4689de0fa960a7c175d25f1d49884361ae256a91e38f6d9"
