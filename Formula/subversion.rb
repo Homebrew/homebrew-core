@@ -57,14 +57,12 @@ class Subversion < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "openjdk" => :build unless MacOS.version.outdated_release?
     # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
     patch :DATA
   end
 
   on_linux do
     depends_on "libtool" => :build
-    depends_on "openjdk" => :build
   end
 
   resource "py3c" do
@@ -146,7 +144,6 @@ class Subversion < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath=#{serf_prefix}/lib"
     end
 
-    openjdk = deps.map(&:to_formula).find { |f| f.name.match? "^openjdk" }
     perl = DevelopmentTools.locate("perl")
     ruby = DevelopmentTools.locate("ruby")
     python3 = "python3.10"
@@ -174,10 +171,6 @@ class Subversion < Formula
       PYTHON=#{python3}
       RUBY=#{ruby}
     ]
-    if openjdk
-      args.unshift "--with-jdk=#{Formula["openjdk"].opt_prefix}",
-                   "--enable-javahl"
-    end
 
     # preserve compatibility with macOS 12.0–12.2
     args.unshift "--enable-sqlite-compatibility-version=3.36.0" if MacOS.version == :monterey
@@ -199,14 +192,6 @@ class Subversion < Formula
     system "make", "swig-py"
     system "make", "install-swig-py"
     (prefix/Language::Python.site_packages(python3)).install_symlink Dir["#{lib}/svn-python/*"]
-
-    # Java and Perl support don't build correctly in parallel:
-    # https://github.com/Homebrew/homebrew/issues/20415
-    if openjdk
-      ENV.deparallelize
-      system "make", "javahl"
-      system "make", "install-javahl"
-    end
 
     perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
     perl_core = Pathname.new(perl_archlib)/"CORE"
@@ -249,10 +234,6 @@ class Subversion < Formula
 
       The perl bindings are located in various subdirectories of:
         #{opt_lib}/perl5
-
-      You may need to link the Java bindings into the Java Extensions folder:
-        sudo mkdir -p /Library/Java/Extensions
-        sudo ln -s #{HOMEBREW_PREFIX}/lib/libsvnjavahl-1.dylib /Library/Java/Extensions/libsvnjavahl-1.dylib
     EOS
   end
 
