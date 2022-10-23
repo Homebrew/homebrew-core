@@ -7,6 +7,7 @@ class Hiredis < Formula
   head "https://github.com/redis/hiredis.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "aec608b16fd0a7add69a6f1d80a832cda709fb6dfa115f59e3cde8b131ff0687"
     sha256 cellar: :any,                 arm64_monterey: "e499ad54baf866fd665c1160db82f235cd9cb84f8ae369f0be4a14a52e81eae0"
     sha256 cellar: :any,                 arm64_big_sur:  "95224205d629a4e8715c1e66d722cb580ccd4c78ce5e943f70cd8bde0021e641"
     sha256 cellar: :any,                 monterey:       "61d0cc662645452391544eaed8720a8043d65ed742a6119166d6b6d98ea62a3f"
