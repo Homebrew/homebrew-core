@@ -1,5 +1,5 @@
 class Onefetch < Formula
-  desc "A command-line Git information tool"
+  desc "Command-line Git information tool"
   homepage "https://github.com/o2sh/onefetch"
   url "https://github.com/o2sh/onefetch/archive/v2.13.1.tar.gz"
   sha256 "551b59102965e968e24c41de6bb6cb5c1f062d94ada6baac77a54c2ec412cb2f"
