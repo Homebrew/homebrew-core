@@ -9,6 +9,7 @@ class Pipx < Formula
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "56e13a9e01a597f91ca3549561030442b83423020257e22e2c6757b4b823e2d5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a2c0c04c39e04cae843d2a69f3a8d626a32d10301bbfb4ebd61d0b67febe088c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89bd301b9f7c1cc0559da700b80267e9a50a172738e127b765fbb5b251e3cbaa"
     sha256 cellar: :any_skip_relocation, monterey:       "5bc3dbcd8d973a6f0da3ce6b4ca47d6fd04bd9fa3d3373f57c83dba01d441375"
