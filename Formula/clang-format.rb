@@ -23,6 +23,7 @@ class ClangFormat < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ac64f9d2a2b6534717c5465099551da660f84c88da962fcaba0c63a3b6e02e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f25fa006c4f3684d7cc403d81f3dbbd00aef5dcee54d8909fc0b929dc46fd21"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f1cebeec140ce27dbbf0f9b7ffde342ad1a7d7ae90476e2d8ecf659e44cc8c3"
     sha256 cellar: :any_skip_relocation, monterey:       "7185911bd8c322d7b88340b6a2479454271609d6356c86538c2e2fb7c037950d"
