@@ -7,6 +7,7 @@ class TheSilverSearcher < Formula
   head "https://github.com/ggreer/the_silver_searcher.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "817b92ceac05e4860cdd5f7102289f55494359bb67c9fe4c8213d87b53261d7c"
     sha256 cellar: :any,                 arm64_monterey: "b567416368a9b131cf32f2c81400327a059da194c6d95df7368aa039fac73dfb"
     sha256 cellar: :any,                 arm64_big_sur:  "a1fa06a9147b1138f884408f88557357e4a48330373f720ca428aac0f3333221"
     sha256 cellar: :any,                 monterey:       "613ce2a96feead807bb675c2a72388fdfde47b1f7702031909fc558dc0faf11f"
