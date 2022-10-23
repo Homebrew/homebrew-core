@@ -3,18 +3,9 @@
 
 class Pstree < Formula
   desc "Show ps output as a tree"
-  homepage "http://www.thp.uni-duisburg.de/pstree/"
+  homepage "https://github.com/FredHucht/pstree"
   url "https://github.com/FredHucht/pstree/archive/refs/tags/v2.40.tar.gz"
   sha256 "64d613d8f66685b29f13a80e08cddc08616cf3e315a0692cbbf9de0d8aa376b3"
-
-  # The stable archive is fetched over FTP and there doesn't appear to be a link
-  # to it on the first-party website. As of writing, the homepage lists an older
-  # version than the README, so checking the README is likely our best option
-  # at the moment.
-  livecheck do
-    url "http://www.thp.uni-duisburg.de/pstree/README"
-    regex(/This is pstree V?\s*?(\d+(?:\.\d+)+)/i)
-  end
 
   bottle do
     rebuild 2
