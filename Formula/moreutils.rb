@@ -11,6 +11,7 @@ class Moreutils < Formula
   head "https://git.joeyh.name/git/moreutils.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d2d7aea31dd1470da60cf4c7382407338c8bbc9806765a8eeb22084fb86541df"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "97487d8fcda41988e9b03a87770260953fc05e2282e069a35fc5742e804ed0ec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8ddb7455bee7e0dfc6b870a36c4cc2eb6462058d69f19d104c9522386a49ef4"
     sha256 cellar: :any_skip_relocation, monterey:       "4bbca70595aa3ebf16c1297b00725a95d32220e5b849db8b024b724a953e923a"
