@@ -11,6 +11,7 @@ class PangommAT246 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "919a3743d2c96c7abfa6971c140b74de45136251128c94611e724e9f5015ccd2"
     sha256 cellar: :any,                 arm64_monterey: "c794e69f80086920c974a7a8982034cee2a72c3543156346768ce6c11fd04e62"
     sha256 cellar: :any,                 arm64_big_sur:  "28a5885682e8cabb5240af2d46c4d982f4a74e87e0909d573a5d8f11941dab22"
     sha256 cellar: :any,                 monterey:       "2670e2d8fcc5bcfe06c37c6b68c3871286312202329033341ed52a22db42be0b"
