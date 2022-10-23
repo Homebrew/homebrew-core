@@ -12,6 +12,7 @@ class Packer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58bb7eeb26d2a4952d6981795deb2e83d94f6b78e5e4401ab9f7d6f8a7592d04"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f6450672f64004579ab0b804eb67caacb6b437465ec6fc62cff3c48ce5d7cf5b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "36dada898dab46100ddd0efdae0d931661e393a04cb205c9be6edbe426ebd9e0"
     sha256 cellar: :any_skip_relocation, monterey:       "747daa892415e5931f4aea11de0f4f1ec0f5f795320a88f77d9576c44ccfae32"
