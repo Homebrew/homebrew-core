@@ -8,6 +8,7 @@ class Lazygit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09853610115c98f2edcac50176615812968353ff5e6b7e1cc3c83aca159d9c21"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a943392e31f1f24c669fb86ebdb7e5f01a3a1d0871226d629ced2daca8f8a32a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbcc75976046775c94bb9d6debad4860201437f47b5d4ba1ca976c008f802307"
     sha256 cellar: :any_skip_relocation, monterey:       "6213ae4af0c276e446d0ec838042601f3c7ebd90a365943d21b0ae3801180521"
