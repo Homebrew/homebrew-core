@@ -200,11 +200,10 @@
   },
   "fdroidserver": {
     "exclude_packages": [
-      "numpy", "pillow", "six", "PyYAML", "yamllint", "pathspec", "fonttools", "Brotli", "Pygments",
-      "ipython", "appnope", "asttokens", "backcall", "debugpy", "decorator", "entrypoints",
-      "executing", "ipykernel", "jedi", "matplotlib-inline", "nest-asyncio", "packaging",
-      "parso", "pexpect", "pickleshare", "prompt-toolkit", "psutil", "ptyprocess", "pure-eval",
-      "pyparsing", "python-dateutil", "pyzmq", "stack-data", "tornado", "traitlets", "wcwidth"
+      "numpy", "pillow", "PyYAML", "yamllint", "pathspec", "fonttools", "Brotli",
+      "ipython", "appnope", "asttokens", "backcall", "decorator", "executing", "jedi",
+      "matplotlib-inline", "parso", "pexpect", "pickleshare", "prompt-toolkit", "ptyprocess",
+      "pure-eval", "Pygments", "six", "stack-data", "traitlets", "wcwidth"
     ],
     "extra_packages": ["wheel"]
   },
