@@ -11,6 +11,7 @@ class Gtk4 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "df0612711bbfcad45d1c5e139009ed91d70158af4958c80e36967c869dbf7741"
     sha256 arm64_monterey: "aab2c045916b3b742273bd5b70ed0576f10b85e42f74caa8d485fbdd8f1cc0e8"
     sha256 arm64_big_sur:  "3ee5ccd130c2c2ac7469d1cf2f426ee585e72028bc77d65a64021ae34722ec1e"
     sha256 monterey:       "bee36536e97b1a0b0864eeb1af5d3a5caf453c74f52514b8fd970e62ed31705b"
