@@ -312,29 +312,37 @@ class Jupyterlab < Formula
     end
 
     # gather packages to link based on options
-    linked = %w[jupyter-core jupyter-client nbformat ipykernel nbconvert]
+    linked_hatch = %w[jupyter-core jupyter-client nbformat ipykernel nbconvert]
     linked_setuptools = %w[jupyter-console notebook]
-    dependencies = resources.map(&:name).to_set - linked - linked_setuptools
+    unlinked_hatch = %w[jupyter-server jupyterlab-server]
+    unlinked_setuptools = resources.map(&:name).to_set - linked_hatch - linked_setuptools - unlinked_hatch
 
     # `jupyterlab-pygments` requires `jupyterlab` to build. Since Homebrew doesn't
     # allow circular dependencies, we locally build a `jupyterlab-pygments` wheel
     # using the pre-built PyPI wheels for `jupyterlab` and its dependencies.
-    dependencies -= ["jupyterlab-pygments"]
+    unlinked_setuptools -= ["jupyterlab-pygments"]
     resource("jupyterlab-pygments").stage do
       pybuild = Formula["python-build"].opt_bin/"pyproject-build"
       system pybuild, "--wheel"
       venv.pip_install Dir["dist/jupyterlab_pygments-*.whl"].first
     end
 
+    hatch = Formula["hatch"].opt_bin/"hatch"
+
     # install remaining packages into virtualenv and link specified packages
-    dependencies.each do |r|
+    unlinked_setuptools.each do |r|
       venv.pip_install resource(r)
+    end
+    unlinked_hatch.each do |r|
+      resource(r).stage do
+        system hatch, "build", "-t", "wheel"
+        venv.pip_install Dir["dist/*.whl"].first
+      end
     end
     linked_setuptools.each do |r|
       venv.pip_install_and_link resource(r)
     end
-    hatch = Formula["hatch"].opt_bin/"hatch"
-    linked.each do |r|
+    linked_hatch.each do |r|
       resource(r).stage do
         system hatch, "build", "-t", "wheel"
         venv.pip_install_and_link Dir["dist/*.whl"].first
