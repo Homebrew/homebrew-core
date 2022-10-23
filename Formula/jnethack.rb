@@ -12,12 +12,12 @@ class Jnethack < Formula
   head "https://github.com/jnethack/jnethack-alpha.git", branch: "develop"
 
   bottle do
-    sha256 arm64_monterey: "4c59235ec6822463a71c1d9b422e01275ec47f5e7f7e31985f34946b2faa67a4"
-    sha256 arm64_big_sur:  "2c689f7800cbb1e8871c61a9942a8509e9948a7915b6602b3079dddd70cec2f3"
-    sha256 monterey:       "262dfe4f07fb46856aab7d687de50e0b06865205ca9441b8e1c2e3fe3d1cd1d3"
-    sha256 big_sur:        "992e84d15108722136983844bd6a34cb7f5463e5bd697b32ac7659419f5bc21b"
-    sha256 catalina:       "f59a9c1dc29af967186ad412078b7fde04b2ff21701c920f97a21ac63ef14524"
-    sha256 x86_64_linux:   "e8c746c0df2deb305dfcbd6427281d2d0f69cf9a011e05e29ce97403352c74ee"
+    sha256 arm64_monterey: "2265c4c5dca76edc0c3672b3746f75d1cbeab782b4ef86463ab8848b312673d5"
+    sha256 arm64_big_sur:  "48982dc5af4eaa7ebd63ef444f842ef9c6f765f8d6e0961b15169f6e457206a1"
+    sha256 monterey:       "a52cfa300594235e2eb059b600d4d752fa2d444793df11efff657ef0d142c9e0"
+    sha256 big_sur:        "d549f80aa1df93f3ebdfdd51e0ddbb2924fb812b76fb2659089403c942f59ec5"
+    sha256 catalina:       "3a2629567e689e94a69a3cf813ae6b4e9619dd1737b0ca7336a0732eca87887a"
+    sha256 x86_64_linux:   "5bb2c49b8456a359624524768f73fe67e7461bc19e4b4d70d1e0bdf68a286b4c"
   end
 
   depends_on "nkf" => :build
