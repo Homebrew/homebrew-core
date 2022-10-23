@@ -13,6 +13,7 @@ class GitlabRunner < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "10527c7d9a197e76ee1753a27c1a49f0b82166aa9ea7db702e8ce0c82300f639"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e85b07b9463d7b13c6eed317985308cb3437f4ccdb064bab014576a2f4644690"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc7ddd00ff5a90ac18b79adff76af396869b374b929f212b3d26c125ac8077d8"
     sha256 cellar: :any_skip_relocation, monterey:       "5938ba3587d8a8d01a5ba4f45ab9863f8b4c47fd3e3bdd522458a2c1ae7ee579"
