@@ -12,6 +12,7 @@ class Rlwrap < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "20aabecad8ad15c62ef31f71e3a9ffe70164ecdfd34fcc2d0bf9031f7ebc6bc9"
     sha256 arm64_monterey: "62b83711d4fb986ce4216fb0f363afb141f85fa040cb30cbedd12edf0e054a4f"
     sha256 arm64_big_sur:  "3bd849c8af633cd43cd51ba1ab2dab4dc1458258096522bc6ed999b280c15382"
     sha256 monterey:       "24fda363caa29db839258191f120746962dd1bc733a955b36c2596757998be2d"
