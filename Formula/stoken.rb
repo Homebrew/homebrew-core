@@ -6,6 +6,7 @@ class Stoken < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "620455231b34b4e2c51dc636d2a2c34d7c17edca87e38b6c268b3cb11dc59bc7"
     sha256 cellar: :any,                 arm64_monterey: "545f8479e92a7c8dcf0d9a42a5c0027e34e8760596ca53e308aedebe65b80477"
     sha256 cellar: :any,                 arm64_big_sur:  "2f66cb207fe048720b4497e774752de500d005b4bcc7bd45ccb164ecd11fafc8"
     sha256 cellar: :any,                 monterey:       "c2f16c9907f9d412da320f03902cc1ff86af807acdf9b7581316337e561a711f"
