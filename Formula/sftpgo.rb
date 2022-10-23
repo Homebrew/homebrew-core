@@ -1,8 +1,8 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.3.6/sftpgo_v2.3.6_src_with_deps.tar.xz"
-  sha256 "dd1e3df81e808b090fb9d77e2cdf4f0a108d53646b69c201cd710c38522079a5"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.4.0/sftpgo_v2.4.0_src_with_deps.tar.xz"
+  sha256 "e20abbe709fb20d7e1e26ca0834e7968d06f45b6952e4cce7acd8e09634a7949"
   license "AGPL-3.0-only"
 
   bottle do
@@ -20,11 +20,11 @@ class Sftpgo < Formula
     git_sha = (buildpath/"VERSION.txt").read.lines.second.strip
     ldflags = %W[
       -s -w
-      -X github.com/drakkan/sftpgo/v2/util.additionalSharedDataSearchPath=#{opt_pkgshare}
-      -X github.com/drakkan/sftpgo/v2/version.commit=#{git_sha}
-      -X github.com/drakkan/sftpgo/v2/version.date=#{time.iso8601}
+      -X github.com/drakkan/sftpgo/v2/internal/util.additionalSharedDataSearchPath=#{opt_pkgshare}
+      -X github.com/drakkan/sftpgo/v2/internal/version.commit=#{git_sha}
+      -X github.com/drakkan/sftpgo/v2/internal/version.date=#{time.iso8601}
     ].join(" ")
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "nopgxregisterdefaulttypes"
     system bin/"sftpgo", "gen", "man", "-d", man1
 
     generate_completions_from_executable(bin/"sftpgo", "gen", "completion")
@@ -36,6 +36,7 @@ class Sftpgo < Formula
     pkgetc.install "sftpgo.json"
     pkgshare.install "static", "templates", "openapi"
     (var/"sftpgo").mkpath
+    (var/"sftpgo/env.d").mkpath
   end
 
   def caveats
