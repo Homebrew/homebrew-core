@@ -12,6 +12,7 @@ class Libshout < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7f8f3b0863a492822fb17eea6c2b8200902daac2b675d1f8ee8ec630460297f0"
     sha256 cellar: :any,                 arm64_monterey: "ed0cc88b82dee2ed2e819726858e3fa32304ede4b9920f610e4e58060e245bc6"
     sha256 cellar: :any,                 arm64_big_sur:  "f08eb7c2f858f394a688a70992d3d17f3b5789449522fae3c7c0c94e3278f3c8"
     sha256 cellar: :any,                 monterey:       "7fb5903fcebb64f0d45b583f7e87a75c72ced74c61d532e6e251f680be245d7f"
