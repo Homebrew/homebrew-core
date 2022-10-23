@@ -13,6 +13,7 @@ class Graphicsmagick < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "71e76fcef99e872bd2bf5968cc8637c814f840b0b3353a122883cd3dd279c0d1"
     sha256 arm64_monterey: "6390e9b63683aca9a120458a05cd405a7c1c15337b5521fd7b4a8ca7d5c9be6c"
     sha256 arm64_big_sur:  "ad3862da45b6d9a6cda022cbc8834d87c1ae1b04fceea068c0ec7da1683151c8"
     sha256 monterey:       "261c7ec6b275953638a14ab215063ceff80a6623dd3e9de141b06bf26cfc8586"
