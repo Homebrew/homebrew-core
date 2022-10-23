@@ -9,6 +9,7 @@ class PythonYq < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "690b8702536c50a15ea957bb0d463a0ba1784fb5ee6b6373cd559284bbdd633b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f618ed2969c322c07673ad0e64da32510b0090da8572f2b5350da2d38a244a6c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f618ed2969c322c07673ad0e64da32510b0090da8572f2b5350da2d38a244a6c"
     sha256 cellar: :any_skip_relocation, monterey:       "c9199b9c9789cb4ca659ee69f2b19be0ccdd1bd863ca5535c7113a77f69e35a3"
