@@ -6,6 +6,7 @@ class Fastmod < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebd4164faa7b18ec6db9d4bf6c38e052fe07217df66d603902563ad43668a476"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5f7102efe62e30ee88c4c0275f3db41d4156ff4e6f4dc78b7d852ba4600a994c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7b0504899573e920f09106daff5e391d40419bb56de623d18666f1d383e6b8c6"
     sha256 cellar: :any_skip_relocation, monterey:       "a6b584a8fdf984cac4e2f850a900d0010193426402d8bcc51eacd888af101099"
