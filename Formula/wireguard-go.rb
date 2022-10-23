@@ -12,6 +12,7 @@ class WireguardGo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "26bcf79b8fbbf79d4afcef86c1851fd2ddec8bcbd9b426977c7fdb3134365f1b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "07fe4038743e02c3474db81af543dcdb4ff35149eaacaae0944695f05facb140"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49c9d68a379b6d68e45d6a7af04e8d684102a2f748b54d67e652a75e2fd0b671"
     sha256 cellar: :any_skip_relocation, monterey:       "5b75283c47dc11a78114df31782b10f3715525ea18265c5bb059efbf32827f65"
