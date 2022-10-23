@@ -12,6 +12,7 @@ class Ripgrep < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4209c572d1d8a0fbfd562198532507a498cf1d2b0f5bf2bd667318202f746e0c"
     sha256 cellar: :any,                 arm64_monterey: "ea67bdf39c1727b2b6b5b5f5110d1736b42b3eb0ec2068aa99903b670545b015"
     sha256 cellar: :any,                 arm64_big_sur:  "d3e0ae859dc1e66ebecbc66a8ad1ec2abac59bc707d2305dde66212e71406d36"
     sha256 cellar: :any,                 monterey:       "db0260c6be9656c54575a4d82c720fb24141be38a17350d6cddba7be14f104e6"
