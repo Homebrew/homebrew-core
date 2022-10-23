@@ -9,6 +9,7 @@ class FirebaseCli < Formula
   head "https://github.com/firebase/firebase-tools.git", branch: "master"
 
   bottle do
+    sha256                               arm64_ventura:  "d40a12764476ee1b16517dacd946205d33aeed62a17f8eeaf7200e8d4df815da"
     sha256                               arm64_monterey: "58147a42accd561914cc4c9f8df2afd6655461ea9a4211cd641aa93ba8f6d291"
     sha256                               arm64_big_sur:  "89fe17d0e48d664f930369752fc881f8571408c2135c1005fd5414aaf1fefe97"
     sha256 cellar: :any_skip_relocation, monterey:       "42a14c4bcd3feff165db0aa8e271a66c871cb8d841d13a2321b8e7ed637d0b66"
