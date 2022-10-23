@@ -7,6 +7,7 @@ class Diesel < Formula
   head "https://github.com/diesel-rs/diesel.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "939073a964b2bf62f818d199f5a917b0bd75a345ac20f2d7fe1a4c8fb2d6d490"
     sha256 cellar: :any,                 arm64_monterey: "4528a0b7dbb7d1624cf60238d51d374d4827306da7130b4b8b1e93acb7947e36"
     sha256 cellar: :any,                 arm64_big_sur:  "452a0801f5de9d2ccbf2f6a052e17b07739f63bd7bc18101a83968571d2f7fcc"
     sha256 cellar: :any,                 monterey:       "110629338b3ed4515ee8c7badeb95bc54eb68e8f23d22349bb6394ca90eb45f9"
