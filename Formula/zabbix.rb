@@ -12,6 +12,7 @@ class Zabbix < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "a8fddee7ea52f37eb2c0451d379a197ef741e2ded1210b723d95eaf737c1884d"
     sha256 arm64_monterey: "0bc4c6103f1d901011cb6383dc1fa0a5f79dfc0be2635801c4d37bd0c96f9e8c"
     sha256 arm64_big_sur:  "4952ba660354e18f188dbf041fc0e1d0d062ca79c5a94c4a3275288afcb1e3d6"
     sha256 monterey:       "5f42dc265b27425a3911902a7a9610dc20601742f3f1cedd3179b6fc4012237e"
