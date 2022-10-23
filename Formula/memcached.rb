@@ -12,6 +12,7 @@ class Memcached < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "23cb27638c5132b7cb1695140c220dd91caeb513a390c2b29483b42b1b1cad9e"
     sha256 cellar: :any,                 arm64_monterey: "45243fbf069a4f4316fb8289b60b9e8b9419790fcd0d8da14bb3db2bd6990358"
     sha256 cellar: :any,                 arm64_big_sur:  "ea196f2117f613372a46fc29721ecac4187ddfd03a4a87ae9a513e6ca86989a9"
     sha256 cellar: :any,                 monterey:       "0f50b701cdf195c5f452e14d43b88b48fc17d61d01f9d52072fdd90d25e020b4"
