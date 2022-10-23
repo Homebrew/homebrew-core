@@ -9,6 +9,7 @@ class Yamllint < Formula
   head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58d67664eca5c91e1072fa00941491a9af5e6d07a99c422ef022cd033f7f6b16"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e734080f9ef58b1e5b324cd5a421601519a181b466df093f2890252c8c32a61"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "652aac84b2465cacd8148561d7448986c73df6b512b7aed9e351e4c7c7f8be60"
     sha256 cellar: :any_skip_relocation, monterey:       "13e33c28193edf6781c3cf33e992c3b4e32cd63275b76678b634e6cdd06eb46e"
