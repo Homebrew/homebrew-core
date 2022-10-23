@@ -19,6 +19,7 @@ class Pstree < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f47ffc94093a01854e6a062d7a7a64125b2167ce9f51c7c2ee1d84d1597c8b89"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9733dc8a9d384a122e5fad0b21a33142bef94cf85e2a0cb02e66753fd316a133"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "871eebe7b12c62d1086c8f1b0b8802d7a50d2080646e6c64b9b95fd1e3e6f8fc"
     sha256 cellar: :any_skip_relocation, monterey:       "e95fdd5babd994999a697905d0f006878f558d83cc5438e608be3da6add2e71d"
