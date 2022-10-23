@@ -11,6 +11,7 @@ class Libdnet < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "229deed00d9f2282c65e7ededd4723a9cef9a258b0921110ffc21b45745a01d9"
     sha256 cellar: :any,                 arm64_monterey: "589d70b5dcf0377cca4636db9b3141f5b9032a1d65bb689ad0cab8a5af24dd85"
     sha256 cellar: :any,                 arm64_big_sur:  "54a55ad8719e269c07cbef8a5c61924e2431a5a5c88cce4148dbeffede79a353"
     sha256 cellar: :any,                 monterey:       "e5672d9ee85274aea69f2cb3a180ba097e652ddedb5ccae9e67cce5faa46ed1a"
