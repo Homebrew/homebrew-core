@@ -9,6 +9,7 @@ class Mujs < Formula
   head "https://github.com/ccxvii/mujs.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8717abdb989f9eaa115bbe5afac344fc517712fc825b7756c5362d9a6ec057d7"
     sha256 cellar: :any,                 arm64_monterey: "2cc98920066db183fbc6c024a676254dfb46628d3ba2e41a36cd94e35016c23a"
     sha256 cellar: :any,                 arm64_big_sur:  "49a0fa9258cb985ffc33ec3317e21ca7ce250a8e6ece38e1b65f21821410baa6"
     sha256 cellar: :any,                 monterey:       "70e32a32fc2f81d22e499516e97dc771c93e57c88058f59b5a7f9b7e0ce65daa"
