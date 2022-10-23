@@ -8,6 +8,7 @@ class Pstree < Formula
   sha256 "64d613d8f66685b29f13a80e08cddc08616cf3e315a0692cbbf9de0d8aa376b3"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca06848c6042d6f8c7ee44477aae9d5e1ed8f73be77dc99d9ec126460bc1f9f8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e43ea23b1cc41dbd5717b22c8de73faae3fa58e88a9f18845533e7f4acc24eeb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc1765755ab89e61a17983692eb4ceb6c659f2f90b1f26bfea0ed1a908a7dc07"
     sha256 cellar: :any_skip_relocation, monterey:       "fc23e46dee144842b941ad5b6527018154d38b67827e4f019bf9efab24a15365"
