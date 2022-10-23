@@ -8,6 +8,7 @@ class Sassc < Formula
   head "https://github.com/sass/sassc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9302f8cb296175ea2f685b1b688753f4a0e66243c53f2249586ede9576bf86b6"
     sha256 cellar: :any,                 arm64_monterey: "f1814e87c905c18e7a39512e02a10ed93b68c81493f5d23e61884d0b3262d529"
     sha256 cellar: :any,                 arm64_big_sur:  "ae86a3868be7edf32aadf47abd949d3806789f5edf319c4d86120a05fee9053d"
     sha256 cellar: :any,                 monterey:       "1dc3c04d8527c5b13983c6e5fa405f6e0af6315bd72e06047e53c6a2c7f1c32c"
