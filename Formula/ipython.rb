@@ -10,6 +10,7 @@ class Ipython < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "e6d7248bf849733f5a3ecce0134eaaa415df2098955c065a204c4ff638ebaf77"
     sha256 cellar: :any,                 arm64_monterey: "46746bccacd80896b11a8c4459c59166c21e1634efaeac54db5b4f0938375d5a"
     sha256 cellar: :any,                 arm64_big_sur:  "50e80515a3e6dd81c8a7614dbe770667857df27821494f8bd532e5d070653e57"
     sha256 cellar: :any,                 monterey:       "28c2942b00d6f512cd4b4eb38d2aada4516513bca31db00f118498ac22a6e079"
