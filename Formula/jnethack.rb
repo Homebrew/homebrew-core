@@ -6,8 +6,8 @@ class Jnethack < Formula
   homepage "https://jnethack.osdn.jp/"
   # We use a git checkout to avoid patching the upstream NetHack tarball.
   url "https://scm.osdn.net/gitroot/jnethack/source.git",
-      tag:      "v3.6.6-0.5",
-      revision: "b73f026674d524b563794826884c141ae8217dea"
+      tag:      "v3.6.6-0.6",
+      revision: "1fe57469d3f3bc20997f5f219c33bf4973a41b82"
   license "NGPL"
   head "https://github.com/jnethack/jnethack-alpha.git", branch: "develop"
 
