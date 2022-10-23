@@ -11,6 +11,7 @@ class Ilmbase < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9dc12fdb45d5e21b5424a1096771b83cca1de04cf3914eb2c5193bb4724a8d4a"
     sha256 cellar: :any,                 arm64_monterey: "398bd979380275b9c0db5577df3a5d334e1d9d94022479f8677b5871998231cd"
     sha256 cellar: :any,                 arm64_big_sur:  "d616fac56b2bb43a3fdbfcd7f02cd25afae16e90b004fead3f45e69100bc00f5"
     sha256 cellar: :any,                 monterey:       "d7be04686035d70c27ce4b4bba6d03cb1c0c2ea9bd6b39b889d1d0f5ef2744a3"
