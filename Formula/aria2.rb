@@ -7,6 +7,7 @@ class Aria2 < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "cb572370ae31983f3cb7933f52ac2011c4f2f41858106c9abd1b22c83ba3114a"
     sha256 arm64_monterey: "b0ec32121f2f4c94afce1cf43101d0441176e4d3de2461160cf220b4c4c2a89f"
     sha256 arm64_big_sur:  "89db8d96ab739c0ebcc8a800169d7001c18fae4d3fce8217b8ffa5455d1f46cf"
     sha256 monterey:       "410b790649fe92ac3c146aa394a6ff1d70411303e68b7c4ff5c5e4ce82435b30"
