@@ -11,6 +11,7 @@ class Nano < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "4c6c97d12aa61ec1288e59d3d90d73d4910a830c15f04dfbc7ef3b1221103c13"
     sha256 arm64_monterey: "7206f1c20ac7fb4cec10b80b56d41177de74a7d2555119260353dfbcd0f6dcee"
     sha256 arm64_big_sur:  "f934bf0fdbad886af747aae1f4a170ae81eb8ccbb589f5336f979f372d54dc29"
     sha256 monterey:       "9990a38a504f0e5870b5f2cbee431bed3d8cf4a5d37574667204222de5909644"
