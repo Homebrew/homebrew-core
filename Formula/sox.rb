@@ -6,6 +6,7 @@ class Sox < Formula
   revision 5
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d5679ccdaa83932444058e30d202a04d59608628bd205a912ebdfaf68c334ff8"
     sha256 cellar: :any,                 arm64_monterey: "10012939e3d82a101d7d100e74885234426fffa599c6b22787b7232428f8a6f5"
     sha256 cellar: :any,                 arm64_big_sur:  "ac3d90255b09e71f6c6d3f48a8f744ad5b5ad38b8494c07a6d8d4db91cb64d3f"
     sha256 cellar: :any,                 monterey:       "0325437ffb26d7b3d8c5c735eed402b2a95a471f4a8e72eeb9e5fa2416960f8f"
