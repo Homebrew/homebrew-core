@@ -28,7 +28,9 @@ class AwscliAT1 < Formula
   depends_on "pyyaml"
   depends_on "six"
 
-  uses_from_macos "groff"
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff"
+  end
 
   resource "botocore" do
     url "https://files.pythonhosted.org/packages/bd/cb/af3d2851d43200724720ba4e81af15cbadeaf5b190eedd1b75582296627e/botocore-1.27.89.tar.gz"
