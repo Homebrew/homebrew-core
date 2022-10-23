@@ -9,6 +9,7 @@ class ZshSyntaxHighlighting < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdd9350c88caf637d8c8e5b036d6913952ec9ac3480d633bc346b2e5c988ec48"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bdd9350c88caf637d8c8e5b036d6913952ec9ac3480d633bc346b2e5c988ec48"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aebae47a0461de83530eb59106818889fc1a1a0e3cec2ddcefe629c3c8c172bd"
     sha256 cellar: :any_skip_relocation, monterey:       "ce55800da8e7546b38c17e715c1497cf35069cd76d15da779ae1a12c10173e02"
