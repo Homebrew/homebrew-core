@@ -7,6 +7,7 @@ class Ccache < Formula
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "dad70f5cb82ecd74dc7a90da8e65ad7ff7c68f586e76ae8de4981296cdbd920c"
     sha256 cellar: :any,                 arm64_monterey: "b97420b86e8ea5365d32906336c7758afe2e1e331813328f321e35fa2e30c25b"
     sha256 cellar: :any,                 arm64_big_sur:  "83e6f300825ee77a48f02b0f4c85a4bd9ad4c116d0c082563e9cbe92ddabbf06"
     sha256 cellar: :any,                 monterey:       "7f8922d4d930027d89d561aecba588f15f92956c2c68c7f646b6394e63ac5112"
