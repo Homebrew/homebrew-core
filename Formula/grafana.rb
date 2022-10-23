@@ -7,6 +7,7 @@ class Grafana < Formula
   head "https://github.com/grafana/grafana.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44a144161f0e07b2ace0f47cb0383aa68d82784e101e3835dae13f0073c5e9e1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "14dd3c7d452008c922f9a4d626d5c569c51f38cd17ce3d316e477a9433cecdf3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81b0690aac19beb815ddf1679818fc170dcae27e06182daaf3711c119f7cdf87"
     sha256 cellar: :any_skip_relocation, monterey:       "dbf70c40104c5574520257d4aca780794b7f1241aff67d6e0e4afe79276bd217"
