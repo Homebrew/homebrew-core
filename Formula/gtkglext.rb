@@ -7,6 +7,7 @@ class Gtkglext < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any, arm64_ventura:  "7e761fba5d5ae2e370a03c9f09336d0faa9c13f65ee73b8b2bdae413c035f471"
     sha256 cellar: :any, arm64_monterey: "a42443e10af16bb89c45e2ebed7735f8a5693219e00964a6a8599cf105e4f289"
     sha256 cellar: :any, arm64_big_sur:  "0e7132d3e408cb5d9bbff6e8f6e93bc6460ebbb4f3e6f365d8cb331edee9435a"
     sha256 cellar: :any, monterey:       "9f4a28bef624c621d498d6f0c8dc1c0193735ab5f63b60373a9969dba9736c34"
