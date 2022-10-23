@@ -33,7 +33,7 @@ class Highs < Formula
     assert_match "Optimal", output
 
     cp pkgshare/"examples/call_highs_from_cpp.cpp", testpath/"test.cpp"
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lhighs", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-I#{include}/Highs", "-lhighs", "-o", "test"
     assert_match "Optimal", shell_output("./test")
   end
 end
