@@ -7,12 +7,13 @@ class Assimp < Formula
   head "https://github.com/assimp/assimp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "425d606455cdeb33666e68e04622f91db9bddf05c2c0c1bcddc94549ea05501d"
-    sha256 cellar: :any,                 arm64_big_sur:  "99485501be944e3bcef0503cab79cc978c69e6e168e65ec372699f758e8928d5"
-    sha256 cellar: :any,                 monterey:       "f8890abebd50f73b75dbfad26d160bfef00d974222afa715fbee0b4ef5ca223b"
-    sha256 cellar: :any,                 big_sur:        "66efffde726aaa05bf365db06c1aa47a4f5a383d15a0b11b260c8137d005ad4b"
-    sha256 cellar: :any,                 catalina:       "46d4f02acd656c9c076ae7746a436256e8dad06749fba35ddfd9a4e1769be7a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "699adeee9696cfef9b7ef986f43c2930c6d9a8d686915b8e1a021386aaa95175"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "41d4dac7a778c2ce90ac37fed8719342f01955f853cc5f22e003039cff473706"
+    sha256 cellar: :any,                 arm64_big_sur:  "3193797fdee877db77e530640ed40ffaedc4faea785e7fb635a33f8f53276cab"
+    sha256 cellar: :any,                 monterey:       "45a132fbf709f176c786bc68d46762278bb1becb970af8e1c6eae57536d549fa"
+    sha256 cellar: :any,                 big_sur:        "9e9aaeec7e775d4dabfa0bd8fdd7829e1fe41052ffc94e1463012a9c4a0991ab"
+    sha256 cellar: :any,                 catalina:       "36735fe1df202f856c7a30297b99283497ad7bb4d48e95aca55db30c03009084"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2014dd56de28ba603d88dc9df9744569abe50b62d631e2d78e0a08f8e9ff62a"
   end
 
   depends_on "cmake" => :build
