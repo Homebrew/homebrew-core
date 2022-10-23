@@ -10,6 +10,7 @@ class Macvim < Formula
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "1be1174eafbefff91ddaead17951d56f446fdb1d90872b8533dd1db000cfd4b9"
     sha256 arm64_monterey: "a22ed2ccf2de13d727bb47798cdbec5595634e24e7b9ab70d1d1ef7836fe41b8"
     sha256 arm64_big_sur:  "3f990eede6cb56c75bbe5f30aa8c00179a14479eaf4f4628a51ca430b8ede725"
     sha256 monterey:       "cc2ac74c81bf5dcf1e759bf2965b8c1c66a4aa31fc8662a179c9eae7dcaf31ed"
