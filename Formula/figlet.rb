@@ -12,6 +12,7 @@ class Figlet < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "0ebfa147cd1a513a86323167ab696a94b490dcd215d6685188bc376bf1313953"
     sha256 arm64_monterey: "87aa47afd19c8cd952a9a342a9afe32d0da2849ee1c1de2510949675a38327b8"
     sha256 arm64_big_sur:  "c11153896e225e3ce85db5dda5c85455422e542871c0495683aa49c8929cc6f8"
     sha256 monterey:       "d0e426869d73c174754374b2f91dad0b9464beae30f6d4dc73882777655c44cc"
