@@ -1,10 +1,9 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.6.4.tar.gz"
-  sha256 "b46c884bc42bd49873806a05325872e4418fc34e97824d4e13d398e86ea474ac"
+  url "https://download.osgeo.org/mapserver/mapserver-8.0.0.tar.gz"
+  sha256 "bb7ee625eb6fdce9bd9851f83664442845d70d041e449449e88ac855e97d773c"
   license "MIT"
-  revision 8
 
   livecheck do
     url "https://mapserver.org/download.html"
@@ -47,7 +46,7 @@ class Mapserver < Formula
 
   def install
     # Install within our sandbox
-    inreplace "mapscript/python/CMakeLists.txt", "${PYTHON_LIBRARIES}", "-Wl,-undefined,dynamic_lookup" if OS.mac?
+    inreplace "mapscript/python/CMakeLists.txt", "${Python_LIBRARIES}", "-Wl,-undefined,dynamic_lookup" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
