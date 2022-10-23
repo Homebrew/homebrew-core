@@ -11,6 +11,7 @@ class Jack < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "9cf54ddb51aba0829825dcec602d85e18b232eac4c8557efe7a7e5bdcca05608"
     sha256 arm64_monterey: "5b8c6629a97e463b96bb2672c3a0cfb8da8b5cf91d147f632c7f6d351a7fe3cb"
     sha256 arm64_big_sur:  "a9732675aef73bf6a133a8130b46a81a275aad83abfc0d0d72b91f34580d11fb"
     sha256 monterey:       "8047fbdd9eefa085dd3e66584d907bbbcfee2e7651f80836ff621844d39a53aa"
