@@ -8,6 +8,7 @@ class AwsCdk < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0841815ffa7ec216daccc478f1204cf46917864a9f3e77c38ca60da65ddb60d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a0841815ffa7ec216daccc478f1204cf46917864a9f3e77c38ca60da65ddb60d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0841815ffa7ec216daccc478f1204cf46917864a9f3e77c38ca60da65ddb60d"
     sha256 cellar: :any_skip_relocation, monterey:       "ed5bcb323166ac0f21bbeb3df6cc9010922a9d37f2f07493b55dd4814c6244d3"
