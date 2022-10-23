@@ -72,6 +72,8 @@ class Yasm < Formula
       EOS
       system "#{bin}/yasm", "-f", "macho64", "test.asm"
       system "/usr/bin/ld", "-macosx_version_min", "10.8.0", "-static", "-o", "test", "test.o"
+      assert_match "Mach-O 64-bit object x86_64", shell_output("file test.o")
+      assert_match "Mach-O 64-bit executable x86_64", shell_output("file test")
     else
       (testpath/"test.asm").write <<~EOS
         global _start
@@ -92,6 +94,6 @@ class Yasm < Formula
       system "#{bin}/yasm", "-f", "elf64", "test.asm"
       system "/usr/bin/ld", "-static", "-o", "test", "test.o"
     end
-    assert_equal "Hello, world!\n", shell_output("./test")
+    assert_equal "Hello, world!\n", shell_output("./test") if Hardware::CPU.intel?
   end
 end
