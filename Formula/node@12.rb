@@ -7,6 +7,7 @@ class NodeAT12 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "045359c8f591ca97d2f4ab9f6348cd456331c03f68cb88913fc7724145fb76ec"
     sha256 cellar: :any,                 arm64_monterey: "080b711a20d34d0272b737fe0b764afe8e0339c6cf298faee8397a4870ac3b7d"
     sha256 cellar: :any,                 arm64_big_sur:  "535bf5c436d07b3078237460cba937124540b3fa92c4123a290b24fed6e0a0d9"
     sha256 cellar: :any,                 monterey:       "a9f6e355460a7eaa9309ae1ba8332040a51409ce3dd462ca957b80ff45c65c42"
