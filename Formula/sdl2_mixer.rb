@@ -14,6 +14,7 @@ class Sdl2Mixer < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7fd6ab0b615a7704a6c31069f7efd5979d7619f85793eed2e1e2c25a00d42764"
     sha256 cellar: :any,                 arm64_monterey: "e5b94cc708bc31845f609f89b804641d64c0e0b157a5cb469bdd8a3b1abe9b16"
     sha256 cellar: :any,                 arm64_big_sur:  "a2b8cae3cd3ccc3f6233e3520b935fcd6501c4c9796e1e3c43d41f065eef4fef"
     sha256 cellar: :any,                 monterey:       "f5491b50e786a11f8df8b2403f1c752d34daa9aa0653fbf52318afa612b45dcc"
