@@ -7,12 +7,12 @@ class Mtools < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "085c4b7f17ed17af2e5e6dddf2c1ea81d55e6204767f20ea0b915b1ef8fd2aec"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5614e6d5a58314387a1fc66d267c34e3491b28a584a8b781ea8db3e3cb749b57"
-    sha256 cellar: :any_skip_relocation, monterey:       "08a81f09374540bbbd2a64716da7b16b8bf277fee21b9774a4c9f4f848d733a9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c0ceb747c1cd82bf997203d1f3381c9f6947faab6ba00c3df62eabb13d6a2584"
-    sha256 cellar: :any_skip_relocation, catalina:       "39bf7b0d33eae404fd7f5abd21b6a5c59d562e21226a6902ea8ad880828d48d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "610b09d844dfdb37fd625df541a0368ea763269f1705dd70dcaf8659a8734545"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "de3e1968dd24cfd977443a8a96933f13b327877d2bfa01857267a992f5171be2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4cadf0db06ec4248aa59832010726930ebb4829f33b2eeacaa91d7905fbac4d6"
+    sha256 cellar: :any_skip_relocation, monterey:       "99fe30ef130b5af0ae8681a517f61f11a75665ec6b67db6b0465f4dcf2a46b4d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c008f7e562169e11e46ff067707abf200f92091b754b5efb2cf9110002df7abe"
+    sha256 cellar: :any_skip_relocation, catalina:       "9ae16d592ffce07adcebc91088202e503ea989a27103b136bb693973a235b109"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef4a8dd72d835cc01ce36b09c11bcc3fe29152b979bd5b54bb9692731b6a71b6"
   end
 
   conflicts_with "multimarkdown", because: "both install `mmd` binaries"
