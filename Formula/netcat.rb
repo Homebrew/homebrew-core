@@ -7,6 +7,7 @@ class Netcat < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b8d6a5ba62a3ea60b855cf4cff46ab35aeee9bb49966c3a769522a0df186a31"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b67683e14760ec8ceda14c44b85d16411f5f3331e6385269fc6c1a4ee063273"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70fa1400d39bcb39a3452bca1c921d1cc76783d8fa2ad41b1742a0c317c1aceb"
     sha256 cellar: :any_skip_relocation, monterey:       "7c33ed98a6c81011f5923240e11b87f07add5cea280f5e2754b2f3d7fc3d9eee"
