@@ -19,7 +19,9 @@ class Widelands < Formula
     sha256 x86_64_linux:   "1032792700cccdbaa04827dbc6849c309fa75d649f3253bd0c7568a1fd5d6770"
   end
 
+  depends_on "asio" => :build
   depends_on "cmake" => :build
+
   depends_on "boost"
   depends_on "doxygen"
   depends_on "gettext"
@@ -34,16 +36,23 @@ class Widelands < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "curl"
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11
-    system "cmake", "-S", ".", "-B", "build",
-                    # Without the following option, Cmake intend to use the library of MONO framework.
-                    "-DPNG_PNG_INCLUDE_DIR:PATH=#{Formula["libpng"].opt_include}",
-                    "-DWL_INSTALL_DATADIR=#{pkgshare}/data",
-                    # older versions of macOS may not have `python3`
-                    "-DPYTHON_EXECUTABLE=#{which("python3") || which("python")}",
-                    *std_cmake_args
+
+    cmake_args = std_cmake_args + %w[
+      -DOPTION_BUILD_WEBSITE_TOOLS=OFF
+      -DOPTION_BUILD_TESTS=OFF
+      -DCMAKE_INSTALL_PREFIX=#{prefix}
+      -DWL_INSTALL_BASEDIR=#{pkgshare}
+      -DWL_INSTALL_BINDIR=#{bin}
+      -DWL_INSTALL_DATADIR=#{pkgshare}/data
+      -DPNG_PNG_INCLUDE_DIR:PATH=#{Formula["libpng"].opt_include}
+      -DPYTHON_EXECUTABLE=#{which("python3") || which("python")}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     bin.write_exec_script prefix/"widelands"
