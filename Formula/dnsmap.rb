@@ -9,6 +9,8 @@ class Dnsmap < Formula
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8eb47816e6f0177b5e7a7358540055bf5d0346888bc921f6220ebd2e4a15cfda"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af20d1658eb8b3f6191712debd39b3ab21afe033da12fb1e6a94b413f17b1d84"
     sha256 cellar: :any_skip_relocation, monterey:       "48eeee1b5697a45f09c625d67cd2780964e4183c94d9d7a667d267c0b56f2359"
+    sha256 cellar: :any_skip_relocation, big_sur:        "194967d9aa003034d0c6e8f917cc0adffd5dff7715e085f3c44521e44afa3fb4"
+    sha256 cellar: :any_skip_relocation, catalina:       "de4e15536fa71c6bf75f0821909002652eaf6b7c8a7d25c9229a85edddada4cf"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "165264ad85acecb8f79932782e3e0a1eba9110462ac627379ddc3d07ef4190b4"
   end
 
