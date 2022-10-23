@@ -6,6 +6,7 @@ class Libxaw < Formula
   license "MIT"
 
   bottle do
+    sha256 arm64_ventura:  "40d7d5b525718007f166603a9bd8e166c405a50e888c0014eb3ebb0982f42372"
     sha256 arm64_monterey: "7f72cb216e6754e6f72bfd0e0f03f19d4599e69b4562980f274a3797068194c2"
     sha256 arm64_big_sur:  "6f9bd6bef10340da3fc23f24d0c4a4e3358dcbada118a8b74c4e05d901ac0dd6"
     sha256 monterey:       "016221c5b49049daa3743b4957bb0f128b0f0f1e71037f27daa054364d8209af"
