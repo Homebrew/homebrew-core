@@ -7,6 +7,7 @@ class Gtkextra < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c18b82670dfbf23a56678c5246745f082d19647089c14b46c35456111ce154c3"
     sha256 cellar: :any,                 arm64_monterey: "8fdb88a373d7427090b1fecf13971afe93314c4b6fec59dea719c5e97f25786c"
     sha256 cellar: :any,                 arm64_big_sur:  "841d46dfdaee00be8a853e8069db2b8ca1fbbfcaf298360411b6f9c0a0706da6"
     sha256 cellar: :any,                 monterey:       "edc44c31e40d7a41a5b9d9f5074732f39896ba827f61e608c4c86c50c20fe841"
