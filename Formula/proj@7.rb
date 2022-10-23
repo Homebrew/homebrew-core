@@ -6,6 +6,7 @@ class ProjAT7 < Formula
   license "MIT"
 
   bottle do
+    sha256 arm64_ventura:  "ef50e257e02dadd349f715b576562fd1c3927e5ff52787bd3f8c7d85a41b8822"
     sha256 arm64_monterey: "29f65a3b916e6b967c157713b7a00daf1b91c01092628c292451ff5ade277ecf"
     sha256 arm64_big_sur:  "de4c07c82bb48aaacce06186daaa95e975ec13d9c63978ec74e46d00e29c9b4e"
     sha256 monterey:       "4315a9c41f5f97d1fbf80cf011b23e901009d28536897aeb0b640e8324a379af"
