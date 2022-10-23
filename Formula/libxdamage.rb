@@ -6,6 +6,7 @@ class Libxdamage < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f6d6b8f9afcd3746a9d0da10592b154474817d5740ecd514fce6568fcfde672c"
     sha256 cellar: :any,                 arm64_monterey: "eeefeeb565b76ee3e2439d2eb4341e02f36b5ce4d9aae5dc150f7f1489c8fd73"
     sha256 cellar: :any,                 arm64_big_sur:  "bbd5ef8f7408de369198e66bc6aa8a75ddc798c444ebd7f03b885bc25ccfb136"
     sha256 cellar: :any,                 monterey:       "e6b04a9a43aea7fa0e047ee721d78cbaf9985ff1f8e7b62b9d0645bbccc88746"
