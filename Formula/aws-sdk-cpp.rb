@@ -9,6 +9,7 @@ class AwsSdkCpp < Formula
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f39c8647266b6e3b2a9a765e1d6b0dd801607875e7df55872875e5b9a192cda4"
     sha256 cellar: :any,                 arm64_monterey: "b7a7bc8b2c30bd69fba64595c079ffb23c251b4ba52ba1e941773221bbd56965"
     sha256 cellar: :any,                 arm64_big_sur:  "1188f6c0fa5684abf0f2c0dd446b3634bd72cd947e1181cbd130b84b00d90b78"
     sha256 cellar: :any,                 monterey:       "3ac5400f7f4f6ac14f45358b6d2ce526d8777552872005507882bc8231f4fede"
