@@ -314,7 +314,7 @@ class Jupyterlab < Formula
     # gather packages to link based on options
     linked_hatch = %w[jupyter-core jupyter-client nbformat ipykernel nbconvert]
     linked_setuptools = %w[jupyter-console notebook]
-    unlinked_hatch = %w[jupyter-server jupyterlab-server]
+    unlinked_hatch = %w[jupyterlab-server]
     unlinked_setuptools = resources.map(&:name).to_set - linked_hatch - linked_setuptools - unlinked_hatch
 
     # `jupyterlab-pygments` requires `jupyterlab` to build. Since Homebrew doesn't
