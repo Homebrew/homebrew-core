@@ -41,6 +41,7 @@ class Mosh < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a81658cb0f45ed810c4bf85d3ed03dede15bb4a09ae492030c66df38ed2b3275"
     sha256 cellar: :any,                 arm64_monterey: "526c339943747304ba76e84e8ecff1643cb8ebaa233a1bed18d8d3d737a276f3"
     sha256 cellar: :any,                 arm64_big_sur:  "566f4d02646d9190fb5bc3161ca3f2511cc53512aa37c994d91175acdba7493f"
     sha256 cellar: :any,                 monterey:       "5c8da1d73e2339ab2b7ce373aa572f4ebeb4a362a0b0816d99871597b4c847a2"
