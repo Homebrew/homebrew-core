@@ -10,6 +10,7 @@ class Raptor < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8e4bd73d90346e77337b54434918cf9b5433eedb0039ba7191369dd0be3443ed"
     sha256 cellar: :any,                 arm64_monterey: "f0e12bdfcf37c08179e284793f5481f8c62748a8ad9663bd78c2c1e03f79c4dd"
     sha256 cellar: :any,                 arm64_big_sur:  "2970bdade24bb5ec9afe4b79e89234016147cb506f6b450bcfd66c50fce1cede"
     sha256 cellar: :any,                 monterey:       "07ee4cd681d7d955c39f1193e8c2d67b9679ea8a9a891b0e71aee8b61429edda"
