@@ -9,6 +9,7 @@ class Circleci < Formula
   head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a0646f1a5335da1f1f9793a856d65af81b633a5cfbd452d933c0960018ea798"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a6ae4824ebbffd5b5dbecfb42077ca90427c195c220e5a2109d971b2beff970"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f756e09dd69003027ed06346fb19c367de7e804422ef64f3043de04a90f2140b"
     sha256 cellar: :any_skip_relocation, monterey:       "105c4081a981ab0e36f2dd5e873dd6e57ebe4d11b3cbffe8d121bd629be6d713"
