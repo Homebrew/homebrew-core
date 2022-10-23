@@ -22,6 +22,12 @@ class Assimp < Formula
 
   fails_with gcc: "5"
 
+  # Fix for macOS 13, remove in next version
+  patch do
+    url "https://github.com/assimp/assimp/commit/5a89d6fee138f8bc979b508719163a74ddc9a384.patch?full_index=1"
+    sha256 "a5fa5be12dd782617d81cc867b40a0bca32718fda0c6cedcca60e2325de03453"
+  end
+
   def install
     args = %W[
       -DASSIMP_BUILD_TESTS=OFF
