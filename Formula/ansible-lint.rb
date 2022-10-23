@@ -9,6 +9,7 @@ class AnsibleLint < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d88d9aadc9f27ca2447a9cec81a2eeaebdf0b3ab6b654f5bfa54499e095f190a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d3436cb63dce13fd352a5abe98327e866e13697ff60b1dd4abe33ee31224dce1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "992d18a08111aedd43df425b0a6e4343f6c088019974f1226261375303de3822"
     sha256 cellar: :any_skip_relocation, monterey:       "648023d8411def985e03fc64360b852c46a070001346630d492b4ee6cade8701"
