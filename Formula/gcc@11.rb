@@ -12,12 +12,13 @@ class GccAT11 < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "8fc2ecae68b95a731c262ea993dc8ba4a4a1f2c5cbff710b6e05cee6e7c06f5e"
-    sha256                               arm64_big_sur:  "42784ea6cae9b1e48658ee736a9cb74861e503540a8bec5148a54d0987c084ee"
-    sha256                               monterey:       "7ecaee523b6e28276efc2d04aca5ab65d7c85a790c178abd4afacd581c807e72"
-    sha256                               big_sur:        "88f4db889dd44c2d285b16e9befc25aa2308c99d036024173afdd5f0da55a28a"
-    sha256                               catalina:       "c21e358829e1ebf38fd3fe20fd3bacad95f04b8f4048705704f1da580ca3c0fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64d9c853ddbe63e0361a993560da8b7883bde57854bef20a0f07afa4aa597b34"
+    rebuild 1
+    sha256                               arm64_monterey: "635922720bf544c76e12f2baf7a567894f516cc84c340c202cf82643181726d8"
+    sha256                               arm64_big_sur:  "6a5bed7fde188c06c9878b922863c4969e0714b45e46795ee5a516f1ce7742d1"
+    sha256                               monterey:       "83f319563787b58129663404c80997ba11adb962f7101cf7711e0337c7763f6f"
+    sha256                               big_sur:        "2cbf39f31657e9d04e872676aedf1d0ff324172adba16d8959a7bdce0cbe323c"
+    sha256                               catalina:       "fbd468d951dfb5b28281300a73dff018dc6ae23044f479bfcd1b8d778a6a67ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4aa2521ece6b78eb7937a86bb184024db6954ac17f9d6be67b3634abe5b2c495"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
