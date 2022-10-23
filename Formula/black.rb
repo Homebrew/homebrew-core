@@ -14,6 +14,7 @@ class Black < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16325ee67ce538ec34e9b6c0083a9d42503b18cf511c8f09d76bad8bddbafd4c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "80730b888ae8c450a0596fab65e5c369cd7736a81e7aee29a9e04e1343342b41"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c203a92d86ed64a7d048e7eac0791ece2ced9b12f18c26478e764c3a703fd157"
     sha256 cellar: :any_skip_relocation, monterey:       "0c8ca8ff07cf773b1dd41c0c043b99f6dd92077f36ecfad7624d2c087319ced4"
