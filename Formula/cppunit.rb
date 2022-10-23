@@ -11,6 +11,7 @@ class Cppunit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "45a8c4e8ca0defb8adee6028c2d213c7868bac9fdc9a4e814ad1b45aea1c3c14"
     sha256 cellar: :any,                 arm64_monterey: "7acd81de05bc607287b7133050c269e2ea86ac4e1141cb71ae85af4cd62e7f50"
     sha256 cellar: :any,                 arm64_big_sur:  "42291951a34e6fae578a9c25d2a5c399dc1e13ec3f700c017f96d7576acabbf1"
     sha256 cellar: :any,                 monterey:       "a373aa7f91fd426cccdf9c8775439b21e620f529488030af40f5bd8ea79013e1"
