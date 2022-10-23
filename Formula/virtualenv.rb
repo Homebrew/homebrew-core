@@ -9,6 +9,7 @@ class Virtualenv < Formula
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "addbb8660151bd8864825c9afa4140b61fd88d61627685c11a488e577988b2a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8ddf6b0278b3b07570c5d68d90c26881ba59d50a84f63ddf3658a45a0ed83e27"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7fd28fd483c48d6cc156e4b0be65fd0f80fa731cde7708ba0d066fa106980de4"
     sha256 cellar: :any_skip_relocation, monterey:       "d55172aac04a313456fa6f32df0315e462e87f4c17d2ad04b1c495d1f04d0a83"
