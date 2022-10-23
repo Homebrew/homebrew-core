@@ -13,6 +13,7 @@ class Ldns < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a5829a339bbe5301ac8cc728a2aae72f15649ac41686d306d189580c8e24caa3"
     sha256 cellar: :any,                 arm64_monterey: "84fa570a26a953f4a793d8498c95fd4d2e63646673e514566b43096e6d01944b"
     sha256 cellar: :any,                 arm64_big_sur:  "c165e0faa3f490a9f7c7baebb538cf79b48c1334fa4ea6da3a19ca0401b36bef"
     sha256 cellar: :any,                 monterey:       "424b3710704a509032718b9e82c3814c7eeb3391b7ac4cc8fd2ce7e7fda8946d"
