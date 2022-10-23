@@ -12,13 +12,12 @@ class Mgba < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_monterey: "e94c97f422890410db024c0024d844235f303716c8af1d54dad843ea84bcf3df"
-    sha256 cellar: :any, arm64_big_sur:  "2931042f94c4881ab643856586c17ee22b2b63675f0d3aa0509c53752fb80857"
-    sha256 cellar: :any, monterey:       "b29984650c71f50b533fb156265b10d6cfec4f3ad469a44675f6f0b7ee8fdd38"
-    sha256 cellar: :any, big_sur:        "a072688c9fd543a73816acd77c8aa318bed1ec29f284ca4e8d3adb55304bacdb"
-    sha256 cellar: :any, catalina:       "4c557e7daec07c756a8089460d2a0336e4e34db80c4709d61d5bd00f7da759fb"
-    sha256               x86_64_linux:   "32c9cdff39692aaa329ae08d19b1dec41a9b21d8e4c73b35f599ed0a010f5a7d"
+    sha256 arm64_monterey: "fda5f57d8ace572ad6ff1b3457a47077882140d707a1076a8c1a32938ca43ee8"
+    sha256 arm64_big_sur:  "23038b35ba70a5a7a23847607ad84706d14bc507854cdb946a9e47cf3dab6fbe"
+    sha256 monterey:       "7c3646e7cbd567454301e2917e3e9286624d565d2ba200396f6d376374ff881c"
+    sha256 big_sur:        "eebee6cce324280243304e19398b22a19bd60efbd04dbd0658fe2285c7e724ca"
+    sha256 catalina:       "9b0054aa6bb75a4afbb22d413e241e54c2fb77243ed5fc712bd74dcc8022f527"
+    sha256 x86_64_linux:   "4c2aed6811fbc6349bf76f323e935f3c21d841b48fb50ec7d0d55aff9aba4727"
   end
 
   depends_on "cmake" => :build
