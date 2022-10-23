@@ -10,6 +10,7 @@ class Conan < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c74da7dc37d13a49af1a2a57ae48839005a8fb062877637754a9f100a8a26676"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "207a8d04e1d535ed7833da36f928f468e2a19eaa7c081ae850b337ccff25c93c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bca261c6b54f10524df0c7b03e2c3b75041cb49f56248015bf9c7d461c348405"
     sha256 cellar: :any_skip_relocation, monterey:       "b3a19a28493284bd19395ff733119fa995cf8a5037069530fbcda140bf3573c9"
