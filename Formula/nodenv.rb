@@ -7,6 +7,7 @@ class Nodenv < Formula
   head "https://github.com/nodenv/nodenv.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "165824bf5003948d10d3492fc7c36491ec53013878eb5d5b4623fef3c9921dac"
     sha256 cellar: :any,                 arm64_monterey: "fece520035f8c55b65005231b038d9748f8bd13dc97a37fa4712a42d00ea6221"
     sha256 cellar: :any,                 arm64_big_sur:  "c86512e5a1505eb10c79a4aeb618db66cc08a48ac855e9c0f9fb9fba7868d5e7"
     sha256 cellar: :any,                 monterey:       "a20f7a9c8cee71ba311283d2f518f1f3f52a94d6757a5775021d9eda66a3cb98"
