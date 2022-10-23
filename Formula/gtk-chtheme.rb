@@ -11,6 +11,7 @@ class GtkChtheme < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "5b0a66205d00b377659f777db9aa0196af0ba64519bcd759ba7bc9da55afb37e"
     sha256 cellar: :any,                 arm64_monterey: "a6b9e2b55273be2bbfe8b54a82757e22c4a19e45a1f63780500499e73393d408"
     sha256 cellar: :any,                 arm64_big_sur:  "8db79039412079abddb969b631131eb3a85f4e90edbcda84bffe4505e55f44b7"
     sha256 cellar: :any,                 monterey:       "b5f53c47bbe67239f626bd71f2c19e3d1327b232a089bf9a6989e2cb8b1eebc2"
