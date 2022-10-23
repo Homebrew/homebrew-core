@@ -7,6 +7,7 @@ class Elixir < Formula
   head "https://github.com/elixir-lang/elixir.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1fa67c72bb612b123a9e0a97bf28b8c14e8484691def2bfa150bd88c79fe135"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf340a0f6b1eb60d351908238eef2a4d4efd4a46a9dd0b8ada3307acdf2349e4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bdb3dd124b76b8c053824c7100267c8e5e13ad28dd01896fca29b970b690e8e8"
     sha256 cellar: :any_skip_relocation, monterey:       "ce4cc802298ed70ff11b67bd3ea66f7ca31c5622deb32759a667eaf418c2dce7"
