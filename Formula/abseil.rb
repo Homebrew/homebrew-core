@@ -8,6 +8,7 @@ class Abseil < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "da860134f8c93154324c1eb7ceac85224c8701e2a1758988ac9077778bebaa34"
     sha256 cellar: :any,                 arm64_monterey: "a684dd51320207ef4cd8134ab8e7e033fba14a7dc1d9f1c8cb1c4b770dc715ff"
     sha256 cellar: :any,                 arm64_big_sur:  "d31162eae71f007c10329296c0a646d6223d0f73e52d5fd8e2fc8333091ba377"
     sha256 cellar: :any,                 monterey:       "41a3b0ca19070a90158beb85965e5485f116ad0e47b6c16ba9197c4324e5eab2"
