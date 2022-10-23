@@ -8,6 +8,7 @@ class BitwardenCli < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d18f0983eb6a713f18036044de190d49a3f74640dd54885e3894ee4b67b06e18"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d18f0983eb6a713f18036044de190d49a3f74640dd54885e3894ee4b67b06e18"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d18f0983eb6a713f18036044de190d49a3f74640dd54885e3894ee4b67b06e18"
     sha256 cellar: :any_skip_relocation, monterey:       "4fcf5389168cf338b5a34535d7a0fb31901cfc553c98b47dbedd8855081c4368"
