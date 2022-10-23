@@ -8,18 +8,12 @@ class Pstree < Formula
   sha256 "64d613d8f66685b29f13a80e08cddc08616cf3e315a0692cbbf9de0d8aa376b3"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f47ffc94093a01854e6a062d7a7a64125b2167ce9f51c7c2ee1d84d1597c8b89"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9733dc8a9d384a122e5fad0b21a33142bef94cf85e2a0cb02e66753fd316a133"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "871eebe7b12c62d1086c8f1b0b8802d7a50d2080646e6c64b9b95fd1e3e6f8fc"
-    sha256 cellar: :any_skip_relocation, monterey:       "e95fdd5babd994999a697905d0f006878f558d83cc5438e608be3da6add2e71d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9e3f51c55862f554dfc3e3d70ffb435f6999c5b5592625ef4562633d7ffaed82"
-    sha256 cellar: :any_skip_relocation, catalina:       "af4d6c7d6bffd6e12d3cb31ceb6bdd5292b66405ddd1be3a48870373829219a7"
-    sha256 cellar: :any_skip_relocation, mojave:         "27b643077e6fa2e233945f505b024f3e725ed8b930bdd89a9df73817197acbea"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "426d5701e835bc1f9313c3b7cd630aa0f2b279ad5f95406bd73f50d174e8eaf1"
-    sha256 cellar: :any_skip_relocation, sierra:         "063d2498a346002265c44bf9ad237ae47fd9923a10dd529575640d7d63bef2fa"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "624458274db8e826c170121061ad25547c5a245788c8108bd2bf0af4a3678dea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "155f6be24263c4a454735605462b6281af661d1dd928621fa94a7d287c5af90a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e43ea23b1cc41dbd5717b22c8de73faae3fa58e88a9f18845533e7f4acc24eeb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc1765755ab89e61a17983692eb4ceb6c659f2f90b1f26bfea0ed1a908a7dc07"
+    sha256 cellar: :any_skip_relocation, monterey:       "fc23e46dee144842b941ad5b6527018154d38b67827e4f019bf9efab24a15365"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bf6f7f6e9a1ec7b0e5454e15973ee091a143eb887c67d81b07f262c447c685b7"
+    sha256 cellar: :any_skip_relocation, catalina:       "820b3dd1b26142457348dfc27c29ad8f1b6d86367995d8895ff41d8c74f91c8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d65aff524b410c2ea45556fad2e5b07b9052896c07ee386fc6213208fdc7bc43"
   end
 
   def install
