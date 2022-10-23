@@ -6,6 +6,7 @@ class Zoxide < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3154cc6a1bab49b2b4e312245ab0372abfae844b7aad06460a133c4a65d20373"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7c4b765fc1f5de400790541744e2405b7419706edc380361dd55db988ebbe2a8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0bc18f6f0ccb882273a2fc13887dcc19acdb8534ea5a4b678ac7bb0d7dee25c9"
     sha256 cellar: :any_skip_relocation, monterey:       "46ecf574f1aae6775497692e72dc23106627ff8924d055a85d1b5573c33d2a8a"
