@@ -7,6 +7,7 @@ class Screenresolution < Formula
   head "https://github.com/jhford/screenresolution.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "115831028fe4da37486b48aabc70fc13fde8a297aa2e3d5eee9ea822a2727053"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "305ef97e31c6a2cdafb1a9de02787e2861b3c9de0165d45dde1c56185b8e1e64"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65567f2a43d8744ca821b29e001d92b18f25750267714f4b42df0b2c24cfd3a9"
     sha256 cellar: :any_skip_relocation, monterey:       "961b7f2ee25f6df43ac16338dc3e7b3fc23f76985a672084c37e193e1570ad0b"
