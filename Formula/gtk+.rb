@@ -20,6 +20,7 @@ class Gtkx < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "88567f860b5e3ad354ad086b5f5fa19a2d088d867af42207ced931a30005b805"
     sha256 arm64_monterey: "977f25c376ffbf7785a8a3464e61490c40d7eb940385cae3b205ef9b9d53b693"
     sha256 arm64_big_sur:  "b304a9f2d24f97e179cb5731713fc4876a730b507eb057bba4f9097af46d7708"
     sha256 monterey:       "84df93d99e85fff484d42ab803a41ca83daec204950e2f2dc32602c718c646f5"
