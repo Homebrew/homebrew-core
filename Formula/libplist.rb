@@ -6,6 +6,7 @@ class Libplist < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6d101d1a75fe2859fce732e1a9448053c74707a3cdc7e10e4b67488d978b0796"
     sha256 cellar: :any,                 arm64_monterey: "b31c287f7c027c0f241dbfecb261e2a71910dcff601ceb5404ec8072dfd2a453"
     sha256 cellar: :any,                 arm64_big_sur:  "ed9c2d665d5700c91f099bd433a38ba904b63eef4d3cdc47bd0f6b0229ac689a"
     sha256 cellar: :any,                 monterey:       "fd33860939e18cc5a5c50be2ca667db7d99a191aa445fefdfde51435c0f4453d"
