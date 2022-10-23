@@ -6,6 +6,7 @@ class BerkeleyDbAT5 < Formula
   license "Sleepycat"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "402f563d09b08afed7bc62e117b0fad4d1cbc39fec14c49ddd4b1e58a4dc9846"
     sha256 cellar: :any,                 arm64_monterey: "3552b61376eea832cbc2a763c725c77c56f0ce3c94b72cb80acdb5b6b26d7e45"
     sha256 cellar: :any,                 arm64_big_sur:  "55d4b9058c542dd9a9e90915c45fa0e4aaf4a2d9d5564df08acc4b6b2b0febb7"
     sha256 cellar: :any,                 monterey:       "ac63e0443e2c939ca35be34dda37e8fe978c2ce97ca7f387972ffcb7a58437a4"
