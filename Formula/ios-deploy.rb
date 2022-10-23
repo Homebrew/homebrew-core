@@ -16,6 +16,7 @@ class IosDeploy < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96bca7e7f751379de2241853b9cf2e0fe1f518493e9365c31116fb3a309c21ff"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a9afe8fd08f085f05104499bee9dd6e79110cf9f63fd7be57fc5c28628af9a09"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d472b334895a1863262cfdceaf777ab9a6c675c265e4d83265ae3c2d9b25793"
     sha256 cellar: :any_skip_relocation, monterey:       "eb4951c90cae9df4a16a5c20cd24393647899eebef8fb4f313f9eb999a28230e"
