@@ -6,6 +6,7 @@ class Libxi < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "35eee928a78657eac3d0e82a44c021a4356453b4d0446c337e6a5cfd7febec36"
     sha256 cellar: :any,                 arm64_monterey: "a65d47579981145f9c7b4225136c6e9ad7eed5268687abe7f7a8941a3a608b6c"
     sha256 cellar: :any,                 arm64_big_sur:  "44a124946d8d522eb9ef39f5ec913354e7fba982b31e46743e87fe4a9a0984ed"
     sha256 cellar: :any,                 monterey:       "d43451dc55cd80dbb6ef068b60d174154240cc697c7f9929bcd3df13e315a4ba"
