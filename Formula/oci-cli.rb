@@ -9,6 +9,7 @@ class OciCli < Formula
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "5545aef29961e230b3a0af57ea828397d36584e596ab7b31ff0b49d01cff8558"
     sha256 cellar: :any,                 arm64_monterey: "1acd3fe9a0265e7864ebd16604a541c6c173e23ab76b4434ff0222ecbc8d43d1"
     sha256 cellar: :any,                 arm64_big_sur:  "9f391363d67fcc76f462d729fc696864e9e29d6b443c9b07bbfaac3b10df74d7"
     sha256 cellar: :any,                 monterey:       "6eaf5e29c857f0a0687df62717a474e859d955b9f7a0aaf3e0c8d24ac38e0206"
