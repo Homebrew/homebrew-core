@@ -7,6 +7,7 @@ class Libmicrohttpd < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8b0d7364c3c44c0efa904dcc80f7beb63640454a34cec5d35c84614e3305f57b"
     sha256 cellar: :any,                 arm64_monterey: "719b89039fa6d2a7bf46e3e41d092854fcf7a2192bff60dcc6d307416f67758d"
     sha256 cellar: :any,                 arm64_big_sur:  "0ca1f7a5751af784f3ec1afc2fa85bde3487be08a7b5fc17a07335c0d399b13c"
     sha256 cellar: :any,                 monterey:       "96833590a2b4173f35f25eaf23c589f856eaa2780fabd66f646335508555a95f"
