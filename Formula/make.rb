@@ -8,6 +8,7 @@ class Make < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "0d6dcfb8e0df7c3c0ff82dbbc56ae7a9b764dd8c046d38902b177437a39e5e28"
     sha256 arm64_monterey: "1ba1c273aa4b9c0a2c927c8bdb8a48146ebd8a14dfc8ab6608fdc5cc792eaba1"
     sha256 arm64_big_sur:  "eab3fbc3688aecec0fe90b8d0fe3cb7beb84ed773ba0411fc2f855c66deaf882"
     sha256 monterey:       "4349e2c715f78210c29b4c35112e8343402dad5c1e44fe8d6272d9aace6bbdf7"
