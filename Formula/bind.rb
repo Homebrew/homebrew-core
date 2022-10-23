@@ -22,6 +22,7 @@ class Bind < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "31c535e832a2f4dbe73df6e003354a5f8b4b0f9d28b0090f54378723d1a6f287"
     sha256 arm64_monterey: "83e591050160d6f7990f4e7866b359d7b1debaf1867c7b5cabdddb3592aefaf9"
     sha256 arm64_big_sur:  "7defcc05b6173c1b8248c93557cee07467ec9bbfe3c1630495adac35dbb499f4"
     sha256 monterey:       "dc0572b8a3121e858a017f0240a21b4d1640a6adbadaf4f839ff1b5f00a73370"
