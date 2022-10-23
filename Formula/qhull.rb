@@ -15,6 +15,7 @@ class Qhull < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "26fe2ce72cd8c32b2af70fe9e715280216641c031ac72eb21f62e95264da5459"
     sha256 cellar: :any,                 arm64_monterey: "149d647d68ab1386f21996abde29a0c158cb11d740318c8c61112e77e3419170"
     sha256 cellar: :any,                 arm64_big_sur:  "d54263b22f2c4effc10ab2dbab54ec0b7f2592d07cdad43c20ddfffff149aad0"
     sha256 cellar: :any,                 monterey:       "91c5c29003c0f86c85b4e597b2aae623012517c8cf1696686a6d3f97b0c507f3"
