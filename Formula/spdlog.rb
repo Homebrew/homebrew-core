@@ -9,6 +9,7 @@ class Spdlog < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6ea13e53ac7e416ee0a9017cabdb70ac355173301a98e39cd3c237a40eef5f27"
     sha256 cellar: :any,                 arm64_monterey: "326a1cec2e046ff0d9e7648f503be5b31b287e6fea68bc7c3d75e47504eef351"
     sha256 cellar: :any,                 arm64_big_sur:  "118df7717927021e813cbf6d084bc386c3a44a0b0641c062333f2bb204697eb3"
     sha256 cellar: :any,                 monterey:       "1d5f317ee2168fee8b91402fb4c5d3f6a8613780256b929fabd112532bb115e9"
