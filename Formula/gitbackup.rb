@@ -6,12 +6,12 @@ class Gitbackup < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "26cb3a093f1ceb46e50334cd1907f45698d190729d5939b23acbcdbb2be0e0cf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "26cb3a093f1ceb46e50334cd1907f45698d190729d5939b23acbcdbb2be0e0cf"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b6a33e3586bac4b7785d4c33d08279844a5e90d51c820e76ccd942b504b4bbf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9b6a33e3586bac4b7785d4c33d08279844a5e90d51c820e76ccd942b504b4bbf"
-    sha256 cellar: :any_skip_relocation, catalina:       "9b6a33e3586bac4b7785d4c33d08279844a5e90d51c820e76ccd942b504b4bbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a4ffeab3bd218563d2c43891273a95925bd8cbd24c325689af09d18587d4ffd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a3e2b3b0d5c4f292cb5bb1b5d8951ab6f64af054f33bd778a264806eda40d64"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a3e2b3b0d5c4f292cb5bb1b5d8951ab6f64af054f33bd778a264806eda40d64"
+    sha256 cellar: :any_skip_relocation, monterey:       "151d98f4d768b5da7be7c52237f6e954e1fc30a091a4419dd459de4eb3967b21"
+    sha256 cellar: :any_skip_relocation, big_sur:        "151d98f4d768b5da7be7c52237f6e954e1fc30a091a4419dd459de4eb3967b21"
+    sha256 cellar: :any_skip_relocation, catalina:       "151d98f4d768b5da7be7c52237f6e954e1fc30a091a4419dd459de4eb3967b21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49b1f0bdce8d6e13fe97c6c6aa8603ebbc1c52481be1f32410d62de246979635"
   end
 
   depends_on "go" => :build
