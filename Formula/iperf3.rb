@@ -7,6 +7,7 @@ class Iperf3 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "c8ed6e824689e69c4c0d2eec8a80fb54d901769429fcd84b9598e434d55c8b35"
     sha256 cellar: :any,                 arm64_monterey: "9207226775b4889c2bcc0c0144b46b69f400048c62123ab4bdc0c8132bed79b0"
     sha256 cellar: :any,                 arm64_big_sur:  "a9771e4a890b5b56a184a90cc1bfb8b7549e95d412d732a64a5327f5b52fad2f"
     sha256 cellar: :any,                 monterey:       "21aafa39e3e3cb2cb7aa7cb19f8d720f12bb65a80994ae38f477e4f22664dff6"
