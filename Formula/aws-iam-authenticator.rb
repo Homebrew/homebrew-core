@@ -13,6 +13,7 @@ class AwsIamAuthenticator < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "707e82d4d95a99dc09155c01fff3cf9f06700801a9f585893960a04e4da897eb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "12efc857905e148e434b541cc76801956f186ca92fb43ea88884303a1c36c175"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba09e1a04810d7fc4fe0156a231d6a28c507a39cd7579d2f8705c204d1611cde"
     sha256 cellar: :any_skip_relocation, monterey:       "091e33fd80229c5db17574795d5e44f9a54951e3fc2df24336c2cd449cd6e839"
