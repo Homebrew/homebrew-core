@@ -12,6 +12,7 @@ class GstPluginsBase < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "0121a568cb22aa9f13eadc5a50eed1732756fded1af90251925acdc1fe19f04a"
     sha256 arm64_monterey: "c1a84cb8bde6d9712aedc62e34bcd55d261a9a30e6605df13fd73ff329aadb8c"
     sha256 arm64_big_sur:  "c9751148a9a4d358b6a51cf55559604586def33b232615bab251e3a9be361209"
     sha256 monterey:       "4e02f656481a12ce1b5965c845e3549414d40e1a6328da8a33c2646df49ceccd"
