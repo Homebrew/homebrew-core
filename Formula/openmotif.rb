@@ -7,6 +7,7 @@ class Openmotif < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "d89a76242fafca764691044cab4fc7e5b3bf0eaa1756b07732e6645ff3642c75"
     sha256 arm64_monterey: "3942656be5f95807753f8549c98d5263cc9bd510a9b73e4bb6256dfa8928bd76"
     sha256 arm64_big_sur:  "004bb6002de4b145d78adfb0dfd3dc69de01012daa7632770329bf658cb52420"
     sha256 monterey:       "3d8e123bd66804492e9c029dd8cf4f5c6eee742f55558e8aeda6cc80f41021cc"
