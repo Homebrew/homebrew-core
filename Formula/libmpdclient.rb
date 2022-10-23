@@ -12,6 +12,7 @@ class Libmpdclient < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "375a77d9a5e35735bf4075b1d00f2a8e58e2c42db81ea84628376450290e5d03"
     sha256 cellar: :any,                 arm64_monterey: "cf069d8465152e64482a30cdd9be6d9db373eb6e033e20b36f5ed0c6ff787a81"
     sha256 cellar: :any,                 arm64_big_sur:  "5b121fcd7d0df82dd8b3f9ee14f2084441e3cf4ad116d7b9deb556ed06fe2244"
     sha256 cellar: :any,                 monterey:       "c929f3eba925610a9482592c5f541686258facc2ae2a366ef85cddcb42827135"
