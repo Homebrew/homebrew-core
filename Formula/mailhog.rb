@@ -113,6 +113,7 @@ class Mailhog < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "064eeda058dfb73d1d9c7c80e8cbb057316e3d57df3fc3c8e4a1ff0e59bd16b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fa7cdfaf00181264a52b41a9214a257c3af8194a34e0df28d11315b47ad4ef6c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bfe1d9cc4caa4037812957872b58eb2c350aae7adfac47d5f59c1b487b5bf709"
     sha256 cellar: :any_skip_relocation, monterey:       "bd89b132b8410a723d89ccddd96939453a2233716766c57195af4b6445adcc99"
