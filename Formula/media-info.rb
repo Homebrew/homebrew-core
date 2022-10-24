@@ -11,6 +11,7 @@ class MediaInfo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f2e869fa9da0e03394450e870142c6242b35763b3dc8b11a262b40008db94cf3"
     sha256 cellar: :any,                 arm64_monterey: "b3046f5d77a86bea2c529b5da95761a79bc2c3d5be42c6e2d5d95a32abbaf959"
     sha256 cellar: :any,                 arm64_big_sur:  "e08e6f4ca8de3e75f4464da131ce3484603b951887af9701c77ba889dd29c0f8"
     sha256 cellar: :any,                 monterey:       "407e1877b42e010881224c3c6bae09d7a986995253c1e575b2bb1dc95d4716ad"
