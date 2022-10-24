@@ -27,6 +27,7 @@ class W3m < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "f851decc9866c5d1b0f36e10238e5e6902df0ebf6e782973156b73c178de100d"
     sha256 arm64_monterey: "471292d0ec7637d96304cbb61301909681057dfdf78172ca13f94c2a6f6fc173"
     sha256 arm64_big_sur:  "ca603325cc6d0904d5d709f6e9407b26fd22e3eeb3984d38e11c21d8f45e7b3a"
     sha256 monterey:       "5e8f410d2f2942a76602d88a71eee516e43d21164e0e1e41855827ae6f226fa0"
