@@ -13,13 +13,12 @@ class Libidn2 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "36c7aec542d2d8f15c109d1e4cf1217e52649132c7eab423553d3e9cd8499afd"
-    sha256 arm64_monterey: "e2d5ad350bd11194d179b2bf199103ce3a0f4aa57cca95fc8ac1f0bc104912c3"
-    sha256 arm64_big_sur:  "8ff0838515b514f57fffa8964669815e5fe9e9fc21eeb559210e1f5634ac5483"
-    sha256 monterey:       "1ed7a729a0e671778e89599ccf3df8536e41b95b30052827ee2a53a252a06519"
-    sha256 big_sur:        "80fd3d0e971eb6b2620141249d863232a382b0db606d7e95923cf2f753a41e3a"
-    sha256 catalina:       "fc09aa5df61b841c40a23490df6b2d556772c927520d7e0aac099029a11dd768"
-    sha256 x86_64_linux:   "0ceff03509ea09a0784aa40b7b724f40857dfac8e9e34b36ee93570c57eb1780"
+    sha256 arm64_monterey: "38eed5a97aaddeebf0c510ed609466c2c0d1fdc996452e380a4ed9366000fe5e"
+    sha256 arm64_big_sur:  "3b7b3d218a6b04a8264174da41af73e638fc75a7dcbb4f41150f2f37166d5cb9"
+    sha256 monterey:       "335207a9dc5fdab95f75b5639108c66e57d9b3fe0c632a829e05947d8e0b31ff"
+    sha256 big_sur:        "d2db4a1e16ed4293bb44a0aca0166e9a4eda64f219d655c0aa56a1014398e0ff"
+    sha256 catalina:       "9cf7ddcc4469e80d0a81bc95312e2481bdddb2b5fdd9f1a20ca8b0b37eb38af3"
+    sha256 x86_64_linux:   "e95765dc4efb32e9b9d24f3b02624d40f9c6f2753a091296900f107ada06f106"
   end
 
   head do
