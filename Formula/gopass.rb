@@ -7,6 +7,7 @@ class Gopass < Formula
   head "https://github.com/gopasspw/gopass.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c19674ea8b9dc6c55172f9d44ce2f41515d709c309d584b2f4acb31d6534e734"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31fd1e08a85872fd4409cc2be3026c930ecc2470be56ec1a996c346b4d4a7cee"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2459f79e014091f84edb9f2f1357a825fb020175c47061a675af2d95ca8cad72"
     sha256 cellar: :any_skip_relocation, monterey:       "c54514a7cb92b2677023e1ac56eb65e0e491b36a6d47fdb1cf3b334efd8f4e11"
