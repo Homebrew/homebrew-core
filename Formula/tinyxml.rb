@@ -5,6 +5,7 @@ class Tinyxml < Formula
   sha256 "15bdfdcec58a7da30adc87ac2b078e4417dbe5392f3afb719f9ba6d062645593"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "5ce481b9f659d845c681b7b88daac645064e622d9e3f93710f35ecc58821a4cf"
     sha256 cellar: :any,                 arm64_monterey: "aaed7baf7452fd109d0fd56329e123f22aa9cef10e03457be3c264558d2d48bc"
     sha256 cellar: :any,                 arm64_big_sur:  "04fccb4076db86eb901b710f5d50b01ea6e6cec907979aed5eb5135c9654e16d"
     sha256 cellar: :any,                 monterey:       "ab27b95104332e68e5bda836a4044b972add1033f8dc9622472a7b9682eceed3"
