@@ -8,6 +8,7 @@ class AutoconfAT213 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8ff0982e2d5057b15802e26a9bfb14144f42d4d59683ea9233de0348309298e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e8ff0982e2d5057b15802e26a9bfb14144f42d4d59683ea9233de0348309298e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "075de1fe7d7cdf38d3ca84a4436a8f9839adc333e3eb42ccc21c15d77cf01fb8"
     sha256 cellar: :any_skip_relocation, monterey:       "ca413d4515dfd932453a20978e21f95ce349421052428b547ae938c60792a76f"
