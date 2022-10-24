@@ -20,13 +20,12 @@ class Flac < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "de4e318d796c0e7b6c441cbf6fe4df74add1e94e8f1906fec0426c73eb31afc2"
-    sha256 cellar: :any,                 arm64_monterey: "d22c0a596ada320cf5c19301e16443098576c1e8b95c5877ec22e5aec7c4fb12"
-    sha256 cellar: :any,                 arm64_big_sur:  "ef3f6bb794adea4850253007ba13b5c76786476884e7331c667f358a52220e0c"
-    sha256 cellar: :any,                 monterey:       "8a7039889d7d38f0eb28f01c63b3e8b38fe334467e31887dfef3af06b3aaa321"
-    sha256 cellar: :any,                 big_sur:        "9ad2505d433534c492ac8255e92e6cb55577d6dc5eb14aeb97eaba3501ce2f0a"
-    sha256 cellar: :any,                 catalina:       "58b1701ca8769a32e55f56c820c96a2d402b6dddace75a5acd0b561efdbe2c58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "645d0731a2e3a11a7d24e35bbb83a268eb39f4c616556c4b8b3b6c90770c99b6"
+    sha256 cellar: :any,                 arm64_monterey: "fafbe1951be9eebdbd9daa08f3cec73fef2e12e2aa4603dbb45b95c36d47622f"
+    sha256 cellar: :any,                 arm64_big_sur:  "91181078081ba0aa0af6738ef4aef7ff9ac53d1860b1a3a9803f3767a5ad8270"
+    sha256 cellar: :any,                 monterey:       "7afd024db3ea4b5ee31f91b429570de8858b642d068d1d4367a531f6a3568f6c"
+    sha256 cellar: :any,                 big_sur:        "3664f8a725c89f20ebc11ecef657ce848e00322b3750306db980ad23370cab89"
+    sha256 cellar: :any,                 catalina:       "9e4c84335e37b5898fd95281731a90e9a105b8ca8000427de0693ec0c1dc78e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "464e13f2c67a7cbd809410f6beb804dcc6da188719b9d39358998a7ca61703c7"
   end
 
   head do
