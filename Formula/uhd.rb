@@ -15,6 +15,7 @@ class Uhd < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "ba03914755d8b08ae8e5f2f5bc66885e1fb5f2c25c7dd55f26963679308213c2"
     sha256                               arm64_monterey: "8dc8b3ec8055fe3e04123af3e6c8e446f3cf9fdea9b208ff65d2499c3470dd8f"
     sha256                               arm64_big_sur:  "9688a412638cf6dae758ed9ef88552b015add31a22bd75b020b465233997f319"
     sha256                               monterey:       "70e9a62ae3703dc5c8e9ba42c6c62f7574bdbb6b9537eb12c40b1fd5899c4a67"
