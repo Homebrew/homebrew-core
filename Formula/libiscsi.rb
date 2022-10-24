@@ -7,6 +7,7 @@ class Libiscsi < Formula
   head "https://github.com/sahlberg/libiscsi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f5ed5adac677b700971eaa437336521ad23f85933ee801f3c5f8346b307c3d72"
     sha256 cellar: :any,                 arm64_monterey: "7f54d471025b9eda877c0b0d05c025f59b59413c1421c1335ff3091852e88e65"
     sha256 cellar: :any,                 arm64_big_sur:  "aa722adc6341c8457b38c0078ab264ae30982b57510967de3e8181088036e0e3"
     sha256 cellar: :any,                 monterey:       "76dcdbb37c5b4c48d997e904f6ab177258733cf4bae91e9fbf897e6208514d4a"
