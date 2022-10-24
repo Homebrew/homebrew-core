@@ -22,6 +22,7 @@ class Mariadb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "0d01cc8489432cfcda1752a729f9d608588754d71f1f7b195903f13baf49a75b"
     sha256 arm64_monterey: "26865f1cd7779f31e24637b02ab9dfb2bced57e00314f1e345eae444a6b41560"
     sha256 arm64_big_sur:  "57ad96779d8310f87083143da1878233185c4573ef3b4e22ca35441efbaf82b3"
     sha256 monterey:       "8df94b657126b6c2a16eb240c75ddd08286b16a51dec11823d18db039ddcc0aa"
