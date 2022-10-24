@@ -11,6 +11,7 @@ class Xvid < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "58aa3f757ca260fb922ee623240b710ef7e1cc75dea00c314d6d5ecd98289cbf"
     sha256 cellar: :any,                 arm64_monterey: "ccf0c5b732d140dce8c595ff6bad287ed5be49a2c6a05912a1dbfdedfcb232bf"
     sha256 cellar: :any,                 arm64_big_sur:  "8974d7b8f816f7d5e8d9ae967b94922e0ed212f22f6475b7fa4c80c7a95d6582"
     sha256 cellar: :any,                 monterey:       "57aae7b7565705fdd83b0c2996cf0d2e3569546e9691197d175431b89a9599b9"
