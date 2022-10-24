@@ -6,6 +6,7 @@ class Freeglut < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ee111ddfa7bdc0a6b3e6857e900d387388264bc5b0c6334d8c5e103b762fec8b"
     sha256 cellar: :any,                 arm64_monterey: "149209f3f7f7f2d849bfd938ca7da2abe9e1302f41fa1bb107985087c97aa9cc"
     sha256 cellar: :any,                 arm64_big_sur:  "232cbfd50de1285bbc009e713da698c25d9928b42de042f001a74ef5f83e990f"
     sha256 cellar: :any,                 monterey:       "dcebb4520aba3f89fb3662e5d896ac1eef92fd57259e94402d53b2d12ad66a19"
