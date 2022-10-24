@@ -15,6 +15,7 @@ class Fpc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4b97cd1a7cb634a76fdf735018cb18304fb185628a99dfd58ea72b137df7b14e"
     sha256 cellar: :any,                 arm64_monterey: "86f02cead2ca01e961c47442b79a5b9d4703194d3f436b91fefc56fefe859081"
     sha256 cellar: :any,                 arm64_big_sur:  "b4efbb9f568afadfb27aab8ca80895b7f306f58c7ff8a0623f2bd8418338b745"
     sha256 cellar: :any,                 monterey:       "42f981be67bc5f3a433117e3ae4b014001aa786acb4a24d09579fc154beedb4d"
