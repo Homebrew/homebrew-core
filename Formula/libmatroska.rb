@@ -12,6 +12,7 @@ class Libmatroska < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "029766b0222c5d9a72a3cc63410c18a1d6b485243bdb4430f42e515ab24e18dd"
     sha256 cellar: :any,                 arm64_monterey: "7648ded88703290bc998629288b942f2ac26585c9945d1443d14fe454654e306"
     sha256 cellar: :any,                 arm64_big_sur:  "bb9b3e6993c88b36acddbce97f6085f6785cd57812bece2b37fb56360054010a"
     sha256 cellar: :any,                 monterey:       "e2282bbaca89473b275731eee79be5a8ac1f5402c9603be4a0545c65b2d929d5"
