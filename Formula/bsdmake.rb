@@ -11,16 +11,12 @@ class Bsdmake < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "8471df063ebf08e34ecc83482f48ac0758e62535f1046a83659ad83e0aecdedc"
-    sha256 arm64_big_sur:  "e844047b809f9c3d3c297baebfcaaab0e5e0ee4cc993d4a8bb81c1db3ad372df"
-    sha256 monterey:       "7ac963918bb1d8bf0a6be631304c0962179dc98348a94480e39c3024502abcb0"
-    sha256 big_sur:        "a7540422211c370618f938241419971aa6542298a0735a8e369b612c1f639866"
-    sha256 catalina:       "85bdfdf2ca2e5761195c4781e52232e4fb1258c99bf79f46cf82f66338197df3"
-    sha256 mojave:         "acee008d57c2ebe6ad2ee5932d1521a254e16453c61cdd517da2c675f60c1eb4"
-    sha256 high_sierra:    "fa009c31c9fa5fc71f774cfe146f1338ca856158a606b796c3a1e7dbd64f3895"
-    sha256 sierra:         "3d5b8c21cf86cd6bb9eb28d1e8cbec434b370aa15e19540e366d045ea807c8c8"
-    sha256 el_capitan:     "b4052277ac6cf79ed579107fb73da96954c350d7bf29a124c55d87a0df8940b0"
+    rebuild 2
+    sha256 arm64_monterey: "d01faf8a67751cf8248d36ef46fa23f8f6031c04fd723eb1cbf40ee881d6bc09"
+    sha256 arm64_big_sur:  "cfca87086e9932c2a1beb031d5fd34018a5afbe84a051918b41b33e4e86c82ea"
+    sha256 monterey:       "303f1fce21a307e0ecb01214f64ba7c3f26c21aeafb44d803120d26500dd387a"
+    sha256 big_sur:        "6b1aef88ae6c6b11cee8062b64f5fe2e1c337e3029833eaded84b6e740ae0391"
+    sha256 catalina:       "5075d566898ea241d7251734f82f6846c288a49d939f8842fa566ea706e2417f"
   end
 
   # MacPorts patches to make bsdmake play nice with our prefix system
