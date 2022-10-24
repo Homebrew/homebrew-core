@@ -7,6 +7,7 @@ class Libpqxx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "4f7eac329b43c9339b132bf4dfb9fd8bdfd157b38372d62fff7fb07a46f81fed"
     sha256 cellar: :any,                 arm64_monterey: "efc6a46c8f5be1b0cdba4b225d2c5ee6ab4a1ab781c6d15e3e91377b75086b27"
     sha256 cellar: :any,                 arm64_big_sur:  "4d404ad40773faa6ee7c43f265dfad2469e6df3b225f081791beafca23e08ba6"
     sha256 cellar: :any,                 monterey:       "817cffc912456f0e233dbee4be5db19bad19374051c27179b44af3da228470d3"
