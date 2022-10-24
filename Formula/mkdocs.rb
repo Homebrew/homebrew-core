@@ -8,6 +8,7 @@ class Mkdocs < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "87fe2907c44482382703326c8e55fa0de12fcf3d1a5f64a2dffd84c2a6ba4e63"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dc54b000a7f27c6a8d2324bccb2688c397afafeab017d6a13a75051ed7dd92e2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f938f7935f2dfb7d0c58a58d90b666f2e13e91def8b91b0271b522a073914ec"
     sha256 cellar: :any_skip_relocation, monterey:       "53e720fa5b11fa5dde00271a540356334d5dc5d916bee02962b4db9549932f6f"
