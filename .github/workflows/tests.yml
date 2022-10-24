@@ -51,6 +51,7 @@ jobs:
     outputs:
       syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
       linux-runner: ${{ steps.check-labels.outputs.linux-runner }}
+      logs-dir: ${{ steps.check-labels.outputs.logs-dir }}
       fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
       test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
       timeout-minutes: ${{ steps.check-labels.outputs.timeout-minutes }}
@@ -86,6 +87,7 @@ jobs:
               core.setOutput('linux-runner', 'linux-self-hosted-1')
             } else {
               core.setOutput('linux-runner', 'ubuntu-22.04')
+              core.setOutput('logs-dir', '/github/home/.cache/Homebrew/Logs')
             }
 
             if (label_names.includes('CI-no-fail-fast')) {
@@ -282,7 +284,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: logs-${{ matrix.runner }}
-          path: ${{matrix.workdir || github.workspace}}/bottles/logs
+          path: ${{ runner.os == 'Linux' && needs.setup_tests.outputs.logs-dir || format('{0}/bottles/logs', matrix.workdir || github.workspace) }}
 
       - name: Delete logs and home
         if: always()
