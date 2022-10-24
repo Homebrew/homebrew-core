@@ -12,12 +12,12 @@ class Snap < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3ce499541f42599ac39991584069d00269b7789cffd73382c578348b9b765b3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "692e23b12ffd695917a29f0c74b9448a9437052c9a558a63bc585f4a559d9784"
-    sha256 cellar: :any_skip_relocation, monterey:       "63ad95ab3f5c04128ae523c643a47076d90a5596e4417c6fd37a67b1552f350c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "be8a8b3b8819b7a8d4b3f1d1ad95bd8b1f3b00b4e18378b0fd0cd6c3d87c6cce"
-    sha256 cellar: :any_skip_relocation, catalina:       "ca6085bf0369e5f0968613f52965108dd9a22c44ead05e229c0d5f077fcad8a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "240ef2b39fe2dada2b9fef977bf2c11c7ca814ed365510d46ca14fbae377e9d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "936cac46a02ef15b778333f62aebea84f574a6a15bd8a3d79798b96e75068399"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4ce43f7314e73f1cb46bf34f9d13501dbbed0a0de7bd80137c1f4b0d29c8e98"
+    sha256 cellar: :any_skip_relocation, monterey:       "8f69ee661309d0f874accb20495f13191b0b086db9a20512251ca228c7d6b0b9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "894e9d02f380268436288dacfca55d27bd456adad3f8cfb3b02969ce918f87d0"
+    sha256 cellar: :any_skip_relocation, catalina:       "2b4904282035341962ae8bd5a719e381ec5c28a65c258d35707e9cf67a23c6d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4edb04e4df53a253084398de00e75940702f3f555e7dbcbf5c6bad407c92788f"
   end
 
   depends_on "go" => :build
