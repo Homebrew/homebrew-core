@@ -7,6 +7,7 @@ class FontUtil < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e12c0d135ebb8f71ca2a975689b82f89779b4a2b2147c38e6a9a5fbcd489864e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "57edda9390b2123b1f9b31651b5ad03e8888ccd7a1f5409d7795c18f9fa6a31d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c668bc56ced30ffb6ac8838ed40fd219538b2155cd810d5978ac5ce4b34d6992"
     sha256 cellar: :any_skip_relocation, monterey:       "cd192a5dfbc1dc6667caacc87445fb028905141d059c33c61124f544a17f6838"
