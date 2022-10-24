@@ -17,6 +17,7 @@ class Grpc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3bb5e5b5b43b6bda241bbb530c6ef382e40950f55a219226e0d1482b960ddaf8"
     sha256 cellar: :any,                 arm64_monterey: "e927ec87cb28f9f25a48e89ffbfc40c23a39a537e63632524f7dc94cecc43a42"
     sha256 cellar: :any,                 arm64_big_sur:  "981ef30832370dc4f10eda0e7130460033107a08a0c798eb9b49c9cf9547d889"
     sha256 cellar: :any,                 monterey:       "a283016f2e5a58810307ea3c2b812434b285b1c62a98b5d26847971653f1ef33"
