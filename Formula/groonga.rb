@@ -11,6 +11,7 @@ class Groonga < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "af2020208e8a552bf040d8cf2f3606aabd9b9d79ae29c7fcf8b21a6e857d69de"
     sha256 arm64_monterey: "1421f70a675e9231aba9a9a4cde0ef926940c2e5b464a5f89dce771f4e375618"
     sha256 arm64_big_sur:  "c8989770e372ad6d45e78d86585ca93a6ec4a57994d87db6d453dd951fac3946"
     sha256 monterey:       "77cc8db9f69558ec4dc170db178245be2c6d1da9cf14cb388222147a5285124e"
