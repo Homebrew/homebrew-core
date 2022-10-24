@@ -21,10 +21,9 @@ class Widelands < Formula
 
   depends_on "asio" => :build
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
+  depends_on "gettext" => :build
 
-  depends_on "boost"
-  depends_on "doxygen"
-  depends_on "gettext"
   depends_on "glew"
   depends_on "icu4c"
   depends_on "libpng"
