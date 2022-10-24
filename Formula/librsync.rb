@@ -6,6 +6,7 @@ class Librsync < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "cc61b71352f218c2097897616816c87438636d4087a15060412711a5614b2342"
     sha256 cellar: :any,                 arm64_monterey: "8f48bfa9495ff1e3f5dbb3c84a849205ee4307cfca4ca0d4c9fdc5dd04304617"
     sha256                               arm64_big_sur:  "e2672691faeaba727acde6252c3dba8a39b9a0703f942f8f830d6e5514e15bb3"
     sha256 cellar: :any,                 monterey:       "4fa2dba2f40587cb7e1a3c837dae70c121509d858e44a5ec6bd564ba68c2cc3b"
