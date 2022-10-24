@@ -8,6 +8,7 @@ class Glide < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b144dd317465f533ba1f1da934648a7a450024d11b7f3c8156e561536b06b0d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "80dcd1ffaf3206bd1cc26700523f6016c048311d90522c8b0d12fa94a5ee4d03"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77ff52f69bde39ac4ba11eec08cc4c7ef5fab166ab801f513486d0a62e448ead"
     sha256 cellar: :any_skip_relocation, monterey:       "a8db9273c71c29a5636492db3e9c5ceb64dcafce21ac56ee201fd71b7055b8ea"
