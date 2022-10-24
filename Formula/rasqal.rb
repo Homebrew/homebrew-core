@@ -10,6 +10,7 @@ class Rasqal < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "92f1cc01dd0623dedfb4b823b7b483e53158436fd1f19f31c743429cf63e9028"
     sha256 cellar: :any,                 arm64_monterey: "df52f08c6ed78c573f5230851d5faf543be79ebdbf6d308f9911739c9c898f53"
     sha256 cellar: :any,                 arm64_big_sur:  "36d9d4a210921573c1cad68bc17bf0d0fced251de091855ce1b61cefc64a37c8"
     sha256 cellar: :any,                 monterey:       "8f0d23af21ab8a802e58d7f6b31234411ccb492884d9a87eba8205be79ce6899"
