@@ -12,6 +12,7 @@ class Zip < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dcf7b9f3dd27efa70508ea258ccaa218e7c87fd9412b9ff15ac5814e3f3555d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eccd9c527ca597b460197f731bf726623475b239c9372267d8c667d8ac1b68e1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bed17ac27c80c0553f32c572561660637547075e0c566f95805e2088e5945fb"
     sha256 cellar: :any_skip_relocation, monterey:       "cf5690223dfcc1683280d1692d3f41339981d9b4eacf68f3dedf9cd2cbc68ec1"
