@@ -13,6 +13,7 @@ class LlvmAT14 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "d1e73c4acd999c1aced08909135b69a08810ebdd6576dde2a9c08aedf1b750f8"
     sha256 cellar: :any,                 arm64_monterey: "ba9b5f19cf6ed7846e6b5e9cbeb07263d2d2fb8a6c6523df05f5d3571cc1e84a"
     sha256 cellar: :any,                 arm64_big_sur:  "6604d21b9f3cd98ca5648fb351b7267c71b874c3009d2077c31ace7435772e2e"
     sha256 cellar: :any,                 monterey:       "fe171bc50c83ef517768c493bd32ba19d0900cb4d40ae32a24ba832391605229"
