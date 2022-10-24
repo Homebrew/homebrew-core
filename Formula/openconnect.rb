@@ -13,6 +13,7 @@ class Openconnect < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "70d5dbff16b4067987673fd62efd1de85d179d6e48f373a6b71337f573b2f9af"
     sha256 arm64_monterey: "6dc4bcb064f2682ec83df05e98ebdc4c01bb393311ecc4d60f70574ac5dc6091"
     sha256 arm64_big_sur:  "2eeb96ab48ce2e23288d738575415a9cca7356d2ef82f6dbe5c076ba85242422"
     sha256 monterey:       "a5cada9bca9cc64b03ee450d06d4064edc2a55896c4b5518b558aaa68ea86b04"
