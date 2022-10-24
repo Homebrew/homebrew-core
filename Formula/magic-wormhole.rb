@@ -10,6 +10,7 @@ class MagicWormhole < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a7728e3810b2ad71368b7badbf9d0f70966e6d9dcdd88dcdfe06c1e1204b6109"
     sha256 cellar: :any,                 arm64_monterey: "9327259374d5d705fea7c254bf0eff11f43c5f8ee9b90dd4109ae4a9401c90ad"
     sha256 cellar: :any,                 arm64_big_sur:  "b3d3ed55654e1de1b51fe1845eb15e32168d41e9b60d688666f579a36e38f137"
     sha256 cellar: :any,                 monterey:       "4ace3cebadf0edc75208247aaab3333ecf13276ca74aa727cf6484c7badb8f38"
