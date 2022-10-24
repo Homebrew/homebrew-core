@@ -7,6 +7,7 @@ class Libxlsxwriter < Formula
   head "https://github.com/jmcnamara/libxlsxwriter.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f1d1b40b21a191d1254815f705e0bd18160456b09be688af00e2aad7faf23dd0"
     sha256 cellar: :any,                 arm64_monterey: "38f257e506a3a9ba0db30c48e3db144d9c87a6a86648ba9627b09877e11c9e6c"
     sha256 cellar: :any,                 arm64_big_sur:  "dfca35f0c0735f22dac0ca4081ca92a6415ad77ff00c9ca3ca175b1ffa6da07c"
     sha256 cellar: :any,                 monterey:       "ea1e4a0584c728b183772bfcd93828fa11ae44729ad80e5d807b985e72b583fd"
