@@ -10,6 +10,7 @@ class Libwpd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "99f0b0dd570023f92e2d932d5a6fc9308450fcc2a89a5af43ce595b477bf90ba"
     sha256 cellar: :any,                 arm64_monterey: "07859be4298f02006c4fc96a58d0cb26a01302d8417ae4131d40342bbbb069a3"
     sha256 cellar: :any,                 arm64_big_sur:  "0a31f499bc64b2f40d0eca1eb0b4c1e0be8b54f143692aa498d2e3003e5afc2d"
     sha256 cellar: :any,                 monterey:       "21ddf2818ce34d1ece8233dc5b48d8ea26f1f626faee4ac0745cb5a2fd2a8277"
