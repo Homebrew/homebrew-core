@@ -12,6 +12,7 @@ class Libmpeg2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a5522ab17783c821344f34583781d561c6c579ab60c28483fb934e66fddfc93f"
     sha256 cellar: :any,                 arm64_monterey: "aa96e119c487436a7b9e36820137e17fa84007f174c8476e70f74d6a41972036"
     sha256 cellar: :any,                 arm64_big_sur:  "53f205eb140836cb0593cb34318a62a9381d950fcdf7c949e861e1024dbf352f"
     sha256 cellar: :any,                 monterey:       "fb3ad194c995a22c85768c3032a0d04b195a2e3b4684b1256f6498581d87bc5a"
