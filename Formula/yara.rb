@@ -7,6 +7,7 @@ class Yara < Formula
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8a57ba40d64d2accecfa797ed768b640cc72bb289bf56c1528b4abd2258644f3"
     sha256 cellar: :any,                 arm64_monterey: "1ede25b74551c487e9b6ec1309a86fcf081880fbe42b1f0ea944b6c15e07bc41"
     sha256 cellar: :any,                 arm64_big_sur:  "f47558bcc6944b7d360234eb52d0412b8ccecae34d55408f6fe5c12cd5e2eea7"
     sha256 cellar: :any,                 monterey:       "3199dc6269f68fdb846d1778f8d608f03a0ce57e8eaf08864cb12fb7fdd9dd40"
