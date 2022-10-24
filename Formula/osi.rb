@@ -11,6 +11,7 @@ class Osi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "00e15cdc872303ab7191a5e8dc3a7f1957242445c817f574c49868a18412baf2"
     sha256 cellar: :any,                 arm64_monterey: "a7f8834fcb5eeaedc2e0486bcc9e7278fc9fbd6cf7c4c7065052a2f26e419896"
     sha256 cellar: :any,                 arm64_big_sur:  "523fd267a8e74cafbd9715ba43541bdc1c845d252ae2da4b9e540151fffdf883"
     sha256 cellar: :any,                 monterey:       "91b6c7116bf28d34ae2fa191dcc70e7d2ac1deec388e8ce4e029c08a89dbfe53"
