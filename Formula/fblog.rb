@@ -7,6 +7,7 @@ class Fblog < Formula
   head "https://github.com/brocode/fblog.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17e1b133c20a8a62777b6e366907f443fd8e1269e76fbda0bf98e5f33dce35ab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c0f9ee74f1dfd000dc87288b710daff902f74b99b4c4950a328ea224038a219f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56ea04b6c2558189bf365503bc0127e627454b4e6f35540cd1cde40d0cfc03da"
     sha256 cellar: :any_skip_relocation, monterey:       "bfa0031a2a0baf63d92f6824fea68ee21fe3a74aa5a3f3762eead8d7322a4c3a"
