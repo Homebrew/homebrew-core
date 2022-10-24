@@ -7,6 +7,7 @@ class Mpi4py < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "171d72deec84e3852549247d17c71e70670f66ad0e4e5c406e27f4bb4016a5d9"
     sha256 cellar: :any, arm64_monterey: "946f6f8a44728bc6d722b99f2d00b1c48ca193e1dfd41141e90fb275c8b75728"
     sha256 cellar: :any, arm64_big_sur:  "a3416cd9880da75b4d5db012357f15aa96ae7d2bfebb5d4c9ec9ae8c793d4ae7"
     sha256 cellar: :any, monterey:       "3a988e161949d411bb04d739dbe6df7656b186ba01bd57e316ab6f1973d2547a"
