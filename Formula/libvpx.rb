@@ -74,3 +74,23 @@ index 581042e38..fac9ea57b 100644
        add_cflags  "-arch ${toolchain%%-*}"
        add_ldflags "-arch ${toolchain%%-*}"
        ;;
+diff --git a/configure b/configure
+index 1b850b5e0..bf92e1ad1 100755
+--- a/configure
++++ b/configure
+@@ -101,6 +101,7 @@ all_platforms="${all_platforms} arm64-android-gcc"
+ all_platforms="${all_platforms} arm64-darwin-gcc"
+ all_platforms="${all_platforms} arm64-darwin20-gcc"
+ all_platforms="${all_platforms} arm64-darwin21-gcc"
++all_platforms="${all_platforms} arm64-darwin22-gcc"
+ all_platforms="${all_platforms} arm64-linux-gcc"
+ all_platforms="${all_platforms} arm64-win64-gcc"
+ all_platforms="${all_platforms} arm64-win64-vs15"
+@@ -157,6 +158,7 @@ all_platforms="${all_platforms} x86_64-darwin18-gcc"
+ all_platforms="${all_platforms} x86_64-darwin19-gcc"
+ all_platforms="${all_platforms} x86_64-darwin20-gcc"
+ all_platforms="${all_platforms} x86_64-darwin21-gcc"
++all_platforms="${all_platforms} x86_64-darwin22-gcc"
+ all_platforms="${all_platforms} x86_64-iphonesimulator-gcc"
+ all_platforms="${all_platforms} x86_64-linux-gcc"
+ all_platforms="${all_platforms} x86_64-linux-icc"
