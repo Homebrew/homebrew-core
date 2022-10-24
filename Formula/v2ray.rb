@@ -12,6 +12,7 @@ class V2ray < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "950f263eca43e38d68a850bcc97e1a2e3fa41487c74a983a176aee50c973649a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39375e667ddca5e5d93f0c399d8969be3f0ca8015f8179c6dfc9ecfa1aa2222c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f743a933cca4e588c3f8ce883aa62944be19360e330b6d55f559eb1b72bb4f6"
     sha256 cellar: :any_skip_relocation, monterey:       "6ca8683200055af0e1d7895b44aad91ac1f47ad2abe42a73bf3da2a59db714e5"
