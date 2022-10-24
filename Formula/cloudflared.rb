@@ -7,6 +7,7 @@ class Cloudflared < Formula
   head "https://github.com/cloudflare/cloudflared.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a9993407f78dd0e9a717ddc9ccf19ac262c30896de71c9020e2ebca51ff6fd1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d88a9df39b3d8fd77de69d980bfc1ccc7788b084ea2b6018858a7fe9de3a95b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa4f4b6ce45984b99e4589064f2b6e83c4127510e81f84e2a9d17477a3202dca"
     sha256 cellar: :any_skip_relocation, monterey:       "8f07ea56a046022c6d5cef8365afa57a1e7c9ca0287a03df4f7cf58708030bc1"
