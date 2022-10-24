@@ -23,6 +23,7 @@ class Clisp < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "2be9e60ec5595599b60733d43ade1ea29007214d3c05837d58cffc43bfb6e412"
     sha256 cellar: :any, arm64_monterey: "bfad1c6c3b4787711bc126ed360647a6ad6458dd24ff4cd9e3be5252b897ed82"
     sha256 cellar: :any, arm64_big_sur:  "8108810c5af0ce990d9052ca96f6aa75af1f59589a103e21a86f8b1f2e801956"
     sha256 cellar: :any, monterey:       "b2fc7c67341df7f9766f66054445e342bd61acc22c7260bac3589266ba78f8a3"
