@@ -10,6 +10,7 @@ class Mhash < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "63173c41e68e4510a36b6c3301d8f556a5c15010bff40258853f4ec735c74c68"
     sha256 cellar: :any,                 arm64_monterey: "f4f6e0a5a12cde078c2397874e309565d84a5599cbad4d5772ee13131deba98e"
     sha256 cellar: :any,                 arm64_big_sur:  "4f7da0cd859fc828d90946d6c6b80d80a60a85ffe4f82f9dd299ff1b8ba1bb54"
     sha256 cellar: :any,                 monterey:       "a8dbb4a5d3b15a10104683fdea162c85714cc0f4ef6f313c06aab7ddd0d1d42a"
