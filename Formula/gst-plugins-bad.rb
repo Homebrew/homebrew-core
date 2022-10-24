@@ -14,6 +14,7 @@ class GstPluginsBad < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "2a9dfdea5613377e9272d1146bc19fee42d4e4b19aef3c3ebc66e7758e0304fd"
     sha256 arm64_monterey: "90ab8d052e4e604af92c6f2da16c39d59edbeeb4c71468ed1f28baf5c5d25ef8"
     sha256 arm64_big_sur:  "906df89626b77a02736354b57fea8a18cc5d66c2038fe18927a6248c39c2aa7a"
     sha256 monterey:       "6789a1ac8072824a179b5fe0d090e6af1c5c176a17bdd9ce12f4d170cffadc57"
