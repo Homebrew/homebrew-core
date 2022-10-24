@@ -6,6 +6,7 @@ class Ideviceinstaller < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "fb42f5fc7e6da997dc22dd68fe9c57a711250259c737992eeb162cfe871cce99"
     sha256 cellar: :any,                 arm64_monterey: "e5bf0e5ed6aad688593878bdf8e78c5aa84530ee053f5ea21ad433cf99f59873"
     sha256 cellar: :any,                 arm64_big_sur:  "30f56186281509d1f77d7a00cbcd1f313cd80135e3f9e2a235ca649f9a23e5f1"
     sha256 cellar: :any,                 monterey:       "e6e374f35c4eeb37763e7755228c108ee96024b8599943fa741450be35915d93"
