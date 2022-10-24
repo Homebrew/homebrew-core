@@ -9,6 +9,7 @@ class TreeSitter < Formula
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d6f240dc34c31f36f30fd463e864ed6efd700876712423b8668b08a7928e47aa"
     sha256 cellar: :any,                 arm64_monterey: "ed7732dfb93b41a1a9dec118f119903214b2733059a4666b4811a8c0b4995fb6"
     sha256 cellar: :any,                 arm64_big_sur:  "1ca16211e94d5a9c72785bf1206141c18c10836027a8e7e58961809fb1e10141"
     sha256 cellar: :any,                 monterey:       "c863b441b7df332c195dd7be16c67108d2bffab77cb6b5d336c59b77d2ac28b0"
