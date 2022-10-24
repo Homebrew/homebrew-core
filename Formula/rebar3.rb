@@ -11,6 +11,7 @@ class Rebar3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "428fe27effe929170a25f8a264b23aed6b2df8d4492f48d1bf6c8e52bd4dee63"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9be10eb4b18e099da77c5eee41aa24107876186dbdb6958673c35c1ebbedd118"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17151aa510303762cff34780c34464745f1551c7d04dfd2bc568d54939af733d"
     sha256 cellar: :any_skip_relocation, monterey:       "3c92b9865dbe05302dba84137f77911d4fd70935aa08a73fa3dd562290c56057"
