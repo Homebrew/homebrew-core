@@ -7,6 +7,7 @@ class Weechat < Formula
   head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "01b097f108da34b615fbcf447a221f181e9f09edbfae51be6933bcaae2c52cdc"
     sha256 arm64_monterey: "eb85c23c42b7a2b0962c2926c55bce19ab33c1fec790428c52abf322e536763a"
     sha256 arm64_big_sur:  "9ac39226c800db6c682d7403a0d7ce160853a4338f39330546bd4963c2e40dde"
     sha256 monterey:       "3371b53f6ad1a8893d4a433ce9f5a7bdd2bdda43d0dce816d5cf1cfd9b68e795"
