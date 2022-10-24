@@ -7,6 +7,7 @@ class Peco < Formula
   head "https://github.com/peco/peco.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9bb5962a6e296e3ba31ca962492d3fe97ab0aec3edad9d9fa30edf688994609"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7cbc798bdabf06a5f02668d1d3c53662aa416bc7bbb1d41a6cc3268ef7d563f1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d272601e901b030d5912749e56d9c27bc08ea42a47833658f5d0ceef3b3acf16"
     sha256 cellar: :any_skip_relocation, monterey:       "b7d86595f91d6fd84c240c57791e731b2e6552dc533d2cdf7c1421c06d1bd9b8"
