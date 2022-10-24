@@ -12,6 +12,7 @@ class Tcsh < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "bd18f63708b7c72690f12f1b05c862e64d6c9245308f207fa20067da1563c14e"
     sha256 arm64_monterey: "0f79c59227eb84c2504946ef28782ed98f7c1162af5b3edb95252e9cb860d9f4"
     sha256 arm64_big_sur:  "0fc3bc6e356efc0b17d8a0ca32dd6c2ea69c85cef66c0c33d17a0a02b6ab80ef"
     sha256 monterey:       "228d4cecd20d1a228652c53fb0116014341823d1b40528076e1a4a3c9c592a19"
