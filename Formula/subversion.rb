@@ -17,6 +17,7 @@ class Subversion < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "feb2c3336172d37bd48015ae6383d643205c811136d7cfd94d5d2a1e09c21056"
     sha256 arm64_monterey: "ad95b56cba0ee03647508c4763112e759e84f6a24057e4936d11fab781e3122e"
     sha256 arm64_big_sur:  "0864d99a6b7b2edef137c3f6116a76fc31b0aeca8c227ca094af6cdcdc8278c2"
     sha256 monterey:       "45b2f7ab2a1997db75e64357831a1a11de27a9a2cefec97784dd67e8e89b1a04"
