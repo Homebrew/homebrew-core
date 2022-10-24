@@ -6,6 +6,7 @@ class GolangMigrate < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ab03e86f6da0ff578e58b73282753aaeb86d2b100be34f54683a351069a4ea0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "de335a1e58758ce0006b6c4b492699c409274b24a291ecb03612e104781093c2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41595beeb24c80f73f2a3d1722ad29a03524dcf0d3cf3a40a1905a2d391188ba"
     sha256 cellar: :any_skip_relocation, monterey:       "7d080cb0d06b0198228f7d0f74c626efefd9a6445155df5dce666745428c4bc1"
