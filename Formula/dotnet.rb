@@ -37,6 +37,7 @@ class Dotnet < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ade5ec48b607244c31a44fce21bceb0bdbf0cc09598444db773f37f0cee56dd7"
     sha256 cellar: :any,                 arm64_monterey: "4b278a1d1e6231274488064e98a6d7075cd8f1fcc557894b6bffead21ce31336"
     sha256 cellar: :any,                 arm64_big_sur:  "069a144caab78342c14f3cdad5a23aa0db21ec3c4501318f8c0044288e951c16"
     sha256 cellar: :any,                 monterey:       "07dbbd1451cda720b0e3443f200099c6a8ac2d17e2c72acd3ea20025cd84cea6"
