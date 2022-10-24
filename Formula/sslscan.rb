@@ -8,6 +8,7 @@ class Sslscan < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "6ab6c4305844904c0b9dfc7d2ba86a48bafe2e64c6a548718e2e5cb0645d2ca5"
     sha256 cellar: :any,                 arm64_monterey: "564ea98dcc718997ff93e4ec265795a0ecc4cd233b4084c3941311cf4ed05345"
     sha256 cellar: :any,                 arm64_big_sur:  "34d194e70c43c06937e78d21468d881950b5a197fcf719278340a190a2b71df2"
     sha256 cellar: :any,                 monterey:       "93da99b49f6dd190ec22338e4926b905f077695b3dbaf2e50b36a70ab1641e04"
