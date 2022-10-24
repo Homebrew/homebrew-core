@@ -7,6 +7,7 @@ class Wangle < Formula
   head "https://github.com/facebook/wangle.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "69266dc4490d5ecfc2b2e49f0a75967280da3366a632b4c2827c24f5955c2899"
     sha256 cellar: :any,                 arm64_monterey: "8c83679bb667acd73abf0f4f690ea6392a40ee24a12d5ac16d99363b773398f8"
     sha256 cellar: :any,                 arm64_big_sur:  "5bc3fd89eca95b8a045354bddbeec5772a5515748395d6d34f8327fe4ebb5d79"
     sha256 cellar: :any,                 monterey:       "01446846f8e93da3ca4a094e874af9489a3469b3288a19c0a5c3db3f87f4bd18"
