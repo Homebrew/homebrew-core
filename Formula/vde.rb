@@ -1,15 +1,10 @@
 class Vde < Formula
   desc "Ethernet compliant virtual network"
-  homepage "https://vde.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/vde/vde2/2.3.2/vde2-2.3.2.tar.gz"
-  sha256 "22df546a63dac88320d35d61b7833bbbcbef13529ad009c7ce3c5cb32250af93"
-  license "GPL-2.0"
-  revision 1
-
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/vde\d*?[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
+  homepage "https://github.com/virtualsquare/vde-2"
+  url "https://github.com/virtualsquare/vde-2/archive/refs/tags/v2.3.3.tar.gz"
+  sha256 "a7d2cc4c3d0c0ffe6aff7eb0029212f2b098313029126dcd12dc542723972379"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  head "https://github.com/virtualsquare/vde-2.git", branch: "master"
 
   bottle do
     sha256 arm64_ventura:  "d0db1dd42cba0815587a9919f242dc7708a6b450fbb390fedb7be0f43df8691d"
@@ -23,17 +18,17 @@ class Vde < Formula
     sha256 x86_64_linux:   "d0ecff46c013cef96a1a32d6fd45d415a32dbd300932d2eb352f969445ce251c"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-python"
-    # 2.3.1 built in parallel but 2.3.2 does not. See:
-    # https://sourceforge.net/p/vde/bugs/54/
-    ENV.deparallelize
+    system "autoreconf", "--install"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    system "vde_switch", "-v"
   end
 end
