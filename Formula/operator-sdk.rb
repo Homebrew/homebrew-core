@@ -13,6 +13,7 @@ class OperatorSdk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f829ae5353ac163794bf51962db13804295ea0f4384cefeba0f70547b7d71d1d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "60d9bf1ab930e4bec6487414f3b1405c2062867a2e967d019ba471eb8dfb9c67"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f12f893a3e88a0062010a29517f006dd7cc086ab57197e06153c67cf06c612b9"
     sha256 cellar: :any_skip_relocation, monterey:       "2e9663a1367f6ded7128da3674f72f5b733c685f55cf63b841b4b747dbf83b7d"
