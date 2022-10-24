@@ -13,6 +13,7 @@ class TransmissionCli < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "b6c5414407b789d0c97b2454a636d7abf5cd7344a3c55846b1e0648877db0986"
     sha256 arm64_monterey: "7cea8d14774f036fb808ab778efd7aaebfdd46b0057e401ccfc1744e09f05e30"
     sha256 arm64_big_sur:  "07a84ee48fdee3046614731074c3e3f20f814011d644e6804a836e586a11f4a5"
     sha256 monterey:       "8785d5cd7675a2f5203cd9cb4a7b13b756037d2ee127abfe6223b946733efe34"
