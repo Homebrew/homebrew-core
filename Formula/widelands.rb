@@ -41,7 +41,7 @@ class Widelands < Formula
   def install
     ENV.cxx11
 
-    cmake_args = std_cmake_args + %w[
+    cmake_args = %W[
       -DOPTION_BUILD_WEBSITE_TOOLS=OFF
       -DOPTION_BUILD_TESTS=OFF
       -DCMAKE_INSTALL_PREFIX=#{prefix}
