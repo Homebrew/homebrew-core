@@ -14,6 +14,7 @@ class OpenshiftCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba1ac3cb97607da7dca52fe1056b68801f37d69ce49a9f6087ef25a2060725c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f71b7163b12605d316693a1a1659475fdf4d267db5c4242bbf9cfd5601c898ed"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96f681bea44c8e059e016df6ceedcbaeea5643d3a9b6a1c03898a28ee2f3f585"
     sha256 cellar: :any_skip_relocation, monterey:       "12f220767a0aa3c37413c81ac447b3fa7cbe739125b065b7a87fd75cb62872bd"
