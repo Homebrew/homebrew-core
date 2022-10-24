@@ -20,6 +20,10 @@ class Libvpx < Formula
     depends_on "yasm" => :build
   end
 
+  # Patch for macOS Ventura
+  # Reported upstream: https://groups.google.com/a/webmproject.org/g/codec-devel/c/ofpypqweL5U
+  patch :DATA
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -46,3 +50,27 @@ class Libvpx < Formula
     system "ar", "-x", "#{lib}/libvpx.a"
   end
 end
+
+__END__
+diff --git a/build/make/configure.sh b/build/make/configure.sh
+index 581042e38..fac9ea57b 100644
+--- a/build/make/configure.sh
++++ b/build/make/configure.sh
+@@ -791,7 +791,7 @@ process_common_toolchain() {
+         tgt_isa=x86_64
+         tgt_os=`echo $gcctarget | sed 's/.*\(darwin1[0-9]\).*/\1/'`
+         ;;
+-      *darwin2[0-1]*)
++      *darwin2[0-9]*)
+         tgt_isa=`uname -m`
+         tgt_os=`echo $gcctarget | sed 's/.*\(darwin2[0-9]\).*/\1/'`
+         ;;
+@@ -940,7 +940,7 @@ process_common_toolchain() {
+       add_cflags  "-mmacosx-version-min=10.15"
+       add_ldflags "-mmacosx-version-min=10.15"
+       ;;
+-    *-darwin2[0-1]-*)
++    *-darwin2[0-9]-*)
+       add_cflags  "-arch ${toolchain%%-*}"
+       add_ldflags "-arch ${toolchain%%-*}"
+       ;;
