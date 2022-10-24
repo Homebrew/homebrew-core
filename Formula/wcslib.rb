@@ -11,6 +11,7 @@ class Wcslib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "01aae3e82d7469c400573154e2cb724a8c0243ec91ee24dc3c6c0e1c45b948ba"
     sha256 cellar: :any,                 arm64_monterey: "f418a0c421237a184ea92462338644f6f60a3065815bed980118d13dfaacf45c"
     sha256 cellar: :any,                 arm64_big_sur:  "106c631c29a069fc17e4648807c308414765a88b838dac66fed25997d2265aa4"
     sha256 cellar: :any,                 monterey:       "eb4b9167d77c897c36d72e919976ae99da5793d8df33ff457c6d01efa6b2d739"
