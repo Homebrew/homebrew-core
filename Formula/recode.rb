@@ -6,6 +6,7 @@ class Recode < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "260c86f943187dfd054e94e290e8fa5b798e13afc40741c72238cdef6694a9ba"
     sha256 cellar: :any,                 arm64_monterey: "ca950e0f4e50459a5aa6800dc411c1ccde64865cac4e740de65a5019639d822b"
     sha256 cellar: :any,                 arm64_big_sur:  "69206a0503a2d1780ff9ccc8eaebf6adf94b4018bb0efb4cd983f7f5a3d07ce6"
     sha256 cellar: :any,                 monterey:       "76bf51e5a583a21bad1f24ea1b4c5ce568974a732c99861d1fa0a31213146e81"
