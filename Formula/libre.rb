@@ -7,6 +7,7 @@ class Libre < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "132791918208954959beda7df07ebf8a41d1bf2ed84e12333884957e4eea5908"
     sha256 cellar: :any,                 arm64_monterey: "bac916b886e39d113c21ca578761facc966856b72f5ec9cc149b37dc63745f8d"
     sha256 cellar: :any,                 arm64_big_sur:  "cae2a3cd54f43f1a23448f5aed1210265ff1adad2230013637d0381ce917269d"
     sha256 cellar: :any,                 monterey:       "d03f0bc83a993c1528a195dafaa81a64b9a705fb8f7f5ac576dffe69c689f45f"
