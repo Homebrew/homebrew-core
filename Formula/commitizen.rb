@@ -10,6 +10,7 @@ class Commitizen < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3219653507538b3947e3d2255e5716c601aa50e11958774adef814d0cef7be70"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d821ea5723b623cab0edc5ca3fc393f95d5eec6d125f5a41514c1ddeb320fa97"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71168bb40062add4baf04de8b1d5cc3b9fb7fb07d075909ef916d5b144586b93"
     sha256 cellar: :any_skip_relocation, monterey:       "af6023e3344bba8b5db72c003d018ea555e84a6c06ef77fad203a89afcd47692"
