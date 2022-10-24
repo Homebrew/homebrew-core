@@ -7,6 +7,7 @@ class Tailscale < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48dd9e20435c08920b7e50187b625a9d13392392ac8161b3f4ce43d833700c09"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e1fc6457d53ffa00e7c43e4f8ac38659d107826723bba597ce80d0219d6442c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c8871b26b480685bcf47c1e835636870a3020fe41d21e2b070a4361e8413c8b"
     sha256 cellar: :any_skip_relocation, monterey:       "61d35e7282f6e9cfd8539b1366da677e83a31fef2922bd876ad8ec3bf8eb175d"
