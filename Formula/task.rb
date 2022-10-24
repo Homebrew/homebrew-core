@@ -13,6 +13,7 @@ class Task < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "2102db063dd8ff63b36a1503bec0255e1f51a7096fb0b0f923eacdf6cdddc3cf"
     sha256                               arm64_monterey: "f795845e5ec49a639baf6e7eab024f038ad1151c62ec03916752877941f5c89e"
     sha256                               arm64_big_sur:  "3eef2acca71784b22e30ed3869c92b84c42bb47728e3df7709a5352dd0c4cf9c"
     sha256                               monterey:       "b243e5436b6c1401acf8118e6163f80853027bfbbc4263ed3ce6e71dcec707ab"
