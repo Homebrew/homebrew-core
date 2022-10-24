@@ -8,6 +8,7 @@ class Binaryen < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "c3b40c248f4164d50b8d4288180f7cd6ccedc5bb8ae63fd965e29d2270f5b790"
     sha256 cellar: :any,                 arm64_monterey: "40a5a0d8afbdbcb26fd52ea0a66804ff52860f8a4054ea285dd337272438ecf3"
     sha256 cellar: :any,                 arm64_big_sur:  "7f1193147c44db434a09fa887a9f231307d1bd3e2fe8eb8dad5b9012f268a2e5"
     sha256 cellar: :any,                 monterey:       "41150cf0ab34367f6e20a075cb4308a8e9223294c047f4177df95b03bca5e249"
