@@ -8,6 +8,7 @@ class Libvpx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "741571520331ae15ead5b2f534d8c68b15ca8c9bbb60f405dbf82fde37a89887"
     sha256 cellar: :any,                 arm64_monterey: "95d64306db3eb31d8f8da747a067a6560acf9484f33bd8cca64b74835b8073ce"
     sha256 cellar: :any,                 arm64_big_sur:  "d571549026b2c719d055a9009ed7ce65060ff448da7a68e014f19d7543379a49"
     sha256 cellar: :any,                 monterey:       "5c54abac298c4b6d2113d17343304ae9e0520f284a185f46e1baa03b10f60f9b"
