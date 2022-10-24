@@ -6,6 +6,7 @@ class Leveldb < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1d80f7684ef784f83b4f9312434a694c74e58351fd4eaab2641f6ef28bcda5ea"
     sha256 cellar: :any,                 arm64_monterey: "41f1ceea1e85dafe0552acf94a4903ef45fd54fc63e38c277b7d101c836e5801"
     sha256 cellar: :any,                 arm64_big_sur:  "377ac4b779d9ac24295b99c5f859dc8f78f473e62a90849f09eeec7a72d872d2"
     sha256 cellar: :any,                 monterey:       "3b4ce296ae8732cdec0b9fdc3623a5c12f8739b61c39cdb96be423e8004834be"
