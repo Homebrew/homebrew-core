@@ -22,6 +22,7 @@ class Avrdude < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "50c20fe810d534c1c4cea3209ca812d35167c4b51e140f7154d96563d9e397e0"
     sha256 arm64_monterey: "14bda58af73b8b6a92edfccab045e6118a0c18feb436e6afff74d51dfc7610ef"
     sha256 arm64_big_sur:  "a4fb2845fc9fcad852484d388e6a904cfab655c66b1a61a0b5fff8b56062be97"
     sha256 monterey:       "37913838cd9ceadfafe1759b293ebb24ddc9f2c8b8168e297f8fbbfed612aab6"
