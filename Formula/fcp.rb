@@ -11,6 +11,7 @@ class Fcp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "30f43b03367f799e74f8777e9a7a09214f7d618bb157844629b681a49f97ca96"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bd3f468c4a6ace4bf7b1eaa64711ef3fa72cfb87fc95e9df2cc3d41697c552d1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2694de15f2cc9a32797a01cfde7f79a235a195fc65409582577a0c98977b1494"
     sha256 cellar: :any_skip_relocation, monterey:       "d3986aed8f7455ff3c0dbce337bc2ab5a984ab5bd31de75349a9589cc7d29d70"
