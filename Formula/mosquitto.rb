@@ -13,6 +13,7 @@ class Mosquitto < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "55a97afb21986bd6c3f13d07678278f6f7defe63b660eca4161e84045b4c9c08"
     sha256 arm64_monterey: "f14f8cc7ed101e7422f0f9d24e79d18061bf71e28fbdb85d30bb3b7fcc3e8ab8"
     sha256 arm64_big_sur:  "e650529e5ae101a0d9f27535b1fcdc9fc8987b53b59e6e9589062b36e17212b7"
     sha256 monterey:       "3d0a5aef85420aae906b0b0eb5c112c27af783c87d80a51ccdddfeeaa4daf386"
