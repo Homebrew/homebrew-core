@@ -11,6 +11,7 @@ class Pgroonga < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "65985ce52add91c8a6aca850ef2e356877c0461bfffb39be2c022e6d3d19bd11"
     sha256 cellar: :any,                 arm64_monterey: "6faf0edd4b53c4d602b8e5db36b9f210ea51b15c4df0d2f6ff4a23e7853a15d2"
     sha256 cellar: :any,                 arm64_big_sur:  "6209bbe204efd0141b109f65e725908a868231d2ab6df9758b231d9d33752288"
     sha256 cellar: :any,                 monterey:       "cfbe08b09d9e4d74a943dff7b74205e4345fb861232799920e15e3aa30382e56"
