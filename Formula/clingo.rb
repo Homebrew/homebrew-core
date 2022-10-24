@@ -11,6 +11,7 @@ class Clingo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "82408ad2a970bb2aabcf0558ad5a89c3d85dd7562ae79e09b578a8ca2f9a7b90"
     sha256 cellar: :any,                 arm64_monterey: "59a702866b71893332c09d463aee424dbce467efee30fbaff0affb284fe545ac"
     sha256 cellar: :any,                 arm64_big_sur:  "4e7d7da17268f8c325dd5062b501d33020e7b697c4a5e3fc1c0c8a29477fe2c3"
     sha256 cellar: :any,                 monterey:       "65022b7095c2240d1f1355abd673a0536dd6809c0b25c428a5c731900e8000f8"
