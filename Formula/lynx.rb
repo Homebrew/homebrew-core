@@ -15,6 +15,7 @@ class Lynx < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "df32928bb8ccbd442daf2a7f9711859aadf3842765e6dc594b63cff758cd1f18"
     sha256 arm64_monterey: "521f6b88727a5d059be6dbdb3b4ab121a75685a069d637a2392aa9495be12ff5"
     sha256 arm64_big_sur:  "97f8541d87999f6f75c7283b276b72b90d142abe1fbec9d5d475183a755549d9"
     sha256 monterey:       "f57f89264c25fae795e80a505995f9e6a57d6bb575611abdd41ca0a886f9ebec"
