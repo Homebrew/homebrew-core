@@ -8,6 +8,7 @@ class GimmeAwsCreds < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f30122f02512811d1416d4c929b36da4e8cf57c596fa09ce935c60cffd9e1cc8"
     sha256 cellar: :any,                 arm64_monterey: "066f314606513edc210d8232b2f23ba051a5a0b37f2992357c9bf633ce7a0214"
     sha256 cellar: :any,                 arm64_big_sur:  "04734495d2689bb6c68ccb3eb1f9abb14865d315445e4b9bdbb637a10d1a9d3c"
     sha256 cellar: :any,                 monterey:       "a6294e5697116d7d86b91c9a151b477b7ce1b1d86c4079bc167df163a83029a5"
