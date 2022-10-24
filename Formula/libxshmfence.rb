@@ -6,6 +6,7 @@ class Libxshmfence < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a28329811422f189228b3fb3edddc4db7fdb54265d933da3c2379b90f0ba7e88"
     sha256 cellar: :any,                 arm64_monterey: "d54d02c984d1c3004dc80c6293a11a334074ef3ce84d5a411f3250bc9a8b22d2"
     sha256 cellar: :any,                 arm64_big_sur:  "a20786f8e3b41c75c7a8f6ec72e135d6e8a4bedfa9a052174f80467fc4e18b77"
     sha256 cellar: :any,                 monterey:       "fb31054f7e6e05c95d9e06ce328471128fa536b8f154a6dd33aaa9eb804f1980"
