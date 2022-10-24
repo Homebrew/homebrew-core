@@ -12,6 +12,7 @@ class Libgphoto2 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "688c529e85f9e34c624cfde0dddbcef5aebfeff2237954d8ce53ef60d444cced"
     sha256 arm64_monterey: "68c8f29614d57710c8d00f5ad526b848eaaf38c4d70ec77f8531283255ed2c1b"
     sha256 arm64_big_sur:  "e3744a3675a5f6b5727181755d126730bcc79a39545e6a0a1133a1e4d5a97e74"
     sha256 monterey:       "d72b3a28421b921f1189717b8aa9cefb819e7d90fcd0029b8b2c4e354836023a"
