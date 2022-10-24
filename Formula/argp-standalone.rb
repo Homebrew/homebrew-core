@@ -11,6 +11,7 @@ class ArgpStandalone < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34e7f7393c3ceb901ca2a3d9b9b306db734dd5cbfc168da7976ebf9bcd02d1f3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d538d7be595c57c757670fbcd922b9335f9a4a47ef16662233e84b2260eb387b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88d3f4bfb3ab27ec4105a6853fa34b94342ab2ad0d7b79248461b3bea52649a6"
     sha256 cellar: :any_skip_relocation, monterey:       "f0ed596672be7b1b893ea07d341bce448470b3448b55e0b5d90f68e7895de7b2"
