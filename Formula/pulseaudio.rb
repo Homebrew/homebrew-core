@@ -21,6 +21,7 @@ class Pulseaudio < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "973ca6165c6909ac0bed7cb977ba80d85a19b9b9cf0033304dbd6f6cdec8ee2a"
     sha256 arm64_monterey: "ce44a5a697ba790ab27e97f4c96cd5f48489cdfc416a836348584064053eb725"
     sha256 arm64_big_sur:  "efcbf144da932e05394e9768bf27dfa1908dbb17f4b7c52f49e56c791dd51860"
     sha256 monterey:       "835e284178eda5eaa8395aab875305d8ba528336f657844d5791f29e0216d46a"
