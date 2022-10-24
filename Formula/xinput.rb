@@ -6,6 +6,7 @@ class Xinput < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "948e1a8b83cbd27f49cdf7af0b732b3e527807d47316f3435d6289c953f7a0d7"
     sha256 cellar: :any,                 arm64_monterey: "cd6d4d1d3a69ffab976906f828f9cbbd78de75d212dda7b9225f18f54925f5fc"
     sha256 cellar: :any,                 arm64_big_sur:  "db714eb643b851dec6aa996c3673b932af70e191d404c8a187b408a9578f7fef"
     sha256 cellar: :any,                 monterey:       "42e694f3867eab495cb54de454879d7477e952c089b8ecf08bc327c77e5ab256"
