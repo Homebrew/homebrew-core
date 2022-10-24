@@ -6,6 +6,7 @@ class Wavpack < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4f42add68d31cb8d96bd66b0aa69c5281cd86d2e62895405ad39fbf14d7ec3fb"
     sha256 cellar: :any,                 arm64_monterey: "f7b8b75495e5d9ee17b60243322a52349ce65a89de9c0dd6f9d9d35461d8b0c6"
     sha256 cellar: :any,                 arm64_big_sur:  "e34bfb3ebb2f06c4f7fc22a587400acbbb4853bb106cbe3b679b4512cacc254b"
     sha256 cellar: :any,                 monterey:       "effd5ef1000609272a70f2d84e6a2bf61a200a5b1bc239a7d89eb13d97be6a57"
