@@ -10,6 +10,7 @@ class Libmikmod < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e8683d4aede6aeb630bbfe23dc57c246d4c54d853fd170e4658be9a11b8b7132"
     sha256 cellar: :any,                 arm64_monterey: "74a5601641751f0e90dd3a5a274a257161c26b86443e77f2d605b3be9ff67115"
     sha256 cellar: :any,                 arm64_big_sur:  "59bf02931bcc7553745595b3859277cbb471ef5cf6f644a9251ddde4fc8a9513"
     sha256 cellar: :any,                 monterey:       "f427b1ed15b6298b45e7d18564899b9cdb2ca57d2d01b7de4aed03c4a3be32c5"
