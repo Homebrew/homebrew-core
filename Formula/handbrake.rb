@@ -8,6 +8,7 @@ class Handbrake < Formula
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c43a4e34f777a4c26fe6c415abac2f803522abf083ded04d830c247b0fe9118"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4046c86ec7f3bee73f9ca050dbc3338e61aa9a48e1d08e28a2b78e6c2d574506"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96ffdb5a88e0c04e281c11d6c16543950ccf4ad6355f621822ddc5c58f0558af"
     sha256 cellar: :any_skip_relocation, monterey:       "9ebce80e9b5b7149aa18b19eef3657a84a04bab20dafd521e3658fcb90a2a0df"
