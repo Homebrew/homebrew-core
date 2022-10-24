@@ -6,6 +6,7 @@ class FdkAac < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "0dfd3c06ff84ebc5a949285ead851789d1747aa2bbed4e1285514f14dc5f75d8"
     sha256 cellar: :any,                 arm64_monterey: "7c598c4a188a07504c33e9ff372cb20143b858a53990ecb195abbf7b9f95b589"
     sha256 cellar: :any,                 arm64_big_sur:  "cf0840a736c0cd0f009e7b3015545ac46fc6c5474163c4f04514065b6cc16454"
     sha256 cellar: :any,                 monterey:       "c56a5fdcf8b72203513da0cd660830a7fb27fbbb25b4427298ddabd3db4ff881"
