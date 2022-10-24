@@ -6,6 +6,7 @@ class Libb64 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "899db1753787af2de66e4ac321d5d750190a8357576611d59644eaa9ed0f852f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf8f611b34a951b0c3930f8c3714e0f24aa4074c79a3cb483810b7325461f1df"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "acd1c54a87e5e659d5a2d907f650cd9a3d1f160403805d8d84f7bc620546df0b"
     sha256 cellar: :any_skip_relocation, monterey:       "3b2acebf1e9432ef07e0035bfc410fdb8530aace59513ad9fad36fe35a661880"
