@@ -7,6 +7,7 @@ class Gource < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "557adabdc455f36a53771b2dfdc4d105011de331d4592fc73225a5f0c34890bb"
     sha256 arm64_monterey: "39002ff5443571242c6dcf76728a068954bb534fe5c479412cfabc7dcdff1efe"
     sha256 arm64_big_sur:  "54cca753a7f2705de77c771c0671027f3ba8eb57f3cca6047ba3f380921c0052"
     sha256 monterey:       "10a8655e6e61846e5ccac81e19aa9b26382092c64035a74ca1aa29a4e3c8c046"
