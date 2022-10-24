@@ -12,6 +12,7 @@ class Rubberband < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "39ed0d04fc654ebc89f2819510ac5cad990a5b5c7ea2657cb38813c3ed41ba30"
     sha256 cellar: :any, arm64_monterey: "ac1818bde00e42888ea13d151de85e8b387d6c6107df617ac24edf53ca6a9ded"
     sha256 cellar: :any, arm64_big_sur:  "31a26e4d2c2f37af5f5347dad63b7e1264d0e69d607639e559b1a8f45b554a93"
     sha256 cellar: :any, monterey:       "84b15332391d9e870603dd31300db0b639cbde59f891e3e78b943e2d03dde0c9"
