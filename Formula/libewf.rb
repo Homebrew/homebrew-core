@@ -7,6 +7,7 @@ class Libewf < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f95354a90dfa5ed3d8fa6d165333edcb0c421e7546bab57d17aece575a512fd9"
     sha256 cellar: :any,                 arm64_monterey: "94d1ab3e0beadcc9dc4bb40e9f4723d4154c6828d3331223085b1f83d5149430"
     sha256 cellar: :any,                 arm64_big_sur:  "a86d3ab0f59dcb04fbf49ce271c79817694b4890a3f041ad297847b26117b968"
     sha256 cellar: :any,                 monterey:       "349b1cb6734a3c76e1fdbe1a907afbf6a0b10d34ce4545134f493cd36e5d6844"
