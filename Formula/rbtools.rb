@@ -3,8 +3,8 @@ class Rbtools < Formula
 
   desc "CLI and API for working with code and document reviews on Review Board"
   homepage "https://www.reviewboard.org/downloads/rbtools/"
-  url "https://files.pythonhosted.org/packages/79/fb/9fc2b00ec363cec85a70f3ffaf9d133495c2d5fb716ff9e5ebec5bf7035a/RBTools-3.1.2.tar.gz"
-  sha256 "c83c0ed68ab998ac84cb759d809ad25e2bc4ae7d0d4e6b9f3e188db8440ae3b9"
+  url "https://files.pythonhosted.org/packages/d2/ce/363101545b7a61dac2ab94f5a718ac9e2120d1dda3b2bc5acb40f8034eef/RBTools-4.0.tar.gz"
+  sha256 "67556ba8ce2e9977c4a4a5e14c4785cbe9215be56d04f8167fd703a4ae0f266f"
   license "MIT"
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
@@ -17,6 +17,7 @@ class Rbtools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "923f925be9eec7df0faa5a14ebd62b70d5af72957bd4d257fa44cb41a77e8b3f"
   end
 
+  depends_on "python-typing-extensions"
   depends_on "python@3.10"
   depends_on "six"
 
