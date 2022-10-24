@@ -25,6 +25,7 @@ class MariadbAT104 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "7faa9b4007bf7e27d8f7aae8c220c4319393e5e39b5b045bc391d7b382a27cba"
     sha256 arm64_monterey: "d867eb01593f5e5ca60bad522ee7d54052d486f1f5b96cc5ae76512949211c15"
     sha256 arm64_big_sur:  "37bff83e26de3bfb72833432d0409c5e6b8c59248ef227ded8767ada34220b00"
     sha256 monterey:       "f0043aca85bda97a24c4288b2b2b18651a43de3d03cd513e01c86a307773eacb"
