@@ -14,6 +14,7 @@ class Squashfs < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "58c8745b53df2992c562478b518a74e65bad8c02589c166da551998fdb658b69"
     sha256 cellar: :any,                 arm64_monterey: "50dcadbee689df7c02ebe5d670130702adffccdb571065708f46e1ac1931e987"
     sha256 cellar: :any,                 arm64_big_sur:  "598644964161de2d652b91dd290a5a5e0e690de017a949330efcf9ad29ce5596"
     sha256 cellar: :any,                 monterey:       "885f25d16305d7cdaefe226e5601eb07c990d471f428d095e4107b3dd1264e85"
