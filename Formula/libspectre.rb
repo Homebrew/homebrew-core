@@ -12,6 +12,7 @@ class Libspectre < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "5b77b7b70b98b9881225a0ba573cefdd2933c40e834b660992ded73e95fcd583"
     sha256 cellar: :any,                 arm64_monterey: "18c9b573fb178784cb2d900778bbf853e4af0e7ef4de261beeec4eff380c9f6e"
     sha256 cellar: :any,                 arm64_big_sur:  "d6cc8b05e2314e5c7b13275eb89852375a082599207dce5bafc47afffcbc82a3"
     sha256 cellar: :any,                 monterey:       "b4aa6029c3a9051028013cb02780f82ba7b904f0ca5b13771bfcdfe5cd1c852d"
