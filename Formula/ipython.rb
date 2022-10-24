@@ -10,6 +10,7 @@ class Ipython < Formula
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a10ce0d71614e1b741f509fac0c00490d868dbd1a06d0108e384737eb6d82084"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c93abfbeab5871f295939a499f1217d61073f17dfdd94ec9bab28ebcd1ef7928"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1734a6faa3492f16ef42a68ab8b4cdbcab68a967abfe8d7f591be770cfe4a03"
     sha256 cellar: :any_skip_relocation, monterey:       "7a3b418182b17b2f98a61ca1a321f36726fd15253dfe1b861e3a2dfd809c3e4c"
