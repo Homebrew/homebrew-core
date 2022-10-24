@@ -18,6 +18,7 @@ class Screen < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "ce1f17b090b32eec82a32d8d57c8a8e820dc5c4fb7e0cf47ffcf7e50d339a405"
     sha256 arm64_monterey: "fe5385e7a06b3b3c7b619979a2506ab727c0c2abc0f69eba749fe9f737a934ac"
     sha256 arm64_big_sur:  "b6cf1074628d7dbbf2fd816234c666f56f2a4f0a58f6ec5d6cce97fd4d0150b1"
     sha256 monterey:       "7df16eac999996ffccb6215a711039ccac9e4a7b576a3ae07b90be855bd017c0"
