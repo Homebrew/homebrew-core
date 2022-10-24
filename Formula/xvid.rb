@@ -24,6 +24,7 @@ class Xvid < Formula
   def install
     cd "build/generic" do
       system "./configure", "--disable-assembly", "--prefix=#{prefix}"
+      ENV.deparallelize # Work around error: install: mkdir =build: File exists
       system "make"
       system "make", "install"
     end
