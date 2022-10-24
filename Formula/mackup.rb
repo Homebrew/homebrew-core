@@ -9,6 +9,7 @@ class Mackup < Formula
   head "https://github.com/lra/mackup.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9a3dd40cd814fa0ec2ae3f4931cd4d21431dada5911646552e920bb6c167458"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "417f7d7bef0e7732f7d9205db0a99ab122c47291b8da826f0005fd0914a890cc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "417f7d7bef0e7732f7d9205db0a99ab122c47291b8da826f0005fd0914a890cc"
     sha256 cellar: :any_skip_relocation, monterey:       "d55beb8d54a1b3f4973103068afcf4a72fab8503b5339287aee4d3da1944e2c1"
