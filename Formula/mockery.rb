@@ -7,6 +7,7 @@ class Mockery < Formula
   head "https://github.com/vektra/mockery.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "94330c7f2079b3cf75a88f0a5a8b4231006c509150598ff224c9c9990c371d80"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0cc45148a85352f94baaf806c0fc3c930fcf657c3b39793d263c5518fcdb8679"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "75c1fc12f85faaafdca9835a2430c180b6727aa8b6af51ac27468d39e7edafd2"
     sha256 cellar: :any_skip_relocation, monterey:       "e1332a2baf65967832c436b122877b7f7b2cacbc433aa7a258ac127387bebef8"
