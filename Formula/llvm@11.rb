@@ -8,6 +8,7 @@ class LlvmAT11 < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3b72fa109a152db3a77e9ae88228a03f0575c913a9d45b4a840c9ea5a01cf0e3"
     sha256 cellar: :any,                 arm64_monterey: "1f9a2e81762d314611a01ac17cafa7cd8b0c2fc92d697a5cec9555e9e1598497"
     sha256 cellar: :any,                 arm64_big_sur:  "64552a671357b02596313def4711086027b3e49079d65588dcca75572b87108d"
     sha256 cellar: :any,                 monterey:       "4a368a132b47fa0b3c9678927d59b5bb4fee1538d4fab9f049fc80cf83464830"
