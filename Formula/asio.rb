@@ -12,6 +12,7 @@ class Asio < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ad623954bd7b57ecca1e10a016d908348648d66226721f05dbf7e9cc0e5663ea"
     sha256 cellar: :any,                 arm64_monterey: "e20aec9f064477c73792f6803c8e10e26c4cd4ce054b0ce459d6772368921689"
     sha256 cellar: :any,                 arm64_big_sur:  "a6f2e2deeac5cd08a04b2bee1c526e8edc7c47f32303224ab1071471ed7e0d77"
     sha256 cellar: :any,                 monterey:       "129fd9c1da610fec3a7a3a2fe12826f627528e105de614af9ca5d52d50a80f2e"
