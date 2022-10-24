@@ -6,6 +6,7 @@ class DesktopFileUtils < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 arm64_ventura:  "4fcc2cc0cc160cbb92f46896b76264bd5311d436575afd108d61fcee1043d80a"
     sha256 arm64_monterey: "39d2de6b778872be7de0e8f76d609eccc9c5f99546e48777ca0b24fe94bdf3cb"
     sha256 arm64_big_sur:  "c1bdcafb26625cd695365e41b4d3bb225d42c6075aa799c86b98e367a7d8ce9f"
     sha256 monterey:       "5fba0d6b08c4f7bb948be0d52b63095d9679962c8985f324682c27ca591cd29b"
