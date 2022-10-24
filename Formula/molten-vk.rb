@@ -54,6 +54,7 @@ class MoltenVk < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "7a324b696eac122a0e3ef699a7371bf68b75b152d2042476484851aab62bd493"
     sha256 cellar: :any, arm64_monterey: "c565838d5d9f71002f5f03ff25b81d634255d9d5c9e3bc6d8be606a24931aaee"
     sha256 cellar: :any, arm64_big_sur:  "76bf0192ae994e4073d6746de6e34e245e3782c22e5590e0cd3eb83e6447e899"
     sha256 cellar: :any, monterey:       "718bee197b1dccf476e7ee93a6f60b2bcbf801c2f5692f4712721052e8775ded"
