@@ -11,6 +11,7 @@ class Siege < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "98dd26e0a033653067b8c932ff761cd037b4653feac661e64dc373f86b709a98"
     sha256 arm64_monterey: "4c25cc322a4873186c5d3621af5bc2a1aa1b9bc36bd61d01cbc6e8ffb936381d"
     sha256 arm64_big_sur:  "c4774a5b6fc668aa03d0b8fad53d4e0e736ff475549a77ef1b7b409f370a8bf5"
     sha256 monterey:       "bbf2686f1b3664b7a7f4392e74f5748046dac9dd5f25b6c929c34b25610826e6"
