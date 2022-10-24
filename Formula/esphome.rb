@@ -8,6 +8,7 @@ class Esphome < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "de1d72bdaff3376d3e81045b77d98bcdc380510a491b22fc02c00f458da1f1b6"
     sha256 cellar: :any,                 arm64_monterey: "4a6c53ceac020ecef886a5ea8780b95c227ac0220e66be067442005bc5ea5efe"
     sha256 cellar: :any,                 arm64_big_sur:  "f29aa466444b63ab0929b1ea0d88b4364f931edba98450169f108ea61e181aa4"
     sha256 cellar: :any,                 monterey:       "b6f404528c540864ecffa2598487befeab6359fdf524d21c9ca52219f04efeb9"
