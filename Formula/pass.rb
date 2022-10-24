@@ -12,6 +12,7 @@ class Pass < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ee1c46e172270c3161ef1d843c37f0bc21fb874af0b55dcd16ad32e795d17e5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7ee1c46e172270c3161ef1d843c37f0bc21fb874af0b55dcd16ad32e795d17e5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dbf5e1b314720d846525cc81a51f30e7cf7319a943f2fb395fb62202eff2c95c"
     sha256 cellar: :any_skip_relocation, monterey:       "d667e58dae216055777c9780d522b68c6868d7b23f9f712c09c29b1daf215b35"
