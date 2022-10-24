@@ -14,6 +14,7 @@ class Libnotify < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "35c78598bf57327589324de7d7b768fdfe4749cb0ace7726420ed9c3363e70dd"
     sha256 cellar: :any, arm64_monterey: "e74a881d6b7bab835785508958289242fb39098e807bad857c29e98c9bf25616"
     sha256 cellar: :any, arm64_big_sur:  "430b006a29d0db68781f2b3cc36699f98b6589b4760732fe51cbce8876fccaa3"
     sha256 cellar: :any, monterey:       "ded8ffdb381fd27fa6407c444f80511d174d51fef350b0cd94eb95acbf1cbc72"
