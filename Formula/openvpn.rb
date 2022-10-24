@@ -12,6 +12,7 @@ class Openvpn < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "cf8b1619b93d4e73dbbd52bf85a9c99fe3aec899ddae4bfccb5911e711e3a667"
     sha256 arm64_monterey: "4d350124b3dc9c7f040d6aed9f32f78218ae543bbc8b2d47d84f1521ced30632"
     sha256 arm64_big_sur:  "5c41d1fd9c0a1a152b0bf39c6bb5a95e60b46ae2223559cc89b32d57ee0c9391"
     sha256 monterey:       "62fd88ba59c32b406e19c964ce270e238d14a92f45d383995c0cd813e8b85cc0"
