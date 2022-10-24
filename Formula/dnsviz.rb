@@ -9,6 +9,7 @@ class Dnsviz < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e9386caaf100fa3da1ec5a1755a8924d2f64015b456d320bd7999849583bc644"
     sha256 cellar: :any,                 arm64_monterey: "2b83c0a01a198db8d3b51b8bf21776db5d588a9e26b883152a33ca977023ccda"
     sha256 cellar: :any,                 arm64_big_sur:  "72e840f23d1b266b67e527a3e202a9bbbab7cd34d25339d68c9596a6cb8d2782"
     sha256 cellar: :any,                 monterey:       "1fcc941ceb4512d851192296a774b3f217954d1d6f05f57df32bc3fc337f357b"
