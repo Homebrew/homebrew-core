@@ -6,6 +6,7 @@ class Smake < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 arm64_ventura:  "3ba94034a2afbc1b5ecb9e9fc016bbd082731977487e6dd0f33cfe8b4e572964"
     sha256 arm64_monterey: "2d5169eeee1297a1def9e51c0fcc0955a3ccd910bf4eff43ae78f514c52a6a29"
     sha256 arm64_big_sur:  "43034c1f8106c8f34f94e6ffbfc143521f1688929227b28a0c2c35d15a36e1a2"
     sha256 monterey:       "52d900209f60d961485e6c2fe1c09c21f88d2a7f3cecd5340570ea876c7bfb01"
