@@ -10,6 +10,7 @@ class Ranger < Formula
   head "https://github.com/ranger/ranger.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a8e823cd40ee0b37e7b33327de1d4c55d8558d20abd380b3df1b47544bb327e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2972a3ffed7cb61dcd1abe64cb6d24b902ffc50ef78e10fc279ebda56175a1d8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2972a3ffed7cb61dcd1abe64cb6d24b902ffc50ef78e10fc279ebda56175a1d8"
     sha256 cellar: :any_skip_relocation, monterey:       "12656acfac655b9a648d8cb877ef38fd6ef644f74cb182cff4075b333523d996"
