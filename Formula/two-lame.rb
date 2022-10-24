@@ -6,6 +6,7 @@ class TwoLame < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7ea2224ac3c69dcbbc8a2bced6b9bd1b478effea5ded33806420e70e51f396dd"
     sha256 cellar: :any,                 arm64_monterey: "3b49ddbaac0612e42ffcfa8cda457d5602063d645f124da8c6353f15abc5c9c5"
     sha256 cellar: :any,                 arm64_big_sur:  "15f7868c873400af4b2f9e566356bfa00217f563d51511120367c4dc75d2867f"
     sha256 cellar: :any,                 monterey:       "5f40da46c678cf30b76918f6ba6d38a80425fe52b6fd06c290608de175b3cfad"
