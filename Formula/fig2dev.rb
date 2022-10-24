@@ -11,6 +11,7 @@ class Fig2dev < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "89c31db9e0c06b6caaf21595ff36dbbdfbe13d45104af6c3e356ba7a48cdd729"
     sha256 arm64_monterey: "c84a23c86c6cc96b93287deb63dfc2467d7f1fcd5c50b1bb6c89b917dac8e2af"
     sha256 arm64_big_sur:  "f509f9b6e4a049e2fd051ad5424370466f104f861ae7261b1f538a0f17d09777"
     sha256 monterey:       "aca36aa485904916b28bb013971ee51c0610f1cea286171b0ea1144174350f04"
