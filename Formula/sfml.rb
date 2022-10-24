@@ -9,6 +9,7 @@ class Sfml < Formula
   head "https://github.com/SFML/SFML.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ca56d2babc673b63418e28ff62d1836e6a6759315327f9ebba79740261f929d4"
     sha256 cellar: :any,                 arm64_monterey: "31276f049496d80aed1bd4872b5764f26a74693445beb5d1142af08be061dad3"
     sha256 cellar: :any,                 arm64_big_sur:  "66629eea47ae1f4be17c0c8a662b5a748d508bfd1fa45baac102b6d43977295a"
     sha256 cellar: :any,                 monterey:       "2dea0d7dd5f7580840e0610bcdda13bb330009cb72d0d95dc57e5e2bdcbd7cad"
