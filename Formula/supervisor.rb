@@ -9,6 +9,7 @@ class Supervisor < Formula
   head "https://github.com/Supervisor/supervisor.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0811204f4531d65402967e6394c1a4a810250a8dac6a919549627edb3eb6b38"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "893ca89b1845c7b24681ab3587c756256c6dc34f7beaaa4e8d6796875ca8f2e6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "893ca89b1845c7b24681ab3587c756256c6dc34f7beaaa4e8d6796875ca8f2e6"
     sha256 cellar: :any_skip_relocation, monterey:       "7831c5348e5af718d21a3f806c1fd9c35da9a75c8a61a3aa91c639c17cf7989f"
