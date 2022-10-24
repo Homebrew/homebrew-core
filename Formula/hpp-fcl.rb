@@ -1,10 +1,9 @@
 class HppFcl < Formula
   desc "Extension of the Flexible Collision Library"
   homepage "https://github.com/humanoid-path-planner/hpp-fcl"
-  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v2.1.3/hpp-fcl-2.1.3.tar.gz"
-  sha256 "8d11f17e0f54e691e03564dd16deca438fd1678188cf98e6c4557587ca1777bd"
+  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v2.1.4/hpp-fcl-2.1.4.tar.gz"
+  sha256 "ab6ecf1abecb0f85456ce7d648b81aa47d49c9dac07d9824841505769ff45c9f"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/humanoid-path-planner/hpp-fcl.git", branch: "devel"
 
   livecheck do
