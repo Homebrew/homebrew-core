@@ -87,6 +87,9 @@ class Openjdk < Formula
     sha256 "6a645cedccb54b4409f4226ba672b50687e18a3f5dfa0485ce1db6f5bc35f3d0"
   end
 
+  # Patch to restore build on macOS 13
+  patch :DATA
+
   def install
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
@@ -177,3 +180,19 @@ class Openjdk < Formula
     assert_match "Hello, world!", shell_output("#{bin}/java HelloWorld")
   end
 end
+
+__END__
+diff -pur a/src/jdk.net/macosx/native/libextnet/MacOSXSocketOptions.c b/src/jdk.net/macosx/native/libextnet/MacOSXSocketOptions.c
+--- a/src/jdk.net/macosx/native/libextnet/MacOSXSocketOptions.c	2022-08-12 22:24:53.000000000 +0200
++++ b/src/jdk.net/macosx/native/libextnet/MacOSXSocketOptions.c	2022-10-24 18:27:36.000000000 +0200
+@@ -29,9 +29,9 @@
+ #include <unistd.h>
+ 
+ #include <jni.h>
+-#include <netinet/tcp.h>
+ 
+ #define __APPLE_USE_RFC_3542
++#include <netinet/tcp.h>
+ #include <netinet/in.h>
+ 
+ #ifndef IP_DONTFRAG
