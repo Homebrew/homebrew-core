@@ -8,6 +8,7 @@ class Spim < Formula
   head "https://svn.code.sf.net/p/spimsimulator/code/"
 
   bottle do
+    sha256                               arm64_ventura:  "884c825255b5915044db2bb49779018a5439749355b0d42ced7afbf50470b5a5"
     sha256                               arm64_monterey: "bdc5c60be138784fc2abc92e1f75db7024c81867a53f6f9eeedfbb092f4c6534"
     sha256                               arm64_big_sur:  "75f374887912346bd6acf5639a0f1b506c99feea75f0d4647ed233310be2f060"
     sha256 cellar: :any_skip_relocation, monterey:       "1d5234fbb252011107f344fdbc7f249591ae3f3fe851e1e28a8b531ec37d46c3"
