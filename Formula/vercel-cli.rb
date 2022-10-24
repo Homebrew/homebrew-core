@@ -8,6 +8,7 @@ class VercelCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51233e6261f1cb256e774eb59c6bc29819060379638ee738aff7323868ad6194"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "431c32367c902c36166991714f1f44c59e00456f9f152c4cca0f116319bcd2f3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "431c32367c902c36166991714f1f44c59e00456f9f152c4cca0f116319bcd2f3"
     sha256 cellar: :any_skip_relocation, monterey:       "5a4bbe6335a6156b205f8436464d6b0e4eb36d75884e798af9756ea34673d588"
