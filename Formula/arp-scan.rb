@@ -7,6 +7,7 @@ class ArpScan < Formula
   head "https://github.com/royhills/arp-scan.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "97e75dd94f16bfcdf8f65ebc0ff7c625f1cc9740ecbaadb12e20d7232a619344"
     sha256 arm64_monterey: "889266ef3963fb2877df0a3445149d798c87f9317f493655598dd7cb540963a7"
     sha256 arm64_big_sur:  "7d615e04cb2b99c9dfc38f0a58d35914bc6d2fc85e2c2beb16a4f8deacac1791"
     sha256 monterey:       "0628ba78ca4469f86e41315df57427b976e30985e6af04d09b9111c27b772b6b"
