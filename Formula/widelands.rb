@@ -52,7 +52,7 @@ class Widelands < Formula
       -DPYTHON_EXECUTABLE=#{which("python3") || which("python")}
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     bin.write_exec_script prefix/"widelands"
