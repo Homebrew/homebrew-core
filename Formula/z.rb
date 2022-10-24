@@ -15,6 +15,7 @@ class Z < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c269df17bf038e3dddaf71a2fed2dcef583e5b3f0869fce963e3cae0b3524c4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9c269df17bf038e3dddaf71a2fed2dcef583e5b3f0869fce963e3cae0b3524c4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7709d155cd48933c2d72b4de368972a8925c45100da27739f1a41121c9882abf"
     sha256 cellar: :any_skip_relocation, monterey:       "b430e19a35c4b0e3d887777d20f67c315c246c2dcfbb0ca8bd7799412d4d9b25"
