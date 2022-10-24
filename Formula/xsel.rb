@@ -51,6 +51,7 @@ class Xsel < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "30abd9f1f7e2ff38f890f01f3c7919a9fcad59ada8c530b933583421cfcf6232"
     sha256 cellar: :any,                 arm64_monterey: "de069e6eb3b7f2ab28641b1be7c7df88a0ea59587e01e59b79ddc680e0226194"
     sha256 cellar: :any,                 arm64_big_sur:  "b32e829803d81ea7d09bb0911b31a20ac6c75fdbc67fa3c4c9184458e3d3ecb3"
     sha256 cellar: :any,                 monterey:       "834b49b7669f077df30e1e791037b5ebabc657aef2d9b1c6c4c8425b8c401754"
