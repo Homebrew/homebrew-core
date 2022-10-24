@@ -11,6 +11,7 @@ class Gifsicle < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a217620aa3cf3c906a71e1d4c59e630e50150fa98968a9bf937abc60afb00bd8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e566d5e1a954201d5adf69c8eceba9c9bb037e8bc84a9fc36afc63b099c5e2e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad499b676a6a5e433964de6303f658838239c09b69e02ce2db62b6c5ffc1a017"
     sha256 cellar: :any_skip_relocation, monterey:       "1dd2da2246eef8dcbd3297adc1db453906e22cf08b07e6007b2ba3293eeb3051"
