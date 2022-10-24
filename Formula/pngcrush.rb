@@ -10,6 +10,7 @@ class Pngcrush < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "abcad2b9692fd0f7346bfa30d8c9fce599af8ddf5270095430955cfd4e20b55c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "159bb125480ec4ac71bac11766ed999350c63304c2549df0898e2bbb07b4aa24"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba3aa0d156954d41cb43b96bd5529c3a68e56a67a751b3a9cc153e3ed47e2425"
     sha256 cellar: :any_skip_relocation, monterey:       "f2d01a0b536d81a1db9b094f8cc282e16cfd4a218880b1d12cce67423d5865e6"
