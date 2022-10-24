@@ -12,6 +12,7 @@ class Libftdi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "db8777d9eec5f36b23b191183c6d25c398484c09b2ca5833d5ef252ef5ce7bfd"
     sha256 cellar: :any,                 arm64_monterey: "00a1cf52f2dd6bc539fe5dc2cd2aa539722b285e37c0969e5e9b0e98e14f35c5"
     sha256 cellar: :any,                 arm64_big_sur:  "998ea9ac5c02fdad06ad304dc36ccd0b010267271e7d68ff3f3cfbf407339067"
     sha256 cellar: :any,                 monterey:       "a51e714c8f9c12fabd316d643927d09458535aeff83e97a00cdbdeddedfc0962"
