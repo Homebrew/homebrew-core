@@ -6,6 +6,7 @@ class Libiodbc < Formula
   license any_of: ["BSD-3-Clause", "LGPL-2.0-only"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7c7b33d3b2e0c688e10968d2c4a68267751f44d32b19de39afcb597462102772"
     sha256 cellar: :any,                 arm64_monterey: "b282396d02085ccf612c0625706f962d7010f05e5e02c325337fadd7de514e7a"
     sha256 cellar: :any,                 arm64_big_sur:  "5147321e5b94a093ccb0e3ecf942cc69022c37a79ddac432185be9053353a797"
     sha256 cellar: :any,                 monterey:       "e4af763bc358e57ce1815acd219c6a269a68bac9e98dad8b6a44ee86013d24aa"
