@@ -13,6 +13,7 @@ class GstPluginsUgly < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "17fa16372fcc531145633e5e4c1be6b03dcf48da77670322e009bdff3d55f157"
     sha256 arm64_monterey: "67eac319f32b17de132ae2f3b9e87d64087aed757455405be80f749d56b0244d"
     sha256 arm64_big_sur:  "1985275d5911536e5690f0d8d0a3343706df8dabe5940d92b70abb7c1903b4e9"
     sha256 monterey:       "df08cbde7e2cb994c58ee40f067e0b468942ef82a5cf6111bd40a5039da09e9e"
