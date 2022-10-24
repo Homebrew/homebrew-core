@@ -10,6 +10,7 @@ class Platformio < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "10f8c1f7e332ba30ced9fcc713d01a957d42e578b7438df1e9ec140b75e381af"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6962d8652d25aeb57b17da73f6f23dad0dce7ce472c7799d4534ee3af6602166"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d31b4ba4d5260b9178702712dfefdfb5b1337cd47895171c0217684c970ece6"
     sha256 cellar: :any_skip_relocation, monterey:       "9b41a9b698835d879e58bce3d8b93122eb548e4ab0c4f1c1912d3b1b46d2e2f1"
