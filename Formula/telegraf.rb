@@ -13,6 +13,7 @@ class Telegraf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de6a37e9a25bfd20474f452a0fb5dbe3760e925ef8a1d3897187ae0ef2b3c136"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb43acd8fd419dbbca6522f255d69837f83bd7111975b9a61cbf332f1b9c775d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "904026e81ad0d1520d50b16d51533b0b716cce5d0f9deb06b644e4e2176e2979"
     sha256 cellar: :any_skip_relocation, monterey:       "4aacbe6dbc4e31ee645936395862c9085d2312b103f294d7fbd321a19cd9881a"
