@@ -11,6 +11,7 @@ class Nkf < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcc652ba1cfeec1bec89e5108c3e6eae31652606bf7babd5af25dc6522dc44a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd946546a2e3f86974d8d6685e891efaca8e4b609ba64cb537629a9b371df518"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "85bfff310d48fea503f95092b12a3a2fa19b48ba634cbbdb84c083b8701cd948"
     sha256 cellar: :any_skip_relocation, monterey:       "bdf97f3712176e9da065dcacabede2187d244e201a6f326bda4d227a259e75fc"
