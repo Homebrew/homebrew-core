@@ -6,6 +6,7 @@ class Kompose < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dadc4cde7ba351d065c9b8acbd20698d2f65787075ed8d0130280435f6ba45dd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fce20c79ca7c5ec23d04804d5f0625796a9ae5bf2ff8f3c2dd6ebf6c9091039b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7608ab8e23169c6c25b6da42713a7ef7aa078d09b63bcd748949800a0a3c6bd"
     sha256 cellar: :any_skip_relocation, monterey:       "d900c5a6242038bbaf31560418d16f6b66790b7f4f9206415da2853276a1a137"
