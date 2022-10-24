@@ -7,6 +7,7 @@ class Lazydocker < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8fd21346dcc7b0b7bf221f84ce812ff14bf024add90db9c3f46851e3b774a515"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9b4f06e52669bc14b355f17d1162153f0050eb345875f125d7cad94c51f2a6c1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62f63cf4af66dbc975bf19e8ec2d0c843d46f47af43d9a44112d03e4b737fc34"
     sha256 cellar: :any_skip_relocation, monterey:       "092a34510d68c69562c552eefccce8e18dc11014af7ec5013290648e13a0d63b"
