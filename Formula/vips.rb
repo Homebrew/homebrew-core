@@ -11,6 +11,7 @@ class Vips < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "3203c7cb0e70215eb6d34471d43c1de8a992983d818a63d5695c2fec9ec2009b"
     sha256 arm64_monterey: "50d0846e4253405f2edec6ef27cf427134bc5955382ae99391460b409c147670"
     sha256 arm64_big_sur:  "838d872c7a74c0f9504f02a3e1773b1627943e02b044ed0d592ddddd6af4dc71"
     sha256 monterey:       "a82668ced78c9ad7a3362462ed28311a825c7464b3c53e004447b66b5b0d01e2"
