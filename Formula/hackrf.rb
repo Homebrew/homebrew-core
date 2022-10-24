@@ -1,9 +1,10 @@
 class Hackrf < Formula
   desc "Low cost software radio platform"
   homepage "https://github.com/greatscottgadgets/hackrf"
-  url "https://github.com/greatscottgadgets/hackrf/archive/v2022.09.1.tar.gz"
-  sha256 "f022878761327a7319fd1a84e59f83b0ffc1b672f2da0fe651371087f9a68ae5"
+  url "https://github.com/greatscottgadgets/hackrf/releases/download/v2022.09.1/hackrf-2022.09.1.tar.xz"
+  sha256 "bacd4e7937467ffa14654624444c8b5c716ab470d8c1ee8d220d2094ae2adb3e"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/greatscottgadgets/hackrf.git", branch: "master"
 
   livecheck do
@@ -38,6 +39,7 @@ class Hackrf < Formula
       system "cmake", ".", *args
       system "make", "install"
     end
+    pkgshare.install "firmware-bin/"
   end
 
   test do
