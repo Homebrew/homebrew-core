@@ -7,6 +7,7 @@ class Fbthrift < Formula
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6c6d3cf710a44956af801ae14bb237996eb9e7addddbfaf2755242243b60dc32"
     sha256 cellar: :any,                 arm64_monterey: "545984791dc0ca9ec1bfbbfebd043c96cd167de726a66b350e2fb170b3762e15"
     sha256 cellar: :any,                 arm64_big_sur:  "2faa7483b341ecbca7d39117af7ccfe5e494dbe1de2e8df06438151b4fd21639"
     sha256 cellar: :any,                 monterey:       "5d95749d5577bf4e949e1c840e83f0537e9233460e058a77b8019352de7e2941"
