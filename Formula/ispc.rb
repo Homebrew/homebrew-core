@@ -1,10 +1,9 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/v1.18.0.tar.gz"
-  sha256 "81f2cc23b555c815faf53429e9eee37d1f2f16873ae7074e382ede94721ee042"
+  url "https://github.com/ispc/ispc/archive/v1.18.1.tar.gz"
+  sha256 "5b004c121e7a39c8654bb61930a240e4bd3e432a80d851c6281fae49f9aca7b7"
   license "BSD-3-Clause"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "47f30788b764858f0ac353d6f44cb1a4311052219efb9e1c5ab1a167eabfa9cb"
