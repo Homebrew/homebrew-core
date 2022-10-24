@@ -7,6 +7,7 @@ class Diffutils < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db92359b7a7cc8eacdc1b5998df69cfa24bdaa54e02ae06f4a10bdb339c190f8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4261be9ec928e4e841efd205eef060dc8a536b033c7d4377eae6e51f099b9eb2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "239aaf4a4b3e63ade873472f3442e6a910130f1f999b494ee02fa6acffa11c0b"
     sha256 cellar: :any_skip_relocation, monterey:       "64ddb0cccbc7163969ac093ca0251053991af34393188d3457695a358a0f3034"
