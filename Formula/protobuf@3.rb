@@ -6,6 +6,7 @@ class ProtobufAT3 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d78c587c5683c6ef029c414b915276ee0098008028ae6d9905cd42ffc76457a9"
     sha256 cellar: :any,                 arm64_monterey: "6d43d690893a0dc2e18de52be03f748a854f310a89a120314a163cde52d6749e"
     sha256 cellar: :any,                 arm64_big_sur:  "24a6c8831bf3297652ffa6a634886b243ca5709742e39f16b6de9929f22a3b74"
     sha256 cellar: :any,                 monterey:       "04e654c28bac719703534f2b2e44cdba72de4456ba71d6419dd67eb70f04c398"
