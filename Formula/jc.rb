@@ -3,8 +3,8 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/8a/db/f2d29bc2d86109cd5e5f3922621572cc36874502879eace648f743b7f777/jc-1.22.0.tar.gz"
-  sha256 "0cb5ba460f0a7e3831005a7520f5a12d831670d705422c7b650b0f843c229784"
+  url "https://files.pythonhosted.org/packages/30/77/e5f82206568c4729bd9a568d7cbd3112784fcb81a4500779aa8e83ddf6ba/jc-1.22.1.tar.gz"
+  sha256 "57d6e5d6ded87b2fcc08be715a3aed326e930cb5c9d7abcc9e4d57fa8229189a"
   license "MIT"
 
   bottle do
@@ -30,8 +30,8 @@ class Jc < Formula
   end
 
   resource "ruamel.yaml.clib" do
-    url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
-    sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
+    url "https://files.pythonhosted.org/packages/d5/31/a3e6411947eb7a4f1c669f887e9e47d61a68f9d117f10c3c620296694a0b/ruamel.yaml.clib-0.2.7.tar.gz"
+    sha256 "1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"
   end
 
   resource "xmltodict" do
