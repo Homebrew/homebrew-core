@@ -8,6 +8,7 @@ class Hadoop < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "caad5e1aa87bf016bdb4bd6e828e21640136ad33d18de09410d2bf4f2e985f00"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "caad5e1aa87bf016bdb4bd6e828e21640136ad33d18de09410d2bf4f2e985f00"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "caad5e1aa87bf016bdb4bd6e828e21640136ad33d18de09410d2bf4f2e985f00"
     sha256 cellar: :any_skip_relocation, monterey:       "a7285cf8aeaae3e175340d73f5458aad739dcf377e5e3c622867f3889a5921da"
