@@ -14,6 +14,7 @@ class Clamav < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "ac8c49781f54919c239b5fbd1d25f5c9c5f4df9f50f9708a9180a75e8fbd276b"
     sha256 arm64_monterey: "17bdce90d972244e322899200109657442978e7c25df8e8b2d9d30981a9dde20"
     sha256 arm64_big_sur:  "bf78ede987750a3c358a28fc33a882b4285eb133d821c712ecf00d2bd7fc5095"
     sha256 monterey:       "7f7207e5a902289cbce8f898226ee64ac630c1ad6000139fa45c78fbd25be2d8"
