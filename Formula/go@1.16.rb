@@ -7,6 +7,7 @@ class GoAT116 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0445f27149b6062b87a2fc8493e09424adb4fe827765133e4f6c9e7ee79c1191"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d0500786661f7cddfc20403a9daa9af648404e0564363783fb7d9fc44e884fe3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5dcd84f44f1231cf1d32cbe6ca5d5f158de11efe7ea24b1ae24b4ede68cc6361"
     sha256 cellar: :any_skip_relocation, monterey:       "b57fe6d2c36ea1529189bd3b7c9687a17c5b66660843f8f8db80b3a437693743"
