@@ -11,6 +11,7 @@ class Libotr < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "116be56f3984c24515edfed3f57dbf20845d7cb132b1286f6529cfb6ddb39051"
     sha256 cellar: :any,                 arm64_monterey: "5bec49cd5eed27e30367920033e87d1e40e2857fb3189f3eea37b79e269460ef"
     sha256 cellar: :any,                 arm64_big_sur:  "d3f0dce4e18d75daa3563be158054d7f5c92f4de80e5169dfaf7f9b785deed8d"
     sha256 cellar: :any,                 monterey:       "780996159fd32cfe192acbde0b7a689473a0036b86473d468348e45ca38dcfad"
