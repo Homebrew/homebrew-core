@@ -7,6 +7,7 @@ class ProxychainsNg < Formula
   head "https://github.com/rofl0r/proxychains-ng.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "1bc1b52df2f57921158ffed11abe9f759aaaca442f69839f035c4a6fbbb987f2"
     sha256 arm64_monterey: "ce214ff6acd1265dc03907d4415c1b7d883862d56e046f305fb7ad1a23295840"
     sha256 arm64_big_sur:  "4a5d12dcf616731f16127b8c2a0f77adccaa813a74e9952bf7de504f4f6818c2"
     sha256 monterey:       "68cdf4b1a018cc0a94513227ff073dfa430658f330dce45dcc041e001639e8f1"
