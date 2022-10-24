@@ -12,6 +12,7 @@ class PdftkJava < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a5857d7211fd50b381bffc97a2b986bf1b247da437f29ebd93c7f3996901e20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "89c574a7f8c34385575fb89a88bb4e17c29dae1f5f4d4159c8d99a9d38e1dd9c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d49f5787ea1de2dc8a3b0b5247fbe13f3afedd06300723a397034ddd55a9607b"
     sha256 cellar: :any_skip_relocation, monterey:       "4c681bcf7c438fe4579a383ef327fa7d999bdae7a02d07610ce21b9c31e008ea"
