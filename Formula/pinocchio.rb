@@ -6,6 +6,15 @@ class Pinocchio < Formula
   license "BSD-2-Clause"
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "98bf766f77d368bb184e39c9c33281f00abd7c69c5cd5d6f17ac8843b6cd43ac"
+    sha256 cellar: :any,                 arm64_big_sur:  "58bdd9a4ddea7e81086889d6cbe079f0d4eef3e5a0c254d8a64921e31bc07229"
+    sha256 cellar: :any,                 monterey:       "8d68c4d2056e66623b40aa52c8bf901dcd9d0443f638252580af2f7c0acc7e8c"
+    sha256 cellar: :any,                 big_sur:        "42cbac5983a70777ffd7c3633e1224758bace5bf4159bf879edfbdeebfc59ad0"
+    sha256 cellar: :any,                 catalina:       "00a3b64dd1034bb130090c25ee0a4fe926f6defe7bee9a0ef844e0616edba48d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "800f485575744a2500673df753ae8a1cde33fb900bc19190dfad990d28c99c1a"
+  end
+
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "boost"
