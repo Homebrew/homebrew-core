@@ -6,6 +6,7 @@ class XcbUtilRenderutil < Formula
   license all_of: ["X11", "HPND-sell-variant"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2ed461a699bf32016f2a95f313ed16c492dfedd98249dd86b2b6e558374fb0ae"
     sha256 cellar: :any,                 arm64_monterey: "295e5e58b68d75ee1938c78dda67904e0ba42ed6173357ea357f22140069b7dd"
     sha256 cellar: :any,                 arm64_big_sur:  "e9b427a9928e8cf63481ecb3a3d1bbc9ac4091df0229c6bfde4735a723e0e073"
     sha256 cellar: :any,                 monterey:       "2f416f529c5764d88b98ea0c29d1afad765affb466aa69e465d998b7bd042fba"
