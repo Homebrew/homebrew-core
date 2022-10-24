@@ -20,6 +20,7 @@ class Id3lib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d7b4e26e6b79cdc70261532ee5f64546900499c9dbfdf66c0959ea3a30c8a3a8"
     sha256 cellar: :any,                 arm64_monterey: "bde33424b92f09c04a31be4efbb346254d6027b5bbc1bd290fd59dfd649b7e9a"
     sha256 cellar: :any,                 arm64_big_sur:  "7511c1df301e89112972d2b8aa0cc3711f4be7276317f345a26e64ae2a31143b"
     sha256 cellar: :any,                 monterey:       "a5dd0668b696e1d6c3ac17d1d516c2a41ea354606c9db893b90575d01f714a40"
