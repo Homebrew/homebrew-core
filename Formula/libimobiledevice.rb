@@ -6,6 +6,7 @@ class Libimobiledevice < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "011e027433848f23cd9d96aee9f46531f48f8462bd763fe799e09b36eeaa4851"
     sha256 cellar: :any,                 arm64_monterey: "f3c97e567f59c4a8ab79f8a3d66a32d109fc9a7c22891589b998edb6a4e5ba28"
     sha256 cellar: :any,                 arm64_big_sur:  "41a64c9856f7845bb4c21bba4f42eb55c640301b59c032eb4db416db19ecf97d"
     sha256 cellar: :any,                 monterey:       "2cde67c8eef4e971ce74428a9162e9680d7a9ab542571f438602efe431d3a121"
