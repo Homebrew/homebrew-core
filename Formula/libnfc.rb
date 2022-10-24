@@ -6,6 +6,7 @@ class Libnfc < Formula
   license "LGPL-3.0"
 
   bottle do
+    sha256 arm64_ventura:  "28002ee7cadbe88fdd4a614804a813b4d46a17d4cb2a1fe7d24fe17eff04f933"
     sha256 arm64_monterey: "24d476cf0560256e53b5efb4f915ead0e5a5bf336da89395a3b8a5c0903f1caf"
     sha256 arm64_big_sur:  "6e97d8892b2129437513be8a21fccf7e3c6a23b14dd28e3d43aea1fce9b97ed7"
     sha256 monterey:       "a42411e1b19e52e85c138f4566613bc87570851403d148315d384d953d2a82b5"
