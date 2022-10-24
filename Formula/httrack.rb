@@ -13,6 +13,7 @@ class Httrack < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "73e638d8cb9e9cb31a321bd491e66fda2e408c521b0c7308f87c2020ff2862b1"
     sha256 arm64_monterey: "c5a4b83c1114034b3f51ad5d906d6e4f984afd7696089062183ede4281ed1700"
     sha256 arm64_big_sur:  "e33695d628a65bb1c6a5bb5f1147ea4560f8881482e60e10f0a8837527153609"
     sha256 monterey:       "b8e82f9c6ad3e8011d5551553b4866752d12929994b36cdcd8128e69cacda3d6"
