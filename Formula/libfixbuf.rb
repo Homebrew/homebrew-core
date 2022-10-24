@@ -11,6 +11,7 @@ class Libfixbuf < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "1f90d97eb8549f9daddef3c3d01834a0613111fa8d4af46f1d4a596b27b1a3e7"
     sha256 arm64_monterey: "74d131854da80f316aeaf105d83c590ea4ea0f705c5617b0ddfdc07d59063232"
     sha256 arm64_big_sur:  "d29c4e4bd8a1d13508214f781306188fe89e78579747aea4ab1166a9d33a4402"
     sha256 monterey:       "e769a1deb354474818e4edd98d91c4a6fa8c54e7f56402feaec66e3f566ee149"
