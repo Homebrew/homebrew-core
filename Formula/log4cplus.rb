@@ -11,6 +11,7 @@ class Log4cplus < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a0a8e4ba248749650e1444954c18d7fcbd91297bcd9514f611d8d17323c73432"
     sha256 cellar: :any,                 arm64_monterey: "1c462b9d31dce4812a51fe1a620d423bacc424d12abfba3b9e161a3debda65b6"
     sha256 cellar: :any,                 arm64_big_sur:  "fe85d95a5749af4c54332c4f799a121b8d15a11f949e96abbb22a8287a8c4c2c"
     sha256 cellar: :any,                 monterey:       "affad148e3fc8a11f5c3cfcca7aaa0b78a6fb0c1c1a23c43107b12af159274bc"
