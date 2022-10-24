@@ -11,6 +11,7 @@ class Talloc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "0ae18aedff1c724c678e2bd828bad1d72182b0681146f7d4e194d7004732b9ee"
     sha256 cellar: :any,                 arm64_monterey: "14c38dbabaa0448ddea4576de5ac2fb6badf605c4db2ae4e5fa72c1ec19b4f95"
     sha256 cellar: :any,                 arm64_big_sur:  "75f15e5f72f21ee560283263719a256bfba325b510b420fa45775a1622b12de5"
     sha256 cellar: :any,                 monterey:       "a7a0a524000d68b5e82bcb885e91a1944ecb372122f43424a2aeec684a23a512"
