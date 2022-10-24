@@ -18,6 +18,7 @@ class Emscripten < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "21f8d0a7b090386dca2f43a3192f0d24ceae04489633d150b0287e96bab0a9c4"
     sha256 cellar: :any,                 arm64_monterey: "ac411cc883710488b0b57d2d4eed4e2145cc9dd63bf079d8170147ae7b644c5e"
     sha256 cellar: :any,                 arm64_big_sur:  "f3271e41c97ffb2bc79f8591928879540e78f4cfb0a917423d38cdb2f6d3f871"
     sha256 cellar: :any,                 monterey:       "a81b48308a7d307931c6676a7c7981661efa39d8f60dd5799fec258f542f82b0"
