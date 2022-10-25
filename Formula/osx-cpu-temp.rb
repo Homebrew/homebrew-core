@@ -6,6 +6,7 @@ class OsxCpuTemp < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5189807136b9dce5f62994ea3451ab91f560fcdd665e35f50387c19667af17d4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "49df01d45be6aa2740ee6e4be207d34586eb84626610fdd53c723d4e071e4f77"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d072b980bb252ce0c91fbfafdbcf20f0119d003cbfe35779c78fc262fec8a509"
     sha256 cellar: :any_skip_relocation, monterey:       "734f1c9e1d3e8486d862fc2186ba476807d3a8da54c5cb673d6ca3c29db59b09"
