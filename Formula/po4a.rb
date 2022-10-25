@@ -12,6 +12,7 @@ class Po4a < Formula
   head "https://github.com/mquinson/po4a.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "abb3c590a097f4af80c367d9bbd1d08cf0d0a3f5ca24240a90f67eaa90d9e55e"
     sha256 cellar: :any,                 arm64_monterey: "ad1b25559dbaa2aac93c9f98ed0481253d855ace71bce2e08eda54553aee3f6d"
     sha256 cellar: :any,                 arm64_big_sur:  "9b419d577f2075c523bf97fc0c26f658355e3982f6f4a928100e333a1c2d5b80"
     sha256 cellar: :any,                 monterey:       "2a52abf9c7013fde7c322182f7f684ed9668fe420099654059dc1e7167e119d5"
