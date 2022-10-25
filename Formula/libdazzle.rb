@@ -6,6 +6,7 @@ class Libdazzle < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "2cc26886bfeaa4f330ce3115ec2283b3b4a3edb86f2b1214b93311532eab992f"
     sha256 arm64_monterey: "fd00728bb05e73562b642a2a36bb24562f97c867710642e08bcc522fbd06ea5e"
     sha256 arm64_big_sur:  "03413be24801e4b02bf0b72e4900463908267c62849277bcdcd006409ca73dc4"
     sha256 monterey:       "df1d41d43c5d86024ba7d83b13272f324f42ecc555a4cd9670c13e95b027d1ba"
