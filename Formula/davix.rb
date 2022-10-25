@@ -7,6 +7,7 @@ class Davix < Formula
   head "https://github.com/cern-fts/davix.git", branch: "devel"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6c59ee85fc7cb668ecbf170a3bac4a258e8be44ec3bf889d052b994bd28d3fac"
     sha256 cellar: :any,                 arm64_monterey: "aa25fb42dcca1ac2ad69f5ee1a7d0ab84c5df70a2c4036907c33bf3739b8eaf3"
     sha256 cellar: :any,                 arm64_big_sur:  "95d327e7cfb9dfaa8dc0e5785f58010ba3dfcd8bba0904d9fdc3e19ea5dba38c"
     sha256 cellar: :any,                 monterey:       "3ee908b44c9f4ecb035f409890a07ef4cc7f41365275c0bf62285cbb0784c0a7"
