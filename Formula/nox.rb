@@ -18,6 +18,7 @@ class Nox < Formula
 
   depends_on "python@3.10"
   depends_on "six"
+  depends_on "virtualenv"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz"
@@ -59,14 +60,14 @@ class Nox < Formula
     sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/3c/ea/a39a173e7943a8f001e1f97326f88e1535b945a3aec31130c3029dce19df/virtualenv-20.16.3.tar.gz"
-    sha256 "d86ea0bb50e06252d79e6c241507cb904fcd66090c3271381372d6221a3970f9"
-  end
-
   def install
     virtualenv_install_with_resources
     (bin/"tox-to-nox").unlink
+
+    # we depend on virtualenv, but that's a separate formula, so install a `.pth` file to link them
+    site_packages = Language::Python.site_packages("python3.10")
+    virtualenv = Formula["virtualenv"].opt_libexec
+    (libexec/site_packages/"homebrew-virtualenv.pth").write virtualenv/site_packages
   end
 
   test do

@@ -342,7 +342,7 @@
     "exclude_packages": ["jsonschema", "attrs", "pyrsistent"]
   },
   "nox": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["six", "virtualenv"]
   },
   "nvchecker": "nvchecker[pypi]",
   "oci-cli": {
