@@ -12,6 +12,7 @@ class Poco < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f2bcfffd00943f9b94f012a6c17a813aa800285d67372ecfaf8d2f4917c512b6"
     sha256 cellar: :any,                 arm64_monterey: "4e97f98c2fb41f8ce19584e96b4da3d3ebb249a88b822a51e20a969437283adf"
     sha256 cellar: :any,                 arm64_big_sur:  "581acee0c0c7ef9fd67018df4edf413c950118e299aac7192368079430edc51c"
     sha256 cellar: :any,                 monterey:       "796f707d2664dc470386a0551a3180b6abc27b101d2ee8472fa5eef5236305ca"
