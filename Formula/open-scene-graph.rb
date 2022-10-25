@@ -17,6 +17,7 @@ class OpenSceneGraph < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "a061b2925b3d50c71102706eb8ccb68669df838cd4a716da8a1534003a55bc33"
     sha256 arm64_monterey: "cea275ac6fd59178f3d55ef6bf2ffedd5d8aab1431877007cba73d7844dc6091"
     sha256 arm64_big_sur:  "637623babd3324b945b39a4af706874c3f48420854e7b591e0df2ef0d1c77dc1"
     sha256 monterey:       "2f2617969f263e4aa08b51fb64d9a7023c42e2d14e2c075a7a4602ba95a726f3"
