@@ -6,6 +6,7 @@ class Cdktf < Formula
   url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.13.3.tgz"
   sha256 "4d86b3ca68333fb5299cfdd75f63831fdc4521f2d24338cd23112355576a43dc"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a19078a26d1c3f506890e8fce89066c8fbe01d89897a00934fd3049ec20e0d0b"
@@ -17,12 +18,13 @@ class Cdktf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b856f04094643fbded47cee8e7816f707260475f0b6e21cebc20552aff5b2b3"
   end
 
-  depends_on "node"
+  depends_on "node@18"
   depends_on "terraform"
 
   def install
+    node = Formula["node@18"]
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    (bin/"cdktf").write_env_script "#{libexec}/bin/cdktf", { PATH: "#{node.opt_bin}:$PATH" }
 
     generate_completions_from_executable(libexec/"bin/cdktf", "completion",
                                          shells: [:bash, :zsh], shell_parameter_format: :none)
