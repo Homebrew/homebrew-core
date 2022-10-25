@@ -6,6 +6,7 @@ class Octomap < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f7494aecb65eb2430983ffa409df99f5831553fd29da3ebcb5140a7a30095d97"
     sha256 cellar: :any,                 arm64_monterey: "229cd1d731bb01140ce736fcfcf97e8c0f9e270233339e57c834b49a77b86331"
     sha256 cellar: :any,                 arm64_big_sur:  "4e1d89df8bbf973444851efd60273558eb8d3888c85d199f3350f0b4cb66e977"
     sha256 cellar: :any,                 monterey:       "b46273db2c913a4952be98b73811b6fc40683c37ccac8e2d4c8b3eb369886154"
