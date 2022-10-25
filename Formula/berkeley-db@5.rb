@@ -4,6 +4,7 @@ class BerkeleyDbAT5 < Formula
   url "https://download.oracle.com/berkeley-db/db-5.3.28.tar.gz"
   sha256 "e0a992d740709892e81f9d93f06daf305cf73fb81b545afe72478043172c3628"
   license "Sleepycat"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "402f563d09b08afed7bc62e117b0fad4d1cbc39fec14c49ddd4b1e58a4dc9846"
@@ -24,6 +25,12 @@ class BerkeleyDbAT5 < Formula
     directory "src"
   end
 
+  # Further fixes for clang
+  patch :p0 do
+    url "https://raw.githubusercontent.com/NetBSD/pkgsrc/6034096dc85159a02116524692545cf5752c8f33/databases/db5/patches/patch-src_dbinc_db.in"
+    sha256 "302b78f3e1f131cfbf91b24e53a5c79e1d9234c143443ab936b9e5ad08dea5b6"
+  end
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
@@ -42,6 +49,7 @@ class BerkeleyDbAT5 < Formula
       --prefix=#{prefix}
       --mandir=#{man}
       --enable-cxx
+      --enable-dbm
     ]
 
     # BerkeleyDB requires you to build everything from the build_unix subdirectory
