@@ -7,6 +7,7 @@ class Latexindent < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09e94d6764195847ad19e25f80d7fab6f7ff263313ae7ecfb22521e6335ddce7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "998ac38ee6f55c86d4d4f338e7a8c623f1458ca1dd68995b565b2b79d6e491a0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7632ce986667d56bea771e06e865b0c9a56686361ba8eaab0e86f9bccd5e12e2"
     sha256 cellar: :any_skip_relocation, monterey:       "e741f889e14212e1edba606aa6c0d84a00bc5637e310aa4c37dbf0e72e88af8c"
