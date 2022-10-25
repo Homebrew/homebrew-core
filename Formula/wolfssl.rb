@@ -67,6 +67,7 @@ class Wolfssl < Formula
       --enable-opensslextra
       --enable-poly1305
       --enable-psk
+      --enable-quic
       --enable-rabbit
       --enable-ripemd
       --enable-savesession
