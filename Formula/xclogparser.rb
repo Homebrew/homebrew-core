@@ -7,6 +7,7 @@ class Xclogparser < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "874facba4b7d151f623d033a310974b03d443c2fa2729fa45144d9951879e9df"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e813bd26c732d18903f050dc8556bcbf44c87c707606e72fc87b8494eced38c0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1913c040932b88bc7319db6bf8c3eb388b804fb5b0d93eda35cd4419f7a4e373"
     sha256 cellar: :any_skip_relocation, monterey:       "1471bf0035f4bd72db87c19404848fac8ea922e678128cff0eedf9d8d4713b72"
