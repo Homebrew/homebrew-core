@@ -7,6 +7,7 @@ class Hcxtools < Formula
   head "https://github.com/ZerBea/hcxtools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6594b908c8db3b6381504be722a1ca819cc0d5415fe8ffeca49242077991f85b"
     sha256 cellar: :any,                 arm64_monterey: "24d06b03f444b8d96ababeded338616a4f2dcf9e319156f42eb320dd71ce0f81"
     sha256 cellar: :any,                 arm64_big_sur:  "6401a756aebf675ade6eb471c579b1841d8658b660d38b7f4bc84b279dcd5275"
     sha256 cellar: :any,                 monterey:       "f147def903c38e1f5e58e00b997a60c41e9856a0bbd347c6ba3e3630049e96dc"
