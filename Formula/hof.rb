@@ -8,12 +8,12 @@ class Hof < Formula
   head "https://github.com/hofstadter-io/hof.git", branch: "_dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "75ab35b3306aae9403b60288ac6e3f53dc8fb2a56a1a6d92643b9c4872ec1a79"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "75ab35b3306aae9403b60288ac6e3f53dc8fb2a56a1a6d92643b9c4872ec1a79"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a19dd456fd4d394eef9c77af87ba4511f8af94b44f6f5d78e7cbe498e3e9ffa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4a19dd456fd4d394eef9c77af87ba4511f8af94b44f6f5d78e7cbe498e3e9ffa"
-    sha256 cellar: :any_skip_relocation, catalina:       "4a19dd456fd4d394eef9c77af87ba4511f8af94b44f6f5d78e7cbe498e3e9ffa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79bac705d5a07de8f182b4d6ed0035683c852681296491a4a68a84d6b88d3fb0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "201fc39b5bfa2a144cf714cd8c974ab4d7c40bc73fe3c0ffb880f2d910759463"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "201fc39b5bfa2a144cf714cd8c974ab4d7c40bc73fe3c0ffb880f2d910759463"
+    sha256 cellar: :any_skip_relocation, monterey:       "17049cc5cb7f04eebe8de0ec4353c77df7cf04466b91ab84fe982f0b8b7cd7e2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "17049cc5cb7f04eebe8de0ec4353c77df7cf04466b91ab84fe982f0b8b7cd7e2"
+    sha256 cellar: :any_skip_relocation, catalina:       "17049cc5cb7f04eebe8de0ec4353c77df7cf04466b91ab84fe982f0b8b7cd7e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "222943c19066f222fefcd9530b28f0024e74bea67395ecb57107bf9d11451754"
   end
 
   depends_on "go" => :build
