@@ -16,6 +16,7 @@ class Vcpkg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4fd1c6f4f8d360d9c99d9a0d9aa06aa99120145be59cdf0c785b45bba175d5e4"
     sha256 cellar: :any,                 arm64_monterey: "79afb9bb2e4338f439a6f280b839e499b9a88eb3ec984b2e9f1641f84178adc5"
     sha256 cellar: :any,                 arm64_big_sur:  "ce788d7abcd355b7bb33fa599858c3912ddb29a88b168ef12a4bfa17510cac0b"
     sha256 cellar: :any,                 monterey:       "ca338d600396f34fdd291fecedc5ebd216c79fe7105daa34158a089955c269e3"
