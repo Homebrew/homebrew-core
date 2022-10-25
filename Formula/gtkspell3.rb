@@ -7,6 +7,7 @@ class Gtkspell3 < Formula
   revision 3
 
   bottle do
+    sha256 arm64_ventura:  "e2cef76e8d0764b65ced1afb073366910fe3c05445441b4ee3a711fd74503cf1"
     sha256 arm64_monterey: "6ff42450ce311ad95784403d3961db1a80bbac3d6b65597ea7673e576fd366cd"
     sha256 arm64_big_sur:  "17e1dd6d234ee6ce072ab846cdccc3fb2f672f809b4e9a2af0d55d92600e66d7"
     sha256 monterey:       "730c7a14140f20a9c105d3865a596e3ab11a05b12ba4526cafb7220ee0dcf289"
