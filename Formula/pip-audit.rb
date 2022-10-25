@@ -16,6 +16,7 @@ class PipAudit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "39ced1631077f0596824b733c301660a6fb8aad705ce0b880e95e399f8c2f5b1"
   end
 
+  depends_on "pygments"
   depends_on "python@3.10"
   depends_on "six"
 
@@ -82,11 +83,6 @@ class PipAudit < Formula
   resource "pip-requirements-parser" do
     url "https://files.pythonhosted.org/packages/fc/aa/4fbc8040db7afae616eda6329ddc8ef73afc8bcb611bf9126937970bca83/pip-requirements-parser-31.2.0.tar.gz"
     sha256 "8c2a6f8e091ac2693824a5ef4e3b250226e34f74a20a91a87b9ab0714b47788f"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "pyparsing" do
