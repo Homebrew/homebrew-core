@@ -7,6 +7,7 @@ class Xclip < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e335771d3bb8f072b25c2cf6404f12540cfbd8692d97cd678a086a08b76f2771"
     sha256 cellar: :any,                 arm64_monterey: "ebf047556b2d594089b26ea72250eb9ea3c4a4c1f779642e08d1cfd0d131f631"
     sha256 cellar: :any,                 arm64_big_sur:  "2a9e42621fbc329856454f299e2da20b8776de9136cf1233a97ec4662ef2b5fe"
     sha256 cellar: :any,                 monterey:       "47b1812c7d1e2aa7f70f2721693b3e2ddb89761886e4432009240d4349369da0"
