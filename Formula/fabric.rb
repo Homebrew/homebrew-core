@@ -20,6 +20,7 @@ class Fabric < Formula
 
   depends_on "rust" => :build
   depends_on "openssl@1.1"
+  depends_on "pyinvoke"
   depends_on "python@3.10"
   depends_on "six"
 
@@ -36,11 +37,6 @@ class Fabric < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/89/d9/5fcd312d5cce0b4d7ee8b551a0ea99e4ea9db0fdbf6dd455a19042e3370b/cryptography-37.0.4.tar.gz"
     sha256 "63f9c17c0e2474ccbebc9302ce2f07b55b3b3fcb211ded18a42d5764f5c10a82"
-  end
-
-  resource "invoke" do
-    url "https://files.pythonhosted.org/packages/df/59/41b614b9d415929b4d72e3ee658bd088640e9a800e55663529a8237deae3/invoke-1.7.1.tar.gz"
-    sha256 "7b6deaf585eee0a848205d0b8c0014b9bf6f287a8eb798818a642dff1df14b19"
   end
 
   resource "paramiko" do
@@ -65,6 +61,11 @@ class Fabric < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # we depend on pyinvoke, but that's a separate formula, so install a `.pth` file to link them
+    site_packages = Language::Python.site_packages("python3.10")
+    pyinvoke = Formula["pyinvoke"].opt_libexec
+    (libexec/site_packages/"homebrew-pyinvoke.pth").write pyinvoke/site_packages
   end
 
   test do
