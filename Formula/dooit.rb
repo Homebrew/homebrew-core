@@ -22,6 +22,7 @@ class Dooit < Formula
   depends_on "python@3.10"
   depends_on "pyyaml"
   depends_on "six"
+  depends_on "virtualenv"
 
   resource "CacheControl" do
     url "https://files.pythonhosted.org/packages/46/9b/34215200b0c2b2229d7be45c1436ca0e8cad3b10de42cfea96983bd70248/CacheControl-0.12.11.tar.gz"
@@ -198,11 +199,6 @@ class Dooit < Formula
     sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
   end
 
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/a4/2f/05b77cb73501c01963de2cef343839f0803b64aab4d5476771ae303b97a6/virtualenv-20.15.1.tar.gz"
-    sha256 "288171134a2ff3bfb1a2f54f119e77cd1b81c29fc1265a2356f3e8d14c7d58c4"
-  end
-
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
@@ -214,6 +210,11 @@ class Dooit < Formula
     poetry = Formula["poetry"].opt_bin/"poetry"
     system poetry, "build", "--format", "wheel", "--verbose", "--no-interaction"
     venv.pip_install_and_link Dir["dist/dooit-*.whl"].first
+
+    # we depend on virtualenv, but that's a separate formula, so install a `.pth` file to link them
+    site_packages = Language::Python.site_packages("python3.10")
+    virtualenv = Formula["virtualenv"].opt_libexec
+    (libexec/site_packages/"homebrew-virtualenv.pth").write virtualenv/site_packages
   end
 
   test do
