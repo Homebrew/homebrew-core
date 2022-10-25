@@ -34,6 +34,6 @@ class Taplo < Formula
       [[fruit]] # Not allowed
     EOS
 
-    assert_match("invalid TOML", shell_output("#{bin}/taplo lint invalid.toml 2>&1", 1))
+    assert_match("invalid file error", shell_output("#{bin}/taplo lint invalid.toml 2>&1", 1))
   end
 end
