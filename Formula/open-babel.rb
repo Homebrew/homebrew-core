@@ -9,6 +9,7 @@ class OpenBabel < Formula
   head "https://github.com/openbabel/openbabel.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "60cb6bc616f2cda72267dc99601e6349ac1c1d9f27185a58fa60c4ec3dd482f2"
     sha256 arm64_monterey: "f62cb276d94338ddfefe3610db7242b07071522e51b644993d538b27cdd67336"
     sha256 arm64_big_sur:  "d21957b0b507d271ee125ba0ce47bd87eea70c807e78510a06c4066f476eb27d"
     sha256 monterey:       "fe236b2a01b1ac206432b3954c66071bdb0f2b55540c699974a9d6410d0ddfe7"
