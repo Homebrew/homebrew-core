@@ -8,6 +8,7 @@ class Sphinx < Formula
   head "https://github.com/sphinxsearch/sphinx.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "29d4a1cb48d6bb64fe32f3fbb448687a7f48c5a309fbd464a05ab4df30e0f4e0"
     sha256 arm64_monterey: "0a7686315aa341f8d12d0a46f7d7f13bf921e85b59a285292bd67be0ec6cb9c5"
     sha256 arm64_big_sur:  "0702c419e4680937a9e9c1970074e7e785b5b7307c90bb852f849bebeda8bd17"
     sha256 monterey:       "56a74fda35d958988e0fa6c5420074a5933b47f990aee4c42c05bf57cce2d8a5"
