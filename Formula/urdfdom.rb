@@ -12,6 +12,7 @@ class Urdfdom < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "5e1e6d62b29b45f4ca8d470a8d7850d1d052243aa60623f065f57c8119a5c612"
     sha256 cellar: :any,                 arm64_monterey: "0119d332e408fcfc79bba65b7f2ead332e309c101d48eeb9587ea9eb3bcb3053"
     sha256 cellar: :any,                 arm64_big_sur:  "c36ca6d6feeb0bdc9b5a53ab272a78cd5a3e5902fd13bcc7b5ea1edc743a35d7"
     sha256 cellar: :any,                 monterey:       "71070ede6f57db3c5140144fc0d18ed71d7c159f14b5c7834d4cec7f33fbe8e1"
