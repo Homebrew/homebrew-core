@@ -8,6 +8,7 @@ class DiffPdf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a0977dfd009954ba4428e60a954efa92eaa3202eb2061e6a60aaa3c16faf2fc4"
     sha256 cellar: :any,                 arm64_monterey: "0616440421b45bca4494c5eaf90640d61b4f70ef77fb4a811fcebda766f07957"
     sha256 cellar: :any,                 arm64_big_sur:  "0e01c107b0949a6d3baeefaf15899461a8b7ac886efdba9d2960a52a3e62d59a"
     sha256 cellar: :any,                 monterey:       "439c5722731ba71ccff2e07de2c7b38262c47f8532c9949f606e9e12419682ea"
