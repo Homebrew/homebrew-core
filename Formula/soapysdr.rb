@@ -8,6 +8,7 @@ class Soapysdr < Formula
   head "https://github.com/pothosware/SoapySDR.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "db50528d91467933327133e17a8ae82fcb767cc2a4a0863f8bee78d7706f3622"
     sha256 cellar: :any,                 arm64_monterey: "b3a83674061e2817f0abf760a6cc8d5a41f892c4e5250b7e3d79043e1212bc18"
     sha256 cellar: :any,                 arm64_big_sur:  "e4a46ed92fa0825e14d95de3165aa221665085ea4318a90c9acc158a363c64fa"
     sha256 cellar: :any,                 monterey:       "786f24bf08521e2334e447ae16ad1b4e695463ce11910519bb884479418fac13"
