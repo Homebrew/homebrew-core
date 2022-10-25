@@ -6,6 +6,7 @@ class Delve < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8677b21ea08fad3ec382c08feaad3c6624c0fea4a02b3fe776a9b507f2a6ef45"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2ceffaae98f8e76c57657d101d3f68fbf1c4388a4ef9ffa771b40860f10645cd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b59faf3121f887d24d3990b72ff9ad6dd068f37108a2f85d2b907c788b1b9e14"
     sha256 cellar: :any_skip_relocation, monterey:       "602d51e02775aa33db10a763881e9e2264d620f2a0e4d85bfb1b2b5309abbc10"
