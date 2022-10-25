@@ -23,7 +23,7 @@ class Zellij < Formula
   end
 
   test do
-    assert_match(/keybinds:.*/, shell_output("#{bin}/zellij setup --dump-config"))
+    assert_match("keybinds", shell_output("#{bin}/zellij setup --dump-config"))
     assert_match("zellij #{version}", shell_output("#{bin}/zellij --version"))
   end
 end
