@@ -1,8 +1,8 @@
 class OpenlibertyWebprofile8 < Formula
   desc "Lightweight open framework for Java (Jakarta EE Web Profile 8)"
   homepage "https://openliberty.io"
-  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/22.0.0.10/openliberty-webProfile8-22.0.0.10.zip"
-  sha256 "ad50290521282446459d9f104e2989ec321330ef3be23945ab2794159bc323d1"
+  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/22.0.0.11/openliberty-webProfile8-22.0.0.11.zip"
+  sha256 "002361aef8b92e3768b487aa10157c206d78f33db39af285e548aa9a30fae007"
   license "EPL-1.0"
 
   livecheck do
