@@ -7,6 +7,7 @@ class Gomplate < Formula
   head "https://github.com/hairyhenderson/gomplate.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8890dc7468a058943c8c3a386dedc24fed14d846ac3869ce482b5761da228f5a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7422e0c33f8344f90aaf7143ab3f9efb14765e1f224cc483668625a9c543dc03"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25361aea3bacfacd8e865b8187d961423172e995bac7bbcd1decc92a1aebe9a8"
     sha256 cellar: :any_skip_relocation, monterey:       "efd2b06c6aa0f8afc726a9972ed3fd1a27d82a52d0bfae4cc9452ca1164ad537"
