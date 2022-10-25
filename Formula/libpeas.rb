@@ -6,6 +6,7 @@ class Libpeas < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "e0c2f4f3d793b2cb31c147335b8b8a73a936b3a1c92716360906719e36d847ba"
     sha256 arm64_monterey: "f31169f0a56251d8250a7aa3607e4d1dd48c713573af071f94ab53e5023571cf"
     sha256 arm64_big_sur:  "ef7e7384713bc1ff69fe899f7ccc93c9650127a093d1e624b5c23db171ed7e1b"
     sha256 monterey:       "e392e3b05c1f5e86bed510ccf197282ad97a6d5ff4e2fb4cfa33b8656806ffb4"
