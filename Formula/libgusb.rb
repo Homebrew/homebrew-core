@@ -14,6 +14,7 @@ class Libgusb < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "26b94eb0f0b0e11f546e77604e38b030f699c0f7c496a07080b5439bd102b9a3"
     sha256 arm64_monterey: "5fe3e1113a8f5da64bf91ffbfbba3dcee4220d728100e9c1c8b9c81d9dd08f23"
     sha256 arm64_big_sur:  "3e0a1e44752ffc529b3dc8a6e547370a12c9f2ee94c65340a9688bf80becffe6"
     sha256 monterey:       "acdafe61076899853b4752a37d3b3546acd5076c418a495ecc0465885e1700fd"
