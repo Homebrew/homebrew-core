@@ -10,6 +10,7 @@ class Pdm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f116a3cfe5885ef1516ec97f8702dbd860623f7329cd9009b266e3dada1ab18c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e13e282296179bf8b66c324d706613c2aae5a3be629cec2f67779241a255a4a0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c07464896a31c525601624a41d9685ccaea11084ef22adddcf9b58648183b337"
     sha256 cellar: :any_skip_relocation, monterey:       "84a38c341e18718328eb0529f61e183f65f494f1fd95735741054b8ff7564e8b"
