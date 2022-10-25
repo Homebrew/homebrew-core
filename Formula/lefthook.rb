@@ -7,6 +7,7 @@ class Lefthook < Formula
   head "https://github.com/evilmartians/lefthook.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3839ea4f833564065a39aeecb5bf3d3134b80bca7bf3409b1b4146441c3962ab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7d86b705f1556d0a9a21e23b2c6efdc4e8f405c9e54c03628c7dfcfd8d59f135"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ddceeca13e706d54b213128f5e88a6bed255a17cfff46d84b9579190bd134a2c"
     sha256 cellar: :any_skip_relocation, monterey:       "3aba9a9a5357883178432f68bbf03f26679d24d2a8d1ce4d1a107105a941aa3a"
