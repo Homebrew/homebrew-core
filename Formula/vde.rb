@@ -7,6 +7,7 @@ class Vde < Formula
   head "https://github.com/virtualsquare/vde-2.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "982a56825cbd1bd374001330e3492e83a1d82825ed7228d33705ffad3b927e8e"
     sha256 arm64_monterey: "0cd674a5b677c8e4deb2735884366f6a384b0867aa7483e7293e361cbaab350e"
     sha256 arm64_big_sur:  "55d8e9f7b7e4f4593c6a3a4c88f4d6f11c76a8839b876fe63cae40d01e6312dc"
     sha256 monterey:       "88cc1ceea76bdf304ec6750a2c54c979b34869d853fe6942aff1b23ea213f83e"
