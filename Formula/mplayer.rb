@@ -12,6 +12,7 @@ class Mplayer < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "83bec17d76bc8a7dc8143733be3171cfb98325b9efdbb4f61975e7e23cc21e31"
     sha256 cellar: :any,                 arm64_monterey: "990f18527e83dddb5c93b7dbf3ebc57b58e8f75e06f3c8bc192fafae0f2ceb4a"
     sha256 cellar: :any,                 arm64_big_sur:  "d6f924fc2e95ae087a3614edee922fc72fd49aa2d2052593f8035841b8b77356"
     sha256 cellar: :any,                 monterey:       "bdea6626f7acb3fc1e82394302084dd9b69590775729de0c6a1197415fa1ef7f"
