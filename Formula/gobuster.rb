@@ -6,6 +6,7 @@ class Gobuster < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54786bd0e23be572c25896a9cea135252a40d3003d8c802f2918e8d71f96e4c7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f687fc8594fc7400f99fcfc8181bc7d020cf59ce38c2a3be7dbaa66c20e52ec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b005c501f889745a8da2ed39dda4ff71a603b62e644532589097c6bc81ed1c5"
     sha256 cellar: :any_skip_relocation, monterey:       "dced6c400a6e129c9edeef7b4602a42f4254358edfa129364ce5c9856376ccc5"
