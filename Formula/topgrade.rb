@@ -6,6 +6,7 @@ class Topgrade < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "93ca79a7d1695ac1d1876d10d489a3083ba9f75833c2537d50c8cf04d234c130"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7e3208512562df335f725643620fd4c88ab6e02f7e90f12cb14d0356db6496a7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c70c1ff6a08c659d840bdf187b1e3680f96cfcbf73517a785ac5b10b1e9eef84"
     sha256 cellar: :any_skip_relocation, monterey:       "29ebb6dcb8e89753c2e4a8e50045bf09fa13e3b09d95e75ed0253c0e85309293"
