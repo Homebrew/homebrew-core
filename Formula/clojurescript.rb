@@ -1,8 +1,8 @@
 class Clojurescript < Formula
   desc "Clojure to JS compiler"
   homepage "https://github.com/clojure/clojurescript"
-  url "https://github.com/clojure/clojurescript/releases/download/r1.11.4/cljs.jar"
-  sha256 "d1a7c82930428e5e844be0f30c599f0f1e101be7cec7e00e13f0a8708f635cd6"
+  url "https://github.com/clojure/clojurescript/releases/download/r1.11.60/cljs.jar"
+  sha256 "db13c578cbe9bc4ac12f62856db731da231710da2fb2b93eddbb9b9eda7bf2d7"
   license "EPL-1.0"
   head "https://github.com/clojure/clojurescript.git", branch: "master"
 
