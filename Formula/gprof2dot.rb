@@ -9,6 +9,7 @@ class Gprof2dot < Formula
   head "https://github.com/jrfonseca/gprof2dot.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06bea9e74ce626b87e8e0f5fbe4c44b2eaaf30219d4a5ec2528963016ee6a6e8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "831640a98f7f89f6afc897886d99c740315a4645f12948a7a94b433c9ef4b05e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef5ba7adfdd575dcca5d834d625b93f4c52f3198a6f5dfe72b12e09787bfdc7d"
     sha256 cellar: :any_skip_relocation, monterey:       "6fcbb85db16b9a6d16e64261aa4ad622c43e8dba810746f5907bcc365a936477"
