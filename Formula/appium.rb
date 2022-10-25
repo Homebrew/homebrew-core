@@ -9,6 +9,7 @@ class Appium < Formula
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
+    sha256                               arm64_ventura:  "d58c9925235b962cf33f38d3d4511ece2914bc73f957f2f1f959b5012c0eb68c"
     sha256                               arm64_monterey: "5b71cfdfa29c2bc98785b485fc0b279753125d9af2e9bf9bbc5e4d7f8d9ce4f8"
     sha256                               arm64_big_sur:  "e2f7fdf6d4c72380fd43936143660911c408b98542d0e033b3a2cbb20d6e1fab"
     sha256                               monterey:       "854d9cf2275384e65781c8201af16f3a6ce0ddea25fb0f12d2999fc09438c018"
