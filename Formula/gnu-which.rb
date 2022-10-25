@@ -9,6 +9,7 @@ class GnuWhich < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0778972c32eb2eb9cbde5026fe69c0a5c4bdfbc1e16f18c327e0c6f92a32385e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8343d2e916151642b540143f2b3f8a79af4a6e22df55e01b846bad2d0e509074"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "873e8ac50fdc7b40699f7ebcf29c73c768d2db8d958f1fdb2d4be13c0b670c3a"
     sha256 cellar: :any_skip_relocation, monterey:       "21e5e71e2a9aadc88636bdb7e76dc5aef17e5ca31b99e02553bc61263e2c36e8"
