@@ -26,6 +26,7 @@ class Tcptraceroute < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "aa1fdc2d1d997ff5e63da0625d7961cc7b7e7b75e6c4031ef42267d1ce277944"
     sha256 cellar: :any,                 arm64_monterey: "ba3030414b8fd5d2a556652a1bf5d7be188dddb8ad6e221e7d6662e295a00102"
     sha256 cellar: :any,                 arm64_big_sur:  "4e2b9c6ebec4fbbe3918044164a2ea7bfff0970e06e0c720bef8143d322ab3e2"
     sha256 cellar: :any,                 monterey:       "b9308ddeb907678411916f047d9119350c5054afd5e995e113cf5ad287156e9c"
