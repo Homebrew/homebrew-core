@@ -8,6 +8,7 @@ class Pocl < Formula
   head "https://github.com/pocl/pocl.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "763c6c34815b02cb72f021f36a46203cf64be5d5910021a608c64e2be1e725a5"
     sha256 arm64_monterey: "9d91bc69819fd1a381a63726b9caed1c78cfce71d0e81a246a5d6b374db19f59"
     sha256 arm64_big_sur:  "99ab32bd6ad08f28cfdbd745cdfe057487bdacff01d7d7d1ad176c4230b21636"
     sha256 monterey:       "d857f7ebdf4d88658b79a34a2d71902b846ad421ce17be610d7f4ad5c4725e80"
