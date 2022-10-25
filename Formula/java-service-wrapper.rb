@@ -6,6 +6,7 @@ class JavaServiceWrapper < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7d778d499ac49038d3f48669e93b948b1935e633e3e7ff3fd8ca4ecf98f50b4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2447aa9f2e257c6b7fa7cf17f4df29f908695d9e2275585f6a36257560837f9f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "101668fcd3b114ec988b6ec87119b9b9f38b6c144d2eae0add593c1afdad051d"
     sha256 cellar: :any_skip_relocation, monterey:       "ddc698eb778851d6c5c14383e90e34be5018121f5473cfe3834a41aa6b67b515"
