@@ -6,6 +6,7 @@ class Gitui < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09c437820d4fe8b80ba4a51613273faaeb241ffa473cdecbd62e6c2a80f82471"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ce4ae54339401e508a86c1d5da21e67804a0222750190a38442a3389e447d5d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b379c91b9464e72ff96a7fc32b75343d67ef7aba6de09a9c972b1236e58f0d9f"
     sha256 cellar: :any_skip_relocation, monterey:       "417c5b1af7a2473923ff063603380e95f8b04e5b5a6ae4a35a737291d5063bd0"
