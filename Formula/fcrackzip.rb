@@ -11,6 +11,7 @@ class Fcrackzip < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b454aa25f9a3bab105c3324be688848b1be96127fbb96849bc2ac4753816e29"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7233ae34d595f418531944e3df6a9573175e53790d11a83504e082dbfe0c8075"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30a4350e75184bde4f486b5291061e59fff1e3063aa2a0c24751d98c764f2b18"
     sha256 cellar: :any_skip_relocation, monterey:       "62b27ef95d7fcbcdaa6027adf7f2983f9c8c93fe882937a364057f0479518ff3"
