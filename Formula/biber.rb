@@ -7,6 +7,7 @@ class Biber < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a2c83db51b9605d5f1db3d1dc8b7b96a265df34f221adfe892877b142b11ad55"
     sha256 cellar: :any,                 arm64_monterey: "a879a966a62c17a8a2b136dada68b2a30350f42ff66c470dd6ee76ffcab12fe8"
     sha256 cellar: :any,                 arm64_big_sur:  "12452426c592e0bdff304dc61c7c1329557e875be3d71a145563773128c2733b"
     sha256 cellar: :any,                 monterey:       "1e3a38acf7a0a4e4cf19539b0ddb461cf3e8d45e37cd8b0344d7f402c95344f4"
