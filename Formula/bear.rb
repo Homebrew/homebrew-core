@@ -8,6 +8,7 @@ class Bear < Formula
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "7cd015e47cebd7ab71ca1856dbb808c7831377fb0975153b5a6d1a5434898001"
     sha256 arm64_monterey: "9f98780db6162f85c462e098b21c12a08068bdb2601c4849d97296ff53a8315c"
     sha256 arm64_big_sur:  "d4d8dbbe286622b7a96024946c4cab5b0fd79f7b53337c9206233e974af2abb0"
     sha256 monterey:       "f9c433ce04ef8887f50141ff297d3fb3ab822bf391f2bd1147528f3d343ae94a"
