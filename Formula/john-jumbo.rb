@@ -13,6 +13,7 @@ class JohnJumbo < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "d619d5c6ad355d0ccf8434bfa9d65d8baad56678c01fc9e0d0674d23663d24d6"
     sha256 arm64_monterey: "87eebf43b7a544bf756affb4519798e3754867bcbcbd946e7616bc99fd0f7d37"
     sha256 arm64_big_sur:  "c1223a9135967ac2aadff6423e381d91b7b0421e03fe5a380543fc7566542eed"
     sha256 monterey:       "30a4feeadf226c792fe1714d2ac01a169b3d6609a046d08db23a2014aef13f50"
