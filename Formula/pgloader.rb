@@ -1,8 +1,8 @@
 class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
-  url "https://github.com/dimitri/pgloader/releases/download/v3.6.8/pgloader-bundle-3.6.8.tgz"
-  sha256 "879bc1f8a39aa5b5ec49534855612c69a9f27336827e5f35f925dd88d98d6e81"
+  url "https://github.com/dimitri/pgloader/releases/download/v3.6.9/pgloader-bundle-3.6.9.tgz"
+  sha256 "a5d09c466a099eb7d59e485b4f45aa2eb45b0ad38499180646c5cafb7b81c9e0"
   license "PostgreSQL"
   head "https://github.com/dimitri/pgloader.git", branch: "master"
 
