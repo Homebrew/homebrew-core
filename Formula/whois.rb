@@ -7,6 +7,7 @@ class Whois < Formula
   head "https://github.com/rfc1036/whois.git", branch: "next"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "340adbc5d5bacc197c252b34bbdcffc7dee121592dd36e2b5271b251a6ba3b7f"
     sha256 cellar: :any,                 arm64_monterey: "cde452357f82ac8bedf2353c9109a6178a86fcfa8fc4faf91faede038c04b461"
     sha256 cellar: :any,                 arm64_big_sur:  "9e8f8166f2d5cab313f02aa194f4eb165df351c9a3b284a37c71bbcd75e1e79c"
     sha256 cellar: :any,                 monterey:       "4910dd000629e19c72c7349972f8d3f15d4e4c8f9d515dc2bbe800e217c26730"
