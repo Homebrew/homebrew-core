@@ -26,6 +26,8 @@ class TinyFugue < Formula
     sha256 x86_64_linux:   "c92a44ad82e402fb01b555a22f7e276a344d799b1b666ef76286a3397617770c"
   end
 
+  deprecate! date: "2022-10-25", because: :unmaintained
+
   depends_on "libnet"
   depends_on "openssl@1.1"
   depends_on "pcre"
