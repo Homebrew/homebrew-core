@@ -5,6 +5,7 @@ class ClickhouseOdbc < Formula
       tag:      "v1.2.1.20220905",
       revision: "fab6efc57d671155c3a386f49884666b2a02c7b7"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   livecheck do
