@@ -6,6 +6,7 @@ class Cheat < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "487fc63930c7dfd5a259aa849bef5403aeb97398413e36d161c6b1062d739816"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "98c84f7314ecfb5ae455be12af26b4483864e5068b3fcc45d0f2cf3d81f449b4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ef382c3fed925701edfddd8077411534ba8dac27882f1e9fadfecaaa0af57ab"
     sha256 cellar: :any_skip_relocation, monterey:       "9504bdece78cf2dba163b48913f50768599e0b20feede2aed8d89600a6fc80a4"
