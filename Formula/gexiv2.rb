@@ -7,6 +7,7 @@ class Gexiv2 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "3275166633eb10990eadcf90a08d6f1c2924692e84f86f7b7d3389250cb35d17"
     sha256 cellar: :any, arm64_monterey: "12296a8bf2d516e6d586c3a06a5ea85310441bf110311834b4654db0b2b18460"
     sha256 cellar: :any, arm64_big_sur:  "f974a143db8c40d1917ab50cc52e35329d50c73594205d2c0e1cc393bb573cc4"
     sha256 cellar: :any, monterey:       "5baf8a5d48b15b71bd803a236189448441dda41addb39ec80380f3a5eba8ab4d"
