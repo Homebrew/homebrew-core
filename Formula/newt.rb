@@ -12,6 +12,7 @@ class Newt < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ff170158692b2fa1d54e6ff6797b5662554b7daa12500b1de410523ea3c5a00f"
     sha256 cellar: :any,                 arm64_monterey: "93a43143160e7432d52429e5aab0dcfda5b17858b4cd3f9921c54b98bd405ea8"
     sha256 cellar: :any,                 arm64_big_sur:  "033f20f9fad1bf00c6e8a8ef8b24525d1184e67008b6c42e40893c8eefb6ccb5"
     sha256 cellar: :any,                 monterey:       "0afdface002d204eff335387f8c5afba4c787836cd773db6f19811eef3a4e6c0"
