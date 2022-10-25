@@ -1,8 +1,8 @@
 class AlsaLib < Formula
   desc "Provides audio and MIDI functionality to the Linux operating system"
   homepage "https://www.alsa-project.org/"
-  url "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.7.2.tar.bz2"
-  sha256 "8a35b7218e50f2a2c79342d0de98ded81439ce19e12809385ec9be9596de7c2f"
+  url "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.8.tar.bz2"
+  sha256 "1ab01b74e33425ca99c2e36c0844fd6888273193bd898240fe8f93accbcbf347"
   license "LGPL-2.1-or-later"
 
   livecheck do
