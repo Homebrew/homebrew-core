@@ -11,6 +11,7 @@ class Bootloadhid < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2abf7dd9ed6601a8f2f42073b64abb33d20f7e81fdfd9d296f5441987d2054fe"
     sha256 cellar: :any,                 arm64_monterey: "9abfe94becc61f67c3a5b02d650fb723c38307b582efbdb606948076162a03c5"
     sha256 cellar: :any,                 arm64_big_sur:  "43f9864d0cf06fe06fbbb26c95b592cb2fc39c06090187deff8f81b8b35fc12f"
     sha256 cellar: :any,                 monterey:       "aab53c65d93ea7a1274a39fc195e7e0599a20168a23764ec704b98d9b8ff082e"
