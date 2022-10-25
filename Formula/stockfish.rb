@@ -13,6 +13,7 @@ class Stockfish < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9fc7b85028b41cd7e3db3f25a9481521aef01f95611e979734b815c64631f159"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2ea9532bb3f1686c433a62c8eb671a0cfef3a9ead7a6a5a83475826c5bcb49e7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9961c12ee12480d1dcb9f72af2b735ee6c4d686e62b0554625efe0246f9a327e"
     sha256 cellar: :any_skip_relocation, monterey:       "c29b02b056094c6f11072cf38351ad259804d97e1727c149fc8a3f6716a1d993"
