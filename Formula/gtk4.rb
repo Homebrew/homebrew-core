@@ -11,13 +11,12 @@ class Gtk4 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "df0612711bbfcad45d1c5e139009ed91d70158af4958c80e36967c869dbf7741"
-    sha256 arm64_monterey: "aab2c045916b3b742273bd5b70ed0576f10b85e42f74caa8d485fbdd8f1cc0e8"
-    sha256 arm64_big_sur:  "3ee5ccd130c2c2ac7469d1cf2f426ee585e72028bc77d65a64021ae34722ec1e"
-    sha256 monterey:       "bee36536e97b1a0b0864eeb1af5d3a5caf453c74f52514b8fd970e62ed31705b"
-    sha256 big_sur:        "b1e55151ada8d5f5c439a9f6153085706930cb603f36563e0b5ff0c3f5a0d62f"
-    sha256 catalina:       "e04c318241bbec1c561b859dc2fefd478242c15e0580cf2dca4343fc8b7a4a94"
-    sha256 x86_64_linux:   "844128e558ed2f2aa1238103028d805db8450fc8e0f837425692783f93abcef8"
+    sha256 arm64_monterey: "9b2cc47587ba3588815c96229d82ad5d77199cc9a7b81750545e8f26b2553d1d"
+    sha256 arm64_big_sur:  "ede3901da6fa0d04529fef6d7ce2cbe3ce6c274dfb2e7f3fcf8446b5883d1613"
+    sha256 monterey:       "26e679a751038269581c6b87f2551216dc0aedf8469062f6d8fe52c3711519f6"
+    sha256 big_sur:        "5a74446a65ebca85b0a0e8a92137f62fa0e95d9f8ca0e5a6469a21338d449012"
+    sha256 catalina:       "34de48c6434e13cf7c8cf4faa10749d09d94a2a0ef50b4f0e9fe73d2364aad0d"
+    sha256 x86_64_linux:   "c973dc27ac1dd7edf0d785404c303edef93203ba11f77305cc5085131b2c2d09"
   end
 
   depends_on "docbook" => :build
