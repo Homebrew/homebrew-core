@@ -13,14 +13,12 @@ class Miniupnpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ea46ff9ec140cd8f3c96a39836c03a5a200a54d1707788453811737171aa7668"
-    sha256 cellar: :any,                 arm64_monterey: "eeedebb76eb7694694f4f6e9684ebadbe79145ad8e1722a86db71f1a548fdc81"
-    sha256 cellar: :any,                 arm64_big_sur:  "c3e13a0a9a9a29ae1e11b68391c05af3502a38cc8e4c64106cab777453db5027"
-    sha256 cellar: :any,                 monterey:       "a82b6de740bda6e1a89fd21ef22336741a61fe718056796a850dbe75c819d84c"
-    sha256 cellar: :any,                 big_sur:        "dc8464030d7e318498fbed1aa9964c925285ceb6543a09abcff42b343681b20e"
-    sha256 cellar: :any,                 catalina:       "6a509044ce6d522df1c435ba211ec9cac427328bee216619f8fcd7c6de65ce0a"
-    sha256 cellar: :any,                 mojave:         "03cc532eeef519bf6db64926a70d56b365eccb0e752ab791cf21683da94bddc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b4567463c162018e8c13e28a3335cfc657108cd0a6c0446f4cb28c9c54b53d1"
+    sha256 cellar: :any,                 arm64_monterey: "6181bbf0ea573d2f09d125c6271412502605f6a0c9e64b006cde35f048cc69f8"
+    sha256 cellar: :any,                 arm64_big_sur:  "c3b527cd69eaba31f8b87f36f8a85c0c13a3c9bb19989abeba8ceefd78b9044c"
+    sha256 cellar: :any,                 monterey:       "92ec5cfb40d1da0fd842bfd2ec32ee3f5970776da4a2334aefce69463600828c"
+    sha256 cellar: :any,                 big_sur:        "5d2661c359f7d7734eeedd7905038cd1e86d2b41df2aa81ca5e5ccdf55445566"
+    sha256 cellar: :any,                 catalina:       "06f208877ac3279b5a9960846e27df4d8d0452a0e4d500f20ce7e01305f0e5c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93154d49e70a5e1f1a3ff6f481432e7acd9e7dd352f7c2ea78e7ca2f27b7352f"
   end
 
   def install
