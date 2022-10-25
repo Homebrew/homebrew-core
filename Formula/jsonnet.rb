@@ -12,6 +12,7 @@ class Jsonnet < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16829760732a39f3d4e1401b891f8e2989d134e47c1b3b51c8aafd51e8627ddc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8d0fcbd957bf1e3fa91a3e7e6f1d1316fb0dfb8aaa72f94ded7d1ab8ac96caf6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "deb98f7009d75ce4a9f68464e6d8347c885b5f4de50691d0ab8228e775cc5beb"
     sha256 cellar: :any_skip_relocation, monterey:       "6ed8bac0e7eb061832f680b8305a22b25298730741aebb6e2bbc3cbfba95a19d"
