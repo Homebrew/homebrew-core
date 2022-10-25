@@ -11,6 +11,7 @@ class GnupgAT22 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "29e32b17f03c4b318cdb346869fa1afb75cfce6a194f1fee12923707349aa913"
     sha256 arm64_monterey: "2fc972a6690b60a0b7da63177cda161fd0eb97ee09fcbb9ed01909f704e506b5"
     sha256 arm64_big_sur:  "5a393aaae5a88526982f86c300049bacadef7b66d0bb4d984ff0c2be8a5f1ae5"
     sha256 monterey:       "75731410dc3b38057fe2f62f5be5f6d7f1aef3cb17fbeeafb35ad9bdffa52a07"
