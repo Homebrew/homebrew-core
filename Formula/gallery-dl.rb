@@ -9,6 +9,7 @@ class GalleryDl < Formula
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89047d9f9935f391947dd1eeb311c5b2b7d27acd017a3aec7688f716145a6916"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "592d7753c79d022b647e66bed807d86344051c33234aed237b923422b821f980"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7611a17248a64daac9d6059ef3b7e5f5129e198fb00089dc789a83a11e71590"
     sha256 cellar: :any_skip_relocation, monterey:       "fab5d1efe693abbf5bf12a66bf7498a4f5931609e981bcd296cf6d6eb3000fcd"
