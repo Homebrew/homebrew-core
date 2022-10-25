@@ -9,6 +9,7 @@ class Graphviz < Formula
   head "https://gitlab.com/graphviz/graphviz.git", branch: "main"
 
   bottle do
+    sha256 arm64_ventura:  "240ae2c8603e032edc55abe2effe9f8816120771a4a23ac968dc3a7f4030c56b"
     sha256 arm64_monterey: "492cb3a4feb730d2761bad2d0c705353abfe54f8fa9157d5386d799cd392f84c"
     sha256 arm64_big_sur:  "82dc1482b2ad62782a6dab449606088436dbeaee0308e4b5f3b517f9c66f38ae"
     sha256 monterey:       "e968109cfb27992b994cee95cbf43d35eb40993c814363e600b0cbecaa362915"
