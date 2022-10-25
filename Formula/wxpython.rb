@@ -8,6 +8,7 @@ class Wxpython < Formula
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "1cdbafe9c9ffac660ad1a6bcc508c7ad76589a809bea0bcdb17e92c28661ff71"
     sha256 cellar: :any, arm64_monterey: "f9a20a76b190163dac2af2f1813e8e39dd9f637ead5453acdf415c5f2551dc13"
     sha256 cellar: :any, arm64_big_sur:  "6e5b449ee672e78a72d700d78dcf9d11c65eaaa657c9369979dceb7eeb245761"
     sha256 cellar: :any, monterey:       "6aef2edb2894f75c23c859edd6db7bd308d6420f4680ce32839b7904b425d382"
