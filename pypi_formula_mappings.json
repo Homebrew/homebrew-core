@@ -400,7 +400,7 @@
     "exclude_packages": ["six"]
   },
   "poetry": {
-    "exclude_packages": ["six", "jsonschema", "attrs", "pyrsistent"]
+    "exclude_packages": ["six", "jsonschema", "attrs", "pyrsistent", "virtualenv"]
   },
   "pre-commit": {
     "exclude_packages": ["six", "PyYAML", "virtualenv"]

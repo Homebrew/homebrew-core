@@ -21,6 +21,7 @@ class Poetry < Formula
   depends_on "jsonschema"
   depends_on "python@3.10"
   depends_on "six"
+  depends_on "virtualenv"
 
   resource "CacheControl" do
     url "https://files.pythonhosted.org/packages/06/80/1f8ba1ced5f29514d8621003b2b0fb404ed88996e963dbca7f519ecc82ca/CacheControl-0.12.12.tar.gz"
@@ -177,11 +178,6 @@ class Poetry < Formula
     sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/07/a3/bd699eccc596c3612c67b06772c3557fda69815972eef4b22943d7535c68/virtualenv-20.16.5.tar.gz"
-    sha256 "227ea1b9994fdc5ea31977ba3383ef296d7472ea85be9d6732e42a91c04e80da"
-  end
-
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
@@ -195,10 +191,11 @@ class Poetry < Formula
   def install
     virtualenv_install_with_resources
 
-    # we depend on jsonschema, but that's a separate formula, so install a `.pth` file to link them
     site_packages = Language::Python.site_packages("python3.10")
-    jsonschema = Formula["jsonschema"].opt_libexec
-    (libexec/site_packages/"homebrew-jsonschema.pth").write jsonschema/site_packages
+    %w[jsonschema virtualenv].each do |package_name|
+      package = Formula[package_name].opt_libexec
+      (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
+    end
 
     generate_completions_from_executable(libexec/"bin/poetry", "completions")
   end
