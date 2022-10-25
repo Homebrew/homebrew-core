@@ -12,12 +12,12 @@ class Taplo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77dc396f2ee94895dbbc440810530018307acf6dd645d63e6f6f6b39c2a7f7f7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "20bedf8ec362a6c9830225aa9335636afb3021ed61431ad544cfa177138ad9b9"
-    sha256 cellar: :any_skip_relocation, monterey:       "ea7f4b0274fa1e9720a7c85fe7008b64748312d42571c1f4db1c6525c8bb6b06"
-    sha256 cellar: :any_skip_relocation, big_sur:        "85aa81d4d3f171f68e6354086601c5efe1d3c43f00516d65c23a363d7fc883f3"
-    sha256 cellar: :any_skip_relocation, catalina:       "04969974fab6293be7cf97f54eeda0c3c15cbdd29e14622e63814426e9d89b44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "192494a3b00fbd904fe2c82cac082bba6273715395a11ee3cf6f115d36b05462"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "492bdfd94f21f0e084baf915c028b67e22ca054ee7e95bce30c71bdba59b592d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "012c3e4a4bf5f282b853627c18b463a0db722dcb764ff8e72cb161a552275251"
+    sha256 cellar: :any_skip_relocation, monterey:       "e49fe38d363d63ff754a0b6f6ddf17080caeea13142c24443ed7d92cb2c1cfb3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cf194672fae25371025b68ca88cc98836b4e366cf9680dc3b2f037b366c0ea45"
+    sha256 cellar: :any_skip_relocation, catalina:       "14221b282be398f1138412e6f398b1c6d2b5c6715871a42d992f502bfb5b39da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f852fc463c95d38fd93b0ca973d7029bbb92fe968a5741f6f3059cce5713bea2"
   end
 
   depends_on "rust" => :build
