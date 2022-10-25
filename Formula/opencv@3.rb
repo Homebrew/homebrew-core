@@ -7,6 +7,7 @@ class OpencvAT3 < Formula
   revision 4
 
   bottle do
+    sha256                               arm64_ventura:  "7e781bbd9512e29fb16453dc99d90d08c58da6f4eb8d5928021bd79b319078d6"
     sha256                               arm64_monterey: "f75bb2d7f18c01bca91163c1b4e92dd58a28f9bd3e8ab56847a0d0d6634c2c79"
     sha256                               arm64_big_sur:  "4e621e0ff3d86735c4512518c85c53a836ca9e302dbf24868b3a7e738ce3d4c9"
     sha256                               monterey:       "36fa66447534208b967e820a302647cb4b3ff47a6c589250094bceb6b56bb70a"
