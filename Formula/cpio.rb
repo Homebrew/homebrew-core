@@ -8,6 +8,7 @@ class Cpio < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a52647dfa0fc91821508e340b67e09ddb7827b66644ef4006df040502dc5f249"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f22c470e6b85be477298907f64e9d6c0c8261d81f244ee9f7977b37f64bc2d53"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f0f5625adf815f5dcbce9016b20df0ea0f41475343954e057422f9bd006ab87"
     sha256 cellar: :any_skip_relocation, monterey:       "1b04d03bdfdb091451d3c6602e7dfbefe18c3a719c5382c6636245b9d5403c91"
