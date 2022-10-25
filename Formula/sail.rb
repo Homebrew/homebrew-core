@@ -17,24 +17,15 @@ class Sail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e5583e97623d9b14ed1e8289eed3d076375860778df73da9c5d594252c191cf"
   end
 
-  depends_on "rust" => :build
+  depends_on "fabric"
+  depends_on "pyinvoke"
   depends_on "python@3.10"
   depends_on "pyyaml"
   depends_on "six"
 
-  resource "bcrypt" do
-    url "https://files.pythonhosted.org/packages/d8/ba/21c475ead997ee21502d30f76fd93ad8d5858d19a3fad7cd153de698c4dd/bcrypt-3.2.0.tar.gz"
-    sha256 "5b93c1726e50a93a033c36e5ca7fdcd29a5c7395af50a6892f5d9e7c6cfbfb29"
-  end
-
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
     sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
-    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
   end
 
   resource "charset-normalizer" do
@@ -47,16 +38,6 @@ class Sail < Formula
     sha256 "479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"
   end
 
-  resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/10/a7/51953e73828deef2b58ba1604de9167843ee9cd4185d8aaffcb45dd1932d/cryptography-36.0.2.tar.gz"
-    sha256 "70f8f4f7bb2ac9f340655cbac89d68c527af5bb4387522a8413e841e3e6628c9"
-  end
-
-  resource "fabric" do
-    url "https://files.pythonhosted.org/packages/fc/c8/6a002a659d78db66ed134fd390773afd87a638026feef2c8efe6a4492776/fabric-2.7.0.tar.gz"
-    sha256 "0bf797a68c4b389720dc4dd6181497a58c41ed762e283d9e3c1b0148b32a9aff"
-  end
-
   resource "filelock" do
     url "https://files.pythonhosted.org/packages/4d/cd/3b1244a19d61c4cf5bd65966eef97e6bc41e51fe84110916f26554d6ac8c/filelock-3.6.0.tar.gz"
     sha256 "9cd540a9352e432c7246a48fe4e8712b10acb1df2ad1f30e8c070b82ae1fed85"
@@ -65,11 +46,6 @@ class Sail < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
     sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
-  end
-
-  resource "invoke" do
-    url "https://files.pythonhosted.org/packages/55/a2/763dc56e746ca013061b26c95868cb7f832c2a87dc27ed749641a734957f/invoke-1.7.0.tar.gz"
-    sha256 "e332e49de40463f2016315f51df42313855772be86435686156bc18f45b5cc6c"
   end
 
   resource "Jinja2" do
@@ -90,26 +66,6 @@ class Sail < Formula
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
     sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
-  end
-
-  resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/d4/93/1a1eb7f214e6774099d56153db9e612f93cb8ffcdfd2eca243fcd5bb3a78/paramiko-2.10.3.tar.gz"
-    sha256 "ddb1977853aef82804b35d72a0e597b244fa326c404c350bd00c5b01dbfee71a"
-  end
-
-  resource "pathlib2" do
-    url "https://files.pythonhosted.org/packages/31/51/99caf463dc7c18eb18dad1fffe465a3cf3ee50ac3d1dccbd1781336fe9c7/pathlib2-2.3.7.post1.tar.gz"
-    sha256 "9fe0edad898b83c0c3e199c842b27ed216645d2e177757b2dd67384d4113c641"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
-  resource "PyNaCl" do
-    url "https://files.pythonhosted.org/packages/a7/22/27582568be639dfe22ddb3902225f91f2f17ceff88ce80e4db396c8986da/PyNaCl-1.5.0.tar.gz"
-    sha256 "8ac7448f09ab85811607bdd21ec2464495ac8b7c66d146bf545b0f08fb9220ba"
   end
 
   resource "pyparsing" do
@@ -143,7 +99,17 @@ class Sail < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    python3 = "python3.10"
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources
+
+    site_packages = Language::Python.site_packages(python3)
+    %w[fabric pyinvoke].each do |package_name|
+      package = Formula[package_name].opt_libexec
+      (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
+    end
+
+    venv.pip_install_and_link buildpath
   end
 
   test do

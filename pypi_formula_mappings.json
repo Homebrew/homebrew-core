@@ -458,7 +458,10 @@
   },
   "sail": {
     "package_name": "sailed-io",
-    "exclude_packages": ["six", "PyYAML"]
+    "exclude_packages": [
+      "six", "PyYAML", "invoke", "fabric", "bcrypt", "cffi", "cryptography",
+      "paramiko", "pathlib2", "pycparser", "PyNaCl"
+    ]
   },
   "salt": {
     "extra_packages": ["pycryptodome", "pygit2"],
