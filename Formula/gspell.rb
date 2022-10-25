@@ -7,6 +7,7 @@ class Gspell < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "242e53e6cc2bce5d49b51ed9fa49caaa883750aef016706f0bfa664db80b828d"
     sha256 arm64_monterey: "051151cc7d8ff3f5979400110bc060e54463c25eaa6c90eb96409ebdeb46876a"
     sha256 arm64_big_sur:  "ea202d1b22a46328a1ce6e9a4b4cc5df4c2fe543f9c96bbb7c37cbe3b19768c6"
     sha256 monterey:       "9dc9c7d1afd7ce981156ef1a1bbcd96d65f3dad37f5f487ac5e2c66a2d0c7502"
