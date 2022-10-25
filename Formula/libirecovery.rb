@@ -6,6 +6,7 @@ class Libirecovery < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4d21cd165479e408542f64d4b03e607650bed9eeaf8564ace51746310a443bea"
     sha256 cellar: :any,                 arm64_monterey: "f84e04eff5b2a9a9679179f427ff5eca930ea9210f86e58d905c23a4185229b2"
     sha256 cellar: :any,                 arm64_big_sur:  "934427f0de5e9990ca8569960ac0d6cd80f5739401e017b49bb4f79244c953ee"
     sha256 cellar: :any,                 monterey:       "5bca397cb6420f3a30580995c2f452548f0e9947bf7bc511eb4f09f4510e5370"
