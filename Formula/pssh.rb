@@ -9,6 +9,7 @@ class Pssh < Formula
   revision 6
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88f2d6d8e5aed35118345ad6f3fc4e4c8643ed61fc15a54497db443471ad4864"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "436c285c33f75a1cd82f2d6b17065baa9400f13c9b9e1b8ac1baf2155891ed24"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "436c285c33f75a1cd82f2d6b17065baa9400f13c9b9e1b8ac1baf2155891ed24"
     sha256 cellar: :any_skip_relocation, monterey:       "705c0d12faaee33a41a1ba3ce77d8abfba8a1da5001f9afe9e4bbc434c38289e"
