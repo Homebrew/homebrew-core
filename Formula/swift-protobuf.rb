@@ -7,6 +7,7 @@ class SwiftProtobuf < Formula
   head "https://github.com/apple/swift-protobuf.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a34376d8a4130d110c2c4efc0dde3e2f38cd59111d43b566fb212cd116ce7567"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf4961d3753d541afa22d0c41ac2c53ab3e7a99e798d8890dd8959f5873bfba4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e4dcad6041c37ee285949f43dda5194c2661d11682ac046c4f626e32234811a"
     sha256 cellar: :any_skip_relocation, monterey:       "b92430ab9f117dc5e5e1f43572acbf5b5ba269709370d5fbe086620d77c96b14"
