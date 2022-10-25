@@ -6,6 +6,7 @@ class SdlNet < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c2cc9f53d62c2c7d24983f1cc232d80c88e9b8388099a9217367f5756b37661b"
     sha256 cellar: :any,                 arm64_monterey: "9c3a09a6b01bf4f12ce8cf93a3a84a2fd69374f37efaaae1407f9b08d60909f6"
     sha256 cellar: :any,                 arm64_big_sur:  "df69bf9d42edb022106c78000302b411e6d74fdb9887fcf77a1faf9c9471bb07"
     sha256 cellar: :any,                 monterey:       "d1a110b94053b04b196860c796306b65548a78095c7f7a1284207b6d7cff0014"
