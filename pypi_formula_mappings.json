@@ -421,6 +421,9 @@
   "pygitup": {
     "exclude_packages": ["typing-extensions"]
   },
+  "pylint": {
+    "exclude_packages": ["isort"]
+  },
   "pyqt-builder": {
     "exclude_packages": ["packaging", "pyparsing", "sip", "toml"]
   },

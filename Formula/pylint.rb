@@ -17,6 +17,7 @@ class Pylint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6dc899c0f7c265cd79aa310a51def0560d711a1701d10da9b01b16db81ca6253"
   end
 
+  depends_on "isort"
   depends_on "python@3.10"
 
   resource "astroid" do
@@ -27,11 +28,6 @@ class Pylint < Formula
   resource "dill" do
     url "https://files.pythonhosted.org/packages/59/46/634d5316ee8984e7dac658fb2e297a19f50a1f4007b09acb9c7c4e15bd67/dill-0.3.5.1.tar.gz"
     sha256 "d75e41f3eff1eee599d738e76ba8f4ad98ea229db8b085318aa2b3333a208c86"
-  end
-
-  resource "isort" do
-    url "https://files.pythonhosted.org/packages/ab/e9/964cb0b2eedd80c92f5172f1f8ae0443781a9d461c1372a3ce5762489593/isort-5.10.1.tar.gz"
-    sha256 "e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"
   end
 
   resource "lazy-object-proxy" do
@@ -66,6 +62,11 @@ class Pylint < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # we depend on isort, but that's a separate formula, so install a `.pth` file to link them
+    site_packages = Language::Python.site_packages("python3.10")
+    isort = Formula["isort"].opt_libexec
+    (libexec/site_packages/"homebrew-isort.pth").write isort/site_packages
   end
 
   test do
