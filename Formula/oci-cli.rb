@@ -3,8 +3,8 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/79/6c/191bab77716e4439bf8711af434b7a8e3585c986829d13161d8a335748d9/oci-cli-3.18.1.tar.gz"
-  sha256 "d21a1afdd481c37fcf6b901ac67248a3cd4c35be4a957fd8a984d1b385aac177"
+  url "https://files.pythonhosted.org/packages/61/55/f2ab6921db8b821e6c6d958b4b08541ab5c907b079ad643d0293918cd5a0/oci-cli-3.19.0.tar.gz"
+  sha256 "2e15ae4d2f563b4d282808dd701212876c0cbfa62adea81612966f5cdc7eabf6"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
@@ -43,8 +43,8 @@ class OciCli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
-    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
+    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
+    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
   end
 
   resource "cryptography" do
@@ -58,8 +58,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/ec/53/5cc05fabf1efcc8efd86072eee103e097adcf60bdbe784620f65d4bf7918/oci-2.85.0.tar.gz"
-    sha256 "76a46dbd92c612c50393b1d21a5f3ef6c34a23655250472705f8a14004291958"
+    url "https://files.pythonhosted.org/packages/cf/20/95b1e7152908dfd145881ef102fcde59c25549c289ddac513deadea935b2/oci-2.86.0.tar.gz"
+    sha256 "aab55c6026e56b4b96ff6e3c94391e2e297bd4dad8fa4c9e0b18912632994ff7"
   end
 
   resource "prompt-toolkit" do
@@ -83,8 +83,8 @@ class OciCli < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/31/da/2d48d3499b59c7f3c5d5e1c79fcee5537c320c8ab7b7a0cd2db578bc34b3/pytz-2022.4.tar.gz"
-    sha256 "48ce799d83b6f8aab2020e369b627446696619e79645419610b9facd909b3174"
+    url "https://files.pythonhosted.org/packages/fe/dd/182cc5ed8e64a0d6d6c34fd27391041d542270000825410d294bd6902207/pytz-2022.5.tar.gz"
+    sha256 "c4d88f472f54d615e9cd582a5004d1e5f624854a6a27a6211591c251f22a6914"
   end
 
   resource "PyYAML" do
