@@ -11,6 +11,7 @@ class MesaGlu < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8a1ee4a15d74adb93d0328abc6a03290714dd612186df3d4f5213cc5f0599fa7"
     sha256 cellar: :any,                 arm64_monterey: "247b797f86842225f065d360e79179117971e62ef73ea8cf596aaf83cb26de37"
     sha256 cellar: :any,                 arm64_big_sur:  "07d2c0050058be9863654a240e70e838d8d497851f1f2bc116adc423b39fd247"
     sha256 cellar: :any,                 monterey:       "f824b6be1e32a45bb94dbd71ead724e6eab26c37ef3f5b2347eaca9ed1159010"
