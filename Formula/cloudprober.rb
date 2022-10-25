@@ -16,22 +16,22 @@ class Cloudprober < Formula
     require "pty"
     require "timeout"
 
-    r, w, pid, = PTY.spawn(bin/"cloudprober --logtostderr 2>&1")
+    reader, writer, pid, = PTY.spawn(bin/"cloudprober --logtostderr 2>&1")
 
     listening = Timeout.timeout(10) do
-      li = false
-      r.each do |l|
-        if /Initialized status surfacer/.match?(l)
-          li = true
+      found = false
+      reader.each do |line|
+        if /Initialized status surfacer/.match?(line)
+          found = true
           break
         end
       end
-      li
+      found
     end
 
     Process.kill("TERM", pid)
-    w.close
-    r.close
+    writer.close
+    reader.close
     listening
   end
 end
