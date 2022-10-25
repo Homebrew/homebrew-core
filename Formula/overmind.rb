@@ -7,6 +7,7 @@ class Overmind < Formula
   head "https://github.com/DarthSim/overmind.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8212d5d52e66cd05b5081350d04e6e16482bcafcbc1ee99645f2c9876dbb0a36"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4841af6b8c882b52029d7c7a58bc0d5534bfb7f53f1b33b76d980f6197db954b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b96582ea0b7adb01d40b4429beaac118bb090bb856f3579a9a63c100cbc00546"
     sha256 cellar: :any_skip_relocation, monterey:       "ad3705236fde66360596bee1567ba806420d5b215a0ce51d206679ba360583ac"
