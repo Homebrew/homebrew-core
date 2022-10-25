@@ -6,6 +6,7 @@ class Libhandy < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "c2a5965da71d08b9b31d4df765cbef8268ef3b4b10210cd8164d7164b0b11e15"
     sha256 arm64_monterey: "973506dea8f690558a01f8b4e786c66e785a9dc5fb69347bcf3f501a6bce2b00"
     sha256 arm64_big_sur:  "a3907134a8b5a823a1a591f5aece22e2668503ee6d457100ec7e8985759f8933"
     sha256 monterey:       "3299684c80ba3fb24bf03061c4086f0b5ba195f26833f251194477ebb9f6271b"
