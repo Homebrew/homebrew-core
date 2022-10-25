@@ -12,11 +12,11 @@ class Pgloader < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "adb28f200082b1bbfa36592f61d339099ffddb124b97151eb9122fec5d79a626"
-    sha256 cellar: :any, arm64_big_sur:  "e9dab1b1c654d6d86eac9d613a21f96afd64b662eb36f919398d93e5ac3d7a09"
-    sha256 cellar: :any, monterey:       "d6db8dd33e781a6b6eb88944d6f6f94113015d06c787b8ee847d891ed112b6a5"
-    sha256 cellar: :any, big_sur:        "8e7792576a8dcd5fb4c36a665da15c134982ef5b1298fbec7886fdedaa427144"
-    sha256 cellar: :any, catalina:       "397290ccc7b1135e622606ae625e55ce07d2af7c9a3c72aec8c8f8638a245969"
+    sha256 cellar: :any, arm64_monterey: "7e85385f26dd4ad116fb0dea28bcf0ee2960638dff826133ef41d4aedbd2b788"
+    sha256 cellar: :any, arm64_big_sur:  "083409384a573f93aecfdb87bef99dd47f560c4c60ca6377ba333248938a09bf"
+    sha256 cellar: :any, monterey:       "e12f91551cedd8c3e34fd97471bc51bf2f6bf50121a9a9ede7147a64fe2c20ab"
+    sha256 cellar: :any, big_sur:        "6d6b3011d7463da5de24c79c2003787f348141c829e1538c71b39c4b76bb00a2"
+    sha256 cellar: :any, catalina:       "23243450dfa58c5f7114f820203f4709c529a9273fadaa43d9743a2a848b4ed3"
   end
 
   depends_on "buildapp" => :build
