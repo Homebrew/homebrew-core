@@ -249,6 +249,9 @@
   "iredis": {
     "exclude_packages": ["six"]
   },
+  "jc": {
+    "exclude_packages": ["Pygments"]
+  },
   "jenkins-job-builder": {
     "exclude_packages": ["six", "PyYAML"]
   },

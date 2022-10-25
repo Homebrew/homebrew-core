@@ -17,12 +17,8 @@ class Jc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "38faf7a8331325f89bba621e728abec5da15e132f93ff2c45c691cc03a5f51fb"
   end
 
+  depends_on "pygments"
   depends_on "python@3.10"
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
-  end
 
   resource "ruamel.yaml" do
     url "https://files.pythonhosted.org/packages/46/a9/6ed24832095b692a8cecc323230ce2ec3480015fbfa4b79941bd41b23a3c/ruamel.yaml-0.17.21.tar.gz"
