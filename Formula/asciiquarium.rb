@@ -16,6 +16,7 @@ class Asciiquarium < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "eaeef5f718e5346acce2ce6680d3970a3d8e7e7f6ee0ea0a4a58ca0e4b2d0c60"
     sha256 cellar: :any,                 arm64_monterey: "bffaf8931358ce91194a050df4d70785d1675ae86a13abf16039a6633961e59c"
     sha256 cellar: :any,                 arm64_big_sur:  "054f9401007de6e17d4ed642bb4c38490fcbf72713e6357b0269ee0f3e538e36"
     sha256 cellar: :any,                 monterey:       "6dd99c8969cd14a6ab694d9fc3df4ce29bd6b262aefc04af71714e26e081577b"
