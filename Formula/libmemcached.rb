@@ -8,6 +8,7 @@ class Libmemcached < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "0511d48bcc88a6860030c5c6bec5d36818068b43f11d67561f1519ce0dbf6b73"
     sha256 cellar: :any,                 arm64_monterey: "4bd8f978c12169979720fbfa65fba013fbaed66a40c6c49764d2d627d7febdcd"
     sha256 cellar: :any,                 arm64_big_sur:  "513613e8b8e42dc519ed5c1f4a4dea775007bc16bf2865e091b1a84d6408459a"
     sha256 cellar: :any,                 monterey:       "83a24483ab6e8294a2c014db8b4b65198b6c9a4b5069477a272c0e729d7fd609"
