@@ -14,6 +14,7 @@ class Ffmpeg < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "28ac4fc1f2e7a38d5729e391586ac5f2f20af6f11c1322d152e762810878717c"
     sha256 arm64_monterey: "68649bcac737113215191cf50a564c3fe3ed63648cdad397677095ebdecee2cf"
     sha256 arm64_big_sur:  "11b544745ec71743bf524ccc23c32413c982462bc34f81b78cbf931eaaf005bf"
     sha256 monterey:       "79dc05514d77053ced330da6826bb8b6fb9b447b891587844e586b968b0fa451"
