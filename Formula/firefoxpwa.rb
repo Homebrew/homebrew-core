@@ -7,6 +7,7 @@ class Firefoxpwa < Formula
   head "https://github.com/filips123/PWAsForFirefox.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "359cb3c82cb976dd86c40e1e4e9415b8cb9eb5f51a6a930fec833e9bb1d4b0a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ac6da6c0d7ac79b23d6fd4c8eabc70b1ebff38b2a53394ef630f9f5e409160e5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3b5b6f4b0169aa56c29fa2bd5530839d1cc59ec31057bcb0b935d7929a38a5b"
     sha256 cellar: :any_skip_relocation, monterey:       "9a147b672accc91ab54a5623aa891a6c5c68294fe650dac3cde5bb758b89426e"
