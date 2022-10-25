@@ -7,6 +7,7 @@ class Croc < Formula
   head "https://github.com/schollz/croc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f57cf144654cc457c1bd57335f716cfd7ecf29d95019ae6f1dbab386e4db2ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b01eb1a0bb2ec668c78acac37dfc5f3f3c554da3e02ecf3690e2f8d6c45b1a37"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "588831172eb24226929ae597190101cf18aa37ef88a13dc9843298bb46723fbf"
     sha256 cellar: :any_skip_relocation, monterey:       "a4f3a9d0eafba3aa54c26121667a4f6c75ac65c54a1031702c47ff6060d01d35"
