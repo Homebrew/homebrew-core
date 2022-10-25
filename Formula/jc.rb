@@ -9,6 +9,7 @@ class Jc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9e9a62f648532bfbc52c8bd72b33d00e301698df1cc5eafdd32fdc8c427cc2f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "db7d57e1c7bc367a8978982767166ff7118a052ee0c0b3988d5509f1a6000e3c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7a9a683b2e59bff23f9fd558fe3999ecc871477ebd261c71d06bec952f869b8"
     sha256 cellar: :any_skip_relocation, monterey:       "9e80822eb640af5901825dff4eefeeb3d4d8980cb0683b3aa6357ed887171605"
