@@ -7,6 +7,7 @@ class SqliteUtils < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0de00f5dc975ba1baf0d35487dfd9bfeb3f19b760c953d6d3405cc4fb6d64aeb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f3b743b116cd123cb7570e14a6e7a1da4f19675c13c9bef4a2f16c9b7a7780da"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e36b16449b2ed981ded1a748165b4afdd6357cf2dfaa240380e18c8fa4dc7c50"
     sha256 cellar: :any_skip_relocation, monterey:       "4bb7f07fab6bc21417ea0ccda1f4b340a9b8590e8660ddf46e971f2ba44eeecb"
