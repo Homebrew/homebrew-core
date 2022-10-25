@@ -12,6 +12,7 @@ class Wabt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "75a0adc8eba2ad151a012cbaf368a6abb8887d84590841679a9f7e72aca2a77b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31bc86948a7785b27832148d2fb46e76af62853dc55c03e119517f73335cfa6d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d02f34c7a5218b39f73b087fd6d010c9af483c86773671b2edee590d72f7eed6"
     sha256 cellar: :any_skip_relocation, monterey:       "ec14e79b46ba16c83847e035cfc0bf95a9139d087ea986eff44056daf234b523"
