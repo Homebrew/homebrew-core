@@ -16,10 +16,7 @@ class Cloudprober < Formula
     require "pty"
     require "timeout"
 
-    res = PTY.spawn(bin/"cloudprober --logtostderr 2>&1")
-    r = res[0]
-    w = res[1]
-    pid = res[2]
+    r, w, pid, = PTY.spawn(bin/"cloudprober --logtostderr 2>&1")
 
     listening = Timeout.timeout(10) do
       li = false
