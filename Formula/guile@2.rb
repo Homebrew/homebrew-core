@@ -7,6 +7,7 @@ class GuileAT2 < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "97c512b6352e46223d1d499ccbd2280177a66d6f9076fadbabf2bd84b5125b08"
     sha256 arm64_monterey: "1de3f7d4c718fd2122bd3360eb8317b9df884799b80c7df0aa22bce7a8747f1b"
     sha256 arm64_big_sur:  "c781109b4f185f2398a88e947b2b295ee8f19d345286b66c288dc10d12eae491"
     sha256 monterey:       "4761b93580c0728f4f24b710aad17f6e00c5ad8db43068fbf59aa1ff8836897c"
