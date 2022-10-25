@@ -88,7 +88,7 @@ class Mold < Formula
       cp_r pkgshare/"test", testpath
       # Delete failing test. Reported upstream at
       # https://github.com/rui314/mold/issues/735
-      if (MacOS.version == :monterey) && Hardware::CPU.arm?
+      if (MacOS.version >= :monterey) && Hardware::CPU.arm?
         untested = %w[libunwind objc-selector]
         testpath.glob("test/macho/{#{untested.join(",")}}.sh").map(&:unlink)
       end
