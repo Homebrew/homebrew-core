@@ -8,6 +8,7 @@ class Csvkit < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d337fd3b974224200a3def268e9769000cdea9e3f1f9249b6a76785a974a54bf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8ce619c2a98a1cf8ea48dd9ab7437caea868a82b93f2b5a814b87fb0c8d63be2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a176d551aa7b0163b141faf10bd1711832645aa17eb8cfa570097d10198d3e92"
     sha256 cellar: :any_skip_relocation, monterey:       "823c9ea885ca02aca2be5725553580b5970a10820aa00ec05b9931130cdea7df"
