@@ -10,6 +10,7 @@ class Atomicparsley < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e262f2feabbc9f16383b5d83e66c28578331e2cf7548046c4af8227dec1a8f93"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fd6740f15d9d909a464b2759676bc5c8f9e7e0d47206637b136b398e2f71e4ce"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79353541a9980e951bdf0a3137105f14c3bb42bcb399e0a98ee5b814374cdbd5"
     sha256 cellar: :any_skip_relocation, monterey:       "1813634f5288568fa89a502960bf9560f79f8d4c344f36d3c45b6cb322bf01bb"
