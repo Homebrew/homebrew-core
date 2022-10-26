@@ -6,6 +6,7 @@ class Libgda < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "549596f0f624bf5479e52239da0e558792426ba5077360822a773f2a40b81c3a"
     sha256 arm64_monterey: "31de7c27443d4f477cfefa7b7598311b98b1998368385ea7a0787644c30a3c6f"
     sha256 arm64_big_sur:  "993a414772b41e1f0b2cffe21f9af240dbcd7e2b6de5d62a0e51b89a8144e40a"
     sha256 monterey:       "13a192f90ad01f376f5cbc977308d91bb096f3132ec41bea14a4b961866bfc1d"
