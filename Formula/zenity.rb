@@ -6,6 +6,7 @@ class Zenity < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "11f9ebc29350cee0d9d7769c37f4ecbf36c9484061e6705cfd5b51f599b19612"
     sha256 arm64_monterey: "a9e84c3b0eefa50aafb0f41cc6e0a9ccdce95ece584680c1d14591fd9fa4250c"
     sha256 arm64_big_sur:  "0df17f657645d0075244735559ee97fb35ea64356843f5a1be5bbb1f29472293"
     sha256 monterey:       "c102812429cf49155840fd2aeccae7bda7aec45f26ebea12848b628aa4f44397"
