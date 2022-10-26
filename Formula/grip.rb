@@ -9,6 +9,7 @@ class Grip < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb8c000f58c833b13a5ba8391f67dccb3b3cb9715d04891b79582d4511d0d9d1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f661f167430f4f144a296a48ac7cf350ea2b9a9696e7bcb02005a7a4146f005c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea21a1757ae58ed717bfffb5d94b2b26936b2b0779888eade5023e2c2d0d589b"
     sha256 cellar: :any_skip_relocation, monterey:       "06d5d5f26ea517d246c924444a861c4b660ad83ec928155b00df46ea2f3e9136"
