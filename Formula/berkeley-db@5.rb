@@ -7,13 +7,12 @@ class BerkeleyDbAT5 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "402f563d09b08afed7bc62e117b0fad4d1cbc39fec14c49ddd4b1e58a4dc9846"
-    sha256 cellar: :any,                 arm64_monterey: "3552b61376eea832cbc2a763c725c77c56f0ce3c94b72cb80acdb5b6b26d7e45"
-    sha256 cellar: :any,                 arm64_big_sur:  "55d4b9058c542dd9a9e90915c45fa0e4aaf4a2d9d5564df08acc4b6b2b0febb7"
-    sha256 cellar: :any,                 monterey:       "ac63e0443e2c939ca35be34dda37e8fe978c2ce97ca7f387972ffcb7a58437a4"
-    sha256 cellar: :any,                 big_sur:        "7e3d143445f45d8a2b0483d0d67e6d850d31304e39b5186999359788aada498b"
-    sha256 cellar: :any,                 catalina:       "5d16240f2a7ff2d057db048058d9b0644e152e50989f78ce66121e6350afa8a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b494da812a74d56cb31bcca41dcff11e82cf84dfbaeca52a6923ef7f2882578"
+    sha256 cellar: :any,                 arm64_monterey: "8c9ea685725256b2b50e856c23d20af734f20bc69fc92383e1819e4f867c8ac3"
+    sha256 cellar: :any,                 arm64_big_sur:  "9ef4df0db041470e7eba4335524ea0348f0061bd4e10ab7a7f6051841f7a7e11"
+    sha256 cellar: :any,                 monterey:       "36aaa79c9fc3eb2b7690c24bdf74be3d0f7e1752983a63a17538945e2bce7452"
+    sha256 cellar: :any,                 big_sur:        "5aa0875cdd7bd504abf8f7365e47f5ac4b0e1b9e4ca004d6eb58e2f1564a9621"
+    sha256 cellar: :any,                 catalina:       "944b439dd5dcb02c5219b307d6ed739b9808a4eced27f6605a977e550e47c8bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0e2906cc6657dc497fec75629560b0a404b81cebadf5e10c1f70616a14fa886"
   end
 
   keg_only :versioned_formula
