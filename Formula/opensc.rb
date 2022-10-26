@@ -12,6 +12,7 @@ class Opensc < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "80011410c66cf3191890e84150abb2d55056ac0468a54d68734acae0d1b3c044"
     sha256 arm64_monterey: "8d683bfbc7dcaa651ed70ca75333402bc75f47fc2eaf005581138f824db97e52"
     sha256 arm64_big_sur:  "fb1e4fdfdca0bd35600e321fffd758aff4e8557957da8e2a467d4580b5f52092"
     sha256 monterey:       "dfc3fd6cd5a271ed848c471930f5f3f8cdcab1214b0c1eb8090697a9d8e9fc94"
