@@ -4,7 +4,7 @@ class Solo2Cli < Formula
   url "https://github.com/solokeys/solo2-cli/archive/refs/tags/v0.2.1.tar.gz"
   sha256 "ae9ef9dd174a8b8294941635a3a66dc9062fd4b595d5f1f6507b5a5a232d6932"
   license "Apache-2.0"
-  
+
   depends_on "rust" => :build
 
   on_linux do
