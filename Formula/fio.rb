@@ -11,6 +11,7 @@ class Fio < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d66adcc988a7a797a294859423891e290ab3c21bcf5b440f33a3537b66092310"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f0c022777c3de70e1054f6cd50e135c15799185fa522ceeee7efbf574c9849c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32ad4359f19c1d9c067fc879215983096d3fbeb0ba2373a085afed072cf81fd1"
     sha256 cellar: :any_skip_relocation, monterey:       "79cd5ed1fa485a0ed61c87b65c53f3b8f9b96e56fe60a13b1c52784606e0a679"
