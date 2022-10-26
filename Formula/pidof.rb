@@ -13,6 +13,7 @@ class Pidof < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "964d09783be4f829eeac50a16939ba0f289fa2c88dc7fba155f258683f009884"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6b299aebe4224da62d4f287f46a6816362986a9a78089c3315ab2c4e2f946420"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7d1943e3d14377270554f16198f105b0e00cc9d53da79c7d22bc7974b711a23"
     sha256 cellar: :any_skip_relocation, monterey:       "1509f0473f6860e3836d43ed83f594982c3e4aa4af5b2a6be3f69ee55e1f74d1"
