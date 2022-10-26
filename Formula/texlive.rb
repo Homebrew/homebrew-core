@@ -35,6 +35,7 @@ class Texlive < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "cc72be1ac9900d1fc989cb0283ba17c1b39bb8c1769a8bc8cb0bb8f03aa3b2d8"
     sha256 arm64_monterey: "998bbb1328c73fdf3ff24429cccdb389edae22d935ab60a6f48dadfc6c7dc328"
     sha256 arm64_big_sur:  "69bc27790cc0a45d084b040a2c96976a052a89fa1f333fddcba3758acd150374"
     sha256 monterey:       "61822f9ebac88866db77aa8649caf69489f46c4bcb0c87d665e4854e5344b397"
