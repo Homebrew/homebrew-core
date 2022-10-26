@@ -18,7 +18,7 @@ class ElasticsearchAT6 < Formula
 
   deprecate! date: "2022-02-10", because: :unsupported
 
-  depends_on "openjdk"
+  depends_on "openjdk@17"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
