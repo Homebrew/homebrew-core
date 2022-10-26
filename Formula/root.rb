@@ -16,6 +16,7 @@ class Root < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "739e89ef0557b3cbe9b2635b5de747fc4e7f885d4adb73bff01bee99b9411fc2"
     sha256 arm64_monterey: "3342f160ffce464e80c476495c3db713d51e0e7fe1741b6ec4a8dfc102206fe8"
     sha256 arm64_big_sur:  "d70d636539b03c091233a81a74f3de23b0e9ed0d6fd7f8ee97e9df6b5c779393"
     sha256 monterey:       "9604024d36babeaa07f5805c18b5fc65086ed2b2accbed28969a85fdbf8f7ee7"
