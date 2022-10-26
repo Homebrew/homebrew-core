@@ -17,6 +17,7 @@ class OpenjdkAT8 < Formula
 
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
+  depends_on arch: :x86_64
   depends_on "freetype"
 
   on_monterey :or_newer do
