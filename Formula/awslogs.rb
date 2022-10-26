@@ -10,6 +10,7 @@ class Awslogs < Formula
   head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b86810db830aa0864e460f7d2121ee2bf9a95cbe258aa54ef4dcd3bcbffc99f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c457a22e04ef623d43b954bae9a56d0405deceb801279a13260d594d80b8975b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7f9afdefeb804cdd221be20780ffeadfcfdccbd234f549b38d163f9962c6cb0"
     sha256 cellar: :any_skip_relocation, monterey:       "dd66106ec6dd50056c85ce84a7f507890f19338ad95c0d844d333b582923e620"
