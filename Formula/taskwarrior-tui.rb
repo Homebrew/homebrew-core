@@ -12,6 +12,7 @@ class TaskwarriorTui < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a08bf13b88c8985a463439f2c5420ea93692eefacaf4370efd78f09ed73228d3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f98342eed8229f92a42818ecac0940b51f1d53710a4f1c4cfcc6e87a9c2649b0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "add2ce23d96a32745e2691724320a25674cb283367a59e2cd2bca40dedb8e8bd"
     sha256 cellar: :any_skip_relocation, monterey:       "221e62b7e68bd346022146337708714d9ba2d46df2e2ebf6b830ce22117e0f35"
