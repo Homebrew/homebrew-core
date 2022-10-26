@@ -16,6 +16,7 @@ class Teleport < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3926b5a367ee46b9322504863ee0c2cc3b33551886198facd4d40c84bf7d8373"
     sha256 cellar: :any,                 arm64_monterey: "60cf242d02dcb279b22f29789fc6a1edfedcdc1c3acae70a222adb6134d57380"
     sha256 cellar: :any,                 arm64_big_sur:  "da516c2585cc9781ba9efbfe249f89696583bc4a7ef698b85bfc2bfee97cb1bb"
     sha256 cellar: :any,                 monterey:       "f2165cac1855214b9b77cba896d899b025f2bd7523640f60b510f835223153f6"
