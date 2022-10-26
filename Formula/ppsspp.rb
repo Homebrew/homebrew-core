@@ -8,6 +8,7 @@ class Ppsspp < Formula
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a5d42c30cbad8d7eb332aa520d07832bc8026fa32705be36a220e2fab82af317"
     sha256 cellar: :any,                 arm64_monterey: "13bffd8ebd5acc25e6be6747fc2fa7a99582cecab7b2085bcff4ebba8109c63c"
     sha256 cellar: :any,                 arm64_big_sur:  "468aa96721c46a7051f1903b08c58b1eb4ab11d9db483eabf4a9aba17218d941"
     sha256 cellar: :any,                 monterey:       "3e9a5da2560205a7afa1715c3d635949013efe6e950ac19ad8417685cff782dd"
