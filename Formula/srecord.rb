@@ -22,7 +22,9 @@ class Srecord < Formula
   depends_on "libtool" => :build
   depends_on "libgcrypt"
 
-  uses_from_macos "groff" => :build
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
 
   on_linux do
     depends_on "ghostscript" => :build # for ps2pdf
