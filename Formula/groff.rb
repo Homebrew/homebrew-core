@@ -8,6 +8,7 @@ class Groff < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "4174b35e733b9c426df7c6b2e6424cfd7d22e65137a6576783ce3c5b13d278b7"
     sha256 arm64_monterey: "8727b4965fdaa053760844dd7e3823de3515ac20c82f7e8fbf59d5dce6e3bb7a"
     sha256 arm64_big_sur:  "f273750ee87dd64d4ae3ec08f3f6ac83a5e15eb0c2e08f9ebaf488bf9a739f96"
     sha256 monterey:       "2097e8976c4c645d2019e8825788d7ebf8619c0928b319b0fb47118cdcf4ad11"
