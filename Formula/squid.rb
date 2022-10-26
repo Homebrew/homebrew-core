@@ -11,6 +11,7 @@ class Squid < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "f46c29e3422bd688e271f2e3156ad2ef2ae7d4f5c011801344e109ab9a425998"
     sha256 arm64_monterey: "2fd285014a9d8b23db15573c51d9ba2bf3a7980aa42d1c3232799db5d7ec5383"
     sha256 arm64_big_sur:  "468a3787a8beef9d643d2f602e0a61844a2bc5c5c0d9a5295e9cee103e95014c"
     sha256 monterey:       "4f4c35109d3f98579fea0e0176010b8e9a20b6c8bf20ac39bc1fab8603886876"
