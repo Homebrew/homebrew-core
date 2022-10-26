@@ -13,13 +13,12 @@ class Hackrf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8dd9db4998058553ef3eff761788dcfb5fff0f50a7624c217f2b947bafad24ee"
-    sha256 cellar: :any,                 arm64_monterey: "b3b9c286eba911da05c8df47bb447616925070acaa8b3d44ed2337a814ca2220"
-    sha256 cellar: :any,                 arm64_big_sur:  "0131bd19e391fa3e1675115a4fa4b6fcb7db882c68ec1c9496bfc8c5ef46d096"
-    sha256 cellar: :any,                 monterey:       "96418d5edf0e03c8c4670c42f7999d59541bc875462808ffc459ca7ebf5e744d"
-    sha256 cellar: :any,                 big_sur:        "731540ba9b9ed12d3956e80322b2374464fa9fd7f3637620a52443d8861613af"
-    sha256 cellar: :any,                 catalina:       "b4ec755e6e14ebdec20b5c6a2ecbdcca6ea675678de27ff89ce0d8c7a6251161"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24573cadb29233fe862a18646f2abd83dd59e4e506d9b147163aff087cd5b9c6"
+    sha256 cellar: :any,                 arm64_monterey: "8c6eed0a7f15d8fe524f3db7256624caababc440e6a3db0d2c7ce39244592d87"
+    sha256 cellar: :any,                 arm64_big_sur:  "5ce7b90e03e6cfe0e3a4cae61133539d7a930a5cbfb3d841918a4adde7bc95d3"
+    sha256 cellar: :any,                 monterey:       "afbe5e6273018258bb621487af4d00e6dc5167ad8d153eedddc85679b530f227"
+    sha256 cellar: :any,                 big_sur:        "5d33b942ba20327b818a4f3bb77a62bddcc15956708ba1cfee27daabb748c14c"
+    sha256 cellar: :any,                 catalina:       "e4e88439a674526e27764c61813571ded730ea4e7ab8fbf1e573332e428d4ef2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2009cd97f0d99ffe8a075e65fd329c0687997336bf260374a1cf08cba4aedbb0"
   end
 
   depends_on "cmake" => :build
