@@ -11,6 +11,7 @@ class Cherrytree < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "7522f94e63a4740bf8eef59572e00092d258a0cef42d5d64a6b264f4c1ce5e79"
     sha256 arm64_monterey: "fbadb047e383f75a0e2bab0733fe03c71900122b4fe15c7b4fafbbdb6c4eb270"
     sha256 arm64_big_sur:  "4bbd4ab9921b4f0589b5f1331f9a7b8b084918bd50c3b3c62a0bdbba66b55318"
     sha256 monterey:       "4dc6f9c75199d4d19258af2e676d12eb7776fea30f03457e15d5f51ca8f1c550"
