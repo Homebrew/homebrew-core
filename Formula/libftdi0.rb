@@ -6,6 +6,7 @@ class Libftdi0 < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "49e1218cecb4cb2c0ac5a274beb6f2f57171d845ddc5117474c0482df90a04e3"
     sha256 cellar: :any,                 arm64_monterey: "aa6fa3c7382182d2cccdfad72fd6842b382498c6c5dd5e7a4231313e6cd0e2ab"
     sha256 cellar: :any,                 arm64_big_sur:  "0c48950d5292b7eca6aa02488d53792cc2b83b3bb0aa657cce08d10141eba5d2"
     sha256 cellar: :any,                 monterey:       "28b4982190f4f50bbb0b9875d159adaeb71f9dab8ae960b0140f1b9d45939c65"
