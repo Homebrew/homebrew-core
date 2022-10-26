@@ -25,8 +25,11 @@ class I386ElfGdb < Formula
   depends_on "python@3.10"
   depends_on "xz" # required for lzma support
 
-  uses_from_macos "texinfo" => :build
   uses_from_macos "zlib"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   def install
     target = "i386-elf"
