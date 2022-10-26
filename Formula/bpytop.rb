@@ -9,6 +9,7 @@ class Bpytop < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1bd3b8d238bcf9aa980f88e4087b3ca0577fcfb96fa4582babeb9bc91fe0bfe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a1056028c0249a04cdb1696c1f265d175b5678076ae2cd5b27145f4b875334bd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f268476fd2df933516f1de95768823eced9da2cd13c59be425accf26b5b938c"
     sha256 cellar: :any_skip_relocation, monterey:       "ba6ba12c03d0a7ff3f01e9185f0139009ea71035fabc0da0fdf990a974cdab4d"
