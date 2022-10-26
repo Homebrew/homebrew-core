@@ -12,6 +12,7 @@ class Ispell < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "a945c230dfa19ca5d6386e93175a9b783c981b986fb6b4706a87f23867f3dbfe"
     sha256 arm64_monterey: "cd60564b8dd85c18dcef91d4b5d90aa66fc4ccfbe2008009d33aa190554661bb"
     sha256 arm64_big_sur:  "e76131c8422ce43a180cf8d13fd74c2ff9073b82f9f749f50ddb27bda01bdaaa"
     sha256 monterey:       "eb6ac3922256a30c140ceb738cceacb4564ae5f80f23e06b0029743fda181902"
