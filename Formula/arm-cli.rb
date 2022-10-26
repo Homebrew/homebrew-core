@@ -1,4 +1,4 @@
-class Arm-cli < Formula
+class ArmCli < Formula
   desc "Armory ARM CLI"
   homepage "https://github.com/armory-io/arm/"
   url "https://github.com/armory-io/arm/releases/download/2.3.0/arm-2.3.0-macos-arm64.zip"
