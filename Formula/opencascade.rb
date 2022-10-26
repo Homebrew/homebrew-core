@@ -21,6 +21,7 @@ class Opencascade < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ee40f04033b6e18e85244585165ae9fe4f607819f90832b987c33ec7dcc0bcf7"
     sha256 cellar: :any,                 arm64_monterey: "3a0ea3b12845cac63ec0adde1f3af3bb079dbde60c37b184fd3b2e00c1c24d32"
     sha256 cellar: :any,                 arm64_big_sur:  "9f50bbcd16fd80e9da21a2eacc995baa8ec45875a3f2a07dfe9cfb12c26c6cdc"
     sha256 cellar: :any,                 monterey:       "0ee55bb56dbc02c26f0d6321737ced2ede197f210fc796dc4bfa99c1d422b7ac"
