@@ -16,7 +16,10 @@ class Netmask < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  uses_from_macos "texinfo" => :build
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   def install
     system "./autogen"
