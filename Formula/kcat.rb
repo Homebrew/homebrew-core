@@ -16,6 +16,7 @@ class Kcat < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "91a40bc28ce360a9fa3d40f9a16917cc91e553f13b8cc6bcecbff98827c9d15d"
     sha256 cellar: :any,                 arm64_monterey: "fd220a7e002772622e581f636e59c4a198ec883cbb813d2b31857d0bf24d089d"
     sha256 cellar: :any,                 arm64_big_sur:  "f930080248bb0eff245599536bbc12465c6bf6e256acb283e6d2d5a5d047f11e"
     sha256 cellar: :any,                 monterey:       "5629c17a2d26e8e36c1e7aa8e54430e004e2d7ef080df3ce6ff6edee4a4eb0e4"
