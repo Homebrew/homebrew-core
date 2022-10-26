@@ -10,6 +10,7 @@ class PodmanCompose < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "87a1bc7bf76b3dd60be98db3a7aaa8fecfaac7592583b2ce562014d9f9ec88f7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "192a0ad06b0acf8e4caa1b70216d1fcf8d88bb74e3a362b9e1db74f39640d721"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7c606a041e01537a00167c4451773626827f8cf5ff91fb2f1796653e854d0f9e"
     sha256 cellar: :any_skip_relocation, monterey:       "d221387fb6943447f7a9314568a60c59f9d2aa1a379d6666a77b5ac516f96b65"
