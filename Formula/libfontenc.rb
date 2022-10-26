@@ -7,6 +7,7 @@ class Libfontenc < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d1b8cf545526a2343a90301bc99fd064c988540a2e1f72b5f3b73486120c5d39"
     sha256 cellar: :any,                 arm64_monterey: "fd6ca003c32ee186b3199a4332493e80956c468f0e7d5ef6b6bdff4e6aad70c9"
     sha256 cellar: :any,                 arm64_big_sur:  "1f3e16eef91a65b13d837553cfadd609a94a22d195b2029ea611c4cc1c0e71ef"
     sha256 cellar: :any,                 monterey:       "533f627074074eb9ab19bd42cd86a28cbd1a8f57964de8085ccf4d0f12038331"
