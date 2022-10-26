@@ -14,6 +14,7 @@ class SpiceGtk < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "5376db1c3bb8e411ae9ed385060e294fff92a578235da5890aa0dfee162636ee"
     sha256 arm64_monterey: "ff19af79165ab0f40164ebdda3bfe7f43a10a79031d120fcde0341afc7f384e7"
     sha256 arm64_big_sur:  "d0bb47512168bb6b8d5a0d7f868e4eab2451a93adb3d37b3f0f39d2b82f088e4"
     sha256 monterey:       "7d447cc1e928a6952f646f2b05baea519ecbaad6004c151394b491515829d894"
