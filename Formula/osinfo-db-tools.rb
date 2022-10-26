@@ -11,6 +11,7 @@ class OsinfoDbTools < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "4c36d9142080cc03a5bbb5a7ade982081d79719508a67ba42d169c84ee94d2f7"
     sha256 arm64_monterey: "1d1c7ce896178ca36d6e80d74c4ee079ccef9d33aa23b3497507ae10a0e639ba"
     sha256 arm64_big_sur:  "82486837eb8ac3f291f0c19417fb3c039a6f8dc964a53cdbefd38a3ace4f4082"
     sha256 monterey:       "5fd3aecf2c0b5d73a53ca7f040492b18488fcae29e95a87f472e5b7748b4656d"
