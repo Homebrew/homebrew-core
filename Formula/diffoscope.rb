@@ -8,6 +8,7 @@ class Diffoscope < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "faf4979527ab6692f0be7b857cf0883beb2e76263616feb596730e13e8ac3e35"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9e389e3a768e709c7f5ff2ffdf5f613391409aea89229f3f1de08f5398015a48"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e24a1f969b79c473773ee52e0fc9bb13b84c148bcc9491b0d97a66271a853c24"
     sha256 cellar: :any_skip_relocation, monterey:       "bc632c028907f3293887dfc76812f1818cf1cc675dfb1eca5ef0b40eeea950f0"
