@@ -8,6 +8,7 @@ class Tepl < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "5cd4e2bce1730fcdccf24c1d91f844ae46d25b1e9058dcb19f1e7d830a911466"
     sha256 arm64_monterey: "07940e3b541b093e135209af85e1ddd789c11017a47f0fb678bc5ac00aa18407"
     sha256 arm64_big_sur:  "539dc3dd69c7b6d4f25ed7c4dc2370327c51f61f52062e58243e88421345ff06"
     sha256 monterey:       "4cdfae729a09db4baa0ba34b48f6586bfec57910dd0ba6f0265e38408ff66c29"
