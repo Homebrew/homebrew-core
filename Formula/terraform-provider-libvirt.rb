@@ -6,6 +6,7 @@ class TerraformProviderLibvirt < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "79958ac5244163ac45d7e7fdd3e0f16ce0d5c3b97216f84da56615006061d096"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb615807297c7c263475c9aefc77b7a71b4191bb95578ff1255bdf5a10d957f8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c3790a8e0e8aad43a45487fdedc2cd5d47b882be05f8ab77e14cb425072322de"
     sha256 cellar: :any_skip_relocation, monterey:       "d36befb071e615c232e155c48a6a3270ae2577b6dcbad08e247a18251aa3b7cd"
