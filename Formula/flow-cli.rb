@@ -12,6 +12,7 @@ class FlowCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "671ee4ee5d5ad293de5d25126ce75710a66131d77a172fd6a960c7a3d3dcfee2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b3c50c1dcf84ba12ab56538631df062745e6e88d25a3d098154cccd6f2fd954"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9e0f88478d3e495bc65ec004080c0dfc89017ff915b6b1c1abd1d3e3d599512"
     sha256 cellar: :any_skip_relocation, monterey:       "309acc21e2dcd779c4059b35cd4718d7ca31b19748eac709063348e7b776d3ce"
