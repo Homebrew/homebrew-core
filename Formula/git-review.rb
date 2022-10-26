@@ -9,6 +9,7 @@ class GitReview < Formula
   head "https://opendev.org/opendev/git-review.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "def0b9b5295318fb6200e8d49758b07ad303bf02d4dabdc718bdfd21217a4804"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a2ad7f7c0dbc722126772127f43eeb819d0f9604ae15bdf39d41b5f4b11dcf73"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a2ad7f7c0dbc722126772127f43eeb819d0f9604ae15bdf39d41b5f4b11dcf73"
     sha256 cellar: :any_skip_relocation, monterey:       "cb2812428a69ba6186f1714161c93ed15b1ebb0d28fdbec33c120c0c7c7e4083"
