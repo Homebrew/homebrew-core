@@ -14,8 +14,11 @@ class Wiggle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9181d60a846d40b7850bb1647b1dcfba43a56f46d26bda4965df7e6f9857900"
   end
 
-  uses_from_macos "groff" => :build
   uses_from_macos "ncurses"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
 
   def install
     system "make", "OptDbg=#{ENV.cflags}", "wiggle", "wiggle.man", "test"
