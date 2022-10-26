@@ -6,6 +6,7 @@ class Wiggle < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af2e82816a399f7da15006e81343855ef0c205ddc22bbc2a90047d0f99ac4339"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2340430acf70ad6cff33fb034eda572c80f359b3847b90ebcce1c732cc2bb792"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f585911f982b406255e79f0c3b6a4a71b7e438b0d102f1d9c39d1fdb806fe40e"
     sha256 cellar: :any_skip_relocation, monterey:       "6ef8230cd01f245db7718475da9c898919bc52b9729b2a603e797dce13d796fc"
