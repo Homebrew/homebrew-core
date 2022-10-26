@@ -19,6 +19,7 @@ class Clusterctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3869465a30033c6d013541650ec31359d7eba1724786a1dcaab47d790aa8cae0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b2fc3019f2f930263959d0fa4227380807650b844cc61812f2f0b1743bb51c9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3b0653a7022762a9cf9590781c292e0c701e4458f35334359366e5718047671"
     sha256 cellar: :any_skip_relocation, monterey:       "bd680598374e7cb05d904f7893160587ae119fa2adb72217ea21fe0544f9f2a5"
