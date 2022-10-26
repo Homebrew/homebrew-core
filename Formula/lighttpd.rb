@@ -11,6 +11,7 @@ class Lighttpd < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "cb599254c185916c4d3be91b735af9fe0b9553f7b0cd0ec9602d5ef588b26104"
     sha256 arm64_monterey: "44407e4dd4021ff95f7f2600f2b3ee588f882ef63c8964be34fa494fc11d9fb6"
     sha256 arm64_big_sur:  "9f96876d812006781086e73a334bac6d9be27c8b07080548f479f49e1bdf942c"
     sha256 monterey:       "b767d41ed5cbdba5ae2b2cc46edeeed2ff48d99f79a646d993e5ed0b23592112"
