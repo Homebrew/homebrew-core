@@ -6,6 +6,7 @@ class Libbinio < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d47d5255715fc0638111c50a4ec1fe4eea4fd90409389331874df8ef76f61c08"
     sha256 cellar: :any,                 arm64_monterey: "3b66d91c0bc97b7ade4576bb7d54403ebbf4e22a46c1ad7a1eb165a5cec24368"
     sha256 cellar: :any,                 arm64_big_sur:  "6490acae30e6e1047e5770b4aab37e4c043488c5c2e8a8919962208c1da2cdd4"
     sha256 cellar: :any,                 monterey:       "f2f87992d693266d8fc333fc9c583b8c372657da0018b24538d771598c76570c"
