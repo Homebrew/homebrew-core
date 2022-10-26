@@ -7,6 +7,7 @@ class Myman < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_ventura:  "4a37b7df0fde91a64eeec5ae4032d2c460b6524310c51819624c16c8904e7020"
     sha256 arm64_monterey: "7572bde41926ba4a33b300b0e43b890648fb8d19e47e4a50b43608e99c9b8e9a"
     sha256 arm64_big_sur:  "a38be300e040956aa8f9d997a715c91152868d5aeaadc6406330729523036828"
     sha256 monterey:       "0b4412e46e30f8970f331f4948e3210b956abceceebbb0b480ace2af2fa3973a"
