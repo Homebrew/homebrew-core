@@ -21,10 +21,13 @@ class Gdb < Formula
   depends_on "python@3.10"
   depends_on "xz" # required for lzma support
 
-  uses_from_macos "texinfo" => :build
   uses_from_macos "expat"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   on_linux do
     depends_on "pkg-config" => :build
