@@ -7,6 +7,7 @@ class Travis < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6b8b0df541c9731bb23101d0ce5848edde1ef3de1c57672a6364de0d59029996"
     sha256 cellar: :any,                 arm64_monterey: "9f970f517ee07fd631f8413dc5258a2673004774adc123afb25ca1898083fdd3"
     sha256 cellar: :any,                 arm64_big_sur:  "cc488bfe2d8e576d6ae11665e3140019f25e8fe1239c65f3122b311217ea2c75"
     sha256 cellar: :any,                 monterey:       "6de804e665cc162474f236240206a8440d732cabf28eeab31a11b10ce8fcedf2"
