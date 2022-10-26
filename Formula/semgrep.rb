@@ -15,6 +15,7 @@ class Semgrep < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "47eaf05adbdac0f2e504457aed1db03aac0a5cd6056150c76149e3b849f5e603"
     sha256 cellar: :any, arm64_monterey: "3ac52b9772f8a51af5ad004e9c0c6819254a7307076e42a81f0beb99fc4bb1ca"
     sha256 cellar: :any, arm64_big_sur:  "981e8477323cbaf7e6481430fca6a15b11b50221bb8fdb454625435f96c28614"
     sha256 cellar: :any, monterey:       "c8f8578d11636c1cc48b65dad17cb5e0466be1b67d50c88b2a122daaba659134"
