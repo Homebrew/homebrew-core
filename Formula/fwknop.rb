@@ -29,7 +29,9 @@ class Fwknop < Formula
   depends_on "libtool" => :build
   depends_on "gpgme"
 
-  uses_from_macos "texinfo" => :build
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   on_linux do
     depends_on "iptables"
