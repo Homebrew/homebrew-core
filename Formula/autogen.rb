@@ -13,6 +13,7 @@ class Autogen < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "3158365c07858e79995b689eb2e3d91c3e666db591d7b932d73c895aefc9ad0e"
     sha256 arm64_monterey: "002ff8cce7e99ea4013348ada75389cb74804dcf3fa810488aeed5812f160b81"
     sha256 arm64_big_sur:  "96cccae43990d233afe756eef8b9d700c7fc6ab316b3d119a809df04e04289dc"
     sha256 monterey:       "ed4a28138185633424aa705f44e1449e5706c40f055b0e86fc58008f7400f0d7"
