@@ -15,6 +15,7 @@ class Wolfssl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6ffafa8d44ea8b53069ef50156f8ada3f9f66ba1033d1e1b4b68cf533c282f60"
     sha256 cellar: :any,                 arm64_monterey: "dc6be6bcea7dfa213961deb58b187d28f1e648400d5b5cbd56f24a648cda9514"
     sha256 cellar: :any,                 arm64_big_sur:  "a398cc6bd2894446137ce3d96d35706e3fe91efc86bf9de42561c53ebb933ce0"
     sha256 cellar: :any,                 monterey:       "3c16bf1740c2726ba1ebc37c4c6486a8c8313009185246132699b28f44956b9a"
