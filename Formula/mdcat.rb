@@ -7,6 +7,7 @@ class Mdcat < Formula
   head "https://codeberg.org/flausch/mdcat.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "867b30ae99512f6ad63a66bfbc0c7a9ceb93bbd1864d26e0856c1871983f1a56"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "38bb47f62f60185d96ed8e090b6f8435f5b9c79ad148fc7e32815b92c142a318"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d995836465f508f32369c2591f2bc8eb06cedec04e21e6870424c8d4fde4a42"
     sha256 cellar: :any_skip_relocation, monterey:       "bf08c844a6e00ddf3e9cca6c4c910d03649e5137b89306307177c87c1bddf9a3"
