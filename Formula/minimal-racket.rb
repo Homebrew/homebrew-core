@@ -16,6 +16,7 @@ class MinimalRacket < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "d68c08356eab42db0e192d905be188a6e47061a37faa3271492757d7a7503563"
     sha256 arm64_monterey: "0b5e925451860875bcee3426d933853df22667891deab5f58af81db44c7ec64b"
     sha256 arm64_big_sur:  "f32e1a4c7a2df5d93e160fd500df5bd9408ae3a0878469827544bb8575967127"
     sha256 monterey:       "382691a83867d3a375900057862963904dab092dbb5923a1dbfc2b0397c4d182"
