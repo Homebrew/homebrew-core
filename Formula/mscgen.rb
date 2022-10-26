@@ -12,6 +12,7 @@ class Mscgen < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "73676ae3da025d8b7aaabc9809c3f65c3b6ae85a8d69850d7bd30bd5af0007ce"
     sha256 cellar: :any,                 arm64_monterey: "3cd61f8ca37330ef4a7ba26132a5d3bdb3eea68f4f41307064dadc3dc5649fa5"
     sha256 cellar: :any,                 arm64_big_sur:  "cede56d6cd047fde4bb154591914ee1123d118080114fb82a5b156b895f8fad4"
     sha256 cellar: :any,                 monterey:       "d031bdc4d5456838a3b0c8d60108309e3b2878067fda80b747cd2c6de90cccb1"
