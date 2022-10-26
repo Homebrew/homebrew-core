@@ -8,6 +8,7 @@ class Mpv < Formula
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "913c22f14b63c476eef8698a4abb3ef88eb81dc2eae057cd39e2ab90d980228b"
     sha256 arm64_monterey: "6680a239ced8d0dade454815b2380ae3c99d9305d68d77ccc2439ea44a2310f3"
     sha256 arm64_big_sur:  "165cb801353e1c28ecb3a4403a5bafb0a69288f666443b213b2a31bf8f8aada5"
     sha256 monterey:       "003851b807923b134b87607105d3d77d772ef5303bf522dedbfdc5da33a31103"
