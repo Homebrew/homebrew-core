@@ -8,6 +8,7 @@ class GnuIndent < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "66cd2b91e533849daea9cfabbf525ddcc76d2086a8a8b4657e6fa236df2ab7d9"
     sha256 arm64_monterey: "2311fb51012e426bd4cf01047a98cbcf70a5bf343aa089dc706d1e3c84b05964"
     sha256 arm64_big_sur:  "bf082593202d39ea4c2929b333d544c72ef23d16fed04f570e1f4227098ebf6e"
     sha256 monterey:       "f23364d4a472c8c1430967e887da54e319bf94687cdeb718988dde87459691cd"
