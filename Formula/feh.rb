@@ -11,6 +11,7 @@ class Feh < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "318f271466915108c46c98cee24d184cd57a51cc4ef016fe96d022fbacdba99b"
     sha256 arm64_monterey: "c611e253236ccd37d622f30ba046ca6f305310b58d30fd101aeaa9c9b0086a89"
     sha256 arm64_big_sur:  "3f45f1225748f51785f82480132ee9d4a3fa70fe96345876a7b9d56506b55232"
     sha256 monterey:       "ca3909cf947ecaad1c2c330bcdfb4000ebf0ff3bb131822f144d2fffc57b6f7e"
