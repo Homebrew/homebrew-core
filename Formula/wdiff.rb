@@ -21,8 +21,11 @@ class Wdiff < Formula
 
   depends_on "gettext"
 
-  uses_from_macos "texinfo" => :build
   uses_from_macos "ncurses"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   conflicts_with "montage", because: "both install an `mdiff` executable"
 
