@@ -30,7 +30,9 @@ class Ponysay < Formula
   depends_on "coreutils"
   depends_on "python@3.10"
 
-  uses_from_macos "texinfo" => :build
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   def install
     system "./setup.py",
