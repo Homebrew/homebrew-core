@@ -11,6 +11,7 @@ class Libosinfo < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "b849e568f1debeed02519d9d5bf34072403397c1cc33998a238eb8daaf3eb09b"
     sha256 arm64_monterey: "2659892b2d277e688c8edc0f03875c1e518f5ab515a200d58698f717e9ed7dac"
     sha256 arm64_big_sur:  "e8f42ab6e678acb61213692e472cc233112067f87b9d10744c4db4a10e14729c"
     sha256 monterey:       "6fa3411b44dcdd8d33e73fa6d7b4e4d21828d0e00c52430c68684e9a0a2a45c6"
