@@ -14,6 +14,7 @@ class Kafka < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "703d6007e0d87c035bfbbe3805114dd98b9a7fa2ef5b699d8f0201122601facc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "703d6007e0d87c035bfbbe3805114dd98b9a7fa2ef5b699d8f0201122601facc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "703d6007e0d87c035bfbbe3805114dd98b9a7fa2ef5b699d8f0201122601facc"
     sha256 cellar: :any_skip_relocation, monterey:       "95ee3d9f53d3acb9943084057487f2a6a061c4c6175edc43d21487cf52f9b806"
