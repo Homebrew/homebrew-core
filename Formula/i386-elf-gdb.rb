@@ -12,6 +12,7 @@ class I386ElfGdb < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "9225ceaac11cafdc8b6db7d59516a712f0c173c5427347206b18a39089e61f33"
     sha256 arm64_monterey: "28446027067f4c4beba9db4fdb282da2b92b61b52a167b9258b44d3ff822d6a9"
     sha256 arm64_big_sur:  "6ed21bdc62c33e8774d438928a37dbf6f6543707b39a396bb5dcba64b1f07669"
     sha256 monterey:       "53afd744fcb91a0ba17d52a4cf3628bc84756663db3d7b9fd81192bf90a5ba3e"
