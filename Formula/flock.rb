@@ -6,6 +6,7 @@ class Flock < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37a4abe9f2dc5ad5297a5dfdcb10fc1aeafe587b06a7a275231d05a3dd48b572"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0a65c4619ce6f133e7a5b9e82d7648b7da9ace48a09f89d69eb66f38bd6e2b6a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d6b63e6990f0bb2509aa01abc38208de8d809446fa32cd86961dec0aaffae4b"
     sha256 cellar: :any_skip_relocation, monterey:       "ec7c9523be673e50dec3b6aa3d17ef4905076e0f804e9ebccbca128bbf8855c5"
