@@ -7,6 +7,7 @@ class Uwsgi < Formula
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "9f14390de18ef1adb63a98c4f5a19b146fa02cb6f99485ae513ca9fefe0e09bb"
     sha256 arm64_monterey: "9d1929c7a720d4ad1f8f8f4f8cef51bed5833e5adc5881da44e6f5b7946abbc6"
     sha256 arm64_big_sur:  "a3dfad629f7fc0aeb1df752862fe3311ae7aa1684dacf3225264187344b7ea7e"
     sha256 monterey:       "2dc03c4a6aa1503256a73a59bc54a4abe9a478c647a0f35c63d8300f5f951115"
