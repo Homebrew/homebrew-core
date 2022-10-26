@@ -14,6 +14,7 @@ class Devspace < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c49b9ce281bb34613c641d1437c6576ce9b032ef5cb30f8aebe7a88c40e50e16"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "450f15b961a99141c09ced3b66d67fbe20b64d9546bea926c6a63d5c79821795"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3bfb5e96133378d2851019913675e3aebbe21b467dd1fcddf97a6aa9cc814286"
     sha256 cellar: :any_skip_relocation, monterey:       "b6083fdc36210e42d45d068ff0ef9082962d06e9110e7884477584ca9fa84b63"
