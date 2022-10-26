@@ -3,8 +3,8 @@ class Lexicon < Formula
 
   desc "Manipulate DNS records on various DNS providers in a standardized way"
   homepage "https://github.com/AnalogJ/lexicon"
-  url "https://files.pythonhosted.org/packages/94/26/0394bc0d3da5a4d51b255efec699098d95d68d505966b57250a3f1e7e4dc/dns_lexicon-3.11.6.tar.gz"
-  sha256 "f94f542fbf3ff7561f1f5e94127f7202abc276d66745241a6ba53a1c9e92886b"
+  url "https://files.pythonhosted.org/packages/c4/34/43be71ffbee123b644afcd63cacdb1323357b7e902edbaaa7dc937fc3457/dns_lexicon-3.11.7.tar.gz"
+  sha256 "fb3969e9a33c056e95dce7c43712665d8937e2a05112e2f4c098ef86a9cf07d8"
   license "MIT"
   head "https://github.com/AnalogJ/lexicon.git", branch: "master"
 
@@ -38,13 +38,13 @@ class Lexicon < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/97/a0/20dd887905e5056c597c959a0adb452d88aac992418578e18567e2109f23/boto3-1.24.89.tar.gz"
-    sha256 "d0d8ffcdc10821c4562bc7f935cdd840033bbc342ac0e14b6bdd348b3adf4c04"
+    url "https://files.pythonhosted.org/packages/a1/ba/0478ca7a5d5552f6adede714eecba3b028b8a7ffbb6ae1b2f2e07078914f/boto3-1.25.1.tar.gz"
+    sha256 "9517b1d517b024a259a116a0206ae4a471e2ffab57db1b41a3ce6e3f8042001a"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/bd/cb/af3d2851d43200724720ba4e81af15cbadeaf5b190eedd1b75582296627e/botocore-1.27.89.tar.gz"
-    sha256 "621f5413be8f97712b7e36c1b075a8791d1d1b9971a7ee060cdcdf5e2debf6c1"
+    url "https://files.pythonhosted.org/packages/64/23/f5998e064d78b5140cf80c384f93cb1fb480d32a096f09fe3138acd2e5ca/botocore-1.28.1.tar.gz"
+    sha256 "2ebaf48c9cd61ad5532ac639569837bce3e0470991c5f1bee9fe3ef7d0362c42"
   end
 
   resource "cached-property" do
@@ -163,8 +163,8 @@ class Lexicon < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/31/da/2d48d3499b59c7f3c5d5e1c79fcee5537c320c8ab7b7a0cd2db578bc34b3/pytz-2022.4.tar.gz"
-    sha256 "48ce799d83b6f8aab2020e369b627446696619e79645419610b9facd909b3174"
+    url "https://files.pythonhosted.org/packages/fe/dd/182cc5ed8e64a0d6d6c34fd27391041d542270000825410d294bd6902207/pytz-2022.5.tar.gz"
+    sha256 "c4d88f472f54d615e9cd582a5004d1e5f624854a6a27a6211591c251f22a6914"
   end
 
   resource "requests" do
@@ -178,8 +178,8 @@ class Lexicon < Formula
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/57/d6/20857446a2b81136dd02eed6d198343ce7a045ce8c06d4cb73fd2fee9001/requests-toolbelt-0.10.0.tar.gz"
-    sha256 "f695d6207931200b46c8ef6addbc8a921fb5d77cc4cd209c2e7d39293fcd2b30"
+    url "https://files.pythonhosted.org/packages/0c/4c/07f01c6ac44f7784fa399137fbc8d0cdc1b5d35304e8c0f278ad82105b58/requests-toolbelt-0.10.1.tar.gz"
+    sha256 "62e09f7ff5ccbda92772a29f394a49c3ad6cb181d568b1337626b2abb628a63d"
   end
 
   resource "rich" do
@@ -223,8 +223,8 @@ class Lexicon < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/41/2e/1341c5634c25e7254df01ec1f6cbd2bcdee3e647709e7c3647d1b362e3ac/zipp-3.9.0.tar.gz"
-    sha256 "3a7af91c3db40ec72dd9d154ae18e008c69efe8ca88dde4f9a731bb82fe2f9eb"
+    url "https://files.pythonhosted.org/packages/8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz"
+    sha256 "7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"
   end
 
   def install
