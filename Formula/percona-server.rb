@@ -12,6 +12,7 @@ class PerconaServer < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "1a61fec9e5d4003e9e0c5d9205091ce76f50bd821b0a4500a818593236d419c0"
     sha256 arm64_monterey: "0133d8fe76dbc77d4d780e377b99ae220e5dd571edad87d421e5fbe2e757da1d"
     sha256 arm64_big_sur:  "4da7726e3988cf850c41e7a796e6d734d6bf4e06e7829a9e0bf280976d304f3a"
     sha256 monterey:       "0828b310ec01954e21d01a2d1b1e63d168fe2d5f4ddb8252a1541607bc0839b0"
