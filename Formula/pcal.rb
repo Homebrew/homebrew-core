@@ -17,8 +17,11 @@ class Pcal < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4ca61c591e3d9f96352a2b83689f5dad406082f164eeb621602400aed315a9a"
   end
 
-  uses_from_macos "groff" => :build
   uses_from_macos "ncompress" => :build
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
 
   def install
     ENV.deparallelize
