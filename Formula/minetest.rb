@@ -24,6 +24,7 @@ class Minetest < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "9e2ac2626be9b51ccc399acf6015e5fe5c1145ed39b3f87054c3aa3b8ed30c3c"
     sha256 cellar: :any, arm64_monterey: "44204d306faf6661f5cca1b9fa31ab19bb6dbe95843acdaad989029cfd3a0a11"
     sha256 cellar: :any, arm64_big_sur:  "7f9985b9a6437dd26301c72b8a0315309e7be24eef7a55378cf4d118d4471b45"
     sha256 cellar: :any, monterey:       "2797dece689806632a0c7015e336a21155bb367555afa77c5b5890b61ae7110d"
