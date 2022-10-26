@@ -13,6 +13,7 @@ class Fluxctl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "532a97ba265b178ac52c7cfc91128c6640e70902a3caa48f424aeacd0649dffc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "49440ef8e08d4acb3ac71b28e2841b550b2424b5d6e3dc1210d4af30c023da11"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9eba83c3ffb83bdae327868f9a20bac78ae0aa525d3bb6013d19386a6b8567a9"
     sha256 cellar: :any_skip_relocation, monterey:       "9220f29d722241a3ef7ee0b045f157044f873bdbac3a4e27639855634c9a47e6"
