@@ -12,6 +12,7 @@ class Yazpp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f5323351a62f51e6eeb4b4844808bb418f181866f81d546bb4d304e9afb8b59d"
     sha256 cellar: :any,                 arm64_monterey: "aa97daf6d2b5261aeac38b913d4987be6b3061cc2623f316f3dfc2290722c265"
     sha256 cellar: :any,                 arm64_big_sur:  "3fc6095e006360bca8b4c911c9b81b473c1da8c35f791c0c6a719aeba59d7323"
     sha256 cellar: :any,                 monterey:       "3c9e3071b8fd04b9aaf2bfbb0c535b7634aef29f613e45ec1c780f86cca0aa62"
