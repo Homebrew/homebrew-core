@@ -7,6 +7,7 @@ class Scrcpy < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "7c9893c55d2ab4aa52726d18cfd70f8693b37078d968676c649ec2b55d5986d9"
     sha256 arm64_monterey: "47d05857b4a23bed97eab4d80397de5f715f7cf6bd3a2540502257556301dc1c"
     sha256 arm64_big_sur:  "9b605a35272fbc97501a42fb4fe36ff4e905c93024960164cd25b3c9c67cc754"
     sha256 monterey:       "2833aad9c0d864e65b856c5ba851ac693c8976c9a764676c01771988db5ab32d"
