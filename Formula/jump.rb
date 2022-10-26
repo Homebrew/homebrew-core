@@ -7,6 +7,7 @@ class Jump < Formula
   head "https://github.com/gsamokovarov/jump.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90378306728d3520372749d0632558adc2ee809652145a720545ffcc80328c92"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "530e68bb757c889ad241551f9312b147bb349463c854d72708590dc128798227"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "530e68bb757c889ad241551f9312b147bb349463c854d72708590dc128798227"
     sha256 cellar: :any_skip_relocation, monterey:       "0065c059d901a155f99e532ff126ed58abfe27d27b9ab5e3decdf44dcf0ca06d"
