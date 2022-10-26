@@ -6,6 +6,7 @@ class Vile < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "9fea67ad963f8e76ab09fb3e181acd3ae4af71d8413323e01a51521ff6f4c5cf"
     sha256 arm64_monterey: "0036bd77eb9f1231343f6e21793d6c3b1df01d014411b794aa289e621350a2ac"
     sha256 arm64_big_sur:  "440c832f9fb4513eea1800a0b1f22a7afae03f48f96d03478d78d731a76a84a0"
     sha256 monterey:       "4548060b0cf5731b7f4b6fc0eb95b33ea2a446decd83b5bfc946f354728d703b"
