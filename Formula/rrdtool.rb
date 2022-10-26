@@ -34,7 +34,9 @@ class Rrdtool < Formula
   depends_on "glib"
   depends_on "pango"
 
-  uses_from_macos "groff"
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
 
   def install
     # fatal error: 'ruby/config.h' file not found
