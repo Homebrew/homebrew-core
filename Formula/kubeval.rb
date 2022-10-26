@@ -8,6 +8,7 @@ class Kubeval < Formula
   head "https://github.com/instrumenta/kubeval.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b431a6bc542f5d5fa271e5a246d91ac1b08a1c72bbfad9170d2bf4987c10868"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6e5974f57b949750e5b87e0d8b4cd7e12c566e29bdbd00d86cb9d132ee8e50d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33bc6b830f27fdace62339ec2d3ac3ff01424c868e573f1d290d2f469c4986e8"
     sha256 cellar: :any_skip_relocation, monterey:       "01c06b669351b172306258e588e035c21d84a0385a611c7174ceee0b2809a411"
