@@ -15,6 +15,7 @@ class Tectonic < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9eef25e8284801301466e2125419a3573d13fced5ceef41040fad5e97652608b"
     sha256 cellar: :any,                 arm64_monterey: "e854eaca7cb31e9a55e00ab2f4ab5bdb3718eaa391b15638dfbda0f12c7141e0"
     sha256 cellar: :any,                 arm64_big_sur:  "1b9a29869eaffc1c81d863e776f7302959143b6289449564eb51e2f1e5b4f84a"
     sha256 cellar: :any,                 monterey:       "a8d4538dba93917b747ea63347e7642afc882525445b285c886280aed56dcae8"
