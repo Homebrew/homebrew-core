@@ -8,6 +8,7 @@ class Uncrustify < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df2f51573eca7780661104e4f5749d2d45a412e0653af91a77d472ca8c0d2538"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "18fd62fc09199932669b7dae942275db9b01cb0f41426bb498d4c0c62fa281d4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "125f9215b38b8479bf19a3e2bd2a26b69d852330c5ea814efc4f321fd7c7845c"
     sha256 cellar: :any_skip_relocation, monterey:       "91b46324697bb64ff4dd19a14b03c76f121413cee986b1fbbadc28ee9606dbe6"
