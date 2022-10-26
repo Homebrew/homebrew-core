@@ -6,6 +6,7 @@ class Libdmtx < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8b618efa0c3059ac26262d016e74fdd1d8e2e9507fba28a614fae2435011eddf"
     sha256 cellar: :any,                 arm64_monterey: "561f25578f3a60d6d122900a35d3a8e55745f74caeead32bbaa91f9cd0681a65"
     sha256 cellar: :any,                 arm64_big_sur:  "af07cb3d3398112398d1a0a50bb05569490506f7e679a5e31a31949f7b3e694e"
     sha256 cellar: :any,                 monterey:       "3728775d7a7d51ca7d837e9dc031e3e0fea98c46afac79955a49e631c82661f8"
