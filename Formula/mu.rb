@@ -37,7 +37,9 @@ class Mu < Formula
   depends_on "gmime"
   depends_on "xapian"
 
-  uses_from_macos "texinfo" => :build
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   conflicts_with "mu-repo", because: "both install `mu` binaries"
 
