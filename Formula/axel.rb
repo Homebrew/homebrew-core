@@ -7,6 +7,7 @@ class Axel < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "3f196f17b1043e0a5531749fa1e21a87d350fa70e3cf846efb6d7115c979be33"
     sha256 cellar: :any, arm64_monterey: "fc825bed920a30d02258383bdf1f14badc453adbf9cce3c8e628e221efbf7db5"
     sha256 cellar: :any, arm64_big_sur:  "a1815f9d311241ce68c81b0f21daad17ab08f3c0fad600b9116f457a3ae5262f"
     sha256 cellar: :any, monterey:       "348ee3ec9805d19c50eb3fe8ffae5ddef7c3f123bdd75612dcd9c05c5311ec0a"
