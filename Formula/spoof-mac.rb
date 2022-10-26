@@ -10,6 +10,7 @@ class SpoofMac < Formula
   head "https://github.com/feross/SpoofMAC.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1053df5258d10fc4f9c0af3f8fa99509027044174b99d31bffc327b06fc8af6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c72260ee010624f7801143abcb6a9a594ad76fc589b2e3179a1e7d2a8935c96e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c72260ee010624f7801143abcb6a9a594ad76fc589b2e3179a1e7d2a8935c96e"
     sha256 cellar: :any_skip_relocation, monterey:       "5e803ebae572b3af8eac3e6156c0e43b4e9ef3ce684f71b6fe8e4bcfdf4af362"
