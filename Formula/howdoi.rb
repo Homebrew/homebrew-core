@@ -9,6 +9,7 @@ class Howdoi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7088cab0f251de477f7a7fab54eed5d0cc3e8dcf0baac1a7367cc3cadfcf51f2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8cc5fec6b0207f7519b4859da9021d17dc960ebda9eff9253124bd7d79cc8f1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd50be1788570b884e4e453c6d2e9a46cbac2d65f9ffb25cbfc33832ca941d03"
     sha256 cellar: :any_skip_relocation, monterey:       "2d707599f1fd43b4229ea0d512c7375d82f1bcd10915788c9ff37f1e1f789221"
