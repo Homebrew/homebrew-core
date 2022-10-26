@@ -7,6 +7,7 @@ class Libhid < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7438d29931c8f30d894d323b710a5149bb320aa2945aeb9967fd7b46d7edb194"
     sha256 cellar: :any,                 arm64_monterey: "b69b1ff4ecd6f24b292da9085e8aa30694f24081c5183bdcb6c95d7f535c55dc"
     sha256 cellar: :any,                 arm64_big_sur:  "01170cf4863c640d89c02c1c8d10759aa9ab7b16a0ab88bccdefdf10c5174620"
     sha256 cellar: :any,                 monterey:       "d1a311d2e981c50f68ecb636a98659ff67894b30309942ad1258f96b66d017aa"
