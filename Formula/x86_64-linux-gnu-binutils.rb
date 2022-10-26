@@ -19,7 +19,9 @@ class X8664LinuxGnuBinutils < Formula
     sha256 x86_64_linux:   "6f26e684578b2e64500edf2339578a12e9212560fd1935aabef4741ab7170aa2"
   end
 
-  uses_from_macos "texinfo"
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   on_linux do
     keg_only "it conflicts with `binutils`"
