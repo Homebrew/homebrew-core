@@ -9,6 +9,7 @@ class Openstackclient < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f022c789094e147bc52330c1db0acef077ff86266be7b7e8c8a527e2213e7435"
     sha256 cellar: :any,                 arm64_monterey: "08bdc4fd77bc1ebcdcea42ae82a772e00a81ddd8c5617aedd88c19104093005c"
     sha256 cellar: :any,                 arm64_big_sur:  "908271d7e255e9dcfebd1c3168ab196eeb3b5ffbac208feec1d6d349214747a0"
     sha256 cellar: :any,                 monterey:       "7e49f6e924233a5fa581916638cec8d99f773785e4c79008ea21d2badc2d158e"
