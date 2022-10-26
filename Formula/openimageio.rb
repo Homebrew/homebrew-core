@@ -13,6 +13,7 @@ class Openimageio < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "238ddb1b436121114c645d6d5eec2817f026ceeafceb3ab9cc67b36f88c571ec"
     sha256 cellar: :any,                 arm64_monterey: "d891771f2f7c4013b4f76b2071a2ce21a8f3e52628620a6cadb0b8acd14401d1"
     sha256 cellar: :any,                 arm64_big_sur:  "ef65e0502ad664ab82ec9c079cc025fd57e6eb87724e5eea8778d6252aa6dd3e"
     sha256 cellar: :any,                 monterey:       "494731a44d8bf2ad10df7a93f838cae20408015f74b86d8cc3d0f9e72858e8d3"
