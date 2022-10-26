@@ -9,6 +9,7 @@ class DetectSecrets < Formula
   head "https://github.com/Yelp/detect-secrets.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b6c2cec1732ac3bfbebbeb7cb3fb3a9e8bb9900abbb928347ba7f078de6816f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d889403039af2f8c20e759feadcd506b12290b7b9a87f9f982ec2e3ba6fe4aea"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae0ab05f4a4a29a2e52f11df5aa4ba759f01ff5b1a26f6c692b8bb2c34d1298b"
     sha256 cellar: :any_skip_relocation, monterey:       "dfe21a1989c39aba8ab183c35f8e442f51ff82a937b55d2585744247807f7131"
