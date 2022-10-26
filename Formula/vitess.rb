@@ -1,8 +1,8 @@
 class Vitess < Formula
   desc "Database clustering system for horizontal scaling of MySQL"
   homepage "https://vitess.io"
-  url "https://github.com/vitessio/vitess/archive/v14.0.3.tar.gz"
-  sha256 "f747cb39d7d78421b8c4e25ee927490b052deaa9cea6f98e993c246320fb918b"
+  url "https://github.com/vitessio/vitess/archive/v15.0.0.tar.gz"
+  sha256 "0951281afc4b583248ca1ce323e882e919bcfd8d12122d6a610722aa67d6fb88"
   license "Apache-2.0"
 
   bottle do
@@ -51,9 +51,9 @@ class Vitess < Formula
     sleep 1
 
     fork do
-      exec bin/"vtctl", "-topo_implementation", "etcd2",
-                        "-topo_global_server_address", etcd_server,
-                        "-topo_global_root", testpath/"global",
+      exec bin/"vtctl", "--topo_implementation", "etcd2",
+                        "--topo_global_server_address", etcd_server,
+                        "--topo_global_root", testpath/"global",
                         "VtctldCommand", "AddCellInfo",
                         "--root", testpath/cell,
                         "--server-address", etcd_server,
@@ -63,13 +63,13 @@ class Vitess < Formula
 
     port = free_port
     fork do
-      exec bin/"vtgate", "-topo_implementation", "etcd2",
-                         "-topo_global_server_address", etcd_server,
-                         "-topo_global_root", testpath/"global",
-                         "-tablet_types_to_wait", "PRIMARY,REPLICA",
-                         "-cell", cell,
-                         "-cells_to_watch", cell,
-                         "-port", port.to_s
+      exec bin/"vtgate", "--topo_implementation", "etcd2",
+                         "--topo_global_server_address", etcd_server,
+                         "--topo_global_root", testpath/"global",
+                         "--tablet_types_to_wait", "PRIMARY,REPLICA",
+                         "--cell", cell,
+                         "--cells_to_watch", cell,
+                         "--port", port.to_s
     end
     sleep 3
 
