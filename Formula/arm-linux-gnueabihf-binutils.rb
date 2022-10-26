@@ -19,7 +19,9 @@ class ArmLinuxGnueabihfBinutils < Formula
     sha256 x86_64_linux:   "630a97002e764c3f2a9df69ee344e31ad9ea897da540d0dd5fef97b96ac269a1"
   end
 
-  uses_from_macos "texinfo"
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   def install
     ENV.cxx11
