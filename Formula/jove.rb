@@ -18,8 +18,11 @@ class Jove < Formula
     sha256 x86_64_linux:   "16b980f6ffc7e4d3d3ee8a98d89b9e3786b630e6847130fe412ea7dac5d17050"
   end
 
-  uses_from_macos "groff" => :build
   uses_from_macos "ncurses"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
 
   # Per MacPorts, avoid clash with libc getline
   patch :p0 do
