@@ -16,11 +16,14 @@ class Vile < Formula
   end
 
   uses_from_macos "flex" => :build
-  uses_from_macos "groff" => :build
   uses_from_macos "expect" => :test
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "perl"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
 
   def install
     system "./configure", *std_configure_args,
