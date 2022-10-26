@@ -8,6 +8,7 @@ class Sccache < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d528f930c12552dc388d49750ba12be7dc92e3c20faa5b1da740aa4e5cafe7b8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "03a2718de73604db1bb56de5d585fb61b5d6d2c8a7eb16c066124cd3d476bd23"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c13133e66ad27fb4bfc33cdfec0b567c30bf198582e6efb0b7531f598eef6d80"
     sha256 cellar: :any_skip_relocation, monterey:       "ae8579e33a6b89749bf11d7853911ad09e061e442a580f6f842afed2b31bd99e"
