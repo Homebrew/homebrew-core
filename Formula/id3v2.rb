@@ -20,8 +20,11 @@ class Id3v2 < Formula
 
   depends_on "id3lib"
 
-  uses_from_macos "groff" => :build
   uses_from_macos "zlib"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
 
   def install
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
