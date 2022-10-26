@@ -9,6 +9,7 @@ class Sqlfluff < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "694ee85fa7956f6e5783945503c3fabcc0b19ff037e11e2795e8e527a813b507"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "207920d9510140afdd0548598e720d1dc3e5b4b21b7cb59deb1e956bebdc5193"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed15ce8324fc5d42e0b5024cab07981bd43cf54b619262182621328da277d5b4"
     sha256 cellar: :any_skip_relocation, monterey:       "cb257a5f91a286e767bd6de51cbcf100cf5ddc69f9f08db80daf5cc416fd592b"
