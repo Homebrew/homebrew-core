@@ -14,6 +14,7 @@ class Libgxps < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "0f524e3a24c4939c08d93f3f66af34994bd9ec0a5a2c54323baaba2cfbdd8048"
     sha256 cellar: :any, arm64_monterey: "1ace22f9a74c47c9c4a80c6d0f489e3200a3987257641440e14bb0974a6fd89c"
     sha256 cellar: :any, arm64_big_sur:  "56e4ad2dad8df91707bdb77445b2e0c4b020b9f02aaebd6a667e639546ad91eb"
     sha256 cellar: :any, monterey:       "9806279d50f73693dbad71dd0b4c185196584a9187ee5daaae66882d4f9b7682"
