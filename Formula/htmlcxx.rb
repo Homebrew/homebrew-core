@@ -5,6 +5,7 @@ class Htmlcxx < Formula
   sha256 "5d38f938cf4df9a298a5346af27195fffabfef9f460fc2a02233cbcfa8fc75c8"
 
   bottle do
+    sha256 arm64_ventura:  "a89f6f97c7cdaa4ad3734786c0a15c2bbbfd6ba703127c9239bff75e89ace62a"
     sha256 arm64_monterey: "f0b1e84a587e9c944b7e6d1952b1feea22e223897a12adf51e28f51ec9bf4e9d"
     sha256 arm64_big_sur:  "076a461f50d225b8f6d7b1d1541b0fcdb2fba0af77e28d2524815e5d912b623e"
     sha256 monterey:       "2f62b3bfd180f22804cf7df3161f018769be76311e4d740cc619f3fb2766a1aa"
