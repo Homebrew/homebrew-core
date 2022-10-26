@@ -12,6 +12,7 @@ class LibvirtGlib < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "6b0abd52b2307364ce3fe0eab6634fbf90321f368ec3011b6e5110b76d295251"
     sha256 arm64_monterey: "9281991a193059f2d8a39184c823652dc025b8f9ba9c888aba64b5b66d948e9b"
     sha256 arm64_big_sur:  "dabfb25d593762d34de972fa15e7ef7c6a972c4790c9fb617c22d8dc4645fd3f"
     sha256 monterey:       "f4a3e22facc0423d19b0a6adfcfa8bd678cf568b77d01f561dcb0e2c2341477b"
