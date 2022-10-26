@@ -13,6 +13,7 @@ class Dlib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "72d97fda7f1615c971e268477e67f8ca5969fa2a98a368fbd0d28bc762991864"
     sha256 cellar: :any,                 arm64_monterey: "20350a3f0a638a1a5b6466c4809c7beea386545b35a98de7181bc66e2d3a0e3d"
     sha256 cellar: :any,                 arm64_big_sur:  "2546c7c03817f1181c406a1e6167c2a66a0a87b224567b7a7feb7c4111736e39"
     sha256 cellar: :any,                 monterey:       "3be4dd9f52d3d4aa041c1909159466b57f4ccbbb32404f3a07325d37d0fd8144"
