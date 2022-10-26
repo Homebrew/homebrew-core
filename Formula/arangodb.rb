@@ -12,6 +12,7 @@ class Arangodb < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "01a162f32ecfbb10e1bf53131bccd1d09858cccfd160d0734c3a63745d429b21"
     sha256 arm64_monterey: "b3715b5940358df40ea5988403859804df160664b17447e4d0b061f0b566f917"
     sha256 arm64_big_sur:  "ba3473cf1c88aad5fa45784455c4832202ec14c1ee3c280766464ee6248fa9e7"
     sha256 monterey:       "ef8adb6f3dbd14fae7867fbb8c325b7ecacfe7849bf33cc4a3dee74b10edd292"
