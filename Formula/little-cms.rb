@@ -7,6 +7,7 @@ class LittleCms < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6191ccb4d56cbb142a16bb7436f36dd0b5ccdcadf990b1004cdd49d285924004"
     sha256 cellar: :any,                 arm64_monterey: "06506916f644bbf3aa1138360c29f811a0bb0a5ab23cc2941a4e9a94c5c1f94a"
     sha256 cellar: :any,                 arm64_big_sur:  "c5716bd45fe8a883db5ca7b25d68dd7b31a04a5d9114aea8fbc1a2cd653d13c6"
     sha256 cellar: :any,                 monterey:       "0ee9976dd6fccec2cec2d9dd4fddf00a86400a9ad86eae581c7ce209bcb12a55"
