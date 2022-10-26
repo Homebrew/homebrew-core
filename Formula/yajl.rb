@@ -7,6 +7,7 @@ class Yajl < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any,                 arm64_ventura:  "fe07a22a18a3172092b2b2163bceff50f423c142484f9a62687dcf2a8ee6e330"
     sha256 cellar: :any,                 arm64_monterey: "95735cd614157ed2756dac69c80d81b83d305f0dcb54c3299c00e5f0528ddd0e"
     sha256 cellar: :any,                 arm64_big_sur:  "baefc7dc955217c4bdefd8dc798a6ad432131f449370a6249e31be6604842942"
     sha256 cellar: :any,                 monterey:       "af69d2c0088d874cbd0fa3fb534fb971943c81a8e49574758d8bfcfa4504ca5c"
