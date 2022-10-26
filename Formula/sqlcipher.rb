@@ -7,6 +7,7 @@ class Sqlcipher < Formula
   head "https://github.com/sqlcipher/sqlcipher.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "26df5e279136a5843e9f7058becbf454e2cd7e3c84fa155aadf345abfa1a625d"
     sha256 cellar: :any,                 arm64_monterey: "3485f63912e36d01ecbf4dea5ea11ba0595f5a0d758fe2e50a734da28749429c"
     sha256 cellar: :any,                 arm64_big_sur:  "6a61b33f89fe6517ade5304062b75a4b7fc0e788feeab7e425a29aa437a1f70c"
     sha256 cellar: :any,                 monterey:       "28953e908487a25f6e502c299398206639f4542b469b772f85df48d8a578fa44"
