@@ -10,6 +10,7 @@ class Yamale < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "05334844c7bf7dc0c6d780eb984fb944891acd81c5d78c9588c909a1f2c01812"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fcac343ee478ef2cda7b9083d5e444c4e0d550a3536705511dda07cfd39ffa97"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fcac343ee478ef2cda7b9083d5e444c4e0d550a3536705511dda07cfd39ffa97"
     sha256 cellar: :any_skip_relocation, monterey:       "e178118b37492c4e6c8cfbf2cd2a6a94a99e25138eb2aa5b2217ec3e239bdd6c"
