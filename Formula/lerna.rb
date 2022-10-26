@@ -8,6 +8,7 @@ class Lerna < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "848bd852dff3144fbb64e86d2360e7fdf48956cad43d2db8f6ab07a2ec32cbf0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3c83fd1b45bedae4abee157231b5fe78331ac14948e3e99c183a71eda10ce4d0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c83fd1b45bedae4abee157231b5fe78331ac14948e3e99c183a71eda10ce4d0"
     sha256 cellar: :any_skip_relocation, monterey:       "a6c8f333fd0d643184f63379826daf456f29566fd754393fd3330837abf93d6a"
