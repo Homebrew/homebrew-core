@@ -9,6 +9,7 @@ class PipAudit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e925e38aaeff54ff329f2ad742001f5223d9832c2440c1d0e08990e88220b3e3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "64e24d8f5c16e21808f3313e44c69272523820539beeeebeefdba2a5e638755a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9e7367a9a6ee4f0750c9a45185246f68d288d2c840cd3e763f5c4b93ca73f59"
     sha256 cellar: :any_skip_relocation, monterey:       "941852e373c61d9d171ba2492e30857c105328ba5a816e70a4e867c9bcc0f818"
