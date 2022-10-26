@@ -13,6 +13,7 @@ class GstLibav < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "7f05ebcf2ab83cd8bb35f1c5f8eb6e0d34d209a1ffb1ecd133c214335f38d9fe"
     sha256 cellar: :any, arm64_monterey: "4065537d800b19238c38b4b1d42cb92f194468049db105d733f8f17a742e2d9a"
     sha256 cellar: :any, arm64_big_sur:  "340789fce634714aaae27165addaa43bb40f53ab69238ced86d7ded7782ae1e1"
     sha256 cellar: :any, monterey:       "94daf9f1df921d2a72c085ba5ca3c5df532320d692d3b8d422f687396ee08b44"
