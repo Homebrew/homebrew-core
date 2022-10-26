@@ -6,6 +6,7 @@ class Zola < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c61253251605ff8751e9c3198f3843bc9d18e582a9a7cbb8d2fe6e6aa7833496"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c08e6c88309de152f7a265da012dcb9823f1cbe5fbba77848b877bbd946cb1df"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a46518e851b622f75ecb407a3c7e2be03ca5dedbbb1b28f70bbb8439c1c1bfd"
     sha256 cellar: :any_skip_relocation, monterey:       "f96375804c79ee2f6c6ce6403412a014b819f3432c170b9f8a6e27361886db79"
