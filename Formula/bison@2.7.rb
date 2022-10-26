@@ -7,6 +7,7 @@ class BisonAT27 < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "4c2881dcd188abeb431f4f53f1b01186b7dc588f12e890021ae77b3f3b547005"
     sha256 arm64_monterey: "52c4f32eb121a9442b25748e155a1d9d4ace7d433a07eafc13faed18272a2714"
     sha256 arm64_big_sur:  "a8889d09761ad553f7b7061947a1715e88a658ce7f4d3755b7d8d00f25a53f1a"
     sha256 monterey:       "fe295780aa756db1594d7a0db99e2f19c282b54f4c405d35a9248048714b680e"
