@@ -24,8 +24,11 @@ class Groff < Formula
   depends_on "uchardet"
 
   uses_from_macos "bison" => :build
-  uses_from_macos "texinfo" => :build
   uses_from_macos "perl"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   on_linux do
     depends_on "glib"
