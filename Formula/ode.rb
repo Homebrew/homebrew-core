@@ -6,6 +6,7 @@ class Ode < Formula
   head "https://bitbucket.org/odedevs/ode.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "446b72991bb9ad95f0acff646605f5f41a1dda3e27ff812702c8c4e54be3c8e8"
     sha256 cellar: :any,                 arm64_monterey: "90fb5ad7a5a4fe3a64f5cc30730bd3a0c55906e6cca3fa477c620d8fa33ffa91"
     sha256 cellar: :any,                 arm64_big_sur:  "3b69d29b04c4c733c4689be24f1ab4b49f646485650a6a55c10f2721de44e53b"
     sha256 cellar: :any,                 monterey:       "71cb389ca37d9b3dafac73fc9700e424977855e47c7150a9c4502a8cd479ca35"
