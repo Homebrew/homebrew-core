@@ -9,6 +9,7 @@ class Jrnl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "977d415799096ecfbf6baae3e3e1dc680faeddc24fdf959744985d07f046eb9c"
     sha256 cellar: :any,                 arm64_monterey: "f3b5954aed7bd110ffeb22f65e85d29e84f8d60b30dba2341f094f0347764559"
     sha256 cellar: :any,                 arm64_big_sur:  "4275181a569b4bab281522a482739aba0da29a75af6cd151a9cdd9f710758fca"
     sha256 cellar: :any,                 monterey:       "73aac1da8045df74ae176fd1c6a4042df7e00d2dd9343fa6a7bca4c0845d78c3"
