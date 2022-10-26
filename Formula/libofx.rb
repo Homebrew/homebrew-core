@@ -6,6 +6,7 @@ class Libofx < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "4c2f9ec0e41e667c21b2a6c1fbe81d11e356e1d5d5afdf80b1f3e771a6da3183"
     sha256 arm64_monterey: "c6e732fd8e3dac426fea0f2845c634af8542661058265f43886ef2f65828f95f"
     sha256 arm64_big_sur:  "0cbb926e59cd1032c9db87a9c4b33747a45dc6f48b2e4a1c26fefd066401c8f5"
     sha256 monterey:       "aa32a1500793c8add1ae49017887b2288f5c0d921d4db3681c1150f854da1038"
