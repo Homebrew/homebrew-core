@@ -8,6 +8,7 @@ class ProtocGenGrpcWeb < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2323f28712ef5fe2e370a1dcdbe4df56ecb022322fb73c6c414d583dcaf61497"
     sha256 cellar: :any,                 arm64_monterey: "a4419dc20745e0be397694a0181282c8838f821f535fef33b115e63f37a1a69f"
     sha256 cellar: :any,                 arm64_big_sur:  "7f1c93ce611e0868db6ef7751022e53a81293034b425922c1cb9cf078729b664"
     sha256 cellar: :any,                 monterey:       "e4babfc501a777bc4aa343efa55d538b3a70f7ed6e9e937fae0c2f09207e22be"
