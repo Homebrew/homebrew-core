@@ -7,6 +7,7 @@ class Dartsim < Formula
   revision 1
 
   bottle do
+    sha256                               arm64_ventura:  "eb6259f4a573e4166a88961bc76bf7b56730538cf1c193de7075d5e6ba5b76a3"
     sha256                               arm64_monterey: "e5de7bd2b3c5527e461e4eeaf8f3e78846b51136316dd965254c46b7d9c61b19"
     sha256                               arm64_big_sur:  "32f47556d7768bf110b4942aa807b37fd75ed15e316efdec2a3b9f3abbc6ac25"
     sha256                               monterey:       "24300e8d8f39767443f6fd3d8d660de38ed322bf95a008128b05d6f29390101f"
