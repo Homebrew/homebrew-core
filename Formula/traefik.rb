@@ -7,6 +7,7 @@ class Traefik < Formula
   head "https://github.com/traefik/traefik.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f636f2f66ce5d35ddd2bbcddf60141e075d95b144857bb0563494355f8537ff6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "12d3141047264bafea6c718fe5973afbe9e291dd9b27636c02b1452772e0add9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72b783dddc12ddcc572eb93baa72f0569a3ec93d045a3160406d97e3a47ab646"
     sha256 cellar: :any_skip_relocation, monterey:       "947f88bb955ed75527306ab98bb5ea5b645ad67094649e225ff8b0253d60175c"
