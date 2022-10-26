@@ -6,6 +6,7 @@ class Ugrep < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 arm64_ventura:  "32998ad357de246d98c7f04317e540bb20631848b3867d97d7d70361ef04f57a"
     sha256 arm64_monterey: "c02e298d5858fd7aa8d8307cb52c29c086e360ba2b219d71a1d7c59a27ba6ddc"
     sha256 arm64_big_sur:  "154cd0420579b2e0203a3b6dfd44943d9eb125e2adf2037bbf90113e3fe0dbe4"
     sha256 monterey:       "b1a2c618f1f404372ac838d0a4fe890233111e3118290629bcafa65578dbb682"
