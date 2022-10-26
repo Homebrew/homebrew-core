@@ -14,6 +14,7 @@ class SwiProlog < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "0308f7558585c095f79a8ee2b3175301d0ee5910735cd0c23b0f2bf5cc59815a"
     sha256 arm64_monterey: "144300728e472a4668e9ad3922d46d07f3a3e17a46b0616db450cf8125f4ad32"
     sha256 arm64_big_sur:  "391a851cdeb4bcbe04afc8b8a745b0ffcedeb8f736b4f80af55d2da122334c4e"
     sha256 monterey:       "35f2587b2c732d65b5b103271d6b7b19c11f8a6318b7cbd9ccb0c96020275b10"
