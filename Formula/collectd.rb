@@ -21,6 +21,7 @@ class Collectd < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "17ef602f303744b198fa038d7b7aea63147e4da61d756614d7765aed9b8c1e16"
     sha256 arm64_monterey: "dcc3153be48b21d9ed70ad1f73a4ef3e85f4d0a05df1a66f740837b98812f4f4"
     sha256 arm64_big_sur:  "9b6ef1f192b583587b38842eeb4487472cc120ab113884af1badd94d7f81d718"
     sha256 monterey:       "fa6fb93745bfa378667bf760f47dfbdca543979b51e354921639a3e279cb3139"
