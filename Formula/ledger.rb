@@ -27,8 +27,11 @@ class Ledger < Formula
   depends_on "mpfr"
   depends_on "python@3.10"
 
-  uses_from_macos "groff"
   uses_from_macos "libedit"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
 
   # Compatibility with Boost 1.76
   # https://github.com/ledger/ledger/issues/2030
