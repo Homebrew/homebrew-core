@@ -11,6 +11,7 @@ class Autossh < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c292dd6b6f1393dbccbdc296b881f30844787c909605577ee7367b0b77c0a793"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d14799b6ca48526b2cf94de0ec192da8689fcec70dff538a554cce942c9a1520"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c96653d1f3146ed3d7a2fea7127bae950f5b0766885385983e1ac086eda5dd43"
     sha256 cellar: :any_skip_relocation, monterey:       "a99fb17beece2065e5e184f5dcf707011c2470a05644be7ae495bcd10c99410c"
