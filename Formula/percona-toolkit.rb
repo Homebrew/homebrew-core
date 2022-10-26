@@ -16,6 +16,7 @@ class PerconaToolkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "bff64388cdaa376adbcf4eabd06ac3c5fed17d2399fe8936bdc4db1116d14732"
     sha256 cellar: :any,                 arm64_monterey: "02b8645c31c1dbc613049b92beea76566521953538733109d749c86bb9178902"
     sha256 cellar: :any,                 arm64_big_sur:  "cc026046227611a83c3f3d081d15119a83a518eec51d5626dc80b995a5314d42"
     sha256 cellar: :any,                 monterey:       "f5768c6c6498278a2fafca391fe498ff8c6cd06e2463cf22a5bfead8b8d23799"
