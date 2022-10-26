@@ -7,6 +7,7 @@ class Gifski < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "14b4295a8bffa396effb3ff51f6ddbf2187d9c306e4672a6361810cddc9e2701"
     sha256 cellar: :any,                 arm64_monterey: "ad1d6084e9f06f1a8d8601f988a1e6fb7057174df5841e4a9157fac0a65a1a60"
     sha256 cellar: :any,                 arm64_big_sur:  "d17cd7c01944d1868928debaea3b440fefb1f77d04f882f49e6c60f40bd9464b"
     sha256 cellar: :any,                 monterey:       "a8ae5fd607d327693c41c953f3bd795bec2cdd2a6685aab118517b9cf6725100"
