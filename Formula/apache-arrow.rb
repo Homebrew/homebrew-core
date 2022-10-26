@@ -1,11 +1,10 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-9.0.0/apache-arrow-9.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-9.0.0/apache-arrow-9.0.0.tar.gz"
-  sha256 "a9a033f0a3490289998f458680d19579cf07911717ba65afde6cb80070f7a9b5"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-10.0.0/apache-arrow-10.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-10.0.0/apache-arrow-10.0.0.tar.gz"
+  sha256 "5b46fa4c54f53e5df0019fe0f9d421e93fc906b625ebe8e89eed010d561f1f12"
   license "Apache-2.0"
-  revision 4
   head "https://github.com/apache/arrow.git", branch: "master"
 
   bottle do
@@ -20,46 +19,45 @@ class ApacheArrow < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "llvm@14" => :build
+  depends_on "llvm" => :build
   depends_on "aws-sdk-cpp"
   depends_on "brotli"
+  depends_on "bzip2"
   depends_on "glog"
   depends_on "grpc"
   depends_on "lz4"
-  depends_on "numpy"
   depends_on "openssl@1.1"
   depends_on "protobuf"
-  depends_on "python@3.10"
   depends_on "rapidjson"
   depends_on "re2"
   depends_on "snappy"
   depends_on "thrift"
   depends_on "utf8proc"
+  depends_on "z3"
   depends_on "zstd"
 
   fails_with gcc: "5"
 
   def install
-    python = "python3.10"
-
     # https://github.com/Homebrew/homebrew-core/issues/76537
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
-
-    # https://github.com/Homebrew/homebrew-core/issues/94724
-    # https://issues.apache.org/jira/browse/ARROW-15664
-    ENV["HOMEBREW_OPTIMIZATION_LEVEL"] = "O2"
 
     args = %W[
       -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=TRUE
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DARROW_COMPUTE=ON
+      -DARROW_CSV=ON
+      -DARROW_DATASET=ON
+      -DARROW_FILESYSTEM=ON
       -DARROW_FLIGHT=ON
+      -DARROW_FLIGHT_SQL=ON
       -DARROW_GANDIVA=ON
-      -DARROW_JEMALLOC=ON
+      -DARROW_HDFS=ON
+      -DARROW_JSON=ON
       -DARROW_ORC=ON
       -DARROW_PARQUET=ON
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
-      -DARROW_PYTHON=ON
       -DARROW_S3=ON
       -DARROW_WITH_BZ2=ON
       -DARROW_WITH_ZLIB=ON
@@ -69,7 +67,6 @@ class ApacheArrow < Formula
       -DARROW_WITH_BROTLI=ON
       -DARROW_WITH_UTF8PROC=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
-      -DPython3_EXECUTABLE=#{which(python)}
     ]
 
     args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?
@@ -87,7 +84,7 @@ class ApacheArrow < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}", "-larrow", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++17", "-I#{include}", "-L#{lib}", "-larrow", "-o", "test"
     system "./test"
   end
 end
