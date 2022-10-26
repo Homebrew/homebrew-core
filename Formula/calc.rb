@@ -6,6 +6,7 @@ class Calc < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "61c2bc3d7570a82d6720a086a662c4b4aebf3d79bdc825010049dee0ebd16699"
     sha256 arm64_monterey: "3337186209883fd629feeebe71ebb0ff19d01d8a49ce5bddfd8f8ee2fff287dd"
     sha256 arm64_big_sur:  "bf3815ed47929fae13903c1a78256a62203bc2a98ba82bd434616864792cea15"
     sha256 monterey:       "5083e19e9d67c8e07fcab3f932a33c6f5897d8d2f5eaea785230ddaf07e46871"
