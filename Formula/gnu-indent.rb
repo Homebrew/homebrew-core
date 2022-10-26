@@ -21,7 +21,9 @@ class GnuIndent < Formula
 
   depends_on "gettext"
 
-  uses_from_macos "texinfo" => :build
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   def install
     args = %W[
