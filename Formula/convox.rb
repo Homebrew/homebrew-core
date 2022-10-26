@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/3.5.6.tar.gz"
-  sha256 "4713f8a4838c95023915fa371ea6e524e78ef34793d96034b1a702ee99136dcc"
+  url "https://github.com/convox/convox/archive/3.6.8.tar.gz"
+  sha256 "07260e3a33ce52d564107338059460aeac0d0ebd62a6736948d92a69dae19c68"
   license "Apache-2.0"
   version_scheme 1
 
@@ -21,13 +21,6 @@ class Convox < Formula
   end
 
   depends_on "go" => :build
-
-  # Support go 1.17, remove when upstream patch is merged/released
-  # https://github.com/convox/convox/pull/389
-  patch do
-    url "https://github.com/convox/convox/commit/d28b01c5797cc8697820c890e469eb715b1d2e2e.patch?full_index=1"
-    sha256 "a0f94053a5549bf676c13cea877a33b3680b6116d54918d1fcfb7f3d2941f58b"
-  end
 
   def install
     ldflags = %W[
