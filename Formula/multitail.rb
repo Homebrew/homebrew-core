@@ -7,6 +7,7 @@ class Multitail < Formula
   head "https://github.com/folkertvanheusden/multitail.git"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a19b4eb52cc23c3a9f3190dbdca3db1d34032bd8790a357f022f1b408dbd0cff"
     sha256 cellar: :any,                 arm64_monterey: "2d1abd3e7e31719e362d7a1f7e22375b60eb75403bab05562975dc8758b424d2"
     sha256 cellar: :any,                 arm64_big_sur:  "746bcb020d1cac7511697bb8c0a0933a3e2948544aa3069c44c79bfe7179f031"
     sha256 cellar: :any,                 monterey:       "a59560fd92bc0e68010cbe215edbcb6d31cc7f57a9acd43715f7adf93bd754f2"
