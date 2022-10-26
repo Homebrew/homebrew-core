@@ -27,10 +27,7 @@ class FluentBit < Formula
   depends_on "pkg-config" => :build
 
   depends_on "libyaml"
-
-  on_linux do
-    depends_on "openssl@3"
-  end
+  depends_on "openssl@3"
 
   def install
     # Prevent fluent-bit to install files into global init system
