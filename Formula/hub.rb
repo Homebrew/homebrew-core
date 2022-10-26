@@ -21,8 +21,11 @@ class Hub < Formula
   # Bump to 1.18 on the next release, if possible.
   depends_on "go@1.17" => :build
 
-  uses_from_macos "groff" => :build
   uses_from_macos "ruby" => :build
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
 
   on_linux do
     depends_on "util-linux"
