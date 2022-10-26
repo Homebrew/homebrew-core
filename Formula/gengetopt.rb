@@ -6,6 +6,7 @@ class Gengetopt < Formula
   sha256 "b941aec9011864978dd7fdeb052b1943535824169d2aa2b0e7eae9ab807584ac"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "65c731183d0fbdec83471189c83b19f7f3617daeabc4845baf8c0243e221d95f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0187835bf0f0b221a2b1bb2bcc454aede83fe8cd15e74ea4bca09c7b7feccb29"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d869a2ffa87824b4e5854df92e2f60f652fe4e5e20d188207bf6171d7d18f84"
     sha256 cellar: :any_skip_relocation, monterey:       "90b1ee25cdf823bad41c76f92afabe8a1b7a8db6f29b4cc533c6914d833d992f"
