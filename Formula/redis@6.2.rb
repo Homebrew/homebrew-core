@@ -11,6 +11,7 @@ class RedisAT62 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "23a1e87fc9c0c3c5c305080f60dbaa02227dd3c122251d51735dfdf00e3c9ef6"
     sha256 cellar: :any,                 arm64_monterey: "1b7d170b8da5d389e3d9445d922c7041690b13072981e275b1ed33db654d9fa3"
     sha256 cellar: :any,                 arm64_big_sur:  "759bf94a0731dd0138a8ab946694b74dd59997d06026b1f662231d5da545fe96"
     sha256 cellar: :any,                 monterey:       "13c5b091fbcd6f9d9c5e3e7a89a57a38db08d9d47b2340d236ba7c71c43fa867"
