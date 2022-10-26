@@ -22,10 +22,12 @@ class Awscli < Formula
   depends_on "python@3.10"
   depends_on "six"
 
-  uses_from_macos "groff"
-
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version >= 1400
+  end
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff"
   end
 
   # Python resources should be updated based on setup.cfg. One possible way is:
