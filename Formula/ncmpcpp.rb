@@ -12,6 +12,7 @@ class Ncmpcpp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "76f18301d32737baac84267995a24de92092dc76c60327c479c7a0f6dd84139b"
     sha256 cellar: :any,                 arm64_monterey: "cf2eca5f6cd5e691356f38ac0c5a8340b15e327d40ed716f0500baac4f7137b6"
     sha256 cellar: :any,                 arm64_big_sur:  "eced36d7c545a790542a896f7513b76167cdc0e61f8cce67573fb73154968ee6"
     sha256 cellar: :any,                 monterey:       "afd09c2d5c806b93818042ca072c60a27d07819168fe31169c90689937002460"
