@@ -11,6 +11,7 @@ class Libident < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "b3aacfbacdc98c637bc19401da959466566c13914d88be0a500a4ccd8c0e35fa"
     sha256 cellar: :any,                 arm64_monterey: "005fdffe6633e849bc26051b739a0fc10d72ecb25335bb04aea9286b19dbd196"
     sha256 cellar: :any,                 monterey:       "31ddce221ecaa52ab7d4cc10ccac2421043782f029a1a6643bcc886a7c1b922e"
     sha256 cellar: :any,                 big_sur:        "50e093a609acac219853ba89a884408bebcddd23b7ae23faad9476618649cbe7"
