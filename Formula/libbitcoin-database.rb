@@ -7,6 +7,7 @@ class LibbitcoinDatabase < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9f3a1b14cec14874e96aa73c538552536c758eedf762336d445bed0e2e1a1c49"
     sha256 cellar: :any,                 arm64_monterey: "085dd23364eb6643233052da9c14e3e8cbfa99d22588c2febc0335cb99f26eab"
     sha256 cellar: :any,                 arm64_big_sur:  "8cfc5dcf5ad3e74e38f2887b2d2fffcca747981096a5ddacafbe3fe882f371e1"
     sha256 cellar: :any,                 monterey:       "d280b0babbd6de733c4850196c62b48096a6eb8e9c0fc14fd750614d4bbcc6e9"
