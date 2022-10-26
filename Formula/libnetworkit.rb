@@ -11,6 +11,7 @@ class Libnetworkit < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "4437de1a0c2d7538c67a504135165825198403b7b8285f578db27c4d5284fa86"
     sha256 cellar: :any,                 arm64_monterey: "6bc1e0d3d759aed8800327120850737934ae106dcd9d6c66efb348b7c9e67b1e"
     sha256 cellar: :any,                 arm64_big_sur:  "8cb2f1613a8e9154ac7f6fa74a8b5175ae2ae599532be959bf3425a8a2e3a27b"
     sha256 cellar: :any,                 monterey:       "666f4a00feef2523ba39656fc77e2edadb70902b805ea54b37bfb282b94bae88"
