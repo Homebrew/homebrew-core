@@ -6,6 +6,7 @@ class Actionlint < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38e835c49a82c25eb10c7b9a1d21ad4ef542ed4311ef3fdfa158cb2584dcf21e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "38e835c49a82c25eb10c7b9a1d21ad4ef542ed4311ef3fdfa158cb2584dcf21e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38e835c49a82c25eb10c7b9a1d21ad4ef542ed4311ef3fdfa158cb2584dcf21e"
     sha256 cellar: :any_skip_relocation, monterey:       "410d87c1137d1a879ee9fe3d971f33fd1ac78d7d472fde0882d1f3a897640a26"
