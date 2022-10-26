@@ -15,6 +15,7 @@ class Snapcraft < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2c080cd0ee2b504335b06cf4da3867e8829a8bbdcd1ace338eee0fb1e1aa8fa1"
     sha256 cellar: :any,                 arm64_monterey: "c31bb7dfe683eab63858210242499d9d399dbc6cbd94bbd8c92b6edb20d137c8"
     sha256 cellar: :any,                 arm64_big_sur:  "04b966aab6268f5eddfcf7219cf0ac7c97c6e6e68a3ba31cfaa1113e232b2f45"
     sha256 cellar: :any,                 monterey:       "f9270eca501e6fd6338a2c09b37e14b3a611a3456f6fc1fbf389c6b00878dd64"
