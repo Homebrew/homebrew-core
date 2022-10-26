@@ -7,6 +7,7 @@ class Conftest < Formula
   head "https://github.com/open-policy-agent/conftest.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd0c05d9142006340b0b7cb8798b2de3b52a2a6252e0016390bb8acbc7fdff20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8cfe7442074ce0c1c1d2a466f336e4cfc31b54a8476180181c394f802b5d5021"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5fc41cbb4d60db9dfc341e548ca6a36fd0e797cbda93160f428924d987863622"
     sha256 cellar: :any_skip_relocation, monterey:       "279a52a2a1ee365e813cec2cce4eef986ab11d542f904400bbc930c70b62da84"
