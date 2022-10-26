@@ -23,6 +23,10 @@ class PinentryMac < Formula
   depends_on "libassuan"
   depends_on :macos
 
+  on_ventura :or_newer do
+    depends_on "texinfo" => :build
+  end
+
   def install
     system "autoreconf", "-fiv"
     system "autoconf"
