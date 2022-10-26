@@ -7,6 +7,7 @@ class CloudNuke < Formula
   head "https://github.com/gruntwork-io/cloud-nuke.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e0ee2d507da338afa96748228a40424fa411ffc61bec9c125095070835f6d969"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f9577be7a85176100ebaaf7c9a4bc38357504066650f8e6e50fea55f1e74b6a8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42427ce1dbf46f93abf12aa668310957fdbad55072d23b53695eeb391dafb6f5"
     sha256 cellar: :any_skip_relocation, monterey:       "bd363387e0cdd6f1d231ad52766d351bf56d1de3b1061a2363eae97950f5e7f0"
