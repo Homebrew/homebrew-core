@@ -37,6 +37,7 @@ class Neovim < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "77154829a3e517984e4c4786003c64cfa8561ee69f31850f470fe2835121f4f0"
     sha256 arm64_monterey: "b42a40c540d193cd092734fd9900afae15116768b4da5cf7d950476db03ac520"
     sha256 arm64_big_sur:  "f2ca9de076bb8f12352ca1776e0d83bc0d04741952a033309bbd1b9d4acb2e19"
     sha256 monterey:       "837d0e3cf3e7ae8c806fc59ff1ba2387dac8a28fc78436fc64ec77b12c37523a"
