@@ -27,8 +27,11 @@ class MitScheme < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "m4" => :build
-  uses_from_macos "texinfo" => :build
   uses_from_macos "ncurses"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   resource "bootstrap" do
     on_intel do
