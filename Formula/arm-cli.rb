@@ -14,6 +14,6 @@ class ArmCli < Formula
     assert_match "The Armory Platform CLI", run_output
 
     version_output = shell_output("#{bin}/arm version 2>&1")
-    assert_match = "rainmaker", version_output
+    assert_match "rainmaker", version_output
   end
 end
