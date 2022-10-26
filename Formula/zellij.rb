@@ -6,6 +6,7 @@ class Zellij < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f29fa09557a27150de11eb74a6b424ea9cf5a749a10641eeb2421800bd925ce8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2e93a21f0963b6071a60bdb572c008fb9aa80f1b80ad985b0feed01b33c4f1bf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b811eb9747bb2195848372c95a5bfe01390404ad5dd361a9436940cf2470209"
     sha256 cellar: :any_skip_relocation, monterey:       "9e2fa6f827a5751dc62c0e0dca528f12d2205d8872ce551ba48b3f8b8d9afffc"
