@@ -15,6 +15,7 @@ class Solana < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "94fe36e03c99f0d4299c302e88693e9b00fdb462939333a80f573cf460edaba4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2924d39010dc8be50ba5a90afba60b66def869b13dbb0b05a8815976da02f147"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe26d70c6ae7a5319b18a768898d62b84c26ab35ecdadc8373814e114d8ae374"
     sha256 cellar: :any_skip_relocation, monterey:       "e9929eb8113a54f318e7b92f3b8ed426b437c88e7d77e925e2930540d06b31fb"
