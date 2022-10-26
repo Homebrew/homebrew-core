@@ -19,7 +19,9 @@ class Solid < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  uses_from_macos "texinfo" => :build
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   # This patch fixes a broken build on clang-600.0.56.
   # Was reported to bugs@dtecta.com (since it also applies to solid-3.5.6)
