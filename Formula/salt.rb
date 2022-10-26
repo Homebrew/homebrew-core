@@ -10,6 +10,7 @@ class Salt < Formula
   head "https://github.com/saltstack/salt.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "de5632a0d7015906cd66bf68464e111ca04eeecff996f612decbd68b211032f8"
     sha256 cellar: :any,                 arm64_monterey: "22ef48638590f598cb5e36170d734628fdc857b9c4643e43b5c40205051b27da"
     sha256 cellar: :any,                 arm64_big_sur:  "85fb71da5cb85e826a96eaca6407bd7b61ba894e5a37d400185ff0c62993318b"
     sha256 cellar: :any,                 monterey:       "1931d3fd72880afc48f6d7b0f061b5ff4a0b9cec8ceea1a220a6cc4357bcec77"
