@@ -9,6 +9,7 @@ class GitlabCiLocal < Formula
   head "https://github.com/firecow/gitlab-ci-local.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "baf59903f2c228aff4272cb121f11b43c3fe5b0b24f5b60c254c3c38b6fff42d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "baf59903f2c228aff4272cb121f11b43c3fe5b0b24f5b60c254c3c38b6fff42d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baf59903f2c228aff4272cb121f11b43c3fe5b0b24f5b60c254c3c38b6fff42d"
     sha256 cellar: :any_skip_relocation, monterey:       "27fe6fc81d4284f4f796f3c6729df0621b00a0adf9062f53b48741b59cd140fb"
