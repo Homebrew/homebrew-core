@@ -9,6 +9,15 @@ class PythonTkAT311 < Formula
     formula "python@3.11"
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_monterey: "8c238e600565e35bc43eaa2031d5a65b254c2312bcafa1e1e45551bfd1039093"
+    sha256 cellar: :any, arm64_big_sur:  "5980d76b9d77e5307c0a1c5638f237df590d5e8dae8499da4e73a85661ca1cba"
+    sha256 cellar: :any, monterey:       "c70b3353802b12baa1a9ab4797992a8560794e3a4324879091c99924a18f4cfa"
+    sha256 cellar: :any, big_sur:        "35fe499d862b7dd3884baa2cf7ab6c9ca5dfbca5b1fb707036ba16f8c4dc7072"
+    sha256 cellar: :any, catalina:       "4238e0b6ae7043908cfec513cbb8346e7e9a4435dac2c06b1bb67d6a9934a579"
+    sha256               x86_64_linux:   "d054fd0c4fcadbeccba138390da24c06dc87f00e46e9d646097abd2f95cf61ac"
+  end
+
   depends_on "python@3.11"
   depends_on "tcl-tk"
 
