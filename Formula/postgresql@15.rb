@@ -11,6 +11,7 @@ class PostgresqlAT15 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "f124dd1f680152698a203da673cb044cb9ee6097708b1d3751d2196db43759cb"
     sha256 arm64_monterey: "3069a3f173abc0c98c47a41daf3f315f5253b97c71c7900f088929e320795649"
     sha256 arm64_big_sur:  "9799289b5dfc8117b859eeee89a953f794eb13a2471ff41316a955c3db94894a"
     sha256 monterey:       "c5480e89429114fccb5d1d1b2f38123687286f74e78632cd2f982eba17334ce8"
