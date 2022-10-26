@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Fast and Lightweight Logs and Metrics processor"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v1.9.9.tar.gz"
-  sha256 "d58dc649f6b4e2433711666ae68c8f443c0542801eb6241b21d245fb421daced"
+  url "https://github.com/fluent/fluent-bit/archive/v2.0.0.tar.gz"
+  sha256 "554a93d8a26503544d3406f286f6eed51f6f22aac69c531fd8b29ae13a887321"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git", branch: "master"
 
@@ -28,10 +28,7 @@ class FluentBit < Formula
   depends_on "pkg-config" => :build
 
   depends_on "libyaml"
-
-  on_linux do
-    depends_on "openssl@3"
-  end
+  depends_on "openssl@3"
 
   def install
     # Prevent fluent-bit to install files into global init system
