@@ -28,7 +28,10 @@ class Sdcc < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-  uses_from_macos "texinfo" => :build
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}"
