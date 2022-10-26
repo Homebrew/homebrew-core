@@ -8,7 +8,7 @@ class HgFastExport < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bfdfd4196291880578a9c75882feeab0bd0afb6a1321443cc74307dcd243eb0e"
+    sha256 cellar: :any_skip_relocation, all: "e5a4c9b31f2422a84b57ed0be3af7cd8cb1c45324ba7d5cb80e40f6c738bd940"
   end
 
   depends_on "mercurial"
