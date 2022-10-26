@@ -17,7 +17,9 @@ class Gengetopt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "379c0b354e21a5da13e62c6dbce3edfc1580561fb59015f015769c18cc804a60"
   end
 
-  uses_from_macos "texinfo"
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
