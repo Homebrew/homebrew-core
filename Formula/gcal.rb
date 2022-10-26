@@ -19,7 +19,9 @@ class Gcal < Formula
     sha256                               x86_64_linux:   "c50c7177f7d542efece33e069e918ecff4fcd08ae288d5b7ed9d0f232ff6daa4"
   end
 
-  uses_from_macos "texinfo" => :build
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   on_linux do
     depends_on "ncurses"
