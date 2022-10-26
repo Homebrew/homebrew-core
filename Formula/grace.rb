@@ -12,6 +12,7 @@ class Grace < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "25e56b21ed182a4cac2db983a01316c859d9191b0d31bce5050bc0e83d55eb04"
     sha256 arm64_monterey: "26ff1421ae2de1ce2319b4584d4e09b9262b1ed126d8c767d44a87009b8ee219"
     sha256 arm64_big_sur:  "1ba31e5d4e056187e182e8c46a71e6bc4dbb8b6e35d6f314fb64aa3136a93f43"
     sha256 monterey:       "4f30899270663be69c5a6ee832c0ef7b19baf3a422f7fc6d06ef6fd5d69e0892"
