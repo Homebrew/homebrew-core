@@ -7,6 +7,7 @@ class Libsmf < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "df70ec06e4a742502ca5b0bda57b262a2dfc16eb9ee82f66ab66bf811a5dce92"
     sha256 cellar: :any,                 arm64_monterey: "f71269c1ec95b265499e4a313d872ad46006be914ba0ea0251cdb772bea68407"
     sha256 cellar: :any,                 arm64_big_sur:  "44573cafe0e23d3d764b53022f5515b0c67a7d5fab0d85a01e4b25b64b0e9334"
     sha256 cellar: :any,                 monterey:       "b295f7fa144af4cdd3b8e90f4519e2abe86bec8283ed809bffdabdbec934a0e6"
