@@ -6,6 +6,7 @@ class Imagesnap < Formula
   license :public_domain
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f363a0b9e1961f5cd6fc19b2b6bcfc6677399732723b6f686c33e338a746c26a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9cab0cdeac3bb6d67021107d754628c02cb22b1e1111049cf6cac6d4dfdd3859"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0b0e448b487416847f57dd541f031b3f35b369d43e0317293f99043ed60b820"
     sha256 cellar: :any_skip_relocation, monterey:       "acd11ffa88be2018f9fdad03371404284fb93d515dba7569b4219b8cb09dc37e"
