@@ -8,6 +8,7 @@ class Urweb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "d0f58536193daaf1e310003f073a9979a526de2cedbd7eeca59fe13b07d5d79a"
     sha256 arm64_monterey: "bf59d45c3f80fa791e85e2da484773d0e571839076bb9314c57af39b7722cb71"
     sha256 arm64_big_sur:  "0759a24040fc7112cf1eb8512371e954c1b5b4f84d8a19fb14a938aef021533b"
     sha256 monterey:       "b91f8faa12123ec1c8b75f431e2a7cd0d172a9fb56bcdd384d8e34d35112c042"
