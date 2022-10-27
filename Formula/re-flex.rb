@@ -6,6 +6,7 @@ class ReFlex < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b9808ec78567bc1ebb679ded4f447546051abeab1b8579bf091a3dfa6872f45"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e6995acc667bbd6662347d6dd25f81060707127c2a3530fa6e93c73f88d1e73"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e73051f9561c52e462b8c48d49f20b1b9c6d98c8fd366922bc795bde2febeb0e"
     sha256 cellar: :any_skip_relocation, monterey:       "08a85b73eb54e7eaf73bccbe20f3ffd5bae102b1d8d66741952f7d3e55c47d2c"
