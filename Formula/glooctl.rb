@@ -27,7 +27,7 @@ class Glooctl < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "glooctl", "VERSION=v#{version}"
+    system "make", "glooctl", "VERSION=#{version}"
     bin.install "_output/glooctl"
 
     generate_completions_from_executable(bin/"glooctl", "completion", shells: [:bash, :zsh])
@@ -38,7 +38,7 @@ class Glooctl < Formula
     assert_match "glooctl is the unified CLI for Gloo.", run_output
 
     version_output = shell_output("#{bin}/glooctl version 2>&1")
-    assert_match "Client: {\"version\":\"v#{version}\"}", version_output
+    assert_match "Client: {\"version\":\"#{version}\"}", version_output
     assert_match "Server: version undefined", version_output
 
     # Should error out as it needs access to a Kubernetes cluster to operate correctly
