@@ -8,6 +8,7 @@ class Dnstwist < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4ce3f127f89d3be6326cc1280fe596ec8c23b8bdd39aebebfe77f356f909da5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cedbfb2644311ffd5372799cb1a8eedefd7b0b380adb4406f72dab593ccb0d39"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ae5105460bb48f456e37e8cafda0dc4b1426a5835b6acc22337c26dcf84d730"
     sha256 cellar: :any_skip_relocation, monterey:       "b1cf733a05d33b12aadb58ab22f769dae3ee045d9000a0508bad6ad674514e5a"
