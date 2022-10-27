@@ -9,6 +9,7 @@ class Csfml < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "0b5c92332e9fc998f9c548de0706f4d7bc230b582691789c19830ee44fd0bfa2"
     sha256 cellar: :any,                 arm64_monterey: "c4fea6bf57896674c9c9abe693aa48edc8fb265607acbb6eb296d7c9bb75937f"
     sha256 cellar: :any,                 arm64_big_sur:  "5da07203f213b3cd0f89cf61d454ee5fdcc0579fa033185b5b7bb4d28265c867"
     sha256 cellar: :any,                 monterey:       "0e28a1870c7025c51e561274a2623e259813fb0754fd81406d379e3bbd31b360"
