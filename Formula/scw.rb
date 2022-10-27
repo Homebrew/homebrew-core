@@ -6,6 +6,7 @@ class Scw < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9ac40f5ef4b4ea5ddce9bf94c77e19d0fc0f794c7ea91d255ab12d51b32515f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "60e7142638f3e53f3ca42ed1a0fc13b5286ee0bb233cf9242506b2360e35e19c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5567c4db5591d68a9bc1983be90d45c288fb429b442052113034e1b4333fe6bc"
     sha256 cellar: :any_skip_relocation, monterey:       "c50cb31325282bc3054470f65e2aa73815364eb24197326c4e767ac0141f8a84"
