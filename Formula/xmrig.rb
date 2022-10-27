@@ -12,6 +12,7 @@ class Xmrig < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "59d815bcd61a0ca712cb8f0de83e662f47782f518e0de42baedbb78a03d4a227"
     sha256                               arm64_monterey: "1da1fc4a51baca0ef97dde96ce4574a743892f7abb001ee9a8009783aa0b8a2e"
     sha256                               arm64_big_sur:  "5d21b0a51189c496add0957d7ff2029995c20f6b3ac9199d0ecb35e1177e76c3"
     sha256                               monterey:       "4c2d83937291e552c369743ee8d2cebaa5834756de152e87022d8247431ac01e"
