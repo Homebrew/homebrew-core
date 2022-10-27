@@ -8,6 +8,7 @@ class Kubeaudit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "225164f0807fd21039a3cccb5fcf61cd08515dd1cfe17c40fe437e2b11146903"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3793dd656348c6a6ad01be58f3810962bd2a90729f9b6e6caaa6a3a1aa7cf2d8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "332f24d85e14e519c76b6307c75619629092e4782a2c54f5ad0cc51293e59858"
     sha256 cellar: :any_skip_relocation, monterey:       "dc4740989c98a422cb96fcb7eab978946187617081da323edb2881c3c8b792ff"
