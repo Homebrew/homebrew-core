@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/16/e2/32f5cd33876247c5ed9d4269aa144e94b7c04d657279bff66cad5f288946/ansible-lint-6.8.2.tar.gz"
-  sha256 "17dfacb0d9139a435ccf2095234e20491d556f7adb97dedd891b40566e316553"
+  url "https://files.pythonhosted.org/packages/f1/f0/6c702268d809b3b07f5f3ea4ee08905c5c8fd92fb5a868cffed4478ab8b4/ansible-lint-6.8.3.tar.gz"
+  sha256 "2faad6121d5c4bd239f6964e06742514f0bb079687cc24bffb76c73952e6ebf8"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -87,8 +87,8 @@ class AnsibleLint < Formula
   end
 
   resource "ruamel.yaml.clib" do
-    url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
-    sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
+    url "https://files.pythonhosted.org/packages/d5/31/a3e6411947eb7a4f1c669f887e9e47d61a68f9d117f10c3c620296694a0b/ruamel.yaml.clib-0.2.7.tar.gz"
+    sha256 "1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"
   end
 
   resource "subprocess-tee" do
