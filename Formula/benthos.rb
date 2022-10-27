@@ -7,6 +7,7 @@ class Benthos < Formula
   head "https://github.com/benthosdev/benthos.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "69e8c2b749b52ee8be18cd2b0f1d796ed3d3ca14ad045469462340bddbb81e13"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e31f29b3c20d5448b35c72fdb5867f9343812c97f806ce40b1fc30ec8ac2e781"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fcec817f7fb74e5014cbaab046f95111c27a97e0e09bf72586e4b10250ad21dd"
     sha256 cellar: :any_skip_relocation, monterey:       "3368b157f14aa73e06e17faf0a5e09e5d620425cfb8c6939eb160be24ac262e0"
