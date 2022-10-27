@@ -7,6 +7,7 @@ class WxwidgetsAT30 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "535e712315224e6bc4103dc9ad80553bae1e286100650dcf0d12b7f1f8811dbf"
     sha256 cellar: :any,                 arm64_monterey: "192d4777a1ed701f1cbb83fc089d5ab252b5f2114373878bf4afe0640fa061ea"
     sha256 cellar: :any,                 arm64_big_sur:  "856dac13f581c42ae3c176bbb3cb0054809d98b9d085ea97414737c5ddda2e8f"
     sha256 cellar: :any,                 monterey:       "15fa2f6d32e168ea5ce58a030421ebcd06327dabb0e5fa2bc8b39bb3a5e1e3e3"
