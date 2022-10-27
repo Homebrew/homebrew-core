@@ -7,6 +7,7 @@ class Libxcvt < Formula
   head "https://gitlab.freedesktop.org/xorg/lib/libxcvt.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7b5543e3a1de31fd0c1f1cb95b6e05784de3198fcf6c153507b67f0e624dcaa9"
     sha256 cellar: :any,                 arm64_monterey: "7bf701bf10b2f4888d102161d975ba7e65cfe404d66811088c567e04e925435a"
     sha256 cellar: :any,                 arm64_big_sur:  "98a64b3f8dcd7212b401b486913c75760ab274112330d518d1998426bbf65860"
     sha256 cellar: :any,                 monterey:       "98f38e88cdc169665f5cb713a7f91ee55baa03161c2d8f9c2728c3e34b2061d0"
