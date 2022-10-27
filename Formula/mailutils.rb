@@ -8,6 +8,7 @@ class Mailutils < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "fe6df858b6fffac5a923a492688f5ce932cef0db1ab5e72cf4d14bbe92942c68"
     sha256 arm64_monterey: "426b911485f56b5573c4359ee718595f08111a2a4b2a94f817e6f6db3379da62"
     sha256 arm64_big_sur:  "0f7c09f21a3b72ac671636ff5daf57634c884f2e7c08f7892b6a817e50a76502"
     sha256 monterey:       "272136d7ac286707a7f5b8dd930b33418be1aae687cc5cc1ce33c45aee5edc67"
