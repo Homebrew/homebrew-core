@@ -6,6 +6,7 @@ class GopassJsonapi < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e0847ae52977ce2f89abcda47334bd6d0b66db67827f96e133e551857c530eaa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d33ccae2d44dcd361c74abb236f9b75e43106780f98250b1d96df7adf4ed3f0d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7929302fb1f38c263e59319480d8383a281b03e241e3a5536571a04737e6974"
     sha256 cellar: :any_skip_relocation, monterey:       "7b4f06fe30c117903f115caa12c7003c4132e57396e6ba6f937edaebaaee75b9"
