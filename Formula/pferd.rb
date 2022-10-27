@@ -115,6 +115,5 @@ class Pferd < Formula
       target = 1234567
     EOS
     assert_match "key 'auth': Missing value", shell_output("#{bin}/pferd -c #{testpath}/pferd.cfg", 1)
-
   end
 end
