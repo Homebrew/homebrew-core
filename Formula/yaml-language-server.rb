@@ -8,6 +8,7 @@ class YamlLanguageServer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da9b392ab54ecee90aff6fb9b1bf5dbaaecaba2f961e412fa64ffcb0f99b1cd5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dcb26e7157119938b58bc8db42169acaea38c173c03ae884de26330bf1e86b88"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dcb26e7157119938b58bc8db42169acaea38c173c03ae884de26330bf1e86b88"
     sha256 cellar: :any_skip_relocation, monterey:       "78cbd354d779a570c10f31e6e997259758a48a7e3a89de0dad0c805b390a81e6"
