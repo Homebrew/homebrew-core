@@ -6,6 +6,7 @@ class Rustscan < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "819c738e128ff28c165fd386c6b3c53e173b1090cf31904bd4c69a812f325219"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b0c49e379f4a26ce81c5efb99befcf90fef1415b03c85105a9f119aab8b6273"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "40dfd5fafb1b91e5b98866ade1562aa44b2d1b9ec10183bdd49d4b771c596d0f"
     sha256 cellar: :any_skip_relocation, monterey:       "b92354edb90c2ee5414c003d0d430a8800fdf9925592b72578c500ab50587694"
