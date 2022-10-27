@@ -7,6 +7,7 @@ class Ripsecrets < Formula
   head "https://github.com/sirwart/ripsecrets.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba31209beae44f73e6240d9fa5645e399597598402af68c4e2000454254fe7da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bd93296a62b2ecd77ffc7a1dccf3796c432037f3cf014f161009c27016074050"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d9d148980dc49756443f738fbe8e39d247781c8ae1ee5f8891ef0b7d4263216"
     sha256 cellar: :any_skip_relocation, monterey:       "91cae699291e925c8ac3b0e2e3456a3bc8363429bb3ce45b22f7fd794b83ae57"
