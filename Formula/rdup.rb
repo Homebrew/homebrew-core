@@ -16,6 +16,8 @@ class Rdup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f3b71f0f9c4a1d1879274bf2eb6f0244b3b06612128991a6c91e4bd39b56cc9"
   end
 
+  deprecate! date: "2022-10-27", because: "uses deprecated mcrypt, has 0 downloads"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
