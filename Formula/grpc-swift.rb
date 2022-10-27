@@ -12,6 +12,7 @@ class GrpcSwift < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "983e57b604034c76b8bf2083d41c1790d67fba4ba097188945234c0e6ad3d7e1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6b4e051113568d7b1a6bf8faa3eac565c3fd3ef6046afc2958802f2a2ab32cb1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eb976caf749fe1979d324fa2c4e1d81213b59276f3dc16d95acaac9e9b8c9ebf"
     sha256 cellar: :any_skip_relocation, monterey:       "af474b56b31e1ada9677d902038ff51c5a6e6b8e7e49e4b5c6e3ee9953f6fc8e"
