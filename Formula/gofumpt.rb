@@ -6,6 +6,7 @@ class Gofumpt < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0bf4e734b08e64c10de6870e55b7a7a45ceb26ac179d57791b8c0d8f2b4ccb95"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5a788943e18f8941a6dee5c0f60b36f9e8cd360ff5b50b3e930acfd433b8de30"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a788943e18f8941a6dee5c0f60b36f9e8cd360ff5b50b3e930acfd433b8de30"
     sha256 cellar: :any_skip_relocation, monterey:       "2785ea620e532aba380160adfece8e20c9d09dcd7df2a630e4d2625124675cf2"
