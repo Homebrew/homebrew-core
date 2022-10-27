@@ -7,6 +7,7 @@ class Xh < Formula
   head "https://github.com/ducaale/xh.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9811743049b6f19ae527a5868eeacc9e4e5ce0e3b6742f8caed5d84bbc5cc768"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6883bfed4baeff32fda41fd65598d5743f755c74c3e78d61fc94d795c457ab81"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51caf49e26e66f098d27f0ffcb8f5655c4fa6f8805732388b8ddad6b627b77ff"
     sha256 cellar: :any_skip_relocation, monterey:       "9e38e2511c4666cd05e9af6827b94767131374126a0ed28a1b37df0aee9c5efe"
