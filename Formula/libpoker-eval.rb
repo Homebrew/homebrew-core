@@ -8,6 +8,7 @@ class LibpokerEval < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a4cebe2f59bd06f50608c0df206de3cfa2d3512a54933ed3ae161a09dd499a84"
     sha256 cellar: :any,                 arm64_monterey: "a92ca2dd4b28f4280177846140b0d1db97dc12b855e481eaf3bef1211ee0de24"
     sha256 cellar: :any,                 arm64_big_sur:  "3b2910848df5a62c48ff9ecca9797de0c6c82c73e5392c0bc63202fd7a51815a"
     sha256 cellar: :any,                 monterey:       "48609ddd2db1e24baecede6fa77ef4845f4f48dfa0d8e8ce07b021c9f4552530"
