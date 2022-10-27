@@ -195,6 +195,7 @@ jobs:
     strategy:
       matrix:
         include:
+          - runner: "13-arm64-${{github.run_id}}-${{github.run_attempt}}"
           - runner: "12-arm64"
           - runner: "12-${{github.run_id}}-${{github.run_attempt}}"
           - runner: "11-arm64"
