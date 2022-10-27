@@ -14,6 +14,7 @@ class Alpine < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "f16f7ec2927c11948437482bce265b4e756f1047fba58d23f81466749809ee73"
     sha256 arm64_monterey: "973af919206221f5c35872b2860d14c826e7a33a05e3bff7eb3f6b1e40a6bdc5"
     sha256 arm64_big_sur:  "927accb3ab4fdd2e3c595ea4753ca772d8d4e4b3c2efcc8ff6fa6647f540dae6"
     sha256 monterey:       "6255e89a49b454f34cb476d5db4f3a136725b99ca3ef92292127de694f663f02"
