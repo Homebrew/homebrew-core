@@ -9,6 +9,7 @@ class ScIm < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "6b7571347c91ff4f1d092eaa869c193aec2e5d21d297f1ea28f72503caf6c3e5"
     sha256 arm64_monterey: "1f124ca1348d233d34dfbd66d267ea410d0f278738cfe41d3d09c568869c8e6c"
     sha256 arm64_big_sur:  "a28c373e91d91fbaf19826326d1cdd7170f40db8783de0a11bdb8a2f5f821236"
     sha256 monterey:       "6ced05dfc86a7785bf2b7d8e46c3a05df41bb7f344602d38fd0ae4eca88f1470"
