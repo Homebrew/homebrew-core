@@ -7,6 +7,7 @@ class Html2text < Formula
   head "https://github.com/grobian/html2text.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6cdad48d7af587fb93c9190cdbfa1ef6e22eed8f48f98eae3fbe5f5d9d890d3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "54bba0f039b260d8cebd56ccb081dec77f1b75b11fc648a6dda6204b7bf21ccf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e60478802f517404cd7193c7ae612335fd2f4e494e8eb066badd9cf61dd72bcb"
     sha256 cellar: :any_skip_relocation, monterey:       "195fd0fabd45c610163f7eb572e1aec8977b92150e1acc8dcc613c642ffc1dca"
