@@ -18,6 +18,7 @@ class Libngspice < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "62ce40c71cd7410a6f952784361221efbc8ad73b234bcbcd60d6a41b2896f59f"
     sha256 cellar: :any,                 arm64_monterey: "570a9fc2cef0e38a6fc50413efff7cd1510fd5cfe45b418d9084f4500f00d443"
     sha256 cellar: :any,                 arm64_big_sur:  "d6cc2b395086bdabcd8c82a8d80b0447abf14c5f54c1292c422a182f136c6cd3"
     sha256 cellar: :any,                 monterey:       "f34f1c28d673e2a3f4a65eeaefe43d252823674cf5429f8db264a95f85b2b69c"
