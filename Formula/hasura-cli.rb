@@ -8,6 +8,7 @@ class HasuraCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e95677f396a58ab0756f3f8ea41492e0508dcfbdb0f3d4cf4e2a1cb07e605ee6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bce7edbf383f7122edafc92b0772bd962f6aab947080b135483cd7304f3af053"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c25d09dac82ca31194c095505491a4c7de3fbeef18a8540bfef149f30076b664"
     sha256 cellar: :any_skip_relocation, monterey:       "35f0605fa48ecca70b8f7c2a421f6f7f6a0f77c1c7f545e1b7eb84a3df4b42e4"
