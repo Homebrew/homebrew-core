@@ -7,6 +7,7 @@ class Hexedit < Formula
   head "https://github.com/pixel/hexedit.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0a625232f5b830b4eaf819181ab6d7f33ba19862d803fa563a7f428224dc819"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "036e68e8552287bbf3c4f37232a3eda16f05993b0635573f04f87f9a89b71392"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4127abcc6c5a2dcd8e5b535b89de6bc2a32a5c0f92f26fef10114ad5b03d5c72"
     sha256 cellar: :any_skip_relocation, monterey:       "f24ca3b6ffe8ab46993b0044f5fa94f2663f4122d65ae290ff8355241d41ca0f"
