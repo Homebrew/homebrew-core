@@ -12,6 +12,7 @@ class Exult < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "0a7fc1d5718a8254b8adf9b7783ac85baa404d8bec3e7b490b2d7a46bb153802"
     sha256                               arm64_monterey: "28380485157dd2a521e9c72ff3baa1f1e392694f636697478606c89eb7f0e179"
     sha256                               arm64_big_sur:  "1ac2db0c3d8b26091435336777f22f72594b0474bdd4d13092886f4630a87479"
     sha256                               monterey:       "5202bc6cd443aadfb76b48c6734f03b15c0b20d3cc13eeb7ff90e0233997ce73"
