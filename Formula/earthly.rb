@@ -8,6 +8,7 @@ class Earthly < Formula
   head "https://github.com/earthly/earthly.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a01aa1c198ae7e3fdd0e461e8e621ac471a6b99810926f338d48fe56e2848c18"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eb31156e3bbad3c20931fad183fb3904ef7a21c6c1d176ffc6d18f15356b9b36"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f8cfe3b9fc90e8ce11bdc693d6a17c7303cbe5e5585b1ed6317dc2ddf64d5c4"
     sha256 cellar: :any_skip_relocation, monterey:       "3bf5474c084c972f8e03bddf59991fabedb5837f8104a931a404f7ee581bbb77"
