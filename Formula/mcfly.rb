@@ -7,6 +7,7 @@ class Mcfly < Formula
   head "https://github.com/cantino/mcfly.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0032314e5cc372fc4108f0e101e1366af41dd639fa6127852a354293c89a4fa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "de234aaac82f30aa6579b36d8025d395f276eba7eb969fce673a5d2a5c6a0a12"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a532b066327a10c8fd1dd48b1fd638459cb6051f3db984a4e34916aaf91518fb"
     sha256 cellar: :any_skip_relocation, monterey:       "e8f6a543c335f857fbaa14681b8da7ddc4278867a2bd1f8f23fa5e85d8de3fda"
