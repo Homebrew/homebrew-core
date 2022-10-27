@@ -2,10 +2,9 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   url "https://github.com/csound/csound.git",
-      tag:      "6.17.0",
-      revision: "f5b4258794a82c99f7d85f1807c6638f2e80ccac"
+      tag:      "6.18.0",
+      revision: "f0bea4d87b49da2be7e9f1fc77826a7327cbc391"
   license "LGPL-2.1-or-later"
-  revision 7
   head "https://github.com/csound/csound.git", branch: "master"
 
   livecheck do
@@ -80,8 +79,8 @@ class Csound < Formula
   end
 
   resource "getfem" do
-    url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.4.1.tar.gz"
-    sha256 "6b58cc960634d0ecf17679ba12f8e8cfe4e36b25a5fa821925d55c42ff38a64e"
+    url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.4.2.tar.gz"
+    sha256 "80b625d5892fe9959c3b316340f326e3ece4e98325eb0a81dd5b9ddae563b1d1"
   end
 
   def python3
@@ -145,7 +144,7 @@ class Csound < Formula
           -DBUILD_P5GLOVE_OPCODES=ON
           -DBUILD_WIIMOTE_OPCODES=ON
           -DCSOUND_FRAMEWORK=#{frameworks}/CsoundLib64.framework
-          -DCSOUND_INCLUDE_DIR=#{include}/csound
+          -DCSOUND_INCLUDE_DIR=#{frameworks}/CsoundLib64.framework/Headers
           -DPLUGIN_INSTALL_DIR=#{frameworks}/CsoundLib64.framework/Resources/Opcodes64
         ]
       else
