@@ -1,8 +1,8 @@
 class GoJsonnet < Formula
   desc "Go implementation of configuration language for defining JSON data"
   homepage "https://jsonnet.org/"
-  url "https://github.com/google/go-jsonnet/archive/v0.18.0.tar.gz"
-  sha256 "369af561550ba8cff5dd7dd08a771805a38d795da3285221012cf3a2933b363e"
+  url "https://github.com/google/go-jsonnet/archive/v0.19.1.tar.gz"
+  sha256 "7ff57d4d11d8e7a91114acb4506326226ae4ed1954e90d68aeb88b33c35c5b71"
   license "Apache-2.0"
   head "https://github.com/google/go-jsonnet.git", branch: "master"
 
@@ -16,8 +16,7 @@ class GoJsonnet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dcfab621b2f70e5411635f841346ac28ce59328ac0508d775d4b394970effe9"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   conflicts_with "jsonnet", because: "both install binaries with the same name"
 
