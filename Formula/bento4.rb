@@ -13,6 +13,7 @@ class Bento4 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "120f556d4e9837ee4a35978c6f7cc3867aae7cf9b65c5b6180a14c90c2471034"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f62e19d2852307115f0c1e94b213bc9077181de58cf7e903c4b795d4cfbd6888"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d2358cfdfb419baa21fa6e755c9b3934e95ec3b98abb9be232b57246a3afd870"
     sha256 cellar: :any_skip_relocation, monterey:       "cc5bdd3454e526f4c0b365c4a2edc12ab5a16103b4681cddf79bb3d09c925dcf"
