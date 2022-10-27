@@ -1,9 +1,9 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://www.mpg123.de/download/mpg123-1.30.2.tar.bz2"
-  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.30.2/mpg123-1.30.2.tar.bz2"
-  sha256 "c7ea863756bb79daed7cba2942ad3b267a410f26d2dfbd9aaf84451ff28a05d7"
+  url "https://www.mpg123.de/download/mpg123-1.31.0.tar.bz2"
+  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.31.0/mpg123-1.31.0.tar.bz2"
+  sha256 "481bc0dd78904b28d7f8df7456603a71bdcbc7140716c0c3ec8a1a6635f58c81"
   license "LGPL-2.1-only"
 
   livecheck do
