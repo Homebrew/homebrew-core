@@ -13,6 +13,7 @@ class Libfishsound < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "adb772f247d86852efce4345ef9a4d7496648412c5233e6417476256b531ddef"
     sha256 cellar: :any,                 arm64_monterey: "04042bd85b176dc50f99153f267fae3e5f82176ad010aaccff0c71d1434ab550"
     sha256 cellar: :any,                 arm64_big_sur:  "3ec17aed1c22c99831e01e1938bf9b240439f45c130422dd90e06ccd8a57cd74"
     sha256 cellar: :any,                 monterey:       "7c299a38462e967259b6e396193585bf37c2a0d5bbce0e4dbbff32b15e9ed102"
