@@ -7,6 +7,7 @@ class Delta < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "42505e7dd961d8050403a11606ea8624435aa3815b95c7ee5232b4c5c3fe68b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8a929cf7113873c9fb9d4f9d05fa8e522299a617586c3c4f7bc756629b4eb77d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3cf5598409d5234d1c9c810a36cb3559b8b8ccdeb3593071435c3f6e7af7f64c"
     sha256 cellar: :any_skip_relocation, monterey:       "bab82bd6e0d4cd2b4815a06cc7854c38d7d957fbad255168c29c0deb5022ec40"
