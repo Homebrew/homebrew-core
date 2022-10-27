@@ -7,6 +7,7 @@ class EfmLangserver < Formula
   head "https://github.com/mattn/efm-langserver.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9e55bdf96be85db69ce12744535a0c9a968da3eb9ef51e0f304b72ccb153a4c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c257f67d5df8212d33a8c49793231877dcd7e0a43c234fd02a1b9f84aa1fc30e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c257f67d5df8212d33a8c49793231877dcd7e0a43c234fd02a1b9f84aa1fc30e"
     sha256 cellar: :any_skip_relocation, monterey:       "82449e9d9af5148a61134aeaf166ecaba6709d3cf797f66a397d1b2e908f7980"
