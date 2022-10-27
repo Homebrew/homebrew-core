@@ -10,6 +10,7 @@ class Offlineimap < Formula
   head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf2144a44d1c70fc559f7f57ac4edf5d9a940ade6d0bef978c6c12afe30d9286"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ab3fae7e96d819b5a576dab660a43438c93ad4f8f0137e29dc07f93add6d76c3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35280d4036bda75925c508f8edcf53e7b9431165071a1391b5fc024fe527f374"
     sha256 cellar: :any_skip_relocation, monterey:       "99a7aabd972badba906e4430609217c5f03f5267cc76d4eb349ca327487ba549"
