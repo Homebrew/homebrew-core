@@ -12,6 +12,7 @@ class Libtrng < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "03696ee318bd740740dee2edd2c1fa36ec3fb09db5d3d0aeae51ccb1e1c92ec6"
     sha256 cellar: :any,                 arm64_monterey: "13e5f4fedf353053c7a7a1362123bd6788a2d12a0a730a2422c4283c06cd6160"
     sha256 cellar: :any,                 arm64_big_sur:  "9cfa0851919690b182b5cd227c71e77b7f07f5179ff5d06b52894fb98ca131df"
     sha256 cellar: :any,                 monterey:       "3238a818540f3b1d4b0bc5329bb3e5447d137114e9de70dd0e28a8883b530fb7"
