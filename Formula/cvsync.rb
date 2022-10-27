@@ -12,6 +12,7 @@ class Cvsync < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "86f6fe30422f903827d29782f74e2eff93e7a2f0a86b4775747c9077cde03564"
     sha256 cellar: :any,                 arm64_monterey: "151a5a709d78dfd6fe1db43686e7d0a7bf9464184133b5a79152a8d21aeb44e0"
     sha256 cellar: :any,                 arm64_big_sur:  "284f786b36c5890da6c1d889cbf02a50c116a03661183b088dedb6a3ccdf4c05"
     sha256 cellar: :any,                 monterey:       "8f9856b5b0be6da7e213fb287be69259d8aaf8425fa057702242109f393aeae9"
