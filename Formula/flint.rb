@@ -12,6 +12,7 @@ class Flint < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8f7dbbc531e8d64fa8c92c8bf767ab46314143ba084d486520b080a6dda5fcd6"
     sha256 cellar: :any,                 arm64_monterey: "be89510010a3268664926b3b400a6bfb04c68bbc49e1458db1ade0d394cbc585"
     sha256 cellar: :any,                 arm64_big_sur:  "c1ba1710148d555a57c7b0ae9623c5799af577c3cdafb8286f57bd623eb93528"
     sha256 cellar: :any,                 monterey:       "9f90ceb53de5d8d10c75074ab6aa4b8d634bc532b9e3afc91b61c8e0e849518e"
