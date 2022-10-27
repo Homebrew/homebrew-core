@@ -11,6 +11,7 @@ class SqliteAnalyzer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7858deac0f692cdcb964b8c36e431714a7b8d31df5dd31d9ba1042655e828767"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "91e7656b001aa1b8bf9adb2c85829e7a383e21ce66145ad1ef0ebda2f624ba7c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a9895de6e8970a81032df286b331ed0b969a033c562759fb107eaa4214c5bbc1"
     sha256 cellar: :any_skip_relocation, monterey:       "56db04e939e541572ff6ed7a11979d36b35a71d5da4c915eff37fa8a8664213b"
