@@ -8,6 +8,7 @@ class XcodeKotlin < Formula
   head "https://github.com/touchlab/xcode-kotlin.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e94099f5806bca9e80329cbada36c0ab0aacdfdc65101db014098ea22d6e7d97"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f285f107b7d74b83cee5b57f309270176e40fb26a7b19a9090d467e5dc35074e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70b8e27a5a2a615a3a2ee1bbf0d929f8acdd6e9b95f26e4147bd11ce1f48e2d9"
     sha256 cellar: :any_skip_relocation, monterey:       "f23e73486a28a283674648c3bea20e8237fa6c740548dc45a90d1063b5173034"
