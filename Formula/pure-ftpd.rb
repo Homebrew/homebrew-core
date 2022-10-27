@@ -11,6 +11,7 @@ class PureFtpd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "fe468fefa19fc750c5051d20d4c6d9a92652a5092aae7fa04eb8f7b5420216c3"
     sha256 cellar: :any,                 arm64_monterey: "04a014a07b5724eddde7e97b635763e9ea6fdf59fc1db3702c52d5c531b853c3"
     sha256 cellar: :any,                 arm64_big_sur:  "c595fedada8a973348008154b83aa191e68f8d00fec03dd4e223e7abd6c2a701"
     sha256 cellar: :any,                 monterey:       "a99b679ff53adc1e2b7843e43c33bc8d68443cb25fef918bdc5375fdf20e0463"
