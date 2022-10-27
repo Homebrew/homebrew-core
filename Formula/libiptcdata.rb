@@ -6,6 +6,7 @@ class Libiptcdata < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "5543254a38d990ac3eabb48f51dda1eacd65fbea211200d825063385affcc014"
     sha256 arm64_monterey: "479e59e0cffe5a692546ef0bee8552cdbd43fdf6353c5c04721e92372d92f671"
     sha256 arm64_big_sur:  "45d61d51cb3e5607763ed374d5cc88e4a7c6dc8b1ba08ccd276c3379a20646bf"
     sha256 monterey:       "e93e2ffd79bb784e528ed8f8b197b808090f3cc0b653da0cc880f88db984094f"
