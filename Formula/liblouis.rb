@@ -6,6 +6,7 @@ class Liblouis < Formula
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
+    sha256 arm64_ventura:  "6091d1c098f5a752160a3acc963a87b067a1c2e51b45f4ccd20b15838c69a798"
     sha256 arm64_monterey: "35ec18e4d8b2ed9b920870221df7a212757efb7172048d0cea6915e9dfc41e66"
     sha256 arm64_big_sur:  "789a093d461f43cbd06b60ddfd8b31fb7c23bcdb35ab45f6c47db29ee51a9b18"
     sha256 monterey:       "ba742a630aadc86182f4c6105992998cc12ccebf8101399ac713b14e92e1a898"
