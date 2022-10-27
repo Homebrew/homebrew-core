@@ -10,6 +10,7 @@ class Convmv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a814874b65a3d67de4d5c4f0c1ae2dd94584e23cc8092b2df1cc95b35f7c260d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f70af7ba1886110a7e4eef42e929480994cf73f6fa0511df4a84b17fc542720b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b5226bc4a647dfcfacba43b505e94cd1c2ad5037f04660b267fe4d2f1a2158a"
     sha256 cellar: :any_skip_relocation, monterey:       "3a165d560e9a22558381b704eafe08dfaa0267b7d04b56505072ca9fdc6feaa5"
