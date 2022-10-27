@@ -8,6 +8,7 @@ class Yapf < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "20f0facb69848a1adf9e244f15b71f3c72def9a36812125ff145065796556bc8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a25c9162e29ad3b06cde091efdfabc4181b24256bcd50091eabd5ed534c45161"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a25c9162e29ad3b06cde091efdfabc4181b24256bcd50091eabd5ed534c45161"
     sha256 cellar: :any_skip_relocation, monterey:       "7ad8f128e5f4f718b996176bb36d47b3f32083f1e60b58793a82a6530b2eb56c"
