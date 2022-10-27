@@ -10,6 +10,7 @@ class Gitup < Formula
   head "https://github.com/earwig/git-repo-updater.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a4081235d87e27acd80a83d87b59d69059fcdae003e8540f399498b28542341"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ff1d31029cc66522b235ec285341133a1074781dd57ff709e53caccb305ba3ee"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff1d31029cc66522b235ec285341133a1074781dd57ff709e53caccb305ba3ee"
     sha256 cellar: :any_skip_relocation, monterey:       "75fd26446950358870cfd58d35f9f354ea7e64c8cda02672e35ee43288a40796"
