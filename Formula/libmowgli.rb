@@ -8,6 +8,7 @@ class Libmowgli < Formula
   head "https://github.com/atheme/libmowgli-2.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "547d81e361a5fb7474e918349d4d0662c4a1a805df3d0e8ef589ce2668dcb8c7"
     sha256 cellar: :any,                 arm64_monterey: "1485e9c5e8e5869333781f7125f4c583ea94a2697190a0873af3ec51d3131731"
     sha256 cellar: :any,                 arm64_big_sur:  "fe4733bd50b52c347b5f4f4af0e0126454227646a0851a15b01bd4dc90637f50"
     sha256 cellar: :any,                 monterey:       "08a877b66f5ae61da1d1f02a2d8eb570a56fe62e4bcda1482d5a4f951f76318a"
