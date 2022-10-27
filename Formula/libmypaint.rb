@@ -7,6 +7,7 @@ class Libmypaint < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "45f120eb85a644dae61e2bcf2683256dc3cae8531fa59d339e07ff9a3ba1f135"
     sha256 cellar: :any,                 arm64_monterey: "b481fb4e3ed5cb542d1ef073a5852a0a65361f0825051302ccdd6bc224901d90"
     sha256 cellar: :any,                 arm64_big_sur:  "4f5f706833fb183d4ad43a0b065b2b767a7787e7963eabced95016bd04ffdd12"
     sha256 cellar: :any,                 monterey:       "30623690f18dafe72d96daad871d4f7018ab3e89970ebdeda2fbf2d56c781c68"
