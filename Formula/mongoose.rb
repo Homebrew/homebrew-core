@@ -7,6 +7,7 @@ class Mongoose < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ca0996f08c9691ef19c2785ee6eb883c97f075787cc5125de3b23349719559f3"
     sha256 cellar: :any,                 arm64_monterey: "99d54b7eb04da840546b5f6cd75dd639f75511cfae270dac63ad969eeb564e3f"
     sha256 cellar: :any,                 arm64_big_sur:  "6b13a569ff067da50f3a34fa551d3f7d1037f3234aeac6a4f491f88b46d4c339"
     sha256 cellar: :any,                 monterey:       "5309253949c1309a1a05ae2ed7bfdad0a89e6ea6198e63c1ca537b650cae76c8"
