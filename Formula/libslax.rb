@@ -12,6 +12,7 @@ class Libslax < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "25abcd8291903ee58e0ec2b1d8ef1d8fca64c8dfb0468727cf5b4c2dd3dc99d9"
     sha256 arm64_monterey: "2353ab7cd0966b2b227bb148a56296d596ce17891d602f5d5171d658aa725813"
     sha256 arm64_big_sur:  "c75218d25fb9630e5925ac7d83cf2a087fbad12d5cac213bc6c31193245b8e24"
     sha256 monterey:       "8a675ef7730a28f0179f368890940f407ee80f33f40af68634ebe0f20bb624a4"
