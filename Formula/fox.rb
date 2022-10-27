@@ -12,6 +12,7 @@ class Fox < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "bc5dd90eb1c5b974dba13c355be3720bc322fe9852c6863d619324f923bc0256"
     sha256 cellar: :any,                 arm64_monterey: "41ad7e9c440defe145780c8ba2a3eabe8f48276013dbc88d743540c083bfca3c"
     sha256 cellar: :any,                 arm64_big_sur:  "ba7b09dfb7926bb605af6793184b2acebb49450e70d8a5c9151a35a51754f4eb"
     sha256 cellar: :any,                 monterey:       "c70d21e9cae3071d7c83df9b82b10a5ddfcbf292989eb6e436741ea7fcbf1d29"
