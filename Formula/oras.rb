@@ -6,6 +6,7 @@ class Oras < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dcbb33ac98f8766f34e2fc7480808197ed494e5cefd9dec65b3cca9f19679d62"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "329d1d046fbd12c1882ab54838eccc8d4ef056f04b351affdfe7b8f5ca18a566"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c11fe5f80f3239918f02a8efebcfb70f1493d49e5cc938d4ca0fdfd36c4d318d"
     sha256 cellar: :any_skip_relocation, monterey:       "7051d6f25f135a5c3cfe3122279110544d6be3b294e989d6d672b507ceb05e2a"
