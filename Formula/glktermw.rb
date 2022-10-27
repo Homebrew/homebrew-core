@@ -11,6 +11,7 @@ class Glktermw < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "35a03fd6081b2bab477c9a75969119d92225a284f1178c043db3edd74d40d881"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "78f059cc1bcee84516edb414bf2e837c249da02ca26894cdf38961d7d4b54c23"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c24eb437d3ffab00f829aec8fa2bec0846d97bd6cf34d8801235746aca61760c"
     sha256 cellar: :any_skip_relocation, monterey:       "d9504855781898144107ee963ecb9b7d2e9d5d0cc0f0d413657a52412a45dab5"
