@@ -9,6 +9,7 @@ class Lc0 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "416bf92837918753bc9529afdeb5555c938c3850ce9f79bfe9ca12dbfcdc3e44"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1f70c06601952298038fac27e1f00c6845a7e336cca8da9076dafe8b837d7564"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18f719db679ef2edec0db9c9be8c6ac45ebd7fbfefb2e4adfe522a3c298d8a92"
     sha256 cellar: :any_skip_relocation, monterey:       "be1f92357b0668c1d42750b4c7bfd36d1edd9e17e2a8df0e4042dab94b080f33"
