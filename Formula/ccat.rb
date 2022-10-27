@@ -6,6 +6,7 @@ class Ccat < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d047b4aededd042be8d667533534bfa4fdf3335051b8f88013659030ceecfa0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8119ea94a08924e3ba9bdd1cc8cfd77afb85ca66d90ad58fce246e47afe6da9b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2203ed8600403a7ebedf60ff3b1f7eac6bdd0793521d759c43f5a4c6ee0d0f42"
     sha256 cellar: :any_skip_relocation, monterey:       "e099e55ef5f1c7d3c8eaf14c0d5bcb9ec4de6314ea4e992307ea59369a136b37"
