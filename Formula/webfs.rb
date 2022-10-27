@@ -7,6 +7,7 @@ class Webfs < Formula
 
   bottle do
     rebuild 1
+    sha256               arm64_ventura:  "3a9619dc83b6cc97c4a32e53b9107ddab1f9cce10785204e85f725680795de32"
     sha256 cellar: :any, arm64_monterey: "fc1329e4945435c639c82dbdacc43a9ae55521188aa6fd672d3446bd06822df5"
     sha256 cellar: :any, arm64_big_sur:  "1801afbf473ab499ddba5015432c87eed8f1316c921e181cf978dfae1c19a656"
     sha256 cellar: :any, monterey:       "73ad4360c6dc78e9b517e0088b9c4a60a83a7fadadced409f119f8d4634644d5"
