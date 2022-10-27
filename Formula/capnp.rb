@@ -13,6 +13,7 @@ class Capnp < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "db8932b34a53c64dd431165ef9e5683c46c2f698d7be3bc221d89399368e7081"
     sha256 arm64_monterey: "de8d7702cb12c4d4d8b2a8a2db7d263d40e3ada7757232d52f0b942c3c5cdf8f"
     sha256 arm64_big_sur:  "a7b07b5c74cbea12627b7a1842eaa026c974cb635a05c8d999e986373dce1598"
     sha256 monterey:       "2035bf735e2f643a3f8e0826fb1d370256e10c8ed45c3cce1b861c3c09386d8f"
