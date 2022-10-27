@@ -10,6 +10,7 @@ class Libetonyek < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "991a176efa7b7ba0e53080b6e038ae7e50cf0703be1ed9a827461d2ce8ee58c0"
     sha256 cellar: :any, arm64_monterey: "823ff94f1331fb0f24e356c2326d27ea8b71cd12aeea2cbbea26cf953a86f95a"
     sha256               arm64_big_sur:  "8ca7825177d98f44ac9f3d6ad409eb3bc79d4621cb6c75aea43f60ca66234d0f"
     sha256               monterey:       "b402d2d2b2e6e885b0ee19d55d43adb5b8e7e2af5d0b913f5bbc05456f493b1c"
