@@ -6,6 +6,7 @@ class Libquicktime < Formula
   revision 5
 
   bottle do
+    sha256 arm64_ventura:  "9d47d49d00864f37daf0da37928b837402d98cb86205ce67bd31589e522cd2f5"
     sha256 arm64_monterey: "0c803138b913239926ff1781d19d853f534c764258cbc2a2f373c4fc3b1698c3"
     sha256 arm64_big_sur:  "7d24ece79d6792b731695618cbc2535d5e374b0cb427cb72df1a1526e04b2974"
     sha256 monterey:       "9ea15abf7204b11e955001777e677f8858a62d9eb94e9ac98e2bc107aa260f55"
