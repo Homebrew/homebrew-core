@@ -6,6 +6,7 @@ class Tinyproxy < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "e08cdd294ee700dbffbcb90bf6e705983ccc0a6024f5e0235b5dab4147ac68ae"
     sha256 arm64_monterey: "63eece964c5e41576d66c6e142ac0ab30dca56c488e4b3ac327de1f8f9374900"
     sha256 arm64_big_sur:  "ed35931fbe7004feb89145a3ccf75b1d39be9b79b7fb3c36be11b4c46d5dce54"
     sha256 monterey:       "53d3f8a42faef7373b2448c4f151a09b88e5b6d5434640e884c09f8e53449ec0"
