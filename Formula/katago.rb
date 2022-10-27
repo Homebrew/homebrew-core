@@ -11,6 +11,7 @@ class Katago < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6c4a421c150bf2f140e656abafd00fead5137461ca552ddf2d1cd2238b731523"
     sha256 cellar: :any,                 arm64_monterey: "19e9be0102403bec2475a4ec9b6111a30084e88a2ec55b5f2b89a9f7ea9e0bd8"
     sha256 cellar: :any,                 arm64_big_sur:  "2b212cc37bb6c8162328c139ebbe13c799d011996ab53d37c524d7812aabfbbd"
     sha256 cellar: :any,                 monterey:       "39c4040aafb4d4e4423c218e84fdff4bc8fe8cdb4403ed37be3434f159b08078"
