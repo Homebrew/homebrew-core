@@ -8,6 +8,7 @@ class Flamebearer < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89daa7227623f6360bcb55918d32fa3c783a0e9404efebd84d170fb614108642"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c58234912fa727a85aa1f072c14a7fd49aae68ff6023325baf045ddec3b7c3a1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c58234912fa727a85aa1f072c14a7fd49aae68ff6023325baf045ddec3b7c3a1"
     sha256 cellar: :any_skip_relocation, monterey:       "98988646062bd8230583e9bbb7cad33fadcde48cae70d92a6011580494cc84f6"
