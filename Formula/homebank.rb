@@ -11,6 +11,7 @@ class Homebank < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "d541e37e9bbdff2443a1070106e3f5c3ca56fb239d606676e997496ecbbc774d"
     sha256 arm64_monterey: "214e609aefe8a8793ae0f8757ab971685526d2a078e9e69026458684054924be"
     sha256 arm64_big_sur:  "70ed29226013af9eba03840ddc08c903864ee7dea75ab45329c54e12bccc680d"
     sha256 monterey:       "e0244641f0d8c8bc24acf0b6fe603557cb30bef7912286a0d9e18ec31a1c98e9"
