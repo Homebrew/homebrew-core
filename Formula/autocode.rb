@@ -9,6 +9,7 @@ class Autocode < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc6e30959f70b915afd2f6808c21150f2b818d9ea2bce0990aa81a960ff185ab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "829180e4ff87058eedda5560d335a3e1e35ae8ae37747e4be41cde83e505c3a7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "780c41a7ada390dbefa61b56497f4cf53f9a5db0094b38c7064f9a4c21177fff"
     sha256 cellar: :any_skip_relocation, monterey:       "cde7f8b32745f8ab929ace5952dafdec15cabdf92d2a96ab67ddeaad5479bee0"
