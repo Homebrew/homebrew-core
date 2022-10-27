@@ -10,6 +10,7 @@ class Volatility < Formula
   head "https://github.com/volatilityfoundation/volatility3.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8defe1b6329a6cf53901a2253d4c69da565a542654a1444fdbe2f331bc6216be"
     sha256 cellar: :any,                 arm64_monterey: "cb5acfb43a0c6dc8ad0225b4122e8dfd7f64bdb6f9252632baaa92e94c4ea8cd"
     sha256 cellar: :any,                 arm64_big_sur:  "45ffe2ecdc2da0845a6a014e60dae0539471078f634bab49884ee4296732d481"
     sha256 cellar: :any,                 monterey:       "849c95ca147a7be53fc4fb1601af15ad14944eaa127ccdcdd574fe4ccd0a9c2d"
