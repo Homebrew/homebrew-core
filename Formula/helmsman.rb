@@ -8,6 +8,7 @@ class Helmsman < Formula
   head "https://github.com/Praqma/helmsman.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dbdbc8089ab46d03f78f3d755615803bad88a56baa6fada893d01d9ea6f1adec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a5edc0c31be6f7ea21107b9274ac365f5b084e2feeb57d16e0395f50a8ce54ab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93b59ff87c967894e13745cd622df84863effb404d7e93c616d8e90d1ae3e36b"
     sha256 cellar: :any_skip_relocation, monterey:       "2356cf2e9f6cd85ee3ddbb8be3c82e1879949d6555678839d48382ec4ce9b984"
