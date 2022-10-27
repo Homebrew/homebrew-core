@@ -11,6 +11,7 @@ class X8664LinuxGnuBinutils < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "f5cacecde97d7d3e26842d799008d18cd8fe4153a7555d650494724f9571510c"
     sha256 arm64_monterey: "1fe9f7c820b0669dedafd8e5aad15c3c162fc0e99140156d1f07dd6d56c9811e"
     sha256 arm64_big_sur:  "1429ea522bf485ac5faa58e900c295054a381a320e1aaa6d0c3b8d759eecab70"
     sha256 monterey:       "7ae4d4241e69368b425188f4a086ea08b6f6effb93e3ec0a5c48302b7236774c"
