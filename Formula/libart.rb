@@ -12,6 +12,7 @@ class Libart < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6264e9bdd039ee87e34893b8565f776309f21d9e0730a1cf48fa801453369cd5"
     sha256 cellar: :any,                 arm64_monterey: "5dc4edf96205d8064d34eca369566f41be1b0df69c4a598bece713550e5aeb26"
     sha256 cellar: :any,                 arm64_big_sur:  "8daf6e0691d2fc7f919716cb760a80bbba53295aa5c92d8b05aef4aa1172b09b"
     sha256 cellar: :any,                 monterey:       "0d0cecb8fccc2fc80a1268bda9c863dae95b45c1cacd73da5e8182d513d41241"
