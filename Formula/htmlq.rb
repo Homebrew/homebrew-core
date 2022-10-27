@@ -7,6 +7,7 @@ class Htmlq < Formula
   head "https://github.com/mgdm/htmlq.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ca95a7269b68a0b97323bea65ae13bd4363da7a035048dd49f42f9c4016fb95"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f975cfa431fbc03c5bc6eab5372313d95b38ce7a19e558a80021d2ac17c15fb4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa4eae2da351814a51f9332500c83b3c18360a2ffabbaaa9126fd7bae21e7421"
     sha256 cellar: :any_skip_relocation, monterey:       "317689afb09ecbb2d08be598aafd16fcdf9b674868aadab1bff1128d4829ce94"
