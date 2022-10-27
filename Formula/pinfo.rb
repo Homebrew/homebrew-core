@@ -7,6 +7,7 @@ class Pinfo < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "40d137796340727ecdbb3d1c82a2fe46852cd944eec6cc30d18fe2b8a11e1e97"
     sha256 arm64_monterey: "64b61bdd18dca5533f6bee2239e0c0eb8740b324697c58e03249c840b66d87d9"
     sha256 arm64_big_sur:  "2592140c0bf2f8e5889f3e2020e163d097b6256bde001139dd88b778f7a985a6"
     sha256 monterey:       "46b86e8f4ff8565977416468316300d749bc65850d5c6fb6afc4b5d8cbcf9162"
