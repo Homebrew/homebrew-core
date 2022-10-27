@@ -12,6 +12,7 @@ class Libhdhomerun < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6128fb1fa44f295ae401cc9637251abd89a03070ced6dd596ed0804217c860db"
     sha256 cellar: :any,                 arm64_monterey: "3fde9f90d28b9e63e96373c6cde0577e4d6b05abac924c6101b4ad495181a58e"
     sha256 cellar: :any,                 arm64_big_sur:  "44edebcb2619831a0cd87cfb9738ca8c115491d06a40ba83827973726c6da294"
     sha256 cellar: :any,                 monterey:       "c354a9ed82da03b4b224f94e6e7660d241797de40ac19dde30d3bb323bbd310b"
