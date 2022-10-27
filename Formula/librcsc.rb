@@ -12,6 +12,7 @@ class Librcsc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "843e8fa7ea1ce56071294f4a7b833ba4367ae3bb6363af83aeaae7f6d52d7636"
     sha256 cellar: :any,                 arm64_monterey: "6ed80637e973c59168c069fabeec0634448c8c161120c886f62cc3a498a5784e"
     sha256 cellar: :any,                 arm64_big_sur:  "833fe11162a367e783177275011d5156933cb33c29c34d423237a253214f5552"
     sha256 cellar: :any,                 monterey:       "5997731a4b6f409b301ea5014d41e53611048a5c8b8e59c78a31fba4f74626c0"
