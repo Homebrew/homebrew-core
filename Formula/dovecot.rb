@@ -12,6 +12,7 @@ class Dovecot < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "9845f82097e257acba8c1cebf31d5c2a7ec8a8b8f5d053a60dbc1e8796e073e6"
     sha256 arm64_monterey: "84ae37c002fb903dde0682cef958f5ddd49c40f4d61b0afd4ad1f602837b85c4"
     sha256 arm64_big_sur:  "eab081f7f434e7934e789d5e2992312086df91a80e90bcdac70d0ba5f6fd4a7e"
     sha256 monterey:       "4c116a281b03d57bd4e40ba70020b30278089b77fac4d406786084335be77251"
