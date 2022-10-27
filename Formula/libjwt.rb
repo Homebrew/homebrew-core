@@ -6,6 +6,7 @@ class Libjwt < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c74618e12dfddf8fc0c0ba7396a3fe98ad8c77f4051a17836aec10f65166e7ca"
     sha256 cellar: :any,                 arm64_monterey: "78f15386643187ac5392bdcb5550959fcc10f52cdd3c91643b89fc48d19aaa1d"
     sha256 cellar: :any,                 arm64_big_sur:  "4d89729e216bebd3dcd95d7edca9050b125387a122e1525f2b647175074154aa"
     sha256 cellar: :any,                 monterey:       "90fed8ae1701559d47625967a0a58b276b48ae289944316f3ed006e12c5c8805"
