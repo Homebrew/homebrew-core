@@ -20,6 +20,7 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "67e4b2d516dca08f8ba539e0df3aa2875a64fdf982f3df0bda5c998d176e89da"
     sha256 cellar: :any,                 arm64_monterey: "0f1069fcaab73d281f35588edde0a42e525585b9027948a8f55059f1faa35382"
     sha256 cellar: :any,                 arm64_big_sur:  "d3f5ccb968289f86bf45fa840eb1841412f3c3655225fb72802253030f72202a"
     sha256 cellar: :any,                 monterey:       "2654b023d5b8244f9e0465301d216820ca25ee11317face422cc7115105013f0"
