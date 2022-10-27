@@ -14,6 +14,7 @@ class Vsce < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "648964f97464501a29bc51cc1fe44b66b533cff414ede923324d2c49148e1f2e"
     sha256                               arm64_monterey: "9d761b3a7cc0d1d52e7b08dfa55b1fb45efd7abb9acbfc20e6867c13a1caab9a"
     sha256                               arm64_big_sur:  "e62ddca8586ad21ce81eaea7643249feec86ae63ac1cf25f079568fdcee09087"
     sha256                               monterey:       "2df96758397d9649de75cd3c28008a4e9a31b6bb4a16e074b044176b34b74525"
