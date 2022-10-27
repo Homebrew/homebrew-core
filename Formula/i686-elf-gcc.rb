@@ -11,6 +11,7 @@ class I686ElfGcc < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "3b676a0e106e44c69919a566ac452c37ddad742ebdb111f66dd2a33e82c6573f"
     sha256 arm64_monterey: "af79fdb341aec9f90a57cea06ef77872b4eb2431d640e6c1bf08dd0c2eeccb34"
     sha256 arm64_big_sur:  "8674a0c791e3698d896723332e75c5ea4beebd613d6aa08e2d96ebd2255c81ad"
     sha256 monterey:       "968383d1b50f229e2368bec33e47fe9cf6a5dd79394d1537799b5d29d096ed7d"
