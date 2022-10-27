@@ -8,6 +8,7 @@ class Archey4 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "951268e44eb5c0e704becfd5742aae842c377596cb2c7641f4a7811743c5da04"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8f83cd355b238c93798c245716c81e65df0a45eb99ffb93077e8e62a30d7b638"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4bcaea881ca64bf8ccf41768293e18a48d9c3c148219991dd8fdfeb705be39f7"
     sha256 cellar: :any_skip_relocation, monterey:       "e265ca71d41ccf1f46a1676a496f914d826f3083bdc7554c4502b694363f9f75"
