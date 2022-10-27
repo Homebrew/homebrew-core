@@ -7,6 +7,7 @@ class Hut < Formula
   head "https://git.sr.ht/~emersion/hut", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e0b83a057b73ed2e83faf0532aca951b428765492920ab6056ac70839bd9ef4e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bfc5ed449fd04f519a390e2dc26410bbfd2c7e3f6c126a3e7de1a0441deaab59"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b1341ff46e755f2dd33ec3125d5c0ba89162a9b0414ef13548936be1c836fec2"
     sha256 cellar: :any_skip_relocation, monterey:       "442565002fba9b989f0a3f3b5de14259acfd8f6bcbb1ddcf196b7eb21769cf05"
