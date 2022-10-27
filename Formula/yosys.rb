@@ -7,6 +7,7 @@ class Yosys < Formula
   head "https://github.com/YosysHQ/yosys.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "072bd3a69018106165c75b3cf1c13236fc95fc5f2e649b3aa80feafab12e3804"
     sha256 arm64_monterey: "377dfda51d809d5588a476699113ad2ce0c0b9f3abd6be687109bccaeb7fad87"
     sha256 arm64_big_sur:  "f9feb6111f9e1d8c91a37317f35fba5ff55397af5f8a025072870ca13879a348"
     sha256 monterey:       "ab7f402e151e1612424a1fa96c425f454ddc95bfae81f8e2c64943dbfaf67d6b"
