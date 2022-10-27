@@ -16,6 +16,7 @@ class Libcapn < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "636407d8678258bcd51a8b5512d26433aa98fac3307e27fd918f5c656cfcda46"
     sha256 arm64_monterey: "fdbe12af86921a05628ff8d522ca3723879295fbc252f24c446b04eaa478c06b"
     sha256 arm64_big_sur:  "b87f88777484a94bcbd142d107b9b29317962ab9ff318857c90c01ade15c6f45"
     sha256 monterey:       "bbd7f98414ee35c8d19582ab17d2a79fe70d892cf5e1bbcc2f1e51789392b616"
