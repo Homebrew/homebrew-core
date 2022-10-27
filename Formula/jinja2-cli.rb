@@ -9,6 +9,7 @@ class Jinja2Cli < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6aef22ef73a4a5d1bd39aa9061a17f103ba83f6345caca707477796500317b76"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c89ce92bc208e5f24341a95407f0312fb75cefc1acf6cd5368f43172e76f6f14"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "230eccf449b435136ed4dcb8e4a95d398bcf36759ce3c2acaab491175b491a6f"
     sha256 cellar: :any_skip_relocation, monterey:       "7a6b5d66be6e82439b72b1ed29bfba93351b37a297be9f79d991b1a124565a9c"
