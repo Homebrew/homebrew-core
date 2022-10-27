@@ -8,6 +8,7 @@ class Gtop < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6499b7d274062701dca2cb7edc75671dc61f776f0e440b3a40f4b6247fc9a08a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f7bfefab47efb569bebb4e3c5ee45159c8f26aaf6fda49b74015bdc665be8dcf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7bfefab47efb569bebb4e3c5ee45159c8f26aaf6fda49b74015bdc665be8dcf"
     sha256 cellar: :any_skip_relocation, monterey:       "bd9f489110a6841a2306afef5b77e160e34e650a1fc63978698d54a982358a8b"
