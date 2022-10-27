@@ -7,6 +7,7 @@ class Xsd < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "145cc4cc5c80f28c500b9366ef04f21722d30bd5b35494c2a387d22981e6dc34"
     sha256 cellar: :any,                 arm64_monterey: "95198623fcf033077d6ecd6b4e5f1f63801f2fd3d627360e7688b59e11e72647"
     sha256 cellar: :any,                 arm64_big_sur:  "d2849a3cc67e9e3ad119bc2de7b4f9f278d44619e770f87ba90978a01cf3222c"
     sha256 cellar: :any,                 monterey:       "d34d64497149ef2b227d34fb2e091ddf733efc3f0c3980b19ad5ffda371be914"
