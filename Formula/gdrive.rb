@@ -7,6 +7,7 @@ class Gdrive < Formula
   head "https://github.com/prasmussen/gdrive.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "adeacb147f331a863acc3bb532aea0be7b0d761e1f82d701dfc446a2f66ce31b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c352c82a925ec14ef3e88e2483bdb7147de246226fb35fe6830e9f28eb6f6805"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f991723008683908cb3a37497348e9813314807b9000e90de1e2130f2342554d"
     sha256 cellar: :any_skip_relocation, monterey:       "861b550af0728ddbf48274164bd7207d73349d7800dad8a4c0760ea2fecc9b9e"
