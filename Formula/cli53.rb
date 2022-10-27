@@ -7,6 +7,7 @@ class Cli53 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8f16cd993b99c9fb9aa4a68e5598ef2d0e98cae116926877deb37b06bf7e3ab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0f5849c18c169f394c6927c73ce11e24138adf502e74ca4b74120c2098f92498"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ad73cd56c4d7364e1139d2510e29cecf63a642cf38066243b329c11cbf7ad29"
     sha256 cellar: :any_skip_relocation, monterey:       "a9bc2052505280534e55bcd7322b4ba189f74af6217a2c7b634eeac859ff9ee3"
