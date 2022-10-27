@@ -6,6 +6,7 @@ class Hcloud < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "692457497a2fa0e8ce06099d7311fd7afad6fd673b0a2029770813b5d886a982"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9194ec5aa7efcfc2f1f68e9ef28c57143dde8f221b6fcd3af7c38c4dc0bda83c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e31e8e6cd55554c22b47aab40a5a8a3d6e3a81a4d7a45b806490edfeed18fd1"
     sha256 cellar: :any_skip_relocation, monterey:       "17ada31333d51d1eea1399c755354c2a102b1017219712b36fc6c4dad2551d9b"
