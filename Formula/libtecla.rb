@@ -10,6 +10,7 @@ class Libtecla < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b2bad924df3143f0253bf5bee8dcb8522b905812bafd7134e64fabc2b278e94d"
     sha256 cellar: :any,                 arm64_monterey: "8153bfc3fe19fea63cc58b318cd4878c426f0e4256b5a381171e9b11b36d4bf4"
     sha256 cellar: :any,                 arm64_big_sur:  "663c10759f3e00d87a360640de2d0eedb16c8e2e8b26a375f4f3fceaf356a445"
     sha256 cellar: :any,                 monterey:       "7e9cdf4692258796b655934aa501b94a46b88291334b1bed79a44dd4ea205b20"
