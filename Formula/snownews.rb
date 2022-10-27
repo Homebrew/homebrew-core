@@ -6,6 +6,7 @@ class Snownews < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 arm64_ventura:  "76a8f61191b0267babf19c288256f5cc3c00d6f1da6aefa86f86d48ed96db82e"
     sha256 arm64_monterey: "f3f130a39bd4c89ba0c1315cc94bd631dcbcfb6de37670b5beefb12262d18c39"
     sha256 arm64_big_sur:  "e33470f154aa0ac91be4e22fc07fbe038109fe6e528f024b1886a21c09cb118d"
     sha256 monterey:       "0df289333512883cc93e2c314575f73f7a0d4099b67299f8942daf22611ba9f4"
