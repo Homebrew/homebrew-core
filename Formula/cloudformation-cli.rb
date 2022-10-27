@@ -8,6 +8,7 @@ class CloudformationCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf8f9127e8f7952aea841d2014a8d48f0fc7f25956afbe4f3814db6b9e116d50"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "db51a3b796a02bd155641932203bfda60d0ed33ec09b36484835f15957cc3657"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bbd1fcb30994f248d923316e8d4d9f3fa365456145d858b917838b4eed3a7034"
     sha256 cellar: :any_skip_relocation, monterey:       "3cdf8cce03feeaedc01845fecf8c1d9798df5814fd8f293de47f4aaf06b11c08"
