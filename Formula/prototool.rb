@@ -6,6 +6,7 @@ class Prototool < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b6b999fefb3390dce4469fa0ec49de2f431b59b621f44bc8c1d9e716ecc349f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b0a778ccfbbeaef3a52afc1cb3bbec4d48c3b7c618b88cef6a52d90c4422f88d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce505a3c8ebc53f48ffee3f5a174073364f462538f4c94458b54dc3e15669106"
     sha256 cellar: :any_skip_relocation, monterey:       "ae13c21f5c59d7fbd664fa74cd526cf0c39df04ca6c066656d27f32b19d72349"
