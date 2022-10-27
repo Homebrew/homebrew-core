@@ -6,6 +6,7 @@ class LibxdgBasedir < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "63e6eff0ad399d3054cd01b23563674d726fd502cdf0ae468e489427015e9b79"
     sha256 cellar: :any,                 arm64_monterey: "e7aa730f8ebf8aed39fb649f132fe70611b658d3a2d5162bbc073f193c7050b9"
     sha256 cellar: :any,                 arm64_big_sur:  "45fb150350fc290277e2fe56f834065d7694aa1018bc2ffaf2b4a22f20962212"
     sha256 cellar: :any,                 monterey:       "24e93c008e652e67a3e37f2da0e8c937b4dbedc399f3fe1d1cb89ff1dafecc59"
