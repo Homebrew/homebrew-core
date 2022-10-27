@@ -6,6 +6,7 @@ class Comby < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "ead924a94b73aede202b3afc9146124efb1ac7b8416e0b0119a59cf2ab6d3310"
     sha256 cellar: :any, arm64_monterey: "c75ee2deab2abc20778e51a40cbb7ca305948dc0e10c6e13e9d23004d26f8dfb"
     sha256 cellar: :any, arm64_big_sur:  "886f0b5d1a6ac7075a18f3d0075578e81ae2462656a578cf61c344622629a5a4"
     sha256 cellar: :any, monterey:       "8e84488e24e0df5a5bbee5a2df201eb1027c90d177ebcd8bf030c91dec47d636"
