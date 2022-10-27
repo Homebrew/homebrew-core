@@ -12,6 +12,7 @@ class Liboqs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "54ce69904ab51780b9990b7a6f42c463c902464303da2a5a30894147bbdfef10"
     sha256 cellar: :any,                 arm64_monterey: "229cc26dc8f4ebd3f178ae31e40c1627a5e3b5dfd30d15c440e26dd8b3e289e3"
     sha256 cellar: :any,                 arm64_big_sur:  "4e80fd4cfee7fd4cdaf4560befaddb01f02886123409036daeea2ab73ebf253a"
     sha256 cellar: :any,                 monterey:       "41ac926d23bb6c05e82d4a30072a3e7b9f5bd573110b06fa931f032aa81cb1b2"
