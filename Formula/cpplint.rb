@@ -8,6 +8,7 @@ class Cpplint < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c2788890d24eb82af0ff20da6a270c9a6e61a9a36ea44e4735818b01cb3fc54"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b5e4909f4e4f917b642a3f3fbca24eac07a1fa383bff44d3f8f8a789c71b8425"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5e4909f4e4f917b642a3f3fbca24eac07a1fa383bff44d3f8f8a789c71b8425"
     sha256 cellar: :any_skip_relocation, monterey:       "e453098f9d51ea4ea5869aafc40ad7601ecb01476021008830529a5c463d6689"
