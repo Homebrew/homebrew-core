@@ -6,6 +6,7 @@ class Libdmx < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "72e19dc06796e471d23f2bea33953524c99074589e5d5fc658bcbbf8babc7d2e"
     sha256 cellar: :any,                 arm64_monterey: "6bf2f0af2c3b140e63c7c37f5d50e170bc46ada11ea7394244e6f788cce689d6"
     sha256 cellar: :any,                 arm64_big_sur:  "c9aae9326ce9a74e1082a3af3678b61694a90c8e360bcdf4b78c369be0ff95bf"
     sha256 cellar: :any,                 monterey:       "9b30c602541f5e61ec49e80d009d9bc237e9fcaebfd6084ccc494175a959af91"
