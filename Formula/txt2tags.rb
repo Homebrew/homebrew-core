@@ -8,6 +8,7 @@ class Txt2tags < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "834d518972b59e417b0cfb014efcc5fa4a9904dd1b733cf264edc69e01cdb529"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5dfd365914bcf32df61972239ce4e158aa04282f05aefe898b648842b4c37ab0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5dfd365914bcf32df61972239ce4e158aa04282f05aefe898b648842b4c37ab0"
     sha256 cellar: :any_skip_relocation, monterey:       "2d19d074b099ee8318e3d55f291d6b02de4130a5d643120e03e0dd438c9a6311"
