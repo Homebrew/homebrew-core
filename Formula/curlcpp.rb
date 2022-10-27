@@ -19,7 +19,7 @@ class Curlcpp < Formula
   uses_from_macos "curl"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=SHARED"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
