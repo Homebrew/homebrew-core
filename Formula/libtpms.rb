@@ -6,6 +6,7 @@ class Libtpms < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "18d9b36805fcc1f2012982c711a1da47ccead50abf72f8821f200a5613514aae"
     sha256 cellar: :any,                 arm64_monterey: "8bf44aec280307aac703113793bf17627e72b313d11f3e7d4a9a50a2fd5fa589"
     sha256 cellar: :any,                 arm64_big_sur:  "a29e5d9695b2f96546395d0fd3bd96cf35a8060794b0dbc185798cf951e927e3"
     sha256 cellar: :any,                 monterey:       "ac8d865ac40e7aa31a7b48a690ad9f90dd730e5a45534977a3ab47806fc1dc52"
