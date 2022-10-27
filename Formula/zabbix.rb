@@ -31,6 +31,7 @@ class Zabbix < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/zabbix
       --enable-agent
+      --enable-ipv6
       --with-libpcre2
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
     ]
