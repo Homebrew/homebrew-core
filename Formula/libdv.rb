@@ -6,6 +6,7 @@ class Libdv < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "e7c73ec9982ec05267073663395ff00a2a5eb7927a0df172441890d402e11077"
     sha256 cellar: :any,                 arm64_monterey: "58a4f24c622c38ba33f3c2972dff249e77b891d68e06553a99a71dc42801f08e"
     sha256 cellar: :any,                 arm64_big_sur:  "a72d9919c11d6950fcd115e6fa0e6cbac86ec6f06d8ade46b642006f652bf53f"
     sha256 cellar: :any,                 monterey:       "95529c6172e3054e8cf7057d6a0da13d20a8f368a4828a4103f5b1f37136b340"
