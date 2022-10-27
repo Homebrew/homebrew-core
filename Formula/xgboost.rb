@@ -9,6 +9,7 @@ class Xgboost < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7c822c1d174cbfbf2eac5744f543f34a0fea5e5500c30bf5f6532d01e9fb1396"
     sha256 cellar: :any,                 arm64_monterey: "1aeec8fe6a690e23d01dd6b68df579ae368b9b390e11d00fce901cc6e9bfcdac"
     sha256 cellar: :any,                 arm64_big_sur:  "f18aea395d946633e2c9202a9febaf8b8603bd559a916dca73e42536c4c0b2b1"
     sha256 cellar: :any,                 monterey:       "a76dcfb550c66a22bc4af81b29b39174937c22890a1a10c240458066ac6c5155"
