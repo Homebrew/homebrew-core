@@ -6,6 +6,7 @@ class Plow < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11c30ecb6a22b06e66440b72505506dc53b0e88e93a6c78aa6431ec01c695a7a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "95bcacbe5e2365ee02b20f50b0609284ec45c16735bf770e3d4d1e9780855456"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0cef52ae418363789cabb8e8ebf61e0ed8b3e1583c2c824021af33e23d9adff"
     sha256 cellar: :any_skip_relocation, monterey:       "c7964c4b495698886328bfd10dd83c5295fe25e3c704725954713e7a0c46aff0"
