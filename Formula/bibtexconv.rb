@@ -7,6 +7,7 @@ class Bibtexconv < Formula
   head "https://github.com/dreibh/bibtexconv.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "13730483bc2b871a057dcb28a2cd5b4463aa3d094cacb689a0a486c3ee4047f8"
     sha256 cellar: :any,                 arm64_monterey: "d7c6015e882860d515b54a3e6a6a6abb7c4edd7961becbc0d95a11f4a0dff77a"
     sha256 cellar: :any,                 arm64_big_sur:  "8d4e447363f8766392f2bfa002064d4b6d2fafb1da008b2dea974f667556ee69"
     sha256 cellar: :any,                 monterey:       "ebb0bfcb99948aae3a54efa62e20e846ec5e22a5e5bdfe6cf6d88107d91da4be"
