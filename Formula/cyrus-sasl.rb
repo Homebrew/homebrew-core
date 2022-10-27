@@ -7,6 +7,7 @@ class CyrusSasl < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "07b4c2870d17ea1e775451a698f0f15a72c845fb9eee0a1db44704369cc5d5ab"
     sha256 arm64_monterey: "772af12ab7d41dc3cd360e150b49383c924b287c2d8a7685d470148b45edca37"
     sha256 arm64_big_sur:  "b591c166cbec1fe3a23691af96fd1ea4b6ddb9e91647f90a204f6cbe772d586b"
     sha256 monterey:       "976c512f27f0fda9e9066e7ab16191491a0d08732ebc19d65421fa4f768e1e0e"
