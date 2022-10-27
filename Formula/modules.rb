@@ -11,6 +11,7 @@ class Modules < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "914754d7f28a359bbc441d7cb2f4ce22f3c7774ca5ec55c976ff1fb6d3edacb5"
     sha256                               arm64_monterey: "2005834a21f066f38329001986c72f6d573fbdd76aefe8260ab479929a32dc61"
     sha256                               arm64_big_sur:  "b4b13c216d76fcc9cbfa735d2745ce08241779efeded492f47e564242b7ffa01"
     sha256                               monterey:       "aea8ee2737cefa69cdb09f39cd4fa16b30f913a817671828d748b356f260ab74"
