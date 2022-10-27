@@ -6,6 +6,7 @@ class Libabw < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6ad85dc29ed6262c148bd70631ea06886e1e7fce5d6c8abf66b9486d85e8055b"
     sha256 cellar: :any,                 arm64_monterey: "32cfa5aeedc8f7bff68a474f0bb6cc8d3501b301bb57c3a13c2a3bf535bedada"
     sha256 cellar: :any,                 arm64_big_sur:  "7218127205f7f8cc1032b769e29ec9d12aba7d24c919b5afecde92b5e877953d"
     sha256 cellar: :any,                 monterey:       "79862a34d53145dcd6c2435578500f6fa01f8697e294d20001430d07ee4fcde6"
