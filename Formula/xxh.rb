@@ -8,6 +8,7 @@ class Xxh < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3348919814c852bf6ece02f6d764991a4e74f4f840ad74d43901f1f3ea1d511"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "446336f5a7b6c97b0177e18b24e747185aa0ecc3c646c33362ed7d0da18fa9db"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76ac0429c95651dcdd5e77e25cf2cb8c7eea2c5a51d325bba732134194bb4ccd"
     sha256 cellar: :any_skip_relocation, monterey:       "a32fa38756ce00eff965d95a1934d029239b1e3e6f145cd245b5d3a8ddf6e82e"
