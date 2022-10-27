@@ -12,6 +12,7 @@ class LibsvgCairo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "528ec2ea8ffedaff6d5eac18dbb22a8edfc0f41eb8b8fa7bf85068c3bcabb745"
     sha256 cellar: :any,                 arm64_monterey: "039c1d99e08efc5f9b5df9a30ce5d0ff4acde9c3f4f3890b4fb8cd287d12adc1"
     sha256 cellar: :any,                 arm64_big_sur:  "fe8c78e4969c745b6808cd2f4c8f2d084a1f30687edd98074a1d43dd925fabbc"
     sha256 cellar: :any,                 monterey:       "2d381b736e28fc35193fd120bd265f6cc73e3805d945982db709f2a517015cd2"
