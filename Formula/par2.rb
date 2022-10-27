@@ -11,6 +11,7 @@ class Par2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a78c87048a0affed47c398b897881db15e3bb45e1e36d5120beb40c13f30c1c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fb4dab9fec0be03e27ff19f97c08170b4603f01c232eb0b75f0f2422e34a9b19"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a31a28b5aa927f4b5fbf4778e0df5ce27e567cfd1db41f60ad5374c70a7d24b"
     sha256 cellar: :any_skip_relocation, monterey:       "21124f8c1c080a67ee9ad88adbf361163031672a0a7446fead075644628bb56d"
