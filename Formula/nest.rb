@@ -7,6 +7,7 @@ class Nest < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "5f8750382c6a6fc932d279c8146ab28b919cd4a6d24dcb47f34942ccb52ac154"
     sha256 arm64_monterey: "4173ccaf82e72b43f9633c541579dd73965fee0de632881e3a27689277f4d7f5"
     sha256 arm64_big_sur:  "6f2a955de6185ab1da109a32ffac7fb6f99e8b41776e963b67bb8d67f5fe3974"
     sha256 monterey:       "c7ecebf829cc51d4028e539adc31bf5521094f06bf5c8dc63100c056bb002037"
