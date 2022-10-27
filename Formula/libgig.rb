@@ -11,6 +11,7 @@ class Libgig < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ad74c66aa9b606ed8b195ea1547ce273bc20c818830c25d2d1630fb928704267"
     sha256 cellar: :any,                 arm64_monterey: "f25257d7f210d0d3a2f0cff724db229618be0a8123ccffa358d2823ef77f8241"
     sha256 cellar: :any,                 arm64_big_sur:  "fa41e608f0e97d0854cb808a6841addebcefc1243b231b9fa98052feda51ea67"
     sha256 cellar: :any,                 monterey:       "9f5f9c6755666c7a5fa7f893782c9f438d5c67e3fa6f3d010ed0cbcf8fb0a580"
