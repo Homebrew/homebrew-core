@@ -8,6 +8,7 @@ class Libgosu < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "508771c36effc2738ecdded667c4e619bee5458220d5a98b676691e821932f73"
     sha256 cellar: :any,                 arm64_monterey: "0e9b77d18d40451f7740850fd3fd3b35675756290104d130654929269b21ef46"
     sha256 cellar: :any,                 arm64_big_sur:  "0a5880aa0eb8195d24721fe6efc2f5142ed3828bef09382d36747df83f17551f"
     sha256 cellar: :any,                 monterey:       "1924bed9590b5f4ca88336dc96c6064e539a1092d19cd0f81a85af0992dcfe4e"
