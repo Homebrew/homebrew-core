@@ -7,6 +7,7 @@ class UutilsCoreutils < Formula
   head "https://github.com/uutils/coreutils.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "781a59b516e607bcd8ac4b7c058ecef0fa6f6d93c43d10db3d623dcbb5da0227"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6bb8efbf99a978cf3fb35446fde1a6f16668c5a6ef613ca80fec8940184b7a0a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86d96212c06714de24acee35746cb09c2a1e345d8acc54e05f6b393d14062a37"
     sha256 cellar: :any_skip_relocation, monterey:       "7a0ac42b5708c26d1e9e58a3a173452bfae8b76a142910a2965e7acc5838c6ec"
