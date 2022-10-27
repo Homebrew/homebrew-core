@@ -11,6 +11,7 @@ class Toilet < Formula
     regex(/href=.*?toilet[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
   bottle do
+    sha256 arm64_ventura:  "24f5a74c74de3d9dd4a7ee917c9e2faa072c1062189b6272d8bb041a91f8be6a"
     sha256 arm64_monterey: "76a5e77f5e0c747a41dc7f087a65b4eb9817ab59e0b81b33fc4a98cc7c44cbfe"
     sha256 arm64_big_sur:  "962eed08eba86fe1f35bdc00f6cf7d119639b93a305451f0283517c5b89df15a"
     sha256 monterey:       "d5698e72ecfe4ed624397f0da8b342b8080b716d8abd6657a19d517463ffa399"
