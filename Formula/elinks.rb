@@ -8,6 +8,7 @@ class Elinks < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_ventura:  "14eaf8114897525e14f0c08a1bbf24467292051e8eeb3707c32fcffbc1d3f3e3"
     sha256 arm64_monterey: "eadfed82fabcfb1b645b28af1d2806e7fb53a4dd0d91d2f4966b1d4bc4180744"
     sha256 arm64_big_sur:  "a35f5c451853a1d1a2b90755d9caf6585993b2c3a2a0c195aee4b4ba1b4c736d"
     sha256 monterey:       "263e1f1a669e0144438c9c30d12387766760957520012a1684fc8a329efc6a2e"
