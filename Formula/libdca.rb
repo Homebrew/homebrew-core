@@ -11,6 +11,7 @@ class Libdca < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d7c6080f57c3de053cb1e94bfc535b783389d9fde51c1cfe6e5c0e8b0c5245d8"
     sha256 cellar: :any,                 arm64_monterey: "505dbd9ed35b7bede454672385472ed725d6fd84f15a984d3d3e1025725d996b"
     sha256 cellar: :any,                 arm64_big_sur:  "d20b5e52384fcbb0da4501eb109e3aac6be3eb6f0e6a8f09de0c61b2f3c83361"
     sha256 cellar: :any,                 monterey:       "d3e058da247c2b2976a7c28da8102792b56cbe4abfda68cf6960f94961907ad8"
