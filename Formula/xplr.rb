@@ -7,6 +7,7 @@ class Xplr < Formula
   head "https://github.com/sayanarijit/xplr.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "548306314eb47572ca4a5e14a193427a7d18f04f32285537f2b7bc332d4ca92a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7c9e8c06d86346c2f768d24f3999179102efb08a268181d2ad0d4c76b4311a6c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0892d8c2e5c2c787c215c7206c2a2026ad012b3aa8318f6a9b2f992ed45faa6e"
     sha256 cellar: :any_skip_relocation, monterey:       "59d20ba7078d534b5a866422c98ca9ebfd54a6c2c34b9efd32d211a9f9894b4a"
