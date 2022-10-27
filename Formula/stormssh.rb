@@ -10,6 +10,7 @@ class Stormssh < Formula
   head "https://github.com/emre/storm.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c267f4305110b8eb8f3e7e0a93f16b5feaccf6d41f73e5d793cbe80d5554f3f0"
     sha256 cellar: :any,                 arm64_monterey: "2961d1ba883aa6a9a43337427b9fc5590f5cc6c625e08e9223b65733a0e95df3"
     sha256 cellar: :any,                 arm64_big_sur:  "b9d2e0c8e4771c2500c0c982555ea67c1f9d03fc549406f9c835a7f17b5770d2"
     sha256 cellar: :any,                 monterey:       "d73117173a785c2e8bfab9119f68446116dac5c69f12f227b728ccfd2673c7e1"
