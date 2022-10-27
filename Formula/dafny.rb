@@ -11,6 +11,7 @@ class Dafny < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "045ce0d02f580488fde828964f2edfc3fa851e09062daf6bb746c86afa3419b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "db1c4b783d4cf1177fd82f265fd96c1bb76e24dba4cfb1c60e0764c8e7bbe186"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "82410cc7e460087a94476b01114cf6dbfc3cd8246066ffc87fc08799442b6784"
     sha256 cellar: :any_skip_relocation, monterey:       "31dece4a7041ea91a713861f8186d379f511ab4fe2efa4d1a4b9d9e7eeb63b16"
