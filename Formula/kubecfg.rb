@@ -6,6 +6,7 @@ class Kubecfg < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6e0a232d2e5e28a5538fd084778984f714560d2e0f1c73f80cbbf30f44d5ce5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c8c599b530ea6e392ffad32eae315c4df77d4ab8697c2fd09f5837ba402c131a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf055bec7533a856a84e1fd79db5347f900619ebfb380318feb95dd7ac40346b"
     sha256 cellar: :any_skip_relocation, monterey:       "4d9fd238db1efba13fea37740dccfd2478ea3d497a69c2622fb7113bb020e89f"
