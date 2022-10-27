@@ -12,6 +12,7 @@ class Chafa < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "522ea3f36077061428541aad33db1f9dae249a1523bdcec54ecc8cb62069ca5d"
     sha256 cellar: :any,                 arm64_monterey: "662ec93df5f776536f7ae038ab4e9b5e7b42fc2dfb697d9f271f0a0cbc2e913e"
     sha256 cellar: :any,                 arm64_big_sur:  "a414cb89b09c05ae6049dbfd2ead73c48afa09e629e74e3a026b7b598adfbc86"
     sha256 cellar: :any,                 monterey:       "5de514b36b5ca3e73d742b9d9a80188d5469f5cf6c1b427ab079f08504052df9"
