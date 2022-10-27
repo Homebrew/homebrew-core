@@ -41,6 +41,8 @@ class Fossil < Formula
     system "./configure", *args
     system "make"
     bin.install "fossil"
+    bash_completion.install "tools/fossil-autocomplete.bash"
+    zsh_completion.install "tools/fossil-autocomplete.zsh" => "_fossil"
   end
 
   test do
