@@ -11,6 +11,7 @@ class Gdcm < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "4243805264b72c3ed66e790a8e0eb3c21de8ed56e2b9af10bcad368da91ba94f"
     sha256 arm64_monterey: "2430e5c92014ae3942652184009bb165fed03bdeedcc80f6c5af90fb323fbf82"
     sha256 arm64_big_sur:  "08b124c8900fd83521ff2656d5049abb60270ff300147ea03534ce9c85f448fc"
     sha256 monterey:       "c3e69799bfd8ad012a59cbfb6cc0c839d7ca13b3ebca34ab0e1b4f350956b29c"
