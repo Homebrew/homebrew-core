@@ -8,6 +8,7 @@ class Libmarpa < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "9bc5bbe1c61e54086b834a72bcc4998db8ed1e284a104346dfb2414044d27548"
     sha256 cellar: :any,                 arm64_monterey: "a2a018c3e68558b814af011edfd63e2e436b004ec922f421238069000df676fa"
     sha256 cellar: :any,                 arm64_big_sur:  "a76c00de9a82a60bdd16866d768707b067a234bb02ba3fc697b96bcf4565c186"
     sha256 cellar: :any,                 monterey:       "7689fe94c88bfbad0797889ab2294d3537768135812bbf4babe9292edbd01a6e"
