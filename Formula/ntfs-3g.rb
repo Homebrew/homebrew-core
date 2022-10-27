@@ -5,11 +5,6 @@ class Ntfs3g < Formula
   sha256 "0489fbb6972581e1b417ab578d543f6ae522e7fa648c3c9b49c789510fd5eb93"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
-  livecheck do
-    url :head
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "f949d816d14ff164c5fc39420e89879f944971d081efa4ca91f19ef7dcb616f5"
   end
@@ -32,6 +27,11 @@ class Ntfs3g < Formula
   end
 
   on_linux do
+    livecheck do
+      url :head
+      strategy :github_latest
+    end
+
     depends_on "libfuse@2"
   end
 
