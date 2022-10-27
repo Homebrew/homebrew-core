@@ -11,6 +11,7 @@ class Libfreehand < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "53c1bcbcf740c42c5900949f2859734be9f3aa4adfa28f42a521d6c1618a8797"
     sha256 cellar: :any,                 arm64_monterey: "7960ce23fc10f7c545aa6ff36704340626b5652cdf514e2cc30abfd06923f158"
     sha256 cellar: :any,                 arm64_big_sur:  "1cd27b1d82fe6261a9def131e7a09143b35fe7547cbf539b720fc9d8bdc257b6"
     sha256 cellar: :any,                 monterey:       "52bf47cdb858c77f4745bae826181ff0790fa3bad79e8997fb6b4a5702fa218a"
