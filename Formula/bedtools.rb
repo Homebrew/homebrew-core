@@ -7,6 +7,7 @@ class Bedtools < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2e8a782328689c862e6bda675fc80554974a9e4d31b87c2437ebd138146dc10e"
     sha256 cellar: :any,                 arm64_monterey: "f49bc2e2da620dc8e11f972de610ba8c181e187f326b0e684c3886fa0b3724f6"
     sha256 cellar: :any,                 arm64_big_sur:  "142bd16e4896e944960d472b3f0063b7e15785ecc6eea30da9a25d70455868b4"
     sha256 cellar: :any,                 monterey:       "6cb9009902dc477cdd5c22c8a5868f2a7ff60b0c5a5f09461aa9ddd6380385f9"
