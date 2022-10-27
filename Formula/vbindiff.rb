@@ -11,6 +11,7 @@ class Vbindiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2765e76b73db2ad73a57dacd123cebc482dbc90dcded199f38d45fa5b3b63fad"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8075454b11304c47a1e77537da4abe37c6188b0cd53c8d74cf920ec9f0015a1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ded05d39834aefcfefe2639b2c861410dd94a6a1213ef892f8b5bfd4c1624b9"
     sha256 cellar: :any_skip_relocation, monterey:       "e6a1e5857b109bfc7d8f195d34dac26362adba2650385edbc23de485cf4c49f0"
