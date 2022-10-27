@@ -6,6 +6,7 @@ class Govc < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "008d992c3051584bf6c41095997c01a015447931f05f26bfec737fe7240ad978"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9957781456f042e13183f10c15592cf18be29b3b7e429d5bf6a93478b517141a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3205e16957f1a1b3a019550677d8531fc3875b68339b15c7892d7d4c7526366b"
     sha256 cellar: :any_skip_relocation, monterey:       "39ac20022024122d20aa0336caa2f75a60107e547c8c45215a0c1da1c09caa98"
