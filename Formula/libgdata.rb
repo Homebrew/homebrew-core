@@ -8,6 +8,7 @@ class Libgdata < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "5e030516ecc07a1b31b7db82b7eeda2d828f8a742f5daf9c1aced0dc33b4fb4f"
     sha256 cellar: :any, arm64_monterey: "b262fab7a6607c82f01cb2c46098e6acc0cd0f8ee50f34d56789df69f5f03bc7"
     sha256 cellar: :any, arm64_big_sur:  "b5285aafaa3e8096eee5ffebd4c144e01b0a61d9e7d510dbdfbbd7acde33a3d8"
     sha256 cellar: :any, monterey:       "51f3dd89ac7e6c40a35c0c629ea385a558942d00eff37864925c038b0d185eab"
