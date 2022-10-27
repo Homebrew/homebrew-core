@@ -12,6 +12,7 @@ class Libcello < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38071f3aa78102240020ea1e40db1c431f87fbf8d6d07308cb3952bd46577b41"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a700988ca7ac195700131c8ff6f2c1b555d0446351c01cc2e2a6f22a65b70c2a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "788079e8b941d6af2ee4c7f1fb84e1ed04072e85fb76a915203e04b0d0bfaaa6"
     sha256 cellar: :any_skip_relocation, monterey:       "96b8179944a4750d50e977d1b721569287476fa08fa8af3d832934c12c77761f"
