@@ -9,6 +9,7 @@ class TwinePypi < Formula
   head "https://github.com/pypa/twine.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c78817fb5b0ed5fc1281000b9d606aa4aeea832c98d6fea5e11efe85a069cb1b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7aa8792b5c951c9bbe9b8855e8d49309d65dfaa203e9a218a76bbb378460de2f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "414082cf40592e47b0948b69685f4a2b6cfd50f190f84873cf82836ca93f9742"
     sha256 cellar: :any_skip_relocation, monterey:       "5033b5e6b9be216a310838c0619136145fef755821f2e9460f04c70fdddc2442"
