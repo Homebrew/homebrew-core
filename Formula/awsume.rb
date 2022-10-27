@@ -11,6 +11,7 @@ class Awsume < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d90a09ca37490b482c58929628a966e26f97c0f3350a5ae154ce604212c91c8e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79804b716d8f2dbdabbf88b8fac18ecc486227023e0d03a4ee029bf9c87b67c9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "26a1fe067066bb7a1d3bef4c2be7baa84402cb3d6cf9a6c82f7dfeff4d1a81ba"
     sha256 cellar: :any_skip_relocation, monterey:       "8c443ef5b7300cadef6701befe472263cdc3e3f435d453064b1219ef291f1c3f"
