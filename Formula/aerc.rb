@@ -7,6 +7,7 @@ class Aerc < Formula
   head "https://git.sr.ht/~rjarry/aerc", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "d14161489279adff83ab696d008290069051018c40e722c1815cc48df8a8b974"
     sha256 arm64_monterey: "f660d7ceb8bfbf36ce223d58681262039fe025fe8a80ec1ff7ad0dce12167a1d"
     sha256 arm64_big_sur:  "75e3075aed7579774d740ced173c261ed4eb16e543b3cfd7876e7e48d280d983"
     sha256 monterey:       "60529eb9bce505a6c3317b645100f646cc77b8ab3f2e353821190954f1c79d9b"
