@@ -13,6 +13,7 @@ class FluentBit < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "7057398627dc69681a1373d71e3bfd7efe66b5284b4877e040c7e78a370010ec"
     sha256 arm64_monterey: "38b8a286d68ddd1f05105fd7d87340b0a7f1edc5a54aa898b237f8696b97d633"
     sha256 arm64_big_sur:  "aa51aea33e52ce6ab0317ee8838afa26865e5d2feab8592e8e9f9d43390e9cbf"
     sha256 monterey:       "b081c17bf3ab57f6f397a8cc73e8dd031ee0c8271438887b783ebb748da5862b"
