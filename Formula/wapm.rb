@@ -12,6 +12,7 @@ class Wapm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2729f79c8d537d55f69011c441bbc6d299d6b9aaa79a570ad680480a19833fea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0ae9f17921580b58bd21ddb03fa55d5727c76d414b3625577eb175fd645c6925"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d266172783b37eaef3b379894acbcefd806fa242bb225483001491c37bbce4bb"
     sha256 cellar: :any_skip_relocation, monterey:       "b500295f120bfb4c77920e76a22914c3a067bf9840a4cbd81ffaf9f1b38b496e"
