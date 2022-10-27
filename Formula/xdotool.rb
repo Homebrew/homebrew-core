@@ -7,6 +7,7 @@ class Xdotool < Formula
   head "https://github.com/jordansissel/xdotool.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e97b772870557f47e08a218f6d5b799e4ed39ab167b5701c137f2219c1426275"
     sha256 cellar: :any,                 arm64_monterey: "2e59d046b4cb7d97f989a022c0775cbf3ab9f5929cd05650d50a9eed62b162c2"
     sha256 cellar: :any,                 arm64_big_sur:  "cdf3234a474044e88dcf18b5cb5e8da2c2af6da4d85eb04e8be737802baeae16"
     sha256 cellar: :any,                 monterey:       "ded3a6fc9f7ddc4e307a48744d2c25f2a60a752311628822c69d9f141d17ee34"
