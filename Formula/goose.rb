@@ -6,6 +6,7 @@ class Goose < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6855ceb3f8e7de6a7638ff1043a9889ab90fcbdd81369cacda350fe33243a0d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b28391bc5fcf1264b569969a75def962c7038bd15d9bcad1ee7d1e42f65ab578"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb17bf9ca19827f461ca37f5b2f217a5759e42f70e80ca01af7b7a71486c7868"
     sha256 cellar: :any_skip_relocation, monterey:       "c5eece958501bca979bd4ee591ac968586e8e7154f942ed61a6f34541c8ff82a"
