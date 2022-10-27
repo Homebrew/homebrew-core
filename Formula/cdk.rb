@@ -11,6 +11,7 @@ class Cdk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de2152e4b6966e44e4395ea8ba8566fd347c45a7fab74856becc60baf8fb7044"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bfb8998a972586a97ff4dcac9d3d18d697897acafe0ca97e85cd47bc7c38eee8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce6f9990fdef9653805f147fd30fafe62b341412303c65a0b1c716717b98b9f0"
     sha256 cellar: :any_skip_relocation, monterey:       "5018afff5b9e50af60aa2ed1276e278040beb5f12cf46f898cb5c138e0857908"
