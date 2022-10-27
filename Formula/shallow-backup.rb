@@ -9,6 +9,7 @@ class ShallowBackup < Formula
   head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f3580b2db247c8e157a53e0084414d652b3e3887c1ccd48bd8b6c41064be651"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f70ff045e9324f64e15bdb7d686533bb987146d0b9543b87b9bdff351ed97578"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffbf5c0702cf37562521242aa6d8ef9e2811b888d0205b392d96eb03aa17badb"
     sha256 cellar: :any_skip_relocation, monterey:       "e77bb5862dd882bcb0cfd58f993c13f119e9728428dba0c02192ea2db950cd10"
