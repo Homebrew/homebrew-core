@@ -7,6 +7,7 @@ class Mlpack < Formula
   revision 8
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "5293e16fd5e4a768188d45f985a9b259837cfdc7d306c5eae9f4511393f55a9e"
     sha256 cellar: :any,                 arm64_monterey: "9054a85591ea7e35da63fcacaaf45fb703eab442bfc517c24395badb1500b2c0"
     sha256 cellar: :any,                 arm64_big_sur:  "0a4363df84ff60bf4abdf5574e972b71f1d590ed2db3df8f8d65b8a1a0cc1f01"
     sha256 cellar: :any,                 monterey:       "39d2ecbe49028f2e47aad8c937544a8ed6ea9a3b261cacef49ad8f6432d4e0e9"
