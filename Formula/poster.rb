@@ -6,6 +6,7 @@ class Poster < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3502b06b6c852fa6ba935acf4a862b72987beff8658b37a11f40cf349acbafde"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "33532f868bdc3667b1be77b533608c5f5837f19fe5683f0ee5d33ec945748e67"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebf74df79fee5779f0a6631c938af2db579bfdf27c077fadcca06f21579bfee1"
     sha256 cellar: :any_skip_relocation, monterey:       "fa63cfd184e101b839afd59ff181bd3e089925ce5a8b93936b579249dd08f955"
