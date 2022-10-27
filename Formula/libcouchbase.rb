@@ -7,6 +7,7 @@ class Libcouchbase < Formula
   head "https://github.com/couchbase/libcouchbase.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "330bcf91ee7f1072b49d9f4659271d1ad218b8f285c9fd7c2fa9f1ad891b6e90"
     sha256 arm64_monterey: "22c4e6e156a17916e584d5c536b367f11225f53e5d9fd7ebec0c32a9cb2541b6"
     sha256 arm64_big_sur:  "c42f0807a6d3a2428d69bc8a14e0a12d731f341c86f6c0fd9b647492607acdc7"
     sha256 monterey:       "ac5bed438447e1b9568fa7556f9aba7f4fe7b83914818375aabbde79e7bc1246"
