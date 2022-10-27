@@ -8,6 +8,7 @@ class Tag < Formula
   head "https://github.com/jdberry/tag.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f02aa65b8800efb9bc93089aded8bff111549d41f28e7ba223b02a1240d5c7b2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "87582cbaf5cadbc19c6d8c2c9ea6793d3116a119d7de6b18b7b5a6d898b4ffd4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68b99acc16647610b02c286aae5b302c7c2128164817d9eb197d2d5f9f51ca72"
     sha256 cellar: :any_skip_relocation, monterey:       "4b70ddf8fa1ead9e8bffdd2d12194301be5c2be66ea3a355b62eee2836d5c0bc"
