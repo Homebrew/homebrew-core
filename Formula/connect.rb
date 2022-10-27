@@ -13,6 +13,7 @@ class Connect < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "25da554388b8d7ccd2dd52576434f92ab8628120d6ba7389959b5e71e9483b97"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e45ad845a768453d0d0dc278dc9fb39f3a7601f33b79d8c1b5d8e404f1dc3377"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33e6c06bbe902eea4790679f99c9aef340cce1e647238a13c151300afa46ee1a"
     sha256 cellar: :any_skip_relocation, monterey:       "087274a2b2cd22db73d094b35dbb04389fabe7ce7b3d5d68a18a877bdbf50ac1"
