@@ -12,6 +12,7 @@ class Frum < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "131e074f97670916fbcc7c74940e90701d13e4f4a3c5486e87615058ad5da33e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9a6b4e42c48ff1381587393d6495921f2efb48843b4b4d7d92ce58bd65eaa576"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b12d32db1a4e855e270187a4408a04d07910a569e36e53d3a7117b4f8ab0ec21"
     sha256 cellar: :any_skip_relocation, monterey:       "a7171c8633b63aa98c0ba9a59d94153574fc55122d7832a71fab2e4a6191cf69"
