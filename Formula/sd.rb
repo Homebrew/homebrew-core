@@ -7,6 +7,7 @@ class Sd < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a16f9ea512e4209a054e3ef4ce02851769f82fae5179ba2d645e5e50c539f22"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b13fb7360bf22415291f9567ecbdd73be518370ed0d586b126f4799235346e50"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18c80fe2725f822518e07c67d37f410ba97387ad956d83e57caf33ac29e80d25"
     sha256 cellar: :any_skip_relocation, monterey:       "9d7ced5db7e35961bc033feefd5ccac3e2a92aab40639b6551e7025917c010ff"
