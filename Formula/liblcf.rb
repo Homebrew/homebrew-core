@@ -8,6 +8,7 @@ class Liblcf < Formula
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a2b5fc7ec2b96d5c2605404d7843664873ce443f9a8570982ee2abe7acc3c7fd"
     sha256 cellar: :any,                 arm64_monterey: "68e94e4f58730ea5e6c9feeeea014c1bb698473749280327cc2aafa402e46cd1"
     sha256 cellar: :any,                 arm64_big_sur:  "c53896d6203b499b21cfe49e23b8f9c8b8e9821f6fa15507e612ef4cc1d9be39"
     sha256 cellar: :any,                 monterey:       "78dc57cba649af4c239fdb76883bb01e810511072cfaec1724d9ad5548392749"
