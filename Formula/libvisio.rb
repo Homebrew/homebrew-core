@@ -12,6 +12,7 @@ class Libvisio < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c6ed6d06f96f740d06f6ef0689587262eea573e875af753893c0f5aa807edbf5"
     sha256 cellar: :any,                 arm64_monterey: "b6914749c1bda7f6796c1f2908dda35f564860830cfc202ed9bb9f1652ce3562"
     sha256 cellar: :any,                 arm64_big_sur:  "ee945d14878160dba16e983ede8c3fefbc5c82b028d340851d5c8b2ce486e0b9"
     sha256 cellar: :any,                 monterey:       "9db99dc5397773cd0628ed1ce6c183eea4c0deab7aee30f483eb96941cfa2a24"
