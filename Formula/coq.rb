@@ -12,6 +12,7 @@ class Coq < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "a5673dbb8b31d20f2a14476403b52781b3eb5086c4957255fbff366e4d175a01"
     sha256 arm64_monterey: "6b693d14144d92d46932724843c89083762a83b1e352b51bcbf1311b4d2de84d"
     sha256 arm64_big_sur:  "730ea0c2e9a1d3bcedd772c7ec355446996bca621e8a168c46616c17e4306c72"
     sha256 monterey:       "9775ac5bb1131df82502645adc20cbb4874e15f7db15ad1e16334cd7419e6ca0"
