@@ -14,6 +14,7 @@ class Isort < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78adb5347b7b30971441883352f41cc1626182e087fea11bf80d5ca5249403ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f5d80e1cffa56c250a8243033e2e6585f26fdc221832ef8de29605b1a6faa0d5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "daeeb039c407bf866eb0434385719cf8b1339aae5cf68be775634ba9731ed825"
     sha256 cellar: :any_skip_relocation, monterey:       "9e7b35776d714719ba5cc4ccf3d1414d85f867e9df737318e189362e006e3fdd"
