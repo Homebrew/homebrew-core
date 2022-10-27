@@ -7,6 +7,7 @@ class Ngrep < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6eb14e55176c89bc45e0cda15f725b5ff35d15d8dc017a5bf47609c763964271"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c9539b7c9783bce244c1310c691766b6c14fbc9a1c0b00ed9b480ed41575717d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5bc88f61eaba46026963de70f44e84f73f04b041e913051fb21f3351d16cd9e4"
     sha256 cellar: :any_skip_relocation, monterey:       "b7f33fabe9f42533580c021d441d4ef8132150c345add38cf9fc6452efa611a5"
