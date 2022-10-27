@@ -11,6 +11,7 @@ class YubicoPivTool < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "003a83e34fadee641720bf199666c4ac9379fd781c1962d48c55020bc19e5237"
     sha256 cellar: :any,                 arm64_monterey: "8f318d73ecaba695565af93bb8b17220832e30c51cae308b9b3737788e394975"
     sha256 cellar: :any,                 arm64_big_sur:  "99b5bb89e217f0e98b5edaf95b75a2d50c07a5f593a104edc66518d51e86e59b"
     sha256 cellar: :any,                 monterey:       "963208d74145e747d84890ad0515214e9fa843d103cebd74501e1230eda7a2b7"
