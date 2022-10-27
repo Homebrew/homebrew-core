@@ -6,6 +6,7 @@ class Liblbfgs < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "06c8d7b71b75a24838acbd0a60a071d146b8befb750d18dd0197acc7a3f4552a"
     sha256 cellar: :any,                 arm64_monterey: "e65a09362f54852c0b5bbd9a38fc2df634bdd0cd1f151ad2497b287688edb334"
     sha256 cellar: :any,                 arm64_big_sur:  "77960d72a78a9bfae97e725b8bcf37b5105b5e3254ce319487e0a5b3a707db5f"
     sha256 cellar: :any,                 monterey:       "7000437bee7f617b05b7f6f6a9adef00f8f8664f37fc34cc6758d461af136b89"
