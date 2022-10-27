@@ -3,8 +3,8 @@ class C7n < Formula
 
   desc "Rules engine for cloud security, cost optimization, and governance"
   homepage "https://github.com/cloud-custodian/cloud-custodian"
-  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.19.0.tar.gz"
-  sha256 "3b6273b5e01a34b6a3b75cdae9a72f38754000e6a1fb5de6f99c991ec1581ed3"
+  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.20.0.tar.gz"
+  sha256 "d9cd353ce1ae4158503aaf8b5443299fbfd65672d861b54f98208c025df4eff2"
   license "Apache-2.0"
 
   livecheck do
@@ -33,13 +33,13 @@ class C7n < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/2e/6d/cf85550a36487f4f572f463c9ea663d909baf73f0bb36ebe638e1a643b37/boto3-1.24.44.tar.gz"
-    sha256 "19d06d2f8271993e583bc13a1e95b3c99f897177dbc7fa4e1ea2afc97982a08e"
+    url "https://files.pythonhosted.org/packages/80/ab/956f77cbb907b486d100d5644064f02c1ddf21cda64435a9ffe0dd19ab82/boto3-1.25.4.tar.gz"
+    sha256 "03e5055d64a596f7a95ed0ca9fda1b67b7aed00d428e4ccef97f2f82b72ec875"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/ac/79/91066c4cfe4db9b16901ec40543841279e5ccc6b048b46d1e41de563d342/botocore-1.27.44.tar.gz"
-    sha256 "83639fcbc58853a7c1b2270a0aa87d5fabf866ae6db79e37fc16d3dab3fae17e"
+    url "https://files.pythonhosted.org/packages/92/d4/5a0127c24ebc39289bb5cdd4b928a24c2b8d9377778f69887984e613ca26/botocore-1.28.4.tar.gz"
+    sha256 "ade670506c9e837f61d590873a11c5d06ab9a8492b8d5b853d6c4059ecddc03d"
   end
 
   resource "docutils" do
@@ -48,8 +48,8 @@ class C7n < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/1a/16/441080c907df829016729e71d8bdd42d99b9bdde48b01492ed08912c0aa9/importlib_metadata-4.12.0.tar.gz"
-    sha256 "637245b8bab2b6502fcbc752cc4b7a6f6243bb02b31c5c26156ad103d3d45670"
+    url "https://files.pythonhosted.org/packages/7e/ec/97f2ce958b62961fddd7258e0ceede844953606ad09b672fa03b86c453d3/importlib_metadata-5.0.0.tar.gz"
+    sha256 "da31db32b304314d044d3c12c79bd59e307889b287ad12ff387b3500835fc2ab"
   end
 
   resource "jmespath" do
@@ -68,13 +68,19 @@ class C7n < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/6d/d5/e8258b334c9eb8eb78e31be92ea0d5da83ddd9385dc967dd92737604d239/urllib3-1.26.11.tar.gz"
-    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/3b/e3/fb79a1ea5f3a7e9745f688855d3c673f2ef7921639a380ec76f7d4d83a85/zipp-3.8.1.tar.gz"
-    sha256 "05b45f1ee8f807d0cc928485ca40a07cb491cf092ff587c0df9cb1fd154848d2"
+    url "https://files.pythonhosted.org/packages/8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz"
+    sha256 "7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"
+  end
+
+  # patch version, remove in next release
+  patch do
+    url "https://github.com/cloud-custodian/cloud-custodian/commit/690da026954f8e6c16df3fc95f3580b8fca0688d.patch?full_index=1"
+    sha256 "da4f704fa8ae63a51db0d42fcb2af0dc6ccc891d9fcf902abc97ed9a18ce8a8d"
   end
 
   def install
