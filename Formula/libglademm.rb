@@ -7,6 +7,7 @@ class Libglademm < Formula
   revision 11
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3712c292d749cfb8a09008c92428e8dbcdcd76ef1882b47538b11af66f9166ea"
     sha256 cellar: :any,                 arm64_monterey: "bfe629fb08bbc12ac147778cf23f23f8f6ce84b7cbd32a9755a89e2ea42b63b9"
     sha256 cellar: :any,                 arm64_big_sur:  "8311ed9bcd9aa094070b749de1cd62d84645b9dfcbe38fee0cb0c0063c64031a"
     sha256 cellar: :any,                 monterey:       "3e78628204bd2fc1714644a5690dfe1f507dc91c9256792605ac21628ad1a0a0"
