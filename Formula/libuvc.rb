@@ -8,6 +8,7 @@ class Libuvc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "4b9154f39788c2368a311ba87d4027d4cc9832d3159e7cafefcd64e3d9e99694"
     sha256 cellar: :any,                 arm64_monterey: "619dc091b52aaf2461b8f6935d9be9bf5b30fe99ac40545458761a8879dd4e61"
     sha256 cellar: :any,                 arm64_big_sur:  "51c899af95c83a96799af845463826cd9c4a939c030bfa1fa7597603f3470dd5"
     sha256 cellar: :any,                 monterey:       "66d3c4e163006cbe0d76765ee075b7ef2e5eec8c1e6f720051b0ac4f56abeb85"
