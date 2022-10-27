@@ -7,6 +7,7 @@ class Libtomcrypt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7331eaecb64d5e144871fa398c93a8666a5d57a9080488910ecc033ee62e9db7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "159d50a2adf84043773b8377768218e25fc823902d95fc86f0756c4648096a13"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95cc1395317bb6d7a70cf54c951c0a1d023fc4dbd9e8d2962dd70493811c2f08"
     sha256 cellar: :any_skip_relocation, monterey:       "b53aaf81eda5f5a40ac308cb25c048e37db76339edf3d30065338588c30f3e12"
