@@ -8,6 +8,7 @@ class Xsv < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9681fbad04289f67a2d596214eeebf74901bbb9a05dfa511d1ab1f7721c48b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e0e5fb872dbacb405799b807b1c5872ca04cd81a83a0199e252e92ccd4f3d0a2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7374ba9bf778c782cdea3107aa7dcfeeb218c65f72d4270911c1f24f81d57c58"
     sha256 cellar: :any_skip_relocation, monterey:       "47a88051ca68110279dd05aa1f6eca6c473a2c760d0e247d4afbfabfb615f1ae"
