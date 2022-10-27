@@ -7,6 +7,7 @@ class Jsvc < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "639947d6d2ac84c7339820c23285ae3fcf863f66c26cfd76aa212fb3a0247c5f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fd279e71ff6295eeb2f610215e96f7b1b3315abe63878406b8e287deb22fafa3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1f5f3a1d20e6da90dfe2e63a91ad43343b5c734ef4835cd3157cb204c284c9b"
     sha256 cellar: :any_skip_relocation, monterey:       "b7beb523aa6aaaa660b14592cc7e83b3af241397b93d8e98c477930e35621a0a"
