@@ -6,6 +6,7 @@ class Libcec < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8f1be1bc0bd2e1d6612b6b080d2ce33c2c9658f6af25bca73ca8eafc73c65a25"
     sha256 cellar: :any,                 arm64_monterey: "e4f3ba0cb7eef028a29ce8b6473873925e7f1fde5c0363262a1c61873cf27eb6"
     sha256 cellar: :any,                 arm64_big_sur:  "56ba06a96084c73cc8bd5bec4be5aff675702cadeb91b9aba710de25aeb20e2e"
     sha256 cellar: :any,                 monterey:       "0282c32692e3295299fe656d19d50fe7aa52d9d5d945db35f9c23045c195ccd9"
