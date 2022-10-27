@@ -9,6 +9,7 @@ class Copier < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5fe068fd534f1f9b995be6001e04c93bef3b897a900634bf6e89a38084477ab8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0e04f4494ed346e10ca46940ebd7c61f5aa705b7fb32b898c50d2b3dab13dc33"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7973152bec4994ebffa151947230f067706b187a0deba2fa70bacd24c79beab"
     sha256 cellar: :any_skip_relocation, monterey:       "efa1110c0ed7476df962fb63d5f7277534ce243a58379061e1ca69db9ad4f8be"
