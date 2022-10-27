@@ -11,6 +11,7 @@ class Liboping < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4f96385d085c835f78741e71350fba8666a9692673abab3681722f7dc22fef1f"
     sha256 cellar: :any,                 arm64_monterey: "88e26997cd417b2be6c8323451267524135044c033e6c34772cf9dc7812d9d4f"
     sha256                               arm64_big_sur:  "a8ea63333bfc0a7ec880d0c5727316ff622ff2f4854efc93bd9bc082080f9365"
     sha256 cellar: :any,                 monterey:       "0e71715fba4fca28f5488409e5529ac61b7f166cea4cc2180967cc4d9a50dda6"
