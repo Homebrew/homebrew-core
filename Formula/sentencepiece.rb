@@ -13,6 +13,7 @@ class Sentencepiece < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a26dad273b288318b7c23ed4a4796055fd59bd5c14cbb9df354160f028816582"
     sha256 cellar: :any,                 arm64_monterey: "6595fbab298f93719142bd70c3bac237641487025035ff6848c397272a6c5edc"
     sha256 cellar: :any,                 arm64_big_sur:  "a5b6bb58a27e411450031bc2360a7bf6c3430e3f648e974bf40f9e5234c2dc51"
     sha256 cellar: :any,                 monterey:       "74c92c3a643c7742cd7d29b5b1bd57f13a92f362108f6a63c57a27451711dfec"
