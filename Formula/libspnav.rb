@@ -10,6 +10,7 @@ class Libspnav < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "18dd7205e07c4380822fdf507f70aa5a460b942fb7aa2c6bdf064a0040426273"
     sha256 cellar: :any,                 arm64_monterey: "92c34da77f70181b7e459c709cd3b2dbca2d13d22891542b466b355e5fe52f5b"
     sha256 cellar: :any,                 arm64_big_sur:  "af3b951bb445de1a2eed22da15ececaaa94e02d810f796b602a6e2e36a16c997"
     sha256 cellar: :any,                 monterey:       "526cd023fc31cb67690ca317f30054616e29699cea56443daeb8a77e89c8bd6d"
