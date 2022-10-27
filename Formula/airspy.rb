@@ -6,6 +6,7 @@ class Airspy < Formula
   head "https://github.com/airspy/airspyone_host.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e32975089469cf19d14495a2ebfc86815aa431efeefaf11d24afd42e0fe8780b"
     sha256 cellar: :any,                 arm64_monterey: "9c2f5b4cc0c698d7f2690ea8091c8ce99b73ea659dc281916dbac0fb71ae3b05"
     sha256                               arm64_big_sur:  "3cebc54737172b116e3cdabc7770777954b6c1840940588cd29f431c4db526c7"
     sha256 cellar: :any,                 monterey:       "53843ed22a54472fe5d40ca9191f5425af68ab2996981c489ecd5b0cd8fae221"
