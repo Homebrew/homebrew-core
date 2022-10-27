@@ -13,6 +13,7 @@ class Ncftp < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "f35284c1451cccd59675fff89f8a285aabfa287346928f1a3009db65074ec405"
     sha256 arm64_monterey: "0d10c2e5a5cd32d495bb7cf1b16de23c8335658097ee209397170ccbec21e164"
     sha256 arm64_big_sur:  "1fc3f5a43b5e4e23f2bac0046acaf8f746d5d07e0eb6cf60d593830fb3acbf13"
     sha256 monterey:       "f8a7be7e00a9ed10c22c5396e8c67f1f8697cfe117c003a4e5a62f3a9f13f33e"
