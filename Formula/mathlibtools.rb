@@ -8,6 +8,7 @@ class Mathlibtools < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "84d1859f92436df0f39358f81089757373316ed54936ce6b3f9b96d52a661060"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c8a9f0c8621bda53ff385d30203eeae8f55ee2d53742663c5f09edcfb14a4d95"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a19dcb5d30be098d68e8f77343767964d47327746fcee68cd2f306c77da9f48"
     sha256 cellar: :any_skip_relocation, monterey:       "5e38a71db98ff4baffaa8be2e7b4a1bf366dd67ba213c42bde6327824f53bc6c"
