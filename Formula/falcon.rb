@@ -12,6 +12,7 @@ class Falcon < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "4175de46b048ba1b5ad68abaa8168d97f9b39483efa53b8c3ecdfb42519b3dbc"
     sha256 cellar: :any, arm64_monterey: "04d77eba622a43e3e74ce4c22bffcbb41ef71aaf7fe5a0c26db310f72597a671"
     sha256 cellar: :any, arm64_big_sur:  "8727eb2b82dfbe15b089ffe42ff0e5f205399badde1c7dcfaf470a13141e4334"
     sha256 cellar: :any, monterey:       "c19f0db85c93a318056d6069b4b9e49af411a7524882cf475f86ceb43630c9a1"
