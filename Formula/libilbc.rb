@@ -6,6 +6,7 @@ class Libilbc < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "36774c3a7db279a6932326411a82cd1ffe92e66ee0fead069d985e0e17231309"
     sha256 cellar: :any,                 arm64_monterey: "62792538776c6c61167769ce53ed0998c849b89ca9cc5ade0261be739bd8bf60"
     sha256 cellar: :any,                 arm64_big_sur:  "7b07dbf92042eb0f0692aec0381561eaa0a9c649347fd321ebf74cd22994813d"
     sha256 cellar: :any,                 monterey:       "a60c72751ea180c155b7994fd71ef068118b74665a3199e61a0b4adda27c64ad"
