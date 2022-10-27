@@ -24,6 +24,7 @@ class Ffms2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "43602ddccd0d7d579ff2b0409dc3f9ed4958367cd406fe18b8a9624717ad8495"
     sha256 cellar: :any,                 arm64_monterey: "6a5f31157cabfd498933f6aaf56b2cbc2b45c3aecec7cbd21664139a9debb10d"
     sha256 cellar: :any,                 arm64_big_sur:  "a6d5f4ef9f9230a782fd2f0557059ad2f27fb5aa68fca54ac7a1de3b92e3c09c"
     sha256 cellar: :any,                 monterey:       "447cb287946c8fb459b8d0a8b4040550c342282ecb32528008d9e557445b2e2d"
