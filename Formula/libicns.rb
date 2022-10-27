@@ -7,6 +7,7 @@ class Libicns < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f346f50f790f74105c7d74ed2f4fa138cf1ba36aaf887c28d99cd40bd3c842d5"
     sha256 cellar: :any,                 arm64_monterey: "7f1629857173f47627750a68b5365c3b5302296077b9062022b82af8bae31d8f"
     sha256 cellar: :any,                 arm64_big_sur:  "593fecff6cdb88a92fd91a09563d3c253013128c4b00537766b905dbf988e76c"
     sha256 cellar: :any,                 monterey:       "4f58e79a5425fa0efa47388c5cb74d51f15f3f6ba5e97b32b92910004a78b933"
