@@ -13,6 +13,7 @@ class Astyle < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "67a6f2d21a759aad0aa0ebf2fb74e3d2c4cd5404bab85793eb7334b5a73c40ae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7db1ad4d3520edb8177939efd807958cb7687a147d29eb7fdd0edbd93f785ed6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1cc43739c9ff8b7e21f03935eacbc29a0656d42d4b52e662ed0079751efe84f"
     sha256 cellar: :any_skip_relocation, monterey:       "770266207c36b178c5070470e62c70d1e0f3ad20abd52cee4b1ce7a92ac3ab10"
