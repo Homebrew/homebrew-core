@@ -8,6 +8,7 @@ class Libbi < Formula
   head "https://github.com/lawmurray/LibBi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44bf6f88c1eba7e0d73d9865c2bc3d01750183c4a4c28e8376947adf1576ddcd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae593b0f46cfb4176070508a9ecf1379ab1ce5c6d6946f067455854751545ee9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95b9bd0f690a89f42ec6a1e670248a5464ba14fc7e80589a6bc4b28788a30f1d"
     sha256 cellar: :any_skip_relocation, monterey:       "25e4409e1cc95c4759c2b0c338db8fdc30245c5ec6d6f068d77ed148a224a80d"
