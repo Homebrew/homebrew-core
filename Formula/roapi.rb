@@ -6,6 +6,7 @@ class Roapi < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0df94d69cd5232f90543f5e6d5dfc2eea907bb6b542899b726da09d0fa8bdb01"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "71c195d5001a94a5eeb74c05f283e3ad6e1631838210d783a0d19a09261b2a13"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7180ead91ca0af075d324a6dfa12ee64abd22baba95c25aed3845991e731181"
     sha256 cellar: :any_skip_relocation, monterey:       "3810624addf6dc222b324c46bb6862799a37fadbee8e189cf02b6b60b520eccb"
