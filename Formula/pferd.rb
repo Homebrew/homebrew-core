@@ -104,8 +104,7 @@ class Pferd < Formula
   end
 
   test do
-    system "#{bin}/pferd", "--version"
-    system "#{bin}/pferd", "--help"
+    assert_equal "PFERD #{version} (#{homepage})", shell_output("#{bin}/pferd --version").strip
 
     assert_match "Error Failed to load config", shell_output("#{bin}/pferd", 1)
 
