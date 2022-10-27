@@ -7,6 +7,7 @@ class Gitversion < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "884486e4221dfebbb2663882c4389583b25b682e1fb793fa1a149129c71260a1"
     sha256 cellar: :any,                 arm64_monterey: "04b4027f2fad95d6e91b1e7e397861152c0725b8df6d19c04c1c82789869aae1"
     sha256 cellar: :any,                 arm64_big_sur:  "9f15edcfcc9719428c29c9545a2e935aca93565ca4502c5bb82a691fd0a26bf7"
     sha256 cellar: :any,                 monterey:       "fae0b0d5478bc07e79008dccca8b4e118e886fa4d52870f39ed749cb864ec776"
