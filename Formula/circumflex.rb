@@ -6,6 +6,7 @@ class Circumflex < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5543152bf002dc0230e6fb0092e66063146cff512515457d73f5c52fa3979e3f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2e3dd80089c43e6ea8556174addca857ca3e81e1b88ecd551bdc181eba49ec1a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cdbde2df35711f158e854e1e0a19c33b2e4743eea5eda179fb7e8438a84e184b"
     sha256 cellar: :any_skip_relocation, monterey:       "ef76a9f7e5d29db2b98ce3c2d8664177780c1572ddc6d1bb0e408623e48ab396"
