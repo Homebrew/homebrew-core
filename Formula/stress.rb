@@ -11,6 +11,7 @@ class Stress < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "682417d0cce887de4bfad5dbf1382917cda827e21b760f890a74d1856e45915d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d62a404e264f4d64f2e5a14c9adee3f6cdb3593c31880410d24f38accea32bdf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dc5c125c3eb8cf95cb21bf4ae2efaf114b9b47677747026ba92a5c9eb09ad6e"
     sha256 cellar: :any_skip_relocation, monterey:       "c3a4929d6031c9cdf21cb81c8b3ff06b3a9bad924194eeadba7996aabb9cd9a7"
