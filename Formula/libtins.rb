@@ -8,6 +8,7 @@ class Libtins < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7763232c7635a53780c8551c70d3bb9bf84bd49923d938a9effc870d1a34e1f8"
     sha256 cellar: :any,                 arm64_monterey: "8a24df35212971a0ae637ad99b2ee620b2aee53f81cd54b59286ef6b8cf292c2"
     sha256 cellar: :any,                 arm64_big_sur:  "0c025e0d1f700a52261b010df05c94f225ddb812052e50307faa269c80c340c7"
     sha256 cellar: :any,                 monterey:       "6633c883fcbbc4e0cc6f3fe8c9822df234d2370bd60c3e40a49a11d658311e5a"
