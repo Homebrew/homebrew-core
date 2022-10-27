@@ -13,6 +13,7 @@ class Pidgin < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "a2263a4ab8eb9b8d65dd48985b1eccc239f9591b8a3d2a3e155562d2bb28c586"
     sha256 arm64_monterey: "bea177eb299f90f5e261abb69e4a8068602f98ea475f8bee4704e889e6df77db"
     sha256 arm64_big_sur:  "1f51d85beea0f47d69240edaa693caf35ae7b6f1778c9bd014be7a25feeb2b21"
     sha256 monterey:       "d1fb24527eefead0eb6e53f7b1619c9b9aa7a5de8085d686a6636cfaa323238b"
