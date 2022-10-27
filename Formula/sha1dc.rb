@@ -10,6 +10,7 @@ class Sha1dc < Formula
   head "https://github.com/cr-marcstevens/sha1collisiondetection.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "dbfe38e4ad0344a2fe7df59871c2193c5000fa7d013ca6d7ac101d2ade9611f7"
     sha256 cellar: :any,                 arm64_monterey: "5b325daffed30000496e7377b980768998ec15ac1b4c481838b0eccdcfd44354"
     sha256 cellar: :any,                 arm64_big_sur:  "392a2173a9bf9a53f40edb2ef6c77a9d34ee567c9d18f405288b7b83e7fdc87b"
     sha256 cellar: :any,                 monterey:       "8034c9dce92fc85c8f79c22f01becabacb0efed4cf40bf19ba750e8539ebed55"
