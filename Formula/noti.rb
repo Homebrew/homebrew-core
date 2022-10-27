@@ -6,6 +6,7 @@ class Noti < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2c8e81b60fbad78d0c3050ba5c6d2ca92ca999ee3c4496bfbfaad3a2a0f4c6f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4030645e54ca4c1c8978a4029c21213c0a19687849bb80e72495b94edbbcbf16"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17bf78992c9af85a5ca68e63dde196cdb66ce71690a31de9d3dafa218e4c49aa"
     sha256 cellar: :any_skip_relocation, monterey:       "18bcb41a040e9e9723253246a151a1ad2bd9f9f03f1854683ffe41ff1f2e03b5"
