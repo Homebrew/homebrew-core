@@ -11,6 +11,7 @@ class Readosm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "159a85b13ee27c3aec192f7cdfb26f58677890ca98768a1f9ab4a6843eefc791"
     sha256 cellar: :any,                 arm64_monterey: "938d6d422d3eb547b702f3bbeb547b1a6879f37782d72c705475a61fede5c780"
     sha256 cellar: :any,                 arm64_big_sur:  "bd41553e655ddd0efb25350087b8247102f308e40e20de46274a703beee4a1de"
     sha256 cellar: :any,                 monterey:       "37ac4df09be8730582ff8b11bf3480145eabdd697bf3335f80e7c6629b7bc74e"
