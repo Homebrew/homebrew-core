@@ -10,6 +10,7 @@ class Libnatpmp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "354cbe379ee3003657c8249507c1b3154c3a18b953e4aa8b020e507c997e76dc"
     sha256 cellar: :any,                 arm64_monterey: "6e47414293d016589ebba6a965daf4c2716613fce6759ba5d98e067b517d1c8e"
     sha256 cellar: :any,                 arm64_big_sur:  "748f4fea8075f967191c0f1862c2e20289bee92883c816b191490a35e0d0a9d4"
     sha256 cellar: :any,                 monterey:       "1fbd6904aea36ed66fe55fa4d0cd9a532542f4384df0bd6351e9fba663270dc8"
