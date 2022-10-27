@@ -6,6 +6,7 @@ class Logrotate < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3e71062bd2782798ede332160421dec7881cbaff5bcfd8378def329908cebad9"
     sha256 cellar: :any,                 arm64_monterey: "20bb6473a71d54801b2d141f8bb5fd57211bc4f4df3ec9e1d5f4b3c650a33cd2"
     sha256 cellar: :any,                 arm64_big_sur:  "333fd71f9f463920a1a76f04cfdb700563477168d25675237a1863ec5fae8727"
     sha256 cellar: :any,                 monterey:       "91cd5a2ed4988f3de33a607d22b77c4f629aba32b550810c4e5f6956a355fe39"
