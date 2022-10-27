@@ -12,6 +12,7 @@ class Masscan < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d67db10c93bcd8154956c4165289fbc04edce1b1d63a65af983150d9fafbcf43"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ba6a70814b1e311a2b817fd79e7d9a70657ceb74be1691215802a4470ca3be87"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b99bf991011be4ee7d76fe43aa000159f0665b888a0cbc7c4d528d102a3daa67"
     sha256 cellar: :any_skip_relocation, monterey:       "80601cda78b927edb63ae9e0a6b15bb9aa7d621b793d7a6cfa094a0465e66070"
