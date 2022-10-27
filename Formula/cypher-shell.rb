@@ -19,6 +19,7 @@ class CypherShell < Formula
 
   def install
     libexec.install Dir["*"]
+    (bin/"cypher-shell").write_env_script libexec/"cypher-shell", Language::Java.overridable_java_home_env
     bin.install_symlink "#{libexec}/bin/cypher-shell"
   end
 
