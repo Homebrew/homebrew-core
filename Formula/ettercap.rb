@@ -8,6 +8,7 @@ class Ettercap < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_ventura:  "87b67c058007a59b34b32c92da3cdfb7294ac7be8923534bceb411d30b227dec"
     sha256 arm64_monterey: "a8532b43e6d6c1bed08ae62506ad32d75bbd39da7c7fcdfde1cbcf758717b932"
     sha256 arm64_big_sur:  "581fbb637481f46c59b355f5bbde58a2d25da7e3f22ec9e07edab8f3a6c54999"
     sha256 monterey:       "46f9eae5abfe8bb43e56cb0d333de5304911229b003e19fd495a5394383ce340"
