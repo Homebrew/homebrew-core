@@ -6,6 +6,7 @@ class Brightness < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9eeafad9f79ffee161eff12eb18073e5c3e22cdf00c727aead7f759e8d26b62"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "baf05ff80ff28745c1fed3f18467752c217236335d14d99d45fa6330a010a7bd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "553772d87cb89c4f482c3b4ea48eeb404a7572b6277ced0d87625695e480b4e7"
     sha256 cellar: :any_skip_relocation, monterey:       "b8eb62151ad68eaec24fedcd6e4f7a7f97970f044736cec19818c88d8ba9afca"
