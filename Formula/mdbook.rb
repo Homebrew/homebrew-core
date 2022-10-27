@@ -7,6 +7,7 @@ class Mdbook < Formula
   head "https://github.com/rust-lang/mdBook.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6dd58842218f85458d80ba2f3f0c3b69e253d7f28fb06d18af79aeb22e6d75bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f27390977f9b377fd9845cfb1585f6d7d2795c4f208a360e8697fb41ac47a20c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa2468366fc57c90d36438e2cc74ef764090e3f1f399a0fc47e6fee47e750fa1"
     sha256 cellar: :any_skip_relocation, monterey:       "0666ad3aaab9a3513d99eff2a7c9ad7d028028eee5c21313c603deb8c672b64c"
