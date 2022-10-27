@@ -6,6 +6,7 @@ class Libebur128 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c0253f875a0adcd097d523191b855d597d602731e73dc039d4ce707373674d5f"
     sha256 cellar: :any,                 arm64_monterey: "d77d92a90aa8dfcb7642efe678d02804a0a9d0c172e43e005499120ead01b3b8"
     sha256 cellar: :any,                 arm64_big_sur:  "99450597a660d645800d8d0488b657efee8d7ff9b886a80f964fe3394c8a2552"
     sha256 cellar: :any,                 monterey:       "6a1d7c49352c44807fbddff035842984a6d2e320d4d0625fd2271752246bcdfb"
