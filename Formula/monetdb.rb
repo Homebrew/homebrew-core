@@ -12,6 +12,7 @@ class Monetdb < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "8b6ef089c9fcd9693f9265d9aeaab08fbbd894f9bc5b1a275aaa12f1bd31053d"
     sha256 arm64_monterey: "10c4b08ae59991ce808feff4fb88210396ac80d92dc859104c9857b1d814d98e"
     sha256 arm64_big_sur:  "9e08d1f8d71afa11eca9aa2556068ab50852f76440950a0cf19517e8f5a6962c"
     sha256 monterey:       "56b5f2c947286c843ce9f2592a0b1cffbfdad964665777f0f5ac2e910f0fbd29"
