@@ -11,6 +11,7 @@ class Libpst < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7c34f9d5b589d9b126e0da006753bc9dcb8eba59aa3f2440bda561d7cea7521e"
     sha256 cellar: :any,                 arm64_monterey: "19a3a8b7fde2b29f509e69232fd8ff7d924c5df201d63cf40512cd7b4831056d"
     sha256 cellar: :any,                 arm64_big_sur:  "d7b9d9f537b1575cbd299b56e2a82f38f661aff617cc8a3a03b44cf8acb1e3c0"
     sha256 cellar: :any,                 monterey:       "9acacad7e57b79446bd4d97551cc026be3cca70f03ac0d28f6622c91b2898c2e"
