@@ -7,6 +7,7 @@ class CstoreFdw < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "45798fb56be643b5b7643c39a8c7cfcf228526654b3220aff054a29c96e37491"
     sha256 cellar: :any,                 arm64_monterey: "78cba62624a4f42f39f50b059cc400802e9bf9f75083a6582ac3a0c9e43e538f"
     sha256 cellar: :any,                 arm64_big_sur:  "7150e6ca48f68acdc46dcb2db908fa6ffbfa6e9924bd1a6aef9873beb308522e"
     sha256 cellar: :any,                 monterey:       "8475a654cb0aff0f9c355b4334b862b78ff7cf6222c04847e1346dc70979f636"
