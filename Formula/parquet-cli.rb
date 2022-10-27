@@ -8,6 +8,7 @@ class ParquetCli < Formula
   head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a411057efdb1d471ba0f7da8c4c81ec3bd32cb9f68b51dfceec5dd67d1f3adf7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "feb0ac58cc6e7cebfb4c8f999bebe8821fb53e6d48a5674f0cb541c6c1f88608"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4738900ccf09ed266e176b4bf5984c61c5c083bf4547c13d7caf403ae6146d4"
     sha256 cellar: :any_skip_relocation, monterey:       "37c3f5ba078794608d2b1402cfdef42414b16151636ace59b2b52a5160df1a68"
