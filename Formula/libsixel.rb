@@ -7,6 +7,7 @@ class Libsixel < Formula
   head "https://github.com/libsixel/libsixel.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "22e14314971f7e675545480da01b9b9d32ffb8109f71520071dfe88f82504455"
     sha256 cellar: :any,                 arm64_monterey: "056f4c105631db9ec5d1ac420ec491a51a130c03707147d5962383611d4d4aba"
     sha256 cellar: :any,                 arm64_big_sur:  "6742e20e9eef3d16fd501c327abe0ceb535089eea12e07d6ad7a736ff6766400"
     sha256 cellar: :any,                 monterey:       "43658b6a576c0792e99734ef9d82e9a9d767fddeaf86e4f7c724cd21ee941746"
