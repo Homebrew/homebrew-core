@@ -11,6 +11,7 @@ class Liboil < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "d9163cdae71515f1281691a77d77cd635f9f5d0e001eece4ac204f0156ecc393"
     sha256 cellar: :any,                 arm64_monterey: "1301c11b0befc6f72c27cdf4c659caa989c472a4a04d5fda6d1815baff7c381e"
     sha256 cellar: :any,                 arm64_big_sur:  "915b7c9defeb1e3d056cd4ead9442b6da74c033d776a3d29eab11f3a74cc4bc6"
     sha256 cellar: :any,                 monterey:       "85dc36f48c6496097f4aa02b580573a1c21a399e418464121a8f935f50a4a951"
