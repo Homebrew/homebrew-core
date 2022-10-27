@@ -7,6 +7,7 @@ class Libfaketime < Formula
   head "https://github.com/wolfcw/libfaketime.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "7f785f03ad7e595192943ab0857be128021577226f265f59f1427812a844d160"
     sha256 arm64_monterey: "5e1401f985723d43a90e1789f6e765832245d1c9a70de598a978f0a4d06b4ea8"
     sha256 arm64_big_sur:  "8f8f919d1e7fcce1610432468d8b5a73209b863df199ea6c2faf3a541e526ade"
     sha256 monterey:       "0ec1aa518fba8d2e20ff358fdeac7ab640488eeb47dcbdf7900601d53c79b7ce"
