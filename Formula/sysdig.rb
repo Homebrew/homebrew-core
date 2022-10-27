@@ -22,6 +22,7 @@ class Sysdig < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "0f02f06b4184cf98d0343107ceccb884e874ce9ec6416bb095bd111e99964e48"
     sha256                               arm64_monterey: "315364f0af6cd1d6e54f86a4eab6c8b4503ce9981e6d866f93f3bda63aacfd55"
     sha256                               arm64_big_sur:  "efb7f3d2ae23f61a8991c268e8f352dfdb4f2bddddb23f7e8903a09b7c6619f4"
     sha256                               monterey:       "f1954c1ab3dd7287b310170ec51389907e65f48b6b5d2d9038cd68161c029cbd"
