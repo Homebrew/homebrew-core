@@ -12,6 +12,7 @@ class Monit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "00d65fe5ef82bf20f8672cf87e00d64c0e3bd58369d01128596c29c18c3843a6"
     sha256 cellar: :any,                 arm64_monterey: "21eb3d11227e8bda20795b418f8f355b5694a363e0f8b8694d2559475f2d7421"
     sha256 cellar: :any,                 arm64_big_sur:  "aa19c34d3170a64dc8c825ea17f20c2a7f5b622b6344a0fe6b7e6a8a725a4733"
     sha256 cellar: :any,                 monterey:       "0224a3b0547aac17b806f2c7a7039dc69c4b4189e58f7738861f5fb853a2d10c"
