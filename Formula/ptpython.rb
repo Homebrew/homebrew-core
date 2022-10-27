@@ -10,6 +10,7 @@ class Ptpython < Formula
   head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32825de5d071845115558f57de21b2318d8da73cc9c6920cdaafc2669355f2a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ece3f47a0eaf377a1c1a088f74a86791eb636315ebfaed54b01f8be1c13a8761"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "438056e36eeefefdbe804d950c8861e9178db01fea6df670f83c506a8b7eb0c5"
     sha256 cellar: :any_skip_relocation, monterey:       "54b237dc070385bbf7ab6fec1f1590440feb3d46ae506efd6cabfd9b048dbe37"
