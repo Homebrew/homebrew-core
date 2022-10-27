@@ -8,6 +8,7 @@ class Hbase < Formula
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
   bottle do
+    sha256 arm64_ventura:  "e451345642f670e996e7ab2ed3a4903a1a6c8980918f371ed5e60c23ea241a57"
     sha256 arm64_monterey: "72aa3f915d728ae6677a3249636f8f696957ae3b718c076ac4bc6550625d8ec8"
     sha256 arm64_big_sur:  "b710a4d5645cfd367643c7ceeab98960e0bd96038a908ce5596f46bc2440a114"
     sha256 monterey:       "1b09699c447665ba343e1ac1921a84e71a9f23a29fbc479b7e41b973ad3258df"
