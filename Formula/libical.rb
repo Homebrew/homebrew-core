@@ -6,6 +6,7 @@ class Libical < Formula
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9f4df4f8eb6603ca56d187d1cf728e87b43dca690419fa2e813906846ff36b9a"
     sha256 cellar: :any,                 arm64_monterey: "591eb2b2865d474ef792519e96e5da74c2f8481b4c5aad671a79d3b940f88fd4"
     sha256 cellar: :any,                 arm64_big_sur:  "fa58234dfd4543c3b3c4aadb6ca3419875330a276674a5af853adca6fe28393d"
     sha256 cellar: :any,                 monterey:       "612436b983588dc3b03460ca8111afa4d909731aadd102907465ecf90d434ae0"
