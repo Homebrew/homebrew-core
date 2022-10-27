@@ -9,6 +9,7 @@ class Iredis < Formula
   head "https://github.com/laixintao/iredis.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3aeced09b0fe56101982ee91fd3f6bafae0ef8c9f671e95c9010055c435f5e42"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2c649fd208b9a8fd858862fa586e21d17cf090a7abb08cdcf6d61178356a4a21"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b26af4935dd625e0fddb7c0ee28caeb57e5f69209dbcf1173bbeb7674f7a6cf4"
     sha256 cellar: :any_skip_relocation, monterey:       "79ed223fbcdf250bb10158a4d8194a417911c482973fbca577bb9a792e800f58"
