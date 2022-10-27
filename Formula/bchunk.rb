@@ -12,6 +12,7 @@ class Bchunk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "577174425847ab641ddbd3dd9001c596c2dbcc69ad54272c412a0d338c0ddd68"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c361f431e4d301b9a0805db04d500f73c4247d06067aba3ec74944525bc7855c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "94279b4e400c05770ec6c5cce6fe7ef50a062835508add3e981942944bb3eecc"
     sha256 cellar: :any_skip_relocation, monterey:       "cbfaaf81653c53be4dbc62fe7eb6e13071ad9961b18d5f0369bd8f003cded841"
