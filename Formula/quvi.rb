@@ -6,6 +6,7 @@ class Quvi < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "abcf9320832f1108b62a02bb81a66a2bc1c3289aac582b541226ce514a19be3a"
     sha256 cellar: :any,                 arm64_monterey: "5507b545d2705556712e4548c8cb6a62777163a7b496fc69cbc6974845c5fe28"
     sha256 cellar: :any,                 arm64_big_sur:  "195d1401be4ab2b454d97e611163251bb4ed1986cab9c39b089268969fe67ff1"
     sha256 cellar: :any,                 monterey:       "59f9173d6feff6af456d1e08008feaa8eb1c946508ab9e6ed9ffa1ce3093b647"
