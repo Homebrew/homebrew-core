@@ -6,6 +6,7 @@ class Libcroco < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1936cc9609cb8de2360e762984a4a40d7c6ba2c92c6b2fd4133243a0b93426b0"
     sha256 cellar: :any,                 arm64_monterey: "0c7ea7611c087cead41eabbc6e7680a7d47c8c3fd6736d7f97742f1311f61eaf"
     sha256 cellar: :any,                 arm64_big_sur:  "d6cced1a48822aac65fbb995159f26ed0552217d125969bcae4bd61bdf223407"
     sha256 cellar: :any,                 monterey:       "c8404e365ec027cb735e158ea042d5c338f6d0f6594e8a7196722801059df193"
