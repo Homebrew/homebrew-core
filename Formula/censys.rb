@@ -8,6 +8,7 @@ class Censys < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8243dc5ccc6f0e32eafeac590f105b7bc4b8ea15cac15415e49753e24533c1e5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c7b33915964ad54a640d366c8235c9c829a5f69f5c94ea4b5ee85abe0f57249e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e7d7287624749408f2650fcbb6ccb4bbe9f8f46ffd1f25ccad2b35c433cea01"
     sha256 cellar: :any_skip_relocation, monterey:       "fcdbd97c88161be01fdebfa34bc9ee0cebf4e5d6ce360240d5adc6dd78c950eb"
