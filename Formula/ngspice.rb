@@ -10,6 +10,7 @@ class Ngspice < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "a36672fec087875b549325587bdac6376fb528719cc7813fcbee36594b16d8c1"
     sha256 arm64_monterey: "6421f66dabcafb24914972884fc7e4ff4dfd2919b0898864ad2580e9528d5c4b"
     sha256 arm64_big_sur:  "9222829c0bfa71e306e073be15f9c4976dfa105480b618c842823978d3cf4e23"
     sha256 monterey:       "80a8fc2742bca92a86cb22062ad7dfb1180769ec185be23807e48ae009f92143"
