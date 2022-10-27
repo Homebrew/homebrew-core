@@ -12,6 +12,7 @@ class Sleepwatcher < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "009536d9992206c912bd778ca8a596cd56915d900ea30f5db94c5ff48cec6c92"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "84f1c692fe19acb2929dd41746c3a184efb36146039b3b9c4554a4ca7a3e0d55"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01c66d5808a4c8defb52bb8c9acf2584dbe542940bf758a53cae0c4d68229c3e"
     sha256 cellar: :any_skip_relocation, monterey:       "5a6a9cf80d062199423619e15c9c32be29b1822cb49669ea89f107b6a58cd973"
