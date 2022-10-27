@@ -6,6 +6,7 @@ class Sngrep < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "0b7aa728a1094a767d83ce9e21be2cbe9815485d86d9aa0ceca8f5eeabe8ba77"
     sha256 cellar: :any,                 arm64_monterey: "2bbb0e2441c8192002e427ba0b5a3e8673cee8689fd5befebd0f3ba0532e3cb2"
     sha256 cellar: :any,                 arm64_big_sur:  "69a7368edfbff2b60ed13cf1dbd9891ca8346bc4764108441c48e28a27ff08cc"
     sha256                               monterey:       "c0d3b02aa03ce6c44e7d0a14e06d34bea256934504fce358c0ad94308b4e410f"
