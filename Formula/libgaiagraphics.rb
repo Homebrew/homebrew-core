@@ -6,6 +6,7 @@ class Libgaiagraphics < Formula
   revision 9
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "12b2678c043fdd30f90f3773db50181cd3b0f76b2691c7d316e7c20e1c91d603"
     sha256 cellar: :any,                 arm64_monterey: "42eff6244781ddd1d413987ca9f129c9f741e108d98a42dc23e3fe05cfe895a8"
     sha256 cellar: :any,                 arm64_big_sur:  "f83975606bf2054bef66c6f8c131d395e2b6dd1dc8f6b7e19063393cf176bf95"
     sha256 cellar: :any,                 monterey:       "b24aeea6a6fe6843982d28ac44ecc6219ff7432d6f88e74c0e28eac09b353055"
