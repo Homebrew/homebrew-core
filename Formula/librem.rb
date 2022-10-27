@@ -7,6 +7,7 @@ class Librem < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e252fd794be48321cad1724dde56de5b2425f3d4dfb044ebb8115ade27a979cf"
     sha256 cellar: :any,                 arm64_monterey: "a9021534292e4ff43c5aaf0e60f7c6a865ac1c66804715270eeb9b00591fb7e4"
     sha256 cellar: :any,                 arm64_big_sur:  "0e6eb849ea3fd48c5518504e081a362fa12ed840daf2efc8e01b411f42e47b2a"
     sha256 cellar: :any,                 monterey:       "ae085d19b0a5e5cfd8213c6a9bedb29c6f2d6d04908b6fb53c18e60372316d7e"
