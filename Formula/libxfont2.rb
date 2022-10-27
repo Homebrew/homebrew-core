@@ -6,6 +6,7 @@ class Libxfont2 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "841a2661ab9a5de3edc0d436d14802a811c495e4f7036b84da083ff6456da2df"
     sha256 cellar: :any,                 arm64_monterey: "b6ad688dc31a73b3a9bb5368bbf5624cf410007955cd3b2feb9ea1a663b7241c"
     sha256 cellar: :any,                 arm64_big_sur:  "3e7cd1603b33ffa074ad368ac277889ca8709bfda2ce03e222acb91ba90b4b7b"
     sha256 cellar: :any,                 monterey:       "13ae077d69dc0a31de51d1ebac0ec9f5a6dcdcaff5685ea1904fd7057a56c936"
