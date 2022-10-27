@@ -15,6 +15,7 @@ class Gpac < Formula
   head "https://github.com/gpac/gpac.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9ec6267f802e1c30d49e095425ad12794d4ad84382b872c54249c42adbe8de33"
     sha256 cellar: :any,                 arm64_monterey: "74f3336aa8d6f9cfc15c19ddd56a855adae55546875f113d95ac1be249688119"
     sha256 cellar: :any,                 arm64_big_sur:  "9d969e1cab82b163e4958a99e7e73f89fcf7a10675626223c5d4be1fc3b7d427"
     sha256 cellar: :any,                 monterey:       "283c472be56974de1c4d1a7ea733e2616621a3294ff771be200d170b3dd0b3ce"
