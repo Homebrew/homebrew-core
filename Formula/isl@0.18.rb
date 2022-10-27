@@ -13,6 +13,7 @@ class IslAT018 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "26f1bae5fb46390983b0c4d9b1ce744ecad4994dab904df91dfeea4fc00cff03"
     sha256 cellar: :any,                 arm64_monterey: "17cdb6a0c6341f4ac4b5d373b94a2f24da71e618a5e8bfd1c0ac9d9156019072"
     sha256 cellar: :any,                 arm64_big_sur:  "44fe4a7f5ed00ff3b3ba06a37d3b6d4633e7532c841d4e02fa1cb2678afc018c"
     sha256 cellar: :any,                 monterey:       "37dead6875dfc23c15fb2a45c6f307a6b12bc362152ee3e6a44474b07f9aaff1"
