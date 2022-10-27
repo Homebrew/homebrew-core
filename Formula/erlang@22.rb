@@ -7,6 +7,7 @@ class ErlangAT22 < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d26db2560ad641c9aa425db4a43e2d7193cacd601b850c386df742c84b2baedb"
     sha256 cellar: :any,                 arm64_monterey: "2ba527cab790a8626160c04d7de0cf7278c2cf1e5aac1b21e50e174dc4a32e04"
     sha256 cellar: :any,                 arm64_big_sur:  "b28d77105c4f07dd1f56d186d5b0936b2285571d45ffdb996db374bc79b7d752"
     sha256 cellar: :any,                 monterey:       "e5ce1a93dca9e9d852c706668c195a47e563b24c463a4b0dc56d39e2190958f2"
