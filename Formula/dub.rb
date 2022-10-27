@@ -13,6 +13,7 @@ class Dub < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1279c482fa5f76b4f12f9fdd2155d06c8210321a6b7f32ac3821e7d89611bdba"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "084b64b8299fc45a2466a7ce0cbc2dde2a2302097a5f7af058475f789cfca267"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "300d04b9cdaf03c410bfb29540af2e1df1f88705b120632e47b5796fb2d5f2d6"
     sha256 cellar: :any_skip_relocation, monterey:       "3d2dd534cf44a3793809443aa003d17dc83f8370d3c0f9ffe8987da6ba70b82d"
