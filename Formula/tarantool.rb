@@ -13,6 +13,7 @@ class Tarantool < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1f7934a5b62265b32a61fbe00c04add8aa3487875dca6c5cbaf66c4e5246045e"
     sha256 cellar: :any,                 arm64_monterey: "7eb5ca8958d366a65a26e352140b0c876711c094fc033299cf4b9705bb51fe05"
     sha256 cellar: :any,                 arm64_big_sur:  "ba22505fde23aa2537d70e69050ba8a18ed349efb0583aa7cb62dc53c23c07dc"
     sha256 cellar: :any,                 monterey:       "48ea8cc87409799063cf7e070ccd942c7e767b2addf098ac15a3dac85dffd304"
