@@ -12,6 +12,7 @@ class Joe < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "5e8ac5942ca4dd172e198fe4f756d9b8bfb7f614766485dbf361aa77c6843c42"
     sha256 arm64_monterey: "affefc197630adfb4ae357d8e144dabd0920022d9b9a9e4a3cad537629c3048b"
     sha256 arm64_big_sur:  "24bd1c0ba2e1f70bf85d2cf403612dfefed70fa1d1441121e560184146b8a036"
     sha256 monterey:       "4eca39a7205e80d0be7c9eacad34c1af5c2b2f7ac062b803a7245762efec9498"
