@@ -20,6 +20,7 @@ class Sratoolkit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2b8b280330dac7af1fd37ff96e644d6646a391de5abcd6aebf431a945e591e9d"
     sha256 cellar: :any,                 arm64_monterey: "6c6a32652af2f8ab9c54ed59edc181db1af783215a61be6fdbfa4401ff879fc7"
     sha256 cellar: :any,                 arm64_big_sur:  "d6a6eb07031864f36d11d1392c1c4aa99e696e6704d1ac303f29adc2433a742b"
     sha256 cellar: :any,                 monterey:       "7016ea36e31f338f43e013230fe18c8afae8854cdab36b0488a86572ddb7fa92"
