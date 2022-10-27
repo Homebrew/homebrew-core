@@ -38,8 +38,8 @@ class Deno < Formula
   # We use the crate as GitHub tarball lacks submodules and this allows us to avoid git overhead.
   # TODO: Remove this and `v8` resource when https://github.com/denoland/rusty_v8/pull/1063 is released
   resource "rusty-v8" do
-    url "https://static.crates.io/crates/v8/v8-0.53.1.crate"
-    sha256 "e952e936bcb610c9f22997f50dc7f65887afe76e1fedd37daf532a20211335ca"
+    url "https://static.crates.io/crates/v8/v8-0.54.0.crate"
+    sha256 "3b63103bd7caa4c3571e8baafe58f3e04818df70505304ed814737e655d1d8d6"
   end
 
   resource "v8" do
