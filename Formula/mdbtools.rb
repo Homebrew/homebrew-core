@@ -6,6 +6,7 @@ class Mdbtools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "cd5023a5419a776cefa3e4bcd408536a696459f1fd3084822e22565e3cd75c39"
     sha256 cellar: :any,                 arm64_monterey: "c4502a9b481c4e40f0bc5c1767af43938cea64ea125a564dd1371e0cdad5729c"
     sha256 cellar: :any,                 arm64_big_sur:  "1f808f4f3574633bb4d3176046a4b98dd0f673291db20ef5f34357f8e04aa3f1"
     sha256 cellar: :any,                 monterey:       "b11d8015632397cfcc11ce21225d3f5d5001bcf64f55996c20713ac9ddc48c46"
