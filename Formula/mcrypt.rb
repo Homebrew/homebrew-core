@@ -14,6 +14,8 @@ class Mcrypt < Formula
     sha256               x86_64_linux:  "33da6d2acf84ccd0db1ae1f9b82b0068a97bb6e8ba1de5dd310fc31c949ed432"
   end
 
+  deprecate! date: "2022-10-27", because: "does not build from source from Monterey upwards"
+
   # Added automake as a build dependency to update config files in libmcrypt.
   # Please remove in future if there is a patch upstream which recognises aarch64 macos.
   depends_on "automake" => :build
