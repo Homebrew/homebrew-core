@@ -13,6 +13,7 @@ class Libpano < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9831541fb99ba54ac769167cb49738d5ddc7a3d5aff5c213f35d6296caad7215"
     sha256 cellar: :any,                 arm64_monterey: "70958ca67b42e1da36ad393b0243c7d182d5413f1c8e83e5d6c47b513b0f3ff6"
     sha256 cellar: :any,                 arm64_big_sur:  "bcafb2c87069bcbc4072ad10e5d0e971761d55b66470f5020b9571b1fbd48c23"
     sha256 cellar: :any,                 monterey:       "cc0ce40a573784a891039fa691945d6ccc357bfaf0cfee2ae030bd8f6fbf813f"
