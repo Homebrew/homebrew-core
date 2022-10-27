@@ -12,6 +12,7 @@ class Javacc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c7466143225c24a1036a193bf7a0762e110c16606993fc427954959318ff35cb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39bb12ada55f290fb1c1a78f4d213043085473d98fb807acdd689799da5ded6a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a83efed645f130bab65f202a0b33b75671988767b9e163d5cb124fe6e6b6743"
     sha256 cellar: :any_skip_relocation, monterey:       "a9b7638acf530cb10611b394486b16a8f9c411b529e8c954428e84f95aa6cf85"
