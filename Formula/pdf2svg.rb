@@ -7,6 +7,7 @@ class Pdf2svg < Formula
   revision 6
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "397a10a14de7d93121d1939aa4428ee31077e8a3f0da4850c49803fef0172805"
     sha256 cellar: :any,                 arm64_monterey: "59c454529b5b0a0f5361f9e46d4e73b9cf13a449690fd9dcb1b9a8eeafc32428"
     sha256 cellar: :any,                 arm64_big_sur:  "dc5018cf8ccb7b474fe5c575d562c59e361c3c251ce88d9e36b7636d1f77ef3b"
     sha256 cellar: :any,                 monterey:       "ef550db355bae0f4fd507e13f7b71a7fc3cabce0ac126933dda9dc46539931d9"
