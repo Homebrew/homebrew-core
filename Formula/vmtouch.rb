@@ -6,6 +6,7 @@ class Vmtouch < Formula
   head "https://github.com/hoytech/vmtouch.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "291bc54c646fa540129601fd7dad8a46756f8bc739a3cd505e5d8241a0000177"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c301e4360ef07fffe67a5860df289c3ec091bb4c51793b65054370b6a997040b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d55c8a93a6826d78dcd439155de21e3da33598bd00c022e1fb4d39635f12c53"
     sha256 cellar: :any_skip_relocation, monterey:       "10abb43d5b8bfb7ed49edd377f826747cdb58d6db5ecf91e58223d6f8144ffb8"
