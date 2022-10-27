@@ -9,6 +9,7 @@ class Udpxy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2158d3d93904adbed3f47eb9b1a4a367650d7576821fc362cf260b4c276328f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f0c2b4a23d90563036f55cce0df21dcd71f140dd34a69a9d88d1d6f0b811a1ce"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04a26cca83eb951ff7a220607e100f1ba760ff1bc6cc92e6a315b8eb2890a663"
     sha256 cellar: :any_skip_relocation, monterey:       "f19c646d2c3ca4bcecb3fec922690d2a82c985b78af52654ba32e656fa0fdc66"
