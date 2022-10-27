@@ -8,6 +8,7 @@ class Driftctl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0aa1ac5afb8aaeef21dd1b7c43bec238c283bfb6620f4da7c63e92c8fb46c07a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3185e7d1d585f95d92c48ca466140f643058152640814e862d6b26465369d5a8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e7d73e037760516643a213e3f1b52ca160cc44cc11a6ab60e1666e8481d16b9"
     sha256 cellar: :any_skip_relocation, monterey:       "66d1d2f0f3e7014249cfcc94d14b030a0714ae771d609d325d4cf82636cbc0d5"
