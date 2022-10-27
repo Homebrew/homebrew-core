@@ -12,13 +12,12 @@ class Libosip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4043472a783cff927c822e5c0b20d6ca016f14cc056578c65f8f9f0a2b2bbb9e"
-    sha256 cellar: :any,                 arm64_monterey: "10b2ccc4ecbd787145593f7471be07f8d7d337b88f0910c65a90fde3a74c7153"
-    sha256 cellar: :any,                 arm64_big_sur:  "83a8054802766537ac0bf9a7a26a4e058196659d22b3e73fdc4ca1e1465eebd4"
-    sha256 cellar: :any,                 monterey:       "5257a4db4c419617cb61facd541b0dfd065cf65b04522ba129508153f1cba76f"
-    sha256 cellar: :any,                 big_sur:        "c1c218af9476972bd79a997ed6d17b15585a819da6a8f48e465a3a2e0dd46bcb"
-    sha256 cellar: :any,                 catalina:       "1ce96e56712d36f561bceb138de9c2213340f20a22e20ef0d18fcb5d7539ed72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5250bfa31928e5b25d34dd4a10d2d70d9a8f8e18aec0af8846c3f6c974a13171"
+    sha256 cellar: :any,                 arm64_monterey: "2bcc9aaabdfd1b5afe6a05a3cd694f91b3dae3a23189f450cbe028a9416a28dc"
+    sha256 cellar: :any,                 arm64_big_sur:  "97a6519a92630d395d060289ebd2959d91302d84efa15d72aa9f37f9293ce7fa"
+    sha256 cellar: :any,                 monterey:       "208378ce5567b92f8d1fcf79a9e07bea8313c90da24f7e14b4d5a5c9f9a3c9ab"
+    sha256 cellar: :any,                 big_sur:        "947aa52f8073bc404457457f25c121066c6bb6af9ebeb42b3c50e4168b3cbac6"
+    sha256 cellar: :any,                 catalina:       "eb877b96fdc42eca7b4df03ae438982a3fc1e0abc51373bd6c559ba39d2077e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca0d378c03efdfb96e5e0610357fab268feb1a92de587ac55fa453e4f20b75e4"
   end
 
   def install
