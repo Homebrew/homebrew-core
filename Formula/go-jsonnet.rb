@@ -7,6 +7,7 @@ class GoJsonnet < Formula
   head "https://github.com/google/go-jsonnet.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "77e4b7ca2267e73c2245958748b01b69e8b182562b56a8a8ee4d0cc9c0a0a9f6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5c0d56b389893d87a8358a31775561c373cd117a311ee9f64bbc5988c8d91dd0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "09a74a4df5e13d87696fd6c610d8e999e7edeee71de24f1ec4f537b53d156bf6"
     sha256 cellar: :any_skip_relocation, monterey:       "420b6afe22b881a4383719795bb4691c07da03d4b116a3c02b99bea1117cad24"
