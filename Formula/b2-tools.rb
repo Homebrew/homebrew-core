@@ -9,6 +9,7 @@ class B2Tools < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d85aaabeaa76327b824cbfd2de5c92103127c42fdc9a8e3d07e255883554013a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2871aa46b07404db6c4086796b3b9cb5a4e4e0f19701007a54605fff5770ca9c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c58ed1a651560af4b2ba0110b44715b74e37cc6ce58d693c02e8b7be9374ab6"
     sha256 cellar: :any_skip_relocation, monterey:       "07b115a76281e8984fce00764498fab98302a39b3f044c3bb521ea82296c2782"
