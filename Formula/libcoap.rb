@@ -6,6 +6,7 @@ class Libcoap < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d9e963d8b57540b55defed62c67338dbeeede3c40a36e454c09c8b8fd35c1693"
     sha256 cellar: :any,                 arm64_monterey: "76d9f7fd3f8d00e43c75bf88360d7da28ec62ab5185e728cf19438b3bd79aa49"
     sha256 cellar: :any,                 arm64_big_sur:  "57300cff98f6ad59e6c4cf95de26bf0a4dbcf0fb64d2d911d6bdddadf63da1dc"
     sha256 cellar: :any,                 monterey:       "7f5739f30b40e5df1af1ffb15fbfc81402d0fd9bfd457e027ce7f7715647ff1b"
