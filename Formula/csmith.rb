@@ -12,6 +12,7 @@ class Csmith < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "289f49509657abe2bebc5f5b18f95df1c27860bb9cb9cfb6c5b740bb7ee77010"
     sha256 cellar: :any,                 arm64_monterey: "27b069ffcef5994e076353234fed07390d0a2462abc2b851669f619f30f6881c"
     sha256 cellar: :any,                 arm64_big_sur:  "79b39e5332514e816d46c871b31a283e9d16adc4d39f2b5177c3569ce2508c4a"
     sha256 cellar: :any,                 monterey:       "2ea649dec15e5b7387bde10f8c564c168455ab7b0bca454e669aba28413b10d6"
