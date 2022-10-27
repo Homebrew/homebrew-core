@@ -8,6 +8,7 @@ class Libxmi < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "932b2ebc8aa7c03aa6f8f372f5ec3e2def0dc6d5f628dfbfcd7952c52b4c8384"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d4415d53e7ab98998a088de1148339142edd47d8abf8058d9014b077907ef07"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f62b288c26ca17a79f7c066f82a0a26b84e768960095eefdcf6c0c3b420d4a1"
     sha256 cellar: :any_skip_relocation, monterey:       "fafba3428a0f8d222ed035043883dc2230be492abc71fd8eb140b2b3e1884922"
