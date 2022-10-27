@@ -11,6 +11,7 @@ class Gromacs < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "be8a14c02c8fc9b811d237d69ce841709b29bc9f69c1b5dc69db52df3cfb1340"
     sha256 arm64_monterey: "8c26dd00c0d8ff4cbb5308b814d1517aaf99b399c6c0e36bb712ed933bb4860e"
     sha256 arm64_big_sur:  "5a051a93e5a90a97bf9c4b8067bc92f16e744c120cd43427adae024f4515cdf7"
     sha256 monterey:       "551eaf450d80c51c07eab4beb5a868ace8ce885e7649a6b10cf18661fefb4d38"
