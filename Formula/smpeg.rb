@@ -10,6 +10,7 @@ class Smpeg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "504f24fcc195211810c6d0f810452051d3bedeeb8418948458dea50645ea0d56"
     sha256 cellar: :any,                 arm64_monterey: "c5eab6893599eb3853a814df8bd10232024992b610e464713faef09c9b89af15"
     sha256 cellar: :any,                 arm64_big_sur:  "a681c545d54533151554e7ae875ceb10ab50557265b6903e82a7db1f649195a0"
     sha256 cellar: :any,                 monterey:       "0dee6e8e4fc6dc7b4d97813c61c3bd31613c158dc17f4cf9ae3c24f91d93b591"
