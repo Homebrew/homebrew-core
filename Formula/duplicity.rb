@@ -8,6 +8,7 @@ class Duplicity < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9589ae61a896779a13a004366637ebf4a28b46579ea560a08b70bad8c7d1bc71"
     sha256 cellar: :any,                 arm64_monterey: "0011cd4894652fcb63f7cc9a6c6f695f38600f10069a8ef72ae1635fc6ed20ab"
     sha256 cellar: :any,                 arm64_big_sur:  "4c92080e4b1b88c5d9660d3a429bcf4d43b30898155913a2c3866bb0348df9ed"
     sha256 cellar: :any,                 monterey:       "8e530020544e70820fdc62a256a588f0f3d2365348331121f0f3655659bc3443"
