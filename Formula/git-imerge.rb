@@ -10,6 +10,7 @@ class GitImerge < Formula
   head "https://github.com/mhagger/git-imerge.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3a14e9435560bfac475e4bd6c1293127d156b1b3c3ca015f662be196c7479b2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f53c94437082875ac6cbf092b4cd428d24d8d9e257978e161961f2e47cb43bb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f53c94437082875ac6cbf092b4cd428d24d8d9e257978e161961f2e47cb43bb"
     sha256 cellar: :any_skip_relocation, monterey:       "6a8b30650ee668771ce8cac1011d239979b93d927da57137f5b2b00b2c3257e0"
