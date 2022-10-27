@@ -6,6 +6,7 @@ class Exif < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "834b4812f8e8828a2e6b274730df66ea88a093fd1342a45931f71e954fa07d0c"
     sha256 cellar: :any,                 arm64_monterey: "17692fb4a47365f4828c8dd22eb29e10f38fdb53e9eaeab0bb4bb06b86d9f8fd"
     sha256 cellar: :any,                 arm64_big_sur:  "6f8bd97c2b520c9ca089a39d2ae293f37e15a8049880c308a6413f295ef8b3fe"
     sha256 cellar: :any,                 monterey:       "e425f56e4fb8d296c47622010d341caf47e586e9ceeffd110d181598f80839df"
