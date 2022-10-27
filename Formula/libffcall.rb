@@ -7,6 +7,7 @@ class Libffcall < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "cb0b3113b4075bd871c9dbc7c1c0af213e77b700aaedc4cf5532b1944015defc"
     sha256 cellar: :any,                 arm64_monterey: "58dd56d1ab429bde2b8078bb3737682b57a37a7d67b70e8c27bcc023f988e2fd"
     sha256 cellar: :any,                 arm64_big_sur:  "d7ace5f73fe02c38febe33718fbb293e765f7d1909763b39dc280d410e2a1488"
     sha256 cellar: :any,                 monterey:       "947d7c231e88bbf9a4037e15c75abb158334b895efb9ea15e698e340e0d95f6b"
