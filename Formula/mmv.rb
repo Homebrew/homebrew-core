@@ -6,6 +6,7 @@ class Mmv < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "5350723c8531b4e9bdde902a745df615dcefc87a522aff2d207bfea9e74316cb"
     sha256 cellar: :any,                 arm64_monterey: "3a1bf74f003cdae6fc986c25a956c45be2bb28ca46ec508305204ab14ebcf1fb"
     sha256 cellar: :any,                 arm64_big_sur:  "6f86d48ad49c5e7f3bb4e8e0487265aa0ec676a47fdd57f8894a80d8a2357aa8"
     sha256 cellar: :any,                 monterey:       "a4e282c205dfa25aa2195d4535be737130e7ee3756321440c5bf70e555a4c00f"
