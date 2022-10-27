@@ -7,6 +7,7 @@ class Duckdb < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "db215d00fc875dc7c6969788eb0cdb84f1ab84dc87bca029b5ab84e724b84380"
     sha256 cellar: :any,                 arm64_monterey: "953087fe43ee703a442b1d144f380591d073df80f8e748d04fbaf916f6710710"
     sha256 cellar: :any,                 arm64_big_sur:  "b91041089385b41bc40c7fca9bc5756ecbc814bf6badce357032302e4461b620"
     sha256 cellar: :any,                 monterey:       "08e7c05d3f6a127a3d338e642d2f1c2aa12775ba77ece045cfa4386b1424d3ec"
