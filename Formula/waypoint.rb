@@ -7,6 +7,7 @@ class Waypoint < Formula
   head "https://github.com/hashicorp/waypoint.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "089d80935b55648cb61ed2b22821218cf67ca21999197f932201e31b58dfc946"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f160ed8d0f65970b7c1703051130c61096b6fe86f423739bea30f61d2666f4a9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76b4b2f5e21bd265b5807e44b92b153f4bb14617a03584a313712ce4a57f00eb"
     sha256 cellar: :any_skip_relocation, monterey:       "1e69bbfd98e2158eb37da80ed4ed489d111ce20a142e0a2c3619a31a4fce23a1"
