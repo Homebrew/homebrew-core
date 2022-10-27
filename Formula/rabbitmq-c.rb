@@ -8,6 +8,7 @@ class RabbitmqC < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "683a44cba4e1e063e150bbcf602ea5c8a310b12d88faf0c98b8ca2673f0c7699"
     sha256 cellar: :any,                 arm64_monterey: "b5e656e15711c417775fb532b61374f34fb00b69ddf2f24841d6c8976bb1c29c"
     sha256 cellar: :any,                 arm64_big_sur:  "5356ca6f455bb61d4ab4d8d66a27d399ebd027bddd5ebfe9bc5daa69d97c1dda"
     sha256 cellar: :any,                 monterey:       "9528f0000e5d9beb29ca43cf88d0e04f92e05c1361bf1edbeb87212b68b8b295"
