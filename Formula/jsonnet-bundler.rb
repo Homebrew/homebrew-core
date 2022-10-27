@@ -8,6 +8,7 @@ class JsonnetBundler < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48e0802ff31a4a8650a50548d3d2987f5155bc45e42af1cb707a94ea6a1af467"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da0e2063b13ad8a08dbfa82dc3ef8507c090ad48295d2e259486d020b016e9bb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da0e2063b13ad8a08dbfa82dc3ef8507c090ad48295d2e259486d020b016e9bb"
     sha256 cellar: :any_skip_relocation, monterey:       "4c9a5ae896aca771eaa394910f56796c93422988e5f91d25222654ffd5b27ba9"
