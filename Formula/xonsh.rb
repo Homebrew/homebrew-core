@@ -10,6 +10,7 @@ class Xonsh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa0abad5e9b39b817b4da83eeb3c4877a8f8dc4bcacd4112c99b03cc419bd3c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "074d5d6e2d6c2a0fe71e8c0541988ad2134a35596583abd6504d22f13ca2c269"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6214f141559199c37879896235540faf01871abd38041c3eae880aae8886751e"
     sha256 cellar: :any_skip_relocation, monterey:       "3134f476cded81f56fadf899a8be4e0d550dae10f120ebfb2190e6ee89c5a92e"
