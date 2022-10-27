@@ -12,6 +12,7 @@ class Libxdiff < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2eac99be7b74fae52532e808461ec21675681d64e25ece6e99b54176a20618ab"
     sha256 cellar: :any,                 arm64_monterey: "418d1252e31f6107429fd06539f95a4bede475d382ef351ff311fc577ef05fc0"
     sha256 cellar: :any,                 arm64_big_sur:  "f986d3e17b2ca9bf61f85fb8dffe837edbd5bee22b1c21c27f3ecfea9a83b12b"
     sha256 cellar: :any,                 monterey:       "9864ce81b41b379e60946847ae1dc20f2a8f8296622581335842884d7bfacaaf"
