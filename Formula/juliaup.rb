@@ -12,6 +12,7 @@ class Juliaup < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "897bab2cf73716fe38fa7af9d30c3584902eefafde86940f40869931d868a320"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "06198c848a74caa308fe41f1e0418cb48a32a7ff39d7ea2f7556cfaf52f4fd7e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7fbf95fa78b98d7df7751bdd72ff6df681892b351f7fa529167a42a8ce5a3e1c"
     sha256 cellar: :any_skip_relocation, monterey:       "b6e50d1cf0b96f9d4b67f008b9a29bfc1ad144e1ac3e5a81d2fc1ef3ea2187d9"
