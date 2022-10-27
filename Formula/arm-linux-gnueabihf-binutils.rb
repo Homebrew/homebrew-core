@@ -11,6 +11,7 @@ class ArmLinuxGnueabihfBinutils < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "59421be26e334cd713243e8470fc0a9407a9061042e2e47f592c7ad770ffb34e"
     sha256 arm64_monterey: "e7643d1794985d47e31b93873913a8ec7aa8fae723ddfc08e2ebdc0cee53dda7"
     sha256 arm64_big_sur:  "26a7485076f8532059c77f977386b2d829cedf1577961dcf89dd10418cdbeff6"
     sha256 monterey:       "a5a3177b6827560cb5f0c3a18d16162d162b79c0d9cd829d47d42bc9d406f2ca"
