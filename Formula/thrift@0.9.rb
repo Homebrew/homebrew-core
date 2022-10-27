@@ -6,6 +6,7 @@ class ThriftAT09 < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1655b3b376b29c54e7f0af8cf55d7f4eff957b03a7df5f1e44fb9e81c457e8fb"
     sha256 cellar: :any,                 arm64_monterey: "051ccc03d1ec77a43ba687fcfe8a20f8f41d8892a6260bf0b8d9cb1a36560c11"
     sha256 cellar: :any,                 arm64_big_sur:  "0b96eded35c6da92ea4fb6a2cbbc2c572838a9a7a0221161088adb77f8ccaa9f"
     sha256 cellar: :any,                 monterey:       "01572a1b6a61c90cbb2e21f324fe3705c98943888915c32a78a072672ba2740c"
