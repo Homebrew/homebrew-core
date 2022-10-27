@@ -7,6 +7,7 @@ class Libdrawtext < Formula
   head "https://github.com/jtsiomb/libdrawtext.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "62aeef081e3a86502eb7b867f8cd2e44dd4f54ad795183c6a8e6abcda00367e2"
     sha256 cellar: :any, arm64_monterey: "0159f6a1ff8d4337e94df6fd14c7746906e2cc813b6557bf5792bf609c9f9262"
     sha256 cellar: :any, arm64_big_sur:  "7383b095117bbcb658bb4563a709509bc01b4a3e747cf74c394fadb39a677300"
     sha256 cellar: :any, monterey:       "9122e9b931f85762e6cce0cb0041d8e1482eb89de2e1d42a1f7523bbcd9bb5fa"
