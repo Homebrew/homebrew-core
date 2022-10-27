@@ -13,6 +13,7 @@ class Libsigrokdecode < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "c7f9c9efd210e47cd50d9248c9ceac6692982dd50c7c19ebf1ae54f12bee24da"
     sha256 arm64_monterey: "8e30df89f0601ecaed7f5b75fe0868cb9c1521f59cd4e10c2cdbfee02c9b9efa"
     sha256 arm64_big_sur:  "28538e08ec974291612028bfefef0c460ed22f2ec13f6463c023c09104ee4df7"
     sha256 monterey:       "f8b983f9c2f64d14c0fc3657e91c7356634d65291730dc6e867003cd5ad60a3c"
