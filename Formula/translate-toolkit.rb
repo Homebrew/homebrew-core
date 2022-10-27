@@ -9,6 +9,7 @@ class TranslateToolkit < Formula
   head "https://github.com/translate/translate.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "621aa9859f6fd03a68c8e6a6b3006113b20feb3737feaa9dd7be29388fb2037e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e51a7c9db7e8b3e2a56cdd6c7cb6bdefca3f5a7658b8ef7765bc607050e30e9a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5646858beb6d5e77063de8913f5c706d25a482679a22e645f00e1addd5a503f"
     sha256 cellar: :any_skip_relocation, monterey:       "c8206587310c12005399d2ba583ff66dedae4b408eb39ea41c2f6ad0fdfe8047"
