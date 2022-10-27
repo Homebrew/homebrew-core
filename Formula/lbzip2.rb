@@ -8,6 +8,7 @@ class Lbzip2 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a41953244b7b781c4620ef0b757648ee8f0cd43ef5d616f44a9f4aebf9a5342a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9815b21683195fdeda12fe2ec7b2f4336d34e7a4b44a4a318c67efed6f9e035e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9ecc58d178f18ab33d500ed768c156058589fed3132bf804314e76715730333"
     sha256 cellar: :any_skip_relocation, monterey:       "b9882075d6ce9ed47c0e18cc27c9b23706a8ceedc8ff42977b614f8fc92cdb57"
