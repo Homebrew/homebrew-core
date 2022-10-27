@@ -108,5 +108,13 @@ class Pferd < Formula
     system "#{bin}/pferd", "--help"
 
     assert_match "Error Failed to load config", shell_output("#{bin}/pferd", 1)
+
+    (testpath/"pferd.cfg").write <<~EOS
+      [crawl:Foo]
+      type = kit-ilias-web
+      target = 1234567
+    EOS
+    assert_match "key 'auth': Missing value", shell_output("#{bin}/pferd -c #{testpath}/pferd.cfg", 1)
+
   end
 end
