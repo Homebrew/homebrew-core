@@ -11,6 +11,7 @@ class Libpagemaker < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e35968d7b7068c1ebcd5a7243ff34d6a54b2c5f1e11e223f43146e9d77686cda"
     sha256 cellar: :any,                 arm64_monterey: "a092569342b5f5d3495f4a66247a2e30c419a3dd242dd74467e4de99c237b290"
     sha256 cellar: :any,                 arm64_big_sur:  "e95a8d6dca9411adefbeb5bebd6e34112f0deec1ec9fe0d8f9bea5502f2a7a37"
     sha256 cellar: :any,                 monterey:       "ab84fad8e27045fcff614f404a2768caa62c4cdaff8cd4eebde7a295b49115fc"
