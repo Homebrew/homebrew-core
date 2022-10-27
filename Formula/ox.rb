@@ -7,6 +7,7 @@ class Ox < Formula
   head "https://github.com/curlpipe/ox.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f5fb582379efc9c799388f535dc89ad9e52b408b3431ef895e59d4ba2af17e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "29722c73a24fc5843a942e6fab7d53bc76dab5854df326b754305441afe58154"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2d8f1cf845e18a1068b939792814aaa0de01557bf62f55a54f399fbfec397f6"
     sha256 cellar: :any_skip_relocation, monterey:       "1486e5e6a3e12690bac4b8ab784b7d8a7d5d900eeca3d4501818ccddb41d5c25"
