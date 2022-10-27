@@ -7,6 +7,7 @@ class Libsquish < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7bd2ea5005e2f7df26fa4e2a4e3cfee9ed35632abc8df40134ec09b23a58a466"
     sha256 cellar: :any,                 arm64_monterey: "a63fe0fd24c9446e06649595928249487026ed7b2c3b48131bfe31bc0cae0d9e"
     sha256 cellar: :any,                 arm64_big_sur:  "7ef2623fe17562ebea99fd2ebed7e15d70e29a54071d3f573dee0880c206fb01"
     sha256 cellar: :any,                 monterey:       "8ac755fd247f50e6c82c3463a33fcab97ca76d0ee5935ce2277820f93074a694"
