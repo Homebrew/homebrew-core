@@ -11,6 +11,7 @@ class Unnethack < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "dce7d673a3f638fe97b4757fe3d78cb61b5fbdd1fec8b1f536e1295179195e91"
     sha256 arm64_monterey: "05c4befbdb39343bd07d991ea4d3b048215098aea8af4239e0c6ecef27deb330"
     sha256 arm64_big_sur:  "5b4386eee78f20075e693b6ad437df496c8c914518161d8901991c1c4a6ee1f9"
     sha256 monterey:       "c93c7e1e75f40ea747049d51072aefee9604e92c2643921aaa251ca35a08b2fc"
