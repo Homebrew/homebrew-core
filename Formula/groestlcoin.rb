@@ -8,6 +8,7 @@ class Groestlcoin < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7f169f6c1b836a53ecd547562af19e7127ad922584092919967bb4b03c122723"
     sha256 cellar: :any,                 arm64_monterey: "e271b0f7cffcc522b9b280e4f96d79aaac5aa5a89706a57575a159e67fda5215"
     sha256 cellar: :any,                 arm64_big_sur:  "0bc45052b5f441bd2cd56a3b2205066c3eb6e5c20187f06e13740def6416b210"
     sha256 cellar: :any,                 monterey:       "74770956a29628ed8c4f4f20db03947482e311d1a5b339e4006c8cb5c99da01f"
