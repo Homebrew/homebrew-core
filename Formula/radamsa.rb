@@ -6,6 +6,7 @@ class Radamsa < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd11fada93d54e4f8f72ac47c20ea26e8298f64bc930a290e897ac671940b80d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d86d86fab9f28b1dd1b2a7b98fe0a224f1b5e059f58c978be4a0ea5a146083ef"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ee7ab43bc7155d05030cffef87111083e9d5b55b96d51c1ea54fc76fc9ce8fc"
     sha256 cellar: :any_skip_relocation, monterey:       "68e110b46fd84cab81f57ce9d465e142e090067690f56808d11cbc31420b1eac"
