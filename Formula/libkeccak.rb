@@ -6,6 +6,7 @@ class Libkeccak < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "19566993fa3ce2961cafa4c36033a573138756214694c15ef39e92022edabe3d"
     sha256 cellar: :any,                 arm64_monterey: "173746b4543bc13ef45d1e4dfb8c6bb4d4249c25830f53f943898ac7ae1f81f2"
     sha256 cellar: :any,                 arm64_big_sur:  "6fc14f2ea3a381b9e9e58578bcef407cef4af0bd931da39e2e84d28a8340ab54"
     sha256 cellar: :any,                 monterey:       "ce7fee03661fde649e34fbc9574283f7e69d15bde1af456cb8b05b774266ca8f"
