@@ -12,6 +12,7 @@ class Libprelude < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "7e89bbb3c694df1025934f373b0351844c3734af861ac07a60c07abcf8558bfa"
     sha256 arm64_monterey: "7af71434befcd84ab6e66bc6d355942a81ff492bf732d53b23babd98afd4e045"
     sha256 arm64_big_sur:  "0b66c24df4c249e9038f6673ddbd3c813659798e957da9d6c1bfd9fdb67a8316"
     sha256 monterey:       "9284d8e1a805d7ef1332b2c9d040b8ccc30cdc0b8eb83085d7a4d24811c2a922"
