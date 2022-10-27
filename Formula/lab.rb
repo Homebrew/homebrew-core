@@ -7,6 +7,7 @@ class Lab < Formula
   head "https://github.com/zaquestion/lab.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eee3b3d1a309b0a61a5224cc1c13b0de765518b86015f6985a09347e86554b00"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31e8b682f99fd9f456d298e09d20521317f3b04248f53029d04ce5f8b3f3b75a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cc2420cd4dd1db173333ff7c51530deee73b47a8fb5d3d36d60893dfd4c35ae"
     sha256 cellar: :any_skip_relocation, monterey:       "d1e3f02ef9e1748260a2ba5d9eefc79312b77f8d3ae223485aab7a025e7638e5"
