@@ -15,6 +15,7 @@ class Libstatgrab < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7c52741c5bc27ba569e9d97c89ab5258f51f0b66c46e678f35fc8770f0fa6655"
     sha256 cellar: :any,                 arm64_monterey: "d8fe01051dd20bebd918d8d4e0634218121d1a9b3b0be2e5830cdf24bc1d9fd5"
     sha256 cellar: :any,                 arm64_big_sur:  "ce70f4a494445f8afde960c4ceea838e48b98fcf4c4d9513f705afae83193433"
     sha256 cellar: :any,                 monterey:       "5154065582dbae8bf645834ccabc9b878a77dc21d5a85d307366d78b6ee7ed91"
