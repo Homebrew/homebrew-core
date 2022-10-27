@@ -17,6 +17,7 @@ class Libpgm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "27bb9366ecfabb4dafc81a54a1b7c39259cfcad13337a63c18a55ea0de26f2d5"
     sha256 cellar: :any,                 arm64_monterey: "8461b86788d5f5d6b6240ca78169bc120dd05fc753dcf052403537f5bd173382"
     sha256 cellar: :any,                 arm64_big_sur:  "350aa74e762a89d01bd49237b95bb92bb97b213da951f72d5d8febe372c636da"
     sha256 cellar: :any,                 monterey:       "6c5d4b6c58e5afb6c32f4b8681b5065dbc6c8920b505d14dd1dc49479411e56a"
