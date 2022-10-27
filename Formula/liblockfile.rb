@@ -6,6 +6,7 @@ class Liblockfile < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    sha256                               arm64_ventura:  "d6425a72a9e1a04fd11c8793c31b1a4308ff974979b368439d62515ca7bd0c53"
     sha256                               arm64_monterey: "69933a745062ff9b8a41b7b3b7fec871efa9a99896b1ace2ccbf4cbafb2437f8"
     sha256                               arm64_big_sur:  "41a9d79f95f938532b4320a29c5f5bf3d7229a6df3f06413112d903e23589078"
     sha256                               monterey:       "fec045c7ef1d9e55d1aac480298de26dce1754a73cb86f2545be737bc528d84b"
