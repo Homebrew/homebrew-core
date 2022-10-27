@@ -12,6 +12,7 @@ class Cheapglk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "46c6748a4f62fe0b8f62a0f0a8ed01351b3057624bb0bf4a62edb51575e631dd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7f34227be66c2d76ee900dd6cfcbe1263bab3c706ef05b348314944711bc1de4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73f43be61554255b8b1bb6f2e185b567eca2c868f0c65ddf8a53020fddd8e35a"
     sha256 cellar: :any_skip_relocation, monterey:       "16e6658829ca0f23ea49cfcdbee978c19e61b9eb1adfa26b5ffae7bb9c07f688"
