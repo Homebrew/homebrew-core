@@ -7,6 +7,7 @@ class OcamlNum < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1376f678d4ee8141b6ce772985df8a1397f3e4831b02160a8057e3b195b26f90"
     sha256 cellar: :any,                 arm64_monterey: "24a7c2eb700a74089c1fbdb5395473c4afa7f90e86372b556c7b48b4caab23fc"
     sha256 cellar: :any,                 arm64_big_sur:  "e14151e4a14faa9a43774d4682930994110f9d654d533091b48a35ed95bfe8eb"
     sha256 cellar: :any,                 monterey:       "36835ca0d89b6ccf37c1dbb3596b2e1ba688148cac83d6ddda1d2bdf5ddb2a00"
