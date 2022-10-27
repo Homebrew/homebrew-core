@@ -7,6 +7,7 @@ class Libmwaw < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "e65d2c7d972499befc8ffddd4640604a0205ab0a87ce0184e3407269a133347b"
     sha256 cellar: :any,                 arm64_monterey: "6ffaa69023d1fb57fea42045e747e6df08336b1f00277fd1697c4480523533df"
     sha256 cellar: :any,                 arm64_big_sur:  "a4c331f83eb77f6bd74a828f984c376be9a916e7671946e299f7aeb347562d02"
     sha256 cellar: :any,                 monterey:       "d20dccf2c767fceea530bc66a1c0c1631a8961245d627ef806b060781bc7f4b4"
