@@ -12,6 +12,7 @@ class Most < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f77965c676d147011c6456b7da9f7097d02e5de8fb81a0282b9cb6a5caedc527"
     sha256 cellar: :any,                 arm64_monterey: "a59940ffff8a004be1e310759e22c16d3c69521e9c8bf7c7a75dd8c919cc8d4b"
     sha256 cellar: :any,                 arm64_big_sur:  "f45ef961fdb9f6cc835bef242de3f22abce43b27c8e9fead3351c84da8523a2f"
     sha256 cellar: :any,                 monterey:       "e5661527b7f93c4f8277d58508004f5c6ddd642b1b72ace3364df24593c2bfac"
