@@ -10,6 +10,7 @@ class Jthread < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1f6f395e12547fcfcafcfcf52501dce17024aacb8fcb8a2270e42595ac5a80c2"
     sha256 cellar: :any,                 arm64_monterey: "7a786a2608afa79835cab95860405402c716916bb2f79b5e562c838269e178b4"
     sha256 cellar: :any,                 arm64_big_sur:  "12a85b410fa6b4c3e47e518813e0907b09ea01ed917ecb39354488ba1afb8ee8"
     sha256 cellar: :any,                 monterey:       "9c27b5547869cf439f7d5fa99b8bc7de3931f3ea73d113e14d1ad013dbb189d8"
