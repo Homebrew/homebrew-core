@@ -1,10 +1,9 @@
 class Flann < Formula
   desc "Fast Library for Approximate Nearest Neighbors"
   homepage "https://github.com/flann-lib/flann"
-  url "https://github.com/flann-lib/flann/archive/refs/tags/1.9.1.tar.gz"
-  sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
+  url "https://github.com/flann-lib/flann/archive/refs/tags/1.9.2.tar.gz"
+  sha256 "e26829bb0017f317d9cc45ab83ddcb8b16d75ada1ae07157006c1e7d601c8824"
   license "BSD-3-Clause"
-  revision 13
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "c9820e001f854b3d5abe3b95b5e63c2b787bd4a7f85c4ba43c5a97300372a802"
