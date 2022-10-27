@@ -7,6 +7,7 @@ class DarkskyWeather < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "65acd7270545c3451f69c5fb5e3a6fc819c3f86f7ee6f687769ccdf8ce41a86d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3908f2bff7bb30a6c668211e255cdb4edfb073e90db2d4fd75addc316b061fc2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d21740455ddc5db0a56e33e5f96dd7248d46b680414f5cff834faf3fb670b618"
     sha256 cellar: :any_skip_relocation, monterey:       "2d45683974e5fb879064182bfde515b4d85945e43916fc11763ae1059c59078d"
