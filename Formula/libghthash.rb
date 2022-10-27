@@ -6,6 +6,7 @@ class Libghthash < Formula
   sha256 "d1ccbb81f4c8afd7008f56ecb874f5cf497de480f49ee06929b4303d5852a7dd"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "da435927873c75652094f28442c3716e305ec2407532c79f511c775452f36b35"
     sha256 cellar: :any,                 arm64_monterey: "dd42e58f241de38a3693c9fdc1098fc88caf962412c743dd67b9520a0032f021"
     sha256 cellar: :any,                 arm64_big_sur:  "3fb2c3c6419f8114001399f87e711972fcb666cbfcf1f8c5017fc69d5c7cfb4f"
     sha256 cellar: :any,                 monterey:       "5ccf16cfdcdc676a17a295b4b48458ab91922d0fee37f15d57562084a6f6d56a"
