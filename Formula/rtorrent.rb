@@ -7,6 +7,7 @@ class Rtorrent < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "88f96c46480eba28bf0243f70bc6985e6f7b423465236068f34fb33bf6a59a2c"
     sha256 cellar: :any,                 arm64_monterey: "c6ad3c296e29e64ca71ebd6edcb3d626a79063518b0b014f0241620535407021"
     sha256 cellar: :any,                 arm64_big_sur:  "cc20534a382138c8bab8db453bcb6a219390eff9d7501df4d0750fe3e1f9da6f"
     sha256 cellar: :any,                 monterey:       "e326ec1561580dadc4afcb3694302626157d1bfd134cf48641982599015e2dd9"
