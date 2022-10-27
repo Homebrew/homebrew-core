@@ -13,6 +13,7 @@ class Nzbget < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "b8caf9237594bde5b8aa061f9d2ee56fcff7c6d85c54c4fe64fe61471f3ab652"
     sha256 cellar: :any,                 arm64_monterey: "3f7ef62ade3d391d6a0cbb63b39e75e8c8fca3f07d0525ab291f607d35d94d38"
     sha256 cellar: :any,                 arm64_big_sur:  "6a4743dcaa3ba3dfeca5d2c54c058b3d7a4ab4847ddbc21462b25cce84756c0a"
     sha256                               monterey:       "609b10863046bd0fc1b354a521644e0cce214240070d516f9c240833ee402b81"
