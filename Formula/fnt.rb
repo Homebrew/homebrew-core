@@ -16,6 +16,7 @@ class Fnt < Formula
 
   depends_on "chafa"
   depends_on "lcdf-typetools"
+  depends_on "xz"
 
   def install
     bin.install "fnt"
