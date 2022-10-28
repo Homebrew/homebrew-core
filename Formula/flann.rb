@@ -16,9 +16,10 @@ class Flann < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "hdf5"
 
-  resource("dataset") do
+  resource("homebrew-dataset") do
     url "https://github.com/flann-lib/flann/files/6518483/dataset.zip"
     sha256 "169442be3e9d8c862eb6ae4566306c31ff18406303d87b4d101f367bc5d17afa"
   end
@@ -33,12 +34,16 @@ class Flann < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_PYTHON_BINDINGS:BOOL=OFF", "-DBUILD_MATLAB_BINDINGS:BOOL=OFF"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_PYTHON_BINDINGS:BOOL=OFF",
+                    "-DBUILD_MATLAB_BINDINGS:BOOL=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    resource("dataset").stage testpath
+    resource("homebrew-dataset").stage testpath
     system "#{bin}/flann_example_c"
     system "#{bin}/flann_example_cpp"
   end
