@@ -12,13 +12,12 @@ class Jsonnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16829760732a39f3d4e1401b891f8e2989d134e47c1b3b51c8aafd51e8627ddc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d0fcbd957bf1e3fa91a3e7e6f1d1316fb0dfb8aaa72f94ded7d1ab8ac96caf6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "deb98f7009d75ce4a9f68464e6d8347c885b5f4de50691d0ab8228e775cc5beb"
-    sha256 cellar: :any_skip_relocation, monterey:       "6ed8bac0e7eb061832f680b8305a22b25298730741aebb6e2bbc3cbfba95a19d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "087b337943c70e343383517a99ff4013206b8d1fa2c902d4b3c945873fd1e493"
-    sha256 cellar: :any_skip_relocation, catalina:       "2455ed01cf6b28b5a6fb7466e6ad3c8d6c64c351aabf1b2cfdc102fc9af421f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35bec7fa0eed3d22933083ba80f5d05ae770e4bbc0b42e549e3a0e8bb770a086"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b161392e3285d2de4b7592ec7ea47d56883e6eece220149ec3758f7b115825ac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0694cd5affd28818bc88d9e2f03c26ff0cb0ffbbbf35c402210578d21ea24391"
+    sha256 cellar: :any_skip_relocation, monterey:       "601c60de61880b5ac463510587a2024e5a6123a221134e49f57a12b03e56fd56"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b8531c4fd6ecf049c0a74fbab94640835d180685a5b462254f3c4b7c56d1d645"
+    sha256 cellar: :any_skip_relocation, catalina:       "73595e462af29703e99c216c66e6e7a19d3e3421b5179e4100f989f1f1e865ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6aaa84a604abec03db8e28c7c9b0f6dc47c4b3c7f7873cb9908838325d0ec05f"
   end
 
   conflicts_with "go-jsonnet", because: "both install binaries with the same name"
