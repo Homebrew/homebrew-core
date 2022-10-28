@@ -8,13 +8,13 @@ class Sail < Formula
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "a65aa8c2604b62b2abb3cd19cb1eed8bb1f86456cdf486b3143f9219f715d946"
-    sha256 cellar: :any,                 arm64_big_sur:  "e2a36636b02b0f5d242bee6fb7b744a8a2b1b5bf933fb41aa803ae3aa03b5241"
-    sha256 cellar: :any,                 monterey:       "52fd320bda7b9937b658dbfe9846f07dd9fc8b51f08e0e0e8b1c6ca17a4e5cd0"
-    sha256 cellar: :any,                 big_sur:        "8894597c81c6e86c61cec5bc6169ae68f49bdfc741c57d0e3f8ead97ebb0f833"
-    sha256 cellar: :any,                 catalina:       "7ad159f076331ba1179e3b8669a29c4d0d8201c79da75cfe4eaa128f39aedc3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e5583e97623d9b14ed1e8289eed3d076375860778df73da9c5d594252c191cf"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b33a2bfe41061d2fd8234d6ae4f3a217ec648fd6218d7b8494b59ae1dab1053"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c138bd71de3bd6eb49602bc765e743c282fa6bc18dac74ed8f4dadd5fcebcb2"
+    sha256 cellar: :any_skip_relocation, monterey:       "e9a94b7de2702591bf018ed4d53856d168f5e4dcb3877fcf7665090096493991"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2e245cc16f8a40a9ee13bf6c8db4884d1398c0d940b242ab29575c170998ba0d"
+    sha256 cellar: :any_skip_relocation, catalina:       "ee2038dfa0d9e0803fa1e1a722ee6d0d3c3a7fd85e81f60e5f0526fc8e53a225"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba356ef6932592097bd0abb07498952008e4cc81f85a313e694f639f32e98bf"
   end
 
   depends_on "fabric"
