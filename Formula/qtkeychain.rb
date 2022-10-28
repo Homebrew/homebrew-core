@@ -12,7 +12,6 @@ class Qtkeychain < Formula
     sha256 cellar: :any,                 monterey:       "29f4b26ba055523d59cdf5e800a4402de27870cd2cbf938b8190a8ad3b7bb4f7"
     sha256 cellar: :any,                 big_sur:        "b27da2f84bb0b2357dc6c7274d63b00eb833aea7cc6dfe9126697993291193a8"
     sha256 cellar: :any,                 catalina:       "2ec32ec391cfdf76856c5b60e9b7d3d4e157e04c1925cd617d465ca8e916b349"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d5e030c29fef9faef28773bd69d1334596a524679c65b8166ae5b1f2b96ce78"
   end
 
   depends_on "cmake" => :build
