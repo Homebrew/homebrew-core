@@ -11,12 +11,12 @@ class Brev < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "61b1906a74bf39d9620ff1299fe8df8dec766a1d9becd7cd7a9034dd88bd780c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68f11291e4ea360dd20a23a8c2f6534efc698d2fd294e6d4ebcf713e589c59d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "d36c23939c1700d1b9542cd37fa610931508e76bbca508e1625eee309ec7e775"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b1e5c01e978f416ee7c9204be81edecd5b13ff4fd625b5b78087f64991e09b1e"
-    sha256 cellar: :any_skip_relocation, catalina:       "4c0798115f0fdbbb50ead09b195c7dac929ffa69b75fe1af8c37587279eab678"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fb574099cc6a1642fc839d7b0563ed899fcb40cebfdc5bca8d50cdd3cca62a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd473e2e819f049b471b8a53dbe0556749471691feb83b131229033b12e24dff"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7a37ce29e3417e144e7b9373c3e20418ae8bba3e365fb1e5e790c09b0293854"
+    sha256 cellar: :any_skip_relocation, monterey:       "8fcf621a1f78f5dc363394e97b0e18679db0055a2b2112099509d4ba17256f9a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cedbe44dbc8b40df3370713406e00f3ef4968821233cca7b70dcf91fe7752280"
+    sha256 cellar: :any_skip_relocation, catalina:       "75989ae3d4939ecfbd4bcb9731cec04d79a41f2b8184b0ef11d72200a3568915"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1e7a882c178e66e12214ead07b2ae196ff75fa2405ff47b0b3246d33ee6d87d"
   end
 
   # Required latest gvisor.dev/gvisor/pkg/gohacks instead of inet.af/netstack/gohacks
