@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/67/b7/24eaac3f3b1145ecf98ecc03d4bd371e7f7b70a275afcb9b4fe6851de19b/cfn-lint-0.68.1.tar.gz"
-  sha256 "3f3258290b5a0d32eb948494a4ad4b89bc5ae2fec6d658c715868c5bd772ebf0"
+  url "https://files.pythonhosted.org/packages/c6/db/2b542bc5609223963b4bb2ca8f403f41eed28fd998904c8bd62cb6d982b6/cfn-lint-0.69.1.tar.gz"
+  sha256 "3573b21b0e9dbf3327ae41da89f425e9bbfaae35f25dbe5f4f2eb89ddc926ae8"
   license "MIT-0"
 
   bottle do
@@ -32,13 +32,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/23/86/5f74fdd24ba90bac6399ec5e3aea2983d43fc1905aa06feba91644205b08/boto3-1.24.95.tar.gz"
-    sha256 "285d29042c1684f8fc68492ddf20180d28b94aac1f19dd7161bcad3067c01314"
+    url "https://files.pythonhosted.org/packages/80/ab/956f77cbb907b486d100d5644064f02c1ddf21cda64435a9ffe0dd19ab82/boto3-1.25.4.tar.gz"
+    sha256 "03e5055d64a596f7a95ed0ca9fda1b67b7aed00d428e4ccef97f2f82b72ec875"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/22/f6/8f9ce17b9ca9aa93e10abfc46756bd61300ad2985427b11fea31d6e621c5/botocore-1.27.95.tar.gz"
-    sha256 "0b90945aa7080179a0c4941a3809ce4df30792931e16b9b6ef3c739c4f2b7a59"
+    url "https://files.pythonhosted.org/packages/92/d4/5a0127c24ebc39289bb5cdd4b928a24c2b8d9377778f69887984e613ca26/botocore-1.28.4.tar.gz"
+    sha256 "ade670506c9e837f61d590873a11c5d06ab9a8492b8d5b853d6c4059ecddc03d"
   end
 
   resource "jmespath" do
@@ -67,8 +67,8 @@ class CfnLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
-    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
+    url "https://files.pythonhosted.org/packages/cf/54/8923ba38b5145f2359d57e5516715392491d674c83f446cd4cd133eeb4d6/jsonschema-4.16.0.tar.gz"
+    sha256 "165059f076eff6971bae5b742fc029a7b4ef3f9bcf04c14e4776a7605de14b23"
   end
 
   # only doing this because junit-xml source is not available in PyPI for v1.9
