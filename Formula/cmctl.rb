@@ -22,10 +22,9 @@ class Cmctl < Formula
   end
 
   test do
-    # Check the version string and help text, to verify that the binary is actually runnable
-    assert_match "cmctl is a CLI tool manage and configure cert-manager resources for Kubernetes",
-      shell_output("cmctl help")
     assert_match version.to_s, shell_output("#{bin}/cmctl version --client")
+    # The binary name ("cmctl") is templated into the help text at build time, so we verify that it is
+    assert_match "cmctl", shell_output("#{bin}/cmctl help")
     # We can't make a Kuberntes cluster in test, so we check that when we use a remote command
     # we find the error about connecting
     assert_match "connect: connection refused", shell_output("#{bin}/cmctl check api 2>&1", 1)
