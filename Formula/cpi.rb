@@ -13,7 +13,6 @@ class Cpi < Formula
     sha256 cellar: :any,                 monterey:       "6083cacfcaa25e3df4f5f124a4441818b6c9519ca5a5c7af34b8b2d12c4a1a8c"
     sha256 cellar: :any,                 big_sur:        "26b0d34177634a9682c2e5d5bca99ee4aa67198a60dd235369e2674e42cb17f6"
     sha256 cellar: :any,                 catalina:       "65f66e825d3c255cd2f888d34ce2552a7027a30655383c5a54b619bd610c84bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c06a6bc36bfdcfd3f3c2278d0ced9bcafc139681dafb0f322908eafcbe75da7"
   end
 
   depends_on "qt"
