@@ -13,14 +13,15 @@ class Upx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "4a00316a5883460cc1c16c75c93cb5a36d4e6ea1bbca394df82047715171d795"
   end
 
+  depends_on "cmake" => :build
   depends_on "ucl" => :build
 
   uses_from_macos "zlib"
 
   def install
-    system "make", "all"
-    bin.install "src/upx.out" => "upx"
-    man1.install "doc/upx.1"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
