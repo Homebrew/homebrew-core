@@ -22,6 +22,42 @@ class Cmctl < Formula
   end
 
   test do
+    # Check the version string and help text, to verify that the binary is actually runnable
+    assert_match "cmctl is a CLI tool manage and configure cert-manager resources for Kubernetes",
+      shell_output("cmctl help")
     assert_match version.to_s, shell_output("cmctl version --client")
+    # We can't make a Kuberntes cluster in test, so we check that when we use a remote command
+    # we find the error about connecting
+    assert_match "connect: connection refused", shell_output("cmctl check api 2>&1", 1)
+    # The convert command *can* be tested locally.
+    (testpath/"cert.yaml").write <<~EOF
+      apiVersion: cert-manager.io/v1beta1
+      kind: Certificate
+      metadata:
+        name: test-certificate
+      spec:
+        secretName: test
+        issuerRef:
+          name: test-issuer
+          kind: Issuer
+        commonName: example.com
+    EOF
+
+    expected_output = <<~EOF
+      apiVersion: cert-manager.io/v1
+      kind: Certificate
+      metadata:
+        creationTimestamp: null
+        name: test-certificate
+      spec:
+        commonName: example.com
+        issuerRef:
+          kind: Issuer
+          name: test-issuer
+        secretName: test
+      status: {}
+    EOF
+
+    assert_equal expected_output, shell_output("cmctl convert -f cert.yaml")
   end
 end
