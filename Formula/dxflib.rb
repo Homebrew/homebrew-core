@@ -16,7 +16,6 @@ class Dxflib < Formula
     sha256 cellar: :any,                 monterey:       "47ebef21d6211ac7b080a8f1ed23dfb154febdf8dfd1a157b14e3c5dccea2812"
     sha256 cellar: :any,                 big_sur:        "86c60b0cc3b353b3652d6bb819c41fcec1cebc6c2f1f7ae435696bbae757a16f"
     sha256 cellar: :any,                 catalina:       "8bfd7c24979cf19191ff911bae9173666f84cf3b5995f3e16672041a9720220f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e71a7e5920a5c7d7029edcf188bebf88aea640021d459ba1e2c0fa7266970c3a"
   end
 
   depends_on "qt" => :build
