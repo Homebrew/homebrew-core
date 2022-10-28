@@ -13,6 +13,7 @@ class Snort < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1ccb3a3fcbde9a9879261bb33c62f69350d0e484e2b3b02524ee8b20e521ccf5"
     sha256 cellar: :any,                 arm64_monterey: "80a9a4cb119ea06f96a210c2e4ab987b0b5836f859ed21a5eea0ccaf0cbf8b14"
     sha256 cellar: :any,                 arm64_big_sur:  "d084c76333716d9efc81495a59a790277553e32c45d98b85a0dddbddd7270868"
     sha256 cellar: :any,                 monterey:       "ca8f6252993ce7ed19adeddab2a1b1be310993030f03e2cc24ba27aab180a739"
