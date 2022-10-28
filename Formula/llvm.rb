@@ -290,7 +290,7 @@ class Llvm < Formula
         # Make sure brewed glibc will be used if it is installed.
         linux_library_paths = [
           Formula["glibc"].opt_lib,
-          HOMBEREW_PREFIX/"lib",
+          HOMEBREW_PREFIX/"lib",
         ]
         linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
         # Add opt_libs for dependencies to RPATH.
