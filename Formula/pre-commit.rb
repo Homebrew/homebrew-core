@@ -9,14 +9,13 @@ class PreCommit < Formula
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34639a234fbc17a4e619763eb0f32b0ddb1ce1cf3e55d8c6160fddc651373526"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a480973522d0180cfd1414ec3d31f8aa284f26243a89036098dd3343ace6a96"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb061bc7f86b3149975d8bee8a209410c786d11ffa4091ad7769d6810a37ef5a"
-    sha256 cellar: :any_skip_relocation, monterey:       "b822f396ca2e6523195d6c17ac8bf41eb6aee2e7ceac2ac0c18fbfd708c6a3ab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "40508e1e583f42c3581c2488d8fcb4b88e4138bfb775e88041166ae8385f25a3"
-    sha256 cellar: :any_skip_relocation, catalina:       "4bd415259c3ca8fe8255c8116865d88e5841cd618d9e75ddfdf04ce79c19e53d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95bb496c02885d65a8db70ad434fda479a99a146e0244308c9be91322b0a2dd3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70cb628421bae2e6136cbc076dd620b2e3a1229ce93e47ad5592fe7739e3420b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "667e0b88c513b4ebc18265f3885c2fe5da0f0126f759cdf4cecaf52b5b1123b8"
+    sha256 cellar: :any_skip_relocation, monterey:       "aff7fa28a2dacf9fbee3688cdea29c3fcf389044f791cc6284919b4f69172a5a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "53f5ba9dca685812cf1de4a2760313fe134a5f7e5bd1eff1439e82c16129a94f"
+    sha256 cellar: :any_skip_relocation, catalina:       "0d801a89ff2c787a8c8980ff53833dc8255c885fbd1cbdf4934c27d5cd49f407"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b08cce9e555890e9d84d0bd987ce9e9a3b87da1297c8bb6a728c17d3f59ed2c3"
   end
 
   depends_on "python@3.10"
