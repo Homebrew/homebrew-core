@@ -8,7 +8,12 @@ class Cdk8s < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "eecff572f9e40044f492923e4bae4ea9d2b90ae496de816105daa20c0a7107e9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "353ee949239385fa8fe26275844f7eac2ac4d515ca4a49ec3090881466637191"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "353ee949239385fa8fe26275844f7eac2ac4d515ca4a49ec3090881466637191"
+    sha256 cellar: :any_skip_relocation, monterey:       "03896705c4f6f302b582273881939befea61804250fdd2b9d44a7fc6084db7a1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "03896705c4f6f302b582273881939befea61804250fdd2b9d44a7fc6084db7a1"
+    sha256 cellar: :any_skip_relocation, catalina:       "03896705c4f6f302b582273881939befea61804250fdd2b9d44a7fc6084db7a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "353ee949239385fa8fe26275844f7eac2ac4d515ca4a49ec3090881466637191"
   end
 
   depends_on "node"
