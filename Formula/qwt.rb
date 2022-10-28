@@ -18,7 +18,6 @@ class Qwt < Formula
     sha256 cellar: :any,                 monterey:       "b037d4085bf7072c7bdc4eb370019964460bb42e5070da35e5ecef9e2c020662"
     sha256 cellar: :any,                 big_sur:        "d9a994f7bff978e0e9907f9fe76f3ba9d73b7055735c00e5ad61cc3b4abcf398"
     sha256 cellar: :any,                 catalina:       "e21aecb109eea0a86073f60d974d17bff90cfe6800cb3ec51ab3d229467c114e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a52c2de9d0a231d153bc7232b6855f02be204ff39d4f6416fb9838d419edfbde"
   end
 
   depends_on "qt"
