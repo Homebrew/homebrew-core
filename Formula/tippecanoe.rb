@@ -6,6 +6,7 @@ class Tippecanoe < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "18d2fbd69f9729471fb7e92b21ed0e9dd4bf5f8d494eacb37bfeb8c379383994"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "89fae27a94ce412f3b1bcf0cd09238f8d8b15ac2362db1ad4b64f57a65f52841"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4cac80b63bde2061e2aaf344ae62fe8916eac49e11588b97072da07049984d3c"
     sha256 cellar: :any_skip_relocation, monterey:       "2a87b3c3712a41c1329c1438d83f83a28e7aaa0663e46572ce4e57c0de90671c"
