@@ -3,10 +3,10 @@
 class QtAT5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.6/single/qt-everywhere-opensource-src-5.15.6.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.6/single/qt-everywhere-opensource-src-5.15.6.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.6/single/qt-everywhere-opensource-src-5.15.6.tar.xz"
-  sha256 "ebc77d27934b70b25b3dc34fbec7c4471eb451848e891c42b32409ea30fe309f"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.7/single/qt-everywhere-opensource-src-5.15.7.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.7/single/qt-everywhere-opensource-src-5.15.7.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.7/single/qt-everywhere-opensource-src-5.15.7.tar.xz"
+  sha256 "8a71986676a3f37a198a9113acedbfd5bc5606a459b6b85816d951458adbe9a0"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
   bottle do
@@ -127,16 +127,16 @@ class QtAT5 < Formula
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtbase/commit/92646a2e0a4264dc9da97bc5e884a0116c0a32fb.patch"
-    sha256 "bd1a637da853e841259a9824481fe05b9c01563cc4e077e95fa8e0a7a479c653"
+    url "https://invent.kde.org/qt/qt/qtbase/commit/b340ca80cf4f994c26f01b017b8ca395a79324da.patch"
+    sha256 "d9b2e5e1745bd75912f244f713f1d31a8bdda0a2975e16734f5a785ca891d7bc"
     directory "qtbase"
   end
 
-  # Fix build for GCC 11
+  # https://download.qt.io/official_releases/qt/5.15/CVE-2022-25255-qprocess5-15.diff
   patch do
-    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/2e36092b74206315a637fd68eceb5e864e6dd0dd.patch"
-    sha256 "430ca28652821421aac942de51387ca42de20383b6b1e84137665b4f5a37414f"
-    directory "qtdeclarative"
+    url "https://invent.kde.org/qt/qt/qtbase/commit/1eb66b24c3dd1232b1eaec57d6014edfe41954dc.patch"
+    sha256 "7aa710337cc8e1b0fec83c65a5f2446659ca1619550e8573a8224c8193dff55b"
+    directory "qtbase"
   end
 
   # Patch for qmake on ARM
