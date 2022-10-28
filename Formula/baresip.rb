@@ -7,6 +7,7 @@ class Baresip < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "1c9ea2132389902587fe6a5778ab7e98594ecfec80e102bbdfd147c6d154fbf3"
     sha256 arm64_monterey: "045374d1a6ae260b92338bdabb7617cae083753f2c7a4a8be5afc2f2bff10c12"
     sha256 arm64_big_sur:  "19c5c355692feb77159452a0b0f99ea20eb8cc36797d9a4c0b78e5e20a5a6af4"
     sha256 monterey:       "a31f0a98e91053bba22a893e80ef4268a481bf2efe6256d17e063723dfa7b447"
