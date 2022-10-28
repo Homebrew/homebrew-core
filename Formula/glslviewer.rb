@@ -2,8 +2,8 @@ class Glslviewer < Formula
   desc "Live-coding console tool that renders GLSL Shaders"
   homepage "http://patriciogonzalezvivo.com/2015/glslViewer/"
   url "https://github.com/patriciogonzalezvivo/glslViewer.git",
-      tag:      "3.0.6",
-      revision: "758ff9c194c87f4b54dfe5c1f4f340b15b9bb206"
+      tag:      "3.0.7",
+      revision: "b1a9a41f77c535e58e5dd31a71afa7c24f9d313f"
   license "BSD-3-Clause"
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
