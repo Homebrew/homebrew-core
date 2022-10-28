@@ -15,13 +15,12 @@ class Tectonic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9eef25e8284801301466e2125419a3573d13fced5ceef41040fad5e97652608b"
-    sha256 cellar: :any,                 arm64_monterey: "e854eaca7cb31e9a55e00ab2f4ab5bdb3718eaa391b15638dfbda0f12c7141e0"
-    sha256 cellar: :any,                 arm64_big_sur:  "1b9a29869eaffc1c81d863e776f7302959143b6289449564eb51e2f1e5b4f84a"
-    sha256 cellar: :any,                 monterey:       "a8d4538dba93917b747ea63347e7642afc882525445b285c886280aed56dcae8"
-    sha256 cellar: :any,                 big_sur:        "3a2671089b2579b745142bd8c9a6062cc2237d3a8bde2e1fe311cc53e82e1ba6"
-    sha256 cellar: :any,                 catalina:       "9695850333257bdeb30025d695cf9371de410de76bf45908bec016bd3d419a61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3db817571afbe94612c7d15cf214c19c54d9058a790353046b256681e9a69c39"
+    sha256 cellar: :any,                 arm64_monterey: "502d74dc17414cdce878ec9cb8300f6facf0872942f83e566b1d1053e0f7ea3a"
+    sha256 cellar: :any,                 arm64_big_sur:  "37c727c4739e728937e636f62aaa8185e81145a6721ba10e6cffb9cd6e08ea94"
+    sha256 cellar: :any,                 monterey:       "470d6e7cfe93b7c7385e36d1f747c77985cb83302eb43c8f179a1be4e0e72792"
+    sha256 cellar: :any,                 big_sur:        "3713f373c74b0803fe1f35277cb28331f237c6b47c47f5ba928e5b197062cc79"
+    sha256 cellar: :any,                 catalina:       "c6729ef8f16818c0ec21e5fac851bad7551f189c105acc35c25690af8551a13d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed46d97a00754f3182a79d710900a397ea59d0e5cd624c7cd86dc08fa54c9627"
   end
 
   depends_on "pkg-config" => :build
