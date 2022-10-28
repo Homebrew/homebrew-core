@@ -1,8 +1,8 @@
 class Petsc < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (real)"
   homepage "https://petsc.org/"
-  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.18.0.tar.gz"
-  sha256 "9da802e703ad79fb7ef0007d17f68916573011073ee9712dcd1673537f6a5f68"
+  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.18.1.tar.gz"
+  sha256 "02f5979a22f5961bb775d527f8450db77bc6a8d2541f3b05fb586829b82e9bc8"
   license "BSD-2-Clause"
 
   livecheck do
