@@ -7,12 +7,12 @@ class Cbmc < Formula
   license "BSD-4-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0d905887eda4d20b0fa2a31ca4183d65d5dbf970473ea4f2ff7a4e780779e39"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b6760f4f738d6f0d0be4de35bb3df29442ce9d740e1fef187cf0959bce3d756"
-    sha256 cellar: :any_skip_relocation, monterey:       "e491478ece9622993f5bf06c9f1dce87dbd67bf70a10b07b3d00127ddef5d387"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c341082e8b4d96dcf00f9cbfeddb721eb76e63c321a1380066024bdd56be52cc"
-    sha256 cellar: :any_skip_relocation, catalina:       "38305e5752aabe8eb8b10eedade10358b06a2e57b23f62474df1ead3cfaf9f5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b0d7471bc77bf46b772883f31988aab6664d1fce7e49fc9d466b2f6e0c95a4c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be6c2e89c736a9ea4191bc4bb020fa89f4e27e440add2f5b27172b1a8ee5cd06"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1988033324b0df307f9710a48aadf6d8f2e05ee1030e67851d329075d8ea6922"
+    sha256 cellar: :any_skip_relocation, monterey:       "0071c79035188c52edb772557b009938bc1c1d3af5681e7c5652d1084708da59"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f58f1bb3b7693720add692dd28339edb775b9bac976053712789497138f8a25d"
+    sha256 cellar: :any_skip_relocation, catalina:       "675f1aa576e701b6e5cdf1cbc33a842c29d1ea9cad98e206209d040082a2ea34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fe47f520e48c68c9b28cfcc883af42a1148c318c4cd622570f207e91ffc40bf"
   end
 
   depends_on "cmake" => :build
