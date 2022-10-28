@@ -2,11 +2,10 @@ class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
   license "GPL-3.0-or-later"
-  revision 19
 
   stable do
-    url "https://mosh.org/mosh-1.3.2.tar.gz"
-    sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
+    url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.4.0/mosh-1.4.0.tar.gz"
+    sha256 "d93ec9b2b0a012f59c4b8d5902b8a70b45db01e32c7c1ef7e5acd84ecebbb95f"
 
     # Fix mojave build.
     patch do
