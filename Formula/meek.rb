@@ -1,10 +1,9 @@
 class Meek < Formula
   desc "Blocking-resistant pluggable transport for Tor"
   homepage "https://www.torproject.org"
-  url "https://gitweb.torproject.org/pluggable-transports/meek.git/snapshot/meek-0.37.0.tar.gz"
-  sha256 "f5650e26638f94954d0b89892ac0f4241cfeb55c17f555ee890609544ea85474"
+  url "https://gitweb.torproject.org/pluggable-transports/meek.git/snapshot/meek-0.38.0.tar.gz"
+  sha256 "1bacf4bd2384aeb2ba8d4cdee7dbdfcbb71d6c366ad4e2840dffd9b159021e3a"
   license "CC0-1.0"
-  revision 2
   head "https://git.torproject.org/pluggable-transports/meek.git", branch: "main"
 
   bottle do
