@@ -8,12 +8,13 @@ class Nox < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "524a00fdd2e3cd7a73481cc4a3218584bb3f87b3e998fd1f8e213efcd0b727b0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23fad278d8f1b41cb65be4233ee6e42b464b22355bf544cb0d634ff822d56cc1"
-    sha256 cellar: :any_skip_relocation, monterey:       "ef9c0fee4b50f5b3fb69319fd7e41a159ba05df1da023d5803bb6339cb1d30a8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "78f3a23e40aeacec806e4d0ca73409b01f15b56f80c83df4353ee8b40c5e6a91"
-    sha256 cellar: :any_skip_relocation, catalina:       "a4227174435897a6d177b3217533b65de08465eac036cc1af2cb6c650a1dd86a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d81578444a1d7a788fd53a8b295e8439671b8857e3a036e72237e0a95189b32"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5f7f84f53b088fd172be65a628b06168025a13d7d29a18748e8eabf37cb2e3e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e1ea7979b8d6b20139705f65f44ac41440111b715403cf4c8faa12e650da13f"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c1506048ef3e082e0f9cfec0fa4c1f89a0a5343d9d9218fa409f6980600ff24"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b1b46241d6f7c56db4f49aa13242f0e0405eade85fbdb5d104bf543e75088853"
+    sha256 cellar: :any_skip_relocation, catalina:       "007c43be2745ded66b5d6c64cba17e9da570d339e6074c927a953a9c770aa7a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f768d9fa8f456dec9528dc58e83d0be10094a2634df02b5ace12271291c7736c"
   end
 
   depends_on "python@3.10"
