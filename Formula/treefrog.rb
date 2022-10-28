@@ -18,7 +18,6 @@ class Treefrog < Formula
     sha256 monterey:       "1f978cde3384620e8949fe82bf351d0c9a41cbfd305d3fb4003045ef3319a4e4"
     sha256 big_sur:        "4cac5c40a0e13a60b65924c31fda01accdc64d4a941c70f216937abf7efd5e07"
     sha256 catalina:       "51beca49fe3504df480e5dda142d4feefbeb4007fcdf35158cafdd71820e29fb"
-    sha256 x86_64_linux:   "c779dc8dde4b68594fc501e53a49f17b193a0c507335e608663479bde6022b35"
   end
 
   depends_on xcode: :build
