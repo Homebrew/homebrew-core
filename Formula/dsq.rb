@@ -7,6 +7,7 @@ class Dsq < Formula
   head "https://github.com/multiprocessio/dsq.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eaf172ab4d1aecede0ecfd67bc1faeeb7925d3e7494889ccb91f3b1aa0127cc3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "13453e55035ec7f611bf1497d34c7e0eefae9e74a85bc2cd97b88ac158e93ac3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "63fe0d51ed81cbfe1b078d92c30ab1c643107ab77239941b1fcda4fee473167e"
     sha256 cellar: :any_skip_relocation, monterey:       "1378c8a63d25c81803072c3ae5092e9abb3edd3ac5dd56f51409671f1ff3b8b9"
