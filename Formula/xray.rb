@@ -12,13 +12,12 @@ class Xray < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "91606138cc5520b54768bef1045d5ff228d23fea67eda3d5198316e734708423"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "beb209215b52e25ef11122706e17cec5bc7099f41d5f9b3a460028973b90ef83"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d42201b98ee667c35765e1fa3ec0c49ae448e6a49c2d26524ec550abb05468ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "178c6ac6be354802fb9e0af1c4825c16146f544892150919a701a11c45947226"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f2f964525de6bceca5dae8ea03e9d7585c7e65f87e6d18de5db15031f730def7"
-    sha256 cellar: :any_skip_relocation, catalina:       "a421fca6fd3715289ca709bf8755fb93caa245e3836dad54336da4b84593629d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "867a1c2cdba407f8e7cea1396183ede377c0e0f1181b1b4fb1e71ec03e937bbf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7cade742dfd9dc926bcb666cd5320e9f145fdfb4c933aacc1bcddd27e1f4c280"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c94abc4d8b34e5f4c46d4c919411b374d6d8412ba72330db58ddc8bb7b147a9b"
+    sha256 cellar: :any_skip_relocation, monterey:       "31e17210394de13d0795d59984ac0df5fef18333e1247f90dd1da13a199042cf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "be2db01049b400a4bd380fc8c74c04337502419b43d888c3f39f8ea6205e7321"
+    sha256 cellar: :any_skip_relocation, catalina:       "56e38d443238f122e810507171b97e237d8ed672c7ba77386368c916b6f7bdf2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0207b0afda5586304d0d45c81e474a07bc8404ff2d0049d39635fe586b05f594"
   end
 
   depends_on "go" => :build
