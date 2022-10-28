@@ -1,26 +1,10 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  # Switch to a tarball when the following issue is resolved:
-  # https://github.com/envoyproxy/envoy/issues/2181
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.24.0.tar.gz"
+  sha256 "31a81841447fbb51589a198d8e8998f2b8ad1fff4921e017fa37691015b3a9f9"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
-
-  stable do
-    url "https://github.com/envoyproxy/envoy.git",
-        tag:      "v1.23.1",
-        revision: "edd69583372955fdfa0b8ca3820dd7312c094e46"
-
-    # Fix build failure on macOS 10.15 due to error at
-    # source/extensions/filters/http/file_system_buffer/filter.cc:402:53:
-    # error: no viable constructor or deduction guide for deduction of template arguments of 'weak_ptr'.
-    # For the next v1.23.x release, this can be removed after https://github.com/envoyproxy/envoy/pull/23177
-    # is merged.
-    patch do
-      url "https://github.com/envoyproxy/envoy/commit/68aa00067bbeb7aaf13599f75e54e8837cfb13ef.patch?full_index=1"
-      sha256 "0efbefd5cab5ada6c46845535644339733c4198ac21582401ba038605bc4ed5b"
-    end
-  end
 
   livecheck do
     url :stable
@@ -67,6 +51,13 @@ class Envoy < Formula
   # Brotli upstream ref: https://github.com/google/brotli/pull/893
   fails_with gcc: "11"
 
+  # Remove this when the tagged release archive has "tools/github/write_current_source_version.py".
+  # Reference: https://github.com/envoyproxy/envoy/blob/main/bazel/README.md#building-from-a-release-tarball.
+  resource "write_current_source_version.py" do
+    url "https://raw.githubusercontent.com/envoyproxy/envoy/3ea63d73407f5af8992e20e1bf0fb4b481b71d13/tools/github/write_current_source_version.py"
+    sha256 "89f90657983d4b21b29a710503125f90fee3af3a3a93a48fefc1d7296a4ce5ab"
+  end
+
   def install
     env_path = if OS.mac?
       "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
@@ -85,10 +76,35 @@ class Envoy < Formula
       # Disable extension `tcp_stats` which requires Linux headers >= 4.6
       # It's a directive with absolute path `#include </usr/include/linux/tcp.h>`
       args << "--//source/extensions/transport_sockets/tcp_stats:enabled=false"
+    else
+      # The clang available on macOS catalina has a warning that isn't clean on v8 code.
+      # The warning doesn't show up with more recent clangs, so disable it for now.
+      args << "--cxxopt=-Wno-range-loop-analysis"
+      args << "--host_cxxopt=-Wno-range-loop-analysis"
+
+      # To supress warning on deprecated declaration on v8 code. For example:
+      # external/v8/src/base/platform/platform-darwin.cc:56:22: 'getsectdatafromheader_64'
+      # is deprecated: first deprecated in macOS 13.0.
+      # https://bugs.chromium.org/p/v8/issues/detail?id=13428.
+      # Reference: https://github.com/envoyproxy/envoy/pull/23707.
+      args << "--cxxopt=-Wno-deprecated-declarations"
+      args << "--host_cxxopt=-Wno-deprecated-declarations"
     end
 
-    system Formula["bazelisk"].opt_bin/"bazelisk", "build", *args, "//source/exe:envoy-static"
-    bin.install "bazel-bin/source/exe/envoy-static" => "envoy"
+    # Remove this when the tagged release archive has "tools/github/write_current_source_version.py".
+    # Reference: https://github.com/envoyproxy/envoy/blob/main/bazel/README.md#building-from-a-release-tarball.
+    write_current_source_version_tool = "tools/github/write_current_source_version.py"
+    unless File.file?(write_current_source_version_tool)
+      resource("write_current_source_version.py").stage do
+        cp "write_current_source_version.py", "#{buildpath}/#{write_current_source_version_tool}"
+      end
+    end
+
+    # Write the current version SOURCE_VERSION.
+    system "python3", write_current_source_version_tool, "--skip_error_in_git"
+
+    system Formula["bazelisk"].opt_bin/"bazelisk", "build", *args, "//source/exe:envoy-static.stripped"
+    bin.install "bazel-bin/source/exe/envoy-static.stripped" => "envoy"
     pkgshare.install "configs", "examples"
   end
 
