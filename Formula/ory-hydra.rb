@@ -2,8 +2,8 @@ class OryHydra < Formula
   desc "OpenID Certified OAuth 2.0 Server and OpenID Connect Provider"
   homepage "https://www.ory.sh/hydra/"
   url "https://github.com/ory/hydra.git",
-      tag:      "v1.11.10",
-      revision: "1a6c22070fc9550796c14b271e816be1dd1b8d78"
+      tag:      "v2.0.1",
+      revision: "403223cc50bc0722102be96ff5631709f2b4e9f0"
   license "Apache-2.0"
 
   livecheck do
@@ -50,8 +50,8 @@ class OryHydra < Formula
     fork { exec bin/"hydra", "serve", "all", "--config", "#{testpath}/config.yaml" }
     sleep 20
 
-    endpoint = "https://127.0.0.1:#{admin_port}/"
-    output = shell_output("#{bin}/hydra clients list --endpoint #{endpoint} --skip-tls-verify")
-    assert_match "| CLIENT ID |", output
+    endpoint = "http://127.0.0.1:#{admin_port}/"
+    output = shell_output("#{bin}/hydra list clients --endpoint #{endpoint}")
+    assert_match "CLIENT ID\tCLIENT SECRET", output
   end
 end
