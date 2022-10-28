@@ -17,7 +17,7 @@ class GoJsonnet < Formula
   end
 
   # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go@1.18" => :build
 
   conflicts_with "jsonnet", because: "both install binaries with the same name"
 
