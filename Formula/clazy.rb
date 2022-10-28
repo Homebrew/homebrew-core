@@ -18,7 +18,6 @@ class Clazy < Formula
     sha256 cellar: :any,                 monterey:       "90ef44a60aff61eeb80c8a14ce55954b8d952da25a632c72f255d365c03cfc11"
     sha256 cellar: :any,                 big_sur:        "5237f20d2a267e396777e6afabd0bf7eab77ff174ce05d771aef96d5e5ce62ac"
     sha256 cellar: :any,                 catalina:       "ca761dbfa90f36a5880bf962e68b22d44f8449c5e74083d35dd79ae2d379b4fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f358bdb38ce2bebd90cb2fe9a59dfb8e4a65531a72488f37e0f2473b0ba6bb6c"
   end
 
   depends_on "cmake"   => [:build, :test]
