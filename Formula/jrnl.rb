@@ -3,8 +3,8 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "http://jrnl.sh/en/stable/"
-  url "https://files.pythonhosted.org/packages/a5/3d/16a198a7875e63d1260ae83601d260d88771e2e628f4691ed42dcb73e278/jrnl-3.2.tar.gz"
-  sha256 "c164cc83fbd010124fdbe0165ea50e73c04b4ae7d3d379368ed9d8e9f2636364"
+  url "https://files.pythonhosted.org/packages/97/5e/457cc704dfe59dadd0bbc5afaa92b6735cb2283856e95af6b7559a9218fa/jrnl-3.3.tar.gz"
+  sha256 "07e2d6a5a52024435110e25092144ba19357cf26f9a86595eb93e9edb8649b54"
   license "GPL-3.0-only"
 
   bottle do
@@ -40,8 +40,8 @@ class Jrnl < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
-    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
+    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
   resource "commonmark" do
@@ -50,23 +50,23 @@ class Jrnl < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/89/d9/5fcd312d5cce0b4d7ee8b551a0ea99e4ea9db0fdbf6dd455a19042e3370b/cryptography-37.0.4.tar.gz"
-    sha256 "63f9c17c0e2474ccbebc9302ce2f07b55b3b3fcb211ded18a42d5764f5c10a82"
+    url "https://files.pythonhosted.org/packages/63/82/a6e21842f2e31b3874f01c112093b8bf8af119f5ed999bbd667a81de720b/cryptography-38.0.2.tar.gz"
+    sha256 "7a022ec87c7a8bdad99f516a4ee6ffcb3a2bc31487577f9eccbc9b2edb1a8fd4"
   end
 
   resource "jaraco.classes" do
-    url "https://files.pythonhosted.org/packages/fe/8b/7876fbd69f5a8ebfbda73c8c1a5346171ee5ac0db28e9f5b2bb80ee3e73b/jaraco.classes-3.2.2.tar.gz"
-    sha256 "6745f113b0b588239ceb49532aa09c3ebb947433ce311ef2f8e3ad64ebb74594"
+    url "https://files.pythonhosted.org/packages/bf/02/a956c9bfd2dfe60b30c065ed8e28df7fcf72b292b861dca97e951c145ef6/jaraco.classes-3.2.3.tar.gz"
+    sha256 "89559fa5c1d3c34eff6f631ad80bb21f378dbcbb35dd161fd2c6b93f5be2f98a"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/86/81/ceec3ed3e7bf7e35101dbe306aa0e4f814c26320f462e1f2f5d10081aba7/keyring-23.9.0.tar.gz"
-    sha256 "4c32a31174faaee48f43a7e2c7e9c3216ec5e95acf22a2bebfb4a1d05056ee44"
+    url "https://files.pythonhosted.org/packages/2a/ef/28d3d5428108111dae4304a2ebec80d113aea9e78c939e25255425d486ff/keyring-23.9.3.tar.gz"
+    sha256 "69b01dd83c42f590250fe7a1f503fc229b14de83857314b1933a3ddbf595c4a5"
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/c7/0c/fad24ca2c9283abc45a32b3bfc2a247376795683449f595ff1280c171396/more-itertools-8.14.0.tar.gz"
-    sha256 "c09443cd3d5438b8dafccd867a6bc1cb0894389e90cb53d227456b0b0bccb750"
+    url "https://files.pythonhosted.org/packages/13/b3/397aa9668da8b1f0c307bc474608653d46122ae0563d1d32f60e24fa0cbd/more-itertools-9.0.0.tar.gz"
+    sha256 "5a6257e40878ef0520b1803990e3e22303a41b5714006c32a3fd8304b26ea1ab"
   end
 
   resource "parsedatetime" do
@@ -95,8 +95,8 @@ class Jrnl < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/bb/2d/c902484141330ded63c6c40d66a9725f8da5e818770f67241cf429eef825/rich-12.5.1.tar.gz"
-    sha256 "63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"
+    url "https://files.pythonhosted.org/packages/11/23/814edf09ec6470d52022b9e95c23c1bef77f0bc451761e1504ebd09606d3/rich-12.6.0.tar.gz"
+    sha256 "ba3a3775974105c221d31141f2c116f4fd65c5ceb0698657a11e9f295ec93fd0"
   end
 
   resource "ruamel.yaml" do
@@ -105,8 +105,8 @@ class Jrnl < Formula
   end
 
   resource "ruamel.yaml.clib" do
-    url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
-    sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
+    url "https://files.pythonhosted.org/packages/d5/31/a3e6411947eb7a4f1c669f887e9e47d61a68f9d117f10c3c620296694a0b/ruamel.yaml.clib-0.2.7.tar.gz"
+    sha256 "1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"
   end
 
   resource "textwrap3" do
@@ -115,8 +115,8 @@ class Jrnl < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/3e/eb/a00286433c739bb1a0d83a069b2dc379a5d14b0b9c927e3cb00cb434d740/tzdata-2022.2.tar.gz"
-    sha256 "21f4f0d7241572efa7f7a4fdabb052e61b55dc48274e6842697ccdf5253e5451"
+    url "https://files.pythonhosted.org/packages/95/91/5df9da4fd97126743d3c27442fbd0978cc2323b4ff512dee22a2ec83fbc2/tzdata-2022.5.tar.gz"
+    sha256 "e15b2b3005e2546108af42a0eb4ccab4d9e225e2dfbf4f77aad50c70a4b1f3ab"
   end
 
   resource "tzlocal" do
