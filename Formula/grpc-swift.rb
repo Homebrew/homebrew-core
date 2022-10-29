@@ -12,12 +12,11 @@ class GrpcSwift < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "983e57b604034c76b8bf2083d41c1790d67fba4ba097188945234c0e6ad3d7e1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b4e051113568d7b1a6bf8faa3eac565c3fd3ef6046afc2958802f2a2ab32cb1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eb976caf749fe1979d324fa2c4e1d81213b59276f3dc16d95acaac9e9b8c9ebf"
-    sha256 cellar: :any_skip_relocation, monterey:       "af474b56b31e1ada9677d902038ff51c5a6e6b8e7e49e4b5c6e3ee9953f6fc8e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f0a2da96c038d7cdd29ed95a3ef6c683fd42eaa75f99e0622212222e1dbe6e47"
-    sha256                               x86_64_linux:   "5ad7ccefbb9616a3705ed6ce8edc34e0e6fcea9cc5f3ff9d0814434ac0f1c876"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "845288dfea676cda82783c4aca76417a7869361b80f134e14d07c2ab66d64b64"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "091df7ca7c7788b0fcf8af7b1767d819924ba4a85349b0a6770ca8f373c1a06d"
+    sha256 cellar: :any_skip_relocation, monterey:       "84db3dc29057d76cf37d2f251670bedeb93e56da3c761446b56e4650e0281c94"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d78997ff603756e336ccaea9a30130d2c9cdc2a27be4a97b81bd4e82c88cfabc"
+    sha256                               x86_64_linux:   "aa5d206faac3323f1b8bd954c24982a51010140ae83484dffa030e776b9cfff8"
   end
 
   depends_on xcode: ["12.5", :build]
