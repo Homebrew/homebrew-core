@@ -1,8 +1,8 @@
 class Makedepend < Formula
   desc "Creates dependencies in makefiles"
   homepage "https://x.org/"
-  url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.6.tar.bz2"
-  sha256 "d558a52e8017d984ee59596a9582c8d699a1962391b632bec3bb6804bf4d501c"
+  url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.7.tar.xz"
+  sha256 "a729cfd3c0f4e16c0db1da351e7f53335222e058e3434e84f91251fd6d407065"
   license "MIT"
 
   livecheck do
