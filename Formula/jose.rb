@@ -6,13 +6,13 @@ class Jose < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "fce30dc2e458c01b3c429b6b9c140effdf487d2fa3b42a93d498779d070d5c67"
-    sha256 cellar: :any, arm64_big_sur:  "a3a76d8b25def2f572513ddf580cd35f575a45c1b505c0ac781ea47d0bac4cab"
-    sha256 cellar: :any, monterey:       "9a8d9d96d80bc042f75bda7c54482ef35210574786c4b3458e6051e363ea3719"
-    sha256 cellar: :any, big_sur:        "7b5124a9d57f6a8ad4dfb85e706a4061cf52bfd423280198b7dcc0035158a9a8"
-    sha256 cellar: :any, catalina:       "4fd0e6dc8ea1c333814995ba8cb855a6ee49d0db5cfd78272a418e981a4beb20"
-    sha256 cellar: :any, mojave:         "6a6b10dbb8a8f3c6418bc35da20c5847befebcc71e1f96af00a047ccdcaa1752"
-    sha256               x86_64_linux:   "e091a0517d325bb732b082977f78b8cfe30f423dd29a8389665d900848a22b92"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "551e1333f5bac04c13a4a2cf957ea2da84fb8c9d34a6ea18f8a661b9307bbb08"
+    sha256 cellar: :any, arm64_big_sur:  "16e0db736b62521077a5ab096d43f0fd2aec7ea89a3f4839f71814582c268308"
+    sha256 cellar: :any, monterey:       "7ef2c4173e81fbc601be37ac515d41b5240fa69ad2a252c67c9fe13d22530f51"
+    sha256 cellar: :any, big_sur:        "3dac5c9fd2153330aebae3f18438eb9833ab8b524ca1e524828c5ef398d252a0"
+    sha256 cellar: :any, catalina:       "29a910cbfe5af5c12b8f007e1fe7abacc167eb6875f76e67260de54fb3911825"
+    sha256               x86_64_linux:   "dbfb98cddbd5634d5a96d6a036949fd7f664d1cd5a84ee33bf9ee934a0f88597"
   end
 
   depends_on "meson" => :build
