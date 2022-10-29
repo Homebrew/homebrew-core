@@ -7,13 +7,12 @@ class Sk < Formula
   head "https://github.com/lotabout/skim.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef42804395affbb74d853fc871ad635266a14ed32746d2d03ee05146af6df78a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1bd497fc73a90ccca27cc9bff110d394f65148839c25265d017fc384fddd9c55"
-    sha256 cellar: :any_skip_relocation, monterey:       "04d9e7b30e276181e1bcc8522aa76d6873b02b00d7539f165e0084d37aaeb12c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "61c1157e45e27f80c0aa1807416b82562540d72d6e1132912f59fc9fd0d51c86"
-    sha256 cellar: :any_skip_relocation, catalina:       "e1b6019d494e2750d305e5366b51129720126c51931928681da48ba89293a46b"
-    sha256 cellar: :any_skip_relocation, mojave:         "05483c56866808ff11d9054ccfde8b7c8bfea652d3aff1f353cddca5e4451d4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7542fda391923f1305b34952cdea5453e13f4a0bde1452061349e05e26cfe59f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c651b86b1587de405d3e4412f045229245873e5136a18f6e3f5a498053dec96"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79aba553a2d2f412315dc6342dc0db3dc684b9cadf06c69f23fb98373bd1078a"
+    sha256 cellar: :any_skip_relocation, monterey:       "5a0b454933322c8969b92b9f30442ac6ff9e1841b992f49f4152a74fe544e8a3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9502b83160e0fed5ad79374ea5d702609c09eecf08d2095706a62a74ebe0acd2"
+    sha256 cellar: :any_skip_relocation, catalina:       "f1a8ef3f930a40660fc965c5d94926368b8a5ae30d29bdbcaff885d17051211a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e3ef4b88c79c5d686ccf86d9383048dc0840189f0cbc865abd3147ce5969f07"
   end
 
   depends_on "rust" => :build
