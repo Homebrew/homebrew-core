@@ -1,8 +1,8 @@
 class Fsql < Formula
   desc "Search through your filesystem with SQL-esque queries"
   homepage "https://github.com/kashav/fsql"
-  url "https://github.com/kashav/fsql/archive/v0.4.0.tar.gz"
-  sha256 "5f028446e31f1a8be2f8a72cd2c1ae888e748220e4c4ece38a62fd8fe41bf70a"
+  url "https://github.com/kashav/fsql/archive/v0.5.1.tar.gz"
+  sha256 "743ab740e368f80fa7cb076679b8d72a5aa13c2a10e5c820608558ed1d7634bc"
   license "MIT"
 
   bottle do
