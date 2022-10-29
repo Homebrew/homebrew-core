@@ -1,8 +1,8 @@
 class Makedepend < Formula
   desc "Creates dependencies in makefiles"
   homepage "https://x.org/"
-  url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.6.tar.bz2"
-  sha256 "d558a52e8017d984ee59596a9582c8d699a1962391b632bec3bb6804bf4d501c"
+  url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.7.tar.xz"
+  sha256 "a729cfd3c0f4e16c0db1da351e7f53335222e058e3434e84f91251fd6d407065"
   license "MIT"
 
   livecheck do
@@ -23,40 +23,13 @@ class Makedepend < Formula
   end
 
   depends_on "pkg-config" => :build
-
-  resource "xproto" do
-    url "https://xorg.freedesktop.org/releases/individual/proto/xproto-7.0.31.tar.gz"
-    mirror "http://xorg.mirrors.pair.com/individual/proto/xproto-7.0.31.tar.gz"
-    sha256 "6d755eaae27b45c5cc75529a12855fed5de5969b367ed05003944cf901ed43c7"
-  end
-
-  resource "xorg-macros" do
-    url "https://xorg.freedesktop.org/releases/individual/util/util-macros-1.19.2.tar.bz2"
-    mirror "http://xorg.mirrors.pair.com/individual/util/util-macros-1.19.2.tar.bz2"
-    sha256 "d7e43376ad220411499a79735020f9d145fdc159284867e99467e0d771f3e712"
-  end
+  depends_on "util-macros"
+  depends_on "xorgproto"
 
   def install
-    resource("xproto").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{buildpath}/xproto"
-
-      # https://github.com/spack/spack/issues/4805#issuecomment-316130729 build fix for xproto
-      ENV.deparallelize { system "make", "install" }
-    end
-
-    resource("xorg-macros").stage do
-      system "./configure", "--prefix=#{buildpath}/xorg-macros"
-      system "make", "install"
-    end
-
-    ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/xproto/lib/pkgconfig"
-    ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/xorg-macros/share/pkgconfig"
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          *std_configure_args
     system "make", "install"
   end
 
