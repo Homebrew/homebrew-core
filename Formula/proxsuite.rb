@@ -23,6 +23,7 @@ class Proxsuite < Formula
 
     ENV.prepend_path "PYTHONPATH", Formula["eigenpy"].opt_prefix/Language::Python.site_packages
 
+    # simde include dir can be removed after https://github.com/Simple-Robotics/proxsuite/issues/65
     system "cmake", "-S", ".", "-B", "build",
                     "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_libexec/"bin/python"}",
                     "-DBUILD_UNIT_TESTS=OFF",
