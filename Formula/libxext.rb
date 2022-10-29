@@ -1,8 +1,8 @@
 class Libxext < Formula
   desc "X.Org: Library for common extensions to the X11 protocol"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXext-1.3.4.tar.bz2"
-  sha256 "59ad6fcce98deaecc14d39a672cf218ca37aba617c9a0f691cac3bcd28edf82b"
+  url "https://www.x.org/archive/individual/lib/libXext-1.3.5.tar.gz"
+  sha256 "1a3dcda154f803be0285b46c9338515804b874b5ccc7a2b769ab7fd76f1035bd"
   license "MIT"
 
   bottle do
