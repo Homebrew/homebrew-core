@@ -35,6 +35,6 @@ class Gobuster < Formula
     output = shell_output("#{bin}/gobuster dir -u https://buffered.io -w words.txt 2>&1")
     assert_match "Finished", output
 
-    assert_match version.to_s, shell_output(bin/"gobuster version")
+    assert_match version.major_minor.to_s, shell_output(bin/"gobuster version")
   end
 end
