@@ -9,13 +9,12 @@ class GalleryDl < Formula
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89047d9f9935f391947dd1eeb311c5b2b7d27acd017a3aec7688f716145a6916"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "592d7753c79d022b647e66bed807d86344051c33234aed237b923422b821f980"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7611a17248a64daac9d6059ef3b7e5f5129e198fb00089dc789a83a11e71590"
-    sha256 cellar: :any_skip_relocation, monterey:       "fab5d1efe693abbf5bf12a66bf7498a4f5931609e981bcd296cf6d6eb3000fcd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "88faaa3189b2af3483f1eb20186d68abaa6e387546e4c9016f19ce3c45c635bd"
-    sha256 cellar: :any_skip_relocation, catalina:       "5535b329a3d691f6f252a34846d80671f2384969436c4ae7911abb96554606a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc564398c050354ab5e99a67672b3102780d55432fb7c9b0754761a9d56705b2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd9dc6189b19dedf221b9619578e6b86f9bc49fabd3159bf275910a89dbf5e05"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4ca8bf32de32bf8463971a5b5969b508d89a7b64b8f6fdb58734bf5f631729e"
+    sha256 cellar: :any_skip_relocation, monterey:       "053d59fa57344930b15ca94153d01f86458e54e04397e5f78b20cafc0c0ff784"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f182d3a99890729c6389b30e3e046706c115aa7bf7c6a7cb189bda5023cc16f6"
+    sha256 cellar: :any_skip_relocation, catalina:       "ccffb0d6c73b94a02de40971fb4e25d6e293e6fc453f1c7ad789d2bf4f79ca84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8bf49fb31652ef504f2b53dfd70df241cebd4b55707edd30bab47c44d995767"
   end
 
   depends_on "python@3.10"
