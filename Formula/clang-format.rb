@@ -7,12 +7,17 @@ class ClangFormat < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/llvm-14.0.6.src.tar.xz"
-    sha256 "050922ecaaca5781fdf6631ea92bc715183f202f9d2f15147226f023414f619a"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.3/llvm-15.0.3.src.tar.xz"
+    sha256 "c39aec729662416dcbf0bfe53a9786b34e7d93d02908a0779a2f6d83ad0a4a27"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/clang-14.0.6.src.tar.xz"
-      sha256 "2b5847b6a63118b9efe5c85548363c81ffe096b66c3b3675e953e26342ae4031"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.3/clang-15.0.3.src.tar.xz"
+      sha256 "96036052694e703d159c995bda203b59d1ff185c6879189b9eba837726e1738c"
+    end
+
+    resource "cmake" do
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.3/cmake-15.0.3.src.tar.xz"
+      sha256 "21cf3f52c53dc8b8972122ae35a5c18de09c7df693b48b5cd8553c3e3fed090d"
     end
   end
 
@@ -49,11 +54,11 @@ class ClangFormat < Formula
 
       buildpath/"llvm"
     else
-      resource("clang").stage do |r|
-        (buildpath/"llvm-#{version}.src/tools/clang").install Pathname("clang-#{r.version}.src").children
-      end
+      (buildpath/"src").install buildpath.children
+      (buildpath/"src/tools/clang").install resource("clang")
+      (buildpath/"cmake").install resource("cmake")
 
-      buildpath/"llvm-#{version}.src"
+      buildpath/"src"
     end
 
     system "cmake", "-S", llvmpath, "-B", "build",
@@ -62,10 +67,8 @@ class ClangFormat < Formula
                     *std_cmake_args
     system "cmake", "--build", "build", "--target", "clang-format"
 
-    git_clang_format = llvmpath/"tools/clang/tools/clang-format/git-clang-format"
-    inreplace git_clang_format, %r{^#!/usr/bin/env python$}, "#!/usr/bin/env python3"
-
-    bin.install "build/bin/clang-format", git_clang_format
+    bin.install "build/bin/clang-format"
+    bin.install llvmpath/"tools/clang/tools/clang-format/git-clang-format"
     (share/"clang").install llvmpath.glob("tools/clang/tools/clang-format/clang-format*")
   end
 
@@ -83,6 +86,6 @@ class ClangFormat < Formula
         shell_output("#{bin}/clang-format -style=Google test.c")
 
     ENV.prepend_path "PATH", bin
-    assert_match "test.c", shell_output("git clang-format")
+    assert_match "test.c", shell_output("git clang-format", 1)
   end
 end
