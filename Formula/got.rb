@@ -11,11 +11,11 @@ class Got < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "35dba646a672c747d8ae4d994361507ff7cc45543f6cf6afe6044dab83ee96a8"
-    sha256 arm64_big_sur:  "f444d72268aa821d2d79b10e435bbb2cf9ba724b93a92376118cd1ad083cfc9d"
-    sha256 monterey:       "72fd71b7129d6d1d9d49928968e87800e1ed909da7aade7f8a7e42db15e1c7f4"
-    sha256 big_sur:        "29179856dc8dfe305cb8a17bee13fda5b366387c6c79f99275c146ccf8e5ddf4"
-    sha256 catalina:       "5b1251dbd1203376a237edd4465d16f4903ede332ab6a5817d594464841b63a9"
+    sha256 arm64_monterey: "27a3cc02167b16ff3dda6bc55323e505f64ce41658e45c0c65d98b74daefb2a8"
+    sha256 arm64_big_sur:  "f3a6b16bac06b12c4ba8d171fc6127afcb668ea307646ca923dbee03da413ddb"
+    sha256 monterey:       "ccd742848ed749de1d540dd45e503235644e528bcfb7b502be0f040fa00f05fe"
+    sha256 big_sur:        "63ed38d6c8c0772443f68ff924df4c9a29216e5e6946d701ba50b0ebf01fd458"
+    sha256 catalina:       "86afc714031f26b7d1199510b0ed98b5e077ad29d093223e2f4a9e39d65ab98c"
   end
 
   depends_on "bison" => :build
