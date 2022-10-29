@@ -1,11 +1,10 @@
 class Civl < Formula
   desc "Concurrency Intermediate Verification Language"
   homepage "https://vsl.cis.udel.edu/civl/"
-  url "https://vsl.cis.udel.edu/lib/sw/civl/1.20/r5259/release/CIVL-1.20_5259.tgz"
-  version "1.20-5259"
-  sha256 "15bf63b3a92300e8432e95397284e29aaa5897e405db9fc2d56cd086f9e330d3"
+  url "https://vsl.cis.udel.edu/lib/sw/civl/1.21/r5476/release/CIVL-1.21_5476.tgz"
+  version "1.21-5476"
+  sha256 "6228c7ba17ce516921975e84001b47a6260f432af44784136164654be5e7ad4e"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "BSD-3-Clause"]
-  revision 1
 
   livecheck do
     url "https://vsl.cis.udel.edu/lib/sw/civl/current/latest/release/"
@@ -17,7 +16,8 @@ class Civl < Formula
     sha256 cellar: :any_skip_relocation, all: "aa660b8befed947bf367647349cbcd1dc0c04446f3f20a4235f7d6ead4831ef5"
   end
 
-  depends_on "openjdk"
+  depends_on arch: :x86_64
+  depends_on "openjdk@8"
   depends_on "z3"
 
   def install
