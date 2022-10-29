@@ -4,6 +4,7 @@ class Mlpack < Formula
   url "https://mlpack.org/files/mlpack-4.0.0.tar.gz"
   sha256 "041d9eee96445667d2f7b970d2a799592027f1f8818cd96a65dcce1ac0745773"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
+  head "https://github.com/mlpack/mlpack.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "5293e16fd5e4a768188d45f985a9b259837cfdc7d306c5eae9f4511393f55a9e"
@@ -15,17 +16,13 @@ class Mlpack < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "01f0246ce3d77bf1ce07f6dbd325a9128d530346405a19391679a2f47e397107"
   end
 
-  head do
-    url "https://github.com/mlpack/mlpack.git", branch: "master"
-
-    depends_on "cereal"
-  end
-
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
+
   depends_on "armadillo"
   depends_on "boost"
+  depends_on "cereal"
   depends_on "ensmallen"
   depends_on "graphviz"
 
