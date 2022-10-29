@@ -6,12 +6,12 @@ class Openfast < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5cf35500bf62908a08a97e25a2a30d9276f29e202732bf59cacd1a32b6bd6654"
-    sha256 cellar: :any,                 arm64_big_sur:  "6ff0d72f935941ccf391c368bc6f62fa10176e316b0249940e5776279871f9e1"
-    sha256 cellar: :any,                 monterey:       "dab5842e1cc5a52ab99f9e786d2f518c3370c0f0e5915ff9298f1cb96047c8ac"
-    sha256 cellar: :any,                 big_sur:        "1889601fec4353a90aabb60f28fba9f144da2fdc428e526808471d7707edc70a"
-    sha256 cellar: :any,                 catalina:       "f6ef48ad549a6cd3050cd0548ace68c83abee2502e45ec3ecf0e628f3aa61b8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4b13d88203a6af1be1c2bd4589c331f9f818e3abe54667a20407ea81fa3ceed"
+    sha256 cellar: :any,                 arm64_monterey: "97cb2db42301fe6187c221fffd8b2992c525950eae4537cbc286508986f22b89"
+    sha256 cellar: :any,                 arm64_big_sur:  "3a2cbf179216f5bf8811d85d093fcff460cde5738b0d263c55b8de75555fb5c9"
+    sha256 cellar: :any,                 monterey:       "5cb32e81de0cdfd404ff9ccbd26a31123341e45a9c212d15119d43c3f0034801"
+    sha256 cellar: :any,                 big_sur:        "b54f60dac1f3588c854e99625b88dcec04082321842d6377737c830ddf7b6a9a"
+    sha256 cellar: :any,                 catalina:       "64ccf5de0b66943a6a264f6df6ff86957171ca67b64773924ef3224e9be7af24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e2bbe615c158dfaa1737eebbf566ad92904ed7b1c0998ffdc512a21d1a2b9f4"
   end
 
   depends_on "cmake" => :build
