@@ -2,8 +2,8 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/28/da/e56ed86fc69aad9be8b6acb7d5a940765ca869a8099858f8b93dfa9abd31/datasette-0.62.tar.gz"
-  sha256 "f719c9148970ed20f565b0a3d8461060fc3748674a1556d63afd058a06d136d5"
+  url "https://files.pythonhosted.org/packages/5f/a3/58f2d54b3f230abd1a16f1f1a81cef9978edd3d1853e136a4cfb6fab2eee/datasette-0.63.tar.gz"
+  sha256 "6b07aac658478af933aaa83cbbd31c91581dab32ebbdd6c227b47db4fa3d1f3f"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git", branch: "main"
 
@@ -24,13 +24,13 @@ class Datasette < Formula
   depends_on "six"
 
   resource "aiofiles" do
-    url "https://files.pythonhosted.org/packages/10/ca/c416cfacf6a47e1400dad56eab85aa86c92c6fbe58447d12035e434f0d5c/aiofiles-0.8.0.tar.gz"
-    sha256 "8334f23235248a3b2e83b2c3a78a22674f39969b96397126cc93664d9a901e59"
+    url "https://files.pythonhosted.org/packages/86/26/6e5060a159a6131c430e8a01ec8327405a19a449a506224b394e36f2ebc9/aiofiles-22.1.0.tar.gz"
+    sha256 "9107f1ca0b2a5553987a94a3c9959fe5b491fdf731389aa5b7b1bd0733e32de6"
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/67/c4/fd50bbb2fb72532a4b778562e28ba581da15067cfb2537dbd3a2e64689c1/anyio-3.6.1.tar.gz"
-    sha256 "413adf95f93886e442aea925f3ee43baa5a765a64a0f52c6081894f9992fdd0b"
+    url "https://files.pythonhosted.org/packages/8b/94/6928d4345f2bc1beecbff03325cad43d320717f51ab74ab5a571324f4f5a/anyio-3.6.2.tar.gz"
+    sha256 "25ea0d673ae30af41a0c442f81cf3b38c7e79fdc7b60335a4c14e05eb0947421"
   end
 
   resource "asgi-csrf" do
@@ -44,8 +44,8 @@ class Datasette < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "click" do
@@ -79,8 +79,8 @@ class Datasette < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
   resource "itsdangerous" do
@@ -94,8 +94,8 @@ class Datasette < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
+    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
   resource "MarkupSafe" do
@@ -109,8 +109,8 @@ class Datasette < Formula
   end
 
   resource "Pint" do
-    url "https://files.pythonhosted.org/packages/eb/59/73fd3810d94f2c87aacc79f4e578e1d81df6f0f2800b80b7d3c4fb4e3a2d/Pint-0.19.2.tar.gz"
-    sha256 "e1d4989ff510b378dad64f91711e7bdabe5ca78d75b06a18569ac454678c4baf"
+    url "https://files.pythonhosted.org/packages/f3/d1/56923579866231eb4e61f86f4728ccd84fc2add7ad111ee25e4b64df47ec/Pint-0.20.1.tar.gz"
+    sha256 "387cf04078dc7dfe4a708033baad54ab61d82ab06c4ee3d4922b1e45d5626067"
   end
 
   resource "pluggy" do
@@ -129,13 +129,13 @@ class Datasette < Formula
   end
 
   resource "sniffio" do
-    url "https://files.pythonhosted.org/packages/a6/ae/44ed7978bcb1f6337a3e2bef19c941de750d73243fc9389140d62853b686/sniffio-1.2.0.tar.gz"
-    sha256 "c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"
+    url "https://files.pythonhosted.org/packages/cd/50/d49c388cae4ec10e8109b1b833fd265511840706808576df3ada99ecb0ac/sniffio-1.3.0.tar.gz"
+    sha256 "e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/c1/ec/23abd850aa173e35b0436f46a3385585b131ee0e70a55c408d89cade30a1/uvicorn-0.18.2.tar.gz"
-    sha256 "cade07c403c397f9fe275492a48c1b869efd175d5d8a692df649e6e7e2ed8f4e"
+    url "https://files.pythonhosted.org/packages/7b/dd/e7d5d8a7018db6ec652c3412b1d5e328c8fbb0fe96947438937ac7dbe0b1/uvicorn-0.19.0.tar.gz"
+    sha256 "cf538f3018536edb1f4a826311137ab4944ed741d52aeb98846f52215de57f25"
   end
 
   def install
