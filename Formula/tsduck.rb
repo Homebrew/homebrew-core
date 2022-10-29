@@ -1,10 +1,9 @@
 class Tsduck < Formula
   desc "MPEG Transport Stream Toolkit"
   homepage "https://tsduck.io/"
-  url "https://github.com/tsduck/tsduck/archive/v3.31-2761.tar.gz"
-  sha256 "2e9e7956cd1b47b0b24666619fa0f1b27599eed6dc5f1457e1401679496f7562"
+  url "https://github.com/tsduck/tsduck/archive/v3.32-2983.tar.gz"
+  sha256 "2f0c35422a4f3e8876e9efa2683794336102fc225b826d5d3c4e033c4b666465"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
   bottle do
@@ -20,7 +19,9 @@ class Tsduck < Formula
   depends_on "gnu-sed" => :build
   depends_on "grep" => :build
   depends_on "openjdk" => :build
+  depends_on "python@3.10" => :build
   depends_on "librist"
+  depends_on "libvatek"
   depends_on "srt"
   uses_from_macos "curl"
   uses_from_macos "libedit"
