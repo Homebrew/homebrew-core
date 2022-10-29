@@ -1,8 +1,8 @@
 class Openfast < Formula
   desc "NREL-supported OpenFAST whole-turbine simulation code"
   homepage "https://openfast.readthedocs.io"
-  url "https://github.com/openfast/openfast/archive/v3.2.1.tar.gz"
-  sha256 "29beab5eba93ab94b411a62eaad38b19b0fba1e04c1fc8e6d79c898d37c6f81e"
+  url "https://github.com/openfast/openfast/archive/v3.3.0.tar.gz"
+  sha256 "7d4f7d79dae3eabed109da1117204dd6dfa53b01ef027051c2be2d5f8dbb3ecb"
   license "Apache-2.0"
 
   bottle do
