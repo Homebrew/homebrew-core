@@ -15,13 +15,7 @@ class Lv2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dc724579ab092ba23410032938c62efecfbf60621a7b3cbff21aaa42f882215"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "daa87f384b7273e4427129ceac5ad31c907bcb622fd2f5db62bdcd6cdc3eb1f8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed23068fd5e5a95776bbf324ea617c55047d7318572afb5c1a1e755ac00c1415"
-    sha256 cellar: :any_skip_relocation, monterey:       "b67b0e37486e087da361df78f53848ea6058ac70015fa85c4560b3dc4d33d532"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d4b428f002f2f9c28f74f98c5009dd5f5da351c26499b5721ec60927a2ad7979"
-    sha256 cellar: :any_skip_relocation, catalina:       "a7a7509601ab20a9115cd3117b8c577e3fc0a155f632950609f1ac21f0e24dbd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7b0ba1633dd9a21b03f682406f60814218806fd23f68a89abee5f2200b80b25"
+    sha256 cellar: :any_skip_relocation, all: "00e2c051efd2fbb588d34d1b96d1582252ccf0c3a254d4f994d81b6a7fe3fea8"
   end
 
   depends_on "meson" => :build
