@@ -16,7 +16,7 @@ class DockerSquash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "abf9c555713d040f08bbe871532b365e87004eac8c6b55268708d378f0504ae3"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "certifi" do
