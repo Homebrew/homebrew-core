@@ -6,12 +6,12 @@ class Draco < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d125b70e3112dfe4fa9c0c64a777ae0782754706d6f48bfa220bc1d048620fc8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e03c02dc079701bd18c42c8f949888450af209d5761aa9436d67bb09e5eb8404"
-    sha256 cellar: :any_skip_relocation, monterey:       "6f7d00987281befc76e0dabe0cd6718c3d89167c3c36fa5f0758c7ec34fa85dc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7ca0d289d21767b986b0b8d62bc8063f5956c623ed8177c2f73130188ef6450d"
-    sha256 cellar: :any_skip_relocation, catalina:       "dfc253ee525ef179fe2697b818fbf62da54857ed4edb771623f023da4a1d3bb9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf1490eb44edc697db2afff03ccc69905df3c07411d5b9fef1d55041520bd058"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "447fa18ccaf04ecbcdf0d903c2cc111c4adf942738b41adb4b0558177aa09884"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a23d767a3a8b68540fa9984a758a0580f20273c68fa37589aeead31a43c6eb5"
+    sha256 cellar: :any_skip_relocation, monterey:       "23bc006a34d949943bd11defb024dd5cd1c2dffc9d188c911117196d12728118"
+    sha256 cellar: :any_skip_relocation, big_sur:        "818507956a19af5676e4482877bf6f8e3b230f062dcae5ae29490b1f46b3f960"
+    sha256 cellar: :any_skip_relocation, catalina:       "5c5f6951c85dace70de82ecdcfee6bfa444b029e910377a1c6f6e3dce81bbae8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "457921bc7acf4f26b905699ef4c121878c10a8da3f85438c7fa04ff512384a24"
   end
 
   depends_on "cmake" => :build
