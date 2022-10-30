@@ -6,12 +6,12 @@ class DuoUnix < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "93857ce1ea478776edcea98db478b2b94cd808395974c174a0c5fae6ae41cbea"
-    sha256 arm64_big_sur:  "a7bb94de99cc25ecedbe5c91df71c85d0f35c774defbbc2b6849e271046faf93"
-    sha256 monterey:       "0cfae72f5b2e2699497eabcdd32ced127d564eece8a050aa270f6dd27b6f33ef"
-    sha256 big_sur:        "84c7729393e2d61d5c2c9539aac0f95a26d97e96de9ab31dffc301c08e0ccb94"
-    sha256 catalina:       "488f75648ba0c3adfcd31260f29461d344450d863d0c0153c7cdb2f1feee20d4"
-    sha256 x86_64_linux:   "5ed7ae9172b7c965510d98114f8c223e65e742eb5e51419ff83b3d14b5e74e3c"
+    sha256 arm64_monterey: "503e373bf79ad3480915f286b62c36fd7d36721e8773806db9655bed15c2a5a7"
+    sha256 arm64_big_sur:  "505dab77dadca8ac5895dfbd6c09b5c57f798879245a5c8d305d6e54e6407438"
+    sha256 monterey:       "55eda86b76dfa6a81d659b0478c551e0f3a4f5fc48eff968b51e1aa796c022dc"
+    sha256 big_sur:        "ff0805bda43ec032f21bcd3fc59d6203bd04b2f1d5f6759cfa13c340a35ad475"
+    sha256 catalina:       "230c609ac862446cf6d9c732c30484ec6b3f2ab46943d98f4d69b268a47249f9"
+    sha256 x86_64_linux:   "6fb2b8c7785c401e441284bc6256d60e2808792713571648821426a75d84e9d6"
   end
 
   depends_on "autoconf" => :build
