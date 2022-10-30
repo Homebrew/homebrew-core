@@ -3,10 +3,9 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/25/a5/dda90aa8cb931458a357ae65ff4341d7694464f322b095a438489440dc7c/ipython-8.5.0.tar.gz"
-  sha256 "097bdf5cd87576fd066179c9f7f208004f7a6864ee1b20f37d346c0bcb099f84"
+  url "https://files.pythonhosted.org/packages/7f/59/05e94e067afb61460f0d5229a1edb800e2f65b8436085fad9cd262d80d45/ipython-8.6.0.tar.gz"
+  sha256 "7c959e3dedbf7ed81f9b9d8833df252c430610e2a4a6464ec13cd20975ce20a5"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
@@ -29,8 +28,8 @@ class Ipython < Formula
   end
 
   resource "asttokens" do
-    url "https://files.pythonhosted.org/packages/4d/c8/987ee029c83ad1cddb03bb004e9c7a8de1be4cdbda21122a0b9f639fcc31/asttokens-2.0.8.tar.gz"
-    sha256 "c61e16246ecfb2cde2958406b4c8ebc043c9e6d73aaa83c941673b35e5d3a76b"
+    url "https://files.pythonhosted.org/packages/ff/b9/40d8b5f23c59def4f4a67a807e899e00200db11f63b4ac9bde5838b709de/asttokens-2.1.0.tar.gz"
+    sha256 "4aa76401a151c8cc572d906aad7aea2a841780834a19d780f4321c0fe1b54635"
   end
 
   resource "backcall" do
@@ -44,8 +43,8 @@ class Ipython < Formula
   end
 
   resource "executing" do
-    url "https://files.pythonhosted.org/packages/7e/f7/148b1a293f8187b0ea5327be6ec595731bf2b0dde8d6dae9c907a1ecd704/executing-1.0.0.tar.gz"
-    sha256 "98daefa9d1916a4f0d944880d5aeaf079e05585689bebd9ff9b32e31dd5e1017"
+    url "https://files.pythonhosted.org/packages/8f/ac/89ff37d8594b0eef176b7cec742ac868fef853b8e18df0309e3def9f480b/executing-1.2.0.tar.gz"
+    sha256 "19da64c18d2d851112f09c287f8d3dbbdf725ab0e569077efb6cdcbd3497c107"
   end
 
   resource "jedi" do
@@ -89,13 +88,13 @@ class Ipython < Formula
   end
 
   resource "stack-data" do
-    url "https://files.pythonhosted.org/packages/d6/3a/6baf4a5e7b48f00bc636bc878c6d93afd032dfeafc10b4a0a5a27232efb3/stack_data-0.5.0.tar.gz"
-    sha256 "715c8855fbf5c43587b141e46cc9d9339cc0d1f8d6e0f98ed0d01c6cb974e29f"
+    url "https://files.pythonhosted.org/packages/ff/d0/9231ffa0d7b5a93ffaa45b35f06502812829c6429907384534ce1ff79ac4/stack_data-0.6.0.tar.gz"
+    sha256 "8e515439f818efaa251036af72d89e4026e2b03993f3453c000b200fb4f2d6aa"
   end
 
   resource "traitlets" do
-    url "https://files.pythonhosted.org/packages/b2/ed/3c842dbe5a8f0f1ebf3f5b74fc1a46601ed2dfe0a2d256c8488d387b14dd/traitlets-5.3.0.tar.gz"
-    sha256 "0bb9f1f9f017aa8ec187d8b1b2a7a6626a2a1d877116baba52a129bfa124f8e2"
+    url "https://files.pythonhosted.org/packages/dd/a8/278742d17c9e95ccb0dcb86ae216df114d2166d88e72f42b60a7b58b600b/traitlets-5.5.0.tar.gz"
+    sha256 "b122f9ff2f2f6c1709dab289a05555be011c87828e911c0cf4074b85cb780a79"
   end
 
   resource "wcwidth" do
