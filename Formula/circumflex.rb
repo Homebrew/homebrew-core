@@ -16,9 +16,7 @@ class Circumflex < Formula
   end
 
   depends_on "go" => :build
-
-  # Requires less 576 or later for --use-color
-  uses_from_macos "less", since: :monterey
+  depends_on "less"
 
   def install
     system "go", "build", *std_go_args(output: bin/"clx", ldflags: "-s -w")
