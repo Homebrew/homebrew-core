@@ -18,6 +18,11 @@ class Kubekey < Formula
   depends_on "go" => :build
   depends_on "gpgme"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "device-mapper"
+  end
+
   def install
     ldflags = %W[
       -s -w
