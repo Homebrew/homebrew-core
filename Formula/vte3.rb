@@ -6,13 +6,12 @@ class Vte3 < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "05588ecc6287096fdd570dda20db7b6bce31b60e9b0c8b3ff7d6981f1536cdda"
-    sha256 arm64_monterey: "c7818a261e835f426bf787ac8f65d6351f57c1f4fbff708b8bc64364a77ade08"
-    sha256 arm64_big_sur:  "2b563124ba19f470170e6a8d7335683d08738ed46189729d05b4e2553b842f1c"
-    sha256 monterey:       "4ed6b6c1e05d42fee796ef9144837ea7b7f84b009f56ba975fc4d1b95b1b1540"
-    sha256 big_sur:        "f9ab5cfa15c6708120ae95db8dc7e1623ca3faf1c1838a44f1246f36f8f92172"
-    sha256 catalina:       "cbb573a24a9c6c5c524bd6496ebf9ec44fc150d8bd39adcb7cea7e0747ca4be8"
-    sha256 x86_64_linux:   "043ba64b4fee681c963a05d5ae953f789a805f91cebf88109e14b7a6e7bf32ee"
+    sha256 arm64_monterey: "188c1908497394ff888514b9448b9aa227cd75795e199903a7a0a591833ba65c"
+    sha256 arm64_big_sur:  "c4ff06f24d88f35bf209e42d0620298bd710b0b019cafb16dda53bff7142d6ab"
+    sha256 monterey:       "f1202007bb1b0df10e5f0b39b4a7d6c1dc022b8b3082e5df55d4e4f2f923e5b4"
+    sha256 big_sur:        "e2562bd7ba9cf08c9f7502bf4438f1d8ad6722c2d51ba460feac7af1002846cc"
+    sha256 catalina:       "80edc4b33865ddbf06d4966d25a07b5b5eb1d34adc5a7b317ddf22acc679dcc8"
+    sha256 x86_64_linux:   "5145354fe0e2fcecc94fb225401d9febd5fb2ca413d24ce91de02cad29370686"
   end
 
   depends_on "gobject-introspection" => :build
