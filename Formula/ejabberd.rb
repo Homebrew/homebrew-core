@@ -7,12 +7,12 @@ class Ejabberd < Formula
   head "https://github.com/processone/ejabberd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e4ae78568fd0c9db8eac5476082cf922e2c41d3e950cae20ba3342030ca6d2f2"
-    sha256 cellar: :any,                 arm64_big_sur:  "4bf6c4c8d85610dfabea9fefbbacfedbd20ece86bdd513afbfd126b932f71630"
-    sha256 cellar: :any,                 monterey:       "e36160a15fd2ace0ccca9be68f91920e366bbe7a1e76f109152ea4397123225a"
-    sha256 cellar: :any,                 big_sur:        "4b3fd6069f6273d2f292d6bdec216783963e6071b0972ee11e7afd23663d1f2e"
-    sha256 cellar: :any,                 catalina:       "551ed90dd256ea103807e74f7d58aa319e1bd3c34d9cf91bfb0b4d9b4492f22b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35e94cd42d1f356f143e0d7ccc89cfced53138fcc2d6ce82c18044d2c9ca51b0"
+    sha256 cellar: :any,                 arm64_monterey: "baae4960d92ae5d21d82382c3202bb9150b414d50ce97c8bdb756e4d3f777594"
+    sha256 cellar: :any,                 arm64_big_sur:  "3d3c3ce2dc52cfcd45b6e177c027f4e2b782ccdedf0aa81e458153725e5fac27"
+    sha256 cellar: :any,                 monterey:       "ef80593e0e0e03cc10393f861aaf209019dfd1f175a58b352e47a7ad6d2c73b7"
+    sha256 cellar: :any,                 big_sur:        "e379ec46b088099a3a323ed05c4d519894639c932ce28616ab69de8cb2b56aba"
+    sha256 cellar: :any,                 catalina:       "1b7baed8ffa349d7b02c7e0bf865d7c1506a116ea1a9ca07f1e5431bb572d018"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb251bbf28ec6219f6200bbc23bf2a6733b85348f8d1d8454db23f8cb7276200"
   end
 
   depends_on "autoconf" => :build
