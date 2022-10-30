@@ -16,6 +16,7 @@ class Kubekey < Formula
   end
 
   depends_on "go" => :build
+  depends_on "gpgme"
 
   def install
     ldflags = %W[
