@@ -10,6 +10,8 @@ class GitExtras < Formula
     sha256 cellar: :any_skip_relocation, all: "59dcbbb3d96e0aa5bb4fd5e7bb6e86383b9bbd5b3e752f1366fd70ba42b2e884"
   end
 
+  depends_on "bash"
+
   on_linux do
     depends_on "util-linux" # for `column`
   end
