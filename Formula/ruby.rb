@@ -47,6 +47,11 @@ class Ruby < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "patchelf" => :build if Formula["glibc"].any_version_installed?
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
+  end
+
   def api_version
     Utils.safe_popen_read("#{bin}/ruby", "-e", "print Gem.ruby_api_version")
   end
@@ -97,6 +102,16 @@ class Ruby < Formula
     end
 
     system "make"
+
+    glibc = Formula["glibc"]
+    if glibc.any_version_installed?
+      # Change to full path to Homebrew Glibc
+      %w[libc.so.6 libm.so.6].each do |lib|
+        system "patchelf", "--replace-needed", lib, "#{glibc.opt_lib}/#{lib}",
+               "libruby.so.#{version}"
+      end
+    end
+
     system "make", "install"
 
     # A newer version of ruby-mode.el is shipped with Emacs
