@@ -50,8 +50,8 @@ class OryHydra < Formula
     fork { exec bin/"hydra", "serve", "all", "--config", "#{testpath}/config.yaml" }
     sleep 20
 
-    endpoint = "https://127.0.0.1:#{admin_port}/"
-    output = shell_output("#{bin}/hydra clients list --endpoint #{endpoint} --skip-tls-verify")
-    assert_match "| CLIENT ID |", output
+    endpoint = "http://127.0.0.1:#{admin_port}/"
+    output = shell_output("#{bin}/hydra list clients --endpoint #{endpoint}")
+    assert_match "CLIENT ID\tCLIENT SECRET", output
   end
 end
