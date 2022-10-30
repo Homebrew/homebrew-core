@@ -6,13 +6,12 @@ class LibgrapeLite < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "d5ce7747e1d1b029ff6a2ac1e5f4a284ae234a2a052e3f5d64b04707db9e9502"
-    sha256 cellar: :any, arm64_monterey: "83f192293edd96693e82f70371fff632725ab9f9ae3d63abeed1c5d2ad113026"
-    sha256 cellar: :any, arm64_big_sur:  "c5cfbf25cf3a3991c6cacb5b9b6ef6455fb65a54dfa4c26b1b6909d2f5c599d7"
-    sha256 cellar: :any, monterey:       "780b15e69886c16faef1c6c609865144cb8d623a4763f3f8a3e0be285fa6e5e3"
-    sha256 cellar: :any, big_sur:        "cc108f25de00b8089fc0af337892695482abcdab1168a8b190f3a32ad0de9ce4"
-    sha256 cellar: :any, catalina:       "4005982d761648d539b3a14f10222cdba9101f85ec605db090987a2c1f88741c"
-    sha256               x86_64_linux:   "317f866c76376454c49b2d26434b212a01780c93aa9ef50f065235ea7feb23f2"
+    sha256 cellar: :any, arm64_monterey: "af672badfe3e04b4e6d3117a11e02eca3629a9dc5dd9f29a6bf229f71d0c4825"
+    sha256 cellar: :any, arm64_big_sur:  "4974c03558cf474c41fe23fd5f35133a495d0147313dd5e53fcf3ebc0594ab40"
+    sha256 cellar: :any, monterey:       "d5c9311ae450e25c00c791038108065ef84266e7dad87a8a76158c286892fc99"
+    sha256 cellar: :any, big_sur:        "83cb22f7db289f77fa844ed5ebdb914bc5cb5697b5282bd0346a96469ea8b042"
+    sha256 cellar: :any, catalina:       "7737aa0fb767697039141e37f276d0cdbdedc328d431b80bb0d0c2c97a74ed74"
+    sha256               x86_64_linux:   "7688bf1df0466784f1cd798c9cf363226cb0611f5e82496eceacf090decdbc8c"
   end
 
   depends_on "cmake" => :build
