@@ -3,8 +3,8 @@ class Glances < Formula
 
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://files.pythonhosted.org/packages/a9/52/ae64cd35735f9f8214c5d435f398b47cde3563cb2a243e25348c94a90b68/Glances-3.3.0.1.tar.gz"
-  sha256 "0c94636d26f53e61eda72e886501fc42bb1331521038c608d8b38326947de6e1"
+  url "https://files.pythonhosted.org/packages/4f/dc/dca6822522902b922f1ebce3f1dfc696400470fd410821d0877f50733aa7/Glances-3.3.0.2.tar.gz"
+  sha256 "d830e1b71dbf098cc345d1a932d3104a472118ab46312b679612f5e81cbcb564"
   license "LGPL-3.0-or-later"
 
   bottle do
@@ -35,8 +35,8 @@ class Glances < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/8f/57/828ac1f70badc691a716e77bfae258ef5db76bb7830109bf4bcf882de020/psutil-5.9.2.tar.gz"
-    sha256 "feb861a10b6c3bb00701063b37e4afc754f8217f0f09c42280586bd6ac712b5c"
+    url "https://files.pythonhosted.org/packages/de/eb/1c01a34c86ee3b058c556e407ce5b07cb7d186ebe47b3e69d6f152ca5cc5/psutil-5.9.3.tar.gz"
+    sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
   end
 
   resource "pyparsing" do
