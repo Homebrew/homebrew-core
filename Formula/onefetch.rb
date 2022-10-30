@@ -29,7 +29,6 @@ class Onefetch < Formula
     system "git", "init"
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "BrewTestBot@test.com"
-    system "git", "remote", "add", "origin", "https://github.com/user/repo.git"
     system "echo \"puts 'Hello, world'\" > main.rb && git add main.rb && git commit -m \"First commit\""
     assert_match("Ruby (100.0 %)", shell_output("#{bin}/onefetch").chomp)
   end
