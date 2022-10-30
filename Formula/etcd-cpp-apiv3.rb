@@ -6,12 +6,12 @@ class EtcdCppApiv3 < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "affdd5ed7453372dcbd323fbca3d533f86b986ed28567c307996365a90de8b00"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f489eb06fb0f2d96b6991883e05b63792b46a831029d5b60415bbf20ff42b65"
-    sha256 cellar: :any,                 monterey:       "306059c261deaf3a91e6402b5b1374897715ca1b3dfeb32b383daa8d04ad2856"
-    sha256 cellar: :any,                 big_sur:        "eacc339d4665770ef306f9dfdea152124fbc0672edb9a2182f62c8f849ebfe4d"
-    sha256 cellar: :any,                 catalina:       "33abd74e47718b2cc898a1a08670b3f063a474f68659db83d9333ad5ce71b3f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73901b7da5f2f33df5cbf97174fecdc9cd4722c42318a631b5c96359bca476c3"
+    sha256 cellar: :any,                 arm64_monterey: "04c96220412d4b91165a399f2b4a852a59fdb7f4c45b475e9fd29698ead27189"
+    sha256 cellar: :any,                 arm64_big_sur:  "1fdde6bee1fa00c23f2520bf005d1f2f4ed9d03e8e867bc25ac7701f0c13bd0a"
+    sha256 cellar: :any,                 monterey:       "0609bc199a8483e27932f0ad90535d5a76d43ad378ca55c216eaf2df690e7096"
+    sha256 cellar: :any,                 big_sur:        "f26dd9c4cbbfb8cacc5b645327d506107e83cb6d4b57da2845fef284ca15188f"
+    sha256 cellar: :any,                 catalina:       "edd8b2ffbb1b9a91cd53b256edaec8d2eb3272d6d873dedc81275e79a0774ad4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a00d05a300218c04bdcc4ffb77ef2125369041f1983aad7c7a6150f167a5558"
   end
 
   depends_on "cmake" => :build
