@@ -12,12 +12,12 @@ class Flix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48a3e556903e1797edb749ba722bb771d332e44b44c2f15461d3f7a017fbf920"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41e7ffacb938c58cf1b492bd4e7f491fd833eb12b2ba70871b55af990a6bc257"
-    sha256 cellar: :any_skip_relocation, monterey:       "2c755b30b3b52398140876d86dc2721bdf895a7a7ea69af41ec4942b98213180"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a74995ce38fc6c21f354e20bc788b586448c0494a932a83902f0abe8df662c2b"
-    sha256 cellar: :any_skip_relocation, catalina:       "605bb223fa9b8e3eae06c39c34eb31bb69c72ae30662a631dea078ea0e7a7198"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76af0c9eb71e3a281e1516d3a194716c472acc9cca59ca9cd89405762dfd6018"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "47dc3504a033cfc807e3bdbde3d163bffce696fed4ed10360526164e3eb6457c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54257afc3ab5b24da2bcf2d8868ed1bf26f6c43fba5851930371e06795ffb85a"
+    sha256 cellar: :any_skip_relocation, monterey:       "03de699152dc657636d380aba003b9d3be468019a727725011581d756620e03a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "517ab78459a059ff85c5b5783a7afdaaae015c45b67757525f3cb898c2726516"
+    sha256 cellar: :any_skip_relocation, catalina:       "687ef3b9c738f19df14c27e226e2988a934438fee7093792b9453515c452e768"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f8db335366cdd42eb37bb0db858a2a6d3908e0dfb71ed651584b20a0ed7d4da"
   end
 
   depends_on "gradle" => :build
