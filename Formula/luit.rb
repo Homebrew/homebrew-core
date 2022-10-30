@@ -11,12 +11,12 @@ class Luit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab9acf15dbc4f57744f46cfa68d3bcad5147202fb087e62278cfabf16060e212"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cd9bf86b24b93a3d09f38578724106acebb16042f7f3ff43a0d791acaf8d99c2"
-    sha256 cellar: :any_skip_relocation, monterey:       "6e334b4887641701e58d69504abad516290fce2ea6fcf0e18dbd5f3e0a73023e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7dc71fd9927f1a0319136578053f3894172ed1f65301663aabafaa1d359931b0"
-    sha256 cellar: :any_skip_relocation, catalina:       "6076f38bc562ff5408f986b767a20301c5c61c805881f836df3608152ae2c31c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b62d1247695d9587f5ddf316b1dc4f7e6ebba14979fce13a7dc2038f45259ce"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "132aa18b60949dd628c7a8476df562c4fa04f88ead32f08cec54182add165a5e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "91e3b521424f647de71dff1b4159a7fb841a94e733d784e39945998006ddb987"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f72da9571d474cecb82bc3f14041f2488be3821a2a1ed025aa22c6e35ae802c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7945436cd68b2d7af9deed97cbf27c4a885f0340e7816e92c005774b6074de32"
+    sha256 cellar: :any_skip_relocation, catalina:       "ca3df4772b8b9726d45906983fedd72464dcc04f884c9e1315b5982f3efac4f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d7f340c3f56ce265dfbcd8fdaa0824f4dc3e73e8baee2c8e3c634cd551acd67"
   end
 
   uses_from_macos "zlib"
