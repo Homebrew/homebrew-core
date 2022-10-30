@@ -1,8 +1,8 @@
 class Xorgrgb < Formula
   desc "X.Org: color names database"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/app/rgb-1.0.6.tar.bz2"
-  sha256 "bbca7c6aa59939b9f6a0fb9fff15dfd62176420ffd4ae30c8d92a6a125fbe6b0"
+  url "https://xorg.freedesktop.org/archive/individual/app/rgb-1.1.0.tar.gz"
+  sha256 "77142e3d6f06cfbfbe440e29596765259988a22db40b1e706e14b8ba4c962aa5"
   license "MIT"
 
   bottle do
