@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/c6/db/2b542bc5609223963b4bb2ca8f403f41eed28fd998904c8bd62cb6d982b6/cfn-lint-0.69.1.tar.gz"
-  sha256 "3573b21b0e9dbf3327ae41da89f425e9bbfaae35f25dbe5f4f2eb89ddc926ae8"
+  url "https://files.pythonhosted.org/packages/b0/41/e5c4ab4bca611fdf42e6326aaf66177345a1604918d1043b5f5c0abf6c75/cfn-lint-0.70.0.tar.gz"
+  sha256 "1227b9bdcd6a21e9b7aafe3eefb740ee17923ceb630cd7235c3fa16683d090ab"
   license "MIT-0"
 
   bottle do
@@ -66,8 +66,8 @@ class CfnLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/cf/54/8923ba38b5145f2359d57e5516715392491d674c83f446cd4cd133eeb4d6/jsonschema-4.16.0.tar.gz"
-    sha256 "165059f076eff6971bae5b742fc029a7b4ef3f9bcf04c14e4776a7605de14b23"
+    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
+    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
   end
 
   # only doing this because junit-xml source is not available in PyPI for v1.9
@@ -87,8 +87,8 @@ class CfnLint < Formula
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/42/ac/455fdc7294acc4d4154b904e80d964cc9aae75b087bbf486be04df9f2abd/pyrsistent-0.18.1.tar.gz"
-    sha256 "d4d61f8b993a7255ba714df3aca52700f8125289f84f704cf80916517c46eb96"
+    url "https://files.pythonhosted.org/packages/19/fb/845ff3b943ede86c69e62c9b47c0e796838552de38fc93d2048fc65ba161/pyrsistent-0.19.1.tar.gz"
+    sha256 "cfe6d8b293d123255fd3b475b5f4e851eb5cbaee2064c8933aa27344381744ae"
   end
 
   resource "python-dateutil" do
