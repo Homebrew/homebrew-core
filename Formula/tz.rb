@@ -1,8 +1,8 @@
 class Tz < Formula
   desc "CLI time zone visualizer"
   homepage "https://github.com/oz/tz"
-  url "https://github.com/oz/tz/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "96be9896deb2e27452d2dfde4d7121a1bd6fa1f8eec3d3b8f374b4d55626043d"
+  url "https://github.com/oz/tz/archive/refs/tags/v0.6.2.tar.gz"
+  sha256 "778373cf9b0d4e4bec6b9f101da070b9b25498374c74fbd11f148cbd4257d7ad"
   license "GPL-3.0-or-later"
   head "https://github.com/oz/tz.git", branch: "main"
 
