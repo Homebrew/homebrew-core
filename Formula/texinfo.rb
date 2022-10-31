@@ -4,7 +4,7 @@ class Texinfo < Formula
   url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.8.tar.xz"
   mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.8.tar.xz"
   sha256 "8eb753ed28bca21f8f56c1a180362aed789229bd62fff58bf8368e9beb59fec4"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 arm64_ventura:  "be3460b3563c42d02a20be0b36fffcc241693907d88fa5366dc2e961dc5f46e6"
