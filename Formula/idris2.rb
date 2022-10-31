@@ -1,10 +1,9 @@
 class Idris2 < Formula
   desc "Pure functional programming language with dependent types"
   homepage "https://www.idris-lang.org/"
-  url "https://github.com/idris-lang/Idris2/archive/v0.5.1.tar.gz"
-  sha256 "da44154f6eba5e22ec5ac64c6ba2c28d2df0a57cf620c5b00c11adb51dbda399"
+  url "https://github.com/idris-lang/Idris2/archive/v0.6.0.tar.gz"
+  sha256 "7f5597652ed26abc2d2a6ed4220ec28fafdab773cfae0062a8dfafe7d133e633"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/idris-lang/Idris2.git", branch: "main"
 
   bottle do
@@ -13,10 +12,12 @@ class Idris2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "fdd19a501c9b80da87fd4519ed43e9ed31647e17e03d582392d2b3d1517f7c74"
   end
 
-  depends_on "coreutils" => :build
   depends_on "gmp" => :build
   depends_on "chezscheme"
-  uses_from_macos "zsh" => :build, since: :mojave
+
+  on_high_sierra :or_older do
+    depends_on "zsh" => :build
+  end
 
   def install
     ENV.deparallelize
