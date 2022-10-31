@@ -13,13 +13,12 @@ class PhpAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d3ed3e653cbe032aa5dbe75055b9ce58d1d1c6f12b22df697c6e8b2623c3a812"
-    sha256 arm64_monterey: "51bc211f76fe24351d8d338e89d0242bb9bedc763286badcfd1e75b633fb027d"
-    sha256 arm64_big_sur:  "e7a87f4e617517eadb40942e3b9450724480832a83419a5ca85a6ae671a1309d"
-    sha256 monterey:       "891c40494b98ba477997873d5ce234cd26c9f8ebd8cf376fb951f668e7b74605"
-    sha256 big_sur:        "3f4a1001d2cdc06f33ba722d674db7e8b1204f5748320c52314e373bb64e648e"
-    sha256 catalina:       "892c72b5399c99b9343fd13fc64162abd10756183bf187ececc9f4c364707a7e"
-    sha256 x86_64_linux:   "4a81eb3340a9568b99d7deeb2a4d569d0133792e1b2caf35dddd8904af0cff42"
+    sha256 arm64_monterey: "b2e4f2a890732f393ac95f6687ce8fab2cd057bf15323820530cbd65ff88e38f"
+    sha256 arm64_big_sur:  "1dcd2e9ddce0fff69a0a0eeda9757daa3794e7fe592792df43fe3deef4f8319a"
+    sha256 monterey:       "c1c2c9d83ebc8ae8f5fe5895ef384702c7fa672e98e6dc4268e05eb8880c7e03"
+    sha256 big_sur:        "a3511f79a6865a19143342a3941d5e07b9c995a6b02665c2fbc8c5bd8dc03099"
+    sha256 catalina:       "152d2bb984f9dbc0b49cfa00a8b6784946adefbf1adb565c31c958cfad685111"
+    sha256 x86_64_linux:   "d61b74350439c1f90619fe4ed07d45f02c5dde79216a8ba5cd037ab4270b0187"
   end
 
   keg_only :versioned_formula
