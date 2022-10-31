@@ -1,14 +1,10 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
+  url "https://ziglang.org/download/0.10.0/zig-0.10.0.tar.xz"
+  sha256 "d8409f7aafc624770dcd050c8fa7e62578be8e6a10956bca3c86e8531c64c136"
   license "MIT"
-  revision 2
-
-  stable do
-    url "https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz"
-    sha256 "38cf4e84481f5facc766ba72783e7462e08d6d29a5d47e3b75c8ee3142485210"
-    depends_on "llvm@13" => :build
-  end
+  head "https://github.com/ziglang/zig.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f07d304c8fb5ef31ac58004cd455d76064f739ba0b0992eb99c2b10160b060ad"
@@ -19,12 +15,9 @@ class Zig < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "95dbaeaabf3cc63df04c8fa46a19f74ef17e7f67cfeb7bfe0dd1e6be99cb399b"
   end
 
-  head do
-    url "https://github.com/ziglang/zig.git", branch: "master"
-    depends_on "llvm" => :build
-  end
-
   depends_on "cmake" => :build
+  depends_on "llvm" => :build
+
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
