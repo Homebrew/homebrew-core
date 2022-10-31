@@ -2,12 +2,17 @@ class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
   license "MIT"
-  revision 2
+  head "https://github.com/ziglang/zig.git", branch: "master"
 
   stable do
-    url "https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz"
-    sha256 "38cf4e84481f5facc766ba72783e7462e08d6d29a5d47e3b75c8ee3142485210"
-    depends_on "llvm@13" => :build
+    url "https://ziglang.org/download/0.10.0/zig-0.10.0.tar.xz"
+    sha256 "d8409f7aafc624770dcd050c8fa7e62578be8e6a10956bca3c86e8531c64c136"
+
+    on_macos do
+      # We need to make sure there is enough space in the MachO header when we rewrite install names.
+      # https://github.com/ziglang/zig/issues/13388
+      patch :DATA
+    end
   end
 
   bottle do
@@ -19,12 +24,11 @@ class Zig < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "95dbaeaabf3cc63df04c8fa46a19f74ef17e7f67cfeb7bfe0dd1e6be99cb399b"
   end
 
-  head do
-    url "https://github.com/ziglang/zig.git", branch: "master"
-    depends_on "llvm" => :build
-  end
-
   depends_on "cmake" => :build
+  depends_on "llvm" => :build
+  depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
+  depends_on "z3"
+  depends_on "zstd"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -61,3 +65,17 @@ class Zig < Formula
     assert_equal "Hello, world!", shell_output("./hello")
   end
 end
+
+__END__
+diff --git a/build.zig b/build.zig
+index e5e80b4..1da6892 100644
+--- a/build.zig
++++ b/build.zig
+@@ -154,6 +154,7 @@ pub fn build(b: *Builder) !void {
+ 
+     exe.stack_size = stack_size;
+     exe.strip = strip;
++    exe.headerpad_max_install_names = true;
+     exe.sanitize_thread = sanitize_thread;
+     exe.build_id = b.option(bool, "build-id", "Include a build id note") orelse false;
+     exe.install();
