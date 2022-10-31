@@ -3,7 +3,7 @@ class Chezmoi < Formula
   homepage "https://chezmoi.io/"
   url "https://github.com/twpayne/chezmoi.git",
       tag:      "v2.26.0",
-      revision: "517196ca09687308600ae290e6f15b61e9b96b34"
+      revision: "2b6393e005972343a4aba3d57399cf4d83b2bb55"
   license "MIT"
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
