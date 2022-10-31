@@ -5,7 +5,6 @@ class Chezmoi < Formula
       tag:      "v2.26.0",
       revision: "2b6393e005972343a4aba3d57399cf4d83b2bb55"
   license "MIT"
-  revision 1
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
   bottle do
