@@ -7,13 +7,12 @@ class Libharu < Formula
   head "https://github.com/libharu/libharu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "24b5e258eddb1ab7c8e113a55502f85f4f37b822572b13e5a44e4f142a5b8e74"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7920390e4d600caeb98186b701f46b79988a780d79cb6884c799cfd7f2a77152"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b1c428d9f3440b10ffdd2da58c8e12388b0bf2b5848574a96d118db9a7507417"
-    sha256 cellar: :any_skip_relocation, monterey:       "8c74e19763e520f70c9a896bf97a10fba52ae94c7407c68937bdd4f5dc13e3b3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "44a1d030f0a176aae7d546787d5d36be80c027eedf12d410864e32e8a8258e4d"
-    sha256 cellar: :any_skip_relocation, catalina:       "84ab7bb3db472c529a02ce4746b907aa9ba80c13379420b2e50cea1a892c8d11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad3a1c7359b0807323ff595bd84e5c316a4e32bc1ff921833630caa837d629f7"
+    sha256 cellar: :any,                 arm64_monterey: "9b275ece58d1b13804e5f24c4907afb98fd903b9fbaf767ae10064fdfc4abce5"
+    sha256 cellar: :any,                 arm64_big_sur:  "5d7ddfa53783e144e70d05966047cf45a0779085aa5abaf1d3bc69974e16bee4"
+    sha256 cellar: :any,                 monterey:       "993cd8d5890d997b5594b477fd40453c31cda32402439ac6a83506505d8df9aa"
+    sha256 cellar: :any,                 big_sur:        "8d9f255db0ee0ffd1c667832130c06c624f791e5dc06dd68befb307388ffd0af"
+    sha256 cellar: :any,                 catalina:       "df8db49c177e2d6990469d150286114ac08395b3384ec7dcc60963a92c223ff2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76904ae9e570b75c529f747aff8870c0db1dfc91be5054516b6a3afb52451297"
   end
 
   depends_on "cmake" => :build
