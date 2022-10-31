@@ -8,12 +8,12 @@ class Nvchecker < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eaddc33f8b586c5a71ce5b5def95beec612fc957610881e9e6f8406817d8f5f0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "69400f6ffa23e2b53d6e701bf64f8355d547defae3dd5e5166594fb770a7a57f"
-    sha256 cellar: :any_skip_relocation, monterey:       "87efd4e01a3bf96b986496f6bedb2a59aeb0463e67746c3a7bba112f8b1f64a1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "baa4683847d97af85cab0afd9db80401b6f5ea4689d515b3c855741f79371c4d"
-    sha256 cellar: :any_skip_relocation, catalina:       "b31b07f1b48179695b5a968c45dfa206a6107d94a348cc3e6a621d916ff9c275"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c12b219b83dee3a013d0d9947860de27e6399f6fb12d2b6563fb3e294d9233d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "714732a3ce9207857bf42c220c9f3382f85843be07cd0689a00708007abfdb16"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68e7657c8488870ae7d6bca3e375e1cfa40f2f8138a8d50f36c66ef863bbac7f"
+    sha256 cellar: :any_skip_relocation, monterey:       "31783d86990db35549918611935bd9bc8f786ce7f3d1100fdfa50e9e678fad7a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "74dd953b853bea2b583f46ce5dbe267e148cb9c804b7d932fca29a07ba28068a"
+    sha256 cellar: :any_skip_relocation, catalina:       "ef776a7433246c726e6ae1e3882e015020de25f126b92f2fed402e0db7c1264f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "236fdb5022b3b5e7d9d7c430b7efdca42c3b50394ab9fc7639330045bb096a24"
   end
 
   depends_on "jq" => [:test]
