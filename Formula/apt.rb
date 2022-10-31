@@ -1,8 +1,8 @@
 class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
-  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.5.3.tar.xz"
-  sha256 "e5b14a37125b7caf9534aad0670e0686b516e2fe9d4d441408397bb498c5c10a"
+  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.5.4.tar.xz"
+  sha256 "7c50f63fa8f8b28cde7b45055df168937d382f28b0045d5133829b70636ef872"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -143,7 +143,7 @@ class Apt < Formula
   end
 
   test do
-    assert_match "The package lists or status file could not be parsed or opened.",
-                 shell_output("#{bin}/apt list 2>&1", 100)
+    assert_match "apt does not have a stable CLI interface. Use with caution in scripts",
+                 shell_output("#{bin}/apt list 2>&1")
   end
 end
