@@ -11,7 +11,7 @@ class Ntfs3g < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f949d816d14ff164c5fc39420e89879f944971d081efa4ca91f19ef7dcb616f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9f01b6417761a27488f21014880e88995297233709e3b71965502dc56222197f"
   end
 
   head do
