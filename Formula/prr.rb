@@ -7,12 +7,12 @@ class Prr < Formula
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "493114022fa2da300e062dc36f47d6ac315455c0f840aa9a18299103b85205f7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edc44bf9d78e0e61c7519a226f987b9826163eefcb9481af83c689d32906e3c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "c29898cd94bdc158267567b3628382c0a062e78663cadc2f207c1ef8e7720c63"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f5b7b0cceaef4516a76982fda2fb09c97eff6b9e317a4f4e721504ad54bf5775"
-    sha256 cellar: :any_skip_relocation, catalina:       "07f21c7b2328d65c1075d0706b62dc7f452704e60e528124d8611c55d13b67e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f33d3c5149712d7b33d8286e14e279bc4575a81e615eff727233b4c5da09e3aa"
+    sha256 cellar: :any,                 arm64_monterey: "98e97d34660d02528349031507dced1f0d50321b6be3a39d419116901d2a8d22"
+    sha256 cellar: :any,                 arm64_big_sur:  "47fd3d29b0281392d3d33f2ecf90c0435dd24d496764da704468b1e9570ef542"
+    sha256 cellar: :any,                 monterey:       "5984f6cfce2650e40a7a56234b09299565f48f27930f8c6506a2693c7aa73ebd"
+    sha256 cellar: :any,                 big_sur:        "5b893c94459f03b5498b00d3400c850b8f13203ec33f381297e27b4b75cba0d4"
+    sha256 cellar: :any,                 catalina:       "86c5401d9a1df842fe1b49cc14b27dfd0d70c42ae9dcb72dfb164534ce98cfff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e89f3275ca5f24194e9fe32314d69e71d09ff5db46337a450cdb7c100fd36f39"
   end
 
   depends_on "rust" => :build
