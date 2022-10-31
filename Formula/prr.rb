@@ -16,10 +16,10 @@ class Prr < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@3"
   end
 
   def install
