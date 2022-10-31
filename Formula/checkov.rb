@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/4c/bf/a0e08548cd8eaec3b3ca8ff440ee1550adf2c627f8126cf2f7b8b4c56c98/checkov-2.2.0.tar.gz"
-  sha256 "6d022bf268bc82aa7094354b399f47870bcc401324b839dcb5052dda6b5b2613"
+  url "https://files.pythonhosted.org/packages/ef/4c/f5e0c8f5326a466ccff676550e7a5c7d867fafcb891014933e30c853bb26/checkov-2.2.15.tar.gz"
+  sha256 "e4d52a095fbed0c7413db06449fc2c645b94a03f5daf527ee680282a45a12d64"
   license "Apache-2.0"
 
   bottle do
@@ -59,8 +59,8 @@ class Checkov < Formula
   end
 
   resource "bc-detect-secrets" do
-    url "https://files.pythonhosted.org/packages/bf/0d/98ba6cd42a145539bf256476fc4adcd02cd744d6b50c59bc2454daa9aaca/bc-detect-secrets-1.3.9.tar.gz"
-    sha256 "1d5a725891708c6c1aea1ab57960b49bc800c3064af36334d18cf22a7a06a486"
+    url "https://files.pythonhosted.org/packages/52/98/bb89226ee98e2d31f869aea47e7dd5feb0ac9ce2126893c4fdfd421021cf/bc-detect-secrets-1.3.13.tar.gz"
+    sha256 "1bb506f383fc7246f03e7952d8735a455351bb07ebf24bb14e6aff5ecf937e21"
   end
 
   resource "bc-python-hcl2" do
@@ -74,13 +74,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a9/00/8c503ad7bf04fe7671cf6728a59a44639bfc7a52a4a6d9e5d43b951b78ab/boto3-1.25.2.tar.gz"
-    sha256 "43a93f8cecd882cccb2815cd76fc07a73b076027ab092a1c7cede89cb9b075f8"
+    url "https://files.pythonhosted.org/packages/53/44/b230ff49f18b464423ddc13ec5bd0c6422134fe0ce62763753119a2b72ae/boto3-1.25.5.tar.gz"
+    sha256 "aec7db139429fe0f3fbe723170461192b0483b0070114a4b56351e374e0f294d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/fb/45/7c26b28ee309884f3985a7c74fea2daa02fc02a2ee84a88fb8040301c441/botocore-1.28.2.tar.gz"
-    sha256 "9890005735652555d1183b44bad729603d26922dc08e261e1e0a35a7bf26ba38"
+    url "https://files.pythonhosted.org/packages/50/ef/2e88e69bd897679a6e105b5f6b82edd3e8e8f716343b7da343943383303f/botocore-1.28.5.tar.gz"
+    sha256 "f322d7b62163219ffeb787a116d318273dfb7243c3b49d95f5bfff8daa1df4e0"
   end
 
   resource "cached-property" do
@@ -294,8 +294,8 @@ class Checkov < Formula
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/42/ac/455fdc7294acc4d4154b904e80d964cc9aae75b087bbf486be04df9f2abd/pyrsistent-0.18.1.tar.gz"
-    sha256 "d4d61f8b993a7255ba714df3aca52700f8125289f84f704cf80916517c46eb96"
+    url "https://files.pythonhosted.org/packages/19/fb/845ff3b943ede86c69e62c9b47c0e796838552de38fc93d2048fc65ba161/pyrsistent-0.19.1.tar.gz"
+    sha256 "cfe6d8b293d123255fd3b475b5f4e851eb5cbaee2064c8933aa27344381744ae"
   end
 
   resource "python-dateutil" do
@@ -304,8 +304,8 @@ class Checkov < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/f8/43/b85d103acc0bfb54939f801908bf83354085579e8422eeaa22c017950c02/regex-2022.9.13.tar.gz"
-    sha256 "f07373b6e56a6f3a0df3d75b651a278ca7bd357a796078a26a958ea1ce0588fd"
+    url "https://files.pythonhosted.org/packages/27/b5/92d404279fd5f4f0a17235211bb0f5ae7a0d9afb7f439086ec247441ed28/regex-2022.10.31.tar.gz"
+    sha256 "a3a98921da9a1bf8457aeee6a551948a83601689e5ecdd736894ea9bbec77e83"
   end
 
   resource "requests" do
