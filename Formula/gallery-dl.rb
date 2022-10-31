@@ -3,8 +3,8 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/27/c1/ed672e949966e1a6ab3e4d1ce7af89c3879b09fc7d508f2eed5d0863a234/gallery_dl-1.23.4.tar.gz"
-  sha256 "2296d5eb05887d10ee9635ff05ec68f6c8855cc7b378244114ae42cd51f4bd45"
+  url "https://files.pythonhosted.org/packages/9f/f1/b5d620a5f634f0fe96e1485e503304e68d848d292ee04f28c3ebba4b8c07/gallery_dl-1.23.5.tar.gz"
+  sha256 "3619ee5bbaeae4382b9e4c3f9d43bfa4583f4a1d83fddf6014221bfa0432e501"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
@@ -17,7 +17,7 @@ class GalleryDl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8bf49fb31652ef504f2b53dfd70df241cebd4b55707edd30bab47c44d995767"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
