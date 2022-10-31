@@ -3,8 +3,8 @@ class Tmuxp < Formula
 
   desc "Tmux session manager. Built on libtmux"
   homepage "https://tmuxp.git-pull.com/"
-  url "https://files.pythonhosted.org/packages/f1/3d/9fd00c6e631fb3318a7c5cf03a96c9e1b311b3006567f2365b6207282ef5/tmuxp-1.18.0.tar.gz"
-  sha256 "374555a259370837d48b42674e621f7253714567e5cacda0a9d477a4f2bb5a48"
+  url "https://files.pythonhosted.org/packages/55/81/a665e6d24442ccaad0d99e62ccaa2842d90b7f372cb293d80480ddb5852e/tmuxp-1.18.1.tar.gz"
+  sha256 "7923a26da7766d6359e044a79029d3f882dcb7a2a9f47ffffce72f3ec708809a"
   license "MIT"
 
   bottle do
@@ -26,8 +26,8 @@ class Tmuxp < Formula
   end
 
   resource "libtmux" do
-    url "https://files.pythonhosted.org/packages/35/1f/c3dbf187f823e80cd22ce4bba3d52857b0c0e6775310c14ac5f99417635d/libtmux-0.15.8.tar.gz"
-    sha256 "cf352a645ebeaa5046ad0593cc01d691d77f8b3af1660327a6433cc6276ab796"
+    url "https://files.pythonhosted.org/packages/5a/94/3dd79517775cd71f10b3dea976222c001fbdf42e17551dcbf3893945a85d/libtmux-0.15.9.tar.gz"
+    sha256 "da25358ae555c2a7f38ec764aeecf525fa3a9fd37001622877070d4de3b4addd"
   end
 
   def install
