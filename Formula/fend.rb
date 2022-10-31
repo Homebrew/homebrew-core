@@ -12,12 +12,12 @@ class Fend < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b79114520fb5ab62ca85e70bf7454b5b218dd85b978a2dc98ffa70d51edd67f5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "afe74381a6695ebea3b76c8d1b0473b16885ec3091262b9376726e7dccc0ab0f"
-    sha256 cellar: :any_skip_relocation, monterey:       "898bd81c116d37d5480a096ea3aa10f3f5d6ad232200e3a92d5612bda6e64087"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ead83e9f98f20e979890800ad2939044d88ed79f039d5d9f626a6e8dd4178572"
-    sha256 cellar: :any_skip_relocation, catalina:       "414444926f6cc96e964303badadf7e4b505a563368f275306e99d8eec79b02b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bb7ddc889548ebcb8100dec61b710e9ec080314e87812ddce3f0e8a08babe10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "782eb867bf6e4310b7336b26cd914f0f13838813def4942fd963fc8070ec7d43"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3f2db8a14af9cf80424446deb3d48a777a659ba48fd4f7deba0f5ecc1a1acb4"
+    sha256 cellar: :any_skip_relocation, monterey:       "d6e422fc9120dbc6f495529122ee6bd64407d20b137698318688370ccbf9961c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "199dce759434008dd0254a1cdad93c754597e269f89fd885fab8fea6c4bac629"
+    sha256 cellar: :any_skip_relocation, catalina:       "ea5827ed6e5a3073d0acb1493dfe6f47280b49990db0ae5609a3776052a48ada"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cad0e7ccfbb23016218b1f41010a836014c5ce027017ef6734bc00b8a2a1343c"
   end
 
   depends_on "pandoc" => :build
