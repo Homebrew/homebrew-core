@@ -1,8 +1,8 @@
 class Swig < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "http://www.swig.org/"
-  url "https://downloads.sourceforge.net/project/swig/swig/swig-4.0.2/swig-4.0.2.tar.gz"
-  sha256 "d53be9730d8d58a16bf0cbd1f8ac0c0c3e1090573168bfa151b01eb47fa906fc"
+  url "https://downloads.sourceforge.net/project/swig/swig/swig-4.1.0/swig-4.1.0.tar.gz"
+  sha256 "d6a9a8094e78f7cfb6f80a73cc271e1fe388c8638ed22668622c2c646df5bb3d"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -24,7 +24,7 @@ class Swig < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "pcre"
+  depends_on "pcre2"
 
   uses_from_macos "ruby" => :test
 
