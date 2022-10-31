@@ -4,6 +4,7 @@ class PostgresqlAT15 < Formula
   url "https://ftp.postgresql.org/pub/source/v15.0/postgresql-15.0.tar.bz2"
   sha256 "72ec74f4a7c16e684f43ea42e215497fcd4c55d028a68fb72e99e61ff40da4d6"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -87,7 +88,9 @@ class PostgresqlAT15 < Formula
     # in ./configure, but needs to be set here otherwise install prefixes containing
     # the string "postgres" will get an incorrect pkglibdir.
     # See https://github.com/Homebrew/homebrew-core/issues/62930#issuecomment-709411789
-    system "make", "pkglibdir=#{lib}/postgresql"
+    system "make", "pkglibdir=#{opt_lib}/postgresql",
+                   "pkgincludedir=#{opt_include}/postgresql",
+                   "includedir_server=#{opt_include}/postgresql/server"
     system "make", "install-world", "datadir=#{pkgshare}",
                                     "libdir=#{lib}",
                                     "pkglibdir=#{lib}/postgresql",
@@ -146,6 +149,8 @@ class PostgresqlAT15 < Formula
     system "#{bin}/initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
     assert_equal opt_pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
     assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
-    assert_equal "#{lib}/postgresql", shell_output("#{bin}/pg_config --pkglibdir").chomp
+    assert_equal (opt_lib/"postgresql").to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
+    assert_equal (opt_include/"postgresql").to_s, shell_output("#{bin}/pg_config --pkgincludedir").chomp
+    assert_equal (opt_include/"postgresql/server").to_s, shell_output("#{bin}/pg_config --includedir-server").chomp
   end
 end
