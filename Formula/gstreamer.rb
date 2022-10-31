@@ -12,13 +12,12 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "56fd9dc0ee41a036c50abb44f9696aef57876cbf4951ef2db7debad6f438b56a"
-    sha256 arm64_monterey: "7f03d06580c258e8ff4cdde94e5932ef2a99c7c3f15f8f36ecdbc0c4c9f17905"
-    sha256 arm64_big_sur:  "033ee78615f10343a529047b3854cc88f4fd69df97e763b8e5f9ecf4c05e1151"
-    sha256 monterey:       "f248dc88833ae6536f94203f2e3f0ebd72c4d93e5c75ab3c971e9df951ccd5fa"
-    sha256 big_sur:        "3e063264325d343476e2f3a6547d8ea66bd0bc1be71c80a21b2e65e7ae0a7de0"
-    sha256 catalina:       "13ae2cb01e7865295d0c09658b5188e0bb2d855ec8d8e24358d77744b6ecca5c"
-    sha256 x86_64_linux:   "cf5fdc1d796c48f5d321191c48b670a2f44c42ff0c8f855ba182158194955dbb"
+    sha256 arm64_monterey: "9ed5bde4e69defa581b8fb7e32dea318fa9d58af7c9cf4a56914152e3da6d37e"
+    sha256 arm64_big_sur:  "9b56794d090b1e832a79a3151be71182b310a0a011710b0caa592a69abf03a03"
+    sha256 monterey:       "5bb8499adfa323b0d87932d4b1cc4b1c0e320a0de46b8913eb74bd08e180f9a0"
+    sha256 big_sur:        "141fcaa3f1bc72f4253cf671ea96828ff0364a5ccdc59303cba8ccefe4c977ee"
+    sha256 catalina:       "be3027bdbeb6130f70f3a835d930151893d88d104a40ff9ffaa26f647ca80cc6"
+    sha256 x86_64_linux:   "f2528cbc388e69ab820d42dc616d004a87aa5f8a4d61c2598362d73120f6f8e7"
   end
 
   depends_on "bison" => :build
