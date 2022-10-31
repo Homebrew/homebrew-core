@@ -21,6 +21,7 @@ class Nco < Formula
   end
 
   depends_on "openjdk" => :build # needed for antlr2
+  depends_on "gettext"
   depends_on "gsl"
   depends_on "netcdf"
   depends_on "texinfo"
