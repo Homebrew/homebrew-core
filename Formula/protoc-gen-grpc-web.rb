@@ -3,8 +3,8 @@ require "language/node"
 class ProtocGenGrpcWeb < Formula
   desc "Protoc plugin that generates code for gRPC-Web clients"
   homepage "https://github.com/grpc/grpc-web"
-  url "https://github.com/grpc/grpc-web/archive/1.4.1.tar.gz"
-  sha256 "1b4d9ffdf8e12eda361107d901fe7ba269d12e9dab97fe97c6b1e03847efd4f3"
+  url "https://github.com/grpc/grpc-web/archive/1.4.2.tar.gz"
+  sha256 "376937b22095bdbea00f8bcd9442c1824419a99cbc37caf0967e4a0fa8b16658"
   license "Apache-2.0"
 
   bottle do
