@@ -7,12 +7,12 @@ class Movgrab < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9edd857ab7f43f2e1f7d39852a40f1cc136933eb32c9ad0072ad33f08f8b6388"
-    sha256 cellar: :any,                 arm64_big_sur:  "81f3186504d35016e36badc5683864d9068e8d6f8b23d950d5a5bc9b382ff2e7"
-    sha256 cellar: :any,                 monterey:       "06c004355122250c16bf93f1b004ac37b1aaa73266e110442ae607759a931060"
-    sha256 cellar: :any,                 big_sur:        "a1e93972a1b507f7d87fd7660f70c700db4df7f02f0514ea676bf8f6a6501997"
-    sha256 cellar: :any,                 catalina:       "ddd3919e6496394020a57598a002f6376cba798c096caa84468ac92066e16bc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ae11835237821376a18084f9355cccc1f9d7b8e432655c77bf09a63a48ce43c"
+    sha256 cellar: :any,                 arm64_monterey: "17ab24e1802ce6001bac7698b77016147e3cd65e08b00bd306d83dbdbda24a47"
+    sha256 cellar: :any,                 arm64_big_sur:  "a59426ffc7941233eebd052796c1827884fe9ba508dbc57d2f24d8b1d1e64a59"
+    sha256 cellar: :any,                 monterey:       "a4a6388501b014b23c14682d78350ad7f80e2cdf13990db1ab426680cd5fe46b"
+    sha256 cellar: :any,                 big_sur:        "711c6f888dd3aee65b4f8b095a833f14c7bb14d4c6ab972825a64f565e3627c3"
+    sha256 cellar: :any,                 catalina:       "08e18d14b3208844a4fdf805ea914770c4ea140ae1e11d643b425e5ecf50abcf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae91e23b93a7761f927bb2aa7dd68af847fe70d0b873a4e93f4b7af6fdf86d0c"
   end
 
   depends_on "libressl"
