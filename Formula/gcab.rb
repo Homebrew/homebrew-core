@@ -13,15 +13,12 @@ class Gcab < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "90fd6084f9c1a25bb76d0d583d0fd645c01bf71755764f237c5ae1993596d35e"
-    sha256 arm64_monterey: "c4bb1fa92fe4b29d711b922ddb471a6535c38fe3b4986f863062299337fc8a3d"
-    sha256 arm64_big_sur:  "df16b825f3c8acb716846e922e256b00ecd638b59d0676a4e89e92821886d6eb"
-    sha256 monterey:       "ac0c4fffbfc00d88a05f2a2ba67e4e939b526e475a1b89ee9918f8c5943b076d"
-    sha256 big_sur:        "1d850c754fe6688bc5534637a9888215163d187569f80a4b57fc82f0e74aa14b"
-    sha256 catalina:       "7ed919ea9c7d4ec04f9d5f361f8628936e016318475fec26fdf6ef5ea56491cc"
-    sha256 mojave:         "c9ef02142502a47b006db735b87fe7d55611d46ecc087c697d3142ce8bd9c27a"
-    sha256 high_sierra:    "ca3d97d649c89be881528e7a7cf42f51c18c3a8e4c4b47c9a5fad29f355afd30"
-    sha256 x86_64_linux:   "f61efcbd08ad730ebb31060c38c78dab54fd8ae732a0e544d1bb171aa20636a6"
+    sha256 arm64_monterey: "e49e15cd9661987efd99db61dc29b244a8f9459a3bcaeba342b37c04ab31a555"
+    sha256 arm64_big_sur:  "731d488b6e811c7c98feae0dd58956ae982710ab839be34a2d875adeb8b17218"
+    sha256 monterey:       "bc78f61070ee0ad6a4397db82e661d89b76b17f8217401dbdc82e76742f7deee"
+    sha256 big_sur:        "e0ddb5aee18997830d3b55772a1deaaf93a8b6a488a5bc68b4188a69dedbc5ea"
+    sha256 catalina:       "431ec9816bf99b859a17367933fa11e2c43498078dc423d4b759575ee1a2cbc3"
+    sha256 x86_64_linux:   "d31fd6fd578719a656cc13e05570257bfc9dd0ecb057cf1a003561a5c202443b"
   end
 
   depends_on "gobject-introspection" => :build
