@@ -12,13 +12,12 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "b6194e7a041f88680476e04db1ac8b96b5fd5ff0b824fe24d84405f92763f00f"
-    sha256 arm64_monterey: "d0cc00946bd11f14e1e0f94ce7c29ca63e7fdff96afb3f96951c14f4dbfc482e"
-    sha256 arm64_big_sur:  "60950a4abfbe517a6963d942ae4c9e0b3a80f1ed5f5b1fcf9a0b1630a53db1e8"
-    sha256 monterey:       "c4de05580e98de88ece952f04d2ea019d89043379d44a18970cf4a1e9d93c825"
-    sha256 big_sur:        "48baa0e598f96f1dd372f6b77b39a1469d8fc45cff16117352765e180722e072"
-    sha256 catalina:       "2466bab3013e761e6e4f0ef1aae456c5fe7421a17c9510b415542182dad36e04"
-    sha256 x86_64_linux:   "9e4c842e82226949373f642476bc26ec7a04ed5e7714d6c4f8d79041eabd0220"
+    sha256 arm64_monterey: "aaa47bcc0e7727e655af43748c77f580b1379403010177aab47978b737180295"
+    sha256 arm64_big_sur:  "c84729c8726b7934f0a63d75fd2dce795c948f9b7ec29f9681f667de90b73f16"
+    sha256 monterey:       "8501aeeab59c63a75dd14c1b836269a6effb08058ec7afb35313f954b40d78c3"
+    sha256 big_sur:        "a8231d898ef9e61de88fc916ed316e58862ef04f1f17563b2f6247fcc894247f"
+    sha256 catalina:       "11f2d168758de4ac078c5799f2ce0fcc93e4f0c3d8b59e6f53eea700dfa02e83"
+    sha256 x86_64_linux:   "1c2ee30c067e2a81dfa1d4f539c91fa278816a45c5d59ff798ec437a5de82f9c"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
