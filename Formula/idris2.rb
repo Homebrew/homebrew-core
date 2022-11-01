@@ -7,9 +7,10 @@ class Idris2 < Formula
   head "https://github.com/idris-lang/Idris2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "39fe90502cd4a8a064b4f69bcc5b4e99295826cad363092b47d3353ed41db2da"
-    sha256 cellar: :any,                 catalina:     "f29bcc24fc1a0581eb3f17823641c5444acc4df10e93c17eae573deab9a18fa7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "fdd19a501c9b80da87fd4519ed43e9ed31647e17e03d582392d2b3d1517f7c74"
+    sha256 cellar: :any,                 monterey:     "d905ded56aaa8c99d992c3e84e7e02d9d5f9c77089143abce7ddd4d8f8f1f4b2"
+    sha256 cellar: :any,                 big_sur:      "6f4a6e589b386f30801c0cf36ee61cfc35017ded177bcae84235c2562058417c"
+    sha256 cellar: :any,                 catalina:     "ff005be1e9e4fafc1a20f04f51aa4d72ecc918df190b2dac6b2b341bd3e455ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6ed08bd3734a40d1ecebc329afdddc7165d894dc043966fcc7e03ea354347194"
   end
 
   depends_on "gmp" => :build
