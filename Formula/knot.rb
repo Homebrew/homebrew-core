@@ -93,7 +93,7 @@ class Knot < Formula
   end
 
   test do
-    system bin/"kdig", "www.knot-dns.cz"
+    system bin/"kdig", "@94.140.14.140", "www.knot-dns.cz", "+quic"
     system bin/"khost", "brew.sh"
     system sbin/"knotc", "conf-check"
   end
