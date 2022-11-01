@@ -11,15 +11,12 @@ class Orc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d9f7d8a70f8c31ab5f613e04771f3516e31afb05999318864f28396c92fcc041"
-    sha256 cellar: :any,                 arm64_monterey: "159d7effc8703f289417c7f183c73a2d081dc0ad20cdbc6b7da2cced48f11cf3"
-    sha256 cellar: :any,                 arm64_big_sur:  "657bdaa5b945e5071ae862066b4f703750890b106facb3528c9e649beada7c30"
-    sha256 cellar: :any,                 monterey:       "0f13d05920a43d5704056207f2dca51ca2bcbed74d141cec55be30d9f0d8f243"
-    sha256 cellar: :any,                 big_sur:        "7c5d9d6caf789828006ff7d604eb81a247c8d9ff6004c524978452a252dd8162"
-    sha256 cellar: :any,                 catalina:       "df8ed6c8e2d13c9425174f38a6ff60d291cc3febababa670ebe74b21fe56ceab"
-    sha256 cellar: :any,                 mojave:         "8b11d82f1c1e51fe41d4b7cf1a905f72bdb977ce2acc0eafcf2ba6b89f06d58c"
-    sha256 cellar: :any,                 high_sierra:    "d347537787016fa19c7653a9912e0c11d134f10e96a75bc0f5bb28e221e012d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44579756c0587e68514bc7b0c7ff551c7fbfee698923ae43c2c41525a0850dc8"
+    sha256 cellar: :any,                 arm64_monterey: "1d6e95c2da86d9a1c3c7c7e0f834f41d3d5b72e08bec0d4c92b7f88ce636b797"
+    sha256 cellar: :any,                 arm64_big_sur:  "ed3c9ae06a684533844d3f9409eb05142009959f04fede00d81ce71c82f7e55c"
+    sha256 cellar: :any,                 monterey:       "c5976c028541b8b6bcc24c6f9456b7cbd76755303f1c32dacdd20276f90916d5"
+    sha256 cellar: :any,                 big_sur:        "f4d9c394d9bd5af5c20a342725d453087518655aad69def048c87e399036e611"
+    sha256 cellar: :any,                 catalina:       "b09113fcfd2c00406b6df037b700113565897b865acc01a77b96bcf67a3ac1ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72446572cc450af4a871a56f77662df569a49c4ab84d40a8cb5ed3011c214393"
   end
 
   depends_on "meson" => :build
