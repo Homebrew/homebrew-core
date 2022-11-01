@@ -6,15 +6,12 @@ class Swig < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "f1ee14bd9c603590a2243854a128effa32e20d66d9ac79996332fc58d47e7a74"
-    sha256 arm64_monterey: "9e60e978ae83f0afd63aa8a27d3e418eda0cb75b89c0d22e25a0ccc5f2e00b3e"
-    sha256 arm64_big_sur:  "918c070202e0138b64b2e27f262aae3a72ab9f273f14842802d1fbe9169e66fc"
-    sha256 monterey:       "170414d38ab55ef50cb1275fbb0a9e0f0248ad1e23755af8ac2184a6825d514e"
-    sha256 big_sur:        "f198353656b61cb35b5c28ed6c9cb10689d2a0fc69529cfbcbc0fbd75a027e27"
-    sha256 catalina:       "530e80b7e7dcd28469b52fc3b668683a97b72642ebf2b6d4e6708d14f05e7286"
-    sha256 mojave:         "50afb5930cb37af2e400f0369f6da15b1d4922c1f72f45d13e7e3f8bd9d6d27b"
-    sha256 high_sierra:    "8bab440005b048ce454a3dd50ba608e1f85391edd73e9e40510269e923cad238"
-    sha256 x86_64_linux:   "2a5fe8e40d8ba5e09fd194e9e36f8fe4bd7a427e31d1456a99bb45539074c92a"
+    sha256 arm64_monterey: "80291f33f362db51985ec93db7a80a2a8efdfc377e3bec1175696707f9254a6b"
+    sha256 arm64_big_sur:  "5825b5b4d280fa33d16194cce2db7a32a5bfc3f01d424027e78ccb1ef2c39274"
+    sha256 monterey:       "dafaef7743b38de422618126d5bc9a7727c94c8e253258c8994f8aedd46f574e"
+    sha256 big_sur:        "79f2d7c2d3b443d0b3a0ccaeead34da0e5d3e66963d9c14130ebe00f6f2c4a2f"
+    sha256 catalina:       "c0b65fbcae8384ff3433a6b933a85faa5c1af090cbea90026b5b0cd82cc5dbce"
+    sha256 x86_64_linux:   "f330831a8030b19c3f4ef25dd2b980daa343dd9119a89c736b45559170bc20a9"
   end
 
   head do
