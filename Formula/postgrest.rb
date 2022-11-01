@@ -1,8 +1,8 @@
 class Postgrest < Formula
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/PostgREST/postgrest"
-  url "https://github.com/PostgREST/postgrest/archive/v10.0.0.tar.gz"
-  sha256 "34e09612e8ad2f26fc6897b41ce2c260497a89425c3860be17c369ddb3229c3a"
+  url "https://github.com/PostgREST/postgrest/archive/v10.1.0.tar.gz"
+  sha256 "7d5f7c07d724dbc3caec4aa027356231af2d30ffc82f2d523ddd8fa9545022a6"
   license "MIT"
   head "https://github.com/PostgREST/postgrest.git", branch: "main"
 
