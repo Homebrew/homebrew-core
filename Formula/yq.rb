@@ -12,12 +12,12 @@ class Yq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8461be177a580569f9f12cf4dfef91a062e49051724377f7ff99e4dad077eedf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "63a7095cb22cfb12674753702cae59c55fc2cb795b6bc18d358bc9491eb7fe9a"
-    sha256 cellar: :any_skip_relocation, monterey:       "15de3b38857cc7840007d20f79ddf40edd7116430f4f3b78be391ba1d59918e2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e6e76c6797245cc1fe323a0bede30595ddab6531d7e2ef9e2024acc02c658204"
-    sha256 cellar: :any_skip_relocation, catalina:       "0e9a43aaf7927228e78934dad987f53dd478e737562add28c8509cda34c1a1e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b501f1af505b08ef9c35ca70b15ebd0e89f097aeb1abd3b7caadb48068cb6d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "99d3900582843513cff94478709d5042021d791e1437eeab1b72615d8dd821d5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a2c4b27dccfdf861aca4068280cb8122d9fa249768cf0938e630959c9067eb3d"
+    sha256 cellar: :any_skip_relocation, monterey:       "cfa6da890f886e37678d7fb7dd616ee59f36dbb2fb9506f107f60bb2c3ef4f77"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f4b476362f2d9c23cc075beed05580aee60decbd9752e5ca95f0e223855df335"
+    sha256 cellar: :any_skip_relocation, catalina:       "c4dd6e28b04052cc3b84489e13d0b608cfcb95b01ccefc3909f20a9a487e6c37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5b80bcd557180ba075242c1f67d1dfe8ce14e8c527fe030c6c8fa363ad21176"
   end
 
   depends_on "go" => :build
