@@ -6,14 +6,12 @@ class Pdfcrack < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08bddb89fcbcce44da75bd5216466c85c107a5cfd3066649e916333fdfee5691"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "74b660be05cc752df31644502eaf6017289b3d6ee370c49577a14f6052f82102"
-    sha256 cellar: :any_skip_relocation, monterey:       "cae9246afd388cc5307372c772629b85edd45bd9dd37cf710dcf26c457c98626"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b2f128d92c00fe5d1fa81d7b61e7458fcdb8b58e656b312679fbefe33d4295c4"
-    sha256 cellar: :any_skip_relocation, catalina:       "2c26ba3ca3a1edd9cc9e6570cb5d1c7838a152a3d8281a2a16c6be5276d47b23"
-    sha256 cellar: :any_skip_relocation, mojave:         "12310e0c5841db19ecf51f527cde0aaba1663a04aa78c760a5d6e02218dc4e3c"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "9923fadda54414a1d0cd5e86b0796aec8bbaf7c80e96e7518b5ae136d50d5674"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da83f4c7515ee9d98ffd1fb7a0d55a235ecbd3a5ab17dba071acca3ee3412d8f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cca12550f347ca49f8a11858013225bd36cd851c4ad43505d4ba6b205914c31a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b8b8b66dc3d864bb5bc16363fb64aa1fbc467f29fd41bd0184b23da9a37fc41"
+    sha256 cellar: :any_skip_relocation, monterey:       "7bb75581bf7567d9992fffc9cbfa6742c43e4bd41b6adbe4906f441666a98e76"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dc978f3e5078c22cc095f8b6947d6e09ef903720e9c5035a178594abe2ccd573"
+    sha256 cellar: :any_skip_relocation, catalina:       "e333186830217c419886e8c068204c355044d70ff45e6210498894f8da12d13d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac7d9f63248e7c6828bc9c9e0df709dad76b2e3954246fb7c382da62d6ca4859"
   end
 
   def install
