@@ -1,10 +1,9 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "https://opencolorio.org/"
-  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/v2.1.2.tar.gz"
-  sha256 "6c6d153470a7dbe56136073e7abea42fa34d06edc519ffc0a159daf9f9962b0b"
+  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/v2.2.0.tar.gz"
+  sha256 "81e3b6e0e432d20347b6396c376f9fbeceac31c2cbefe2882d83112a5b0a8123"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "master"
 
   bottle do
@@ -20,10 +19,10 @@ class Opencolorio < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DPYTHON=#{python3}
