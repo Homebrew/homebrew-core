@@ -5,6 +5,7 @@ class Kubekey < Formula
       tag:      "v2.3.0",
       revision: "4a25a844c5a0ce2675bb4bd8dd6b55fe11866f7a"
   license "Apache-2.0"
+  head "https://github.com/kubesphere/kubekey.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2ac9dfd34d27cf27477454c1951cd3fd224321c2e0839a1cf652c7f70354c78d"
