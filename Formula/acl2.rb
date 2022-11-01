@@ -7,12 +7,12 @@ class Acl2 < Formula
   revision 3
 
   bottle do
-    sha256 arm64_monterey: "a7a6ef7cf819d119a3a1f206b8e7abdbe80df5624564fc9d53f15a2dcba166e3"
-    sha256 arm64_big_sur:  "a73a8cb4c672a1705e9050cda6de7adba47bf2de6cb6970a9de110c964278b69"
-    sha256 monterey:       "99dceba2a57629da18f0601df439477417072b9b69ed606e4d4288c916af6a13"
-    sha256 big_sur:        "a0ae16e2c9e8718507b027caacc26d2513d6785a320ff323a83461afaf6e8570"
-    sha256 catalina:       "ad6a6ea56cc93fadc9f41a42be8ced1f1c412a924715a5519f894d9e2635d3d0"
-    sha256 x86_64_linux:   "0ce9081d0fe0ea5ec2d0ab701af0d88e983c2ecd2c01f69c191138f201719c2f"
+    sha256 arm64_monterey: "19b51e20d410fc5e6415dfbd73483ed806a255af7e34d78612f3ad8bb69be280"
+    sha256 arm64_big_sur:  "9f020966f12897734c3f7bd452b22a76bd8eb6e51cfd2aab581095678d2ddb46"
+    sha256 monterey:       "4ffb9a9f634f984e2c972f5ffe232400c88771ceb860db36185a9eb28b196eef"
+    sha256 big_sur:        "cbddcfb9aae7f7e7f878e1955c717fe76cf2d8debfa29d35bd29dedaf5e50d9c"
+    sha256 catalina:       "1fc7486ce812f73501191904e282e79e459290a88b8d9dd5d5443c385f69bc17"
+    sha256 x86_64_linux:   "b317e27e1af5f5c60cff37735db89ffc2c3d9ae7f45aa5e45a3da1fd678c06af"
   end
 
   depends_on "sbcl"
