@@ -16,12 +16,11 @@ class Zig < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f07d304c8fb5ef31ac58004cd455d76064f739ba0b0992eb99c2b10160b060ad"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f3dacda44621fb6d7d0ba1ef241840059bd0876547ab12355238e53e325aef1"
-    sha256 cellar: :any_skip_relocation, monterey:       "fb2a4b511bbde8f7e2ad4a00aa63442daced1e02e168b9c081eef1a8406319fb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1c79f7eebaf0b0c7e97830aa43a630de27d1f1593dbed36f36f189dda269d451"
-    sha256 cellar: :any_skip_relocation, catalina:       "647e8c20a77ba8c2711d3af2c8e7aac0bedeab99b2bc5ac73f8c4ea303c621a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95dbaeaabf3cc63df04c8fa46a19f74ef17e7f67cfeb7bfe0dd1e6be99cb399b"
+    sha256 cellar: :any,                 arm64_monterey: "7bd6777182b5b0d39aa73c0840b5d9619c76e0328cf48909648ef134ab0c8c2f"
+    sha256 cellar: :any,                 arm64_big_sur:  "c501006d75235e835705010031188f1e840f5e977c4022981bee7d95d9dd5e35"
+    sha256 cellar: :any,                 monterey:       "f1df3f7f4fc4d266d5af55a7adacd17d38d47385f863a92902beecd434af1086"
+    sha256 cellar: :any,                 big_sur:        "8e9858adbecf1870e59028794a70e0e37c26ffe513301fb4d88e92819c3c160a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cf9a390995748c4450c9b748cae48f333371a97d4f4fbe5c373ed64a2ca9166"
   end
 
   depends_on "cmake" => :build
