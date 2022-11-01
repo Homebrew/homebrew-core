@@ -1,10 +1,9 @@
 class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   url "https://github.com/dmlc/xgboost.git",
-      tag:      "v1.6.2",
-      revision: "b9934246faa9a25e10a12339685dfbe56d56f70b"
+      tag:      "v1.7.0",
+      revision: "4bc59ef7c33061d17820137253d617b051a72d65"
   license "Apache-2.0"
 
   bottle do
@@ -41,7 +40,6 @@ class Xgboost < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
