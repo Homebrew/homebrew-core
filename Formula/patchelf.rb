@@ -4,7 +4,6 @@ class Patchelf < Formula
   url "https://github.com/NixOS/patchelf/releases/download/0.16.1/patchelf-0.16.1.tar.bz2"
   sha256 "ab915f3f4ccc463d96ce1e72685b163110f945c22aee5bc62118d57adff0ab7d"
   license "GPL-3.0-or-later"
-  head "https://github.com/NixOS/patchelf.git", branch: "master"
 
   livecheck do
     url :stable
@@ -18,6 +17,13 @@ class Patchelf < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "20465844fe88f109eec14d1ad13fbfd6e6ab766f3d136f4bdf771e9185e08050"
     sha256 cellar: :any_skip_relocation, catalina:       "e947588049304ae23f5fc66bdcd6fa3194dccce8cb70bfb5a8a2f4e165432c40"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa7190cddb5b9c797a16df600ea2a072eaac7fddca699061ecfbfe9b7a4de071"
+  end
+
+  head do
+    url "https://github.com/NixOS/patchelf.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   fails_with gcc: "5" # Needs std::optional
@@ -35,6 +41,7 @@ class Patchelf < Formula
       ENV["HOMEBREW_RPATH_PATHS"] = nil
     end
 
+    system "./bootstrap.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules"
