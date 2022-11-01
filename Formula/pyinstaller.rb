@@ -3,8 +3,8 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://pyinstaller.org/"
-  url "https://files.pythonhosted.org/packages/04/96/d7a4bc8c035f1069f9c9c34696860ef5be3bf6bd69131c6711e55176d5e9/pyinstaller-5.6.1.tar.gz"
-  sha256 "a7fac3fa8f75bce2839e0ab910baf0e935ff2b5f327c32aedade563e1b610967"
+  url "https://files.pythonhosted.org/packages/36/95/32b67f2b6945c34400524284e582025269cf992c6994ff36ed8899e4cf58/pyinstaller-5.6.2.tar.gz"
+  sha256 "865025b6809d777bb0f66d8f8ab50cc97dc3dbe0ff09a1ef1f2fd646432714fc"
   license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
@@ -17,7 +17,7 @@ class Pyinstaller < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb7e1938e5be99b582f215497c80a567d3fd10e669f4cd910dedd7f6474c8f9a"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "altgraph" do
     url "https://files.pythonhosted.org/packages/5a/13/a7cfa43856a7b8e4894848ec8f71cd9e1ac461e51802391a3e2101c60ed6/altgraph-0.17.3.tar.gz"
@@ -30,13 +30,13 @@ class Pyinstaller < Formula
   end
 
   resource "pyinstaller-hooks-contrib" do
-    url "https://files.pythonhosted.org/packages/8d/46/5b21e3eedc41fe0a8522e409ab2c71ebf137eab0f9e632c5213e76f97b7e/pyinstaller-hooks-contrib-2022.10.tar.gz"
-    sha256 "e5edd4094175e78c178ef987b61be19efff6caa23d266ade456fc753e847f62e"
+    url "https://files.pythonhosted.org/packages/ca/f1/dbe83d578ca8c652c8452fcb08b92f35e318a5e66daf619b70593ba53fae/pyinstaller-hooks-contrib-2022.11.tar.gz"
+    sha256 "2e1870350bb9ef2e09c1c1bb30347eb3185c5ef38c040ed04190d6d0b4b5df62"
   end
 
   def install
     cd "bootloader" do
-      system "python3.10", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
+      system "python3.11", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
     end
     virtualenv_install_with_resources
   end
