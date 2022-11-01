@@ -13,13 +13,12 @@ class Go < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "3b8847ccd56e574177dcb0cf4ea67f24738951b64e0b47955a0b72243e49c320"
-    sha256 arm64_monterey: "54f49547f7bbad41f16ccc4b658afd5379e0ddcea95fe00e4e18d29936b7a1e1"
-    sha256 arm64_big_sur:  "60761626f553e83172758af6e47e08a4551fa84cf78037f1bc8685ff133fd23b"
-    sha256 monterey:       "9163696060076e2996b9c45e52c58a2fee32436ec60ffd4daedf2b08a9dc89f0"
-    sha256 big_sur:        "e82d3fc704dd191302f18cf263a945aec7b2ff736c74b7734a99d0a5513b5e02"
-    sha256 catalina:       "042e0203094cd3727f3e0b12052d4a02478670eec3b8881134609bba19b01ab4"
-    sha256 x86_64_linux:   "e20701fdc1fdd3f70add4d0929b51e24b255e42ba2aeb929ddd6ff428f46aaf3"
+    sha256 arm64_monterey: "5566ef32f95654fb2729d739e8d5208848b83b577c82c873c98ef9c8b9c79406"
+    sha256 arm64_big_sur:  "251e3c47fa7fc5beee48c41037a736cc13c5d3d1b8e62c69a612419aa99ec493"
+    sha256 monterey:       "30f1ceb685ec8589c2b40f832cdbf45f23354704d109b1c428bfe5952791c5f3"
+    sha256 big_sur:        "4f8b1fae32e814117d3fe23880f66d94bbff7951933d60ae26402f081e693f06"
+    sha256 catalina:       "2b29ff8bc520e4fd469248ddb1e79bb8c2714c6a06430f80b3a26ac5c1886bb9"
+    sha256 x86_64_linux:   "0eef78ee9d77f1e81eb233d2459181438cc26b3400f746206a83addcfa63cca7"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
