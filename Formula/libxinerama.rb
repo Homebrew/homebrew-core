@@ -6,15 +6,12 @@ class Libxinerama < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f35dc2f74442910425efc2e1bde592d70cb7f30b8c5f77a77f26058ac9386bca"
-    sha256 cellar: :any,                 arm64_monterey: "c2cf58a269245d13420185604cd5a991302147ffe6205b3f8c59f72a4d3b2ca7"
-    sha256 cellar: :any,                 arm64_big_sur:  "f372ba853bd1ce9ef1c38d575e1ac3f2e7d5bdcba4ed938a87dfb017c9c0d5f2"
-    sha256 cellar: :any,                 monterey:       "2bafbd2eb579da382c9651fa3941adec8e50be044fba7f63259508f890480aa6"
-    sha256 cellar: :any,                 big_sur:        "65b34fb9bd42fdf249ed942d470061da35456794b860863fd6997dd1b3c665fc"
-    sha256 cellar: :any,                 catalina:       "7a008044d1824d0585b13cba7021ec038bda6485a8789337cd6a9fd305b83233"
-    sha256 cellar: :any,                 mojave:         "c69df5fe02995fbbf085b26da9ae1af4b890b2d57d1e8d115253706486297e5f"
-    sha256 cellar: :any,                 high_sierra:    "27a945b6652dd0c36b3360ca55de687dd350feca08fc0e32bafe71d06edca377"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "027ffdecf7d30762d956b780ceed90425624cc36a225f3b4a45a0853c5badcdd"
+    sha256 cellar: :any,                 arm64_monterey: "dc7b122a398f22ad751700145dc9d3b82f2fb60fc85a64daf3a71e0761c3e140"
+    sha256 cellar: :any,                 arm64_big_sur:  "d7684cd44466dcd3c40308e3ca5dc0c5aa50ff4dbb18aaeb3e82a80bc80be785"
+    sha256 cellar: :any,                 monterey:       "88432ad0c1e14a8511e0fb345d9bcf0e9ee67e7b634b32b31b75ce2d66ac0051"
+    sha256 cellar: :any,                 big_sur:        "0f99b4d8757fdfe3b0c087b1112d49dc625c1d342f6e5c6beba44063f8c1ae33"
+    sha256 cellar: :any,                 catalina:       "c11a3acfe1397ac78ff73b16f33781af781bb510773f29c4cde93a80b37ffacc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8bcf697bd80954325c6994d562554f890ab0fd6e35ae671f0886a05bcacc29b"
   end
 
   depends_on "pkg-config" => :build
