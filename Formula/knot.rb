@@ -48,7 +48,8 @@ class Knot < Formula
                           "--with-rundir=#{var}/run/knot",
                           "--prefix=#{prefix}",
                           "--with-module-dnstap",
-                          "--enable-dnstap"
+                          "--enable-dnstap",
+                          "--enable-quic"
 
     inreplace "samples/Makefile", "install-data-local:", "disable-install-data-local:"
 
