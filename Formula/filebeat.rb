@@ -2,8 +2,8 @@ class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v8.4.3",
-      revision: "c2f2aba479653563dbaabefe0f86f5579708ec94"
+      tag:      "v8.5.0",
+      revision: "6d6754fcb0adf6a2191b055d35f694c961c8ba40"
   # Outside of the "x-pack" folder, source code in a given file is licensed
   # under the Apache License Version 2.0
   license "Apache-2.0"
