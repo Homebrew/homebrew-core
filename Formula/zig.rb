@@ -17,7 +17,8 @@ class Zig < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm" => :build
-
+  depends_on "z3"
+  depends_on "zstd"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
