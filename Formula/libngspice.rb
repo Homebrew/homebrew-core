@@ -18,13 +18,12 @@ class Libngspice < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "62ce40c71cd7410a6f952784361221efbc8ad73b234bcbcd60d6a41b2896f59f"
-    sha256 cellar: :any,                 arm64_monterey: "570a9fc2cef0e38a6fc50413efff7cd1510fd5cfe45b418d9084f4500f00d443"
-    sha256 cellar: :any,                 arm64_big_sur:  "d6cc2b395086bdabcd8c82a8d80b0447abf14c5f54c1292c422a182f136c6cd3"
-    sha256 cellar: :any,                 monterey:       "f34f1c28d673e2a3f4a65eeaefe43d252823674cf5429f8db264a95f85b2b69c"
-    sha256 cellar: :any,                 big_sur:        "470615d662b09d1301509575e1d76ee703a086d08344acb0b53e22008ea31877"
-    sha256 cellar: :any,                 catalina:       "08e2cf42d85bc36c66b3c4fe5310354389ab72bc68fbe25c867e9e1136e5c8af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9f0287c2f22f2e517257128cdf3b5e37d1e5e44cb76fdc5df348b98cce0b188"
+    sha256 cellar: :any,                 arm64_monterey: "6050333fe137e8588d00246b64d24d09691a6b9d71ad2609493f3a967915ff28"
+    sha256 cellar: :any,                 arm64_big_sur:  "f939d3c2d40d5cc3b3264202453dfa8b18c77dfa9d9fa3fbb31205f0aae88ab9"
+    sha256 cellar: :any,                 monterey:       "d79b24f3980fecb7b6d1b52529be345edece474121efbc8636da106d6f2a3f86"
+    sha256 cellar: :any,                 big_sur:        "61d787f0d5358831155d1c3d1238e7ca00b25a54865496e9190919e8007ff3fa"
+    sha256 cellar: :any,                 catalina:       "170c8aae880863774486a8d74b54971a3e78c8fd6e8d151f303fcd89cc728541"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "612e1aa668db6d7f3574c846af876fa6a09e45944e74e6a1213d096ab4dbb3c1"
   end
 
   head do
