@@ -4,7 +4,7 @@ class Movgrab < Formula
   url "https://github.com/ColumPaget/Movgrab/archive/3.1.2.tar.gz"
   sha256 "30be6057ddbd9ac32f6e3d5456145b09526cc6bd5e3f3fb3999cc05283457529"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "9edd857ab7f43f2e1f7d39852a40f1cc136933eb32c9ad0072ad33f08f8b6388"
