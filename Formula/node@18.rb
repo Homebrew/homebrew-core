@@ -10,6 +10,15 @@ class NodeAT18 < Formula
     regex(%r{href=["']?v?(18(?:\.\d+)+)/?["' >]}i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "ae1cf4e04c189a0084c16f945404b0f090a1161cc32491790321cf0b3b692016"
+    sha256 cellar: :any,                 arm64_big_sur:  "83bf8061a089e227d74d8ec28bb8531c13181ebb02e41ae5157ea2d2ac5ebfe9"
+    sha256 cellar: :any,                 monterey:       "be24471bd3a588c34b93be6e584ba04f5dd7bc2f8d658f472bb519088ee6b7f1"
+    sha256 cellar: :any,                 big_sur:        "5225de1a459eb39b0a3c14c8449d2d3ad2a0ca37f75c13cf15188756dcab2ec7"
+    sha256 cellar: :any,                 catalina:       "403105473a619186aa13b67291af119bc5ee2ec9aa3ef3c8e0937b6735018e25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d569b15503170455eace5c475a916a0a7eff1c03f48fe124d28dca499cd59646"
+  end
+
   keg_only :versioned_formula
 
   # https://nodejs.org/en/about/releases/
