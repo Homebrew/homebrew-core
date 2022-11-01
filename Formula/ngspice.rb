@@ -10,13 +10,12 @@ class Ngspice < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a36672fec087875b549325587bdac6376fb528719cc7813fcbee36594b16d8c1"
-    sha256 arm64_monterey: "6421f66dabcafb24914972884fc7e4ff4dfd2919b0898864ad2580e9528d5c4b"
-    sha256 arm64_big_sur:  "9222829c0bfa71e306e073be15f9c4976dfa105480b618c842823978d3cf4e23"
-    sha256 monterey:       "80a8fc2742bca92a86cb22062ad7dfb1180769ec185be23807e48ae009f92143"
-    sha256 big_sur:        "9e0a218271ee9b1491d4e896c77905589d44464c13a99db0b946a38068583e6e"
-    sha256 catalina:       "f67eb8cb4eddb299a848a22e2507cf3fdb775b17f15dd1c5451186fc1387ab4c"
-    sha256 x86_64_linux:   "27e1a76a94f39071ef949f848ed17d7a59b3a0db7c2d444f846b5f1e85e0ce2c"
+    sha256 arm64_monterey: "0d89f5e8f521a30c746b79a5a4f57a411494fd47675bb51c6e329a2b2ee8bc98"
+    sha256 arm64_big_sur:  "33242e4c484ac677776491f8c2c99c11398c06df9af897fe929125ead3c39d6a"
+    sha256 monterey:       "d6d0d6a6594814949a254e880f4ef225556c14405d886e02bbf2c1d91fea5676"
+    sha256 big_sur:        "568d6aaff7cd1ce017a5db965ad8a7021d47abcd8fd714e0b60e35cfe1fc9572"
+    sha256 catalina:       "eb46b27dbfacc9d9f3dd1324a2485f1ef35a9ab7eb2ae17d513bee9eae5ee0c5"
+    sha256 x86_64_linux:   "93c269ce998cb2f96e5de41c4fc0a78f484808c7355e43a58f61939a5bffea3d"
   end
 
   head do
