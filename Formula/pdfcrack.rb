@@ -3,7 +3,7 @@ class Pdfcrack < Formula
   homepage "https://pdfcrack.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pdfcrack/pdfcrack/pdfcrack-0.20/pdfcrack-0.20.tar.gz"
   sha256 "7b8b29b18fcd5cb984aeb640ee06edf09fede4709b59c32fee4f2d86860de5b4"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "08bddb89fcbcce44da75bd5216466c85c107a5cfd3066649e916333fdfee5691"
