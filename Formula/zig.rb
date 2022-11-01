@@ -1,10 +1,19 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  url "https://ziglang.org/download/0.10.0/zig-0.10.0.tar.xz"
-  sha256 "d8409f7aafc624770dcd050c8fa7e62578be8e6a10956bca3c86e8531c64c136"
   license "MIT"
   head "https://github.com/ziglang/zig.git", branch: "master"
+
+  stable do
+    url "https://ziglang.org/download/0.10.0/zig-0.10.0.tar.xz"
+    sha256 "d8409f7aafc624770dcd050c8fa7e62578be8e6a10956bca3c86e8531c64c136"
+
+    on_macos do
+      # We need to make sure there is enough space in the MachO header when we rewrite install names.
+      # https://github.com/ziglang/zig/issues/13388
+      patch :DATA
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f07d304c8fb5ef31ac58004cd455d76064f739ba0b0992eb99c2b10160b060ad"
@@ -55,3 +64,17 @@ class Zig < Formula
     assert_equal "Hello, world!", shell_output("./hello")
   end
 end
+
+__END__
+diff --git a/build.zig b/build.zig
+index e5e80b4..1da6892 100644
+--- a/build.zig
++++ b/build.zig
+@@ -154,6 +154,7 @@ pub fn build(b: *Builder) !void {
+ 
+     exe.stack_size = stack_size;
+     exe.strip = strip;
++    exe.headerpad_max_install_names = true;
+     exe.sanitize_thread = sanitize_thread;
+     exe.build_id = b.option(bool, "build-id", "Include a build id note") orelse false;
+     exe.install();
