@@ -6,6 +6,7 @@ class Libxext < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "36ef5333565be1614ad8eb2d740ea93df80c5d2ee41b403145179e7c5d1e1e82"
     sha256 cellar: :any,                 arm64_monterey: "4f194ef26f45585047eab4ceaa2c811c4273d32d2ea47d9b3d18f09bb0c1f300"
     sha256 cellar: :any,                 arm64_big_sur:  "232f1d192c14de36a9cb57dfedd73943d65fdd6ce3b75e80d4d0c2eb6c18dcd6"
     sha256 cellar: :any,                 monterey:       "9682e4720a940f352af2cea9e4633cdf14947e23b640bac524e1b3674b9493a9"
