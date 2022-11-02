@@ -6,12 +6,12 @@ class Cglm < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c48a7cc3c284fd5a61fa1aef055d1aa4c51e38a87e245e402590e8dc48903e6d"
-    sha256 cellar: :any,                 arm64_big_sur:  "27d31698e3070d1f62e4be045cdb2da514d219cc0a28cb570404915aeeefcf3a"
-    sha256 cellar: :any,                 monterey:       "e67358d4569ba43fade443088f73b68ff28716da31794fd7547aff0d393563b4"
-    sha256 cellar: :any,                 big_sur:        "de5419cd5cd47d064f629d6aab9f9277e8e5bbd6a78bd3426dce5370f1a5e0a2"
-    sha256 cellar: :any,                 catalina:       "61de7afb22328af33cf17b7df29562ea8e9865337f81c315c28efff72aaa674c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3689de044b897eb9047854f008eb8b7b7e5ce7c915cbe9f6ec6c9241d98c6f49"
+    sha256 cellar: :any,                 arm64_monterey: "dc27012d84ca55d6cd6628df97f7d8dea55476b9bb2d5a6682e07ed327a92844"
+    sha256 cellar: :any,                 arm64_big_sur:  "beb288cac02cdb3c5ce36d468ee8b2f6959cd0cd9a33166dd24a5329f3c98107"
+    sha256 cellar: :any,                 monterey:       "2ac3f5abb771c4167b1f9945a71a61e4d6475b6a57c801ca32f2066f5fb0de26"
+    sha256 cellar: :any,                 big_sur:        "1e08d60ac1d7ce2da3b67a550022e312fdd8f7323283f136d15d52415516179a"
+    sha256 cellar: :any,                 catalina:       "a93d558aacae2e4695e0ca6c3ae9000e81a4c4b372fa5444ea1dcb7d6e3ab879"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecebcec3761661a758a3feb19b84d026f04cfa44ca66bb22e7482f43f14033dd"
   end
 
   depends_on "autoconf" => :build
