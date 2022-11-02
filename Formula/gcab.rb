@@ -13,6 +13,7 @@ class Gcab < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "1d0df9fc71f98941abf94db41da7453d3c110f1ad1d9d68531562236c248c31b"
     sha256 arm64_monterey: "e49e15cd9661987efd99db61dc29b244a8f9459a3bcaeba342b37c04ab31a555"
     sha256 arm64_big_sur:  "731d488b6e811c7c98feae0dd58956ae982710ab839be34a2d875adeb8b17218"
     sha256 monterey:       "bc78f61070ee0ad6a4397db82e661d89b76b17f8217401dbdc82e76742f7deee"
