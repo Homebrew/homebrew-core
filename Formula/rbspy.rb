@@ -1,8 +1,8 @@
 class Rbspy < Formula
   desc "Sampling profiler for Ruby"
   homepage "https://rbspy.github.io/"
-  url "https://github.com/rbspy/rbspy/archive/v0.12.1.tar.gz"
-  sha256 "4476bbafa4c387af82804ffc89564a214bf8a8ad8d9910235b2f4016130a7c07"
+  url "https://github.com/rbspy/rbspy/archive/v0.13.0.tar.gz"
+  sha256 "31ac92a5c054588f77911c33a3575b697b18f0aaa307fd2409a25788de212eda"
   license "MIT"
 
   bottle do
@@ -16,12 +16,6 @@ class Rbspy < Formula
   end
 
   depends_on "rust" => :build
-
-  # Support rust 1.62+, remove after next release
-  patch do
-    url "https://github.com/rbspy/rbspy/commit/f5a8eecfbf2ad0b3ff9105115988478fb760d54d.patch?full_index=1"
-    sha256 "17a1c7d6d0eea2bbeb811f1bbe18534249553b61bedb69710b28a5ed9d4f9e2e"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
