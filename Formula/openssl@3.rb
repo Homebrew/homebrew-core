@@ -12,6 +12,7 @@ class OpensslAT3 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "5b3d605f5c1fcadfea094c5670091e4bec2b2de7c121874be166bc737ef64ccf"
     sha256 arm64_monterey: "aaa47bcc0e7727e655af43748c77f580b1379403010177aab47978b737180295"
     sha256 arm64_big_sur:  "c84729c8726b7934f0a63d75fd2dce795c948f9b7ec29f9681f667de90b73f16"
     sha256 monterey:       "8501aeeab59c63a75dd14c1b836269a6effb08058ec7afb35313f954b40d78c3"
