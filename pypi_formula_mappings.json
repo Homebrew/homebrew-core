@@ -569,9 +569,6 @@
   "twine-pypi": {
     "exclude_packages": ["six"]
   },
-  "twtxt": {
-    "exclude_packages": ["six"]
-  },
   "urlwatch": {
     "exclude_packages": ["PyYAML"]
   },
