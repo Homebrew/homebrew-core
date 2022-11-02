@@ -7,6 +7,7 @@ class Hugo < Formula
   head "https://github.com/gohugoio/hugo.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f16a03b740a9bccf4f6a740f59f78c504e5fe7e348b92aa6eccb2970ff99526"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9c8bcce8c9d488522caf90109058b96b3a110655746c3fe995b16daa41a87d1f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "945bbfeb9fe158e3420f6d292923fdf147f6ae2f10ee81796ab2abb92bdfe28e"
     sha256 cellar: :any_skip_relocation, monterey:       "cfb6bc96ae3b00f19d3d049237240732e242afd37bb070488917db28b90baef1"
