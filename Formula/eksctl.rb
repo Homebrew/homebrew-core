@@ -8,6 +8,7 @@ class Eksctl < Formula
   head "https://github.com/weaveworks/eksctl.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98b03ed5d9943059ee743f614f9cff4ce397ad303a0f7579f8714dbfe702ec10"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a6b175ef5aa3dc21322d22ba5fbd415c0072eb23da9d861d8ae83d644794c15c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f500e8eb1e663294e500c25509fe5eb705375c7169e2a9256a633e8c6de9bcfe"
     sha256 cellar: :any_skip_relocation, monterey:       "3d1dca6cbb5d3ae18ebb9729b4dde52ae07358de86f3d969dd8d3e6aa7e82136"
