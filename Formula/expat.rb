@@ -14,6 +14,7 @@ class Expat < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3c7cd6f81b3171b8858df622e03582d983053c9fab61c6786690dc21915b37bc"
     sha256 cellar: :any,                 arm64_monterey: "b2da23ec6cc32aa2cfabf746594e905cddb76b8351b40d317b9d4231cb782f13"
     sha256 cellar: :any,                 arm64_big_sur:  "be121e65ca172e88af2d28b7e8a13fab9794ce1df74c597d34011c3dd7cc9a72"
     sha256 cellar: :any,                 monterey:       "ece2dd08612bb84c394074eea1ee11249678b716d35ae8a29a3369f54a10e9b8"
