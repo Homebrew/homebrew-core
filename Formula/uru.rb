@@ -3,6 +3,7 @@ class Uru < Formula
   homepage "https://bitbucket.org/jonforums/uru"
   url "https://bitbucket.org/jonforums/uru/get/v0.8.5.tar.gz"
   sha256 "47148454f4c4d5522641ac40aec552a9390a2edc1a0cd306c5d16924f0be7e34"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "afe47dce0be291a7c3c15d9723f5892164d4b72a481747bf2e1f74a1ba7b56fa"
