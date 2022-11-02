@@ -7,6 +7,7 @@ class Inxi < Formula
   head "https://github.com/smxi/inxi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b6762cdfa00b1b1e30d7adbd5ff8d913da289f89083dc9aeaa69f1d95dee607"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b6762cdfa00b1b1e30d7adbd5ff8d913da289f89083dc9aeaa69f1d95dee607"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b6762cdfa00b1b1e30d7adbd5ff8d913da289f89083dc9aeaa69f1d95dee607"
     sha256 cellar: :any_skip_relocation, monterey:       "c6db1e9b1b68b2f8bee1684d11ec89c1017c76350a99f2c02353e4eb568650ae"
