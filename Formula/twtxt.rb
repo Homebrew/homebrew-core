@@ -6,7 +6,7 @@ class Twtxt < Formula
   url "https://files.pythonhosted.org/packages/3e/ea/65d5c2d8de5fd354586a193092e250c9907549026b3cda5a7be6c78e8df3/twtxt-1.2.3.tar.gz"
   sha256 "be1195b46c32804f4f5f4fc552da678f6c822c6604c54d9d09348613d687be12"
   license "MIT"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "06609d6fc2cd1e679ff36743d850188df2106b15e42dd31d82f0651b594f6ff7"
@@ -18,7 +18,6 @@ class Twtxt < Formula
   end
 
   depends_on "python@3.8"
-  depends_on "six"
 
   resource "aiohttp" do
     url "https://files.pythonhosted.org/packages/c0/b9/853b158f5cb5d218daaff0fb0dbc2bd7de45b2c6c5f563dff0ee530ec52a/aiohttp-2.3.10.tar.gz"
@@ -63,6 +62,11 @@ class Twtxt < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "yarl" do
