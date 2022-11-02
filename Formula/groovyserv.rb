@@ -3,6 +3,7 @@ class Groovyserv < Formula
   homepage "https://kobo.github.io/groovyserv/"
   url "https://bitbucket.org/kobo/groovyserv-mirror/downloads/groovyserv-1.2.0-src.zip"
   sha256 "235b38c6bb70721fa41b2c2cc6224eeaac09721e4d04b504148b83c40ea0bb27"
+  license "Apache-2.0"
 
   livecheck do
     url :stable
