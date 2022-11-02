@@ -15,7 +15,7 @@ class Hysteria < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.appVersion=#{version} -X main.appDate=#{time.rfc3339} -X main.appCommit=#{Utils.git_short_head}"
+    ldflags = "-s -w -X main.appVersion=v#{version} -X main.appDate=#{time.rfc3339} -X main.appCommit=#{Utils.git_short_head}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
   end
 
@@ -26,6 +26,20 @@ class Hysteria < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/hysteria --version | cut -d ' ' -f3")
+    (testpath/"config.json").write <<~EOS
+    {
+      "listen": ":36712",
+      "acme": {
+        "domains": [
+          "your.domain.com"
+        ],
+        "email": "your@email.com"
+      },
+      "obfs": "8ZuA2Zpqhuk8yakXvMjDqEXBwY"
+    }
+  EOS
+  output = pipe_output "#{bin}/hysteria server -c #{testpath}/config.json"
+
+  assert_includes output, "Server configuration loaded"
   end
 end
