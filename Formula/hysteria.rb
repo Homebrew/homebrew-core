@@ -16,8 +16,7 @@ class Hysteria < Formula
 
   def install
     ldflags = "-s -w -X main.appVersion=#{version} -X main.appDate=#{time.rfc3339} -X main.appCommit=#{Utils.git_short_head}"
-    execpath = bin/name
-    system "go", "build", "-trimpath", *std_go_args(output: execpath, ldflags: ldflags), "./cmd"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
   end
 
   service do
