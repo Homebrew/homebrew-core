@@ -6,6 +6,7 @@ class GdkPixbuf < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "c14d053406b8a348e6cb16d6cd143ee1aba292e966222add9dbb0a31c91054fc"
     sha256 arm64_monterey: "5062e2c1e4fec51a665fe5893f12e8aee82e635469e7a1233f114ebe00da212f"
     sha256 arm64_big_sur:  "5561aaebdd1d83449a3f5101442dffe1b3a20f61ff003c5d266f5f5758b7796d"
     sha256 monterey:       "4494ae162cf4a40ff384bcdda6082456c7e5b5eb7b713286c8ea1d8fdf876e75"
