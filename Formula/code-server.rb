@@ -8,6 +8,7 @@ class CodeServer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e30571a69d70263e70bb54a6d555ef3933bd65c02681e243381f6215d3c354bd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a5e7829686c5faee0eec887319387c0cbce527ca8dc34fecdffbb260ee96197"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab08026b4bab8092ad48c63bc7da6f456bcaa81bf6815642143c9497e595b903"
     sha256 cellar: :any_skip_relocation, monterey:       "3fe877e31e6520144f4cefb7281499c3765ed4ced38ac72ba3a9d3d56257558d"
