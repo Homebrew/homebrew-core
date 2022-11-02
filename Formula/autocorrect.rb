@@ -7,6 +7,7 @@ class Autocorrect < Formula
   head "https://github.com/huacnlee/autocorrect.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ae519760a567b6111f4e2717e48548b2defc3b22b3fbd546da2396dcc42bf0d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ce89c50d04953517d799fc441cc8d4750154116cf01c72c0ee6ea9875e8712bd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96d595138e7a575ab0a843c145fad3855bdcd080b2229fd698f6c1438be16a33"
     sha256 cellar: :any_skip_relocation, monterey:       "1ae8a57a3eb2c16ae8709e28b14cf1d86e6c58e5358a34fee9440b0d29e87c14"
