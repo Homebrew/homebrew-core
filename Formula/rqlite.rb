@@ -7,6 +7,7 @@ class Rqlite < Formula
   head "https://github.com/rqlite/rqlite.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f12d8147086bb465ee45d79fa93779a84a410507098d1a3b6b77d639137f132e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5bc25519698b03f8d18367701fb6a1703f370cf1372a4d603ec24b78e60357e9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42d0d6759c497160a9cf5f6f1637f7f95230bab7c32409ad9f7bb757e8e6450a"
     sha256 cellar: :any_skip_relocation, monterey:       "44726fb3c3d9ae4dabb4b85a1384c5beb1d8331472f19b218d665bbebf6f20ab"
