@@ -13,12 +13,12 @@ class InfluxdbCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8ae8aef2a23d8629bceff829d677986fe60e75f5614bb533d1f9f561430b705"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b9f84acce048d77e4db132fefffd1eade4b7d801b77ae4d6c6d4e732dd856068"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0af336eccd554caa46b01e1cd6aad071e573e3ff4fb790dfe5fea36de256e02"
-    sha256 cellar: :any_skip_relocation, big_sur:        "01f723975010eb64195dd1c13f3692ab57f804d5b2ef4c373d8469ee8892914d"
-    sha256 cellar: :any_skip_relocation, catalina:       "7bb26bec31006ac6c46f56ae2f51700643eb8ed0cf080ee19d5697525bbec5b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e61fb05c5e7020ff10f3eb32a2894ab8d4387a8c2cb50fb3cafc3426de4a2b1f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6541f4fa6fc74114040e84ba6edb996743801e1fd651061c920952079e9fb2f9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "09199839456e764a78f3f7f0a245f7ca1d4fc6cb080ffed77a2d7224526c5b5a"
+    sha256 cellar: :any_skip_relocation, monterey:       "92a3f65a373a27ceb94a0f433c5ce95f66e5b07fbb9eaacf7a6aee28cc62c26d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4cb1ae996c846300c5f281e6b48fd926c57dd61b2db1a4581793c3b02a2d9608"
+    sha256 cellar: :any_skip_relocation, catalina:       "1e0cd843f99288a61c7f5e921b8da95c3a83b13e98153ade9aadab54bdaf5a31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27586f732cba7ae28915e9e1a21ff1dab5b04fce18604e542229c284e5306d4e"
   end
 
   depends_on "go" => :build
