@@ -13,6 +13,7 @@ class Go < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "6e7f284d44cfd7cb22e783350c428154b6a7867bef3eb4c40c2c914d0fc6fd7f"
     sha256 arm64_monterey: "5566ef32f95654fb2729d739e8d5208848b83b577c82c873c98ef9c8b9c79406"
     sha256 arm64_big_sur:  "251e3c47fa7fc5beee48c41037a736cc13c5d3d1b8e62c69a612419aa99ec493"
     sha256 monterey:       "30f1ceb685ec8589c2b40f832cdbf45f23354704d109b1c428bfe5952791c5f3"
