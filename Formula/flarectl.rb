@@ -7,6 +7,7 @@ class Flarectl < Formula
   head "https://github.com/cloudflare/cloudflare-go.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "040f7e330bdbdfa55e55592897043df3853a18d0c74d79494677464a53b343d3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b3e94331914449e2976c17035288cc144b1586b641ee514d1f1d600be83054e2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6e5eca69f74452235b13f1adb266b8df48ae0097bed81658a40fddd349cf9764"
     sha256 cellar: :any_skip_relocation, monterey:       "e2b908c7df5bf2bd38effeb4586b985f5aef8d638b82668db2be05a51ff158a2"
