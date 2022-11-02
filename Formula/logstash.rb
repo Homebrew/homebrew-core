@@ -13,13 +13,12 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "285daa59bb58ab5e03b1d73f4c08f6096f23d8ce70a0c3c5195a29808ef24491"
-    sha256 cellar: :any,                 arm64_monterey: "259709ffd57480b124c6ebe74787b7ff3fa532c43156469d90e7d853f6b3903c"
-    sha256 cellar: :any,                 arm64_big_sur:  "71599355c3fdebad1526140c3775fb88ae5113a2c7809df6ffd2550e552ff381"
-    sha256 cellar: :any,                 monterey:       "80508d30fd62c598eb1da864c340858b1979e740e9bf898229bb2e0bf16e0381"
-    sha256 cellar: :any,                 big_sur:        "f9bee6d51e77f4f05428c59a5af88fe56f1438840e90fe85a2c8117e6c8373df"
-    sha256 cellar: :any,                 catalina:       "f8db96edd1eed15d3c3fa4c2486af5db1f4d3a8e2802f212359f09273ec6f31b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a1835be3997f7c7c5615450823712bbdd7b088ce9014f856119038c638d6d840"
+    sha256 cellar: :any,                 arm64_monterey: "a776629dd71cea5955ab77b6a14dd61731a0f8460aa11668f8ea175ea968ac56"
+    sha256 cellar: :any,                 arm64_big_sur:  "8b8a4ee4f5d21959beb21b792d172cc5ab1f0f9132def9cad65732f9f6f61a25"
+    sha256 cellar: :any,                 monterey:       "714f9cc103736216cc26d086c9a8844ca1bdc5310b3cde843378b063eb044472"
+    sha256 cellar: :any,                 big_sur:        "b2ca80a38af951d7f4a70d59f8a9647ef76b793924a576eb81960d05d879a104"
+    sha256 cellar: :any,                 catalina:       "bf9c42fb6fa56a76725537817120d2a3937cd3d21fe6743f64fc3ac91be016e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b50a724b714aa5632f93240c3d21a69b81ea39b651ff2689372476e6de80bd08"
   end
 
   depends_on "openjdk@17"
