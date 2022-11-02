@@ -21,6 +21,9 @@ class PythonAT37 < Formula
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? only_if: :clt_installed
 
+  # https://devguide.python.org/versions/#versions
+  disable! date: "2023-06-27", because: :deprecated_upstream
+
   depends_on "pkg-config" => :build
   depends_on arch: :x86_64
   depends_on "gdbm"
