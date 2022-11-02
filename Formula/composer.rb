@@ -11,6 +11,7 @@ class Composer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ae9fc450838971810a7978f450eb102a16a6ee06506ed58547248660e17eebf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ae9fc450838971810a7978f450eb102a16a6ee06506ed58547248660e17eebf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ae9fc450838971810a7978f450eb102a16a6ee06506ed58547248660e17eebf"
     sha256 cellar: :any_skip_relocation, monterey:       "96e8cbaa4b420f4c36cd853966e6f6684e5da8fce319901ee44f1a56c6eb92f5"
