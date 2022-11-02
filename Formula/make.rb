@@ -7,6 +7,7 @@ class Make < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 arm64_ventura:  "1eed07bf3c2d4521eb70271a5ef7be75a8d3401f9d1301a7a2925f217375bd5b"
     sha256 arm64_monterey: "5d70e49b345e20553a0bb4c85b73ba5da42940de229abf94957784df18f8f71d"
     sha256 arm64_big_sur:  "f1e067786d1da8f5eb10ef81fc7cd87de0b44417e8b100efd27682036124fb7c"
     sha256 monterey:       "ad56ca0950b6601ae210bc0279c0b35df6e6c3d432da5d93e69e5fe48b7b7690"
