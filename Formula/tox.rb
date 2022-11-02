@@ -8,6 +8,7 @@ class Tox < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bae512f00aec4b27f2cdfa10d8f4996241eac68e61d1ea1b8c3ee56ffe098fdd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "014d2616e115589f3f4ff8ef4f21310af42e3b06bf2fa6cf3eac6b1f6db35bf5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4af531e3f40e38d088df87f75514034ee96f4e083e20e2a4ab7be8edc1eb4556"
     sha256 cellar: :any_skip_relocation, monterey:       "72c7f3af8613b29cc5141e068f2121aaf59b54a303d5d079cda0b0b79f404b38"
