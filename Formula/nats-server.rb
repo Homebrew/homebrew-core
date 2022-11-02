@@ -7,6 +7,7 @@ class NatsServer < Formula
   head "https://github.com/nats-io/nats-server.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c770febeba25ce477a1b35c2e960abd6925a01b5b65add2ae59a29046ea59f23"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d90f5cf73a8516cdc329eb9fbcacfbab9c5f5d7bda3e9e62104a4e7d05b4134d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5884fcff8fe86c957841056a0f9470066d608e121bbbcb89def37673db0ebdc6"
     sha256 cellar: :any_skip_relocation, monterey:       "e5f526e5fc4ebe447905636ea6daa67860ca84529837e9bba5bb166bf1fcb15c"
