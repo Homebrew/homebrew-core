@@ -7,6 +7,7 @@ class Opencolorio < Formula
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "03ff1b5e5082e3955cb765598f1d13985839a213ceba7c82f4843ec78e57fdcc"
     sha256 cellar: :any,                 arm64_monterey: "e129f4cec79267cf32e6fab984e8e60d11c41c37ad0c1d2e3eab9fce0a74c02c"
     sha256 cellar: :any,                 arm64_big_sur:  "9c8d6cdc2eacb0147542713ce1715ca4603ab040815448f65732cd59fa441672"
     sha256 cellar: :any,                 monterey:       "7bcddac6d9fec28ab52196a52cd2bce98351749644b3e0eadfae1756e17427f7"
