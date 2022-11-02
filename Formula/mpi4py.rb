@@ -1,10 +1,9 @@
 class Mpi4py < Formula
   desc "Python bindings for MPI"
   homepage "https://mpi4py.github.io/"
-  url "https://github.com/mpi4py/mpi4py/releases/download/3.1.3/mpi4py-3.1.3.tar.gz"
-  sha256 "f1e9fae1079f43eafdd9f817cdb3fd30d709edc093b5d5dada57a461b2db3008"
+  url "https://github.com/mpi4py/mpi4py/releases/download/3.1.4/mpi4py-3.1.4.tar.gz"
+  sha256 "17858f2ebc623220d0120d1fa8d428d033dde749c4bc35b33d81a66ad7f93480"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_ventura:  "171d72deec84e3852549247d17c71e70670f66ad0e4e5c406e27f4bb4016a5d9"
@@ -18,10 +17,10 @@ class Mpi4py < Formula
 
   depends_on "libcython" => :build
   depends_on "open-mpi"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -35,7 +34,7 @@ class Mpi4py < Formula
   end
 
   test do
-    python = Formula["python@3.10"].opt_bin/python3
+    python = Formula["python@3.11"].opt_bin/python3
 
     system python, "-c", "import mpi4py"
     system python, "-c", "import mpi4py.MPI"
