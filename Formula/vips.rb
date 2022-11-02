@@ -11,13 +11,12 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "3203c7cb0e70215eb6d34471d43c1de8a992983d818a63d5695c2fec9ec2009b"
-    sha256 arm64_monterey: "50d0846e4253405f2edec6ef27cf427134bc5955382ae99391460b409c147670"
-    sha256 arm64_big_sur:  "838d872c7a74c0f9504f02a3e1773b1627943e02b044ed0d592ddddd6af4dc71"
-    sha256 monterey:       "a82668ced78c9ad7a3362462ed28311a825c7464b3c53e004447b66b5b0d01e2"
-    sha256 big_sur:        "cf623736d3269700dac8873c4f953c3489bbe0c5a4bf4ebae53b0fce18446b2a"
-    sha256 catalina:       "d4ac8ae6badf2c76d73ee8e80b20c90bfd55dbef3c419e95637a1137f3e602d3"
-    sha256 x86_64_linux:   "637131627c0831e621684882b1ed82d191750dd0dab3bbd46ec8280d3f8f4476"
+    sha256 arm64_monterey: "c761a33f0ff6f4a55c5f5cd1638877eedfb3902ef557de1ada16623f4bcbd831"
+    sha256 arm64_big_sur:  "68b41f4aa00a0816609eb04429c432e7a31dfe02591605ceeaf8559907d6de68"
+    sha256 monterey:       "9f92448977e4da88f4bb07abe47abb29fd0140cda3b86790d31851a236ffb4b4"
+    sha256 big_sur:        "0258071ddc03ee0ca22060e07c725268443a41ece340117ba98ee13f82cb5eeb"
+    sha256 catalina:       "e0ca4d500634b2bddb534a0b3c9915133b69bc7a3a4bc7a326fe171afff88204"
+    sha256 x86_64_linux:   "90a3587e1691d2de2320901a428301f05e2c768120cea3a93e1df5e476faf57d"
   end
 
   depends_on "gobject-introspection" => :build
