@@ -3,8 +3,8 @@ require "language/node"
 class Marked < Formula
   desc "Markdown parser and compiler built for speed"
   homepage "https://marked.js.org/"
-  url "https://registry.npmjs.org/marked/-/marked-4.2.0.tgz"
-  sha256 "0dc7a80d4cbef0fbb063237060fed65a915595b2e8b97ed56ea0e231b2e88062"
+  url "https://registry.npmjs.org/marked/-/marked-4.2.1.tgz"
+  sha256 "ee21b7b1f4aae0fa57b67126b45879da2f653c744d7250868497296205a49815"
   license "MIT"
 
   bottle do
