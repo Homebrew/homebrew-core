@@ -12,6 +12,7 @@ class Mpg123 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "804cb30f0c5bd0adc90ab5f297ec3f8d78db8adec1c8346808bd48faa54a503c"
     sha256 arm64_monterey: "1cd03ee5a750fe9a6b600c5c3c5f4869ceccbb6fe69043f36c335b7378668775"
     sha256 arm64_big_sur:  "fd6e9184b63d3c5ce015a26e996d5515ac79adc5854d961757fed86b4cdbfee6"
     sha256 monterey:       "8a76894636327da8ada727b1d3462961934bb2f5123eb9361a28e3fc01dbb760"
