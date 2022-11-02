@@ -9,6 +9,7 @@ class Commitizen < Formula
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0824027148e3ca0f3fb7ae82e97a69211591efdf98794bfbd0d688814edc390"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aa624c00bd334e8cb3cebf730d6c331147febf8159a9d75e4800cc419176bbb7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c3524423b96a1958d110e416facda765fb5f0eccadaa67cfbfe2e912a006bb2b"
     sha256 cellar: :any_skip_relocation, monterey:       "32243f7ebd89d9355efe07d1712348887ec7a85e6194c1c321df96bb5225cf50"
