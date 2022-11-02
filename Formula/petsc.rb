@@ -11,6 +11,7 @@ class Petsc < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "0bccffb32dca92e00cf9338eb950c342dfca6424ff1c7dde638302a0f277ef4b"
     sha256 arm64_monterey: "9a7c137dca516b8dfd02460a5cf3cc9eecfad8176f632057031d9fe88bbabaa3"
     sha256 arm64_big_sur:  "bf6b25fbaf59fc904391546886f29e03aa72164b7cc5cf5d3aec50840f617d68"
     sha256 monterey:       "8c70c6e76ca76c58c98c75b4f777d6a731a5867ebb45bf00220ff06698d1680c"
