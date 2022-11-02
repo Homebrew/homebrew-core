@@ -19,17 +19,15 @@ class Fd < Formula
   depends_on "rust" => :build
 
   def install
-    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
     man1.install "doc/fd.1"
-    bash_completion.install "fd.bash"
-    fish_completion.install "fd.fish"
+    generate_completions_from_executable(bin/"fd", "--gen-completions", shells: [:bash, :fish])
     zsh_completion.install "contrib/completion/_fd"
   end
 
   test do
     touch "foo_file"
     touch "test_file"
-    assert_equal "./test_file", shell_output("#{bin}/fd test").chomp
+    assert_equal "test_file", shell_output("#{bin}/fd test").chomp
   end
 end
