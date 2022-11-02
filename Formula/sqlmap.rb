@@ -9,13 +9,12 @@ class Sqlmap < Formula
   head "https://github.com/sqlmapproject/sqlmap.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0099b76f7d9c7674fe8e548d37a30a063c94743fe0201cfc5f81017bc8c3eaf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0099b76f7d9c7674fe8e548d37a30a063c94743fe0201cfc5f81017bc8c3eaf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0099b76f7d9c7674fe8e548d37a30a063c94743fe0201cfc5f81017bc8c3eaf"
-    sha256 cellar: :any_skip_relocation, monterey:       "7ffa44ab3f8f37fa9f09be59593ad9946f1075ad8ac4775ca850003531ac64b0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7ffa44ab3f8f37fa9f09be59593ad9946f1075ad8ac4775ca850003531ac64b0"
-    sha256 cellar: :any_skip_relocation, catalina:       "7ffa44ab3f8f37fa9f09be59593ad9946f1075ad8ac4775ca850003531ac64b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "485966126585a97cf9c594625f779433ac7b9faf6c873e2a24841d8a063559e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8e7eb6ad31bd7c66ee44ce68bbac8e475ea4a1c37e36c2d52bcb78280ebf5db"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8e7eb6ad31bd7c66ee44ce68bbac8e475ea4a1c37e36c2d52bcb78280ebf5db"
+    sha256 cellar: :any_skip_relocation, monterey:       "59ca8baa6c06583a195dba12e1b39fecb76afba8f18fc0a1c17e5a8017505141"
+    sha256 cellar: :any_skip_relocation, big_sur:        "59ca8baa6c06583a195dba12e1b39fecb76afba8f18fc0a1c17e5a8017505141"
+    sha256 cellar: :any_skip_relocation, catalina:       "59ca8baa6c06583a195dba12e1b39fecb76afba8f18fc0a1c17e5a8017505141"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c1ea18283c5a23c8661ac745abcd66f65308af25a1bef7809dd8421b8d3e1ca"
   end
 
   depends_on "python@3.10"
