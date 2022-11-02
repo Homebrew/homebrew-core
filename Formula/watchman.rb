@@ -7,6 +7,7 @@ class Watchman < Formula
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8ac95895b1ee4d30947be3c95952af0f6122e6eb8f7a0c581bff4859bccc69b2"
     sha256 cellar: :any,                 arm64_monterey: "fb138238805e4e20ad22ed3a5b2bec9dec43221a4dd65754e9b4b919dce74a57"
     sha256 cellar: :any,                 arm64_big_sur:  "4b99d3a95c18e88e4fb4037840895588e3636e3d83ab89772c6affd8c906aca8"
     sha256 cellar: :any,                 monterey:       "64f85493568df616ab8214e0f77eded51964b2a9ca85ac7ca004b464908b068f"
