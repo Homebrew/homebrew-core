@@ -24,6 +24,7 @@ class Skaffold < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "722f5f1643b35cd834ab161ff5da7aa039df33bfc2b5c59fee00e7b805000ed5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8254f6da5eb5a397e1e1838c5fb92130ffba1ea6e04863f0286b031db7c72c0b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42cfaa52a2803332ab7dd53c0f64590bdf93df4a520b8117a21ea743261a4b17"
     sha256 cellar: :any_skip_relocation, monterey:       "7bc464792bac171e90a68961074600aa54b504600359f60f6abe1f0dc0227fd4"
