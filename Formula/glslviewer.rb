@@ -8,6 +8,7 @@ class Glslviewer < Formula
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "81067a7d0156aaed4c7efad225a1533d822a9261c3cfaa2df57c9be2d1967ecd"
     sha256 cellar: :any,                 arm64_monterey: "cf33a11e088d40d9d5ae96ed374756c60984cabeb2de33d52af670c091e4a81e"
     sha256 cellar: :any,                 arm64_big_sur:  "67f4455d6abf22ee9bd69b7651f7e4346af09e27afaa3272cd1f9a22cfefce22"
     sha256 cellar: :any,                 monterey:       "c5123fc4e0c8d1d2fb26ab0b2b787d865f1c3301df19b8b2c8d7dd777d5b8c23"
