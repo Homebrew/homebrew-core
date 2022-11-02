@@ -12,6 +12,7 @@ class Datree < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e16da4b4fef5d55a91108fa1be641c1b121ac0569771ff4d4896c076c23b3212"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e5bb08208fb23b4ffa62c63401c2351340dc3f90eb889ac1629ef73ce5b77999"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2080137685fa308f9e83d2a79e62e7cf9e5b8f69232272cb3d488efd8828f52"
     sha256 cellar: :any_skip_relocation, monterey:       "2098bd15bb9f272295532475326282137e849d370d50dab734c8d229e8ba933d"
