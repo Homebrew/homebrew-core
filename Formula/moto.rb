@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/71/74/1a51bee4b94b15eeef117bccf5a63a6f5127f957496bfc25635738b1783a/moto-4.0.8.tar.gz"
-  sha256 "3bd8a72dc385819c84ed3f9d18c386985634041c6ae544d957bd8ab88c6c15f1"
+  url "https://files.pythonhosted.org/packages/54/22/13bbc6a5d48cdd24995880fccdb79ef368bfbd89cd060cef8e10567084a4/moto-4.0.9.tar.gz"
+  sha256 "ba03b638cf3b1cec64cbe9ac0d184ca898b69020c8e3c5b9b4961c1670629010"
   license "Apache-2.0"
 
   bottle do
@@ -33,13 +33,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/d5/0c/34f4d8778db6058d828086b5f5c8c8d2cda49e85ca7624b0cd4a5421c628/boto3-1.24.94.tar.gz"
-    sha256 "f4842b395d1580454756622069f4ca0408993885ecede967001d2c101201cdfa"
+    url "https://files.pythonhosted.org/packages/77/18/91af4ff58b26d03af8bf8e0759c4087b77032bdc54199d750905080c669a/boto3-1.26.0.tar.gz"
+    sha256 "8f0e4eb5c26f927c09bc03302d38156af578b816f1e4f8ca4f0f734d134b9d4f"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d6/a2/de653e65e7c80d945edd8069834bdc81fdbf531e626dab7023ad77edc82e/botocore-1.27.94.tar.gz"
-    sha256 "572224608a0b7662966fc303b768e2eba61bf53bdbf314481cd9e63a0d8e1a66"
+    url "https://files.pythonhosted.org/packages/0a/95/8f31139077187f2da9132d7547979262376e19056d99c7cf6278431a53de/botocore-1.29.0.tar.gz"
+    sha256 "f25dc0827005f81abf4b890a20c71f64ee40ea9e9795df38a242fdeed79e0a89"
   end
 
   resource "certifi" do
@@ -53,8 +53,8 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/93/3e/d0cdabb490c5933908a6572d8ff8924a40087187ac923f4cc8a8646ddcb4/cfn-lint-0.68.0.tar.gz"
-    sha256 "3c68a6f912e5780e4fa23e5033b9c9d65e7612cc1b4b0cfb01d03260af120a3e"
+    url "https://files.pythonhosted.org/packages/b0/41/e5c4ab4bca611fdf42e6326aaf66177345a1604918d1043b5f5c0abf6c75/cfn-lint-0.70.0.tar.gz"
+    sha256 "1227b9bdcd6a21e9b7aafe3eefb740ee17923ceb630cd7235c3fa16683d090ab"
   end
 
   resource "charset-normalizer" do
@@ -68,8 +68,8 @@ class Moto < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/63/82/a6e21842f2e31b3874f01c112093b8bf8af119f5ed999bbd667a81de720b/cryptography-38.0.2.tar.gz"
-    sha256 "7a022ec87c7a8bdad99f516a4ee6ffcb3a2bc31487577f9eccbc9b2edb1a8fd4"
+    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
+    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
   end
 
   resource "docker" do
@@ -153,8 +153,8 @@ class Moto < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/9e/89/90846e0da5c412cbffb66d1f976b056cd46c6f2aa7f2f1eb271573b5fefb/networkx-2.8.7.tar.gz"
-    sha256 "815383fd52ece0a7024b5fd8408cc13a389ea350cd912178b82eed8b96f82cd3"
+    url "https://files.pythonhosted.org/packages/cd/16/c44e8550012735b8f21b3df7f39e8ba5a987fb764ac017ad5f3589735889/networkx-2.8.8.tar.gz"
+    sha256 "230d388117af870fce5647a3c52401fcf753e94720e6ea6b4197a5355648885e"
   end
 
   resource "openapi-schema-validator" do
@@ -173,8 +173,8 @@ class Moto < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/b4/40/4c5d3681b141a10c24c890c28345fac915dd67f34b8c910df7b81ac5c7b3/pbr-5.10.0.tar.gz"
-    sha256 "cfcc4ff8e698256fc17ea3ff796478b050852585aa5bae79ecd05b2ab7b39b9a"
+    url "https://files.pythonhosted.org/packages/52/fb/630d52aaca8fc7634a0711b6ae12a0e828b6f9264bd8051225025c3ed075/pbr-5.11.0.tar.gz"
+    sha256 "b97bc6695b2aff02144133c2e7399d5885223d42b7912ffaec2ca3898e673bfe"
   end
 
   resource "pyasn1" do
@@ -203,8 +203,8 @@ class Moto < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/fe/dd/182cc5ed8e64a0d6d6c34fd27391041d542270000825410d294bd6902207/pytz-2022.5.tar.gz"
-    sha256 "c4d88f472f54d615e9cd582a5004d1e5f624854a6a27a6211591c251f22a6914"
+    url "https://files.pythonhosted.org/packages/76/63/1be349ff0a44e4795d9712cc0b2d806f5e063d4d34631b71b832fac715a8/pytz-2022.6.tar.gz"
+    sha256 "e89512406b793ca39f5971bc999cc538ce125c0e51c27941bef4568b460095e2"
   end
 
   resource "requests" do
