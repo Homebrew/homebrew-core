@@ -6,15 +6,12 @@ class Httping < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "719c7b85c0f6f75cd298210d78460311793048349fb01450ae1acc26204cd740"
-    sha256 cellar: :any,                 arm64_big_sur:  "2061528a8b8a03b6d8276af007c617b8a4937e06c7b871dd729664f50f47eef2"
-    sha256 cellar: :any,                 monterey:       "802527f7e4eec6542de9bc232403a1bdcbfea97e695d4e5876dc5766c1417337"
-    sha256 cellar: :any,                 big_sur:        "b7d049b495d38844fcf2eb479a02c6472aef31d9b516536677a024634febf356"
-    sha256 cellar: :any,                 catalina:       "9432f93eec676aad685be06819da5649ec071f6542302d077ccf5d0623b9b567"
-    sha256 cellar: :any,                 mojave:         "2314efd3b919b759290b7ead8dea99c50b11860f7aadb8fd4f9c7e0e7cc92e5e"
-    sha256 cellar: :any,                 high_sierra:    "8df0f98d479c72a20ca2b353a06c9c1bf071cceed53774c737f41caf27238fc1"
-    sha256 cellar: :any,                 sierra:         "9d0b6368e6fa4e2b4fb618c7ba3893a5b3b47471b366305026ee75b44d6ce91e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0090bfe517e71dd18d61ed96c5f5cf2cc1bf252399c9d49b521b9a53bc7a46b8"
+    sha256 cellar: :any,                 arm64_monterey: "c846542d55c712401ea113493bac025d53c760cb34e4afbdbf0589cc480cf040"
+    sha256 cellar: :any,                 arm64_big_sur:  "009816a0db310663c27211705990e2e6b31fa04bec6c8e31d974e3b91f6fdafc"
+    sha256 cellar: :any,                 monterey:       "3bb35f1f10a559975d926cf8659cd4fe5474a054f97e6465b700075e598c4d4c"
+    sha256 cellar: :any,                 big_sur:        "01023fd55b938b08b2ba9d244a6ac5f4917e0eab92c07d77976a89df39c844b3"
+    sha256 cellar: :any,                 catalina:       "e6599bb0b22aeb3cb4d637e310b8d0af1f68220f05be7fdce866b421d40c6586"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db4d5364a17224f353ae268afb1ac9090814fb7cf656f88b757b5e325bb25c3a"
   end
 
   depends_on "gettext"
