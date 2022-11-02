@@ -8,6 +8,7 @@ class Chezmoi < Formula
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "116c648096b4d076c8105f89b793791bfe685031910807cddd11869bb2659aa8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "21c64671c9253edfbeca34537f2cbefb3ced851e1028ed2be3884e1a66fe86b1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d8e4562b0a7d09c90fb7fba0eeb3f1426d69cd26e6e7f4fef53da3ca5b95db93"
     sha256 cellar: :any_skip_relocation, monterey:       "026a3c278c5a006ee1f9db59d2b80448f91e24c9043db2392e02fc95b5a434f7"
