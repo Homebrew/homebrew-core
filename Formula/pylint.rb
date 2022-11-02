@@ -9,6 +9,7 @@ class Pylint < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ff2d27c0cc3329d019a9f214d4a329c6699a2125106952afe2ed2d22daf32ad"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "23fec3f779a92b41fd0e0ab633d8664b866e4f7487d16a02ac74ea08ca43186d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30a23cbe40914a7c9be50a22068dd1333d998d992357e7b477db1afe82a516d8"
     sha256 cellar: :any_skip_relocation, monterey:       "ce41cb981f0211c163ef691624f1a358476fd59e375d0e847010ef98a8e7ccb1"
