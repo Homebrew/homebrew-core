@@ -8,13 +8,12 @@ class Xcbeautify < Formula
   head "https://github.com/tuist/xcbeautify.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "27013751456b154d99bea06aed3bf528b7e93e294d080bff374bbb7a3f100ec2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48b110ea92c661b41f8033db9968184f583c45545f7eff36f5e2e091ecff52a7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "817a7ab51d35820e3b0f8fd1e2f47487c75357847ef2654ef009f3c54e291e5a"
-    sha256 cellar: :any_skip_relocation, monterey:       "d94d3ec0de11b29eee428f2080effe92fe73e7fb4449f5f867d9b8ab8aadfb12"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7396f5ff493e2dd190e691a5019987eaf74b951b277edcc8897e800ca7961e09"
-    sha256 cellar: :any_skip_relocation, catalina:       "838d77acf9366aa20a126a400f66be4bdeec3104aa217c14aaa3b6c67ee98b75"
-    sha256                               x86_64_linux:   "479216984e727cb265a4dcc52005b9863f9dc3124b57b15a2b33d1c4a79ab1d3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "73f133729b9d2a40b3d4f162420fcae8425789905cc30ce4f81416ab792cc96f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "58d1037d0a4a6df88b5549973635d02e2adc4abbc2fef7cfc5302be5db7289cc"
+    sha256 cellar: :any_skip_relocation, monterey:       "7e51ded6a1619f1e00032df16da653aa228790a93b14498a2b20885cd158294d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "99b802ced5e8f9c16f2983315606f4512d3cf62b9cd43ba51079701edd36547f"
+    sha256 cellar: :any_skip_relocation, catalina:       "4c348994041017c4f18d3a5e39981204be679b756850b3bdd4e325aa3e71d711"
+    sha256                               x86_64_linux:   "2013cb7179eb9f8f5706f291b731d8fc5d5f1249d142ac492261efaeab0daec7"
   end
 
   depends_on xcode: ["11.4", :build]
