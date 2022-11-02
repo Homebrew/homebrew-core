@@ -9,6 +9,7 @@ class Pdm < Formula
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "79d06da2844e6ed941c20223cfe4c53f977498d3a85a2bdfafe5c8b8c63c40ff"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5d32f82f157c38a1ffcd35010ef641149b1fbaf904553b09d3b669fe15786de4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7fb5701061f2d5bf4fdea273c660e77fd1b329b6d200ee47aadc6cec97f036b7"
     sha256 cellar: :any_skip_relocation, monterey:       "b423e8c59b52e46b8ebe8dc7583a8e3dda79383e3a3c57e1e69f108d4a9c40c0"
