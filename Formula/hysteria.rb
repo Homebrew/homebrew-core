@@ -7,11 +7,6 @@ class Hysteria < Formula
   license "MIT"
   head "https://github.com/HyNetwork/hysteria.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   depends_on "go" => :build
 
   def install
@@ -20,26 +15,25 @@ class Hysteria < Formula
   end
 
   service do
-    run [bin/"hysteria", "--config", "#{etc}/hysteria/config.json"]
+    run [opt_bin/"hysteria", "--config", etc/"hysteria/config.json"]
     run_type :immediate
     keep_alive true
   end
 
   test do
     (testpath/"config.json").write <<~EOS
-    {
-      "listen": ":36712",
-      "acme": {
-        "domains": [
-          "your.domain.com"
-        ],
-        "email": "your@email.com"
-      },
-      "obfs": "8ZuA2Zpqhuk8yakXvMjDqEXBwY"
-    }
-  EOS
-  output = pipe_output "#{bin}/hysteria server -c #{testpath}/config.json"
-
-  assert_includes output, "Server configuration loaded"
+      {
+        "listen": ":36712",
+        "acme": {
+          "domains": [
+            "your.domain.com"
+          ],
+          "email": "your@email.com"
+        },
+        "obfs": "8ZuA2Zpqhuk8yakXvMjDqEXBwY"
+      }
+    EOS
+    output = pipe_output "#{opt_bin}/hysteria server -c #{testpath}/config.json"
+    assert_includes output, "Server configuration loaded"
   end
 end
