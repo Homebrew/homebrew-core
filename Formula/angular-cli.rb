@@ -8,6 +8,7 @@ class AngularCli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b325c106b26cfc130ef336e2cbb071af0e655c38b31227be9b687b2490bf8675"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b325c106b26cfc130ef336e2cbb071af0e655c38b31227be9b687b2490bf8675"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b325c106b26cfc130ef336e2cbb071af0e655c38b31227be9b687b2490bf8675"
     sha256 cellar: :any_skip_relocation, monterey:       "6c733871555e96ca1aeb4991f2a7e12902e931167ea92959ef7c437055a38a2c"
