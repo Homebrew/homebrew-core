@@ -9,6 +9,7 @@ class Vulture < Formula
   head "https://github.com/jendrikseipp/vulture.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6040054db621f657657fb7099c271c7c0d2aa2e19179203b0afdde75c844171a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8f3c5caff61b92d1aa8f31ff34aed3bf4526d2c2e4bab1409b453b473c20e3c9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "842d3da62ea17a600c26008460b4fb3d4e034b8e27d2140c6369ae1dc2c6504f"
     sha256 cellar: :any_skip_relocation, monterey:       "715bc22c1880197dd150ec5b3a2330aea6d3a80b997523008519a9fbe9accce0"
