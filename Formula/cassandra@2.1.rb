@@ -15,7 +15,8 @@ class CassandraAT21 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-03-01", because: :unsupported
+  # Original deprecation date: 2022-03-01
+  disable! date: "2022-11-03", because: :unsupported
 
   depends_on :macos # Due to Python 2 (does not support Python 3)
 
