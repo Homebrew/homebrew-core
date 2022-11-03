@@ -27,10 +27,6 @@ class Awscli < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version >= 1400
   end
 
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff"
-  end
-
   # Python resources should be updated based on setup.cfg. One possible way is:
   # 1. Run `pipgrip 'awscli @ #{url}' --sort`
   # 2. Ignore `six`. Update all other PyPI packages
@@ -103,6 +99,13 @@ class Awscli < Formula
   resource "wcwidth" do
     url "https://files.pythonhosted.org/packages/25/9d/0acbed6e4a4be4fc99148f275488580968f44ddb5e69b8ceb53fc9df55a0/wcwidth-0.1.9.tar.gz"
     sha256 "ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
+  end
+
+  patch do
+    on_system :linux, macos: :ventura_or_newer do
+      url "https://github.com/aws/aws-cli/commit/c125f7e4b862578fd13dbe7286ac734348f805bf.patch?full_index=1"
+      sha256 "0bb2db84f183ec29f62c04b5ad8dcedb217fd4756107ed4f1d8f426342fb3128"
+    end
   end
 
   def python3
