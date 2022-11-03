@@ -6,6 +6,7 @@ class Fruit < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "478ae15d5a3a1592f5c72ba379b2425930cf02ae0d6fe20958eb12d3c533f653"
     sha256 cellar: :any,                 arm64_monterey: "c42c1879ad107e5ee827ad6bcd18097575bf8818c3d7b6147a5aa33d166bec0a"
     sha256 cellar: :any,                 arm64_big_sur:  "1efe400614d7043d482a1983f780a4d4792112e039a5939e0fb0e5cdc64d2ad6"
     sha256 cellar: :any,                 monterey:       "ac4e32b4cce26112871dcc8d01fd93a5ccbeac0dbae23a6d4bced050cea99eeb"
