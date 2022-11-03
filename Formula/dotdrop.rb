@@ -8,6 +8,7 @@ class Dotdrop < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5647f3b8be5c0b340eeb4c45db424b39f83a39fbebc3c67b4418781c2231db2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f9af1609ead329b6f66a34119ea7709b0e19a64261e4852d86702a82a85e7ca"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55e0c73f04aa5127d28e9f551a9208affd461cfeebc9691d977f36619688c3b2"
     sha256 cellar: :any_skip_relocation, monterey:       "55a59dce6d694be040dd6ab560506a3664f4e5124e54ab9aeb053fcbf9e1bb7a"
