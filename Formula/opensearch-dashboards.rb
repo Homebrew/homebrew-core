@@ -7,6 +7,7 @@ class OpensearchDashboards < Formula
       tag:      "2.3.0",
       revision: "5f7541eaa91699b9de9d82e5636d1e6abaa8f414"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "3f5552623985fc4bdf298439d5463624462147c2a829bf60586af2540fac9d8a"
