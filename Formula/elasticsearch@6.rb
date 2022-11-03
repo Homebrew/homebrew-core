@@ -6,12 +6,13 @@ class ElasticsearchAT6 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4db242272e294706f8cf26a6d4d33b8c68a9e47db10d7d8ca84d2a3139a39311"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4db242272e294706f8cf26a6d4d33b8c68a9e47db10d7d8ca84d2a3139a39311"
-    sha256 cellar: :any_skip_relocation, monterey:       "3d77a4b086fa69e59b3f33b344131868588bcb558035b862961e514a0c3273e4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3d77a4b086fa69e59b3f33b344131868588bcb558035b862961e514a0c3273e4"
-    sha256 cellar: :any_skip_relocation, catalina:       "3d77a4b086fa69e59b3f33b344131868588bcb558035b862961e514a0c3273e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae05feeb52801460e639d2440e3a523c4d5d0ca0626cc609cfb2dd1414fa5101"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5fb1d3e9bcae848e77b8041e8c870806d4dcf7977ad5c75c6849c4162f16f816"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5fb1d3e9bcae848e77b8041e8c870806d4dcf7977ad5c75c6849c4162f16f816"
+    sha256 cellar: :any_skip_relocation, monterey:       "c76ba900eb45c5187af15e086aa14b5de3455e447b926909a8e27d518cc39c00"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c76ba900eb45c5187af15e086aa14b5de3455e447b926909a8e27d518cc39c00"
+    sha256 cellar: :any_skip_relocation, catalina:       "c76ba900eb45c5187af15e086aa14b5de3455e447b926909a8e27d518cc39c00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53077defdc696108ea6436fe66aba3b5b6eae9158b5ea2bcd10c015b8c6689b0"
   end
 
   keg_only :versioned_formula
