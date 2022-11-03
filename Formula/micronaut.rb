@@ -11,6 +11,7 @@ class Micronaut < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "853f12f7b92b5490da59616c11ff3038a307c55498bf80dbd75cf9bc1b624825"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a9890c60de747277735b7fc8944031f2f54ecd6dc23e8d238e065b0256e53a97"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7877aa077b061478919e68125249ff29a37771423229fe8c333a002d13fbb3a5"
     sha256 cellar: :any_skip_relocation, monterey:       "fbde03d6f09f186606a0ed628455cc3ad4ca70b2eac912fb0d896fb48f76a93e"
