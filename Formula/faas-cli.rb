@@ -13,6 +13,7 @@ class FaasCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a8cfbd1a539f778f6448a378788f5550728dff0956cc72bbe45ebcdca5ff050d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fbe35a25557fb6892fbc7fccedc38ef1ce82bb7386833cfdb8b799e9fbcf3466"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04f50927e961e66814de210ac7bf0deb798ea0e0bcc19886a651b6ccb6ff0ca6"
     sha256 cellar: :any_skip_relocation, monterey:       "542d0bb7109174c47fe7839d4cdce0443bd52750203a0b6e47136b8d55ec7816"
