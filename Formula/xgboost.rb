@@ -7,6 +7,7 @@ class Xgboost < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3519bff1d9d50e11b0426f7e0d4c46f90472816e15d50bd43b47b3444765ab8e"
     sha256 cellar: :any,                 arm64_monterey: "bda1bab8a53816e42464af9d678031ed20429e2fbd41db80c36ccfbd7f6a20d1"
     sha256 cellar: :any,                 arm64_big_sur:  "06530ace9571079254a75a94909cdc667acba978dcf6674a75ffed633ec7c0ec"
     sha256 cellar: :any,                 monterey:       "36adf45b463ce0fa81eee86d27cf3b4fa1d7a9536cfe5a6fbee2673d94fca194"
