@@ -1,8 +1,8 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
-  url "https://download.gnome.org/sources/libsoup/3.2/libsoup-3.2.1.tar.xz"
-  sha256 "b1eb3d2c3be49fbbd051a71f6532c9626bcecea69783190690cd7e4dfdf28f29"
+  url "https://download.gnome.org/sources/libsoup/3.2/libsoup-3.2.2.tar.xz"
+  sha256 "83673c685b910fb7d39f1f28eee5afbefb71c05798fc350ac3bf1b885e1efaa1"
   license "LGPL-2.0-or-later"
 
   bottle do
@@ -19,7 +19,7 @@ class Libsoup < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "vala" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
