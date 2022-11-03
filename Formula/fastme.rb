@@ -11,6 +11,7 @@ class Fastme < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2fd457f0c0d96cca6a317824fb8feb6beb3ff7f0af1592f957e405e69ef54014"
     sha256 cellar: :any,                 arm64_monterey: "e7530d4c95fba744512d6855a3c7fe472530274842a0e32b36fef471b5e36905"
     sha256 cellar: :any,                 arm64_big_sur:  "52c11335206aa05d8be9dc67fb4b13bd2fffa40d0bf6cefcb68ac11e29a42864"
     sha256 cellar: :any,                 monterey:       "fb8ceaba186e055830afb68ecab9a13d1da3e067a6d3043fcddcd193c4a72026"
