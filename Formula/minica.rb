@@ -6,6 +6,7 @@ class Minica < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecf3d68d4a4e348da0de9a156062d4c45cab04506899a74f11a84cf1af7f9402"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae5f85025b2ad73a25fb69c777587a5660ab40f92e148c561df8f9aa54544356"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e6f68245edcd602ca5fe8ab2b98c5aef62e826bc1e5f6660c710d886c308bc8"
     sha256 cellar: :any_skip_relocation, monterey:       "3d812f951cbf8acc0b39ceb8a8aec45a7e10d0ff96b697c4b8e34efdda458837"
