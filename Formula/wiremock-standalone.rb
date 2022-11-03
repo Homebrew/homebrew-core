@@ -7,7 +7,7 @@ class WiremockStandalone < Formula
   head "https://github.com/tomakehurst/wiremock.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "241aa43f895e0419ba47f5cc35fa2642014c32943f842c68a198eaa167c78f16"
+    sha256 cellar: :any_skip_relocation, all: "cf5d7cfa1ff79a55030816f8569480bbedb6221bb0f7900525d29b3793c4c4d9"
   end
 
   depends_on "openjdk"
