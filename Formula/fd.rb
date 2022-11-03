@@ -7,13 +7,12 @@ class Fd < Formula
   head "https://github.com/sharkdp/fd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82e95f39f0878dc71777d11d1fc48c569d2d8ff3547d34415790c0b7727c25ce"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c60f538e91a7d3aa9a58796591481aa56f40403cff30f815a95a878d6a47b4c5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "75a630fa700af78a8811260aa0a7cb32ffdcc08d081af62e2ace45f014abdbe5"
-    sha256 cellar: :any_skip_relocation, monterey:       "8b8a1dd1aefd695ed351742bca5a63947be2f920fbdeb5450d37704fdbf51422"
-    sha256 cellar: :any_skip_relocation, big_sur:        "db002a0e9938e9d67e4c42b3aa496cb593bedf0f16af7228294b0fcd3571059a"
-    sha256 cellar: :any_skip_relocation, catalina:       "bc79b6a44e97187ec10587407803b3d066248cd7da6088a4fad28c1c5e488415"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f91029a001585eaee0675c876e50b729b34f5f1eed473e4f2515df6e90734c73"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "82a08148076268cafd169b92060efe1296a4dd829ba86326f39ed6a81a5a652a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a7bbd5f1ad51c5a1a5c954aeb18acd7d3ad87b97fb1a0000ed4769aad3c24b5"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c9fe2714102de4053b37bd4277016813c672e23515fb68a0d091a07ef82b8aa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "79486b2d4a4382ad07c32115f19aaea1748861a388b3944d5a01bdf44d8931df"
+    sha256 cellar: :any_skip_relocation, catalina:       "f798baeb8004263db559093795473a21f18bd0b8382055409d20addb4ff24eb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b74b028ad4b0efa85811f595dbcbc5612cdfe58a37de107bba9dab1256c4e3d"
   end
 
   depends_on "rust" => :build
