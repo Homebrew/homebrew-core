@@ -33,7 +33,7 @@ class Llvm < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "z3"
   depends_on "zstd"
@@ -67,7 +67,7 @@ class Llvm < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
