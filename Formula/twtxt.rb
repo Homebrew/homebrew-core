@@ -9,12 +9,12 @@ class Twtxt < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "06609d6fc2cd1e679ff36743d850188df2106b15e42dd31d82f0651b594f6ff7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f00bcc5c4468cce5d0d86c4aa8a00f0eadc1e1bde66ed0f4efbedf483dd4feaa"
-    sha256 cellar: :any_skip_relocation, monterey:       "703ce2cd2ebb6f8e9deecce0040f6288b42fdeebdf2916474e38fbecd845994a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fa436182a6dff76d05e08d961416e0cfda5bc2f6c9de941a9279505eb8eb8f91"
-    sha256 cellar: :any_skip_relocation, catalina:       "2a3fedb2649144f01a185ef50877df948ceddf34ef845b09777c2a78316a2b70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5516287f7154126589439f338af3f1e496f6dd62a190b39c3abade3eb2e43a23"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "80c57223d2a057ffb2db91916cf0f036c5d5e78972d198f575130c8ba97a1df3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f11e987889094010f71567b22767c88bc6ddb29a1302d178f54a48b607c8c916"
+    sha256 cellar: :any_skip_relocation, monterey:       "733feaaff1a0e67b4463da007b93e44afe02f7012bb0b6509e706dca5d54e650"
+    sha256 cellar: :any_skip_relocation, big_sur:        "641aa5337a1b289ae3573f31b42919d1f8fa23eeeaad3eceba161a0e6b80bf90"
+    sha256 cellar: :any_skip_relocation, catalina:       "5a31a2d6dd90bf86adc543d4edd54dae9d808d6941a62ddc5584e8fb258505d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f7ce8447ddf657df524d8f58019c3930fd44493d06402c716d1d341d2bb3f05"
   end
 
   depends_on "python@3.8"
