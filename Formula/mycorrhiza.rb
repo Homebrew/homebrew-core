@@ -7,12 +7,12 @@ class Mycorrhiza < Formula
   head "https://github.com/bouncepaw/mycorrhiza.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "36c2d17e005bf69070d82ef3ff8f19d90e5ae9c8cf9cb8957c3822292e07bedc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "285db6811ec3ada179514a4bd3a427dca0df4cfe1f34e2734c1c6db6511c382d"
-    sha256 cellar: :any_skip_relocation, monterey:       "22227f813f2890cdea199a784f372bd5506689ecc382bb8ccf2c8babd1f22350"
-    sha256 cellar: :any_skip_relocation, big_sur:        "033ec3b22f68f5fdec98a2893c090d7f80a20b07a6a2f601930d714ad1d997ab"
-    sha256 cellar: :any_skip_relocation, catalina:       "48a2eac664f134599e9895bdc69f1fa9ea95fd676bdf2da852d8df0f8cd5473a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6f98d8f578105bdf4120d547464d28a2f45f949a38d4dff55625dddf95a1e0f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd52032b2851d3e9559ca4a3468547f3707788a5e83a0297be42e3691a272723"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d76f4f141b6a275a4770992cda4c691168154d56efb9379dc7a91353f4b54271"
+    sha256 cellar: :any_skip_relocation, monterey:       "5a7755dd442a050781cf8ede035969b303bd7f9c12c19e713e3bf8a625de0073"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1898fbba1e922a85c0037cb03d50daac27a3169748b67c66c076e3e08e0a42d9"
+    sha256 cellar: :any_skip_relocation, catalina:       "7658845872ea924c08a3a7c03bd26e54893f12b4755b07c52f30626e9d0140ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7499f837d94adf4d92b40d8b83c6fe3db2c7692a5c630862159f061b09fb4ed0"
   end
 
   depends_on "go" => :build
