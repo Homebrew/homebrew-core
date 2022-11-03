@@ -10,6 +10,7 @@ class QtMysql < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "079661fd6d4a2e8790adf0987db4e8af69ae476a827546fd7646c21f4763129e"
     sha256 cellar: :any, arm64_monterey: "ed655e593a0f04f1f2ef4a6e69c9850b5e8230e491f487fe9daa0949832603f2"
     sha256 cellar: :any, arm64_big_sur:  "09296c51249c4bbcd2e8287d6804397924bd4267c1e367f3d64402ef88cf1d84"
     sha256 cellar: :any, monterey:       "e94c38f53df5002b3e07ab4f6721bacb2a1cca934340c25fcf317a3b0a42acef"
