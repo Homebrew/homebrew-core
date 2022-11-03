@@ -8,6 +8,7 @@ class Jrnl < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "29ade74e3a427e4d3d4dff3324cffff140818698355868523b863df0c7cd4c0e"
     sha256 cellar: :any,                 arm64_monterey: "89f649fa2939f3daf4ccd60f08bf1de6666002e7cc2c8c1cc883a26743480484"
     sha256 cellar: :any,                 arm64_big_sur:  "27dcae8a5b14ddbbe85a3c210899aef56195c96405e0446c84a8619ea298c708"
     sha256 cellar: :any,                 monterey:       "660324415c728548a09ddc4aca23ebea93ad2bce3691f6082fe1f8159bc27584"
