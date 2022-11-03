@@ -7,6 +7,7 @@ class Verilator < Formula
   head "https://github.com/verilator/verilator.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "c04c58b6d86b02df1e878d6ee889600a406f639fc3ceae334ca0d118bb4caf2e"
     sha256 arm64_monterey: "cec176513d3bb689ae84f4201825fd1bbaa1294d33b654e04833d2f57044ed30"
     sha256 arm64_big_sur:  "91b0279e48bc38f89928fd02fada9f0fcd89bccf7b6d1c944dd5106a92c32c28"
     sha256 monterey:       "49cf2ec7dc6c68e91c8788b3a93ce55002cf44005139441c381a14ce1859039d"
