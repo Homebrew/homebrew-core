@@ -8,6 +8,7 @@ class PipAudit < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d88c5d9e74913268fe9060b0b715d141d37ccbfb39becf3aa0d79326358d228"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e5ee26a0788475e24bc8f07f675b807e8a0872f6a25df4ca264b75f2e55b537f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "37080ea353d000305ed7ceaa2afccc517a981cb1e55deb4e833cde68acef32f5"
     sha256 cellar: :any_skip_relocation, monterey:       "97366b8ebcd201b6fb13bac6791581655bb314310e49a1f290725aa96878486f"
