@@ -13,6 +13,7 @@ class Treefrog < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "7f8a656ccc4652e2f3bb6f0a4bd9efec456987d00aeaa248b12d61eca5bd6457"
     sha256 arm64_monterey: "50a95c4bfbbdb9b917d2fa7d48c4088d8562ab7bc0fee4577b77233beb5110ee"
     sha256 arm64_big_sur:  "6f9ab601a283b8d09ed126ea56c211a20c6402e3a1f435bb3414106404cdf206"
     sha256 monterey:       "1f978cde3384620e8949fe82bf351d0c9a41cbfd305d3fb4003045ef3319a4e4"
