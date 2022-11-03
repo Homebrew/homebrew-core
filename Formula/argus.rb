@@ -11,6 +11,7 @@ class Argus < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c77cf2ebf326271560f9ab2bc5e50889133cc8ea1a39c5a719b4016710c3c764"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e1b3fe3a7c3dd11ee63dbca00091b02d68f821087efb4343ce4136137c36295e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3b0421c50d060c2f6812a9b10ee5121336f80306a96271819737903ec98574c"
     sha256 cellar: :any_skip_relocation, monterey:       "8482631be1b4bd57043075c0dc9d05f54c6188eab3119f91a88c239f59eda4ab"
