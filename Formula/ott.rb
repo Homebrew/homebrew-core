@@ -12,6 +12,7 @@ class Ott < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b202092d6fa42298024e584a97fd3349c500db3804857407c143656c5300699"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "511bf3f6279cba0c1714a9bcbc91b2b988b3407f5a9ffdcab04528bf1045a4a5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dfaa3e076ad777bb50da8904c52eb7742fb9158747d7f83bec71542f871972d"
     sha256 cellar: :any_skip_relocation, monterey:       "09ae9f15978dce2f09f98d3ee1bd0ea77f53bf9872a9f2270a759abfc85b6a5e"
