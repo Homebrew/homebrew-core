@@ -11,13 +11,12 @@ class Cpmtools < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f11ea8bafd7bf4befef1903f1fc6635210a9372792fb80ab2bcec3ca30882015"
-    sha256 arm64_big_sur:  "15e7282d0aaab6c0fdcba963da488dc134a3a91cdf386f975531ad6cb412eb4d"
-    sha256 monterey:       "99d41c418cb5bd93df5611972aa2e34471121caac053e789758b5d4f52732c92"
-    sha256 big_sur:        "72ac1f5c8c685e8a8e9e10ce3ba100883473f9578994752d0bcaab1bb987d27f"
-    sha256 catalina:       "d685ce1a2f98dbab825d3b7c7584303214682f55fbd4222740a314ee9225d3e5"
-    sha256 mojave:         "189b7777108827592800a7b8182357721a5314d2dae1559ec0d3663d5072870b"
-    sha256 x86_64_linux:   "383545b1998781d320884df6f77fb354e81fbb1d482140f7a161548c4cc760b0"
+    sha256 arm64_monterey: "2324010d143ab9616a622b9d147b7aaf256feed91b05ee18226c8bfaa14f956a"
+    sha256 arm64_big_sur:  "c3488e8102d67d29360061444be429adab96c2f6bff0d679af380846be8b9926"
+    sha256 monterey:       "01243a514e68e3d3dcc59a183a17e52c8101bd53ec3482692aa53b0790f90026"
+    sha256 big_sur:        "feb6336a2eca5551ead4c111c3b3dc2f6d30b1b4f26b5b9845afe70ff4362165"
+    sha256 catalina:       "21f01ac740cd1f784a1cb888ae1959df797deb5a06535c3ac9340feb04582339"
+    sha256 x86_64_linux:   "c0808ec1572a5afa52930067fef0ea776df7de12aacd3357e014edfb9e80a3e6"
   end
 
   depends_on "autoconf" => :build
