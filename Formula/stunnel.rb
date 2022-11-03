@@ -11,6 +11,7 @@ class Stunnel < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6b2e1a1f0cd77b6ba502eda29afd41ed4206923d98d9e49a9e12ff3dade2be61"
     sha256 cellar: :any,                 arm64_monterey: "b6f21a7a7aae8934324cf27798f14dbe6e6d12fc33355dcc787bee438c67734e"
     sha256 cellar: :any,                 arm64_big_sur:  "bd42513cfb34768bede1f403a525264792e9a0154371444bff812fe1240fad42"
     sha256 cellar: :any,                 monterey:       "ec23a90b002b6581abc3392fc1831ea1caaca2babaf325372dbb7a0f36a9cf6e"
