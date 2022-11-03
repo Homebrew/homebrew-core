@@ -7,6 +7,7 @@ class Goplus < Formula
   head "https://github.com/goplus/gop.git", branch: "main"
 
   bottle do
+    sha256 arm64_ventura:  "d5c30712180a7c9a55af310a414bc8861b962fb0d00bbbf95c0d93e0dc0c20cd"
     sha256 arm64_monterey: "3bbea21b81acb18f2dd31d8dfae195b6044aedbe56c6dc092929daa6cf99556c"
     sha256 arm64_big_sur:  "687641bddc2d20cf7a52f9dd4868974011ab2e13b962d5f1fed0718025c97bbe"
     sha256 monterey:       "c57bbd4e51542b467c353d46485eea935ec9781c35fa7e7d82c795226d34624f"
