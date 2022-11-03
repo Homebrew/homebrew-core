@@ -6,6 +6,10 @@ class Libdivide < Formula
   license any_of: ["Zlib", "BSL-1.0"]
   head "https://github.com/ridiculousfish/libdivide.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "6f0fc74fe9862fd191c01c97b21444c6d29d3c754e19a400b4fcbb371f490fb1"
+  end
+
   depends_on "cmake" => :build
 
   def install
