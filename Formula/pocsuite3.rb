@@ -17,6 +17,7 @@ class Pocsuite3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b02a15eace7113edd966fc006efb21f912fbac1ca0858f8d3fe95b49bf92aa8"
   end
 
+  depends_on "rust" => :build # for cryptography
   depends_on "python@3.10"
   depends_on "six"
 
