@@ -6,6 +6,7 @@ class Clblast < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4e3241807573e4d558bdf6bef9e04b54fca51d9639fdacb8ae1ae79a43e23565"
     sha256 cellar: :any,                 arm64_monterey: "774f70ba7ac65ec99e8a543ab2dda95acd566e60c423ac23b3e176117ef52664"
     sha256 cellar: :any,                 arm64_big_sur:  "46c2acd40dfdb2cb21f14c80273ef4a2d0f7ecc2d2b107ded0485602d397b42c"
     sha256 cellar: :any,                 monterey:       "a4f1ee6cca9530e84aa3bc0e409cbca95d633a66187b4e82328dbcf575f71ee5"
