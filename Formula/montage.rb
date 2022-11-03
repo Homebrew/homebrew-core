@@ -7,12 +7,11 @@ class Montage < Formula
   head "https://github.com/Caltech-IPAC/Montage.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "304f02cffd94ee9e118026fda40db0f27d4ae25c2d42c74e45b3426d11f1ed3d"
-    sha256 cellar: :any_skip_relocation, catalina:    "0335521dd15d7debbfb5db21efbf5f751c571d406fd91aeaa9996226cca63d33"
-    sha256 cellar: :any_skip_relocation, mojave:      "ee1b94e776a2ad68ea41b1edb6a3fb549c43bb373f3f7b9fb3709e4e4fbbb4e8"
-    sha256 cellar: :any_skip_relocation, high_sierra: "3a8fab4097bd0dd0524a5a482065284d35ea0fdd946fb1f5d5ea1e103f5d4443"
-    sha256 cellar: :any_skip_relocation, sierra:      "70b1769202095b84da05fe00a1934d8e8da3fd08b7ddb7135937f4cdc0107f07"
-    sha256 cellar: :any_skip_relocation, el_capitan:  "503c3e946aa0d8f277b5e4a5aab75086d5c895551fa679a3129183b95f89b236"
+    sha256 cellar: :any, arm64_monterey: "32ca9b9c2b38f96f315089ea6a0ac53a1e46a56d5a19e8448976728a7b61e770"
+    sha256 cellar: :any, arm64_big_sur:  "f11424edd9f5e990992a1f3ca2109bab5b379cd1315a20f6aca9325737451868"
+    sha256 cellar: :any, monterey:       "7bde65d353daef1efbc2905d9020dc5be21209432acd60082b7e846974b13e59"
+    sha256 cellar: :any, big_sur:        "4b0e265c15f132b49b7f92f181c9d68f92c5b2a7150b36ebada3af966401d733"
+    sha256 cellar: :any, catalina:       "fa8e44313ba11b9784a9ae19a993613c5eaca2089ef7c50ac72ef486fb06d7a5"
   end
 
   depends_on "cfitsio"
