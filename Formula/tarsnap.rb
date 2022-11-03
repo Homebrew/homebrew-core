@@ -12,6 +12,7 @@ class Tarsnap < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "fa9edee032f8abbc50104c8811279d8b120a911ecc5091a281b6a46a2a234f92"
     sha256 cellar: :any,                 arm64_monterey: "2f85cb28a47e95f3c56f4e8f46fd0dbc93fd08e4bba009316496d0cfbcbf97c7"
     sha256 cellar: :any,                 arm64_big_sur:  "1568e243b45336f4056edd5b318089467241896d2e61495cc96d0ad69cdf3faf"
     sha256 cellar: :any,                 monterey:       "f63b7b06c773b38efe542a851cd978b21019c2387c54afb63be12b4341637e30"
