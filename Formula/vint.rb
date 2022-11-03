@@ -11,6 +11,7 @@ class Vint < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d2fa3224e879167c8908d86811c9fb83900055a35dac7a3d47f448ddd014e1c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8b84f191c3c9b90fc07f82836076c7809328c2fd008a2a84c4694d67106a25eb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b84f191c3c9b90fc07f82836076c7809328c2fd008a2a84c4694d67106a25eb"
     sha256 cellar: :any_skip_relocation, monterey:       "d8d2ea2896fd08da1c23fa6016a78598e1aa81f6f30abbb7eb45be920aabc228"
