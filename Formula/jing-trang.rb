@@ -19,12 +19,18 @@ class JingTrang < Formula
   depends_on "ant" => :build
   depends_on "openjdk@11"
 
+  uses_from_macos "unzip" => :build
+
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
-    system "./ant", "ant-jar"
-    libexec.install Dir["*"]
-    bin.write_jar_script libexec/"build/jing.jar", "jing", java_version: "11"
-    bin.write_jar_script libexec/"build/trang.jar", "trang", java_version: "11"
+    system "./ant", "jing-dist"
+    system "./ant", "trang-dist"
+    system "unzip", "-o", "-d", "build/dist", "build/dist/jing-#{version}.zip"
+    system "unzip", "-o", "-d", "build/dist", "build/dist/trang-#{version}.zip"
+    libexec.install Dir["build/dist/jing-#{version}"]
+    libexec.install Dir["build/dist/trang-#{version}"]
+    bin.write_jar_script libexec/"jing-#{version}/bin/jing.jar", "jing", java_version: "11"
+    bin.write_jar_script libexec/"trang-#{version}/trang.jar", "trang", java_version: "11"
   end
 
   test do
