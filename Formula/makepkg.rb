@@ -8,10 +8,12 @@ class Makepkg < Formula
   head "https://gitlab.archlinux.org/pacman/pacman.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 catalina:    "fb89c76eb6c2a50b14d2380ad1440b37f96e86f39d5bd60378ab5ac85cd02b08"
-    sha256 mojave:      "b6606a63e0727072c1016ffa8b60db28de0de67d3b5d3f495aa8d0728b7325c9"
-    sha256 high_sierra: "c8f2f6999669c56b5e40e2608ad1e0adfe2c8eb73f8cef959a229856d21da6ed"
+    sha256 arm64_monterey: "5ca7e70318a15047c04e49bfea4f0ef3ec0d7da76979d9c022d8ebffdc363a8c"
+    sha256 arm64_big_sur:  "4bfbabe25969b1139c9ec3dbe49ca4f8558c130b75562a9e519de8867aaa5056"
+    sha256 monterey:       "42c8e986de6528e53105bf589ce88d04ea55ed1eba44004b8b2c391d2291c1d5"
+    sha256 big_sur:        "0ccfa9ec3e4b23998f7e64f0c0ea4f3594a29b25de2e79cf143a79f505aaedd3"
+    sha256 catalina:       "4cf043ba4fed67c8af65fff9c0e7b9f711db3f759ba428cb415e1a750fbaa32c"
+    sha256 x86_64_linux:   "c36e4fed92a9b2fffcb2280afa507be8c3b3b750e754c2eb0a10d4a9f8bd10e8"
   end
 
   depends_on "meson" => :build
