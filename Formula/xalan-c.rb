@@ -6,11 +6,6 @@ class XalanC < Formula
   sha256 "ee7d4b0b08c5676f5e586c7154d94a5b32b299ac3cbb946e24c4375a25552da7"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/href=["']?xalan[_-]c[._-]v?(\d+(?:\.\d+)+)(?:[._-]src)?\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "7c3a09c8295eee985ae29bbb413117f3bcf561c2fb12ac2cf694812a0552a402"
     sha256 cellar: :any,                 arm64_big_sur:  "68fa397917ca7521f087e321c3f2c5201fd4692bdc61c7f807386ccfa2080486"
