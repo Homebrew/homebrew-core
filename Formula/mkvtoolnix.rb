@@ -12,6 +12,7 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "50c1db0db4bdab6e6b76d55b6ed4dab7c675f69c128b795e7fbb17974c607b1e"
     sha256 cellar: :any, arm64_monterey: "47fbf6292b21cd544b173155c0942131bb95a799c0982a7151b9afb38ecd0b3d"
     sha256 cellar: :any, arm64_big_sur:  "c765e99a54991f700b70aac2c5f34ab7516230abb80560d6de0110d438ae6f01"
     sha256 cellar: :any, monterey:       "8974095f1b4c0a6926ac49a11cf8a51bf890baea4aa152d134165327bee2e97a"
