@@ -6,6 +6,7 @@ class Ioctl < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "692fc8bf140e6a015178429382d0fe1dbbc6d74ae23e43e3a4a3c56929753ca5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f19de14bf600726126a15ac1dcfeb6c9b3d5663fea4a8aaaf0cbbcd6b93600d2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4350dde4410147d7e3a937c0ec8b67120882785fd21b67138ec15df65c59a711"
     sha256 cellar: :any_skip_relocation, monterey:       "5955f7493b7ffa0f366d10a77f636ae0743df954daaacbf159a59441f0511fa0"
