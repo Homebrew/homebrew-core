@@ -8,6 +8,7 @@ class Choose < Formula
   head "https://github.com/geier/choose.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ac0cdbe50a8545762d80f5cb75a3ddb88c255bbfe5d6b556f6b078d6aa1046c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8cc4e4eaabc3341ed4728d11d5cee96f7954d6d24bef173d1848884581ddf1f9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b715be8453394e1f1931994780ad42075c05d483d24257ef1226054ff2b450e"
     sha256 cellar: :any_skip_relocation, monterey:       "ed6b3c62ea97cf196ce3843bb855c75539e756e6a582d48957cce31286a0626d"
