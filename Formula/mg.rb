@@ -7,6 +7,7 @@ class Mg < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "478be534a09e6185a1c0047aa893d4016401ae4a81dc0177651a3c7fd3789b78"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3052fc6f184a489918dcb2f59feae7c25e11d911e4b507e2d1a1f74dfa981a20"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22ed7427d1bbe11394d61c776f7bd2d8aefa2669a4159e81196c8d4bb706f723"
     sha256 cellar: :any_skip_relocation, monterey:       "39a073c05e204261444939e0e1fbd5aed12c2bbab7a787f713a463a9f4ce6855"
