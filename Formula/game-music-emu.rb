@@ -8,6 +8,7 @@ class GameMusicEmu < Formula
   head "https://bitbucket.org/mpyne/game-music-emu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c33d21ce67a78b16cfe0e2e68372c62df99bec7d7c73ee20e9acece876ae2e0b"
     sha256 cellar: :any,                 arm64_monterey: "1346614b5a9561f7eaace297b5493eeb99ec4c3e561acc65669ca6dbb0cd6793"
     sha256 cellar: :any,                 arm64_big_sur:  "e83fbee26086cc93f7d2eed7d3b93f00a0a0c9eb9d59abf3aba91216fe89d3d8"
     sha256 cellar: :any,                 monterey:       "7b1e5a6934c8ff16fff726c1963e465abd11458f5773f26b38ce8771da3289a1"
