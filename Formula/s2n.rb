@@ -12,6 +12,7 @@ class S2n < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "01a5b9a4a9e8f900891fec27de29acfb2a8e6df553be9477e33700b54bc5099e"
     sha256 cellar: :any,                 arm64_monterey: "8f4422418940c5111ffebed8af206f53a27ca36f1af81c331e169ee223a0454e"
     sha256 cellar: :any,                 arm64_big_sur:  "6e67c463d23da7c9d770b5fc80224ce57b5f39285d2aa0982bfc53f65b9816bf"
     sha256 cellar: :any,                 monterey:       "be1a1f7cb1fd14e8a25cf96508c0de41adf8957ca5293e88b81a38529cadf474"
