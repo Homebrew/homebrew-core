@@ -6,6 +6,7 @@ class GpgTui < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "79942290b479b7f6b342663ad5b0f3f4213a7c8981fc11f44fd8f48da678b88b"
     sha256 cellar: :any,                 arm64_monterey: "ef7e0576b4914ac1512731c22387a9b7b4aea3320d55f697bbda1245ea4448e7"
     sha256 cellar: :any,                 arm64_big_sur:  "b0c6f1cfb61dd6be121d5f2653b517bb5c2f0ecceaa3d111f4cba2a243d9a8fc"
     sha256 cellar: :any,                 monterey:       "b257a8c7f576d59f4a1d18b353b940f146b16683b30ae7d35644f94d0449e6b7"
