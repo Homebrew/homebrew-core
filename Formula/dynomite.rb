@@ -11,6 +11,7 @@ class Dynomite < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "757afdc3438ad136afef540fee6a07e42a51b3c1bbde3a25fb13bd19e5807d33"
     sha256 cellar: :any,                 arm64_monterey: "682e0e5ec05ccfdd2fe8142083153dc6a0c14d3b1d7cc8c0dc1cd425aded9e41"
     sha256 cellar: :any,                 arm64_big_sur:  "edd9fad6b17b83dbf2d2699c3873463ea169a996fed83e861652bb5f92de4d7a"
     sha256 cellar: :any,                 monterey:       "5679f89f06a1f5ac53e3c4d2481f35e944238be44579423aab64077e5033c637"
