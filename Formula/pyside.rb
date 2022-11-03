@@ -3,8 +3,9 @@ class Pyside < Formula
 
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.3.2-src/pyside-setup-opensource-src-6.3.2.tar.xz"
-  sha256 "d19979589e8946488e1b5e01ac0da75ab73b40c901726723335e160241a56892"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.4.0.1-src/pyside-setup-opensource-src-6.4.0.tar.xz"
+  version "6.4.0.1"
+  sha256 "6e5be5defccacd21ec7e2579d6d6493366dd8e00f8899746abd174f1eb1eff14"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -58,7 +59,11 @@ class Pyside < Formula
               "in_build = Path(\"@CMAKE_BINARY_DIR@\") in location.parents",
               "in_build = Path(\"@CMAKE_BINARY_DIR@\").resolve() in location.parents"
 
+    # Install python scripts into pkgshare rather than bin
+    inreplace "sources/pyside-tools/CMakeLists.txt", "DESTINATION bin", "DESTINATION #{pkgshare}"
+
     args = std_cmake_args + [
+      "-DCMAKE_CXX_COMPILER=#{ENV.cxx}",
       "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}",
       "-DPYTHON_EXECUTABLE=#{which(python3)}",
       "-DBUILD_TESTS=OFF",
@@ -70,9 +75,6 @@ class Pyside < Formula
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    mv bin/"metaobjectdump.py", pkgshare
-    mv bin/"project.py", pkgshare
   end
 
   test do
