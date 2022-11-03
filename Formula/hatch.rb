@@ -8,6 +8,7 @@ class Hatch < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c0edf5eb40fdc5550b3d0b06c82a682c62a562d53d146f8cae9bbb229606059"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c6096deba0b8dc91b42c2dbfa6ce2f1cec8dcf3b2bde973d9e6850512b769c57"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6fde49c54f8887cd7a0935a01f7c8bae0953d7e09b63ec99d1046a64a74a432"
     sha256 cellar: :any_skip_relocation, monterey:       "b3d8ff0a1c211a953fc52088a8b759313608a573cb2489c5bda3da7d57cda221"
