@@ -7,6 +7,7 @@ class Pkger < Formula
   head "https://github.com/markbates/pkger.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60e6b82bbcce354b6e9faf9ed7023188976e56abc9cceb4b4596b09811b38bb7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "677020e6ec87a85f8fc6afcb819227b9d233028ad9aecf58933b3d741addecfd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "602233db9e62865199a0e6dda19d96e258a43c596ef588d6305b62f43c09c577"
     sha256 cellar: :any_skip_relocation, monterey:       "09e484a3e4c58f1d8245a3b672d7974da5f7b9aa9d4bbd7a3778ac5f7fec43fc"
