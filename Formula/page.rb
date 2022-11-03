@@ -7,6 +7,7 @@ class Page < Formula
   head "https://github.com/I60R/page.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c0cb777faf6f32bceca405d865b0c7d538bd2f9d20617c00388b7555e0fb0a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "297e5a44deb6102021e2b02b204da43603677229591fafe4a5034d106098f4a8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "03d7a0384cf947530155e49b60922cfb4c5c48cdb676496e8940ff61f065ae71"
     sha256 cellar: :any_skip_relocation, monterey:       "c33a9d4f280da8f74bca54f2fa176c35141c4e5fc5d479e8148fae8ad62156ce"
