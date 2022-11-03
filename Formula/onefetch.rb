@@ -6,6 +6,7 @@ class Onefetch < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "858e2abb7e597b7fb2788e8b4e2dd92c144789b1278492eb4f518b417d57c436"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b0c41ad94403092586cff22be00105f6c502b43412782747cfb8f9c42f5e2d0a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7bd8334d386fbac3963888e30c11e5469de2c9472f4f8788c8ec59103d7cb8ac"
     sha256 cellar: :any_skip_relocation, monterey:       "599c88ecf5b13feaca0b1c415ee08f6e4a0bf12e4de45b1fd884aa0bee109f85"
