@@ -13,6 +13,7 @@ class Calicoctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c6ed8e02e6488f7cad4c8c435b0f1db0c7d82205a9aaed4537cc7c7b5e5809cd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c0172617367c1dfa3b617719edaa216b8be8fe9828e315e4c7328bcb8bf8c090"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45dce9a55d20a0a32d6bc0a2548bbe8c0901ea339e17b4f486a2ce9df312ca5f"
     sha256 cellar: :any_skip_relocation, monterey:       "a9be07979ecfb710b6bab21103125b80c37c04a65a921cfa20d69cea1ca4a2ed"
