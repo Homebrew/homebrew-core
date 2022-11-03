@@ -7,6 +7,7 @@ class Ohcount < Formula
   head "https://github.com/blackducksoftware/ohcount.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2651774c46561b5dd0c6b71c9db1776367cbd6f31b83471abbe4ba54a92499c8"
     sha256 cellar: :any,                 arm64_monterey: "4d5cc69e38917712d81bfb15e4cd044af67b6fdc3b4229e6030656dca705e8c6"
     sha256 cellar: :any,                 arm64_big_sur:  "43a0bac3974271a961f6cbb035aeb37e0f63e6fc05200bdf8b28064ca7faf128"
     sha256 cellar: :any,                 monterey:       "c536c13d4e615310df75e452d175b13fc036fde61675adba34b89851097ad814"
