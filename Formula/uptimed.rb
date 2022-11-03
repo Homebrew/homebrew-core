@@ -6,6 +6,7 @@ class Uptimed < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2a1f7a34e47c0ed613fdea3ce29fa96c9339c8eab89b8d0bac9dff97c39875b4"
     sha256 cellar: :any,                 arm64_monterey: "fe2014e9e8554a794a76538e627b3f7ea2061ec80b8397cbf59a73eb122f0448"
     sha256 cellar: :any,                 arm64_big_sur:  "35d18dbe25c5f32c163aba74b1c3bd76bef2d1e56daa157b0ee69b9260d31b03"
     sha256 cellar: :any,                 monterey:       "b7d4687e1268f63e2db6c206e3c689f12e1551d33486e76d6bd2630a7a222e5a"
