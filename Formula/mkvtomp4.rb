@@ -10,6 +10,7 @@ class Mkvtomp4 < Formula
   head "https://github.com/gavinbeatty/mkvtomp4.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7333fbed74310c9608f8d766c9a081e3df47d7ddc82e17a677d9c850c2958d16"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a4d94026b3160bc225ef4d7b7ef96207371b72d5f3e380ceeccd74cb32a2edef"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a4d94026b3160bc225ef4d7b7ef96207371b72d5f3e380ceeccd74cb32a2edef"
     sha256 cellar: :any_skip_relocation, monterey:       "c43fc3241ef8e5a5f350a8ecb27f81d72970e3444435a2e18f9b75df005e2bab"
