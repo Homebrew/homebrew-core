@@ -22,7 +22,8 @@ class Eventql < Formula
 
   # See https://github.com/eventql/eventql/issues/366
   # Also requires Python 2 to build older bundled SpiderMonkey
-  deprecate! date: "2022-04-23", because: :unmaintained
+  # Original deprecation date: 2022-04-23
+  disable! date: "2022-11-03", because: :unmaintained
 
   def install
     # SpiderMonkey sets the deployment target to 10.6, kicking in libstdc++ mode
