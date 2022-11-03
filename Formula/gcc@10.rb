@@ -37,6 +37,12 @@ class GccAT10 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
+  # Fix namespace collision with macOS 13 SDK
+  patch do
+    url "https://github.com/gcc-mirror/gcc/commit/7137ae40.patch?full_index=1"
+    sha256 "6b67de5ad46a0cc07275f3d09ee5ab42c6145c986f9cf1495175541e05dc0374"
+  end
+
   def version_suffix
     version.major.to_s
   end
