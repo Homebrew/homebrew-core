@@ -1,8 +1,8 @@
 class Gmailctl < Formula
   desc "Declarative configuration for Gmail filters"
   homepage "https://github.com/mbrt/gmailctl"
-  url "https://github.com/mbrt/gmailctl/archive/v0.10.5.tar.gz"
-  sha256 "53410051ad246e452878d7b9de241a7173f588ec2b68f02adb40e7ec01b16912"
+  url "https://github.com/mbrt/gmailctl/archive/v0.10.6.tar.gz"
+  sha256 "85757469561fd612209c8d7c5146b4a23d377d236a918c1636113c3d115acf60"
   license "MIT"
   head "https://github.com/mbrt/gmailctl.git", branch: "master"
 
