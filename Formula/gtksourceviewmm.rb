@@ -12,6 +12,7 @@ class Gtksourceviewmm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "420a7b698a8d7c40b3c30f4720c0c065e3ee71cda8542a517ae8aea3a3cbccbd"
     sha256 cellar: :any,                 arm64_monterey: "2735fdddc92f3280188428fc9fa83431a700c376bcae4424bca10005dd440c76"
     sha256 cellar: :any,                 arm64_big_sur:  "2b73a79e4c0df491e43dcc3def52858679c0d0ff699c3bb8a003014a7940408b"
     sha256 cellar: :any,                 monterey:       "337b822adee8ddec4bb8f9f045f10cdb5e624c35fd1bf58aaaa1ab860af3cd73"
