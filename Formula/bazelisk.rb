@@ -8,6 +8,7 @@ class Bazelisk < Formula
   head "https://github.com/bazelbuild/bazelisk.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "49d3547592a2fc9e6242c935d58746b651bce35f3cad9fb42fcfcad7b4c4d49b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5309d94ada31d70915b332a092501aa68f883a341ea3125372758502ec4ac4c2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5062b037190e7a38139df1cc5c5f61b76e307dfe0616d843e2f399790edfe825"
     sha256 cellar: :any_skip_relocation, monterey:       "506c1c7402d3516f143a789f13198c3b982386f83a2f954010a6aea8f2271a00"
