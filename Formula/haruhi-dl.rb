@@ -9,6 +9,7 @@ class HaruhiDl < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1f77069c92d9b9b5d840362ce6242ab7ffc327c5716c270c14e4d4b66acfa77"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "966c61dfcc9b8849d593007e07c3254a5e243093ef7b3b3d74f7f1e06be569b6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "966c61dfcc9b8849d593007e07c3254a5e243093ef7b3b3d74f7f1e06be569b6"
     sha256 cellar: :any_skip_relocation, monterey:       "127ff0efc125444133103fd03f0f8b51c2492b1cf9af89db62eb78db12fabc94"
