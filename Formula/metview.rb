@@ -7,6 +7,7 @@ class Metview < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 arm64_ventura:  "b901fc4ee757990eb63e424309946b19634820e346bf63ea152fb8e47a6cc576"
     sha256 arm64_monterey: "b2de521f0c422db7499f808e2eb554972657780105377b1e6838b3624b01f0df"
     sha256 arm64_big_sur:  "d686618aa0f3d897fceb562b7a13b83598912ebf8ab4258ed5e1417de30b4fd9"
     sha256 monterey:       "b00680591df2df90c560e4dd8d016d044b92297ba9ca0c00dab3b4f14ff2147f"
