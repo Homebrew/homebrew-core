@@ -7,6 +7,15 @@ class Pferd < Formula
   sha256 "671938ee35819e124750ec65775ec9f45d7a5ea2e5d3d6db78c5e528a23bc3f2"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c43c9ca1acc23bca17d8b5f4b45a431a3907fc3d3a8299bb2e337779bd14fcf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b62e70a65ef25970900392bed96d621f4c3c5d5ff726b6d7dcd8def257d4acf"
+    sha256 cellar: :any_skip_relocation, monterey:       "944e813e484556bb40958b2bc988d128e751969dffaad737e2514236a91854c9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8d2a5b4d984d9c0ed336540acfba82a24f2d210a166523e1c2dddad8aacaa7f1"
+    sha256 cellar: :any_skip_relocation, catalina:       "872708ebcfbefd7b9b3d52e82878d5047fe8fecc60d00e7d11f36987b9777d75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "375583c7150f7218223b13e2970d2fc9a1ffcd1caa2445b0a08d4dc49ce1fcca"
+  end
+
   depends_on "python@3.10"
 
   resource "aiohttp" do
