@@ -13,6 +13,7 @@ class Pnpm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14282d3010b5a0b5d11893f9b66eb5e383b6208e3f2de5d56b3513eba2ce48cc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "14282d3010b5a0b5d11893f9b66eb5e383b6208e3f2de5d56b3513eba2ce48cc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14282d3010b5a0b5d11893f9b66eb5e383b6208e3f2de5d56b3513eba2ce48cc"
     sha256 cellar: :any_skip_relocation, monterey:       "29fd746314039c25db607bae8319949c8035d813c927462222382dd3c6d46949"
