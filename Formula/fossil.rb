@@ -13,6 +13,7 @@ class Fossil < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "eefd616668ba37cb18a205a0a1738f967b908b8a4775ef3b135a392ea3d0e528"
     sha256 cellar: :any,                 arm64_monterey: "a5c69e1084ad4308ca069ec1704036c45a6c39857a895737e9ed9655c7599702"
     sha256 cellar: :any,                 arm64_big_sur:  "fe04cf19e9342cf2c0056da5f99955044dd19eb3c503168699bcd6f379900590"
     sha256 cellar: :any,                 monterey:       "61835166100565574909da547d3ef3c63c25cfffd3986257b02a471f72b75937"
