@@ -15,6 +15,7 @@ class Glooctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1302f3472e6f09a80d373ef532ab2b671a77e8a9b1271bbf3ea7773a6c0f103c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "40fa4083313a7f1b91bb8614dcbdb25c71eae0a3b2f091e58d84312ad0adb076"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d3a0858e3944b2e0531618671f94faa9764b1526731775401b66cf204df1ef4"
     sha256 cellar: :any_skip_relocation, monterey:       "93909fbf95e0bf58e3c5f2bcd69c52cae883cfc46f55ae066b5c582b4ba72abc"
