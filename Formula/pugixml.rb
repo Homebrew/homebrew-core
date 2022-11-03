@@ -11,13 +11,12 @@ class Pugixml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "909b7ef27ff8ed5dc25e87f5e218154d9e5bc0c748e85217c63e095a26dc89e5"
-    sha256 cellar: :any,                 arm64_monterey: "19e760a6589f9d8359754ee3a6bb1bb1b916df570d52299299eb2d7b98868697"
-    sha256 cellar: :any,                 arm64_big_sur:  "44de01d90730246427618bb49d3069ca3b4a3965f458036cf8f789d1e021fd78"
-    sha256 cellar: :any,                 monterey:       "589881fa373d36a21c84c4c42f6175ef7ae1918f5c7a037386695dca054a9005"
-    sha256 cellar: :any,                 big_sur:        "48f559efb06c1d60d553db9273141247018ee7aa68ab37679de9c09a999a6d1f"
-    sha256 cellar: :any,                 catalina:       "a925fd3a353e10226a70e6695f69210a5f117ab8b7c8a8f98970fa59fbfa2654"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9efcb2f9e87b4a51fee55123c9900d332c6f3c9c3fce67eed2d55f19becadb9"
+    sha256 cellar: :any,                 arm64_monterey: "00b008f8d19c4d9f9c2ab610978622cd356958da8ad37dbf7295b6e05e2aae03"
+    sha256 cellar: :any,                 arm64_big_sur:  "40f7fed3e7b4f7ebd33d7909c7db5513ae64b5476329ea598bfaf93f95740e13"
+    sha256 cellar: :any,                 monterey:       "c394eed7f1a3076d2e52d8e4cd4adc008f3456cf94234bbea761c32997bf7fdc"
+    sha256 cellar: :any,                 big_sur:        "0267ec889e6b5699a0c98619c3c5d88cbac35b92cf053b9ed9935b134853d441"
+    sha256 cellar: :any,                 catalina:       "1830a4ad92d8991fd85590414f710c11f8ab4a760537f00ad24e6b7623fc7ecc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d0c2c12331bf2c09d4e96c83bd1fab2cbac2637e2f3aad28f6e33682bf73b33"
   end
 
   depends_on "cmake" => :build
