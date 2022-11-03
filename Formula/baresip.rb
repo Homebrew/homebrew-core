@@ -6,6 +6,7 @@ class Baresip < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 arm64_ventura:  "0493eb5e648239121aaf761c87a85594f6f191996906f33afbc34f6c5003083e"
     sha256 arm64_monterey: "62295fd60ac100eaaa0536ae018b7579cedfe8f5ee9e92cbfde0ea5502d40a63"
     sha256 arm64_big_sur:  "f71d9ed2918760a2e5f0bb10bb14e55fbb88320c880adb750844bbe86d60c098"
     sha256 monterey:       "dc3935ceb324f3a6d9c26b85913d278641a5667c6c4b5b9ad6bbed1384d9c604"
