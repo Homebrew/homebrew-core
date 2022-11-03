@@ -2,8 +2,8 @@ class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
   # NOTE: `ccls` will need rebuilding on every version bump.
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.3/llvm-project-15.0.3.src.tar.xz"
-  sha256 "dd07bdab557866344d85ae21bbeca5259d37b4b0e2ebf6e0481f42d1ba0fee88"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.4/llvm-project-15.0.4.src.tar.xz"
+  sha256 "a3112dca9bdea4095361829910b74fb6b9da8ae6e3500db67c43c540ad6072da"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -33,7 +33,7 @@ class Llvm < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "z3"
   depends_on "zstd"
@@ -52,8 +52,22 @@ class Llvm < Formula
   # Fails at building LLDB
   fails_with gcc: "5"
 
+  # Fix a macro redefinition in LLDB. Remove when patch is released.
+  patch do
+    url "https://github.com/llvm/llvm-project/commit/81fc5f7909a4ef5a8d4b5da2a10f77f7cb01ba63.patch?full_index=1"
+    sha256 "d2a2b61f7024fdf45f24a8ad8592808fc94c9ce6db8df3152fd9f46180c43074"
+  end
+
+  # Fix a `SwigValueWrapper` error caused by a change in swig 4.1.0.
+  # Remove when patch is released. See:
+  # https://github.com/swig/swig/issues/2377
+  patch do
+    url "https://github.com/llvm/llvm-project/commit/f0a25fe0b746f56295d5c02116ba28d2f965c175.patch?full_index=1"
+    sha256 "a2cf01ca5f632f7372f03c7a9db438f5f7083daae90a617241a0c41ece979267"
+  end
+
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
