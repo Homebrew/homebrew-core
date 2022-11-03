@@ -8,6 +8,7 @@ class Alpscore < Formula
   head "https://github.com/ALPSCore/ALPSCore.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "391ce80c683398d28212dc92646e445cd2c4f5c855e87dc1b5139ab120d8d052"
     sha256 cellar: :any,                 arm64_monterey: "7871e3e67a75c290db8e660f2bc1ec61429e9d2729a93dec35ff3dd388e8cde2"
     sha256 cellar: :any,                 arm64_big_sur:  "cd40f73fe61378e84131abe4a98493a0e8eab7b92b4c8840344637e5b706a43c"
     sha256 cellar: :any,                 monterey:       "f657811bc26f0813bdfa09d879ab4b28066f01f809703bcea01c99173ccb4090"
