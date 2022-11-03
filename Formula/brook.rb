@@ -1,8 +1,8 @@
 class Brook < Formula
   desc "Cross-platform strong encryption and not detectable proxy. Zero-Configuration"
   homepage "https://txthinking.github.io/brook/"
-  url "https://github.com/txthinking/brook/archive/refs/tags/v20221010.tar.gz"
-  sha256 "987b2ddac349e5ac2b91b40b06f7686dcf316c37bfe82c566fdc7503f0b4d97d"
+  url "https://github.com/txthinking/brook/archive/refs/tags/v20221212.tar.gz"
+  sha256 "bc0bf33d65a31fd85a2eb50ea9dcfffa0fb66f0213e5d6eb94a69fcdd8a6007d"
   license "GPL-3.0-only"
 
   bottle do
