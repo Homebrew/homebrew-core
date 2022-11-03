@@ -6,6 +6,15 @@ class Proxsuite < Formula
   license "BSD-2-Clause"
   head "https://github.com/Simple-Robotics/proxsuite.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_monterey: "2464474a413122a64afea64c2e23d920a24fe66edc4eb36dcb0dd6e996506070"
+    sha256 cellar: :any,                 arm64_big_sur:  "781830154cc4c6dc100f7b20a06641e7cb852389aa7279e2a300c66f2cd86d6e"
+    sha256 cellar: :any,                 monterey:       "37ee62731b584cdc1438283fba9822670ebfd7d8894d029281feb2a10bdcb35a"
+    sha256 cellar: :any,                 big_sur:        "18c14d6929ead1699e72ce4cf763b85df38793031eb2ed05427db34af1eeaf12"
+    sha256 cellar: :any,                 catalina:       "a595743bc166973640f03d3122e493811235e0f856d2f91c79a06f03190695f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d58c96fbaed78889aec13e206dbf3e8975a28ab3e18562c13975dc6f5d96ce7"
+  end
+
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
