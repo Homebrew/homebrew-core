@@ -28,13 +28,12 @@ class ClangFormat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "faaf37e1c90b1f6f356550c4e951b39aedacbb0213c64c9300c81693b853813e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "32a74827d84c4bcfc38695ba300ff4e97dec72c27e062b090b8e1dd9057a7e0d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f8cacf6bf92f6e79daa754d0cd6c25be7f1955051bc9ca23752753bc6ba8ea30"
-    sha256 cellar: :any_skip_relocation, monterey:       "a71cafe16a6abdf238da01030222d8b802b423d235240e9e6c5699ba563e71a8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f83094a0d9e5823ac98cefa201e92442711628b42eb7caa998a5eb8debca64c6"
-    sha256 cellar: :any_skip_relocation, catalina:       "40ee0b5c33044629deef1ad5626add2d218ed832ce83b9086e1cb76b51ccdbf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c238acfb23f1171032b50159ae2b601746dc77dc49ae2b5ce97104ceff8b4d22"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6687055a4bbb8c45c534c97593da173020a89464131f8e28d9c51635abdf85e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "635e65e903d7509bc7b66246b33e80c2c6fa7970ae5ae976b8115346298684af"
+    sha256 cellar: :any_skip_relocation, monterey:       "840020306f475284733e073f7d3d1f4c2f2e14b8e1a89d79bfa2df8d4dee2c53"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9743f1cb8befbaacba5b60e22762fab2db9337fcbddb66ee9fae69ccb54174ab"
+    sha256 cellar: :any_skip_relocation, catalina:       "44458ac88b30b5fddfa0a9679339a6fdca3ad0cd9591f655387d7d12f85ce383"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba30cee4820b592e8ff594fe0174246286ed062c709e058c713d882a073ac388"
   end
 
   depends_on "cmake" => :build
