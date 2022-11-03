@@ -30,15 +30,30 @@ class Bzip2 < Formula
     inreplace "Makefile", "$(PREFIX)/man", "$(PREFIX)/share/man"
 
     system "make", "install", "PREFIX=#{prefix}"
+    return if OS.mac?
 
-    if OS.linux?
-      # Install shared libraries
-      system "make", "-f", "Makefile-libbz2_so", "clean"
-      system "make", "-f", "Makefile-libbz2_so"
-      lib.install "libbz2.so.#{version}", "libbz2.so.#{version.major_minor}"
-      lib.install_symlink "libbz2.so.#{version}" => "libbz2.so.#{version.major}"
-      lib.install_symlink "libbz2.so.#{version}" => "libbz2.so"
-    end
+    # Install shared libraries
+    system "make", "-f", "Makefile-libbz2_so", "clean"
+    system "make", "-f", "Makefile-libbz2_so"
+    lib.install "libbz2.so.#{version}", "libbz2.so.#{version.major_minor}"
+    lib.install_symlink "libbz2.so.#{version}" => "libbz2.so.#{version.major}"
+    lib.install_symlink "libbz2.so.#{version}" => "libbz2.so"
+
+    # Create pkgconfig file based on 1.1.x repository.
+    # https://gitlab.com/bzip2/bzip2/-/blob/master/bzip2.pc.in
+    (lib/"pkgconfig/bzip2.pc").write <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      bindir=${exec_prefix}/bin
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+
+      Name: bzip2
+      Description: Lossless, block-sorting data compression
+      Version: #{version}
+      Libs: -L${libdir} -lbz2
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do
