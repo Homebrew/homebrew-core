@@ -11,6 +11,7 @@ class Pce < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f4bcc186e10297c857c01a2c1f49f38dd8abe2324de512253fef924664b41dc5"
     sha256 cellar: :any,                 arm64_monterey: "e91060cfda85a63fee4413b7eb726714f8775e0cd452edd0957eba43c578fdd4"
     sha256 cellar: :any,                 arm64_big_sur:  "a549787c54e01ed779ac141bf523bca16b00151802f77fa869c2f2d660dc2732"
     sha256 cellar: :any,                 monterey:       "a393cdc7dadc636acfe2f16510d4422ffd2a9fa565c094e8b82c26a7c4574456"
