@@ -7,6 +7,7 @@ class Octosql < Formula
   head "https://github.com/cube2222/octosql.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "52b4c13b613637d66e7d0443efe0040ac90442d1d684f8e8884fe6ceb4f56c33"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6156175e4da8c8aadc75a8d0e0d58eae0c168f9980cdf885a0b2bfbd34c907c8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa962c981b327d7bebf33b92131ef1862dac2276a3611e74ec16f36af0b4d358"
     sha256 cellar: :any_skip_relocation, monterey:       "19811afa112521f3bb76d0af5906399e8305349b134cc6af2dacb89aa7f2a7e3"
