@@ -12,6 +12,7 @@ class Stuntman < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9838b20f9e70ececf2aef789557caf2a26173e2ab8d7476ee61d606d51b956ef"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "743a5f66d4564fbab9bbf2973ab49ee3f8736522a94315c3c7d5cbb818441c60"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "794de99474fb9f2dd0797e2a08f1d27b52f2fdc7540165cad5703212bb24ded0"
     sha256 cellar: :any_skip_relocation, monterey:       "be26b274322810de150f7f119cd89e905d136752e603cf3ca81121d2a8a3e014"
