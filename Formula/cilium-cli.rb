@@ -6,6 +6,7 @@ class CiliumCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9632ea5d6886ca9f5b4c2df5c68572b712cb52b50fe936f89b4bedb1fefce703"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4abe655e917ef017b52130b4f8838cd71f50efd70fe092c05eceb8a80a3ee30f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7bcc94c7f263499892dfa8e2093ace2b484a6bdcf889a89cc724404c069f3fe0"
     sha256 cellar: :any_skip_relocation, monterey:       "3a82dc4e163777ab2d7a90114a91e65a6cad5bec7d78939229877d8544c9aa96"
