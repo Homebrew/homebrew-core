@@ -6,6 +6,7 @@ class Envv < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2d47b445c7d02827f54b9cfd3341e2646d10f0156a9dcf27d7745988b1e4497"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "023e55714270ba7a388b290d867a4fd334a962b33f4bd9d0ed8de513ad7c034b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21e6f6e3c94dd0f14178ba1d5a53317bf1a6bf269762b5b79d9f93eff1ae3f00"
     sha256 cellar: :any_skip_relocation, monterey:       "f58b94b534868176986117c6f3f2eb470388cc439c98308de6b2e99db8990c0a"
