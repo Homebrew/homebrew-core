@@ -5,6 +5,7 @@ class SwiftFormat < Formula
       tag:      "0.50700.0",
       revision: "3dd9b517b9e9846435aa782d769ef5825e7c2d65"
   license "Apache-2.0"
+  revision 1
   version_scheme 1
   head "https://github.com/apple/swift-format.git", branch: "main"
 
@@ -32,7 +33,7 @@ class SwiftFormat < Formula
   def install
     # Support current stable Swift.
     # Remove with Swift 5.7.1.
-    inreplace "Package.swift", '.upToNextMinor(from: "0.50700.0")', '.exact("0.50700.0")'
+    inreplace "Package.swift", '.upToNextMinor(from: "0.50700.0")', '.exact("0.50700.0")' if OS.mac?
 
     # This can likely be removed with 0.50800.0
     swift_rpath = if OS.mac?
