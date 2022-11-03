@@ -15,6 +15,7 @@ class CrushTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2965fb45027df30c48246aaa1db54932d7ab914dc45d44efc542e365d2b1faa1"
     sha256 cellar: :any,                 arm64_monterey: "d00690bd134ad5019aefa7b28a705a3adbb5f4487ea807ecc88f72dd1094f1f9"
     sha256 cellar: :any,                 arm64_big_sur:  "c126bcdab0ba561df10768d423dd6b9336e7464707e3af7c17e65178cbffd4f5"
     sha256 cellar: :any,                 monterey:       "81e41d4da27071d4e43a0dfcee470375f00a9629924165deb4a098cc0a205192"
