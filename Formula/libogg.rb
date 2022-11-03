@@ -4,6 +4,8 @@ class Libogg < Formula
   url "https://ftp.osuosl.org/pub/xiph/releases/ogg/libogg-1.3.5.tar.gz"
   sha256 "0eb4b4b9420a0f51db142ba3f9c64b333f826532dc0f48c6410ae51f4799b664"
   license "BSD-3-Clause"
+  revision 1
+  head "https://gitlab.xiph.org/xiph/ogg.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f18fefb04d186e649753d48a9cffd1ce6a7b7a94fe0470c932eb09ee7b9c4cd5"
@@ -16,13 +18,7 @@ class Libogg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "db517cc6e922b1d3a7c845bad5dd4c78d48b170aa94187d6281f8577f228a180"
   end
 
-  head do
-    url "https://gitlab.xiph.org/xiph/ogg.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
 
   resource("oggfile") do
     url "https://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg"
@@ -30,12 +26,11 @@ class Libogg < Formula
   end
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make"
-    ENV.deparallelize
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
