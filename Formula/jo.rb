@@ -1,8 +1,8 @@
 class Jo < Formula
   desc "JSON output from a shell"
   homepage "https://github.com/jpmens/jo"
-  url "https://github.com/jpmens/jo/releases/download/1.7/jo-1.7.tar.gz"
-  sha256 "74c3032f0650bbaf69c17ef71ba3240e51262963843cdc8452d4e917ab8e8656"
+  url "https://github.com/jpmens/jo/releases/download/1.9/jo-1.9.tar.gz"
+  sha256 "0195cd6f2a41103c21544e99cd9517b0bce2d2dc8cde31a34867977f8a19c79f"
   license all_of: ["GPL-2.0-or-later", "MIT"]
 
   bottle do
