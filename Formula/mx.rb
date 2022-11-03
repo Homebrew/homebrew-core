@@ -1,8 +1,8 @@
 class Mx < Formula
   desc "Command-line tool used for the development of Graal projects"
   homepage "https://github.com/graalvm/mx"
-  url "https://github.com/graalvm/mx/archive/refs/tags/6.10.0.tar.gz"
-  sha256 "15dbef16d4ec4f431d6aaaba9afa0673181e1a4ed0ae72a95f049010f1d0f8a8"
+  url "https://github.com/graalvm/mx/archive/refs/tags/6.10.1.tar.gz"
+  sha256 "2c8aa138001e3fa3d36f5c10a122c66a6eb49d44c4fef07c108c88064c307778"
   license "GPL-2.0-only"
 
   livecheck do
@@ -15,7 +15,7 @@ class Mx < Formula
   end
 
   depends_on "openjdk" => :test
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "homebrew-testdata" do
     url "https://github.com/oracle/graal/archive/refs/tags/vm-22.1.0.1.tar.gz"
@@ -24,7 +24,7 @@ class Mx < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{Formula["python@3.10"].opt_libexec}/bin/python"
+    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{Formula["python@3.11"].opt_libexec}/bin/python"
     bash_completion.install libexec/"bash_completion/mx" => "mx"
   end
 
