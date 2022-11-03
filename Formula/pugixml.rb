@@ -11,6 +11,7 @@ class Pugixml < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8342cbe96ddcb6316547c3e153988ebbe8df9377e3d7e40f596862606231a2f1"
     sha256 cellar: :any,                 arm64_monterey: "00b008f8d19c4d9f9c2ab610978622cd356958da8ad37dbf7295b6e05e2aae03"
     sha256 cellar: :any,                 arm64_big_sur:  "40f7fed3e7b4f7ebd33d7909c7db5513ae64b5476329ea598bfaf93f95740e13"
     sha256 cellar: :any,                 monterey:       "c394eed7f1a3076d2e52d8e4cd4adc008f3456cf94234bbea761c32997bf7fdc"
