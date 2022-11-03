@@ -6,6 +6,7 @@ class Jo < Formula
   license all_of: ["GPL-2.0-or-later", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c72292722a51049d829bc39f42accebcdc5da637ca7b0640c8e7ab88a199dd8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "03744513d271dfbb287fde4fb34c8f81e245d188601e7d71a94b96bff9f32b6e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c148c844d44ddc222336f10ae04c59526f1b06f9fe7744532d8b293c5391289c"
     sha256 cellar: :any_skip_relocation, monterey:       "2a65cc5d9bfdb238597506c9316cd1ef396e79d1629a5e9339a4d42035d5cd20"
