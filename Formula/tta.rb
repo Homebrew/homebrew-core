@@ -11,6 +11,7 @@ class Tta < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48fe3083c87c3f78c9ce5d2076ed9220a18d6ba64347e5b10e739d1a08c4fce0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "941f70e3d5b3b0ad8846dbdd68e074fef2094e9e9ddde9494a781b045b1da3b6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd5a172d4fc33058df72affc82f3b4d0f66d147007bce62e45b429370403fb29"
     sha256 cellar: :any_skip_relocation, monterey:       "21fb40ccded96b6a0b51ecf1c078ddeae5b9bb116d4ce88985d4bb5b93644aae"
