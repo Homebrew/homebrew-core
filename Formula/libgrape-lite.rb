@@ -6,6 +6,7 @@ class LibgrapeLite < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "7e9a16ae49c12c40204931af6c8969025c3ca9e7bbce69cf1d6e6c5e154abde0"
     sha256 cellar: :any, arm64_monterey: "af672badfe3e04b4e6d3117a11e02eca3629a9dc5dd9f29a6bf229f71d0c4825"
     sha256 cellar: :any, arm64_big_sur:  "4974c03558cf474c41fe23fd5f35133a495d0147313dd5e53fcf3ebc0594ab40"
     sha256 cellar: :any, monterey:       "d5c9311ae450e25c00c791038108065ef84266e7dad87a8a76158c286892fc99"
