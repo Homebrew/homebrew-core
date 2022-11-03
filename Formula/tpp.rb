@@ -13,7 +13,8 @@ class Tpp < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:  "25e92e9f229433131cc82cf48a3cec90d19a28a08a56fadcc095b1ecf4df2304"
   end
 
-  deprecate! date: "2022-04-14", because: :unmaintained
+  # Original deprecation date: 2022-04-14
+  disable! date: "2022-11-03", because: :unmaintained
 
   resource "ncurses-ruby" do
     url "https://downloads.sourceforge.net/project/ncurses-ruby.berlios/ncurses-ruby-1.3.1.tar.bz2"
