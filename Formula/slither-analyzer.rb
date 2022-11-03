@@ -3,8 +3,8 @@ class SlitherAnalyzer < Formula
 
   desc "Solidity static analysis framework written in Python 3"
   homepage "https://github.com/crytic/slither"
-  url "https://files.pythonhosted.org/packages/63/fe/1e7b29ed341a8ad032cb75705d0ff77bc1dc9700cb447b97c6a63693c373/slither-analyzer-0.9.0.tar.gz"
-  sha256 "bb37ebde30b24ed6c933d575fe34d2d92581ab748eb8c9030ce60543cbc2e132"
+  url "https://files.pythonhosted.org/packages/7e/35/08f27352ce2d10e65bac7c17085bd74904cfeb9e831b60e71b62fa5a2400/slither-analyzer-0.9.1.tar.gz"
+  sha256 "25a3860309bda599bce69de129620aa5b38c82b87554eafe0eff5117b81bac18"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/slither.git", branch: "master"
 
