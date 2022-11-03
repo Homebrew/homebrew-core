@@ -4,14 +4,14 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.64.0-src.tar.gz"
-    sha256 "b3cd9f481e1a2901bf6f3808d30c69cc4ea80d93c4cc4e2ed52258b180381205"
+    url "https://static.rust-lang.org/dist/rustc-1.65.0-src.tar.gz"
+    sha256 "5828bb67f677eabf8c384020582b0ce7af884e1c84389484f7f8d00dd82c0038"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.65.0",
-          revision: "387270bc7f446d17869c7f208207c73231d6a252"
+          tag:      "0.66.0",
+          revision: "4bc8f24d3e899462e43621aab981f6383a370365"
     end
   end
 
@@ -48,19 +48,19 @@ class Rust < Formula
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       on_arm do
-        url "https://static.rust-lang.org/dist/2022-08-11/cargo-1.63.0-aarch64-apple-darwin.tar.gz"
-        sha256 "4ae53dd1a0c059ba4a02a728c9250c785e39bd4f51550e2d3040e96457db4731"
+        url "https://static.rust-lang.org/dist/2022-09-22/cargo-1.64.0-aarch64-apple-darwin.tar.gz"
+        sha256 "dbb26b73baefc8351a7024f307445758fe1e9c18d83000358c02b80a5b1003b3"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2022-08-11/cargo-1.63.0-x86_64-apple-darwin.tar.gz"
-        sha256 "91fe0d3477036b0630b09db2a9ef340c29b8be56c48ed244428e2490043ca841"
+        url "https://static.rust-lang.org/dist/2022-09-22/cargo-1.64.0-x86_64-apple-darwin.tar.gz"
+        sha256 "e032116e22f6d3a4cb078f21031794e88f2a87f066625b8eb7623777e42d6eca"
       end
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
-      url "https://static.rust-lang.org/dist/2022-08-11/cargo-1.63.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "43445b2131cefa466943ed4867876f5835fcb17243a18e1db1c8231417a1b27e"
+      url "https://static.rust-lang.org/dist/2022-09-22/cargo-1.64.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "12c2e61bf7de8b37c16d0323972a6085f9e01ee6d716549dd1ef4a92481b0610"
     end
   end
 
