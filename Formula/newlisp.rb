@@ -10,6 +10,7 @@ class Newlisp < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "d09695295bc9ea5c143ab9dfb53757b6e932e71139247b3083df2fb47361d76f"
     sha256 arm64_monterey: "1fb90e4713da55257988e767547c82613586e3a441e007a629e878644955cc89"
     sha256 arm64_big_sur:  "24b3c02002fa7c832d9a817c552b19bd520ae06f82ab526b8e993ae0a3d77d99"
     sha256 monterey:       "e7e6ab4d066923848b35a24c5a85cb357be0ab15d76fc9dbe5c87e2625c18b1a"
