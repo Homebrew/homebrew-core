@@ -12,6 +12,7 @@ class Goaccess < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "886590e85c0b9716b10b7a60d1ad048d39432dba43bd6958dfb143b56042e905"
     sha256 arm64_monterey: "dcf656034b63fda89d5faec0cd9229e734e6e4725c5ed17ab9c8a1f3a0722673"
     sha256 arm64_big_sur:  "0a5384b80a94ba3508ba698f754d079de3a76b732d210b00747fd15bb61ad44f"
     sha256 monterey:       "d2474004196a908305572a9e49c0957179d313be5f784180e00027aedda893f6"
