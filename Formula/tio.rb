@@ -7,6 +7,7 @@ class Tio < Formula
   head "https://github.com/tio/tio.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "0361e1b49050bbf4fbfde6cb7fc25b07bcd3b4179e1e2f408f047525d489d897"
     sha256 cellar: :any,                 arm64_monterey: "76721af8c30562c7d06181c2415fdb8d50786acbb6917b565a1c3128fed4e065"
     sha256 cellar: :any,                 arm64_big_sur:  "e0552f02e79c7854bd662c9963e8f3a7c1ab430fbde31d55a897b59d6189872b"
     sha256 cellar: :any,                 monterey:       "7d03260ad27a4e06f326390acb97d5181566c2b4fcd2b66adfea39e5e71e7de0"
