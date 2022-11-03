@@ -10,11 +10,11 @@ class QtUnixodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "052abe291c9ed26bb880a807a8cb40ceb88c5817b950b166ae33f9af1cfaf115"
-    sha256 cellar: :any, arm64_big_sur:  "698e13373aa5ac0cf9a48dec699250d941e659656e3411bb28f045563ce1f8d2"
-    sha256 cellar: :any, monterey:       "3a3d9e826e303fd3df5554a8a3ee91a1cfe15baf9fdb65cd269fc2871efb62aa"
-    sha256 cellar: :any, big_sur:        "e67c8301c84dd5fc5ea6e5f30c39309602f16769ea90168d2cc0ec8470f7226d"
-    sha256 cellar: :any, catalina:       "7f07b23ebda0f96ea76cc33dcff00cb2a78bf59e7af5838e9425de1c88b878ff"
+    sha256 cellar: :any, arm64_monterey: "c0344251ca2fb6f9c0f35332daf1ee1c6ae7d70d55e333eff30e02a8a5506a4d"
+    sha256 cellar: :any, arm64_big_sur:  "367688f26e931c06e3bba11165c501b9a993f34b1402321e38e4233a76509d2f"
+    sha256 cellar: :any, monterey:       "0a04311016edfa0a47e164ce475370a04277a9e6d54c8a13c14dea6f809a66f9"
+    sha256 cellar: :any, big_sur:        "c02b5dff267082674db5bccda102cea2bad9dd503612ade9f50863a81d346aba"
+    sha256 cellar: :any, catalina:       "29d58b8b96a0077f3e8818803fd650d7c575e1e1290de0d74042862906699c07"
   end
 
   depends_on "cmake" => [:build, :test]
