@@ -11,6 +11,7 @@ class Shapelib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1c693a38da6fa7633ca03d6e2cf5e7bb5d32cf9d606bb1a4592bdccacc3b2456"
     sha256 cellar: :any,                 arm64_monterey: "26b130368d9849bc2931523dcf1ea7985a88d52acc2709ce570f3503f2ebad44"
     sha256 cellar: :any,                 arm64_big_sur:  "3f95046988d245291a4fb9973051b5c006500ba3ab0bf2842ae330c18936bdca"
     sha256 cellar: :any,                 monterey:       "6a14fe3a6e76220a19e356c3b3c9bd64be88e7fe69a013d088c9ef78f31a83b2"
