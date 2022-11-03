@@ -6,6 +6,7 @@ class Admesh < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "eb02eabe5f4a82ddd37e7099e44b736b1c63afee91b6169cc3c58a51c24f34e5"
     sha256 cellar: :any,                 arm64_monterey: "d07859389041c5bf1e2c03f5d2ac56a38013263ec3a7f682fbc0357aacbc056b"
     sha256 cellar: :any,                 arm64_big_sur:  "ee008a3dc86478020116d2289fc6d78dfc44d87a95b7c12c6777e8ed6b053242"
     sha256 cellar: :any,                 monterey:       "1c89962fabc1d3777f86b52920f251a053a2e9d46603a5c3642613bc281dcb10"
