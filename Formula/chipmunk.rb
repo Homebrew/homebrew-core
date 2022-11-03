@@ -8,6 +8,7 @@ class Chipmunk < Formula
   head "https://github.com/slembcke/Chipmunk2D.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "41cbccebde6b4a35fe046c12cef11eafa6e5ed1e096837a490ca4c6d0bc67a9d"
     sha256 cellar: :any,                 arm64_monterey: "544c8185e3366a6b067ad4cafb6272610014f0b5787b0c35a735b2c6bc3c7588"
     sha256 cellar: :any,                 arm64_big_sur:  "53a1d8968efd45940eda303182f7a68be0e31221295a85e803f92f3c968c45ad"
     sha256 cellar: :any,                 monterey:       "a404cce4a0aa17f7f4a0645c38ecc7b318a8fa1576d1168b5e4db40a51de9c12"
