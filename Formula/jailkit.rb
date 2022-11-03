@@ -12,6 +12,7 @@ class Jailkit < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "242e813cc319e4164570ce44d8b337931c425c8da5972b09714527adecf7e5a6"
     sha256 arm64_monterey: "84057794afa5db7583d6787a3b6e246257efc8bbf6601566771265228084bdef"
     sha256 arm64_big_sur:  "e9a582fee1859d32410b20dff031b55c1a0a72862b8422cb8299800832977f16"
     sha256 monterey:       "d8059ea2e2f6dce16220b99d43dea5adebc200a80e98f4b8017b0efe8c29c6d7"
