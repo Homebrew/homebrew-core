@@ -8,6 +8,7 @@ class Cdktf < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f910ffc8522ecc7fe0a71438bfc91cc389a312f046a187c63b586ef2a87742a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b4aa91af02fcecac5e65c2c116df07d1d2e70ac8a525cb333f242feeed3dc2f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b4aa91af02fcecac5e65c2c116df07d1d2e70ac8a525cb333f242feeed3dc2f"
     sha256 cellar: :any_skip_relocation, monterey:       "1855ec5278d2a94bdf5c3d6e540e2b0f1cfb562a551ab3a4a211f0eef6a74f69"
