@@ -12,6 +12,7 @@ class Just < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1248efebed76a9795ef43e1639ffa2107feff2667216871b724b5f872e08aa5e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b0621e167244b7b0886bf195615e4ac64dfd2f3ff33a066ff7387d198f75d7c4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f19184f1e682199ab26ee1b0f05a6becf1a427aecec8503e55bf8f0517782b57"
     sha256 cellar: :any_skip_relocation, monterey:       "db12d2e39b52779cf7c7455cde379d9d892d7e227e92149bd32c251605143aca"
