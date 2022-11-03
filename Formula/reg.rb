@@ -6,6 +6,7 @@ class Reg < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2c6f6d7cef992aec32bb6742dd36c85c0ad46fc3b2d47450e31f983964725681"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf9938a3488e5e4ceb2534f2a032c4d9427787a92e6550f90eea0ff70cdb77da"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6bf430c32dbb66c850bf8c6acbe2fc2953a8ada29e12c0e7b474317fe537fffb"
     sha256 cellar: :any_skip_relocation, monterey:       "9dad4aea34600bf11782f4c4e9867439369a4b59e1eae7ad05a7640fe39c1917"
