@@ -9,6 +9,7 @@ class DockerMachineParallels < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1fb87aa45712af27c6bc92af37b696d61f9d0e120f8df21cdecb04d06be0f60e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf73fbfd0498623e7bae13c5edc3b7dd83faa8b62cc5fe81fcb23accd70fab76"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1bb048b170f5ca273b7e2e3be17459a9049e29982e2a3c6c866d088772b6744f"
     sha256 cellar: :any_skip_relocation, monterey:       "dec5f7c88747688ab7395211692ced01dc6157284aed8251214ffc5147efe703"
