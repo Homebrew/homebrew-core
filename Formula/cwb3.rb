@@ -12,6 +12,7 @@ class Cwb3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "933ced8d74d9a2be889a4c0b65f19df7730c3ef071fd15e5b143183a929c0ce1"
     sha256 cellar: :any,                 arm64_monterey: "0095bcb1957680c0111d0350bb709ea9c5944eb0375654ef76b7d9f455fbc531"
     sha256 cellar: :any,                 arm64_big_sur:  "1cd5c987e8f41b62244439ba320bb77f92b7bfbb528d31b75726071ad9822a58"
     sha256 cellar: :any,                 monterey:       "9271d4472d3ce7e71c65755e33ba8d303edcc603ce7e493c12d6c870a7f84f0f"
