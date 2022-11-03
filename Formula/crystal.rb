@@ -4,8 +4,8 @@ class Crystal < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.6.1.tar.gz"
-    sha256 "f84bde9fd7b03f606bb6f711109ccadf4b90af678983b65eb2acbed48b9558ed"
+    url "https://github.com/crystal-lang/crystal/archive/1.6.2.tar.gz"
+    sha256 "fbbff8f975a2627ac3f42208362365668fb08a33637f424e0c2c0e51b1f37cfa"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.17.1.tar.gz"
@@ -114,11 +114,9 @@ class Crystal < Formula
     crystal_build_opts = release_flags + [
       "CRYSTAL_CONFIG_LIBRARY_PATH=#{config_library_path}",
       "CRYSTAL_CONFIG_PATH=#{config_path}",
+      "interpreter=true",
     ]
-    if build.head?
-      crystal_build_opts << "interpreter=true"
-      crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.git_short_head}"
-    end
+    crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.git_short_head}" if build.head?
 
     # Build crystal
     (buildpath/".build").mkpath
