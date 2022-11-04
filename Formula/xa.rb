@@ -11,6 +11,7 @@ class Xa < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af93973d6dc5c7b7d4b6489a7afadb0e21c90132a3b21a8a58dcf81b3c17fc27"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "687e89ab608aeccce2daaf92b1d3310d4972a3b7119d5b532fc43675b42bf70a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51bb4da669873d151714aced3994391e2c1442bdf8d2f6288a273cc9d6dde3d4"
     sha256 cellar: :any_skip_relocation, monterey:       "9f92a04dc6f464f62ab5656f06b24493ecea8eb24aed541bc8c26597c8fbf5a7"
