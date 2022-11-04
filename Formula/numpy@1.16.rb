@@ -17,7 +17,7 @@ class NumpyAT116 < Formula
 
   # was used only by opencv@2 which was deprecated on the same date
   # also uses Python 2 which is not supported anymore
-  deprecate! date: "2015-02-01", because: :unsupported
+  disable! date: "2022-11-04", because: :unsupported
 
   depends_on "gcc" => :build # for gfortran
   depends_on :macos # Due to Python 2
