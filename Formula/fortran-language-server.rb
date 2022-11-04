@@ -9,6 +9,7 @@ class FortranLanguageServer < Formula
   head "https://github.com/hansec/fortran-language-server.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "caacbbfb56ed07a74153fb694eac077903d02766c8d7b8db9cfa67ac007d6f33"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2b3ef36cf1efbde6f4777037f112161c717629f8be4a58b2208fe82861c58323"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b3ef36cf1efbde6f4777037f112161c717629f8be4a58b2208fe82861c58323"
     sha256 cellar: :any_skip_relocation, monterey:       "32839345a2cdc7894b65d7b6b6a06d439db922a7708973a4fd3e4b3213f6a899"
