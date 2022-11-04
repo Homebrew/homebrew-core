@@ -11,6 +11,7 @@ class Cgl < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "97457bc867eb58f73da7c39453488704a2a9e6c0a461937239de8b8c5d86deed"
     sha256 cellar: :any,                 arm64_monterey: "cea5e33d3a1cd912c38bc558e8c962b0ea0495820fa69b1fc29f5fb2d1386dd4"
     sha256 cellar: :any,                 arm64_big_sur:  "7d100e6e8d3f9366d113cb527c4022c4be871fbab16c9b071d9d3abe9bffd8c1"
     sha256 cellar: :any,                 monterey:       "4fedffb360740c5faa5bf6b62ae7d451e2d7a4cba55da63f8ed760c95458368e"
