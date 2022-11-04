@@ -19,6 +19,7 @@ class Ircii < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_ventura:  "dc7d4b485e4f00ec1fb9750f38110b452bcc9ee777aebc51521bb32b031d3690"
     sha256 arm64_monterey: "e1a64a64f9aab81c8fce589945912aa0c459daff48e65f455a181d0391539b23"
     sha256 arm64_big_sur:  "9daf37b4ec3ed1b47c8ce24d9acffb0a0781f648f97220c09c6100310819344b"
     sha256 monterey:       "bb15fc3ed62c9a10c8555a53cf3ea89d9025a8ed13ba972f9fd78ce7449998cc"
