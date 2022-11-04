@@ -9,6 +9,7 @@ class Dvc < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "656c0c56115d97a8a8b51c7ac7d6afc1d518ed1508476682d9201bfdf9187051"
     sha256 cellar: :any,                 arm64_monterey: "2d17b4f9bd26914f5a01a5c9efcfe1158dcb82bc2af24818e8590d9a2d90bf9d"
     sha256 cellar: :any,                 arm64_big_sur:  "3e7a906c663ff99ccb59c22f1ac81a6073835b8dd1cca0884b65b94d9380a666"
     sha256 cellar: :any,                 monterey:       "99651eb7b3583e30c49d2f46667e9423c1b766fc6ab3b5e09afe5bda3d127224"
