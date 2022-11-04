@@ -12,6 +12,7 @@ class Xqilla < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6fcb5f3c1fc9d9964b88e428c2b82e93eed3d3cad94fc583a3249db04c334db7"
     sha256 cellar: :any,                 arm64_monterey: "adc61de0a3a381d0ceab22a8449c209d06ded447a3e2750733f673cbbc14ca82"
     sha256 cellar: :any,                 arm64_big_sur:  "1b8493188f6fc779948193c1ae7cc803e85a4a18c32464c039448a27f830d9fe"
     sha256 cellar: :any,                 monterey:       "27ceea9b020373aa347f20b2f42682d13d2cf2a513df4330ce45239a74d4340c"
