@@ -5,7 +5,7 @@ class Grep < Formula
   mirror "https://ftpmirror.gnu.org/grep/grep-3.8.tar.xz"
   sha256 "498d7cc1b4fb081904d87343febb73475cf771e424fb7e6141aff66013abc382"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "d2450448352fb2c389634cab3dec581882f6fc0f02a79489b4ba9c603b8f780b"
@@ -38,8 +38,8 @@ class Grep < Formula
     if OS.mac?
       %w[grep egrep fgrep].each do |prog|
         (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
-        (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
       end
+      (libexec/"gnuman/man1").install_symlink man1/"ggrep.1" => "grep.1"
     end
 
     libexec.install_symlink "gnuman" => "man"
