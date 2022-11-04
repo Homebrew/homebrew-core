@@ -6,6 +6,7 @@ class Dehydrated < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f17795e23bdd54c28ee3b776ca2a23961d82ad07dd28b9d5081ae8edb2dae79c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f17795e23bdd54c28ee3b776ca2a23961d82ad07dd28b9d5081ae8edb2dae79c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f17795e23bdd54c28ee3b776ca2a23961d82ad07dd28b9d5081ae8edb2dae79c"
     sha256 cellar: :any_skip_relocation, monterey:       "ebef64bfbbb961baab69a546da164867b6d3d0acc2090b6f0a8d9d1b2e6ac26b"
