@@ -11,6 +11,7 @@ class Exempi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f627df62e264f47037a98ec5bc1d4e9a4a3d9bef286adf0ab6ed8eccfb855dc4"
     sha256 cellar: :any,                 arm64_monterey: "d23e4d16f857e7c2731c0e5b4fdec93f39ae7e2efd3bf4b77f6c0ff933cd2eef"
     sha256 cellar: :any,                 arm64_big_sur:  "b255cea38e3e87347611ba1f55701caa3237d0c4131384f39a025a0ecdaf56ec"
     sha256 cellar: :any,                 monterey:       "0d35c08aa3a560ec56a668374b9629e1d45d77430f3a035d009257749ec2367b"
