@@ -1,9 +1,9 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-2.10.2/apache-pulsar-2.10.2-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.10.2/apache-pulsar-2.10.2-src.tar.gz"
-  sha256 "20e367b120db9d7daacfe5f26b4b5a1d84958933a2448dfa01f731998ddd369a"
+  url "https://dlcdn.apache.org/pulsar/pulsar-client-cpp-3.0.0/apache-pulsar-client-cpp-3.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.0.0/apache-pulsar-client-cpp-3.0.0.tar.gz"
+  sha256 "2ab8d90c6f60163bffa766f35eee4744a33a0ce3d73ae43def0623d97ca6d863"
   license "Apache-2.0"
 
   bottle do
@@ -27,16 +27,14 @@ class Libpulsar < Formula
   uses_from_macos "curl"
 
   def install
-    cd "pulsar-client-cpp" do
-      system "cmake", ".", *std_cmake_args,
-                      "-DBUILD_TESTS=OFF",
-                      "-DBUILD_PYTHON_WRAPPER=OFF",
-                      "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}",
-                      "-DProtobuf_INCLUDE_DIR=#{Formula["protobuf"].include}",
-                      "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib}/libprotobuf.dylib"
-      system "make", "pulsarShared", "pulsarStatic"
-      system "make", "install"
-    end
+    library_suffix = OS.linux? ? "so" : "dylib"
+    system "cmake", ".", *std_cmake_args,
+                    "-DBUILD_TESTS=OFF",
+                    "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}",
+                    "-DProtobuf_INCLUDE_DIR=#{Formula["protobuf"].include}",
+                    "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib}/libprotobuf.#{library_suffix}"
+    system "make", "pulsarShared", "pulsarStatic"
+    system "make", "install"
   end
 
   test do
