@@ -10,6 +10,7 @@ class Beancount < Formula
   head "https://github.com/beancount/beancount.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecd7ba0ff0daddc000e19de33185cbbd1ef2d8f141f8dfcccd9b67eecd901973"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "719e10833fea9086b4be434b1ea99c75649e067e3eab448cb1291b7c2a759bab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cad3581ba8fad8b99b03d97e2a0b263521a0df40c29ed31a23a1085c979bf8f0"
     sha256 cellar: :any_skip_relocation, monterey:       "0824afd2ef3d31ca9688882a1f074799493e39a80e07a5153c3dcc30b5e2f065"
