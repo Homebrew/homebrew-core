@@ -8,6 +8,7 @@ class LeappCli < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256                               arm64_ventura:  "c7ef97fdba85e3b87e5af063e7f511d26d512755f89db40c0af0905ecb8f9157"
     sha256                               arm64_monterey: "092e7b5069da340ff4cb27d49f877f40c6dbaa25df2afa1945179ae471604ce8"
     sha256                               arm64_big_sur:  "a73c95b047ee858fd7e9aa6956d2c33716267b1cb862b0ffa79c3a98caa12082"
     sha256                               monterey:       "64adb60dee8719d85dc0111a0424973939a5083a84520ca50c7058bdc7e42548"
