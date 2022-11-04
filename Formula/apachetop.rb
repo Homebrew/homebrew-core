@@ -10,6 +10,7 @@ class Apachetop < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "89f9013994449c4578521ac95055fa3961d181a42592f795bde318daf4b26fd9"
     sha256 cellar: :any,                 arm64_monterey: "0bd9b86d7e7a88136da835fd1e4bc715c2d98c097ab1956f8c3492eb557bc9b1"
     sha256 cellar: :any,                 arm64_big_sur:  "b3795c0b43fb378f2293b0f267468fc57e15dd34410786b35dc37bf9fbd075c5"
     sha256 cellar: :any,                 monterey:       "20984a6baad28aa3cfc47287b0682432f567de700c40ba6784835f9826b09761"
