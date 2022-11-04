@@ -7,6 +7,7 @@ class Concurrencykit < Formula
   head "https://github.com/concurrencykit/ck.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e5dd4b47a7200e0179e740bfa48f34fa0194263e038020b97303e9b2f7cc93d7"
     sha256 cellar: :any,                 arm64_monterey: "b2d070df1dd5cad29f20b6a5192c2683086af490bd768a3b698e0fddb657cc2a"
     sha256 cellar: :any,                 arm64_big_sur:  "fad8ab6678349a6ae3a81ba7a8264591868f8c180c867f06ad98cb422d9627bf"
     sha256 cellar: :any,                 monterey:       "f5ccb2c540ce46a669ec5960ecdeb4f92e8eaa7c8e0bd889d0bc2a11474f2ac3"
