@@ -6,6 +6,7 @@ class Mdxmini < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "01720e2bc4f1207ec29261562b312955d96ceda87dc354ac708b8ff4f1b95565"
     sha256 cellar: :any,                 arm64_monterey: "703bdc526a902d8cb2190cbe385078bc5618952697ce3e6554a3473a9f1ec67c"
     sha256 cellar: :any,                 arm64_big_sur:  "0015ac050eb60388f47d9d8ad4dbc839be6c94c53896d472db1f902710d27504"
     sha256 cellar: :any,                 monterey:       "5e384c41501dd14903efefe829b14beb5db30d76bea9f0265aa957ed602fd400"
