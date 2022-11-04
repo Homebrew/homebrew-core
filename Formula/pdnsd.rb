@@ -10,6 +10,7 @@ class Pdnsd < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_ventura:  "3319b3306f0a2561742e6f9cf3fe9fc826586ac3d9f2cb039df3f173bde01348"
     sha256 arm64_monterey: "3ea74a916606066431810d0b959ca508cb0fd6cb27c2902495db6e9cf6e1e30d"
     sha256 arm64_big_sur:  "2a39399ddd344c3d38b4052ca914dc99eebd452a9cf323518504c19671e7b2f6"
     sha256 monterey:       "76c55bb21dc763f58cb9bb6c8611811cec2d414825c5b0d66a295946c8871db4"
