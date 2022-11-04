@@ -12,6 +12,7 @@ class Nanomsg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "308cf4314ea400020c0b85222f3fe0fb09f80ad204c1e2bc6271f0011df14feb"
     sha256 cellar: :any,                 arm64_monterey: "dcfbd463f07433a38c053f412678fcf5eb718ba13bafc86930bac6c7af651d55"
     sha256 cellar: :any,                 arm64_big_sur:  "78c5546a8a36be470a1aab0bfd05c473e841981ce51388ea395dcc94ce5c7a93"
     sha256 cellar: :any,                 monterey:       "112db66905b5f3b99bc8740e33b7735a5ea3da4eb4d5e14ddd466c736b24e4eb"
