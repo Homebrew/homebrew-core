@@ -6,6 +6,7 @@ class Vsearch < Formula
   license any_of: ["BSD-2-Clause", "GPL-3.0-or-later"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bda0ab83f9e19c237c07fd3f79c13cf2b57190baccb3b0f2a83e78dbe79e445a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "26458ebd854652a1a8ad1bc9a421ecbff3eb4d18bbfeb04bc563d7a3155fc60f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1ef50f6a561e90fa600581990f92a3b5f5eda98317efd98ad1686b780c9ba090"
     sha256 cellar: :any_skip_relocation, monterey:       "9df313961a9e2cb3e85acb461084c9cfdf821f8cec37762b630607e9146c9b07"
