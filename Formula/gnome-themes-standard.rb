@@ -6,6 +6,7 @@ class GnomeThemesStandard < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "228742756729ddd853a82b325d965fe83258dd25cbb849e8b270ccea0e4565b2"
     sha256 cellar: :any,                 arm64_monterey: "2b19b436b1dd9784e0bd347e663168f9fc8481132db0cc208e2571d1fb37c079"
     sha256 cellar: :any,                 arm64_big_sur:  "e7f20854195f04389a9ebbd968b59541979fbea64379a45af6c3b09f850a5f6e"
     sha256 cellar: :any,                 monterey:       "32674d3d0baca702980869b5dc6caa48ca8eb084eecd4602c4929dc16a52a1eb"
