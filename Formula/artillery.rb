@@ -8,6 +8,7 @@ class Artillery < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da5dd79bedf7e5a7bd6a626913bcf87b9da0d2e77086023bfd558787fdce4828"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d9863cb2e051f8b7b4ece37ecf453c4d57ef99915a0d47e236f8d86b9351cd39"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b4ca42c0271c2257d1da68652023309cbaf7a45411e59fda3e214f0e2d1e06f"
     sha256 cellar: :any_skip_relocation, monterey:       "ead56f60ac28f077a748272e1bd4a769eb462f2ee877919bd22d015bc5c8ee4e"
