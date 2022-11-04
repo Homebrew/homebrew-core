@@ -7,6 +7,7 @@ class Minisat < Formula
   head "https://github.com/stp/minisat.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "518ea1441facc4926c3edddf1fd5e6bf4d2db6460f10d4c4d4ef6c9fd69dcd3d"
     sha256 cellar: :any,                 arm64_monterey: "22895418f1f5e0d2a1efb9cc700f40bdb29e9809423f0c7949eeaacbbbf7b4f3"
     sha256 cellar: :any,                 arm64_big_sur:  "b802117d6cc0fa96bedac9eaa086908687ad87c7a368558e47c2417d3d2b7146"
     sha256 cellar: :any,                 monterey:       "5b028ad6aa66e082709083453b17d150eee4cb2a134b8cccd8c62567928b5859"
