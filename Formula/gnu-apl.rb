@@ -17,6 +17,7 @@ class GnuApl < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "77a4cb83c7800623533fd94943f01c0e5bd2b8eeaf52255f8839227db9e47ecb"
     sha256 arm64_monterey: "620de4f5d76edf28962b64cca150e9607a4fa663cc0f9fcf0b9ebaa43eb1c8b1"
     sha256 arm64_big_sur:  "70eb998b36d113e576e114caf29b8b3ed46da86b05d34979f03adb6f2daca772"
     sha256 monterey:       "3a606c0983eed237b401953d9e871fb69a76aee5b4d26d07a859b51b6451c6de"
