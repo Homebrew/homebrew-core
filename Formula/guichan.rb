@@ -6,6 +6,7 @@ class Guichan < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ff8971a12e820a77df5f570dbe145fb5f1046d851d713d8f26f89030429ea93a"
     sha256 cellar: :any,                 arm64_monterey: "917384f24bef699687d0cdd48867f03733db6aeee593537da519360e250fd22e"
     sha256 cellar: :any,                 arm64_big_sur:  "3acc3607e1930e9864934244b269370ffc35081c10138daf9b61254195bacc7f"
     sha256 cellar: :any,                 monterey:       "1ef2ef362f796f72ba510c5e1878e8b290846bec405e7b5240e8485971ae6950"
