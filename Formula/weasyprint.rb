@@ -3,8 +3,8 @@ class Weasyprint < Formula
 
   desc "Convert HTML to PDF"
   homepage "https://www.courtbouillon.org/weasyprint"
-  url "https://files.pythonhosted.org/packages/b7/98/cd0df64b306ac901ffd53c50d9d5d79d92cae756b6469fc14771adb39d77/weasyprint-57.0.tar.gz"
-  sha256 "7b6f5cc13819e9a7d8748c1dbf0e8d2444f7a4818a98339f82dccaa822bf911b"
+  url "https://files.pythonhosted.org/packages/32/3f/d305dc714c119e5b11c0ea1ecff9741407b6da90d6b684859d3b3e586692/weasyprint-57.1.tar.gz"
+  sha256 "397a9d11298f94485ec3b7b68aeef1c6106fb638350126d9d4a64109b73508a0"
   license "BSD-3-Clause"
 
   bottle do
@@ -19,7 +19,7 @@ class Weasyprint < Formula
   depends_on "fonttools"
   depends_on "pango"
   depends_on "pillow"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   uses_from_macos "libffi"
@@ -67,7 +67,7 @@ class Weasyprint < Formula
   def install
     virtualenv_install_with_resources
     # we depend on fonttools, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.10")
+    site_packages = Language::Python.site_packages("python3.11")
     fonttools = Formula["fonttools"].opt_libexec
     (libexec/site_packages/"homebrew-fonttools.pth").write fonttools/site_packages
   end
