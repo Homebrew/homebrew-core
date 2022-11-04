@@ -6,6 +6,7 @@ class Clash < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9c7a469c63891a0b9d4818b8d730e6c20b9b0833b5bc031319cb3af9c3a9ff0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "50119b6629a334add226c3e14a0fe47233e6611d4f246eda0f65121d23bee7dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2815f1f99682ff2824ab8e2925767599919dec5d923f3c39452238cea53805f8"
     sha256 cellar: :any_skip_relocation, monterey:       "e1d18529a0abf0d08c1eb2ec34b044250ff1c2976a23b670d9101b0b525ab0a9"
