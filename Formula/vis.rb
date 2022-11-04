@@ -70,6 +70,6 @@ class Vis < Formula
       bin/"vis"
     end
 
-    assert_match "vis v#{version} +curses +lua", shell_output("#{binary} -v 2>&1")
+    assert_match "vis #{version} +curses +lua", shell_output("#{binary} -v 2>&1")
   end
 end
