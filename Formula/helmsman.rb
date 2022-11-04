@@ -8,13 +8,12 @@ class Helmsman < Formula
   head "https://github.com/Praqma/helmsman.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dbdbc8089ab46d03f78f3d755615803bad88a56baa6fada893d01d9ea6f1adec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5edc0c31be6f7ea21107b9274ac365f5b084e2feeb57d16e0395f50a8ce54ab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93b59ff87c967894e13745cd622df84863effb404d7e93c616d8e90d1ae3e36b"
-    sha256 cellar: :any_skip_relocation, monterey:       "2356cf2e9f6cd85ee3ddbb8be3c82e1879949d6555678839d48382ec4ce9b984"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cc08100d0b5140f0d74c4d05ec89304a97b53ffe8f27b9dd7e8c351a065058d0"
-    sha256 cellar: :any_skip_relocation, catalina:       "93ce598f470902ff6948a1dda6550297b7f902caa415d1cbf63593e172f5024d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f26b548409289c9f555ff8d55cb54e4fb2d131ab9e6daa8656fa394874f25e7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "599d7a3c44e940f7f035600fefd463e03f8b395d350f27cb9d73ac805cd19fd4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88aeb301df5606aef7dbcfb6720bcd3bd2ff1735cdab992f762c88d24a2e5d95"
+    sha256 cellar: :any_skip_relocation, monterey:       "5182f383a67e16e22b076f6ae12162a1c05e5798d106778b3f298518ff7a1e97"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0875d3c35d730f21396c81d541fce6e4047e0da9a47d2b1b01a35d490b9df99c"
+    sha256 cellar: :any_skip_relocation, catalina:       "e5a6a961f24f3a1a8c0f4b5cbac24566224bef68c1ec8eb9de414660f68cd276"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1404ff1fc139efb8467e22ddbf9d399f997994ebd375ad6bda628ab6a233b324"
   end
 
   depends_on "go" => :build
