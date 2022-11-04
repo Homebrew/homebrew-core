@@ -11,6 +11,7 @@ class Sord < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "20489ceee76a03468222d1664ab094b742974816d2dfee437eab8c12009a16c4"
     sha256 cellar: :any, arm64_monterey: "96032d07b0ac3f7364b721c935a215c6f792abbf79a8ad6004638794ae65a4d5"
     sha256 cellar: :any, arm64_big_sur:  "b7ceac3c480159338053a7dd2da2ecab47bf61c238332a10f8700470101cc226"
     sha256 cellar: :any, monterey:       "5181253c794efcb69212b0b22573cadd5d2d92161c1b6a725a74c40dcd718f6f"
