@@ -19,7 +19,7 @@ class Weasyprint < Formula
   depends_on "fonttools"
   depends_on "pango"
   depends_on "pillow"
-  depends_on "python@3.11"
+  depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libffi"
@@ -67,7 +67,7 @@ class Weasyprint < Formula
   def install
     virtualenv_install_with_resources
     # we depend on fonttools, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.11")
+    site_packages = Language::Python.site_packages("python3.10")
     fonttools = Formula["fonttools"].opt_libexec
     (libexec/site_packages/"homebrew-fonttools.pth").write fonttools/site_packages
   end
