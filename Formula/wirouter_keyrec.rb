@@ -12,6 +12,7 @@ class WirouterKeyrec < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "d0f76ae3936a32cc3be17614e325503686400bd1c38abf3a072d0f0de9444628"
     sha256 arm64_monterey: "43c8cb4e4f1389c6a584c27b0407c11e31422cdb2802706f316a93f7e5d8c7a5"
     sha256 arm64_big_sur:  "e3cfa2752a3957af0fcc474d4ad24ab76f026ee4479e0fa74d84222d16c02812"
     sha256 monterey:       "0b4c56b39f76881732a5afd3a4fc490e35e05145efb71845d938555d1173168d"
