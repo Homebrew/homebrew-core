@@ -6,6 +6,7 @@ class EcflowUi < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 arm64_ventura:  "5cb33b2f65bd49224c67236229811b87fa545fc2549fee4fb7de11efc5b763b0"
     sha256 arm64_monterey: "34174ca9ec67da579c66ccf9c0267d8249547c07b22ebd3f80b7fd20493600c0"
     sha256 arm64_big_sur:  "07ca8328acfded316b3e9f075920499014f3b3d5ad42e65afde8d8d03525d2cb"
     sha256 monterey:       "010b85c0f5fa94624b73adb434af5999b0ad2af58bdaba5908c06a30269ff919"
