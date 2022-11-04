@@ -78,8 +78,8 @@ class QtAT5 < Formula
 
   resource "qtwebengine" do
     url "https://code.qt.io/qt/qtwebengine.git",
-        tag:      "v5.15.10-lts",
-        revision: "c7e716ef1ffd63a8ab1f4dbf879230849eb3b505"
+        tag:      "v5.15.11-lts",
+        revision: "3d23b379a7c0a87922f9f5d9600fde8c4e58f1fd"
 
     # Add Python 3 support to qt-webengine-chromium.
     # Submitted upstream here: https://codereview.qt-project.org/c/qt/qtwebengine-chromium/+/416534
@@ -101,6 +101,13 @@ class QtAT5 < Formula
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/a6f16c6daea3b5a1f7bc9f175d1645922c131563/qt5/qt5-webengine-gcc12.patch?full_index=1"
       sha256 "cf9be3ffcc3b3cd9450b1ff13535ff7d76284f73173412d097a6ab487463a379"
+      directory "src/3rdparty"
+    end
+
+    # Fix build for Xcode 14
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/405b6b7ca7b95860ee70368076382b171a1c66f4/qt5/qt5-webengine-xcode14.diff"
+      sha256 "142c4fb11dca6c0bbc86ca8f74410447c23be1b1d314758515bfda20afa6f612"
       directory "src/3rdparty"
     end
   end
