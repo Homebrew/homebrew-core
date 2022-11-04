@@ -7,6 +7,7 @@ class Pomsky < Formula
   head "https://github.com/rulex-rs/pomsky.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "874c802e55f459ae4c6343e8f72f2873032953924b8dc8bce7cb7517177ed3aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb4ff5df9ecf07b72d8f6b99f15e12cd99c3cee6c352d39e2750698e1377da9c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04841aa677c4ad464befbaeab4c3136c3374cacafa9825a6cca0c680182fac1b"
     sha256 cellar: :any_skip_relocation, monterey:       "a8c2fa8298c4e081553c2e66da3c2ddb3621586669923c308dda9e9cd523b51a"
