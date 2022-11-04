@@ -8,12 +8,12 @@ class Weasyprint < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9987584309aa7d8003a1349712f28c9731dc84bafb708895a569798e580b04fd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "738cf942073a0b5c2dd68c6891641b23dad6d44848039877b842cc7ba1d64d03"
-    sha256 cellar: :any_skip_relocation, monterey:       "e881e4bb43c1d8190c467b383605fcf103597eb683af9412e40cd23e2ce57af5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6eec136c41067628dc176665ca629a8025406f7fbf2b33e27725f2385198945b"
-    sha256 cellar: :any_skip_relocation, catalina:       "135465bcb0b846979aaf979686cc8ece798c790c6cc1b983acc92a75186b791d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4aa383b63734ae46f574e48d64196861ba26234e89632d8398ec4234c89d0b3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "899fa0f8cbde19fda5930378eccce1b5e1266cc43f561faeec5a9f6d12b5d75d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1980034b618869237405fb1b5eae667ec7d0a3691e11dd64827709a84658dcfb"
+    sha256 cellar: :any_skip_relocation, monterey:       "258262bd1b246b2532ae085158e3225079f874d09ad30982ac7bffae54f6b579"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fbf8a42ff240743bc71ee8406212b42ff2f7b16af4c30c8257e4a32e48005786"
+    sha256 cellar: :any_skip_relocation, catalina:       "a2a047df728552b1448827b48e5dc4e409695d4e1e8621397b22558956ee643e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ef6c7af41626c449c08394bedf5a70ac580f563f50c8fb6017c5f6260033afc"
   end
 
   depends_on "fonttools"
