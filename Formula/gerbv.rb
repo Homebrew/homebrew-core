@@ -6,6 +6,7 @@ class Gerbv < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "07c36c3a7bfd59d8b1bf2658faebc75f198a2be26f52c2a4821f2be2145e5dab"
     sha256 arm64_monterey: "724afd952aae280191f9aa5296477eb7a5720644cbaba3c557bb09adeb86da70"
     sha256 arm64_big_sur:  "90fc640277527fde95daa4194f19a7ae138b55fed8fe5bf73980bc7120792010"
     sha256 monterey:       "bc021f7b50b5187489cda5b62cc423915f100801d43aae0e8883d06b0ddeacf0"
