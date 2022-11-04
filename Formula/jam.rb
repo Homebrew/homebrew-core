@@ -5,6 +5,7 @@ class Jam < Formula
   sha256 "72ea48500ad3d61877f7212aa3d673eab2db28d77b874c5a0b9f88decf41cb73"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae7aceb6a763b9da9860724b7347f2449f4983c004d3b58bdb21580deeb45482"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c63b8dd9caebb84eed84bd05412e698106c41dae126fefe7b5c4e713edcf827a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c203e7cd06975b4a931ef7f79b150f3275c2b875aefc050893e7f7ffab76293"
     sha256 cellar: :any_skip_relocation, monterey:       "e523ce38232f61b98a93132faba3c61f5a1ef8cfd08d9d650a716d6b6c90daa0"
