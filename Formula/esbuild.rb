@@ -8,6 +8,7 @@ class Esbuild < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "765dc9e2df898409e7581a074a50b4f1b15ddab6049ff8ea0dfc8fd4222c4e06"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "765dc9e2df898409e7581a074a50b4f1b15ddab6049ff8ea0dfc8fd4222c4e06"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "765dc9e2df898409e7581a074a50b4f1b15ddab6049ff8ea0dfc8fd4222c4e06"
     sha256 cellar: :any_skip_relocation, monterey:       "ad1e072fd3354914335b3fc4c27cc75430c938515d76f7dec2770d87836473c1"
