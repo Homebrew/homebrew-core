@@ -11,6 +11,7 @@ class UserspaceRcu < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "662b6c7315f6070482140ddd035874cf52c434286d44a44bf7f31125ff7686ae"
     sha256 cellar: :any,                 arm64_monterey: "d2cb9246e240a6db9c40d9e3a19288d064ef95345f3e884a5892fa2b341fcb9c"
     sha256 cellar: :any,                 arm64_big_sur:  "c661f7dadf4ef5fdedc1ea707da817fba3e491b0b263b070fc234f35614a8afe"
     sha256 cellar: :any,                 monterey:       "c9cf73dd281dddd9fca16844e005392d0f0fb1132f4540ef95e552d7799113c6"
