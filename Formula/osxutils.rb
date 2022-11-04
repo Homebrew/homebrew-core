@@ -7,6 +7,7 @@ class Osxutils < Formula
   head "https://github.com/specious/osxutils.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b0ede5abb14b36d57990316d9f77a47af1ba28bf3b11b908d0da7a5d2672e5c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ba6b55b6d292736fcc636f2afdc9f36e357ff2c4634936a1c357ab292b7e7817"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5d4050cda7e5ede43231c7195ffa1eb06bf5e3b5a1efa6acf8243a0e8ee424a"
     sha256 cellar: :any_skip_relocation, monterey:       "7fdfadc1766c5cc042a64798dcc7aa4093bcb8e2abe4c0b7146f6564288282aa"
