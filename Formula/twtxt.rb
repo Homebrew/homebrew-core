@@ -9,6 +9,7 @@ class Twtxt < Formula
   revision 6
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e582918a58ab90f7c1d86b966aec1de52aca3609b15a5f888bf058c01ae1ce69"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "80c57223d2a057ffb2db91916cf0f036c5d5e78972d198f575130c8ba97a1df3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f11e987889094010f71567b22767c88bc6ddb29a1302d178f54a48b607c8c916"
     sha256 cellar: :any_skip_relocation, monterey:       "733feaaff1a0e67b4463da007b93e44afe02f7012bb0b6509e706dca5d54e650"
