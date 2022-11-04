@@ -9,6 +9,7 @@ class Wllvm < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a11e0bd3bd72e1bf13132dcc783527ed99aa6ce64760166c2464e3990352c2ea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf463932cd82d551e7ec1ab19c31c6317fe716c5e5f40d6cb89e2e799abc3511"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf463932cd82d551e7ec1ab19c31c6317fe716c5e5f40d6cb89e2e799abc3511"
     sha256 cellar: :any_skip_relocation, monterey:       "68f0c14c32a408b35a74ffd3993ddc00a76ead4fbb486591df2ff2c69d8b4485"
