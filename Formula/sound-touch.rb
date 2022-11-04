@@ -7,6 +7,7 @@ class SoundTouch < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6cd1b4e102f56d868990adf577ea5ad6dceff57f3d3cf8075622f828e5032a86"
     sha256 cellar: :any,                 arm64_monterey: "0d340cfb0bf1d17b2eea238b756e58cd0559a4e394394b0f5e2031114e75506e"
     sha256 cellar: :any,                 arm64_big_sur:  "1ccbe6750451a745654c3b00c8f14e1706381074254136278bb4cc1f7b88e009"
     sha256 cellar: :any,                 monterey:       "ecf1be5a1ff7d41f7346f32c238ae3f30f965e58252e994082c4f2c7dd7d2784"
