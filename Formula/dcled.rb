@@ -10,6 +10,7 @@ class Dcled < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4ac7c81b9155f3196eccb25a230494545976a8570e91fe9c5e6544e5e860be92"
     sha256 cellar: :any,                 arm64_monterey: "338db9a99977a15fec8a4e2c2bf4432150c21e13e570c1caa852b99a689a9b3b"
     sha256 cellar: :any,                 arm64_big_sur:  "bd8fb1848c3296e5eaadf1436f891a2a6ab8142135947a2806db1d2e5212695d"
     sha256 cellar: :any,                 monterey:       "65cd5df08d1292e7f046bcada635cfd63708fcf75f7cc4e9f23b3bb402e0bbc1"
