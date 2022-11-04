@@ -9,6 +9,7 @@ class Planck < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "28cfee0e34d3c5324a94a0f8013d87a72a047795a36d691de7e3492a60eb9ea1"
     sha256 cellar: :any,                 arm64_monterey: "3945ccf1866fb52c25df921bf42ac28b1d0f0b688d4c2b8b107cdd67da41c14e"
     sha256 cellar: :any,                 arm64_big_sur:  "084239c44a8993fe2d2d327053e8324d8f6b13080a1b0d22ee6a6ff36fc5561c"
     sha256 cellar: :any,                 monterey:       "8b54a20fc9bce4febcf5d377e8b62a3664bc447f4ed92036e9b85f39e5734ea4"
