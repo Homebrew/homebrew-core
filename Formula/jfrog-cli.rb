@@ -6,6 +6,7 @@ class JfrogCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62b1e043a271dde74909edefbf8d88fa5c0b80f2bc4989914b63d1bb7a3667a8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "13dc70539d97be589ed8a87e9908d21bd91f979aff7710652c637bf5f65d0d9a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ecc18f956d6dc91398fa13bd6477944aff4c68f9acabdcb52b9c2622e7df507"
     sha256 cellar: :any_skip_relocation, monterey:       "a3b500e891af823ae501a4c4eeb5db65d475d05fb87d2954541af2ba34ac3d07"
