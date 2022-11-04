@@ -7,6 +7,7 @@ class Carrot2 < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "69de3f82e3f515bbae8b9f324516cff276e44fb59414f6d85cf9b8ca7f164f31"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "58c34ba802ae45ae5405161254d3f7cb31dc5cc47877f1f05ab48e39b5192f89"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b24fbd77bb2566fc819c610b88a41423c4e0e9b3278615f593e42d57904b74e8"
     sha256 cellar: :any_skip_relocation, monterey:       "14b073501ea49f89cc20262478b4021a6b07290711202b66305d193930947d2f"
