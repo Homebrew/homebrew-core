@@ -11,6 +11,7 @@ class Tin < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "69d1e9fd22beea997f0fcf16d6f411c1ade3c099781ae2e4c3b14977b6b261d2"
     sha256 arm64_monterey: "3da6ca54a9306da6d17e1c6248c37081ef3930a0d1f116990a50a091f1565d37"
     sha256 arm64_big_sur:  "de118ef2c4532cfa71dc80c1e2205074818e0ba57c48bc9f2e63487caf8e26f6"
     sha256 monterey:       "8897ee5f24a4004476bc93f15960c7f66d678e3f1e1636cbd8ab4c062c36053b"
