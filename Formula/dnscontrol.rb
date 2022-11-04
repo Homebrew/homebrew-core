@@ -12,6 +12,7 @@ class Dnscontrol < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5eb1865c011ddcf5522585d8a2f42ec2fd05abe7e4a49b26aa0ef9e9654d44b4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1939ba0329d80b88a708673f2e722517fa914905ec6e4e96bcf68b8782195663"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8884789ebccde098e87d12130ab32681301bdb889d4ca14a203d1455a1991bd2"
     sha256 cellar: :any_skip_relocation, monterey:       "7d40abc5df3fe50f68929ee53d4b6b8b8ffe9b27ba1b114f6492040be8cca21f"
