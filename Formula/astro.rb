@@ -11,6 +11,7 @@ class Astro < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd93f5ef69a8bb7bcc600d889c0cdc1ed2858cd7b5c8bd560b5b9640eb464bd3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bd93f5ef69a8bb7bcc600d889c0cdc1ed2858cd7b5c8bd560b5b9640eb464bd3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd93f5ef69a8bb7bcc600d889c0cdc1ed2858cd7b5c8bd560b5b9640eb464bd3"
     sha256 cellar: :any_skip_relocation, monterey:       "84dce0674115a43c07266641dad9a065e203bca71e4acdb56fdff14343efdcc2"
