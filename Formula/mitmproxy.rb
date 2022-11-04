@@ -9,6 +9,7 @@ class Mitmproxy < Formula
   head "https://github.com/mitmproxy/mitmproxy.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b0c074212d152e98d9f89724b6797721dcc1359f7f37147ee82953c0a3837d82"
     sha256 cellar: :any,                 arm64_monterey: "c45bdc993ba38119396a5d35aba17cb367371c869e3eefb16d94651cd1111aab"
     sha256 cellar: :any,                 arm64_big_sur:  "f41edfb745c049a82a805586cf95d8a9281adf25a8059f2f3d3710eb629513fd"
     sha256 cellar: :any,                 monterey:       "e735158361a098f037e0c3c7da9d30f7c37ce1220f546c2e346f0c056d5076fe"
