@@ -6,6 +6,7 @@ class Lmfit < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d19ccd618608a60bf8de2fe961409cf5615f7003500e88a2157dfffbed40aac5"
     sha256 cellar: :any,                 arm64_monterey: "b987b349c6ebe7de26d3df3f1533a8b2aaed6e021e30478a623be0d84654304b"
     sha256 cellar: :any,                 arm64_big_sur:  "5847e9700579b8e38168fe822e779f1c1e4b74d0acc41b2571e44d67da62f5ee"
     sha256 cellar: :any,                 monterey:       "4da2bb131ad773aa9b58d27a850619efd8e5fbcb13549c2b02fd2644af59fe63"
