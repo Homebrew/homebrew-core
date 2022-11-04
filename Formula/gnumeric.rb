@@ -7,6 +7,7 @@ class Gnumeric < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "04ad53f4378a567dc37aea3bab40e4c44bbd10a6b32ecfa09fd1942304957281"
     sha256 arm64_monterey: "379f3f13f1b333394992650422cfed7f7bde81a5290d5f7ac06d4fa6952b2fe6"
     sha256 arm64_big_sur:  "17f27ff8fc570ec1b9b26e5a8c3c629838c815c1c71a1a3649a73ee86bd1a0f0"
     sha256 monterey:       "0513b180accd11a2b0f89e39336869b92d19b57a016e43ad49163e693962760a"
