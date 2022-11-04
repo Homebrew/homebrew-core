@@ -15,6 +15,7 @@ class Bitlbee < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "d5abbf75f2d71752b48051f6072394422a338650a187b53f0bcb528981da9e3a"
     sha256 arm64_monterey: "3a72087c74824a9a091929fa90f0e3832fc756e2d36310afffb9bd10e31c1b03"
     sha256 arm64_big_sur:  "1b14221525a9329fbf1e28d4c0893e130717ddede1935df4af9dbcab044c199b"
     sha256 monterey:       "3aedd8b58af6e9c58d2e96cdc0e541e9c96bf8a7ed24165fa138d54b5044edbb"
