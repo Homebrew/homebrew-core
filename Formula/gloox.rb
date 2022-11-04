@@ -10,6 +10,7 @@ class Gloox < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4d48f51b26619a85c9e5a937f58b076eb3e14caec7882956457a94ecfe7b0a35"
     sha256 cellar: :any,                 arm64_monterey: "7ec91986b31b93a0271334d280e1838d14bab2af7d62f813f20e7c0df5f4e564"
     sha256 cellar: :any,                 arm64_big_sur:  "d3a7c4aa4b061fe4dce520662e632bc9983b294cb94e479ea46221f43ea46c9f"
     sha256 cellar: :any,                 monterey:       "fbd2eedb0aa00300684582f8cf54f071e84c05e917ea2360ee29e17d8c767523"
