@@ -11,6 +11,7 @@ class Calcurse < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "00ec318848794f0995fc498105ba1fe7ee233a5cbddc30a959fd94a0b090ffd3"
     sha256 arm64_monterey: "c052a312420fb5e3a244df5c013c72817f3f72e6575f3d4dc2df05616d42bf77"
     sha256 arm64_big_sur:  "9e3f2eea1bab3d8e28dc2923c536a2b4585affe1c484024c684ad77dd1e75b8c"
     sha256 monterey:       "5f1bc21c76038efd7812be974b649630a982d24a1f0b9de05d229ed4cd3c471a"
