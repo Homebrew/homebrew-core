@@ -11,6 +11,7 @@ class Gwyddion < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "7f1e88f594b85b1ff14136954abd497c76c6f714a424c4c5f60eebf5090eff71"
     sha256 arm64_monterey: "6d89eceaff946e5fa27619df49db3489cfa9faf0b84134d0973f7ff13345c939"
     sha256 arm64_big_sur:  "4edda3a2def3d79679378aef727ca9a5f2c64d2f4aea813ff80fc384e1f5dd20"
     sha256 monterey:       "accc13498182cc7f5dd0216afcee03825a6ed823a5eae8a58bdbe97c155cf1c1"
