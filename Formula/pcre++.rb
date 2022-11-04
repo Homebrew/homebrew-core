@@ -13,6 +13,7 @@ class Pcrexx < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "67b2481140ac7c4101d443b54f4d6c7bb7bb1ede6338bae81a4c78509ff49f52"
     sha256 cellar: :any,                 arm64_monterey: "07536c89d8da585a2604dbc109e7cefa2784c83c25b505541b7f407444266f87"
     sha256 cellar: :any,                 arm64_big_sur:  "1232e288cacfd0124da243208e1584caf1925be4dcdcc7b94b96585fb50bfabf"
     sha256 cellar: :any,                 monterey:       "9212f378a4e73bd4bfd55a91dcdc54cf9ce589b2abdf35bc1d1201d4ab06cdd1"
