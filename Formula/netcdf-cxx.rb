@@ -6,6 +6,7 @@ class NetcdfCxx < Formula
   license "NetCDF"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b8249b9ab11997990d8ecba6a47b57b4a5df1e6aad825f17f0ad00ad23a85b7d"
     sha256 cellar: :any,                 arm64_monterey: "14fb172c409bda5dc90e97e7696346cde6907b74a8e282579b0d7a96486d7c6f"
     sha256 cellar: :any,                 arm64_big_sur:  "36523f3a017dfc37063d39b7b266258ed6fcc72cd1062a03ef6fa18ddbdb143d"
     sha256 cellar: :any,                 monterey:       "f37b15aab9c88cf7328e0670e7665c8cba49e0594910a21150ffb0291d270a16"
