@@ -9,6 +9,7 @@ class NeovimRemote < Formula
   head "https://github.com/mhinz/neovim-remote.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c458341a094b9f0134cc757b31aa1fab32f292464b7761dad960b5a39a63e03b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "70fd1dc7d92012d97b9f93321c28b5153507bf6708161c5c6769e53c98224541"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7e041bfc51360e3324177bef8536b3a2fae05f2343223b4961a63fb4183114a7"
     sha256 cellar: :any_skip_relocation, monterey:       "4d8eca98889cfb7fcd2b4198136b084b3c8e8cce25abe27e6406ed2f708404fa"
