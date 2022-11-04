@@ -7,6 +7,7 @@ class Ponyc < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59038e574d9d5df120bca936700d82cfe48c75822e34ca261313c868aebc917b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b7147d1270bdc149bb838acb247591943108e4a882ec16ada4bff9b1145e8f5e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "444dea035081cb04f3ee634b9f76c370273c19fcc2969607c2e6c91010b2a054"
     sha256 cellar: :any_skip_relocation, monterey:       "6eb331fdf15bdcb0f1119f9abc5914117e9c634e4c53b296241d536567d65951"
