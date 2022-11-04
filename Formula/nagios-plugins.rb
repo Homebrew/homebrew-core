@@ -7,6 +7,7 @@ class NagiosPlugins < Formula
   head "https://github.com/nagios-plugins/nagios-plugins.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "9ea55e1c909cfaeded85a03cbb4a8b19b2e78d53a158ca104c537923fb2dd272"
     sha256 cellar: :any, arm64_monterey: "02e2b947b95e6d78018ae1cd89823c0942b10abc58a635727bab341099ceb846"
     sha256 cellar: :any, arm64_big_sur:  "988fde6184cc5668753a9be452ebcbd86e0ef83c198d5e62ab70f011fecb125f"
     sha256 cellar: :any, monterey:       "cd3d58e3c2e950127f4c11764c4bdb9a703de30abba0affd1420fa9ff07aa40f"
