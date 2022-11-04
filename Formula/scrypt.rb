@@ -6,6 +6,7 @@ class Scrypt < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a7a358a4aaec95b0432276490345a34323b2819e670beebe66f0ab91aef021a2"
     sha256 cellar: :any,                 arm64_monterey: "a451784bb5c8dfcbbac4e6d25a85f0986006e8580a831a8d2db4b1c8bf6facae"
     sha256 cellar: :any,                 arm64_big_sur:  "452d9a1d1ebf709a71aebf1814646bf1fff3858d1ec9d4e1fd9ee802b93dd9e3"
     sha256 cellar: :any,                 monterey:       "eda3c8c8096fc9756b3d6b8b55ee414b2afcfc9b349717d4939c89bc900b40bf"
