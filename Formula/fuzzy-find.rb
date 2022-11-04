@@ -17,6 +17,7 @@ class FuzzyFind < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81ff5be190dd0e8d539f7a0e3a366737db3fb72faae8c310f99ee462e4333f5b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "40e202174aca2e775cea7f47b1936ca0cc209e2e9a96a9f9e2b9b8bd6ac7d3cc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35ce926faa74b7f843cd9f5facb104ade3474989156d4bdbdb61a3abaef89cac"
     sha256 cellar: :any_skip_relocation, monterey:       "71dfdb9fbe7c51760e5095165eb35844a15435e685154a03ea9c5ce314916d00"
