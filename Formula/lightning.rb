@@ -16,6 +16,7 @@ class Lightning < Formula
   end
 
   depends_on "binutils" => :build
+  depends_on arch: :x86_64
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
