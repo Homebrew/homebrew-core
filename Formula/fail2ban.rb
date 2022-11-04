@@ -11,6 +11,7 @@ class Fail2ban < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ffa8624863782da35f984415e30d7a0583cb07dc46b2e25464d575a88be1b60"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ce14e2def760e36b3c72ef1b6dc41c105002c049b88b58bd3f46eaab3fd7a4c0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce14e2def760e36b3c72ef1b6dc41c105002c049b88b58bd3f46eaab3fd7a4c0"
     sha256 cellar: :any_skip_relocation, monterey:       "76d826c2b6f469f50f057afd11dcc5b30ae65895bfcfd8eecfc674f01e2667f1"
