@@ -1,9 +1,9 @@
 class Metview < Formula
   desc "Meteorological workstation software"
   homepage "https://metview.readthedocs.io/en/latest/"
-  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2022.8.2-Source.tar.gz"
-  version "5.17.1"
-  sha256 "4706b5eaeb43192c5177c384dcf0860b73415f292bf01c541b622d280672b578"
+  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2022.8.3-Source.tar.gz"
+  version "5.17.3"
+  sha256 "91397f1b17c3cb2cc4e3c1c104baf534cbb30b045f9aba34638c37db2894f6b5"
   license "Apache-2.0"
 
   bottle do
