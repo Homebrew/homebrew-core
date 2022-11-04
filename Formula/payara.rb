@@ -1,8 +1,8 @@
 class Payara < Formula
   desc "Java EE application server forked from GlassFish"
   homepage "https://www.payara.fish"
-  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/5.2022.3/payara-5.2022.3.zip"
-  sha256 "4088221274882de792fda0836ddd47f0550f896e44c62174579c2c70a1177a5d"
+  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/6.2022.1/payara-6.2022.1.zip"
+  sha256 "507ce4eb1c943d69fe184a8881123f8ae346edc22f8417c5c662cbdde788f237"
   license any_of: [
     "CDDL-1.1",
     { "GPL-2.0-only" => { with: "Classpath-exception-2.0" } },
