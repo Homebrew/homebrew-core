@@ -11,6 +11,7 @@ class Aescrypt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c6719bff5edd5e48eea46096d02b2818e94491901d419de070a0927fb53bd5d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bbd0fab48f97fd829f8fddf38423158d950668f84dfaee6d87f45fa1af96b55c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6ca5e29be88eea7f2fe4faf1e57e3f827bfa86bae2726e5f83cedc79c091fcb"
     sha256 cellar: :any_skip_relocation, monterey:       "a2d7637fcca0782a1f78089af50ea8a39d97d84f7e5fff9c9af938a353724887"
