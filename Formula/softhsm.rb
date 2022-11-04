@@ -15,6 +15,7 @@ class Softhsm < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "87a9e12272c8a0a7fdace62e8ffa9dccfc0c54d6b8a4786983999003569fd1cd"
     sha256 arm64_monterey: "c3e55a3b5f71b28da6a9fe63d3008a30d1d9276acc89ca677717bdc87c9be668"
     sha256 arm64_big_sur:  "878fda1e9a3ab2de52ecc4244044971ad3e38909e080f77cb7973a5f797359c8"
     sha256 monterey:       "99780ecb60f55ec1959ee5ca34b8f17ff1a6767f3a3f23dffeb0b193fa4bd865"
