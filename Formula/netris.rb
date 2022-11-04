@@ -6,6 +6,7 @@ class Netris < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d1b2e0308a1ac7d02f0d76d91c805c32241191fc396d2a95e22b9456370e8af"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "325a86274ce6276ebecbf44fd386861b02ca96a8aa982da845c21ba0932aca00"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7b88fa79c440ed0dc4c971eb32197e9f88b34afbf50cd6d9e8929f2e03d7866"
     sha256 cellar: :any_skip_relocation, monterey:       "1cd2c848c2e5da61c99c8c2930c77f21e58aeb91fdf97c678392bdb34ca252ba"
