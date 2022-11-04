@@ -6,6 +6,7 @@ class Phpstan < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "348641218943425d735232a967475f92721cde5964ac3ebd5c8e4b9e4993e58e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "348641218943425d735232a967475f92721cde5964ac3ebd5c8e4b9e4993e58e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "348641218943425d735232a967475f92721cde5964ac3ebd5c8e4b9e4993e58e"
     sha256 cellar: :any_skip_relocation, monterey:       "b724798a99e8b1ee24bf90bc1fe570db10bba1748b6e7882f05e1b1305ce170a"
