@@ -1,8 +1,8 @@
 class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
   homepage "https://gerbv.github.io/"
-  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.9.3.tar.gz"
-  sha256 "093a44e44b2fb39a76c8072d0c7395f0eb0a4ae724e4ea79dc74b87c363922e2"
+  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.9.4.tar.gz"
+  sha256 "f5e7e91ec93ad1646eb700a02e484b673acebd2255ef980869751c0482cd0fa2"
   license "GPL-2.0-or-later"
 
   bottle do
