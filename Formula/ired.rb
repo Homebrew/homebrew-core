@@ -6,6 +6,7 @@ class Ired < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b152332ff671a52b4025c50746e88f84d91794e2fe433a9fddaddd10382b0cc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "beaab59e24217daae0d860b303cbd4d75649509805cf1dff0d38de222d2e66ec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c5fc028d62ce70b95c2f4ae6e9ec78c88b1083d7244263e5cae2734f9f1f682"
     sha256 cellar: :any_skip_relocation, monterey:       "6f988d4fafb5fc0070801f09feb033b469a8c4463a87ff3abb2e6b081b4c1a62"
