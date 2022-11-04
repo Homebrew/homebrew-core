@@ -11,6 +11,7 @@ class SearchThatHash < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2f1bb226bf2affdb2d545e9504a063d99a3866954f472ad744ccc280ce419dd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f7aa68b0ef42bcc15f44490abacdff5839de7d4c6fd29a99492560cedea62963"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "858a3f9a9ae1711d30d2c1c4a0f529f8cbb1888c800fd0e6c3e00e3a170247c6"
     sha256 cellar: :any_skip_relocation, monterey:       "54c993810fbc9c4fabd4bb09b1d5885e5cead1c9e611ea71e5ed7a5bdb41ecbe"
