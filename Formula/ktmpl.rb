@@ -7,6 +7,7 @@ class Ktmpl < Formula
   head "https://github.com/jimmycuadra/ktmpl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed698a63ba9ac6c2456cf636946bfdddbe435f3935d7b153901fd266628e5da3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bdc914b0cfe58260b57759c3122bb838b2c865f4715fa07805354041e65d9acc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae419f6b93ac34ca8a983f23cc4740013e206554642b4b24db779411ab0becd4"
     sha256 cellar: :any_skip_relocation, monterey:       "a6d055d30ddcea4abc0ab35b0a4c205df4690dae09fa282526d85df6b55e3809"
