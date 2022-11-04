@@ -6,6 +6,7 @@ class Brook < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "785162e87c02d99a4badfadca1de0ecd235f7864d2c8887166b12d3b95daa69e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6408ffb549f9adc493ce3364dbdece1439f7a0b62d58f959f6f279fe7a3cdbf4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8dc14ee60421131a30b3de7a8e0f79dc2a8942e5ef251b95b53b39a3be2509f2"
     sha256 cellar: :any_skip_relocation, monterey:       "e560e4f41415f2b20f8d2e773465c47eaf26472478a2cbf89c948f57c2e3904d"
