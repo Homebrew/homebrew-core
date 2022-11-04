@@ -11,6 +11,7 @@ class BoostBcp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d023fa0cac69acf6f984490010af42aed546f6bf882efb21b91ff3ee7bed18ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22f911d13db37f9f87c516cada4cf41b9dfaea7dfd8dd948baba5dda2b1e625e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6a9e8880cf68faec11e18b96028043442b8fda1064049def70e6861bedf1b82"
     sha256 cellar: :any_skip_relocation, monterey:       "6b01167eaa34dbe8b4736aed2f8b6a49e714c381e9d616d94d17afa48dcda6c8"
