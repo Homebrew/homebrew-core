@@ -6,6 +6,7 @@ class Gotests < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb95a89300241d532d54e78bf10b6190a2172c6e83a8e32e00805624dfa9cd69"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a2daf6aeff322ba4de342bb2d21b485732ae4851575387860ff91462e14e8d31"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca761cc187d08b5d211562b383610d614c67a4533de9c552f6e2b57a07b7ed5b"
     sha256 cellar: :any_skip_relocation, monterey:       "cbd11e7ba3400d2a6896974899257d37105759cabebe94bc4a599c739e3ade92"
