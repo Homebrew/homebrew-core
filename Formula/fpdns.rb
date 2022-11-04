@@ -7,6 +7,7 @@ class Fpdns < Formula
   head "https://github.com/kirei/fpdns.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb77e083c32bc72c0f52807fd1ff356ef7fe5f2513e19e7a21df53fa714bd4f8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "913d16a19cc4f3da646f509dd0a3f392949171f915811e351b375d2534c821cc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b622516234b6e929c375a741e0024467632a691cab2e61f86044b6553b5d394"
     sha256 cellar: :any_skip_relocation, monterey:       "6449eb8bcfee73a6f2c8149075a8f9e04953cff9989a2622511190ddbb5649a1"
