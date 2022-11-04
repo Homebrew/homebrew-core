@@ -65,12 +65,14 @@ class Gdb < Formula
   end
 
   def caveats
-    <<~EOS
-      gdb requires special privileges to access Mach ports.
-      You will need to codesign the binary. For instructions, see:
+    on_macos do
+      <<~EOS
+        gdb requires special privileges to access Mach ports.
+        You will need to codesign the binary. For instructions, see:
 
-        https://sourceware.org/gdb/wiki/PermissionsDarwin
-    EOS
+          https://sourceware.org/gdb/wiki/PermissionsDarwin
+      EOS
+    end
   end
 
   test do
