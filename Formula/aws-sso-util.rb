@@ -9,6 +9,7 @@ class AwsSsoUtil < Formula
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9976a3b5830f8e9953ebb60aa4fad4938328d76c0f88976b1f2fd2bf48816c0d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f1124dce17d24fad0e1ea7b405f26564eff6a72231c6bf340bf596bb7af28d6b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67966f7627afa7f77f4b20dfe8b8c0aa9540b8e6699a2a818f9c8d0b7b3fd300"
     sha256 cellar: :any_skip_relocation, monterey:       "de47da4301da4194a2205ec4722da0ce0fc64fea6638d1ee91883d81a1b36d9a"
