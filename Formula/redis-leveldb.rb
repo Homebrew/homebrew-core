@@ -8,6 +8,7 @@ class RedisLeveldb < Formula
   head "https://github.com/KDr2/redis-leveldb.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "14e20960b64bbccf61906791c432997c805a853eee48593f9d7881490e71d403"
     sha256 cellar: :any,                 arm64_monterey: "3924d88c6a1080614983fcd3840adeccb78b9cbc0392c62d543edd966c4e9e43"
     sha256 cellar: :any,                 arm64_big_sur:  "5e41ff1939788e1fa297df8345b1c515b4bdaf046fa7c0d54e853aa1f0030dc1"
     sha256 cellar: :any,                 monterey:       "eaf9d161468a86bc6d97e60bec55862eaee573b526c290de859e48cf1dbe5248"
