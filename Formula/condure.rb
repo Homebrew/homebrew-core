@@ -3,8 +3,8 @@ class Condure < Formula
 
   desc "HTTP/WebSocket connection manager"
   homepage "https://github.com/fanout/condure"
-  url "https://github.com/fanout/condure/archive/1.7.0.tar.gz"
-  sha256 "ca0c350731fc11eba0e7c28ffb4cc231a7c2142c458d77dff29627b0af7b458a"
+  url "https://github.com/fanout/condure/archive/1.8.0.tar.gz"
+  sha256 "ac29c3d12d40f56d5e9d7ed49b14b8e6a520a25f60141b89eb679cd39b6ea4a2"
   license "Apache-2.0"
 
   bottle do
