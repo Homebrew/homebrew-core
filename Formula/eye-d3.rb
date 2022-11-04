@@ -15,6 +15,7 @@ class EyeD3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bd78be70d3e413018a5d966f8314fd8006f071fd87e6fb81d9dfe78b318e76d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2e439834b1f3942d1318b958cf4363dc68386dcc5930841207d13d56e3bf0be3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e3bf5857dd54a6b08e2367bfca0d01a23ad251fc4fbbc1479ffb27dca61deb08"
     sha256 cellar: :any_skip_relocation, monterey:       "a815764695f279f4f0402da82ab02d5db6c7acae8678b9f4bc486f2fe8e1d628"
