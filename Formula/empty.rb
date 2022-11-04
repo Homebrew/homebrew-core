@@ -11,6 +11,7 @@ class Empty < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "875a0634e5c3b42160d5deea2ccbf1ded28520ad11db9c344fc13c1ca56a9e89"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "84afb04ac997310da37e100d6d50f618d1ee1d293ff11694dc2449b6f65a659d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7264818e54338763ddae29e5c468f717072bc7c6a4752c4318da7a8bc5f144a8"
     sha256 cellar: :any_skip_relocation, monterey:       "a7e0b4eecd78ddb0c349b97ab70ad1a8159e3a55b10a5079ba24797fa2933ebd"
