@@ -7,6 +7,7 @@ class Imgproxy < Formula
   head "https://github.com/imgproxy/imgproxy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "957945e5736b0fa0b06ce5e26b174f291073202c7ca5ab693e2f018bf8481edf"
     sha256 cellar: :any,                 arm64_monterey: "994baf0a0f1c285047b4c81f7fe2e60294afdda0b7594b8e716a0786fbcb9b1b"
     sha256 cellar: :any,                 arm64_big_sur:  "eab39a868d53b652133208c3a153c6135e7bc48e591ffb68093be71fd83e9d20"
     sha256 cellar: :any,                 monterey:       "c2681ef09d858e257d5761083fc7ee06393a048648516db169e849ea5ce18486"
