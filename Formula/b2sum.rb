@@ -6,6 +6,7 @@ class B2sum < Formula
   license "CC0-1.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9fb48197fac700a466ea1628a59ed6a5b6a9690977659bb31c9fe31bf5fce63"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "64c2c7d38639bafcf1ae62c5c1b4d6226dc57fcf7cff654c676d97be597b3d40"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7c75a1aaf69f5bdec9706848244f7baaa4c17066d99e791ad9d007a483d1671"
     sha256 cellar: :any_skip_relocation, monterey:       "70a311dd99f685268a3bcef834c4373d8506fafcd17de9a15fbe9fb68f2fcaed"
