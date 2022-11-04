@@ -13,6 +13,7 @@ class Slashem < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbc49014eb4afffa42419df08cb98337389fb1d87b76c2c900553e0c3739f069"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "07334e0d163f5aef7e77cd2047374806fccca1071f0e8e6057e3f740746cc139"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7fcb3b60e93f0119b791410997a9552c4dd409061eeb06d7b5461a4ab75a52b"
     sha256 cellar: :any_skip_relocation, monterey:       "b7f005ad0ee38c512e4ec7f89c50ff88b86439b66d8c0fae05db62f933290ea8"
