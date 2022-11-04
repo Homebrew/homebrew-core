@@ -8,6 +8,7 @@ class Packmol < Formula
   head "https://github.com/m3g/packmol.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2a9742646629889b014e28455493ed34e7fa12c7c41ff996916d8d2936544320"
     sha256 cellar: :any,                 arm64_monterey: "fecff45f74a420d0130da37bf0cf5a28af97374bf937d420224c0b788c9f3484"
     sha256 cellar: :any,                 arm64_big_sur:  "71e139ba5f9087ca1138850734c38b2deb8ab1796f31c9eac69995e614039360"
     sha256                               monterey:       "a542c7ba163c2c80ee6cff96d723d870365805857cc33850a5cb476a9d4fc7fa"
