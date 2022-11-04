@@ -8,6 +8,7 @@ class SimpleObfs < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3ede7782d7c846a3f01749e297231356e89af0cd4650d9bf4b62d64fe0e513fc"
     sha256 cellar: :any,                 arm64_monterey: "6671d16d00fb419e65ef7a686d4fa956e64882efcf22ee7ccf84207ebb7a4fe7"
     sha256 cellar: :any,                 arm64_big_sur:  "a79c2a9ba2a6473853a0907355290287b5f9faf4dcd808e1819608f0498b236f"
     sha256 cellar: :any,                 monterey:       "83daaaeccbb621e796269d648c943871ce9ddbf85edd0d7ec66685ea71e9c286"
