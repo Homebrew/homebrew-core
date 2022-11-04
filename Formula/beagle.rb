@@ -11,6 +11,7 @@ class Beagle < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e53a62618ddaa8f5cdd3fd99f4cb267b058862f0976f0e84de508f8f340c3623"
     sha256 cellar: :any,                 arm64_monterey: "417d70e5874ea00a8eb1487ee490e8420599b5a6c8bd9f949b8fa296ade5df11"
     sha256 cellar: :any,                 arm64_big_sur:  "1ea7c6f271742ecabc2b102d698bc4e65b5ab11e4445dc4829aa8cfc54c68d02"
     sha256 cellar: :any,                 monterey:       "69a5e140d59bf732b928b6af01cb3ac153e4a7f841b47035edae263874abcad2"
