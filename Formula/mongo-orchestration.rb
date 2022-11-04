@@ -10,6 +10,7 @@ class MongoOrchestration < Formula
   head "https://github.com/10gen/mongo-orchestration.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8b5f326ab50ba43eb1a0f87bae36b742dea4ec2ed06c7f9f47add2f132d2469"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "49f821511197094a5a40cb754106e46e25e552b728c57ecdbdcaf715ac4c731b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e1a5c2e60195773fa8de9314eb6716d1895f3e1734eceffe4f09871ce358eed0"
     sha256 cellar: :any_skip_relocation, monterey:       "0ef330a503399b8e0dca2b5fe4fcdc066ae7bcac46d366432351af5347b8808e"
