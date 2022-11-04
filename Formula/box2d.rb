@@ -7,6 +7,7 @@ class Box2d < Formula
   head "https://github.com/erincatto/Box2D.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f944702e28ec7033d7c7da6daee29d1b6153b737fe515754adf898a701b3cfc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "360bc1f63ba8cb1f6c97316c00da7ae547bcdb0be6c18f1dd441a338dbed67f6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f7821254f00753fc07028c94c0c08e42b3e05dbee86119887c43d446b786270"
     sha256 cellar: :any_skip_relocation, monterey:       "ce38e11785a57c7cd416fd4cb6a9cd2567363e1f1bc4938d010b13e0b2eefc34"
