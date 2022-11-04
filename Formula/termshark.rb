@@ -6,6 +6,7 @@ class Termshark < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11cf99e534c667d968ea4daff6c3baf9a86345a6823627ad722398e5c5daeedd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "37948c9f61f945ad6044eb03753da35bf735a2ef0599c21ee957c24c6549e670"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d95e25d67a299e15d5e9c861c5f1b99b98a58802ba78ec847d1801f6f1ef1432"
     sha256 cellar: :any_skip_relocation, monterey:       "b22556c8b7777479e5a36c5c8abb9fbcff1e2774feb96383533ece79da6a5a6d"
