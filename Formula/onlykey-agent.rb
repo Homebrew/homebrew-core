@@ -9,6 +9,7 @@ class OnlykeyAgent < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c00e43816d08e4a35c6b368b7596e8e0a482012fe561adf6be6dc1249fbb364f"
     sha256 cellar: :any,                 arm64_monterey: "f825dab0b498f6b2007308cfcff34d8de453926d0da7b8c514ec41afed5a7882"
     sha256 cellar: :any,                 arm64_big_sur:  "32edc9902ffd6e1c674238ccd5a3d0038ae6c50a52c2ed31efebf99499836acc"
     sha256 cellar: :any,                 monterey:       "477402044416c31d1da81bc16a00714f85e590aaa266d283a7d8860f163ee69a"
