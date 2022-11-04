@@ -8,6 +8,7 @@ class Ly < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a399eaaf024e23fe076b6f2f3101eb9a24491eee27042ffb50e67a94ce267af0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0dcf27a89d2609317d37fe547f8ef36a36da82a0f50ed89ece8484749e921027"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0dcf27a89d2609317d37fe547f8ef36a36da82a0f50ed89ece8484749e921027"
     sha256 cellar: :any_skip_relocation, monterey:       "fc74795dee4608e3081f648201d7de3178ae56893525b0ea1ad46fbfc055787c"
