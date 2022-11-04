@@ -1,9 +1,12 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "https://www.unicorn-engine.org/"
-  url "https://github.com/unicorn-engine/unicorn/archive/2.0.0.tar.gz"
-  sha256 "67b445c760e2bbac663e8c8bc410e43311c7fc92df4dfa8d90e06a021d07f634"
-  license "GPL-2.0"
+  url "https://github.com/unicorn-engine/unicorn/archive/2.0.1.tar.gz"
+  sha256 "0c1586f6b079e705d760403141db0ea65d0e22791cf0f43f38172d49497923fd"
+  license all_of: [
+    "GPL-2.0-only",
+    "GPL-2.0-or-later", # glib, qemu
+  ]
   head "https://github.com/unicorn-engine/unicorn.git", branch: "master"
 
   bottle do
@@ -18,6 +21,10 @@ class Unicorn < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
+  # upstream issue, https://github.com/unicorn-engine/unicorn/issues/1730
+  # build patch ref, https://github.com/NixOS/nixpkgs/pull/199650
+  patch :DATA
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUNICORN_SHARE=yes"
@@ -74,3 +81,25 @@ class Unicorn < Formula
     system testpath/"test1"
   end
 end
+
+__END__
+diff --git a/tests/unit/endian.h b/tests/unit/endian.h
+index 5bc86308..b455899e 100644
+--- a/tests/unit/endian.h
++++ b/tests/unit/endian.h
+@@ -54,6 +54,7 @@
+    || defined(_POWER) || defined(__powerpc__) \
+    || defined(__ppc__) || defined(__hpux) || defined(__hppa) \
+    || defined(_MIPSEB) || defined(_POWER) \
++   || defined(__ARMEB__) || defined(__AARCH64EB__) \
+    || defined(__s390__)
+ # define BOOST_BIG_ENDIAN
+ # define BOOST_BYTE_ORDER 4321
+@@ -63,6 +64,7 @@
+    || defined(_M_ALPHA) || defined(__amd64) \
+    || defined(__amd64__) || defined(_M_AMD64) \
+    || defined(__x86_64) || defined(__x86_64__) \
++   || defined(__ARMEL__) || defined(__AARCH64EL__) \
+    || defined(_M_X64) || defined(__bfin__)
+
+ # define BOOST_LITTLE_ENDIAN
