@@ -8,6 +8,7 @@ class Fmdiff < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "edb8bfe9b90e82db787a068b452976814e41ee0cd1be7672f1439b45dee8cd43"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d55ab53b4e1f2ffb241d5b26422e2fb33dcaf8cbfdb287e0c21044ad450e0084"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a49b1ebc974dfdea7865f1a4177f57fd85b64a138ab6273cd825e3739c9517cf"
     sha256 cellar: :any_skip_relocation, monterey:       "c8b64bcf072b5404481a44740af5613c49174eb58aa3fb9838d2483d5c6c6a57"
