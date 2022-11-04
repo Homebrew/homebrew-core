@@ -11,6 +11,7 @@ class Podiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "657c4211b999a913ed69c42f55bb522c35d27988a8ea6ab72eb165780a2238b4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9a2621d0ce49422987139fd852a650667b5a2985c8c216c318af66c144d6d8b2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e7f705d124f8b240f16ab6edacd30c094275e5ebcb5814ba5e9bdf9ae7bfeba"
     sha256 cellar: :any_skip_relocation, monterey:       "0c49d38d09ff613608a0aa1347e9fdd08d4a59056b74843e4a81cbd2d6f3e84d"
