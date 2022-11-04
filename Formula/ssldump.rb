@@ -14,6 +14,7 @@ class Ssldump < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "177ba7308d97d3c5d695a5ef5a54bfb7b3790259bc91bb4ea4f555c3a0d626f5"
     sha256 cellar: :any,                 arm64_monterey: "4e68e15e5fd410822495680f04ce90f9c45b462ebdc5512c8c49b51bbc4bfd40"
     sha256 cellar: :any,                 arm64_big_sur:  "51fc5984a5f7dbef4c4299458e60a8ebdbe88d69c3422a8883863fafa63b9854"
     sha256 cellar: :any,                 monterey:       "74dd546d763c9bda4fd915e6b60cd24c333c0f3aa9dacd258b473dafa04b0277"
