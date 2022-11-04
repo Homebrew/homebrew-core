@@ -12,6 +12,7 @@ class Flix < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4d3dad97ca82100fac50985df86347d76546c91a63c081f3bd7b452766a3e87"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "47dc3504a033cfc807e3bdbde3d163bffce696fed4ed10360526164e3eb6457c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54257afc3ab5b24da2bcf2d8868ed1bf26f6c43fba5851930371e06795ffb85a"
     sha256 cellar: :any_skip_relocation, monterey:       "03de699152dc657636d380aba003b9d3be468019a727725011581d756620e03a"
