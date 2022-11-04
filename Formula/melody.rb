@@ -6,6 +6,7 @@ class Melody < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f991e81a6b55d620f618a1040cc5997a8715edbfd8c60e7aa6af048ca6390eaa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2f814ba14939959f4db8a8f4c983f2889d61da637c5b07c1bd2cd1102be4eebc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38d60a813a8a7c3697d207adafd0fdeb51f6c170b5f5bc15f1ad07b70676d991"
     sha256 cellar: :any_skip_relocation, monterey:       "15d783b6c4f97ea55f6ba74329566a1d62f6bf1d9e7daa792ed53bfd3172288e"
