@@ -12,6 +12,7 @@ class Peg < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f19c265ab4e83b4ac64c6d37e15227a23f199986185d447860580bce9354cda6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ab5b7c51553751ef8e97394ebd30d901df33e46c5f2c6bf4b38f966673ce1932"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b9a4c3a056a8c36357592bec0a6b3f72d8741f6b2dad69e68d3653799628012"
     sha256 cellar: :any_skip_relocation, monterey:       "730dd20c7291e466bd568056e72f4723feab53eccf80ba35a2f0101d7f7ba1ba"
