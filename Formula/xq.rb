@@ -8,6 +8,7 @@ class Xq < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b90ff156c9344bc291f95a53ba801f9a14674b7e2a3a4e1ce907ce27de6ea0a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b90ff156c9344bc291f95a53ba801f9a14674b7e2a3a4e1ce907ce27de6ea0a0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b90ff156c9344bc291f95a53ba801f9a14674b7e2a3a4e1ce907ce27de6ea0a0"
     sha256 cellar: :any_skip_relocation, monterey:       "0012342ad22da17f5afa76bfd76e998484b5105c94dd1212cdd328d622ce2831"
