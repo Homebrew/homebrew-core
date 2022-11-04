@@ -11,6 +11,7 @@ class Antiword < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "c4d6bfce24638c2f087af1f8bab031848f27584bbc4497d2b11913d9562a0047"
     sha256 arm64_monterey: "3d34f162686148d496bee36265f1434f11daf29957de15c4bdce8ba386f90fc9"
     sha256 arm64_big_sur:  "b47c2693abcaa8e3b9bc14a4239b1cd857f66f1fa381009659b7e1bc7f7d52c2"
     sha256 monterey:       "2532dc5dd6a92569c650fd6bb490fae31c49d79234948c224f51df5910fbecc9"
