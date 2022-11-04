@@ -11,6 +11,7 @@ class Tre < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "947292c07cddb27803a651f80bdebd4af83062cfaa7a267d5bdf04c27930333c"
     sha256 cellar: :any, arm64_monterey: "eed6c3c934fdeb27988331fe31137cd3849a46c877ff05e614f544e140ff9ab8"
     sha256 cellar: :any, arm64_big_sur:  "70e4b1149b1e72f6f86634dca2814241bddc8b5239cc243dd27ff7cfe669680e"
     sha256 cellar: :any, monterey:       "f2f8c94e26b27a1e3e1dcc8d99fa375ade859cc85ee1b53a7a02c8f79137f721"
