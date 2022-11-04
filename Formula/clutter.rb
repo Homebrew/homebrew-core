@@ -6,6 +6,7 @@ class Clutter < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 arm64_ventura:  "e97425500812f5cae567f3e28f962b6f56708edc6549ecc97efb75e214e34816"
     sha256 arm64_monterey: "462bd7556ec62d37cff950568506d5c6275bc1f36a8f5766b8a053885c06c0d3"
     sha256 arm64_big_sur:  "050dd98a11765590759dc9bfa5e289b50af4374b9deb126959c348057fc81642"
     sha256 monterey:       "e4c426ad39749772c2863e68c2e7d2891bf8d85446061a73aa473a80ebb0ade3"
