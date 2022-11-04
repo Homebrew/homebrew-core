@@ -7,6 +7,7 @@ class Rslint < Formula
   head "https://github.com/rslint/rslint.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "86509dd806719c4f918e297a5bf0b60c48229e80a532c33755078bff7882dfc9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8c31bc15e61ed4cf42203a3e658c1eb71b3d806b4babf99e683e9f365fcedccb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f196a45f40c69b3dbdc20adc1255301306ba98b016e397901bae778f2a6cb04"
     sha256 cellar: :any_skip_relocation, monterey:       "7c51e40ac4683471f768d958bf5fe2375d226534395b2bc882f1060138c442e0"
