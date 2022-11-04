@@ -5,6 +5,10 @@ class Valijson < Formula
   sha256 "6b9f0bc89880feb3fe09aa469cd81f6168897d2fbb4e715853da3b94afd3779a"
   license "BSD-2-Clause"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "1e97e2da68f435d2401d5960fed6e383ffee630120e239535821a4441c853ecb"
+  end
+
   depends_on "cmake" => :build
   depends_on "jsoncpp" => :test
 
