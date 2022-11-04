@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/af/aa/30796fcf30bec2e1c8d653174df0ac3ac1b99196a49f4e34b525ac671d90/snakemake-7.18.0.tar.gz"
-  sha256 "14721e6826b40aa91b96deca8d9f710b874be399634cf101a6069d05afe65873"
+  url "https://files.pythonhosted.org/packages/e4/66/b6ef5b44ae646fcddf1306ce18689bf7b982c615dce07896b7dae8900465/snakemake-7.18.1.tar.gz"
+  sha256 "8efbd1da06fa19dd074bb6baa7998e081232b2d70f3890f46a99bcf53200c8fd"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -114,8 +114,8 @@ class Snakemake < Formula
   end
 
   resource "PuLP" do
-    url "https://files.pythonhosted.org/packages/3a/74/0d6744ac87cbe9773be70917381d1834ac44015af7b6fa5cbc07b61abf03/PuLP-2.6.0.tar.gz"
-    sha256 "4b4f7e1e954453e1b233720be23aea2f10ff068a835ac10c090a93d8e2eb2e8d"
+    url "https://files.pythonhosted.org/packages/59/41/44d617a67407ea5db026500025b8aa7cad0b2b52621c04991b248c3b383d/PuLP-2.7.0.tar.gz"
+    sha256 "e73ee6b32d639c9b8cf4b4aded334ba158be5f8313544e056f796ace0a10ae63"
   end
 
   resource "ratelimiter" do
