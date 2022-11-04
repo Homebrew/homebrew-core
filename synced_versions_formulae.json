@@ -8,7 +8,6 @@
     "x86_64-linux-gnu-binutils"
   ],
   ["apache-arrow", "apache-arrow-glib"],
-  ["apache-pulsar", "libpulsar"],
   ["avro-c", "avro-cpp", "avro-tools"],
   ["aws-console", "cfn-format", "rain"],
   ["boost", "boost-bcp", "boost-build", "boost-mpi", "boost-python3"],
