@@ -11,6 +11,7 @@ class Gtksourceview4 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "3903d6c034674930d5d6bf536e91114ae09f7614b24fce1c510ae4b15e94e1b3"
     sha256 arm64_monterey: "11505701bfe67d0eeeffaf5b263ebed353da572e07b149a5bfd4f0b080d6fcfd"
     sha256 arm64_big_sur:  "9499176d44c00d31e8c09cefb3e8520ae3010d6c14b058a55c91a0299edc89b3"
     sha256 monterey:       "9c81022374dc1c1b014b4b77295b2a7bd8c7c481997a9fa2d8f70f418a357de5"
