@@ -11,6 +11,7 @@ class Mpfi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7401897771e7e1714d9bdf79ca0a384af06d756b2ce331a727c4253b93cae7fc"
     sha256 cellar: :any,                 arm64_monterey: "da4f0c1a2da5779a03ca4dd3c813bd6134c23687418ff5cf1f98687f0561ccb8"
     sha256 cellar: :any,                 arm64_big_sur:  "46e169bc50fe8357a928fd829d26b7879ce942d60cab5d809df75e847d5ed0e4"
     sha256 cellar: :any,                 monterey:       "a46d41cbd8e5eb649b6f33ec56eeafe79a75ec89ba7652c426e661340249a128"
