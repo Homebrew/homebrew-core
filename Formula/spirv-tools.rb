@@ -6,6 +6,7 @@ class SpirvTools < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "424baca5a4a59179022b98dc0d40d34f11d62c667608fb0088e01acc93629575"
     sha256 cellar: :any,                 arm64_monterey: "37ff0adf025355db66b40860640ff5e6d4425216b3c9a2ab8a9b723dda186baa"
     sha256 cellar: :any,                 arm64_big_sur:  "586a347e6d52a8b01469ccd62cd24a9d2d532434158a9abad9153ed46315e655"
     sha256 cellar: :any,                 monterey:       "331935c85bd03884539fc5934bddc339eae754278000f0a1b3baf7fce3e3ca32"
