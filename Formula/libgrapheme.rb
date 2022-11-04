@@ -7,6 +7,7 @@ class Libgrapheme < Formula
   head "git://git.suckless.org/libgrapheme/", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "971fab94ac4bca569f0656596168b05847d4e25b566868e4c9ac3965ed336755"
     sha256 cellar: :any,                 arm64_monterey: "f2e9d7e0dbed9091c6ff0feb79e94ce68f73c6a83a1774efd75c3d0e76c7fbb8"
     sha256 cellar: :any,                 arm64_big_sur:  "b4ad8de03ed698baa6d540d58aa96ccb7b0f666fb357acbf55a5c75e50f9d818"
     sha256 cellar: :any,                 monterey:       "14ae921b0f9c017dd446d9b05ef6d7f5ef7b1f3b30d9c3151ff64bbc9864624f"
