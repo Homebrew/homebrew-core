@@ -18,7 +18,7 @@ class Sip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "83f8c7c342e73667edbd1592da7abd5c7c9337382637c09ee578db95b2c50dcb"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.10"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
@@ -41,7 +41,7 @@ class Sip < Formula
   end
 
   def install
-    python3 = "python3.11"
+    python3 = "python3.10"
     venv = virtualenv_create(libexec, python3)
     resources.each do |r|
       venv.pip_install r
