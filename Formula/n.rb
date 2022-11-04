@@ -7,13 +7,12 @@ class N < Formula
   head "https://github.com/tj/n.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "30bf1748f3565b2dcb59d73091cb6ee1eab171703c481ab8bf91774183966dcc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "30bf1748f3565b2dcb59d73091cb6ee1eab171703c481ab8bf91774183966dcc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30bf1748f3565b2dcb59d73091cb6ee1eab171703c481ab8bf91774183966dcc"
-    sha256 cellar: :any_skip_relocation, monterey:       "22fc6ee54f7100c38558c8bbc044a6e5709088ef9ea9c6085265f6eda61d400b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "22fc6ee54f7100c38558c8bbc044a6e5709088ef9ea9c6085265f6eda61d400b"
-    sha256 cellar: :any_skip_relocation, catalina:       "22fc6ee54f7100c38558c8bbc044a6e5709088ef9ea9c6085265f6eda61d400b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30bf1748f3565b2dcb59d73091cb6ee1eab171703c481ab8bf91774183966dcc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a713440029965885a313b22d7fba78b30b2e56003a2b2955f8dfc01029e8836a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a713440029965885a313b22d7fba78b30b2e56003a2b2955f8dfc01029e8836a"
+    sha256 cellar: :any_skip_relocation, monterey:       "ba3883ee8187e4990fba2df1315831f211e579ecd83f680f582c9f33af541a34"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ba3883ee8187e4990fba2df1315831f211e579ecd83f680f582c9f33af541a34"
+    sha256 cellar: :any_skip_relocation, catalina:       "ba3883ee8187e4990fba2df1315831f211e579ecd83f680f582c9f33af541a34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a713440029965885a313b22d7fba78b30b2e56003a2b2955f8dfc01029e8836a"
   end
 
   def install
