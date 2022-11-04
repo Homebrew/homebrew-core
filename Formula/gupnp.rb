@@ -9,6 +9,7 @@ class Gupnp < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "c881ee736478e6b589d986be0170ca74288d72dc1aaf1e8a80c96bc8ce73f54b"
     sha256 cellar: :any, arm64_monterey: "20a8225bd3f69fb56b37b09260e43699ac2ca88529178593c09b3b0ac6a05516"
     sha256 cellar: :any, arm64_big_sur:  "cc2a5d6a8a5755eeddf83c5e39be393b9a8597ca4d35b4e230755cf2e25d2d78"
     sha256 cellar: :any, monterey:       "bde4dbd7e0104c45f2776b1327fbf06876f98c376549b88221563a5e25b2597a"
