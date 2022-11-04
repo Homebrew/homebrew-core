@@ -5,6 +5,11 @@ class Topgrade < Formula
   sha256 "908ec302fda3a0549e49c4c19f1e3e2cbaba08dd8b7301c59370569a86a9f09a"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8eac5da4a5438a8a0b9300a70f02a7fc9a243a81ad25dee9b54aa055ea588e77"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2cb32a6ec7aa2d82f81d6e0c483e1455dccaa5d56382761f83c2fc609b73a653"
