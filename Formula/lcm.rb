@@ -8,6 +8,7 @@ class Lcm < Formula
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "07f135f3cc3dffa8fcd7313a2d368d1a5a353e82881184c413904c67c3994e7b"
     sha256 cellar: :any,                 arm64_monterey: "a9fd491e4ac81b5ac1d6e53f4c878c0e99ae93e1ef35a1fb1db57a4c215fa961"
     sha256 cellar: :any,                 arm64_big_sur:  "900f60952dde555d041ffcd3ed4cb531e7f444de49f0ea394530c40c691d2a10"
     sha256 cellar: :any,                 monterey:       "cf6d8a33a2a4e9759453f0d83d8f70f94d15871a093fa2689414f7385ade3d5d"
