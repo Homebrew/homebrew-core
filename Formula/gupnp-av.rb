@@ -5,6 +5,7 @@ class GupnpAv < Formula
   sha256 "b79ce0cc4b0c66d9c54bc22183a10e5709a0011d2af272025948efcab33a3e4f"
 
   bottle do
+    sha256 arm64_ventura:  "33af0c7369b538b76818cbbb1df0fc5bd698036cd1a6e30d7c12d307defa0540"
     sha256 arm64_monterey: "2bf2c5d017d82c6e5564d9568440e2eddfc93263adee2e764aff9665267048ec"
     sha256 arm64_big_sur:  "ca281e73715c56efb4f8903c5cba976180890796136177b6907bd83651ef1ba0"
     sha256 monterey:       "9d57d74084ca05914aedb3b3c7315b29a0cf1161cb6f90371a6d438bd4630d76"
