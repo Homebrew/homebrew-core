@@ -8,6 +8,7 @@ class Triton < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "86dfcb6a963566e14c1c57ff4762385769ebd09df103cebc14a32685587a2b98"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b3585f7d4a99ecc32a89e885e32129b59ecddcc289d9bf69742e0dd801fa68e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7a8608059c99cf8107c068151dd548aac3d15dd1f986f5786070980959d2a0e"
     sha256 cellar: :any_skip_relocation, monterey:       "7e592557b904ee529e3aa23dfff5778034957bde88153fea0c8d227548a009c9"
