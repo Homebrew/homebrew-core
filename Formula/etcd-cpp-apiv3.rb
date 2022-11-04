@@ -6,6 +6,7 @@ class EtcdCppApiv3 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c01366c54d0760ad899d1589cf8518721553cb01137d1cb0dc2d92fed7ec6d15"
     sha256 cellar: :any,                 arm64_monterey: "04c96220412d4b91165a399f2b4a852a59fdb7f4c45b475e9fd29698ead27189"
     sha256 cellar: :any,                 arm64_big_sur:  "1fdde6bee1fa00c23f2520bf005d1f2f4ed9d03e8e867bc25ac7701f0c13bd0a"
     sha256 cellar: :any,                 monterey:       "0609bc199a8483e27932f0ad90535d5a76d43ad378ca55c216eaf2df690e7096"
