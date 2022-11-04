@@ -1,8 +1,8 @@
 class Socat < Formula
   desc "SOcket CAT: netcat on steroids"
   homepage "http://www.dest-unreach.org/socat/"
-  url "http://www.dest-unreach.org/socat/download/socat-1.7.4.3.tar.gz"
-  sha256 "d697245144731423ddbbceacabbd29447089ea223e9a439b28f9ff90d0dd216e"
+  url "http://www.dest-unreach.org/socat/download/socat-1.7.4.4.tar.gz"
+  sha256 "0f8f4b9d5c60b8c53d17b60d79ababc4a0f51b3bb6d2bd3ae8a6a4b9d68f195e"
   license "GPL-2.0-only"
 
   livecheck do
