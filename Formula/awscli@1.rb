@@ -14,6 +14,7 @@ class AwscliAT1 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d8dab9b13df9e0fcbc1a38a864daa3fa04c7f72d29cc51a209c4c050247276a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d2623d6e5df0caa41ba2a7420d3e0155112cc67d586d4c05d2c4a86de9e2a107"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "157e7cd2e40852eb1519ca53c3b8bbcfcc653d405871c287976335097363b1e9"
     sha256 cellar: :any_skip_relocation, monterey:       "18872080d496fd99b5b6db97fa080d398f3ea4cabcfc9d8b463f3072d6bdd707"
