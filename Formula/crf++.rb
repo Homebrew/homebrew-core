@@ -18,6 +18,7 @@ class Crfxx < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "b2ace94562fd7e5a8abd1d05d40511e346e7a49ee504c448eba428f8c3b8a9db"
     sha256 cellar: :any,                 arm64_monterey: "3a9ccdc1221e5b2516710ef51b3b50473d7d580f2676fca2c8f69cabcd7e6f61"
     sha256 cellar: :any,                 arm64_big_sur:  "763da462b53ce92f9feae23750b038b96e79b121b7bdfa4c0d1c99701c3345d4"
     sha256 cellar: :any,                 monterey:       "37c3083f194d7a03c220805f33d1469babee06cf05d0938a44f4f47a023dc86c"
