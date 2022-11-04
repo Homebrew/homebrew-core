@@ -13,6 +13,7 @@ class StyleCheck < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "abef781d8bcc9e2070e039fe4adfb5f56d5fb428af473439628ec98fe87b788d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "abef781d8bcc9e2070e039fe4adfb5f56d5fb428af473439628ec98fe87b788d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "225c5a3dd8f66d7b42f60d165aa7190e252f4432bf0c41cfed8216746bbbbfef"
     sha256 cellar: :any_skip_relocation, monterey:       "abef781d8bcc9e2070e039fe4adfb5f56d5fb428af473439628ec98fe87b788d"
