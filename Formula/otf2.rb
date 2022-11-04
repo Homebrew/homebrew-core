@@ -11,6 +11,7 @@ class Otf2 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "8963ed88db6c71b0b6f24756a38add399969a44b8c41dae582dbedb3e199b746"
     sha256 arm64_monterey: "d895185d92f105adde7e226c11c866d4b71c95222d20e6e96818405218fe9802"
     sha256 arm64_big_sur:  "3668159cd6c2f6e6a113ff22cafeb6e79bf2184c5fb7bf95a1c813f30d7f6904"
     sha256 monterey:       "a2a968708bea0bed2b534cfa9e7c5396cc8c0738e7b8488ec9e7ade2b19d91db"
