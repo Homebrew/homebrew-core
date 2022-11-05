@@ -27,24 +27,19 @@ class Sollya < Formula
   uses_from_macos "libxml2"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
   test do
-    (testpath/"cos.sollya").write(<<~EOF)
+    (testpath/"cos.sollya").write <<~EOF
       write(taylor(2*cos(x),1,0)) > "two.txt";
       quit;
     EOF
     system bin/"sollya", "cos.sollya"
-    assert_equal "2", File.read(testpath/"two.txt")
-  end
+    assert_equal "2", (testpath/"two.txt").read
 
-  test do
-    (testpath/"test.c").write(<<~EOF)
+    (testpath/"test.c").write <<~EOF
       #include <sollya.h>
 
       int main(void) {
@@ -57,8 +52,8 @@ class Sollya < Formula
         return 0;
       }
     EOF
-    pkg_config_flags = `pkg-config --cflags --libs gmp mpfr fplll`.chomp.split
+    pkg_config_flags = shell_output("pkg-config --cflags --libs gmp mpfr fplll").chomp.split
     system ENV.cc, "test.c", *pkg_config_flags, "-I#{include}", "-L#{lib}", "-lsollya", "-o", "test"
-    assert_equal "pi", `./test`
+    assert_equal "pi", shell_output("./test")
   end
 end
