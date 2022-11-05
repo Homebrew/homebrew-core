@@ -7,6 +7,7 @@ class AwsRotateKey < Formula
   head "https://github.com/stefansundin/aws-rotate-key.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1175ec7d188d859e9437ae512355db889044f4f11d25b8901ca9a8da950c17bc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a8803eb6dd3cc04a1ff658fe15a7a4a209a16e67ffa7e64124c83bb06ff2bb6a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "139378379b2bf12f02aa6e4efb483206dffbdddba1046c8fbead4e7c4d3d83fc"
     sha256 cellar: :any_skip_relocation, monterey:       "190541bbff030ea97a0e974126ede294dca660806ff3b8a07d7a5709813676f6"
