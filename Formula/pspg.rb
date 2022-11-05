@@ -7,6 +7,7 @@ class Pspg < Formula
   head "https://github.com/okbob/pspg.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1f766afd9ca820ba987ac3e89496161f5df060540b741980dfd60dc9ec0c9f13"
     sha256 cellar: :any,                 arm64_monterey: "c54323ab59bb9bbe4671c924c1a646a68b19644e3b70882bbd487dc52941aa12"
     sha256 cellar: :any,                 arm64_big_sur:  "fae746dcb591bd247afa1b9eb14f3e157ca6131e9c69011250cb618b2fe17042"
     sha256 cellar: :any,                 monterey:       "282dc7b0f0b6091d9e2d1c8549219111a9588a15ad5867fde89c11d31f04c591"
