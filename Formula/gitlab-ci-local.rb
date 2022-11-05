@@ -9,13 +9,12 @@ class GitlabCiLocal < Formula
   head "https://github.com/firecow/gitlab-ci-local.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "baf59903f2c228aff4272cb121f11b43c3fe5b0b24f5b60c254c3c38b6fff42d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "baf59903f2c228aff4272cb121f11b43c3fe5b0b24f5b60c254c3c38b6fff42d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baf59903f2c228aff4272cb121f11b43c3fe5b0b24f5b60c254c3c38b6fff42d"
-    sha256 cellar: :any_skip_relocation, monterey:       "27fe6fc81d4284f4f796f3c6729df0621b00a0adf9062f53b48741b59cd140fb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "27fe6fc81d4284f4f796f3c6729df0621b00a0adf9062f53b48741b59cd140fb"
-    sha256 cellar: :any_skip_relocation, catalina:       "27fe6fc81d4284f4f796f3c6729df0621b00a0adf9062f53b48741b59cd140fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "baf59903f2c228aff4272cb121f11b43c3fe5b0b24f5b60c254c3c38b6fff42d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d92955453321878f92efa036e11324d95776f9099da5a746049144d041b84bc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1d92955453321878f92efa036e11324d95776f9099da5a746049144d041b84bc"
+    sha256 cellar: :any_skip_relocation, monterey:       "caa83094fd1c6754e2ed9f6e23b4b45c7d3eccac5910d474cfe74db742152b27"
+    sha256 cellar: :any_skip_relocation, big_sur:        "caa83094fd1c6754e2ed9f6e23b4b45c7d3eccac5910d474cfe74db742152b27"
+    sha256 cellar: :any_skip_relocation, catalina:       "caa83094fd1c6754e2ed9f6e23b4b45c7d3eccac5910d474cfe74db742152b27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d92955453321878f92efa036e11324d95776f9099da5a746049144d041b84bc"
   end
 
   depends_on "node"
