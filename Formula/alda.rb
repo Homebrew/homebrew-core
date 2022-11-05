@@ -6,6 +6,7 @@ class Alda < Formula
   license "EPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68b2775df23a2cd1303a13fa77ce4b16b76001d75bae112b6c48b3b9aa03dbe1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2ce999a621197d49931385f95bd77cc5b9dfa76e14ae59bd015d32aeaf4e0268"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8de70c27431632f46051049e2a0f37ebcddafb9d2dd9eab136e32460b624b3af"
     sha256 cellar: :any_skip_relocation, monterey:       "1f0f632b58b6c0355717c83d66db1cd7ef7717b7b1dc0911bf2f75bfa1e22010"
