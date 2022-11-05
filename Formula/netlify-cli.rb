@@ -9,6 +9,7 @@ class NetlifyCli < Formula
   head "https://github.com/netlify/cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ac41a7e5a184f6e9ba6dcdc4d131b332bf15ad0499331ddb05c271b526236ea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5ac41a7e5a184f6e9ba6dcdc4d131b332bf15ad0499331ddb05c271b526236ea"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ac41a7e5a184f6e9ba6dcdc4d131b332bf15ad0499331ddb05c271b526236ea"
     sha256 cellar: :any_skip_relocation, monterey:       "a9975de227d7f8da9876b7fd91812c623513c3acb730476387de1b0ec4645e6b"
