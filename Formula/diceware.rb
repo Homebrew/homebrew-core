@@ -16,10 +16,11 @@ class Diceware < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ffea931d997e34db9d26035858da3842502eca81ab5f895646f378829dc7318"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
+    man1.install "diceware.1"
   end
 
   test do
