@@ -12,6 +12,7 @@ class Rbw < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "69a947b346dc757630773de4c6214a9d6ff8d8f93f4bf5f6b3b832acdde2280c"
     sha256 cellar: :any_skip_relocation, monterey:       "ca8d9ceb7cad60ef36fa68483d66f10931d5fa89f8271fa96cbbc4a98b084a69"
     sha256 cellar: :any_skip_relocation, big_sur:        "f95bac15a4b67d7df0eea5fd7427ef60134d502d351c75921f22d44d5b046bdf"
+    sha256 cellar: :any_skip_relocation, catalina:       "bc8a5b52d263a430c63cde66964108e8579773866fae16f17fe40abc2aee65ee"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d4ea418fbe435f6d87fb7c7ea843978fd4c1ad1be770ba7679ecc4f4b9f2910"
   end
 
