@@ -9,12 +9,13 @@ class GitPlus < Formula
   head "https://github.com/tkrajina/git-plus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2f460db814de1238b256ffe8ff73e20517e818ba431226fad2c93090302d4e7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2f460db814de1238b256ffe8ff73e20517e818ba431226fad2c93090302d4e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "54a3a8bf7d28d2dff77088e68eb79ed26543a7b9f93d9cd580964258d25c297e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "54a3a8bf7d28d2dff77088e68eb79ed26543a7b9f93d9cd580964258d25c297e"
-    sha256 cellar: :any_skip_relocation, catalina:       "54a3a8bf7d28d2dff77088e68eb79ed26543a7b9f93d9cd580964258d25c297e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8dbc62e560dea03502ccc9f3bdc8f7ba69a6e5abbb62d7128b4ab86c27fb83a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1df39b9bfc960ca8745fae4a881b5d976b4056b6381440c2979ede17795cd0b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1df39b9bfc960ca8745fae4a881b5d976b4056b6381440c2979ede17795cd0b"
+    sha256 cellar: :any_skip_relocation, monterey:       "f84a2bb9606908c30040db300734c023394660e0ffb6229939be0c4ccbeb02a7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f84a2bb9606908c30040db300734c023394660e0ffb6229939be0c4ccbeb02a7"
+    sha256 cellar: :any_skip_relocation, catalina:       "f84a2bb9606908c30040db300734c023394660e0ffb6229939be0c4ccbeb02a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c9200ae7d572a148f00ffbbb30cd1ce12c56f2f01a4b3026b107aef52765337"
   end
 
   depends_on "python@3.11"
