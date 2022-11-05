@@ -1,8 +1,8 @@
 class Silicon < Formula
   desc "Create beautiful image of your source code"
   homepage "https://github.com/Aloxaf/silicon/"
-  url "https://github.com/Aloxaf/silicon/archive/v0.4.3.tar.gz"
-  sha256 "68d64ade34ac571cf2d092f9a6f124e2c7d0441a91e3ba00ca1c8edcdd008630"
+  url "https://github.com/Aloxaf/silicon/archive/v0.5.1.tar.gz"
+  sha256 "784a6f99001f2000422b676e637fe83a5dc27f5fc55ad33e227c882ce20e6439"
   license "MIT"
 
   bottle do
@@ -17,6 +17,7 @@ class Silicon < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "harfbuzz"
 
   on_linux do
     depends_on "pkg-config" => :build
