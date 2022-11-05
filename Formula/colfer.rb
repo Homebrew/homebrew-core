@@ -6,6 +6,7 @@ class Colfer < Formula
   license "CC0-1.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea5a224dfc033cc2a6e2bce8e9f55add8735770539d5db1e4787902594b92a7c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf8074276dffcfb264832e08687f3dcb0618ff7f51806bfe0b316983c08a186a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e909fd6305c6b00a1499756f250666ccb80a285b2cd1115aa95edb6e31593ea7"
     sha256 cellar: :any_skip_relocation, monterey:       "cf4fd7e02a61239f90e3de47e6016ba6cd9c89d31c7728a1a857be854a85add2"
