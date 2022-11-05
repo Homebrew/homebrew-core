@@ -9,13 +9,13 @@ class FortranLanguageServer < Formula
   head "https://github.com/hansec/fortran-language-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "caacbbfb56ed07a74153fb694eac077903d02766c8d7b8db9cfa67ac007d6f33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b3ef36cf1efbde6f4777037f112161c717629f8be4a58b2208fe82861c58323"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b3ef36cf1efbde6f4777037f112161c717629f8be4a58b2208fe82861c58323"
-    sha256 cellar: :any_skip_relocation, monterey:       "32839345a2cdc7894b65d7b6b6a06d439db922a7708973a4fd3e4b3213f6a899"
-    sha256 cellar: :any_skip_relocation, big_sur:        "32839345a2cdc7894b65d7b6b6a06d439db922a7708973a4fd3e4b3213f6a899"
-    sha256 cellar: :any_skip_relocation, catalina:       "32839345a2cdc7894b65d7b6b6a06d439db922a7708973a4fd3e4b3213f6a899"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffd2580a9385f37d0169c8d2e455a413cb9f26c720c269656c4ced9c14bf1365"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17c7e96365f45c2bc3f9bd8262cc4817665613c50cb50be547c35284027b3e36"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17c7e96365f45c2bc3f9bd8262cc4817665613c50cb50be547c35284027b3e36"
+    sha256 cellar: :any_skip_relocation, monterey:       "59ed4a2e6b58298c6c0578ba43dffbeeb83e3f0a11287b1e6ca64a98aa9c2260"
+    sha256 cellar: :any_skip_relocation, big_sur:        "59ed4a2e6b58298c6c0578ba43dffbeeb83e3f0a11287b1e6ca64a98aa9c2260"
+    sha256 cellar: :any_skip_relocation, catalina:       "59ed4a2e6b58298c6c0578ba43dffbeeb83e3f0a11287b1e6ca64a98aa9c2260"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5faf0297d9b3999acc76939265cafc7adbe5a2298ba0719f9a0969feb83784fd"
   end
 
   depends_on "python@3.11"
