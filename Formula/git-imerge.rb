@@ -3,11 +3,18 @@ class GitImerge < Formula
 
   desc "Incremental merge for git"
   homepage "https://github.com/mhagger/git-imerge"
-  url "https://files.pythonhosted.org/packages/be/f6/ea97fb920d7c3469e4817cfbf9202db98b4a4cdf71d8740e274af57d728c/git-imerge-1.2.0.tar.gz"
-  sha256 "df5818f40164b916eb089a004a47e5b8febae2b4471a827e3aaa4ebec3831a3f"
   license "GPL-2.0-or-later"
   revision 1
   head "https://github.com/mhagger/git-imerge.git", branch: "master"
+
+  stable do
+    url "https://files.pythonhosted.org/packages/be/f6/ea97fb920d7c3469e4817cfbf9202db98b4a4cdf71d8740e274af57d728c/git-imerge-1.2.0.tar.gz"
+    sha256 "df5818f40164b916eb089a004a47e5b8febae2b4471a827e3aaa4ebec3831a3f"
+
+    # PR ref, https://github.com/mhagger/git-imerge/pull/176
+    # remove in next release
+    patch :DATA
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3a14e9435560bfac475e4bd6c1293127d156b1b3c3ca015f662be196c7479b2"
@@ -20,14 +27,11 @@ class GitImerge < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "83eba26e35804793bfb24d2591b93b4e7f655aa08c09ec5ab067c7668d7ab42c"
   end
 
-  depends_on "python@3.10"
-
-  # PR ref, https://github.com/mhagger/git-imerge/pull/176
-  # remove in next release
-  patch :DATA
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
+    bash_completion.install "completions/git-imerge"
   end
 
   test do
