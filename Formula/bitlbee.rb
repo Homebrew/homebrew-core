@@ -15,15 +15,13 @@ class Bitlbee < Formula
   end
 
   bottle do
+    rebuild 1
     sha256 arm64_ventura:  "d5abbf75f2d71752b48051f6072394422a338650a187b53f0bcb528981da9e3a"
-    sha256 arm64_monterey: "3a72087c74824a9a091929fa90f0e3832fc756e2d36310afffb9bd10e31c1b03"
-    sha256 arm64_big_sur:  "1b14221525a9329fbf1e28d4c0893e130717ddede1935df4af9dbcab044c199b"
-    sha256 monterey:       "3aedd8b58af6e9c58d2e96cdc0e541e9c96bf8a7ed24165fa138d54b5044edbb"
-    sha256 big_sur:        "dad6720fdc5a098cedbff433883ce7e1098c3e16dc0870b810929ca371b0fdd2"
-    sha256 catalina:       "52da03d26df7e96ae71125343859b754e24146c8ad5e6c58bc33eb634862ef40"
-    sha256 mojave:         "d6f39cdbf633e779a47d625e8c62393d75fe1656d4d1d8cbe342940fb65cba53"
-    sha256 high_sierra:    "cefcf70546bf4746913b64ee8c282deb9ca15ffb61a0e564f3f1dc8da09fb447"
-    sha256 x86_64_linux:   "47b82ca433b0a6735e7941751f0cd4b50cbb097bca45069a2f95f1e4503ed770"
+    sha256 arm64_monterey: "6c291e3c2ef13b1e766bbfa75f7732f273cacdd6eb98bfdd474db446a8ae0137"
+    sha256 arm64_big_sur:  "664ce4fbb775206950ec7b0786bcefc43c43ead3631a33024061dd139b59ecfe"
+    sha256 monterey:       "58b2fb9b50a1c3ed78f9b8945abb8aa883da058170cd0255a44f01681c660f6c"
+    sha256 big_sur:        "3d4a68524f64b5abca2cdb3cca9eb60fe6ab30c98bd12cddf4f736fb3c1dda54"
+    sha256 x86_64_linux:   "046736bbc9acefad55c69d5acbe77d4f96123d6a1ab49db0179d95f5cb72eec6"
   end
 
   depends_on "pkg-config" => :build
