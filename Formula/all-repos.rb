@@ -8,12 +8,13 @@ class AllRepos < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "457716ab7ab5031c36fe8bba3dcca36fff3eab8a7605a032c7c5b8c8049e31dc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "457716ab7ab5031c36fe8bba3dcca36fff3eab8a7605a032c7c5b8c8049e31dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "0bbd196c64b144d3f55b6ed0b728403e668c78eca307ec8cf6260728af543701"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0bbd196c64b144d3f55b6ed0b728403e668c78eca307ec8cf6260728af543701"
-    sha256 cellar: :any_skip_relocation, catalina:       "0bbd196c64b144d3f55b6ed0b728403e668c78eca307ec8cf6260728af543701"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98d74f13f684d3c09df1c7a947e2abd1d2b191353275083c980ac4e46c40a003"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "730e5c63f68a2a074988b75c4c9b4fa9796980b698c53446aaf068f0e17f0cdc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "730e5c63f68a2a074988b75c4c9b4fa9796980b698c53446aaf068f0e17f0cdc"
+    sha256 cellar: :any_skip_relocation, monterey:       "b92e9d8aec632564a9281e563a853597fdde62485e9ad472de6523dcf455e5e6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b92e9d8aec632564a9281e563a853597fdde62485e9ad472de6523dcf455e5e6"
+    sha256 cellar: :any_skip_relocation, catalina:       "b92e9d8aec632564a9281e563a853597fdde62485e9ad472de6523dcf455e5e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a71270cbde05dd6e5c60d11380223a33e8e5922d1a16ffb3ab503e151553b78"
   end
 
   depends_on "python@3.11"
