@@ -121,6 +121,14 @@ class Qt < Formula
     directory "qtbase"
   end
 
+  # Fix build with LLVM 15 (QTBUG-107074).
+  # Remove with 6.4.1.
+  patch do
+    url "https://github.com/qt/qttools/commit/01cae372619369d1a5a04f4d0f87817011029b78.patch?full_index=1"
+    sha256 "2ec45719fcc5b12c97040b4f30fdbb5d4c1dc1dded15f02f271ac7c668f5a2a0"
+    directory "qttools"
+  end
+
   def install
     python = "python3.10"
     # Install python dependencies for QtWebEngine
@@ -297,9 +305,7 @@ class Qt < Formula
         delete handler; handler = nullptr;
         auto *root = new Qt3DCore::QEntity();
         delete root; root = nullptr;
-        #ifdef __APPLE__
         Q_ASSERT(QSqlDatabase::isDriverAvailable("QSQLITE"));
-        #endif
         const auto &list = QImageReader::supportedImageFormats();
         for(const char* fmt:{"bmp", "cur", "gif",
           #ifdef __APPLE__
