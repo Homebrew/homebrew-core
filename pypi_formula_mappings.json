@@ -328,6 +328,9 @@
       "python-slugify", "requests", "text-unidecode", "urllib3"
     ]
   },
+  "mongo-orchestration": {
+    "exclude_packages": ["six"]
+  },
   "moto": {
     "package_name": "moto[all,server]",
     "exclude_packages": ["junit-xml", "six", "jsonschema", "attrs", "pyrsistent", "PyYAML"],
