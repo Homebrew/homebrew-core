@@ -18,7 +18,7 @@ class Honcho < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "502f8069959faf73d1d03318b681f89bf2dfe987139fd8b4913f52eb66b1d738"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
