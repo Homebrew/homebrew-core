@@ -4,6 +4,7 @@ class LibpythonTabulate < Formula
   url "https://files.pythonhosted.org/packages/7a/53/afac341569b3fd558bf2b5428e925e2eb8753ad9627c1f9188104c6e0c4a/tabulate-0.8.10.tar.gz"
   sha256 "6c57f3f3dd7ac2782770155f3adb2db0b1a269637e42f27599925e64b114f519"
   license "MIT"
+  revision 1
 
   livecheck do
     formula "python-tabulate"
@@ -14,6 +15,7 @@ class LibpythonTabulate < Formula
   end
 
   depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
 
   def pythons
