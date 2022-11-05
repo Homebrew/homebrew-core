@@ -12,7 +12,7 @@ class Iproute2mac < Formula
   end
 
   depends_on :macos
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     bin.install "src/ip.py" => "ip"
