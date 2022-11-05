@@ -16,11 +16,11 @@ class AllRepos < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "98d74f13f684d3c09df1c7a947e2abd1d2b191353275083c980ac4e46c40a003"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/44/72/097d62a473327d9474003762bea3e17ebf992483f8896b7cf4a5cf8f256b/identify-2.5.6.tar.gz"
-    sha256 "6c32dbd747aa4ceee1df33f25fed0b0f6e0d65721b15bd151307ff7056d50245"
+    url "https://files.pythonhosted.org/packages/67/e1/869d7b8df41a3ac2a3c74a2a4ba401df468044dccc489b8937aad40d148e/identify-2.5.8.tar.gz"
+    sha256 "7a214a10313b9489a0d61467db2856ae8d0b8306fc923e03a9effa53d8aedc58"
   end
 
   def install
