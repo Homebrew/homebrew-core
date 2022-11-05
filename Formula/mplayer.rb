@@ -18,6 +18,7 @@ class Mplayer < Formula
     sha256 cellar: :any,                 arm64_big_sur:  "caaee4a430194ac3e9f942c06390b92c505d7e01eb2345df067e6cd3fe44c477"
     sha256 cellar: :any,                 monterey:       "dfadfbf16c6f85e94145fa4c6f9333124ced9749744f68cb6f41ea34be422872"
     sha256 cellar: :any,                 big_sur:        "c0b675e5aeb8354a52b73f12f22a47ed77ee765737a558280c2f9d80e388c398"
+    sha256 cellar: :any,                 catalina:       "ba3e8faff3e50f9d85d1b4ff0e28047883f9ad86e502c249ecc7be482d5f22bf"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "897462e9d760c8737c08878e1dbbf8afec17c9dfec0fc09d2992e4f56a5e935d"
   end
 
