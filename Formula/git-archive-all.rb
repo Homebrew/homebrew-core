@@ -9,7 +9,8 @@ class GitArchiveAll < Formula
   head "https://github.com/Kentzo/git-archive-all.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "aee58c33efeb35391540c597e43ec2d1a16cf7a41f5ee0a00e7830bf435275e6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4f982b4bcb637872206aea1277c730c7157bb0eff99b753848c79e06c4531a33"
   end
 
   depends_on "python@3.11"
