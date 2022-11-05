@@ -10,19 +10,15 @@ class Fades < Formula
     sha256 cellar: :any_skip_relocation, all: "51586193401133346c21af2e39a4560e7d7e2e375eaeb0aa0d036a79f824ebec"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    python3 = "python3.10"
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
-    system python3, *Language::Python.setup_install_args(libexec, python3)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    python3 = "python3.11"
+    system python3, *Language::Python.setup_install_args(prefix, python3)
   end
 
   test do
     (testpath/"test.py").write("print('it works')")
-    system "#{bin}/fades", testpath/"test.py"
+    system bin/"fades", testpath/"test.py"
   end
 end
