@@ -11,6 +11,7 @@ class Cortex < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8945b4b91777966b7843829e9da158cee4d49e1e4ecaf584bafa414301ffc605"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e575c8db34f377faa212eec5f0ec7d478b3daf4cf10bd2698a9a1f1faec8332b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "344f842dddbf81a1169f8b53ab9e550101e088177b328472642a583528e9b166"
     sha256 cellar: :any_skip_relocation, monterey:       "f9dcf2a61dbe5bb8312b7853834ab1524b15fac15f7f968c9c690aa93ba9bada"
