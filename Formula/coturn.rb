@@ -11,13 +11,12 @@ class Coturn < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "670005d35ba1ef2baec0ef1a0e628d4cd9acf447a4417fea67606b230095cabe"
-    sha256 arm64_big_sur:  "daebf6cf1b50a886b5f647c2331d0f9b811205148b04f03f60c79b0ef9b4b34f"
-    sha256 monterey:       "a09a31c0b7e5c3ca820ab6765780bec19431f8267a167cd9a5bba2a084b53e30"
-    sha256 big_sur:        "cbf4ffbe501023ff20d1d0798c0d3976c16fe29062fe18ce9e03230031c55f5b"
-    sha256 catalina:       "9fcb011c5da93820c3b567ddb6488fb6812cd8d40477d167990023db5d510749"
-    sha256 mojave:         "eef1e160c7951bd96f3f59a395d2474529fa03c12d380dd7daf9625435003c31"
-    sha256 x86_64_linux:   "3b0cb1660a6f9c5f9b340f5d697b9cd0e853e0404f0479f31ca1340a8211e3a4"
+    sha256 arm64_monterey: "e1a0067b4192a94c8ddc86840552d7c3953cde17a3d50104c0dbe1568a924aed"
+    sha256 arm64_big_sur:  "ff40c2de37005b48c06cd1b4ea59d1b2df79d18e8d8fa87548f0202b04600ba5"
+    sha256 monterey:       "eaad07d5a80ec74c125ed1a603a4480f1863f4b251884ed717292afac6a6e836"
+    sha256 big_sur:        "5c55788efbc14bcedf41adf8862806afafb2fe076eccfdcb508f9295833682c8"
+    sha256 catalina:       "e7b6165750bf7d0537fc5499e2291130b047951c0775a50d754d2ab5e0fea021"
+    sha256 x86_64_linux:   "91e2e7206e39189c32627d7a4b38077ea234e1c74415bfc969519ee2f797c6bc"
   end
 
   depends_on "pkg-config" => :build
