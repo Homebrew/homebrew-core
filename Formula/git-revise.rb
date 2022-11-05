@@ -9,12 +9,13 @@ class GitRevise < Formula
   head "https://github.com/mystor/git-revise.git", revision: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6eee8e1415f615aeef5726cb7c82834357f3d2868f21e30ed128d6c51a889e8b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6eee8e1415f615aeef5726cb7c82834357f3d2868f21e30ed128d6c51a889e8b"
-    sha256 cellar: :any_skip_relocation, monterey:       "aac1ccf21a7f370ad64d30bc92cefab901913bc81b7561ce3b4232036d28da0c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aac1ccf21a7f370ad64d30bc92cefab901913bc81b7561ce3b4232036d28da0c"
-    sha256 cellar: :any_skip_relocation, catalina:       "aac1ccf21a7f370ad64d30bc92cefab901913bc81b7561ce3b4232036d28da0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e55a7ac0fd6a079cb4f5f79c01bc5448f1b415906d6df7f5d3a9851dfa208e58"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "187dca8b0f934d9b42adcb5b515fd7949b31893c32be6696d91252fb34601c4f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "187dca8b0f934d9b42adcb5b515fd7949b31893c32be6696d91252fb34601c4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6eea6ab552651d2c45035be1db8c1203e0239b4c763612c3e3996f1b94c150f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f6eea6ab552651d2c45035be1db8c1203e0239b4c763612c3e3996f1b94c150f"
+    sha256 cellar: :any_skip_relocation, catalina:       "f6eea6ab552651d2c45035be1db8c1203e0239b4c763612c3e3996f1b94c150f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fd6f6b10d6617c98b3ecf7752848224130a1ad14cc776888d17d65bf0360554"
   end
 
   depends_on "python@3.11"
