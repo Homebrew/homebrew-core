@@ -18,7 +18,7 @@ class Dotbot < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0e8e2840e9c40ac40da72cf275aebbc2365a21a4874b8c040109667e1c004b6"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
