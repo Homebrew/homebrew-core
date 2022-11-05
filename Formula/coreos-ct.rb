@@ -6,6 +6,7 @@ class CoreosCt < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a0e3189ec955041eb885241c04183bedc694f19ff2382aca9a7b80424e1b3d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "daecb2d366f73487e19a3357e64fe02be095ba9a92ac8d6ed4350d3281d5f9dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01ee0a8cdf60e4f9ceefbb28529c508ff16cc8dcc8e6b9d3ea3ab2c5bf05e8a6"
     sha256 cellar: :any_skip_relocation, monterey:       "d5b7543e14bd73c528cbfca81b32f56c18d17018ef4e7edf7d16870223eaaee2"
