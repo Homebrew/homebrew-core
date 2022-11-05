@@ -9,13 +9,12 @@ class Flit < Formula
   head "https://github.com/pypa/flit.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba88bd96317299d023d84ed9c7f0f09942ea3f290b8b5e5a52e3c2389d669690"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "735140e2ef311ba38ab7f35acb559788c5ec905892f559acec1f8afb6ad7f907"
-    sha256 cellar: :any_skip_relocation, monterey:       "54ac26975a58abf0f19a2a13a5ecd28205db6be65dab1be2f927e36794a4af76"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ef36e2ff6769716b5e2d52f873a90f59274cca7329d11ccac5d539ef8b3cc11b"
-    sha256 cellar: :any_skip_relocation, catalina:       "247693e4b8997bb11c222023a68bee17f0d2ae13597c43417e693b8c977b2980"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "984f12e589247594ba99da7bb3c43db7f9bd4f2b15cbb2857072ee284312f6c8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e382eee52bce9cd27b65b2be532eb12c7ec48bb4ea05844198a01e034e521b92"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e0fece099639afba4d952c6dbf1fabf57e779d017a3d89b1997eb367c787c1f"
+    sha256 cellar: :any_skip_relocation, monterey:       "bdd923d8e2725323ad5dd3a6016887dcf314bcac8bb33ef34896693d6fa8bf3a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "80eb963c1dfe886af7f2d6cddab3ebaaf8cd8510b4fe582cadde4114a3909a3c"
+    sha256 cellar: :any_skip_relocation, catalina:       "8fef4352dbac41e91777ed30db77946140f661c7cd40c627127de70946dab4d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbb8bd3dd4c36009ba6d16a49f5d6cac07a85411a63690033c3487b3bda4fd63"
   end
 
   depends_on "python@3.11"
