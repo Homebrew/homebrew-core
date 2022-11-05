@@ -17,14 +17,13 @@ class GitImerge < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3a14e9435560bfac475e4bd6c1293127d156b1b3c3ca015f662be196c7479b2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f53c94437082875ac6cbf092b4cd428d24d8d9e257978e161961f2e47cb43bb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f53c94437082875ac6cbf092b4cd428d24d8d9e257978e161961f2e47cb43bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "6a8b30650ee668771ce8cac1011d239979b93d927da57137f5b2b00b2c3257e0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6a8b30650ee668771ce8cac1011d239979b93d927da57137f5b2b00b2c3257e0"
-    sha256 cellar: :any_skip_relocation, catalina:       "6a8b30650ee668771ce8cac1011d239979b93d927da57137f5b2b00b2c3257e0"
-    sha256 cellar: :any_skip_relocation, mojave:         "6a8b30650ee668771ce8cac1011d239979b93d927da57137f5b2b00b2c3257e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83eba26e35804793bfb24d2591b93b4e7f655aa08c09ec5ab067c7668d7ab42c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d92935aec65d9d6c68d6517d0974ee7da92be9b9d2deb0b7508234499860e56b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d92935aec65d9d6c68d6517d0974ee7da92be9b9d2deb0b7508234499860e56b"
+    sha256 cellar: :any_skip_relocation, monterey:       "25a0367e58ad1afa702446005dc2a80e4802c9bd300b810d43cb72f29cac4959"
+    sha256 cellar: :any_skip_relocation, big_sur:        "25a0367e58ad1afa702446005dc2a80e4802c9bd300b810d43cb72f29cac4959"
+    sha256 cellar: :any_skip_relocation, catalina:       "25a0367e58ad1afa702446005dc2a80e4802c9bd300b810d43cb72f29cac4959"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fccde85a49be5f7819e50cca5dcc2fe8b06f0b10051d5a9b5369a5ffb9ddce26"
   end
 
   depends_on "python@3.11"
