@@ -7,13 +7,13 @@ class CargoWatch < Formula
   head "https://github.com/watchexec/cargo-watch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15d594afd165a96d462caf38bb84e0ebebcee894ea7091dab05a46ece5dee549"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d617d05683d1c666f8e00cc05a0e8e0c7d81fff44777bd6b12044b43712214f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41839511953c5bda8f7fef793cde6487b030dd7ce7af5beec2bc58ad5de109d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "9dd97ca487a988880facee84a0f1d9238a216ad3835fb9e63da508faced1d661"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fafc30724738149ace0e875d2f6da5fb581e3d81afd3844ed5801998a88a4237"
-    sha256 cellar: :any_skip_relocation, catalina:       "ba1e48faede9986e074fd533efd93ffa26dee50ba8c8e6a3383f5dbea8f3f83e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ecec1c93c72a60ba7b7dfaeac148eae4e188d7a2e5f5c4bab90c8590ef70a30"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0db48532635d7015bde870a460c5d09bedf75048b87556607fc6a5123d1e8654"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3696d7daecd6532f313d7237eca9318c31917eb671a115377c56e2437af9b1db"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb66ff2296c182b357d04612c3f65fc3452f0f3d8923decf8191c293ff4f4957"
+    sha256 cellar: :any_skip_relocation, monterey:       "4aa33cef9f23a62da08b439a30127e14f226b15de3e740087c083b860a5eabc0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f095d5b5a3c90929e3095fdefe165d7204a21b8a5b97d1eba27cd0fe3c6a7f39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9922546a66c9faf2b7dcb08e08a398941d66d564117e5431a62b36063cfabe90"
   end
 
   depends_on "rust" => [:build, :test]
