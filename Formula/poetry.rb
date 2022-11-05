@@ -21,7 +21,6 @@ class Poetry < Formula
 
   depends_on "jsonschema"
   depends_on "python@3.10"
-  depends_on "six"
   depends_on "virtualenv"
 
   resource "CacheControl" do
