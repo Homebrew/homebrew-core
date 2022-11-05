@@ -7,6 +7,7 @@ class Caire < Formula
   head "https://github.com/esimov/caire.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "510be9ef3971dd6594e3d662a8a4a8f97fe5d587a902cabb803425a61b531b8f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7d59ce1a8791d14ee71f54abe8b0cadfe19ba512b90b13f2f8f7625b0e1a5ade"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6dc0a2e1542d2843ebca8f84d72c5cc74db54b6c09a3cf77bf71879156f9812b"
     sha256 cellar: :any_skip_relocation, monterey:       "9201a9019646d54bd87e4b04eb93249e6b423a985fa8562b8c6153f140d69c5a"
