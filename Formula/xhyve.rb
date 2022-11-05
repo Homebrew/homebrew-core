@@ -14,6 +14,10 @@ class Xhyve < Formula
     sha256 cellar: :any, el_capitan:  "b0a94f72b09c71aa3bfbbf55669cd9e64ea309d6be8c838f6bc98aeaf8a6895c"
   end
 
+  # Ref: https://github.com/machyve/xhyve/issues/207
+  # Ref: https://github.com/machyve/xhyve/issues/227
+  deprecate! date: "2022-11-04", because: :does_not_build
+
   depends_on :macos
 
   def install
