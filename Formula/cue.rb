@@ -7,6 +7,7 @@ class Cue < Formula
   head "https://github.com/cue-lang/cue.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "183e02eaa571071e5b20bcbcb4ca33baf244c49b0d73ec35e148f832c938c534"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f770a065ca36acedeb4d7db3063c4c1b5c2a4a54a9891b6587a112f7e638a651"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4af3195f21ed20f27bc1015a415835728b32e06f39e84fdeb2c01b14932ffb7"
     sha256 cellar: :any_skip_relocation, monterey:       "b633119259d30ab942c77eac991f3423980ec4d90b56ae2226f6934b692d33f9"
