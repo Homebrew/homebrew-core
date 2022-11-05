@@ -8,6 +8,7 @@ class Cql < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c8e9a72ff6ac7a64ad0d7cfb5919ebbe5fda03e57db8d5241e87470226546c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f3d16b39545a07b7811657ed8de92063b3f4fc13f96e8b092be420ff80d0ed6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a5f446cb406f5aafce83406573b0a808f718e4e8b3df3d112692b824d4912e45"
     sha256 cellar: :any_skip_relocation, monterey:       "29676dd87b84617809ee42f862ddbeabb56a52df5ddffa4acc9e8fe807e7244a"
