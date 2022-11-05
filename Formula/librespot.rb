@@ -7,13 +7,13 @@ class Librespot < Formula
   head "https://github.com/librespot-org/librespot.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "410bfe947258d709439dd069efeb5320d7327048939874773f57478460bc72fd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a15b917bd037910ec4eccef25e6687b51ce6e9bb7198610e65ebf95cf7941fe9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6ccdf47ff268d6db2070778cfb1326d58decfffb3ea91d13e8660b769df36319"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bc0cf4306527bd9f1541e5ac45d0d42674c23aeb4d3bafc5a6d8c64bafa4166"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aa7f4c33f5433245617a1da1a563af59eee77cd216a0bd5b3d70c13e7681cc27"
-    sha256 cellar: :any_skip_relocation, catalina:       "64da966bdcbf551609849abd8adb39ef73a985e3a13ee3d025265cdf22c0d5e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f28855d8be40baa151ae9423557bc0e7ccb7d0617fa7ccb8c08049371695fb1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "569548eaf0db6750a015fad03d89b14e62f5e1d2abd60f6c0f9b5435d7fc2d0e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dfe8d20853c7a525d7949e0f4715df8e02a0a313c5f93c8de37d0bb7b8ce863c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a417c3c1a0d53820b5c5a5a3f652d7a20521c2a4891fb1763815e4c7a0dfca10"
+    sha256 cellar: :any_skip_relocation, monterey:       "eb26f63f537836cc723fd7642f4c7eea6d0458e6deb77beb21525020304ec5da"
+    sha256 cellar: :any_skip_relocation, big_sur:        "849ad406f701285061e2c7915e7b0b291646930debae31b169445c5bb2739bc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf3fdf062b16b87f8232c28e02deea3376546f22422b077d65683c1cba8591af"
   end
 
   depends_on "rust" => :build
