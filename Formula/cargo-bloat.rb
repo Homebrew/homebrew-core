@@ -7,13 +7,13 @@ class CargoBloat < Formula
   head "https://github.com/RazrFalcon/cargo-bloat.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "29a0aae147c67975c93dac3ca09c67350eea1aac47746cbeab74b9575687d639"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ae767141d1028021318b1886ad5b96e2fcc79ff627367a4b0ec2a6d974b9ec0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d20fe302801586a94fa4baf15d975abbffc6de9d4fe40433ceedab2043511f2f"
-    sha256 cellar: :any_skip_relocation, monterey:       "5d9e92a49a5a5adbb556967210fb908b4ba49a1dfa31ad4278d043506d16867b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "75fd96de719a9759f68abba8f4a8998ab7934412bf02893c0f2ca4329047e7fb"
-    sha256 cellar: :any_skip_relocation, catalina:       "45043efdd3e3148e6b8f6c2d62bc79584a0dcbb135183c8f25e24cf4e73dbe9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60829d6ab3e72892b38c1dce8d1656b5a7c4d9160c1f6222173558452e1147b2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2c53b8b2d79a6849c1d205fb83756a26d05c9474dd1224c60b2514be91c88de4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f62f85a081b59f0bd758eef9d2bab666fa6454b0aacd2cdfd37ddf0739f7de8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6ab2d9245352f227b5f223510a0f5808f12f6c7c646cd97762bffc3a9ba1314"
+    sha256 cellar: :any_skip_relocation, monterey:       "3805e2d627484ee6d60f6f5e3b67d1e89f9b4813207f406f462a3a3f582d92f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bef4a80020141209f357649f2574808a043c5d8134f7986dd3574cd61d11672f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bf7b9ad04fb48b20b2c5e000b812bd6910d65d3dd6cc567436f5e9b156a6ca8"
   end
 
   depends_on "rust"
