@@ -1,14 +1,10 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.27.1.tar.gz"
+  sha256 "52391580e0f92663dd7b21cbcc7b9064d6704470e2601bf3ec5c5170b471629a"
   license "BSD-2-Clause"
-  revision 3
-
-  stable do
-    url "https://github.com/Project-OSRM/osrm-backend/archive/v5.26.0.tar.gz"
-    sha256 "45e986db540324bd0fc881b746e96477b054186698e8d14610ff7c095e906dcd"
-    depends_on "tbb@2020"
-  end
+  head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   livecheck do
     url :stable
@@ -24,21 +20,25 @@ class OsrmBackend < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e4ae0bf5395b1ce3ee5ae26c4397d36ffb414815c20cb34564ef62f8d024199"
   end
 
-  head do
-    url "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
-    depends_on "tbb"
-  end
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "libzip"
   depends_on "lua"
+  depends_on "tbb"
+
+  uses_from_macos "expat"
 
   conflicts_with "flatbuffers", because: "both install flatbuffers headers"
 
   def install
+    # Work around build failure on Linux:
+    # /tmp/osrm-backend-20221105-7617-1itecwd/osrm-backend-5.27.1/src/osrm/osrm.cpp:83:1:
+    # /usr/include/c++/11/ext/new_allocator.h:145:26: error: 'void operator delete(void*, std::size_t)'
+    # called on unallocated object 'result' [-Werror=free-nonheap-object]
+    ENV.append_to_cflags "-Wno-free-nonheap-object" if OS.linux?
+
     lua = Formula["lua"]
     luaversion = lua.version.major_minor
     system "cmake", "-S", ".", "-B", "build",
@@ -80,6 +80,6 @@ class OsrmBackend < Formula
     EOS
     safe_system "#{bin}/osrm-extract", "test.osm", "--profile", "tiny-profile.lua"
     safe_system "#{bin}/osrm-contract", "test.osrm"
-    assert_predicate testpath/"test.osrm", :exist?, "osrm-extract generated no output!"
+    assert_predicate testpath/"test.osrm.names", :exist?, "osrm-extract generated no output!"
   end
 end
