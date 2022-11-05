@@ -11,7 +11,7 @@ class GitFilterRepo < Formula
     sha256 cellar: :any_skip_relocation, all: "cb7c87a2f219edd9ed5855474756a83fbc8308e46c7f57ea3e4454da9b6d455e"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   uses_from_macos "git", since: :catalina # git 2.22.0+ is required
 
   def install
