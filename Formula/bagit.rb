@@ -16,13 +16,13 @@ class Bagit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "754fa656037ce4f1d5f6f53b2d8498565c5dcbd9423a9d8d5cce047f5bd4781b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "754fa656037ce4f1d5f6f53b2d8498565c5dcbd9423a9d8d5cce047f5bd4781b"
-    sha256 cellar: :any_skip_relocation, monterey:       "dbbe53ea75bd1c6fcda5b26938ab79aa2676da5bcb434dbfc09fca3d4677f4a5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dbbe53ea75bd1c6fcda5b26938ab79aa2676da5bcb434dbfc09fca3d4677f4a5"
-    sha256 cellar: :any_skip_relocation, catalina:       "dbbe53ea75bd1c6fcda5b26938ab79aa2676da5bcb434dbfc09fca3d4677f4a5"
-    sha256 cellar: :any_skip_relocation, mojave:         "dbbe53ea75bd1c6fcda5b26938ab79aa2676da5bcb434dbfc09fca3d4677f4a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c460394f8bd13f972a848ac29a3dde16c9cdc2be167b3e34e9724c6b1fd6216d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "60395129ac88a0d1a5e1d3c9772092d17a2645c202ee3b6969608c161315e9c1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "60395129ac88a0d1a5e1d3c9772092d17a2645c202ee3b6969608c161315e9c1"
+    sha256 cellar: :any_skip_relocation, monterey:       "da64b9f36df90101ccf6702a55206eb9309d0ce2dcbc33722f3c709d00a87ec8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "da64b9f36df90101ccf6702a55206eb9309d0ce2dcbc33722f3c709d00a87ec8"
+    sha256 cellar: :any_skip_relocation, catalina:       "da64b9f36df90101ccf6702a55206eb9309d0ce2dcbc33722f3c709d00a87ec8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc9585e81bfa176935a810e61cedbcddb08e5f82e96ae24496d1d11ad6e0f318"
   end
 
   depends_on "python@3.11"
