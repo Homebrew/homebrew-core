@@ -23,7 +23,7 @@ class Isort < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cf4067868dd02d11c067e12acd8091a7aadb41c234e0250f46824328e3f1598"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
