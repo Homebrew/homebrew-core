@@ -7,6 +7,7 @@ class CollectorSidecar < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a28de64fe617d9abf6137139e9ce8dbd666e9c3539e885efda0b3f39cbda351"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8013d5b34e9f52b7d951883398eec860fe67731f3997f88109a9950d0bc9813b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6e7f81a1b6652d4174fe522b23862d39c8a6afaa55916462df45dafc5d96326d"
     sha256 cellar: :any_skip_relocation, monterey:       "a7516dcac003058d57f8264775ee352f4ef860584107f92221ab0a35b0149130"
