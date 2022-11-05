@@ -9,12 +9,13 @@ class Epr < Formula
   head "https://github.com/wustho/epr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b73999619b53746727b7cc40ff1f020187b04e3e5070f3db945bdbba2fa1aa8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b872410fa327264b5a98264b74aa98e8549442262022520bfbb943e1a3f3a509"
-    sha256 cellar: :any_skip_relocation, monterey:       "e7c7acb3bcf5231b4b4a5e15832935d9fb2293f892c3502c8cdb33e99080d13b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a0391b30e86412bbe3d3775d04b16be13d216f0102207112c3d97aed2639dc8d"
-    sha256 cellar: :any_skip_relocation, catalina:       "febe96e73961846928c0bf207b1a61553504449b16e5bf73ab9623ca78f50207"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e35e0f7d961dfc20800683b1b97b15bdce8ce4756282041ec45b389e2e42c56a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6590c8a5bcd690eef80fe2e1c4241475f8d4649afe1fda485bd58262eaaab36e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cab822e488b93156e6166ba4fb8592458d60d5ad3e9f3d2572a54d07f78deaec"
+    sha256 cellar: :any_skip_relocation, monterey:       "f2fa989bccad3f6b182357d457207cfef1ce01a430704c3cae128699e9b8d81b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cc47dda988c3a2e2f61e9870f028b29ebb8ab405fff91eb858333cfa81df7834"
+    sha256 cellar: :any_skip_relocation, catalina:       "b287ba360f24f04f56ad892fccb8b8b8ed7754227dfcf2d98132ed3a24e539e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31bad4f5113de503a4b0deb4d1714744d88de1f6939337aa0f066f5fe65510ee"
   end
 
   depends_on "python@3.11"
