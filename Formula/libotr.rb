@@ -32,6 +32,12 @@ class Libotr < Formula
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 
+  # Fix client.c:624:30: error: 'PF_UNIX' undeclared (first use in this function)
+  patch do
+    url "https://sources.debian.org/data/main/libo/libotr/4.1.1-5/debian/patches/0006-include-socket.h.patch"
+    sha256 "cfda75f8c5bba2e735d2b4f1bb90f60b45fa1d554a97fff75cac467f7873ebde"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
