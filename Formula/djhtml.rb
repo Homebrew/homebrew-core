@@ -16,7 +16,7 @@ class Djhtml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "21ca66140574f8b56d5bc2672f7f9a88ea3165c092c2beff6fb6ea83b8fc3377"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
