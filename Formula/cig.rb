@@ -8,6 +8,7 @@ class Cig < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3b74f7b2d3b2d121ccb6946718893b4f0c09d6bae5e5a6a7d48b8144da9b452"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "48e80e3f418f825caceccd69e9ec911f5c03b8fa7f38883edfd66d353f70a481"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d4f345393a0553e40003b46523a07e2bb0162bba0309ca9c0d322f606e73b76"
     sha256 cellar: :any_skip_relocation, monterey:       "fbca3e3336ec9a9848091d2b1845a48dc915ae798da5e1d54fe6aa4ee2261da6"
