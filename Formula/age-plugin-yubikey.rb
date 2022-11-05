@@ -13,6 +13,7 @@ class AgePluginYubikey < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44d21604e8bd515f30999a3aa018f1fa58777e63ed30c8958cd16fa10b6758fa"
     sha256 cellar: :any_skip_relocation, monterey:       "0c25f61d6a39223f03a30ac927c3696960c92f801fa2de5b1cd88d1eb4b81c3d"
     sha256 cellar: :any_skip_relocation, big_sur:        "29021a7735ca80bef0a0203b12a5e60545c647ef36df11d4e96e2bbee03114d6"
+    sha256 cellar: :any_skip_relocation, catalina:       "ebb3da6e34a60964092ef091785bf7f3bc52ac77718c5bc3b92b48068224720c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2380eb6016c5178c0b6308337606ecc87288fd6c1eab13dcbcac3d114f87dcf"
   end
 
