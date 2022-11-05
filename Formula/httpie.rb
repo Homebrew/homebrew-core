@@ -9,14 +9,13 @@ class Httpie < Formula
   head "https://github.com/httpie/httpie.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "67b838dcef080218caa1dc6e2abcf7924d3dc9dea6dbc0a7ecf6aabe43708e4a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e12605678bbcb4ab0f5c25b5499bedf5c996b00bee3052086f4bd50c4b9a53b8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4016f1c0b06ee81218e2d19009d33f4ecf5232db1108cb2a9f0c7d5a2929aa5c"
-    sha256 cellar: :any_skip_relocation, monterey:       "e4fcbe860e592d5102e46d382f86c458cacec16429c0b7ea60732ce921c40342"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8460fd7f38f407c841580c8a5fe2c5c81045527337003d880275d0bbfa3b07c1"
-    sha256 cellar: :any_skip_relocation, catalina:       "531ba19a5d21d3499af8fed3e6973e243ef51c0121e6faf3971b152efb8271f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea0d01eaadade9ba1dc1bcb4f8e48b819cb5a81a2a95fe5c3832eb1921bc2bc1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f484f1b4f058b715152491e81ad3a72318b0f43fe10532560a114d73b02f885a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6db8708b200e112506664720eed917f9e8ff6dec3b9577115fe7deffec40d68a"
+    sha256 cellar: :any_skip_relocation, monterey:       "2bf69380d76561198246a8b45327dd72ae56afed53a4ec2af6a5c05c43089a12"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd1ea3ef55a3df249f465c71fe07e2615cca6a503c6d16e2d9741485362489c0"
+    sha256 cellar: :any_skip_relocation, catalina:       "b9fccdffbdb469053b38e9138f5b5ec95d43545c90d6611a4b1ff97aec940ce9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8b5057b8a4c1f589d89ebfd4fe70bc99deb1ba9939faa748f112ee0574c87f2"
   end
 
   depends_on "python@3.11"
