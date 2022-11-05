@@ -12,7 +12,7 @@ class GitArchiveAll < Formula
     sha256 cellar: :any_skip_relocation, all: "aee58c33efeb35391540c597e43ec2d1a16cf7a41f5ee0a00e7830bf435275e6"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     rewrite_shebang detected_python_shebang, "git_archive_all.py"
