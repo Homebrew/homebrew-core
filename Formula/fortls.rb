@@ -9,12 +9,13 @@ class Fortls < Formula
   head "https://github.com/gnikit/fortls.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2d6013ad6fdae9855ecf1cc095712a02277d4f13a708346b68d6db455b4bd78"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6701692537a0730c2ac2a2723edc9133474dacf3af4bc7f45a06325b01c5831e"
-    sha256 cellar: :any_skip_relocation, monterey:       "14df9f15ec27ddd1c7f1dfec19661d9f34d4e46d75895fac5298914779184f55"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9fa0491997b42f3ab7e8e8a8c2d7417efe708652a46b8599ccb4e291e080adb0"
-    sha256 cellar: :any_skip_relocation, catalina:       "53dd5cbaa4945e26e86b1dcb09ffda3f2f199638ab9fe1dceea3f417a5af3fe7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d83b540e20a624338af94720bd2322daa2bc5443923f9fe8f7ca6b0441a41ccb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "174b1f4e2cd7d06a56dd4c8883d136a420ce74d57310c07f7e5aa2f095f68f71"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2cb162dde0328f45c09e9d0e184d6796183551df29380a8fde13cc97ed1309c5"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f88081d545cecc1965e05ec0691192b878461e30225cdcc24e0025b0fcd5941"
+    sha256 cellar: :any_skip_relocation, big_sur:        "305bc04b30d95ef280fc34d1fea38f032e54a19a126d016da69835a35877ee8e"
+    sha256 cellar: :any_skip_relocation, catalina:       "853915ba370ec51c3c2ed3aa8253f31691a9a4674e3708f4c22084b2b4420994"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba1a8b8188320fa146ab8ae10b970a539e8514ca07daa43a427479447bd204c"
   end
 
   depends_on "python@3.11"
