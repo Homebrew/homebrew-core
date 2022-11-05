@@ -7,13 +7,12 @@ class Py3cairo < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "72e0477409bb584ddb14da3d348ff4a4dd8ca210a2f47aa89c83e6639d85287d"
-    sha256 cellar: :any,                 arm64_monterey: "ff63b1420cb6450a4ad5d7099cfe3de573af17bff5a6eac905d1052ff8b1577f"
-    sha256 cellar: :any,                 arm64_big_sur:  "2483f93ce39583d9fde00e42c0081c86572ec15de319ff15d4ea705aefc7fda0"
-    sha256 cellar: :any,                 monterey:       "03e594802bce3f9c7e3cbcc55d0007330b0205d61c74e084a54e919eb9b69653"
-    sha256 cellar: :any,                 big_sur:        "de0509d506c8c4ecf70763da2ccb3215340e3cf448b7bb72d44fa4615e58c649"
-    sha256 cellar: :any,                 catalina:       "b280fe6a04a07bd23aa6f8e2c159cd33ee56927ef0fa26ed34a2cb61738c3efe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c90aac79478bed8998388c08f53d765fbafb6d74babef7c71a79fbf77a73bc29"
+    sha256 cellar: :any,                 arm64_monterey: "835c501d1d5741824dd4a1e02cb0cc584bba31ad3de7dab749653ee626163417"
+    sha256 cellar: :any,                 arm64_big_sur:  "4308fb117d43f27bd93ac2ae4f38091feff2272a474c560cfced167e8c1115cf"
+    sha256 cellar: :any,                 monterey:       "feb8a9be1270be213fa1f6be9de3906017d49389713e0c5cd347350fcb7341ed"
+    sha256 cellar: :any,                 big_sur:        "31a5442bd5a4c6fdf2a07abadf5ad49bf895ae6819b939be4d22687fc74aed40"
+    sha256 cellar: :any,                 catalina:       "46d411dc3b30aa251d78ac0c0883be898e69eea4a090c0c25c02297a7c5a6950"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9369efb02ce11d15a79945b698b170fe830afacb1af390a52508e92f4a71c67"
   end
 
   depends_on "pkg-config" => :build
