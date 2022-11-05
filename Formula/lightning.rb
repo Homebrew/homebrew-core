@@ -1,9 +1,9 @@
 class Lightning < Formula
   desc "Generates assembly language code at run-time"
   homepage "https://www.gnu.org/software/lightning/"
-  url "https://ftp.gnu.org/gnu/lightning/lightning-2.1.3.tar.gz"
-  mirror "https://ftpmirror.gnu.org/lightning/lightning-2.1.3.tar.gz"
-  sha256 "ed856b866dc6f68678dc1151579118fab1c65fad687cf847fc2d94ca045efdc9"
+  url "https://ftp.gnu.org/gnu/lightning/lightning-2.1.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/lightning/lightning-2.1.4.tar.gz"
+  sha256 "0152697cdfec0e5b178ddc825e106f52c24956c0bf8ed1114ba7dfbabe90dc4f"
   license "GPL-3.0"
 
   bottle do
@@ -17,12 +17,6 @@ class Lightning < Formula
 
   depends_on "binutils" => :build
   depends_on arch: :x86_64
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
