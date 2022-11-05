@@ -10,13 +10,13 @@ class Cxxtest < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "290c7e2e1fe99e75a0f7b45d2808d971db1e39fb915acb11ec2d75ef15b18b0c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "290c7e2e1fe99e75a0f7b45d2808d971db1e39fb915acb11ec2d75ef15b18b0c"
-    sha256 cellar: :any_skip_relocation, monterey:       "e1bcaf3c8fbddf83977c8cbbde084f64d3915a22bbf023cb044423b7215c26ee"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e1bcaf3c8fbddf83977c8cbbde084f64d3915a22bbf023cb044423b7215c26ee"
-    sha256 cellar: :any_skip_relocation, catalina:       "e1bcaf3c8fbddf83977c8cbbde084f64d3915a22bbf023cb044423b7215c26ee"
-    sha256 cellar: :any_skip_relocation, mojave:         "e1bcaf3c8fbddf83977c8cbbde084f64d3915a22bbf023cb044423b7215c26ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b808acbab8d4cc6aa173baafc1e35786e8253cc5a4f16e5bf8a35853aeed490"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1acc8d9a13d8955aece0bb80dc297469df4fb2f10948a1e9869ff26b8ec37fa4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1acc8d9a13d8955aece0bb80dc297469df4fb2f10948a1e9869ff26b8ec37fa4"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c6d1561562d7d6e8d2c18df851d8b961bda69b4c8a42094b174b92a55d52324"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5c6d1561562d7d6e8d2c18df851d8b961bda69b4c8a42094b174b92a55d52324"
+    sha256 cellar: :any_skip_relocation, catalina:       "5c6d1561562d7d6e8d2c18df851d8b961bda69b4c8a42094b174b92a55d52324"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cf39bf39e516f6a2649f9693b6c45e2cd73dd6eaf63ccae2cc6ea34f116e93e"
   end
 
   depends_on "python@3.11"
