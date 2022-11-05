@@ -6,6 +6,7 @@ class Certstrap < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5d6395c92d4c7e13c3f56b8d9e6a640583fa3644321093850cb106af2e91877"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd72ace92ab23822ee98e6e0a374132f17b24ed473029266918891a4c6eea074"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "10cf4c0c8f42e97dac415a9ec0e34f8948a2c94602498e0125efc71ae038a553"
     sha256 cellar: :any_skip_relocation, monterey:       "f5a6dd11e17cddf336dcbf0a89da75c5e0d96eeae71bd96377ecdc353bbd6d65"
