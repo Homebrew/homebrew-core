@@ -8,13 +8,13 @@ class CargoOutdated < Formula
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "73e30a96a8ed725c6af09728e00cee590cd2db0cbbaa3cc1fa4a860717d7cc23"
-    sha256 cellar: :any,                 arm64_monterey: "a7200baa0f4f7d6cf7c070cb5534b9b1b006705c58182a063d54d896a8866fca"
-    sha256 cellar: :any,                 arm64_big_sur:  "f0dc694fe1acfea814020900dfffb14f8d2e303047b6a822922791447c541f48"
-    sha256 cellar: :any,                 monterey:       "875fce52ee9f0046a7019fda286baaf41514c4ad9c203703b752d2506da46937"
-    sha256 cellar: :any,                 big_sur:        "f65f250655560261e038b002d0844b9012cb769fb2fcde3cf9d72e0d7a9ce9c9"
-    sha256 cellar: :any,                 catalina:       "ea093812c8421f5feba5b7af9b7abc9cd821d0aae6bcb376d7277ceed76ff051"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac2a43a2c023f9c8734e7a8f7bd7de266b39d83e17b6baa5a8ff715f5f67806b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "31304a37561e0140a1bc7da275e43ca62dd747436b9ebc9da11a6f6178149324"
+    sha256 cellar: :any,                 arm64_monterey: "0b5f3f982e6c8ff957f8c79c3fa4f080a32c371122511a915ddc266c4756d918"
+    sha256 cellar: :any,                 arm64_big_sur:  "81a62854e98ce8417cfcd50f7036e92066bc5066bc30ab52f77de329a5e4ec58"
+    sha256 cellar: :any,                 monterey:       "55df1e0b7ed0ff17f9458f75e0ca852ce8248869a3c1d4801cecc110ef7b7696"
+    sha256 cellar: :any,                 big_sur:        "02efc80dd1f83fa7ca4b4b595d50e3b572bbb03feec64b5897fa7303e6642fcf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e22c52e9bc43551ed3b40c302784a271aa82db6d3ad86634d4fe165810f1935f"
   end
 
   depends_on "libgit2"
