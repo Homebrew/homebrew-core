@@ -16,7 +16,7 @@ class Dunamai < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e076a4f06aa7278da76c4493dfc4639ec83c0ca43d896603132aa9994ab35579"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
