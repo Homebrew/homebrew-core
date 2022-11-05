@@ -23,7 +23,7 @@ class Black < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6919c5aaa2d57d7e5e509fb82ca5988ee201bb816b43b97928aaf8da1589d3e3"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "aiohttp" do
     url "https://files.pythonhosted.org/packages/ff/4f/62d9859b7d4e6dc32feda67815c5f5ab4421e6909e48cbc970b6a40d60b7/aiohttp-3.8.3.tar.gz"
@@ -83,11 +83,6 @@ class Black < Formula
   resource "platformdirs" do
     url "https://files.pythonhosted.org/packages/ff/7b/3613df51e6afbf2306fc2465671c03390229b55e3ef3ab9dd3f846a53be6/platformdirs-2.5.2.tar.gz"
     sha256 "58c8abb07dcb441e6ee4b11d8df0ac856038f944ab98b7be6b27b2a3c7feef19"
-  end
-
-  resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "yarl" do
