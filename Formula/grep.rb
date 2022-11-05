@@ -5,7 +5,7 @@ class Grep < Formula
   mirror "https://ftpmirror.gnu.org/grep/grep-3.8.tar.xz"
   sha256 "498d7cc1b4fb081904d87343febb73475cf771e424fb7e6141aff66013abc382"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "d2450448352fb2c389634cab3dec581882f6fc0f02a79489b4ba9c603b8f780b"
