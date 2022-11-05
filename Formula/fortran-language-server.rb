@@ -18,7 +18,9 @@ class FortranLanguageServer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffd2580a9385f37d0169c8d2e455a413cb9f26c720c269656c4ced9c14bf1365"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+
+  conflicts_with "fortls", because: "both install `fortls` binaries"
 
   def install
     virtualenv_install_with_resources
