@@ -16,7 +16,7 @@ class Fred < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e1180d8a7bd43ffcdf87d36613a7d7dd5b0704eacb88ac16e243314e5bbe218"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
