@@ -18,6 +18,9 @@ class GandiCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1285c7114f0dea5d293a775ce67fd4a87e0e0550715091781c3dfce578760ac1"
   end
 
+  # https://github.com/Gandi/gandi.cli#gandi-cli
+  deprecate! date: "2022-11-05", because: :deprecated_upstream
+
   depends_on "python@3.10"
 
   resource "certifi" do
