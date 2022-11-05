@@ -16,11 +16,11 @@ class Jello < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "113c409718feef3320f3a71185b5f6be6dcf015a09e13cea46f6711725d7846e"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
-    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
+    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
+    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   def install
