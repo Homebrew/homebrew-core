@@ -1,10 +1,9 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.3/sile-0.14.3.tar.xz"
-  sha256 "7f9735bb2bdea5004b226037baa85bbb684d9de1653d65faa5d1dc0677a6f6d8"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.4/sile-0.14.4.tar.xz"
+  sha256 "28d5e46c238fde611c23f0baa516a649a24f93ab181493b19e25e024e6f03a24"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "6291e320b9e0360bee753d395b761a782a682a997ff28d80c854f2e96d4abf5e"
@@ -73,8 +72,8 @@ class Sile < Formula
   end
 
   resource "luaexpat" do
-    url "https://luarocks.org/manifests/tomasguisasola/luaexpat-1.3.3-1.src.rock"
-    sha256 "b55908fcd7df490a59aab25284460add8283f1c6b94ab584900fe3e49775172a"
+    url "https://luarocks.org/manifests/lunarmodules/luaexpat-1.5.1-1.src.rock"
+    sha256 "eb7abc4cc39dd50eecb30896686bac84e66fd3c0774d0749b391e7ac5d222f45"
   end
 
   # depends on lpeg
@@ -89,13 +88,13 @@ class Sile < Formula
   end
 
   resource "luarepl" do
-    url "https://luarocks.org/manifests/hoelzro/luarepl-0.9-1.rockspec"
-    sha256 "1fc5b25e5dfffe1407537b58f7f118379ed3e86e86c09c0b9e4893ddada20990"
+    url "https://luarocks.org/manifests/hoelzro/luarepl-0.10-1.rockspec"
+    sha256 "a3a16e6e5e84eb60e2a5386d3212ab37c472cfe3110d75642de571a29da4ed8b"
   end
 
   resource "luasocket" do
-    url "https://luarocks.org/manifests/lunarmodules/luasocket-3.0.0-1.src.rock"
-    sha256 "63fd2dd18dfe242ca5bcc1203839e86a9c8936261a9ca9f3200f2deab431da88"
+    url "https://luarocks.org/manifests/lunarmodules/luasocket-3.1.0-1.src.rock"
+    sha256 "f4a207f50a3f99ad65def8e29c54ac9aac668b216476f7fae3fae92413398ed2"
   end
 
   # depends on luasocket
@@ -129,8 +128,8 @@ class Sile < Formula
   end
 
   resource "luautf8" do
-    url "https://luarocks.org/manifests/xavier-wang/luautf8-0.1.3-1.src.rock"
-    sha256 "88c456bc0f00d28201b33551d83fa6e5c3ae6025aebec790c37afb317290e4fa"
+    url "https://luarocks.org/manifests/xavier-wang/luautf8-0.1.4-1.src.rock"
+    sha256 "4c530792e2a6143c19214f299dd17addea5f57a839407cc74aea882cf2403686"
   end
 
   resource "vstruct" do
