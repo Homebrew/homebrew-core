@@ -13,13 +13,12 @@ class Librsvg < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "9b55452c4b2b330cc80d24e441189ca85d53cd5101d278f0433d2385efbffdae"
-    sha256                               arm64_monterey: "34020ec3131a92abd25bd8423d79c4fceb17419710b58e6fff9a92846a97d38b"
-    sha256                               arm64_big_sur:  "153866720725f181604fa65a378e48666be149364737c35cf54785183d972bb0"
-    sha256                               monterey:       "b07a80b9c9c979c7a4689de0fa960a7c175d25f1d49884361ae256a91e38f6d9"
-    sha256                               big_sur:        "0a7ab9832bff29e026d2bcb0fd1996d2e4530ea560082e245d8d5e5303169957"
-    sha256                               catalina:       "a720ab2e684868e0a355d00e5906fd8987bc3bea996768805ba40e77270093ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b70347e9defde8b39235ac1ba9d52cb62be694b4edbd8f86aac90b562516bec"
+    sha256                               arm64_monterey: "7677c86c5a390ef740e1ecc43ed9dd5aac71942181d444d09d68420bf140cbb0"
+    sha256                               arm64_big_sur:  "94df281def54411823fae7dd450a7befd8f2bfb1d23fd02c3c75379abbf82a4f"
+    sha256                               monterey:       "a60462f0695f53a813c1c1f68a38a48fcf8d55c94ee80c6992a169bf775b0d26"
+    sha256                               big_sur:        "a8d34f5378591f386148ad96a8f6a359a525483383c4894d93791a58460490fc"
+    sha256                               catalina:       "491d993ed584eb8c4e2c7e3818ff871b38783fa6ed076233fc93d5546e55f038"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93be523ec2aa4953ce6965abbfd46097fb73e1fe224649bcc8ea277da3c97a19"
   end
 
   depends_on "gobject-introspection" => :build
