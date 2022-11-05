@@ -16,11 +16,11 @@ class Aws2Wrap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4266cd968d613d83489517cc5cc38d87ad5da586ea5eb10671d288b1637d134"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/de/0999ea2562b96d7165812606b18f7169307b60cd378bc29cf3673322c7e9/psutil-5.9.1.tar.gz"
-    sha256 "57f1819b5d9e95cdfb0c881a8a5b7d542ed0b7c522d575706a80bedc848c8954"
+    url "https://files.pythonhosted.org/packages/de/eb/1c01a34c86ee3b058c556e407ce5b07cb7d186ebe47b3e69d6f152ca5cc5/psutil-5.9.3.tar.gz"
+    sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
   end
 
   def install
