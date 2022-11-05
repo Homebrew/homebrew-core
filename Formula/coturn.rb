@@ -1,8 +1,8 @@
 class Coturn < Formula
   desc "Free open source implementation of TURN and STUN Server"
   homepage "https://github.com/coturn/coturn"
-  url "http://turnserver.open-sys.org/downloads/v4.5.2/turnserver-4.5.2.tar.gz"
-  sha256 "1cbef88cd4ab0de0d4d7011f4e7eaf39a344b485e9a272f3055eb53dd303b6e1"
+  url "https://github.com/coturn/coturn/archive/refs/tags/4.6.0.tar.gz"
+  sha256 "42206be7696014920dbe0ce309c602283ba71275eff51062e5456370fbacb863"
   license "BSD-3-Clause"
 
   livecheck do
