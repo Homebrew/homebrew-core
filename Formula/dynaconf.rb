@@ -16,7 +16,7 @@ class Dynaconf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e011ddd063e327fd8e7ce41c7571e0a344ebbc7642db30428659fc657ee0a4bd"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
