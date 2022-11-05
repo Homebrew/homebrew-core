@@ -21,6 +21,7 @@ class Bitlbee < Formula
     sha256 arm64_big_sur:  "664ce4fbb775206950ec7b0786bcefc43c43ead3631a33024061dd139b59ecfe"
     sha256 monterey:       "58b2fb9b50a1c3ed78f9b8945abb8aa883da058170cd0255a44f01681c660f6c"
     sha256 big_sur:        "3d4a68524f64b5abca2cdb3cca9eb60fe6ab30c98bd12cddf4f736fb3c1dda54"
+    sha256 catalina:       "c7280a6ea53c3336f710b12617c2fa68bd4b75829962728002f72006e3163ffc"
     sha256 x86_64_linux:   "046736bbc9acefad55c69d5acbe77d4f96123d6a1ab49db0179d95f5cb72eec6"
   end
 
