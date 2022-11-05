@@ -17,6 +17,7 @@ class CargoCrev < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "03f64a893028318d84526f826c188ffe27045238919aa2be7e1995585c462b58"
     sha256 cellar: :any_skip_relocation, monterey:       "9c6dcfd6b0d8fd2f3930b1322e0a95978a75913643a93f897168c47f176d00d6"
     sha256 cellar: :any_skip_relocation, big_sur:        "96144493e01326e38243430706551ee1ce0715a273da689242da971f935d0a55"
+    sha256 cellar: :any_skip_relocation, catalina:       "f42f08cdb84d4226a63c0cf265d297d02cec4e3264a12f3acb963274a069cd09"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f00aeb5c5f3d6f6724e2edee802191a0382ca7fa570e7078e90e2c888cf2f85"
   end
 
