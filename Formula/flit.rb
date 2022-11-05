@@ -3,8 +3,8 @@ class Flit < Formula
 
   desc "Simplified packaging of Python modules"
   homepage "https://github.com/pypa/flit"
-  url "https://files.pythonhosted.org/packages/a0/62/4fe47656976da4a95bbe9ab3cc710b2c16a0b5a5ffa308780a2ab208ef50/flit-3.7.1.tar.gz"
-  sha256 "3c9bd9c140515bfe62dd938c6610d10d6efb9e35cc647fc614fe5fb3a5036682"
+  url "https://files.pythonhosted.org/packages/28/c6/c399f38dab6d3a2518a50d334d038083483a787f663743d713f1d245bde3/flit-3.8.0.tar.gz"
+  sha256 "d0f2a8f4bd45dc794befbf5839ecc0fd3830d65a57bd52b5997542fac5d5e937"
   license "BSD-3-Clause"
   head "https://github.com/pypa/flit.git", branch: "main"
 
@@ -35,9 +35,9 @@ class Flit < Formula
     sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
-  resource "flit_core" do
-    url "https://files.pythonhosted.org/packages/15/d1/d8798b83e953fd6f86ca9b50f93eec464a9305b0661469c8234e61095481/flit_core-3.7.1.tar.gz"
-    sha256 "14955af340c43035dbfa96b5ee47407e377ee337f69e70f73064940d27d0a44f"
+  resource "flit-core" do
+    url "https://files.pythonhosted.org/packages/10/e5/be08751d07b30889af130cec20955c987a74380a10058e6e8856e4010afc/flit_core-3.8.0.tar.gz"
+    sha256 "b305b30c99526df5e63d6022dd2310a0a941a187bd3884f4c8ef0418df6c39f3"
   end
 
   resource "idna" do
@@ -48,11 +48,6 @@ class Flit < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
     sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
-  end
-
-  resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "tomli-w" do
