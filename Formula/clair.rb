@@ -11,6 +11,7 @@ class Clair < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48910e500e51714018866cd9e1659bfdd25ce1f9c74573465a8b3614c2d089ba"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cac366d740ad63a7e859815a89ba5cb19901f89434c4136b16e2c6523c304219"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5cde005fb2780d74c3f5b25b349b703e93b122bf42ba5df553ad5f41108d2a6"
     sha256 cellar: :any_skip_relocation, monterey:       "db39bcecc3b259b40b0d2596d41af8ba352eb05fb40676fb1086f07bcb932f6c"
