@@ -8,6 +8,7 @@ class Aztfy < Formula
   head "https://github.com/Azure/aztfy.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "abffdff6981f5b0016c3638c1c459a4bf688bd249cedcccdef18847f280a720a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "83da354f9299b620ffdff845784772bc254bbe31a6fba78c430ad37a52812202"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83da354f9299b620ffdff845784772bc254bbe31a6fba78c430ad37a52812202"
     sha256 cellar: :any_skip_relocation, monterey:       "a38f8a1c8ba65951d1993cacdb4f310524d6b41f11c6251c22020a56e17d144c"
