@@ -8,6 +8,7 @@ class CadenceWorkflow < Formula
   head "https://github.com/uber/cadence.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f6986c8afa1d4efbd726e798bfd46aae83f3cd6899c23c28499f93d96e4818f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1bb14f3835afb8190771c3bf2e42dd958c177221047f8b46a504304a1ab4d293"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0fa1a09734fdaa7f52b0acfccb58c3edd520789f209d5d8d438b853551f8e45f"
     sha256 cellar: :any_skip_relocation, monterey:       "cf5cf6fa405398d5524c78983bc2b2e7a21d4912891a3c87dfe99eac6d081b96"
