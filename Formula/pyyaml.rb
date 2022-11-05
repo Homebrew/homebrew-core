@@ -4,6 +4,7 @@ class Pyyaml < Formula
   url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
   sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "bd9d1f9a1987f96ed83b5d66bc8aeb6989807dcfcaa7f9f720ddfa29ddff5b5a"
@@ -17,7 +18,7 @@ class Pyyaml < Formula
 
   depends_on "cython" => :build
   depends_on "python@3.10" => [:build, :test]
-  depends_on "python@3.8" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
   depends_on "libyaml"
 
