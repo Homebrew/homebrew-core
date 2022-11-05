@@ -7,13 +7,12 @@ class PythonTypingExtensions < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db438b8a8ded095acfc017dc18ab3f4c1753331fde0797a5f3c7ac9b66862943"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4948e0e29f8b619d95103fb01c72487f6bc2e57766edc03eae2da17107032cd5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97b78929c4c889cc85ea2c5a46acdb3b02dc8ba90b0430440d4549b671e02d4a"
-    sha256 cellar: :any_skip_relocation, monterey:       "9330397d24f3f86ba3fa5f8e4cf1c81f8941182a9ad45e4a4b25e5c13441602c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0f18340454c9f28581feee96504bf641ea0a7ab91cb52ea9cdd1dc52a0b7f04d"
-    sha256 cellar: :any_skip_relocation, catalina:       "9264ed1811b12a98018c87e8f75b52941f74a5a1c12213045fda6435b3364e66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e52aa7152be8e379734f7bf93172312bbfe952cdff085ef2722d79b161b83d50"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1f31efd887ea1b281e6a1ac7e63a22f2e6e9ede8c423d5e6cccf16178af430c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8aa9684ffa353c2f80d5a6ab7b2190f46edf7950d57b6d77238225c501a3393"
+    sha256 cellar: :any_skip_relocation, monterey:       "3b3e03bca911d61c1842f96c24aee6270138bfff8212656f373b0948f2cc1a29"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c36fa17f6f27f24de979efdad54bfac73849866ddc54872977b04db78d950774"
+    sha256 cellar: :any_skip_relocation, catalina:       "bf3f04ac84a6858acfcb506a39a20132974778301216cc39089807a0ef14f476"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86225068aa47ac1ffffd5af308df0b29ff470b4924840fc7a57212c39cfa529b"
   end
 
   depends_on "flit" => :build
