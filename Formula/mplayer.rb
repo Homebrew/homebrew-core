@@ -12,13 +12,13 @@ class Mplayer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "83bec17d76bc8a7dc8143733be3171cfb98325b9efdbb4f61975e7e23cc21e31"
-    sha256 cellar: :any,                 arm64_monterey: "990f18527e83dddb5c93b7dbf3ebc57b58e8f75e06f3c8bc192fafae0f2ceb4a"
-    sha256 cellar: :any,                 arm64_big_sur:  "d6f924fc2e95ae087a3614edee922fc72fd49aa2d2052593f8035841b8b77356"
-    sha256 cellar: :any,                 monterey:       "bdea6626f7acb3fc1e82394302084dd9b69590775729de0c6a1197415fa1ef7f"
-    sha256 cellar: :any,                 big_sur:        "8998319dfcc43ea2bff8cd11b9d169be0c95562646c1eea3f533468a31ef6a79"
-    sha256 cellar: :any,                 catalina:       "0a4a3b3373a86d490192e55ad5a611bc00559185cc619d5ed3f15f66530bae72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2d487630a4dd8aa8a8c4c89b785c6c0ec7e40ef3eb1e3a989fae27b6c484b43"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7d050d5dcac278c608d5a152c95accda9294389636b902ef2f6267298d42c8da"
+    sha256 cellar: :any,                 arm64_monterey: "79154ab80a76e3ffe7346287c18480cc9762acdf638a520ac2f0610f1580406e"
+    sha256 cellar: :any,                 arm64_big_sur:  "caaee4a430194ac3e9f942c06390b92c505d7e01eb2345df067e6cd3fe44c477"
+    sha256 cellar: :any,                 monterey:       "dfadfbf16c6f85e94145fa4c6f9333124ced9749744f68cb6f41ea34be422872"
+    sha256 cellar: :any,                 big_sur:        "c0b675e5aeb8354a52b73f12f22a47ed77ee765737a558280c2f9d80e388c398"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "897462e9d760c8737c08878e1dbbf8afec17c9dfec0fc09d2992e4f56a5e935d"
   end
 
   head do
