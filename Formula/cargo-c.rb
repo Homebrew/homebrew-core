@@ -11,6 +11,7 @@ class CargoC < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "5f20981660ca656343f3898b6e45438ab508a88a479e72402072d88be6bab558"
     sha256 cellar: :any,                 arm64_monterey: "705352ea62e3cd9feda13fd845921c0241812132d699c3bde817a32cc0dc3c68"
     sha256 cellar: :any,                 arm64_big_sur:  "8313ced682fbd30f835876e230ca7fb4c5552f3c8ec9254762b0c01737c7d085"
     sha256 cellar: :any,                 monterey:       "ea617012ade816d7e233dcaae75794f4b442bd1a8ed397c32e08c095af84d06e"
