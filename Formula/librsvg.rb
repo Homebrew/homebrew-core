@@ -1,9 +1,16 @@
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
-  url "https://download.gnome.org/sources/librsvg/2.54/librsvg-2.54.5.tar.xz"
-  sha256 "4f03190f45324d1fa1f52a79dfcded1f64eaf49b3ae2f88eedab0c07617cae6e"
+  url "https://download.gnome.org/sources/librsvg/2.55/librsvg-2.55.1.tar.xz"
+  sha256 "6baf48a9d3a56fd13bbfbb9f1f76759b240b70a1fa220fd238474d66a926f98c"
   license "LGPL-2.1-or-later"
+
+  # We use a common regex because librsvg doesn't use GNOME's "even-numbered
+  # minor is stable" version scheme (at least as a "trial" for 2.55.x).
+  livecheck do
+    url :stable
+    regex(/librsvg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256                               arm64_ventura:  "9b55452c4b2b330cc80d24e441189ca85d53cd5101d278f0433d2385efbffdae"

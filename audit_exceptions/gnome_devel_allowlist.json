@@ -5,6 +5,7 @@
   "libadwaita": "1.1",
   "libart": "2.3",
   "libepoxy": "1.5",
+  "librsvg": "2.55",
   "libxml2": "2.9",
   "libxslt": "1.1",
   "tracker": "3.3"
