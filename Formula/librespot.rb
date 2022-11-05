@@ -13,6 +13,7 @@ class Librespot < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a417c3c1a0d53820b5c5a5a3f652d7a20521c2a4891fb1763815e4c7a0dfca10"
     sha256 cellar: :any_skip_relocation, monterey:       "eb26f63f537836cc723fd7642f4c7eea6d0458e6deb77beb21525020304ec5da"
     sha256 cellar: :any_skip_relocation, big_sur:        "849ad406f701285061e2c7915e7b0b291646930debae31b169445c5bb2739bc3"
+    sha256 cellar: :any_skip_relocation, catalina:       "90121b3f08f02b90f34d16459deaedffebfc9db59521d4987c31c3d3027c71e8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf3fdf062b16b87f8232c28e02deea3376546f22422b077d65683c1cba8591af"
   end
 
