@@ -4,6 +4,7 @@ class PythonTypingExtensions < Formula
   url "https://files.pythonhosted.org/packages/e3/a7/8f4e456ef0adac43f452efc2d0e4b242ab831297f1bac60ac815d37eb9cf/typing_extensions-4.4.0.tar.gz"
   sha256 "1511434bb92bf8dd198c12b1cc812e800d4181cfcb867674e0f8279cc93087aa"
   license "Python-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "db438b8a8ded095acfc017dc18ab3f4c1753331fde0797a5f3c7ac9b66862943"
@@ -17,7 +18,7 @@ class PythonTypingExtensions < Formula
 
   depends_on "flit" => :build
   depends_on "python@3.10" => [:build, :test]
-  depends_on "python@3.8" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
   depends_on "mypy" => :test
 
