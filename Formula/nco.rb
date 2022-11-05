@@ -6,12 +6,12 @@ class Nco < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7b4b3ae88d8038b654f4d3ef816fa50840d19f52079a7f4074d05c8a43159de7"
-    sha256 cellar: :any,                 arm64_big_sur:  "3962aaee46b68259b793f0b4b6764ce04969e1a6c2e857f8e31918b321d48b0c"
-    sha256 cellar: :any,                 monterey:       "415c19c6d02e49c4b7186f2a8f863d045bb3c29eec4e004662b5fcf5a8bce98d"
-    sha256 cellar: :any,                 big_sur:        "8bad0fa1cb198f7d712eba8c5157af563cb5f485c40083a2cb2904f4ef2cf8b2"
-    sha256 cellar: :any,                 catalina:       "d6eab303d184739b9e0d92db0705da91d70615d2e45e56d45cd1a9254ec092a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18eb21562e02dcafa2786d883db895a89999737cf6459e485bd4d583685577b6"
+    sha256 cellar: :any,                 arm64_monterey: "3f53dd4659b8d6f4c7f1546df2cf71dfc5c77a994587ff6789df05c4ab2a3544"
+    sha256 cellar: :any,                 arm64_big_sur:  "08d662175e0bfb0eac16a6c234c7237a38255b7aa8987efc1f14fc75fb309edd"
+    sha256 cellar: :any,                 monterey:       "96b32c1d1631287f72d5c8a74fd5fee0650337dbfebd4efa8479b619ee828e43"
+    sha256 cellar: :any,                 big_sur:        "259ed2c189b2f808223fc3846d207f47fe5f9a3a3119a6b9596e021adaf82b02"
+    sha256 cellar: :any,                 catalina:       "8169d493d10eadc9e81f755e97197ba83ea77f917d5e9ee03f14efa8905821a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d48b6da4cb732b174a46b854ecf123a001b41c8954543b96f470b2cff1a2d9ca"
   end
 
   head do
