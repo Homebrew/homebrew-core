@@ -11,7 +11,7 @@ class LibpythonTabulate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "761c33fc48f6ed2af1a83df2cddbdcd4f8090569a50cb8b0f25fcce1bfe0b091"
+    sha256 cellar: :any_skip_relocation, all: "f58920620a2e967a0d918dad5ef9f636f0b5883e525bf1c4967d49bfd38699ec"
   end
 
   depends_on "python@3.10" => [:build, :test]
