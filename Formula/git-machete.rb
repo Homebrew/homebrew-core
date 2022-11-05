@@ -17,7 +17,7 @@ class GitMachete < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cce4b60623d65a55e9363e1e6e8d05be8a76bc4faca929e9bf3c8fd9c70aa00"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
