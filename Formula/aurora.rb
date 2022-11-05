@@ -7,6 +7,7 @@ class Aurora < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f466ea097843bef81d5d4ad254e51d06bc2cc33be76f7fcb900a65e6a513fe3a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5187558579ceb4884f08f91855d393bb0f0b79b7ac5a4ff1abc1cdc43a780006"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "798b63da7188da92582ffde96fed8f3407add006f2db88a610cb4aacda1c5b89"
     sha256 cellar: :any_skip_relocation, monterey:       "fc1e371ec7afa848b85dd45424209ed1d9da85985e9cf5cc21a6ae46071847bf"
