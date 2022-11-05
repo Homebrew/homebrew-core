@@ -11,12 +11,12 @@ class Ddgr < Formula
     sha256 cellar: :any_skip_relocation, all: "42d0db350134ea8a82afadbca7d18f9f234996621481b65f2576d83a96a0c689"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     rewrite_shebang detected_python_shebang, "ddgr"
     system "make", "install", "PREFIX=#{prefix}"
-    bash_completion.install "auto-completion/bash/ddgr-completion.bash"
+    bash_completion.install "auto-completion/bash/ddgr-completion.bash" => "ddgr"
     fish_completion.install "auto-completion/fish/ddgr.fish"
     zsh_completion.install "auto-completion/zsh/_ddgr"
   end
