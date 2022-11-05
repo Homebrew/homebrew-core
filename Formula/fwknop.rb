@@ -38,6 +38,11 @@ class Fwknop < Formula
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # fwknop-config_init.o:(.bss+0x4): multiple definition of `log_level_t'
+    # Issue ref: https://github.com/mrash/fwknop/issues/305
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     # Fix failure with texinfo while building documentation.
     inreplace "doc/libfko.texi", "@setcontentsaftertitlepage", "" unless OS.mac?
 
