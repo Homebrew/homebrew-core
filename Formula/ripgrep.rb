@@ -12,14 +12,13 @@ class Ripgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4209c572d1d8a0fbfd562198532507a498cf1d2b0f5bf2bd667318202f746e0c"
-    sha256 cellar: :any,                 arm64_monterey: "ea67bdf39c1727b2b6b5b5f5110d1736b42b3eb0ec2068aa99903b670545b015"
-    sha256 cellar: :any,                 arm64_big_sur:  "d3e0ae859dc1e66ebecbc66a8ad1ec2abac59bc707d2305dde66212e71406d36"
-    sha256 cellar: :any,                 monterey:       "db0260c6be9656c54575a4d82c720fb24141be38a17350d6cddba7be14f104e6"
-    sha256 cellar: :any,                 big_sur:        "a8f2bd6586de9f7aa36eaaefd36777309f9b5d57f01bf33bf022d715fd3dbb89"
-    sha256 cellar: :any,                 catalina:       "0edcffa1251002e2747020d62a16ae077bd7aa5fb289d351622e0065c9686c40"
-    sha256 cellar: :any,                 mojave:         "b57024c0d221249a1f5eaef1069ac90d44e54afdadb146acd117ae23b7de98c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34e3140b55f0fb5efb8db70e0709afe091632efaa84465e4c1c9ca3c8afa1bf2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "ca37acadebbf8a719b4f985c484ffd381e0cbeccc73d73673ec116692bf5450a"
+    sha256 cellar: :any,                 arm64_monterey: "d21429f4b0a97e94f87cf7588958f53b57bf067876377d6a2e7a30259fa94394"
+    sha256 cellar: :any,                 arm64_big_sur:  "977038e704a31a1e362cb737e465324659061857c2fe5a0a7babe8d5d59673c8"
+    sha256 cellar: :any,                 monterey:       "a24a4ab187a9dac94b62c9a4271e6ba434d531a460f886212696bb2e1b5917eb"
+    sha256 cellar: :any,                 big_sur:        "f3a112620b217412149aef8d12e54508ce18f96c3f05f2376673f385ca5a0e3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7bf9e8cee09ae435aa694e1b8942f915f7a9f58ec16a1e0b1fc5f7a76014dae"
   end
 
   depends_on "asciidoctor" => :build
