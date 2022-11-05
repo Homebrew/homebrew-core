@@ -13,8 +13,10 @@ class EnvoyAT118 < Formula
   end
 
   keg_only :versioned_formula
+
   # https://github.com/envoyproxy/envoy/blob/main/RELEASES.md#release-schedule
-  deprecate! date: "2022-04-15", because: :unsupported
+  # Original deprecation date: 2022-04-15
+  disable! date: "2022-11-04", because: :unsupported
 
   depends_on "automake" => :build
   depends_on "bazelisk" => :build
