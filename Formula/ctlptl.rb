@@ -6,6 +6,7 @@ class Ctlptl < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6162e9a50f31a367f16f351e1ea101bd7229c56d6818012ec1ac745237b92b5b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39bb2b69a2e851b158da7f82c92ce81961c1d46c2d8819f3249871a7c26f7b3c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c9c9734333abf64124c8778bcf0a519cf9558054635ee158d34cca2bb66704d"
     sha256 cellar: :any_skip_relocation, monterey:       "e7be50da19ff573e74d7856c132da0d5f073d7ab5a77a26dc5902a844681e40c"
