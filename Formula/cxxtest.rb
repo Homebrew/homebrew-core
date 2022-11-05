@@ -19,10 +19,10 @@ class Cxxtest < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b808acbab8d4cc6aa173baafc1e35786e8253cc5a4f16e5bf8a35853aeed490"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.10"].opt_bin/"python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install_and_link buildpath/"python"
 
     include.install "cxxtest"
