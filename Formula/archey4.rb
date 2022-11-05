@@ -8,13 +8,13 @@ class Archey4 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "951268e44eb5c0e704becfd5742aae842c377596cb2c7641f4a7811743c5da04"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f83cd355b238c93798c245716c81e65df0a45eb99ffb93077e8e62a30d7b638"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4bcaea881ca64bf8ccf41768293e18a48d9c3c148219991dd8fdfeb705be39f7"
-    sha256 cellar: :any_skip_relocation, monterey:       "e265ca71d41ccf1f46a1676a496f914d826f3083bdc7554c4502b694363f9f75"
-    sha256 cellar: :any_skip_relocation, big_sur:        "636718fb8c5a8f0f05da5a3c5fd8b2a2d3557cb03f1f1b19b9dffae06581e3b7"
-    sha256 cellar: :any_skip_relocation, catalina:       "4fedd9109bcc00c0369dda4badd972fa9e9ef2d74d1274396699f56c81820d3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "501eeafc552d57176afd68388e45b735cd8fcb58ffaf7ac845eb8cf28b5ed2e9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "82e733ff22e9672f4c481ffba502e8b91e3dc417857e5ee004948cdebbe864e7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c15c7c4c86f81cb92cafde76dce1bde8887a0b42aecc674ffc5b24603c4efbd"
+    sha256 cellar: :any_skip_relocation, monterey:       "e37569399a3494c36af12545a0d11220a772770feb8817b8e93a6e82315b20cb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "351ec9affc5272bf3b4ca9a16f27bd113f61c526f495488aff3c13872b1b6fef"
+    sha256 cellar: :any_skip_relocation, catalina:       "e6fac4e403690a15257ae925992f0b6ce496994de2ad3fc35128b4918598b789"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d08071b13a32148196c4affa001eb5c9c3684571e09e22b0ebbbc89112994ab"
   end
 
   depends_on "python@3.11"
