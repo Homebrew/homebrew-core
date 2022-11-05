@@ -12,7 +12,7 @@ class Icdiff < Formula
     sha256 cellar: :any_skip_relocation, all: "41ff3bcb114db25d6bc5e12278e5c2e958f5178bea55959b9e0a0f22bb7d26c1"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     rewrite_shebang detected_python_shebang, "icdiff"
