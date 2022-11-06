@@ -71,11 +71,10 @@ class Freediameter < Formula
     EOS
   end
 
-  plist_options startup: true
-
   service do
     run opt_bin/"freeDiameterd"
     keep_alive true
+    require_root true
   end
 
   test do
