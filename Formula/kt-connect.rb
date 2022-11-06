@@ -7,6 +7,7 @@ class KtConnect < Formula
   head "https://github.com/alibaba/kt-connect.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "362298aae0856a0ea10cf766d3ad97ea78c890137e71f98201ad0529df3141fe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "201a9bc8a61ee90706957c3fccf6ae1623639bda3820fb50ff1a80648935bedf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8c5c2566756210068ffbd9de28df50a18509e9139089626d739a31a16ea01b9"
     sha256 cellar: :any_skip_relocation, monterey:       "5121833c6caae40c1feab413ca5ee4df9d8148ec4bc4135eb94d2beeadf3dff2"
