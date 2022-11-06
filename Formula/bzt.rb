@@ -9,6 +9,7 @@ class Bzt < Formula
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "685fddf38e89b89d046023add781f1a63ec9b4319aba41393fa159f825eae209"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4bb622fe066847f87894220c4b31c9f0af58acd53ab3f09b4408867d68796c12"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95a9f41df317bcdd308578e35283c7b424ffff4db11abce4011028fb3012d94a"
     sha256 cellar: :any_skip_relocation, monterey:       "f67728e7b5042f8139597504753437a3879eb12346b7020ef9cffdb815be9012"
