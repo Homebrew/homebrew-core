@@ -8,6 +8,7 @@ class TremorRuntime < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96864c51d8cade85a5f41fa383e58b2536291ccd548e30f429dd331744c8c6b1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b0d58f90918cf00d4adca64e53935ba29e5c0fb0ff08d6f2a6ce8ebc8bc6df12"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f8c977361698fecc8d63b749f54ebdd482c82af98ca72b3678e365e74c5a54a"
     sha256 cellar: :any_skip_relocation, monterey:       "53fdb05b8cd063bc63223cde126aa0ec5452c69fcd7b94ccd1afac215912e396"
