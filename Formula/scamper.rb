@@ -11,6 +11,7 @@ class Scamper < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f25084a0d87ae4592bd6d26fb89c9668f076c23d75d06be294325a58ddc98723"
     sha256 cellar: :any,                 arm64_monterey: "21d9f1cdc409fd503caaa4fe61265e6db6a16c487194de7debaa6c337aa6cd88"
     sha256 cellar: :any,                 arm64_big_sur:  "e2fe2c53ad383983ac3efa9966f03fa70b0366bf219064d5576e50145ad9a92d"
     sha256 cellar: :any,                 monterey:       "02b00518aebed2573109ce57b58e1d3e1d726f146a39f5d2778a54ec9ec0d588"
