@@ -9,6 +9,7 @@ class Vermin < Formula
   head "https://github.com/netromdk/vermin.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9bdba06b0268e163dbc6ee04273ce0fae645ed40b4bd573ecf8db888a9e70e55"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9bdba06b0268e163dbc6ee04273ce0fae645ed40b4bd573ecf8db888a9e70e55"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bdba06b0268e163dbc6ee04273ce0fae645ed40b4bd573ecf8db888a9e70e55"
     sha256 cellar: :any_skip_relocation, monterey:       "8c9911824d09800d5da7295be4a56dd084c9fb8f34908c68c9aecb634a922637"
