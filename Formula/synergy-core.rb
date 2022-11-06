@@ -31,6 +31,7 @@ class SynergyCore < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "1b4a2490a8037d024db0d276cae2e8bc285aee8a103db5342ccbe10771199e3c"
     sha256                               arm64_monterey: "725f0f1fa1dfe02c9a1c7263475e56ea7ddd1851db82f7105713e722ac8a8420"
     sha256                               arm64_big_sur:  "4029385d37cae098379287bf401afdcfd0e7255956644ca9698066997ac8e662"
     sha256                               monterey:       "24f862db876c623f46ad44fcc14350586783e84c1f0dd79bd17e37b2ab861280"
