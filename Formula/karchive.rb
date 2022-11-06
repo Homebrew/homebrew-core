@@ -19,6 +19,7 @@ class Karchive < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3469785e02a42100c383388283cdad06b8b849b889065162640154ff717143a2"
     sha256 cellar: :any,                 arm64_monterey: "343e020d207c3ba1057cfd3ce15522cf881aaba4176c0472e65a02b6e608cf7b"
     sha256 cellar: :any,                 arm64_big_sur:  "b52d1d62436604e88b304a7eeb75bee582b16736d3be94fe4053ac77af86ea03"
     sha256 cellar: :any,                 monterey:       "ede29ec5871764de2812088982d0920ea41ce8e3d67c47342a1b558dddd991ea"
