@@ -6,6 +6,7 @@ class GitWorkspace < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1014a9f3c7a194e754fc8e67d7b1a106c7f7975bbbfdbdb9ee0f1ea2cfad9619"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "45c05688ed39c64f93bc3b8e72483047da54de75c368c057cd670e48b9ddc0b4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5dfca2198b7160d94283337fe6e27fd6fe10d657a81b1f4c8535e64d45c07720"
     sha256 cellar: :any_skip_relocation, monterey:       "c221ee1fa14e2b2f66e600b191d8ac0e7e355002fa31fda61135447d91f3bf13"
