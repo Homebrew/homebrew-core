@@ -6,6 +6,7 @@ class FuncE < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e2d726b8a4d2449dee9e16294eaf14e5bbdc1e22bc4b0bb35bcc221faf8f59a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f034e0cdc13ac07a3814ce2554298f9a66938c8116a650ead07fae49b61c445c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f1f8fbb93ab264ec506a0f4bf7092efe15c7eebeb2034da13d987e762de6f96"
     sha256 cellar: :any_skip_relocation, monterey:       "95395d54f43e9399c31af694de522725e7624629563d306ae50cbe0f51070d13"
