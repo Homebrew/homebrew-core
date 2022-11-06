@@ -6,6 +6,7 @@ class Iir1 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6ecc435c8072c50ebca6f006c2ccaea6cfedd74d57132ad952416509c1016ac7"
     sha256 cellar: :any,                 arm64_monterey: "3d66f65cf388610c99474b0fc3290a593a60ad447ba78e6cd257cd261cbb05e1"
     sha256 cellar: :any,                 arm64_big_sur:  "8a5984cf2aed5419275bec146f4b93933a4ae76ec405d34a2b7c14a2d9597f4d"
     sha256 cellar: :any,                 monterey:       "8da5090cc2d37592a01a506505a4dac96e3707887420eea7aa87a02bb975caf3"
