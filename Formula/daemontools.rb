@@ -59,11 +59,10 @@ class Daemontools < Formula
     EOS
   end
 
-  plist_options startup: true
-
   service do
     run opt_bin/"svscanboot"
     keep_alive true
+    require_root true
   end
 
   test do
