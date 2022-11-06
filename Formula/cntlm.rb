@@ -37,10 +37,9 @@ class Cntlm < Formula
     "Edit #{etc}/cntlm.conf to configure Cntlm"
   end
 
-  plist_options startup: true
-
   service do
     run [opt_bin/"cntlm", "-f"]
+    require_root true
   end
 
   test do
