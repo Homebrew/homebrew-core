@@ -10,6 +10,7 @@ class Pipx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "336cdb8afe16eed64fbdcab33fe1d3adf6ea683ccd214154570ac6a03c3cec3f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20ff1598043d947aa679b8a87bc0125ac04d8599e4e6e389c9f0f436f6fbd0fe"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a4f9211b8b3de7400bb86828fb9be542ddaef75666e346f2f46cc16b58416013"
     sha256 cellar: :any_skip_relocation, monterey:       "414563e8da0d2aa2084683eb7f303cacee4b3b1f43f72ef3992995cf4ee96a4a"
