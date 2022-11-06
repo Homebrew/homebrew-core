@@ -40,7 +40,6 @@ class DockerMachine < Formula
     end
   end
 
-  plist_options manual: "docker-machine start"
   service do
     run [opt_bin/"docker-machine", "start", "default"]
     environment_variables PATH: std_service_path_env
