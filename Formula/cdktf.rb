@@ -9,6 +9,7 @@ class Cdktf < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b6cd35e08b5a54eb703d83885851dbb4251cbe1c9699858da0a3992e56ba15f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b6cd35e08b5a54eb703d83885851dbb4251cbe1c9699858da0a3992e56ba15f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7b6cd35e08b5a54eb703d83885851dbb4251cbe1c9699858da0a3992e56ba15f"
     sha256 cellar: :any_skip_relocation, monterey:       "d1c2c0e89a1dd036df84827c9a8171a1f9ab1e3ff168a9e7436f5afe98ff8652"
