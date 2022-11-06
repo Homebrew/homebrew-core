@@ -122,10 +122,10 @@ class Nagios < Formula
     EOS
   end
 
-  plist_options startup: true
   service do
     run [opt_bin/"nagios", etc/"nagios/nagios.cfg"]
     keep_alive true
+    require_root true
     log_path "/dev/null"
     error_log_path "/dev/null"
   end
