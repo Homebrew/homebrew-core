@@ -11,7 +11,7 @@ class Woof < Formula
     sha256 cellar: :any_skip_relocation, all: "0b65de07c5c918fb82b3c7a047c4c22c2771ef3897cd2f3c1abb64a76a7a867d"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     rewrite_shebang detected_python_shebang, "woof"
