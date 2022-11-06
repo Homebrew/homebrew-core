@@ -13,6 +13,7 @@ class Gabedit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3253d22cef1f9bffab225ca1d371437b83f7c1175d688e1688c527219fc2d822"
     sha256 cellar: :any,                 arm64_monterey: "c2f02dce516ef80da80875e3e1326a9e9c989e8c1f029317e8d0c9375cbd548b"
     sha256 cellar: :any,                 arm64_big_sur:  "5185932b990ba144b26dcae3696d27f8d2b4ecf240c9cac54e53aff6dfe4b127"
     sha256 cellar: :any,                 monterey:       "b89b7e33d371e36ed8ec359a56c5fdb86613f2b5239b3c08d3e098bea38f8de2"
