@@ -7,6 +7,7 @@ class Loc < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3828b3b1e1eb3ab549832c099ca589f3d8cc7f766ca04fba1778ce8747b5411"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dacc9fbfd5e9775dddeb1c0a29227f3e657375bf8d0c73f9bf7007aed2e9ff7d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "39a68ff6b68af077cf2c2c3c7fedcb534dcc1220bd4cc3e64e7443efdf599bd9"
     sha256 cellar: :any_skip_relocation, monterey:       "0da57b75ab0b25d0d78e0f88a48c30d884c91303c1353972468a8042867da39c"
