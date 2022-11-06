@@ -7,6 +7,7 @@ class Kubespy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c4db20d09bcef468465226823d2b14af1e4a55206b16140248dfb306a69321f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "faff7e7c8eb84998d059df5dcc5e22d3da3be8cc5e524871c77f3acda36b7be6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04129547313f403451674f831e6212aebeeae70479c5fe21cef03f06f4119c6c"
     sha256 cellar: :any_skip_relocation, monterey:       "d8da458edd137ab26cfb3bc36d6c3ab7cf0404a11ca9a1b2c77f99fe08eb48d1"
