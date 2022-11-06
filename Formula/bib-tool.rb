@@ -6,6 +6,7 @@ class BibTool < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256                               arm64_ventura:  "7cb1325a01c1b3516c543d5911f0b10eeb6e68df2abe4b3541ff68242ffc356e"
     sha256                               arm64_monterey: "d9e9e76159ba4398731428fd7ab2523d9066c325b28efc7b6012b5e9784bfd95"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56f39057fc8ab04a9f3e2a05ba7ad58a01bd73b66dcd50715ea8c492afaffc7e"
     sha256                               monterey:       "552d9e005a5e6362efac8d592fd26bfa2669651776a2ec95ee0a9dd32c6854d3"
