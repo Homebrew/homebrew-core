@@ -15,6 +15,7 @@ class Mutt < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "1c30b4ebe19e84537883e792ad817893987ec7e8ebf953d41e36460b21169dfe"
     sha256 arm64_monterey: "8f53cf6551dfa7de353334e82871eb8f1a7b30e7afb1405b805325d82aea9426"
     sha256 arm64_big_sur:  "5e1bf64d66ef9710bd8035559185a8d6796a4f42f1675997449ca0d39dc909bc"
     sha256 monterey:       "85fa27398f94598b07b40ce123fb494578bebdd9671f435d6822034651857e07"
