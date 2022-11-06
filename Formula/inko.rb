@@ -7,6 +7,7 @@ class Inko < Formula
   head "https://gitlab.com/inko-lang/inko.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "07d8357f8d0d21e359588df7b846f5959c08aa193121bfc7b5f8b905c60acf73"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b4d8f51a76b0c7260dfcf311141cb52921f6b899ec962b521fb75a5b56b94b00"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4a2a7c699d3ebffe9f92dc7dff1f839e369028404ce0997f945622a0603115e"
     sha256 cellar: :any_skip_relocation, monterey:       "aa1567b9a80ecf61d33dcc09637b76ea2c32be5a1558bbaf5259d0cd085a8f1d"
