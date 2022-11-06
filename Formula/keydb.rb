@@ -6,6 +6,7 @@ class Keydb < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "781e4bea2100465253106711d402b8062cad9b8969782f8f2861098d20905be0"
     sha256 cellar: :any,                 arm64_monterey: "db45b745f6bd2ec985ac208baf993e0eaf63213b04524729fd88a989b10f9450"
     sha256 cellar: :any,                 arm64_big_sur:  "186e3c93ffd0f867dfcabe61ef11573f886f3589429d6720cb541d0b40951dca"
     sha256 cellar: :any,                 monterey:       "42d02ad9f16092ad46f1897bd56f2002caf28466cb129ce0479acf0ab2ba5cbd"
