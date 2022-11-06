@@ -6,13 +6,12 @@ class Tass64 < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "LGPL-2.1-only", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a728bdf4efe32d5cfd7a15d502cd13d65e1ddec15998dd569d6fa94a7f4fd2f7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7468a371a0c4627bf592d4e6fe36b9c854def7caa2b7270faa20ff97ca2cc7df"
-    sha256 cellar: :any_skip_relocation, monterey:       "878ae43e115b1248160fbc7652f8024705162aa3263660a7e62382e14806b4e3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "70f966e5974c671aac1c1209c2273325be29b5d56de851416344d0559c8b8c34"
-    sha256 cellar: :any_skip_relocation, catalina:       "e59c0c91030879fbc49cd205a1e5e0e5c0026434d1bff86a9742b4d00139824c"
-    sha256 cellar: :any_skip_relocation, mojave:         "a5be46e97063271c7bc9ddadc88e4b318193ee0f0556489593c3db9aed5ef03b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5d380c36fde7617c613b0da5854de0f8b73150a3370f0f8b4d281191a67ed60"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "81dffbc4d2dea6237c3392b97a6834bbd584827bf6fc16066a8cee8ab15862ac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01af2b2679d30efd3a934617ed618432fba9d307386b38fc3c299233132f03c1"
+    sha256 cellar: :any_skip_relocation, monterey:       "804fe305806f3d3db3db8bacbe64482c98c99696b91bdd80eb4b476ade9ffb68"
+    sha256 cellar: :any_skip_relocation, big_sur:        "39cf8c55e040f0d21534f08db3107e61ca519006c7ddbfe2137655e113998afe"
+    sha256 cellar: :any_skip_relocation, catalina:       "65e1411ca3dbecc6885d71edf2c68c49b0180bc1b39a7373539150bf0469db22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30ff210040282ac6888c25cf193e72f399fb32e514cca8d1701a269c386a2270"
   end
 
   def install
