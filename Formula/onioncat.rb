@@ -1,13 +1,13 @@
 class Onioncat < Formula
   desc "VPN-adapter that provides location privacy using Tor or I2P"
   homepage "https://www.onioncat.org"
-  url "https://www.cypherpunk.at/ocat/download/Source/0.3/onioncat-0.3.9.tar.gz"
-  sha256 "c9f2f62fe835f9055c4b409a93f514f9dffdd1fcaeb9d461854731303b528e90"
+  url "https://github.com/rahra/onioncat/archive/refs/tags/v0.4.7.tar.gz"
+  sha256 "cb830cf92e6dfefe593c941d203ee8478a9687a2708d153b0c585ad0c90ce199"
   license "GPL-3.0"
 
   livecheck do
-    url "https://www.cypherpunk.at/ocat/download/Source/current/"
-    regex(/href=.*?onioncat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
