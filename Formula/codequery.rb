@@ -7,6 +7,7 @@ class Codequery < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "b9c8ec8d80cf9212ffcf7baa2d1cbe299e17ccafe08567d5fb020d37d76f40e8"
     sha256 cellar: :any,                 arm64_monterey: "e81a2e4210a2ce35fc870bab1c41342735f0c6e9317d56ee9eab7a17ea32f7f5"
     sha256 cellar: :any,                 arm64_big_sur:  "618adda8c69f88e2fb9cce010dd9c9e862eeae9a1117f9492f9ae6043e12086f"
     sha256 cellar: :any,                 monterey:       "61459d0b4467e459b04450e207fb7a969fe9fb0005e56f669815573c6c892f61"
