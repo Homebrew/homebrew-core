@@ -25,10 +25,10 @@ class Twoping < Formula
     bash_completion.install "2ping.bash_completion" => "2ping"
   end
 
-  plist_options startup: true
   service do
     run [opt_bin/"2ping", "--listen", "--quiet"]
     keep_alive true
+    require_root true
     log_path "/dev/null"
     error_log_path "/dev/null"
   end
