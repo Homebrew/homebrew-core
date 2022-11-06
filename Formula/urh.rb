@@ -10,6 +10,7 @@ class Urh < Formula
   head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1a1a18b761728de48522a37ac221229717158c84e62b8208caa82270b5159a99"
     sha256 cellar: :any,                 arm64_monterey: "7d862994902ccc7634d09ebd4a6194f5e893fbaa00ad843b13dfe49626a8ee09"
     sha256 cellar: :any,                 arm64_big_sur:  "fe3a55526c47c81f8ddf1b2f97ef9e904c55b4925e28e1584fe91afb6f57c370"
     sha256 cellar: :any,                 monterey:       "48efdeda0d8a26c00167a373ce77ab7453c29b5c0c084a89274904bff4d29208"
