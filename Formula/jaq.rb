@@ -7,6 +7,7 @@ class Jaq < Formula
   head "https://github.com/01mf02/jaq.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1ceb53c8e4a5e997547f26783cb981c99e6ac61f02087eb09e4b638949250ed"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b463401496186b08b3f8125a679b4f432a5e040e0fc67a6bd9dcf0e00f732168"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cac7264e2f8d58924649092b078c6c43aaba936f468af96c0ebeee07400ab9f"
     sha256 cellar: :any_skip_relocation, monterey:       "1345964158b91507735f9dccdf1ac6420da2991613654b0f4ef84d0129848096"
