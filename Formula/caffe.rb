@@ -12,6 +12,7 @@ class Caffe < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6c1ec8636767f4ffc987a93905ba78f66ed830f2c15f1704f89952e966bb1eaa"
     sha256 cellar: :any,                 arm64_monterey: "51f87ecef8a5e4ec2709a35a446c637cad13a265f486bf2ee6e401fd117e5308"
     sha256 cellar: :any,                 arm64_big_sur:  "8293f75f81d7a30159edd0cf1f36c009e13b6ab5b381965fc009694746285a91"
     sha256 cellar: :any,                 monterey:       "f7624395484ebdb8b1c2313bb28c0914dd2cf3bafed69958b868e2dab356adac"
