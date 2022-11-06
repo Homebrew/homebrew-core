@@ -13,6 +13,7 @@ class Djview4 < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "02249e97f7ed0e00cde146b75f4ba346c853cdc16974127b28f7f20ad03b7e21"
     sha256 cellar: :any,                 arm64_monterey: "2495aff481ce3d1dc1fd6df41669068388956fe89ecd6302a7ed75f4feccc8e8"
     sha256 cellar: :any,                 arm64_big_sur:  "d732c90fdab920090c28baf8951d50da4523fc619ce22643819afbf1037e21fb"
     sha256 cellar: :any,                 monterey:       "7a692725678245bacf5a728ffb9acdfd87f2e362e3853b2952fc27ca6fe1fc59"
