@@ -9,6 +9,7 @@ class Lexicon < Formula
   head "https://github.com/AnalogJ/lexicon.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f23153eda21d0f26054c3e73b44d8276670fe7480887a3289a643eca580a65e4"
     sha256 cellar: :any,                 arm64_monterey: "d5bc0f52683907ac0251db39b76e63ecb99ef5521d8a16e2b692f4d1f355afac"
     sha256 cellar: :any,                 arm64_big_sur:  "d7b51e1c9fa519c31015cae3c5ca9664a74ba998f99a693eed723cb299c7e673"
     sha256 cellar: :any,                 monterey:       "f7e20d4b1759da5353cdfa63b6aea07adb727d6c1169d4a0a0e5da5f7c0d9678"
