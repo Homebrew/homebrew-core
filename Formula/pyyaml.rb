@@ -7,13 +7,12 @@ class Pyyaml < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bd9d1f9a1987f96ed83b5d66bc8aeb6989807dcfcaa7f9f720ddfa29ddff5b5a"
-    sha256 cellar: :any,                 arm64_monterey: "dcb5f25585264c27766cb706e535877243d7d6fd694daa297b854833907cf9a3"
-    sha256 cellar: :any,                 arm64_big_sur:  "d825c57bca790ad92f58e03627e06371cd4f480071a0a5ca58141aca39d12d5a"
-    sha256 cellar: :any,                 monterey:       "13436e5862d0648d93dcc9798775fbfcacf02b716dc92387f32ebfa837df5e2b"
-    sha256 cellar: :any,                 big_sur:        "c9e711fc1796c9c7051935843f88ef57bf00accc628322238edb5fce923fa992"
-    sha256 cellar: :any,                 catalina:       "7704923763aa0934d2e0e1c24fea1ed17fe11d3408babbb46bcec06c4799a7d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74ab35c0d3e1d77c1a6e7b9f5fa1810372b022a387760e06da0c018a8047a519"
+    sha256 cellar: :any,                 arm64_monterey: "736cb99df3ba9c591dcc0087a6d1a2f1ade2f95a74366856098650212dfd5bb2"
+    sha256 cellar: :any,                 arm64_big_sur:  "32d5689f7f30157f3b02369286001e1ad5b13a8b201981da4fd25cc8d15c16a3"
+    sha256 cellar: :any,                 monterey:       "d71dd3186399ebca596677c148b23a0c90fdc09baeba4d617612b7dcf1788224"
+    sha256 cellar: :any,                 big_sur:        "6002306dfd47f87b6fa817abb9b04bed296ce262cc0fe3ec516344c375ce7172"
+    sha256 cellar: :any,                 catalina:       "41de8095ac8fe4230f3e3ad622b63d88def72ae332f52e823803c76de6541d5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f133abf84efeac83882a530cbedfd20181c1e6d0fbfe5a1ba380fd59211e72cd"
   end
 
   depends_on "cython" => :build
