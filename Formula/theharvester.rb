@@ -11,6 +11,7 @@ class Theharvester < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc2f580aadda06fe21bbff1e4d6bdadb3a3e2ce387e3a5d0734d7dcfad7caa9b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5aeb6ebc484b8ec6f6cd8d25b345b7dd61979a3d395ae60ef627a00c65384431"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b3d55094a7c3c2e0423ac03a8588cb85b04cacfd3edd8364c457abfc0211219"
     sha256 cellar: :any_skip_relocation, monterey:       "16a38f063f78745f63521e10daf3f2a24d7c99ba18f641f999359f5c95823d54"
