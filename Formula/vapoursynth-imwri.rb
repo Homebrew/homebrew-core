@@ -9,6 +9,7 @@ class VapoursynthImwri < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "5f9055a5a4e55cdbf1f103b09f6c4b77a7544fe15e27fdf64af23ac7e74cc60d"
     sha256 cellar: :any, arm64_monterey: "7ac213c90b5bdddce15d0e72b3f790560c9dcc3cd411874daa81bfe5164ddf67"
     sha256 cellar: :any, arm64_big_sur:  "a3bf24671c674731b767334263fc0a8ae86d8aca14d3c9e0f3e0425bed7e5e3a"
     sha256 cellar: :any, monterey:       "9f7a746dc9d06d744b246ab6486cb01dfc0862a239945c9da43f3fc2fd35a281"
