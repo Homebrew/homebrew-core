@@ -9,6 +9,7 @@ class Diffoscope < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4b96fbf24d66e262e97e29d9837c333ded1a91d0dfe152ce521d60c5077a52f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf65a08ca0fc72094bb914717eb8fac84cbf4602c2bc4c10f3e9e5995efbe797"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "caca7515735196cb2656d52f80ee98b23c8dcd05d2d0d1939704e850c8c00fb3"
     sha256 cellar: :any_skip_relocation, monterey:       "7f0d1e61aeccd3eab6a602cf7016400da888304668aa2417d6bbd517bc22bb9e"
