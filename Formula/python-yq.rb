@@ -19,7 +19,7 @@ class PythonYq < Formula
   end
 
   depends_on "jq"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   conflicts_with "yq", because: "both install `yq` executables"
