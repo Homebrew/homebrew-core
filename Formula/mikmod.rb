@@ -11,6 +11,7 @@ class Mikmod < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "158ed43b20cb69fe213ad8635f53437e164dde2148cf67f39ec37f209d1bc631"
     sha256 arm64_monterey: "bb54632a522875765adad5cab06af5329387f9ae1c5c7e96097ad7bc01e10526"
     sha256 arm64_big_sur:  "db291715ff28e243fcd0c1a5933bb5dc3c4bdf93368df9f66654d45e0003ea8c"
     sha256 monterey:       "e6722e94ac1051373437dd424178a21f821f1275c5fcc41547959549383364fc"
