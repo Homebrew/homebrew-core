@@ -9,6 +9,7 @@ class GitCola < Formula
   head "https://github.com/git-cola/git-cola.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9aa0df99b00134a45f7725732935b1d8f1c4293bbcf6693c70e71361008edb7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "96aff59a2be5b2410c74070480aff491b426394fd6c9824d9a9a4ce82a5e1dc1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a2c5f7de6cb2fdc2a5ae475a11be5ec3c7346dcbf81728f6f65af06585374e3"
     sha256 cellar: :any_skip_relocation, monterey:       "cdf0d4a0d3d9574c01f6122be62fd4445986ea54b56b9e81840e18ce24ded080"
