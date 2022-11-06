@@ -7,6 +7,7 @@ class Envconsul < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4da4f61b039ec8ff4cd8eb37166a9b337b4bb68d194da5897257a005f2a1dcd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c4c1b48f0ee4bf5ae510177ce3a9e5c785b7c515a21efc1383d93b03525634ac"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f75ee73c50f5050be219e82e9b00e7db5021e0a842cdaf3fbb97f558b9cbb6bc"
     sha256 cellar: :any_skip_relocation, monterey:       "bab521f33f53f6e438ffb6ec0242b000cb77afdc6f2aa169db4f96522b6b84ad"
