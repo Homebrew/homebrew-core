@@ -5,6 +5,7 @@ class Clean < Formula
   sha256 "761f3a9e1ed50747b6a62a8113fa362a7cc74d359ac6e8e30ba6b30d59115320"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8475c766c7581cc3723005a48d44c53f439740ebb004a213e813fe7fc9b110b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9b2545a16176fab56b543171ae6b9bb8bcc322b5db0098f5a080effc88835207"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b10d60c05907f49e588abdd62e34d1f3ab34be1abb2dca155a82172ea366aa7"
     sha256 cellar: :any_skip_relocation, monterey:       "50f24835f266da1bb10c707e7f1561a3f9366b11bc6e61ac4919f806ddf7e182"
