@@ -12,6 +12,7 @@ class Qca < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "67d5097b20c620a623943308de5f36121a03b5a1c8c337a0f13d845d5a97f4a4"
     sha256 cellar: :any,                 arm64_monterey: "72c68247c8a7073dd64124a693f5ed7322ad2814864d400318538032b9914a77"
     sha256 cellar: :any,                 arm64_big_sur:  "3f5be21bda3c7d6c83de3a970d8973fa72de6e9e59a8a4147f943dced7205784"
     sha256 cellar: :any,                 monterey:       "daf1cd48fba9f474cd6ff76965d3b7fc7147a2ea070a07a116f698dbc9add316"
