@@ -6,6 +6,7 @@ class Cdpr < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f35e7e9e3c93e119f7357b74debf967a8703ec468e1f73f7dd7ebb79220ba631"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09f09ac98ad3c7e738e0d31bc9d37bdec2cd3745aa5d8d28db3953ef27541561"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2818981f1d2a090f072741028fc22ca8b420f6956661678b2768311f11f7064"
     sha256 cellar: :any_skip_relocation, monterey:       "6dd8c4aa87c35167d8fb95ed0e450da18e3697a3dd6cf28e50b443e872b4a104"
