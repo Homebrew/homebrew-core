@@ -7,6 +7,7 @@ class Fourstore < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "5909b28a48725eacea49092ef49e8865ab7c66c7e5c9b6ba5679f02388d99434"
     sha256 arm64_monterey: "7aed20fb578c260f7d1764679d6ecaad032d68dd6bdacca012002ea815509a4a"
     sha256 arm64_big_sur:  "ad26cc8bd35c75d1988f97de3fbf3281061afc8002a082d61e99800168c5f4c3"
     sha256 monterey:       "6323983ec1a097a3a6a0473232531037223957d4c41ff2a5514315a7a21fb1af"
