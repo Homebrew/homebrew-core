@@ -7,6 +7,7 @@ class Pulledpork < Formula
   head "https://github.com/shirkdog/pulledpork.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9cc01f28715be2f2193bcf8d36fd7f20e22171e0a3e3c371df8552a2a0493856"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9cc01f28715be2f2193bcf8d36fd7f20e22171e0a3e3c371df8552a2a0493856"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "035ca3f72d7950b0446825984e779be22a25b2b8b180f226eb7589120092673e"
     sha256 cellar: :any_skip_relocation, monterey:       "2e99fc025321219153d576da6f41d7342e7566d1749e174ee375cfb579f19a63"
