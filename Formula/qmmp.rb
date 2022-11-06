@@ -11,6 +11,7 @@ class Qmmp < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "b3481723b568f28338bab140ea7a0d90a25d8a4bc2ad057145459a6b960af48f"
     sha256 arm64_monterey: "6372738827571b4b74600eb297afba37ba8fe85e8e3f461b3daa4dba499bbdba"
     sha256 arm64_big_sur:  "51baec5b0e6266fdb000624a163adadb85ab2de2c38de157b251e30c80b94cec"
     sha256 monterey:       "f8efdbaafb771e7ef17c430e80f56baf161439842ded2212e5c691049c649d86"
