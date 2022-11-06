@@ -13,8 +13,6 @@ class Tor < Formula
     "NCSA",
   ]
 
-  # Remove in 0.4.7.11
-  # https://gitlab.torproject.org/tpo/core/tor/-/issues/40683
   livecheck do
     url "https://dist.torproject.org/"
     regex(/href=.*?tor[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -36,6 +34,8 @@ class Tor < Formula
 
   uses_from_macos "zlib"
 
+  # Remove in 0.4.7.11
+  # https://gitlab.torproject.org/tpo/core/tor/-/issues/40683
   patch do
     url "https://gitweb.torproject.org/tor.git/patch/?id=256339712de21d7002129aed102b637cda634ab5"
     sha256 "fcb4b5fd0114efdc750000e95c92d11f12346cf9fae6b85ab2bb829b343ba33f"
