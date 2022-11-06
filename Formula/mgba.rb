@@ -12,6 +12,7 @@ class Mgba < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "9456f4984fe046c3ff9be56a644f4d3b6b9e22ba59321ef6bb9f39986fe99ea5"
     sha256 arm64_monterey: "fda5f57d8ace572ad6ff1b3457a47077882140d707a1076a8c1a32938ca43ee8"
     sha256 arm64_big_sur:  "23038b35ba70a5a7a23847607ad84706d14bc507854cdb946a9e47cf3dab6fbe"
     sha256 monterey:       "7c3646e7cbd567454301e2917e3e9286624d565d2ba200396f6d376374ff881c"
