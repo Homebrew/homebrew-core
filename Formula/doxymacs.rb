@@ -6,6 +6,7 @@ class Doxymacs < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "699c57cf8869c5eda84db1f8d58a160c6c821015c1c7bc4892d5ad2f1447c73e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "32c79209e9d8c2f8e47a4e6e28993954250060f74717a749e48ea04b381b63a8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ffe57742c559c3ef80b3bf338d2903c7fc0137d4d9cc96f2b23bea2e0cab832"
     sha256 cellar: :any_skip_relocation, monterey:       "dba8d6a64b38ed2b2912d6ecc9fa0e895bfbeffb06255a183676f6be56c55c63"
