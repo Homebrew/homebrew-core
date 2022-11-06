@@ -10,6 +10,7 @@ class Mmix < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf7b89901297da556ae769c209fae21d23057d4e0277197b3e317efbcef427a7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb698eeaba81433e47c44d2eab8858b272c3c711d6b6a745e9a43d7d0c3908c7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "03a6468d729fc0ccddb6187c50b8f0318dedbe2bf613ef2e86e95aada83daeac"
     sha256 cellar: :any_skip_relocation, monterey:       "69c25099d92634bba78ac9ad1565f5af979bd473b14414cf4dd35dc9349c4a76"
