@@ -10,6 +10,7 @@ class Grip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c662f006a2f98c50195175b66ebfe851de4cc5c249d68d905d658d9661a0ae6a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e696587e56780710ed91782750dd798a5b7b8ecd89d975bce8ae75fd37a10d90"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "901171fe5d94b56b2b536ea106f97402ab34faa27a7c2b186698b384d0967ccd"
     sha256 cellar: :any_skip_relocation, monterey:       "4a5f0e9859cc0082b3ed291467ac5af3bb9a3772a24cbb4d042da14d9720572e"
