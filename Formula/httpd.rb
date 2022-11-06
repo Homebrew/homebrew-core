@@ -14,6 +14,7 @@ class Httpd < Formula
     sha256 arm64_big_sur:  "c63d874e61e0bb223aa6b6ac858d64be4b07477f55fd9901f25cd879dd4b2e71"
     sha256 monterey:       "6c02a8f4cdb49d7533b2c30e6b7929464869c143fc38fb8adec954897341c22e"
     sha256 big_sur:        "4c35b11646b61c4a0d840af5dad931a7fce9cd96f1ccb64a2310f8b49ada7570"
+    sha256 catalina:       "75a45c116889fed37f2c7e5e840e766353dcc26b8da4f5c5b887d869123da33d"
     sha256 x86_64_linux:   "99f72a4f2bb270bf86752715c6232f4b921b8d68331075d5fb264ed9c2e263a1"
   end
 
