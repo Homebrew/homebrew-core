@@ -15,6 +15,7 @@ class Gnuradio < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "ec5d90883dee4f1d31063b90fc7769ff65a94c3c5304ec5d2f56029c0ddf71f6"
     sha256 cellar: :any,                 arm64_monterey: "0bc9350ab51e22ad0c5f30d413096f7117173c6e5a22a994d9bf808cb92531d5"
     sha256 cellar: :any,                 arm64_big_sur:  "ccecb331580d979ae8024ebbf21c7643ee54360097bbd8bda582c602443194c7"
     sha256 cellar: :any,                 monterey:       "4f55b26953a6ea857807ac9962ed7b489c101f79515b31c90d75908ce6278982"
