@@ -53,10 +53,10 @@ class Vnstat < Formula
     EOS
   end
 
-  plist_options startup: true
   service do
     run [opt_bin/"vnstatd", "--nodaemon", "--config", etc/"vnstat.conf"]
     keep_alive true
+    require_root true
     working_dir var
     process_type :background
   end
