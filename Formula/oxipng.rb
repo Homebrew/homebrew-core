@@ -6,6 +6,7 @@ class Oxipng < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e702f5984b6566931566d4ed72319ad587240a548e55b94f5f60f1042d778f1a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "64c7d8e83ac7657429b5cbb75325c415c4bedc0c334462504e478ce703a6d746"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59ae76e9603847923229e462c114cd37b8547cfbc53e889c67dced66b90c9fa7"
     sha256 cellar: :any_skip_relocation, monterey:       "daf313743fd6775f02d088ae9984898ab3e6f9b7c597cedec86ebcf5d4d55b1e"
