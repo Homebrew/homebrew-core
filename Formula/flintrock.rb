@@ -9,6 +9,7 @@ class Flintrock < Formula
   revision 5
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "320d275377d7570845a95a05e7b1281f0e9931e5e2efb853cd97f9badab52da2"
     sha256 cellar: :any,                 arm64_monterey: "97474adf966430d69e41aac39085d9ecb297eff62166bb68d116b2a2e5aa05be"
     sha256 cellar: :any,                 arm64_big_sur:  "c93826add42fdde156e464f3ef6c140822652ff9232f8a4b772b19207017d4bd"
     sha256 cellar: :any,                 monterey:       "9e0c68b26fbd4834d48128a22e9c824060bf21148bd054b537d0fb0f14413e3e"
