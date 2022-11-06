@@ -6,6 +6,7 @@ class Kubesess < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "102b3783dffc32f1ae32ff296fa747a9a3791ffa68da015bc97f6ed06fe70117"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cfe54d6c5a403ded88ec74fce5435a563718a4a9efe2e9b6be0ab9f03f9976ab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cdc0d53125d359f25ff2abcbddc9b2dadfd5b0e3cac5d04ddf5659287308d740"
     sha256 cellar: :any_skip_relocation, monterey:       "a9c686e355b4424d3a2805b271e07058bbe4df56f1a71917fbed29df938fe9bc"
