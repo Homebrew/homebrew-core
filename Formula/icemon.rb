@@ -8,6 +8,7 @@ class Icemon < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "93377ed3f7d1b598aa9b2c4f0dd5df364e5612fa91d1501282a35ce598e946fe"
     sha256 cellar: :any,                 arm64_monterey: "ddd8e4ef2a9f056c9b1ea46968ce4e69b281816ef9c405514164d2ca65e4e61c"
     sha256 cellar: :any,                 arm64_big_sur:  "f6c322e1fbdd9f73d1a91dfd1e546f55b617cf9dbde7e22283a288a0b5013ec9"
     sha256 cellar: :any,                 monterey:       "a1f66afcc9a18f14e87f6f3e631f1372f7b7d244b642d5f7f05da155d8710b06"
