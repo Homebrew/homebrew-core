@@ -7,6 +7,7 @@ class Sfcgal < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2fe4702eb22021be4e88cdf4a2b0de7ef63354838d3efbbf932d2421fe574462"
     sha256 cellar: :any,                 arm64_monterey: "ce56024a7fe7128cc0c46d38c9d0ebc7b884ca45b515e53c855e50082c8bf78c"
     sha256 cellar: :any,                 arm64_big_sur:  "a277214793c453cfe4238c0c764f64e1cec3a3ebd9b67185a452289717ea5f7a"
     sha256 cellar: :any,                 monterey:       "2b3e3d6bc3c0b3f0a1e4d60c006150ffaabb8ce94320334c2c098de90e838a9e"
