@@ -38,11 +38,11 @@ class Znapzend < Formula
     (var/"run/znapzend").mkpath
   end
 
-  plist_options startup: true
   service do
     run [opt_bin/"znapzend", "--connectTimeout=120", "--logto=#{var}/log/znapzend/znapzend.log"]
     environment_variables PATH: std_service_path_env
     keep_alive true
+    require_root true
     error_log_path var/"log/znapzend.err.log"
     log_path var/"log/znapzend.out.log"
     working_dir var/"run/znapzend"
