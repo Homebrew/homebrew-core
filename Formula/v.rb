@@ -7,6 +7,7 @@ class V < Formula
   head "https://github.com/rupa/v.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f49df5380a45622ece889c919db67c7255d32e762452f0fa9788cd31c1748f68"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f49df5380a45622ece889c919db67c7255d32e762452f0fa9788cd31c1748f68"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f49df5380a45622ece889c919db67c7255d32e762452f0fa9788cd31c1748f68"
     sha256 cellar: :any_skip_relocation, monterey:       "18192fa0168a1a7750f041306e4b308bd0dc36373c8dc8faac7e54e94cfbdd81"
