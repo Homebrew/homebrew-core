@@ -4,7 +4,7 @@ class Pygobject3 < Formula
   url "https://download.gnome.org/sources/pygobject/3.42/pygobject-3.42.2.tar.xz"
   sha256 "ade8695e2a7073849dd0316d31d8728e15e1e0bc71d9ff6d1c09e86be52bc957"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_ventura:  "d7b7d9279a14042c0c478f949cbeb91d1094915b9b1e9727c7ed614cc7f26841"
@@ -20,6 +20,7 @@ class Pygobject3 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
   depends_on "gobject-introspection"
   depends_on "py3cairo"
