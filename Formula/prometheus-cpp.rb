@@ -8,6 +8,7 @@ class PrometheusCpp < Formula
   head "https://github.com/jupp0r/prometheus-cpp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "85b19d9cb1fc67fb238f6115b23682fc8df58219f73266dab73f3625973f928c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f5fdbc2b2fc3da800ca8f6cac7c18a1e7d4b7b55318ccecabe68ea5f314a8c0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6404e93032552350fb129ad38dbffa03706f78e0bda04402a84449ec5a1439b6"
     sha256 cellar: :any_skip_relocation, monterey:       "d0933848b3a9a8504052b444a83fd1f1a20e0e520d2643584097d1a27377c6d3"
