@@ -10,12 +10,13 @@ class Legit < Formula
   head "https://github.com/frostming/legit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "847baf64af8d13e960572ecfe5e4aac56e011f4d8311a49b78ac8d1f83db34e3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45fe51b376a34449cd93199646182637bd355132b276150a0ff0dab5cb305ed3"
-    sha256 cellar: :any_skip_relocation, monterey:       "138610115001e54555a0ca056678dea41bb0f748b69196e4e5b0f90c73d79dbb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1680d88e27172e7952ee5c3cc0636c69ecc4bd93bbf1b1d3dc2f7d9de034009"
-    sha256 cellar: :any_skip_relocation, catalina:       "15f21ba855fb569cd3d71a6afd8eb251c9ff9543a7259b064095a5a81d911da9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "365418618f6dd01471cd8f7e96666f30df2245056313fb0b406b462cd73f78d1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "61bdf4d2367da08fe2f4fe316f03242725de6ac46e4d0e9b69572d9e12affe67"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e11124b41954a35784ba268114952d30738b5db6fef6beef8ba7dc5ef4523b26"
+    sha256 cellar: :any_skip_relocation, monterey:       "9e09bba4b62da8a3c7db65b3b975d3ffec2957dbab000e3d5cd8eac441c20390"
+    sha256 cellar: :any_skip_relocation, big_sur:        "301fca4bdf92f6b9f72e115158ed9db588319e3eeb0965a911552e143bbb18cc"
+    sha256 cellar: :any_skip_relocation, catalina:       "2b902ec1395bf89ebdf0e65d46fb5d8b337043a019aa4abc1e898c245cc9f44f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df1cc671bd12cf8063ca5d924661b706fb9a71e249e6f3cc271fc81b73297cc8"
   end
 
   depends_on "python@3.11"
