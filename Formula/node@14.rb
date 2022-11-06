@@ -11,6 +11,7 @@ class NodeAT14 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "cbe86d5c0f1c021ce41529f8e335c3832b711b8687759d7f5527afb0da6fe260"
     sha256 cellar: :any,                 arm64_monterey: "5c6e81a3969c6e95c3a273697a5acf8d744f9e76d6d408e01e1a4ad1cda908c3"
     sha256 cellar: :any,                 arm64_big_sur:  "868acabcda32d060dca96f1b3299f3c35fde3e37ab68c0f516636dca0d9027fa"
     sha256 cellar: :any,                 monterey:       "073257f3276e543a37117aa9d5553b9383607c1168c82f9b330f3d50ff86b4a3"
