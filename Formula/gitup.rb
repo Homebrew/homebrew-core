@@ -11,6 +11,7 @@ class Gitup < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1bea89a62730bf3c03d67653699ee75a4068c4db618b71b5ae971f1be69e7b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "84f6bdcc590d628a69a6df9d73daa7f4b03e727e7018435ae0eb6eeee0a9ecd2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "64b8c89c2f2eb10df5927b164fd3586b7887f9f8d354f179fc42d0f84a06bac9"
     sha256 cellar: :any_skip_relocation, monterey:       "cbfb28018815d98d4d7a526211850b06f0170ca1d010ff1015d1577dc150741d"
