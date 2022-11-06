@@ -13,6 +13,7 @@ class Oakc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a41d724f0880905d50459fb34d4dfeb6e31488a4ff04ec9d44a7b2e6318bd3b0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c3840062a2c8333fd493e289ee82feb0f92b3806ecf39d81f2eb1088e6df2c82"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b58035324817fb113cf2ed484deb7a994e0b1e0bacf8e685220944ed0aa8a35a"
     sha256 cellar: :any_skip_relocation, monterey:       "f782f12b1cc552fff3db6bf157b5f4b02cfab7261254cf8e186f5f2e26adee8f"
