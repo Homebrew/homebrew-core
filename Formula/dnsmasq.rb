@@ -60,11 +60,10 @@ class Dnsmasq < Formula
     touch etc/"dnsmasq.d/dhcpc/.keepme"
   end
 
-  plist_options startup: true
-
   service do
     run [opt_sbin/"dnsmasq", "--keep-in-foreground", "-C", etc/"dnsmasq.conf", "-7", etc/"dnsmasq.d,*.conf"]
     keep_alive true
+    require_root true
   end
 
   test do
