@@ -6,6 +6,7 @@ class Devdash < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "521857b00245b916fc5e06de4232c73005a680e223d2474e75f3ce764ae39497"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4e13f2e58d6e125a578aca41e192b4e655d8daf706e8c1fc154b77c4d884984"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "688199921a304a5ba1c0ac78096d29c86c63076eafd6288085664a32b7e70056"
     sha256 cellar: :any_skip_relocation, monterey:       "8049a6d438b7a088de9e71cc0356feb1f7576d678b6aa69932b97fdd84c00596"
