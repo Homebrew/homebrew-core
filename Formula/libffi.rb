@@ -6,13 +6,12 @@ class Libffi < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6b17a8e36d00f2b19fda7f875d20adbdd7d36bbf1015a2db36fcbe2bddec4b59"
-    sha256 cellar: :any,                 arm64_monterey: "da9471634d8a66ea91002692497e5db2327ef1c9ca788a8522a0bf8534dccac3"
-    sha256 cellar: :any,                 arm64_big_sur:  "4bb30919db7aeb02703e33ce81a6b04575c9bddd976c4ce1b8166605f318a752"
-    sha256 cellar: :any,                 monterey:       "1d0154601d1960b54e6a95b41e85693fab93989c4dbb8245cd0e92d97d6c0a8f"
-    sha256 cellar: :any,                 big_sur:        "efe89f7d3bd7a216ba7e051e25b89476b63b466ef6322e37a533582623446b31"
-    sha256 cellar: :any,                 catalina:       "4de78fb4c0ce27fa67c7c576a4b337333eb0def882fca332618cde7fa2d92765"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "453a11abc7235f9c475b4eb9ba9acec4b561ec6970c942ecfb8d25b4c68675f8"
+    sha256 cellar: :any,                 arm64_monterey: "e7ea0921a053dc81e818c3893887e819ed26c0e231fd306e05e905b51b9ea902"
+    sha256 cellar: :any,                 arm64_big_sur:  "8d44b24963c114512934de23cc776a6190f5bcb65db8e6cc65e1b60122571747"
+    sha256 cellar: :any,                 monterey:       "9dd80c4c3d4451cc3216dbf1129a2bddec474aa9266b6bb5c603e0a6cce7605b"
+    sha256 cellar: :any,                 big_sur:        "b5c4e2054802f97a68b8f32d9ff2c6782f9a37223cd0a3b3d2175ecf04740a4f"
+    sha256 cellar: :any,                 catalina:       "1f53646211da139b423eb38f923bc38da1de86b7a68bfc2df5351098fe3c67e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcc9412995b5e319f64796a77b1eb8e684f1d1b6b5d7ac824f434ada692e4ff8"
   end
 
   head do
