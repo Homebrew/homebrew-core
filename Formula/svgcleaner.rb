@@ -8,6 +8,7 @@ class Svgcleaner < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38cce233671a4d996f0c2423e3d0744b0351a18503e2cc86ba010860630245c0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "526c99b79cb8de90e2d43a2723dedc23786f16a1e3992669d071d478cffb7e9d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4e1232a8f5f904166c97f537df03596bf133ea9d68a1ab08df2f4b0dfbbdc1b"
     sha256 cellar: :any_skip_relocation, monterey:       "b0f023be007c4b8a5cb02b91de3369ac0cb49b4bfccc8917ed5ee81ee1f7ea76"
