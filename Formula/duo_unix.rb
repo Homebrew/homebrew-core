@@ -6,6 +6,7 @@ class DuoUnix < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "0794c8306c76cabc0d28c5aa741716ade8b41c8aa57c418a87ad28b220175cf5"
     sha256 arm64_monterey: "503e373bf79ad3480915f286b62c36fd7d36721e8773806db9655bed15c2a5a7"
     sha256 arm64_big_sur:  "505dab77dadca8ac5895dfbd6c09b5c57f798879245a5c8d305d6e54e6407438"
     sha256 monterey:       "55eda86b76dfa6a81d659b0478c551e0f3a4f5fc48eff968b51e1aa796c022dc"
