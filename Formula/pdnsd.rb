@@ -54,7 +54,6 @@ class Pdnsd < Formula
     EOS
   end
 
-  plist_options startup: true
   service do
     run opt_sbin/"pdnsd"
     keep_alive true
