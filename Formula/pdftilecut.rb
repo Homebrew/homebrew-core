@@ -7,6 +7,7 @@ class Pdftilecut < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d96b83fed8d3cacfbf13526f6be72a4b6ac8602dcfe73248b9e60cdfda3f9d45"
     sha256 cellar: :any,                 arm64_monterey: "d8c459893d9b12984b346151d7828373281c6d69d26e4a60408b0b74712b4df9"
     sha256 cellar: :any,                 arm64_big_sur:  "a0d25973d0b0900b2e6eba4e4044d8b737bcf7facb00d948ea6d0bc0b41d0da7"
     sha256 cellar: :any,                 monterey:       "f3c41dc7753dabb9490068cab06ed59371ebf80a191bd6e653226febce0c8630"
