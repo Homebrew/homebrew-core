@@ -7,6 +7,7 @@ class GitHooksGo < Formula
   head "https://github.com/git-hooks/git-hooks.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d0e39f15e97b5304db3ffdc34c9d5425340adbfde20bbf1c7f42a3e9b60b223"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b44ba2ea899d62f65370ebbf36356d2534ccd3af038f72e06774252f8770546"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0162bfccf604080a5c520a02bf84cb006390935f8cc59c0ef4c1f7f08d071cbd"
     sha256 cellar: :any_skip_relocation, monterey:       "cfd0c4ba88b9fa6debe95d147e069636e78093976eafefb0e245185a313a6a8a"
