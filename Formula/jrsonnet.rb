@@ -12,6 +12,7 @@ class Jrsonnet < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1921858d48ad5009c90e01c0d912c4a4b57720e3e4b5da58607339c3df3c4a0e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fcb5b5d99df55c43c70b475ea291ee1d614b76e705be867d688f17bb22ac9842"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "583e666fb6a076a89b1d447ad9220d30409cc62e931c1f4c9dd99cfee9291252"
     sha256 cellar: :any_skip_relocation, monterey:       "3e79d3068b3c2ca7442c13fc57d8ddd85b0cbb8844c78b8a3c971f5873e3a3a6"
