@@ -7,6 +7,7 @@ class EasyTag < Formula
   revision 8
 
   bottle do
+    sha256 arm64_ventura:  "72ce2bc677b377d13e8471b64419c8329325a01824e27a0830ea8c456c23006c"
     sha256 arm64_monterey: "ca7de92bfc1f678e343fa737d0abe7d4cf1a160368be111b660ace255f1361ff"
     sha256 arm64_big_sur:  "fd1e0926e653a9eaa1b63a161dbe7ae0eae3e171e620f950ddcde775ddf5bb3f"
     sha256 monterey:       "e571ff28075c32f8000077ee72c8dc42e3c2f6672c49529f839654d714b1b2c5"
