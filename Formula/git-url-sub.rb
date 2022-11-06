@@ -7,6 +7,7 @@ class GitUrlSub < Formula
   head "https://github.com/gosuri/git-url-sub.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95bb0b9c90b3c5fd928714791ed4dc800a3e25ddd52dd3dbdd295e1eb5fdb6da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "95bb0b9c90b3c5fd928714791ed4dc800a3e25ddd52dd3dbdd295e1eb5fdb6da"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8975feb6b79a015095edec52863982710396e64089ad4f3ff5ad8e0258c5d86b"
     sha256 cellar: :any_skip_relocation, monterey:       "95bb0b9c90b3c5fd928714791ed4dc800a3e25ddd52dd3dbdd295e1eb5fdb6da"
