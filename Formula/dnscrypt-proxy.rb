@@ -57,11 +57,10 @@ class DnscryptProxy < Formula
     EOS
   end
 
-  plist_options startup: true
-
   service do
     run [opt_sbin/"dnscrypt-proxy", "-config", etc/"dnscrypt-proxy.toml"]
     keep_alive true
+    require_root true
   end
 
   test do
