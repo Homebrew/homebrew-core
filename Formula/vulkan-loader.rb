@@ -12,6 +12,7 @@ class VulkanLoader < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "8dc281af080ac0a201e5b27b05b500a526b4f5ad1de964a4b8b33178b1659a7a"
     sha256 arm64_monterey: "1d844518c1136fb19145e57bf49d109c60be66b48d4670f429f819abbf17b4a1"
     sha256 arm64_big_sur:  "148990bfcd8f33c71c9ce4616efe161082f5d8d9530d53a82d15f062115d8f60"
     sha256 monterey:       "1ee0b7a292c1fd9cb4d6c25d1c3a615c1f1d0b97007fbbdb4c386a9899603c0a"
