@@ -19,7 +19,7 @@ class Yamale < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d9122a6c3d55c3db4779f8d71f2de14ffd0df050c78136afd59ef482638078c"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   def install
