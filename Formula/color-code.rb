@@ -13,6 +13,7 @@ class ColorCode < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6edce11909c604ec73a674545bbc5f52aef25a5d8bddf4ef2a1b185482204958"
     sha256 cellar: :any,                 arm64_monterey: "cb5165201a0c376af40363735728829192ceddf00a37a23d9496f9a1079ff4d2"
     sha256 cellar: :any,                 arm64_big_sur:  "230e39299a0ac01dd732121694f21b4810be03d1606395c55117277e94a727e1"
     sha256 cellar: :any,                 monterey:       "6303d0e13b8ca60ba2da4885d755d8e90b0b140add503018f57c549c45079626"
