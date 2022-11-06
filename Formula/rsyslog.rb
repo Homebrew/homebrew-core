@@ -65,8 +65,6 @@ class Rsyslog < Formula
     mkdir_p var/"run"
   end
 
-  plist_options manual: "rsyslogd -f #{HOMEBREW_PREFIX}/etc/rsyslog.conf -i #{HOMEBREW_PREFIX}/var/run/rsyslogd.pid"
-
   service do
     run [opt_sbin/"rsyslogd", "-n", "-f", etc/"rsyslog.conf", "-i", var/"run/rsyslogd.pid"]
     keep_alive true
