@@ -74,10 +74,10 @@ class Bazarr < Formula
     pkgetc.mkpath
   end
 
-  plist_options startup: true
   service do
     run opt_bin/"bazarr"
     keep_alive true
+    require_root true
     log_path var/"log/bazarr.log"
     error_log_path var/"log/bazarr.log"
   end
