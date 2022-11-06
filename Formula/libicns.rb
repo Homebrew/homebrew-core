@@ -4,7 +4,7 @@ class Libicns < Formula
   url "https://downloads.sourceforge.net/project/icns/libicns-0.8.1.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/libi/libicns/libicns_0.8.1.orig.tar.gz"
   sha256 "335f10782fc79855cf02beac4926c4bf9f800a742445afbbf7729dab384555c2"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f346f50f790f74105c7d74ed2f4fa138cf1ba36aaf887c28d99cd40bd3c842d5"
