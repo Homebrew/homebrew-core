@@ -17,18 +17,13 @@ class Stgit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "442b36b832407129281e66f933478a744a621bd2ac53db0dd7b9f5630c042884"
   end
 
-  depends_on "asciidoc" => :build
   depends_on "rust" => :build
-  depends_on "xmlto" => :build
 
   def install
-    system "make", "prefix=#{prefix}", "all"
-    system "make", "prefix=#{prefix}", "install"
-    system "make", "prefix=#{prefix}", "install-doc"
-    system "make", "prefix=#{prefix}", "USE_ASCIIDOCTOR=1", "install-man"
-    # bash_completion.install "completion/stgit.bash"
-    # fish_completion.install "completion/stg.fish"
-    # zsh_completion.install "completion/stgit.zsh" => "_stgit"
+    system "cargo", "install", *std_cargo_args
+    generate_completions_from_executable(bin/"stg", "completion")
+
+    system "make", "-C", "contrib", "prefix=#{prefix}", "all"
   end
 
   test do
