@@ -6,6 +6,7 @@ class Pacman4console < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2ec9ad5c33e55bff4ed09dec5fe940df64619a21fee9d9314fa89361af6bb8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "76baeb05e81f233319586317c30e30807fa417e99497c16bb1004c2d193c74ea"
     sha256                               arm64_big_sur:  "b9f6328a3b683121a3ef8cfb48d6db7c6a25ba07f73a006430298ca7fc5bf658"
     sha256 cellar: :any_skip_relocation, monterey:       "8d9c58bcd4cedd42b28812ca3e4f1f4afd3fa4684bf7bb390f640567be8d7c97"
