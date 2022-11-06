@@ -23,6 +23,7 @@ class Bigloo < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
+  depends_on arch: :x86_64
   depends_on "bdw-gc"
   depends_on "gmp"
   depends_on "libunistring"
