@@ -18,7 +18,7 @@ class Supervisor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4a68ad7bd4a43edb63c43c6a5a9746d6787f4cc4faec7265bac1fdbd10b66f4"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     inreplace buildpath/"supervisor/skel/sample.conf" do |s|
