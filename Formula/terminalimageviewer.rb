@@ -8,6 +8,7 @@ class Terminalimageviewer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c81b92d798635c6fdae0106ed4a1633c70985e93f80e8dee1506e53b214ce29d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7f6aeba5ada7ff92bc303930dfc3fba0d89cc3d6a06a0ce12db97856e2b4dde8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cfe13918f86cb72157a042bc009874829d4cf59ab9426ab3bdda4614421d22c"
     sha256 cellar: :any_skip_relocation, monterey:       "9197c1aa0d01e3bafaa8500ea96b56c0b7fba1f0b20d2fede4b8d30df2d10b9a"
