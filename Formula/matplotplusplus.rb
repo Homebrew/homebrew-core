@@ -8,6 +8,7 @@ class Matplotplusplus < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "09f1065112d8fab2b6b7a4505de70b8e8f72cf3f165bfb779b4e5aa0bd6b75cb"
     sha256 cellar: :any,                 arm64_monterey: "bf944af3d150c4d06d0d5ba4c4005a36c263fa4ff63d0b6048612970bab99b39"
     sha256 cellar: :any,                 arm64_big_sur:  "49ed10a408488bc95f3d3efddd435ef858b910b046f36615461db38efd3a04c4"
     sha256 cellar: :any,                 monterey:       "3325d540aad16f1d48eddbe316a95f7bbe0948e36644dbd3839d25df5d647ef4"
