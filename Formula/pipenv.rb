@@ -17,7 +17,7 @@ class Pipenv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "86aa3815e1aba46d70a1010eaa0638668e7285b2cd8f213a3afb1fe4c77a689e"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
@@ -40,8 +40,8 @@ class Pipenv < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/07/a3/bd699eccc596c3612c67b06772c3557fda69815972eef4b22943d7535c68/virtualenv-20.16.5.tar.gz"
-    sha256 "227ea1b9994fdc5ea31977ba3383ef296d7472ea85be9d6732e42a91c04e80da"
+    url "https://files.pythonhosted.org/packages/b4/27/b71df0a723d879baa0af1ad897b2498ad78f284ae668b4420092e44c05fa/virtualenv-20.16.6.tar.gz"
+    sha256 "530b850b523c6449406dfba859d6345e48ef19b8439606c5d74d7d3c9e14d76e"
   end
 
   resource "virtualenv-clone" do
@@ -50,7 +50,7 @@ class Pipenv < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
