@@ -6,6 +6,7 @@ class Gaul < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "75cba0ced64826f1b48b0622ae5c7a3b2acbe99c33f7b97ec02378b3f97db95a"
     sha256 cellar: :any,                 arm64_monterey: "26e4e30f26cf04cd953e2ec43503a616d52a4024d2131cbcce5bc13d28ad93ea"
     sha256 cellar: :any,                 arm64_big_sur:  "bc5e55391514a4f15a9ce9c66e54cb3f430d255ebc1bc6edac681787c9b8ec9f"
     sha256 cellar: :any,                 monterey:       "4541d4d7d5d7ef43cc1acf3c57516e67fecf69e12f455f944d0a326816c400cd"
