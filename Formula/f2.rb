@@ -7,6 +7,7 @@ class F2 < Formula
   head "https://github.com/ayoisaiah/f2.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "52faa74257cd63e7184254a8a0767d14b206d7dcaf81b89d6dd926597997979d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b675674c09aa6c6922bcc2c3fec2ca0d56cb2842091b3210ac6e94fb0363e9c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af42f08006c442d62b1db1e604dfc5c3e1906086f65902b8f069d51e5edced6f"
     sha256 cellar: :any_skip_relocation, monterey:       "365170c4d4cd8994a2110db618df37f70c6b684c71fbb6857961b420d041ca10"
