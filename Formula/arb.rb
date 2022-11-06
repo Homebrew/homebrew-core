@@ -7,6 +7,7 @@ class Arb < Formula
   head "https://github.com/fredrik-johansson/arb.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "596adbf061300ff305e92189dcd59a04b8f8a0034e72d09b662ef5a2f9e8a4b3"
     sha256 cellar: :any,                 arm64_monterey: "d0932b89466b24d29e519a6f3875d9f53ae632605e10bc1d473954cb40668016"
     sha256 cellar: :any,                 arm64_big_sur:  "737cd42d550afda9fa9f0017e84fd7a9effcf475db04f8fff887c34fcc35d285"
     sha256 cellar: :any,                 monterey:       "2f5244c00ab5acf62eb2d753c6bb1e9582d3b7e4211046192a4f1872118b0a0e"
