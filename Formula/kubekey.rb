@@ -20,7 +20,9 @@ class Kubekey < Formula
   depends_on "gpgme"
 
   on_linux do
+    depends_on "pkg-config" => :build
     depends_on "btrfs-progs"
+    depends_on "device-mapper"
   end
 
   def install
