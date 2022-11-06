@@ -8,6 +8,7 @@ class Scorecard < Formula
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "afb842c7ac3ac77bf741c9b2a4e132ce45641f1c7adaa8516b50cb4b25fe5ff1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "01b3f14d980a5c35a388ac305739135426709ace3ff8ae79676e084bafeff2df"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ac2829027a056b4fd660c0ade94b1ce26f34f8d99bdf8850c81739325ea5d69"
     sha256 cellar: :any_skip_relocation, monterey:       "59a1cf1bbe9a4e3fe1fc66bfafba7ee205cf6e26bd3b5663ce9962806cb7353d"
