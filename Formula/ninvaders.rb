@@ -5,6 +5,7 @@ class Ninvaders < Formula
   sha256 "bfbc5c378704d9cf5e7fed288dac88859149bee5ed0850175759d310b61fd30b"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5086f1e6f104b199763ec9feedd2a3ee64340abf584d3dc2ea2fc50201ecb3e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79c809a98982d7c68e1f31b53ff2644a750589f26e7a4fbba771b556d4929e46"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "641248bbd6c7f8895dd3c6f42ce68f047db05864354ef772b7c2490c9ddced5d"
     sha256 cellar: :any_skip_relocation, monterey:       "7f4fce96d25e44373e785000fb3c2605b90bb8f33e8635f9031a4fd1e547a419"
