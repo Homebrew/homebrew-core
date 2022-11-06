@@ -8,6 +8,7 @@ class Tmuxp < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e339c1cd7a6ce2fe58754f770694daf357be89db42eec5f25813e5012db42e9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3823b1ef03b3ca5c65765fed29dcbdd0e2695bc1084f5bfc5256d7323b8d23b6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4096fd280f793106ccdd2a907ae5f774c6de9b9d55620fc54f13b0c6d75dfc17"
     sha256 cellar: :any_skip_relocation, monterey:       "92a54f816befe5ea52b402fe029b3ba58625b3a4cae3614dd124aea556a5d636"
