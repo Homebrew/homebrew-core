@@ -18,7 +18,6 @@ class Pipenv < Formula
   end
 
   depends_on "python@3.10"
-  depends_on "six"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
