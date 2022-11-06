@@ -6,6 +6,7 @@ class Kondo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1adcc4d6fc768929d168a6c708d84ee52da0c2b51bc5475de70115c208ebf9b1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d3f4ffcd0ca6b35d9002a4a150376920f1ec3bd18c6e21ecddee77a7d63c2f2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83725018560e700eddc7e976c35403901cf89298679459c451c1905c55c38173"
     sha256 cellar: :any_skip_relocation, monterey:       "52407e9d2c5170245ecdd01de9b6ed5024fb22659ef0c680a509232937f62f73"
