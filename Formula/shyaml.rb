@@ -20,7 +20,7 @@ class Shyaml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "34c55cf325106d8d40eaa08d186f657a812103d0b20fa19386d624fdd5c00bd4"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   def install
