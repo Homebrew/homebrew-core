@@ -7,6 +7,7 @@ class Trunk < Formula
   head "https://github.com/thedodd/trunk.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "395b1e12e1c05ae8d31746eab21fd897664a3774d50492508b6bc3bf47d9bf64"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f88f7470a3ab319df911d8633e2b0fd461cfa1443ddb4f1b4b120bf1e33e21ba"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02ec3dacab7389f07c8129fb51aa7010f129f47a1487a3f2cb2d310fc9180b23"
     sha256 cellar: :any_skip_relocation, monterey:       "6915a9e9b28aecd9e851ece1d2167b91c46b4381e42aa9474e4648a20b3ca6a4"
