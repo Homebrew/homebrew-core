@@ -13,6 +13,7 @@ class Flux < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "16c71956115fe5a87c3454ee0ebde6d6cc5551bc697952998386e481eb8dda15"
     sha256 cellar: :any,                 arm64_monterey: "f49c73f0146b78bbe895948f43cc122b6ca84429586e63a0aea9a79724fc9bde"
     sha256 cellar: :any,                 arm64_big_sur:  "b2f5f87b4c0d377c5d7304b4613f1b732fd146fe19065035bd7af99de96e0a43"
     sha256 cellar: :any,                 monterey:       "4299e4252df10aa9ea1c7e0990dda94610439652a0d362181b2944c2627678f8"
