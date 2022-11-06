@@ -12,6 +12,7 @@ class RmImproved < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90ef6e5dbde5f561d1699bbe0015071874d228ba7af270e3c1a67f7c22d82547"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ed1d81d6208ba12adc49fd30a6adf9eef7de0862337b9ab9a264e2ac4f29d48"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e09493b8db07b3e29621cfd7d7ef81b90007fec6378e00fee491a82851ad148"
     sha256 cellar: :any_skip_relocation, monterey:       "f9f9949d3594e99cb00ca10dd3bfb683bf73247ba6621ea05b920e35c35459e0"
