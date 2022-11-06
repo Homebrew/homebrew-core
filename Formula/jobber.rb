@@ -8,6 +8,7 @@ class Jobber < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "bf6c94807680d1fefa82b1a1bda602454ccd86a6981ef3d4042cac8beaf209c0"
     sha256 arm64_monterey: "14087e07df78fd1e53fa44cc873df0db56eee9b0c89154161ee1a4c617c8ae9d"
     sha256 arm64_big_sur:  "c751dfdc4e8a2336eb4441dde62d3fc83d8ca869fe95e4804cecb99112551361"
     sha256 monterey:       "d54b324e8914c637f54418851308b825241d2c3142c8c13e9a6316ff31ab6e99"
