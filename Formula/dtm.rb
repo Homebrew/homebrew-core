@@ -6,6 +6,7 @@ class Dtm < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9cd71b5b6c1f0c9f02fbc1dbf3d4e3e79b6523af54ee6a06c0cf15764c32927b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be7c83ebd7a83d49efa06448a7d96ff8aeb5fb2484871cf4dab52adc5084b30b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53ba4f9c1c2ef16bf49a6a435cda01feef2a2f62ad62c3fd3597287b52bd9865"
     sha256 cellar: :any_skip_relocation, monterey:       "8a8ebce7c247cf0ac58dea705e1bb0e77e150c0a37d59fc0433729316a5869c0"
