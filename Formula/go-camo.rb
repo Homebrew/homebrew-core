@@ -6,6 +6,7 @@ class GoCamo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0247b1b1e9df0b922a1a9a0e529f782dd87adbbfe87a80ce34f307b51eca3f61"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5d2635701563ffcbcca22121832e4a111c5ba80a91bf36aad4eddf50622ee5b6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d2635701563ffcbcca22121832e4a111c5ba80a91bf36aad4eddf50622ee5b6"
     sha256 cellar: :any_skip_relocation, monterey:       "979979b03d083d27e50dcbe846b92adf47496f61c3059c76210b5c14999deff3"
