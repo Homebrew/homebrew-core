@@ -14,12 +14,11 @@ class Asimov < Formula
     bin.install buildpath/"asimov"
   end
 
-  plist_options startup: true
-
   # Asimov will run in the background on a daily basis
   service do
     run opt_bin/"asimov"
     run_type :interval
+    require_root true
     interval 86400 # 24 hours = 60 * 60 * 24
   end
 
