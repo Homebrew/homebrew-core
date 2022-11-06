@@ -9,13 +9,13 @@ class Sshuttle < Formula
   head "https://github.com/sshuttle/sshuttle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7b9be675043d7d7c1ef3d7a2a04d8aaf8fdab0647e828604ee188ea29e92b8d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa3c0c2cdac816d89ea7b05edf90de1ba43e6359ce63c2fe72de2e6734b2cc37"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aa3c0c2cdac816d89ea7b05edf90de1ba43e6359ce63c2fe72de2e6734b2cc37"
-    sha256 cellar: :any_skip_relocation, monterey:       "a5040bd0cd340a9c946caf45ea28d4e4856bc2773535624e6796d48eb4ba4252"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a5040bd0cd340a9c946caf45ea28d4e4856bc2773535624e6796d48eb4ba4252"
-    sha256 cellar: :any_skip_relocation, catalina:       "a5040bd0cd340a9c946caf45ea28d4e4856bc2773535624e6796d48eb4ba4252"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8086506e5b3d061c4cd7df782689a32eda5c5edeead80042049c5968ba33363"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "90c2823e56ebaeb8b25636b88c882d9345d04e55af0d83269a09a952c459e111"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "90c2823e56ebaeb8b25636b88c882d9345d04e55af0d83269a09a952c459e111"
+    sha256 cellar: :any_skip_relocation, monterey:       "180b62b05fd0d2134dc57648bd830cd52ccb2cf169ccfd7f8224c58dd7597b22"
+    sha256 cellar: :any_skip_relocation, big_sur:        "180b62b05fd0d2134dc57648bd830cd52ccb2cf169ccfd7f8224c58dd7597b22"
+    sha256 cellar: :any_skip_relocation, catalina:       "180b62b05fd0d2134dc57648bd830cd52ccb2cf169ccfd7f8224c58dd7597b22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89386b334888a8effeca3997f8910b1a4543ca37cae33a50d80f047b4b65576e"
   end
 
   depends_on "python@3.11"
