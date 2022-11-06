@@ -94,11 +94,10 @@ class Black < Formula
     virtualenv_install_with_resources
   end
 
-  plist_options startup: true
-
   service do
     run opt_bin/"blackd"
     keep_alive true
+    require_root true
     working_dir HOMEBREW_PREFIX
     log_path var/"log/blackd.log"
     error_log_path var/"log/blackd.log"
