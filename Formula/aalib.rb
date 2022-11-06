@@ -14,6 +14,7 @@ class Aalib < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bbe40492b5ff2d6bde6effd36a8fa0b179786032c1da624d0f6bd15e71cd044"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "292e704fb6cca01e6ab77baac8960df5c9b45f2fb209a0f670a7de16242c3ee0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "031eac9658cb6878fea6b53e232e0b3f294b81953dd1803bd808c26c5b1a934a"
     sha256 cellar: :any_skip_relocation, monterey:       "ac7c8f7dafcb3eedf34abdd258d0cab1f9e58a3048da6307ded8ae029d162a2b"
