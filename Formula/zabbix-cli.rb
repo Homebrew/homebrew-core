@@ -22,7 +22,7 @@ class ZabbixCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d726f40bff1125aa211af1c9dfaeb57ca38df80251d583280877c61a6c3d066c"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
@@ -61,6 +61,6 @@ class ZabbixCli < Formula
     system bin/"zabbix-cli-init", "-z", "https://homebrew-test.example.com/"
     config = testpath/".zabbix-cli/zabbix-cli.conf"
     assert_predicate config, :exist?
-    assert_match "homebrew-test.example.com", File.read(config)
+    assert_match "homebrew-test.example.com", config.read
   end
 end
