@@ -7,12 +7,13 @@ class Quazip < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_ventura:  "3809e4b7c831115e815f3fa7b84b9e537549a82a7e089a4007b0f752fd071c75"
-    sha256 cellar: :any, arm64_monterey: "46931218c7df1222282017d17ebaa4c22a05c6da6a62f605844b739c35bbef7a"
-    sha256 cellar: :any, arm64_big_sur:  "0e8abd2e6d2d81eb99ce309100c0e4115e364bd01344009cea7eef0d643096ee"
-    sha256 cellar: :any, monterey:       "81eceb5944761190fab7e3fa3ebf64be503e13858a1a5ded1130d86172b02a71"
-    sha256 cellar: :any, big_sur:        "753fd853f5823615f13e811e7813e5c95b1521d171bb2b612dd10a8e77bf4921"
-    sha256 cellar: :any, catalina:       "59181f16535ae197a7e4863961c6286995d40640cd9659adbe57f40b1f917e02"
+    sha256 cellar: :any,                 arm64_ventura:  "3809e4b7c831115e815f3fa7b84b9e537549a82a7e089a4007b0f752fd071c75"
+    sha256 cellar: :any,                 arm64_monterey: "46931218c7df1222282017d17ebaa4c22a05c6da6a62f605844b739c35bbef7a"
+    sha256 cellar: :any,                 arm64_big_sur:  "0e8abd2e6d2d81eb99ce309100c0e4115e364bd01344009cea7eef0d643096ee"
+    sha256 cellar: :any,                 monterey:       "81eceb5944761190fab7e3fa3ebf64be503e13858a1a5ded1130d86172b02a71"
+    sha256 cellar: :any,                 big_sur:        "753fd853f5823615f13e811e7813e5c95b1521d171bb2b612dd10a8e77bf4921"
+    sha256 cellar: :any,                 catalina:       "59181f16535ae197a7e4863961c6286995d40640cd9659adbe57f40b1f917e02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48d4f4e9e526b91297d4e768201a1d718500da5a2b61a2508308f2d54e96dbe6"
   end
 
   depends_on "cmake" => :build
