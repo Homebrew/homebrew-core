@@ -18,8 +18,10 @@ class Kubekey < Formula
 
   depends_on "go" => :build
   depends_on "gpgme"
-  # due to missing libbtrfs headers, only supports macos at the moment
-  depends_on :macos
+
+  on_linux do
+    depends_on "btrfs-progs"
+  end
 
   def install
     ldflags = %W[
