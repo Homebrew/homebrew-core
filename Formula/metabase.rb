@@ -35,10 +35,10 @@ class Metabase < Formula
     bin.write_jar_script libexec/"metabase.jar", "metabase"
   end
 
-  plist_options startup: true
   service do
     run opt_bin/"metabase"
     keep_alive true
+    require_root true
     working_dir var/"metabase"
     log_path var/"metabase/server.log"
     error_log_path "/dev/null"
