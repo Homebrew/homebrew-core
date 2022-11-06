@@ -10,6 +10,7 @@ class Ciphey < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a7c547b2f72a57eadfec07abb1e39223216eda3759acc91a76f3813d2e0e5fd4"
     sha256 cellar: :any,                 arm64_monterey: "8549423a0b8f5dbae34104539e9ae4a02ee373153b1be5e51e6fb19b0e2f5d65"
     sha256 cellar: :any,                 arm64_big_sur:  "c274722247b6a42d5d841f6aa0ff1f849f4d4f47883a93c06728a6b4136fb07f"
     sha256 cellar: :any,                 monterey:       "e324b009c010fd48f6d1cc742bd99fcce19bc233501d46cc9b9e82bb09a317e4"
