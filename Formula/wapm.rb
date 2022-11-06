@@ -18,6 +18,7 @@ class Wapm < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b9881207fcef7665c3e9946d76494f4ee69b4472377955fbfa3c80dd5c0e329"
     sha256 cellar: :any_skip_relocation, monterey:       "5453c51d197c085d3011dcce5c2246a67546ce16be0395eac6e83b9766350fae"
     sha256 cellar: :any_skip_relocation, big_sur:        "38f2fbee5a31075c015af4ccae015373fff9d98d7c2f3c98c954aa4372732ada"
+    sha256 cellar: :any_skip_relocation, catalina:       "741ed8e6ac14facdb8af1f45131f41a0e32d94b1a960fe30f82053ea1697d6f5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b401e546148144a0c1f98dd792683535790a13a1ff7548d9cff2c40535c5d43c"
   end
 
