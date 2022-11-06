@@ -9,6 +9,7 @@ class Fdroidserver < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "4e01fce4aac3497a19fe90794b3a588801457320e267806ac816be5e9c95541d"
     sha256 cellar: :any,                 arm64_monterey: "c93e08ec3a707c14463ba09318b7485a52aa16949fa2bb1b2558be5f9864948c"
     sha256 cellar: :any,                 arm64_big_sur:  "07035d343b0ba1eba6f4f5c9025feb97a0c3e1f0217dcd2fa4155fae0ca4b24d"
     sha256 cellar: :any,                 monterey:       "bbaff2d8af0dca698b23e98d1d897b0b1ebbe64236866d3ab4712842ca4d6d8f"
