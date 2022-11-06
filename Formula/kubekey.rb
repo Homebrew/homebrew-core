@@ -8,6 +8,7 @@ class Kubekey < Formula
   head "https://github.com/kubesphere/kubekey.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "90961ee53287e61683a0d69487e70033bcf70793f615ea3a7700eb65b25aec0c"
     sha256 cellar: :any,                 arm64_monterey: "bb1732d3809d891ec0dc7662b978b983ada2b99d7851abf9773073ae5015125e"
     sha256 cellar: :any,                 arm64_big_sur:  "5bacc10716861d5e64bc4b3cd5ecfe28afef66590dce4988eca12035c3e7380a"
     sha256 cellar: :any,                 monterey:       "89b948e8730c83c9c42208674e3bbe2680ca159f0009a6b64f66d3523b7b77a4"
