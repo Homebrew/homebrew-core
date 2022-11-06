@@ -7,13 +7,13 @@ class Rustfmt < Formula
   head "https://github.com/rust-lang/rustfmt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e352b563780350c071653e08726177278b9714b798aa3099331c24b67d249348"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb6fd59f94829c11bffcf88cc8006fcdc5ad5b52815663f4b0eafd96639de423"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1aa9eef452302f36090c19add716914fae83e6cf78aeb00276c961992c7fac5f"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f7c8bf155fc7289caeb261421d4dddd18f6ba496ff8d8d3abb017615903a449"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bd2d3f3d55962c9a78e033ae4132d459afafc0a4117e0b4bf97b4baab00eb422"
-    sha256 cellar: :any_skip_relocation, catalina:       "eb5239d46b3d14b1fde083b7b586282035c2960c532c0e1929907390076d912a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "847eb7789ed39f6982e528cd22abba0d428398e093e183299a4eaf10e7abaf75"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae00013ef65a9ed015c968b8ee9daff7e6147cc5a99c8cdac657ee92f4a8461d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3812711969be43a9a8a2636b5aa7a76fdf8f1a4b59301cf3224cf36e1ab3422"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b44fb4f1512e6932dae71f77992458c47ef45d26efcfe2915c734b692385d19"
+    sha256 cellar: :any_skip_relocation, monterey:       "95e6c58fe6e57aab6b4824e79eca7f1985cdd57c30e4d8dbb8bdc6c54b4c57c6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f1a7a2e82215d39777dd959159ae96d130265f8186e64b15254912b1553e4181"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b770894376d5273adc2e8731db63e00a32ea93b05cad6ab94a401e7aa1a9ead"
   end
 
   depends_on "rustup-init" => :build
