@@ -7,6 +7,7 @@ class Reshape < Formula
   head "https://github.com/fabianlindfors/reshape.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53a6008177823194ba9b889212873fb63494863e73719bdca0cc8c408fc234de"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "27446a0d6f33ec3760ee345043bdd051aeb8f7586686f00da1f6e25410445ae7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c06ce4b5de84ffac95c8747a7ac9f70b0cbc03228e88c82a31f79b0784a50ca"
     sha256 cellar: :any_skip_relocation, monterey:       "b34a1114fd84af28efe17a21c1d8e35b2327ca6664431894c667b3f32aeb174b"
