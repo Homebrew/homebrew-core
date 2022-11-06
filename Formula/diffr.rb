@@ -6,6 +6,7 @@ class Diffr < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c0dc306379facad27e2f252904f87ac3729d64b7c537840920d26fdcf5f23b64"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "16b576c6910c6f6237afe36982863c7983311f7e00fe3839c60836acf4d99390"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f57876703b78ba621df49fee7ffa47bcd31653d8ce0b3e1a63a7e5a6b71bfac1"
     sha256 cellar: :any_skip_relocation, monterey:       "e7237f17610b659e423f5296c7d0796c375f66af4613c1e611da2a439fa07d9b"
