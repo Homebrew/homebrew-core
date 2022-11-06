@@ -11,6 +11,7 @@ class I2p < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "56959fa72e0b14e862102993293bf90c0b0a16d5a467fc0aae673da503381ddd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ebb408953a0e87c23a9cb838bf833a96c3afdc2313036e2520dbbf2bbbd287dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24830afa2fe1094e634033d61bb38082cd70807498b096a03a9d5fb5b71447c2"
     sha256 cellar: :any_skip_relocation, monterey:       "75ad64bb78affab0ec5b4fe2290be379c5f5eec646fc4131415dfacc1e9b2797"
