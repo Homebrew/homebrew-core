@@ -12,6 +12,7 @@ class Mytop < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "0eb04ca2f9d13e1c62bea17ef96e34e01189d5d1b58160105338801f205fa888"
     sha256 cellar: :any,                 arm64_monterey: "8f02659e8b735fdf311c10368016aaf4b44a6e24c830439bdff91f9bd8ac2f6c"
     sha256 cellar: :any,                 arm64_big_sur:  "75452c7d92536a9ea9f92a1a22a9271e1db9f180ffc6ac5d3504c092e91f3adc"
     sha256 cellar: :any,                 monterey:       "c5b43ff2ce82566006e3fb37f869d65d23fad64004458d2e9b3d895e8b867979"
