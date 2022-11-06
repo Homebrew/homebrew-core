@@ -11,11 +11,11 @@ class PythonTabulate < Formula
   end
 
   depends_on "libpython-tabulate"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     # Install the binary only, the lib part is provided by libpython-tabulate
-    system "python3.10", "setup.py", "--no-user-cfg", "install_scripts", "--install-dir=#{bin}", "--skip-build"
+    system "python3.11", "setup.py", "--no-user-cfg", "install_scripts", "--install-dir=#{bin}", "--skip-build"
   end
 
   test do
