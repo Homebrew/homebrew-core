@@ -6,6 +6,7 @@ class Mqttui < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4091e8b5c8b0f2abe912829985614a3cec02b1a6012f71511a8d4d887406efd9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "97a273fd7474c402a5615f211ad092ff55ed22a7b817a2af1c80b250e9467fb5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4933a37e857607d1bfe617b442780e72b518fab7119e023cc3067a6ae5abe8e"
     sha256 cellar: :any_skip_relocation, monterey:       "49c41cec799c0aa71594fb7ccf0adc6d3a9383f86982bfdc70838c6dd29ff24e"
