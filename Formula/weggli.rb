@@ -7,6 +7,7 @@ class Weggli < Formula
   head "https://github.com/googleprojectzero/weggli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d70c70f37a569851484993ef7d87903357bc47d856513a5ebcd789960f33f65"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9022a081ad91f76f56ba573b33d9162e31907c4fd3af5a170cb2c645734a03ce"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "191de3fc48b48dd3767b93168af897b072a0c8805e80390096b508ff76ff284a"
     sha256 cellar: :any_skip_relocation, monterey:       "4f378b97c3edc8a6f0a5e7c6c5d12e048c3bce8a0abe437c28bbcfa36eaf042b"
