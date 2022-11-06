@@ -9,6 +9,7 @@ class Inspectrum < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "8a34eeb6438451da34d80743d43610ffc0f36943e24c8d71038a94c0afea6843"
     sha256 cellar: :any,                 arm64_monterey: "987ec702b9c0a62d782d08827ceca63cf930e3b32fa65b3ac6d6c1a808fc4c80"
     sha256 cellar: :any,                 arm64_big_sur:  "c87caeeaecdf7dee81c4c8d557a5acb25a511a6a80418d829f0e87293970cd61"
     sha256 cellar: :any,                 monterey:       "bf95d982178b20894aa627dc49c4af81601d78dbd7cca7ad17d75d73676f3a9e"
