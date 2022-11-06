@@ -23,10 +23,9 @@ class Blazegraph < Formula
     bin.write_jar_script libexec/"blazegraph.jar", "blazegraph", java_version: "1.8"
   end
 
-  plist_options startup: "true"
-
   service do
     run opt_bin/"blazegraph"
+    require_root true
     working_dir opt_prefix
   end
 
