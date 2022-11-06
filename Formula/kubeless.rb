@@ -7,6 +7,7 @@ class Kubeless < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54fa03de2d273898f92c28f8a9c431e39b3994a74a60a2e479bff2f566498d2a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e717b886542344e4de306b40c9da357856b3511ff1408e193a47f0467464f89f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "966d792c57a107ea1e3c3f6fa30bb8a3caa92a27f5a774ce7e1f32aafb3da52c"
     sha256 cellar: :any_skip_relocation, monterey:       "5fbe83105f5054672a6da645ef3a3f837e21021689ee3ed710c4d75787a48829"
