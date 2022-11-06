@@ -13,6 +13,7 @@ class Memtester < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe558902aeecfdf7b547794485c6e0134c5fde34ab2afbbb58aef5a0dc4c237e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "805698c2316c9738d9c7c5de7cf7edce56b7e6f481916204bde28fea90475385"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5ce3dde902d08c7d9a271d327f9eee0c017e07937623cf095856fa8313cd882"
     sha256 cellar: :any_skip_relocation, monterey:       "8279cf9cb4562df9ffc10a813904a93d0e01bc454a3ed482a9f5bb58b5308140"
