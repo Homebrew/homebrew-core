@@ -9,6 +9,7 @@ class Pipenv < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e2cbfc0778cc6ab32c937f0d23e8982c6bd2750bc6855c2796c84abfd9f6217"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e9e0188522aea35182fca9f51103bf49cf1439fe0f31631a10d3dfca7b0c5385"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "119592d5177383f1f35ee07101c675cf3be1e7dc52dd2bfd701094c91465a9f8"
     sha256 cellar: :any_skip_relocation, monterey:       "156ab2d9369892eae0c6431c5923b8e2030c316bb3e968f7373b7273b8458387"
