@@ -6,6 +6,7 @@ class Rdb < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc4f3a0f504c954430660d10903cc662f2a4d84e13bc0e1f47f9b26828117403"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "937c4774a0631b69695baec513cb85d605f00110a526e9332df8c43b7517c2bc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3847cbea27de947ebbf02d1c4d17e91656389825793160f0c85ee424063f588"
     sha256 cellar: :any_skip_relocation, monterey:       "7ebf60ebedc53148134af2d105b1061b7cd7d0395c8aaf8a83dabf64f49edec9"
