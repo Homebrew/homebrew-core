@@ -7,6 +7,7 @@ class Rune < Formula
   head "https://github.com/rune-rs/rune.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a8c668e4d4b73dd71d0f4508b4f39ea6123b0dced76a41363a3cd7d41b8d8cc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4609c4f7b0e77cac118f3df2e9b59f1eb364c182cc3d564ac0d50f36a4f7e6c8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d058db7728257b6a4438f56edec20eef25c14824b01e88bf18ba46d0c08a860a"
     sha256 cellar: :any_skip_relocation, monterey:       "495574ddafd177562d02676690a7aab661a85e452a5ff1fd65525e39ce578a78"
