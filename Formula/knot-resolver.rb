@@ -53,9 +53,9 @@ class KnotResolver < Formula
     (var/"knot-resolver").mkpath
   end
 
-  plist_options startup: true
   service do
     run [opt_sbin/"kresd", "-c", etc/"knot-resolver/kresd.conf", "-n"]
+    require_root true
     working_dir var/"knot-resolver"
     input_path "/dev/null"
     log_path "/dev/null"
