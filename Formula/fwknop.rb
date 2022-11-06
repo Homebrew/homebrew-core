@@ -12,16 +12,13 @@ class Fwknop < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "bfb4c0401d613c5dabdae08cab5bf2ad212eeb9d76ed4c0eba4b59c89b03c4e7"
-    sha256 arm64_big_sur:  "74003c23c04e207543afa2e957df46dc72b3067c8d9100503546d828007c14a8"
-    sha256 monterey:       "1b678b6bd8459eb2089f4a4fcda70d3954df3739b09f1e536483f083eda5817f"
-    sha256 big_sur:        "61ec8e446a6dbae400dcf40a8db9e066a8d64937bf82e84ee1c1e5a86d163934"
-    sha256 catalina:       "3a4ff22b7de484deb6473ffdad63d3e927290925af925b5dbf1b868648824493"
-    sha256 mojave:         "2e56267215274c15f322335f86aa92b671f5600cbfd2275949cef03ec47d390e"
-    sha256 high_sierra:    "a36cd65fe358a6b156b2b5276bcdf629b2d777ac8a803e7cd40ee9e3c75512e4"
-    sha256 sierra:         "7472ea129bbb0d5a1187d08e4a9770d66d480a9bc284a62db11f6dec90b770cf"
-    sha256 el_capitan:     "ec59a9d13d78f441a695776767038fb830acc4cdbfe28b30cc41ec2b7ea76f1f"
-    sha256 x86_64_linux:   "4da5b329804bbdacdcfa93ec6b9bb46d73a9aeb7c2a74fff7fb3b3865a9f05f7"
+    rebuild 1
+    sha256 arm64_monterey: "1855b9dc8ff17dbc1cc3c07512d3ebb81f80b5e45b5ab918da8df3ac48cd86d5"
+    sha256 arm64_big_sur:  "b786ab1814ba91ca06d3d638e7c1aad3a57e472ea957ab3f45f72c82063176db"
+    sha256 monterey:       "2c9f26be45a730f30e6c950f842e76d982bf58afabf0710c2c4add41eda497d6"
+    sha256 big_sur:        "c231ca3d7d20435ed0ae401294d5e6352ac811e4376635f93afdd71eb2b08656"
+    sha256 catalina:       "2c2faa8fc9328c53553c4b5bee81c4b8b6e8a43ed54f49d9ab6646bea0529e5e"
+    sha256 x86_64_linux:   "370466dcba3753ce5cd890395d91fae86f13d656b97bb1a379cccd774ace12d1"
   end
 
   depends_on "autoconf" => :build
