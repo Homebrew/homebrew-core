@@ -9,6 +9,7 @@ class Archey4 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e671e4010ac734aeea3a07bd8c73f112e4b7e2ec63c56d0a604e9270897c3f7d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "82e733ff22e9672f4c481ffba502e8b91e3dc417857e5ee004948cdebbe864e7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c15c7c4c86f81cb92cafde76dce1bde8887a0b42aecc674ffc5b24603c4efbd"
     sha256 cellar: :any_skip_relocation, monterey:       "e37569399a3494c36af12545a0d11220a772770feb8817b8e93a6e82315b20cb"
