@@ -6,6 +6,7 @@ class Dynet < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "326d11401b0db3d2294c46c7f3835cf497954f61fd14f8b6508461ef7ec6d8cf"
     sha256 cellar: :any,                 arm64_monterey: "5344a9cc883ddbea6def01dc950bed7aca9fe06ba67d52d10349ef46af17879b"
     sha256 cellar: :any,                 arm64_big_sur:  "812e42a82c70b8c049582c897d8d6d645c7892cb29fe742bc4c857f6d915cb44"
     sha256 cellar: :any,                 monterey:       "ad0cf700f000d6b03ad08ec1074508eb01f442019f6e1c59fe7a83325bb84add"
