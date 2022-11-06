@@ -9,6 +9,7 @@ class LiterateGit < Formula
   revision 12
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "848238f1d351d77a281da8ba46e5fe7b66c4bfcc3b45a46dabe509d512350999"
     sha256 cellar: :any,                 arm64_monterey: "0494553acd4da03d39c78afc1aa6cb4bf15fd6bcd7047477fb6b33949d3e3948"
     sha256 cellar: :any,                 arm64_big_sur:  "eb4acde55eee94e64423348ad6be510d6914342aafdc73b484dcf174938cc2d6"
     sha256 cellar: :any,                 monterey:       "7306590698c9c18e5131ea46969b20300eefb444634e4b3a8f649d8d03838924"
