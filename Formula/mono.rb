@@ -16,6 +16,7 @@ class Mono < Formula
     sha256 monterey:       "9672cc2c9a6383261a1f648814e06ae1fcdde0add2b51609e665f1fe0e8a44db"
     sha256 big_sur:        "90f25f2adc4d27335fe9025937e30c4a837135ec49fd84cdab2e88fa81a96c8b"
     sha256 catalina:       "6d2f2f42ff1f002e82b41a37211ca6cc32e5a07f2c117f2427dee396827a7159"
+    sha256 x86_64_linux:   "9e83f5b981c00854b12aa1fd2f2866e5032ec272eaa2de0f887c7ffe6afa1a1f"
   end
 
   depends_on "cmake" => :build
