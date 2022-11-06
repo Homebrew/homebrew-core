@@ -3,8 +3,8 @@ class Stgit < Formula
 
   desc "Manage Git commits as a stack of patches"
   homepage "https://stacked-git.github.io"
-  url "https://github.com/stacked-git/stgit/releases/download/v1.5/stgit-1.5.tar.gz"
-  sha256 "ce6f8a3536c8f09aa6b2f1b7c7546279c02c8beeb2ea1b296f29ae9fe0cf1ff3"
+  url "https://github.com/stacked-git/stgit/releases/download/v2.0.0/stgit-2.0.0.tar.gz"
+  sha256 "b7b6d41aeb3fc509444fcf06aca64ad2d8e538900ad75d826c4a64e660ae8a16"
   license "GPL-2.0-only"
   head "https://github.com/stacked-git/stgit.git", branch: "master"
 
@@ -17,24 +17,21 @@ class Stgit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "442b36b832407129281e66f933478a744a621bd2ac53db0dd7b9f5630c042884"
   end
 
-  depends_on "asciidoc" => :build
-  depends_on "xmlto" => :build
-  depends_on "python@3.10"
+  depends_on "rust" => :build
+  depends_on "git"
+
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
-    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3.10"
+    system "cargo", "install", *std_cargo_args
+    generate_completions_from_executable(bin/"stg", "completion")
 
-    site_packages = prefix/Language::Python.site_packages("python3.10")
-    inreplace "Makefile", "$(PYTHON) setup.py install",
-                          "$(PYTHON) setup.py install --install-lib=#{site_packages} --install-scripts=#{prefix}/bin"
-
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-    system "make", "prefix=#{prefix}", "all"
-    system "make", "prefix=#{prefix}", "install"
-    system "make", "prefix=#{prefix}", "install-doc"
-    bash_completion.install "completion/stgit.bash"
-    fish_completion.install "completion/stg.fish"
-    zsh_completion.install "completion/stgit.zsh" => "_stgit"
+    system "make", "-C", "contrib", "prefix=#{prefix}", "all"
   end
 
   test do
