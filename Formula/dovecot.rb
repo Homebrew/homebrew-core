@@ -88,10 +88,9 @@ class Dovecot < Formula
     EOS
   end
 
-  plist_options startup: true
-
   service do
     run [opt_sbin/"dovecot", "-F"]
+    require_root true
     environment_variables PATH: std_service_path_env
     error_log_path var/"log/dovecot/dovecot.log"
     log_path var/"log/dovecot/dovecot.log"
