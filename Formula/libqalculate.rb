@@ -6,6 +6,7 @@ class Libqalculate < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256                               arm64_ventura:  "d7cb7a82954467dc0623647f7aa570ef5b1b47bc4ed88d3a705aa4f967fb5a0b"
     sha256                               arm64_monterey: "5b8d9b023b2153d4042c97cec6995821f9c84241931fa054449fe9937e100d6c"
     sha256                               arm64_big_sur:  "d4c17c7a04f7f1cd5f3989fb68fc451bc9e2891ffa4b2f0355973bdcb35c1b43"
     sha256                               monterey:       "49d4ff7ba3f090971676ec245f8a35d2def4b8ca59c9b2ae52dbf57f47b81492"
