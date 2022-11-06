@@ -7,6 +7,7 @@ class Rhit < Formula
   head "https://github.com/Canop/rhit.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "86d59f681928be83864c1f686a64489f92d79009a4cb4a48af0fef430b8e639b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a144f84aa0cc833bbed3531beb7178fea61bc2de09bf50d73282fe86af249a7e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a4733b9c78b1d3f903d0a79dad529916d72b5452fd24e33882454cb24249aed"
     sha256 cellar: :any_skip_relocation, monterey:       "1b96477e24e66323fc53ee385d478dd0d62e648470f1ecb5d1cc10b53015dc40"
