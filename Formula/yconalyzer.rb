@@ -7,6 +7,7 @@ class Yconalyzer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4b34ab4323a8d42637c2b41ee0f30f76200bc29070a31db211f36d96e2522e4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cc908152c7c95c1f6849997b3f3ef3ea58dd1f4093b03a6d043ddaf0ed272156"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "58d53e3cef900391c6b010c6e5e7a8643630155947068b9755bed061b46c94c7"
     sha256 cellar: :any_skip_relocation, monterey:       "b44aa7bbb2dafbe58a1db1f4dfe228fc2cf7719e79f449185577817090d3a1a7"
