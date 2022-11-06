@@ -19,7 +19,7 @@ class Diffoscope < Formula
 
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz"
@@ -42,7 +42,7 @@ class Diffoscope < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install resources
     venv.pip_install buildpath
 
@@ -54,6 +54,6 @@ class Diffoscope < Formula
   test do
     (testpath/"test1").write "test"
     cp testpath/"test1", testpath/"test2"
-    system "#{bin}/diffoscope", "--progress", "test1", "test2"
+    system bin/"diffoscope", "--progress", "test1", "test2"
   end
 end
