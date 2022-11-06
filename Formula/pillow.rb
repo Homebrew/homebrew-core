@@ -8,6 +8,7 @@ class Pillow < Formula
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "74fb00c6613b82b5f07fb122b1eac331a917873f7ef69278bfde0c4aafba568a"
     sha256 cellar: :any, arm64_monterey: "52677d7845bdeb5527bd390af5e098b307403909d7decefea5e4358756e97b84"
     sha256 cellar: :any, arm64_big_sur:  "f7fb3cea71579546a10700bb1da39410067483a178184b5f4cbf08313be88f42"
     sha256 cellar: :any, monterey:       "ddd5e92ef50ac3be9df10e2331efab57fc46b55bba8a4fea5181845173cc1c6d"
