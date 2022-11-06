@@ -6,6 +6,7 @@ class Snobol4 < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 arm64_ventura:  "adab8c2434a07b6c7e748c523bb186a6371cb92b9d13d3ed8cb94b085dcebebd"
     sha256 arm64_monterey: "fe4801587f606425a334e82ab263dc0ecdee0fbf62b1f7143833ad5adb252741"
     sha256 arm64_big_sur:  "b27844933479e0ed826723773ec52432f91321a47bd50c5c317745daf5929d26"
     sha256 monterey:       "8fe0d3f23e9016e42e81b0587b7a0e8bbf8702f05593c9bfad5d2c2477ac1fd9"
