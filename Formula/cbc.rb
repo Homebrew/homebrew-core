@@ -11,6 +11,7 @@ class Cbc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c8bff9b2f9b87861b8ed62c50ac11ddcadc2a45207df8061d763c142e736d826"
     sha256 cellar: :any,                 arm64_monterey: "9c6816ac51c4f6dfce9211077647576e41c87484d80fe80f37b10b010357292c"
     sha256 cellar: :any,                 arm64_big_sur:  "f6d4d0d73a51b53cb17920352f78c1d7aba923d53ecc4bd3a7a4fa9968e7bdb5"
     sha256 cellar: :any,                 monterey:       "58cd161d62e3c14010428dbe330a90858424f6fbb44b7da7337c2bbd21475dcb"
