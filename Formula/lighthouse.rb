@@ -6,6 +6,7 @@ class Lighthouse < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7f91a9dc986c4c3766adc7c42f4ccd10f7fbfd1f54c19dd91e58ed3265e2734"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8e97e06309659ec22be961393729af9b600962b43da5071375bf42e42a81a07a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1f67c81b06f3bf756196c67b0b110eb7686430499a1319710eb7d29b396f43e"
     sha256 cellar: :any_skip_relocation, monterey:       "ca5775821769a54d8c082bdeaee582fee13611dcbfc9897cbbf33c33cc36102f"
