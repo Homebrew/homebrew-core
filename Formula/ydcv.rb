@@ -19,7 +19,7 @@ class Ydcv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "35d3c655f6e3b7623dd7657adc51da6bd53629676710c450d7941378a9f62b4b"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version
