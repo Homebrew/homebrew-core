@@ -13,6 +13,7 @@ class Qtads < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "9299d3c5b8a51eaf92592724c056f07d0e5edfc8094464fef736f11d24113c11"
     sha256 cellar: :any,                 arm64_monterey: "0e30ba9d9f377dcf72aba30d61c6afbe3c36d5c371776ef8c52115e48021ba7f"
     sha256 cellar: :any,                 arm64_big_sur:  "7c323cae1a69574d5b699a5c5204b3b11878c26f86ce74bb61d0a84761555331"
     sha256 cellar: :any,                 monterey:       "b2c94ccf083bbaf35d5e2417295996d4e3cfedca0ecc403feaff940646025ad0"
