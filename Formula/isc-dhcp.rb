@@ -93,11 +93,10 @@ class IscDhcp < Formula
     EOS
   end
 
-  plist_options startup: true
-
   service do
     run [opt_sbin/"dhcpd", "-f"]
     keep_alive true
+    require_root true
   end
 
   def plist_dhcpd6
