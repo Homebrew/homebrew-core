@@ -11,6 +11,7 @@ class Toot < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "413a09d34e0bd2912592ec18b88f06e0d92b77b5ef7bbf029e6b70ce390ab190"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f1a8259c665413cd4cdd839b8332a4987be1d4046b38e939bd95f1edb4f79a2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0ddd6a63b53767ad49594af9b5297b770517ab6a81009c8565e16363d1c5f38"
     sha256 cellar: :any_skip_relocation, monterey:       "f8ed808ccff6a1f39b65eabf840f186d95cb89cd2b839e20344bdfe0617f82be"
