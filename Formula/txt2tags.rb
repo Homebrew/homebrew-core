@@ -18,7 +18,7 @@ class Txt2tags < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9b5979bbd085fa0318c11540cf422e3587a9fca6cd51a4eeb4ef2da98d3b27e"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
