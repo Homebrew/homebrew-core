@@ -11,6 +11,7 @@ class Xaric < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "6658f4916aaecb7c000e54b5db4b107f9e5d6a94e485f465fa33cc5906d7c7a8"
     sha256 arm64_monterey: "0679cb45a723581f21bd4295225c92e01a303155e772e07ad598303d8d3acff0"
     sha256 arm64_big_sur:  "9f89bb7adc21f31a7721a5b3cc0586820cc59e50e82f6316ef74f2dbce1c512f"
     sha256 monterey:       "914abc6071ee13379b8238fac06093d1e35277d1b36365ad346bc75dc7ee688c"
