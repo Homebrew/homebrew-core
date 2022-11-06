@@ -8,6 +8,7 @@ class Sslsplit < Formula
   head "https://github.com/droe/sslsplit.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "74357200610d41f36a3f2704cf7c877a3ad874ab9d1f032d711f7045f73f4fe8"
     sha256 cellar: :any,                 arm64_monterey: "8d28aedb6e1d3750430f1016b5f3ec4a4181afbc2186174c06bae99a186b6de8"
     sha256 cellar: :any,                 arm64_big_sur:  "ccfd4cc54565e58d41ce627ab1ee785de30c96fa29ca3637c3ee6e84320499dc"
     sha256 cellar: :any,                 monterey:       "29d3d71987797256fd0b5e628673701823d2aebd6d75a27316bd8e728852bd84"
