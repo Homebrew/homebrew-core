@@ -14,6 +14,7 @@ class Openmsx < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "5999e56087a8289b8fb18ed025525ddfaad855d8fa48fc57793efcb80e8358ee"
     sha256 cellar: :any,                 arm64_monterey: "906faeef395d49a464d05b3dd09fc8cf45930812dc3ed406bc3ce2a30e4e81d5"
     sha256 cellar: :any,                 arm64_big_sur:  "1d6d5e1f9cabb92201022499fa94fc0fe154a5c88ef956d4e822073fd46cace8"
     sha256 cellar: :any,                 monterey:       "00a56f37ea35e7546d518a011131a5576dc45596eca0251781969400d7882ca3"
