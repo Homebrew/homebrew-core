@@ -11,6 +11,7 @@ class Aqbanking < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "1ac366220ad338277a56f2923ae4298b8c7077ad1181a7aa49a726c045c4b828"
     sha256 arm64_monterey: "e3a12de7657644364037be15c92717200409f4d94953452adf0a77e5c357c7e1"
     sha256 arm64_big_sur:  "2e43a777b8c571a5bac1d1a0f5672c73209e73d6ec3ab2aab35ddd323beb3b26"
     sha256 monterey:       "ddfbf5a556dc6cf7ef4e5695b37909e53d16dc33ac3479f78aa4a5de1b513f8e"
