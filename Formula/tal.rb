@@ -7,6 +7,7 @@ class Tal < Formula
   sha256 "5d450cee7162c6939811bca945eb475e771efe5bd6a08b520661d91a6165bb4c"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "717e28a9ea9f325fd72962d66372a1e4edc3b27e81ea54a861f8c54dceea0a56"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "94237b7f329c30c17aed19d82bb18a790abf2abcbfc404a57ef9e237db4a0735"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ca62e367e9b35b079d0419bc02c4baec570154a089337f4ffce87441e9ba7af"
     sha256 cellar: :any_skip_relocation, monterey:       "b869e27ee13cb3e2ec83b0bb24a3dfc17b753ae94afa8e11d5e75943e8f1c132"
