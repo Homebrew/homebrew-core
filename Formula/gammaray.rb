@@ -8,6 +8,7 @@ class Gammaray < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "d6c6176b66638be42f13801d7656142157daffdfbf384bd39033851b3a48cafb"
     sha256 cellar: :any,                 arm64_monterey: "e84fc150dc66a7e32b44546f038cb32bb156aae65688f14055f4182fa9cba79d"
     sha256 cellar: :any,                 arm64_big_sur:  "7de52e10f8bbe77f1104f358602c4b25613c8f9d874d5ab2fa53828941cb1e23"
     sha256 cellar: :any,                 monterey:       "f7e0316e417b5e6518acf88f61615cc274a7724bff18e5a7c923fd0af1684c49"
