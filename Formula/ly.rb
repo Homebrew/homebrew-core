@@ -9,6 +9,7 @@ class Ly < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f1eaf6bfbb547929c088d639f9c3f861eea96c6f511a299e594a8e5e3940313"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f1eaf6bfbb547929c088d639f9c3f861eea96c6f511a299e594a8e5e3940313"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f1eaf6bfbb547929c088d639f9c3f861eea96c6f511a299e594a8e5e3940313"
     sha256 cellar: :any_skip_relocation, monterey:       "faf91829a1e7d98be8186d0dd8bd980e436e7f489532460cf5ec95d452c23424"
