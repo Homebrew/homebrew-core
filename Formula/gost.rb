@@ -7,6 +7,7 @@ class Gost < Formula
   head "https://github.com/ginuerzh/gost.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a81534d045deb44b39556ce97e51be20321516dc4f132c09e2a7a0123153f43"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8073e645fde2616cbbfd0683e54138d4ec2873d4e9bdb7cb3c6c5db88653ea69"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "680ffc34810e6bed784a107e3ba0ed086b3b36ac90b8b6f7b8552443d8714843"
     sha256 cellar: :any_skip_relocation, monterey:       "20612e5f65817db4d93a8f48e11878d4635954fc1c48bec5d2ce2a1e61979aec"
