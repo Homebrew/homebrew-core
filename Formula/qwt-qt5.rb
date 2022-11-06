@@ -11,6 +11,7 @@ class QwtQt5 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "06c70cbba80bbfe1650c3f144c291a40a4489cf096683d6cb1e47bfa75652008"
     sha256 cellar: :any,                 arm64_monterey: "0269802930f5588330a78fc3a87bc72f18efbca5d2adf14a2ae66af99b8098a3"
     sha256 cellar: :any,                 arm64_big_sur:  "0a02df654d0c1e813cb9329921d28efec925df351c142c906603a59005726faf"
     sha256 cellar: :any,                 monterey:       "4bfd9eb2a914188a9b9bd3c4ff7e4365e23bb67f3efaabaf924d38990c93ea82"
