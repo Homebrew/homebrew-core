@@ -11,6 +11,7 @@ class KyotoCabinet < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "3f3bda6747d743ddd1300f8df99662734395466240c46ac835648c3e38fc5526"
     sha256 arm64_monterey: "56224898ed5bf4ceecccd79901b90191180b89d4bf48e7cc218dbeff28fecc9d"
     sha256 arm64_big_sur:  "fa9322ae66dc8295d2f60365999a371c6602bcfd98f050e0897992e745c53d93"
     sha256 monterey:       "5aee992a2c97e53568a06313204e83e795debab5260ca564fa846e982db8ed10"
