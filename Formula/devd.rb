@@ -23,6 +23,7 @@ class Devd < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13847da393a2fc68810f987451c78f751fd9a3ea4fc2e07a00b01464f3eed02c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "82d937b6bcf0f37755df12694e934a8032ce155fc2895ec227f4887b2662d9c2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47f06f9c6157c81eaf52040448e5f131a6a660f96e78186146ab469345e6ea96"
     sha256 cellar: :any_skip_relocation, monterey:       "e815c896205297337741c856016809aa6603547c4a4302acb0ad307f3c91f10c"
