@@ -8,6 +8,7 @@ class Lychee < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "4c52a1d749a8c1d9698da6cc0845c778ebb84a4d9fec4c8e9f1af54b5cf12bc6"
     sha256 cellar: :any,                 arm64_monterey: "160c113fd0078c9e592bd443ad7b07626f2aba285fa7e0ff3b440936014b041d"
     sha256 cellar: :any,                 arm64_big_sur:  "83f629599c7c6ab7f4598fdd16fb922965fe917fc8c28660684eecd70ee5afee"
     sha256 cellar: :any,                 monterey:       "f60cd6918e318111cc6844c07c7b028de75d92a7db8dbfd5962735ece383119c"
