@@ -6,6 +6,7 @@ class ForkCleaner < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bde0e2723b9702064f844e1041af6bb5817461d070279349f974946b93b3d82"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7bb9884000c308e93182a1a3fd85f5763085e2dcfce62a33ae123bc06fdda42d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83f76a38e1962eeb871e00a3171791e70af5f3f0ab5d134fa6437b875f577bc6"
     sha256 cellar: :any_skip_relocation, monterey:       "fadca52e9366303de45eb299a8d79b7032d77216eccae4a575dc866c5be7ba35"
