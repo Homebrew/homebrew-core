@@ -8,6 +8,7 @@ class FcitxRemoteForOsx < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19fd67359a908b63ee833bcca9c4fb8eb0ea07c3e91aeb3c0fe8a859b889bcd2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b7b351e505dc719fa8835ddeb9675b58468332f3ceb6d084ae78adfb833ff98b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "693873758b57d18c931cae6a207f3e9662b4ee390c0cd78fe575768021cc45c5"
     sha256 cellar: :any_skip_relocation, monterey:       "510392afb707d7dbb4559688c000b6207c8aad09f2e53e12bf01365721f53939"
