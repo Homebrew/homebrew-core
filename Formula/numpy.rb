@@ -4,6 +4,7 @@ class Numpy < Formula
   url "https://files.pythonhosted.org/packages/64/8e/9929b64e146d240507edaac2185cd5516f00b133be5b39250d253be25a64/numpy-1.23.4.tar.gz"
   sha256 "ed2cc92af0efad20198638c69bb0fc2870a58dabfba6eb722c933b48556c686c"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
@@ -19,7 +20,7 @@ class Numpy < Formula
   depends_on "gcc" => :build # for gfortran
   depends_on "libcython" => :build
   depends_on "python@3.10" => [:build, :test]
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "openblas"
 
   fails_with gcc: "5"
