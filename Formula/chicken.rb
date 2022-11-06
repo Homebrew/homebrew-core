@@ -13,6 +13,7 @@ class Chicken < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "725c379c3149258014d47f3020e0fe1f884f3597d5e7ebd95fe60ac384b94873"
     sha256 arm64_monterey: "735eaf1eff7d654129834cf32300deaa9967a154a05e8d646715061a817dbccd"
     sha256 arm64_big_sur:  "41364c265c005a36f35b92e71e5442b478a31350ec2c3fdc56014a89b01b49ed"
     sha256 monterey:       "5f24e343e712def1c09cff350d1ee69abd79a23699d64d766e36072933390699"
