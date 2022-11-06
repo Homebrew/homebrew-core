@@ -11,6 +11,7 @@ class Immudb < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a668e40a18a6b33a46434289c88fc5de9b961ec97b011ebccaa6a88338ccd55"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "752c096961faf8b18457bdc42c8f470dceafdf36da7134936b912747423a4a61"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ade3697ff2a7776a2dbf262c07a57792fb7e2a7441451ea29895c7ece6f88915"
     sha256 cellar: :any_skip_relocation, monterey:       "29c82da68bbf580b952b72472dcf550b11bdda21c2a9bc8903a1548f4dd65a04"
