@@ -64,10 +64,10 @@ class Openvpn < Formula
     (var/"run/openvpn").mkpath
   end
 
-  plist_options startup: true
   service do
     run [opt_sbin/"openvpn", "--config", etc/"openvpn/openvpn.conf"]
     keep_alive true
+    require_root true
     working_dir etc/"openvpn"
   end
 
