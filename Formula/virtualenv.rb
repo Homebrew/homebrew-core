@@ -10,6 +10,7 @@ class Virtualenv < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "709f282663bfed72b16371b2c977eb4179aa07cd05d4b712a9a6caf99eac9bb5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "134df55fcb565f7bf9ca7ce0a69cddaad1aaf7dd6280abb5148439e1ac6f9152"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fab6e8338cc34aec175317bd004c363b432664c302fdcf3766723528136693ec"
     sha256 cellar: :any_skip_relocation, monterey:       "a48b680f160522a7c26f5589e5c892504e48fe832fb7a20ba0586c56e6745b0d"
