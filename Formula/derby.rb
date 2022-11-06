@@ -27,8 +27,6 @@ class Derby < Formula
     (var/"derby").mkpath
   end
 
-  plist_options manual: "DERBY_OPTS=-Dsystem.derby.home=#{HOMEBREW_PREFIX}/var/derby #{HOMEBREW_PREFIX}/bin/startNetworkServer"
-
   service do
     run [opt_bin/"NetworkServerControl", "-h", "127.0.0.1", "start"]
     keep_alive true
