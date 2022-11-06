@@ -7,6 +7,7 @@ class GitBranchless < Formula
   head "https://github.com/arxanas/git-branchless.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6cb63a27d7af6e206467f26bb963b10d4e4130fa4135e93aabc802111c289758"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cfbc8bc603e716d8eeee574b15e24a3c1bab54e2c90513a97095081d6f67b616"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d7506dece1acd940a882d6679386351bef5ec3bec259370249a9c4d1703109e"
     sha256 cellar: :any_skip_relocation, monterey:       "5e7373546f19bce2386ef60c04f66bd05fb5818febc11014260dfec64a0bdae3"
