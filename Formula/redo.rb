@@ -12,7 +12,7 @@ class Redo < Formula
     sha256 cellar: :any_skip_relocation, all: "acf6514ab6680a75295138f1fa292008eda79e13059a48f825fb74dd5c24bc06"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/e8/b0/cd2b968000577ec5ce6c741a54d846dfa402372369b8b6861720aa9ecea7/beautifulsoup4-4.11.1.tar.gz"
@@ -30,7 +30,7 @@ class Redo < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     # Prevent system Python 2 from being detected
     inreplace "redo/whichpython.do", " python python3 python2 python2.7;", " #{python3};"
 
