@@ -58,16 +58,15 @@ class Ddclient < Formula
       The next reboot of the system will automatically start ddclient.
 
       You can adjust the execution interval by changing the value of
-      StartInterval (in seconds) in /Library/LaunchDaemons/#{plist_path.basename}.
+      StartInterval (in seconds) in /Library/LaunchDaemons/#{launchd_service_path.basename}.
     EOS
   end
-
-  plist_options startup: true
 
   service do
     run [opt_bin/"ddclient", "-file", etc/"ddclient.conf"]
     run_type :interval
     interval 300
+    require_root true
     working_dir etc/"ddclient"
   end
 
