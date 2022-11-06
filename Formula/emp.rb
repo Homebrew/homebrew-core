@@ -6,6 +6,7 @@ class Emp < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "292441699541a16506dbbaae20b3893bcc9a0a10d8630c321930232657feed06"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2a2ed40bd0b729d13c28d385df50f830c92d3dd903c4634a76356d02e7f052f7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bfccd6cfc36dacb8a846ee189016ee6fb04b5d27a5941a225d87a4b9c44552cc"
     sha256 cellar: :any_skip_relocation, monterey:       "feac9d1b6f8545cc0b5b40c8c461c592d7ed0ce293b936dc17164b9e5bc14d01"
