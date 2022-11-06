@@ -8,6 +8,7 @@ class Jabba < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f3bdbc2e3701682b298b0e838f5cfb784ad2b9ef50f00490a459e77a63eba71"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "93e599fb7c61971f2d76c7c37254dfe5a407e604c3e64b27ba026e46124a8f96"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72cd725e75b0d214c6cbc03bc87fcb15d9b824ea24eba43f267cdfc768edf460"
     sha256 cellar: :any_skip_relocation, monterey:       "8f142b8c305812437a8927250d4164b94015af9ed28282bc008e1d034a227000"
