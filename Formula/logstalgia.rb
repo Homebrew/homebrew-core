@@ -45,8 +45,7 @@ class Logstalgia < Formula
     # Handle building head.
     system "autoreconf", "-f", "-i" if build.head?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--with-boost-libdir=#{Formula["boost"].opt_lib}",
                           "--without-x"
     system "make"
