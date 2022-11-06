@@ -6,6 +6,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/6.4/6.4.0/single/qt-everywhere-src-6.4.0.tar.xz"
   sha256 "8936b0354d95fa26e87be65cc9c840495360ad93fd09b069bc780cbcab4a2ca1"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
