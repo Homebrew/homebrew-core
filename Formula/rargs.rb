@@ -6,6 +6,7 @@ class Rargs < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "778be1e28f2fef0f6ad7b50016a556ed375cc339742886e5325a825853104666"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d81546031c634e6fe7fcfd1bf0c9c9bfa0a9c2383942b2fe61e12186e9f452b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c71f1e62276add0bbd57cf43b004a30344374aa1b598185a366f20fb00bae55"
     sha256 cellar: :any_skip_relocation, monterey:       "203ce1596b233bb676e79bafd0f3764c781cdd33def57fc3b88dedb42799b62b"
