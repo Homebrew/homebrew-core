@@ -25,8 +25,6 @@ class Etcd < Formula
     bin.install Dir[buildpath/"bin/*"]
   end
 
-  plist_options manual: "etcd"
-
   service do
     environment_variables ETCD_UNSUPPORTED_ARCH: "arm64" if Hardware::CPU.arm?
     run [opt_bin/"etcd"]
