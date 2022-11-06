@@ -24,11 +24,10 @@ class Sdns < Formula
     bin.install "sdns"
   end
 
-  plist_options startup: true
-
   service do
     run [opt_bin/"sdns", "-config", etc/"sdns.conf"]
     keep_alive true
+    require_root true
     error_log_path var/"log/sdns.log"
     log_path var/"log/sdns.log"
     working_dir opt_prefix
