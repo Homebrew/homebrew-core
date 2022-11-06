@@ -8,6 +8,7 @@ class Minizinc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "1193b0a0333c98a90e740e7b83494bd2b2c594cdf58f78c330daee0ee5827206"
     sha256 cellar: :any,                 arm64_monterey: "1e9b22bedeac1d802335797e45a482806b607aa20b1a38e406f10fcb0d933473"
     sha256 cellar: :any,                 arm64_big_sur:  "4543525b1036daa085faff48d9ea158bcb029683f2b207be1f4c86832d1169b0"
     sha256 cellar: :any,                 monterey:       "08544ad457361b71dd8bb8b223d22e4c4ccbcb9dd544d5f706a50a177414ef8e"
