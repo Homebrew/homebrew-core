@@ -43,6 +43,7 @@ class Moc < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "d384eac5db501bffc4ca293814999bd211a30aa8d8c51608264c141ecae0e588"
     sha256 arm64_monterey: "76a10d22e284b7082d386b7850b228ba8c7b8a39e0af5fe8dd3bfda8ee5e8504"
     sha256 arm64_big_sur:  "748bce503189849012269695eaa9da403d63944d480b5f65912efd30abe75937"
     sha256 monterey:       "3ef692dc6ca98b8613faab3346997a9bf908180569ef437404c1fe2183d8c414"
