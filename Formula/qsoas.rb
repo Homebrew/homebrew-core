@@ -11,6 +11,7 @@ class Qsoas < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6f116ab05d4d3623c399962c72528fc9e8f97a61abab2014ccd18c78a1e235fe"
     sha256 cellar: :any,                 arm64_monterey: "49f6b58cb6d42a6ccae90d8e04eb6dccc0a57ff0bb11e192bdd6d31fd37c80f1"
     sha256 cellar: :any,                 arm64_big_sur:  "fd49438c3fc4171cbeef6e1a9d1366be8782e6417adcd4333566c479d77e6644"
     sha256 cellar: :any,                 monterey:       "51804fe94d9b83e9c203a3a9f7ec9ec8f3a187fb664723e3abdf89b339d0be79"
