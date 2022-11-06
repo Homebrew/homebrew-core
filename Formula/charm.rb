@@ -6,6 +6,7 @@ class Charm < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2235de1789688bdc50e5e8443b4748a52dd36c7887e4d6b20d9e41417c5cdad0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f0cac05e7c2c0990fd6c186405a13c832ff84b47fb77c2928aab7c29548b670"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "406f7bc14f44bd5462dde85da36d37cf5218ba7db06f7e27121ca2cc504d4eb8"
     sha256 cellar: :any_skip_relocation, monterey:       "117bca978b5d65dc38f4e63d54ca0ef24f3b3e8cc808c97488854afb3a48a2ba"
