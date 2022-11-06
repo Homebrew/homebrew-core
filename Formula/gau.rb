@@ -7,6 +7,7 @@ class Gau < Formula
   head "https://github.com/lc/gau.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff3c4dfa76c55fb3d9f4aca25dd7311e32a8cf68c3eef0a59730ba93b01242d0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "69fa3291ac27be667e85c304dc09bb66375c51baeb5fcee0611a370aa0880c0b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c6825916653f661d5a7ef5179185d2d68315c8bd08a34b0c788abbf05574e2e"
     sha256 cellar: :any_skip_relocation, monterey:       "fbfb406d2af502acf270b0907466ae1c8a94172ef8e22c87f5bdb3b7ca6f1cec"
