@@ -11,17 +11,13 @@ class Libotr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "116be56f3984c24515edfed3f57dbf20845d7cb132b1286f6529cfb6ddb39051"
-    sha256 cellar: :any,                 arm64_monterey: "5bec49cd5eed27e30367920033e87d1e40e2857fb3189f3eea37b79e269460ef"
-    sha256 cellar: :any,                 arm64_big_sur:  "d3f0dce4e18d75daa3563be158054d7f5c92f4de80e5169dfaf7f9b785deed8d"
-    sha256 cellar: :any,                 monterey:       "780996159fd32cfe192acbde0b7a689473a0036b86473d468348e45ca38dcfad"
-    sha256 cellar: :any,                 big_sur:        "783eead021ab3ddb3897f8c40e91bd6aec58e5084ef1df3c45a98550591ad29c"
-    sha256 cellar: :any,                 catalina:       "b841026a4752756107affe9f6016da14ea5a9a0a48b33ccd461eced5cd89b64a"
-    sha256 cellar: :any,                 mojave:         "90da0033157a7771cf7239d038f36e0d613616f1918a168fa763f3e2eafc0106"
-    sha256 cellar: :any,                 high_sierra:    "0b340441feba4b325c3ff5c26a9e79b16294461f6f681ae42a2a5d45966e7391"
-    sha256 cellar: :any,                 sierra:         "9f0b214278e4cdf81a1a0c083f1aa45ba64430b449121c4d0596357952dcc93d"
-    sha256 cellar: :any,                 el_capitan:     "43d7a166cd12b611e7bf15dfa3865d18e573a81a218e2aeb0061d51203ecde39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6aa94cf47042090f80a21474fe5e29203fa5cda8e10900b1dc1d4065f93e716f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "fe41c2686379f8b67aafc307e703775ab8060fb074734561e67cdc958a912e45"
+    sha256 cellar: :any,                 arm64_big_sur:  "f6a94af91827558244757f9fe7d856251f0b7b2de78e1ee38f6059808f1f51e7"
+    sha256 cellar: :any,                 monterey:       "afa5f29cdb8a4a6618ecea8a75129679c6ade432cdae03f1e31caadeec8ddadd"
+    sha256 cellar: :any,                 big_sur:        "f59b69aa5af8b636f8bea1511fa63fed116f9c9571864fb7b44c21655e8a099b"
+    sha256 cellar: :any,                 catalina:       "8ecf904a816fc69adc5e8fe904ca2ef1b1d147090d2f6ee694ad6b5c07faa02c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a88f909cde9e876f1f3a9ffe30d2ba483715ba3fc03c188f78bc07758a18491"
   end
 
   depends_on "libgcrypt"
