@@ -10,14 +10,13 @@ class Shyaml < Formula
   head "https://github.com/0k/shyaml.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9009974af23b09738242e67430f7f3c061b189d5fb95d5e3236959d0546fb5a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bd44bdde266597560427182e4b9d659b5e816453d3823afaad0de6e4871e117"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2bd44bdde266597560427182e4b9d659b5e816453d3823afaad0de6e4871e117"
-    sha256 cellar: :any_skip_relocation, monterey:       "97f94a0d59c81a8dd508c5e30ab09c308933964072872b0f8a042f392b2dbd5c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "97f94a0d59c81a8dd508c5e30ab09c308933964072872b0f8a042f392b2dbd5c"
-    sha256 cellar: :any_skip_relocation, catalina:       "97f94a0d59c81a8dd508c5e30ab09c308933964072872b0f8a042f392b2dbd5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34c55cf325106d8d40eaa08d186f657a812103d0b20fa19386d624fdd5c00bd4"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "97c0a29a8a83f03d4fb8f04cee9932cc696308b9ceec4590cfb4f30caa8be9c8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97c0a29a8a83f03d4fb8f04cee9932cc696308b9ceec4590cfb4f30caa8be9c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "083e980a2579d509ae832e64e27b676d32b15b4ab8c5b85ac381f9a116e5c706"
+    sha256 cellar: :any_skip_relocation, big_sur:        "083e980a2579d509ae832e64e27b676d32b15b4ab8c5b85ac381f9a116e5c706"
+    sha256 cellar: :any_skip_relocation, catalina:       "083e980a2579d509ae832e64e27b676d32b15b4ab8c5b85ac381f9a116e5c706"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9692d49037767d99705665957e0b26aa3a9f5619b06ed57d09a63aa4c176c510"
   end
 
   depends_on "python@3.11"
