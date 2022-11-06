@@ -6,6 +6,7 @@ class Cgal < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "897f5c47b844d9497988a93992966d7927917e86a12ae91a1f217480bac7727e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "897f5c47b844d9497988a93992966d7927917e86a12ae91a1f217480bac7727e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "897f5c47b844d9497988a93992966d7927917e86a12ae91a1f217480bac7727e"
     sha256 cellar: :any_skip_relocation, monterey:       "f9735a2ec181081f7dd63984266ed8ac97c337a17607c0b20fe25d267893bce8"
