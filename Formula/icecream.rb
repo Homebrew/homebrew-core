@@ -6,6 +6,7 @@ class Icecream < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "95f69b28c10fbe5af6475f27d70bf86279839de46ef27c3ea08e76b8fa97772d"
     sha256 arm64_monterey: "053f5583b18d4201020f59f9d4481a2d6c0b584c5bb3297038ddd9653d70998e"
     sha256 arm64_big_sur:  "1a26f6bb194f5e27212c555783574c81d56f4fcb5e3bdc410278f8f74b128016"
     sha256 monterey:       "781ad1cb41ba91d5bd7b2f6763807b3fd89a0ff30b572b8ec77273d713867c1e"
