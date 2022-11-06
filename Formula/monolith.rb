@@ -6,6 +6,7 @@ class Monolith < Formula
   license "CC0-1.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03350686a7d15fc9a6b183a6d00bde0d870f525d86f8974f652f71936c31d09e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eaaeccf00d6cb47df1450226435c8aac79a3382ab8e15359a564a9b8caaa2d1c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e969e57c6da559b1e4e980718c2cdec6e304afa125de78df4c5b8358adc52a3c"
     sha256 cellar: :any_skip_relocation, monterey:       "56e363ad822621940bd16b849fd34193c726b152fb6d1ff2a19fa3212ec35fa2"
