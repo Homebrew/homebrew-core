@@ -6,7 +6,7 @@ class ReorderPythonImports < Formula
   url "https://files.pythonhosted.org/packages/23/98/f2c8c5ee8cc406e1352b5aaad7b2f927b9a5a081ee2050eb302f5ec1b780/reorder_python_imports-3.9.0.tar.gz"
   sha256 "49292ed537829a6bece9fb3746fc1bbe98f52643be5de01a4e13680268a5b0ec"
   license "MIT"
-  head "https://github.com/asottile/reorder_python_imports.git", branch: "master"
+  head "https://github.com/asottile/reorder_python_imports.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c5392b56861be438f94f6b544ccdca633983d013fe0992efb6a44a45c5b8c8cc"
@@ -17,7 +17,7 @@ class ReorderPythonImports < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ce00adab341dda206b057c869780ac3a1b291416fbd9c20ba685bd68dd6bab6"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "classify-imports" do
     url "https://files.pythonhosted.org/packages/7e/b6/6cdc486fced92110a8166aa190b7d60435165119990fc2e187a56d15144b/classify_imports-4.2.0.tar.gz"
