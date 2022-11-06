@@ -26,6 +26,7 @@ class Bic < Formula
     uses_from_macos "flex" => :build
   end
 
+  depends_on arch: :x86_64
   depends_on "gmp"
 
   on_linux do
