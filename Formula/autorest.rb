@@ -9,6 +9,7 @@ class Autorest < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51a39e452f112f91d8bd1ac7e9e9cc2f5d1612a12d28d361834d1764f01351f2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "51a39e452f112f91d8bd1ac7e9e9cc2f5d1612a12d28d361834d1764f01351f2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51a39e452f112f91d8bd1ac7e9e9cc2f5d1612a12d28d361834d1764f01351f2"
     sha256 cellar: :any_skip_relocation, monterey:       "3932fb81b47d69a39aad649dd24e2c5b0e264fe88d44d35e9a27c0a68238dba7"
