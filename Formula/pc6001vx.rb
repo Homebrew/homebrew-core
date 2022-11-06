@@ -7,6 +7,7 @@ class Pc6001vx < Formula
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c2ee1e2052efdf141cc20a5e771550a0ee94e0ff84140f331e157830c3040244"
     sha256 cellar: :any,                 arm64_monterey: "1fd959ab3d6b3527a09659b2db4df78f8892714758b106a3e47b76fcb4f2dec0"
     sha256 cellar: :any,                 arm64_big_sur:  "76c031d32a5e08a6662aa4eb9fb608624132d40981928fe3123b4609abd8f9ef"
     sha256 cellar: :any,                 monterey:       "cd638bc927e069d8705fb94da9b09095b2e567b86d431370b03b0f3605f74a24"
