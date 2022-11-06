@@ -33,11 +33,10 @@ class Coredns < Formula
     bin.install "coredns"
   end
 
-  plist_options startup: true
-
   service do
     run [opt_bin/"coredns", "-conf", etc/"coredns/Corefile"]
     keep_alive true
+    require_root true
     working_dir HOMEBREW_PREFIX
     log_path var/"log/coredns.log"
     error_log_path var/"log/coredns.log"
