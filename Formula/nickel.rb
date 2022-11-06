@@ -7,6 +7,7 @@ class Nickel < Formula
   head "https://github.com/tweag/nickel.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2ad67591caaee4e57256fb71b4f445f2cad76e48250f3cdbc42b0936cc683ce"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9864db5e41a84b93dc2def0fccd28d456ce9c0de1ec873f62684678c0c7642e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d5f863e975748707648c3dbc3e9cb41e789ed33ffa279294f532188acdb41c9"
     sha256 cellar: :any_skip_relocation, monterey:       "67ba03994f9aa78abd09282ddcaf8ae7cd86c540ac1dfd3cf81c21216aac5f4a"
