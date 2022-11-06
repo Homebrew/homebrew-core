@@ -27,6 +27,7 @@ class Shaderc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4b7c7c74437042176927dc761ad0096dd8948b0450fc607d89983358c4d5c631"
     sha256 cellar: :any,                 arm64_monterey: "174b4530be3be6516e880e96c10cc1076ea951417e145a293163680bd98fa833"
     sha256 cellar: :any,                 arm64_big_sur:  "e8947021cb1ef2e7a79ea4a64ca3050cd94737adb6b6b89f94dcaf34c5387bb8"
     sha256 cellar: :any,                 monterey:       "201b023ce23b2c17eba2395505373630d0688e76d9cce84c0fd334ae2f0f96a7"
