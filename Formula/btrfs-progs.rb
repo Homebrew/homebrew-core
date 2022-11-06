@@ -25,7 +25,7 @@ class BtrfsProgs < Formula
   depends_on "zstd"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-python"
+    system "./configure", "--disable-python", *std_configure_args
     # Override `udevdir` since Homebrew's `pkg-config udev --variable=udevdir` output
     # is #{Formula["systemd"].lib}/udev. This path is used to install udev rules.
     system "make", "install", "V=1", "udevdir=#{lib}/udev"
