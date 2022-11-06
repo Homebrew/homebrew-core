@@ -137,8 +137,6 @@ class Httpd < Formula
     EOS
   end
 
-  plist_options manual: "apachectl start"
-
   service do
     run [opt_bin/"httpd", "-D", "FOREGROUND"]
     environment_variables PATH: std_service_path_env
