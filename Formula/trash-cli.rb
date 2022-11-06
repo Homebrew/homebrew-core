@@ -18,7 +18,8 @@ class TrashCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "721ce0320688a237da9f4dc1b20a72f5d325006d85607d334fcbc1d67aa01203"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+  depends_on "six"
 
   conflicts_with "macos-trash", because: "both install a `trash` binary"
   conflicts_with "trash", because: "both install a `trash` binary"
@@ -28,13 +29,9 @@ class TrashCli < Formula
     sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   def install
     virtualenv_install_with_resources
+    man1.install_symlink libexec.glob("share/man/man1/trash*.1")
   end
 
   test do
