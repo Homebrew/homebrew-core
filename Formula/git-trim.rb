@@ -6,6 +6,7 @@ class GitTrim < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b7200ac6014294cd7832080b467ace9e3f178e8ce36923b8847a5c7e92ce1dba"
     sha256 cellar: :any,                 arm64_monterey: "3cd1f15388555fd2bb5f4fd580f315e1bada283d4f4ce6aa2411bbfbd7c3b079"
     sha256 cellar: :any,                 arm64_big_sur:  "0fbf3f4908554abfcda3a7b49c8f49bc878152dcbaad4d4fa8c19cce9f6b2f6a"
     sha256 cellar: :any,                 monterey:       "145445f0a7f6267c1490fa94bec8dcf71abc693759bfd129059528e9347a0a12"
