@@ -8,6 +8,7 @@ class Pymol < Formula
   head "https://github.com/schrodinger/pymol-open-source.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1086122cf89aef21f98f86a4797bcd27bbc30b1d40b24f299ec2b8580e86fd51"
     sha256 cellar: :any,                 arm64_monterey: "442a19b90c0c409a6e28b1a5109d1488eaf32517af39a4581990376dcbc29e8d"
     sha256 cellar: :any,                 arm64_big_sur:  "d8c8ce1d39303aae9ca9164d66ffce27a2ee630fd5d87207798d9cbf8e698c1f"
     sha256 cellar: :any,                 monterey:       "28739ca1c31b44f22d62f2d1becd25f0abc0e3712d935756283e6d5f9a2bb8ba"
