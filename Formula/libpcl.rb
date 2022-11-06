@@ -22,6 +22,8 @@ class Libpcl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "4477cd796405dfbf475dc7f65339aac5bba8fdf4d9027724c479edaf6f3f2553"
   end
 
+  depends_on arch: :x86_64
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
