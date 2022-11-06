@@ -7,6 +7,7 @@ class OhMyPosh < Formula
   head "https://github.com/JanDeDobbeleer/oh-my-posh.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ee951f43c21ce7d9a23e3b763af4a15ca43ee27366e029e837f27c1246b7942"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b8583c5ab41fd176a7f5eab206a2c661134410b3a7e85010d0ebc08126887429"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c69e67d09d093069bd7289ac7acb2ad5dfed587f916807130c023296f51d8be"
     sha256 cellar: :any_skip_relocation, monterey:       "5281dd0eb2bacbe460b486a59861092f40544e10c631a989b2a3ece72dfc2b33"
