@@ -26,10 +26,10 @@ class Nebula < Formula
     prefix.install_metafiles
   end
 
-  plist_options startup: true
   service do
     run [opt_bin/"nebula", "-config", etc/"nebula/config.yml"]
     keep_alive true
+    require_root true
     log_path var/"log/nebula.log"
     error_log_path var/"log/nebula.log"
   end
