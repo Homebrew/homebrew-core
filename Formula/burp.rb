@@ -78,12 +78,11 @@ class Burp < Formula
     EOS
   end
 
-  plist_options startup: true
-
   service do
     run [opt_bin/"burp", "-a", "t"]
     run_type :interval
     keep_alive false
+    require_root true
     interval 1200
     working_dir HOMEBREW_PREFIX
   end
