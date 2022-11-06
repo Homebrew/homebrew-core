@@ -12,6 +12,7 @@ class Rgbds < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "cb17e7cf53292ba0c8159f0b87749fb95b01d8a0fe143e5220af01eb11722eac"
     sha256 cellar: :any,                 arm64_monterey: "8825196bc19415872f2b9b65bf3ce7e91ec8d1bddb43c74e40838cd273c79421"
     sha256 cellar: :any,                 arm64_big_sur:  "32163f2fc3313e80a91136a980a996c48b15d2dfa9aa3767ab9fedd8ea26f0f3"
     sha256 cellar: :any,                 monterey:       "ae055f9546c5ccc0ff4f05cc02ef28a79802293baaf8d404171783449d8cf82f"
