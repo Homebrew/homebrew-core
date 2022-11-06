@@ -1,8 +1,8 @@
 class Werf < Formula
   desc "Consistent delivery tool for Kubernetes"
   homepage "https://werf.io/"
-  url "https://github.com/werf/werf/archive/refs/tags/v1.2.184.tar.gz"
-  sha256 "27fb874542b7449291d9fdde966338ee473fca47d1245b14531c2c56275bdf6f"
+  url "https://github.com/werf/werf/archive/refs/tags/v1.2.187.tar.gz"
+  sha256 "45818683bdf52ea4385510f885129dc13941438b995e0b4bcb7299823230d384"
   license "Apache-2.0"
   head "https://github.com/werf/werf.git", branch: "main"
 
@@ -23,12 +23,29 @@ class Werf < Formula
   end
 
   depends_on "go" => :build
-  # due to missing libbtrfs headers, only supports macos at the moment
-  depends_on :macos
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "btrfs-progs"
+    depends_on "device-mapper"
+  end
 
   def install
-    ldflags = "-s -w -X github.com/werf/werf/pkg/werf.Version=#{version}"
-    tags = "dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp"
+    if OS.linux?
+      ldflags = %W[
+        -linkmode external
+        -extldflags=-static
+        -s -w
+        -X github.com/werf/werf/pkg/werf.Version=#{version}
+      ]
+      tags = %w[
+        dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp
+        osusergo exclude_graphdriver_devicemapper netgo no_devmapper static_build
+      ]
+    else
+      ldflags = "-s -w -X github.com/werf/werf/pkg/werf.Version=#{version}"
+      tags = "dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp"
+    end
 
     system "go", "build", *std_go_args(ldflags: ldflags), "-tags", tags, "./cmd/werf"
 
