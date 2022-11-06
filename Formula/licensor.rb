@@ -7,6 +7,7 @@ class Licensor < Formula
   head "https://github.com/raftario/licensor.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c92c8617711ac707477b3af6409cf0d3fd2bb4f6ec8c64afca97713cab03355"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ced2f38da0f60e150836a6e9b5a8d4552f74779ef3059c708c1a325c6e8b7a00"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b107c7fdf50267fca917c134940c0147cd4604ecb0ad1c2df0c2deeddc62b542"
     sha256 cellar: :any_skip_relocation, monterey:       "8444527ca924949045edce53ff444f25b96823ab8d99835d4e60cc9264576379"
