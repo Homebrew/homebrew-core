@@ -18,23 +18,17 @@ class Stgit < Formula
   end
 
   depends_on "asciidoc" => :build
+  depends_on "rust" => :build
   depends_on "xmlto" => :build
-  depends_on "python@3.10"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3.10"
-
-    site_packages = prefix/Language::Python.site_packages("python3.10")
-    inreplace "Makefile", "$(PYTHON) setup.py install",
-                          "$(PYTHON) setup.py install --install-lib=#{site_packages} --install-scripts=#{prefix}/bin"
-
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make", "prefix=#{prefix}", "all"
     system "make", "prefix=#{prefix}", "install"
     system "make", "prefix=#{prefix}", "install-doc"
-    bash_completion.install "completion/stgit.bash"
-    fish_completion.install "completion/stg.fish"
-    zsh_completion.install "completion/stgit.zsh" => "_stgit"
+    system "make", "prefix=#{prefix}", "USE_ASCIIDOCTOR=1", "install-man"
+    # bash_completion.install "completion/stgit.bash"
+    # fish_completion.install "completion/stg.fish"
+    # zsh_completion.install "completion/stgit.zsh" => "_stgit"
   end
 
   test do
