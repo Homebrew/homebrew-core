@@ -6,6 +6,7 @@ class Atmos < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bfbddf0e8711c7b1ac442111220063df043f0de98d7b8cdd7096087b7f8df3e9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c35fbbe19dac1551ce7ed71bda363ce23d373c2faad39bf2afe5b4fe7269cd3f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "090c015034eafc00d7bc33467d1acf1df7f17922c6fc9f8d712e61e1093140af"
     sha256 cellar: :any_skip_relocation, monterey:       "ea2282c3f4149a6dd595f760acbc97fe26d088a8837238bb0e1afb7ac4a0e3ef"
