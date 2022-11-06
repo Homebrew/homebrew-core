@@ -6,6 +6,7 @@ class Epinio < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f133a5604d1db37f7b0b8a5db0f430bf9ce545aea33af52cdd22e7c562786e9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aeb0b440b90072f6110c301b9dd034a243f3575e277a4fe52c69307fb25b3268"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "859043f587437fb8891a65fa0d5f3f13352be71d78368e349f003e0155adbe07"
     sha256 cellar: :any_skip_relocation, monterey:       "05ad17370f33778d1f730a1a7524c1c743acd280fda304e132db34f3b8852e06"
