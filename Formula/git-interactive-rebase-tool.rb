@@ -11,6 +11,7 @@ class GitInteractiveRebaseTool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5faa42fb7474744e9c2b5448043dde3ead40fbcbbd24dbd43950302369afc4a2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5b9727e1d5aec0e849818716a0fa4f14c6d02acb328ccd63948e722f654fc2c1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e88ba510f016b5dbdefceabde27bc5936a5deafbda134cfd8506431d0ddff15"
     sha256 cellar: :any_skip_relocation, monterey:       "82c9e95663d8c05cf158893598efced283ed431b13a4e68bd480daff9710d904"
