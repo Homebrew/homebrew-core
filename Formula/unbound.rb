@@ -61,10 +61,10 @@ class Unbound < Formula
                     "username: \"#{ENV["USER"]}\""
   end
 
-  plist_options startup: true
   service do
     run [opt_sbin/"unbound", "-d", "-c", etc/"unbound/unbound.conf"]
     keep_alive true
+    require_root true
   end
 
   test do
