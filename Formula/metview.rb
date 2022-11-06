@@ -13,6 +13,7 @@ class Metview < Formula
     sha256 monterey:       "c45814f3848ac335a37e4d3f1cc21d00407e04945ecc8ad815f309eb1ce591f5"
     sha256 big_sur:        "f622ea0f7fd6cc5984399b58d8a80d434f91aeb2ea4c45bab2b730aec645d135"
     sha256 catalina:       "a48faecade4a7feb1da6e2b6b76b8151318a2cc34077967abcebe64272910fbb"
+    sha256 x86_64_linux:   "1e4793c46e346be50c539edfee0934dc750dc278779a781e10c401f59013f1e6"
   end
 
   depends_on "cmake" => :build
