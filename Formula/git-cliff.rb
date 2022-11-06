@@ -6,6 +6,7 @@ class GitCliff < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ad15aad29be9cee631779fddaf32a91e7dd0c556e8393d1e9bbfd82833f9135"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9439d7732cfbe058b31a5185726be7570bf91ac25d679df48e15e44ba695a246"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04655ae29ff3778d05b85f66cca011f5226880f4cd35dd34750c6685daf48445"
     sha256 cellar: :any_skip_relocation, monterey:       "5b73b99a8c598bdf386e42a0ea36a578f4778ecee7669cafce87e5ee0f0175f0"
