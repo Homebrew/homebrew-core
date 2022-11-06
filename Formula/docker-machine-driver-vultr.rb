@@ -8,6 +8,7 @@ class DockerMachineDriverVultr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9eac2e453fb12dfc95df44c84afa1e502f92e7d0b49922ec2028ddcddf3ad036"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6e99d94cf096740acbfb7569e571bedcfcea8fb17fa084cd60395c6b668c74aa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53bbef8c94f0a9dbe4aabb21ad4573b66e3aac1991730cbc4c4624650918b7a6"
     sha256 cellar: :any_skip_relocation, monterey:       "fa38432759e28dfa52ee3e482109b7c20ca70221596e87c4282a8b929a5c9210"
