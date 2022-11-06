@@ -19,7 +19,7 @@ class Pdm < Formula
   end
 
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "blinker" do
@@ -158,8 +158,8 @@ class Pdm < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/46/57/f39f082f448205ec06a771fe30eec77ed650c0c8e3f7d7f193e12efb4fd4/wheel-0.38.0.tar.gz"
-    sha256 "d52844afee64cdd4bb28061ba6b5c06818b237fb490263e0dbea227080f7d2d7"
+    url "https://files.pythonhosted.org/packages/a4/5b/0718aa11e3360f97feb81ddcb19cbb9306df0a17bef7c360f8939d2629b8/wheel-0.38.2.tar.gz"
+    sha256 "3d492ef22379a156ec923d2a77051cedfd4df4b667864e9e41ba83f0b70b7149"
   end
 
   def install
