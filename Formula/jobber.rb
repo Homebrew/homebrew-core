@@ -27,10 +27,10 @@ class Jobber < Formula
     system "make", "install"
   end
 
-  plist_options startup: true
   service do
     run libexec/"jobbermaster"
     keep_alive true
+    require_root true
     log_path var/"log/jobber.log"
     error_log_path var/"log/jobber.log"
   end
