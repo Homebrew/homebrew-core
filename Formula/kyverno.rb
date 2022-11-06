@@ -15,6 +15,7 @@ class Kyverno < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0aa6679bba87edeb102923f51ae8014b71adae26cfe942fabb74e3afc9121c2e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f78ab00fee254741dadd1ca4f1d8602f0dbb95b8a12db692e8bef8e249201fb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1ca9f6d995b9ecad4184406c523189f455ae8bc44df0d0ac6fa645247131fbe3"
     sha256 cellar: :any_skip_relocation, monterey:       "318496a005217d9264732c275fe3063cf5f5834fdf4cc7efc31279d9f6903893"
