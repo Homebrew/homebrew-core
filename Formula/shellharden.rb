@@ -6,6 +6,7 @@ class Shellharden < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4da53545408bb1814fbf7b1ac3872c533bdaa09f496a83df5d8fb257ec51dce4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "99c8525684651d85143be5ac387c06022d6835baed6e89186059a87965933e01"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93b47497afa27aa01162fec596e424267ef81422f56905e60c4ab3227da33d80"
     sha256 cellar: :any_skip_relocation, monterey:       "5087ce0fc26e832233f0b332db359e8f1f7fbf7a262367ac4d93a342fd398c45"
