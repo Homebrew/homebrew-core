@@ -3,8 +3,8 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://files.pythonhosted.org/packages/09/75/527fd0f2edd605e25cbe18acdf499b8ecaa83070092b7ef7dad5c9df148f/translate-toolkit-3.7.3.tar.gz"
-  sha256 "14e44dc9b187ccf51c215c57a37475a6bd3719da68104d89dc0b8f33d973dc3e"
+  url "https://files.pythonhosted.org/packages/14/be/e9c706549ebbd163a209bff1f4a191aad304b68e105757afc01eef1fcadb/translate-toolkit-3.7.4.tar.gz"
+  sha256 "5a8259ca6f735ba5068e80180256203a58ad11900faef3cd5e29dcae7a3fa312"
   license "GPL-2.0-or-later"
   head "https://github.com/translate/translate.git", branch: "master"
 
@@ -18,7 +18,7 @@ class TranslateToolkit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfd71df4565781a58c548efd648257b3fcffef099d25b6b2b3e621651d147594"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
