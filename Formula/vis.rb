@@ -7,13 +7,12 @@ class Vis < Formula
   head "https://github.com/martanne/vis.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "c56a9d6e6bd646696f063896a2e6226369ce37898ad5bbc202d5ac9418382f38"
-    sha256 arm64_big_sur:  "38e336f42ba65ee1cc621b885d364b0568fe8522ddf0ad370425b4409bc41f81"
-    sha256 monterey:       "ec510528e1658ffae66d067b89f93f586010b597d74dfccf6e5204837dba6b6d"
-    sha256 big_sur:        "4aeb0308a6d979940de003d4c2013c5c5b85eecf600b5f44351f5dae5bdfa99d"
-    sha256 catalina:       "801a96b4aa47cbe0196af84017177d9e3bde18561a75bcf3e7bee970c491973a"
-    sha256 mojave:         "4abbde51b5cf5b4451678d2d4a6d8c1279c64cac44970b3715416beffb726b0f"
-    sha256 x86_64_linux:   "d8e0518e1be04971a161c1e7dee27f5ba311b702743c865d23e61121c4b720ae"
+    sha256 arm64_monterey: "004c30d61df29525fbe9a94ef464a9ae916f099e0a075f007865c0fe90ed5739"
+    sha256 arm64_big_sur:  "95785ac7f450bed5ae94819aa7a85ac6dcc1951e35943aec9e11a3ce2cb9fced"
+    sha256 monterey:       "9ff736b13ca53eba09c26c6e849b6f0583f2d72ef757f2fe28470f32f97383e6"
+    sha256 big_sur:        "665268298b26ffa45e392f6a82f6be94378be38bd82c1cf2db7b7b7fbf94d36d"
+    sha256 catalina:       "35216215a7cda04fea95361b9094031c9ed1598bae9267c4b7776d0772a56e2d"
+    sha256 x86_64_linux:   "4834ecf328d90d800adf9b273af959d540b6b783bf5eb782ecdd3c73dbf64acd"
   end
 
   depends_on "luarocks" => :build
