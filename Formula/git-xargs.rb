@@ -6,6 +6,7 @@ class GitXargs < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "24c67b4b7e7bd62db07f4595675574c3a6114ed7a86e8596a2225ca79b8bf024"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e49c58def0241dd26f019c7f8a38389d5c4757adadf5c74184b270cc95075ad"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38fb57824be03c96ae7e20e152ff3f7fb6ced837d24ec247e518b19180d82358"
     sha256 cellar: :any_skip_relocation, monterey:       "4aef9183e49fbc62af2f588575bfa59959368a02fc0195340aa16eb14edcd9b8"
