@@ -6,6 +6,7 @@ class Ghorg < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5782968e87c9ba9169f8e117b8536bf7d03d3124bf9df65b2f3963ab8b71442"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1365ebe4b2b9464c0f4ffbfa6de06427b2c873e58eed909a0ced58ef90dda9ef"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a09f0a5a0a729d9845678a06c65a07702c3c35a547dc64a3f97d8f214907f6a"
     sha256 cellar: :any_skip_relocation, monterey:       "4f740b06c5164dcd8f77d1759f7085b481730050773c4a496e4e17303f844e04"
