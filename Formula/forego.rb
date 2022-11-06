@@ -7,6 +7,7 @@ class Forego < Formula
   head "https://github.com/ddollar/forego.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "544f9c669387997e9197bf3de714106580d23b38fbcd7ba5d5dfba80876563e7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "add9895abd190b3c092406ff31939139d7f4e84ea4b8826a3e81e701ce5a482f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae42636ee209a05effd8db31e34d9458bac997f778227eb9bab935fc3699f3fa"
     sha256 cellar: :any_skip_relocation, monterey:       "cc406f5189dfc536b2cf7cc3e9bdbc955717630027770be5c73f8684ca607a5e"
