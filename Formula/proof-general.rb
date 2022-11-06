@@ -7,6 +7,7 @@ class ProofGeneral < Formula
   head "https://github.com/ProofGeneral/PG.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6ae1aaa0a5ffc38fbc024a4f41ad6da5f128ab95e771e7358f59009587b0834"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5f8c9ac9e7c89e5d24b6045a20a08a80b20bdd6f3a93ef643e5ce3630c35d877"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f8c9ac9e7c89e5d24b6045a20a08a80b20bdd6f3a93ef643e5ce3630c35d877"
     sha256 cellar: :any_skip_relocation, monterey:       "0d3054b85b1e07a7b0eb5d07cfe387d43428c5aa4602505f08e41a8148d8f66b"
