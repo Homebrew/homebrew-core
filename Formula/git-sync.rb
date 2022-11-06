@@ -6,6 +6,7 @@ class GitSync < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0123ed528cdab6b45e2fb330aafca109124268e0cb51bb34156cefe1fc52ff74"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4369f95f913ec86ae318071ae936409897f78678395eef2ae15c2b3fbc86a7c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4369f95f913ec86ae318071ae936409897f78678395eef2ae15c2b3fbc86a7c"
     sha256 cellar: :any_skip_relocation, monterey:       "5482f3a84920d3bb05977c9c379fb32bcdb37028977ea29996a70be8bfade501"
