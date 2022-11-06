@@ -7,6 +7,7 @@ class Bk < Formula
   head "https://github.com/aeosynth/bk.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "581d657a65a4d72fb5aeff90ad37fb5ecce856d017d6ab944939d2a8309eda1d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "83888caacb2e9c2a3f168143958b4dc5d8398ed8372cfa30187780bac498d376"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7800246f87267b642a3c4c4cccd4363a26f58db3245bcdde0dd9c161a6a0ddf"
     sha256 cellar: :any_skip_relocation, monterey:       "9c45def155516544d952e060e78b44c3e9973f5e90cd25828029133d48fbcfba"
