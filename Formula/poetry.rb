@@ -10,6 +10,7 @@ class Poetry < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38125afd5781ef105f2add20f8759c7ae025761003c9df34fce1496f53624156"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b79af798ec07aa8db0558c5f7e242b00466863d05ddfd78a8aa82cbecffafec1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "538e7b5c7179d8396289523325246324f5160fddc74e04baa5a94e0cf2407167"
     sha256 cellar: :any_skip_relocation, monterey:       "f486e6d39adbc1d3cde5c13516c94ac0d9d32b5e2f549d7c2d33f1424331f626"
