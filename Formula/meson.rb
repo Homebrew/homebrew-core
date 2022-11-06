@@ -11,10 +11,10 @@ class Meson < Formula
   end
 
   depends_on "ninja"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     system python, *Language::Python.setup_install_args(prefix, python), "--install-data=#{prefix}"
 
     bash_completion.install "data/shell-completions/bash/meson"
