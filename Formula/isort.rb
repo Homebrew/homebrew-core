@@ -15,6 +15,7 @@ class Isort < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fdad61776c881cc14bb973945fe886563e181f2489a7ca0417ca21d4ba9cc326"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "15cfbe803b3c78287b20dec69d4e818faa283c3c7ee5985fe6ce813fbd942100"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7805c1a3542fad49e9c94df68de2fa0ae95f8a78205a3a30e9267c9859896b38"
     sha256 cellar: :any_skip_relocation, monterey:       "a158bd42648bb4fdd40986bad0ffc1031a7ccaa02c54beb7a1c16e3ae72f7311"
