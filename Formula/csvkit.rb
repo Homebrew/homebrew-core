@@ -9,6 +9,7 @@ class Csvkit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b178b2bae1998e65ebb48d68e118f57f0e722053d7e47d617a595f7dbd505b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cbceed0aa18930240b00e1739ec3b7ceb41213abc842e9993ba7a7ac61f4051e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1f0ed0b9c1f37be522f66f695533feda9968657fa4354349e7f89dfe5875d3f"
     sha256 cellar: :any_skip_relocation, monterey:       "45a557b4351a1865e077235243ad796597d31f1696fa82a4da48b43837bef75a"
