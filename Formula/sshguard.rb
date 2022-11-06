@@ -59,10 +59,10 @@ class Sshguard < Formula
     EOS
   end
 
-  plist_options startup: true
   service do
     run [opt_sbin/"sshguard"]
     keep_alive true
+    require_root true
   end
 
   test do
