@@ -22,11 +22,10 @@ class TrezorBridge < Formula
     system "go", "build", *std_go_args(output: bin/"trezord-go", ldflags: "-s -w")
   end
 
-  plist_options startup: true
-
   service do
     run opt_bin/"trezord-go"
     keep_alive true
+    require_root true
     working_dir HOMEBREW_PREFIX
   end
 
