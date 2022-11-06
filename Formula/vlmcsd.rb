@@ -48,8 +48,8 @@ class Vlmcsd < Formula
       To configure vlmcsd, edit
         #{etc}/vlmcsd/vlmcsd.ini
       After changing the configuration, please restart vlmcsd
-        launchctl unload #{plist_path}
-        launchctl load #{plist_path}
+        launchctl unload #{launchd_service_path}
+        launchctl load #{launchd_service_path}
       Or, if you don't want/need launchctl, you can just run:
         brew services restart vlmcsd
     EOS
