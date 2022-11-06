@@ -9,6 +9,7 @@ class GitMachete < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb246889778d307ab8d63ce107a4ca52c5d1cd30dd98bcfce44b277cefeea264"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fb246889778d307ab8d63ce107a4ca52c5d1cd30dd98bcfce44b277cefeea264"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb246889778d307ab8d63ce107a4ca52c5d1cd30dd98bcfce44b277cefeea264"
     sha256 cellar: :any_skip_relocation, monterey:       "6342587712d3ba02e4f960fbfcf332abe4364cdc697a02fb348f42768fe83736"
