@@ -7,6 +7,7 @@ class Cc65 < Formula
   head "https://github.com/cc65/cc65.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "753141cb314e207064134c09d9f31ce82f9d2ca720925f321cb81100ef3ee347"
     sha256 arm64_monterey: "9353c4052546b46967c63aabc48e64633164669129e6406f8afc2dcaac17fb89"
     sha256 arm64_big_sur:  "47405e34cd591b17d9ed65842f25ac7c6d9f61e98f21b9c403596257d7e23dae"
     sha256 monterey:       "2598003d7c24868193167d8095f1c4c22a4f46627073e480dbf7c67bba340ce3"
