@@ -6,6 +6,7 @@ class Gitbackup < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee940778c4de907a7c62a212d36bdcf18f603d4ef8a13107eb4ee8ed544fa2d8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1d252dfcf227ed7bbef92ce38e7583c30eb6076b4aea1fbda4a3787e534c08d2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1d252dfcf227ed7bbef92ce38e7583c30eb6076b4aea1fbda4a3787e534c08d2"
     sha256 cellar: :any_skip_relocation, monterey:       "fd373f206b493ec79fbcb94cca3f36e2de7881e4aef9fcb4422cf94334ba6057"
