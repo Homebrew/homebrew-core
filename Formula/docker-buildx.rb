@@ -9,6 +9,7 @@ class DockerBuildx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "678aaeb1c9cba605d9b004de0903e9ddd450d2e2b124c14e9aee614c14abafa4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "30e60e92b6d3d72c137d9cd62676a9ad3847ffeefbada5fb204dcd6934af0255"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3631233cbfcca28a2ffe46b2eaa9aa818d493a6d1df016bf2a97a7a7806cfb0f"
     sha256 cellar: :any_skip_relocation, monterey:       "04bb00b8fa1d06fffeef91d7684e723c280c6ee579af653aaf8ebf4df3d13b71"
