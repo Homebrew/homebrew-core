@@ -17,7 +17,7 @@ class YoutubeDl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d96e5082a83cd8d333f72f40592ff577a4c4ccf4e654ddf2c3e38fccbb5c1f9"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
