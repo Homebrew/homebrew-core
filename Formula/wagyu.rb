@@ -8,6 +8,7 @@ class Wagyu < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "990c5e509b9587f32004595e6d28bc553cb78923ad39714f9dc0d2f6bcb13ea7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e2c14c7661079d5874264f57eba98869611af37c89f8eb65b721200a4b252946"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42345a553422087010c9a64ac44910b4872eda94fd1cbe4adbe8d8a3959ae0af"
     sha256 cellar: :any_skip_relocation, monterey:       "80e29f883d5202eeae50bde81d9c920daca36c4329096dc89b642242c71c4c08"
