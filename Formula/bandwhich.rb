@@ -18,6 +18,14 @@ class Bandwhich < Formula
 
   depends_on "rust" => :build
 
+  # patch build
+  # upstream issue, https://github.com/imsnif/bandwhich/issues/258
+  # upstream PR, https://github.com/imsnif/bandwhich/pull/259
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/96bfb409db46dfe53b76da7682ddcf650af45921/bandwhich/0.20.0.patch"
+    sha256 "ea446f63c9e766ab9c987c83f1ca5f6759175df4e2b3e377604fd87a2b0b26de"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
