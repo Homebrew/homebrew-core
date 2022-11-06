@@ -12,6 +12,7 @@ class Asymptote < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "00722f7054eb070ab45da269cb855d8bfd0abde56cfa88a044f439616ee7dfec"
     sha256 arm64_monterey: "c5044dfe0019602c9e14206d9d60ade8da007d9e669a78847a1b0696fd4a0b1e"
     sha256 arm64_big_sur:  "c902d4ce6d6f9d6d524d2b7dae26a003596ce880ce89657b86a09fe801c5c175"
     sha256 monterey:       "6cf12080a479ee58c9c35adaf1454ef4db18c439ba47c2906b6c6f03c85b99bd"
