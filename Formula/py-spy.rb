@@ -7,6 +7,7 @@ class PySpy < Formula
   head "https://github.com/benfred/py-spy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6640d4124619c0e3d007cb0284f2fb33d393c279baee741432d586c28e48f612"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4c9528218834611e0d11368cd892d576887fa0c614cda521203b9c665b000785"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cbeb6a465786ff60f02816f708b1184612fbb27a3142cdf9731cc70f6b5ec59"
     sha256 cellar: :any_skip_relocation, monterey:       "e4e51038926d8e3e375f02c0e1511c7eb8274a40dfb4509f8d0d36e5a4ee1ff0"
