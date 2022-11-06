@@ -7,6 +7,7 @@ class Httpdiff < Formula
   head "https://github.com/jgrahamc/httpdiff.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7fcb1b3bdfb03fa3238b6e837c99668fcdc340070519d1a8e2144171be14b33"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e8e0883f20c870f02e78385ba604f33cca56c29e41037c1b42c98b9e231a1845"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "290b6c6f1c990249cc760ee510f0669dd9e317ac169be71cd5fb945a8625413e"
     sha256 cellar: :any_skip_relocation, monterey:       "868da1b5aed20834315043ee38f653e34166b799fdf4ee90aa5967de099d8c45"
