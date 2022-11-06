@@ -14,6 +14,7 @@ class GraphTool < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "d3baeec6c18f32317652ea07fb518c7a35e0ea7ba77d5e28ebb5bcf6859e1b82"
     sha256                               arm64_monterey: "cefa9e4aa514f88449e0eac1443aec41789a1837143d8bac6e4c285dce2893f7"
     sha256                               arm64_big_sur:  "f69ab24a3b744e48b3c293591794cea45c9b7c22f19db34736b19c5985639f4b"
     sha256                               monterey:       "eb3b025abd1640bf31dd775d843a91928d2f44c83c52c4508519b1ab14d12bc8"
