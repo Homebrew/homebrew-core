@@ -7,6 +7,7 @@ class Selene < Formula
   head "https://github.com/Kampfkarren/selene.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4e34f86568cacba67b8c6a4ca03fa1a53df467bff680c1aca2040db56560375"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1392ed26b8b19295776c18bcf009efb1fc8f41a12688c93dfbe1e034b2ebd801"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3f1b2ca8986d16dd9d81f7f9ae981e78f8d6f9e974306640bb0777d17ce4cbb"
     sha256 cellar: :any_skip_relocation, monterey:       "3cc0d4c9c717c4f6a89d400cefbec2a6a7cd5a1ef0af26aff052cdacdaa0451a"
