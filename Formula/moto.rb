@@ -8,6 +8,7 @@ class Moto < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1a2a165b4fa69bc35931f847312816bc8d5af37052009eec092540400c12ee77"
     sha256 cellar: :any,                 arm64_monterey: "274ec0c11e968dd30a840a9913116d180d71a593cc5ac6f55c0da6f4c23c25b8"
     sha256 cellar: :any,                 arm64_big_sur:  "55e0a0a7ed2c5efc5e861ab6165b69c88ff196f26aa43909c401ee3a144ffb59"
     sha256 cellar: :any,                 monterey:       "3b4561fb1e28d6a85b79e437690a73fce5c283a9a60b9df525a67b8a9b74338a"
