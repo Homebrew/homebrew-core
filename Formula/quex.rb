@@ -1,4 +1,6 @@
 class Quex < Formula
+  include Language::Python::Shebang
+
   desc "Generate lexical analyzers"
   homepage "https://quex.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/quex/quex-0.71.2.zip"
@@ -16,17 +18,15 @@ class Quex < Formula
     sha256 cellar: :any_skip_relocation, all: "369f0965ed61b6887f0b52c19827ac48b78844dc70525655f3a5d728605f82b2"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
+    rewrite_shebang detected_python_shebang, "quex-exe.py"
     libexec.install "quex", "quex-exe.py"
     doc.install "README", "demo"
 
     # Use a shim script to set QUEX_PATH on the user's behalf
-    (bin/"quex").write <<~EOS
-      #!/bin/bash
-      QUEX_PATH="#{libexec}" "python3.10" "#{libexec}/quex-exe.py" "$@"
-    EOS
+    (bin/"quex").write_env_script libexec/"quex-exe.py", QUEX_PATH: libexec
 
     if build.head?
       man1.install "doc/manpage/quex.1"
