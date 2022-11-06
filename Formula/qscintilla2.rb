@@ -18,6 +18,7 @@ class Qscintilla2 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "80f30300268eec142ff536808e651e971c947c35a9623c573907cd2048d0df58"
     sha256 cellar: :any,                 arm64_monterey: "5529f833ceb54ab3967ac29483c5ec73de4bd56534f1b6cdc5baf0a14190ec42"
     sha256 cellar: :any,                 arm64_big_sur:  "2f0778c4cd60bc0a5219d627ec09ca12d556bc9a397dd69f250b7eba73bc4099"
     sha256 cellar: :any,                 monterey:       "f0936833a4ce37dc43a82d34c8e572dd3526b3f432ea35363935bbaddf43ceac"
