@@ -11,6 +11,7 @@ class Mypy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bafc73da7c6b7df5f5b17cee8cda16fcbd4239cd4851b51ec1f343650f3ad85"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d9c3c5678cfde9d8e68fb0a9253baf6646f94ba8a4054050e3f4d9b3fec19618"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "160e7219d6314ee026c62b60bd3023bb4c440860ee18723191656837a19c8ad6"
     sha256 cellar: :any_skip_relocation, monterey:       "e408f123cb2c67e108d8db61c9bb1ce53a2c4ab588a3c054b04afdc18177d52b"
