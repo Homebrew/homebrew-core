@@ -7,6 +7,7 @@ class Flif < Formula
   head "https://github.com/FLIF-hub/FLIF.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "398fe8152e8f752057a746c1369b9d8313ed3c7556c6e1011670ce2d4e060747"
     sha256 cellar: :any,                 arm64_monterey: "20c8b44c6ce76226aa53c3dc217bfe4ed82e7f181fb6122df515bf86e4e434f9"
     sha256 cellar: :any,                 arm64_big_sur:  "3d0d4c63012d30413c24e8b5e16829801d53887da55766e8143bbcc837875303"
     sha256 cellar: :any,                 monterey:       "dfb3655e7c80bec23170595b2188ad897fd2e0e69af28711e6734f25b3c0db4e"
