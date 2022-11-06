@@ -18,6 +18,7 @@ class Ki18n < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "5be7f5e029c8d719efbf40a2ea65ac514744b63f4cef0324cc2ec11e4b0303e3"
     sha256 arm64_monterey: "59d1c5c6e99ce629585d1d9603780d8263bba3e822d262ecc51a61ab99780a87"
     sha256 arm64_big_sur:  "7e58f9ad420ce247f8f55afc76b71d470f0d40b76833c52e9c5bec0b308ee325"
     sha256 monterey:       "c1126ede0f480026962d38770d2113bd936016bd5d706b97309aa9d52b813827"
