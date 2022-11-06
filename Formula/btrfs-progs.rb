@@ -13,6 +13,10 @@ class BtrfsProgs < Formula
     regex(/href=.*?btrfs-progs[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "22a3bfb3a2feb665328353fc5b35d426637703806f2c1fd1be7f7c68114c30d0"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "sphinx-doc" => :build
