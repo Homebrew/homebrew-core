@@ -17,7 +17,7 @@ class Autopep8 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c64ed8b48e919ad03a614f1de66c20e74657ad9a7d423b7f550cebade874820"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "pycodestyle" do
     url "https://files.pythonhosted.org/packages/b6/83/5bcaedba1f47200f0665ceb07bcb00e2be123192742ee0edfb66b600e5fd/pycodestyle-2.9.1.tar.gz"
