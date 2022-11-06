@@ -7,6 +7,7 @@ class Datafusion < Formula
   head "https://github.com/apache/arrow-datafusion.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5cfdcd3b2dfc1880aab62c3ac1798e739571dade7fec1a517165ccbbbbafbbd1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a0a41a9b57f2d0510a416880eff4364ed0c20e8815fba3608dbdd992f06eb300"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d413f71081f1f742ddeb734915ea9ed021a94f17c812f4da873fb6a63d61666e"
     sha256 cellar: :any_skip_relocation, monterey:       "a30d1e134611810b6be494c15649851c44512aba42ce78ff464704480e171be4"
