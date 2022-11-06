@@ -7,6 +7,7 @@ class Gofish < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d20ff0f7458fb19fb888dd4c6fefceab07f1394339f154c7b501a8d2e288deff"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e1f3f5a121da38eba0d123472b4a9409e74323b6b6b816582ea227182fc0ffc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07174f536e39b42396a75fda7422b9588f55d95795ba78efbf7406d60cf7d0c6"
     sha256 cellar: :any_skip_relocation, monterey:       "8d84b7fa8d5d68de16a45dfa95f8d0924403457874815d79531d200e3b75b428"
