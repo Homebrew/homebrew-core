@@ -34,10 +34,10 @@ class Zrepl < Formula
     (etc/"zrepl").mkpath
   end
 
-  plist_options startup: true
   service do
     run [opt_bin/"zrepl", "daemon"]
     keep_alive true
+    require_root true
     working_dir var/"run/zrepl"
     log_path var/"log/zrepl/zrepl.out.log"
     error_log_path var/"log/zrepl/zrepl.err.log"
