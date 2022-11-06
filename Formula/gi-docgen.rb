@@ -19,6 +19,7 @@ class GiDocgen < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7abcfcd23fa893d6387a5f9f3f67f2a1829e28c09dd33625ea701fc2d0d97073"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e128ec590ba7fd3e4d80a3c159a27a916e707523f15cc747b1be718ba6d85a0a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c91ccf66103d18e5588c17f3cc0b90203e79c8683bde00c9d7dd476328586c7b"
     sha256 cellar: :any_skip_relocation, monterey:       "89c4899de71503e5fd54d336b2b7eb435ffbe3fb3c4d95478b1c81f8ff80c82c"
