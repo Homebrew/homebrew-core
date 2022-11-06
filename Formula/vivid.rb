@@ -6,6 +6,7 @@ class Vivid < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "952153d3fb19ae266fa8b6f9b395eeee9f9f718425e241c6f6573ddadcb5d25e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5812d1ee1b84676ed4f7f40e2b6bbd637598994a6972e2f5f374951aae3b9d74"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d63fb2bb636e28b0c96d1fb30a0c96ca2b9d6d8ae96cf759b5c188b17ab01bd"
     sha256 cellar: :any_skip_relocation, monterey:       "62f24fd28f1c34d545901fd9f1131c9b68f4dfcd3c24b80f237786a2a4773d1c"
