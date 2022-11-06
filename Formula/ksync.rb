@@ -9,6 +9,7 @@ class Ksync < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17050b5e32529174fb9607999c5cae39cab8951647d1cc50efb5c2bf1492c0ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a58b20d7cf681598f94c777200474e1419890fb24e3d6217cc0233a91a266bab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4fe9c12efd8e73fd794edecca04b0270e4dc2229adad3953f25635c3432fc313"
     sha256 cellar: :any_skip_relocation, monterey:       "2add85f6b9b1daa3aa4cde7791fec5e36873f2440155c6cb20a1ab08a0be92c7"
