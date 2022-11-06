@@ -6,6 +6,7 @@ class Goctl < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a70d6b2a7d77e43b5b0518c6619a7f2d9fe876682d0feab01cb8ecfaf803133c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e727dc985bf6eea5fd74588ad7528f41ea3e17fc692ab9e051d5db5a366b1d2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34e82cb7ced87a33e23476076f2752e87b0c9038759ee1ea3dc2958a214df214"
     sha256 cellar: :any_skip_relocation, monterey:       "016a92798bbb3b10163d8f22605c54da59dec55ca5dccc9afb02932cee495ea0"
