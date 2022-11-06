@@ -17,10 +17,10 @@ class Mpi4py < Formula
 
   depends_on "libcython" => :build
   depends_on "open-mpi"
-  depends_on "python@3.11"
+  depends_on "python@3.10"
 
   def python3
-    "python3.11"
+    "python3.10"
   end
 
   def install
@@ -34,7 +34,7 @@ class Mpi4py < Formula
   end
 
   test do
-    python = Formula["python@3.11"].opt_bin/python3
+    python = Formula["python@3.10"].opt_bin/python3
 
     system python, "-c", "import mpi4py"
     system python, "-c", "import mpi4py.MPI"
