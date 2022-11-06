@@ -1,8 +1,8 @@
 class Telnetd < Formula
   desc "TELNET server"
   homepage "https://opensource.apple.com/"
-  url "https://github.com/apple-oss-distributions/remote_cmds/archive/refs/tags/remote_cmds-64.tar.gz"
-  sha256 "9beae91af0ac788227119c4ed17c707cd3bb3e4ed71422ab6ed230129cbb9362"
+  url "https://github.com/apple-oss-distributions/remote_cmds/archive/refs/tags/remote_cmds-69.tar.gz"
+  sha256 "ce917122a88f8bee98686476abf83f1d442e387637a021eabe02f0fe88e02986"
   license all_of: ["BSD-4-Clause-UC", "BSD-3-Clause"]
 
   bottle do
@@ -17,8 +17,8 @@ class Telnetd < Formula
   depends_on :macos
 
   resource "libtelnet" do
-    url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
-    sha256 "e7d203083c2d9fa363da4cc4b7377d4a18f8a6f569b9bcf58f97255941a2ebd1"
+    url "https://github.com/apple-oss-distributions/libtelnet/archive/refs/tags/libtelnet-13.tar.gz"
+    sha256 "4ffc494a069257477c3a02769a395da8f72f5c26218a02b9ea73fa2a63216cee"
   end
 
   def install
