@@ -7,6 +7,7 @@ class Vtk < Formula
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "55507cdffa7dd541f060a7c6d0fafdb97d8ec1afd893bec446eb431cdc310c15"
     sha256 cellar: :any,                 arm64_monterey: "fd8b5266a33f0cf2d967df1ef522ed2c56aec78ce371669496343c98ed1f65f0"
     sha256 cellar: :any,                 arm64_big_sur:  "ce4d4f25b956014b0b45a96da8361ae053931ae9548b7da83056c9d27c5f7669"
     sha256 cellar: :any,                 monterey:       "8183b6b8fc6b8df5639e47027f62cab729aa7ff79e2aac19d2b15ccd44e8ec68"
