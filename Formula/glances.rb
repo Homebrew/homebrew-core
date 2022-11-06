@@ -8,6 +8,7 @@ class Glances < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00c117dbdafadc7b85c7ff62d7ebc0ea85e6034b92e8000643d4f1ed70789f93"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e1e9661ad43f4ea3be24818e10ea850d77380eb1a7080121617143db6797ddeb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f060745e511eafc304a4f945ef50fc70693790bda87f77385084863279d79c0f"
     sha256 cellar: :any_skip_relocation, monterey:       "a894e09c7e3d3e6d63e36874612b9f6bc90b74f16eaa6b3ee14c3af755630310"
