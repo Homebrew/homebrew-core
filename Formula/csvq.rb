@@ -11,6 +11,7 @@ class Csvq < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0f594dea7558e10769d03492995a408b5c6520a75e92eb1345cdce5af3aaced"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e179acb21c6cf614717d6227cbf3f0815036ed68307c976a353271feb98d306"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e6bd7e2afde2eeb690bbf4d30b4c5f81a12f1923d7e9a373e3f5746e90b6ae2"
     sha256 cellar: :any_skip_relocation, monterey:       "efcca045d162053b5d15bc5725c535cade60d18c06378fc59ec61bc50a22c30b"
