@@ -6,6 +6,7 @@ class Karn < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "91b3061405fb2c0de965f367a209f05d29c53f01d5ec9ed386980d29ada4b53d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b074d05548362367465ecd94b64f067b845e7f8aba75e93eefe73eab08293d11"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fff2a71abf62d3eaedba7d095e3fcfd9fbaa17895dab15fabefc4cd2d5a8725"
     sha256 cellar: :any_skip_relocation, monterey:       "a46d49dec3cbcb3e0753ff3b95e38721446670b1cc9cd501d1bedfceb99adb48"
