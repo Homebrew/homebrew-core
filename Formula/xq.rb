@@ -1,9 +1,9 @@
 class Xq < Formula
-  desc "Command-line XML beautifier and content extractor"
+  desc "Command-line XML and HTML beautifier and content extractor"
   homepage "https://github.com/sibprogrammer/xq"
   url "https://github.com/sibprogrammer/xq.git",
-      tag:      "v0.0.8",
-      revision: "b249d1a8470c10d950e404f926794bd5ba7f7c3a"
+      tag:      "v1.0.0",
+      revision: "21fca280a144fbf34ab1a58efa39acb495a46764"
   license "MIT"
 
   bottle do
@@ -29,6 +29,7 @@ class Xq < Formula
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)
+    man1.install "docs/xq.man" => "xq.1"
   end
 
   test do
