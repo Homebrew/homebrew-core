@@ -14,6 +14,7 @@ class MecabUnidicExtended < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cd9013ad7c93c14834061c6591eff7ef5fd67fe8508ee461ab484bd74e68edef"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3afff6a9a967b7c92eb79ca6efcaf3289596c331214ba6130989d757cd7757b2"
     sha256 cellar: :any_skip_relocation, big_sur:       "7566096a08a09b4c695c2f59766dc3d8ed5156d87180a3da1d504be9e038a30b"
     sha256 cellar: :any_skip_relocation, catalina:      "2624e794b1f765e78dbd593b50b8ea2b3055ede30192694cfc3ed7f5c4eb8a9b"
