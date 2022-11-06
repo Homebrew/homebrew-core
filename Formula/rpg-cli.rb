@@ -6,6 +6,7 @@ class RpgCli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b64ca28b6fb77aa51abe5211af88a53d39a4bf33d1b71c192583beac0e17e493"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8ccaa9f4311164d4bcf2c242786158f89e7df7c2dc82e01a4a44267e4a3add74"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31e4b31edd2178a88a66ec372934ba55bd7ff46a45c708d61f416176b4319557"
     sha256 cellar: :any_skip_relocation, monterey:       "edac7b05be2a3677bf1ad4e82546711c8aaacd0c2a69f13071ef0e468615fe56"
