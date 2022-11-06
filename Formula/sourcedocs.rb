@@ -6,6 +6,7 @@ class Sourcedocs < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbe4a3e5c3485101486be0639b81cc4799c2dd7e0edf5f528d32a3c0ca6122fa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b8757a91d73d96999da362afbc5a5c42c7be949f562cf5569b2bf24853af6ef9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1254fb0f47a037f929e579b4a68dd375b0e587d9adb3e876865b6de031d39f46"
     sha256 cellar: :any_skip_relocation, monterey:       "974904c0b5b4d0d54fe8392c84fe06b3aa23e47fb76f95579f09e5fc94704d2d"
