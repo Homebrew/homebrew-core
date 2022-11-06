@@ -8,6 +8,7 @@ class Cmctl < Formula
   head "https://github.com/cert-manager/cert-manager.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b725d1aff09b603e8e8495e04032e380b77ce4b8fd49f31be6a32841bc8fde1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6b519910c4e72958e8c7a84097c12fcf768f6bc06b2bbafd1c72132d61b14a3d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e40efa142e148a54b12978dbbf5b1d0af1b0a2052ce6687d63c5d64c8609b0bf"
     sha256 cellar: :any_skip_relocation, monterey:       "349a8837c81769de0fe34b3bb5be12707b196b849380ebcea6f08c5a8b3df73e"
