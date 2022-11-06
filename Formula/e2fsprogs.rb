@@ -26,6 +26,7 @@ class E2fsprogs < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_ventura:  "ea5c3806ca772a4f15759d1372a2b37b5390d5a4be6cf6a7b0fb6107a8d7d029"
     sha256 arm64_monterey: "474e58e01910204a775eb12ab6322025c5468088f857d71dbde0a37462412255"
     sha256 arm64_big_sur:  "5296cb03cc130751689a14bbdedb21018f07e3cd3ada7b88f811d748a79dc38c"
     sha256 monterey:       "2d0d0cf4044a8d608ccadd4c57ea6e9e4f0a0a380fc03386993053cb715e9bfa"
