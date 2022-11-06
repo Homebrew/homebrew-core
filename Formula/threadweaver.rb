@@ -14,6 +14,7 @@ class Threadweaver < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "971bd09ca68fc58fe9f5d9e7ec8e399c00943b58d36e37afe3d8cad8c8955560"
     sha256 cellar: :any,                 arm64_monterey: "c88006858bd7e84e8b6f0d4c58836feedded05153e0eb53df6f79211ea1cfc97"
     sha256 cellar: :any,                 arm64_big_sur:  "63f466ff8633625e670d74f87838ef5c5a033cb397c422e0a19ad8afe70a8c97"
     sha256 cellar: :any,                 monterey:       "bc725be77d8e13f38c7dbf632c5c11a234c728304f9e70bc83d20e4056497f29"
