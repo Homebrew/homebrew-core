@@ -53,11 +53,11 @@ class Sftpgo < Formula
     EOS
   end
 
-  plist_options startup: true
   service do
     run [bin/"sftpgo", "serve", "--config-file", etc/"sftpgo/sftpgo.json", "--log-file-path",
          var/"sftpgo/log/sftpgo.log"]
     keep_alive true
+    require_root true
     working_dir var/"sftpgo"
   end
 
