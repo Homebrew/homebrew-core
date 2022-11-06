@@ -34,6 +34,7 @@ class Coin3d < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "921271da7b44aba66b0ed13c986b849f167c87315206a5dc62dd662bb63afcd4"
     sha256 cellar: :any,                 arm64_monterey: "428735b5724d44c297805e06e664568b298fc47f169e268398706dc18af362c3"
     sha256 cellar: :any,                 arm64_big_sur:  "e0ffcfdf4603321f5331caf3f870586f819cb6a8a7c86bf88f621b5b3740ec6b"
     sha256 cellar: :any,                 monterey:       "22b2ebe3fea27b2c2636bc5e963834a5a4e29b2afb5d2a043f997e7fa5d89454"
