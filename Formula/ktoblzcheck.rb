@@ -12,6 +12,7 @@ class Ktoblzcheck < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "f9283cf491426f46b08c1dd1dda15c2efd216f80d6a75d05d9e7c37214c6f9b1"
     sha256 arm64_monterey: "d1e75023d21fbaa68a173f878474b43a24fd184664b96295641262aebef5a6bb"
     sha256 arm64_big_sur:  "95ab5216faa25bf03e89defdde3df6c417334c684c917ec07c5f8ff8c736a114"
     sha256 monterey:       "00598c7d9ff6b53ac757ab6ccc7467d8d0bf7e0b71394c439bfae4be00573aef"
