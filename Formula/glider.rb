@@ -7,6 +7,7 @@ class Glider < Formula
   head "https://github.com/nadoo/glider.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d41f829ef1719b56dbf81914c39279cc522bca246cfa7c12495150beba0fd112"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8339ced3042241d3f128068b05cffc5f8f728cb6ab073272e0f76081b099b1e9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffcafc5e458c78e115b94f45abfb105e69d02f7a03b5d065414fdc4b996ef251"
     sha256 cellar: :any_skip_relocation, monterey:       "8b956d24977eaf0ad44ff2112ada966d7e77d26276b6751792241bbb68d1c487"
