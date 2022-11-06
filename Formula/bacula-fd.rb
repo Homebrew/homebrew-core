@@ -61,9 +61,9 @@ class BaculaFd < Formula
     (var/"run").mkpath
   end
 
-  plist_options startup: true
   service do
     run [opt_bin/"bacula-fd", "-f"]
+    require_root true
   end
 
   test do
