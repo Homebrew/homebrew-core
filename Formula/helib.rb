@@ -7,6 +7,7 @@ class Helib < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "cb50632c3c96fbb78bd1a00011482bc72af2237cd92d7d8cfa0757322ff8bf71"
     sha256 cellar: :any,                 arm64_monterey: "a1bb15e9acfc20963af42f415e063a98c97b38f1893b40c7db5b9468b200509a"
     sha256 cellar: :any,                 arm64_big_sur:  "0cc75cb7e8d863c93ed6a00d7914924b4c88439d8741d56e644ef927422ce7a4"
     sha256 cellar: :any,                 monterey:       "6f056c82e35c77d4958d117a15e02f3d3b0246d444b47c9620d8933ed40aff5c"
