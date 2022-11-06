@@ -27,11 +27,11 @@ class LaunchSocketServer < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
-  plist_options startup: true
   service do
     run [opt_sbin/"launch_socket_server", "-"]
     environment_variables LAUNCH_PROGRAM_TCP_ADDRESS: "127.0.0.1:8080"
     keep_alive true
+    require_root true
     error_log_path var/"log/launch_socket_server.log"
     log_path var/"log/launch_socket_server.log"
     sockets "tcp://0.0.0.0:80"
