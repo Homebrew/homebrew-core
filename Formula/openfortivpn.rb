@@ -30,10 +30,10 @@ class Openfortivpn < Formula
     system "make", "install"
   end
 
-  plist_options startup: true
   service do
     run [opt_bin/"openfortivpn", "-c", etc/"openfortivpn/openfortivpn/config"]
     keep_alive true
+    require_root true
     log_path var/"log/openfortivpn.log"
     error_log_path var/"log/openfortivpn.log"
   end
