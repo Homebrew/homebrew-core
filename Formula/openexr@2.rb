@@ -10,6 +10,7 @@ class OpenexrAT2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3ae1ca91a7366461c5b30a91cafe68bf36a64a80f3fbea628f86dfbf4f985a81"
     sha256 cellar: :any,                 arm64_monterey: "f7c2ccf2e653530b225b40b9bf1335d6b9d52b012cf8c62d95e3d059467c69be"
     sha256 cellar: :any,                 arm64_big_sur:  "dc090a9d4021cf97628c0e81fe80b88b2a96c1d0551e3a842bfc0881e41553bb"
     sha256 cellar: :any,                 monterey:       "02e353301cea377a3626c5808dcacca9e56df56d7604387615e3a113e5261db9"
