@@ -6,12 +6,12 @@ class PipeRename < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9390af37f562fcd54045ba9f4d95e561f407acadf19a5abc685919452c0c91fa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ddb29be78295c3492cdbc1b7798618c73fb42aa8accb3fad0b29b108c46ca489"
-    sha256 cellar: :any_skip_relocation, monterey:       "dd16ac202900fcda148f1ae629908064b91e31fab8de494c088e1ee144c8cb89"
-    sha256 cellar: :any_skip_relocation, big_sur:        "41d8b12cdcb670a5bba1dffc8f1c5d14599b033b85ec9547e054cfdb0ed65eda"
-    sha256 cellar: :any_skip_relocation, catalina:       "e0b392b5e11f66ddda73d202c48793985015da3e519b52337c6f0b9d945fc1d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4595f986e4003550d3d05c7bca46dd33b563bfcf0c3a5fc969c2787f17a56156"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b754ffa3266ebab2ac8102b52903848c9a42f3e9ce9b771ef18c425917532abe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33b109fd2995423dd435d78b01597bdc61616171e53747a5e3cf06c5494d890d"
+    sha256 cellar: :any_skip_relocation, monterey:       "6cc3a4c5f98ef69e776fff5e0968c74cb4fe65392f91f2d8130ebb2b945025c2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c02dd9a819d213f504954434341ac1d312325f8006260de241c1135255d49743"
+    sha256 cellar: :any_skip_relocation, catalina:       "a9621c89f905d6bbff78e932647a62b6f3f932572500cab3b3fcd174e6c86a75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36f5b57d5038a9fe16abc29e6bdd3dce922d90d393fe9385337079a8c1c35af6"
   end
 
   depends_on "rust" => :build
