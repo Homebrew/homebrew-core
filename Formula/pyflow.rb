@@ -6,6 +6,7 @@ class Pyflow < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9b25868fd45fb77859486ae1c1237e72b030ea4aa7ad04271beafa6863d4a68"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d24760666fd0f593b918a3ee6ce188b6d947713aca04323d250b3d19ceee74f5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88f8e4c0528d6b4eea13d4bda9cabd3dafc7fb85b044bc0fe660530fb00f77e5"
     sha256 cellar: :any_skip_relocation, monterey:       "e7fd6c56f22347d3b3969e9c9f71785ace42737336957878c159448624474916"
