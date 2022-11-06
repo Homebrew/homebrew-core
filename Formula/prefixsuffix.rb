@@ -7,6 +7,7 @@ class Prefixsuffix < Formula
   revision 9
 
   bottle do
+    sha256 arm64_ventura:  "a5b1da4e45587183698f730fb05967ea4e5fc1b10b1bd504861f8c37f4042870"
     sha256 arm64_monterey: "f4a3934702cc68077a096d0baca50a4baf033309cec38b2225b144a4bd825b45"
     sha256 arm64_big_sur:  "03a102fc5cbf319029a6b536b60caf5db40396b25e1d6de1eda1baf297cb0d81"
     sha256 monterey:       "941432357b54d13c0b0333c120b72ec0ce467230a05de210a0a4837e3a898e31"
