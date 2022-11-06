@@ -8,6 +8,7 @@ class Govendor < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea2d42be793724ecbbd148825c9874e1b6f344226aa70a64a14db6f937b262d6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "037aa26c2ac7ad0d1fef83fbf0001e9c6812adb0cc35b26a7ee2ca4c18c3cbcc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6dfce4585d00e1429cbc2f2f6f25d8e5623f5b5689220918b3dca99ca5e0bccd"
     sha256 cellar: :any_skip_relocation, monterey:       "b281b7fe76751ad3a79605a3fc17457710e7693145f151dab3e999152758158a"
