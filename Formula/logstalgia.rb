@@ -24,9 +24,9 @@ class Logstalgia < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "boost" => :build
   depends_on "glm" => :build
   depends_on "pkg-config" => :build
+  depends_on "boost"
   depends_on "freetype"
   depends_on "glew"
   depends_on "libpng"
