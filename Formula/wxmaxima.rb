@@ -7,6 +7,7 @@ class Wxmaxima < Formula
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
   bottle do
+    sha256 arm64_ventura:  "899e8912c23d9a14d9f0fdfa6ad003ac937b3ae18bdc9236d524595b137349d3"
     sha256 arm64_monterey: "a1eb891bb6f63d15a813fce71315c29ccfe56cb546d80cfc5fa98dd0de38ba8d"
     sha256 arm64_big_sur:  "22b98a12ef976355a944adc40e337cb6127ca3b257519f557f102af90740764a"
     sha256 monterey:       "7dd8cefc54f437aea6e464c8590808373acf89ea93d80cb3e048884c1984bbc2"
