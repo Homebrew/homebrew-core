@@ -10,6 +10,7 @@ class UcspiTcp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "283ab40c4100a1eba330dbb5392d4b88cf224acabfadda051a5040947da685fc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1936ea190d3606211cbe6808e3a1d811662145cdf993900ef55730f62fb5daa6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f12aad8b88657b73fa01910b07d03d0e2af44d2c4a14ed833acb25bfe1d55f6b"
     sha256 cellar: :any_skip_relocation, monterey:       "4253dce5cb7114f47612bb7d84f9aeb61fca1da1d7afed62cfb00b4924811eb4"
