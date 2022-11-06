@@ -6,6 +6,7 @@ class Devtodo < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "58105a4bbd78bdef5f52bd4de540591c1d647613b5b7ad70f43076c715939cfe"
     sha256 arm64_monterey: "ca3402d8a1efde8eeaf00f4290c2d9921c9ce5f2b51c3bde4cbc9fcee836e589"
     sha256 arm64_big_sur:  "d7d93dba48edf2c4cf03bfe351796620f0082ad3a040d7d35bb820613499828a"
     sha256 monterey:       "f128500ac76557a196ba47d6a31d2b9cafa2191f7ef3f2ba934303ee95081cb1"
