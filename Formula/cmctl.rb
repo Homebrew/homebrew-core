@@ -7,6 +7,15 @@ class Cmctl < Formula
   license "Apache-2.0"
   head "https://github.com/cert-manager/cert-manager.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b519910c4e72958e8c7a84097c12fcf768f6bc06b2bbafd1c72132d61b14a3d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e40efa142e148a54b12978dbbf5b1d0af1b0a2052ce6687d63c5d64c8609b0bf"
+    sha256 cellar: :any_skip_relocation, monterey:       "349a8837c81769de0fe34b3bb5be12707b196b849380ebcea6f08c5a8b3df73e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d9a71c53738f6a462a814b304fe4cfb71bc285daa2d9449b0fea87a3771db124"
+    sha256 cellar: :any_skip_relocation, catalina:       "26ed49d536e494e164590003d9c5ed54327c5eab0d45babfb4b22b18dd00341f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e91a4bc3b20760db2c82d849a6d2a7a4f000f69be6eadf84b39d15c4b6bb241c"
+  end
+
   depends_on "go" => :build
 
   def install
