@@ -7,6 +7,7 @@ class EditorconfigChecker < Formula
   head "https://github.com/editorconfig-checker/editorconfig-checker.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "385c4709db6ab2a7d38f9f022ac51bb60787478ddb2409deba9e03430f6d4587"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "07aaae3448d74c1135ff5b3e35f8cd8bedd8f0b3727c6b6c7a3b37c5cc669a5f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07aaae3448d74c1135ff5b3e35f8cd8bedd8f0b3727c6b6c7a3b37c5cc669a5f"
     sha256 cellar: :any_skip_relocation, monterey:       "a1e76c97a829f2b4bb869c90b7cb52ba89163c97b06910e9b060c9478d5f0a65"
