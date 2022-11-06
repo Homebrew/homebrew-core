@@ -19,6 +19,10 @@ class Stgit < Formula
 
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     generate_completions_from_executable(bin/"stg", "completion")
