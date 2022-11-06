@@ -12,6 +12,7 @@ class Gwenhywfar < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "3b16dc36d846d40413b684b6bb4b58a5c83102c04e200241c70ec5851a92ceff"
     sha256 arm64_monterey: "a4a56e458f247380a5766377a718b25e8488101cf528d791d3e54f0b70d0d289"
     sha256 arm64_big_sur:  "ed089ad54b5d4f967a27517759dbc2e89a76324c90e9520e28239cea774c2337"
     sha256 monterey:       "1656453fb187a695e920960e8e95c4504b428c867d5124ab5ee6d180eec7a5e9"
