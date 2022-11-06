@@ -18,7 +18,7 @@ class Pipx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b34814c228a304938156fcb7638e5fd69a14dea4c190c4bd9bfb8c3404c728c"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz"
