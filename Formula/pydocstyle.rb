@@ -19,11 +19,11 @@ class Pydocstyle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a656c93ee9ed3bc8572cc415b93081e8ce24870a14ab6569b5ea08ffeb17fbf0"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "snowballstemmer" do
-    url "https://files.pythonhosted.org/packages/a3/3d/d305c9112f35df6efb51e5acd0db7009b74d86f35580e033451b5994a0a9/snowballstemmer-2.1.0.tar.gz"
-    sha256 "e997baa4f2e9139951b6f4c631bad912dfd3c792467e2f03d7239464af90e914"
+    url "https://files.pythonhosted.org/packages/44/7b/af302bebf22c749c56c9c3e8ae13190b5b5db37a33d9068652e8f73b7089/snowballstemmer-2.2.0.tar.gz"
+    sha256 "09b16deb8547d3412ad7b590689584cd0fe25ec8db3be37788be3810cbf19cb1"
   end
 
   resource "toml" do
