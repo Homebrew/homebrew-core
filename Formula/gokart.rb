@@ -7,6 +7,7 @@ class Gokart < Formula
   head "https://github.com/praetorian-inc/gokart.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3adae6ff7cc756f194a906f77d25a0d4680cb69241c670c3b3b36323c69ce39f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "50f225b023198e9ecb44e854f37cd84c0638cb17bef5b1d43bcb31a2bb8d58d0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01ab4e67e745df4737e271c3d1639bd02c5ab1b028c3ad10e6a227c41ffd99bf"
     sha256 cellar: :any_skip_relocation, monterey:       "6b738132eca3d46d45bac4940af5edf356150bf8b0b693e195d77b0a8de0f5f4"
