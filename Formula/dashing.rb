@@ -8,6 +8,7 @@ class Dashing < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6afd8514bfadafabffcf92070f6daf79070d39d0cfa6f246c0baf83720f1632"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "068ec0d62e2f599509d34a2d366895dce2464eaa9aa1939a553dd1e31c8238d5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72b9d5ea8aaf171f9a46e099f190a9adf9ad90b6bd90dcdc54eaa922e2c277f9"
     sha256 cellar: :any_skip_relocation, monterey:       "a0c325204c959b5956248606f6b7fcb4437c6dfa2c75f739d4624fb912ecaa55"
