@@ -8,6 +8,7 @@ class Fanyi < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0069db5a3d5c50ff5b17df99f18732890bb1efd60f579ce5b7f0cbe2bb9a8fc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb55cc60b3dbdb87a7b2a15c85720aa24dc4224e23abf31f274afbfa1bb2c6d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb55cc60b3dbdb87a7b2a15c85720aa24dc4224e23abf31f274afbfa1bb2c6d6"
     sha256 cellar: :any_skip_relocation, monterey:       "9132b37bc566652a53ca40dbc25435a328d9d649ba9efcad1d5e8650752e23bc"
