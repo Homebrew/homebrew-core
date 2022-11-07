@@ -11,6 +11,7 @@ class Libxmlsec1 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "63b193778e143a590e38bf5d0665546ddf9f68ae559c277eb39297e95e883a70"
     sha256 cellar: :any,                 arm64_monterey: "6e294979deacd8639d5db88929a44e5fa12bbd8ef9a8cc70700cd208069ae9ff"
     sha256 cellar: :any,                 arm64_big_sur:  "38de14a91a8774b77040555118862c31d9bc6bb5d95ec01db712f5cf62e9790d"
     sha256 cellar: :any,                 monterey:       "3faa0f71a28a896ff125bf4303b259d37adfdf40308a851fcf6070f2f9d4aae0"
