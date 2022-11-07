@@ -6,6 +6,7 @@ class Sec < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b9e876b09cdbcbf85df22111dfc2e9bc686dc8df21b791f8a532ca8a3794098"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6b9e876b09cdbcbf85df22111dfc2e9bc686dc8df21b791f8a532ca8a3794098"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b9e876b09cdbcbf85df22111dfc2e9bc686dc8df21b791f8a532ca8a3794098"
     sha256 cellar: :any_skip_relocation, monterey:       "30b242f22b62c67d6b5e862fd9884ec05b327e33ee6d146137b3566e0d2a178b"
