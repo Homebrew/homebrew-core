@@ -92,9 +92,10 @@ class ManDb < Formula
       output = shell_output("#{bin}/gman true")
       assert_match "BSD General Commands Manual", output
       assert_match(/The true utility always returns with (an )?exit code (of )?zero/, output)
+    else
+      output = shell_output("#{bin}/gman gman")
+      assert_match "gman - an interface to the system reference manuals", output
+      assert_match "https://savannah.nongnu.org/bugs/?group=man-db", output
     end
-    output = shell_output("#{bin}/gman gman")
-    assert_match "gman - an interface to the system reference manuals", output
-    assert_match "https://savannah.nongnu.org/bugs/?group=man-db", output
   end
 end
