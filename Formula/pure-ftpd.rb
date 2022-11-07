@@ -11,13 +11,13 @@ class PureFtpd < Formula
   end
 
   bottle do
+    rebuild 1
     sha256 cellar: :any,                 arm64_ventura:  "fe468fefa19fc750c5051d20d4c6d9a92652a5092aae7fa04eb8f7b5420216c3"
-    sha256 cellar: :any,                 arm64_monterey: "04a014a07b5724eddde7e97b635763e9ea6fdf59fc1db3702c52d5c531b853c3"
-    sha256 cellar: :any,                 arm64_big_sur:  "c595fedada8a973348008154b83aa191e68f8d00fec03dd4e223e7abd6c2a701"
-    sha256 cellar: :any,                 monterey:       "a99b679ff53adc1e2b7843e43c33bc8d68443cb25fef918bdc5375fdf20e0463"
-    sha256 cellar: :any,                 big_sur:        "9be7e45889d49eb3de97419c6167d6fbb6a49feb774267c704723837b8f7239b"
-    sha256 cellar: :any,                 catalina:       "3ddd85304ce30f15b78eac175630ba6e7420d7f3fddd193eeee468e6d3e02012"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3607e2c5a94310cbcf4da7e357bd69464b7380bd8513073db7c865cff0f4a3e9"
+    sha256 cellar: :any,                 arm64_monterey: "5e9abb79554e46ed02c642d430202db07368e5c7ac8148abf78bc8b3cc315d6c"
+    sha256 cellar: :any,                 arm64_big_sur:  "34c0a150261bce1eef864d73033e583efefa5829d5301723f2acd7f839c1c5ce"
+    sha256 cellar: :any,                 monterey:       "46c89155e8910f6b8c9f6834f31d383c7d6fdf5c72ff6dc64474a9c57f1e9907"
+    sha256 cellar: :any,                 big_sur:        "3af1b813b093423c66ab1d7c5d5ef192562d6eeb0754ad0ce68f05afa17dd091"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1800a3342d761db7a85e0d482f52c0b689835713dd15a5bba90a617a43160151"
   end
 
   depends_on "libsodium"
