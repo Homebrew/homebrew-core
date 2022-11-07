@@ -15,6 +15,7 @@ class Simh < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "cc698568672a1c839e4bc5fe3005ab92d9369de3cf25f81be62c90084b2093a7"
     sha256 cellar: :any,                 arm64_monterey: "4bbbfacf19e812a3f551b11c3dc6222b30cba2ff789d10b7a0d3431c1c7816f8"
     sha256 cellar: :any,                 arm64_big_sur:  "226b979de0b16040ceac8d43169acad561cc02de69fedbc3ce7608e08a8dcf99"
     sha256 cellar: :any,                 monterey:       "a58a7539db5ac84a45dac55d1718b539435b4364b154922b1a12ea689f4f8a0e"
