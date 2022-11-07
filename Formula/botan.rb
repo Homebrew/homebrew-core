@@ -23,7 +23,7 @@ class Botan < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -42,7 +42,7 @@ class Botan < Formula
       --with-sqlite3
     ]
 
-    system "python3.10", "configure.py", *args
+    system "python3.11", "configure.py", *args
     system "make", "install"
   end
 
