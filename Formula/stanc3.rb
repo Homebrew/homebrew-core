@@ -8,6 +8,7 @@ class Stanc3 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0bc88fb5ce7529efc63a4aad8dab81183b0790807b01a80dca3dbd42f28de4a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "178fff04f4394364eab6ce894104979832cc3157979d16f16c192d56a489275b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "784abf24eab6dea8878c1a30e25d793648e8d7b885969973db91f27c6a3a9e8a"
     sha256 cellar: :any_skip_relocation, monterey:       "2695c1bb3960d61576e9cc70212a3597ec683dd20929653d23df4a4ceb9c3f7e"
