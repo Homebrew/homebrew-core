@@ -9,6 +9,7 @@ class Corsixth < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "651735456e7376c1de75b2499680f1ee88a9a3231c36db84d8acce27717a62df"
     sha256 arm64_monterey: "a8dbc402542a59704db0075dc3a1542977efd7cda3eeb0e24db11ee9c1b1ed6a"
     sha256 arm64_big_sur:  "ff512592cf6ca0bfcb6cf11f48f63d275771d00ca2803707da7cac5331314051"
     sha256 monterey:       "66fc4a0640c757456c4efcc2113c0afecabbece807de950285ea577092221966"
