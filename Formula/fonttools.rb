@@ -18,7 +18,7 @@ class Fonttools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "741537411e9bce424ed4a2f4ba9fe758800d8fa757b1249545f680f3958991af"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "Brotli" do
     url "https://files.pythonhosted.org/packages/2a/18/70c32fe9357f3eea18598b23aa9ed29b1711c3001835f7cf99a9818985d0/Brotli-1.0.9.zip"
