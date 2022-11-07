@@ -9,6 +9,7 @@ class Pyvim < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "84271d72d5e192730afe696ff8befbd09ed45c9ebb495fdc2a5675ef9e363f32"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6998e350ae758b15aa2db8198001bc8a8124ed1c86a74e32ff3901359bb193b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59c15aa998f7b3961dd042fd1e32bf09eb59510dd1774e348ceb4d297a36cf09"
     sha256 cellar: :any_skip_relocation, monterey:       "8968b45fc990d804c0fb406dcfd19f5a459e0a65bf06152c763bc5d9a147c4d6"
