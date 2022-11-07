@@ -17,7 +17,7 @@ class Doitlive < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "48b1bff809153e13b1c9f9d1bb5f5d472893e02d6565422e6de933f0d9e093e9"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "click" do
