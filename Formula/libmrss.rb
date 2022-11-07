@@ -8,6 +8,7 @@ class Libmrss < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "62c46d4971e92b6d5c9e68b3b58b07ed9f5b0e2b8a56b6f7e26d90dced0cd0cc"
     sha256 cellar: :any,                 arm64_monterey: "c0082f527d5db823a42e82a431d37f4126de5d64c38d41b09ecd2af619a0cd2a"
     sha256 cellar: :any,                 arm64_big_sur:  "7c1c62cdc4b99cfc4367d8ce1523f06abbf3f8b115ef75c924f12ae40690dfdf"
     sha256 cellar: :any,                 monterey:       "7506db35ece883daf10551785b65407e10fccef5ef78a40f79d2eef06ca9d010"
