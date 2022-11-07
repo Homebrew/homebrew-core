@@ -8,6 +8,7 @@ class Vite < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e15b7330e71df1b09d894986bc25f12dc6077a9da6ee377a7ccf749d94262596"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e15b7330e71df1b09d894986bc25f12dc6077a9da6ee377a7ccf749d94262596"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e15b7330e71df1b09d894986bc25f12dc6077a9da6ee377a7ccf749d94262596"
     sha256 cellar: :any_skip_relocation, monterey:       "b39e03373dc29485d616df85c98895bf2b7f6cb8c0aa12568c504da2d024c8c4"
