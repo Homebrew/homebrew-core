@@ -7,6 +7,7 @@ class Neovide < Formula
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b81955808b6dff41670036729618b444988dd9172cee01c05615d91253197d20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4eef70caf34d20b8b7da9802733e6b29a3b1a6d2026362a6e4166dab4d269349"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4bcf85922313823ca963a6dfbf89d05e89ab499f7a61e295a3f19026f7ec3130"
     sha256 cellar: :any_skip_relocation, monterey:       "6c2e9372606b3929ffcb8593578ecb5b29691eae8115af45cfcd3fdd82a4463f"
