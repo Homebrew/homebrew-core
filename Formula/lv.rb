@@ -15,6 +15,7 @@ class Lv < Formula
   end
 
   bottle do
+    sha256                               arm64_ventura:  "40b16905a4cdbe254c41f5cec691b7363b8fefc543226fb5d0ca5f1b073510ed"
     sha256                               arm64_monterey: "8567f1d743b65f76bfebc80dc8a27e4604b283a07ee5e11ffd1173227c683946"
     sha256                               arm64_big_sur:  "b96a459a6aa0f11cb8d498c71ab902b1b2bdd75bdf02aa5233366171f61d750a"
     sha256                               monterey:       "a40e16aafef0932b323eaf35dc4dab2f969b8f9174ec8d73b1942908cf4b603c"
