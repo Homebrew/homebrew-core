@@ -6,6 +6,7 @@ class Libxcrypt < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "355d536ef46ee9ab49b3d4ae4266433f1a876ef41131e711ea4ee0f0aeb7f2cd"
     sha256 cellar: :any,                 arm64_monterey: "51c47d976fb8ee19b38db3d2c8c9a40afcbfc4d4b8f4b6356243c764454f3c8f"
     sha256 cellar: :any,                 arm64_big_sur:  "df4a392059fde19aa843e2e9a5de654206732e9030091c2c2ed8a6825ab15aac"
     sha256 cellar: :any,                 monterey:       "b1961f69c81ef3a90c8d4d8f748438d5fa52359e7a74ea9dbaf79d269eb48bf8"
