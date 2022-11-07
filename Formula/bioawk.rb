@@ -5,6 +5,7 @@ class Bioawk < Formula
   sha256 "5cbef3f39b085daba45510ff450afcf943cfdfdd483a546c8a509d3075ff51b5"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a80d9d6887393ec604646dd2e79090bda1034f5947488995c383d29b8fbb2f47"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a568547e0fb85d1d0678d157c93aee71710f58d3bc4591186365ae28e4502b24"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de4d41adcf20cf87de3d2310d98c1dbfbff95eb3432e6d0888be964889f024c6"
     sha256 cellar: :any_skip_relocation, monterey:       "844d8041e128ebcf46d1a5dec20dfc22f0a3fc1ff48388310cf810685acd9890"
