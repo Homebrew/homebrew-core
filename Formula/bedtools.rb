@@ -16,14 +16,16 @@ class Bedtools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8396c0906988ec6abf7324769e46a673ae7f960761c628dedd74ac9ea3b3aa82"
   end
 
-  depends_on "python@3.10" => :build
   depends_on "xz"
 
+  uses_from_macos "python" => :build
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   def install
-    inreplace "Makefile", "python", "python3.10"
+    # Remove on the next release which has commit try both python and python3
+    # Ref: https://github.com/arq5x/bedtools2/commit/ffbc4e18d100ccb488e4a9e7e64146ec5d3af849
+    inreplace "Makefile", "python", "python3" if !OS.mac? || MacOS.version >= :catalina
 
     system "make"
     system "make", "install", "prefix=#{prefix}"
