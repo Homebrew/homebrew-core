@@ -7,6 +7,7 @@ class Siril < Formula
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "764e04a3a7904762c75775e3872ba80b54798252e8e78004ec92fb8602579def"
     sha256 arm64_monterey: "e0dc10be674471441b1bdf17334582cbcf927169e088d5962a86223b84d92588"
     sha256 arm64_big_sur:  "363c451176ab23459568cbf6c31c84fa9ff24026c38ca44f671e0cffa1c3277e"
     sha256 monterey:       "9cc7ce4042232c80c6fd6feaf8e2189162be550d514efc4eeb01cb63e33d3661"
