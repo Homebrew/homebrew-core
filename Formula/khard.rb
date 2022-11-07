@@ -9,13 +9,13 @@ class Khard < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fe134a1ea2ef4d9a16d959cc5c7fde80fb4a9c8b94c501bf44fbe907fe0721dc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3fc28b1402c727ebec6e711fb708e60e323fe2b5c626123dea2bf4182fba2098"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9bc8806c6ce7690ca5ea73636d8768218de08f492590071fa8f56bda47d72fa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cbbe9d10dec73dfa9c431267ebac08bad479efbbf1b9df9a2e7b1265a7a0b3f8"
-    sha256 cellar: :any_skip_relocation, catalina:       "82627b07e76133d8cd6b96411fdbcc9d3be3e13554d81798a6054d9bc8d4161c"
-    sha256 cellar: :any_skip_relocation, mojave:         "64336ee4c660ff81770d274d905f236bd32b1dc9a01d9d1bc8ceffcdc3edff6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23a3b6a9293dde85e044263c8c948d11df80a08d2afc7e88937bdc9762684c25"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "adec0c167f9673be452f1c695a832835f46da17700bba0df78b053c80db69c5a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28ed6dc0506b9f6434caae9cb9294f7fdbacfdba3d54483f6a0bd33a97bdb95a"
+    sha256 cellar: :any_skip_relocation, monterey:       "4926349ad3de43a969e15f153fd405f44600f7d728d36e67a3f553f583ced621"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3383947a6a566b663728df7b3a790941093b515fc38dea6fdd190e0c339bdd19"
+    sha256 cellar: :any_skip_relocation, catalina:       "8708b26b71a7cb95b39279b1a653ffcc3ea37f203dcf05dc3fd8fbb6893e3152"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb3831e654b813d9c219fc06d9cfa5094c0ff495e958b7326236ee05cd8558c2"
   end
 
   depends_on "python@3.11"
