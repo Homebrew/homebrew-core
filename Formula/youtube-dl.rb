@@ -8,13 +8,13 @@ class YoutubeDl < Formula
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "49ae088fe33b3012a271daf5a5b7fbd08ca67aa9e962c19deea7809d7eda9290"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "79bc7ca875b43074c1a7097674b900835c5358e80d81a177b1eecf0e69b77a7a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79bc7ca875b43074c1a7097674b900835c5358e80d81a177b1eecf0e69b77a7a"
-    sha256 cellar: :any_skip_relocation, monterey:       "a8da6929ac2005f3bf5e004ccd1f860c6368cc49ea4d4846a0b902d21cc0cb7b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a8da6929ac2005f3bf5e004ccd1f860c6368cc49ea4d4846a0b902d21cc0cb7b"
-    sha256 cellar: :any_skip_relocation, catalina:       "a8da6929ac2005f3bf5e004ccd1f860c6368cc49ea4d4846a0b902d21cc0cb7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d96e5082a83cd8d333f72f40592ff577a4c4ccf4e654ddf2c3e38fccbb5c1f9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d54237a227c12efaf38fd29deba9954fbd9bc5dac5404c70c9e34d618e3389d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d54237a227c12efaf38fd29deba9954fbd9bc5dac5404c70c9e34d618e3389d"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf4a60b76c7aaa2ac750e92f7cf7aec386539aeb2d8d77054d087e6857b54dea"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bf4a60b76c7aaa2ac750e92f7cf7aec386539aeb2d8d77054d087e6857b54dea"
+    sha256 cellar: :any_skip_relocation, catalina:       "bf4a60b76c7aaa2ac750e92f7cf7aec386539aeb2d8d77054d087e6857b54dea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "badafc55a0e6036f92ac52c82c7113630409752921d4bdf6801ce8f8c3efe816"
   end
 
   depends_on "python@3.11"
