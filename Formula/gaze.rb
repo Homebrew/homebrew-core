@@ -1,8 +1,8 @@
 class Gaze < Formula
   desc "Execute commands for you"
   homepage "https://github.com/wtetsu/gaze"
-  url "https://github.com/wtetsu/gaze/archive/refs/tags/v1.1.4.tar.gz"
-  sha256 "950874e00498135fd10686ba17255b0af84e3f8dfcd9cac3f3d7e7dc907945e5"
+  url "https://github.com/wtetsu/gaze/archive/refs/tags/v1.1.5.tar.gz"
+  sha256 "e954f074bcd3e7f8c898bf83faecfe5f2acff7001f1001157798c9e723916aab"
   license "MIT"
 
   bottle do
