@@ -7,6 +7,7 @@ class Dc3dd < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "62c4ad25c7505cf54a8f2e6f3e513276e092f89d7cc4b6c62c8b88e987dd6e44"
     sha256 arm64_monterey: "d52d1a475e5b2d60cf41bee342c69ed22155d43cadf08fc3fa158ba30a5fb7f5"
     sha256 arm64_big_sur:  "2be42dbf1359cd71f34f59979dd5d20991f9315c6d00e77d66c62c652a0419e9"
     sha256 monterey:       "81691239ee28eea77448db74952f8f8f1595a6c09bb5924f0a092cf050ebbf17"
