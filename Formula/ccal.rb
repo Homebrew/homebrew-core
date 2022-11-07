@@ -13,6 +13,7 @@ class Ccal < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5501517c464734afd6d7dde343bcce5508be8a298f861181d7bb41b799098ca9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c64a8df40556f6f6778bfa5f5dbe5b3f19bd96d8ff83d208fedc4bf13cabd032"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9555bba354683597a63cf86554624a01afbf7cc897c0e292b10edc3657f4572"
     sha256 cellar: :any_skip_relocation, monterey:       "ad4cbfca5bf91baacefb99faef58acc28a6cf0517d31ba2b94e365d69bf43086"
