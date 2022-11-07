@@ -9,13 +9,13 @@ class Vulture < Formula
   head "https://github.com/jendrikseipp/vulture.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6040054db621f657657fb7099c271c7c0d2aa2e19179203b0afdde75c844171a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f3c5caff61b92d1aa8f31ff34aed3bf4526d2c2e4bab1409b453b473c20e3c9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "842d3da62ea17a600c26008460b4fb3d4e034b8e27d2140c6369ae1dc2c6504f"
-    sha256 cellar: :any_skip_relocation, monterey:       "715bc22c1880197dd150ec5b3a2330aea6d3a80b997523008519a9fbe9accce0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9f23be8226174980a8c7c3e39dc8bc19a258a28e8303a639f7253611d793bab9"
-    sha256 cellar: :any_skip_relocation, catalina:       "688c40b7a52b40d0b995f20d94ecfb1287f4290f582882058ccb536b9b0ac5a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03836b9652b569b1f7537a7340f302903b156e4b1bad6886feae8e4653b8f3ac"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "071ea2709a1009764f931f818905bf72750f6cea6abd7dc59c3b3d250fccfd98"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1241f79a16b99c7d8a096b37add6615922dcfc3bd8e34fc12b5cb71a01d4d4fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "9f4837aa8117c44ba701530cb172f544578fb794334e9712466024f1b5980135"
+    sha256 cellar: :any_skip_relocation, big_sur:        "711e5eace767bf5709c30a40c5eba3fa44ad6c02ea5e458a702cc5f932a8a4cb"
+    sha256 cellar: :any_skip_relocation, catalina:       "e969922ac274f48e9038ae5b4a849245aeab4822f743b25d957dd93d812f9889"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a421ed113b859839b654001afa8b7a8e6ff116a4138cc0f8eb92d9e715d4c653"
   end
 
   depends_on "python@3.11"
