@@ -25,6 +25,7 @@ class Crystal < Formula
     sha256 cellar: :any,                 arm64_big_sur:  "9f147fcb39669a2cb2a951c4f2a425571808706d9c41e438cf6452c2ccee2400"
     sha256 cellar: :any,                 monterey:       "5a0290cf901a728d0c353e2544cc4c73cbeb0f698f25d9f89f5f09de2875ac1f"
     sha256 cellar: :any,                 big_sur:        "c78e5642b4bcae672ad6af7472719883350e70251307c8655f6af566eaf6eb97"
+    sha256 cellar: :any,                 catalina:       "707755f9d35c7a318f029716e716af42b652795d69f14accebf51ac2ee101266"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "04935a3dbeb60ec7d1364f8e424679b2190e81584093781276ef516f1e016aeb"
   end
 
