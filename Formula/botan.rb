@@ -13,6 +13,7 @@ class Botan < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_ventura:  "8311eedfb236b3aee68cc1d913d57c43c017de80a4ee3d094003041dfb080a1d"
     sha256 arm64_monterey: "8f5c3bc2bbe2b86e160c827467f6a76cdc32e697133f3a5cedada3dac619f5e7"
     sha256 arm64_big_sur:  "17f28fa296307abf8c2464c52f965f885b366b94d84058ffa0f8c99541237124"
     sha256 monterey:       "ee0726d2408986517344a3c8d0796cf91d775c6fb54653ee48ff4598d472ef70"
