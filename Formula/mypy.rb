@@ -3,10 +3,9 @@ class Mypy < Formula
 
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
-  url "https://files.pythonhosted.org/packages/0d/75/a1ec1af4153f7b7ae825705ada667bf445418277153c76972ba0ad782bb9/mypy-0.982.tar.gz"
-  sha256 "85f7a343542dc8b1ed0a888cdd34dca56462654ef23aa673907305b260b3d746"
+  url "https://files.pythonhosted.org/packages/96/43/f50e6a373ef3402616ef65e450e5a1ceac0073b0a3ebefb4472e257152d4/mypy-0.990.tar.gz"
+  sha256 "72382cb609142dba3f04140d016c94b4092bc7b4d98ca718740dc989e5271b8d"
   license "MIT"
-  revision 1
   head "https://github.com/python/mypy.git", branch: "master"
 
   bottle do
@@ -25,6 +24,11 @@ class Mypy < Formula
   resource "mypy-extensions" do
     url "https://files.pythonhosted.org/packages/63/60/0582ce2eaced55f65a4406fc97beba256de4b7a95a0034c6576458c6519f/mypy_extensions-0.4.3.tar.gz"
     sha256 "2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"
+  end
+
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "typing-extensions" do
