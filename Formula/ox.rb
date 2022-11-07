@@ -13,6 +13,7 @@ class Ox < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "606fce16c59db5ca5c28ee0c8162358c6cf49003ddd34a9f5c7e79becf085fc4"
     sha256 cellar: :any_skip_relocation, monterey:       "c3cd24406c0cf8ccd53df8e4d5e42faf2ea5adcdcee01c10de3e42c58c74f162"
     sha256 cellar: :any_skip_relocation, big_sur:        "deebe47c0268ed7bfcea1a0647d8e7efeb0144ed582336aaa37863ab07c4273a"
+    sha256 cellar: :any_skip_relocation, catalina:       "03e1fb3e45d2142be9f240fc453cef636a16e9b56171c37a48e9a3a0fda5f487"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aff8a390b565c0c3d7057b512371081c3c626332f29c3ced27507f395b335531"
   end
 
