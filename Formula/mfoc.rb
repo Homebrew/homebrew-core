@@ -7,6 +7,7 @@ class Mfoc < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "198199b28fba78263ae5f47178b4fc1334034e6f9501a2e75725676b7d83ebb3"
     sha256 cellar: :any,                 arm64_monterey: "7c6a3bbe0b0887b422c6cb36c63fcc91080ad0455b00fe8d8c64e41db1c8b99c"
     sha256 cellar: :any,                 arm64_big_sur:  "3cc80a2304a700b31494408fe1ee6472f51c8e5b10923b3ebd4eb912e0de6856"
     sha256 cellar: :any,                 monterey:       "11d48f0e03ae7c99ffae54be35bd998c94d664855b8217e3eec582823b4200f6"
