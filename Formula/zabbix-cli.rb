@@ -15,6 +15,7 @@ class ZabbixCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43721eecd306e7a65ab883d5567e59eaf57380a02d00f1c9d4c4a9502f4c2a49"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5ae0b87404c2c6f6242137ae906afa68afdd66bcc1deb64163ad3f2f3217308d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79d7ce0ae4767400dc2c7c3219bdd4ba569677e16963e652d3ca7023447154e3"
     sha256 cellar: :any_skip_relocation, monterey:       "ad323071b6f0426221d3a039a5ba792227c4580827b6dc190a25757f70be4eaa"
