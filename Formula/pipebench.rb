@@ -13,6 +13,7 @@ class Pipebench < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09e7033208ec037cf78d7fca9c3ffcbaeb06a2a51ae8b6b53915c83b9745ed3a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7704012e0f066c3a9ffa837df9e1f346a3dacbd37047aefce2d4d3f427e00562"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5bb970ea3b27cad7960f3f60a86b3a55ad36d29cf11169019c5057e803d8ea75"
     sha256 cellar: :any_skip_relocation, monterey:       "f367e67b0def209b0553b577a767a8451f91f21d321f1addf6f01e5920c162dc"
