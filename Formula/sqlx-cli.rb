@@ -7,6 +7,7 @@ class SqlxCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d795c06ea78a790188c80549289ccb5753a8ab0b9fe0f9588bcd366c8431399"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b9b4dd160c054bcf007083793f0b0e30f5a4b66f058c1ac2df295f1860f0a288"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c7e5e050a955a294574b7f25603625bae94710a17f29e20a9975d1e512ff8a5"
     sha256 cellar: :any_skip_relocation, monterey:       "3795ca460b8f0c215ac7dcc88de69fd6ba966d07d28a224bf6a4ef49d823a818"
