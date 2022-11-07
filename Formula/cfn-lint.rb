@@ -17,7 +17,7 @@ class CfnLint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "43a0d80018570738b1afe6a8cdef49bd0d6e8c09ef1e6c30c85877edac84ff08"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -32,13 +32,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/dd/a4/bb237ef8f0b4dd5e73616a0a72b2de88364e7fb35277a6087de2cc430055/boto3-1.26.2.tar.gz"
-    sha256 "db37be1a765a06d2fea6ed4ca27f71d710ba1be6982574419dcd2a78020077e0"
+    url "https://files.pythonhosted.org/packages/b8/0e/3a271954247f48ee2bc586aaa0d25467da722dff7059426311a3f9e81e93/boto3-1.26.3.tar.gz"
+    sha256 "b81e4aa16891eac7532ce6cc9eb690a8d2e0ceea3bcf44b5c5a1309c2500d35f"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/24/c3/dca6da7379f18e694a68da01d8ab5cd6e6a8d5b79288ce07ff04cba8b253/botocore-1.29.2.tar.gz"
-    sha256 "8a8c28dc22c241faae7ed09a67481e82972c4d632020b99598a8e81e8e07ae6b"
+    url "https://files.pythonhosted.org/packages/61/d0/864d19810c779c8f2cc4e64030414c2056178863c6a61d2f831ab031cc35/botocore-1.29.3.tar.gz"
+    sha256 "ac7986fefe1b9c6323d381c4fdee3845c67fa53eb6c9cf586a8e8a07270dbcfe"
   end
 
   resource "jmespath" do
