@@ -440,6 +440,9 @@
   "pythran": {
     "exclude_packages": ["numpy", "six"]
   },
+  "pyvim": {
+    "exclude_packages": ["six"]
+  },
   "pywhat": {
     "exclude_packages": ["six"]
   },
