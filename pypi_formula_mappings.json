@@ -35,6 +35,9 @@
   "aws-google-auth": {
     "exclude_packages": ["pillow", "six", "tabulate"]
   },
+  "aws-shell" : {
+    "exclude_packages": ["six"]
+  },
   "aws-sso-util": {
     "exclude_packages": ["six"]
   },
