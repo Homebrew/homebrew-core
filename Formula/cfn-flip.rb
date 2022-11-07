@@ -18,7 +18,7 @@ class CfnFlip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0ac941e7d38918f5980a989113f55dc0a89bfccf4c8528b55e7bd0c9d74df05"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
