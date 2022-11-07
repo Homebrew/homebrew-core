@@ -7,6 +7,7 @@ class Ndpi < Formula
   head "https://github.com/ntop/nDPI.git", branch: "dev"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "007d9adcffe3bf64b40d223d123ad80d063260901e000c42207d95a5de62e3ef"
     sha256 cellar: :any,                 arm64_monterey: "67f203560cd7389e2eeefcaf4333d1c2c177184c363fd049d38c954e28f54151"
     sha256 cellar: :any,                 arm64_big_sur:  "65f77fdd73e981b20f3bb393533d2b721cce0842cf1ce3874a651d95eeca571f"
     sha256 cellar: :any,                 monterey:       "0a194f0a5086f827e76947b695dd06908ecc0d08b4066e1cfc2d291592b7c76c"
