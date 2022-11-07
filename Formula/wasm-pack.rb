@@ -12,6 +12,7 @@ class WasmPack < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5cb5868af1846b4b605b1c8286b2688ec8b971bc4eba41a0fc8d00e9c42d56e"
     sha256 cellar: :any_skip_relocation, monterey:       "50b13a14546c07336146adb67af2d8d2f77889258743262e80826a800e265ea3"
     sha256 cellar: :any_skip_relocation, big_sur:        "72aed4a7c19fc92bd760940880c230c5d8c33bc01e6221a7bb8b7ba6fef915cc"
+    sha256 cellar: :any_skip_relocation, catalina:       "0ebc39126b30ea95fed57827a1d4024b1469d395d473c6731cc9413f3a1a40c2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cee90c486fd6e4168cf8399ce7e0c4b231237fb52ecb501ac4df97d9275e86d8"
   end
 
