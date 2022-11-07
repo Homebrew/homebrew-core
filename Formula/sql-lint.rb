@@ -8,6 +8,7 @@ class SqlLint < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "40e19503b278a973ee143e996728f5226235886ff2b1a42b08e63715b6ae2004"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c41585b38889006247a0d7a66278ba037138d2395321031d0ac899892fa19255"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c41585b38889006247a0d7a66278ba037138d2395321031d0ac899892fa19255"
     sha256 cellar: :any_skip_relocation, monterey:       "56ec39a2f7cd18626231790aaeab98c6f4d7fa648dc6227cd65884dfdddd3d15"
