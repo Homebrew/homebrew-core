@@ -2,8 +2,8 @@ class Openj9 < Formula
   desc "High performance, scalable, Java virtual machine"
   homepage "https://www.eclipse.org/openj9/"
   url "https://github.com/eclipse-openj9/openj9.git",
-      tag:      "openj9-0.33.1",
-      revision: "1d9d16830f713e97410e8eeed1c350e58f34fadb"
+      tag:      "openj9-0.35.0",
+      revision: "e04a7f6c1c365a6b375deb5f641c72309b170b95"
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
@@ -82,13 +82,13 @@ class Openj9 < Formula
 
   resource "omr" do
     url "https://github.com/eclipse-openj9/openj9-omr.git",
-        tag:      "openj9-0.33.1",
+        tag:      "openj9-0.35.0",
         revision: "b58aa2708c095efadf522f67aaef9f7de2a7cbc7"
   end
 
   resource "openj9-openjdk-jdk" do
     url "https://github.com/ibmruntimes/openj9-openjdk-jdk17.git",
-        tag:      "openj9-0.33.1",
+        tag:      "openj9-0.35.0",
         revision: "1f4d354e6540e1aee3634ef067d3949516a337f5"
   end
 
