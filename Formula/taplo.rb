@@ -12,6 +12,7 @@ class Taplo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5647a9506b7ef922984d37cf9a49c4c66f62ac924726e3e81b2b556689ce66fe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5d248d001232b0a4d5e3ca78551fc702aabe96bc3ee3ff183e17ca79a326b220"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc69d10c27832bdf8d6a55c4f14d5e2245b2aaa486a7088183785bc697e69a06"
     sha256 cellar: :any_skip_relocation, monterey:       "6edf00e22f6cbe57001b35b264ca2f52f1417059bd602214304ad8b5b23c6bee"
