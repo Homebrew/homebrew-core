@@ -8,6 +8,7 @@ class Apidoc < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "91e59f29872ea0e20129bd1f5e8ee3eb88e181481fe66a858052be7e65d34f50"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "806df7048f9663c9b06ad2eca73c51b6ec86475dbac257fd2baa46c9e4105412"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "806df7048f9663c9b06ad2eca73c51b6ec86475dbac257fd2baa46c9e4105412"
     sha256 cellar: :any_skip_relocation, monterey:       "bb8507b7309e30fc857874614b55751301b22cbd2bbf1c8454605402230ab790"
