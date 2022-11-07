@@ -9,6 +9,7 @@ class Timewarrior < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c4f3600fcb3b1dd5362a38b632e608c4cadee3ebb19540d73ca15dd72f7d617"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9cced545d9ef04f31478f246a050d6f25e1263fa73d649f8c59618d593a4b8cc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dc622b28df1e1f069f11fc3e120f2c80183591542a01a01f8cf0df5a1e5febb"
     sha256 cellar: :any_skip_relocation, monterey:       "fd2a0160dc34d555396caf6f194a37f216ab907047228d7db420a9e09d84418b"
