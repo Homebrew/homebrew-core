@@ -1,8 +1,8 @@
 class Pgroonga < Formula
   desc "PostgreSQL plugin to use Groonga as index"
   homepage "https://pgroonga.github.io/"
-  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.4.0.tar.gz"
-  sha256 "5baaae0e7d81f8167e278e9a34c6ed56aece8b34f5ab98f228c64408093417b3"
+  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.4.1.tar.gz"
+  sha256 "ae08ad582228d334275d9447707c273974c5f90bed86481259a28937929caa84"
   license "PostgreSQL"
 
   livecheck do
