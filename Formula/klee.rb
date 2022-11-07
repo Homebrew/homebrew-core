@@ -26,6 +26,7 @@ class Klee < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "8e49f018dc471ff60837f551a84d0c36464f8a5640feeff688735dc943515551"
     sha256 arm64_monterey: "318ec7a58f3fd976b910640c295056c97317515bba76562032e054aa8d578b03"
     sha256 arm64_big_sur:  "4a6fb2dc1015463aacee3532ede846d084564098ef9edfbfe0cafe67b20c3785"
     sha256 monterey:       "311198ac0aa74278253af9f652fdc65855b740e9cfc9abcdf2c7db2ec3a76ff7"
