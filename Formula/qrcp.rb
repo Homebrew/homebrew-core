@@ -6,6 +6,7 @@ class Qrcp < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d42d019590dbd27dfb43865d0d20b2ad2f3e07480d4496f9d9a4cbfe639c89f4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2bac381f8b8a28fea31bfe824a7aa22e45cf3215195226d940a9e899867b14db"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38159c798be38412d244b90a17fc4ece1e1fc455a73f74a1d25c14ca6963a9c0"
     sha256 cellar: :any_skip_relocation, monterey:       "e821bac199d4fa84ed10f0a6d036c4140a9237430537e5f0305a5d5ffd5f4fb2"
