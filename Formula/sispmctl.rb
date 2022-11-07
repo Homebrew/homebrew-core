@@ -6,6 +6,7 @@ class Sispmctl < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "305de946ae0b0ccc8ed6b7703bf59730852904f209db2670771ccf1ea5fb8c0d"
     sha256 arm64_monterey: "ed26829f844e176487911032144bdcefffac53d528b6613387060cdf804c3ce5"
     sha256 arm64_big_sur:  "4e6492d30b2625b3c117b12ddf23d0e12e9cce5c9e0d7f2ae4806a0b9227154d"
     sha256 monterey:       "14bd73d5af83b488d1d629e61b30c5356b4a61cf60af92673af41d3269d1c9b0"
