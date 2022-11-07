@@ -24,7 +24,7 @@ class EyeD3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c511552fe4d3bbed9ef74934bfd5cf2e2cc42d395f38106cf78d70a40ad8f5aa"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   # Looking for documentation? Please submit a PR to build some!
   # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
@@ -60,7 +60,7 @@ class EyeD3 < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
