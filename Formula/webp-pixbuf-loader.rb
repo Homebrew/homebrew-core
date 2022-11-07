@@ -6,6 +6,7 @@ class WebpPixbufLoader < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "334127befcdb1c988eaaceb43bee6a4c338c0ba9a1a6b02ec553e0756739ae88"
     sha256 cellar: :any, arm64_monterey: "603ebbb5dd68650a0deb2c41fc9682de704bfeb5831a93441fb07e69911355d5"
     sha256 cellar: :any, arm64_big_sur:  "1d4c1ce0cfe5f675cc8c59a939e5b8a735237648e1c6691e94e0771c9bbf50b8"
     sha256 cellar: :any, monterey:       "b5c40535c457150fc1654a5072f4162230b17bf661aac05a65512f13f32e94e1"
