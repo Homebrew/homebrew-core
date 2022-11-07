@@ -10,6 +10,7 @@ class Ratfor < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02426cb3f91d13a212cfdd581c550ce0c02a769ffc472b7497b5110426268760"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b7dd12c9a6ec7c9b817cc0f6179dd4b23a517b99a9645818b6dfdf297336ea6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86d1de3e075edcc1e493b46fc7186bd21906644ba69a7032f3bc827487eb9449"
     sha256 cellar: :any_skip_relocation, monterey:       "fc0242f98c14b752d27ed3bf1ce4c92827474918c87e38f541fc95c8cd95a267"
