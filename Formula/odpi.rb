@@ -6,6 +6,7 @@ class Odpi < Formula
   license any_of: ["Apache-2.0", "UPL-1.0"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "24cb63205cf9f780e8fe7909e6c77314244f4bdc35dfe5f346a387d0cb395089"
     sha256 cellar: :any,                 arm64_monterey: "59011081ee7517175e26d371e5912e601606e446beba91ee05f580c7ddaeda4a"
     sha256 cellar: :any,                 arm64_big_sur:  "e59b9d886a6baaae0508bd5f48b595e38f4d198d8e01941b3eb63cd5554034af"
     sha256 cellar: :any,                 monterey:       "0851623d06cab8d9c9460a6ece8bec0d12754191311c80bbbc079af3ed9a07fc"
