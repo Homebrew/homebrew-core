@@ -1,8 +1,8 @@
 class Zinit < Formula
   desc "Flexible and fast Zsh plugin manager"
   homepage "https://zdharma-continuum.github.io/zinit/wiki/"
-  url "https://github.com/zdharma-continuum/zinit/archive/refs/tags/v3.7.tar.gz"
-  sha256 "dcd7ded70255a576a4612edb743650f83e688bd4a4b473bbdafeddb473bde3c9"
+  url "https://github.com/zdharma-continuum/zinit/archive/refs/tags/v3.8.0.tar.gz"
+  sha256 "1c363b058e3df73652ed03f2f3ad2c3d2d8ecc96f8752905716df9258b86b9e7"
   license "MIT"
   head "https://github.com/zdharma-continuum/zinit.git", branch: "main"
 
