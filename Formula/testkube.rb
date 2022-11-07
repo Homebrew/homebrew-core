@@ -13,6 +13,7 @@ class Testkube < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d9e0492f398c84641a4e650f52fac9b1cc293654fba8b60b95db5a2f4bf149e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9d9e0492f398c84641a4e650f52fac9b1cc293654fba8b60b95db5a2f4bf149e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d9e0492f398c84641a4e650f52fac9b1cc293654fba8b60b95db5a2f4bf149e"
     sha256 cellar: :any_skip_relocation, monterey:       "8c9a74beb72b8d1d48b6516622401d2eeef6a1e3c2e30cf864e9ea39fc41707e"
