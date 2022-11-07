@@ -6,6 +6,7 @@ class Utimer < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f4b18b839f3d9864738ba4e120852b0d3fae8d67c7d98b4ce370a89a9eb839ec"
     sha256 cellar: :any,                 arm64_monterey: "3c86234c30c090ef832ddfb4c4b52117f6ef31956246abb311645860154cc6fc"
     sha256 cellar: :any,                 arm64_big_sur:  "bb50ed1a38ea9dc66c442261dbf8f6e517b9d374869e647d2136c580a47f7aca"
     sha256 cellar: :any,                 monterey:       "8f1bc7e7ea1445618ce50bfcc7c8aea1570ea70245d17e47b4ac7d9d6d68e295"
