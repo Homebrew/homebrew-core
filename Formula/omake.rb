@@ -12,14 +12,12 @@ class Omake < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "725e9f575aa66632678bf58a4a358d1b7bd30a2cb2024be2f37a49cfed2a0adb"
-    sha256 arm64_big_sur:  "3083df4b79088af402da7dbc31f1ff7368c656029bc328bb984a0ad3e86d317b"
-    sha256 monterey:       "33fc23f440db2f5f7950bb818aff16d46dbe46993faded5130c8e411b6e79c6f"
-    sha256 big_sur:        "983b6e4988b2bb1c5200e413c7a6152b196df9610c41c4768addca6a0355e1f5"
-    sha256 catalina:       "21933568db9ed765a0bf8c1f04b9f38e5923b6a320372a570499b221fb2afe6d"
-    sha256 mojave:         "f54a0498316969552424a646ef36b15c567162e689e04203c95a5f8a4536c589"
-    sha256 high_sierra:    "587b563698dc29ea2c662ffa58458f45e212f131e3687a37d26d8f379f089588"
-    sha256 x86_64_linux:   "8fe2949b2aa964a4310791453c27f1d05f8f693750ba0c9b8fad4b0d79580182"
+    sha256 arm64_monterey: "468982988c821b3a65bc02a244398c2e1a6c4a2bcdd5115af05a98e4da52e804"
+    sha256 arm64_big_sur:  "544ac68e5eea28f84324223b827050c5fb96e5e9bb86e0ec15d25ca6e9e8af4c"
+    sha256 monterey:       "cc8b8e8275e34b5f718ab0bd17a14da3064da00c467abe27c3718a8ed8abbebc"
+    sha256 big_sur:        "9d7cd18e5d23347cd547221021d2f613e001dc7ecd27d8cfce3714c5b77526b6"
+    sha256 catalina:       "a3420c41c140cdbf160ae44233dec2edf971f8b0177ff2f4d03a2e58f22cc0fe"
+    sha256 x86_64_linux:   "4fb8e22103867842e42543bfee9ee440a1589b3b56b5d00bcf25e125956d251c"
   end
 
   depends_on "ocaml" => [:build, :test]
