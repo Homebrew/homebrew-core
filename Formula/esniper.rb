@@ -7,6 +7,7 @@ class Esniper < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8bb981e2a11b1963ecba800ea00ec07647d3f5f6d4d90986e512e8e4a72dd422"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a00cc8d55d37e3b20069a08176bfea366e64bae3ab651fe7063f857610a36ae"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6db787246047b9a9796d704b258f7f3c7a8f0d35eb77ea4eb5d766ee1c67895f"
     sha256 cellar: :any_skip_relocation, monterey:       "99e0e6b314a7990401afdd12fe220bd78e8773eb5803a6c308cd658c88114013"
