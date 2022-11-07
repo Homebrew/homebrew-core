@@ -11,6 +11,7 @@ class ArxLibertatis < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "1db7612e1dbbe5d1515b7578a2c20a3b62dd4f65c37257237d10bf7e48723448"
     sha256 arm64_monterey: "9fd235faef3f4cac1fa1bc33acace5545839c5bf9a4344793225f734dc0f4b7e"
     sha256 arm64_big_sur:  "5b7dd893fd8ab89d9265dc031d48781b14437ba175265f89a316a0d60686927e"
     sha256 monterey:       "d9c218e036852e73dea349e17eaa6e03358f7118bd41acd98a5f4bae7b25bc9d"
