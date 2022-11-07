@@ -6,6 +6,7 @@ class Btparse < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d58ac5298bb8bfc1859e5333d541ea89ce1dba5a629c1360b48857eb307f6350"
     sha256 cellar: :any,                 arm64_monterey: "32ee64dd04210dd27edb63ba2d3a635995f379e54d60b9e797e52a913201b546"
     sha256 cellar: :any,                 arm64_big_sur:  "d69e49048e5366097bd7fe06b5ab9e40e3e97602896c613706559ab2c7aa4295"
     sha256 cellar: :any,                 monterey:       "3330e9fe95565967827105cbe3009bf533b1363f8b4454c3fa34a7bca72f9502"
