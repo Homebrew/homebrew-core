@@ -17,6 +17,9 @@ class Livestreamer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "acc79d143599e834180032898376d7ceb4cdb0077da250b8db0aaac55e7434e9"
   end
 
+  # https://github.com/chrippa/livestreamer/issues/1427
+  deprecate! date: "2022-11-07", because: :unmaintained
+
   depends_on "python@3.10"
 
   resource "certifi" do
