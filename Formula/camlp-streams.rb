@@ -6,6 +6,7 @@ class CamlpStreams < Formula
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "71fce4c1acb3764add19c7bc62932779d6eba6bd5a71c5eb0da1f1d94631f58f"
     sha256 cellar: :any,                 arm64_monterey: "1aa419c01a3ca2738adf10d613def4cb213efea7c7af7682246287ef5a96a09a"
     sha256 cellar: :any,                 arm64_big_sur:  "551ca86de9bdb769f0f22de773eb4a93f9faf31193f6b8833e39d30efe15fa03"
     sha256 cellar: :any,                 monterey:       "f4fd0d6a51abb24f93fea4e7326dce470808aa5d6f2a8aca2750cd4bc9987174"
