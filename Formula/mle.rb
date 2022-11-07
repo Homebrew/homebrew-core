@@ -6,6 +6,7 @@ class Mle < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e220e1bc7b95b0b716fcad8c8e3db661bf9f191f44af78c7b450906d6c605316"
     sha256 cellar: :any,                 arm64_monterey: "01678f6f819e2caaa4739e9c0d00b52a3c9c5229ba834c0e498b7b0e790e63d5"
     sha256 cellar: :any,                 arm64_big_sur:  "fd31fe9d1e34cbed3c01748bf0e874f9094159ad68c13be97605171f52311d97"
     sha256 cellar: :any,                 monterey:       "313e12d493c3ae1a1093d7cfe59c96c644555a85032a999553c31250e4a7be61"
