@@ -17,6 +17,7 @@ class VampPluginSdk < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "44b58e44044cc29d6a56f0e4feeb15db3fb619f393c63800c91240eb82ab16f4"
     sha256 cellar: :any,                 arm64_monterey: "e10a03b4cbf89602757ef2f2bd43757bc7a734d3c200ca2a4258b304c05e9351"
     sha256 cellar: :any,                 arm64_big_sur:  "aa6184c469e855de77725477097a0c6998a04d4753bc852aa756123edaac446c"
     sha256 cellar: :any,                 monterey:       "2e24031117d9bed00ea07b4bb2b3ca4c09305a001647a2a256928f2e29e2a999"
