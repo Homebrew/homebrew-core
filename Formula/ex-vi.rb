@@ -10,6 +10,7 @@ class ExVi < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "9bfbfbf13fd3909c99c246d69045759540f2affa4bb0061805414d2bfc7400ee"
     sha256 arm64_monterey: "690982e02183d89a46a976131577092a48155ae8e80b9aad89440e7baad51959"
     sha256 arm64_big_sur:  "b5d40f595021f02eb45114157e2e62718b8ee1066ed90d1f4e05ba39f4aa1859"
     sha256 monterey:       "205fe1e5548f4f8b8f357e85f2a1729dc60a12e62669e9c7dd56c4299f2168d9"
