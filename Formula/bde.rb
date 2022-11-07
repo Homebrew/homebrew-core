@@ -12,6 +12,7 @@ class Bde < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1b1b675ef8bbbae5c839132ba451d9f61ee50c806342fb215d7921e3773dc560"
     sha256 cellar: :any,                 arm64_monterey: "68d135bc723147e17579541ad3e89a8a176c87cc6b04136321622dc07a8d6a39"
     sha256 cellar: :any,                 arm64_big_sur:  "2b2d2c0e1a9439c13c7f5cc5a0c3066b8c84a884c25d02790e1519f617563140"
     sha256 cellar: :any,                 monterey:       "dc3a4b7f935f65892ff0f6ab01030805b194bcf445d6bac5764d02d7a2013292"
