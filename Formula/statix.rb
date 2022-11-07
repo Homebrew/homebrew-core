@@ -7,6 +7,7 @@ class Statix < Formula
   head "https://github.com/nerdypepper/statix.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0be42775d9ae7242ae010c564fbdbb59627c03a2544f94726992ce0c560211c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f2725bb833bbd7d01c0e6490704561de8b2f60ad6b7301e04df541876896611"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f959d28ba6724738ba67cb0e78a2192a1f74247748a8d1405032855f892e2746"
     sha256 cellar: :any_skip_relocation, monterey:       "0551ac6150f1cb190d00e0c4ba2177724165a544b44ac421746e576ec5028dd8"
