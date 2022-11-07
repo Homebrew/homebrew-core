@@ -12,6 +12,7 @@ class CdogsSdl < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "9b8a08a52b6d17ce17341be4c554f067b836c1b17bbbf75f37ae00a248df7396"
     sha256 arm64_monterey: "eb5081ddeb91e63f85aad85b8bfd43b1cd22f12db98707af53c7807dbcdb7e62"
     sha256 arm64_big_sur:  "7cd9e08437a8b784fc83ce9748cd35819bc592f2cdec326a9acaff99000b3b83"
     sha256 monterey:       "1e9a8a1dab42f9222aba255cfc97ca2d5c9b5b71591e831a49225b54237aaf53"
