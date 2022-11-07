@@ -18,7 +18,7 @@ class Censys < Formula
   end
 
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "backoff" do
     url "https://files.pythonhosted.org/packages/47/d7/5bbeb12c44d7c4f2fb5b56abce497eb5ed9f34d85701de869acedd602619/backoff-2.2.1.tar.gz"
@@ -61,7 +61,6 @@ class Censys < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3.10")
     virtualenv_install_with_resources
   end
 
