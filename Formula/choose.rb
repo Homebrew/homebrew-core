@@ -1,4 +1,6 @@
 class Choose < Formula
+  include Language::Python::Shebang
+
   desc "Make choices on the command-line"
   homepage "https://github.com/geier/choose"
   url "https://github.com/geier/choose/archive/v0.1.0.tar.gz"
@@ -18,7 +20,7 @@ class Choose < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9241612ee60fcabf7fa8471843592f7063fb28f32a92e12dad97c1ab8774041f"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   conflicts_with "choose-gui", because: "both install a `choose` binary"
   conflicts_with "choose-rust", because: "both install a `choose` binary"
@@ -29,7 +31,7 @@ class Choose < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
 
     resource("urwid").stage do
@@ -37,14 +39,16 @@ class Choose < Formula
     end
 
     bin.install "choose"
-
+    rewrite_shebang detected_python_shebang, bin/"choose"
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do
-    # There isn't really a better test than that the executable exists
-    # and is executable because you can't run it without producing an
-    # interactive selection ui.
     assert_predicate bin/"choose", :executable?
+
+    # [Errno 6] No such device or address: '/dev/tty'
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    assert_equal "homebrew-test", pipe_output(bin/"choose", "homebrew-test\n").strip
   end
 end
