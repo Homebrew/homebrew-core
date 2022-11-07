@@ -7,6 +7,7 @@ class Recutils < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "6556b10f353cbae8cc5d69cc48cb0662eaf85060794e0d29ae25950dbe02749e"
     sha256 cellar: :any, arm64_monterey: "09a875626acf4c73036fc8048bf3e0e5bb7beff7fd60e1e96faa1b1d92888638"
     sha256 cellar: :any, arm64_big_sur:  "c2da94eb14db7fdd4f6376cd3d6546ff8cebddd64f4290fe265161f21d3fdff8"
     sha256 cellar: :any, monterey:       "feac0920394addceefb8a23fc38a7406fed04b71bde433d14dfa703b852c5089"
