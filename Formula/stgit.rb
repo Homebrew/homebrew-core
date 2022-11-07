@@ -18,6 +18,7 @@ class Stgit < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "git"
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
