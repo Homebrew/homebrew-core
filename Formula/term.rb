@@ -10,6 +10,7 @@ class Term < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6dd9dd17ed477530310c64097beb15b38091a3b63c90c76289908ac550bb83d1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "52285aea926cdf84f92702472ba404054f0297444f88a99a1f9b3916cbadf485"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f243e5462a56dc1847cea21bc43517688daa6f82bffac8aafd8c68258cfafa7f"
     sha256 cellar: :any_skip_relocation, monterey:       "010a8465dd589036df16f10d9847f543b0a7c42a67b1dd25bbd55a07f0bd6001"
