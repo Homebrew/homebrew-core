@@ -11,6 +11,8 @@ class S3ql < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "b8cbd4e1467afc2b01ee93e45bed64baca9a0cd9915b57873e647bcf6927a99a"
   end
 
+  deprecate! date: "2022-11-07", because: :repo_archived
+
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "python@3.9"
