@@ -9,14 +9,13 @@ class Yamale < Formula
   head "https://github.com/23andMe/Yamale.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "05334844c7bf7dc0c6d780eb984fb944891acd81c5d78c9588c909a1f2c01812"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fcac343ee478ef2cda7b9083d5e444c4e0d550a3536705511dda07cfd39ffa97"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fcac343ee478ef2cda7b9083d5e444c4e0d550a3536705511dda07cfd39ffa97"
-    sha256 cellar: :any_skip_relocation, monterey:       "e178118b37492c4e6c8cfbf2cd2a6a94a99e25138eb2aa5b2217ec3e239bdd6c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e178118b37492c4e6c8cfbf2cd2a6a94a99e25138eb2aa5b2217ec3e239bdd6c"
-    sha256 cellar: :any_skip_relocation, catalina:       "e178118b37492c4e6c8cfbf2cd2a6a94a99e25138eb2aa5b2217ec3e239bdd6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d9122a6c3d55c3db4779f8d71f2de14ffd0df050c78136afd59ef482638078c"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "74b1479ab1daeaeb8e1a0048d1ed067c08ff38d7a69817fad6685f4480242959"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "74b1479ab1daeaeb8e1a0048d1ed067c08ff38d7a69817fad6685f4480242959"
+    sha256 cellar: :any_skip_relocation, monterey:       "d3f3df5c8bbfa6008780dae17e10f985f5ec4e6e9f3fdb62190eacc31e33b094"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d3f3df5c8bbfa6008780dae17e10f985f5ec4e6e9f3fdb62190eacc31e33b094"
+    sha256 cellar: :any_skip_relocation, catalina:       "d3f3df5c8bbfa6008780dae17e10f985f5ec4e6e9f3fdb62190eacc31e33b094"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6def822a1d3f765f4b8d0ba7c95d5d8a1e6a48fe737128ddaa7b60a6fff6c41f"
   end
 
   depends_on "python@3.11"
