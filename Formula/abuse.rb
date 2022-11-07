@@ -13,6 +13,7 @@ class Abuse < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "4439cf6dd233b641848c36576ca622700de8c1efeb0a966e862c0e4dfc925b90"
     sha256 cellar: :any, arm64_monterey: "f9c0ad01bf244402da95d81a483a46d8bcc45fdaa50dde524711db05f5051438"
     sha256 cellar: :any, arm64_big_sur:  "487a8f37d5f3b9313d0d83a7e7349ce3c5111b1dc21b4d75c36b8a1e14a7aec3"
     sha256 cellar: :any, monterey:       "1902270b9c53512d7d4770c5c8f1b40f7670539befd7e6e4f95b67b3248c1782"
