@@ -7,6 +7,7 @@ class Librest < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_ventura: "5b9577e9c171c879a9fe98ed60239ac2997732b0d3d23be936ec4c8b51e660d7"
     sha256                               arm64_big_sur: "ce82e6e380a02285f90307b8609e63cba7dfa52a3d1fae7092296f49e67f624f"
     sha256                               monterey:      "fc839b0cce9619c5489fe51408792ada7ab2a5569419cd38569ca13fa6ef356b"
     sha256                               big_sur:       "83313f7234d69f6801104ba55c1b60933d8db57d8b8f818b336b8a498043b067"
