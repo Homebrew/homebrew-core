@@ -16,7 +16,7 @@ class Hy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "75bd60feed6ccd186b760a74eeedf186e9deaad3f7287ded6e81a043fa39a4cb"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
@@ -33,7 +33,7 @@ class Hy < Formula
   end
 
   test do
-    python3 = "python3.10"
+    python3 = "python3.11"
     ENV.prepend_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
 
     (testpath/"test.hy").write "(print (+ 2 2))"
