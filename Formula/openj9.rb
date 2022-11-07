@@ -83,13 +83,13 @@ class Openj9 < Formula
   resource "omr" do
     url "https://github.com/eclipse-openj9/openj9-omr.git",
         tag:      "openj9-0.35.0",
-        revision: "b58aa2708c095efadf522f67aaef9f7de2a7cbc7"
+        revision: "85a21674fdf30403b75c3000a4dc10605ca52ba2"
   end
 
   resource "openj9-openjdk-jdk" do
     url "https://github.com/ibmruntimes/openj9-openjdk-jdk17.git",
         tag:      "openj9-0.35.0",
-        revision: "1f4d354e6540e1aee3634ef067d3949516a337f5"
+        revision: "32d2c409a3325231f58eed81de0f0f1a229b43d6"
   end
 
   def install
