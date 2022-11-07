@@ -13,6 +13,7 @@ class RipgrepAll < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee9f510ddf55cddfa9c7e7299c1793a0076ba0a9a1a1141a012e31f52a78e2e0"
     sha256 cellar: :any_skip_relocation, monterey:       "37a8535f3c8c7018cf61513d94066004f4245d6df4fca2cfd8137ff3a4472614"
     sha256 cellar: :any_skip_relocation, big_sur:        "416071978569fb7aab9af008025b98def9ed0187de27d2c69106ec92021755b8"
+    sha256 cellar: :any_skip_relocation, catalina:       "151485dced116e5a0d6bcb7d02795518b31726919ae9e93a891339a123fcf19e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "217efb369c00a588b6081bf888a6647a388a46b04618bcb118de7d28f3202973"
   end
 
