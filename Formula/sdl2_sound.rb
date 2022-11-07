@@ -5,7 +5,10 @@ class Sdl2Sound < Formula
   url "https://github.com/icculus/SDL_sound/archive/06c8946983ca9b9ed084648f417f60f21c0697f1.tar.gz"
   version "2.0.1"
   sha256 "41f4d779192dea82086c8da8b8cbd47ba99b52cd45fdf39c96b63f75f51293e1"
-  license "Zlib"
+  license all_of: [
+    "Zlib",
+    any_of: ["Artistic-1.0-Perl", "LGPL-2.1-or-later"], # timidity
+  ]
   head "https://github.com/icculus/SDL_sound.git", branch: "main"
 
   bottle do
@@ -18,22 +21,20 @@ class Sdl2Sound < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libmodplug"
   depends_on "sdl2"
-  depends_on "timidity"
 
   def install
-    args = std_cmake_args
-    args += [
+    args = [
       "-DCMAKE_INSTALL_RPATH=#{rpath}",
       "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}",
       "-DSDLSOUND_DECODER_MIDI=TRUE",
     ]
     args << "-DSDLSOUND_DECODER_COREAUDIO=TRUE" if OS.mac?
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "examples"
+    prefix.install Dir["src/timidity/COPYING*"]
   end
 
   test do
