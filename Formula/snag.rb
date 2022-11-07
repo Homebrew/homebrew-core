@@ -7,6 +7,7 @@ class Snag < Formula
   head "https://github.com/Tonkpils/snag.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa9946a8925f1aa3881c48e93893a412938c9681f0bd2427a4d652e366c0aedc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1714f0e948566336c34fcf45dce8f7a5d76cfdcad20545af460dd271daf8bdde"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "687d1c28e0f911d8343db56f993e4ab0088ec34e40b9a99c1139ec4f8db558c3"
     sha256 cellar: :any_skip_relocation, monterey:       "f3a6ed5e8543f7b4c6eda761a849680ffd869a6fe1d0b51eee3ecc6761d4fe9d"
