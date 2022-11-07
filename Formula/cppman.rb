@@ -16,7 +16,7 @@ class Cppman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "56529587e9c0997e7c48c49a92fa46d47759758cdf1d094be91ecde4649b696a"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "beautifulsoup4" do
