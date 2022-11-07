@@ -7,6 +7,7 @@ class I2pd < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "bfced034185151d8b401d080cb3263e6d05d0b6575ceb20fba042f84807f6347"
     sha256 cellar: :any,                 arm64_monterey: "9e432865cf965f2cb060e36eab9898daa3581421aabeeb582e31e700d7ae4a0d"
     sha256 cellar: :any,                 arm64_big_sur:  "afe25b772d258dfd029759dc54505c585609c5c47dd0fc38dc440d0b0aa1fc42"
     sha256 cellar: :any,                 monterey:       "bdec83561335dafd0108c691b33e54023ddc58e6342fce3f40d5163ccfc27e90"
