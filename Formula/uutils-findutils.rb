@@ -7,6 +7,7 @@ class UutilsFindutils < Formula
   head "https://github.com/uutils/findutils.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd89027fd3aad0315063312892e2ae2216d0c39699b57e38605a0a31d9ac4b38"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9b9afb8c023172346ae4c0fcaf09a5b3ae1902947e63eb7966cc74eaa5497727"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d66b8426c09906c18d3ce3b82d082caef83d5cf701a3858fe49fb8d02a9bd81"
     sha256 cellar: :any_skip_relocation, monterey:       "9a75049acd7a12e7db1bbb38a97b7b66e1425332f00258347b3821e7a435e6f8"
