@@ -3,20 +3,10 @@ class GiDocgen < Formula
 
   desc "Documentation tool for GObject-based libraries"
   homepage "https://gnome.pages.gitlab.gnome.org/gi-docgen/"
+  url "https://files.pythonhosted.org/packages/4d/0d/84d2a72a79ba7874b34680cac5b81019f17d58f2b53d88f341c710f1f3cf/gi-docgen-2022.2.tar.gz"
+  sha256 "fc56df0c7d4ab9e5ed83f35b7483cb07d0bf91761e4f139eed363d7e42ffe0c0"
   license any_of: ["Apache-2.0", "GPL-3.0-or-later"]
-  revision 1
   head "https://gitlab.gnome.org/GNOME/gi-docgen.git", branch: "main"
-
-  stable do
-    url "https://files.pythonhosted.org/packages/25/11/64ea759ba610d7442e8827306d1adba233ca69547d2a0e974f5ea74fa320/gi-docgen-2022.1.tar.gz"
-    sha256 "f91d879ff28d7d5265cde84275ee510e32386bfeb7ec6203a647342aead55cec"
-
-    # Make log.log() thread safe to avoid corrupt text. Remove in the next release.
-    patch do
-      url "https://gitlab.gnome.org/GNOME/gi-docgen/-/commit/26e3cb5ddf26bb6f33c2fdf171f409a57364be9e.diff"
-      sha256 "767e664d14c2b0344650af3ed359b70316deaab4b8abc20782810843ce75e81e"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7abcfcd23fa893d6387a5f9f3f67f2a1829e28c09dd33625ea701fc2d0d97073"
@@ -28,7 +18,7 @@ class GiDocgen < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7978df359336ed12bc4a3a8b5f3c9586814fa64c2e8806841e0ac134ce75726"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   # Source for latest version is not available on PyPI, so using GitHub tarball instead.
   # Issue ref: https://github.com/leohemsted/smartypants.py/issues/8
@@ -38,13 +28,13 @@ class GiDocgen < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz"
-    sha256 "640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"
+    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
+    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/15/06/d60f21eda994b044cbd496892d4d4c5c708aa597fcaded7d421513cb219b/Markdown-3.3.6.tar.gz"
-    sha256 "76df8ae32294ec39dcf89340382882dfa12975f87f45c3ed1ecdb1e8cefc7006"
+    url "https://files.pythonhosted.org/packages/85/7e/133e943e97a943d2f1d8bae0c5060f8ac50e6691754eb9dbe036b047a9bb/Markdown-3.4.1.tar.gz"
+    sha256 "3b809086bb6efad416156e00a0da66fe47618a5d6918dd688f53f40c8e4cfeff"
   end
 
   resource "MarkupSafe" do
@@ -53,8 +43,8 @@ class GiDocgen < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
-    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
+    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
+    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "toml" do
