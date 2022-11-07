@@ -230,6 +230,9 @@
   "gitlint": {
     "exclude_packages": ["six"]
   },
+  "goolabs": {
+    "exclude_packages": ["six"]
+  },
   "hatch": {
     "exclude_packages": ["six", "Pygments", "virtualenv"]
   },
