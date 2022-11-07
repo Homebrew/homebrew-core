@@ -33,7 +33,7 @@ class Omake < Formula
     system "make"
     system "make", "install"
 
-    man.install "doc/omake.1"
+    share.install prefix/"man"
   end
 
   test do
