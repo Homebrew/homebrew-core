@@ -6,6 +6,7 @@ class XcbUtilKeysyms < Formula
   license "X11"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4d62cd700f85b3ba39740bd2dd9872d45aef018e603db2907f9bd1c3e6213d88"
     sha256 cellar: :any,                 arm64_monterey: "8f81bf9c5f646f94ab25dfc84953ae28fc166316263eea913b00cf9e569d455a"
     sha256 cellar: :any,                 arm64_big_sur:  "fab1de02f3c8f6ca3b93921678f2c5c7317f230b05b27790b805d8e2585a1901"
     sha256 cellar: :any,                 monterey:       "246f9361f2802f7dac2fdc20c762c2cb50a86c0393b519529b52201e69fff053"
