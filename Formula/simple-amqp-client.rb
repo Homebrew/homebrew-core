@@ -8,6 +8,7 @@ class SimpleAmqpClient < Formula
   head "https://github.com/alanxz/SimpleAmqpClient.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "81e37926ad2b168fada2fede3893e482c149b8eff7cc6545c4fadd0b0a9ab2f0"
     sha256 cellar: :any,                 arm64_monterey: "98e88b317c98418541f136c5a4258ac0a55811ab3930ce764f81b59cbeb2377f"
     sha256 cellar: :any,                 arm64_big_sur:  "0c8874f465e52174070b0458134ba72778c244297b482d34549823d353efd4fb"
     sha256 cellar: :any,                 monterey:       "a2da20f175d9b66adc2b792574bc97f7ee52786c2c874a105fdc4a6ffdb3c09e"
