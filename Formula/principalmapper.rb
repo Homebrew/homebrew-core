@@ -9,12 +9,13 @@ class Principalmapper < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77abaa1256b9f3c7886d43742a61269bcdcfbb4c0236dd27f699364f9e230f0c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c8b37a94de3ff964ec565faa39880f00da068c722d2ee2808911aabccc9672e"
-    sha256 cellar: :any_skip_relocation, monterey:       "9d7a6946ad11046fe57ee129428128d6741d7143016300c3185e9741aa31836a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b1be055d29131d5b6165459e35f9b5caeddc601bd389340e08b93c1fe94ace7d"
-    sha256 cellar: :any_skip_relocation, catalina:       "26a9edce1ceb9433705a0276ad9b51676dd56b1be7835731aa65966b2736ebf7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8af3ebfce822022a9b83d0ccee1a299bb05bd4f6f22a7b3d5fda05d03f6eac6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "40db4bf177682d1efe58ce309aeb052b2d04b3bfda841529f3711f89cce15971"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad1ea1e603edfa2278847f70e194565c883c4feeb3d47f6b5ae19fd54c08d33c"
+    sha256 cellar: :any_skip_relocation, monterey:       "cceceaa1b6018b7e539ab6d539cb1733040b951430abcfe85fff61059f9a44d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a7d9626874aa2df94cd4c3763ff45d3a51ac174be3ae6b7304e352107c51df50"
+    sha256 cellar: :any_skip_relocation, catalina:       "571811598116caf816bd85365e15524bacb44b06fec98777505db53ee0c0b191"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b881af0513ff8953dc5ef5f8d7fcf18ffad7b90c1186a32779c5aa438b62938"
   end
 
   depends_on "python@3.11"
