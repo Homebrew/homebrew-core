@@ -7,6 +7,7 @@ class Blitz < Formula
   head "https://github.com/blitzpp/blitz.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c12b81ef4cb76e7ab76b557ef4a57ac431a6a39ab63bce8f1d786a6e2c316140"
     sha256 cellar: :any,                 arm64_monterey: "3403559216a7fe96f965537612fdbe8852810870a54c2ba96b6c0d15c9d03726"
     sha256 cellar: :any,                 arm64_big_sur:  "0b04264665a05ca8b018a1f9b8e7452297d675b5bb5b50f49af2dd5176de462e"
     sha256 cellar: :any,                 monterey:       "d18fe13200228947c919659133af057d66da2ccbcbf65febd057a612b2014a8d"
