@@ -9,6 +9,7 @@ class Autopep8 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0cc4ff496812ae293c8d18e1b7967d3fc12bacabc3082b29d483e00671c5cdbf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb1048b7bfa074a81ab0bdf9132509e665d08f70b72907818af9d90c58156c17"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42351a6b5de6406c45724741fd28b136be2796803f00753519a80aaa9a1b4e30"
     sha256 cellar: :any_skip_relocation, monterey:       "69dee754220183cf4a7dbd3a61d6b39de2365f24bf5243947891662989433635"
