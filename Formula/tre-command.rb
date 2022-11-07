@@ -7,6 +7,7 @@ class TreCommand < Formula
   head "https://github.com/dduan/tre.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2364551f6552f1c19a26e54285d9a9b31a7b3100ddccd64338e569d9e7fd05f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ea7a96260ab0d61ca2e71c5137635625e82472fd2935280dd9420d5eee1c5744"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "838817c4d488d31f1c2f89abbde6704eba4b775b09f4a33b0de720ca1a7b1191"
     sha256 cellar: :any_skip_relocation, monterey:       "385a5a7ea1ff28970a7ca8145868bbd7eb0efa4e5439ecb258cb66303ffcab0c"
