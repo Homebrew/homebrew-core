@@ -11,6 +11,7 @@ class Locateme < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee7e0709959839eb57d29307a2f835a93cb69e36eddd389bd62fb2d58d7e95be"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5c3de0a8398901fcfa93cce0b7dbaeb38989029d1eb2b76cac4246b042b3ef27"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1f946f1ef48eae5f8cbbdcd78655f3baf0cae307f2730b4aea76360044ed315e"
     sha256 cellar: :any_skip_relocation, monterey:       "df78b2ec950567f3c9889e73c1b0885d6b840569f76cd2a798bdff4c190e337a"
