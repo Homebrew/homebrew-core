@@ -6,6 +6,7 @@ class Rig < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256                               arm64_ventura:  "1ffffb584e30f49d7b8c4b5dcc99141fff24697dc0512a6cfd8deba04720ef54"
     sha256                               arm64_monterey: "beffb2a7922b42831deb088af7d1f9ae0aefd703f676a1bafffa420ea96bf23c"
     sha256                               arm64_big_sur:  "b9736b9b35547ab9af2afc1e84698f5001e7f0ba9208ee171a58f554d9780c25"
     sha256 cellar: :any_skip_relocation, monterey:       "5b3a4522d3f584f5239b2e993517d20f5d37fcfa474c8ba0fad8be7aa91372d5"
