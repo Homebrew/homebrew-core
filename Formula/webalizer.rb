@@ -8,6 +8,7 @@ class Webalizer < Formula
   revision 3
 
   bottle do
+    sha256 arm64_ventura:  "f26eca3adbd5012374dcf7fba0940ba0fad5522292a5add43ce5e8ae9cfd1bb1"
     sha256 arm64_monterey: "0eec79580ef41a980a2c3fd9161bee665d87eee2d0bed14a89eee1e285b91313"
     sha256 arm64_big_sur:  "e6cc3224691d03aa7a7c2c90b53372ba3bcd4a50d15ce849a4403457690bdbc7"
     sha256 monterey:       "d74f9239455491a88840a46ca4a58395186467530de79e41bfde176d8e9171ec"
