@@ -11,6 +11,7 @@ class Madplay < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "12c5f62bc659cbae5db709292b63edfbd9fccd3950e2b7eb1fda7bc39f92d01a"
     sha256 arm64_monterey: "6b0d3f661abe526d4cc4437bea68abe667f6faa9cff54d0e3a0670c0e54d4b4d"
     sha256 arm64_big_sur:  "2407e2250bbd71166947df1e754d5fd39b8bfbb30deeec6d191349495c9ee2a2"
     sha256 monterey:       "caacb11e058d2a15d13268f7e1b9b6ecbf76e92e64410a23eb32cda5bf94eda8"
