@@ -6,6 +6,7 @@ class VirustotalCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc1c47c2da590eb2c2adbaca810bcb041e26d5b95fdc4a2e8f9eb2a75b32d12e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d61b098ab7972d614fbae87409908220139f4171e15e4a7d6ea0ff47f9dc4df3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa4da9f77f878d422890871b9a626dfd3b999423a2bc943e9327d92e8d8490da"
     sha256 cellar: :any_skip_relocation, monterey:       "28f9710b4b25c5168f96bffda33362107ef0999493d18c7e8fec8c1f5ae0ac2a"
