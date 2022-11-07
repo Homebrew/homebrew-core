@@ -13,13 +13,12 @@ class Libcerf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "70dd7c4019e0fe3d63aeb87035a158ffe50c8f8e73fcd1e5c0ff1c6b3a9fa489"
-    sha256 cellar: :any,                 arm64_monterey: "713741dafcc990ebc5523ccbf3cf60f34cca89bcd847e0a1528ea36d053ad646"
-    sha256 cellar: :any,                 arm64_big_sur:  "72addbfa1361c4080e66a9521021f4ecf7e8831563a4d92893ad058ef0db4878"
-    sha256 cellar: :any,                 monterey:       "c8550dab94475bbcbe33785f1af4a23170062a93c4f20c2093a543de20e7e637"
-    sha256 cellar: :any,                 big_sur:        "26dab60aa06f6189616673601eb30667be5ee350dbdc91e3e73480f927c50cc3"
-    sha256 cellar: :any,                 catalina:       "632421289d60a3b761094b318c21f078b595d50c5198942cac0c8e9182042982"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53ef7134564a68c78a30a89d79d0cbb3f6b46b9a4dc5d420ef37c33ec5eb19f4"
+    sha256 cellar: :any,                 arm64_monterey: "5e911b27e66690071fde7d80d1f2bc010f3c63fbc594ac60ce95a07973bb95be"
+    sha256 cellar: :any,                 arm64_big_sur:  "c48cf84abbe84a2ddb979ac2e438db7c1e9430ebc510b7a392790ba106c65e22"
+    sha256 cellar: :any,                 monterey:       "72e075dea708ddfdc1421d3aa59abe811b9024c53310d22228fb8ac38e48a8aa"
+    sha256 cellar: :any,                 big_sur:        "ffb6465359a84cbb5f5a2bc4fb4594c32edd3a4f6abe546c64fabaabf04d2468"
+    sha256 cellar: :any,                 catalina:       "566b28dd486d974946aef516e2f91f9c3266417c64c36aaf86158126e0fa7c86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef9a8ba1001d2e9ddae5382f2f5d9d5db39c4ba5a2287bcb84a9631df338153d"
   end
 
   depends_on "cmake" => :build
