@@ -6,13 +6,12 @@ class Libxcrypt < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6ca1a04dcdcf64e1e4a9916072b1ce10075ae925499f121f852dc5c8fa402136"
-    sha256 cellar: :any,                 arm64_monterey: "c9167b6a2004c17ae0e8c2bfa87b836f46117e2feaf11e81bceb4f10f88a1797"
-    sha256 cellar: :any,                 arm64_big_sur:  "379a8c183e939aae7c2cf36e8e4d6f0d4a48663bfd6ba0a07685840a8644ede7"
-    sha256 cellar: :any,                 monterey:       "10efe49691ec1185d451d7525597fb8f74de2cad09901d0b0e0ea02b2efffb7c"
-    sha256 cellar: :any,                 big_sur:        "bd3ae4e71a255aca43f3ec06111094b6f8d245552388f734c6e4ee2f33089333"
-    sha256 cellar: :any,                 catalina:       "bcda7c42bf3a2021aa83bd00a8fcb3158f02e791f792eccceda4257bda67cb6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84269a82afe1a9e94ba6828c983a4b8e65d8d672d36d88232daac832017ab327"
+    sha256 cellar: :any,                 arm64_monterey: "51c47d976fb8ee19b38db3d2c8c9a40afcbfc4d4b8f4b6356243c764454f3c8f"
+    sha256 cellar: :any,                 arm64_big_sur:  "df4a392059fde19aa843e2e9a5de654206732e9030091c2c2ed8a6825ab15aac"
+    sha256 cellar: :any,                 monterey:       "b1961f69c81ef3a90c8d4d8f748438d5fa52359e7a74ea9dbaf79d269eb48bf8"
+    sha256 cellar: :any,                 big_sur:        "c32dcaf7bb2f1fe08d0732e9b009233b71b08faca37518c4d4a1f497db5cf438"
+    sha256 cellar: :any,                 catalina:       "0ee2220b8fbbf419f8e8103d77be02f4aaad8d273718e1584bb2ef91290b20b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e2de70a22e315a97f1d49f5b172e66a4d0e78699381c8c68b87694857081080"
   end
 
   keg_only :provided_by_macos
