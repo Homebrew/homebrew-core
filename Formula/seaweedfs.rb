@@ -1,11 +1,11 @@
 class Seaweedfs < Formula
   desc "Fast distributed storage system"
-  homepage "https://github.com/chrislusf/seaweedfs"
-  url "https://github.com/chrislusf/seaweedfs.git",
+  homepage "https://github.com/seaweedfs/seaweedfs"
+  url "https://github.com/seaweedfs/seaweedfs.git",
       tag:      "3.34",
       revision: "47db75a695e7318dc1f98e4c1e014dfe7843282d"
   license "Apache-2.0"
-  head "https://github.com/chrislusf/seaweedfs.git", branch: "master"
+  head "https://github.com/seaweedfs/seaweedfs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "afd5426276c822d1b18816ed2ef57f5debe44e5361957b50c6dc21903f8ce0de"
@@ -21,7 +21,7 @@ class Seaweedfs < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/chrislusf/seaweedfs/weed/util.COMMIT=#{Utils.git_head}
+      -X github.com/seaweedfs/seaweedfs/weed/util.COMMIT=#{Utils.git_head}
     ]
     system "go", "build", *std_go_args(output: bin/"weed", ldflags: ldflags), "./weed"
   end
