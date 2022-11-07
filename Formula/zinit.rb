@@ -7,13 +7,12 @@ class Zinit < Formula
   head "https://github.com/zdharma-continuum/zinit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "afcbf0b575f8770b92070e69d701fa4bd3fee4d612d09584d37ecac78e56bf83"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c8965601c60d2160e1595b890653f50ad60ea07cf29777f3f008c0f93635c00"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b30dc6fac85c8e7db22dd1c3ad9045319a31f9aa1bf3b64216d713170ff2aa7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "15c6a0ace8050fcfeb735c1a0e4dd916b55da4ce74735ba7e5de48d268e20565"
-    sha256 cellar: :any_skip_relocation, catalina:       "15c6a0ace8050fcfeb735c1a0e4dd916b55da4ce74735ba7e5de48d268e20565"
-    sha256 cellar: :any_skip_relocation, mojave:         "15c6a0ace8050fcfeb735c1a0e4dd916b55da4ce74735ba7e5de48d268e20565"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c8965601c60d2160e1595b890653f50ad60ea07cf29777f3f008c0f93635c00"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "46aaecb6e6e6cc8248ad822c841b6dcae5cabc1f0639ef173164c42d51e65269"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46aaecb6e6e6cc8248ad822c841b6dcae5cabc1f0639ef173164c42d51e65269"
+    sha256 cellar: :any_skip_relocation, monterey:       "635551814b09b495f9d96f7f0bd7f5fa1615308843c70a1e5984e6e83557ff20"
+    sha256 cellar: :any_skip_relocation, big_sur:        "635551814b09b495f9d96f7f0bd7f5fa1615308843c70a1e5984e6e83557ff20"
+    sha256 cellar: :any_skip_relocation, catalina:       "635551814b09b495f9d96f7f0bd7f5fa1615308843c70a1e5984e6e83557ff20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46aaecb6e6e6cc8248ad822c841b6dcae5cabc1f0639ef173164c42d51e65269"
   end
 
   uses_from_macos "zsh"
