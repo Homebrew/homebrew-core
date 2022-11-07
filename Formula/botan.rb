@@ -12,14 +12,13 @@ class Botan < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "82dc70227c92bd9aa39d7b0abc7de7a0f6301bf51f66b4b1469088ee70424cd1"
-    sha256 arm64_monterey: "91f84899529b23eea7ea860e557efd155d1274560ba4eff24e80ea7672e3a622"
-    sha256 arm64_big_sur:  "c5c5ed5e8597f9206bb357704f615b4386db2b152db1ee892e0183a460a2c191"
-    sha256 monterey:       "8b6e3b4073987eb8fbfb371426a04d600e1b96c9c913517f757d35e33c17bc75"
-    sha256 big_sur:        "7e6c40b8711f2ce0738b571039db09ae5f8417355839a3afc090661e39b7f976"
-    sha256 catalina:       "841b8fdebbec1c9b960e2a075642f88e9ac2eb5185130477b6ee69abe91363d3"
-    sha256 x86_64_linux:   "0ccf263cab90ff456586e5935f0d9f8cee11cb469c17023c02704b8d9a007cc8"
+    rebuild 2
+    sha256 arm64_monterey: "8f5c3bc2bbe2b86e160c827467f6a76cdc32e697133f3a5cedada3dac619f5e7"
+    sha256 arm64_big_sur:  "17f28fa296307abf8c2464c52f965f885b366b94d84058ffa0f8c99541237124"
+    sha256 monterey:       "ee0726d2408986517344a3c8d0796cf91d775c6fb54653ee48ff4598d472ef70"
+    sha256 big_sur:        "78802203de558954599b60110a980c48378880c76bc7283c3152281ca42b044a"
+    sha256 catalina:       "6a44a1522a3532eb8e8f30e914e09b172b595556afbb2de91580c858151627b0"
+    sha256 x86_64_linux:   "77d8ce77a7c8505cc7779f5281bbbe999db6dfcc3f094fe464a70d4895b39b40"
   end
 
   depends_on "pkg-config" => :build
