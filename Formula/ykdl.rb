@@ -8,6 +8,7 @@ class Ykdl < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80783c02f77ce796ef7d9ddd0abb1f3864a1dfaed874ca82fd8fc187c221e513"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "efcd0011857332ef15e74cdff962bb60211200796eaca797ace08cddcd9f5ba0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "05b27c56f6e69dd6bc8f914b5d614d3bc8732455e8ff3e22f6e1c099cae0476a"
     sha256 cellar: :any_skip_relocation, monterey:       "d39d2294ad69b40a6fc0be6a7ab3f481a056d61452768319171ea079d5b7da63"
