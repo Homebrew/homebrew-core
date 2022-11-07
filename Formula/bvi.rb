@@ -6,6 +6,7 @@ class Bvi < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 arm64_ventura:  "b08d6d539610ecfa5cc971f294acd494b09f158f4796fbfb747b6421bbe3b887"
     sha256 arm64_monterey: "a8a313fa812ea288a6a317cb5b3bf255e19180f0fbb568401ab48188594545e5"
     sha256 arm64_big_sur:  "5e71e7f93fd8523543f85723621ca80faa67482ba01019eddcc0408e95a0b21d"
     sha256 monterey:       "fec4cc7e517b1ee4810e76e4affcf724dea696dbea9fed3bcc0a1063e385ecac"
