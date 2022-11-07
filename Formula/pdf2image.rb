@@ -7,6 +7,7 @@ class Pdf2image < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "fd39ba0dc18b50fd76f8be5b8d85335cc2b7fc40ab14e3a096890ed60f6f50b1"
     sha256 arm64_monterey: "0794342647f54210c52fef1f96675b041240c046011a2cd2f1f10ccdd5e0d726"
     sha256 arm64_big_sur:  "283b9a01c14033bac12d833765cdcf81d896a4df12c6a9c7ac5467c340591f1e"
     sha256 monterey:       "dd02bfaa0f17e894f94ddae7848a7ed0d769a631b294b853bcab234be626c704"
