@@ -6,6 +6,7 @@ class Httping < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d94a9daced98c5e2e3b192a2d90e4572b4aea047c3572810f5e437f2c03d7e8f"
     sha256 cellar: :any,                 arm64_monterey: "c846542d55c712401ea113493bac025d53c760cb34e4afbdbf0589cc480cf040"
     sha256 cellar: :any,                 arm64_big_sur:  "009816a0db310663c27211705990e2e6b31fa04bec6c8e31d974e3b91f6fdafc"
     sha256 cellar: :any,                 monterey:       "3bb35f1f10a559975d926cf8659cd4fe5474a054f97e6465b700075e598c4d4c"
