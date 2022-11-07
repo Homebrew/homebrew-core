@@ -10,6 +10,7 @@ class Cf < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ad0f033738a3550ff202cdb1abe0d73df51f16f15a80da45d0f01b2ebc9d8c9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f64bb58b57a9e015abcc130b7189274431fae65cd13520d1b28986455146a46"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ef3f980b358bb74cba8de7e264897d61e16f5e2cda94ca9c4219dcbb8c9307d"
     sha256 cellar: :any_skip_relocation, monterey:       "d6ff8fe18dbb35dff98a5e5fc00e4c92df2ae079132de0d6f719d1eec8fd7243"
