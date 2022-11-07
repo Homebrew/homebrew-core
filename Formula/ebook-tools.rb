@@ -7,6 +7,7 @@ class EbookTools < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "019f7789541693a154f71bb507db24ab2cd3901f539e08e2ce2e51f53aae48da"
     sha256 cellar: :any,                 arm64_monterey: "ea1b7dcf30a98ec82dbe77c369168185565450ee4c4af8e4d77f9ae2ffaa360d"
     sha256 cellar: :any,                 arm64_big_sur:  "22676305647bc9cad4335aba2d28d27cbee0db6092901cf1682fff9c833c92bd"
     sha256 cellar: :any,                 monterey:       "64d14b86d0aa4270c9f918b1e8539100f6c2eb495ccc33a16e7bb7a322790328"
