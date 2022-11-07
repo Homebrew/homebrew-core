@@ -7,6 +7,7 @@ class Mpg321 < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "5121567767b2da54cd4eca9c38f941dcd99000c53e46c9e3e6029a82e54e5712"
     sha256 arm64_monterey: "aae6a0f70e06529f68c1f32ae77ab30d733993989aebd4680e49f84b3c26afe2"
     sha256 arm64_big_sur:  "f3ba496b39e008dfe0e2b92c4d5fcc55f3040eef0cf45bfb29eec86f618929de"
     sha256 monterey:       "5c160696795a2cf4262e4183ca91e934c70828b6af8de77479972b3e640247e9"
