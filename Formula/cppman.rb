@@ -8,12 +8,13 @@ class Cppman < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e4631d1b33376d670631a2e12df56457fe0c68057087b948c846975f0e49299"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "613e60227189d336b015da92ab396cc002809407a82243fc727228a7c57cb640"
-    sha256 cellar: :any_skip_relocation, monterey:       "b87df5bf8a5a48b51fad359a12f8be4218de88540b700d02a0c5ab80152f44c8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "63850efb8bd5ed3a79329d4183e0a36a4299cd90a53e0ca58b41b74b34679243"
-    sha256 cellar: :any_skip_relocation, catalina:       "93ed07f75afa9ffd950d43b09934e9fc90de4f9b489f5a7f7e44c0e6c5d70e0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56529587e9c0997e7c48c49a92fa46d47759758cdf1d094be91ecde4649b696a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0252327b9af79af317995a3c5009ec6597e176249aa9936896938d0f00d6a10c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a01c8d3c53feda1e33ebaa0158e94d773fa684b72f9ef0a327a7f7c5853d2fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "069e7ddf142eb7e099a33a270f29bd43ff236ea31ee2ae35dcd091050a4f5998"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8e7ae00951377abc373d6b7ebd0a5b56ad2f8e61d44dcb1259de72efff15efe3"
+    sha256 cellar: :any_skip_relocation, catalina:       "8956831dfe6267c97db370432672985bfce0f1d72de05c545834d5274fab55bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1ca1a07667642afec48589de3e2e18cb9ce5d3ca7ed3ca11f7c063ae13af3f7"
   end
 
   depends_on "python@3.11"
