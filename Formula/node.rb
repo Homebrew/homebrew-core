@@ -12,6 +12,7 @@ class Node < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ac678482123b0f5158ee8f227efbb2391a26ec34b4704be88e9367b8ec9387a3"
     sha256 cellar: :any,                 arm64_monterey: "ad81bbfa96615edfc3869a2eb70861333602ba780be17faf9fbd91dcb9689a07"
     sha256 cellar: :any,                 arm64_big_sur:  "33aad894c99c37f754f58306b7a8bdc39fcc14cfb91f2020fa994aa4bfa0d50d"
     sha256 cellar: :any,                 monterey:       "b113f5c05739b3d8b7130b587e2a1791a9ac858eab0ccf68cb54c367136d1e48"
