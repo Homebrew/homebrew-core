@@ -29,6 +29,9 @@ class ClaspCl < Formula
   end
 
   test do
-    assert_match "clasp-boehmprecise", shell_output("#{bin}/clasp --version")
+    (testpath/"simple.lisp").write <<~EOS
+      (write-line "Hello, world!")
+    EOS
+    assert_match "Hello, world!", shell_output("#{bin}/clasp --script #{testpath}/simple.lisp")
   end
 end
