@@ -10,6 +10,7 @@ class AwsElasticbeanstalk < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "56fdac2671333fcf13f0dc32190a782e9fd5f5ccb21ccc37cf828281d2948290"
     sha256 cellar: :any,                 arm64_monterey: "b493e27f9b65f146521bd6f323866ac62f5ae3a83ca5516bcb242987ea1aefc5"
     sha256 cellar: :any,                 arm64_big_sur:  "cbbd0c07de5f5029f1716d38ef8ba5523e1e749a16ca3ea7296d799effa4fe9c"
     sha256 cellar: :any,                 monterey:       "d8fcd2bf79cb2c21b506cd8f47c1830bc97b7d0d11c7506c0a1a8ade965c4526"
