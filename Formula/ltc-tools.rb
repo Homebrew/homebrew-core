@@ -7,6 +7,7 @@ class LtcTools < Formula
   head "https://github.com/x42/ltc-tools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "bb595fe27ddac376f1ea097a824c17712c34dde20e01cb310388897b52f3f57d"
     sha256 cellar: :any,                 arm64_monterey: "d8d6d714abdb13a7c1a42503b1f367af936975d51454967bb445acb631b58259"
     sha256 cellar: :any,                 arm64_big_sur:  "2131abaab3877ab6a2425fe8b635612c5d7235026d6098a3eea78d266038378a"
     sha256 cellar: :any,                 monterey:       "84e20bc4899a76f661ff8bde1ec354a3d32f6f53b4aa434782095868971a2cc7"
