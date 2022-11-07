@@ -13,6 +13,7 @@ class Terrahub < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53cdaed21f507b80fef55ee2f4fd0ac0b6f0b5b381cb513e1b8d95c5c10cfab5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d58eef3198f6b31645a2917117c6a993fdc4cc9210c1ba094fd3eca7ead44fb6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d58eef3198f6b31645a2917117c6a993fdc4cc9210c1ba094fd3eca7ead44fb6"
     sha256 cellar: :any_skip_relocation, monterey:       "340fc28fb08e1437212792e0bbd02220d2af586f6234b326a5bcc6b3274869c7"
