@@ -9,6 +9,7 @@ class Jrtplib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "82b8535c4b305e27653d742b771ba387c09e937be9917a8e53a8aa2c04034e2f"
     sha256 cellar: :any,                 arm64_monterey: "66a2c5923fb2f9999ea1a5adcacbceb38398231be4536f51f8902e4f84b5cdc4"
     sha256 cellar: :any,                 arm64_big_sur:  "b00a6b5d09b1eb5d8e6a72e548cff53f2834b4b07d235f3cb4ee346b9d4a0dbc"
     sha256 cellar: :any,                 monterey:       "f45e63073ae1de1f32605d885a92565dff5297205c875c27dfe36b270ca826b6"
