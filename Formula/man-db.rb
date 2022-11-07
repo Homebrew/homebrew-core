@@ -12,6 +12,7 @@ class ManDb < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "f2961252342ecd97930a3604fa8ce59fba78b6ed10a72a8adbe82790c7e457d4"
     sha256 arm64_monterey: "42fe6e5f26ad7e65f3caa27ccddcec2f56d802267e47bc60202e5ec879d40b66"
     sha256 arm64_big_sur:  "6889e553cc2a0b22739311d3bd9627277413044eb96ee7cbd87621258a6f081d"
     sha256 monterey:       "c781fcdd918e80b1446156e43f63cbd391338418e13837c51a7ec8e038ded797"
