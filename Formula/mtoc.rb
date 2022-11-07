@@ -1,13 +1,8 @@
 class Mtoc < Formula
   desc "Mach-O to PE/COFF binary converter"
-  homepage "https://opensource.apple.com/source/cctools/cctools-949.0.1/"
-  url "https://opensource.apple.com/tarballs/cctools/cctools-949.0.1.tar.gz"
-  sha256 "830485ac7c563cd55331f643952caab2f0690dfbd01e92eb432c45098b28a5d0"
-
-  livecheck do
-    url "https://opensource.apple.com/tarballs/cctools/"
-    regex(/href=.*?cctools[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
+  homepage "https://opensource.apple.com/"
+  url "https://github.com/apple-oss-distributions/cctools/archive/refs/tags/cctools-949.0.1.tar.gz"
+  sha256 "8b2d8dc371a57e42852fa6102efaf324ef004adf86072bf9957e2ac9005326c1"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ebb0ffb0ba60ca6d02f0df9919427bf8a2579632e585a2a6ae851c5fbe858cc5"
