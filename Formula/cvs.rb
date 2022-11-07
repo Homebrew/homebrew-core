@@ -39,8 +39,8 @@ class Cvs < Formula
   end
 
   patch :p0 do
-    url "https://opensource.apple.com/tarballs/cvs/cvs-47.tar.gz"
-    sha256 "643d871d6c5f3aaa1f7be626d60bd83bbdcab0f61196f51cb81e8c20e41f808a"
+    url "https://github.com/apple-oss-distributions/cvs/archive/refs/tags/cvs-47.tar.gz"
+    sha256 "57652695bbfbc33eacb8f1ecb3ca5e2df0f773e4abb307b840bf948e3840f3d3"
     patches = ["patches/PR5178707.diff",
                "patches/ea.diff",
                "patches/endian.diff",
