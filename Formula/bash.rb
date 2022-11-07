@@ -70,6 +70,7 @@ class Bash < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "8e71fa1eb06c6ab9bc3f8b71a32e83feb1e72e4e02e5fb57d60a8a6da0468f9a"
     sha256 arm64_monterey: "feb4dde0024d3423c10f33c7c87682e1b3a4a4b4316f4371b2e52f365c0045a1"
     sha256 arm64_big_sur:  "fadc8ed86018f69624c1e1b77f61a4d2186eec02181472fcd8c9dbb79a4ba0a6"
     sha256 monterey:       "c5ac1316a7f3db992d6ac4fc63c1c7a565141d688ae1ae5c81ec5f134edba02b"
