@@ -5,7 +5,7 @@ class Asciidoc < Formula
   homepage "https://asciidoc-py.github.io/"
   url "https://files.pythonhosted.org/packages/8a/57/50180e0430fdb552539da9b5f96f1da6f09c4bfa951b39a6e1b4fbe37d75/asciidoc-10.2.0.tar.gz"
   sha256 "91ff1dd4c85af7b235d03e0860f0c4e79dd1ff580fb610668a39b5c77b4ccace"
-  license "GPL-2.0-only"
+  license "GPL-2.0-or-later"
   head "https://github.com/asciidoc-py/asciidoc-py.git", branch: "main"
 
   livecheck do
@@ -24,7 +24,7 @@ class Asciidoc < Formula
   end
 
   depends_on "docbook"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "source-highlight"
 
   def install
