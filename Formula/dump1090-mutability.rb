@@ -7,6 +7,7 @@ class Dump1090Mutability < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "65a2246aa5277b6eac0a934c32db640af72b39bdf4913788cea5711ff3f599a8"
     sha256 cellar: :any,                 arm64_monterey: "74d4061c93d647ace683380b85ab320e96b7e115a30ffe7587bc0c0672a097b5"
     sha256 cellar: :any,                 arm64_big_sur:  "53aa50bb97ebb0923c0ea340562f523e61018454bfcf78dcc6a6b5509aef6462"
     sha256 cellar: :any,                 monterey:       "7c2a4fc31ec409abf1ac74f68b65325f8d5ff38389b7f2be44b51d8529eeb338"
