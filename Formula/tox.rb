@@ -9,6 +9,7 @@ class Tox < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "93dfa6012c8fc19d89885e1fc8935d6601f6f0ab27841312a1fe3a6356e90453"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ab7c2f831fdc85e9d8fa997129513a2e6de049dd52b54c6f2ab14f804d4da0d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b0b231f8d810690031b15d3953673fdf9456336391e3b9cdd3aff359ad5b6a7"
     sha256 cellar: :any_skip_relocation, monterey:       "30f44ec2fbd45fd1bbf712a65353391e16a26742dede171bb23310ea3513c4de"
