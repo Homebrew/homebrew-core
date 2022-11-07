@@ -14,6 +14,7 @@ class Nrg2iso < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99f68337a5c1aef14aff2ae516a4a87c1e51c886c1485c6a8b5e5abf5a0253f4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2f66686ff7f33af0e071175ff79b600cd843a1e8daeb94af0785844a56528a9f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca8279b0cbdf542068fad1c72abbd63dab1c756a315e676a0e704d19196feeb9"
     sha256 cellar: :any_skip_relocation, monterey:       "1de954133ee56482c496ff5fa1d688048a3487a08aee8c4c9a47b733631a135a"
