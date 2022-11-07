@@ -2,12 +2,11 @@ class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
   license "NCSA"
-  revision 1
 
   stable do
-    url "https://include-what-you-use.org/downloads/include-what-you-use-0.18.src.tar.gz"
-    sha256 "9102fc8419294757df86a89ce6ec305f8d90a818d1f2598a139d15eb1894b8f3"
-    depends_on "llvm@14"
+    url "https://github.com/include-what-you-use/include-what-you-use/archive/refs/tags/0.19.tar.gz"
+    sha256 "169b7af2f66196e729f694aed539ec964d874eb7959614b5828238fe49747980"
+    depends_on "llvm"
   end
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
