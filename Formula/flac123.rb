@@ -7,6 +7,7 @@ class Flac123 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7dbcf8228ae81f22b3163fa6ce76d5fc4ac68fe49f19a7921e5e3904bc09c28c"
     sha256 cellar: :any,                 arm64_monterey: "a03e7e7519e8fd6299a6597654a47cee49794cd72e96fce5016172a1dedf9105"
     sha256 cellar: :any,                 arm64_big_sur:  "97ea9fd6161053506401386e9a0b3e81a52e4e8a9d95ffbb4b89cc31cf4c6445"
     sha256 cellar: :any,                 monterey:       "f486d727f47c8560903a411ec7959e5b35beaec7e21402ecf034a2c1a7a04c3e"
