@@ -7,6 +7,7 @@ class H2o < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "c03e1941f5138d1601fb16511c1a709086fe70d20b49b031e93c93cc581239f2"
     sha256 arm64_monterey: "2dbad9aa8ba17951616a2b93dfc52b707ab0e7515cb9ec6efa43fc260edd1786"
     sha256 arm64_big_sur:  "c58c917d16ff1fcdde97c6bbf8c2bf5337120dc6c8a233f23be20096e9546af8"
     sha256 monterey:       "f4d194b0192c88a258becd40eff437c36991fad0013afdec891e4c8fbcb5edba"
