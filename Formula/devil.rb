@@ -33,6 +33,7 @@ class Devil < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3c904138930704de95d3f06fc8e10afe822b6ca53ffec4e7fac0271a2bbc6ae8"
     sha256 cellar: :any,                 arm64_monterey: "56f554eaa912201d0cd5a9b4783b835a1c014680bcc68f0121fa408a80694fd6"
     sha256 cellar: :any,                 arm64_big_sur:  "dd4565ebe834a0a101dd3d814ed2a2a9665f9dca838c2140a18fe919946abf0c"
     sha256 cellar: :any,                 monterey:       "59b94dd86092643eabfd45de3430c67aa08a8892aad8854cf0afe026bf03d380"
