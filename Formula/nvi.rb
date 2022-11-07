@@ -7,6 +7,7 @@ class Nvi < Formula
   revision 6
 
   bottle do
+    sha256                               arm64_ventura:  "aa6ba856388d331dce1cec171db093a6846d349d3b0013bd08c3331d9d6f09f1"
     sha256                               arm64_monterey: "4172bb7673685b0e0f569ad84edbe4d568c152b419678e6146f539accd243c80"
     sha256                               arm64_big_sur:  "0c504c79f2fd0be54ce31ee4236a1d9fb4d9e5d8f33fab07305e1acd9c4740de"
     sha256 cellar: :any,                 monterey:       "4bbbf70becf3cfa52340027bb81f0b39b8071638dcb9f042cf314bee7a8feeac"
