@@ -7,6 +7,7 @@ class Pinocchio < Formula
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "54f4d6511ba92892dcfa4bb2fbf684c88c2ee4e83f96236f292e872b5b94f4f4"
     sha256 cellar: :any,                 arm64_monterey: "684c665088398c58794c6309f2534abf3f45570c0a153e6047f25e1961a886e4"
     sha256 cellar: :any,                 arm64_big_sur:  "e4e16ae25c36ac1272b84ea58d12a3c09dbca9dfea608f81949d4461a682e827"
     sha256 cellar: :any,                 monterey:       "7a5af44fa38e5380c886998160cfb8e127ce2c53ea10e298566d6a8a44701538"
