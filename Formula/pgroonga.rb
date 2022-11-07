@@ -11,13 +11,12 @@ class Pgroonga < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "65985ce52add91c8a6aca850ef2e356877c0461bfffb39be2c022e6d3d19bd11"
-    sha256 cellar: :any,                 arm64_monterey: "6faf0edd4b53c4d602b8e5db36b9f210ea51b15c4df0d2f6ff4a23e7853a15d2"
-    sha256 cellar: :any,                 arm64_big_sur:  "6209bbe204efd0141b109f65e725908a868231d2ab6df9758b231d9d33752288"
-    sha256 cellar: :any,                 monterey:       "cfbe08b09d9e4d74a943dff7b74205e4345fb861232799920e15e3aa30382e56"
-    sha256 cellar: :any,                 big_sur:        "710eafcf3f7ca7537fe3b98df9f147ca929f18ca2f3ee045990b61144d8d6c3b"
-    sha256 cellar: :any,                 catalina:       "45b281518fceab073f535d135db359b7433fbb782fb3827a68e6cc8f547fd749"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11606d74f3019683b55d1e744462ad09d1a790a69613465ce54ba066e56fd8aa"
+    sha256 cellar: :any,                 arm64_monterey: "57668a9ff207dcc7935745448592e011efeb1322c464180c670272c1199bd12a"
+    sha256 cellar: :any,                 arm64_big_sur:  "a6714f37a4274a7b0a97032de5fe260e48377534ec5badbed950c408baa8be35"
+    sha256 cellar: :any,                 monterey:       "add23312a541daaa0477938354b74f91dbf859d35f0398dc41aa6d381e6c7779"
+    sha256 cellar: :any,                 big_sur:        "f4afb27ded3f00c6fdd648dee970be40657cf883547081da20b6fab73f018468"
+    sha256 cellar: :any,                 catalina:       "6e77c6e9e4f8dfab44016d4abe29367e4dcf9e6dbb285718595b471c1578776e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce347e041f1d61a6b944ca432aa46171f97c5f56e11c6a10494611fbc0476dfe"
   end
 
   depends_on "pkg-config" => :build
