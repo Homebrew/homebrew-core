@@ -6,6 +6,7 @@ class Sftpgo < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    sha256 arm64_ventura:  "efd7ae21b5861daf05003e88cd45b53741e88f24fb166a15d4844761af1c9463"
     sha256 arm64_monterey: "f10cb400eb4530ed820a97c9422e582cf5133e9c442129d0a9f4ebe81aaa2329"
     sha256 arm64_big_sur:  "1ca4fa23098e02113c1690c8528bc047258322dd28681fa8bd4d0770c4b86ab8"
     sha256 monterey:       "7935e306b2ba38a66254de5a710c6120fea050c0f7ebaceb803161c273d5abd0"
