@@ -72,8 +72,8 @@ class Sile < Formula
   end
 
   resource "luaexpat" do
-    url "https://luarocks.org/manifests/lunarmodules/luaexpat-1.5.1-1.src.rock"
-    sha256 "eb7abc4cc39dd50eecb30896686bac84e66fd3c0774d0749b391e7ac5d222f45"
+    url "https://luarocks.org/manifests/lunarmodules/luaexpat-1.4.1-1.src.rock"
+    sha256 "b2b31f62fd09252d7ec0218d083cf9b8d9fc6a20f4594559f96649beee172233"
   end
 
   # depends on lpeg
