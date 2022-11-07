@@ -12,6 +12,7 @@ class Pianod < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "ea6bd357e1c4adc9485f520ecef09bcea8bf690a59bf7a6c26a1618069e991c9"
     sha256 arm64_monterey: "face4fa3d0b5350001bd9fab327e91b4c93e27b9838739543e51500e7f56f87e"
     sha256 arm64_big_sur:  "be5cd3ad282889c61a990ad65d909a42f65d66df5cd3ee86629e6596e1e3961c"
     sha256 monterey:       "c28a6af22280a294723b9ab645b12be7fea3dd7125a731019ea7e1640ec19a28"
