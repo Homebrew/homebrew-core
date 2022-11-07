@@ -3,10 +3,20 @@ class YleDl < Formula
 
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/f6/64/11a7a17ab760b74c78d33b5bd8f15de393596cc1b714aee95212f4b534eb/yle-dl-20221015.tar.gz"
-  sha256 "c2b72ccffb303a66399a891d3d637a03a07f5f592f4f2ac99b8b41c6901adc48"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
+
+  stable do
+    url "https://files.pythonhosted.org/packages/f6/64/11a7a17ab760b74c78d33b5bd8f15de393596cc1b714aee95212f4b534eb/yle-dl-20221015.tar.gz"
+    sha256 "c2b72ccffb303a66399a891d3d637a03a07f5f592f4f2ac99b8b41c6901adc48"
+
+    # Fix 403 Client Error. Remove in the next release
+    patch do
+      url "https://github.com/aajanki/yle-dl/commit/10772cdd5b0dd84b719261e39c3750355920a624.patch?full_index=1"
+      sha256 "2d964f23e5ca82e9a350119dc14e0141bd04e9276a321d496b85bcdb37c34d62"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "85707e1a7b3df849400ca35b01f15156cfe91bb70f3aafbdce563d1214307f27"
@@ -18,7 +28,7 @@ class YleDl < Formula
   end
 
   depends_on "ffmpeg"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "rtmpdump"
 
   uses_from_macos "libxslt"
@@ -74,8 +84,8 @@ class YleDl < Formula
   end
 
   resource "xattr" do
-    url "https://files.pythonhosted.org/packages/91/ac/5898d1811abc88c3710317243168feff61ce12be220b9c92ee045ecd66c4/xattr-0.9.9.tar.gz"
-    sha256 "09cb7e1efb3aa1b4991d6be4eb25b73dc518b4fe894f0915f5b0dcede972f346"
+    url "https://files.pythonhosted.org/packages/f8/84/8e2a2578c804545d55f684f86b6144c3924a849b5ec8e1f39336233be752/xattr-0.10.0.tar.gz"
+    sha256 "722652d2a5324e17891c416d4c76d91ccf98830a8f516a0de8533ce867f3acaf"
   end
 
   def install
