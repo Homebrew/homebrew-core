@@ -18,13 +18,12 @@ class LittleCms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1e2695f42211d5f0399bbd59887e4c7c2dd08495f5d88306864dbf0e09037495"
-    sha256 cellar: :any,                 arm64_monterey: "fdad36e27253dd1615d5b9be2703b378336b908122b68fd4652d032e127caf76"
-    sha256 cellar: :any,                 arm64_big_sur:  "a27e31e124ebda72e24cb0cacff0cf74e5bbf96e31696288498d8e538deaff36"
-    sha256 cellar: :any,                 monterey:       "229315ae3a56e41cd107b5193d76aab56b5e69cdc04d0e5cbad38e05527314da"
-    sha256 cellar: :any,                 big_sur:        "c279aafb33937527f437354cf05e9d5028bc1d47de0991bb4ab0c0f87c5df0e4"
-    sha256 cellar: :any,                 catalina:       "a1cb1529b75523fd613c44c893ca283847b5e9fbed2f77ede3b7c17317bf46e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6055cc008296335ab999e1d0d48180bb8d539c266e890596ed13c1f21e850532"
+    sha256 cellar: :any,                 arm64_monterey: "ae03cf730b8472ba74ccf339e64c2275b3b1558bee4d43f87d13bb8ddf15bcfc"
+    sha256 cellar: :any,                 arm64_big_sur:  "84b9a2b8c35fed041f23b907506aae85e501472ef55f7ef114756eb1d06524f9"
+    sha256 cellar: :any,                 monterey:       "57a938e19b097c8b0b7da9e8969678ec5f76c6332ad0f5122dce4a5558a93817"
+    sha256 cellar: :any,                 big_sur:        "53fb3147f52eca75b7954795c521e3ca40aaccd542cfaae7befc3a1d143b3cc8"
+    sha256 cellar: :any,                 catalina:       "2c3da48dad601fc033cd0d2ac8235ea6b958643ffc9bc95260bf2b356c9af668"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50d9004057cd982330e2817ba715615660c07ef4bedb0282d82b96eb633b0ab4"
   end
 
   depends_on "jpeg-turbo"
