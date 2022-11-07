@@ -4,9 +4,7 @@ class ClaspCl < Formula
   url "https://github.com/clasp-developers/clasp/archive/refs/tags/2.0.0.tar.gz"
   sha256 "de3c5efaad0ca1e87ce58e937a45f2740d0c5cd869a500b606eb9e2ea37cb837"
   license "GPL-2.0-or-later"
-  head "https://github.com/clasp-developers/clasp.git",
-       using:  :git,
-       branch: "main"
+  head "https://github.com/clasp-developers/clasp.git", branch: "main"
 
   depends_on "boost" => :build
   depends_on "libunwind-headers" => :build
