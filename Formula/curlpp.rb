@@ -7,6 +7,7 @@ class Curlpp < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "dd317f246e6c52b7cee844de9d5b89657d80c1a11442247da4a161c5fb31254b"
     sha256 cellar: :any,                 arm64_monterey: "54e27231617bfb44e79dbd5c5b87417f75ebeadf926b411c7b754cec0f07791e"
     sha256 cellar: :any,                 arm64_big_sur:  "f727b823c94be8f12ab6ba0eb8ac326b19ac823f3313b9ff0a8ab43c1a21a4ec"
     sha256 cellar: :any,                 monterey:       "e4e260f62f4423cb3ab661ace60b9c91ed9baca9587358354b84308d259e9d11"
