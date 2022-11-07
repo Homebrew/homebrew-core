@@ -11,6 +11,7 @@ class Opensaml < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "35496d4d3dccfdd70c66ef467813d3063812425933bd56c7546f4c5ea0daf4e9"
     sha256 cellar: :any,                 arm64_monterey: "e6a5d7caddd133a1b4533322a9c2be90a6793f7f88da3727e9de3e84c5b3b4bd"
     sha256 cellar: :any,                 arm64_big_sur:  "647a2ea6d83c6241687d510a287ba2f1c66d39e81c27662f5e3de493a39313cb"
     sha256 cellar: :any,                 monterey:       "7088fd876aaca086bb9d4caf6e1a1fb20d13f1852eddaa8d02b20b9d59cc759a"
