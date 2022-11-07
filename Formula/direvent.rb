@@ -7,6 +7,7 @@ class Direvent < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3fa1ac3a2baa220635b02136ec371d2c58e8176811225236f3e860c6861924de"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c9879af22d0f9bba86a36cb76f7497377da85b061115615d500445be7741f24d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd7a995c95981503fc5a216a1d3f1b2cfdb958526eafca3e3b1dba96440cf35e"
     sha256 cellar: :any_skip_relocation, monterey:       "ad88fdf4358aa70d211093ee263997ed413d5de2ec3994e0c2c0414ad61a6fdd"
