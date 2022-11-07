@@ -9,13 +9,13 @@ class Bpytop < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1bd3b8d238bcf9aa980f88e4087b3ca0577fcfb96fa4582babeb9bc91fe0bfe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1056028c0249a04cdb1696c1f265d175b5678076ae2cd5b27145f4b875334bd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f268476fd2df933516f1de95768823eced9da2cd13c59be425accf26b5b938c"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba6ba12c03d0a7ff3f01e9185f0139009ea71035fabc0da0fdf990a974cdab4d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98fe82eb4ede78b2ea8dce83bce7648ae338b6e8478eb5fb2c9138db8ccea1d4"
-    sha256 cellar: :any_skip_relocation, catalina:       "85bc433985ef601004bbb0393e2b4a092b840f1abf48e42e5eb12a59893e8796"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4a390cf927eaab56b3432ecfe161e07066e99ce2fd964b4e6980013f4c78d32"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e1e60fabfc1c12c865fce8effc365fcf76650655004d63099c3799396785034"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de2bb84abd2e704d144218659c3e9c188304b170e9dd6187b22138158182c15c"
+    sha256 cellar: :any_skip_relocation, monterey:       "0b157751f5c2a3d8e7820356d2d49e29587d98ea93c82533605ca9429c4c1e36"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f14bd5dfed41695186fce259e9c974298da36cfbd47b9598af539c0fda697d9c"
+    sha256 cellar: :any_skip_relocation, catalina:       "7ec48aedfe22ed4f1eef9a79bf824f47c8dc31729ee66546c7edd2e985c0b6c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdb97df09c1d785d498ff04c87f219d0b5cfebc5cde09cb0039f879198746cc7"
   end
 
   depends_on "python@3.11"
