@@ -7,13 +7,12 @@ class Lux < Formula
   head "https://github.com/iawia002/lux.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "20c7ec1fcbca431d24f89933083303a850e1df0c4f209c654edb1260550b3109"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c88913410858105cb233f3076167d8cfcc7cc21374a9cc1134e1a520c6ec6618"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d31fd3e601f2b122ad705fdbc8044b6a55f5b94a512949aca0359cd869d39c56"
-    sha256 cellar: :any_skip_relocation, monterey:       "a2039236ff2da7493d2a539dae8af265f0f09dc565f5b6a569e8be6378eda475"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9f883e14b543c0df497f7ab66c4e76bd335b78b03d41e2063e97707075a7aa75"
-    sha256 cellar: :any_skip_relocation, catalina:       "2cb75509d7e2047811af1dd550a0c7febeedae1b935a3a6da16a9732f2e2b319"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1324047684ba3a1479977df3b979df584299e63c8aa4924f1c8f6d8fda07b08a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "573e00b2cbdd6c13a681ee869e11836858463a27c777f60857ac369443d89117"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a52447f547ad8c46ae28dfad776ae1bf767c8bcf1d410a917bff27a1bc962be8"
+    sha256 cellar: :any_skip_relocation, monterey:       "fe590137419bb55a098b0d41cb52fdf5b51ff07d60985a5fed9d54989db5742e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4c5106a821c50c9085f74fb8b148e0ccbbcc18652780d24124143032adb54b01"
+    sha256 cellar: :any_skip_relocation, catalina:       "76e78832943bc4291d61de04f0dc362517e22d795e0438e9a4c9c0567fe00b44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "724eaf6b8eb4c027d7b6d6bed22a5e51fc37dec9a5ee78b6f0d014caa57dc472"
   end
 
   depends_on "go" => :build
