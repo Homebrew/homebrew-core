@@ -11,6 +11,7 @@ class Htpdate < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a8e9117e974b451de897cd9c09cc5ad01ce002c0cb08ecc8b477ce1770d773bd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6c0e9b954e33c77390997f36c4f0595b4fbf5c745f03630976e8f93a045885dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dfead617fa38a6cacd01f760983dd72f587ca0b1d5cb31192835aae5f3480497"
     sha256 cellar: :any_skip_relocation, monterey:       "819881fadf593bbbf4be2a95e63626d0bb866d9ce838192fe8f82e2e7b9f404b"
