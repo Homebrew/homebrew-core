@@ -9,6 +9,7 @@ class CfnLint < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d9901d6f93a0473cc310d130efa40790b0ac896083710418d93061c1f12a0f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "916366f97865b079b4016c619f6b73b7e9e7248f834aa67bfbf63d0f4b62a652"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d605567e24c39d3bf2565071def90e16b1cd818c2aa783b402297a2470194de"
     sha256 cellar: :any_skip_relocation, monterey:       "460f78253b1d0f960adb8919cfe0e5540b20e0899d2d747128f4c23c7ad47875"
