@@ -8,6 +8,7 @@ class Hesiod < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "5eeb38db926fd0be3a2d565646b739000e20d3a9d556aadef81d6bd758c9255f"
     sha256 cellar: :any,                 arm64_monterey: "1887e1da4904dd97c1cb19c251cad52a79a8c83113075c65d7331ddff69cd99e"
     sha256 cellar: :any,                 arm64_big_sur:  "66f05bed0ecbd7328400f142a7864ec972fd3573d284375c222ff963a5ae7875"
     sha256 cellar: :any,                 monterey:       "d9006242a86ffc44a757bee9408f1e668cfc528ed9654816550b197118f73d7f"
