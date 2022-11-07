@@ -12,6 +12,7 @@ class Tracker < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "d042f24c2c9d9573b589e53932b1d2175db61af7d031a97209544faa7eb913ae"
     sha256 arm64_monterey: "cb6ca6a5912870098e1ca387311a0902d92018ad5cc0f46a615b959d18c77a30"
     sha256 arm64_big_sur:  "f55db3219384185dffe058a2849d57b4bcfbbe28ea1c04185381e90b0313bc10"
     sha256 monterey:       "1ed6c8de2983a9991230ccf8e32c6fee32cd1d5d18cc2c7d303b0d6bb76df9b5"
