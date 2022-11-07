@@ -10,13 +10,13 @@ class Beancount < Formula
   head "https://github.com/beancount/beancount.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecd7ba0ff0daddc000e19de33185cbbd1ef2d8f141f8dfcccd9b67eecd901973"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "719e10833fea9086b4be434b1ea99c75649e067e3eab448cb1291b7c2a759bab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cad3581ba8fad8b99b03d97e2a0b263521a0df40c29ed31a23a1085c979bf8f0"
-    sha256 cellar: :any_skip_relocation, monterey:       "0824afd2ef3d31ca9688882a1f074799493e39a80e07a5153c3dcc30b5e2f065"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2c48b1215138d175b1d95b3938d2f2973eac4bf916b8f6506527019e91478cac"
-    sha256 cellar: :any_skip_relocation, catalina:       "756c88414c8b9050d560e63c66d1a8f8e014d8a775ef9b8b906f9e1f6c3a55fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17ef3b6c04213c8bf0e4ee03125b7d533506d2b084d04dddef95abea54f73d5b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4bd2706653279accbaaf14b656cf91847606765027e49d453ceb2bb746a6e40"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "828409fc060c1e4600d057bf461e5c69441346a45de6124d373b93d1d3d9ade7"
+    sha256 cellar: :any_skip_relocation, monterey:       "fe27772df34efc2da88c480cc5d5601f772b25f0fc64f35161134a57984d3cb3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f8c7ad0d29e40511a23cde42e05d7c174b25204ae85fc9ab8d829bf5419f22c2"
+    sha256 cellar: :any_skip_relocation, catalina:       "8db7c92872a98dd78aa784b107a51321522f5db6bbb8f8bfc7962ca18a6df07c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "152033ae2ed41ec4486c6c7131208481dd6ac09be30401a6ff7db61ee97569a7"
   end
 
   depends_on "python@3.11"
