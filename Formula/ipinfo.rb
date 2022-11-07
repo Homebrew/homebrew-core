@@ -13,6 +13,7 @@ class Ipinfo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48870fd5a3ee495bbc62c79d5706403ccef08c28f00d503b7bd661315bf2016c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e36096abf98dc91542e89ef61e240b9470d7b4203d721f18d9e0021a0bc373e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c631709cb3810dbbef8f37e1b2d7c76fb301ae36bb9b2d63885ecde62152b7ef"
     sha256 cellar: :any_skip_relocation, monterey:       "dd6a283e541551be0bda8e82d322dc5f057e363021482cb8111afd0d045d6924"
