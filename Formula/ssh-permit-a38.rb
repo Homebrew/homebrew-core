@@ -8,6 +8,7 @@ class SshPermitA38 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "3b648a363b0f3e29cf942dc0b6b413cf762a260d0da1f9b2f78433a7509365b9"
     sha256 cellar: :any,                 arm64_monterey: "ef2eb0850cf670b3b15074cf03e601be8e4d9dacbad032044b4352b5a5827c5d"
     sha256 cellar: :any,                 arm64_big_sur:  "68df2c83ee0648226ee00df59ae6837dc97cce0c105487f5307be28615b2c3f4"
     sha256 cellar: :any,                 monterey:       "e81cc7c78138751c3563ad1efac04789fddb2c938888edcc66c5714a43447782"
