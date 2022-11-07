@@ -9,6 +9,7 @@ class Timg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "01b6eab64c47e597a4ffa1b0dff873ee0c12ab1dd34f97d6f14101368a362952"
     sha256 cellar: :any,                 arm64_monterey: "be4ca4b2e169c3ef834df9f61d00fb23758361dcc588fd2d6bfd2442dfe41426"
     sha256 cellar: :any,                 arm64_big_sur:  "29cb0704f3d3b4ad4aff526358a6613ecd78e077970b015cf8f1d2483175ca04"
     sha256 cellar: :any,                 monterey:       "e0fe70320d537417d3715f3aa6f27349506db40c49b9b1dd3dded5aac648b659"
