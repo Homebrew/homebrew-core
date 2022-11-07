@@ -18,19 +18,23 @@ class Binaryen < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on macos: :mojave # needs std::variant
 
-  fails_with gcc: "5"
+  fails_with :gcc do
+    version "6"
+    cause "needs std::variant"
+  end
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_TESTS=false"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_TESTS=false"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install "test/"
   end
 
   test do
-    system "#{bin}/wasm-opt", "-O", "#{pkgshare}/test/passes/O1_print-stack-ir.wast", "-o", "1.wast"
-    assert_match "stacky-help", File.read("1.wast")
+    system bin/"wasm-opt", "-O", pkgshare/"test/passes/O1_print-stack-ir.wast", "-o", "1.wast"
+    assert_match "stacky-help", (testpath/"1.wast").read
   end
 end
