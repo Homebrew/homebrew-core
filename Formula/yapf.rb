@@ -9,6 +9,7 @@ class Yapf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "950d8ab709fa1abe814841604705099fd1a668025a1ec5c903b59f7f53c9a4ef"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "950d8ab709fa1abe814841604705099fd1a668025a1ec5c903b59f7f53c9a4ef"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "950d8ab709fa1abe814841604705099fd1a668025a1ec5c903b59f7f53c9a4ef"
     sha256 cellar: :any_skip_relocation, monterey:       "1b0f150f316f291060663c5cd8872844c2f127c875f63f67f054a585c87bf0c5"
