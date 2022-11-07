@@ -7,15 +7,13 @@ class RipgrepAll < Formula
   head "https://github.com/phiresky/ripgrep-all.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b5d2e654b0a060a0dea3c650704be69677fdf7b3b6aceda17df54b396927773"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "51ec0645f247775918f4a4185617fe769151b9ceec8edc71be5b60728b7f49f2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9fa77ff1abf533bbb2e04f19dffda6aa82379e2f6130871c8619665985eec0d"
-    sha256 cellar: :any_skip_relocation, monterey:       "3369e565e0e3670f7e31602d2a8c5eaa090590d4fe3b0f32208ec5d7cdd11818"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b24dbd82ac065540c5aaa73fcde2d502a0d463f6c8dceb4be30bacc9335bdef5"
-    sha256 cellar: :any_skip_relocation, catalina:       "bc8ee7c7869c23b82cb1997e4f7f5024193b74cc282c20c6bf50af43b55ddbb4"
-    sha256 cellar: :any_skip_relocation, mojave:         "b1b26781f754760e790ff28c7a26079eb9df86b983c786cd745eabac0232c861"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "59001d904ce02e54e23842a7d04f9729d41f1e6fd8b81a71676812be5c6a20f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eadaa96c3eed82db9b74c68612ac1f43e11a27e4d31b3433a631d2b732282e3d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e84c224329f6ec5448e37681f45769a9ab72c6935288db2ea36bcf284b134057"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "20bdd6f136760c89ba299a97dab08ae2393bb7ae585cf1fff2369fadb6b85bd2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee9f510ddf55cddfa9c7e7299c1793a0076ba0a9a1a1141a012e31f52a78e2e0"
+    sha256 cellar: :any_skip_relocation, monterey:       "37a8535f3c8c7018cf61513d94066004f4245d6df4fca2cfd8137ff3a4472614"
+    sha256 cellar: :any_skip_relocation, big_sur:        "416071978569fb7aab9af008025b98def9ed0187de27d2c69106ec92021755b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "217efb369c00a588b6081bf888a6647a388a46b04618bcb118de7d28f3202973"
   end
 
   depends_on "rust" => :build
