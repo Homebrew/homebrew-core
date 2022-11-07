@@ -3,8 +3,8 @@ require "language/node"
 class Alexjs < Formula
   desc "Catch insensitive, inconsiderate writing"
   homepage "https://alexjs.com"
-  url "https://github.com/get-alex/alex/archive/10.0.0.tar.gz"
-  sha256 "2498ce4818463c6191e7120040426a8e8e883ea4b97b632907483e21e3494d2c"
+  url "https://github.com/get-alex/alex/archive/11.0.0.tar.gz"
+  sha256 "a7ee0de4cdb8a651a377537e495799fbf77a316c817df0ce33b7836794eca618"
   license "MIT"
 
   bottle do
