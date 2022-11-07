@@ -18,6 +18,7 @@ class Dovecot < Formula
     sha256 arm64_big_sur:  "bade47ca19d0d28e7841b2b409c11f12d0ce5e3695f6326ba125c3a31e84774f"
     sha256 monterey:       "43f88c1bf03dd0bf3590a2647cfeba29bfbc9cdccd87f75182f133e7fd6ef6ff"
     sha256 big_sur:        "433266d53d90953649441451ec47713f729d24c5eff12d019de9f24ae9256e28"
+    sha256 catalina:       "dbf1d85df82d8465048d1e452a6d3401ec01ac78192e477510b3034f2472cad5"
     sha256 x86_64_linux:   "bf86b0aa724b94bdd4110411e2695469689e1464c8da2d9df30d29ff88d6712e"
   end
 
