@@ -6,13 +6,12 @@ class Rustscan < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "819c738e128ff28c165fd386c6b3c53e173b1090cf31904bd4c69a812f325219"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b0c49e379f4a26ce81c5efb99befcf90fef1415b03c85105a9f119aab8b6273"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "40dfd5fafb1b91e5b98866ade1562aa44b2d1b9ec10183bdd49d4b771c596d0f"
-    sha256 cellar: :any_skip_relocation, monterey:       "b92354edb90c2ee5414c003d0d430a8800fdf9925592b72578c500ab50587694"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c8f2ecf1e087109d362dc6cf649ebeeacdc4aee3c8f4c32ee0920e825695af68"
-    sha256 cellar: :any_skip_relocation, catalina:       "a1f7ef6167f4f2756ae5418447773ef610fe8961a8e57f8576d308c9589d7bfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4713f24aa727940fad2bf26127cfef0267130356a99ceac50459b1674a06bd5f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f5e8433e240eebc01325acac2ed8605aeeb8f20d0e8b6ddaccdf850ef1c7176"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5953c9a05726eb6c2e4296ebb6be4e1f440fcba58d874838f5cab3233f663955"
+    sha256 cellar: :any_skip_relocation, monterey:       "a1ff86e5c734de2d5ca9b8daff9b3cf6ac3a5f23c57586db4fa3aab59e0a845a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "406658263b1be14a072f5a2f3df599b4f4c9095c6890ac9785566b4d62015b67"
+    sha256 cellar: :any_skip_relocation, catalina:       "aca14693bff909556d8ef512f239e1d373aa750d96275c75616c9b6f868b48a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dde072367d2ed2cc481eb26f495cf2f8f0931e37cb73b21c853293d6d0162f6e"
   end
 
   depends_on "rust" => :build
