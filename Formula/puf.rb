@@ -6,6 +6,7 @@ class Puf < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ba1fc9eecb1a5920c6eadb88fe5c2142bafd356d420356f15afb0a923ef5b3b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "48d6dada2a26fdd71146a6e83b2cd5792af6a365804f5d714171eccbdcbcdc7b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f9daf26921e00b28187380efab232b5f4d4e02877e258ec6e4e204d446c25cf0"
     sha256 cellar: :any_skip_relocation, monterey:       "c1afcd4b99802518b7cee90c23225bec8d2d7104efa503c4115830ab51f582e0"
