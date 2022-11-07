@@ -6,6 +6,7 @@ class Atuin < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "757a906445e52cbf62e057d5dfd16d4371a742c14e35d44c35f29e0a8c2160d6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ec42338dbfc7dd51133caa5b9d3f8e4dd34e814f5b0aa18d8e5acf217ae6473d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "626c82b31af3652feeba4a8a386d39f20f767bd2afc52f348ff61b6a9af7d7a2"
     sha256 cellar: :any_skip_relocation, monterey:       "767f62cfc1de17adf00f32ad6145f9c728cd84c62e3e825aefcf403fd589e748"
