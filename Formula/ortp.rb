@@ -7,6 +7,7 @@ class Ortp < Formula
   head "https://gitlab.linphone.org/BC/public/ortp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2c89fd323319f7351d6c4ed9bf6c850fa7562cad49a4d36b598f6fd7418aeabe"
     sha256 cellar: :any,                 arm64_monterey: "034ca6ec61ee397a1426555ba0695f1b5f45ae19c8d736113029ba62b7567bf4"
     sha256 cellar: :any,                 arm64_big_sur:  "191ea4a4e8249360131e257bedd5b98e1436200aa9ec1fc7cc0e120b0fcf1c99"
     sha256 cellar: :any,                 monterey:       "ed76941ee6aee026790fa63a11eb3bb574829d5b651afa2fe5b1d9e4e9837857"
