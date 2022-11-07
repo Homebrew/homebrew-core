@@ -2,17 +2,8 @@ class Procmail < Formula
   desc "Autonomous mail processor"
   homepage "https://web.archive.org/web/20151013184044/procmail.org/"
   # NOTE: Use the patched version from Apple
-  url "https://opensource.apple.com/tarballs/procmail/procmail-14.tar.gz"
-  sha256 "f3bd815d82bb70625f2ae135df65769c31dd94b320377f0067cd3c2eab968e81"
-
-  # Procmail is no longer developed/maintained and the formula uses tarballs
-  # from Apple, so we check this source for new releases. The "version" here is
-  # the numeric portion of the archive name (e.g. 14 for procmail-14.tar.gz)
-  # instead of the actual procmail version.
-  livecheck do
-    url "https://opensource.apple.com/tarballs/procmail/"
-    regex(/href=.*?procmail[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
+  url "https://github.com/apple-oss-distributions/procmail/archive/refs/tags/procmail-14.tar.gz"
+  sha256 "835e95c34bf93e603ecdc98113ce41bb8fa610d7dd0efe56977a66b131c5335d"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f36e2740c6191a3cc46063e606fa3bf9bd5f5da712e7ef191722ee1ef5c85810"
