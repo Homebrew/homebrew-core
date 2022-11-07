@@ -11,6 +11,7 @@ class Uggconv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad9e49d325916e5ae774fdb74c4ab2c9f8624316a920dfe8a1394d2a395ff049"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "27654b49d8d698a39c1e7592fad41eaa5c81a8151196b7eb054c0e711bee4a36"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "002cd504e9385234ab9b1b4595709ffccb2fda5d49c377add9c27eb422c04ed3"
     sha256 cellar: :any_skip_relocation, monterey:       "ad5e3778249cab414b73491a205ffc0c45817d0061dcf59d561315e544eeca4c"
