@@ -9,12 +9,13 @@ class Athenacli < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c63bfe382f10fcdb71c9754e7d6ae10dc08d17e72f05730ba60ca5659847a68"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f2ab9c1fc9efc265c6c5eecb381b95ddb7f51be0a6e995d5e0ce26b391b4761"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ecdbeaca4b67156d4e7f835dc8ddeee0a9a5519e5f9406a974100400c69473b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "11cb358c6eec9d9301b1a9a593dfd845686d9656335b0bfc3ffa9308c67fbb80"
-    sha256 cellar: :any_skip_relocation, catalina:       "980751bae383135bb3591fd59fcd5c4b992eb259b7df0b361e0d3bb7c6762d3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "545a0944e4516d289665fd8bc592e9e7f5bbba1af48720d855899b1e071303e0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f1689f6e0912a6fe75dfca2c2f1e1c43d00f9360aa20b792d6362b797609ba5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab1033455441eb10974e7c26b050353ad6ddfd7522c5694b2b7fafa6d63dd4db"
+    sha256 cellar: :any_skip_relocation, monterey:       "f0024358b7af8b1812534b22103ad777951ea5fedef45287859737260f1bf97e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d7fad68cf9a05eb7436aeb6759cc4e59dc47a279e70f3bbeb8330313bb45a36"
+    sha256 cellar: :any_skip_relocation, catalina:       "aec157be8866490bcd52135035a35b8ddcf603e553af84632693c197720726f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d75ed566d335d68d143e5c645ca24bebbbc75e3e7e500ba52fb5e377b8f2de73"
   end
 
   depends_on "libpython-tabulate"
