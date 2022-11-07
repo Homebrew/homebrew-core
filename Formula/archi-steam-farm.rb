@@ -13,6 +13,7 @@ class ArchiSteamFarm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aaf9f25e1cce66287405a3df0a23e95e2e9c26ddf86b98afe4b49df8e85e8350"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7d0b5cd305a10e755f3a722f0e8ae39dfcc9ff6e4356908a4a2f680948c02360"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49e04e344ea151bfb7257fc25af4ad3924593dbdc7751e92dc4e79cadb12c943"
     sha256 cellar: :any_skip_relocation, monterey:       "a33c65e5afeede009c3d2de6e07684ab8d979caa0bcb2fc8d85f0ac39dc98cbe"
