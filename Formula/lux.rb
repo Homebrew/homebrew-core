@@ -7,6 +7,7 @@ class Lux < Formula
   head "https://github.com/iawia002/lux.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4eab4337efa2def339ada5c7e0d73329e1207be17b7b50be30914c3a9469f4c7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "573e00b2cbdd6c13a681ee869e11836858463a27c777f60857ac369443d89117"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a52447f547ad8c46ae28dfad776ae1bf767c8bcf1d410a917bff27a1bc962be8"
     sha256 cellar: :any_skip_relocation, monterey:       "fe590137419bb55a098b0d41cb52fdf5b51ff07d60985a5fed9d54989db5742e"
