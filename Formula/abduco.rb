@@ -7,6 +7,7 @@ class Abduco < Formula
   head "https://github.com/martanne/abduco.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b07ab80b2d588ae9ed65d615b8e4f12bf04b8e86eec0ffd407a4955aef9a2dba"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f3e01e687a45b2458311702b5b48b8d3bb8d681388cacc85e7fb26d0be6b7720"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e261303a69440aa46e09bfc3be3b7fb0c5cb6b2a3f6fbeb94338491a8538a90a"
     sha256 cellar: :any_skip_relocation, monterey:       "8c9d9c494114dfcb8c231d5823afa980bd0b7a1d055c30ea7b60a9e4d7a92878"
