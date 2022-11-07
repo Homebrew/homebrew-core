@@ -7,6 +7,7 @@ class Ejabberd < Formula
   head "https://github.com/processone/ejabberd.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e4f40e6ce813d70e58b60e2da13c0e7cc694fcc300f8a92c2159034b2414ad3d"
     sha256 cellar: :any,                 arm64_monterey: "baae4960d92ae5d21d82382c3202bb9150b414d50ce97c8bdb756e4d3f777594"
     sha256 cellar: :any,                 arm64_big_sur:  "3d3c3ce2dc52cfcd45b6e177c027f4e2b782ccdedf0aa81e458153725e5fac27"
     sha256 cellar: :any,                 monterey:       "ef80593e0e0e03cc10393f861aaf209019dfd1f175a58b352e47a7ad6d2c73b7"
