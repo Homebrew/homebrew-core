@@ -8,6 +8,7 @@ class Cronolog < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c35ef462c37f02fcb214571fe0b5a4cee014a21c01f996526468a29479bd2f30"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3a4e3d4430cc1394a04c53a63725012906738f26acc227d58f91dd84ce3e6335"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "105b3e20c9a2c742c71e3c0367c451b37acc11945f05597e72a4c6ce98b9e82c"
     sha256 cellar: :any_skip_relocation, monterey:       "dcb59364b5df275862b07d39e801c3564047d59c624d44145010cc446b8002bc"
