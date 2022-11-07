@@ -8,6 +8,7 @@ class Sshguard < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89678a0c0443f86ccdc5674e288f51afc18ff2c7659af3c2e2a21602dbbf89e9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "432b5c348a85223ac41b4ff38a1416847227c74e3372ddb1aeb1575612421dbb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d878d2defd31509f5248eb407a15b358e1b5e78e317cb4ecb58ea971eb0e21f"
     sha256 cellar: :any_skip_relocation, monterey:       "223206d74a0c9637ef21524dd7031262fad932ec9edd60996cf88272eff27e19"
