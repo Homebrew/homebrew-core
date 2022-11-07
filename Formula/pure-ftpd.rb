@@ -17,6 +17,7 @@ class PureFtpd < Formula
     sha256 cellar: :any,                 arm64_big_sur:  "34c0a150261bce1eef864d73033e583efefa5829d5301723f2acd7f839c1c5ce"
     sha256 cellar: :any,                 monterey:       "46c89155e8910f6b8c9f6834f31d383c7d6fdf5c72ff6dc64474a9c57f1e9907"
     sha256 cellar: :any,                 big_sur:        "3af1b813b093423c66ab1d7c5d5ef192562d6eeb0754ad0ce68f05afa17dd091"
+    sha256 cellar: :any,                 catalina:       "5083006d58cd0f7e6824e95998c299cb7d090fc2d049b8e797ddf0b27ac90207"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1800a3342d761db7a85e0d482f52c0b689835713dd15a5bba90a617a43160151"
   end
 
