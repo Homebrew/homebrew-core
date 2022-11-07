@@ -9,6 +9,7 @@ class TrezorAgent < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "eecf02f5ef418f20edb5951e449ebc4a29da0554f96e6d0951b31a32f04e1ab6"
     sha256 cellar: :any,                 arm64_monterey: "7a74919057c33c6b74f4eb38f14c3f16e9b47439ced61774dfc40e943c82ae47"
     sha256 cellar: :any,                 arm64_big_sur:  "8272ac471854b3cd8b07e3db79ce256d5cbc3c3d3320a907677266272dba38e2"
     sha256 cellar: :any,                 monterey:       "5be26300a15d83ad6e96f4b9065a0affaf4e23b32032f5d3a3cae82c4657c3f7"
