@@ -20,8 +20,8 @@ class Telnet < Formula
   conflicts_with "inetutils", because: "both install 'telnet' binaries"
 
   resource "libtelnet" do
-    url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
-    sha256 "e7d203083c2d9fa363da4cc4b7377d4a18f8a6f569b9bcf58f97255941a2ebd1"
+    url "https://github.com/apple-oss-distributions/libtelnet/archive/refs/tags/libtelnet-13.tar.gz"
+    sha256 "4ffc494a069257477c3a02769a395da8f72f5c26218a02b9ea73fa2a63216cee"
   end
 
   def install
