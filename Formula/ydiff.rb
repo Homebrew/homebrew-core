@@ -9,13 +9,13 @@ class Ydiff < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "20ed345c77f5c6d4012ffd27af864750775d764d1755547395bf33c6e81d8a14"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "20ed345c77f5c6d4012ffd27af864750775d764d1755547395bf33c6e81d8a14"
-    sha256 cellar: :any_skip_relocation, monterey:       "8cfafc1dfa19564f3322fca2f64a82545a942432b7ad995c99fcf32ce8986ed2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8cfafc1dfa19564f3322fca2f64a82545a942432b7ad995c99fcf32ce8986ed2"
-    sha256 cellar: :any_skip_relocation, catalina:       "8cfafc1dfa19564f3322fca2f64a82545a942432b7ad995c99fcf32ce8986ed2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0bfd77f8a27a1093ee647a2d9632fc32d13a00744bbfac2f6a6931107cbd39f"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7716b4d96423f5e20605b126217b6b9778848b6a141caa85250b646fadf66a84"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7716b4d96423f5e20605b126217b6b9778848b6a141caa85250b646fadf66a84"
+    sha256 cellar: :any_skip_relocation, monterey:       "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"
+    sha256 cellar: :any_skip_relocation, catalina:       "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07c4e2ad3135cbcc5ac2478cd0a83d570e2f0d9e0921f2f0fff89d854c25c5a2"
   end
 
   depends_on "python@3.11"
