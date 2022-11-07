@@ -6,6 +6,7 @@ class Spr < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b651d77c34ba34bd70b54b24c7ec9dbdb015c2a250d24acee6faba97ef7f7eb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e26da27a1ba6df81f6d797860ba0641c191d6342771d6878281a1cd9e82c9483"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68be8c6508cee8c9fced5b1f4fc415d5977f777d4b6f0b015124556efb61f615"
     sha256 cellar: :any_skip_relocation, monterey:       "909c0511aad5756194d666a56e467cd7f672cea40d82cc501c481cb04f73b174"
