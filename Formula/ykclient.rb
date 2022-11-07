@@ -17,6 +17,7 @@ class Ykclient < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "23db2cdc9c298cc6ddcf0db595ba661ab352d3bc70dde9b9063a6a76666c76da"
     sha256 cellar: :any,                 arm64_monterey: "00e116a04b11a1d3c6d15f608d5088de2a1ac864b154da2494d9c3e5f7fa328a"
     sha256 cellar: :any,                 arm64_big_sur:  "39c01c0420ae7a6f3af3a97f9e413b3137730f251d4784bb5ab7f878793c34c1"
     sha256 cellar: :any,                 monterey:       "985f62c5ed17437ef7670ff6b9bc8b1db77049015701f5ed6587bf51ebd1edbf"
