@@ -12,6 +12,7 @@ class S2geometry < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1fffb7be2e1fec6bcccc9987b01995a66dd0a5c6788c671ffbfd5a618e4b4038"
     sha256 cellar: :any,                 arm64_monterey: "e8da995aed4d8566f45d2d25309dccabf1494d2f0adeafddbcd6ac21413b24ce"
     sha256 cellar: :any,                 arm64_big_sur:  "882327e425f31807818f5297cde9c82e597d78398ddd967deb2f671cbf11dec6"
     sha256 cellar: :any,                 monterey:       "66173ff423d0e7699989dcf8eb7bea07583e354c666a62da7bc48f056dbe9300"
