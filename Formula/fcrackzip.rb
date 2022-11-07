@@ -31,6 +31,8 @@ class Fcrackzip < Formula
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
+    # Avoid conflict with `unzip` on Linux and shadowing `/usr/bin/zipinfo` on macOS
+    bin.install bin/"zipinfo" => "fcrackzipinfo"
   end
 
   test do
