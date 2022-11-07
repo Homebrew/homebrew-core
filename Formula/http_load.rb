@@ -19,6 +19,7 @@ class HttpLoad < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "0dd1281547e03738d0f6e430ec3cf580128d0927fbe81c06b303ad4f149511ed"
     sha256 cellar: :any,                 arm64_monterey: "7cc029f4f05f1dcad91c90088c8fc54977dd585d83a52c0339294ac1d7e83922"
     sha256 cellar: :any,                 arm64_big_sur:  "d5fc5ba0ce6baf991e45fcb70f6e2fd3153e1f902d1d510cf015b3ff8cc4d0c3"
     sha256 cellar: :any,                 monterey:       "6a4801689e9b60c87fd7362ba3fe205f7043b8daa3fa80ac119ab52d5abd9a01"
