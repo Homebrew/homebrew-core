@@ -11,6 +11,7 @@ class Pydocstyle < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11591f3472ce083fd8f56068da5a7441954d66f4afad42500b6650b2a3814d9b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79d16bee35a3b67c8953b524bc40924a9ae6f362116d9c8716d73c5816574b76"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2f3596d75b4c7799708e2af41e2e55202ee09554b74e535e0be90f946a88c710"
     sha256 cellar: :any_skip_relocation, monterey:       "f36bd57c1c1b64bea7d05f66c93150c897a9c49fb4923d50d847b25856e2a0dd"
