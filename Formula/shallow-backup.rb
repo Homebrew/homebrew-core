@@ -10,6 +10,7 @@ class ShallowBackup < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab1676f4c6dda57e1db62f527f9232e6d0d86953399c71a80cfd27c5df02409d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4797807c1182b74ab833f2f914f1893d9c3b0dc9c770e88f0083c9a9a6128c2c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6342d17678040b2056130981873b5711be6e3cdc8707859b3948aa48b1dcc72b"
     sha256 cellar: :any_skip_relocation, monterey:       "8406e0540482aebe4fea1a2959a2fe2fa25494ce0276de462f0941cc84f67fbd"
