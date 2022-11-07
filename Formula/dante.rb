@@ -10,6 +10,7 @@ class Dante < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a922a104d5d267fffd6cbc3a7e476ecf9ac4ffe71c6b3b90880fd3c2df661a04"
     sha256 cellar: :any,                 arm64_monterey: "6ba49e77d7e95f26793d9283ea19a0fd2649480808873491ce1263087e0bab0f"
     sha256 cellar: :any,                 arm64_big_sur:  "7b25a50f17292cdad4dd0e52de401117411fc6bb660c66bedbdbc8c7759dea9a"
     sha256 cellar: :any,                 monterey:       "df57fb7fae717cc7673b29a6665d6f6f74f9d32e3ea959174e65ff31ce87db9f"
