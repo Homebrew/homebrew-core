@@ -7,6 +7,7 @@ class Bsdconv < Formula
   head "https://github.com/buganini/bsdconv.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "3677f1c3ddd940126cdbaef44ea54ee40e8912572886d490e75139dd1950e268"
     sha256 arm64_monterey: "bc26b770aa6622c467bb6adb345593c59cee51d1071211dd5acc913b4f0932c8"
     sha256 arm64_big_sur:  "92a2e9b7e7389c00556c577f05e2e7d6ff39919d62153fb07dd98df8ba6347ab"
     sha256 monterey:       "1e695c9018c174f1dc39d4205e26a507acd12f789733c5c76608f5ceef92a2b4"
