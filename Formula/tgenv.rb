@@ -24,6 +24,6 @@ class Tgenv < Formula
   end
 
   test do
-    assert_match "0.26.7", shell_output("#{bin}/tgenv list-remote")
+    assert_match "0.40.0", shell_output("#{bin}/tgenv list-remote")
   end
 end
