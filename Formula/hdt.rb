@@ -6,6 +6,7 @@ class Hdt < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a68a7b396c8b98c042548bd50ea2fc8736e1588be1c1f0d092bcc9d150df1f32"
     sha256 cellar: :any,                 arm64_monterey: "13a72094b82ac91fe1bbaed2cfb12ffda92903715e105c1136e42c7a1a3d48d0"
     sha256 cellar: :any,                 arm64_big_sur:  "934a8c000b23ee6a63cda409118c47737d4549a5f0fd260a1652ecfc6b49f1d2"
     sha256 cellar: :any,                 monterey:       "693a2273358dcdc130f4bdc102d23e0c7d33d709a417811e737320faf96caaa4"
