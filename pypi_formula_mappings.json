@@ -53,6 +53,9 @@
   "bandit": {
     "exclude_packages": ["PyYAML"]
   },
+  "beancount": {
+    "exclude_packages": ["six"]
+  },
   "black": "black[d]",
   "borgmatic": {
     "exclude_packages": ["jsonschema", "attrs", "pyrsistent"]
