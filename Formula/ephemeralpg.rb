@@ -12,6 +12,7 @@ class Ephemeralpg < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "317bb739f9ec9100420e8610b60de8545f9415f6e1842968bdee2c6aa3eb8bd0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cbc1d493222d98063a3a26ea7c544ed95069a206405428fb8ed768a359f4e781"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da97cd5215b93c553ed8e83be7daf0e96e5fe18aa86cebd1811605f2a46914b8"
     sha256 cellar: :any_skip_relocation, monterey:       "bdcd29d9bb83d00a3c268601e136f8e74fdf3bf9c978e26da82e759c0e02a32e"
