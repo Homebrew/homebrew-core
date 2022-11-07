@@ -6,6 +6,7 @@ class Gom < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "e28893dc7b44893c394b44710cfdcd49168fb5158f21a9525cd40c558258f2e3"
     sha256 cellar: :any, arm64_monterey: "e73d7d2ba1908611f61a85f17abe510321743ca824007765d0cb4c6ec9a6bf30"
     sha256 cellar: :any, arm64_big_sur:  "ac5b11b07edb669242f21ccb6101e2799221d1b27835b162332669ee0a2e485e"
     sha256 cellar: :any, monterey:       "87d77af0920b14f4e1d0971559eb317237b2d09b3d2fc35819bbc0bcb474f3f7"
