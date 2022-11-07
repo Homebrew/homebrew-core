@@ -7,12 +7,12 @@ class WasmPack < Formula
   head "https://github.com/rustwasm/wasm-pack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee8e245f0fe26db7df3d63d30d065e64a4f06356f14bbfe0d1e01aadca797fc1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b1be0f20de76f8db29f4bbfb31ea25a46bc25ee1ff1ea0d927eb19036644f633"
-    sha256 cellar: :any_skip_relocation, monterey:       "68e04907d8c4f477a66b16de4a9b1d10fb036592337e1db1255925444ef0b114"
-    sha256 cellar: :any_skip_relocation, big_sur:        "619696e550bb1c00051dec8638ea8aa950f6c1904842830db69ced07e73a51e8"
-    sha256 cellar: :any_skip_relocation, catalina:       "b245153ced361da3f7ef37b2323aa46177cb8e1ef6c3b37c76f495bd165fcc7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "247466ad41f870b6de5e73a351d7e4cd7553c394e9c8d5363221c736e8ceaabd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "055a460d9e3bfc7204b230db14374ba50a2777122b57cf1f9c8b0e217bbf2e06"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5cb5868af1846b4b605b1c8286b2688ec8b971bc4eba41a0fc8d00e9c42d56e"
+    sha256 cellar: :any_skip_relocation, monterey:       "50b13a14546c07336146adb67af2d8d2f77889258743262e80826a800e265ea3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "72aed4a7c19fc92bd760940880c230c5d8c33bc01e6221a7bb8b7ba6fef915cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cee90c486fd6e4168cf8399ce7e0c4b231237fb52ecb501ac4df97d9275e86d8"
   end
 
   depends_on "rust" => :build
