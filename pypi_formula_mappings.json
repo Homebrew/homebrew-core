@@ -244,6 +244,9 @@
     "package_name": "huggingface-hub",
     "exclude_packages": ["PyYAML", "typing-extensions"]
   },
+  "instalooter": {
+    "exclude_packages": ["six"]
+  },
   "internetarchive": {
     "exclude_packages": ["six"]
   },
