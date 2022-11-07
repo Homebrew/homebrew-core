@@ -8,6 +8,7 @@ class Tilt < Formula
   head "https://github.com/tilt-dev/tilt.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5496c2f402442622cb52fc4b01ac5d02dbaecbb8180b99303b51e8588a9e7c71"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5570fcb597b9ef05d35ca6b39262ae0b884ba0d261ecdae087c51e2223417efd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3a6adf2d233d3bb1778d7083c52834cc44a331b0e136486e18fa4849d9220e5"
     sha256 cellar: :any_skip_relocation, monterey:       "e0a33b044e4f0e61295b97ba157334346943558d62103a6e9338ce6b2fc7f2f6"
