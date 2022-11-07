@@ -7,6 +7,7 @@ class Sqls < Formula
   head "https://github.com/lighttiger2505/sqls.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "faf408ae757458bf1e26893201d6e900f05eca022fb1ee01559fa5a0f1d1622f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6dbca6e8e07e366b9926ddb5da7068e4aab06a8f44ac4c10e39a4cc956c823f3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dea0bf951c056448af9f587db401b9aeaf8fb3def88ce54a5db05c3737cadae"
     sha256 cellar: :any_skip_relocation, monterey:       "7e0b61b52ec2b7f34122844099657f8be14a27af74509e7f7ecb59f9aad0f0a0"
