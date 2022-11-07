@@ -1,13 +1,10 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
+  url "https://github.com/include-what-you-use/include-what-you-use/archive/refs/tags/0.19.tar.gz"
+  sha256 "169b7af2f66196e729f694aed539ec964d874eb7959614b5828238fe49747980"
   license "NCSA"
-
-  stable do
-    url "https://github.com/include-what-you-use/include-what-you-use/archive/refs/tags/0.19.tar.gz"
-    sha256 "169b7af2f66196e729f694aed539ec964d874eb7959614b5828238fe49747980"
-    depends_on "llvm"
-  end
+  head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
   # version scheme like `Clang+LLVM 3.5` (25 November 2014). The current
@@ -28,12 +25,9 @@ class IncludeWhatYouUse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec110b794c08e967b6e9cd4e9dbd4aa7c409609d3cdd72a0c874c87d58f75017"
   end
 
-  head do
-    url "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
-    depends_on "llvm"
-  end
-
   depends_on "cmake" => :build
+  depends_on "llvm"
+
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
