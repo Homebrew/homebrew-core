@@ -11,6 +11,7 @@ class Remarshal < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1f61a1bcde49a8572b1e1425fb8157a971475f137b9152a28cba937325bb367"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c537c470d33b0e448c03a34754f95fcf6738bebab5a8484eae74448a5a0df737"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72b85ac20f3ab3d3a8172294dd1af9830c2337da5e3a8b90a95cc33e67213a6b"
     sha256 cellar: :any_skip_relocation, monterey:       "87c3e6cc0bd24eba5749faae9deafdcd7691759c65d2f0a8a2f985b54c060815"
