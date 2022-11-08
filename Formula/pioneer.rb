@@ -8,6 +8,7 @@ class Pioneer < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "027d68852763a927f369c9b0a500fcc0ffb221bbea1bda39b3ad8700851cb07f"
     sha256 arm64_monterey: "b2e190f79505cc823854dcb3c46b333994fb15f065e95dc77934d4b27119aa8d"
     sha256 arm64_big_sur:  "0ca5b9a984198c3e3d60e3e02c8f3ccc046d2082900627a9bf970610c6260d95"
     sha256 monterey:       "0bb70eb1bb53b649bafb3ae3a52d4743fdaf690274a3e9ee0288e03fc26bc427"
