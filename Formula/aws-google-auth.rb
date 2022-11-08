@@ -11,6 +11,7 @@ class AwsGoogleAuth < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef217182592b40c25d277dd16ef528bcba98f56e716db1ef6b58575dad5b517d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "05a8e68250bfa2a11bbf3b6e0f446aa2ed4968bbbd7a154b95010b2bca26a48d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41d74690e0e9180f8eb60aa13ee8d811d0ab745cb3481997fdffc8067f682e54"
     sha256 cellar: :any_skip_relocation, monterey:       "41126d6d2b988563d1d438153bcc73a2ca9601b1833cbdafbe7728f065a0d014"
