@@ -7,6 +7,7 @@ class Openmama < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "d2e54f54c813146bda879ee2e18102bf825fee2e883b6d2780e686db413709dc"
     sha256 cellar: :any,                 arm64_monterey: "81aa664271767ec190b914b079f6aaddb4712ea5071ae983f41904ccabacbf75"
     sha256 cellar: :any,                 arm64_big_sur:  "a123162e2ba61eb5c30e56460e0946071d905555dc83183b6f20f8ce6bc65193"
     sha256 cellar: :any,                 monterey:       "178483d87eda050e29c6b646436c0ece4a14dcd5c1d98aec8103a49b97e2857c"
