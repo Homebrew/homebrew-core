@@ -7,6 +7,7 @@ class GnuTypist < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "1680a0da992d03808e31f28c258317c5fdeec3b69c0d0347da09b53bc911c220"
     sha256 arm64_monterey: "11053d3574c7c569cd3bdddd8e48e0609af0abdc0638346f810168570411f16d"
     sha256 arm64_big_sur:  "b241409e921daccc7d82bfd1641ba1b6fd43966d19458fc580d4245641306fe2"
     sha256 monterey:       "100c51f8f078f96c5e4307ed3f7d2aced6ae5975ae91df6aa208932211113d5e"
