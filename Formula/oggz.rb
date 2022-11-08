@@ -12,6 +12,7 @@ class Oggz < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2584e2cdadba3d9c788b756b2bf5d65277f99cc79645693ce437e6edb62c003d"
     sha256 cellar: :any,                 arm64_monterey: "2865f35c71995a85ca99d1efe73f8c1607da93ed30647113a744e1992d366a0b"
     sha256 cellar: :any,                 arm64_big_sur:  "286192f997ec0e02994b70cdc03d06d0616b10bea980b1aee7f3322f1d58735c"
     sha256 cellar: :any,                 monterey:       "83c7d4eb559e471b35ec7a615dbe11cbf35eaa82c510d44c4fbcd2eb0d41d8b4"
