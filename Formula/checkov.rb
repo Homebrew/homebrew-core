@@ -9,6 +9,7 @@ class Checkov < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d350bb84c4bef2ac1d66c38d80ab10653f546187f5c0ed6b1fec15db807bbdf1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "692525f346c2f29e131758a2991aedc1feb44426fa0fafb09ed91b8a9907ab15"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "85f12148759a921a4324655c52c359068bad0c35dd72dac505ea8b7cf349d26d"
     sha256 cellar: :any_skip_relocation, monterey:       "be70610eecbb3b61bbf019ba35fc19c50ab379e4a8d0da526760198d35211048"
