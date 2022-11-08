@@ -7,15 +7,13 @@ class Asroute < Formula
   head "https://github.com/stevenpack/asroute.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95fed5d2399c60c38bf16a397ed05407d9bce377a88634cc6e2ec947772c20c7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de290cf1ef3bef31bef256e64ddc4d7446fb2d81bcdd553660cb65baeb2db425"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "816be1190f677bb1ba13d1b1fd92a0ca7550341810310b59be200227936afc9c"
-    sha256 cellar: :any_skip_relocation, monterey:       "b166f13f96b3c06f632e3924b1c0a03ab0dfc0d3b3ade5e9b58599dccbf2e4ed"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dded44d666d600e065f0a49e0c26eaa56597f1235ff937703c8dff298f665453"
-    sha256 cellar: :any_skip_relocation, catalina:       "873d80ef73a84598637218e467a0887477e113a9f26d8dd1f1a4b6a4571b11b8"
-    sha256 cellar: :any_skip_relocation, mojave:         "6dbd83956cb0d73b74fd8fa6706206c7d9701eeb6a44f0e6eebcaebd9b96fbc2"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "77fd60fff4aa4abf7e9fd7bb7e14961b3eaab1aae0f074a318d874ecd869d32b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5551363cc3debab97b447917844cee65766c8c3833f3d853738e09d11418766"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd44c35000aae6f727e7014d50e6955d740d1dea628f127f7ab163566cef9ea9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5987e2552c04a0ebb4e10a3dbd990a756312e763d0f8dd5181094ad23597e34b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "163a9abd216264008582b7be4230fd4b25499c98df63428cc6712688e7864a26"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c25bfabb04bf68c00afa5b1cfe58dde4da17f666aaf4342f43db0a887e4c254"
+    sha256 cellar: :any_skip_relocation, big_sur:        "96074d1e87efc94a13cca8a1afb4b2ae5ba6379c30bb5fd0ec4d635c9f97f84a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d188308819d803382363c7a89e9aa531721a65c05fdba1092b4e08791caa4254"
   end
 
   depends_on "rust" => :build
