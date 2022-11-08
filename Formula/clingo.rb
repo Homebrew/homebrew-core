@@ -21,7 +21,7 @@ class Clingo < Formula
   end
 
   head do
-    url "https://github.com/potassco/clingo.git"
+    url "https://github.com/potassco/clingo.git", branch: "master"
     depends_on "bison" => :build
     depends_on "re2c" => :build
   end
@@ -29,7 +29,7 @@ class Clingo < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "lua"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   # This formula replaced the clasp & gringo formulae.
   # https://github.com/Homebrew/homebrew-core/pull/20281
@@ -46,7 +46,7 @@ class Clingo < Formula
                     "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
                     "-DPYCLINGO_USER_INSTALL=OFF",
                     "-DCLINGO_BUILD_WITH_LUA=ON",
-                    "-DPython_EXECUTABLE=#{which("python3.10")}",
+                    "-DPython_EXECUTABLE=#{which("python3.11")}",
                     "-DPYCLINGO_DYNAMIC_LOOKUP=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
