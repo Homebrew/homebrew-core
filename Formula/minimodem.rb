@@ -12,6 +12,7 @@ class Minimodem < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c3b2dedf19a1253a4e9b5eef4ae278875eda2759f82c8ec9d503ead44ce0fcd2"
     sha256 cellar: :any,                 arm64_monterey: "d2eae4352ba72db26b2b38798cfb1c48f937df4e4cad3a5d50036abe2a2b8f52"
     sha256 cellar: :any,                 arm64_big_sur:  "659dd378a4d6fc0f96d3752b6fd8303f0f6c79beeb0424fa8456ec33d270fb02"
     sha256 cellar: :any,                 monterey:       "cc0e8ee52305c15554adcf6e50c52ea670ac814001092d82b45f7083e9399928"
