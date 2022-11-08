@@ -17,6 +17,7 @@ class Exa < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97b6bf5ce5591c1dc5c320ac857c3d977caf2547579d0d9145655ad9c2d9e255"
     sha256 cellar: :any_skip_relocation, monterey:       "269e359b76de3e1084ccf276342a134cc752737bb5a83a6178b019940d0270f5"
     sha256 cellar: :any_skip_relocation, big_sur:        "9b6b6a3c852c14ee92aa8c601cf0b81b79fe7be1f14d84e2fa0a21ead58fdeb1"
+    sha256 cellar: :any_skip_relocation, catalina:       "d021fd5bc69c223104b5bebc176d9212074cb24154f37d54125d81bfdb847b44"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd62a17077ea9a775ae6b83f9a574e165ddc9a59a32e2e3a0dfd5d1802514989"
   end
 
