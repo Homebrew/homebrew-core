@@ -5,6 +5,7 @@ class Rnv < Formula
   sha256 "b2a1578773edd29ef7a828b3a392bbea61b4ca8013ce4efc3b5fbc18662c162e"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "86e6bfd85e0678347eaace39bb3ad203e08f8006c84939fa9a41e693ee6c1326"
     sha256 cellar: :any,                 arm64_monterey: "bf6a467df397afc6d6ffe8e54dabb5f41eb47f71b75fba32e19e6b6d0e297029"
     sha256 cellar: :any,                 arm64_big_sur:  "8901e5d1b3915babeec29f4485afa741d41b2b48946515c1d871f525512ae1b6"
     sha256 cellar: :any,                 monterey:       "6e53766114e84c2d465873f78f4d8e9989186297140dae5966927b966d821d8e"
