@@ -23,7 +23,7 @@ class Dnsviz < Formula
   depends_on "bind" => :test
   depends_on "graphviz"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   on_linux do
     # Fix build error of m2crypto, see https://github.com/crocs-muni/roca/issues/1#issuecomment-336893096
@@ -41,14 +41,15 @@ class Dnsviz < Formula
   end
 
   resource "pygraphviz" do
-    url "https://files.pythonhosted.org/packages/c7/21/063c3ec261904f3c67b7d8bb0033e4e53bbdacb17e6d27097239d50fb7ca/pygraphviz-1.9.zip"
-    sha256 "fa18f7c6cea28341a4e466ed0cf05682b0a68288afe8dd7c9426782f7c1ae01c"
+    url "https://files.pythonhosted.org/packages/ee/7e/7366c082f959db7ee18a16fc38dc594158ede65ca789bef87751ed5130c7/pygraphviz-1.10.zip"
+    sha256 "457e093a888128903251a266a8cc16b4ba93f3f6334b3ebfed92c7471a74d867"
   end
 
   def install
-    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
+    ENV["SWIG_FEATURES"] = "-I#{Formula["openssl@1.1"].opt_include}"
 
     virtualenv_install_with_resources
+    man1.install_symlink libexec.glob("share/man/man1/dnsviz*.1")
   end
 
   test do
