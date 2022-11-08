@@ -43,6 +43,7 @@ class Dotnet < Formula
     sha256 cellar: :any,                 arm64_big_sur:  "341d025fed0a2bb01cf2199cc19aba069e90e83c9dd91c189818f68b12be8512"
     sha256 cellar: :any,                 monterey:       "b208c464e92f5dec6c9641a0a004a4c4f445e636ca4eee910866e5461784ebf7"
     sha256 cellar: :any,                 big_sur:        "e5cdb53c941e2f484c36ce4573cab3919b90a2164ba4960bb15aeb47da342baf"
+    sha256 cellar: :any,                 catalina:       "68549d9d271924074783afaaf3257030c70d7f47511203d9badd3c43b62cff66"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "645d857e3555c70c7475017f38d9556ead417f64e6903c4510fecaeb04741284"
   end
 
