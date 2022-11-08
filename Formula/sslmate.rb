@@ -17,6 +17,7 @@ class Sslmate < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e57907f47b1b212bb9473437226f5aee5c09f49cdd46a5d8497da4905351157a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e56927a6a5cf72e966495ce2c3d236f467a503e347e965b330e5eb99cf4bd828"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e56927a6a5cf72e966495ce2c3d236f467a503e347e965b330e5eb99cf4bd828"
     sha256 cellar: :any_skip_relocation, monterey:       "a6f4063710c6ba948074b87598d2e135898114343be1b9327a9109d3e4945ff8"
