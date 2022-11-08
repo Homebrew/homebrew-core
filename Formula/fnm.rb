@@ -31,7 +31,7 @@ class Fnm < Formula
   end
 
   test do
-    system bin/"fnm", "install", "12.0.0"
-    assert_match "v12.0.0", shell_output("#{bin}/fnm exec --using=12.0.0 -- node --version")
+    system bin/"fnm", "install", "19.0.1"
+    assert_match "v19.0.1", shell_output("#{bin}/fnm exec --using=19.0.1 -- node --version")
   end
 end
