@@ -12,6 +12,7 @@ class Pyoxidizer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a438770a4ce6bb1ea06f3d23d1c0cf505f93383de2ff27d99b22d5d5b34c9f51"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb62cb641b9b69e0995c19c288a051a5f59e11de3a174aceb4c67daf48332b4c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2dbd06e01ecb46b93bb3250bd0d5e349295ba6c56b77622d29c64676ed17e3e8"
     sha256 cellar: :any_skip_relocation, monterey:       "80d2014e88d9937d1a88b99da5a8d035e8ac42ccc4df7480512e020e6ee30fb6"
