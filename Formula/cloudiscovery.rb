@@ -16,37 +16,37 @@ class Cloudiscovery < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "07856bd03ec586bdaef2d56cbbda9a34819a349857d219978074daa1979d18f1"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/d9/91/1dc0a7d0ac74366d86d1860f7f9ffd9f6f80a01e0c2b798412fafcc548bb/boto3-1.19.3.tar.gz"
-    sha256 "e36ffaf9969648e2f435aa1f0029956fea3aac52466eef3bcb43bde498a182dd"
+    url "https://files.pythonhosted.org/packages/db/09/8ac167664014a49131abcc67b5977d7ea0e896f8b00a42f1ef829575798b/boto3-1.26.5.tar.gz"
+    sha256 "cb4eca34b6e13e4ead46a68f66759feaae6bf5e97362b2c979b7b9f1d203715e"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/c4/80/887bf75741359a3b067b7cf6cf1c426e503e9d1130c6fd0cb5b2c4b08123/botocore-1.22.3.tar.gz"
-    sha256 "53ca22aeac9b53fe5ec1f40b8ca9620ffe8b054458abfeb9ab74bbe9e0b0ecfa"
+    url "https://files.pythonhosted.org/packages/4c/87/62c37750ca4c03d2d3fce2e3de2e13d635576fa74cd0e693fcdf7cbf6db4/botocore-1.29.5.tar.gz"
+    sha256 "8a1a074bce7567576947869d41026c45d507e00885f3890c1719180a9400ec40"
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/d7/69/c457a860456cbf80ecc2e44ed4c201b49ec7ad124d769b71f6d0a7935dca/cachetools-4.2.4.tar.gz"
-    sha256 "89ea6f1b638d5a73a4f9226be57ac5e4f399d22770b92355f92dcb0f7f001693"
+    url "https://files.pythonhosted.org/packages/c2/6f/278225c5a070a18a76f85db5f1238f66476579fa9b04cda3722331dcc90f/cachetools-5.2.0.tar.gz"
+    sha256 "6a94c6402995a99c3970cc7e4884bb60b4a8639938157eeed436098bf9831757"
   end
 
   resource "diagrams" do
-    url "https://files.pythonhosted.org/packages/3c/17/297c20150513547fc2bad08e96ca4efbbfdfe90affb232f0c4b89570fff0/diagrams-0.20.0.tar.gz"
-    sha256 "a50743ed9274e194e7898820f69aa12868ae217003580ef9e7d0285132c9674a"
+    url "https://files.pythonhosted.org/packages/96/38/62f2a80fc10441763b7fef93a21d1e029804aefa73fd848fbcb67bd9e125/diagrams-0.23.1.tar.gz"
+    sha256 "56230633ee70106ecea38b82dc447084a114055feddda6dc18d1faa1b96f0049"
   end
 
   resource "diskcache" do
-    url "https://files.pythonhosted.org/packages/49/07/079b8b4eb2aba194fca4562c7f014ea45a40130ebff539628c05c52d9050/diskcache-5.2.1.tar.gz"
-    sha256 "1805acd5868ac10ad547208951a1190a0ab7bbff4e70f9a07cde4dbdfaa69f64"
+    url "https://files.pythonhosted.org/packages/c7/34/d23a9bc5b2a84917879b977f00fdb97a7700b186a32bf7b0cf5f29f4c2d9/diskcache-5.4.0.tar.gz"
+    sha256 "8879eb8c9b4a2509a5e633d2008634fb2b0b35c2b36192d89655dbde02419644"
   end
 
   resource "graphviz" do
-    url "https://files.pythonhosted.org/packages/cc/a3/8f49063fee2037892f66f1a4d55da8ba25235e76dc27887f7edf95272154/graphviz-0.16.zip"
-    sha256 "d2d25af1c199cad567ce4806f0449cb74eb30cf451fd7597251e1da099ac6e57"
+    url "https://files.pythonhosted.org/packages/c9/0a/f196d01638f61e1ea27d90ed6874001f9c2fb7dd6281102e4555225a8ae5/graphviz-0.19.2.zip"
+    sha256 "7c90cebc147c18bcdffcd3c76db58cbface5d45fe0247a2f3bfb144d32a8c77c"
   end
 
   resource "ipaddress" do
@@ -60,8 +60,8 @@ class Cloudiscovery < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/3c/56/3f325b1eef9791759784aa5046a8f6a1aff8f7c898a2e34506771d3b99d8/jmespath-0.10.0.tar.gz"
-    sha256 "b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"
+    url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
+    sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
   end
 
   resource "MarkupSafe" do
@@ -75,18 +75,18 @@ class Cloudiscovery < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/e3/8e/1cde9d002f48a940b9d9d38820aaf444b229450c0854bdf15305ce4a3d1a/pytz-2021.3.tar.gz"
-    sha256 "acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"
+    url "https://files.pythonhosted.org/packages/76/63/1be349ff0a44e4795d9712cc0b2d806f5e063d4d34631b71b832fac715a8/pytz-2022.6.tar.gz"
+    sha256 "e89512406b793ca39f5971bc999cc538ce125c0e51c27941bef4568b460095e2"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/88/ef/4d1b3f52ae20a7e72151fde5c9f254cd83f8a49047351f34006e517e1655/s3transfer-0.5.0.tar.gz"
-    sha256 "50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"
+    url "https://files.pythonhosted.org/packages/e1/eb/e57c93d5cd5edf8c1d124c831ef916601540db70acd96fa21fe60cef1365/s3transfer-0.6.0.tar.gz"
+    sha256 "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
-    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
+    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
+    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
   def install
