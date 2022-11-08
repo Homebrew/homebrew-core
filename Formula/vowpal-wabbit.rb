@@ -22,6 +22,8 @@ class VowpalWabbit < Formula
   depends_on "eigen"
   depends_on "fmt"
   uses_from_macos "zlib"
+  
+  patch :DATA
 
   def install
     ENV.cxx11
@@ -95,3 +97,18 @@ class VowpalWabbit < Formula
     system bin/"vw", "-t", "-i", "cb.model", "-d", "test.dat", "-p", "cb.predict"
   end
 end
+
+__END__
+diff --git a/vowpalwabbit/core/include/vw/core/reductions/cb/cb_actions_mask.h b/vowpalwabbit/core/include/vw/core/reductions/cb/cb_actions_mask.h
+index 80bf7e542..db2a4d4e3 100644
+--- a/vowpalwabbit/core/include/vw/core/reductions/cb/cb_actions_mask.h
++++ b/vowpalwabbit/core/include/vw/core/reductions/cb/cb_actions_mask.h
+@@ -7,6 +7,8 @@
+ #include "vw/core/learner_fwd.h"
+ #include "vw/core/vw_fwd.h"
+ 
++#include <cstddef>
++
+ namespace VW
+ {
+ namespace reductions
