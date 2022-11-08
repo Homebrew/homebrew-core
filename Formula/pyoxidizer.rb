@@ -12,13 +12,12 @@ class Pyoxidizer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d37083a117f79396b9e7d8d871821f2148cce2c4af758c1b6dcbc906c2288aec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "36363b96a5bb8b74a88fdcccc49e7d0d33de2090e42fd5dda2e75641d2c1a6a1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35b6d9f269eae4a5611caaed0fe0779f9f5042cb25bc66a3373d652cc63cb004"
-    sha256 cellar: :any_skip_relocation, monterey:       "47b5770b9e916c3a675b0ff6d44340004987dd6d203b3735292d08ee937c930f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f3879e10e9c10974220fdbe17b8469686182191d48c58733418dc881bdca23eb"
-    sha256 cellar: :any_skip_relocation, catalina:       "19f95c7acf6b1c2ea99c7cd59a3d684a0bff43778612d12bab76076c982bef13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0c4948b577a48fa5944423a1a1d148a5ee332ea4d14effe227bef7210b65184"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb62cb641b9b69e0995c19c288a051a5f59e11de3a174aceb4c67daf48332b4c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2dbd06e01ecb46b93bb3250bd0d5e349295ba6c56b77622d29c64676ed17e3e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "80d2014e88d9937d1a88b99da5a8d035e8ac42ccc4df7480512e020e6ee30fb6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e9aa0d494c359e0f8b16c8c3ae31159d8f540f3f9d7946ca4bdc20bc6a83fe10"
+    sha256 cellar: :any_skip_relocation, catalina:       "3d1bc85db1bcbb5f69c8dba9c294d65ef9b674d217f6eab670ccc6eb4dedf812"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8de042e72b4759060bdfd5fac56d50594614f7c0cab901b8ccf70955a4191191"
   end
 
   depends_on "rust" => :build
