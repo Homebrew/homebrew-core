@@ -8,6 +8,7 @@ class Manticoresearch < Formula
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "575748eaa4348edd17c1dd190e22920f3ea9667a1188e7e74265f1635af0028b"
     sha256 arm64_monterey: "c65ef528860f95e99def3e27916209eaf395ebe8e33b1a3d91795efe2eaf2a46"
     sha256 arm64_big_sur:  "e887e81f3b3fa6899be543d98c1d4812d2a2f1e7c2318b977a9d287e40e25381"
     sha256 monterey:       "3f6fee4d64aa86474fbba738c46c227bcd217d9e11d4219811445756dcab6e33"
