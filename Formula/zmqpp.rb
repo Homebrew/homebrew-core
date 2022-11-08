@@ -6,6 +6,7 @@ class Zmqpp < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "79259180cd88ddb59497fbb3075a02c19ac854e5a57f1ff33f53c328789b4dd5"
     sha256 cellar: :any,                 arm64_monterey: "ce6be56e7c768bc4c35b43d78a7938b5bf415293ce42e47230a47dc17d05e091"
     sha256 cellar: :any,                 arm64_big_sur:  "8784a9ab7929336cc1677315a134b8d379491e9980f1e2fc0c705bb0adf7c904"
     sha256 cellar: :any,                 monterey:       "7b68028743e0b92d94b1eb8a486901944d5bb77d1fb1e49b76bcfabea4f86caa"
