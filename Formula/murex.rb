@@ -7,6 +7,7 @@ class Murex < Formula
   head "https://github.com/lmorg/murex.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f5f5a8a645188119729a929fb69a015d055cd7b1c6cd0bd592601742c618175"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "362f47131a27ea71ada1661efd4cec2921fab17d9ac595174f60b044ac073eaa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a996b11b0960be6f41f4aafcb5cc628cce2d40ca7c9a8207200e87e37adce557"
     sha256 cellar: :any_skip_relocation, monterey:       "bf029d3bb3fae5747d377e347c6d76c494b5029000cf5c49fca03ca0e1caa987"
