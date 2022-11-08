@@ -7,6 +7,7 @@ class Fastnetmon < Formula
   revision 7
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2da2c4e84c27610154a8a6b2c5f447bae3e301f64bad35cd611bbe8a42ec4696"
     sha256 cellar: :any,                 arm64_monterey: "09557923f9020260156d47d39d6179c8f96cfdda54f92f8b1aab28a33a340801"
     sha256 cellar: :any,                 arm64_big_sur:  "d6ff6d361f8bf5af1a420bd5242e1746547e42333cdc2680977036b031258b61"
     sha256 cellar: :any,                 monterey:       "c28a1907ffa6cc5cba3045fa39aeb5004b8f6e116c3053acf3f029839fd619ad"
