@@ -6,6 +6,7 @@ class Openfast < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c9f10fe6b118c739ab43988c03a4132c43341f0c192a7ae254e74b137a0eca09"
     sha256 cellar: :any,                 arm64_monterey: "97cb2db42301fe6187c221fffd8b2992c525950eae4537cbc286508986f22b89"
     sha256 cellar: :any,                 arm64_big_sur:  "3a2cbf179216f5bf8811d85d093fcff460cde5738b0d263c55b8de75555fb5c9"
     sha256 cellar: :any,                 monterey:       "5cb32e81de0cdfd404ff9ccbd26a31123341e45a9c212d15119d43c3f0034801"
