@@ -4,6 +4,7 @@ class GitCinnabar < Formula
   url "https://github.com/glandium/git-cinnabar/archive/0.5.11.tar.gz"
   sha256 "20f94f6a9b05fff2684e8c5619a1a5703e7d472fd2d0e87b020b20b4190a6338"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
@@ -16,7 +17,7 @@ class GitCinnabar < Formula
   end
 
   depends_on "mercurial"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "curl"
 
@@ -27,7 +28,7 @@ class GitCinnabar < Formula
     prefix.install "cinnabar"
     bin.install "git-cinnabar", "git-cinnabar-helper", "git-remote-hg"
     bin.env_script_all_files(libexec, PYTHONPATH:          prefix,
-                                      GIT_CINNABAR_PYTHON: which("python3.10"))
+                                      GIT_CINNABAR_PYTHON: which("python3.11"))
   end
 
   test do
