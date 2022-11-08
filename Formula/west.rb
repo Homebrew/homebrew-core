@@ -10,6 +10,7 @@ class West < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51467d77fa6f2a4a0da334213fa4310975d08fc789adc7ab071b9be9c9af6c2e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2550d2c1a180ccab27ec18dfe9e1345ca0380ad28885723622b3a8108b1d99f4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c5ea120a45253efb8fbb911443d2fecac4569bf181d959962c1c2ecbc2fa182"
     sha256 cellar: :any_skip_relocation, monterey:       "010a5dfaf53a0a2eb6a31894dd7f3e3ed01bf239a342103f0804ce0819a9277d"
