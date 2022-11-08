@@ -16,6 +16,7 @@ class Xlearn < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on arch: :x86_64 # https://github.com/aksnzhy/xlearn/issues/354
 
   def install
     inreplace "CMakeLists.txt", "set(CMAKE_INSTALL_PREFIX \"xLearn\")", ""
