@@ -12,6 +12,7 @@ class Bartib < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1141518c093053f6b5bbad3ca09abc2c38838e3d221db77057475f6cf39b0a07"
     sha256 cellar: :any_skip_relocation, monterey:       "f0c1cc58be69351e85e2a3f1dfcbd2432a2bf346c7aad5ff84fd3b50af8ca969"
     sha256 cellar: :any_skip_relocation, big_sur:        "f3581eeeebeebf1061930980b9230b8db484b70e83d6784922eb349a5c351504"
+    sha256 cellar: :any_skip_relocation, catalina:       "f5d156cbad858dbaff07cabab759b8ccdd83ccf846ae3cf470c913ed9c143713"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1eb8567563a520c2931305243a98d5851bfa15c9d3dd6342d33cdc0062a4a9b"
   end
 
