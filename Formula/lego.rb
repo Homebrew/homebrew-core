@@ -6,6 +6,7 @@ class Lego < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ace67e2e47dc6f01b844f37d631419c883bccadc3838f3415752e95ec620b9a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b459ae434751269f9617982d96ac4eb721921207764b7614ffdac9afa1fed5f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd2228ebdc275f0c925abe2735907407794da96175ed87ccfab0fe406fe74346"
     sha256 cellar: :any_skip_relocation, monterey:       "797dc9a2d419c10285c53736d1ec53a7535becee13aa8700a3821d6cf44c172b"
