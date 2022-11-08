@@ -6,6 +6,7 @@ class Logstalgia < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 arm64_ventura:  "0995a316323b353da37e7127c74cc2e40c43cfba78eba1e2978f5738c2177ca3"
     sha256 arm64_monterey: "51b1ebf735b6c26e34fd57234ca790d26c717b4b9a9697ce5bceedd23254ccea"
     sha256 arm64_big_sur:  "2ec489672c5e729652dc221d3b8a6d328136c3250d06ee66ee4a6b565c316a95"
     sha256 monterey:       "960950464fb35574b0231a78c4ed6c5bb5020966d001df95a1455c7862a7c8f5"
