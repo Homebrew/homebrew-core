@@ -6,6 +6,7 @@ class Mp3gain < Formula
   sha256 "5cc04732ef32850d5878b28fbd8b85798d979a025990654aceeaa379bcc9596d"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d0b9afb6732e4f32ba35895a1616512871c41680e677880db81be8035514651e"
     sha256 cellar: :any,                 arm64_monterey: "30ce022d5614764c00f9013d2b718e11672680e2dde038604d133a4ad8bc4b02"
     sha256 cellar: :any,                 arm64_big_sur:  "d4e92ab9bfc8143f4442f6d7c3f78a3ef92677d44198402ef5d05a604481b414"
     sha256 cellar: :any,                 monterey:       "2d18dd77dc786372e6cb010f3abc4f893492faece974b1cd46a40f9e53b6bc1a"
