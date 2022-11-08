@@ -7,6 +7,7 @@ class C10t < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a18abf440f06bf82f76feb72cd3d9586d9d1d0236590747776227e3c2bdaa6c6"
     sha256 cellar: :any,                 arm64_monterey: "bb52335803ba6ede73c4108d60521408261467674625dcf300a847aed813fab3"
     sha256 cellar: :any,                 arm64_big_sur:  "2ee23e4a9df8e49fea71796878b496e17fd85f708366cf7776706dcbcd7c5ffe"
     sha256 cellar: :any,                 monterey:       "69fb50b752d67060a557c23274bb83bfe73ec3a76a09988cf78646371d6abbf2"
