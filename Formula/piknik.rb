@@ -7,6 +7,7 @@ class Piknik < Formula
   head "https://github.com/jedisct1/piknik.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad21c6f5534120bf7b51f809e0441ed40d6c1647fd3df8ae5324f44b4b11d04f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b11a027946eda7b8937861f4458d6d0a8e320fb297fa44ea8a84883e5614b9f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b503df3a16dfdf25219a598da5ae3c17676ee2367c0db0837403a6f728e4fcb4"
     sha256 cellar: :any_skip_relocation, monterey:       "28f6e0672fa5745285ec63560821f35c6bf604fa42ad80828bd2ca70eb5d94df"
