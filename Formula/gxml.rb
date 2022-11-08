@@ -6,6 +6,7 @@ class Gxml < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "77b5367f913c707314c8f0e73651959c905fda763ced192c7b93de1b69de44a7"
     sha256 arm64_monterey: "7fe768a5398f9cb19eb57263e3b9b57716b48a149b175ff9b970eb1e898fbacd"
     sha256 arm64_big_sur:  "33e373491cc352e2b11da05fc36b7c9e66451efcbee7b10c06b8454bda72b92c"
     sha256 monterey:       "79846b0652593f371cdc95ad36d037c58b51db809b5a0bb6baff00afee0a0c12"
