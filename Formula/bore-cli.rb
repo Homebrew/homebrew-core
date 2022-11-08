@@ -7,13 +7,13 @@ class BoreCli < Formula
   head "https://github.com/ekzhang/bore.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dcf50b0ff3f295eac327828a6f141632ffb9bb3ffec77907f212fc0acaafd5b3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f244c0b291a30c7e04f446915b07f9ba185e1b0ce5b6741bd7b4dd61bacb8013"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7396f546c8565da31d6ce359cecc561b55674057d2ee60f52b0c331adaac28c4"
-    sha256 cellar: :any_skip_relocation, monterey:       "fce4ef7b3e7a96ac2b4efffd42a32dd67e08290eebe8d3b45960d8ef381a7bbd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9781e5efc3fafaf45ece11b1cead8181ae74aa882c54b6311130cc1015543d03"
-    sha256 cellar: :any_skip_relocation, catalina:       "b0e8e5d4fbbd2380180c766f80e5159eb0afe6588865dec1866471878d0d1684"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03809afaa3b18fec475d48af05a2df6997bb8c3cc661f0cbc3577df82c76c363"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4bbeab240fd9acaa0d02aac488bda8e33c9bc57d4757a493fdfffb6b046f673"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b5a395cfd1b08d9ec96f175b6680ba2809ac2882482735329a38e663206caf58"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5d8bf6bb647ca2d515710206fa1502afcdb4f2d507bc448e991850ff83a51e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "e662ade629f5dc998e3ad0ea55a3645b67b89e8c172d93d197da325f561d7705"
+    sha256 cellar: :any_skip_relocation, big_sur:        "31e99b44a4db6711a24f255184cea1fe9739f4194a25a6e81091cd749e5edc5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82a653b1e4cdc05c232e1279b1f62e2a8a816868e778d4858ae9520cb2caa626"
   end
 
   depends_on "rust" => :build
