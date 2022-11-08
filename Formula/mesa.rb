@@ -7,8 +7,8 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   stable do
-    url "https://mesa.freedesktop.org/archive/mesa-22.2.2.tar.xz"
-    sha256 "2de11fb74fc5cc671b818e49fe203cea0cd1d8b69756e97cdb06a2f4e78948f9"
+    url "https://mesa.freedesktop.org/archive/mesa-22.2.3.tar.xz"
+    sha256 "ee7d026f7b1991dbae0861d359b671145c3a86f2a731353b885d2ea2d5c098d6"
 
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/f0a40cf7d70ee5a25639b91d9a8088749a2dd04e/mesa/fix-build-on-macOS.patch"
