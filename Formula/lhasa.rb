@@ -7,6 +7,7 @@ class Lhasa < Formula
   head "https://github.com/fragglet/lhasa.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "081d94270fecc01d95be42d6c9a23e81ea8130c8d82f5b9496cd415eb94621ee"
     sha256 cellar: :any,                 arm64_monterey: "f2584155441658b209d336823dd3428b4da20896e6c478d34ef6870cef4b4c74"
     sha256 cellar: :any,                 arm64_big_sur:  "90f888591f8bbbbc49b3616dfc43287474a510517cc1222488ac8a707f9968b8"
     sha256 cellar: :any,                 monterey:       "ebf620d9a216397aad8a1f0a67cb70e22fd4ae011ebad98fdd7c91477ee3b4cf"
