@@ -10,14 +10,13 @@ class Choose < Formula
   head "https://github.com/geier/choose.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ac0cdbe50a8545762d80f5cb75a3ddb88c255bbfe5d6b556f6b078d6aa1046c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8cc4e4eaabc3341ed4728d11d5cee96f7954d6d24bef173d1848884581ddf1f9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b715be8453394e1f1931994780ad42075c05d483d24257ef1226054ff2b450e"
-    sha256 cellar: :any_skip_relocation, monterey:       "ed6b3c62ea97cf196ce3843bb855c75539e756e6a582d48957cce31286a0626d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b22b7b549f0f9621163fc1b6b5923a2de0f79177686e8747ffb1b71201e979d7"
-    sha256 cellar: :any_skip_relocation, catalina:       "37aa7b900d689cedd0c834703663f782082f66595d9b84f27405180832311385"
-    sha256 cellar: :any_skip_relocation, mojave:         "9d2fb7796ec1e3b55838d9fd932f91dae4c3268f343d1d8cba2cac7ac77b04da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9241612ee60fcabf7fa8471843592f7063fb28f32a92e12dad97c1ab8774041f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f4326c503b639e781160a68ba76829d7754c7927f4b2d69a63740015f948217"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18e369ca2b875807bb7478bd6be4ef94d9ec5634f43f0d5d1a0b01abcfc8955f"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa636248938e6bc14e77f62bd8ae189d1e1a9ab07db213518c8147ff3a626a85"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9e8e3a3540c95f09c2b68658a59e6da6543b23a97393fc49b2f178d4c00f4f9d"
+    sha256 cellar: :any_skip_relocation, catalina:       "91a731c9e1a3d4d8ce715260ed74513d63858c2777bacf40128ac0d5bd6d0b8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b082f85bccbb84100ca7c3063bdd13a74d4fc4e16762be36ab38d41afc7659e"
   end
 
   depends_on "python@3.11"
