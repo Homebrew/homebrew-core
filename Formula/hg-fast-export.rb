@@ -6,13 +6,14 @@ class HgFastExport < Formula
   url "https://github.com/frej/fast-export/archive/v221024.tar.gz"
   sha256 "0dfecc3a2fd0833434d7ef57eb34c16432a8b2930df22a56ccf1a2bbb4626ba7"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "e5a4c9b31f2422a84b57ed0be3af7cd8cb1c45324ba7d5cb80e40f6c738bd940"
   end
 
   depends_on "mercurial"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     # The Python executable is tested from PATH
@@ -20,7 +21,7 @@ class HgFastExport < Formula
     # See https://github.com/Homebrew/homebrew-core/pull/90709#issuecomment-988548657
     %w[hg-fast-export.sh hg-reset.sh].each do |f|
       inreplace f, "for python_cmd in ",
-                   "for python_cmd in '#{which("python3.10")}' "
+                   "for python_cmd in '#{which("python3.11")}' "
     end
 
     libexec.install Dir["*"]
