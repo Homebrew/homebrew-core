@@ -16,6 +16,7 @@ class CmuSphinxbase < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "933f1d75ffea23077cd4c3ba98f58c768c80c868694bc7b1167131c93d84db95"
     sha256 cellar: :any,                 arm64_monterey: "10c702ad300d51ffac6ed0251cf3b64952d549ad0a67792b80fe055a182014f2"
     sha256 cellar: :any,                 arm64_big_sur:  "d8ca2666d2ee6c5ff4a5a88ad086cfcf3e0cf744e6614ea31b451dfd86196c17"
     sha256 cellar: :any,                 monterey:       "36b168f91bef9ea210c0fcbe6ace6a24d14aa50d11fd464a742e543ede25a6fe"
