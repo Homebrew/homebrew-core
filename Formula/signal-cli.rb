@@ -6,12 +6,12 @@ class SignalCli < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "be92b2f441e3f6de9af8afa40047e64c0ccad26921c5f7f5d5708e735c6bc921"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aa33f3ed575136f34f85f20f0ac705a0b008d91d35620944707192d0db982755"
-    sha256 cellar: :any_skip_relocation, monterey:       "ac7a72e097019d29d1654d54fc569db2be4b70a9da006e0bb6cb93b6ccf8dcc1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f6c7855fec3c3ec7eb4d1636c6301d8a311e8a205d03b44e713cc825e46fd8f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "21752ad740040fb288ffd1bd6d18932d78082bb4606af4092e9080f0d1db0b50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ec0e876eac9b67eb3f8bf7522b148656b31cc2d1337f7bab7d5d38069b1452a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c12dd661e474a9e08e0d56390e735b632872f4a4529f0e699d238850d5840da"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8b3bdcbff336e9573e376a86d89e1b88239dcbab6f070c43d8860e8fb28071a"
+    sha256 cellar: :any_skip_relocation, monterey:       "b21f900f66628582be6173226f70e041d1ea90e68d4c8bf57343a99e70f41a3b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a4d8637961d7f0aa3934ad571a9a0a4946a4ec12041ba4309ee8ffb920d1ea3c"
+    sha256 cellar: :any_skip_relocation, catalina:       "d10d3c0baaa8c35a49a927062c7fd054bbdb8f0e90971b9349c1d81b23277aed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af1ed2f23127c41210a171328a0e18caf2e2abfed788f441d458deae59fe99e2"
   end
 
   depends_on "cmake" => :build # For `boring-sys` crate in `libsignal-client`
