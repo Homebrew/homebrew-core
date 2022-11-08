@@ -12,6 +12,7 @@ class BareosClient < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "cfccea0a57967101dec78639c591503ed2abee5ecc900f162662e2a14d65681c"
     sha256 cellar: :any, arm64_monterey: "d639fb82e6cd35888ab8c724a408e73e999bcfa9bfe32c0b9fee9610b0caf454"
     sha256 cellar: :any, arm64_big_sur:  "2a5a9adbf88f24f8838e9fce8d91a239ed615453502645425c45865d812b2bb2"
     sha256 cellar: :any, monterey:       "6d80c269e60f2bb757c13152ac939a581d5b74fee348683eb725cb5477d7b36c"
