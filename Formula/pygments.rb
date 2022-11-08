@@ -15,7 +15,6 @@ class Pygments < Formula
 
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.9" => [:build, :test]
 
   def pythons
     deps.select { |dep| dep.name.start_with?("python") }
