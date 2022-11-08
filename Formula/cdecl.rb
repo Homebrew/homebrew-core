@@ -5,6 +5,7 @@ class Cdecl < Formula
   sha256 "9ee6402be7e4f5bb5e6ee60c6b9ea3862935bf070e6cecd0ab0842305406f3ac"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36acc58f38ee551b35a2c531d9bdfb8113aee61cbb4bdb9d43646ddcfeba9053"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8dcff021c0d0078666c5a4781d738e8958fc52222bb2062b447f581d1b398971"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6ffb24daa6ca1e12ddfbc0cf77ef3461dfdc7eec3ba8149e0f5dbacabeefce2b"
     sha256 cellar: :any_skip_relocation, monterey:       "484c974a4e2c954bd4c5dc321de2ca4a778be9d55db712cd9913ec2fd67b41ad"
