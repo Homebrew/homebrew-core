@@ -17,10 +17,9 @@ class Pwncat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a5bf7b976619100c3cf8763b48aba07b1c5c52e00230c23aeed1ec249fada17"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
     virtualenv_install_with_resources
   end
 
