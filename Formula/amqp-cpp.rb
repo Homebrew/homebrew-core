@@ -13,6 +13,7 @@ class AmqpCpp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "827e422fe2c209e48d781dd11881ddb11ecabda55f06ba1095019f7e667b5d35"
     sha256 cellar: :any,                 arm64_monterey: "d6823017b0bbbddc0490d68c7a73beaa580b22bab360784baf60a4ff0d9046fb"
     sha256 cellar: :any,                 arm64_big_sur:  "ae9cf4ec980c8cc699ebb1c70a785139d26759e703324ad1df8151c90aa18461"
     sha256 cellar: :any,                 monterey:       "32e68fbfaeee7409a6b7e8fe4dd742d4589762cb601e0800e235acb2c326e3a4"
