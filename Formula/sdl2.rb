@@ -6,6 +6,7 @@ class Sdl2 < Formula
   license "Zlib"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "79da44df913052bbccd4d04c19f30f63b37873a24303392e028a8da4fa63ae9a"
     sha256 cellar: :any,                 arm64_monterey: "562ab43c40806657c487d635bcbd7b6c92da6b613b74aec68205d6372e049fbe"
     sha256 cellar: :any,                 arm64_big_sur:  "ab30c410aff6dab70d7334b310b7189003b129803b845a3658b589d60f77ff10"
     sha256 cellar: :any,                 monterey:       "439ba2cf4becefadda6c9b06f3fa4b520d5b883afb65beca199859323ffe4d7e"
