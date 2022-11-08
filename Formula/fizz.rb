@@ -7,6 +7,7 @@ class Fizz < Formula
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9cb8dbf5600d871aac02df001a677c2a68d49fe77f404aa613229c103cda54cb"
     sha256 cellar: :any,                 arm64_monterey: "3276564f824e8fb773e5211f3092e2fc94b6a8d3671d92ad7b4ac963155776b7"
     sha256 cellar: :any,                 arm64_big_sur:  "e995f6743507bd76e71dea88347839d246429bcab361c7055338f89cfcdf618f"
     sha256 cellar: :any,                 monterey:       "d20e04031b22b6b1bfe04385281dfbe3f32d731f96364c9424c74c294fa5313c"
