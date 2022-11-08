@@ -12,6 +12,7 @@ class Babeld < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e81f4648a955d600aa2ada9e09a9031dbdf0d93e4a7d1940cfec7600a546561"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7d3c9af084ef57a2e4a8b2dd3c65e2f411e5b2f40a7cc53a8ad974d4b9b9445e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "84bd566d6b25d9b9a5f76c444c555fba9349457f09736d033903f9fbe576babf"
     sha256 cellar: :any_skip_relocation, monterey:       "f5bd4719e5e8d62233f68e9febd680173e23a40b13c584cc15d67f60d3709194"
