@@ -12,6 +12,7 @@ class Exiftran < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "501742a3d0ffef91bd7551c924f5073b0c001c8c8b7618e2a7db7d9ffdfdfd82"
     sha256 cellar: :any,                 arm64_monterey: "cdbebc6e9ea054a40e6c9d9ecd8265d62dfff2b9da689748ff8a87fb8defb9b1"
     sha256 cellar: :any,                 arm64_big_sur:  "e16c172257b1786e0d0186336c8c35b16efab57c919598df0bc920999c2905f1"
     sha256 cellar: :any,                 monterey:       "af336311bf9e98d1d5569496463b9b0a7c4efc2e5aedf3f6778e71cf34e45349"
