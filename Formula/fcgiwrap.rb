@@ -6,6 +6,7 @@ class Fcgiwrap < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "0037b9cebb42c65b4381625dd9ae10a228ad246527ffe73ba718f4c2a7d5b551"
     sha256 cellar: :any,                 arm64_monterey: "8ddb35ceaf8709ed245ad937b559a8539c6fc1f2135b6ad40781cdf6ff86726f"
     sha256 cellar: :any,                 arm64_big_sur:  "b7f23b86cfdfcf813fadf2e7a3c228fa70476bae53c5617f20d810e07c7c355b"
     sha256 cellar: :any,                 monterey:       "520ec05d4f3b387f30876075f77e0fce87c3fd12a616f9c8c08db683ca05510b"
