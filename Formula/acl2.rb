@@ -7,6 +7,7 @@ class Acl2 < Formula
   revision 3
 
   bottle do
+    sha256 arm64_ventura:  "0f652ce111d1bb686ffe89f7ea9508f9a2a1062b474fdec0a5e439074bc59384"
     sha256 arm64_monterey: "19b51e20d410fc5e6415dfbd73483ed806a255af7e34d78612f3ad8bb69be280"
     sha256 arm64_big_sur:  "9f020966f12897734c3f7bd452b22a76bd8eb6e51cfd2aab581095678d2ddb46"
     sha256 monterey:       "4ffb9a9f634f984e2c972f5ffe232400c88771ceb860db36185a9eb28b196eef"
