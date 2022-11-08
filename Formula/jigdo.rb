@@ -15,6 +15,7 @@ class Jigdo < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "2a7d61d39591e962966019d3d3925e6ea7799233805253deefa92a531f648cd5"
     sha256 arm64_monterey: "87d951b1c24be108f740eae7378dde28ba28dd7994bfd6758161a6d0bc8bb15d"
     sha256 arm64_big_sur:  "bc9b2ee804e6a0f51b5317ee21f7692b38fe6129b6319037e5bb6069ba80a0f3"
     sha256 monterey:       "ee860a28d3dc2f0c9c51dbe5e245a048b11cb5fef3b4e71f7846f0c5e014cb4e"
