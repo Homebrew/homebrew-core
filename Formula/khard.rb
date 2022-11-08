@@ -10,6 +10,7 @@ class Khard < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1fc819763201a7c29c325be259fd5c28832d0a54719327f3eb5cccf3437560a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "adec0c167f9673be452f1c695a832835f46da17700bba0df78b053c80db69c5a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28ed6dc0506b9f6434caae9cb9294f7fdbacfdba3d54483f6a0bd33a97bdb95a"
     sha256 cellar: :any_skip_relocation, monterey:       "4926349ad3de43a969e15f153fd405f44600f7d728d36e67a3f553f583ced621"
