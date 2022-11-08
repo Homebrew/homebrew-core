@@ -38,6 +38,7 @@ class Redex < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6cabce85f406715881eff64761cc37403708c045dc12a4560ead729fdd7adabe"
     sha256 cellar: :any,                 arm64_monterey: "57f1b1dbdcfb11cc7be567585e03be4d18447fd62dc16034e760d8a8deec953b"
     sha256 cellar: :any,                 arm64_big_sur:  "9e71e3e44041091e69fbec81fc7d44175b6ee4b2cd557f1ca02791dcd85e6a03"
     sha256 cellar: :any,                 monterey:       "7daf7985fe65c3b64225ab66a90a6eba481c83f2b3c053a81d6068b54eff8184"
