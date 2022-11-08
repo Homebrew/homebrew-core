@@ -22,6 +22,6 @@ class Eva < Formula
   end
 
   test do
-    assert_equal "6.0", shell_output("#{bin}/eva '2 + abs(-4)'").strip
+    assert_equal "6.0000000000", shell_output("#{bin}/eva '2 + abs(-4)'").strip
   end
 end
