@@ -6,13 +6,12 @@ class Imath < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "652987e4da104465aa1ed4c063b2a2baadf2e1e3d2e6b58df3be7793a9b77234"
-    sha256 cellar: :any,                 arm64_monterey: "c9a1333aef15ce338d27e3cf73885750c1dadd7cf0a664cf6cd887a841e95c9b"
-    sha256 cellar: :any,                 arm64_big_sur:  "1e8b8cef1b3fee6809cac3d9e73182d1218044960e3295411e6b8c68d3601d42"
-    sha256 cellar: :any,                 monterey:       "60265951d4debb77e090194e08369ace9957411da8d94efd1ec16487b42cbf1b"
-    sha256 cellar: :any,                 big_sur:        "5acea94faccfa4fd8ca1964bce545d751d9404c6e6830a0d9a75031a529cc06f"
-    sha256 cellar: :any,                 catalina:       "cbbb632a0b17f931262850308af109b1ccb9dd533a861069d4de1edb092ae00e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62d672df3af0e944fcc190526981aede2b48c65c65de7b602a5b55cd882602f3"
+    sha256 cellar: :any,                 arm64_monterey: "ff6169b5986b709c9febe2b09929abc388a188be8041390a95d3f7b6f5814a22"
+    sha256 cellar: :any,                 arm64_big_sur:  "a94b22dd11a845ba003521ad6f80f4c2195059dd760047a07a802fd59d308f1b"
+    sha256 cellar: :any,                 monterey:       "9afc755be66e72fea866b8563934e704bc63ac831cca3b0e3661beb47fdb52ef"
+    sha256 cellar: :any,                 big_sur:        "1414bb873ce5225aca9173aaf8f4f74dea587c2077d4c934f36ac1e6cdf884f1"
+    sha256 cellar: :any,                 catalina:       "26b26215e534e8ae8a6ed2c95b04e0706932ef4aac9aef4a84396433c068d11f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f528de89730addebee49712701b2ee345b3ca8166b0e0f926a594652fdc85bfb"
   end
 
   depends_on "cmake" => :build
