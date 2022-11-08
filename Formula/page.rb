@@ -7,13 +7,13 @@ class Page < Formula
   head "https://github.com/I60R/page.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c0cb777faf6f32bceca405d865b0c7d538bd2f9d20617c00388b7555e0fb0a3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "297e5a44deb6102021e2b02b204da43603677229591fafe4a5034d106098f4a8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "03d7a0384cf947530155e49b60922cfb4c5c48cdb676496e8940ff61f065ae71"
-    sha256 cellar: :any_skip_relocation, monterey:       "c33a9d4f280da8f74bca54f2fa176c35141c4e5fc5d479e8148fae8ad62156ce"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c58e27fbafe7d075bbd1b0f48f3056f346cf9b7b60656ce907b39149730c62e0"
-    sha256 cellar: :any_skip_relocation, catalina:       "b5858bbd5755aee33eedfb391b35555d7f14bb0c962ca722fe21b0cdb42e8639"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56715caa120e3060df766e290b3e112da69c5e407547bc9c91dd7e019b4e7eef"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df4cae290539e646ddb4e62a8a960bee9d5091b8150953f14584e9bf89dbb9f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfbbfa9a8fc94ab72873581413b1f4ba5780de3b93a39c6127246112c20a6f53"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "669f84cd2f3bcca9c5bdd41034167f0945efda5045d817efcb5067ad09c1daea"
+    sha256 cellar: :any_skip_relocation, monterey:       "71f4fa8a352edc9a2a43df532e37fe9c5b3bd7dd98fc70c7f12e3ea013a88c89"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f265e404a083079103c6bc00e7aa811c8a8b2576dd67f1468b62f7ac78160f87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01ae56c67892c13654670acafa8c2219658babedeec0eae31af7767032ce9cc8"
   end
 
   depends_on "rust" => :build
