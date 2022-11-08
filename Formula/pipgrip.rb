@@ -9,6 +9,7 @@ class Pipgrip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a208544fc56d66489695b0b2b69071d5aaf7d1029b0eb28e4c27366e7235a6d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bd9bad7cdb008507a2a9d8b23a7f8533b444f68a1519ad8acb01d276b4f06b56"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c48897863c4051661461838e47d76d6b1c8bfde721f845e7ea88ef69bd06c415"
     sha256 cellar: :any_skip_relocation, monterey:       "23bdda846347c2c012e6c9d39ab8f5195c09ac2eacc52420898a4bbb9c0ca52e"
