@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.27.1/deno_src.tar.gz"
-  sha256 "e59d64e2ee94841b4e20471762353f936d62bbdd6074eeffafd169db1e6fdac0"
+  url "https://github.com/denoland/deno/releases/download/v1.27.2/deno_src.tar.gz"
+  sha256 "14261bdb5543aa2e0ecdfed3c0eafd76dbc7cd7dbd85127c8521daff56ef526a"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -18,7 +18,7 @@ class Deno < Formula
 
   depends_on "llvm" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "rust" => :build
 
   uses_from_macos "xz"
@@ -76,10 +76,10 @@ class Deno < Formula
       ENV["FORCE_MAC_SDK_MIN"] = MacOS.version
     end
 
-    python3 = "python3.10"
+    python3 = "python3.11"
     # env args for building a release build with our python3, ninja and gn
-    ENV.prepend_path "PATH", Formula["python@3.10"].libexec/"bin"
-    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/python3
+    ENV.prepend_path "PATH", Formula["python@3.11"].libexec/"bin"
+    ENV["PYTHON"] = Formula["python@3.11"].opt_bin/python3
     ENV["GN"] = buildpath/"gn/out/gn"
     ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
     # build rusty_v8 from source
