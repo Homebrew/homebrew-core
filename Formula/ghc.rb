@@ -35,32 +35,32 @@ class Ghc < Formula
     depends_on "gmp" => :build
   end
 
-  # GHC 9.2.4 user manual recommend use LLVM 9 through 12
-  # https://downloads.haskell.org/~ghc/9.2.4/docs/html/users_guide/9.2.4-notes.html
+  # GHC 9.2.5 user manual recommend use LLVM 9 through 12
+  # https://downloads.haskell.org/~ghc/9.2.5/docs/html/users_guide/9.2.5-notes.html
   # and we met some unknown issue w/ LLVM 13 before https://gitlab.haskell.org/ghc/ghc/-/issues/20559
   # so conservatively use LLVM 12 here
   on_arm do
     depends_on "llvm@12"
   end
 
-  # https://www.haskell.org/ghc/download_ghc_9_0_2.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_9_2_5.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
       on_intel do
-        url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-x86_64-apple-darwin.tar.xz"
-        sha256 "e1fe990eb987f5c4b03e0396f9c228a10da71769c8a2bc8fadbc1d3b10a0f53a"
+        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-apple-darwin.tar.xz"
+        sha256 "6c46f5003f29d09802d572a7c5fabf6c1f91714a474967a5415b15df77fdcd90"
       end
       on_arm do
-        url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-aarch64-apple-darwin.tar.xz"
-        sha256 "b1fcab17fe48326d2ff302d70c12bc4cf4d570dfbbce68ab57c719cfec882b05"
+        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-aarch64-apple-darwin.tar.xz"
+        sha256 "b060ad093e0d86573e01b3d1fd622d4892f8d8925cbb7d75a67a01d2a4f27f18"
       end
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-x86_64-ubuntu20.04-linux.tar.xz"
-      sha256 "a0ff9893618d597534682123360e7c80f97441f0e49f261828416110e8348ea0"
+      url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-ubuntu20.04-linux.tar.xz"
+      sha256 "be1ca5b2864880d7c3623c51f2c2ca773e380624929bf0be8cfadbdb7f4b7154"
     end
   end
 
@@ -68,10 +68,6 @@ class Ghc < Formula
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
     ENV["PYTHON"] = which("python3.10")
-    # Work around build failure: fatal error: 'ffitarget_arm64.h' file not found
-    # Issue ref: https://gitlab.haskell.org/ghc/ghc/-/issues/20592
-    # TODO: remove once bootstrap ghc is 9.2.3 or later.
-    ENV.append_path "C_INCLUDE_PATH", "#{MacOS.sdk_path_if_needed}/usr/include/ffi" if OS.mac? && Hardware::CPU.arm?
 
     resource("binary").stage do
       binary = buildpath/"binary"
