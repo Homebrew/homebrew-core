@@ -6,13 +6,13 @@ class Bartib < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf7072317cf3dbf54dce0efd2c7c0b21858d6aef0cc4132ce8bb2b7bee83ac61"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "54cd7e5b2fcb138c8f230953ab9813a45d673e11e5631f7bad00d5d53a5ded6f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6e73303bc55baf9558656ae379b51902d57d0a92433e42fe1a254513403a6a3"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a62d68e76c7e2d19bb850f9b5927371af4198ff5fed3d74f1d35d182db0f622"
-    sha256 cellar: :any_skip_relocation, big_sur:        "05da52b9351526c3eee0454fe11f54d5390224090cde5f3a587a602f9ea140e4"
-    sha256 cellar: :any_skip_relocation, catalina:       "3fae02e9969429909e8b3def04ae111dcf5e44cb8f19d956fe2109e877b43daa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6789b43f67dc1c737caef85083c81fcd79b4e983f30c6e81bbef3ca4fe04e3b9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15996d83f968c926df74e66a89e377a37a14382edda4c1afa477e48b8b45372a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eef66c3c27b46728a1d67621d9346c9598bde8c8c55c03dd67f5bc10c50252c9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1141518c093053f6b5bbad3ca09abc2c38838e3d221db77057475f6cf39b0a07"
+    sha256 cellar: :any_skip_relocation, monterey:       "f0c1cc58be69351e85e2a3f1dfcbd2432a2bf346c7aad5ff84fd3b50af8ca969"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f3581eeeebeebf1061930980b9230b8db484b70e83d6784922eb349a5c351504"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1eb8567563a520c2931305243a98d5851bfa15c9d3dd6342d33cdc0062a4a9b"
   end
 
   depends_on "rust" => :build
