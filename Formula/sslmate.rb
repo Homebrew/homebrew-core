@@ -17,13 +17,13 @@ class Sslmate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e57907f47b1b212bb9473437226f5aee5c09f49cdd46a5d8497da4905351157a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e56927a6a5cf72e966495ce2c3d236f467a503e347e965b330e5eb99cf4bd828"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e56927a6a5cf72e966495ce2c3d236f467a503e347e965b330e5eb99cf4bd828"
-    sha256 cellar: :any_skip_relocation, monterey:       "a6f4063710c6ba948074b87598d2e135898114343be1b9327a9109d3e4945ff8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a6f4063710c6ba948074b87598d2e135898114343be1b9327a9109d3e4945ff8"
-    sha256 cellar: :any_skip_relocation, catalina:       "a6f4063710c6ba948074b87598d2e135898114343be1b9327a9109d3e4945ff8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cedcb97d4092a3b0412ea42bba72ff24d88866232bfeeaba8579056094c9794d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d082114fb209257176956b1aebdad10478fc597de6604a5d9999e1c432e8e793"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d082114fb209257176956b1aebdad10478fc597de6604a5d9999e1c432e8e793"
+    sha256 cellar: :any_skip_relocation, monterey:       "ffcccf2b3dfba7bb454eec781fdda76a8e15ee958d3631c5cf5e2c0401bf30c2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ffcccf2b3dfba7bb454eec781fdda76a8e15ee958d3631c5cf5e2c0401bf30c2"
+    sha256 cellar: :any_skip_relocation, catalina:       "ffcccf2b3dfba7bb454eec781fdda76a8e15ee958d3631c5cf5e2c0401bf30c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8cf9d5a489518810246c59334f5f0b2855888075b421698746f08391d965eb7"
   end
 
   depends_on "python@3.11"
