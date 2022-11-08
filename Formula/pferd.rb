@@ -9,6 +9,7 @@ class Pferd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1680f23fe4521abf49223b533084a2851de3a20b95f22850ffeb17ad37d56e7f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31b091728686a81cd66ec4a60308c595b705176dba49a49992168f5ee949911d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "158a3014ada9399af6f95f323e4e6e246e80e21863225f44789d84ed1177bd4e"
     sha256 cellar: :any_skip_relocation, monterey:       "851dabb3a2951a4d55474ab932c49918716116839d5b4613d9c947772be42f0c"
