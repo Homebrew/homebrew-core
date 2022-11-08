@@ -7,6 +7,7 @@ class SshVault < Formula
   head "https://github.com/ssh-vault/ssh-vault.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a7f34f0ab20cbf135519c49a1217d92e82163d51814787edcc282e2c17227b8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "08dd5698465eb87cca25411576ebb893060b7c802a067bb237e721f000b4d2b1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad9804724c8a6c38844ac931a218b20b35dfefe32986f2b9ef4de169635cfea0"
     sha256 cellar: :any_skip_relocation, monterey:       "b4d1af86b0556074ed6b50b9db7506b5e7754e06137b50a4706f6ce0fcb65b94"
