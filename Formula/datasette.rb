@@ -9,6 +9,7 @@ class Datasette < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3924cb1be45baafe4a84bb11c14ff7cc40a6d8cd02a33a744ebf50633b88f43e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "02565e9aa704015433622793cb4f2f4113e160ae60bdccb8ba57aac265072cfe"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "403e11a3b46306a8c61094e3c1c6c158e05b6c9b329f11e2bf6c28332e7ab641"
     sha256 cellar: :any_skip_relocation, monterey:       "e7a6a7d75fd5a91780ccfcbe8dddbcd796f1c15eefc5dc06b5db5db8c6d07905"
