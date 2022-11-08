@@ -9,6 +9,7 @@ class Ford < Formula
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dca17968e549cc29ad853e8f9998bf2abeabe4847548abe8ba1495ca6e9f3b3f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "97a5d1f546022c0e883df9f9284d22bc89c3e8a0d5f84e9078e6d0b02aafd16c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7c9c4fa0a1198ce69dd3b2fb129681f1d03f509e9a2541c78146394ef25d219"
     sha256 cellar: :any_skip_relocation, monterey:       "d29697398871a1de59f2bcd576c857877a75c49452500b2a422413f159240d1e"
