@@ -1,8 +1,8 @@
 class MariadbAT106 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.10/source/mariadb-10.6.10.tar.gz"
-  sha256 "6ad9fa86f0c85c8eeafad2643549d5ff5dd2872002964e754752de91863aa3b7"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.11/source/mariadb-10.6.11.tar.gz"
+  sha256 "5784ba4c5d8793badba58348576824d9849ec152e9cbee47a1765161d840c94a"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -55,6 +55,13 @@ class MariadbAT106 < Formula
   end
 
   fails_with gcc: "5"
+
+  # fix compilation, remove in 10.6.12
+  patch do
+    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
+    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
+    directory "libmariadb"
+  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
