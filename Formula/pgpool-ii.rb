@@ -10,6 +10,7 @@ class PgpoolIi < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "f859b822c4e63812880a2c1a098095bd3b7359cbc12b8fe150f1c7e3fe561b60"
     sha256 arm64_monterey: "eedfa1554111d90bae8aeff5a14169b69823ef348672c4cfc554a03c6ffe6775"
     sha256 arm64_big_sur:  "6ba946c5d04acd2bd5101d9d3b882d58f4a4dbae5ba92f3f5d96c5bfec7821ca"
     sha256 monterey:       "82546227f35da4d840670417ac58917fb2d393b1ae8467d6281080d24fd28850"
