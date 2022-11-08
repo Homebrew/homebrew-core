@@ -11,6 +11,7 @@ class Json2tsv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5319eab63adb0be095af2d96b736a9a3693240162aac9e4609ba5c27a2ecfd10"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d04512803537d4cde3bf6e23a668c9bc5dade0a758ffa1526f223d1171bb76b0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf9ea5403bd945f5296fcc8be5f93c38d89219bc6d56b4591d3f9c5d5f97528f"
     sha256 cellar: :any_skip_relocation, monterey:       "b8a830c90ded1876173e553fd7763ab9e81497e19742206b0d4d8beee515c08a"
