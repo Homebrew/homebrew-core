@@ -23,17 +23,12 @@ class Makedepend < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "util-macros"
 
   resource "xproto" do
     url "https://xorg.freedesktop.org/releases/individual/proto/xproto-7.0.31.tar.gz"
     mirror "http://xorg.mirrors.pair.com/individual/proto/xproto-7.0.31.tar.gz"
     sha256 "6d755eaae27b45c5cc75529a12855fed5de5969b367ed05003944cf901ed43c7"
-  end
-
-  resource "xorg-macros" do
-    url "https://xorg.freedesktop.org/releases/individual/util/util-macros-1.19.2.tar.bz2"
-    mirror "http://xorg.mirrors.pair.com/individual/util/util-macros-1.19.2.tar.bz2"
-    sha256 "d7e43376ad220411499a79735020f9d145fdc159284867e99467e0d771f3e712"
   end
 
   def install
@@ -46,17 +41,11 @@ class Makedepend < Formula
       ENV.deparallelize { system "make", "install" }
     end
 
-    resource("xorg-macros").stage do
-      system "./configure", "--prefix=#{buildpath}/xorg-macros"
-      system "make", "install"
-    end
-
     ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/xproto/lib/pkgconfig"
-    ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/xorg-macros/share/pkgconfig"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          *std_configure_args
     system "make", "install"
   end
 
