@@ -8,6 +8,7 @@ class Polynote < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "87874fa32ab06a4344b003a53b18c0b07d2fe31271e5b4f9c197aed2d7ab9f15"
     sha256 cellar: :any, arm64_monterey: "ae1360c0e00a9a4b3da148053ea6faa578b41b6c4ef524771d110d7e67d44498"
     sha256 cellar: :any, arm64_big_sur:  "7e964925acabf6c3a6ce355cd6481d96daf4861e73cda963da5dc70326389548"
     sha256 cellar: :any, monterey:       "58b34b1b44f326c8aa1fc357ef4124e1064da05566f5c3a37e98fa325e43eae5"
