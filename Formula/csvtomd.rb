@@ -10,6 +10,7 @@ class Csvtomd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "340344c8ac5bd1dedb8d922b8c491bb80a6e2b6c9575676b56b7909344acef44"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "340344c8ac5bd1dedb8d922b8c491bb80a6e2b6c9575676b56b7909344acef44"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "340344c8ac5bd1dedb8d922b8c491bb80a6e2b6c9575676b56b7909344acef44"
     sha256 cellar: :any_skip_relocation, monterey:       "0644156a7787998b6056d120df749095ffbd3d20e330e72074ad75bc90412f4a"
