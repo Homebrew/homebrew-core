@@ -7,13 +7,13 @@ class RaxmlNg < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bfe4e2116d57b173dc341cc8c134a89a24c18047354188c3e5bd10aee6842125"
-    sha256 cellar: :any,                 arm64_monterey: "cebfd84802dfae494b3de15a6e01ce3843511f473227960529db2a7b6ad59996"
-    sha256 cellar: :any,                 arm64_big_sur:  "f71158d4e24298bede0e7cd59e47e8e96c1bd9be6670ac988568dc41103ef2ad"
-    sha256 cellar: :any,                 monterey:       "bc14e35183077c0a9bf381aea75f73d08e9acbf3c02e8285c558c4dc1ea4f42b"
-    sha256 cellar: :any,                 big_sur:        "fff2eeb8aa6e98b22debfb85bbc87ada14144223ca252e5ece4a7197c1771adf"
-    sha256 cellar: :any,                 catalina:       "14a55e52a083ded0b9c9c35778c73303f1d968a9826ac2049457a319ae823c5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17a1c0ffcb195cdcf3d3ed4aa70f7de5b863452b3139e9b01851a3a25b939ef5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "2229ebeb6fa282a4e3f97896ef02ba2d32671d497bc65188dc118d13239693d8"
+    sha256 cellar: :any,                 arm64_big_sur:  "0236a1f00a663905ad3f3a8eb0cff275900f7f0b29a4ff65616b82384bb01467"
+    sha256 cellar: :any,                 monterey:       "ffce4563023dbcd2e0eea0f6c06a0f33157561f412557cab49ed4c412c32562e"
+    sha256 cellar: :any,                 big_sur:        "c6cb8ca0d17b1d5a2c074e236c63d0fcd848db96d026393566e1c4fec4d82f9d"
+    sha256 cellar: :any,                 catalina:       "e62985fdf3fc153cb53c87a4ab230b4e33b9b55a0c990cabd774c27a1ab7d6d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1b99fec129377549ae701ce7eae61eb0289fe34f9e33d11c452c5bf0b1b584d"
   end
 
   depends_on "cmake" => :build
