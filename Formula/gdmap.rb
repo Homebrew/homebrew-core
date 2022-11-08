@@ -6,6 +6,7 @@ class Gdmap < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "6d1aa6f06a5fd8f4f5f2b44c7b59eaece7f72eefbba04532523f5c44afe2289d"
     sha256 arm64_monterey: "0434aca36b5815b56ed272593d2c932c9021f98096b69948345326c6d4385711"
     sha256 arm64_big_sur:  "5a8b13614d00034566780fe17bfdffa2e3e9c08a10953de82b7f1e162f6846cb"
     sha256 monterey:       "3800ceb5b5a901034bfb7db80fda28a0015fc7479e899b3013bfc61f0b230629"
