@@ -3,8 +3,8 @@ class AllRepos < Formula
 
   desc "Clone all your repositories and apply sweeping changes"
   homepage "https://github.com/asottile/all-repos"
-  url "https://files.pythonhosted.org/packages/8e/b0/3777ac29c61c256aba07fcaa2a3c3a32b0bf5cf6f7eb6d800ea1e7809510/all_repos-1.23.1.tar.gz"
-  sha256 "6891c738651f4e0963a67f7ce689fe5efe3ba53b32c39b781da1e2e51decff6d"
+  url "https://files.pythonhosted.org/packages/14/60/5f0d6f6193629929299422fbb87711983a764aa53820caf9ede7b0f4d389/all_repos-1.24.0.tar.gz"
+  sha256 "a4e3dfdd8adebdbffbb659b06a516f6fa0967247cee87356911860e1302292df"
   license "MIT"
 
   bottle do
@@ -19,9 +19,24 @@ class AllRepos < Formula
 
   depends_on "python@3.11"
 
+  resource "contextlib-chdir" do
+    url "https://files.pythonhosted.org/packages/f9/ac/1b3022cc91497b45a653e86fa91694a63684904388440d71e58ff531687b/contextlib-chdir-1.0.2.tar.gz"
+    sha256 "58406a71db00647fcccfc7e52e9e04e44d29eacf30400e7c0ba3b15f09d5f3fa"
+  end
+
   resource "identify" do
     url "https://files.pythonhosted.org/packages/67/e1/869d7b8df41a3ac2a3c74a2a4ba401df468044dccc489b8937aad40d148e/identify-2.5.8.tar.gz"
     sha256 "7a214a10313b9489a0d61467db2856ae8d0b8306fc923e03a9effa53d8aedc58"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
+    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   def install
