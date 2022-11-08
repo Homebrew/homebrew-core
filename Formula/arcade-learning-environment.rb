@@ -21,7 +21,7 @@ class ArcadeLearningEnvironment < Formula
   depends_on "cmake" => :build
   depends_on macos: :catalina # requires std::filesystem
   depends_on "numpy"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "sdl2"
 
   uses_from_macos "zlib"
@@ -29,12 +29,12 @@ class ArcadeLearningEnvironment < Formula
   fails_with gcc: "5"
 
   resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/38/b6/bc58f9261c70abb5fd670f9ad5d84445a402b4b473f308c5bf699cd379e0/importlib_resources-5.9.0.tar.gz"
-    sha256 "5481e97fb45af8dcf2f798952625591c58fe599d0735d86b10f54de086a61681"
+    url "https://files.pythonhosted.org/packages/06/72/6bf0df4fe7a139147f5d6b473f16d5aefb7bc5b719ba5dd33f230d35760f/importlib_resources-5.10.0.tar.gz"
+    sha256 "c01b1b94210d9849f286b86bb51bcea7cd56dde0600d8db721d7b81330711668"
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -54,7 +54,8 @@ class ArcadeLearningEnvironment < Formula
 
     # `venv.pip_install_and_link buildpath` fails to install scripts, so manually run setup.py instead
     bin_before = (libexec/"bin").children.to_set
-    system libexec/"bin/python", *Language::Python.setup_install_args(libexec)
+    venv_python = libexec/"bin/python"
+    system venv_python, *Language::Python.setup_install_args(libexec, venv_python)
     bin.install_symlink ((libexec/"bin").children.to_set - bin_before).to_a
 
     site_packages = Language::Python.site_packages(python3)
