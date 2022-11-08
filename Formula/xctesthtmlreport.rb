@@ -7,6 +7,7 @@ class Xctesthtmlreport < Formula
   head "https://github.com/XCTestHTMLReport/XCTestHTMLReport.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15e3b813ce0361421dd94757db348ec783d6b25643af13ba983cff8d3d075e35"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09adf8c3aaef36698802f2f4ec9df0c54a2c30331793ad02443486e45bd157db"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f68268a932d48a169c9645c8b9bd9daa7927289736b5ff0bdf8a30363b1d5556"
     sha256 cellar: :any_skip_relocation, monterey:       "8fadf0792948314dff43eeec059bde7cc9ff10494cbb7542c279dca7424dd264"
