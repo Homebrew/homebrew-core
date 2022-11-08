@@ -12,6 +12,7 @@ class Smap < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8e7d631dc80656f72fe356cbf75d1f8e514c9569e4825ae2004a68c9a3e4670"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9467e8898e8c7ee7a3f1cb5df4da075a21440b85518bc2141348d32c2f2823d9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b1b29dc62ad638bdb45c15617e1dfaea9f73367a6cebae8fe82e159b9ae37e3"
     sha256 cellar: :any_skip_relocation, monterey:       "04455529c5efb9be815ae330a01a8720d9adeacdca06d77a95c10113036ea3a8"
