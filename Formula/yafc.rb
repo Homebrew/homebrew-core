@@ -6,6 +6,7 @@ class Yafc < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e75e54d310d6fba93e9f1099314fbf59cbc368a0dee37c0775199c12091ab0d8"
     sha256 cellar: :any,                 arm64_monterey: "11de34b459b80ebed5cd72df3a8204183ddd8ea45ed90eacaa7b78db0e173226"
     sha256 cellar: :any,                 arm64_big_sur:  "f4f4f59642cd4d9600120a84ec67bf17d72bc1a9d716553f81b644185d4d9a96"
     sha256 cellar: :any,                 monterey:       "3020cbad354bc45ef1b73eaf527dea9db9b276870b42063d11ddab2122490382"
