@@ -10,6 +10,7 @@ class Mrtg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3dc3ce6e2425a2c461ce3beef08a2f16a7141a3b427c5ecc334da566619c2065"
     sha256 cellar: :any,                 arm64_monterey: "df8611100c34ebb4c553b81493006f954fca61669b4a6331914529bce73a6348"
     sha256 cellar: :any,                 arm64_big_sur:  "fedc3e50c0a75c2ae6e719a1ef5502ce38efdba9e51d0f9201d2ad02d5c0a1db"
     sha256 cellar: :any,                 monterey:       "47c8ae5d5466514d50393ec5f48219313a2a9b7b1544b08dd923bf1e5642762e"
