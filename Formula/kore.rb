@@ -12,6 +12,7 @@ class Kore < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "cbfccd4baa858b4b8319dc8dc8c24c72cf840c5ad0103d5d22b5d5fc206a34aa"
     sha256 arm64_monterey: "f9f45763516449a9075be07735bf72855164b51ab549dbc07de6215bb163069a"
     sha256 arm64_big_sur:  "75177641b3a63332f5931f39ac61001f8e45aa8751cf3c37032889a9ef49ad3f"
     sha256 monterey:       "8ba71c5137d2f2170c901a55ee0e5854b997163f715c43d46c4b823b111005f3"
