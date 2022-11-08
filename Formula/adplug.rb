@@ -6,6 +6,7 @@ class Adplug < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ceef9a9003823371b81c35be731a9104352636f1840f5da471ddbc6da36f19b4"
     sha256 cellar: :any,                 arm64_monterey: "0ec6a15a91e9fd25a3ccb7cd84b17c7e2ef5c7c1d7d942332de2489ea28dc86f"
     sha256 cellar: :any,                 arm64_big_sur:  "4b28021b120d5e58c7227934d09744833b0406fdd02107c8032f112e4cf4f520"
     sha256 cellar: :any,                 monterey:       "690c9c37d9fc89f2a85d98f41af9e28e4ca24c618390d1d9120f88882f36f19f"
