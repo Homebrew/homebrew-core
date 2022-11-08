@@ -9,6 +9,7 @@ class Cppman < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dfb24326a3701f41e0615a6e25ad66a45d37d8babc5c1fc4726bfce1e20cc5e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0252327b9af79af317995a3c5009ec6597e176249aa9936896938d0f00d6a10c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a01c8d3c53feda1e33ebaa0158e94d773fa684b72f9ef0a327a7f7c5853d2fd"
     sha256 cellar: :any_skip_relocation, monterey:       "069e7ddf142eb7e099a33a270f29bd43ff236ea31ee2ae35dcd091050a4f5998"
