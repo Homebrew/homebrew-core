@@ -8,6 +8,7 @@ class Shairport < Formula
   head "https://github.com/abrasive/shairport.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1fe177939959db1c27c4f12ced1d6ce886fa7ad0e7c5bfad4bb29117c3b331dd"
     sha256 cellar: :any,                 arm64_monterey: "267665694fff4cac9c73361e945e505a6b04495215f7b8abfa12b00163252701"
     sha256 cellar: :any,                 arm64_big_sur:  "9c1716f8760f78af40db17ebbb11180312d7f89fa3c6a13dbe650e7f54879860"
     sha256 cellar: :any,                 monterey:       "47f4fcf2c3caad553f2d069e1ed85c9ddf1325840d0fe47115acce911476055e"
