@@ -24,25 +24,9 @@ class Makedepend < Formula
 
   depends_on "pkg-config" => :build
   depends_on "util-macros"
-
-  resource "xproto" do
-    url "https://xorg.freedesktop.org/releases/individual/proto/xproto-7.0.31.tar.gz"
-    mirror "http://xorg.mirrors.pair.com/individual/proto/xproto-7.0.31.tar.gz"
-    sha256 "6d755eaae27b45c5cc75529a12855fed5de5969b367ed05003944cf901ed43c7"
-  end
+  depends_on "xorgproto"
 
   def install
-    resource("xproto").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{buildpath}/xproto"
-
-      # https://github.com/spack/spack/issues/4805#issuecomment-316130729 build fix for xproto
-      ENV.deparallelize { system "make", "install" }
-    end
-
-    ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/xproto/lib/pkgconfig"
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           *std_configure_args
