@@ -9,6 +9,7 @@ class GiDocgen < Formula
   head "https://gitlab.gnome.org/GNOME/gi-docgen.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "28fbf04dad49ead32302a60a9e88eaf90115e808e5df9a35e4f90e68ddfd3bd4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2bdc1e61f8f6a8cd066c2debbffa52848930ebce700e2481acbcf111ada1df4c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbc18cdca02978e370cd4994c97e02bdb9083a12a3b9cc5e6647464426d734c2"
     sha256 cellar: :any_skip_relocation, monterey:       "194f50b12ce008e6c0533b3e658e99e16211edca7eabfc8599eabd742e31eecf"
