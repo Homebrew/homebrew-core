@@ -11,6 +11,7 @@ class Dhcpdump < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00e07738f28c1a7171439c05e7bbbe082a58db87bb52b7227920c5f6b1fb17d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a948ff9d54f73ace571fef91ff0ea06c09216ecac07e4665526ad4caeb680de"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea331a3bb132f7f9fbc334e85fd7d7cfc6cf7314df93bf123c5e042febbe1951"
     sha256 cellar: :any_skip_relocation, monterey:       "305c41098112a0cd36fcbf838f9a9d575ae2764ffa7db65fa2f53874639b4cfa"
