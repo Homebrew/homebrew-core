@@ -21,7 +21,7 @@ class Deheader < Formula
     depends_on "xmlto" => :build
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     if build.head?
