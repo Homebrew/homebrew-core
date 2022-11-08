@@ -7,6 +7,7 @@ class Cbmbasic < Formula
   head "https://github.com/mist64/cbmbasic.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8382a3a84c232895e8581de79435c6c7629079ec8dbdec6b8d193f73715e4ca8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e090b459f2e44ad8f04e3e70a25b909fe16771f4b2fa325cc06ea233b019803"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b693c2b8fbfe49736bdc0ae4bce13d96295da75a6683e593c021c9335f6c57fd"
     sha256 cellar: :any_skip_relocation, monterey:       "1328d1be681fd3f2be33cbab9b19e59a71e1ed0a5191c89bf7595ebcf0ef3236"
