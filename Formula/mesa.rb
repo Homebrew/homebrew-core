@@ -17,6 +17,7 @@ class Mesa < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "ae9cd957f555a3325437df6e15081a23e7f7bf8a0d0254fce0283118cbaaff67"
     sha256 arm64_monterey: "088b85eb3063735c740bd1b2d11ee8d408c491a7952629651174402ac8a34ed7"
     sha256 arm64_big_sur:  "52903252ba890deb6b55276afad11bf8f94a4cd1256a78d8588febee81e8ce44"
     sha256 monterey:       "3ba3578f0265557202a174f5b45b0886d9c72398c0c55ec8478168c65dbc2b07"
