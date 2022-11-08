@@ -5,6 +5,7 @@ class Surfraw < Formula
   sha256 "ad0420583c8cdd84a31437e59536f8070f15ba4585598d82638b950e5c5c3625"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "31d8b711776cd751f846106b974bd1aa944f614880f8038ba04b391120abe9c4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31d8b711776cd751f846106b974bd1aa944f614880f8038ba04b391120abe9c4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65d1418f750b53be50f7d67e98791242056d4d7b5e21ba177899435fd9ac9d0f"
     sha256 cellar: :any_skip_relocation, monterey:       "64fbd46e38561804f22a7bcd408fcbef55e312d2e7dde999088ae0ec78fb2906"
