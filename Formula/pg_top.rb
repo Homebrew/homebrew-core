@@ -14,6 +14,7 @@ class PgTop < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c7d46c3124f4336b96d82dac38fdaf58ecb871587f7e1f1bc52368ab3ba29e78"
     sha256 cellar: :any,                 arm64_monterey: "a157f605a85907c0d04410199dfcc4d7de515844f0ad41bcbcde1b8b771431c8"
     sha256 cellar: :any,                 arm64_big_sur:  "506d2459e302e37bac0f38f99cd2cc2d3c3f5fd39631ee540a6f54d59af07f4a"
     sha256 cellar: :any,                 monterey:       "6252dc42f3d6e6570b0371f2f10cd146a06bd52b492636bbb35f62ff07239b7a"
