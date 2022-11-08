@@ -10,6 +10,7 @@ class Poac < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f4f4a4e5391711fa5ae47419fafd1c7c3d9d52108a6a84d7c6a2598bc12d5a9c"
     sha256 cellar: :any,                 arm64_monterey: "0e4a3817fbd3e97354dda7043f8e664125022e9d89fb29a3f96ed8351fb20596"
     sha256 cellar: :any,                 arm64_big_sur:  "bfe8ae0e153c4a3175a1123806858607c2efe5df0641b01aa9238faaf54cfe44"
     sha256 cellar: :any,                 monterey:       "932bef48de62ce5476c19922f058913e9504d3f940f14e318db11b380dad82f8"
