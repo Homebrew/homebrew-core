@@ -9,6 +9,7 @@ class Restview < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "000e31325b6b26053ef672c5f3c7069c8c3d92a743a0abdaed70cffac99a1449"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3d86173a917426e0bb453075eba8ca04afcb79d0b7ffb33fe5f040a8018ecb23"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "efa0988f559e113c197fe3c3a60c89a3ec839f5406f9459a1367aaf231e37bdb"
     sha256 cellar: :any_skip_relocation, monterey:       "0228468855cd38a9121c45ebfe90f9d3af7c0d4d8eaa8aa6bc01838044bb666c"
