@@ -7,6 +7,7 @@ class Felinks < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "eea09552d2a9906086e8c1095ca171fcc7f187bd33990bac99fe7e5c3bb86bef"
     sha256 cellar: :any,                 arm64_monterey: "e16bb34d706cb774e454993bcd9b3e7355d0dafa41314bd9893bce0a84dd7ae7"
     sha256 cellar: :any,                 arm64_big_sur:  "674f805753c94b6ae1e4ae3da4d659213e8bbb2b3141d72bb0aed2b3403adf79"
     sha256 cellar: :any,                 monterey:       "cf7ce03ce6602554161c33dca17bc1ab13cae1f21afea98d185902790ea1a35e"
