@@ -13,6 +13,7 @@ class Asroute < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "163a9abd216264008582b7be4230fd4b25499c98df63428cc6712688e7864a26"
     sha256 cellar: :any_skip_relocation, monterey:       "1c25bfabb04bf68c00afa5b1cfe58dde4da17f666aaf4342f43db0a887e4c254"
     sha256 cellar: :any_skip_relocation, big_sur:        "96074d1e87efc94a13cca8a1afb4b2ae5ba6379c30bb5fd0ec4d635c9f97f84a"
+    sha256 cellar: :any_skip_relocation, catalina:       "c3129df660d27e0bb0ac8ff5252c8d973402e613f2345e12a8621ed3a2f69809"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d188308819d803382363c7a89e9aa531721a65c05fdba1092b4e08791caa4254"
   end
 
