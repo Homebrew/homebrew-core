@@ -7,6 +7,7 @@ class Saldl < Formula
   head "https://github.com/saldl/saldl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7fdcae247e92bee8f6925e7c9c4adfaa800bb06989a34180ef52a2001c7396c1"
     sha256 cellar: :any,                 arm64_monterey: "7d946fb405f3e50a3bd407a5deb8d1dc1c71094cd5092d9a314385e0165d446b"
     sha256 cellar: :any,                 arm64_big_sur:  "2b965040a5e53c33801a86f8090a3339b8967903b1a11c3cc5b8bfca9e9de33c"
     sha256 cellar: :any,                 monterey:       "bf33da07c23b69e41cdc44c0bcef25625128da44e134ac0f3417bd60fe67801e"
