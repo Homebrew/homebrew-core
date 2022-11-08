@@ -6,6 +6,7 @@ class Nef < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6cd8f9c972f707a1c3a05f95c68387f56d9a730bb4a3d42a06fde72ecb481984"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8918c48c922141c187e2271884864118e01b8cc821d53d3bf82f25ed61cf6075"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8453d3a8cb3b1cdcc4c042f63efd772a70b2e28f822faca6adf710688f7cf9b"
     sha256 cellar: :any_skip_relocation, monterey:       "8841fde2a11375a65c32ac4e8c88dfc44f64935921a71fa546026fb40e8acef1"
