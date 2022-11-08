@@ -7,6 +7,7 @@ class Movgrab < Formula
   revision 5
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7fbbd62fc17257b90c9fe91b83062f2d42c8e7112c74e38e3f9e69ac08c59f39"
     sha256 cellar: :any,                 arm64_monterey: "17ab24e1802ce6001bac7698b77016147e3cd65e08b00bd306d83dbdbda24a47"
     sha256 cellar: :any,                 arm64_big_sur:  "a59426ffc7941233eebd052796c1827884fe9ba508dbc57d2f24d8b1d1e64a59"
     sha256 cellar: :any,                 monterey:       "a4a6388501b014b23c14682d78350ad7f80e2cdf13990db1ab426680cd5fe46b"
