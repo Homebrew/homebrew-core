@@ -39,6 +39,7 @@ class VowpalWabbit < Formula
                             "-DVW_INSTALL=On"
       system "make", "install"
     end
+    
     bin.install Dir["utl/*"]
     rm bin/"active_interactor.py"
     rm bin/"vw-validate.html"
