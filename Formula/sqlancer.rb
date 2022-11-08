@@ -6,6 +6,7 @@ class Sqlancer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a8f6995c0eaf3002eead99ad6ca75a3922c7e6d4f1206a1f573fc55b2445140"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3e7fba8aa71ddb6e684ec75b414f4920a4e7f9d6cd50cbadd9952a5ae18366e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c92f7d690ed61405369d71a0ae3ce6cb0f5f102d3e330d20f9c2dd20831d434"
     sha256 cellar: :any_skip_relocation, monterey:       "132c2d5e369de21ea6e7e7860ca95f44d2a36c5f50325896cf170bb3e49a8d8d"
