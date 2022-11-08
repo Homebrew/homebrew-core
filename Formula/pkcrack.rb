@@ -7,6 +7,7 @@ class Pkcrack < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4424d7af0d7f9655e7fdade301906943147f7480e6457f29aca6b99e981f3395"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "41fac1d66b167e630a47d183df3ef169d0c61e19538b783442f2951371807b53"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4ee4c3916070396ad7bd3fdcf550cd150f33359381a177784015a06a4fed9e8"
     sha256 cellar: :any_skip_relocation, monterey:       "eb4e5a960e8da28789c0f702c751338039358f985864f1194cc7637ab0d342e5"
