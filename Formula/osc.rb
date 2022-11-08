@@ -9,6 +9,7 @@ class Osc < Formula
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d478a2533ddd81f986baecaf1022363d83ad4fb8229cac8ea1595be5c6e21e15"
     sha256 cellar: :any,                 arm64_monterey: "ec93e87b246a7f52b6e7ef1bfde40b61a21561dd4306dc4c5a0dc889d59274f0"
     sha256 cellar: :any,                 arm64_big_sur:  "5dfad75e9c488f78623a5e270151fd2c81a4b8cc7a89054cedd8af56d0c5b76c"
     sha256 cellar: :any,                 monterey:       "7f5fc874c20ec8ddb0d3e60f736c008a9f0d1fb261e1d970a53b1c110fc60f24"
