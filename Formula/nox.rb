@@ -9,6 +9,7 @@ class Nox < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2146a6ad9f253d44ec625d39b6479b881dc8f99d52afbefcd2da937ba1634282"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a5f7f84f53b088fd172be65a628b06168025a13d7d29a18748e8eabf37cb2e3e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e1ea7979b8d6b20139705f65f44ac41440111b715403cf4c8faa12e650da13f"
     sha256 cellar: :any_skip_relocation, monterey:       "2c1506048ef3e082e0f9cfec0fa4c1f89a0a5343d9d9218fa409f6980600ff24"
