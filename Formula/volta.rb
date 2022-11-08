@@ -33,8 +33,8 @@ class Volta < Formula
   end
 
   test do
-    system bin/"volta", "install", "node@12.16.1"
+    system bin/"volta", "install", "node@19.0.1"
     node = shell_output("#{bin}/volta which node").chomp
-    assert_match "12.16.1", shell_output("#{node} --version")
+    assert_match "19.0.1", shell_output("#{node} --version")
   end
 end
