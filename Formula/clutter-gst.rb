@@ -7,6 +7,7 @@ class ClutterGst < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_ventura:  "ca0998f8c85dae7c5bb304de642e84b9c71f5a373657143a40ebb4790e702b8e"
     sha256                               arm64_monterey: "c1094b27e618b50d8bc57be10e87f2858608584cf952c499000636866f763c8d"
     sha256                               arm64_big_sur:  "bd23c3da4a8e9c35bb93bb043967defead1d749e15d912006f48b51cd1e467d4"
     sha256                               monterey:       "df2e7cc17a0b1c88a927eed54578a00fefd0908e537a36916f5a8a2cb6e61f41"
