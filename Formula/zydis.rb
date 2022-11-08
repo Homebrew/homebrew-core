@@ -17,6 +17,7 @@ class Zydis < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "01dd5cd1a0e66fb458faa8943ac9a2e3d210448bfcc82a98a322c4923ef117ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f01f220780d4e708d2aa15705aa8d9358fa5c928a2489c6fe788a124b48341c7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cda576fd8a15844bc23d45416e7af7c11911caa13bf079a2e8beda0636b815b2"
     sha256 cellar: :any_skip_relocation, monterey:       "b1f6b23dbb37b6f22f4073f8307d20a9a5b5d71f6d1cd903c58b003ffff7e7a3"
