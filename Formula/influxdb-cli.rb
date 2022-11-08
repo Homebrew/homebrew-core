@@ -13,6 +13,7 @@ class InfluxdbCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "42e37e47a2276fa487e4dca909948407d22d701f0e13087266c113c65a9cd287"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6541f4fa6fc74114040e84ba6edb996743801e1fd651061c920952079e9fb2f9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "09199839456e764a78f3f7f0a245f7ca1d4fc6cb080ffed77a2d7224526c5b5a"
     sha256 cellar: :any_skip_relocation, monterey:       "92a3f65a373a27ceb94a0f433c5ce95f66e5b07fbb9eaacf7a6aee28cc62c26d"
