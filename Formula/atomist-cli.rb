@@ -9,6 +9,7 @@ class AtomistCli < Formula
   revision 1
 
   bottle do
+    sha256                               arm64_ventura:  "18a7ce7b98c8df09e82ba610dfb8dbd0a701eb79fd1f2f875ccd559e7bd52613"
     sha256                               arm64_monterey: "19edfaf9952cadd88d48f7d2e2a195c999c37e6eb4c1531b415d69889f3ce23a"
     sha256                               arm64_big_sur:  "937a87c1bcde6def60a36a358636f550d6328ec2dcdda13002ba1f8ef3989943"
     sha256                               monterey:       "ea04ea67623c76cc8362ae0e72c60d406e48fe840bcfa66e5d752cc65a0c18aa"
