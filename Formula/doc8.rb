@@ -10,6 +10,7 @@ class Doc8 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "319baf600388b409df92c25b79123e79f7bf945c502c805783fd3c8dee60ebf0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "87ec6f86aef832537a2e6c52a074d75072ea163de4b90b6c21d35df2be5a13b7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a394b8d6430b9d0d3cb2a0226514a73e00d8cc5bcbd410b776e59dfb8a9ce441"
     sha256 cellar: :any_skip_relocation, monterey:       "41888c8e77c4e3daed3beafc97d2ab59b02614717bb4ed61caa596cb1f79b761"
