@@ -7,14 +7,12 @@ class Texinfo < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "be3460b3563c42d02a20be0b36fffcc241693907d88fa5366dc2e961dc5f46e6"
-    sha256 arm64_monterey: "6b185cadbb07d199bf703390b6e3f0ca33ee7a4c2aa7efa685ebaeee9609323a"
-    sha256 arm64_big_sur:  "d83beb6d79c93216c6f33021cd23aeea041d9691d4d5efc0bf43ab15562a3fed"
-    sha256 monterey:       "0ba38973389c7e3c37241a4d1730c2686feb51ddfd3f275059af268f44302aff"
-    sha256 big_sur:        "93c4e7f7aa503611ad5907b1c702bb89d7fc9a5cfc0866b78378b7bef7a72480"
-    sha256 catalina:       "8cd8f1a20368b94f4de10dbfc4c39429cc9d1ad7680dcb160635be49afc598af"
-    sha256 mojave:         "9d2c152bff37873f4ac78165161c6f3e338599c3ae55782690f3f9a8a6d8d749"
-    sha256 x86_64_linux:   "9addf0b22ab845a8071f0d3dc742c65de4fde1a06a7f41df5cccb2e1c9f6afe2"
+    sha256 arm64_monterey: "83e127cc706026b0279bb6891ff8649a3039e9340ed2c1a38e6fcfc17c2f490f"
+    sha256 arm64_big_sur:  "e44ae3361202b0eb5cd28d7730e273b09469eea900eea6bc327ac3eccce339d2"
+    sha256 monterey:       "d4f1550361dbff38ba9d7a63ae2e00cf90109929434cec52ca48418a13ebeba8"
+    sha256 big_sur:        "fe5b705f97686161be9d985ca3dabdcc8692df85ed3ff2aa3583c7ce20fec1a4"
+    sha256 catalina:       "59505aedbf48a25fda2c71718168027a736bf0e954fe02eb1281910cdef82e3c"
+    sha256 x86_64_linux:   "0f41d9f1b881faca105bd7516a2b4fb2f5940522fa1e2ba5aaf249a877c7c311"
   end
 
   uses_from_macos "ncurses"
