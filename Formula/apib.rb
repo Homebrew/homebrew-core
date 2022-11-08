@@ -8,6 +8,7 @@ class Apib < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "0d3f8ebb9f43ccdebb3d1f0afea5decb6418aee36e2021d8c6eb2a182f023c09"
     sha256 cellar: :any,                 arm64_monterey: "c411bb84a6c9cedada2763065efefa16107e3d030108a0a56d58cbef1261ead7"
     sha256 cellar: :any,                 arm64_big_sur:  "a2c0d222e5f4e7ce13ea2671367e125a2a493922696f1cdcccf01edb3fcafb8f"
     sha256 cellar: :any,                 monterey:       "f8b39236e548bc511ac9be750bf5e34ea153828b66fee23f12d59cef6a1d2459"
