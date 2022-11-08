@@ -6,6 +6,7 @@ class Sipsak < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d7a5cc254f2f445e00b1cf496516193e17a334f416459eef197fe17565978bf9"
     sha256 cellar: :any,                 arm64_monterey: "f2f4bf2277f852ef0efc351e36ff629a9f17d9779656e9c5f15022571b6a8350"
     sha256 cellar: :any,                 arm64_big_sur:  "4525ec303fc0f5ffd3b752ccf1dcdc7fdb14921ad35d8e12109e257c47ce14fc"
     sha256 cellar: :any,                 monterey:       "3a220f3f6e45c89f05948970e5bfd8ee64030674e50dea30f4713173abcc3a25"
