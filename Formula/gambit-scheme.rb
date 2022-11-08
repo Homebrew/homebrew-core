@@ -12,6 +12,7 @@ class GambitScheme < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "fb202eb0660fcfbf84dfdf80bb37dd16ed94da6d24898a336441cdd58573ccd0"
     sha256 arm64_monterey: "91040b009cdde2f167bff43b1521c1bae3b402c28bfe57a1d9fdc603b6e7eeee"
     sha256 arm64_big_sur:  "9abbafcba2c1205b675204642a58527262586625b99a2ae8a32d3b50076a87ef"
     sha256 monterey:       "eaeab4965a7dc4b0bdeb880287af96157c4fb666897db2a1f23772b80837bc7f"
