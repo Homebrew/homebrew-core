@@ -7,13 +7,13 @@ class Bk < Formula
   head "https://github.com/aeosynth/bk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "581d657a65a4d72fb5aeff90ad37fb5ecce856d017d6ab944939d2a8309eda1d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "83888caacb2e9c2a3f168143958b4dc5d8398ed8372cfa30187780bac498d376"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7800246f87267b642a3c4c4cccd4363a26f58db3245bcdde0dd9c161a6a0ddf"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c45def155516544d952e060e78b44c3e9973f5e90cd25828029133d48fbcfba"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a0e03c86b30c329f2b77d7436d154c365588acdacdcf1681e1370f13302cdfc2"
-    sha256 cellar: :any_skip_relocation, catalina:       "2ffc3317ecb58f4e22c832a674e64b972cadcfc7e30a3598a820187fe90eb4e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7a7201991a14e455d5912fe064b0a34db4882c0054e7f2094a00e11aaff3e16"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba9da92be4cfe8dda48401bbb076d70023b9b99c3cdd3ad47672e4b6e7b8b383"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c614062d4ccbaabe39d7cf8e3983f3f755d44de3d31303c61f4580f8e3f37c5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d6537ee4a045093a5a5806960a47115c3ae8a5ee445cc82381c173fe8ab9c14"
+    sha256 cellar: :any_skip_relocation, monterey:       "07d149e5806bf6444300a9d066bc682f0f950af403bac33bd14c397e39cd52ab"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c13b4e9b99a77a351c9dc92739c2bcc5530fbd210bb09414185a30a7bd43b0fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0f338a07f8edeb7b1d72cd6075fb17c1a0a552915c045b56b4b480a5806c887"
   end
 
   depends_on "rust" => :build
