@@ -179,9 +179,8 @@
       "azure-storage-blob", "b2sdk", "boto", "boto3", "boxsdk[jwt]",
       "dropbox", "gdata-python3", "google-api-python-client",
       "google-auth-oauthlib", "jottalib", "keyring", "megatools",
-      "paramiko", "pexpect", "psutil", "pydrive", "pyrax",
-      "python-swiftclient", "requests[security]", "requests-oauthlib",
-      "monotonic==1.5"
+      "paramiko", "pexpect", "psutil", "pydrive2",
+      "python-swiftclient[keystone]", "requests[security]", "requests-oauthlib"
     ],
     "exclude_packages": ["six", "PyYAML", "typing-extensions"]
   },
