@@ -13,6 +13,7 @@ class Bottom < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cc0790f7611b7e50bb4ae22b1376a12619716f13b4f8bb406c0f2c67bf69232"
     sha256 cellar: :any_skip_relocation, monterey:       "c8572a9b69cff3a51c94131b487d783efeeccf141dc84d15c33573d46bdbfe81"
     sha256 cellar: :any_skip_relocation, big_sur:        "ab7573866fee9294189c90e5bec525d54652835be497a1cbf4c1c0c4b999ffa7"
+    sha256 cellar: :any_skip_relocation, catalina:       "622766c0da5d44b5b7ea85ee524b16aa7b8b96366a677c6f158b8f6e35e60243"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d31da37fed38b840c8cb34388da41be7398ae33c69725e6c36cd54b59cc265ac"
   end
 
