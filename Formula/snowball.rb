@@ -6,6 +6,7 @@ class Snowball < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8e1cf937fbaa3c25c0d7104b1c7734c0c19261f5b9fe6055a4dcca59dcf20e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6974dd00e92e2e7bfc20b4778846c2ed28006b629405da64075f25a1bb9822ab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c4dd9009ce77704933f0a5ed20dc6ad94eb234f375ea220c24fe1936ee75afe4"
     sha256 cellar: :any_skip_relocation, monterey:       "421db9b9e06d84eb71c1bd249892c39f69726a645b08317618747534dab7a5ce"
