@@ -6,6 +6,7 @@ class Pgweb < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5a24ba313cf2e90b50fae2a103566e9e99fb6395e89a4e2439381afe6ac712b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "469869de47ac0c2ee4693bc6cac59845ec26c2946b95fb04094205cbe8d5ea69"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4e23d33b4ad286ac2900d12083682d4416dffca3edfd051ed74db027b33cc35f"
     sha256 cellar: :any_skip_relocation, monterey:       "31952522ec9bcb9e927c468c5707b1c4a86902bb22291302b82a192ad62eacfc"
