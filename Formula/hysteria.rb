@@ -8,6 +8,7 @@ class Hysteria < Formula
   head "https://github.com/HyNetwork/hysteria.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "473c3b83bf6e681705e87a78a196a83468adde355c58962c9d0de155588a6815"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "333e0083b8866aa4b9803ba40dd37a86e992f75fd869c372fe31e379cba2324e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de3de5cdfe9341c61156e356f89c4d981ddaaed933e82df28ac2cfe72ac19122"
     sha256 cellar: :any_skip_relocation, monterey:       "3d9a31387d8e782571dc1d382bf24ea4ebaaeb034a81bb173fc80720561f99c6"
