@@ -9,13 +9,13 @@ class Csvtomd < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8685baa5ab7f599731b2ce2e300efddd740fed6c786a371b725abebd5f2e72ee"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8685baa5ab7f599731b2ce2e300efddd740fed6c786a371b725abebd5f2e72ee"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ed6b67a278e0266bda516a475867129cff5e93fad695f4e029e4119b199f123"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2ed6b67a278e0266bda516a475867129cff5e93fad695f4e029e4119b199f123"
-    sha256 cellar: :any_skip_relocation, catalina:       "2ed6b67a278e0266bda516a475867129cff5e93fad695f4e029e4119b199f123"
-    sha256 cellar: :any_skip_relocation, mojave:         "2ed6b67a278e0266bda516a475867129cff5e93fad695f4e029e4119b199f123"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d047da6a41a03db412406412f4741715b7446630a5ba5558fac8bda7b66668e9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "340344c8ac5bd1dedb8d922b8c491bb80a6e2b6c9575676b56b7909344acef44"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "340344c8ac5bd1dedb8d922b8c491bb80a6e2b6c9575676b56b7909344acef44"
+    sha256 cellar: :any_skip_relocation, monterey:       "0644156a7787998b6056d120df749095ffbd3d20e330e72074ad75bc90412f4a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0644156a7787998b6056d120df749095ffbd3d20e330e72074ad75bc90412f4a"
+    sha256 cellar: :any_skip_relocation, catalina:       "0644156a7787998b6056d120df749095ffbd3d20e330e72074ad75bc90412f4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6c324ebdfa22e9e83a7c6603910e86b2787afca3cda9df5284ea98976ac7e95"
   end
 
   depends_on "python@3.11"
