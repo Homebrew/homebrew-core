@@ -18,6 +18,7 @@ class DnscryptWrapper < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on arch: :x86_64 # https://github.com/cofyc/dnscrypt-wrapper/issues/177
   depends_on "libevent"
   depends_on "libsodium"
 
