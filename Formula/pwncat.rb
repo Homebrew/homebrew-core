@@ -9,12 +9,13 @@ class Pwncat < Formula
   head "https://github.com/cytopia/pwncat.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa1d3c17981bbba3ef5b35b162c38d2db2ab802c76fd979956bda9e6880d6a7a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa1d3c17981bbba3ef5b35b162c38d2db2ab802c76fd979956bda9e6880d6a7a"
-    sha256 cellar: :any_skip_relocation, monterey:       "fb3f4cb5954da1b5a7fccec4bb40f8807548cf79984b701788f72e364222d1fe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fb3f4cb5954da1b5a7fccec4bb40f8807548cf79984b701788f72e364222d1fe"
-    sha256 cellar: :any_skip_relocation, catalina:       "fb3f4cb5954da1b5a7fccec4bb40f8807548cf79984b701788f72e364222d1fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a5bf7b976619100c3cf8763b48aba07b1c5c52e00230c23aeed1ec249fada17"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "13ef41fbecdf01f47064a3e29ce0ac70a4bfa0110e1dbc2cb5d6cd09a187642a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13ef41fbecdf01f47064a3e29ce0ac70a4bfa0110e1dbc2cb5d6cd09a187642a"
+    sha256 cellar: :any_skip_relocation, monterey:       "28c110818dc6d9aa1a4c6a06376f5c66dfc485a6f74c21f94dd207ac6b1f2e39"
+    sha256 cellar: :any_skip_relocation, big_sur:        "28c110818dc6d9aa1a4c6a06376f5c66dfc485a6f74c21f94dd207ac6b1f2e39"
+    sha256 cellar: :any_skip_relocation, catalina:       "28c110818dc6d9aa1a4c6a06376f5c66dfc485a6f74c21f94dd207ac6b1f2e39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c5614f155b08f02b5446436dabdffba7dcaa6b7e850c7a237ffd2fb8b970970"
   end
 
   depends_on "python@3.11"
