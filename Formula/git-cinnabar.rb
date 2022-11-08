@@ -8,6 +8,7 @@ class GitCinnabar < Formula
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "715bfee957b00c42ab1d691cd2a1525ddd70db2112cde19ebd9310ed83ec2035"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb9cf222a1ece6ea3852224328a6cf7243fc606ceefb8150d2c557d45ca2c51d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12acb5d61f08fa07b79883444fff480236385cbefa5aa6edf322bb2c3f0543bc"
     sha256 cellar: :any_skip_relocation, monterey:       "7d4e71a53d9a5ecb803097786f574bcd55207f44887c74c829edd3a595b59fa4"
