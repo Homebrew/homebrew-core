@@ -12,6 +12,7 @@ class Gmsh < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "63241b9c89c11d539a292b17b169443e66d74c478b3c7263861ea6a7e160ee98"
     sha256 cellar: :any,                 arm64_monterey: "4b7af91984d0485cc745b2475080cd799838ce6878dfd20f650332d72cb57c11"
     sha256 cellar: :any,                 arm64_big_sur:  "4f5b32b8703a77ca66242748b897e570c4c36c20c5c38988bf82b3239137ef2a"
     sha256 cellar: :any,                 monterey:       "f9c21ee22ad8c8080f7f5ea16f2ebf26fe41042d5d79dd7bb26062ade24721ff"
