@@ -6,6 +6,7 @@ class GitCodereview < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4d871c76cacb3e51e6ee8a6a4b39a72e9310f30fb4d209c35869a1e57a150c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a26e63910368689c89fce6ba378015b1297c9754d162a54f78a72c4a4bb02c48"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dcc7c397e87a946fb354d0c065c1430ba9e8b8792e5c2769618b274ce12f4175"
     sha256 cellar: :any_skip_relocation, monterey:       "91fa742403c824968b9e11d00debc5ef0b0bed384508bab73de20f215f0743b3"
