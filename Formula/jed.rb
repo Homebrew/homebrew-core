@@ -12,6 +12,7 @@ class Jed < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "bea3094bb9b2ba88a2b58c29c3b230674187d3b9ac0dbaf86b38495da3b69b2c"
     sha256 arm64_monterey: "1ffc68641f689cad733309255377425ffc6acf28d2bafa65dd6cd725489d52e2"
     sha256 arm64_big_sur:  "0705ef662941dc6f4ebd34eae2fc7c02f640d34ac7edbd53eb1d51384cb7c204"
     sha256 monterey:       "c40801b7807e578cad490de05853fcd73cbb1b5c2a762d6948d99e99fb5d4797"
