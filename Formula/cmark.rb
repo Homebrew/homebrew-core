@@ -7,6 +7,7 @@ class Cmark < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f68923a956977da870dfc6bd1df9f3a3185a27ff76e1403f300cf3a44b188ace"
     sha256 cellar: :any,                 arm64_monterey: "088cdde54f9999dc34fdcc788b85052c9b58db6b4379ab601cffa7a41d936c94"
     sha256 cellar: :any,                 arm64_big_sur:  "69c90d2fad0777d9f38bcab5c57384907dad0695e4feeb8416fba20f22f900e2"
     sha256 cellar: :any,                 monterey:       "d48785695ca7b81ad1d36a7c97b032d8499a6025f8f230884e9ddaa816f46181"
