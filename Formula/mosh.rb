@@ -7,6 +7,7 @@ class Mosh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "270731aad2028b9dab43ed87dae0b650880f34aa059a3584a0b6f7609c7e8453"
     sha256 cellar: :any,                 arm64_monterey: "2780be65178f382963fd1759ff1b9df15807cc30b4a7cab5a766da1a4157ef49"
     sha256 cellar: :any,                 arm64_big_sur:  "5b52e78e946518d87bbac09cd450188e65869ebab91dfb7617534c5c913b1b01"
     sha256 cellar: :any,                 monterey:       "3e096f0100dd45fd8e292c59fb9c1fe42af3e6edfe3f662abb3cdb8dda8b508b"
