@@ -8,6 +8,7 @@ class Nativefier < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d35b4c8a58305360a32266850adff76701962951fada138568e184fe7ad4b9f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9d35b4c8a58305360a32266850adff76701962951fada138568e184fe7ad4b9f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d35b4c8a58305360a32266850adff76701962951fada138568e184fe7ad4b9f"
     sha256 cellar: :any_skip_relocation, monterey:       "f3b285e09cb0671206fb6f640c34ec19ac0978b5ed75445a1e9250ac2473bd1e"
