@@ -10,6 +10,7 @@ class Gcovr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0621f715f63d20dfe82a3f343f80d4b36074e3664f548aabe004711503eb1001"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e7eee3bc0a0f69376fba772270747fc5ccc1e66b19c44e5988b9de33a3288df1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f70ecd18b09f48d00a547ece7d9e9fe51ed2beeb0786514aa27e23998df5c2b5"
     sha256 cellar: :any_skip_relocation, monterey:       "42064c19c775b6c02e0fdb30a97546019caba1fa74e367e3a3f87d1b2bcbf343"
