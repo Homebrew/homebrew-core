@@ -8,6 +8,7 @@ class Asyncapi < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8c40734074ed1d1f2883f9bcf69aed067d69efa175aee46d97224ab5c346cac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "334d4583222a434122f416d84d28929ba542969fb7d55cf92acd8a48ea5048dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "334d4583222a434122f416d84d28929ba542969fb7d55cf92acd8a48ea5048dc"
     sha256 cellar: :any_skip_relocation, monterey:       "fbad939d73d9bae09b0c0449acf38c4c9abfc1f8bf9f720d03209b87fdb51827"
