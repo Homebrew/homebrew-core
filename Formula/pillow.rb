@@ -20,7 +20,6 @@ class Pillow < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.9" => [:build, :test]
   depends_on "jpeg-turbo"
   depends_on "libimagequant"
   depends_on "libraqm"
