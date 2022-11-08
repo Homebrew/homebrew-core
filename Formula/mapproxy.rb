@@ -10,6 +10,7 @@ class Mapproxy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "db72a46652793ed7f641e608855211c104dc4163c64d8fa2aa2679e30d9a2a63"
     sha256 cellar: :any,                 arm64_monterey: "1f7f76b227e635e78179db1da2ec4f2c57dd8a752bafcc65d33c5282c399c9fd"
     sha256 cellar: :any,                 arm64_big_sur:  "e894d1e3e137da8dc77cceda200b2d832fde3db82d579785ac63b5b7098c223c"
     sha256 cellar: :any,                 monterey:       "50214110fd2799c5915f9eb3a9caa2159d4e8f3688c2cab1d002ce7e81e49927"
