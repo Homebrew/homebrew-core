@@ -22,12 +22,12 @@ class Jailkit < Formula
     sha256 x86_64_linux:   "fe136070c9a808323d6919365991597aaf5f2ca6867d8cee66129c205943a8e2"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    ENV["PYTHONINTERPRETER"] = Formula["python@3.10"].opt_bin/"python3.10"
+    ENV["PYTHONINTERPRETER"] = which("python3.11")
 
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 end
