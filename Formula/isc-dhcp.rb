@@ -11,6 +11,7 @@ class IscDhcp < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "ca26d2145b3c8040d94c1ee2b8065d1facdf47f00e4d26e93d8a15a9bab3b209"
     sha256 arm64_monterey: "53454eb5ae86cb4fe52825f7bcfec568ed205ee417d21526fa42d1c5b90141dd"
     sha256 arm64_big_sur:  "11182828a03788759a737535d2db69aa96d12df98889e62c4b8147f709b00a92"
     sha256 monterey:       "a55472a7338f26f7138000677df04f90eec5eec5120168b87c72ed14b9536fbe"
