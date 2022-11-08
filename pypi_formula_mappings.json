@@ -81,6 +81,10 @@
   "bzt": {
     "exclude_packages": ["numpy", "six", "Cython", "PyYAML"]
   },
+  "ccm": {
+    "extra_packages": ["cassandra-driver"],
+    "exclude_packages": ["PyYAML", "six"]
+  },
   "censys": {
     "exclude_packages": ["Pygments"]
   },
