@@ -6,6 +6,7 @@ class Htmlcleaner < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2288e8a67ed3a00db0d493dc003b2705ae3c56f2e3eda4f6a25413a061b39a56"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b6a287a43392e2a9ea253172a5000ff7da6f898dffda7c3052eda4ecdb91a961"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9db87bc977615b9bb0250f0dc9f735dcd3d20a0799700640afe80c9bb011dd29"
     sha256 cellar: :any_skip_relocation, monterey:       "6dd5433406edc84f3e175426793cc788d1edc8cae11bfacfbaf4431f39c631a9"
