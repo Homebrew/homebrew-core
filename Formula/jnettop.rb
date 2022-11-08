@@ -13,6 +13,7 @@ class Jnettop < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "d9309bcae09fec8961c974c65107b4d6cab9761d171c7d4d54cd0c8bc7842337"
     sha256 cellar: :any,                 arm64_monterey: "f2c6e3fed7a82f036acdf944ac6f27d11946995d961be3a0e804b8a9099a946a"
     sha256 cellar: :any,                 arm64_big_sur:  "1f1f3c5e26f7fc52b331300926a4aa93e1081b31cc20cb533f9b0791477cc101"
     sha256 cellar: :any,                 monterey:       "9e14b85dd45a7b23d5548948dff568bde0f0db0ec59c91baff292c896c804423"
