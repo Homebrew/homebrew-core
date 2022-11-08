@@ -11,6 +11,7 @@ class Faiss < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "25a42c60045dea501c1e4c5311d7c12df405bc03b403187d2b3f00d476b761fe"
     sha256 cellar: :any,                 arm64_monterey: "8e09e62b7668f4cc1899538f6f04d6a5ffc9c13754333fbd4a0c9dc31180ea34"
     sha256 cellar: :any,                 arm64_big_sur:  "2ca971705fca0cec23a32678b404051806fba19ac5d94b54f64313c0cb03ba09"
     sha256 cellar: :any,                 monterey:       "fba20949524dce97040f7480c82e96bd44290104c5205ada67ac50d23f85f8e4"
