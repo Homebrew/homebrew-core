@@ -7,6 +7,7 @@ class Flatcc < Formula
   head "https://github.com/dvidelabs/flatcc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "972eddaa32d08f0f53c2091e03c44022597883f7d8f9a5aea361d3f91959d795"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "03e63b4e0e204f4cb7d8ff62a5020deca986b97321ad3059f11153ee6c70ac06"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff1f00cc07f66e878fcb04c06c498eeb6b4f5c49d46ba40ba15461b8ca339974"
     sha256 cellar: :any_skip_relocation, monterey:       "145f6bf5c92bdd8f374639bb559c7b3ed6a140248ace0b1d4671c4b73b90f70e"
