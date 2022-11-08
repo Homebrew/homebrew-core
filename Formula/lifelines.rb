@@ -5,6 +5,7 @@ class Lifelines < Formula
   sha256 "2f00441ac0ed64aab8f76834c055e2b95600ed4c6f5845b9f6e5284ac58a9a52"
 
   bottle do
+    sha256 arm64_ventura:  "a47b652141dd91cf3c2f88fc0fac232b93355645ce0319b9547504c6b8244145"
     sha256 arm64_monterey: "9be7a6bb235edd9eec5362c010a521403d4cb617e4ce3d18a4c94caf1df37a4d"
     sha256 arm64_big_sur:  "0d4bbac64c9f9bb282761727298fbe0b04c8c520a9641ae7d16cf69453a0db48"
     sha256 monterey:       "c2cd11c23d01c15b708d86073bda0baa8b9a3891fd553ac8a31917371edcee83"
