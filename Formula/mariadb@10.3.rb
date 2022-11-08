@@ -1,10 +1,9 @@
 class MariadbAT103 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.3.32/source/mariadb-10.3.32.tar.gz"
-  sha256 "948d0cdf2f92c60cff4232af9d724e0a4bbeafbb35762fa429e7ba5c3811c064"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.3.37/source/mariadb-10.3.37.tar.gz"
+  sha256 "a7b25f3534eff9dd847ca19f3adf70a975ee572929c16b1cf7ef8930bf782677"
   license "GPL-2.0-only"
-  revision 1
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
   # requirement. In the future, this will be updated to use a `Json` strategy
@@ -90,6 +89,10 @@ class MariadbAT103 < Formula
       args << "-DWITH_NUMA=OFF"
       args << "-DENABLE_DTRACE=NO"
       args << "-DCONNECT_WITH_JDBC=OFF"
+    end
+
+    if OS.mac?
+      args << "-DWITH_READLINE=NO" # uses libedit on macOS
     end
 
     # disable TokuDB, which is currently not supported on macOS
