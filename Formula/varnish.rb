@@ -12,13 +12,12 @@ class Varnish < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e2a64e0afdd9a98b649db47a66466916bb5307b64ee873adcb0790e236ae0443"
-    sha256 arm64_monterey: "c23279e2aa75bc420476c672c62e0293fffed8b9592348f3ee785a0c1ad54cb4"
-    sha256 arm64_big_sur:  "f774aa8ae9013a8385798eb20d60917051809288b032bb88b7cc2debde0d6aab"
-    sha256 monterey:       "bdca7e45a4a491f735b5c9be0802235af658e7bf1a87190cb008d284a1cd7f0a"
-    sha256 big_sur:        "d057b99161f720e2b04b89c71f33761a7307d411b3542eb22a63c2d3008fda45"
-    sha256 catalina:       "9b2f43793432c39a0b3891560935fcca08e729e080d4deeb7a08f96ee17f4211"
-    sha256 x86_64_linux:   "c5e06bbb449ea6196cc702fd91aa2d0a5e5b3fc1eb93eb90a527e6e38a87d4cf"
+    sha256 arm64_monterey: "54d9b377ca097b2b52a6587b008861942980304d498f1ca763c381eadda84dde"
+    sha256 arm64_big_sur:  "52abe334b03a84878db5e12e656fdee57bf96d0850e16acf5c41de22e20d3a42"
+    sha256 monterey:       "1f5136cf626233f818e8b360903681fb6ac26da594eebc22464f3645e15676af"
+    sha256 big_sur:        "1e898c2342fc114e4d125da13affff0abe826f88b83d130da9b93e9decfdb9dc"
+    sha256 catalina:       "71676992efeb6f6bdc5bbd9dee205e3b0e752cb5b38032586d35043ac007361d"
+    sha256 x86_64_linux:   "64855ed4ce7f02bcd01eccc9dfdd0977239a39023349f7b83b91ffc5cb15d53c"
   end
 
   depends_on "docutils" => :build
