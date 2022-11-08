@@ -13,6 +13,7 @@ class Xh < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7f30a295dfb6c3064a380b6c883df34cd1574df2b2ec5c4227ea934ae391d3d"
     sha256 cellar: :any_skip_relocation, monterey:       "a5c2e85d9ed4501e11c0eae1e4c02f4532071c207f5ac15583281c2d27b224fa"
     sha256 cellar: :any_skip_relocation, big_sur:        "bc4148d22b515da0a9da2788f73d90a480a89a64f4c956b8c72a8aad0a946cc4"
+    sha256 cellar: :any_skip_relocation, catalina:       "f1f05533082208afce31a2eb6a280050d590ef6332b8aa9fe8bc151a1d2c2808"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb6a127b0164b7fc35b409a5edd1471397d0058e55a2d7ec7e73981ac5f5c365"
   end
 
