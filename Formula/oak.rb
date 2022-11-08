@@ -1,8 +1,8 @@
 class Oak < Formula
   desc "Expressive, simple, dynamic programming language"
   homepage "https://oaklang.org/"
-  url "https://github.com/thesephist/oak/archive/v0.2.tar.gz"
-  sha256 "d06ba53f88490f5d8f70f45515afaf6ee8e4119c8ab477e3b4de8ef3cc7a2c05"
+  url "https://github.com/thesephist/oak/archive/v0.3.tar.gz"
+  sha256 "05bc1c09da8f8d199d169e5a5c5ab2f2923bad6fac624f497f5ea365f378e38a"
   license "MIT"
   head "https://github.com/thesephist/oak.git", branch: "main"
 
