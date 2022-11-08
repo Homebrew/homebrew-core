@@ -11,6 +11,7 @@ class Objfw < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "0fd7eba37d5517c35a6088c4320513fbe96de81f592a19a7f2d54ff617317b22"
     sha256 arm64_monterey: "83b505efb37df36fe0dba40337409835856293328b2977f28d0ef8868e1d250e"
     sha256 arm64_big_sur:  "59dd4798a6017b6062614f70004c87feb3bbf7aecb9ac2165b5b6f92353c6361"
     sha256 monterey:       "af63eb9a8b2ba6a183ef1bafc61cc7a527ee1d4088e073095d625051f7ca4c79"
