@@ -31,9 +31,8 @@ class Creduce < Formula
   end
 
   head do
-    # The `llvm-13.0` branch is slightly ahead of `master` and allows use of `llvm@13`.
-    url "https://github.com/csmith-project/creduce.git", branch: "llvm-13.0"
-    depends_on "llvm@13"
+    url "https://github.com/csmith-project/creduce.git", branch: "master"
+    depends_on "llvm"
   end
 
   depends_on "astyle"
