@@ -7,6 +7,7 @@ class Aterm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "f3719eec4efda9ddcd6072fd1f0131e5b17e15b4fdff86a63d9278700cd797e7"
     sha256 cellar: :any, arm64_monterey: "ebda893b9758be7b869202f7c803c2c271d5d3538a321526a7f34cdc0c7397ca"
     sha256 cellar: :any, arm64_big_sur:  "7dda6c07018ede4897b320e3366ffbb09286150d1a03223fb921bc1f52185325"
     sha256 cellar: :any, monterey:       "42fc6a2b8e20c7085b7c1a90c672852b5cea75101ea09a49ce636c298c7473c1"
