@@ -6,6 +6,7 @@ class Azcopy < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "67693d881149aa25c7a651bb52c0d4bc8f4f93291eea5ac58f01ebba359ed9f3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22abeee9fe7abc8f15007cb1fc4e1bb6b11d98f9964eccbb6e50fa44cdd1beaa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e0322da2d1ad2330c492f5fd52e951c3a30bef7fd0288f1e3aa24c1d7f5570b"
     sha256 cellar: :any_skip_relocation, monterey:       "7082fb802effbdc62dc83510f17d35ad6d24fbca539785cfe0592cd5b54814ca"
