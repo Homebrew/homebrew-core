@@ -19,7 +19,7 @@ class Datalad < Formula
   depends_on "rust" => :build # for cryptography
   depends_on "git-annex"
   depends_on "p7zip"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "annexremote" do
