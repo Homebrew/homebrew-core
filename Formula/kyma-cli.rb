@@ -7,6 +7,7 @@ class KymaCli < Formula
   head "https://github.com/kyma-project/cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bee0aa1927aba8322e42b4c3822fd3c13e9cbaa0ae677e456e8e7f19168c006"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e9d59cb7ef3dddee20a5588459ee1da159951248773d423fb70f947534dad413"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c159c8ad8f82ca009bd8e506d4a5efd5fb34085b50ddb3d8847a3d1b97b729cd"
     sha256 cellar: :any_skip_relocation, monterey:       "54779d833cacdb31e3e2961cdbceb4736f06fc7f10393ccd3ac6d270aa3ab8b6"
