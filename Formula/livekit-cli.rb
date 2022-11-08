@@ -7,6 +7,7 @@ class LivekitCli < Formula
   head "https://github.com/livekit/livekit-cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a8178ea0b437fc01b19d43fbe12cb269d45b47c334077c7b646eee0cd92a0fa3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f67b151905f323b53487f768985b690970e479c3e0d1a8dfd3cdcdcb50b3a79"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fdad5496a482d20ce00f45716f201265bebaaf55f02d968fd7e84cf81dd0560c"
     sha256 cellar: :any_skip_relocation, monterey:       "a43df3ac45bfac34d857f116814f6890b2c48f847c468c6dd4a195fd5670e1ff"
