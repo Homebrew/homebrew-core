@@ -12,6 +12,7 @@ class Mcap < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8d730627d09b31c2b4a4069a2ea057df90184da1f8a4ef90b5b98f793e0ef0a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f33d7a3b8e11d152edefedb3afc1de1ac95b4fc8b458ad2ddcdcb585b37f58db"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f55b70cdea67780d9c028e7fe75e4ad45453537970761279141d480960b362c0"
     sha256 cellar: :any_skip_relocation, monterey:       "0c09ee198618e14a7964ba86366ccdffc3a0004215907ea86cb8dbdb5880f822"
