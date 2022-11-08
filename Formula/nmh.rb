@@ -13,6 +13,7 @@ class Nmh < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_ventura:  "a6100dd22a0dd8c469c69485b1430fe133b0ca88bc3d422431137a079269c711"
     sha256 arm64_monterey: "726887989054eb588cf773ff213bd01429119cb0c396648b865c173171bd7a39"
     sha256 arm64_big_sur:  "c22c2cfe619a7b8529f2489492bf2294864fd36735174925da0a696bc1a11ea1"
     sha256 monterey:       "b9a5abc2d6bd14beae38367a355a193fca51afa00d2142ca4ef61706bb5b8b27"
