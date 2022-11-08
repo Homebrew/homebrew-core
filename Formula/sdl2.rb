@@ -6,13 +6,12 @@ class Sdl2 < Formula
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "653bf4aa1175485554362d32a89f2c24134b93c5f35655df362db5c0019440b7"
-    sha256 cellar: :any,                 arm64_monterey: "1a3356f2dd3e61fb00f555f412a5f87f4674ae5264050a13e0a3845b9e3504cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "1123966cee8f09a82f0437e95c5eedf37c8d1799d1ecfa99882555927bd46f87"
-    sha256 cellar: :any,                 monterey:       "ebb4d5c39c46b714bd6c0327bbc311c237621889436abdf832c2df3d6ecb03e4"
-    sha256 cellar: :any,                 big_sur:        "d53d137ba30c207b46f375b9189a4bd11ddb0908eb376faabc8642d19f9253ba"
-    sha256 cellar: :any,                 catalina:       "cbfdf2b80e88198ade5d1f5fefa2c747f0eb2c30b0eda388292c00ff9b981dc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1afd7a08f011c31489816c12a468c5d13163cdf6d7491bf3cbb08e62037f1485"
+    sha256 cellar: :any,                 arm64_monterey: "562ab43c40806657c487d635bcbd7b6c92da6b613b74aec68205d6372e049fbe"
+    sha256 cellar: :any,                 arm64_big_sur:  "ab30c410aff6dab70d7334b310b7189003b129803b845a3658b589d60f77ff10"
+    sha256 cellar: :any,                 monterey:       "439ba2cf4becefadda6c9b06f3fa4b520d5b883afb65beca199859323ffe4d7e"
+    sha256 cellar: :any,                 big_sur:        "a9de785f7457bcbbe02e8154543210935f03de0914ac898913c4e28c923ae8c4"
+    sha256 cellar: :any,                 catalina:       "c5cc02c981aa73ae82c98b19d14124f3f0e9dfd11820dc09ae864f1d96ab2a5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44c03b39c21dfc41b077de93fb29d5c2851699f6076ea905bab0a79ba21d1c6d"
   end
 
   head do
