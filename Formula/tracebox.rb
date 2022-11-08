@@ -10,6 +10,7 @@ class Tracebox < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "5e87f5abfd04eb0bb0e9c7e45279863164c5dc484835073d4fbde7f2fa989bdf"
     sha256 cellar: :any,                 arm64_monterey: "cc4ac9edfdc0765525644d4af89bece91cf0b184d960bfb44998b8261c6402c3"
     sha256 cellar: :any,                 arm64_big_sur:  "ad820978e61f8d526c9116d5f87cf834761575819e7034937c446199a912d2f6"
     sha256 cellar: :any,                 monterey:       "951aba2156c33b56e146e3d8f69b3405f66ec650f17796254c0a2bcc6af59b4b"
