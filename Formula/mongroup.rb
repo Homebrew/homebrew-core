@@ -6,6 +6,7 @@ class Mongroup < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16deb20baa844034c6a1c8bfcb61971a71f576fbebd0dd6170321aeed2866ee7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "16deb20baa844034c6a1c8bfcb61971a71f576fbebd0dd6170321aeed2866ee7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc40264f75aafc4f194f10d2b7472e152a4c9f58ec104db6ebeac3dc346c4370"
     sha256 cellar: :any_skip_relocation, monterey:       "16deb20baa844034c6a1c8bfcb61971a71f576fbebd0dd6170321aeed2866ee7"
