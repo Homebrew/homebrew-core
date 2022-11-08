@@ -12,6 +12,7 @@ class Macosvpn < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "76a6845a51666a5907260eb0e774c07fb9efd5cab5f18a4581b0b6f25816ba29"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a2c0d97645e6c5f84d99728d4453d63e5b018a8d0c77f2df40d811466f8eaf32"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6862be0cd39d91775f3336d40da31d7e7f6f645e767e77efbbf132a6b25f9955"
     sha256 cellar: :any_skip_relocation, monterey:       "352c72e737d04798510b4c7f739f13b3887f9e190836a8db44f7d382c1e75e77"
