@@ -13,6 +13,7 @@ class AstrometryNet < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "365bac9650d4c81bea4f0ff2b0350433baaa6659ecf9ff1eae577c6b5ea9ec4f"
     sha256 cellar: :any,                 arm64_monterey: "a21c4d8c622dd250ce4088b8cca7c947a10f5b4c2b1504ce2ffd95122d18ee38"
     sha256 cellar: :any,                 arm64_big_sur:  "2f05f2250be4b8fb352db9b4913c626e9c2ca2e29290255b4b41696b1a645620"
     sha256 cellar: :any,                 monterey:       "1664b3417832a7d24f6115876067e826655e7eb5cf27b59de2a927a310d65742"
