@@ -11,6 +11,7 @@ class Tundra < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdd0d899c91a1119bf5c92a065b8512d93ebe55b3717739c643f45f007e69b4f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "881f85c3420de84fef6abada966f11381a2a2342584485a10be0cd129470302f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7ab1c12b2e4655c43d05d0a2e3d7c639b0ba3f525ce19ccd63f0c1b5232b139"
     sha256 cellar: :any_skip_relocation, monterey:       "12546c667831e99b534a83f6d3e0ef5eb27795396a68198dba7510a73f28ee2e"
