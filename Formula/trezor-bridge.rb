@@ -6,6 +6,7 @@ class TrezorBridge < Formula
   license "LGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "303f7229f3842a2a55522d9f8855175b91d22d6542ba744431ef2b529098785e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "397b7e64540efe897cb2c5fadab51d577742e20d462fa1f95c20e1375bce5dbc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "78091c03859934522369c96f13b21c52c9cc8c2128b4c239bc1729f29402aa30"
     sha256 cellar: :any_skip_relocation, monterey:       "8efd4d6faa3d474c11896774107f7458ed026dca8d4559580857d328364a1c29"
