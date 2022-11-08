@@ -10,6 +10,7 @@ class Gif2png < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f0feffa02d1d8db0cf5e4f13a209c173fa870557faae6fe0d37a5d96614c9cc5"
     sha256 cellar: :any,                 arm64_monterey: "7376913b012f5b2fe0972244be5bbbefc665ed0f13c9d3a8ac2b0fe6d23dd375"
     sha256 cellar: :any,                 arm64_big_sur:  "a8b1dd6b1f3b029b7ca53f99f18caea098810634aea1a745630028e66ecc4203"
     sha256 cellar: :any,                 monterey:       "6f5ad22f5b61cb14009aa71dc7c892093117a1a7d920e9f7712bb27e98e56b4d"
