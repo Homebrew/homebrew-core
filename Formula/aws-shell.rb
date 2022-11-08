@@ -10,6 +10,7 @@ class AwsShell < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "46f773dd9cbf5d304fddcc6c0e255f9cf1dfb39d508e4856bf4fbefb4f360260"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b92aeb523910e407f59ffe410abd2ab38e121fe3886268f689489092faec968"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "594222b0e12575c2a2351e71cc4648a83f3f501d0627e9d3aeb386d03bc36515"
     sha256 cellar: :any_skip_relocation, monterey:       "022cc6d40ac9d389ffa6ecdfad1ad2e9ab03a72256de044fcd621720dc25729e"
