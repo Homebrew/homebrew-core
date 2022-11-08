@@ -16,6 +16,7 @@ class Ice < Formula
     sha256 cellar: :any,                 arm64_big_sur:  "8afe5f234ae949865fddca70ab16e15e33319f286075089f752f6b146abeba5f"
     sha256 cellar: :any,                 monterey:       "aa346abe07a352e4ea23803bc9c7bf73a95e6f2efa026d5ca47ea8d109f6dfae"
     sha256 cellar: :any,                 big_sur:        "1e078df1a92a1cd953d2d6ec66363ea8ca52e731c73bd650bc4156eee6f45d9f"
+    sha256 cellar: :any,                 catalina:       "80efcfad8576c1357f1932dce4b5d46910839018fba3f006e433cb29f228ca23"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f73974710d6af39e7bca7ada86590b5be72aa9304bc4ee6af062fdf6e20203d4"
   end
 
