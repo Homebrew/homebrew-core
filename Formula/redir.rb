@@ -6,6 +6,7 @@ class Redir < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "236941203f68e2338ee2e31c8fc621d97188f8961d691621ae7d4df16c7dcb8d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31d05c824bc5c340c1bbd775c00bc8803a39e528f8435e78bc7ef284316ce07e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11abbdbbf74827eaf72cef5c1c2b7a84fc79010a00afc11f69b5797f44449479"
     sha256 cellar: :any_skip_relocation, monterey:       "9981c02e789e34dbdf80c39509768b7f3142e25ae15a24a8830993cd40c43fd8"
