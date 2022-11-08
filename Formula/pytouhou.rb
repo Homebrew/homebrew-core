@@ -7,6 +7,7 @@ class Pytouhou < Formula
   head "https://hg.linkmauve.fr/touhou", using: :hg
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "eb665fc9191b06afba5629a7e1e9a7fbc4a30e1ddaf1d3b5f93ce0f58e77ebc8"
     sha256 cellar: :any,                 arm64_monterey: "5b7880e24a56f914a2eba61055a67aeb2e3f4ad0ecd311c1b6e27295b748c926"
     sha256 cellar: :any,                 arm64_big_sur:  "0911d15863c316fc09f7bf623932220fcce67ad4e16dbdb614a72f11d73df227"
     sha256 cellar: :any,                 monterey:       "b973c7a742e8838a3f5bfd0ba94193c39bd81543d7a8d19f98f07713d30e4b4f"
