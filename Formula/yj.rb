@@ -7,6 +7,7 @@ class Yj < Formula
   head "https://github.com/sclevine/yj.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "629640c9e3caf08148948158d044817e212a3274ec40af248d2cd14151ecfe7c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6006ef14b2246ac63c166b0c2e7ddd59265ab3e38d46d3f6373e4a9c33897000"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6006ef14b2246ac63c166b0c2e7ddd59265ab3e38d46d3f6373e4a9c33897000"
     sha256 cellar: :any_skip_relocation, monterey:       "5171d044ed87a081eaa9cf71a7acad2bede581c9b451a0f21b3908e4d2e45105"
