@@ -8,6 +8,7 @@ class Dcadec < Formula
   head "https://github.com/foo86/dcadec.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47bf0a1d239ce33c7fd85c57dd7b8aad67e69aaca2a28206d45a6f7f14d189d1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d458c3484034748b9b1fee9074d5f3018354447d11914f132c6e41899de17491"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "359384000edd00fc8e030bb59f9ebc15a301eb250351a20f2da062cc202caa54"
     sha256 cellar: :any_skip_relocation, monterey:       "702e3f8b57be59604d5969be08fb64067763e5aac353154b233ad74a3f5a3276"
