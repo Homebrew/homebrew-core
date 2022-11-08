@@ -9,6 +9,7 @@ class Unshield < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "4919d2591a3822980fc17ed43ce5550ec7a40aa5f0a3df597222147d4eded84d"
     sha256 cellar: :any,                 arm64_monterey: "1956ca8994e481560c1f7d548d3af0f5ebdf82ff632a6bbd5de320cb87162436"
     sha256 cellar: :any,                 arm64_big_sur:  "3f410a76b57b1cde50eb5f564afec25ebc83a5a07b0251bcdbba468c2d902610"
     sha256 cellar: :any,                 monterey:       "cd329f3c7c6a0eb689adc539072a66228042b126b89e41fd7fc2e2017c302b4b"
