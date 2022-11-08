@@ -13,6 +13,7 @@ class Page < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "669f84cd2f3bcca9c5bdd41034167f0945efda5045d817efcb5067ad09c1daea"
     sha256 cellar: :any_skip_relocation, monterey:       "71f4fa8a352edc9a2a43df532e37fe9c5b3bd7dd98fc70c7f12e3ea013a88c89"
     sha256 cellar: :any_skip_relocation, big_sur:        "f265e404a083079103c6bc00e7aa811c8a8b2576dd67f1468b62f7ac78160f87"
+    sha256 cellar: :any_skip_relocation, catalina:       "b4969223548fb851d27e3f5a8643b44f6012dc52f2ded74d0ebe32d103969b33"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "01ae56c67892c13654670acafa8c2219658babedeec0eae31af7767032ce9cc8"
   end
 
