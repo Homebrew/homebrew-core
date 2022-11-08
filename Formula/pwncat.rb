@@ -10,6 +10,7 @@ class Pwncat < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13ef41fbecdf01f47064a3e29ce0ac70a4bfa0110e1dbc2cb5d6cd09a187642a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "13ef41fbecdf01f47064a3e29ce0ac70a4bfa0110e1dbc2cb5d6cd09a187642a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13ef41fbecdf01f47064a3e29ce0ac70a4bfa0110e1dbc2cb5d6cd09a187642a"
     sha256 cellar: :any_skip_relocation, monterey:       "28c110818dc6d9aa1a4c6a06376f5c66dfc485a6f74c21f94dd207ac6b1f2e39"
