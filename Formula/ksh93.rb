@@ -7,6 +7,7 @@ class Ksh93 < Formula
   head "https://github.com/ksh93/ksh.git", branch: "dev"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e3c9d85dc84136fb32e1b922359a39c4a53ae9515bd056316e15657c7b4510c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8e7454d428bfbd6d0179e4fa9ba47bfb2431de6ef06e65396359072da90fdd6f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8749b975877f34b340a823d1b66fa2a0b31f27674ddd7f05dfff28d655e56cf"
     sha256 cellar: :any_skip_relocation, monterey:       "559d57f600a47a3ac16b21aca6801e7c53830742145c751add0786616d8e0a17"
