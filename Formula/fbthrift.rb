@@ -7,13 +7,12 @@ class Fbthrift < Formula
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8013f217f61df11420efef99240affd666ee4a0f33afca3ae261a3120cbca104"
-    sha256 cellar: :any,                 arm64_monterey: "6faa1200b901ddb1990eddadaff09f7e811ced78a325f07b99310a31809fa7fd"
-    sha256 cellar: :any,                 arm64_big_sur:  "0fee15c14228e467c733e1d0a8fcd97a89273b8181cf7c457689449a296eddaf"
-    sha256 cellar: :any,                 monterey:       "897a4d9fcb7a98c6e542cdda24b52210bb4279648722c8a66288f74f960c5a73"
-    sha256 cellar: :any,                 big_sur:        "0536c577984486062f8c5cb2e4c1f8c88b74659dea12cb32b644749f4d60fd73"
-    sha256 cellar: :any,                 catalina:       "f36844335cf9b54572ca7dbb5aae8d3f728aa37bf0bee93c01d59fc6ce720a8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e341b628526362b68304db252b5266d5997aa817d664723b715cd5cf86d4799"
+    sha256 cellar: :any,                 arm64_monterey: "406723713ba5a9b7bf371c9c0a3186d2fb01363fc9cf9bec8597e25183730754"
+    sha256 cellar: :any,                 arm64_big_sur:  "8c5d3527dc62882fa092e0f49b7d498fa947390f5c28c422cffc55883458c51d"
+    sha256 cellar: :any,                 monterey:       "cfe94a9ebbd78185809ddaa057c6ed0d4280794e3d4e5e91e3b5b6d7cc7a1818"
+    sha256 cellar: :any,                 big_sur:        "df1697c874a432642556d981fdd70e41c6d7d216de574b72a01fff27f9dfc058"
+    sha256 cellar: :any,                 catalina:       "ddbc5732914c495d5e9ff5e72043738d32f356b61a099220d31c80c5a0b5709d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aed3d234bd3780a48c748d14720787018f6a43d99f4b9753209f852465cf1932"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
