@@ -6,6 +6,7 @@ class Csvprintf < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aae599a950ff7fe26508a9458e76795b35d5956dc3e1f36929ca6e8616cbfe28"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5dbdb4f0989a442794da7daa31b35296214b56e0af22a4a302910a8624fa1218"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2fc3d5e60a5b7e3888b894e8445883835b36842c89112591073ab0f9db4053c"
     sha256 cellar: :any_skip_relocation, monterey:       "e071134e0636c58ec866d175764f2a5cfbe20b3c223e4033e87740b63daf8e48"
