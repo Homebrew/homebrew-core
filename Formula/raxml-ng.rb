@@ -8,6 +8,7 @@ class RaxmlNg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6e3db16bc310a565d8af3c0ca2b9775bf760f9e07f89ef776ef198b6ab6404a5"
     sha256 cellar: :any,                 arm64_monterey: "2229ebeb6fa282a4e3f97896ef02ba2d32671d497bc65188dc118d13239693d8"
     sha256 cellar: :any,                 arm64_big_sur:  "0236a1f00a663905ad3f3a8eb0cff275900f7f0b29a4ff65616b82384bb01467"
     sha256 cellar: :any,                 monterey:       "ffce4563023dbcd2e0eea0f6c06a0f33157561f412557cab49ed4c412c32562e"
