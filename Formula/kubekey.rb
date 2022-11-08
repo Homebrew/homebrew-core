@@ -29,11 +29,14 @@ class Kubekey < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/kubesphere/kubekey/version.version=v#{version}
+      -X github.com/kubesphere/kubekey/version.gitMajor=#{version.major}
+      -X github.com/kubesphere/kubekey/version.gitMinor=#{version.minor}
+      -X github.com/kubesphere/kubekey/version.gitVersion=v#{version}
       -X github.com/kubesphere/kubekey/version.gitCommit=#{Utils.git_head}
       -X github.com/kubesphere/kubekey/version.gitTreeState=clean
+      -X github.com/kubesphere/kubekey/version.buildDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kk"), "./cmd"
+    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kk"), "./cmd/kk"
 
     generate_completions_from_executable(bin/"kk", "completion", "--type", shells: [:bash, :zsh], base_name: "kk")
   end
