@@ -22,7 +22,6 @@ class VowpalWabbit < Formula
   depends_on "eigen"
   depends_on "fmt"
   uses_from_macos "zlib"
-  
   patch :DATA
 
   def install
