@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.9.3/source/mariadb-10.9.3.tar.gz"
-  sha256 "9a1e229972fcccc8270e633f68d3fb824da151dcf4f53da1df8d947aca876bee"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.9.4/source/mariadb-10.9.4.tar.gz"
+  sha256 "1dff08a0f37ea5cf8f00cbd12d40e80759fae7d73184ccf56b5b51acfdcfc054"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -55,6 +55,13 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
 
   fails_with gcc: "5"
+
+  # fix compilation, remove in 10.9.5
+  patch do
+    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
+    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
+    directory "libmariadb"
+  end
 
   def install
     ENV.cxx11
