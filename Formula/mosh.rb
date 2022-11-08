@@ -6,12 +6,13 @@ class Mosh < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cd5e65fefe77158948b9ca62111bf2be92eeb0cfa9f1c947fbc7a47d5aafbb90"
-    sha256 cellar: :any,                 arm64_big_sur:  "350f6da7e527462bc3d23e8a0e5e0b27a142dc23e559d84db3c85a19b464aa16"
-    sha256 cellar: :any,                 monterey:       "4ed43c909f0032e01d2aa62814480cc48d25180df72ec2036343783f9ca6eb6f"
-    sha256 cellar: :any,                 big_sur:        "18eda8018036804beaa7fa9c57e3cc58afd0142021cf3d81ddd638e27287b395"
-    sha256 cellar: :any,                 catalina:       "d206e09c499790891f1ed62f7926046e07359a7510e22a7b010ed6a8d6917989"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bab92d02ff8ee5d16017e4aee5981c99bca64e6c07ae404101b57762b65f4d6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "2780be65178f382963fd1759ff1b9df15807cc30b4a7cab5a766da1a4157ef49"
+    sha256 cellar: :any,                 arm64_big_sur:  "5b52e78e946518d87bbac09cd450188e65869ebab91dfb7617534c5c913b1b01"
+    sha256 cellar: :any,                 monterey:       "3e096f0100dd45fd8e292c59fb9c1fe42af3e6edfe3f662abb3cdb8dda8b508b"
+    sha256 cellar: :any,                 big_sur:        "26537bd45fcc9a86274b84b9f6b741ffb677fa769c3be1a0d2dd568aa0447986"
+    sha256 cellar: :any,                 catalina:       "2df281372623a61e3a9a7d3c795f4aefa0d2514da4c545f7c86646b28205c918"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f657bf329013d80922dc46fdbf4ec6303a5d665826affc0008bcb0deb2da6f3d"
   end
 
   head do
