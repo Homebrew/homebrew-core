@@ -7,13 +7,13 @@ class Bvm < Formula
   head "https://github.com/bvm/bvm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "051f1c853a4bbc5c96496ec6f49ddd634b851c7a26b0922c4ca2bb6252480bfe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a284f10dc418073f3f9920acd946b6d494e9d81c6c9628532d352546ff47c683"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e05342a9aaa52b60891218158811a9c6848a4f7e37919e9029e022db54226490"
-    sha256 cellar: :any_skip_relocation, monterey:       "03fa1710f7665d0910ee7a501572de68fcd5977b98ed265d456674e7aedf5d1d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0de6d3a5c96bd9131e5d075a44d727afa4ccdf7ad7f91cbdef65edf7f42a2149"
-    sha256 cellar: :any_skip_relocation, catalina:       "03feaea85d097ba5b2e6248f001b49859f808b263d0184023c03946bc0e9b198"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9dc4ab8b9c8addd472add6233b07154a7b10886accfc76854637c980bdc28c4d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "693a77a710934aefc58c70c85b463347e029e23cac7e497bbd4710d56331421f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35791169d51be8b50901c4380b330595af3c4ff02495c90a412dbdffc9ed0785"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7618a44251a99f34f374c7e2007d189d277b83a215fb076b8c2cef8acf2d08c1"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c52d9ee186a37ed791283aa03ce80f9346d26ab4fca7ede7d9c29137a739d9f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d21190edd6a8ff77a8ae0174b016a16952d25e20f78910ae0c54d156067c1155"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a19b280d30c8ab515c180d095a592d0a4ddcee2a69737d439bb67320a002c10f"
   end
 
   depends_on "rust" => :build
