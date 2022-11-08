@@ -6,6 +6,7 @@ class ManifestTool < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d2178faa38e32f4196989c16681e6b24c6d616c3133709a8a6ea0cc60ba6f2a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "42b358798b4ec2c454b00f750147bf47d7e801708f8ba84308d302041cfe47ff"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f8b682e89f12fa2f61e70bcb71636d5a945439411c7e58a332540e8e83589ad8"
     sha256 cellar: :any_skip_relocation, monterey:       "f9dc01750d364f7124e2ffc0c64a0c9ee065256e5eaf997af5daf70c8568448e"
