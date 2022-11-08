@@ -22,10 +22,7 @@ class Duplicity < Formula
   depends_on "librsync"
   depends_on "openssl@1.1"
   depends_on "python-typing-extensions"
-  # msgpack-python does not support Python 3.10. Dependency comes from pyrax:
-  # pyrax -> python-novaclient==2.27.0 -> oslo-serialization<2.17.0 -> msgpack-python
-  # Related issue on pyrax being deprecated: https://gitlab.com/duplicity/duplicity/-/issues/105
-  depends_on "python@3.9"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -48,8 +45,8 @@ class Duplicity < Formula
   end
 
   resource "azure-core" do
-    url "https://files.pythonhosted.org/packages/ee/ab/05f2bf8699aad4c3eb29c1702cc1784c106816cc07bf8ac43abad9496a9d/azure-core-1.26.0.zip"
-    sha256 "b0036a0d256329e08d1278dff7df36be30031d2ec9b16c691bc61e4732f71fe0"
+    url "https://files.pythonhosted.org/packages/4f/ec/3ba46ff4deebe738b7213997fc856553282e971a767b6291e05aca9d9566/azure-core-1.26.1.zip"
+    sha256 "223b0e90cbdd1f03c41b195b03239899843f20d00964dbb85e64386873414a2d"
   end
 
   resource "azure-storage-blob" do
@@ -60,11 +57,6 @@ class Duplicity < Formula
   resource "b2sdk" do
     url "https://files.pythonhosted.org/packages/3f/6c/15582dbc9340586b6ee1d43070a43753cc9d1c3522db13cd38779f25a479/b2sdk-1.18.0.tar.gz"
     sha256 "9272f28d18d498b66d33d749a0f05e49d9bb1a9134f94261c0b8bfa1b56f3eec"
-  end
-
-  resource "Babel" do
-    url "https://files.pythonhosted.org/packages/51/27/81e9cf804a34a550a47cc2f0f57fe4935281d479ae3a0ac093d69476f221/Babel-2.10.3.tar.gz"
-    sha256 "7614553711ee97490f732126dc077f8d0ae084ebc6a96e23db1482afabdb2c51"
   end
 
   resource "bcrypt" do
@@ -78,13 +70,13 @@ class Duplicity < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/85/d4/7a96989ea342cc26d56414f8e563ca7ea97fe8cb4caa27ea2b8acc0ec1ef/boto3-1.24.96.tar.gz"
-    sha256 "6b8899542cff82becceb3498a2240bf77c96def0515b0a31f7f6a9d5b92e7a3d"
+    url "https://files.pythonhosted.org/packages/df/e4/893fc4af6ee0c801725b48ba4d3120705126edab71e0fe84f8eb4850c427/boto3-1.26.4.tar.gz"
+    sha256 "244fd0776fc1f69c3ed34f359db7a90a6108372486abc999ce8515a79bbfc86e"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/1d/9e/c3094925ac483e295e694a54665c925f70560b5988603dca597fe099b45d/botocore-1.27.96.tar.gz"
-    sha256 "fc0a13ef6042e890e361cf408759230f8574409bb51f81740d2e5d8ad5d1fbea"
+    url "https://files.pythonhosted.org/packages/32/c1/3a3cbbdc58a71c1dfafbeeb79dd09b68a030ff5c52df7ad8e87d5ed57c10/botocore-1.29.4.tar.gz"
+    sha256 "fa86747f5092723c0dc7f201a48cdfac3ad8d03dd6cb7abc189abc708be43269"
   end
 
   resource "boxsdk" do
@@ -123,8 +115,8 @@ class Duplicity < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6d/0c/5e67831007ba6cd7e52c4095f053cf45c357739b0a7c46a45ddd50049019/cryptography-38.0.1.tar.gz"
-    sha256 "1db3d807a14931fa317f96435695d9ec386be7b84b618cc61cfa5d08b0ae33d7"
+    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
+    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
   end
 
   resource "debtcollector" do
@@ -168,8 +160,8 @@ class Duplicity < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/93/cd/e9136c12110ec50ddab676c6cb35f913566120c503730820905f64a11230/google-auth-2.13.0.tar.gz"
-    sha256 "9352dd6394093169157e6971526bab9a2799244d68a94a4a609f0dd751ef6f5e"
+    url "https://files.pythonhosted.org/packages/89/e3/b9002efddfc812af8afd59577ed04432cd3bfcc9c46e0210f3a1b56dfe4c/google-auth-2.14.1.tar.gz"
+    sha256 "ccaa901f31ad5cbb562615eb8b664b3dd0bf5404a67618e642307f00613eda4d"
   end
 
   resource "google-auth-httplib2" do
@@ -178,8 +170,8 @@ class Duplicity < Formula
   end
 
   resource "google-auth-oauthlib" do
-    url "https://files.pythonhosted.org/packages/f0/d0/3521515d13827eb4c68d3b45972ad49a21b02e486c589fdd3c2aee9b9065/google-auth-oauthlib-0.5.3.tar.gz"
-    sha256 "307d21918d61a0741882ad1fd001c67e68ad81206451d05fc4d26f79de56fc90"
+    url "https://files.pythonhosted.org/packages/fb/d1/afcdd1611dc768ed3757a021a6e9410275ae27c6b26b84623bc0f9f706dc/google-auth-oauthlib-0.7.1.tar.gz"
+    sha256 "9940f543f77d1447432a93781d7c931fb53e418023351ad4bf9e92837a1154ec"
   end
 
   resource "googleapis-common-protos" do
@@ -188,8 +180,8 @@ class Duplicity < Formula
   end
 
   resource "httplib2" do
-    url "https://files.pythonhosted.org/packages/9c/65/57ad964eb8d45cc3d1316ce5ada2632f74e35863a0e57a52398416a182a1/httplib2-0.20.4.tar.gz"
-    sha256 "58a98e45b4b1a48273073f905d2961666ecf0fbac4250ea5b47aef259eb5c585"
+    url "https://files.pythonhosted.org/packages/c2/37/a093aaa902f6b2301f0f2cff5285548dbc4ab9b9a29215eb440381cbb32b/httplib2-0.21.0.tar.gz"
+    sha256 "fc144f091c7286b82bec71bdbd9b27323ba709cc612568d3000893bfd9cb4b34"
   end
 
   resource "humanize" do
@@ -205,11 +197,6 @@ class Duplicity < Formula
   resource "importlib-metadata" do
     url "https://files.pythonhosted.org/packages/7e/ec/97f2ce958b62961fddd7258e0ceede844953606ad09b672fa03b86c453d3/importlib_metadata-5.0.0.tar.gz"
     sha256 "da31db32b304314d044d3c12c79bd59e307889b287ad12ff387b3500835fc2ab"
-  end
-
-  resource "ip_associations_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/01/4e/230d9334ea61efb16dda8bef558fd11f8623f6f3ced8a0cf68559435b125/ip_associations_python_novaclient_ext-0.2.tar.gz"
-    sha256 "e4576c3ee149bcca7e034507ad9c698cb07dd9fa10f90056756aea0fa59bae37"
   end
 
   resource "iso8601" do
@@ -238,13 +225,13 @@ class Duplicity < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/2a/ef/28d3d5428108111dae4304a2ebec80d113aea9e78c939e25255425d486ff/keyring-23.9.3.tar.gz"
-    sha256 "69b01dd83c42f590250fe7a1f503fc229b14de83857314b1933a3ddbf595c4a5"
+    url "https://files.pythonhosted.org/packages/1c/35/c22960f14f5e17384296b2f09da259f8b5244fb3831eccec71cf948a49c6/keyring-23.11.0.tar.gz"
+    sha256 "ad192263e2cdd5f12875dedc2da13534359a7e760e77f8d04b50968a821c2361"
   end
 
   resource "keystoneauth1" do
-    url "https://files.pythonhosted.org/packages/d7/f5/d6e5d18d46ac30369f334eda6b751096c6c5e85688a3b388ff4622f53e9a/keystoneauth1-2.18.0.tar.gz"
-    sha256 "075a9ca7a8877c5885fa2487699015e45260c4e6be119683effe0ad2ab1255d2"
+    url "https://files.pythonhosted.org/packages/07/41/a4b8d724a8bff89c55be8787afcaa68f60b0fc9bbab639bc7c0ed24a7a1a/keystoneauth1-5.0.0.tar.gz"
+    sha256 "6ebb5f044c9dfd263087a328d51d479947d1ddc90c09daf4191df7dc71334323"
   end
 
   resource "logfury" do
@@ -262,24 +249,14 @@ class Duplicity < Formula
     sha256 "4418b67fd6ec4b9417d32e2a153a1757d47bc2819b32c155d744640345630112"
   end
 
-  resource "mock" do
-    url "https://files.pythonhosted.org/packages/e2/be/3ea39a8fd4ed3f9a25aae18a1bff2df7a610bca93c8ede7475e32d8b73a0/mock-4.0.3.tar.gz"
-    sha256 "7d3fbbde18228f4ff2f1f119a45cdffa458b4c0dee32eb4d2bb2f82554bac7bc"
-  end
-
-  resource "monotonic" do
-    url "https://files.pythonhosted.org/packages/ea/ca/8e91948b782ddfbd194f323e7e7d9ba12e5877addf04fb2bf8fca38e86ac/monotonic-1.6.tar.gz"
-    sha256 "3a55207bcfed53ddd5c5bae174524062935efed17792e9de2ad0205ce9ad63f7"
-  end
-
   resource "more-itertools" do
     url "https://files.pythonhosted.org/packages/13/b3/397aa9668da8b1f0c307bc474608653d46122ae0563d1d32f60e24fa0cbd/more-itertools-9.0.0.tar.gz"
     sha256 "5a6257e40878ef0520b1803990e3e22303a41b5714006c32a3fd8304b26ea1ab"
   end
 
-  resource "msgpack-python" do
-    url "https://files.pythonhosted.org/packages/8a/20/6eca772d1a5830336f84aca1d8198e5a3f4715cd1c7fc36d3cc7f7185091/msgpack-python-0.5.6.tar.gz"
-    sha256 "378cc8a6d3545b532dfd149da715abae4fda2a3adb6d74e525d0d5e51f46909b"
+  resource "msgpack" do
+    url "https://files.pythonhosted.org/packages/22/44/0829b19ac243211d1d2bd759999aa92196c546518b0be91de9cacc98122a/msgpack-1.0.4.tar.gz"
+    sha256 "f5d869c18f030202eb412f08b28d2afeea553d6613aee89e200d7aca7ef01f5f"
   end
 
   resource "msrest" do
@@ -307,44 +284,39 @@ class Duplicity < Formula
     sha256 "9859c40929662bec5d64f34d01c99e093149682a3f38915dc0655d5a633dd918"
   end
 
-  resource "os_diskconfig_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/a9/2c/306ef3376bee5fda62c1255da05db2efedc8276be5be98180dbd224d9949/os_diskconfig_python_novaclient_ext-0.1.3.tar.gz"
-    sha256 "e7d19233a7b73c70244d2527d162d8176555698e7c621b41f689be496df15e75"
-  end
-
-  resource "os_networksv2_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/9e/86/6ec4aa97a5e426034f8cc5657186e18303ffb89f37e71375ee0b342b7b78/os_networksv2_python_novaclient_ext-0.26.tar.gz"
-    sha256 "613a75216d98d3ce6bb413f717323e622386c24fc9cc66148507539e7dc5bf19"
-  end
-
-  resource "os_virtual_interfacesv2_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/db/33/d5e87b099c9d394a966051cde526c9fcfdd46a51762a8054c98d3ae3b464/os_virtual_interfacesv2_python_novaclient_ext-0.20.tar.gz"
-    sha256 "6d39ff4174496a0f795d11f20240805a16bbf452091cf8eb9bd1d5ae2fca449d"
+  resource "os-service-types" do
+    url "https://files.pythonhosted.org/packages/58/3f/09e93eb484b69d2a0d31361962fb667591a850630c8ce47bb177324910ec/os-service-types-1.7.0.tar.gz"
+    sha256 "31800299a82239363995b91f1ebf9106ac7758542a1e4ef6dc737a5932878c6c"
   end
 
   resource "oslo.config" do
-    url "https://files.pythonhosted.org/packages/51/bf/5a671cf70e7103f36b36e05e52508091189b5597778153538399a02cff8f/oslo.config-4.12.0.tar.gz"
-    sha256 "bd8d03c4b28f1aa115e6b094651fc51adbca686f22f45ed721d837a5a5a249dd"
+    url "https://files.pythonhosted.org/packages/c0/b0/e6c8f1a543978b6909e1a8b733eb8e5e7b8ede2b29f7e83c8638169eae36/oslo.config-9.0.0.tar.gz"
+    sha256 "3b6b63c43cf1e09344ba850bcb11d6f2b9201086fbeb0a97a8950e7eac3f2645"
   end
 
   resource "oslo.i18n" do
-    url "https://files.pythonhosted.org/packages/ab/ff/65b92fea4afefd0c9e71e71e2a1a4c0c55dfae70a0976be1b84fd06ffa00/oslo.i18n-3.12.0.tar.gz"
-    sha256 "6add28cbbe8254838f7f131de0cf0f3761786d57e5fe5716a488260b725f58d3"
+    url "https://files.pythonhosted.org/packages/7c/d8/a56cdadc3eb21f399327c45662e96479cb73beee0d602769b7847e857e7d/oslo.i18n-5.1.0.tar.gz"
+    sha256 "6bf111a6357d5449640852de4640eae4159b5562bbba4c90febb0034abc095d0"
   end
 
   resource "oslo.serialization" do
-    url "https://files.pythonhosted.org/packages/91/84/92ff0c2ec75f3fbc880c076ba0d074cda4eed9cf199f85100992162cca37/oslo.serialization-2.16.1.tar.gz"
-    sha256 "306d9982eae272fff05db7637971fd07d2b9b818306c9e3af87aea7f452b4844"
+    url "https://files.pythonhosted.org/packages/c0/00/166651f281396a57d5342f1d8be772c7f54bbb128b6753ee8bf3943ad7e6/oslo.serialization-5.0.0.tar.gz"
+    sha256 "2845328d0f47dc8a23fed2a82253e90acff0aa731dbd24f379cf8e50e6cc66ba"
   end
 
   resource "oslo.utils" do
-    url "https://files.pythonhosted.org/packages/ad/90/ef1cc13e41ccc14f0f20ca6c6cd96d50c3a7a6bdf259411bf62af0f28534/oslo.utils-3.22.3.tar.gz"
-    sha256 "70473be975412407d43ef04b0de34c4d21c567bdcab608caeb8f0fcd4138f4f2"
+    url "https://files.pythonhosted.org/packages/99/5e/6f1b242ab4eb6ebe6055b1e2adb45cdedee3a3ab425c4a4ac406615bb9f5/oslo.utils-6.0.1.tar.gz"
+    sha256 "9b0454f99415d0caac5c86053716d746d198ecec66e672d8e5e6386b6fbaa2b6"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/1d/08/3b8d8f1b4ec212c17429c2f3ff55b7f2237a1ad0c954972e39c8f0ac394c/paramiko-2.11.0.tar.gz"
-    sha256 "003e6bee7c034c21fbb051bf83dc0a9ee4106204dd3c53054c71452cc4ec3938"
+    url "https://files.pythonhosted.org/packages/98/75/e78ddbe671a4a59514b59bc6a321263118e4ac3fe88175dd784d1a47a00f/paramiko-2.12.0.tar.gz"
+    sha256 "376885c05c5d6aa6e1f4608aac2a6b5b0548b1add40274477324605903d9cd49"
   end
 
   resource "pbr" do
@@ -362,24 +334,14 @@ class Duplicity < Formula
     sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
   end
 
-  resource "positional" do
-    url "https://files.pythonhosted.org/packages/24/7e/3b1450db76eb48a54ea661a43ae00950275e11840042c5217bd3b47b478e/positional-1.2.1.tar.gz"
-    sha256 "cf48ea169f6c39486d5efa0ce7126a97bed979a52af6261cf255a41f9a74453a"
-  end
-
-  resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/ef/30/4b0746848746ed5941f052479e7c23d2b56d174b82f4fd34a25e389831f5/prettytable-0.7.2.tar.bz2"
-    sha256 "853c116513625c738dc3ce1aee148b5b5757a86727e67eff6502c7ca59d43c36"
-  end
-
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/bd/cd/7fac57f52802e49f003b5e89be5ba487109b20f90043f5052fa5359b854a/protobuf-4.21.8.tar.gz"
-    sha256 "427426593b55ff106c84e4a88cac855175330cb6eb7e889e85aaa7b5652b686d"
+    url "https://files.pythonhosted.org/packages/0f/cd/165eaac1c43a5ba391a36087dc909e03c3ae3f7dbcab74f287631208ba92/protobuf-4.21.9.tar.gz"
+    sha256 "61f21493d96d2a77f9ca84fefa105872550ab5ef71d21c458eb80edcf4885a99"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/de/eb/1c01a34c86ee3b058c556e407ce5b07cb7d186ebe47b3e69d6f152ca5cc5/psutil-5.9.3.tar.gz"
-    sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
+    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
+    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
   end
 
   resource "ptyprocess" do
@@ -427,24 +389,14 @@ class Duplicity < Formula
     sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
-  resource "pyrax" do
-    url "https://files.pythonhosted.org/packages/10/59/02de1fc01a6828daf1ebbe06e9bcc89eff7708775643877d12884a50d826/pyrax-1.10.0.tar.gz"
-    sha256 "109b039bc7df363cbecbbe3e59cdeeeac25c3a5d690a3d89f72ecf96e5e367b2"
-  end
-
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
   resource "python-keystoneclient" do
-    url "https://files.pythonhosted.org/packages/56/c3/e808e30c7a0b5be8702f24e8c740b50cafe105ef6973624c9a5b258bd85f/python-keystoneclient-3.10.0.tar.gz"
-    sha256 "c65fa56791ec02dc942ad08e5c3634b8dca98eda76ee3c2549018b6767e67918"
-  end
-
-  resource "python-novaclient" do
-    url "https://files.pythonhosted.org/packages/ac/10/aa4d81bb5ceac249b7facf86d021b7008a138b447ca9cbf09557fca61046/python-novaclient-2.27.0.tar.gz"
-    sha256 "d1279d5c2857cf8c56cb953639b36225bc1fec7fa30ee632940823506a7638ef"
+    url "https://files.pythonhosted.org/packages/a0/dd/81d3d89231a09445e4b2a13a374aeed8f3abb82ff7c0ecb5da87bebb6790/python-keystoneclient-5.0.1.tar.gz"
+    sha256 "a8bbf671f56c24aa5a37a225b98f2994b82063d73e3486657eb500a33a406d29"
   end
 
   resource "python-swiftclient" do
@@ -453,28 +405,8 @@ class Duplicity < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/fe/dd/182cc5ed8e64a0d6d6c34fd27391041d542270000825410d294bd6902207/pytz-2022.5.tar.gz"
-    sha256 "c4d88f472f54d615e9cd582a5004d1e5f624854a6a27a6211591c251f22a6914"
-  end
-
-  resource "rackspace-auth-openstack" do
-    url "https://files.pythonhosted.org/packages/3c/14/8932bf613797715bf1fe42b00d413025aac9414cf35bacca091a9191155a/rackspace-auth-openstack-1.3.tar.gz"
-    sha256 "c4c069eeb1924ea492c50144d8a4f5f1eb0ece945e0c0d60157cabcadff651cd"
-  end
-
-  resource "rackspace-novaclient" do
-    url "https://files.pythonhosted.org/packages/2a/fc/2c31fea5bc50cd5a849d9fa61343e95af8e2033b35f2650755dcc5365ff1/rackspace-novaclient-2.1.tar.gz"
-    sha256 "22fc44f623bae0feb32986ec4630abee904e4c96fba5849386a87e88c450eae7"
-  end
-
-  resource "rax_default_network_flags_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/36/cf/80aeb67615503898b6b870f17ee42a4e87f1c861798c32665c25d9c0494d/rax_default_network_flags_python_novaclient_ext-0.4.0.tar.gz"
-    sha256 "852bf49d90e7a1bc16aa0b25b46a45ba5654069f7321a363c8d94c5496666001"
-  end
-
-  resource "rax_scheduled_images_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/ef/3c/9cd2453e85979f15316953a37a93d5500d8f70046b501b13766c58cf1310/rax_scheduled_images_python_novaclient_ext-0.3.1.tar.gz"
-    sha256 "f170cf97b20bdc8a1784cc0b85b70df5eb9b88c3230dab8e68e1863bf3937cdb"
+    url "https://files.pythonhosted.org/packages/76/63/1be349ff0a44e4795d9712cc0b2d806f5e063d4d34631b71b832fac715a8/pytz-2022.6.tar.gz"
+    sha256 "e89512406b793ca39f5971bc999cc538ce125c0e51c27941bef4568b460095e2"
   end
 
   resource "requests" do
@@ -488,8 +420,8 @@ class Duplicity < Formula
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/57/d6/20857446a2b81136dd02eed6d198343ce7a045ce8c06d4cb73fd2fee9001/requests-toolbelt-0.10.0.tar.gz"
-    sha256 "f695d6207931200b46c8ef6addbc8a921fb5d77cc4cd209c2e7d39293fcd2b30"
+    url "https://files.pythonhosted.org/packages/0c/4c/07f01c6ac44f7784fa399137fbc8d0cdc1b5d35304e8c0f278ad82105b58/requests-toolbelt-0.10.1.tar.gz"
+    sha256 "62e09f7ff5ccbda92772a29f394a49c3ad6cb181d568b1337626b2abb628a63d"
   end
 
   resource "rfc3986" do
@@ -507,19 +439,16 @@ class Duplicity < Formula
     sha256 "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
   end
 
-  resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/7a/47/c7cc3d4ed15f09917838a2fb4e1759eafb6d2f37ebf7043af984d8b36cf7/simplejson-3.17.6.tar.gz"
-    sha256 "cf98038d2abf63a1ada5730e91e84c642ba6c225b0198c3684151b1f80c5f8a6"
-  end
-
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/40/3a/0443d547d02d40ce6abb0861b16302ad4c57e62c483b9b0180fe44fb4ee4/stevedore-1.20.1.tar.gz"
-    sha256 "046200a915780b58bf1c84436e86701b741d664893aefa84d8aceadd15ed4734"
+    url "https://files.pythonhosted.org/packages/62/4c/5445ea215b920e55f40a4f519571d5bfffb81c2f0c9ba4f2c70b1b501954/stevedore-4.1.0.tar.gz"
+    sha256 "02518a8f0d6d29be8a445b7f2ac63753ff29e8f2a2faa01777568d5500d777a6"
   end
 
+  # Using GitHub tarball as requirements.txt is missing from PyPI tarball.
+  # Issue ref: https://github.com/dropbox/stone/issues/266
   resource "stone" do
-    url "https://files.pythonhosted.org/packages/61/4f/b5a9138e86b13e00e2439c62fb4d045d595e0e260454977741f62448c624/stone-3.2.1.tar.gz"
-    sha256 "9bc78b40143b4ef33bf569e515408c2996ffebefbb1a897616ebe8aa6f2d7e75"
+    url "https://github.com/dropbox/stone/archive/refs/tags/v3.3.1.tar.gz"
+    sha256 "dc5aff3fad1333188d4ddb4eee0a19d31e6262bb3cdf10c0bbdaeb309ff91a52"
   end
 
   resource "tlslite-ng" do
@@ -548,8 +477,8 @@ class Duplicity < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/41/2e/1341c5634c25e7254df01ec1f6cbd2bcdee3e647709e7c3647d1b362e3ac/zipp-3.9.0.tar.gz"
-    sha256 "3a7af91c3db40ec72dd9d154ae18e008c69efe8ca88dde4f9a731bb82fe2f9eb"
+    url "https://files.pythonhosted.org/packages/8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz"
+    sha256 "7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"
   end
 
   def install
