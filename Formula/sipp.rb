@@ -7,6 +7,7 @@ class Sipp < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4b7d4b424711601921c2b62f401f46f01eb30d2ca19de3b6b3616dd4a08040be"
     sha256 cellar: :any,                 arm64_monterey: "f78ba2fffe35fa799adb0af5d149067c38328b2b3892b9a53fa193ef71d2359c"
     sha256 cellar: :any,                 arm64_big_sur:  "75316a2ff92ad29fb3d2ab4c660f3d4ef2901982826ee269f37a9e58df5cefe2"
     sha256 cellar: :any,                 monterey:       "bd81cbe473c52d12885e61a7b440dc267343d60db05a0ba817900d1921d9d5ed"
