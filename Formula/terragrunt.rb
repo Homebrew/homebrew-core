@@ -6,6 +6,7 @@ class Terragrunt < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f77a2b49012a15f3536f2a46f345309adfe4218777592d953664f8902eb8887d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e7fd02fe20add790113701a1ac7f5032dde6ca9f6cb0e8cd46e814ed6f023de7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d7a2caa41864305e4d8312284e8807f810579445685f651ff4968dca3d60948"
     sha256 cellar: :any_skip_relocation, monterey:       "ef21a376d484f46a152f1946be5e4c60d87b9c502cd91360175a72332080525c"
