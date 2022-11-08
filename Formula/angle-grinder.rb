@@ -6,14 +6,13 @@ class AngleGrinder < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "132501b8412eaf82b228e23607495d3e4b4077e3a1f6e427e610fc7c19268b69"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aac94d72d3e7b33100dec2efdcf5e77678f81f424ab8d408ae2f044214c59f7f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "116d320e843719451ec991b97c2bb8c1aa2dea3623f387c866f12a718b512993"
-    sha256 cellar: :any_skip_relocation, monterey:       "2b1e7b6bfef8586378fb75138e655a70717ccc2be44c9023421e7775a83e9bd2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d94050232f3ce01eb97c1c36f79aa5d2734b9e4e25ede7d81e32eaaeca4a4db7"
-    sha256 cellar: :any_skip_relocation, catalina:       "f41ebbb8078940ecc259ffac8451f70dc49df53a8d8f1fcafe4b02bc6723dcbc"
-    sha256 cellar: :any_skip_relocation, mojave:         "73c19bc8e8e2697797e46ba6e6dd8a24deaa77a8059f0546bf29bffba5e0c8ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afe0edc8a8c223a9bfdbd0c515701e5103a4b4b9b168da747d991eb487dec25a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5bfe41bc3da2856559dd65f1d9a73af5c556d56196d0c2c1d054f59f9f092bc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c92397f939f662d67d0928b55d2a18a1dd437adedbc28fa9fcf14cfe4cd7399a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8084437b814e61290e1a3c3926c9ffc0f74e72df0257fd486668e7eff6c36226"
+    sha256 cellar: :any_skip_relocation, monterey:       "f076b9d8a5985d4ac78c03ab39a5509dcf1f739a12cb2b76c993362e43ce4950"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4b5b0da0a26c01cb3f44ccf35d97306e89478b051de799f424774cc5a8ea7761"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "896f2ac749441e8c857638978be17904054ff93a382119b9ce46b1b7160d5e2c"
   end
 
   depends_on "rust" => :build
