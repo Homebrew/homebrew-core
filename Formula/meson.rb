@@ -30,7 +30,7 @@ class Meson < Formula
       dependencies/boost.py
       dependencies/cuda.py
       dependencies/qt.py
-      mesonlib/universal.py
+      utils/universal.py
       modules/python.py
     ].map { |f| mesonbuild/f }
     inreplace_files << (bash_completion/"meson")
