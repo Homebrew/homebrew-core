@@ -11,6 +11,7 @@ class Credstash < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "52608d3499897c52d289b7ba30bd5ef1b4ac9d5638aceb0f5d6118cdda25922a"
     sha256 cellar: :any,                 arm64_monterey: "e2cf82ffe8572152a4d29954d245c9c1cca360650d5647524f8e18913c97f0f3"
     sha256 cellar: :any,                 arm64_big_sur:  "b54243ce850fc1eab92dd2c54438477f7e6effff757860f5988bd93a93fb6986"
     sha256 cellar: :any,                 monterey:       "d5222f55dc5c4cf986d2ad2ad7831587bb39a0215c102a9374a422e5e8d55b0f"
