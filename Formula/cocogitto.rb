@@ -22,11 +22,5 @@ class Cocogitto < Formula
     system "git", "config", "user.email", "author@example.com"
     system "git", "commit", "-m", "chore: initial commit"
     assert_equal "No errored commits", shell_output("#{bin}/cog check 2>&1").strip
-
-    # Check completions look correct
-    assert_match "_cog()", shell_output("#{bin}/cog generate-completions bash")
-    assert_match "#compdef cog", shell_output("#{bin}/cog generate-completions zsh")
-    assert_match "set edit:completion:arg-completer[cog]", shell_output("#{bin}/cog generate-completions elvish")
-    assert_match "complete -c cog -n", shell_output("#{bin}/cog generate-completions fish")
   end
 end
