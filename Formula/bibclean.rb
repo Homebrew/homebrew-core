@@ -11,6 +11,7 @@ class Bibclean < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "bd8445bd033da6d614dfcc572d290be67f65cbb2fc120446c5941c84f5bd1c0d"
     sha256 arm64_monterey: "547fbf90902019ae07961d32c2a474e4d0b52901a7053ae23332e81a5d853676"
     sha256 arm64_big_sur:  "0323f9d9e011a7433a99c0fcc284b29163e3d864d55adf54063ac415fb718689"
     sha256 monterey:       "a40ce68874ad22f9c722f9c0f0d9189528d2f26d3da9873ade1850b18e3e467a"
