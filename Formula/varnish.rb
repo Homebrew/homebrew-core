@@ -12,6 +12,7 @@ class Varnish < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "97837ceaffdb8bd8bfb4eb8bb6ca2ecaffa0330d9f3230118cd80beb64a69f3c"
     sha256 arm64_monterey: "54d9b377ca097b2b52a6587b008861942980304d498f1ca763c381eadda84dde"
     sha256 arm64_big_sur:  "52abe334b03a84878db5e12e656fdee57bf96d0850e16acf5c41de22e20d3a42"
     sha256 monterey:       "1f5136cf626233f818e8b360903681fb6ac26da594eebc22464f3645e15676af"
