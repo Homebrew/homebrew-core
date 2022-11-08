@@ -11,6 +11,7 @@ class Unoconv < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "436ea616c97c3d252b6575df52641d54fd5900b78ab329b12671c13061762f5d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "436ea616c97c3d252b6575df52641d54fd5900b78ab329b12671c13061762f5d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "436ea616c97c3d252b6575df52641d54fd5900b78ab329b12671c13061762f5d"
     sha256 cellar: :any_skip_relocation, monterey:       "1d6839861652d5763c6fdab17eceb453be1424152bb0af3368f938c47ae9e17e"
