@@ -11,6 +11,7 @@ class Fontconfig < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "d0dc5e1f28f8c7ded2351b6da95dc10c483f6a302390660b2b861a3b94c6cd18"
     sha256 arm64_monterey: "decbdcc8765f8aa654452570b3f2b151e319944210479a5637d6614a44dc0947"
     sha256 arm64_big_sur:  "143b68331a6332cc0e1e3883e2863d65139869ac5bf1823bbe49fd2127d2c7f5"
     sha256 monterey:       "e910d7850f921d5d0b5bdd50080c3985213e2a0eff0181bab4fd6f375d386862"
