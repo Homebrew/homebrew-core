@@ -12,6 +12,7 @@ class Pgloader < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "75ce4938747c4ba2698e4a4ff2b5fbaaf62ffd89605a6d1415d1268b4e32fbb6"
     sha256 cellar: :any, arm64_monterey: "7e85385f26dd4ad116fb0dea28bcf0ee2960638dff826133ef41d4aedbd2b788"
     sha256 cellar: :any, arm64_big_sur:  "083409384a573f93aecfdb87bef99dd47f560c4c60ca6377ba333248938a09bf"
     sha256 cellar: :any, monterey:       "e12f91551cedd8c3e34fd97471bc51bf2f6bf50121a9a9ede7147a64fe2c20ab"
