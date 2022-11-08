@@ -12,6 +12,7 @@ class Abook < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "dbcc8ffc1eb5ee674721acec2fc715030ba3c53553f0b419c71994f72925e298"
     sha256 arm64_monterey: "24854522e2901befeb323be066c744ab4471920495b7a91280e9d05c9bc3b9e7"
     sha256 arm64_big_sur:  "e062925ce6b559649d5574f2ee4a709611df4a9a54f3396cf706c2a399cc747f"
     sha256 monterey:       "923df44c0bbcdcb70df775092fb6aacb3c7c4740a12d40ce6f5ad4a8dd7ea91f"
