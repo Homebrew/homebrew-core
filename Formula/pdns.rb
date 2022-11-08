@@ -11,6 +11,7 @@ class Pdns < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "59cfc811b651746d61cabcbab95410854a24051e007aebd38db80e252dc75082"
     sha256 arm64_monterey: "b704cbf21bda048466af2884b66d570a535b5444d6fee82633cc8b2f3780937c"
     sha256 arm64_big_sur:  "7d93a30819e08d6ddccdcd220417a51e730fea410c16751ec147c10ed04c799a"
     sha256 monterey:       "ed8a45caf1562e78488007a8a6141cb3eb10412ff747623d03371b130628f0ac"
