@@ -10,6 +10,7 @@ class Ncp < Formula
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fea5773340430d1b722d4752f8eb5b590e71925e7bd1ec4e27a17ecb8053e6c6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73488953306c5c0079e2a01b0d6e89dc2d7b91a2cd410230b95ce81b2aac4430"
     sha256 cellar: :any_skip_relocation, monterey:       "63b3aefad79a434cf7dbe7a1883750a821c2b0a7bb068d25fe69bb95894d61e5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae49783af3ff52981d47b7a5bd9ac95cb3ee4e604fc3c23cbff5acf0a2e2cfc3"
     sha256 cellar: :any_skip_relocation, catalina:       "26d9db0b0da97a1556e5b20afd08c82be35fd7f8530ab63110d83fb1ba542ac2"
     sha256 cellar: :any_skip_relocation, mojave:         "345fcd7aaa3fbe0352a0109c986389db0cec91b4603829b4f36998ad866e5aca"
     sha256 cellar: :any_skip_relocation, high_sierra:    "2c56e482f1608eeb3925f4db0b1ef782fb1644d2a7318e522a4a3c7ba7efcdd4"
