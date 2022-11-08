@@ -6,16 +6,17 @@ class Doublecpp < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey:  "c9f2d4540def16e3fe205cee4155fc21b5574879918ea7d9468ebf52f8245e39"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:   "26cdd6d6565fccc24bf7099bf4b2aa779c6e7dabe8908d408e929f4fbf861de7"
-    sha256 cellar: :any_skip_relocation, monterey:        "3ec3e4517d9a99533a08932492764f0578122528585b5955ef5f6b092a8ba806"
-    sha256 cellar: :any_skip_relocation, big_sur:         "3f4d63ed1afe1fa65825d925b8e90ff32e867de820c41159f52c4532a4df92b7"
-    sha256 cellar: :any_skip_relocation, catalina:        "429cf6757b46b6f0289439d40db98e3a574a4bf0bde930f8b9ae25a55f4452cb"
-    sha256 cellar: :any_skip_relocation, mojave:          "eed3920bd4e85e32542ce2a67fc9d928f8d8ddfceb0b48e80ddd9db30090e9e6"
-    sha256 cellar: :any_skip_relocation, high_sierra:     "ca161369434cba6763add99e4e470a495662c866a328b374c5d6184e687361cc"
-    sha256 cellar: :any_skip_relocation, sierra:          "748af7fb63392453cc4b648cea20786173202f5c891b45765dbf374e4ac2c2d5"
-    sha256 cellar: :any_skip_relocation, el_capitan:      "208aa405fce2959b47f705ab8ba9104e8eadec3e8e709bddd3117ef7b074bedf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:    "989076ce2ebaba5ca834b159332a0e4b4bf15dd51d5dc2617594d367bffee9f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fea45f833654d2f799d9fc1cb535238749b42a818d9718a7d73ecc94cfed74cc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9f2d4540def16e3fe205cee4155fc21b5574879918ea7d9468ebf52f8245e39"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "26cdd6d6565fccc24bf7099bf4b2aa779c6e7dabe8908d408e929f4fbf861de7"
+    sha256 cellar: :any_skip_relocation, monterey:       "3ec3e4517d9a99533a08932492764f0578122528585b5955ef5f6b092a8ba806"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3f4d63ed1afe1fa65825d925b8e90ff32e867de820c41159f52c4532a4df92b7"
+    sha256 cellar: :any_skip_relocation, catalina:       "429cf6757b46b6f0289439d40db98e3a574a4bf0bde930f8b9ae25a55f4452cb"
+    sha256 cellar: :any_skip_relocation, mojave:         "eed3920bd4e85e32542ce2a67fc9d928f8d8ddfceb0b48e80ddd9db30090e9e6"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "ca161369434cba6763add99e4e470a495662c866a328b374c5d6184e687361cc"
+    sha256 cellar: :any_skip_relocation, sierra:         "748af7fb63392453cc4b648cea20786173202f5c891b45765dbf374e4ac2c2d5"
+    sha256 cellar: :any_skip_relocation, el_capitan:     "208aa405fce2959b47f705ab8ba9104e8eadec3e8e709bddd3117ef7b074bedf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "989076ce2ebaba5ca834b159332a0e4b4bf15dd51d5dc2617594d367bffee9f2"
   end
 
   # Fix build failure because of missing #include <stdlib.h> on Linux.
