@@ -10,14 +10,13 @@ class SpoofMac < Formula
   head "https://github.com/feross/SpoofMAC.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1053df5258d10fc4f9c0af3f8fa99509027044174b99d31bffc327b06fc8af6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c72260ee010624f7801143abcb6a9a594ad76fc589b2e3179a1e7d2a8935c96e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c72260ee010624f7801143abcb6a9a594ad76fc589b2e3179a1e7d2a8935c96e"
-    sha256 cellar: :any_skip_relocation, monterey:       "5e803ebae572b3af8eac3e6156c0e43b4e9ef3ce684f71b6fe8e4bcfdf4af362"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5e803ebae572b3af8eac3e6156c0e43b4e9ef3ce684f71b6fe8e4bcfdf4af362"
-    sha256 cellar: :any_skip_relocation, catalina:       "5e803ebae572b3af8eac3e6156c0e43b4e9ef3ce684f71b6fe8e4bcfdf4af362"
-    sha256 cellar: :any_skip_relocation, mojave:         "5e803ebae572b3af8eac3e6156c0e43b4e9ef3ce684f71b6fe8e4bcfdf4af362"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a558645acadf9bac6627ecf69539cdec484f116adf3b92af2cbbc7aec6f92f7c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35b87b120597b9e19bc14586ef66fde370b95ab1f175c1cb355b8dd5d5a1a900"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35b87b120597b9e19bc14586ef66fde370b95ab1f175c1cb355b8dd5d5a1a900"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
+    sha256 cellar: :any_skip_relocation, catalina:       "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd9e7adf1d19f3476bb1ac66ee70ef913837b2f719bf076a4cf4ae98ee14c8a7"
   end
 
   depends_on "python@3.11"
