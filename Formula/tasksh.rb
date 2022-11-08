@@ -14,6 +14,7 @@ class Tasksh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "1a8bbc54e5712ab5b9caa686e6348365da4c8bdaebeaae474be2edda28368d72"
     sha256 cellar: :any,                 arm64_monterey: "6c6390a79e5f4645f2cf2507a1c29ad1b935a5f51d87387412e557343688a11d"
     sha256 cellar: :any,                 arm64_big_sur:  "590c43b791080cc6ca56cef896c9e75a8ca77915b061a1d0a711a0489e69ab63"
     sha256 cellar: :any,                 monterey:       "778d32859e2a65b224819a39d022611b7959fba4d72d08a45d42f76bf6cf6cf8"
