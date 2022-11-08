@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v9.2.3.tar.gz"
-  sha256 "44483f54e2aa07ab8bdedcf7fe36d6e9f15f861efdf0c6fe84f552f6df3137c7"
+  url "https://github.com/grafana/grafana/archive/v9.2.4.tar.gz"
+  sha256 "056b235219a9fb9e78d8eaa477d123c9939cb25a3d4c4a71fdf7b397d69bfc5c"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -17,7 +17,7 @@ class Grafana < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node@16" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
 
   uses_from_macos "zlib"
@@ -35,15 +35,13 @@ class Grafana < Formula
     system "yarn", "install"
     system "yarn", "build"
 
-    if OS.mac?
-      bin.install Dir["bin/darwin-*/grafana-cli"]
-      bin.install Dir["bin/darwin-*/grafana-server"]
-    else
-      bin.install "bin/linux-amd64/grafana-cli"
-      bin.install "bin/linux-amd64/grafana-server"
-    end
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    bin.install "bin/#{os}-#{arch}/grafana-cli"
+    bin.install "bin/#{os}-#{arch}/grafana-server"
+
     (etc/"grafana").mkpath
-    cp("conf/sample.ini", "conf/grafana.ini.example")
+    cp "conf/sample.ini", "conf/grafana.ini.example"
     etc.install "conf/sample.ini" => "grafana/grafana.ini"
     etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
     pkgshare.install "conf", "public", "tools"
