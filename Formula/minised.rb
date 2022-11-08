@@ -11,6 +11,7 @@ class Minised < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81091d0acb8b307dfbf7e699f3a6bb3ed377b3300d931f79e39ef69b54db17e7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "794c547b94bc09df42a03d11daa4561439a2f7b3266e354c94b3972245d2192d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83e070332d7ffada88d210ebb159b0d73a2020d3df02fdf72453c0bb3e78dd21"
     sha256 cellar: :any_skip_relocation, monterey:       "7e2091cafe98c90c2a10b7b009b8928845fff475f5fc085be54160b029fd3cb4"
