@@ -20,6 +20,7 @@ class Phoon < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd15d230ce1c25ac23caf064b0468fcbb779b3c0ba264410f59f3d8796c9f0c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "16e0d7747e8d27e1d2070e9c0a977e978df8e050fcfec31ad4da2363450ac297"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ffb866ee12dee9890eb0ad36b0bc1e721bba69b631951fbeba3f2fb20a87168"
     sha256 cellar: :any_skip_relocation, monterey:       "b4beab04ea220698a14dc6a0f104205e21f5e3b1af4846b849a1398b51c667e8"
