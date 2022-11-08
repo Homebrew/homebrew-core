@@ -30,7 +30,6 @@ class VowpalWabbit < Formula
     # The following should be equivalent, while supporting Homebrew's standard args.
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
-                            "-DVCPKG_MANIFEST_MODE=OFF",
                             "-DBUILD_TESTING=OFF",
                             "-DRAPIDJSON_SYS_DEP=ON",
                             "-DFMT_SYS_DEP=ON",
