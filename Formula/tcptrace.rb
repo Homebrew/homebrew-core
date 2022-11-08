@@ -16,6 +16,7 @@ class Tcptrace < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a61be1025abf1a097a9353517bc3e3f861a3b443f42350937ca345a0befe648"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dc1e3a00440e80a1b1ad88fc3ab0c872f47bd1f9d8fa9909add44144f3703be8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d27d973e94299d333fdd27c65e1260ee1c8ef12361a33e98a10cde109c781433"
     sha256 cellar: :any_skip_relocation, monterey:       "82fa4c9aa859f61dd6f2ca36078b41b9994196d975a82b09b77529069a6fe195"
