@@ -6,6 +6,7 @@ class Mpage < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "cd01e6be613230f334dc99b55c4dfa89a2007261233079513a91f762b6274604"
     sha256 arm64_monterey: "6a83b49a225ea3e7c45f06bcb70fc7c822b07aa80a23f51667e74d1264f6ef03"
     sha256 arm64_big_sur:  "35ecb743e454140d1a0651cf435d5658a295cf7c97940635c71c644fdbe59646"
     sha256 monterey:       "3df1930d88318f57b843ec99a1f7a7cfe111dd6a5d3f0042b044277fcfd54819"
