@@ -9,6 +9,7 @@ class ReconNg < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3234c6a086bea3cea57358943f75f2b412b0a179760f2319643e8517439e57bd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2e2e45a733f31ec9e0530cfc1e8fff4be936a47aa9d16e5f18bdc6cf5604db61"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c67a45b9343f19d54224ea3d2d315395e2671e3956230cf773dcdb5809fc74e"
     sha256 cellar: :any_skip_relocation, monterey:       "a61255c42019f8ca5865e11a54bc9e55a37ca6deefbb3f9f3f3502bca7b9a556"
