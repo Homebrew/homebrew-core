@@ -15,6 +15,7 @@ class Chakra < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.10" => :build
+  depends_on arch: :x86_64 # https://github.com/chakra-core/ChakraCore/issues/6860
   depends_on "icu4c"
 
   uses_from_macos "llvm" => [:build, :test]
