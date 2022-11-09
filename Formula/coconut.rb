@@ -8,6 +8,7 @@ class Coconut < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8429644eb8fd019251d3ed704a9d1cc858cc3155aea74e02580a03f6407aec6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "25f2e435c4a7d1be3a3bebe31529d0cc2bd9c68c5e9a60d39e0ccdf056bb13f6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baaf35a4f2d084923d6f507cd9c62c6a6994b31fbdb7d0a9878ababa28458214"
     sha256 cellar: :any_skip_relocation, monterey:       "4f78230cd9b620b40bf8f6b206abc64bbf7dd8361a03563bbbc39f489c667ef6"
