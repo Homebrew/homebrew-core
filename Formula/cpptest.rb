@@ -7,6 +7,7 @@ class Cpptest < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "cc624fd1da48ba38d19025509d327580fc4d8b2603deaa398e1bdecbad88d676"
     sha256 cellar: :any,                 arm64_monterey: "c19519f153ca1eb3480428285c87c41f4f6e9216815ce028e8f4edb6ae2ca05c"
     sha256 cellar: :any,                 arm64_big_sur:  "b76d3ce8ecaa806713abfbb903789702daa297cff3e491e670f531725c5e90b4"
     sha256 cellar: :any,                 monterey:       "3607c24f58bd5195dd7258797f9a74c48d74fa724ac4dcf9aa60610cee085966"
