@@ -6,6 +6,7 @@ class Slurm < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2e8b79fac19c1d029e8d8f2dc61b39d74abf242f509e0507c1761d0dbd8f0af"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7ede14c56489fae8439d7913dc2a173b9ffed43a3ac1c344749a5486ddda29ff"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "39ec3975b8d5228214dfed9601b1122e34808d6461353e2e7f76c5b0f569e4b4"
     sha256 cellar: :any_skip_relocation, monterey:       "4db77bcd6316bb4e9d8b2070cad506e18dc46c0fbfc326252efb09d86bae8ec7"
