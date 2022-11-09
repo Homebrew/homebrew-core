@@ -12,6 +12,7 @@ class FluentBit < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "47b66e4106e29d832608c956cebeda0e6bc0b199962b679d1a337f80b1297a31"
     sha256 arm64_monterey: "4eac3d4bb36346cb7df113842b1cf6c611f54af1b223628a3e741863cffdfcd6"
     sha256 arm64_big_sur:  "2db7028ab4388ffb98bc28162073dfbc63ee4ff545687d82b96a22ed8a610a65"
     sha256 monterey:       "941f4bc7d3f669053247429f658d579835f04d7214409a4a8257dd57b431e46e"
