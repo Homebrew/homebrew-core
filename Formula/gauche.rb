@@ -16,6 +16,7 @@ class Gauche < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "ba3aa4703856a6110324a934d9adb7d582ecc6f867765f0a8900da43315cc10f"
     sha256 arm64_monterey: "25d1c5b0b52dcfb4dbef2f10bbd6a92ece2c4e1e8591a88634794de32cbd21a9"
     sha256 arm64_big_sur:  "3f242d37322198df162a1a8856a2c67aeaf36911dbdd82f47c232b27e6470e88"
     sha256 monterey:       "cbe7f1d2fe876a9efdb2baba1614564c5d8c75a63712af816b9932fefc75b5d6"
