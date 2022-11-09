@@ -27,12 +27,11 @@ class LlvmAT12 < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
+  depends_on "python@3.11" => :build
   depends_on "swig" => :build
-  depends_on "python@3.9"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
-  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -68,6 +67,8 @@ class LlvmAT12 < Formula
   end
 
   def install
+    python3 = "python3.11"
+
     projects = %w[
       clang
       clang-tools-extra
@@ -84,8 +85,8 @@ class LlvmAT12 < Formula
       libunwind
     ]
 
-    py_ver = Language::Python.major_minor_version("python3")
-    site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
+    py_ver = Language::Python.major_minor_version(python3)
+    site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -116,9 +117,9 @@ class LlvmAT12 < Formula
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-      -DLLDB_ENABLE_PYTHON=ON
+      -DLLDB_ENABLE_PYTHON=OFF
       -DLLDB_ENABLE_LUA=OFF
-      -DLLDB_ENABLE_LZMA=ON
+      -DLLDB_ENABLE_LZMA=OFF
       -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
@@ -144,12 +145,11 @@ class LlvmAT12 < Formula
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
-    end
+    else
+      ENV.append_to_cflags "-fpermissive -Wno-free-nonheap-object"
 
-    if OS.linux?
-      ENV.append "CXXFLAGS", "-fpermissive -Wno-free-nonheap-object"
-      ENV.append "CFLAGS", "-fpermissive -Wno-free-nonheap-object"
-
+      # Disable `libxml2`, which isn't very useful.
+      args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
