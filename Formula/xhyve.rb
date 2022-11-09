@@ -18,6 +18,7 @@ class Xhyve < Formula
   # Ref: https://github.com/machyve/xhyve/issues/227
   deprecate! date: "2022-11-04", because: :does_not_build
 
+  depends_on arch: :x86_64
   depends_on :macos
 
   def install
