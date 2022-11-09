@@ -4,6 +4,7 @@ class Openimageio < Formula
   url "https://github.com/OpenImageIO/oiio/archive/v2.4.5.0.tar.gz"
   sha256 "21177a9665021a99123885cd8383116d15013b6610b4b09bcf209612423fedc5"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
   livecheck do
@@ -40,18 +41,25 @@ class Openimageio < Formula
   depends_on "openexr"
   depends_on "pugixml"
   depends_on "pybind11"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "webp"
 
-  fails_with gcc: "5" # ffmpeg is compiled with GCC
+  # https://github.com/OpenImageIO/oiio/blob/master/INSTALL.md
+  fails_with :gcc do
+    version "5"
+    cause "Requires GCC 6.1 or later"
+  end
+
+  def python3
+    "python3.11"
+  end
 
   def install
-    python3 = which("python3.10")
     py3ver = Language::Python.major_minor_version python3
     ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python3)
 
     args = %W[
-      -DPython_EXECUTABLE=#{python3}
+      -DPython_EXECUTABLE=#{which(python3)}
       -DPYTHON_VERSION=#{py3ver}
       -DBUILD_MISSING_FMT=OFF
       -DCCACHE_FOUND=
@@ -82,7 +90,6 @@ class Openimageio < Formula
       import OpenImageIO
       print(OpenImageIO.VERSION_STRING)
     EOS
-    python = Formula["python@3.10"].opt_bin/"python3.10"
-    assert_match version.major_minor_patch.to_s, pipe_output(python, output, 0)
+    assert_match version.major_minor_patch.to_s, pipe_output(python3, output, 0)
   end
 end
