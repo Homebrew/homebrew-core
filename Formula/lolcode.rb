@@ -9,6 +9,7 @@ class Lolcode < Formula
   head "https://github.com/justinmeza/lci.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7bf8def14baaebde0558f5a5d7355d41dc46c1d62ad00fe36bf33b40735c3ed"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "65cf3b809d4ad69918a45976eb04f22f93c785638336e2ae1ba862ef8eeade4a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3da1a3ea810fb481b1a6e3e62f81fa5a24ce593b2f69630d6b523a63449531c8"
     sha256 cellar: :any_skip_relocation, monterey:       "147cc9048722688b7b2744f316db94899843959e1d9a94ce91593087a3e6f1a3"
