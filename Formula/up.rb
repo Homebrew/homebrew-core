@@ -7,6 +7,7 @@ class Up < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f5a6065d0135d29db9a246ef73a18d6336ad72813783425cb6e109a93ea0a99"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d956b1e6e6d9d1e76beadfdff52cce9bc0b7440813cd046cc96aa18324bc787a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f3452e5a6d248a93e947fb5500bd7c5aad22fe77ad791b07c9fc7fe645b47170"
     sha256 cellar: :any_skip_relocation, monterey:       "2b54cdd0bb6cb00c205dcfc1b1bd355513999a85e7213bbcac0823ca14f09f58"
