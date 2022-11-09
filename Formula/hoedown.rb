@@ -6,6 +6,7 @@ class Hoedown < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ad1617812e2acc482387a1fed431b102a43cd3c641f4b639131a451c2608077"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c91387f585953da59a7587de33a6085642da3d55a416c6d1a99839340df531f0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "748004674d9036262032eda6a9b574137cff8a01178977c45d735adba7160587"
     sha256 cellar: :any_skip_relocation, monterey:       "a3a6b53be859368f6565a31c918758648fa6c41f833ccd2419961fb3b01ecaa9"
