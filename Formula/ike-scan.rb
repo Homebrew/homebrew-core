@@ -8,6 +8,7 @@ class IkeScan < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "4962babb485008c4ca7365744527389c7f100c26a37e286f4131f554d8d30e76"
     sha256 arm64_monterey: "2cdc49f704f821bd0aaa51534c4d9b8b73524fae1737ca302308b026c4d48db9"
     sha256 arm64_big_sur:  "e3e644f24b55009f2acb78739cd2504f72800c07d3faac4fe2f8af7256b119a4"
     sha256 monterey:       "a75856c7333e0bdfd2668348ed6abfbee95361f1e3645998c7730f84eecf45a1"
