@@ -8,6 +8,7 @@ class OdoDev < Formula
   head "https://github.com/redhat-developer/odo.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fee6f90e8dacee693a5726593d17dffdcbd226ce631b43da6fa7fb952f145daf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "10a57c9d116399f0f09371c61ce24affe2f1194e268ff894d6017a9911b2dd4b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab3587465527219ae1feb721336c6ed02e42a22605f1bb620fa4fda91c91e7a3"
     sha256 cellar: :any_skip_relocation, monterey:       "314f1931a6165c558f007bfb92a41c2fe4208848c136a247bbfa12f6a53d20ca"
