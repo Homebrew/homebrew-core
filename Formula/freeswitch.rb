@@ -15,6 +15,7 @@ class Freeswitch < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "5d548ddb3d91f4ebe5b9053f1036c80f9e0f5a70a10a6a8ec1477e7ea3a29b68"
     sha256 arm64_monterey: "92c4fbe41ea20e17015b925bb7dacc9a1e390750d92828bdda8669512b5eb730"
     sha256 arm64_big_sur:  "b9f5274cd30763c538687ee99d8127a82b158bd6dd040f7903cfebe11cd72635"
     sha256 monterey:       "212d0a0c336d7d9664a11253a1e03346e61639c586415365747586729e049b43"
