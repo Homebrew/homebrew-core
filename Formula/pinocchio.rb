@@ -4,6 +4,7 @@ class Pinocchio < Formula
   url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.6.11/pinocchio-2.6.11.tar.gz"
   sha256 "e91d0ef957c8a0e9b1552f171b4c0e8a5052f0d071d86d461e36503d775552b8"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
 
   bottle do
@@ -22,8 +23,12 @@ class Pinocchio < Formula
   depends_on "eigen"
   depends_on "eigenpy"
   depends_on "hpp-fcl"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "urdfdom"
+
+  def python3
+    "python3.11"
+  end
 
   def install
     if build.head?
@@ -32,7 +37,7 @@ class Pinocchio < Formula
     end
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_libexec/"bin/python"}",
+                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
                     "-DBUILD_UNIT_TESTS=OFF",
                     "-DBUILD_WITH_COLLISION_SUPPORT=ON",
                     *std_cmake_args
@@ -41,8 +46,7 @@ class Pinocchio < Formula
   end
 
   test do
-    python_exe = Formula["python@3.10"].opt_libexec/"bin/python"
-    system python_exe, "-c", <<~EOS
+    system python3, "-c", <<~EOS
       import pinocchio
       model = pinocchio.Model()
       data = model.createData()
