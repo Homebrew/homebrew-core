@@ -12,6 +12,7 @@ class Cheops < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "665487e5600fb7c185f31a9a5dcc5a5e9e819bd13b6cfdcf4ccf613a4e6f8cb7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da2855e699980221437085582629f794572878a32f953cdaef9e58f12a5f0cac"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfc230c6ec9f5369e775cf965cfd15838da419a0a214d390960a249fa0e7582c"
     sha256 cellar: :any_skip_relocation, monterey:       "56ebbbfb9dd3b62443b41aedea7561887f7b5bdd2414ea1a06ee9e344778d514"
