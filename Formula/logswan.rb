@@ -6,6 +6,7 @@ class Logswan < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c15e928cd47c46855e959e8cd83f2c52927427ffbaceddcbdfb4fa19d5ebcef5"
     sha256 cellar: :any,                 arm64_monterey: "704b6884e6e30085a75e50c24e0f2a89a0ea28a52525677e1cc2740d7d31253d"
     sha256 cellar: :any,                 arm64_big_sur:  "bf75c8a03359eccb1d7c9dd8b71d38a8793b15fc28f6ba779e81c18b9bbf0ccf"
     sha256 cellar: :any,                 monterey:       "388af42a86df0ba7b2ab0c999354d9e939a674c56badbfa77a5a19f4b49ab552"
