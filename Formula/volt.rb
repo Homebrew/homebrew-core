@@ -7,6 +7,7 @@ class Volt < Formula
   head "https://github.com/vim-volt/volt.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59485100787529576ed3a8c6b89aaa86fe1efb46854d39e5b5952769c96d258d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "87cfdbc43edeb2cedc60ddda401062cad644f0fa6d799d7ef112800984a10da7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "836f10188a9b461531bac4b6eb803e4f86057342e443df99c0c466e224af18b6"
     sha256 cellar: :any_skip_relocation, monterey:       "d7d07259218a768843d6c9131e6e9f616e242b50f01aacbbdb9f539960cbcf77"
