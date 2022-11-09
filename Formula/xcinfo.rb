@@ -6,6 +6,7 @@ class Xcinfo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0580c104677b837d50fa07f6c03280bc2dddcf9ca0e04d1ade6a4d710e865ff2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b49e2ca52261772a4f1116291d7906d045659797b2ee7fa7fd419417fbd66034"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d719be8c45d3b7e6c1eb45b7a9df9245412c61bd5fe972553e6461fa6cf6bc2e"
     sha256 cellar: :any_skip_relocation, monterey:       "0ea284f5a8d412b352148c7e538443d1a9f1031c27d52f3004a7f513e2963736"
