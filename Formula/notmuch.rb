@@ -6,7 +6,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.37.tar.xz"
   sha256 "0e766df28b78bf4eb8235626ab1f52f04f1e366649325a8ce8d3c908602786f6"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -30,7 +30,7 @@ class Notmuch < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "gmime"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "talloc"
   depends_on "xapian"
 
@@ -47,7 +47,7 @@ class Notmuch < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
