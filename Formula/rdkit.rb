@@ -4,6 +4,7 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/Release_2022_09_1.tar.gz"
   sha256 "a65eb24b83b7f233a134f7bc3f1823ce21162fb8c83c3d33022c05adeb5cee04"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -33,7 +34,7 @@ class Rdkit < Formula
   depends_on "numpy"
   depends_on "postgresql@14"
   depends_on "py3cairo"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python
     deps.map(&:to_formula)
