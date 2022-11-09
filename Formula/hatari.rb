@@ -12,6 +12,7 @@ class Hatari < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7dfc96424c9323adbf1427d8e2868a0ca4c911a096e0f72e717ada428f898ecd"
     sha256 cellar: :any,                 arm64_monterey: "6ccf45a0e90172a9dbbb1a6b09e079dad598c1671fe8224ff9e6320d397455b0"
     sha256 cellar: :any,                 arm64_big_sur:  "a55c6f1ea1139372de6b1f1b2214188b4fb30585a9deb14b3cc66920e2c78933"
     sha256 cellar: :any,                 monterey:       "616d67a6b4d33a440d721903d7e7528782befcfd685727ff221b8039953798b5"
