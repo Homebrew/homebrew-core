@@ -9,6 +9,7 @@ class Esphome < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "b1f6a185544f7e4c9ea9ec478b9f6dd05793260e3ae7776300b1475273b6d9ec"
     sha256 cellar: :any,                 arm64_monterey: "b8fbc5717df0e9a83a6588e9ada119958a3520574359a5743e2e7c92bff122fb"
     sha256 cellar: :any,                 arm64_big_sur:  "31c9db14a9a6e5fcb8dd4ea237f502063576bb17b6f5ed29d2190aef73b0a5ab"
     sha256 cellar: :any,                 monterey:       "f3f060accf8971c6f0ebe292f6e4a625b07ae07b951bdf11dc5992e406e94f57"
