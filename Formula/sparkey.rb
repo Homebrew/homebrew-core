@@ -7,6 +7,7 @@ class Sparkey < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b5b1dd6314393471c6d94f5cd9417add5c2fb18cae43a8aadb55bc27782ff521"
     sha256 cellar: :any,                 arm64_monterey: "17187c82468ffb126744c6ac8f4bc318a11234923dd70759ed0b2204d949516f"
     sha256 cellar: :any,                 arm64_big_sur:  "1b2b1cc05fd4af9994aa34e57bc8767bdb567455e27458e1a9ac38e340603c68"
     sha256 cellar: :any,                 monterey:       "8df24a5323536f451f373746c1a1643ce31967502c3d8cb99807ffca49e53413"
