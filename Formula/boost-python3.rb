@@ -1,10 +1,21 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.bz2"
-  sha256 "1e19565d82e43bc59209a168f5ac899d3ba471d55c7610c677d4ccf2c9c500c0"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
+
+  stable do
+    url "https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.bz2"
+    sha256 "1e19565d82e43bc59209a168f5ac899d3ba471d55c7610c677d4ccf2c9c500c0"
+
+    # Fix enum_type_object type on Python 3.11. Remove in the next release
+    patch do
+      url "https://github.com/boostorg/python/commit/a218babc8daee904a83f550fb66e5cb3f1cb3013.patch?full_index=1"
+      sha256 "8fd377639faf0a26c80ba8f8dda354a9b6f966d7e1bfeadad9050a31cc4e2773"
+      directory "libs/python"
+    end
+  end
 
   livecheck do
     formula "boost"
@@ -22,10 +33,10 @@ class BoostPython3 < Formula
 
   depends_on "numpy" => :build
   depends_on "boost"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
