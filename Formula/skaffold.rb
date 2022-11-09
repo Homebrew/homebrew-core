@@ -7,22 +7,6 @@ class Skaffold < Formula
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
-  # The `strategy` code below can be removed if/when this software exceeds
-  # version 2.2.3. Until then, it's used to omit an older tag that would always
-  # be treated as newest.
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-    strategy :git do |tags, regex|
-      malformed_tags = ["v2.2.3"].freeze
-      tags.map do |tag|
-        next if malformed_tags.include?(tag)
-
-        tag[regex, 1]
-      end
-    end
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "722f5f1643b35cd834ab161ff5da7aa039df33bfc2b5c59fee00e7b805000ed5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8254f6da5eb5a397e1e1838c5fb92130ffba1ea6e04863f0286b031db7c72c0b"
