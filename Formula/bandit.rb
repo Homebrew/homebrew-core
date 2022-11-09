@@ -10,6 +10,7 @@ class Bandit < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "915f962f89f0cf0ae432a4fc72901c4529a66a280b22a6d44306efcdc716ff80"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b1e17670712be6fee6d21317c108098e3d5144708d133f218deeeaa797c9d98b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43bd465a694df50d4c6d305d947ee3df3b9d011629a6070ea4960af73a0aa991"
     sha256 cellar: :any_skip_relocation, monterey:       "058d08e4c08317f2516696e3ab71e4145ab8d48106a26edb84be0a2e9c066ba0"
