@@ -41,6 +41,7 @@ class Rtags < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "e9fc47c3d077623542bb1d557a1753b218731de369b03417b05c4670c3b0338d"
     sha256 cellar: :any, arm64_monterey: "3e0a95b35a8a97577ee11285665aafbed32fb82229494d84e87da21bb8789824"
     sha256 cellar: :any, arm64_big_sur:  "7e06083461f28b2d0bd673f4c8d28f71eee2863c176c1d3a47b32509d648cd23"
     sha256 cellar: :any, monterey:       "a66d7e8df584032fe4ab59c7bfa2f151ad417d5f764b0af898ee772361a2b27f"
