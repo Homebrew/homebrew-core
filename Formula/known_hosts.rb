@@ -6,6 +6,7 @@ class KnownHosts < Formula
   head "https://github.com/markmcconachie/known_hosts.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3a25e4320813f741ccbd44b32856f31f3cd687239f9f409a336465e2f2bcb27"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f6f7c9c4638ffa5cff8f90e57ff9a8bbb3b2114e87d709e930e88120884859ad"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf3e0af3ffe33fc928ada23b36fd1549b8435234480371f678cb125ecdf3cb74"
     sha256 cellar: :any_skip_relocation, monterey:       "aa8e1755201bfe310f46071a14105071fc49b39b415b128e138d7d765b3050ef"
