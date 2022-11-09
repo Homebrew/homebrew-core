@@ -8,6 +8,7 @@ class Terraforming < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff41576476519a7db277ff96dda8e2c3783ad6d169b49c032745248469d5452d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a999cfb15e43d21fccbed4c7ac4f570c192f7921f1948edd8e7da11ca7971ef9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9b5cf64c7ba61284462a250ad49d2a397a67efa3c43d2d60b43bae20a9dbd92"
     sha256 cellar: :any_skip_relocation, monterey:       "a999cfb15e43d21fccbed4c7ac4f570c192f7921f1948edd8e7da11ca7971ef9"
