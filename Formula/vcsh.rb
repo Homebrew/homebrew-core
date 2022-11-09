@@ -1,8 +1,8 @@
 class Vcsh < Formula
   desc "Config manager based on git"
   homepage "https://github.com/RichiH/vcsh"
-  url "https://github.com/RichiH/vcsh/releases/download/v2.0.4/vcsh-2.0.4.tar.xz"
-  sha256 "5bf425d89f474c340fbb47a5df8987573a9ef3928658b3e9876b07cae1333cf2"
+  url "https://github.com/RichiH/vcsh/releases/download/v2.0.5/vcsh-2.0.5.tar.xz"
+  sha256 "01d01ebe864fa8ee5c740f909f9fe9b89ef92612c578d4f42c8777bf987ac32d"
   license "GPL-2.0-or-later"
 
   bottle do
