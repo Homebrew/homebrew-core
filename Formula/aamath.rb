@@ -11,6 +11,7 @@ class Aamath < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fdc50f0e8165ff7de731e092ddfa57149185bd1c1e1cf463e819645364d25ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e823e4d89ae67660af61746c7472d80f0eb2ea70503471ac1190f9c0c691faf0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eec6c9dd0ae3b32b3d2b22ac4cf926c6b3084a41623361762a4c0a297dc05286"
     sha256 cellar: :any_skip_relocation, monterey:       "58065a231153b1971495d1d07c7d68740a1e7ca51ff95d8c8684ab511aaa4ab7"
