@@ -2,9 +2,9 @@ class Makepkg < Formula
   desc "Compile and build packages suitable for installation with pacman"
   homepage "https://wiki.archlinux.org/index.php/makepkg"
   url "https://gitlab.archlinux.org/pacman/pacman.git",
-      tag:      "v6.0.1",
-      revision: "0a6fecd07271a54d9009ea7204c0e6288a44212b"
-  license "GPL-2.0"
+      tag:      "v6.0.2",
+      revision: "c2d4568d35173f92c17b6b93222bc101a63c9928"
+  license "GPL-2.0-or-later"
   head "https://gitlab.archlinux.org/pacman/pacman.git", branch: "master"
 
   bottle do
