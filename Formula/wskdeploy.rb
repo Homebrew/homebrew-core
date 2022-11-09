@@ -6,6 +6,7 @@ class Wskdeploy < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "08cf43fae8646a2da12684d40c5271ea647950788125e7e896d5641984ec98f4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4b42f8375e4d73e6fc92323e40b2c12f98227b4293e0e948cdfc514e698207fe"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "87364286a37d26de6a051ba1d0244de932de11058e041e969ea20400560df8e5"
     sha256 cellar: :any_skip_relocation, monterey:       "e3d3c61f5b230af2a2a5776448d06985cee14f9c7aa5b51dc40179922d655df1"
