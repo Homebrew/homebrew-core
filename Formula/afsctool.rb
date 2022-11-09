@@ -7,6 +7,7 @@ class Afsctool < Formula
   head "https://github.com/RJVB/afsctool.git"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f21804d2beead64d635cd72b2b9e5b76d1911dc2de9c15236e41689ddc46dc74"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4cee829a15d8fb035095298b056e8925c2ce5bf730c6ed7ac2e76df4f8432595"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "05e5e2d51ff1fec526024bd93ba39d39afe230badd7e5bbe686df6e7ebf0fbab"
     sha256 cellar: :any_skip_relocation, monterey:       "e13983fdbff0c188b976e8a0bdb49fcfadf83385bb65e96eb01381884cb40d60"
