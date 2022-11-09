@@ -9,6 +9,7 @@ class Dnstwist < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d639c9a59054193778c6ec3a3713a6dae9a9c81da7a7e3e82f77cee979bf788"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b39dae32e23dd3a0cfadaf82885cecaf6860a430850c65e91a878f0ddb735972"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5204e3db811770005cd6b9b78c4fc96ca5bc2cdcc35822ff87de50487273338"
     sha256 cellar: :any_skip_relocation, monterey:       "010db1edc9da57b553354b64dfe1663070ac31dcac2e9fc526dfbdb7c5a13b7f"
