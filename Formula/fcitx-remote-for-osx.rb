@@ -1,6 +1,4 @@
 class FcitxRemoteForOsx < Formula
-  include Language::Python::Shebang
-
   desc "Handle input method in command-line"
   homepage "https://github.com/xcodebuild/fcitx-remote-for-osx"
   url "https://github.com/xcodebuild/fcitx-remote-for-osx/archive/0.4.0.tar.gz"
@@ -16,14 +14,13 @@ class FcitxRemoteForOsx < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "152aab38c829bea77ca1578b566eda8b6bc3dea479b3c46a41b220c134135575"
   end
 
-  # need py3.6+ for f-strings
-  depends_on "python@3.10" => :build
   depends_on :macos
 
-  def install
-    rewrite_shebang detected_python_shebang, "./build.py"
+  # need py3.6+ for f-strings
+  uses_from_macos "python" => :build, since: :catalina
 
-    system "./build.py", "build", "general"
+  def install
+    system "python3", "build.py", "build", "general"
     bin.install "fcitx-remote-general"
     bin.install_symlink "fcitx-remote-general" => "fcitx-remote"
   end
