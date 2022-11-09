@@ -10,6 +10,7 @@ class Ps2eps < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0993f1da048518572c4388a4eab1e7c37151c97859eec0802b639ef803d71eca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bdadaaab653031dd42695d12d97e7b831e15d6e823f00abc74a5a2f89a7e4954"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb048bafbe5b44a17151bc81c5743045f3f4963d6f3cf2adf38685bba82c8c67"
     sha256 cellar: :any_skip_relocation, monterey:       "692aad4f078bddacb438898e625887ae1278fc07de6a1c9ce37ee9683cc5f7fe"
