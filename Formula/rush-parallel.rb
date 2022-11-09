@@ -6,6 +6,7 @@ class RushParallel < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a92d76029be74e6e1054212efab72af76a560a6a8d0288ab9aec8000d1d86bf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ddd47f185f466a92d5ac6bb26ee7e08ecb2c7595cd5d9350121c8b7f12e78f09"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c20ed41dbe90016e92dce1366ddc4c8a9b2a7848c83ac670c533f1bea406dab6"
     sha256 cellar: :any_skip_relocation, monterey:       "6f18185442d50ccf97239ecbddd63f1fe188bc1ff81bfa855bea544df972278d"
