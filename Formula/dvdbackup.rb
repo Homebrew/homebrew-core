@@ -6,6 +6,7 @@ class Dvdbackup < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "e009a34c9e7cc319095b3a001b99aa8da5fecb6662ff4fa64daa75b932dbe79b"
     sha256 cellar: :any, arm64_monterey: "dd5094eec306b3cdc1e0592937f3a9c98872d703d53865575e30c4bbf7c25274"
     sha256 cellar: :any, arm64_big_sur:  "9915a81fafc6436fbc35d0cdde179fa65775b438f296e21397c3c416a900889b"
     sha256 cellar: :any, monterey:       "fc938674adb52e95181053700eda2db94b4cbd2ff070391201ce3cf5bbd61496"
