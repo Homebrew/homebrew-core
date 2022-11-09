@@ -8,6 +8,7 @@ class Serf < Formula
   head "https://github.com/hashicorp/serf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4dc6c50f1b2a6a151d6a1fb0f0cd54b41854d8244efde532a704b99863df8a7d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59a8907fb429075617af0dd136dec133ef2d3db717aefdd5d34af24bdb61b8f7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62db308d9635a9ea626c57583164787a63384269eb58dac7e73d30a7814032dc"
     sha256 cellar: :any_skip_relocation, monterey:       "93a502382f60b63b45fd43636ac8799831a5a68b26acbde13e34f1b69bc0b813"
