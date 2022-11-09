@@ -21,13 +21,13 @@ class Xaric < Formula
     sha256 x86_64_linux:   "407b5776d290e11fa9dc958d03d7035c623ff5876bc2f2fa37de4462f9f6547d"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "ncurses"
 
   def install
     system "./configure", *std_configure_args,
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
