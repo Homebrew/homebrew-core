@@ -13,6 +13,7 @@ class Ldapvi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b62ea0b0de6085ea21a9415ff7983d2d78c5406f8d17296d306279e1a926a33c"
     sha256 cellar: :any,                 arm64_monterey: "36ca8c1e3ed87aebd980c3b188104f74120756d6719eec55ec6376cc622717c4"
     sha256 cellar: :any,                 arm64_big_sur:  "321c4e8a2ca63fd24cd5a5f719e989296df2be64df6afd65ab6c995af77681ca"
     sha256 cellar: :any,                 monterey:       "63c5ade32f9583ee28609efbcb7109a37c4e39ab4a28ab970644f6b619800bdc"
