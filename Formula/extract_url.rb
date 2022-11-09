@@ -7,6 +7,7 @@ class ExtractUrl < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9065d9387cd8772f973fe3a07f3ace04cfee3d645ce9ed53b79a9bbc29abfc7a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b5b26f416b739e4c2641c9332594e2d6d914813b6eff3cf66da6ef75d8eea88f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "981106a1c822cd509a7faf37a7d45e5a1a08fe5bf8ab613202aef5716801a8c0"
     sha256 cellar: :any_skip_relocation, monterey:       "bb6c782787f42d77cafdb2039ca8011cbafab2a57bb027b3821e8f562ea160aa"
