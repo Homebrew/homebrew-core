@@ -7,6 +7,7 @@ class Ocrad < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "01e67cda156e5752f29d8702f353a37c62a4e7e9712bb8aa63349ac75ce76489"
     sha256 cellar: :any,                 arm64_monterey: "443fa5aa2aba1104b638287c43df241736769328d32f234ec3af8da24bccc2ea"
     sha256 cellar: :any,                 arm64_big_sur:  "ca07488430da95c3c7c59fc8658a8009942ddd05ce4ebb5986b3530d95551366"
     sha256 cellar: :any,                 monterey:       "ec671c1d8ea4e8fb12bc40fc502e1c462e9f6ffb320fd8d9fedc1698267a92e5"
