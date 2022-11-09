@@ -11,6 +11,7 @@ class FetchCrl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "31195e7618b568140819ca5220581f5fee24d18049a925116e144aff0e07410c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31195e7618b568140819ca5220581f5fee24d18049a925116e144aff0e07410c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31195e7618b568140819ca5220581f5fee24d18049a925116e144aff0e07410c"
     sha256 cellar: :any_skip_relocation, monterey:       "31195e7618b568140819ca5220581f5fee24d18049a925116e144aff0e07410c"
