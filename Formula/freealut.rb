@@ -6,6 +6,7 @@ class Freealut < Formula
   license "LGPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7d9a63d859ffb514a2e4a7518d18bcbc7b71fb79c1580e00fa71c2107d794be6"
     sha256 cellar: :any,                 arm64_monterey: "b8def26cf41acf2dc5d3e349ec3e8429df7cc8c22c09f6efc237796653d01561"
     sha256 cellar: :any,                 arm64_big_sur:  "3cdedc8bdb746d9b619372b514e021eb40f51a83f01db883167d55322cb5286a"
     sha256 cellar: :any,                 monterey:       "8b5449831c37f8dac468aaf8e2a4ccb8ea17acbfebf0a4a831bb864d7d1d5834"
