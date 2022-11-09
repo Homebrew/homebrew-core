@@ -13,6 +13,7 @@ class JdnssecTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e8de754897fd352966a4978f775205a0c8144406cd6ae5be56ef96f1afdd96d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "069e93f9f47a8553de4bcbe13dbc64082905b2e4e625093a0cb6456a6743ecee"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24738bb6c20a997b7cf23b1dd63e559d339fd1765998c5d65974b9f21775b5d7"
     sha256 cellar: :any_skip_relocation, monterey:       "3e8de754897fd352966a4978f775205a0c8144406cd6ae5be56ef96f1afdd96d"
