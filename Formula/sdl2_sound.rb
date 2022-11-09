@@ -13,6 +13,7 @@ class Sdl2Sound < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "e0af8ec626664ff96880901346e333d02f299329481d02b48f7f859106bd8223"
     sha256 cellar: :any,                 arm64_monterey: "9f7361925cc4e541a3293a00110b3c83516794fe075ac98c49880d86acc5484d"
     sha256 cellar: :any,                 arm64_big_sur:  "8fa2ec4cb066676973921f8dab5ffb1e5bc2acc4e0d37faffc83978e512c2688"
     sha256 cellar: :any,                 monterey:       "8dff25f947a0c5ba5e6d2a78070f4aa7433385221df4c327deece950db99c2e3"
