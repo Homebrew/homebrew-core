@@ -6,7 +6,7 @@ class Networkit < Formula
   url "https://github.com/networkit/networkit/archive/10.0.tar.gz"
   sha256 "77187a96dea59e5ba1f60de7ed63d45672671310f0b844a1361557762c2063f3"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "37fb24a66576259a86c70fcbd1b449dc5c1db839a86d2d0c4c8161a09dbf0025"
@@ -25,11 +25,11 @@ class Networkit < Formula
 
   depends_on "libnetworkit"
   depends_on "numpy"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "scipy"
 
   def python3
-    which("python3.10")
+    "python3.11"
   end
 
   def install
