@@ -6,7 +6,7 @@ class Alot < Formula
   url "https://github.com/pazz/alot/archive/0.10.tar.gz"
   sha256 "71f382aa751fb90fde1a06a0a4ba43628ee6aa6d41b5cd53c8701fd7c5ab6e6e"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/pazz/alot.git", branch: "master"
 
   bottle do
@@ -25,22 +25,17 @@ class Alot < Formula
   depends_on "libmagic"
   depends_on "notmuch"
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
-  resource "Automat" do
-    url "https://files.pythonhosted.org/packages/80/c5/82c63bad570f4ef745cc5c2f0713c8eddcd07153b4bee7f72a8dc9f9384b/Automat-20.2.0.tar.gz"
-    sha256 "7979803c74610e11ef0c0d68a2942b152df52da55336e0c9d58daf1831cbdf33"
-  end
-
-  resource "Twisted" do
-    url "https://files.pythonhosted.org/packages/fb/1e/fffa0d45da0ed2998e4d7f121621f2de68c51153fbbab23e63901cf859f4/Twisted-22.4.0.tar.gz"
-    sha256 "a047990f57dfae1e0bd2b7df2526d4f16dcdc843774dc108b78c52f2a5f13680"
-  end
-
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
-    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
+  end
+
+  resource "Automat" do
+    url "https://files.pythonhosted.org/packages/7a/7b/9c3d26d8a0416eefbc0428f168241b32657ca260fb7ef507596ff5c2f6c4/Automat-22.10.0.tar.gz"
+    sha256 "e56beb84edad19dcc11d30e8d9b895f75deeb5ef5e96b84a467066b3b84bb04e"
   end
 
   resource "configobj" do
@@ -59,13 +54,13 @@ class Alot < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
   resource "incremental" do
-    url "https://files.pythonhosted.org/packages/4f/c5/430765c697afc217c8491785de321a21fa4d983dda14bcd82feb965b0593/incremental-21.3.0.tar.gz"
-    sha256 "02f5de5aff48f6b9f665d99d48bfc7ec03b6e3943210de7cfc88856d755d6f57"
+    url "https://files.pythonhosted.org/packages/86/42/9e87f04fa2cd40e3016f27a4b4572290e95899c6dce317e2cdb580f3ff09/incremental-22.10.0.tar.gz"
+    sha256 "912feeb5e0f7e0188e6f42241d2f450002e11bbc0937c65865045854c24c0bd0"
   end
 
   resource "mock" do
@@ -74,8 +69,13 @@ class Alot < Formula
   end
 
   resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/f7/46/fecfd32c126d26c8dd5287095cad01356ec0a761205f0b9255998bff96d1/python-magic-0.4.25.tar.gz"
-    sha256 "21f5f542aa0330f5c8a64442528542f6215c8e18d2466b399b0d9d39356d83fc"
+    url "https://files.pythonhosted.org/packages/da/db/0b3e28ac047452d079d375ec6798bf76a036a08182dbb39ed38116a49130/python-magic-0.4.27.tar.gz"
+    sha256 "c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b"
+  end
+
+  resource "Twisted" do
+    url "https://files.pythonhosted.org/packages/b2/ce/cbb56597127b1d51905b0cddcc3f314cc769769efc5e9a8a67f4617f7bca/Twisted-22.10.0.tar.gz"
+    sha256 "32acbd40a94f5f46e7b42c109bfae2b302250945561783a8b7a059048f2d4d31"
   end
 
   resource "urwid" do
@@ -89,16 +89,15 @@ class Alot < Formula
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/ae/58/e0877f58daa69126a5fb325d6df92b20b77431cd281e189c5ec42b722f58/zope.interface-5.4.0.tar.gz"
-    sha256 "5dba5f530fec3f0988d83b78cc591b58c0b6eb8431a85edd1569a0539a8a5a0e"
+    url "https://files.pythonhosted.org/packages/38/6f/fbfb7dde38be7e5644bb342c4c7cdc444cd5e2ffbd70d091263b3858a8cb/zope.interface-5.5.2.tar.gz"
+    sha256 "bfee1f3ff62143819499e348f5b8a7f3aa0259f9aca5e0ddae7391d059dce671"
   end
 
   def install
     virtualenv_install_with_resources
 
-    python = "python3.10"
     # Add path configuration file to use notmuch CFFI bindings
-    site_packages = Language::Python.site_packages(python)
+    site_packages = Language::Python.site_packages("python3.11")
     pth_contents = "import site; site.addsitedir('#{Formula["notmuch"].opt_libexec/site_packages}')\n"
     (libexec/site_packages/"homebrew-notmuch2.pth").write pth_contents
 
