@@ -22,8 +22,8 @@ class Ser2net < Formula
   depends_on "libyaml"
 
   resource "gensio" do
-    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.4.1.tar.gz"
-    sha256 "949438b558bdca142555ec482db6092eca87447d23a4fb60c1836e9e16b23ead"
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.6.0.tar.gz"
+    sha256 "7f80d32b1769591ab2ebd49b1a106709fa5c54597979c5e95b28dd5fb6247ada"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
