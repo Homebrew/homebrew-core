@@ -6,6 +6,7 @@ class Zzuf < Formula
   license "WTFPL"
 
   bottle do
+    sha256                               arm64_ventura:  "16fc98439ca072e8cf19c129649eff99e63e0cece1c1455e97f04ce7cb4dfd73"
     sha256                               arm64_monterey: "8cf189e969a94737e6729be772df9f64759b7c33580cee51d571b31365dbddf2"
     sha256                               arm64_big_sur:  "7ff801dd276cdd8f830d07d01c97a83207ed8ac77c6023ff21b29a2ec536637b"
     sha256                               monterey:       "2cfa284477cd1e81ac3b248a20f25812083fe7b592a997ecbefee7663cedab91"
