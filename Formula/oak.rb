@@ -7,12 +7,12 @@ class Oak < Formula
   head "https://github.com/thesephist/oak.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "157869a20f19f4bd40dbd9e961258862a085e7e930cb8c72443d7ee1d50aa9e2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2625e9701eed1dd3fac6a1ba7baf0f38bfdc1a2ac8d79f73c968a96df21bfd0c"
-    sha256 cellar: :any_skip_relocation, monterey:       "bb6c1e672037f52957ff2d7b4e02e26323c3b40ad8e6420044aca45643fbd72f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2f39aa243d1e2c43132c3ae641d960d83f19d0c5b9c755703ba34376c4d3feb9"
-    sha256 cellar: :any_skip_relocation, catalina:       "719ceb4877cfd0a50b2df7cd1e0a8cfd877dee20a82dafe11554311a9422a4dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66656295690dd8e69299937fa57ba9d183d69933257563234bad7ff5249a81e1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c258ac6aacad5e27decb196cb329fc4cb8339950fa110ee1540712872a0ddc4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbae1b116dcccc5199d3af3e8deb66246c39be3afb5156209b814f83a946599a"
+    sha256 cellar: :any_skip_relocation, monterey:       "538fdce9778c8c182d6c369356f02c0d8cd0ba120168eaa204d9ea5d6e423fe6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "50e687e3532068bd0948b8760e0bdcf136a6f357600ab1abc5c2089f0d372436"
+    sha256 cellar: :any_skip_relocation, catalina:       "c206c1cb5f34b507830290b8e273cf65d2c76f08ce5f014a17fd8653a63cce0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c902712d736c06e8f065b2046ad172b66c7ae075a2ccdd3c19c859616577fe50"
   end
 
   depends_on "go" => :build
