@@ -13,6 +13,7 @@ class Jailkit < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "d4ad9733baab3fffc9088d56aa10070bb6954e91f452ae180ef1b57112a5dd06"
     sha256 arm64_monterey: "4adb29e6f715ccb71dd1b14b38710018dc9545f67fd81f028b79352dd438a8a1"
     sha256 arm64_big_sur:  "7ea538f86542cab83e908386d08747b6d4f16ba86101f211f00bfa24a5da97a6"
     sha256 monterey:       "3501eece797a7bf06d3f127af8bcca954feac03c6fbddf0ad3a400807e56a258"
