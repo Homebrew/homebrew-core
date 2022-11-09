@@ -14,7 +14,7 @@ class Norm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e73b7067d42e7b1b3efaa2f19698a1f409b2a55a5719b56f41ddf5249913e6c3"
   end
 
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   # Fix warning: 'visibility' attribute ignored [-Wignored-attributes]
   # Remove in the next release
@@ -26,7 +26,7 @@ class Norm < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     system python3, "./waf", "configure", "--prefix=#{prefix}"
     system python3, "./waf", "install"
 
