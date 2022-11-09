@@ -11,6 +11,7 @@ class Imake < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "9cd2947492b3f29a500e1a45bd3721de23944ac43f3deb7fdb8ae5a9931a9acf"
     sha256 arm64_monterey: "0cd31c02ff18e5ce5561bebaea0096b04a78f7b761f2994f022c65bbbb4379dd"
     sha256 arm64_big_sur:  "9238c3ea5a96d566c6b531637cae7c07d2aca46f7bbaba67ffcd8421bbd5fe6f"
     sha256 monterey:       "90ec4cbb2593c65b1ed2ae3908f610e864581a634d20e78874354e408f7f8c63"
