@@ -8,6 +8,7 @@ class Pcb2gcode < Formula
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b3e6b48f2e5e63272ee3d97167c56c9a28f110d42f36b9b3c03455729377b155"
     sha256 cellar: :any,                 arm64_monterey: "e83354a49d5ca3beff774b097e789b79330bbce4d9d5388da8006334c66b2c25"
     sha256 cellar: :any,                 arm64_big_sur:  "f73a00e3c21ffa00009b450f2d728144417055009f2a82ba6a3ae969ba3003db"
     sha256 cellar: :any,                 monterey:       "a1ce70052b5b1746a6b4f1997787aefed336bc01aa5767eac444be929e026882"
