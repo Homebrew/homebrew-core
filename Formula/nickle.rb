@@ -25,6 +25,10 @@ class Nickle < Formula
 
   uses_from_macos "bison" => :build
 
+  # Fix build on Apple Silicon
+  # Reported by email on 2022-11-09
+  patch :DATA
+
   def install
     system "./autogen.sh", *std_configure_args
     system "make", "install"
@@ -34,3 +38,17 @@ class Nickle < Formula
     assert_equal "4", shell_output("#{bin}/nickle -e '2+2'").chomp
   end
 end
+
+__END__
+diff -pur nickle-2.91/float.c nickle-2.91-new/float.c
+--- nickle-2.91/float.c	2021-08-18 19:01:45
++++ nickle-2.91-new/float.c	2022-11-09 14:33:15
+@@ -1122,7 +1122,7 @@ NewDoubleFloat (double d)
+     double_digit    dd;
+     if (d == 0.0) RETURN (Zero);
+     e = ilogb (d);
+-    m = significand (d);
++    m = scalb(d, (double) -e);
+     ms = Positive;
+     if (m < 0)
+     {
