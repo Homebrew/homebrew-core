@@ -7,6 +7,7 @@ class Usbutils < Formula
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f20cbfbd81aa504ca6f9f5f9c22bc07c25aba128cb661daa0e5b7216460850a4"
     sha256 cellar: :any,                 arm64_monterey: "b92a68d48cfd148d424c9e856b58a6f35409f39943ec03571647454b1f5e951a"
     sha256 cellar: :any,                 arm64_big_sur:  "4348cacea6a03dd09f24fb6b81d9c81db1d5b2e7b4aacf72aa23e90e8c4e4d44"
     sha256 cellar: :any,                 monterey:       "d906f5f22f4cea31c8e4ba89f734639fbbd5719da4312c146c801980214cad3f"
