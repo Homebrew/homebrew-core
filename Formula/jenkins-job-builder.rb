@@ -9,6 +9,7 @@ class JenkinsJobBuilder < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1db587e3f2322b6b3cf75ab30993008b12e2c4f2c3eab6a9941211b85dc84c2c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e68aeb1306e7d5b3b07d1e6c6eb4121f11a3306a082250b6da684702fd0f2afb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cae82ede6ac57d56ae9f8e507bd890365036fb45bb989f7a829a5241e8a68d35"
     sha256 cellar: :any_skip_relocation, monterey:       "325fc32604dd452eee660da4be8e10d0635cb0c86542b64b0805a54fc09fdf9b"
