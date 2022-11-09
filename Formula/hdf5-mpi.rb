@@ -12,6 +12,7 @@ class Hdf5Mpi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "83c5436383689bcf4f3e63a33fa7d9eedb9de273f992a1a53e031317b6290982"
     sha256 cellar: :any,                 arm64_monterey: "7492722a2de0bac658f71662bdc21d4c75b0cf7bcfa0ef1d2e1080ab2e86ab79"
     sha256 cellar: :any,                 arm64_big_sur:  "8a85b45df3b571bd8e8865406b0cdd1d81f3a695417f84a7882ba5b3afe21579"
     sha256 cellar: :any,                 monterey:       "4300aaa8fef5bef03ec58b3f0e9f9be6fa355636e7c2ea934330f824e51494e7"
