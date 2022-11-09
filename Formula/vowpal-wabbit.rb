@@ -23,8 +23,8 @@ class VowpalWabbit < Formula
   depends_on "fmt"
   uses_from_macos "zlib"
   patch do
-    url "https://github.com/VowpalWabbit/vowpal_wabbit/commit/0cb410dfc885ca1ecafd1f8a962b481574fb3b82.patch"
-    sha256 "48dd1720efdb6308ec01b64b61bc885ae7b278714a9244c15bc9c48f89b0af75"
+    url "https://github.com/VowpalWabbit/vowpal_wabbit/commit/0cb410dfc885ca1ecafd1f8a962b481574fb3b82.patch?full_index=1"
+    sha256 "798246d976932a6e278d071fdff0bff57ba994a3aef58926bbf4e0bf6fa09690"
   end
 
   def install
