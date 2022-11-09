@@ -7,6 +7,7 @@ class Samurai < Formula
   head "https://github.com/michaelforney/samurai.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef30fe2e4abb74c2d10c8465629b2f53238bad713d5f9f11a29edbeef4a3906f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "98bc9f540b7344a3aa23402b3537a2a45842032026108de92f38ca2d1cda757e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04ca3c9aada344360216791324e673db86948a3eaa2e82a541cb1fd28647b1bf"
     sha256 cellar: :any_skip_relocation, monterey:       "34f2a7b813c145cf6deb49c67a476e22dbb2704329eb0a404a8c2c6821d41e20"
