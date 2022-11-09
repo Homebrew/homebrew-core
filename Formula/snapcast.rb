@@ -7,6 +7,7 @@ class Snapcast < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "fdc7b6323f142d3bff859224c0849674d908844f6d26cbf5facac011527c5f66"
     sha256 cellar: :any, arm64_monterey: "43940265aea2debabe717648ef509c98aef3018290f57c4cb05c0e8567be1661"
     sha256 cellar: :any, arm64_big_sur:  "1a6d23f065fcfc38e6aa7fbfac653dd128b36a50dcc0f8c567e50ee0747bf6b8"
     sha256 cellar: :any, monterey:       "63b3f56b0521da50793dbd77c69075f5de6f7980d2249ddfe8fdf58a89e8a083"
