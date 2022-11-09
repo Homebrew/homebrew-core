@@ -9,6 +9,7 @@ class Awscli < Formula
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4f8979c28e0aec0f74f4707059d9b39f38be3a6ef182e3b993530cbad52b6be0"
     sha256 cellar: :any,                 arm64_monterey: "400fd8f0a9d0b56401b62488dbc776c31acd3d1ff046838faefd0e68ac3ce15d"
     sha256 cellar: :any,                 arm64_big_sur:  "e385a76088ae9dd7eafc133e92ba6050fc067f6796a9236ffc2b08e15d2ee584"
     sha256 cellar: :any,                 monterey:       "ba48215d00ada52566f22875698f74ea538bec8a04b2ab28079f08a7c4aab838"
