@@ -6,14 +6,13 @@ class Afflib < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d0874ef5a186705eac544762239a87a41d01107ca802bf47083818f910c7168a"
-    sha256 cellar: :any,                 arm64_monterey: "06fc39593f42e77d5fa123c087ea516e8be899985d0d0dd04b5d5bebede9add1"
-    sha256 cellar: :any,                 arm64_big_sur:  "aa8dd52d5800f5ac0464a37b9f456ea830c62ae8a2775373f330ab7d8253bacc"
-    sha256 cellar: :any,                 monterey:       "614c38500b3602a7dac28ee776713c1ff88b6c25dd30b19b28581fc890a1e86c"
-    sha256 cellar: :any,                 big_sur:        "d5502071af61c4768c056d6ac7d3f7d1048044e9290b7a3823350b7df05a1e86"
-    sha256 cellar: :any,                 catalina:       "6662001d7ea73f9ec2f36bf94937c84581254ca4637a07d6a696116314a438bb"
-    sha256 cellar: :any,                 mojave:         "360c80c6323ff67028b0154508967eaa5b426675892147ca2d70bb11ce273d9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44a7c836a4474870e2e68b88916853703af597798eadde2c5f0c5024a46d41f1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "3e5919d12d9513c23e82822dd2ffd2947af505ed2f70ef1231e3355abe576faa"
+    sha256 cellar: :any,                 arm64_big_sur:  "6dd3ec1e1f3e71c9c57229dd23db7e6cfd7d1ce1ab06834f490597f5ba57ae13"
+    sha256 cellar: :any,                 monterey:       "b97d1449f77720b8893095c05b07a2a24af9744aaa4a5f120e500bec638ee924"
+    sha256 cellar: :any,                 big_sur:        "afe54b17929f33962a429e78e73aff41d8ea7c6c52d0e1a3fcdf41004a3a0de6"
+    sha256 cellar: :any,                 catalina:       "d6bececfde0fa878628d15954d4e3300f94be5f50a9e82493c1e96938ca885fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39c23676a86073eb745c7437c2ae69de89b0c1672030a8f3c989b440f2b7a292"
   end
 
   depends_on "autoconf" => :build
