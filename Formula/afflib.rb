@@ -18,41 +18,40 @@ class Afflib < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libcython" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
 
-  # Fix for Python 3.9, remove in next version
-  patch do
-    url "https://github.com/sshock/AFFLIBv3/commit/aeb444da.patch?full_index=1"
-    sha256 "90cbb0b55a6e273df986b306d20e0cfb77a263cb85e272e01f1b0d8ee8bd37a0"
+  def python3
+    which("python3.11")
   end
 
   def install
-    python = Formula["python@3.10"].opt_bin/"python3.10"
-    ENV["PYTHON"] = python
+    # Fix build with Python 3.11 by regenerating cythonized file.
+    (buildpath/"pyaff/pyaff.c").unlink
+    site_packages = Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
 
-    args = %w[
-      --enable-s3
-      --enable-python
-      --disable-fuse
-    ]
-
+    ENV["PYTHON"] = python3
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args, *args
+    system "./configure", *std_configure_args,
+                          "--enable-s3",
+                          "--enable-python",
+                          "--disable-fuse"
 
     # Prevent installation into HOMEBREW_PREFIX.
-    prefix_site_packages = prefix/Language::Python.site_packages(python)
     inreplace "pyaff/Makefile", "--single-version-externally-managed",
-                                "--install-lib=#{prefix_site_packages} \\0"
+                                "--install-lib=#{prefix/site_packages} \\0"
     system "make", "install"
   end
 
   test do
     system "#{bin}/affcat", "-v"
+    system python3, "-c", "import pyaff"
   end
 end
