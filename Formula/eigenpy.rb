@@ -4,7 +4,7 @@ class Eigenpy < Formula
   url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.7.14/eigenpy-2.7.14.tar.gz"
   sha256 "b98157b78ef8db61e581bc432e44dd851627730626cd01c171e56c70da475ad9"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
@@ -23,12 +23,10 @@ class Eigenpy < Formula
   depends_on "boost-python3"
   depends_on "eigen"
   depends_on "numpy"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python3
-    deps.map(&:to_formula)
-        .find { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .opt_libexec/"bin/python"
+    "python3.11"
   end
 
   def install
@@ -36,7 +34,7 @@ class Eigenpy < Formula
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{python3}",
+                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
                     "-DBUILD_UNIT_TESTS=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
