@@ -16,6 +16,7 @@ class MariadbConnectorC < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "b97bd4602f08f0183f63ac2b38d066bfd9e34245dda2aebcb24b78e3958bf9ec"
     sha256 arm64_monterey: "086138120674893e58c030bd30bb8dc6fbb20ba8e49791c4113c1ad97d6512bb"
     sha256 arm64_big_sur:  "15c53b9a973cc9a30259c1cf3705f609dc300668d1a80f3185bbc174140350bc"
     sha256 monterey:       "00b2f81b3b7d7bd8530ae3ce7e7267a656207d7727f40e8f24d2d7c8ccd62f7e"
