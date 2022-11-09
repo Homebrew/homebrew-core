@@ -16,6 +16,7 @@ class Midgard2 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "0c3702505d020b3c0dee6a5deb6cc167b1a1f621eac32debff53d11b296412db"
     sha256 arm64_monterey: "a895e75f191eae0c7483f72ab017b382408d5c2e695b45501899bb851afd404f"
     sha256 arm64_big_sur:  "60df7b2c0c5128949c9ad6c8cea8bce50b2abbbf1405da2e2a7681745eea90d0"
     sha256 monterey:       "0298dfd2a09496215031d1c3f86e316922b1308bb9310d109ec5e4313127e5c3"
