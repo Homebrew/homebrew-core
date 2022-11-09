@@ -6,6 +6,7 @@ class Oq < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6f881c126af64b040e201046d551b1271b033004874fd6a245622d9fc360072d"
     sha256 cellar: :any,                 arm64_monterey: "0ae85bcb68114e264bce9def780201dab80edaebc91a15811799976c42fc5682"
     sha256 cellar: :any,                 arm64_big_sur:  "a24d7e3301c02d8878d6b91371d48d40f9f659d678e8702785d59130d6374fee"
     sha256 cellar: :any,                 monterey:       "54a718d39d431feed30e2930557a6b97076d387194e9fd2534036cbcb415f1e0"
