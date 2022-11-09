@@ -8,12 +8,13 @@ class Cloudiscovery < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "87f23d3b535a5f2905bd8a2d04d03ea8a1354cf46a9bad2f960d3870cf5d730e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f0e54433a4e9189761a6b5612ec77eb3f3f09191f94f81cf9661795ad6eb2ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "41635d2c7251cf9a027158e64cf845c089a4ac4d1907121d88e8d0db9deac497"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c2c1720f3e99c148e387b91114faf4e4dacca3598356a7483ece939228e04dfb"
-    sha256 cellar: :any_skip_relocation, catalina:       "ef172c7675f1107f12560728cae72fca39f1913f5f8628681dc693a1fa333dd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07856bd03ec586bdaef2d56cbbda9a34819a349857d219978074daa1979d18f1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ef79edc6e888965160451f43b0302215fa803757b33339a271798185a599b99"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01d9470ba205b1de5b4149eb7cb2a636b0e52b8129b6fdae85c7e559e5bc5707"
+    sha256 cellar: :any_skip_relocation, monterey:       "af2a5e29595010b8b7410ca110da562900dfea8932ba56873fe7224f914c0666"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aec275f119f6ceb6093eb2bd27832ea6ebd25ffa26fcf5766ac5bc625f0abcd9"
+    sha256 cellar: :any_skip_relocation, catalina:       "bd6f1255f9f95402ed607c49e352189854a884260585b710aa84b9c9e6e5bb85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dc9f4285ac4cc7fbf319e131830b0ea704e83781f13c2a77e829100366a5a67"
   end
 
   depends_on "python@3.11"
