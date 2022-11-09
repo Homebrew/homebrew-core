@@ -21,7 +21,7 @@ class Borgbackup < Formula
   depends_on "libb2"
   depends_on "lz4"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "xxhash"
   depends_on "zstd"
 
@@ -52,6 +52,7 @@ class Borgbackup < Formula
     ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@1.1"].prefix
     virtualenv_install_with_resources
 
+    man1.install Dir["docs/man/*.1"]
     bash_completion.install "scripts/shell_completions/bash/borg"
     fish_completion.install "scripts/shell_completions/fish/borg.fish"
     zsh_completion.install "scripts/shell_completions/zsh/_borg"
