@@ -6,6 +6,7 @@ class Websocketd < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7d6fde3236364942816c8578c1a5d6e436b562d2db34b9d0fb0fa9d501e8dde"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "256933f91abb70b0974f791cbbd8158f4399c27ed2ce99438f7ac566a560003e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d9e5282df6737a6870a2a750570ab79909fb4463411797b0bf5d20cb269162d"
     sha256 cellar: :any_skip_relocation, monterey:       "5a769dfeb3f3062af01fb6ba0703e1d416dc648736e20103c1e0a31489796ddf"
