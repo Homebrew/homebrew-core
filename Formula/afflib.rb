@@ -7,6 +7,7 @@ class Afflib < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "50d62d9c03fd0e7440d660bcb60a85e1b75e9c9249ab9dbb7049729f20d05fa1"
     sha256 cellar: :any,                 arm64_monterey: "3e5919d12d9513c23e82822dd2ffd2947af505ed2f70ef1231e3355abe576faa"
     sha256 cellar: :any,                 arm64_big_sur:  "6dd3ec1e1f3e71c9c57229dd23db7e6cfd7d1ce1ab06834f490597f5ba57ae13"
     sha256 cellar: :any,                 monterey:       "b97d1449f77720b8893095c05b07a2a24af9744aaa4a5f120e500bec638ee924"
