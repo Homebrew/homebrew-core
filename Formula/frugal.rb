@@ -6,6 +6,7 @@ class Frugal < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "712ca37ce2aa54aa8273596c2e7eeaf9ac40de760060a417d4d14738daff82bf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3e5e71e4567cc67d59cd33c009cee51a2372cb1973e004ff7313031318ae657f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "199c81a92c50a67890377b31eb295fe4d0af91e716449ef2780d6670a630cf18"
     sha256 cellar: :any_skip_relocation, monterey:       "6f2ecbe7b38b68a257a263d530cf776cd2882ae965e3f6dd8598fe1bf1436569"
