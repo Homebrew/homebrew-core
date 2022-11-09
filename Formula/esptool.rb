@@ -9,6 +9,7 @@ class Esptool < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "31d185f046e5654aad1045ca7ffcb9eb3c246ce91b1f4636fafdcc2fc61c91db"
     sha256 cellar: :any,                 arm64_monterey: "280f417e8b8b5c2e60bf9de2f85cbfd41dbd9fc4de8666cbad634bb7d0fc9c89"
     sha256 cellar: :any,                 arm64_big_sur:  "c6f34e2e1917168704295782fd47a8a587f178035778eb5e0f42568e29add5b5"
     sha256 cellar: :any,                 monterey:       "9bb4d89846b871c903a54359a06944ea11caeb894b7fb5a9c8f82009e0ff17ef"
