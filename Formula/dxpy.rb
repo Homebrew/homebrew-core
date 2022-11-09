@@ -9,6 +9,7 @@ class Dxpy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f6798277444a026962adbf8c0e72a33bbe8dc303be97b31012275088585152ad"
     sha256 cellar: :any,                 arm64_monterey: "03eaf832840f34cd83f23079028049d227eeb067963ed6d3f643640b444db9f8"
     sha256 cellar: :any,                 arm64_big_sur:  "1dbbfc38bcbff618df6b594436f75b725db002fe27b9f790a48f4b52df33de1b"
     sha256 cellar: :any,                 monterey:       "2c5e28af34db78d5272ddf5969c352ce06c3763c2ca040197451b90692873220"
