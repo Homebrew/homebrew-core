@@ -11,6 +11,7 @@ class Quickjs < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "be1ba0dc988a714a4b33a5d1dbf028b5c0438c6a07854db4b076ca4e54c12c16"
     sha256 arm64_monterey: "e9f1c2d64092a5b0084e3ad49c9f7936efbc48d54ffbcf423cfa900cf62616eb"
     sha256 arm64_big_sur:  "c6fe0bfcc35db87914873424e1a7d4386362eeb008ef1fb28e78cd87811bbb14"
     sha256 monterey:       "bfbc5d750e690dc1d65a818ba6b5fc3eaa86fcd0110ab1cd6ba51c82bb356a0b"
