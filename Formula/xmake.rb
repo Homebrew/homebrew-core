@@ -1,8 +1,8 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.7.2/xmake-v2.7.2.tar.gz"
-  sha256 "2d1159fd8910cd532b09315cbf7e3c8943df57f2b22952174c8cd04ba0358a14"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.7.3/xmake-v2.7.3.tar.gz"
+  sha256 "3e71437ad2a59d1fbbc9fba75ab4ca8d428c49beefcce86c11f6c4710dd4b6f2"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git", branch: "master"
 
