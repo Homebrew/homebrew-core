@@ -7,6 +7,7 @@ class Stormlib < Formula
   head "https://github.com/ladislav-zezula/StormLib.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "634532f2ce69034249154aa8064c267903f37cde59b020de400edbc6b1a015f9"
     sha256 cellar: :any,                 arm64_monterey: "eb49ee0d868f90645193babd489badae79d5d00ca7ede13013f1e59060bbc770"
     sha256 cellar: :any,                 arm64_big_sur:  "339ba3a797c4e4e778605cf162ac730bec7800efb83559a9d8c2869334ffe6ef"
     sha256 cellar: :any,                 monterey:       "f259e5472e2b4dc860b0d56070b9ef65a9c5da60af9f456470e47632a9e1e156"
