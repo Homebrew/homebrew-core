@@ -6,14 +6,12 @@ class Gitversion < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "884486e4221dfebbb2663882c4389583b25b682e1fb793fa1a149129c71260a1"
-    sha256 cellar: :any,                 arm64_monterey: "04b4027f2fad95d6e91b1e7e397861152c0725b8df6d19c04c1c82789869aae1"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f15edcfcc9719428c29c9545a2e935aca93565ca4502c5bb82a691fd0a26bf7"
-    sha256 cellar: :any,                 monterey:       "fae0b0d5478bc07e79008dccca8b4e118e886fa4d52870f39ed749cb864ec776"
-    sha256 cellar: :any,                 big_sur:        "afb41b78c0726b14b47010f6f2e3c7eb4ef08162e5fbd609e5b77106a3ae7a1f"
-    sha256 cellar: :any,                 catalina:       "0ec9a03a2f37981cffcbdf91cb78e4de1d3ca2e2af94cfb3749766d4dae79696"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7866bb8885b5e732d6e93543f2b6ff806cf46660c99e8d3592c38b204a10ebaa"
+    sha256 cellar: :any,                 arm64_monterey: "c8493e7cb21aca7c941744c8a22b1485a1615c33bbce998a59991968132883c5"
+    sha256 cellar: :any,                 arm64_big_sur:  "b806eb80b7f7f4b81c69c56515c19149a06fe2b9b1e9753c22f54f6e6ff54745"
+    sha256 cellar: :any,                 monterey:       "884e90c178d31d2441d17ca45154474cc0fe231f15df4e21a46486d9b768e85a"
+    sha256 cellar: :any,                 big_sur:        "34b1dc9dff977fb3680786dd8600793c1e4ee5bd5ac9251362279e59a6265fe7"
+    sha256 cellar: :any,                 catalina:       "975dbb602b2b4516df5028c5f270e2fdf96c4e2e4777eec37e2e1a9d39460a8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0a956ddf7ca501724e8a6335f54dcf47e931ec4d2585d71f483beb3f1609382"
   end
 
   depends_on "dotnet"
