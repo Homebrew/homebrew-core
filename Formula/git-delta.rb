@@ -8,6 +8,7 @@ class GitDelta < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7c16c0cbdf9e6e51d24c877a05c8be4045d2804b0f3e9662055c68b7978caa2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59cfd83238180b2b19b87273973af0e9b7260f89f276f97545256088fb7af942"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7a28647fe1d1d4e3a5790910b6fc0f54af11b468cd8bd2ff3a018885886ad4d"
     sha256 cellar: :any_skip_relocation, monterey:       "5727dfe745c390bfe16ea295e6622b30f283611f33d07f760f5fe63f6304f400"
