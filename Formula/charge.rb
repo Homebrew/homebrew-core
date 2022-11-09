@@ -9,6 +9,7 @@ class Charge < Formula
   head "https://github.com/brandonweiss/charge.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "83bf10a43c6321be09aecf20dcc0c80daa76f96847840edef4964eea9fcac492"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed6f9833cb67b677f2131e681ec50ceccdb95261bbeb071a64c301c4800e7bfa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfacd98af0f9c2293eef24cb7610a5d2cf60ff237cf790b1ad5ff6cad018a855"
     sha256 cellar: :any_skip_relocation, monterey:       "686efa2b941ac91dfd02a60df15223b3b887b791a2226ea4cd6fbeff9287f912"
