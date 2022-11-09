@@ -12,6 +12,7 @@ class IrcdIrc2 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "8ca253a45db11738e82beb74dac8f6bc70fa455f738ec1252de0102826247697"
     sha256 arm64_monterey: "9278b13e2b860697e5868ca1624103f2dc4d81b6bc0e6e58801c1bdb52bac550"
     sha256 arm64_big_sur:  "ed3eac7c4635484c94d12579948947bff1eb6a671846fcd9273dd5ed226759fa"
     sha256 monterey:       "d4c8fb409f40a0b28fd5058260e3ceef2520c654eda0398271e04a6fe9918c66"
