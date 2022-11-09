@@ -7,6 +7,7 @@ class Slacknimate < Formula
   head "https://github.com/mroth/slacknimate.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1dcbf1a976b1addb776b43655464f1139969ade15c765d1fbad335529227c1a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "438d35da4f542723602cbaa0cb136069389c6216632d0145295b744eb473cfc8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35f24a47ca03293bec53b2b622cc1c6f0a012b5c674c0fea83a79795474caefb"
     sha256 cellar: :any_skip_relocation, monterey:       "c52156ca14ce584ef223869a98553a7411098452ad8af38999ac90076d4a8895"
