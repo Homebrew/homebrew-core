@@ -8,12 +8,12 @@ class Makepkg < Formula
   head "https://gitlab.archlinux.org/pacman/pacman.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "5ca7e70318a15047c04e49bfea4f0ef3ec0d7da76979d9c022d8ebffdc363a8c"
-    sha256 arm64_big_sur:  "4bfbabe25969b1139c9ec3dbe49ca4f8558c130b75562a9e519de8867aaa5056"
-    sha256 monterey:       "42c8e986de6528e53105bf589ce88d04ea55ed1eba44004b8b2c391d2291c1d5"
-    sha256 big_sur:        "0ccfa9ec3e4b23998f7e64f0c0ea4f3594a29b25de2e79cf143a79f505aaedd3"
-    sha256 catalina:       "4cf043ba4fed67c8af65fff9c0e7b9f711db3f759ba428cb415e1a750fbaa32c"
-    sha256 x86_64_linux:   "c36e4fed92a9b2fffcb2280afa507be8c3b3b750e754c2eb0a10d4a9f8bd10e8"
+    sha256 arm64_monterey: "f0c7743fdf8bfe0deb368c352cb5a219f42ac0febcdf7c3c30ce0a788a518798"
+    sha256 arm64_big_sur:  "e9f0e5e5b90d6fece072a301079ba6c742e546449df60cba7e02fc539e63d74f"
+    sha256 monterey:       "5415bbb41478428b88286fd67233c8186d99d037a17806d5bba06cb30092cead"
+    sha256 big_sur:        "76a202cee610d899d609489c1350fd1d29b70979f3acb11744528fe7bea6e078"
+    sha256 catalina:       "34b6a994323eac1b2daa873577c45df38af97867dee31ae7195bd4fb934d6b2a"
+    sha256 x86_64_linux:   "2ecea508e50743b2aedb42a64d026a0481ff16374a55ee18d619ee3761cfc407"
   end
 
   depends_on "meson" => :build
