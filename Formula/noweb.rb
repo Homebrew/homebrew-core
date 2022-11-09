@@ -8,6 +8,7 @@ class Noweb < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "445837953be37e6f291e346a9469b445cacdf9a0ef4d7da96dbe6c779b62f9a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf0e3c32a2c45886fcf808941a29332aefaa8c619b89866a55f34d478054ae1a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "58c550c2b55a37c6377eada0ffd5d3db747ebf46ddeef1f9803534ce58ea6c59"
     sha256 cellar: :any_skip_relocation, monterey:       "e22a1ef8495089090d3e274f1f80c42baad63749cd564213f21c97c3b6eaa332"
