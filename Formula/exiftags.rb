@@ -10,6 +10,7 @@ class Exiftags < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c0fa5c7f7ec7c138c3601aa24c6539210b2e8aa06694c2caa7edb936dbad92d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "066860c554be69f80330da1152b1d4ef3c6ff177dbb73a20367dbd5598ff0029"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2229163e3493c0fae8cf83479f5c5258b926437b353038cd738d7f7d50fc20f9"
     sha256 cellar: :any_skip_relocation, monterey:       "d6dddffe9628d46253e6ec7af11a16cb60c2983c475210f718f1f69d030c99e2"
