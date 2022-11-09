@@ -5,6 +5,7 @@ class Texapp < Formula
   sha256 "03c3d5475dfb7877000ce238d342023aeab3d44f7bac4feadc475e501aa06051"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3de41340c8be2327e079f024ac9c4cc0ebe27c937934f827b53c20869cebbf88"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3de41340c8be2327e079f024ac9c4cc0ebe27c937934f827b53c20869cebbf88"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f347b14baaf4d85e9cb2e1655b14e56734f2155dd450a47c66a93a2103f4528b"
     sha256 cellar: :any_skip_relocation, monterey:       "3de41340c8be2327e079f024ac9c4cc0ebe27c937934f827b53c20869cebbf88"
