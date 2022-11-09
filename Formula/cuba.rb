@@ -11,6 +11,7 @@ class Cuba < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "357899b8a6077f7f5da7bf4c50b77a6947515b6a8ba1dfbe1fd8a8297795afac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8ce1fa8a1cf71b27ebeb02406214231dcafcab672b7c38bc5a664c9e2c69d424"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d8f141d10928d1ce281f6bb744886de1ba9f2274476d3b6b257bcc9d587231e3"
     sha256 cellar: :any_skip_relocation, monterey:       "238e6efde7346d58330b4ebbe562a5f52375d66bd21555867883c3fe2c0405e5"
