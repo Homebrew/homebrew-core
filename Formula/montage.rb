@@ -7,6 +7,7 @@ class Montage < Formula
   head "https://github.com/Caltech-IPAC/Montage.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "f669dea76769203b2b971c321d43a92c1741ef7332accd78d498388c08a70d73"
     sha256 cellar: :any, arm64_monterey: "32ca9b9c2b38f96f315089ea6a0ac53a1e46a56d5a19e8448976728a7b61e770"
     sha256 cellar: :any, arm64_big_sur:  "f11424edd9f5e990992a1f3ca2109bab5b379cd1315a20f6aca9325737451868"
     sha256 cellar: :any, monterey:       "7bde65d353daef1efbc2905d9020dc5be21209432acd60082b7e846974b13e59"
