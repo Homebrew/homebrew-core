@@ -6,6 +6,7 @@ class Gitversion < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8d1dde8fde0eb649ccf639b0469090b6f7cf7daec5af586162be49b8ee3fbf9a"
     sha256 cellar: :any,                 arm64_monterey: "c8493e7cb21aca7c941744c8a22b1485a1615c33bbce998a59991968132883c5"
     sha256 cellar: :any,                 arm64_big_sur:  "b806eb80b7f7f4b81c69c56515c19149a06fe2b9b1e9753c22f54f6e6ff54745"
     sha256 cellar: :any,                 monterey:       "884e90c178d31d2441d17ca45154474cc0fe231f15df4e21a46486d9b768e85a"
