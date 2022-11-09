@@ -13,6 +13,7 @@ class KitchenSync < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "8ac2a64523b93c440e400dfe3c0fd9d6df5da10bab7ad2eb635842f701a446f3"
     sha256 cellar: :any,                 arm64_monterey: "04a1641dfb0b1188987f5bbb49c7708d1d165d1e2179ed07c37e2f0199203287"
     sha256 cellar: :any,                 arm64_big_sur:  "00a906e98f06b9577ccae18a4152d89801417710402a6eec10e0996a4cb8c0e1"
     sha256 cellar: :any,                 monterey:       "9699999584d43aeb1cdcc4b9ae0fe69998cb582ba07e26a6db38883fa7842b16"
