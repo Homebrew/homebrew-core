@@ -12,6 +12,7 @@ class Svg2pdf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "dd7230495881424c8a87dab9fe1e076df3cb0d714a93070ae8239314bcb5ca13"
     sha256 cellar: :any,                 arm64_monterey: "059061cd7c6f0466c2ae93003220d0a4559659393d8c4d519511a08410dc9a09"
     sha256 cellar: :any,                 arm64_big_sur:  "74f2c15d9de7f737aedc70ff715b238fb3482ca67483e29547a0d608c2f78db6"
     sha256 cellar: :any,                 monterey:       "944236f1828f69922b87cd63b55f5cff0e20f3a565ceb977aaf0bad2f72374e6"
