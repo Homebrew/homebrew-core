@@ -10,6 +10,7 @@ class Parliament < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca4775fa45663bc4c0e8f71f287dd3bb02af44e70a55730f3855c00f10e058fc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "56457cc2936fc70c7193e75045e0267486ed83d4e24c324e2fbd51cdae88dcf1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3419dfc9b414f45f9e9e92a726585a7d3906fb40c5c2f8e75e0f49a41533dba0"
     sha256 cellar: :any_skip_relocation, monterey:       "c7d49ac3cf0fba6554766c85079088e81251b02ce1bf385b8ba2a8c2a50a3b59"
