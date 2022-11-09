@@ -7,6 +7,7 @@ class Vaulted < Formula
   head "https://github.com/miquella/vaulted.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43bb79ce25f0da8778ab20ed2bbb322674d256edb638cb00b502eb1dec31dee4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af4905ab6698699c3f794645c49052db9bac1a63f025f35ec81f21c057a38faf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7cdbcf9ca2bf59f73b8dad9d409410bc49c5e682def3025b543d57ec29ab88ac"
     sha256 cellar: :any_skip_relocation, monterey:       "bd52afb1a8d91c97a398e247f115fd65fdb77635a8148059bacafc2473ec6fbc"
