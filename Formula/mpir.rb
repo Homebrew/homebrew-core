@@ -12,6 +12,7 @@ class Mpir < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "d0d0de5cb3a2d67576674b5057c408e6f539fb3a330a8edffae0bfeefe90d9af"
     sha256 cellar: :any,                 arm64_monterey: "047110a0c73f2c6224609727d07e6e581b4e7f3f57de477971b0d4e795a9af29"
     sha256 cellar: :any,                 arm64_big_sur:  "dcfb7c5e0b679f0d3cc14ec76fa3a565f8b521ba19a2d6212e6f39b27f220a6c"
     sha256 cellar: :any,                 monterey:       "8b2b3fe7672e36b0323c3fefff3cac5e68eb48b249829a23ffac5c60056b75f6"
