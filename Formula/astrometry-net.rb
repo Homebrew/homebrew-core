@@ -31,12 +31,12 @@ class AstrometryNet < Formula
   depends_on "libpng"
   depends_on "netpbm"
   depends_on "numpy"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "wcslib"
 
   resource "fitsio" do
-    url "https://files.pythonhosted.org/packages/23/ec/280f91842d5aeaa1a95dc1d86d64d3fe57a5a37a98bb39b73a963f5dc91d/fitsio-1.1.6.tar.gz"
-    sha256 "3e7e5d4fc025d8b6328ae330e72628b92784d4c2bb2f1f0caeb75e730b2f91a5"
+    url "https://files.pythonhosted.org/packages/1f/0e/b312ff3f6b588c13fc2256a5df4c4d63c527a07e176012d0593136af53ee/fitsio-1.1.8.tar.gz"
+    sha256 "61f569b2682a0cadce52c9653f0c9b81f951d000522cef645ce1cb49f78300f9"
   end
 
   def install
@@ -44,7 +44,7 @@ class AstrometryNet < Formula
     # See https://github.com/dstndstn/astrometry.net/issues/178#issuecomment-592741428
     ENV.deparallelize
 
-    python = Formula["python@3.10"].opt_bin/"python3.10"
+    python = which("python3.11")
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"
