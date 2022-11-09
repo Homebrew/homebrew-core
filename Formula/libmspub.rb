@@ -12,6 +12,7 @@ class Libmspub < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "de17ba29fbc8ced0a1c2023e9962ba12c323a476845e6953dbceb32dd09edbe2"
     sha256 cellar: :any,                 arm64_monterey: "6beeba33de3a77318d2072e29a9526aec45f8402c9ebe4b9cdb2706b47318283"
     sha256 cellar: :any,                 arm64_big_sur:  "2885a8e55e3a5f7d888c0a75a5ccc2955dd9917246531c760e5195bfc09de281"
     sha256 cellar: :any,                 monterey:       "10616dfa83cd78355352afa80411c49054c0bd7b19eabcf51328c13d0d4124dd"
