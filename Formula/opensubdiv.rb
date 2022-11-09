@@ -11,6 +11,7 @@ class Opensubdiv < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "57c75be298bb59fe44f68c707b74ad63b9c2f6877d492ff2a449c450e31c874a"
     sha256 cellar: :any,                 arm64_monterey: "55e4971fc63f46550a0e6ce5e2c28a7ea690500b3794a91b27b40a9c2b1d722c"
     sha256 cellar: :any,                 arm64_big_sur:  "5611125d1094c5fd95ddffadb9969ef9429827c06707d6538a25e664cea033a7"
     sha256 cellar: :any,                 monterey:       "eb6089b7f26f5f1ebf0f5563d000ac557ed6d971229840ec97cd91ca258cfa3d"
