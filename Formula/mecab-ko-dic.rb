@@ -11,6 +11,7 @@ class MecabKoDic < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9149e5ec1b85940657df3ed931d6ddbc83ea1a1e68767b9d27138c5d4ba451c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e9149e5ec1b85940657df3ed931d6ddbc83ea1a1e68767b9d27138c5d4ba451c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6e39a270ea5fbb5424d0ca358acafc2f08b9232d878eded2789f990f4065aba7"
     sha256 cellar: :any_skip_relocation, monterey:       "e9149e5ec1b85940657df3ed931d6ddbc83ea1a1e68767b9d27138c5d4ba451c"
