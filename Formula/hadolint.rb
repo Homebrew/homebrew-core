@@ -1,8 +1,8 @@
 class Hadolint < Formula
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "https://github.com/hadolint/hadolint"
-  url "https://github.com/hadolint/hadolint/archive/v2.10.0.tar.gz"
-  sha256 "7a17d6227c9c087076aa890c9678956d0bc570eb662aa432a73d3e7c94f6b158"
+  url "https://github.com/hadolint/hadolint/archive/v2.12.0.tar.gz"
+  sha256 "1f972f070fa068a8a18b62016c9cbd00df994006e069647038694fc6cde45545"
   license "GPL-3.0-only"
 
   bottle do
@@ -14,24 +14,14 @@ class Hadolint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "80adffee09ee9cf1121b7d286871c6751806a8ce2b81115e77a106c4e27d3866"
   end
 
-  depends_on "ghc@8.10" => :build
-  depends_on "haskell-stack" => :build
+  depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   uses_from_macos "xz"
 
   def install
-    # Let `stack` handle its own parallelization
-    jobs = ENV.make_jobs
-    ENV.deparallelize
-
-    ghc_args = [
-      "--system-ghc",
-      "--no-install-ghc",
-      "--skip-ghc-check",
-    ]
-
-    system "stack", "-j#{jobs}", "build", *ghc_args
-    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install", *ghc_args
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
