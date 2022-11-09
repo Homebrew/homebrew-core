@@ -11,6 +11,7 @@ class Vmdktool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a9371495c777605438ae7e124289e79bc22fc0c546b230046cd9e7010ca5d52"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7823dbeb8f044ce3183f1ea2d6ebec16ce30fc9fe2951cc55b84c5a9043f8569"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a19ea885fcf69d6929cb155489aab52543b1b1f456eedf9f49f3f6eebf51ec9"
     sha256 cellar: :any_skip_relocation, monterey:       "9d68c339c6dfb87f9cc70d1df15e36337b2a57cbae54825b24a2c7dc1e4096dc"
