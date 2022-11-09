@@ -11,6 +11,7 @@ class Bwfmetaedit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c0a9a3927c8b531621556b0467f1f394450d8fc466b0863eed6d10fc50a87e93"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "55db76b2cdd9dea54d82e644f9de1c5f5ca53cc552602115ab45704f30aef612"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "990843dbcb7a326453234dcdedb6af987be548adecc3edca6dba0086c16d689d"
     sha256 cellar: :any_skip_relocation, monterey:       "79b70c2fe4f006d8997f05cc548148682050712366f6c26cdb90bba21e40bb42"
