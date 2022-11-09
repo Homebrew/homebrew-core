@@ -20,7 +20,7 @@ class Esphome < Formula
   depends_on "rust" => :build # for cryptography
   depends_on "libpython-tabulate"
   depends_on "protobuf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
