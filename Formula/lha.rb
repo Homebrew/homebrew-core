@@ -19,6 +19,7 @@ class Lha < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5c086e5d925a20f9582a1685c1ed5e94df7fadeab034fb5a776a83285297a8d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f36323fc8887aa0dfb1ad6897f3c097eebe199b80ec6e873e3c121dd286df627"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d328d1b1740353a2e04c6f79dc863f3fa2caca9380e76b3e48b4b72f5e1ad32b"
     sha256 cellar: :any_skip_relocation, monterey:       "530aa92b0d3fbfdfaa01c6fb94e7a3dd4e98927055589a586145e8c7f5415bd1"
