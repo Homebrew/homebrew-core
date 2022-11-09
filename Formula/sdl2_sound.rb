@@ -12,12 +12,13 @@ class Sdl2Sound < Formula
   head "https://github.com/icculus/SDL_sound.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "864f5e487ac6b2e0f52f6c52ff49079f01ac90f57fb64469a09f2ba752f77653"
-    sha256 cellar: :any,                 arm64_big_sur:  "fd95136bc274c7167a8c0267f38c98f498793c55c13b6506e73e45a1bc8ff173"
-    sha256 cellar: :any,                 monterey:       "4cba85df40d35f257be849a1c87b85e43c737af0dc359839a7fcbcfb87183622"
-    sha256 cellar: :any,                 big_sur:        "b2ceb3889c9ecb7ca5bf1fdbe008bc65c99081770d226ac6074973b87df107a5"
-    sha256 cellar: :any,                 catalina:       "b1f1063b6fbf9f4d9a4acf52a95e5f5f446ec28f19d542139ae9cb4965edca13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ddb206fa532665701041f2d99486e9ebc0c7827fc6aab447e14a44e8137faa0a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "9f7361925cc4e541a3293a00110b3c83516794fe075ac98c49880d86acc5484d"
+    sha256 cellar: :any,                 arm64_big_sur:  "8fa2ec4cb066676973921f8dab5ffb1e5bc2acc4e0d37faffc83978e512c2688"
+    sha256 cellar: :any,                 monterey:       "8dff25f947a0c5ba5e6d2a78070f4aa7433385221df4c327deece950db99c2e3"
+    sha256 cellar: :any,                 big_sur:        "792d335d07a8b6352f8a6b3099ca32f7a706e1a1217cbf12f5f961bb638d7338"
+    sha256 cellar: :any,                 catalina:       "1bf080610b4296c73f127d02bfa3cc6f5582be84f7499e282f015bc17fc042f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f41eb7b4bc0611d0d0732d175993cf06b7147a2ec70aa788e2a98110d3c4d95"
   end
 
   depends_on "cmake" => :build
