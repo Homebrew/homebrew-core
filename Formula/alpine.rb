@@ -23,7 +23,7 @@ class Alpine < Formula
     sha256 x86_64_linux:   "24dfabc14a011679dc6c181bb5579bc27f3b8bc134ab412b6bdfa4306d10a8fd"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "ncurses"
   uses_from_macos "openldap"
@@ -41,8 +41,8 @@ class Alpine < Formula
 
     args = %W[
       --disable-debug
-      --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
-      --with-ssl-certs-dir=#{etc}/openssl@1.1
+      --with-ssl-dir=#{Formula["openssl@3"].opt_prefix}
+      --with-ssl-certs-dir=#{etc}/openssl@3
       --prefix=#{prefix}
       --with-bundled-tools
     ]
