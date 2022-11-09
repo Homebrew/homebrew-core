@@ -6,6 +6,7 @@ class FontsEncodings < Formula
   license :public_domain
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
     sha256 cellar: :any_skip_relocation, monterey:       "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
