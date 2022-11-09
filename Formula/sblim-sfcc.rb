@@ -11,6 +11,7 @@ class SblimSfcc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "881664effb151ca49f0ba00ffce1f592ef3b615bff39467016a7cd647affa58b"
     sha256 cellar: :any,                 arm64_monterey: "1e22137d49b22b534626dcd8de3dfd98743d0eaba4fb1768e7e8f6553bfff162"
     sha256 cellar: :any,                 arm64_big_sur:  "9b75fdfd7494479190a2651966a17408dfa29a1f2f62c860e165caa5f135a6df"
     sha256 cellar: :any,                 monterey:       "dde4c03d86680b2886786a8a32d644187a9eb246e6de9c4db906250baa33ba99"
