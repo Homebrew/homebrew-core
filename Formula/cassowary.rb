@@ -7,13 +7,12 @@ class Cassowary < Formula
   head "https://github.com/rogerwelin/cassowary.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54f33c415e159bc71ada431bd938ae5e5e6ea56b8302196d2064dbb0abc5cbd7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b417f48d20bdb6ef5c2b83abc7b02edc25ae6f3416a8c85dd89523bd20a55b5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56d07afb27f15d731002c1624eb7c318cd1ff381e211a133b653e8ae77f98fc1"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa701caf300476eb0648399d43c577b364cef21146719b327308d621d113d526"
-    sha256 cellar: :any_skip_relocation, big_sur:        "da19858bdf86b62215f491c10d5fe92edecbd5bc39c64ae985d0ffa0d02179d4"
-    sha256 cellar: :any_skip_relocation, catalina:       "ddc1c547cf532095765effdb9b66f3b20a20a57b56766be9b2cc5eda5dc1299c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3ff9dd6d2a771d57240a27c79c446ff3d4d4ea198a902564333990487c5f8ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "36b12418eaf761da0ed6592e46a0ad78ed781fbc46fa3abec1123b36d3ec0985"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "60941c6169e96da32bd6de8db7a4071da6dd3beb7feeb484595d365a313ef387"
+    sha256 cellar: :any_skip_relocation, monterey:       "f3e41c09597e682425d016c56a1599cb8c60426bf5d13ee33636b94c3eea38e4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5d6d2762f20c5872189c16444b9d7933a7d6c90e9fc667fa6f79fd1047652d78"
+    sha256 cellar: :any_skip_relocation, catalina:       "170d7c5338973244e7cb0fb14643855282999d85000b7eefbd1b91d876103035"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29d378796b909ede67c6aedac411fc4bc533c57a72a292b84d9f863b8259f43c"
   end
 
   depends_on "go" => :build
