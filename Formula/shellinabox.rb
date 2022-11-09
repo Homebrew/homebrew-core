@@ -8,6 +8,7 @@ class Shellinabox < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "950cc877b2b8696e045321c144021016e3d1dd4807723f9ec167ff84c9819cbf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aca878e8b4f6369029c1b724954c78db1ca67710a2e09d5118decb6dd3e0e280"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16393025f2b7dc93d7f01c9e7a0f8f538f3be37276e75afc7d50863d552124a5"
     sha256 cellar: :any_skip_relocation, monterey:       "8ef6e3b071f5c1e96cdbde3f2eb73945bc24f302ee4f393573ea09063726c7ef"
