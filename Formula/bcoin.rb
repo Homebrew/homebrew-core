@@ -9,12 +9,13 @@ class Bcoin < Formula
   head "https://github.com/bcoin-org/bcoin.git", branch: "master"
 
   bottle do
-    sha256                               arm64_monterey: "0c4f787a2f63c1db4221a17f1c275f31a2649858c9219deefa65c90484e023e7"
-    sha256                               arm64_big_sur:  "f5c6098faf7dba740533388c16d2bcf72e37416d7c5e5bdf6610f67fc85134aa"
-    sha256                               monterey:       "d5fd6c1050ff44c36d79496648630c0ff04e8ee3acf45c97069a360267441073"
-    sha256                               big_sur:        "593c59f9f3e790c1736093490ac0586d6b46e1672f450d3b8b5b32547c86a951"
-    sha256                               catalina:       "3e55360c62032fafb4590bd3b80d6cd2cb84ac49737ec129199417db39dfd6cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac2900d97c5844734f8bb79f41c30d0eb3a482349da8d0c6e1d3542d8a5800ca"
+    rebuild 1
+    sha256                               arm64_monterey: "f0e36780788eacc5d842482fed2a94647ccd10194145870b885d6f3a7479847d"
+    sha256                               arm64_big_sur:  "da887bfcbbe76163924ff47f98553672c8a46173e61575aa1d6807785392c196"
+    sha256                               monterey:       "677f0859d944f517f93717cbe69be2e7c530c0c16e6d8fc99590ebe166af8bd2"
+    sha256                               big_sur:        "e19447eaf8696a4ab72309083ff2373d4f30aa2cb04d35cd16b2cb472c32a23f"
+    sha256                               catalina:       "274567c8a4d52276ceecbe9763c6274b33b9b42218933cccc7e59948edd70c89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f12522c4eb98dced35c699c0c5122cb9be3069e0e18f41fd7f1ef088a60377a"
   end
 
   depends_on "python@3.11" => :build
