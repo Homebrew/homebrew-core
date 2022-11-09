@@ -6,6 +6,7 @@ class Pcapplusplus < Formula
   license "Unlicense"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f29d0fe9987fa53cfe00a2e233e7855c0b47c1949ebf15a7b0e44c214c8ecb7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "457d296b8b35c0d42ca607166b95f25ae43c17c002336888ae665540434269b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2288f40ebf6f631abe02ee620d9dabfac0657039a137e15ac51bec79d9f5c691"
     sha256 cellar: :any_skip_relocation, monterey:       "4b44a71a94b22172cb00716899065d821b39883b31d5a813f956436e9ee4ef77"
