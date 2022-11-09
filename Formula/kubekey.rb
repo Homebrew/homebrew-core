@@ -8,13 +8,12 @@ class Kubekey < Formula
   head "https://github.com/kubesphere/kubekey.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "90961ee53287e61683a0d69487e70033bcf70793f615ea3a7700eb65b25aec0c"
-    sha256 cellar: :any,                 arm64_monterey: "bb1732d3809d891ec0dc7662b978b983ada2b99d7851abf9773073ae5015125e"
-    sha256 cellar: :any,                 arm64_big_sur:  "5bacc10716861d5e64bc4b3cd5ecfe28afef66590dce4988eca12035c3e7380a"
-    sha256 cellar: :any,                 monterey:       "89b948e8730c83c9c42208674e3bbe2680ca159f0009a6b64f66d3523b7b77a4"
-    sha256 cellar: :any,                 big_sur:        "7f44ae1b135e171a0913b3625106d96c13ad125d02d356585bb5e482ab350924"
-    sha256 cellar: :any,                 catalina:       "89590d60b34cda9555c1b702caba26f6af21a19512c34c25ea6d11a1ef7f87ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee788cbbd6cb9e64cd56f74ac117541b0e5769dac5791600646353a56bf76e02"
+    sha256 cellar: :any,                 arm64_monterey: "692ba392f269cbc2858e397c89679f9f6d309af4bdc417ad071187afbe9a5dcd"
+    sha256 cellar: :any,                 arm64_big_sur:  "095d6a7e049df3d64f0a95c9ee452b8949dc85160003ee832134a6b7d6dfea0d"
+    sha256 cellar: :any,                 monterey:       "bdb805768ab3b77afd7006647a7f4e94fae35172bcbf0ec44a9af9fa880a858a"
+    sha256 cellar: :any,                 big_sur:        "1c6382af273f5fed22d8e702beea8157805a57cb07a90b72a3fabec382b1502d"
+    sha256 cellar: :any,                 catalina:       "f84a05c6032b7f518b12fe7b704ded0efaef7650ec831412ba134fb3c938730f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a295754a9c781875a9bcf1d030aeae30372c63e1cd765d8d6a85ee6eeac78772"
   end
 
   depends_on "go" => :build
