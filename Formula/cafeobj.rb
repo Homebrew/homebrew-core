@@ -6,6 +6,7 @@ class Cafeobj < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "10246511909bb1842e63381af4dc8adc87fdeae9eb5e926c5bc130ff3629e862"
     sha256 arm64_monterey: "d338e4868d48d4f244ff91c745de7d0fa6adf41825eb9bde53e371e01960381c"
     sha256 arm64_big_sur:  "1912508b031a0b0e098c3195a044d0a2f4988d8906bdc2c5cfae1c98e508f59a"
     sha256 big_sur:        "724109123713a037126847a07fe06e4fa134d3e28aff72ae72de7f8f4fa77576"
