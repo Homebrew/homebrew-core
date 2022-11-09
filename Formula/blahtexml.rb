@@ -7,6 +7,7 @@ class Blahtexml < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8649e81f949cbc530d00a446b56fee8ea6013a9bac9f8abc732c0ceda928b9d9"
     sha256 cellar: :any,                 arm64_monterey: "8783f6707647e97b97332dfae2ae2705823786ac65977d239e9d38dfb1f5b0c7"
     sha256 cellar: :any,                 arm64_big_sur:  "83b3c821686faba9f464198f22fc7432001e93d09c66192ff95c8d9ddbb69a80"
     sha256 cellar: :any,                 monterey:       "a959c9373710994104947e5fe99e22d8824c5523fc4974e5634560d02cec0813"
