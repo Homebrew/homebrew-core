@@ -6,6 +6,7 @@ class Xmlcatmgr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab7701704b492dcdb3b27fba5423a0d45fd572188cb51461dbe344d83b10909a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "919144de2d285295b51f2fd50c480a89700c746ffcb3430ee8bb8c2dd6a12338"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27cda943918a3d692517e971f92a8e855d6b93c84eaf0646baff75a9f1f16c63"
     sha256 cellar: :any_skip_relocation, monterey:       "c401c527f4babe7caee6af925027fb07d300961351548e9ccfed20c6be1ed6a7"
