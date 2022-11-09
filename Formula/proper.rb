@@ -7,6 +7,7 @@ class Proper < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ba16c265d878f2385d16020577833fc18f3f34ebfacebf9806ffae99caaed6f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1fb7580b8ec4be37ae5eb66f3d474f5cb7134d91968b6a3ffd57e946601c3e7c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77657642632df4b47ea81fe644f297b729b6727a65c14e4b55205878b7c2efa4"
     sha256 cellar: :any_skip_relocation, monterey:       "61c38ab31cc8a971a833b3659cf7ca0907d2c3a8fe76ce9a83e17ae322154a2f"
