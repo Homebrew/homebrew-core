@@ -7,6 +7,7 @@ class Cassowary < Formula
   head "https://github.com/rogerwelin/cassowary.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a7fa7dd4130946381ec6fae85f04e7584ddc52563ad2ff61670613909f1f53b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "36b12418eaf761da0ed6592e46a0ad78ed781fbc46fa3abec1123b36d3ec0985"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "60941c6169e96da32bd6de8db7a4071da6dd3beb7feeb484595d365a313ef387"
     sha256 cellar: :any_skip_relocation, monterey:       "f3e41c09597e682425d016c56a1599cb8c60426bf5d13ee33636b94c3eea38e4"
