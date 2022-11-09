@@ -4,7 +4,8 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/0a/2e/44795c6398e24e45fa0bb61c3e98de1cfea567b1b51efd3751e2f7ff9720/scipy-1.9.3.tar.gz"
   sha256 "fbc5c05c85c1a02be77b1ff591087c83bc44579c6d2bd9fb798bb64ea5e1a027"
   license "BSD-3-Clause"
-  head "https://github.com/scipy/scipy.git", branch: "master"
+  revision 1
+  head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "455c198c142f0054ae790af648812f41b29f1c3edb8fba3c1ffb49f69e527859"
@@ -23,14 +24,14 @@ class Scipy < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "pybind11"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   cxxstdlib_check :skip
 
   fails_with gcc: "5"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -67,6 +68,10 @@ class Scipy < Formula
   end
 
   test do
-    system python3, "-c", "import scipy"
+    (testpath/"test.py").write <<~EOS
+      from scipy import special
+      print(special.exp10(3))
+    EOS
+    assert_equal "1000.0", shell_output("#{python3} test.py").chomp
   end
 end
