@@ -5,6 +5,7 @@ class Rkhunter < Formula
   sha256 "f750aa3e22f839b637a073647510d7aa3adf7496e21f3c875b7a368c71d37487"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0352661692f5a34e6febf6822eb3e1eb212e5aefd2189ee403def6acf247a38a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1c3872b26c375898fbc61439a6605f42c59e1ad11a339e551d6788c29794cc88"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d560c35e3fef71d00f5ea9ee54e3f175f39e0c3fabdd1e141cc247c2a886d91"
     sha256 cellar: :any_skip_relocation, monterey:       "6e7b220d8e9f61934488d2858254db636b1dddbe96512ed01a1b3a81d03f4e3f"
