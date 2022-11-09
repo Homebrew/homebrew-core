@@ -11,6 +11,7 @@ class SonarqubeLts < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8216e77fa076368806c31b2dd9a7407cd9b56ac1c71c8f7d9d3e9300991294df"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ba2c787766ebc3353063d6587529ace383b8d3e1a2b3ad853d6d1603734fe89e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "df64c44ab8dfaf70244a6dcb2fe439a34b963e2cc2018f3d5aa250ba8f054d24"
     sha256 cellar: :any_skip_relocation, monterey:       "d69dd0f8179bd50bc8a017868f0c4fdc4367a20d2d0821ce408995df13f5277f"
