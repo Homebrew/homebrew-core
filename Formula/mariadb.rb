@@ -67,6 +67,12 @@ class Mariadb < Formula
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
 
+    # revert commit https://github.com/mariadb-corporation/mariadb-connector-c/commit/380ee32375bb36b68796c1c3eb09285f03fea5f5
+    inreplace "libmariadb/plugins/auth/CMakeLists.txt" do |s|
+      s.gsub! "CHECK_C_COMPILER_FLAG(-Wl,--as-needed have_C__Wl___as_needed)",
+      "INCLUDE(CheckLinkerFlag)\n    CHECK_LINKER_FLAG(C -Wl,--as-needed have_C__Wl___as_needed)"
+    end
+
     # Use brew groonga
     rm_r "storage/mroonga/vendor/groonga"
 
