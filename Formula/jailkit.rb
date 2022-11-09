@@ -12,14 +12,13 @@ class Jailkit < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "242e813cc319e4164570ce44d8b337931c425c8da5972b09714527adecf7e5a6"
-    sha256 arm64_monterey: "84057794afa5db7583d6787a3b6e246257efc8bbf6601566771265228084bdef"
-    sha256 arm64_big_sur:  "e9a582fee1859d32410b20dff031b55c1a0a72862b8422cb8299800832977f16"
-    sha256 monterey:       "d8059ea2e2f6dce16220b99d43dea5adebc200a80e98f4b8017b0efe8c29c6d7"
-    sha256 big_sur:        "7f9fe097188c70df7933bd30d6c78c60455355df8e33a3ad4927002cf70ec2e9"
-    sha256 catalina:       "35d7f20d16725ad3ec24dd82592a0fc7ae2e1cfc0b6bf3eaaf04e8118437ca09"
-    sha256 mojave:         "9ae118d16ab03810384fb708caf5fcf4429c209c147e40f03f08a45b8c24138d"
-    sha256 x86_64_linux:   "fe136070c9a808323d6919365991597aaf5f2ca6867d8cee66129c205943a8e2"
+    rebuild 1
+    sha256 arm64_monterey: "4adb29e6f715ccb71dd1b14b38710018dc9545f67fd81f028b79352dd438a8a1"
+    sha256 arm64_big_sur:  "7ea538f86542cab83e908386d08747b6d4f16ba86101f211f00bfa24a5da97a6"
+    sha256 monterey:       "3501eece797a7bf06d3f127af8bcca954feac03c6fbddf0ad3a400807e56a258"
+    sha256 big_sur:        "1f06e4ef4126d1c5cbb173d137d0fd9aa94034d06660b727e3309ad32d03deec"
+    sha256 catalina:       "fc93b0be977009592fe1d1865ef1fec392c3f9d55b7e019a81fc7049995646ad"
+    sha256 x86_64_linux:   "7627839147c68b2d49bf93842d60a8450fc82c9dac2934d38057eb3972b0f9cd"
   end
 
   depends_on "python@3.11"
