@@ -7,14 +7,12 @@ class Xh < Formula
   head "https://github.com/ducaale/xh.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9770ff239a2e3ae091e481b62757914ac0eecc694af4d2e9957ae18abd06809a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d2065710f0f98444be64d164d7ca5ad15e37d1fa2ac4e63bdaf46c3d84e08ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7f30a295dfb6c3064a380b6c883df34cd1574df2b2ec5c4227ea934ae391d3d"
-    sha256 cellar: :any_skip_relocation, monterey:       "a5c2e85d9ed4501e11c0eae1e4c02f4532071c207f5ac15583281c2d27b224fa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bc4148d22b515da0a9da2788f73d90a480a89a64f4c956b8c72a8aad0a946cc4"
-    sha256 cellar: :any_skip_relocation, catalina:       "f1f05533082208afce31a2eb6a280050d590ef6332b8aa9fe8bc151a1d2c2808"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb6a127b0164b7fc35b409a5edd1471397d0058e55a2d7ec7e73981ac5f5c365"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d61902a6895bbeae9b9c2a3dcb8d1c8d4b06dfaebe4944489560c0b849b742d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "479a24e7e0e1da17ea1748bbbbd06ac80f6c676df39ed4267bfe50ab370bd4ca"
+    sha256 cellar: :any_skip_relocation, monterey:       "bb41f5acdc9aa1803405415cd9899db8f463c854e4b4cca2a7a8b3a4fe0d25aa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b5c1ad60fca17aa9b6629cef945f00da342dd4d837c9e866ddaea5ac51e1b3b8"
+    sha256 cellar: :any_skip_relocation, catalina:       "bfddbb660e997acea4a4185b75b00474e0cf30bbb1b3f7f6c287263f9ced8986"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a7459afd19edcd704db82dae3c3acef47df8236fa7d49865cb857abec4e37aa"
   end
 
   depends_on "rust" => :build
