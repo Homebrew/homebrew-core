@@ -7,6 +7,7 @@ class Mfcuk < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c9ab885a21f8102b6a0f9256a565f35a2501a635880bc9e0f6aaf07c766fe97f"
     sha256 cellar: :any,                 arm64_monterey: "7b5be1129fc0bd29968d0c863391b101892525aacb5146316095066a87c652aa"
     sha256 cellar: :any,                 arm64_big_sur:  "f37625d6d5f84b70a6e85359da444790d64a56f898c8051c41f314ad061cbc42"
     sha256 cellar: :any,                 monterey:       "fb3c96007c69c0b301d8dbe1d4c05b21e5ecfe16927e18cdc8d8e3d1179f8ae6"
