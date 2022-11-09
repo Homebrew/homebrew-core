@@ -33,6 +33,7 @@ class Nqp < Formula
     inreplace "tools/build/gen-version.pl", "$libdir, 'MAST'", "'#{Formula["moarvm"].opt_share}/nqp/lib/MAST'"
 
     system "perl", "Configure.pl",
+                   "--no-silent-build",
                    "--backends=moar",
                    "--prefix=#{prefix}",
                    "--with-moar=#{Formula["moarvm"].bin}/moar"
