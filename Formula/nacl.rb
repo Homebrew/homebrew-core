@@ -25,6 +25,8 @@ class Nacl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "03cbc3623ab6388289a613b8499f4e120d19cda47b661bd494e0d0cdfc355288"
   end
 
+  depends_on arch: :x86_64
+
   def install
     # Print the build to stdout rather than the default logfile.
     # Logfile makes it hard to debug and spot hangs. Applied by Debian:
