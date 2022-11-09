@@ -9,6 +9,7 @@ class Dtrx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d523ecaccb567731f642b97bd1ee6fb9b3f8e9c3d81fb7c58ac8583a37a50f26"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2582a177447c377d0834cda060ed0b91c3031a7662b5fb39416d14b4266552cc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca904570afae2070e6ed146486ceeb736a1cb0793ba5e86b36189c57c7e4855d"
     sha256 cellar: :any_skip_relocation, monterey:       "dd72789077a0d69739d15841bb315bd7f35b901453e782cdb37c277b121a9a2d"
