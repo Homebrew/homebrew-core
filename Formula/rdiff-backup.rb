@@ -12,6 +12,7 @@ class RdiffBackup < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "00738ee63bb98459076c6dc2673e28d7945129eb17f6cfb31a8f751ea6b94b6f"
     sha256 cellar: :any,                 arm64_monterey: "9841037fad91c2e5567e03916d7413fd1e74d6858dff760b2a3728c53e1baf80"
     sha256 cellar: :any,                 arm64_big_sur:  "66247de6c20d7350372ecb4efb63b3f5bec4c7f2fe29c4ed80723ebdcd0018fa"
     sha256 cellar: :any,                 monterey:       "c64863e034cc7deb4de5574243baac6b0c180ab556ccea2b8fde137cd1910d74"
