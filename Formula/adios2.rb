@@ -4,6 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/v2.8.3.tar.gz"
   sha256 "4906ab1899721c41dd918dddb039ba2848a1fb0cf84f3a563a1179b9d6ee0d9f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -21,9 +22,9 @@ class Adios2 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc" => :build
   depends_on "nlohmann-json" => :build
   depends_on "c-blosc"
+  depends_on "gcc" # for gfortran
   depends_on "libfabric"
   depends_on "libpng"
   depends_on "mpi4py"
@@ -31,17 +32,28 @@ class Adios2 < Formula
   depends_on "open-mpi"
   depends_on "pugixml"
   depends_on "pybind11"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "yaml-cpp"
   depends_on "zeromq"
 
   uses_from_macos "bzip2"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1400
+  end
+
+  # clang: error: unable to execute command: Segmentation fault: 11
+  # clang: error: clang frontend command failed due to signal (use -v to see invocation)
+  # Apple clang version 14.0.0 (clang-1400.0.29.202)
+  fails_with :clang if DevelopmentTools.clang_build_version == 1400
+
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
+    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1400
+
     # Fix for newer CMake
     # https://github.com/ornladios/ADIOS2/issues/3309
     inreplace "CMakeLists.txt", "cmake_minimum_required(VERSION 3.12)",
