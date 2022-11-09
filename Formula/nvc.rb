@@ -6,6 +6,7 @@ class Nvc < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "1da0360a74abc007ace21b006b2937be3f4ae2193bd89fab2e53f4a8cbb2f677"
     sha256 arm64_monterey: "641504c3c6c9abcb8e54dca8598adf0dc2dd839758a4eb494be16a8782a0a41b"
     sha256 arm64_big_sur:  "b30be3c8262503c93de5bd55d45512c23532ea43192f5f48069a26c7a8b03d66"
     sha256 monterey:       "3d241eb45e92b2ddc121a00de0e8b589b6c7b9299a0dd9242ff62a41757d14a8"
