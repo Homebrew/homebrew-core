@@ -21,9 +21,9 @@ class Bzt < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "rust" => :build
-  depends_on "cython"
+  depends_on "libcython"
   depends_on "numpy"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -61,8 +61,8 @@ class Bzt < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
@@ -111,8 +111,8 @@ class Bzt < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/70/bb/7a2c7b4f8f434aa1ee801704bf08f1e53d7b5feba3d5313ab17003477808/lxml-4.9.1.tar.gz"
-    sha256 "fe749b052bb7233fe5d072fcb549221a8cb1a16725c47c37e42b0b9cb3ff2c3f"
+    url "https://files.pythonhosted.org/packages/06/5a/e11cad7b79f2cf3dd2ff8f81fa8ca667e7591d3d8451768589996b65dec1/lxml-4.9.2.tar.gz"
+    sha256 "2455cfaeb7ac70338b3257f41e21f0724f4b5b0c0e7702da67ee6c3640835b67"
   end
 
   resource "molotov" do
@@ -136,8 +136,8 @@ class Bzt < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/c4/6e/6ff7938f47981305a801a4c5b8d8ed282b58a28c01c394d43c1fbcfc810b/prompt_toolkit-3.0.33.tar.gz"
-    sha256 "535c29c31216c77302877d5120aef6c94ff573748a5b5ca5b1b1f76f5e700c73"
+    url "https://files.pythonhosted.org/packages/fb/93/180be2342f89f16543ec4eb3f25083b5b84eba5378f68efff05409fb39a9/prompt_toolkit-3.0.36.tar.gz"
+    sha256 "3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63"
   end
 
   resource "psutil" do
@@ -151,8 +151,8 @@ class Bzt < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/57/93/8a975f8462fadffd1b608a1a5df2bb9feea569e5bcef5a6abfb154853e24/rapidfuzz-2.13.3.tar.gz"
-    sha256 "c734d54b5fbdcfea605f7365dedb7083e7499d394fbd03378d663b398e9790ad"
+    url "https://files.pythonhosted.org/packages/cc/42/f3bde4d6e5711b5ba266dc66c66bc0659e7c2f2016f46d1927c76d40ad57/rapidfuzz-2.13.6.tar.gz"
+    sha256 "948445a054d9fb30a93597c325d8836232bd68e61443a88779a57702aa35a007"
   end
 
   resource "requests" do
@@ -191,6 +191,10 @@ class Bzt < Formula
   end
 
   def install
+    # Enable finding cython, which is keg-only
+    site_packages = Language::Python.site_packages("python3.11")
+    (libexec/site_packages/"homebrew-libcython.pth").write Formula["libcython"].opt_libexec/site_packages
+
     virtualenv_install_with_resources
   end
 
