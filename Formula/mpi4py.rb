@@ -4,6 +4,7 @@ class Mpi4py < Formula
   url "https://github.com/mpi4py/mpi4py/releases/download/3.1.4/mpi4py-3.1.4.tar.gz"
   sha256 "17858f2ebc623220d0120d1fa8d428d033dde749c4bc35b33d81a66ad7f93480"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_ventura:  "6e0c8387b89b5c551615475207d8db2b8996956c79c74c26440dd43b888aba03"
@@ -17,10 +18,10 @@ class Mpi4py < Formula
 
   depends_on "libcython" => :build
   depends_on "open-mpi"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -34,15 +35,13 @@ class Mpi4py < Formula
   end
 
   test do
-    python = Formula["python@3.10"].opt_bin/python3
-
-    system python, "-c", "import mpi4py"
-    system python, "-c", "import mpi4py.MPI"
-    system python, "-c", "import mpi4py.futures"
+    system python3, "-c", "import mpi4py"
+    system python3, "-c", "import mpi4py.MPI"
+    system python3, "-c", "import mpi4py.futures"
 
     system "mpiexec", "-n", ENV.make_jobs, "--use-hwthread-cpus",
-           python, "-m", "mpi4py.run", "-m", "mpi4py.bench", "helloworld"
+           python3, "-m", "mpi4py.run", "-m", "mpi4py.bench", "helloworld"
     system "mpiexec", "-n", ENV.make_jobs, "--use-hwthread-cpus",
-           python, "-m", "mpi4py.run", "-m", "mpi4py.bench", "ringtest", "-l", "10", "-n", "1024"
+           python3, "-m", "mpi4py.run", "-m", "mpi4py.bench", "ringtest", "-l", "10", "-n", "1024"
   end
 end
