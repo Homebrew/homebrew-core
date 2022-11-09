@@ -9,6 +9,7 @@ class Periscope < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a4034f66c1a457d1de8cd3611b11f5fa517419fad9946bfc9084707fd5c5544"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "175e53a44e0d7b52db436369d918b12e34dbd244ddf7ba40e19c4e85cec2628f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c882c0377cff2389da04d004674e157d8f71953a0142a4b334d95518e957e96"
     sha256 cellar: :any_skip_relocation, monterey:       "f3bac4b5d15200c10954a2113bd4ca3c3105a614aa3c605b158d11b048daa317"
