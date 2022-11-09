@@ -6,6 +6,7 @@ class Pythran < Formula
   url "https://files.pythonhosted.org/packages/99/e0/ed0e81de05cfa4ecbcbceec6603d175387d8bc7a6332cbfd155d09958ccf/pythran-0.12.0.tar.gz"
   sha256 "eff3dd0d3eebe57372f0d14f82985525e9bcdfb5b1d1010e1932cf9207060f9f"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class Pythran < Formula
   depends_on "gcc" # for OpenMP
   depends_on "numpy"
   depends_on "openblas"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "beniget" do
@@ -56,7 +57,7 @@ class Pythran < Formula
 
   test do
     pythran = Formula["pythran"].opt_bin/"pythran"
-    python = Formula["python@3.10"].opt_libexec/"bin/python"
+    python = Formula["python@3.11"].opt_libexec/"bin/python"
 
     (testpath/"dprod.py").write <<~EOS
       #pythran export dprod(int list, int list)
