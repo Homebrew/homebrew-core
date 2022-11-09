@@ -6,7 +6,7 @@ class Vcsh < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a10034412763e8523978a3223825e125f85958ec4546a7b311b8a7f748d74c1e"
+    sha256 cellar: :any_skip_relocation, all: "4136305027b39b6c5106a8b598437be2700f60fea9ba422f5f58b3eb99a02cba"
   end
 
   def install
