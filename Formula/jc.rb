@@ -8,6 +8,7 @@ class Jc < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "524f5210c5ca18a3a3cb927cf57d0cdf17f5320893f41947e44c7c99a7e9f914"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "db3482631833103b5298007d319fd9e4bdc4a44be6a7d41c22ff3080cf38a6e0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4dc3c9d3d33351ccc8b1c76b48f1b27321b82e932d04753e1d5e8793328d45fd"
     sha256 cellar: :any_skip_relocation, monterey:       "406907895d69cd04286670ab80379b4502b06a65aa766ec46848b535e5ab2808"
