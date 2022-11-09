@@ -8,13 +8,13 @@ class Mitie < Formula
   head "https://github.com/mit-nlp/MITIE.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "85090e5f3a58d0e1b4d809bb67813684bce137134f9d903dfeae192e4540ffe8"
-    sha256 cellar: :any,                 arm64_big_sur:  "ad562a270ddfb8ffc19c35fd3ec680a1152f3fc25d0bfa9d07f32ba49f563086"
-    sha256 cellar: :any,                 monterey:       "508dd4609e72647b3534466576df9e18a0717c9387cf68c9bbf14f3d8769f5f8"
-    sha256 cellar: :any,                 big_sur:        "1a3f80b1b4c26c82cd9b0110d244ffa40aa30933a8b92ecfc1a6bf1e1265480a"
-    sha256 cellar: :any,                 catalina:       "edf72d45db9f8b0772e21dd024b9f44a2ff40b926ae2c1662e394b9468c19863"
-    sha256 cellar: :any,                 mojave:         "4bf2422b5d421784cc2829fd5987132c89a82637c7d05a3a34b95568084c8457"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "474d1937760927929a73c3ebae48dbe3f7ee0f0cb2efff4eb43cbb397ce06679"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "8ffdc33a97a73185b528c95ba47ea4598164e5acc96260d32fab5b3eaae63676"
+    sha256 cellar: :any,                 arm64_big_sur:  "78981478637045457fa8b6ba9f22333d40485ce8e2055bbf1a1b9f87878d7780"
+    sha256 cellar: :any,                 monterey:       "3d5d6c140f6efb9eb6dbbd0c92c8faaf47d239d58679c9256b71a35c4f8dfc1e"
+    sha256 cellar: :any,                 big_sur:        "b9df7253ad6fa374ddcbb0b03dd402b85dc09720191c308800d50c7a1bcafea2"
+    sha256 cellar: :any,                 catalina:       "26373657c4989ff1fe0eda638afe51372bf8aea82e5189d15c82454340a771cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f17f2b6c0bb5f1733bbcda7225bbe7fe113b7818e5ef8ac900297a3f7708a194"
   end
 
   depends_on "python@3.11"
