@@ -7,6 +7,7 @@ class JingTrang < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5805672b12eb644e79ee02d9ddf2ab2f0579f55a99414c462ef85b3a1004f3e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0798c6cf30a390d2146bd46c35d96af3dbcf03d5eb5e1a1e6d9f31f10b3deb82"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fca3a0bc0ffc4ab5732ce8cd341403ca904fff610e91791c0f2eb0f30c1a7ace"
     sha256 cellar: :any_skip_relocation, monterey:       "9a078db017574202859c27cc406c0df361e159741644dd30cde76ab20a8f6fc1"
