@@ -7,6 +7,7 @@ class Luau < Formula
   head "https://github.com/Roblox/luau.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5ae710e9afd9f79c9ee9066b798af03410afe9362645bb74743eed572db7b20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ce86c49cbd6ee245cfd288ee7e55719582ceed1b1a40f46699375522ad4e979e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d6bd4438ebd266933fbc3128a8ff5ac349ef97f3e8c6948e528cbf770a4bab2d"
     sha256 cellar: :any_skip_relocation, monterey:       "9f36ceb3f69102e09b47c8888e68d1b73784773fea4be9a5938be7e1bd781aa4"
