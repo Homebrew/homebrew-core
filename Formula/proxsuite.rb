@@ -1,8 +1,8 @@
 class Proxsuite < Formula
   desc "Advanced Proximal Optimization Toolbox"
   homepage "https://github.com/Simple-Robotics/proxsuite"
-  url "https://github.com/Simple-Robotics/proxsuite/releases/download/v0.2.2/proxsuite-0.2.2.tar.gz"
-  sha256 "da72d900c86fe77a1572f4f2866600ef56a63bd72f050206cc0a2c1643c8f185"
+  url "https://github.com/Simple-Robotics/proxsuite/releases/download/v0.2.6/proxsuite-0.2.6.tar.gz"
+  sha256 "b4b6223f339e3a96377d3d9c8b7349d2d91a08b218123cee2a39cfa5cf807811"
   license "BSD-2-Clause"
   head "https://github.com/Simple-Robotics/proxsuite.git", branch: "main"
 
@@ -21,7 +21,7 @@ class Proxsuite < Formula
   depends_on "pkg-config" => :build
   depends_on "eigen"
   depends_on "numpy"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "scipy"
   depends_on "simde"
 
@@ -35,7 +35,7 @@ class Proxsuite < Formula
 
     # simde include dir can be removed after https://github.com/Simple-Robotics/proxsuite/issues/65
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_libexec/"bin/python"}",
+                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.11"].opt_libexec/"bin/python"}",
                     "-DBUILD_UNIT_TESTS=OFF",
                     "-DBUILD_PYTHON_INTERFACE=ON",
                     "-DINSTALL_DOCUMENTATION=ON",
@@ -46,7 +46,7 @@ class Proxsuite < Formula
   end
 
   test do
-    python_exe = Formula["python@3.10"].opt_libexec/"bin/python"
+    python_exe = Formula["python@3.11"].opt_libexec/"bin/python"
     system python_exe, "-c", <<~EOS
       import proxsuite
       qp = proxsuite.proxqp.dense.QP(10,0,0)
