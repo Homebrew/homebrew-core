@@ -13,6 +13,7 @@ class Ficy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1886cf04ca32f5bdde1f3bc5489ac636cfdaabcf8ea7ef2a4a902e7b2a91843c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c25a3ab155e4dea715aa37ef9fc544adc571300c67aab77e93fb66423337052a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "586d692ab7b64ad5805d51280e78ef997bf0ad2ebd1db2ed57ddc05b126f950b"
     sha256 cellar: :any_skip_relocation, monterey:       "b6eeba4f52cc614eca8a65cae2f346d41e2e0376f27459fdede8e7eb82ef7a12"
