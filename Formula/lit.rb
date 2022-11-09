@@ -12,10 +12,10 @@ class Lit < Formula
   end
 
   depends_on "llvm" => :test
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
