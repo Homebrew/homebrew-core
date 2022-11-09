@@ -7,13 +7,12 @@ class Livekit < Formula
   head "https://github.com/livekit/livekit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b074a08fa755351d97e046f8b212d0e5cf04cbb08db9fd4ecba351379f5897a9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b5dba9f2fb6b779c885e1202cb9b0f3381121da7af0ff81b8835d22a77bf468"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3afff396d05a979fb7edcdd6887074d44d47c7935e36abc890481323429eee1b"
-    sha256 cellar: :any_skip_relocation, monterey:       "c2d85aa03acc2082e13c6bb4a13e80c6d6a238df040ab1368ca3479603c4eba3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a02fe4020f55c4a83a2ea92c5770d59730039b2f2c44c0c3f67f03514fc23973"
-    sha256 cellar: :any_skip_relocation, catalina:       "2257fb5756c397c5700b79dd5bfbc6e7e8dd5cbda59faf0f45ebbd5dd27f7db4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6adf6f8b239d1fc97fb93ede38df2eb91d6aafdf8f8eae2bace040aca1ffaf5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3fa68946c71c30b41a7b8355c1ca78bed66e7178dd81db4bbff2bb59a1ff3c7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5072f9e224d756b9ab29a83eed335f3f55dafa10b6b857d3a14266f88dfcc77c"
+    sha256 cellar: :any_skip_relocation, monterey:       "52110e6b3bbc3f3080cad318bf08212b4eb4d328f8bfedfd99a0141a6e5670f5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ad472483bc0e533c1ec8e8fd8fc98cc3c8088d527c3b62e331b48912f8bfa2f6"
+    sha256 cellar: :any_skip_relocation, catalina:       "7ccf5d98d3bcf3f064460aa235aa26903bb47a36696c638246c5fb6b722b3464"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0960e5f013cda923389d3545954487269106ab13622d5cc9d28c21e634fa8eac"
   end
 
   depends_on "go" => :build
