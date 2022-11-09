@@ -13,6 +13,7 @@ class CfrDecompiler < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7759d5fd2f4f74e7d467314638779081b4d5da9e17ec4fb571b6e762ba6e7e9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f0860e5883c6453777bcb7dfa447f99639c3bebfc281baa83ba31fca83f0d80a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "87ac8a8345d70e1a9c7e6d8f5d0c6d2c53f41d54c4099895d3133dace7fd19fc"
     sha256 cellar: :any_skip_relocation, monterey:       "e8cbec43262bb913ebc307a19fddaf983ac149fdc32fd3cf09da6c1585afbf50"
