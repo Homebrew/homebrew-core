@@ -11,6 +11,7 @@ class ShibbolethSp < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "a8457f23f8cc4caf6bd5ae8dcd12ed596049669077521c41077540fe9d2ce380"
     sha256 arm64_monterey: "e90f7108926a0492b61d482442ca3363e01fe4ee0a5030d3d5128ee7bce62c04"
     sha256 arm64_big_sur:  "3627b9b94793331278c868f3f50c0feb832db68545ee689445efcb17e56abd99"
     sha256 monterey:       "3c5fddd0234a1d201aebf7cda85223212e0e3ccbded613e3258cc014d2811c0d"
