@@ -13,6 +13,7 @@ class Cspice < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "75fb24feb4462f0b49be4c6b1f473f2854b3b34a25bc9ec6e3fd4c2e91664250"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a3e9574c472567a3814aed8f11bcc0874d6dc4ce2e1e867351e5668366d60a6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27847bdbb741a1195069b815bef8bcbdbcbc183ab3b7034a83eb7854348d7f04"
     sha256 cellar: :any_skip_relocation, monterey:       "b6317d5408e0c56164299671a459ed55c3581a219b4e0b7c699c08fe6abbcb3d"
