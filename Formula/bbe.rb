@@ -6,6 +6,7 @@ class Bbe < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1c7ca0dd8b2f4c9161de533964c1d783b3e09c9a108880d87236db9a7401eab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "095d439542aced7baf7f5994fe1d8ca64da82039222c1c083d09262cf559d4a4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7181a956a065ea4b793431041e45cc04d217a7c64a579dcf1c7078249ee579ab"
     sha256 cellar: :any_skip_relocation, monterey:       "1a2799215e2d472a9ae04a451e486da0853b2861e3e9e04d274c8ba5e0c30f30"
