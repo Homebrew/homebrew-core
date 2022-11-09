@@ -6,6 +6,7 @@ class Tass64 < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "LGPL-2.1-only", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "29936927064468f75aebd39e957f53c2aadf47369ae10a191612a2a326ac4bdd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "81dffbc4d2dea6237c3392b97a6834bbd584827bf6fc16066a8cee8ab15862ac"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01af2b2679d30efd3a934617ed618432fba9d307386b38fc3c299233132f03c1"
     sha256 cellar: :any_skip_relocation, monterey:       "804fe305806f3d3db3db8bacbe64482c98c99696b91bdd80eb4b476ade9ffb68"
