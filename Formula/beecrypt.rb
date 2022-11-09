@@ -6,6 +6,7 @@ class Beecrypt < Formula
   revision 7
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3fcce19dcf6e9f7b864752d4a3a44864c774568203710fd7570684dec95c3f65"
     sha256 cellar: :any,                 arm64_monterey: "4acdd6c4d36e63cfdbcee335076ef3a2d037fabcda966692a02301bc3a1c59e1"
     sha256 cellar: :any,                 arm64_big_sur:  "c67f38d1f106232edf5db9ea96b28c9cc240805c3021a41279085e592b3d1a5e"
     sha256 cellar: :any,                 monterey:       "76b490b3b3da57df7f5e13032c04ea577fddca473cc34d6274075c1100795ca4"
