@@ -11,6 +11,7 @@ class Regldg < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11ec4d993c71645c53d5eda04bc1fd8b54c3427b552331ff09b1dec8042cf244"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "98548aa0c1df33ee57ed002fa10dcc0abbe4d7c6cbd4ac5e03eca3cab08f6dec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c395a7406c24b3b1f4138a48f97f39fe48200e5f41f7b42a8d577e76c72150f"
     sha256 cellar: :any_skip_relocation, monterey:       "61e9dbff3e2066040078bec8de5d0d5ea9204fe51f77c37b584fc6b514930051"
