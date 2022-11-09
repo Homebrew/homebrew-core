@@ -7,6 +7,7 @@ class GnuplotAT4 < Formula
   revision 4
 
   bottle do
+    sha256 arm64_ventura:  "60736d0dfebcac12418bdfeeffe252ff7acb811a760fb80fe90919f5f33f0307"
     sha256 arm64_monterey: "efa6e1ee1c2c04c013bfe3f5ff0647c0141e6e319115a083f0a6f6d83924a790"
     sha256 arm64_big_sur:  "d888310976f77989dee4e9be57ed338ac7c17921878f17bed9c36bf38dfa82e7"
     sha256 monterey:       "eb8e43f689561ce88af9dc218bb082225e639c7940310d5615184dc9550e9dd0"
