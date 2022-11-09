@@ -3,8 +3,8 @@ class Pocsuite3 < Formula
 
   desc "Open-sourced remote vulnerability testing framework"
   homepage "https://pocsuite.org/"
-  url "https://files.pythonhosted.org/packages/1f/82/671789b4cd64fdb3204663591ce56bb175ba98958d9cf3bc6fb2ae38c3df/pocsuite3-2.0.0.tar.gz"
-  sha256 "fab95b1e93f5be1d46db5aaa377a505e1f57d29e0ecf1bd915c822b8bd9e111f"
+  url "https://files.pythonhosted.org/packages/fa/1d/b1e2515cde9c2d8e7a5bf4fcc28b85c3a3c06cde645d29656d907a1c914f/pocsuite3-2.0.1.tar.gz"
+  sha256 "ff009528e41ac41366bffdf7e0a01b9002b77a8ce2e2d3385f9854c1a0e400f7"
   license "GPL-2.0-only"
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
@@ -34,6 +34,11 @@ class Pocsuite3 < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
     sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+  end
+
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
+    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "chardet" do
@@ -67,8 +72,8 @@ class Pocsuite3 < Formula
   end
 
   resource "Faker" do
-    url "https://files.pythonhosted.org/packages/1d/a8/3e30d0aad907898a2d1d40ff8f23240dfee436515030b4248747ed11cac4/Faker-15.1.3.tar.gz"
-    sha256 "1bfb1b447cd45169a74a09f821cee47f51548508b62a29f6dfdab1d001d448a4"
+    url "https://files.pythonhosted.org/packages/7b/b4/764f6f08c651b940c65554de0b435b1958ed47144918853bb6ecb52fd422/Faker-15.3.1.tar.gz"
+    sha256 "b9dd2fd9a9ac68a4e0c5040cd9e9bfaa099fa8dd15bae5f01f224a45431818d5"
   end
 
   resource "idna" do
@@ -94,6 +99,11 @@ class Pocsuite3 < Formula
   resource "prettytable" do
     url "https://files.pythonhosted.org/packages/63/42/b8b24cfe616a8217515011fc54ed37b45077cd4467230b3a0132166696a1/prettytable-3.4.0.tar.gz"
     sha256 "d16747b5108c252bf065ea1cd239aab3c87bd8bb10a9f7973c9f192bbcfed26e"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pycryptodomex" do
