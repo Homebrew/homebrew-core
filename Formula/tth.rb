@@ -10,6 +10,7 @@ class Tth < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fdeb38cd3835c63253e57a04f574b8ecf27ff68c27fd990f65eaa390cea3261f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a80f7935ebe70d616800844afada0ab97f6d9f6ef0ab486dd2905444692e0df"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cebda67056a4417f92be161280b8cc077db34fac85cbfa5e4a660b0620913263"
     sha256 cellar: :any_skip_relocation, monterey:       "8412801643019ab0fbd7642b63a165e895b86ab590ee41a9a4477cd27913f059"
