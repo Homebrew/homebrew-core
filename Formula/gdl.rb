@@ -6,6 +6,7 @@ class Gdl < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    sha256                               arm64_ventura:  "05d8c74345f6a707a3a7f106b224457683c9f98da930d58a76ed60aee42596d8"
     sha256                               arm64_monterey: "20a0742ffcaa3bf6a8ee5c1531ed48f2b51a18c7a816f4b96d85192c2906db23"
     sha256                               arm64_big_sur:  "e96c5e69fc084fd421f08f651e8727fb7a5d28e270c804ebba7e6d860ccec583"
     sha256                               monterey:       "b1a120f5c6ae1e9f6802be4306f00cc2fc54ca1aaf75c017fa74efd6dec2da0e"
