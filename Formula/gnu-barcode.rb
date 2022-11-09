@@ -7,6 +7,7 @@ class GnuBarcode < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef4c6bfacdcb641696dbc98dd7baf68fadab846c1e80c5e42e75ad068e327336"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed996c9d8421dcd926b85eefc7e3dd04cc9d9430f72f0b466f62647a5f322e94"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e621e1e142ab7c323b6bc133b4b3c373df050986e4282814f07a8ca1928d83c"
     sha256 cellar: :any_skip_relocation, monterey:       "8442ab838d1f32813d7e8ffc4efec8a5c9bc32241cdbb8a9a3acd4efe506ff9f"
