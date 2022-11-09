@@ -13,6 +13,7 @@ class Kona < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b0943e3d66400117a41dd547e627750c8c98ae95a1430831343995151cf3349"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8b1a6b849baa2c0423981e8a528551d49ce8a18f0772a6381038e0b3f27adb9f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97493e1f57dc878702ebf3a34af7621a5f655104d684e7c50ef316c8cb30f97d"
     sha256 cellar: :any_skip_relocation, monterey:       "73330e436e416c19f9a4abdd920173c99725bc5e8ca4b18ef3ebf1df20a561c5"
