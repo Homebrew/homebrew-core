@@ -12,6 +12,7 @@ class Loki < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b53737de61aad45c81f015da20f7e36bf32f5023c29db4fc6f81e0c275ca056c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "721a009f4330a15efe56180635ecb04fe9efc196cf31257db8eb8aed004b2486"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a64e295b739fb8ea34a90e160123ff4f12212f04f1858af01550b89b7acf987"
     sha256 cellar: :any_skip_relocation, monterey:       "e638635583b185c703c11507f6105f8a1b25e5da3d45e2cfbfa39170e2f541a3"
