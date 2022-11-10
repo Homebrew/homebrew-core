@@ -6,6 +6,7 @@ class Joshua < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0818bf8dd3f002df45967959b28dde23a116e2b2ab4fee5696c84bf72d44c1df"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a11700736da72d86af2c07f05365c1a52a9851ef62aa3f4b6ddaaef914ca4b03"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9a3dcdc2356e269c23318dd304ec54fa172306d100b274c04a7e78440573987"
     sha256 cellar: :any_skip_relocation, monterey:       "14bc7441b66d9236c03273b5dc37a97373c5a80b3723e78936b7acf04e6c867a"
