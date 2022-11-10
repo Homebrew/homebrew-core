@@ -6,6 +6,7 @@ class FastqTools < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "edcf84aaac94da45c90a5a300ad484b6e958cd59878970d8a60dd679e0f89949"
     sha256 cellar: :any,                 arm64_monterey: "8580b8ff6e5de04a060b60b5251d01fad27a25c8c4e1b1afdc9534e9ae445cdc"
     sha256 cellar: :any,                 arm64_big_sur:  "ac48791014e14979ad786e59178d0b468510d02f5d51a86608b388adad4405f1"
     sha256 cellar: :any,                 monterey:       "0ead212cb078edbf77f9e58d4186dd4aac103fadd8291c6bc328312cf6383b4c"
