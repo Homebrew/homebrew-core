@@ -13,6 +13,7 @@ class Chmlib < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "fb27ebeee48d99f6637aae0da57043863119406a49fafe09deac78badcb723f8"
     sha256 cellar: :any,                 arm64_monterey: "23e464348836e12bf5835bfdf1acbcdcce344151d12cfa2a055d689c205b6e82"
     sha256 cellar: :any,                 arm64_big_sur:  "3ab46a541a6aeb2ac904a74fa1433e48bfca91a382e8e8b27290d0597581f520"
     sha256 cellar: :any,                 monterey:       "4d4a29e60712457e4ea3838947a95959dbc0f68338514edd3817d6ee122afbf4"
