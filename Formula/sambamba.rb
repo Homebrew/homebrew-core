@@ -6,6 +6,7 @@ class Sambamba < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "95169e54575022eecd424edf0555e69a192b5eb0956f8b609ae6886d4afcfb93"
     sha256 cellar: :any,                 arm64_monterey: "8fa5db4c381cdb2dd7f62dec9e2eba2acdeceaea3d62809fde83d30cca6624e4"
     sha256 cellar: :any,                 arm64_big_sur:  "8a2c3933eee3a6b8a8bc79828edc8f3b102a0172496081b1de124b763b698c5a"
     sha256 cellar: :any,                 monterey:       "9b9676ff4648e7fccfb38b9759b6f860ebde95ab82a5db5817b1c71323ce0c48"
