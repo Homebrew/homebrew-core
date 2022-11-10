@@ -13,12 +13,12 @@ class Adios2 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f8e51067dbbe7d0fdf164d3473710a9c15c313144f14a310af11ec4034b5351d"
-    sha256 arm64_big_sur:  "ac55a454abc27cada2e3d181fa65ef05ef0aa9b957f53ce2ece8b342f216a5cb"
-    sha256 monterey:       "277ab7b038698defb5a87fe1d3c94b37563ce4d6a2e061bcc434ad268d1eb2fd"
-    sha256 big_sur:        "2cf4ca5b422c6cc35bf9cbd9cf1c06b830c8c3918c38e11269f5f70c50444a3c"
-    sha256 catalina:       "f892b81db64e9989bc091023462768463fe22424cbafed2d8147b338df0bbcb6"
-    sha256 x86_64_linux:   "d97dd1587315a90aefd34640f7c90f498a90e96686befeeaef9d2852bdb31346"
+    sha256 arm64_monterey: "dd6c2120b4b480f41ed467eb288b7df6ad5c87a12fde5cb4d5b02c90098f2441"
+    sha256 arm64_big_sur:  "b4c89ff59b0ed1b9c0bfe323baa1125955d07bfe64fa7dfdaf7a53d077a0b22e"
+    sha256 monterey:       "5240e042cad078b840fe117bdd706f47786cbf3cc0db1eb91f9d26237de28d24"
+    sha256 big_sur:        "1bef95f698fa1d53a16c66fcfe0b60543b5257554f9fee86041f415a3b73a8f1"
+    sha256 catalina:       "dfb2ed4262187889d97bd41581c4642399d6e0544c9def52542d75e4e937e8ca"
+    sha256 x86_64_linux:   "aca7267638aaf558da97c828901c791a6698fe4c789882ac97b4f8860c53be99"
   end
 
   depends_on "cmake" => :build
