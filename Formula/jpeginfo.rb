@@ -13,6 +13,7 @@ class Jpeginfo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b178ce1a89381e408d465e7fadde41acef4152dd77e3e0eb77d0a92a4041e91c"
     sha256 cellar: :any,                 arm64_monterey: "d8796793101b1209893adad2d84673d19b840b492efb536858bfcccf763cfe2b"
     sha256 cellar: :any,                 arm64_big_sur:  "50c206aa6db9a585dce9d98f62a284ed6307db0f1d23ad2c33dcc0304c758851"
     sha256 cellar: :any,                 monterey:       "fbf71ea02631455b9a9040a524fbc54eb26aac6e8e043f61615943aa4b806f57"
