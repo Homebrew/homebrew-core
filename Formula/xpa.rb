@@ -7,6 +7,7 @@ class Xpa < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad3b920ba7f22f7fecc369c4eb3f093d6f519fb24ca7c8bf90a0cbda4fc9a3b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dfe65258684be3dee93bc7c0649abc8496e359b1fc16baa5430e562c1c0e2361"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b22cf494e2ca55efce9a08463ddd9ef4044af0a479689aa5ab610e40465fc93"
     sha256 cellar: :any_skip_relocation, monterey:       "01998b97fd193560c96334d78e40278d7bd3bc645416dd809740e97c04cf02d6"
