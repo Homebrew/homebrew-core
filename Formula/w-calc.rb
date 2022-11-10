@@ -6,6 +6,7 @@ class WCalc < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2140a067af2aa1e613e7dfc8ec7ef33ff4650f4519b4e989ad7d36d00636ffa2"
     sha256 cellar: :any,                 arm64_monterey: "710c2684d517f0f0f522008f77b8e3cced2aa51e5e7f5a42d1c9441ad40c24db"
     sha256 cellar: :any,                 arm64_big_sur:  "0213a099bdf4e642145fba3fa6d034edaa5d5c628259cd175f271b3aa5b35ff8"
     sha256 cellar: :any,                 monterey:       "efd668bc2f63e75a53063b66b9efca1cffea5eb1ea345ad7f72f6e1fcc805dd0"
