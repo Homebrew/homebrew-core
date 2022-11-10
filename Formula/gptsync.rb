@@ -5,6 +5,7 @@ class Gptsync < Formula
   sha256 "c4b0803683c9f8a1de0b9f65d2b5a25a69100dcc608d58dca1611a8134cde081"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81ad272478d34de44777be2688ad93d6bc82990ca97876a4ce7c4a9dee9be2fa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a9fa1287dc7b267191451ad26d47a2a2c706ff784a0b12f007610aeb1fd4d81e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce578e36d0f50ee223a8578434563aa237ee4c98d951d8c818c21571258193a5"
     sha256 cellar: :any_skip_relocation, monterey:       "2edbbc4007c73171bd87e60f073b42b525b70611f42c2b9e61fb7a665414eb8a"
