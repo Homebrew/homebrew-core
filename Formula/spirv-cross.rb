@@ -7,6 +7,7 @@ class SpirvCross < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce681803131b114f973e47e23003394b5e4238473a7c595a21a23c0b90b42fa0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "81b39909da8d863717546e6e07da98ffeb3861ccf359082ff5fe94dcd4623123"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "80a4ee152f875a3b653457ee40e0a05fa9892cc6203fd3d525e16157e646c3c0"
     sha256 cellar: :any_skip_relocation, monterey:       "bf474aadfd797bf685430e8112a6572a0cd3445e2a694ebed9d234134a3d2f39"
