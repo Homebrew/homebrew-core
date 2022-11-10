@@ -11,6 +11,7 @@ class Primer3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c19c2ed79dfef6f4b0f70b620180c46c017e462f44c3a3ded6abc42244071e01"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3651f78cf06ef84f0eaf2d4e9b136cdbf8775439021eab152b7c436e88f2ef65"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fff8629911a86916818473abdca4480363217ee8c371808bf22d87449c02df6c"
     sha256 cellar: :any_skip_relocation, monterey:       "c188cd7edb1bdaa613ec3307dc3292ccb9aa6deaafe1da6afa1540203a135cc3"
