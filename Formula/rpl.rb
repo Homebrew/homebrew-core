@@ -6,6 +6,7 @@ class Rpl < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "286dbe82c334c92999af55394d6ae990ece5617563f39afe1d7e5d1e7b0510c0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "46ef9e4c29ce913017b65e176d38f3d7b1a3ab33147c0fafb270cb7b442a2d78"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66905494cd9a1dcff546a819ed9be8dc20113323ae4dc339d346359e8f4752dc"
     sha256 cellar: :any_skip_relocation, monterey:       "ec1ccbe3b7a0b822464cbd586bb247a0c5ef5f72781c9a9ec7aabcd0e0169348"
