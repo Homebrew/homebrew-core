@@ -13,6 +13,7 @@ class Launch < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df847f012511a511c1e2b9b70dd171a7a8e3d8a829cc58cb20a113ef6dc5a526"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "37a22a51899be9434558af2a787f253c90af7b1dc5dc17017096b221c0b85dc3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a8bc9136d5da0270c108662086bebfd5cf74cd5eb82a773318e9be1b7a61b986"
     sha256 cellar: :any_skip_relocation, monterey:       "4813f636dd057ce7e61e02019d3886e2519ca4189c2ee1a98a2f9fa111412225"
