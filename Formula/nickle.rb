@@ -13,6 +13,7 @@ class Nickle < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "24c13aee47478346f64cb72fe5755f95326f02a17e5008b194089fdb67937b04"
     sha256 arm64_monterey: "4ace98b140571bfbb734fe311debb510b3d8fa7faf981cb9713b59294ad2eb83"
     sha256 arm64_big_sur:  "ac6c222ef9d544b849ff9fb1714e6e88e50ab554cac84c0814979c84ca4a37ee"
     sha256 monterey:       "5ca3c7f1821b7625aaeb3096abe9141fd2875e354d330d8701f72d9265bb128f"
