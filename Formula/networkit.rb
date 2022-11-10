@@ -9,6 +9,7 @@ class Networkit < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "37fb24a66576259a86c70fcbd1b449dc5c1db839a86d2d0c4c8161a09dbf0025"
     sha256 cellar: :any,                 arm64_monterey: "28571a0866090c5bb5f37e4cfa50011fd3937e9eaae1288861420529c1b93a85"
     sha256 cellar: :any,                 arm64_big_sur:  "8d4529866191018e40886f83d6916af78181a402999632afd7738c80751105ed"
     sha256 cellar: :any,                 monterey:       "68d0dead144ba2a5699edfe832168a0031938cf583132120df246f9affbe3047"
