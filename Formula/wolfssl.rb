@@ -81,6 +81,7 @@ class Wolfssl < Formula
       --enable-sp
       --enable-fastmath
       --enable-fasthugemath
+      --enable-altcertchains
     ]
 
     if OS.mac?
