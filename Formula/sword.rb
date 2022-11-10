@@ -12,6 +12,7 @@ class Sword < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "2439903e03cee94fe9b519c1597d9bebda08eebb38f353f775202b637748403a"
     sha256 arm64_monterey: "639a1f62fdf085c51a76a685ece4432a26dddc2fe7d4ba65fce337d6adbfc500"
     sha256 arm64_big_sur:  "aa8af3684bf4475f2c4f193ce2eee82751525f99dfc718b49495ba58f1866662"
     sha256 monterey:       "47de7e7639fddd186eb0c2c806149ff7c2bbf90837d78bf3f912958f4a4afeb4"
