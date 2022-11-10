@@ -6,6 +6,7 @@ class Run < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9adc5b23872ddec0c8533c5eba13294a9b0a483494d5fe0bf866c2905a4ba32"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8991c3a51e0bd5aef35d77e669e18851a2fac7be0c63f618b3aed083a02639d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8991c3a51e0bd5aef35d77e669e18851a2fac7be0c63f618b3aed083a02639d6"
     sha256 cellar: :any_skip_relocation, monterey:       "61e354516082cc6f66c33b1161756960ec1e122799c82702aacef71007f0da30"
