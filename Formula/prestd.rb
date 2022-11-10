@@ -12,6 +12,7 @@ class Prestd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db8eae38187cc128313bbc566d5c61546c07335fa640a92c5d9518333e099921"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5416f9ab63c253685022d5ddd1098b7906d8571bb83a55b97b0820b78857d41b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32b0a0ff176dad26750dc501dfd2d30dd908003944e6876dba0d1e5b1a0c3964"
     sha256 cellar: :any_skip_relocation, monterey:       "5a4dc43ab43e23c9e54356b879fb165c1c8390f1cd08f90fcb5120055ed37220"
