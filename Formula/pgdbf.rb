@@ -6,6 +6,7 @@ class Pgdbf < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2ecba3b5b9e4803f45f71afbaf66d85333ec329f74513123dbfdc9822b803c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2743386480c1d76708d184813b77daadec3bc7a70a542647308c9fb414aa65e3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b51760692708d6b3926a405f7b2e83553feeea062a1af91aa0b15858cf9e8b8c"
     sha256 cellar: :any_skip_relocation, monterey:       "6381607bca777a7beb5d475f656a949e580e82b15d1f63fa109764c652da5d9c"
