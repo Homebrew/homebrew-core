@@ -7,6 +7,7 @@ class Dwarf < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d0244af1e2cc656fa2c4d040caef6910ffdc6a8cff2480d315db3bc9fbe0a9e3"
     sha256 cellar: :any,                 arm64_monterey: "0bd56303a2a78e899a035597b779d5a3701f911ebfdf586d4a41d660f13253fe"
     sha256 cellar: :any,                 arm64_big_sur:  "30b7f9852b68c70d6e8e07c0de3e9075a4e0edd0facc219970de6535e5931b4d"
     sha256 cellar: :any,                 monterey:       "cf1b9df9782554d32d6827b89b29195ed7f391a37cd0b9cbab9a63e0ceacec20"
