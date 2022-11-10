@@ -6,6 +6,7 @@ class Ucloud < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "57392bb02bf8b37a4ec212af238a08eb31ba8c11adc9f91445d927668f0c0ed3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fe13e3873b5238b391eff28a723b78d7efba937e6e12c7775dbde1a978f8a2df"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be739c5a28212b1d3b38ed7703d9429b3918c1827b26abd02ab2c4e311bd60d3"
     sha256 cellar: :any_skip_relocation, monterey:       "c453634ad09c1ebdc8525b9b2e82668af044b8c619880b72adb5fc7b89940297"
