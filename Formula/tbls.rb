@@ -7,6 +7,7 @@ class Tbls < Formula
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7078246e46f884f4333a420d8ac209e7b40341a01ba0db94ee8a18c342a0cafd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d434c11de8b03467f3f657ac90287f061f8f45bb55c3c78cd9033c8e04d50364"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b211e255fd00885558233701b0253d0cc9f8c82d4f12a1c86b583c8b49c8ebb"
     sha256 cellar: :any_skip_relocation, monterey:       "94536517a066c2213796a8af2a715cab90bb8609b22803f104c8a656dfea9363"
