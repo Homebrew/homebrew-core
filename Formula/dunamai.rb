@@ -8,6 +8,7 @@ class Dunamai < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a34a0dd077e015f46973a5d6517595eef9c4e9284f04403e7137752b04d85c98"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed016e4dba1fdeb5680609ee613aed1095cced5c89aa479d14a067bc9fc36b64"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "337f7d29d13db1d4109405d73bad1911fbbb1ce58a9fd2f595db7282c5e4479f"
     sha256 cellar: :any_skip_relocation, monterey:       "f3d8df7a436b5cbe8e997dc7e37c01574e6bd39c5ec35539d37e246494200e7b"
