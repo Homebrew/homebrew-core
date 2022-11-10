@@ -7,6 +7,7 @@ class Dbxml < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d15ff7b5156f4bb68e1a397e62c0631733f0323300afb3358da574be87cdf12f"
     sha256 cellar: :any,                 arm64_monterey: "04519c8d0b802cc58234228fb4e697d0e4e83a89304d449f6976c9c5fa8287c5"
     sha256                               arm64_big_sur:  "04e8d59d289cdfeded395a021516b357e5bb63eed09e49aca28ed262c8c31128"
     sha256 cellar: :any,                 monterey:       "33d915b0652f7509895b421e65f6228915f1fddb42820076cb618b711432a898"
