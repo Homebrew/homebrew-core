@@ -6,6 +6,7 @@ class Fann < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "5d06935d9df379bbb543080a1cfb15503854cd88cb88c6d14186187fdd18607a"
     sha256 cellar: :any,                 arm64_monterey: "dd693aef10b32db6fe84a9eabfbd1e05c1d4ed83c4e48e936745fa76b2af7a4f"
     sha256 cellar: :any,                 arm64_big_sur:  "2fc8447731fd2a1c7f4957b55e3906041796fd5c9c528c611048f48558e644fc"
     sha256 cellar: :any,                 monterey:       "468d340a979831b709a4a67defc13796a7763019836d15d98f723aa1b8cb1981"
