@@ -13,6 +13,7 @@ class Premake < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "055233cb2cf7298878c1feb4918b610af537a4e625dc12559238f77918cf6f07"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e19935725d14811b05a4e4d0c6673627a8bcc020e0e63551f1d32b92809320e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb310032324c501da5115145b6d686b6e6782d9946c9ddd3d27886348a8be131"
     sha256 cellar: :any_skip_relocation, monterey:       "72260a33d5a3b6b0181fd3ab23f153e2d6e117633fa53fb5c51e011eadd2caaa"
