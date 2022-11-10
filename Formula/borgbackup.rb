@@ -9,6 +9,7 @@ class Borgbackup < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f468dbf559ebec00779a1242708dfe800583250381d318ff98c75a3be8dfa675"
     sha256 cellar: :any,                 arm64_monterey: "f3ce53018f86bf63b5a410174903398cd0bdba587041c5adf42bb5eecdc4cf4a"
     sha256 cellar: :any,                 arm64_big_sur:  "9e847d6ecd68963b08ccd570aa7a453768e877968c24a30c0629c5b582c95129"
     sha256 cellar: :any,                 monterey:       "0afb0588f8fd8b23a3bfb82c805198e954f607f3b0e7c9a05cca3e2224aeaf73"
