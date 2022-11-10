@@ -20,7 +20,7 @@ class Webfs < Formula
   end
 
   depends_on "httpd" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   patch :p0 do
     url "https://github.com/Homebrew/formula-patches/raw/0518a6d1ed821aebf0de4de78e39b57d6e60e296/webfs/patch-ls.c"
