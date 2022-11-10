@@ -7,6 +7,7 @@ class Jimtcl < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "5321ca61c00bae61155f8d7a4a6abf91d491f5dd7e627092b2fb200d08cce243"
     sha256 arm64_monterey: "82285abcd9d5a13cf8e0d1731aa4264d228229dde326d6177e9bce929fb32a9c"
     sha256 arm64_big_sur:  "0ee14e7cebf6c60666a28d04b7e27cc5ce2f085f7ee0dbb9299842869f2dd8ea"
     sha256 monterey:       "d56d56810fbee5428e98522f2aadb7301e9fdb18f7fc23e6d7ca28043c11555e"
