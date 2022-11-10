@@ -7,6 +7,7 @@ class Cubeb < Formula
   head "https://github.com/kinetiknz/cubeb.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "b16ab1b2aea0c4cec3a8015e3ead96e97c59719c655ec87d94ed5b54d81b30f8"
     sha256 cellar: :any, arm64_monterey: "506fb6090f05b4275bde1aff78c0eb1bf72959fbeac5c53018c728863ef1195f"
     sha256 cellar: :any, arm64_big_sur:  "e56366a9d51f95c573e9bcc0a7f8985e4607cf88a9e6a87c0f2193a363c18a93"
     sha256 cellar: :any, monterey:       "0734f84782c17da435dc805f42c1af96506669ed1337aa8a0a20f486975d771a"
