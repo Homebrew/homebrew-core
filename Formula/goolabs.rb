@@ -9,6 +9,7 @@ class Goolabs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6827c4b62794c81fcfb40ebd97075ad112395a9d5735e1809f0ba5aa44813ba4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d911074af03f75f3c427204ba9de2c0cbde484acea50e1812083d5380c432fbb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "333363cc68a5f1ea613b1f5289ae885f29aa21a4fe823b7613f0b42e1b54a743"
     sha256 cellar: :any_skip_relocation, monterey:       "12e163a6e7ec11fd896d9eddcf84f8392a28286d7185d62f3e2007c63a378713"
