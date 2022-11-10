@@ -21,6 +21,7 @@ class SpeechTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "904d6e001b1e6ba3dc80e9ff46f45e858e1551e4194779ecf29babdee3925d29"
     sha256 cellar: :any,                 arm64_monterey: "b6fc76b6258dbd5956b9ee1fc3c2b6bdd3bff70c3e5963d0909d063d7d58469e"
     sha256 cellar: :any,                 arm64_big_sur:  "f87cf4b034c413c123d7a6c443492a836ce28c23407f522cad259a7832fd7e33"
     sha256 cellar: :any,                 monterey:       "ff2891dc045fd7e6a9044dab515a213eb8cfacbdf94cee6191b4d14c32cdcff5"
