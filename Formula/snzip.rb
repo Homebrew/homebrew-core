@@ -6,6 +6,7 @@ class Snzip < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "661bdc7469cf8ec9c6311512507b930896e62e5b86c97ee12b2ba5ef57c34dd4"
     sha256 cellar: :any,                 arm64_monterey: "f6e7e23067b3b7a345478140297d5eb874f3ab0d674fd1327e331ad44704c9c1"
     sha256 cellar: :any,                 arm64_big_sur:  "23f40e27a4ad634c07f15e736c6ed868ad78c780de0076c9c9d0206295f0d39f"
     sha256 cellar: :any,                 monterey:       "fc6766844ef54540722dac85eb882b946db05d9db9d69fec810d77333c502224"
