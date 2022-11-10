@@ -9,6 +9,7 @@ class Gitlint < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a9fec3ba5aa0a725cd75ffaf02dd2fbbc5b4faee1caedd3b9545bfba8bfe450"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b627c6f77c13581f287517a58a469acebbd14b23e689fd24cdaba348a5261e3f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d94ec8a12bf02918352e4d8fd9d70911600c91d238273ade01222fa53aa2dd18"
     sha256 cellar: :any_skip_relocation, monterey:       "55efc4020ad18a7016eb15accbc954d324b10cc808d3b6f37c79e2c6a379a5e6"
