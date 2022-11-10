@@ -11,6 +11,7 @@ class Sproxy < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8265d1a1a4f6eb021aac708b5d9b68b470c618389a6cc71131752e40da0f6123"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "73f13338cbd96aee85706f30ab752d6c7ea338b9876eb43444fbaf2c8523a09e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2558b7f1308c8bc08667c8e51d40b1c8df05280fa8c5f003f6dec07561089c2e"
     sha256 cellar: :any_skip_relocation, monterey:       "f810e4c841a81313b77f81dec82b1cdd1b4952d6625d8590aadb581e388edafb"
