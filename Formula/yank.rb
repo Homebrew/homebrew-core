@@ -6,6 +6,7 @@ class Yank < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "286acb35142223b6e0274221c5a2527f022c79f51a8f5d81ef5261f08b651b99"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e5fd3a08d92bfeb4da493930b49df96b38ad624f815b3c3f27a661f5e35274ac"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ca61de9c598eb8c2abd4b78874ff40af76cc83474ff1d2261979800a42d62f7"
     sha256 cellar: :any_skip_relocation, monterey:       "7e58ab275e612ff3d6072c1765d5a21fb151c904f56f3c238249be022c14e07a"
