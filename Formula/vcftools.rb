@@ -6,6 +6,7 @@ class Vcftools < Formula
   license "LGPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7e5d8712d69c3b8635ee3a626d21c512483e3f87272a36e1629eaa0ede2c12d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e3a70236094425a28dcebf4a60b84cc793c2e55e4198d0f40f25005cb8c33f86"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02952054dace13adf39f6621591af9c8c33598334dda6c43948fab1e43916239"
     sha256 cellar: :any_skip_relocation, monterey:       "8a571823e4f66cb7bd7bf3e8ad91129c5e3ed844f4d9d1f4f4eaca60eb19b23e"
