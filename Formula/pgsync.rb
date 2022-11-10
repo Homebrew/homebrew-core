@@ -6,12 +6,12 @@ class Pgsync < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_monterey: "15e8a9d23d340aeb0cb1bb198f7bfdc7d60dfb60b42b942d7c43e529da775fc9"
-    sha256                               arm64_big_sur:  "0c1bfbbe1d3e56109f8edf2d431940fc84debb9f20e1de3021eeb2ea671e7690"
-    sha256                               monterey:       "eecfe3e70e650c26a8342d5e3208b763cd4a3bd3dc02e48d449493693de37c02"
-    sha256                               big_sur:        "56215ee5262ef7da1a9914e57d18ed7808cbb16414f45b9e67c1d341a263c54b"
-    sha256                               catalina:       "bccffa68eae31f5e350c1095c67febfcc49bb859619cadded76ecc1961e285d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d70c710f2849f5a39d6d5759d0cb358cc79e190aaef1625c97686ab980d176c"
+    sha256                               arm64_monterey: "d187674c50b563f9e25229fd21bc87da94417658b7d7160be4165e3179855f45"
+    sha256                               arm64_big_sur:  "ba6666d65b53adec240851ab0ae99a25bc056e9927f9ef05890af14164602b3f"
+    sha256                               monterey:       "3f77099f18c937132cac897e7bca7461c40d6a4a69d7a59ed51122cd451646ba"
+    sha256                               big_sur:        "235552086ef38602a102e86f09d3625d7a86fd74df3b0394a008387a9f784f37"
+    sha256                               catalina:       "e135ab9d372ef1d88056d2fc271937c8053461c6a1ef74c784681731b5b8be4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7989a07e0d1e2f65087509a1b5f4b859bc41ca225e1fb2efdb4e8e9f200cb087"
   end
 
   depends_on "libpq"
