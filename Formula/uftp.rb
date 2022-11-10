@@ -12,6 +12,7 @@ class Uftp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "e62bde780e31b0969be51009065d1538dcd0005faa72b5763d6377f73c9806c3"
     sha256 cellar: :any,                 arm64_monterey: "419327bcf6a91fd632ae4760b3a2d6106c38faa9c88b531af321a4ada30c8c10"
     sha256 cellar: :any,                 arm64_big_sur:  "1637d53cf74b59de04fb159100a40a68e0f2eb697d5d762cb4fed3910c64b724"
     sha256 cellar: :any,                 monterey:       "46c192edc8c39d3d42a255d1bfce9e6a4caecbdb2a8a973b7796caed331a8e64"
