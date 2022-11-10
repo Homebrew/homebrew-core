@@ -18,6 +18,7 @@ class Arabica < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "0a4fd034a7098d204a0b3c772023f6bc35f024e2f048216fdfe8e589f38cf2a8"
     sha256 cellar: :any,                 arm64_monterey: "3e92d822c2e0c5d314a92e5e26df14b3a84774494fb100f401c3a2d0c7e54768"
     sha256 cellar: :any,                 arm64_big_sur:  "6875acb418a0c10026c5356fe927a7c91a1825d8b314599ee1a64a309f30ed77"
     sha256 cellar: :any,                 monterey:       "db7acb62fe52ebc6b315b9e1e94cbf5ead317e7856af95efa8d5eeb0a41f62bf"
