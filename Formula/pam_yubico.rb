@@ -11,6 +11,7 @@ class PamYubico < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "e763d80b575c27eb381f559494636cb7737a0721f884d98523d0452911262273"
     sha256 cellar: :any,                 arm64_monterey: "203b85ed98819720e7f40971f9978956b4fd458133a3935f402a10dfc2ab85b5"
     sha256 cellar: :any,                 arm64_big_sur:  "8d4405a65463be4dc6b5472b2cff454301591e57ff5c3b5fb4e8e40fb6981a66"
     sha256 cellar: :any,                 monterey:       "07bd1f48953cef8653bc75f23fcbf9fab5de45a3551d7ba7f23db22e558b9247"
