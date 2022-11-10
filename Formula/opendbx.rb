@@ -14,6 +14,7 @@ class Opendbx < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "847f22724b3cd9e0fe820e25fdf778e5190f347b2bba2b81fda5753dacf44d67"
     sha256 arm64_monterey: "40c22caf4823f43a2014c73f4ef86a2f6556107c2e5752975ddbf1924c9bc80c"
     sha256 arm64_big_sur:  "a849ec13147c5cb08b03376eae868b6c82ec075a60388bf7e6742fbb9f56b467"
     sha256 monterey:       "7002fcd03b711f7dbefacd3287435d2ec4fbf96f6410dcefc1fb0d36bc3a2f25"
