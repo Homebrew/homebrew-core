@@ -13,6 +13,7 @@ class Alure < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "709b5d0a3f4bb2fed0a455b7fd023a31f85bb4fd93498f3a57fe6eaa552c78e4"
     sha256 cellar: :any,                 arm64_monterey: "be784a86bfdf46e17722ce8c2002a430495e70bd6627f13b2952c1147070cbb8"
     sha256 cellar: :any,                 arm64_big_sur:  "b7c2de932d9fa136dbecbd6b235c2db13e8fb4a46551be15cadf9f4ae58ab7f9"
     sha256 cellar: :any,                 monterey:       "42382cc1953f124c11b9ed54b255a88367991b52e20d000bb8575f4cab956121"
