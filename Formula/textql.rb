@@ -7,6 +7,7 @@ class Textql < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04e3ffe6755c2cc9e2a74f5a698e209b82d564dd4242440d1517574f9cb1e804"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1f78964c1ac61753863e8c1cf50cfc293606ee20ecb062c5002b350db0ddc2e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd027344a17ef0bc236b638e442fbe257a82e9504f050021750884c486db3371"
     sha256 cellar: :any_skip_relocation, monterey:       "68935f7d92a0d09f414bdab5d638d67d3e7b5e5cc9b256f30be8563c26d043aa"
