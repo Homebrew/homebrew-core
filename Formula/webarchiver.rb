@@ -6,6 +6,7 @@ class Webarchiver < Formula
   head "https://github.com/newzealandpaul/webarchiver.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ea8cae29374c5b638bc0ef3d6041c2841c167fdcd113fc8596fe33a77f526f7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "01db745b1093daa64bf029a355126fabade68c7a2126f8cbec2b2db22d812628"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "50bf552bad7141e95abb811a7bb8e200747183486e3875524281175c83e81941"
     sha256 cellar: :any_skip_relocation, monterey:       "3525514b45d1ca489e33f62150d803354902264444ab78ecbfdbdfcefbc8c27d"
