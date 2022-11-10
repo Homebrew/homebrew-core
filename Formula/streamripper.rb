@@ -11,6 +11,7 @@ class Streamripper < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1f53d313f817d1193b5622b6bf8294cf33438cab5318882ae2d697c09de13ccf"
     sha256 cellar: :any,                 arm64_monterey: "191660118509494bd8a3a584956da6edfe82ac9f5c95b7f41a4914c8e8bfe4a8"
     sha256 cellar: :any,                 arm64_big_sur:  "233eb2016447acf712f7b440c482879631048d02310509072664fb1d9bda6370"
     sha256 cellar: :any,                 monterey:       "620a45816eac20426e21ae85cb615439b6a32401a5e51acf6cff858b61b6905e"
