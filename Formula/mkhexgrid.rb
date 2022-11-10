@@ -11,6 +11,7 @@ class Mkhexgrid < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f506ce3ff66554b2586a73404a1af6d811024842b254218b67f7aa421f699d9b"
     sha256 cellar: :any,                 arm64_monterey: "5b461772bb6b74ee5cc07db25a8baf6055941f93cba08946bb7174e024298e7d"
     sha256 cellar: :any,                 arm64_big_sur:  "488eb3b7fa3023c4326755bd7bd3546b926d3e03e353063d700c3f15c41e59f1"
     sha256 cellar: :any,                 monterey:       "54d4b953eefd88048279f0742a636d343aa81cc1b077f4cffd40c57e1b49ceb9"
