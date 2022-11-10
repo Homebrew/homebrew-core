@@ -11,6 +11,7 @@ class Ser2net < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8548c7f69b48ade034479ddb41b1dcae0f0cd7ae9279dde4389f3a322ed3cfc5"
     sha256 cellar: :any,                 arm64_monterey: "f3ae611ea890e35d65f9ec9583c8bce9c88c60aed8f4f4b241720e9e06878672"
     sha256 cellar: :any,                 arm64_big_sur:  "fb39b2fa049859b4c9f7333e7d796b6896b2803d4605730a46647982c8eb47bc"
     sha256 cellar: :any,                 monterey:       "4f51bdc3a9a062225dd65c923ae845387e562566848f0c62407b89c1aee6d23e"
