@@ -27,12 +27,11 @@ class Libpulsar < Formula
   uses_from_macos "curl"
 
   def install
-    library_suffix = OS.linux? ? "so" : "dylib"
     system "cmake", ".", *std_cmake_args,
                     "-DBUILD_TESTS=OFF",
                     "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}",
                     "-DProtobuf_INCLUDE_DIR=#{Formula["protobuf"].include}",
-                    "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib}/libprotobuf.#{library_suffix}"
+                    "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib/shared_library("libprotobuf")}"
     system "make", "pulsarShared", "pulsarStatic"
     system "make", "install"
   end
