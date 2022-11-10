@@ -9,6 +9,7 @@ class Pdf2djvu < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "f60bfb170d218b54a85117c30758cb1ae76d330b75d7132495fd96919f956465"
     sha256 arm64_monterey: "2feced1a60a2e914f09ea09f5dd013cc8c71f95c97fa377cf4c517fdcb279651"
     sha256 arm64_big_sur:  "b9506ca83126c838596b699970d006a789f4356122ae52288082d2b1aa870d3b"
     sha256 monterey:       "215e817755bcbf596a72a74e137d8c4092c45f20f644697cbef1ea83054d2401"
