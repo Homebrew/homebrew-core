@@ -19,6 +19,7 @@ class Burp < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "bcdb7b1ba0bc260b156b7a981694ece3695bb5d4a56936009e317e2cb56bc655"
     sha256 arm64_monterey: "5b49f738c6755ed1661d0f4d17b2cfd5543316f775d6a17eac32bed217c6b84a"
     sha256 arm64_big_sur:  "b61e5e1920d691c06ef16e4fd2ec8a9ccca26c305bd9e8403c6d25a95327403b"
     sha256 monterey:       "6917c1084a60abd9e9f3c4b598550364d0e48ec834794ae874628535fa9b49f1"
