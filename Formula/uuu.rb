@@ -13,6 +13,7 @@ class Uuu < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "2b3fc45dec8c1704cca73c7fa759112c730c260683b04859c557777066403a1e"
     sha256 arm64_monterey: "6d98d5f7415a9a48212b6ceb9fca916ef5f389674af1226ea33deeed4fbf55db"
     sha256 arm64_big_sur:  "fcc082a046e5434ffbb0194ca0246b1a6eb331679ca00a3e67f934575f022089"
     sha256 monterey:       "6f282587da598660d96aad433ebc9537910ba5da6f768eacc96fe9ccd00db636"
