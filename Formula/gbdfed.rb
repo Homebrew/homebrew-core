@@ -11,6 +11,7 @@ class Gbdfed < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "069fa238f937dddf882c41387fd6ff5980226e2bc58b16ba2ca73d4524f2e04d"
     sha256 cellar: :any,                 arm64_monterey: "0424481fee8309a3d8fe8c4a94dc7eba0210cae5a5b7e5ccd9c70412ce2a54b6"
     sha256 cellar: :any,                 arm64_big_sur:  "636d528318fa5e5fc90bdc61665ca3e3dc220a5c034bb478bedda854017de83d"
     sha256 cellar: :any,                 monterey:       "61ee7effe80b58621ee18bda3b91bf26a304001797a8076b423724f6c2751692"
