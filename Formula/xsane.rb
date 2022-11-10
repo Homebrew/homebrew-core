@@ -13,6 +13,7 @@ class Xsane < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "1ed7781d92532cabf4ccda3c5807caeeb263711d0bb1ad3f048c9f4a30771819"
     sha256 arm64_monterey: "f9930b9c1cff8a8d27dd63ca918acf630dbaa535aeed004af7661bc488c2f2a6"
     sha256 arm64_big_sur:  "4e85eef19f06b2cd6607b88cf807ad5bf43e73aa8df991f8685c9c08563bc4b9"
     sha256 monterey:       "f07c97616b20a4861742276aab93018b29f29d666ff87f4bd9695a9068628f72"
