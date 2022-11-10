@@ -12,6 +12,7 @@ class LinkGrammar < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "8b37ba8dd0a9fa572f8b27ac599794944cbbcbf0ff9f285e626f158f4b8949da"
     sha256 arm64_monterey: "aa20af4221646a75ed55c925c9e31a40dac472ed2c1bac4a8fb47091726b86d5"
     sha256 arm64_big_sur:  "3ebd29a4f4bc6beeff416c488489e53960a3a56d28c29171d47c3815a939a192"
     sha256 monterey:       "b3803fc1c5a7f1ddb6273e059d0004fe9a93264df06f353c2f614cc99da62b93"
