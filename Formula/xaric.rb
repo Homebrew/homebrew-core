@@ -31,6 +31,12 @@ class Xaric < Formula
     sha256 "353ef73a5a408a876f99d4884a7d5c74d06759c60a786ef7c041ca7d8e0abcd3"
   end
 
+  # Fix ODR violations pt.2 (waiting for the PR accepted)
+  patch do
+    url "https://github.com/laeos/xaric/commit/c365b700a5525cf0a38091c833096c179ee2e40f.patch?full_index=1"
+    sha256 "9e82b5df90b96b096a3556afc3520e7b3e8d649eed4b8b42be622bc428f0ca73"
+  end
+
   def install
     system "./configure", *std_configure_args,
                           "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
