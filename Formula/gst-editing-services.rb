@@ -11,6 +11,7 @@ class GstEditingServices < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "2e7910c06f1ce585fbba11277db82b0924091b0a79f80fa49a7f4d55ba824ff5"
     sha256 cellar: :any, arm64_monterey: "0e0782fb99977a997dc512e68c6753bd5b348462679d6beb0185975a9ad2d822"
     sha256 cellar: :any, arm64_big_sur:  "6a0a76f1c9601665bda8ffbac2fc37eef71acfebf8884a58454ede33cf3020a0"
     sha256 cellar: :any, monterey:       "f6d89657b9c533f08d9ab00273b54957c266e592d857e3eecbf408123b33bd88"
