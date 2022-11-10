@@ -6,6 +6,7 @@ class Daemonize < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd11e888912a0afdfac36c26b95f4d27b7aafaa2ce3ac41c14388683f9027df0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2b4a5d09904220ebd65f8fb46dc9ff521fe01fd024a80d1fbcf587ff5324e21f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49b53c082bc201f7dcfe760c727b7f748ce6306fcdbf656d1609384dc75e52fc"
     sha256 cellar: :any_skip_relocation, monterey:       "4c32da9480f4d9f48e28390f9201c7667dfabbb874f5acd4e7af28b04de2e748"
