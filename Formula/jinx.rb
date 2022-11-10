@@ -8,6 +8,7 @@ class Jinx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2d93c00b2d144ef99c24429b26dea72b62f3cda448c6a926cba1e5b72a4d004"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d860754de69cd9d21e3c09e17e95de5f6e788280d821604a665f0caac7b44e9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a0bbf1aabba2dc324df0900386ad1e3c75f8ec10a61374e23a3ccf16d442a80"
     sha256 cellar: :any_skip_relocation, monterey:       "07ab4faca2d623a0184edefa4025b099241cb59d257d4c9f1abff32e0aadb1f6"
