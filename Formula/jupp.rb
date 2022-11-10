@@ -8,6 +8,7 @@ class Jupp < Formula
   # Upstream HEAD in CVS: http://www.mirbsd.org/cvs.cgi/contrib/code/jupp/
 
   bottle do
+    sha256 arm64_ventura:  "eec6ed3e770ae0f10e24194cb7bef12da1ff4e828395572dcb2871ccafae60e8"
     sha256 arm64_monterey: "7939bd0c91feb1fba1cea7a799903349cf6fc71647310727d4b211d7fdef49f1"
     sha256 arm64_big_sur:  "6616e4a816c8ca98a86e1b38216dedbdd32b522719e82781a532aa10467ca773"
     sha256 monterey:       "ee080bd11833bd22afa9575c27ebe6d256fce4027897e3e3af9ba35f0ecc4d60"
