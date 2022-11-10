@@ -14,6 +14,7 @@ class Lcdproc < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on arch: :x86_64
   depends_on "libftdi"
   depends_on "libusb"
   depends_on "libusb-compat" # Remove when all drivers migrated https://github.com/lcdproc/lcdproc/issues/13
