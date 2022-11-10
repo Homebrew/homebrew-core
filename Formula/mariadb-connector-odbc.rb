@@ -15,6 +15,7 @@ class MariadbConnectorOdbc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "08853d5451e38d4ce3fce2fb82c16aef9f62c631809e624a1bbc838b9ec487f2"
     sha256 cellar: :any,                 arm64_monterey: "43ab18291966567ecf2143c2c91ee62b8aea0eb5a8bf4ed3592b8a5806677649"
     sha256 cellar: :any,                 arm64_big_sur:  "3babd69105257498323fc75469548c3666ec1b31d5f4d45b983089a7be8a10ad"
     sha256 cellar: :any,                 monterey:       "2ee7edcaa3603bfb82fd570b5308b0a21c29c5d31ff568b1bb9b16c8164f40c0"
