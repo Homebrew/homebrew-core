@@ -6,6 +6,7 @@ class Ren < Formula
   license :public_domain
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9277aaf4732d7c2ab0b9590bf81a1dfe82a1e8e40dd4d5c2e4369d839bd781c5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f6b10a80274e2cd7b78b8bbf90e8132511c321ec104bd9418b89814fa6dd2a4e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ac0c757ec1ce881161a4f5cf29377fc60070b97a5578802e35edf4d271ee60d"
     sha256 cellar: :any_skip_relocation, monterey:       "4c6fb1c77c59fd33c98809ae637e443959d671ad4ae66a5b03ee384714f8521f"
