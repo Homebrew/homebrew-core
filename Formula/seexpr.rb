@@ -11,6 +11,7 @@ class Seexpr < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6e190a9b5d3db5beb483db33d39c1b7446269d6e088a9aef7b0bad7e77d8c1e0"
     sha256 cellar: :any,                 arm64_monterey: "d525a96b58f896e76192699ed10018bc992287604d1902c7c8614ebc508b7fe7"
     sha256 cellar: :any,                 arm64_big_sur:  "722581c38cd9860d5dc9b53f85b9560f3c1039b49a17180114c6f2370556fc86"
     sha256 cellar: :any,                 monterey:       "45a50904ddbd4940674d0c844878effb7f7175af28c37feabb0f6ee52509e48d"
