@@ -6,6 +6,7 @@ class Swiftplantuml < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "41bb594b21a0a27497bee8de2a0f18e0dc5f416846f8ddfffad369edf0df60b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "35e239464c15500b77d934892b6d1848637581a51240dd43326eab217b652183"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e4fe2418e139ca0d1cda671c5acd7572d18890cb78d73139e89dbac7c553b33"
     sha256 cellar: :any_skip_relocation, monterey:       "06ce1ef56e536dd11c773e730f90796e4da8be41b3844aabb4f6ba30d34dddd9"
