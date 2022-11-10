@@ -7,6 +7,7 @@ class Cp2k < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "ac8479eb5320bbf18b04b45b098cce5800f0f14f80866f5f4fac601f0f48bc82"
     sha256 cellar: :any, arm64_monterey: "1e61b286d38435d6e0b171bc4720ed1b5259abafc46478c70260303aa7a04972"
     sha256 cellar: :any, arm64_big_sur:  "77b3b54d1c2f15a60c6eba44c172b7ef412be2842fa29e5932a9832220b31791"
     sha256 cellar: :any, monterey:       "cb16c0faf926a4ff2a4945edc5e93d25e11188851a77483097ce4f3758f2ef3a"
