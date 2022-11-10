@@ -6,6 +6,7 @@ class Ftjam < Formula
   license :cannot_represent
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "110a5feb1831f3bc2fd8d5c4b4cc8315cbc27676c3f08f65e040b9b109ef4bb6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09eb3674d68bc70c0a968bab37408395e82acb51ab594f36baae4275972ff9f2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c40cff88de5ed098fbc6373f6ceaf998a63b1f8189e930afbdeb7ab352e207e"
     sha256 cellar: :any_skip_relocation, monterey:       "2ade860ccc3972b17cab846917f1759e2676db0240b30375f9a289db365dd1e7"
