@@ -11,6 +11,7 @@ class Wiredtiger < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1d04f1bdbde31a61d9193d9d729692b73b94f6b6634c37267f0ef2a2758ba3ea"
     sha256 cellar: :any,                 arm64_monterey: "54ae003509c8488b6dbf019a88fad8215198e3e10ad120b4fb79fa87b33d2051"
     sha256 cellar: :any,                 arm64_big_sur:  "04f9b121ef62be4f365d36bc1e2c901bfafe37bf62580b701898c01a9b58d359"
     sha256 cellar: :any,                 monterey:       "bcf4fa0509021ae516a154281108eef2575616dcd0c16f1bc1937f0dc09e6f5a"
