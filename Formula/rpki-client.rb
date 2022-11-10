@@ -8,6 +8,7 @@ class RpkiClient < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "d74d693d81b62819d0174df42bbd160ee2b50308e8f4a0e8f5db44ec7d1c4fe9"
     sha256 arm64_monterey: "9059d0885296268782caa8d7227c5fa36b2a0e57671067bd88468245cbcd493a"
     sha256 arm64_big_sur:  "5420908d212f7719ec7519b60b7ff5ee83c91c9bafd5690ee9ce8dbe3ff55b21"
     sha256 monterey:       "4b96fe11c1d96b719600e01291a228c98bee810520ba35e7864b43150a17a826"
