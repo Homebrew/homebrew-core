@@ -16,6 +16,7 @@
   "scalapack",
   "soapysdr",
   "soci",
+  "syslog-ng",
   "tcl-tk",
   "uhd",
   "xmlrpc-c",
