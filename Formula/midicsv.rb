@@ -10,6 +10,7 @@ class Midicsv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bfc81631f34a7b6c244c9c0381b46f24da59332e10770501232a2cdcc564601c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "92dfc5dc808b233c4fbcf4b69a4f74f24c5d69ec409e687d716ddb04eeb78a45"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4786091a3131f6ffafe70a561bc2a0ffcbab3ed7c651393bb1908e1bd00bad7"
     sha256 cellar: :any_skip_relocation, monterey:       "5efa2f2fd0083a02275769715699af018f8949db77910ede750505da0600dad3"
