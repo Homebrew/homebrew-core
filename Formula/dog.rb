@@ -12,6 +12,7 @@ class Dog < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c5a4ee2a717b756d3668395a129aebe48e8cc72b049d7f9cfbbfb9d14669de0"
     sha256 cellar: :any_skip_relocation, monterey:       "0dbeb2271fcbda043b8c67b63463bafbe674e692ed464e891529941e72eecf4c"
     sha256 cellar: :any_skip_relocation, big_sur:        "b34f634c60a28d5e5ad7694da962949c677bb1808886c6fcaa7c92579633e5ee"
+    sha256 cellar: :any_skip_relocation, catalina:       "0b7f88dc4941328cfb187798bb93f14d32abafa3d867e83161b8682619c868aa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "55daa95c827fd102b2599978ebbc0fb60d497395388531533891c8d2a28ff3b4"
   end
 
