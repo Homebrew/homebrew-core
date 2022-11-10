@@ -7,6 +7,7 @@ class Luabind < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "27fc85843ea4d2c9f93cbd908ee2dc272b3b3046e10006a4c45c3c7f83efbe33"
     sha256 cellar: :any,                 arm64_monterey: "2aa06fda6b16e944418e0bbb8306794b6a37574cc3498b979e50d3bf63126045"
     sha256 cellar: :any,                 arm64_big_sur:  "412b4800d6e640819f77c80cdf5b6597cb5357caebd499e9b32577d27ddeab5c"
     sha256 cellar: :any,                 monterey:       "676b9de9bb164333be0f98da20ce853cfdf54234f3a9536303308e6e8598c589"
