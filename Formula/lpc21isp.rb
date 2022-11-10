@@ -6,6 +6,7 @@ class Lpc21isp < Formula
   sha256 "9f7d80382e4b70bfa4200233466f29f73a36fea7dc604e32f05b9aa69ef591dc"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ab5cc792a65bd498458aa93dc79e77e921c2cff17e1f17629915332b4e4134b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "df672a0be96a7703b2f4ff5db9c8c5b322de22822ea0fc6749becea3d3a0cc21"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6f26711684bfbf3ddde4574aab70336278338b206a5fe3e278d868903bd8910"
     sha256 cellar: :any_skip_relocation, monterey:       "60c1dfa18f24845046fd13390aab73665d086859831c999a75bed2dbb37d902f"
