@@ -12,6 +12,7 @@ class Mercury < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "78ca57b990d2ecf4e6fb33d5031ccaa85a52287ec2e0ccb29ae4e8fe2e33d06a"
     sha256 cellar: :any,                 arm64_monterey: "825e3876f6c1960fb50fbe504af434e25578b3ff641353cb6f3254a098e2e5a1"
     sha256 cellar: :any,                 arm64_big_sur:  "2deff06f22ac96b29db1070ee830dafd610fe393e11e9cc53b48a88a7ee2ed24"
     sha256 cellar: :any,                 monterey:       "b6882729b695e6adfbc39625c0e6f08672c2e2a89611c46466b948a95323a91d"
