@@ -7,6 +7,7 @@ class Globjects < Formula
   head "https://github.com/cginternals/globjects.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9f4e78cc1d1161dc273cd1a3bb0b920d11b1c249893bd39a69178d64704e2e0d"
     sha256 cellar: :any,                 arm64_monterey: "f268fe12c238a3714fd1bec33a818b7c372fb53e26f019596146538b2f2f7868"
     sha256 cellar: :any,                 arm64_big_sur:  "97b76d2b662c4f123604d312b442d2b59d606a3cc1e3e4f10cbe2dd3cc8b6f62"
     sha256 cellar: :any,                 monterey:       "4b2845c9354d14fd119544b28536d6fcfddd8f6c9d5eee2a5e01ff77c8b38f03"
