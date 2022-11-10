@@ -6,13 +6,12 @@ class EcflowUi < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_ventura:  "5cb33b2f65bd49224c67236229811b87fa545fc2549fee4fb7de11efc5b763b0"
-    sha256                               arm64_monterey: "34174ca9ec67da579c66ccf9c0267d8249547c07b22ebd3f80b7fd20493600c0"
-    sha256                               arm64_big_sur:  "07ca8328acfded316b3e9f075920499014f3b3d5ad42e65afde8d8d03525d2cb"
-    sha256                               monterey:       "010b85c0f5fa94624b73adb434af5999b0ad2af58bdaba5908c06a30269ff919"
-    sha256                               big_sur:        "4321e11694208feb2d9961d88a7b414de7d98625e2058565733e78cc48b2b3a7"
-    sha256                               catalina:       "70cd93fe06ebbd720e26064d084a7399c97741b37111998b26278882b177641e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa2cc34b1dd4a9f2d8e1a29acfcab7fcd9077d40a10933dd0975185b96b1f107"
+    sha256                               arm64_monterey: "6ae1e4af4d37930f8b3f9f2ac9eee1b21ce144f3ef3df8668d4a16d585e8dd41"
+    sha256                               arm64_big_sur:  "b390efe842995399d306f2b2b3a80b6208129d01a4572172997ebaea899e514d"
+    sha256                               monterey:       "eb02666119c06fc883ae3259c003cdc29b7c15bc4fd35215f926e7a05c0ced38"
+    sha256                               big_sur:        "71d788e687f913a6679a9ab86048bd34001a955780917670299c002cc1986c01"
+    sha256                               catalina:       "6fe63e6d15f115811414b11a7adc75c95c6a34ac1a14ec02b298e7d0ba6a9f1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b39d53e2aec7fbc02b39bbffbc361b2a8d0753aeabde1061ce44ab2429a568c0"
   end
 
   depends_on "boost" => :build
