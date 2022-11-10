@@ -7,6 +7,7 @@ class FseventWatch < Formula
   head "https://github.com/proger/fsevent_watch.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d22101fa98bbaa37a0b7926e3ea7b0c46b55888543b06d3ad3fe3126623058bd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a87436ee7bfcf74cf7c0383b32c809161fabedba58405c21d20ba591540a890"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "677477269a68d09467089624e2a0c7047daddbbac0db208c01bed88d08595bc4"
     sha256 cellar: :any_skip_relocation, monterey:       "c2b7b010f7c899dce0ee2554d4d0f9a660761c01ea9dfece15d1c11bef353957"
