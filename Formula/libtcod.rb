@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/1.23.0.tar.gz"
-  sha256 "4b13840769c7369d1c75728b555e26933f513da29c493f73017f0deb3da27e0d"
+  url "https://github.com/libtcod/libtcod/archive/1.23.1.tar.gz"
+  sha256 "dd00be7dde66aa7456bab8acf98b6a0ae73871bd5bee10a7838752fdd7007c6e"
   license "BSD-3-Clause"
 
   bottle do
@@ -19,7 +19,7 @@ class Libtcod < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on macos: :catalina
   depends_on "sdl2"
 
