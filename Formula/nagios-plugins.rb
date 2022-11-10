@@ -7,13 +7,12 @@ class NagiosPlugins < Formula
   head "https://github.com/nagios-plugins/nagios-plugins.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "9ea55e1c909cfaeded85a03cbb4a8b19b2e78d53a158ca104c537923fb2dd272"
-    sha256 cellar: :any, arm64_monterey: "02e2b947b95e6d78018ae1cd89823c0942b10abc58a635727bab341099ceb846"
-    sha256 cellar: :any, arm64_big_sur:  "988fde6184cc5668753a9be452ebcbd86e0ef83c198d5e62ab70f011fecb125f"
-    sha256 cellar: :any, monterey:       "cd3d58e3c2e950127f4c11764c4bdb9a703de30abba0affd1420fa9ff07aa40f"
-    sha256 cellar: :any, big_sur:        "d67f48bc371446e698c1d33da6f42efcf857983935eab43dc13941721d27e674"
-    sha256 cellar: :any, catalina:       "87618b9f9d907e005765c8b2e2504263002cd971df1f4f444c325a7799d52bfc"
-    sha256               x86_64_linux:   "a3b4c3adb6e9fd63f8f80b4e32092de041a47507230d310309c0f2339b6d55ec"
+    sha256 cellar: :any, arm64_monterey: "c0fe6bd13cc6fa25c154597a0bb66d245bae9a31c0b7d3f049dedd6d862fe5a6"
+    sha256 cellar: :any, arm64_big_sur:  "04f19ceb18f70237980d02e1147c03388a3e84e963427bba51f7c4437b1ed265"
+    sha256 cellar: :any, monterey:       "7106bc2245c818a345caff133b70650336ce8024859986852874b3b539d1c3fe"
+    sha256 cellar: :any, big_sur:        "9f5eba9244658bf95874d96c807f1a6f1decc7e201a8be8f8ba247fbcef4688a"
+    sha256 cellar: :any, catalina:       "48b56d823d578b7e7076dfb5c9c58dc58d5f9a1147b8ba6ae8937f0142d504fe"
+    sha256               x86_64_linux:   "3eb6d87ae49cde9604837cf5479f36237364c92a1d10e9ee78175398934795bf"
   end
 
   depends_on "autoconf" => :build
