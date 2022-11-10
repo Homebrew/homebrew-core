@@ -20,7 +20,7 @@ class Checkov < Formula
 
   depends_on "libpython-tabulate"
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -40,8 +40,8 @@ class Checkov < Formula
   end
 
   resource "aiosignal" do
-    url "https://files.pythonhosted.org/packages/27/6b/a89fbcfae70cf53f066ec22591938296889d3cc58fec1e1c393b10e8d71d/aiosignal-1.2.0.tar.gz"
-    sha256 "78ed67db6c7b7ced4f98e495e572106d5c432a93e1ddd1bf475e1dc05f5b7df2"
+    url "https://files.pythonhosted.org/packages/ae/67/0952ed97a9793b4958e5736f6d2b346b414a2cd63e82d05940032f45b32f/aiosignal-1.3.1.tar.gz"
+    sha256 "54cd96e15e1649b75d6c87526a6ff0b6c1b0dd3459f43d9ca11d48c339b68cfc"
   end
 
   resource "argcomplete" do
@@ -75,13 +75,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/df/e4/893fc4af6ee0c801725b48ba4d3120705126edab71e0fe84f8eb4850c427/boto3-1.26.4.tar.gz"
-    sha256 "244fd0776fc1f69c3ed34f359db7a90a6108372486abc999ce8515a79bbfc86e"
+    url "https://files.pythonhosted.org/packages/2c/fa/cbbf6102b6ff9ba59f4220be7c0bed58ab31570a98b93f2cc4058c44eb73/boto3-1.26.6.tar.gz"
+    sha256 "4943faf38979ac445627390b431b0c08a73ccd5ecd46983e1d29cee454d14aaa"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/32/c1/3a3cbbdc58a71c1dfafbeeb79dd09b68a030ff5c52df7ad8e87d5ed57c10/botocore-1.29.4.tar.gz"
-    sha256 "fa86747f5092723c0dc7f201a48cdfac3ad8d03dd6cb7abc189abc708be43269"
+    url "https://files.pythonhosted.org/packages/35/c2/3341e352e84eb80f1f09f4b0da241d69fbba85bfe242ab5feccfd904fa66/botocore-1.29.6.tar.gz"
+    sha256 "574a9dc8b7cf1d866e6255c57af25de1f0da1babc6ce9faf05f227fd28ca905e"
   end
 
   resource "cached-property" do
