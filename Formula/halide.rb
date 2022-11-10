@@ -18,6 +18,7 @@ class Halide < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "94212c0158245ba338776ae168c1b277355e619922eb971edeb49e067e04ab51"
     sha256 cellar: :any,                 arm64_monterey: "e697bf5bed9b11384f96f743938d543115f9818c8ea06b1b432b1ff191e39cbe"
     sha256 cellar: :any,                 arm64_big_sur:  "d7690245f152177b5c7c18d3ef1a463926d8f973de234c4c0ea7eea170075600"
     sha256 cellar: :any,                 monterey:       "3ae454537e4046dcb986a4f479abeb3cca193f18ec494846f3fd46c338f2ba52"
