@@ -8,6 +8,7 @@ class Skymaker < Formula
   sha256 "a16f9c2bd653763b5e1629e538d49f63882c46291b479b4a4997de84d8e9fb0f"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "27e46c46cf30f77353d447b24629b1d2824c70369fdcd08307be2e0984a0fb3e"
     sha256 cellar: :any,                 arm64_monterey: "41786c90ee63b22f0d1a582dc7b42ed9aa9a749e4be35772169805c6b7804510"
     sha256 cellar: :any,                 arm64_big_sur:  "44e3eadc4f4a2984ffff332f93e9aa7a383b7a395ccd9fd6714a237a48ed72d0"
     sha256 cellar: :any,                 monterey:       "9c6b33e5127676aaec7d1d8c0232fb78be8a0bb8a5ee4fc429e0516b45e0846c"
