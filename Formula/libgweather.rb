@@ -16,6 +16,7 @@ class Libgweather < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "3a61754064882153890c7772f9eed67a3e497675e182bc83af94642f9e8d1062"
     sha256 arm64_monterey: "2cfc7ff943b1d00488fb70125e837ad77e9f71bea804e3e7a03dbc5db0e24883"
     sha256 arm64_big_sur:  "748389d72bb3f3c118fa84647fbd00f5180d716a08a3f4588c215a54c9a9992d"
     sha256 monterey:       "5963be2b91c72fd4fd9240c1e644e237d48333df89db5985144ceae8a9849944"
