@@ -7,6 +7,7 @@ class Web100clt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a983c631a65d1ba764cf98ffc77ffbaabc1cf17625401702c8e6902a32ab7a46"
     sha256 cellar: :any,                 arm64_monterey: "0f11892f73529eceb8c6b1fd51c52e7c71b9a3a6bb3ae3f4dfc876c6fbb085d2"
     sha256 cellar: :any,                 arm64_big_sur:  "e6fb064b785043092357a6ca59164fad4ddb9be375f84b466a307b6af724d994"
     sha256 cellar: :any,                 monterey:       "2e4e41297ba21f0934b509b1a4f593c327390a457956be735fef597d1d4484a4"
