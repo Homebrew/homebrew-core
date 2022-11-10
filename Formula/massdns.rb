@@ -6,6 +6,7 @@ class Massdns < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36501029e41fca6b8b0d302a3e3be12d798f19d7b20cf245ae0a3d0906bcd7b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "35a82870db0e5f349bacf0d2ef2f596901c75e42ef40db916c7bd37471d8caa1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a07f6b26f6625d833864cbfcfea075eace6957ac9a01d99fbb85874f95e995f"
     sha256 cellar: :any_skip_relocation, monterey:       "7365e79331e01ee782e86a393532f2e4a2c3c61b0ddd52dc663b1085814e1435"
