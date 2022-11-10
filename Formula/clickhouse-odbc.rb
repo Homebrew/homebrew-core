@@ -14,6 +14,7 @@ class ClickhouseOdbc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "646ee4f8ebc0df78b212c1ee74bd7a74ca2328ff015d30e768e696bac69ad7e2"
     sha256 cellar: :any,                 arm64_monterey: "12bbf5b2cfff9719b1b152fbaaeade5402dd00e3c1afdce26fe1038d816e62f8"
     sha256 cellar: :any,                 arm64_big_sur:  "f2f916066c47b770a833c6f57fe454fed0651404a3d7d661fca046b0d144e95d"
     sha256 cellar: :any,                 monterey:       "c74cd3c21681d3ef719f093a0906b992c7f84f5da72a77e81875f97111f06a50"
