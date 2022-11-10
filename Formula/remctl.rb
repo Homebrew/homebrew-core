@@ -11,6 +11,7 @@ class Remctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9d26c41ccba77e96d77eaff8e2b5c42aa49bbafd0b02f993bfe0c08c772e7279"
     sha256 cellar: :any,                 arm64_monterey: "b161331c32b5f808c45786646bf9d8d5244d04c0ef6ea946fcc63cd8dd0aa469"
     sha256 cellar: :any,                 arm64_big_sur:  "36c2ae6555c83a5af010c387a449c1e772e78a41ccb869e398ccaa10b4f08d06"
     sha256 cellar: :any,                 monterey:       "74f902bf328c3da38b39e8e72b9e5ff5d17d23d6feece805726bb04aff3ea9c4"
