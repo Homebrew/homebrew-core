@@ -12,6 +12,7 @@ class Fheroes2 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "9da2c7964eba75185206d93d3ec3a8e996dac684b10a0ca55d43771fe574bf08"
     sha256 arm64_monterey: "74648c5df27e962a39cce8634be073062e2a9d3c6d00cdd110645fa9990d84de"
     sha256 arm64_big_sur:  "c2d96044f13e2de44fa12a95dfc33baee9b1dfa39880df2c296e030ef8328b93"
     sha256 monterey:       "26d89c19abcb4c79f991ce9611dc8a6086a83f0caf1d3ec439919711f63ee317"
