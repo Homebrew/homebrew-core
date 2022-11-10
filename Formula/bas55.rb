@@ -11,6 +11,7 @@ class Bas55 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc53e9763ae7d94d6ea55e4677812f25224667715a0272beea5269f943ec83fe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7789ffd65c9afc8d415385c439205a62e369c598bd6cc7b9133e306cff8a5be2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab48670d6620654c1e88b8076d9c9805e6f6b2fde8f1d8773ac96fd5bd234789"
     sha256 cellar: :any_skip_relocation, monterey:       "2696588487bbff56058e0370ec09b63143f5e12c1206490066d7b213d57260db"
