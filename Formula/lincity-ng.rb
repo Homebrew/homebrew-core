@@ -8,6 +8,7 @@ class LincityNg < Formula
   head "https://github.com/lincity-ng/lincity-ng.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "6b711b74e0236a697f849e023e4b6b6982d80f678d5b14282600086b523dad48"
     sha256 arm64_monterey: "090e1df14eb8311c8513d72bc733fb342a1f50a637349651f8cdeda99cf3fc50"
     sha256 arm64_big_sur:  "01d64e52421741c74326b51857baa6e9edd4a44a4f73d11c0e7e8da0fc8174ec"
     sha256 monterey:       "29e668a93a01b16751d4f33b0ed6191143edfbd40a5809f7727b0a71f162b480"
