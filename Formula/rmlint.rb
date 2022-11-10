@@ -7,6 +7,7 @@ class Rmlint < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a90c9737485418dfe6b54ba6173fbeefd5c10543352353a88bcc524ed7037be8"
     sha256 cellar: :any,                 arm64_monterey: "506515b8e54f1f0023c245b9dd52fa419cedbe5e2f8fb434b7991d49ad6e6dce"
     sha256 cellar: :any,                 arm64_big_sur:  "5eae37b1c416a95072b7475cffbbf5a8652c2f3f6c9e3d24b96c13b57ac06c24"
     sha256 cellar: :any,                 monterey:       "668514f9f5d6a28feb7bed3976b10a5daa51384e5e390664854f96f307be281a"
