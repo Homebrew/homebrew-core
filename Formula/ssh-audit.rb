@@ -11,6 +11,7 @@ class SshAudit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88da564fe01d5d804574d2942814cb310731f827cc9183ff3c9266543c83b33d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "88da564fe01d5d804574d2942814cb310731f827cc9183ff3c9266543c83b33d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88da564fe01d5d804574d2942814cb310731f827cc9183ff3c9266543c83b33d"
     sha256 cellar: :any_skip_relocation, monterey:       "9294b5cdcc5f45014d5d4f8289c7976037adfa7a6f4f82d713026df126c1dabf"
