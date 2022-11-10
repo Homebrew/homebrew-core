@@ -10,6 +10,7 @@ class Instalooter < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73ecf672f590abf0818fad173e77e95130d5d25d32156c37cd64e396224f89d5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3741c3972198d37b5e1048e9c97c4e9aaf44201b0ea9a78e1db7ed2bcfb6eaa2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dc019ed138bddfdaa19c871f2dc573be245bab2ee66446f58bc128b88d83d68"
     sha256 cellar: :any_skip_relocation, monterey:       "bca6d50dd63de1bb6fe550f2015da77cc370ee7799c0a072a0ccffcc13a838c4"
