@@ -7,6 +7,7 @@ class Cjdns < Formula
   head "https://github.com/cjdelisle/cjdns.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "221653247556f80e152bbc891cad0678e69d4eba2a4679bee2d8ad648f82f19e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4c48aa4df04535caab99cd5c645f4ba339a88d9c3bccecb5a63632fa74f75cf1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6eabaa1782af8d391877acc7c9448791458d05e78c78d7efe17a171153273a2f"
     sha256 cellar: :any_skip_relocation, monterey:       "e6acfc82d7cd2878c581eea1e8b4b0b3b1ca6244a7ed8332fc94b8c63c9640bf"
