@@ -11,6 +11,7 @@ class FseventsTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "862af188ba8ede21f7810c642424284d257e2ffdb88ae8652d0eff0ce519d270"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4485f966db472e54a07bc973d25945a4b72e110e68222bbd6ffb206bef843d74"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "613a2ee6e962c3681f00a36382fe87089c92a235d2db0dec7e8fb8e74f993b0e"
     sha256 cellar: :any_skip_relocation, monterey:       "1d2134afbb595faece7c4025d78a7f0de8c52e3c90ff8c6965aa645526fb867a"
