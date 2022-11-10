@@ -20,6 +20,7 @@ class Earthly < Formula
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
       -s -w
       -X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version}
