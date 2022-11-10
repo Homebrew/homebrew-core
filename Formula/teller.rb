@@ -8,6 +8,7 @@ class Teller < Formula
   head "https://github.com/SpectralOps/teller.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6efc5ee36a0fb0d5a6c3bf9bd34424e8fa297a328e5ff3d590863521b4b5d0c0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "880fe24f3d79c196a20b850452274728a9cb135cb0bf19ee1e0888b9025cbf00"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c82814b0c169afe96b4315b8a18a95881129c44d607c9a3185f38caba8fb7f71"
     sha256 cellar: :any_skip_relocation, monterey:       "c95785a51067a6ed798e7a41787bb00d7cf5747bb0a3559e9f7df9442de756db"
