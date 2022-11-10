@@ -10,6 +10,7 @@ class GitRevise < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "187dca8b0f934d9b42adcb5b515fd7949b31893c32be6696d91252fb34601c4f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "187dca8b0f934d9b42adcb5b515fd7949b31893c32be6696d91252fb34601c4f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "187dca8b0f934d9b42adcb5b515fd7949b31893c32be6696d91252fb34601c4f"
     sha256 cellar: :any_skip_relocation, monterey:       "f6eea6ab552651d2c45035be1db8c1203e0239b4c763612c3e3996f1b94c150f"
