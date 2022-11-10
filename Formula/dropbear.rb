@@ -13,6 +13,7 @@ class Dropbear < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db87da36cb9394fad7e7d4292b28579f0514cc122717bdd938e48953dbcdeeab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5b0bfa12063d71ff6829e440adf72ac513a8d266a0914b4f05c9e6cafa15052b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bc0edcd4401f0fe4b5434c747d571b22f6a6565199573cb0e452e2866b57218"
     sha256 cellar: :any_skip_relocation, monterey:       "e6e2b8b954f13adfc61c0c7e857197d8c300bb5aee833e134ea7cf27781f32c9"
