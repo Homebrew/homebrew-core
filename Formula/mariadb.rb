@@ -55,6 +55,12 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
 
   fails_with gcc: "5"
+  
+  # fix compilation, remove in 10.9.5
+  patch do
+    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
+    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
+  end
 
   def install
     ENV.cxx11
@@ -65,12 +71,6 @@ class Mariadb < Formula
     inreplace "scripts/mysql_install_db.sh" do |s|
       s.change_make_var! "basedir", "\"#{prefix}\""
       s.change_make_var! "ldata", "\"#{var}/mysql\""
-    end
-
-    # revert commit https://github.com/mariadb-corporation/mariadb-connector-c/commit/380ee32375bb36b68796c1c3eb09285f03fea5f5
-    inreplace "libmariadb/plugins/auth/CMakeLists.txt" do |s|
-      s.gsub! "CHECK_C_COMPILER_FLAG(-Wl,--as-needed have_C__Wl___as_needed)",
-      "INCLUDE(CheckLinkerFlag)\n    CHECK_LINKER_FLAG(C -Wl,--as-needed have_C__Wl___as_needed)"
     end
 
     # Use brew groonga
