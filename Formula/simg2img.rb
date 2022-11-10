@@ -7,6 +7,7 @@ class Simg2img < Formula
   head "https://github.com/anestisb/android-simg2img.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0dcd750c7e2a018a1947e3b944498f9032dbca077a8b5c90104d33f4db7c248"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4c50b28f615335a6d9dcb2730676b4d3d0b5f1cc02d0279959d313ac0eda6fd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cd4891712dae2fd35115f8ee32ba703bc3094ff365e52c8fe6a2b0d4694ee1ae"
     sha256 cellar: :any_skip_relocation, monterey:       "3236b3d33786220a8a09ab5f43b237bd69b45bc397f1011f4075939399d44489"
