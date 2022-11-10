@@ -7,6 +7,7 @@ class MrubyCli < Formula
   head "https://github.com/hone/mruby-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4495dfded8fc9a3f3f90961612d6943113b3cc81b787e0cba2d4eadab304cd08"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "53b4a66eed494c2bd2e66d41dd5fe7d9f0332a866a0d7d39b6a77557717a35f0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac082ff3a558eba68662a837eba2a9dfed46d52b757bb0e0b046b6a4d2d1105a"
     sha256 cellar: :any_skip_relocation, monterey:       "5c60103d037511f0808f55b744aea92a2b404160c0d268624ba8204bfbb5a62c"
