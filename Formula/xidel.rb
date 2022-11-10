@@ -12,6 +12,7 @@ class Xidel < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1c90b748fa5f9087602a8d8670c25b706c24c3be99c11758300604fbac9a3eea"
     sha256 cellar: :any,                 arm64_monterey: "73f305dc1833d8ebdea3236df50cb4de5f52bdbefa2a37d3b682cf1cd73c8dd5"
     sha256 cellar: :any,                 arm64_big_sur:  "b9758092865f250399c41f7eb2c22d8a85d3a6f201abd87cf8bcc2df9f5ce72e"
     sha256 cellar: :any,                 monterey:       "aecd66d3be7b4ab3ba13a57dab9f70988e9cf271e818ee0a06a2aebe0a62da4e"
