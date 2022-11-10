@@ -7,6 +7,7 @@ class Proxytunnel < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "aea82fc349cca9b1344170dc58e3152a8f4f24872a8a4cbac600a880cf4f3abb"
     sha256 cellar: :any,                 arm64_monterey: "d8a8d893b78c19ce75e2cd68a50b2a90d4f73516e31e73ba601e4ab61159583d"
     sha256 cellar: :any,                 arm64_big_sur:  "fd5dee02539fd006e3a8e4cdca443131c2a82ee8d4887b753341216f089cb6f5"
     sha256 cellar: :any,                 monterey:       "de0910229cedf933e6f1090bdf1fc2f6913fe8526416c383ff0a255b6e820549"
