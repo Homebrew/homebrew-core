@@ -7,6 +7,7 @@ class Reprepro < Formula
   revision 5
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "58280d22109eadb3d07036d81afe3a9d0a1eb5b0cc6433993ea072bec7bb597a"
     sha256 cellar: :any,                 arm64_monterey: "e915fdd76e80343ba05cad6f9a914f9b60f4542f3e7960c670356b7fd0d98b5d"
     sha256 cellar: :any,                 arm64_big_sur:  "23db5bfd409b0976b8ef34417dcf9c1978180d691a7cd2700022dcd5dfed5967"
     sha256 cellar: :any,                 monterey:       "58dd7d17fb51befa9c6631a2da3db17ba8b78036d6e465bc41b9823359a8e9f4"
