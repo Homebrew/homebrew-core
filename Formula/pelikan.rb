@@ -7,6 +7,7 @@ class Pelikan < Formula
   head "https://github.com/twitter/pelikan.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "395c03af1bab96be9a15937c4e3c997b8755a53abda5ab1f53227ebbc2cc6f7a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a20c89a4c6828864b1b8d5361b97357795ef49ef517668237211c00a92bb0d80"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22f695e695353e9317b34caf92789363464100d5ef63a7883a393767030e9951"
     sha256 cellar: :any_skip_relocation, monterey:       "52559baeef959550027d8d764a2a99d831d0b4a4d3041cb1e76a9c04b67c137d"
