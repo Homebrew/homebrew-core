@@ -12,6 +12,7 @@ class Jnethack < Formula
   head "https://github.com/jnethack/jnethack-alpha.git", branch: "develop"
 
   bottle do
+    sha256 arm64_ventura:  "bbe1c0eb7582de509ecb7c93b4ba51ada47037ed587f683acaf96733bde9760e"
     sha256 arm64_monterey: "2265c4c5dca76edc0c3672b3746f75d1cbeab782b4ef86463ab8848b312673d5"
     sha256 arm64_big_sur:  "48982dc5af4eaa7ebd63ef444f842ef9c6f765f8d6e0961b15169f6e457206a1"
     sha256 monterey:       "a52cfa300594235e2eb059b600d4d752fa2d444793df11efff657ef0d142c9e0"
