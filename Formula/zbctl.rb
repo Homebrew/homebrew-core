@@ -8,6 +8,7 @@ class Zbctl < Formula
   head "https://github.com/camunda/zeebe.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bd176589d8afa4ee8b9443cf2ac4c53bb5357ecaaa11e16f41a7ae9ff10f695"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7bd176589d8afa4ee8b9443cf2ac4c53bb5357ecaaa11e16f41a7ae9ff10f695"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7bd176589d8afa4ee8b9443cf2ac4c53bb5357ecaaa11e16f41a7ae9ff10f695"
     sha256 cellar: :any_skip_relocation, monterey:       "eceb000a78b1653efee4d544347f27529ad910c4da2b68823ecd16025415edd9"
