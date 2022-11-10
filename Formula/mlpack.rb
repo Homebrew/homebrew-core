@@ -82,7 +82,7 @@ class Mlpack < Formula
         Log::Warn << "A false alarm!" << std::endl;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{Formula["armadillo"].opt_lib}",
+    system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}", "-L#{Formula["armadillo"].opt_lib}",
                     "-larmadillo", "-L#{lib}", "-lmlpack", "-o", "test"
     system "./test", "--verbose"
   end
