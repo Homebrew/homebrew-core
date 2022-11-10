@@ -6,6 +6,7 @@ class Xcodes < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c2dbbbf7469ae6b790a42718ad8ad3a0a08d0f139caa7f70dc3c6528ac92a55"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9029b3feb389e7120455cfa942895b94878615516b3556602ff5254761b0ff7d"
     sha256 cellar: :any_skip_relocation, monterey:       "2751e68b83633b2728f9939a21bafb993049ac78165ed09c928005bcff763f50"
   end
