@@ -7,13 +7,13 @@ class Ripsecrets < Formula
   head "https://github.com/sirwart/ripsecrets.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba31209beae44f73e6240d9fa5645e399597598402af68c4e2000454254fe7da"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd93296a62b2ecd77ffc7a1dccf3796c432037f3cf014f161009c27016074050"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d9d148980dc49756443f738fbe8e39d247781c8ae1ee5f8891ef0b7d4263216"
-    sha256 cellar: :any_skip_relocation, monterey:       "91cae699291e925c8ac3b0e2e3456a3bc8363429bb3ce45b22f7fd794b83ae57"
-    sha256 cellar: :any_skip_relocation, big_sur:        "28608d5a2f111dce271d708bfff08791f0b7e78aaf33f3b5ac62fbebf57282c0"
-    sha256 cellar: :any_skip_relocation, catalina:       "4d2dde370ee2f884d1e4329b37fad76b0b31522622e66de69ba83170bb14998d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92c2f7acad2bdb500f44166c6ad4a7cf9ea8eb3c3f9f56d294d190e8af2338f0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "875a7077129c2c6e616546710c84ce9d0600bea2d5175968df4979ec0bb0353b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b5f6de692f2b9894e71c816eb109a14941c34ada55bac9ccc4b9091e05138b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc03d9085c82a004ee252cd92ad9ab2a334538b7dc9a28532e275f38a8d9c462"
+    sha256 cellar: :any_skip_relocation, monterey:       "ba619b6c9b0dddc4a985118e52e68606e38d1f26d59bd6a31c3a352345fa89cb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d80f09f4d00ba3b12b3c7c1219f9249ea2d10c5641bec3eb3cbc96971ec4b019"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd2c8ef43fa011717bc5654bb257bb45b1d27321bd3dcdf170d4338ad5c80a0a"
   end
 
   depends_on "rust" => :build
