@@ -8,6 +8,7 @@ class Leaf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5bd1b00e0418f45e3d96f7f2bfab43c68dda0d3f667335c64f4427bc6dad12ce"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2bb7a962b8708d9d607dcff6ed3dba9e485a0963164608662bfcf70e84ad1d5d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7880e0f8658071b6040d8e32161e77ef72b6bf7b96489443acfa6b9852af31a"
     sha256 cellar: :any_skip_relocation, monterey:       "6f6e8b0d0775041da2e114e277d6f4790ae4e2b72b1ed409398bc39507b437f1"
