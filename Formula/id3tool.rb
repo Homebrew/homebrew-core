@@ -11,6 +11,7 @@ class Id3tool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd6e6e24689e48d6ec5c67fef4ab113b40d92b91a02d85a8d67744ad454e820e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eaab957f04597caeef0f4d080d4e936743d154c3c0c2e62e228678f5d5123b58"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eec5850fee5d290bad13de2cb4456b2e600560632be7b86309ac5c3f3f03697f"
     sha256 cellar: :any_skip_relocation, monterey:       "3703e5cde176d1f1855da2b8091570378d77f64d7870222d5d6cf149d702cb74"
