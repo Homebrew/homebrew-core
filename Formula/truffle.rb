@@ -8,6 +8,7 @@ class Truffle < Formula
   license "MIT"
 
   bottle do
+    sha256                               arm64_ventura:  "2a8a4a6ce6aa28f4f516732413282c10176aaa263ca0e07c72d1530f198b697a"
     sha256                               arm64_monterey: "729b23062cf7dc57f2d0f28f929da35eec53545d0836a0164ef4b11013b79a50"
     sha256                               arm64_big_sur:  "e846d7c22c7155262b00ec8650b20b1fc7c6b2a1586ee1243b2ca7bff0c595ca"
     sha256                               monterey:       "c87da202b6e7b651815fbabf87ec57d17233c334182a8f19353b19df9d5e3801"
