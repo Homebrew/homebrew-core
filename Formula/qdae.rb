@@ -7,6 +7,7 @@ class Qdae < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "8a65baa3a3b7a91e50b9b6887e944b365e3fb8675aedae3e5496bdd9dec8a8c9"
     sha256 arm64_monterey: "e8bb72388f0c79baa7bc75a5820a3a77a6f61c2466c0b6d0ca0cf06073d4eb71"
     sha256 arm64_big_sur:  "4f51ec56064ae77144a38e80e7bf98cf19399101448f0c5278df2bb292bae59b"
     sha256 monterey:       "6dc2007e7f4cd389c81fcfccdbaec02b12956133e6250614edf374c8ca5c6ebf"
