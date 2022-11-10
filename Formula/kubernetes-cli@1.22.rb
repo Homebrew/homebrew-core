@@ -12,13 +12,12 @@ class KubernetesCliAT122 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f50e55b1065245b8cc5fdfcf367fc47082ed9bddc1aa86539c2d02ead242d8e3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b5ff5e1d5d84fcf49d284d56a9a0214858abc0144dbafc26f0076f62669c7f82"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbe412b3b37a5e893be6bdb9679e11195b739944a5dbe5efa9749e54459a326e"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a124c56ca66a35e2c6593202ba5c776680653c76a2852d2661c32ff12df7cfd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3645a760f14ce4ae4ded59466ea81160fed61263980feadeb104f025683abf96"
-    sha256 cellar: :any_skip_relocation, catalina:       "21450e0a7d46a889ee2d1420ed9b77977ebb8db52386a755b11bf39639b4140d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb0e9b099f80f7d78b3bbaff90244707c47ef0fcfb546c34cd1d9826e1e9cc07"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1e72a67240b144bb24758ef788a04f002389a9210afff0f0fc0201986e1095c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "670cfb0dc7e977ade2e73fd8e7a6b63048033e14ef2520f0041dd14b139a223d"
+    sha256 cellar: :any_skip_relocation, monterey:       "f380ff182e1cb84dc376cf88ccf4591a8b80a2b1cc0ee002c830b32bd0e7b7b2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1483a0c50214886a7613e65589e95b4c2f5ef45aa7843d96fa187c6e1d0b6b51"
+    sha256 cellar: :any_skip_relocation, catalina:       "326de06339461f1ffdd60ef73ca565af2e08fd1e835ed8735431a1f4d63274bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0133a383decfca91556073e6ba0a3a16b5b2e1b86014373c7527ef3740faf2b"
   end
 
   keg_only :versioned_formula
