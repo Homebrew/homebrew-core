@@ -10,17 +10,19 @@ class XcbProto < Formula
   end
 
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => [:build, :test]
+
+  def python3
+    "python3.11"
+  end
 
   def install
-    python = "python3.10"
-
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --disable-silent-rules
-      PYTHON=#{python}
+      PYTHON=#{python3}
     ]
 
     system "./configure", *args
@@ -30,5 +32,10 @@ class XcbProto < Formula
 
   test do
     assert_match "#{share}/xcb", shell_output("pkg-config --variable=xcbincludedir xcb-proto").chomp
+    system python3, "-c", <<~EOS
+      import collections
+      output = collections.defaultdict(int)
+      from xcbgen import xtypes
+    EOS
   end
 end
