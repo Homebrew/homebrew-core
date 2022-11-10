@@ -13,6 +13,7 @@ class NumUtils < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8695350e220210f7a33ac87237a246a17bb0a05a7f1ccadf91dbc728421d8cf3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8695350e220210f7a33ac87237a246a17bb0a05a7f1ccadf91dbc728421d8cf3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1d2623cf894f0d8838ee705b922933605c1fa0a43a6a1dc7e38f7f6ff994c3f"
     sha256 cellar: :any_skip_relocation, monterey:       "8695350e220210f7a33ac87237a246a17bb0a05a7f1ccadf91dbc728421d8cf3"
