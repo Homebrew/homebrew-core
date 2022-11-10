@@ -15,6 +15,7 @@ class Gdbgui < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "a1970650715f513ee5e7c51574f1cb698889df5a509ba79f208782fd5b5d6167"
   end
 
+  depends_on arch: :x86_64 # gdb is not supported on macOS ARM
   depends_on "gdb"
   depends_on "python@3.10"
 
