@@ -9,6 +9,7 @@ class CharmTools < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "9bc473685a0cf4bb6d1ac191baa117eaf4024242267881301622486d2a6241fd"
     sha256 cellar: :any,                 arm64_monterey: "32adfcd00dc5f1dbb6568f4e7fb382eb0f0ea7c4fb8c8bba1a5c946a844153d2"
     sha256 cellar: :any,                 arm64_big_sur:  "8af18361d19f12242f1f9a61488200f87c33d9e8bece301a14cd43c5263ea827"
     sha256 cellar: :any,                 monterey:       "86b5e32b33f41ea6a047b4eb5e63fd306edb87e9f0eef00a7c964caf81a6d133"
