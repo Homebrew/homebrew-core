@@ -13,6 +13,7 @@ class Pueue < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a1fe0d00fb4bf469f9faac604139dfae3ef18bd757c77b08091eebe8d3a6485"
     sha256 cellar: :any_skip_relocation, monterey:       "4108066efa003231066a774e4e3afd6cc82c77b1b2842c6b50bc7af21d9b3ba5"
     sha256 cellar: :any_skip_relocation, big_sur:        "3ccc11d1d08f6dacc4182195e414faa3b31cbbcff90ff2382e4267b4a42acca3"
+    sha256 cellar: :any_skip_relocation, catalina:       "bfe21ad662f8137d5f4ae9bbbbb940d8a28963a5d8b25342f6251195a11faddb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "53af6fe78a68e52c448d668029b616ef0bd00d1bad5519218e54b946e426bd43"
   end
 
