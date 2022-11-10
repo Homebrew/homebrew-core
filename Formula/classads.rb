@@ -29,6 +29,10 @@ class Classads < Formula
     depends_on "libtool" => :build
   end
 
+  # Allow compilation on ARM, where finite() is not availalbe.
+  # Reported by email on 2022-11-10
+  patch :DATA
+
   def install
     # Run autoreconf on macOS to rebuild configure script so that it doesn't try
     # to build with a flat namespace.
@@ -37,3 +41,17 @@ class Classads < Formula
     system "make", "install"
   end
 end
+
+__END__
+diff -pur classads-1.0.10/util.cpp classads-1.0.10-new/util.cpp
+--- classads-1.0.10/util.cpp	2011-04-09 01:36:36
++++ classads-1.0.10-new/util.cpp	2022-11-10 11:16:47
+@@ -430,7 +430,7 @@ int classad_isinf(double x) 
+ #endif
+ int classad_isinf(double x) 
+ { 
+-    if (finite(x) || x != x) {
++    if (isfinite(x) || x != x) {
+         return 0;
+     } else if (x > 0) {
+         return 1;
