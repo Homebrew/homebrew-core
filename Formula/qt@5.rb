@@ -10,6 +10,7 @@ class QtAT5 < Formula
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "6862997c7ed6e467d3fefc277e116b8549e0e4c8c03d72fa4220e8e09aa1c98f"
     sha256 cellar: :any,                 arm64_monterey: "c63014e2be32bff361f16f56459a048b9149c567e789b2ad070f0baf24af3a95"
     sha256 cellar: :any,                 arm64_big_sur:  "764b2b1164e8b3666ee45e7867c8b7370a8f893e109dd6818afe7803ce932b0d"
     sha256 cellar: :any,                 monterey:       "a2defa1620680b91453086ae87132b7f75f35d2444cfc79f6f459593471024ec"
