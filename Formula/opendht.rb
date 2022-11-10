@@ -7,6 +7,7 @@ class Opendht < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "fef4bab7d51116fd0623ea3efd66e1c398b8d51e3e7586f5800e30334390a33e"
     sha256 cellar: :any,                 arm64_monterey: "b89841268c4e43ec61bc3ccf04c6697cca4f7ea4c20ca2a41e1454693e4fcdd2"
     sha256 cellar: :any,                 arm64_big_sur:  "1521af7886abc22fe7a00e4deca02180a88da2351bbbed5da02ed84ee8802d08"
     sha256 cellar: :any,                 monterey:       "b801fa3a80c258a64c53a493f0980066fbdeeb4f8872ee71a44fe6c4c587da50"
