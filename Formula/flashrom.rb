@@ -23,6 +23,7 @@ class Flashrom < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "df1dc0950b4c27eba7ca248b0ec0d8f6b72b3b1db87ad4bc6df85f9df36c62cf"
     sha256 cellar: :any,                 arm64_monterey: "ce92fbb333453ecfa68d81e86b56cee5890df50f3cf25055feda05b3337943fe"
     sha256 cellar: :any,                 arm64_big_sur:  "569c926b496c0710fb7ba56741ec71b0907225496be2d0e3f00abb31f6f78753"
     sha256 cellar: :any,                 monterey:       "7880c53527b2b99af980f238cd47973f252472440f80ccb33e850f4e8535c292"
