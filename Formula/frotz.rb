@@ -8,6 +8,7 @@ class Frotz < Formula
   head "https://gitlab.com/DavidGriffith/frotz.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "a6133279bf928b9cb514abbdc8e755b0cb266d0ee95652541813b929f29b5c70"
     sha256 arm64_monterey: "a0c7658d7b137bea28fdb1b1f577d91c103158c31d30082f8bfbb352c6d72edb"
     sha256 arm64_big_sur:  "81e96f649f4c6b2f2d530effe32d1d5ab48a39c9aa47891b715062f1b768c565"
     sha256 monterey:       "0af910a56a445405c751aafb5c63df26b0ff4d65e254dd34f832bac4d16ccbe5"
