@@ -7,12 +7,11 @@ class Gopass < Formula
   head "https://github.com/gopasspw/gopass.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c19674ea8b9dc6c55172f9d44ce2f41515d709c309d584b2f4acb31d6534e734"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "31fd1e08a85872fd4409cc2be3026c930ecc2470be56ec1a996c346b4d4a7cee"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2459f79e014091f84edb9f2f1357a825fb020175c47061a675af2d95ca8cad72"
-    sha256 cellar: :any_skip_relocation, monterey:       "c54514a7cb92b2677023e1ac56eb65e0e491b36a6d47fdb1cf3b334efd8f4e11"
-    sha256 cellar: :any_skip_relocation, big_sur:        "336982d9152078ed7ef35e04180c1ea874cd8279f130d32037562c7533c26ef7"
-    sha256 cellar: :any_skip_relocation, catalina:       "f76ea3ae9ec5a0fe48e2499670f4dec8cd3f2ec8b932fb0ef0f15da7660459bf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b52a47f08a4b0d033d4119ca9313c41837387abbfb9adb3829d7040ded2365e6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a5b8e1dc664ea7c8db5d8bccdcc9bdbc1971e661f44975558ebd4c0e58d92d57"
+    sha256 cellar: :any_skip_relocation, monterey:       "1aa60c33165668c430726850c906035fc3228213e07ba239a857a1fb7220f030"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8e0fed85f4205c75d57bd3fd68718e78dcc3c4134c903fd5f77e383b461e1d8b"
+    sha256 cellar: :any_skip_relocation, catalina:       "9a02e975813ee6f8b574e8997052ee82d28a6120d6be466c1cccd24422e68e59"
   end
 
   depends_on "go" => :build
