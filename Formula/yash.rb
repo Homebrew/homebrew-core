@@ -12,6 +12,7 @@ class Yash < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "252f74f50cb198c22a6f70b4f7b5442b328b4cb1ab26d22a920123725a52858e"
     sha256 arm64_monterey: "eeeeb786b844bf03a25850972e27ceb0e9c7814f4deec7487463d69b387cd897"
     sha256 arm64_big_sur:  "11ccd561d0cf5e20aed78acedf51bce5ae2d79fdff9941837e40ea546252e4b6"
     sha256 monterey:       "ba17c533a242d1d10ecc36a6e8984c8f15733babd6d4df1d8b920f080447f402"
