@@ -12,6 +12,7 @@ class Numdiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "109d8e428ace4ef6d70dc8ded51bec5d0510906e07c9ee4b3e32143f5054c82c"
     sha256 cellar: :any,                 arm64_monterey: "bdd0116d55164e3704b948d8ff69aa57e3553d7c635897d26e9d381ef67b6dea"
     sha256 cellar: :any,                 arm64_big_sur:  "ee93b5fbe264b96623ef6523a1dec871a5839d56823512da6a7811c06c367d5d"
     sha256 cellar: :any,                 monterey:       "58e6c6f067c9a0ff39143bea741d68c5b50f06ddf7d66f5fbc35f4d691fcfd33"
