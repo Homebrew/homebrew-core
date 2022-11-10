@@ -6,6 +6,7 @@ class Dgen < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f0b41b3312ecd8654034554cc0b986a8eb5d77db1a7c973f2d51aabbf6d41ac3"
     sha256 cellar: :any,                 arm64_monterey: "818fa7b9017947cead9d4b8d0ae13e940f59bce44868c41536ed6140159c8ed9"
     sha256 cellar: :any,                 arm64_big_sur:  "1107fdda6b8977cb8e962d9a7d353576f5a6e41d1de97f0c64fdfedb98253fe1"
     sha256 cellar: :any,                 monterey:       "1fbc47cc8c293c0c1284bdc01cb08216deabd210f806be8c4555416094a4265f"
