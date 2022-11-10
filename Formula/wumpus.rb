@@ -10,6 +10,7 @@ class Wumpus < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e0c5273522a83dc13595e60003e11721b10290bd3c51724dabe63fc9a23c05f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c30d039fdfa46df8f14bf9f881b7bf07e33405f0eb0a1d3c84007b66a3ad06d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e1c53ffe64c591ac7e32ffe612d86a043588d0b6d5f63e0d8091dbcaa8af6d8"
     sha256 cellar: :any_skip_relocation, monterey:       "65d79495cff080e070b1d3715968fd8f2ccd06e3ad7786ec995094cba248c18c"
