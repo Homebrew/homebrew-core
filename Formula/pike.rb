@@ -15,6 +15,7 @@ class Pike < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "3ff13701ed6f1b07323df232c6fcd35125fea646fd0a78ec29c06a1bd3eab29c"
     sha256 arm64_monterey: "49738b5e4a0c626992a93f2ea98bca84ba1cd5c4a3f5bb1dec3aa76b8f7f9320"
     sha256 arm64_big_sur:  "966941419e0ad6d79afe1c06cbf5c6426987a4fb044118efaf639db74ecf9f74"
     sha256 monterey:       "67a354ed3a0cbc132c61fb3042b9f3dfbcaadad7f43fc43aaa70c4c60ac90838"
