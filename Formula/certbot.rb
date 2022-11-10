@@ -22,7 +22,7 @@ class Certbot < Formula
   depends_on "augeas"
   depends_on "dialog"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   uses_from_macos "libffi"
@@ -162,9 +162,16 @@ class Certbot < Formula
   end
 
   def install
-    virtualenv_install_with_resources
-    bin.install_symlink libexec/"bin/certbot"
-    pkgshare.install buildpath/"examples"
+    if build.head?
+      head_packages = %w[acme certbot certbot-apache certbot-nginx]
+      venv = virtualenv_create(libexec, "python3.11")
+      venv.pip_install resources.reject { |r| head_packages.include? r.name }
+      venv.pip_install_and_link head_packages.map { |pkg| buildpath/pkg }
+      pkgshare.install buildpath/"certbot/examples"
+    else
+      virtualenv_install_with_resources
+      pkgshare.install buildpath/"examples"
+    end
   end
 
   test do
