@@ -15,6 +15,7 @@ class AwscliAT1 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b8c9c846c32422344b4c9dc1cd16c95bc20c297ef58ac216efd858d84402055"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22b3b66cc2495860ae1d7b359d0ec75edd68e70ba29c8ef37b27f3517cf59796"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5fd239a677edba2b855d77b594a5f6f79fac5aa158340c5a2a3e7650f50ee3e8"
     sha256 cellar: :any_skip_relocation, monterey:       "e7678d74cd7c4de141786216dec275d7ca915aa6d4e653404922c388a24b5cdb"
