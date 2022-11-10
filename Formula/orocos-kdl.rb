@@ -6,6 +6,7 @@ class OrocosKdl < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "49449b3bff3c05cad2d5ba7d7271d86a9b76a32ac0272e88a7544abc080c1e72"
     sha256 cellar: :any,                 arm64_monterey: "d500d33947bf10c203f853e3476cd4c2f86eb576c24cbd6b36e129a27a92846b"
     sha256 cellar: :any,                 arm64_big_sur:  "70f546d7391dea4d7005d93f3720cde06f14e53b3cc7c514d67376ea05ac6493"
     sha256 cellar: :any,                 monterey:       "97af713602639e5fd50b3027a97d8c6d7aa7261a90fe474ac35325b48032319e"
