@@ -11,14 +11,13 @@ class Xaric < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "6658f4916aaecb7c000e54b5db4b107f9e5d6a94e485f465fa33cc5906d7c7a8"
-    sha256 arm64_monterey: "0679cb45a723581f21bd4295225c92e01a303155e772e07ad598303d8d3acff0"
-    sha256 arm64_big_sur:  "9f89bb7adc21f31a7721a5b3cc0586820cc59e50e82f6316ef74f2dbce1c512f"
-    sha256 monterey:       "914abc6071ee13379b8238fac06093d1e35277d1b36365ad346bc75dc7ee688c"
-    sha256 big_sur:        "4c9e9e9d0ef2e7f5c8bb8996ef72220f2315e756e1a4c9c8e23869b8e0abc84e"
-    sha256 catalina:       "5438f46156ba60b6658275aefdda7617296691d949f7dd0f85dcdac1225d254e"
-    sha256 mojave:         "e8c40aad03fec80e9566a1bb9c7100cbb3a4e0fca3dbc9f79f65271d3e29631f"
-    sha256 x86_64_linux:   "407b5776d290e11fa9dc958d03d7035c623ff5876bc2f2fa37de4462f9f6547d"
+    rebuild 1
+    sha256 arm64_monterey: "448f66a8156857d38d4050fc9f062d8a6bc9f9267b85a063acc776095635bc19"
+    sha256 arm64_big_sur:  "9f38a153d2c80701856c14b0bbdc776c9d50ab1f0930b668f2e3f7c377b4ecac"
+    sha256 monterey:       "d71030b64a334132691fae5896e5924428138fa2de5bed1634cbcf22d625bedf"
+    sha256 big_sur:        "98a7bcefda0b4262da3bfbb45fe6985fae25db911cc60ea33b503be4e4598bed"
+    sha256 catalina:       "74bf2f31d52f8057a22fd38858314668cd62b89adad5a299209890a717718856"
+    sha256 x86_64_linux:   "633be739d85e31a8d4e7af822a11a8c07f30c0491035fb76cd68f3b81145940b"
   end
 
   depends_on "openssl@3"
