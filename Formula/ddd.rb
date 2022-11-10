@@ -18,6 +18,7 @@ class Ddd < Formula
   end
 
   depends_on "gdb" => :test
+  depends_on arch: :x86_64 # gdb is not supported on macOS ARM
   depends_on "libice"
   depends_on "libsm"
   depends_on "libx11"
