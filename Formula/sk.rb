@@ -7,6 +7,7 @@ class Sk < Formula
   head "https://github.com/lotabout/skim.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd30111a8b87432ba0c3fe10050acf7641293a7f766b4359b563f7e1a9dfaf9b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d0e0662c016c6dee5e56147a400a2a6c0b4793077e4185b68f800f5861632097"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31165c924fa86cfe04ee1a5d4676552cbc1fe1a03f55e90e202bd37df74d58d7"
     sha256 cellar: :any_skip_relocation, monterey:       "9f71e768a60eb114ae7ff01f4f92eda3b01c9da58ee601e6196239a7b619cd26"
