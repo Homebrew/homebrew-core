@@ -12,6 +12,7 @@ class Nrpe < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "91ee555fcf3a779c40ce93dccc6be2cc7b02dd1a6b0e18fae7096b43eb238ec1"
     sha256 cellar: :any, arm64_monterey: "81d5307bca972fc7945af1226e9e80e3bd798a2296ef7da9fa16240c27064b28"
     sha256 cellar: :any, arm64_big_sur:  "cec620b7f488a0e443b032921653c3bbf8e43438e8ca8b02b23cf6ea9284da5c"
     sha256 cellar: :any, monterey:       "9e8adb2e3df46f2a950a95d285d70e8142d9ce3a00eb7171fb34b27daf8624d6"
