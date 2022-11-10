@@ -11,6 +11,7 @@ class GerbilScheme < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "94e47021a954ac23b6133fd149075d8d1d4f4dd4f0ca624b247a8329474fe637"
     sha256 arm64_monterey: "95f3dddf6cf1fc48589aa31fea8b1932337a6d16f3b920fff372f8741c2be89e"
     sha256 arm64_big_sur:  "d5156015ff7c5806db8b89dc05886fcffb19f6ab2b61d9173895ac185bde13a3"
     sha256 monterey:       "83792d7b1a1339a73e36493f4201ab2b1657d2d1f061fb1f0cf50587722448da"
