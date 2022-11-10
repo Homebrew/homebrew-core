@@ -10,6 +10,7 @@ class Checkov < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2318c3e7783a9466bae14b997195b3dbf7afd196a9bb7d8235bdf5ee1764b35f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a1453408959fc82b01680634dd9abaf3873045f65b10eb4547a42a5e43ec2ef3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "812f80ea7710b441a9b5cf5436a07e0226fa2621f906271d7f6f407b33e49c17"
     sha256 cellar: :any_skip_relocation, monterey:       "2530e38df5bbd74d5f0a723bb7298109c7b2b831902285840bc7a0f659391b45"
