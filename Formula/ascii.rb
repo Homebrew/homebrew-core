@@ -11,6 +11,7 @@ class Ascii < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c42b02694d8703f1836d83604657231e06bbf02bf7ec9dc49d3f2182db6729ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "742c3b7dc29fc1df468027631c0bee9e5db9ee562adcc54f6081291d27ab0295"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "961354b48b260c83374340b6f50bb440977edc81ffa6cb11293bd6265f94dd3e"
     sha256 cellar: :any_skip_relocation, monterey:       "3512701bc58ec647bd059ebcf0c56ad6b02fa1c437e51372e6d942aef6910e87"
