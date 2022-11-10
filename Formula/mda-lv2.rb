@@ -11,6 +11,7 @@ class MdaLv2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "878794cec48804ac465d782dbdd033be34622ae33d5310a9a539188bb7167849"
     sha256 cellar: :any,                 arm64_monterey: "132e996a5efb25179d000aee448ea80bf7bff90867220bda782ae068ae15f025"
     sha256 cellar: :any,                 arm64_big_sur:  "aa4738708771c5af012719e2cc512e9def376eda125bd939c6034ce9cf1142d4"
     sha256 cellar: :any,                 monterey:       "80fcaf1e645f453ade12c5e7e8ffdf2cae5ee95d3cae6ddd5fa57efbd965bac0"
