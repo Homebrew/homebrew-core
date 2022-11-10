@@ -12,6 +12,7 @@ class Disktype < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6edc8c7808c4d5acbce3df4c4dd0ba4c9dff05831e18eccdeca105a5ebe1c40"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "154bd7b1f165caf396b4c1659fb1af90f8a64cfdcdf47a421d4d6ee2af32e555"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4587dd61a91f93d065f3f169b690f8f194d1177c5b3cb7a78c0edec9bc0a23a9"
     sha256 cellar: :any_skip_relocation, monterey:       "edc7efe783d43679fea498893be6c511023d8ccf7d823eaf05ca57cde41202e6"
