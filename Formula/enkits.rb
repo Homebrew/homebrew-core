@@ -6,6 +6,7 @@ class Enkits < Formula
   license "Zlib"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3c5711ce533d47c9a34560e89fb023a33a55d795e73c9f1ecab5d1a6a759e656"
     sha256 cellar: :any,                 arm64_monterey: "d73910b2e106da68ef13675c76e4d18a265b2c514f898a1e3ab557a5a7d52caa"
     sha256 cellar: :any,                 arm64_big_sur:  "6adefc872b396df076df8123bd17d61dd0fc1309dea9b3699df3ade05b28c578"
     sha256 cellar: :any,                 monterey:       "cfd9a6e5f1c88e091ae948867231254e177bbce5c04acc48a05117dd16ff9ea8"
