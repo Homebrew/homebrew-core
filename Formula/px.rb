@@ -9,6 +9,7 @@ class Px < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cd565b69b77a7c43dc257d45c8e69176f8e0e11d6388dad45fdc127ed2e5c8aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f8973f2bd0d915c160a89b2c24e11b25324a91761968b63997613b692b24798"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9f5b9857419dc44f2cdc30595191e550d1aa8d3eb3baa98136e6119c0f5c0a5"
     sha256 cellar: :any_skip_relocation, monterey:       "b4aae488d5bfc13b3c8c4fdb449293de0c9244e6706dcf821fb30e7516b1dfff"
