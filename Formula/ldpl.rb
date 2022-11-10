@@ -6,6 +6,7 @@ class Ldpl < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf6959046e581454ad99a0916570bb6ec7891ad1666829ee926d14ae9029886b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf32d6e3ea635273e2b9489962bbaf8e0cb635baf2f683ce140ca7b678e4b4dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c7715953497aa0104ad8262e84757529b33d1af90b9a41288895018515bea7f"
     sha256 cellar: :any_skip_relocation, monterey:       "cde038edd67c523982be570ffb9ad84615a66731fb7de753c58c5b33bda1691e"
