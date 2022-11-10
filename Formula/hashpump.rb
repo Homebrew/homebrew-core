@@ -12,6 +12,7 @@ class Hashpump < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a2db76cae071ce0745f60a539633a9e58e1ca8b7842d700fc3d357cabf4b3a0d"
     sha256 cellar: :any,                 arm64_monterey: "80e49f28b84facab3feb5206f81c06ad143afee7e6eb01a162a58868322ee034"
     sha256 cellar: :any,                 arm64_big_sur:  "6e99a5af9995bdd57bae97fc6b0e8791bc4b2992127da7a394b1429fbb84c897"
     sha256 cellar: :any,                 monterey:       "4e557d1bf36c17fbb92c3ce64c5f97bf590e5cb39e6a2ac5d15325c7f1f8669a"
