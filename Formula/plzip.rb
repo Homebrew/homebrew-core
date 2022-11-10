@@ -12,6 +12,7 @@ class Plzip < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff197ed40748a9959d86f52011fdebef01c8b98621d0567ba505f2696f8b4f97"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9ec189bc207195600ac67dc7bd8e1f45b34685f187829f20c94dc576530ed8bb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be14dc090e8d607c81f0602104ca92d76c2a2dd041d822d2e9ca2e10b9af5c40"
     sha256 cellar: :any_skip_relocation, monterey:       "84d7405ddf1f389d88272bc1059de5734a5fa3ad7c4e47bca93db44668f408b3"
