@@ -8,6 +8,7 @@ class Trafficserver < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "70624fddac88e4b9358006484f69064d205d0573f3f138ec348c6127fd8d3040"
     sha256 arm64_monterey: "ad1c4081325f16e88ab2e0a5b28fd40e73773ddd991aa58e6e34245ddb186e22"
     sha256 arm64_big_sur:  "56104bf78296d6ae59562fadeda12ea162c14a201c28cb17a5d492c9ecbb2d13"
     sha256 monterey:       "9514ddec436b6ca4e6b15745a82bc8e34a442c661422a603bfa5b9bd7c79746b"
