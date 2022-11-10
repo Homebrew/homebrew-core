@@ -10,6 +10,7 @@ class Zsync < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c26ab39f23b57f14fcb5407541cc6785209d09c4408d516069d8fe8694f5e01"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5d9c561ebe0167e590847ed7993ff01e098eed20ba1ab158ffc3fc6a1295d220"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ee85fb722fa125e4323e14732d4de448f3751e9445e2ec6933fce0ee38d5a90"
     sha256 cellar: :any_skip_relocation, monterey:       "257f153c9f34b33cfcbcb08aeaab17a7bdf5c5a0538edf96c1a9a6f8074dd212"
