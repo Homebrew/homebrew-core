@@ -7,6 +7,7 @@ class FluidSynthAT21 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "71afcc8322c55d1a73059d8a3685098e86763dff3f109614523feaf07e3be553"
     sha256 cellar: :any,                 arm64_monterey: "00670226b18c2fd801117d763935ca49a6ca21609f4ac696b84f857a6cc8fc01"
     sha256 cellar: :any,                 arm64_big_sur:  "e689296767b10fcfd0bccceee71823c5a3e20fdbcc8ea2d4edc15c8e363bf9f9"
     sha256 cellar: :any,                 monterey:       "819653c2a980f6db38bd507c42f47e0e3868c0707883620a6c31734eba69c48e"
