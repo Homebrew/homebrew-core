@@ -7,6 +7,7 @@ class Asn1c < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "3d72779b69c5ad5f2bf006ca514ad77d6cadf7512f5f8e21e7f7ca07399ff799"
     sha256 arm64_monterey: "d4a15a7420fc9ccf67b43823f117ff4ba4ecd8db6686ad2ed2748a3375d00c9b"
     sha256 arm64_big_sur:  "25ad95ded32395974dee8fdf8d0e5f7e2dc7cebd38ff0082a13cd3e52677f329"
     sha256 monterey:       "a3999e6443202ae87c2c44823efb4ce4939838124f870cccbf19d8be61a01974"
