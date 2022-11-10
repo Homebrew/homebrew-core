@@ -7,6 +7,7 @@ class Yaegi < Formula
   head "https://github.com/traefik/yaegi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "767f3eb77721608d83c8c15e94d04a260d91bf4e178d94c49fb0c5cb518448dd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "70e9c53f8c1fcf3333f171d331c9069e020e1799ef46370923eb6709c18cd13c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a348d0482dd35be117bc9c9f70640d6f447159bed825442084c37cc224d192aa"
     sha256 cellar: :any_skip_relocation, monterey:       "77c7884e2d649f850d6a308c9bb6b4774f566fa735aa618c0b6e3727c317e42a"
