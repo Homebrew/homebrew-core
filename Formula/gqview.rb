@@ -13,6 +13,7 @@ class Gqview < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "a16fd3dcd391be5e7568bb232037c4af9c677cca3f520ab0886ea679cf5002f1"
     sha256 arm64_monterey: "ffe4e090d128841b174008928e53dcd153827c075ed8c8124cf6164f5733a9df"
     sha256 arm64_big_sur:  "9b80b415172fc45373bcb1c68b03b3c0c26e6181e3c5ff4e353c7b685fbf6524"
     sha256 monterey:       "32146672314f1d61669e46d8d01d6ac205d15d75d62a6bed5af1281335541ee7"
