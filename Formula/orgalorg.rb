@@ -9,6 +9,7 @@ class Orgalorg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96c0e16b29df9e9001a2dfa6b52f75ed29a6c1f0364c471ee8d2bbe6d219d7ed"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "94c8876f125804235f739721fd76b638142a2d201efa722f80ed9dca67a2bc71"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d351128a7c84c2719ab26b2ff7f4188d8cc511bdd05a9abccaf674ded52baf7f"
     sha256 cellar: :any_skip_relocation, monterey:       "04019263a064a9c259854951945c31a84ded8847475f607e1452cfaf3d003ed9"
