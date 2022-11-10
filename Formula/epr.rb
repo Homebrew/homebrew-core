@@ -10,6 +10,7 @@ class Epr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "879a6cf3a9bf93dbe26818545a2c3d14b32065f5500939a787bbc7fdadecec39"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6590c8a5bcd690eef80fe2e1c4241475f8d4649afe1fda485bd58262eaaab36e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cab822e488b93156e6166ba4fb8592458d60d5ad3e9f3d2572a54d07f78deaec"
     sha256 cellar: :any_skip_relocation, monterey:       "f2fa989bccad3f6b182357d457207cfef1ce01a430704c3cae128699e9b8d81b"
