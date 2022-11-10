@@ -30,6 +30,18 @@ class Lmdb < Formula
       system "make", *args
       system "make", "install", *args, "prefix=#{prefix}"
     end
+
+    (lib/"pkgconfig/lmdb.pc").write <<~EOS
+      prefix=/opt/homebrew
+      includedir=${prefix}/include
+      libdir=${prefix}/include
+
+      Name: LMDB
+      Description: Lightning memory-mapped database: key-value data store
+      Version: #{version}
+      Libs: -L ${libdir} -llmdb
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do
