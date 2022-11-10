@@ -7,14 +7,13 @@ class Sd < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a16f9ea512e4209a054e3ef4ce02851769f82fae5179ba2d645e5e50c539f22"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b13fb7360bf22415291f9567ecbdd73be518370ed0d586b126f4799235346e50"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18c80fe2725f822518e07c67d37f410ba97387ad956d83e57caf33ac29e80d25"
-    sha256 cellar: :any_skip_relocation, monterey:       "9d7ced5db7e35961bc033feefd5ccac3e2a92aab40639b6551e7025917c010ff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "954897383d176858ae3756214f1cd328813aca21c8a1680e28574b75d60f176c"
-    sha256 cellar: :any_skip_relocation, catalina:       "7a596311c78da626809ba278bd318499d9552ee8ada8ae302abe4b3481b2245e"
-    sha256 cellar: :any_skip_relocation, mojave:         "779ae77105d505f8532438b83acb54f915b5a917c66aecfc21ecdd86cf550b5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cc1bd3d85302acebc3f77b87d9251cafa625c84cf6f3cc0f675af9db0e4c016"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "271c6437b052266f984385bc9b2c858f5b3a49b64dc2cc5b7c6d59ee1f8b5fd6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "835707d1e97370f90da250af0530a0fbeac76a5dc9ffb23f9fe3bcae92de89dc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cff9381bd1df190b0ce4f1707d06b061f4f3da260feffd6598d0f8bfc1862b1"
+    sha256 cellar: :any_skip_relocation, monterey:       "dcbc3366946b79448289b73a88e26e2686a9847fe8c6f68abe6e421e54a23551"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d33e64b4ef076ac70f487f5095b94ce9d9f306ba8036f2015cfa381fbcec86aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2314e052715a9a728694c5dead51555f276b7e51cea9c1bf7be6e1e51af0bfe8"
   end
 
   depends_on "rust" => :build
