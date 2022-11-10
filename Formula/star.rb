@@ -5,6 +5,7 @@ class Star < Formula
   sha256 "070342833ea83104169bf956aa880bcd088e7af7f5b1f8e3d29853b49b1a4f5b"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ff2215c3e9ccb9d58eedaa95e868df3e7f04c2ee76dd56390eb1f6db327e276"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1c741d208f7a080264af2c3431029d3473c6f3c9a3cead02f25a537ed41a7e40"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c002816e54a4bf9a821386bb231d34f9cc6ac9f9daf1f6d9241f79d9fc568c7"
     sha256 cellar: :any_skip_relocation, monterey:       "6e05507949b924107ed8cdec69938443580b072c41ceafb39a1819fe417a6154"
