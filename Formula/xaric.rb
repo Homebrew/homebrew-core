@@ -25,6 +25,12 @@ class Xaric < Formula
 
   uses_from_macos "ncurses"
 
+  # Fix ODR violations (waiting for the PR accepted)
+  patch do
+    url "https://github.com/laeos/xaric/commit/a6fa3936918098fd00ebcfb845360a6110ac4505.patch?full_index=1"
+    sha256 "353ef73a5a408a876f99d4884a7d5c74d06759c60a786ef7c041ca7d8e0abcd3"
+  end
+
   def install
     system "./configure", *std_configure_args,
                           "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
