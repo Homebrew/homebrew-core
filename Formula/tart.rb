@@ -5,6 +5,10 @@ class Tart < Formula
   sha256 "66c2b3a0b175344bdb2f9a61c7c34e9be935a7f241b3fd44721fe995852581bd"
   license "AGPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "258c961a07ed82bd6de6edc6a60a69540299aa0d28644cfeb77e300756a405fd"
+  end
+
   depends_on "rust" => :build
   depends_on xcode: ["14.1", :build]
   depends_on arch: :arm64
