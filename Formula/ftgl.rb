@@ -10,6 +10,7 @@ class Ftgl < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9c7cd41984f3696dd61d7ecd78c32f68f35121a1f7f8f0b2d0a9ccb2825016c2"
     sha256 cellar: :any,                 arm64_monterey: "ed10911135d6af44315967a7fe2d81e5bf1bac34347274a49545ab777bb12c86"
     sha256 cellar: :any,                 arm64_big_sur:  "85368ec5c37bb2cffd87cd30775a78956708c71749f8da56239fd93e57cf576d"
     sha256 cellar: :any,                 monterey:       "fd4e1c8a08042ce2a0f96f79e899815009fd56cafbf550f88a9eb9685ff84b7d"
