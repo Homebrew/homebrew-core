@@ -8,6 +8,7 @@ class Gtranslator < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "6271144e4bfac02229a6039cbde55ea5dc0022b4d6327cfb642307f384cb6a5c"
     sha256 arm64_monterey: "15e9c85730e88ddb9544d01722e972bd6b68b3baab42effdf25a585381d90772"
     sha256 arm64_big_sur:  "e787ad4e441d4ecd4d9c328fb18d2384a21862b0a389170ee54cbbd01879a556"
     sha256 monterey:       "25908591830110dc32edc52b04ef4c3dbf296b782d1ace73191826205a889fd3"
