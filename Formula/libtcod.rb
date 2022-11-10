@@ -6,6 +6,7 @@ class Libtcod < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4d3d7be32377aa333d1e5352f28ace0d5985ebb0a2f95910e18553deb206463b"
     sha256 cellar: :any,                 arm64_monterey: "d7777853052eee7141bdf456a8be5e96b2065d7f50c9b948a3f307c00f2c1f37"
     sha256 cellar: :any,                 arm64_big_sur:  "1dd1c1908bc001d8d3fc6148b841bf64f774d49cecd84f99a59d5b5df8359abd"
     sha256 cellar: :any,                 monterey:       "375b0bd3b779a058256c33c65a84b94a035b038ce6e49a8030a27e6162e858e6"
