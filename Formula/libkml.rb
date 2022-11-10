@@ -6,6 +6,7 @@ class Libkml < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d88944c196adb57f50cb0cec0bbb0f7e91966354ec912552d9457851cdc7716d"
     sha256 cellar: :any,                 arm64_monterey: "a563610ef8923bbc46478295b172df18acf09807708db7bcc678342f9fc1edcb"
     sha256 cellar: :any,                 arm64_big_sur:  "d821b3e1fe0181c3f0d98b6a75c6499bf62ec07845e7ff408e44fc562d95130e"
     sha256 cellar: :any,                 monterey:       "c1c7f462a02c8e2db02d9066019c26b76b768d996743618ccfe48fd4a11b536c"
