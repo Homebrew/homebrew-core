@@ -9,6 +9,7 @@ class Fprettify < Formula
   head "https://github.com/pseewald/fprettify.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "195365226e977f75339ddc938d6522baa9768fd8647ca5db79f354b558dff789"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fdb3c1fb8f56f2d0a69cd8c64863e10bd4bcab09fae883f745fc28103e20a5ae"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fdb3c1fb8f56f2d0a69cd8c64863e10bd4bcab09fae883f745fc28103e20a5ae"
     sha256 cellar: :any_skip_relocation, monterey:       "003792c125ef0380752d9dde144930d696a8dada1a1c3edce864e2417dfae574"
