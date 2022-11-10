@@ -9,6 +9,7 @@ class OrganizeTool < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "756fc29231ad1c8f308ee0b2f92ea47c59165767e4e686c58d0fa12a8ce8f01d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd4200f30ffadbe37f90227762064f21b83290df7b27b5a48c3d23699ea4e87d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "371c5ad233362931903b33df7eac359366a3026784ef6ccb01fcdaaf90b8cca8"
     sha256 cellar: :any_skip_relocation, monterey:       "663766a3bc1331ee2d21eaed5c300bcbbdf8e8e0f6b75e18a6751afbaad25290"
