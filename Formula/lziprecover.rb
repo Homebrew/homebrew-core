@@ -11,6 +11,7 @@ class Lziprecover < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47ea60a44899e5833b8bd0b4daa3e037802ff53681e1cedf6b6acae3d306a5ad"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f304f75f053a6045e0286da2f1761c1a5c73c0333c80446017b8f7a3519b66e7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e750fd2418477ae083f1be0113572af5703d0997971871e046db90450530d4e1"
     sha256 cellar: :any_skip_relocation, monterey:       "f85eac960d6a8a1a8fcf3711980fb9122e1cd4789161c7d974840c2d1762e650"
