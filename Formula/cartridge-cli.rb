@@ -7,6 +7,7 @@ class CartridgeCli < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad496023cec1b5b5b6c27c6de41e04f9f02dc466f030b5f96d6eeb0289113af2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6cf68c050cabac6274ca0f3666b6291153826da65eed14baf845bba5a1394ce1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1d0004cd07a66b9b398058ec91315e8b91ba5fd5aa8cbca61a65cc61c724f4f1"
     sha256 cellar: :any_skip_relocation, monterey:       "341ec6f97803a2a550578c0b980b1c505b5d6ce77521d59c23645f7c9c4551be"
