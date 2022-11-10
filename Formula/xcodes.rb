@@ -5,6 +5,11 @@ class Xcodes < Formula
   sha256 "c6003d8ea2450b9d8f6b6de0c59b45471cda820289ee26f017148fcb4d662c4e"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9029b3feb389e7120455cfa942895b94878615516b3556602ff5254761b0ff7d"
+    sha256 cellar: :any_skip_relocation, monterey:       "2751e68b83633b2728f9939a21bafb993049ac78165ed09c928005bcff763f50"
+  end
+
   depends_on xcode: ["13.3", :build]
   depends_on :macos
   uses_from_macos "swift"
