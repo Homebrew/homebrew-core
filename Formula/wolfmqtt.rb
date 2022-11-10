@@ -7,6 +7,7 @@ class Wolfmqtt < Formula
   head "https://github.com/wolfSSL/wolfMQTT.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9c9afdd6c80b4cea7268a88e76df1ce52153d62c814480200783fc136b95e03c"
     sha256 cellar: :any,                 arm64_monterey: "d35827e9a6c1c25056fd77fd25a8cde36c66e49871fe9d80620432af8b1a152f"
     sha256 cellar: :any,                 arm64_big_sur:  "c34ebb971b2ea174ee619f4df84646aa7ce59bc7c2e0f4910014edc77e4539af"
     sha256 cellar: :any,                 monterey:       "7bcb9c674ea856ba255a340713615e9f974f2c353a85e05a3130c2226f1fc594"
