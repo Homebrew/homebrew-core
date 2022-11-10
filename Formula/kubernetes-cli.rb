@@ -13,13 +13,12 @@ class KubernetesCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0d3f48680d26489d3b8276f1cdd212ea03200e06007061ddc0ccea55771184a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb48abbc94fc3df921c34de03a1e77085455ce632995d31ac9252d22ee367577"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31c27fcace3f51d69ef3d201dede0b0d58c041a37cf2d2ab1ca4a6df064b95a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "36bdd3acde18d00ba58c05cb609d1d21d4dcaebd2ab97c94814cb50b5f63e284"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0268bf07ad380c9f81ace3da6386938179fc35a7d4bb8f98a014891e37e72599"
-    sha256 cellar: :any_skip_relocation, catalina:       "f96d1d7d3e741da4aa2e06e1688ea54b572fb0f414d19fcf6758ba57a079f429"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a2d13a6ef23c1669650a07c3f3056d5bdb50016d2cc51bc45245cf88c633779"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c518e35f745195cd09311c0da201faca1678898e0a6a227aaf5a12cfb78f2d04"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b636ca2f7a8997012770eccd5581976cdb00762b3374512f4f4619a1b4304555"
+    sha256 cellar: :any_skip_relocation, monterey:       "a907d2c257a1219618ec8e21d6cd041ea001b30a06f638dc8842621a1a9d8da3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "64d895303790696067ad521617f7d6f6df810ebc76236001e058d1219542e2f7"
+    sha256 cellar: :any_skip_relocation, catalina:       "c00fdf8ef0bf56a36f1087c6d29f78ba1bd9b2fa109da80b5a003715c546b695"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "229d67cf898b8a38bc2c62eb709b768422ffd5f22d7f563cbe34b97dfd0994df"
   end
 
   depends_on "bash" => :build
