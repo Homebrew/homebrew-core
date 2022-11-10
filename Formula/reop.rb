@@ -10,6 +10,7 @@ class Reop < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "d1ac56f04d4010007247372bc939e57aede683ca431c4f6426e587add87bf29f"
     sha256 cellar: :any,                 arm64_monterey: "8db72af3ee635c310ecc3fac68ef41eabd0808442c295da16fc380ef9c78593d"
     sha256 cellar: :any,                 arm64_big_sur:  "2f19ce5ab996a6d2cf7e5152160f0f0298e3c19eed633a9c52c0d548b2be0017"
     sha256 cellar: :any,                 monterey:       "68ca1188f2246247c5025502802889c5483bdcd13ae49662ef8e231874dcd4d8"
