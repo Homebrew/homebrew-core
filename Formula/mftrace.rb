@@ -12,6 +12,7 @@ class Mftrace < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32fde76ddb6cf67c7811e56a89b45f1740ddff54b677c8e251d1dd56421f3b59"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e8466199e22f9463110acd4599057f136120eefd81d72dd4055a0b09dda48eeb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0add7cd815e3752d182eebd26698daa34f99bc7a34a7441edc6f142ed354308"
     sha256 cellar: :any_skip_relocation, monterey:       "6aacf0e9c4cd21ca8abe71c97175b7c3173f9dabc6426c7ec4dc5b4174d56588"
