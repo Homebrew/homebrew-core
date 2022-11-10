@@ -13,6 +13,7 @@ class Osm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad090b19f1829c7ba61fa6df2a3c3faed582217a30ebcc2d1b01a42688d45155"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "75f4be6b55796cc74e2791f54db5c4e4d257ca7f5bb228304e6636a3be29ef52"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "081240d809914d14a2029f6b59b1c654ea6ba7146a724e18f9fe7572f4204996"
     sha256 cellar: :any_skip_relocation, monterey:       "cde19296a33df4f21c31670ad12b28c53755dc87ca43d1091c53957494b2687b"
