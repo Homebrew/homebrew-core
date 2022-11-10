@@ -6,6 +6,7 @@ class Apparix < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "185b92258d1ca2a1aeb6cb068f1fc1fdd13415aa3f730fac1eaa998fef099653"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "376d5af089ec2f8fc405e043142976cff8f2005b0338711e572008062298326f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d6fddf44a334a107525c10d79840a52c7298a822e39aa74a6b12d713b9a59bff"
     sha256 cellar: :any_skip_relocation, monterey:       "7409c547247d36188c88db44981e1b60174b34d627fbf181be554ce25498e4a8"
