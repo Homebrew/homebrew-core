@@ -2,8 +2,8 @@ class Pytorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.12.1",
-      revision: "664058fa83f1d8eede5d66418abff6e20bd76ca8"
+      tag:      "v1.13.0",
+      revision: "7c98e70d44abc7a1aead68b6ea6c8adc8c554db5"
   license "BSD-3-Clause"
 
   livecheck do
@@ -38,23 +38,7 @@ class Pytorch < Formula
     depends_on "libomp"
   end
 
-  # Update fbgemm to a version that works with macOS on Intel.
-  # Remove with next release.
-  resource "fbgemm" do
-    url "https://github.com/pytorch/FBGEMM.git",
-    revision: "0d98c261561524cce92e37fe307ea6596664309a"
-  end
-
   def install
-    rm_r "third_party/fbgemm"
-
-    resource("fbgemm").stage(buildpath/"third_party/fbgemm")
-
-    # Remove with next release
-    inreplace "cmake/Dependencies.cmake",
-      'if("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang" AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 13.0.0)',
-      "if(FALSE)"
-
     openssl_root = Formula["openssl@1.1"].opt_prefix
     python_exe = Formula["python@3.10"].opt_libexec/"bin/python"
     args = %W[
