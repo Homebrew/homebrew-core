@@ -13,6 +13,7 @@ class Png2ico < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "6c622455e21df4ad015229e650548f113e34da96dc9e3fce58917ac55a2dc59c"
     sha256 cellar: :any,                 arm64_monterey: "065215647e66fd79ec6412ce65189d5f26ecda3e6f71220707e57952351a8c80"
     sha256 cellar: :any,                 arm64_big_sur:  "af73312990d3438e1a996e9f22cd034805b4851b2fa13d8fae17437e8123538b"
     sha256 cellar: :any,                 monterey:       "df5fa87e241b6bf89efb2fc809cc499151ca2911030b33aa53547b6837810a35"
