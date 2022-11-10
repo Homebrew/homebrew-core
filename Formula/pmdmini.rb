@@ -6,6 +6,7 @@ class Pmdmini < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "40b0b5792363acec17804091d52164083487b90a027f4fe2bdf05ca5a7045ba6"
     sha256 cellar: :any,                 arm64_monterey: "27137c3e0caeb62401f16ff188ab94c629935342615a97be38e2a12e77877f33"
     sha256 cellar: :any,                 arm64_big_sur:  "a2c9ff100327daa46dae7c0fb7d49ee5dd71f7dbd28d585d6a8f6f74b3c2db92"
     sha256 cellar: :any,                 monterey:       "b84f6ad8b040a1b193b753e8d9934045d605b7ba37a547acab95302aea802a77"
