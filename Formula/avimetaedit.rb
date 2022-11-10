@@ -10,6 +10,7 @@ class Avimetaedit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "27712b47badd939a9d42753a26584e98829ade7692a630944a805b649148e84f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d3954f26bd43180cb106636ff5e11e5afe66b0f77ca054bcd0c2d1ef6a97125f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9e10cf64f7d87cdc85102dffea61ac546b0877896ff721a55857a2e80eb0475"
     sha256 cellar: :any_skip_relocation, monterey:       "26bde1d806ea7acbee6a436e57ac7476d069dc78c64b3700b81c5473c9f9c961"
