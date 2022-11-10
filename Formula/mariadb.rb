@@ -55,7 +55,7 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
 
   fails_with gcc: "5"
-  
+
   # fix compilation, remove in 10.9.5
   patch do
     url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
