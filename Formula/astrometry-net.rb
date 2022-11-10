@@ -14,6 +14,7 @@ class AstrometryNet < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2795bf3051d69183e78b113cae0f28b6a9aeef3e10cfc99a55431752855d0316"
     sha256 cellar: :any,                 arm64_monterey: "4b755547bc79987424b4c1884255ce6a6c1392daa620af7e93d5383d302e6417"
     sha256 cellar: :any,                 arm64_big_sur:  "e56085d3e606485d735b1ab2bbfc0d47af9c88e5c605bac81e98b7f8f4f7689b"
     sha256 cellar: :any,                 monterey:       "1eb20742e13efb8eb4f64fff0e926033e651e3c93b69de0a88864caecda5b5a7"
