@@ -7,6 +7,7 @@ class Instead < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "bd3d94207c0f3cf11525c91a066428272fe9533e4266f39bcf1fdfa9b95ed09a"
     sha256 arm64_monterey: "ab640922ca125be86535d8f18e72cf627ff9f5de3f390c96fb292c0a0722c2c1"
     sha256 arm64_big_sur:  "a8567211438e9a45b56c0a382b962a1ac6effa993a98041107b5493fc2bb2b9c"
     sha256 monterey:       "84137b216b1c8cb4ef4f886fceee77234d98f58af5dd355f8da95bcaf9a8e281"
