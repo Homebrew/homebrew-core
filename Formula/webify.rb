@@ -7,6 +7,7 @@ class Webify < Formula
   head "https://github.com/beefsack/webify.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4eada7fc709a5269b78b9f1c002a74e192be12631223a288be54e3fb64e0bbe6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9a80b61c908b93e32695c8aa4cd4a3a1bfba81364cd8db7dff8dc5d46792240b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2e846193c20d268355845e6d7e8e05dfc6f505749f6560d5ea6b4c8b1e4daf0f"
     sha256 cellar: :any_skip_relocation, monterey:       "fa86b0d119e772525b310e2074115745dfcd4791ab9a8401d43674b5d7d09b43"
