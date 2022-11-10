@@ -6,6 +6,7 @@ class Dopewars < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "1e6f73db18cf83024747e9a52b033471b93d56697db03583cf26e157eadd9ee7"
     sha256 arm64_monterey: "90bd8b194058a1428560317d6408c8a280e268435cbddd8038f65b98ec992bb9"
     sha256 arm64_big_sur:  "490e166c6e7a12f93f51271b80aca3d3e6471089e51f77ba30db1ebce1861dcd"
     sha256 monterey:       "4da56bd76735a9bc18dd0d12d4503e4afe218624b18c1d0bb360349969a7037c"
