@@ -3,6 +3,7 @@ class Webfs < Formula
   homepage "https://linux.bytesex.org/misc/webfs.html"
   url "https://www.kraxel.org/releases/webfs/webfs-1.21.tar.gz"
   sha256 "98c1cb93473df08e166e848e549f86402e94a2f727366925b1c54ab31064a62a"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
