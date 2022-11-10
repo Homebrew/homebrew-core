@@ -7,6 +7,7 @@ class Tgif < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "27cafeb5046eb26fd967d69564c384d1a8e3ae9aabe890d3337f791d3fbc1f48"
     sha256 arm64_monterey: "82ff8e9a80be770347e07f11fc83c8fdc06856200cc5507b020ada88368f258c"
     sha256 arm64_big_sur:  "29699e47040d83ff53dbe9800a053ba9a41fe1ae1834e08ede2844ec59803662"
     sha256 monterey:       "3b5ab882fc7b33701cbb6c8340c1c423afe3b088f5c34b6bee69a9bc9cf27d39"
