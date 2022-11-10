@@ -1,8 +1,8 @@
 class Libfixposix < Formula
   desc "Thin wrapper over POSIX syscalls"
   homepage "https://github.com/sionescu/libfixposix"
-  url "https://github.com/sionescu/libfixposix/archive/v0.4.3.tar.gz"
-  sha256 "78fe8bcebf496520ac29b5b65049f5ec1977c6bd956640bdc6d1da6ea04d8504"
+  url "https://github.com/sionescu/libfixposix/archive/v0.5.0.tar.gz"
+  sha256 "7c829a8270b984eed9af03735581317882320d454ba94a0cc955543a140e280d"
   license "BSL-1.0"
   head "https://github.com/sionescu/libfixposix.git", branch: "master"
 
