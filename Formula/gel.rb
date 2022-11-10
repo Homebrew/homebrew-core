@@ -8,6 +8,7 @@ class Gel < Formula
   head "https://github.com/gel-rb/gel.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb512904278f1fb90fb064290a2b3b3c798be172138f79fe99dc5b0127c31a79"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7910ae14c724757ceed042871c75c799e112dc0f96ba7b72ca7ce105c14c2b23"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fb1011ea19b25229dd71f48f46b6aab94f5e3eb2699ac50486fb04825cc936f"
     sha256 cellar: :any_skip_relocation, monterey:       "7910ae14c724757ceed042871c75c799e112dc0f96ba7b72ca7ce105c14c2b23"
