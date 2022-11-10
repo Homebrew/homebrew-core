@@ -6,6 +6,7 @@ class Mp3cat < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48fda37f67df97cd462cbcda6e81dddb94bb1aea9615b899225ca8ca0f4a6d49"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "11c1d1c6470951c00be5c9bc094686503ef53fb1a8ac7231c2de57232f2177f1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5b602f2c0aafa37b863446069097523612ae44f2a14c4e49f179445a4b0edd5"
     sha256 cellar: :any_skip_relocation, monterey:       "1e593ffe33a8086bf084b92d472420a2a462a34b7332fba0b29a71d3acda1a67"
