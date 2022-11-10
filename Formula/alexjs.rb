@@ -8,6 +8,7 @@ class Alexjs < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d7a81d455214f06a5760072bb542743abe908b4a334231f48465002cf732f7d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a23b144193badd2a84c6d596051f17bd31c1174af959d78ad4e043e29a1f53e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a23b144193badd2a84c6d596051f17bd31c1174af959d78ad4e043e29a1f53e"
     sha256 cellar: :any_skip_relocation, monterey:       "cacb216ea94fd6e7b20fa41cbabeb44e26a965429f06f8f1ce33e9428175b35e"
