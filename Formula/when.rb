@@ -7,6 +7,7 @@ class When < Formula
   head "https://github.com/bcrowell/when.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "005cc29f69bc43959e1702e482c33b6894bc9eec2078a96687dfd09c258fa18e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "005cc29f69bc43959e1702e482c33b6894bc9eec2078a96687dfd09c258fa18e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "005cc29f69bc43959e1702e482c33b6894bc9eec2078a96687dfd09c258fa18e"
     sha256 cellar: :any_skip_relocation, monterey:       "005cc29f69bc43959e1702e482c33b6894bc9eec2078a96687dfd09c258fa18e"
