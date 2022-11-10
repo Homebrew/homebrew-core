@@ -6,6 +6,7 @@ class Hyx < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5fbf9736e6dbca570698341b9461ef3e9ed520be32f1f665964bd7162b337e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "876cce3d4991699d1a91ed15aa402cd0498e41b140d4bd371bc87763f71ece01"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de87aff5b103cee974a250ba5bf0dca561a9f4cb04fd03dee1891655cb631740"
     sha256 cellar: :any_skip_relocation, monterey:       "5251235fa71e58ff19369a82f34f9ab76f7888371ac8cfde95cc787d2d62cef3"
