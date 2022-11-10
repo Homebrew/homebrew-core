@@ -9,6 +9,7 @@ class RstLint < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a7f44fad9fa36f3cea3a00fa82551e5d207894382af0377950f135b077dc9ba"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3a7f44fad9fa36f3cea3a00fa82551e5d207894382af0377950f135b077dc9ba"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a7f44fad9fa36f3cea3a00fa82551e5d207894382af0377950f135b077dc9ba"
     sha256 cellar: :any_skip_relocation, monterey:       "d4de260e262b373caea855d30ca2099352389e2ed4b2bc42d7fe5a71c49fee9b"
