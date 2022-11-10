@@ -12,6 +12,7 @@ class Dwdiff < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "b05292e9449f534cfacb5e702d27b3abd0c141ead2315861e6f38009b74ddac4"
     sha256 arm64_monterey: "8aa1396ab3b78bace6d6ff64c8cfcd593156460e86ea256e1105bda2e93165f9"
     sha256 arm64_big_sur:  "ca849606872add6c7df910772860a608e893c1c14ef2fb303c57b8ce20b78c29"
     sha256 monterey:       "8abac55ea99ea01f90957249680f274c4c45186cd3ca9b77eae35b1964201f88"
