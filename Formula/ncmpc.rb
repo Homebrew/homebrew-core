@@ -12,6 +12,7 @@ class Ncmpc < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "f024d36e56f90d76556c01365db7ba15312e1d60284869ea20ca87776496bb08"
     sha256 arm64_monterey: "aec50d0abded66abe0782d7a3d0c94f007291d84b079403f6ca16c607d6a9664"
     sha256 arm64_big_sur:  "e1a0648cf06fb9ba732c6497fb0cce1e0b96df792d6409dc8ee6e887a9b5d47a"
     sha256 monterey:       "0ae2a4cb662029810c25445e6a366ae20f86fef1580cf234cea684623e6d913f"
