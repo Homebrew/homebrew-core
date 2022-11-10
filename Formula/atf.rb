@@ -6,6 +6,7 @@ class Atf < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 arm64_ventura:  "a450d3062f887473809527c9e45451941476c4b22d5f0803bc261dafc5986168"
     sha256 arm64_monterey: "650c374c9509cd3634ef36fd0d61bd7c852536778be5ffa2c0c9b4590fc92d66"
     sha256 arm64_big_sur:  "67cc581f8b6a72d2ebe4a5d9210ff0b39c247f76852afa50df699988c3617783"
     sha256 monterey:       "4c9f336e433ec164c422e391de58eb6a68539b58463e0bc8eeefc151dd8767c2"
