@@ -8,6 +8,7 @@ class WriteGood < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c0ae187140e31156c039234b5c38df8a326125edcd1ca45a3ef661c620002e1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0d7f61673e4bf3404da929427c3ac1003ba259f9d781248d1cfde01da6780d6c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "61d0833a983986732c1d6abb5491a3cc787f30c6987d2c420ef69af5a82e8340"
     sha256 cellar: :any_skip_relocation, monterey:       "86bd56a8ef2b340804f9da813b086f49f2f2f9f6eb8f31fe1d4137c2c44a1202"
