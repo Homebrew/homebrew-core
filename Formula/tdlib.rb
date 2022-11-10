@@ -7,6 +7,7 @@ class Tdlib < Formula
   head "https://github.com/tdlib/td.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "90ee842a87597f9d18d7459e89a71ec41ff1ff2bbb815ae33941a81a9842c7cb"
     sha256 cellar: :any,                 arm64_monterey: "00e02b03043acd904f3a6422f32e1cef717262c802b1a26bafd392384c392feb"
     sha256 cellar: :any,                 arm64_big_sur:  "8be24a3d5ff903fb42d8a50e1cdf74d15222cecd602f1b94fdf1ca1767ed0937"
     sha256 cellar: :any,                 monterey:       "a2c1f2879ca86f6fc3621b097ebead6145a87d9c4404ceaa52a4506fc8e6d8b5"
