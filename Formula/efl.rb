@@ -11,6 +11,7 @@ class Efl < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "64b0e809a08b9f6f4b513008673d37eabd0912253e228d66162f37e1134c063c"
     sha256 arm64_monterey: "da52c5d9b7efa7e3254e2fa4d0648362453794af527548062d8cdb5c459a6f82"
     sha256 arm64_big_sur:  "6c467014094ffefb7488a6033326db7fb42a31f26b20e4e0ad2d8b7071f4c06a"
     sha256 monterey:       "644f71c3c546f95f81a0a0de87fe0a55bf4b1ac0b40f55e3a74ebe5c3248eae9"
