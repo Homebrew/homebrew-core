@@ -11,6 +11,7 @@ class Ptex < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c7282fd8fe44376f04b4b3c1696a30f36f1bb150b9f2894a689ac456b8121620"
     sha256 cellar: :any,                 arm64_monterey: "c8166dbf7e60e50c6a602d9cd086c95d3ff6ffd174532195e06cc7b8ee4b5e5f"
     sha256 cellar: :any,                 arm64_big_sur:  "cd30bbf7d22f7cda90f8c3af76b4d9ff36a606384ba1f4c04859053a230c2b11"
     sha256 cellar: :any,                 monterey:       "22a62f337bcab936818db4534f04b38615592278d8baba30cc14312c7646453b"
