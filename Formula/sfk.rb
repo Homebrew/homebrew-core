@@ -12,6 +12,7 @@ class Sfk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8b4af119c95b74a3aa4d81f766f27b772ddac04552c7f2943412e38bfabecf3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "802879c9b035ffa817bb9669964b9870b51d58ee0d60d7c4fcadd01c8320931f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2080416e3567dd55c27b4402804cb46557d17f6cfee5030d5f3817f9df961b96"
     sha256 cellar: :any_skip_relocation, monterey:       "8f9a01171ea0d006490361bcf684aeee27a304bee44d030016d1b58ec1f75934"
