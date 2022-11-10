@@ -7,6 +7,7 @@ class JsonTable < Formula
   head "https://github.com/micha/json-table.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e92d06b25f370ab9811406799e31be9e8f775e88ae9a9417940f4e8a54940c3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b90e09e62cd09817662e86c0c9854cd7a6e02b128dec008eeaa24d6c89482f11"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23e482349f2641ceb4b17f3c05bba8dcbef599a2d3b7eba981dbcce14989e157"
     sha256 cellar: :any_skip_relocation, monterey:       "91ed4ccbdeaf3571036d17d31f6a093e867fc8ec6f1c254c7f79342fcb3ab7cb"
