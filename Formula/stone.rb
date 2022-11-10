@@ -10,6 +10,7 @@ class Stone < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd7a8b20854a50d343960a965e340d0178fd82728e7c74025146b2ac053b24a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a4274010ee7d7f736080d17b23ee12250fc7f68a530c9149a0a625922a9db1bc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47a2008041ad4e5e76fe87a4218d4c21e5b1a2cea828aa97b9e9e5b6c6ecc882"
     sha256 cellar: :any_skip_relocation, monterey:       "dc89da0846364ce236eed2a2cfe0eb39abd9dc71f42f3b357d6a5709efb025d5"
