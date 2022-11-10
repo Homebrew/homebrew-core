@@ -7,6 +7,7 @@ class Skktools < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "00331db039291620e97f2dbd6b56062d00ffe4337a0fd6b041f1fb8952255be9"
     sha256 cellar: :any,                 arm64_monterey: "efda775981959fb7379c266e566532e39413278adc47cd63edad01d1e5b6479e"
     sha256 cellar: :any,                 arm64_big_sur:  "a00ce61f36ef97371d14fcd190fd130f5e3effda89a9e9dc42f416c366cfc17f"
     sha256 cellar: :any,                 monterey:       "e1183e406c1029e930284dd352e92429e12dc695af9e1f01d80d35871328c4bc"
