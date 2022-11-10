@@ -9,6 +9,7 @@ class LuaLanguageServer < Formula
   head "https://github.com/sumneko/lua-language-server.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1abef46752440ba2bbb771e3bd9897f5ba5813daa1fca08fef6a2ed514a46518"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9dae08c8eddf0668f6a88c22dab8ec998574a7ff246df99bda329df3b825d77f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cadb50aaec412d530d9e13e8835e0e9f5c2e7aefd9b4693134ea0e4c15b1a61"
     sha256 cellar: :any_skip_relocation, monterey:       "cb658caec365e1daec08be4212d931022f6df78e43616d614c53c9646d80b08a"
