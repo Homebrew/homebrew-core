@@ -7,6 +7,7 @@ class Cpr < Formula
   head "https://github.com/libcpr/cpr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3d89c9f4c3a1f0d50061bb0d9e364c0a2f174838c59103cd14d42187b4ab5c92"
     sha256 cellar: :any,                 arm64_monterey: "752288ba540fcaa1ea6b47831e09c3ce78ecd283d40e26f6a98d568290f986f4"
     sha256 cellar: :any,                 arm64_big_sur:  "1e67a99589b9982c3dc91bc5df39f267654b0b29822e3dc4a8c6104ead17bd2a"
     sha256 cellar: :any,                 monterey:       "e24ba09f09581bdf741d456c117ad15f849bbd1bc67cc32c4939aa3e70285657"
