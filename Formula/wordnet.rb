@@ -9,6 +9,7 @@ class Wordnet < Formula
   revision 1
 
   bottle do
+    sha256                               arm64_ventura:  "57a8ed88c01550f3fc44dd887ddd4ae3c9bbad47ea82c2793bfe167506aacfb6"
     sha256                               arm64_monterey: "6a7414051cb0af96f5b507dd61cd79fa9e63bede15c658bd20569171900e57d3"
     sha256                               arm64_big_sur:  "48c70e44e65ff918d9a7c59999af788a00a29ed67419a411c789ae8e2f29684d"
     sha256                               monterey:       "08b97395fa2463e0647a18617f694de1a8cdba61657681e416fc3e96d6df157f"
