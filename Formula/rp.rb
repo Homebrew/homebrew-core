@@ -22,6 +22,7 @@ class Rp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcbf9fb210132a603c35746444b28de6ca8953ffb3002bbdf7eaefa10c871bd4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e2cc474474f5fe70e41d693e534d8223e60085ab01e905125fc845d6605101b4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbbff042d70c19351c17402b84281119ca54b0e891e6ac51fbc860bd2420a60d"
     sha256 cellar: :any_skip_relocation, monterey:       "b150d2d183c7630055d6ca16e1b8c262d280bc033977b2f78e34200ab814e7a6"
