@@ -12,15 +12,13 @@ class RmImproved < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90ef6e5dbde5f561d1699bbe0015071874d228ba7af270e3c1a67f7c22d82547"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ed1d81d6208ba12adc49fd30a6adf9eef7de0862337b9ab9a264e2ac4f29d48"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e09493b8db07b3e29621cfd7d7ef81b90007fec6378e00fee491a82851ad148"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9f9949d3594e99cb00ca10dd3bfb683bf73247ba6621ea05b920e35c35459e0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "16260eaa3888976a39b9711ea7150d9e7e3afbee0c34efa022b1a2542f5c4bd9"
-    sha256 cellar: :any_skip_relocation, catalina:       "6b404b0fe096447d90c21c15140ee9295fdea4060771723e818625e8dcde8e2f"
-    sha256 cellar: :any_skip_relocation, mojave:         "cd164204efca72560dcb8d39db760d7e9efbeab5e9bfd0718c6cccd5b022a7f3"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "27fa7c0976c9361fae1638f05a0c756603a509a16459db688d2e787ceb123de2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c18e2bf1095530f1d2d566bc707d503caa78357afa826ac17e2f1d624369fb91"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2294e77a9e860f573daf64e25bc53b6e2b32b6a565e0c727aa26321bb883c924"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "afd393bdf6a0c370043d56d35787e4cc3f1d022bf4108a9f0684ba170586bebb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb348c7717ce6f299ca8b051eb425f9f2f07d9b436b81403e6098d61c3cb1549"
+    sha256 cellar: :any_skip_relocation, monterey:       "a7f0bf8bd18d8408cf671da609422a5a8fa683f876ab641082b07933f7770756"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3a80043be18665c37508e3f028ceeb0ec68cfba556ce5461d4f6575ec6b50076"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "944efe35afd78abf0184654d4fbcc84b081d38c704021b5e964292016c917593"
   end
 
   depends_on "rust" => :build
