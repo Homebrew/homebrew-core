@@ -7,6 +7,7 @@ class Tfel < Formula
   head "https://github.com/thelfer/tfel.git", using: :git, branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "59b9c42949b700cab9615c9609b4796082943ca2b25b696ac640998965d2f566"
     sha256 arm64_monterey: "76becea0d88eda0120ab478674d1da58d06431229ca13f6fcbf1c3dd3cfa7f64"
     sha256 arm64_big_sur:  "4ca6638063893dab97dafd9b3cf92d8cac9496982c2579a2673513cfb9f15e1e"
     sha256 monterey:       "ef668e81efe8f87893df00bc96cb9fb2c2d2752d421b0b3d438cd41c4e5e1ec1"
