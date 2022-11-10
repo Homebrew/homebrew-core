@@ -7,6 +7,7 @@ class Libfixposix < Formula
   head "https://github.com/sionescu/libfixposix.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3d717fb29dba78b60ec515f273db963318e2d52e501b8adaed85e9f0863fbfd5"
     sha256 cellar: :any,                 arm64_monterey: "afb2472ba3bbedae7efd41fc65826cdaec11cc9642f8bd247ba0df4fc7f8e182"
     sha256 cellar: :any,                 arm64_big_sur:  "1d088514a4e32afecb4ca2b432647be4b9c1a187143ad3b253ae90e1669f9162"
     sha256 cellar: :any,                 monterey:       "133344bce2b08648f1e12f36516d072ad73426b26e75684c2cfd64c5191dbdb1"
