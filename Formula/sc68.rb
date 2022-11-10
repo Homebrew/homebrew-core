@@ -11,6 +11,7 @@ class Sc68 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "f30cf9999c9d98d9e0c2ecee6b0af0f5f550391ecfbfa51d8f5139dce0aaa0c6"
     sha256 arm64_monterey: "f0f1ad019d6ae62b500fe9395c6e2cc9fe902532c13a2ffef0001763da251433"
     sha256 arm64_big_sur:  "88997849149a628f35a9e44e3abe898c7db9458a796cc61275abfd26923de1bd"
     sha256 monterey:       "958f47e1b57574ba4ea608fa26a50af67feef92bba51d7e9b598ef0567fb4feb"
