@@ -24,7 +24,7 @@ class TclTk < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -105,9 +105,10 @@ class TclTk < Formula
 
     resource("tcltls").stage do
       system "./configure", "--with-ssl=openssl",
-                            "--with-openssl-dir=#{Formula["openssl@1.1"].opt_prefix}",
+                            "--with-openssl-dir=#{Formula["openssl@3"].opt_prefix}",
                             "--prefix=#{prefix}",
                             "--mandir=#{man}"
+      system "alias", "openssl=#{Formula["openssl@3"].opt_prefix}/bin/openssl"
       system "make", "install"
     end
 
