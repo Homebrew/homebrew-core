@@ -14,6 +14,7 @@ class Pktanon < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "786ffbd6c138d0d1f9ecac03e3638a681b539d81c3d03a98ec18c397937a748e"
     sha256 cellar: :any,                 arm64_monterey: "7bce2aef63a3a786500090ec47feeee781f3ea815c1e290138df41a8d44663f6"
     sha256 cellar: :any,                 arm64_big_sur:  "36905bed56897e7151f048047b5696c36d7cdc2ef8ee310568daf29022e9b2ec"
     sha256 cellar: :any,                 monterey:       "077c0faf136fd7ec5a0d5596fb84e720d376dfce83d85563ceb74bfcae48f61e"
