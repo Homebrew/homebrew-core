@@ -6,6 +6,7 @@ class EmsFlasher < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "54d3c6be5cc7988fd0a6e5ef40f855704ee68e934ceb7fd26e6d7007152db088"
     sha256 cellar: :any,                 arm64_monterey: "c466c77b30d2f12a642f70ac295bd92f1c212a02f91902cbd3a538e1b4b43849"
     sha256 cellar: :any,                 arm64_big_sur:  "f9b941615f6337e331ab3382c659eafb4548af8a5c8977d042c1a4b4ed5549b1"
     sha256 cellar: :any,                 monterey:       "18fabb4f830e3bd8b48f170d173feb47b13f50ab4470e626bec27680c17c4ed2"
