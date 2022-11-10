@@ -6,6 +6,7 @@ class Ots < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3de95a02fa616c4dda0bd063c94371ffc3b586da8fafbbf27406ee9aeec697ca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9788b2ce207870f97e65976033fd03c054a4cc46c6c7dba6964e8e4e742ba131"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "635be319cc5753d67c4dab692e3212f373fecad88460573792257695e16e35a8"
     sha256 cellar: :any_skip_relocation, monterey:       "aa1e1386261311f8ff50579dd727dd781941b43f2f0783fffbbc3cd034815a32"
