@@ -11,6 +11,7 @@ class Udptunnel < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d00e56cd2e956452a8529f53ffdec24393bedbd3b0ecec22d24051fc12ca80a2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7f926b82af867d217a020a55be4f21de045b846aa5e3ca584a09629d4529a5c8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cd9168b47649ced46a6bc58b90d8bb9cf6031fe3f839101743ca5b6dda3efbf"
     sha256 cellar: :any_skip_relocation, monterey:       "25b3c9254ca0a49a807e1bbf4547191c796e55a0cf9c8575653660611ca4189d"
