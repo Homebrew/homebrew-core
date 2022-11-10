@@ -13,13 +13,12 @@ class FaasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a8cfbd1a539f778f6448a378788f5550728dff0956cc72bbe45ebcdca5ff050d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbe35a25557fb6892fbc7fccedc38ef1ce82bb7386833cfdb8b799e9fbcf3466"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04f50927e961e66814de210ac7bf0deb798ea0e0bcc19886a651b6ccb6ff0ca6"
-    sha256 cellar: :any_skip_relocation, monterey:       "542d0bb7109174c47fe7839d4cdce0443bd52750203a0b6e47136b8d55ec7816"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1de607711a26056d3fbe9450aa573a80553b6b61857094c5eb25f5c0e7129355"
-    sha256 cellar: :any_skip_relocation, catalina:       "f8b836f65200b806c141fe96bc4625327fad0218b225e65b6f6dca06a3de9290"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a587180131218e2e9abc485ab1efc9285873e697c0a23bdce7560a3091227c1a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "08d5acfca1b93952a081d5baf5d3ceda155aeffd27ef2218f09621436da5c9c0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c6724bf8cdc5f8f8619763db31b2c1e6481afa4eade0b747cba5b6749b1c5bea"
+    sha256 cellar: :any_skip_relocation, monterey:       "c56f192ee328325863e6760a0f5ec47d7199943ffed73b8abbfb5aa650e39d16"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f45e25a6fc6b4533855fbd7a28af661f5ed7eb2dbfaf08f6fc7dd7dec0ff6e3c"
+    sha256 cellar: :any_skip_relocation, catalina:       "a44b26ede29570966e1b0a5c2b0d848667978852f3fe74de790e49d88c8c0ab3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cbacd19e5239d1ac2b06c89cf0c25e7604ab6251d1c349431986f67b0d91044"
   end
 
   depends_on "go" => :build
