@@ -8,6 +8,7 @@ class ClickhouseCpp < Formula
   head "https://github.com/ClickHouse/clickhouse-cpp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "5c65acfac0a5aa7d5b1efb3e8ed34479c80a4afd718c54a2d1f2fb661f9c7949"
     sha256 cellar: :any,                 arm64_monterey: "26e39ddc384145868d46d4ce393da2743e2835ea5bfc9d8ea0b7eb9820200336"
     sha256 cellar: :any,                 arm64_big_sur:  "36ae89dde556bb4f92e180735c505a7f07ee42e9ee6398a7ec3cedf6aa2d19f6"
     sha256 cellar: :any,                 monterey:       "525f287703a698aeef5daaeeeaf9bf3da115a3bb0019ccd3949edff1ed1c5326"
