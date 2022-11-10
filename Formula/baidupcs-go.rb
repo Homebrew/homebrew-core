@@ -7,6 +7,7 @@ class BaidupcsGo < Formula
   head "https://github.com/qjfoidnh/BaiduPCS-Go.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4feae87b689a551e8fea1ba5c2e986043060d3d7f77a91e8036d96eb8c9f9d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "111eefb9c7f8ae719169eac7077e8bddf33b2cdd00bad03feef94d40eab5742e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "80eaa1ecbad6e50225610d22350ae9cb678343b2eb087672af9250497fc903b9"
     sha256 cellar: :any_skip_relocation, monterey:       "b3a4ad281be6a60c5e5fe09af3c5720aa1f6dbae5715c43c803f035a7571ee30"
