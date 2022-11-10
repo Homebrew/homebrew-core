@@ -8,6 +8,7 @@ class Yorkie < Formula
   head "https://github.com/yorkie-team/yorkie.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7f2844be41c547046be0589d4f62166bde37096a1f5d1e98d5cc7d5e484b2da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0e01cff1e8879cf0d7166e7c62b9582f70e6a35640414882cc0a389a10ae0019"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "689020d195e11b8b5d75cccb5f116c8bf4d597d22a3450b1d1bb04c783f3ef73"
     sha256 cellar: :any_skip_relocation, monterey:       "ade4a340f135b6290c4b6c9aa09e09e09c76046ce607ea06482096d2ee80b13c"
