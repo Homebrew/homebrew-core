@@ -11,6 +11,7 @@ class Syck < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db727a32ae139eaa822db6255785076859d23f8586693a99cf76c59a65f5a578"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af0789d6b4cc6f239e74176c2ffcdef761b9da87d248405568cdac1aa9ec3c48"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00e98131174e989c13cde7eb0564b19581f0a60f0a5786c39d017ba7cd1ae893"
     sha256 cellar: :any_skip_relocation, monterey:       "a854609908189dcfc4de73c7213104e4d3b35ed4583bbe0e86fda899817ced7b"
