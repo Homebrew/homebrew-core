@@ -10,6 +10,7 @@ class VapoursynthOcr < Formula
   head "https://github.com/vapoursynth/vs-ocr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "fa0a957b191e6e7213154c74a10f628f91163df23bf725f5cad95bc2061ef728"
     sha256 cellar: :any, arm64_monterey: "55ae2c3a8f8bf67d64d2346254daf47e219cfbc6d9614b116501f5d55133ef33"
     sha256 cellar: :any, arm64_big_sur:  "03340882c45e954d15c563d411e2ceb2404bc0ea7fed0eb05104a9ce6630236b"
     sha256 cellar: :any, monterey:       "e40bc92d88cc7ff8aa3954bf35d53c79a4ec30d1c4ee0ab2daecebde31a83c2e"
