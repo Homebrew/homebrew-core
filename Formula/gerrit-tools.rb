@@ -7,6 +7,7 @@ class GerritTools < Formula
   head "https://github.com/indirect/gerrit-tools.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e944c907ac7f5bb3d468a7adfa14bdd52c22d0f0261b201f006407f2dc425506"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1d1eb15677d4ed0974a06c21e3ad17fe49b543acbea1ebc0052ef0b2900f65f0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1d1eb15677d4ed0974a06c21e3ad17fe49b543acbea1ebc0052ef0b2900f65f0"
     sha256 cellar: :any_skip_relocation, monterey:       "e4094d8655a172f89aea151baea9298f35827c09fad7ea4d696e5c542d724c06"
