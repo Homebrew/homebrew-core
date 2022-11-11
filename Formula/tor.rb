@@ -19,6 +19,7 @@ class Tor < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "5e41168f2e715e7c34bd9c6972ff12769737cea05045141567e7f495cc00e256"
     sha256 arm64_monterey: "edb20155a92e83f4afd624c2ab1fbf74e288f585a11f4ff65a4bc1e0a9ec6838"
     sha256 arm64_big_sur:  "1a87db73b87298f79be8137548928eebdcababeb4952310b74e3d0079d7d037d"
     sha256 monterey:       "ace512dc7728847bd350b624073390dbc45c88a77041523d9a835f6d0c705cb7"
