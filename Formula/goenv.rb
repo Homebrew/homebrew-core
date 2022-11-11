@@ -13,6 +13,7 @@ class Goenv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ac224c5ffcb37322408a8943c0eee1a17ff846094c4234ca9f32af8a677700c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8ac224c5ffcb37322408a8943c0eee1a17ff846094c4234ca9f32af8a677700c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ac224c5ffcb37322408a8943c0eee1a17ff846094c4234ca9f32af8a677700c"
     sha256 cellar: :any_skip_relocation, monterey:       "9bd6025f8cfffe0501061544054631e415077abbfa6b59db87e82d44213a21cc"
