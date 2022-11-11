@@ -9,6 +9,7 @@ class Pgxnclient < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c40014ecce27b9ccf2f791b8685781b02e096a39ca1293d61f3518720335ab7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "de5cf5435853c4bc97a8f8e03b22bb0f1d6a6ca39d236b704c008300674babbc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2f1cc258ccef1af3e299dfcd09e57c7ab20728a1a566b13a1eefc422358333b8"
     sha256 cellar: :any_skip_relocation, monterey:       "71d9a954b9e1f4a103289309c761993de612a309a9d7ee321727f565f5d1e6ea"
