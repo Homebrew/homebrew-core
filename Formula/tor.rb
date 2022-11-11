@@ -1,9 +1,9 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.4.7.10.tar.gz"
-  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.7.10.tar.gz"
-  sha256 "647e56dfa59ea36dab052027fcfc7663905c826c03509363c456900ecd435a5b"
+  url "https://www.torproject.org/dist/tor-0.4.7.11.tar.gz"
+  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.7.11.tar.gz"
+  sha256 "cf3cafbeedbdbc5fd1c0540e74d6d10a005eadff929098393815f867e32a136e"
   # Complete list of licenses:
   # https://gitweb.torproject.org/tor.git/plain/LICENSE
   license all_of: [
@@ -34,13 +34,6 @@ class Tor < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
-
-  # Remove in 0.4.7.11
-  # https://gitlab.torproject.org/tpo/core/tor/-/issues/40683
-  patch do
-    url "https://gitweb.torproject.org/tor.git/patch/?id=256339712de21d7002129aed102b637cda634ab5"
-    sha256 "fcb4b5fd0114efdc750000e95c92d11f12346cf9fae6b85ab2bb829b343ba33f"
-  end
 
   def install
     args = %W[
