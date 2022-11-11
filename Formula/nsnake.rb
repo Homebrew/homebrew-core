@@ -8,6 +8,7 @@ class Nsnake < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "08df400ffea570d1d05454d588e8e59717666bf169497c5fb2697d0ed0f240ed"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c212b9faab55968fd2a60490a7bf6df2ccb59aa78d677afb5296cec00a58d0c8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb559f3a29d374cbaa1a96ca05671056e7a18f194e12e58fec21021d946ca74e"
     sha256 cellar: :any_skip_relocation, monterey:       "86696340da0ac35fc29e3295d9b5ce2f198c381a41adc796d45084e488207279"
