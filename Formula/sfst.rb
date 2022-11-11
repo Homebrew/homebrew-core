@@ -11,6 +11,7 @@ class Sfst < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "106a7c45224fb209f3f3edffe1a31e82076469489a757ee2dd5cda9c3a8923c7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0926f2435695386b9c21b31c1d4c3feaea5468095c6138e73761e8f350a3226a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27d6b2f85647df82d36dc6f15bfe23a11430d7b1904b8d76326b069f968b5529"
     sha256 cellar: :any_skip_relocation, monterey:       "68080e57fb6a26f0ce7d9bf5bde2e5d4eee3a14c311d93b9b78061e3694c7777"
