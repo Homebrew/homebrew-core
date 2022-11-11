@@ -9,14 +9,13 @@ class Mapproxy < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "db72a46652793ed7f641e608855211c104dc4163c64d8fa2aa2679e30d9a2a63"
-    sha256 cellar: :any,                 arm64_monterey: "1f7f76b227e635e78179db1da2ec4f2c57dd8a752bafcc65d33c5282c399c9fd"
-    sha256 cellar: :any,                 arm64_big_sur:  "e894d1e3e137da8dc77cceda200b2d832fde3db82d579785ac63b5b7098c223c"
-    sha256 cellar: :any,                 monterey:       "50214110fd2799c5915f9eb3a9caa2159d4e8f3688c2cab1d002ce7e81e49927"
-    sha256 cellar: :any,                 big_sur:        "9afb0314606e933b86395c1f38b69e8d9c30e28fe7e266f50d4a3f7d27844c35"
-    sha256 cellar: :any,                 catalina:       "8a8f9bc035f068eacc11e81546e88897c239e66c170858801c98a0e2b56fa592"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c5f11427dadc77c24a18fe1a5ff550107ee0ee940975aeee8ecd75b5f468839"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_monterey: "ff955bf3cafc207cff54ede86ab9af6a26e82a1f926e17992f8c689b9ba19640"
+    sha256 cellar: :any,                 arm64_big_sur:  "5ea6bc9610c648de888b0553c82353d9dc91dae631f27ba90b6394365d1e4e51"
+    sha256 cellar: :any,                 monterey:       "7ac2bdd48c416aeebb081af7d7607400c6b23be9e5e9e3b98f7827f493d3adbd"
+    sha256 cellar: :any,                 big_sur:        "c65306fdb99cb9ee7b1326809733b0cd25a20279091b6a1c79242bce50caf044"
+    sha256 cellar: :any,                 catalina:       "e7aee9b2bbcf914c1b8afd11cdc95ce91e0ea14c475bb777df0ad037a405ed08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55110b267f859d8f690573f3df112fd02c8fe8bfc5303e5b6d92b30feb462e3b"
   end
 
   depends_on "pillow"
