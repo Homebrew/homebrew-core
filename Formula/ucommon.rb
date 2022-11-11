@@ -10,6 +10,7 @@ class Ucommon < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "1f95d42a1b7169c3aab6490ecba6ca2dbff77446f65ff197fe2cd002ab6138a5"
     sha256 arm64_monterey: "52b2e7720afe7f2a3a9de958bcfd949215a74e565b7520aa99fa94025b861b09"
     sha256 arm64_big_sur:  "1270ebc3579e74f3f044e88d7bca663efac0aa581ab214514f6345ade2a7ba16"
     sha256 monterey:       "7f4755beded307911032d7952a51e9e5e710cbf246bfcce8f67e079978f28b82"
