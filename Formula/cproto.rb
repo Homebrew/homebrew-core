@@ -12,6 +12,7 @@ class Cproto < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb7dd61aa183b319b81fca2e4153647ff1805f20b3a5b35603fd90fc9d841946"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c2907353ffb14ed7b6972aaa876f5012417fd17b6274b5d5ecf496bc40450794"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad283dcee4c414e2e395f42dafb30c2fabe2e1bf59c564273c93f82aa10cae3a"
     sha256 cellar: :any_skip_relocation, monterey:       "29f7fc4efd440cb4672468744eeb43e4d952c6f75a8da271b4a807d0e767ecc2"
