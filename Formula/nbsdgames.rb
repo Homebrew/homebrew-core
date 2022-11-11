@@ -7,6 +7,7 @@ class Nbsdgames < Formula
   head "https://github.com/abakh/nbsdgames.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2fea6eb184a26268e400bccb2f730badd3562d92444e639a1c4cda2d49dd222"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9916d331aa232bf41939171c3591f22dd296ee973d90c703506eaca528409db1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c391d3da850a18fa442189d014181b3c0a28e3aa5286b5259ad9ca16aa6a5563"
     sha256 cellar: :any_skip_relocation, monterey:       "31c7b5a1fa5cb7650d7de984547049f8429476ba23b1965db44497ac2eb7ac72"
