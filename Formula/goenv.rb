@@ -13,13 +13,12 @@ class Goenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ac224c5ffcb37322408a8943c0eee1a17ff846094c4234ca9f32af8a677700c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ac224c5ffcb37322408a8943c0eee1a17ff846094c4234ca9f32af8a677700c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ac224c5ffcb37322408a8943c0eee1a17ff846094c4234ca9f32af8a677700c"
-    sha256 cellar: :any_skip_relocation, monterey:       "9bd6025f8cfffe0501061544054631e415077abbfa6b59db87e82d44213a21cc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9bd6025f8cfffe0501061544054631e415077abbfa6b59db87e82d44213a21cc"
-    sha256 cellar: :any_skip_relocation, catalina:       "9bd6025f8cfffe0501061544054631e415077abbfa6b59db87e82d44213a21cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ac224c5ffcb37322408a8943c0eee1a17ff846094c4234ca9f32af8a677700c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ce0cde64ba99a0cf98cc07e92126a506ea38680e42c306cc6f888a6010c0803"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ce0cde64ba99a0cf98cc07e92126a506ea38680e42c306cc6f888a6010c0803"
+    sha256 cellar: :any_skip_relocation, monterey:       "dee76e5bf5df3d39deed32510baa9e1420e1395df898551da1ad19189c12d922"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dee76e5bf5df3d39deed32510baa9e1420e1395df898551da1ad19189c12d922"
+    sha256 cellar: :any_skip_relocation, catalina:       "dee76e5bf5df3d39deed32510baa9e1420e1395df898551da1ad19189c12d922"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ce0cde64ba99a0cf98cc07e92126a506ea38680e42c306cc6f888a6010c0803"
   end
 
   def install
