@@ -16,6 +16,7 @@ class Smlpkg < Formula
   end
 
   depends_on "mlkit" => :build
+  depends_on arch: :x86_64 # https://github.com/melsman/mlkit/issues/115
 
   def install
     system "make", "-C", "src", "smlpkg"
