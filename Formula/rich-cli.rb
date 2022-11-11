@@ -9,6 +9,7 @@ class RichCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f3d95bee054f15279886d0182fd099e79f2998e325a5d722a2a1962c71c301d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c1d05481220033c5ef2dd63b7dfdbc4766e39651d19ea062bcd9eecb8359e0e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "08f434983627033e4ee1333efb362728e15b1a498f8c5cc834bbbae7ef1cf47f"
     sha256 cellar: :any_skip_relocation, monterey:       "24e4c857aa0e3afabac1ac906a28245baf84949ffc93ecd484c8225eda13b525"
