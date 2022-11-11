@@ -16,15 +16,16 @@ class Libxcb < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build # match version in `xcb-proto`
   depends_on "xcb-proto" => :build
   depends_on "libpthread-stubs"
   depends_on "libxau"
   depends_on "libxdmcp"
 
   def install
+    python3 = "python3.11"
+
     args = %W[
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --enable-dri3
@@ -32,14 +33,13 @@ class Libxcb < Formula
       --enable-xevie
       --enable-xprint
       --enable-selinux
-      --disable-dependency-tracking
       --disable-silent-rules
       --enable-devel-docs=no
       --with-doxygen=no
-      PYTHON=python3.10
+      PYTHON=#{python3}
     ]
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
   end
