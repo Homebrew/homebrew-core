@@ -9,6 +9,7 @@ class Mycli < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "0ad11cdacb177f1d15dac00af01d5fee33e8c8a3952674687e9d09c5952c7dea"
     sha256 cellar: :any,                 arm64_monterey: "4b27d2b1c17f60dc8c2693cee52b559527ca16130afac4d5fde94efca5f97b54"
     sha256 cellar: :any,                 arm64_big_sur:  "152e5cf011ecd571d53fe0989eb2331603f155e2d808f6e36451373c0a34bcde"
     sha256 cellar: :any,                 monterey:       "aed11940ef67d65760d282c91a78e43db6e5edc9593a89ddf1768b302bd9752e"
