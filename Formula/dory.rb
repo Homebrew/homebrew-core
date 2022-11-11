@@ -6,6 +6,7 @@ class Dory < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "baf1bf19aae6f4be3df208ba5cf524cb9d4179fd8d2e11ffc74d4f676033e670"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "baf1bf19aae6f4be3df208ba5cf524cb9d4179fd8d2e11ffc74d4f676033e670"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baf1bf19aae6f4be3df208ba5cf524cb9d4179fd8d2e11ffc74d4f676033e670"
     sha256 cellar: :any_skip_relocation, monterey:       "2b997c97ef0977274fc7cf99d73c7685d641f7f512c48fc96067dcff3fe6e138"
