@@ -13,6 +13,7 @@ class Cppcms < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "798b916777f03da4b2ce560a2097cdcb1922b7bd3ac2800478654c4e9cd513f8"
     sha256 cellar: :any,                 arm64_monterey: "9a02f447ab6d82e0cf98c2a4aba48011974e6c6ae103cbe2e7c74890dac4d038"
     sha256 cellar: :any,                 arm64_big_sur:  "67a1c9feafceea6cbbe96ab29fa05ee6032dfc839b691cb3e64f28ebd8e70d81"
     sha256 cellar: :any,                 monterey:       "d4b7c10f3349b0d96a29f936e1e26c819b99229bb0e49b3b6856c786be168418"
