@@ -20,6 +20,7 @@ class Mlkit < Formula
 
   depends_on "autoconf" => :build
   depends_on "mlton" => :build
+  depends_on arch: :x86_64 # https://github.com/melsman/mlkit/issues/115
   depends_on "gmp"
 
   def install
