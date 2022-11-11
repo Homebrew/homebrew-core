@@ -36,18 +36,24 @@ class Halide < Formula
   depends_on "pybind11" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
-  fails_with gcc: "5" # LLVM is built with Homebrew GCC
+  fails_with :gcc do
+    version "6"
+    cause "Requires C++17"
+  end
+
+  def python3
+    "python3.11"
+  end
 
   def install
-    args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DHalide_SHARED_LLVM=ON
-      -DPYBIND11_USE_FETCHCONTENT=OFF
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DHalide_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages(python3)}",
+                    "-DHalide_SHARED_LLVM=ON",
+                    "-DPYBIND11_USE_FETCHCONTENT=OFF",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -56,5 +62,8 @@ class Halide < Formula
     cp share/"doc/Halide/tutorial/lesson_01_basics.cpp", testpath
     system ENV.cxx, "-std=c++17", "lesson_01_basics.cpp", "-L#{lib}", "-lHalide", "-o", "test"
     assert_match "Success!", shell_output("./test")
+
+    cp share/"doc/Halide/tutorial-python/lesson_01_basics.py", testpath
+    assert_match "Success!", shell_output("#{python3} lesson_01_basics.py")
   end
 end
