@@ -9,6 +9,7 @@ class AllRepos < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "730e5c63f68a2a074988b75c4c9b4fa9796980b698c53446aaf068f0e17f0cdc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "730e5c63f68a2a074988b75c4c9b4fa9796980b698c53446aaf068f0e17f0cdc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "730e5c63f68a2a074988b75c4c9b4fa9796980b698c53446aaf068f0e17f0cdc"
     sha256 cellar: :any_skip_relocation, monterey:       "b92e9d8aec632564a9281e563a853597fdde62485e9ad472de6523dcf455e5e6"
