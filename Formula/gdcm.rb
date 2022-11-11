@@ -12,6 +12,7 @@ class Gdcm < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "99673ee821fa140c0907273587e5405974f202ba1fd98e61379c9fb1ec91eb1f"
     sha256 arm64_monterey: "11e1892481ca258cd347c3a67cdb4ed1ad9800053c492b55fd8de9955fd325de"
     sha256 arm64_big_sur:  "f67704930494878bf8fe37d2a0328188f479ad9bcee1eea3e72f18ce5185a3aa"
     sha256 monterey:       "2580497db8f7f8090047ce88ce22120404bfc4f90efebacc662c653fc5d57d55"
