@@ -8,12 +8,13 @@ class HuggingfaceCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "83936cddffab7cfa362e88a36effd08645f36c92505e057ea1bbcd9c14d56cf7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a8152f58b420edb0b00245c0bf7e62cdc07eee4e2bd84d3066ef5a538ce470d"
-    sha256 cellar: :any_skip_relocation, monterey:       "eb4a8ce8b8b04d6d2446f4803e31614bf35cfa5ccae415111b0f9af0c08aab9e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d8b36e9c44f2f62a67f703199e7cac51d09e75594905ce637c8887d448de6ea8"
-    sha256 cellar: :any_skip_relocation, catalina:       "f2407be3898bdb04490ea414f96d68fca6ff9c21891c0176a0a7effd0b40b7a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8ce8bc1342f87bb3772e3f48c2fc1fc381306df6670501bdc4cbd6b0d6860f5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee5c55b6a27db465189da3a7da9a53ce0da40016f4ec7c3ba025bbf6447848ed"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ad4169f4567842cc5dbcfcabc1251140697b3ae798ece27e3a94a936d49e592"
+    sha256 cellar: :any_skip_relocation, monterey:       "f5b814655cf8632644f7fa13737a730175aeb2cc22b626282bbffd6dfd382949"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f4c2f2618f896ec57626c98afc67d6c10db116ac4cac0cc30d4e4ce88826353d"
+    sha256 cellar: :any_skip_relocation, catalina:       "d9c86d8ad2363ae74bcf9336fd0675cd1800f152549fdfaa5044049471265502"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b51d8c50b5dc75c04f183d8eb644a6db1cf62b6d7510d38eaa7add776fb12709"
   end
 
   depends_on "git-lfs"
