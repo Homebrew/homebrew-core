@@ -18,6 +18,10 @@ class Drafter < Formula
   depends_on "cmake" => :build
 
   def install
+    # Work around C++ version header picking up VERSION file on case-insensitive systems
+    packages_dir = build.head? ? "packages" : "ext"
+    (buildpath/packages_dir/"boost/VERSION").unlink if OS.mac?
+
     system "cmake", ".", *std_cmake_args
     system "make", "drafter"
     system "make", "install"
