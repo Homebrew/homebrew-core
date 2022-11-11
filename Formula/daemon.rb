@@ -11,6 +11,7 @@ class Daemon < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e0e0fe331100a496c1d17a6565b5defdb8a75b67ae7c773fbc5c2fef51cb667"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "900d4305256eb376e8e0211bda4d08984dd822bd60a7ee0a03758d3ed7e7287d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c41545411b2f4b31dc059df14eb622bfd30586c1f2bd3af7f4e0514bb5001277"
     sha256 cellar: :any_skip_relocation, monterey:       "78ea338beb10906494268d771002b4fc246297019637746095a1657f782dca04"
