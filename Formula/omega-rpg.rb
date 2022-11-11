@@ -12,6 +12,7 @@ class OmegaRpg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1827754a9cf6ffb3a4373fb225ce51d293a23b6d6e43cb042cce85ef6f6b07b2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ab67527e0eeb05713b51165bad1cfe9fbf8d0bcc1009a4b1b5f73bddc626d169"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38000e1217562bc9cf2db49e0eb16aa4e7b5648010539fc5c9bb0608f3e1fc20"
     sha256                               monterey:       "76844b55561305089dc6270dad5a00f45fa17428f7702ff100860c70e604379a"
