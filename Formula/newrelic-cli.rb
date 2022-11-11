@@ -7,6 +7,7 @@ class NewrelicCli < Formula
   head "https://github.com/newrelic/newrelic-cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "46692fedc52df6df452d5119c31c0b369a09c6d4d2815c7be11669a0266d808d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "28b2ef993e32c00e2d2055b14efd4151ad7a7ae12739a678ea3352b2633f40a3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f75be8a0276ca7ccd9950fe8eea9ad0c56335c3a6123393f7ae4323c2fb397b"
     sha256 cellar: :any_skip_relocation, monterey:       "a366772feb2b1a4f16f57b00ec6263f32575c62311991d631ef796834ad5b8b4"
