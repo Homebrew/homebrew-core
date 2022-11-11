@@ -7,6 +7,7 @@ class Multimarkdown < Formula
   head "https://github.com/fletcher/MultiMarkdown-6.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a13c42e5fd09aac9c3748b9ecb2ee0da5bfa9ddde9bba95c7781718407f66435"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3061fd1e30663e1fe42fb3f9e92530f8a2e8cba671ed67863639d1c6cef8e680"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c377c5976fff15a469b330470febc8b7db8f695b597e588fd35e975fe17010a5"
     sha256 cellar: :any_skip_relocation, monterey:       "694f10e1a17f294485223e557a27cb7f9ce8025b202197caf2698257a26e1e36"
