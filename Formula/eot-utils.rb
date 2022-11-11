@@ -11,6 +11,7 @@ class EotUtils < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f0213f9bcedaf984fcd8d2d03894e8a19e1a61c58775efe87d557946dfea9b4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8cac289120cb93a9612419cd0108051fff840e4136011a31c44a2dbee6e31214"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f017607b1caeb3d53e2054abe9b3a75cd8a513b3ef5874b297f7b076ecd5c9a"
     sha256 cellar: :any_skip_relocation, monterey:       "eb728a14df732af84e10461a75b4c56ac083ae4f84d2473219a04021abf678be"
