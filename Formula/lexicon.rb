@@ -10,6 +10,7 @@ class Lexicon < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "4ca6f3fd3fd5b2c65d15f0bc1b0b01fa7af24ff044cb4fbfb9bc15d9ac5f0a24"
     sha256 cellar: :any,                 arm64_monterey: "4276471f8f7055a2d08d9300b066599b56b90aa5d61ad18c44c284ec0f741668"
     sha256 cellar: :any,                 arm64_big_sur:  "c6e3544fd7852c922cdf1437192ba6b023863e75c44d3d7ed70d8407354534ea"
     sha256 cellar: :any,                 monterey:       "0a04fe38fbdc68d77253b37f75ef4feb95506f0493a778607b27bfb59724067c"
