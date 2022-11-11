@@ -6,6 +6,7 @@ class Cifer < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e91e9087a69d7922fe1fe9f84e11e9f222c45d5b1b1cd794f1e7f0bf3a295c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "66851780bbfe9071936bd7f230dc0f0744f5dc16ae6bd5986d9494d31563b75b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f826a8dc0534a56e2c372abeba0f05124f79e96502243d1c89548777d2156b2"
     sha256 cellar: :any_skip_relocation, monterey:       "efc874dcf1bfb9fb07faab3de50b204897e1daf172f74fd00d75a0a5e421036f"
