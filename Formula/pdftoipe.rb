@@ -8,6 +8,7 @@ class Pdftoipe < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "347e260c84772478c2766f72ce4cdcf3bbae124da26de9b955800f5f68967325"
     sha256 cellar: :any,                 arm64_monterey: "49b6d7edc992d6c19211ce2f488d1a355c616878a26ba3742921f113f407ae68"
     sha256 cellar: :any,                 arm64_big_sur:  "33571148c756d8730fc004937ca8d5a30a2d4b9275313de195d818adab327c23"
     sha256 cellar: :any,                 monterey:       "6289d86a47fd870d5620dd45109740a8617ef8f3dc5035e198c925bf8ef67262"
