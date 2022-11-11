@@ -5,6 +5,7 @@ class Vc4asm < Formula
   sha256 "f712fb27eb1b7d46b75db298fd50bb62905ccbdd7c0c7d27728596c496f031c2"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "49337c5ba68c5868f9804568af0ab0fc29223eee04b6f50154fa30ef49fb23f1"
     sha256 cellar: :any,                 arm64_monterey: "af417dc649bc49003da98b9756e05da700076907cc4963818b839b817f721bc5"
     sha256 cellar: :any,                 arm64_big_sur:  "64082d8d1fd7f2a360f9ffdd29a9fbde0a24b600f38806bc4556e4ea9b5175bc"
     sha256 cellar: :any,                 monterey:       "1a80a7ddd01b91da357ecae8507af244f0dde770275e36ee523b0da7c0f489f4"
