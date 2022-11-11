@@ -9,12 +9,12 @@ class SolcSelect < Formula
   head "https://github.com/crytic/solc-select.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "58332fbddcae9d646bc115b473701b63c2930c01c7fbe4528fa39e5bb6e222ab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cb65ca6617915b7b9b7df8478e678caaba95264d843ffaef70a318376e0e514"
-    sha256 cellar: :any_skip_relocation, monterey:       "c59e863b4b0490857d03983ee539ed698028fbb28c424512bd7e7523d1716bea"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0696f323f0ca3df4489447ddc65656a24b197392ea2e3a5ff73d942f5bbabfef"
-    sha256 cellar: :any_skip_relocation, catalina:       "051012ef46fea07febd1cffac98349c962c5fa30ee8e69e9b34d89f5a5d53cfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b57babab8950784ea0e3a165dacced2df2cb8c84c020b5262e7c37adcde3043"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f060023b1506f1a282d4f0b91e1a691757680a7f2c858a965bb803ad324ee72"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35e57e18ac37ca3b35f8dc1cc6b87f2c774521dabc2e9eac85362d1184e88dd3"
+    sha256 cellar: :any_skip_relocation, monterey:       "fec9c711e24f2aa6fd3ec6cb0c61548da8e1ad2497911a522ce2112548926eca"
+    sha256 cellar: :any_skip_relocation, big_sur:        "79cf18b7ac85a4f2685e532ddda52eefa5e28fdb916a87ce1269fcd11ac1c0b6"
+    sha256 cellar: :any_skip_relocation, catalina:       "c686f9825271685051660c84c6d48cf25b9b1109f8fe5de1e4d864d9acb2a7ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ae84608d9ae072e478662e7dd672d14ea8ef9b688feb33814b642346dfb774e"
   end
 
   depends_on "python@3.10"
