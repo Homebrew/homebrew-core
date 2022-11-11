@@ -18,7 +18,7 @@ class HuggingfaceCli < Formula
 
   depends_on "git-lfs"
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   resource "certifi" do
