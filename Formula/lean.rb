@@ -1,8 +1,8 @@
 class Lean < Formula
   desc "Theorem prover"
   homepage "https://leanprover-community.github.io/"
-  url "https://github.com/leanprover-community/lean/archive/v3.48.0.tar.gz"
-  sha256 "07e42b5b040825b6fc2b320784541e1dcc94d189db1ef9f51573ec3eaec74727"
+  url "https://github.com/leanprover-community/lean/archive/v3.49.0.tar.gz"
+  sha256 "c90850921cafc69bf4d8c976d2b65de02abd9b5f46cf8aa91f7c2585ed775c0e"
   license "Apache-2.0"
   head "https://github.com/leanprover-community/lean.git", branch: "master"
 
