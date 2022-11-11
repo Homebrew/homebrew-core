@@ -8,14 +8,12 @@ class YtDlp < Formula
   license "Unlicense"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b177fc50ce32b2654412310be4d28d753f47b8248ca279b84cb8f8e3b635fda"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "761e55f5804dcb35cdb874f72499148c9b14900c6034726deda5fc396cadb987"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "754e166a2045bcd3bcd75fbfe90605f22b885f0e3c35da0ed6212102193893db"
-    sha256 cellar: :any_skip_relocation, monterey:       "402a258e5020ac8ea8e884a4804b174f21fdcdcb2a8ff3b40469c356e3a919b8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fcbe844e8be564d2effb880f03b3dfef394e8924473cee01b3d7e32608eb529d"
-    sha256 cellar: :any_skip_relocation, catalina:       "d81be5134b6d05a15d95bbf3385c8c23591bc2931736ba67c9b44c56d9e68f73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0038b9bded0cb2115bd11ee0cc8c2722fb81c5c3b3dc3ed891e3ac3dd4baeb7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e526a3e2ae16a7c0f4dcab7d8c50f48753a9518a7c771178bc68a641436491fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f729eb77abb69b6bcc8c08a2ea10889bd22255c86f523c28826641d5538d24ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "ed6b8cb4771f36b5afe3c2f5eb905d206a64c2dcee0a14930a25390b6c5b455a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2e8e58f381d18c7ae706e17a495c7809d26b92f59beed3c7a1dfd8239094ea01"
+    sha256 cellar: :any_skip_relocation, catalina:       "dab77e4d1b4d4b88c4fb0915336cf2ad738984ecab2b314b82894abde4a48f91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f413e4af9713c05a157a275d3f55591a7a60591c5ba34e1c4f591b69b6877e1"
   end
 
   head do
