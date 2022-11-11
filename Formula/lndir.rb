@@ -6,6 +6,7 @@ class Lndir < Formula
   license "MIT-open-group"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98158643f50deee45b2435677d04fd5dac7cdd4bf3312f48da2a0c2fc912802c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7006aa215d5d08ec49a73e38106b576ba310ca7f7c18c5c0c8a436d2653a5a90"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16bf85f690f6bebcbd9f3e6fe4b73cd5b184484d3ba2b641a5300cd7d5f95c91"
     sha256 cellar: :any_skip_relocation, monterey:       "5714cd4c9e37de6528d8f25996824855df115b4a002a5927049ad792ac2add41"
