@@ -7,13 +7,12 @@ class Podman < Formula
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d00923c766901f7799db6d700be99a748844bd1b49ed4f282bacc3cf19cb7ae"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f79e939884236f72d8203500afee7028301a118d1e056249367e113ae3df4a7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b6cb25d4b073d804b3bd417a521fb6975d08faace7a626a7dde3f42aceef954"
-    sha256 cellar: :any_skip_relocation, monterey:       "7bf63f644c51853697913b7e3e68c24555dd710f900d985ffac2791ebaca9926"
-    sha256 cellar: :any_skip_relocation, big_sur:        "21182a70c3303a36cf38c906b13d0099f61e1c47835ecda4fdd40014273e5750"
-    sha256 cellar: :any_skip_relocation, catalina:       "14c4f2ae2e6d4cded8ccc40d40a878e711e01fe8833e5d063c17308d2b8c37b9"
-    sha256                               x86_64_linux:   "8bd25a7fdc39d83c44a861a2f3ab1e670bbf2d3338a8af435b82ae253e54ba0f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "28a80ebdbe1122e9a8a80ce181e06080283624b5f0a90fb29e560c930eacd078"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d010a00b1043cf2ffebac0f0c66f8c63ff73cebceebd9f4a1cc8e63adffa47bf"
+    sha256 cellar: :any_skip_relocation, monterey:       "de397cb09c3df316b361c8dec36f5a97c1d368d7c5edc29e457c2f1d93af98a1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7a82273855cecb6551f7c015291b1bf28b782729279693f22227163c0142b0b0"
+    sha256 cellar: :any_skip_relocation, catalina:       "bbf973e605e9bf56837448ddd956e566900177cd4aa339c15911eb34ae16832a"
+    sha256                               x86_64_linux:   "4b4d3245f41cc8ad7f6352f1ccd8db1ad5a12910572ef47a6a1ec1d053aec5dd"
   end
 
   depends_on "go-md2man" => :build
