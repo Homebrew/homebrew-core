@@ -7,13 +7,12 @@ class Proxsuite < Formula
   head "https://github.com/Simple-Robotics/proxsuite.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "117cc7252d42c8b51a7649976b45fd9c58101de4af0af5907a08a229ca282490"
-    sha256 cellar: :any,                 arm64_monterey: "52a97b825f5aa58b0a4263fd0b91b023777925a3bd503798cb7f89796f1ee38a"
-    sha256 cellar: :any,                 arm64_big_sur:  "696fef5c6e157104eaa1a45001cd1500338b99b9b84fde036905093eac21ed84"
-    sha256 cellar: :any,                 monterey:       "62530c8b28949a52e93ce8cdf365ac6ef0be93cda08805f6fcc0922339b8923d"
-    sha256 cellar: :any,                 big_sur:        "f6270ec794432e81b3a9fe629f53fae78eaecb0434bd50e74a05bf59daf4fced"
-    sha256 cellar: :any,                 catalina:       "e4493dcf6eff8753517dc4dd9b953a56de4257b80bfb4d5ad3c4df45ce87cb9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e64a287169b95ccb469424bec687093c9673c2dabdab1b33870f6d78781f544"
+    sha256 cellar: :any,                 arm64_monterey: "b6d2cdf61364e820b9ab0ca7ed56d5b136e9925e6eaa9ce48821e986fac850bd"
+    sha256 cellar: :any,                 arm64_big_sur:  "5da1f1618ba3d8cfeae71fed9e38ee262fe72a1d7a4a5ba408d8c8556559cc37"
+    sha256 cellar: :any,                 monterey:       "79bb4390c617f3aec24b194e2d3ec9905caa584c8687244b4807fc65ede13ac5"
+    sha256 cellar: :any,                 big_sur:        "9da5dd13b35777015ea7c85c445998ab89780cfa4a104547d4895574df54cb5b"
+    sha256 cellar: :any,                 catalina:       "17100e23f3b9c77a3be3ab93bbe1057511af3da86c0d2b36f15cca2f78d6f90f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "951cee43e7def785094c04e3ff5121697327fb6abcd6fa826b18b0f8862c9439"
   end
 
   depends_on "cmake" => :build
