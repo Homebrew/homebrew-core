@@ -13,13 +13,12 @@ class Buildkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b15d721fc2d7ae0ac3bdd1f1f3d6c7302b0d1726327787dc98984a018825626"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cdd08ad3e820721cc15dd1afa38068a4d43560f7df6f40298a9047e075dbdc95"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "52f86fa598ac4058caf82d1b033a7831655ac101419bc0678128d263919c7dcb"
-    sha256 cellar: :any_skip_relocation, monterey:       "c1101d1069b6b871584fb12b6e6bc800f17da07a8d450f7fa2ab3be09ff6ca34"
-    sha256 cellar: :any_skip_relocation, big_sur:        "954ec9bc5ef741fff9fcdbbebc528285d62fb11341def6a003d2278680d9becc"
-    sha256 cellar: :any_skip_relocation, catalina:       "a7e84c9a3ca40c97c771e92eb260a7526881effa4d319c5d03850923185a6f4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "129750e3341a815e286b96716b6a274958d2fcba2cf6b97c2de2d805f34b79c2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4c73ff458b1389ba80f359d53d47a8f131798333800a5124d2b304aa0383bcb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e3e949728c77522bcdef40df6f34b5545e5eaa3dd99c2c9fb24a1becc2da658e"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0445eff3198cea041de0a16faeaff54c3890d5e538b0be88b645d6341d109c8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "601d2798288827c90fe41a6b604a6c3bcdf8bb5417a4a82d9e95e2d0439afd17"
+    sha256 cellar: :any_skip_relocation, catalina:       "39aa31ea54d3c8a8f1b83629f53924fdf2490a32383d3fe09b57fab25d0b5d2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8f3b689b569d845554ccd76c76df786e14ca7091ff0b602305103c23e0187b7"
   end
 
   depends_on "go" => :build
