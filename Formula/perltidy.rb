@@ -11,6 +11,7 @@ class Perltidy < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f39d3eda57667b6349ce3aa2a484517cadefa2ae10087ebb9eda0eeb47149767"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f39d3eda57667b6349ce3aa2a484517cadefa2ae10087ebb9eda0eeb47149767"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2aeb6b365bc1db132eeec7b37a3eda21abf5ff9d8f380f11120addf96c30b1cc"
     sha256 cellar: :any_skip_relocation, monterey:       "374fba984abb02546d3d384907f24ac65505d2581f4c91cc6110fd61857567ff"
