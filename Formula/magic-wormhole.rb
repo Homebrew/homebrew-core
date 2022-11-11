@@ -9,14 +9,13 @@ class MagicWormhole < Formula
   revision 7
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "a7728e3810b2ad71368b7badbf9d0f70966e6d9dcdd88dcdfe06c1e1204b6109"
-    sha256 cellar: :any,                 arm64_monterey: "9327259374d5d705fea7c254bf0eff11f43c5f8ee9b90dd4109ae4a9401c90ad"
-    sha256 cellar: :any,                 arm64_big_sur:  "b3d3ed55654e1de1b51fe1845eb15e32168d41e9b60d688666f579a36e38f137"
-    sha256 cellar: :any,                 monterey:       "4ace3cebadf0edc75208247aaab3333ecf13276ca74aa727cf6484c7badb8f38"
-    sha256 cellar: :any,                 big_sur:        "8178869c539599c75926ccecca24a8dbff166f1b86a25ecf5262f397e1aa5c34"
-    sha256 cellar: :any,                 catalina:       "00d6d94337c598a15bd004e1ce795e46bf856f150fab1c2ac72ea4798e3aead9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e4844bc23e5b318e7880b87284cec1a3d136f6532deeae68d507e983ff3ad57"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_monterey: "4a8908292c7c66a80c2024b555e31efb2ab01d5037de75f473f92e6cfe6e6ca8"
+    sha256 cellar: :any,                 arm64_big_sur:  "ea7718fb7a5b340251fce45bd7fd7e9d7f61ece998d53bc909553045986e69c1"
+    sha256 cellar: :any,                 monterey:       "3bc3e519ccfb0898c777292271be52ddaa5e6010ef0b6cad77c238b1675602f8"
+    sha256 cellar: :any,                 big_sur:        "8c70033c047ca74b1b9586e4d1f6bb3defda6e326ef29cfdfaa5002f5edb10c3"
+    sha256 cellar: :any,                 catalina:       "5dfcb38f77ca7b76cbdda33028553c0297a42a23391286c1d5adf32d4bb4bbdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0d6f23cdadb2e6062373d0b7973cebf6fd2178ab0522f1c9cc8260889cd0d05"
   end
 
   depends_on "rust" => :build
