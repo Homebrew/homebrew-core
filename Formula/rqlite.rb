@@ -7,13 +7,12 @@ class Rqlite < Formula
   head "https://github.com/rqlite/rqlite.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f12d8147086bb465ee45d79fa93779a84a410507098d1a3b6b77d639137f132e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5bc25519698b03f8d18367701fb6a1703f370cf1372a4d603ec24b78e60357e9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42d0d6759c497160a9cf5f6f1637f7f95230bab7c32409ad9f7bb757e8e6450a"
-    sha256 cellar: :any_skip_relocation, monterey:       "44726fb3c3d9ae4dabb4b85a1384c5beb1d8331472f19b218d665bbebf6f20ab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ff4da765e946fcbaf202638496d5758aad1285afc8c18e58df5ccaa3ffd2809f"
-    sha256 cellar: :any_skip_relocation, catalina:       "ee3717b67e4dd48a5456212e55294c5a519a781dab38a5b3df5618bc31b64f5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1be89bedd0bfd558dd0b45d6dfe1998845de32f98f96434fab5943dac8f20cc4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b028bb7f7ca9383e863d562c5cd9dd94144362e8bbbe9a8adef6177aa07863e2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4745109702a5ab8174b16d9bc468b2b329d4bc775afa89c8a1673e2ea0676a3"
+    sha256 cellar: :any_skip_relocation, monterey:       "1d39d21cbb5768540f98bad7099edd8c8b22753f21fee33d5eed90b847767612"
+    sha256 cellar: :any_skip_relocation, big_sur:        "de0330746530345486c9ccb0ac4692772464276592d2afbe327dfd168f3c6e5b"
+    sha256 cellar: :any_skip_relocation, catalina:       "ae244e39751b268eed49ae0dd51f8f73631bcb1c03f10ebddb93f59aaf8e1656"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bd71ae14a0324c66328bd4ff479d312a5ae5ab085ec869ce6bd5c595e039ac6"
   end
 
   depends_on "go" => :build
