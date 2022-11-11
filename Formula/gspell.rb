@@ -7,14 +7,12 @@ class Gspell < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "242e53e6cc2bce5d49b51ed9fa49caaa883750aef016706f0bfa664db80b828d"
-    sha256 arm64_monterey: "051151cc7d8ff3f5979400110bc060e54463c25eaa6c90eb96409ebdeb46876a"
-    sha256 arm64_big_sur:  "ea202d1b22a46328a1ce6e9a4b4cc5df4c2fe543f9c96bbb7c37cbe3b19768c6"
-    sha256 monterey:       "9dc9c7d1afd7ce981156ef1a1bbcd96d65f3dad37f5f487ac5e2c66a2d0c7502"
-    sha256 big_sur:        "708870895dddebafc6a52e320d7d74daa9dbddf7f845f6b9dea715ac50fde5b2"
-    sha256 catalina:       "213afc54fb35d2772ac32af7240810638898be599797bd82a9b0006686df1aa7"
-    sha256 x86_64_linux:   "03545e9ae95df912a035c631750bc50256961319e19bfb3397ed090bf4ce8207"
+    sha256 arm64_monterey: "6b714a13f71269104d97bed81ee41d2de11e076ef40141c3fb8367268548ea8f"
+    sha256 arm64_big_sur:  "27df3558377dd19da7d51f6c908f7723b096b7393d3574cd3006a061b81ae84d"
+    sha256 monterey:       "cfd8fda21d898f78d594fccabc8164689e2a3f1a40345a92e34f31360ba2bb95"
+    sha256 big_sur:        "f4126e8aeea56725448696a83aaab1923b8a130c903660d3a87a4f9b6e7e6bda"
+    sha256 catalina:       "a27f1af9269be53f6eab63fd30941ca01b64bc16caf111f7ad328606a21897fa"
+    sha256 x86_64_linux:   "3aa83e251a519603ddc71d06d6c001e281cdc1e27167a8f6114ab7741fd98a93"
   end
 
   depends_on "autoconf" => :build
