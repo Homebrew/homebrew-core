@@ -6,6 +6,7 @@ class Flake < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03f0ff1a603cfd656ddb342b5295fcc85b7b1a83216911d0593a18c6bf6dbcfa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b2a1ccd83576e3e6d8f84d314be37100def324e53d31fab0de4446d53bbfc7e4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a479261d3abb5f7cb8f4006cd025b7680d10148bdd66d817af0d040f4395de6"
     sha256 cellar: :any_skip_relocation, monterey:       "32cfb3d7b3ff5caddf8173824092d5dc0ca8e38953428b4c670e8d55145d9e9e"
