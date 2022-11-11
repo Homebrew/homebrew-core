@@ -6,6 +6,7 @@ class Lgeneral < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "b280ab137a0aec382f0f1ae50a8e7c9dd91ada3cbc5162ffffd4bca9e869eb3f"
     sha256 arm64_monterey: "b0881e6bd6b537c4dc322711a44d7567e6a2b624516d53d11d6524da5d35da79"
     sha256 arm64_big_sur:  "39fd0efe18280a2e4b976ebf02f451c110de2a5222735e4d8d6ede97c22b28da"
     sha256 monterey:       "a8b456e9aaeb0e99e8866d9f58a6f228688b770ab4962a124c17fbedab620d74"
