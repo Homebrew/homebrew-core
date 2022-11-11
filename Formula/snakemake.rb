@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/e4/66/b6ef5b44ae646fcddf1306ce18689bf7b982c615dce07896b7dae8900465/snakemake-7.18.1.tar.gz"
-  sha256 "8efbd1da06fa19dd074bb6baa7998e081232b2d70f3890f46a99bcf53200c8fd"
+  url "https://files.pythonhosted.org/packages/0b/8d/d3344b72156f0073a88386879d6155ed1d233c73d6057cdb5a68c533c163/snakemake-7.18.2.tar.gz"
+  sha256 "23f52b9a0c86da3b974a3cfc097fa82b41c49dab05543c0d18377c854852f771"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -87,8 +87,8 @@ class Snakemake < Formula
   end
 
   resource "jupyter-core" do
-    url "https://files.pythonhosted.org/packages/95/74/96d10b3a8575123892c807f35a14bab969771d0c630b51d1208678b31d15/jupyter_core-4.11.2.tar.gz"
-    sha256 "c2909b9bc7dca75560a6c5ae78c34fd305ede31cd864da3c0d0bb2ed89aa9337"
+    url "https://files.pythonhosted.org/packages/62/0c/c48e8ae6c87548b066a5d968efa1a4376814eb61fec188ccaa4eb321579f/jupyter_core-5.0.0.tar.gz"
+    sha256 "4ed68b7c606197c7e344a24b7195eef57898157075a69655a886074b6beb7043"
   end
 
   resource "MarkupSafe" do
@@ -106,19 +106,19 @@ class Snakemake < Formula
     sha256 "38bdd864d0450fb748193aa817b9c458a8f5319fbf97b2261151cfc0a5812090"
   end
 
+  resource "platformdirs" do
+    url "https://files.pythonhosted.org/packages/cb/5f/dda8451435f17ed8043eab5ffe04e47d703debe8fe845eb074f42260e50a/platformdirs-2.5.4.tar.gz"
+    sha256 "1006647646d80f16130f052404c6b901e80ee4ed6bef6792e1f238a8969106f7"
+  end
+
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/de/eb/1c01a34c86ee3b058c556e407ce5b07cb7d186ebe47b3e69d6f152ca5cc5/psutil-5.9.3.tar.gz"
-    sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
+    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
+    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
   end
 
   resource "PuLP" do
     url "https://files.pythonhosted.org/packages/59/41/44d617a67407ea5db026500025b8aa7cad0b2b52621c04991b248c3b383d/PuLP-2.7.0.tar.gz"
     sha256 "e73ee6b32d639c9b8cf4b4aded334ba158be5f8313544e056f796ace0a10ae63"
-  end
-
-  resource "ratelimiter" do
-    url "https://files.pythonhosted.org/packages/5b/e0/b36010bddcf91444ff51179c076e4a09c513674a56758d7cfea4f6520e29/ratelimiter-1.2.0.post0.tar.gz"
-    sha256 "5c395dcabdbbde2e5178ef3f89b568a3066454a6ddc223b76473dac22f89b4f7"
   end
 
   resource "requests" do
@@ -144,6 +144,13 @@ class Snakemake < Formula
   resource "stopit" do
     url "https://files.pythonhosted.org/packages/35/58/e8bb0b0fb05baf07bbac1450c447d753da65f9701f551dca79823ce15d50/stopit-1.1.2.tar.gz"
     sha256 "f7f39c583fd92027bd9d06127b259aee7a5b7945c1f1fa56263811e1e766996d"
+  end
+
+  # pypi artifact has some build issue
+  # upstream issue ref, https://github.com/uburuntu/throttler/issues/3
+  resource "throttler" do
+    url "https://github.com/uburuntu/throttler/archive/refs/tags/v1.2.1.tar.gz"
+    sha256 "b00132cf5d77475c871124f674388cdd1b87a71153f0f795f04a037cf364107b"
   end
 
   resource "toposort" do
