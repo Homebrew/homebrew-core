@@ -8,6 +8,7 @@ class AskCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6987ca9ca56fdc7049bca53d8ab928a21f77ffbbb2ada472f68fab4b059516b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "01c411a937865505b03caa56fb77bd007aa013fc700ce18df80ce156ed6f042a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "894bab76ed98768ec3f1487a4e89c4d58daaf1587ff73a22f22904d32f59f4c9"
     sha256 cellar: :any_skip_relocation, monterey:       "741719b5541e431ca00c3d95d377ec96d5661092892578e3fe3bbf5272b5181b"
