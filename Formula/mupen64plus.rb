@@ -19,6 +19,7 @@ class Mupen64plus < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on arch: :x86_64
   depends_on "boost"
   depends_on "freetype"
   depends_on "libpng"
