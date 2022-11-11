@@ -20,6 +20,7 @@ class Gsoap < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "34714734575ed67d4e9f615ddb657f4c3f542976aee666ab8c776b757f9e4d20"
     sha256 arm64_monterey: "1c94359903d3ba4209032859ee9de3796770a727f71ef1816b26aea52564341b"
     sha256 arm64_big_sur:  "55cb4f1b8dc2b473f08ad10669a9c50d1df270c41b1a2e80e4d85c8339443ded"
     sha256 monterey:       "ea1dc19b64927f5ced7ace5733068b65b52185d9d5dd8acc47873ad654ef1773"
