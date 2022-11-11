@@ -8,6 +8,7 @@ class Skaffold < Formula
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3a08c704b5e2ec89107d7434ee2e9b35436a14c37ef17628fe34cd46806a9d5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ebab17a203c37263fe4bf173a6ab0994e5c14f7eef21efd0c99b1f99f0d5de66"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17f64d506ac03f2c879ef25e05aca0549ab2ead354b39bbfb8f7b9272ef08560"
     sha256 cellar: :any_skip_relocation, monterey:       "d1291fcd6e13fb0d6317ca997ee4a8613c2e4f5e0a460fc7338b69bd499231db"
