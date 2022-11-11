@@ -7,6 +7,7 @@ class Iniparser < Formula
   head "https://github.com/ndevilla/iniparser.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b7f315ef24e0b8e9252772fb3ec750dcd13a90796eca266ae9dfefa50ec059f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "62dbb35ffe023cea60e167ba6f6a7242d01274868df203944298be40159fe123"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b8550dc64594120847c937c9b1a4e10f6c81622de2610fd0d7818bb35b7f45a"
     sha256 cellar: :any_skip_relocation, monterey:       "1fee5c56cf1543f370b6a940a3f11aae2d1fe4517bfd98a3b5f6265d20aad32b"
