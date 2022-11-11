@@ -21,6 +21,7 @@ class BulkExtractor < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "0e4c5fa631e3536a5cda7b5b2a477e8dd84b622ef253012afbb82fc22cac5165"
     sha256 cellar: :any,                 arm64_monterey: "32ae091e7841c49c69054b14641d8f15b7491a756e551cb55fc869987e33456f"
     sha256 cellar: :any,                 arm64_big_sur:  "d42fc09b77698d26fe4a35f20351eb36198f00137ea2061759416e2c45c79d99"
     sha256 cellar: :any,                 monterey:       "e68a559ff002d7db26b525160507f1378b8138b6105b8e37490d6cb51f29dda3"
