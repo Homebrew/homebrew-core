@@ -8,13 +8,12 @@ class QpidProton < Formula
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "44c4f218f986305121c6187c9bc44e79b33e6db6fced15f15eb851a8ed2035dd"
-    sha256 cellar: :any,                 arm64_monterey: "57f4664016b0cded28149675e1fa668ac2b32f1918402f9cbf2e02ccc635ea3d"
-    sha256 cellar: :any,                 arm64_big_sur:  "0ba5caf1d2f3a0ebf4148c6c323570dd800cfd8dafc14dc972dab9f3201673de"
-    sha256 cellar: :any,                 monterey:       "cff783e83560e3a08e52092a5b9a8cf7de2d48a14d6b36b5f323acf4f5af3f06"
-    sha256 cellar: :any,                 big_sur:        "72a8f436d43b2ee9f9fddead48d21990a6dd3e95afb4d5691a55d3e3f0db52a7"
-    sha256 cellar: :any,                 catalina:       "0d29e0f4749b5196e520ed34dcf3a78bece3a2f74f0c18ecf2b04fba93eff9c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c4ecc72758ad5ecca0643fc40f24e6ed8ce5f54215812f2296d816d849411e6"
+    sha256 cellar: :any,                 arm64_monterey: "9bec8fe8349745cb8fdbee472fa64be6c1a6711423f89cb6e2bdae0e90dd10c6"
+    sha256 cellar: :any,                 arm64_big_sur:  "a438ec0874c02dc1578d38fcc608c0a28fcfebf84e2451bfd6072c786407d148"
+    sha256 cellar: :any,                 monterey:       "247562ce7db9cc172094f9262ab30f423dfdd02be71594e7e2dc91853e83589e"
+    sha256 cellar: :any,                 big_sur:        "0e4cc14c320a9d048763882c450c9c99546222d495ad93c21286edb358c3bf40"
+    sha256 cellar: :any,                 catalina:       "f5b6ee0624a2acc2a408c7fc20a44bac0527962444a87b259250d0907f8aee32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2eb7aedbcc111dfaeb33fe1c095a49adc227ab5923c612ca067870a0a0ad29ee"
   end
 
   depends_on "cmake" => :build
