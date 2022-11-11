@@ -8,6 +8,7 @@ class Clip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "8676450d6feb3f337e4b6ad2ec8f6d278423df6d7dcccaece3c6254a23257493"
     sha256 cellar: :any,                 arm64_monterey: "8219feaf67b50d5c9645289e981834e0202e2de96fa0af9f087a85d5a68b0a08"
     sha256 cellar: :any,                 arm64_big_sur:  "40bf4ac77feee0c17ffbd6752aadcbe176de0bd4ceb9705089e666f1015d2c59"
     sha256 cellar: :any,                 monterey:       "e7942d86f1258ab17333143d5f91c652208e50a14d7a6d9d01b6cfe4125210e8"
