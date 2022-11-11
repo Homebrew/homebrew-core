@@ -1,8 +1,8 @@
 class G3log < Formula
   desc "Asynchronous, 'crash safe', logger that is easy to use"
   homepage "https://github.com/KjellKod/g3log"
-  url "https://github.com/KjellKod/g3log/archive/2.0.1.tar.gz"
-  sha256 "b5db9008aa66c3130dc13ab83766368f2491ea87931de7e30f4db416b4964c00"
+  url "https://github.com/KjellKod/g3log/archive/2.1.tar.gz"
+  sha256 "13c9d8cc0387792301f264c4f623618fc4dea9814d9b5844931ffbfd9aafb1fe"
   license "Unlicense"
 
   bottle do
@@ -17,8 +17,9 @@ class G3log < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
