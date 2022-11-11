@@ -9,6 +9,7 @@ class HuggingfaceCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "21b1688cc427fdf78c6d43765b7134146f6bd378fbfed45087814681a5a5435c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ee5c55b6a27db465189da3a7da9a53ce0da40016f4ec7c3ba025bbf6447848ed"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ad4169f4567842cc5dbcfcabc1251140697b3ae798ece27e3a94a936d49e592"
     sha256 cellar: :any_skip_relocation, monterey:       "f5b814655cf8632644f7fa13737a730175aeb2cc22b626282bbffd6dfd382949"
