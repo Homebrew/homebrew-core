@@ -6,12 +6,12 @@ class G3log < Formula
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ad4af58dea1fbcc525f5fed66daa7baadf7df43a4bf11fd08fce23e6213d58e0"
-    sha256 cellar: :any,                 arm64_big_sur:  "e6a54f2b1e8af866bb3d4e8208213d214f85b83cef3d729acb52207bbdf67f56"
-    sha256 cellar: :any,                 monterey:       "aa72dea515d8a3d60db36d072ff2069489a18bcade85932bbc9c3be50e8f196c"
-    sha256 cellar: :any,                 big_sur:        "66a1c4830ff6be880401a638a15480bcabf25e6cd56b0e37f3e76785cb8b246a"
-    sha256 cellar: :any,                 catalina:       "cafa65bf65890e7ad78abbfbf0c58c2ab22f595e8d193c601655bcb7f9ac3636"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cca24da4e23d767a8da2e58825f73ed0d9bbe5bc695d6480687035a611c3b7e1"
+    sha256 cellar: :any,                 arm64_monterey: "99997b6ac31ba2e254baa6b045dc0852c80960ec164955541c2e397d46fe376c"
+    sha256 cellar: :any,                 arm64_big_sur:  "f7986791faae29689a5c14f0610f0ed28df3cc9fa777b6b8af1a93d5c839d687"
+    sha256 cellar: :any,                 monterey:       "1a6a132534a972a432226947aab60285475b0ade28754518a96852add9f3eba4"
+    sha256 cellar: :any,                 big_sur:        "1944ed238a728e517ad30758607f11e955252f9eead61e777b82c8f8f1f317b2"
+    sha256 cellar: :any,                 catalina:       "eb81f87d497f5c9fc69bcafa7563aafd48ea9a76f880ee18a56e7bf51aa355a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b9436845f91a4a005eeab1aac299917fcbb77d949cb2d616135bb8caad85916"
   end
 
   depends_on "cmake" => :build
