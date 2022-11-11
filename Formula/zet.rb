@@ -11,14 +11,12 @@ class Zet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e2e80c46dbdb8625b7b43b0a0767e5f47edc1fa2a2c5ffb726295b8ec46d1e8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1efc8a1c86b3f42944a27c67605171646b9305bab4e26c5952564f74b37ac09"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c6e7d941904683befbbb15613f071a946a144add3cac297592c104d6928dc364"
-    sha256 cellar: :any_skip_relocation, monterey:       "c9e069a411e00ece8c19c3ce766d2bd86824cb08ab4dce3237b09ea5b46c90b1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4515a47a131a1cf5f99a142985563c852115ab85eb9930d763331295bc001c0c"
-    sha256 cellar: :any_skip_relocation, catalina:       "27a2d603392d8f3eb4334524a9806b8138c1ce6016be87c4c17536861e1b1343"
-    sha256 cellar: :any_skip_relocation, mojave:         "4aa63c78cb8fe11496f62fbbc3a8877640273c8171c28fa44be0fd0325b06a76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5487a78a3b283e20c280db65537f0915d610a60a4ec91650eed85ebd71a9d420"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d21b66a48e85d1563067e7c3b390d148886bb93c631af00bb0eaa1e4430c7d7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2f7d3a54ee2a0e490a97a455691c76442f3e5926f811b8bd5c18867f174e11c"
+    sha256 cellar: :any_skip_relocation, monterey:       "e60284b926062a06239f9467e1b58cfe57bcf5a340b744a2a2d745c7166c5b8c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7abd5ab96d4fe4f518d843b12e3b6c568233c6a10407a09194ab54585be44d0e"
+    sha256 cellar: :any_skip_relocation, catalina:       "c0d80bde9ec8b915ec1b13c198ea7ba8081d0980a080be9894467ce8b79ce124"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20a54cef3e368049b82cdb8320c31e9480be861f86681d34aeda1adeb1f976b2"
   end
 
   depends_on "rust" => :build
