@@ -16,6 +16,7 @@ class Wordplay < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_ventura:  "e5046dfd7e922872308efed4f745399220ddc5f7f62f4d200748700d136e956a"
     sha256                               arm64_monterey: "28dcc7b1dd3d809b79e3b331309d2f3ebd4b23383e76813b0397dcc617527e48"
     sha256                               arm64_big_sur:  "5ce75cc234b4d54de31124443d207bae75ed01211cdb23770363efc0b984bc75"
     sha256                               monterey:       "f456578ef358b10b91008a83f42e6877a4daa32615588fbb3ac629d9db804c5a"
