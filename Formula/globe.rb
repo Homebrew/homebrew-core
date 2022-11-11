@@ -14,6 +14,7 @@ class Globe < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4473c2c0beaa4ed43eb61e261c0dea124561f7060500b34f6dbe0d8ed2a74f54"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7aaea040d2d0551c2b5ff578222fceb20b0768d9a040c1ab7091f919b7df1235"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d614010f862d04bbc2fc08ba4f220fde562ee07f08fe7f2fe15470afa2ad09c1"
     sha256 cellar: :any_skip_relocation, monterey:       "af722a0052f1e690155ebe6a1aa9640ac733ebcb76c0cd37335d21942e1f160c"
