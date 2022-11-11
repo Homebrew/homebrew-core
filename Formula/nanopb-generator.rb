@@ -17,7 +17,7 @@ class NanopbGenerator < Formula
   end
 
   depends_on "protobuf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   conflicts_with "mesos",
     because: "they depend on an incompatible version of protobuf"
