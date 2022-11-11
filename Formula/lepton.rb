@@ -19,6 +19,10 @@ class Lepton < Formula
 
   depends_on "cmake" => :build
 
+  # ARM might be supported in next release, if there is ever one
+  # https://github.com/dropbox/lepton/pull/147
+  depends_on arch: :x86_64
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
