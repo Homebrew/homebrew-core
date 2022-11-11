@@ -1,10 +1,19 @@
 class SpotifyTui < Formula
   desc "Terminal-based client for Spotify"
   homepage "https://github.com/Rigellute/spotify-tui"
-  url "https://github.com/Rigellute/spotify-tui/archive/v0.25.0.tar.gz"
-  sha256 "9d6fa998e625ceff958a5355b4379ab164ba76575143a7b6d5d8aeb6c36d70a7"
   license "MIT"
   head "https://github.com/Rigellute/spotify-tui.git", branch: "master"
+
+  stable do
+    url "https://github.com/Rigellute/spotify-tui/archive/v0.25.0.tar.gz"
+    sha256 "9d6fa998e625ceff958a5355b4379ab164ba76575143a7b6d5d8aeb6c36d70a7"
+
+    # Update dirs in order to apply socket2 PR. Remove in the next release.
+    patch do
+      url "https://github.com/Rigellute/spotify-tui/commit/3881defc1ed0bcf79df1aef4836b857f64be657c.patch?full_index=1"
+      sha256 "7405e773a49c9b6635fa6a559506e341c4ce38202388e7d7c6700964469d7f37"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a77728312f2125fb93bc0dc06cb17060c76d68e3231659e77568d13c221b02a"
@@ -22,6 +31,13 @@ class SpotifyTui < Formula
     depends_on "pkg-config" => :build
     depends_on "libxcb"
     depends_on "openssl@1.1"
+  end
+
+  # Fix build with Rust 1.64+ by updating socket2 using open dependabot PR.
+  # PR ref: https://github.com/Rigellute/spotify-tui/pull/990
+  patch do
+    url "https://github.com/Rigellute/spotify-tui/commit/14df9419cf72da13f3b55654686a95647ea9dfea.patch?full_index=1"
+    sha256 "44f95b14320eb3274131f6676c1fb7bc4096735a16592a01fc1164dbe3a064e5"
   end
 
   def install
