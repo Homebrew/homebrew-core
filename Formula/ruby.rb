@@ -29,6 +29,7 @@ class Ruby < Formula
     sha256 arm64_big_sur:  "93b9525b14a167cea3556c9aa1b28a6762524d2fd4d74a4667f01992e7ce9feb"
     sha256 monterey:       "ae2d89c336dc4a267ddf433bbd82b1046c24485ca4016430c0fc3c17e5d0ffaf"
     sha256 big_sur:        "38af8aaf630259083bc70d19d742258ea556a2ae32cdbafa48345c9da000f32d"
+    sha256 catalina:       "49c8242c555781b3bb355e1307fd8ab9757a10b7c4083b824274146f87040b59"
     sha256 x86_64_linux:   "c6187c24c90f94b51cb5fdc6e20dca92f0e4e3f54c561446f61f4b4bd845a1ec"
   end
 
