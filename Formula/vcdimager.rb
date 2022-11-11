@@ -7,6 +7,7 @@ class Vcdimager < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1468d801a2ebe345de5a8f0705aa9aed25dba7e667d050fefdaf860bb7bc1bd5"
     sha256 cellar: :any,                 arm64_monterey: "1b7326b090a4da9db5da22bc68ddbbb5f2544fb4a9070d3d4bfbb56a8b6e8d67"
     sha256 cellar: :any,                 arm64_big_sur:  "858d5a11fe090476123893d28b270ca807936569ed83b7b3808b79c9519fa99c"
     sha256 cellar: :any,                 monterey:       "4740dd40f4e93c75d5876da5079e13c162dd5053485b900e51024cdd2c99fa4d"
