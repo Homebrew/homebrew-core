@@ -8,6 +8,7 @@ class Nvchecker < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c25d8429ecf043943ca32f5bae9f83071a296d14713c5b0ae09eb148ecbc9e5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "714732a3ce9207857bf42c220c9f3382f85843be07cd0689a00708007abfdb16"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68e7657c8488870ae7d6bca3e375e1cfa40f2f8138a8d50f36c66ef863bbac7f"
     sha256 cellar: :any_skip_relocation, monterey:       "31783d86990db35549918611935bd9bc8f786ce7f3d1100fdfa50e9e678fad7a"
