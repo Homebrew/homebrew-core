@@ -8,13 +8,13 @@ class Mathlibtools < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "84d1859f92436df0f39358f81089757373316ed54936ce6b3f9b96d52a661060"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8a9f0c8621bda53ff385d30203eeae8f55ee2d53742663c5f09edcfb14a4d95"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a19dcb5d30be098d68e8f77343767964d47327746fcee68cd2f306c77da9f48"
-    sha256 cellar: :any_skip_relocation, monterey:       "5e38a71db98ff4baffaa8be2e7b4a1bf366dd67ba213c42bde6327824f53bc6c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0fb55db2e7aaade569d5dd96ca900ef835b1cd240bf2e639661d6589547f8ef6"
-    sha256 cellar: :any_skip_relocation, catalina:       "b952f03886d25f5d5b1d4368cb265447c9aa37d6ee00e0b9da7367389f8ace6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "688e996098eb8b6199311d732dc0f460980273cd18681f64bde6525737b4683d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ecaac25dd754f649814e952b3f67840740fe8e25bc2c6fb3f75075c23134ec9d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b01580cdc06246aab74284b27b289e114e51c88843c8a1f9946007f317f583ff"
+    sha256 cellar: :any_skip_relocation, monterey:       "7e53b63f30b4544fcdca725defc6cd68785ed4dfa63c804c0e9229cb9321ae26"
+    sha256 cellar: :any_skip_relocation, big_sur:        "da15307f11ccea69f942faa408c9cf9e821010796dcdac1ae5c19d096e3ce7df"
+    sha256 cellar: :any_skip_relocation, catalina:       "e757f8fcb418b026b93512d9980b7cc985659755bf8cebbcaea1dacdc21baf12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48aac5060943432a4625fdea7d692f2b174db2a5ccd41d3530eca3535ae04954"
   end
 
   depends_on "lean" => :test
