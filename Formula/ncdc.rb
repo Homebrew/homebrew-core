@@ -11,6 +11,7 @@ class Ncdc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "98457589a1d9849757717a82ae339760498fc175be64629f3b0ffb983cb1b1d5"
     sha256 cellar: :any,                 arm64_monterey: "53c31dd30f67aed950af38ff4c38caa28d3457be2e0c0a37ff458a36850126e9"
     sha256 cellar: :any,                 arm64_big_sur:  "98556bfc802f5fcf60afe2233c49f214f6cde7c55455f1cb0faa3b69661e4d6c"
     sha256 cellar: :any,                 monterey:       "322804a1c48dc8c02ad86dc62a8201cdf2396922e3b1192a33ca4e164ec3110d"
