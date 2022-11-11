@@ -22,7 +22,9 @@ class Wiredtiger < Formula
   depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "swig" => :build
+  depends_on "lz4"
   depends_on "snappy"
+  depends_on "zstd"
 
   uses_from_macos "zlib"
 
