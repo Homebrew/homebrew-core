@@ -23,7 +23,7 @@ class Systemd < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "rsync" => :build
   depends_on "expat"
   depends_on "libcap"
@@ -37,16 +37,17 @@ class Systemd < Formula
   uses_from_macos "libxcrypt"
 
   def install
-    ENV["PYTHONPATH"] = Formula["jinja2-cli"].opt_libexec/Language::Python.site_packages("python3.10")
+    ENV["PYTHONPATH"] = Formula["jinja2-cli"].opt_libexec/Language::Python.site_packages("python3.11")
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/systemd"
 
-    args = *std_meson_args + %W[
+    args = std_meson_args + %W[
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       -Drootprefix=#{prefix}
       -Dsysvinit-path=#{etc}/init.d
       -Dsysvrcnd-path=#{etc}/rc.d
       -Dpamconfdir=#{etc}/pam.d
+      -Dbashcompletiondir=#{bash_completion}
       -Dcreate-log-dirs=false
       -Dhwdb=false
       -Dlz4=true
