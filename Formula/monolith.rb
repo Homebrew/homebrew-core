@@ -6,13 +6,12 @@ class Monolith < Formula
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03350686a7d15fc9a6b183a6d00bde0d870f525d86f8974f652f71936c31d09e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eaaeccf00d6cb47df1450226435c8aac79a3382ab8e15359a564a9b8caaa2d1c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e969e57c6da559b1e4e980718c2cdec6e304afa125de78df4c5b8358adc52a3c"
-    sha256 cellar: :any_skip_relocation, monterey:       "56e363ad822621940bd16b849fd34193c726b152fb6d1ff2a19fa3212ec35fa2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8ad17b269b57c784a65379c15f7de65b4bed65e31f08bbfbdcd20db08407ac72"
-    sha256 cellar: :any_skip_relocation, catalina:       "5738d62c0959a59720506d5c81a1287d1db6341760d3bbe8fd5eb9544504de09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03fe087c83f3d29d4df34ba8fe71be011344107973db6673271a282e9eb1017f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8fa307ca859044ac1c9699a35dfd72c8746bbb4a96909ea6b9f65a025483694"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "90a44adc8f1ccbb88da3c6c904472c4944b6146ffacb39ba380d99f731391c0a"
+    sha256 cellar: :any_skip_relocation, monterey:       "0f4d4ecdf066f62844db3422e1ba1219ca9ca187879cf38d95f860efda7f3dde"
+    sha256 cellar: :any_skip_relocation, big_sur:        "53dde0061e4b7c58d7400aae84e4164a02ac003f2edb7c69c0b4226077d8c0f6"
+    sha256 cellar: :any_skip_relocation, catalina:       "d695f22c79b7b3c1ca434db9c8dfc87acd97c69d9ecf9463530dc15a8e0c58bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f58a88c34fe41097ce534b2c0aef72d5f8805bfc349857b29b9e244a209e22ef"
   end
 
   depends_on "pkg-config" => :build
