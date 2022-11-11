@@ -6,6 +6,7 @@ class Vitess < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b20c1e7a1e1c09c1e53b90bc7bfb943ea643bdfc8317871ce03f31b8db72f04c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4352ef053f7440fd238beca302a5403eaf3283eaec2bee96c9d9f1dcbfd5420d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76e201d0f261a4ad46ce1f91087bc862be18c0afae618c7c3f8628fef3bfc9a9"
     sha256 cellar: :any_skip_relocation, monterey:       "b90312ec97fcd0bd83792e3b2d284e75371e1e2fe1dba7f337358a67e493441e"
