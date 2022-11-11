@@ -15,6 +15,7 @@ class Gsar < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2259d416f5a0fa7f855879195ab6ff9855c0d9c4786522311abaa058e90fa798"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "68051084dfbefccd95074b0e7cf9316fe916bd23e452a8c018b83c2aa185c0e7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86de578de3d7754f9f3b6f3f092a262e32e2621f240105a8e983ce2b2afe4f7c"
     sha256 cellar: :any_skip_relocation, monterey:       "7b479c3f3d2d9ab12bacd67ae0792472f803f1c59ea65b1c180bba9c9e8cdbeb"
