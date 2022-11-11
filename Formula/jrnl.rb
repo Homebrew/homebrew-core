@@ -8,13 +8,13 @@ class Jrnl < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "29ade74e3a427e4d3d4dff3324cffff140818698355868523b863df0c7cd4c0e"
-    sha256 cellar: :any,                 arm64_monterey: "89f649fa2939f3daf4ccd60f08bf1de6666002e7cc2c8c1cc883a26743480484"
-    sha256 cellar: :any,                 arm64_big_sur:  "27dcae8a5b14ddbbe85a3c210899aef56195c96405e0446c84a8619ea298c708"
-    sha256 cellar: :any,                 monterey:       "660324415c728548a09ddc4aca23ebea93ad2bce3691f6082fe1f8159bc27584"
-    sha256 cellar: :any,                 big_sur:        "7357dee4b27d04dceda331414201765fa01414524427f47754d99522d5acd971"
-    sha256 cellar: :any,                 catalina:       "eb0a969550ba3af1c44814b007439a4b000bc4eef9372b3b80db076307019d8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa9daede98af8ed318191aff9764affae8a88af660beea045a6c402c08ecf731"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "211d8a37a7d62f69376335277a15397b76b4e56ba288f9a839730b24e54758f2"
+    sha256 cellar: :any,                 arm64_big_sur:  "593c139d53cdd133756d9b0d507b1d17dc86d149fae9e5c1f10b8aa021d6bcf9"
+    sha256 cellar: :any,                 monterey:       "6ad14f522b9cd577952e143bbdf43f68b18575b72ae059593c21722a63be607b"
+    sha256 cellar: :any,                 big_sur:        "65800b89bca17f70f2adbfe4fd8308dbaaeb520aeea7cb5227b77c3bed5ba8c1"
+    sha256 cellar: :any,                 catalina:       "b4f734e3d8979b69335942ff2adede2d0cb6ab5f7aaf22ae047511946f53b8f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eaf58a4526ddeca745362684249ab1542073bc699af16406bb14ae1077c9d523"
   end
 
   depends_on "rust" => :build
