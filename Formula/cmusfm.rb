@@ -6,6 +6,7 @@ class Cmusfm < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "91b73a874c10d4deeebcee02a451edff2e1034f88da878506f221eb6a7fa4037"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6aa58d8aaaf982d09847ca12fa1d90a29d9697d3c396445345d6151f7268ab3e"
     sha256 cellar: :any_skip_relocation, monterey:      "f4693ccd831c18591443a07ca6e92d066d912dc2deb91be1e58d9b926d556e13"
     sha256 cellar: :any_skip_relocation, big_sur:       "fb3118b55ecf198907e43466587b28d328d2f41337f75701c4288ea72759ee7b"
