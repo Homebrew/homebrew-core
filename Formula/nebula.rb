@@ -6,6 +6,7 @@ class Nebula < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ec2ba6c97c77457798bd69f5f4d9b178f8b33195b0060d15e84141150d01f8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9221b0958b043ad31d19d62582bfa5e87c2c929cd93afc88dfbbb5ea152e2383"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9221b0958b043ad31d19d62582bfa5e87c2c929cd93afc88dfbbb5ea152e2383"
     sha256 cellar: :any_skip_relocation, monterey:       "4fe9ad97db34803d1f950d3b5a574139b3978e9fca493e305d3852752d38dcfc"
