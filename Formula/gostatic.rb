@@ -1,8 +1,8 @@
 class Gostatic < Formula
   desc "Fast static site generator"
   homepage "https://github.com/piranha/gostatic"
-  url "https://github.com/piranha/gostatic/archive/2.34.tar.gz"
-  sha256 "fc61c77e76e81b17b9955d18341da3f62e2f8def6a8f33156681e046ab1e80c5"
+  url "https://github.com/piranha/gostatic/archive/2.35.tar.gz"
+  sha256 "a179a469938c4ea6be7185bfcab42153114e0b95b62006ec266eccf5e73d3ae3"
   license "ISC"
   head "https://github.com/piranha/gostatic.git", branch: "master"
 
