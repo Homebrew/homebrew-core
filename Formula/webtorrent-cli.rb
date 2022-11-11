@@ -8,6 +8,7 @@ class WebtorrentCli < Formula
   license "MIT"
 
   bottle do
+    sha256                               arm64_ventura:  "be8479b3f65c2a5c11794f53d04ee02357a76bf3c65f5bc410ffc09e805906f8"
     sha256                               arm64_monterey: "0e582b5e95bd7ae1462caca1b66e796fa83553b75dcf9c1b98b7e4e36f2f57bf"
     sha256                               arm64_big_sur:  "4658471f872e03c58d8f1ace044942a3debb7e6ad9dbf2a1ac9546e93efde890"
     sha256                               monterey:       "257f5b960d1291aa153aff64eb1785ae36512bb78516d7d2d132d52a9ff44671"
