@@ -7,13 +7,12 @@ class Jaq < Formula
   head "https://github.com/01mf02/jaq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1ceb53c8e4a5e997547f26783cb981c99e6ac61f02087eb09e4b638949250ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b463401496186b08b3f8125a679b4f432a5e040e0fc67a6bd9dcf0e00f732168"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cac7264e2f8d58924649092b078c6c43aaba936f468af96c0ebeee07400ab9f"
-    sha256 cellar: :any_skip_relocation, monterey:       "1345964158b91507735f9dccdf1ac6420da2991613654b0f4ef84d0129848096"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7c9a0461c41ba631853fe6e2100b558cbca6d4809e627186bb4c3f3790a0691f"
-    sha256 cellar: :any_skip_relocation, catalina:       "056033a04399508bbc951977971f71afedec48d2e5fac6bc3dabc30f8287007c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efd7f65d3d5bd40f6bafc443d502a7469d796ec746ff3726b2a6395ea11bae9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "398e5b6a24e16aabc2dfc8b5a92c7362dd62fc400108493d4e29118514af6003"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f921bf6c5248698ffdc8a3a23ded3e0dd28c27762ecaa228f7c0a3c220544f06"
+    sha256 cellar: :any_skip_relocation, monterey:       "576365ce92bddc5a1d66bdd558735e1a8ae47e2b319e87d01b81c7af42cae696"
+    sha256 cellar: :any_skip_relocation, big_sur:        "28213fa222287b94a2cb34fd77427a146c9168272fdbfe1e2bcd143f47730ffe"
+    sha256 cellar: :any_skip_relocation, catalina:       "6c8bc87a10447f79523fccb342fdeb17ff7baf84816cc535ad8a07faf1f7ce5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cb59766be691170954a65abc1bd561dc6c95bba63bdd1a28a557db894b50158"
   end
 
   depends_on "rust" => :build
