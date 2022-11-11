@@ -7,6 +7,7 @@ class Liblouis < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "fc6537c67f337ed02502cb8af8ebbf110c8071e15762b89a8d0021e8330a466e"
     sha256 arm64_monterey: "2ff0dd1d1a33c710b7fdde2a1c49f4780d586f1ae29bd7283eed3471d0b948e3"
     sha256 arm64_big_sur:  "1e908e6a6877ef23418c0b5ac9fce615ec0181e2a8ca21cd5e311ea2398fb591"
     sha256 monterey:       "dbfc4a7f7a8cc40ccf5afabb1f92ac2e369dd7f740ec3d4fba8ed915864dbc36"
