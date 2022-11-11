@@ -10,6 +10,7 @@ class JujuWait < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "057939a77b0e8ed077a052387dd3059c19e4ed4968a31262202b9ccd29d9e4aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb2b340dc557ca8966456d433cdcf924900610ec8c734a715b7376a3b39b8ce8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb2b340dc557ca8966456d433cdcf924900610ec8c734a715b7376a3b39b8ce8"
     sha256 cellar: :any_skip_relocation, monterey:       "01445d2f650d64e37127cbadc075d4d313836872731f451a869df6f518efbe51"
