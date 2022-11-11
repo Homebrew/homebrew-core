@@ -358,7 +358,7 @@
     "extra_packages": ["junit-xml-2"]
   },
   "mycli": {
-    "exclude_packages": ["tabulate", "Pygments"]
+    "exclude_packages": ["six", "tabulate", "Pygments"]
   },
   "nbdime": {
     "exclude_packages": ["six"]

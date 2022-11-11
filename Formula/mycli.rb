@@ -22,7 +22,8 @@ class Mycli < Formula
   depends_on "libpython-tabulate"
   depends_on "openssl@1.1"
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+  depends_on "six"
 
   uses_from_macos "libffi"
 
@@ -36,8 +37,8 @@ class Mycli < Formula
   end
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/d9/5d/bd0b08f7f8f9d02f44055cf4b41aafa658c1b0731237f303b9fdb49fc8d7/cli_helpers-2.2.1.tar.gz"
-    sha256 "0ccc1cfcda1ac64dc7ed83d7013055cf19e5979d29e56c21f3b692de01555aae"
+    url "https://files.pythonhosted.org/packages/27/01/6aaa4fc415274ac77372b4d259c234b9f5bfc8d78144c3fda1f3019d4690/cli_helpers-2.3.0.tar.gz"
+    sha256 "e7174d003a2b58fd3e31a73fbbc45d5aa513de62cbd42d437f78b9658bd5f967"
   end
 
   resource "click" do
@@ -56,13 +57,13 @@ class Mycli < Formula
   end
 
   resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/38/b6/bc58f9261c70abb5fd670f9ad5d84445a402b4b473f308c5bf699cd379e0/importlib_resources-5.9.0.tar.gz"
-    sha256 "5481e97fb45af8dcf2f798952625591c58fe599d0735d86b10f54de086a61681"
+    url "https://files.pythonhosted.org/packages/06/72/6bf0df4fe7a139147f5d6b473f16d5aefb7bc5b719ba5dd33f230d35760f/importlib_resources-5.10.0.tar.gz"
+    sha256 "c01b1b94210d9849f286b86bb51bcea7cd56dde0600d8db721d7b81330711668"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/c5/7e/71693dc21d20464e4cd7c600f2d8fad1159601a42ed55566500272fe69b5/prompt_toolkit-3.0.30.tar.gz"
-    sha256 "859b283c50bde45f5f97829f77a4674d1c1fcd88539364f1b28a37805cfd89c0"
+    url "https://files.pythonhosted.org/packages/e2/d9/1009dbb3811fee624af34df9f460f92b51edac528af316eb5770f9fbd2e1/prompt_toolkit-3.0.32.tar.gz"
+    sha256 "e7f2129cba4ff3b3656bbdda0e74ee00d2f874a8bcdb9dd16f5fec7b3e173cae"
   end
 
   resource "pyaes" do
@@ -85,19 +86,14 @@ class Mycli < Formula
     sha256 "105254a8b04934f0bc84e9c24eb360a591aaf6535c9def5f29d92af107a9bf57"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "sqlglot" do
-    url "https://files.pythonhosted.org/packages/19/7c/760cd898c7f5293ca235d9abfc597b08c54e560d2aa914e201b4720e005e/sqlglot-5.2.0.tar.gz"
-    sha256 "08d024babae886b978af77320ff3f1558a0fb3287cca946d95a7cc0d39d33da2"
+    url "https://files.pythonhosted.org/packages/c1/bb/2aa125cd737ff9cf7f07960235611ba976b6fe8c84642100fd0ec58d4a12/sqlglot-10.0.1.tar.gz"
+    sha256 "b702a6232873c3297213ab97ce2a04c32f37837ff8df8a788cc61281f50d5f38"
   end
 
   resource "sqlparse" do
-    url "https://files.pythonhosted.org/packages/32/fe/8a8575debfd924c8160295686a7ea661107fc34d831429cce212b6442edb/sqlparse-0.4.2.tar.gz"
-    sha256 "0c00730c74263a94e5a9919ade150dfc3b19c574389985446148402998287dae"
+    url "https://files.pythonhosted.org/packages/ba/fa/5b7662b04b69f3a34b8867877e4dbf2a37b7f2a5c0bbb5a9eed64efd1ad1/sqlparse-0.4.3.tar.gz"
+    sha256 "69ca804846bb114d2ec380e4360a8a340db83f0ccf3afceeb1404df028f57268"
   end
 
   resource "wcwidth" do
