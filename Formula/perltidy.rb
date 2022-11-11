@@ -11,13 +11,12 @@ class Perltidy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a6f839401d29d45c877fa479e5fe205ff83797663b7463f480343bbb2ce4e75"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a6f839401d29d45c877fa479e5fe205ff83797663b7463f480343bbb2ce4e75"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "036599d0496cea185b2afb15ce9e4b720cc9f4ff93fa534f91e7b2d431091b7b"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e3aa5b804fe15bb415812628756db253b0d0ecf7f8978923d2cf84efe877240"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a130ee5632843b72c6217dfaa71c758d0b9b8fb63f794df638e87aa32dd8070c"
-    sha256 cellar: :any_skip_relocation, catalina:       "a54e50b3b596db82c4654202936fd376c0db415172adfedba42b1b2f28d5eb2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05cc61fdad984047b80e0b9519e4e7a7afa694879fa8958b350827c8a01b9901"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f39d3eda57667b6349ce3aa2a484517cadefa2ae10087ebb9eda0eeb47149767"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2aeb6b365bc1db132eeec7b37a3eda21abf5ff9d8f380f11120addf96c30b1cc"
+    sha256 cellar: :any_skip_relocation, monterey:       "374fba984abb02546d3d384907f24ac65505d2581f4c91cc6110fd61857567ff"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8340d207df0dcecc30e2bc3eb91ec87c2f2cf870d08888b37f12291ea64a0d8b"
+    sha256 cellar: :any_skip_relocation, catalina:       "16eb37fdf7c7ffaf3d59a8ae29202ce28dfdf34488ddb329c953a903b5160195"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1291c0e97f2f792816d0a40f2909957c755bdaebaaf073e1d1caee6b437b2ead"
   end
 
   uses_from_macos "perl"
