@@ -15,6 +15,8 @@ class Openslp < Formula
     sha256 x86_64_linux: "31a9bf8bd539a71378e4f5f6a438cdef166659e3641a9899213dd166dcaeee6c"
   end
 
+  depends_on arch: :x86_64
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
