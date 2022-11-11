@@ -16,6 +16,7 @@ class Kpcli < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2a440001de998b54ca9d2a97a73f73b43b6d024d2ad9c86e631bc2631c3d0ae9"
     sha256 cellar: :any,                 arm64_monterey: "e6822ae86583cea07648a7a30af3200840f116d3906bc156b6d65d07cd77978e"
     sha256 cellar: :any,                 arm64_big_sur:  "3a64a9484bb333bb7d5f5899a198068aa31eebea62085169395fb5d33b9f8b5f"
     sha256 cellar: :any,                 monterey:       "2f478468bf140161be5c1d1be0460eee3ecb36939cb75b73a96c85697ac3301f"
