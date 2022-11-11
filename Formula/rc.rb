@@ -7,6 +7,7 @@ class Rc < Formula
   license "Zlib"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "384e3f48c4d39fc6b6eae5638514b345684dd3d8af6a14b73de894927083dcd5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ac5175270dab427e207bc53ab5d47f6e3f28e8618b471df5a59dc2fd29719cb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18c672af9e2e5d2e88ca29d57aec584aaa57daac97b9ac330d9f8164beb9ecce"
     sha256 cellar: :any_skip_relocation, monterey:       "02d867de600bc9787231892ab7de1dcd48caff4328cfd7d7c44e0a15eca6a677"
