@@ -13,6 +13,7 @@ class Openttd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "c0474c89956d999fcdf65ffabc20acc891fe6f553f68dc2dae121e9b1bef8e62"
     sha256 cellar: :any, arm64_monterey: "b7634c8226eefa527c8c18889b2a1493df76145f81004d137186ff60bc61cefb"
     sha256 cellar: :any, arm64_big_sur:  "59a846aef200324ba4df723fe712c5dfaa4044f01d34b328839c30ea5b52fb0f"
     sha256 cellar: :any, monterey:       "686298b62aca61f3215eacca71a457e35c0cb439d334a08a625ce096268cd998"
