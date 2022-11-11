@@ -12,13 +12,13 @@ class RubyAT30 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "28e6dc01b10fd99fe76a2cf79e72647687eb32e2ee3ff66c5efc15b7340412f2"
-    sha256 arm64_monterey: "ff52c7f1a50f9beac2caa2329dd7e63892f331e47dba8047e97f9e1fd5b6e180"
-    sha256 arm64_big_sur:  "2737c74c4efa38121c8ff72b8694fa04d4bd4987e5592c4d17872051bf261c16"
-    sha256 monterey:       "e3aca6cab3ba291170a3106bf8bd9fc5178792e77612459d5eea43ff848ccc3e"
-    sha256 big_sur:        "e83d09c3ce36f6d6853748b32cb28e76d26820061dbcec5ab5c47180eaebb899"
-    sha256 catalina:       "859609c8a9a8f182ade5d363810b20c96e81b4815d513138ba32568f6675eba3"
-    sha256 x86_64_linux:   "44c9ea43429a04b0931c372762bd5f5619963576ad46e5d3f1197956a795b299"
+    rebuild 1
+    sha256 arm64_ventura:  "f60fa5015c6a0accc49de3bb5ec58aa373680c360cce2ef7e40e4d3782c07f30"
+    sha256 arm64_monterey: "ea3b5314bc744f15be0bd5c62070c54ca272fa04190c94e77a28b043ba20dc85"
+    sha256 arm64_big_sur:  "317f70b4a1c98e5e48fe066544e1437fc500af3a155e558dfcbc59550324b6fc"
+    sha256 monterey:       "07da862786dd7246bcb7c77361a8e1dabe867e828804e1e8ae51cb7e9b9c9a1b"
+    sha256 big_sur:        "73b0a3444681005900d75bcfa7a10119c613682ac5f5292c89ef1619461cdbcf"
+    sha256 x86_64_linux:   "522e047191cf9e91223903203b9729d4f7a433cabe5a48e51aeaa99847a652fa"
   end
 
   keg_only :versioned_formula
