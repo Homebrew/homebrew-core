@@ -18,7 +18,7 @@ class Mathlibtools < Formula
   end
 
   depends_on "lean" => :test
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -68,8 +68,8 @@ class Mathlibtools < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/9e/89/90846e0da5c412cbffb66d1f976b056cd46c6f2aa7f2f1eb271573b5fefb/networkx-2.8.7.tar.gz"
-    sha256 "815383fd52ece0a7024b5fd8408cc13a389ea350cd912178b82eed8b96f82cd3"
+    url "https://files.pythonhosted.org/packages/cd/16/c44e8550012735b8f21b3df7f39e8ba5a987fb764ac017ad5f3589735889/networkx-2.8.8.tar.gz"
+    sha256 "230d388117af870fce5647a3c52401fcf753e94720e6ea6b4197a5355648885e"
   end
 
   resource "pycparser" do
@@ -83,8 +83,8 @@ class Mathlibtools < Formula
   end
 
   resource "PyGithub" do
-    url "https://files.pythonhosted.org/packages/70/77/79e0823cf084d73633deff98b994219878201c0c26cbc49b43d49f97deec/PyGithub-1.56.tar.gz"
-    sha256 "80c6d85cf0f9418ffeb840fd105840af694c4f17e102970badbaf678251f2a01"
+    url "https://files.pythonhosted.org/packages/6d/57/1c8a10e67e50cbee3c721bb554ac9a422f9f0accfc8f6e16a3fe9e65d387/PyGithub-1.57.tar.gz"
+    sha256 "c273f252b278fb81f1769505cc6921bdb6791e1cebd6ac850cc97dad13c31ff3"
   end
 
   resource "PyJWT" do
