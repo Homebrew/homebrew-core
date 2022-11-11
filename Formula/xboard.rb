@@ -8,6 +8,7 @@ class Xboard < Formula
   revision 3
 
   bottle do
+    sha256 arm64_ventura:  "376a2aeea0d01221d30c0b89f02744277d02648788848ffb241b26051b7ca0eb"
     sha256 arm64_monterey: "5c4d443554623a1279efbe14d79eb4158a8ded4589e4d1e7a02c2d573685cc4d"
     sha256 arm64_big_sur:  "87ddefe504448f88254af63c0eaef51f4380f76ea1d2f20fcf6ee780b9241b18"
     sha256 monterey:       "cf88692979c82a3d4697dea0db80d433fc7c9c11f4e4bdfa4d104c88fb6f4f47"
