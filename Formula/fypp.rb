@@ -9,13 +9,13 @@ class Fypp < Formula
   head "https://github.com/aradi/fypp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba09e53a91cb98b8fe65ccd2f6ef6ea43898e1b9908b7ad4fc06ae927e9a97a1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d335abdb9f9abb8cb73a5b37e98c0d0369b82f292e872669d5d0173760e124e9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d335abdb9f9abb8cb73a5b37e98c0d0369b82f292e872669d5d0173760e124e9"
-    sha256 cellar: :any_skip_relocation, monterey:       "20d62a61da2cc4ff53250237b0545572ace9952699dcb23783ca398714e9beff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "20d62a61da2cc4ff53250237b0545572ace9952699dcb23783ca398714e9beff"
-    sha256 cellar: :any_skip_relocation, catalina:       "20d62a61da2cc4ff53250237b0545572ace9952699dcb23783ca398714e9beff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "598f4d49aa3bd0280943d70fa2b1f3b3de3c5686bbafdf84e40e5359963a33bd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ca9fbd711044d3b965ccdd93d62b2436d711e56007444ccc60e37be7357da85"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ca9fbd711044d3b965ccdd93d62b2436d711e56007444ccc60e37be7357da85"
+    sha256 cellar: :any_skip_relocation, monterey:       "8372e31d3e4eeac3f809238c738cf05024367264f1fe41fbcb4ed238856b5448"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8372e31d3e4eeac3f809238c738cf05024367264f1fe41fbcb4ed238856b5448"
+    sha256 cellar: :any_skip_relocation, catalina:       "8372e31d3e4eeac3f809238c738cf05024367264f1fe41fbcb4ed238856b5448"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb267affdd4b9177495d506ea7e5c53c51bb8c1314edef2f7b3cfaed856ea704"
   end
 
   depends_on "gcc" => :test
