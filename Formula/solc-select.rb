@@ -3,8 +3,8 @@ class SolcSelect < Formula
 
   desc "Manage multiple Solidity compiler versions"
   homepage "https://github.com/crytic/solc-select"
-  url "https://files.pythonhosted.org/packages/2f/ac/9b4eab45a899a558d186c1d6830997d35392d15477b083b71c26612e02d7/solc-select-1.0.1.tar.gz"
-  sha256 "46c4e727f4fd5e24cd94972a8082282aff19f300ca6be5b074a1d98453ccd508"
+  url "https://files.pythonhosted.org/packages/b0/be/778216e18bf50cf3d6b4fe77509700677de9ce01480a8a7dcbf3d778b586/solc-select-1.0.2.tar.gz"
+  sha256 "ceba561d07680950c66831837fd7d686746c4ded46570aa4d6a96cd4fcaf94bc"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/solc-select.git", branch: "dev"
 
@@ -24,14 +24,14 @@ class SolcSelect < Formula
     sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
+  resource "pycryptodome" do
+    url "https://files.pythonhosted.org/packages/11/e4/a8e8056a59c39f8c9ddd11d3bc3e1a67493abe746df727e531f66ecede9e/pycryptodome-3.15.0.tar.gz"
+    sha256 "9135dddad504592bcc18b0d2d95ce86c3a5ea87ec6447ef25cfedea12d6018b8"
+  end
+
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
     sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
-  end
-
-  resource "pysha3" do
-    url "https://files.pythonhosted.org/packages/73/bf/978d424ac6c9076d73b8fdc8ab8ad46f98af0c34669d736b1d83c758afee/pysha3-1.0.2.tar.gz"
-    sha256 "fe988e73f2ce6d947220624f04d467faf05f1bbdbc64b0a201296bb3af92739e"
   end
 
   def install
