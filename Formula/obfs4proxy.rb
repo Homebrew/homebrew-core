@@ -11,6 +11,7 @@ class Obfs4proxy < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4794482e9011498f424c15acb994d2f2b50ec6278e41167c6541efe69badb3f9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "95285e769376c5e715cafbb68aacffc785765a638212d9d4bbfef593d65b42cd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac853ab274e5754ee091c84217be2618d4381200ecef0f3b1a0c0a3845dcc31d"
     sha256 cellar: :any_skip_relocation, monterey:       "54d52bb6d65f47e8076c15a38f07e5b3e0f9545944ea627960ce2037913723b1"
