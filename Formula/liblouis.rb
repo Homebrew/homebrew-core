@@ -25,28 +25,31 @@ class Liblouis < Formula
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+
+  def python3
+    "python3.11"
+  end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "check"
     system "make", "install"
-    python3 = "python3.10"
     cd "python" do
       system python3, *Language::Python.setup_install_args(prefix, python3)
     end
-    mkdir "#{prefix}/tools"
-    mv "#{bin}/lou_maketable", "#{prefix}/tools/", force: true
-    mv "#{bin}/lou_maketable.d", "#{prefix}/tools/", force: true
+    (prefix/"tools").install bin/"lou_maketable", bin/"lou_maketable.d"
   end
 
   test do
-    o, = Open3.capture2(bin/"lou_translate", "unicode.dis,en-us-g2.ctb", stdin_data: "42")
-    assert_equal o, "⠼⠙⠃"
+    assert_equal "⠼⠙⠃", pipe_output("#{bin}/lou_translate unicode.dis,en-us-g2.ctb", "42")
+
+    (testpath/"test.py").write <<~EOS
+      import louis
+      print(louis.translateString(["unicode.dis", "en-us-g2.ctb"], "42"))
+    EOS
+    assert_equal "⠼⠙⠃", shell_output("#{python3} test.py").chomp
   end
 end
