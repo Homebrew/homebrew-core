@@ -13,6 +13,7 @@ class Angband < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "ab48df2a071152b29ae786420ea97bccfeb2c19f70b58fff6b38760a5879ef04"
     sha256 arm64_monterey: "b9e8cf65e54b880cee6c5d1a0813a7dd2feb38913ac652ad858e125feedff281"
     sha256 arm64_big_sur:  "33e848319750163d7ce2f2b8ea4a7b71ea5232597f7f18fa65797d0457510d6e"
     sha256 monterey:       "8b0fadd166bea74a197f979712ff806c2e88a9f8968a4b886c72aa41e84d53e9"
