@@ -7,6 +7,7 @@ class Amtk < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_ventura:  "320bdafd130fdf7de1e4f11306b5d219334f278d35b0aa322ddabc19a47cd8d6"
     sha256 arm64_monterey: "402fa9fa240fefc06414425bc6bb177760cbd552975e4b6da32143c54bc0f2b7"
     sha256 arm64_big_sur:  "c57487665d414d5933e9af2bea8fab393028003c3cbea1892953ec76f6f1460e"
     sha256 monterey:       "86e848583341db92b092c53b61847724709caae163aa9f1a8000adcfe303b746"
