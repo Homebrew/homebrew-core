@@ -9,6 +9,7 @@ class PassGitHelper < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "609d0338cceb01e6135eb7c1cffabb5455f4f1ad5cee2f59487c4491479421d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "609d0338cceb01e6135eb7c1cffabb5455f4f1ad5cee2f59487c4491479421d9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "609d0338cceb01e6135eb7c1cffabb5455f4f1ad5cee2f59487c4491479421d9"
     sha256 cellar: :any_skip_relocation, monterey:       "b19690d7bba99b3f5526ca73fecbf9ab3c422301d7ab799d9fc3173d808b36ae"
