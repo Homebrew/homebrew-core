@@ -8,6 +8,7 @@ class Rollup < Formula
   license all_of: ["ISC", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "873b6c3c79c4a824a699c77e734bdbbf9a80d1706868602d014a361f7e497d04"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "873b6c3c79c4a824a699c77e734bdbbf9a80d1706868602d014a361f7e497d04"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "873b6c3c79c4a824a699c77e734bdbbf9a80d1706868602d014a361f7e497d04"
     sha256 cellar: :any_skip_relocation, monterey:       "74892ae789a3217b031650970393ca09fb074f507399072bc046c577db99eb6d"
