@@ -9,6 +9,7 @@ class Sceptre < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "9ea5a71f56e2d0a201dc342fcfc735e5ec60e941a0ae404a651118f9283f7a89"
     sha256 cellar: :any,                 arm64_monterey: "7b640d21b02a85542ee6567dbfd786ce805d0f5a6a7e0b41e4a8827ccf6fa501"
     sha256 cellar: :any,                 arm64_big_sur:  "c35bcbb7780c3dab85e6636b967ceabdfc8194112db5e2180ffd7eb7eaa49b70"
     sha256 cellar: :any,                 monterey:       "37b831501b6ad33aa91cf9ee7571d09f8ae3eb8707276babf8e10d0884de802b"
