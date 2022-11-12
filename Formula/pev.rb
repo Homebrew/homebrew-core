@@ -8,6 +8,7 @@ class Pev < Formula
   head "https://github.com/merces/pev.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "83bd8d76cafdfc5b08572085a492bef096046b8b01aec6549ea3a984ed5772a5"
     sha256 arm64_monterey: "7de65d5c0b950da40c9c315f774b464a1aaf5d1a3402a4da2b8bdce395e54437"
     sha256 arm64_big_sur:  "934d51d93b71115060a0a61bd458867760bdd429e31bf7b8ec58ab4958ab85f4"
     sha256 monterey:       "7ca58d8adfb22028531bc5ddb4fe849de267253040e637d3b489602db94429c8"
