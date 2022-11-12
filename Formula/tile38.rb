@@ -8,6 +8,7 @@ class Tile38 < Formula
   head "https://github.com/tidwall/tile38.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80af85c83c7812e6b80a9938ff1f17181987b14b1cd2511ec3135515607bb49e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af90e348b644c1a37df16d3e67e77e7959586be1c85fa6a0d0abdcd7968d919e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a1c5e6d179b96f6ec5fa74bbaea8a04e2db5ef1a59a0483a6f5ee1aabba0647"
     sha256 cellar: :any_skip_relocation, monterey:       "6f90263c54a4981ced7b8a668760345eec0922ad03fcdcbb0ba40da782e5d9b4"
