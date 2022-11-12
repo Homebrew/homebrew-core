@@ -17,6 +17,7 @@ class SpotifyTui < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2185bb29e510fc37ff8b3b4ba7c773ac123eaecae4b445d148a1e8386f1ac4da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b954b9ac5a2d06df7d91437f8cb6482a70e2e1d8272cf7a1bb2228c209249d3a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c288dda23d5db93085af63cda53114e2805d4d158460383f75edd4a9239e57ec"
     sha256 cellar: :any_skip_relocation, monterey:       "ea4f9319ebe04feeb8f65d9a6b16e6d527285c2da7ca0e29e9352c4253b735f4"
