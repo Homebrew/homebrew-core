@@ -9,6 +9,7 @@ class Localstack < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "c5efaffd30a47b9a7d94329c2d03762972cfd91b92460c59bb3c0024ba1c1986"
     sha256 cellar: :any,                 arm64_monterey: "9be8dc3e607dfdbb2144a279c9146308e9551c60f61e45ef1e178366fffdfe16"
     sha256 cellar: :any,                 arm64_big_sur:  "f1005e9401c8b2d438fd68af7413e02107bc445a705e3ebd072e08f10e380599"
     sha256 cellar: :any,                 monterey:       "e6c28d94b998e2cdfb5e3390837432c2654770aaf912480be1bff93c9cdf8fc5"
