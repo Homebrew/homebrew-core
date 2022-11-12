@@ -8,13 +8,13 @@ class Dotdrop < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5647f3b8be5c0b340eeb4c45db424b39f83a39fbebc3c67b4418781c2231db2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f9af1609ead329b6f66a34119ea7709b0e19a64261e4852d86702a82a85e7ca"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55e0c73f04aa5127d28e9f551a9208affd461cfeebc9691d977f36619688c3b2"
-    sha256 cellar: :any_skip_relocation, monterey:       "55a59dce6d694be040dd6ab560506a3664f4e5124e54ab9aeb053fcbf9e1bb7a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e7f3b7cc1b1f1a2cc7ebde751da426616fead08c09df08e9de87e8b1ff36030d"
-    sha256 cellar: :any_skip_relocation, catalina:       "bdb69caf72e327ec4a6009b3a42c10fcfe9140b31cea4e7a25a9a393ae60833b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6cadea7b83573c95c8fbb3e7cf543813851e7336eebb2f6bfffc658d233895c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9100200107e492fa3e8724b18eba0b533311a03fd85b4b888a33521d412af2e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f69def539062e7eaae065a31d30af1c6bd680f681d88d08bd2dff97445cb5e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "52963b1051ac82ec4746c4a63ad2d6da142fe13b1bf4eb62e5a71ade5ab58f1d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a258253c220d29e270fa96d921204d7079d8fddf429a7f440bc1610a4ff69e72"
+    sha256 cellar: :any_skip_relocation, catalina:       "d8dff5c4650a7cb5c1dfc2a5e520082abcdea1ef813253ad48460047f5650f46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7716651b0f09f89c7183709dace6663e4bba2481fa71ac9de54da6db23dd2b58"
   end
 
   depends_on "libmagic"
