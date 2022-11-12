@@ -4,7 +4,7 @@ class Newt < Formula
   url "https://releases.pagure.org/newt/newt-0.52.21.tar.gz"
   sha256 "265eb46b55d7eaeb887fca7a1d51fe115658882dfe148164b6c49fccac5abb31"
   license "LGPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://releases.pagure.org/newt/"
@@ -21,18 +21,19 @@ class Newt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b8bc4c34aaff04b2bf0dc6f8b8094ee11c80b254240a231bca96b91111450c8"
   end
 
-  depends_on "gettext"
   depends_on "popt"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "s-lang"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
-    args = %W[--prefix=#{prefix} --without-tcl --with-python=#{python3}]
-
     if OS.mac?
       inreplace "Makefile.in" do |s|
         # name libraries correctly
@@ -48,7 +49,7 @@ class Newt < Formula
       end
     end
 
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--without-tcl", "--with-python=#{python3}"
     system "make", "install"
   end
 
