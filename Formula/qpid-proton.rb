@@ -8,6 +8,7 @@ class QpidProton < Formula
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "dab557c7eab733a2334ed7cda2a87c7fbca7cdb6a295d9352b53b22ff31c4caf"
     sha256 cellar: :any,                 arm64_monterey: "9bec8fe8349745cb8fdbee472fa64be6c1a6711423f89cb6e2bdae0e90dd10c6"
     sha256 cellar: :any,                 arm64_big_sur:  "a438ec0874c02dc1578d38fcc608c0a28fcfebf84e2451bfd6072c786407d148"
     sha256 cellar: :any,                 monterey:       "247562ce7db9cc172094f9262ab30f423dfdd02be71594e7e2dc91853e83589e"
