@@ -24,7 +24,7 @@ class Torchvision < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "numpy"
@@ -75,7 +75,7 @@ class Torchvision < Formula
       'requires = ["setuptools", "torch", "wheel"]',
       'requires = ["setuptools", "wheel"]'
 
-    virtualenv_install_with_resources using: "python@3.10"
+    virtualenv_install_with_resources using: "python@3.11"
 
     pkgshare.install "examples"
   end
