@@ -9,13 +9,13 @@ class Pgxnclient < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c40014ecce27b9ccf2f791b8685781b02e096a39ca1293d61f3518720335ab7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de5cf5435853c4bc97a8f8e03b22bb0f1d6a6ca39d236b704c008300674babbc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2f1cc258ccef1af3e299dfcd09e57c7ab20728a1a566b13a1eefc422358333b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "71d9a954b9e1f4a103289309c761993de612a309a9d7ee321727f565f5d1e6ea"
-    sha256 cellar: :any_skip_relocation, big_sur:        "56239b4009c755adad5f4fe5b80261f7b3ed7b8cd2e2b84f81a99afb822b89ff"
-    sha256 cellar: :any_skip_relocation, catalina:       "5750733bf95b281d29cb50803df509f14c7ec0f514a042541e45874560ced570"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a3082f3981aef9a53a92fad8b10ffd0634185881d148827823ae0524850a824"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0955d94598c00308ea24a6b39ce8aa4b3858ed5e78456516d3cc9672bce65703"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dc7ad36b1a2d48f6c358e9d127ebfdcb133e0fc3acded09b8163a312b31f208"
+    sha256 cellar: :any_skip_relocation, monterey:       "cea13f9ff74e774c99d00b0edb067e276d6e400fd49adbd942ee9fdef210e4c7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1e504d4d32279c420015a4bc2bcbd6d9c733a8b3ddfbd627067c8a702a119bca"
+    sha256 cellar: :any_skip_relocation, catalina:       "8b57b7c040b9af6b4be7f92b95ec2a207a7f554e416b7adf769f4d0aa6426074"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f62cb66dd352d213a814474cd8c02e23d3c41cfe7b7420d064fe6ab2edca075"
   end
 
   depends_on "python@3.11"
