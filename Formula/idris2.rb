@@ -14,6 +14,7 @@ class Idris2 < Formula
   end
 
   depends_on "gmp" => :build
+  depends_on arch: :x86_64 # because of chezscheme
   depends_on "chezscheme"
 
   on_high_sierra :or_older do
