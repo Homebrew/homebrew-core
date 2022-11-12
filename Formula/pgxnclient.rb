@@ -10,6 +10,7 @@ class Pgxnclient < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bafbe9dbacd8ae05209b56ffee90361ca96cdd840f8071fceeaca5ba44ff6097"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0955d94598c00308ea24a6b39ce8aa4b3858ed5e78456516d3cc9672bce65703"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dc7ad36b1a2d48f6c358e9d127ebfdcb133e0fc3acded09b8163a312b31f208"
     sha256 cellar: :any_skip_relocation, monterey:       "cea13f9ff74e774c99d00b0edb067e276d6e400fd49adbd942ee9fdef210e4c7"
