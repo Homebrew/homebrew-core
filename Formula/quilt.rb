@@ -4,6 +4,7 @@ class Quilt < Formula
   url "https://download.savannah.gnu.org/releases/quilt/quilt-0.67.tar.gz"
   sha256 "3be3be0987e72a6c364678bb827e3e1fcc10322b56bc5f02b576698f55013cc2"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://git.savannah.gnu.org/git/quilt.git", branch: "master"
 
   livecheck do
@@ -23,16 +24,25 @@ class Quilt < Formula
   depends_on "coreutils"
   depends_on "gnu-sed"
 
+  on_ventura :or_newer do
+    depends_on "diffutils"
+    depends_on "gpatch"
+  end
+
   def install
     args = [
       "--prefix=#{prefix}",
       "--without-getopt",
     ]
     if OS.mac?
-      args << "--with-sed=#{HOMEBREW_PREFIX}/bin/gsed"
+      args << "--with-sed=#{Formula["gnu-sed"].opt_bin}/gsed"
       args << "--with-stat=/usr/bin/stat" # on macOS, quilt expects BSD stat
+      if MacOS.version >= :ventura
+        args << "--with-diff=#{Formula["diffutils"].opt_bin}/diff"
+        args << "--with-patch=#{Formula["gpatch"].opt_bin}/patch"
+      end
     else
-      args << "--with-sed=#{HOMEBREW_PREFIX}/bin/sed"
+      args << "--with-sed=#{Formula["gnu-sed"].opt_bin}/sed"
     end
     system "./configure", *args
 
