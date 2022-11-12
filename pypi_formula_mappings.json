@@ -484,6 +484,9 @@
   "restview": {
     "exclude_packages": ["six"]
   },
+  "rich-cli": {
+    "exclude_packages": ["Pygments"]
+  },
   "robot-framework": {
     "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"],
     "exclude_packages": ["six"]

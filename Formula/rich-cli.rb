@@ -18,6 +18,7 @@ class RichCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4efb9d3e23cbf4ad3880446d9eb19807c82836085eb0b4a4781c704e9a8bd58f"
   end
 
+  depends_on "pygments"
   depends_on "python@3.11"
 
   resource "certifi" do
@@ -48,11 +49,6 @@ class RichCli < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
     sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "requests" do
