@@ -19,18 +19,18 @@ class Parliament < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd4e0420e8c325b0bdd2b4f4775e9c5e60917601eb603eb7b00ee35e9ee498af"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/af/88/0aa54a60d9627bef23b9fe7c3f76c4761064d5f331edd92a2071e4cba358/boto3-1.24.67.tar.gz"
-    sha256 "2b9309a98fd7264788ff1d1b19146406cc4191e53ed9a03aca03e8837303fae2"
+    url "https://files.pythonhosted.org/packages/9e/a2/10f0d67f71bf6f87b2dc6558679f23c0cb4c3be42089a7eef625ed35d002/boto3-1.26.8.tar.gz"
+    sha256 "b39303fdda9b5d77a152e3ec9f264ae318ccdaa853eaf694626dc335464ded98"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/57/60/e307245349b8914d423064f53dca3f8a81dac6a7fe69972797067a909314/botocore-1.27.67.tar.gz"
-    sha256 "b00894d2eee8a795ecedf9f4cbc454fa449a7bb11af1390c7414755243f90610"
+    url "https://files.pythonhosted.org/packages/9c/62/0e7a8c2bc63c3529db0ca3ee4c0f5b60a65165e594d1487b13b6524ddccd/botocore-1.29.8.tar.gz"
+    sha256 "48cf33d7c513320711321c3b303b0c9810b23e15fa03424f7323883e4ce6cef8"
   end
 
   resource "jmespath" do
