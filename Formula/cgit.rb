@@ -12,6 +12,7 @@ class Cgit < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "8435a3e97f7d97b0a81af4d65387edba8da214f8d348cac06a0200dfd861ca83"
     sha256 arm64_monterey: "3e517a8b04d86f340eeba6bdd52d3a187db3e604137b5d0cc3f5a0a5547d65b3"
     sha256 arm64_big_sur:  "27b3ceaddc63451dd3b57c153dc9f4810326884929e4839ef430d43d2b39d197"
     sha256 monterey:       "3e955c47ed5c722d9124b1a2efc90b7ac46e5cc89c0bf8772b2dd9061bb54a56"
