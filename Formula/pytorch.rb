@@ -12,6 +12,7 @@ class Pytorch < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8255f1502262603a2d2a83b66c002576082ef39d26826696c9c396c47a6e8fea"
     sha256 cellar: :any,                 arm64_monterey: "4f216184c5b9bc067d90dddd7e10e3b629a9fab9fb900968f4e2e4dbceb0dda8"
     sha256 cellar: :any,                 arm64_big_sur:  "19ff7739fe151be0bdf88a5fa3d6ed225d8215b11ea910276bc1e1fe6d466dde"
     sha256 cellar: :any,                 monterey:       "5649c48e30fdcdf03583fdb9c6ec3b2cc8f5d83622e5a50b790f9097a831d4a3"
