@@ -7,6 +7,7 @@ class Bloaty < Formula
   revision 9
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a908f8aa9b2ea97347699085477792f1d435a183422ea0603aacf998987f92ec"
     sha256 cellar: :any,                 arm64_monterey: "c1afc7e9983ec8f1dce582c2c81f9062e8c0a56ac123cb4e7302b08f9532526e"
     sha256 cellar: :any,                 arm64_big_sur:  "1fbe4531235432a37e659cdbd2fc20346debaf760bf0e588e05a4c718b7fc128"
     sha256 cellar: :any,                 monterey:       "3565943373a8febf808c2ffa8586fb55d19a9eff5b2e6866bb5727859ad86435"
