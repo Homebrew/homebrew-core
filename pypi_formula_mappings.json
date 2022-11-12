@@ -23,7 +23,7 @@
     "exclude_packages": [
       "PyYAML", "jsonschema", "attrs", "pyrsistent", "yamllint", "pathspec",
       "ansible-core", "cryptography", "Jinja2", "MarkupSafe", "resolvelib",
-      "Pygments"
+      "Pygments", "black", "click", "mypy-extensions", "platformdirs"
     ]
   },
   "arxiv_latex_cleaner": {
