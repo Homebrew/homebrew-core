@@ -7,7 +7,7 @@ class Byobu < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "45b2277b96cd2c4c4170fbbe4a8ac92665062e8d0c835bfbd24ee3e3d52f2616"
+    sha256 cellar: :any_skip_relocation, all: "567ec86facce7f9acf776836e49fc4742cd22a34f38a3869e1c2c8356290cc71"
   end
 
   head do
