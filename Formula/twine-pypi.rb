@@ -19,6 +19,7 @@ class TwinePypi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d85bc06a3876d27a7fb8dee7256f0f79c64a22d1275696f7b25f7d3ca0ee3ac3"
   end
 
+  depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -75,11 +76,6 @@ class TwinePypi < Formula
   resource "pkginfo" do
     url "https://files.pythonhosted.org/packages/00/91/fe0806e3ebded8c4e52f93ab4d963eef34bb33595c7aa7b5591d32ab5b92/pkginfo-1.8.3.tar.gz"
     sha256 "a84da4318dd86f870a9447a8c98340aa06216bfc6f2b7bdc4b8766984ae1867c"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "readme-renderer" do
