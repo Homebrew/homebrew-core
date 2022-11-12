@@ -9,13 +9,13 @@ class Px < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cd565b69b77a7c43dc257d45c8e69176f8e0e11d6388dad45fdc127ed2e5c8aa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f8973f2bd0d915c160a89b2c24e11b25324a91761968b63997613b692b24798"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9f5b9857419dc44f2cdc30595191e550d1aa8d3eb3baa98136e6119c0f5c0a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4aae488d5bfc13b3c8c4fdb449293de0c9244e6706dcf821fb30e7516b1dfff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5852d992cc5972c33f59c44a37f0caec1f64dfebd63e9dac6ea9ea819a8d9d93"
-    sha256 cellar: :any_skip_relocation, catalina:       "ec4633f36dbb6485be207a1f2a0064211973b7a4ce00b9fca3e66e7cbe0f5d90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4285d7a4d0e958b7a53cdc7ab4a7a6638acf2b9fa74d9e718eb4c9de5beb4e4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f31e7ad8a9756e216ffa798d1eb3f72b6287696d0e141b84d68442883099bcf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d6fba41606ec28108dff1ae620033ea698bcf8dbb838a7b3f49d175684dc8b8"
+    sha256 cellar: :any_skip_relocation, monterey:       "97a6828c35501ed73e8a4a46eb3e3e3b580e94453a32bf3ed0c9d449fb330e37"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7d290178f607e07f603ea8a8d70db6d62eb313ab44e1f0b796dc527be3982a72"
+    sha256 cellar: :any_skip_relocation, catalina:       "153f67ba5e9f0cbd76f5ea56a8ee296c9a2783dc0b0151e78f65ce10400b0007"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ad4b6a38f6494c2f049231c87cf463a24a32ac5b6c417a847563b15765e55d0"
   end
 
   depends_on "python@3.11"
