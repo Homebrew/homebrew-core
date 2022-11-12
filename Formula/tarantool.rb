@@ -1,8 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/src/tarantool-2.10.3.tar.gz"
-  sha256 "d1e38bfce10812593419979186497e7d7b59c5a233bab39353fcbf24b389f232"
+  url "https://download.tarantool.org/tarantool/src/tarantool-2.10.4.tar.gz"
+  sha256 "cb4a99c1d6c61f1a7a6665f583447c4402ca83920ee27d7e2728f86cce865ded"
   license "BSD-2-Clause"
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
@@ -35,7 +35,7 @@ class Tarantool < Formula
   def install
     # Avoid keeping references to Homebrew's clang/clang++ shims
     inreplace "src/trivia/config.h.cmake",
-              "#define COMPILER_INFO \"@CMAKE_C_COMPILER@ @CMAKE_CXX_COMPILER@\"",
+              "#define COMPILER_INFO \"@CMAKE_C_COMPILER_ID@-@CMAKE_C_COMPILER_VERSION@\"",
               "#define COMPILER_INFO \"/usr/bin/clang /usr/bin/clang++\""
 
     args = std_cmake_args
