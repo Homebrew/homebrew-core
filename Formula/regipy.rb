@@ -10,6 +10,7 @@ class Regipy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e0a23b1665de57c21946555689bf1d54beca057e4761bcc491eb6efc7bb63139"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1435e2b6d69c30d34e25b62e1e1530017c1655821d393da29846af0b279ceb9d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44834732b64c9d3ddbdf4b7f4b6bed289161645e41e27b51ee752b66b5c448c3"
     sha256 cellar: :any_skip_relocation, monterey:       "b0d7189258e5c502939ec66cac162f66d4bd5a8a3bdaaff13df53a1233385d12"
