@@ -16,6 +16,8 @@ class Cmix < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ced902c9d32516366f0135dfa397ede6068c5c6434db5db16b1fcd7cb0a6a069"
   end
 
+  depends_on arch: :x86_64 # https://github.com/byronknoll/cmix/issues/51
+
   def install
     system "make"
     bin.install "cmix"
