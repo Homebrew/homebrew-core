@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/de/2a/5e3684d43880dab238a08d41f10909b47d77df658d87fc06432c9cd6c33d/schemathesis-3.17.4.tar.gz"
-  sha256 "d0895c281a7d2947c7fe79c99fa5196e1e72c3aa28aa8df614b199f198c8bc7e"
+  url "https://files.pythonhosted.org/packages/be/09/79dadf5e1c183fa566659e0b3299b3a50d59bfc2cd3c203d40da5ca81b0d/schemathesis-3.17.5.tar.gz"
+  sha256 "e7b645a88d890dc39ced65b6166338152b276f2bf8d442ca0432f777fcd2d0e6"
   license "MIT"
 
   bottle do
@@ -49,8 +49,8 @@ class Schemathesis < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
-    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
+    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
   resource "curlify" do
@@ -59,8 +59,8 @@ class Schemathesis < Formula
   end
 
   resource "exceptiongroup" do
-    url "https://files.pythonhosted.org/packages/cb/b2/ca0513bb83e236707e22218d1e52d5f5b38b608653d385edb3fb3a03d35f/exceptiongroup-1.0.0rc9.tar.gz"
-    sha256 "9086a4a21ef9b31c72181c77c040a074ba0889ee56a7b289ff0afb0d97655f96"
+    url "https://files.pythonhosted.org/packages/13/55/43ff6658a50a7f722d2f904810b42514c23a5d649d8a5d890cdc16b617de/exceptiongroup-1.0.1.tar.gz"
+    sha256 "73866f7f842ede6cb1daa42c4af078e2035e5f7607f0e2c762cc51bb31bbe7b2"
   end
 
   resource "graphql-core" do
@@ -84,13 +84,13 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/8c/f8/cb95c13deea400459dec97c63a4c19166accb99c058a821c554d588f5e7d/hypothesis-6.56.3.tar.gz"
-    sha256 "15dae5d993339aefa57e00f5cb5a5817ff300eeb661d96d1c9d094eb62b04c9a"
+    url "https://files.pythonhosted.org/packages/ca/e1/2ba1de06963fe0ce8532d30c53c4c8baae6ae0bebeba1a1689e63818548e/hypothesis-6.56.4.tar.gz"
+    sha256 "313bc1c0f377ec6c98815d3237a69add7558eadee4effe4ed613d0ba36513a52"
   end
 
   resource "hypothesis-graphql" do
-    url "https://files.pythonhosted.org/packages/d7/8e/e59c7ffc179e0e5e8f47ff9ca393cef26aa83dc2aa5c25f40d2edc477d5e/hypothesis-graphql-0.9.1.tar.gz"
-    sha256 "e766bc21731e1183947e67f2d38c7a156a3904c7403b6bae628d26913553334a"
+    url "https://files.pythonhosted.org/packages/30/fd/1e0b759a10bf4e7e07837ab0d211791df46fe30fcd5c5ea1080d19d4363e/hypothesis_graphql-0.9.2.tar.gz"
+    sha256 "3b3c242649f39d7d9bc00c548d8c6d4c592f86be95ad8bd1dc37e58a4f79cc06"
   end
 
   resource "hypothesis-jsonschema" do
@@ -114,6 +114,11 @@ class Schemathesis < Formula
         revision: "4bd08a272f059998cedf9b7779f944d49eba13a6"
   end
 
+  resource "MarkupSafe" do
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
+  end
+
   resource "multidict" do
     url "https://files.pythonhosted.org/packages/fa/a7/71c253cdb8a1528802bac7503bf82fe674367e4055b09c28846fdfa4ab90/multidict-6.0.2.tar.gz"
     sha256 "5ff3bd75f38e4c43f1f470f2df7a4d430b821c4ce22be384e1459cb57d6bb013"
@@ -129,19 +134,14 @@ class Schemathesis < Formula
     sha256 "4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"
   end
 
-  resource "py" do
-    url "https://files.pythonhosted.org/packages/98/ff/fec109ceb715d2a6b4c4a85a61af3b40c723a961e8828319fbcb15b868dc/py-1.11.0.tar.gz"
-    sha256 "51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"
-  end
-
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
     sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/a4/a7/8c63a4966935b0d0b039fd67ebf2e1ae00f1af02ceb912d838814d772a9a/pytest-7.1.3.tar.gz"
-    sha256 "4f365fec2dff9c1162f834d9f18af1ba13062db0c708bf7b946f8a5c76180c39"
+    url "https://files.pythonhosted.org/packages/0b/21/055f39bf8861580b43f845f9e8270c7786fe629b2f8562ff09007132e2e7/pytest-7.2.0.tar.gz"
+    sha256 "c4014eb40e10f11f355ad4e3c2fb2c6c6d1919c73f3b5a433de4708202cade59"
   end
 
   resource "pytest-subtests" do
@@ -190,8 +190,8 @@ class Schemathesis < Formula
   end
 
   resource "Werkzeug" do
-    url "https://files.pythonhosted.org/packages/10/cf/97eb1a3847c01ae53e8376bc21145555ac95279523a935963dc8ff96c50b/Werkzeug-2.1.2.tar.gz"
-    sha256 "1ce08e8093ed67d638d63879fd1ba3735817f7a80de3674d293f5984f25fb6e6"
+    url "https://files.pythonhosted.org/packages/f8/c1/1c8e539f040acd80f844c69a5ef8e2fccdf8b442dabb969e497b55d544e1/Werkzeug-2.2.2.tar.gz"
+    sha256 "7ea2d48322cc7c0f8b3a215ed73eabd7b5d75d0b50e31ab006286ccff9e00b8f"
   end
 
   resource "yarl" do
