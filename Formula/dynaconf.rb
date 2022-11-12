@@ -9,6 +9,7 @@ class Dynaconf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7c5282dab6a96e7527edf65bc226fc09331b002a41a9ecb2513d05f3e14da69"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f7c5282dab6a96e7527edf65bc226fc09331b002a41a9ecb2513d05f3e14da69"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7c5282dab6a96e7527edf65bc226fc09331b002a41a9ecb2513d05f3e14da69"
     sha256 cellar: :any_skip_relocation, monterey:       "489381871dac0329723a79c90c1d4997720f54fb8a2f2a2e2bb21ddd686b242d"
