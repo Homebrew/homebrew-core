@@ -11,6 +11,7 @@ class DitaOt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2361421d2b853418338733a22c50d4f9e7507057bf79285390f60813231af1b9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2361421d2b853418338733a22c50d4f9e7507057bf79285390f60813231af1b9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2361421d2b853418338733a22c50d4f9e7507057bf79285390f60813231af1b9"
     sha256 cellar: :any_skip_relocation, monterey:       "2b793e6f1f7505dfd698491511a90485cfdc9ae25c061c7f447b0b42966f3128"
