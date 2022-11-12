@@ -6,6 +6,7 @@ class G3log < Formula
   license "Unlicense"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "9ce7da10cc769d71f54eada1899be07111f115bd31dfa5b54c2c7cab4c40f79d"
     sha256 cellar: :any,                 arm64_monterey: "99997b6ac31ba2e254baa6b045dc0852c80960ec164955541c2e397d46fe376c"
     sha256 cellar: :any,                 arm64_big_sur:  "f7986791faae29689a5c14f0610f0ed28df3cc9fa777b6b8af1a93d5c839d687"
     sha256 cellar: :any,                 monterey:       "1a6a132534a972a432226947aab60285475b0ade28754518a96852add9f3eba4"
