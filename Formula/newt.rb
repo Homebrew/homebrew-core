@@ -12,13 +12,12 @@ class Newt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ff170158692b2fa1d54e6ff6797b5662554b7daa12500b1de410523ea3c5a00f"
-    sha256 cellar: :any,                 arm64_monterey: "93a43143160e7432d52429e5aab0dcfda5b17858b4cd3f9921c54b98bd405ea8"
-    sha256 cellar: :any,                 arm64_big_sur:  "033f20f9fad1bf00c6e8a8ef8b24525d1184e67008b6c42e40893c8eefb6ccb5"
-    sha256 cellar: :any,                 monterey:       "0afdface002d204eff335387f8c5afba4c787836cd773db6f19811eef3a4e6c0"
-    sha256 cellar: :any,                 big_sur:        "26e7dffcbe33b1a34a69fb041fdc6740a5b5888351444a8b7f074e16c1f69877"
-    sha256 cellar: :any,                 catalina:       "c39688432c5335bb26ddc5149f119a05e4811ac7fc3a0a9d1a9f0c829c3833cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b8bc4c34aaff04b2bf0dc6f8b8094ee11c80b254240a231bca96b91111450c8"
+    sha256 cellar: :any,                 arm64_monterey: "6b4fc5ebdd522738f81b6396736353a5caefd04d45e48403a7ab29dd04c70b00"
+    sha256 cellar: :any,                 arm64_big_sur:  "9349d37eebeab520f8a9ce726ff5ca4e333d07a70534832bee1b3652c5b97c8a"
+    sha256 cellar: :any,                 monterey:       "5c5796570d5b8e571730c81222929180bca792e82b5b62914d91c94039088f3b"
+    sha256 cellar: :any,                 big_sur:        "eea45650f566b8de134d82b47874b79adcc75be9da163586341814e346aa2e4c"
+    sha256 cellar: :any,                 catalina:       "06c43690d0973a72b93eba9fdda86e6738f67039f01095f6c1d170812f35c110"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb86234d4f8cd90672f29a2932873d988516623aea98b53107ef147fcf0e1e7b"
   end
 
   depends_on "popt"
