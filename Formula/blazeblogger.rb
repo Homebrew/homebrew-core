@@ -7,6 +7,7 @@ class Blazeblogger < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "971cf089545d50d6b751253a1ffe63b4bc3cb10c55287bf5f43cabcee9088afa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "971cf089545d50d6b751253a1ffe63b4bc3cb10c55287bf5f43cabcee9088afa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7c1a4c1663a7da5774e534eec48e6ab245f22d20f1f98a3186b7877f8bc4bcf"
     sha256 cellar: :any_skip_relocation, monterey:       "6cbe0fa6acb72e64523b98192c50de16a12c919e91a7467136876d25c60372fe"
