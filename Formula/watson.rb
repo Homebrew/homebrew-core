@@ -10,6 +10,7 @@ class Watson < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4942b60dda033a8a0867488ff85626dba42680cbe6a41ec5f03e61589ddec19c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "438c799cc494f72b46aadd5e67c38b699191a98af3c4f204c1bdd99ec90d52d8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6811ee20faa202e189dffb5cb5c8126c9c25f1241c949f8717cfb004c600966"
     sha256 cellar: :any_skip_relocation, monterey:       "2cd983b76a69dfdf0c14235db263bacec84bd9dac318fea9e8363ae5b36c219f"
