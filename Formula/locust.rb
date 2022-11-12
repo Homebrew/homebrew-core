@@ -18,7 +18,7 @@ class Locust < Formula
   end
 
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "Brotli" do
@@ -62,8 +62,8 @@ class Locust < Formula
   end
 
   resource "gevent" do
-    url "https://files.pythonhosted.org/packages/97/5e/be2ac96fe2e6d5ad40c0ed5cf83c07ce6a74b9a5a1f0422e8b5d9225c865/gevent-22.10.1.tar.gz"
-    sha256 "df3042349c9a4460eeaec8d0e56d737cb183eed055e75a6af9dbda94aaddaf4d"
+    url "https://files.pythonhosted.org/packages/9f/4a/e9e57cb9495f0c7943b1d5965c4bdd0d78bc4a433a7c96ee034b16c01520/gevent-22.10.2.tar.gz"
+    sha256 "1ca01da176ee37b3527a2702f7d40dbc9ffb8cfc7be5a03bfa4f9eec45e55c46"
   end
 
   resource "geventhttpclient" do
@@ -72,8 +72,8 @@ class Locust < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/ea/37/e54ce453b298e890f59dba3db32461579328a07d5b65e3eabf80f971c099/greenlet-1.1.3.post0.tar.gz"
-    sha256 "f5e09dc5c6e1796969fd4b775ea1417d70e49a5df29aaa8e5d10675d9e11872c"
+    url "https://files.pythonhosted.org/packages/fd/6a/f07b0028baff9bca61ecfcd9ee021e7e33369da8094f00eff409f2ff32be/greenlet-2.0.1.tar.gz"
+    sha256 "42e602564460da0e8ee67cb6d7236363ee5e131aa15943b6670e44e5c2ed0f67"
   end
 
   resource "idna" do
@@ -102,8 +102,8 @@ class Locust < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/de/eb/1c01a34c86ee3b058c556e407ce5b07cb7d186ebe47b3e69d6f152ca5cc5/psutil-5.9.3.tar.gz"
-    sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
+    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
+    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
   end
 
   resource "pyzmq" do
@@ -137,8 +137,8 @@ class Locust < Formula
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/62/ba/e517891d44208f2a6cf493109dfff59134bb922a9c8bd2a896da7d9a82a1/zope.interface-5.5.0.tar.gz"
-    sha256 "700ebf9662cf8df70e2f0cb4988e078c53f65ee3eefd5c9d80cf988c4175c8e3"
+    url "https://files.pythonhosted.org/packages/c5/ec/3e116b5c3c54f1fb7296a686c110c14d1242bbea17286c487892075d9858/zope.interface-5.5.1.tar.gz"
+    sha256 "6d678475fdeb11394dc9aaa5c564213a1567cc663082e0ee85d52f78d1fbaab2"
   end
 
   def install
