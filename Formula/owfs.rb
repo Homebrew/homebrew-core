@@ -7,6 +7,7 @@ class Owfs < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "2c892df4127820daca0fbfd2a6ef3be23d85173ed4a67b04d5bd9501cc2c215a"
     sha256 cellar: :any,                 arm64_monterey: "60b2cdf16ab634a941884f3053afade439202e030b20defb61371ff4bd666a50"
     sha256 cellar: :any,                 arm64_big_sur:  "62b0c429498ff8aef96aa05ec7e4502978b3d98aa289ff8283a27de41352b68a"
     sha256 cellar: :any,                 monterey:       "578554d18620a943b499b22046d97c9fc818ad1ebad6552484a4dec245c7ce0e"
