@@ -8,6 +8,7 @@ class Newsboat < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "4572f464d84476820672597e8d31aeec42d5f750aab80b71d52366a684099e78"
     sha256 arm64_monterey: "4f45d5031a1b35c8f1af8c5bb07027138917f1bbff3776c8c84fe6baeb557d58"
     sha256 arm64_big_sur:  "20ef886e95efb1637d3deb6719ccb405217ed15a83b0453e876df725c0e42d2d"
     sha256 monterey:       "dec76d61b81b46ee592ffeb0450511ce83697d2520475a5e602f4a72cd6a58f4"
