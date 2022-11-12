@@ -7,6 +7,7 @@ class Flow < Formula
   head "https://github.com/facebook/flow.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f070445600dc77fe45bcd9cd96d00e27cdd164de145434b92135ab8f591aa14"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a19fd3b4f5a5df661b896c58586185b40b7ee92a59bbf2ad12985dbd9c68cf6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd220f055925b5d8fcae387df9ecf6e4c1daf31fac4a8dc4ae9bce1143158296"
     sha256 cellar: :any_skip_relocation, monterey:       "a94b316feb8cde0fb27f6d73dc88728c487b687f698de3036fcfb5454b1356db"
