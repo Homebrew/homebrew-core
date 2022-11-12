@@ -18,7 +18,7 @@ class Px < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4285d7a4d0e958b7a53cdc7ab4a7a6638acf2b9fa74d9e718eb4c9de5beb4e4"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   uses_from_macos "lsof"
@@ -31,6 +31,7 @@ class Px < Formula
 
   def install
     virtualenv_install_with_resources
+    man1.install Dir["doc/*.1"]
   end
 
   test do
