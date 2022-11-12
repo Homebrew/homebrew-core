@@ -7,6 +7,7 @@ class Vultr < Formula
   head "https://github.com/JamesClonk/vultr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff5a2ec1fea578672a8beb692ad0f90a93112b58cd7d4d6eda0123b481ab716e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf784fbadf85aee96b6863bbd93cdb2e3c759e1c933474d318eda62142df3953"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0d5bffa07a97813ca4eece9a0e396d8a0c76fdd738d5041ad5d82385cb05dda"
     sha256 cellar: :any_skip_relocation, monterey:       "cae9e8ccd5b05b5675a6db499a9f4fa88f7e592ed03e377b5abcadfe1a9c399d"
