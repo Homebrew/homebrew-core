@@ -10,13 +10,13 @@ class Pius < Formula
   head "https://github.com/jaymzh/pius.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e0124059b6b127d2b562f64beacff812f23d2736d0d839472b4db761b1f2032"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e0124059b6b127d2b562f64beacff812f23d2736d0d839472b4db761b1f2032"
-    sha256 cellar: :any_skip_relocation, monterey:       "d456a15477875e8973b2964c50a0e2a6ce032331d92ae4b8ffee13e74324ab00"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d456a15477875e8973b2964c50a0e2a6ce032331d92ae4b8ffee13e74324ab00"
-    sha256 cellar: :any_skip_relocation, catalina:       "d456a15477875e8973b2964c50a0e2a6ce032331d92ae4b8ffee13e74324ab00"
-    sha256 cellar: :any_skip_relocation, mojave:         "d456a15477875e8973b2964c50a0e2a6ce032331d92ae4b8ffee13e74324ab00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "557100f55d582878fee70866fdf4de2f17b8aba238ab261fc4c622426ae166c9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e031f7d3ef469e8f1f4d99cc683122ba9b44ce3b663263ba5a7e39070e808f9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e031f7d3ef469e8f1f4d99cc683122ba9b44ce3b663263ba5a7e39070e808f9"
+    sha256 cellar: :any_skip_relocation, monterey:       "984bb44f8297fd26d73884d90085ae21a80e7465fa5ada5e89796f83d6dacca3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "984bb44f8297fd26d73884d90085ae21a80e7465fa5ada5e89796f83d6dacca3"
+    sha256 cellar: :any_skip_relocation, catalina:       "984bb44f8297fd26d73884d90085ae21a80e7465fa5ada5e89796f83d6dacca3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98a475c26c715d2eb8476151aee91992fe48f8e1bc286062f797bcaf8297cb85"
   end
 
   depends_on "gnupg"
