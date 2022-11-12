@@ -9,6 +9,7 @@ class SourceToImage < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "837df64d313a095568862375ab3c995e7dbff0f733e8e3c629a2bcf0b7e468e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8ea9c3737a8b610bb2312e4b5e89fa368752c97c03492b18d693f74893c1a7bb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "061fb0dc940cea966ed7c7e120f9e6243f394ca3aa4f31f622114bf4fa1e3aca"
     sha256 cellar: :any_skip_relocation, monterey:       "0856c38eed694da5621b1d521be8d760ab0b1af9e12f4b33092fe21cc6b4716c"
