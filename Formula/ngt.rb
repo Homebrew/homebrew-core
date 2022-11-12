@@ -1,8 +1,8 @@
 class Ngt < Formula
   desc "Neighborhood graph and tree for indexing high-dimensional data"
   homepage "https://github.com/yahoojapan/NGT"
-  url "https://github.com/yahoojapan/NGT/archive/v2.0.4.tar.gz"
-  sha256 "b8e4f8d1c875210d1f6e929af8757432e84adc28a920168bc2700e72c2e6f64d"
+  url "https://github.com/yahoojapan/NGT/archive/v2.0.5.tar.gz"
+  sha256 "aa2d5845edde04dc7d91cd14cc3d315535c9438e298f241c79fbdd0b0a7ff4cf"
   license "Apache-2.0"
 
   livecheck do
