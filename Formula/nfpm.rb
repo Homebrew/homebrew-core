@@ -7,6 +7,7 @@ class Nfpm < Formula
   head "https://github.com/goreleaser/nfpm.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7463da73cab67a9e2fcb7bfa6a59d15fb16b9a49b40f5d6e9cdf2dfc4a93ff6a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c7f45bb6e2664f41c335a5f3d29f66143af2761bf59a04b4f33141dd7b93bd7e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "934b4b1cfa6eb9ad40c03296c71cb1ca1ea07bee1c3f3da4c1592c3bb42468f2"
     sha256 cellar: :any_skip_relocation, monterey:       "ec0b10a43bcad4a75a13ad3c6231a4cf3e2c8a13422b5a2c15a7b16d21080a0e"
