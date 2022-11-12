@@ -7,6 +7,7 @@ class Pixiewps < Formula
   head "https://github.com/wiire-a/pixiewps.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "721604be69bab25231f1bda20ed0f5c6f8dcb5a2788e2350c28726f86e043a1c"
     sha256 cellar: :any,                 arm64_monterey: "faac5957f271cf40bed4393b1bcaa534ddc451c86b3898063d8f0261ef6702d3"
     sha256 cellar: :any,                 arm64_big_sur:  "2f777465467b09513a89236e118390430e9f019a8df3cec11bf8984ebc2d1453"
     sha256 cellar: :any,                 monterey:       "55bf66c8040b07df2441c3fcf7c13eb27686e4b9c9ca62daf74d57f144fa90f7"
