@@ -10,6 +10,7 @@ class OciCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f964ce27310ec69e6c34facf09f3012182ccb3710403be35e18198c6b5ffcb1d"
     sha256 cellar: :any,                 arm64_monterey: "71821971bbce54c705442ea96dc2be2686154e1a22e70d8ed31b3ba8118710f4"
     sha256 cellar: :any,                 arm64_big_sur:  "a139baf8a9ad1a44f9aa4d1965b3b64f3b1e4a0a6354351b47c0a4da872d4c8b"
     sha256 cellar: :any,                 monterey:       "10094fc8b2b246fb3ad073e7551321e3e5a60cdf382822b9ccaa29cc4ea5a49c"
