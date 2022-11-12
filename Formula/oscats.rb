@@ -6,6 +6,7 @@ class Oscats < Formula
   revision 6
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "3ec330e90206d25a5d892d835f6bd6ab42bc1c21f557a578e4875add50315eff"
     sha256 cellar: :any,                 arm64_monterey: "8f09201bc284042b8bc6b011e32b51a1d538a6296ffc131b42a185b97abc434f"
     sha256 cellar: :any,                 arm64_big_sur:  "b5c6f901dc2b45d722e956303ed3641fe01244e68f62fa8cf10470cc3265b958"
     sha256 cellar: :any,                 monterey:       "c9d55286b8b305eae9dfb3197106f554b0d1bdcf92633d6c6427f5344a850f1c"
