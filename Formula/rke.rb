@@ -17,6 +17,7 @@ class Rke < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "afce6d478f71fb8151512e9bba92f69674f88470b835f2c34b7d3bf4c2bf3585"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6acdf440c631091d0b944be2ce7002a8d4d4bf70cfd69f860bf3ecc81977a42a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8201fb7c967925064faaf6d77d9a7320338dca798ef7b118ae9d98ff9345318a"
     sha256 cellar: :any_skip_relocation, monterey:       "44fae476521cebecdffe01809c0da8f878407da80d2991a5096fbbc2fa494da3"
