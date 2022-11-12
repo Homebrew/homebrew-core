@@ -7,6 +7,7 @@ class Xkbcomp < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4a84896fed45058f5898811b2a9e0741abed6da8d13d43f251dd6a6820f17c67"
     sha256 cellar: :any,                 arm64_monterey: "e79078be650b291c1a4608b8db62c94e69a0ffc7471fc74ea5769ab93de284dc"
     sha256 cellar: :any,                 arm64_big_sur:  "32ee8ba2516d310be9f003dc991adf20d34bc4c3456451bee40405abd503c14b"
     sha256 cellar: :any,                 monterey:       "727c2cb08d05bde6848a8cbbcab5749e2305422dc40b1e9464dac8f3838f2fdb"
