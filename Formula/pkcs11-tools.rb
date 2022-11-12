@@ -6,6 +6,7 @@ class Pkcs11Tools < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1d986581dbe9eb9490e77d3e61d5ce90ee30d6777f1cd2cb9fe0d39d0b70c2f8"
     sha256 cellar: :any,                 arm64_monterey: "bf484252566d3546fb51de13756957fc4325fe04ac2e9dab27f2bb83aeacbf8a"
     sha256 cellar: :any,                 arm64_big_sur:  "52173ec7a2ea6e8549caf29df6798510d919c6702fc8c04040b5b0ce90e51f3e"
     sha256 cellar: :any,                 monterey:       "010e67e29eff3d1c84ce1287fc9cb25dbca2f72e53cb7561aa148e5d9e432835"
