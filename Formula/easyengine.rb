@@ -6,6 +6,7 @@ class Easyengine < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a49dbdeaa32eeb010f154fd0db1c3015a752339eafcd10657abe46bb66a89b89"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a49dbdeaa32eeb010f154fd0db1c3015a752339eafcd10657abe46bb66a89b89"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a49dbdeaa32eeb010f154fd0db1c3015a752339eafcd10657abe46bb66a89b89"
     sha256 cellar: :any_skip_relocation, monterey:       "6fbe7dfcdba82deeaeb9552fe2e52c299add61cba3df8b5ca717dcb62333ae41"
