@@ -13,6 +13,7 @@ class Grok < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b69e6b4812e82ce6007eda960673dc824e554fc8fea8c2a49968101b622dc11d"
     sha256 cellar: :any,                 arm64_monterey: "2556c5995021bc02cf5a41c99bd30e127dedb7350972333c0bf77b695ed94114"
     sha256 cellar: :any,                 arm64_big_sur:  "172f626c4eb3d62d2f7b7dcd2c94a4890cc69a835ae3f33ddcb7b74762e4c52e"
     sha256 cellar: :any,                 monterey:       "111ecef9c1d93f0e737f47a7053ae84f5b434ae2bf808a49c7fbb9f9e4bb65e1"
