@@ -8,13 +8,12 @@ class PrometheusCpp < Formula
   head "https://github.com/jupp0r/prometheus-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "85b19d9cb1fc67fb238f6115b23682fc8df58219f73266dab73f3625973f928c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f5fdbc2b2fc3da800ca8f6cac7c18a1e7d4b7b55318ccecabe68ea5f314a8c0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6404e93032552350fb129ad38dbffa03706f78e0bda04402a84449ec5a1439b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "d0933848b3a9a8504052b444a83fd1f1a20e0e520d2643584097d1a27377c6d3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "755c5a2bd0046088eeb2ca52c8c9b9408ba57a22a4d06d128be59d44e64a5948"
-    sha256 cellar: :any_skip_relocation, catalina:       "6b7548ad0125d414b34be316ea7cdc13766457b3bc88c397e36c4dcbb05f6e2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9629fedddc178a9429a601d0e91af931aeee3dd9b825f2efb82cbf068967a950"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1878e13f58c5fd8a0372e1e3f2716b87fc44b38463c684eca1630c6f6fbdb689"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2f0502684fa4c30929c1cfdf07f9aa7e5d4d38b4d0714e01c329115fada715f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "f40470268823a385b19db6ba6341573ad006901f4702f9b6db2fe7165278b497"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8d2f91d1402fc65e4a5e0803dbf8c315b6d14db84559a32fe024c741f520e9a6"
+    sha256 cellar: :any_skip_relocation, catalina:       "1d472883a72631b29594c8c06b342300c717a6dc36f8dcd5edccdf629e7bdd5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19eec03c31caaf8bc45b222a578b81a90fefe8a7ae5be01a9377d3cb257058c4"
   end
 
   depends_on "cmake" => :build
