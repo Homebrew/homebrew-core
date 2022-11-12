@@ -18,7 +18,7 @@ class Pgxnclient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a3082f3981aef9a53a92fad8b10ffd0634185881d148827823ae0524850a824"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   def install
