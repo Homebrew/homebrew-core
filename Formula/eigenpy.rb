@@ -8,6 +8,7 @@ class Eigenpy < Formula
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1d3b22288f17f9d08aa69ac0491f291ad387a052394b9c4b4e4f46489e8ae199"
     sha256 cellar: :any,                 arm64_monterey: "b70f2903680e7fc51501b6d549cb23291742b631bb2b392bd3c78334d22ed41b"
     sha256 cellar: :any,                 arm64_big_sur:  "9fe1e4b0754693d8bb9f6c5694f61ef4474ae6538b68c4f1bd0164f12290b95d"
     sha256 cellar: :any,                 monterey:       "4b85ad7f945da3353996b140ffb651704e12f2443b9fc47c7e24e58054629b8f"
