@@ -19,7 +19,7 @@ class Cookiecutter < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bcc23ed474da97127ace494ffe48bff319772892d7f299737e9700e963fcc58"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
