@@ -1,6 +1,4 @@
 class Docutils < Formula
-  include Language::Python::Virtualenv
-
   desc "Text processing system for reStructuredText"
   homepage "https://docutils.sourceforge.io"
   url "https://downloads.sourceforge.net/project/docutils/docutils/0.19/docutils-0.19.tar.gz"
@@ -18,17 +16,50 @@ class Docutils < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a51a4a455f0f93c4020aa5c692df0cbee810a4967ca38708591cb91d584fe7c"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
+
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.match?(/^python@3\.\d+$/) }
+  end
 
   def install
-    virtualenv_install_with_resources
+    pythons.each do |python|
+      python_exe = python.opt_libexec/"bin/python"
+      system python_exe, *Language::Python.setup_install_args(libexec, python_exe)
 
-    Dir.glob("#{libexec}/bin/*.py") do |f|
-      bin.install_symlink f => File.basename(f, ".py")
+      site_packages = Language::Python.site_packages(python_exe)
+      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+      (prefix/site_packages/"homebrew-docutils.pth").write pth_contents
+
+      pyversion = Language::Python.major_minor_version(python_exe)
+      Dir.glob("#{libexec}/bin/*.py") do |f|
+        bname = File.basename(f, ".py")
+        bin.install_symlink f => "#{bname}-#{pyversion}"
+        bin.install_symlink f => "#{bname}.py-#{pyversion}"
+      end
+
+      next unless python == pythons.max_by(&:version)
+
+      # The newest one is used as the default
+      Dir.glob("#{libexec}/bin/*.py") do |f|
+        bname = File.basename(f, ".py")
+        bin.install_symlink f => bname
+        bin.install_symlink f => "#{bname}.py"
+      end
     end
   end
 
   test do
+    pythons.each do |python|
+      python_exe = python.opt_libexec/"bin/python"
+      pyversion = Language::Python.major_minor_version(python_exe)
+      system "#{bin}/rst2man.py-#{pyversion}", "#{prefix}/HISTORY.txt"
+      system "#{bin}/rst2man-#{pyversion}", "#{prefix}/HISTORY.txt"
+    end
+
     system "#{bin}/rst2man.py", "#{prefix}/HISTORY.txt"
+    system "#{bin}/rst2man", "#{prefix}/HISTORY.txt"
   end
 end
