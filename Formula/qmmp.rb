@@ -17,6 +17,7 @@ class Qmmp < Formula
     sha256 monterey:       "f8efdbaafb771e7ef17c430e80f56baf161439842ded2212e5c691049c649d86"
     sha256 big_sur:        "3a10022920b829204dd6c95683e7e5ed591241bf32199dba74fc2d7b8a7310dc"
     sha256 catalina:       "26cfc6ce80cdf54067d9f166e9512904284e143cada1dc10cae94b8b938ca953"
+    sha256 x86_64_linux:   "d0aef96423a3a1ef7f9c08db5a5f33b65dbabd7f6dbfcff518bee8858e8cf951"
   end
 
   depends_on "cmake"      => :build
