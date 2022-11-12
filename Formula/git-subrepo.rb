@@ -12,6 +12,7 @@ class GitSubrepo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a39768821ddd16240f8a467ef1a90b4e59ad609ae14f36ea4dedc81438ac8cf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a39768821ddd16240f8a467ef1a90b4e59ad609ae14f36ea4dedc81438ac8cf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a39768821ddd16240f8a467ef1a90b4e59ad609ae14f36ea4dedc81438ac8cf"
     sha256 cellar: :any_skip_relocation, monterey:       "1980304e4b65652e9ffd9b211844698ecf19b5a963819616681733fb98302b3a"
