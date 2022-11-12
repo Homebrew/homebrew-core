@@ -11,6 +11,7 @@ class Cracklib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a0d1701b52f2e2909fa56d2e8b3ac130574f8e5e3b3a3384d40a285d9a5a3a2a"
     sha256 cellar: :any,                 arm64_monterey: "37e11c7758cab905a8fd3d6ac8ea2e42e76a0781eab77b1876c54158acd1a220"
     sha256 cellar: :any,                 arm64_big_sur:  "9c00da21b9605563490fa418eb694b90b41dcdd112a6cfdf2994911b5488ffd6"
     sha256 cellar: :any,                 monterey:       "406463c04be8c31174159aba08a888858467f973dc6e7ac9a13616446116fded"
