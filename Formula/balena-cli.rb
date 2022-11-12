@@ -13,13 +13,12 @@ class BalenaCli < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "56f3e45765f4079d9a4dba1b4eaeb6b4f44cf0bbb8f63e926fc589e16f239683"
-    sha256                               arm64_monterey: "7de1577e298970db0c067f28fecf1bed65eb4612917081d397e3d6cfa803610d"
-    sha256                               arm64_big_sur:  "826219db6251739d8a0de871917f3d8494e7716f25a0b80b75067271e4f06bc9"
-    sha256                               monterey:       "036f42fd19df25b278a8e5119ceaf471ff5ad7f200b13c743d9c505f5d0e4013"
-    sha256                               big_sur:        "0a24790dec255503e2b0995e905f31f07fe45d3ebbc7fd9858d176adc7a7bc9b"
-    sha256                               catalina:       "fd5213a528c6cdd563dcc563dd08867f287c76f1b7a214680fb791131b0acf48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb34b046088e93423067c9038ef5803fbec6d0dc9f248ff67a7380729bb648ff"
+    sha256                               arm64_monterey: "f97da39ccceabbc6f096d0bdb7846c111c594c3bd7786690d33ec671353cff93"
+    sha256                               arm64_big_sur:  "a6fc3f35780c666d5587810954c96eba01b044e472c5d791ed0eda5ef724dbbb"
+    sha256                               monterey:       "2f8ca44748e5a620fbdb2cadf9e4130b6dc9f83bbca46ed897db6ef3d7bb61d2"
+    sha256                               big_sur:        "2cd667dea807b91155944fa4c31b8efc500ecb5449db04b07e4465e5b4617421"
+    sha256                               catalina:       "42eaa28bcb6b4f32dce63d4dc8d4bb72dc62bfbbd168f0085d702867473cfd81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85fcc997888153def9515ba42540c5ace56b98f63d3e90190dd820e43086b393"
   end
 
   # Node looks for an unversioned `python` at build-time.
