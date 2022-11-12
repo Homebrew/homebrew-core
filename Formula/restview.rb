@@ -18,6 +18,7 @@ class Restview < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b34dbb330e8d4795e2b92c283aac6fa55fb6fdc170be3a6850e71d7465e6a32"
   end
 
+  depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -29,11 +30,6 @@ class Restview < Formula
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
     sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "readme-renderer" do
