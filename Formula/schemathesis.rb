@@ -58,11 +58,6 @@ class Schemathesis < Formula
     sha256 "0d3f02e7235faf952de8ef45ef469845196d30632d5838bcd5aee217726ddd6d"
   end
 
-  resource "exceptiongroup" do
-    url "https://files.pythonhosted.org/packages/13/55/43ff6658a50a7f722d2f904810b42514c23a5d649d8a5d890cdc16b617de/exceptiongroup-1.0.1.tar.gz"
-    sha256 "73866f7f842ede6cb1daa42c4af078e2035e5f7607f0e2c762cc51bb31bbe7b2"
-  end
-
   resource "graphql-core" do
     url "https://files.pythonhosted.org/packages/ee/a6/94df9045ca1bac404c7b394094cd06713f63f49c7a4d54d99b773ae81737/graphql-core-3.2.3.tar.gz"
     sha256 "06d2aad0ac723e35b1cb47885d3e5c45e956a53bc1b209a9fc5369007fe46676"
@@ -112,6 +107,11 @@ class Schemathesis < Formula
   resource "junit-xml" do
     url "https://github.com/kyrus/python-junit-xml.git",
         revision: "4bd08a272f059998cedf9b7779f944d49eba13a6"
+  end
+
+  resource "MarkupSafe" do
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "multidict" do
