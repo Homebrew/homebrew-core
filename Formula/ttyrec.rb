@@ -12,6 +12,7 @@ class Ttyrec < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8da60792e0827bc948f8f1f0ce1f4c2e223e987c62943e8d854887d2b3557de4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ae3690abbab9b59cd40c4a0004f21c5277c5642484fed77c180115030fa637e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5538f4c65b9395dd35a7d9f975a7da59a9e9b1bc4cf09725b86d61c48755306a"
     sha256 cellar: :any_skip_relocation, monterey:       "2e9366729fa85940745e55645c77c6f22c2ba47ad356159e5fc5564988e88e0b"
