@@ -30,7 +30,7 @@ class Newsboat < Formula
   uses_from_macos "sqlite"
 
   on_macos do
-    depends_on "make"
+    depends_on "make" => :build
   end
 
   # Newsboat have their own libstfl fork. Upstream libsftl is gone:
