@@ -6,6 +6,7 @@ class Sqlcmd < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f8ce37a16cc727356faa80f57d2f05f919f1afa31b012e07d26c4de9afcce9f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f522588f31fce97b48872a0de9e46e530be933e34a4efdecea30fb3019cb8ba"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f522588f31fce97b48872a0de9e46e530be933e34a4efdecea30fb3019cb8ba"
     sha256 cellar: :any_skip_relocation, monterey:       "046a8193b10eba6081c4ad1e95167d16c451ea675777ba7685496fbe9b734e2e"
