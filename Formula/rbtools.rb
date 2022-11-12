@@ -18,12 +18,12 @@ class Rbtools < Formula
   end
 
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
-    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
+    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
   resource "pydiffx" do
@@ -43,6 +43,8 @@ class Rbtools < Formula
 
   def install
     virtualenv_install_with_resources
+    bash_completion.install "rbtools/commands/conf/rbt-bash-completion" => "rbt"
+    zsh_completion.install "rbtools/commands/conf/_rbt-zsh-completion" => "_rbt"
   end
 
   test do
