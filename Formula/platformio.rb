@@ -9,13 +9,13 @@ class Platformio < Formula
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba85f557a89c7b3ae38eff5596e0adf5552c41383cc5b0951328858ebb4770d1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0fc7b6a3d9ef4cd50cda403b1ace7ae3710911101d9c654dfd63eef53fe8cbd3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb7083ec6bb8073da1b7f303b8638b7392a0c3983f5cadf55cb7b13163a430d4"
-    sha256 cellar: :any_skip_relocation, monterey:       "a1e8aff41ee4feaec3ac64470cf7485bea32e3c3552d4533be8130180c8f1510"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c3daa095ab3c65d23a06d05ab3fd4ebc19eaf25f273914a40652572eda28bde8"
-    sha256 cellar: :any_skip_relocation, catalina:       "d22f2f1a974f05dc4aa64b180ee7a2d10946d977b4b1584d82880a4c428299f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98fead24abf9c1637bbe7aad9a02954f009ddc7c44176a47ba7f7c3ccbce812b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "48cf603245315095bd15cd139a629e815a71454e26fbb52f73c93c82f935ef1e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ceb4620e0f73b88fd1682d6544f2c53f685a3dd1ba77fd296198df8c05f77d0"
+    sha256 cellar: :any_skip_relocation, monterey:       "647e613e1d718387d4b543ae0bab4f17b62e7bd362f83ce34c6e3af18d6ae1de"
+    sha256 cellar: :any_skip_relocation, big_sur:        "31a3729765b40d41390320ed52e2f2d9358cc18783313718227407beafb75dd1"
+    sha256 cellar: :any_skip_relocation, catalina:       "5721be97250a3be84875ff8792a8aaace71d9b95b4d069eca83e4b32b6752382"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4565000534f6636173c693df7aac1768cc43647888345f91b5f048a2765a12b"
   end
 
   depends_on "libpython-tabulate"
