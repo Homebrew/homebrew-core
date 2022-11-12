@@ -11,6 +11,7 @@ class Zet < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b826c5f442fb71ffd28d466e4b08e9c5d3ed0895a87ff621cfa0aa3805b115ba"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0d21b66a48e85d1563067e7c3b390d148886bb93c631af00bb0eaa1e4430c7d7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2f7d3a54ee2a0e490a97a455691c76442f3e5926f811b8bd5c18867f174e11c"
     sha256 cellar: :any_skip_relocation, monterey:       "e60284b926062a06239f9467e1b58cfe57bcf5a340b744a2a2d745c7166c5b8c"
