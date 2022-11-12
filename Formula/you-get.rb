@@ -18,11 +18,14 @@ class YouGet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc849516bfcd0fee0cd119b702c49a9bdfeefa5faf8bf570408dcc10a1296a33"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "rtmpdump"
 
   def install
     virtualenv_install_with_resources
+    bash_completion.install "contrib/completion/you-get-completion.bash" => "you-get"
+    fish_completion.install "contrib/completion/you-get.fish"
+    zsh_completion.install "contrib/completion/_you-get"
   end
 
   def caveats
