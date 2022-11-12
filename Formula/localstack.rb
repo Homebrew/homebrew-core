@@ -22,27 +22,23 @@ class Localstack < Formula
   depends_on "docker" => :test
   depends_on "libpython-tabulate"
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
-  on_linux do
-    depends_on "rust" => :build
-  end
-
   resource "apispec" do
-    url "https://files.pythonhosted.org/packages/39/bb/2910f46ecba16334c19e4f02906b1fdb0e69f9c3fd9a21afcf86c45ba89e/apispec-5.2.2.tar.gz"
-    sha256 "6ea6542e1ebffe9fd95ba01ef3f51351eac6c200a974562c7473059b9cd20aa7"
+    url "https://files.pythonhosted.org/packages/a7/2a/b42c17e0d653341b8f5916999892cd2d8489de127dac6118ae44531674f5/apispec-6.0.2.tar.gz"
+    sha256 "e76d80b739edef4be213092a6384ad7fd933ba7d64f6d5a0aff8d4da1bef7887"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/97/a0/20dd887905e5056c597c959a0adb452d88aac992418578e18567e2109f23/boto3-1.24.89.tar.gz"
-    sha256 "d0d8ffcdc10821c4562bc7f935cdd840033bbc342ac0e14b6bdd348b3adf4c04"
+    url "https://files.pythonhosted.org/packages/9e/a2/10f0d67f71bf6f87b2dc6558679f23c0cb4c3be42089a7eef625ed35d002/boto3-1.26.8.tar.gz"
+    sha256 "b39303fdda9b5d77a152e3ec9f264ae318ccdaa853eaf694626dc335464ded98"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/bd/cb/af3d2851d43200724720ba4e81af15cbadeaf5b190eedd1b75582296627e/botocore-1.27.89.tar.gz"
-    sha256 "621f5413be8f97712b7e36c1b075a8791d1d1b9971a7ee060cdcdf5e2debf6c1"
+    url "https://files.pythonhosted.org/packages/9c/62/0e7a8c2bc63c3529db0ca3ee4c0f5b60a65165e594d1487b13b6524ddccd/botocore-1.29.8.tar.gz"
+    sha256 "48cf33d7c513320711321c3b303b0c9810b23e15fa03424f7323883e4ce6cef8"
   end
 
   resource "cachetools" do
@@ -76,8 +72,8 @@ class Localstack < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6d/0c/5e67831007ba6cd7e52c4095f053cf45c357739b0a7c46a45ddd50049019/cryptography-38.0.1.tar.gz"
-    sha256 "1db3d807a14931fa317f96435695d9ec386be7b84b618cc61cfa5d08b0ae33d7"
+    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
+    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
   end
 
   resource "dill" do
@@ -86,8 +82,8 @@ class Localstack < Formula
   end
 
   resource "dnslib" do
-    url "https://files.pythonhosted.org/packages/ef/ce/2a4422c41cf36084558640bf9692bfd6ef0dab7d0313ac55cf57b0fce176/dnslib-0.9.22.tar.gz"
-    sha256 "10afc94f6a5f1cb8b38824e042e25e5414e1faaedfd39b348ae8d97722921a86"
+    url "https://files.pythonhosted.org/packages/7e/ac/5c401ea9575d72e64aa15b5cbee12df6106b7d6a334d032a40d7639a8ca6/dnslib-0.9.23.tar.gz"
+    sha256 "310196d3e38ce2051b61eebbd2f1d08fcc934fa3360f22031864d16efe8bca77"
   end
 
   resource "dnspython" do
@@ -120,9 +116,14 @@ class Localstack < Formula
     sha256 "17e150270bc1d561fba9c7ce1ba20663e6657cac33dfd504e6bc2840a9f169a7"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+  end
+
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/b4/40/4c5d3681b141a10c24c890c28345fac915dd67f34b8c910df7b81ac5c7b3/pbr-5.10.0.tar.gz"
-    sha256 "cfcc4ff8e698256fc17ea3ff796478b050852585aa5bae79ecd05b2ab7b39b9a"
+    url "https://files.pythonhosted.org/packages/52/fb/630d52aaca8fc7634a0711b6ae12a0e828b6f9264bd8051225025c3ed075/pbr-5.11.0.tar.gz"
+    sha256 "b97bc6695b2aff02144133c2e7399d5885223d42b7912ffaec2ca3898e673bfe"
   end
 
   resource "plux" do
@@ -131,8 +132,8 @@ class Localstack < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/8f/57/828ac1f70badc691a716e77bfae258ef5db76bb7830109bf4bcf882de020/psutil-5.9.2.tar.gz"
-    sha256 "feb861a10b6c3bb00701063b37e4afc754f8217f0f09c42280586bd6ac712b5c"
+    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
+    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
   end
 
   resource "pyaes" do
@@ -148,6 +149,11 @@ class Localstack < Formula
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
     sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
+    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   resource "python-dateutil" do
@@ -191,8 +197,8 @@ class Localstack < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/f5/70/7953626fd19faa7a0852779c1949650e825f650ee6060f68658a84584c26/stevedore-4.0.0.tar.gz"
-    sha256 "f82cc99a1ff552310d19c379827c2c64dd9f85a38bcd5559db2470161867b786"
+    url "https://files.pythonhosted.org/packages/66/c0/26afabea111a642f33cfd15f54b3dbe9334679294ad5c0423c556b75eba2/stevedore-4.1.1.tar.gz"
+    sha256 "7f8aeb6e3f90f96832c301bff21a7eb5eefbe894c88c506483d355565d88cc1a"
   end
 
   resource "tailer" do
