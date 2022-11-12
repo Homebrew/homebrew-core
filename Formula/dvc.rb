@@ -8,6 +8,7 @@ class Dvc < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "25949839978fe464eb72aded457b7d9b5315d2e336f0e017eeb7a1727ff2ebae"
     sha256 cellar: :any,                 arm64_monterey: "bc4b6211a33dfd3dd233a07d8e9f53e73a45ac29cdb67be0f0071f043b36e8e2"
     sha256 cellar: :any,                 arm64_big_sur:  "ef6fcf891d45c97c7f3304ff3571c02aae3f7be53a666649f8970c1434cd4485"
     sha256 cellar: :any,                 monterey:       "ba1fdf4992d69db97fd678cf35b7a62689b9d575d714f5e3bc09e65597101721"
