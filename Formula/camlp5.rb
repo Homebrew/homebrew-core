@@ -13,6 +13,7 @@ class Camlp5 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "5c856ce395542f5b4f154a67e076482465cd4538e6d84172269c872b7a28bf94"
     sha256 arm64_monterey: "9daedd1054de7c0004d21f643d47ea90611f66d13524488950e5fbe36bf8c0b4"
     sha256 arm64_big_sur:  "328cb38eb6fc4540c35bca367e55c26f5e088dd0d2f0858bed6508f21ff470f7"
     sha256 monterey:       "dc109b253d4a8393e83abe312ed7d372795efabf4d2ed32c0e4ea132ac473822"
