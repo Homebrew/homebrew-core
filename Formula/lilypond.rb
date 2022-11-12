@@ -57,7 +57,7 @@ class Lilypond < Formula
   depends_on "ghostscript"
   depends_on "guile@2"
   depends_on "pango"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
