@@ -10,6 +10,7 @@ class Lldpd < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "ff11760e645aa9a58d077e5d8e416bf872fade71eb85d1a6a588b4f951f31302"
     sha256 arm64_monterey: "b8bf3e13786c2bc41f0e31625b4d00b2cbc7140187842efaa23cb461330e3308"
     sha256 arm64_big_sur:  "f9b3286480d22c400ad45081372b546f9c55e2874887f73019a6daa65e838b2a"
     sha256 monterey:       "9030a1ab9ebea7663a223a87a6c7658a2eee34ca8554ae0c7df9911cc4d0206e"
