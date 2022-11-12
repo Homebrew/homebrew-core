@@ -11,6 +11,7 @@ class Dolt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "64ff696db1ef14d7e88faf8d89fb87a9527615129a7ce46c775bcfec0e7afc58"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "939a93be35f0afcc02bceac74380220a8feb0cb49d41f283af57db4da4ae1963"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1824c597175d9e027711da31dd64cbb0d93ce2d6841ea89118b93dc00870bcad"
     sha256 cellar: :any_skip_relocation, monterey:       "1486b2b719795ed124fc7dc4b8ee9b004a17890e7ff44c938fa21b38bbb69b53"
