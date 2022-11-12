@@ -9,13 +9,12 @@ class Networkit < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "37fb24a66576259a86c70fcbd1b449dc5c1db839a86d2d0c4c8161a09dbf0025"
-    sha256 cellar: :any,                 arm64_monterey: "28571a0866090c5bb5f37e4cfa50011fd3937e9eaae1288861420529c1b93a85"
-    sha256 cellar: :any,                 arm64_big_sur:  "8d4529866191018e40886f83d6916af78181a402999632afd7738c80751105ed"
-    sha256 cellar: :any,                 monterey:       "68d0dead144ba2a5699edfe832168a0031938cf583132120df246f9affbe3047"
-    sha256 cellar: :any,                 big_sur:        "961285cea4f57c3873d36009b0a97c5ababb27f354e19411b9bf2a9f0102f1f2"
-    sha256 cellar: :any,                 catalina:       "13a02f00004e4718ccbb5f5bb157c8e6557865758ca6e73bda02ab080fe9c1f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ff13ab79cfaeead09a6030942113270204cea6f7e262ad2ff111a8b214c4a3d"
+    sha256 cellar: :any,                 arm64_monterey: "b3b2832093a52d3d961fe42465e054ed671fe42dd5ed61e8bd60824e726c8ef5"
+    sha256 cellar: :any,                 arm64_big_sur:  "e9e5c140bfb05a6332828086675d8e4bcf068c2c04029ee3d0cc259358c61f23"
+    sha256 cellar: :any,                 monterey:       "481afe37e6d16ced50eae8d67ad9740eaba8f696eef74d14af6fee662b11f4ee"
+    sha256 cellar: :any,                 big_sur:        "216f7679271686d87637ab1ffbba1b785af560e0b5938da6095891d6d79589f0"
+    sha256 cellar: :any,                 catalina:       "3a4d7a959f666b9dfdfa2df033f208de73feb1b08c4f70b72c54ce925760c569"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef01d0f3dc7aa13b1953783ebabae54a1913e0687212cc8e3e96d59f83d89787"
   end
 
   depends_on "cmake" => :build
