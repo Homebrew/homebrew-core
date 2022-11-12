@@ -19,6 +19,7 @@ class Pdal < Formula
 
   bottle do
     rebuild 2
+    sha256                               arm64_ventura:  "8d8ace1747e05a4c205a2844e23a567d8a09706b993c8b8ec114a4468da03bba"
     sha256                               arm64_monterey: "989f2950a5b60b2d7bf721d17eeb03491ca880906eac1c7c40f6234d8b28c041"
     sha256                               arm64_big_sur:  "b22cc9c4ee859edc32fc5f8f2d5f6da103167669144d97b0a18edb2cae5525a0"
     sha256                               monterey:       "c9abf19402e221b5bf21a981034d4ad4de5f5296e30ecc8e36cf057140273c1c"
