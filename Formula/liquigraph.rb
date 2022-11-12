@@ -7,6 +7,7 @@ class Liquigraph < Formula
   head "https://github.com/liquibase/liquigraph.git", branch: "4.x"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bd9bfe32b4de80a9fb329b0e31718366cb3d084b7916b9989c27cf0b9dec8e51"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2657ed5db8ad3d0e90a2fe423ab3cd6dc80a5e2ab31491a1e28321ea18ecba8e"
     sha256 cellar: :any_skip_relocation, big_sur:       "c9b148e1dc0d02e6cc2ead6239afa1d9722b66a6735b3e04a09fee53c449c473"
     sha256 cellar: :any_skip_relocation, catalina:      "9edfa9189feac35f00e7ff23b05b65591c66d8ca39af1ce39729223152c3fe41"
