@@ -7,6 +7,7 @@ class Eva < Formula
   head "https://github.com/NerdyPepper/eva.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "244898ede20bf08ca17f739fd850699b99e8940a010007f8084d2ad3e6b6c12e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9d600eb8e8e278101a902807941e3417a5508bb90352ddaadbab09b889b6499f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "967cc1144edab1e5632c3105e84b588121dd7f211c056ffb9795ccf35fba2449"
     sha256 cellar: :any_skip_relocation, monterey:       "16b3a5a30dc5aeb1a91c1ff219924f758df52eb763c33dd713a54487d0e5a309"
