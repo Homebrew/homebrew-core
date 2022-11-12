@@ -13,6 +13,7 @@ class Dcm2niix < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "657f60237a85e594706e0794278eb90dec747759fb42ddf9a31d27d9a81a22ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "256379b33e4ee7fd98c343830fd473dffed638a434adfb44b82da00312ad7590"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb06fe151b7302db9b217653395041b83d5ba52f78c3482f8db2c7b0fa90e8a2"
     sha256 cellar: :any_skip_relocation, monterey:       "c23e27972dc9bcae0eb01a0452facd60f8d61a3389ee93fe30d627b31157a104"
