@@ -6,6 +6,7 @@ class Tssh < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "87acf131626f3af8ebc78fe390c43b3950c3c491a90e2fdd4d4bf9b975053146"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5f45fc530482f76d31be04fc447ad9ddf1db45542f845346d035738fe12bca04"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "222ab84f9c686b2606c5424d5ba3183517ab606851d7d6f9131f8122b3f4047b"
     sha256 cellar: :any_skip_relocation, monterey:       "48d5b1f6af2a47e38deb9aae9d969607b250a574458b1825ca664b4ce689e2e3"
