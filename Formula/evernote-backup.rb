@@ -10,6 +10,7 @@ class EvernoteBackup < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b76e54f1c2f698bd68db99e2c078605ce6af30700fd309ecd4268c49212dcf5e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "490db89546b505aaabfc75327164fd5638a1d4adffc26ce855739bdf97af0b0d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c23da7a40480c521b2eeb27b804b36453f04c46c97be2f5edef0dd7e4567fc4"
     sha256 cellar: :any_skip_relocation, monterey:       "ddf15a2fd9c7517fd16395641eef479693b742697e175fdf0edc502177398525"
