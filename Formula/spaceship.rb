@@ -7,6 +7,7 @@ class Spaceship < Formula
   head "https://github.com/spaceship-prompt/spaceship-prompt.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc9bd5c5f8b093ad6da8b02786140beb5cb787779505a0612b95ccd526f6a1db"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c46d97844abdf3d12c846998af399ef7cc65d50862c57d44ed08e6fbaa8c55a2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c3a09e6da9a5c18d0043752246336da01409c2dcc6feb60cfefab87c3bb3ecc"
     sha256 cellar: :any_skip_relocation, monterey:       "fae09e61ebfacde1faed1e37bb7492df1657ab42103d31535a26ee5a815231e3"
