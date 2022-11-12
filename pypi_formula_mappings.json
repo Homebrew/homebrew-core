@@ -368,7 +368,20 @@
     "exclude_packages": ["six", "tabulate", "Pygments"]
   },
   "nbdime": {
-    "exclude_packages": ["six"]
+    "exclude_packages": [
+      "jupyterlab", "ipython",
+      "anyio", "argon2-cffi", "bleach", "certifi", "cffi", "charset-normalizer",
+      "defusedxml", "entrypoints", "idna", "ipython_genutils", "Jinja2",
+      "jupyter-client", "jupyter-core", "jupyter-server", "jupyterlab-pygments",
+      "MarkupSafe", "mistune", "nbclient", "nbconvert", "nbformat", "nest-asyncio",
+      "packaging", "pandocfilters", "prometheus-client",  "pycparser", "pyparsing",
+      "python-dateutil", "pyzmq", "requests", "Send2Trash", "sniffio", "terminado",
+      "tornado", "urllib3", "webencodings", "websocket-client",
+      "appnope", "asttokens", "backcall", "decorator", "executing", "jedi",
+      "matplotlib-inline", "parso", "pexpect", "pickleshare", "prompt-toolkit", "ptyprocess",
+      "pure-eval", "Pygments", "six", "stack-data", "traitlets", "wcwidth",
+      "jsonschema", "attrs", "pyrsistent"
+    ]
   },
   "nicotine-plus": {
     "exclude_packages": ["pycairo", "PyGObject"]
