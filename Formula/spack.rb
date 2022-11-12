@@ -12,6 +12,7 @@ class Spack < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4af2ffd6fa516f80ac77b276d50ed268cc48165ada4165d3254085cddef7730e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4af2ffd6fa516f80ac77b276d50ed268cc48165ada4165d3254085cddef7730e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4af2ffd6fa516f80ac77b276d50ed268cc48165ada4165d3254085cddef7730e"
     sha256 cellar: :any_skip_relocation, monterey:       "ec35b7ce41593c506dd2cbf2761de1863c45836501a1fa637a15c448e5da5f61"
