@@ -9,6 +9,7 @@ class Mathlibtools < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ab896ea8a6e41e5f6510cc58e361806d83bdfa0319648e88c57825edc825ed0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ecaac25dd754f649814e952b3f67840740fe8e25bc2c6fb3f75075c23134ec9d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b01580cdc06246aab74284b27b289e114e51c88843c8a1f9946007f317f583ff"
     sha256 cellar: :any_skip_relocation, monterey:       "7e53b63f30b4544fcdca725defc6cd68785ed4dfa63c804c0e9229cb9321ae26"
