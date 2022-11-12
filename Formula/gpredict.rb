@@ -31,6 +31,7 @@ class Gpredict < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "afe4cc604e87a3446fac9a882292efa4ded782ee40e6b2bfee9549c4ea1c285e"
     sha256 arm64_monterey: "269c3a416e968dcc1ebddeb7580660acb9568387121a52cd5dae4a421747ea2f"
     sha256 arm64_big_sur:  "ef852387a0eeb9e19c38fabcf717c58f5a4924bb11c93a79ed214aa41dc5e0a3"
     sha256 monterey:       "6486c396b33ef98057502fa04c9f8e53cd91493d541635ba9c04b61323be189f"
