@@ -16,21 +16,23 @@ class Znc < Formula
   end
 
   head do
-    url "https://github.com/znc/znc.git"
+    url "https://github.com/znc/znc.git", branch: "master"
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    depends_on "cmake" => :build
+    depends_on "swig" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "zlib"
 
   def install
+    python3 = "python3.11"
+    xy = Language::Python.major_minor_version python3
+
     ENV.cxx11
     # These need to be set in CXXFLAGS, because ZNC will embed them in its
     # znc-buildmod script; ZNC's configure script won't add the appropriate
@@ -43,9 +45,23 @@ class Znc < Formula
       ENV.append "LIBS", "-L#{Formula["zlib"].opt_lib}"
     end
 
-    system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--enable-python"
-    system "make", "install"
+    if build.head?
+      system "cmake", "-S", ".", "-B", "build",
+                      "-DWANT_PYTHON=ON",
+                      "-DWANT_PYTHON_VERSION=python-#{xy}",
+                      *std_cmake_args
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+    else
+      system "./configure", "--prefix=#{prefix}", "--enable-python=python-#{xy}"
+      system "make", "install"
+
+      # Replace dependencies' Cellar paths with opt paths
+      inreplace [bin/"znc-buildmod", lib/"pkgconfig/znc.pc"] do |s|
+        s.gsub! Formula["icu4c"].prefix.realpath, Formula["icu4c"].opt_prefix
+        s.gsub! Formula["openssl@1.1"].prefix.realpath, Formula["openssl@1.1"].opt_prefix
+      end
+    end
   end
 
   service do
