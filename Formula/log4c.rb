@@ -12,6 +12,7 @@ class Log4c < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "3d35b584c96f856ebdc672621ae867fc0d14c56b193bc25fcd3f4b122cd9e250"
     sha256 arm64_monterey: "df3a6f744304902108b48717a9bde9c4f1f19b25f04dbf4b99afb5ca8b55b9f8"
     sha256 arm64_big_sur:  "13c3c642cb9d105c742bb313fde02b1968dee00017ac5fa96e46a908ae43e996"
     sha256 monterey:       "26f216931900e3f177c8f9158afc9d1beddab45327606f35e180577ec3b4ca27"
