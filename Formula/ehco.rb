@@ -21,7 +21,8 @@ class Ehco < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b78ea30d2249f5c29e3642016edc43fde0e2ae4895cb6b7ae7ff80ef6e108a92"
   end
 
-  depends_on "go" => :build
+  # quic-go needs to be updated to use go@1.19
+  depends_on "go@1.18" => :build
 
   uses_from_macos "netcat" => :test
 
