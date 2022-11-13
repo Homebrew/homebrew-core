@@ -17,7 +17,7 @@ class Mkdocs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed1aa53af45c81f12f94f81f20a345d8bab3dde99d3b95551ff174ecf9f1fbf4"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
