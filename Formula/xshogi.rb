@@ -8,6 +8,7 @@ class Xshogi < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "656249206d9b9972cf307f04b4068f8a442e519c73e64536359d80bf64c117c1"
     sha256 cellar: :any,                 arm64_monterey: "4f3219605fa0e580f072a4d33db039140e003f9490e92cfc9992e1f240d80bb0"
     sha256 cellar: :any,                 arm64_big_sur:  "fc650945fdedff5236f9cd3ca7e04732e67e3c46a7c3ca1e592be1dfe16c69c3"
     sha256 cellar: :any,                 monterey:       "eb6d154b030845b91a1df8c3a241da4b9268397869af45be410cfd883b9271d5"
