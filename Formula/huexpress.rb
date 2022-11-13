@@ -8,6 +8,7 @@ class Huexpress < Formula
   head "https://github.com/kallisti5/huexpress.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "d69fc8ce360f304a6c9e95a8120196d5efaec9f77f02a82b0e5c3e4cab6b84da"
     sha256 cellar: :any, arm64_monterey: "a0919bd5024f7f197c262f0ba1dd5c57871506308bd7a4bfd98b5f18f04dbb50"
     sha256 cellar: :any, arm64_big_sur:  "2709e20246d6ab1a14329ccc842e49eefd9276c6b1e3ef90bcadc85c2213a394"
     sha256 cellar: :any, monterey:       "5c02e7de59a65392f1347c65df445e2d447daaac2eb508c920f8ce452628dbd5"
