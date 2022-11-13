@@ -6,6 +6,7 @@ class Inadyn < Formula
   license all_of: ["GPL-2.0-or-later", "ISC", "MIT"]
 
   bottle do
+    sha256 arm64_ventura:  "8ad89c6e8dab475e1da9516e4d4d2427ac0748528bf92fc38a43a47a759f753d"
     sha256 arm64_monterey: "ab86c866e6a92554fde495342d4da7a4d8c032fb4b44c448abdc25945f435ea6"
     sha256 arm64_big_sur:  "71be7b114e6e25d062b57849226150bf888b4a726db3678d30dbd995af7ad6a4"
     sha256 monterey:       "1754f3f16bcd8ceed60d9b57221dd039e2e8b67ea7ca1b917fc1839e15324179"
