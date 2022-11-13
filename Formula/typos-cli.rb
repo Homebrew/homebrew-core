@@ -6,6 +6,7 @@ class TyposCli < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e9dae03b16fe77bda08952bbe0ce905383d142bfac2294bf1fbdb4eb6d526ce"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "229f85ad48da2be69e9126092364511b817722f5e137bf417628d2dd162905cf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "913756a1fbadb83ee266cb9f45c9dc66c8a4debed39311dfb4ffe6a954a4aa70"
     sha256 cellar: :any_skip_relocation, monterey:       "6ca19e7020879d6b4592ae5f91832bd9449238c9f8670809a659f3c429c5fdff"
