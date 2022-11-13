@@ -8,6 +8,7 @@ class Gtmess < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_ventura:  "b900139985694c245c0211f9fea3ccdaa14fbde5094d7201bccb51029fd9ce41"
     sha256                               arm64_monterey: "19e8f974e8f84874a9d06a195d5a45b8c2d881689f767706eec5692589a6af4c"
     sha256                               arm64_big_sur:  "a0b6c3219910c5014fb968fad3d3cf06694f5f2fc173b615df3d04e8e8b5e93d"
     sha256                               monterey:       "ff05dfd808dd3c468e004dfa944117208e9f44bfe542bd45cbaa851f8981e04a"
