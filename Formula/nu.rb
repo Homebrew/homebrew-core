@@ -8,6 +8,7 @@ class Nu < Formula
   head "https://github.com/programming-nu/nu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "605e950266e241d7249d72c010dbbe2854793d09fe6dda8afc75a73388c0b041"
     sha256 cellar: :any,                 arm64_monterey: "73458d60272c9b5b96ec050db803e86e6f5886bc900f43fce9a99166f5829bc1"
     sha256 cellar: :any,                 arm64_big_sur:  "d5d3537f601e6de7a089a83156751a904875f311c8df33a296d76ab82869864d"
     sha256 cellar: :any,                 monterey:       "a2a1bdb6473b6afd30cde5def27158415fb38f92851b8a252498631f7e2f350d"
