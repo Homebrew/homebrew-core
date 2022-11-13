@@ -1,8 +1,8 @@
 class Forcecli < Formula
   desc "Command-line interface to Force.com"
   homepage "https://force-cli.herokuapp.com/"
-  url "https://github.com/ForceCLI/force/archive/v0.33.0.tar.gz"
-  sha256 "d8ab631475c9080339d1e96410ad84ea26377fa3d0662d3903f05030f929860d"
+  url "https://github.com/ForceCLI/force/archive/v0.99.2.tar.gz"
+  sha256 "e6ce47b37f3dab9be8a29dab003492c6850d13ef605de45dacbddd9812a747d4"
   license "MIT"
   head "https://github.com/ForceCLI/force.git", branch: "master"
 
@@ -16,15 +16,14 @@ class Forcecli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69d52200ee937994496e91aacfaa32584f13e55964bd306cb26dd82397c3e23e"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
-    system "go", "build", "-trimpath", "-o", bin/"force"
+    system "go", "build", *std_go_args(output: bin/"force")
   end
 
   test do
-    assert_match "Usage: force <command> [<args>]",
-                 shell_output("#{bin}/force help")
+    assert_match "ERROR: Please login before running this command.",
+                 shell_output("#{bin}/force active 2>&1", 1)
   end
 end
