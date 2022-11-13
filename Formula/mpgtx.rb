@@ -11,6 +11,7 @@ class Mpgtx < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9086ca4f3b6b2448255352f89972039b6695fead5f4a3f7c310b0c27fb6ad9e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09eb55b5471006050d5a0d02a756c8474d2500ce289ebe8dfbe22a95cfbebc14"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffab63d205a5b151099b5034943d1b34ef5802a4068c832c3da376f67b540745"
     sha256 cellar: :any_skip_relocation, monterey:       "d74d7e1c7a278e72e9b98afed71f019b51000784bd385450f88a4d879d1fff7d"
