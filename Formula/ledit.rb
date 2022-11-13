@@ -15,6 +15,7 @@ class Ledit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4e5f04c79d703b1e22f1b49794bbf416135f209fcad88ae3bc043bc17114c1b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "642349a8d05b4f9048fcd7d9fdf389e35d98b921e3d52bd06eee365b50a4f1e2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "06141836398681d2250bf04d1bba965038f5f707482f0ecab1cc464c8a95bcfb"
     sha256 cellar: :any_skip_relocation, monterey:       "da6338af250d9b52557f52707b0730c379bdd8216c53e10477c351f72d6aa406"
