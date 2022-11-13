@@ -23,33 +23,55 @@ class Aubio < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "numpy"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   on_linux do
     depends_on "libsndfile"
   end
 
-  resource "aiff" do
+  resource "homebrew-aiff" do
     url "https://archive.org/download/TestAifAiffFile/02DayIsDone.aif"
     sha256 "bca81e8d13f3f6526cd54110ec1196afd5bda6c93b16a7ba5023e474901e050d"
+  end
+
+  # Fix build with Python 3.11 using Fedora patch. Failure is due to old waf 2.0.14.
+  # Remove on next release as HEAD has newer waf.
+  patch do
+    url "https://src.fedoraproject.org/rpms/aubio/raw/29fb7e383b5465f4704b1cdc7db27df716e1b45c/f/aubio-python39.patch"
+    sha256 "2f9cb8913b1c4840588df2f437f702c329b4de4e46eff4dcf68aff4b5024a358"
+  end
+
+  def python3
+    "python3.11"
   end
 
   def install
     # Needed due to issue with recent clang (-fno-fused-madd))
     ENV.refurbish_args
 
-    python = "python3.10"
+    system python3, "./waf", "configure", "--prefix=#{prefix}"
+    system python3, "./waf", "build"
+    system python3, "./waf", "install"
 
-    system python, "./waf", "configure", "--prefix=#{prefix}"
-    system python, "./waf", "build"
-    system python, "./waf", "install"
-
-    system python, *Language::Python.setup_install_args(prefix, python)
+    system python3, *Language::Python.setup_install_args(prefix, python3)
   end
 
   test do
-    testpath.install resource("aiff")
+    testpath.install resource("homebrew-aiff")
     system bin/"aubiocut", "--verbose", "02DayIsDone.aif"
     system bin/"aubioonset", "--verbose", "02DayIsDone.aif"
+
+    (testpath/"test.py").write <<~EOS
+      import aubio
+      src = aubio.source('#{testpath}/02DayIsDone.aif')
+      total_frames = 0
+      while True:
+        samples, read = src()
+        total_frames += read
+        if read < src.hop_size:
+          break
+      print(total_frames)
+    EOS
+    assert_equal "8680056", shell_output("#{python3} test.py").chomp
   end
 end
