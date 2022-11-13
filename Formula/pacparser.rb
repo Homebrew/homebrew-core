@@ -7,6 +7,7 @@ class Pacparser < Formula
   head "https://github.com/manugarg/pacparser.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "faec5e06c1812b2e60f8398beae9703ba9f11124f4d8eee804e95b7784c28b75"
     sha256 cellar: :any,                 arm64_monterey: "c9a4d912f32c3d95b1d3e9908c1bf173b5454ab2fe97b72d542e7e9d3323acaa"
     sha256 cellar: :any,                 arm64_big_sur:  "87c7b416faa3933313915c97df4908636f6fb90d076906aedb9ab0f6349b0184"
     sha256 cellar: :any,                 monterey:       "66567eed659b8c575fd086749fb206f091b4dac80c18aace817402f53363ce5d"
