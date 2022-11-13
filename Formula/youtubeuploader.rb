@@ -7,6 +7,7 @@ class Youtubeuploader < Formula
   head "https://github.com/porjo/youtubeuploader.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a870022483bf4b3f493e5594c606c73542e9532de1cbb3360e3baff498b6e44"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d05b0bde055295fac779352ad3239407ea77104728d051c810f33bee13794bdc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "406a27d6c0a58b2837c841372dc8ec6645a384e6d2ce734cb668dfec1ad47685"
     sha256 cellar: :any_skip_relocation, monterey:       "b02ffa02fb0b1042ecd656a22d16427fb6d22d5603905d9e7df5b06b8dfe746a"
