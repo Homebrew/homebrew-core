@@ -15,6 +15,7 @@ class CenterIm < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "0fbbf6b91eaf4783884988fdef23ba0536e7ad137fc8b76d3e16ba963278204b"
     sha256 arm64_monterey: "d91b8376deaa1aaaca8720dd9a45dbbd9dd2ea22035b308c5e798eb5cca62c8e"
     sha256 arm64_big_sur:  "182513b7096a23e8888d0d76858ad1c1d2ef92648f8f3d4140e291c41224ccbb"
     sha256 monterey:       "1a230141b53d9e46c63f7619e353ab00e8eeb7c42d106a0af646361d2fb1b246"
