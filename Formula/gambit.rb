@@ -7,6 +7,7 @@ class Gambit < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "183dc5a8d5d31cd73296b04216727a1049cebb34788f1b58c421536a6d9d9d36"
     sha256 cellar: :any,                 arm64_monterey: "9e8a6532979a76099a1aec227b3b581f72ace90d5d6df95ef92a9aee4695ea91"
     sha256 cellar: :any,                 arm64_big_sur:  "8095ee116fc0670d6f2a162851c65bcfd975bafdb728c3a7748a09a59f09c72b"
     sha256 cellar: :any,                 monterey:       "bcfcbfc39abea04e9a9f724ac800042003ce9d3dd56a9bab77615825032e0ef0"
