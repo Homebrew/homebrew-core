@@ -15,6 +15,7 @@ class Powerman < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "111132a22f3537ebc1726cec49965768bc874fabaf46b2c2c7e5c1dfe7bd6c1c"
     sha256 arm64_monterey: "bf7397842c0e10d990a848340dfb2287596ed94591840997a946886edfb307d9"
     sha256 arm64_big_sur:  "9742622a1433440ff96eb624c08a9b28c30fa12d4d120bc3d73072acc371a968"
     sha256 monterey:       "518f201a1163ea0c947a9322360f7020f45f5d115752b06497baadbe0cc3f987"
