@@ -8,6 +8,7 @@ class Insect < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "12957ef1b3a3bbeec2445ae22d8277f82afd8fcea79dadf810cd78d0025d864c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6a8a99e43f97ba135beb8299d903e8b37e932bb9bb38c8f7c0626fa7015b0099"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96e11f28d24dd5050085aef60bbe72791ca77bebeeb8b1db91eb13960f43507c"
     sha256 cellar: :any_skip_relocation, monterey:       "7aa86a55bde309754bb5c4118368f5a1def6a99e4752d94d55430d1fbd9f5c70"
