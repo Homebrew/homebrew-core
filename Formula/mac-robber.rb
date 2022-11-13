@@ -6,6 +6,7 @@ class MacRobber < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a95d6147c4806004b72f8dc70e77a4d3bcb4697dbf991193289facbf4d7b296"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79d32b7d6cea8d48155f51c6f95ac062b0f905ccc2538b07674118a23371807e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b884509ff648339c4d66a27fff082ac80b7762c831ae9aa5599419c68d86cfd"
     sha256 cellar: :any_skip_relocation, monterey:       "9a0cd671a8a723dc4a8207cfc7e5f08628d2cadda34debd8554a92beb3ad2ed5"
