@@ -1,8 +1,8 @@
 class Ddh < Formula
   desc "Fast duplicate file finder"
   homepage "https://github.com/darakian/ddh"
-  url "https://github.com/darakian/ddh/archive/refs/tags/0.12.0.tar.gz"
-  sha256 "f16dd4da04852670912c1b3fd65ce9b6ebd01ba2d0df97cb8c9bdf91ba453384"
+  url "https://github.com/darakian/ddh/archive/refs/tags/0.13.0.tar.gz"
+  sha256 "87010f845fa68945d2def4a05a3eb796222b67c5d3cea41e576cfaf2ab078ef8"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -31,10 +31,10 @@ class Ddh < Formula
     (testpath/"test/file2").write "brew test"
 
     expected = <<~EOS
-      2 Total files (with duplicates): 0 Megabytes
-      1 Total files (without duplicates): 0 Megabytes
-      0 Single instance files: 0 Megabytes
-      1 Shared instance files: 0 Megabytes (2 instances)
+      2 Total files (with duplicates): 0 Kilobytes
+      1 Total files (without duplicates): 0 Kilobytes
+      0 Single instance files: 0 Kilobytes
+      1 Shared instance files: 0 Kilobytes (2 instances)
       Standard results written to Results.txt
     EOS
 
