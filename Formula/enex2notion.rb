@@ -18,7 +18,7 @@ class Enex2notion < Formula
   end
 
   depends_on "pymupdf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "beautifulsoup4" do
@@ -107,8 +107,8 @@ class Enex2notion < Formula
   end
 
   resource "tinycss2" do
-    url "https://files.pythonhosted.org/packages/88/58/6ca37adfcaa69df2a5ca47ac8275121305afcb5206a40ebf2b86bc212169/tinycss2-1.2.0.tar.gz"
-    sha256 "b0e04b0d8682c96dabca57654d3650c2d79f8bd0f1a6fc57b0939598ec3f4f5e"
+    url "https://files.pythonhosted.org/packages/75/be/24179dfaa1d742c9365cbd0e3f0edc5d3aa3abad415a2327c5a6ff8ca077/tinycss2-1.2.1.tar.gz"
+    sha256 "8cff3a8f066c2ec677c06dbc7b45619804a6938478d9d73c284b29d14ecb0627"
   end
 
   resource "tqdm" do
@@ -117,8 +117,8 @@ class Enex2notion < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/95/91/5df9da4fd97126743d3c27442fbd0978cc2323b4ff512dee22a2ec83fbc2/tzdata-2022.5.tar.gz"
-    sha256 "e15b2b3005e2546108af42a0eb4ccab4d9e225e2dfbf4f77aad50c70a4b1f3ab"
+    url "https://files.pythonhosted.org/packages/5e/9f/63f7187ffd6d01dd5b5255b8c0b1c4f05ecfe79d940e0a243a6198071832/tzdata-2022.6.tar.gz"
+    sha256 "91f11db4503385928c15598c98573e3af07e7229181bee5375bd30f1695ddcae"
   end
 
   resource "tzlocal" do
