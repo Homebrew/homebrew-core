@@ -10,6 +10,7 @@ class Ford < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4085a3d42c623816a14d6a786fddf2f19a1b4b07f3adef0bb2174a7528b5d21b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "adf607fd3247679813d133fe00360768e43cda370c2e240a7493444f692c7346"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4871d50ecd291cc431f40ff1190894c626e4b70a38980076b2bf2a6dc0815489"
     sha256 cellar: :any_skip_relocation, monterey:       "455a0ec9df722ab45ae84433b69e1792b15d72bdfedd2cd5b61d9229a82bfbe9"
