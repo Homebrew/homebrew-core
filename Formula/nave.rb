@@ -7,6 +7,7 @@ class Nave < Formula
   head "https://github.com/isaacs/nave.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba1b26cb794a07bace9800d71264fceb8b4b9efbddf6d9291399654d98bc88f9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ba1b26cb794a07bace9800d71264fceb8b4b9efbddf6d9291399654d98bc88f9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba1b26cb794a07bace9800d71264fceb8b4b9efbddf6d9291399654d98bc88f9"
     sha256 cellar: :any_skip_relocation, monterey:       "1f245fcfdd7109a0939d1cb82a854407ac78bedb2bf140966b0d736c69e9a9a4"
