@@ -6,6 +6,7 @@ class CrystalIcr < Formula
   license "MIT"
 
   bottle do
+    sha256 arm64_ventura:  "a7d8abeeb9c8fc24d04a94fc93744c4c8136c8c72dacf16dcb78f8fd5bd14ddf"
     sha256 arm64_monterey: "0c38a89034238cb822d76c5d61b1ecd57aa960356a6aabdf7f9e44fc5d8ba29a"
     sha256 arm64_big_sur:  "d98e57c4a69bfe60a4d30b304f11b04bd946d5b922325fd20aaa1895f6a392c8"
     sha256 monterey:       "eae95948e77fbb4ae9c57358096b0fd394075af88dec1c5ceb5cd8108fbd7da0"

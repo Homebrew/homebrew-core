@@ -1,8 +1,8 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://github.com/dolthub/dolt"
-  url "https://github.com/dolthub/dolt/archive/v0.50.15.tar.gz"
-  sha256 "da4bf4bd42d62330f185c3a7a6165ca50725362642191f6d59d2c804e51286d4"
+  url "https://github.com/dolthub/dolt/archive/v0.50.16.tar.gz"
+  sha256 "fd48e92d046d78e3d9687e145d885b18c5c2217803a806dc7260329ca23e7cd0"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,13 @@ class Dolt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "16f10f0b99b5b34ee60a26e7bd50844c2db547656540597685bea54f0fe4a487"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee1f011ea59dcd4d3c45400e60b9f2b92d0eaead2862a305e41590f4a0a3ee69"
-    sha256 cellar: :any_skip_relocation, monterey:       "da3fadf62dba9a8d44d2530d45a7f2f902747d06bab94c366c1a70320a555277"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8a4c3bee02feba4d8da7b60705fec26ec416aee3623e433bfe084f1fdece1168"
-    sha256 cellar: :any_skip_relocation, catalina:       "cc3bf46d1dcfa70c36836d5f86521c34c3a3a2f1a3ad1cdd82c8c22057ab73eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2ad59ba0c84ace401560b969f8fcacf1cc6e290339c89cfc829181f5cc863e8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "64ff696db1ef14d7e88faf8d89fb87a9527615129a7ce46c775bcfec0e7afc58"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "939a93be35f0afcc02bceac74380220a8feb0cb49d41f283af57db4da4ae1963"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1824c597175d9e027711da31dd64cbb0d93ce2d6841ea89118b93dc00870bcad"
+    sha256 cellar: :any_skip_relocation, monterey:       "1486b2b719795ed124fc7dc4b8ee9b004a17890e7ff44c938fa21b38bbb69b53"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7535ca9dccfca369a3dff77e5bff0b1d417db28277602eac5936a99a905f6f37"
+    sha256 cellar: :any_skip_relocation, catalina:       "1395ce2c3895273b4e6804b0db15b70eee1f065d972974d4f85b7c5ddb467321"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "591c0ed8851170eae8896f5b61f07867bbee24fbf08aa4f0282f3b791bc4c576"
   end
 
   depends_on "go" => :build

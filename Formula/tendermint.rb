@@ -12,6 +12,7 @@ class Tendermint < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "42b17fedc66417973623bb19cb478f9ec29b7cc221bb1eef74cd0b85e9270280"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2d0f6f119ae6ad63d371f13d02bb6a8e4be6c4024ba5a191a6529fed4160d780"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d0f6f119ae6ad63d371f13d02bb6a8e4be6c4024ba5a191a6529fed4160d780"
     sha256 cellar: :any_skip_relocation, monterey:       "e4357081b48aa3b764e67d9e488c3c66268e6d525920ec25aef63fde5eca6032"

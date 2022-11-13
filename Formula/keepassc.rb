@@ -10,6 +10,7 @@ class Keepassc < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c02be2745a47b1fb4802248f9579dd8214ed297781cdfca0cea7b65e24a3334d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7d112080490c1ab470cd58204b5291c990d3b16e7ff03ad4c262e0be4dac1bfb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7fe53a11452ba978f94dad6108491e7c4dfa10e5db50360fc001df82a28e6b8"
     sha256 cellar: :any_skip_relocation, monterey:       "9add6a5aad14f32e943ad62426db39625dff78f16e0b6523a7664e359594b566"

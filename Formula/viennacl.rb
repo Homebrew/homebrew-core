@@ -6,6 +6,7 @@ class Viennacl < Formula
   head "https://github.com/viennacl/viennacl-dev.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc8761095e89fe0ba92453ec1697ee2a6cbcf661d203d9ccd71f88b7c0ae7b08"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09a95ad5ebf44a0b14c98a7b464ca6a3f83c47b8b9d6609b508051faf1ce3a41"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a59335b82a9f92448236ec0278d156f2425995d48fddcef730b906ca63aea6f9"
     sha256 cellar: :any_skip_relocation, monterey:       "c15b7b7033a93664765ef18222701e12adc7f0ef3ca797891aee90e826d87a96"

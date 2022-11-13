@@ -6,6 +6,7 @@ class OpentracingCpp < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ccbb5e255e5f6708324c7d8853e5d9e16e6409d061d465628fa876f0371454bc"
     sha256 cellar: :any,                 arm64_monterey: "50677ac8a2082e88324b45764c2f2d46dd70df23261c13e4e4fdfe4577505635"
     sha256 cellar: :any,                 arm64_big_sur:  "47fd29e6c0a73f405ac424f95299aa1d68a2735061cb6b96b262eea6a935210e"
     sha256 cellar: :any,                 monterey:       "a84c5a3c3fe04de1cc52d24381af68f5d054a353bee01fb10fb1abe6c4cbd0c9"

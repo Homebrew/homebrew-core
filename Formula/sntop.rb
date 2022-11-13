@@ -12,6 +12,7 @@ class Sntop < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "b482ea74af9def4d942033c23ddacc43c16935bcd7e9094506e0008e8c69eed0"
     sha256 arm64_monterey: "88c1bf529d00acd5093a911407aae68da341df753371f81d319862e9bafe2407"
     sha256 arm64_big_sur:  "0674ad1a5387fadc27e9132d36bef2178e3ea821e9e05fadcc3a4d97b90a5758"
     sha256 monterey:       "339487a2777504f99d3a3d9b9ae4f9d10de35d4e694a1708784e55ca2c586e09"

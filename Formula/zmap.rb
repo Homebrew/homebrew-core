@@ -9,6 +9,7 @@ class Zmap < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "379a8920b68618ff9daeaedb12c0653e55d4f231d9d00c77e37251cb4d9a2706"
     sha256 arm64_monterey: "4f6a24cc441b2c1591370d13cd9f9b58b391780e4aee353976dd9698b1a85c2c"
     sha256 arm64_big_sur:  "c1ee5777fb69a3df8b0b0107404effdbaa3a6d73138fda9a93f279efd9c0bb8d"
     sha256 monterey:       "f68c0305b46be402d4b41bb709960228e76f4c17b7b39f42cdd5b11460dea905"

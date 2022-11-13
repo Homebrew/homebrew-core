@@ -9,6 +9,7 @@ class Launchdns < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "480788e6d0135672b26a62c84111d1d6cc1e3f8407da7338cd1ea334767679bd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "76976e31629220e8697a50b0e52d080cef29a6b761a987175b07438d35225ff8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b7e3e37f394c83c8957c6c2253260805a3abcbb843890c90208d7d743da3328"
     sha256 cellar: :any_skip_relocation, monterey:       "7883b009f177ae1ede81bc9d27706e26fc8d8bde4cd3e1c45c5cd8f4021cbafd"

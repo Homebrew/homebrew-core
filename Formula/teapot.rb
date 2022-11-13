@@ -7,6 +7,7 @@ class Teapot < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15393bd718e2105b8d51579fa59d5248c46b37e4432f5b5dcaea63c95e0b7a7e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7cc7392844bbae930942bf7d9a5d469b817987342f4720fd36986edd751cecdd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebe49b24ad7903b64f8cc19a560a58b5cb1e704bcf923a79275e0264607f3541"
     sha256 cellar: :any_skip_relocation, monterey:       "73763f2ac7b281df03689a81b60b1f450a95b1a5194bb99a7bd97b3a429890e8"

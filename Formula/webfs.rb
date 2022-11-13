@@ -3,24 +3,22 @@ class Webfs < Formula
   homepage "https://linux.bytesex.org/misc/webfs.html"
   url "https://www.kraxel.org/releases/webfs/webfs-1.21.tar.gz"
   sha256 "98c1cb93473df08e166e848e549f86402e94a2f727366925b1c54ab31064a62a"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
-    rebuild 1
-    sha256               arm64_ventura:  "3a9619dc83b6cc97c4a32e53b9107ddab1f9cce10785204e85f725680795de32"
-    sha256 cellar: :any, arm64_monterey: "fc1329e4945435c639c82dbdacc43a9ae55521188aa6fd672d3446bd06822df5"
-    sha256 cellar: :any, arm64_big_sur:  "1801afbf473ab499ddba5015432c87eed8f1316c921e181cf978dfae1c19a656"
-    sha256 cellar: :any, monterey:       "73ad4360c6dc78e9b517e0088b9c4a60a83a7fadadced409f119f8d4634644d5"
-    sha256 cellar: :any, big_sur:        "186343dd3f7bc14c248a9a52796f7afd63e430bdfaa71d570abb6142e7632b34"
-    sha256 cellar: :any, catalina:       "192b771c2cf819773c9581bcdc83dacb9954c241ab41837ff844f736a53d5a1e"
-    sha256 cellar: :any, mojave:         "f561f9dac64cd43165eefd01619d54042507a4f9a1d572c621e17229b63ec045"
-    sha256 cellar: :any, high_sierra:    "52608c9f1bd5d7e7fceec24bff51ca67e0739b1c83ae2676c6ca161fdfaaa4d7"
-    sha256 cellar: :any, sierra:         "9e678532e4546e4fabb9a96b9eb141769e00e330e15c9e5b453001141448c9fb"
-    sha256               x86_64_linux:   "d84fb922078fc82f83e3052071edd57ca9add86938bbb00d7533121bfe2b9e38"
+    rebuild 2
+    sha256 arm64_ventura:  "49156fc8ba3a476cf63f719f17e679ad66b96f1494ccf387ce7c0c6007150a56"
+    sha256 arm64_monterey: "047b4b7404e97147da732a96019fa8e1bfb5f7e541ac9cc7178492ac12653b65"
+    sha256 arm64_big_sur:  "56124768f91253664d4e30becdf5da71303e99cb26f3a0053c0707bde08c9889"
+    sha256 monterey:       "d5e072f43509860bf1720573e0da3762e734aeb450dabe4e2e8ae4cd96dff185"
+    sha256 big_sur:        "3d7288254445f01e83e1950144448608501a91897b793cc8c173657d8d17ac2d"
+    sha256 catalina:       "0b85fe4886d6c3e04d1f96fdfb39bc70dea3a4e75aa5e943c2b8bf4dde3e17aa"
+    sha256 x86_64_linux:   "3656131d83b5affd389f147cc542fa0c5717aa0cd7aec1b03e05603f3a4ac06e"
   end
 
   depends_on "httpd" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   patch :p0 do
     url "https://github.com/Homebrew/formula-patches/raw/0518a6d1ed821aebf0de4de78e39b57d6e60e296/webfs/patch-ls.c"

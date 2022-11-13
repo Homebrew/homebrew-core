@@ -11,6 +11,7 @@ class Nuttcp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ac8108263034cac96c76efb07222a474c603fee130f0751dd9957bd52111280"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "354b4a9b24a8af78f93bc7214b10137897a2bb04d49e42273a7b203265309fce"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c284b20a30f158f7321ca918bc27ffac8f5e644e85acba6231477aa9c4a9f06e"
     sha256 cellar: :any_skip_relocation, monterey:       "23f6274a513fc5e03b2eba2ea26496beb8e1b7e21ac0824fb7abea9e3487b296"

@@ -18,6 +18,8 @@ class AflFuzz < Formula
 
   deprecate! date: "2022-09-17", because: :repo_archived
 
+  depends_on arch: :x86_64
+
   def install
     system "make", "PREFIX=#{prefix}", "AFL_NO_X86=1"
     system "make", "install", "PREFIX=#{prefix}", "AFL_NO_X86=1"

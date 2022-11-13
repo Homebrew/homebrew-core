@@ -11,6 +11,7 @@ class Dbhash < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b1b50c509545c2b3ddc7395c31941d8d9429bee91ef814a5177c0a24ed3e245"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "922e82aeda4e139dd5d3921519bda8e11b2eb56da9a71783c762b2bc1f959131"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d21f448facbd170dad9ca667c18514a0476cbdad0c6338a533d2fd04cb4d97e5"
     sha256 cellar: :any_skip_relocation, monterey:       "d3eca7b2fa707d632177107446d8584b849a6d7fc5416cb3dfd59e7da8f369b8"

@@ -8,6 +8,7 @@ class Btpd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "bdde460a80660a0afd8811c961ffd495be84550578f4a3125181605438500e0f"
     sha256 cellar: :any,                 arm64_monterey: "78f27d75fcd843c49964eb16b4391a4f356aa608738ec4783baccba2636f5a0b"
     sha256 cellar: :any,                 arm64_big_sur:  "0e4467a0d042844b00c6b5f896468dada066d0372e060d788733afada425b87b"
     sha256 cellar: :any,                 monterey:       "423f7dc95d5fbb92a4e8cefdca992b20eb20e3a4548248281ed5d135a6a675c8"

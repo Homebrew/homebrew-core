@@ -19,12 +19,13 @@ class Neovide < Formula
   depends_on "rust" => :build
   depends_on "neovim"
 
+  uses_from_macos "python" => :build, since: :catalina
+
   on_macos do
     depends_on "cargo-bundle" => :build
   end
 
   on_linux do
-    depends_on "python@3.10" => :build
     depends_on "fontconfig"
     depends_on "freetype"
     depends_on "libxcb"

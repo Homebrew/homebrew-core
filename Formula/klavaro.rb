@@ -11,6 +11,7 @@ class Klavaro < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "c69147ab8fcd4e71a00eaf69084b2d2f3cc8aaa4090f80a3ff6fb3ce446b7d76"
     sha256 arm64_monterey: "a961d4e3a5b19f56257c164d72795209975d95063710c2cca9bd01f2b33ca19c"
     sha256 arm64_big_sur:  "f8134898ced1370ca151f5ed12042f5ea38a527f715369b6e59ebc7b1500d616"
     sha256 monterey:       "0cecac2787231738ec7e647f32f06171118d243c941160049611de7cc7cb0c52"

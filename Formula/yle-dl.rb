@@ -3,28 +3,18 @@ class YleDl < Formula
 
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
+  url "https://files.pythonhosted.org/packages/12/84/645771c885267d0a0452df9514ec024a6690960f208a2c979844a6bb52ef/yle-dl-20221111.tar.gz"
+  sha256 "6ba32fd8ee11d24dbbf71281e888b4621198bbe3835536cc783b221e807edee3"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
-  stable do
-    url "https://files.pythonhosted.org/packages/f6/64/11a7a17ab760b74c78d33b5bd8f15de393596cc1b714aee95212f4b534eb/yle-dl-20221015.tar.gz"
-    sha256 "c2b72ccffb303a66399a891d3d637a03a07f5f592f4f2ac99b8b41c6901adc48"
-
-    # Fix 403 Client Error. Remove in the next release
-    patch do
-      url "https://github.com/aajanki/yle-dl/commit/10772cdd5b0dd84b719261e39c3750355920a624.patch?full_index=1"
-      sha256 "2d964f23e5ca82e9a350119dc14e0141bd04e9276a321d496b85bcdb37c34d62"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "076028c6e701455af9725ac3096cdbdb26d2d743dd29b84077e98d6f7c214d84"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "003ae49dc59eb28777214101db98b82c82c2c900a1885bbb7b68a62f9ece9092"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b9e1653e0ea3d1b401d07907150b04e97d2bcadd11936e4e313a46d7e19aabe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "787aedd4d07443df4ebc868bf46f9386f81a364c0a523bd97176cf64ab39db84"
-    sha256 cellar: :any_skip_relocation, catalina:       "b3a4f1a16c875b685a0c0773335f580fb5463f3758964451262d129c89e2cca4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae9334eaf56bcc58de584bd8790316ad3bfdbd8d0072f50bc4fd917dfe27b376"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "710c49400610594c867c01920f117e2f869f7afd97e9a2410207f3202c2aadd1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "309e7f86ea7e7199d617388b99b1de6c8296887e4eb082b2c34d57ca7878bdcc"
+    sha256 cellar: :any_skip_relocation, monterey:       "42647331f5ca4293c2d98b135301968e0cedc8f2850b59cebab71443ba07bb38"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2344c2eb8e2529a121d44ac9fcd7548bb2adc7a4805ba1f2793d1e679d0354ba"
+    sha256 cellar: :any_skip_relocation, catalina:       "ef362fc461271db02e24cb123ee66a3016c17bde9bb4be092789318b5b776206"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f530c69a648c7d82cc2f1246c0a713e8fa8b2be14017d1629bc80c34d79f005f"
   end
 
   depends_on "ffmpeg"

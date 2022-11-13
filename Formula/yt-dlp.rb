@@ -3,19 +3,18 @@ class YtDlp < Formula
 
   desc "Fork of youtube-dl with additional features and fixes"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/77/e8/b5fd86e2756e2be93c64e90123c0ff31780616f499d97156150327025877/yt-dlp-2022.10.4.tar.gz"
-  sha256 "1772a2e6f32b971b4d026deae3044f576b8052035255ca340f345cfe90d38d38"
+  url "https://files.pythonhosted.org/packages/5c/5e/8bb969d9063324267de01d1bdf5daba2f96659a13e0b443bb86b45d72a24/yt-dlp-2022.11.11.tar.gz"
+  sha256 "f6b962023c17a77151476f0f6ed71be87d017629ba5d9994528bc548521191b6"
   license "Unlicense"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b177fc50ce32b2654412310be4d28d753f47b8248ca279b84cb8f8e3b635fda"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "761e55f5804dcb35cdb874f72499148c9b14900c6034726deda5fc396cadb987"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "754e166a2045bcd3bcd75fbfe90605f22b885f0e3c35da0ed6212102193893db"
-    sha256 cellar: :any_skip_relocation, monterey:       "402a258e5020ac8ea8e884a4804b174f21fdcdcb2a8ff3b40469c356e3a919b8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fcbe844e8be564d2effb880f03b3dfef394e8924473cee01b3d7e32608eb529d"
-    sha256 cellar: :any_skip_relocation, catalina:       "d81be5134b6d05a15d95bbf3385c8c23591bc2931736ba67c9b44c56d9e68f73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0038b9bded0cb2115bd11ee0cc8c2722fb81c5c3b3dc3ed891e3ac3dd4baeb7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa0c5a10a284e7153f8956da75a7a6c0058eb97ce7c753b107611589a41c9151"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e526a3e2ae16a7c0f4dcab7d8c50f48753a9518a7c771178bc68a641436491fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f729eb77abb69b6bcc8c08a2ea10889bd22255c86f523c28826641d5538d24ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "ed6b8cb4771f36b5afe3c2f5eb905d206a64c2dcee0a14930a25390b6c5b455a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2e8e58f381d18c7ae706e17a495c7809d26b92f59beed3c7a1dfd8239094ea01"
+    sha256 cellar: :any_skip_relocation, catalina:       "dab77e4d1b4d4b88c4fb0915336cf2ad738984ecab2b314b82894abde4a48f91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f413e4af9713c05a157a275d3f55591a7a60591c5ba34e1c4f591b69b6877e1"
   end
 
   head do

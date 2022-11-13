@@ -9,6 +9,7 @@ class Ctemplate < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "2d9ca0bd9eed0b2c8beb26822d3da0a59c9a818cf6288d2737ccd090d5e7431c"
     sha256 cellar: :any,                 arm64_monterey: "fc6f772b98ecb4ac32af2525fb14e00e78d3869965b0b2cef4e9052ae7920f15"
     sha256 cellar: :any,                 arm64_big_sur:  "4857a36c04ea358a584ccc4bf814cf14ea132f719044982bba4295ca3bee54ce"
     sha256 cellar: :any,                 monterey:       "1186d9da15756058d715022d75e654ddf8c30573f79490a6d945ba3501e651d9"

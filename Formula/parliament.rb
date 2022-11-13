@@ -9,28 +9,28 @@ class Parliament < Formula
   head "https://github.com/duo-labs/parliament.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca4775fa45663bc4c0e8f71f287dd3bb02af44e70a55730f3855c00f10e058fc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "56457cc2936fc70c7193e75045e0267486ed83d4e24c324e2fbd51cdae88dcf1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3419dfc9b414f45f9e9e92a726585a7d3906fb40c5c2f8e75e0f49a41533dba0"
-    sha256 cellar: :any_skip_relocation, monterey:       "c7d49ac3cf0fba6554766c85079088e81251b02ce1bf385b8ba2a8c2a50a3b59"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bcb5a8cce71b0c29f5924bd9fa134f5b0bcdc61985abadec53cb5984ea4d2982"
-    sha256 cellar: :any_skip_relocation, catalina:       "abc1d503f1cdeebcb9d4f1009eaeba0990aa4e153fa2c30961f6819040439125"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd4e0420e8c325b0bdd2b4f4775e9c5e60917601eb603eb7b00ee35e9ee498af"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d1a007e440c4a05547d8e71e9b0784150c8f1ff423b097812535deb0f98c2c2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "084335ad41b5c41f03d257666820cd8a4df31f67ab54e7629215a928286aeeab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "99df83d72b24d57320e75dad3de07a6787fc9e7b4292899c3da93715d6687b11"
+    sha256 cellar: :any_skip_relocation, monterey:       "f14798318df7aee9f382e0f495aa19023eb8f68d59df1f0a887aaf8d09e0d237"
+    sha256 cellar: :any_skip_relocation, big_sur:        "26ebb19e82b2d7fb5baaf77743e972a15a473d924def8001b60673e969a5ebe5"
+    sha256 cellar: :any_skip_relocation, catalina:       "0efbf4eeeb931fb3c3b003f47706301ceee50bb3076f68eb5e44035dca8d2bbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff77db0608241abe9505b4c7fdc9f76beb547948828184b3e9e725b242585fa8"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/af/88/0aa54a60d9627bef23b9fe7c3f76c4761064d5f331edd92a2071e4cba358/boto3-1.24.67.tar.gz"
-    sha256 "2b9309a98fd7264788ff1d1b19146406cc4191e53ed9a03aca03e8837303fae2"
+    url "https://files.pythonhosted.org/packages/9e/a2/10f0d67f71bf6f87b2dc6558679f23c0cb4c3be42089a7eef625ed35d002/boto3-1.26.8.tar.gz"
+    sha256 "b39303fdda9b5d77a152e3ec9f264ae318ccdaa853eaf694626dc335464ded98"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/57/60/e307245349b8914d423064f53dca3f8a81dac6a7fe69972797067a909314/botocore-1.27.67.tar.gz"
-    sha256 "b00894d2eee8a795ecedf9f4cbc454fa449a7bb11af1390c7414755243f90610"
+    url "https://files.pythonhosted.org/packages/9c/62/0e7a8c2bc63c3529db0ca3ee4c0f5b60a65165e594d1487b13b6524ddccd/botocore-1.29.8.tar.gz"
+    sha256 "48cf33d7c513320711321c3b303b0c9810b23e15fa03424f7323883e4ce6cef8"
   end
 
   resource "jmespath" do

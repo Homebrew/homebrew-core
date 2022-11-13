@@ -11,6 +11,7 @@ class Traildb < Formula
   end
 
   bottle do
+    sha256               arm64_ventura:  "e6cfb6d3774726751b01bd92b0fdd2914f7da94e95b387c3ad620520e495d056"
     sha256               arm64_monterey: "3c521476cc334c1807abab60f30de5bc89f4072db9ea2d19dbc6b2af12fd3fe8"
     sha256               arm64_big_sur:  "19a39e075d27b18c38f78445471e9703c2ccc051ffad8cad6e6bcc9986954540"
     sha256               monterey:       "0f449d362ce4d34470fb671ba8ac5f079b79f6306c66937a59be76ba980e6b2f"

@@ -22,6 +22,7 @@ class Haxe < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "bd27b86c1bd31a6dffef92a4b91aa89c3b74d707934dcc6321e4315119bef982"
     sha256 cellar: :any,                 arm64_monterey: "ebb6b5472bc7408ce268e357651c2b123abaa2f614260f88838a149289423499"
     sha256 cellar: :any,                 arm64_big_sur:  "380f0f1f640c3f4919d272a4648b2d04fb3afd93820003cec19b9f54be1cba75"
     sha256 cellar: :any,                 monterey:       "8cdccc4df05e252d1094ecad90a97ea898659a5017b9c61c6a157629887e68ad"

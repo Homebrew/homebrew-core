@@ -10,6 +10,7 @@ class Airshare < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "254c7bb2312af945bacc012087f1f20b6bf09640a5ae4fe39e8257ed78c3f0dd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4d6238402006c5a7b0e1d6c223b59ac45c59a7820d193698c2b64eda7435452b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c65d79fdfd2c345cc6b14def1fd87153d91fdfaa0fea70d8aa1c7e4af6cfbe0"
     sha256 cellar: :any_skip_relocation, monterey:       "3cc5b64b96f92a560986b1154bf3c52f0fdb5c0e27d072c7b15455e1592bc196"

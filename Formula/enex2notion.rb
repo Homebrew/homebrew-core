@@ -8,6 +8,7 @@ class Enex2notion < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8ac3e4a100b0add53be2dae22f0874cb85f03169d396196764efd4cbbc07c0a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "367aea02ba0f55b48f217d35aca22fac08f0bd13840ff354ac6da9d70d4c9b14"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d707f8f1103174d485336670ce06769eabd95c20b02a28cf0d89ee098a6c2953"
     sha256 cellar: :any_skip_relocation, monterey:       "2fbb2c3aa5fbe527bdbfc2f63e191a6bb9d22b38e04dccb05e3eda34ec840e4b"

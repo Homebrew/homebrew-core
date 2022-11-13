@@ -9,6 +9,7 @@ class Liquidctl < Formula
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ae2b3ebcd0d43381d537f727beb434bc635371ee9173ddb6f5460eadc1472409"
     sha256 cellar: :any,                 arm64_monterey: "9f557275ce3a5705cb47fd1672cdc09904e8749a0b3842cf2741081de19764ce"
     sha256 cellar: :any,                 arm64_big_sur:  "181b800262374b7ea10e43e3bfca29522a1b55c027658748058f92d8ac0e1198"
     sha256 cellar: :any,                 monterey:       "3a41b8a0ef4876c9efc8196937af8fdaa4438286dae48b942ccff3388b6dc51c"

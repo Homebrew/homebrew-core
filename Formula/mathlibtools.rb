@@ -3,22 +3,22 @@ class Mathlibtools < Formula
 
   desc "Lean prover mathlib supporting tools"
   homepage "https://pypi.org/project/mathlibtools"
-  url "https://files.pythonhosted.org/packages/f0/8b/679aeede765760c2ce569a783c476d8a14cb02ca4befddb66fe6ff7f207e/mathlibtools-1.2.0.tar.gz"
-  sha256 "8c85a23a67b50333797d4682b91ad9fbd204a4e2edaf5e3d516b37598bcfc918"
+  url "https://files.pythonhosted.org/packages/72/42/9631b9379c7fe5b6c6fb5c45d11910d58bfe28b5c7cfbe9e9e62de5546b0/mathlibtools-1.3.0.tar.gz"
+  sha256 "88161287963c318ab38de36def479446be344922a1d31e35a657a679a68e7f2f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "84d1859f92436df0f39358f81089757373316ed54936ce6b3f9b96d52a661060"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8a9f0c8621bda53ff385d30203eeae8f55ee2d53742663c5f09edcfb14a4d95"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a19dcb5d30be098d68e8f77343767964d47327746fcee68cd2f306c77da9f48"
-    sha256 cellar: :any_skip_relocation, monterey:       "5e38a71db98ff4baffaa8be2e7b4a1bf366dd67ba213c42bde6327824f53bc6c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0fb55db2e7aaade569d5dd96ca900ef835b1cd240bf2e639661d6589547f8ef6"
-    sha256 cellar: :any_skip_relocation, catalina:       "b952f03886d25f5d5b1d4368cb265447c9aa37d6ee00e0b9da7367389f8ace6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "688e996098eb8b6199311d732dc0f460980273cd18681f64bde6525737b4683d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a797bd3200b10e37c73fa8fd0cb021185deed87ba8f45d2a6902dc7d3a6e7aaa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "19ce453b66d0d8e8428ddfd2f4b976b05f8516800a794ea6a0b690c56f409c95"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e81e5813036af22b1e81198268924b4a977614cdc427700906312f684199a0bf"
+    sha256 cellar: :any_skip_relocation, monterey:       "df14818088786e7c06e9209a2d3e4f8a832bdab9f39ed7a5d1397852c338b3a4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "769ee87daf4f1076b01e4eb0cfcceb392b2b5226643d702b1e16c721d407e04b"
+    sha256 cellar: :any_skip_relocation, catalina:       "e25e751b4cb1250616311e974b19157ff8c69183a2e63ab3137c625f2b510620"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "550412db6e15ee8571e33f895b69bd2b82d0858fdcdfb420cce5d6507d580c8d"
   end
 
   depends_on "lean" => :test
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -68,8 +68,8 @@ class Mathlibtools < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/9e/89/90846e0da5c412cbffb66d1f976b056cd46c6f2aa7f2f1eb271573b5fefb/networkx-2.8.7.tar.gz"
-    sha256 "815383fd52ece0a7024b5fd8408cc13a389ea350cd912178b82eed8b96f82cd3"
+    url "https://files.pythonhosted.org/packages/cd/16/c44e8550012735b8f21b3df7f39e8ba5a987fb764ac017ad5f3589735889/networkx-2.8.8.tar.gz"
+    sha256 "230d388117af870fce5647a3c52401fcf753e94720e6ea6b4197a5355648885e"
   end
 
   resource "pycparser" do
@@ -83,8 +83,8 @@ class Mathlibtools < Formula
   end
 
   resource "PyGithub" do
-    url "https://files.pythonhosted.org/packages/70/77/79e0823cf084d73633deff98b994219878201c0c26cbc49b43d49f97deec/PyGithub-1.56.tar.gz"
-    sha256 "80c6d85cf0f9418ffeb840fd105840af694c4f17e102970badbaf678251f2a01"
+    url "https://files.pythonhosted.org/packages/6d/57/1c8a10e67e50cbee3c721bb554ac9a422f9f0accfc8f6e16a3fe9e65d387/PyGithub-1.57.tar.gz"
+    sha256 "c273f252b278fb81f1769505cc6921bdb6791e1cebd6ac850cc97dad13c31ff3"
   end
 
   resource "PyJWT" do

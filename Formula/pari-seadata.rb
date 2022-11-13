@@ -18,6 +18,7 @@ class PariSeadata < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "311f9eeb6ce606b854b072f1b8f7b7120b19bc1e00d9fe02bcfc5a08b32453da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "311f9eeb6ce606b854b072f1b8f7b7120b19bc1e00d9fe02bcfc5a08b32453da"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e1310a89e74bc49b8fb00213aa9210b7e2fa89c6529a23771b185a63c3b1a668"
     sha256 cellar: :any_skip_relocation, monterey:       "311f9eeb6ce606b854b072f1b8f7b7120b19bc1e00d9fe02bcfc5a08b32453da"

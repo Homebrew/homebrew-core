@@ -7,7 +7,8 @@ class Zim < Formula
   head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3d338158f93d0eea63aafa6a86714fd5338becbe0e5b46953387b3a8eacab761"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "38a0b61a4123f51f06fde82e42e67fcabc332be300ad3cc3c53fcfcfc5834b49"
   end
 
   depends_on "pkg-config" => :build
@@ -16,7 +17,7 @@ class Zim < Formula
   depends_on "gtk+3"
   depends_on "gtksourceview3"
   depends_on "pygobject3"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz"
@@ -24,7 +25,7 @@ class Zim < Formula
   end
 
   def install
-    python3 = which("python3.10")
+    python3 = "python3.11"
     site_packages = Language::Python.site_packages(python3)
     ENV.prepend_create_path "PYTHONPATH", libexec/site_packages
     resource("pyxdg").stage do
@@ -44,8 +45,8 @@ class Zim < Formula
 
     # Make the bottles uniform
     inreplace [
-      libexec/Language::Python.site_packages(python3)/"zim/config/basedirs.py",
-      libexec/"vendor"/Language::Python.site_packages(python3)/"xdg/BaseDirectory.py",
+      libexec/site_packages/"zim/config/basedirs.py",
+      libexec/"vendor"/site_packages/"xdg/BaseDirectory.py",
       pkgshare/"zim/config/basedirs.py",
     ], "/usr/local", HOMEBREW_PREFIX
   end

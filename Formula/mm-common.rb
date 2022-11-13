@@ -6,6 +6,7 @@ class MmCommon < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d84097217ab7b2f9d1a4b64858d078ee708c3ebf6cb467ad32146c86729307b2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2ea4a58e05333043201f42255d32ff54645f6443a221b093676b83d750954f35"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ea4a58e05333043201f42255d32ff54645f6443a221b093676b83d750954f35"
     sha256 cellar: :any_skip_relocation, monterey:       "2ea4a58e05333043201f42255d32ff54645f6443a221b093676b83d750954f35"

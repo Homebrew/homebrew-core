@@ -13,6 +13,7 @@ class Olsrd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1278537dfc38526c39a2e62b42d507c84249f267d65371596deaa6cc20354d56"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "adfef1479c1e3e2070783547ba8a6a6c832287e0ae2c6ab18f2305bb4acb97c6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d962f1a213860c614fafd91b494c4c06700c2d960645ff18bc410a071ba90250"
     sha256 cellar: :any_skip_relocation, monterey:       "821ca8fd35e1738acad8eeebbfbbee9adc95cae681ce7db97870f04d62226ecf"

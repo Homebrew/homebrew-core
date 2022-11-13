@@ -4,6 +4,7 @@ class Openimageio < Formula
   url "https://github.com/OpenImageIO/oiio/archive/v2.4.5.0.tar.gz"
   sha256 "21177a9665021a99123885cd8383116d15013b6610b4b09bcf209612423fedc5"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
   livecheck do
@@ -13,13 +14,13 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3c79e9f1bd9ce947f3722df6234af997015608d0c9d2aeabe7308770d5ab6b20"
-    sha256 cellar: :any,                 arm64_monterey: "3f8077b972b63d134364bb0969017e24fc3f6af3fe74e8742cf4c40db1380695"
-    sha256 cellar: :any,                 arm64_big_sur:  "0b4267a97e7a7db34e17761bbdcc706c7135feafbd4387cb9ba40080f8653f5c"
-    sha256 cellar: :any,                 monterey:       "fed9e2608578b531d333c8ca1b04014bb21afc9c1d9b4e2a4cf416a0a6fcdfca"
-    sha256 cellar: :any,                 big_sur:        "07217115d24d2d09bb85e06e9eae97d0bcf1ad48a8a56422727c80c6cf900612"
-    sha256 cellar: :any,                 catalina:       "25d04c499657b7dc7f9eceea8a6b07e17872dfe4170c456e0bdc72274422f9de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ab2c6de968c5c1d48ab00d2d7217f7fa3e54ee8f94745bb7e8557db03391cd5"
+    sha256 cellar: :any,                 arm64_ventura:  "0a5aa7c530bbcbfc30208f8cab3a92fbc74cee9d9bc6b0dd5ff9031dcd183b3e"
+    sha256 cellar: :any,                 arm64_monterey: "b108813a8f66351fb1abb359da39e3f89f10f508c2468558e8d3fa368c63f3f0"
+    sha256 cellar: :any,                 arm64_big_sur:  "4b40843a5a06cbc1943dbb902777e538618abf3b404955d386c1376c92d81f9e"
+    sha256 cellar: :any,                 monterey:       "9a021fa26b0bbed5f386a0829022f9a441900bb889868d36988a4db632f2a375"
+    sha256 cellar: :any,                 big_sur:        "3e7f9ed4a306ae271290c842de00f470de36f3dbac8d464d4a54e6cd0ca86146"
+    sha256 cellar: :any,                 catalina:       "d0a98bdabe52ab30e3a7cd532752bfbc63ee6c4babdb0ee081788694372b2e23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d59883b7a2e945c0c5b5cc22b0ff6d2eaf1f8d3ea66e07e696f7712b6367f61"
   end
 
   depends_on "cmake" => :build
@@ -40,18 +41,25 @@ class Openimageio < Formula
   depends_on "openexr"
   depends_on "pugixml"
   depends_on "pybind11"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "webp"
 
-  fails_with gcc: "5" # ffmpeg is compiled with GCC
+  # https://github.com/OpenImageIO/oiio/blob/master/INSTALL.md
+  fails_with :gcc do
+    version "5"
+    cause "Requires GCC 6.1 or later"
+  end
+
+  def python3
+    "python3.11"
+  end
 
   def install
-    python3 = which("python3.10")
     py3ver = Language::Python.major_minor_version python3
     ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python3)
 
     args = %W[
-      -DPython_EXECUTABLE=#{python3}
+      -DPython_EXECUTABLE=#{which(python3)}
       -DPYTHON_VERSION=#{py3ver}
       -DBUILD_MISSING_FMT=OFF
       -DCCACHE_FOUND=
@@ -82,7 +90,6 @@ class Openimageio < Formula
       import OpenImageIO
       print(OpenImageIO.VERSION_STRING)
     EOS
-    python = Formula["python@3.10"].opt_bin/"python3.10"
-    assert_match version.major_minor_patch.to_s, pipe_output(python, output, 0)
+    assert_match version.major_minor_patch.to_s, pipe_output(python3, output, 0)
   end
 end

@@ -7,6 +7,7 @@ class Diction < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 arm64_ventura:  "9a0b3b7dd6f41245ff193e2bb23cb351d0378fe4aab1bf5bc2be56e123c39f14"
     sha256 arm64_monterey: "183609551d3baeef5692cfffda8251eda4e2586d5ce26db40a1c0c1a9d6e8a14"
     sha256 arm64_big_sur:  "88a87488f8e893dc86f30e8736cf9cbdc2459976da13d899cb91daf8abdfe23e"
     sha256 monterey:       "3ac10ac27b2fd8d0c961b256577a52eeb6bf5a8afce04afdc9c39d5a1403ae32"

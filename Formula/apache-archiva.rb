@@ -7,6 +7,7 @@ class ApacheArchiva < Formula
   license all_of: ["Apache-2.0", "GPL-2.0-only"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef05037f1f5a15705135782387ebf8f96b0f10d00ccf682ead0dc2ff2c58e5ab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ef05037f1f5a15705135782387ebf8f96b0f10d00ccf682ead0dc2ff2c58e5ab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef05037f1f5a15705135782387ebf8f96b0f10d00ccf682ead0dc2ff2c58e5ab"
     sha256 cellar: :any_skip_relocation, monterey:       "ef05037f1f5a15705135782387ebf8f96b0f10d00ccf682ead0dc2ff2c58e5ab"

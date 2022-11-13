@@ -6,6 +6,7 @@ class MoonBuggy < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 arm64_ventura:  "b7dd2c4414457a17a2f548554fb1f2c97d2eab161732ec769b893c7c5f6183d5"
     sha256 arm64_monterey: "29c7f480f819b4c35a40537fa67645616ba35ba06405c9a433d516ae7684f3a4"
     sha256 arm64_big_sur:  "c7c5841b86bbd9271fb84c33e12babaf31e670dad45b2f65618e052dfbfae7ae"
     sha256 monterey:       "991ffbd762b5a572066a44ce110b400e52892cf487e70e4fab64730c4f7f4fe7"

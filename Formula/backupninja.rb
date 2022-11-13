@@ -12,6 +12,7 @@ class Backupninja < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8f559e4cb9deca4861b7beff6083a5da8d70597d99b4ec6d2c447e57d5331c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c8f559e4cb9deca4861b7beff6083a5da8d70597d99b4ec6d2c447e57d5331c6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8f559e4cb9deca4861b7beff6083a5da8d70597d99b4ec6d2c447e57d5331c6"
     sha256 cellar: :any_skip_relocation, monterey:       "3e0f3c562e13469570fa3852a72b05745f4ebc4154e306fdf152d33d3b79c0a5"

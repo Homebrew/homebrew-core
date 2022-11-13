@@ -4,6 +4,7 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/Release_2022_09_1.tar.gz"
   sha256 "a65eb24b83b7f233a134f7bc3f1823ce21162fb8c83c3d33022c05adeb5cee04"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -15,13 +16,13 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f079a11b33ffcfbdc7173e37e5efc5f35a3a42fcf21bbbe580bb5ebd40967c8f"
-    sha256 cellar: :any,                 arm64_monterey: "bd3b7112ae960449be57547b0c3d6ed46dd17e8e64f84cef15cc594181e237eb"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f9175a707ff7bb58f87004c8aac9541dba5e0fd8113c0e883d274b8168978e3"
-    sha256 cellar: :any,                 monterey:       "ae250b1706d0864d41f0c908ceb1c1e35b4cffd73acf58b453449d69f937bf69"
-    sha256 cellar: :any,                 big_sur:        "c2529016b0b3d216fdaa1ada930b3fc6f87936cddc53f961b017c4d3b9175b09"
-    sha256 cellar: :any,                 catalina:       "eafafca4406e83e1afd051083fdbdc80a4e0c06f8bf23775d45e6d37bca9e773"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3a9df707ad8ae7e9626cbe729eeb12ad4beb92aca46e964c5412a0b187510cf"
+    sha256 cellar: :any,                 arm64_ventura:  "148a3f6557761d75ae7c948fe92912b3cfc33dfb92cef05ba269225f58dacdb3"
+    sha256 cellar: :any,                 arm64_monterey: "6e5ec21c1a930c611bd56ec10150160b350b852276af38e56da9c37218f156d9"
+    sha256 cellar: :any,                 arm64_big_sur:  "2d65fd39834a7c9162eadb01a13f378f23c6393fc992b3f928c0b1e57cc9aad1"
+    sha256 cellar: :any,                 monterey:       "43387da4f04326338bbbde24ff40fe044a3545f769b66a52c8b5ee4ad10ed7b7"
+    sha256 cellar: :any,                 big_sur:        "4e308ce17f6d800e060ec7b3dcc2158f932566566760547faf8c3d87e0cc1eee"
+    sha256 cellar: :any,                 catalina:       "4968b9cbe3595e128d538dfd67e2e9328bea8093c644246ea355bca58bd5ec6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c965d581d499507bc5a8ba5806fdb275dbc0ff466b50acf42657345ae0130b3"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +34,7 @@ class Rdkit < Formula
   depends_on "numpy"
   depends_on "postgresql@14"
   depends_on "py3cairo"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python
     deps.map(&:to_formula)

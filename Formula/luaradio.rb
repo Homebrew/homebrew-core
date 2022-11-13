@@ -8,6 +8,7 @@ class Luaradio < Formula
   head "https://github.com/vsergeev/luaradio.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "47e4144b0f5fff50e8d71da651cb24b4f04b4b7cb5d5384d6bc282f289be469c"
     sha256 cellar: :any,                 arm64_monterey: "80048889479b279f24f3f0967ea13752487ac2f9d36109999cbc86c682dac13b"
     sha256 cellar: :any,                 arm64_big_sur:  "54f0347fbb22407d85dfb361c704dbdb22edb5675e190cbdfb3d3f2d64fa1b13"
     sha256 cellar: :any,                 monterey:       "b799b23735581ff900549775dca8d0e2b37fd237f6d2062e84ac645fd3f49952"

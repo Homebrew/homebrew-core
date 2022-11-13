@@ -12,6 +12,7 @@ class Gammu < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "d8aa4848b10f257303dc4e0e88e76fed841dfe127d4b560f8d3fff2b005ff7a0"
     sha256 arm64_monterey: "ec67090543b705c81803d19c3616cfa49db6bfb1d501df72ec754568a8b94a54"
     sha256 arm64_big_sur:  "d7a1bc97b049d30cd224c480d610f184e69672504b9159b591177723d5569f0a"
     sha256 monterey:       "34e1a5844348815d60790601e23262901d64ef470f65da7187674a1ae0cc2a78"

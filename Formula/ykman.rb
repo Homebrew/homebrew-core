@@ -9,19 +9,20 @@ class Ykman < Formula
   head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b6f4776ae96f2506c26f3d4ed201a8256cbac0e804ae4bf855e27f458412407a"
-    sha256 cellar: :any,                 arm64_monterey: "eb5009a95ee5639d5c6105c3c46b1f39dff0df3d2caf9e4a003233fa1941f8c7"
-    sha256 cellar: :any,                 arm64_big_sur:  "69ff460a0a13984d42b4b855abd7a3afd5eb8ce5a8224ee2d0854f2d765cdc2a"
-    sha256 cellar: :any,                 monterey:       "b75d3dcf32d381e07d064ec2c7c76ada428a0a9690e6efa478f47b744692548b"
-    sha256 cellar: :any,                 big_sur:        "31bb28933913b75ef2ae020572d138c99ac0b9690b3745ac9747ef4c53f7e701"
-    sha256 cellar: :any,                 catalina:       "b5f98c1d752acacb521fe91b24d91fb714a6cea00607eaf35cb9bf7bc9219527"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fa21b77e2ac6df54d8102a7b6679aa36f590083aeb8f963dce3f4f14c227f55"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "3fc62037229dc461447d747037f1ccd483db5b48c878257703535954b07f7283"
+    sha256 cellar: :any,                 arm64_monterey: "cd733000ba56bd3800af24aa4b5309cccd54ca82dd955a2cbb92a413164b2ae9"
+    sha256 cellar: :any,                 arm64_big_sur:  "813bde6cbe7e0251abfe8b3817bdd271d82d7e125e71678fbaa7d2b0a97d1345"
+    sha256 cellar: :any,                 monterey:       "c71653347e5209dedc1d1ed4670f7b2549f10250b46176c6d03aac1613718f2e"
+    sha256 cellar: :any,                 big_sur:        "7c09339831e8ac15337c9c413c75b94e490af4d83383e23528c5fbf6474df827"
+    sha256 cellar: :any,                 catalina:       "8486be81e85b9501966c3ab9657bddeef793329b91341fb0b33f60e4fbc719ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a3c7606b95add89c47a501c0f3c4d864834679ba0f2d8efb362b43b913b7bcb"
   end
 
   depends_on "rust" => :build
   depends_on "swig" => :build
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "libffi"
 
@@ -41,13 +42,18 @@ class Ykman < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6d/0c/5e67831007ba6cd7e52c4095f053cf45c357739b0a7c46a45ddd50049019/cryptography-38.0.1.tar.gz"
-    sha256 "1db3d807a14931fa317f96435695d9ec386be7b84b618cc61cfa5d08b0ae33d7"
+    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
+    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
   end
 
   resource "fido2" do
     url "https://files.pythonhosted.org/packages/00/b9/0dfa7dec57ddec0d40a1a56ab28e6b97e31d1225787f2c80a7ab217e0ee6/fido2-1.1.0.tar.gz"
     sha256 "2b4b4e620c2100442c20678e0e951ad6d1efb3ba5ca8ebb720c4c8d543293674"
+  end
+
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/7e/ec/97f2ce958b62961fddd7258e0ceede844953606ad09b672fa03b86c453d3/importlib_metadata-5.0.0.tar.gz"
+    sha256 "da31db32b304314d044d3c12c79bd59e307889b287ad12ff387b3500835fc2ab"
   end
 
   resource "jaraco.classes" do
@@ -56,8 +62,8 @@ class Ykman < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/2a/ef/28d3d5428108111dae4304a2ebec80d113aea9e78c939e25255425d486ff/keyring-23.9.3.tar.gz"
-    sha256 "69b01dd83c42f590250fe7a1f503fc229b14de83857314b1933a3ddbf595c4a5"
+    url "https://files.pythonhosted.org/packages/1c/35/c22960f14f5e17384296b2f09da259f8b5244fb3831eccec71cf948a49c6/keyring-23.11.0.tar.gz"
+    sha256 "ad192263e2cdd5f12875dedc2da13534359a7e760e77f8d04b50968a821c2361"
   end
 
   resource "more-itertools" do
@@ -75,12 +81,21 @@ class Ykman < Formula
     sha256 "dc13e34837addbd96c07a1a919fbc1677b2b83266f530a1f79c96930db42ccde"
   end
 
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz"
+    sha256 "7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"
+  end
+
   def install
-    if OS.linux?
-      # Fixes: smartcard/scard/helpers.c:28:22: fatal error: winscard.h: No such file or directory
-      ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC"
-    end
+    # Fixes: smartcard/scard/helpers.c:28:22: fatal error: winscard.h: No such file or directory
+    ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC" if OS.linux?
+
     virtualenv_install_with_resources
+    man1.install "man/ykman.1"
+
+    # Click doesn't support generating completions for Bash versions older than 4.4
+    (fish_completion/"ykman.fish").write Utils.safe_popen_read({ "_YKMAN_COMPLETE" => "fish_source" }, bin/"ykman")
+    (zsh_completion/"_ykman").write Utils.safe_popen_read({ "_YKMAN_COMPLETE" => "zsh_source" }, bin/"ykman")
   end
 
   test do

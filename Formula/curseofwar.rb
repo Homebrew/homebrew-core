@@ -7,6 +7,7 @@ class Curseofwar < Formula
   head "https://github.com/a-nikolaev/curseofwar.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b2f8bf83947f4824e28c212a1fd901c499aab1c20b7c7310cebd07b0da6600f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "25ddaaccdd08f5cb640149db8d7c78b01dcab50eff1c610b4e6f674b790d3629"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebc08cc6d912fdb3df613a397b1ac467e910a280fc2a4955971d53bb7555045b"
     sha256 cellar: :any_skip_relocation, monterey:       "896a5aef76086dee7da0fd8cc17ef67635592b9cc38a68945a53e0224a1bdad6"

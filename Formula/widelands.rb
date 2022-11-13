@@ -12,6 +12,7 @@ class Widelands < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "04e42710b9f9de4f78d5b6b52576790c767112af18c0b563a6d678c64c88a99e"
     sha256 arm64_monterey: "2e16b0011802b992345db50c775930eda8d4556b3b8f412da7ea52810d4ebbea"
     sha256 arm64_big_sur:  "7697f542dff17d616555e5976968278dbd4ae49b1ed7cc0cdb05b5e87a2d50f4"
     sha256 monterey:       "3f7db3068889e5b705d520ab15bb3705474328d62e58febea3590a75ca3e9ccd"

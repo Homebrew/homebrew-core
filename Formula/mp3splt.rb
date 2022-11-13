@@ -7,6 +7,7 @@ class Mp3splt < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "4e6894c387e086d64cb6ca49c9b980db9bd005244f6cde36408d362a4aee80d7"
     sha256 arm64_monterey: "49093f6c535038ac74f901f3ec328da4611621c554c9fd016170e7609b2bacac"
     sha256 arm64_big_sur:  "991b32e34ed74df29e4fc4a5507079aade0cb8edd0dd32569ece51bda3a56be1"
     sha256 monterey:       "6095cb447c23f8b7c736f858e3420c50b2b21134afea5c319873738c895debc6"

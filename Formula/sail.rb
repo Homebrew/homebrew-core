@@ -9,6 +9,7 @@ class Sail < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6e9a659f09618f2535f22cf44029baff8652bec0ed090b701f6257c30d33a96"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5b33a2bfe41061d2fd8234d6ae4f3a217ec648fd6218d7b8494b59ae1dab1053"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c138bd71de3bd6eb49602bc765e743c282fa6bc18dac74ed8f4dadd5fcebcb2"
     sha256 cellar: :any_skip_relocation, monterey:       "e9a94b7de2702591bf018ed4d53856d168f5e4dcb3877fcf7665090096493991"

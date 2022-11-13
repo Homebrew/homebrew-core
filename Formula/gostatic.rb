@@ -1,19 +1,19 @@
 class Gostatic < Formula
   desc "Fast static site generator"
   homepage "https://github.com/piranha/gostatic"
-  url "https://github.com/piranha/gostatic/archive/2.34.tar.gz"
-  sha256 "fc61c77e76e81b17b9955d18341da3f62e2f8def6a8f33156681e046ab1e80c5"
+  url "https://github.com/piranha/gostatic/archive/2.35.tar.gz"
+  sha256 "a179a469938c4ea6be7185bfcab42153114e0b95b62006ec266eccf5e73d3ae3"
   license "ISC"
   head "https://github.com/piranha/gostatic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "49fa353b84dbf17ba985212a42ca00020af83f4f97b652b3e0228c4abefd2844"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4daa04700da1032af0a162412f3c9c853ba1c2044daef8169fbbd55eae60fe46"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ea61a4050fccf533069aefa065611beedf2d43438fcf6d5eacb0df0789271a4"
-    sha256 cellar: :any_skip_relocation, monterey:       "716362ef77b40110d1ae1613613b67d51a985c84c567fefd0e759ac5c7d168bb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8493519376ae8512fb5e2d4c83481c27e964bb63c854c1aa14f15d0494311fa3"
-    sha256 cellar: :any_skip_relocation, catalina:       "01d319962c9ad1c3f5955ceaeadf4286944d33e82d90b44d36a0f4bec37089d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce5a780002a737100f543ff761ae7c8bdff06de65e0f0931ceb931061d740f61"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "641956d41c41c109be89e1604335326c594c785f048e7fb370c76a2f3e1485e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "afe3444a665ab170ac05f57af7b21bc2f0ef67728030eda826a29b4cd263bf73"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51a4d75756fdd90bfca110b7419885f6edd5d957dd1e1dd9695eaddbee695341"
+    sha256 cellar: :any_skip_relocation, monterey:       "499cd482d6bf9f5a66d41757180fd98da349c4305b64c9f269be5307625c7e85"
+    sha256 cellar: :any_skip_relocation, big_sur:        "528bc2fa866ed10403f9af17b0dec443bd212392cce97d3f25df0f8be3b4ecf4"
+    sha256 cellar: :any_skip_relocation, catalina:       "24345e0269c9d66290e29413b88e800e5df1a4a4a9b144a0a83bb9a6c9a70b74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "763f6313a738d1fb1a20175effd345089978ee5c8a3cba15c749dc700c7e57f1"
   end
 
   depends_on "go" => :build

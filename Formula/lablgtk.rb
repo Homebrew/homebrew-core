@@ -12,6 +12,7 @@ class Lablgtk < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "b77e7e12785ed1b84c04e2d7f33745b3d63a8aa101c7d3d10189a9a0ffd0956a"
     sha256 cellar: :any, arm64_monterey: "97abc8b9ca15184d58e73218a5617d417efc94183ae8ff6bb2bb5e6e4dd2efd2"
     sha256 cellar: :any, arm64_big_sur:  "4cacdcf4beb3a2d2621a2728b816c32b732a76fa48ae5a2db81aa5c2ceb083b3"
     sha256 cellar: :any, monterey:       "3481e18fe254c2bd1933ff9ef091b4d3345635825482540a014645e8b16219ed"

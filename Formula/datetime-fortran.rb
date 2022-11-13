@@ -6,6 +6,7 @@ class DatetimeFortran < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcc7d71f13bb6e54b53bafe5755a5c44d8bf9af567347420206d32fadf2a08c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b177b0a28cf005802e708fb452c35093b67aa3a92c72473c20fa35c88bbf8107"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2986c9fde31f0bb075f4399c251599b481e2c9f5509e9ba6aa56e2fd8f2c939"
     sha256 cellar: :any_skip_relocation, monterey:       "ad62e5859ae4b2d3ab0c8bead76edc3027e9dd26effa87042b9162ed35309387"

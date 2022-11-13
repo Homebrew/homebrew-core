@@ -14,6 +14,7 @@ class Epic5 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "5209a0e6fb595e179556ec87ecb8ba080fe8802b6ff9d829775177fda5aab632"
     sha256 arm64_monterey: "a79602d8312fd7f4d9ed1cd5943ebf896900b33217e9d22e186644b8d434dd65"
     sha256 arm64_big_sur:  "59f284a1e7e852f151c02ac16a64ac23fff0a8018736e9db42108dfe4481c515"
     sha256 monterey:       "0eb4696dd63599841100cb9dc9d3d3c7da7535d53d576efb787e72accb73180e"

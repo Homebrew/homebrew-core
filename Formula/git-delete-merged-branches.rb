@@ -9,6 +9,7 @@ class GitDeleteMergedBranches < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c1ea7e30ccd4b52c7da6a2f4f3cc59658bb404084415fa07def27cf7a016475"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "434ef9a7920c473e1e1b912097dbefbc43d88f70ad2212593dee0dbfd2fb8c2c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4154a0905d91d3654adccbbbe7a1ed46b52951dbde67c52e13183e90334d383"
     sha256 cellar: :any_skip_relocation, monterey:       "c829201f3be8793d8fbc090cced40c81a5482d1809139983144a42865c5dbb2d"

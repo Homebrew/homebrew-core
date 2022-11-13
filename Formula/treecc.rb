@@ -11,6 +11,7 @@ class Treecc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a9f078361781eeb11f2a5f595c0728c6753af61f8b2876c390d469bde5f1467"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "55d7a609393fe94689f48ae77c7e5c579fcfd408fb3c1fc3ea265bbac0dc842f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b29736a869955071e87b8be7b9d8f7a36e1c2d4f52796e49bbef8d5c002147b6"
     sha256 cellar: :any_skip_relocation, monterey:       "e5df47b775de8602bf18db65da4a4eea2093d19fda212ea300c455b4ff899c5e"

@@ -10,6 +10,7 @@ class Z80asm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea09a44bb614b9dd6ed3ccdafc33b517a745a7f51274d2e557ad3f9dc5f2a034"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b34635e2c41ccbd32935bc104c11a9899a49d9e235c96cfe50ea58ae4423671"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6640cd351024a204230edd8cdb5746ab3ff9aa8c325a5e9515380fa07d8ced84"
     sha256 cellar: :any_skip_relocation, monterey:       "bc9bd7e0dfbbdad344386a242b47e72e67c820d90925c59a600770704416a71f"

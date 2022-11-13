@@ -7,6 +7,7 @@ class SignifyOsx < Formula
   head "https://github.com/jpouellet/signify-osx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "61d6a3ff6667bb16d42a052ed831e635048647d2d6bb0b0828d03a8c0b8da1cf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b524debbee38eb3d651123e84189121d4249051dec29bf21c02d8e094916cdd6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04f7c99002246fb5765666759b9a5a1f7e461a6d2d0c77e360af77951ee5de97"
     sha256 cellar: :any_skip_relocation, monterey:       "f3b58c34d1a01564e16b46364359f42330e1279f2a90025ce7541c9d5f69f370"

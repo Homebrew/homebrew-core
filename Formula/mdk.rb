@@ -12,6 +12,7 @@ class Mdk < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "72e741da4f22397c5a5d0f68438783f68191384a8d47059f52f8acb706d0830c"
     sha256 arm64_monterey: "8da880cef0ca8a00dbc5508f0e805c0c7e356f80771a64dad4b5bd7983883a96"
     sha256 arm64_big_sur:  "82feea4dde50c9990493575153eba005943911de642cfe855881f162739b36d8"
     sha256 monterey:       "74070fb72a32c176845c7df342a3c11d5f581ad70ffee3311bff1660c0e53089"

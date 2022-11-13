@@ -6,6 +6,7 @@ class Rgxg < Formula
   license "Zlib"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "56fc8fea2ebbbe0a03cddb55f18d6a744b7ab028980276b8e17a2fdada7f6cce"
     sha256 cellar: :any,                 arm64_monterey: "7c78f7917c24d61418d48dbdb2b61eea9f098cfdc999532542044372fbea04af"
     sha256 cellar: :any,                 arm64_big_sur:  "42b3f11c2a0fe78d84df3ae4ef3bcf9d3dd4cb04a5f8ac9a2c2196c7ef7b904b"
     sha256 cellar: :any,                 monterey:       "5c575a40c8ac2b3b133bf004af5562380d452d279f0c7d1819a394c686503089"

@@ -8,6 +8,7 @@ class CassandraCppDriver < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "1f94b7c0d0411f6c14267d82f7161a885fb740854ad919e738e3de2fe79f6837"
     sha256 cellar: :any,                 arm64_monterey: "9bc308348bd4255276447d174fc29a2c542213bf169408363896dfc49956ca35"
     sha256 cellar: :any,                 arm64_big_sur:  "cac923a6c616a2e1bc661803649147b908087590f92a1481715c41b03bd326c0"
     sha256 cellar: :any,                 monterey:       "d2b5345fb271d6828ee7dd30066e9052130ccce62290d08e679e2d0d461ee778"

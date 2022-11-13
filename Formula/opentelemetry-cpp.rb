@@ -7,6 +7,7 @@ class OpentelemetryCpp < Formula
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5faaebd07083a0f13d538596dcee302039489d3677bc837958fd0f21a450a17f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cfabdc1e29b3b0e943d45ad93d160707c35fc6398ad62836f261e6cdfbf236d8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6653fd2894604d8cdbc0de8f25b57a6a08627ea279877896996ec3d86f41ff71"
     sha256 cellar: :any_skip_relocation, monterey:       "2aef87fe3a98aea435ce8f0c1d27e4c50ce6183be352a8775185ac95eacf062f"

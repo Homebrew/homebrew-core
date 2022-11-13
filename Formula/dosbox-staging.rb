@@ -14,6 +14,7 @@ class DosboxStaging < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "9b90bf8a0a8019fcf0dc4e3fdd55bb9785eee83846310b7a05805f803e5bbdf9"
     sha256 arm64_monterey: "75cc3a72f4674ea537d12afad7fe9d14617ceb7f1108c01894f880954b3df1df"
     sha256 arm64_big_sur:  "920b3320cb2f390130f7b58c1e16a13c515781f7de9211103d3cd89effea6f4c"
     sha256 monterey:       "de5c5f3431504c34b844a7bd4eae17acdc3d9a7f060ddc92aa8e34512b055535"

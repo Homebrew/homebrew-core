@@ -12,6 +12,7 @@ class A52dec < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2764776e9f2cb2bd180b736a3c533835db280a8a51a34b72501e8eb0ccc3715"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8f17299eecdcf8d9a94bff90a2f48e9c2a2cffdee3b64d2633865d983171be17"
     sha256 cellar: :any,                 arm64_big_sur:  "a9a4752a7b6d4872abf06a725a44b94d1701e4621c0e4226002e371df53ff366"
     sha256 cellar: :any_skip_relocation, monterey:       "5861dcdb362d4993facf91724306204fc4775c62ab91dd340144b73897a14043"

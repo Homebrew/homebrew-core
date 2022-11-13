@@ -14,6 +14,7 @@ class Slrn < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "b01cfa08e80b18f090f98cf2644f01ba047b43464831456a75ccba25473076cf"
     sha256 arm64_monterey: "58fc905615d5e7b14fd19c8d790ec88a2ecd13e73ac2206e6f23d62f47e96f68"
     sha256 arm64_big_sur:  "b714ac9c245119ba08001c7729f77093491457c54f17b2d1d09184f690ffa288"
     sha256 monterey:       "2a01ba80ca3bc05f40f4da7d1fae0e72029e9f07a8d42eb265ad37efc36812e0"

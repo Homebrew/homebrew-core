@@ -9,17 +9,18 @@ class Platformio < Formula
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba85f557a89c7b3ae38eff5596e0adf5552c41383cc5b0951328858ebb4770d1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0fc7b6a3d9ef4cd50cda403b1ace7ae3710911101d9c654dfd63eef53fe8cbd3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb7083ec6bb8073da1b7f303b8638b7392a0c3983f5cadf55cb7b13163a430d4"
-    sha256 cellar: :any_skip_relocation, monterey:       "a1e8aff41ee4feaec3ac64470cf7485bea32e3c3552d4533be8130180c8f1510"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c3daa095ab3c65d23a06d05ab3fd4ebc19eaf25f273914a40652572eda28bde8"
-    sha256 cellar: :any_skip_relocation, catalina:       "d22f2f1a974f05dc4aa64b180ee7a2d10946d977b4b1584d82880a4c428299f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98fead24abf9c1637bbe7aad9a02954f009ddc7c44176a47ba7f7c3ccbce812b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0edbd9aa7eb6876a8c215772e8c235742ebc861e01fb67013377d1c13f5050e9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "48cf603245315095bd15cd139a629e815a71454e26fbb52f73c93c82f935ef1e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ceb4620e0f73b88fd1682d6544f2c53f685a3dd1ba77fd296198df8c05f77d0"
+    sha256 cellar: :any_skip_relocation, monterey:       "647e613e1d718387d4b543ae0bab4f17b62e7bd362f83ce34c6e3af18d6ae1de"
+    sha256 cellar: :any_skip_relocation, big_sur:        "31a3729765b40d41390320ed52e2f2d9358cc18783313718227407beafb75dd1"
+    sha256 cellar: :any_skip_relocation, catalina:       "5721be97250a3be84875ff8792a8aaace71d9b95b4d069eca83e4b32b6752382"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4565000534f6636173c693df7aac1768cc43647888345f91b5f048a2765a12b"
   end
 
   depends_on "libpython-tabulate"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/86/26/6e5060a159a6131c430e8a01ec8327405a19a449a506224b394e36f2ebc9/aiofiles-22.1.0.tar.gz"
@@ -82,8 +83,8 @@ class Platformio < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/b8/b9/b1da16dac90ed19806ea466636ae387957eec8cd429ac3b763e21b99a77d/marshmallow-3.18.0.tar.gz"
-    sha256 "6804c16114f7fce1f5b4dadc31f4674af23317fcc7f075da21e35c1a35d781f7"
+    url "https://files.pythonhosted.org/packages/5e/59/dd465e5ab0ccb879c410f88c75189a19fd437b12cd9a03b31579aef58709/marshmallow-3.19.0.tar.gz"
+    sha256 "90032c0fd650ce94b6ec6dc8dfeb0e3ff50c144586462c389b81a07205bedb78"
   end
 
   resource "packaging" do

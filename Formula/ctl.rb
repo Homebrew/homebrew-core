@@ -8,6 +8,7 @@ class Ctl < Formula
   revision 7
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4e53012495e07442d42c90ef1e566a07b114768054980bc10cd74511cb4e1a85"
     sha256 cellar: :any,                 arm64_monterey: "98141badc00f97bdb0ee0eb39907f17b5fefc66997eaf8afda40804946dac8de"
     sha256 cellar: :any,                 arm64_big_sur:  "c235c302216f52be88e6f0a5f9e7faef084a47c798ed0bccbb9614359d98dc91"
     sha256 cellar: :any,                 monterey:       "3dcbd25335f8fb6c3caf487683a31d26a065c80f72d8e64f2bb07f3816244894"

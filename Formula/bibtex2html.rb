@@ -11,6 +11,7 @@ class Bibtex2html < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "91f93894cd23e18564b8ef53f832e8a754be6e49a00326fbb0a82325056bc8f4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "48733e197e054f9681c722737a11503615cc2f7363de7ba78b6aa04c655c7d03"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dfcc9b81cb80f2a2397f35158ef6dd8ef1e0d5e3738b78985c494c8910f37786"
     sha256 cellar: :any_skip_relocation, monterey:       "85debacb26917549e04bf951f253fc2d51da9515cc9b1dcc9d54310ad93b4b06"

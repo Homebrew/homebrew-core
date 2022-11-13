@@ -9,25 +9,25 @@ class Xonsh < Formula
   head "https://github.com/xonsh/xonsh.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa0abad5e9b39b817b4da83eeb3c4877a8f8dc4bcacd4112c99b03cc419bd3c1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "074d5d6e2d6c2a0fe71e8c0541988ad2134a35596583abd6504d22f13ca2c269"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6214f141559199c37879896235540faf01871abd38041c3eae880aae8886751e"
-    sha256 cellar: :any_skip_relocation, monterey:       "3134f476cded81f56fadf899a8be4e0d550dae10f120ebfb2190e6ee89c5a92e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b4922e757ab32da38858abfcb9aa8f35b39ceda9cc1719f384084ebe148e78af"
-    sha256 cellar: :any_skip_relocation, catalina:       "7b8461e94e962a421b36edd44f6a5fdd574e0aeb3dc3e935e5ad61bdbe4b5e8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4949b71c2581a58ac4045cadbc5346e876bc0f4950c99c40c7f798fff904bfb"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98c7d25d687f8a0c2b3e4edbc14c354deb3c48ef9ce245126ab3ba83bb0aed22"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "94623f130a3c31cea0bd198617a688cfc5baa4908d8b0b88a163310ba9bb4182"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d40e283b8f3226a33e42ee7c794deec1c15765355d9610e81dcccfbec851ffb"
+    sha256 cellar: :any_skip_relocation, monterey:       "ce0fb281461a5068377d51b7ace0f4924a70c79314dc29836af75ef78b5bb999"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b6ba23882117c378fecdd7b2589db9d18039ee54790863a5c37dae29e88fdd27"
+    sha256 cellar: :any_skip_relocation, catalina:       "76eb9d2f0f13a7db8eac712b8c48dc4413586e72e4ee3553fae3a81fb05a8a31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d1326a38df76bcc4353cc56222520aa39ce15f805ce404d7228862b85ab5fe9"
   end
 
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   # Resources based on `pip3 install xonsh[ptk,pygments,proctitle]`
   # See https://xon.sh/osx.html#dependencies
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/80/76/c94cf323ca362dd7baca8d8ddf3b5fe1576848bc0156522ad581c04f8446/prompt_toolkit-3.0.31.tar.gz"
-    sha256 "9ada952c9d1787f52ff6d5f3484d0b4df8952787c087edf6a1f7c2cb1ea88148"
+    url "https://files.pythonhosted.org/packages/e2/d9/1009dbb3811fee624af34df9f460f92b51edac528af316eb5770f9fbd2e1/prompt_toolkit-3.0.32.tar.gz"
+    sha256 "e7f2129cba4ff3b3656bbdda0e74ee00d2f874a8bcdb9dd16f5fec7b3e173cae"
   end
 
   resource "pyperclip" do

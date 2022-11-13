@@ -11,6 +11,7 @@ class UBootTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "210f9df7de81d9b4fb5f1606906aee0d6c03c4acc8caab99965a139f5efee177"
     sha256 cellar: :any,                 arm64_monterey: "a079a3ed32907b5ff4761b6f2e42c18ea5cd09bf1cec1a9b6c42d15d412df31f"
     sha256 cellar: :any,                 arm64_big_sur:  "64206ca55f97af61ab1de8d63ad410c237e1bc408539d9d490bd3e882fb40bb7"
     sha256 cellar: :any,                 monterey:       "dae33b7bf6752a698c25669a65ac4dd8283a16dab1077a8ac28a868a7f4900f8"

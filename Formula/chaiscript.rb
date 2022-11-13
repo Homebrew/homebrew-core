@@ -7,6 +7,7 @@ class Chaiscript < Formula
   head "https://github.com/ChaiScript/ChaiScript.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6424e3a8c19e9c654db8954af3910392f6849bd0b6dfc4725ff62c757988d8ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "009f1ecb9cc7606337465866c209225a1282bda0bdef0a6bad35ba3e8582bad0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf3080dd47601b28622c198749587901d6d7eb59b5b3716a7bf72bc292be7cfe"
     sha256 cellar: :any_skip_relocation, monterey:       "b8b2cadc6c93e131b1b46f2bb75a14b6b74c7ab89fac6a3165116c403d153c8f"

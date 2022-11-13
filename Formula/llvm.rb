@@ -2,8 +2,8 @@ class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
   # NOTE: `ccls` will need rebuilding on every version bump.
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.3/llvm-project-15.0.3.src.tar.xz"
-  sha256 "dd07bdab557866344d85ae21bbeca5259d37b4b0e2ebf6e0481f42d1ba0fee88"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.4/llvm-project-15.0.4.src.tar.xz"
+  sha256 "a3112dca9bdea4095361829910b74fb6b9da8ae6e3500db67c43c540ad6072da"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -14,13 +14,13 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5cc4e3ec9ff694024c3d1e8e5da5ae2ad31ee17ca17d9ff02f0549c841ce0904"
-    sha256 cellar: :any,                 arm64_monterey: "23d7b6719ba60f59f32f1e3c1b14239ab3178d0943ba163b3aa566c03288c365"
-    sha256 cellar: :any,                 arm64_big_sur:  "bd8c3388c01819330a41cbb8dce6c4a488f2c16d9c237bad8d437cadfdd811ac"
-    sha256 cellar: :any,                 monterey:       "09cc7a2e0d63ce220fd454eca8b6deb6d6c0ba6f2c9f2ec73d8e1bcedb9b1934"
-    sha256 cellar: :any,                 big_sur:        "932da8904c78c7501328b4e0be25d14c731f42826c2343ba9a0e2290bd16c777"
-    sha256 cellar: :any,                 catalina:       "37ab9acdfe57946dcd3b0c27a64527d630027f4c16d51ebdfe2732c6051a229b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2354aa1d580bdb16cc5e092aac2fd3bd60c0bc0d4e5c182c735852251066ee4f"
+    sha256 cellar: :any,                 arm64_ventura:  "32b36be0e124d0649e6979a6d3eab1514aaccdc4ff88fc770757abedef6a1ff7"
+    sha256 cellar: :any,                 arm64_monterey: "1adc1a49712277620865f1b67f7689c848988db0298641e45e80515c8297b26b"
+    sha256 cellar: :any,                 arm64_big_sur:  "1d40750daeccefe34f152263b55f3cf60da544baaf1542ee8d32f262df84920d"
+    sha256 cellar: :any,                 monterey:       "258e51a417678ba6fcb893f911e1df7c0d2af6c377d5db673cb2d9f41cc8f09e"
+    sha256 cellar: :any,                 big_sur:        "30a1ff9936ea0ba153f3f5b030b7381156bcca7a9c805131301e1e171ad9d3bc"
+    sha256 cellar: :any,                 catalina:       "e5298664fd1d391cef01c3a88fbb5a15ea4f9bf2a1f02993587825d75c4b093d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bf9e38aa2205a1f621b51018a30730b587afd5732945d3b9356e831a1bc9259"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -33,7 +33,7 @@ class Llvm < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "z3"
   depends_on "zstd"
@@ -52,8 +52,22 @@ class Llvm < Formula
   # Fails at building LLDB
   fails_with gcc: "5"
 
+  # Fix a macro redefinition in LLDB. Remove when patch is released.
+  patch do
+    url "https://github.com/llvm/llvm-project/commit/81fc5f7909a4ef5a8d4b5da2a10f77f7cb01ba63.patch?full_index=1"
+    sha256 "d2a2b61f7024fdf45f24a8ad8592808fc94c9ce6db8df3152fd9f46180c43074"
+  end
+
+  # Fix a `SwigValueWrapper` error caused by a change in swig 4.1.0.
+  # Remove when patch is released. See:
+  # https://github.com/swig/swig/issues/2377
+  patch do
+    url "https://github.com/llvm/llvm-project/commit/f0a25fe0b746f56295d5c02116ba28d2f965c175.patch?full_index=1"
+    sha256 "a2cf01ca5f632f7372f03c7a9db438f5f7083daae90a617241a0c41ece979267"
+  end
+
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install

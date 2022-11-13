@@ -32,6 +32,7 @@ class Dynare < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "f1ce57f5f97e933a2fdfa0b5771bfc2c695ef9327f5139ed666e7a81c623613b"
     sha256 cellar: :any, arm64_monterey: "729657626a5dd8b7019b4594dc9d6c1c586863b24bc538da696fc0503127ecd9"
     sha256 cellar: :any, arm64_big_sur:  "b9a6d4a197f260137a3db9915d2dc18296d2afa7ba175c162dad175f65701391"
     sha256 cellar: :any, monterey:       "31b80cc41d34278e8a20ec410c0f2e8aa51b39051fc99f99216384ba76e53114"

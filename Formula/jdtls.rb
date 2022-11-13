@@ -15,17 +15,17 @@ class Jdtls < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "912164eab8e5277c3ebf5cd52b4e9ccf087a327009edf8a427b7724b9a9495c3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "68b685beafbd0f35e060c61754fe028cfe1e83c00f0d154aa6384cfe34243503"
   end
 
   depends_on "openjdk"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     libexec.install %w[bin config_mac config_linux features plugins]
     rewrite_shebang detected_python_shebang, libexec/"bin/jdtls"
-    (bin/"jdtls").write_env_script libexec/"bin/jdtls",
-      Language::Java.overridable_java_home_env
+    (bin/"jdtls").write_env_script libexec/"bin/jdtls", Language::Java.overridable_java_home_env
   end
 
   test do

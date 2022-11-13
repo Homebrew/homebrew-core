@@ -1,8 +1,8 @@
 class Brev < Formula
   desc "CLI tool for managing workspaces provided by brev.dev"
   homepage "https://docs.brev.dev"
-  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.160.tar.gz"
-  sha256 "45a036009202bb1a71c4439895fe5db1553fe22c0b9f3ca8cb1cebfbc38fc454"
+  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.170.tar.gz"
+  sha256 "ecc2272f7750356ac9840df520e1c57424026ae8222fb54e50aa1a48be73d265"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Brev < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3cdfd24758bda54e03fdb21ee8c0aa0976c415cace844a1c85136c1a2bafa33b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e79320cfe7b07fdf958a7ab8a1ac7dc98b5df5ae6c10190b3e603c14e813369"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e97272f87e4e777ae92fa85b1ce616328849c932a67ec24a4c3f384a71737860"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0f7cce39b0d83dead1c9c89d4081f6fb1983e048816f9d1b89673fd2673d221"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6ac5464b9a52fbc1f6f65c5848bdb4c379381f41a7366db7e73ccd434fbe3c71"
-    sha256 cellar: :any_skip_relocation, catalina:       "b03c4dbc5400ebd213be2f8282fa67f36f7e73c190fcbf73f6bbfa979f4c827d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "447a7d9a5e3066fa9e4f7640b462c65cfb9dbad38056aaf34ca9749228408cc7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f82fe03618b025e1bd51d323f38ba00304c8d3a5787aa734eda29c51fe2c9d6a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "971dec394a5fa4d4f732a8ed42f6f75f232837a12384e5e98cb0036bb2425144"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a90dff9a558003cb2eafac67cf1e9ab8c4e36367becb1b47ad83b38c6a79898"
+    sha256 cellar: :any_skip_relocation, monterey:       "642750ff299c1ec52c1650e75359dbd059e22a66c8b36d5e04109fd16b1330d3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2494021c8b83ad29dbfa9c5ae046beeb614ec068e14bbafc888a48d9ea658a29"
+    sha256 cellar: :any_skip_relocation, catalina:       "aa39cbf883fa992d47d08241bce7262bc789435fe3dd7adac3c55ee244cd09ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c8be5409cabb02f04414b3b2e4409cb036f01ce032a81103b70f7ace7b51bae"
   end
 
   # Required latest gvisor.dev/gvisor/pkg/gohacks instead of inet.af/netstack/gohacks

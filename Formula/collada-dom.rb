@@ -7,6 +7,7 @@ class ColladaDom < Formula
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c920a17cba52a9eddfcf9951004af4f929ac75c332aea326d6526302b26a7392"
     sha256 cellar: :any,                 arm64_monterey: "3f4c94c87fcf91e70742ee59d9beaac2795f0338732d5416a68e498d58c4067d"
     sha256 cellar: :any,                 arm64_big_sur:  "0fd24a0542b44e9718527d769a8f3b2229ee2f3f9e0c114472d0d28f9499edc7"
     sha256 cellar: :any,                 monterey:       "70bca431ec07f8e203c0fb60621527a6df11a122871c02af2e3b34cb615542bb"

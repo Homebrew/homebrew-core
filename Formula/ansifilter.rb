@@ -11,6 +11,7 @@ class Ansifilter < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc395b12e05e924850d9c3140e2df688645dbd3cb6fbe0ee55a85efecfc3a25d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b2b6a8ec1dbee03ec73761e62abdb29e25daf9a5f5cd2339281784e73e35b27f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "604a45cdc202a4cb1ee084a350b8ad989f135e29d1d4153a9c9e20818da8e31e"
     sha256 cellar: :any_skip_relocation, monterey:       "a4c13e32789f3e2dc6e8c1c41d7a680e5fad4464ed59cddda4b859de3d669573"

@@ -7,30 +7,33 @@ class Znc < Formula
   revision 6
 
   bottle do
-    sha256 arm64_monterey: "86f16a8674a30c3e90550bc91a28632164ca79a20e6406f041522283290e2b18"
-    sha256 arm64_big_sur:  "ce595569c4393a9afaab51ec09bece8e338f75ad8243980e23f687067507d15f"
-    sha256 monterey:       "1738261be08afd3295e26952aa3fd19acb41a721d6ee44c4959ed80559d66d5e"
-    sha256 big_sur:        "dd4a689a0b7de986f26c8ca48b7329bf18b43a25f521fc74480cc6e062bf850a"
-    sha256 catalina:       "9728d7dd39d424732c3c49d30cbb30885d1d15e88691cb9afdeedaac0c2f07de"
-    sha256 x86_64_linux:   "96cde551ca97b5e13566a245d7e3beda68bad19bb9bd7f5c629d73976f0d3bc5"
+    rebuild 1
+    sha256 arm64_monterey: "3a5652ad8b655725f9f824c2da28da03fc5ae0d4b3dd4ab666fa5377ba5ca586"
+    sha256 arm64_big_sur:  "2e6656f598cf7512ebed68558ea8afd0bb785049ebca38ba2042dd2b81f1dd34"
+    sha256 monterey:       "c0220516ba0bf2a16b478ba7c1d2cd8c146f1f3cc5c20f053e8008556b5ca8f8"
+    sha256 big_sur:        "da0f129f9308c52d466431eeb447e3f69ab2874f04508b0bc6a27923e4d3e179"
+    sha256 catalina:       "5b0d7cd57c96889fe33b2969a7525eccb307f6ece0020bb00b9ac9430efdee77"
+    sha256 x86_64_linux:   "e8943f612e971fb36d5a52c2f3f544902287c2b987bca67b72067850e0e6840e"
   end
 
   head do
-    url "https://github.com/znc/znc.git"
+    url "https://github.com/znc/znc.git", branch: "master"
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    depends_on "cmake" => :build
+    depends_on "swig" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "zlib"
 
   def install
+    python3 = "python3.11"
+    xy = Language::Python.major_minor_version python3
+
     ENV.cxx11
     # These need to be set in CXXFLAGS, because ZNC will embed them in its
     # znc-buildmod script; ZNC's configure script won't add the appropriate
@@ -43,9 +46,23 @@ class Znc < Formula
       ENV.append "LIBS", "-L#{Formula["zlib"].opt_lib}"
     end
 
-    system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--enable-python"
-    system "make", "install"
+    if build.head?
+      system "cmake", "-S", ".", "-B", "build",
+                      "-DWANT_PYTHON=ON",
+                      "-DWANT_PYTHON_VERSION=python-#{xy}",
+                      *std_cmake_args
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+    else
+      system "./configure", "--prefix=#{prefix}", "--enable-python=python-#{xy}"
+      system "make", "install"
+
+      # Replace dependencies' Cellar paths with opt paths
+      inreplace [bin/"znc-buildmod", lib/"pkgconfig/znc.pc"] do |s|
+        s.gsub! Formula["icu4c"].prefix.realpath, Formula["icu4c"].opt_prefix
+        s.gsub! Formula["openssl@1.1"].prefix.realpath, Formula["openssl@1.1"].opt_prefix
+      end
+    end
   end
 
   service do

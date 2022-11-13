@@ -9,6 +9,7 @@ class YelpTools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "8437f0c33b09679ecf9f8f0dd73192a9bd2c9dccfffe4af14021852adc39fd09"
     sha256 cellar: :any,                 arm64_monterey: "53171a90e1b64b2b3a734b989077f99f22cb7efbe8ae219cca160c2c518f87dd"
     sha256 cellar: :any,                 arm64_big_sur:  "d01829cdbf30f61a4a512509a8bc4116783a2f96e3d08215ecab636e7082c6af"
     sha256 cellar: :any,                 monterey:       "587118242a1905c0b8f829123b8664fd1650bd880dfb73b75e5c452023065904"

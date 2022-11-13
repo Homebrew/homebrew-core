@@ -6,25 +6,27 @@ class Libxcb < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "daa6dc10aaf0ae9ff491857865d1a583199702e3b8986aae83e366d9a7e9e984"
-    sha256 cellar: :any,                 arm64_monterey: "b9ed936a5ee43ec58cfa7db03a75ff2b336836c219c024c58f68fa3eecd91976"
-    sha256 cellar: :any,                 arm64_big_sur:  "dbb71439521a388431894b8ba9ea8b9ee628046ccc71cc94acdd3511eceb4df1"
-    sha256 cellar: :any,                 monterey:       "21ed8d16c03b188edebd5e0b20b1fca8e36763e159d75a63d5214873e78b1807"
-    sha256 cellar: :any,                 big_sur:        "adfd6a48ce689095e518b3e05a7d1d775808c84aad660d6763ba27c95d154052"
-    sha256 cellar: :any,                 catalina:       "78f6cd5fce9028f7909f2089c8307fd2dacc44d5edc8fe22ab9833e468dee48d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "993d37bb436fab0157ed5f3c031f9a18168053439e93edb4bdce9abe6e99373d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "1c61b275a2a61d1f0d089e7c0836e3515f0d344726ff5098f7ae550577b47b4a"
+    sha256 cellar: :any,                 arm64_monterey: "0cdfcc168853b8f09f431c1790ae9b8de5d8567b5fab5381f26af300bb7dc5b3"
+    sha256 cellar: :any,                 arm64_big_sur:  "6bf77051114dec12e0c541bc478d7833a992792047553fc821f3e1a17b82ec38"
+    sha256 cellar: :any,                 monterey:       "3847eca62ce6198e7a728df8ae431f628091fb8e83956efdc9d527f4d2795ef3"
+    sha256 cellar: :any,                 big_sur:        "c1436addb2cb20e446f6147c10752e517336245b6dcdd946273537e60aa040eb"
+    sha256 cellar: :any,                 catalina:       "035b1d299e3f1b41581e759981cf9a83aee2754c4b744cdcad4c7fe32de83ffb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8e96bb6f8a1e84ddc0b7e32ca3bd3ae05e4006785ca58b8356db00bd81879fa"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build # match version in `xcb-proto`
   depends_on "xcb-proto" => :build
   depends_on "libpthread-stubs"
   depends_on "libxau"
   depends_on "libxdmcp"
 
   def install
+    python3 = "python3.11"
+
     args = %W[
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --enable-dri3
@@ -32,14 +34,13 @@ class Libxcb < Formula
       --enable-xevie
       --enable-xprint
       --enable-selinux
-      --disable-dependency-tracking
       --disable-silent-rules
       --enable-devel-docs=no
       --with-doxygen=no
-      PYTHON=python3.10
+      PYTHON=#{python3}
     ]
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
   end

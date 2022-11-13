@@ -18,6 +18,7 @@ class ClojureLsp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d4e690d36e34f8a666792a1033fd31353788741fc9011f55ea129ca8496f4d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0a4a35ec9ddf2b5d408e43f1b7225d50c3032d4a9e2029ed8a373ee5a2de780d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "90574ce478618d645bfcbb07b46247f75b94a581eb231dd4c1b84f49d96be60c"
     sha256 cellar: :any_skip_relocation, monterey:       "0fcb5934f6cb322d11d73836327ba84e7edbf5ba3e1af081fe5b993239491eeb"

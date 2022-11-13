@@ -10,6 +10,7 @@ class Unifdef < Formula
   head "https://github.com/fanf2/unifdef.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "703fd0028a589e6862e6fb89564a0f1bbb17091dd5d9b35b7c338e172e8d554c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f6b3c3f19a6bcf92928abedb4b6b77249fd8b88caa25495c6dd2367f34d6ac0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8dbc4bc39701aac4f2da738734f72bc002ad3e3e802343405b5c4acd1eb42928"
     sha256 cellar: :any_skip_relocation, monterey:       "a4f1210ad5c6a8b1c4673aec0339343492ac84eadec4c16a4ebf259e982604af"

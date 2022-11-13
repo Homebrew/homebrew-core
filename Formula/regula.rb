@@ -8,6 +8,7 @@ class Regula < Formula
   head "https://github.com/fugue/regula.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b261d67ca404c8be063bfe82418d3fa3044a08f36eae92bdccae3afc08a87be0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3e2fdac5836f0aa64e6abcb88f2f736a26291f320f852337fb39b5b1926ec7ba"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "74cae3a17c89a88e44af2b1dc509790712195bbbfe406b64fed7f230ce6d5547"
     sha256 cellar: :any_skip_relocation, monterey:       "1da8fad05e7aaab5d42f6232da82010f8c6f615bf11543fc05996338670c5228"

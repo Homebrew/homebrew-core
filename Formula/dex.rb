@@ -8,6 +8,7 @@ class Dex < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "54736c90fa2e3b234dfbbbecb1cc573bfe0a810933638297cb0efea717ca3c3d"
     sha256 arm64_monterey: "b0862918ef89cb4018a08662ec18ca36fab573fdf1e44696fd32813b9f40957c"
     sha256 arm64_big_sur:  "f8ffe6f83659dbdf5f60ee7367291371a1b5cb502ce288ba76d7d392ad943c85"
     sha256 monterey:       "1161d38da36fd3affca64b1b45f68a98e2b935cf1a25418f079f30ed1538eaa3"

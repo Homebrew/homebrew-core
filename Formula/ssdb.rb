@@ -8,6 +8,7 @@ class Ssdb < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "79bb5aad0a9002af14f96810f62717cd0249479368fecaa7e9481a7ab2b7a05e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fd19fa3f456c5dd8b460280a7dac3953032564b280484346376b3f3f217e1592"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd8b6237b70f674f8bc59c1ce2e6d57e6476915c6b01657358a451ecab5e405a"
     sha256 cellar: :any_skip_relocation, monterey:       "5251016f1ba03a184424fc041e61501398577ca0c1aceac23748e22bc8883f5f"

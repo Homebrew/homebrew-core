@@ -6,6 +6,7 @@ class Teem < Formula
   head "https://svn.code.sf.net/p/teem/code/teem/trunk"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "675bc15ec206fbcdd01c475ae95b82f8fbb5f8143bd781ee87ba09971eb75d84"
     sha256 cellar: :any,                 arm64_monterey: "1c2da9c13e69b5cf2729b29ee33b48208963735e6e0394a17709993e6457a0e3"
     sha256                               arm64_big_sur:  "92abe3197ae4ee54df9af997f519538bd8e2b93f5221185f02aaa61de4b5e5aa"
     sha256 cellar: :any,                 monterey:       "f179c33f2bb70a99d4f52e47f21dd8be70e49642607f47af90b1d5001f369d48"

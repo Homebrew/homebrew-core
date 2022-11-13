@@ -11,6 +11,7 @@ class Jcal < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "199711a3aa65d8d6b5d7ae804e99f0025ad8eb59c77f37d4058566edc6c0d1eb"
     sha256 cellar: :any,                 arm64_monterey: "6f1986d499d27fd07525390066318239e9efdac990a58578ef3fe2147d32563b"
     sha256 cellar: :any,                 arm64_big_sur:  "6995c49236be96cf2adcf11cd03a88f46436ca66061de24d087c1c69aa4b9f6c"
     sha256 cellar: :any,                 monterey:       "2ebbf3f00eaedd9e2a539af5eab274bc5a1417cf3e7d44d889272bef86c83a79"

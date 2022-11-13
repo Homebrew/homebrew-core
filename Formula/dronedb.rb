@@ -8,6 +8,7 @@ class Dronedb < Formula
   head "https://github.com/DroneDB/DroneDB.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a4683e7c33d3805e09e288c3f87c045c823655c171e461714e8d38958555d6e5"
     sha256 cellar: :any,                 arm64_monterey: "1e8b02c5d87c54efc48a250e6206341f19d85c31cc760a0f4b0635bc26785942"
     sha256 cellar: :any,                 arm64_big_sur:  "d1ae7059f738fc74a2ccc6bb33ede385d5a67f538a8c7a992c671b4143087cba"
     sha256 cellar: :any,                 monterey:       "5e895e4d10ce1689ebb5ab6b03176b7cf0e071b2fe69ba40e10517f8a086fab1"

@@ -9,6 +9,7 @@ class Fobis < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "592e4edc448db5cff89c6bf3298847ba9a686258de920483ab4cb77dc6e5bd9e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "548370e4f657940d745a496643d34dff59954c4ec0e21c50d08ed90954d4703d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2296b45992dee7b95457824f98a16a949e6edae62dca8ce0af0859930ed8a857"
     sha256 cellar: :any_skip_relocation, monterey:       "d111f4277a23d35db7520abbcf3dc72051a0b2e995cc98ed11c8469292feb943"

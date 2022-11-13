@@ -8,6 +8,7 @@ class Opencoarrays < Formula
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "99be75650454833989ea1a1ed21e7b7602b093dafad27bae68ab10eefd4f3e59"
     sha256 cellar: :any,                 arm64_monterey: "8017a84d370910ce6f399e95ee94d8e4bf859293586a555fd7d4cabbe44e44cc"
     sha256 cellar: :any,                 arm64_big_sur:  "bd94cf703d0d71c39ee879b2f94560c883eb5eacf5ceb7967f2ec033d1bb1f97"
     sha256 cellar: :any,                 monterey:       "66d43cd403a60c8c521d6b20286413f8a0f74152fd0810cdfff9a7175e5944dc"

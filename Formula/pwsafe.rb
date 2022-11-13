@@ -13,6 +13,7 @@ class Pwsafe < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f2f69ecce57634d5a3911badcea213810fb8a25b7b2a242e7f342980760703d3"
     sha256 cellar: :any,                 arm64_monterey: "109f4ad6b786e20de525ce0006c5e6ea0c049c8977c2d82833f41a9dd534721a"
     sha256 cellar: :any,                 arm64_big_sur:  "92fe9319e5412529ea46bbf4813b8cb009636efe05c2b1448ec7a332e4c15df5"
     sha256 cellar: :any,                 monterey:       "1c773e828b7a92a8d8da681549a8cc20a9fb2dded715cc82331eb74037a98e26"

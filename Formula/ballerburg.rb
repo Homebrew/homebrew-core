@@ -13,6 +13,7 @@ class Ballerburg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "fdd4855a7c3dc5acf1a3f63f684ef23f55886df256002bd92284608269b6e4c3"
     sha256 cellar: :any,                 arm64_monterey: "41d2f33620f8f0c8b418d7362f40d618785db53d624fb5eec3be48ee0361c8f9"
     sha256 cellar: :any,                 arm64_big_sur:  "e0917508a2b1eb6721bf4694ca269349dc523a210cf8fdcc1395d266742e1f70"
     sha256 cellar: :any,                 monterey:       "8c7f3a3a864e9095ba740202e528b73b2e19d604f1e8179b4c09db4aa71be8de"

@@ -7,6 +7,7 @@ class Anjuta < Formula
   revision 4
 
   bottle do
+    sha256 arm64_ventura:  "9ab3731f66aa831996d36434373d215e5245cdd48ef2c7681f3d12132cea9db9"
     sha256 arm64_monterey: "f94220711948d150b55bd7fb45b7d0ed6b22074cce634196cefe563280eda75c"
     sha256 arm64_big_sur:  "185ac50d99816b00213f7e3a6430c06dcef89408d92b0b8285772789ed600dde"
     sha256 monterey:       "896ca7644a4dd62f90461343097932c1b64974def062add7296c5f265f6bfdb0"

@@ -13,6 +13,7 @@ class Itpp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "0a42ca8d1cb49fb7b8af53e5c62b6ebb327dee7d81555d58e3b47518ab2105af"
     sha256 cellar: :any,                 arm64_monterey: "23dde1c42eafdbba4fb7f2d5f26ae5115706fca6104de839903d1394e48a525d"
     sha256 cellar: :any,                 arm64_big_sur:  "6108f6abf3ec7cd2e4a3b1d3d36dce2cc59327b01d7168705cc1e6b6976c3976"
     sha256 cellar: :any,                 monterey:       "85f1d652165756860f4f4c8ecc86e583ab9b58ec803804bf278a724319790c11"

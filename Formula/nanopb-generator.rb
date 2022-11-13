@@ -13,11 +13,12 @@ class NanopbGenerator < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "07bb3eaaff21602786aba8175fa1b4e76ef6c736114f53eee63045affc5535bc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ac1eb681935c128508d1d5f2159ec8fe2cb4c7d248b8f955ce53f35f7ca0a63e"
   end
 
   depends_on "protobuf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   conflicts_with "mesos",
     because: "they depend on an incompatible version of protobuf"

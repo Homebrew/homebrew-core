@@ -29,6 +29,7 @@ class Pit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bab334d334f9076b84f008dffa276886491a4567dcce911bca2de19f0a4d462e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cdb46ba810ed638aa93d076788bbc3a21f0d563aa5175fdccdae7b9c3476608c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d3857a0cf9c47d2d53f87109d87a4823fed481398cf2adb6c9f3809b8085985"
     sha256 cellar: :any_skip_relocation, monterey:       "cea94d460905b3f03d850b3e15a99d9a2e1d18558be52a8740dfbae36d7b27e4"

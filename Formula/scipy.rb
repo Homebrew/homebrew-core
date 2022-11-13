@@ -4,16 +4,17 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/0a/2e/44795c6398e24e45fa0bb61c3e98de1cfea567b1b51efd3751e2f7ff9720/scipy-1.9.3.tar.gz"
   sha256 "fbc5c05c85c1a02be77b1ff591087c83bc44579c6d2bd9fb798bb64ea5e1a027"
   license "BSD-3-Clause"
-  head "https://github.com/scipy/scipy.git", branch: "master"
+  revision 1
+  head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "455c198c142f0054ae790af648812f41b29f1c3edb8fba3c1ffb49f69e527859"
-    sha256 cellar: :any,                 arm64_monterey: "2512ac50b80ad92ed389dc61c94179e8160042177947e0bda7e311195b2750d6"
-    sha256 cellar: :any,                 arm64_big_sur:  "c367e57dcdf1b3db85b83b457aff95dfe2554ec0ec4925d85f56624606b80121"
-    sha256 cellar: :any,                 monterey:       "a5d8342faf46f4f723972fd334e6809ad6b6e7ab7fd76b3f73dc2cd77db4a7aa"
-    sha256 cellar: :any,                 big_sur:        "208d32b6a8d44a72a361e28fb71323a1dee9f1f04b08b67ae294f03c00bd653e"
-    sha256 cellar: :any,                 catalina:       "23ddcd03518a66cb676796fa86084fa908ed8eb8f484a281f18e94f317365376"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "893bc4b5608de2723a31aad55142f3f5920b15c0f4507cd42f8daecdfbc98dc8"
+    sha256 cellar: :any,                 arm64_ventura:  "5f2d0282453b41cdbc0750d0241915aae8ddd5f578fa0991fc0f947608e59656"
+    sha256 cellar: :any,                 arm64_monterey: "ff285792a40ad19198f37acd98a0175d5b7fe09d8a7b1224992f13e184d92110"
+    sha256 cellar: :any,                 arm64_big_sur:  "c050d550c8d1561e24898ce83d4c11e2cfefbf2a625844c5a4b7251bca4ea290"
+    sha256 cellar: :any,                 monterey:       "feeb8006b35425d76b509d36ed34080b6471dbc3e10d87d380a83bf70ec9259f"
+    sha256 cellar: :any,                 big_sur:        "92428d7c2109237e028de547a43ce45741b84ac8febb96f75ab37b66150716ab"
+    sha256 cellar: :any,                 catalina:       "42ee88e1701bf6387a1df6c69de26222e1d38f10fc0fc56dd70d7daddf48332d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "830db952065a41d1859420d39a1de97ffeedd59843c336e49bf209647513e342"
   end
 
   depends_on "libcython" => :build
@@ -23,14 +24,14 @@ class Scipy < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "pybind11"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   cxxstdlib_check :skip
 
   fails_with gcc: "5"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -67,6 +68,10 @@ class Scipy < Formula
   end
 
   test do
-    system python3, "-c", "import scipy"
+    (testpath/"test.py").write <<~EOS
+      from scipy import special
+      print(special.exp10(3))
+    EOS
+    assert_equal "1000.0", shell_output("#{python3} test.py").chomp
   end
 end

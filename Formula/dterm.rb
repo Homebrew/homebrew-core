@@ -11,6 +11,7 @@ class Dterm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3ed01df00b32efe7a637e827ae2aec70a6d10063cef2128b7246a58f4f1e7a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f26bc52d3523b70ac1265b8b04fd739a91988cf3841b49d837efa0561a278045"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c7da6c39a5a9edb1ed37346d39e2ebc40f64733f1607ae6290c4c3ab063e3b00"
     sha256 cellar: :any_skip_relocation, monterey:       "9cf6f95be0d2fc679fc8776dbe5fac91eaa9b1671d5dddc86ce75cfc43364aab"

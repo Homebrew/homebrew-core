@@ -12,6 +12,7 @@ class MesalibGlw < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "a9fdf656540dc268519f8e3fded305c1e86c4690cf7cfa5571e3edbee9e56cc5"
     sha256 cellar: :any,                 arm64_monterey: "f19366ec40b0666882b3d10a0e6635ecc25e75446a85bb695f44ccaf35ca809a"
     sha256 cellar: :any,                 arm64_big_sur:  "fed357436c36aa832c46cad896d75a9b3f0015658732af9cad3a18b19769ea72"
     sha256 cellar: :any,                 monterey:       "a94da8b984b2f2f08057324d812b03bbd8108f541b409f481e4ea41d4323df30"

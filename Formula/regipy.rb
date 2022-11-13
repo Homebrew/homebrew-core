@@ -9,17 +9,18 @@ class Regipy < Formula
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ccdca694a2be4ed5ef68bf9e071ee9d574adb3a12ded52f671a76f9cbc7b75f5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "645e14c6d4eff1c2d6927c88b47210b5da1e223ad38f7ee3c438b0b658747c08"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f754326d3a28fc0a4179257446b6970871ea7cc9fe10468693200395c92a57e8"
-    sha256 cellar: :any_skip_relocation, monterey:       "522981b4b48695ffa2157e713376f94101e26b74c98f4c78714ee2a819043727"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b7f918a1febdade93baf623a82427d486b6c10c65d83b31c0602dfdc0261f239"
-    sha256 cellar: :any_skip_relocation, catalina:       "7140a79ca0aef42af27b2a4a8c76f6081b5866f794cd82deb9ab8d1924d02137"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88af23c18c04de1a31cb550a61ab262e0f8d754b14434729944897207e53d217"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e0a23b1665de57c21946555689bf1d54beca057e4761bcc491eb6efc7bb63139"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1435e2b6d69c30d34e25b62e1e1530017c1655821d393da29846af0b279ceb9d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44834732b64c9d3ddbdf4b7f4b6bed289161645e41e27b51ee752b66b5c448c3"
+    sha256 cellar: :any_skip_relocation, monterey:       "b0d7189258e5c502939ec66cac162f66d4bd5a8a3bdaaff13df53a1233385d12"
+    sha256 cellar: :any_skip_relocation, big_sur:        "39193ad4eee626742cdad34b036598b9d3b0e495cf88faeda171f9de50543c58"
+    sha256 cellar: :any_skip_relocation, catalina:       "f34b1b2fe3944788fba0dc528a95cead26911a9dd593722bda54356132abff7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7d3776813d6e0a006b904a8413ce2447ef4da280d6e9bf18c7156617c480c1b"
   end
 
   depends_on "libpython-tabulate"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
@@ -42,8 +43,8 @@ class Regipy < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/cf/80/8246892889a36f4a12f719da27c72faea1c2bdb6998afbfffc4284dcd457/pytz-2022.2.tar.gz"
-    sha256 "bc824559e43e8ab983426a49525079d186b25372ff63aa3430ccd527d95edc3a"
+    url "https://files.pythonhosted.org/packages/76/63/1be349ff0a44e4795d9712cc0b2d806f5e063d4d34631b71b832fac715a8/pytz-2022.6.tar.gz"
+    sha256 "e89512406b793ca39f5971bc999cc538ce125c0e51c27941bef4568b460095e2"
   end
 
   resource "test_hive" do
@@ -52,7 +53,7 @@ class Regipy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install resources.reject { |r| r.name == "test_hive" }
     venv.pip_install_and_link buildpath
   end

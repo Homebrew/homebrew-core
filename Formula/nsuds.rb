@@ -11,6 +11,7 @@ class Nsuds < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "3971aacb07fdd707ad1365f0a7b8b27ab1e694cec0aadac8b117d16639baf75d"
     sha256 arm64_monterey: "711432e1f5a30ba46ddd772ed79b173a0091abbeb96792d10f25180ab2a763d2"
     sha256 arm64_big_sur:  "983aff6a207bb1a4224ca713567000ccb578b108d6c358982654e2fcd59313d9"
     sha256 monterey:       "2a9d8df67a2c0b7689a48960487bc7f240db19f321f492448c30608de7f59c2d"

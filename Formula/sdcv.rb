@@ -8,6 +8,7 @@ class Sdcv < Formula
   head "https://github.com/Dushistov/sdcv.git", branch: "master"
 
   bottle do
+    sha256 arm64_ventura:  "7bf9e782fd9126e4d8c582764082573d80cd51d4763dadfa7cc2833f89835c50"
     sha256 arm64_monterey: "f819b0b764e2bba627f0ef84ef247eeb4e989b4be550740b9726c5e223d8d73a"
     sha256 arm64_big_sur:  "897d07ef6ff0e96fa6f80f1b1c03ebab1c71c56cdbb9f1fc4a4ab7642a374970"
     sha256 monterey:       "3f2119bcba5db2e1fe772593aa2fc087a793b803582f74377b7c225b5975d82e"

@@ -7,6 +7,7 @@ class BaculaFd < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_ventura:  "42e79cb194d0d3891a4694d50531bc14e95468980dc4ccafb74a53876b310361"
     sha256                               arm64_monterey: "0ff0297669fece22344c9d26a49137112d941c8fe6d6821c6d26b81114d1f9e9"
     sha256                               arm64_big_sur:  "3572aa477e228c9c27b0c408d5fd0201f81c97983846551232c470903b2159bd"
     sha256                               monterey:       "cb1a1ef69ef2ef0053d2f8ca92279ad0bcd5458cdbe8077bf3acd3c4858dd948"

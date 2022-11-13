@@ -9,21 +9,23 @@ class Rbtools < Formula
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea8ce92df678eb844bd665b82aeb914a49796d7768157c8e5215ce7c30404d63"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3cab2b8caa619e1866375de504103ae8d098373dfd0c3c0ed7744e9d13bae92e"
-    sha256 cellar: :any_skip_relocation, monterey:       "b79b161855eaddb1bf77f07b758d90fd80d4adc7360fa01fd9019986ac9ada2b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aad18b97c776b8632b9e5512b4aa17df4f18b4fff2a1130f210d3cac2bfe4ede"
-    sha256 cellar: :any_skip_relocation, catalina:       "dbf269465e0d6a9667f396ec6b22afd286abe3c6c2adb5375dda73724db51f65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b598e8f785e590480593e094306a107757d6b880b8ad35af7ee51004c27db0f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0c78646c9b3f5bf3901902122d0835e00c8adbeb34886d765888a34c6505960"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "259be5e7eac1be107f3ab7f0cd97e39a48376ab4ebb6f4e08f0e56b6d21a01ba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57bc64193f6c2b156e719f5d60779693a487060279542274b4142ae33251eb1c"
+    sha256 cellar: :any_skip_relocation, monterey:       "2f2aac7ec3b8ee6cb675a780d4d75e758f302948c7ab72a335969d356d5f683c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5ad603c0a25683d3350949e6796beab8f558138bd31521d04617df17ad542203"
+    sha256 cellar: :any_skip_relocation, catalina:       "e6616acfb3f1df1b2896644a3c5f9e9bdd9e41e12ce9a8d977a15630861b424a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9a2e1211ddb4c3a444602a0977e6d00cc7b9acad2a0676c5771cbaae8ad89c0"
   end
 
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
-    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
+    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
   resource "pydiffx" do
@@ -43,6 +45,8 @@ class Rbtools < Formula
 
   def install
     virtualenv_install_with_resources
+    bash_completion.install "rbtools/commands/conf/rbt-bash-completion" => "rbt"
+    zsh_completion.install "rbtools/commands/conf/_rbt-zsh-completion" => "_rbt"
   end
 
   test do

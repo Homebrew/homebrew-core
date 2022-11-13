@@ -6,6 +6,7 @@ class Fpart < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8ecdc9f7c43d11b56c029ceccde704c4c98618bbfdfd405b8a2dcc35833ac8e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "db5a886321791a33f3e679280e1d812156af73deb294b984ff4468af7eed7a10"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0b6d774190137f2f44e20f594c610bb3dc0308c9a313505a547ab39e962452a"
     sha256 cellar: :any_skip_relocation, monterey:       "3f7c5691c929f24e06922155c88992dc768cd94d0e92a3ea5d96b2f55239e790"

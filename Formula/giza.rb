@@ -8,6 +8,7 @@ class Giza < Formula
   head "https://github.com/danieljprice/giza.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "7d5f9228ef4c9555f1af7ffa60e3fe8dccfbb61dddb60ba70968c718112d9083"
     sha256 cellar: :any,                 arm64_monterey: "1a837d975f00941a008235124a59803141fefb8d10614582ce7802ea47a12a78"
     sha256 cellar: :any,                 arm64_big_sur:  "f78329c4aca9780496941516a59732ceeadfc0be526e1943dce7519a2ca561de"
     sha256 cellar: :any,                 monterey:       "4edb315ea3a02c388550881052e35fa5ef04b312896e5fcb6be580b5f3b773f7"

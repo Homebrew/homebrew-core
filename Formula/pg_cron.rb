@@ -7,6 +7,7 @@ class PgCron < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "864b0cdaab5f8cd61f48ec3a85a05c0284f6fa4e35a5e9723a702c6104511282"
     sha256 cellar: :any,                 arm64_monterey: "de153e8d2ed978871f338683cc37cd3db60556efa31085b3ada30ca32a21043b"
     sha256 cellar: :any,                 arm64_big_sur:  "4b29b5814a740ba56edb6344bcb305dd50407f511394fd7714e5007caed07754"
     sha256 cellar: :any,                 monterey:       "00f830eef2cdaac50eafd420fc2e8186aa4782969d3cc80fe981acac6cd54d1c"

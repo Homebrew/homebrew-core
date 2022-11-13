@@ -7,6 +7,7 @@ class Serve < Formula
   head "https://github.com/syntaqx/serve.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96f731178a714c1e820ec2aa8f4471f745e66e2b6c01d00d9a17792cb567a487"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7f453c52d159e364237cf66103ba3a09d6abb0d2cb25701f78ec5640ea9f69ee"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "99f115fe9c19d946db2604146c1bc1f1b85b5d2bb840951f0d105e031e4b0f0d"
     sha256 cellar: :any_skip_relocation, monterey:       "da0614469aa0f0e59e54689c9e0d63e6dd442822548d5a9cbc11bf0d1e1005ef"

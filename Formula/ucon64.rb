@@ -12,6 +12,7 @@ class Ucon64 < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "228557d22fcc52015a45e5e22d4e8b9d6a9997600e5ad4127afd39d2bdbd7dd0"
     sha256 arm64_monterey: "516c8d6bcfbc9101c237e9ec08d13b11f9e0347d1fa5841f670cb8945a93b665"
     sha256 arm64_big_sur:  "ca76694128cae76b0f5f177d3ab2106a7e955caf7480be607368e8507cf0ab75"
     sha256 monterey:       "1ffac20e4aafeabe33ab750f2f40589bb894caf7ee372380a065abeb7e06655c"

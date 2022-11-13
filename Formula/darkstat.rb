@@ -7,6 +7,7 @@ class Darkstat < Formula
   head "https://github.com/emikulic/darkstat.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97674e5bd9b7f7924b24cff91ae6460327cc250272e9b67ef8d98c27f218f8d0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5981250184af819d33927ff9c81ab3249ee0ebe1f30c16fe6fdf59383946b718"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "223b3ec850fc9c5837d28d8484100ede7a06995ab925db15581925247e7ab729"
     sha256 cellar: :any_skip_relocation, monterey:       "8449dc87a9567d043d9cb0639213e0be3e3a664dcbc9829b7a4fd4fa02de5d68"

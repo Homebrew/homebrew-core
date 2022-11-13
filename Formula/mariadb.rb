@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.9.3/source/mariadb-10.9.3.tar.gz"
-  sha256 "9a1e229972fcccc8270e633f68d3fb824da151dcf4f53da1df8d947aca876bee"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.9.4/source/mariadb-10.9.4.tar.gz"
+  sha256 "1dff08a0f37ea5cf8f00cbd12d40e80759fae7d73184ccf56b5b51acfdcfc054"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -20,13 +20,13 @@ class Mariadb < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "04bfd1fe998be019b050a98cfc95907a5066fc7aaf043587338dc0c19c3b8487"
-    sha256 arm64_monterey: "e5f363fc361841e13719fae6a7890bb0638764961a0f3a616e664366c66ea0cd"
-    sha256 arm64_big_sur:  "8ae350276aa51668561012484b2b898df71fc9b492c467adf51138ed00eb5f8f"
-    sha256 monterey:       "1baa8d032dc71873a29e2a402becab336f0d96cee93193c9abec3e301a593677"
-    sha256 big_sur:        "5d1f8abcfa0890d350068aaf27c7f58e7eccc1aea4d93f5dd5cb10d2ee0b8698"
-    sha256 catalina:       "9bc84341842fe7920a6e45dd764d64d9bfd677fdcd11374389af591d1498740c"
-    sha256 x86_64_linux:   "b1f008f678f59de94080542f02f2994052d30783eeae7fcf2c89e60bfd4fe9db"
+    sha256 arm64_ventura:  "ceb1ff52945f6972e1d32486b6484f50a76641f2e2c7fcb87009e253a3a500bc"
+    sha256 arm64_monterey: "961162dab8a2111b3224d19036fd92004a19a5940c22187982ce47cddff9be0a"
+    sha256 arm64_big_sur:  "f61ada9d36b7cbdbd63d6a2313154866a886dc57d43515f7903669290906f03a"
+    sha256 monterey:       "c4ae9de159b5e5a9f12bfd40b5496276af1a5da24b0bf5b1960b50200896b694"
+    sha256 big_sur:        "4f290f6c668e33c47798972d3878b23f9bb963c67eb1d680eb125399776d260e"
+    sha256 catalina:       "2bc0e72bbcabb4da63899737418499229e5cf69e6222d9f49fa24963300c7783"
+    sha256 x86_64_linux:   "8d624ffa4da204385944bd9983a4d29571319c553931e8d1dfc54e77c774c0cd"
   end
 
   depends_on "bison" => :build
@@ -55,6 +55,13 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
 
   fails_with gcc: "5"
+
+  # fix compilation, remove in 10.9.5
+  patch do
+    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
+    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
+    directory "libmariadb"
+  end
 
   def install
     ENV.cxx11

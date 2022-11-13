@@ -8,17 +8,18 @@ class Locust < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e762e6a7d6e77cefd8f6d1691daaed9952a361b5f0fa329e2920f1994e6a90c0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6eaf77febb09008688765025adf9778a205fabdf887cf11e8a60f47178f1e547"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "999d9a6eea5a6337a94c744ef7e8385746a00e4aa09dd1c7617596274e3a2c3f"
-    sha256 cellar: :any_skip_relocation, monterey:       "917cda98928845992876f14b31e19931027b3493ee87650879ad353475352c66"
-    sha256 cellar: :any_skip_relocation, big_sur:        "11d0dcfad9fbac94db26f08c7b8e83cc8e151002b6fa30fe68b1477e95076e85"
-    sha256 cellar: :any_skip_relocation, catalina:       "174ff8a287b560fede50680362696cc06043fc69b76656f9b2b75186b89305ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48896eb021957e59b8aef26e37dc96fafc2f630d5ccfab51f3655207edae2c34"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad75333994087429a45fdd784fee2f1a9ba560cfd673c559918899d22f672879"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8a95493ed24588d7b4b55152925aed1e6317d0d6223124232dbceed1b8fc1fe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9132adeb83113763c8862d2017e4167ce4c7e1e0e9f4c93b5144da4139e0d8ca"
+    sha256 cellar: :any_skip_relocation, monterey:       "9072e5d25d86a0b838ff7bb5a6d298efb592adbbee2e9856bd38bea6175cf271"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c23ebcac47892a01ee108e32df73473dfb959de85963ae0484478c42b327fdb7"
+    sha256 cellar: :any_skip_relocation, catalina:       "9f8b45c4a69d7c1356e5e387e6b7032a09118f4668073950df15557e2c89603c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ff088833241c431cc42c9fcef6fd9808fabe1548f32e82e3dd142f5a97e412c"
   end
 
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "Brotli" do
@@ -62,8 +63,8 @@ class Locust < Formula
   end
 
   resource "gevent" do
-    url "https://files.pythonhosted.org/packages/97/5e/be2ac96fe2e6d5ad40c0ed5cf83c07ce6a74b9a5a1f0422e8b5d9225c865/gevent-22.10.1.tar.gz"
-    sha256 "df3042349c9a4460eeaec8d0e56d737cb183eed055e75a6af9dbda94aaddaf4d"
+    url "https://files.pythonhosted.org/packages/9f/4a/e9e57cb9495f0c7943b1d5965c4bdd0d78bc4a433a7c96ee034b16c01520/gevent-22.10.2.tar.gz"
+    sha256 "1ca01da176ee37b3527a2702f7d40dbc9ffb8cfc7be5a03bfa4f9eec45e55c46"
   end
 
   resource "geventhttpclient" do
@@ -72,8 +73,8 @@ class Locust < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/ea/37/e54ce453b298e890f59dba3db32461579328a07d5b65e3eabf80f971c099/greenlet-1.1.3.post0.tar.gz"
-    sha256 "f5e09dc5c6e1796969fd4b775ea1417d70e49a5df29aaa8e5d10675d9e11872c"
+    url "https://files.pythonhosted.org/packages/fd/6a/f07b0028baff9bca61ecfcd9ee021e7e33369da8094f00eff409f2ff32be/greenlet-2.0.1.tar.gz"
+    sha256 "42e602564460da0e8ee67cb6d7236363ee5e131aa15943b6670e44e5c2ed0f67"
   end
 
   resource "idna" do
@@ -102,8 +103,8 @@ class Locust < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/de/eb/1c01a34c86ee3b058c556e407ce5b07cb7d186ebe47b3e69d6f152ca5cc5/psutil-5.9.3.tar.gz"
-    sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
+    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
+    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
   end
 
   resource "pyzmq" do
@@ -137,8 +138,8 @@ class Locust < Formula
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/62/ba/e517891d44208f2a6cf493109dfff59134bb922a9c8bd2a896da7d9a82a1/zope.interface-5.5.0.tar.gz"
-    sha256 "700ebf9662cf8df70e2f0cb4988e078c53f65ee3eefd5c9d80cf988c4175c8e3"
+    url "https://files.pythonhosted.org/packages/c5/ec/3e116b5c3c54f1fb7296a686c110c14d1242bbea17286c487892075d9858/zope.interface-5.5.1.tar.gz"
+    sha256 "6d678475fdeb11394dc9aaa5c564213a1567cc663082e0ee85d52f78d1fbaab2"
   end
 
   def install

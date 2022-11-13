@@ -6,6 +6,7 @@ class HttpParser < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1f6568eb982eaf9c9e6b42cc382fcb7241089ace5775a18434d06b05e295e9d2"
     sha256 cellar: :any,                 arm64_monterey: "2af85f7a77c43361923e3c334079b393d76525c60cd2844c77da32aeb71ea72d"
     sha256 cellar: :any,                 arm64_big_sur:  "7130d0b0338eaf592eb0510251f95a8a4e580ef9ecc4eaf787ba048204639498"
     sha256 cellar: :any,                 monterey:       "d4530aca738bc5328a8dc135320588a549997d6df090cf8acbaad32e7ec17ca1"

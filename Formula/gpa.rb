@@ -12,6 +12,7 @@ class Gpa < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "1f824940f9f8cc87c48a418692a80d9819de7690b29982cdb768f0d13ff68459"
     sha256 arm64_monterey: "0632898dac3f09ee39856db86625d0b4eca39e309850d4579daf9be230ff9af8"
     sha256 arm64_big_sur:  "77f73e7161f535ed00a02c8df2f5818dad8574a0ff52f339949b1030a0bd7454"
     sha256 monterey:       "28a9fb24ea01ea5cc3d0e212c516b3d72a994ce70e339d911d7828f9be949669"

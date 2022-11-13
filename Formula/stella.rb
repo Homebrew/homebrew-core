@@ -8,6 +8,7 @@ class Stella < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "721b36a943aab796fa12d945104c016ee7412a78ccc66a8f693481cdad1b5290"
     sha256 cellar: :any,                 arm64_monterey: "3e2b5920f695962de76de82cb7e26b5b5a6581d3f7452833ba6eb14f512cb616"
     sha256 cellar: :any,                 arm64_big_sur:  "cd289fabad0d7e63675f87b16648ae9c7ff2273705a7549a7563229f5306846e"
     sha256 cellar: :any,                 monterey:       "cd227d90fa8fdd64d31f0400f611bd5a5de5b5a95222b6f5cdf5ed478f987621"

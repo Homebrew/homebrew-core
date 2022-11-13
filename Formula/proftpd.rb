@@ -18,6 +18,7 @@ class Proftpd < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "7ba70a8e04d5e6379b6fcfe9b521829e7a5a9f6710f8bfff7aaa8cd1c120b805"
     sha256 arm64_monterey: "af16db8ab4261d0daa4ee5e5f51046045a20b017dc854adb1421f26407688982"
     sha256 arm64_big_sur:  "07fadba73d0440b08846a2e3a5ddca07b2b398ef949d71931acf384c7d607181"
     sha256 monterey:       "1cb51eb56dab1081f6c64ac75904e38e59065ba1ec78f43cd761ab88c0de0117"

@@ -7,6 +7,7 @@ class BwmNg < Formula
   head "https://github.com/vgropp/bwm-ng.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "08642acf1a9c6cceca48fe1a6ff7cbcf8e3faff906e8ca6b00b8056def0e9f4d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6813a187834a07be918ca68fd19356473c06507cc168aa6598c512f66fdf1a27"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f572a2c3cba92b810273eec515a00b0dc406319efd33934a571e97a2f48fb9c"
     sha256 cellar: :any_skip_relocation, monterey:       "5c348d9959e22e50abd4182becbe38b683712988be164097e2ba2c685b49c506"

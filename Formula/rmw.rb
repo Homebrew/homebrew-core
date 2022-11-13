@@ -12,6 +12,7 @@ class Rmw < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "7f1102ea022d979ee1736eb0abd441013740468146f02c3a61f3856bffd973b6"
     sha256 arm64_monterey: "e9b973e0ab336b1b16d0dc382c17c54fe1e1810fc026d58c2359ef4baa722752"
     sha256 arm64_big_sur:  "5997ee629e5d8f967bee558280199846efb08ef96237ce2e2930d8f71cd14fab"
     sha256 monterey:       "067944109685808a58fff34cbafde328a429fc99629073c8f27a7f327eb30622"

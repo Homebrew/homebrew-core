@@ -11,6 +11,7 @@ class Ccm < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "caa73c15f42b4bbde8b8c8b4a8e63bc73caec21fba17f4691ed872a4ee9772a4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8f1195eed8bd7612ed15b923ae39ff629a43902e6b954e313d5bc8bb2bc3f56"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbca70057fa9839396627d7780da959a3d017c435e9017e4a908b1a0832466aa"
     sha256 cellar: :any_skip_relocation, monterey:       "5965d7c0684c03296b7f466a00c1cd9c0c2a5d5639aa97ea6cd9fb571e334123"

@@ -8,22 +8,23 @@ class PassGitHelper < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8c11dbf1e2273b0bcaf863fa031082e3854734a3544052de092a5b25391ca2a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "27cfc57aaac1a17fe4f30b90bbfe3ae7d39c47809d6423ed90649a8883adb093"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27cfc57aaac1a17fe4f30b90bbfe3ae7d39c47809d6423ed90649a8883adb093"
-    sha256 cellar: :any_skip_relocation, monterey:       "e3b14e770794bc4196af2309299baed5841caaae70ebbdc4478bb4eaf831e85c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e3b14e770794bc4196af2309299baed5841caaae70ebbdc4478bb4eaf831e85c"
-    sha256 cellar: :any_skip_relocation, catalina:       "e3b14e770794bc4196af2309299baed5841caaae70ebbdc4478bb4eaf831e85c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cafce9d5d691c50093ab12325a3756b1f8bc40c1a929cf20c397446fbdb54ae"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "609d0338cceb01e6135eb7c1cffabb5455f4f1ad5cee2f59487c4491479421d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "609d0338cceb01e6135eb7c1cffabb5455f4f1ad5cee2f59487c4491479421d9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "609d0338cceb01e6135eb7c1cffabb5455f4f1ad5cee2f59487c4491479421d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "b19690d7bba99b3f5526ca73fecbf9ab3c422301d7ab799d9fc3173d808b36ae"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b19690d7bba99b3f5526ca73fecbf9ab3c422301d7ab799d9fc3173d808b36ae"
+    sha256 cellar: :any_skip_relocation, catalina:       "b19690d7bba99b3f5526ca73fecbf9ab3c422301d7ab799d9fc3173d808b36ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a09385651c18600021ed097bb2a44d1a40d342198e618bf6621088561a61a3a"
   end
 
   depends_on "gnupg" => :test
   depends_on "pass"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "pyxdg" do
-    url "https://files.pythonhosted.org/packages/6f/2e/2251b5ae2f003d865beef79c8fcd517e907ed6a69f58c32403cec3eba9b2/pyxdg-0.27.tar.gz"
-    sha256 "80bd93aae5ed82435f20462ea0208fb198d8eec262e831ee06ce9ddb6b91c5a5"
+    url "https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz"
+    sha256 "3267bb3074e934df202af2ee0868575484108581e6f3cb006af1da35395e88b4"
   end
 
   def install

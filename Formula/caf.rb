@@ -9,6 +9,7 @@ class Caf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7574a28e493137da640b85d8e703375dadaf052f1f4c7015a9673776bea575cb"
     sha256 cellar: :any,                 arm64_monterey: "1313480b89b8ab7151ec4c585b2c7470b756a9b281f8944dbf85eb5ee16b82d7"
     sha256 cellar: :any,                 arm64_big_sur:  "e3552ca90aa71ce07d710f27180b54c2f3c5bab37a0811e8dacf0efc144fcb03"
     sha256 cellar: :any,                 monterey:       "d34c094aa418f1fa3b17e0dabc9d31f78b1e33a7e83bbba6e6eb00998cdd3320"

@@ -7,6 +7,7 @@ class Jackett < Formula
   head "https://github.com/Jackett/Jackett.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "79a9218418b63a95930e259f7ae2f110e3355bf1ce7d189143f2965d5c12dd75"
     sha256 cellar: :any,                 arm64_monterey: "864baa942feaa7370c11b3a4af7d20f2aafd3ec4b863864ef3420ad6260a85a6"
     sha256 cellar: :any,                 arm64_big_sur:  "fdbd336b2580f8e40a677bd752ca0949b6765d802a1ee39e11133d9b36bf0142"
     sha256 cellar: :any,                 monterey:       "d5d9fa1e735c9e1050c64207e93577b43ac78f30ddbe1c63deb2bf3d523f942a"

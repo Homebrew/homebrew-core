@@ -5,6 +5,7 @@ class SiscScheme < Formula
   sha256 "7a2f1ee46915ef885282f6df65f481b734db12cfd97c22d17b6c00df3117eea8"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f65d81b8af3efb3351510362fdde92e8b9fc5a32eaba361a438abed4fb265991"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f65d81b8af3efb3351510362fdde92e8b9fc5a32eaba361a438abed4fb265991"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f65d81b8af3efb3351510362fdde92e8b9fc5a32eaba361a438abed4fb265991"
     sha256 cellar: :any_skip_relocation, monterey:       "e76fa3836cfb1020d76de3ccda011d84223260860c78372930dbe99eeef6f46b"

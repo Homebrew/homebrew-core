@@ -6,6 +6,7 @@ class Roll < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ffc7291577ef075aa3c1369419b6d92389b19ad6cd0d841bc613f3eae48c016"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3a8e1ac1b898c674f5a752ca03e7952d011f7b115529d3ab1f92f745392ecfe4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14b4457a32902e96d331fca1fd85fbbf3d5f515914091da2c61dec741bf3d73b"
     sha256 cellar: :any_skip_relocation, monterey:       "6f3f061734bc251d233b72aa805dc1cc3d7865e276c3e3c6c75854686ac06fdb"

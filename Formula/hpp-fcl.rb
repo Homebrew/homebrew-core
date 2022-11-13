@@ -4,6 +4,7 @@ class HppFcl < Formula
   url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v2.1.4/hpp-fcl-2.1.4.tar.gz"
   sha256 "ab6ecf1abecb0f85456ce7d648b81aa47d49c9dac07d9824841505769ff45c9f"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/humanoid-path-planner/hpp-fcl.git", branch: "devel"
 
   livecheck do
@@ -12,13 +13,13 @@ class HppFcl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ea3e3494430b7e4a1657fa7e37dab4d4478ce5c4ed349be83e31fa883f164d75"
-    sha256 cellar: :any,                 arm64_monterey: "198681d6645fad56df512b3b8d211a83f4bce40c56eef11cbcee68a49e1cfa62"
-    sha256 cellar: :any,                 arm64_big_sur:  "f2ab0090a0e06743cc36d0f54e8c07016f19ab46e7b27b4d96e08ad3d05ba9ab"
-    sha256 cellar: :any,                 monterey:       "501cbc7712d15df6fff6d56d25e9c46316463b6d3260a473f1b7ebffddcf0d01"
-    sha256 cellar: :any,                 big_sur:        "b204828588094f682ea08673d32dcbd5bf0a3d4e2ad2f5f9f38022b54595cf76"
-    sha256 cellar: :any,                 catalina:       "7bb0dede67f3051b7ca8d5012e8996f29a3affd02225a07f1e4696b0e285c965"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17a82a1fc0977a5a96aa4e1a4639bc7023a3ebf946c96542aa230d65af22b2fe"
+    sha256 cellar: :any,                 arm64_ventura:  "166ac2aeef198f5ecd89c840f9110eeeef1cdaf5f77aab5c088dd7f052894450"
+    sha256 cellar: :any,                 arm64_monterey: "31709a9fe99cec28ad6fd9568f54c2a4727a1028e7fad6e622e03315302c377b"
+    sha256 cellar: :any,                 arm64_big_sur:  "2d7a742daf3bf436562daa8f2e3e051e5e529070dbcd33613ae8ad730ee86880"
+    sha256 cellar: :any,                 monterey:       "fd60746bf97abf46da4b61666c75b486ddfe92c5158a16785485f785a3549766"
+    sha256 cellar: :any,                 big_sur:        "082caaecc1571aaafbdcb63aa13aa8814eefe1cd991a34e42aff4357c98a6bc7"
+    sha256 cellar: :any,                 catalina:       "99f67017a177a7766c95db47d1b58bbee407dfd82b7df911f2c6989d7a4a631a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f92b15216736fde3087cc0e159ed14362ab7fdac1298b50627fd49b9efd6834"
   end
 
   depends_on "cmake" => :build
@@ -28,12 +29,10 @@ class HppFcl < Formula
   depends_on "eigen"
   depends_on "eigenpy"
   depends_on "octomap"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python3
-    deps.map(&:to_formula)
-        .find { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .opt_libexec/"bin/python"
+    "python3.11"
   end
 
   def install
@@ -41,7 +40,7 @@ class HppFcl < Formula
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{python3}",
+                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
                     "-DBUILD_UNIT_TESTS=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"

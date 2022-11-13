@@ -8,6 +8,7 @@ class Textract < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2007bd7da5ca03c268cfcf10610e64eb36ccee294031eef8f959e659823c952a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0baef2f344bc42a1edeb6679e7d6a7e422a8c5f4e4c9c93e203da6570f104b63"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f91b5ffff75cb9575523132b4b4aa83c4a9bc8efa64fc22d970fff9b598bdd9f"
     sha256 cellar: :any_skip_relocation, monterey:       "f4008d4caa8c86bd2678b37d17a13709b85897024f097ba5ffb9b1a4d66cf7fe"

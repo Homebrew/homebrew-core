@@ -16,6 +16,7 @@ class Tmpwatch < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d6f80858cba05532b70c7d3ae636b0c7550ef651891fef8e36b182e131662c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aee3dbca7f86d8c80da945837cb30a43a5c55ade929df40d4c4221ca3243b954"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5f38895989ced860baaac4a22ed677b6adc7e3eaf07ecea5e65325b3a090071"
     sha256 cellar: :any_skip_relocation, monterey:       "4359f2939cbe74d9c423defa38ef041574c12d7d223d7fb9b2e9665a4e382f60"

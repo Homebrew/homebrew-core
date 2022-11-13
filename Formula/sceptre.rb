@@ -8,17 +8,18 @@ class Sceptre < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "acc6b1a531c12c710259abf4a1d335689b63c5b84b15eec745c0e821409cc561"
-    sha256 cellar: :any,                 arm64_monterey: "8096f6c9f81c4fdc7ccc60f9942df9657cf35650419710079ee222fcdfb242eb"
-    sha256 cellar: :any,                 arm64_big_sur:  "e377683c07ae32dbd963174cd93f5c71786a416455334a06de6c47ad038e8dca"
-    sha256 cellar: :any,                 monterey:       "5337bd32ed1317f8f9144d45c2d4aa2ae2a28f356c01f2d105912f8041bd5ae5"
-    sha256 cellar: :any,                 big_sur:        "3cfe61613623a4a47a7a3df61087585826cf49321fca37bd16988b65b79e506e"
-    sha256 cellar: :any,                 catalina:       "1eeaeebf33ee0dd324d58e4d444c3cb48639dee5d3642f6eb51320dfc7dac8e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b086449b53cf687a15facc0568e5d85832195bfecd959fe3d77c96b71362b7d8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "9ea5a71f56e2d0a201dc342fcfc735e5ec60e941a0ae404a651118f9283f7a89"
+    sha256 cellar: :any,                 arm64_monterey: "7b640d21b02a85542ee6567dbfd786ce805d0f5a6a7e0b41e4a8827ccf6fa501"
+    sha256 cellar: :any,                 arm64_big_sur:  "c35bcbb7780c3dab85e6636b967ceabdfc8194112db5e2180ffd7eb7eaa49b70"
+    sha256 cellar: :any,                 monterey:       "37b831501b6ad33aa91cf9ee7571d09f8ae3eb8707276babf8e10d0884de802b"
+    sha256 cellar: :any,                 big_sur:        "3a6ebdc5ddb343568ef9381f91381dbcf584a3f7342daac6ae8728685b56e1f5"
+    sha256 cellar: :any,                 catalina:       "9a401da10744b814f0338ba0765056526ad264a31204ff52ee4e02bf46cfd4d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f60fbb11423541004c4292d66312cc8ea410a5562c821c4b265f28472ea84d2f"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "attrs" do
@@ -27,13 +28,13 @@ class Sceptre < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/22/66/b98e0f850a7b6d8664dfd6b4cfc782ad305fbf38fadf75d0891634fba3d2/boto3-1.24.80.tar.gz"
-    sha256 "c686295e7829cf54127f7ab9c20088cc7b2a7d24768fcf355aebffa65879e2c9"
+    url "https://files.pythonhosted.org/packages/9e/a2/10f0d67f71bf6f87b2dc6558679f23c0cb4c3be42089a7eef625ed35d002/boto3-1.26.8.tar.gz"
+    sha256 "b39303fdda9b5d77a152e3ec9f264ae318ccdaa853eaf694626dc335464ded98"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b8/f8/d3ebfc73fdf5762b3e6b4854d620f899fcee56428f2c3ec651670f3228ac/botocore-1.27.80.tar.gz"
-    sha256 "0f8b937c41e7ea92c5374e83d54c006d99d9f9fa203175fbfb1ded74c28e9759"
+    url "https://files.pythonhosted.org/packages/9c/62/0e7a8c2bc63c3529db0ca3ee4c0f5b60a65165e594d1487b13b6524ddccd/botocore-1.29.8.tar.gz"
+    sha256 "48cf33d7c513320711321c3b303b0c9810b23e15fa03424f7323883e4ce6cef8"
   end
 
   resource "certifi" do
@@ -57,8 +58,8 @@ class Sceptre < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
-    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
+    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
   resource "deepdiff" do
@@ -112,8 +113,8 @@ class Sceptre < Formula
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/42/ac/455fdc7294acc4d4154b904e80d964cc9aae75b087bbf486be04df9f2abd/pyrsistent-0.18.1.tar.gz"
-    sha256 "d4d61f8b993a7255ba714df3aca52700f8125289f84f704cf80916517c46eb96"
+    url "https://files.pythonhosted.org/packages/b8/ef/325da441a385a8a931b3eeb70db23cb52da42799691988d8d943c5237f10/pyrsistent-0.19.2.tar.gz"
+    sha256 "bfa0351be89c9fcbcb8c9879b826f4353be10f58f8a677efab0c017bf7137ec2"
   end
 
   resource "python-dateutil" do

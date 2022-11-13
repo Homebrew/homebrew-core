@@ -6,6 +6,7 @@ class Cacli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d26455eae5d440a4a6d03562a3932e2828dcc78c4ff27d4b7127c54102513d6d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7c6cf80205658f45979413a2c281e981988c5bab3384f4eb52517b854d024801"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea0076fb8a8b30ee1809d70d1864a8cb2475f06bfb330d42968dc1775cd34c21"
     sha256 cellar: :any_skip_relocation, monterey:       "2d8eacac537081a0cb5b0f7edbb1f9711535c79b5fbc2d05e117027ccfef607b"

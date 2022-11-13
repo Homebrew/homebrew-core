@@ -14,6 +14,7 @@ class Jsmin < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f2ec21312b64d5a2b3bb2405dcbecf9a78b22fa3c6faa75d26c51861cbbe6d0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f9caafc345c169887fc5c05efbd7b4a6c67dd05355799c81be9fef87cb6e0add"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edb266d3a4e8ebe1bce385a232ddd519be07dbd8a26e35d40f0db02d1ce9b198"
     sha256 cellar: :any_skip_relocation, monterey:       "ae38034bff2af75cf7b0df7184e738cd58499d7c25fa9dcea30ca9174ba973ec"

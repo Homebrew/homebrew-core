@@ -1,29 +1,33 @@
 class LibcapNg < Formula
   desc "Library for Linux that makes using posix capabilities easy"
   homepage "https://people.redhat.com/sgrubb/libcap-ng"
-  url "https://github.com/stevegrubb/libcap-ng/archive/v0.8.3.tar.gz"
-  sha256 "e542e9139961f0915ab5878427890cdc7762949fbe216bd0cb4ceedb309bb854"
-  license "LGPL-2.1-or-later"
+  url "https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.8.3.tar.gz"
+  sha256 "bed6f6848e22bb2f83b5f764b2aef0ed393054e803a8e3a8711cb2a39e6b492d"
+  license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "09874a93df04e5be6d46acfd1956f2cebc440d6c5aeffd578cee8d318ba7d247"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "176901077020fcb6da35d20c9e52d9787d09d18965491176bd4f4879587a34a0"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "python@3.10" => :build
+  head do
+    url "https://github.com/stevegrubb/libcap-ng.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "m4" => :build
+  end
+
+  depends_on "python@3.11" => [:build, :test]
   depends_on "swig" => :build
   depends_on :linux
 
-  uses_from_macos "m4" => :build
-
   def install
-    system "./autogen.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./autogen.sh" if build.head?
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
+                          "--without-python",
                           "--with-python3"
     system "make", "install"
   end
@@ -41,5 +45,6 @@ class LibcapNg < Formula
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcap-ng", "-o", "test"
     assert_equal "ok", `./test`
+    system "python3.11", "-c", "import capng"
   end
 end

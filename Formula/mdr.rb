@@ -6,6 +6,7 @@ class Mdr < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "21a1b0582d50638ebb7badf6eeb528b6521fe6689754e9768243e899a3f24b03"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c42ad80e535b77f569ab48ece2fc3a648e71f67cd9dca68659985b7478a6f876"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4faacaab5dd0acefaee74a73abaa093d69bd6caefb764375d0565f20605b81c6"
     sha256 cellar: :any_skip_relocation, monterey:       "198d9654af44050d6ead21208b8057b861c804470fdc1cd452f14f825f9b901d"

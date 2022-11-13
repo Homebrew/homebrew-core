@@ -11,6 +11,7 @@ class Dhcping < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf672145e91afa1ade387f8f7b25b78e4669c93c50ee4950d702bdb6c2eb2dea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "acd8402fd7db5ab73b2dcff742d4da1cecf51e7b3c65d8da08944f45dad35b62"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8126f3068682d4e4629158c4bec5f71fe557671ee93521d4a46286fcc8a9e53a"
     sha256 cellar: :any_skip_relocation, monterey:       "42ec8be658cdb780037d554c64b7a4dc764b852eb2a29799cc46daa8e08cc0c3"

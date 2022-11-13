@@ -11,6 +11,7 @@ class Pkgconf < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "6adf23dfb9b483675abc3f53fe0f3e59e5894f819760a7b3344b217cf0326a8c"
     sha256 arm64_monterey: "f6700e419d7a201272559fca5652f16b716a2dc5f9ea6ad96865931181b239c9"
     sha256 arm64_big_sur:  "7533f7fcd23efb90f4e78024782ab71b7117a35929e8381219bcefcd5cc931ea"
     sha256 monterey:       "84b996d472c59021d3e641db0bc6bccc1e7503c58142f29b6657f81669617923"
