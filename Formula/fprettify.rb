@@ -19,7 +19,7 @@ class Fprettify < Formula
   end
 
   depends_on "gcc" => :test
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
