@@ -6,6 +6,7 @@ class Density < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "f7edf808c014e5ea5050f60258767bdbe1b2b1a0f5b977486e89c219ef11e3ca"
     sha256 cellar: :any,                 arm64_monterey: "3c7879e53bde3927486a7ce07426c32a43057341ac351ef7af58c983b93a1be9"
     sha256 cellar: :any,                 arm64_big_sur:  "1a4efa81a981da64d95dd3c323e0e7ee8fd78c80f7bbcc103e301772e2efb1d7"
     sha256 cellar: :any,                 monterey:       "a37ef9a77b7e322d50e86cd94f10a7d1513b4f103b14a9beb03435ae49603af7"
