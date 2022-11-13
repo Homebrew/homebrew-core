@@ -3,8 +3,8 @@ class Mathlibtools < Formula
 
   desc "Lean prover mathlib supporting tools"
   homepage "https://pypi.org/project/mathlibtools"
-  url "https://files.pythonhosted.org/packages/f0/8b/679aeede765760c2ce569a783c476d8a14cb02ca4befddb66fe6ff7f207e/mathlibtools-1.2.0.tar.gz"
-  sha256 "8c85a23a67b50333797d4682b91ad9fbd204a4e2edaf5e3d516b37598bcfc918"
+  url "https://files.pythonhosted.org/packages/72/42/9631b9379c7fe5b6c6fb5c45d11910d58bfe28b5c7cfbe9e9e62de5546b0/mathlibtools-1.3.0.tar.gz"
+  sha256 "88161287963c318ab38de36def479446be344922a1d31e35a657a679a68e7f2f"
   license "Apache-2.0"
 
   bottle do
