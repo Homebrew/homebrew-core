@@ -28,6 +28,9 @@ class OpensslAT11 < Formula
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
+  # See: https://www.openssl.org/policies/releasestrat.html
+  deprecate! date: "2023-09-11", because: :unsupported
+
   depends_on "ca-certificates"
 
   on_linux do
