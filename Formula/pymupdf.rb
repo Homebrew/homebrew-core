@@ -19,7 +19,7 @@ class Pymupdf < Formula
   depends_on "swig" => :build
 
   depends_on "mupdf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   on_linux do
     depends_on "gumbo-parser"
@@ -30,7 +30,7 @@ class Pymupdf < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
