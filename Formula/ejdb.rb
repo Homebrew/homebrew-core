@@ -9,6 +9,7 @@ class Ejdb < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "175603f903393de2ce8d4a621382664d6dcd6738924394a7636899fa8fac75da"
     sha256 cellar: :any,                 arm64_monterey: "69a64cfcbe98217a61763412b2b316e19554a65a06600882cba26d25d466230d"
     sha256 cellar: :any,                 arm64_big_sur:  "5b26fb93753b6d5a9527f99dd96678d36c5becf5a17c549f662add76ff6cc771"
     sha256 cellar: :any,                 monterey:       "8c9c2779172207ef97a8c615900e0b43a3a6da7d79b662c73a08fd07be4aa553"
