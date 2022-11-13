@@ -10,6 +10,7 @@ class Buku < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "9a793d1c6ac976e252212aeb2d202f0609bfb7f5acee5fe755a7713c6169f867"
     sha256 cellar: :any,                 arm64_monterey: "6a4c5629699a594fd13def627e9549b0d65a4fe5f656be1b5df406d7ac1b8cfa"
     sha256 cellar: :any,                 arm64_big_sur:  "4b4dd4cb23f639bfd9a405e63e1e43d140651e596e345f65afdf00200b856087"
     sha256 cellar: :any,                 monterey:       "18f3707ef5957bef14d9e18ee2d943567794a14c156bece8f5b8860f67bd111a"
