@@ -12,6 +12,7 @@ class Ecm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "187a0f53b52d50cd1dc9989bb704dd06ffea7a96bf9d84f7fe10e9b68d0b5042"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6c6317457a68d9f3a17da094fcaa1f110243d7031e16674aea65dbb4e23adc8d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "868674e4445ccdd9ccee5c57a7acdee0fd1de28bdd1a9fa1405dbc3c265d9bfa"
     sha256 cellar: :any_skip_relocation, monterey:       "ae3497ba452016dc190809d4bd25635685accc86d8f2db3785a3a6fcfbf8fe57"
