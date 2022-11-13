@@ -11,6 +11,7 @@ class Dar < Formula
   end
 
   bottle do
+    sha256               arm64_ventura:  "1ebfdff2606d3143aef45cf08ee56a076048479d28fd864a6ada3570b5f89bdc"
     sha256               arm64_monterey: "10d3c7bb9c0266b2d5a31e189b88a2b28ce6131ba5040f01210fddf2d6765e3d"
     sha256               arm64_big_sur:  "8e79ea81d12cb5b2f7aa061dd9fe04549ff440ecc322d5a278b5de7b6e8acc07"
     sha256 cellar: :any, monterey:       "d7d1ca1fd0b59185da504470e9946248b04aac7fa1163ef4f61578cb79d18d49"
