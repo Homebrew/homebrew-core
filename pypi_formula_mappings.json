@@ -287,6 +287,9 @@
   "jrnl": {
     "exclude_packages": ["six", "Pygments"]
   },
+  "juju-wait": {
+    "exclude_packages": ["PyYAML"]
+  },
   "jupyterlab": {
     "exclude_packages": [
       "ipython", "appnope", "asttokens", "backcall", "decorator", "executing", "jedi",
