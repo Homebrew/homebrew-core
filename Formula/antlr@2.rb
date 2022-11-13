@@ -7,6 +7,7 @@ class AntlrAT2 < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc327766c4c3b41d68077db70b1f0c21f9f623c0e38f0998715e3267bb1ba492"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "26acb924f40645e50255ac11d6cd9ad1d6153c80ee089e5f758a093eae2432d0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "130f56b4182f57e74a535c97948667ff1b1e13bd821562ef573d048676db1e3f"
     sha256 cellar: :any_skip_relocation, monterey:       "5284f23a92d24e07f5e13a7564904b44b43b82552db78bb761bdad8e23b1118e"
