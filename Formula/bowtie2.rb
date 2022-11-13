@@ -6,13 +6,13 @@ class Bowtie2 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea59b98df1a437da070ef3367bf8134aec7bcdda5a97d157c1adbe5e78316e7f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "495bc223b670a7e029315ce992dcc0811dc3f63e714c656b6cb84c2f789aa439"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf63043431156ed49e8034700900c508f32e02cd1830a8f815ed83735544dd5b"
-    sha256 cellar: :any_skip_relocation, monterey:       "bd2176ef8b56c77260602d72566a6ad85240f8c7def21317b31913995e0789d4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6f1d5777e5ec4d9aa9ffe38f18278f1a0aba3679d19d5a57a30343074ba25866"
-    sha256 cellar: :any_skip_relocation, catalina:       "03cd26ce1b340a37c66c1097c426a9e423d6f57bf809558bad577fb827e271d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46f6e5aa64fd0f9564d15f21aa0ac84d9960fb79424539599c284d0f7724e096"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2105ca0b03e8362c3f700da25f436e7aaa3a296dc6f09a511e18bd004c0bef01"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4682917b22c7bc0f3ce2ef3baad4f1d95c510cf5c7639177ee07612c5783e75"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "91bce9d10f339a8c83595112691b2b6205fc6d4e61e63d46f2f8f7c32d8380a0"
+    sha256 cellar: :any_skip_relocation, monterey:       "a2067f6944a3e80808476582ba2dcd3da72d791bb8c9371d4c8dadf47749d34c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8086d31b98a4fee884fc459cb01f33c98e57fedbb9651273068e3709e54736b0"
+    sha256 cellar: :any_skip_relocation, catalina:       "5bd8be0504e7806243d33210f54de2c791521af72aa35897b33e14ec1aa734b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d83bdfb506a8e464f6adec0342f12a3da423a01942314a853e962230595610c7"
   end
 
   uses_from_macos "perl"
