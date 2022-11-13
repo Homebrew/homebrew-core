@@ -10,6 +10,7 @@ class Dooit < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f9cd1cb64ab4314b97833b59ba7c31f1a1f81d14dd26e4d3375c970e47c9d78"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4c4f51e89a2221f62e6ec8b2b838c0dfaa362d9f0f04bc65fecd86c1529d9d0d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f7d2ec6255d1d796481e28f088eb23e7a3a428daf5234ccacd31ecee407c7af"
     sha256 cellar: :any_skip_relocation, monterey:       "bf6c7f56e0c5640b393e6d6bc908a05bd4655928e6dc3e19891c1f323f1bb411"
