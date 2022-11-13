@@ -6,6 +6,7 @@ class Heppdt2 < Formula
   license "AFL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5527abc757007282f1ff1d2eefb61d6febfb6343fc411d17ff0f79e1ee39c69"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e1edccaf839fb239d8d8b583b03537bb8789f939afa610df5b806f2ff15243d5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b0f2ffc2837fee3dbf5aea96b1a7329c574373578548986c95cdf50b7f0171a"
     sha256 cellar: :any_skip_relocation, monterey:       "d41f92b1fe64fe52327e3a3f80d04acdc449a9c9d40d9a75dba40700382f51a9"
