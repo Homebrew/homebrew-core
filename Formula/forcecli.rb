@@ -16,15 +16,14 @@ class Forcecli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69d52200ee937994496e91aacfaa32584f13e55964bd306cb26dd82397c3e23e"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
-    system "go", "build", "-trimpath", "-o", bin/"force"
+    system "go", "build", *std_go_args(output: bin/"force")
   end
 
   test do
-    assert_match "Usage: force <command> [<args>]",
-                 shell_output("#{bin}/force help")
+    assert_match "ERROR: Please login before running this command.",
+                 shell_output("#{bin}/force active 2>&1", 1)
   end
 end
