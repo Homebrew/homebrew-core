@@ -10,6 +10,7 @@ class Passpie < Formula
   head "https://github.com/marcwebbie/passpie.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ab4a9bdce97d2e9a86ce099d618109301f2bf1cfb5a1717c64c2991533b0bfb3"
     sha256 cellar: :any,                 arm64_monterey: "cf72c916dcef8440341f090154893ccdd78dc2237118cc6163cb1159a638fffc"
     sha256 cellar: :any,                 arm64_big_sur:  "2bea6978498b4a19b59ba269d158c833d31ee75c10528f34ceb4eaa7ffe2293f"
     sha256 cellar: :any,                 monterey:       "a97cb60bfe42889ca3109c4e926af1f0b07b4197b5ae4104d487901316fdb389"
