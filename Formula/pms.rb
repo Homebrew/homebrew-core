@@ -6,6 +6,7 @@ class Pms < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "b5b477e377dcf2b781a503e8eb00673d7218e43d788fa56b70b960fad91c26f9"
     sha256 cellar: :any,                 arm64_monterey: "5928678a604a80ee70d57b581b408890b4137d3c16f6123e3e455b636c36c14d"
     sha256 cellar: :any,                 arm64_big_sur:  "c119951216c45f24ff265bb5046631b6cbd5730300b8f4d441e7ac2be1363fcd"
     sha256 cellar: :any,                 monterey:       "1c75eaf6c2e4a91e9c48323faf5c1426e53856447ce511002187c90001f72cb1"
