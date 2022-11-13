@@ -7,6 +7,7 @@ class Sbjson < Formula
   head "https://github.com/SBJson/SBJson.git", branch: "trunk"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9198287e6912393936ae4881bc483e6afcce1f9ae9665b561ae4edcbf7ef72e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3fbf857117011107c8e7d3c8e82ab89468abddaa74d29b4696cba6338e89b454"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3cb04de93bf5460c41623c296b5cd81884379d277afc874a64b0ff1cc34ac6a"
     sha256 cellar: :any_skip_relocation, monterey:       "b75a6403eff1226c4e348d9766c20694d43388c9ee9afa00fe4f637ab3dd7a9c"
