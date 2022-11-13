@@ -13,6 +13,7 @@ class Lemon < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2bbe4a5b574c3bc162a9e9ef5073f642c89930bd0b81f1ae7bb78463d6491aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "acad2c45ba75ce33323c6cf4558dae1872faa88ee4fe76bd07ceb4a2be5824aa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9895753eefde9fd60263be373f014f1cb77bbd4065ff1c2c6fca12450bbc138"
     sha256 cellar: :any_skip_relocation, monterey:       "e929cd9b9c077996bd94dedd99f750d66dc84d25603114de7189d490e125de2d"
