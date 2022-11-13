@@ -5,6 +5,7 @@ class OpenJtalk < Formula
   sha256 "20fdc6aeb6c757866034abc175820573db43e4284707c866fcd02c8ec18de71f"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "481210a86e81dd0e1deee82d4e046025d9b1cb273352b75744404f7bc30c9400"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a6fb63e85e6e7e5b3e6bc4071fe38e9bca7f3f820deb6838a4a6b700529b02c5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0e84db4a3e1d2a336eb2da7f1060845f35ac1db68be727e524dcbfdb2f785ad"
     sha256 cellar: :any_skip_relocation, monterey:       "6d2bd635abd20f62e50e9d39be4d2b1c50f1bb2a94d87bc2ab396d4f0afba310"
