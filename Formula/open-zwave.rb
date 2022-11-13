@@ -11,6 +11,7 @@ class OpenZwave < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "8d7c20fa4a5bd2b5691c3f8bf77b2cfe00669e0c7c779418c9c67c73d91ccb0e"
     sha256 arm64_monterey: "46059e0f107fa894491dcca4afbc27487374077ac10d0c9e0466b70a21b98bdf"
     sha256 arm64_big_sur:  "946d78311179280c3460097a1b60331daa782d916b10e819b97fa80a06037c3f"
     sha256 monterey:       "510ea3942d2bac0c420ce6f096c55d00158cb9d68eef036e893bb66c135a4246"
