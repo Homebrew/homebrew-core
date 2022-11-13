@@ -8,6 +8,7 @@ class GitterCli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ded7d2d1699591044372318358e80ddded859348b17be44bbe8692c886ab286"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8333cdaf2d1896ef53257664f5fe6433433772632c19e0fc3aa4784714ba308c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db56401085f8c41a3892d4fed62af37b1a0b02bb435956a2ecc7b385c6d77ec7"
     sha256 cellar: :any_skip_relocation, monterey:       "ac8a05d52db25a2cc9fa56988285e33d890802e5372c815ff7d5603c744e0279"
