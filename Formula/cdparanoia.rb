@@ -12,6 +12,7 @@ class Cdparanoia < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "361426040e284704a73d9359498e8cc825bd339bed43f7c949dddcae1c31f179"
     sha256 cellar: :any,                 arm64_monterey: "d985bd81e9a8f5bb4f9f01a43138f1b89b385337ea2e48a22511634869496446"
     sha256 cellar: :any,                 arm64_big_sur:  "79d03f652937117697ae235b7bbb8558be9cb86edc42c330316204a288d5cb59"
     sha256 cellar: :any,                 monterey:       "ffe04653654cb899301fe3d0a65a207928ac26b712ef81952f9c46a06f64185d"
