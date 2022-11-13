@@ -19,7 +19,7 @@ class LiterateGit < Formula
   end
 
   depends_on "libgit2"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "libffi"
 
