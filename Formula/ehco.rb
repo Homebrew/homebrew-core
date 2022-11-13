@@ -22,6 +22,7 @@ class Ehco < Formula
   end
 
   # quic-go needs to be updated to use go@1.19
+  # upstream issue, https://github.com/Ehco1996/ehco/issues/165
   depends_on "go@1.18" => :build
 
   uses_from_macos "netcat" => :test
