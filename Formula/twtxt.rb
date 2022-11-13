@@ -8,6 +8,7 @@ class Twtxt < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5fbf230b361bf8c11d01850bbb8e316b749fad58319d19cb8b8701a582c7cb51"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fa2579916188569fa604666aaeec5015d565dab166d212e892f773d6a8d79862"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31949a7b052e08c2f0dc4710b5117c9e9af001ddfe92a10a7e067048b9de1f0f"
     sha256 cellar: :any_skip_relocation, monterey:       "98797c0b31e95d67fd7cde3200b182572c74feb6233f2f6e428efe4593eee8e3"
