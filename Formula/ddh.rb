@@ -31,10 +31,10 @@ class Ddh < Formula
     (testpath/"test/file2").write "brew test"
 
     expected = <<~EOS
-      2 Total files (with duplicates): 0 Megabytes
-      1 Total files (without duplicates): 0 Megabytes
-      0 Single instance files: 0 Megabytes
-      1 Shared instance files: 0 Megabytes (2 instances)
+      2 Total files (with duplicates): 0 Kilobytes
+      1 Total files (without duplicates): 0 Kilobytes
+      0 Single instance files: 0 Kilobytes
+      1 Shared instance files: 0 Kilobytes (2 instances)
       Standard results written to Results.txt
     EOS
 
