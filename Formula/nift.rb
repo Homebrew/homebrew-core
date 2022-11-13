@@ -7,6 +7,7 @@ class Nift < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "85df1cbad4d3966ee1b85af44f19693aa446136d3e5ca89890e62fa85c6e3e41"
     sha256 cellar: :any,                 arm64_monterey: "d68e99dba29518ea3a0434185366a4b25f2d62e0f4afb228b3a827212bf1f29a"
     sha256 cellar: :any,                 arm64_big_sur:  "888cee4889bc81fe08ed0a44b122844d1b044b63bd7b12511173dd479a551f7e"
     sha256 cellar: :any,                 monterey:       "a232778b9bed6b7bc90207373ee899e58368e28cdcbf20857322f70ce20ab5e3"
