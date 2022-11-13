@@ -1,10 +1,9 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "https://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.38.tar.xz"
-  sha256 "e4a33c8430a5042fba8439b595348e71870f0d95fbf885ff553f9020c1bed750"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.40.tar.xz"
+  sha256 "cdde80d15a49dab9a614ef98f804c8ce6e4cfe1339a3c240c34f3fb45436b85d"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
-  revision 1
   head "https://gitlab.gnome.org/GNOME/gegl.git", branch: "master"
 
   livecheck do
