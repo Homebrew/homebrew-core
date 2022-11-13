@@ -7,13 +7,13 @@ class Luaradio < Formula
   head "https://github.com/vsergeev/luaradio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "47e4144b0f5fff50e8d71da651cb24b4f04b4b7cb5d5384d6bc282f289be469c"
-    sha256 cellar: :any,                 arm64_monterey: "80048889479b279f24f3f0967ea13752487ac2f9d36109999cbc86c682dac13b"
-    sha256 cellar: :any,                 arm64_big_sur:  "54f0347fbb22407d85dfb361c704dbdb22edb5675e190cbdfb3d3f2d64fa1b13"
-    sha256 cellar: :any,                 monterey:       "b799b23735581ff900549775dca8d0e2b37fd237f6d2062e84ac645fd3f49952"
-    sha256 cellar: :any,                 big_sur:        "294b88b1809673505baf3d4d5dffa48e858ba5ef77e27f79744905aed700df07"
-    sha256 cellar: :any,                 catalina:       "6e7e3d041d074853d801524198a970c6d3db8cc289ad2251b181b7c555ca53f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b11a86f2430f67c7d051d0ea2e8e6912bfa96849b4ca626cc1dbd51894a864c"
+    sha256 cellar: :any,                 arm64_ventura:  "2425ad1e4cc63d76223da8d3b4d3c7ce2d13eada579b4c9fb33e52714fa3d2cc"
+    sha256 cellar: :any,                 arm64_monterey: "ea3c5a2a64239596ddbcedca7bf98f38a2c3e7142c0bb9e15e371394a8bc3f48"
+    sha256 cellar: :any,                 arm64_big_sur:  "d8a8170a23202d459a0bc42f7f128d98bbc5ca0c683245703193250aa971663e"
+    sha256 cellar: :any,                 monterey:       "19dafaaeba49dfb959160cbe219045edcb4cf3b23accc5a024a09522c63d820a"
+    sha256 cellar: :any,                 big_sur:        "0eb6b7bb4b742724c4edc84caec47e2409a0eeb0543d61ac4b9dc69b9e341ae7"
+    sha256 cellar: :any,                 catalina:       "a4d29caa526850bfc74f55efe829e10279d840986183c2f8ff1a80a97bd6b0c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d7cf352a29e4917fb03b64ced6278562518ec30fec3a189f3e75b869f560150"
   end
 
   depends_on "pkg-config" => :build
