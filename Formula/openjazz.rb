@@ -8,6 +8,7 @@ class Openjazz < Formula
   head "https://github.com/AlisterT/openjazz.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "112a6ec8803fa3672de7508518f1b055d7f0302c5e998e850fd3a10b008785ac"
     sha256 cellar: :any,                 arm64_monterey: "c6027acbe964bd7a83d604d812bf5a43078fcd34dd2ed43db595fea85b2e842a"
     sha256 cellar: :any,                 arm64_big_sur:  "7cddbce5a824cfe34e1fd75de8974522d3b011a53c9584052f0b27e79dfc79ca"
     sha256 cellar: :any,                 monterey:       "5239dbf6629d348f81a7466b0bd8d92dbc222decdc304091bf71e545b49bb9bb"
