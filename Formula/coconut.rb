@@ -3,8 +3,8 @@ class Coconut < Formula
 
   desc "Simple, elegant, Pythonic functional programming"
   homepage "http://coconut-lang.org/"
-  url "https://files.pythonhosted.org/packages/f7/a6/2a1c5135649ba35aad47a5c31f3176e6a0ca00b87948b6f94c195fe3ac6f/coconut-2.1.0.tar.gz"
-  sha256 "49d21cc6990456bf4030b55457997a2ce854502712768491fba3ad75eda2f143"
+  url "https://files.pythonhosted.org/packages/55/23/81b074bc722359a56131930673ce4e65f48a5c1ad538a79a77f346c77064/coconut-2.1.1.tar.gz"
+  sha256 "38ce2c38c915e305e7c060a3e902d6ca8e504410182a0d4b50abe4df31aaebe3"
   license "Apache-2.0"
 
   bottle do
@@ -18,7 +18,7 @@ class Coconut < Formula
   end
 
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "cPyparsing" do
     url "https://files.pythonhosted.org/packages/c6/6a/b37f4aff8f53083fe71e9b5088dd3a413c231ece8dcb0809a8f2c2b5083e/cPyparsing-2.4.7.1.2.0.tar.gz"
@@ -26,8 +26,8 @@ class Coconut < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/80/76/c94cf323ca362dd7baca8d8ddf3b5fe1576848bc0156522ad581c04f8446/prompt_toolkit-3.0.31.tar.gz"
-    sha256 "9ada952c9d1787f52ff6d5f3484d0b4df8952787c087edf6a1f7c2cb1ea88148"
+    url "https://files.pythonhosted.org/packages/e2/d9/1009dbb3811fee624af34df9f460f92b51edac528af316eb5770f9fbd2e1/prompt_toolkit-3.0.32.tar.gz"
+    sha256 "e7f2129cba4ff3b3656bbdda0e74ee00d2f874a8bcdb9dd16f5fec7b3e173cae"
   end
 
   resource "wcwidth" do
