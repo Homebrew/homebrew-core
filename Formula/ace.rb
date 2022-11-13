@@ -14,6 +14,7 @@ class Ace < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "be589f161c69ce3ceb4b6777207319e7f5dd31fae414d1bdeb324a5d8cc1b97f"
     sha256 cellar: :any,                 arm64_monterey: "fe7c6e61e7c947cb7d1626a581a0a11f100e7e4e935d863b10afb1c85ec18a3a"
     sha256 cellar: :any,                 arm64_big_sur:  "205b9d903c71044a65b1071c942f8e3ceef024e1c8ce3a016aec987e5ea04e0f"
     sha256 cellar: :any,                 monterey:       "415484c2ad190e3f2afc6a018816103d2d1d61db9d5841da29608b86982f3964"
