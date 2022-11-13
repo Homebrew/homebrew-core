@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/9d/bc/fabe817c51b07cda05b8c35a81b3901fb742ab44e720742f98565eb82561/sqlfluff-1.4.1.tar.gz"
-  sha256 "cc16f31b1213e42fde1d6d80d66b5f54553ea269165602cc8e4e51484f15bb2d"
+  url "https://files.pythonhosted.org/packages/d4/97/b89f0067ec68790efd3c17407f573f5ad4d05a953984049689f1f51c8fbb/sqlfluff-1.4.2.tar.gz"
+  sha256 "6182c8523b46b133bd4826462070fdcf72349e45906ad755813fb5b0f6cdcb4b"
   license "MIT"
 
   bottle do
@@ -53,6 +53,11 @@ class Sqlfluff < Formula
     sha256 "69258355daf8276057a92e42cec52594ad8cfe7dd505d6f0e56fe440bc4418d0"
   end
 
+  resource "exceptiongroup" do
+    url "https://files.pythonhosted.org/packages/13/55/43ff6658a50a7f722d2f904810b42514c23a5d649d8a5d890cdc16b617de/exceptiongroup-1.0.1.tar.gz"
+    sha256 "73866f7f842ede6cb1daa42c4af078e2035e5f7607f0e2c762cc51bb31bbe7b2"
+  end
+
   resource "iniconfig" do
     url "https://files.pythonhosted.org/packages/23/a2/97899f6bd0e873fed3a7e67ae8d3a08b21799430fb4da15cfedf10d6e2c2/iniconfig-1.1.1.tar.gz"
     sha256 "bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32"
@@ -74,8 +79,8 @@ class Sqlfluff < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/24/9f/a9ae1e6efa11992dba2c4727d94602bd2f6ee5f0dedc29ee2d5d572c20f7/pathspec-0.10.1.tar.gz"
-    sha256 "7ace6161b621d31e7902eb6b5ae148d12cfd23f4a249b9ffb6b9fee12084323d"
+    url "https://files.pythonhosted.org/packages/a2/29/959c72e1a6c3c25eaa46b9bfcc7fd401f65af83163d4796af09272c83c8a/pathspec-0.10.2.tar.gz"
+    sha256 "8f6bf73e5758fd365ef5d58ce09ac7c27d2833a8d7da51712eac6e27e35141b0"
   end
 
   resource "pluggy" do
@@ -106,6 +111,11 @@ class Sqlfluff < Formula
   resource "toml" do
     url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+  end
+
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "tqdm" do
