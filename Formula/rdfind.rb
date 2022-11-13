@@ -11,6 +11,7 @@ class Rdfind < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "1e511a54185e09734f4e323553bd4d9288e44d756783b3eedca75afa1bcd3354"
     sha256 cellar: :any,                 arm64_monterey: "aeb9e48531e6c0207c520039fb19151044deaffeea109f4be6c2cba0163d4cb1"
     sha256 cellar: :any,                 arm64_big_sur:  "0231ca8fc326ec9888c3da9f07eef767ce69efd947614a0d19b3d4f1e4051192"
     sha256 cellar: :any,                 monterey:       "ab2c2353c248e27831c942c7e369e3402c5d6df6f49a02080b1f4903c32e91ba"
