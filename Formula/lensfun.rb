@@ -21,6 +21,7 @@ class Lensfun < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "0773deec541d4f869fb2948ada76ebd8e24cddbb7bbb236c7c5aedf2ded83c28"
     sha256 arm64_monterey: "9486d22108299332ec92369f4e7338111a744f214c52ebb384db654ff7379699"
     sha256 arm64_big_sur:  "98cfcaef6655bb8a9a67b1a9feaca1eba526f3b8ce46e35f40449f43902844cc"
     sha256 monterey:       "1545b2a59105bb4906394498c6e21c2b4d1398d2a3301c6fc58c3106ccb37bae"
