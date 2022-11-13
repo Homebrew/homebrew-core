@@ -11,6 +11,7 @@ class Ogmtools < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura: "93842b3845c01a1b3efc05d7b6f3f06957205733537e84a3b743b2df41ba692c"
     sha256 cellar: :any,                 arm64_big_sur: "34cfdabab2892f91fd6a6164a041f62eef1da1cf7a2097ad5fe5e2e904de21a3"
     sha256 cellar: :any,                 big_sur:       "939be64a395371009f70c9c596e86df908e429ad6915dee142752c1114f2e1d3"
     sha256 cellar: :any,                 catalina:      "6a2e3ed95e0569dca709b5d0431ea309c008400f3f88b91133d6854340babed7"
