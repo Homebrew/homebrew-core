@@ -11,6 +11,7 @@ class Zssh < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c89cb5197c40525efecccb42fb351668392d9c425742450896e4ecdc46b59587"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4450134a2610b41d037efaf910d6ccdf2cc6d836887b877337f91bf73d49f44c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b567d08589f3ba595994ca4906bfde9fe2651ef246bbd872f332e9cc8993a60"
     sha256 cellar: :any_skip_relocation, monterey:       "9387acd7dec913faa9917b3d27baaff250a412ecd509eba625543d188c6922a9"
