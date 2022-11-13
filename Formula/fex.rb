@@ -5,6 +5,7 @@ class Fex < Formula
   sha256 "03043c8eac74f43173068a2e693b6f73d5b45f453a063e6da11f34455d0e374e"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1baf47daa289d9a7d09cfdb695a4a1a51841458d992bbadc68a27780f81d7182"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "55ee2c09154b30ee5c0ec51ee562d4efc6528e1d69761810cb1eae30fec98bea"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb8ef2d1b057c6cc2c462f6398911d8f55a85398b6eaf60f26c01a7cb3f87e04"
     sha256 cellar: :any_skip_relocation, monterey:       "c227531dc137d14bcfefc19b9a385d5ae842e5f89b1e1b2e75b969b18786c522"
