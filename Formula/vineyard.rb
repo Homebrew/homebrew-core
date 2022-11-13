@@ -9,6 +9,7 @@ class Vineyard < Formula
   revision 1
 
   bottle do
+    sha256 arm64_ventura:  "1534bd78f700fbfd5a276ae07857023af94515a58b9c7459b42997def55f96a5"
     sha256 arm64_monterey: "54d32f5219c127fcd15a79866718bbf18ba55cc276a48617671a0ac27453cd26"
     sha256 arm64_big_sur:  "a9c4c8931da88f86b8ad2e0f55dd1cf1c6aca475418b99f357f3dfb10c5dd8b9"
     sha256 monterey:       "b495299eb2531cde0128b45ef578d2b7bea90869b01a6e38b57414022be5aaaf"
