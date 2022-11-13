@@ -10,6 +10,7 @@ class Rbtools < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0c78646c9b3f5bf3901902122d0835e00c8adbeb34886d765888a34c6505960"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "259be5e7eac1be107f3ab7f0cd97e39a48376ab4ebb6f4e08f0e56b6d21a01ba"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57bc64193f6c2b156e719f5d60779693a487060279542274b4142ae33251eb1c"
     sha256 cellar: :any_skip_relocation, monterey:       "2f2aac7ec3b8ee6cb675a780d4d75e758f302948c7ab72a335969d356d5f683c"
