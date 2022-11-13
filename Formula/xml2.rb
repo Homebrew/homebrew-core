@@ -11,6 +11,7 @@ class Xml2 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "615cb5af6813aecc3220f1387c4e183cf63c82d6711e3c107111b8a8a908d2ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2a8bc2144c34a087bd0ec424f1079c0813e3de5e069e1cf23fa5c904125d42be"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23f1ef27cd811f9b846f80775e4f0981998a7cad1230b0f98261ba42dc85c325"
     sha256 cellar: :any_skip_relocation, monterey:       "52c859eeda679620c5b02db82a7a7d1353c53bd43fae6e53c9028b99afe48b1d"
