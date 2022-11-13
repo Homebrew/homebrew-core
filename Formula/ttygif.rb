@@ -6,6 +6,7 @@ class Ttygif < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d782d59a6f04174b4d94642784cd3a3d3d3f9005c13f8e22a53d6c0473ebf4e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c953e6967a6bc0c649d81c226565818a223a509fc11e556c7bd242b347c888f0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59d6b52ffd6c8f0680e6dda60fdf17dd1f445abb1339be73687dac519b847517"
     sha256 cellar: :any_skip_relocation, monterey:       "4c955eb6cda1e45e9668ad7eb8cd2f4c8d03754a4fb877a08fc4ffeb6c8602cb"
