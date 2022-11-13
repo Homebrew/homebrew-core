@@ -9,13 +9,13 @@ class Graphviz < Formula
   head "https://gitlab.com/graphviz/graphviz.git", branch: "main"
 
   bottle do
-    sha256 arm64_ventura:  "240ae2c8603e032edc55abe2effe9f8816120771a4a23ac968dc3a7f4030c56b"
-    sha256 arm64_monterey: "492cb3a4feb730d2761bad2d0c705353abfe54f8fa9157d5386d799cd392f84c"
-    sha256 arm64_big_sur:  "82dc1482b2ad62782a6dab449606088436dbeaee0308e4b5f3b517f9c66f38ae"
-    sha256 monterey:       "e968109cfb27992b994cee95cbf43d35eb40993c814363e600b0cbecaa362915"
-    sha256 big_sur:        "17796daf1c645e8407dbfe22f367d9663db55d8191d1920c0b85d031e8b94030"
-    sha256 catalina:       "3aa822b4b56f311b64437ccd03bba896d8650fe2296a9eee01ec89edb7f397ef"
-    sha256 x86_64_linux:   "48d9103e04bf9ac1cf40c74bbdc92d91a5996d945ff41af918f4611be835d974"
+    sha256 arm64_ventura:  "a6871205565791d938bb23760e3ce4209410777c9a570a69fe16bd8c06706212"
+    sha256 arm64_monterey: "18aed58093937c2743088324512c6a0a6e51c78a4e0e890838ff429e8c5fb7c4"
+    sha256 arm64_big_sur:  "d5cb5acc7b3c7b9a286b84c7b6c9e3cc7dd21b7fbd2247f8cd86f6179f3c4480"
+    sha256 monterey:       "4301b0d774f14d732d2b0b05367871519bdea99684c9e3c27d36e764bbc432c6"
+    sha256 big_sur:        "3e08791158a1e429d4b3ed37b95601bf3eeec659bfcb6d8387b5d2864237196b"
+    sha256 catalina:       "58be5ffb377ad6e36b6af356f7e88821861ab98746d3c9d56cf59d591f079c5a"
+    sha256 x86_64_linux:   "ce311ec23404674c602597e385d1a0c2b85efac93dcd50312772650a20d3527f"
   end
 
   depends_on "autoconf" => :build
