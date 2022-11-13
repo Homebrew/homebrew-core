@@ -11,6 +11,7 @@ class Zxcc < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "e2fe6fa77252015a020de63bb4973171a8b9a9c90f866f2835f1e36e4e5714de"
     sha256 arm64_monterey: "b72dfe0dda214485bb604b56b731e04109c964d10f45eb3b6fedceffdedf61ca"
     sha256 arm64_big_sur:  "3f7d36f3115f3dc9310aa01045a455fe7dab1732612421b5451777c140bf952a"
     sha256 monterey:       "015f6a038fa59edef9b58d8edef90d4ad957c1275e581d2d9e645868b37dc9e1"
