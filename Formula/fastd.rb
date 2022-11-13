@@ -9,6 +9,7 @@ class Fastd < Formula
   head "https://github.com/NeoRaider/fastd.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "e57b53023d89476d6b77a3728968bf01b72de5b3c64aa8debe8ec7a5108319e8"
     sha256 cellar: :any, arm64_monterey: "c30605764ec7c11de6d609f6d22c265799edba97bd45f41872c2e86ada1c96ca"
     sha256 cellar: :any, arm64_big_sur:  "d8bacf3dd7421a982072facb3491d05ac5cf587634bc5c8aa844077ad4da6bde"
     sha256 cellar: :any, monterey:       "29606a6362336f9513eb57d81ac768fa085c27cbfd9ea1fbb627ced1b8535177"
