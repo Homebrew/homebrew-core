@@ -6,6 +6,7 @@ class Imapfilter < Formula
   license "MIT"
 
   bottle do
+    sha256 arm64_ventura:  "768f378b2b679e0a26c99a4402a0cd39f6fb7dfbd1e644d417dae83d0cf51351"
     sha256 arm64_monterey: "be36c8bcf1e5077761a963a80adbfe360a3090cdb99d073dd663d74df79cd6c5"
     sha256 arm64_big_sur:  "62d9824157d64977da4fade83fd71b752825b7cadadce847cd93a2266ee22d61"
     sha256 monterey:       "cd9a9a84255d108443bb6b32dde91aca01a51b27763664b77de595ca66345cec"
