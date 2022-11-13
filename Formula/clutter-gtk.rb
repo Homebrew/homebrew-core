@@ -6,6 +6,7 @@ class ClutterGtk < Formula
   revision 4
 
   bottle do
+    sha256                               arm64_ventura:  "7bdda03538852053c87def6ab4bf02a8a040389e25ddbaafc3a3d1d29de499ae"
     sha256                               arm64_monterey: "28a3283252422dbc864b7beb4c69e377688c33fbb2a0e535c62a9362264162bf"
     sha256                               arm64_big_sur:  "2fe413931adfbb5801835172149dbf10aa1f1cdc669a0a8f973d834a6251fe0f"
     sha256                               monterey:       "3940367b212abbe0c266ea8982aa82cc890d8ab8f24c2c851362283a0aef5a3f"
