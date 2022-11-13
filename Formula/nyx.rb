@@ -9,14 +9,14 @@ class Nyx < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "743df8096c59f0a84a76fa26d08123b0540375ef675969397ece553ff38d5d03"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bae78955aa83e7e742c86ead94067128d34ee67e46d3df228782bb14e3ff1933"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bae78955aa83e7e742c86ead94067128d34ee67e46d3df228782bb14e3ff1933"
-    sha256 cellar: :any_skip_relocation, monterey:       "e3361830a3dca5a02c43318bac9b699b6716ccf4b75fd3a2106a4b48bd4915dc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e3361830a3dca5a02c43318bac9b699b6716ccf4b75fd3a2106a4b48bd4915dc"
-    sha256 cellar: :any_skip_relocation, catalina:       "e3361830a3dca5a02c43318bac9b699b6716ccf4b75fd3a2106a4b48bd4915dc"
-    sha256 cellar: :any_skip_relocation, mojave:         "e3361830a3dca5a02c43318bac9b699b6716ccf4b75fd3a2106a4b48bd4915dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f07d2404be50cbcba6e7bcc12e95613b6c49e6dcaedd98a003c8350e53a8893"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b3fe494a6c9224fd13b936dcb327ecc4be321ea2a77c613698f68c0c6c052d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b3fe494a6c9224fd13b936dcb327ecc4be321ea2a77c613698f68c0c6c052d8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b3fe494a6c9224fd13b936dcb327ecc4be321ea2a77c613698f68c0c6c052d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "e79c9f3ee6611c779246f2fedb938be974781451c4a4b8a9472f2be27a9d6c76"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e79c9f3ee6611c779246f2fedb938be974781451c4a4b8a9472f2be27a9d6c76"
+    sha256 cellar: :any_skip_relocation, catalina:       "e79c9f3ee6611c779246f2fedb938be974781451c4a4b8a9472f2be27a9d6c76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38098429261a50eaa8e1256002a97b4940172d36b7676e3aee11fb26002f5c94"
   end
 
   depends_on "python@3.11"
