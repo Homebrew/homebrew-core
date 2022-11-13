@@ -8,6 +8,7 @@ class Dfmt < Formula
   head "https://github.com/dlang-community/dfmt.git", branch: "v0.x.x"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e6252836306569a5db84f97a76e4c5b90eeafff951409a042081838595d4327"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2aeb82c327f80c2308b8dfa2572a746853a04bc39b0d04afda767eb01c2a83e7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "366d877bb066339d120387fea51f5145354c3c43a8d0c65b43b887722c59f7eb"
     sha256 cellar: :any_skip_relocation, monterey:       "b6f7197f2f1580bff0f06ed086ca679c310d87d64ed506ce8deb89fd49a7d514"
