@@ -22,10 +22,10 @@ class Fail2ban < Formula
 
   depends_on "help2man" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     ENV["PYTHON"] = which(python3)
 
     rm "setup.cfg"
@@ -53,6 +53,9 @@ class Fail2ban < Formula
     inreplace "setup.py", "if os.path.exists('#{var}/run')", "if True"
     inreplace "setup.py", "platform_system in ('linux',", "platform_system in ('linux', 'darwin',"
 
+    # Replace 2to3 since we don't create an unversioned symlink in libexec
+    inreplace "fail2ban-2to3", " 2to3 ", " 2to3-#{Language::Python.major_minor_version python3} "
+
     system "./fail2ban-2to3"
     system python3, *Language::Python.setup_install_args(prefix, python3), "--without-tests"
 
@@ -63,6 +66,8 @@ class Fail2ban < Formula
 
     man1.install Pathname.glob("man/*.1")
     man5.install "man/jail.conf.5"
+    # Install into `bash-completion@2` path as not compatible with `bash-completion`
+    (share/"bash-completion/completions").install "files/bash-completion" => "fail2ban"
   end
 
   def inreplace_etc_var(targets, audit_result: true)
