@@ -2,8 +2,8 @@ class Ehco < Formula
   desc "Network relay tool and a typo :)"
   homepage "https://github.com/Ehco1996/ehco"
   url "https://github.com/Ehco1996/ehco.git",
-      tag:      "v1.1.1",
-      revision: "c723fa0c3fefcc7f89c3847c6cd753cfdaf30486"
+      tag:      "v1.1.2",
+      revision: "3f649b356a33e317e4eaeeeca4590eedbd360892"
   license "GPL-3.0-only"
 
   livecheck do
@@ -21,7 +21,9 @@ class Ehco < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b78ea30d2249f5c29e3642016edc43fde0e2ae4895cb6b7ae7ff80ef6e108a92"
   end
 
-  depends_on "go" => :build
+  # quic-go needs to be updated to use go@1.19
+  # upstream issue, https://github.com/Ehco1996/ehco/issues/165
+  depends_on "go@1.18" => :build
 
   uses_from_macos "netcat" => :test
 
