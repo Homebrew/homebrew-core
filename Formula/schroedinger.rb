@@ -7,6 +7,7 @@ class Schroedinger < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "ada44d9f9a740f64fb2d3f66e55f7fc9f523aef0c160866ee301f54a9a9c084b"
     sha256 cellar: :any,                 arm64_monterey: "7723de84138cae533fd4304aad54edcbb22d9815e8eebd23f8617ae6523a0a18"
     sha256 cellar: :any,                 arm64_big_sur:  "eed0918ea3c7ff3e75968249865c6743b5dd6a444b1022f15926c9e0b3496cfb"
     sha256 cellar: :any,                 monterey:       "eb3f714b77e5562bad12a8071a07cb45690ece3b0b8b544b56fc06501e83fb0e"
