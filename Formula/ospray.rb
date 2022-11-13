@@ -12,6 +12,7 @@ class Ospray < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "cb94bb7a2fc99013ebdce7544aa87136149bc69fce5cb0fe1b8838788f672c4c"
     sha256 cellar: :any, arm64_monterey: "f606fa09b7f0d87d95bec188727b7bd058373e726527d5d5a06a3dff132c160e"
     sha256 cellar: :any, arm64_big_sur:  "474b623582aa113ad7fce11aaf505bae0acf9a2a47e92560e94fd7ab2b8803c2"
     sha256 cellar: :any, monterey:       "394583d69bea8efcd6eaa991b1a8c31e1b51bd691e7634bd7e5dace7a17680a8"
