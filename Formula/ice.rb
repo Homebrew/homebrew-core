@@ -12,6 +12,7 @@ class Ice < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "49d742e66f44d924bc3b625847a4845f6edeab5ea687e257d4cb235044650401"
     sha256 cellar: :any,                 arm64_monterey: "6650cecd9095c96c494edf121678aa8e89566f8d0bdfe4d5540c7222b951179e"
     sha256 cellar: :any,                 arm64_big_sur:  "8afe5f234ae949865fddca70ab16e15e33319f286075089f752f6b146abeba5f"
     sha256 cellar: :any,                 monterey:       "aa346abe07a352e4ea23803bc9c7bf73a95e6f2efa026d5ca47ea8d109f6dfae"
