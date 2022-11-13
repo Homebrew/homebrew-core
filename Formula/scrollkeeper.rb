@@ -7,6 +7,7 @@ class Scrollkeeper < Formula
   revision 2
 
   bottle do
+    sha256 arm64_ventura:  "a834db07ff6faaa052fcae2830820837d37902cdfc46427df8e98addc82ba600"
     sha256 arm64_monterey: "6de06691bc02972907fa268ce8501559f794454734b2d94894bd41f19cd33c4c"
     sha256 arm64_big_sur:  "88e96878a9f7cef658edaf418c55f7c9e6904aead82bd3102384cbdfb342a400"
     sha256 monterey:       "a9b9a811e7d62586377152f75794cb92b57782611622815816f779a823427cb4"
