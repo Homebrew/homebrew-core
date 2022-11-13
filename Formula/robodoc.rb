@@ -11,6 +11,7 @@ class Robodoc < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "a279a45d7a1bfdcba730c3be5811f449807f7eb190990407e3f6a7218f5e6129"
     sha256 arm64_monterey: "228f269b8f73406ae0386c01329c95ff14e4a395344e59f93abbfb079fc8cfa4"
     sha256 arm64_big_sur:  "4dddc1a534d6c0e60601403b9272f84cb14ce2e665e6882b9609b6f7db27d981"
     sha256 monterey:       "429855c906311ee18428eaaa31cafc1c51384f1651fdb010c1678aa24a08b883"
