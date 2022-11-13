@@ -7,6 +7,7 @@ class Ivtools < Formula
   revision 4
 
   bottle do
+    sha256 arm64_ventura:  "0f76a0d03194b85994c77acc9952767a20feafc10f7083bd423fc176d70017f1"
     sha256 arm64_monterey: "cabbddd0dec900222bca2f3ec571c72be68520762436ebe34ea6fb7c83cd1296"
     sha256 arm64_big_sur:  "035e0a866d2f6a99aefaf35669cfcbdd183d1fe227cc6e2cd8b5e9339294ace7"
     sha256 monterey:       "7bbbfafc034b5ca5552353641635411d6ce7bea1caa268ff92b068f1f8f16381"
