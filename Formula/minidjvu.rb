@@ -12,6 +12,7 @@ class Minidjvu < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "985e67e5358157239fda57613e0b6384bb960b97f39a41664840593da23c75c7"
     sha256 cellar: :any,                 arm64_monterey: "bb4837b0b0e44a2778ae1cb381f55a4f2eb5af6ae274502e9e7a0d28089c112f"
     sha256 cellar: :any,                 arm64_big_sur:  "a0a735a5315eba83afe335cd152f428e292527df6a3d3c0ce06aecc29eb7efc4"
     sha256 cellar: :any,                 monterey:       "8df5fe38e4981f6198634640163cd1da4abd52562e08973f1c1fded6b663277f"
