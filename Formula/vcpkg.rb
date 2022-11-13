@@ -1,9 +1,9 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg-tool/archive/2022-10-17.tar.gz"
-  version "2022.10.17"
-  sha256 "04662d6185276ff8f0f8d4ebb7e369db0ff3249ce4a0720b335355d9f7407072"
+  url "https://github.com/microsoft/vcpkg-tool/archive/2022-11-10.tar.gz"
+  version "2022.11.10"
+  sha256 "627ff5da84e7464a68e154f3903484f9f063cc5141d5e5a9fa250b519be93c6d"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
@@ -33,7 +33,7 @@ class Vcpkg < Formula
 
   def install
     # Improve error message when user fails to set `VCPKG_ROOT`.
-    inreplace ["include/vcpkg/base/messages.h", "locales/messages.json", "locales/messages.en.json"],
+    inreplace ["include/vcpkg/base/messages.h", "locales/messages.json"],
               "If you are trying to use a copy of vcpkg that you've built, y", "Y"
 
     system "cmake", "-S", ".", "-B", "build",
