@@ -7,6 +7,7 @@ class Drafter < Formula
   head "https://github.com/apiaryio/drafter.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura: "94b8bc4a98d77f3ee2fb5ee76db46e809bfa016d3d3ed9cbc492b59ee2a62a18"
     sha256 cellar: :any,                 arm64_big_sur: "e87c12f12a181902f5013f06c3ca34608c68de6216d90f3c2fa568d4f8a35a5e"
     sha256 cellar: :any,                 big_sur:       "74fcc290a59528b6be28739c6e4e9fac9660051430c74910f006cb000271a235"
     sha256 cellar: :any,                 catalina:      "29fa18ff148f6ebf454ed383181384bfb9aff1520e64072dfb386445bf8e52a3"
