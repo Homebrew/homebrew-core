@@ -6,6 +6,7 @@ class Paps < Formula
   license "LGPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "ed0aafc74080ba2ba2a3ec1dd3d1d112952626ccdc297db089fdd93bcd1c23c7"
     sha256 cellar: :any,                 arm64_monterey: "64750f6318462484efbf5d4656bf75896fae72f2abf0636182e27ad9ba77915c"
     sha256 cellar: :any,                 arm64_big_sur:  "f8ab36ee220f8e2bfd5fb7db1c16812241ec8212cfc3ecd7c070517ac0a104b0"
     sha256 cellar: :any,                 monterey:       "c1b2eb436a7cc57282726120aa8f5a03f1b76c70af74760ede5525be695db75b"
