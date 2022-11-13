@@ -9,13 +9,13 @@ class Fprettify < Formula
   head "https://github.com/pseewald/fprettify.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "195365226e977f75339ddc938d6522baa9768fd8647ca5db79f354b558dff789"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fdb3c1fb8f56f2d0a69cd8c64863e10bd4bcab09fae883f745fc28103e20a5ae"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fdb3c1fb8f56f2d0a69cd8c64863e10bd4bcab09fae883f745fc28103e20a5ae"
-    sha256 cellar: :any_skip_relocation, monterey:       "003792c125ef0380752d9dde144930d696a8dada1a1c3edce864e2417dfae574"
-    sha256 cellar: :any_skip_relocation, big_sur:        "003792c125ef0380752d9dde144930d696a8dada1a1c3edce864e2417dfae574"
-    sha256 cellar: :any_skip_relocation, catalina:       "003792c125ef0380752d9dde144930d696a8dada1a1c3edce864e2417dfae574"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f95be72c72df4071f4e9e6819f240aea1871aa3a544f9aa4aede5f9e3abb585"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4eaf9f8515de83e38a2279f945676e4c634b7831f91095b1da7321fc58dcb39c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4eaf9f8515de83e38a2279f945676e4c634b7831f91095b1da7321fc58dcb39c"
+    sha256 cellar: :any_skip_relocation, monterey:       "e7bf15a8edcf12f4aa936c7da9ce8e771f84a9e4177897351a87d25d1f281ba6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e7bf15a8edcf12f4aa936c7da9ce8e771f84a9e4177897351a87d25d1f281ba6"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7bf15a8edcf12f4aa936c7da9ce8e771f84a9e4177897351a87d25d1f281ba6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51fb193432c7ed43d63e9b13a8e946058f91277e3d601abfa7f5de25f56a4b70"
   end
 
   depends_on "gcc" => :test
