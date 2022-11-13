@@ -8,6 +8,7 @@ class Vroom < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "ddab10f636ee55c86ccce4d23e847281753f5c0c472f50c79da99382d9834698"
     sha256 cellar: :any,                 arm64_monterey: "1495ca27a49a728916039d42c97f86f95d793f624cf3f8aa7eddf282a84c0f87"
     sha256 cellar: :any,                 arm64_big_sur:  "707ac7ece7545ed7818a66524c5efb19fe4d0fe14fd67fe1add5c2ec3d3bd451"
     sha256 cellar: :any,                 monterey:       "167d61c9e3cbbe0ee0318f810c69a317e91a02333041bf8474f946d67640d672"
