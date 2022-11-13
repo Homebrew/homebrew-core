@@ -23,12 +23,27 @@ class Libprelude < Formula
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.11" => [:build, :test]
   depends_on "gnutls"
   depends_on "libgpg-error"
-  depends_on "python@3.10"
+
+  # Fix compatibility with Python 3.10 or later using Debian patch.
+  # ImportError: symbol not found in flat namespace '_PyIOBase_Type'
+  patch do
+    url "https://sources.debian.org/data/main/libp/libprelude/5.2.0-5/debian/patches/025-Fix-PyIOBase_Type.patch"
+    sha256 "cd03b3dc208c2a4168a0a85465d451c7aa521bf0b8446ff4777f2c969be386ba"
+  end
+
+  def python3
+    "python3.11"
+  end
 
   def install
-    python3 = "python3.10"
+    # Use the stdlib distutils to work around python bindings install failure:
+    # TEST FAILED: .../lib/python3.11/site-packages/ does NOT support .pth files
+    # bad install directory or PYTHONPATH
+    ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
+
     # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
     # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
     inreplace "bindings/python/Makefile.in",
@@ -37,8 +52,7 @@ class Libprelude < Formula
 
     ENV["HAVE_CXX"] = "yes"
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+      --disable-silent-rules
       --without-valgrind
       --without-lua
       --without-ruby
@@ -49,7 +63,7 @@ class Libprelude < Formula
       --with-libgnutls-prefix=#{Formula["gnutls"].opt_prefix}
     ]
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
   end
@@ -71,5 +85,13 @@ class Libprelude < Formula
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lprelude", "-o", "test"
     system "./test"
+
+    (testpath/"test.py").write <<~EOS
+      import prelude
+      idmef = prelude.IDMEF()
+      idmef.set("alert.classification.text", "Hello world!")
+      print(idmef)
+    EOS
+    assert_match(/classification:\s*text: Hello world!/, shell_output("#{python3} test.py"))
   end
 end
