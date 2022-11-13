@@ -12,6 +12,7 @@ class Morse < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "c10ed6e8fcfc5eba8f26332554eab00725618885103a64012ae1439d6086a8b6"
     sha256 cellar: :any,                 arm64_monterey: "a35043d1c63aa545d5bedb01c1e84c425a30f2b991468a00cd7a5aa12ee14d91"
     sha256 cellar: :any,                 arm64_big_sur:  "cb06d8049d00c1b52a2c6538ea10918a7623541df2304c1f9c154e042fde868d"
     sha256 cellar: :any,                 monterey:       "ed97cdede281a1b7adf2c483cca6630fbf91a4180724f58ea9a313a886bce8d1"
