@@ -18,6 +18,7 @@ class Perkeep < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4ac74693fe6eee20f743e6894fceb543514f9d2a034f7f1e394c2f43fa60e67"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "80b74aa6f9784371b2a2b4f79ed15fb8d998a3589f1cc85885ba60d259196dea"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b02cb9968771e49d46b9f605d53f88b61bb32cd765d46146280b2426abffc00f"
     sha256 cellar: :any_skip_relocation, monterey:       "a30e484cd077d745047fcf919d857ed2d1ca68589b7017e91e0417fa5c256b6b"
