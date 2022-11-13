@@ -13,6 +13,7 @@ class Atari800 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "4bcc92710eebd07c09b0701d6722f838a4bd2d6c7c79386f5b2e01d6ec2e9d4e"
     sha256 cellar: :any,                 arm64_monterey: "f49c2cf42413abdd1ba0d7b5fd3e628b794eb806c2248a0f50c4c6661d04a064"
     sha256 cellar: :any,                 arm64_big_sur:  "aa9c15ae0bf8bd5ab442836b71297d802abed3e3c7ba63ea2651dc15accd9c79"
     sha256 cellar: :any,                 monterey:       "a427841ac1585534dfe1e1692a662720d6ff8936cef1ca9649316ffc3099189c"
