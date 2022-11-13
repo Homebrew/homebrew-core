@@ -7,6 +7,7 @@ class Zorba < Formula
   revision 16
 
   bottle do
+    sha256 arm64_ventura:  "9965ca51a03f06f62ef2f88cfcf6d678a4a0a79f63a1b5d4df79fd7d6065f061"
     sha256 arm64_monterey: "46f70d378fe9bb29b11e1e8c36a89d6e87a8edd31506414d7bdc898ee9a38f3b"
     sha256 arm64_big_sur:  "1ec7839bf4f2c5c894ab97e022af5299411509da28b0591f5fa317cfd6b90cfd"
     sha256 monterey:       "e7989cc9ae5f1f69ec450cbb266eace9e9b69040360b087dd9e1f9b960429207"
