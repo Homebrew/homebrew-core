@@ -11,6 +11,7 @@ class ClawsMail < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "dfc013fe205c3e9e485ff23e2e41782df497ace6312a0ace48e05639be9a9f61"
     sha256 arm64_monterey: "74b9d0de5a9b8500e2a71ee118bcb5cd72a7901639ff1bccb3f2bcb633362de7"
     sha256 arm64_big_sur:  "00d742baadda6934b41f056e76741da56021a70f405169d91cfae04cf2052cf6"
     sha256 monterey:       "f6a71dae91ade0eb99d4ec6b9aeca45c7c9e67a98ecd25b7618ba82ddf152685"
