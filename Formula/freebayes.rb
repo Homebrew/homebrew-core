@@ -17,6 +17,7 @@ class Freebayes < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_ventura:  "c696b05ef4fd11bd99a77e9903d9fd4878104de67ac41997bda00c29dfe817a2"
     sha256 cellar: :any, arm64_monterey: "26799da3d54c7416f8c79cbc95ab4c7428cc60a3d5dba0d4f67e08050cd7d40c"
     sha256 cellar: :any, arm64_big_sur:  "3045a4eb949197230993c9ddfb92406978b410d8beb18b401465867c8481ddff"
     sha256 cellar: :any, monterey:       "00aeab78a22a3edd81add014b529383ec3deb49c6addb71c8319e5e5abe54a64"
