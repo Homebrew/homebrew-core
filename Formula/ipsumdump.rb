@@ -12,6 +12,7 @@ class Ipsumdump < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "e6643af43d1106c2e50a60b58d80997e52623dcfeab558f26e0045ba16a74ecc"
     sha256 arm64_monterey: "1494705fff0bb7937d74557efd7484896a8c87133dad9a4e40ee2ee5b5da67eb"
     sha256 arm64_big_sur:  "6348649ec33f562a3622f97fb7b253d39ed8b3f919a9aa2af8fa84b8d67d765a"
     sha256 monterey:       "421b6575ab2ea358e7dadb1d43f2519efb2e8f8353260c3e2b83e7d4610d3841"
