@@ -222,6 +222,7 @@
   "flintrock": {
     "exclude_packages": ["six"]
   },
+  "fobis": "fobis-py",
   "fonttools": {
     "extra_packages": ["Brotli"]
   },

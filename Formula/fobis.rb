@@ -20,16 +20,11 @@ class Fobis < Formula
 
   depends_on "gcc" # for gfortran
   depends_on "graphviz"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "configparser" do
-    url "https://files.pythonhosted.org/packages/e5/7c/d4ccbcde76b4eea8cbd73b67b88c72578e8b4944d1270021596e80b13deb/configparser-5.0.0.tar.gz"
-    sha256 "2ca44140ee259b5e3d8aaf47c79c36a7ab0d5e94d70bd4105c03ede7a20ea5a1"
-  end
-
-  resource "FoBiS.py" do
-    url "https://files.pythonhosted.org/packages/53/3a/5533ab0277977027478b4c1285bb20b6beb221b222403b10398fb24e81a2/FoBiS.py-3.0.5.tar.gz"
-    sha256 "ef23fde4199277abc693d539a81e0728571c349174da6b7476579f82482ab96c"
+    url "https://files.pythonhosted.org/packages/4b/c0/3a47084aca7a940ed1334f89ed2e67bcb42168c4f40c486e267fe71e7aa0/configparser-5.3.0.tar.gz"
+    sha256 "8be267824b541c09b08db124917f48ab525a6c3e837011f3130781a224c57090"
   end
 
   resource "future" do
@@ -39,7 +34,6 @@ class Fobis < Formula
 
   def install
     virtualenv_install_with_resources
-    bin.install libexec/"bin/FoBiS.py"
   end
 
   test do
