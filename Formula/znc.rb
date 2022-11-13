@@ -8,6 +8,7 @@ class Znc < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_ventura:  "1e1f3718f5abf66532f650cf7f1df3ddba587176c12b36c56f513cf50401ac35"
     sha256 arm64_monterey: "3a5652ad8b655725f9f824c2da28da03fc5ae0d4b3dd4ab666fa5377ba5ca586"
     sha256 arm64_big_sur:  "2e6656f598cf7512ebed68558ea8afd0bb785049ebca38ba2042dd2b81f1dd34"
     sha256 monterey:       "c0220516ba0bf2a16b478ba7c1d2cd8c146f1f3cc5c20f053e8008556b5ca8f8"
