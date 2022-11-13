@@ -7,6 +7,7 @@ class Helmfile < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1c4c43a44259edd68644c2ac040d26d5786b9990dd071c77375cdf7ea6fd3f4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3e8af2388857795807014a8fe62c10b67ad15474b8490b06acf0172d22ccb1f5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "429954c65e971d18ac34ad9323dff74f962fc69dc9d2d5bff13354224be44686"
     sha256 cellar: :any_skip_relocation, monterey:       "25b9d4d5cd9bf26c72258971795dd3aa8492e204e904f1a82af2d557447c923e"
