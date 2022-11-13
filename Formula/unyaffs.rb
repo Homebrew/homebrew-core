@@ -12,6 +12,7 @@ class Unyaffs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "928a43f3c85d35b25a782cca819a91de0f0836745093784bac2ac71217c55ede"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6bcb9d49cf20172488361e571f7411b6db6e42e9052cf005c4035c6a223d5c0d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b70c51c64fb6a69a0b26295d8b1d444c9a1a3b69f0283449657039537074fc64"
     sha256 cellar: :any_skip_relocation, monterey:       "1ff1b1841d784d1fccc11d986113a60bad0d61d3faf21ce8f456d8b47d00ae1b"
