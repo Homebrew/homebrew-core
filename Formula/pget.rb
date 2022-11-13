@@ -7,6 +7,7 @@ class Pget < Formula
   head "https://github.com/Code-Hex/pget.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5f8eb0b2430040b94b1d88acffb73823db4a6900eebcbf410211d51cebedb67"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "161dab036f92f8ed27d33852a62f0702deedf2c862ab59f00a5dc79c18c165bb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ced15f422006c330d99f63db09a0263f6001d67308381cac67cbe59bd4688e84"
     sha256 cellar: :any_skip_relocation, monterey:       "73838f1c861df1e0db812a511a9bd83074bc3934b8271c0d07259acca99bd013"
