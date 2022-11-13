@@ -8,6 +8,7 @@ class Iprint < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16caeb56b6e78b172acd4aefd102fd4614bec7950d43dc426bb00b247bab3568"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59184069028344bc9b2d24985c049efc45ededd3f8aff7d82bdf6692545f6f63"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eb538fa6b5466dac71f52ec8f428e4ef0674e1f475893879a857cf27ce914a9f"
     sha256 cellar: :any_skip_relocation, monterey:       "56bca76cab2c3618c905d90160eeefa4e536913e7641ac29e4ee48c6bee7a674"
