@@ -13,6 +13,7 @@ class Duply < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39cdaa9f4f7d6970a081025aece74304e18f9f772f3e41014cc60899f6e41959"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39cdaa9f4f7d6970a081025aece74304e18f9f772f3e41014cc60899f6e41959"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "39cdaa9f4f7d6970a081025aece74304e18f9f772f3e41014cc60899f6e41959"
     sha256 cellar: :any_skip_relocation, monterey:       "c276740735afa2f49b914fa476fab536b3491c862ffa3e9cd0ddc7e7b3ccffef"
