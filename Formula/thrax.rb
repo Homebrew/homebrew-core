@@ -14,6 +14,7 @@ class Thrax < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "cc88937f398db52f848b3658c3415073a3cc3a349448f95168ba30b22d0f1689"
     sha256 cellar: :any,                 arm64_monterey: "da67cbb76545ecb423feca1b6a3a6e3dab7251177842ad37e22c5a3f3dbfafa2"
     sha256 cellar: :any,                 arm64_big_sur:  "c5290fa4de107eb9d7c7a283ca01d3e646dc3d14e5add34c4e6187d418af8222"
     sha256 cellar: :any,                 monterey:       "510a3aa7dfc3782dfe81735407191ab6ecbc851710dc8d6cd402629dfaef5f53"
