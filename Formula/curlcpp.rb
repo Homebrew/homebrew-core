@@ -7,6 +7,7 @@ class Curlcpp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "d0cf01ddde03c507a2bd9cd73435ddb94b40af0e2e3ae0d5f7f9703587d42075"
     sha256 cellar: :any,                 arm64_monterey: "e70c7484aed5b013bbc49a864f87c2d40dd9e676af6d3dc8707ffa5f16dd4939"
     sha256 cellar: :any,                 arm64_big_sur:  "4952d85cefca84d9560ede7c578e6ce82a154fdd04ac687df176828ed70e2f74"
     sha256 cellar: :any,                 monterey:       "923737339644b84caf3ac29496322122a4bfd9832917043edb573449e8a1a4e9"
