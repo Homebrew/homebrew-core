@@ -8,6 +8,7 @@ class Libchamplain < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_ventura: "da5655b6623f754f33d3b47d6eee772353f0bbe59a3cd5ebfeed8113aa6e83f5"
     sha256 cellar: :any, arm64_big_sur: "4c338a3a4dbeec5732e73a531aecaaf1cb862ed9e87030fc05e2c25ed9a1f585"
     sha256 cellar: :any, monterey:      "be1d7594f805bd7c358011a1669f5eb479c04157330cca2434392fc46eaefa9c"
     sha256 cellar: :any, big_sur:       "492db68c8120ff8435f6d96b87cdc4db83afe2d47b0da7b1bc164bbb60af015b"
