@@ -7,6 +7,7 @@ class Whatmask < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "106997f1c14a81903f0c3078308437938af0fded133488f5c7de9fd90cc4cbdc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "93e5d651f3376c9194a94a3afa5dc7860bbe55ac675339e6c2d9951f57d1b075"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a5bf6f569bef04d197a6eb0c097450e65dcb5082b65ecc82201e15eb873ae755"
     sha256 cellar: :any_skip_relocation, monterey:       "dedc8e95cb750f18d6b8f03505387a17cc88753810f4e052b30b33126d9a8b8b"
