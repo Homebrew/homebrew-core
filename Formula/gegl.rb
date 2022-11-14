@@ -12,12 +12,12 @@ class Gegl < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "7fae228b7235df79ae243066dce988aa02e28a4d5c3db84aa6686343cdef4c32"
-    sha256 arm64_big_sur:  "7840f644358bc9699b1f3e74b419b6de9668aad1c97cc7a4b6e86ea996f2b835"
-    sha256 monterey:       "0eeb4fe4db2b41db4dedd32abdeb0003dbce3215798f72be16e78962b14ad11f"
-    sha256 big_sur:        "c97d5001f52ab54f4e98e18db02e3e795420f1c16ef753a7ef8f209201ef5af0"
-    sha256 catalina:       "f3d7aecfadaf13afb9d14760b3f259b6b8b914a37a315f1d4d2689eba2089e21"
-    sha256 x86_64_linux:   "e23c8d7d4fe6608c4020dfac1323994d7d3c352950b8d507e0315f9e9db6e675"
+    sha256 arm64_monterey: "6baf08d6460d2afd684a862abbf94085f1b36472e7bcd0b01019af119520e0d3"
+    sha256 arm64_big_sur:  "8531f1b68c977713321eac2a0d21cd904fe6652656be7b2bc019d655f31c97f6"
+    sha256 monterey:       "31616246ea13a143b9e77fcb280b9d26bea1987b00ed8e9e04f41bd4efb40e47"
+    sha256 big_sur:        "4f6f9d4a5c6cc11cc65a3bb56f135e8029e20ed46fea8ea33e89c622df261f49"
+    sha256 catalina:       "c712e1d83e2174a9cd33b64997fa25d2ddaf38bd98e504a9a662709443bbcf7f"
+    sha256 x86_64_linux:   "e6ce196bd236b3d492aefa75c05045188a533404eee902a116b7d355fda3c6f9"
   end
 
   depends_on "gobject-introspection" => :build
