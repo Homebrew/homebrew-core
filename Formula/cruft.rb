@@ -20,7 +20,7 @@ class Cruft < Formula
   end
 
   depends_on "cookiecutter"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "gitdb" do
@@ -52,7 +52,7 @@ class Cruft < Formula
     virtualenv_install_with_resources
 
     # we depend on cookiecutter, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.10")
+    site_packages = Language::Python.site_packages("python3.11")
     cookiecutter = Formula["cookiecutter"].opt_libexec
     (libexec/site_packages/"homebrew-cookiecutter.pth").write cookiecutter/site_packages
   end
