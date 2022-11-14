@@ -19,7 +19,7 @@ class Offlineimap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad8cd71fc09acdcf59cdcc3ddb58e500e032c33975e61b3c5296122a08b4f4d8"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "krb5"
 
@@ -29,18 +29,18 @@ class Offlineimap < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/92/3c/34f8448b61809968052882b830f7d8d9a8e1c07048f70deb039ae599f73c/decorator-5.1.0.tar.gz"
-    sha256 "e59913af105b9860aa2c8d3272d9de5a56a4e608db9a2f167a8480b323d529a7"
+    url "https://files.pythonhosted.org/packages/66/0c/8d907af351aa16b42caae42f9d6aa37b900c67308052d10fdce809f8d952/decorator-5.1.1.tar.gz"
+    sha256 "637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"
   end
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
-    sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
+    url "https://files.pythonhosted.org/packages/4b/89/eaa3a3587ebf8bed93e45aa79be8c2af77d50790d15b53f6dfc85b57f398/distro-1.8.0.tar.gz"
+    sha256 "02e111d1dc6a50abb8eed6bf31c3e48ed8b0830d1ea2a1b78c61765c2513fdd8"
   end
 
   resource "gssapi" do
-    url "https://files.pythonhosted.org/packages/e4/4d/03fcc6a2d052920336069df97866d7b506556ed9f3a5ee2ca1e0cbad45d4/gssapi-1.7.2.tar.gz"
-    sha256 "748efbcf7cfb31183cd75e5314493e79fe3521b3ec00d090a77e23f7c75fa59d"
+    url "https://files.pythonhosted.org/packages/27/71/5110b5af9354e5eb66a30dbaa6bac2a5e3013057120544830a849dbd087b/gssapi-1.8.2.tar.gz"
+    sha256 "b78e0a021cc91158660e4c5cc9263e07c719346c35a9c0f66725e914b235c89a"
   end
 
   resource "imaplib2" do
@@ -49,8 +49,8 @@ class Offlineimap < Formula
   end
 
   resource "portalocker" do
-    url "https://files.pythonhosted.org/packages/38/2e/32172e8418f2ba284cee4fd67cb547d39a7debb3eed37d514da173786112/portalocker-2.3.2.tar.gz"
-    sha256 "75cfe02f702737f1726d83e04eedfa0bda2cc5b974b1ceafb8d6b42377efbd5f"
+    url "https://files.pythonhosted.org/packages/a6/5c/57ef8091f9f1d01bf5413fcd0fd1f2f255f45536e42bfd34bc45b6cc2786/portalocker-2.6.0.tar.gz"
+    sha256 "964f6830fb42a74b5d32bce99ed37d8308c1d7d44ddf18f3dd89f4680de97b39"
   end
 
   resource "rfc6555" do
