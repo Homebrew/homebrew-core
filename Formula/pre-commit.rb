@@ -20,7 +20,7 @@ class PreCommit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b08cce9e555890e9d84d0bd987ce9e9a3b87da1297c8bb6a728c17d3f59ed2c3"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
   depends_on "virtualenv"
@@ -61,7 +61,7 @@ class PreCommit < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -73,14 +73,14 @@ class PreCommit < Formula
     virtualenv_install_with_resources
 
     # we depend on virtualenv, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.10")
+    site_packages = Language::Python.site_packages("python3.11")
     virtualenv = Formula["virtualenv"].opt_libexec
     (libexec/site_packages/"homebrew-virtualenv.pth").write virtualenv/site_packages
   end
 
   # Avoid relative paths
   def post_install
-    xy = Language::Python.major_minor_version Formula["python@3.10"].opt_bin/python3
+    xy = Language::Python.major_minor_version Formula["python@3.11"].opt_bin/python3
     dirs_to_fix = [libexec/"lib/python#{xy}"]
     dirs_to_fix << (libexec/"bin") if OS.linux?
     dirs_to_fix.each do |folder|
