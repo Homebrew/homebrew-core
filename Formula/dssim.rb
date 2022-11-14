@@ -6,13 +6,13 @@ class Dssim < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb12b2add154282922168473a3ab67ebab8c49764697cf68192b50cba6c2bc86"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "67f00244823dc82399e3f8e81313c7a4c12cc4d22991feb0737fb59cd130bf07"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7bddee07ec4de319e79fc9bf3ed915e81f95125eb55d8e5cfaa207cbf0ede8ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "3006b3e0f9d29ce1070ad35088af491854f2863ae2d6e6f9e679a99c00bd1418"
-    sha256 cellar: :any_skip_relocation, big_sur:        "40db1b24a5ad785386acfe77fc03a5fede21a7439f0380c669d8cc3d00bb524c"
-    sha256 cellar: :any_skip_relocation, catalina:       "18fc00864e4e96bf493f0586aea7147bf07f1e880277169d03a0e960f733776b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e813b388548deb952c714d75847ae9a9ecd2bfb3a219a3a0fdfcf6fdcb2c8675"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4a216f56df26aff08e84ea6b81ec7761a79ccfd8ab140f0dd6fe62f389a183d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "152c13927b088e6f0ad1733e4540a6197a32dab7d674659cb966a95bda94316f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc115c42134e98b2b9fa537715a9af7b44bfc22de71cad41df6c3ae104be80bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "3026cc94e32968aa407186fbb3406f844228e82fb5c84d20b6a58753c1d943f3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "20defb82713908472254c03c45b25e4eb224fd703e1bed428809d930cfe5c138"
+    sha256 cellar: :any_skip_relocation, catalina:       "f1c5fdc878cf1eb50c934e1741ef86ddc70036bc389b01dd179a0ca339ce79d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6adec880587fce1266c753dc41af3f237eddf9709d225b9dc36184d9474f8a1"
   end
 
   depends_on "nasm" => :build
