@@ -16,6 +16,9 @@ class CstoreFdw < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dce4b860d7534d3701d8f78c0b4ba73ad48cbefa3b996b03e572c6469133ae5"
   end
 
+  # https://www.citusdata.com/blog/2021/03/06/citus-10-columnar-compression-for-postgres/
+  deprecate! date: "2021-03-06", because: "cstore_fdw has been integrated into Citus"
+
   depends_on "postgresql@13"
   depends_on "protobuf-c"
 
