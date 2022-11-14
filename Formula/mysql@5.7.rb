@@ -22,6 +22,9 @@ class MysqlAT57 < Formula
 
   keg_only :versioned_formula
 
+  # https://www.oracle.com/us/support/library/lifetime-support-technology-069183.pdf
+  deprecate! date: "2023-10-01", because: :unsupported
+
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
