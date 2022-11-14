@@ -18,16 +18,13 @@ class PodmanCompose < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "72422377ed110bc826a4b5a2c3af49b83867ad68518c014886fad15f0ba7acde"
   end
 
-  # Depends on the `podman` command, which the podman.rb formula does not
-  # currently install on Linux.
-  depends_on :macos
   depends_on "podman"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/02/ee/43e1c862a3e7259a1f264958eaea144f0a2fac9f175c1659c674c34ea506/python-dotenv-0.20.0.tar.gz"
-    sha256 "b7e3b04a59693c42c36f9ab1cc2acc46fa5df8c78e178fc33a8d4cd05c8d498f"
+    url "https://files.pythonhosted.org/packages/87/8d/ab7352188f605e3f663f34692b2ed7457da5985857e9e4c2335cd12fb3c9/python-dotenv-0.21.0.tar.gz"
+    sha256 "b77d08274639e3d34145dfa6c7008e66df0f04b7be7a75fd0d5292c191d79045"
   end
 
   def install
@@ -50,7 +47,8 @@ class PodmanCompose < Formula
 
     # If it's trying to connect to Podman, we know it at least found the
     # compose.yml file and parsed/validated the contents
-    assert_match "Cannot connect to Podman", shell_output("#{bin}/podman-compose up -d 2>&1", 1)
-    assert_match "Cannot connect to Podman", shell_output("#{bin}/podman-compose down 2>&1")
+    expected = OS.linux? ? "Error: cannot re-exec process" : "Cannot connect to Podman"
+    assert_match expected, shell_output("#{bin}/podman-compose up -d 2>&1", 1)
+    assert_match expected, shell_output("#{bin}/podman-compose down 2>&1")
   end
 end
