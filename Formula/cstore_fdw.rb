@@ -49,13 +49,10 @@ class CstoreFdw < Formula
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    pgsql_prefix = Formula["postgresql@13"].prefix.realpath
+    pgsql_prefix = Formula["postgresql@13"].prefix
     pgsql_stage_path = File.join("stage", pgsql_prefix)
     (lib/"postgresql@13").install (buildpath/pgsql_stage_path/"lib/postgresql").children
-
-    pgsql_opt_prefix = Formula["postgresql@13"].prefix
-    pgsql_opt_stage_path = File.join("stage", pgsql_opt_prefix)
-    share.install (buildpath/pgsql_opt_stage_path/"share").children
+    share.install (buildpath/pgsql_stage_path/"share").children
   end
 
   test do
