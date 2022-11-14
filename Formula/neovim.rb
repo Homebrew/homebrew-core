@@ -5,8 +5,8 @@ class Neovim < Formula
   head "https://github.com/neovim/neovim.git", branch: "master"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/v0.8.0.tar.gz"
-    sha256 "505e3dfb71e2f73495c737c034a416911c260c0ba9fd2092c6be296655be4d18"
+    url "https://github.com/neovim/neovim/archive/v0.8.1.tar.gz"
+    sha256 "b4484e130aa962457189f3dee34b8481943c1e395d2d684c6f8b91598494d9ec"
 
     # TODO: Consider shipping these as separate formulae instead. See discussion at
     #       https://github.com/orgs/Homebrew/discussions/3611
