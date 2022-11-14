@@ -11,13 +11,13 @@ class Ddh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1392db6c0e04ad3bcbec85f5c5ed77cd74a8b85a28ccc1c4cbe72d22b5f64410"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bddfd92127ffb3ef31b00d86ec550206148c166d1c06482598377d994c4bc373"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4623ac62b866bfe712e7a773913868d2c8d961e90817a7bf71d4ba215c331aa3"
-    sha256 cellar: :any_skip_relocation, monterey:       "5e34e90440cbaedafa0d6a6d5f1c31ab39c237b97f2622cea06343aef091dcf6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5a297fb91f7a38ea49776e3c74815fe9163087e29aaeac6dd573e9aa8e727102"
-    sha256 cellar: :any_skip_relocation, catalina:       "5ff60c70bc0f14279c88ca8d9169801c2ba9e6b9fd23034c36241c13acdcfcc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a74d6464ee92da9d5b8c5a979a8b86a53dd54f7677a4d7a1ca6e5ca9b8df96db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "572994664d86a2abf9505e70949230fa17b613dc7e594425f58a21ea7eb749f1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "073c663ddac4ba5e99753ce7e281dc9c3fc6d575cc8b4ef2490e6fa99cd1a6eb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f5f09cae94b0d72be22b34cd17a879a15cf7e2d69460af1a384e82a30ef963e"
+    sha256 cellar: :any_skip_relocation, monterey:       "029526e26902af6c10c161f6558b088f3eab0adebdcf6f0f10cd2abca092e053"
+    sha256 cellar: :any_skip_relocation, big_sur:        "49eb05e9c24cbbfd4c8483046102211c865b95c218bce76269a48a3b5440584b"
+    sha256 cellar: :any_skip_relocation, catalina:       "74c576492d6d3809831b378c382e885b05425eda763b280ab17fa5cafb222a08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "119fff1c3e34608d859d79aef5a4958176a9685000f7686941bf6b26d5f3f5c6"
   end
 
   depends_on "rust" => :build
