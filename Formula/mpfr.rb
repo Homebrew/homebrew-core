@@ -38,6 +38,23 @@ class Mpfr < Formula
     end
   end
 
+  livecheck do
+    url "https://www.mpfr.org/mpfr-current/"
+    regex(/href=.*?mpfr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :page_match do |page, regex|
+      version = page.scan(regex).map { |match| Version.new(match[0]) }.max&.to_s
+      next if version.blank?
+
+      patch = page.scan(%r{href=["']?/?patch(\d+)["' >]}i)
+                  .map { |match| Version.new(match[0]) }
+                  .max
+                  &.to_s
+      next version if patch.blank?
+
+      "#{version}-p#{patch}"
+    end
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "dc15dfe27723d98db1993901a221b2647f9fa239afec236100c5b39ec8dbe35c"
     sha256 cellar: :any,                 arm64_monterey: "57c5c5b16ed462b28c2691c8284bdd6849cf668b190a59cc6e1cdb1971f57ce2"
@@ -49,7 +66,7 @@ class Mpfr < Formula
   end
 
   head do
-    url "https://gitlab.inria.fr/mpfr/mpfr.git"
+    url "https://gitlab.inria.fr/mpfr/mpfr.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
