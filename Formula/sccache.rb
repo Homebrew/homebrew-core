@@ -7,14 +7,13 @@ class Sccache < Formula
   head "https://github.com/mozilla/sccache.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d528f930c12552dc388d49750ba12be7dc92e3c20faa5b1da740aa4e5cafe7b8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "03a2718de73604db1bb56de5d585fb61b5d6d2c8a7eb16c066124cd3d476bd23"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c13133e66ad27fb4bfc33cdfec0b567c30bf198582e6efb0b7531f598eef6d80"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae8579e33a6b89749bf11d7853911ad09e061e442a580f6f842afed2b31bd99e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f029209a8e6c5621a9470e77f5d262aa90550b5a8eae847268dbc8fcf4da84d0"
-    sha256 cellar: :any_skip_relocation, catalina:       "1d01fc0f2cf10b9d70836ecf04b63f88e118ee7e5aae12db60a22b1a7e923299"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f216377a2f2f7264425125ba4e355595742c1335c3844930493dd4737a4f4c0d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "118a7e2b868bfbc32770e08d334907aaf4263af0393b31f170334733e3a645f1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c2bb1cfc38a11498232c978801918c7eb57dcafc0e57e28a18570fcfe755cdf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b312d160cddb1199804abe42fea4904c761e34b1cf72d8f201dd5a805b2770a0"
+    sha256 cellar: :any_skip_relocation, monterey:       "4c733f99c6a3188d6498013a1c6a57f6eb44fe5cc8fea1ca453b5f11b0b357f8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "65384a2ac93a97f0b80d541d238276f37c268a763d0d3b9b3eea01bdd9c37fe8"
+    sha256 cellar: :any_skip_relocation, catalina:       "ad2670b6db38a44618a9665407e01bf158c0b3d609d6deec74f542ef781a565b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb8a0ea26e0a238e7c716c5d1873a0c78b186168384455df4368e8832e99ba17"
   end
 
   depends_on "rust" => :build
