@@ -1,8 +1,8 @@
 class Ki18n < Formula
   desc "KDE Gettext-based UI text internationalization"
   homepage "https://api.kde.org/frameworks/ki18n/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.99/ki18n-5.99.0.tar.xz"
-  sha256 "1544dd5a002a2376f1018fee619ae2de861cd900cec312fade09e6a6943ef8ad"
+  url "https://download.kde.org/stable/frameworks/5.100/ki18n-5.100.0.tar.xz"
+  sha256 "de63f1d6b86591eff69c502c8d247d6d86494abdd1d179ea84855c3678b30f01"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.0-or-later",
@@ -31,7 +31,7 @@ class Ki18n < Formula
   depends_on "doxygen" => :build
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "graphviz" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "gettext"
   depends_on "iso-codes"
   depends_on "qt@5"
