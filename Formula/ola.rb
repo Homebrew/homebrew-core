@@ -26,7 +26,7 @@ class Ola < Formula
   depends_on "libusb"
   depends_on "numpy"
   depends_on "protobuf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -38,7 +38,7 @@ class Ola < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -47,9 +47,7 @@ class Ola < Formula
 
     args = %W[
       --disable-fatal-warnings
-      --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
       --disable-unittests
       --enable-python-libs
       --enable-rdm-tests
@@ -58,8 +56,8 @@ class Ola < Formula
     ]
 
     ENV["PYTHON"] = python3
-    system "autoreconf", "-fvi"
-    system "./configure", *args
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
