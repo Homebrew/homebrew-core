@@ -11,15 +11,13 @@ class Makedepend < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ce7360e0dd0d6a2b2f1df05887a099affdb7b3be753f1203d9359905d1ec722"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d3ba9a11afac0d23fff0d1e79cb26213a90fa4bc2d07cc1405ec7f1f514bf18a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be8d84dee070f1d7da53aa291443b056136e67906ff29368ba56366d00b5dfc2"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc6729e97faabd935de5a8356c00307a39a20c3f037cf67cf09cce9819b392fd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8be31010fad5fc4f86055643bfd592123dbd68ebb4780458dbc40004709504a8"
-    sha256 cellar: :any_skip_relocation, catalina:       "afe76789b5f01ccfee8cc0d4ffa308015fb5d8791a1d7ce6b2dc1ee4bf2a020f"
-    sha256 cellar: :any_skip_relocation, mojave:         "a25fb9fd3ce11f6b98da2c53fad8f046174697087f5f34664999afb9df5f41de"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "0f463e197923867ff9387b2ccd1461d4b410e89205bd3896ae98c5d52679c4c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "740fb92a5e60c325afab7552e81f4b738a833bddf75f11c0efc5f9cda2ca492f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7db435d623d3f12d3664338ef9f32c445438260054ec10593d24645d8018105"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "632a49fb2a96ada364872848c82d4de60ac2847eecefc43b5e9d0a7f16af20e8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f3ad09b4aa6533501515ba172cae3bffca8dfb7076c080332b27a1ae997f676"
+    sha256 cellar: :any_skip_relocation, monterey:       "86aa1e7c97901369724cbba722ec3e44e47596a6f99f43925515bddda3cdb55c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "40d75eb41d75585be1db186162d1cfad4d2d1e5ba16564ce89d1945395531013"
+    sha256 cellar: :any_skip_relocation, catalina:       "1819aa4bd7a1afaf0f19658019b655f1390ee17bd524fe8de8424d7599d85e17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dbe095db8dcc3ea6f2de966ca23b3950d01e4b740479b897af2a7d4d8ba8e8f"
   end
 
   depends_on "pkg-config" => :build
