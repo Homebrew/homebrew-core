@@ -78,10 +78,13 @@ class MysqlAT57 < Formula
       -DWITH_UNIT_TESTS=OFF
       -DWITH_EMBEDDED_SERVER=ON
       -DENABLED_LOCAL_INFILE=1
-      -DWITH_INNODB_MEMCACHED=ON
     ]
 
-    args << "-DENABLE_DTRACE=0" if OS.linux?
+    args << if OS.mac?
+      "-DWITH_INNODB_MEMCACHED=ON" # InnoDB memcached plugin build fails on Linux
+    else
+      "-DENABLE_DTRACE=0"
+    end
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"
