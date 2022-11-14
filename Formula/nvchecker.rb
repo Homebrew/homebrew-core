@@ -17,8 +17,8 @@ class Nvchecker < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "236fdb5022b3b5e7d9d7c430b7efdca42c3b50394ab9fc7639330045bb096a24"
   end
 
-  depends_on "jq" => [:test]
-  depends_on "python@3.10"
+  depends_on "jq" => :test
+  depends_on "python@3.11"
 
   uses_from_macos "curl"
 
