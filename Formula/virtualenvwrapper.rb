@@ -20,7 +20,7 @@ class Virtualenvwrapper < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f6de08b9ad1797786a4383706e8c5f99e6c53f98ea8a6a1d83238568612fa71"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "virtualenv"
 
@@ -45,7 +45,7 @@ class Virtualenvwrapper < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     venv.pip_install buildpath
