@@ -24,13 +24,13 @@ class YelpTools < Formula
   depends_on "pkg-config" => :build
   depends_on "itstool"
   depends_on "libxml2"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "libxslt"
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/3b/94/e2b1b3bad91d15526c7e38918795883cee18b93f6785ea8ecf13f8ffa01e/lxml-4.8.0.tar.gz"
-    sha256 "f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23"
+    url "https://files.pythonhosted.org/packages/70/bb/7a2c7b4f8f434aa1ee801704bf08f1e53d7b5feba3d5313ab17003477808/lxml-4.9.1.tar.gz"
+    sha256 "fe749b052bb7233fe5d072fcb549221a8cb1a16725c47c37e42b0b9cb3ff2c3f"
   end
 
   resource "yelp-xsl" do
@@ -39,7 +39,7 @@ class YelpTools < Formula
   end
 
   def install
-    python = "python3.10"
+    python = "python3.11"
 
     venv = virtualenv_create(libexec, python)
     venv.pip_install resource("lxml")
