@@ -1,8 +1,8 @@
 class Open62541 < Formula
   desc "Open source implementation of OPC UA"
   homepage "https://open62541.org/"
-  url "https://github.com/open62541/open62541/archive/refs/tags/v1.3.3.tar.gz"
-  sha256 "52c049c0f107b4cc382c9e480d677a6360cdd96c472f84689af91b423bd108cb"
+  url "https://github.com/open62541/open62541/archive/refs/tags/v1.3.4.tar.gz"
+  sha256 "3489cfa2f98c52df252adc8e641a9e59cb675bdfd5ef413b0d947e667cddd16d"
   license "MPL-2.0"
 
   livecheck do
@@ -21,7 +21,7 @@ class Open62541 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   def install
     cmake_args = %w[
