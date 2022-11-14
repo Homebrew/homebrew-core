@@ -1,8 +1,8 @@
 class Dssim < Formula
   desc "RGBA Structural Similarity Rust implementation"
   homepage "https://github.com/kornelski/dssim"
-  url "https://github.com/kornelski/dssim/archive/3.2.3.tar.gz"
-  sha256 "f536e2b798d1731f2bc3575c4c2283a25a02e092d22ea6a25c3c3a6a84564bac"
+  url "https://github.com/kornelski/dssim/archive/3.2.4.tar.gz"
+  sha256 "f58d834876ebcc8e5f21e94e0db42b173d2bea600642cbbbb6dab16a6b5d7537"
   license "AGPL-3.0-or-later"
 
   bottle do
