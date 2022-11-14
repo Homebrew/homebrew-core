@@ -6,6 +6,7 @@ class Virtualenv < Formula
   url "https://files.pythonhosted.org/packages/2b/dc/be4da7a7fea4e8c3612a4f1901efc694b4f5f1c30179518ffef88c5f8dde/virtualenv-20.16.7.tar.gz"
   sha256 "8691e3ff9387f743e00f6bb20f70121f5e4f596cae754531f2b3b3a1b1ac696e"
   license "MIT"
+  revision 1
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
   bottle do
@@ -19,7 +20,7 @@ class Virtualenv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "79ee553b651153dfb855d23ef29656d7705a185940ed79a0834031357e460ffe"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "distlib" do
     url "https://files.pythonhosted.org/packages/58/07/815476ae605bcc5f95c87a62b95e74a1bce0878bc7a3119bc2bf4178f175/distlib-0.3.6.tar.gz"
