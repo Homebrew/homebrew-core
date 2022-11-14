@@ -11,13 +11,13 @@ class Open62541 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3603beebc4a8e60c485ee5c9b5351c78877c5c30e2a5fab79d56320b41d8ebe8"
-    sha256 cellar: :any,                 arm64_monterey: "3b90f3197319fc805c95e69a4d799bf1f2f55e9196659e31616be7daae5925e0"
-    sha256 cellar: :any,                 arm64_big_sur:  "87413da0058cdb3979d7615ce2e4c05b5099c5a3a8885eaf720bb8e35d1bac70"
-    sha256 cellar: :any,                 monterey:       "4b7c16700c7bebd1b82661c65de8ac7339c77923b0b8f67bdb0c081eaf98dbd1"
-    sha256 cellar: :any,                 big_sur:        "3e1da93619f98eca294d208a10e8efa6a8b4b892edc9d3b58c672e35c9bf5384"
-    sha256 cellar: :any,                 catalina:       "fc998f5e579a05c37b4c5657339aae3ee1ff0405f17fa847d72a8881679e9e3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39d0747e1d15e9bbb3b14da2e9cb2c1cbfb42ab86f3fb6cb830491922654e77b"
+    sha256 cellar: :any,                 arm64_ventura:  "85293f5e208ac641c186a906b7a841489b4bd38d02b443acc5c4398bf9ab1eca"
+    sha256 cellar: :any,                 arm64_monterey: "07478af723841eb386d0a00d3f202fa565bf307adec029732743fe913e4972fe"
+    sha256 cellar: :any,                 arm64_big_sur:  "e3297ff0fe53a3f1f09d24aaac946724e436e5748605b367aa223de7328a7a84"
+    sha256 cellar: :any,                 monterey:       "600fd9b32911885b3587583f174c65c2f35f5d09488b327f17248155ded73e90"
+    sha256 cellar: :any,                 big_sur:        "561390143dc08bb6c8e1daea0bc0f1b1fb6fa05a3582d2c77983f734d90bde5a"
+    sha256 cellar: :any,                 catalina:       "3480fc2987acf0c6ed31a7e2ca2e097387fbc975a242ca5df45a1f3e6e088135"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cb186e44edfd0827e567f2da9eee0e185bb77743622990d8db36c014554241e"
   end
 
   depends_on "cmake" => :build
