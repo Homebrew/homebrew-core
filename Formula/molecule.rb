@@ -20,10 +20,9 @@ class Molecule < Formula
   depends_on "rust" => :build
   depends_on "ansible"
   depends_on "cookiecutter"
-  depends_on "jsonschema"
   depends_on "openssl@1.1"
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -37,6 +36,11 @@ class Molecule < Formula
   resource "ansible-compat" do
     url "https://files.pythonhosted.org/packages/e7/20/3cbc78afd3bee6a30b95506819b57e70e4e12c3c69da4de35ce2dd03a216/ansible-compat-2.2.1.tar.gz"
     sha256 "7a012753a0a02dab2f22b0e574e3e7b00399f660606154474ffe25621fa80d3b"
+  end
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
   end
 
   resource "click-help-colors" do
@@ -69,6 +73,13 @@ class Molecule < Formula
     sha256 "0a2ab0d2931dff8947012602d1234d2a3ee002d9a355b5d70be6bf5466008893"
   end
 
+  # TODO: switch this to `depends_on "jsonschema"`
+  # after the `jsonschema` formula has migrated to `python@3.11`
+  resource "jsonschema" do
+    url "https://files.pythonhosted.org/packages/3a/3d/0653047b9b2ed03d3e96012bc90cfc96227221193fbedd4dc0cbf5a0e342/jsonschema-4.17.0.tar.gz"
+    sha256 "5bfcf2bca16a087ade17e02b282d34af7ccd749ef76241e7f9bd7c0cb8a9424d"
+  end
+
   resource "molecule-vagrant" do
     url "https://files.pythonhosted.org/packages/ae/6c/419f7aebe62d9cf523245c59a02dd79290f38408ac5a80e80fcd389863f8/molecule-vagrant-1.0.0.tar.gz"
     sha256 "fc1e988147226ada8288475b768c52a37366c8b50d30b91635cacfc64e1468c3"
@@ -87,6 +98,11 @@ class Molecule < Formula
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
     sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
+  end
+
+  resource "pyrsistent" do
+    url "https://files.pythonhosted.org/packages/19/fb/845ff3b943ede86c69e62c9b47c0e796838552de38fc93d2048fc65ba161/pyrsistent-0.19.1.tar.gz"
+    sha256 "cfe6d8b293d123255fd3b475b5f4e851eb5cbaee2064c8933aa27344381744ae"
   end
 
   resource "python-vagrant" do
@@ -117,8 +133,9 @@ class Molecule < Formula
   def install
     virtualenv_install_with_resources
 
-    site_packages = Language::Python.site_packages("python3.10")
-    %w[cookiecutter jsonschema].each do |package_name|
+    site_packages = Language::Python.site_packages("python3.11")
+    # TODO: add `jsonschema` to this list after it has migrated to python@3.11
+    %w[cookiecutter].each do |package_name|
       package = Formula[package_name].opt_libexec
       (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
     end
