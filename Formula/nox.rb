@@ -18,7 +18,7 @@ class Nox < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f768d9fa8f456dec9528dc58e83d0be10094a2634df02b5ace12271291c7736c"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "virtualenv"
 
@@ -67,7 +67,7 @@ class Nox < Formula
     (bin/"tox-to-nox").unlink
 
     # we depend on virtualenv, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.10")
+    site_packages = Language::Python.site_packages("python3.11")
     virtualenv = Formula["virtualenv"].opt_libexec
     (libexec/site_packages/"homebrew-virtualenv.pth").write virtualenv/site_packages
   end
