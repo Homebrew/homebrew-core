@@ -12,13 +12,13 @@ class Ehco < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "423e035256cb6d8792ad919f69ca30791b4c421421af8cc82f4e7e7ff269cb8c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "24d028b47e3f21743bb8e9ae6f02c60247806d7657e140ce4ba25c254e31f832"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "285974a17e80b0dc06803316d71f694ef0e0cef7449641e76738b18768b7f9a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "955b7bcfb6681ca0c733d02afcb50bf848d340c9f74b3ff01733160e585581e9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c3081decea0e987e9115f3a0e67412372eb2fb7d6301992a62f3c3040bdd0bea"
-    sha256 cellar: :any_skip_relocation, catalina:       "ca1802dc805cfe09c4ab7a06ab27592cf46c83eb708af4c399c35627af2a099b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b78ea30d2249f5c29e3642016edc43fde0e2ae4895cb6b7ae7ff80ef6e108a92"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "adc2421757412baad839943b30e3bd213b52f1171771881b211926506174b1e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ecd00961cfe17e5062878d61d3fa2553a659c43a2e1712f355a6ff706f2ed38"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "10eb331567404c720188b82e8d8e0f11471af79ce6798370eac2d1d3ab47f59e"
+    sha256 cellar: :any_skip_relocation, monterey:       "e240c690c54ed6a593b6a56414c5b0c134336487ab5c4f10cd39ecf139e2eac1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a82d6204833781c529f828e61833a5a62aaaa06bee39bc417f3749d7da429ac3"
+    sha256 cellar: :any_skip_relocation, catalina:       "a34305a19622c8cf08f7992bc34e0b47202fb35a7187e7c90b50055613457252"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "566974576744f5056e4a7d4f5d3b14b0b6a4af3f25a8751f5fa5c1cf901c6e83"
   end
 
   # quic-go needs to be updated to use go@1.19
