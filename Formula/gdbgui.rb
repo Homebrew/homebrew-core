@@ -3,10 +3,9 @@ class Gdbgui < Formula
 
   desc "Modern, browser-based frontend to gdb (gnu debugger)"
   homepage "https://www.gdbgui.com/"
-  url "https://files.pythonhosted.org/packages/4b/67/63e55e2fde8628603326e5a9f1882bf831f49b2feaa966aee602fced77ae/gdbgui-0.15.0.1.tar.gz"
-  sha256 "6f0ae578b9f7181c783227b692e8ed694a3e5c200b33e8512f2488644465060d"
+  url "https://files.pythonhosted.org/packages/d2/95/1a5d6fff8e4c8458b314dd5175944579a0f6233f963c657bc5d3c6b2f3b2/gdbgui-0.15.1.0.tar.gz"
+  sha256 "61c0f7a26ecdeb275d9b4d88b7afdf8d70ec5471b40ace3a7dd1a87f43cc2573"
   license "GPL-3.0-only"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "41aa20f182812d4b36a9a3787248b2e6f2eb6bd280f4dec5b51765efce060bd6"
@@ -17,7 +16,8 @@ class Gdbgui < Formula
 
   depends_on arch: :x86_64 # gdb is not supported on macOS ARM
   depends_on "gdb"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+  depends_on "six"
 
   resource "bidict" do
     url "https://files.pythonhosted.org/packages/bd/7c/83fbbc8568be511bc48704b97ef58f67ff2ab85ec4fcd1dad12cd2323c32/bidict-0.21.2.tar.gz"
@@ -34,6 +34,16 @@ class Gdbgui < Formula
     sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
   end
 
+  resource "dnspython" do
+    url "https://files.pythonhosted.org/packages/99/fb/e7cd35bba24295ad41abfdff30f6b4c271fd6ac70d20132fa503c3e768e0/dnspython-2.2.1.tar.gz"
+    sha256 "0f7569a4a6ff151958b64304071d370daa3243d15941a7beedf0c9fe5105603e"
+  end
+
+  resource "eventlet" do
+    url "https://files.pythonhosted.org/packages/12/c9/898ab514f82fb8f9a5a37a36c44a798c023fc42d6de863ad940861222ad4/eventlet-0.33.0.tar.gz"
+    sha256 "80144f489c1bb273a51b6f96ff9785a382d2866b9bab1f5bd748385019f4141f"
+  end
+
   resource "Flask" do
     url "https://files.pythonhosted.org/packages/c0/df/c516b5f38a670b6b0de604c2637ed5860db03692c2f8542fd1f60c2552a7/Flask-2.0.1.tar.gz"
     sha256 "1c4c257b1892aec1398784c63791cbaa43062f1f7aeb555c4da961b20ee68f55"
@@ -47,6 +57,11 @@ class Gdbgui < Formula
   resource "Flask-SocketIO" do
     url "https://files.pythonhosted.org/packages/5f/a5/5c03d62fdbdf0343345c8cca19d4961d8958eba54449230df2b0080b7011/Flask-SocketIO-5.1.1.tar.gz"
     sha256 "1efdaacc7a26e94f2b197a80079b1058f6aa644a6094c0a322349e2b9c41f6b1"
+  end
+
+  resource "greenlet" do
+    url "https://files.pythonhosted.org/packages/a0/d5/70772b3693f086a362f122516225a43fe4f1182e17158c81ba1ab271ab9b/greenlet-1.1.3.tar.gz"
+    sha256 "bcb6c6dd1d6be6d38d6db283747d07fda089ff8c559a835236560a4410340455"
   end
 
   resource "itsdangerous" do
@@ -98,9 +113,6 @@ class Gdbgui < Formula
     port = free_port
 
     fork do
-      # Work around a gevent/greenlet bug
-      # https://github.com/cs01/gdbgui/issues/359
-      ENV["PURE_PYTHON"] = "1"
       exec bin/"gdbgui", "-n", "-p", port.to_s
     end
     sleep 3

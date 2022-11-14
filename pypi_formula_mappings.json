@@ -229,6 +229,9 @@
   "gcalcli": {
     "exclude_packages": ["six"]
   },
+  "gdbgui": {
+    "exclude_packages": ["six"]
+  },
   "gimme-aws-creds": {
     "package_name": "gimme-aws-creds",
     "exclude_packages": ["six"],
