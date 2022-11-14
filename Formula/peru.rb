@@ -18,7 +18,7 @@ class Peru < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "df6a4c2c805a4cb3f0d5077dce0bcf677ec9dce176ccfd6f88bbf03d4f79c085"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   resource "docopt" do
@@ -29,7 +29,7 @@ class Peru < Formula
   def install
     # Fix plugins (executed like an executable) looking for Python outside the virtualenv
     Dir["peru/resources/plugins/**/*.py"].each do |f|
-      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.10"
+      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.11"
     end
 
     virtualenv_install_with_resources
