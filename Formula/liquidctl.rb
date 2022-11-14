@@ -21,7 +21,7 @@ class Liquidctl < Formula
   depends_on "hidapi"
   depends_on "libusb"
   depends_on "pillow"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   on_linux do
     depends_on "i2c-tools"
@@ -57,7 +57,7 @@ class Liquidctl < Formula
     ENV["DIST_NAME"] = "homebrew"
     ENV["DIST_PACKAGE"] = "liquidctl #{version}"
 
-    python3 = "python3.10"
+    python3 = "python3.11"
     venv = virtualenv_create(libexec, python3)
 
     resource("hidapi").stage do
