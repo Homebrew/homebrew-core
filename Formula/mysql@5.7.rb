@@ -1,8 +1,8 @@
 class MysqlAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.39.tar.gz"
-  sha256 "8206d24cb93c52d900ce67cd50618331a4cc071c0040b3a72bcb4b94fa45468f"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.40.tar.gz"
+  sha256 "e2a93d90e5773286efb71cb34cab0d51cd70d35e71c24c71eaa5df45f4b2de87"
   license "GPL-2.0-only"
 
   livecheck do
@@ -26,13 +26,18 @@ class MysqlAT57 < Formula
   deprecate! date: "2023-10-01", because: :unsupported
 
   depends_on "cmake" => :build
+  depends_on "libevent"
+  depends_on "lz4"
   depends_on "openssl@1.1"
+  depends_on "protobuf"
 
+  uses_from_macos "curl"
+  uses_from_macos "cyrus-sasl"
   uses_from_macos "libedit"
-  uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "libtirpc"
   end
 
   def datadir
