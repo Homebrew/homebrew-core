@@ -37,13 +37,13 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "77154829a3e517984e4c4786003c64cfa8561ee69f31850f470fe2835121f4f0"
-    sha256 arm64_monterey: "b42a40c540d193cd092734fd9900afae15116768b4da5cf7d950476db03ac520"
-    sha256 arm64_big_sur:  "f2ca9de076bb8f12352ca1776e0d83bc0d04741952a033309bbd1b9d4acb2e19"
-    sha256 monterey:       "837d0e3cf3e7ae8c806fc59ff1ba2387dac8a28fc78436fc64ec77b12c37523a"
-    sha256 big_sur:        "20823db139b41be6aa684566da906de54ce8085a3ad05fcfe5d971df185cd213"
-    sha256 catalina:       "48e0c4ef80cdd70e00f358c656c13a25fa87d4abd39ed91a82422887adb92526"
-    sha256 x86_64_linux:   "deab09654ad8cc590c3e8e06ad0931626eece97c6ed9e0bdefa1947c267e9e74"
+    sha256 arm64_ventura:  "4c82c70e9edfc82ba030806a4c2184a6d836fa6d88045252fa3fbc299aaa3184"
+    sha256 arm64_monterey: "ecd36021ba3421157c3a89fb03debf2fa89db38f5cc2f204183ae6230e638817"
+    sha256 arm64_big_sur:  "3c2e4769053b9ed9201752b4f875a687d3d483262020d22c6acb0b429fb4e1a7"
+    sha256 monterey:       "82cec22a2ed30ef8297bc27516a74b006dde3eab1076618d5489beba9a78bd53"
+    sha256 big_sur:        "da00d8207ee0d8180b8ba7ac8fe2125284e4ee15c8a93e15fa7337bbbca5664c"
+    sha256 catalina:       "c497ba9b034064836dd67ce3605d66288845e2b7e2dad2306566302173118c40"
+    sha256 x86_64_linux:   "9ae3ad067badcd02856564a7f91b18bce61f022934e933bab78e7e3a9f447583"
   end
 
   depends_on "cmake" => :build
