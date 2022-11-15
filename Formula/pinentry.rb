@@ -15,6 +15,7 @@ class Pinentry < Formula
     sha256 cellar: :any,                 arm64_ventura:  "bf9663328a2b2d04479530fd7aa6053a3bf83c2f33ba1258d8eaafb94bb84060"
     sha256 cellar: :any,                 arm64_monterey: "5a929b4926da533a676b19d3cb1225b796a4046e08fd922a9784422b67dff29d"
     sha256 cellar: :any,                 arm64_big_sur:  "6648d2c2231940d6d1543f934045c6d172a68cbec3653ff70ca63c4281f047ae"
+    sha256 cellar: :any,                 ventura:        "b2f9200f41078da0b832121d708367b3c42116c11bf306851580f16541cc145f"
     sha256 cellar: :any,                 monterey:       "14dd6cb2c084a534214607f68d0876035f8e8aaeb452c374aa41adbe0231511a"
     sha256 cellar: :any,                 big_sur:        "51144f3f5a2eacd6c13e34d44975d025981c38c1815dc4d7cbd062ddbe23e12a"
     sha256 cellar: :any,                 catalina:       "df23306e11505b962ab871fd30f1cd6e1694440ede2a9692a68e4ae2da1569c0"
