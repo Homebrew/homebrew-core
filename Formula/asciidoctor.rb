@@ -9,6 +9,7 @@ class Asciidoctor < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "966b2a1a8e474335aaee4a1514b60798cd228460e2fd16ca361b34cc5327050b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "966b2a1a8e474335aaee4a1514b60798cd228460e2fd16ca361b34cc5327050b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "acdef05b142ea26ac82e9bbf814e7caeeb2e91c34c73d028470c19ab49170bca"
+    sha256 cellar: :any_skip_relocation, ventura:        "838217c6bd960cab0b8cee9f32b2b668c6744b52f7bf3302b788d067a0ff9861"
     sha256 cellar: :any_skip_relocation, monterey:       "838217c6bd960cab0b8cee9f32b2b668c6744b52f7bf3302b788d067a0ff9861"
     sha256 cellar: :any_skip_relocation, big_sur:        "9ebc210dafcb38de14b1481019e74ad092bbe68cd4165418dd6724b706edf534"
     sha256 cellar: :any_skip_relocation, catalina:       "9ebc210dafcb38de14b1481019e74ad092bbe68cd4165418dd6724b706edf534"
