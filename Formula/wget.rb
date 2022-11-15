@@ -9,6 +9,7 @@ class Wget < Formula
     sha256 arm64_ventura:  "fb2b2297226438cf2e9af9f1cf94f450730fc515eace8e21dd2db03700e77629"
     sha256 arm64_monterey: "fc83eec77acee50d2d7ce3bb0cca08d80acccc148e909921de42e57dd5fc7f3d"
     sha256 arm64_big_sur:  "a0c491ae7de2b722320efa94704567e36f3a0bd04bd946b1431ecbd1bcbfb899"
+    sha256 ventura:        "e7c2473d1ad12f24fcfa2a2de2eea915e478f5b0204c153daa00b7d3f440b7ab"
     sha256 monterey:       "aa706c58ae7e97abf91be56e785335aff058c431f9973dffac06aacbea558497"
     sha256 big_sur:        "b90e0d7a4319ccdb18ee0c2ed097e9cddeeceaaf70dc0a785d96b4ba69dbeb54"
     sha256 catalina:       "2aadef5aae81ecdd7e28bc9a776adcf0eaa393edae904e0c69740a442b7a3e69"
