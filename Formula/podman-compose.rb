@@ -47,7 +47,8 @@ class PodmanCompose < Formula
 
     # If it's trying to connect to Podman, we know it at least found the
     # compose.yml file and parsed/validated the contents
-    assert_match "Cannot connect to Podman", shell_output("#{bin}/podman-compose up -d 2>&1", 1)
-    assert_match "Cannot connect to Podman", shell_output("#{bin}/podman-compose down 2>&1")
+    expected = OS.linux? ? "Error: cannot re-exec process" : "Cannot connect to Podman"
+    assert_match expected, shell_output("#{bin}/podman-compose up -d 2>&1", 1)
+    assert_match expected, shell_output("#{bin}/podman-compose down 2>&1")
   end
 end
