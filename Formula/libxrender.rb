@@ -9,6 +9,7 @@ class Libxrender < Formula
     sha256 cellar: :any,                 arm64_ventura:  "211f41e664d83f68df02764690f151714704fcfeb3ab75478d52720d8c5015ef"
     sha256 cellar: :any,                 arm64_monterey: "fc2e9e34f51fbc1b9a0650084d6aa43d60b4c285d2b21cfcbdf9ae77be4472fb"
     sha256 cellar: :any,                 arm64_big_sur:  "46243f05a17674c00950dddc105b33aa479af7d605533d1aeada27d4d89d4275"
+    sha256 cellar: :any,                 ventura:        "887c5c72fe075f1b7898c42664a3609fd92df4568e91f25c3ffadce625ec407e"
     sha256 cellar: :any,                 monterey:       "6b5d5e53d3f001a196b0e8ee0df7db0190885d1fb9e45dd0e57f9d7353f1a783"
     sha256 cellar: :any,                 big_sur:        "65fbad7a9da818086574a40880db58c8f2457db77aee1982d141cd09dad7e3a9"
     sha256 cellar: :any,                 catalina:       "cb7f48876d362f919ed1c34ece8ec5abb16f6e414a6119655e3948fffab5dfab"
