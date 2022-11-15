@@ -7,13 +7,13 @@ class Dune < Formula
   head "https://github.com/ocaml/dune.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "918087c28422910261976d35156b5ab7d934c25440c25c4a65dc6bbb12f10cfd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea8f259ab642298f3b3e735a8b7df121fde135692a67bbc1835d07b2ef2a78d9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b5ec8711e1063a0ed73e0c2ed13e5f24ee28dc1ca07881b4144b97f4015bf70"
-    sha256 cellar: :any_skip_relocation, monterey:       "d91fa1fb8eacd4b408406101d7c33779046ece82834acaf1c46547b0c826c240"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cb8efaba38fd8b058444458c9ac157eaea4654a49d58e91a828d0cfc7d11264f"
-    sha256 cellar: :any_skip_relocation, catalina:       "177a8e27fbb16f47042906471ebb7a86d3ec1f0c6edbd58346451c9b2ae66ee0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bcad72709deb5417e4d7a6ebfea69e0041714809c14a7e2bd42faf2186d31c4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc7ca18795879410361412bdc23ec4ae8e6c3c55cc9b291870b1c378010dff05"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3813b72cf17d2942880d1d8cc33f6e3b5a1793fb7f44cbed70e43b7e81ce91eb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83a738bd9188651817af6c57cd3e87237a041c30f5ae9d6de94e4b40d88e7c5c"
+    sha256 cellar: :any_skip_relocation, monterey:       "e2a54dede98302ea2db6013b1faaa2aba3b8fac81651599de1d662bd8eaee3f6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ced6ed82ae781a9e52721e64feefe6332dff18f857a2bcbc92d65096ab7180cc"
+    sha256 cellar: :any_skip_relocation, catalina:       "23819c33eafc9509dd57b502dbec0e6e8bf0e54a2da48416eb04c273d2caa6aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7498cb744abd964e63d35e4af31e5a6d0702190ef83ac5900924e67f7daed547"
   end
 
   depends_on "ocaml" => [:build, :test]
