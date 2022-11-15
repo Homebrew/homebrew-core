@@ -20,6 +20,7 @@ class Xz < Formula
     sha256 cellar: :any, arm64_ventura:  "eba036dbf118e9d568f0e16a9a88c4b957a9f296434c23bf3b77e0ea81fe44c9"
     sha256 cellar: :any, arm64_monterey: "b3e7a5b4f97b75c5c00915acaa4f2a2bad2349e481cdf943c88caf2f9dbc8776"
     sha256 cellar: :any, arm64_big_sur:  "25f809e0aebb715870b36acfa6ef04be488b0b351521cb7a372c26c28363ea4e"
+    sha256 cellar: :any, ventura:        "07954af8750100bf0f0bc48ae24557f1bd298dc7cd3873f395142759b2d7493b"
     sha256 cellar: :any, monterey:       "02ed422191f81ca5c476f82264b6662a1ebcf95b90fb3ee10b52462cccdc55a8"
     sha256 cellar: :any, big_sur:        "caab4b755676f1dd4dd3e84da8ad0e86a302768d53af9bbe75dc9b72413e29a9"
     sha256 cellar: :any, catalina:       "769a180d3e9ea3d792f9cb166a4439a9d6f08154a38cd47cc43e08390d50f2f1"
