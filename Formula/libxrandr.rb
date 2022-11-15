@@ -9,6 +9,7 @@ class Libxrandr < Formula
     sha256 cellar: :any,                 arm64_ventura:  "2830680f8c2be89740e7e0338d835c3cbda416fda2455d700eb7140b077dbc87"
     sha256 cellar: :any,                 arm64_monterey: "18ea888945e931d168308aac190c22bb0ad6a39322d6fc17068d9dcdba2e0f34"
     sha256 cellar: :any,                 arm64_big_sur:  "57638149377d964bb0452e1bdf36b9712ebe35254ed05e06ac2ff66fdbf6beb6"
+    sha256 cellar: :any,                 ventura:        "2a94582121e1119a1f0867050317970c376b60a53ebcbada0d1b74e06f055178"
     sha256 cellar: :any,                 monterey:       "6ead71682d570ad0bb9d6a0169f34b6c37ad53c13ba52218d11da7451b1cd02b"
     sha256 cellar: :any,                 big_sur:        "68c082bb3a5a94cd881edf9d575cb27ca116836dfdd6d46e69a1b18344b5df5a"
     sha256 cellar: :any,                 catalina:       "62f9efb3fcb658182731de45c6b8a20a941ecb5b1e14e4a5375aa3d1b58ef530"
