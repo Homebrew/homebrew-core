@@ -23,6 +23,7 @@ class Freetds < Formula
     sha256 arm64_ventura:  "b70825cae08b0c0fc277cf702b3d18604b76c270bd884d1716cb8e4b49cd99df"
     sha256 arm64_monterey: "2d6da1c5b01f55b2ffd4a84a2dd470efff5ea75ed7523e27d818151f317c32a2"
     sha256 arm64_big_sur:  "037ec5bf39d357ede67f761abb22015028525dbea3bb5578572b73cf5bd26b45"
+    sha256 ventura:        "15efddb4828362ffefbbe9908d9d6bb526e9188adf251d797eb6dbb139df98a4"
     sha256 monterey:       "e33a34e88beef1d32e1eb00f31426f5c3d815c1b125f1337961c6574c97d67de"
     sha256 big_sur:        "60bc115fbd22d078bda57a4c2002e0b5fced90f32530dd5451228ed11d86712a"
     sha256 catalina:       "2478fa4ac10efbe4fdd6e88b2757fbcc4e20fbfc7996476d2fa0267906211238"
