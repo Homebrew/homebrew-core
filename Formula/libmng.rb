@@ -13,6 +13,7 @@ class Libmng < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5f011ac978c211c58be07ecb0a9cf4f5a563ebde089a40deff5116e0ad7ee86b"
     sha256 cellar: :any,                 arm64_monterey: "661f94a4d7c4f68ff415bb5c184c8310d7af1eaf139159ba4163e19a20a5d6f0"
     sha256 cellar: :any,                 arm64_big_sur:  "bae9b452e72bafc0a8385457cc0d5f914b34905415f26b24b2e4da510658e7ce"
+    sha256 cellar: :any,                 ventura:        "840ae5524a52327b13e088239491e115688e6de3b543cef073ae3b7f2d0b0015"
     sha256 cellar: :any,                 monterey:       "d6900fc7456b8bdb003af4da81629691f4a0c566140ec3f8a5215dbc686a6e6d"
     sha256 cellar: :any,                 big_sur:        "89eaf6e78bd174288fab321b22481950f650be157d487fd7127c7e24a2c533c1"
     sha256 cellar: :any,                 catalina:       "47e0d9e9d758d67a26716d436884fb7273298c202b7172610e1ceb0d394a6146"
