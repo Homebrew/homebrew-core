@@ -9,6 +9,7 @@ class Libogg < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f18fefb04d186e649753d48a9cffd1ce6a7b7a94fe0470c932eb09ee7b9c4cd5"
     sha256 cellar: :any,                 arm64_monterey: "119687ca3010a96ff903a55160690c62fa3864e8c23b89854b6decf4416f9762"
     sha256 cellar: :any,                 arm64_big_sur:  "86f7182a3e7ad1a6cbc0520424875fcad195c97ee62db95d7b5e863be95eee95"
+    sha256 cellar: :any,                 ventura:        "b9d827e7f79a35900950435985b7b88a64e81965237173a02bb1af7a8028b62b"
     sha256 cellar: :any,                 monterey:       "61cbbd4f4b5c7229dce6121d61ca24806c52c435a70b15bf060ca2f2e6412bbc"
     sha256 cellar: :any,                 big_sur:        "b28fe3ad76ad6caafbedb2587deac3b4f03f79cb1466e6f76a06724eaae346ee"
     sha256 cellar: :any,                 catalina:       "e6c116ef9fa7ebac93b5b22fb1208d1d1f4b000fdfdae4b0ae9ec18fe5a5412c"
