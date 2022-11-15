@@ -9,6 +9,7 @@ class CabalInstall < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1cf0bd1fa1bc4afb62e7fad74b92ae6f28798d63814d195fa5741b3c3821aa43"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4783fe7f7d8e7ae44bf6752c887819fab673d15c41c617fa8dce215ee8304eef"
+    sha256 cellar: :any_skip_relocation, ventura:        "0c6a4adb2d333719844c60974a57d787671ce6e688389ae0c1ec51f2432c1539"
     sha256 cellar: :any_skip_relocation, monterey:       "0662573e0cae281e74e8283a9d4d33bf384728183915dc8391d9c1317e3e50db"
     sha256 cellar: :any_skip_relocation, big_sur:        "a01863975ff22421990a6c70929701a6ba21675b6b4a371d79349e506b015c6b"
     sha256 cellar: :any_skip_relocation, catalina:       "9c52b90081efda0ef6bb21357c76901f2b94677ae86434d06e377f950f978829"
