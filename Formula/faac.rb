@@ -9,6 +9,7 @@ class Faac < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1af7b3a977137c5e1a3a3e8466fcbeddfb77f7656b07e790530ed90c3f85b819"
     sha256 cellar: :any,                 arm64_monterey: "413a14d54cc48a4fd7ae0363438f8ef75c0f0e076a889d3484cb93afa4b464aa"
     sha256 cellar: :any,                 arm64_big_sur:  "0e3e4e7ac9a55ca918a495b7ae577fb89e7d575e8ae52d8a8f2fd989b56f38f1"
+    sha256 cellar: :any,                 ventura:        "0cc0b9e690f4d687b4c531359f036e6f7bdd63fb20c19aab22ffb972917f8958"
     sha256 cellar: :any,                 monterey:       "5a59cfb676ba67e6386cc9d0a5726ef1546de461364f88a96d6eaa4ca664bf18"
     sha256 cellar: :any,                 big_sur:        "6b5f296f4cbf136daaf34236ad07b76f79aa4452eb2914efbd641a97aee2b5c9"
     sha256 cellar: :any,                 catalina:       "36620606b1b45f273e61ebaf4527b226a8fc586808c9570d69940da680af14a6"
