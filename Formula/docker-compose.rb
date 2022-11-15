@@ -10,6 +10,7 @@ class DockerCompose < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c31b51fa7366371b248629265ba6111f19b144c643b96b74e3110fc91a4ba3d4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c31b51fa7366371b248629265ba6111f19b144c643b96b74e3110fc91a4ba3d4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c31b51fa7366371b248629265ba6111f19b144c643b96b74e3110fc91a4ba3d4"
+    sha256 cellar: :any_skip_relocation, ventura:        "3afd42776a41dd1ad5fbfe99e2fc09ebda077ea83ef08a31f9fb2f1a173b1e07"
     sha256 cellar: :any_skip_relocation, monterey:       "5b797a67934a1c2cd7eb82ce10f891d4232729d457372a6d67ebb782565398d5"
     sha256 cellar: :any_skip_relocation, big_sur:        "5b797a67934a1c2cd7eb82ce10f891d4232729d457372a6d67ebb782565398d5"
     sha256 cellar: :any_skip_relocation, catalina:       "5b797a67934a1c2cd7eb82ce10f891d4232729d457372a6d67ebb782565398d5"
