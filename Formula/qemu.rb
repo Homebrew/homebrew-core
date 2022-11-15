@@ -64,7 +64,6 @@ class Qemu < Formula
       --enable-capstone
       --enable-curses
       --enable-libssh
-      --enable-slirp=system
       --enable-vde
       --enable-virtfs
       --enable-zstd
@@ -84,6 +83,10 @@ class Qemu < Formula
     else
       ["--enable-gtk"]
     end
+
+    # The --enable-slirp flag (not the feature itself) was removed in the head:
+    # https://gitlab.com/qemu-project/qemu/-/commit/5890258aeeba303704ec1adca415e46067800777
+    args << "--enable-slirp=system" if build.stable?
 
     system "./configure", *args
     system "make", "V=1", "install"
