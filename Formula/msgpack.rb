@@ -15,6 +15,7 @@ class Msgpack < Formula
     sha256 cellar: :any,                 arm64_ventura:  "79297ad7e902c1c8005ee29bc58a7f049e9d3bfe7fb421d19e40ac969d775f33"
     sha256 cellar: :any,                 arm64_monterey: "e3df397ffc4f82b7e321fd9a31f16979af074db08f663f485b474c0119643c7e"
     sha256 cellar: :any,                 arm64_big_sur:  "94519c5e879506abb6e665f65982df1b461e53e83904a4ff88bd9ef34a05db83"
+    sha256 cellar: :any,                 ventura:        "8746ed14bcef9ef8a8c60f74e579a2082d73d0d175c6e2618a667c188fe0e47d"
     sha256 cellar: :any,                 monterey:       "c457413b910943f87cffc03951d9dbe5cc60c23abf862c572dab0b18011bb682"
     sha256 cellar: :any,                 big_sur:        "a6922853180da9206a75c706502c24971bfa73abf6aeed7b8341a6824e179580"
     sha256 cellar: :any,                 catalina:       "702f8b5c56c9f4111a68111d4e03466894ac98c43a9e3127ddfb74559bad201d"
