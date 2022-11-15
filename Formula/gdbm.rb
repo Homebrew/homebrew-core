@@ -10,6 +10,7 @@ class Gdbm < Formula
     sha256 cellar: :any, arm64_ventura:  "a7321472cc9ff32a54c549556340dd1ad9dd95415828149005fb4959d04e83b7"
     sha256 cellar: :any, arm64_monterey: "62a2c1994737a2677f318a97ac64a32690f9f958086310a49f37e3fcfd5b6731"
     sha256 cellar: :any, arm64_big_sur:  "09f52f15b2a2d126213ea5631bdd35722006540f0086bd285a4f611a4b4b8a78"
+    sha256 cellar: :any, ventura:        "72bf08b82cb8fb7919e1c81d9df16425d9f8b7920e8f5abec958274207d7a2ef"
     sha256 cellar: :any, monterey:       "0d0aeea95f9e7b4ccfa1e8d7f3a83b3b4d604eac1178e4f88ad51d132ad1f7cd"
     sha256 cellar: :any, big_sur:        "d52ed8dbb258f11b14eb10494aeb8a2dab91c3626b11e37d8197d2fb183c489b"
     sha256 cellar: :any, catalina:       "47e4821fa03790827af24698bf7cb833656d48e56bfb141b3093e8cabf5b1c88"
