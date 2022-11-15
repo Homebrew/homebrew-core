@@ -10,6 +10,7 @@ class Taglib < Formula
     sha256 cellar: :any,                 arm64_ventura:  "296ce5ae39a55c3fc0ea418c848949dafc688c54b9979175cf6a861e3ded3190"
     sha256 cellar: :any,                 arm64_monterey: "468e48c903a73adfdd4aed556791e20920ffced6148781e85ba17bed80276102"
     sha256 cellar: :any,                 arm64_big_sur:  "922c49278c55189998db81aa9f43e4a894c81d608824dd99231450ec6a657e1f"
+    sha256 cellar: :any,                 ventura:        "6c6fb57e24337ce19713254391e91c5d3ce20d4b4c058ac2d55801fee52b0f80"
     sha256 cellar: :any,                 monterey:       "e7324317ad232da4eccfb794cbf7d29fe105116932200b26ee1dfd1915eba6db"
     sha256 cellar: :any,                 big_sur:        "456c785f52b5d19c621495e31fe4dde36168f6ef5b0ef377d866ba1867000c78"
     sha256 cellar: :any,                 catalina:       "9a828d637c0f66c3ab0c5180b897e34d37ad671bcf1447d8b3c76436967a8b0f"
