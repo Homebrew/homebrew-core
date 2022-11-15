@@ -14,6 +14,7 @@ class Geos < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9750b3496da8c44a49c4c4489c1e4a3232ec609cf97ea70bc34bd9db4ef60b0a"
     sha256 cellar: :any,                 arm64_monterey: "12545b3c2976b4f7598ba16e28a3a6df73dd0fcb28444ce1e913e6522d510770"
     sha256 cellar: :any,                 arm64_big_sur:  "49e7548ee22cf9fe67a14c9324b06871a2ea730e807676d7ab2cfc4a5660e8d7"
+    sha256 cellar: :any,                 ventura:        "f10ded36947f353f140ac312c7f337d950993f4bb0b12fc12704e7ff85f57ee2"
     sha256 cellar: :any,                 monterey:       "6e51f012221d4e8900f7ba72be4d6d3664c29022c3106d43de412989141ca3c5"
     sha256 cellar: :any,                 big_sur:        "db3008471b5f37ae7cde2a734c3f3e939159bf118149f8616e184f9ea715825a"
     sha256 cellar: :any,                 catalina:       "64e309838456b245c85401c200799a9fbaaf35e36c17ca52d79c7ee141acb306"
