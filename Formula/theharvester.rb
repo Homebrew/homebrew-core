@@ -3,10 +3,9 @@ class Theharvester < Formula
 
   desc "Gather materials from public sources (for pen testers)"
   homepage "http://www.edge-security.com/theharvester.php"
-  url "https://github.com/laramies/theHarvester/archive/4.0.3.tar.gz"
-  sha256 "d4f1bb1cb0e3aa124489b5e71f6b9980a5054d48bcae2209b38a7aec1880e670"
+  url "https://github.com/laramies/theHarvester/archive/4.2.0.tar.gz"
+  sha256 "e84be8ba75b429364fa59d560d98072bdc9c176c637af2bf7481cf153dfadbf2"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
@@ -24,7 +23,7 @@ class Theharvester < Formula
   depends_on "maturin" => :build
   depends_on "rust" => :build
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -32,8 +31,9 @@ class Theharvester < Formula
   uses_from_macos "libxslt"
 
   # How to update the resources
-  # tar -zxvf theHarvester-4.0.3.tar.gz
-  # cd theHarvester-4.0.3 && virtualenv -p python3.10 . && source bin/activate && pip install -r requirements/base.txt
+  # tar -zxvf theHarvester-4.2.0.tar.gz
+  # cd theHarvester-4.2.0 && virtualenv -p python3.11 .
+  # source usr/local/bin/activate && pip install -r requirements/base.txt
   # pip freeze > dependencies.log
   # run homebrew-pypi-poet on the freezed dependencies
   resource "aiodns" do
@@ -47,8 +47,8 @@ class Theharvester < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/5a/86/5f63de7a202550269a617a5d57859a2961f3396ecd1739a70b92224766bc/aiohttp-3.8.1.tar.gz"
-    sha256 "fc5471e1a54de15ef71c1bc6ebe80d4dc681ea600e68bfd1cbce40427f0b7578"
+    url "https://files.pythonhosted.org/packages/ff/4f/62d9859b7d4e6dc32feda67815c5f5ab4421e6909e48cbc970b6a40d60b7/aiohttp-3.8.3.tar.gz"
+    sha256 "3828fb41b7203176b82fe5d699e0d845435f2374750a44b480ea6b930f6be269"
   end
 
   resource "aiomultiprocess" do
@@ -162,8 +162,8 @@ class Theharvester < Formula
   end
 
   resource "frozenlist" do
-    url "https://files.pythonhosted.org/packages/5c/ee/7c6287928ba776567603248e160387cf4143641ecf734e393ad9b2c82475/frozenlist-1.2.0.tar.gz"
-    sha256 "68201be60ac56aff972dc18085800b6ee07973c49103a8aba669dee3d71079de"
+    url "https://files.pythonhosted.org/packages/e9/10/d629476346112b85c912527b9080944fd2c39a816c2225413dbc0bb6fcc0/frozenlist-1.3.3.tar.gz"
+    sha256 "58bcc55721e8a90b88332d6cd441261ebb22342e238296bb330968952fbb3a6a"
   end
 
   resource "h11" do
@@ -362,6 +362,11 @@ class Theharvester < Formula
   end
 
   def install
+    # Update aiohttp for Python 3.11
+    # https://github.com/laramies/theHarvester/commit/3a800533f45507152f57aa287867f3b5e8f0aa25.patch?full_index=1
+    # Patch does not apply, remove inreplace in next release
+    inreplace "requirements/base.txt", "aiohttp==3.8.1", "aiohttp==3.8.3"
+
     inreplace "setup.py", "/etc/theHarvester", etc/"theharvester"
     virtualenv_install_with_resources
     bin.install_symlink libexec/"bin/theHarvester" => "theharvester"
