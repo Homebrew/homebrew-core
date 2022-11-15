@@ -1,8 +1,8 @@
 class Brev < Formula
   desc "CLI tool for managing workspaces provided by brev.dev"
   homepage "https://docs.brev.dev"
-  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.171.tar.gz"
-  sha256 "e029699857da6b9df9dc36cc46cbf38495af1c13a0610d91f1e15a9723f5a41d"
+  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.176.tar.gz"
+  sha256 "cf194e7c0b3876eec002f103514f9b75a1a5b44b24db06ed3582971b062b56d1"
   license "MIT"
 
   livecheck do
