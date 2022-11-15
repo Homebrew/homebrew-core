@@ -10,6 +10,7 @@ class Libvidstab < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e039ff1cf26ac9c1394519f31ff22894a803abe3393ecdbfd422fe8e092b6986"
     sha256 cellar: :any,                 arm64_monterey: "ece699a3cc725790bad5d1153f0203e06bfd64427f2b4915e4f4778a75d59635"
     sha256 cellar: :any,                 arm64_big_sur:  "b98be46d2375a1e6b30947b31c981009785a7c0e97c31ca0c64a52228b0d1576"
+    sha256 cellar: :any,                 ventura:        "1572202724878ea4ebe12390dfe1b4919b14572a6ac4c15ba533413c07c3823b"
     sha256 cellar: :any,                 monterey:       "8ca80c30e8cbd76cf6aa593e39da3f0579ce60edbbb5bd4039b34b3cc00f493c"
     sha256 cellar: :any,                 big_sur:        "b4c67e80b92e95aa19520b0b130a60cc3949db7899d9d02520d32d9fc62ec837"
     sha256 cellar: :any,                 catalina:       "df23e5e7933b6535f34c429ee8286e4d9dec6d0a2349cf3256f44ec687e7968f"
