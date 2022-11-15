@@ -30,6 +30,8 @@ class AwscliAT1 < Formula
   depends_on "pyyaml"
   depends_on "six"
 
+  # Remove this dependency when the version is at or above 1.27.6
+  # and replace with `uses_from_macos "mandoc"`
   on_system :linux, macos: :ventura_or_newer do
     depends_on "groff"
   end
