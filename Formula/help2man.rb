@@ -11,6 +11,7 @@ class Help2man < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5b0bf73ebf258cb4870683c6baf8a4a029d3c46c2996413a6602ef049baf6cd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f5b0bf73ebf258cb4870683c6baf8a4a029d3c46c2996413a6602ef049baf6cd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5b0bf73ebf258cb4870683c6baf8a4a029d3c46c2996413a6602ef049baf6cd"
+    sha256 cellar: :any,                 ventura:        "364fc43f7b2281c96d22494ed9f2eccec465a00cceb8e7e3169213aab6b51232"
     sha256 cellar: :any,                 monterey:       "0481c92c77f5a3fd47271eb8a4ce4e69ac65cdd9725648fa395a2e0c5a72a30c"
     sha256 cellar: :any,                 big_sur:        "9ad7fec41ef9f551d6fa6b0f15cc0bce69253daf0e2d1e2c0f25b14d5ca2c045"
     sha256 cellar: :any,                 catalina:       "758ca628b5bd9e705848c5ec78b2c00d61cd1a5b4363751ccc06bf146b019c72"
