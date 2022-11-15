@@ -10,6 +10,7 @@ class Automake < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f68481d06be7fa3f0a0881edb825a336e7f6548191c762d68bd817183b238f5a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f68481d06be7fa3f0a0881edb825a336e7f6548191c762d68bd817183b238f5a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f68481d06be7fa3f0a0881edb825a336e7f6548191c762d68bd817183b238f5a"
+    sha256 cellar: :any_skip_relocation, ventura:        "ae77a247a13ea860236a29b02769f5327395f712413f694d8a8d20cb6c21332d"
     sha256 cellar: :any_skip_relocation, monterey:       "ae77a247a13ea860236a29b02769f5327395f712413f694d8a8d20cb6c21332d"
     sha256 cellar: :any_skip_relocation, big_sur:        "ae77a247a13ea860236a29b02769f5327395f712413f694d8a8d20cb6c21332d"
     sha256 cellar: :any_skip_relocation, catalina:       "ae77a247a13ea860236a29b02769f5327395f712413f694d8a8d20cb6c21332d"
