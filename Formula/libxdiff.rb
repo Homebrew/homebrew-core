@@ -15,6 +15,7 @@ class Libxdiff < Formula
     sha256 cellar: :any,                 arm64_ventura:  "2eac99be7b74fae52532e808461ec21675681d64e25ece6e99b54176a20618ab"
     sha256 cellar: :any,                 arm64_monterey: "418d1252e31f6107429fd06539f95a4bede475d382ef351ff311fc577ef05fc0"
     sha256 cellar: :any,                 arm64_big_sur:  "f986d3e17b2ca9bf61f85fb8dffe837edbd5bee22b1c21c27f3ecfea9a83b12b"
+    sha256 cellar: :any,                 ventura:        "61714ffb05a6444a400caf45d75d6013348f961853020e6b662045fecfa23283"
     sha256 cellar: :any,                 monterey:       "9864ce81b41b379e60946847ae1dc20f2a8f8296622581335842884d7bfacaaf"
     sha256 cellar: :any,                 big_sur:        "bb4777447c50173e1edd3a65eb75559a4ec8f14621f01cdc40b639b86e206162"
     sha256 cellar: :any,                 catalina:       "bb5dedb22ce363d4c6b8f46d3059dc81d68ba3627aaaff8efcdaa6c6b2c2ea37"
