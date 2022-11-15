@@ -7,14 +7,14 @@ class Itstool < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b9f7a4ddf5a15f67751b6dc0429dd9226f2b8c1bf81d13b5068c29fc1d7e65f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "108962bdce11e7b353a94f61ae30c82212295963d157cd667fb9af6069801cbd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "108962bdce11e7b353a94f61ae30c82212295963d157cd667fb9af6069801cbd"
-    sha256 cellar: :any_skip_relocation, ventura:        "fbfc77345dc63340e7bfed0340671d34e12ce8d388070bdc3e833816c6bf6df0"
-    sha256 cellar: :any_skip_relocation, monterey:       "211f56048a0498fd935fac91466be64590276ae236d5a60be45ff2061713087f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "211f56048a0498fd935fac91466be64590276ae236d5a60be45ff2061713087f"
-    sha256 cellar: :any_skip_relocation, catalina:       "211f56048a0498fd935fac91466be64590276ae236d5a60be45ff2061713087f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "108962bdce11e7b353a94f61ae30c82212295963d157cd667fb9af6069801cbd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "63d15cf95366fdd8d62b26b7105d8c097d9c715ac080d04118ba5c8eba8c4690"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "63d15cf95366fdd8d62b26b7105d8c097d9c715ac080d04118ba5c8eba8c4690"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "63d15cf95366fdd8d62b26b7105d8c097d9c715ac080d04118ba5c8eba8c4690"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7df12dd9d64c70c59da80ea8e65bdc10a2cb3f74e5cd701a48f9958c62def29"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d7df12dd9d64c70c59da80ea8e65bdc10a2cb3f74e5cd701a48f9958c62def29"
+    sha256 cellar: :any_skip_relocation, catalina:       "d7df12dd9d64c70c59da80ea8e65bdc10a2cb3f74e5cd701a48f9958c62def29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63d15cf95366fdd8d62b26b7105d8c097d9c715ac080d04118ba5c8eba8c4690"
   end
 
   head do
