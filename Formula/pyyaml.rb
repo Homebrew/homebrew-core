@@ -10,6 +10,7 @@ class Pyyaml < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9cdc9ef202bb642be23ec38c05c0ab6ce9b08d09ba5d954fb6440c946aa31e56"
     sha256 cellar: :any,                 arm64_monterey: "736cb99df3ba9c591dcc0087a6d1a2f1ade2f95a74366856098650212dfd5bb2"
     sha256 cellar: :any,                 arm64_big_sur:  "32d5689f7f30157f3b02369286001e1ad5b13a8b201981da4fd25cc8d15c16a3"
+    sha256 cellar: :any,                 ventura:        "c7e2a65e145408bbbc3dd0aa680f76ed41339369278da1a0870299788f9d227b"
     sha256 cellar: :any,                 monterey:       "d71dd3186399ebca596677c148b23a0c90fdc09baeba4d617612b7dcf1788224"
     sha256 cellar: :any,                 big_sur:        "6002306dfd47f87b6fa817abb9b04bed296ce262cc0fe3ec516344c375ce7172"
     sha256 cellar: :any,                 catalina:       "41de8095ac8fe4230f3e3ad622b63d88def72ae332f52e823803c76de6541d5d"
