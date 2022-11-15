@@ -9,6 +9,7 @@ class Libxmp < Formula
     sha256 cellar: :any,                 arm64_ventura:  "36592fbb667e6bfb230bfde55bb81931aee10fb9bb86ed7dbcdbc8214a318df9"
     sha256 cellar: :any,                 arm64_monterey: "7f9283a77ff4c8715bd198177863b376a745a79be193da5adb1fb5704abd941d"
     sha256 cellar: :any,                 arm64_big_sur:  "434828daa308ed44a901c51be2e6b5a92e91e28267f77894aff8a5030c07d82c"
+    sha256 cellar: :any,                 ventura:        "48f57f8b2eb4d6d9aa3e59545f9d001dfc4d0483ccb93d219b262382435065e5"
     sha256 cellar: :any,                 monterey:       "5401c879119fef7ce2c6101f96ab9977f53ee1fcb0d7015e75b9ed7564ec3442"
     sha256 cellar: :any,                 big_sur:        "73e8a533ff1ea91a3b09adb60218a80b858ab627207f5193c053d030ccfd2ad0"
     sha256 cellar: :any,                 catalina:       "60ad2fdda77476d1e2a902020ca9559e48a31f145de0d5fff0b382d3f1c07645"
