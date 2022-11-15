@@ -15,6 +15,7 @@ class OpenalSoft < Formula
     sha256 cellar: :any,                 arm64_ventura:  "34be8091e5fc5fd6dcf48f426d9a43ae881c6e1396a6d2af071389d0096e9949"
     sha256 cellar: :any,                 arm64_monterey: "133ce78332a497b04b5c8be347e9675679ed67faf99b2b43b74dc9e56c5c2ad4"
     sha256 cellar: :any,                 arm64_big_sur:  "490c40e73b5a3cec76223b7ca92ffd7988a667457bb91e632bdce84d014237d3"
+    sha256 cellar: :any,                 ventura:        "ef1c2523054a7e9b1fbb23ad8f88b6650bb809142e45e3e8cb84c681cb936813"
     sha256 cellar: :any,                 monterey:       "24d674a6f074ab4d4ee04e65eadab288b659bf364a7626d321cc70d47dc6f8ef"
     sha256 cellar: :any,                 big_sur:        "065d64b527db40de418fc57e1d8d75b805c8be085d2a72cbacb37df7c7d631f1"
     sha256 cellar: :any,                 catalina:       "71244d998b867c5d79201af0b7a8f1fb7754ba026686ea7e8d05095b3c6fb16d"
