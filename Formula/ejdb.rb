@@ -8,14 +8,13 @@ class Ejdb < Formula
   head "https://github.com/Softmotions/ejdb.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "175603f903393de2ce8d4a621382664d6dcd6738924394a7636899fa8fac75da"
-    sha256 cellar: :any,                 arm64_monterey: "69a64cfcbe98217a61763412b2b316e19554a65a06600882cba26d25d466230d"
-    sha256 cellar: :any,                 arm64_big_sur:  "5b26fb93753b6d5a9527f99dd96678d36c5becf5a17c549f662add76ff6cc771"
-    sha256 cellar: :any,                 monterey:       "8c9c2779172207ef97a8c615900e0b43a3a6da7d79b662c73a08fd07be4aa553"
-    sha256 cellar: :any,                 big_sur:        "9db2ff193af94e86a814c5ef2d5c11694f6b9adbab3609b93532524ce6f22fdd"
-    sha256 cellar: :any,                 catalina:       "ca6328c694618eda86c806b067781b3fbd1f4b2b0bd740735b4c4a965733acc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a4a69b69695ea65b09ddb7dc9cf8a3fcf9b35df61e35231a1bcece3855bac91"
+    sha256 cellar: :any,                 arm64_ventura:  "4d04af75587bace755ce51b52efbb350f21fe9ff68e627e46ba6df5c0b3d802d"
+    sha256 cellar: :any,                 arm64_monterey: "651db63cf52361e30d51e00be5d21d0312a987ecf6fb13ca4db0aaa6e36419fc"
+    sha256 cellar: :any,                 arm64_big_sur:  "a8c53e49e903e393a00c1f8f252f24427aa3d597621b0a60aa625fed023e47f6"
+    sha256 cellar: :any,                 monterey:       "be42fe4d45f8c3ee1e9780df885e2a9176685f741ba936cc7969e7a1dffb881a"
+    sha256 cellar: :any,                 big_sur:        "d015a8db5f02bc71e50daf8dfc76ac9224815abab9637bdb19bbb1adf814ad4d"
+    sha256 cellar: :any,                 catalina:       "70fd430780b4d69ff1f6c63984f7f8ef01e0a478e9cf9753c6ec4b2eabed4bd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69a8f6d1769f13275c84bb8b1bc96eb68727d85863bbf4f423f6cc6aefa1aed9"
   end
 
   depends_on "cmake" => :build
