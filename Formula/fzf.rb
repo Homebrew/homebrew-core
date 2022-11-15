@@ -10,6 +10,7 @@ class Fzf < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb01ba4dbad709af6fdc8d3c229b1112fa475c43966718bd7279dccb5876e9b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb01ba4dbad709af6fdc8d3c229b1112fa475c43966718bd7279dccb5876e9b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb01ba4dbad709af6fdc8d3c229b1112fa475c43966718bd7279dccb5876e9b5"
+    sha256 cellar: :any_skip_relocation, ventura:        "b6a1493bff4cc64c2c40762d73d253127de3eec5ce278cc70500bbf59a9d830a"
     sha256 cellar: :any_skip_relocation, monterey:       "b6a1493bff4cc64c2c40762d73d253127de3eec5ce278cc70500bbf59a9d830a"
     sha256 cellar: :any_skip_relocation, big_sur:        "b6a1493bff4cc64c2c40762d73d253127de3eec5ce278cc70500bbf59a9d830a"
     sha256 cellar: :any_skip_relocation, catalina:       "b6a1493bff4cc64c2c40762d73d253127de3eec5ce278cc70500bbf59a9d830a"
