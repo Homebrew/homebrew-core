@@ -9,14 +9,14 @@ class Tarsnapper < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4688f9a9ceb02adae3931f58af53f32696a00aeb77d840bd930df97f5913039c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "05cd1a4e633b9fc3151065bcb2a9c95adb5556b7dcca54f3cc17f9ede6419760"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "029b019760fd47798a534fdb372422c2c4b27aa37813b3967ab6674dea3ec4a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "c482cd0c68e786e20daec63b863837c78f246bf1e26a5703163efce02627bdc8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "657387ce0238e63fa455564b2e2819f499eef2ed60afc714bb6aa5968a55313f"
-    sha256 cellar: :any_skip_relocation, catalina:       "7aae07361f9c72e9503ea751758c36d17eacea8c0898ef4e3c0fac25df3ce7f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b853fe15f274370797cfd81377c759cb844cedf91205b0b19850de3268a35b50"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8690c0a428a6aec75099a4074a09fec690b075b637faf4516e31689ba0895997"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "115d72f69bbae2c7d0bcb2a6fd29c6a81b4d4c396f323291260de87ec994ed69"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68cd9c18598e426c1543864175e1750c79b3226cba74dc2407c8458bbb1f38ec"
+    sha256 cellar: :any_skip_relocation, monterey:       "132423d27552e162f1559a74619216f82989b45ba6180023eab2f819de89e3cc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a1b48f1909e44f5c9e80320b4c3f3b8a73393c23aab7e6a37d35a33ff403b04d"
+    sha256 cellar: :any_skip_relocation, catalina:       "2e8d49bfaef413323218d6ef7f49e55d360d554c29abcd4e64a1b3c20198955a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f08e3a8c30c95c7242dd60019f249fc5de32e1b4483d403976c986d06632b4de"
   end
 
   depends_on "python@3.11"
