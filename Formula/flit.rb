@@ -12,6 +12,7 @@ class Flit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d796282af21cc25944551c5a6e1bc039efff61c89ad26cbbb2b2188edd984e68"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e382eee52bce9cd27b65b2be532eb12c7ec48bb4ea05844198a01e034e521b92"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e0fece099639afba4d952c6dbf1fabf57e779d017a3d89b1997eb367c787c1f"
+    sha256 cellar: :any_skip_relocation, ventura:        "7ea536accacb32e5ecd9b82bdbf03103ca4bb1ec5ed7a208879a5c272017fe96"
     sha256 cellar: :any_skip_relocation, monterey:       "bdd923d8e2725323ad5dd3a6016887dcf314bcac8bb33ef34896693d6fa8bf3a"
     sha256 cellar: :any_skip_relocation, big_sur:        "80eb963c1dfe886af7f2d6cddab3ebaaf8cd8510b4fe582cadde4114a3909a3c"
     sha256 cellar: :any_skip_relocation, catalina:       "8fef4352dbac41e91777ed30db77946140f661c7cd40c627127de70946dab4d4"
