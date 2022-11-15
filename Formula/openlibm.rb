@@ -9,6 +9,7 @@ class Openlibm < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e2ff5bc492cd9e69a9a9730e9b5890017dece0b65b565686391687d078e275a8"
     sha256 cellar: :any,                 arm64_monterey: "9b05e09f90c7be45091bb34aa339fdd8ae36e9de8463ba0844bc13940a9c71f4"
     sha256 cellar: :any,                 arm64_big_sur:  "724ef933bb44a0bd8f884ccbb4bb2013b2b89af4cd1def67a411ae914ef622fd"
+    sha256 cellar: :any,                 ventura:        "6cf9238a296315347533753f4eb1125a71bf4689968deb5c59b7843b74d39b24"
     sha256 cellar: :any,                 monterey:       "821bb85640df061c0a49c079e06e7f932916c2b47bca228f61b3ed1401f17370"
     sha256 cellar: :any,                 big_sur:        "fbaaaaee44ecd462b9b9cf94ebcf386bca16591b6a4be7985e479db98f18f280"
     sha256 cellar: :any,                 catalina:       "7726b400040c12f35eb13cb88dd80444d09f82dce79ef9825b0fc864952f6c39"
