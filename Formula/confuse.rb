@@ -9,6 +9,7 @@ class Confuse < Formula
     sha256 cellar: :any, arm64_ventura:  "1c7aa3d075082f2742747ac5034f60c90b448c694ccc5b3330b71f1afdd81f81"
     sha256 cellar: :any, arm64_monterey: "633330ab55c7992ac1a9dcb3d990029d1445aab0d3e5c3a8c5759af2554b33d4"
     sha256 cellar: :any, arm64_big_sur:  "1eeec2cb7b54cf11c1e13448f191ed97d4f2477c215130b6402256678019f36e"
+    sha256 cellar: :any, ventura:        "5a520e7ca6ac3a7260b385c7e47cb144f888df00125a9300647b29abe4a732e9"
     sha256 cellar: :any, monterey:       "bcdcdab60caa250aa1a5b38346dda7bd0a88ffb6359d73d8fab8aa046d5bc2fe"
     sha256 cellar: :any, big_sur:        "370cd5df07249d44cbf0a848001be19d41341f404d229dcdcb3b5ae6ead4300c"
     sha256 cellar: :any, catalina:       "13ad01ca606e746ab7f6bcd42b0da08abdcc29ccaaa9e8106f9d28bfe96bffd7"
