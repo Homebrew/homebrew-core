@@ -14,6 +14,7 @@ class BdwGc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "8f459fdcd689018081c07cab95c6e2517a84a5751bff1d47c8e220fd2f757b49"
     sha256 cellar: :any,                 arm64_monterey: "01693d25c01c27b4ae2fc7c176f57c1c46849c24440f1da484df9a2e99074594"
     sha256 cellar: :any,                 arm64_big_sur:  "162892760401052a1a6d6cb183bb6683c18905377489b9bf50151a80c816f967"
+    sha256 cellar: :any,                 ventura:        "6efb9e3ce48ce40a1072a4e8b7acb318450ac09e44483f859b83c2f9b132c772"
     sha256 cellar: :any,                 monterey:       "706ba9acedc825db1634868bc7be96ee5c919091e8481ecd2267f62b1cd3d803"
     sha256 cellar: :any,                 big_sur:        "a55727cc7d7a7dbc8f7e61aca70a94dc07dcaccbfbffc5f92fcdc77dec64eaa7"
     sha256 cellar: :any,                 catalina:       "68e76db2edce7a83e900ff4152317eeee7ebf1deb2780cc134d003f01774f248"
