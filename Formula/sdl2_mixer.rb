@@ -17,6 +17,7 @@ class Sdl2Mixer < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7fd6ab0b615a7704a6c31069f7efd5979d7619f85793eed2e1e2c25a00d42764"
     sha256 cellar: :any,                 arm64_monterey: "e5b94cc708bc31845f609f89b804641d64c0e0b157a5cb469bdd8a3b1abe9b16"
     sha256 cellar: :any,                 arm64_big_sur:  "a2b8cae3cd3ccc3f6233e3520b935fcd6501c4c9796e1e3c43d41f065eef4fef"
+    sha256 cellar: :any,                 ventura:        "fe6119565761b503c1c0c12c4bc3b3524e5d67ee13279a988cb00f8c5924799b"
     sha256 cellar: :any,                 monterey:       "f5491b50e786a11f8df8b2403f1c752d34daa9aa0653fbf52318afa612b45dcc"
     sha256 cellar: :any,                 big_sur:        "7e2b2c284949698bd612764c3eeab7fd2f4a3ae740e2803c369088265860b0a5"
     sha256 cellar: :any,                 catalina:       "c04088e4f0404296e684cb36096279bbc973ebedbad9984c1f8f3c559fc64756"
