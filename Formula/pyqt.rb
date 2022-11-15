@@ -1,8 +1,8 @@
 class Pyqt < Formula
   desc "Python bindings for v6 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/a3/ab/c5989de70eceed91abf5f828d99817462ff75f41558e9f5a6f5213f0932c/PyQt6-6.3.1.tar.gz"
-  sha256 "8cc6e21dbaf7047d1fc897e396ccd9710a12f2ef976563dad65f06017d2c9757"
+  url "https://files.pythonhosted.org/packages/b2/c9/266b12a9826452e387f0ff4f0b4bbd29e11d2de81a5f60c0975933b34e7f/PyQt6-6.4.0.tar.gz"
+  sha256 "91392469be1f491905fa9e78fa4e4059a89ab616ddf2ecfd525bc1d65c26bb93"
   license "GPL-3.0-only"
 
   bottle do
@@ -18,44 +18,44 @@ class Pyqt < Formula
   depends_on "pyqt-builder" => :build
   depends_on "sip"          => :build
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "qt"
 
   fails_with gcc: "5"
 
   # extra components
+  resource "PyQt6-3D" do
+    url "https://files.pythonhosted.org/packages/6a/f7/55aa01d56d4c6c20374389fc400822eb9327298111ab891f20af3e786037/PyQt6_3D-6.4.0.tar.gz"
+    sha256 "c5e8e2224b9d461fe21158040b4446b5fd82ae563c76a8943292abd887a02df1"
+  end
+
+  resource "PyQt6-Charts" do
+    url "https://files.pythonhosted.org/packages/b3/b4/fb94c482644f4a0a8bbb4f785eeea46c1229adc4468fcc025194482011e7/PyQt6_Charts-6.4.0.tar.gz"
+    sha256 "b46eb12840516a039c36f70bb3f8423337f98fde266b582cead4049b77b43f64"
+  end
+
+  resource "PyQt6-DataVisualization" do
+    url "https://files.pythonhosted.org/packages/62/b1/cee46d028500e171e98b8893fcbd2671601044db3eeb911e360e04546d98/PyQt6_DataVisualization-6.4.0.tar.gz"
+    sha256 "1f276ddb1e774859356a977aeb8196866e280b03d3e33c7760a1f188153ce0a8"
+  end
+
+  resource "PyQt6-NetworkAuth" do
+    url "https://files.pythonhosted.org/packages/a0/1c/6042587ed1e934206f7a2498e73b18ed7fc598c717af0561c409eaa01bfd/PyQt6_NetworkAuth-6.4.0.tar.gz"
+    sha256 "c16ec80232d88024b60d04386a23cc93067e5644a65f47f26ffb13d84dcd4a6d"
+  end
+
   resource "PyQt6-sip" do
     url "https://files.pythonhosted.org/packages/39/fc/f889254efda90418e367df28da9d14ac64ca19a9d93f44355d21ac562b0f/PyQt6_sip-13.4.0.tar.gz"
     sha256 "6d87a3ee5872d7511b76957d68a32109352caf3b7a42a01d9ee20032b350d979"
   end
 
-  resource "PyQt6-3D" do
-    url "https://files.pythonhosted.org/packages/79/bc/5e2c0919b787eb59346a13b0938ec00ea2223c4b7b882af44f31b8242e55/PyQt6_3D-6.3.0.tar.gz"
-    sha256 "fab024b7fb3245d9b463029e0000f46cff95f0bdab603b875fabcaa53d9fe63f"
-  end
-
-  resource "PyQt6-Charts" do
-    url "https://files.pythonhosted.org/packages/b9/f7/669fdd84d0bbd18f1a3c01dff3bcdd12f866d01fa212cf05f2ffc06f5efb/PyQt6_Charts-6.3.1.tar.gz"
-    sha256 "e6bbb17a3d5503508cb28a7b8f44dfedd659c43ff62adb64182a004fbd968f2f"
-  end
-
-  resource "PyQt6-DataVisualization" do
-    url "https://files.pythonhosted.org/packages/6e/4d/281a11a6b2147167014285142d8dbfba8f8ac8d4de3dc8c8e7c66d152dbb/PyQt6_DataVisualization-6.3.1.tar.gz"
-    sha256 "7509f24a84f92d127e17129ec18cb208f96bd3d12a0e4b6f57d57e955527ec34"
-  end
-
-  resource "PyQt6-NetworkAuth" do
-    url "https://files.pythonhosted.org/packages/3c/75/64bd1f9c9ff50f28e3b5e6938d10b82ee10f9669c1e140ad08b9aec8e7a9/PyQt6_NetworkAuth-6.3.0.tar.gz"
-    sha256 "b1434b349e0820649341accf78689e9efd2c73543ed7d5474f660aaea2708454"
-  end
-
   resource "PyQt6-WebEngine" do
-    url "https://files.pythonhosted.org/packages/90/99/59acbe75fb0ad284945d27e40f68c642850c7a186bfc9cc338c3f638d0dc/PyQt6_WebEngine-6.3.1.tar.gz"
-    sha256 "c3d1f5527b4b15f44102d617c59b1d74d9af50f821629e9335f13df47de8f007"
+    url "https://files.pythonhosted.org/packages/c1/54/80bebc08c537723a145442c3997bab122ebc8e540ae807f4291b2ce7f8bb/PyQt6_WebEngine-6.4.0.tar.gz"
+    sha256 "4c71c130860abcd11e04cafb22e33983fa9a3aee8323c51909b15a1701828e21"
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -91,7 +91,7 @@ class Pyqt < Formula
     system bin/"pyuic#{version.major}", "-V"
     system bin/"pylupdate#{version.major}", "-V"
 
-    system Formula["python@3.10"].opt_bin/python3, "-c", "import PyQt#{version.major}"
+    system python3, "-c", "import PyQt#{version.major}"
     pyqt_modules = %w[
       3DAnimation
       3DCore
@@ -111,6 +111,6 @@ class Pyqt < Formula
     ]
     # Don't test WebEngineCore bindings on macOS if the SDK is too old to have built qtwebengine in qt.
     pyqt_modules << "WebEngineCore" if OS.linux? || DevelopmentTools.clang_build_version > 1200
-    pyqt_modules.each { |mod| system Formula["python@3.10"].opt_bin/python3, "-c", "import PyQt#{version.major}.Qt#{mod}" }
+    pyqt_modules.each { |mod| system python3, "-c", "import PyQt#{version.major}.Qt#{mod}" }
   end
 end
