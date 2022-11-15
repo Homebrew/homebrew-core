@@ -14,6 +14,7 @@ class Lame < Formula
     sha256 cellar: :any,                 arm64_ventura:  "dde2fd627f56465b34aa521ec5ea789a2b6672f0336f5f9a0b6b831342b1052e"
     sha256 cellar: :any,                 arm64_monterey: "67ee7aa900fa0b411c3731783ee53b17517145a03a90b1f35068b01d17b5c347"
     sha256 cellar: :any,                 arm64_big_sur:  "2ff2c6ad3cfd26e1ba53230631e2f04734a4638c344cce50ff0b8fc36b45c403"
+    sha256 cellar: :any,                 ventura:        "745542d02ea729f40b4919b73b2a716e21c7ff0f502068ebd25ab02edcf13ba4"
     sha256 cellar: :any,                 monterey:       "11e516ec779a6f469e9853dbdf65c57e5514177474d70f38cef9c4163b92dfab"
     sha256 cellar: :any,                 big_sur:        "6ceaf88479ce365df8c29140359984ad8debcc44898b99424b39d729e923279b"
     sha256 cellar: :any,                 catalina:       "02b6a2cbf9b902225308bc90c8314699761cbdcd13628271579f5345d8160af2"
