@@ -17,6 +17,7 @@ class PkgConfig < Formula
     sha256                               arm64_ventura:  "3ff612c5e44b945c8c0cc6df7d3edb407ca67cddad9c89f9ab99ced494b7a8c2"
     sha256                               arm64_monterey: "2af9bceb60b70a259f236f1d46d2bb24c4d0a4af8cd63d974dde4d76313711e0"
     sha256                               arm64_big_sur:  "ffd4491f62201d14b7eca6beff954a2ab265351589cd5b3b79b8bbb414485574"
+    sha256                               ventura:        "c44b1544815518726d280d92d6f6df09bd45e41ad20fd43424725c1c20760be8"
     sha256                               monterey:       "a6ba80711f98b65d8a2bf2c9278540860415e9b5e545da338a4d94f39d119285"
     sha256                               big_sur:        "0040b6ebe07f60549800b211343fd5fb3cf83c866d9f62e40f5fb2f38b71e161"
     sha256                               catalina:       "80f141e695f73bd058fd82e9f539dc67471666ff6800c5e280b5af7d3050f435"
