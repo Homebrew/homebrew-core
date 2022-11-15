@@ -57,6 +57,7 @@ class Readline < Formula
     sha256 cellar: :any,                 arm64_ventura:  "fba42a9bd6feaa8902ae4491ffdf177662e0a165a0d0ddef0988ad6ecf0f23dd"
     sha256 cellar: :any,                 arm64_monterey: "9406afa0f7aefbbef37ee193b3b17dd0e08bb2a80e99680cde732289f4819ad2"
     sha256 cellar: :any,                 arm64_big_sur:  "7012f0f3d05e9ca181c67bd55ffeee000aa557aedcee0e260d75085215e80234"
+    sha256 cellar: :any,                 ventura:        "abe9d3f3eec3ba2339860faa6a978b9909194c65c97a60b0d16f3d6d118879ea"
     sha256 cellar: :any,                 monterey:       "19e6b02f577010a1a33c6ae6f09e40772d6ab22d94b6cf3455cfed9d301d28cf"
     sha256 cellar: :any,                 big_sur:        "e6dfc7d95895f18657c0fb15e77a8c104362bb87bafdff770a6a352301cc1082"
     sha256 cellar: :any,                 catalina:       "ef32c6905cc91e0ff5acfce9ad9e7aba1eecbcc5c79ee4e1e3abfe25fa4bf1a6"
