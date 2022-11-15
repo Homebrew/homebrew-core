@@ -9,6 +9,7 @@ class Sdl2 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "79da44df913052bbccd4d04c19f30f63b37873a24303392e028a8da4fa63ae9a"
     sha256 cellar: :any,                 arm64_monterey: "562ab43c40806657c487d635bcbd7b6c92da6b613b74aec68205d6372e049fbe"
     sha256 cellar: :any,                 arm64_big_sur:  "ab30c410aff6dab70d7334b310b7189003b129803b845a3658b589d60f77ff10"
+    sha256 cellar: :any,                 ventura:        "6ccced0a1eb6b5e13f40fd3cc61aafe6a616e806687ce2957d5185441fd5498f"
     sha256 cellar: :any,                 monterey:       "439ba2cf4becefadda6c9b06f3fa4b520d5b883afb65beca199859323ffe4d7e"
     sha256 cellar: :any,                 big_sur:        "a9de785f7457bcbbe02e8154543210935f03de0914ac898913c4e28c923ae8c4"
     sha256 cellar: :any,                 catalina:       "c5cc02c981aa73ae82c98b19d14124f3f0e9dfd11820dc09ae864f1d96ab2a5c"
