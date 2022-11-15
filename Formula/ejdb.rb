@@ -2,8 +2,8 @@ class Ejdb < Formula
   desc "Embeddable JSON Database engine C11 library"
   homepage "https://ejdb.org"
   url "https://github.com/Softmotions/ejdb.git",
-      tag:      "v2.72",
-      revision: "5f44c3f222b34dc9180259e37cdd1677b84d1a85"
+      tag:      "v2.73",
+      revision: "bc370d1aab86d5e2b8b15cbd7f804d3bbc6db185"
   license "MIT"
   head "https://github.com/Softmotions/ejdb.git", branch: "master"
 
@@ -112,7 +112,8 @@ class Ejdb < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-lejdb2", "-o", testpath/"test"
+
+    system ENV.cc, "-I#{include}/ejdb2", "test.c", "-L#{lib}", "-lejdb2", "-o", testpath/"test"
     system "./test"
   end
 end
