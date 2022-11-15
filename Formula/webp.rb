@@ -9,6 +9,7 @@ class Webp < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d6cc5a2a21f783077fc0c40e61809d14b52f9c878a682cefe750364222f51551"
     sha256 cellar: :any,                 arm64_monterey: "f2857acd2c645e441e7363903906492e96cda8c52a1fe0c9ddb668fd12f63e53"
     sha256 cellar: :any,                 arm64_big_sur:  "90cc74768d434a5476cf49144d02ef5dd24cfeb2dead12f1210ffa468e024c85"
+    sha256 cellar: :any,                 ventura:        "f3f06cd4ebe72b4f991800868e8dc9e6f49f22dccc20ff13fa5c771c3e60f8f2"
     sha256 cellar: :any,                 monterey:       "51401f60176f19559cd04e37873da32c470fe3ac6ba0a9e096a4fafda5cd8065"
     sha256 cellar: :any,                 big_sur:        "dc4045b5b9e114898adc9522c704aa668c15c64a5026a2f22c0edfb0cd5fdaeb"
     sha256 cellar: :any,                 catalina:       "c3d401ed32f666e4b1bf40b7c9c037e4c618e12d9e31b61ae59dca03fb8982a0"
