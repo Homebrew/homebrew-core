@@ -10,6 +10,7 @@ class Proj < Formula
     sha256 arm64_ventura:  "7e991036669378b15b90ada6178eb003cb0281219461eecc1b4e6d4df6cc75b8"
     sha256 arm64_monterey: "c2fc067271d23d5251a8448f9980e58abdcc901469d869a84800ec9047c9ff3e"
     sha256 arm64_big_sur:  "f599eb7a880fa923ab464eedb1a57b84ef7b72355893a67d4fd008eb8869176a"
+    sha256 ventura:        "d9b6d67bb20cec7a58a76ce26fc1170996d918a815e307504526ee40b01c99d2"
     sha256 monterey:       "bac994a37c6330d1c446b6ff817cd6a5abb041fb239a5d45a7cf940aa0c56058"
     sha256 big_sur:        "b8b0f822096fae82ec8ee81d31a78c5f58834b63f0e20da99223f8f051ebff01"
     sha256 catalina:       "fefdbbbd06bb34124d4c5475c4a1acb426aa575fa0b6dc9140f6c2a5da41efff"
