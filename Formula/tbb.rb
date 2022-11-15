@@ -9,6 +9,7 @@ class Tbb < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e872d553d5c06d401f725fc6d9d6489cf888c66f7cc1cb1efffaf3640f79c100"
     sha256 cellar: :any,                 arm64_monterey: "97c4b2a2c11ba82f58dd035f7a48e4a2ba15a619c84965345ec30848a9e0878d"
     sha256 cellar: :any,                 arm64_big_sur:  "d2a5e661d1a86f8e3279399efd50d6c8696fb83ee9359856e0f0a6e8c72141d5"
+    sha256 cellar: :any,                 ventura:        "a094729f72f4d89bc7c5c1511fc92d9aa32282125dc08fad25c3921e79d02584"
     sha256 cellar: :any,                 monterey:       "0f2c2a55a0ef29487183373986ee366db3dca5dc6ddac1622bf7c5f555cb9deb"
     sha256 cellar: :any,                 big_sur:        "0a714ba09eb9717b540be7ca5b262cc9fd1300c1793817b265e66f1de37fa4f3"
     sha256 cellar: :any,                 catalina:       "81857d93aaa85e0fd941274661d323c701e3201d218cccb7dcf9c2ff9d80c0bb"
