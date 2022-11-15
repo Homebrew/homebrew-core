@@ -10,6 +10,7 @@ class Nghttp2 < Formula
     sha256 arm64_ventura:  "1228943ffe3ca949f24ea6a4d1ecf021dfc6e8104257918872d052ca39ce1f50"
     sha256 arm64_monterey: "6d3f13a35cad857895ea2a127e79a6ef5cf3331fd4dc630f16bce0b6afe689bb"
     sha256 arm64_big_sur:  "e0d2bcc458d51d2efe0a6e152d870dd8de98f1818bdaf5e698200d3e23cb9123"
+    sha256 ventura:        "0b6cfb70087832f38e354cf2be64675ced7205aa125bc409738c87af378aabf5"
     sha256 monterey:       "39abb63476c806f1475e0579f883b4e5b727ed8d19a21a87becd3a2e0514cbd1"
     sha256 big_sur:        "9c6e6ab0f887af49397c77240c4be2d9f8c2be2af119fe6fb9800958c7ec9ebf"
     sha256 catalina:       "03cec80f7a6e40907a55bd5fcda637353f91e12b8372384afc39aff63b635cf6"
