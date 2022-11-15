@@ -9,6 +9,7 @@ class Libde265 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e088b089bec796671d7a00c3d8aad4e2911efd0d649dcd72c15ee4cf97756e31"
     sha256 cellar: :any,                 arm64_monterey: "1e98138f0c8b39ef2d30ee5e27a2dfc67fd9c58585911517f9602e3e770c9ce7"
     sha256 cellar: :any,                 arm64_big_sur:  "448d589857e6ebac7a90f49e18cfc83ecf5c2bd45df346f8bbb85fe4f01103c4"
+    sha256 cellar: :any,                 ventura:        "6b2f28d2584f4cc8e12a86524409ed48bed8c6354332f367f8b02020c55f9724"
     sha256 cellar: :any,                 monterey:       "2d258e7db5020ce6f359b4825b62b497de6e4a689bb0ad1502e46c49c8b139dc"
     sha256 cellar: :any,                 big_sur:        "f8af61259e67183de915096ab18424d2571c4dbafd1a029036933e604df4155c"
     sha256 cellar: :any,                 catalina:       "9e41b946c4c67a9f318415d18e0b00748d6bf8eec92977c0381e315e5fc94c83"
