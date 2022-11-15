@@ -3,8 +3,8 @@ class OscCli < Formula
 
   desc "Official Outscale CLI providing connectors to Outscale API"
   homepage "https://github.com/outscale/osc-cli"
-  url "https://files.pythonhosted.org/packages/e2/d3/2ff474be2543a868df1415f7a722d1b28016ee521982268e00b575adf0b9/osc-sdk-1.8.0.tar.gz"
-  sha256 "a4184cf708f1b42017d40b441463c87dbdfba5a6b6660a032e7cdc250ac3bea5"
+  url "https://files.pythonhosted.org/packages/b0/60/cd6582d56188c841bd58ce004b67c0a64b8ad855175ea574f01b0158271d/osc-sdk-1.9.0.tar.gz"
+  sha256 "b6cc9b06500493ec445c073458c32b18709c6a5dd842410c3bd141efd81c7ff7"
   license "BSD-3-Clause"
 
   bottle do
@@ -76,7 +76,7 @@ class OscCli < Formula
     str = shell_output("#{bin}/osc-cli -- --help 2>&1 >/dev/null")
     assert_match "osc-cli SERVICE CALL <flags>", str
     str = shell_output("#{bin}/osc-cli api ReadVms 2>&1 >/dev/null", 1)
-    assert_match "No configuration file found in home folder", str
+    assert_match "Missing Access Key for authentication", str
 
     mkdir testpath/".osc"
     (testpath/".osc/config.json").write <<~EOS
