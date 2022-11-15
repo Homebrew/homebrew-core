@@ -12,6 +12,7 @@ class LlvmAT12 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a450c4527222e41c437ea4986d12d808b26af73bb72cf90ac0e4aab91a72061c"
     sha256 cellar: :any,                 arm64_monterey: "ff433ce6b78be82fae375dc3735c19272a14d7f62f0724e31d5e6fb438716700"
     sha256 cellar: :any,                 arm64_big_sur:  "4424885d3b2d3dbfef7a9ceb64e4d6f325f6aa88b66a334f89409c27a6054787"
+    sha256 cellar: :any,                 ventura:        "e59faa5fc23a597bfc3d9649bfe968bdaa3f753ab125ef4fad40484ebb0a16ca"
     sha256 cellar: :any,                 monterey:       "ea1bd6a3e69f76a43f7acb9ca9e2fb4ef14c444cfc854ccba4188e88b6a28c8b"
     sha256 cellar: :any,                 big_sur:        "4635d7fab2baae3b65c031c7d9afb107554a9e529347160164c44ae960726699"
     sha256 cellar: :any,                 catalina:       "ac5f61a1bc47001ebb52dec1a3278b4fce04a1a579b855245a3aa533cff63ad3"
