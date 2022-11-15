@@ -14,6 +14,7 @@ class Pcre2 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "4cfd6a796d211843578c0d7c37d4237762b1431d5762ddc984d8020737c75788"
     sha256 cellar: :any,                 arm64_monterey: "18b810bc5ddba9960505488662ad3b122c898ded44461e2dfb871ee32abbe0fb"
     sha256 cellar: :any,                 arm64_big_sur:  "e9ad944caf659a16e81a3232da8b9d21547b9979cc784f9d242860667ed757a5"
+    sha256 cellar: :any,                 ventura:        "f4c904fded94579056d37ca0ab6e65883484538886f034e5c5641c267cf6e37b"
     sha256 cellar: :any,                 monterey:       "3d2707e8d5a80e1a28875e3b9c7b47cebaf5fd420049d6f1a72fa933b0e68339"
     sha256 cellar: :any,                 big_sur:        "0108a261b51c0c8628eb94fb92a00e33867dccac8b6756a71a24e47f596125c7"
     sha256 cellar: :any,                 catalina:       "b25728793286a5fcd8a92d4a75033e20df74c60ffe1d5d886ea5ad719fe25927"
