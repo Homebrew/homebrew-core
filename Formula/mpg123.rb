@@ -15,6 +15,7 @@ class Mpg123 < Formula
     sha256 arm64_ventura:  "804cb30f0c5bd0adc90ab5f297ec3f8d78db8adec1c8346808bd48faa54a503c"
     sha256 arm64_monterey: "1cd03ee5a750fe9a6b600c5c3c5f4869ceccbb6fe69043f36c335b7378668775"
     sha256 arm64_big_sur:  "fd6e9184b63d3c5ce015a26e996d5515ac79adc5854d961757fed86b4cdbfee6"
+    sha256 ventura:        "88721da6d559fb9b5901fa8bc0cbb07cc73408b7dbd1f35eb18636a310e0a599"
     sha256 monterey:       "8a76894636327da8ada727b1d3462961934bb2f5123eb9361a28e3fc01dbb760"
     sha256 big_sur:        "bd459f73494f65f4c489620ce83fd8dd445fb028b8d6e7a82fcbea05e8547fd9"
     sha256 catalina:       "618b1c831f3e92cce81596738b6a1599343903b0a883fa80cc85ec3d282a76c5"
