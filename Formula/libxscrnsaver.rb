@@ -9,6 +9,7 @@ class Libxscrnsaver < Formula
     sha256 cellar: :any,                 arm64_ventura:  "81f75d3665b2a25386e48ac4fa26c6ced0dfb309ee9e0c4c3b94397a618a8915"
     sha256 cellar: :any,                 arm64_monterey: "c1a3b96f7cd439165af9e761e489c626778359ae7b32c288ba6b01a934362d0a"
     sha256 cellar: :any,                 arm64_big_sur:  "a7e75a15ac1d4fc2b9dd81a0d0bcb5ae1ff457c52ad5440938e5c3ccc4b6289e"
+    sha256 cellar: :any,                 ventura:        "ea6592175b1e14520aeaf7fa8adeac2b6143ee4571164ba805b4bc66121e0443"
     sha256 cellar: :any,                 monterey:       "2154a94f295f404c0fa27d8f6c58e717089fdbe7f8f6736e200e64d35abf1a23"
     sha256 cellar: :any,                 big_sur:        "76e43f0d5a786ac9f6689e2c02956a8519e512dca746f882403fbec960e4291f"
     sha256 cellar: :any,                 catalina:       "d90c91c9058ec7f2bcac9b2b9b83a5dd76096acd88d09c93edee9abaa02707a5"
