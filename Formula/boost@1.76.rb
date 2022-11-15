@@ -10,6 +10,7 @@ class BoostAT176 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "75e4cf932fd41e7be65c1dccd1b776e3d9ad1bff7db7ca0a51ce062c9c5d0380"
     sha256 cellar: :any,                 arm64_monterey: "06b0d013ef4760a75511d8d637377caac0f8643cfc95ac1dfd67a96b708ad8e4"
     sha256 cellar: :any,                 arm64_big_sur:  "b3d192a5702c5ba060ee45e6db0af475cefc61cb32cc4845d4a28769fb750ac8"
+    sha256 cellar: :any,                 ventura:        "d6dd0f9418b0052c656cce039065db464db3047c4ef161d73184d6158cc5666e"
     sha256 cellar: :any,                 monterey:       "7e6f3919e4cb4f84c5e756d3040c6892f075c28a9054581188281c2babda255c"
     sha256 cellar: :any,                 big_sur:        "1e8cbd437f466d6784e450c2a382946e2643c6430d290440914074190f75ab25"
     sha256 cellar: :any,                 catalina:       "b9f891df6d3169ce4f36e0f14ab9f9c64ce23f7e488148f6b09f4a3a896a77bb"
