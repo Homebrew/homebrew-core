@@ -10,6 +10,7 @@ class Hidapi < Formula
     sha256 cellar: :any,                 arm64_ventura:  "da52f714c620a873dfc84bc760aa2be3c4e5a9c611e3ca6e8cc69cde7e0b5213"
     sha256 cellar: :any,                 arm64_monterey: "aa1f68edd1eee2d600109484c6f284374a4dd3275004171eaa819c1c6ff8e67d"
     sha256 cellar: :any,                 arm64_big_sur:  "8abecf0b9d8a3ce86a4313f3feb33d3a5eae2b8db580c0aa084cae9878400ba4"
+    sha256 cellar: :any,                 ventura:        "344f250857a9b2d2356923ad70848f82be247f245bc1457a86d48efc4fffe140"
     sha256 cellar: :any,                 monterey:       "becf77159ab020fd2a66cf3e1f0489c95d8020b93b3c48fc095d2b8d0245336a"
     sha256 cellar: :any,                 big_sur:        "ba016a5a9004eb00fb1c037f9b6db103de6d27f9cae7139fb22f62c668eb9b90"
     sha256 cellar: :any,                 catalina:       "607766ce3cef88e33a8674b3c7cf69cdbe6124845c7ff223e07cceb2ec74df29"
