@@ -11,6 +11,7 @@ class Scons < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e49979efbc0d53d0ad0ab5dda8c0aaf4b827c2ecbffd4459fecdd86673500ed2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e53074519b96a32b1359d58664b934fc9cdaac37e1a414d2e7d43963e8f4c3a0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e53074519b96a32b1359d58664b934fc9cdaac37e1a414d2e7d43963e8f4c3a0"
+    sha256 cellar: :any_skip_relocation, ventura:        "428e5de3c453df16fb53f05bceaf33a14d7c790e6596e241de47dbebbb8da9c6"
     sha256 cellar: :any_skip_relocation, monterey:       "f4b2dc4152373424f8df6f9d8fff6e23e231443bd8897128445318468f23753d"
     sha256 cellar: :any_skip_relocation, big_sur:        "f4b2dc4152373424f8df6f9d8fff6e23e231443bd8897128445318468f23753d"
     sha256 cellar: :any_skip_relocation, catalina:       "f4b2dc4152373424f8df6f9d8fff6e23e231443bd8897128445318468f23753d"
