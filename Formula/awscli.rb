@@ -23,9 +23,7 @@ class Awscli < Formula
   depends_on "python@3.10"
   depends_on "six"
 
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff"
-  end
+  uses_from_macos "mandoc"
 
   # Python resources should be updated based on setup.cfg. One possible way is:
   # 1. Run `pipgrip 'awscli @ #{url}' --sort`
