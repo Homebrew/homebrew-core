@@ -18,6 +18,7 @@ class Zlib < Formula
     sha256 cellar: :any,                 arm64_ventura:  "55e71e5c7907eb8870b3f8b00349c620dc6115d5139dcb45cc3a87101663162c"
     sha256 cellar: :any,                 arm64_monterey: "27b22a6738cbf4a4f3925ace7c72aebcb53a7c13c002ff78492718e15774e8e0"
     sha256 cellar: :any,                 arm64_big_sur:  "83700f7752031794c295557ee3c6aa9783f93ec9de44ac117f7958a83d823dfa"
+    sha256 cellar: :any,                 ventura:        "cfbda79e30416433d6a554f187a99fa9769c79a35e73ccabb53c3c02170ce26c"
     sha256 cellar: :any,                 monterey:       "8473a260917ecc2595a8f903bdd8a23a034683eac350839000a26b17286c7462"
     sha256 cellar: :any,                 big_sur:        "495733577a835472554be619e26ad09fa62684d1d1eba3efae5a8beaeeee9a56"
     sha256 cellar: :any,                 catalina:       "4da7de2b14c12452d4612417e571e04188c6a7594b7f583e7bc72e27f9d965c7"
