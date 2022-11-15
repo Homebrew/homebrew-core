@@ -19,6 +19,7 @@ class Cmake < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "97a9ab6431ef7316acd1c817321e64f1e4578016e4f3fa691b43a897f41e90bf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9fb05904709bc38c7f279af5ebc194e3b819642d1e5bf46001d739d87172b1e2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad48ee6c0cefc090ffd2a0225f95bd6abb53dee900bab819699162cb49ac756d"
+    sha256 cellar: :any_skip_relocation, ventura:        "ed128f70fc88e7e8855c3fe44a2e23ff453b02065f253e0ee5351da79bdfb0c3"
     sha256 cellar: :any_skip_relocation, monterey:       "ab22f15a6500d726a3cbf4ece6e09cd9179684961bc60e9c4777ec1e08ced207"
     sha256 cellar: :any_skip_relocation, big_sur:        "23721d4f22c83935837e9e627dbff5770b511f1b4873f91856a61bcfbe567478"
     sha256 cellar: :any_skip_relocation, catalina:       "3dcb69e729ffb8eece37e9857fa295de8e05b4e47f6aa4f920dfdaf766eb1a18"
