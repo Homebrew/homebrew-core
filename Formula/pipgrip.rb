@@ -6,6 +6,7 @@ class Pipgrip < Formula
   url "https://files.pythonhosted.org/packages/73/90/66e8438b3cea05e5d7c79290fa21440f2c310b072ec705c892301fbc5750/pipgrip-0.8.7.tar.gz"
   sha256 "ed551363b7566fccf33b58a89106163fd630539b5fd2ba2285b62357e80b47f7"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     rebuild 1
@@ -53,6 +54,23 @@ class Pipgrip < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # Create a symlink with Python version appended for Homebrew internal use
+    python3 = "python3.11"
+    pyver = Language::Python.major_minor_version python3
+    (libexec/"bin").install_symlink libexec/"bin/pipgrip" => "pipgrip-#{pyver}"
+
+    # Create env scripts using older Pythons for Homebrew internal use
+    env = { PYTHONPATH: libexec/Language::Python.site_packages(python3) }
+    Formula["six"].pythons.each do |python|
+      other_python = python.opt_libexec/"bin/python"
+      other_pyver = Language::Python.major_minor_version other_python
+      next if pyver == other_pyver
+
+      pipgrip = libexec/"bin/pipgrip-#{other_pyver}"
+      pipgrip.write_env_script other_python, libexec/"bin/pipgrip", env
+      chmod "+x", pipgrip
+    end
   end
 
   test do
