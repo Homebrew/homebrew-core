@@ -10,6 +10,7 @@ class Libxcvt < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7b5543e3a1de31fd0c1f1cb95b6e05784de3198fcf6c153507b67f0e624dcaa9"
     sha256 cellar: :any,                 arm64_monterey: "7bf701bf10b2f4888d102161d975ba7e65cfe404d66811088c567e04e925435a"
     sha256 cellar: :any,                 arm64_big_sur:  "98a64b3f8dcd7212b401b486913c75760ab274112330d518d1998426bbf65860"
+    sha256 cellar: :any,                 ventura:        "84a8baa5cbfd1b4aa075b36f9e3e732a534a77d5838dc4416416593a684d0adc"
     sha256 cellar: :any,                 monterey:       "98f38e88cdc169665f5cb713a7f91ee55baa03161c2d8f9c2728c3e34b2061d0"
     sha256 cellar: :any,                 big_sur:        "d6f36b386b356f7d50048eee56dbea33b0faff4e19357ff48ade8271b6ca1fe4"
     sha256 cellar: :any,                 catalina:       "da146a062545c10c45d7adaecda617dd9a3126aac7be26474548ae490c06c5f0"
