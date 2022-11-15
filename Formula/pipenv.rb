@@ -12,6 +12,7 @@ class Pipenv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5feb4b172f502861488ae34cfbb2b9ddfa3cc05a1f2ee1801930747025fac424"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bff34499e6f5386f79d5f3fee666895e5662045d1465eb4795736e2fa063e576"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af6a0fe6859e36fe4acfc9aa4ed02eac081de51ea501e9316c714c06becef748"
+    sha256 cellar: :any_skip_relocation, ventura:        "ca9884b23a6ae5df06f6dd72ff1c3462e8649027939da0dec8c5e28f01729943"
     sha256 cellar: :any_skip_relocation, monterey:       "936de89f25774427c285ac88fd3ed82f08e8914ee25b29c911393d1b72f04d7b"
     sha256 cellar: :any_skip_relocation, big_sur:        "373876aa766fee3f99d7967f520a51e3cda11e2e8096d397ef1ed11e125d74ce"
     sha256 cellar: :any_skip_relocation, catalina:       "5f725141ac7eff2955a582ac891533ab79f5b165cdecfcfbde4290d6fe6629f9"
