@@ -15,6 +15,7 @@ class Speex < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e8e8cbefa65f7819b2feb27b9067248d97f2e5607253c0a5c8a49a495d7fc824"
     sha256 cellar: :any,                 arm64_monterey: "b0cba69db1b66944a019f312fa128d6c6460f971fdd5cfddc0725051b76a4dd0"
     sha256 cellar: :any,                 arm64_big_sur:  "3cb6ffa6920e1ea4e904bb0e2a8d6e62c329c39c6f7d80d8c66f691b5ad1f427"
+    sha256 cellar: :any,                 ventura:        "ec27dfb9443b9de3ca68ca3239ab655aa33078f7345bd33a07aa1ba05987538c"
     sha256 cellar: :any,                 monterey:       "46d02ec9d80e46fbf260fe650abaa3f4620743ca34a59d53d55d382894231a41"
     sha256 cellar: :any,                 big_sur:        "45e58f000c17211a9624b247cf58d85ea6a191f8c5bfe0efaf6ba72b49a63fc1"
     sha256 cellar: :any,                 catalina:       "21a5518f517dabbb9eb1d80d14e0e7716fd36f7db01e779b875b733db4c5fa14"
