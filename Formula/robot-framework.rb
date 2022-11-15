@@ -20,7 +20,7 @@ class RobotFramework < Formula
 
   depends_on "rust" => :build
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "async_generator" do
@@ -162,7 +162,7 @@ class RobotFramework < Formula
     virtualenv_install_with_resources
 
     # remove non-native binary
-    (libexec/Language::Python.site_packages("python3.10")/"selenium/webdriver/firefox/x86/x_ignore_nofocus.so").unlink
+    (libexec/Language::Python.site_packages("python3.11")/"selenium/webdriver/firefox/x86/x_ignore_nofocus.so").unlink
   end
 
   test do
