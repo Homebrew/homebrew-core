@@ -9,6 +9,7 @@ class Hunspell < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9bc2a6289a536f8147dc07bc64df5b50ecd67b599f0039737ce49d2a09f6da19"
     sha256 cellar: :any,                 arm64_monterey: "e2b55b5d8ba672d91525b15ef165eec3bc1292e1e46ee9dbf01a069eda621a4d"
     sha256 cellar: :any,                 arm64_big_sur:  "849e8289515dc32df0e28fb66371dbb6db15d4b283f970bc1fb5067c2d9bf225"
+    sha256 cellar: :any,                 ventura:        "e0a8af06b26f970b574dd6894025d756a251925e110553b4c39425b64339805c"
     sha256 cellar: :any,                 monterey:       "134ffae149cb7cef8adbf76a165219a88ba0a9057b64ed03cee8cbe22444c004"
     sha256 cellar: :any,                 big_sur:        "b4f0e1ab5c6df7381d0b62a746e40721fc432cafcba9b2d35eb4178e0f7ecb27"
     sha256 cellar: :any,                 catalina:       "1d472e55eb42c1d0029fb306813f79593b7a7924d8180613e19fd45d402bc161"
