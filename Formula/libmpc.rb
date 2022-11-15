@@ -19,6 +19,7 @@ class Libmpc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f7c2965d722a96d7d23030d76867247f46635cd605df0d5188eef38303b56f40"
     sha256 cellar: :any,                 arm64_monterey: "658a1d260b6f77c431451a554ef8fa36ea2b6db19b38adc05c52821598ce2647"
     sha256 cellar: :any,                 arm64_big_sur:  "6a93bd78c1b55f8b29e11fd1e9c68c6c305ffe74aa5b978ba93189b6d84d1451"
+    sha256 cellar: :any,                 ventura:        "2d8b7dd516c0ade793efc25e2e12584e52e4aa265dad49618e98a180a6da5d94"
     sha256 cellar: :any,                 monterey:       "b9984a72544255edf0c2d36dcb75d6adb7e68aa97233b005cf4120b36bb1fe6b"
     sha256 cellar: :any,                 big_sur:        "754667644cc287cd9691fd3215df260aa971562b5a7b6ca65e29b2e15ea1e656"
     sha256 cellar: :any,                 catalina:       "8c037df4b551058d00351676dc2c5ec395bd69c88545fac9ccfd0749dadb8ee2"
