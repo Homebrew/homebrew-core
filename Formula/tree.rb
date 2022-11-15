@@ -14,6 +14,7 @@ class Tree < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "58c55a2893660f39cd4d4942ac8a409ef7fb83c5042773cefce37fbe0e0c300c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aa8eb457cd23554cbee29e9527287eb482a995d4b82a96e70c20424ea992394b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff0bfbe9dcc7108e646741181900f1947d52dc60aee229fc9d834bee0ae3ac80"
+    sha256 cellar: :any_skip_relocation, ventura:        "276d130d97d33a4854b4a60c6fb25166dd0d1614b3d9bdea282b29ff0a4a5750"
     sha256 cellar: :any_skip_relocation, monterey:       "189103af15d87e1f5fa07a47d4050d070629e99f299bad5dd9ed54c4289fdb73"
     sha256 cellar: :any_skip_relocation, big_sur:        "c96432f421c19d06bec2a01e0d789334a01db4c04a21ae058cb745203ea75f79"
     sha256 cellar: :any_skip_relocation, catalina:       "f58be945558f3c5486581f71aeba7d9599227bfdd1c06651b3d3639cb655ecbf"
