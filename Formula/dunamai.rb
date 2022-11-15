@@ -3,8 +3,8 @@ class Dunamai < Formula
 
   desc "Dynamic version generation"
   homepage "https://github.com/mtkennerly/dunamai"
-  url "https://files.pythonhosted.org/packages/05/d8/2a9778c3242e7c08eedb0cb77c7202cf35c0dcbc048476f824e8a014c4c6/dunamai-1.14.0.tar.gz"
-  sha256 "002abe8b9273e61c03d85918181cf6f3a42940cbb99bd93c825242f3712a1331"
+  url "https://files.pythonhosted.org/packages/96/be/8bff0b3ccffe18f707841a8e7b32900637b7298cb86e6115569066688318/dunamai-1.14.1.tar.gz"
+  sha256 "fc3dc52c69eb14c5374e3ce9cb68413e143f7e5983ab0b55f0c099cd36572482"
   license "MIT"
 
   bottle do
