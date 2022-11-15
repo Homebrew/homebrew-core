@@ -18,6 +18,7 @@ class Ghc < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e561c3b8ae12ab2a7b94a09b3c3b5895b9684a08eb136d484c9924e6d1f1efa2"
     sha256 cellar: :any,                 arm64_big_sur:  "4673cdb3ffc12715c76c1531c6b67f2bb76c2b0f46857d89037971fcfccdfd69"
+    sha256                               ventura:        "44380e395bfd793fe5bd194b7ad5297f367bd8a9a33e0c663f7670c533b94a52"
     sha256                               monterey:       "9958adc0fe9861b032206d1d08f1b3ffc2d1db10ac3ca75c470ef1db03cc54c0"
     sha256                               big_sur:        "2aaeb6627b6266759a3812ce9a1ffdbf82067dc1ade27736f0ec74706bc5870e"
     sha256                               catalina:       "e32a672210b61c79a293e64040a6135f78617de5ee8d1f9e0ea83ee8fd11015f"
