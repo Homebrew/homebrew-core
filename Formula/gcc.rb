@@ -27,6 +27,7 @@ class Gcc < Formula
     sha256                               arm64_ventura:  "8f274798b5ce632bf4bbcf499a67a80e58b0bdee71aa5f965290ef56a42f06c6"
     sha256                               arm64_monterey: "f37b8d3764f63e11a6e11dc23774eba527453de89fedb4e3b13aa3996059d386"
     sha256                               arm64_big_sur:  "5d98731c711f17707fe13276090a6a3669a9d68e766e56ead8c842465ff164bb"
+    sha256                               ventura:        "bdfde44b04290f5d6cbc1a8bcce6dee4186e9d2ef29b6f64607bf766c494cd80"
     sha256                               monterey:       "453199069048503be8f072463aaa3cd60fc2764875528f234374872354528564"
     sha256                               big_sur:        "1f2aca239e706f455125dcb2c08df7744b8905b5b62d7aed4cdeae6cf5d5fcee"
     sha256                               catalina:       "98f37e3468e2a15343e02f613a2f8d7761d30eead960d04b2317f8292122e9ac"
