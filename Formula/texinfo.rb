@@ -10,6 +10,7 @@ class Texinfo < Formula
     sha256 arm64_ventura:  "33acf9386cbeab7b708f5c8dd22de953ebe75282faf7fbe36825678396aaf816"
     sha256 arm64_monterey: "83e127cc706026b0279bb6891ff8649a3039e9340ed2c1a38e6fcfc17c2f490f"
     sha256 arm64_big_sur:  "e44ae3361202b0eb5cd28d7730e273b09469eea900eea6bc327ac3eccce339d2"
+    sha256 ventura:        "0c515bf5c8badacf91147bc1b56a2c84b1b833b6e691dc338af092f47dea7f7d"
     sha256 monterey:       "d4f1550361dbff38ba9d7a63ae2e00cf90109929434cec52ca48418a13ebeba8"
     sha256 big_sur:        "fe5b705f97686161be9d985ca3dabdcc8692df85ed3ff2aa3583c7ce20fec1a4"
     sha256 catalina:       "59505aedbf48a25fda2c71718168027a736bf0e954fe02eb1281910cdef82e3c"
