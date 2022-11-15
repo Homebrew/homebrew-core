@@ -15,6 +15,7 @@ class GlibmmAT266 < Formula
     sha256 cellar: :any, arm64_ventura:  "3ab9f5d7eb75a7cbef3445eaa784406643f4178bbc6b765dc4997bbaa0a2d0b5"
     sha256 cellar: :any, arm64_monterey: "5131ab5c66e574bb30d696dc0a078eef37c3fbbdbbd4962a1f8fec468e1774a3"
     sha256 cellar: :any, arm64_big_sur:  "239fdbfe8fb891068c1d62e67c9cd047af78997d722b4d315c336e4355d95e25"
+    sha256 cellar: :any, ventura:        "7c1d5f4f9b5d101710002f67929ddd8a24f44e7f93a09ff56169699f9fb98406"
     sha256 cellar: :any, monterey:       "f253fabbcde2fe8419b4892b2d89b065af94c86ee9214801392734e7aef6d26d"
     sha256 cellar: :any, big_sur:        "b9f2b7cb1cc2332b1ee4790dc8477a7df86ecafcd8d40ba459f3131007148a28"
     sha256 cellar: :any, catalina:       "782035c5298608b93ed10bcb526e5e68425ca030b4d34c79a55ddda0e33c2ae9"
