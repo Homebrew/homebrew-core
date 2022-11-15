@@ -9,6 +9,7 @@ class UtilMacros < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e19bc76fc467de84316114ac9cd5456777ec2d26ca5545895e2a25528bd1c3e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6e19bc76fc467de84316114ac9cd5456777ec2d26ca5545895e2a25528bd1c3e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c264994ad25a15c84c92929eaf5dd8ca14c10938f58be3161f58ffcebbb3eb07"
+    sha256 cellar: :any_skip_relocation, ventura:        "37755208d3543eba393850f25bbc8d57bb8bfe66dedcc6e1ad0168eb750f0821"
     sha256 cellar: :any_skip_relocation, monterey:       "37755208d3543eba393850f25bbc8d57bb8bfe66dedcc6e1ad0168eb750f0821"
     sha256 cellar: :any_skip_relocation, big_sur:        "75380fbb4f54df33cc028ca19b05b7350fc0ee864dbe6e4ee6a4fa9cdec19ad9"
     sha256 cellar: :any_skip_relocation, catalina:       "3aebaa717cf69676ff38b74538a34b3ab96e6344a2303da8f12f420a66b73719"
