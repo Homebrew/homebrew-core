@@ -6,6 +6,7 @@ class Sip < Formula
   url "https://files.pythonhosted.org/packages/08/f6/06ad8d62331b302b68fbd730eedec8346213db71857128cb3b8309fee2ad/sip-6.7.4.tar.gz"
   sha256 "9dbf8a0e7c8d76d1642e2fdd3f53e6a522f7c30980e527763c45760c2505cfbf"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  revision 1
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
   bottle do
@@ -18,7 +19,7 @@ class Sip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c25bda6cbf3c46ad83319b2f7de9c2126148d216ab98751a0bfbbb1ee37c9abe"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
@@ -41,13 +42,8 @@ class Sip < Formula
   end
 
   def install
-    python3 = "python3.10"
-    venv = virtualenv_create(libexec, python3)
-    resources.each do |r|
-      venv.pip_install r
-    end
-
-    system python3, *Language::Python.setup_install_args(prefix, python3)
+    python3 = "python3.11"
+    virtualenv_install_with_resources
 
     site_packages = Language::Python.site_packages(python3)
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
