@@ -9,6 +9,7 @@ class Cjson < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ad434259c62a12cf5b5dbfc725214ae5dd4f49edc293e09f36d757f7832ec8e3"
     sha256 cellar: :any,                 arm64_monterey: "6e0051098016dfe778b578304a46af1a7e171c04abb9e507945b069bfe771d74"
     sha256 cellar: :any,                 arm64_big_sur:  "5cee282ea9e05f687010993884e90b1f89980af0909fe2f8c376d520cb3a1cd7"
+    sha256 cellar: :any,                 ventura:        "6faecacb90ee0e3149c329d71d8bcb3cea5fc0bb3da3b8258e54285a7fb02050"
     sha256 cellar: :any,                 monterey:       "821879ddb86f12b2fa764e3bf1f094eea1d19bff8924f4b3ec3ff1a1aeac40ed"
     sha256 cellar: :any,                 big_sur:        "6a836d6f194756f36b0007b1c9bb8881c8bec86f41b9987a436524d1b2c66271"
     sha256 cellar: :any,                 catalina:       "523569912fcfe553fa50f9b856a3de0bbca49d573d750c44a9ed08af01eb8606"
