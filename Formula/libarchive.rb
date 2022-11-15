@@ -14,6 +14,7 @@ class Libarchive < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e998ea917d0ca7ddd938af2a0e0270e4a28240170e66dd07d32e8276bf3bd3a2"
     sha256 cellar: :any,                 arm64_monterey: "0cf4a68e9bd6d24a4579bdf08eb33348151464d525e279f569f0b51e60ccc2cd"
     sha256 cellar: :any,                 arm64_big_sur:  "305f6be2e4fe73076a065ac7ebf82158d13e702ef8cfa8be1494a9f29ed1dd19"
+    sha256 cellar: :any,                 ventura:        "f58410e4c5c73f86a27a320f030801789b920beb36ed73011442f9995fa6c077"
     sha256 cellar: :any,                 monterey:       "652e949db4255c0dca6feee1a8cc96361a66458f4439c58a7dfd0c8215840b80"
     sha256 cellar: :any,                 big_sur:        "a241d5e65955c8fcbbebac59b8eb85fb2949131d89352adced58929b5cd9b755"
     sha256 cellar: :any,                 catalina:       "9d6b54ed2a65936461827076e3e1e8addb96d06ca2ff318e8fe0d89f144146da"
