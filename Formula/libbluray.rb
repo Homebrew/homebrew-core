@@ -14,6 +14,7 @@ class Libbluray < Formula
     sha256 cellar: :any,                 arm64_ventura:  "001dd82f68fe3d89c81bb0e0e391ca9fe1318a95bc5f69a14acc74bb00459ea0"
     sha256 cellar: :any,                 arm64_monterey: "d5f2c92bd6e50a0e5f5deaaac18697c188f40f772744934035188d45e3742d16"
     sha256 cellar: :any,                 arm64_big_sur:  "38f92ef02a7574639d7ba07bd749a7db01e46d1270b3b48fb2fb4d9b2b2ce459"
+    sha256 cellar: :any,                 ventura:        "a9ace83dda18cee845a12f34812748b8a2c2969faca57762dd6050208dc9a862"
     sha256 cellar: :any,                 monterey:       "0d5cfd70f4b146c855f0f0149e230dc573287cfcc7d84c26ebf507a9fc7a1b46"
     sha256 cellar: :any,                 big_sur:        "dde2149e8b7da0d496e006de9c9335e085952e47a54df9c72b9921c6e800a21a"
     sha256 cellar: :any,                 catalina:       "55a591d08739fd75efdc192113e0c2a7f40785c58fd1c491592084a0c43e063d"
