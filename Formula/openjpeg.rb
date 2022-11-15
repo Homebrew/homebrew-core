@@ -11,6 +11,7 @@ class Openjpeg < Formula
     sha256 cellar: :any,                 arm64_ventura:  "46a9bf9f697e8e98a296cf25e3f6fc03d06c8814ad622b3d6e6cdf4df5ef4bd8"
     sha256 cellar: :any,                 arm64_monterey: "ad8a83dd4260c0c6cc941a04993b19e230aba83b7c200c9c8808c41d44f2bf93"
     sha256 cellar: :any,                 arm64_big_sur:  "4fb1a896ad5b273c2cb2b76960a78e1778c6e538f69e411c6cf8e20f5ada2184"
+    sha256 cellar: :any,                 ventura:        "e615c2ae9510912562e40f3237822fdbe155a84309645d0df0990dffa7e6ff96"
     sha256 cellar: :any,                 monterey:       "7579e3c9665c0ff274336b0210f3fe87b03a72895b64840ef1565e69b975e48e"
     sha256 cellar: :any,                 big_sur:        "2b9a55147b5fc89120e86e499cf63425b7b3cac340fec050c19e287efb1f758d"
     sha256 cellar: :any,                 catalina:       "19d0029651a0dde2c307a8c50058bf8384879a2b94673272acc848faacde2a85"
