@@ -10,6 +10,7 @@ class TerminalNotifier < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "20ebb413679d76521e4434cb4351560f35052985a11cbb1f85c12e45bef95919"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c9862b6cf8d3b299ef67dcfb6e31d3040670bdfe58110d04797b117b3702de42"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1268e236f13f5bb4cd5fead9cf54cfb54ceefb98e34861bd39cf3c7e6ef34cf"
+    sha256 cellar: :any_skip_relocation, ventura:        "29c41b914cd8299dba529d1fc6029e4af981ee90010f8a8b11dc4ded8e097855"
     sha256 cellar: :any_skip_relocation, monterey:       "6513db788b33570b1b89d2b0215e3176d629814b3233c993e995ec9806ad32df"
     sha256 cellar: :any_skip_relocation, big_sur:        "91f14694ebce08887492aa75138753cd9ff74977868927b15b52559728280055"
     sha256 cellar: :any_skip_relocation, catalina:       "78eff95b7436480521ee68a8581ff2df0c615adefccd279486f2491f1b1c0a4b"
