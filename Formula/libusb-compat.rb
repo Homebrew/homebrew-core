@@ -14,6 +14,7 @@ class LibusbCompat < Formula
     sha256 cellar: :any,                 arm64_ventura:  "96e578e69eb194e164e10412e3ccdf030e997d3dad19671433c219d5581ba1bd"
     sha256 cellar: :any,                 arm64_monterey: "18e59704d824c4cecb91b176ab52aa192660c3c5f64a01cc9d57daf80aca6373"
     sha256 cellar: :any,                 arm64_big_sur:  "8e54f4e98a9dd9e39c8d18e053729472c23a20f35c858fefdc78c8aa6552368f"
+    sha256 cellar: :any,                 ventura:        "a8468be05137dfbd9a1d08866950e69084952c1a17ea706ea21e9673ad5d9622"
     sha256 cellar: :any,                 monterey:       "8bebb13222ca261997a5e64725dc7a0c2215652830bc4f32dbe504a7a19df6b5"
     sha256 cellar: :any,                 big_sur:        "75c7921c73433f1481dfc4aeed5e63dac1a75d67ed13409ed1c2ec053864dadc"
     sha256 cellar: :any,                 catalina:       "e1f03f77caed5418c50c3c9659e6c56f2363eddfd6cc1aac3f8dcac9451771d2"
