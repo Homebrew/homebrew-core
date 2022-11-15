@@ -14,6 +14,7 @@ class Libev < Formula
     sha256 cellar: :any,                 arm64_ventura:  "45855fb985e74c97e1764ae481f1699e846441089cc3da65bdca5d8fc1b41243"
     sha256 cellar: :any,                 arm64_monterey: "2ae425f0f4435a6a01577bdf04723791f2c7bb67d6eeaacafca7aaca9450c55b"
     sha256 cellar: :any,                 arm64_big_sur:  "8ed86bdd0ff3b47f8802b251a9ca61770ffc4c9b0be964f41f50955256b5bb53"
+    sha256 cellar: :any,                 ventura:        "6d0945ebe1bd085e597fedeee3fbcfba8f0d40195b03e4523894917b5b5526ca"
     sha256 cellar: :any,                 monterey:       "de9342ba34cfa8c2f8863a92eb7aced34652c302328f8a593a449d183c9fe1e0"
     sha256 cellar: :any,                 big_sur:        "95ddf4b85924a6a10d4a88b6eb52616fa8375e745c99d0752618d5bb82f5248a"
     sha256 cellar: :any,                 catalina:       "e5481e2ba48282bffb5ecc059f0ddddd9807400593e849ed4b48b1fed3a14698"
