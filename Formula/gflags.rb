@@ -10,6 +10,7 @@ class Gflags < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6e795ef1c92a6c9a29df890b9113e48e30576ad72e1fd86bf0874cc9a8c1f042"
     sha256 cellar: :any,                 arm64_monterey: "b7b14b5ab926ce5519ac34e1998f50fcd086eea1f0cb964fdae920e1c559162a"
     sha256 cellar: :any,                 arm64_big_sur:  "3c47ffe18412eab890f339191cfe1b9142d7eb9d499d68ac4ac55db2707e6f3b"
+    sha256 cellar: :any,                 ventura:        "0b45c10f7b0dc5db1b939b80fc4839aaf04e4e4c51ea7341aff3aeb25b47d7aa"
     sha256 cellar: :any,                 monterey:       "131b300ff91b74fc06ef08208a7474c6f21d46ea785e0d76f236d5167d4ecbdf"
     sha256 cellar: :any,                 big_sur:        "013d34b7e3e9ef0b1ebae5c0bad9661cf1462a4fddec2e31c27dbacb5e8697b9"
     sha256 cellar: :any,                 catalina:       "ebc7b6a9b5c14419f01a763f8b5d178525231d0fb4f5a4768673745a893f3b0b"
