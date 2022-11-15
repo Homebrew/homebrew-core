@@ -9,6 +9,7 @@ class Libx11 < Formula
     sha256 arm64_ventura:  "996724436ae47440832ffe2caa9bec0d0f374f8885f83925453895fcfc80d8c2"
     sha256 arm64_monterey: "8d08dd29849612785db12fd469c707b136328bdfd4115d79b6afdfc1b13c9b38"
     sha256 arm64_big_sur:  "4448aa22e8118de5775caf8488b666a211b01f50085a418fbbbcbfed2d83e517"
+    sha256 ventura:        "7d62f3b406f3ac7fad944ce6f2faaa5a496139a69f657ab467d118c4df9183db"
     sha256 monterey:       "cbaa4ea21135fa88c816263ea1d945e9b077be7c0fbe8ccca37ff924d9abb205"
     sha256 big_sur:        "c408a64f5e19800a746125e1ca3bec69440cf053cfd2d5e041469fbf66d16b4f"
     sha256 catalina:       "83b5c84a2f595ddb273b9eb9790109e542da3c21832df5cc6c90a1c328050389"
