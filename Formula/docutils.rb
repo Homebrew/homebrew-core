@@ -11,6 +11,7 @@ class Docutils < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "10bee4ba96884f6b1b1bcfb9ae78f7ff7d923707e357bb9e4f3682a7ba8aebdc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b784e47113758f9c47cfa4567a26d862fc9d0921bd6b63565b093913f86607b4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b784e47113758f9c47cfa4567a26d862fc9d0921bd6b63565b093913f86607b4"
+    sha256 cellar: :any_skip_relocation, ventura:        "198f0738d9631da591e9da489c80b763dd7a9a343ff9035e9b5060988e45ca2c"
     sha256 cellar: :any_skip_relocation, monterey:       "ae5ef91d15f574fd9adeb50a5b1023c45f56fb7eed85ac270fdd0fcc401b41e3"
     sha256 cellar: :any_skip_relocation, big_sur:        "ae5ef91d15f574fd9adeb50a5b1023c45f56fb7eed85ac270fdd0fcc401b41e3"
     sha256 cellar: :any_skip_relocation, catalina:       "ae5ef91d15f574fd9adeb50a5b1023c45f56fb7eed85ac270fdd0fcc401b41e3"
