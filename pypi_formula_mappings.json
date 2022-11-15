@@ -472,6 +472,16 @@
   "pylint": {
     "exclude_packages": ["isort"]
   },
+  "pyqt": {
+    "exclude_packages": [
+      "PyQt6-3D-Qt6", "PyQt6-Charts-Qt6", "PyQt6-DataVisualization-Qt6",
+      "PyQt6-NetworkAuth-Qt6", "PyQt6-WebEngine-Qt6", "PyQt6-Qt6"
+    ],
+    "extra_packages": [
+      "PyQt6-3D", "PyQt6-Charts", "PyQt6-DataVisualization",
+      "PyQt6-NetworkAuth", "PyQt6-WebEngine"
+    ]
+  },
   "pyqt-builder": {
     "exclude_packages": ["packaging", "pyparsing", "sip", "toml"]
   },
