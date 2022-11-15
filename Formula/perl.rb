@@ -26,6 +26,7 @@ class Perl < Formula
     sha256 arm64_ventura:  "060d846955f6c1263f550709f425b02b232a9f61adc755af6a4749fac8250f13"
     sha256 arm64_monterey: "aef200b8035eb1fbf5b6aa219c053df7f73d9c07da10f503f08889ae70e2e92a"
     sha256 arm64_big_sur:  "f0f893e0ceb2e9855bfcec2ceafaaaa8202df3477d11f39b88722eb776ee4f34"
+    sha256 ventura:        "5363b1a09291d6e4b4d87b263f3692b535e1426192bf13cca62264f0ea34e807"
     sha256 monterey:       "5b63dfe448c0b7a69cb8a3d0b4220074848ae0680a2f245080a8f4cfd1be3baf"
     sha256 big_sur:        "b8371ca58bdc89bd17ba3bd0a0f6d151fb0bbd1544e47357ad474507f4ca5f28"
     sha256 catalina:       "3f0a9bae1a11de46f3cb19e9f1d64e63b6af957a771bcab0663ab18f2a6822b3"
