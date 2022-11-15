@@ -19,6 +19,7 @@ class Flex < Formula
     sha256 arm64_ventura:  "900f81d92ac336f0deac4e23141807b77cd15c57460c55ddfafa873d62447d0c"
     sha256 arm64_monterey: "fba3fc3fe93abae2c8c436f0cf2fba194f6cf68e6938496937163c416fe6f402"
     sha256 arm64_big_sur:  "ba78304da35f69526d386e1d1decca8818b155b4dda4f470d9393d23cf713e11"
+    sha256 ventura:        "d4b974c982ab96f6d372d7e76b0a3965ae2afb084cb533a0abedc840979f78b9"
     sha256 monterey:       "937f34d36419d74cb32ef93df71f5fad1638b2ec5290cb865840e1fcc95ac595"
     sha256 big_sur:        "89ec2b04b1aab94297f490c60fe6ca2bcde7de9b7661482728b07931e635d21c"
     sha256 catalina:       "e563a7a42aceff203cca4f420ebc6a8bbd5075a2b0007d46724f037ebc7b41a5"
