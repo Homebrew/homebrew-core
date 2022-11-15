@@ -15,6 +15,7 @@ class Nmap < Formula
     sha256 arm64_ventura:  "fa9ecaf07f3f0bf52b15823ebdda6d6a06eb87ed9fca10be319e924507fd46b5"
     sha256 arm64_monterey: "fcda26d55da7618f8085ef42ac88e268704d85abdebdd6335885d66d53e481b3"
     sha256 arm64_big_sur:  "7bb55a3cf90dec4eb58b7cc64ac271423c2399b0326fcf65825eaee980f6fb1b"
+    sha256 ventura:        "ffa5863f860997861ee935efb30c26f57076f75ac8b0219f8370535decee795d"
     sha256 monterey:       "48442b1126bd29ff0d1912452ffff383f9569f69fc3dd06d8cebb728ee6c80eb"
     sha256 big_sur:        "06725befa856ced25c575cf50b3cb87872a0d5bd3b54f2332c239c24fecae634"
     sha256 catalina:       "6b8c3d04da2a2fc81ac7f228c8791a5f39bf41f2b43845b858a73e14d620ef81"
