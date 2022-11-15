@@ -19,6 +19,7 @@ class CAres < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d033d01f5fb60bfdf8c13970b543dc22b5930133266d3bd251bddf808dd72aa4"
     sha256 cellar: :any,                 arm64_monterey: "a5818fef12f8028c1ee36d9df5213a74b8e3f33b08889043908bc59364cc29b5"
     sha256 cellar: :any,                 arm64_big_sur:  "2a3a10365f123633607a3569a8cb31afeac814229e17d975c95be5139f33fed5"
+    sha256 cellar: :any,                 ventura:        "e0fce37577a8cd007314f96c2132e7c64ca5ee52f7a90ebeb8121eb7435f380e"
     sha256 cellar: :any,                 monterey:       "62b9590a3b9d30d2db8696da78948fb79a26c139536c3820c4275327fd808559"
     sha256 cellar: :any,                 big_sur:        "e276dddce0e43aba6e8f39b26be811294ae36cb7c45e203ff656bb52fa30242c"
     sha256 cellar: :any,                 catalina:       "3d1c10f0de6c0847e972f67e7e6021fde7ccc1f58dc5497182ae7af80bb127f0"
