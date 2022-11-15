@@ -15,6 +15,7 @@ class Opus < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5b67ba43cce16fb32e5a44f7236b9866ff88241ad3fb4676ef541d89eb12c0e9"
     sha256 cellar: :any,                 arm64_monterey: "f7e4d08500365985c7f5adebfb7e48393a8d148cba70ad92f4980360919f5ba3"
     sha256 cellar: :any,                 arm64_big_sur:  "e278b9182301daf80621269defffede5d134765b2c907cb921fff44d00ea9fe7"
+    sha256 cellar: :any,                 ventura:        "68afef91a4b3026c9c80bf383fb0ac64e51a31bb5dda9c06b28fa0cf0a150d7d"
     sha256 cellar: :any,                 monterey:       "db0f02da71ae2fc11a841f618ab73eb956ea7a20eaf3ee1a093a61fcd3f2f579"
     sha256 cellar: :any,                 big_sur:        "cffbcfe03bf3d0e6a9b9b301dc0ea71974ab6f49e1ab66dd7895679367ecf156"
     sha256 cellar: :any,                 catalina:       "5cb191f66da0ef2b8d03985c79cb18a59506aaba8a01cc0b1a821c293e88d576"
