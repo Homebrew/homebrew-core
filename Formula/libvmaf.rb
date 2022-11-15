@@ -9,6 +9,7 @@ class Libvmaf < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ddf330046166c9f25ad89679d04bc12375d3ad8b4454edeebb2e39667af53dce"
     sha256 cellar: :any,                 arm64_monterey: "780fe80d3941971968a0dfe1f8384fc5fc240e9994b09da41175a7d5fc56b513"
     sha256 cellar: :any,                 arm64_big_sur:  "76b4b46c07bde41001d5dd6660de656c369b1cf9653638538348e97ffaeec55f"
+    sha256 cellar: :any,                 ventura:        "433acd17cf9b2bc4aca330fd9f27d32e2edbc62445df948fcf6030ec20fb47a4"
     sha256 cellar: :any,                 monterey:       "a30aaf6bd5878809c3dec5f47d643e4adbda5811a13f5a20d21a3472d5151e2a"
     sha256 cellar: :any,                 big_sur:        "60fb7784b39ae2aff9a836f08190637e9c7f2ac32755ed24ec3f5ddbac916c64"
     sha256 cellar: :any,                 catalina:       "99db9a406ddacb8ca0c157dbea53eb12a29ced66091f2af820ae8bf9bc9802cd"
