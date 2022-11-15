@@ -1,5 +1,5 @@
 class Unison < Formula
-  desc "File synchronization tool for OSX"
+  desc "File synchronization tool"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
   url "https://github.com/bcpierce00/unison/archive/v2.53.0.tar.gz"
   sha256 "9364477df4501b9c7377e2ca1a7c4b44c1f16fa7cbc12b7f5b543d08c3f0740a"
@@ -31,6 +31,8 @@ class Unison < Formula
     ENV.delete "NAME" # https://github.com/Homebrew/homebrew/issues/28642
     system "make", "UISTYLE=text"
     bin.install "src/unison"
+    # unison-fsmonitor is built just for Linux targets
+    bin.install "src/unison-fsmonitor" if OS.linux?
     prefix.install_metafiles "src"
   end
 
