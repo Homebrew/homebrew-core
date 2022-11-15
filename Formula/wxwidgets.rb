@@ -16,6 +16,7 @@ class Wxwidgets < Formula
     sha256 cellar: :any,                 arm64_ventura:  "edb8bfbbc0d73c3b3ab21a8cd6b5def66e6dcc077a72cc157c8a4d9c3ef00956"
     sha256 cellar: :any,                 arm64_monterey: "76e7c905c89560d11a2a2bb32fae3e315b0589c3dbdfedec1530c13b74aa3ded"
     sha256 cellar: :any,                 arm64_big_sur:  "855d074fcb1da69a300f99110d748921541b10861d745ed8be152d94b7b46e4b"
+    sha256 cellar: :any,                 ventura:        "50a7b2a25c0c7e12d7ef3f0b148b70cbf1955f56476f80210bd710c5a4f1c50b"
     sha256 cellar: :any,                 monterey:       "2298c24d90acc7991a21b3807e4a412336df133cdc820be0bc8af848bea2908e"
     sha256 cellar: :any,                 big_sur:        "a1760b6dce6dd151748352e99a54ba3a8f5de2bd32d01a8b6370fce94b085738"
     sha256 cellar: :any,                 catalina:       "eed88d624813213f4f3272c7c0c6c1483b170642818e36aa14df76a495c4f333"
