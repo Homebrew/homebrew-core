@@ -13,6 +13,7 @@ class Jsonschema < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6466b0da0224a6032b11ccb946ae9621c5f1dbddb54c86055965f24780805d1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "837810d192217865aefa25421554fe02709019060faab5f6317042f1cb77ace5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f78327ca1a3d89ef36bb37bff5d4904021dd73f8678f821c849adf2d053c0355"
+    sha256 cellar: :any_skip_relocation, ventura:        "28fa340844147727d1b48f704b6547fa3160bc58fb091b52a45a807c56ca06da"
     sha256 cellar: :any_skip_relocation, monterey:       "5515829f57e8627cf12ca65deb0b1d9e24505d4fe89ab22b1269503eaa71f035"
     sha256 cellar: :any_skip_relocation, big_sur:        "ac5a56f030e45673a6b333366b67236c488296613b9504a39f64314f81010886"
     sha256 cellar: :any_skip_relocation, catalina:       "67d97e992ab442330ab427756db36c100442477e7413eae06311f5b568d0f127"
