@@ -10,6 +10,7 @@ class Libsigcxx < Formula
     sha256 cellar: :any,                 arm64_ventura:  "86b758f24d784bac1a64350a46e9e597b6554c42408dcb3cf601e4aa76723be4"
     sha256 cellar: :any,                 arm64_monterey: "9391b249e2f7384c4720662739ef3de8f888c37c867be2ddb5bff7a1b2322399"
     sha256 cellar: :any,                 arm64_big_sur:  "072c1e58af5c3200b2c48909f5c8beed75ae5a55d0b17b64c05ad834cb96ab9b"
+    sha256 cellar: :any,                 ventura:        "846b78f3cbf81e6473bd86c851a1ec10a5db493ca7a7d164da9c74f274fa2b0f"
     sha256 cellar: :any,                 monterey:       "7425858f43533a26ba8fe48ec525e1f43b9f0e52b2b2aed07cd24bd9f5282c12"
     sha256 cellar: :any,                 big_sur:        "18be15b790eb9c68fa9afd2348f2080db311fc48aa1ad89b7f230f4518fc09a1"
     sha256 cellar: :any,                 catalina:       "ba6e2306ae68fb9f730d041caa8df52a13425d94ab3d905fa92b8b202cbedac4"
