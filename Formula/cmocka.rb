@@ -10,6 +10,7 @@ class Cmocka < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a8f740f136437949637b8587bcb355b51b31a8a58f872738caabdafb8f649f56"
     sha256 cellar: :any,                 arm64_monterey: "a504b57668ab63e04fd3ca656d6a0a48a215779b9779dad64e6e65e56441c2fd"
     sha256 cellar: :any,                 arm64_big_sur:  "e2ed51c48c56006bb4b8591259eb206968e46457e78b15570c567d990b5f97d3"
+    sha256 cellar: :any,                 ventura:        "62276a9dcaed10332781bd14a2d6e23e174d88a588558ec384d76ebb4b334380"
     sha256 cellar: :any,                 monterey:       "221d35e014f83b7ba5c115ed5dc058508f956ff551141676a13ece2be1c476a3"
     sha256 cellar: :any,                 big_sur:        "a852c9033a2ca9543dff361a5a5d19027dddab7d207e9a080cf9f8bf75751354"
     sha256 cellar: :any,                 catalina:       "719b81c50a85d95dfc0bdd88b52e5642cc81e22f95776fc8d92065217bef879e"
