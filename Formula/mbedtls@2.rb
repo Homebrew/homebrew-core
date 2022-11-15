@@ -15,6 +15,7 @@ class MbedtlsAT2 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b9683d97e7b975165e30db14429f24dfaa200debedf46e079d3b6746d0a5d1a0"
     sha256 cellar: :any,                 arm64_monterey: "9334ea247c229ad29ed6b0e0c388b1c589c70e7187e3d8ed6bcd051ebceb1291"
     sha256 cellar: :any,                 arm64_big_sur:  "bada695460468813a313ddae30a66888cb830d90e0f542f18508504bd4bedaf2"
+    sha256 cellar: :any,                 ventura:        "d540f2eb5697aeedad1fc0a9d700fce533641f7f2022154084b337f4e768cf76"
     sha256 cellar: :any,                 monterey:       "a135ca31c4f80a80fcc42eb127e9538860b561ff8c62abbe4f70211be2ff8d48"
     sha256 cellar: :any,                 big_sur:        "b335ec7c23a52d9aac74d184df4cb981ea930d955c4b57ce500591775dbf05b2"
     sha256 cellar: :any,                 catalina:       "b93d06f753ca54aa84d22357c5cb682ad927769a859781cfbab239f68631ab7c"
