@@ -112,7 +112,8 @@ class Ejdb < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-lejdb2", "-o", testpath/"test"
+
+    system ENV.cc, "-I#{include}/ejdb2", "test.c", "-L#{lib}", "-lejdb2", "-o", testpath/"test"
     system "./test"
   end
 end
