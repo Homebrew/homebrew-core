@@ -25,7 +25,7 @@ class MinimalRacket < Formula
     sha256 x86_64_linux:   "5ceb281664ea1a00c477a6476757e7963e5b13db482dd57789dc474ad3ac375e"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
 
   uses_from_macos "libffi"
   uses_from_macos "zlib"
@@ -54,8 +54,8 @@ class MinimalRacket < Formula
         --enable-useprefix
       ]
 
-      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@3"].opt_lib}"
-      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@3"].opt_lib}" if OS.linux?
+      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@1.1"].opt_lib}"
+      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}" if OS.linux?
 
       system "./configure", *args
       system "make"
@@ -109,10 +109,10 @@ class MinimalRacket < Formula
     # ensure Homebrew openssl is used
     if OS.mac?
       output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match(%r{.*openssl@3/.*/libssl.*\.dylib}, output)
+      assert_match(%r{.*openssl@1\.1/.*/libssl.*\.dylib}, output)
     else
       output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match "init: #{Formula["openssl@3"].opt_lib}/#{shared_library("libssl")}", output
+      assert_match "init: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libssl")}", output
     end
   end
 end
