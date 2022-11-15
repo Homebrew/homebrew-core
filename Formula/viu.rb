@@ -7,13 +7,13 @@ class Viu < Formula
   head "https://github.com/atanunq/viu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed569c51270f0b6dbf8efb6d31a099a2175c89a4b343f1b7d25e3e1548716708"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f94e737a853bebf1ec049c3d57107aa0e794aca060281d630e49a30ec81cf076"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "409b6050fa2951c94b8d066c404fa90d19550cdb5ca0fe26b0c67b4c39e1e0f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee3a97b14f93cc056cda66d0844bce846de340e495cf0ad7d7b656f61e43c372"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5279a5a2a5d808252a1fdcec42404f6a8f0db8642b480ac42095fe12c35b292b"
-    sha256 cellar: :any_skip_relocation, catalina:       "553163efb73b54754f90d097c88932040adc607e7e94a5d529808318f0fa3c1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5c975aedb851d136e011fd9d44bbee9a5de9f8890585d7993556c519d1e010d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5518815ffa424b2f4341703d8e12b62a7b0c7b86591e24e48f22e5dbebf9499"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31abf104e6a99f2168f865b6461657aa6a7a30c014239eb72f76bffc525bec95"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fefcfa184185f643d81e7a206e782349a0813e947222f2ea092eff3f92dfa5b1"
+    sha256 cellar: :any_skip_relocation, monterey:       "9f01ea745004309835c0ee4ebee71ff8186246ea0c74b2c5286a3f021d425238"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d88e2dcf78308bdb60b2072cb03a31d6fad4d84d760360b597feea0a0a1b2a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9affa5440243080d044e7dce00b6d2efa411cfcbbbce88aeb4c2b5268b5107a"
   end
 
   depends_on "rust" => :build
