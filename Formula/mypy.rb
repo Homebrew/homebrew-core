@@ -12,6 +12,7 @@ class Mypy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "895f00e65b177c34d4b4bcacb81c8d7f44ab9f9a9df88566a8f417b3c998b934"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22ff690ce4f975ad294d7955323da8fbe809b6281851bd157b9620839ed8bbbf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4047975ce033bf2bda81b888ed622a7cf3d936240731df891a0a746dd57b316a"
+    sha256 cellar: :any_skip_relocation, ventura:        "864a08160980218aeac27ce109f9225cd3135a77f60c6eb3c44af4a13aed3ff6"
     sha256 cellar: :any_skip_relocation, monterey:       "02f44a88333b0a6f09eedc9c653b7d547db18e0256b0fab3e7ab0b44853d716a"
     sha256 cellar: :any_skip_relocation, big_sur:        "b5e8e1a568aa9ce995fd07dcd11320dd9eae8b254c6c67a91615691b3539c9c4"
     sha256 cellar: :any_skip_relocation, catalina:       "582e4f03123861d5d3831353452f440b96f169a45c44f221d64b96b078884661"
