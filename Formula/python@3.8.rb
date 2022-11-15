@@ -14,6 +14,7 @@ class PythonAT38 < Formula
     sha256 arm64_ventura:  "956238a99a5ba7077a15dd6834110b34c5232af662b2f2a344061929f2135549"
     sha256 arm64_monterey: "3e95fbf0f18b59af7aeaa957be4499a9c521ec199f2ec2a419b8a7b9ac627a3a"
     sha256 arm64_big_sur:  "23eedeb485f756fb4ef5a2500cca0f53663424f8eadcb64daeb9bb1b73bb11e2"
+    sha256 ventura:        "9fa8178e5446ac839b7c9315cf6d24119a6c0cd5f8293ff6f75888063ca78e12"
     sha256 monterey:       "c247a261048c510b963705acfbea23b09cc193b5d4256a5d10b42d199a8f8869"
     sha256 big_sur:        "19dafceed8b8d44476b54035b89cee1add6bb43d9b456a0aec34b980cfa0e269"
     sha256 catalina:       "542ba1414dd49ecdb206999c11ed115b0745d4401b1b28f5542b9066be6b27bd"
