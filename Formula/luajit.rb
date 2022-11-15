@@ -43,6 +43,7 @@ class Luajit < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9cda15c8cd365b8acae903949df3fb16d1b125d80ab56823d632d8f242b7de3a"
     sha256 cellar: :any,                 arm64_monterey: "0f404ecdbebe620235f98586a140328eb64c031ddfdeb66b111d5da13f380658"
     sha256 cellar: :any,                 arm64_big_sur:  "0ade1906a9079a7b6aa4996e69c3ba73b0c76fb37b0367062a7151d184c74e80"
+    sha256 cellar: :any,                 ventura:        "02e6896c2520ba593d1007d15f12bf1ee3069082810f42978130cabb04f6e4c5"
     sha256 cellar: :any,                 monterey:       "dc1843a2f0781e2f197c80b405759ce4f7b1cdae7477cb4f83349aec35371c72"
     sha256 cellar: :any,                 big_sur:        "706d5716305cb5768ec19e29c78d5fee3ea12369ab9a6293f60968015ed7aa6f"
     sha256 cellar: :any,                 catalina:       "970c0a9651c0c8e81d3091127fd23b32519de47ae13770d6023193f88d1e3945"
