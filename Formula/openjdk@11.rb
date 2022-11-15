@@ -15,6 +15,7 @@ class OpenjdkAT11 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ec9827ab4a3895ddb6739939af6dc3426fd09995a805af69daccf099ac4301ab"
     sha256 cellar: :any,                 arm64_monterey: "81eccbbd81a405f07a1ac2bb0f3ccaef70d2f586a26f6c9b5326a4deb9d30404"
     sha256 cellar: :any,                 arm64_big_sur:  "ef1efd7cb78ff5d788dabcef4ff376b214f422584d9b50ae086965ebe4c2e607"
+    sha256 cellar: :any,                 ventura:        "4157114f6dd128b93d0732559787f191678d2d496476e19855a03d0f226aa50c"
     sha256 cellar: :any,                 monterey:       "938120ca00af5d30d606a37576fe11394511bfe1ac9d36817e8d4da4c662e92b"
     sha256 cellar: :any,                 big_sur:        "a0943ce186432e16eab04996b743f4a52c1d4eb365a4f0fb9d2283d6554fc810"
     sha256 cellar: :any,                 catalina:       "bdbb96550f521b4c79ffe9c8651c97b5a28fdf75061a3aff84c2ae57b2ad95dc"
