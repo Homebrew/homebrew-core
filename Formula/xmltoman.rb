@@ -13,6 +13,7 @@ class Xmltoman < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "935b52af5b5db87065e8c580a1e4ccc6798a460bf71c0e723fdac795e335f9d3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "77b3da32f02bb89299d15ed1d377ac175c9774b53b7b381a364b0ab7e754661a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c1c3da70de5b5ca5d57b476a540ae3219c112f76c75e5716d7565a95797b3a1"
+    sha256 cellar: :any_skip_relocation, ventura:        "a051b7032231424ff0d662f9aad2b4b11602db40334658510e103172efa39c19"
     sha256 cellar: :any_skip_relocation, monterey:       "b23eb8a8ca08137101f39de16513e5df52fe5df72ee3972b2be1b464d18ccfbd"
     sha256 cellar: :any_skip_relocation, big_sur:        "0d570defe5cd89116a1c4ed81782f9a57fc38fae3bd767d9bd41f68fb3d53e2d"
     sha256 cellar: :any_skip_relocation, catalina:       "547b65d2c4e637b2331382f907a1a9602864d7e1e579404ae96e765dc8a4f378"
