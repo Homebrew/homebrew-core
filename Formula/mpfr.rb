@@ -59,6 +59,7 @@ class Mpfr < Formula
     sha256 cellar: :any,                 arm64_ventura:  "dc15dfe27723d98db1993901a221b2647f9fa239afec236100c5b39ec8dbe35c"
     sha256 cellar: :any,                 arm64_monterey: "57c5c5b16ed462b28c2691c8284bdd6849cf668b190a59cc6e1cdb1971f57ce2"
     sha256 cellar: :any,                 arm64_big_sur:  "7bd20206002bf9839c3477d1c1013b6000953e2f2b13f9f252184037c8c05d88"
+    sha256 cellar: :any,                 ventura:        "761ce021145d2a2a4fb3970872b684bd2703026c40f0cacdc764846108d211b3"
     sha256 cellar: :any,                 monterey:       "1007b284b2bc9825f8aa1f2bf3162ff8d2ca8f5d0c3c9802c8a9be452677648e"
     sha256 cellar: :any,                 big_sur:        "e220a942ee9fcbe777b8bacee4669f84deddf08bd1dc2f65e44da7ab2349719a"
     sha256 cellar: :any,                 catalina:       "ec511d6651ef65d53be5f7b2210b0dd78bee017b7a8d48c8db2175ad16a4e086"
