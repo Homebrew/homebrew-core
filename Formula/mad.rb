@@ -15,6 +15,7 @@ class Mad < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9d6ef63d6de6de6a1fecf34c3f5be58952ca778829c93df51e4ec491b97b0fa3"
     sha256 cellar: :any,                 arm64_monterey: "e6a54111ab617580c360bfa07c8503cddf52b1df5bda2cd51da086e4e9470223"
     sha256 cellar: :any,                 arm64_big_sur:  "ee9a37f6202a784c1564ac92613821e9bfd0f75fca8ef24262e444e5ec424ca6"
+    sha256 cellar: :any,                 ventura:        "435f04d35968bb228b0f9078190f5895d90d5a46db66d5731b02cf916b1014a3"
     sha256 cellar: :any,                 monterey:       "912da077a9ff47e8e0b19ed160646c8a365e448b81786fbc2f64a2813c8d6b33"
     sha256 cellar: :any,                 big_sur:        "0ad06329f73d5dc15cba262feca6e1c582e10ad3b9ca0476e46c37e6d878d0ab"
     sha256 cellar: :any,                 catalina:       "5416172dc7ccd3c5a5065b3f7dc18c00e83a7e20dfc6b09e0586afc4a76c5722"
