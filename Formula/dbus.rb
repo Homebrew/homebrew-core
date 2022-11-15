@@ -16,6 +16,7 @@ class Dbus < Formula
     sha256 arm64_ventura:  "bd47d7e498d2c564cc9e1a72171c188a579baa2b0b1ae7fdbc90403f0b40ff56"
     sha256 arm64_monterey: "a7c5e9ebfa5e456cfbb3e78ee917898e89cb4672b8fd0aa5bec679723d8685f5"
     sha256 arm64_big_sur:  "77c1c3aa6d4e2d86d5c0e505326297bb4873d9cfb475eb0faad0ae588384d8af"
+    sha256 ventura:        "44e1e11140160c1aba37a011693779ebf5313735f9febce5a60958099ab76506"
     sha256 monterey:       "0ac396a8e236fb1324f0008017e2e2dc096eec1e804e80082096974df86038f2"
     sha256 big_sur:        "1e5f498229eb4607bad387c03b7fa29b28e5cd3d5189fbd506abfdc7e8e5bdb2"
     sha256 catalina:       "ddc436c75350923f396fc2296b7c2e432190a1d7efec209db34b0b50fc523a9b"
