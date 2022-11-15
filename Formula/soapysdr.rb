@@ -19,12 +19,15 @@ class Soapysdr < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+
+  def python3
+    "python3.11"
+  end
 
   def install
     args = %W[
-      -DENABLE_PYTHON=OFF
-      -DENABLE_PYTHON3=ON
+      -DPYTHON_EXECUTABLE=#{which(python3)}
       -DSOAPY_SDR_ROOT=#{HOMEBREW_PREFIX}
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
@@ -37,5 +40,6 @@ class Soapysdr < Formula
 
   test do
     assert_match "Loading modules... done", shell_output("#{bin}/SoapySDRUtil --check=null")
+    system python3, "-c", "import SoapySDR"
   end
 end
