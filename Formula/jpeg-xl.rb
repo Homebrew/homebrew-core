@@ -15,6 +15,7 @@ class JpegXl < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7eb0830be36d3318ebcc215ac69cdd63e7f99fd0792e990112c5b26a90afd816"
     sha256 cellar: :any,                 arm64_monterey: "61c94c8298518c28e7691f81a2121ce486d858dedadfe60022e1e551511030fc"
     sha256 cellar: :any,                 arm64_big_sur:  "371a558450a0fdfdd8de9989011f1001a4e04e32e437f596299caee66c0ba18c"
+    sha256 cellar: :any,                 ventura:        "09a8f21c88586da121b247e5b52233009f85dba0434c63deb470aaf558de487b"
     sha256 cellar: :any,                 monterey:       "a9f204cf962676a52a330a71d217c83c14e40a756f02edfdd8d5d8aedfb14663"
     sha256 cellar: :any,                 big_sur:        "012d7b28ece1cfcd64bd2c26b35f19143dc606ba76bcd0e5eac667d6a3173f14"
     sha256 cellar: :any,                 catalina:       "0ee7f2e5766b3cea61538f03925f22b6fba782f1c40e4db6439b07f7ec84ec1c"
