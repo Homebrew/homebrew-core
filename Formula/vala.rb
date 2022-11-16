@@ -9,6 +9,7 @@ class Vala < Formula
     sha256 arm64_ventura:  "7cefffab4f86d1dff6b881892fe16eec70f943e6a14ec428c4bdcd626fb69e21"
     sha256 arm64_monterey: "9710ea0dd1f5bbba23f41bf54982705a5c7fc6d4b35ae68fc8f6d65c876519ac"
     sha256 arm64_big_sur:  "e5cf9e8f047f4ddf31b0f25c3076c6cc8b1ee9982de3d242b4796275af60a4e2"
+    sha256 ventura:        "a37e353afc48e25f09258bc9cc15b66eaf582fe0779a2243ac499d0b188a51da"
     sha256 monterey:       "f8239f01d9b18c4be6d83b97c42a93c4ab436d3d13bab3f95d609b422ea0c2e9"
     sha256 big_sur:        "bc77fabfbd06743e37f1c9ee78f1c608d68b4bf1c34783b75d2d8f5ed00cbc3a"
     sha256 catalina:       "56ac3f0303166a5d6c556e8a899fbc5f3a743f38b84915dc19457c4284523f46"
