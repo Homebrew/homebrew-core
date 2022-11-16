@@ -16,6 +16,7 @@ class FfmpegAT4 < Formula
     sha256 arm64_ventura:  "57aef50db7267b704835d0cd7c3b44cdbc0acfcfb646e66c4ff1cec91a9dfc4b"
     sha256 arm64_monterey: "b67aad5f2c077eb90d8130c6e937630f891cfb65b8f2eef7588861506b601b5c"
     sha256 arm64_big_sur:  "414aae2f834c3818fd42aa11084c49f8c6ff85338aa9bdfff3e824c732c76c3a"
+    sha256 ventura:        "46d21a0a8fe8902872ad3fe3697e40f92d8c05e185657118820558b939c808a8"
     sha256 monterey:       "c4a94ca99c2e753e0a888261a57d2d4cb4fb915d5ae15a6f52a1eac38a887b12"
     sha256 big_sur:        "a498999dc89b95c632d0e1096692959f8dd19bfd895b3a962b07ca85794c8238"
     sha256 catalina:       "d6c1bd0ae512d68589e7cf220511377e05f309e9f5fe15688f65ad78e27ebd3c"
