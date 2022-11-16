@@ -15,6 +15,7 @@ class Gstreamer < Formula
     sha256 arm64_ventura:  "1474de51672852a3c9e1f7a3ed8fd89eb46cb61606130fe6cf883772f0cca44b"
     sha256 arm64_monterey: "9ed5bde4e69defa581b8fb7e32dea318fa9d58af7c9cf4a56914152e3da6d37e"
     sha256 arm64_big_sur:  "9b56794d090b1e832a79a3151be71182b310a0a011710b0caa592a69abf03a03"
+    sha256 ventura:        "a41c1c035826595e51430b3de6430744bcfce719c0facef63d8fb98a1c01b6a0"
     sha256 monterey:       "5bb8499adfa323b0d87932d4b1cc4b1c0e320a0de46b8913eb74bd08e180f9a0"
     sha256 big_sur:        "141fcaa3f1bc72f4253cf671ea96828ff0364a5ccdc59303cba8ccefe4c977ee"
     sha256 catalina:       "be3027bdbeb6130f70f3a835d930151893d88d104a40ff9ffaa26f647ca80cc6"
