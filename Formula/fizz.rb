@@ -10,6 +10,7 @@ class Fizz < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7dc951aff60008f39af761ac73f145a5ccbaf90ea8d742517fb943bc02b78a97"
     sha256 cellar: :any,                 arm64_monterey: "36c63a2965779dee50bba37d3cdacbfee47ca7a225e6ddb398d00b02eae81a6b"
     sha256 cellar: :any,                 arm64_big_sur:  "fa723c447da340101e9f672a73446adc4612a38e3cf9ed254d2e54a95d9ea996"
+    sha256 cellar: :any,                 ventura:        "5b2332e9b13b9a2e5651c8ffa72d88e73af063a041569ffd684c023bb864e526"
     sha256 cellar: :any,                 monterey:       "de1dbe82a8a0abb67ff3b33d87a696c7bf9c6a6956a0f72807c5de794892dd2b"
     sha256 cellar: :any,                 big_sur:        "9b290993f962e6a475d57495da549f2ca165dadc9b8a86d91f3827dd0eb6ad5d"
     sha256 cellar: :any,                 catalina:       "a6539634f48d141ac5ab373ac5536feeb1a60507717f4f478728f926b6aeb507"
