@@ -10,6 +10,7 @@ class Pango < Formula
     sha256 cellar: :any, arm64_ventura:  "673bc1d5545ad8e13179e50d0df37a3db9d319b6b9eb354e3c4f3379b98868d7"
     sha256 cellar: :any, arm64_monterey: "8cc6d2c73bd319cd8598a9eb350d7aee05cd56b8f27d66dc533b24bf9b2d734a"
     sha256 cellar: :any, arm64_big_sur:  "4113394e7d48d042ca1f88faf4aab5e61fa822f472d6285d9915934cddf00af9"
+    sha256 cellar: :any, ventura:        "cd24670664ac70833580bad35da622bc9ef5cceed4763f55a5c3b9efe33f27a6"
     sha256 cellar: :any, monterey:       "ebac20ef65acd412a6c9c088026f5ae959b959f7ac6d9546bf86d0c30464b985"
     sha256 cellar: :any, big_sur:        "e07eac47453ab4d48fd32dcda61ac0891564c1018b0817bb264a600929acf294"
     sha256 cellar: :any, catalina:       "c0c17233eb077043c7e74e82f466ad463f19c7a4437130fa46b0edd4dcbb73e0"
