@@ -17,6 +17,7 @@ class CeresSolver < Formula
     sha256 cellar: :any,                 arm64_ventura:  "4854064146581d467e76483acf43e32cac3870cd0d9d12b7ac2bf7b3b7924806"
     sha256 cellar: :any,                 arm64_monterey: "8853908633eb208b01f8c837f25f21d26e7ab25467989a1e41d8fb169818a9e3"
     sha256 cellar: :any,                 arm64_big_sur:  "c2248770066bdb4efaed2e8cdd28665d2b250b0f22323e3fb081e78ebfc5e558"
+    sha256 cellar: :any,                 ventura:        "c79050cc85fd6502a13f1b6077cd0bf570a908b3cd4890cc990ffce16dff4e5f"
     sha256 cellar: :any,                 monterey:       "5ec1c84cbbae986126cb0876f46bd74621ff9b1a562ac60e5ae4bcc69c893468"
     sha256 cellar: :any,                 big_sur:        "4904e364045a99496a2a299221b4a333088a988265cca04af91c05df89c8091a"
     sha256 cellar: :any,                 catalina:       "ad19523c11bb9c90599c32ac22af103a96b29b77b046065fd1cc3c93c518e419"
