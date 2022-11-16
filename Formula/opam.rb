@@ -10,6 +10,7 @@ class Opam < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b02e96f6dfc96d76e790d03cc6baca328f191bd7fea3d3fe569a345473acf855"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8563eb7d39ff28e820a742a93b43a792b51015abefb7f717addeb37940749000"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c36da51223f65fd44a96d112fe39541fa7250a73350bad309d5a65ba2e894ef"
+    sha256 cellar: :any_skip_relocation, ventura:        "247bbb505091dda216a9cc5a44348ca1e94521173ffbe395ee5ead39a96c8137"
     sha256 cellar: :any_skip_relocation, monterey:       "b716d483047de32ecef958e0a0169240735fa1193522746c673e09414bd3acd0"
     sha256 cellar: :any_skip_relocation, big_sur:        "78675942dcb92da0acc6c0f156a86a5068aa628e093f661ec6d0bbbc4bcbd968"
     sha256 cellar: :any_skip_relocation, catalina:       "dfa026d9771b2942d7eb6157eb8cff877b94de1f15f581ad2b7e3c48db8535ab"
