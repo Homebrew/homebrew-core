@@ -11,6 +11,7 @@ class Grep < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d2450448352fb2c389634cab3dec581882f6fc0f02a79489b4ba9c603b8f780b"
     sha256 cellar: :any,                 arm64_monterey: "2a97d1431a8c367299b3ec1a62836136ad0474f78bd515f29b2210cc85591a66"
     sha256 cellar: :any,                 arm64_big_sur:  "b23c8e00f85e4a10c1827619248a117ab2df3bd1503b5191c4467533fd299bec"
+    sha256 cellar: :any,                 ventura:        "d0d9b98da7b6eedb0d08d0b73e4dfd0627f5f3d19a3b850e248d33f6d13f039e"
     sha256 cellar: :any,                 monterey:       "5b13dfd3339908dedfb233c3ba77a45fff7f55569b9252979349eb7fb0a45b5a"
     sha256 cellar: :any,                 big_sur:        "f3b4b34263e59e4dfe427381ddecb820189f8336c464d97e5ab4e8b624d65484"
     sha256 cellar: :any,                 catalina:       "bbb952d77089ccca022c170c295b48dea9d5afc90c3da65ee447adb04593c2c2"
