@@ -9,6 +9,7 @@ class Gnuplot < Formula
     sha256 arm64_ventura:  "c246651856ca531f7d8363b9ad595860c7c4d8147921b7b7c4331c52b6e603fb"
     sha256 arm64_monterey: "51ecb988ca7a8ce2ef5dbcb62216c3bcb3ad1e1d5a5f9e2ff96cc8fa0a4df545"
     sha256 arm64_big_sur:  "c3daac6fbc91bec92a684618c0d09748d4ce8839a11174022796834d9328b649"
+    sha256 ventura:        "b2fc809c4c735e51ba9619c1db049f647d1d577e862e73710569a006660554e1"
     sha256 monterey:       "3da9430c2b26efc609638ccaa705894287f60525fdb5e801386a0eaf05718aaa"
     sha256 big_sur:        "f818709ded2f6eb3cb14beb9e20dbe31ff7be2d4e8655ee3dff9f81339499474"
     sha256 catalina:       "b348f93e05234b05ccd399be81bde105eee3a06c7a675de2092156982f7edf03"
