@@ -16,6 +16,7 @@ class Tmux < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6c72c3fbce35b39cb8e4df69cb18c288cd01744f5394c912a8f72539a6700a32"
     sha256 cellar: :any,                 arm64_monterey: "0ca53c250a3e70d97ca511edd13f2d16660e4e94a41465a8708306e03b231b76"
     sha256 cellar: :any,                 arm64_big_sur:  "89a9edfec5e665df5b9e2e0f47e1721c1e074725846705819042a9c691683981"
+    sha256 cellar: :any,                 ventura:        "8edbb91fb9e3d7411a8ade0b8417251c17dcf4de295050dcfc5e4e62a144ae71"
     sha256 cellar: :any,                 monterey:       "c0489c25fa963b14fd5d3c53eb50f681e85bb7a5716883afe77c1efbdea7c882"
     sha256 cellar: :any,                 big_sur:        "85eb7ec949aad04ad0a550a4a8151bc4453e229d813fda0be724f17fd8cf40e1"
     sha256 cellar: :any,                 catalina:       "3cb3c779b9e62f0f5f5d9204309d194148ee66e3bc930480cabf7bee1b897623"
