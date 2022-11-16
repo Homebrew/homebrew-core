@@ -9,6 +9,7 @@ class Libconfig < Formula
     sha256 cellar: :any,                 arm64_ventura:  "2bf05c92de1c235a0ba6f4ff4fb37d2451bf50057b5af52ecabb1a03ea3892fd"
     sha256 cellar: :any,                 arm64_monterey: "8074ac817099b848dfda57a98dcb10eac98781d1aeb85425d6e1713650da8c09"
     sha256 cellar: :any,                 arm64_big_sur:  "e675d6e4c47ca13fe8a8faaf02364c5e09c43f7212b33040aa49c06a808c077c"
+    sha256 cellar: :any,                 ventura:        "b5b55ab30a17d2c5c66dd3ea18b6368452683b2ffdeec4892af58f5e65220470"
     sha256 cellar: :any,                 monterey:       "c5fe41cc40b814c29ddfe551058e204f2e50e76dd056aeae57d28cca24be672e"
     sha256 cellar: :any,                 big_sur:        "90fad29e719a3bd1b8ebe4eb857299b8a78a229543c3062d370bcdcfa0b8cd5c"
     sha256 cellar: :any,                 catalina:       "88689325264c406acb9f624b0c66cae10e2c7b5874b4d78335751b4627a5496c"
