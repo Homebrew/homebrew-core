@@ -2,8 +2,8 @@ class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
   url "https://github.com/duckdb/duckdb.git",
-      tag:      "v0.5.1",
-      revision: "7c111322de1095436350f95e33c5553b09302165"
+      tag:      "v0.6.0",
+      revision: "2213f9c946073a6df1242aa1bc339ee46bd45716"
   license "MIT"
 
   bottle do
@@ -17,12 +17,12 @@ class Duckdb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   def install
     ENV.deparallelize if OS.linux? # amalgamation builds take GBs of RAM
     mkdir "build/amalgamation"
-    python3 = "python3.10"
+    python3 = "python3.11"
     system python3, "scripts/amalgamation.py", "--extended"
     system python3, "scripts/parquet_amalgamation.py"
     cd "src/amalgamation" do
@@ -47,8 +47,9 @@ class Duckdb < Formula
     expected_output = <<~EOS
       ┌─────────────┐
       │ avg("temp") │
+      │   double    │
       ├─────────────┤
-      │ 45.0        │
+      │        45.0 │
       └─────────────┘
     EOS
 
