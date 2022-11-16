@@ -11,14 +11,13 @@ class Dropbear < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db87da36cb9394fad7e7d4292b28579f0514cc122717bdd938e48953dbcdeeab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b0bfa12063d71ff6829e440adf72ac513a8d266a0914b4f05c9e6cafa15052b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bc0edcd4401f0fe4b5434c747d571b22f6a6565199573cb0e452e2866b57218"
-    sha256 cellar: :any_skip_relocation, monterey:       "e6e2b8b954f13adfc61c0c7e857197d8c300bb5aee833e134ea7cf27781f32c9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "33bb0e7178d106b25b33488c53cc9cbc9bd3b1c77db7c1d109bf0b13db27403e"
-    sha256 cellar: :any_skip_relocation, catalina:       "9e7555bf7f8596b7524050e87beaad1f2037314a8a3ff2520170b7737071f876"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79b11ecc9390db971819ccfdc19df355df389aef6d83add80ba4161424796903"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dcec1a39e5a5e4690a070e3398328890065cdd2d62b879fe0c1998f33a8a2f51"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2453eaa6d3db311eb4c1fbfbbc015b9092d41d480fb202de62db2a9b629304e4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8bb3270365893e046581536ca68247bc076db996792d6e12276076043dc353b"
+    sha256 cellar: :any_skip_relocation, monterey:       "e2fb94f5c26f62ba93143a24ede11996f1c6ed95b471012284f8c03feb764a45"
+    sha256 cellar: :any_skip_relocation, big_sur:        "156af560dbd95b6265fc5eea98d8f8c543c3273033ee92f99bff4d0128cb01d4"
+    sha256 cellar: :any_skip_relocation, catalina:       "7aab9e4151373680365e78a39474493b6a381bc8a24ad55a6c232018fe4644f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "936ac3ad8df5dae23a2ad663ceceeaa67c9b68862dab3d92d8d13235bf0d080a"
   end
 
   head do
