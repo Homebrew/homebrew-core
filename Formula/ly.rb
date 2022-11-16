@@ -6,6 +6,7 @@ class Ly < Formula
   url "https://files.pythonhosted.org/packages/9b/ed/e277509bb9f9376efe391f2f5a27da9840366d12a62bef30f44e5a24e0d9/python-ly-0.9.7.tar.gz"
   sha256 "d4d2b68eb0ef8073200154247cc9bd91ed7fb2671ac966ef3d2853281c15d7a8"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -20,13 +21,25 @@ class Ly < Formula
 
   depends_on "python@3.11"
 
+  def python3
+    deps.map(&:to_formula)
+        .find { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .opt_libexec/"bin/python"
+  end
+
   def install
     virtualenv_install_with_resources
+
+    site_packages = prefix/Language::Python.site_packages(python3)
+    python_version = Language::Python.major_minor_version(python3)
+    site_packages.install_symlink libexec/"lib/python#{python_version}/site-packages/ly"
   end
 
   test do
     (testpath/"test.ly").write "\\relative { c' d e f g a b c }"
     output = shell_output "#{bin}/ly 'transpose c d' #{testpath}/test.ly"
     assert_equal "\\relative { d' e fis g a b cis d }", output
+
+    system python3, "-c", "import ly"
   end
 end
