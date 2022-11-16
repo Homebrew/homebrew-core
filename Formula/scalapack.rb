@@ -15,6 +15,7 @@ class Scalapack < Formula
     sha256 cellar: :any,                 arm64_ventura:  "29ba1d098896c7724994f1c43eb6796390759a184220419ebcef8c5600f871be"
     sha256 cellar: :any,                 arm64_monterey: "a0cd4b382932d32799b88c4e7f99488414d7feb86ff5fbb1a22fa6b1980c84ea"
     sha256 cellar: :any,                 arm64_big_sur:  "564ea01e76cc0dcd9a74de0f9e9edece929059d972a7954ca139a55d0150c920"
+    sha256 cellar: :any,                 ventura:        "20f2a5d450de5f8d745fc6d7c675f19bb70ee4c66ba18a4d4782418e1d0ed389"
     sha256 cellar: :any,                 monterey:       "388e65a24aa3813825a03601f2d8ca839f00b40c0b082ecf8207e30b9bc9d481"
     sha256 cellar: :any,                 big_sur:        "db51a021b6af840cafb460e91c766312e01f646834a48c36e0e566f95f89b8d3"
     sha256 cellar: :any,                 catalina:       "c829bc139bd4db1d81e578e25df05119f503210bfb52391a45c97bf534891c94"
