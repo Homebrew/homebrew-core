@@ -24,7 +24,7 @@ class Urh < Formula
   depends_on "libcython"
   depends_on "numpy"
   depends_on "pyqt@5"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
@@ -32,7 +32,7 @@ class Urh < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
 
     # Enable finding cython, which is keg-only
     site_packages = Language::Python.site_packages(python3)
