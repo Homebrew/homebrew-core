@@ -14,6 +14,7 @@ class HaskellStack < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "14660a1d83c39b2739bfeb813d59f531a1bad657662d11c0b3cd7c3ad63a5b74"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3dae3216629fe49908992c551348378ffc86643cd1c05eb5bb0c2c942eeccb6"
+    sha256 cellar: :any_skip_relocation, ventura:        "b573c6e8ab2598eb71f5380428924d967ef2b90fe681d969a520f0df3e6c5dfc"
     sha256 cellar: :any_skip_relocation, monterey:       "9670b5f56fba10637b47a5218e07a89838bf6b60c4cbd3cd6bd6e72898921a64"
     sha256 cellar: :any_skip_relocation, big_sur:        "3782938b77db10588becf4b2c5b3fec6b855e44b0aba0cb8d7552df462b438f5"
     sha256 cellar: :any_skip_relocation, catalina:       "8f179178636d27c08a6458c3398cc3701ce3c5689d7fa74a4ad0c65b5d6d0508"
