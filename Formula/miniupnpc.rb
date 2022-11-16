@@ -16,6 +16,7 @@ class Miniupnpc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e01ae8c24a471bbb88a1033b67e041e8f9fca6634d01f92a4694db20d4d53c14"
     sha256 cellar: :any,                 arm64_monterey: "6181bbf0ea573d2f09d125c6271412502605f6a0c9e64b006cde35f048cc69f8"
     sha256 cellar: :any,                 arm64_big_sur:  "c3b527cd69eaba31f8b87f36f8a85c0c13a3c9bb19989abeba8ceefd78b9044c"
+    sha256 cellar: :any,                 ventura:        "b1cb1853a2a3ff1772d70022e1e8d6a420735459fad3e1d26396df562fdfff3b"
     sha256 cellar: :any,                 monterey:       "92ec5cfb40d1da0fd842bfd2ec32ee3f5970776da4a2334aefce69463600828c"
     sha256 cellar: :any,                 big_sur:        "5d2661c359f7d7734eeedd7905038cd1e86d2b41df2aa81ca5e5ccdf55445566"
     sha256 cellar: :any,                 catalina:       "06f208877ac3279b5a9960846e27df4d8d0452a0e4d500f20ce7e01305f0e5c3"
