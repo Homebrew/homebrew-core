@@ -10,6 +10,7 @@ class Libmicrohttpd < Formula
     sha256 cellar: :any,                 arm64_ventura:  "8b0d7364c3c44c0efa904dcc80f7beb63640454a34cec5d35c84614e3305f57b"
     sha256 cellar: :any,                 arm64_monterey: "719b89039fa6d2a7bf46e3e41d092854fcf7a2192bff60dcc6d307416f67758d"
     sha256 cellar: :any,                 arm64_big_sur:  "0ca1f7a5751af784f3ec1afc2fa85bde3487be08a7b5fc17a07335c0d399b13c"
+    sha256 cellar: :any,                 ventura:        "7ebbaab537451e21141c40b20afc157d187a4ce0297ecff798256375cfee7eb1"
     sha256 cellar: :any,                 monterey:       "96833590a2b4173f35f25eaf23c589f856eaa2780fabd66f646335508555a95f"
     sha256 cellar: :any,                 big_sur:        "a540b019ab53255a0ddec65ddc85c5d891f75a51305b63c81808925c55556b50"
     sha256 cellar: :any,                 catalina:       "4b7505f1f572a3052d356f639d7d25cb77c1b1ffae9378b4bed3789d70778986"
