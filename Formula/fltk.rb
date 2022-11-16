@@ -15,6 +15,7 @@ class Fltk < Formula
     sha256 arm64_ventura:  "629a76ecd1a0cab83c01e1bf5488d85515f0115c0a1f638b0aa25dbc9f3146cd"
     sha256 arm64_monterey: "0a4162f4f01767c76acabf13f888dc9a585b3ff72df88545704fad68ce578954"
     sha256 arm64_big_sur:  "c5e80b820d74af67cdd25a7125b423bbe259930d35507aaabd56b82ebaca0048"
+    sha256 ventura:        "cce07824ab505a5acc47b5a3db22c3906ca88ab494216dcbba14be7a66e9b51f"
     sha256 monterey:       "4e35b5a5e6f0c0ef134630be137142aecc42a73ce8d9ee1c1df8c7a478dacb7d"
     sha256 big_sur:        "604d0e1beb8fb68b0dcf12b83a2209f34c7d0f9d3fc47c3b9b34222c93faa593"
     sha256 catalina:       "ef38aabd458e85e3cbfb7bfbe1ca96949baad75397a1a4fbb25cdf299a713dfe"
