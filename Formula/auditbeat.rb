@@ -2,8 +2,8 @@ class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v8.5.0",
-      revision: "6d6754fcb0adf6a2191b055d35f694c961c8ba40"
+      tag:      "v8.5.1",
+      revision: "f81376bad511929eb90d584d2059c4c8a41fc691"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "main"
 
@@ -19,7 +19,7 @@ class Auditbeat < Formula
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   def install
     # remove non open source files
