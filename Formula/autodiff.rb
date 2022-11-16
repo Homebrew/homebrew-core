@@ -4,7 +4,7 @@ class Autodiff < Formula
   url "https://github.com/autodiff/autodiff/archive/v0.6.12.tar.gz"
   sha256 "3e9d667b81bba8e43bbe240a0321e25f4be248d1761097718664445306882dcc"
   license "MIT"
-  head "https://github.com/autodiff/autodiff.git", branch: "master"
+  head "https://github.com/autodiff/autodiff.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "59da16504fa16512e65de44629453b248f5c7ab4ca98160f81c3459a01753da5"
@@ -17,15 +17,23 @@ class Autodiff < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => [:build, :test]
   depends_on "eigen"
   depends_on "pybind11"
 
   fails_with gcc: "5"
 
+  def python3
+    "python3.11"
+  end
+
   def install
-    system "cmake", ".", *std_cmake_args, "-DAUTODIFF_BUILD_TESTS=off"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "_build",
+                    "-DAUTODIFF_BUILD_TESTS=OFF",
+                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
+                    *std_cmake_args
+    system "cmake", "--build", "_build"
+    system "cmake", "--install", "_build"
     (pkgshare/"test").install "examples/forward/example-forward-single-variable-function.cpp" => "forward.cpp"
     (pkgshare/"test").install "examples/reverse/example-reverse-single-variable-function.cpp" => "reverse.cpp"
   end
@@ -37,5 +45,6 @@ class Autodiff < Formula
                     "-I#{include}", "-I#{Formula["eigen"].opt_include}", "-o", "reverse"
     assert_match "u = 8.19315\ndu/dx = 5.25\n", shell_output(testpath/"forward")
     assert_match "u = 8.19315\nux = 5.25\n", shell_output(testpath/"reverse")
+    system python3, "-c", "import autodiff"
   end
 end
