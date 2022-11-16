@@ -10,6 +10,7 @@ class Pygobject3 < Formula
     sha256 cellar: :any, arm64_ventura:  "032efc90710d1ab36d5bf7aa8612126c5d862f5b5e9ae816dabaf40aeb8bd874"
     sha256 cellar: :any, arm64_monterey: "24cba48d68641e43c07899d486d8b7e9bbdb8d4f1a23843e48ef328b09b5b647"
     sha256 cellar: :any, arm64_big_sur:  "0edaaf1ea51ce8edb6370da3387d54d664a0f6a3359fac8f202f1bf81f14944e"
+    sha256 cellar: :any, ventura:        "855b43092e003be963c44dee252c116851aef666cbbc34d52a83195e771df2e6"
     sha256 cellar: :any, monterey:       "6ba0aab7c1044eabaf82a14cd09b602f7713d863c5856284dc144ad4bf89ae74"
     sha256 cellar: :any, big_sur:        "d926d5032ba049197ec493848e800061b7f974f11df90f9a03054292676e0b67"
     sha256 cellar: :any, catalina:       "8440c7e5623f3a4a9c6f296a905a6f864ad9c61e85e8ed0ff1ef0a015ff6a37e"
