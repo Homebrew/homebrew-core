@@ -17,6 +17,7 @@ class ExtraCmakeModules < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c71a62bd7ad470f5fb28a1dfa851059036fa4336a81f36509084d10b1eb0b90d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c71a62bd7ad470f5fb28a1dfa851059036fa4336a81f36509084d10b1eb0b90d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a586715c3ab230884f2e07166d9f5cc7fe560a38cf47a77572180b270925ae8"
+    sha256 cellar: :any_skip_relocation, ventura:        "50d3147e5ada259ff73b9ad0b7365542a1e2b37c6077b9e964ac80c929b8bb33"
     sha256 cellar: :any_skip_relocation, monterey:       "158f7f0598bd73392f0239a138548d5590e95d462703837fe8cdd86536810ede"
     sha256 cellar: :any_skip_relocation, big_sur:        "158f7f0598bd73392f0239a138548d5590e95d462703837fe8cdd86536810ede"
     sha256 cellar: :any_skip_relocation, catalina:       "158f7f0598bd73392f0239a138548d5590e95d462703837fe8cdd86536810ede"
