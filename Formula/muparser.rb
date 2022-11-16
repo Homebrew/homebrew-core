@@ -1,8 +1,8 @@
 class Muparser < Formula
   desc "C++ math expression parser library"
   homepage "https://github.com/beltoforion/muparser"
-  url "https://github.com/beltoforion/muparser/archive/v2.3.3-1.tar.gz"
-  sha256 "91d26d8274ae9cd9c776ee58250aeddc6b574f369eafd03b25045b858a2b8177"
+  url "https://github.com/beltoforion/muparser/archive/v2.3.4.tar.gz"
+  sha256 "0c3fa54a3ebf36dda0ed3e7cd5451c964afbb15102bdbcba08aafb359a290121"
   license "BSD-2-Clause"
   head "https://github.com/beltoforion/muparser.git", branch: "master"
 
