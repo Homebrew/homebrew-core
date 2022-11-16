@@ -15,6 +15,7 @@ class Zip < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dcf7b9f3dd27efa70508ea258ccaa218e7c87fd9412b9ff15ac5814e3f3555d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eccd9c527ca597b460197f731bf726623475b239c9372267d8c667d8ac1b68e1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bed17ac27c80c0553f32c572561660637547075e0c566f95805e2088e5945fb"
+    sha256 cellar: :any_skip_relocation, ventura:        "c35430007c35207c868add1c123dfa2833c31fcbdaff59c2af8b56ab0a284519"
     sha256 cellar: :any_skip_relocation, monterey:       "cf5690223dfcc1683280d1692d3f41339981d9b4eacf68f3dedf9cd2cbc68ec1"
     sha256 cellar: :any_skip_relocation, big_sur:        "fac1760831eeaab6595e56b31f38d2c768de2e7c214a6f646a61ef16429a4b91"
     sha256 cellar: :any_skip_relocation, catalina:       "36f8c3138ed2e1110de5dc4c9ffd3616572ee1e4ec1ea63a3925f6c45e889e0d"
