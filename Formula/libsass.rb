@@ -16,6 +16,7 @@ class Libsass < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d31f8559377771a63d27ce86a6eb9f102c55f380d3b8401edc4e6ca59c6c5832"
     sha256 cellar: :any,                 arm64_monterey: "2117b0fa30facdc407537232daa889995d87ce5f4988163017f62ed56580b32b"
     sha256 cellar: :any,                 arm64_big_sur:  "22ecfef684130e0eb31c60574970b5549d4d17eca862304b4603f2ced11e01cb"
+    sha256 cellar: :any,                 ventura:        "b9eb743791b262ad3159b5d21305f6c2b1a0bba936094900241696100744c705"
     sha256 cellar: :any,                 monterey:       "072b22e5429cc1e86436667ccd5ea3353c10162f3523ede8534b7ba58e6b5d11"
     sha256 cellar: :any,                 big_sur:        "6b898ecf23182d8510c20cc39f983ff1d032d05f782a860a8bf4f7268144bc8a"
     sha256 cellar: :any,                 catalina:       "d3ed514cda1f654bba381f40cefeae9af3dc72b9299a3b55afe08165811eacd6"
