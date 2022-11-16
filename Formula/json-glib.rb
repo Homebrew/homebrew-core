@@ -9,6 +9,7 @@ class JsonGlib < Formula
     sha256 arm64_ventura:  "9f17fc23523cce11c9fa0731030f32a4a6bbc45e2635147e2faeb781cca1df80"
     sha256 arm64_monterey: "8d0477538b5e84536dd970d2dda48d46d89b5159996f41bf2c17b02ea7ee4075"
     sha256 arm64_big_sur:  "dbaac34029a64a5d23c4c3d58f579cca68a9b65fa2ba6d8e44cac55781acce32"
+    sha256 ventura:        "7e10b5aac7fdf091cdf1cb6938dbbf1e0009949ea26c0d262fd4cbe8f4e4c908"
     sha256 monterey:       "e23445c25a457a3fd6b076a60a1ec4d2732e1f8a22ff73f4db2a06b36cc40430"
     sha256 big_sur:        "a3fb508a2f6f41c61d4b6a2392e9c1b724176325bfc75e8df298e77a04b07e12"
     sha256 catalina:       "b583d641d9a5f529d4f54e2b58a8ed081dfcb8047ae107919d1144ce18c9681c"
