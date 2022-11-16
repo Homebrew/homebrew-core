@@ -8,13 +8,13 @@ class Mesheryctl < Formula
   head "https://github.com/meshery/meshery.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0570d0b6ca515b53348dc9730b8a605d8dd609c713e2403b29e6ef1d00b53d4d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0570d0b6ca515b53348dc9730b8a605d8dd609c713e2403b29e6ef1d00b53d4d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0570d0b6ca515b53348dc9730b8a605d8dd609c713e2403b29e6ef1d00b53d4d"
-    sha256 cellar: :any_skip_relocation, monterey:       "82e112849d2e3e5c07e33ab8fd79bee9ebc1b492c43f90c58df9c745a28e46f0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "82e112849d2e3e5c07e33ab8fd79bee9ebc1b492c43f90c58df9c745a28e46f0"
-    sha256 cellar: :any_skip_relocation, catalina:       "82e112849d2e3e5c07e33ab8fd79bee9ebc1b492c43f90c58df9c745a28e46f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0479f122a33b4fb94d5cdf5f0f814284b1481c718890851083fdafa7eac7ff16"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9a8173b3b5174f3bd58158f7f3d6ccfa31da066a26c231864bb4dcf9b93d635"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e9a8173b3b5174f3bd58158f7f3d6ccfa31da066a26c231864bb4dcf9b93d635"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9a8173b3b5174f3bd58158f7f3d6ccfa31da066a26c231864bb4dcf9b93d635"
+    sha256 cellar: :any_skip_relocation, monterey:       "08ccb711ef4df51e54b72dc260016ff8cf9a57a9fd440485828e75cbbe18de6a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "08ccb711ef4df51e54b72dc260016ff8cf9a57a9fd440485828e75cbbe18de6a"
+    sha256 cellar: :any_skip_relocation, catalina:       "08ccb711ef4df51e54b72dc260016ff8cf9a57a9fd440485828e75cbbe18de6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62bc9173705061fc51d83a0b724cd1191e194f99fc3bf5612e29093793a07126"
   end
 
   depends_on "go" => :build
