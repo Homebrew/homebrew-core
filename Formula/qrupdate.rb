@@ -14,6 +14,7 @@ class Qrupdate < Formula
     sha256 cellar: :any,                 arm64_ventura:  "883c11e84b2dcdd6ed46344697e8363a2c61e68d26aa6439d4684bc1a7abc76b"
     sha256 cellar: :any,                 arm64_monterey: "c8c154ece840edeeb4b4d0fe76383b60177ada3a525d96a124dc3fac80d9ae34"
     sha256 cellar: :any,                 arm64_big_sur:  "349ff7a34aacf021f8df3d129fa7e8897bd1b87a41d7df6b270fa98d73039ab4"
+    sha256 cellar: :any,                 ventura:        "eae9333e11a79c651d8313e0b9c969c104a083edc3f6c835d484b10394f1f32b"
     sha256 cellar: :any,                 monterey:       "20e6d9ac347bc1903177aa5273e25ac2fd1f6dd56211e4170d46741ebdbd0b4d"
     sha256 cellar: :any,                 big_sur:        "12240dfe307818f58b11e495c81258979570e55640173382d3be77e39ee8dd0a"
     sha256 cellar: :any,                 catalina:       "b5a26e72c3d49e5b8b70432c11c93ffb392325c4a8a16cce2497b203bd23559d"
