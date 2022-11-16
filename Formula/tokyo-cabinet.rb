@@ -16,6 +16,7 @@ class TokyoCabinet < Formula
     sha256 arm64_ventura:  "50d14af6225ba943a9fda88ddfa7527525ace16d00fa6a67bb47a58bde2bad17"
     sha256 arm64_monterey: "8613d58abe525cbea2a46d918013fc2372666dd3a158c49d71cc44c82aaad340"
     sha256 arm64_big_sur:  "1c4886501c3137bf93f3afcb374fd4b218a37e2aa36fb1065e43753ebbb162a9"
+    sha256 ventura:        "520ecff48dd7c1a31ac7c3fa9c12c91804778ff921a5bae42e8076e0fb2e4fdb"
     sha256 monterey:       "48abfb18ba86f14dd9698399b13e22771b2888077523804adfab8e6bae31b64f"
     sha256 big_sur:        "d9f3ac52eec8c99b8b9474d5e7eb53fb9cdb012bd377ffbed78db87b0e465c47"
     sha256 catalina:       "23694919d46c474b8c12d69d2e980d08f96f6bface62a74be7b8554de532e871"
