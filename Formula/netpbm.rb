@@ -19,6 +19,7 @@ class Netpbm < Formula
     sha256 arm64_ventura:  "3750103cab06a9afd7f646d3e49a5f6cf1c29b0df488ffcf6c61d6bc8e987d59"
     sha256 arm64_monterey: "d86a4425340c1f7f616370769fd0a96846bda288cea0c47b1a39bc5f574574ab"
     sha256 arm64_big_sur:  "66ebd754e252717062e333952615afdc66fdd5b5b1a7862886b9cfd95d1fe524"
+    sha256 ventura:        "1bc78a7636a711b117088e6ff6ce63636468d0e43cd4c5ce3200e6eb31a4f3d9"
     sha256 monterey:       "8430f4d4b9aba3fbd095874f18ab33b6c855decbc1686dbbd2148194a36843ac"
     sha256 big_sur:        "76b1ca75707c4dd5d7489e7db6aa6f8954ac650595b3abe273603c99a1a98231"
     sha256 catalina:       "e7fb4749ec589d7fd853009669c71946af0f79d54f51c6f654c8b3bc6cc30ee2"
