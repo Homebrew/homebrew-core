@@ -9,6 +9,7 @@ class Graphene < Formula
     sha256 cellar: :any, arm64_ventura:  "49970a5217fa4aaa048e4181172a9170b171531d58a31cfb4ced72a68eda386c"
     sha256 cellar: :any, arm64_monterey: "93468985e1d6a4b6ef69387b400d23ad39da4a154140a759dd3154bcfd19b9ed"
     sha256 cellar: :any, arm64_big_sur:  "639518b4843e05532985844875c3a9a41c93eb8fee9019c2b8bb589b692a4846"
+    sha256 cellar: :any, ventura:        "23b03fa04a05c85a9b8dfcebbbf62461593fd419c8a619de1a2b4c0185f03155"
     sha256 cellar: :any, monterey:       "65b24ac035b8b5550dc314648c4cc3b3e2416692efcc44186450e1e76e27e396"
     sha256 cellar: :any, big_sur:        "3452844382013a409b81446e2699d996c8520a33aabdf074ff812086132049db"
     sha256 cellar: :any, catalina:       "56447899077d278b0fe60d56832082400840e10a6c126575eafa477eb7e168f1"
