@@ -9,6 +9,7 @@ class XcbUtil < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1f5500915eb755309ec7f739f2a9f3e388565bd1bf3536ed6b4257a1c9c06563"
     sha256 cellar: :any,                 arm64_monterey: "1a0e16a327950b2254fb73fcf1e4853c5babab349910e21687587f25cae5772c"
     sha256 cellar: :any,                 arm64_big_sur:  "8d86304598d174005688503ce824bd1630482c357aa7de536eafd57d22041054"
+    sha256 cellar: :any,                 ventura:        "34028eea53ade5804e9902ab4ce8da92ec667a696f5a4df90a5fbbdf28fb0dc9"
     sha256 cellar: :any,                 monterey:       "d57ff03eb28121c68dc58a0fffe572e881bcd2c9f5a19ec70af907746f25fe37"
     sha256 cellar: :any,                 big_sur:        "ca7b806f016b95c52654a351d966ee86e46dcc36339a44921fccc311c1d607a8"
     sha256 cellar: :any,                 catalina:       "c161b6f0372d40ace1238507365c18a52581b798262c856099cd86eabc38c625"
