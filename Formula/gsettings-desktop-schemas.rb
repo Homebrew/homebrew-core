@@ -9,6 +9,7 @@ class GsettingsDesktopSchemas < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af182c58a3eb7b6cdebdcbd1fb34b52450ae758101656d4b555c3f5bc7bffb8f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af182c58a3eb7b6cdebdcbd1fb34b52450ae758101656d4b555c3f5bc7bffb8f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af182c58a3eb7b6cdebdcbd1fb34b52450ae758101656d4b555c3f5bc7bffb8f"
+    sha256 cellar: :any_skip_relocation, ventura:        "af182c58a3eb7b6cdebdcbd1fb34b52450ae758101656d4b555c3f5bc7bffb8f"
     sha256 cellar: :any_skip_relocation, monterey:       "af182c58a3eb7b6cdebdcbd1fb34b52450ae758101656d4b555c3f5bc7bffb8f"
     sha256 cellar: :any_skip_relocation, big_sur:        "af182c58a3eb7b6cdebdcbd1fb34b52450ae758101656d4b555c3f5bc7bffb8f"
     sha256 cellar: :any_skip_relocation, catalina:       "af182c58a3eb7b6cdebdcbd1fb34b52450ae758101656d4b555c3f5bc7bffb8f"
