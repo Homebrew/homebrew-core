@@ -15,6 +15,7 @@ class Htop < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9fca1606520e7cfb5ab4990b1cca6f57cd4e28c705abdf46d72ce433f445a9b5"
     sha256 cellar: :any,                 arm64_monterey: "50735eb9e09ec8087f04640430d4bdac4941a0ce584dd1e52ec8ec8a58d743ed"
     sha256 cellar: :any,                 arm64_big_sur:  "02e592c85dbfe7ee6bb0a2bf5275cc6434710aaa30d7756d11a363946a5cb76e"
+    sha256 cellar: :any,                 ventura:        "be8b2a1f9139c4e944f98815d6245a5fd18f19e3e05627b654ec749063b3c8a3"
     sha256 cellar: :any,                 monterey:       "13ede571c82f9ed6f55d8ef081bd7db0f11ca8945dc306594465384f38f693f4"
     sha256 cellar: :any,                 big_sur:        "3004679265a03a1d4d5162895e79de630535a7d6ebe0c59592cb307ed9aeb5d5"
     sha256 cellar: :any,                 catalina:       "6a0040374a95b5adf832d15b69ee80fbe3fc24190f523f46e199e0cb60fd9057"
