@@ -15,6 +15,7 @@ class Libvterm < Formula
     sha256 cellar: :any,                 arm64_ventura:  "2948569d2a9ef42012e53f5596e6c57d0579ba2fd67289276aee87f838aa18d0"
     sha256 cellar: :any,                 arm64_monterey: "a1f3253ab0132353337dda08fd4cb4813a7feb0985f109439295f779b502637b"
     sha256 cellar: :any,                 arm64_big_sur:  "d3edd5f0a00464f01ef2994845724f30e920c0278d2f3c664d83ced7edf441ef"
+    sha256 cellar: :any,                 ventura:        "961518ea7372798bb713451dd3a6a1d2a2b344a749028dbc2c44951dc7a4a635"
     sha256 cellar: :any,                 monterey:       "512bcb9ef343d4179be42ce254d150c2501915d1c32d41b003df82864cc3a245"
     sha256 cellar: :any,                 big_sur:        "999760fd3801afdc3d79e0cf95c3de23233649c191797385c535738b979ae303"
     sha256 cellar: :any,                 catalina:       "8c73c0852230a0302efef48f61a3257322c32b104df3b924b0585b2f402578a7"
