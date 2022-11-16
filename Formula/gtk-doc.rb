@@ -19,6 +19,7 @@ class GtkDoc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "93e6aed51806396d5e3a18b9fefb7312f8764f8ea0bfffc79f2cd3f4f2d02f83"
     sha256 cellar: :any,                 arm64_monterey: "0b3951853e56b258fe93abc736c0abfec944df20a94776a822ed87fd93465c79"
     sha256 cellar: :any,                 arm64_big_sur:  "cb797d7ebc987004400d9b1b8d3d8e4cfbf2515f1055d429690c4e5fc6c16316"
+    sha256 cellar: :any,                 ventura:        "88e30e6d48f09f41e7e2161c223a5588d48f4a7a77dd449b268ba301e660c6b9"
     sha256 cellar: :any,                 monterey:       "374f73b607a5a32880a33cc0e16835b2e10fbdd01ad65e36c161e08ffa474055"
     sha256 cellar: :any,                 big_sur:        "2c4e4cfd3d011f378cc81a834ad6f99bfff064816174ab79832755e4cda377c4"
     sha256 cellar: :any,                 catalina:       "7fb74f0c48a48ea46e995e0ee3ec03a25b39797d142007b53af39cf926176d67"
