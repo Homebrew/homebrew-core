@@ -15,6 +15,7 @@ class Node < Formula
     sha256 cellar: :any,                 arm64_ventura:  "2662544d78dddd15250be51a9dc82342b79c7a6033875e45cdd31f81f1637063"
     sha256 cellar: :any,                 arm64_monterey: "35f9741a5d35bf9c779e915d445870c7c3835a29e1ee942d0bc20b516e2c1a83"
     sha256 cellar: :any,                 arm64_big_sur:  "7f7174d37afbd621a682b9102b821448197bd978f558ad3d664792b7264079fe"
+    sha256 cellar: :any,                 ventura:        "a90cad2387bcdbd4ece6d527f7f10a8f8240f85099ee25b7101da4d73c5c84a5"
     sha256 cellar: :any,                 monterey:       "dfec28c0a23b138aabf1a298be3ca31d764859809332f0c429c7ada463fcb586"
     sha256 cellar: :any,                 big_sur:        "c07f6acfe98a43b1ce4fda563f98bba1c2520c50ea7d0314b13a97b4704040d1"
     sha256 cellar: :any,                 catalina:       "247beb40fdb32924b1f4609f81e05a57d238ab969b77717b866cb408f734ef11"
