@@ -25,6 +25,7 @@ class BoostPython3 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "14298501ceac305a45dd7e347c6169490679476976c284ffb296b38e3f8cd29f"
     sha256 cellar: :any,                 arm64_monterey: "dc3ccc9dd8e4acbb59e44787bffbce7e7c26bb8cf544d7ed7a5f52d8062edcd9"
     sha256 cellar: :any,                 arm64_big_sur:  "4e6de376843f862a5eb752545f2c6011d01b8c2b9342ebee3b8876b08cfed90e"
+    sha256 cellar: :any,                 ventura:        "70de842539071a02d65368f301661755b26ad5b3618c6e591dd89b5b340b420e"
     sha256 cellar: :any,                 monterey:       "9766f19f1771e7c753d99d4a4870a913499df2c38b71e8111896a657c15ab05c"
     sha256 cellar: :any,                 big_sur:        "826a6656b672c6c52c92b3f0c9755ee71e05ec21993221d7cd9517bedaf3e756"
     sha256 cellar: :any,                 catalina:       "d3334e9369796845fe33a521727187098753202e8d7f4e4a67b699a5f822d878"
