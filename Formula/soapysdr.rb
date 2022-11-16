@@ -8,13 +8,14 @@ class Soapysdr < Formula
   head "https://github.com/pothosware/SoapySDR.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "db50528d91467933327133e17a8ae82fcb767cc2a4a0863f8bee78d7706f3622"
-    sha256 cellar: :any,                 arm64_monterey: "b3a83674061e2817f0abf760a6cc8d5a41f892c4e5250b7e3d79043e1212bc18"
-    sha256 cellar: :any,                 arm64_big_sur:  "e4a46ed92fa0825e14d95de3165aa221665085ea4318a90c9acc158a363c64fa"
-    sha256 cellar: :any,                 monterey:       "786f24bf08521e2334e447ae16ad1b4e695463ce11910519bb884479418fac13"
-    sha256 cellar: :any,                 big_sur:        "12198c0ad0281bf725073d507a78b2ac0b4d588d5106c0cbbbac0165641341ad"
-    sha256 cellar: :any,                 catalina:       "6cbaeefa9a96dbcfc2466d6d2f4569c4b97db7c65ed70eac9b82a26ea0e51bba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce735644de57a1c3963e416c5767fc7918d56c916dbf5cb2f8b8077fcc277d65"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6b73c034ca3f25efac4922bf336bff165074d79bc2ee0c276c74275728b81025"
+    sha256 cellar: :any,                 arm64_monterey: "28ed02a75df0cafb919f0d9e30c0a312884762736868fe094fbaacec27bb12a8"
+    sha256 cellar: :any,                 arm64_big_sur:  "d20855a9fdd81d185e576cd308b00ab1f657736c721167bdb61fc7ec2d17b507"
+    sha256 cellar: :any,                 monterey:       "9f3a6c8d3c6a9f0b8aaa9030da6d246dd40119309372bebc9e0952dc271d7dfe"
+    sha256 cellar: :any,                 big_sur:        "3b7dfa0601c4c808ffb3f5195d1194f65adfb26a9182a8bd7ba61d0fdcd73202"
+    sha256 cellar: :any,                 catalina:       "a47d2eca6bf6f4c4c4aaf15887cb2ac5ee22c0f6b1859e7bd2ec1d008fa19b28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8708223be2fc61637991a16921166770a1977f19634aa61e4b7ec6473f0ee8e"
   end
 
   depends_on "cmake" => :build
