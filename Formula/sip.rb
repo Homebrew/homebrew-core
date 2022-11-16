@@ -6,7 +6,7 @@ class Sip < Formula
   url "https://files.pythonhosted.org/packages/08/f6/06ad8d62331b302b68fbd730eedec8346213db71857128cb3b8309fee2ad/sip-6.7.4.tar.gz"
   sha256 "9dbf8a0e7c8d76d1642e2fdd3f53e6a522f7c30980e527763c45760c2505cfbf"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
-  revision 1
+  revision 2
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
   bottle do
@@ -44,7 +44,10 @@ class Sip < Formula
 
   def install
     python3 = "python3.11"
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources
+    # We don't install into venv as sip-install writes the sys.executable in scripts
+    system python3, *Language::Python.setup_install_args(prefix, python3)
 
     site_packages = Language::Python.site_packages(python3)
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
