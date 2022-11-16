@@ -15,6 +15,7 @@ class Openblas < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5f2cdcefee737845c64dde7eefb0ceb4d0f022b9b639ec4c9a2f61fc5e4762a3"
     sha256 cellar: :any,                 arm64_monterey: "87d3c5c201cffc4daf672e9976eb19daa59b690e6fa247e68ad1f0c9df95d790"
     sha256 cellar: :any,                 arm64_big_sur:  "34e57867496112f8a0748db2d06243f7d197a171667326194cca86f7b6fb8fb4"
+    sha256 cellar: :any,                 ventura:        "ed4ac5c0db2c2a0a7a3b5bf6f5caa8fdea324a4cd5d1d8bdf540bf4ab12ab866"
     sha256 cellar: :any,                 monterey:       "fbbdca509a96aab530e9eeebb003e70213a72d06220a89a5e36b56ad89ca0bf3"
     sha256 cellar: :any,                 big_sur:        "abe0a49a4ca741e4336a22eed745330166db8f8bce5bb21555e46ca46b9a8b6a"
     sha256 cellar: :any,                 catalina:       "896879bedb28f8515d323cb860f925c2b569db540576e865113fc1d2a082ff1a"
