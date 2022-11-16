@@ -11,6 +11,7 @@ class Mage < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "08dd84f470df1010345ea9ec2ddede00589363ddb7a607db1541c75cbf98d61a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "139570603e519b01b9591ac7e71b46ee310fb34a8430fae248938232b70d747e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "139570603e519b01b9591ac7e71b46ee310fb34a8430fae248938232b70d747e"
+    sha256 cellar: :any_skip_relocation, ventura:        "b21fa8f11d85d2541dc18c42fa1515592313c73bb074ac61df4501aa297f18a3"
     sha256 cellar: :any_skip_relocation, monterey:       "c96d1ce7372a0cc6df4904089c12e7850013bb2f704da4d01ae3f35dc61b03e2"
     sha256 cellar: :any_skip_relocation, big_sur:        "c96d1ce7372a0cc6df4904089c12e7850013bb2f704da4d01ae3f35dc61b03e2"
     sha256 cellar: :any_skip_relocation, catalina:       "c96d1ce7372a0cc6df4904089c12e7850013bb2f704da4d01ae3f35dc61b03e2"
