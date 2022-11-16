@@ -9,6 +9,7 @@ class Libslirp < Formula
     sha256 cellar: :any, arm64_ventura:  "3e461de89cdcc48cd88ed8065700575cc3d4921213f2023cce1c1c56853c9117"
     sha256 cellar: :any, arm64_monterey: "dbfc3fabef1a14eb7807e97bac7e318dbf0ca0ac631cb949cd165ca79c57d16d"
     sha256 cellar: :any, arm64_big_sur:  "7ff75ad4ca2b56e4df3f139c1a265d1198174b676856f5eb019730d8f97db557"
+    sha256 cellar: :any, ventura:        "e7e395084378af6bbc0582807938b023cb513cb5c99673b59c462429d077c25f"
     sha256 cellar: :any, monterey:       "82fe4e66ac490e882aaf245d4bdf9382826d82fdb3c7bad29b7dc4e77a5b8657"
     sha256 cellar: :any, big_sur:        "3b31c4120ac2abad0cb5480576b957d5dd335e9a7cfa4cea0ef7bcd27e6cdcc6"
     sha256 cellar: :any, catalina:       "63ecdea6ce7b3784bab8f2aa956468a1b90c67bb5e466afd80ff8ecadfe4f09f"
