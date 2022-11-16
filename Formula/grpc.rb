@@ -20,6 +20,7 @@ class Grpc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9cf0a9e62cb38be7299869c3547b44be19671cdfc12050ea4d03c93ab4412e09"
     sha256 cellar: :any,                 arm64_monterey: "6e7b6235884958632e8e9a1ceb350fc2e8a95013a6138442843b18139a745a2e"
     sha256 cellar: :any,                 arm64_big_sur:  "ffd6407edfa7d91df8abcc33e8dde26a7c9efc11ceecda26d1445c6ba2dfb0e8"
+    sha256 cellar: :any,                 ventura:        "68b7fe135b8c4a41b6c6dabf2e3d5ceab36c48eb2509622dc76e76f48e7b3440"
     sha256 cellar: :any,                 monterey:       "04077a72bea4d4f103ffef7fce305853802cca98a2d150c01164cbb84441127d"
     sha256 cellar: :any,                 big_sur:        "c15c60e9cb63caaa709806de7345c340b4726b6cda3f1ceb1098f6481b2c691c"
     sha256 cellar: :any,                 catalina:       "d94de3406767f8008919ea19fcb3a8c108ceac26fab13a2f83f10d070caebc28"
