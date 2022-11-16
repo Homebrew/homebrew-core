@@ -14,6 +14,7 @@ class ArgpStandalone < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "34e7f7393c3ceb901ca2a3d9b9b306db734dd5cbfc168da7976ebf9bcd02d1f3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d538d7be595c57c757670fbcd922b9335f9a4a47ef16662233e84b2260eb387b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88d3f4bfb3ab27ec4105a6853fa34b94342ab2ad0d7b79248461b3bea52649a6"
+    sha256 cellar: :any_skip_relocation, ventura:        "f8f4bde836513ed713a4c9ceb2ea072c8271138de48f992366d058466e8782a0"
     sha256 cellar: :any_skip_relocation, monterey:       "f0ed596672be7b1b893ea07d341bce448470b3448b55e0b5d90f68e7895de7b2"
     sha256 cellar: :any_skip_relocation, big_sur:        "65a3586ad4399576aeb46e497b4ec08577f84764b7a28448ae6882a2c422068d"
     sha256 cellar: :any_skip_relocation, catalina:       "560e1829dce7113479d755380e0e65318a996f0d04d8e0761f24810e9e019e7d"
