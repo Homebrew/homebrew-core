@@ -15,6 +15,7 @@ class OpenMpi < Formula
     sha256 arm64_ventura:  "3f61fb90c6a60331c3fe85137b9c975f97a2967433608da6efb4abac3bc22eca"
     sha256 arm64_monterey: "6fce4b7846d2ac61b339fed64109f83fbfe3fca5e29123d219c4aec7264b17b8"
     sha256 arm64_big_sur:  "270edb8b3f965fabae4c6f25136fdd129072a0bb560127ed2a26eef4f7a05953"
+    sha256 ventura:        "84a19b52620c7394d79bcda0fc7f742401bd33c9001fcfda2618b76fc7929240"
     sha256 monterey:       "7b119eb6403ba68bc7488400b743dfefb09162a8d094659110a23491782925f6"
     sha256 big_sur:        "e8f418ade2643371972f22ea27dfd1283659b58efaac5e271916961845d00f6f"
     sha256 catalina:       "340edd884d2c78cd6939de7bf859f501f77a3af469aad6a3e05fcee64ac32b7a"
