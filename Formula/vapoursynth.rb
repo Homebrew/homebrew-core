@@ -15,6 +15,7 @@ class Vapoursynth < Formula
     sha256 cellar: :any,                 arm64_ventura:  "bbed556fcb06ece7435e3ee1b07f05b2975064162d849362fd175f4e20e085a3"
     sha256 cellar: :any,                 arm64_monterey: "c4eaf67aa81f58cc03bba831e78bc58ec34bafc3b893916466700af6d8196fb5"
     sha256 cellar: :any,                 arm64_big_sur:  "5920e6e2e47d365a54fcf7b8ba530d63ab8d582117a5348a345c521c464c5233"
+    sha256 cellar: :any,                 ventura:        "48bdd5555529f2b13efb1134790ec72057935067b79ad005e29ca55674666b25"
     sha256 cellar: :any,                 monterey:       "4b7bd0b44eb0086e766efeff9129d7fef118b6ddf0a88701c4c94f643083e70a"
     sha256 cellar: :any,                 big_sur:        "404d71359e917d42ce78fe3b37c4588ca14a64a91a4da417c9baab025d3b23f5"
     sha256 cellar: :any,                 catalina:       "6284a9174f2cabde880f828e093a690700457bb31f40b65b40b0dec221d17e5f"
