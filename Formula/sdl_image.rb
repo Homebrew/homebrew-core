@@ -21,6 +21,7 @@ class SdlImage < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0c0146385b4a6ead2eeab4bf268d258ed31bbd07d046d8bfa1948f9acc82d1c4"
     sha256 cellar: :any,                 arm64_monterey: "e435e9a87ff6ea6e8dc76c021774968c24b3d1b60aa8e92bf54b8371e0fced71"
     sha256 cellar: :any,                 arm64_big_sur:  "926ea3035acd9fdfbcc45d5ac5269236a31a5fb6b5a18228e7a1fdd3457de1c5"
+    sha256 cellar: :any,                 ventura:        "edc88daff8a49529fc5aaa9c833028e0ffdd992e389a32c5148d7a0e8354ad93"
     sha256 cellar: :any,                 monterey:       "9660cb60f381f37d02cd54f32bb3e8577d2b29b9e8b3821dedfbff8248032693"
     sha256 cellar: :any,                 big_sur:        "fe45394e435ed0e7748f6eb4e73c5119ba56fa62703e176822fb045bdad5aafb"
     sha256 cellar: :any,                 catalina:       "1cb2ce543f06042d72bed4497331932379ab3997ac822abf8a8717fd306ee7a6"
