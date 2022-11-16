@@ -15,6 +15,7 @@ class Neon < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a9fd781dc1834be9e1066f51793ba4f377d33a085ec777a2f657968e2b61d77d"
     sha256 cellar: :any,                 arm64_monterey: "8a9d15eed842a8cde2a71a19b3fc2fae4e29213c1d356c568383350bfde14f25"
     sha256 cellar: :any,                 arm64_big_sur:  "421c1b74a8a1d8a60d64d839d483914e65d93d1c2005d5642aac81d0dad715ff"
+    sha256 cellar: :any,                 ventura:        "403ffe3d4e963180933120bd279e5c6a17612794e56713b8e18a254ab26cdd4c"
     sha256 cellar: :any,                 monterey:       "b480974e79ffe9f828b0cc7068db7d336a2eef8ad311ef4e3e70f08aa95ec601"
     sha256 cellar: :any,                 big_sur:        "a06568dabaf8ebac45d53833a5bfb558aac0f97e07014fd80fe3ecb28dbff780"
     sha256 cellar: :any,                 catalina:       "8bdcc4e6be196c4cffccee3d185154094c7938ffc40a37f43394a58b5770e113"
