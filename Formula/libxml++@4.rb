@@ -14,6 +14,7 @@ class LibxmlxxAT4 < Formula
     sha256 cellar: :any, arm64_ventura:  "11d8ea93f58e2b7eae642c6d633471db6152bbfcc8485d72bc101c9db814bd47"
     sha256 cellar: :any, arm64_monterey: "663148c59e702e0103bd896f97df7b7ebf9cecef24595c04d26533e939dbdac7"
     sha256 cellar: :any, arm64_big_sur:  "5a06b967b5dc6dc281ea42119ba403b61adad112847c9917a98d4a6c2a1731a5"
+    sha256 cellar: :any, ventura:        "ee8ddb64c2ab91b24b3c1704bd73773634452e4ecd49322292525b65582b9ccb"
     sha256 cellar: :any, monterey:       "915a2709f55796d55ccd6eccc35054532d2836f46ed9afd796289f66ee3ce9ff"
     sha256 cellar: :any, big_sur:        "4305e6cfae1d419e675b50bbb134195ce663f6bfc3c41e4d6c3ab0d4b73a9d58"
     sha256 cellar: :any, catalina:       "0b53bf58284336f912f73e6505d6e0eb30d2f86b0aa337b37f9b53819f091503"
