@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/index.html"
-  url "https://sqlite.org/2022/sqlite-autoconf-3390400.tar.gz"
-  version "3.39.4"
-  sha256 "f31d445b48e67e284cf206717cc170ab63cbe4fd7f79a82793b772285e78fdbb"
+  url "https://sqlite.org/2022/sqlite-src-3400000.zip"
+  version "3.40.0"
+  sha256 "48550828142051293e179ffc6a8520f6fbfd82e1cdca78b93792f766cc89b8e2"
   license "blessing"
 
   livecheck do
@@ -29,6 +29,7 @@ class Sqlite < Formula
 
   depends_on "readline"
 
+  uses_from_macos "tcl-tk" => :build
   uses_from_macos "zlib"
 
   def install
