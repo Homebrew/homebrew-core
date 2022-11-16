@@ -11,6 +11,7 @@ class Sassc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9302f8cb296175ea2f685b1b688753f4a0e66243c53f2249586ede9576bf86b6"
     sha256 cellar: :any,                 arm64_monterey: "f1814e87c905c18e7a39512e02a10ed93b68c81493f5d23e61884d0b3262d529"
     sha256 cellar: :any,                 arm64_big_sur:  "ae86a3868be7edf32aadf47abd949d3806789f5edf319c4d86120a05fee9053d"
+    sha256 cellar: :any,                 ventura:        "1bd79d455cd4dac5f3e335088f760b4971297834d7a5c733c77de5cf747dea5c"
     sha256 cellar: :any,                 monterey:       "1dc3c04d8527c5b13983c6e5fa405f6e0af6315bd72e06047e53c6a2c7f1c32c"
     sha256 cellar: :any,                 big_sur:        "fe3a719ec1b2b01385924b8cb3bbb758d006ff3dbd75b1c3691ce09a43d1ebcd"
     sha256 cellar: :any,                 catalina:       "0826a1c50657da448806febb03694bce523e60ac56e7dd0de7362fe4b41f2277"
