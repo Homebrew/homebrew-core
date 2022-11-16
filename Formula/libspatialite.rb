@@ -26,6 +26,7 @@ class Libspatialite < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0e899d02886f31301ebd4c65a0fbf56237ea49ddb3f1468437204ea567b94d75"
     sha256 cellar: :any,                 arm64_monterey: "8dc0901eff2763a59d1ddc22f3ed19ef1a1b706ba2d4069a092e1c86e730db91"
     sha256 cellar: :any,                 arm64_big_sur:  "bdc286c42eb9dcead8e145ae385f4764cc6b081b4284388749b3e0ee270b4431"
+    sha256 cellar: :any,                 ventura:        "c4e86af4b415b091cb0e53a49236b67079b0fe61d0be81e2202e9f0657826fbc"
     sha256 cellar: :any,                 monterey:       "87c4d5eedbd6657e5bbb5f02c64f82dd9d7de502c57fecd44a2059cdff476724"
     sha256 cellar: :any,                 big_sur:        "001ef9d46fb1b508459bf5a1aac259643def005b8fb808663dd32e49c89cff5a"
     sha256 cellar: :any,                 catalina:       "d403ece87a9d8349fc2bad142f52b1c44c423cc17fbc7da5ee3f2a2a168dd796"
