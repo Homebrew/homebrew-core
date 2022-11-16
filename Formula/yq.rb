@@ -14,6 +14,7 @@ class Yq < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f8f7e5b9f53dec6fb6d421ad7edf52836bfcdb5755239d0890830523beb328f0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d99e13505fb6240fea146fcfd1e187d5da595a6eabdc77a7eb9485b8d728425"
+    sha256 cellar: :any_skip_relocation, ventura:        "5c68e32a50f8f692c70d94d9e436b0043615309f93ceaff1e0575bc1c8ca9430"
     sha256 cellar: :any_skip_relocation, monterey:       "e04e8303bbd5f2bd7a910e0e7034950db548f817c5d0b85272e607eeb80bdf04"
     sha256 cellar: :any_skip_relocation, big_sur:        "692c809cf647f5737c15eb0fd0e9e8f4b51b443ad67861e6f3f321c95a93a757"
     sha256 cellar: :any_skip_relocation, catalina:       "bca15d2e51a21aa22fa8ebcd2e02755a29969c00ecb9e69e70fb30adbc728bb9"
