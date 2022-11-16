@@ -4,6 +4,7 @@ class Ccache < Formula
   url "https://github.com/ccache/ccache/releases/download/v4.7.3/ccache-4.7.3.tar.xz"
   sha256 "65c53e8fd85956238670278854c02574094e61aecb09c4bf8a0d42657f8f0a6d"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
