@@ -47,8 +47,9 @@ class Duckdb < Formula
     expected_output = <<~EOS
       ┌─────────────┐
       │ avg("temp") │
+      │   double    │
       ├─────────────┤
-      │ 45.0        │
+      │        45.0 │
       └─────────────┘
     EOS
 
