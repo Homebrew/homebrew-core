@@ -9,6 +9,7 @@ class Libmaxminddb < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7a8bdefbc6e7b19c6704286c71a3f616c98e2d7cb00c0e704083c58216020c6f"
     sha256 cellar: :any,                 arm64_monterey: "f43032f9d2a53d6ab4969fdf90ab9db14ac2d2ea10c4e8b594060ad1d7f01b95"
     sha256 cellar: :any,                 arm64_big_sur:  "d7fdc2b82f0c5af1ec537354b0ef8404edd1d067db901463cfa75a1731fa5839"
+    sha256 cellar: :any,                 ventura:        "1987cff883cf2c1b5a683b533800cb384454590b17c657019a58add6b451fa4d"
     sha256 cellar: :any,                 monterey:       "ddda0e691d8e86dded50880d64ebf8ddec4a6d4cd55b1be7f64ac0e3e6fe3c27"
     sha256 cellar: :any,                 big_sur:        "1bae95c9b92e0268300874e89f184a086af2a780a0f3cd7ba8ef968316000d9e"
     sha256 cellar: :any,                 catalina:       "0c75698174bf89cb29156bb974768f46beb57fc773f810ff568d76cab90273c4"
