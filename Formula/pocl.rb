@@ -11,6 +11,7 @@ class Pocl < Formula
     sha256 arm64_ventura:  "763c6c34815b02cb72f021f36a46203cf64be5d5910021a608c64e2be1e725a5"
     sha256 arm64_monterey: "9d91bc69819fd1a381a63726b9caed1c78cfce71d0e81a246a5d6b374db19f59"
     sha256 arm64_big_sur:  "99ab32bd6ad08f28cfdbd745cdfe057487bdacff01d7d7d1ad176c4230b21636"
+    sha256 ventura:        "66cf3d6626954b9517443e1f05b36bcf448db519e7465bb21c6d342f017f1875"
     sha256 monterey:       "d857f7ebdf4d88658b79a34a2d71902b846ad421ce17be610d7f4ad5c4725e80"
     sha256 big_sur:        "59b68f66eb1be4b844b161e59690d3dc6ccc65f6f91b34efa407014b2cd462ae"
     sha256 catalina:       "9f63be32517ad9e49c8e00b2f664a44b5948263f703d086c9592c48b1374c3ad"
