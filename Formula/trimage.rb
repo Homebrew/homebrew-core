@@ -8,7 +8,8 @@ class Trimage < Formula
   head "https://github.com/Kilian/Trimage.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "32065c70413c2a9855f948cf34ab031c5705172ef9ee5d5dd7a70098bff99abb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8a431f153a9ebde3caaac7ce16403332dafa459476e7f2ad95863c87bd1941cc"
   end
 
   depends_on "advancecomp"
