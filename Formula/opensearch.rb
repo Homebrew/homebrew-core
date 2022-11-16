@@ -6,13 +6,13 @@ class Opensearch < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7c1940ac357b83ea08e3c9aadd2e8e811a76a54356c7ed32113a9ff047fca57"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "87b526aed59e67991da98dee964b06dd19e68f4b347b58299f82385c05646cbb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "87b526aed59e67991da98dee964b06dd19e68f4b347b58299f82385c05646cbb"
-    sha256 cellar: :any_skip_relocation, monterey:       "7c1bf27bb24bb26efdcd5b9add7c1c8e7ee3cd733a8497bcc687f1d2a152b6cc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7c1bf27bb24bb26efdcd5b9add7c1c8e7ee3cd733a8497bcc687f1d2a152b6cc"
-    sha256 cellar: :any_skip_relocation, catalina:       "7c1bf27bb24bb26efdcd5b9add7c1c8e7ee3cd733a8497bcc687f1d2a152b6cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e857b786c4bb84c883c5e2c333752a144a7ea745826fc3c3c8e96269f7ecf968"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f7f361c67e838d435da4ac0985525e52993ad6f7a2c93b24c3bf6361442d45d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f7f361c67e838d435da4ac0985525e52993ad6f7a2c93b24c3bf6361442d45d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1f7f361c67e838d435da4ac0985525e52993ad6f7a2c93b24c3bf6361442d45d"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec0f8d465b277f1213c388ad4f4083846419f17f1820a6ce22355fc20fe08543"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ec0f8d465b277f1213c388ad4f4083846419f17f1820a6ce22355fc20fe08543"
+    sha256 cellar: :any_skip_relocation, catalina:       "ec0f8d465b277f1213c388ad4f4083846419f17f1820a6ce22355fc20fe08543"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34da305ad5937ff395c86a0d3ec85163c759203bd7b3f861787b63e1c313e6cc"
   end
 
   depends_on "gradle" => :build
