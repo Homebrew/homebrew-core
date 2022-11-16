@@ -9,6 +9,7 @@ class Libplist < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6d101d1a75fe2859fce732e1a9448053c74707a3cdc7e10e4b67488d978b0796"
     sha256 cellar: :any,                 arm64_monterey: "b31c287f7c027c0f241dbfecb261e2a71910dcff601ceb5404ec8072dfd2a453"
     sha256 cellar: :any,                 arm64_big_sur:  "ed9c2d665d5700c91f099bd433a38ba904b63eef4d3cdc47bd0f6b0229ac689a"
+    sha256 cellar: :any,                 ventura:        "df3e285aa4d7ce69059bf1609fa5d2a442e0c1434e478e5603567702d3e38760"
     sha256 cellar: :any,                 monterey:       "fd33860939e18cc5a5c50be2ca667db7d99a191aa445fefdfde51435c0f4453d"
     sha256 cellar: :any,                 big_sur:        "1ac05ef69cc02f4663fbb1c3d6d6e964c70a5ba0743d7e9e242da06864a63a70"
     sha256 cellar: :any,                 catalina:       "20faf60d286c8ceed790a9b6e34245acf7bafacc7fcbcb390d6b62e194b323e6"
