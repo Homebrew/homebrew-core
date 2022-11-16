@@ -8,10 +8,7 @@ class Cntb < Formula
   depends_on "go" => :build
 
   def install
-    base_flag = "-w -s -X contabo.com/cli/cntb/cmd.version=#{version}"
-    ldflags = %W[
-      #{base_flag}
-    ]
+    ldflags = "-s -w -X contabo.com/cli/cntb/cmd.version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     generate_completions_from_executable(bin/"cntb", "completion")
