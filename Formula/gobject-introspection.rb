@@ -12,6 +12,7 @@ class GobjectIntrospection < Formula
     sha256 arm64_ventura:  "9342850d655d2ff1ab8d0b263a9cb9eb483fba3f3520754dea86c5db55633d7e"
     sha256 arm64_monterey: "a2d055c6adfe61109d77d6868371a37f757ed2a0215e01e9e6b782af02d2fca8"
     sha256 arm64_big_sur:  "8df914d538a9ee28653ae3a368830481541c13c9fc3bf6133587a86c6d2cc0e4"
+    sha256 ventura:        "56cbcedb7b5ff5edc66d039817a85d4dfc80d1861e9db9282e01853ca8a5e328"
     sha256 monterey:       "44b03b7f51941f220e553cbf565e63c7c5e36833609cb6de248d2c62f66d5af3"
     sha256 big_sur:        "60e0831ce9685429b4c7c11180789f225fd30d4542ed102acb912d684383271f"
     sha256 catalina:       "71ad6ca87e733d7a25c43a6a3e5d8d3e2b983d33502e6936dfad0d77b17db6c6"
