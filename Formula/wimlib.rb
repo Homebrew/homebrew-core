@@ -14,6 +14,7 @@ class Wimlib < Formula
     sha256                               arm64_ventura:  "9c9fa0796708c4abda9a4f319fea21949fa087bfd55fef5a3afb85810540e462"
     sha256                               arm64_monterey: "511b7f7dd4a2f604c79b77e4730df771a72c0d42ff9a0d75016aadef18bfea02"
     sha256                               arm64_big_sur:  "8987877ff4c56d34096c3cb7b34447b55296ee443205b535edbb1e304642acd3"
+    sha256 cellar: :any,                 ventura:        "bf7b4fdb7aa71fcaa04efe8dcd716d969c418a1544f763b0542045938e7b6c09"
     sha256 cellar: :any,                 monterey:       "2eaa7b1ad62ecee16880f8e12bbce465b2ffaaa43e446758f19390daf00d1450"
     sha256 cellar: :any,                 big_sur:        "da2511a595e4c203f2f2ea20f543011acbe7a95cbdc5372206616d7589ea17d8"
     sha256 cellar: :any,                 catalina:       "a59ad26171c1affffdc53d90a63802ffe973d74b593ae85c582f10c940767b6e"
