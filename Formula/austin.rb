@@ -18,18 +18,18 @@ class Austin < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.10" => :test
+  depends_on "python@3.11" => :test
 
   def install
     system "autoreconf", "--install"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
     man1.install "src/austin.1"
   end
 
   test do
-    python = Formula["python@3.10"].opt_bin/"python3.10"
-    shell_output(bin/"austin #{python} -c \"from time import sleep; sleep(1)\"", 37)
+    python3 = "python3.11"
+    shell_output(bin/"austin #{python3} -c \"from time import sleep; sleep(1)\"", 37)
   end
 end
