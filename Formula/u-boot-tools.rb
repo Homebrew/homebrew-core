@@ -21,7 +21,7 @@ class UBootTools < Formula
   end
 
   depends_on "coreutils" => :build # Makefile needs $(gdate)
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
