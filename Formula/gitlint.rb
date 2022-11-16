@@ -3,8 +3,8 @@ class Gitlint < Formula
 
   desc "Linting for your git commit messages"
   homepage "https://jorisroovers.com/gitlint/"
-  url "https://files.pythonhosted.org/packages/91/77/2fc5418edff33060dd7a51aa323ee7d3df11503952b8e4e46ee65d18d815/gitlint-core-0.17.0.tar.gz"
-  sha256 "772dfd33effaa8515ca73e901466aa938c19ced894bec6783d19691f57429691"
+  url "https://files.pythonhosted.org/packages/fe/11/971074a89e50f31e32b79b73a84b8aed5787ad5718bb3857477514304db7/gitlint-core-0.18.0.tar.gz"
+  sha256 "b032eb574f7399aec6a5246a78810bacb7ce9c9fd2d9e4375950549196cae681"
   license "MIT"
 
   bottle do
