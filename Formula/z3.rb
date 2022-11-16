@@ -17,6 +17,7 @@ class Z3 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f46c3e315a7e2a03714d5ede129df98bc3ef41786e0e0d061bc4d61043234881"
     sha256 cellar: :any,                 arm64_monterey: "f4105981678b6bd31c32287e36528e1dd67add716992099064d8619c1083c2da"
     sha256 cellar: :any,                 arm64_big_sur:  "aaebd36b98db60eb30f2854e23e6d57579701b4467a0a95bf3566912f747d95f"
+    sha256 cellar: :any,                 ventura:        "25352cf6fc580750f461db718b0aeb14ec311c1be4ed7458027303416e348716"
     sha256 cellar: :any,                 monterey:       "f8c5ff44aaf7d0ca43fd5d47c687dd30856162290f9e06c7cf447013f0c96013"
     sha256 cellar: :any,                 big_sur:        "77a1c6b2fd240446b9d8b7b5fac451bd83c100df370f7ad5d718081a6646dd1a"
     sha256 cellar: :any,                 catalina:       "8c95b118eb284a9f6f9e58429553c643ed50e38dea4eb625a3d77f26e0c17079"
