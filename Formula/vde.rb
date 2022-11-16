@@ -10,6 +10,7 @@ class Vde < Formula
     sha256 arm64_ventura:  "982a56825cbd1bd374001330e3492e83a1d82825ed7228d33705ffad3b927e8e"
     sha256 arm64_monterey: "0cd674a5b677c8e4deb2735884366f6a384b0867aa7483e7293e361cbaab350e"
     sha256 arm64_big_sur:  "55d8e9f7b7e4f4593c6a3a4c88f4d6f11c76a8839b876fe63cae40d01e6312dc"
+    sha256 ventura:        "e203e8f3933c5dcdc45cdaae85f63b31ecd38a86d90eb5f4f0c1fd7825ad2347"
     sha256 monterey:       "88cc1ceea76bdf304ec6750a2c54c979b34869d853fe6942aff1b23ea213f83e"
     sha256 big_sur:        "05e4b0a57c14a91bf9fbf6afc1cda903fe07504da5545ba4de72c7bf09d53893"
     sha256 catalina:       "ff106fafad478b7380d270d0969584e753b0f3592f59b2f43dca8bc86246b2e0"
