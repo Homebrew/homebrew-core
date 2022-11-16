@@ -22,9 +22,8 @@ class Cdktf < Formula
   depends_on "terraform"
 
   def install
-    node = Formula["node@18"]
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"cdktf").write_env_script "#{libexec}/bin/cdktf", { PATH: "#{node.opt_bin}:$PATH" }
+    bin.install_symlink Dir["#{libexec}/bin/*"]
 
     generate_completions_from_executable(libexec/"bin/cdktf", "completion",
                                          shells: [:bash, :zsh], shell_parameter_format: :none)
