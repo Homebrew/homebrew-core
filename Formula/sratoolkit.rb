@@ -4,12 +4,12 @@ class Sratoolkit < Formula
   license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
 
   stable do
-    url "https://github.com/ncbi/sra-tools/archive/refs/tags/3.0.0.tar.gz"
-    sha256 "b6e8116ecb196b91d5ee404cc978a128eec9af24bdc96f57ff7ebfaf9059a760"
+    url "https://github.com/ncbi/sra-tools/archive/refs/tags/3.0.1.tar.gz"
+    sha256 "49cf89855c98d96e418f7e55cab277db30dd756e14a66731bd11770683974c80"
 
     resource "ncbi-vdb" do
-      url "https://github.com/ncbi/ncbi-vdb/archive/refs/tags/3.0.0.tar.gz"
-      sha256 "154317ef265104861fe8d3d2e439939ae98f33b1e28da3c45f32ae8534dbfad7"
+      url "https://github.com/ncbi/ncbi-vdb/archive/refs/tags/3.0.1.tar.gz"
+      sha256 "d72a59ba0a837692a148fae7bdc7ebb441ba22d77c674471d378f43808d9dea1"
     end
   end
 
@@ -42,12 +42,6 @@ class Sratoolkit < Formula
   depends_on macos: :catalina
 
   uses_from_macos "libxml2"
-
-  # Modify cmake scripts to avoid building tests when BUILD_TESTING=OFF and
-  # to install into CMAKE_INSTALL_LIBDIR rather than CMAKE_INSTALL_PREFIX/lib64.
-  # Issue ref: https://github.com/ncbi/sra-tools/issues/638
-  # Issue ref: https://github.com/ncbi/sra-tools/issues/639
-  patch :DATA
 
   def install
     (buildpath/"ncbi-vdb-source").install resource("ncbi-vdb")
@@ -94,60 +88,3 @@ class Sratoolkit < Formula
     assert_match "@SRR000001.1 EM7LVYS02FOYNU length=284", File.read("SRR000001.fastq")
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d54d4646..ba4b77b7 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -51,7 +51,9 @@ add_subdirectory( ngs )
- add_subdirectory( libs )
- add_subdirectory( tools )
-
--add_subdirectory( test )
-+if (BUILD_TESTING)
-+	add_subdirectory( test )
-+endif()
-
- set ( CPACK_PACKAGE_NAME sra-tools )
- set ( CPACK_PACKAGE_VERSION 0.1 )
-diff --git a/build/env.cmake b/build/env.cmake
-index 1c7a317a..e975d74c 100755
---- a/build/env.cmake
-+++ b/build/env.cmake
-@@ -362,7 +362,7 @@ function( ExportStatic name install )
-                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}.a.${MAJVERS}
-                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}.a
-                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}-static.a
--                    DESTINATION ${CMAKE_INSTALL_PREFIX}/lib64
-+                    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-             )
-          endif()
-     else()
-@@ -371,7 +371,7 @@ function( ExportStatic name install )
-         set_target_properties( ${name} PROPERTIES
-             ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE})
-         if ( ${install} )
--            install( TARGETS ${name} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib64 )
-+            install( TARGETS ${name} DESTINATION ${CMAKE_INSTALL_LIBDIR} )
-         endif()
-     endif()
- endfunction()
-@@ -408,7 +408,7 @@ function(MakeLinksShared target name install)
-             install( PROGRAMS  ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}${LIBSUFFIX}
-                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}${MAJLIBSUFFIX}
-                             ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lib${name}.${SHLX}
--                    DESTINATION ${CMAKE_INSTALL_PREFIX}/lib64
-+                    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-         )
-         endif()
-     else()
-@@ -581,7 +581,7 @@ if ( SINGLE_CONFIG )
-                 ${CMAKE_INSTALL_PREFIX}/bin/ncbi    \
-                 /etc/ncbi                           \
-                 ${CMAKE_INSTALL_PREFIX}/bin         \
--                ${CMAKE_INSTALL_PREFIX}/lib64       \
-+                ${CMAKE_INSTALL_LIBDIR}             \
-                 ${CMAKE_SOURCE_DIR}/shared/kfgsums  \
-             \" )"
-     )
