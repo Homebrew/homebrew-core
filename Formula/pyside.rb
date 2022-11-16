@@ -26,7 +26,7 @@ class Pyside < Formula
   depends_on "ninja" => :build
   depends_on xcode: :build
   depends_on "llvm"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "qt"
 
   uses_from_macos "libxml2"
@@ -39,7 +39,7 @@ class Pyside < Formula
   fails_with gcc: "5"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -63,17 +63,17 @@ class Pyside < Formula
     # Install python scripts into pkgshare rather than bin
     inreplace "sources/pyside-tools/CMakeLists.txt", "DESTINATION bin", "DESTINATION #{pkgshare}"
 
-    args = std_cmake_args + [
-      "-DCMAKE_CXX_COMPILER=#{ENV.cxx}",
-      "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}",
-      "-DPYTHON_EXECUTABLE=#{which(python3)}",
-      "-DBUILD_TESTS=OFF",
-      "-DNO_QT_TOOLS=yes",
-      "-DCMAKE_INSTALL_RPATH=#{lib}",
-      "-DFORCE_LIMITED_API=yes",
-    ]
+    # Avoid shim reference
+    inreplace "sources/shiboken6/ApiExtractor/CMakeLists.txt", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{lib}",
+                    "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}",
+                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
+                    "-DBUILD_TESTS=OFF",
+                    "-DNO_QT_TOOLS=yes",
+                    "-DFORCE_LIMITED_API=yes",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -92,17 +92,15 @@ class Pyside < Formula
       Widgets
       Xml
     ]
-
     modules << "WebEngineCore" if OS.linux? || (DevelopmentTools.clang_build_version > 1200)
-
     modules.each { |mod| system python3, "-c", "import PySide6.Qt#{mod}" }
 
-    python3_config = Formula["python@3.10"].opt_bin/"#{python3}-config"
-    pyincludes = shell_output("#{python3_config} --includes").chomp.split
-    pylib = shell_output("#{python3_config} --ldflags --embed").chomp.split
+    pyincludes = shell_output("#{python3}-config --includes").chomp.split
+    pylib = shell_output("#{python3}-config --ldflags --embed").chomp.split
     if OS.linux?
+      pyver = Language::Python.major_minor_version python3
       pylib += %W[
-        -Wl,-rpath,#{Formula["python@3.10"].opt_lib}
+        -Wl,-rpath,#{Formula["python@#{pyver}"].opt_lib}
         -Wl,-rpath,#{lib}
       ]
     end
@@ -118,9 +116,9 @@ class Pyside < Formula
       }
     EOS
     system ENV.cxx, "-std=c++17", "test.cpp",
-           "-I#{include}/shiboken6",
-           "-L#{lib}", "-lshiboken6.abi3",
-           *pyincludes, *pylib, "-o", "test"
+                    "-I#{include}/shiboken6",
+                    "-L#{lib}", "-lshiboken6.abi3",
+                    *pyincludes, *pylib, "-o", "test"
     system "./test"
   end
 end
