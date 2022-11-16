@@ -12,6 +12,7 @@ class LuaAT51 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0a376241fb0501719b36ebd1f2124e1c32b784bc59897c824f54567614d24ed5"
     sha256 cellar: :any,                 arm64_monterey: "de6f49207593ea1ff60752fbda844d4be34d92de796f758c9e0e5f3dd329fab7"
     sha256 cellar: :any,                 arm64_big_sur:  "cde11765109e69c6484206f4b2a63081b535253f32233471343f03b52505a89b"
+    sha256 cellar: :any,                 ventura:        "f3b2b3317f5f291f523a1b4d049b5b9f966d7d7c7d4c4d5afa5f100791c58b91"
     sha256 cellar: :any,                 monterey:       "38413995d200a915e9d40831983b3605be0b1afcdb62fb0e768ca38c69b62dab"
     sha256 cellar: :any,                 big_sur:        "0d00a4c74d8e5fd3cd36621d318d2c1031a16c5701d2ae669223a2ca8a1a576d"
     sha256 cellar: :any,                 catalina:       "bbc328f48c0cf137907ccabe206f75cc7ade66cf76cafe82ced3a5f885c73da8"
