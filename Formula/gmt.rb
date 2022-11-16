@@ -12,6 +12,7 @@ class Gmt < Formula
     sha256 arm64_ventura:  "9214f2420a3dd3689377aa63ae8bc42a349ac3bfffc633872fe81a222c122e19"
     sha256 arm64_monterey: "4f239d4f7ca0d249bcb2cd56c15ceb4c70b5836e8e49111598bb3e2d89687cce"
     sha256 arm64_big_sur:  "d5ed85d0b31405eb18b0116feab22615fb0698c45c07bc0164d8be885330d983"
+    sha256 ventura:        "4aa497bc995d809fa0114ffc39e56c90d8aa56556c6d81cfac0d269160af5aaa"
     sha256 monterey:       "1ab8c4b67d164fb10b0698c31d7655e07c43feba0f1a86f70106e4e0d166fb16"
     sha256 big_sur:        "26e6012bc31f7fc8bdb6bed436d717075d206ff9fc5d02cded86c807bf04eaca"
     sha256 catalina:       "ef6cbd7344046dd7533c10e62373e8db1bf2e4e2795e244c54591470085bbf2b"
