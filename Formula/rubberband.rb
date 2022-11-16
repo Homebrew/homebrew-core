@@ -15,6 +15,7 @@ class Rubberband < Formula
     sha256 cellar: :any, arm64_ventura:  "39ed0d04fc654ebc89f2819510ac5cad990a5b5c7ea2657cb38813c3ed41ba30"
     sha256 cellar: :any, arm64_monterey: "ac1818bde00e42888ea13d151de85e8b387d6c6107df617ac24edf53ca6a9ded"
     sha256 cellar: :any, arm64_big_sur:  "31a26e4d2c2f37af5f5347dad63b7e1264d0e69d607639e559b1a8f45b554a93"
+    sha256 cellar: :any, ventura:        "36de6f9a470b303f83dfdfbfde201ff02f38bf499407aac23d7eeebab42c3c68"
     sha256 cellar: :any, monterey:       "84b15332391d9e870603dd31300db0b639cbde59f891e3e78b943e2d03dde0c9"
     sha256 cellar: :any, big_sur:        "39d08fc2a284ba173fdb2c97c93cb526b0c2ac17006cd84249c7389b6ee2c85b"
     sha256 cellar: :any, catalina:       "5f22527cc4d85d7b29c55c3e923f097f36d231041507ba75ab7b9669aea57d17"
