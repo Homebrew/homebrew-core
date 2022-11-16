@@ -15,6 +15,7 @@ class Leptonica < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b777db0134c92c82863e85a8e9241ea0f36a8d9c31b5ff422f27939a2529287f"
     sha256 cellar: :any,                 arm64_monterey: "f12078d1dd4aaeaad14a7f83e3fc80531b44c5468db5e4de2ac7e7e15c05b2ae"
     sha256 cellar: :any,                 arm64_big_sur:  "7149a71af47d2c56ee6d42b3bfbbd3e1acd028b5d88c06fd12ba9f53b8bce25d"
+    sha256 cellar: :any,                 ventura:        "571adf341904b5146c02344885a6dd557b3124ea4c75f7eb1fdfa66b295c7a43"
     sha256 cellar: :any,                 monterey:       "d38cfdaa7ef6c06742a68619a4a6ff1832693fc5a3fc17326e5ada7562a64232"
     sha256 cellar: :any,                 big_sur:        "7f3cf712964bbdfdda8f2bb6ce5c6b72c2e60155fc0ed3e61f1b67b2a168dfd6"
     sha256 cellar: :any,                 catalina:       "fc3413c1bdc6e0fa60fa3b1a0c1cc5106f5c963f3f9322171f9ae5fd87a15a9e"
