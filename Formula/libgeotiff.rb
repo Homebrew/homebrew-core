@@ -24,6 +24,7 @@ class Libgeotiff < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1fbb6a3e85a67d141f78bfdb537abe6ccd615b84893e8ad3caedaa7c0f0cf944"
     sha256 cellar: :any,                 arm64_monterey: "f7ba75c48d134bac69f1521df8ce1ee07b7f7bb5c383819d6864d444f9306503"
     sha256 cellar: :any,                 arm64_big_sur:  "f66e3548fd5092b3b1cdd90ce0a9dbc9749b368a9d350dcf6e4b4435f6e81fad"
+    sha256 cellar: :any,                 ventura:        "628a49b7ae7f4f62b96b8078b302dc9fd0eb9925a3db8656f394bee2c458cf20"
     sha256 cellar: :any,                 monterey:       "8a49a864a5bbc5b5a2f42e62ad8111b7ca9c1e8f00fd2c44f2dcd9a4468224b0"
     sha256 cellar: :any,                 big_sur:        "f98f8f3d3b5286a238a30449b3ac2f6efed1830d78a346463e56c611a63f3747"
     sha256 cellar: :any,                 catalina:       "eaae52303ca7865b5b0d69e6c243fb7d8a13663b0f07c290bd33648cf587f53a"
