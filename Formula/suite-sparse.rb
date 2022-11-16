@@ -21,6 +21,7 @@ class SuiteSparse < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1a69bd61a325e8da6af49bec6dcdc63e63dc8a3543cdc34ecaaf243e27514f5d"
     sha256 cellar: :any,                 arm64_monterey: "f9a227434a76d41665032eab22d00590ec3cea9d331ded561d9f634d2964e033"
     sha256 cellar: :any,                 arm64_big_sur:  "8bd3133802f6ed63805a8deb96a7b42f7b6bfe675a37a271a01579e31e0c1551"
+    sha256 cellar: :any,                 ventura:        "d1a14a4d0adfe83a9e63b91f3e510de22834508d3474ac1e1a586c92b3d85a8f"
     sha256 cellar: :any,                 monterey:       "c0efff893c632622b771e9655416da6f99461b95f8bcc891598c1fb572f5833a"
     sha256 cellar: :any,                 big_sur:        "b139b693b4dc71b613cdc6a334bc54a01d12948bf785654d5e985ba7bd8c6b73"
     sha256 cellar: :any,                 catalina:       "9df968f3674e21101e9018c57d6f7d1a2a60a76f13e7520b506e1396f82765b8"
