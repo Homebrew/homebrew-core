@@ -10,6 +10,7 @@ class PythonTypingExtensions < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "52f12013179c269cd8735b5238d85fcb814b24397e54c943951b42e998c3293e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e1f31efd887ea1b281e6a1ac7e63a22f2e6e9ede8c423d5e6cccf16178af430c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8aa9684ffa353c2f80d5a6ab7b2190f46edf7950d57b6d77238225c501a3393"
+    sha256 cellar: :any_skip_relocation, ventura:        "2628d2292eeeb952f40403c9b81edc4fb67702652d4a6577dd64d95c4a230d0e"
     sha256 cellar: :any_skip_relocation, monterey:       "3b3e03bca911d61c1842f96c24aee6270138bfff8212656f373b0948f2cc1a29"
     sha256 cellar: :any_skip_relocation, big_sur:        "c36fa17f6f27f24de979efdad54bfac73849866ddc54872977b04db78d950774"
     sha256 cellar: :any_skip_relocation, catalina:       "bf3f04ac84a6858acfcb506a39a20132974778301216cc39089807a0ef14f476"
