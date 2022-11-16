@@ -9,6 +9,7 @@ class Vte3 < Formula
     sha256 arm64_ventura:  "1e742f063653d2293512d3674daf9e69ec76e77a51f375086b97af62fe7a86b2"
     sha256 arm64_monterey: "188c1908497394ff888514b9448b9aa227cd75795e199903a7a0a591833ba65c"
     sha256 arm64_big_sur:  "c4ff06f24d88f35bf209e42d0620298bd710b0b019cafb16dda53bff7142d6ab"
+    sha256 ventura:        "593cce9e868f5e164c1d2a49fd25a5ccb590688977e4927ad8c30834fab23d80"
     sha256 monterey:       "f1202007bb1b0df10e5f0b39b4a7d6c1dc022b8b3082e5df55d4e4f2f923e5b4"
     sha256 big_sur:        "e2562bd7ba9cf08c9f7502bf4438f1d8ad6722c2d51ba460feac7af1002846cc"
     sha256 catalina:       "80edc4b33865ddbf06d4966d25a07b5b5eb1d34adc5a7b317ddf22acc679dcc8"
