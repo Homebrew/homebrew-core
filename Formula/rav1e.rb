@@ -16,6 +16,7 @@ class Rav1e < Formula
     sha256 cellar: :any,                 arm64_ventura:  "39120d6a039a8ae1c98217a7ca61662a9dd7e6ce17ba9889c0dfd690cd403ad9"
     sha256 cellar: :any,                 arm64_monterey: "15486f6308ce05ee89ee4d1c96d5165ec1851ec66578d53f06cc8e19b34efa14"
     sha256 cellar: :any,                 arm64_big_sur:  "b0725e463e742f65eb6c88d7115f61fec0bf60f01139c169e2a921debb62d5df"
+    sha256 cellar: :any,                 ventura:        "1030cfe47165598db33c1530da5316a815173c268de24c8ffa4a55b1c41335a3"
     sha256 cellar: :any,                 monterey:       "6255aebcb8ec74ee0370390fca79fbbeb2c8d68058e2f7e74910ea526aa7dafb"
     sha256 cellar: :any,                 big_sur:        "54b40a66c3d97249fbeaea13f3ec5d34ac2faffd95b5a4413c98da29dd1c593a"
     sha256 cellar: :any,                 catalina:       "8438c37d331dc244af0680314fda8b4eea803f22f8aa108e69decc785d452be5"
