@@ -9,6 +9,7 @@ class GdkPixbuf < Formula
     sha256 arm64_ventura:  "c14d053406b8a348e6cb16d6cd143ee1aba292e966222add9dbb0a31c91054fc"
     sha256 arm64_monterey: "5062e2c1e4fec51a665fe5893f12e8aee82e635469e7a1233f114ebe00da212f"
     sha256 arm64_big_sur:  "5561aaebdd1d83449a3f5101442dffe1b3a20f61ff003c5d266f5f5758b7796d"
+    sha256 ventura:        "cdf70ce6d7b7d7c1dfaecd3e490a9086109356d105d9e9c59e9efc5cd04cc2d0"
     sha256 monterey:       "4494ae162cf4a40ff384bcdda6082456c7e5b5eb7b713286c8ea1d8fdf876e75"
     sha256 big_sur:        "8f5fb95bbe6dc3f8738473c1964c1c5614340378ea30b0c8e3c8507888d3bb3a"
     sha256 catalina:       "d1dd8c3e4221b684164efcb7393e91607c3a472dd9c43271dc50856b583c5c93"
