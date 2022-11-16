@@ -14,6 +14,7 @@ class Patchelf < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bfd13c27623f1e5124c03f5709c549d10e3f2e0e905f60faef123850107508c9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "440e305a3adc81f6b01cc42604b141ccdf5cee901220ad7bc940ddaf71ab55d0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "346153244bb0701aec5108d11d88436a806109419fb96911c49ee4662d07ff0d"
+    sha256 cellar: :any_skip_relocation, ventura:        "f3d366b8048b40395f0e7330ce3d285ae0ab0079ba3dcc5be7957d357f46a237"
     sha256 cellar: :any_skip_relocation, monterey:       "b0cae0c81b65ed64330aa0ffbda185767d196416b983fc42bd37d6ed5302151d"
     sha256 cellar: :any_skip_relocation, big_sur:        "02b25fa600076de2a1545d5436d775a0ef33dc6e39203b7fdb2a4ebb07083e5a"
     sha256 cellar: :any_skip_relocation, catalina:       "355c7597512ef6cc4bb26848d5ee47dbdf6f2bd706f55c6c9ef5048edf8eb056"
