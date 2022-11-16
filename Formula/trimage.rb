@@ -16,10 +16,10 @@ class Trimage < Formula
   depends_on "optipng"
   depends_on "pngcrush"
   depends_on "pyqt@5"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     system python3, *Language::Python.setup_install_args(prefix, python3),
                     "--install-data=#{prefix}"
   end
