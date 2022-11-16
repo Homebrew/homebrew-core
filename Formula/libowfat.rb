@@ -1,10 +1,9 @@
 class Libowfat < Formula
   desc "Reimplements libdjb"
   homepage "https://www.fefe.de/libowfat/"
-  url "https://www.fefe.de/libowfat/libowfat-0.32.tar.xz"
-  sha256 "f4b9b3d9922dc25bc93adedf9e9ff8ddbebaf623f14c8e7a5f2301bfef7998c1"
+  url "https://www.fefe.de/libowfat/libowfat-0.33.tar.xz"
+  sha256 "311ec8b3f4b72bb442e323fb013a98f956fa745547f2bc9456287b20d027cd7d"
   license "GPL-2.0-only"
-  revision 1
   head ":pserver:cvs:@cvs.fefe.de:/cvs", using: :cvs
 
   livecheck do
