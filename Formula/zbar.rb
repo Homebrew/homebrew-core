@@ -1,14 +1,13 @@
 class Zbar < Formula
   desc "Suite of barcodes-reading tools"
   homepage "https://github.com/mchehab/zbar"
-  url "https://github.com/mchehab/zbar/archive/0.23.90.tar.gz"
-  sha256 "25fdd6726d5c4c6f95c95d37591bfbb2dde63d13d0b10cb1350923ea8b11963b"
+  url "https://linuxtv.org/downloads/zbar/zbar-0.23.90.tar.bz2"
+  sha256 "9152c8fb302b3891e1cb9cc719883d2f4ccd2483e3430783a2cf2d93bd5901ad"
   license "LGPL-2.1-only"
   revision 2
-  head "https://github.com/mchehab/zbar.git", branch: "master"
 
   livecheck do
-    url :stable
+    url :homepage
     strategy :github_latest
   end
 
@@ -21,18 +20,19 @@ class Zbar < Formula
     sha256 x86_64_linux:   "085302f322670cb77040a77645e1972ea14e8e6bc1f6e9ee3e010d53d48dbdd3"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gettext" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/mchehab/zbar.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
-  depends_on "freetype"
   depends_on "imagemagick"
   depends_on "jpeg-turbo"
-  depends_on "libtool"
-  depends_on "ufraw"
-  depends_on "xz"
 
   on_linux do
     depends_on "dbus"
@@ -41,11 +41,13 @@ class Zbar < Formula
   fails_with gcc: "5" # imagemagick is built with GCC
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--disable-video",
                           "--without-python",
                           "--without-qt",
-                          "--disable-video",
                           "--without-gtk",
                           "--without-x"
     system "make", "install"
