@@ -24,7 +24,7 @@ class MinimalRacket < Formula
     sha256 x86_64_linux:   "65d80647f223a59f9af580f0c7853d0aed4747e8f481093b02108d65706ba73b"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libffi"
   uses_from_macos "zlib"
@@ -35,6 +35,8 @@ class MinimalRacket < Formula
   def racket_config
     etc/"racket/config.rktd"
   end
+
+  patch :p2, :DATA
 
   def install
     # configure racket's package tool (raco) to do the Right Thing
@@ -53,8 +55,8 @@ class MinimalRacket < Formula
         --enable-useprefix
       ]
 
-      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@1.1"].opt_lib}"
-      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}" if OS.linux?
+      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@3"].opt_lib}"
+      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@3"].opt_lib}" if OS.linux?
 
       system "./configure", *args
       system "make"
@@ -108,10 +110,64 @@ class MinimalRacket < Formula
     # ensure Homebrew openssl is used
     if OS.mac?
       output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match(%r{.*openssl@1\.1/.*/libssl.*\.dylib}, output)
+      assert_match(%r{.*openssl@3/.*/libssl.*\.dylib}, output)
     else
       output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match "init: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libssl")}", output
+      assert_match "init: #{Formula["openssl@3"].opt_lib}/#{shared_library("libssl")}", output
     end
   end
 end
+
+__END__
+diff --git a/racket/collects/openssl/libcrypto.rkt b/racket/collects/openssl/libcrypto.rkt
+index a10c609118..afe5f96622 100644
+--- a/racket/collects/openssl/libcrypto.rkt
++++ b/racket/collects/openssl/libcrypto.rkt
+@@ -38,7 +38,10 @@
+ (define openssl-lib-versions
+   (let
+     ([versions
+-      '("1.1"
++      '(;; OpenSSL 3 works for most functionality:
++        "3"
++
++        "1.1"
+         "1.0.2"
+ 
+         ;; Compatibility-based version / SONAME
+@@ -51,10 +54,7 @@
+         "0.9.8e" "0.9.8b" "0.9.8" "0.9.7"
+ 
+         ;; Known versions for *BSD variants
+-        "111"
+-
+-        ;; OpenSSL 3 works for most functionality:
+-        "3")])
++        "111")])
+     ;; Don't use the versionless dylib on macOS, as it aborts on 10.15
+     (case (system-type)
+       [(macosx) versions]
+@@ -73,9 +73,6 @@
+   #:runtime?-id runtime?
+   (case (if runtime? (system-type) (cross-system-type))
+     [(windows) '(so "libeay32")]
+-    [(macosx)
+-     ;; Version "1.1" is bundled with Racket
+-     '(so "libcrypto" ("1.1" #f))]
+     [else '(so "libcrypto")]))
+ 
+ (define libcrypto
+diff --git a/racket/collects/openssl/libssl.rkt b/racket/collects/openssl/libssl.rkt
+index b570ec007b..1e8cf7574c 100644
+--- a/racket/collects/openssl/libssl.rkt
++++ b/racket/collects/openssl/libssl.rkt
+@@ -17,9 +17,6 @@
+   #:runtime?-id runtime?
+   (case (if runtime? (system-type) (cross-system-type))
+     [(windows) '(so "ssleay32")]
+-    [(macosx)
+-     ;; Version "1.1" is bundled with Racket
+-     '(so "libssl" ("1.1" #f))]
+     [else '(so "libssl")]))
+ 
+ (define libssl
