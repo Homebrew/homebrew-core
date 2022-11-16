@@ -11,6 +11,7 @@ class Pillow < Formula
     sha256 cellar: :any, arm64_ventura:  "74fb00c6613b82b5f07fb122b1eac331a917873f7ef69278bfde0c4aafba568a"
     sha256 cellar: :any, arm64_monterey: "52677d7845bdeb5527bd390af5e098b307403909d7decefea5e4358756e97b84"
     sha256 cellar: :any, arm64_big_sur:  "f7fb3cea71579546a10700bb1da39410067483a178184b5f4cbf08313be88f42"
+    sha256 cellar: :any, ventura:        "3ae69dba678e02c10bef796034fdc17475a982578b909b3a7d0af05bb27c912d"
     sha256 cellar: :any, monterey:       "ddd5e92ef50ac3be9df10e2331efab57fc46b55bba8a4fea5181845173cc1c6d"
     sha256 cellar: :any, big_sur:        "a000ad0cf374d660e89d30c2a6994c07afc5c94f015db0a06700fc4a6a89922f"
     sha256 cellar: :any, catalina:       "465b0e189d713ff8d66b655783d9090d9f13733a8bbff0676ec00faff135de80"
