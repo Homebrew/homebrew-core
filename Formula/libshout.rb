@@ -15,6 +15,7 @@ class Libshout < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7f8f3b0863a492822fb17eea6c2b8200902daac2b675d1f8ee8ec630460297f0"
     sha256 cellar: :any,                 arm64_monterey: "ed0cc88b82dee2ed2e819726858e3fa32304ede4b9920f610e4e58060e245bc6"
     sha256 cellar: :any,                 arm64_big_sur:  "f08eb7c2f858f394a688a70992d3d17f3b5789449522fae3c7c0c94e3278f3c8"
+    sha256 cellar: :any,                 ventura:        "f2e08f998c765c0d2703d3bf0d77f332923da73c6cf5e74f0d0ed9191ae639c6"
     sha256 cellar: :any,                 monterey:       "7fb5903fcebb64f0d45b583f7e87a75c72ced74c61d532e6e251f680be245d7f"
     sha256 cellar: :any,                 big_sur:        "25e319ceb759a5e144df9bcf57a91189f9a11c4affbceebd555e3392329306a8"
     sha256 cellar: :any,                 catalina:       "aa4615ea703a4c352e037fd0d0dc5c3539c41f6ed64c475fbac00157c56176aa"
