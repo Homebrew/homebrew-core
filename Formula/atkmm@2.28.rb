@@ -14,6 +14,7 @@ class AtkmmAT228 < Formula
     sha256 cellar: :any, arm64_ventura:  "27e688d6ee177a411294848acda3aa39ced89fc8a9a12dc3822f3d42131e2673"
     sha256 cellar: :any, arm64_monterey: "876683a0c5f4da334dadb0142c564fb2007d9a3a66c7696dbfdc03dfb9162f9f"
     sha256 cellar: :any, arm64_big_sur:  "1b957048c912011d829c1b4842c8e7cb94526e80500046d732010881d33109ec"
+    sha256 cellar: :any, ventura:        "82b1072bb49372eb831a548c33461d13db549f5856019cb2f86705e589726715"
     sha256 cellar: :any, monterey:       "8ca4c71ef66437838731e95a460d66430554fd3468b3c8856e638b09d94f2bc5"
     sha256 cellar: :any, big_sur:        "473ce70bed27eac91868d6b8214c027b08e88abea444076d20615462842b86a2"
     sha256 cellar: :any, catalina:       "4d2aeadd4d5114932d7d90ac2d53ed409e84b1703112e6dc5a0e8a5992d214b2"
