@@ -11,6 +11,7 @@ class Mongosh < Formula
     sha256                               arm64_ventura:  "e01d3ea1cfa423dd2114b63ea2ecccb7b9fd3edf757cb1eef9e602758c6af544"
     sha256                               arm64_monterey: "59d2e862ba4feefd0b1e9b5e2594641d0c5e3c3f2d7b402fab948d9fe4151c25"
     sha256                               arm64_big_sur:  "974ee086f8d42f76bcb97c173edb273b0eea85738c258c61c37f7341afd08836"
+    sha256                               ventura:        "e85ae108b4939df6403494268a1e378a12d510ee4c7a87fce5bc021b126c3443"
     sha256                               monterey:       "10abed852a285196c66fb604d35bf8d3dbc5c684e83c9b019799ab43509b9aa5"
     sha256                               big_sur:        "b7863d04124642d041545addfbea63aace4051f72f9b035c454f4cef73729f71"
     sha256                               catalina:       "9869df71d9a33af808df00dd17240de744958f88b8c7bea5288c6dcd870e651c"
