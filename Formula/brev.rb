@@ -1,8 +1,8 @@
 class Brev < Formula
   desc "CLI tool for managing workspaces provided by brev.dev"
   homepage "https://docs.brev.dev"
-  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.176.tar.gz"
-  sha256 "cf194e7c0b3876eec002f103514f9b75a1a5b44b24db06ed3582971b062b56d1"
+  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.179.tar.gz"
+  sha256 "555c2338abf8a5b6600cc482a7b2ba6e0643b08f62f62e295b206b6c65a600c0"
   license "MIT"
 
   livecheck do
@@ -20,12 +20,10 @@ class Brev < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "71ac23979c0330a581ace5b6c7f499b716c1b3ac687e81f5813bd18c7bf9558c"
   end
 
-  # Required latest gvisor.dev/gvisor/pkg/gohacks instead of inet.af/netstack/gohacks
-  # Try to switch to the latest go on the next release
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
-    ldflags = "-X github.com/brevdev/brev-cli/pkg/cmd/version.Version=v#{version}"
+    ldflags = "-s -w -X github.com/brevdev/brev-cli/pkg/cmd/version.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     generate_completions_from_executable(bin/"brev", "completion")
