@@ -15,6 +15,7 @@ class Netcdf < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a0fb1e37c4197b13313819b2e8816bb7deefde46a7821ed0bdf0f809196a20e6"
     sha256 cellar: :any,                 arm64_monterey: "f4a3da85ae0c0534fbdc08b93a2aafd9f68db08d8678081474cd7a8285fa8818"
     sha256 cellar: :any,                 arm64_big_sur:  "6877b01444394bd8e0f3956cf57934bc88de9678c10a4ad446f1650c4485d341"
+    sha256 cellar: :any,                 ventura:        "54e566667d21075327d07074018ad198a63be635d30987d85204a32d97a00612"
     sha256 cellar: :any,                 monterey:       "9742b36dc484608a41ebfda6ca28f20a218039ab8de7f25b4c4a19e2f3cb1568"
     sha256 cellar: :any,                 big_sur:        "8702e95b84806410b6375099286d4a1e6172eeb1e835a29a7ae460f05208ca61"
     sha256 cellar: :any,                 catalina:       "c23ce8a3b89ce90d50b8858a7af8e48096280b6b0b90961f95ae25963325807e"
