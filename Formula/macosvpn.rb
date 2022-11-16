@@ -11,14 +11,12 @@ class Macosvpn < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "76a6845a51666a5907260eb0e774c07fb9efd5cab5f18a4581b0b6f25816ba29"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2c0d97645e6c5f84d99728d4453d63e5b018a8d0c77f2df40d811466f8eaf32"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6862be0cd39d91775f3336d40da31d7e7f6f645e767e77efbbf132a6b25f9955"
-    sha256 cellar: :any_skip_relocation, monterey:       "352c72e737d04798510b4c7f739f13b3887f9e190836a8db44f7d382c1e75e77"
-    sha256 cellar: :any_skip_relocation, big_sur:        "115f97b8ad4c7242c0baa1ec4990024c6984b758febf7109e9831a6ddd25fe5b"
-    sha256 cellar: :any_skip_relocation, catalina:       "d56030780813971500593d4ccf3d672da95fc69655c432107a378877d9e2a38e"
-    sha256 cellar: :any_skip_relocation, mojave:         "3d65153cae182cf1d98625bda798c191d348ff22a32f6992bcec0a6de5df4d0f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba041bd58d4f5a2c58e25ba148a1e9381e0c1f9144661f3f0c0e039f0140c993"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "05556552fac0910a7f96aa82a60d84fb81269399183eb1c44262536eb898fd9f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca5acfb04df29355633ded3a1c63b35e6c8f2cf63f0f76b065b35e3cad76e319"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0a039a15c681f44320e6cefc8d2b87f035ec25aabb5919adbc65656889d95c0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8a85ae6d100ebe8ce596b3c430784083c4bfec7b833c8abb630b5838faaec8b9"
+    sha256 cellar: :any_skip_relocation, catalina:       "a23588080999163bfe86a43034b4caa6bfc09c5ab6dde3a4cf09ba6c6d5c1209"
   end
 
   depends_on xcode: ["11.1", :build]
