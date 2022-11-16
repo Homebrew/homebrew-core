@@ -16,6 +16,7 @@ class Libepoxy < Formula
     sha256 cellar: :any,                 arm64_ventura:  "52aeeb179036343d54c93b30413f41e7dfd524d2aeb8b7f590ef31bbb07bd657"
     sha256 cellar: :any,                 arm64_monterey: "a5164efc11c9f11adaba87595c6a12cadf12671e860e9b38d11fa3081c7b2c1c"
     sha256 cellar: :any,                 arm64_big_sur:  "839cc3388516586debdc98d72a3fb4b8237ee432a5be7262e8c835367093f29d"
+    sha256 cellar: :any,                 ventura:        "91cca5d118a350e7105a303fd873915fc5f36c0a83be02101f3c742a52d0059c"
     sha256 cellar: :any,                 monterey:       "9ec0246218c3d31cfce70e1a492f7cdc03884f638d9986be28bec0b769d6648b"
     sha256 cellar: :any,                 big_sur:        "c398ece0b10339f409d48d3b06866285f7a58294a3dca6d9c88e798a35af6b36"
     sha256 cellar: :any,                 catalina:       "2b5537e288b18b6545d0cf78229d5c2b695d0d2e51b627e21e77573c88217b42"
