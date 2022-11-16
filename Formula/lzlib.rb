@@ -15,6 +15,7 @@ class Lzlib < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7680f6b9e88140a4127d37f2205fd3234d0317a1c544c0d95e4d7b11c3befc6f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e209c35c3ebfda8ac9a4f010f4b67c2edb791023d8aad2798b759f7e62debeb4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "90f5f6d7704043f05267c00c988a5e72f383bfa3d68628c7a683b6177ea6e542"
+    sha256 cellar: :any_skip_relocation, ventura:        "1e9c552f96203f479d1a841e8c56bf665fb1bbd3bd273e6038bfef3f9f9e976d"
     sha256 cellar: :any_skip_relocation, monterey:       "70694976deaa1ee867a7cda0aae5bef7055b001cdc654be21afa5d3327fd3b3a"
     sha256 cellar: :any_skip_relocation, big_sur:        "8e87447e82af22377a309c648689820893e0add73356567e83e119a1bed9a28b"
     sha256 cellar: :any_skip_relocation, catalina:       "e60bfc9d982c3c40170a4f645a1466f9cc979f33b1a024ee9c2aa8e03d3597a6"
