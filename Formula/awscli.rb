@@ -3,8 +3,8 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.8.12.tar.gz"
-  sha256 "a1f16a8e0bb7fb098967f852b074f431ec4adbdfa51e714129945c67a9798537"
+  url "https://github.com/aws/aws-cli/archive/2.8.13.tar.gz"
+  sha256 "5a1e5024851fab291aa23caa96dedd78c0da678dcb96e83ee9909aaec8cd2856"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
@@ -21,7 +21,7 @@ class Awscli < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build # for cryptography
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   uses_from_macos "mandoc"
@@ -101,7 +101,7 @@ class Awscli < Formula
   end
 
   def python3
-    which("python3.10")
+    which("python3.11")
   end
 
   def install
