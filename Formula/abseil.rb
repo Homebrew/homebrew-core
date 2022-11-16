@@ -11,6 +11,7 @@ class Abseil < Formula
     sha256 cellar: :any,                 arm64_ventura:  "da860134f8c93154324c1eb7ceac85224c8701e2a1758988ac9077778bebaa34"
     sha256 cellar: :any,                 arm64_monterey: "a684dd51320207ef4cd8134ab8e7e033fba14a7dc1d9f1c8cb1c4b770dc715ff"
     sha256 cellar: :any,                 arm64_big_sur:  "d31162eae71f007c10329296c0a646d6223d0f73e52d5fd8e2fc8333091ba377"
+    sha256 cellar: :any,                 ventura:        "6733be2ec57587f9051b357999faa62a96c55fd4df75b6349a119a6e76bfc884"
     sha256 cellar: :any,                 monterey:       "41a3b0ca19070a90158beb85965e5485f116ad0e47b6c16ba9197c4324e5eab2"
     sha256 cellar: :any,                 big_sur:        "80a398e384146b1860a79d0ff6c0666de74aca714fef357b0cadf525bae2a289"
     sha256 cellar: :any,                 catalina:       "731fbe6746ab703ce4f6d17862de7ddb216b308d9d3948112c87ac0bfeb66d64"
