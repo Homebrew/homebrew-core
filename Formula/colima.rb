@@ -16,6 +16,7 @@ class Colima < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "03c74ac24c45b75e6cbdbb277aa325c1073d8a4e548dba58c21ce8747f11af83"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "941942dc29f1d70369dee3423896e86d98dc93ea9878502c2e2b6ee09a7da1dd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25d01043a2b4a23118ab1892287c9994d16ab4b79712db9abee924192af5e0af"
+    sha256 cellar: :any_skip_relocation, ventura:        "bb2334c6eb16010d3b5c2b291fbd6d61c525f9be53d8c9138d601772c9917920"
     sha256 cellar: :any_skip_relocation, monterey:       "ca024de6aaa786a13bdaf9d86cb8b6e22639f0d50242b913901903d7314ef246"
     sha256 cellar: :any_skip_relocation, big_sur:        "e9ecc1c48d0982eefaee8548d6770677ae4cb6047cad76aa4f71ae766918b26a"
     sha256 cellar: :any_skip_relocation, catalina:       "01150540e8654c348875f81d4555ad50b2597033d60660f6afa57418a1263e26"
