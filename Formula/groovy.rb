@@ -14,6 +14,7 @@ class Groovy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b72453d10b90fce51a584ef0f9ade40516173f93526d54db4d3473dbdae2319"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d502fbbd3b4cc7effc50c204c299ca6ea189a0b96dd6c937b6b819d57b942b76"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4310645b741b16c0e8a82551e0ecad438e4a9be466a47c33280148165dda6ef"
+    sha256 cellar: :any_skip_relocation, ventura:        "41289f1ad8c0f92e9b79562fa46dc61cebc5a4f12290e156555e84f78be190c4"
     sha256 cellar: :any_skip_relocation, monterey:       "75205e5119da92a72a72b550f0ed2dc9f1464c03174964eea5e31cee94b2b771"
     sha256 cellar: :any_skip_relocation, big_sur:        "61dd8ce119b865d87422c0aa9312daa8803aef33a97d9203896419d22b17d34e"
     sha256 cellar: :any_skip_relocation, catalina:       "bba0c63079a85100d829c0547423cc1bbeba58105d9dc91f1b4b9ab78db37a42"
