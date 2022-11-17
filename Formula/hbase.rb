@@ -11,6 +11,7 @@ class Hbase < Formula
     sha256 arm64_ventura:  "fd7e5e9188936fd5bb7e537e57a9eb34039a95bd396a7407072b2843f471c160"
     sha256 arm64_monterey: "ebdfbe9a82b27ca4444fbda0d4c7a0d106706b661cce9d3d11dc0b64a94f2708"
     sha256 arm64_big_sur:  "f054fe32166e9bf83daadf484f9b1902f30a03e757a01544cd2ac84ba6bfd403"
+    sha256 ventura:        "e524f24ab0a74c51dfa55b78998ee5ae4d345b3f8a819b179aed00dcaada6218"
     sha256 monterey:       "022e8eb4673a24c223f79d046c9c845fd755c200cfe253cc6131f1757210697d"
     sha256 big_sur:        "b62c48e86d23dd4fe4265760794429895e1fb1374a5cab5df3b99af0cfd443f6"
     sha256 catalina:       "5e5da72954aaa8641f5715576c4526c7214e5eb76067c07bf52e7f62a42ed481"
