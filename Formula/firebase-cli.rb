@@ -12,6 +12,7 @@ class FirebaseCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "17a163496a015ced51f8190d39869a10cdfde46b741d77c372b4aaad45268617"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "17a163496a015ced51f8190d39869a10cdfde46b741d77c372b4aaad45268617"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17a163496a015ced51f8190d39869a10cdfde46b741d77c372b4aaad45268617"
+    sha256 cellar: :any_skip_relocation, ventura:        "d64391f082d399da0b822ced8b3e5b6cdab2b7a829c0fd3c75696113ac8586de"
     sha256 cellar: :any_skip_relocation, monterey:       "fc9c67c38a7757e2894e8dc175c0baa789b30c8e1c29a473d0e54547456d50ef"
     sha256 cellar: :any_skip_relocation, big_sur:        "fc9c67c38a7757e2894e8dc175c0baa789b30c8e1c29a473d0e54547456d50ef"
     sha256 cellar: :any_skip_relocation, catalina:       "fc9c67c38a7757e2894e8dc175c0baa789b30c8e1c29a473d0e54547456d50ef"
