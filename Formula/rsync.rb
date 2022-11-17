@@ -16,6 +16,7 @@ class Rsync < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e3b86c84539aee3348b90d9d36d0f21d1243fa558aaf06f8801d9e5d56d2fd65"
     sha256 cellar: :any,                 arm64_monterey: "b7a8807e03cbb7a2cf29a866a3e3939b62adf9b2899207db74a41f7d4a2ceca3"
     sha256 cellar: :any,                 arm64_big_sur:  "8d32a4bab7c933a71f38ec82519cbc2059f5561a2b6a65d576000f602ae53ac5"
+    sha256 cellar: :any,                 ventura:        "46580672114f2bad46e724fe3f24ee42512b2fb6509e52736d9c0121e5dacbba"
     sha256 cellar: :any,                 monterey:       "188b82cf9ff79825f8a03c4729d2b45b259c7ab1e3cdecbe5b903c5c82b09b3b"
     sha256 cellar: :any,                 big_sur:        "80b623812954e23d5f40849a46baa66b064358dbbc88257e2c60c175cfaa5f9f"
     sha256 cellar: :any,                 catalina:       "40333c17217324536b17db6a7de53915b9a86336ecac91e71c1131e5f71a67e0"
