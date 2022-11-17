@@ -1,6 +1,7 @@
 class Id3lib < Formula
   desc "ID3 tag manipulation"
   homepage "https://id3lib.sourceforge.io/"
+  license "LGPL-2.0-or-later"
   revision 1
   head ":pserver:anonymous:@id3lib.cvs.sourceforge.net:/cvsroot/id3lib", using: :cvs, module: "id3lib-devel"
 
