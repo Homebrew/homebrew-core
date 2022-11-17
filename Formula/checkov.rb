@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/cc/23/996bcdd53726f02eac740a3c58f2e4935215e8b4c3a159be9b5a037c6623/checkov-2.2.60.tar.gz"
-  sha256 "94e7b2c72ae70ed67c9b9af0f15924840bba23ac7da2e1e6912b0a1524f6e2a8"
+  url "https://files.pythonhosted.org/packages/68/3e/6f26d3deb56cfaad28c486fbe89cb660e2cff323a30d0ecfd7af2cf746a6/checkov-2.2.75.tar.gz"
+  sha256 "b4b5e55840099dddb520a7e7c402487b9852d6bc3bb364893e5314227a9636a0"
   license "Apache-2.0"
 
   bottle do
@@ -76,13 +76,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/be/d9/ff354feedd0b516d2557ef9b34d8fd3e0d7b9d3d268f70ce0728d3dd02f4/boto3-1.26.10.tar.gz"
-    sha256 "0e2444f1f653c2fa87e6e30b3ac983cba2961a98a27dd788753a34e198c9e450"
+    url "https://files.pythonhosted.org/packages/18/e3/df034a858235098d227c07b5c72f3d1a0754bb64385516a0a69345f1d48c/boto3-1.26.11.tar.gz"
+    sha256 "f8f7268afe62e3b34b7d0e1b4d8a804148e713f35b0e6dbc736346b28b3c6549"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b7/b3/e65206ed1f7e4a9a877cca45128d9dee751f3bd340efd879bca23d0f0810/botocore-1.29.10.tar.gz"
-    sha256 "68af34e51597389e7de5ec239ce582853b65d4288308d19f40a30eb3e241fb0d"
+    url "https://files.pythonhosted.org/packages/fc/c3/f08f9620e67845a02d14340bc6eb46e1931a6b7f753da4dc864acc1e95b8/botocore-1.29.11.tar.gz"
+    sha256 "97532c8a571017891ad4afee7951bea95c9f0bfe96a6f38fdca9062cd6067ec1"
   end
 
   resource "cached-property" do
