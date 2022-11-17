@@ -18,6 +18,7 @@ class Yaz < Formula
     sha256 cellar: :any,                 arm64_ventura:  "fda2a2d7d7e478e581e24c51a9ddfb0e5640c6af5c4ee18a0cfb47a40dd35883"
     sha256 cellar: :any,                 arm64_monterey: "e557c8be8f4c335fac3cfa8f37d984bbd63c5716d98145c0d83ca0423fda4525"
     sha256 cellar: :any,                 arm64_big_sur:  "2cdab667383b932b13aaaf8e9516b104f09afef4b45b1ca16888f9da54612afe"
+    sha256 cellar: :any,                 ventura:        "5b8c7e6fb876ba038cc8157635d1cf8b613c36b64042cc06e41975e439ef61f8"
     sha256 cellar: :any,                 monterey:       "9e7b9b9bd1292324bd8fb4e28cd0e4010c29972e508626a0110adbe3908ac8ae"
     sha256 cellar: :any,                 big_sur:        "ba154d92aa07f094933650506c59094cce717db404fe394afc35b8be6e852d73"
     sha256 cellar: :any,                 catalina:       "c02b3f2c2b8a1f874d9a6d3269e4c35ff37fd2cc2c7aefc76c89e68015d20ba5"
