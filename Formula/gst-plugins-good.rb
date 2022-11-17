@@ -16,6 +16,7 @@ class GstPluginsGood < Formula
     sha256 arm64_ventura:  "3b4ffd9777e053e50730ede8b2198da1f231d504a2d03d78068127e11eadaeb0"
     sha256 arm64_monterey: "1e1f7fce251966cd64595eb91954a281c9678bd33ff247fcc876d2ea7e2b31ef"
     sha256 arm64_big_sur:  "7488f78b9591614a476f42ed065a7a5f238826c5ac941dab6b0dafda70fa7e98"
+    sha256 ventura:        "7fb92551a36943723ab8eb533b79d59dd75cdd78885836f74e2fbf9577415317"
     sha256 monterey:       "61d30e5fda5a9a6f9b711eaa085d67e2df36186729fc4aada108fdf2fac165de"
     sha256 big_sur:        "fabb7836a584cde7ea86aa4214201375a5066d93d9a78b9f9a7a07cc4c0f4a5a"
     sha256 catalina:       "85d8b5ed3db4ddba06afb4e2a817255c0fedd64ad18f1b8a66b30089896e890a"
