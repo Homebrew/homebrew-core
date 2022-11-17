@@ -12,6 +12,7 @@ class LuaLanguageServer < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6baa48af7ffce521593c7fb7f70218bb24665c9a0f5d256ee3ef1fc806609b0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b7e0262bd5b6b33a7b3ebadabb15ef305279142ea4ff0da16a4f89b631b5d4ff"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c841c6c6b83af1682036267c434ba31729b2e2d0488018be5f6b98a7ac29400"
+    sha256 cellar: :any_skip_relocation, ventura:        "38866b11ba2a4dffce501e8d68eaa0e6e5ce6c2d01ef2df479cc029f86c296e3"
     sha256 cellar: :any_skip_relocation, monterey:       "9237fc2ae9029088e99d70897d71fa773348f40d84bf6f2cf8d11725d8e4bddb"
     sha256 cellar: :any_skip_relocation, big_sur:        "bf5030eabcf989979d84fb697547dc3f008f6893c2fced2ef4a825fa5a5fec76"
     sha256 cellar: :any_skip_relocation, catalina:       "0ba91ba15c68f7a33aefde0dce543514ee9a64f510ba0afded3ccd73c472602a"
