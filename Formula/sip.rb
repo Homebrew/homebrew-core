@@ -13,6 +13,7 @@ class Sip < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "91881d046dc8de18957d2e1ac5e5e0519b84cdba9ba4d9858a760060b089e0cb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5cc0e8d0ad17c4e0e68fe6d8284166004eacbdd765ede21a478f6c440fef977f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2155db2c598a1c987480342e7e879116fddfeee1a943e1f72628ffc7efc7e9c"
+    sha256 cellar: :any_skip_relocation, ventura:        "53ff76309b368f456ddd63861fa0590bf87f91890ca4c236ba5224cf27ff7aa9"
     sha256 cellar: :any_skip_relocation, monterey:       "9203a6a76b703cb589ac64fb0c929b388aaf403c10947db0c194735039392d2c"
     sha256 cellar: :any_skip_relocation, big_sur:        "de68a372d9a4a25e820c7911a4c65e27a70fc6257550de929c6595ce61405767"
     sha256 cellar: :any_skip_relocation, catalina:       "118e462852cbf49de0cb283c0c874271318b693368e0cc5ab2f039416e3663d9"
