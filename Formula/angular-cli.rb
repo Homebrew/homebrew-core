@@ -11,6 +11,7 @@ class AngularCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d1f8d77ad843022f1f372b9fc6bcd24b365de5675e04c6206fc03eb780becb0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d1f8d77ad843022f1f372b9fc6bcd24b365de5675e04c6206fc03eb780becb0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d1f8d77ad843022f1f372b9fc6bcd24b365de5675e04c6206fc03eb780becb0"
+    sha256 cellar: :any_skip_relocation, ventura:        "8d21f5e2e4b75ad94669c3e728fd64f596d3aaa3c0b71cd28b2d81aae3a2f417"
     sha256 cellar: :any_skip_relocation, monterey:       "8d21f5e2e4b75ad94669c3e728fd64f596d3aaa3c0b71cd28b2d81aae3a2f417"
     sha256 cellar: :any_skip_relocation, big_sur:        "8d21f5e2e4b75ad94669c3e728fd64f596d3aaa3c0b71cd28b2d81aae3a2f417"
     sha256 cellar: :any_skip_relocation, catalina:       "8d21f5e2e4b75ad94669c3e728fd64f596d3aaa3c0b71cd28b2d81aae3a2f417"
