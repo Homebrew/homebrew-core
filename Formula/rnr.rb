@@ -5,6 +5,16 @@ class Rnr < Formula
   sha256 "85013be46725acc1cd6f2d2089c42f426c052efab26d22db8a9f28051eebbb6a"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "045c120169513225fc0c3531e0219281d5b1792044e58d25d9ad88836e6c308e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "19f9b96c9c53acc4ccc2296ebf16a3a6c51c1c0d0ee16fb6562c02953d52ccb4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9616602a7538bba0f49e591397929ddb51c20aa4d5a53448ffe68d1d83eb1a68"
+    sha256 cellar: :any_skip_relocation, monterey:       "15db3a1e56b74e017e5777d6e6b3ae4b0b662f0d7ae18633609e735b30ddde90"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ba2390fcebc3cf0787e30d462ff0be92feb33a36d8a3e9752b121f4dfbfb820e"
+    sha256 cellar: :any_skip_relocation, catalina:       "e6a201e62a179608041e1fd5ed23386a025119d4de702e99411d5017511862e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4248e01e2710b44632164c3644f6b88c43cd4813e9f07402b2c47347d40eb7f8"
+  end
+
   depends_on "rust" => :build
 
   def install
