@@ -9,6 +9,7 @@ class Packr < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b2e2e3e54b5ba71634f3451d94c6586b239d1da7507bdb246a7f4865be0d8ad"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "78402bd55fe8a3c1c2e354e1d0a394bfc62b2c223016f93ce671876cee786b9e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d33f607b95795245e701beae7c7518065a20eff0123cf589a5492623f073f804"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c901a3b2f07a446fedc61726296eba463fd6837006a609f5cdb5ac48bb683a6"
     sha256 cellar: :any_skip_relocation, monterey:       "95d3bb5b313625de9988d49459df4f7937fc4b6b95c1edde704b6df3e4e76c80"
     sha256 cellar: :any_skip_relocation, big_sur:        "9f8dfe789d79d2db26072577c7d304d12b65a88a36af73e8d188388487bf4ea6"
     sha256 cellar: :any_skip_relocation, catalina:       "1c9b6831e7d16b51c3489216c96a10200fc08fbfaff22f39e0d4a70ca12e7555"
