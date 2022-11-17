@@ -10,6 +10,7 @@ class Tflint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c64deb1b28a9a8632e954978c53466aa82177ad3648416393780cbb7683252e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "02270648a8065cdb0bdf1443ddb68592f3fd295f6e19fc1a80e02db10f29a99c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45c7d3489673f14dc009b249165b5b37f332baac7103b38ae4239a58415af224"
+    sha256 cellar: :any_skip_relocation, ventura:        "ea62de0c5cee1dac6a710019607dc8e8a3e37b0df45d694dbfddcbca59fe642e"
     sha256 cellar: :any_skip_relocation, monterey:       "ca5e78fd682914327cabfeb30bcc443dab9070d4210bb995c6df03f6cc3b7405"
     sha256 cellar: :any_skip_relocation, big_sur:        "c4a054c9e8a31bcde70a7d8f67eb307b4f67fe43f1ceb620df50b4b6cf5fe866"
     sha256 cellar: :any_skip_relocation, catalina:       "61f877c33bda840d138814e47f1d38b0056503dfca489ca816f77693b00aca89"
