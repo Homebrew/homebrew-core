@@ -11,13 +11,13 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "be8a14c02c8fc9b811d237d69ce841709b29bc9f69c1b5dc69db52df3cfb1340"
-    sha256 arm64_monterey: "8c26dd00c0d8ff4cbb5308b814d1517aaf99b399c6c0e36bb712ed933bb4860e"
-    sha256 arm64_big_sur:  "5a051a93e5a90a97bf9c4b8067bc92f16e744c120cd43427adae024f4515cdf7"
-    sha256 monterey:       "551eaf450d80c51c07eab4beb5a868ace8ce885e7649a6b10cf18661fefb4d38"
-    sha256 big_sur:        "1eee5851790badf51c072019dd57d0984a545c98a688d50c386640bf68bcc3a3"
-    sha256 catalina:       "9957bfae39d1fc1a6312e6d3548c646ba0c61a70bfc67dde3a4c9f88cc8676f7"
-    sha256 x86_64_linux:   "a36708d61037ce1f4204a400c3f64e29a6233ef74ec49c3df0f3845c7b9a3565"
+    sha256 arm64_ventura:  "4c11b01249186a6984cdaf3062969c457d59438e42eb9497ffa73adb7836395b"
+    sha256 arm64_monterey: "06c18fe289340416d188eb55fff50a2808d223f16b690fff1bb02ba233cd0a5f"
+    sha256 arm64_big_sur:  "61c09e6ba0d3799ff637dc7c0af1b781dcbf4c102c205081803b044265931848"
+    sha256 monterey:       "ba1472ad7282316737271f920c9c1dbebf7c157119a957813727e8f7cf68e67b"
+    sha256 big_sur:        "741c47df9987fac450f9fce8984f0fcc918983e3e522bc7524f9dd2fcc8b3505"
+    sha256 catalina:       "de3e440a66779a4dcbc55c4190d7bca01d8bb44170206339c1647ee85e8447b8"
+    sha256 x86_64_linux:   "6aa6b4b23b8ce02729917cb948c25ff156186f5ecce07e89870bd4ed4357944a"
   end
 
   depends_on "cmake" => :build
