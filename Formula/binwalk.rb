@@ -18,6 +18,7 @@ class Binwalk < Formula
     sha256 cellar: :any,                 arm64_ventura:  "790b8e8314d7f644a7404d73bde374abc4dbbc4b50e6b87d0ae0887fbc571493"
     sha256 cellar: :any,                 arm64_monterey: "235c50f581a73d80e729446c0358419e0c5fa3d5f172502e374087ff0599f146"
     sha256 cellar: :any,                 arm64_big_sur:  "307c12b610778f36e7ab1305b7e413af6506e91b5655ee2f85463618d580b3ae"
+    sha256 cellar: :any,                 ventura:        "942ee604c48c17e1685bf802eb31fbdb11e91cee162e5632f86720adaeff7fd6"
     sha256 cellar: :any,                 monterey:       "68a5e01815f4b7fb6b6518c159c3349eda5131f7e2ec0a0ff466c9010f6e56f8"
     sha256 cellar: :any,                 big_sur:        "0310a3066ffbb65165f11f14205eabd6a0473e624d61d73ad5d6311ea140b4a1"
     sha256 cellar: :any,                 catalina:       "b2dadab228a96a7973b20342b383c733f65aeea0032ee7c8cf07bfcefd02a8a7"
