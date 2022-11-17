@@ -12,6 +12,7 @@ class Mitmproxy < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b0c074212d152e98d9f89724b6797721dcc1359f7f37147ee82953c0a3837d82"
     sha256 cellar: :any,                 arm64_monterey: "c45bdc993ba38119396a5d35aba17cb367371c869e3eefb16d94651cd1111aab"
     sha256 cellar: :any,                 arm64_big_sur:  "f41edfb745c049a82a805586cf95d8a9281adf25a8059f2f3d3710eb629513fd"
+    sha256 cellar: :any,                 ventura:        "19a18d9932f81c1c938643451ea94881987c7e374631d6a64f60b020009b1387"
     sha256 cellar: :any,                 monterey:       "e735158361a098f037e0c3c7da9d30f7c37ce1220f546c2e346f0c056d5076fe"
     sha256 cellar: :any,                 big_sur:        "e881ce9f1faed790bbe5150ffebd1148ae02d7ab93415b7b80fdf8818734abfb"
     sha256 cellar: :any,                 catalina:       "c04eef96f1e2bb1a57e7fc536b51af61a642779535b78778dd93a125e06f25e2"
