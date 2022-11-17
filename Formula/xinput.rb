@@ -9,6 +9,7 @@ class Xinput < Formula
     sha256 cellar: :any,                 arm64_ventura:  "948e1a8b83cbd27f49cdf7af0b732b3e527807d47316f3435d6289c953f7a0d7"
     sha256 cellar: :any,                 arm64_monterey: "cd6d4d1d3a69ffab976906f828f9cbbd78de75d212dda7b9225f18f54925f5fc"
     sha256 cellar: :any,                 arm64_big_sur:  "db714eb643b851dec6aa996c3673b932af70e191d404c8a187b408a9578f7fef"
+    sha256 cellar: :any,                 ventura:        "d324d3e6c4f8c06adb212d6e648e75fa171f6e00a9df8638a912f934fc42c9e1"
     sha256 cellar: :any,                 monterey:       "42e694f3867eab495cb54de454879d7477e952c089b8ecf08bc327c77e5ab256"
     sha256 cellar: :any,                 big_sur:        "dab36aa6df662605e220ffce42106ed9eb6668088c425773335b04a59ba29575"
     sha256 cellar: :any,                 catalina:       "5bda55eccff0b10605378a85932776af6105fff7ae85593e2f10d13e9adca128"
