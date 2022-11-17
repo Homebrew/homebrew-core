@@ -50,8 +50,8 @@ class Dmd < Formula
       VERBOSE=1
     ]
 
-    system "ldc2", "src/build.d", "-of=src/build"
-    system "src/build", *dmd_make_args
+    system "ldc2", "compiler/src/build.d", "-of=compiler/src/build"
+    system "./compiler/src/build", *dmd_make_args
 
     make_args = %W[
       INSTALL_DIR=#{prefix}
@@ -63,9 +63,6 @@ class Dmd < Formula
       -f posix.mak
     ]
 
-    (buildpath/"druntime").install resource("druntime")
-    system "make", "-C", "druntime", *make_args
-
     (buildpath/"phobos").install resource("phobos")
     system "make", "-C", "phobos", "VERSION=#{buildpath}/VERSION", *make_args
 
@@ -76,8 +73,8 @@ class Dmd < Formula
 
     kernel_name = OS.mac? ? "osx" : OS.kernel_name.downcase
     bin.install "generated/#{kernel_name}/release/64/dmd"
-    pkgshare.install "samples"
-    man.install Dir["docs/man/*"]
+    pkgshare.install "compiler/samples"
+    man.install Dir["compiler/docs/man/*"]
 
     (include/"dlang/dmd").install Dir["druntime/import/*"]
     cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
