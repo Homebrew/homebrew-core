@@ -9,6 +9,7 @@ class Btop < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "377bedf756891fdf81312df0de7f6698653c00bb74cbfc21859402139af71c12"
     sha256 cellar: :any,                 arm64_big_sur:  "048387f6e5b471decca93682518d7e30f1300dbb5e22f4d0ecd771447276f512"
+    sha256 cellar: :any,                 ventura:        "6c9f5da037520e6116a04ebf6c011a54aa38ff6d61d6b778266476985312f437"
     sha256 cellar: :any,                 monterey:       "13ff2c92dff4f98569dbcf19cd2d6d5eaa907485ce55fe3e6750eab687556ee3"
     sha256 cellar: :any,                 big_sur:        "b5215ec41daa2216f3312738d4bb2d6e225fba7d3a760cc629d91bcdfaf87972"
     sha256 cellar: :any,                 catalina:       "fffa1b48e2a7dec0da167a25aa411b87e28619dd72026e650239d8c3d6012df8"
