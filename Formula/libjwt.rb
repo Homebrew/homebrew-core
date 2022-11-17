@@ -6,14 +6,13 @@ class Libjwt < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c74618e12dfddf8fc0c0ba7396a3fe98ad8c77f4051a17836aec10f65166e7ca"
-    sha256 cellar: :any,                 arm64_monterey: "78f15386643187ac5392bdcb5550959fcc10f52cdd3c91643b89fc48d19aaa1d"
-    sha256 cellar: :any,                 arm64_big_sur:  "4d89729e216bebd3dcd95d7edca9050b125387a122e1525f2b647175074154aa"
-    sha256 cellar: :any,                 monterey:       "90fed8ae1701559d47625967a0a58b276b48ae289944316f3ed006e12c5c8805"
-    sha256 cellar: :any,                 big_sur:        "6007f616df31c2f700524c3dab66d9f09f5b9bcca728ac7e1b848000aabece90"
-    sha256 cellar: :any,                 catalina:       "fb6e811d2e09405a322bccac174af800742fc0655a8e72a1220311eacec1b78a"
-    sha256 cellar: :any,                 mojave:         "97801be0001a6c9a180d425ffecc9cef4d51a2bd246c71ec4d60c7a0016ce490"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a0fc4895581847c58742ebe3d19b818f7a563265d83fec569e95f2a4f25436c"
+    sha256 cellar: :any,                 arm64_ventura:  "38ed9509a429014b28882a5970ef64e157a1906514c5f7a593c05af43d0948e0"
+    sha256 cellar: :any,                 arm64_monterey: "fc108cdd5c78b51c76ff7abcbcfb20db01521b4e2f665ce1f73079045ff2dd97"
+    sha256 cellar: :any,                 arm64_big_sur:  "3749847000103f76c8c72f33edcd3e00855c90fb5e99cb8080362be362cd4cae"
+    sha256 cellar: :any,                 monterey:       "f98f21791845f8ad5154e826a8bdfb586d7ee509ad150b8a94f77a97ddae39d6"
+    sha256 cellar: :any,                 big_sur:        "f8a4776cb98a8e345b7ab2e9d3753703e91a56c264d0e4568413a548e3bd2f23"
+    sha256 cellar: :any,                 catalina:       "c89546a6d4f6fcac752fa3a1a1d1ee91d88af04c062fb4f619c4414f9e8e1048"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba773969e167750e3cfa3b297bfb7c1a0713eac508c6181dbbd09dd77031b745"
   end
 
   depends_on "autoconf" => :build
