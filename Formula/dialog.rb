@@ -14,6 +14,7 @@ class Dialog < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "50af3ce2ebf8f0f6168d457b004a091e3268863f963adb5db5623420fb8046ae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f92895a98040a2ff1a7a4cd1923ddf93130f84dffdbeb03ca1ffaef9c5f03c5e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17723d341f3ec1609405e8b597bb87926da3d00ff208be14df87568f87c55caa"
+    sha256 cellar: :any_skip_relocation, ventura:        "b6145eb65d40bbfa19392ece112deda6afb1686e5315ca7970360998bcce7930"
     sha256 cellar: :any_skip_relocation, monterey:       "a40c13d04bbf4039619301faad320cac8691d66bd928c0b5976ef1891e33e92d"
     sha256 cellar: :any_skip_relocation, big_sur:        "4187d20252fcd775d57ff445e6d79ef7e1a92ee603c80ebee3c4522450f3c65f"
     sha256 cellar: :any_skip_relocation, catalina:       "00495c5134b064176cb0937d1f70d875fd32e5bb909cf0ede3fdce51157368fa"
