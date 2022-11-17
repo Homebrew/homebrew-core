@@ -10,6 +10,7 @@ class Helmfile < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f2d1f77ada6e4df85f823188818f372e4ccd2b619d2f8213346fee10b24723a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b5e6ea4f0159c7b9825586b8b9b01ed7086fe8ff51af001136b3b9ad0f0622ba"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25993e5b7b793849fdcf0d69d367ae08ab0553c56d4116245efe88d6dff8ae6a"
+    sha256 cellar: :any_skip_relocation, ventura:        "6698a75c8a38a188cac656d25b43a4f8cd2212a9679a48daa22e3203eb3a78d5"
     sha256 cellar: :any_skip_relocation, monterey:       "504693a559ab279a298f7127c2709b0ca509007da57f6f67b0b1ab1582b93b67"
     sha256 cellar: :any_skip_relocation, big_sur:        "581b8499b1d2e7e5ba6e17635d2efcba49634422d26821a4b99b2cba093e9197"
     sha256 cellar: :any_skip_relocation, catalina:       "d41688f29f0f34a558a527ef3ca318884bfb118683aef03b50a1544988a3597d"
