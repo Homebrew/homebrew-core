@@ -9,13 +9,14 @@ class Darglint < Formula
   head "https://github.com/terrencepreilly/darglint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7462727f3dc2fa353d3a7c06d2151acd34d361c7e2756c13f61b6f6834c03870"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42e91f209c5c3a31378b08128e872de32cf6be51cf54ced378a51ef8a2220e42"
-    sha256 cellar: :any_skip_relocation, monterey:       "9a671f2790a10f4f7d5c8ccd55249eba10991aadd39040fa4edaf04586d35f33"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f1a2ee8eeca7a285648d9c4e2c3d00031025c3f50614f992878bab0f00b57d61"
-    sha256 cellar: :any_skip_relocation, catalina:       "f9d1151558abf70184f0ed3d66c94e8a9f1f89a9cf20bae7db030e71e091263a"
-    sha256 cellar: :any_skip_relocation, mojave:         "aa84254d72fcccfece16713b9f7648aeaef79831465d2f14032b942a48a17801"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25cac2c982564d37e9bc4159ef583f2053b5061f5397d2c1a5661df1293916f3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fab11572b650056b2368d8080f6497ad5f507286e147089fa323fd3257a2801c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7de9e8485bfa9da6ac8741b977349f65ce6f27e4067c609d52f07449cc470d0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "848f5aa7fd155b1a9c047e5b5c6f01dd57fd8dd69468b88d5fb3ffae3ba77687"
+    sha256 cellar: :any_skip_relocation, monterey:       "c1421450b1625a080b39a54a8721dcdef12bcfd35c04196e36df96da6be45720"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8fa0e26b846c3b2ef823e2b296b89fa4e194a490590573e2515b77347457c78e"
+    sha256 cellar: :any_skip_relocation, catalina:       "50ff6168116a577d6b16edc02c4f71195aeb608234b64666d627dacaec0b0400"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf75b7da4e5b6fa72299af2179bcc3bf50cde731a7f7ac4463a819ea0884da79"
   end
 
   depends_on "python@3.11"
