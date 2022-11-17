@@ -14,6 +14,7 @@ class Ntl < Formula
     sha256 cellar: :any,                 arm64_ventura:  "8495ee2f2c83602778defb01dab2fe3f61c9c3bab35598cc5eb642ba02ef8afb"
     sha256 cellar: :any,                 arm64_monterey: "2bd16013e5715eefa223b3a72a08e725e2414a2d0b849199a253aef506ee9ba2"
     sha256 cellar: :any,                 arm64_big_sur:  "972f6f6fdf45e71f8d852a5ab162189f14bb1f800692af4466b5672e75ff62cd"
+    sha256 cellar: :any,                 ventura:        "987890c24404d66b16f9c6ebd5ef2baa9dd2f8ce35c3965e8e457c932e63acab"
     sha256 cellar: :any,                 monterey:       "d882847db4da92801d989382e682e6ba372263942ef42eafdd16e2672cdeb107"
     sha256 cellar: :any,                 big_sur:        "e108c06f39537cdc58cd6e7f681395ae069c381af5e0c95abca97d1ccc90ec9e"
     sha256 cellar: :any,                 catalina:       "b97739b3b8de3daabe0d76cec3e29ef47f4bc85e6197054aec6d10f6b8f1a4ae"
