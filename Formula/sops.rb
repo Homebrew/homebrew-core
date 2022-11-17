@@ -10,6 +10,7 @@ class Sops < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "532b45e1dd85175018d60b297edc2c2f07b4501f04eb23c18f64ba71fce49f78"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "70f27c015b2ef19765f5b05bdc46294aad6e6a9702bf60379646b2d482fa66cb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9901d633289cbcad89857d975830a6e06f05287ab4f63cc23a6f3eb684d3a4a2"
+    sha256 cellar: :any_skip_relocation, ventura:        "bcb01ac11ac3e2716c57de5b6c224ec82b7d72e83427afb6b6513eff55e5743f"
     sha256 cellar: :any_skip_relocation, monterey:       "db10b3c2e7d8601404f5781710a594290db30e21bf7f0c9a2ed39548a8d062af"
     sha256 cellar: :any_skip_relocation, big_sur:        "c6fc0f83d3b83a4c8b278f8344e0f17f3c96146ee61afdb2959ef36029141d57"
     sha256 cellar: :any_skip_relocation, catalina:       "8bbc4dcac66038e6fbaf4c4b21f513e06f7a229268ba9ebbfd636a442bca3d30"
