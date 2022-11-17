@@ -14,6 +14,7 @@ class Nkf < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcc652ba1cfeec1bec89e5108c3e6eae31652606bf7babd5af25dc6522dc44a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd946546a2e3f86974d8d6685e891efaca8e4b609ba64cb537629a9b371df518"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "85bfff310d48fea503f95092b12a3a2fa19b48ba634cbbdb84c083b8701cd948"
+    sha256 cellar: :any_skip_relocation, ventura:        "88af0934e1a4eb4750fcca73d2cdf3b84219d7ca4f1995f86048da271102bec0"
     sha256 cellar: :any_skip_relocation, monterey:       "bdf97f3712176e9da065dcacabede2187d244e201a6f326bda4d227a259e75fc"
     sha256 cellar: :any_skip_relocation, big_sur:        "40a30c72ca018734cf05b3e029d4e5d3eb6297f847da07e699f9891558480ad4"
     sha256 cellar: :any_skip_relocation, catalina:       "4a0694aedea8fcf96ecdfb6c60c0e14825591e7e7247e3944a00966d883398e6"
