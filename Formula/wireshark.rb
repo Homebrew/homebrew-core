@@ -16,6 +16,7 @@ class Wireshark < Formula
     sha256 arm64_ventura:  "de7c25233ad9a993dfb56ffb5ad03c2aa4c3aaaba224959f5c9a1cb17a172beb"
     sha256 arm64_monterey: "ae77fc53c5c561de9dd9e2bfad2f7e44d22208808363808c824e26ec3cd229ab"
     sha256 arm64_big_sur:  "c53abfe4e20e32f373caa9fe7ef85b105451c8b4657c46b77e46a8118b75153b"
+    sha256 ventura:        "e099a04650db7e9dbb348e21bf157685973b48f19adc5c07b8090851412fd28e"
     sha256 monterey:       "459152ef6495b5c962a904d291089af617df4193f92f86b29e1065f0a83ee98a"
     sha256 big_sur:        "d66559ed91b1546c6eb4cecabb2f8e5fed32daef2201addd2b40d540974d21b4"
     sha256 catalina:       "ee3b0ba0c35d0d456bdc818639319356176eb7b59be75e8d48251aa1dbe72744"
