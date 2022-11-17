@@ -10,6 +10,7 @@ class Mpv < Formula
     sha256 arm64_ventura:  "68bf624f6b6225aff7a18e7ebf133f6a2f0d81227a1a9122e327c8df980f1186"
     sha256 arm64_monterey: "796101aafdfcab4e4e583b106913f2a6eaa9ec457b59231d3474f44564930d77"
     sha256 arm64_big_sur:  "d3c50d2df9634d918459aac2b48203f203efdc1e2b7ec385db54186c7923074f"
+    sha256 ventura:        "84bd369996a53ea59179b0388074b89acdacf8b67ecc9858d4d67e9bb8677872"
     sha256 monterey:       "4bf17644be73ef2e0b5d9029a73ccbab14e46f8af6f331ae5ef5329b33be4ab5"
     sha256 big_sur:        "a7ede2a10b6bc0b59d980f5d731a221fdd0dc450fd909e594e8c877031e72a7f"
     sha256 catalina:       "9b4b79cfceb6ed515080e7094fcb3361dab288ba4541f7d9f0ea9176d34a6445"
