@@ -10,6 +10,7 @@ class Elixir < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d5846e972c092c16e91b58b8b0ad58b34519021d946451543dea9121440fa71"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bba230b8f383dc8bc896ffc1d9c61d8c574a54289f1b68f7ec7160c20a75063a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f4e2e610011dc4343595fbb5c905664470ca2aa2e4a8b4dc7df2eecde49ad20"
+    sha256 cellar: :any_skip_relocation, ventura:        "a562173ee5f2b201f5b12181716609c4b8f85435c4d1f0497a273e28ac690e97"
     sha256 cellar: :any_skip_relocation, monterey:       "073d89fba1c8d633cfedd6f482ad1098e1acbc6d9d1f6eaa4adfcf3221dc3824"
     sha256 cellar: :any_skip_relocation, big_sur:        "792186e3168e3dc51e336401290916ae45b48c78c2e7ac76bfda55fbd035aeb1"
     sha256 cellar: :any_skip_relocation, catalina:       "0496616c1d69c9e3a0434f9208bbbad24bc2cb8aaa17dd8b8909fd35e487165f"
