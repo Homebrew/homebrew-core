@@ -14,6 +14,7 @@ class Log4shib < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c2bc8d9323dd44d769a0b9f139951bdd648467e8eb89d75dd47154751ef8e72d"
     sha256 cellar: :any,                 arm64_monterey: "0a24e1932a0b752006d448741f713646761e8d827e8615aa69575b3de674a85f"
     sha256 cellar: :any,                 arm64_big_sur:  "450ddfec54aca621297964385847c9ac0207dd1cf41d67222bf9f0fcb1207360"
+    sha256 cellar: :any,                 ventura:        "5eca207602aa861957c57cc05e191ee5d22fc2cec69761c9b4d78d7429369b7e"
     sha256 cellar: :any,                 monterey:       "7a8f70e280df362c5f85191ee9586c40436da110824674fb7e451d0a177b165f"
     sha256 cellar: :any,                 big_sur:        "0eddc0326cf4fbbf0eafe1bf6ebf1c69f55eabc218527624f47871be8fad3d04"
     sha256 cellar: :any,                 catalina:       "dd41c1980bae36dbbfd7c5ae5fc896354a95592a78f3b3f76b7b8ab35ab02329"
