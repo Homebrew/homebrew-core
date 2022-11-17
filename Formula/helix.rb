@@ -11,6 +11,7 @@ class Helix < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f7f81ff6f6479a7d302d6d995e44c70a3c5553e6e096d9f95c0b119991511bd9"
     sha256 cellar: :any,                 arm64_monterey: "fbc0e33ba2b0639778b11efa751643c898d232d2021f363e1155c8fd30b48e2c"
     sha256 cellar: :any,                 arm64_big_sur:  "10fc0acae5c742ba3d3f95216f246a84160a072c9a300b8604ef32232047a606"
+    sha256 cellar: :any,                 ventura:        "d73856b57749b0400cd9fe5252d6bdc9ccebf02df2d12cb11c33b930fcabb095"
     sha256 cellar: :any,                 monterey:       "0ffad064e6fe4c171025c18bab8d859244afca4fc3d6f338460111c9787fea2d"
     sha256 cellar: :any,                 big_sur:        "94834a7dc26269fbd95d35963b8fa7c871257fc508ec0dad3176373c3b7a40ff"
     sha256 cellar: :any,                 catalina:       "1312797458bebdd68994eb59c59da025fc5c1cce83d7650fdf8bcacf51159f59"
