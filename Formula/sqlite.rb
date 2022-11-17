@@ -29,6 +29,7 @@ class Sqlite < Formula
 
   depends_on "readline"
 
+  uses_from_macos "tcl-tk" => :build
   uses_from_macos "zlib"
 
   def install
