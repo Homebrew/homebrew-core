@@ -15,6 +15,7 @@ class VulkanLoader < Formula
     sha256 arm64_ventura:  "f9497d45e1c530fb5314d610f0ca681858e01c28b9386ad11c4c7d7aeb31d7de"
     sha256 arm64_monterey: "857cb05c259c2fed3f2409aad738285b3b69ab283213f44852e660be53fa402e"
     sha256 arm64_big_sur:  "6a81dbed64356a3eedf7856ea5772c0efefdefe9c08cc9d3ee9141ad0bb29197"
+    sha256 ventura:        "441bd0e5114d149d977db82e054228572690d6bc26ff137df1e7fa018a66bcc2"
     sha256 monterey:       "17241e6bcc3bd783e430a8dae5bfe6b0fecac3c34ba38addb355aab482e1c797"
     sha256 big_sur:        "7504ad2012c9286aac5a5ba8488ed978cd7d616485763a280b544dad854948e1"
     sha256 catalina:       "96e90853b3236304fa2681d2d1bdc16ff698f92f73acc38819d36c5393d674d5"
