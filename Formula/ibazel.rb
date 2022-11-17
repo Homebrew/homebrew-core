@@ -1,8 +1,8 @@
 class Ibazel < Formula
   desc "Tools for building Bazel targets when source files change"
   homepage "https://github.com/bazelbuild/bazel-watcher"
-  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.16.2.tar.gz"
-  sha256 "a927520e7ab3a1fb749043e543c57bb211666cd627d053fbe0e8245730beee75"
+  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "7b0f98006b32d2ad5eee38eb9b363005968abf88d235e31fc6dd2a8c4336f33d"
   license "Apache-2.0"
 
   depends_on "bazel" => [:build, :test]
@@ -11,9 +11,12 @@ class Ibazel < Formula
 
   # Patch to use Homebrew's Go
   patch :DATA
+
   def install
+    inreplace ".bazelversion", "5.3.1", "5.3.2"
+
     system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//ibazel"
-    bin.install "bazel-bin/ibazel/ibazel_/ibazel"
+    bin.install "bazel-bin/cmd/ibazel/ibazel_/ibazel"
   end
 
   test do
@@ -66,18 +69,20 @@ class Ibazel < Formula
 end
 
 __END__
+diff --git a/WORKSPACE b/WORKSPACE
+index 1ec4e43..721d61e 100644
 --- a/WORKSPACE
 +++ b/WORKSPACE
 @@ -62,11 +62,11 @@ http_archive(
      ],
  )
- 
+
 -load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 +load("@io_bazel_rules_go//go:deps.bzl", "go_host_sdk", "go_rules_dependencies")
- 
+
  go_rules_dependencies()
- 
+
 -go_register_toolchains(version = "1.17.6")
 +go_host_sdk(name = "go_sdk")
- 
- load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies"
+
+ load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
