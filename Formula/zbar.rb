@@ -7,7 +7,7 @@ class Zbar < Formula
   revision 2
 
   livecheck do
-    url :stable
+    url :homepage
     strategy :github_latest
   end
 
