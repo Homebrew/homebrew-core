@@ -10,6 +10,7 @@ class Cppcheck < Formula
     sha256 arm64_ventura:  "e9d950c1bbec3fe3372d72b27705620cad11e9d8fc38ee592e7f94ad9e025ca2"
     sha256 arm64_monterey: "c7f0d86f54fbc5fed6264a28df44015e176a8facebaea61148f8420ed92bdb83"
     sha256 arm64_big_sur:  "bac58add5429a917d42799ec0cb8f4223ed067fd50afad3c61e8c286a3287f9d"
+    sha256 ventura:        "9ea806e20f1542cebc84f8f9b46b1d3624dc9bbc2fb0ef1e9ee113d9955e956d"
     sha256 monterey:       "bdc32662ec9878ab061b35006246109399b23f9b02affd3a695cc5d826aeae05"
     sha256 big_sur:        "0f458144275d0059202b57213d978e233630a49eebb107f6f0809c5a0b7aef31"
     sha256 catalina:       "7181d937a674ab82d22357c864d336f1f4ff42d8be40878d654961b7b4bd5d3e"
