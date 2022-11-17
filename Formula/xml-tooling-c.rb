@@ -14,6 +14,7 @@ class XmlToolingC < Formula
     sha256 cellar: :any,                 arm64_ventura:  "8b0f96c66e6f3fab2d33b44228b4690b3b480fe92d19774028f1b63f8e2da1bf"
     sha256 cellar: :any,                 arm64_monterey: "a04d49dde2d69e17ee4f258abe9a992e43b048fa10f1a8bcfd02c1fc37839a5f"
     sha256 cellar: :any,                 arm64_big_sur:  "65e021c1f203021118f1ed17a67869077a2ae014774729173010c8095e3b89ec"
+    sha256 cellar: :any,                 ventura:        "7dfecb4b3317f24cf5b5dec21e7fa2856d90f0afd0e49c7247e6714c5c4a38c3"
     sha256 cellar: :any,                 monterey:       "ebde61320a9596a85561d46b4dae80d0e6e4abc2b3dbf506eff2ec85d82c52fc"
     sha256 cellar: :any,                 big_sur:        "57c8c16990f589f0e07a7e5d57dd202c4f35b6e66d57bbda66d4d9bc2af6bd33"
     sha256 cellar: :any,                 catalina:       "859a056b4271610e876b42606d145a0ddc2d79cb94c0470e2ca93cdef38c4e2b"
