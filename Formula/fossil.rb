@@ -12,14 +12,13 @@ class Fossil < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "eefd616668ba37cb18a205a0a1738f967b908b8a4775ef3b135a392ea3d0e528"
-    sha256 cellar: :any,                 arm64_monterey: "a5c69e1084ad4308ca069ec1704036c45a6c39857a895737e9ed9655c7599702"
-    sha256 cellar: :any,                 arm64_big_sur:  "fe04cf19e9342cf2c0056da5f99955044dd19eb3c503168699bcd6f379900590"
-    sha256 cellar: :any,                 monterey:       "61835166100565574909da547d3ef3c63c25cfffd3986257b02a471f72b75937"
-    sha256 cellar: :any,                 big_sur:        "a379e88999b0dcc19f6fcfd739bd5719e610fbfdcb003233d73015ac0c1a1ed1"
-    sha256 cellar: :any,                 catalina:       "1bf891fe9b66948d5fbda2a011d3b430c630cb609c9214184f3521b6d5e0a937"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc6f347f269d69eae4bad0f405704ac965759b6c8187fcaa92d4395cbcb8e753"
+    sha256 cellar: :any,                 arm64_ventura:  "89e51154dd811ac8be85bbcc2602efc7cf8dd28176dd9417f9cc5c5945938a9e"
+    sha256 cellar: :any,                 arm64_monterey: "7c0149b6e906560ac63a35967a77077b58e2de7297b4dc844e207291316cdf84"
+    sha256 cellar: :any,                 arm64_big_sur:  "782fb74c7533f298d51041ea2cd5ea7f11a21be8dffa17aafe14b07a1bad4074"
+    sha256 cellar: :any,                 monterey:       "2285ad847450f89945b07ba7caa986e2e9cafceccf91371ef208ab26a773ceeb"
+    sha256 cellar: :any,                 big_sur:        "0cb70e6db0223cc00dcb754b2f5ef1493ee83cc029e362a7ef26ab3be64c86b9"
+    sha256 cellar: :any,                 catalina:       "4c9c1a29c411dfbbaa62817737b67e15d21c90afd4dc40d96f21ba07022b2a7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b040996f1983d95ac0ed7c3b18bfc2293ac9fab4cea5baef68ed21f31c98c281"
   end
 
   depends_on "openssl@3"
