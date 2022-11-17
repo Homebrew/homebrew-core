@@ -9,6 +9,7 @@ class Mint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e41081a250f5d4ed3aa04792fd708f21dcc009fda7aba2f8298b0a2a6ace13ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a734b45954dab46148247b64dc0b41aaa20d11048f001102e8f7786770b35cd1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a853f9de02a1419b801046bd561c3f3b09912b1d7df1b1119e4b22dd5c29da37"
+    sha256 cellar: :any_skip_relocation, ventura:        "ebbb9f04894e5284aa9593ee89d52252435f6ee6820aa2380329fc775480a53c"
     sha256 cellar: :any_skip_relocation, monterey:       "26c136026b22e8c13ae136d984af578ef2d32ae189216da6761b1435428cb4a3"
     sha256 cellar: :any_skip_relocation, big_sur:        "09f59209f7737020ccfae79fb88a91531ebf01d6f2fd7f7dfb1784a1023af44e"
     sha256 cellar: :any_skip_relocation, catalina:       "02a284dfc9cc69a4257e3ff8db991e0ae91bee8ef8fa10c164cb730ab1567c86"
