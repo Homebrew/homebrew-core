@@ -19,6 +19,7 @@ class Teleport < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e1bf0dbab4172394cac54870a4d8fd60546bd517c6b882a8474f0b27e2fe190e"
     sha256 cellar: :any,                 arm64_monterey: "1b6b62eb52b5154348bf9eca7053674a57f82fb1bcdf72b1790cb1d2cd5434f1"
     sha256 cellar: :any,                 arm64_big_sur:  "a3bbd1cf06cdacfec409775c394e9d32c8312a7de9e3df26bde0d61a3c27d39d"
+    sha256 cellar: :any,                 ventura:        "8f6d8328606b3f9a7fcf481ba0c1516d72aaaad36ada825bf7d2d015594393ed"
     sha256 cellar: :any,                 monterey:       "b7a0947faf1705de9dbd0b7bc2261f656040b531c8752ec6f07edf5b4df28e11"
     sha256 cellar: :any,                 big_sur:        "0eee261ec9a20e89b7114f79d3dc0bc8a4f2ae9898a9c9fc7ba6a80ace48c229"
     sha256 cellar: :any,                 catalina:       "c74e3367f4f2a88fa3d68418dfafd3d62937fc5df97652a2aeaf64413a41fbf1"
