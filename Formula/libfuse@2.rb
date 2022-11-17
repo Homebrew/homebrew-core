@@ -11,12 +11,25 @@ class LibfuseAT2 < Formula
 
   keg_only :versioned_formula
 
+  depends_on "autoconf"
+  depends_on "automake"
+  depends_on "gettext"
+  depends_on "libtool"
   depends_on :linux
+
+  # libfuse won't compile for glibc 2.34+
+  # https://github.com/libfuse/libfuse/pull/619
+  # We migth have a backport release in the future.
+  patch do
+    url "https://github.com/libfuse/libfuse/commit/5a43d0f724c56f8836f3f92411e0de1b5f82db32.patch?full_index=1"
+    sha256 "94d5c6d9785471147506851b023cb111ef2081d1c0e695728037bbf4f64ce30a"
+  end
 
   def install
     ENV["INIT_D_PATH"] = etc/"init.d"
     ENV["UDEV_RULES_PATH"] = etc/"udev/rules.d"
     ENV["MOUNT_FUSE_PATH"] = bin
+    system "autoreconf", "-f", "-i"
     system "./configure", *std_configure_args, "--enable-lib", "--enable-util", "--disable-example"
     system "make"
     system "make", "install"
