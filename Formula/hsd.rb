@@ -22,13 +22,12 @@ class Hsd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eceddba39715d8c8d2a44add1bff762f2dd580786911bd9f44d258da0184227"
   end
 
-  depends_on "python@3.10" => :build
   depends_on "node"
   depends_on "unbound"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink Dir[libexec/"bin/*"]
   end
 
   test do
@@ -45,7 +44,7 @@ class Hsd < Formula
         await node.ensure();
       })();
     EOS
-    system "#{Formula["node"].opt_bin}/node", testpath/"script.js"
-    assert File.directory?("#{testpath}/.hsd")
+    system Formula["node"].opt_bin/"node", testpath/"script.js"
+    assert_predicate testpath/".hsd", :directory?
   end
 end
