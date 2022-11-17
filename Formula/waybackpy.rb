@@ -7,6 +7,16 @@ class Waybackpy < Formula
   sha256 "497a371756aba7644eb7ada0ebd4edb15cb8c53bc134cc973bf023a12caff83f"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b6d17e9bfb4e1f90f2daddefcb17ae0bd9c82c8f654961a15f2c13a98870c1c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "79e87c92ff4985b256447d0ca7bd699fb4df8b204ece99189e49e235aac18cbc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11b989acd04645a2f19d7e03d08c3d6d26b85e1be257157d806277104204dd85"
+    sha256 cellar: :any_skip_relocation, monterey:       "83a9011013ab8c19a18def73a89443d32825b19a8511638ea18aa2723b08b678"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b87cdf6a11c5c03affe1c186c4778482956c4b1964ab47834193c2786474569e"
+    sha256 cellar: :any_skip_relocation, catalina:       "b0ab0c34fe4b41deb32948c04851a4211c92d1debc0bbef6d297840229b0f0d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ffb457c20e944760b8ecd3f95112969835814a34dba2685cb035ab163b3a41d"
+  end
+
   depends_on "python@3.10"
 
   resource "certifi" do
