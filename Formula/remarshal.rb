@@ -20,16 +20,15 @@ class Remarshal < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4eb6f74d4dbd9fb9614adde6170a05faef95cacbd91e991fc5c403914b62b49a"
   end
 
-  depends_on "poetry" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
   conflicts_with "msgpack-tools", because: "both install 'json2msgpack' binary"
 
   resource "cbor2" do
-    url "https://files.pythonhosted.org/packages/9e/25/9dd432c051010faea6a702cb85d0b53dc9d5414513866b6a73b3ac954092/cbor2-5.4.1.tar.gz"
-    sha256 "a8bf432f6cb595f50aeb8fed2a4aa3b3f7caa7f135fb57e4378eaa39242feac9"
+    url "https://files.pythonhosted.org/packages/9d/c9/cfa5c35a62642a19c14bf9a12dfbf0ee134466be1f062df2258a2ec2f2f7/cbor2-5.4.3.tar.gz"
+    sha256 "62b863c5ee6ced4032afe948f3c1484f375550995d3b8498145237fe28e546c2"
   end
 
   resource "python-dateutil" do
@@ -43,19 +42,19 @@ class Remarshal < Formula
   end
 
   resource "u-msgpack-python" do
-    url "https://files.pythonhosted.org/packages/62/94/a4f485b628310534d377b3e7cb6f85b8066dc823dbff0e4421fb4227fb7e/u-msgpack-python-2.7.1.tar.gz"
-    sha256 "b7e7d433cab77171a4c752875d91836f3040306bab5063fb6dbe11f64ea69551"
+    url "https://files.pythonhosted.org/packages/44/a7/1cb4f059bbf72ea24364f9ba3ef682725af09969e29df988aa5437f0044e/u-msgpack-python-2.7.2.tar.gz"
+    sha256 "e86f7ac6aa0ef4c6c49f004b4fd435bce99c23e2dd5d73003f3f9816024c2bd8"
+  end
+
+  # Switch build-system to poetry-core to avoid rust dependency on Linux.
+  # Remove when merged/released: https://github.com/dbohdan/remarshal/pull/36
+  patch do
+    url "https://github.com/dbohdan/remarshal/commit/4500520defe25433ad1300b46d1d6c944230f73d.patch?full_index=1"
+    sha256 "32cba193c07a108b06c3b01a5e5b656d026d4aecc8f5b7b55e6a692a559233f0"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
-    venv.pip_install resources
-    system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
-    venv.pip_install_and_link Dir["dist/remarshal-*.whl"].first
-
-    %w[toml yaml json msgpack].permutation(2).each do |informat, outformat|
-      bin.install_symlink "remarshal" => "#{informat}2#{outformat}"
-    end
+    virtualenv_install_with_resources
   end
 
   test do
