@@ -1,18 +1,17 @@
 class Easyengine < Formula
   desc "Command-line control panel to manage WordPress sites"
   homepage "https://easyengine.io/"
-  url "https://github.com/EasyEngine/easyengine/releases/download/v4.6.1/easyengine.phar"
-  sha256 "df0dc82b9c18c90dea09b3a203ad97fb05860a6febd12f720bafdf2e32dc01e7"
+  url "https://github.com/EasyEngine/easyengine/releases/download/v4.6.2/easyengine.phar"
+  sha256 "857c72d1007f8a85e6bdf02b20e55154d1877e53bd0ec5c2e46c7d7b54d660f9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a49dbdeaa32eeb010f154fd0db1c3015a752339eafcd10657abe46bb66a89b89"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a49dbdeaa32eeb010f154fd0db1c3015a752339eafcd10657abe46bb66a89b89"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a49dbdeaa32eeb010f154fd0db1c3015a752339eafcd10657abe46bb66a89b89"
-    sha256 cellar: :any_skip_relocation, monterey:       "6fbe7dfcdba82deeaeb9552fe2e52c299add61cba3df8b5ca717dcb62333ae41"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6fbe7dfcdba82deeaeb9552fe2e52c299add61cba3df8b5ca717dcb62333ae41"
-    sha256 cellar: :any_skip_relocation, catalina:       "6fbe7dfcdba82deeaeb9552fe2e52c299add61cba3df8b5ca717dcb62333ae41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a49dbdeaa32eeb010f154fd0db1c3015a752339eafcd10657abe46bb66a89b89"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec39d3a729c7f058b5b9e5a1edc6dfa76352fb42a895688840be2b2efc7f1f4a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ec39d3a729c7f058b5b9e5a1edc6dfa76352fb42a895688840be2b2efc7f1f4a"
+    sha256 cellar: :any_skip_relocation, monterey:       "deb8109d5f9d18021f39e2821e4dfea2084f53f1b3760b88ab6c075027327080"
+    sha256 cellar: :any_skip_relocation, big_sur:        "deb8109d5f9d18021f39e2821e4dfea2084f53f1b3760b88ab6c075027327080"
+    sha256 cellar: :any_skip_relocation, catalina:       "deb8109d5f9d18021f39e2821e4dfea2084f53f1b3760b88ab6c075027327080"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec39d3a729c7f058b5b9e5a1edc6dfa76352fb42a895688840be2b2efc7f1f4a"
   end
 
   depends_on "dnsmasq"
