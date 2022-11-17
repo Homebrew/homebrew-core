@@ -6,13 +6,13 @@ class GitAbsorb < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b142962fa39df99f7cbbac16117ad3a824f7a2133db09e7e8f56502ba634059"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bfa39873cfb6e80a361cada4bfd415f0b86c007860c0b5f3c976f40bb032337"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b42c97a5cd6838adf1757e981e8d3687a0f044f790b8dd3a8da6533f7819b0d"
-    sha256 cellar: :any_skip_relocation, monterey:       "9eaf884c1391d3407d6df867c8bf23587205b9b35d219f4fe20e7c9a035429eb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8a3a2219b257d4d24d6fd72fa8dc3176071e8808c0172c6f7d8e2b1fb381917e"
-    sha256 cellar: :any_skip_relocation, catalina:       "0c4e29e127af8c32a65575f788ef9d4d6adc7a1a2077801c093344f082e9563e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc3b9646158eea26aed4d2a2b8054a2276d6f02c03b584837c9cc006e4095df7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "effe9813a09470b714989406771843ad7f3f4322db339d38d67beee7d39f32cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "29ea4aff608be9b7a7fddd93a85f70c0a02cd07b0cc15c19b9b474ba81ea10bf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee88634b7e5e15f28fc5403b7193eb8f12caeac6bc038745c4a39e8c004a722b"
+    sha256 cellar: :any_skip_relocation, monterey:       "e52f7fbfed67b3197c4835114c582f33110bd30b035ac86bbdfdbe9b3b4f9c58"
+    sha256 cellar: :any_skip_relocation, big_sur:        "77479e4f11025a5b533bc0d3455698b0225cb8dba537d3f452f345b3b589b644"
+    sha256 cellar: :any_skip_relocation, catalina:       "bdfa2cf72e50a44e9a0e9cd6d5fc7e645f80b8a5c6ea607b4e8dd6c51cf37a5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f72c1ab3e38bae9eefdf1cc1deeebba129c089f2eb57bc933538a2fdaa82cbd4"
   end
 
   depends_on "rust" => :build
