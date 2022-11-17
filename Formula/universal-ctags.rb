@@ -16,6 +16,7 @@ class UniversalCtags < Formula
     sha256 cellar: :any,                 arm64_ventura:  "33d6d051f547cabbc7907355761f184fbf75967ad3d2cbc9fafa148ee1c0a3c2"
     sha256 cellar: :any,                 arm64_monterey: "a3ae4c5f2dda33f71f31214c68d1fad19b9d978c97b650f52a8c3a1c693138e5"
     sha256 cellar: :any,                 arm64_big_sur:  "86a8a21b021f000c2af90ee2470520d45329e7ba0fd55351bec9f1975768df7d"
+    sha256 cellar: :any,                 ventura:        "4f45ac9491bb420e4c179229c9f089a932f91b0d03e7521f4bfb950896c06d86"
     sha256 cellar: :any,                 monterey:       "b5ab038e369b1163d311f70633cc6136cae39fe06647778335fa987c26992501"
     sha256 cellar: :any,                 big_sur:        "6538618b44def49d69f1d7244638de01fd62991487890d42d9588df919b38438"
     sha256 cellar: :any,                 catalina:       "3b573c377362b131e66c1a421ff6a45514340a35afb56ba5f4f31970273c4624"
