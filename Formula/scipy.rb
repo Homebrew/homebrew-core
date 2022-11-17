@@ -11,6 +11,7 @@ class Scipy < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5f2d0282453b41cdbc0750d0241915aae8ddd5f578fa0991fc0f947608e59656"
     sha256 cellar: :any,                 arm64_monterey: "ff285792a40ad19198f37acd98a0175d5b7fe09d8a7b1224992f13e184d92110"
     sha256 cellar: :any,                 arm64_big_sur:  "c050d550c8d1561e24898ce83d4c11e2cfefbf2a625844c5a4b7251bca4ea290"
+    sha256 cellar: :any,                 ventura:        "6291305df18f2618fba9eac317873e85df015360c4214c1cb9f348b096a6e269"
     sha256 cellar: :any,                 monterey:       "feeb8006b35425d76b509d36ed34080b6471dbc3e10d87d380a83bf70ec9259f"
     sha256 cellar: :any,                 big_sur:        "92428d7c2109237e028de547a43ce45741b84ac8febb96f75ab37b66150716ab"
     sha256 cellar: :any,                 catalina:       "42ee88e1701bf6387a1df6c69de26222e1d38f10fc0fc56dd70d7daddf48332d"
