@@ -12,6 +12,7 @@ class Freeimage < Formula
     sha256 cellar: :any,                 arm64_ventura:  "acdcf908bcc7bf5ce7fe7acf6c7d3de9787872c47687e25951411c07d86d7146"
     sha256 cellar: :any,                 arm64_monterey: "ec0035876daea1189f9e681ac3858c99270b6faab6c9701fe3d83333081feb9b"
     sha256 cellar: :any,                 arm64_big_sur:  "02080c0a6c32413b1e85f6e1393559426b77f0a7e5dcfda406617bc6e46a13e0"
+    sha256 cellar: :any,                 ventura:        "57fd52efb2fe5109a77c46f42affd2192fc94acd0211d74a9045719e2ee54c9f"
     sha256 cellar: :any,                 monterey:       "8118801a64a4b47e2572b45935da12209fffea56393586a53186594f05071f58"
     sha256 cellar: :any,                 big_sur:        "948feca0476789f7061b3a0502aaa7820366a309ebad1abd73ff6b7a0c242402"
     sha256 cellar: :any,                 catalina:       "fabc22f3effecdb629ea6585e005aa09b9d3c3cf73fa0e3021370550e6f8832e"
