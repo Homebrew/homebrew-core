@@ -15,6 +15,7 @@ class MingwW64 < Formula
     sha256 arm64_ventura:  "e11fe4948e53777d4c0c39b91ccea20c02c53a9ecd19df2cfb48f4016cceab9f"
     sha256 arm64_monterey: "a93b02724538ddab682de97fb5954af51a777277ff60ca0c05cb09e98114c6bf"
     sha256 arm64_big_sur:  "f7c7a35d27f4543226adab2d8b984eb464dd854c8a49bd38840c66e6a33583fb"
+    sha256 ventura:        "2fd716e859661d089b5721c0af0069d6dbff9a66f38b7ddcbe65188a0a344bb2"
     sha256 monterey:       "410a717fc0c81aabc961058b79411de9ab538c8ca61dd13262787c776f542c1f"
     sha256 big_sur:        "0ad8f84cfce32fee78aa28bcc78f17184affb786c733be96040ae8b1c81c5bab"
     sha256 catalina:       "197f1eab5e40be9b76a473b9b34c479d4c7c48f0a4e1b642a6bc13375607c1b5"
