@@ -10,6 +10,7 @@ class Glpk < Formula
     sha256 cellar: :any,                 arm64_ventura:  "2fb927d88ff2f1e242e8909a153449ddaf2e6264d28efe7cf11e6a1e84065ce4"
     sha256 cellar: :any,                 arm64_monterey: "c6f0f13896167f69d3dc9fed18ea36e19745006516abbff71d4dbf1a1a0c569b"
     sha256 cellar: :any,                 arm64_big_sur:  "e05ebe154868c3ae41e25c6d2bff72596275dc93c74a4f6f1a88c15a553a9bf2"
+    sha256 cellar: :any,                 ventura:        "f9085947b73dba1b8577d6837698047444dbb7226aa513803f8e319510553dc1"
     sha256 cellar: :any,                 monterey:       "7eddbd4943eb50123bdfcd539d38932297e56ff61ae66dcb2ec633f60982f6c1"
     sha256 cellar: :any,                 big_sur:        "3f577566f72aa88262e78c5df12974f25f76ebca6632f8e9ccecf7b5ff222d2b"
     sha256 cellar: :any,                 catalina:       "dd6461053c93e0fc37577251f83a17de325efe8382805f5bc883c8a3a018e74b"
