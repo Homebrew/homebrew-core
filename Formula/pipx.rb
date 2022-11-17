@@ -13,6 +13,7 @@ class Pipx < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "336cdb8afe16eed64fbdcab33fe1d3adf6ea683ccd214154570ac6a03c3cec3f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20ff1598043d947aa679b8a87bc0125ac04d8599e4e6e389c9f0f436f6fbd0fe"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a4f9211b8b3de7400bb86828fb9be542ddaef75666e346f2f46cc16b58416013"
+    sha256 cellar: :any_skip_relocation, ventura:        "409a12592d278e000b95e1a047d69fffdc147d35ec63feb223ea65da4e2df2de"
     sha256 cellar: :any_skip_relocation, monterey:       "414563e8da0d2aa2084683eb7f303cacee4b3b1f43f72ef3992995cf4ee96a4a"
     sha256 cellar: :any_skip_relocation, big_sur:        "d92b440ed9159e4a2930348dd25d1e523dee2c8ba12f56c3499a7b6cfae51c61"
     sha256 cellar: :any_skip_relocation, catalina:       "90a008b483418a511f6ab9c84ea4d1b6ac8c6caa2be8c1a5a2e9f16d7fa0d83c"
