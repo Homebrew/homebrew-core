@@ -20,6 +20,9 @@ class Onefetch < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    man1.install "docs/onefetch.1"
+    generate_completions_from_executable(bin/"onefetch", "--generate")
   end
 
   test do
