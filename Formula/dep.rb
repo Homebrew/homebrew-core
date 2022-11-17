@@ -12,6 +12,7 @@ class Dep < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "625766cd64e40b0c73e21e76a2d1a99954d2d4085553c2f065e6ea08d71537a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a99c5d8b805b93143f1d00559188d270d96578b8a39d66ba21ba01abd7f2b7b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd66e578cf33fafc42cecb83d80638b320a9b6a050cb769402532b7ec5d3f8ad"
+    sha256 cellar: :any_skip_relocation, ventura:        "743bdd7e87026de3badfb02f1600a3ba5bec6f2d174b444ea69a9acbfb0e17e4"
     sha256 cellar: :any_skip_relocation, monterey:       "1cb18d2256fceead36d957b8b0b27819b81437d5b69fbfbbaba9fc4a1df21738"
     sha256 cellar: :any_skip_relocation, big_sur:        "5bd49a3da392e08bef0ae821a534bd699c4c3f6d116d90b53007477fbad6a374"
     sha256 cellar: :any_skip_relocation, catalina:       "be9871f4e01aa179f9f3b32931838f21c5e64d33840ac36c8b601adeebb5e95b"
