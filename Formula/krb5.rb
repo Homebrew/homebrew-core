@@ -1,8 +1,8 @@
 class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
-  url "https://kerberos.org/dist/krb5/1.20/krb5-1.20.tar.gz"
-  sha256 "7e022bdd3c851830173f9faaa006a230a0e0fdad4c953e85bff4bf0da036e12f"
+  url "https://kerberos.org/dist/krb5/1.20/krb5-1.20.1.tar.gz"
+  sha256 "704aed49b19eb5a7178b34b2873620ec299db08752d6a8574f95d41879ab8851"
   license :cannot_represent
 
   livecheck do
