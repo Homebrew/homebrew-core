@@ -10,6 +10,7 @@ class Sfcgal < Formula
     sha256 cellar: :any,                 arm64_ventura:  "2fe4702eb22021be4e88cdf4a2b0de7ef63354838d3efbbf932d2421fe574462"
     sha256 cellar: :any,                 arm64_monterey: "ce56024a7fe7128cc0c46d38c9d0ebc7b884ca45b515e53c855e50082c8bf78c"
     sha256 cellar: :any,                 arm64_big_sur:  "a277214793c453cfe4238c0c764f64e1cec3a3ebd9b67185a452289717ea5f7a"
+    sha256 cellar: :any,                 ventura:        "98227ad7c6790297273b0908ac90ff3fc545daa29dd7651c25b1535628f41dc3"
     sha256 cellar: :any,                 monterey:       "2b3e3d6bc3c0b3f0a1e4d60c006150ffaabb8ce94320334c2c098de90e838a9e"
     sha256 cellar: :any,                 big_sur:        "afb6e18acaa58068cee76d2a0034c8a21e12dc6f1bda5ff35a2338e2a02befa0"
     sha256 cellar: :any,                 catalina:       "e2a48b73d1fc26ec367a863199ff145c6258edadb1c9e2d63c90d64a27721f33"
