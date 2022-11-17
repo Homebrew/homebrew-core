@@ -10,6 +10,7 @@ class Rclone < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf4b831058093b35fdb25c990f1c5fd0287b716e40a1e187fe358bf434565bc0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4118be968e8bba34fd4f3e43b6e5837c3c5af7210121e00de600340ff891eda0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6690a32054694755cbe782c502bd420aa6edd6a831e9e90c92331f12bee262c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "162c8c2056260539c95ae7d366ef311b42a9a3576015fbad16e92f1074297179"
     sha256 cellar: :any_skip_relocation, monterey:       "e5898867cd70218275fc4155ce6bdb30e997f4d2d0ebad709f4b8533cd853804"
     sha256 cellar: :any_skip_relocation, big_sur:        "2bf6b18e1fbe8204b3bfde1803d04fc868d69ee63e572258d4c00db14128decb"
     sha256 cellar: :any_skip_relocation, catalina:       "d2ff9b3dca33dcfb028f75fc49c73a74b7e362544e5bbaa84a13f03c4468068d"
