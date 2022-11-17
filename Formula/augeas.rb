@@ -1,7 +1,7 @@
 class Augeas < Formula
   desc "Configuration editing tool and API"
   homepage "https://augeas.net/"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/hercules-team/augeas.git", branch: "master"
 
   stable do
@@ -16,8 +16,9 @@ class Augeas < Formula
   end
 
   livecheck do
-    url "http://download.augeas.net/"
-    regex(/href=.*?augeas[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(%r{href=["']?[^"' >]*?/tag/\D*?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
