@@ -14,6 +14,7 @@ class Clp < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b933a8e00e77e296fac88f9e9f4df486684b9af8329fba8d016f8b2359469ebc"
     sha256 cellar: :any,                 arm64_monterey: "17d872a7aa2ec5f8f1cb3759bd69139e100c13000fbe11a5fad9aaf6dc8317f2"
     sha256 cellar: :any,                 arm64_big_sur:  "cec830295042bd72147eda6e79e1c0a54f1fca05af181ab34f719fb3fd55f06b"
+    sha256 cellar: :any,                 ventura:        "5379a136549d8a2631262c43425399f1a9d708a56cb1c2ab66637e7cf5cabfa7"
     sha256 cellar: :any,                 monterey:       "b3e651293949113d80f1156bfc5a13c50f65f7e8019471995f80b95f16227276"
     sha256 cellar: :any,                 big_sur:        "0f6eed77fe4689ca6c0c1765a57bca96aa02b032df3efb614b8be6efb93efac1"
     sha256 cellar: :any,                 catalina:       "565b7866cfc9dd3866a7fd0212408fe35951e3ffdadf9c4e2360a7b0388b6e48"
