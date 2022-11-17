@@ -8,6 +8,7 @@ class Cunit < Formula
     sha256 cellar: :any,                 arm64_ventura:  "346705eb07dd79665dba7f918a7c33af02a2dbacb975d5c99c0d7f45afb1ecaa"
     sha256 cellar: :any,                 arm64_monterey: "fd5bba3a249137e905676e8a80118c9aaaa8f2795ab0d7fab44407d8fe75e07f"
     sha256 cellar: :any,                 arm64_big_sur:  "699850740de719430e01f95dcd1391d00d67f3b8e4a29201bdfc73cab9d2d04a"
+    sha256 cellar: :any,                 ventura:        "1091cec262b92bf2b8ce1b1e579afd1841ab3edbc9151fefb733a4707cd69b6c"
     sha256 cellar: :any,                 monterey:       "ffad854086ea13dde40c23736591da90c3d66ef95677e14d90f2c49891f1302a"
     sha256 cellar: :any,                 big_sur:        "2d5e3e62c0d0cd5cbf119d93249ca2ab671bebf53c77947d5c59daaad55aefed"
     sha256 cellar: :any,                 catalina:       "5a03cc656131d1bcde14ec200be947c5b3caee6f5138e426b2b27b0286c59ee7"
