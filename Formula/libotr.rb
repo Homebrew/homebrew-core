@@ -15,6 +15,7 @@ class Libotr < Formula
     sha256 cellar: :any,                 arm64_ventura:  "758ad5aecffe69404a6b32062bbdef4a7c6b89dab5d635b1f1f41b46f676e12f"
     sha256 cellar: :any,                 arm64_monterey: "fe41c2686379f8b67aafc307e703775ab8060fb074734561e67cdc958a912e45"
     sha256 cellar: :any,                 arm64_big_sur:  "f6a94af91827558244757f9fe7d856251f0b7b2de78e1ee38f6059808f1f51e7"
+    sha256 cellar: :any,                 ventura:        "3a1e5f35391e9b9ab7048a440b74f412100a541d43d6dd52bb6db73f3758a216"
     sha256 cellar: :any,                 monterey:       "afa5f29cdb8a4a6618ecea8a75129679c6ade432cdae03f1e31caadeec8ddadd"
     sha256 cellar: :any,                 big_sur:        "f59b69aa5af8b636f8bea1511fa63fed116f9c9571864fb7b44c21655e8a099b"
     sha256 cellar: :any,                 catalina:       "8ecf904a816fc69adc5e8fe904ca2ef1b1d147090d2f6ee694ad6b5c07faa02c"
