@@ -53,8 +53,8 @@ class Sratoolkit < Formula
     # Workaround to remove hardcoded bitmagic SSE4.2 optimization if needed
     if !Hardware::CPU.intel? || !Hardware::CPU.sse4_2? || (build.bottle? && !MacOS.version.requires_sse42?)
       bitmagic_opt = Hardware::CPU.arm? ? "-DDBMNEONOPT" : "-DBMSSE2OPT"
-      inreplace "tools/sharq/CMakeLists.txt", "add_definitions(-msse4.2 -DBMSSE42OPT)",
-                                              "add_definitions(#{bitmagic_opt})"
+      inreplace "tools/loaders/sharq/CMakeLists.txt", "add_definitions(-msse4.2 -DBMSSE42OPT)",
+                                                      "add_definitions(#{bitmagic_opt})"
     end
 
     # Need to use HDF 1.10 API: error: too few arguments to function call, expected 5, have 4
