@@ -9,6 +9,7 @@ class Libgda < Formula
     sha256 arm64_ventura:  "549596f0f624bf5479e52239da0e558792426ba5077360822a773f2a40b81c3a"
     sha256 arm64_monterey: "31de7c27443d4f477cfefa7b7598311b98b1998368385ea7a0787644c30a3c6f"
     sha256 arm64_big_sur:  "993a414772b41e1f0b2cffe21f9af240dbcd7e2b6de5d62a0e51b89a8144e40a"
+    sha256 ventura:        "7882245a6f2192ffa9d8c483076f439dcbf5d4f7351639e3d48ef0667ff378fd"
     sha256 monterey:       "13a192f90ad01f376f5cbc977308d91bb096f3132ec41bea14a4b961866bfc1d"
     sha256 big_sur:        "1fd18afa48f013fcee08cadebf89c4bbb3e37444b591b16cd61e5848b93d6395"
     sha256 catalina:       "83d65ccf6e92620dd833dd23d1a02880f020ab24a0a6ed2ab5cb1a5149a32c5b"
