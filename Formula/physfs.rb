@@ -16,6 +16,7 @@ class Physfs < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5289a7a059e6638be3396173eb9a84469d0215c10586b8694c71dd610471a056"
     sha256 cellar: :any,                 arm64_monterey: "cab1caaa3f55144dbadb72e9a959862b33acd2901b2adb7231818e293a0b5d28"
     sha256 cellar: :any,                 arm64_big_sur:  "065d120b86dd681aa4fb20c874456b1fbbae3b8428e2051cea9f49b9da01dceb"
+    sha256 cellar: :any,                 ventura:        "aaa2c912d9d4d5fb959a9d9940ddcc1efeb655f2f2c65958978828f31bb9d98c"
     sha256 cellar: :any,                 monterey:       "4d466b0a2b62169961a13f0f88e0392dd5662ecbfed5e9efa39ef5375b22f284"
     sha256 cellar: :any,                 big_sur:        "f2348a828a9f32b6fdb78278c5ecd86c7f7bb4abf27032478b44cd4db6338b0c"
     sha256 cellar: :any,                 catalina:       "be794e8986be384f98e3d4d14a4fe3830428084febea0caff4bba5c363e890c6"
