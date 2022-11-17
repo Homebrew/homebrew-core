@@ -13,6 +13,7 @@ class Certbot < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b249f0cd3ada179972f00e8d4dfb7e570a7b8e57d2ecc122274eb82173e0b3cf"
     sha256 cellar: :any,                 arm64_monterey: "7d3ca34a45471e3edacfe292e6bd99a2b86b049c16e284fbe8c91809a26d4d20"
     sha256 cellar: :any,                 arm64_big_sur:  "b76ffcaf7c8c829bc4c4a9b97273c04dca24ea3d2073e5e4f038085389385b93"
+    sha256 cellar: :any,                 ventura:        "8faa19bb3cd17446ff7b97ab0c044bfb7e63b4f95d7dd54bd40834ff24f3f75b"
     sha256 cellar: :any,                 monterey:       "70e67115b1fd67b5ca23b1e200f939066b40694de9bbf78fed7daca1c6898ea7"
     sha256 cellar: :any,                 big_sur:        "1ff847f56a5a9c8bd3deaf7f5366eca1bb84b63828da07c9404f8e91ea439bd6"
     sha256 cellar: :any,                 catalina:       "65613e674c2103b3e9c2029903b413e1dd79e5eec1a8db93dbb2cacaa5052ac5"
