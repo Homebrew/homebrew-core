@@ -9,6 +9,7 @@ class Needle < Formula
     sha256 cellar: :any, arm64_ventura:  "07826c6a2d070c0043ddb6e2ffe17b7a3e3f0209c90baf229a7254eadfe1d132"
     sha256 cellar: :any, arm64_monterey: "0e66627ef1680983c0cc42009f236d4cfca6cbfb5cf0fe3a5cddbaa9a063f0ae"
     sha256 cellar: :any, arm64_big_sur:  "322645f16215f9784d162de9552e533131fff4235dfd421e46c3e3ced208a26f"
+    sha256 cellar: :any, ventura:        "fcc83c3d71dba3f876c465000371096270ab1322f4b755181e3647e2ceebb809"
     sha256 cellar: :any, monterey:       "1ec0bd0e6b409a8f65bc3741ab7170e2346c838b96e3407bac5e8b815aca8f1f"
     sha256 cellar: :any, big_sur:        "21e3fc48210529852cf33cae4fe2c5a2937920321e7d03b76b93d775d35c0e9a"
   end
