@@ -18,6 +18,7 @@ class Libcaca < Formula
     sha256 cellar: :any,                 arm64_ventura:  "27d36a5457f9d98cf925cb402e9abb784c0d3453c8036fe74ebdeae04b7a9063"
     sha256 cellar: :any,                 arm64_monterey: "b29bc6f1dd407411eab8689bfe190574b9fdc487d00dbdc7636e9483de867e56"
     sha256 cellar: :any,                 arm64_big_sur:  "afa31ed628299e9d3fb4109b8f05b5b00fc2820c22804f85993eebda9a3097c0"
+    sha256 cellar: :any,                 ventura:        "a0fcaf753907e6dabf7d1a2038cdc95444fddf00f7dafd2b6ca88b7f552336ad"
     sha256 cellar: :any,                 monterey:       "c7f6b2b19aaaa1417feac203e5c3676b6c0e70fb72816e16e1b85343e8cf55fb"
     sha256 cellar: :any,                 big_sur:        "efe390bae78561024c804ac37bb5c0cf9f3397229bd91732cb59f9f4e32ecc8c"
     sha256 cellar: :any,                 catalina:       "f0f86157174d749eedaec913f4d8d1b6d00824b6e580498847ac9e00c9c53d9e"
