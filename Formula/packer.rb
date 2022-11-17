@@ -15,6 +15,7 @@ class Packer < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca22d3f885bd1213fa9d9244c4e66a0551c88f8524320503ddcfdb6de8227923"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "636c3132932702801ad70f62bfdab2fe5351f3c412ea7e9a7e97c19a9a836e26"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1d99b9a188c04bbaf6b592f002f855e50b751116881057c516728ede046712c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "8e696564d39907817b8fa324b10a5498cb83e30c0c12e2fa9b2ab2a40abe0d4d"
     sha256 cellar: :any_skip_relocation, monterey:       "016ae4e4844c3b10962f34529ba4cacc95e72c668382d20c4598015318bde038"
     sha256 cellar: :any_skip_relocation, big_sur:        "6d08481dfceda0da3b38113078ac3745b9766addc9e0ed5c6baa832eb11cc099"
     sha256 cellar: :any_skip_relocation, catalina:       "5757a7351d51f551392bc6c1b117e63f4090ff5e07ddab4e535f22a32632382b"
