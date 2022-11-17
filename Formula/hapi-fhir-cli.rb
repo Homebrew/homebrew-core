@@ -1,8 +1,8 @@
 class HapiFhirCli < Formula
   desc "Command-line interface for the HAPI FHIR library"
   homepage "https://hapifhir.io/"
-  url "https://github.com/hapifhir/hapi-fhir/releases/download/v6.2.0/hapi-fhir-6.2.0-cli.zip"
-  sha256 "ad3c3732e555f0301278b8ea3fbb43371e39c55a5a5bec13361327997b050b5a"
+  url "https://github.com/hapifhir/hapi-fhir/releases/download/v6.2.1/hapi-fhir-6.2.1-cli.zip"
+  sha256 "58b6d62294fb14596e791c4004a55c6b8e56221c2587cb9849eac2ca4e8ca5be"
   license "Apache-2.0"
 
   # The "latest" release on GitHub is sometimes for an older major/minor, so we
