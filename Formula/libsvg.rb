@@ -15,6 +15,7 @@ class Libsvg < Formula
     sha256 cellar: :any,                 arm64_ventura:  "331a886e259749749bbaeed305a1727a8c4ecea79e1eca5949be34d87f0abfa0"
     sha256 cellar: :any,                 arm64_monterey: "9b82d4f937112bd04869cb7089cf8af73a5bcaf9273c0078be79c2bd5aac6510"
     sha256 cellar: :any,                 arm64_big_sur:  "c77d338da584cd0b58841e34be440b16ac012994888d1b4ad0938c1ea0d28dde"
+    sha256 cellar: :any,                 ventura:        "ba25653dfad1cd950f306b008f475a1a270f86615cae4ccdf86299596e5361fd"
     sha256 cellar: :any,                 monterey:       "4240c3c651800b8f8a25ab51dfa6ed069903e22b5495803633e918a345a74479"
     sha256 cellar: :any,                 big_sur:        "8ec002009c6156b77c475d1841ea2c98224afce021dfb629cdd2dda3cb18d37e"
     sha256 cellar: :any,                 catalina:       "a46a3e610e875c4d3de003a0399a73272970cd89617aacc8eb0fa1257b967208"
