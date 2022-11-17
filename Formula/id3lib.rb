@@ -24,6 +24,7 @@ class Id3lib < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d7b4e26e6b79cdc70261532ee5f64546900499c9dbfdf66c0959ea3a30c8a3a8"
     sha256 cellar: :any,                 arm64_monterey: "bde33424b92f09c04a31be4efbb346254d6027b5bbc1bd290fd59dfd649b7e9a"
     sha256 cellar: :any,                 arm64_big_sur:  "7511c1df301e89112972d2b8aa0cc3711f4be7276317f345a26e64ae2a31143b"
+    sha256 cellar: :any,                 ventura:        "0a4d41f11ad2eea0de2aa345508c35aab669de388368883e6fdab54ae845d12c"
     sha256 cellar: :any,                 monterey:       "a5dd0668b696e1d6c3ac17d1d516c2a41ea354606c9db893b90575d01f714a40"
     sha256 cellar: :any,                 big_sur:        "18f0b568466493ca322662357962fecfe1774844ad140be1c2d23443c2845ff3"
     sha256 cellar: :any,                 catalina:       "914ff24e2ca015f81b5c58fbd39f1a059c10ecbca87d09cf7e77285435bd158e"
