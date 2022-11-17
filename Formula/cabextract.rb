@@ -14,6 +14,7 @@ class Cabextract < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3335c1095656e7e828c82ecc33e982c6a185557bb93f4023faa91ad2c16ce0aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b76f71d383733860f6d81d72a38f3d0fb07c28d6fb72d7261b19c5973482853"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f421b4d93548f37080a4041a1ae83cffa6e0407489913ea09525e3e3f482d39e"
+    sha256 cellar: :any_skip_relocation, ventura:        "e486c6c9f917706387ad6acbdd33b9c9587ea0ed7d6cbb4e40f37bf89bb44c2c"
     sha256 cellar: :any_skip_relocation, monterey:       "293895188547de1614324e2830e80f7605ee63b0c8019961e413a8c11c4e2fb7"
     sha256 cellar: :any_skip_relocation, big_sur:        "1ddac23f5e64926d1f2cd400e6fa0739db93dc0517712965b2b0ca1b3e74eabd"
     sha256 cellar: :any_skip_relocation, catalina:       "d60179c028ac5fb69580f2f01cd9f59c1d1544c8f6d84a230a7dd3587f3c27e0"
