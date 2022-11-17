@@ -15,6 +15,7 @@ class PostgresqlAT10 < Formula
     sha256 arm64_ventura:  "12a23aa3da4c20fe27d7d2cf7e68a31f8072b8e5e1356e95e0918d7d528a6faa"
     sha256 arm64_monterey: "95ff39fa2a308b2ba32569df5da563911664d447ab160cf9e7a4e0dc81cd46c1"
     sha256 arm64_big_sur:  "ce82c9858b89a210fe816495af9072c57e4a2102007dbd481bb6055ac3ab37a5"
+    sha256 ventura:        "e192b534805c7bc6d03af8e3bbfbd5bccdac4f33a1901dfddc0f5532ea125458"
     sha256 monterey:       "56d578ffafd4651d48ea24c65c2821d5eab5c4308dc83ec0b13a7aa069a8dfe1"
     sha256 big_sur:        "0709771101fc5c98748b905b4687b19275fa196169a12f2b882ba4c14fc0668e"
     sha256 catalina:       "a8fdf9b8cc39eb124cf9006ba21d13b9b47aea401f4916a9159db27877029bdc"
