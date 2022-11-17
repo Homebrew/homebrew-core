@@ -9,6 +9,7 @@ class Ispc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "fae2e3b3e49e198d644de5d41d1072b1eec914de46023f59cb193cc24611e8ef"
     sha256 cellar: :any,                 arm64_monterey: "a4cfc73e0e1cef6223f187f27ce34a503ceaa71dbed5d1a7e19763af2781b4de"
     sha256 cellar: :any,                 arm64_big_sur:  "1dd45f53ecf4aed0641eccf04c30c9369ce77748d4d243f0dce23cc166ef853c"
+    sha256 cellar: :any,                 ventura:        "0d27a32c440fa6a4f065573cc681ca72b5710f7bdc09795631211b868d3495e5"
     sha256 cellar: :any,                 monterey:       "f692c4a3b61a4118bfbef17d689801b8e602bf18b8ee6ce4ad8cb1a1a45b37f6"
     sha256 cellar: :any,                 big_sur:        "b34d180813b2dec88159f38354f74c773814c0828a24cc10f81e0cd03ca9ab29"
     sha256 cellar: :any,                 catalina:       "0efb592a2b306bf3cc1da19e5ea4455230ef1cb3699b0eb50acd15fea111698d"
