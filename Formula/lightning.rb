@@ -7,10 +7,10 @@ class Lightning < Formula
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "df861eb96cff6fbc36ebc4d2658e1bf49fddc55b0cc99769ffd050284d8b4257"
-    sha256 cellar: :any,                 big_sur:      "e4f321fb649fd5d039fce2c7a74eabf4cf2a05cd00d3934535f074af787a6188"
-    sha256 cellar: :any,                 catalina:     "7de3685567fc48552bf4978a6e8cb56ef64f5fc19887afbabee132fe7278edc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5d43df0fe812648b1074edec1f534d95f82d2a27709618da727b3d66e64e0b99"
+    sha256 cellar: :any,                 monterey:     "1ae424e59729ac28174ea1c2bf97e9699b8f7f341d284e642ad7048ef6f091b2"
+    sha256 cellar: :any,                 big_sur:      "356eae8409bf6dc18fb3539c82b2c968933f496a12a54b14cfbcf86a18c9c3e0"
+    sha256 cellar: :any,                 catalina:     "ab244b3c017f380559a64d800add95a473de72cde9bd8a1e6a42c445b3c19b73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b3d5c7288db4d78fefc35ba7f076200dc75c24c944593e2e0f821a9ddb90512e"
   end
 
   depends_on "binutils" => :build
