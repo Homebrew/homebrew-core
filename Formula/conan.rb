@@ -12,6 +12,7 @@ class Conan < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e8569c490a651bbdf5de971dc5b140175f0caf1ef921be8636cc0c80ce4b563"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c595635c1abddeac116779c49df1915b8e19d3e8352d79d17ead82b9e6009157"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a50821e2b08978dba70d13600bf228c064d1633ffc67fac00a9a54bf5038eb0"
+    sha256 cellar: :any_skip_relocation, ventura:        "ad9885ab7219316a0df0943f13a49928c3ac3338428d340c14d94d33570aa667"
     sha256 cellar: :any_skip_relocation, monterey:       "5efef5a099b7e595734e673d00ce70458daf628c9f4185569bd41eccb9c6b5d5"
     sha256 cellar: :any_skip_relocation, big_sur:        "0d6616ab8af71b07397e6e9797f1b05bd84bf14444e6251520781e6e819dab5f"
     sha256 cellar: :any_skip_relocation, catalina:       "6ffc1d1b2b0697b0b6ea55f7a70b23175fa3a285454bf1f4906f59fc00c8fb9e"
