@@ -11,6 +11,7 @@ class Watch < Formula
     sha256 cellar: :any,                 arm64_ventura:  "332c6e6f4708517197d3d2cfad3dc03e95225f5fab0695d2e399570fce877024"
     sha256 cellar: :any,                 arm64_monterey: "99135b41e5c85d6faaeaa3b3f9c74b17eea68d1394b639e3f4824ed4a582e9c4"
     sha256 cellar: :any,                 arm64_big_sur:  "4560b743e716fa5aaff0b809fbf8e0fbcc9c71f4e4f502b77acb2f9130b846e0"
+    sha256 cellar: :any,                 ventura:        "791a9173763eaa59a6228b18f83604279b17be88fd4c5d409841778d27560446"
     sha256 cellar: :any,                 monterey:       "2133244ca4acb47a37f24fa3930c5ab7d200b98d0d46fb80a7fb459373389e0e"
     sha256 cellar: :any,                 big_sur:        "77383edb8de69055e0156ac24ba26f9c786b0d40e72d8e72a2c068d36f64c45e"
     sha256 cellar: :any,                 catalina:       "32271afc05e243444040094864b075f61079a3464197699870b5026d4b3f62a8"
