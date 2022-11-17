@@ -16,14 +16,13 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97a9ab6431ef7316acd1c817321e64f1e4578016e4f3fa691b43a897f41e90bf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fb05904709bc38c7f279af5ebc194e3b819642d1e5bf46001d739d87172b1e2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad48ee6c0cefc090ffd2a0225f95bd6abb53dee900bab819699162cb49ac756d"
-    sha256 cellar: :any_skip_relocation, ventura:        "ed128f70fc88e7e8855c3fe44a2e23ff453b02065f253e0ee5351da79bdfb0c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "ab22f15a6500d726a3cbf4ece6e09cd9179684961bc60e9c4777ec1e08ced207"
-    sha256 cellar: :any_skip_relocation, big_sur:        "23721d4f22c83935837e9e627dbff5770b511f1b4873f91856a61bcfbe567478"
-    sha256 cellar: :any_skip_relocation, catalina:       "3dcb69e729ffb8eece37e9857fa295de8e05b4e47f6aa4f920dfdaf766eb1a18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e82e4c41eb63f91f6f2e1d8a95f608c50ee7569a56f46388ca18c8bad2370d30"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80c206a6884a52914d09c72ff2e64079ae0d99aa7fde58dea73de0faba8f6d6e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ed5aef087d93f4df171e82f72df5c6815ce7151dbd4b370e70d38e089603c37"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f440fd5a4495878ffab7e1008a6c874d4606f68d514f154520a55e4194c8a680"
+    sha256 cellar: :any_skip_relocation, monterey:       "c472ef54bbaf367467ba85887895f987835bb2843a1c74a76eb05edc7b1c12b9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "532b702a317ab864e46ca7b6c3049183fbdad97e4fde66ef341bfae147870d49"
+    sha256 cellar: :any_skip_relocation, catalina:       "3ce6b4c1f589cb3dbd649deaca28de53ad8f87c677aff56aacdded5d4d720f54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ac2590421355917f7f5fe948fca4f135fcf33c735a51c12be66436bc069423b"
   end
 
   uses_from_macos "ncurses"
