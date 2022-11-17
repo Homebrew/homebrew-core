@@ -12,6 +12,7 @@ class Pyinvoke < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "029a95b94fb67fc2cd1dbac8d5d1d5a4fa4e4f2f73bdfae884bc307f7d1df70b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "94c01767e4889359070893a059ab2acc918346363656a7327c94af44946de0d7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "94c01767e4889359070893a059ab2acc918346363656a7327c94af44946de0d7"
+    sha256 cellar: :any_skip_relocation, ventura:        "a4b53d71501ce6bc3cae2149c95df1fab67ce935d175914160d5169a920fa316"
     sha256 cellar: :any_skip_relocation, monterey:       "e1d00d88a499551112ae26e7d9ab802c22cd67fcbcf0905440268de4854e086d"
     sha256 cellar: :any_skip_relocation, big_sur:        "e1d00d88a499551112ae26e7d9ab802c22cd67fcbcf0905440268de4854e086d"
     sha256 cellar: :any_skip_relocation, catalina:       "e1d00d88a499551112ae26e7d9ab802c22cd67fcbcf0905440268de4854e086d"
