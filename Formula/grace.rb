@@ -15,6 +15,7 @@ class Grace < Formula
     sha256 arm64_ventura:  "25e56b21ed182a4cac2db983a01316c859d9191b0d31bce5050bc0e83d55eb04"
     sha256 arm64_monterey: "26ff1421ae2de1ce2319b4584d4e09b9262b1ed126d8c767d44a87009b8ee219"
     sha256 arm64_big_sur:  "1ba31e5d4e056187e182e8c46a71e6bc4dbb8b6e35d6f314fb64aa3136a93f43"
+    sha256 ventura:        "cd2e7a9db645ec5cbd45c591c865840d24e19ce94b7a067cadf7147cc5f85b75"
     sha256 monterey:       "4f30899270663be69c5a6ee832c0ef7b19baf3a422f7fc6d06ef6fd5d69e0892"
     sha256 big_sur:        "8c5c9770e21706084537da65b5a4c0ab95f0dee9036b716ed3987496aabd1b4f"
     sha256 catalina:       "f7e7b6cd2ec94d293b711dfb8c20cba1e000d89a791c7e3596b4806c73250432"
