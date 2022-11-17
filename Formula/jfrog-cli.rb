@@ -9,6 +9,7 @@ class JfrogCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "37bff7e15cbda7fc69417a57f6f85e412da612474ad4698c951279bd46351887"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59a65df06d9af3afe0336053d60cac69442c8343d790550760b74261ce3405b8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c98cf530abbb701cb575caf20aceccfb891e312f8f86cc185673ea862564def"
+    sha256 cellar: :any_skip_relocation, ventura:        "910d92434e475b5405e99f19c11777b9567a52f2f1d5b54c917a9b17c925a6e6"
     sha256 cellar: :any_skip_relocation, monterey:       "f266dec69966d9e5806c2cdaa8abe571f6943bc7dfd41d05996778538655b4e1"
     sha256 cellar: :any_skip_relocation, big_sur:        "0338ae8e6cd67c1d9cf3cc586dbd032a1652cb0318605cc06330e5c6c0bcdf61"
     sha256 cellar: :any_skip_relocation, catalina:       "69021683a43570cdb8423e546dc8e66ada1b4c27989b8762efdec766c36622c6"
