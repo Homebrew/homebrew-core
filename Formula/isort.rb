@@ -18,6 +18,7 @@ class Isort < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fdad61776c881cc14bb973945fe886563e181f2489a7ca0417ca21d4ba9cc326"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "15cfbe803b3c78287b20dec69d4e818faa283c3c7ee5985fe6ce813fbd942100"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7805c1a3542fad49e9c94df68de2fa0ae95f8a78205a3a30e9267c9859896b38"
+    sha256 cellar: :any_skip_relocation, ventura:        "a4f1d5122cb8ccff3936e75ef9d490b0026d31190a3a0392a4e59bb516fe7838"
     sha256 cellar: :any_skip_relocation, monterey:       "a158bd42648bb4fdd40986bad0ffc1031a7ccaa02c54beb7a1c16e3ae72f7311"
     sha256 cellar: :any_skip_relocation, big_sur:        "08c4c1de176b993c175757bd8c880b89bbb3c74908911a4b7e86e62677d82bc8"
     sha256 cellar: :any_skip_relocation, catalina:       "95fb698784bb04bac9e8cc71d4e1842cc8ca1a31941e008eee2d9ed5b4e37451"
