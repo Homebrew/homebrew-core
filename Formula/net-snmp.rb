@@ -15,6 +15,7 @@ class NetSnmp < Formula
     sha256 arm64_ventura:  "74d5403c022fe3d3dd01c276331e3d97209dea5813d6f203c389df54c7df6d5d"
     sha256 arm64_monterey: "634fb231f5cc587aa3a327e190f9f43333c34742fbe2d003742a0b627bcfde1a"
     sha256 arm64_big_sur:  "3a143759145e8d8adc231c73f006b9e434c2f706d62d1904b27eee925cd93ceb"
+    sha256 ventura:        "a017848519388f8851c43458ac418dd0149ba6de760d50f5b496690a7b5e304c"
     sha256 monterey:       "c3bc6964e8232d21ccf46f16a4e0b35f1474cbe6676a5ebc27b7caf89737513a"
     sha256 big_sur:        "9e90ad8567f8bab19f76243cbabe2c39fb36c2473e2d5ea5ce4d0708f0b09933"
     sha256 catalina:       "80436ed0c97eb7fac29c905cdfd831bda8e6265c964006b3024cd57a728b5dc8"
