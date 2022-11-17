@@ -11,6 +11,7 @@ class Jupyterlab < Formula
     rebuild 2
     sha256 cellar: :any,                 arm64_monterey: "6827f0ab5e8c61146d86a0bc09a242d1b728fa30314c5809da77d804038b4a15"
     sha256 cellar: :any,                 arm64_big_sur:  "a5fdc1782ec8f7155fe25f3c26270d2f5deba94587ffc5fed8c2ef6101d00836"
+    sha256 cellar: :any,                 ventura:        "fa985e64f39a897d0d073033e6372ffff261aced7a90dfc92538b37a6458a7d6"
     sha256 cellar: :any,                 monterey:       "28fa7e8edea8cb955694576099ebdc2ed49fff00bb19343124f1066a4f82efaf"
     sha256 cellar: :any,                 big_sur:        "aab5f832787c55a819ae80ab083b5db7781a3ddee7d22a4f13db5a3723475f50"
     sha256 cellar: :any,                 catalina:       "8759d5dbd883284ea6fa1494e42b6c9c5107df557152253dbb4e55da30235e81"
