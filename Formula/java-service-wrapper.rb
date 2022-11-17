@@ -9,6 +9,7 @@ class JavaServiceWrapper < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7d778d499ac49038d3f48669e93b948b1935e633e3e7ff3fd8ca4ecf98f50b4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2447aa9f2e257c6b7fa7cf17f4df29f908695d9e2275585f6a36257560837f9f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "101668fcd3b114ec988b6ec87119b9b9f38b6c144d2eae0add593c1afdad051d"
+    sha256 cellar: :any_skip_relocation, ventura:        "1ad5022daa7b81e9d0c2d97d4463f54cdf157df35e572a37740be85c0370cd28"
     sha256 cellar: :any_skip_relocation, monterey:       "ddc698eb778851d6c5c14383e90e34be5018121f5473cfe3834a41aa6b67b515"
     sha256 cellar: :any_skip_relocation, big_sur:        "763a03cbdef1dff1f0a31cc5257bda16e4264629df14f46612bcc6f8fbd87308"
     sha256 cellar: :any_skip_relocation, catalina:       "60129bcf63eb406d6b94f7ddce99c376d02525ab531c10b6bf87bcdc9678b4b7"
