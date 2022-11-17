@@ -11,6 +11,7 @@ class Waybackpy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b6d17e9bfb4e1f90f2daddefcb17ae0bd9c82c8f654961a15f2c13a98870c1c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79e87c92ff4985b256447d0ca7bd699fb4df8b204ece99189e49e235aac18cbc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11b989acd04645a2f19d7e03d08c3d6d26b85e1be257157d806277104204dd85"
+    sha256 cellar: :any_skip_relocation, ventura:        "2bb76dc670ab4c289b1c9eb6845dfe9db09b27821b6476b558078bec219a0229"
     sha256 cellar: :any_skip_relocation, monterey:       "83a9011013ab8c19a18def73a89443d32825b19a8511638ea18aa2723b08b678"
     sha256 cellar: :any_skip_relocation, big_sur:        "b87cdf6a11c5c03affe1c186c4778482956c4b1964ab47834193c2786474569e"
     sha256 cellar: :any_skip_relocation, catalina:       "b0ab0c34fe4b41deb32948c04851a4211c92d1debc0bbef6d297840229b0f0d9"
