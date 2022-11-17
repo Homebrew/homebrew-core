@@ -10,6 +10,7 @@ class Doctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fedbfe0ad955fcd758a070219414e7767024175e2c8b1978350d16627743c93b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "affaf708f99e48af3fac8ac38daf07f9b8b6031957625369518d1ef5146d5d2a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce5b6269d4fb989c87bc5cea0c64c697d2bea73ce80dbb9d6273dfb5e168628f"
+    sha256 cellar: :any_skip_relocation, ventura:        "2e2ddc5b1295aab324f1f333fa2aa67155f606ab2db96b32d586bede119b27d0"
     sha256 cellar: :any_skip_relocation, monterey:       "213fed54a4e70b06dc7d0836692d382774fc0a9f627d3ef989b37cb692ff55a9"
     sha256 cellar: :any_skip_relocation, big_sur:        "0a0b96f3301da95cf357d2cdf8056ad7475a93cd579ed644efe5c8af3a4ec0dd"
     sha256 cellar: :any_skip_relocation, catalina:       "a89b6e0a18b674a2e8f49b43e25d9b34a99f728444485556f14bb1969c58f801"
