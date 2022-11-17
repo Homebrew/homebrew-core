@@ -16,6 +16,7 @@ class Testkube < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b14abf2654beb3c6b83c913309a64735993fcd572aae917f63aeacde2fdd3d5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9b14abf2654beb3c6b83c913309a64735993fcd572aae917f63aeacde2fdd3d5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b14abf2654beb3c6b83c913309a64735993fcd572aae917f63aeacde2fdd3d5"
+    sha256 cellar: :any_skip_relocation, ventura:        "c88a534fce057b5bb7aa4e11ebf4dbbfd610124bd0f4eeaa8fc76d05646e8103"
     sha256 cellar: :any_skip_relocation, monterey:       "c88a534fce057b5bb7aa4e11ebf4dbbfd610124bd0f4eeaa8fc76d05646e8103"
     sha256 cellar: :any_skip_relocation, big_sur:        "c88a534fce057b5bb7aa4e11ebf4dbbfd610124bd0f4eeaa8fc76d05646e8103"
     sha256 cellar: :any_skip_relocation, catalina:       "c88a534fce057b5bb7aa4e11ebf4dbbfd610124bd0f4eeaa8fc76d05646e8103"
