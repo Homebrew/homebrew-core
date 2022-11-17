@@ -8,13 +8,13 @@ class LibjsonRpcCpp < Formula
   head "https://github.com/cinemast/libjson-rpc-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "850ca0489b1111f7c7eb9413e2317bcf0db6562e4212c6a6c6dead638eca09c5"
-    sha256 cellar: :any,                 arm64_monterey: "d17c63abe49e756cbcfa88f2d97f5d8f30064ad225171e8dfaf8e51e9a719fdf"
-    sha256 cellar: :any,                 arm64_big_sur:  "8018663da536a07ff3864df3d53efbca3c3e7283691062dde2765aa4988725ae"
-    sha256 cellar: :any,                 monterey:       "93d8287c0897ea594a31c04f6400e5ae39cd5339c536b814b914a3446cfef10f"
-    sha256 cellar: :any,                 big_sur:        "b025cc55d821bae9cdcc40714a2333f6919b2e6de461906f5bce5f1442d10ce4"
-    sha256 cellar: :any,                 catalina:       "d14d40ccb7de9443d39658cac84e2287ef78602b443f94887165e780046a0cfd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ae9cf1ca4f9aeecb69ac5f4e2cba3b36a9ef8c7cf22c03dad78338dd39b22ec"
+    sha256 cellar: :any,                 arm64_ventura:  "c8bcae7683868e7ec575bcffd0040b2a349e38edb08351fea9338f7ee91fe7dc"
+    sha256 cellar: :any,                 arm64_monterey: "9cb86e8039e8e571b73ed1638c793f9b28592f892db42ce7279fbea76b729cc2"
+    sha256 cellar: :any,                 arm64_big_sur:  "0328e51375b19212c2a10d4d350f6a4cd70a4e971fdfc692917f49de8fed4ad2"
+    sha256 cellar: :any,                 monterey:       "8a4a0c85641f6bb3cb1f0a94f8848bfd91c96974afd90f37005e58b718677551"
+    sha256 cellar: :any,                 big_sur:        "ee8fe30830a557f91d0802ca338fa0d0953965ce09c6c3a61cceb05c053ec727"
+    sha256 cellar: :any,                 catalina:       "a7df384528a1aa939fc7292e6baf3229ce1fd4bde42def2bdd4ae7692f3792f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c56cf094d5bc4ad8e7d3638d17d4e5c6120b8039f2889d89d5bf54286bed2910"
   end
 
   depends_on "cmake" => :build
