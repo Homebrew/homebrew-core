@@ -14,6 +14,7 @@ class Topgrade < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9a8599638c972b2bbea5d6a2c8f7ed393ccaa71779dd70222ed596798435e0f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aa6e8d8eadeaa7194df48fceff81126bb4e2142dfc6a21eeff32221c56d68164"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7899925f2b5801f3af2a56a2e6f9d0377dd9e5aa71936f33898cf28c897d7f4"
+    sha256 cellar: :any_skip_relocation, ventura:        "c4e9d376609e600d9b328f7f31bb1df833072777fe5c7603befd043e38d6cb21"
     sha256 cellar: :any_skip_relocation, monterey:       "929c05ed6e89e9c8a2fc6508b6678b4108332ee9af25527f5a51b2e4f40ed181"
     sha256 cellar: :any_skip_relocation, big_sur:        "2e39b13b688c8975fdb2a7a2c5144a131257afe90835a92bf909a5a11a9ac227"
     sha256 cellar: :any_skip_relocation, catalina:       "f7a918f2e10d17f3e8a9f49d416bec042f656877851fa5ed19a2fb953d72442a"
