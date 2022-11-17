@@ -13,6 +13,7 @@ class Macvim < Formula
     sha256 arm64_ventura:  "1be1174eafbefff91ddaead17951d56f446fdb1d90872b8533dd1db000cfd4b9"
     sha256 arm64_monterey: "a22ed2ccf2de13d727bb47798cdbec5595634e24e7b9ab70d1d1ef7836fe41b8"
     sha256 arm64_big_sur:  "3f990eede6cb56c75bbe5f30aa8c00179a14479eaf4f4628a51ca430b8ede725"
+    sha256 ventura:        "9961ace39b1df1f7a284a13d7646adfa0fd140ffb2eda172ede8e88020761706"
     sha256 monterey:       "cc2ac74c81bf5dcf1e759bf2965b8c1c66a4aa31fc8662a179c9eae7dcaf31ed"
     sha256 big_sur:        "7529db993173ac24d9239857fa8fd95f58b7a054b3b9243fc21ae58d358597b8"
     sha256 catalina:       "6403a4d6c0330ecaa97c50d6c373c896f00b9f41ae02b7f1ac9ce685329c058f"
