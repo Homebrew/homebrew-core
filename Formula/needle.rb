@@ -6,11 +6,11 @@ class Needle < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_monterey: "5f7596f47983a00c77e834ea206dbf2e4215c39bd9abaab5b00619d18cedc1e0"
-    sha256 cellar: :any, arm64_big_sur:  "1a8b8bbaa47d29a4812a20f2b7756fab6fcb9f99b661fba42efd6742deb79d2e"
-    sha256 cellar: :any, monterey:       "99ede06d21e4cf785268c81c44b52d699240cb5af86466c09d12c1c616c466a4"
-    sha256 cellar: :any, big_sur:        "fb25e66dc86b857118df649494f02ae38daa33a38315a28bb7ebf8529e72ada6"
+    sha256 cellar: :any, arm64_ventura:  "07826c6a2d070c0043ddb6e2ffe17b7a3e3f0209c90baf229a7254eadfe1d132"
+    sha256 cellar: :any, arm64_monterey: "0e66627ef1680983c0cc42009f236d4cfca6cbfb5cf0fe3a5cddbaa9a063f0ae"
+    sha256 cellar: :any, arm64_big_sur:  "322645f16215f9784d162de9552e533131fff4235dfd421e46c3e3ced208a26f"
+    sha256 cellar: :any, monterey:       "1ec0bd0e6b409a8f65bc3741ab7170e2346c838b96e3407bac5e8b815aca8f1f"
+    sha256 cellar: :any, big_sur:        "21e3fc48210529852cf33cae4fe2c5a2937920321e7d03b76b93d775d35c0e9a"
   end
 
   depends_on xcode: ["13.0", :build] # Swift 5.5+
