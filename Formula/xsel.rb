@@ -54,6 +54,7 @@ class Xsel < Formula
     sha256 cellar: :any,                 arm64_ventura:  "30abd9f1f7e2ff38f890f01f3c7919a9fcad59ada8c530b933583421cfcf6232"
     sha256 cellar: :any,                 arm64_monterey: "de069e6eb3b7f2ab28641b1be7c7df88a0ea59587e01e59b79ddc680e0226194"
     sha256 cellar: :any,                 arm64_big_sur:  "b32e829803d81ea7d09bb0911b31a20ac6c75fdbc67fa3c4c9184458e3d3ecb3"
+    sha256 cellar: :any,                 ventura:        "358506ddb783e7b8ede9380e03c66bfc70d6d2846e5f5a10411d9eac286c55cd"
     sha256 cellar: :any,                 monterey:       "834b49b7669f077df30e1e791037b5ebabc657aef2d9b1c6c4c8425b8c401754"
     sha256 cellar: :any,                 big_sur:        "f596d08cffadf2bff12804cc18fc61ddb4cdf47599f869d938c7ebd860e1950d"
     sha256 cellar: :any,                 catalina:       "18f72e215611df386415475668dd769e37c6b715715e477ba39866f17a95c1f2"
