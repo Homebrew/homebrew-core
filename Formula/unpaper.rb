@@ -11,6 +11,7 @@ class Unpaper < Formula
     sha256 cellar: :any,                 arm64_ventura:  "94cb4a3ee882ef6f9ed1f1d08eb323f5152b910e4774d977207e4ecdd98982ae"
     sha256 cellar: :any,                 arm64_monterey: "3280a9ca24994ce8177a652bd6e6f8aef1b14689877b6f9d390cc298f760bcdd"
     sha256 cellar: :any,                 arm64_big_sur:  "0d18daf8c6731c254b00ba8a14ae88165fe6c517311c72eded94d1775127aa2e"
+    sha256 cellar: :any,                 ventura:        "47cdec265ecc7ab97ad30d8e22ab49f708588975137f2d5a733860da5b1f69b0"
     sha256 cellar: :any,                 monterey:       "db689261f4f9c450f13cc531ea7e3554154cfc5ab0a1388f95cb9a59034f8444"
     sha256 cellar: :any,                 big_sur:        "8547a8225076be35086c103d79133a05f415b73938feeaf2af30a75a340bd76e"
     sha256 cellar: :any,                 catalina:       "84d445ef496a6e41803c598ace4f6649aabdb6e40a56e6db680cefdd9419617d"
