@@ -16,6 +16,7 @@ class Pnpm < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "59e67d4b012737b8a6925a02ad172b2c2f924ae1f6ee72ad49395f376c65bba4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59e67d4b012737b8a6925a02ad172b2c2f924ae1f6ee72ad49395f376c65bba4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59e67d4b012737b8a6925a02ad172b2c2f924ae1f6ee72ad49395f376c65bba4"
+    sha256 cellar: :any_skip_relocation, ventura:        "cfe560e4fbbecbcb018c235558581c5dfa2ec2ec149a8c31a89b93fb12023abf"
     sha256 cellar: :any_skip_relocation, monterey:       "cfe560e4fbbecbcb018c235558581c5dfa2ec2ec149a8c31a89b93fb12023abf"
     sha256 cellar: :any_skip_relocation, big_sur:        "ecd2ca7af7f7214527877260011d9630a2cab08d479d5ea56985b6fc2cae0565"
     sha256 cellar: :any_skip_relocation, catalina:       "ecd2ca7af7f7214527877260011d9630a2cab08d479d5ea56985b6fc2cae0565"
