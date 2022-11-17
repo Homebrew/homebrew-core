@@ -9,6 +9,7 @@ class Akamai < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2c9bb02d83051f8efa16b4c8242acc2ab2de133f063cc2b824cc40c9cd30f1a7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f0b2a860ee65e6e249894d19f0a03b423f4b0e774105066f5836c6449b53131a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b06521e34515aecdb81e1dad94b442ed5e9f1062f2ba320d1bf0e0079d2ea185"
+    sha256 cellar: :any_skip_relocation, ventura:        "6d844229eec66419b51eee9bed485bb546174d6ad469bafbf261324c7b4ac29c"
     sha256 cellar: :any_skip_relocation, monterey:       "3f3091301abecbdddf70e049839b142f15b028aa3847948d660499a4cf88f33f"
     sha256 cellar: :any_skip_relocation, big_sur:        "dd39fdf7552c28df9cccc57e8d607705ee0f507c2562c6fe1b38e82042e72a98"
     sha256 cellar: :any_skip_relocation, catalina:       "ce6876e71487eda4afd75fc8b5c6ffcad506f9c47258aaa7522bd94b2228f3e2"
