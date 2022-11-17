@@ -9,6 +9,7 @@ class Rpcgen < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "526706cff9cc8d304a10c7fb6e8d1d5d9e9809a5dfd01d43672df89ced300293"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "78dfb8bb78945458e7800dcc9dec612a7b2d72dcc8f128965c3a62463641526d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e4b76a3f59923370fd526a8d0d7c2d045e24c0fd3bc8a90520a75a0600b2b42"
+    sha256 cellar: :any_skip_relocation, ventura:        "9813ba259c023d2055737aa1ebfc0b0aab8b5891bc62798787d8c2342952994b"
     sha256 cellar: :any_skip_relocation, monterey:       "614287949fb3eecb3109d34b8d0c8573d2b46ebf63dc1d59bf97fac5ab02942a"
     sha256 cellar: :any_skip_relocation, big_sur:        "8168bcd5de6cb890aae1bd5deb67f732c193f6729606632d7ece185c10dd3b75"
     sha256 cellar: :any_skip_relocation, catalina:       "4d9702a8541f7db461c81f761bd446167473d0b7ad9590370fbbd9cb775442d4"
