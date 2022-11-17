@@ -18,13 +18,17 @@ class Darglint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "25cac2c982564d37e9bc4159ef583f2053b5061f5397d2c1a5661df1293916f3"
   end
 
-  depends_on "poetry" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+
+  # Switch build-system to poetry-core to avoid rust dependency on Linux.
+  # Remove when merged/released: https://github.com/terrencepreilly/darglint/pull/203
+  patch do
+    url "https://github.com/terrencepreilly/darglint/commit/aa10a220bbbce522bee2c986606a1650f1c2be1e.patch?full_index=1"
+    sha256 "871a4790feabd4e6a5feb2d618ef5802dc3c9ecd47345c3ba2f9377068ba4fa7"
+  end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
-    system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
-    venv.pip_install_and_link Dir["dist/darglint-*.whl"].first
+    virtualenv_install_with_resources
   end
 
   test do
