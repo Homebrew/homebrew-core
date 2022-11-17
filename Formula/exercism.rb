@@ -15,6 +15,7 @@ class Exercism < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9f6946f7740e007824512ee1f7e6b8e49620152eb97973d1938cac21ac7ab47"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f331bfd82579f2356b72722d8850035d5905d707d747f7a1b63cc5e53abd71aa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "075fc4add6d1783a3a971471c4b79c75c90cbeae13b3c29165d61df28f5094ef"
+    sha256 cellar: :any_skip_relocation, ventura:        "f04d40ef95fa6ae6374eecd1e924fc3ff51929c57562d1265fe5838cf32cac02"
     sha256 cellar: :any_skip_relocation, monterey:       "2f4614b05b44e912d099a47da1ccbcbfd95c0126ffe1e0247ecda2068ee54afd"
     sha256 cellar: :any_skip_relocation, big_sur:        "13121cfeda4cbddb26c71c5684b3bae1666dfcd1f424b6bc3cac4c772b8aa853"
     sha256 cellar: :any_skip_relocation, catalina:       "6a31fc46b6ffa519cad9d81796188c6e60cf902496ed563a111871d157e229c9"
