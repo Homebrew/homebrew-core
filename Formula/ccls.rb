@@ -13,13 +13,13 @@ class Ccls < Formula
   head "https://github.com/MaskRay/ccls.git", branch: "master"
 
   bottle do
-    sha256                               arm64_ventura:  "f7178cef61892a7ca59a999a2b80879a9b35d61fa347095f357034f6ac0e108f"
-    sha256                               arm64_monterey: "06a36dcf5ff00a0f2046dd4aaae959dd25942ff9be40724a3e60a14323095f14"
-    sha256                               arm64_big_sur:  "12c05e346f35036af3b4578a2c0da7da5fcb52a6b10aff960a96a61de14a1625"
-    sha256                               monterey:       "09d0f9d632231477f9e47b36b8d82be4aee3eca78c2ff8bb7c26c4ef402fdb8d"
-    sha256                               big_sur:        "0bed7797a38eec212e12a4635282fa44faca14cf07883913a80b06f112663970"
-    sha256                               catalina:       "b7de9d833bb9fe53910bc56f6af1df40084b6b259a45ac961fc645ce305c722d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "170a80f752bed26931497a307cd142e9e75ee9478d39ecc1822175b71c362733"
+    sha256                               arm64_ventura:  "f4170fd9502d4163f1e81b1e586844d092bb2d244bcc489515e1c21b562dd181"
+    sha256                               arm64_monterey: "fe85213a57a49cb8fdd9b2dd1064a27a3a15480c4e2760b6f0822a28d0e0e5b8"
+    sha256                               arm64_big_sur:  "a478d9d56f092d5c0af5cc2eba95ce92b8aa4e4c715a588f51ef221b917f30a3"
+    sha256                               monterey:       "7e1ba5791ef7efd463cec861d325a317a1876772fff1d7e76b5ad96ff9296df4"
+    sha256                               big_sur:        "b4bf1dbeb732b55126523f4f207d87702f0ccb4e916804b4addc5438c81b81fc"
+    sha256                               catalina:       "f6c5a5e8968fdf4001ba476fe88203c8aa0b2f8befa3e97704a2d34f810a3007"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c581f6afa20b0ba3c29d2603253492aadb6f9172a374442ceb2f8f48c6b948a"
   end
 
   depends_on "cmake" => :build
