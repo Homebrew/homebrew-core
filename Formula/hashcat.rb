@@ -16,6 +16,7 @@ class Hashcat < Formula
   bottle do
     sha256 arm64_monterey: "3537c38c984f8c0856e18a9c5ec7fd96790d121f71a0ebafd206abe8fc770043"
     sha256 arm64_big_sur:  "d2eba35d2cf35657998adbe73dcda9ce607d9c8d30147736495ff40bba311e35"
+    sha256 ventura:        "969126930995386dc28c4a040c6bf742b8331b4a31fb9eef2c15684e9ff74b26"
     sha256 monterey:       "c1f6dc856692c00d1b70e943a11f61e9e25bcaf2187628b2ad9b990d40be7417"
     sha256 big_sur:        "bda8f3382145b5e91dea67605398d55f89c85cf2253975cb918b27432e1b23aa"
     sha256 catalina:       "543c7620bc617933bfc2f2dea6eff0d408b0a6e4c12bd71f213ff7af8b0b434a"
