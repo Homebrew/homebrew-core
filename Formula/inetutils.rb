@@ -10,6 +10,7 @@ class Inetutils < Formula
     sha256 arm64_ventura:  "872275661200b6f4372aee795840075b23dd2c4862ded07f4000d706ba37409e"
     sha256 arm64_monterey: "b9ffd46bc37271e9c1f57a333d39af249ef131fa68a89565bcf06fcf0cb7e4da"
     sha256 arm64_big_sur:  "02e7db5f94d356b61cf55ba51c85df000ddce5df9fd9925c81d415fa15b6aa5e"
+    sha256 ventura:        "8c34d17dd5c58955e33eb77b68dc06a43e1c8f193bf3f12c314f0fa45efd9404"
     sha256 monterey:       "538573e4777f6f7ba4d5ab5ec8546b3e614a219dfedcfdb08c968210a4f012de"
     sha256 big_sur:        "f6e3c7e2ae01a7d3e7801122bf93b525bd353dc995724e25a719d7b6362167bd"
     sha256 catalina:       "0b8cb0db259708450273e70e7d037a6806137c09ab16a6fc53d4a5093f2aa46a"
