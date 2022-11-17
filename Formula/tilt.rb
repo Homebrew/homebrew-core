@@ -11,6 +11,7 @@ class Tilt < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad5e5a2e6b9f738dd1eb99657c739901764492ca4d54b3a55d57cce110d0299a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a38d0551e58610eb0e0e3bac62fb039ed8c5fa6088333b4e6552ecaa34312b46"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "221e48cc0b31bf498062616602545ec9731a2bba8b472030ba6ce7c60b32b705"
+    sha256 cellar: :any_skip_relocation, ventura:        "1b7c94b98319691b10c803c504d88f1b7d6d5a86a5930081f6e53e55f47559c5"
     sha256 cellar: :any_skip_relocation, monterey:       "8ac1f26e22943ce59103516ca8e7323fd9df3d06c59373329aa578eb25211d3d"
     sha256 cellar: :any_skip_relocation, big_sur:        "6bcc677257eb67cab67f7aac87248a1402124d11060829d4426369d1bfed8c30"
     sha256 cellar: :any_skip_relocation, catalina:       "efb5d267b70a3a56dbbb88a51290ec7fbdd88c0aab7c8d604345340b8f0e8b11"
