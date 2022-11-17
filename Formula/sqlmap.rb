@@ -13,6 +13,7 @@ class Sqlmap < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5870be0d75ed6ae5f975846fd423bb821421297bade85459a2814aee910a460"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a5870be0d75ed6ae5f975846fd423bb821421297bade85459a2814aee910a460"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a5870be0d75ed6ae5f975846fd423bb821421297bade85459a2814aee910a460"
+    sha256 cellar: :any_skip_relocation, ventura:        "b916a5a057c935bc2cafd4b2d8f3f09939cde30c9d03cb66fe682fa7d9b1c44f"
     sha256 cellar: :any_skip_relocation, monterey:       "b916a5a057c935bc2cafd4b2d8f3f09939cde30c9d03cb66fe682fa7d9b1c44f"
     sha256 cellar: :any_skip_relocation, big_sur:        "b916a5a057c935bc2cafd4b2d8f3f09939cde30c9d03cb66fe682fa7d9b1c44f"
     sha256 cellar: :any_skip_relocation, catalina:       "b916a5a057c935bc2cafd4b2d8f3f09939cde30c9d03cb66fe682fa7d9b1c44f"
