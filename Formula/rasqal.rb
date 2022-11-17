@@ -13,6 +13,7 @@ class Rasqal < Formula
     sha256 cellar: :any,                 arm64_ventura:  "92f1cc01dd0623dedfb4b823b7b483e53158436fd1f19f31c743429cf63e9028"
     sha256 cellar: :any,                 arm64_monterey: "df52f08c6ed78c573f5230851d5faf543be79ebdbf6d308f9911739c9c898f53"
     sha256 cellar: :any,                 arm64_big_sur:  "36d9d4a210921573c1cad68bc17bf0d0fced251de091855ce1b61cefc64a37c8"
+    sha256 cellar: :any,                 ventura:        "b3c70287723dc5ba946ee2ec128b443652a1ae3b30c82e1205547e3840a7b374"
     sha256 cellar: :any,                 monterey:       "8f0d23af21ab8a802e58d7f6b31234411ccb492884d9a87eba8205be79ce6899"
     sha256 cellar: :any,                 big_sur:        "14c26a4f0d108107281be78dbca4948b52a3ff157fb2dd33bdc123b2a467c492"
     sha256 cellar: :any,                 catalina:       "c815139d0154570fcab0e42ce7244682d13c47c4d4102b61260ffd1d0694d218"
