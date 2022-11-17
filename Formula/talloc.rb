@@ -14,6 +14,7 @@ class Talloc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0ae18aedff1c724c678e2bd828bad1d72182b0681146f7d4e194d7004732b9ee"
     sha256 cellar: :any,                 arm64_monterey: "14c38dbabaa0448ddea4576de5ac2fb6badf605c4db2ae4e5fa72c1ec19b4f95"
     sha256 cellar: :any,                 arm64_big_sur:  "75f15e5f72f21ee560283263719a256bfba325b510b420fa45775a1622b12de5"
+    sha256 cellar: :any,                 ventura:        "7a60c53f6f3748c6300cdd96749577e0afabf80ec3767a5ea675bdcff0b7783a"
     sha256 cellar: :any,                 monterey:       "a7a0a524000d68b5e82bcb885e91a1944ecb372122f43424a2aeec684a23a512"
     sha256 cellar: :any,                 big_sur:        "b5df557121367248b6cce98c9a699414c357053ca90ced707e27749bf0ed84ac"
     sha256 cellar: :any,                 catalina:       "db80889b42ee0a260422deae04d5dbed0cfbabd0231e891b7231e5660fd70858"
