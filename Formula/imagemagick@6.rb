@@ -15,6 +15,7 @@ class ImagemagickAT6 < Formula
     sha256 arm64_ventura:  "b807e4b339e59640a3873673ecc1c067402c73f0a4e6505c6e28860f9f482553"
     sha256 arm64_monterey: "f2f1e6da2a334fe588bc6c923a3be4e90d79ac86fccb8385224447b9df7b05f3"
     sha256 arm64_big_sur:  "a9cb917ef28ef20eedb33209370dbdfa2d9b398e06f75d119d9d2d16a1d34e95"
+    sha256 ventura:        "74f25d6908651bb9b8a81853b13ff1f92490086134a1b8bf72e575c7b7e58acf"
     sha256 monterey:       "4d6e66f1d958d9603adb1ae38ab08209aabae2b6daa9f1a8e1b5cdff56e02dca"
     sha256 big_sur:        "7bde40414133cfb90b079bfed897a3551c1b93d857a67e4a074f91f3c32c2e1f"
     sha256 catalina:       "12f0c6e9c78fb0bab94987fb5e623045822cceefe494c3fd2bc1cfd64fdc3b25"
