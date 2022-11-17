@@ -18,6 +18,7 @@ class Gperftools < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e2dea42ef12ef30faad35deba5e4f6c52771e50e4fbb7bbfdbef4fc539b6520f"
     sha256 cellar: :any,                 arm64_monterey: "b6083efd21e2ba10f38b8d8884bec70a5ad96b60e4f159d700b88a4f32626dcf"
     sha256 cellar: :any,                 arm64_big_sur:  "53e182d8321912b58fa8a9e7989ac13d337323cea79c9a6865ca9aef8235fdad"
+    sha256 cellar: :any,                 ventura:        "2d106f789f186da6f3097a119d0ef74ed454b2820013fc3e2137dcb93c1c9000"
     sha256 cellar: :any,                 monterey:       "119236efb407004d2d1c794d3fa97ac2d903f6271f03ba49ee905e23b8230320"
     sha256 cellar: :any,                 big_sur:        "1e55694d046edcecc802b5ebb93529ba9515abc833c10f0612ac281174611643"
     sha256 cellar: :any,                 catalina:       "425c644c9b7956e9e5d25153c3020d98b1ac2eaada5dcc497a87c4f142a1c1c4"
