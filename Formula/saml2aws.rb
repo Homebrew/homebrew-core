@@ -10,6 +10,7 @@ class Saml2aws < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "29435453aba70b197baa06fb076649274a13881709727a867395daafb0cd6bdd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c07b5bc5644d4acdd8acf6da32458d3ebcf18bbeded3794488fdc68b3e78b278"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66ee4cf4891a72fb789673e1534e2427bdf587df83d2e0c05272f1894943ef83"
+    sha256 cellar: :any_skip_relocation, ventura:        "7ec706a264a55e63cacba22ff39cfad76a5a00c0f2181e0706c0517425208ed7"
     sha256 cellar: :any_skip_relocation, monterey:       "ed089cc11626dae4c2cef41100ce747a97d2d6996fc2a24564bb907aacb40a1c"
     sha256 cellar: :any_skip_relocation, big_sur:        "83d446127895f5dac4a8a88d4a59fd9265e7598410ca4f63f4e84c707cf246c1"
     sha256 cellar: :any_skip_relocation, catalina:       "13ea245e58ad8bacf86a607bc9138d56efc91f4c9bbe2c8a14a0950c4cedd103"
