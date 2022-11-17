@@ -11,6 +11,7 @@ class Carthage < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "44bfddd205d71910f3a6829fa7448b10a9bde620cc0d3b88a3d18ecbdb42fe21"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31e066eb80819a224b4b98b2c5cb9f11989c787e8de7cc0b4c492663fd0e7075"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9be26e66087b149d4d6ff813323fb5fa1ac0ec1a55d3d1a26fc3aafc8f8e8ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "3ce52863cb7175f47439020dabbb004b292a1a935056e6dc5bf614b285eb5d5e"
     sha256 cellar: :any_skip_relocation, monterey:       "17481cd77a643af4799e2c603ae808cd09a6487e73638caab0af8cdeffc2c438"
     sha256 cellar: :any_skip_relocation, big_sur:        "863d4165b65d4a914f0585ca68a2ae15a179d663dbd29e6fd1d0a0ec769b97c3"
     sha256 cellar: :any_skip_relocation, catalina:       "ea1df2bc55049416020811e5c995a28a3d6a0d26ef4bbe67bc9b248a11727e96"
