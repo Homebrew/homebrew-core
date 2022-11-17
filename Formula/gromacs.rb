@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2022.3.tar.gz"
-  sha256 "14cfb130ddaf8f759a3af643c04f5a0d0d32b09bc3448b16afa5b617f5e35dae"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2022.4.tar.gz"
+  sha256 "c511be602ff29402065b50906841def98752639b92a95f1b0a1060d9b5e27297"
   license "LGPL-2.1-or-later"
 
   livecheck do
