@@ -9,6 +9,7 @@ class Qpdf < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1844c1c906a594189c6f1882a32524ccdee6e0fd9f8d70518a77f30d66c5d61a"
     sha256 cellar: :any,                 arm64_monterey: "c6ca588a9c2110504063f4f39a599d7917d7c5980c9bc41e8e20b62b0f864732"
     sha256 cellar: :any,                 arm64_big_sur:  "2b73d294fb3357a61e77c5200418f637373fdaaf19bc96661dc0884410468367"
+    sha256 cellar: :any,                 ventura:        "29015c37d382848cb766d253376298c632428cb935f97b2845287ac7b4cb214f"
     sha256 cellar: :any,                 monterey:       "8e661257b8ac6feae17826dd819febb13c825f18e843dd3deb5f9a9ce75c8133"
     sha256 cellar: :any,                 big_sur:        "a103cdd420778eb82285d1efdd2be23b9cae3e79b373eb5c7b75296bb2e0babe"
     sha256 cellar: :any,                 catalina:       "b6218ff894f992b544357550e994f8704e49a8da980bb2b36323b1aff5a9471e"
