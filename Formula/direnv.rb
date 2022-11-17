@@ -10,6 +10,7 @@ class Direnv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a261e0e2fceb67f621c2aafc82365eb0f10cfc5926ea3fc870671998b16a7529"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "567a8c1ca45ffae17d4901b0aa729be8866b6cb93ee8224da98cacf36f73ed69"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b21230f43123e6b1a832f87d30f040d9f4684bb19f62f69f651bb24ae1cfaaab"
+    sha256 cellar: :any_skip_relocation, ventura:        "586f4500b6200041079185090c40de61e94ff4d4bce4ac36c6b464f94f0de0c9"
     sha256 cellar: :any_skip_relocation, monterey:       "68f7b9093d44fdef4210ffeaa8f88e8fa27bef356b4c8b2d4fc7749aab1d2614"
     sha256 cellar: :any_skip_relocation, big_sur:        "f5dc03f040b2638a14e30c9fdeaaed616084539c0360fc916b53c3c8206259c4"
     sha256 cellar: :any_skip_relocation, catalina:       "2edc8e221d28db3da039490d4728d3c5ac7ce38d5274418b4d5f0ca31dfc0b28"
