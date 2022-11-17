@@ -11,6 +11,7 @@ class HuggingfaceCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c3892ec98203e8cd85982acf4247c3d400bda909db40612a636a0aaf4e86374"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "71f8e581ee7ac817e28bfb96b362d57fc34328fbd784d3663287aefce8eb65d9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aa73393102f4d8a10c31f889b1dfe87aab12e7468f4d71f50f9b6946ebc0b499"
+    sha256 cellar: :any_skip_relocation, ventura:        "58aa5a7ab1ae0e35f8605d2b7daa3010a1959fb4018bd5957524434475e47b43"
     sha256 cellar: :any_skip_relocation, monterey:       "ab24a717b2086143f8b4b16871e53c433086679bf715e0f5a8f550892b7c01cc"
     sha256 cellar: :any_skip_relocation, big_sur:        "0a0c6157852730b65f7192a0be819ceddaa1dbfc0d3de7aa5786deb4543c0974"
     sha256 cellar: :any_skip_relocation, catalina:       "b3f1db24640361d8bae816b28955852581c5c27c98bef835fd224d0566829092"
