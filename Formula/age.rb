@@ -10,6 +10,7 @@ class Age < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1b03418c74b4cab3c6f38ba6f0e184268920271c8a30b4db93589da8a606109"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "57281390b7c051f73ed13e7e35413e42eb9bd918812bc99de38ef3817ac46dee"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "845a84de1a024a350ceacdfcf11745df8100df2377b18efa3ad354528127c72c"
+    sha256 cellar: :any_skip_relocation, ventura:        "e3f35399c81c8989e5d1c3216dbfcdce44a019340fe52d46f7decfe2d4844ff1"
     sha256 cellar: :any_skip_relocation, monterey:       "43d2bd6b8768a9f0dc0b9da36c15ae1f01640002044a16444acdc7a5100438bd"
     sha256 cellar: :any_skip_relocation, big_sur:        "f0e0fc5e332fe33bd31d031ffe0a9b58cdd4f4d6f8091c6746e80adaf68ffd58"
     sha256 cellar: :any_skip_relocation, catalina:       "309d3c08abe1e8559c8cb53cbf178c52d4286a50c85ad8e1a5b6b400f0fdd296"
