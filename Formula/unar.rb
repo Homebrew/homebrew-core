@@ -11,6 +11,7 @@ class Unar < Formula
     sha256 cellar: :any,                 arm64_ventura:  "30ef15bfdc14b92683770132d1e5cb30fa88903f6691092387fcecb9c4303fa6"
     sha256 cellar: :any,                 arm64_monterey: "3ee7ecb5bf0e592b34e76984df2291c333b07d76f8de1c67671999dafc1bfe34"
     sha256 cellar: :any,                 arm64_big_sur:  "7cb2e8234ef82f9e99012b68fcd2c56e94c119a718295fd1d8504c0b15600663"
+    sha256 cellar: :any,                 ventura:        "5aa697a876187788558268c11f7a365c83afa710fc91fadb917b7157c309fdb2"
     sha256 cellar: :any,                 monterey:       "617b22cc2ca68b96e186e402bb184f7d8b955b64094e06ad62a1899337fa2a13"
     sha256 cellar: :any,                 big_sur:        "2fdcc98f12ad2c472e605b1349c9f44d448a89c15131a29290b62fa6f7f263dc"
     sha256 cellar: :any,                 catalina:       "2b81e91d9b892cb157113df5a4ba3fb32b7cc82a07427a8229458080789b1177"
