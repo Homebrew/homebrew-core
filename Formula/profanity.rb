@@ -6,13 +6,14 @@ class Profanity < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "26e796e34e162d2bcf96afb44501b853ee2ef0716062ac4aab8ee447b9e7bd96"
-    sha256 arm64_monterey: "37c4545b4a013ca98264016894bc2c406c1539507eda7316de8d210a769125b7"
-    sha256 arm64_big_sur:  "1947e2cfcf943db8ce339de7f52d8fe9d195bcd7d0757c225264afe058f99763"
-    sha256 monterey:       "da577ee3160f2a7f6c21b32950b81ef77a11e8cafa4a0a92811ae0eac48d1936"
-    sha256 big_sur:        "03ce9b98ccecab5dc51f0e2291a026fa4bd4886d64c136e708e96f408c731302"
-    sha256 catalina:       "ea7d1750d7442902e5f62c2ee4b990169c8e5b38eeaa7dd7915239eba676d835"
-    sha256 x86_64_linux:   "81a6bc85821548cfeb2e7e263044eaf6c8e35cb8b74a5715da6660e07c888666"
+    rebuild 1
+    sha256 arm64_ventura:  "ed139220e7ccbc28492b21a36b46938ca0a0eb9726d12a5b5a5ec2732a70b2e9"
+    sha256 arm64_monterey: "0445e9095f46d2feb9d4885addcbe3776d0582eebbf69a1ed6159323c31a46b7"
+    sha256 arm64_big_sur:  "fbc2566e1def33062a2d48435900ac0ee347ae5e3b9083a5840afdedbfff6c3f"
+    sha256 monterey:       "dba2f230257a1bac9b5a3667f8a339bcc4bd1eaa6ebd22afe798bf078dbe0e77"
+    sha256 big_sur:        "8b7edbbab26d273e2acb2ce927c796e3cd25b90c0d9c49a4f9788eed6049688d"
+    sha256 catalina:       "234b9a17bc5bcb40fa28093cb430f613c3e4b6dea64ab58abfe18fc2840afa7e"
+    sha256 x86_64_linux:   "534112eda8a5e3a78ef8b1fa301fef91c001ab73e5e57eb128ce9f2418f2bab4"
   end
 
   head do
