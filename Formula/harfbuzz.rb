@@ -20,7 +20,7 @@ class Harfbuzz < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "pygobject3" => :test
   depends_on "cairo"
   depends_on "freetype"
@@ -44,6 +44,7 @@ class Harfbuzz < Formula
       -Dgraphite=enabled
       -Dicu=enabled
       -Dintrospection=enabled
+      -Dtests=disabled
     ]
 
     system "meson", "setup", "build", *std_meson_args, *args
@@ -53,9 +54,9 @@ class Harfbuzz < Formula
 
   test do
     resource("homebrew-test-ttf").stage do
-      shape = `echo 'സ്റ്റ്' | #{bin}/hb-shape 270b89df543a7e48e206a2d830c0e10e5265c630.ttf`.chomp
+      shape = pipe_output("#{bin}/hb-shape 270b89df543a7e48e206a2d830c0e10e5265c630.ttf", "സ്റ്റ്").chomp
       assert_equal "[glyph201=0+1183|U0D4D=0+0]", shape
     end
-    system "python3.10", "-c", "from gi.repository import HarfBuzz"
+    system "python3.11", "-c", "from gi.repository import HarfBuzz"
   end
 end
