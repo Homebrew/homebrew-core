@@ -10,6 +10,7 @@ class Dive < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5dcf63508fabfc661ceb34a7de40b69d202588f103f92e7befd58ee5dc5d519"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "301a650dbfacbef1d53f94a76918bccab8de782b2e45fb747b1dceffadb4ee19"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "734a6756d2f43b3d0e91d71b9e6ef024e6a031e5d7c3ab6a44c49c3bbb8c8655"
+    sha256 cellar: :any_skip_relocation, ventura:        "74a502bf2ee9f7a8c7ae9d89ec30038493c466877cf7c7702f698a2f67ee985e"
     sha256 cellar: :any_skip_relocation, monterey:       "f533a63cbe72e587cf2e81d0ecf4df06b553a3b4458e6898407aa559b93b45d9"
     sha256 cellar: :any_skip_relocation, big_sur:        "4fdeb80d1d57527ef5887c98a5db2235e73edb7b3d0fe32d42f0cfcf0ea49780"
     sha256 cellar: :any_skip_relocation, catalina:       "8c17b54b9370b6bc8d36dde60d42b71a7ef0fc3d700bd67893fe04c8ec1f69f9"
