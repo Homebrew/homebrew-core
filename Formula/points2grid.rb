@@ -4,7 +4,7 @@ class Points2grid < Formula
   url "https://github.com/CRREL/points2grid/archive/1.3.1.tar.gz"
   sha256 "6e2f2d3bbfd6f0f5c2d0c7d263cbd5453745a6fbe3113a3a2a630a997f4a1807"
   license "BSD-4-Clause"
-  revision 12
+  revision 13
 
   bottle do
     sha256 cellar: :any, monterey: "512f823167dbbf5181f29ed8114407b0412d5e078f0f936177fd740e976c0a09"
