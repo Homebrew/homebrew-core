@@ -10,6 +10,7 @@ class Spatialindex < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7b70926966d026440d780207a5f7ec0432ce2e5284b62c2907a94393392e6699"
     sha256 cellar: :any,                 arm64_monterey: "1e01a5347e7bc5c45e0f4b06a92265c08868ee384f9e375f0b7cb42a13106fd2"
     sha256 cellar: :any,                 arm64_big_sur:  "5786e51306b202e51c9a81b4bc6c7b593027c8e88b777d142e486bf012eebe34"
+    sha256 cellar: :any,                 ventura:        "436732ecbc6b625c4a712c918baf869b9e670bf4a7dea7e18866dce970a9ccfa"
     sha256 cellar: :any,                 monterey:       "2a4b3dfa9dce372c262f91985c7fae864c799ce642725beb237a0a2f6338bad4"
     sha256 cellar: :any,                 big_sur:        "49ef8e79ee6c7348b438d2b174effd66a2a7136a12c58645a0a37a5c22740ce3"
     sha256 cellar: :any,                 catalina:       "fbcbfaf6510137f3168a0dc57cbac8c8b1435094b1ede9d35a30fa6ccaea28f4"
