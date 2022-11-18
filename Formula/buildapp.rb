@@ -11,6 +11,7 @@ class Buildapp < Formula
     sha256 arm64_ventura:  "2b0fa0169991beae8813c92b3d80c514a80824d73c528ca95ae9e5708a29207c"
     sha256 arm64_monterey: "c6a7dd43bd91f0e656162985b9786a8ec621fbfb593c84fd817fe5b1341ac9ed"
     sha256 arm64_big_sur:  "3a4d0ac54096f853b8b271e02369dd2666e5b69c975d3b3f18ae6e54b4adf966"
+    sha256 ventura:        "5de604ca969929fb1ead705f6b976bc75933a19273d7557bd2b82d067271dfbd"
     sha256 monterey:       "f1899b47ef6aa32c5e121deb5509b263e4b112af9886722422ba764edaa27a1e"
     sha256 big_sur:        "55bb441ef8f0eed0e698f246541dcf874bbe652de2897d9deb89a2999c2c239b"
     sha256 catalina:       "631fa946cd687d3cc593fa43e489c96814de75fc6b98adebf11258d1f2043bd5"
