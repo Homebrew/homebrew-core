@@ -17,6 +17,7 @@ class Llvm < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3d354a01177a952ebf2dbf27457def8fd127d096a9bda7259e8489fac5b52beb"
     sha256 cellar: :any,                 arm64_monterey: "cab3c7f25517bfe174ce250a37530b7ea6ab4dbcfbfc7ed9b3bda6aa2a23faf1"
     sha256 cellar: :any,                 arm64_big_sur:  "7015b845d5ae61709e3154da32328e755b10ec38197b37b2feca79fac424c978"
+    sha256 cellar: :any,                 ventura:        "947612657144d9ad3daef6d9fd757d8375766ce35b7e33152c6b1b31f934dbba"
     sha256 cellar: :any,                 monterey:       "bea6368ad1257460dd09552dd86fb98b5c5315c0eac3329c18989a38e007e491"
     sha256 cellar: :any,                 big_sur:        "b8398b00865c1834a2b92b468c00ba3e37f204fda2fd50c5be77bf0a566f195f"
     sha256 cellar: :any,                 catalina:       "1742523da34593f4d819dd24f192d4fa7be9f43cee306630b8907b03c1de833b"
