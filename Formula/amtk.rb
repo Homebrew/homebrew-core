@@ -10,6 +10,7 @@ class Amtk < Formula
     sha256 arm64_ventura:  "1cf380d9dbde9c3a165f32fe7fbfa409cfa3ace1748d07e46b22678f548450c9"
     sha256 arm64_monterey: "f2b43d8dd35fb1d0f6da7cee85a96f322135bac94a1f59c783df4498b16ff1c7"
     sha256 arm64_big_sur:  "7b773cc55530831d0b2d5ea72b5b6f061b7988f68d72db771a7787dedaa3bf11"
+    sha256 ventura:        "6712f5ff43799d58d6dbbfd9f056057a3db085de298046dcef957052809b3970"
     sha256 monterey:       "5ac785fbfb332717bcd7e5999269675b55b3e4fdc227f29398c04a80d9aa85a8"
     sha256 big_sur:        "e4d747ffc31a622fb484e6f6e29ca844d31aec1add51da911a8c6750ba079f60"
     sha256 catalina:       "f057747729a7ced1beac244548ce06a22be404adf2d623ca10d3efacc3629e04"
