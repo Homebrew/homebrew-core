@@ -62,9 +62,9 @@ class Mold < Formula
 
     inreplace buildpath.glob("test/macho/*.sh"), "./ld64", bin/"ld64.mold", false
     inreplace buildpath.glob("test/elf/*.sh") do |s|
-      s.gsub!(%r{(`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", false)
+      s.gsub!(%r{(\./|`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", false)
       s.gsub!(%r{(\.|`pwd`)/mold}, bin/"mold", false)
-      s.gsub!(/-B[^\s]+/, "-B#{libexec}/mold", false)
+      s.gsub!(/-B(\.|`pwd`)/, "-B#{libexec}/mold", false)
     end
     pkgshare.install "test"
   end
@@ -85,8 +85,8 @@ class Mold < Formula
     # Tests use `--ld-path`, which is not supported on old versions of Apple Clang.
     return if OS.mac? && MacOS.version < :big_sur
 
+    cp_r pkgshare/"test", testpath
     if OS.mac?
-      cp_r pkgshare/"test", testpath
       # Delete failing test. Reported upstream at
       # https://github.com/rui314/mold/issues/735
       if (MacOS.version >= :monterey) && Hardware::CPU.arm?
@@ -95,8 +95,14 @@ class Mold < Formula
       end
       testpath.glob("test/macho/*.sh").each { |t| system t }
     else
-      system bin/"mold", "-run", ENV.cc, "test.c", "-o", "test"
-      system "./test"
+      # The substitution rules in the install method do not work well on this
+      # test. To avoid adding too much complexity to the regex rules, it is
+      # manually tested below instead.
+      (testpath/"test/elf/mold-wrapper2.sh").unlink
+      assert_match "mold-wrapper.so",
+        shell_output("#{bin}/mold -run bash -c 'echo $LD_PRELOAD'")
+      # Run the remaining tests.
+      testpath.glob("test/elf/*.sh").each { |t| system t }
     end
   end
 end
