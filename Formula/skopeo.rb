@@ -9,6 +9,7 @@ class Skopeo < Formula
     sha256 arm64_ventura:  "37a075621614abd79bcbfb9c5c64abab1fad493e47d19bb1cd0f1630adb514e2"
     sha256 arm64_monterey: "d5ffca5e5e85871bc9f5da16eda4c1e18e8cab435f7e8e7630655022fdd7efd2"
     sha256 arm64_big_sur:  "264d7c9a3d78d57889363310fc0b0d89805ca6c9000bfedb9add7ed8fcce5772"
+    sha256 ventura:        "3b70efb4bbe9ea12a936aa8ad293c66bd98a86f49448c7c80e6c744eedf8d6b1"
     sha256 monterey:       "fc7d4b2710a7bc49beb21d0b7bb71c9497318b265a2fdb4c69e5b7c037d2961c"
     sha256 big_sur:        "cd303761c608ef66899e7b1c0734056666b0ab5f7c55389e107cbe949161d8a4"
     sha256 catalina:       "bc7aaddfad6cfa1d1025d7349ca5eaa6bd1ec5621d1e072d2bed68ce35adb726"
