@@ -10,6 +10,7 @@ class Tepl < Formula
     sha256 arm64_ventura:  "18f2165befa0662b5395d502b02c65a6d857514632fd805a18c3157aeed61186"
     sha256 arm64_monterey: "8f52b66aa10dea51d06ad0d6ca54279daf6276c12e883864de29a3e111986f57"
     sha256 arm64_big_sur:  "6c276f27c811389bbb5f09885986edd6c1ab3e4d111cccf0319a92f13dc08c7b"
+    sha256 ventura:        "905dd3bf036df95486b3ac4d1d7e61a88edd92cc4b89bff849467ea1c479eabe"
     sha256 monterey:       "d04171cd0a6be5703bdb4a6252f1ab7d870c88fb532bd246fec1cb583ee63b90"
     sha256 big_sur:        "61f913564df68dd514f415699c9799506b5fae5a82e3e33b7a401b8ca4a18231"
     sha256 catalina:       "160f4c8816d99fead519f91409eee70714d778a3d0cd4983e615c7c049df7452"
