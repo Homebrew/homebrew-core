@@ -2,8 +2,8 @@ class Amtk < Formula
   desc "Actions, Menus and Toolbars Kit for GNOME"
   homepage "https://gitlab.gnome.org/World/amtk"
   url "https://gitlab.gnome.org/World/amtk.git",
-      tag:      "5.6.0",
-      revision: "2664f5141f097b3df0215454e1aca677a44f1cb4"
+      tag:      "5.6.1",
+      revision: "f0029cf75ec416159079a27b578b9253a04b1c5a"
   license "LGPL-2.1-or-later"
 
   bottle do
