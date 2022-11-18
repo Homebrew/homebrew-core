@@ -12,6 +12,7 @@ class Mkdocs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae2506731afa8fc63dc68c3f403bc0aff73a7ac5484e3c64f603b540008d1606"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "66e651c54bb7e2442895d68bcd2fe02d0ee880f067092d7760f4c0dcef668508"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1bf85d46fa68718d094cdcbd9f66994ab261a801df1d14699641758288af62dd"
+    sha256 cellar: :any_skip_relocation, ventura:        "646759a32bf6870ba667906fcee4eb0e4c2179974b59b4b0a27c37a430cb1574"
     sha256 cellar: :any_skip_relocation, monterey:       "066c663596361b756804f57ff9a5a12419daec106b7c28e96bbb26fdd5034e95"
     sha256 cellar: :any_skip_relocation, big_sur:        "9dd5bfa164f98fc097bf4a0e511712cdc780fa53ae694f3eb83e2a8d2c103dfc"
     sha256 cellar: :any_skip_relocation, catalina:       "8f54d85ad9bcc01e2e9de901919a65ff5432879ff82e0f12f633f378c2b38f33"
