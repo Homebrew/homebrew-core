@@ -14,6 +14,7 @@ class Pv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c7a202b5db64b567d51990e8767f1d3ea4282f1e4150bf5e20c048ecfacaf57"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "26f3259815cfa65ca346d1997762e2581c410b1213ae05af3098f5fe0016ac86"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c800d34963f021bdef3489cc9bc4adc2709ec1a364954d0babdbe532a28a126"
+    sha256 cellar: :any_skip_relocation, ventura:        "b2b7c09a055dccaebf1935da0e5cdd224752c64a7d435a38343a7ffca35e1a24"
     sha256 cellar: :any_skip_relocation, monterey:       "d340afd9df619d826d431cdc829226b76a0622bf0135860c44c7848f7e1a0908"
     sha256 cellar: :any_skip_relocation, big_sur:        "99cd5022561f488b19844267da97a2e211fed36d9300661f3a4ef23c923c6178"
     sha256 cellar: :any_skip_relocation, catalina:       "ac11cfd62d2bcd5e7191ce2fef6548269d466e50329e6b9c46887cd95ff1e9fc"
