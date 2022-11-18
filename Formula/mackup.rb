@@ -13,6 +13,7 @@ class Mackup < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f92f02b53047b2864afddaac52227cef58b9f3b8a79853644a163ff24c755b4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f92f02b53047b2864afddaac52227cef58b9f3b8a79853644a163ff24c755b4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f92f02b53047b2864afddaac52227cef58b9f3b8a79853644a163ff24c755b4"
+    sha256 cellar: :any_skip_relocation, ventura:        "7b5262d630bd84750ef2ad8a23d7e64a2ca538337a74fe51729da07c614efb00"
     sha256 cellar: :any_skip_relocation, monterey:       "7b5262d630bd84750ef2ad8a23d7e64a2ca538337a74fe51729da07c614efb00"
     sha256 cellar: :any_skip_relocation, big_sur:        "7b5262d630bd84750ef2ad8a23d7e64a2ca538337a74fe51729da07c614efb00"
     sha256 cellar: :any_skip_relocation, catalina:       "7b5262d630bd84750ef2ad8a23d7e64a2ca538337a74fe51729da07c614efb00"
