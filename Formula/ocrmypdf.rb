@@ -11,6 +11,7 @@ class Ocrmypdf < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ac9fe2a5bbf80ff0b9e9e1a8b47d6746413a925c49311b8cf90bbc1a9240fc1d"
     sha256 cellar: :any,                 arm64_monterey: "ad68c95dde311e0cd98fbdccff1122a2f82f54a176b4a7d9844cef74c7bfe2e6"
     sha256 cellar: :any,                 arm64_big_sur:  "f738d5205a18bf9a5a91613c2922a24049fe37db38175c882942312b9bf30c20"
+    sha256 cellar: :any,                 ventura:        "64150b27dbacc2e694250fe3d0cfdaf02eecd35b7fa35a6e22bf7ed761c96c51"
     sha256 cellar: :any,                 monterey:       "5ee482841861f096e51417c042cca6e4d77fb9669b16a25611b19abc6c55aa14"
     sha256 cellar: :any,                 big_sur:        "c2c13315fa9acc24e876601d1273133ac410710f62887567bf2ff7f385985419"
     sha256 cellar: :any,                 catalina:       "95ab975af5160b9f2dfd2a92c0e519c2fc17ee0143164026876ddb10a17218a6"
