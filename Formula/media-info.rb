@@ -14,6 +14,7 @@ class MediaInfo < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f2e869fa9da0e03394450e870142c6242b35763b3dc8b11a262b40008db94cf3"
     sha256 cellar: :any,                 arm64_monterey: "b3046f5d77a86bea2c529b5da95761a79bc2c3d5be42c6e2d5d95a32abbaf959"
     sha256 cellar: :any,                 arm64_big_sur:  "e08e6f4ca8de3e75f4464da131ce3484603b951887af9701c77ba889dd29c0f8"
+    sha256 cellar: :any,                 ventura:        "69ed99558190b07f0947df9dabb473f4616ad2e94da045046aa4976e639e81f4"
     sha256 cellar: :any,                 monterey:       "407e1877b42e010881224c3c6bae09d7a986995253c1e575b2bb1dc95d4716ad"
     sha256 cellar: :any,                 big_sur:        "dcc0c42e243b1c9861e8586b1460e1c33e6ba6109ba61972e0f04ff454cfe3ef"
     sha256 cellar: :any,                 catalina:       "eb7a956da46d4b5413487faf81ae12790d0486be771c454c389e4f9937f2d432"
