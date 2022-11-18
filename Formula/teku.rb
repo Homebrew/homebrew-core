@@ -7,7 +7,7 @@ class Teku < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "21372b639d8eacf8e648ec52f2afef66f425b3add2a461d4c4b0ea896b011748"
+    sha256 cellar: :any_skip_relocation, all: "ca2d21eb0f3ea9e5d8c50203684a52d2a20569004607e110d884153fb9f8a2fa"
   end
 
   depends_on "gradle" => :build
