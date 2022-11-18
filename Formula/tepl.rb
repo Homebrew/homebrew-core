@@ -5,6 +5,7 @@ class Tepl < Formula
       tag:      "6.2.0",
       revision: "34973a0d48ba5a0dd0a776c66bfc0c3f65682d9c"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "18f2165befa0662b5395d502b02c65a6d857514632fd805a18c3157aeed61186"
