@@ -23,6 +23,7 @@ class Lean < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d463cba22651a4e7eaf80adba13fb166c624dec2e2e56d87c3c9d8b7e97e01f2"
     sha256 cellar: :any,                 arm64_monterey: "90ff53692ebe5de03512548147255d8b1cd656f75dbf01553a44e1aafd8e82da"
     sha256 cellar: :any,                 arm64_big_sur:  "8648c3545516d45f24b65353ac015fe72638da758219fb0ab5229fc52ae349de"
+    sha256 cellar: :any,                 ventura:        "2510670fb3775c56259a4d2e0dd9bdeb67710b606f453e7cc22b851960995d7c"
     sha256 cellar: :any,                 monterey:       "7f113064021ac6194c048f6c9afaeece7a81e9058367d52a49f7ccfd4e032635"
     sha256 cellar: :any,                 big_sur:        "3575ca53b32ef46960526c21499fabbb45161b45d383df43997d62ef3946cb7f"
     sha256 cellar: :any,                 catalina:       "25107a5c8310039640b0a22f851d0caa153057ddd45a80be2435514ef9a0ac6a"
