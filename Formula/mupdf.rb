@@ -15,6 +15,7 @@ class Mupdf < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1ffb56d1bfb6207f217c62024380506fc6a7806270b1b84c6bd751c1c4c17b5c"
     sha256 cellar: :any,                 arm64_monterey: "fd53c923bf3ef8d6dfbc4e17d964dea8f654f33895ab17bc68a13e7257f31d99"
     sha256 cellar: :any,                 arm64_big_sur:  "d4de8eca45bddbaaffa4f967810e4cccf6bea5fddada820dd485e32459091e8f"
+    sha256 cellar: :any,                 ventura:        "d5887088e8636605da86c9499734aa214b6d2c6c04e51108d381d7268e6a913f"
     sha256 cellar: :any,                 monterey:       "ba5d902321147f9c470410c4cc2cd65e4f327a48ed604ba10afe807aff2494cd"
     sha256 cellar: :any,                 big_sur:        "e1ca6bb0d8578b49f7bd53377fc52e8c55b98e8861b849199855b5c70430188a"
     sha256 cellar: :any,                 catalina:       "453fe6af4893acd064313e020018e96a9928abbd24e9fb9132247c217635cde7"
