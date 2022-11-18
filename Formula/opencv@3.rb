@@ -10,6 +10,7 @@ class OpencvAT3 < Formula
     sha256                               arm64_ventura:  "7e781bbd9512e29fb16453dc99d90d08c58da6f4eb8d5928021bd79b319078d6"
     sha256                               arm64_monterey: "f75bb2d7f18c01bca91163c1b4e92dd58a28f9bd3e8ab56847a0d0d6634c2c79"
     sha256                               arm64_big_sur:  "4e621e0ff3d86735c4512518c85c53a836ca9e302dbf24868b3a7e738ce3d4c9"
+    sha256                               ventura:        "64c6d7e78c93eb2e57bf4ef33d5dabe83cce246404de9971b631e73bd6fa5475"
     sha256                               monterey:       "36fa66447534208b967e820a302647cb4b3ff47a6c589250094bceb6b56bb70a"
     sha256                               big_sur:        "4429807d11651fa53a5f37bd6f0a7b2ec3e46cb021450e3b4aac0feaca2433ac"
     sha256                               catalina:       "1868345fbc6ccc3e573ab768509ca65086f20c5aa4d59969fa46229a4fdb7876"
