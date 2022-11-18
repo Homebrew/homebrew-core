@@ -10,6 +10,7 @@ class Croc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f57cf144654cc457c1bd57335f716cfd7ecf29d95019ae6f1dbab386e4db2ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b01eb1a0bb2ec668c78acac37dfc5f3f3c554da3e02ecf3690e2f8d6c45b1a37"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "588831172eb24226929ae597190101cf18aa37ef88a13dc9843298bb46723fbf"
+    sha256 cellar: :any_skip_relocation, ventura:        "f0fcaf8ee33b3288b11c24aa459456a29e754b32520cf47dc1da8a9a6ca08e02"
     sha256 cellar: :any_skip_relocation, monterey:       "a4f3a9d0eafba3aa54c26121667a4f6c75ac65c54a1031702c47ff6060d01d35"
     sha256 cellar: :any_skip_relocation, big_sur:        "5287371ab9f325be27dd5203d3744d6f11e8fbabd4a2bed2939fb3c16f8eef18"
     sha256 cellar: :any_skip_relocation, catalina:       "e8db9add1b8790adc7bc9baf99165351037f3a5d43697fb95a4125396122099b"
