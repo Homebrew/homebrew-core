@@ -15,6 +15,7 @@ class Kops < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d751e4c2acff1f146842eebf3f5b3e1c7b409776bc22b01c89ee85992530c0b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "48bfc69bf5fe102dd03df369e376bebdd295f7e216ef5f15419783ff73bb5d62"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffd67ff997c84e36c8aa7ac3b5e9980b17624175e90910f6ee9883c3fd70df2c"
+    sha256 cellar: :any_skip_relocation, ventura:        "08e8b084de6dbe193170bb94b5c43b02598df5029ecf4cecd91f356d0632c2e2"
     sha256 cellar: :any_skip_relocation, monterey:       "f151541fccaa8e301eaf5c5e7c3b98bcd3414571b5d7b003bd9a65e87f094c3b"
     sha256 cellar: :any_skip_relocation, big_sur:        "3b33124556aa9d385014a791ef27dae5ef7ed9bea8e9bf18adaa26a644b1f75a"
     sha256 cellar: :any_skip_relocation, catalina:       "824cee5a1500e0a9361af5aef146e2bb79eb61106f08df42305a0fb394fc480a"
