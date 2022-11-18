@@ -43,9 +43,9 @@ class Mold < Formula
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
 
-    # Undefine the `LIBDIR` macro to avoid embedding it in the binary.
+    # Avoid embedding libdir in the binary.
     # This helps make the bottle relocatable.
-    ENV.append_to_cflags "-ULIBDIR"
+    inreplace "config.h.in", "@CMAKE_INSTALL_FULL_LIBDIR@", ""
     # Ensure we're using Homebrew-provided versions of these dependencies.
     %w[mimalloc tbb zlib zstd].map { |dir| (buildpath/"third-party"/dir).rmtree }
     args = %w[
