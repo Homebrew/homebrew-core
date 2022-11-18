@@ -7,6 +7,7 @@ class Ipmitool < Formula
 
   bottle do
     sha256 arm64_big_sur: "2e6e3fea7a8cadd51398d01f72cd0006ebe5ec829d507dea76a5a95d7edd5272"
+    sha256 ventura:       "38b9675a7c608cf7e12942fe25fc009a94926ee28c5d4d1730e2d5a609b7743e"
     sha256 monterey:      "77afdfc5d78d5bf3648ad8735ceeebc0bd9e828cc4745ae8a3f9bb9a21bf84d0"
     sha256 big_sur:       "48374423f791ed6480c95f1ab3b3dd1b3b001d26fd10209d381a6cdf345881c5"
     sha256 catalina:      "6150b711f1eadfc1efe639b27f499394c45e06c2a72effacf76136f8d5ad9d2f"
