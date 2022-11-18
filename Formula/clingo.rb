@@ -15,6 +15,7 @@ class Clingo < Formula
     sha256 cellar: :any,                 arm64_ventura:  "dfec1f0eb737df1bd9b4fad7cddf317b1ffb6955159d239a4365254d0377555e"
     sha256 cellar: :any,                 arm64_monterey: "345c187bc69d49333751f96f99290c956b158e27866b3eabc435cdcfbc65292e"
     sha256 cellar: :any,                 arm64_big_sur:  "5e2632bbee295c7cc2a9ba8eed350239727de547ba260a9a40b0f229b7cac832"
+    sha256 cellar: :any,                 ventura:        "70968734320df38092e4b76df17341d2a922af27f1ea5098a88ac92c9571986f"
     sha256 cellar: :any,                 monterey:       "f2aeaa02f678c37d887abf3e7d21bb87415e52ab58b7ea06dc713ee31113c004"
     sha256 cellar: :any,                 big_sur:        "8d6b17dde67f90a30393cf1d6a23eec982cf9ba7bad8ac3f3ea295f3212e8a08"
     sha256 cellar: :any,                 catalina:       "b426635cba6344e6c8a3935652d2857b1b8b8bfd16686f772f08b969477aea73"
