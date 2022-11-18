@@ -13,6 +13,7 @@ class Cassandra < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "db53945550e0a2e0838c6d9e9d1d934088f81203d4befcdcffb5e6498a969a98"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8bbd031f90392e885ea405273095089b9fac33360ade72608ee744aa1f985475"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb18744b3e1dbb3d00d83a1cc9aad047a4799ecc3796e8fc954d27ecd1e0e157"
+    sha256 cellar: :any_skip_relocation, ventura:        "5998eb51ec00e6b9dc5f0d49b5c50d725c5ce58ea185cd3fa0c49321d153dfb4"
     sha256 cellar: :any_skip_relocation, monterey:       "d8165cdb52880750272909883eb0fcc5fa4c6aa35759361ce027e24ad278c08b"
     sha256 cellar: :any_skip_relocation, big_sur:        "c0cf55d9cadac0d31cc4e80cbe22a0a7859755e07521a4370410aa1f6d6cbb0b"
     sha256 cellar: :any_skip_relocation, catalina:       "a5913bb8b78e2ee11341f3dbf39f9abfb29f548057179e4d63696dc6cb26ef97"
