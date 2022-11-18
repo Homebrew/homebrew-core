@@ -12,6 +12,7 @@ class Daq < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ff4e8cf721ee25800c76a84da783de4460a60d4dda8e52ee97e197e9f80ed103"
     sha256 cellar: :any,                 arm64_monterey: "d4130b24a54d1970abc80c78fe0700a7d1439342cadf0954b670d409c9e6e056"
     sha256 cellar: :any,                 arm64_big_sur:  "c571650f05f056057fb4fa371a65324f69b8ee4e92141d2cc89f6b62ad0635e7"
+    sha256 cellar: :any,                 ventura:        "33970a226a1fa18c0d5fbc28c269050901c71b0ad2d50f3fc72769143bed77ad"
     sha256 cellar: :any,                 monterey:       "73ee328396478fb0917831243ac4062fd3376d2677d37c18df9541b1f8aed8d2"
     sha256 cellar: :any,                 big_sur:        "621808c8004d6844e9160ada9d3de4f56bfbea57930ae457e5357335013cfa5a"
     sha256 cellar: :any,                 catalina:       "c4614ecbb53985794c77cfc44c86717ff7fd735c4f101e716952e5ae789f9f11"
