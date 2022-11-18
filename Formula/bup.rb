@@ -17,11 +17,11 @@ class Bup < Formula
 
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3.10"
-
+    python3 = "python3.11"
+    ENV["BUP_PYTHON_CONFIG"] = "#{python3}-config"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
