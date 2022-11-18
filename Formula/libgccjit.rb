@@ -25,6 +25,7 @@ class Libgccjit < Formula
     sha256 arm64_ventura:  "96e4b528984f59182ee7aed7861a740233140d032502841ebb66c4b94410796a"
     sha256 arm64_monterey: "b9dfa10c1e056616bc9d637c03617e13b4620b613678e0abc45af4d3869328d5"
     sha256 arm64_big_sur:  "40984147835921a54fc6474ccb118b8c8ecf0886d8df0b9237cebc636abe4fdb"
+    sha256 ventura:        "c61ebdda50c654fec1fbf5661fbdd90f17b2ead5df10255b6a150370c6b25fbd"
     sha256 monterey:       "f60548bf308d057615d804c8c57fe76bf9368e8ca73cf94f0c8cdf98d017340a"
     sha256 big_sur:        "43289b749acef40ffc8a3e23d4dedc8573be1203f62dd4f481bb1ce01c271ecf"
     sha256 catalina:       "dc1090d2da6c7c4ae491b361107103451314233e472d5bc868c05c4feb842076"
