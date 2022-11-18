@@ -19,7 +19,7 @@ class Spiped < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5688ae1fdf0012b91c336d8a802358a3a248d83ff97fa882ec5319454e1f8823"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_macos do
     depends_on "bsdmake" => :build
