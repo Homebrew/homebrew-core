@@ -116,6 +116,7 @@ class Mailhog < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "064eeda058dfb73d1d9c7c80e8cbb057316e3d57df3fc3c8e4a1ff0e59bd16b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fa7cdfaf00181264a52b41a9214a257c3af8194a34e0df28d11315b47ad4ef6c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bfe1d9cc4caa4037812957872b58eb2c350aae7adfac47d5f59c1b487b5bf709"
+    sha256 cellar: :any_skip_relocation, ventura:        "ac7abbff2f54b1f872bddb9d7f1d7e713914e76441515213230cd5c2a8b295b9"
     sha256 cellar: :any_skip_relocation, monterey:       "bd89b132b8410a723d89ccddd96939453a2233716766c57195af4b6445adcc99"
     sha256 cellar: :any_skip_relocation, big_sur:        "400e7c11562a81beee0edd8d43a6dc034363e7f75f3dfdee2d478a37582143ec"
     sha256 cellar: :any_skip_relocation, catalina:       "48bb0d6e01d939b592bfe53cc887ddeb0ff97d7d2fd8e2e1b59636e3ca7fb0c4"
