@@ -13,6 +13,7 @@ class Cookiecutter < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "976519ec3673bc4c250bc0a0e82088ee0d6281a8e686ad69749076d72d47e5f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "898929c74f9af6b3d1f6d92f65fbf9a7ed6a36c0946fb93bd78ebf854b69f3ff"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9578c5ade6ab9ed951f170f23e1a586f8831c56025d7502c36d5b5f84c32aa35"
+    sha256 cellar: :any_skip_relocation, ventura:        "1b28228bce1ef73af75efb6214146a994f124e670664505798beca6e41cc326a"
     sha256 cellar: :any_skip_relocation, monterey:       "bd3d3c2896c70991f56ba7677a038c4d50e2dc8c5844ad0861549ced5d8b4ea1"
     sha256 cellar: :any_skip_relocation, big_sur:        "561e540f569764e56c252d7f75c1530086c14bbb863973cd959d4b6c2b42ff6a"
     sha256 cellar: :any_skip_relocation, catalina:       "9239818f56d62ec3c3bae26d8f3609d92dc75cd57032f2b5b23df8e7603273c8"
