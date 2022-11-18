@@ -14,6 +14,7 @@ class Less < Formula
     sha256 cellar: :any,                 arm64_ventura:  "390f1b4652817cd10840047fced9f4accc4854ac1b4c8eaf70edcf7a63f291e5"
     sha256 cellar: :any,                 arm64_monterey: "0c111d7d5f231c4b409d4e6441ebb1cfc40bdf440c1bd7d6fff11b1e16adfc31"
     sha256 cellar: :any,                 arm64_big_sur:  "ecc9669f294fd8d3826f3c513590387a2dd37a248d4bd827c8301d857bf6cfa4"
+    sha256 cellar: :any,                 ventura:        "031ad93faffc4dad178a2708c638f6bf1c22609669006b06705221c75a152022"
     sha256 cellar: :any,                 monterey:       "b5cf2d6c6e1a6c23d9086323c4363a022e1e2264dd4f0e1a287396beb88edced"
     sha256 cellar: :any,                 big_sur:        "2d40fdc792b4aee7bc4016cb1daf3c14708c7f90f464fb49a5dd6f6f659809e8"
     sha256 cellar: :any,                 catalina:       "5a785fbf1ac017df8814d9b86cd0fcdbacfdc4159e80da7ea738b1944cd1e9d6"
