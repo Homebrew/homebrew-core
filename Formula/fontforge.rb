@@ -11,6 +11,7 @@ class Fontforge < Formula
     sha256 arm64_ventura:  "2877b10547ba4cd29f862f6c1dc1c309d77160cd5f2c77579e293b2384fafeed"
     sha256 arm64_monterey: "c4c7c43b312119d9b97d42ebaa210697568cf22ce82498cf8813e5ec58ab37b0"
     sha256 arm64_big_sur:  "eb069fa8949ad7af2695a89274759db5cb38e98e9bcc23fdf30c7de72a9d6d53"
+    sha256 ventura:        "03acf1f910c8092b29c06f8c4f893ddec0902b4bcebe4dbe7172fb7d3e2449a7"
     sha256 monterey:       "44b3d610d061ef7fe534c2987335139d66864bafef53a3e7ba49cb84aa1275e5"
     sha256 big_sur:        "228b244c5aaea2c32509766bff600123517f2f2a8237c55777c4330cb2172ca9"
     sha256 catalina:       "de84a69c165f80517bdf2a20de3449ffb15e8ca17d02d4f5e7d3dfd7a298b32c"
