@@ -15,6 +15,7 @@ class Po4a < Formula
     sha256 cellar: :any,                 arm64_ventura:  "abb3c590a097f4af80c367d9bbd1d08cf0d0a3f5ca24240a90f67eaa90d9e55e"
     sha256 cellar: :any,                 arm64_monterey: "ad1b25559dbaa2aac93c9f98ed0481253d855ace71bce2e08eda54553aee3f6d"
     sha256 cellar: :any,                 arm64_big_sur:  "9b419d577f2075c523bf97fc0c26f658355e3982f6f4a928100e333a1c2d5b80"
+    sha256 cellar: :any,                 ventura:        "96df00b3e4e241a6466ebbac8c0ab45b9c6b05893c72f1061201aa095f41b886"
     sha256 cellar: :any,                 monterey:       "2a52abf9c7013fde7c322182f7f684ed9668fe420099654059dc1e7167e119d5"
     sha256 cellar: :any,                 big_sur:        "4a952520a382ea6bfd54b846efe889772e0e60fc2159b09de8d459487c057343"
     sha256 cellar: :any,                 catalina:       "508cf27a539e7c219d771ee26484ec9bd058f093e7f851592a69c9e45f5929a9"
