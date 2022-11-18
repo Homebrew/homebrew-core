@@ -10,6 +10,7 @@ class Ipopt < Formula
     sha256 cellar: :any,                 arm64_ventura:  "fc6c7bedde96fc35648977b139512b362fad725ca0b077ae81d8e9837482d327"
     sha256 cellar: :any,                 arm64_monterey: "54cc1b57236969fdad45f1a4ff73e29fdf9e4af58d1dabf3d01a446218b8a0ab"
     sha256 cellar: :any,                 arm64_big_sur:  "71167535aa241013a89e28d0c4ca501761c4994a17999637b3eb6f5e66b61970"
+    sha256 cellar: :any,                 ventura:        "e0a8be6bf66a7de0e71a1e043a1dcce27beaa0581b105ba4cc1012049576b6be"
     sha256 cellar: :any,                 monterey:       "b3e367d33c22743a10561b46eabe72fc6ecee6f56901840dc479d6d52befe676"
     sha256 cellar: :any,                 big_sur:        "387e60fa1f4d813ec635220969acdcca2ac30de74b4982a8b4f794207403f7fb"
     sha256 cellar: :any,                 catalina:       "64ab6e5f56bc1b193a94335556bae4eeef7d608eb1ab874b90619c0125211770"
