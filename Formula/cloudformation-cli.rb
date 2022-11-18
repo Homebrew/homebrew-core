@@ -3,8 +3,8 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/80/ff/4468e1f8b3925de41d4fb873789673028bfd871f57624a2f9be0c88183a6/cloudformation-cli-0.2.26.tar.gz"
-  sha256 "1580c5f575751495b2fa4d47dd9ffd58e0894f40cbec8bbd68f3eefffc425144"
+  url "https://files.pythonhosted.org/packages/b8/0e/86aa3e4f7a07e268e232a7ae2ebdf1f9687d67b6b8101d26f7e5219488f6/cloudformation-cli-0.2.27.tar.gz"
+  sha256 "47e570354bbb52a5417323eb172dfcbc791d3bad00129ec3de0e6e49469826bc"
   license "Apache-2.0"
 
   bottle do
@@ -29,18 +29,18 @@ class CloudformationCli < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/41/5f/7a38af115796ad4f134e6caab373a6931d867a4fc08e3312a794f1256c0c/aws-sam-translator-1.53.0.tar.gz"
-    sha256 "392ed4f5fb08f72cb68a8800f0bc278d2a3b6609bd1ac66bfcdeaaa94cdc18e5"
+    url "https://files.pythonhosted.org/packages/d3/47/c7b4eb84fb294f294df45fc75cf8e1fb987535f5adbda5d2e53c47e0a2de/aws-sam-translator-1.54.0.tar.gz"
+    sha256 "a3ae79f1f2d430f5ade4d245165d5612414233f540b471d170f1aab95c3713a6"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/df/e4/893fc4af6ee0c801725b48ba4d3120705126edab71e0fe84f8eb4850c427/boto3-1.26.4.tar.gz"
-    sha256 "244fd0776fc1f69c3ed34f359db7a90a6108372486abc999ce8515a79bbfc86e"
+    url "https://files.pythonhosted.org/packages/64/69/575173ccf46eb5355185e5e91a43a86cf6a713d20787c178456ef97dde6a/boto3-1.26.12.tar.gz"
+    sha256 "73da24667fe1351cef0f402ee9cd4589a0a9d97b617caca3c25b5cdc38f9d62c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/32/c1/3a3cbbdc58a71c1dfafbeeb79dd09b68a030ff5c52df7ad8e87d5ed57c10/botocore-1.29.4.tar.gz"
-    sha256 "fa86747f5092723c0dc7f201a48cdfac3ad8d03dd6cb7abc189abc708be43269"
+    url "https://files.pythonhosted.org/packages/c5/61/2eaf9a88672abd7bfbc7cd1638b086ae817e7d776246ce308f7e5df26d10/botocore-1.29.12.tar.gz"
+    sha256 "fdae73306a41a30697be300bdecb1e0d560d453c6d748891856beb87e9f6573f"
   end
 
   resource "certifi" do
@@ -54,8 +54,8 @@ class CloudformationCli < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/f6/05/5ac29348eabbaf6af2f9457ed6efcf8c50fabdf17db76973b1a0cfe28e2f/cfn-lint-0.71.0.tar.gz"
-    sha256 "43e62b872a0deaa1f2ecfc8b4f69ce29ea0fb27373f64e901d7bc0d7a97c15bb"
+    url "https://files.pythonhosted.org/packages/79/5b/f35b5681e3c0670a0b8acda2a9c5f9213ac7e424c4787a5a846a49536576/cfn-lint-0.71.1.tar.gz"
+    sha256 "21769d24815f4d86221100705e14114b03303546905c62bb577a695bc3d50a67"
   end
 
   resource "charset-normalizer" do
@@ -74,13 +74,13 @@ class CloudformationCli < Formula
   end
 
   resource "cloudformation-cli-java-plugin" do
-    url "https://files.pythonhosted.org/packages/9b/8d/3aaacc6438c7d015a6ee59c1550aaee8d846c2ad1638c820960edc8b3976/cloudformation-cli-java-plugin-2.0.12.tar.gz"
-    sha256 "e380cf5dc2c0029e49eaa5f224578f6b72ece65480f7b0231afff8d07d18a90b"
+    url "https://files.pythonhosted.org/packages/f7/34/b8dfd46aecf1c43bb2899bb3453011f852b1dafa7b8e2d461826111186ba/cloudformation-cli-java-plugin-2.0.13.tar.gz"
+    sha256 "4356f716877994fd541259d9f580a5a99c3b31a08615ec8c0ff70c39724813fb"
   end
 
   resource "cloudformation-cli-python-plugin" do
-    url "https://files.pythonhosted.org/packages/23/8f/ae19c173ba81bfb854edbb9ef4613784315a13d66ffc0f8a0d77aeb4d316/cloudformation-cli-python-plugin-2.1.5.tar.gz"
-    sha256 "77ae7e968e09abfa604edcdefa26db25d8a2ae14006ba1756985345bc8c1db0e"
+    url "https://files.pythonhosted.org/packages/15/c5/c97caf801bde5ba97f5c9d0e22a6a3122bf132ef62f5152496f1b9562416/cloudformation-cli-python-plugin-2.1.6.tar.gz"
+    sha256 "e7d8d09ed22ce4b496831c0248bbd323b4c9bb876a3019d37753e213f544b5e7"
   end
 
   resource "colorama" do
@@ -94,13 +94,13 @@ class CloudformationCli < Formula
   end
 
   resource "exceptiongroup" do
-    url "https://files.pythonhosted.org/packages/13/55/43ff6658a50a7f722d2f904810b42514c23a5d649d8a5d890cdc16b617de/exceptiongroup-1.0.1.tar.gz"
-    sha256 "73866f7f842ede6cb1daa42c4af078e2035e5f7607f0e2c762cc51bb31bbe7b2"
+    url "https://files.pythonhosted.org/packages/fa/e1/4f89a2608978a78876a76e69e82fa1fc5ce3fb346297eed2a51dd3df2dcf/exceptiongroup-1.0.4.tar.gz"
+    sha256 "bd14967b79cd9bdb54d97323216f8fdf533e278df937aa2a90089e7d6e06e5ec"
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/ca/e1/2ba1de06963fe0ce8532d30c53c4c8baae6ae0bebeba1a1689e63818548e/hypothesis-6.56.4.tar.gz"
-    sha256 "313bc1c0f377ec6c98815d3237a69add7558eadee4effe4ed613d0ba36513a52"
+    url "https://files.pythonhosted.org/packages/fe/2e/f71ef11bc565014bfb9c9f43bca353778bfea2ce673942301e44491d26c8/hypothesis-6.57.1.tar.gz"
+    sha256 "1d8ed5136f368e343f39172b06f68aa7fd1312cf643c332ab18a75d56789fa90"
   end
 
   resource "idna" do
