@@ -9,14 +9,13 @@ class NameThatHash < Formula
   head "https://github.com/HashPals/Name-That-Hash.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "690f64fd6219fe0663b9f1a5e82878ab1f778ff8ae7d5d1ac9d057c0a96934c9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d6d2ec69762f0751d28c47d1b1f9baa6cba546570521a4898e584eca07eb34b3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1437e050afdd7cf7227f99291ca4a13dadff86344d0a7adb22571cb7b678602a"
-    sha256 cellar: :any_skip_relocation, monterey:       "a48971481563af910804aa80cd2b27a36623893172ed002c202358b0783322f5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bbdeb7f5a48fb500dd53fb00cfd0c65e7ea1dc45b70b0b3f54ddd9694c1d2ff2"
-    sha256 cellar: :any_skip_relocation, catalina:       "ea1513c35ed319ff5f9790aa250104a5f913ababd5c97963ea32048c186b7937"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf88ca226e5e04567c9f95fd839866853fcfa413e5ab4b16d805a126db752ad4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4020cbb09cbe8736a98bf84fce42b9a56391abc6cf425ce4b0891e758b10b7b3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e6c3c27debfd317c58804ec0261ff40656d85672551c24eb120d7df4b8aca09"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b19a1655bc7711f5c231b30851812cd9e79e8af1a2733ad8f58796a4b9f693c"
+    sha256 cellar: :any_skip_relocation, monterey:       "a4cc533509369346aa8386b3e91327bc0b5a2838916229ce8d8fafac70ac239f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "504dbe235e16c8321c68bbcfce7258b24af6da3d754d5b9d11882da7c71d2c6a"
+    sha256 cellar: :any_skip_relocation, catalina:       "ad00a4e99937b98ac9c1e317e8d3e544bc954a46b9fcbc4fdef343ce381a97f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5635edb4f1faa51b8096a8b55e73e22e95319634a29421e800c808e15ba5a721"
   end
 
   depends_on "python@3.11"
