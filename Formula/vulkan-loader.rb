@@ -1,8 +1,8 @@
 class VulkanLoader < Formula
   desc "Vulkan ICD Loader"
   homepage "https://github.com/KhronosGroup/Vulkan-Loader"
-  url "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/v1.3.234.tar.gz"
-  sha256 "aa4a24b162e8b719c0137b090dadd16970e71e2e3a33e5426607a42142ca4a19"
+  url "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/v1.3.235.tar.gz"
+  sha256 "948407ba3662801b87bae170db2ed1a7aebe900bb66405be7d301bf656140595"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Loader.git", branch: "master"
 
@@ -24,7 +24,7 @@ class VulkanLoader < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "vulkan-headers"
 
   on_linux do
