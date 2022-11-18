@@ -24,7 +24,11 @@ class Stuntman < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "openssl@1.1"
+
+  # on macOS, stuntman uses CommonCrypt
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "make"
