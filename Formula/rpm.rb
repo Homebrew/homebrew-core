@@ -17,6 +17,7 @@ class Rpm < Formula
     sha256 arm64_ventura:  "f50bae938e1e727d9653ab655df667be722360ef0641d4e33435b9f5b1b2aada"
     sha256 arm64_monterey: "07c3b5a832fb5c1b75e2096a9146ca47d22750277414f98b4b3bb91c6ac01450"
     sha256 arm64_big_sur:  "4a4e308c175c19023fb3128ec13b0acca85e761c1a8a9e525e8c8e31dc74ae4f"
+    sha256 ventura:        "0150063eb81f2e291de7c967597bf8a2ddbf4f86a781691fe448d5bfcb559a64"
     sha256 monterey:       "d12aac69e0a3306982c6327fa220a54b1a2f1a3224e09555a6af65fec5a43fc6"
     sha256 big_sur:        "f213bde4157208b400ad3927bbc694e2cbcd652c25ed4293e524793f62b0cb36"
     sha256 catalina:       "e7982bc9769b7fbfcb00da573dc3d4160a3ae95a9a68bf02d4bae2c4e10faee4"
