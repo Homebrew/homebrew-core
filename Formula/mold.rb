@@ -101,6 +101,9 @@ class Mold < Formula
       (testpath/"test/elf/mold-wrapper2.sh").unlink
       assert_match "mold-wrapper.so",
         shell_output("#{bin}/mold -run bash -c 'echo $LD_PRELOAD'")
+      # This test file does not have permission to execute, so we skip it.
+      # Remove on next release as this is already fixed upstream.
+      (testpath/"test/elf/section-order.sh").unlink
       # Run the remaining tests.
       testpath.glob("test/elf/*.sh").each { |t| system t }
     end
