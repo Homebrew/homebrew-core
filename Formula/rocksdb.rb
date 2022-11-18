@@ -10,6 +10,7 @@ class Rocksdb < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a0e7ef10686b7155336d9b045d27eaf8b2b3e48907a397757c818bbb3f200879"
     sha256 cellar: :any,                 arm64_monterey: "fc6a30bc3ff663c9552e24686f99b0a13abd36ce8d01992ccac7bb72c237c252"
     sha256 cellar: :any,                 arm64_big_sur:  "f28d9effc53b5a1c85364143b15d8a0b61e7b95ec881a7eb55247727c03acf21"
+    sha256 cellar: :any,                 ventura:        "9f58ba670a75f345f637ca80b97e0a3225f0935c07751203081407f627b5f828"
     sha256 cellar: :any,                 monterey:       "a250842369f320e6bcfb87ab6b4ef412d5b232607314102c799b44000706d8f0"
     sha256 cellar: :any,                 big_sur:        "4de3efe58c5b10db771d8586e8f4a71b8f4bfa8f024dc12786455a1d7e2ff2ba"
     sha256 cellar: :any,                 catalina:       "abf30f60918601ae205793998d12ece84040b391c7a8553ef753e62a095ca4cf"
