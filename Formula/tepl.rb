@@ -8,14 +8,13 @@ class Tepl < Formula
   revision 1
 
   bottle do
-    sha256 arm64_ventura:  "18f2165befa0662b5395d502b02c65a6d857514632fd805a18c3157aeed61186"
-    sha256 arm64_monterey: "8f52b66aa10dea51d06ad0d6ca54279daf6276c12e883864de29a3e111986f57"
-    sha256 arm64_big_sur:  "6c276f27c811389bbb5f09885986edd6c1ab3e4d111cccf0319a92f13dc08c7b"
-    sha256 ventura:        "905dd3bf036df95486b3ac4d1d7e61a88edd92cc4b89bff849467ea1c479eabe"
-    sha256 monterey:       "d04171cd0a6be5703bdb4a6252f1ab7d870c88fb532bd246fec1cb583ee63b90"
-    sha256 big_sur:        "61f913564df68dd514f415699c9799506b5fae5a82e3e33b7a401b8ca4a18231"
-    sha256 catalina:       "160f4c8816d99fead519f91409eee70714d778a3d0cd4983e615c7c049df7452"
-    sha256 x86_64_linux:   "8c566f691444739841f392c6ffb933bcfc4b8927686278c2c10faae53f04365d"
+    sha256 arm64_ventura:  "1c9ec2723d505a5d66d701753cf2d318cb956cb702f3a66790d200b5d865cf34"
+    sha256 arm64_monterey: "afd66c86e1724521d508e6b78e6e1b698f601570197bd0cd5ad717b660f44f0a"
+    sha256 arm64_big_sur:  "1217ede948528c5817ebf00c6f45fbc67dc55f6d7f407fefed254a35b0bfca2b"
+    sha256 monterey:       "f99e1794bd7a04a432f770e41913e5ac59041441be8281dd1389b6e8ff580d15"
+    sha256 big_sur:        "54f0f0e7d72108b6fa2475e64b32907dd56740d4300e13cfbddd441d99636072"
+    sha256 catalina:       "876e9bacac01b7e9c8d5e11ceb81cf82a25f81b0316eb12f427f786c89f7894c"
+    sha256 x86_64_linux:   "a1e7fb602eb95892bd9c12a6b4c141d1b44eecda2f01127a7b9d418c51636604"
   end
 
   depends_on "gobject-introspection" => :build
