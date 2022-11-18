@@ -14,6 +14,7 @@ class Lnav < Formula
     sha256 cellar: :any,                 arm64_ventura:  "744155bbc1e343427acdbdc2a02307f05015b0b1880742a88907b79d035893cb"
     sha256 cellar: :any,                 arm64_monterey: "364cc0e9958a7a9b1daa0899a9c4a29b67fdd117d6804f66f83bb1bd429dd971"
     sha256 cellar: :any,                 arm64_big_sur:  "97fff24ec910f9c73624d2962315cd9d69f2a4582e15ac9a36f641aa669f434a"
+    sha256 cellar: :any,                 ventura:        "3064b0e3888ac5c3c32c36fed7a4712e303be92d235ca8f6a02c4742ab698e38"
     sha256 cellar: :any,                 monterey:       "0d6dadc6f2495f5199e25095bec8093e8b838077fb1b093efb12142c38d475e2"
     sha256 cellar: :any,                 big_sur:        "bd67b7bdf92a9cc99064a0ec2bf6019f0eff281712549c36503f704ccab77a1a"
     sha256 cellar: :any,                 catalina:       "9e2ec27502d164cfd2c415b673009fd280d607c27262d5136145fd59ebfdc8de"
