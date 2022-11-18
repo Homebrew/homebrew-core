@@ -10,6 +10,7 @@ class Shfmt < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe1ebcef336d049ea6e60433b77f6463a3a0aaa9b9d63462c618cf67278e67fd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "633116b598a60ad576a79753208e13388f6a2460139c8aca44e5a25befdb017c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b0653c0a44f7db5e78c5c6d67de534a52c4f588fb65e3acbb8211d06b871bd9"
+    sha256 cellar: :any_skip_relocation, ventura:        "bec92bae5a941adea370589ca555f120fc9be33d0f04c75dcb337bad8b47ffa5"
     sha256 cellar: :any_skip_relocation, monterey:       "e7168603f81cf1357c2460c5c476fa66bf5421183d4dedeafe9cf38550fe8855"
     sha256 cellar: :any_skip_relocation, big_sur:        "0e0683566d83cceecd4d02596e3c899a640918ff067b6e15e10f8aee424f1759"
     sha256 cellar: :any_skip_relocation, catalina:       "4fabb118ba0da244f2b0ffe280b28e343712fac23e738ddf1db29fad68526d73"
