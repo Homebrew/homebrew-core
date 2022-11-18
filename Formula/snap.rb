@@ -15,6 +15,7 @@ class Snap < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecc7e1d7f0f674aa91c3c61da4f94eb65620c0afb5dbdaac280200dccced4b0a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "936cac46a02ef15b778333f62aebea84f574a6a15bd8a3d79798b96e75068399"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4ce43f7314e73f1cb46bf34f9d13501dbbed0a0de7bd80137c1f4b0d29c8e98"
+    sha256 cellar: :any_skip_relocation, ventura:        "09ed297da017261e8a656a9c038dde86945ae139515d73dd3dad256fe88d11a7"
     sha256 cellar: :any_skip_relocation, monterey:       "8f69ee661309d0f874accb20495f13191b0b086db9a20512251ca228c7d6b0b9"
     sha256 cellar: :any_skip_relocation, big_sur:        "894e9d02f380268436288dacfca55d27bd456adad3f8cfb3b02969ce918f87d0"
     sha256 cellar: :any_skip_relocation, catalina:       "2b4904282035341962ae8bd5a719e381ec5c28a65c258d35707e9cf67a23c6d5"
