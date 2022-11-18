@@ -5,6 +5,7 @@ class GnomeLatex < Formula
       tag:      "3.42.0",
       revision: "5041d5c3dcef3116a05bca58239503664ffbcdf2"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "930d96638fdfa8fdc15e50f452a9fd33f819878e6194ae5468d979386b7ca3eb"
