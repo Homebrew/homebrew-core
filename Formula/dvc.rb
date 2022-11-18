@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/70/29/8b8cf8344cc242b8875cea5be5590bbab594bd904d576b1391073cdc3c8b/dvc-2.34.1.tar.gz"
-  sha256 "4919f1e458fe99c03862e18f60204cc27b8347e70403efbc57b3f90cc1011a64"
+  url "https://files.pythonhosted.org/packages/c8/82/c6808fb90a7ee64e4ee28c1bbddcf3df54d32fa0b6df3ef8892da8545800/dvc-2.34.2.tar.gz"
+  sha256 "a995dff74bfa562ad772c55d1856b5affe33850d16d33a1449d8779b3ed86b67"
   license "Apache-2.0"
 
   bottle do
@@ -276,8 +276,8 @@ class Dvc < Formula
   end
 
   resource "dvc-gdrive" do
-    url "https://files.pythonhosted.org/packages/d2/40/764837f7bb606fe795a9dbedb2eded16170d0ff75bc9f808ce405eecd6c8/dvc-gdrive-2.19.0.tar.gz"
-    sha256 "9fe1ec52f31822df37a56fb06f7eb696a936294145a16ab0498c664f17fa0f1a"
+    url "https://files.pythonhosted.org/packages/5f/73/3e9b4defb9dabbeada2a52a20e9310ed793f8e72088072c98960a80084ff/dvc-gdrive-2.19.1.tar.gz"
+    sha256 "da2c1dd5dd5eead9d86255d0c749795620932b8598afad461bcf169d50b6fa21"
   end
 
   resource "dvc-gs" do
@@ -396,8 +396,8 @@ class Dvc < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/0f/36/b82e5cc246ce698953c42003284e2779688daa7448099bc0a0027e63b52a/google-api-python-client-2.65.0.tar.gz"
-    sha256 "b8a0ca8454ad57bc65199044717d3d214197ae1e2d666426bbcd4021b36762e0"
+    url "https://files.pythonhosted.org/packages/b8/ca/4fcfeb70d90f70f9784e10b79f6db41463278e5e4acef00606b8ef4e9bbb/google-api-python-client-2.66.0.tar.gz"
+    sha256 "4cfaf0205aa7c538c8fb1772368be3d049dfed7886adf48597e9a766e9828a6e"
   end
 
   resource "google-auth" do
@@ -436,8 +436,8 @@ class Dvc < Formula
   end
 
   resource "googleapis-common-protos" do
-    url "https://files.pythonhosted.org/packages/f0/8e/190b3ac9bc75d6ead661398a07c6d6f013502c364fd6cc3d5c06427b8023/googleapis-common-protos-1.56.4.tar.gz"
-    sha256 "c25873c47279387cfdcbdafa36149887901d36202cb645a0e4f29686bf6e4417"
+    url "https://files.pythonhosted.org/packages/c5/db/9b98c3a9e148b5daaa2e26ce4faeb6ade28dc623dcc109f2ac7efee514de/googleapis-common-protos-1.57.0.tar.gz"
+    sha256 "27a849d6205838fb6cc3c1c21cb9800707a661bb21c6ce7fb13e99eb1f8a0c46"
   end
 
   resource "grandalf" do
@@ -446,13 +446,13 @@ class Dvc < Formula
   end
 
   resource "h11" do
-    url "https://files.pythonhosted.org/packages/bd/e9/72c3dc8f7dd7874812be6a6ec788ba1300bfe31570963a7e788c86280cb9/h11-0.12.0.tar.gz"
-    sha256 "47222cb6067e4a307d535814917cd98fd0a57b6788ce715755fa2b6c28b56042"
+    url "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz"
+    sha256 "8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/42/98/44c3e51a0655eae75adefee028c9bada7427a90f63105e54f5e735946f50/httpcore-0.15.0.tar.gz"
-    sha256 "18b68ab86a3ccf3e7dc0f43598eaddcf472b602aba29f9aa6ab85fe2ada3980b"
+    url "https://files.pythonhosted.org/packages/f9/1a/a2652d94e901308c33b9f17c329b0d327da73b30678a6618d4256a3ac2ae/httpcore-0.16.1.tar.gz"
+    sha256 "3d3143ff5e1656a5740ea2f0c167e8e9d48c5a9bbd7f00ad1f8cff5711b08543"
   end
 
   resource "httplib2" do
@@ -461,8 +461,8 @@ class Dvc < Formula
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/43/cd/677173d194b4839e5b196709e3819ffca2a4bc58b0538f4ae4be877ad480/httpx-0.23.0.tar.gz"
-    sha256 "f28eac771ec9eb4866d3fb4ab65abd42d38c424739e80c08d8d20570de60b0ef"
+    url "https://files.pythonhosted.org/packages/8a/df/a3e8b91dfb452e645ef110985a30f0915276a1a2144004c7671c07bb203c/httpx-0.23.1.tar.gz"
+    sha256 "202ae15319be24efe9a8bd4ed4360e68fde7b38bcc2ce87088d416f026667d19"
   end
 
   # dont use pypi artifact, has some installation issue
@@ -607,8 +607,8 @@ class Dvc < Formula
   end
 
   resource "PyDrive2" do
-    url "https://files.pythonhosted.org/packages/ca/8c/d7392b8adf61762749afbde7bebf7ae06a4550d05fe030be63e920a13ba6/PyDrive2-1.14.0.tar.gz"
-    sha256 "db5da3be671630f571ca7100b281d8b5d72fd078acd425247a6d292e2b3d2840"
+    url "https://files.pythonhosted.org/packages/05/e8/4d227db64308b3ccc81e7ef5df2432c4b97ecc835b9f291fd07f5be93c58/PyDrive2-1.15.0.tar.gz"
+    sha256 "3ae06b66bf963f43524989c87f4d678039441fe059993c6703fb33cc3c6d8aec"
   end
 
   resource "pygit2" do
@@ -697,8 +697,8 @@ class Dvc < Formula
   end
 
   resource "shortuuid" do
-    url "https://files.pythonhosted.org/packages/28/45/1a85e45fc8561fe2987959da2492ed612e4c04cc07b8f94b57b03eaecd39/shortuuid-1.0.10.tar.gz"
-    sha256 "666e1e8a47379b3626ec40da17d3635212ea232b4647e808ea46d1c4b0be156e"
+    url "https://files.pythonhosted.org/packages/1e/c6/ba2dd56e3996a1919984645ca0aaf20c4879cc1227c50a4be08f52b19ad0/shortuuid-1.0.11.tar.gz"
+    sha256 "fc75f2615914815a8e4cb1501b3a513745cb66ef0fd5fc6fb9f8c3fa3481f789"
   end
 
   resource "shtab" do
