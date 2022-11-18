@@ -21,7 +21,7 @@ class Swiftlint < Formula
   uses_from_macos "swift"
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    system "swift", "build", "--disable-sandbox", "--configuration", "release", "--product", "swiftlint"
     bin.install ".build/release/swiftlint"
   end
 
