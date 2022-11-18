@@ -35,7 +35,7 @@ class Softhsm < Formula
     depends_on "pkg-config" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "sh", "./autogen.sh" if build.head?
@@ -45,7 +45,7 @@ class Softhsm < Formula
                           "--sysconfdir=#{etc}/softhsm",
                           "--localstatedir=#{var}",
                           "--with-crypto-backend=openssl",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "--disable-gost"
     system "make", "install"
   end
