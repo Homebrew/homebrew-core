@@ -18,6 +18,7 @@ class Wrk < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a1b3e7d45aaca3cf965f73ef994a9ff7d8304013714633cae6bbc30f09482b2a"
     sha256 cellar: :any,                 arm64_monterey: "1737a2d76852d610856555bc8993e6edb3104f5a897895edf1cb3ccc696d6e27"
     sha256 cellar: :any,                 arm64_big_sur:  "e60b7b38483ad19e764bc0528ab7e7cb5af9a5361d860b4e8861c3922e154604"
+    sha256 cellar: :any,                 ventura:        "82b7007814cfd40695e6500d354e357f74f27e67dd587da7fc775d8a18b16f13"
     sha256 cellar: :any,                 monterey:       "f3d502b3ada2613ff452cd8797bdc767d101c13f269c0d90c0f9e94a0596e279"
     sha256 cellar: :any,                 big_sur:        "46dfc59a95a38d1f882ad7ad148e05f3c1796131b3387397388635ef4a404573"
     sha256 cellar: :any,                 catalina:       "1c346f928ed78e9eed6b8224eff05dc0f58ea34c2415e4bc103d2ce19dea9330"
