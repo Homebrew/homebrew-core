@@ -13,6 +13,7 @@ class Thefuck < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c0de3ebd0766c538d124f74270a91730c8e3e083656e61f09b6e3edb837caf0b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b3c20013e623b39c5bca1fd71e44b200f7e31a2d7f5a377bc92b4593f806aff9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d94b1731b44013b526e005137ce28d06484966c41b99e20003d5d40fbbc753a1"
+    sha256 cellar: :any_skip_relocation, ventura:        "27254159fefb93d553c8f2941396061950c946354350bbac1d98396fb5771ad7"
     sha256 cellar: :any_skip_relocation, monterey:       "ac8a42c8a3f407106e49da365beaa4f03337e025907bcb69812d28cf1c66850e"
     sha256 cellar: :any_skip_relocation, big_sur:        "788c8f21aec08c8df7cf09ca2be2b5069657af6e9dd1476b7d3b675451549976"
     sha256 cellar: :any_skip_relocation, catalina:       "125e506e6b470358180f6fe49cb45aa99617442a1649fb7a9db18c8aafbd0c89"
