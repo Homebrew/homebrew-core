@@ -15,7 +15,7 @@ class Ibazel < Formula
   def install
     inreplace ".bazelversion", "5.3.1", "5.3.2"
 
-    system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//ibazel"
+    system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//cmd/ibazel:ibazel"
     bin.install "bazel-bin/cmd/ibazel/ibazel_/ibazel"
   end
 
