@@ -11,14 +11,8 @@ class Archivemount < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libarchive"
-
-  on_macos do
-    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
-  end
-
-  on_linux do
-    depends_on "libfuse@2"
-  end
+  depends_on "libfuse@2"
+  depends_on :linux # on macOS, requires closed-source macFUSE
 
   def install
     ENV.append_to_cflags "-I/usr/local/include/osxfuse"
@@ -28,18 +22,6 @@ class Archivemount < Formula
                           "--prefix=#{prefix}"
 
     system "make", "install"
-  end
-
-  def caveats
-    on_macos do
-      <<~EOS
-        The reasons for disabling this formula can be found here:
-          https://github.com/Homebrew/homebrew-core/pull/64491
-
-        An external tap may provide a replacement formula. See:
-          https://docs.brew.sh/Interesting-Taps-and-Forks
-      EOS
-    end
   end
 
   test do
