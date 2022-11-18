@@ -15,6 +15,7 @@ class Linkerd < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7308e1e256ec3108df97d92646741c502a8e07caaeab089695521759acecbaa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "33d409422d18f07135db4e8b1d847c85b62e611d4e19ceb8690d397a4886727f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33200b67fbd57471bbced08241c5a86c563ab378376e55682c373ef9ad50accb"
+    sha256 cellar: :any_skip_relocation, ventura:        "7dca6d91782c5f72a28f915af18abe6a9c71989785b9e61f7b4c3233a4cf9e45"
     sha256 cellar: :any_skip_relocation, monterey:       "b98d167b20f04b3d2e4f3d120f96770e0da3a8b2c29da6a1239d544621f4ea71"
     sha256 cellar: :any_skip_relocation, big_sur:        "c4428b08620995afafe0b669a2389a093998525e576e70be890c85049a3108ce"
     sha256 cellar: :any_skip_relocation, catalina:       "0b515ae45e02873762d2170128d0d27f659e5954b0b3778316b7504ea99bd255"
