@@ -12,6 +12,7 @@ class Checkov < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "356ac9e5b41c8aadd2dd1ffbdd934400ada0967532c81dd86fa6867111d4fb6d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b545973ab0b85f66eeae626a9ea386ea1e6c4bc8702cb9b0ad353df759c3436"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a249134c26cdf4ccc088df4d3b907b876fb811040bbb18a18dbf362c6d41497"
+    sha256 cellar: :any_skip_relocation, ventura:        "ae3199292db05ab567cb3a5add3eab7ae35a1502ba1703209b237ffeb7a4406e"
     sha256 cellar: :any_skip_relocation, monterey:       "476fbddd1550f88fd10f03a20d52631233091672a4607c1f4763b5d826662c0b"
     sha256 cellar: :any_skip_relocation, big_sur:        "57610492b3f7ae0e4b37dea3c09e88005d45a39a47c47ee25abdc446092517a8"
     sha256 cellar: :any_skip_relocation, catalina:       "d6528d0dde8edda9bad2f3a4f7399a55fd5fc8d4923266d380290553d9215551"
