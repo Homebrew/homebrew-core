@@ -12,6 +12,7 @@ class Jc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "11ec67355daebadd14e7a17c9b825530a02e7d6136d3a9131e4c45bf4fcb82b1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "11ec67355daebadd14e7a17c9b825530a02e7d6136d3a9131e4c45bf4fcb82b1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11ec67355daebadd14e7a17c9b825530a02e7d6136d3a9131e4c45bf4fcb82b1"
+    sha256 cellar: :any_skip_relocation, ventura:        "e7e2201b4e374cd30ee8be9d6ed94ac508064ae5056f43d767125e2bef7da1ac"
     sha256 cellar: :any_skip_relocation, monterey:       "e7e2201b4e374cd30ee8be9d6ed94ac508064ae5056f43d767125e2bef7da1ac"
     sha256 cellar: :any_skip_relocation, big_sur:        "e7e2201b4e374cd30ee8be9d6ed94ac508064ae5056f43d767125e2bef7da1ac"
     sha256 cellar: :any_skip_relocation, catalina:       "e7e2201b4e374cd30ee8be9d6ed94ac508064ae5056f43d767125e2bef7da1ac"
