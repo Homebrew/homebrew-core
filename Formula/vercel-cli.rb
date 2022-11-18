@@ -11,6 +11,7 @@ class VercelCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f94efee60529c0d9e05dcf33ea907de12a53d0aae6a9e43b3d87a85ac34e5b27"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f94efee60529c0d9e05dcf33ea907de12a53d0aae6a9e43b3d87a85ac34e5b27"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f94efee60529c0d9e05dcf33ea907de12a53d0aae6a9e43b3d87a85ac34e5b27"
+    sha256 cellar: :any_skip_relocation, ventura:        "f62872204b1bdcc8de410393527289882411e1bc24d6c34bc38b62f16ec8afb2"
     sha256 cellar: :any_skip_relocation, monterey:       "f62872204b1bdcc8de410393527289882411e1bc24d6c34bc38b62f16ec8afb2"
     sha256 cellar: :any_skip_relocation, big_sur:        "f62872204b1bdcc8de410393527289882411e1bc24d6c34bc38b62f16ec8afb2"
     sha256 cellar: :any_skip_relocation, catalina:       "f62872204b1bdcc8de410393527289882411e1bc24d6c34bc38b62f16ec8afb2"
