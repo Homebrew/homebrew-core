@@ -19,21 +19,13 @@ class Cryfs < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
+  depends_on "curl"
+  depends_on "libfuse@2"
+  depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@1.1"
   depends_on "python@3.10"
   depends_on "range-v3"
   depends_on "spdlog"
-
-  uses_from_macos "curl"
-
-  on_macos do
-    depends_on "libomp"
-    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
-  end
-
-  on_linux do
-    depends_on "libfuse@2"
-  end
 
   fails_with gcc: "5"
 
@@ -63,34 +55,11 @@ class Cryfs < Formula
       "-DBUILD_TESTING=off",
     ]
 
-    if build.head? && OS.mac?
-      libomp = Formula["libomp"]
-      configure_args.concat(
-        [
-          "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I#{libomp.include}'",
-          "-DOpenMP_CXX_LIB_NAMES=omp",
-          "-DOpenMP_omp_LIBRARY=#{libomp.lib}/libomp.dylib",
-        ],
-      )
-    end
-
     system "cmake", "-B", "build", "-S", ".", *configure_args, *std_cmake_args,
                     "-DCRYFS_UPDATE_CHECKS=OFF",
                     "-DDEPENDENCY_CONFIG=cmake-utils/DependenciesFromLocalSystem.cmake"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-  end
-
-  def caveats
-    on_macos do
-      <<~EOS
-        The reasons for disabling this formula can be found here:
-          https://github.com/Homebrew/homebrew-core/pull/64491
-
-        An external tap may provide a replacement formula. See:
-          https://docs.brew.sh/Interesting-Taps-and-Forks
-      EOS
-    end
   end
 
   test do
@@ -106,7 +75,7 @@ class Cryfs < Formula
     # the cryfs bottle was compiled with and the crypto++ library installed by homebrew to.
     mkdir "basedir"
     mkdir "mountdir"
-    expected_output = OS.mac? ? "Operation not permitted" : "fuse: device not found, try 'modprobe fuse' first"
+    expected_output = "fuse: device not found, try 'modprobe fuse' first"
     assert_match expected_output, pipe_output("#{bin}/cryfs -f basedir mountdir 2>&1", "password")
   end
 end
