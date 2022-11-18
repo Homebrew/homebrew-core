@@ -18,6 +18,7 @@ class GitFlowAvh < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f559b035f16d9f56bb1750bfd441785df1f094a3838b20c1c51503cc75c2f319"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f559b035f16d9f56bb1750bfd441785df1f094a3838b20c1c51503cc75c2f319"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f559b035f16d9f56bb1750bfd441785df1f094a3838b20c1c51503cc75c2f319"
+    sha256 cellar: :any_skip_relocation, ventura:        "fe31ea33fecc7177f22fa64b15430512ea2ae728536d3c3d21b9121d97e311e6"
     sha256 cellar: :any_skip_relocation, monterey:       "fe31ea33fecc7177f22fa64b15430512ea2ae728536d3c3d21b9121d97e311e6"
     sha256 cellar: :any_skip_relocation, big_sur:        "fe31ea33fecc7177f22fa64b15430512ea2ae728536d3c3d21b9121d97e311e6"
     sha256 cellar: :any_skip_relocation, catalina:       "fe31ea33fecc7177f22fa64b15430512ea2ae728536d3c3d21b9121d97e311e6"
