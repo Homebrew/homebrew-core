@@ -10,6 +10,7 @@ class Step < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2376d94d5422780ee76a67f826b0877ca3afd119177aed3b1bce9bec5d054ef2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b9dce3736d1e84d91b450431f40a12a5ec0b8d1a59ad6992cc860dacb8132653"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28cd0adc2850d548a57e63bb90a6c1bd6b6c1e9bdc2772bd359b9641c200ea96"
+    sha256 cellar: :any_skip_relocation, ventura:        "d22b28c4e15dac838e353e6da178657d104051100517bd15b594cfcbb58d2895"
     sha256 cellar: :any_skip_relocation, monterey:       "a4e404eea2a8271ec05e2fff69f9d2ba772aeb5385ed7007f726080e289c4505"
     sha256 cellar: :any_skip_relocation, big_sur:        "eddef193e03941ea9c0f97a198bb0730e096cdd355dea7f57e08575dcf4efc8f"
     sha256 cellar: :any_skip_relocation, catalina:       "0186e7866573162f19822bb33cb3d2c14f77acf6236749fe2abbde2c2933324e"
