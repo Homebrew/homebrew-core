@@ -14,6 +14,7 @@ class Lcov < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e7c3c906dd26501583cf26e1d5d171011f1e216dcf44b49f3d7701cdcf4a53c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9fd558cedeedc95fa3bc481a3bde4781c941a63e8c7bb2259bb2e32483f123ea"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c5d93417fd0352f458241daaebc89c4a67042e4e74c30018e09ee56d15ae832"
+    sha256 cellar: :any_skip_relocation, ventura:        "37cdd74962eb81282afb3ce53457ff8afc907615ae474ac00f729ea048c424db"
     sha256 cellar: :any_skip_relocation, monterey:       "8b4c4367f9392015d4448038ec82822d986244f9184f6200fcac7dbbaccd6267"
     sha256 cellar: :any_skip_relocation, big_sur:        "a8f0fb6ec023076edce63a9197bb96a3a3b9a98371c17dbe3e315eaa52de0169"
     sha256 cellar: :any_skip_relocation, catalina:       "7018ff8e61a4229d1ce47e80124ac10f90aa9ed36504798295d0a1a6e4344729"
