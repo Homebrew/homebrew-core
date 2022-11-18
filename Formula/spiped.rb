@@ -10,13 +10,14 @@ class Spiped < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "222881670b810b601d43cf67366c7f2c73db5da1dbad74c3abec1ef003c58b07"
-    sha256 cellar: :any,                 arm64_monterey: "63451c713c91962ed596254ff1924de72d6adc4bb7d950082d420cafa70596a0"
-    sha256 cellar: :any,                 arm64_big_sur:  "3df7565403ad24361e05d3661242f8724bde49bdee1124bcc07aa234dbdcecf2"
-    sha256 cellar: :any,                 monterey:       "b343cf4da6e41a3c30d76ea2e25bf18c1e63d0479e7ceb13e8764232a035b727"
-    sha256 cellar: :any,                 big_sur:        "4e78ef161701b82728993c1107fbb155bb9a17cea82df586c9a1df520ec8d656"
-    sha256 cellar: :any,                 catalina:       "f3edfef25280658dbeaee09e50d2b284a5d9768ffb2632502b3bfc050590e073"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5688ae1fdf0012b91c336d8a802358a3a248d83ff97fa882ec5319454e1f8823"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "fb49b420bd935b728f767276c0bb19133d745d52fe07a8ebad3877ff09996dfc"
+    sha256 cellar: :any,                 arm64_monterey: "293b53d8433d104f8133539224e412209605bc40d2cacaeb253081b95eb65578"
+    sha256 cellar: :any,                 arm64_big_sur:  "f30a91f2902faec487f48d0e580a34cc628c6cf4d80bab749ec32e0f38c575f4"
+    sha256 cellar: :any,                 monterey:       "86fc3f6a8ad438e67a726d6e181774aa7af39b664345d6c5d0efbacb1267f86c"
+    sha256 cellar: :any,                 big_sur:        "f22668dad3e0af145761bf04d604c12d05a9ac397449e6bcf3b33cb29bf41849"
+    sha256 cellar: :any,                 catalina:       "a5a8967be00fba49a628f6d18cfe2ec69f40ffdb3d860eed91bd3026225d5c99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce1ab53824d6e9ccd9752ab5038630ab179f73053ef8fa941c894e38ecab171f"
   end
 
   depends_on "openssl@3"
