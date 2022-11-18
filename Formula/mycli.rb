@@ -12,6 +12,7 @@ class Mycli < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0ad11cdacb177f1d15dac00af01d5fee33e8c8a3952674687e9d09c5952c7dea"
     sha256 cellar: :any,                 arm64_monterey: "4b27d2b1c17f60dc8c2693cee52b559527ca16130afac4d5fde94efca5f97b54"
     sha256 cellar: :any,                 arm64_big_sur:  "152e5cf011ecd571d53fe0989eb2331603f155e2d808f6e36451373c0a34bcde"
+    sha256 cellar: :any,                 ventura:        "d7accca5f933686cc3fa897f7fb433d4db0c1555cebee43d97e9e66ea961d484"
     sha256 cellar: :any,                 monterey:       "aed11940ef67d65760d282c91a78e43db6e5edc9593a89ddf1768b302bd9752e"
     sha256 cellar: :any,                 big_sur:        "c03d93fcac398f235f596174a0420e242098675227f77cbfb286733cc875daab"
     sha256 cellar: :any,                 catalina:       "799795ed362cb7e2b0ba8c5867d56e7037114a94eb3fee5773eb2a941cc0f0c7"
