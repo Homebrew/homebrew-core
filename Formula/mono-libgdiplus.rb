@@ -15,6 +15,7 @@ class MonoLibgdiplus < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9b537ce5d2cfd7c632208114aeba4fa763659e6f7a08203f7bfc8ff809885ea1"
     sha256 cellar: :any,                 arm64_monterey: "b52734ab6bdc00e1b79d5e0ea316cfd3ca31761dbd7b8e08043dda470425166b"
     sha256 cellar: :any,                 arm64_big_sur:  "2911312b0811551362741646e5565673e98df0ef00c3ae72ab8ebf05458347fb"
+    sha256 cellar: :any,                 ventura:        "7bc76c3a9f9e27b3c7d7d00ace9ed0a0156383ddd95411fb53b2dd1a627e48b8"
     sha256 cellar: :any,                 monterey:       "18090bbf1aad53b2ac5c787ef77c995c2cf7519adef6863116b304a224efdfc3"
     sha256 cellar: :any,                 big_sur:        "624eccbf7b63582b5b7f17b76d2b44c34f7bab08e9e3c7280957f603518a46bd"
     sha256 cellar: :any,                 catalina:       "4a034e8661fdb77377bdea527d3f74b6363a8f1691a5b7cf76419d1f7888b7b9"
