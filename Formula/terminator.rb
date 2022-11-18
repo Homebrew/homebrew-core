@@ -12,6 +12,7 @@ class Terminator < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "553547ec5d0f5f0704c279cdd9f1df9ba027f9eb704ed52877865f2e6f064d22"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ada81984b24711c6cfdd4e31dd4015582bf81eec755423ae29d7ae9bc8365f0f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f8d4d53151ad1204d1af781c284a4353a30910ccdaab57f8dff08fb70a5c9dc4"
+    sha256 cellar: :any_skip_relocation, ventura:        "10d1ddcb032ee692a31e415b988a37c79b9bba7a897768ef17311ec83073720a"
     sha256 cellar: :any_skip_relocation, monterey:       "9983a9baec039953cf6c2c91cbe363a63e276e77bb84723e7634fb040417779a"
     sha256 cellar: :any_skip_relocation, big_sur:        "b8e88d9fba374decf7b2629a4369c9a23e358e2b48752f6ff7f099d9770be673"
     sha256 cellar: :any_skip_relocation, catalina:       "c1fce0d5da33ab49ff3594ecbbeaff1f5f3f14b91d85f1c773df4f6f19fafaf5"
