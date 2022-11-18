@@ -9,6 +9,7 @@ class Gitleaks < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8b4efb57add1e520195e0594362760373b72f3dfce3767200689db1ea23994e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e335d75118090826ee65385dcdd22b5e63785469c0bc3219b8e6a1e9357b112"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7f54a90c5a2ccf113f1736717159d663a05d68c4675f5b6d77a0346d4ee72cd"
+    sha256 cellar: :any_skip_relocation, ventura:        "2b7946ad0683e9b33e884a7f0afaa0eff85a6aba52875881822882136517f9d7"
     sha256 cellar: :any_skip_relocation, monterey:       "81d44d7768b209ede62789c9dcf82ec44e833c69adf6f587e29a11f034c1bd3f"
     sha256 cellar: :any_skip_relocation, big_sur:        "65a4794b7733a8ef15e51d5a82ae9a21880a7fcc2beea5e62dce551edccc73a7"
     sha256 cellar: :any_skip_relocation, catalina:       "dd22faef15e7ee8e03201d58e6137d8aade646a31df28ebca3ad19f1f5922b3f"
