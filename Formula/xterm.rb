@@ -15,6 +15,7 @@ class Xterm < Formula
     sha256 arm64_ventura:  "dded4bd4842a91dc7195418150b42908e21e8dba60b9e123c49a3af5d87489d6"
     sha256 arm64_monterey: "70169d3c78cb3a8b6d0439ea2e678030ed3446a7285896ca6c02d9b920e9bf76"
     sha256 arm64_big_sur:  "047aeac12e14d456732d1739cc112dfcbe8d7749ff0835c41edbacc016da9654"
+    sha256 ventura:        "db5f11c76394d09dd4b257de417d53c469ba46e308a9aca50292c1700a8c3fee"
     sha256 monterey:       "7f77e87c77f31d953c667203daa07c4cec77d232c60bbf6ccc5b3006e2339fa7"
     sha256 big_sur:        "ad6c1eb32cc5850d2205cde5272bc446583b98bbb2832b561d14b1f263be1b91"
     sha256 catalina:       "821cccff346994c2143d5f745800a148b1022d9674ca0e6861d0aed819dbd13f"
