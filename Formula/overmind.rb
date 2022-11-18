@@ -10,6 +10,7 @@ class Overmind < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8212d5d52e66cd05b5081350d04e6e16482bcafcbc1ee99645f2c9876dbb0a36"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4841af6b8c882b52029d7c7a58bc0d5534bfb7f53f1b33b76d980f6197db954b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b96582ea0b7adb01d40b4429beaac118bb090bb856f3579a9a63c100cbc00546"
+    sha256 cellar: :any_skip_relocation, ventura:        "92fe5bd6251fb3273d1aa0ab581c5fbc847919f04d7be3ac4019f09ec4b262a9"
     sha256 cellar: :any_skip_relocation, monterey:       "ad3705236fde66360596bee1567ba806420d5b215a0ce51d206679ba360583ac"
     sha256 cellar: :any_skip_relocation, big_sur:        "5a1f67aff79d61c0ba2b46fa108ba1fdd8bf35252e897c9b81e54fa66c6d1b79"
     sha256 cellar: :any_skip_relocation, catalina:       "281b468e00c93a48d08a2288365a86cf3c4726ce9ab26777c07e903895c503d3"
