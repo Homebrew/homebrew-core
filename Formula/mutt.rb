@@ -18,6 +18,7 @@ class Mutt < Formula
     sha256 arm64_ventura:  "5fa6f5259600067cd92062db1b39eab0ead4d3948cf8d75632a71aea39dab1ee"
     sha256 arm64_monterey: "7581dde4cd1e5a1d212a4717501fe1aa583da29e73311a2ba99e7345bd30c074"
     sha256 arm64_big_sur:  "e8d25146c9af852f3a42e67ad5f2f4220a602c03e2d4473d04b742422d6cc4d3"
+    sha256 ventura:        "4ad6d9e2cacf4ae7b55ea8d8aaffa4c408249d55fe6ca2e95512e964012c1233"
     sha256 monterey:       "aa5fd22d5e6cc922b8ce772da71f0983cdc0970dac08755e32a8a55afbc0fa4f"
     sha256 big_sur:        "dea8564bdac672468fc03e7f56bf763efcf6b6b8449edcd927dea5e34f3c2343"
     sha256 catalina:       "2c58602698841548996bec5ce6e5e4eb03b829e870706273f889fb0c00b90b0d"
