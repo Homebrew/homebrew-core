@@ -9,13 +9,12 @@ class Clusterctl < Formula
 
   # Upstream creates releases on GitHub for the two most recent major/minor
   # versions (e.g., 0.3.x, 0.4.x), so the "latest" release can be incorrect. We
-  # don't check the Git tags because, for this project, a version may not be
-  # considered released until the GitHub release is created. The first-party
-  # website doesn't clearly list the latest version and we have to isolate it
-  # from a GitHub URL used in a curl command in the installation instructions.
+  # don't check the Git tags for this project because a version may not be
+  # considered released until the GitHub release is created.
   livecheck do
-    url "https://cluster-api.sigs.k8s.io/user/quick-start.html"
-    regex(%r{/cluster-api/releases/download/v?(\d+(?:\.\d+)+)/}i)
+    url "https://github.com/kubernetes-sigs/cluster-api/releases?q=prerelease%3Afalse"
+    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :page_match
   end
 
   bottle do
