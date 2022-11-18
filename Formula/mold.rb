@@ -1,8 +1,8 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/v1.6.0.tar.gz"
-  sha256 "59cd3ea1a2a5fb50d0d97faddd8bff4c7e71054a576c00a87b17f56ecbd88729"
+  url "https://github.com/rui314/mold/archive/v1.7.1.tar.gz"
+  sha256 "fa2558664db79a1e20f09162578632fa856b3cde966fbcb23084c352b827dfa9"
   license "AGPL-3.0-only"
   head "https://github.com/rui314/mold.git", branch: "main"
 
@@ -43,9 +43,9 @@ class Mold < Formula
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
 
-    # Undefine the `LIBDIR` macro to avoid embedding it in the binary.
+    # Avoid embedding libdir in the binary.
     # This helps make the bottle relocatable.
-    ENV.append_to_cflags "-ULIBDIR"
+    inreplace "config.h.in", "@CMAKE_INSTALL_FULL_LIBDIR@", ""
     # Ensure we're using Homebrew-provided versions of these dependencies.
     %w[mimalloc tbb zlib zstd].map { |dir| (buildpath/"third-party"/dir).rmtree }
     args = %w[
@@ -62,9 +62,9 @@ class Mold < Formula
 
     inreplace buildpath.glob("test/macho/*.sh"), "./ld64", bin/"ld64.mold", false
     inreplace buildpath.glob("test/elf/*.sh") do |s|
-      s.gsub!(%r{(`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", false)
+      s.gsub!(%r{(\./|`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", false)
       s.gsub!(%r{(\.|`pwd`)/mold}, bin/"mold", false)
-      s.gsub!(/-B[^\s]+/, "-B#{libexec}/mold", false)
+      s.gsub!(/-B(\.|`pwd`)/, "-B#{libexec}/mold", false)
     end
     pkgshare.install "test"
   end
@@ -85,8 +85,8 @@ class Mold < Formula
     # Tests use `--ld-path`, which is not supported on old versions of Apple Clang.
     return if OS.mac? && MacOS.version < :big_sur
 
+    cp_r pkgshare/"test", testpath
     if OS.mac?
-      cp_r pkgshare/"test", testpath
       # Delete failing test. Reported upstream at
       # https://github.com/rui314/mold/issues/735
       if (MacOS.version >= :monterey) && Hardware::CPU.arm?
@@ -95,8 +95,17 @@ class Mold < Formula
       end
       testpath.glob("test/macho/*.sh").each { |t| system t }
     else
-      system bin/"mold", "-run", ENV.cc, "test.c", "-o", "test"
-      system "./test"
+      # The substitution rules in the install method do not work well on this
+      # test. To avoid adding too much complexity to the regex rules, it is
+      # manually tested below instead.
+      (testpath/"test/elf/mold-wrapper2.sh").unlink
+      assert_match "mold-wrapper.so",
+        shell_output("#{bin}/mold -run bash -c 'echo $LD_PRELOAD'")
+      # This test file does not have permission to execute, so we skip it.
+      # Remove on next release as this is already fixed upstream.
+      (testpath/"test/elf/section-order.sh").unlink
+      # Run the remaining tests.
+      testpath.glob("test/elf/*.sh").each { |t| system t }
     end
   end
 end
