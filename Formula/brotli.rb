@@ -23,6 +23,13 @@ class Brotli < Formula
 
   depends_on "cmake" => :build
 
+  # fix macos rpath https://github.com/google/brotli/pull/976
+  # upstream patch, remove in next release
+  patch do
+    url "https://github.com/google/brotli/commit/f842c1bcf9264431cd3b15429a72b7dafbe80509.patch?full_index=1"
+    sha256 "2047755a38e6b8add0db9c210f3e5942cd0b6b1a99efbade291aa98d3073348b"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "VERBOSE=1"
