@@ -11,6 +11,7 @@ class Tox < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b2a8b4f457069bc03dc19fee6b47cc15f8b33b00dc9d8e1169750aaa1bf7d88"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ca4535a1a24a1bf431cffaaea5da32f3b45642ad8e475cc9e599c9cca89eb8b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c42cf73c11b29b6966adacce62e86007b27d0c5891e8e41daca6066b541b23a7"
+    sha256 cellar: :any_skip_relocation, ventura:        "2182413a454307353f22f24c4d14800acc34f78345d5c8d5e6c04d5bf232bdb6"
     sha256 cellar: :any_skip_relocation, monterey:       "96c61f9bcda35bf326713a9c831ab5ae2d22795e529a3857850ae3c71c9d898a"
     sha256 cellar: :any_skip_relocation, big_sur:        "92d1cad9fb3891528d37787d35f4a437617d437aac3a9d041ae4ed3690a15563"
     sha256 cellar: :any_skip_relocation, catalina:       "fe5efcb86829c0b00917954d7b4824e899462f74d1551a8c4894422f9ccc2c85"
