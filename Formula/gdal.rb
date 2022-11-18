@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "http://download.osgeo.org/gdal/3.5.3/gdal-3.5.3.tar.xz"
-  sha256 "d32223ddf145aafbbaec5ccfa5dbc164147fb3348a3413057f9b1600bb5b3890"
+  url "http://download.osgeo.org/gdal/3.6.0/gdal-3.6.0.tar.xz"
+  sha256 "f7afa4aa8d32d0799e011a9f573c6a67e9471f78e70d3d0d0b45b45c8c0c1a94"
   license "MIT"
-  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -26,7 +25,9 @@ class Gdal < Formula
     depends_on "doxygen" => :build
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "apache-arrow"
   depends_on "cfitsio"
   depends_on "epsilon"
   depends_on "expat"
@@ -35,9 +36,11 @@ class Gdal < Formula
   depends_on "giflib"
   depends_on "hdf5"
   depends_on "jpeg-turbo"
+  depends_on "jpeg-xl"
   depends_on "json-c"
   depends_on "libdap"
   depends_on "libgeotiff"
+  depends_on "libheif"
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libspatialite"
@@ -45,6 +48,7 @@ class Gdal < Formula
   depends_on "libxml2"
   depends_on "netcdf"
   depends_on "numpy"
+  depends_on "openexr"
   depends_on "openjpeg"
   depends_on "pcre2"
   depends_on "poppler"
@@ -74,109 +78,30 @@ class Gdal < Formula
 
   def install
     args = [
-      # Base configuration
-      "--prefix=#{prefix}",
-      "--mandir=#{man}",
-      "--disable-debug",
-      "--with-libtool",
-      "--with-local=#{prefix}",
-      "--with-threads",
-
-      # GDAL native backends
-      "--with-pam",
-      "--with-pcidsk=internal",
-      "--with-pcraster=internal",
-
-      # Homebrew backends
-      "--with-expat=#{Formula["expat"].prefix}",
-      "--with-freexl=#{Formula["freexl"].opt_prefix}",
-      "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
-      "--with-geotiff=#{Formula["libgeotiff"].opt_prefix}",
-      "--with-gif=#{Formula["giflib"].opt_prefix}",
-      "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}",
-      "--with-libjson-c=#{Formula["json-c"].opt_prefix}",
-      "--with-libtiff=#{Formula["libtiff"].opt_prefix}",
-      "--with-pg=yes",
-      "--with-png=#{Formula["libpng"].opt_prefix}",
-      "--with-spatialite=#{Formula["libspatialite"].opt_prefix}",
-      "--with-pcre2=yes",
-      "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
-      "--with-proj=#{Formula["proj"].opt_prefix}",
-      "--with-zstd=#{Formula["zstd"].opt_prefix}",
-      "--with-liblzma=yes",
-      "--with-cfitsio=#{Formula["cfitsio"].opt_prefix}",
-      "--with-hdf5=#{Formula["hdf5"].opt_prefix}",
-      "--with-netcdf=#{Formula["netcdf"].opt_prefix}",
-      "--with-openjpeg",
-      "--with-xerces=#{Formula["xerces-c"].opt_prefix}",
-      "--with-odbc=#{Formula["unixodbc"].opt_prefix}",
-      "--with-dods-root=#{Formula["libdap"].opt_prefix}",
-      "--with-epsilon=#{Formula["epsilon"].opt_prefix}",
-      "--with-webp=#{Formula["webp"].opt_prefix}",
-      "--with-poppler=#{Formula["poppler"].opt_prefix}",
-
-      # Explicitly disable some features
-      "--with-armadillo=no",
-      "--with-qhull=no",
-      "--without-exr",
-      "--without-grass",
-      "--without-jasper",
-      "--without-jpeg12",
-      "--without-libgrass",
-      "--without-mysql",
-      "--without-perl",
-      "--without-python",
-
-      # Unsupported backends are either proprietary or have no compatible version
-      # in Homebrew. Podofo is disabled because Poppler provides the same
-      # functionality and then some.
-      "--without-ecw",
-      "--without-fgdb",
-      "--without-fme",
-      "--without-gta",
-      "--without-hdf4",
-      "--without-idb",
-      "--without-ingres",
-      "--without-jp2mrsid",
-      "--without-kakadu",
-      "--without-mrsid",
-      "--without-mrsid_lidar",
-      "--without-msg",
-      "--without-oci",
-      "--without-ogdi",
-      "--without-podofo",
-      "--without-rasdaman",
-      "--without-sde",
-      "--without-sosi",
+      "-DENABLE_PAM=ON",
+      "-DCMAKE_INSTALL_RPATH=#{lib}",
     ]
+    args.concat(std_cmake_args)
+    args_no_python = args.dup << "-DBUILD_PYTHON_BINDINGS=OFF"
 
-    if OS.mac?
-      args << "--with-curl=/usr/bin/curl-config"
-      args << (Hardware::CPU.arm? ? "--without-opencl" : "--with-opencl")
-    else
-      args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
+    mkdir "build" do
+      # First, build without Python to avoid a Linux issue where the
+      # Python bindings are installed in the wrong path
+      # See https://github.com/Homebrew/homebrew-core/pull/116073#issuecomment-1320875424
+      system "cmake", "..", *args_no_python
+      system "make"
+      system "make", "install"
 
-      # The python build needs libgdal.so, which is located in .libs
-      ENV.append "LDFLAGS", "-L#{buildpath}/.libs"
-      # The python build needs gnm headers, which are located in the gnm folder
-      ENV.append "CFLAGS", "-I#{buildpath}/gnm"
+      # Next, reconfigure with Python and manually run the python build
+      args_with_python = args.dup << "-DBUILD_PYTHON_BINDINGS=ON"
+      system "cmake", "..", *args_with_python
+      system "make"
+
+      # Build Python bindings
+      cd "swig/python" do
+        system python3, *Language::Python.setup_install_args(prefix, python3)
+      end
     end
-
-    system "./configure", *args
-    system "make"
-    system "make", "install"
-
-    # Build Python bindings
-    cd "swig/python" do
-      system python3, *Language::Python.setup_install_args(prefix, python3)
-    end
-    bin.install buildpath.glob("swig/python/scripts/*.py")
-
-    system "make", "man" if build.head?
-    # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
-    system "make", "install-man", "INST_MAN=#{man}"
-    # Clean up any stray doxygen files
-    bin.glob("*.dox").map(&:unlink)
   end
 
   test do
