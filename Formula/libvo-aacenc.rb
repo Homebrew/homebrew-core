@@ -14,6 +14,7 @@ class LibvoAacenc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0f29497bb74d3fb95f6197085ff4894d2cffb6b6cbc92beb43131bbdc088824b"
     sha256 cellar: :any,                 arm64_monterey: "f25bbd61ab93bfe115c37ad611aad07bf0c553903078748803a813e907a783c1"
     sha256 cellar: :any,                 arm64_big_sur:  "cfc4dceab7f9a4a3037e00b26e046f310580ee5aa95906396052b91e22c89231"
+    sha256 cellar: :any,                 ventura:        "5c092be2b303fc7bc9c5ce9b56a5cb71987186d5c23e9b8577a502d37b5cc34e"
     sha256 cellar: :any,                 monterey:       "3a4d5c0bc8e920fbeaee283bdf464f37c333e6aa0d0a7b88c4f7535cbf0e44c2"
     sha256 cellar: :any,                 big_sur:        "4776106dbfb4f81523750d6540847a16c74c4e97ed8271bb9e5ab592386310b9"
     sha256 cellar: :any,                 catalina:       "144e0c345d0567a74aba09cfec49fba8f409e2db5abcee96b598127cc5d722ad"
