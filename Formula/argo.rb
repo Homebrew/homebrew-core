@@ -10,6 +10,7 @@ class Argo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c6ba59576beccd32cce45905f94048bd070822e0a86eca790db2f57fc1867f7e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd2b03bff667cc2dc395a91a5e9868936e8dd7df54dda416934bca9e8fa51f79"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "628a916960dd4120b2102d0e55d1c1582aa1bb8dea4a33143e3854a9e007d30c"
+    sha256 cellar: :any_skip_relocation, ventura:        "cd2c3641b2c20356a751671681b72d7349c02c8ead068b68a619874d8125d58d"
     sha256 cellar: :any_skip_relocation, monterey:       "37a7a90dccf7dad3c20b30d97653cceb3b84fc69d606e8e6f849cac80e2adc2b"
     sha256 cellar: :any_skip_relocation, big_sur:        "e3d3fb03de534b3b669f77007ebf637963d9d79f18c77cabe1d1944e4bef44b4"
     sha256 cellar: :any_skip_relocation, catalina:       "dffc23f28ad5d8c7c281d23bec4b8ab7a763a3c792e16873704141fb19a1fc97"
