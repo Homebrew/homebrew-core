@@ -20,6 +20,7 @@ class Minio < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d37c13e84b56d1dfcca0971614f3f5e9475351b3d65177767945c0492a0ff6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7de2877bf5c08b32f8de037fb8b9368bec054150a34ae08c2067bae6fedc8c07"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72bf6a9168eaad45fe05d096f59b5854c455389da182e7623d256b967d556f53"
+    sha256 cellar: :any_skip_relocation, ventura:        "86154209a0011163c367356bb2c9efe1b5cd14f0f10c4645f077b8758be70cc9"
     sha256 cellar: :any_skip_relocation, monterey:       "a329916bfa475ad5672c186f40c81536674b05ab5e88ae5a201531d1525fbb27"
     sha256 cellar: :any_skip_relocation, big_sur:        "5e3e6d0d1b36d23bf4a9d1c5a1564f2fb957dd47fd9f78db59e7d070e0703682"
     sha256 cellar: :any_skip_relocation, catalina:       "ffb3fb14eae85d38253e644634b35988ab7b3e09d6f9094f8b4109e0af642510"
