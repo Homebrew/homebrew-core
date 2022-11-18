@@ -24,6 +24,7 @@ class Collectd < Formula
     sha256 arm64_ventura:  "17ef602f303744b198fa038d7b7aea63147e4da61d756614d7765aed9b8c1e16"
     sha256 arm64_monterey: "dcc3153be48b21d9ed70ad1f73a4ef3e85f4d0a05df1a66f740837b98812f4f4"
     sha256 arm64_big_sur:  "9b6ef1f192b583587b38842eeb4487472cc120ab113884af1badd94d7f81d718"
+    sha256 ventura:        "b43512984ffee809d62ae814d028b6eb838675da3f2a9d2c0209bec4d7718c1f"
     sha256 monterey:       "fa6fb93745bfa378667bf760f47dfbdca543979b51e354921639a3e279cb3139"
     sha256 big_sur:        "722677e0ee31b375470ec75e6bfe40c67ea6e57549eb918e40a0a5a8861984db"
     sha256 catalina:       "52ee6f9dceeda3c68fbb3f12c585d5725dfdfd7815a6bfcf866ac72d00d884e8"
