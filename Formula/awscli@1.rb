@@ -17,6 +17,7 @@ class AwscliAT1 < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e4f59da6056936915277a22f69408bc100b08951f0d7ae6ecafc1c6c1372aad"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "72f2c231da50ddd85465fa5c58a43c1b3b356b5d822844e5500fd5324f6442a3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be1b7c9c259da360ea1689a3f1f11774013edb08e8304108e207ed2e6e95018c"
+    sha256 cellar: :any_skip_relocation, ventura:        "313a0d53416fa7c1674852d6f24f5dcb33079f7a1f52865c53929501e48a9dc0"
     sha256 cellar: :any_skip_relocation, monterey:       "e9ce009c9ed37995bac4238756f97a59123c863d2e94925d4670529af7ba6d7c"
     sha256 cellar: :any_skip_relocation, big_sur:        "4bc725dee1e912c15a1447f78bd51e762f7485628e98816b56bfafc70ec2ff68"
     sha256 cellar: :any_skip_relocation, catalina:       "0733430863d79f31188fcadc333f5ae8e6d0941517c8123cb1fa0ec23e9747fd"
