@@ -9,6 +9,7 @@ class Difftastic < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0017b5a05dcea32d56ac71cdbd9f7d4ce5d737c933a566468dfd9bdf20cfc55"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "78e7e8b45278cd09df8f14da328355c7e65c9e7298009caee664ee8a9c80517a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0864b8c676baf4774af2f61a635df75c955a9581e3acb02f3dfd7cc4d5d2720"
+    sha256 cellar: :any_skip_relocation, ventura:        "f8e2fd97aaf374a1899db773974055c2c889a9fa82a26e482ab06b2bb349418d"
     sha256 cellar: :any_skip_relocation, monterey:       "468b789c73faac9d202a9b56a555d5416f0cb2a67facbbc1dfe5a3f0f1bcccf5"
     sha256 cellar: :any_skip_relocation, big_sur:        "e2f9afa3f83318ceeccdb18449b067c9dd41391032718c55a9a2c4f2f584373d"
     sha256 cellar: :any_skip_relocation, catalina:       "89a6094e5bfe914c7a6f2fda46c64aeacd801b924e3e894698103c3bdeda47ea"
