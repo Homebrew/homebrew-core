@@ -1,8 +1,8 @@
 class PhraseCli < Formula
   desc "Tool to interact with the Phrase API"
   homepage "https://phrase.com/"
-  url "https://github.com/phrase/phrase-cli/archive/refs/tags/2.5.4.tar.gz"
-  sha256 "09875a3307ffade3a2a139a9c35cbafeedaf5775d899fe44ba747d945c4d4c8b"
+  url "https://github.com/phrase/phrase-cli/archive/refs/tags/2.6.0.tar.gz"
+  sha256 "1c4f41c413cade1e7e0588dfa51328044944c71867d7b4b5e02cdbe91b967619"
   license "MIT"
 
   bottle do
@@ -27,7 +27,7 @@ class PhraseCli < Formula
   end
 
   test do
-    assert_match "Error: no targets for download specified", shell_output("#{bin}/phrase pull", 1)
+    assert_match "ERROR: no targets for download specified", shell_output("#{bin}/phrase pull 2>&1", 1)
     assert_match version.to_s, shell_output("#{bin}/phrase version")
   end
 end
