@@ -9,6 +9,7 @@ class ProtobufAT3 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d78c587c5683c6ef029c414b915276ee0098008028ae6d9905cd42ffc76457a9"
     sha256 cellar: :any,                 arm64_monterey: "6d43d690893a0dc2e18de52be03f748a854f310a89a120314a163cde52d6749e"
     sha256 cellar: :any,                 arm64_big_sur:  "24a6c8831bf3297652ffa6a634886b243ca5709742e39f16b6de9929f22a3b74"
+    sha256 cellar: :any,                 ventura:        "c37111bebf0fc900f7b70e3cacc965c52b26263f1e499e0faeabdbed15ea4ccb"
     sha256 cellar: :any,                 monterey:       "04e654c28bac719703534f2b2e44cdba72de4456ba71d6419dd67eb70f04c398"
     sha256 cellar: :any,                 big_sur:        "c19c82512f5b10c0bac857b0ef6db324190d35a8d71388d98689501bfe531054"
     sha256 cellar: :any,                 catalina:       "bb463286e99f61928ced590368aca6b5e3a25892c53a4e0fa0d0e4713b9f2026"
