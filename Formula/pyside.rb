@@ -17,6 +17,7 @@ class Pyside < Formula
     sha256 arm64_ventura:  "dffbf25bf38b3fe04450096e9dadebae039a805aab71b34f3ca52c64b9185555"
     sha256 arm64_monterey: "e57c3a873abd31a3dc62c7fa2ea13602ce55e5dcd2aaa6ec3060ea66ff4f895f"
     sha256 arm64_big_sur:  "2826b9af79bce4a0c637cce74ca0d51592e29d7f976ee20ff188dc7cc03f06ee"
+    sha256 ventura:        "e26b777b21e4130aee323de0e8ae70d96131237f3e8907bd2dbc3249e96b2f27"
     sha256 monterey:       "9431f8fdbadf747ed47725a6db282924f8446cf165fbbc29d984c12ab8090e11"
     sha256 big_sur:        "71804120f03ca26ef7c430c4254f4c59c774624a5117d3726ddf8e274ef61dd6"
     sha256 catalina:       "104c59b3bbb34cb563bf65080c2a04d2b2872509c186dc88a4435f2e054026af"
