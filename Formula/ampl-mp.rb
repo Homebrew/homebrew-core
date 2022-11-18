@@ -15,6 +15,7 @@ class AmplMp < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0a6ec6b35631a0156e62ed56554b734b7d621ce0933784cf154d09c9d6419a30"
     sha256 cellar: :any,                 arm64_monterey: "27fdafce7e558441048fe2107a783304a5ebb275fdb1c435f0f30a6135d3bbf5"
     sha256 cellar: :any,                 arm64_big_sur:  "5a666c8f40e7d66e6c065e21abada4c2fbfc5917fed422beb6c14b357e0e41b2"
+    sha256 cellar: :any,                 ventura:        "7f1af712490a2a051c72196a15a17061184b1f0c0c2f29852455fb68c5895a6c"
     sha256 cellar: :any,                 monterey:       "c2323285b97b8a697e564fc444fd3dd4424cb3d6a1ea6e8e336735eee5e3ac5f"
     sha256 cellar: :any,                 big_sur:        "512e10d2061408b42b14b9834bdb4f4ad85f859c578ebab99efda98d3f6f4957"
     sha256 cellar: :any,                 catalina:       "c111c501330b3ff8e3bde1a7e679f162bea1038df07de96810ea5cbe34775740"
