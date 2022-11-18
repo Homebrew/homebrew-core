@@ -22,16 +22,22 @@ class Ktoblzcheck < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
-    system "make"
-    system "make", "install"
+    # Work around to help Python bindings find shared library on macOS.
+    # OSError: dlopen(ktoblzcheck, 0x0006): tried: 'ktoblzcheck' (no such file), ...
+    # OSError: dlopen(libktoblzcheck.so.1, 0x0006): tried: 'libktoblzcheck.so.1' (no such file), ...
+    inreplace "src/python/ktoblzcheck.py", /'libktoblzcheck\.so\.(\d+)'/, "'libktoblzcheck.\\1.dylib'" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     assert_match "Ok", shell_output("#{bin}/ktoblzcheck --outformat=oneline 10000000 123456789")
     assert_match "unknown", shell_output("#{bin}/ktoblzcheck --outformat=oneline 12345678 100000000", 3)
+    system "python3.11", "-c", "import ktoblzcheck"
   end
 end
