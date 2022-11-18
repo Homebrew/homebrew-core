@@ -9,6 +9,7 @@ class Freerdp < Formula
     sha256 arm64_ventura:  "2587674a7ba7496f3a324b176bd763bf8e4b662a401578311e9d2b066bfe974f"
     sha256 arm64_monterey: "8e3b0dddaf455f1c3a3b5367af70033655f71e9e2000d5846dcbe7a0a6d48bd8"
     sha256 arm64_big_sur:  "77cdff4426959c4b0e27d14547def8c74153bdee9a9de94dfce4431eda647859"
+    sha256 ventura:        "ee328e4a2d9c556d7aa2cbd42fa4d622cc6cc5ca79114f924f7a0d9dddd91da7"
     sha256 monterey:       "e9160a333684357389f17c7b2201c00889e608aa8f4ad9a253bfce88f0a58051"
     sha256 big_sur:        "3a7000ba4e01548b680397d8da77cc11f4954437841dd99d6d9b089a54f9ce9f"
     sha256 catalina:       "05b66d971a652e073560cc3dfb97f069e830e116d1de6344f5bc17a1dabcee6f"
