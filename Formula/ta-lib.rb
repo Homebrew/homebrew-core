@@ -9,6 +9,7 @@ class TaLib < Formula
     sha256 cellar: :any,                 arm64_ventura:  "8270f13fe940810e41e494cb30ee4dce662470751804681a806981d24da75ce4"
     sha256 cellar: :any,                 arm64_monterey: "42dab227aceff238ecc3b475ddffaa3d54e3da69a89c5aae08b4b4463ab2f0e9"
     sha256 cellar: :any,                 arm64_big_sur:  "c251da6ef6b483906eaa894dd86c19da3200acca00d6fab5f45522ff4b2681f1"
+    sha256 cellar: :any,                 ventura:        "eb38f5fd7949819ddf315784e9851a844f93f468b55e763a3d4ac0f8614446ce"
     sha256 cellar: :any,                 monterey:       "6c7ef4d661dfe335e942a2086ff237e13a7205a74bda91920bb265f9b5877d6a"
     sha256 cellar: :any,                 big_sur:        "363867dbdc2b177b4efd51265df3c9154547d6aa9056ab78d83bfc9776aebb01"
     sha256 cellar: :any,                 catalina:       "da70ac36643d428f0e4742c5bed21a674a9a5585765c764cf11e6e53a9086041"
