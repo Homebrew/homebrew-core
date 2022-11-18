@@ -15,6 +15,7 @@ class Testdisk < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c9177b918d95f4c07dba4f487fea6702c0625bcc7dcd9f0b160ff9629ed900f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "40b8a4f36f57b849119b447259f492466b2d297d9f178643875dc709a2abe419"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02338490d4e16fa0a61e422ec36ce72e97ad1d24406cda45f4d61396ba4cab36"
+    sha256 cellar: :any_skip_relocation, ventura:        "a7b64ba8b86976141a53ec77522fbcb58be4ac475bc70056b2bec1565c8ead64"
     sha256 cellar: :any_skip_relocation, monterey:       "bc5bf54d38d9f237ac6de913cdf9f841e77876b63f69c5f0b380f9f095242d2f"
     sha256 cellar: :any_skip_relocation, big_sur:        "325a572e2238e551d8415f58a463d80619850a9026b614d0c23da46838f2e9ea"
     sha256 cellar: :any_skip_relocation, catalina:       "b0035f42c03dbbe94000ae373b1a8c5f9bbb6f9534ea3d64b5754475ee8fbc7b"
