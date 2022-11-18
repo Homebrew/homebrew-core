@@ -12,6 +12,7 @@ class Sfml < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ca56d2babc673b63418e28ff62d1836e6a6759315327f9ebba79740261f929d4"
     sha256 cellar: :any,                 arm64_monterey: "31276f049496d80aed1bd4872b5764f26a74693445beb5d1142af08be061dad3"
     sha256 cellar: :any,                 arm64_big_sur:  "66629eea47ae1f4be17c0c8a662b5a748d508bfd1fa45baac102b6d43977295a"
+    sha256 cellar: :any,                 ventura:        "233a8fb75fbdc79eb9b03c519aa7e9b3e209a74476d113152c6f60d5311b05dd"
     sha256 cellar: :any,                 monterey:       "2dea0d7dd5f7580840e0610bcdda13bb330009cb72d0d95dc57e5e2bdcbd7cad"
     sha256 cellar: :any,                 big_sur:        "53876147c9bd9b7dd1f4f165eb398ada5afd80c416ab937868903a5798dadaed"
     sha256 cellar: :any,                 catalina:       "6cd5cb0527db2de9870ce49e57d74195b1c42be618a28416c8ccfd5c6e82419f"
