@@ -8,6 +8,7 @@ class MysqlClientAT57 < Formula
     sha256 arm64_ventura:  "87d24fa8e0c274b3e6e7ebe850da9e6a30a7c5dc8ff02abdd5fabef452e8bb9b"
     sha256 arm64_monterey: "a625d490e1aec7c1c940d4820a4296785f0d5885a5f44f207089b69ab14e4a13"
     sha256 arm64_big_sur:  "36dad98547a79e55ee6402bcfe841ab90e4f3ed8a0f22004a5d8e7b7e832ad3b"
+    sha256 ventura:        "54ec10ea7264ebbd515f96fc4b2d3e78060d990c1c50a6e403296f4684e8c9e9"
     sha256 monterey:       "9591ce6380dc73dddd90716de26127b6269b3bb1d79ff3d821f7d59deb3513b8"
     sha256 big_sur:        "b00ea0ee1635933022d25b996a789fd57896c090526b86d767d1e868beaf82ad"
     sha256 catalina:       "8a9414707afa3c8462e45ef54f2da13361e96e8bbfb74102491bc28844a115fc"
