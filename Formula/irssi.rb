@@ -17,6 +17,7 @@ class Irssi < Formula
     sha256 arm64_ventura:  "143107760ded6982897869477d2c79aaa13775d05e25356f2fd5002865a9fccb"
     sha256 arm64_monterey: "69731184fcfe2677b6d24cf3b3c3901e2aace975ed99242b7b706182aef01cd3"
     sha256 arm64_big_sur:  "743b316af037b0756de7b405a6f29cd70c99f213ad03cd02aed56ede6a8c8654"
+    sha256 ventura:        "eb5da9b3fb7c1e827ff88483ae81676ddf8687be82c109c5db3fc727071eccb0"
     sha256 monterey:       "b7df6b4e9dd65d526127e8c0b243a32c80d33ac3c04456c63f3a24953f149c75"
     sha256 big_sur:        "ebc2daf02eae062170378d2995a42a643bb3d64f5f10ebeccdecf0446c7e0401"
     sha256 catalina:       "5c9239da0b6620df1e8bba3f315d35a6e41884bd107aab393c46434bd17fa920"
