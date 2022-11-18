@@ -9,6 +9,7 @@ class Sourcery < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4aa90413e0543370a174f8c597d0e0b064746a3a20f1c0e27f2dae765f3f51e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0f8ad70cf4d9dba61f8621513dc8db1c25bcee74c0a2da3a1013763e37add80c"
+    sha256 cellar: :any_skip_relocation, ventura:        "8842b7677b7a49e5d6416d537dde593f6e55bfad4dd5a971f8c63c4800c25f5c"
     sha256 cellar: :any_skip_relocation, monterey:       "9cc7c91be67833c608e94ec72d57531a86953318e97ec751bcaf86daf798c263"
   end
 
