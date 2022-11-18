@@ -16,6 +16,7 @@ class Qcachegrind < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9b9f7af3860e52b3554512bc3b5c52042f1c4befb1afe0544936f4729481b796"
     sha256 cellar: :any,                 arm64_monterey: "9b9f7af3860e52b3554512bc3b5c52042f1c4befb1afe0544936f4729481b796"
     sha256 cellar: :any,                 arm64_big_sur:  "a2b003c866eeae651aae80ceaf4e4bd10aebcff306ba1d7931ecc19200fc3379"
+    sha256 cellar: :any,                 ventura:        "a2f323dcad9677db6d80a55931253ecee7a3e615c36fadb672d8ab314a8a9b68"
     sha256 cellar: :any,                 monterey:       "17104378e9bbca4e16e5b173c357b03a6cfc5af2f326725e635738938aae50f8"
     sha256 cellar: :any,                 big_sur:        "c36abf53e2391a432700157469663b5d2cbd59ca14b7a958ef93893560086083"
     sha256 cellar: :any,                 catalina:       "33b2d59db95d6d7b73b29183de7a84baf653d6d4bb6999773be5586c0e1c892b"
