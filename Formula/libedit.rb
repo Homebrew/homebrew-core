@@ -15,6 +15,7 @@ class Libedit < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b7b13324abc4ddd0eac78fb9cb202ef9eccb4044ae719203cd933754c3588a85"
     sha256 cellar: :any,                 arm64_monterey: "31b5d595de266712ea96a3246683f4781116f58578820241c3810d1605a4e55c"
     sha256 cellar: :any,                 arm64_big_sur:  "a3a10d198a10b033e2ea3d4cc08b7a61118587618b38861b55365226e955aa0e"
+    sha256 cellar: :any,                 ventura:        "0eba9829c27aae6bd7b331d27200c34efba436d8cb6643ca549d4b0067db6723"
     sha256 cellar: :any,                 monterey:       "4f0f05f70b2d444915583eb0d54006663e42a38c5be0a9f9c9ce6510a0934bed"
     sha256 cellar: :any,                 big_sur:        "ce66e3881e8ef465281639cd032707ef9bed833309b2879db34e1a6318fda580"
     sha256 cellar: :any,                 catalina:       "13d64d1c3f21a1e0299a53f2d636d5cd60d5d62df53e6dcb2ee3c8cade3b53b2"
