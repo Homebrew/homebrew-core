@@ -23,8 +23,13 @@ class Hatari < Formula
 
   depends_on "cmake" => :build
   depends_on "libpng"
-  depends_on "python@3.10"
   depends_on "sdl2"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   # Download EmuTOS ROM image
   resource "emutos" do
@@ -35,22 +40,17 @@ class Hatari < Formula
   def install
     # Set .app bundle destination
     inreplace "src/CMakeLists.txt", "/Applications", prefix
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{which("python3.10")}",
-                    *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     if OS.mac?
       prefix.install "build/src/Hatari.app"
-      bin.write_exec_script "#{prefix}/Hatari.app/Contents/MacOS/hatari"
+      bin.write_exec_script prefix/"Hatari.app/Contents/MacOS/hatari"
     else
       system "cmake", "--install", "build"
     end
     resource("emutos").stage do
-      if OS.mac?
-        (prefix/"Hatari.app/Contents/Resources").install "etos1024k.img" => "tos.img"
-      else
-        pkgshare.install "etos1024k.img" => "tos.img"
-      end
+      datadir = OS.mac? ? prefix/"Hatari.app/Contents/Resources" : pkgshare
+      datadir.install "etos1024k.img" => "tos.img"
     end
   end
 
