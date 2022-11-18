@@ -16,6 +16,7 @@ class Ccls < Formula
     sha256                               arm64_ventura:  "f4170fd9502d4163f1e81b1e586844d092bb2d244bcc489515e1c21b562dd181"
     sha256                               arm64_monterey: "fe85213a57a49cb8fdd9b2dd1064a27a3a15480c4e2760b6f0822a28d0e0e5b8"
     sha256                               arm64_big_sur:  "a478d9d56f092d5c0af5cc2eba95ce92b8aa4e4c715a588f51ef221b917f30a3"
+    sha256                               ventura:        "3df7e94e8687cce411fb1220bce58198f816ff02e33ecafa1b40a5d234dc2b04"
     sha256                               monterey:       "7e1ba5791ef7efd463cec861d325a317a1876772fff1d7e76b5ad96ff9296df4"
     sha256                               big_sur:        "b4bf1dbeb732b55126523f4f207d87702f0ccb4e916804b4addc5438c81b81fc"
     sha256                               catalina:       "f6c5a5e8968fdf4001ba476fe88203c8aa0b2f8befa3e97704a2d34f810a3007"
