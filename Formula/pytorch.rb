@@ -16,6 +16,7 @@ class Pytorch < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d57efe34670fa32cd8e01d805ad3464c6a19e2d8dd36e55cc63aac2f3a780c8e"
     sha256 cellar: :any,                 arm64_monterey: "a12968f1df7070107bf6d271858a5a7415fe42c0b570ac1fc969cd2683cd6780"
     sha256 cellar: :any,                 arm64_big_sur:  "8637fcdc0ed320f328f94625bcbb87769d2a6802734ff88d4ffd79b5b8a70da5"
+    sha256 cellar: :any,                 ventura:        "425ed374e5d21a1b299a9c4d7c391a4ef731868a7873124794019dbdf92527fb"
     sha256 cellar: :any,                 monterey:       "d20c43be3d583b7fdae31c58e64549314066b8b5248dda130ce1ec83060e9412"
     sha256 cellar: :any,                 big_sur:        "349d106bc09f3c83185278d191ddb13cccaa21349d797f408398e2940ea9b8d1"
     sha256 cellar: :any,                 catalina:       "a61996b933e1dda4d5ae5519f89d5284d8e0054c95685fc2325a97b58c0dd5cb"
