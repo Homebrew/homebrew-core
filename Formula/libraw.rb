@@ -15,6 +15,7 @@ class Libraw < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e4ab08ff590549de7c1aa488e2e225a74e1186a1b51e71956488dc909a7bd8ee"
     sha256 cellar: :any,                 arm64_monterey: "8fabdbb3e0bea64967859d1566709b7a1eb20100548f8dde61300a0982f3d78c"
     sha256 cellar: :any,                 arm64_big_sur:  "5587bd22619b0f9942337f66054fbf8f3dc943aeb09f258bd1216eea779439e6"
+    sha256 cellar: :any,                 ventura:        "3b1f4caf1e17e245871ae31ab827c63bac71938bf5994b4258b54dd765a55d43"
     sha256 cellar: :any,                 monterey:       "7c67db7c1d4da6c580782470bc3b9ca9b2ab310d912bae0d04b0fe1b400da1ff"
     sha256 cellar: :any,                 big_sur:        "49845b546bb0df84878d6a9e9dec4f5ce210c76ce57713f1fe9aa73cb0af56e6"
     sha256 cellar: :any,                 catalina:       "a0207e575f4846216b3e7485d8e384bf3f7f5357adc68fb93537555f859223cf"
