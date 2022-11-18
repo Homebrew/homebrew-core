@@ -10,6 +10,7 @@ class Deno < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c440709f3c530b2a201b34796ee87c3ed6f291f4ab69ce664f96571dd417f86a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c88674b3e2334133047ecb07671d3e3ff839a74f9832a4b51296af3a695bbde6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4752ed8245633fef9eada9a8d36e43bb5c214e30eacbef75c7c13de13b9c6ae4"
+    sha256 cellar: :any_skip_relocation, ventura:        "7b577a80edf86611323cdcea4388c5a9e6ffa271f4496c0dd807e7dd4b7e008a"
     sha256 cellar: :any_skip_relocation, monterey:       "eb3e4f612bd1e185ef68365881f3f283222c773a540713f816bc0a50926b1078"
     sha256 cellar: :any_skip_relocation, big_sur:        "cc21fa1063402004bdcef56a3055a66a349247f3cf8c7c57e709f24afd79258b"
     sha256 cellar: :any_skip_relocation, catalina:       "8d0593336d812cbfa97d512b6dd23ed62ad850135a5527707ed5fa838e416357"
