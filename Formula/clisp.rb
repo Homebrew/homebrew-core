@@ -26,6 +26,7 @@ class Clisp < Formula
     sha256 cellar: :any, arm64_ventura:  "2be9e60ec5595599b60733d43ade1ea29007214d3c05837d58cffc43bfb6e412"
     sha256 cellar: :any, arm64_monterey: "bfad1c6c3b4787711bc126ed360647a6ad6458dd24ff4cd9e3be5252b897ed82"
     sha256 cellar: :any, arm64_big_sur:  "8108810c5af0ce990d9052ca96f6aa75af1f59589a103e21a86f8b1f2e801956"
+    sha256 cellar: :any, ventura:        "16c062ce5c0d6ff467fe082d36bc22a0455972c19a34e37520eb0134f77b24ec"
     sha256 cellar: :any, monterey:       "b2fc7c67341df7f9766f66054445e342bd61acc22c7260bac3589266ba78f8a3"
     sha256 cellar: :any, big_sur:        "4b81399840c98918cda6447d86852ffcb96294f228cb26f6c289f22d90df5a7a"
     sha256 cellar: :any, catalina:       "de714225b132ed2cdf971fd31befd890f336a3a917a5fd56832d6989b6c28a58"
