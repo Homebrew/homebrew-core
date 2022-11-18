@@ -15,6 +15,7 @@ class Botan < Formula
     sha256 arm64_ventura:  "a2ab8e2e8bc1f2f2b0d2c5c9a6e70db7dbf6d8da0f59d7877ae65d0f3e080dac"
     sha256 arm64_monterey: "f8e217c1f88a3eda865ba873cf7ecde4054a9d03736bc3dbd8e5a447c5ad3750"
     sha256 arm64_big_sur:  "7af675db93c0d3d31a3fc732640932bdefe5bb871359bfdfef6bf487e9910804"
+    sha256 ventura:        "b29a58fa7e9b7663d5640fd4930e0beb28a14db52cb7e6657f6c087f85fc486c"
     sha256 monterey:       "6129e49f6502200987dc9f7e0439e1c0ef51a0fe806048ebd6ddce27744f095e"
     sha256 big_sur:        "580e1e95815e36d9a7faad7201b6f65f3938485bb6c9058c1369fdb37cfee08e"
     sha256 catalina:       "392dac3351b9e32ceaf9f7e8fa40e6fb5a87be7bb76894f469fd25a7e19ca95e"
