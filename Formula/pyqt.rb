@@ -10,6 +10,7 @@ class Pyqt < Formula
     sha256 cellar: :any,                 arm64_ventura:  "dd74b1403a2fecf21d5c971e3f3c806933f709ada16bbff2e932de2585a20874"
     sha256 cellar: :any,                 arm64_monterey: "6373237ca91cfb86b5e31a491d43fa55afef94379d9a847a9ad4f4d5ee3f52fc"
     sha256 cellar: :any,                 arm64_big_sur:  "171fb15a9d6d76cd2eddd244d687c403e66f291adbe40e734c795069e618f0b0"
+    sha256 cellar: :any,                 ventura:        "7aa823980c68d09760c99f771ad370e241c59db30f37af5a865635cd3804acf3"
     sha256 cellar: :any,                 monterey:       "aa0fa1418472627c5d00e1d9dcb3a63db243b27601d818fc0984bb121f1d8fce"
     sha256 cellar: :any,                 big_sur:        "2c9e14ab68ae0e0cdc7a3806d4d158f45883e07deb6489933c6df8fb8485b724"
     sha256 cellar: :any,                 catalina:       "9ff0bf8055f3d1d0170959cda2a294cc49701a42eba35176c0bac65e785e4207"
