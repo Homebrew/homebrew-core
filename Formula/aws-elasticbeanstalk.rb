@@ -13,6 +13,7 @@ class AwsElasticbeanstalk < Formula
     sha256 cellar: :any,                 arm64_ventura:  "56fdac2671333fcf13f0dc32190a782e9fd5f5ccb21ccc37cf828281d2948290"
     sha256 cellar: :any,                 arm64_monterey: "b493e27f9b65f146521bd6f323866ac62f5ae3a83ca5516bcb242987ea1aefc5"
     sha256 cellar: :any,                 arm64_big_sur:  "cbbd0c07de5f5029f1716d38ef8ba5523e1e749a16ca3ea7296d799effa4fe9c"
+    sha256 cellar: :any,                 ventura:        "4da317d0aab537ff8ca5e5cc0127e8a43ba4bce746cc69ed2d41c4969d1279ac"
     sha256 cellar: :any,                 monterey:       "d8fcd2bf79cb2c21b506cd8f47c1830bc97b7d0d11c7506c0a1a8ade965c4526"
     sha256 cellar: :any,                 big_sur:        "faa23c367d466637207cdb60224e462da017667827355e0e464ea29883a1dcce"
     sha256 cellar: :any,                 catalina:       "1f5d8e804284426bdd84a1eff01646edf7cfed6791631b213ee8a3d44bb76ed0"
