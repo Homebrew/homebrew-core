@@ -14,16 +14,14 @@ class Softhsm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "87a9e12272c8a0a7fdace62e8ffa9dccfc0c54d6b8a4786983999003569fd1cd"
-    sha256 arm64_monterey: "c3e55a3b5f71b28da6a9fe63d3008a30d1d9276acc89ca677717bdc87c9be668"
-    sha256 arm64_big_sur:  "878fda1e9a3ab2de52ecc4244044971ad3e38909e080f77cb7973a5f797359c8"
-    sha256 monterey:       "99780ecb60f55ec1959ee5ca34b8f17ff1a6767f3a3f23dffeb0b193fa4bd865"
-    sha256 big_sur:        "08a0d7a61d2b8d4f12253d3e5404ce43456fbb864dc9fb88999132f96a15c267"
-    sha256 catalina:       "6da111cdadbcf0127882e2bec5b3844454fd9b4e00a08d1fa49aa2f389b7062c"
-    sha256 mojave:         "b7abd86dfec3d10f5e5cde00f2bcd5e0e19e2d9674c50a431db1195c4655dfec"
-    sha256 high_sierra:    "73c40f26209dbf29280c16aefdfb492c749d8e14e4cbf83dc2a5b566c22f6bc9"
-    sha256 x86_64_linux:   "ccf8a6487c0cdc7ed07929e739d98029daf389f9c0b8b2924357216ab8b8b8e7"
+    rebuild 2
+    sha256 arm64_ventura:  "d41a143c3d5e8ea1b7f932c41cea27dbb64341d7e28bfb4c61af68aa68499b77"
+    sha256 arm64_monterey: "c4912791b41e00485fc4b07abf4a9f5ffd0e75d613dd3e316b15f837e4fcc95d"
+    sha256 arm64_big_sur:  "42a2031bb207ba74def4b64a1594c3827c6f2329995b52b7d84a16495c8d18df"
+    sha256 monterey:       "320f44fb1c860b9953b29260ca75fa947c728db78fea1a72c6796d5ea537624d"
+    sha256 big_sur:        "ceaa2a468dd99798cb775406dbeaf169565b35517d36b06fdd2abba6ed9d754a"
+    sha256 catalina:       "f18b5f1c33b98f07f14233e90e412900a22d79f4b04946bdd1fdd28a04dbda01"
+    sha256 x86_64_linux:   "87b3b85891df32b03e9b362ed76ed435095c6c72d40d460df18986869d701ee5"
   end
 
   head do
