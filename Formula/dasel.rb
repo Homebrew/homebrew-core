@@ -10,6 +10,7 @@ class Dasel < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c53ba72ea84120e87d08f7643b29fe44426498b0312c0bac4bae101aba10698b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a196bb46bbc5b0436d47d448aa1223857ce58690d884ecc896a0a0be8d230ccb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21086f7f67cc0ad457475b7ac97464cfb77aa0473133f3bac0e03642d79304f9"
+    sha256 cellar: :any_skip_relocation, ventura:        "f69a48e0fe1797dc07e96bf40e7effe163be4e5b4539132523e8035e7dfb89e1"
     sha256 cellar: :any_skip_relocation, monterey:       "093edd26d35afc44c4dd59496966f17e295a0f4afae07cc2a4db49836a8f41a9"
     sha256 cellar: :any_skip_relocation, big_sur:        "390ede644f4902baf4461f77f1299c21bc35381376ac60fd3adb14c17964c067"
     sha256 cellar: :any_skip_relocation, catalina:       "1cb975ce85dca8e1c234f3e3995ce399e558a585afaef6bbcfe78f7290f9f36f"
