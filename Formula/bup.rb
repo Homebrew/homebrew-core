@@ -7,12 +7,13 @@ class Bup < Formula
   head "https://github.com/bup/bup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "30fea55aee5ef824fc704b84c5e8c4f93f3c0659b80d5b21968e8f977cf11d11"
-    sha256 cellar: :any,                 arm64_big_sur:  "5c26068d9d30ef24aac0c293e897df200dcf4b75d31439cf45563f369865ba75"
-    sha256 cellar: :any,                 monterey:       "87dc510d47ccff7cbd245839caa0e445a038419759632af893b2f11824013ac1"
-    sha256 cellar: :any,                 big_sur:        "d0d55291ad9815b362674a2bf8da9f220d92f06a2c1d4ca6a9928d4fc8cba5ca"
-    sha256 cellar: :any,                 catalina:       "d71822befd146bc23771153936214ada6c68153fb0a03c741aa92897a033f496"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2b04f72abe281c2a990f758c3b8253f35dd417bb37b5e200028e3a9a8145494"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "fa27d1e7d41e432cd8e92a4bef4a0f40baec7aa017409bca0afbaea7600ae837"
+    sha256 cellar: :any,                 arm64_big_sur:  "c4ecfafadc9a7a307b0e0b1d3affadd69a96307ba577abd257d7819d19780916"
+    sha256 cellar: :any,                 monterey:       "8f3aafa9e04c8ae9948e636212512b21b9ef56ed7a98d7ac7fa2a81de9c57ec8"
+    sha256 cellar: :any,                 big_sur:        "949abf70c0e25dfc73f42ee8cf3d8a5fde1451f1ee1a3c0751857cd63bbd5e10"
+    sha256 cellar: :any,                 catalina:       "f3a2efd0a2b4c434677b736a0f59e5dc2be8fbd9352c90e7a818ff78af60d9ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76efebc4d38d833aaf7b0d9052ea73191b2d6deff579fe64bb5b25e9d246d27a"
   end
 
   depends_on "pandoc" => :build
