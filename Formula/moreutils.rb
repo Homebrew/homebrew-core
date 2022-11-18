@@ -14,6 +14,7 @@ class Moreutils < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d2d7aea31dd1470da60cf4c7382407338c8bbc9806765a8eeb22084fb86541df"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "97487d8fcda41988e9b03a87770260953fc05e2282e069a35fc5742e804ed0ec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8ddb7455bee7e0dfc6b870a36c4cc2eb6462058d69f19d104c9522386a49ef4"
+    sha256 cellar: :any_skip_relocation, ventura:        "3b2c236961b8496b18456e54fa3561ca227532c6f855f2f95d86bc69dc2c30a4"
     sha256 cellar: :any_skip_relocation, monterey:       "4bbca70595aa3ebf16c1297b00725a95d32220e5b849db8b024b724a953e923a"
     sha256 cellar: :any_skip_relocation, big_sur:        "89bba0318b0d38d10e799a4d8a39b2b1e32bcab22cb416f73aff938c765b8d3e"
     sha256 cellar: :any_skip_relocation, catalina:       "6436bbcfa0d40fe6977f76e212665c89120a920c1e6b2661ea8fbb675ab2e4e8"
