@@ -11,6 +11,7 @@ class Julia < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c543c1b6cf22aff97bb9f09e8a7c69494990696f9e374b25cfb7d68113db88fa"
     sha256 cellar: :any,                 arm64_monterey: "709aecb9811746da794677bf07f0a3a6396768ad715348cc33a71d0e8bca5ed6"
     sha256 cellar: :any,                 arm64_big_sur:  "e97d48a33a90a7ac84bae7d02b48d392b3f6d3b0194b75a5e2f196b1bc1c8183"
+    sha256 cellar: :any,                 ventura:        "32d15cc457928bf49a45f4124b32b33210f64ab321fed2e7e9396dd668475806"
     sha256 cellar: :any,                 monterey:       "a4aa99fbde0335553fbbab61e07ac6236f17071444a0c2534ba585cf9ca34a1c"
     sha256 cellar: :any,                 big_sur:        "f914a713b16d7d612ed9783f9f165c1b70fe90eed292f22573bff639b9c559fc"
     sha256 cellar: :any,                 catalina:       "c9aa2fcb82e0e77607a8d58c4f0dac242a79d78b30d6037e02e8900947a228ee"
