@@ -9,6 +9,7 @@ class GolangMigrate < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ab03e86f6da0ff578e58b73282753aaeb86d2b100be34f54683a351069a4ea0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "de335a1e58758ce0006b6c4b492699c409274b24a291ecb03612e104781093c2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41595beeb24c80f73f2a3d1722ad29a03524dcf0d3cf3a40a1905a2d391188ba"
+    sha256 cellar: :any_skip_relocation, ventura:        "ad606e8a29595bc3f0d20fa3e53ae15946144a991cf202ba5cfce0104fc7eafe"
     sha256 cellar: :any_skip_relocation, monterey:       "7d080cb0d06b0198228f7d0f74c626efefd9a6445155df5dce666745428c4bc1"
     sha256 cellar: :any_skip_relocation, big_sur:        "10b7e0b3396058331b4efd8ebfb0fdb44cc1cda885ab499c89963ce3ca752188"
     sha256 cellar: :any_skip_relocation, catalina:       "f63879e90fea7b531081285580b10c5bc57d0585f35c3d6a3e178403a40f56cc"
