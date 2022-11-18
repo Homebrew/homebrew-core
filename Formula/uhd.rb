@@ -18,6 +18,7 @@ class Uhd < Formula
     sha256                               arm64_ventura:  "ba03914755d8b08ae8e5f2f5bc66885e1fb5f2c25c7dd55f26963679308213c2"
     sha256                               arm64_monterey: "8dc8b3ec8055fe3e04123af3e6c8e446f3cf9fdea9b208ff65d2499c3470dd8f"
     sha256                               arm64_big_sur:  "9688a412638cf6dae758ed9ef88552b015add31a22bd75b020b465233997f319"
+    sha256                               ventura:        "fec3be854d19fb52e8d3cef0d0ab078a9123d1e5216321224c3e1146002b640d"
     sha256                               monterey:       "70e9a62ae3703dc5c8e9ba42c6c62f7574bdbb6b9537eb12c40b1fd5899c4a67"
     sha256                               big_sur:        "b8ff52675faccce9b230c13982979eac0e486403d4b8d3121e1f9851b189f174"
     sha256                               catalina:       "9f250253e77e738a973a5cac00c97641b45dee9a3a38a135ca6389dc5a3c6dc6"
