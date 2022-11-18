@@ -9,6 +9,7 @@ class Ideviceinstaller < Formula
     sha256 cellar: :any,                 arm64_ventura:  "fb42f5fc7e6da997dc22dd68fe9c57a711250259c737992eeb162cfe871cce99"
     sha256 cellar: :any,                 arm64_monterey: "e5bf0e5ed6aad688593878bdf8e78c5aa84530ee053f5ea21ad433cf99f59873"
     sha256 cellar: :any,                 arm64_big_sur:  "30f56186281509d1f77d7a00cbcd1f313cd80135e3f9e2a235ca649f9a23e5f1"
+    sha256 cellar: :any,                 ventura:        "d99cfeb0873b28db4ded6c9fdeb4ba29aa7603a20a284444752ca97c6e7af3b6"
     sha256 cellar: :any,                 monterey:       "e6e374f35c4eeb37763e7755228c108ee96024b8599943fa741450be35915d93"
     sha256 cellar: :any,                 big_sur:        "6d98523b90770662e350311c375f1157ac0c708769ce2145036aeed451e26621"
     sha256 cellar: :any,                 catalina:       "6ee12db78e8c224c0eb0cf88eb4f43242eb1ba672eb006636273b99b75b02a87"
