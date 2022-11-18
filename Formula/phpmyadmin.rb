@@ -13,6 +13,7 @@ class Phpmyadmin < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "287dd994aff3570f5bd32f7fb4fb670e8bb76b68774e60d60a536adc54a5c03c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "287dd994aff3570f5bd32f7fb4fb670e8bb76b68774e60d60a536adc54a5c03c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "287dd994aff3570f5bd32f7fb4fb670e8bb76b68774e60d60a536adc54a5c03c"
+    sha256 cellar: :any_skip_relocation, ventura:        "68045778c9ed100dd22374199cb1c1d9f089fe78253ce976d00fbbdc01ea42cd"
     sha256 cellar: :any_skip_relocation, monterey:       "68045778c9ed100dd22374199cb1c1d9f089fe78253ce976d00fbbdc01ea42cd"
     sha256 cellar: :any_skip_relocation, big_sur:        "68045778c9ed100dd22374199cb1c1d9f089fe78253ce976d00fbbdc01ea42cd"
     sha256 cellar: :any_skip_relocation, catalina:       "68045778c9ed100dd22374199cb1c1d9f089fe78253ce976d00fbbdc01ea42cd"
