@@ -11,14 +11,13 @@ class Libomp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "59ea0fadbcdd9c8647057c420d220dfbafaae877f9090585be45def2fb3b0ede"
-    sha256 cellar: :any,                 arm64_monterey: "694b2c1c0bda000cb49776222558c021cc71a57ac1a1152421131c2f9dfbf581"
-    sha256 cellar: :any,                 arm64_big_sur:  "786cda2afd0aa47f137a7ec53f9bd32cbad00f0cf47144b07d42875eb1b91b86"
-    sha256 cellar: :any,                 ventura:        "5bdcfd3dbea6355a86256a701f7e2ce29a0c81cb2338a747184249a24530f007"
-    sha256 cellar: :any,                 monterey:       "222ec35ce81fc3323f2af7ecfc16ed45474f92c7e882f5369abdb6b0673eb214"
-    sha256 cellar: :any,                 big_sur:        "bcdd4b17362ccae808de9d225dc998000210654239d790eab3043cbdd46d8de7"
-    sha256 cellar: :any,                 catalina:       "04c9e8cbc25803bc09a131570c4a6e18cb6f8d5bb9efb26cae0a03bd7f5fe749"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37ba6b6a4192807e036037698fbc202042aaff749f56c50acf2b29fe235dc2f3"
+    sha256 cellar: :any,                 arm64_ventura:  "43ee232a19468d495109a73e581fea68f7d49fda907b83e44e4f0ab5b8c0d341"
+    sha256 cellar: :any,                 arm64_monterey: "4e150f9429aedb6ee9530cc8091314e67a910c6a4a6e95dc3f90a2fbf0b86b2b"
+    sha256 cellar: :any,                 arm64_big_sur:  "600e0716d812c318b8ce06c5b9b28cd774e315d60d84ccc04bb0af1721d4bded"
+    sha256 cellar: :any,                 monterey:       "ff127958fb43bad1f71ff0c7727cbf18ecd0e5ba6d1d1a70bedf142c6cde5b0e"
+    sha256 cellar: :any,                 big_sur:        "eff078fb1c81ce234f9a2c9fc9d67a2ee82b36fa50a823a7319207cf71d51a25"
+    sha256 cellar: :any,                 catalina:       "b854a6c8a9e58f362565364104ef53e40ccde0150c30d6d6b137420e8c930182"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f957ccf59df651b535bd8f6d05f41de542817fa4a739b7a76bcbc8ee5266ed5e"
   end
 
   # Ref: https://github.com/Homebrew/homebrew-core/issues/112107
