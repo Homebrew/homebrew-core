@@ -18,6 +18,7 @@ class Fstrm < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ebb6daed2a3a732ef21027362600e71790574221dddfc45c7926fa31ac51d41f"
     sha256 cellar: :any,                 arm64_monterey: "9a6bc2f1e46b05c45ea8f0925f08781d22604e8bc5a77357ccd29f2d90070ca3"
     sha256 cellar: :any,                 arm64_big_sur:  "409e20e264b28337487a22ff762e8f7d1b4dc81bea1cd131c6d673a978d94e2f"
+    sha256 cellar: :any,                 ventura:        "2ce57432abdc248382c8d9c333455c1c8dfbfc1f00958a66e0fe9772acd7f891"
     sha256 cellar: :any,                 monterey:       "1e8daf8e57af116ffdcf7ada7a945181d3ef35d955f1631a8ed4e2c27ac8ebcb"
     sha256 cellar: :any,                 big_sur:        "32c20ee504e029088d36ee45177137411beed0aaaac76ce287810cec71d3eea9"
     sha256 cellar: :any,                 catalina:       "3b775d63b3594f2264b413184aad3fbb33990c07473e0db9db12c86bd0f19950"
