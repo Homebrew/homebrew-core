@@ -8,6 +8,7 @@ class Xdelta < Formula
     sha256 cellar: :any,                 arm64_ventura:  "63a96424b3e3b7c2c501fdb0b10ae2847cec321daeda40e0bfc1c4125cafd22a"
     sha256 cellar: :any,                 arm64_monterey: "18018770f5aec11098c6a02b6a88eb7db07edffb5e04d947b3e82de41925af8a"
     sha256 cellar: :any,                 arm64_big_sur:  "4bf8a2d96c0ee4e20beafd81762a80e21bbb9fe400796e02392cb18777f0c6a9"
+    sha256 cellar: :any,                 ventura:        "84d6c37a23ea9ad421cb934be9b559351beffc348ad56a1395ca4e514934c205"
     sha256 cellar: :any,                 monterey:       "cead50bfce3fa3e6dba28a28804b2741748f30f1baafd1bf3fe192bb4d34e6c2"
     sha256 cellar: :any,                 big_sur:        "98fa35dfab2175bb199d3878788734096430e118f3f17cdde9c74ea99af62538"
     sha256 cellar: :any,                 catalina:       "5b5eae08cf9d1d5e37dc42f0d557670477bae10adf28278bbb4f88ec83a5a2c3"
