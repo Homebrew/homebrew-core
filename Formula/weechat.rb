@@ -10,6 +10,7 @@ class Weechat < Formula
     sha256 arm64_ventura:  "01b097f108da34b615fbcf447a221f181e9f09edbfae51be6933bcaae2c52cdc"
     sha256 arm64_monterey: "eb85c23c42b7a2b0962c2926c55bce19ab33c1fec790428c52abf322e536763a"
     sha256 arm64_big_sur:  "9ac39226c800db6c682d7403a0d7ce160853a4338f39330546bd4963c2e40dde"
+    sha256 ventura:        "b5c60e18b8466972748311c13b3c244230668018839e6f494719d4d2eb18f4ca"
     sha256 monterey:       "3371b53f6ad1a8893d4a433ce9f5a7bdd2bdda43d0dce816d5cf1cfd9b68e795"
     sha256 big_sur:        "bff8dcbe08c52b6da68f3f152d62f15864d0cba35cf57f65020c7c48c2eaea3b"
     sha256 catalina:       "86bcca70d770c16030cd51c842d0e470112ea71054ff0275d611402de32090f7"
