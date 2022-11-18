@@ -10,6 +10,7 @@ class RiemannClient < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c06ddd5fb3a97f373bf5a62a87410fe28e94082aa71c9cf5501da932faf94f73"
     sha256 cellar: :any,                 arm64_monterey: "304cf14a65977bdf52fd553dc7c9b9ecdad0e34dcf7ba3d26d4d415154439001"
     sha256 cellar: :any,                 arm64_big_sur:  "6bb8a167fd979ed2d95b77d2fa5802454c42fce025070bd262925425f41fc6fa"
+    sha256 cellar: :any,                 ventura:        "812b26637fd328e6ddffc2449e32f23b568f571cad88c44bbe2df1308ebe1ddc"
     sha256 cellar: :any,                 monterey:       "86f04b64fd3ef3984698c0587bb8944907856d876fb9b2855b4564dc3efd84d2"
     sha256 cellar: :any,                 big_sur:        "f724a20b8eb444be7c01ecf3467eb0b57d8896b9dcebb3a09926e98bbfb4fdd7"
     sha256 cellar: :any,                 catalina:       "0a92ea87867b322edda329832975bd269f4baf18319b4a256f36bf24f09ed19c"
