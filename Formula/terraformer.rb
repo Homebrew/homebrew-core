@@ -10,6 +10,7 @@ class Terraformer < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "791d91ff928ebfba76d5357b22b376c7405fba8b3721da22fda4906c2c9be5ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a1d473c3dd1e12a37b35c7b2c2832ec63371e8eafe322dbed3ed1c6256f8ba96"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a168fc9bd68c9b9ff836ec1d49bc42131decad4d86169d4642227870153ddca"
+    sha256 cellar: :any_skip_relocation, ventura:        "870ecb9bfc3dd9bea31a7628cd1ef6f72b5335faa058225cf51474f871491688"
     sha256 cellar: :any_skip_relocation, monterey:       "b52f410f80017bdf9d601a3a53b6dbf3251a828e7c77e71d9edb69930b0d1a9c"
     sha256 cellar: :any_skip_relocation, big_sur:        "dc373b94ffcaa575c83f390273fd12dd258e1989c990c2b09ae86cd268a3e153"
     sha256 cellar: :any_skip_relocation, catalina:       "64d7ddbb8c44c6864c77d15b3627a3f686d8736e93090b19a7ba10abe558b1e1"
