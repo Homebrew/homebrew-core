@@ -8,14 +8,13 @@ class Julia < Formula
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c543c1b6cf22aff97bb9f09e8a7c69494990696f9e374b25cfb7d68113db88fa"
-    sha256 cellar: :any,                 arm64_monterey: "709aecb9811746da794677bf07f0a3a6396768ad715348cc33a71d0e8bca5ed6"
-    sha256 cellar: :any,                 arm64_big_sur:  "e97d48a33a90a7ac84bae7d02b48d392b3f6d3b0194b75a5e2f196b1bc1c8183"
-    sha256 cellar: :any,                 ventura:        "32d15cc457928bf49a45f4124b32b33210f64ab321fed2e7e9396dd668475806"
-    sha256 cellar: :any,                 monterey:       "a4aa99fbde0335553fbbab61e07ac6236f17071444a0c2534ba585cf9ca34a1c"
-    sha256 cellar: :any,                 big_sur:        "f914a713b16d7d612ed9783f9f165c1b70fe90eed292f22573bff639b9c559fc"
-    sha256 cellar: :any,                 catalina:       "c9aa2fcb82e0e77607a8d58c4f0dac242a79d78b30d6037e02e8900947a228ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84732f9d71aae11b3a5c896db0cf726f7f976490ab2ecd62818749464fcc3759"
+    sha256 cellar: :any,                 arm64_ventura:  "794c8c84ff5af6cacddfd1e2d21bbd75e58a7db3a8067febf2267ac03d33004b"
+    sha256 cellar: :any,                 arm64_monterey: "39497bbc88892b78c088dfc964e2ae45b4a9de4c23c709e6f2c57bb6af6d630d"
+    sha256 cellar: :any,                 arm64_big_sur:  "0ec78d6237bfcaf949837b17c7b0272c092099962bbc5f1b61d860aa8921d184"
+    sha256 cellar: :any,                 monterey:       "21a48a9bec95e8833a54905600d250e10dd6e24a92744f647b0609164adda8b4"
+    sha256 cellar: :any,                 big_sur:        "4db49186abe3476d8567a1b3f6f6fb75c79c7449aba78a29c6326283010c85b2"
+    sha256 cellar: :any,                 catalina:       "3e9aadde6cc9dd6c9110d6dd6b5ab25e2555aff206b08ecd195038577e8df5c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c212ceba09d589373ccde32079af1d772bf18d2cd23b6db7c9500aaf61c6622"
   end
 
   depends_on "cmake" => :build # Needed to build LLVM
