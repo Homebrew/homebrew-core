@@ -17,12 +17,8 @@ class Gf < Formula
     output = shell_output("#{bin}/gf --version 2>&1")
     assert_match "GoFrame CLI Tool v#{version}, https://goframe.org", output
     assert_match "GoFrame Version: cannot find go.mod", output
-    assert_match "CLI Installed At: #{HOMEBREW_PREFIX}/Cellar/gf/#{version}/bin/gf", output
-    assert_match "Current is a custom installed version, no installation information.", output
 
     output = shell_output("#{bin}/gf init test 2>&1")
-    assert_match "initializing...", output
-    assert_match "initialization done!", output
     assert_match "you can now run \"cd test && gf run main.go\" to start your journey, enjoy!", output
   end
 end
