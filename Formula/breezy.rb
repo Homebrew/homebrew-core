@@ -12,6 +12,7 @@ class Breezy < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ec3a01b3f3b918cf378408857b9d0f7af17537376b08ee0cce4e3a8227eff97c"
     sha256 cellar: :any,                 arm64_monterey: "e0546eaad06c8b8637d96ef8229d8a1a1071eb65072df24b2e536d3ac83b405d"
     sha256 cellar: :any,                 arm64_big_sur:  "76e1a928b579aac251b6d5442a70535e1c08de14fa08e0c10440d69a922d6d05"
+    sha256 cellar: :any,                 ventura:        "ffe1fdeadba5d4859cfdb5443b7ff03f38662f3729b80e43b2471ebe496184de"
     sha256 cellar: :any,                 monterey:       "0f5169dbe93a51c251d622af47e229a195d10ce0049f164f72579cc5c62ad7ad"
     sha256 cellar: :any,                 big_sur:        "29eee450b62c2f96454041236c7c70a8a12c1c06a424bb882eabbf4c18e1481c"
     sha256 cellar: :any,                 catalina:       "008d045767508012da55077c79152cb6bf8d5e14bd636428bb0b4d46eb18901a"
