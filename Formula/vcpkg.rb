@@ -19,6 +19,7 @@ class Vcpkg < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b23604d494d7828ea34abbfee6ea03cc3b69147a68f0dd02c8577862cb2a1445"
     sha256 cellar: :any,                 arm64_monterey: "12d265109751aa9a079de8c6e623aaf1ca65cacdd7f1e08aafe487173fd2b848"
     sha256 cellar: :any,                 arm64_big_sur:  "fe5147872359f40fb7d69f4fbe0bee9955adfd685de36a2cd06aa3d408f4b306"
+    sha256 cellar: :any,                 ventura:        "04aae43207e2e4f23bcde6555b854c72f5b04bf3cb1ceaa7ef61ee9325bc341c"
     sha256 cellar: :any,                 monterey:       "7168472b517238ee99edcb0af0393955450ddd3fefb7d3ee2b4ac754bb965d20"
     sha256 cellar: :any,                 big_sur:        "cd10757928f9bca8639dc5076097852bf17f4faa31b31fd07d605f80a67fefe4"
     sha256 cellar: :any,                 catalina:       "82c8f01574e8eda55e9d5f8b26f8af42163fe6daeaed563c48605ab57ace73a2"
