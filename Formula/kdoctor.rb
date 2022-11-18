@@ -10,6 +10,7 @@ class Kdoctor < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "665c11a1bc4fab8e432fd90fa4dd9c4febb2132a448de9e7ec7dcd8af97fb9c8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f5f58367195b2e6615ecf2f5e058383762e1960672deee009f1f4e99152c08b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "563f1aa5a78fca16dac048c7e1a14d54209cc25b80d3df8ebee7e49f0bc3423d"
+    sha256 cellar: :any_skip_relocation, ventura:        "ceb31cc77e28b09075e2c833c9f670a3270877376accdc7c71a7afdf0dc7ba12"
     sha256 cellar: :any_skip_relocation, monterey:       "268c40758894f4acdc19a21586c4d1268ce5a407bfb291937fdf4dac3cf2a5ae"
     sha256 cellar: :any_skip_relocation, big_sur:        "956ff7b276c22eb1828d049685858f0c3df23b287340ea04a052d54477dd74cb"
   end
