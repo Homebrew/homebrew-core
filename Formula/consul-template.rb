@@ -11,6 +11,7 @@ class ConsulTemplate < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a99c9760c62558d9bd1f6948fecf262251d430061df4abe7f2467f3814d22da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6fed41eebd6d023e294c27c465112584b74f86c6f00c43a062ee520e2eaf2e13"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "154b158aef59b9debe68193e0e5b83750a1c7a69f87a9db1b11a97518f272eaa"
+    sha256 cellar: :any_skip_relocation, ventura:        "6638551d20f4fd6c5c7cb0e2d39effc63182587d14304968b7db0123d5e3273a"
     sha256 cellar: :any_skip_relocation, monterey:       "146ee8a52d7275e6f1f18988b7c2f53da62d418b3c18e3d27a8f579abfa74978"
     sha256 cellar: :any_skip_relocation, big_sur:        "e042c1ea4ab1539f5303701954df7e817e0f45366dd62000e2181240b1652e6f"
     sha256 cellar: :any_skip_relocation, catalina:       "cf2f7c9b520e45b44b093bb01b650eb6e18dc470d396aa8dfa3baa5231837b3c"
