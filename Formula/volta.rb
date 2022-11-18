@@ -15,6 +15,7 @@ class Volta < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "41b905e65535685a0a5767e2ed489fd521a6f39141b55bcebbe47d2b7cc1ac4f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2f48361ce44cae44b7b8dcf74c500a68f744424ba01ad8751f8feb03b8fc4fee"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f9bae6017de090181d64b9e1dd8412d56530ef50d7ea7f0d8eaa1413e7a3b50"
+    sha256 cellar: :any_skip_relocation, ventura:        "aa62e71126ac6d833a570eb4a498a5d04574ef6c31a284a7b7a0128b6e911cf0"
     sha256 cellar: :any_skip_relocation, monterey:       "2163fe8879bec9626851943ad524c8d3699e40dd37ad9d74e97c45a18160e98e"
     sha256 cellar: :any_skip_relocation, big_sur:        "f5338e015a21ded1b71ef17b2b8b1bef9b03facb658b19e0866f1b3b11d1889a"
     sha256 cellar: :any_skip_relocation, catalina:       "ee71be23a8d9615093ad9b0879e78e9b00f1505fb0097c1c0040358c642f9bc5"
