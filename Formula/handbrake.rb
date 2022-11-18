@@ -11,6 +11,7 @@ class Handbrake < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c43a4e34f777a4c26fe6c415abac2f803522abf083ded04d830c247b0fe9118"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4046c86ec7f3bee73f9ca050dbc3338e61aa9a48e1d08e28a2b78e6c2d574506"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96ffdb5a88e0c04e281c11d6c16543950ccf4ad6355f621822ddc5c58f0558af"
+    sha256 cellar: :any_skip_relocation, ventura:        "55b5028b010ccd747b76081208c519904fc6366b1652b566f004d2740404ead4"
     sha256 cellar: :any_skip_relocation, monterey:       "9ebce80e9b5b7149aa18b19eef3657a84a04bab20dafd521e3658fcb90a2a0df"
     sha256 cellar: :any_skip_relocation, big_sur:        "e13914d989020a6592a40c08dcd10fc4288db93abafa1b9fbba3b54628a3e78d"
     sha256 cellar: :any_skip_relocation, catalina:       "7d4c30c6b4be84e80b3f2333e44e951805e38a0b3b76c05dd0968f9f58b0a697"
