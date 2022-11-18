@@ -15,6 +15,7 @@ class Pigz < Formula
     sha256 cellar: :any,                 arm64_ventura:  "02afde85821d63d31ef189f4e93a26f431ed649e4d8715975f673cdd21468070"
     sha256 cellar: :any,                 arm64_monterey: "f40d1f626296ecdb179a190453a4da78c7c435050af09b1a53f87b1bea300b17"
     sha256 cellar: :any,                 arm64_big_sur:  "180262f7c12c864db915febe813113b1ece1ab32be08c71584ad3f9871db6d0c"
+    sha256 cellar: :any,                 ventura:        "2d5f69c5828d38b9dcc5b4e07060f064f8b740c2b62431dcb037b1268850cd9f"
     sha256 cellar: :any,                 monterey:       "7e224864ecdb1a168d106dfb1513d157bdceb96d9b7128b2dee2c09dc54b7995"
     sha256 cellar: :any,                 big_sur:        "f198953b4dd30c2a1f94e15a5eeaaa3a08f939aabd9e1677e0084280854bd84a"
     sha256 cellar: :any,                 catalina:       "aed8ea6e7144a01303be662196ddbe47f170a3106e04fca51a452319fac6a422"
