@@ -6,13 +6,12 @@ class CargoInstruments < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_ventura:  "6103256cade5723bcc04e76f498e4440d4ae43539f1c420269cb4ff242ecb6cf"
-    sha256 cellar: :any, arm64_monterey: "2b0ce97529579c5124ddd1e84f211e580deac0f40131aa5ab2846d69a77d423e"
-    sha256 cellar: :any, arm64_big_sur:  "fbb59a8f1de72c02abbf7d4ddd3f77847782cf007511c6a0ee99fa85efdfcb72"
-    sha256 cellar: :any, monterey:       "1ed4dc681fca9a241681bfd81551c4160b617def4488766580ff61a4aebfbba3"
-    sha256 cellar: :any, big_sur:        "81f6c6ecff3385a577ec1cfbb6db119f734305269b8da9e214d130adf3630fa5"
-    sha256 cellar: :any, catalina:       "d1cc6d4b8cd07c5e81c2bdac7dd89b7f09842344d3e0ad75791fab540c2adfa4"
+    sha256 cellar: :any, arm64_ventura:  "e53774bdc10813969f128afed67d151e2ea73e2da3642d90fceb5a2ce0ab2fb2"
+    sha256 cellar: :any, arm64_monterey: "517f55d64777be77eabe09fcc2318486acac7d2d72ea05a251150d9e9508672f"
+    sha256 cellar: :any, arm64_big_sur:  "ea43a6b13ee8bab547c14182fe8022b8f4f2cd9de9d10f68b69067cd57308ffc"
+    sha256 cellar: :any, monterey:       "739e75a78c51709fb30681eb383c7978bf813732ebac4006a91e79cd87c2bebf"
+    sha256 cellar: :any, big_sur:        "34087ee37b15a2d460386633797f6b19562c87beefae8609c5d8ec766b1620bb"
+    sha256 cellar: :any, catalina:       "8d957e40b0d946cfa58d041c63536a0fe205a9893b4e2122811dc7ee98596eb3"
   end
 
   depends_on "rust" => :build
