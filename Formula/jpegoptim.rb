@@ -10,6 +10,7 @@ class Jpegoptim < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0685110ec476b42334f2f073a2081e966393d639eb8094b1c2352cb5bb8c27fe"
     sha256 cellar: :any,                 arm64_monterey: "a065955f3a71c461b1526ecaa6657878038223a596ef42ecaf56bc0697147081"
     sha256 cellar: :any,                 arm64_big_sur:  "2644d6450068596ae2a52fcde92be5292a69e2cc0dd96208a36213aed7f53e07"
+    sha256 cellar: :any,                 ventura:        "713bf5260a864a3950fc8c0f6c4eff22a674c34c06d2098775f99a65e703409e"
     sha256 cellar: :any,                 monterey:       "94ab3fe10229f457b92c4d4afb137d5ac6e26cf6fef1fa6dcb55d05ddb2f5eff"
     sha256 cellar: :any,                 big_sur:        "de3346241e917c201f413363768731aef8eba491e42336ace80af842d0bb8da8"
     sha256 cellar: :any,                 catalina:       "080f3a10875090e6f23a96ecbc29b6d0bb06d80b48044e9b663f8c60ed2def5a"
