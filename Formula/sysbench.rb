@@ -11,6 +11,7 @@ class Sysbench < Formula
     sha256 cellar: :any,                 arm64_ventura:  "302610a08d18657b6a2de17e7e9667a34d01300645a6d2ec16a3096e6359c37c"
     sha256 cellar: :any,                 arm64_monterey: "9bfbbac6e1d575338260108b3914071cbb536be9d27c90cd45c109217f230c98"
     sha256 cellar: :any,                 arm64_big_sur:  "996e9c33e004c9ce4395e4d378a501f4059b5c8c2153e6b7be6e9c35de68b992"
+    sha256 cellar: :any,                 ventura:        "79b9d765d34f5e9b96905ad8701b45fb67ddb3b6a2fc1dc4cfea68486e76d754"
     sha256 cellar: :any,                 monterey:       "8573e4a94a2e817da5e52c28b40c1d2364d63b6775bbf9ed2ecb94952055e63e"
     sha256 cellar: :any,                 big_sur:        "721ed0a3b0d1d11c46527c5f73802f4477c069dbbb3fbc32d1bd80efe9574be7"
     sha256 cellar: :any,                 catalina:       "8a2b9c261bf7e1bafc840093bb949e8a55c94ffd5c060a05612f2bcec2f59754"
