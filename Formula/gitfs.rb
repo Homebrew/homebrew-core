@@ -13,19 +13,12 @@ class Gitfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "1ac6487bbdd1000763469c43e998a72f9bc64c7e0704b99067aad84d003d32d1"
   end
 
+  depends_on "pkg-config" => :build
+  depends_on "libffi"
+  depends_on "libfuse"
   depends_on "libgit2"
+  depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "python@3.9"
-
-  uses_from_macos "libffi"
-
-  on_macos do
-    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
-  end
-
-  on_linux do
-    depends_on "pkg-config" => :build
-    depends_on "libfuse"
-  end
 
   resource "atomiclong" do
     url "https://files.pythonhosted.org/packages/86/8c/70aea8215c6ab990f2d91e7ec171787a41b7fbc83df32a067ba5d7f3324f/atomiclong-0.1.1.tar.gz"
@@ -69,24 +62,6 @@ class Gitfs < Formula
 
   def install
     virtualenv_install_with_resources
-  end
-
-  def caveats
-    on_macos do
-      return <<~EOS
-        The reasons for disabling this formula can be found here:
-          https://github.com/Homebrew/homebrew-core/pull/64491
-
-        An external tap may provide a replacement formula. See:
-          https://docs.brew.sh/Interesting-Taps-and-Forks
-      EOS
-    end
-
-    <<~EOS
-      gitfs clones repos in /var/lib/gitfs. You can either create it with
-      sudo mkdir -m 1777 /var/lib/gitfs or use another folder with the
-      repo_path argument.
-    EOS
   end
 
   test do
