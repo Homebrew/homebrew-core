@@ -13,6 +13,7 @@ class Webpack < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a64dae4d651e7d6e4ccdf856ac5d619ca3c484fe637ff677dd4e61d6a5c84945"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a64dae4d651e7d6e4ccdf856ac5d619ca3c484fe637ff677dd4e61d6a5c84945"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a64dae4d651e7d6e4ccdf856ac5d619ca3c484fe637ff677dd4e61d6a5c84945"
+    sha256 cellar: :any_skip_relocation, ventura:        "808a689da5e87b61c7931561bf2f256b109f528048a8b74a5cf2ccae313ea800"
     sha256 cellar: :any_skip_relocation, monterey:       "0db9d8a423809eb9f5bfe88ec7db1ab9c04c12aed70657d8623acda44d3bf999"
     sha256 cellar: :any_skip_relocation, big_sur:        "0db9d8a423809eb9f5bfe88ec7db1ab9c04c12aed70657d8623acda44d3bf999"
     sha256 cellar: :any_skip_relocation, catalina:       "0db9d8a423809eb9f5bfe88ec7db1ab9c04c12aed70657d8623acda44d3bf999"
