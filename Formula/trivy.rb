@@ -10,6 +10,7 @@ class Trivy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "56768a79ba750118db375866f5c511affc6a0967f5b16143710631789aa9c507"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4bbc9dd231a5a74a83dc9db384c5d7e4c7358253b2a2ea400916e44bb317e508"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d1ff1976847b13a23df2e5b141fdbd78bc8376dbd673a4c268566798cda433d"
+    sha256 cellar: :any_skip_relocation, ventura:        "fef032795f610af7875d8e256448bd17ef75a0cf40326bee495516153854bd9c"
     sha256 cellar: :any_skip_relocation, monterey:       "b18920192cb16d1b9f4d6dea7f92f9340c9fb7523bcfc42bb32a327ea3b32e95"
     sha256 cellar: :any_skip_relocation, big_sur:        "7c3cbe44192bd5b368415a07c30c2c40a04dc75ba496561d0ccba21389bad38d"
     sha256 cellar: :any_skip_relocation, catalina:       "66734fc8c7bd338a68e531926059356a2579b170de268e6ad1980774e9a8a5d4"
