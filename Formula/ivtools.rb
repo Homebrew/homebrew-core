@@ -7,13 +7,13 @@ class Ivtools < Formula
   revision 5
 
   bottle do
-    sha256 arm64_ventura:  "0f76a0d03194b85994c77acc9952767a20feafc10f7083bd423fc176d70017f1"
-    sha256 arm64_monterey: "cabbddd0dec900222bca2f3ec571c72be68520762436ebe34ea6fb7c83cd1296"
-    sha256 arm64_big_sur:  "035e0a866d2f6a99aefaf35669cfcbdd183d1fe227cc6e2cd8b5e9339294ace7"
-    sha256 monterey:       "7bbbfafc034b5ca5552353641635411d6ce7bea1caa268ff92b068f1f8f16381"
-    sha256 big_sur:        "86802e7820e92b829ed8de9faf6cee51ba917fa407224578844525781cc76ca9"
-    sha256 catalina:       "dd1a98ea161e6c5a93b80adccbcce1f8368e47c0838217189545e10365d993f7"
-    sha256 x86_64_linux:   "94016d222bb9b16d32d78916652096776cd06cb46a72fe451ca4cd0588f84f49"
+    sha256 arm64_ventura:  "91a30d469aa420321594566d6c45b77a2aefae12589f59e44ef12600be6659b5"
+    sha256 arm64_monterey: "55ed1068532b63920dbf2dbe93d8b42d7c1dcb603823bbd3ae9460cc09c5faff"
+    sha256 arm64_big_sur:  "30a2fed7d3eb8d9bd9a6cf9f4d691fc26895906dc0defb721f54fb5159c1d619"
+    sha256 monterey:       "85560102f99a1b8371e29f399634d4de3b49598b47184d288d35d8b965fff8c6"
+    sha256 big_sur:        "1ba12fcf0b2decec8083cf41bea0d76da84f570c59272785a57586925ab4a8ec"
+    sha256 catalina:       "7f9e60f9b03f7c6b65e9a96e9440cae5161e5d85a47043091be51615891f7689"
+    sha256 x86_64_linux:   "f4b5e3487cebcc250679bd779c1affd4e948cd3014c7f1ae46e9d0dfbd9288a7"
   end
 
   depends_on "ace"
