@@ -11,6 +11,7 @@ class Vite < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d81d550785ed7e2286e865b7f2ae070295625bb3d07667ab73ff1450faa9052a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d81d550785ed7e2286e865b7f2ae070295625bb3d07667ab73ff1450faa9052a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d81d550785ed7e2286e865b7f2ae070295625bb3d07667ab73ff1450faa9052a"
+    sha256 cellar: :any_skip_relocation, ventura:        "015c726b3a16d481386c4f729955b314c7fc5e1144ec76362c402f19cb9ddd2d"
     sha256 cellar: :any_skip_relocation, monterey:       "015c726b3a16d481386c4f729955b314c7fc5e1144ec76362c402f19cb9ddd2d"
     sha256 cellar: :any_skip_relocation, big_sur:        "015c726b3a16d481386c4f729955b314c7fc5e1144ec76362c402f19cb9ddd2d"
     sha256 cellar: :any_skip_relocation, catalina:       "015c726b3a16d481386c4f729955b314c7fc5e1144ec76362c402f19cb9ddd2d"
