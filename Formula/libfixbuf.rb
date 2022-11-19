@@ -14,6 +14,7 @@ class Libfixbuf < Formula
     sha256 arm64_ventura:  "1f90d97eb8549f9daddef3c3d01834a0613111fa8d4af46f1d4a596b27b1a3e7"
     sha256 arm64_monterey: "74d131854da80f316aeaf105d83c590ea4ea0f705c5617b0ddfdc07d59063232"
     sha256 arm64_big_sur:  "d29c4e4bd8a1d13508214f781306188fe89e78579747aea4ab1166a9d33a4402"
+    sha256 ventura:        "1fb266b06143e3465a96d3354eced7650241c3894d713a659ba8caee658c9018"
     sha256 monterey:       "e769a1deb354474818e4edd98d91c4a6fa8c54e7f56402feaec66e3f566ee149"
     sha256 big_sur:        "1cafffbb92c6bba1c328d01d1c00fa4ed1191a93eec966a6a3dce31219ef0d05"
     sha256 catalina:       "4e7eb768bb5499147e8c630e4620c356abba37fff0c54d69daf8fe2c9f752771"
