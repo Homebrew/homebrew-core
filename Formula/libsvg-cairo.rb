@@ -15,6 +15,7 @@ class LibsvgCairo < Formula
     sha256 cellar: :any,                 arm64_ventura:  "528ec2ea8ffedaff6d5eac18dbb22a8edfc0f41eb8b8fa7bf85068c3bcabb745"
     sha256 cellar: :any,                 arm64_monterey: "039c1d99e08efc5f9b5df9a30ce5d0ff4acde9c3f4f3890b4fb8cd287d12adc1"
     sha256 cellar: :any,                 arm64_big_sur:  "fe8c78e4969c745b6808cd2f4c8f2d084a1f30687edd98074a1d43dd925fabbc"
+    sha256 cellar: :any,                 ventura:        "406b34bdef48019bb54867008b08e966b11b7209c77f5a3b2e384771ea20b5dc"
     sha256 cellar: :any,                 monterey:       "2d381b736e28fc35193fd120bd265f6cc73e3805d945982db709f2a517015cd2"
     sha256 cellar: :any,                 big_sur:        "a2d1eeb52e59366b77b50d16ec49aa0dc65d03315bde893248d982dca7d8b06f"
     sha256 cellar: :any,                 catalina:       "d7e3121dc97fdd10cc498e78c60721777a9c17d686d07de769c157d1bf9ed7e1"
