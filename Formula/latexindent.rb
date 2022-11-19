@@ -9,6 +9,7 @@ class Latexindent < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbc334303350f784e2161d796a1ff097d722e2508f0abbb67c5927563b44a449"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c4cc0998a63eea1962f7dd3b59ecf9e120c9b20750b9e1835a32f353cde75ccf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bfa0a2069f43661b3b59d7d3aa63e841f9103b94de479df2403447c7734a5653"
+    sha256 cellar: :any_skip_relocation, ventura:        "05c8a3772c4b427428499d9eaa75d2557d6c4562c69b49f5c49bd317b6577824"
     sha256 cellar: :any_skip_relocation, monterey:       "9a590a4634ceea65a2a2f21c0775384061b3baecb0609de91fbe78289c9c669d"
     sha256 cellar: :any_skip_relocation, big_sur:        "2562e21bd65da502d08c6aa7ddfe654f6905ed950563cb8ae061b2bc662b3a90"
     sha256 cellar: :any_skip_relocation, catalina:       "a6e09b283e9c6b35bf417f1651d70671963ede14d5e213a28180fcf9e96b81de"
