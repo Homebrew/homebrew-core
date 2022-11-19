@@ -19,6 +19,7 @@ class Root < Formula
     sha256 arm64_ventura:  "739e89ef0557b3cbe9b2635b5de747fc4e7f885d4adb73bff01bee99b9411fc2"
     sha256 arm64_monterey: "3342f160ffce464e80c476495c3db713d51e0e7fe1741b6ec4a8dfc102206fe8"
     sha256 arm64_big_sur:  "d70d636539b03c091233a81a74f3de23b0e9ed0d6fd7f8ee97e9df6b5c779393"
+    sha256 ventura:        "7503cd0b99215aaf04d979c6031cb8ecd8917d453bf2252b8ae979f46e6f3583"
     sha256 monterey:       "9604024d36babeaa07f5805c18b5fc65086ed2b2accbed28969a85fdbf8f7ee7"
     sha256 big_sur:        "6bfc729920596fe19e0be9effa4e4bc68872299a5f88e0ba7696dcb032db7fcc"
     sha256 catalina:       "f02a6372941aad78aaeebb41e3ddbf0551f09ea579a0cb411c6bca83f586a339"
