@@ -24,7 +24,7 @@ class Macvim < Formula
   depends_on "gettext"
   depends_on "lua"
   depends_on :macos
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "ruby"
 
   conflicts_with "vim", because: "vim and macvim both install vi* binaries"
@@ -78,7 +78,7 @@ class Macvim < Formula
     assert_match "+gettext", output
 
     # Simple test to check if MacVim was linked to Homebrew's Python 3
-    py3_exec_prefix = shell_output(Formula["python@3.10"].opt_libexec/"bin/python-config --exec-prefix")
+    py3_exec_prefix = shell_output(Formula["python@3.11"].opt_libexec/"bin/python-config --exec-prefix")
     assert_match py3_exec_prefix.chomp, output
     (testpath/"commands.vim").write <<~EOS
       :python3 import vim; vim.current.buffer[0] = 'hello python3'
