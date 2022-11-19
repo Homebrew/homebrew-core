@@ -10,6 +10,7 @@ class LibbitcoinProtocol < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f29aa2e8e18875c0142fd2c0f6c92b9801161c2d5aba1bbd5f2d41f04eaf5641"
     sha256 cellar: :any,                 arm64_monterey: "7edb84274d423491d9a08b123e41e58d8b5a9cc3a672453d4a85d79b32bbdd51"
     sha256 cellar: :any,                 arm64_big_sur:  "d4028de413f3f0ba181267d6a069ae68c266d28e7dd3fc2751bc95a304404beb"
+    sha256 cellar: :any,                 ventura:        "9209fec88345ab55e73b1129e2ec94a02eacf672cd1aa7cf4db1bfb7c38645f8"
     sha256 cellar: :any,                 monterey:       "c67ae588036f05668243ec8a398e13f4d75e6f79fcab811dfd88480ace00ac11"
     sha256 cellar: :any,                 big_sur:        "b41eac4e335c9400111aaaef13b1673483bf0f0b6d73ce07302170fb449ddba4"
     sha256 cellar: :any,                 catalina:       "b6c185248d160d72d40da00e6731425bff8874fb888000f4b479a1a64dd7497c"
