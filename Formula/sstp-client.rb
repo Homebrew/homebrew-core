@@ -15,6 +15,7 @@ class SstpClient < Formula
     sha256 arm64_ventura:  "18956eda0cbafea76d29ee0c4b034920afcacb9f8c9438dd6c3cb13254ff53e8"
     sha256 arm64_monterey: "59425f64ba486b7fe9aa011d73214e3f8c5f452d70a098e4ff9560521b8b4c12"
     sha256 arm64_big_sur:  "2bd6c22406a9926c697f92201aeb89c3ee2dc659a1b7f9fa6397ef06f8ca2005"
+    sha256 ventura:        "54669c7c4c5ce414f4deceb5cf6e34a1a57c539ff540490163703889206f3452"
     sha256 monterey:       "ff0d745140fe3ae5b017e2101bc53c23a4f19c3130eca5aef6b045f4a1791a96"
     sha256 big_sur:        "27e2a8d50c546f3c3b8ca42f2f4db9e9df556054b311337e5b95dd2c3cc10e29"
     sha256 catalina:       "dc8cb72d30cccb2fbfe9300d1041107599b986d80d595970a8906acf5f7a742e"
