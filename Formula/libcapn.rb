@@ -16,15 +16,14 @@ class Libcapn < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "636407d8678258bcd51a8b5512d26433aa98fac3307e27fd918f5c656cfcda46"
-    sha256 arm64_monterey: "fdbe12af86921a05628ff8d522ca3723879295fbc252f24c446b04eaa478c06b"
-    sha256 arm64_big_sur:  "b87f88777484a94bcbd142d107b9b29317962ab9ff318857c90c01ade15c6f45"
-    sha256 monterey:       "bbd7f98414ee35c8d19582ab17d2a79fe70d892cf5e1bbcc2f1e51789392b616"
-    sha256 big_sur:        "e355824f9490a5bb90964a7b5bf4b69735ebe72560bf112e2f083111ca31550e"
-    sha256 catalina:       "67b634beae31705b6664702473cb42a686c50d84f4d0ec530bbe4e360c292dba"
-    sha256 mojave:         "3b4b1f331e7e79c6a99826c5ffd385df3f199a7d72c897e9fd31150be26303cb"
-    sha256 high_sierra:    "a3cd6c452f96c9914f41fe22c1c0b5518c282569dffcebe7d6f38783ce2fb4d1"
-    sha256 x86_64_linux:   "dc171d79b0aded9e47c7e838058a6d0a30b38748f15aa499f9452ae343bd6912"
+    rebuild 1
+    sha256 arm64_ventura:  "3b5a9e7daacc13c6d73c936c9f8c247cc3580e3dc7f32b17d0494b9a187ecf05"
+    sha256 arm64_monterey: "36eabf2b781cac77ffb0eeb016f1529a209a2f32826db8b1055e75792d1d2b8a"
+    sha256 arm64_big_sur:  "b0a7f5d134d0c95ec3049e7972e79ce8934661c0f38abdaeadedbac4d31469bf"
+    sha256 monterey:       "deabe1315cdb7a96b2c86ee5e428a0a73bad194aceee9e405c1fd633364c5ad0"
+    sha256 big_sur:        "0260e8e294d7e97f803b5addf9b9f4aa835f519a6a9489d491227fb061007219"
+    sha256 catalina:       "a919d9c084288cc727f4a4126ede23d0391e089d1f0af9f1785d0858d3311a49"
+    sha256 x86_64_linux:   "b819d3930cd72d61c972faf2ff4bd789eb1ef46757d88b1e02f3ab8bfb6edade"
   end
 
   depends_on "cmake" => :build
