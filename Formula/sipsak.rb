@@ -6,14 +6,14 @@ class Sipsak < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d7a5cc254f2f445e00b1cf496516193e17a334f416459eef197fe17565978bf9"
-    sha256 cellar: :any,                 arm64_monterey: "f2f4bf2277f852ef0efc351e36ff629a9f17d9779656e9c5f15022571b6a8350"
-    sha256 cellar: :any,                 arm64_big_sur:  "4525ec303fc0f5ffd3b752ccf1dcdc7fdb14921ad35d8e12109e257c47ce14fc"
-    sha256 cellar: :any,                 monterey:       "3a220f3f6e45c89f05948970e5bfd8ee64030674e50dea30f4713173abcc3a25"
-    sha256 cellar: :any,                 big_sur:        "70442c0b739c1fb357e8eef8246d56425fdde5f094bfe8048304cc2b42fbfe0b"
-    sha256 cellar: :any,                 catalina:       "3d7c198e46fd2e183d199718d175111e9024d4ea8f453685fe973e76c342f988"
-    sha256 cellar: :any,                 mojave:         "9f27279cd8a53e5d707d7208ba2ba5f5170dd775854f30396135a296dd9c55dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a953aef939a2e020ceb548db309d98462b4b2ca0ea2e9f70c0f298a7f0dbd3c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "fdf8e854dbe1034dbf7a71760e4246bc6550a322954888fd0673284eedfcbe55"
+    sha256 cellar: :any,                 arm64_monterey: "e125f43909ca4f4a28524262a30f0e9428db17ba255c9ebe99fae92d031ee1f2"
+    sha256 cellar: :any,                 arm64_big_sur:  "3ea5541c6c9e917890818c783eb555a6952ddb839ee431d4ab2fda5529e9a9d6"
+    sha256 cellar: :any,                 monterey:       "4346791be5ee36c5436de257f75ccf2ef31ac8f99883566c8679bf8e4d13d361"
+    sha256 cellar: :any,                 big_sur:        "f2f76d68fa6c9c88abcd0132201a395a54f2ad31c73ee49dcbfcb69dbfb20ede"
+    sha256 cellar: :any,                 catalina:       "3a756aed37b8bd2a3ff62c517847c82732fd2f9a7b5bf85dfac83704d18d6539"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73f5a4948c437e0d89e33ff28f04842ef4c954fcfd9ed432da36620c20b6ca24"
   end
 
   depends_on "openssl@3"
