@@ -7,16 +7,14 @@ class Shellinabox < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "950cc877b2b8696e045321c144021016e3d1dd4807723f9ec167ff84c9819cbf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aca878e8b4f6369029c1b724954c78db1ca67710a2e09d5118decb6dd3e0e280"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16393025f2b7dc93d7f01c9e7a0f8f538f3be37276e75afc7d50863d552124a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "8ef6e3b071f5c1e96cdbde3f2eb73945bc24f302ee4f393573ea09063726c7ef"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1bce570cc372ee17dd73bcde84ba9dc8db44ad968882eb25d842be7e3300a00c"
-    sha256 cellar: :any_skip_relocation, catalina:       "54a87f3514eb39cbbb1c4c127127d6b3eccd69d67f7ea26c32084218cb7d7d96"
-    sha256 cellar: :any_skip_relocation, mojave:         "364588ed44513d77da920c1dfa722b8bd6351f72b2f18f2e7ec4edcc808fe9d7"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "78a08258706eec184d42977bda76175e827a909389a70627f6eed67a10c78d45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6c0f58f84a0889e6de2142d0d36d2e8248edcf20b03ed16e5a244162cef4663"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d00dfd6b119c7d8555081e4ad821d67ecf0da641c5630435e67c3c9eadedd1a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b29df2258a90e8cfef9e54cf0569c1e556f07911d0dbb934e6760487416a3f4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ceb68ab288df2b997e3c7361cd6e8c0fb389ee9fa187503f14e2bd5f00393f03"
+    sha256 cellar: :any_skip_relocation, monterey:       "17b6552900a2b8eb5297e6db21d07479821a95cbcc3d34d0c553e47ebd2595ed"
+    sha256 cellar: :any_skip_relocation, big_sur:        "920301191fb40b3f036e5d08175f829e512f9e6df63760cdc389a12a7c01429f"
+    sha256 cellar: :any_skip_relocation, catalina:       "a0d28e1679ea480a87fa8deeae9f3378f18322d6f3062d4a0f0dd71dbe5c6469"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "402a852e03ce83de0813d1775222f02e1fd4a52e13ce6757bd16a3adda0688fa"
   end
 
   depends_on "autoconf" => :build
