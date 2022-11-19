@@ -12,6 +12,7 @@ class LastpassCli < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6ff6981edaec7d22843c57692ea7b3d88d5d8de4e644fe379300a6fbcf7d9cdb"
     sha256 cellar: :any,                 arm64_monterey: "98b073cafd20bdc9379fdd937b3f86729400bbf89e2a10f67145541d7f87089e"
     sha256 cellar: :any,                 arm64_big_sur:  "1bccfb715b94c569d943c9ce5833f74628397abf1311f74c49d6e5d4b25b847b"
+    sha256 cellar: :any,                 ventura:        "f8b12d0cf8634ab32e5c95d2ee8ad66d4ba63125584242c49ac75d39cf5f2859"
     sha256 cellar: :any,                 monterey:       "42a83a59fe0da598dbfb09cde49d4d66845b9137f5ca102cb25f3d8cc01965b8"
     sha256 cellar: :any,                 big_sur:        "10f9224c8bfebae0cf12df72e6144ba3a309956b1efcce574975cd21cec930c5"
     sha256 cellar: :any,                 catalina:       "8643f81d13a40ef8b86efe83fbee1b41b22c492b7725bebab83dcb2d253fd603"
