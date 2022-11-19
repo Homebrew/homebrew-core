@@ -21,6 +21,7 @@ class Emscripten < Formula
     sha256 cellar: :any,                 arm64_ventura:  "54cdba2e8a65fee702624fbba39e3204eefc25e678f3d6b074ce80cde83a046b"
     sha256 cellar: :any,                 arm64_monterey: "581b68979a68214237f4b07459f543d8cd90eb4ec4ee1f121e05395888161766"
     sha256 cellar: :any,                 arm64_big_sur:  "fca713d70c1373391c52e556c5848450c784271c2a6d9995aeadd39d0e686504"
+    sha256 cellar: :any,                 ventura:        "1128c4809eedad6d5081339d5d8a7c2414fe5661fe937603a262db1fc4121698"
     sha256 cellar: :any,                 monterey:       "7a9a311f8313591fbdcb6f7e299c6db018bafc779e7a856b4ad1e856e05172e2"
     sha256 cellar: :any,                 big_sur:        "2f3dfc812c27061c6bca313e579875045609ea063ab53e39e6939dd6ea126fd6"
     sha256 cellar: :any,                 catalina:       "e132c5862dbf6a1513802590c15cbcdb19c78f15db4db726b90833a9e754f553"
