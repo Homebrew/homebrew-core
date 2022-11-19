@@ -15,6 +15,7 @@ class Xpdf < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a5c23ffa6e4ee580d8c3cb9f62d42ba4c70cd1c8dea4841ac8042d275fe5d743"
     sha256 cellar: :any,                 arm64_monterey: "fc5aad549b5099ce8f3d51227bfd419a4766c8b78138c8f894ac738dcb446a5f"
     sha256 cellar: :any,                 arm64_big_sur:  "015fcf888d527fab0465f6623df5dfa4166f8d0231350bd9820ec5a5e8e4c478"
+    sha256 cellar: :any,                 ventura:        "b8b71e9659f72e21b0bba027a3d9bf0b6ef0b556f5e3fdd703495c2055d38bff"
     sha256 cellar: :any,                 monterey:       "f90629e090df683656a1ef289e797d24b8a4a68be0c0123ef0cfb6565512e3a9"
     sha256 cellar: :any,                 big_sur:        "2ffeda7163a03d8978f9d81203fff3a2e7ab1d868e0dfae6ef6873690dbeaa22"
     sha256 cellar: :any,                 catalina:       "1bca9dd3f72b9af25632b95ba5fa3cb9a85fa7698a7e72b61e0cdb3ec039b105"
