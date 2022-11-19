@@ -14,6 +14,7 @@ class DfuProgrammer < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9f41045987af7f7daa4470dcb37de69a210e4ccb6bc5f8e9b4d5d2bf310ec562"
     sha256 cellar: :any,                 arm64_monterey: "9559a215bd458ba59d0b037792b7d63dbc3dc4c099b14357e8e53acb5d3af922"
     sha256 cellar: :any,                 arm64_big_sur:  "8bfdfd329dcd8f8590c02bd7ba062f21def25d6009dc7a546956406d921a9181"
+    sha256 cellar: :any,                 ventura:        "72c883e635e387c2ce8ed4d85dd96a752e3b56ed5aceb846051fcfe37876aab2"
     sha256 cellar: :any,                 monterey:       "275aa114a5df563a91342de289d313bf2fdf8a3d85ce77417818ec8fe8fea05a"
     sha256 cellar: :any,                 big_sur:        "ca50d1de0427ea337387bec0d5f277ef01337624543b02ed93e842e4d96acc17"
     sha256 cellar: :any,                 catalina:       "5ff077a2c2198fc345e429246a560ca4a13fea2a9dbb9a0feb6fe4cbdfa46a4a"
