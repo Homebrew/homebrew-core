@@ -11,14 +11,14 @@ class Liboqs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "54ce69904ab51780b9990b7a6f42c463c902464303da2a5a30894147bbdfef10"
-    sha256 cellar: :any,                 arm64_monterey: "229cc26dc8f4ebd3f178ae31e40c1627a5e3b5dfd30d15c440e26dd8b3e289e3"
-    sha256 cellar: :any,                 arm64_big_sur:  "4e80fd4cfee7fd4cdaf4560befaddb01f02886123409036daeea2ab73ebf253a"
-    sha256 cellar: :any,                 monterey:       "41ac926d23bb6c05e82d4a30072a3e7b9f5bd573110b06fa931f032aa81cb1b2"
-    sha256 cellar: :any,                 big_sur:        "98ffdb22f4e52fb8ba6eba99834d3b9c729d2030f99d8691b059cb307ea60390"
-    sha256 cellar: :any,                 catalina:       "a4ab1395ce808507b8af6316ceb58d1a081c172e21bd24d107e98829620f5b86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10d3d91f8b15c231eb1f95bfb886761304429f210f30bfcfdbe45ac6541c4f01"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "e9373498c8fcf173766124396b2e5e0bca60972a0750a2de17526e6207500bdb"
+    sha256 cellar: :any,                 arm64_monterey: "3b486df792e8af162ca9b13d5c8db6ae73134ab8fecb13bdd090bf65e02f9b87"
+    sha256 cellar: :any,                 arm64_big_sur:  "33e2c0270faca011e09ebb44c6ec19c56b3a970835f66cee6890a080cf49727f"
+    sha256 cellar: :any,                 monterey:       "d44012d6f9c125137b234fb67dfa1e0b21edf628dfe46b5334f4dade8dbfbf65"
+    sha256 cellar: :any,                 big_sur:        "08a808a714ef2d3c7e0d57ee1c1f960b9f85128fd1acdebf06cefc251f37d7c2"
+    sha256 cellar: :any,                 catalina:       "9b42e22f7bf7cfb75edb682cff5022313eb0ff6ce4a509f9ec865ffa4cdb28b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d9e0b42e4c0bf7c60855f4eef44c33fa2efe16013fd9171487aa45b5ee73110"
   end
 
   depends_on "cmake" => :build
