@@ -16,7 +16,7 @@ class Sipsak < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a953aef939a2e020ceb548db309d98462b4b2ca0ea2e9f70c0f298a7f0dbd3c"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV.append "CFLAGS", "-std=gnu89"
