@@ -2,10 +2,9 @@ class Launch4j < Formula
   desc "Cross-platform Java executable wrapper"
   homepage "https://launch4j.sourceforge.io/"
   url "https://git.code.sf.net/p/launch4j/git.git",
-      tag:      "Release_launch4j-3_14",
-      revision: "46db737fd1885203fb098f4368cd5cf5c6792373"
+      tag:      "Release_launch4j-3_50",
+      revision: "0b6f1c1ffe4e83dc47fa866a733dbf0125237937"
   license all_of: ["BSD-3-Clause", "MIT"]
-  revision 1
 
   livecheck do
     url :stable
