@@ -13,17 +13,14 @@ class Httrack < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "73e638d8cb9e9cb31a321bd491e66fda2e408c521b0c7308f87c2020ff2862b1"
-    sha256 arm64_monterey: "c5a4b83c1114034b3f51ad5d906d6e4f984afd7696089062183ede4281ed1700"
-    sha256 arm64_big_sur:  "e33695d628a65bb1c6a5bb5f1147ea4560f8881482e60e10f0a8837527153609"
-    sha256 ventura:        "fa6f6cf0e04ba644b1506524024b7b671c9dfcbef552f49dca48e38a3d3349eb"
-    sha256 monterey:       "b8e82f9c6ad3e8011d5551553b4866752d12929994b36cdcd8128e69cacda3d6"
-    sha256 big_sur:        "2f773ea2f9bdf0234abee17e9bd2003f21396fe1fdda756dd6e4faf7844f9c01"
-    sha256 catalina:       "291ab06b376233166dd833422801d0a7be6f06cdabdc568656ec64ad3adc5fe8"
-    sha256 mojave:         "6e0d2265e15d103a37b6b594f7f10c85af82012f1e3c1e25fc436e7430502b2c"
-    sha256 high_sierra:    "612d8c3f9ee15fd7c4f42dbca3c5e3b58e968d626aa15f916f85c8cdb44ea31f"
-    sha256 sierra:         "842d48bdb72573623a478a97a2c2abcafe34fb4b0443229216e35d30552dd27f"
-    sha256 x86_64_linux:   "cf514800be63c284276aa19e44b7d6822b182166a64b8ceb45dd96c4818504ee"
+    rebuild 1
+    sha256 arm64_ventura:  "82366a7496c4dad900d7c5de609becac2493bfaca4101e77b43120450ab9ff4b"
+    sha256 arm64_monterey: "0345ae5cd642cad43051144018ad7716f91ba9c2a7b94f3068c5b7c855a6e8ba"
+    sha256 arm64_big_sur:  "1e2db8b0a5afa31857870b780957c99975f68248c8a7e2826b4b3e9ccb1b4a64"
+    sha256 monterey:       "98b7f4c73a1bb5f531bdd455942ceb00226068ec7bf5f32fd8a45b01f9cbb482"
+    sha256 big_sur:        "01c1cb899db03ce18211dc2014af7f9a2592b61b32038540a8d8e5e7e40b9386"
+    sha256 catalina:       "58d9d2b9cee7fd5e4d3faad7620def7aa029f81b03d92a4150b5269fc38ea963"
+    sha256 x86_64_linux:   "b7688c49793f0dab8cd4ec29ec2ac3ecb978d6f15067d0806f9bbc315bdb08f1"
   end
 
   depends_on "openssl@3"
