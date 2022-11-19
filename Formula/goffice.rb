@@ -9,6 +9,7 @@ class Goffice < Formula
     sha256 arm64_ventura:  "2fb61cc9cf1a09b28dd4cce9e605afd312c91650ae6ab8ba4bf70e869aa095eb"
     sha256 arm64_monterey: "2426ed9aaf3e27647f2c1d2f94f1bbec28508a523a7b3d3c85275b3c3c7be6e4"
     sha256 arm64_big_sur:  "1f4b90257ea35b0ab860a699a4157c58f516fd1eb4e5b96db57df1b97749b517"
+    sha256 ventura:        "f175281be8b894ac62b17ccbce96fe1fa70f4ef33b191f33cdab07ef7655a66e"
     sha256 monterey:       "57727191aa501e1a7f354f02bdc3afdcd3dc416fc0341115852d15bd9170cec5"
     sha256 big_sur:        "4d58399efa826a093d22b526c5d3e8a6411dcd3eebec6dea69741b0338c251d0"
     sha256 catalina:       "e9d2ffd833d7d450c00deb779bac5dba5721db7b45350ca41b827bb232e50bbe"
