@@ -17,6 +17,7 @@ class Httrack < Formula
     sha256 arm64_ventura:  "82366a7496c4dad900d7c5de609becac2493bfaca4101e77b43120450ab9ff4b"
     sha256 arm64_monterey: "0345ae5cd642cad43051144018ad7716f91ba9c2a7b94f3068c5b7c855a6e8ba"
     sha256 arm64_big_sur:  "1e2db8b0a5afa31857870b780957c99975f68248c8a7e2826b4b3e9ccb1b4a64"
+    sha256 ventura:        "ce79d5a831a8a5162a84e447625330038f98ea4797b5d6ad079198c5943ea654"
     sha256 monterey:       "98b7f4c73a1bb5f531bdd455942ceb00226068ec7bf5f32fd8a45b01f9cbb482"
     sha256 big_sur:        "01c1cb899db03ce18211dc2014af7f9a2592b61b32038540a8d8e5e7e40b9386"
     sha256 catalina:       "58d9d2b9cee7fd5e4d3faad7620def7aa029f81b03d92a4150b5269fc38ea963"
