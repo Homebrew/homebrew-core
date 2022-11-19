@@ -6,14 +6,13 @@ class Libheif < Formula
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d3052cd6e095512ea763840cc568c0249b4d117e8cf6ad1fc059ed0624ce6b6c"
-    sha256 cellar: :any,                 arm64_monterey: "83604fff14ecaac7b0a5b51ccf6edb51005874787ffb68424aa6eecdd9c58214"
-    sha256 cellar: :any,                 arm64_big_sur:  "e1da93c3b370ba6944466c092e2c9789387f581b048831957b480fcd1dce3196"
-    sha256 cellar: :any,                 ventura:        "a4f4915987f728bbe2bfc1a11c7580006b6240b0e017df109b3478bb098dd48b"
-    sha256 cellar: :any,                 monterey:       "245040fbabce119b2d62d14252839abca053e4d554e7b35f56c1e12c9a7551e6"
-    sha256 cellar: :any,                 big_sur:        "e50abe1e9e9ac7a1fe1a81fec71d5fa6fa4dfd595a7086c6ba6c0bab63ef1414"
-    sha256 cellar: :any,                 catalina:       "9286b40ec5688cf50dbc8735f2c145aa54db29c04a03d935952cbeff87abdada"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c286261b6b2d37f72847c9b4e64d97d358f7b783918e918e2a1d41b6f360865a"
+    sha256 cellar: :any,                 arm64_ventura:  "4f362e38b103cad94a9efa4262954f1eaf131d27aad0d2945b40140d3d707a24"
+    sha256 cellar: :any,                 arm64_monterey: "961e0481b2ff19bc463963a9dd4e22dfcc9e896e84847b6e1e8164105c865b7c"
+    sha256 cellar: :any,                 arm64_big_sur:  "42305ca6707b470406c80fcb42a90acb70be48e665469c67bc3b69b1c86cc816"
+    sha256 cellar: :any,                 monterey:       "d52187177201c577e2a148c2f9d99f71dc42156a65ed553446cbe0a98975586b"
+    sha256 cellar: :any,                 big_sur:        "a3ab4023b5ff07677f2d24c31dd16a9e0bc2285ed3e592b43a743d5c950dfa61"
+    sha256 cellar: :any,                 catalina:       "b6a7ff7511e118258ff8a733c4322886db2ce8dde501fb7332d33af71b26f2c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1d44004038b86971f43edbd42ce6f6ed1daaf48ae64c1d1ad1eacbdc6406847"
   end
 
   depends_on "pkg-config" => :build
