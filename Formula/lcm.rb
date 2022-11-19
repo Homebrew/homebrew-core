@@ -1,11 +1,22 @@
 class Lcm < Formula
   desc "Libraries and tools for message passing and data marshalling"
   homepage "https://lcm-proj.github.io/"
-  url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
-  sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
   license "LGPL-2.1"
   revision 7
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
+
+  stable do
+    url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
+    sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
+
+    # Fix compatibility with Python 3.11. Remove in the next release
+    # .../lcm-python/module.c:46:34: error: expression is not assignable
+    #     Py_TYPE(&pylcmeventlog_type) = &PyType_Type;
+    patch do
+      url "https://github.com/lcm-proj/lcm/commit/0289aa9efdf043dd69d65b7d01273e8108dd79f7.patch?full_index=1"
+      sha256 "c20661ed66e917e90f8130c0f54139250203e42b62e910e15c0b3998432304b7"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "07f135f3cc3dffa8fcd7313a2d368d1a5a353e82881184c413904c67c3994e7b"
@@ -22,7 +33,7 @@ class Lcm < Formula
   depends_on "glib"
   depends_on "lua"
   depends_on "openjdk"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     # Adding RPATH in #{lib}/lua/X.Y/lcm.so and some #{bin}/*.
@@ -31,7 +42,7 @@ class Lcm < Formula
       -DLCM_ENABLE_EXAMPLES=OFF
       -DLCM_ENABLE_TESTS=OFF
       -DLCM_JAVA_TARGET_VERSION=8
-      -DPYTHON_EXECUTABLE=#{which("python3.10")}
+      -DPYTHON_EXECUTABLE=#{which("python3.11")}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
