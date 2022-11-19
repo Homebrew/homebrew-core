@@ -16,7 +16,7 @@ class Mongoose < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b22f7511e5a7d3f12789d62ee57477ea34f3cc97948a07b080b1a1353f0e58c0"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "suite-sparse", because: "suite-sparse vendors libmongoose.dylib"
 
