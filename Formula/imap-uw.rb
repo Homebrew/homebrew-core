@@ -14,15 +14,14 @@ class ImapUw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "50984c0d2c15158b7b746c393e4e130d198d3a43444cd841f2d6966066a04eb6"
-    sha256 cellar: :any,                 arm64_monterey: "518a6148d100fb7e9fb1307614360a7b5561b1587eb3d6aac7e643410876c117"
-    sha256 cellar: :any,                 arm64_big_sur:  "c2f21ac938fd8cad640bb7c5ffc7f9fbc74d783485483914554742f0c1fe0cd8"
-    sha256 cellar: :any,                 monterey:       "3f1c9829bc54fac3ee895b1e411f05add6f7f85e0482836483b1f46ef14d29bb"
-    sha256 cellar: :any,                 big_sur:        "fe7f15381a9216ce51e4b2e89c9243bc15569948c896ce122e561bde9e85d327"
-    sha256 cellar: :any,                 catalina:       "df3de76ba2934218f8f484f2d7e6c760956ba52eecacdb1b623d0b54d872165f"
-    sha256 cellar: :any,                 mojave:         "19d971ab778840ba44c24c3eef1316d1c65e6e0b6e1540933ad051c77ee745e0"
-    sha256 cellar: :any,                 sierra:         "8c1c4d2cbbd6df372f258d7cc95b040db4f3c759c8928cfbde7c54da4fa6a426"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec9548b94b2c2dc20aa41a9805d062d4d4598be6c927ce7a42e6aca860ff40be"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "853cb9eabed350f511e68b7198005a276b86efecf79846ed68858d226df546de"
+    sha256 cellar: :any,                 arm64_monterey: "52ef7c6c326e06a85524eab3a22f29ff095877b1a640979958b72cede3dc8758"
+    sha256 cellar: :any,                 arm64_big_sur:  "3598566905f97346d6691c708ae0c6673d28924265f5e10d33bdb2f8d40aa90b"
+    sha256 cellar: :any,                 monterey:       "b103e67bafbc727288fe497dc634d65489b9c9272ed23971a35348988e0fd21d"
+    sha256 cellar: :any,                 big_sur:        "03c5fc6a4e888a756809749d359b45141b95fbb8b3cfa662ebd9687e55ba958a"
+    sha256 cellar: :any,                 catalina:       "f98ac44c956015b954474247210e3b19dbcf629280b69ab2c33386ad6f298c31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b87416d2dcf7b2384df72ef50f309556b3e4e267eedf11f05ae54b53f67c8a1"
   end
 
   depends_on "openssl@3"
