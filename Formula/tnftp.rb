@@ -15,6 +15,7 @@ class Tnftp < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9eb9316d780cd94e0165ec70a4d56c72a7529c50aa6d8b5127c7d08b86794c26"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ab84fe5ac9eff0c7362b22793c3678b427cded2cf30f27dd41799e96039a4b65"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70ef6eb17e9644707e16b95e69d9515ed73b8d5e1b965d0d44b8c16e9d36bca4"
+    sha256 cellar: :any_skip_relocation, ventura:        "0a31ace8f8ed2b3d28370c53da52dcb3bcb26d3ddbcd1a4f704dfc437455d4ea"
     sha256 cellar: :any_skip_relocation, monterey:       "1e30f66379f0a97e015bf3133cd3fa53b8f322919e9352e4d0ae25c28151b201"
     sha256 cellar: :any_skip_relocation, big_sur:        "543c3b1220913421326418f4fb346cf76332bedc7d5f5e19d4e02e6653833387"
     sha256 cellar: :any_skip_relocation, catalina:       "10fc0ee307e739bc3a0f617167fe6027cf37573efd47a555239599e226c7e8b7"
