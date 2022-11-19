@@ -25,7 +25,7 @@ class ImapUw < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec9548b94b2c2dc20aa41a9805d062d4d4598be6c927ce7a42e6aca860ff40be"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "krb5"
 
@@ -33,7 +33,7 @@ class ImapUw < Formula
     depends_on "linux-pam"
   end
 
-  # Two patches below are from Debian, to fix OpenSSL 1.1 compatibility
+  # Two patches below are from Debian, to fix OpenSSL 3 compatibility
   # https://salsa.debian.org/holmgren/uw-imap/tree/master/debian/patches
   patch do
     url "https://salsa.debian.org/holmgren/uw-imap/raw/master/debian/patches/1006_openssl1.1_autoverify.patch"
@@ -49,9 +49,9 @@ class ImapUw < Formula
     ENV.deparallelize
     inreplace "Makefile" do |s|
       s.gsub! "SSLINCLUDE=/usr/include/openssl",
-              "SSLINCLUDE=#{Formula["openssl@1.1"].opt_include}/openssl"
+              "SSLINCLUDE=#{Formula["openssl@3"].opt_include}/openssl"
       s.gsub! "SSLLIB=/usr/lib",
-              "SSLLIB=#{Formula["openssl@1.1"].opt_lib}"
+              "SSLLIB=#{Formula["openssl@3"].opt_lib}"
       s.gsub! "-DMAC_OSX_KLUDGE=1", ""
     end
     inreplace "src/osdep/unix/ssl_unix.c", "#include <x509v3.h>\n#include <ssl.h>",
@@ -81,5 +81,10 @@ class ImapUw < Formula
     lib.install "c-client/c-client.a" => "libc-client.a"
     (include + "imap").install "c-client/osdep.h", "c-client/linkage.h"
     (include + "imap").install Dir["src/c-client/*.h", "src/osdep/unix/*.h"]
+  end
+
+  test do
+    system bin/"mailutil", "create", "MAILBOX"
+    assert_match "No new messages, 0 total in MAILBOX", shell_output("#{bin}/mailutil check MAILBOX")
   end
 end
