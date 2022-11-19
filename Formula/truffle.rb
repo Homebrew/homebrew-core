@@ -11,6 +11,7 @@ class Truffle < Formula
     sha256                               arm64_ventura:  "7f72f1de770c4730b4ebd2d15b4e683594feb245a94f22857e1d58c33b85ceb0"
     sha256                               arm64_monterey: "6985a56158e4bef68a22f4c5a00c9d37bb3a08f430d7008a6e1e9b1a6dbdbdd9"
     sha256                               arm64_big_sur:  "3f5a2b9a88339f11cbbe6796f676681d3a189eabc6a7ffb64184c85712482a7f"
+    sha256                               ventura:        "bcdd7301df196e5a420d0f3cfdfddc7f0ec0775e26b073ac851ce64812baae64"
     sha256                               monterey:       "abcf7e1acc62655438ae2efcc8a731e14088857535f0e7e596517f64c2eb8778"
     sha256                               big_sur:        "3b0907f8d6af9e5ffc3662f7ec11431d2c7640ad4b3bffc47d48055b2e8c3545"
     sha256                               catalina:       "445ec915f1dadf3f675680ecc88128354dfb3f7cbb3047d3ed4d6088a939fd90"
