@@ -21,7 +21,7 @@ class Siege < Formula
     sha256 x86_64_linux:   "df87d178ad402ff12a7ab1c14100147e4319c3a9227e087b2f148faccb467450"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -32,7 +32,7 @@ class Siege < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--localstatedir=#{var}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
     system "make", "install"
   end
