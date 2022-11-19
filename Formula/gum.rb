@@ -10,6 +10,7 @@ class Gum < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f700f4ac78280c9f14f2ef4e2a59511701db063f26d08473a7ded1132be33b1c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b0e305464c1c947462693fd51d0527d9eefdccbb5d753a8341bfaea3acc438c5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98e3843734800ed758608b8c9228a4e144431ab58ced3bac601b5c335fd5be1d"
+    sha256 cellar: :any_skip_relocation, ventura:        "c52da43cfe5fec8ab3f655b16381db7b9c23c7e8d6dd3830abd4b0d564d339b3"
     sha256 cellar: :any_skip_relocation, monterey:       "1312e2bac2cd1f0731bc77395c83233b49459747c3f9344c905f1ffa14b21905"
     sha256 cellar: :any_skip_relocation, big_sur:        "98dbe8a090f59465b6bb1aff788bff0495af397e7c2f0b127dcb9a4cfcb11685"
     sha256 cellar: :any_skip_relocation, catalina:       "587bef4576990fba2619395b8e182029c69d2a2990e020aae2a0c1e07d404382"
