@@ -24,6 +24,7 @@ class SaneBackends < Formula
     sha256 arm64_ventura:  "e9969c0a40d3a0d9635231908a44c548cdb3e54bb35619f92a440a9585fd11b3"
     sha256 arm64_monterey: "1d403d6940c131a753c2305a830bb56599b733158edb3810e349a2c9a6fbcf54"
     sha256 arm64_big_sur:  "597dbfeb7517f0b6d3a8c320fb3acbeb152cf74be7f91538ecb847a49e9ea53c"
+    sha256 ventura:        "0d3615b6c44a42b21403fcfa2ab296cfdcc6547d48defc196bc03c003f28c934"
     sha256 monterey:       "5c2ba0815984ffc9597884db2b1fc13f1677a5dea344c73e0c090bf99cd8974b"
     sha256 big_sur:        "381d3502dc3cd2c22e95e8a870578891b0da3580b800e70ab061029c47b52873"
     sha256 catalina:       "b0d4a34cc8c506c4fc024edfdf13e5a1be13a551aaef21dfae8d8ffec3c2f93f"
