@@ -19,6 +19,7 @@ class MariadbConnectorC < Formula
     sha256 arm64_ventura:  "b97bd4602f08f0183f63ac2b38d066bfd9e34245dda2aebcb24b78e3958bf9ec"
     sha256 arm64_monterey: "086138120674893e58c030bd30bb8dc6fbb20ba8e49791c4113c1ad97d6512bb"
     sha256 arm64_big_sur:  "15c53b9a973cc9a30259c1cf3705f609dc300668d1a80f3185bbc174140350bc"
+    sha256 ventura:        "8e1e3a0d3c6164276bf1c76bf260ae4a934ffe7b9b28c432b7b673655658e01f"
     sha256 monterey:       "00b2f81b3b7d7bd8530ae3ce7e7267a656207d7727f40e8f24d2d7c8ccd62f7e"
     sha256 big_sur:        "541bd0c968dcd286fdecfa3fcd578fbb82292a7fc8a4832f9ac8d81ee7e1f49f"
     sha256 catalina:       "924bc54083a27ace9c7d58161c8100b44918eb0f772f0452c69a02fee72bdc58"
