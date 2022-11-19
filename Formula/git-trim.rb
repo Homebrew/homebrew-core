@@ -6,15 +6,14 @@ class GitTrim < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b7200ac6014294cd7832080b467ace9e3f178e8ce36923b8847a5c7e92ce1dba"
-    sha256 cellar: :any,                 arm64_monterey: "3cd1f15388555fd2bb5f4fd580f315e1bada283d4f4ce6aa2411bbfbd7c3b079"
-    sha256 cellar: :any,                 arm64_big_sur:  "0fbf3f4908554abfcda3a7b49c8f49bc878152dcbaad4d4fa8c19cce9f6b2f6a"
-    sha256 cellar: :any,                 monterey:       "145445f0a7f6267c1490fa94bec8dcf71abc693759bfd129059528e9347a0a12"
-    sha256 cellar: :any,                 big_sur:        "5c52fe8dd74e83a4a7048ae8a4f42661c2738718ea40ebede07ecf83771ba5ff"
-    sha256 cellar: :any,                 catalina:       "387724382d30ce0ac900da57f737d0f3ba91a57e29242e8b790f4ade97bf7179"
-    sha256 cellar: :any,                 mojave:         "090af1343e6b5938c97127d0c7a63fe49804269c0dc0c98c19ed160798b34bec"
-    sha256 cellar: :any,                 high_sierra:    "23beea483f50121bdf7b545e0345ec5d192ee362fcf3402f999905c3ebcd8188"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab1874dc73e61a21044a336683b346b1bb5f30ae2c3c795608e0926a7902747b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "b947a3ef610d4099bb69f3ce13a4dd1ab5cc3cf54ff26bad1a0416ec17db6345"
+    sha256 cellar: :any,                 arm64_monterey: "bf3d14d3e49b2706d08eda7eb2c9996dd1dd084620750657b64ca4eaaed1ffbc"
+    sha256 cellar: :any,                 arm64_big_sur:  "e533b21966078b880931e146e2de12983de87ad946a697b4123d2c8f53bd884a"
+    sha256 cellar: :any,                 monterey:       "74c5d18624b71730015cab7a8a56024dc938d22b15c99cda2e00bef8385def6e"
+    sha256 cellar: :any,                 big_sur:        "48ca1fc5e4ce96b10f13cddf5e1fe5222a7419133b348c7e563ab2ae51f4c6af"
+    sha256 cellar: :any,                 catalina:       "dd1226f0b393f6ea83d826b0c4c893caba223a466d13812cda14602d3e796f03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "916cc109ec67bcc75376c39c8ce9503854d532c8f5d341770ed7b70efda06cc5"
   end
 
   depends_on "rust" => :build
