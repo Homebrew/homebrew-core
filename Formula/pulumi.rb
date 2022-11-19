@@ -11,6 +11,7 @@ class Pulumi < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "471af89878a4db341cdbae99391f8ed0c30e87f6a9ede2e59076b4cfea09785f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "66f170f982b4983ec3e2608f79fed7f78e3ed9a127b10ff7cdbabbf2620b4e4c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86ee82ae91992c24514843495ab95c050780876ef88f4fddd91fb4a1f4fdb3ce"
+    sha256 cellar: :any_skip_relocation, ventura:        "2223a7f5e8f8944b0ad610b1c1e5134d71e9a401a6fd04b4e68fc9c4263dbf40"
     sha256 cellar: :any_skip_relocation, monterey:       "c76f803bd1339d8a6d80fc81bbdb86fc04f82684a9cecc7f6917319bd217535f"
     sha256 cellar: :any_skip_relocation, big_sur:        "f922fa24d5880af2a32b8e9981c3dfc835248e341bf7547a2743996db96b108e"
     sha256 cellar: :any_skip_relocation, catalina:       "ca31d543b193bc375a8058007917707b1d0a6024ce29fbb18fe2c83869dacf86"
