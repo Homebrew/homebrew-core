@@ -12,6 +12,7 @@ class AnsibleAT29 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "341f4dd6c3b3cbad0fa07332e14a55979177e2012155bbf59089e54411a07071"
     sha256 cellar: :any,                 arm64_monterey: "2d25b8062e846cd719d51d02e08ae5010a83ae7c0680b474ea1e4e65f4d2e389"
     sha256 cellar: :any,                 arm64_big_sur:  "c12551aa26093f68f8840b5f5ec2f0d70e28c75de52268ed0dfb62728a3e6870"
+    sha256 cellar: :any,                 ventura:        "d16e7684219a5b570621f17cbe25ede611df691a3e8f7f13265e66182e244bc1"
     sha256 cellar: :any,                 monterey:       "cd48ed9652fc85e9bddfea9a70a2600fa049fde1717f9d3842058993406cee5c"
     sha256 cellar: :any,                 big_sur:        "7e16c9fcc0e8110f0577a30e5fc0396c0f822fae8adccf082d3c15145613d4fd"
     sha256 cellar: :any,                 catalina:       "fe81e07fe6aa21f6ccf5d24f7f0199efb8d73a5f00fefe36811bb80026935b21"
