@@ -13,6 +13,7 @@ class LeafProxy < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d355aebf0aad23fc9bb94a03bfefba8a1c8dec92c2f46b24735ce0ed281dbfdc"
     sha256 cellar: :any_skip_relocation, monterey:       "f1a13b5e3dbfcaaabc3d624282b872d29b74efaafaa3a8bd64be1d50b1d8b487"
     sha256 cellar: :any_skip_relocation, big_sur:        "9f70f05afb9f60dae8a45a393927a26507a7aa14839073d1af0bb81685d22dc5"
+    sha256 cellar: :any_skip_relocation, catalina:       "3044f6769b0ed5c003ad77c9ecd1ac30e7bc6943bb423481ee129d552eedbf72"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d961c8bda1fc66585b47492e3efc427602dbf91b7be5775f3b2a32e464883e4"
   end
 
