@@ -17,7 +17,7 @@ class Crackpkcs < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   resource "cert.p12" do
     url "https://github.com/crackpkcs12/crackpkcs12/raw/9f7375fdc7358451add8b31aaf928ecd025d63d9/misc/utils/certs/usr0052-exportado_desde_firefox.p12"
@@ -28,7 +28,7 @@ class Crackpkcs < Formula
     system "./configure",
             *std_configure_args,
             "--disable-silent-rules",
-            "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+            "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 
