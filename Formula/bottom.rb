@@ -11,6 +11,7 @@ class Bottom < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "877d2e06dd2f926222b398f76d85109f518e18cabb1cd8e77d914990047c38f5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8e7e126717b29e5317ddac5abc247bf3dc1d084f544af13af37ab4e17b66410d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cc0790f7611b7e50bb4ae22b1376a12619716f13b4f8bb406c0f2c67bf69232"
+    sha256 cellar: :any_skip_relocation, ventura:        "2d80542e097eacb2f75c294807fe5f0b30a7b9fb96824d5cd9d261b75dd8a18f"
     sha256 cellar: :any_skip_relocation, monterey:       "c8572a9b69cff3a51c94131b487d783efeeccf141dc84d15c33573d46bdbfe81"
     sha256 cellar: :any_skip_relocation, big_sur:        "ab7573866fee9294189c90e5bec525d54652835be497a1cbf4c1c0c4b999ffa7"
     sha256 cellar: :any_skip_relocation, catalina:       "622766c0da5d44b5b7ea85ee524b16aa7b8b96366a677c6f158b8f6e35e60243"
