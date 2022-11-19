@@ -7,13 +7,14 @@ class Mongoose < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ca0996f08c9691ef19c2785ee6eb883c97f075787cc5125de3b23349719559f3"
-    sha256 cellar: :any,                 arm64_monterey: "99d54b7eb04da840546b5f6cd75dd639f75511cfae270dac63ad969eeb564e3f"
-    sha256 cellar: :any,                 arm64_big_sur:  "6b13a569ff067da50f3a34fa551d3f7d1037f3234aeac6a4f491f88b46d4c339"
-    sha256 cellar: :any,                 monterey:       "5309253949c1309a1a05ae2ed7bfdad0a89e6ea6198e63c1ca537b650cae76c8"
-    sha256 cellar: :any,                 big_sur:        "3a83ba20f3893bc9d12ec35e0fd630adc6175e76b7646b787b5796843229e574"
-    sha256 cellar: :any,                 catalina:       "a44483088dace829578d9fbc0bd459c2137b67d9fe940d5ab03a6329e1dc5a09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b22f7511e5a7d3f12789d62ee57477ea34f3cc97948a07b080b1a1353f0e58c0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f8081c830980b8671bb9055574cb20b4e57b09c8447dbb157e86366a9d359ed2"
+    sha256 cellar: :any,                 arm64_monterey: "7998ae2f5baf6f285f64228eb08ceea45ebb1e848a0bc0050a05b670f0d6e486"
+    sha256 cellar: :any,                 arm64_big_sur:  "ee3b2e1a77bcac51e1eb227b6b7cbcd06281090a91b477d8593a98800b6d30ee"
+    sha256 cellar: :any,                 monterey:       "9270e8f543e74f31a551a56bec241ba3ca32f4fa4e51066453d65f564631552e"
+    sha256 cellar: :any,                 big_sur:        "7a13be2a2f240e9b61d453d6e8e83561778a5d99501a86a62071b0be8dd4685a"
+    sha256 cellar: :any,                 catalina:       "dd3af2e217dc3b2ff93e2154531503e0b594694e2b94a608473151907544488d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc4276410eb8f29fac51ffa51a9e1c7c664b45e0742fd51f21bc82568fcc9b59"
   end
 
   depends_on "openssl@3"
