@@ -8,16 +8,14 @@ class Shairport < Formula
   head "https://github.com/abrasive/shairport.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1fe177939959db1c27c4f12ced1d6ce886fa7ad0e7c5bfad4bb29117c3b331dd"
-    sha256 cellar: :any,                 arm64_monterey: "267665694fff4cac9c73361e945e505a6b04495215f7b8abfa12b00163252701"
-    sha256 cellar: :any,                 arm64_big_sur:  "9c1716f8760f78af40db17ebbb11180312d7f89fa3c6a13dbe650e7f54879860"
-    sha256 cellar: :any,                 monterey:       "47f4fcf2c3caad553f2d069e1ed85c9ddf1325840d0fe47115acce911476055e"
-    sha256 cellar: :any,                 big_sur:        "0c789ac825df4c2ee2caa494dd2bfc607a63e9fc5d60312587b36a5509491d99"
-    sha256 cellar: :any,                 catalina:       "d385bd0045902de8acba7c41f7f1a1adfed5d9f13ea307af583de1b026ea0af0"
-    sha256 cellar: :any,                 mojave:         "af28167bdd30a30511476472429673db781b9234cd4c8225a2ed3f10b869588c"
-    sha256 cellar: :any,                 high_sierra:    "c819c407c218e35129dde1d00a0bb78e5cc85cf69cc0920f87f5a3f690e2cab5"
-    sha256 cellar: :any,                 sierra:         "f3449bbbd695f608673ecf618c55f5d41ac8edad59772888a128185b23395b7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23ac06f0eaec53520dfd24e0c2aef2376464f1d3bf9e975aaa0378d74ac500e1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6ec34c1a6192a444706e3bec92cb08424651737c23428cf32bd09fb87e08ec22"
+    sha256 cellar: :any,                 arm64_monterey: "cc2f0f9f0a61452bbc6024ff53289c9769478d6c869e14c6b82eb122c2417e61"
+    sha256 cellar: :any,                 arm64_big_sur:  "4ec084bdb28e1a1402ea518d2a7f9342ba3310b2b69d61e41c4aa1cbcfa2cd0c"
+    sha256 cellar: :any,                 monterey:       "50066fb9c883277e109868b5023557545c56ed1424f3b2dae4b39c7491f09203"
+    sha256 cellar: :any,                 big_sur:        "241a4d9155fb3a9c0e0e5f0fcb46c79e9d1febf07d09780d0865cd80379fdfcb"
+    sha256 cellar: :any,                 catalina:       "eb61653e41a172eef6f5458c35e7f8a3627d730e44c2e361903cb75b96fd747b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "510b4ed23f8c1c12f5a2c756bcdeaf4e7b86ff0574b29b951b9b26c806a29cf4"
   end
 
   # https://github.com/abrasive/shairport#shairport-is-no-longer-maintained
