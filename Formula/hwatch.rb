@@ -13,6 +13,7 @@ class Hwatch < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fee41baa00015700821d842be4a8d9e763ac661e5ddd55bc7c965f0f4b5c3a1b"
     sha256 cellar: :any_skip_relocation, monterey:       "cbee54228e2414579971af594d05d2524340c67a222734e1d2b5a1fd9e2001b2"
     sha256 cellar: :any_skip_relocation, big_sur:        "a0366e46f7d74c88ceca186d6d62fc881685c609053bb9d37be736cb4eefbca8"
+    sha256 cellar: :any_skip_relocation, catalina:       "ae5492d7dce8f4ba9e44262268a1eb757425c5ccab8f50187f9e9c03ca4e989b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f4a0c4f09ceb91fed32fbc115daaabda60995d4afa1d1ea9cced599786c74db"
   end
 
