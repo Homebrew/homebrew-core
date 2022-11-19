@@ -10,6 +10,7 @@ class Nuclei < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8cf9e19eff2b13519b85521e5721000d737c11f33c898ed63f8bd7cf07d34b49"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ce87ba06ae6e0190c4a375c2c14ff3001e9f25cdc9723c957acb0e7b946cb933"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4200795e0ffb29fbf63774771a8bc1f09feecfa5e904023448341c78efb359a7"
+    sha256 cellar: :any_skip_relocation, ventura:        "34c4915681eaa63116dd1b5ec5984e583ddd52b71a3b65d2e859574853be6374"
     sha256 cellar: :any_skip_relocation, monterey:       "9ea6e5fffc702e5eddc5c5b98f6f42e97034e0ededeae617be9d4ab96e0473a3"
     sha256 cellar: :any_skip_relocation, big_sur:        "70d2178babbf796cc7ea926bfad6df7aa4b56bd9a2e728d7067741e865a781dd"
     sha256 cellar: :any_skip_relocation, catalina:       "810681f711cd3afd0c09d6807a5aae41982b22922eee37e6b0ccb064ba666798"
