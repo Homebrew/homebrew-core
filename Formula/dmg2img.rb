@@ -12,16 +12,14 @@ class Dmg2img < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a9cbc06dcec3dd13f3f59679c99c4b4b11abcfbd06741c9e3d7bd765c72637fc"
-    sha256 cellar: :any,                 arm64_monterey: "fdcd63fd0d82e4a0d93e65cb6b31ade055f35eced526418c8f5bec74d9b66b74"
-    sha256 cellar: :any,                 arm64_big_sur:  "11f7f409cae53668c66f6416581d9e33bd333aa544cdb53ca90e92684e5c7968"
-    sha256 cellar: :any,                 monterey:       "b367b71768aff5e3299911d68d69cd63aa76179caaf631afad1a72f871ed4682"
-    sha256 cellar: :any,                 big_sur:        "e1df6e7db928dd7e5d865968a527e310a7d1cad6f68c5a72c3bd717b75cef325"
-    sha256 cellar: :any,                 catalina:       "e16b42ead321d5e0c85a98592154ef13a2206355a13cfe021735653a1dd995be"
-    sha256 cellar: :any,                 mojave:         "fb90741dc01f5c7b115c9d5bf142e36a90d7cf0995ecb4a5183150ec6d6161ac"
-    sha256 cellar: :any,                 high_sierra:    "367ab961e50114debc983e5665443ee8fa5a85a2b4fab024753f38df48fb26f1"
-    sha256 cellar: :any,                 sierra:         "8616423fd5b0109c66a000932b2aa5bf4f3979c5a065617e8ef7dd4ae0ee820b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "352d7b94084707e2138aa53245f2e3325c36c2faf21c7361fc81b0dbb9d8cabf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "af9009c8bc805eee1b8b88c88f4323e31f9990476cd61bab48edb90c84c89e4e"
+    sha256 cellar: :any,                 arm64_monterey: "03c18ebfadd3f15af4c5acfc3ddff35352b3ed74b734ad1a3f7fc3f991d641c7"
+    sha256 cellar: :any,                 arm64_big_sur:  "30d93d8a25986e284ce16234d63262b9b09282194cac91c96e30ef2ac36915ed"
+    sha256 cellar: :any,                 monterey:       "5f98d762bda9e92cf497e1bca2cfc1f738da6251c807802cdaf4128b9f6d0972"
+    sha256 cellar: :any,                 big_sur:        "0fb916b99c3006b44195e38d0234cb38e1e1aef0c76f73688d75b25d704d689d"
+    sha256 cellar: :any,                 catalina:       "f78214ca14fa444d792fd6c9eeec1068717cb64ee8ce635154ccc783bc37099e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6fe4e0cd5213bfcefed195911e5f7445c0d70016ce01e29ade4fb8dfd8cfa6b"
   end
 
   depends_on "openssl@3"
