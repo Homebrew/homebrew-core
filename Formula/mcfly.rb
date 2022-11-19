@@ -13,6 +13,7 @@ class Mcfly < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d51d25e029d0bbc208c8638a6ba814a4497cd1775094079d50a943ea13aaa42d"
     sha256 cellar: :any_skip_relocation, monterey:       "f0a0a88c98bd7df9e2eabfd74f4c42e756ed68ac710db169daea39bef858461c"
     sha256 cellar: :any_skip_relocation, big_sur:        "2c2a1c9972e0e2e08407edf0420b79e4e6e314c3ff8aee46e1250121cad84587"
+    sha256 cellar: :any_skip_relocation, catalina:       "8e33a896b5f9e190c67a6fe785e4860d348dfef3c45c5899e99e0d9da358c935"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "345e0dd4dfad4e7dc1c9c1c98cc5c4d66ef6afac5573a355b02e0bb7edb34e8f"
   end
 
