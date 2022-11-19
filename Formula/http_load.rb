@@ -31,7 +31,7 @@ class HttpLoad < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7592ea4f24a3e2288078da70ddde1fbd1cb6133aa7126c43c13cedcbe74439cc"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     bin.mkpath
@@ -42,7 +42,7 @@ class HttpLoad < Formula
       LIBDIR=#{lib}
       MANDIR=#{man1}
       CC=#{ENV.cc}
-      SSL_TREE=#{Formula["openssl@1.1"].opt_prefix}
+      SSL_TREE=#{Formula["openssl@3"].opt_prefix}
     ]
 
     inreplace "Makefile", "#SSL_", "SSL_"
