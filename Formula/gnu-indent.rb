@@ -11,6 +11,7 @@ class GnuIndent < Formula
     sha256 arm64_ventura:  "66cd2b91e533849daea9cfabbf525ddcc76d2086a8a8b4657e6fa236df2ab7d9"
     sha256 arm64_monterey: "2311fb51012e426bd4cf01047a98cbcf70a5bf343aa089dc706d1e3c84b05964"
     sha256 arm64_big_sur:  "bf082593202d39ea4c2929b333d544c72ef23d16fed04f570e1f4227098ebf6e"
+    sha256 ventura:        "62ad5f27bb1a7676e87485f53b6d25635d5d3de0a76268b0dfaa66c82d6f2a0a"
     sha256 monterey:       "f23364d4a472c8c1430967e887da54e319bf94687cdeb718988dde87459691cd"
     sha256 big_sur:        "af4b5212440cdbb8c1c80bef3a13ca33bbdbd49918d24588af3a9eb44e484dab"
     sha256 catalina:       "82a12279be8834591a2104253ac562978b557c26b262dd8d5bfbf6e7b1103dd1"
