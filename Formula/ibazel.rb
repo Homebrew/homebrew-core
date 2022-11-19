@@ -9,9 +9,6 @@ class Ibazel < Formula
   depends_on "go" => [:build, :test]
   depends_on xcode: :build
 
-  # Patch to use Homebrew's Go
-  patch :DATA
-
   def install
     inreplace ".bazelversion", "5.3.1", "5.3.2"
 
@@ -67,22 +64,3 @@ class Ibazel < Formula
     Process.kill("TERM", pid)
   end
 end
-
-__END__
-diff --git a/WORKSPACE b/WORKSPACE
-index 1ec4e43..721d61e 100644
---- a/WORKSPACE
-+++ b/WORKSPACE
-@@ -62,11 +62,11 @@ http_archive(
-     ],
- )
-
--load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
-+load("@io_bazel_rules_go//go:deps.bzl", "go_host_sdk", "go_rules_dependencies")
-
- go_rules_dependencies()
-
--go_register_toolchains(version = "1.17.6")
-+go_host_sdk(name = "go_sdk")
-
- load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
