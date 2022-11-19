@@ -26,7 +26,7 @@ class Httrack < Formula
     sha256 x86_64_linux:   "cf514800be63c284276aa19e44b7d6822b182166a64b8ceb45dd96c4818504ee"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
