@@ -6,16 +6,13 @@ class Cmdshelf < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b1249c740937ce986c15e45b48d2943ffefe1d54ea8ac6ae2fc18486e8e8ed4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48c85f481fec33421ae5742578ee00215b18214a8268a691bdc30950972cd22d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f40147d57994d19a28f05ef6bcb1c3f3382d17d46df244f34ed32e611de5729"
-    sha256 cellar: :any_skip_relocation, monterey:       "b407895fb2f008bed03829d02ede8b966523112684971682dfa40991cb5f6b72"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b6f07a011569e722624d846203a87807a5eee4dbbade4cd8b8d92f0b071ea884"
-    sha256 cellar: :any_skip_relocation, catalina:       "e4093bda9528ae027e122f321e2f1a44d3b4fc8b569e2bf0eba526399cccdacd"
-    sha256 cellar: :any_skip_relocation, mojave:         "4c83af8661b368f727a389f12d434be45655d10aef9ae1acb8b2be830aae0558"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c0cdc78df3f3896e4e8ba2112ec6e5189682da06419637ebfa9d660ff4fb902f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ba139776fd2403b480ca2f54f4abda07bf141c0efb7b40c6098ff487e2fd76d"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11ee71c650aa2e2910bba632afb1632e00eed0d4a34968dde9f43c2728ed958b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2129cc4f853a0328aae11613e798bfae886299523422ad84bceb33b076060db7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cfd2cf4bb09a17661c2b513cf67eff5fa545d549734111829c8829b105cef14"
+    sha256 cellar: :any_skip_relocation, monterey:       "fb958a194580d31dd505817d41030cf623f7b193a6482ee2d01fdb038b107c47"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b1b12cbcc8f895523782fc7955cd62fba746b27f76de5bc0e3b0f3c2555fd992"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9125da575a5730c3dbf6e33cbaab9ad3fbb2cc361536727563306f23ba14ee01"
   end
 
   depends_on "rust" => :build
