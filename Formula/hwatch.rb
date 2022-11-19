@@ -7,13 +7,13 @@ class Hwatch < Formula
   head "https://github.com/blacknon/hwatch.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bca9d8a6525723c5e56b4669c9ddd6054c8a04531267443c43759d9574d298bd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f81137d5f459ff77cab5153089ceaef8b92c56e8ef4005806f2a3f057116aea"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1da8c036c53f6953a6092edac0a7292e91b318ff1e85ddf89d425f2a63d1f9cd"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0619560c81e97e7c738553bff3d2afa46b6da4b364561ed3aa6db44647ba594"
-    sha256 cellar: :any_skip_relocation, big_sur:        "16ca4b32162ac2d45cee5e838036ba8a9245fcadc3db34bcda3445de6d0c0ebc"
-    sha256 cellar: :any_skip_relocation, catalina:       "4ac761cccaaea7be4ae3cd779bae955ed8f7cd65652e8a0c7bc0f1fc59030cea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8a88f94e413cb3a171a0f9d408c1395f75ca0810f1ca8953cfd68e0e4897f22"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "909bd5f23d2595b342c0146d15ef96a854074c29f467316eeed5dc8474e086e9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "51da8da8a155e5e53aef542ed6868decf42d80f493eb6d183398b9333e800e47"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fee41baa00015700821d842be4a8d9e763ac661e5ddd55bc7c965f0f4b5c3a1b"
+    sha256 cellar: :any_skip_relocation, monterey:       "cbee54228e2414579971af594d05d2524340c67a222734e1d2b5a1fd9e2001b2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a0366e46f7d74c88ceca186d6d62fc881685c609053bb9d37be736cb4eefbca8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f4a0c4f09ceb91fed32fbc115daaabda60995d4afa1d1ea9cced599786c74db"
   end
 
   depends_on "rust" => :build
