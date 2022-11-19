@@ -9,6 +9,7 @@ class Httping < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d94a9daced98c5e2e3b192a2d90e4572b4aea047c3572810f5e437f2c03d7e8f"
     sha256 cellar: :any,                 arm64_monterey: "c846542d55c712401ea113493bac025d53c760cb34e4afbdbf0589cc480cf040"
     sha256 cellar: :any,                 arm64_big_sur:  "009816a0db310663c27211705990e2e6b31fa04bec6c8e31d974e3b91f6fdafc"
+    sha256 cellar: :any,                 ventura:        "d94abf69cdd015418cfb0ec25dd0f2542186933a7cfda72a293aac88f072a0a1"
     sha256 cellar: :any,                 monterey:       "3bb35f1f10a559975d926cf8659cd4fe5474a054f97e6465b700075e598c4d4c"
     sha256 cellar: :any,                 big_sur:        "01023fd55b938b08b2ba9d244a6ac5f4917e0eab92c07d77976a89df39c844b3"
     sha256 cellar: :any,                 catalina:       "e6599bb0b22aeb3cb4d637e310b8d0af1f68220f05be7fdce866b421d40c6586"
