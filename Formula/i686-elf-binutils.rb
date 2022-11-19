@@ -14,6 +14,7 @@ class I686ElfBinutils < Formula
     sha256 arm64_ventura:  "65a12a7a0fda3fa76164498228ca38199a684e587aeb7191027f062e2c9dcd15"
     sha256 arm64_monterey: "b165b5ea4d9c0f6c48ae911424b947d0b5fbefe7326a4b08264bcab238adc311"
     sha256 arm64_big_sur:  "e6fd77d3044070196bcc97994e30103314c202cafbb8d388297b016fe743906a"
+    sha256 ventura:        "d4d611501501328f9de1ca66dc1d9467dc8c5fea3005a8c9ae7f8b60f323439c"
     sha256 monterey:       "9f98933cb5be01be6656c48b0a6af873d052c0a8d2035764aabacb0aa30f7609"
     sha256 big_sur:        "770b6be941d02848584d1cde5563ccd28c858016818283ac74e57e5c88026f3b"
     sha256 catalina:       "de959fa65f1b4ecbf25f0684f652fab3b65fd1112e17a4b92d1295a49dea7c08"
