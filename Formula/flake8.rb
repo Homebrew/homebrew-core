@@ -13,6 +13,7 @@ class Flake8 < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0cb596301e1b096efdd66c47f9c13b8672437fd103a4ef6c5e9aa33848f03474"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0cb596301e1b096efdd66c47f9c13b8672437fd103a4ef6c5e9aa33848f03474"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cb596301e1b096efdd66c47f9c13b8672437fd103a4ef6c5e9aa33848f03474"
+    sha256 cellar: :any_skip_relocation, ventura:        "7a3efaabddb5162598329bbc426893fe167482a05bd33033b17de800c9cbccb7"
     sha256 cellar: :any_skip_relocation, monterey:       "7a3efaabddb5162598329bbc426893fe167482a05bd33033b17de800c9cbccb7"
     sha256 cellar: :any_skip_relocation, big_sur:        "7a3efaabddb5162598329bbc426893fe167482a05bd33033b17de800c9cbccb7"
     sha256 cellar: :any_skip_relocation, catalina:       "7a3efaabddb5162598329bbc426893fe167482a05bd33033b17de800c9cbccb7"
