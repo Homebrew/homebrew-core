@@ -15,6 +15,7 @@ class Libdaemon < Formula
     sha256 cellar: :any,                 arm64_ventura:  "48e59b83b13317a14504cc36b820781a8e55e2e11509eeacb3632535daa98988"
     sha256 cellar: :any,                 arm64_monterey: "0ba92f47214e34c065723f4dc24f0a0391b8d0cb9af18b4a0262ab74d6629757"
     sha256 cellar: :any,                 arm64_big_sur:  "d5bebb62e8788d3e229a9022c600d3abc7b93843c854070a6296e6962979a2f0"
+    sha256 cellar: :any,                 ventura:        "0920b6d606e3afaa3ac023790dc9e7c3f89c99297ae54ae3b9d20cf10e27aee8"
     sha256 cellar: :any,                 monterey:       "90500c4d405d8c04cccb7d06c6c45bed48646e49700d160d44659a22577007fa"
     sha256 cellar: :any,                 big_sur:        "e33a72add1413b788a607ae16413c3434da9d2faca96b9201504121b03a7ff73"
     sha256 cellar: :any,                 catalina:       "ad96f0b0e09c3e0c178d3e903659d65ae34fea18365197924a4911c291d02531"
