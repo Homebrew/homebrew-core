@@ -6,13 +6,13 @@ class Fselect < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7666a75694f65ba3015f334851bb6badc753d512017450bb219d30c550874164"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "46fe532506472ef37d9235e418f6d50428d8c7fb4293160474b89ff7fa6d6d88"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "522aefeee0231a275a277f53235617ed69b54df5dd1c6895e19c70a3d3e587aa"
-    sha256 cellar: :any_skip_relocation, monterey:       "e9fa8f4230fdd1c85b79360d08cf1fd8e9dcf09a0ab896e12fd590959938fe01"
-    sha256 cellar: :any_skip_relocation, big_sur:        "013e75f73cfce6dc23b3a2aae8ccc4a25cfa5bf5b4597099848f832fa430161e"
-    sha256 cellar: :any_skip_relocation, catalina:       "cdf17a9aec1a081bb9dd25af7d52bd9b4ca86d10fcd75fe66c52e5f7a258efca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dcca0c2055a80b46dfddbc415411ddef07a36c47e734b7e3f8ab124ea98768d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6c2ff7b692f810f1ba7bfd66c3b055aeaa58d474a886337507d1aa32440e7d4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "13083dd8d28582a15ac0a29e1fbd6ef53bf77c4c4e24036420fbf64e37713349"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "051fb86cb098caf6b5d0f2f297d123b6872327a35a17a264f7543bb352d755d7"
+    sha256 cellar: :any_skip_relocation, monterey:       "8e34b8b0bd29683f9f6f387ba74c1fc55212b03545967d9b47a68796c59fc6a8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4355f2606b5c8560132195c0e23e04c88214c4a830816f219338acc608bd5a7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1dd18e5cf65db088171218366dd03661356f55b2be63df32342d8f48ec487f8"
   end
 
   depends_on "rust" => :build
