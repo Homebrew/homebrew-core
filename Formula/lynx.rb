@@ -25,7 +25,7 @@ class Lynx < Formula
     sha256 x86_64_linux:   "9705dd1b53a269e2ccd2926928f499a4116385d86edbe9bb4ba9e4517dde104f"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
@@ -34,14 +34,13 @@ class Lynx < Formula
     # Using --with-screen=ncurses to due to behaviour change in Big Sur
     # https://github.com/Homebrew/homebrew-core/pull/58019
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--mandir=#{man}",
                           "--disable-echo",
                           "--enable-default-colors",
                           "--with-zlib",
                           "--with-bzlib",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--enable-ipv6",
                           "--with-screen=ncurses",
                           "--enable-externs",
