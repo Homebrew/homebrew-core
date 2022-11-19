@@ -5,6 +5,7 @@ class Httrack < Formula
   # link to download.httrack.com will break on next HTTrack update.
   url "https://mirror.httrack.com/historical/httrack-3.49.2.tar.gz"
   sha256 "3477a0e5568e241c63c9899accbfcdb6aadef2812fcce0173688567b4c7d4025"
+  license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
   revision 1
 
   livecheck do
