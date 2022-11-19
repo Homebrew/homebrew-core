@@ -14,6 +14,7 @@ class Fping < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0438caca030b6ef2929d7c99e6138734f1aef1e992cf29883ac4437dbff951e4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "087d83a0737273f2a17e731d6dd3a850a73b09bb8bb1ffa79d557af23acbddbe"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5fa545f848ec9144a99596c909227193d63858b01cdb0feacf564a2a021846d"
+    sha256 cellar: :any_skip_relocation, ventura:        "696dea8ec56b37e2772fc69e5bedeb074afd1221911672b5ee374d06f3567304"
     sha256 cellar: :any_skip_relocation, monterey:       "11128619d0c6500c6aadc9b81f4953fc78ea965fe158d296072519089708a674"
     sha256 cellar: :any_skip_relocation, big_sur:        "04bb01d86dd906a4fc5b63ed165a4bc936ab436fd17b567f8f6ddcd051ab4ab5"
     sha256 cellar: :any_skip_relocation, catalina:       "fc706bf9bcb8a3fa881fe02b1987618745bfb50be7cfa4ace24b02ad40d7f8dc"
