@@ -17,14 +17,13 @@ class Vim < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c029ec113e17d0bf1a0ed885447ed70ae1a350f649e7f16ea8be0be7c98885da"
-    sha256 arm64_monterey: "8c3705243089db5c828c13581a2b4895943f72b00ce976434bc3159845800d3c"
-    sha256 arm64_big_sur:  "0e9180f2a90f316c33afa8e96eb60142d6a09392090818d2011bdd2df693a3d3"
-    sha256 ventura:        "05bdaad8f9c6fe2c5c21b4865b3ef3bf9da61fde441e25d32ff09b801a11a708"
-    sha256 monterey:       "11d247a6f232588228418a4f6cf0361b9f730a8430c01dd2873fec3bc220ed43"
-    sha256 big_sur:        "a6f322244c98e4fdecb8599823cb41e2500d5cc97f99a8aae5ffa64e110929dd"
-    sha256 catalina:       "195327c1d0591ac70b99bdd751f413438080ded78eba31a0c3bffd56ba5c80b7"
-    sha256 x86_64_linux:   "181c5b0fe49ef09b156aec73ebbb79772a4b0802835646d8abecebcb7c24a297"
+    sha256 arm64_ventura:  "c28b7132d1ccdbafbdf97a22d9ebeb95cc90f65953e089413b66876b9ec00c5e"
+    sha256 arm64_monterey: "570bcfb42040ad5708e10b9a5e23da72f195a1e6678cd0d35558590989e030a7"
+    sha256 arm64_big_sur:  "ccd541e6d3c62182abb979bef330b7162178d61d77485321090d203b2fc99d75"
+    sha256 monterey:       "15758631168c4de0c4fe6f2bf56bc37038a766f39b51deb45df7bfe9c74f9eb5"
+    sha256 big_sur:        "2c3180429a66ce434b119c07844fd9123aefbd97ca1f0d5097a97b012495a7ac"
+    sha256 catalina:       "2714d1fed3edbd10a4805f5d4410d32da5045e2c0ac13a3a89c51508084755a3"
+    sha256 x86_64_linux:   "2c466fafe6941c7c55ec365dd36bd8e10fadb0952e03d028568bac13cb9c5b1b"
   end
 
   depends_on "gettext"
