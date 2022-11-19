@@ -10,6 +10,7 @@ class GitAnnex < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "07db20b678d1e66883f38f541c8ce9eabbaa3626689f2d282cc2fe04fd195628"
     sha256 cellar: :any,                 arm64_big_sur:  "ba4e944a25a179018dfa443de4dcba71767879a14965af5c192f2b8fb5602215"
+    sha256 cellar: :any,                 ventura:        "dde4b04d050f6068a25a513e9262628e4e5cf7cbcf39edda1cf8b065db2568f8"
     sha256 cellar: :any,                 monterey:       "fcb3cb6805f3a96d7decaa4c6fa9de2a0145cbc49b0f9506eb8675603022dc68"
     sha256 cellar: :any,                 big_sur:        "0f382e32d82d7ed0f6e5ab1621d489823c27111702d027d8830da7e04817ad80"
     sha256 cellar: :any,                 catalina:       "3213e43e4c4aa67c643374d963fe40b6925f23f502e60eb1ea3902f23caa4b0c"
