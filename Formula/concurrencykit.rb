@@ -10,6 +10,7 @@ class Concurrencykit < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e5dd4b47a7200e0179e740bfa48f34fa0194263e038020b97303e9b2f7cc93d7"
     sha256 cellar: :any,                 arm64_monterey: "b2d070df1dd5cad29f20b6a5192c2683086af490bd768a3b698e0fddb657cc2a"
     sha256 cellar: :any,                 arm64_big_sur:  "fad8ab6678349a6ae3a81ba7a8264591868f8c180c867f06ad98cb422d9627bf"
+    sha256 cellar: :any,                 ventura:        "5543bda088a7d54b530aed705e22028a9c6a6bc75da68bad81c0afbf4b4d4b12"
     sha256 cellar: :any,                 monterey:       "f5ccb2c540ce46a669ec5960ecdeb4f92e8eaa7c8e0bd889d0bc2a11474f2ac3"
     sha256 cellar: :any,                 big_sur:        "2834fffaf1b10eb3ee40fa9f01bfbe72a5df37161cbf78f8dd016f73aaf16966"
     sha256 cellar: :any,                 catalina:       "12788eda54c82375102f2f33e28f533151b4d3f6fa9042ea7c7aa03fb25c3e3a"
