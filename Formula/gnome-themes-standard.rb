@@ -9,6 +9,7 @@ class GnomeThemesStandard < Formula
     sha256 cellar: :any,                 arm64_ventura:  "228742756729ddd853a82b325d965fe83258dd25cbb849e8b270ccea0e4565b2"
     sha256 cellar: :any,                 arm64_monterey: "2b19b436b1dd9784e0bd347e663168f9fc8481132db0cc208e2571d1fb37c079"
     sha256 cellar: :any,                 arm64_big_sur:  "e7f20854195f04389a9ebbd968b59541979fbea64379a45af6c3b09f850a5f6e"
+    sha256 cellar: :any,                 ventura:        "aeec4ff469b8b0aafd9f44ebe5a907be0ab209fa5b3ce8605caaadbf72d833ef"
     sha256 cellar: :any,                 monterey:       "32674d3d0baca702980869b5dc6caa48ca8eb084eecd4602c4929dc16a52a1eb"
     sha256 cellar: :any,                 big_sur:        "99b5b918d997d6fee0c44ceb91845b4b1d247709ba01fcd917802aa6824d0e97"
     sha256 cellar: :any,                 catalina:       "6fb1066c6af0428fee29272851b4d7fbf10bac3bec4ed48ce6cffb780a3175f1"
