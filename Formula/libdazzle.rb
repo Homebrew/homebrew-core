@@ -9,6 +9,7 @@ class Libdazzle < Formula
     sha256 arm64_ventura:  "2cc26886bfeaa4f330ce3115ec2283b3b4a3edb86f2b1214b93311532eab992f"
     sha256 arm64_monterey: "fd00728bb05e73562b642a2a36bb24562f97c867710642e08bcc522fbd06ea5e"
     sha256 arm64_big_sur:  "03413be24801e4b02bf0b72e4900463908267c62849277bcdcd006409ca73dc4"
+    sha256 ventura:        "5fafa8436fae20fdb7d1d9ab1c82c6d6804050c342e4d378a237948b8c2c4b80"
     sha256 monterey:       "df1d41d43c5d86024ba7d83b13272f324f42ecc555a4cd9670c13e95b027d1ba"
     sha256 big_sur:        "2ed5d0fad6b1e2b7f8ac25d274aa6e8a5e28924f6b20e08da8fdbc796f2481fd"
     sha256 catalina:       "aa728a5d7ac88a8c22cb9f022e292c0f121cbe2085f69128df9e4e2e5e862bf3"
