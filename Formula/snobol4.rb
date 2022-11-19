@@ -6,13 +6,14 @@ class Snobol4 < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 arm64_ventura:  "adab8c2434a07b6c7e748c523bb186a6371cb92b9d13d3ed8cb94b085dcebebd"
-    sha256 arm64_monterey: "fe4801587f606425a334e82ab263dc0ecdee0fbf62b1f7143833ad5adb252741"
-    sha256 arm64_big_sur:  "b27844933479e0ed826723773ec52432f91321a47bd50c5c317745daf5929d26"
-    sha256 monterey:       "8fe0d3f23e9016e42e81b0587b7a0e8bbf8702f05593c9bfad5d2c2477ac1fd9"
-    sha256 big_sur:        "f1f8bb7965f2986825c5cb6748eaf968c9bddf4d4abbb611143e149bb5e0fcc8"
-    sha256 catalina:       "b062904758f62326d952e01b9e5c1dadb973104d75a1064b18eaf1fa01b06799"
-    sha256 x86_64_linux:   "331ea256a30ddb70976b0896b4c62eac113fb905550f8420d03f9e065eea5db8"
+    rebuild 1
+    sha256 arm64_ventura:  "505e0a672763a6722cdac5f45129c79172a17b62cc2ca8e16166c00e39ae28e6"
+    sha256 arm64_monterey: "a53dcbc020bfb1f4717e77b9b329fedef3be50f57fa30bb2c55cde9a124eb9bd"
+    sha256 arm64_big_sur:  "4ed47b83e9a1e747c178a7b1ebb17d1c752c8f354d91f8e03f4c31e7a9b7f6ed"
+    sha256 monterey:       "9273da745ee760883553c560010c999831afcadbf1cf220188f260cb7a2269d3"
+    sha256 big_sur:        "ac601704cde8de8f0334349e32f82cd2a9ce6cd5467d995fe8ac1ea79747c42b"
+    sha256 catalina:       "1196997d82a94df4c3ec3438f02d3a32360f809a2d66af7205a6ee9959ede4b6"
+    sha256 x86_64_linux:   "bc243751bbaf442dea44e1e571ab0d8ca129e91615a45be6024b275e085191ad"
   end
 
   depends_on "openssl@3"
