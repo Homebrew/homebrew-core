@@ -19,6 +19,7 @@ class Ipfs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ee23039154156d6244b1ed6069d9b2e1fbecd21d3438ca9101c6278f6fa2319"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d625a389bbb7295d316e36294ba2125f0af13a22ba7e47f7206fa1d0a8e482a3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "61181f4f452545a8d3c6c2fe3ec1c57bfbdfdb666f7f5d1a9894435c98ad96c1"
+    sha256 cellar: :any_skip_relocation, ventura:        "e2be2e908df454d141e718f15e645391d174b122e709134b641738bc8719c925"
     sha256 cellar: :any_skip_relocation, monterey:       "66b47ac735c0c4ac7a73e04f59f8f32457b3f02fa9c213690b28cdf1f41d2b50"
     sha256 cellar: :any_skip_relocation, big_sur:        "8db0bff4b6b13239040fdf04c3d304a275844fb791f2ed9988964dd3d2ed19f1"
     sha256 cellar: :any_skip_relocation, catalina:       "2288feebe6c424425bd456994d516427aeaa350020ebc7b63d93dd1487c53589"
