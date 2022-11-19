@@ -7,13 +7,13 @@ class DotenvLinter < Formula
   head "https://github.com/dotenv-linter/dotenv-linter.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "afbd35a7ff850b054f1be261ec6485b598b878c0bac4836206e3a1fa22850748"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "231e0f5897fef4b23ec503f695038621bea3e677d9442b52ef7187115588538e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66d8fc29334238150e37aed962ff752b633a83dabba30ce2f42c9bd8f58d38c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c249746ec5c9ca880da944a8fc4859efbc9541dc32522e42a03511e1aeb3159"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b5160391e2d94fe12618b6ec9c7e7b0c3e4081e81a3cb982bfe07ea60abeea8b"
-    sha256 cellar: :any_skip_relocation, catalina:       "38a57e1b3340a57e6632b6c66f85c7c4dea41e38c3f7b3719d238fa90391e545"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4092d8e9ec258c17a40a6467895a6bdf783def3d16ab05206926068aa100ae61"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c5d2c86aeb6cd06703803fdecbaed47dad1742e0465cb59449663becdd900cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b70c99caadc973689053dbe2036fbc249806f47a472634a5c95365361062a53"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6320dbfc3c337c732b8307709d80a3378c63aa6300475b82dc818adfbd2bb746"
+    sha256 cellar: :any_skip_relocation, monterey:       "5fb258b2a1ec2a0362a96c4737494780d76385b8e8795c36875aa507238be054"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b218930db55ecf7a3c3a84d9027adb77b7acc009eb6d59700b2dab46464ee38d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35e20bddf0db0de8f8d62bcfd14cc8fd2a123fbec9f71cd526c6d0939ee552ac"
   end
 
   depends_on "rust" => :build
