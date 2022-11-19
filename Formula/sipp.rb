@@ -18,7 +18,7 @@ class Sipp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
