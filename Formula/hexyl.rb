@@ -8,12 +8,12 @@ class Hexyl < Formula
   head "https://github.com/sharkdp/hexyl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "509d6a89942af5f03847b001080e58a5a80d4985552fe2eb3c2567a45291cedc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3ec37a1d0fa504e153c3e28549fa2e9b250232a0797a03fee38aa44e06fa7ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "daf860cbe43139bfdc33ccc06d3e6134252d1498d97cbaedd0e3cc1128c99d88"
-    sha256 cellar: :any_skip_relocation, big_sur:        "32f0919b16859d9fa1259746eeba92f7be4a4a36455369c831b5edb5362ecc61"
-    sha256 cellar: :any_skip_relocation, catalina:       "0a3921f9a55082a65c6aca3820f3c187d99b6b1c5da18ed792fac074f14b949b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac81155dc0210d8fdd28842b32430aff4b3f53e166432020ea5375e4b77b3e00"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e5ebeb79afe83fbd3574ac1f7215d31060516b60ca2641be8b8c815cdb29db6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5dd1b3f049527c0a9129fdf15d9e19efba0b5581956339f40f635838777ed651"
+    sha256 cellar: :any_skip_relocation, monterey:       "b0257b995d1de194de33a15a3892f68b757a2f2f1a9b4516f5a661d90b838188"
+    sha256 cellar: :any_skip_relocation, big_sur:        "129c0fcb8d127d18d3d8577031deff0a55686f65b50bd117accea0052e2aed72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e828b26c57dab9ea6bf999766a0ba2e863482e2b311f5e2920ee6c82614202f"
   end
 
   depends_on "pandoc" => :build
