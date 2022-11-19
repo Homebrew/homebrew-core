@@ -20,11 +20,11 @@ class Libmowgli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7646bd88a24aa8d426ec1cbbf4b32504f0f0c062f257c71b445349667f6bf34"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make"
     system "make", "install"
   end
