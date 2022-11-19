@@ -9,6 +9,7 @@ class Actionlint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf287b16a1c8ce29f17645576b7a6c924330873589b297a612671cf380cc6498"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "edf9d4092f9c34170ac1c52a0ecc4025355febc28fa22068b2d305ab1accaf8e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edf9d4092f9c34170ac1c52a0ecc4025355febc28fa22068b2d305ab1accaf8e"
+    sha256 cellar: :any_skip_relocation, ventura:        "c70521304289424f4d1394e52245a0b195934bc08abda9eaffa56d30c3df82b8"
     sha256 cellar: :any_skip_relocation, monterey:       "38be916fb84a9dcabb58bb7f4fe587251d23cc2815b59013377f0db9d3effaaf"
     sha256 cellar: :any_skip_relocation, big_sur:        "38be916fb84a9dcabb58bb7f4fe587251d23cc2815b59013377f0db9d3effaaf"
     sha256 cellar: :any_skip_relocation, catalina:       "38be916fb84a9dcabb58bb7f4fe587251d23cc2815b59013377f0db9d3effaaf"
