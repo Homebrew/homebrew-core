@@ -6,13 +6,13 @@ class TtyShare < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc6f549950bdf386517808ea7ad7c5d9eb1b3faea76692893addb2db804c6914"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8da0dd00a1b06776e05e9092a215f77bf8d6b1cb071d75a0a548900c9f5f18ac"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71120808d4909fdfdea8596392bf7bb50936ac1c0b329b13c60bdd061902d9a3"
-    sha256 cellar: :any_skip_relocation, monterey:       "4510766c5cc29ed7b67080cee39e59710445d6fd5e904c706a3a681d9720386d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e104200b09c5acd6bba873cd07e41b322ca7fed316fb3c74cb5eabbfe773ba5d"
-    sha256 cellar: :any_skip_relocation, catalina:       "1ab51ccd10571a99fadd713b01def94aa1afc9e433d372b78612859b863995d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fb65f718d04bf4102ae9453766f769f4770612c367b99d55b6b610dfaf075fc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec5a76de8293add88e19ebbaabab162d5376f1195d2f59ae98e231b94963ac90"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae91bac5a098c2c243dc09bb525c77d2cd4267fc95ee78185b72e4fd4b2784c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e112fbe0c7f60d68932d342dab6149c3f2cc43c95d38394665b796e7d637b768"
+    sha256 cellar: :any_skip_relocation, monterey:       "98308b7a54e8584fa17e27d360578faace5135d2595acd9b63bd61ae2b691e00"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5afea58ba59412b148dedd82a56e99a662f377d4301fac5a54a002dea3dae175"
+    sha256 cellar: :any_skip_relocation, catalina:       "d00663b2cb3667fd92774bf185bb794271338dd7c2a94c8fecf92571072c63ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f842dadd8abe2579b51fe7bb2a459b2aec305b3fa58c31bfc20e1bb4fd721430"
   end
 
   # Bump to 1.18 on the next release, if possible.
