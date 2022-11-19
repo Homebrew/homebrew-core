@@ -29,7 +29,7 @@ class Libcapn < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Compatibility with OpenSSL 1.1
   # Original: https://github.com/adobkin/libcapn/pull/46.diff?full_index=1
@@ -47,7 +47,7 @@ class Libcapn < Formula
     (buildpath/"src/third_party/jansson").install resource("jansson") if build.stable?
 
     args = std_cmake_args
-    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}"
     unless OS.mac?
       args += %W[
         -DCAPN_INSTALL_PATH_SYSCONFIG=#{etc}
@@ -62,7 +62,7 @@ class Libcapn < Formula
 
   test do
     flags = %W[
-      -I#{Formula["openssl@1.1"].opt_include}
+      -I#{Formula["openssl@3"].opt_include}
       -L#{lib}/capn
       -lcapn
     ]
