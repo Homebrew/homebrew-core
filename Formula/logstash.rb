@@ -16,6 +16,7 @@ class Logstash < Formula
     sha256 cellar: :any,                 arm64_ventura:  "39f137bbfcdd3064fb008a95317a9feac3f7b55a83b05e4b49842ab1db43e0bb"
     sha256 cellar: :any,                 arm64_monterey: "189ead43b22fd5d311b3b22c249d44fd8ac0d6b83c73cff2ebaa22a19c7f410f"
     sha256 cellar: :any,                 arm64_big_sur:  "a7b3002d3780e04fd2b1216e3c8833867a7105cee646aa04435e25cc0ffc2367"
+    sha256 cellar: :any,                 ventura:        "c568c93bdac280c86729e9f218df2dfbb9054d4412c364af3c0134143300a823"
     sha256 cellar: :any,                 monterey:       "26a9f2d5dfcc42354c13ddee5f734ddbcb07632c7d7711f39c85b549c8f222ae"
     sha256 cellar: :any,                 big_sur:        "b4630ead28a8ef27252b66f18ca18f0a74113fcc66ac3e18cba0f0867a41ee26"
     sha256 cellar: :any,                 catalina:       "c638f83ca9f6a6aa8f0451c41889050dc1190cb1012b5038b23095f90ab4021e"
