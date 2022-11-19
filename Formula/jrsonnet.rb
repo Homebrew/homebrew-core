@@ -12,14 +12,13 @@ class Jrsonnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1921858d48ad5009c90e01c0d912c4a4b57720e3e4b5da58607339c3df3c4a0e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fcb5b5d99df55c43c70b475ea291ee1d614b76e705be867d688f17bb22ac9842"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "583e666fb6a076a89b1d447ad9220d30409cc62e931c1f4c9dd99cfee9291252"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e79d3068b3c2ca7442c13fc57d8ddd85b0cbb8844c78b8a3c971f5873e3a3a6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "419f0a50acd6a0cce0abbfe2131d18bdf964fe0d09a095c2c92e10b8b1fb04af"
-    sha256 cellar: :any_skip_relocation, catalina:       "08a4bac487db7433903275f05ba23d11a8a8865590a23a868aa105f49416b650"
-    sha256 cellar: :any_skip_relocation, mojave:         "d927e34108112f33bfa9bb6d004c3540d983ff789d6e5969a4fc9aa8cba92a99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed7a1bfdfe53b056dbd4cb5433fc26a47b82dde02a913a34870fc6c365a8885a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d0249acf621ed487cffb828cc63c2210749a30de553f0f0cb48c9b00a15c545"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "662dbf19789e9f681e4c325d2814b1e77ef88174e6b9083d6793192bd5ac1523"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66be41438ed1da22c922c59d3da10a1852b89491898881c2bcd25c114abd4852"
+    sha256 cellar: :any_skip_relocation, monterey:       "89080991d6ec832d7fa2d868a4323e08921291a01100797a7343790b3ab30088"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8e96db079868f110cd8b9fc4b29a1340bd5539ab1740928d8c2a8d8a7c34b25e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a04748fc43150da3210809034f82864313d7706869ec78265462a22cf2a4812"
   end
 
   depends_on "rust" => :build
