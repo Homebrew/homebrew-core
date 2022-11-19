@@ -18,6 +18,7 @@ class NewrelicInfraAgent < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "adc596149a404c706e2e6e829b11731c9c1457645c5cf95dcbae9e7a6cd53657"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "327d4d460c0fb763261dd04d79434bf3f92836ad274b03b215defa87d013fb17"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f307b1926a07b75663ed25f075804c81ab62e13f30749818c81959b92f1d6514"
+    sha256 cellar: :any_skip_relocation, ventura:        "494a593b9f7dba278d4bf8602deebd520be914582b402f774e2e4f0c2ef288fc"
     sha256 cellar: :any_skip_relocation, monterey:       "037c36cac1fe92f5a585631f2656da56a7a23e8ae981c56b19e4d1016a750c18"
     sha256 cellar: :any_skip_relocation, big_sur:        "75a5267a68857a39dfe477f154a4be104aa4f93483565802cdbd7ff54726376a"
     sha256 cellar: :any_skip_relocation, catalina:       "146d80f3fbd4daca90ca2e91acd73fcaaa774506c628abee773b330bdb11411c"
