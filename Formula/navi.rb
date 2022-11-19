@@ -6,13 +6,13 @@ class Navi < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04c591496851eed9f0fe4c78803721e057f4cd944862b51c04f93ffa22915187"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "71399ba7c59e04855badb1309fa81eb6c48757e31b04c59c3b5a42cf78973924"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c3bb2b249c57ae944ad9c515d70f072929c126bc5c9d1df5d43bd3106c8d5d8e"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a60a72700856dd95f8cb98c73c8737e0235941e195e736794fbc04141dd82ae"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a539e18267dfd460ff777152ed15b8b934b70a9773bf67b7a998a5479e815771"
-    sha256 cellar: :any_skip_relocation, catalina:       "82675a78df97c77d907f43cdd46485e5e6980972b43f774827a97fae37cbcd93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10cc4bee98130ddcbc749036d4eefd44a89bb5aeed33eba7bd14b576cea3485d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "763fd30ffdba5cf9ed61b50c2f1d7e04773442b30ebe6dd8fa70ef2c7e8d3883"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a809f73efd4e6cbdfddc844dfb284363e3031e2e20c8e442f50b6845abf8761"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22dc945109faa0692af5c79c1db7173cef89c67eaab1700ed6c7c5e125f16bf2"
+    sha256 cellar: :any_skip_relocation, monterey:       "7d8a47501f686c61c1ceffb057c8ed4c3366ee1e7944aa67edffa174c1730286"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9acea618a7b032bf5d123661b9ab7f6c7268a632adb627b52db66169b378db9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edf0da79bdc799528664dec37ea7e7eb5378304c34c775a1678c081a90b9ea02"
   end
 
   depends_on "rust" => :build
