@@ -3,10 +3,9 @@ class Cryfs < Formula
 
   desc "Encrypts your files so you can safely store them in Dropbox, iCloud, etc."
   homepage "https://www.cryfs.org"
-  url "https://github.com/cryfs/cryfs/releases/download/0.11.2/cryfs-0.11.2.tar.gz"
-  sha256 "a89ab8fea2d494b496867107ec0a3772fe606ebd71ef12152fcd233f463a2c00"
+  url "https://github.com/cryfs/cryfs/releases/download/0.11.3/cryfs-0.11.3.tar.gz"
+  sha256 "cffef7669b8cbec3e7420088faac492390b9e1f3d3d0dc2a245b87f8df05f190"
   license "LGPL-3.0"
-  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "79d878d0658d912d5291ee93fa4505c840bbb6e2a39d7fcf988902924d19f158"
@@ -29,16 +28,9 @@ class Cryfs < Formula
 
   fails_with gcc: "5"
 
-  resource("versioneer") do
-    url "https://files.pythonhosted.org/packages/25/ba/abbf66b15ad1c195c96d533a70ca7962ddd8e37d682b60b03e59afec4487/versioneer-0.22.tar.gz"
-    sha256 "9f0e9a2cb5ef521cbfd104d43a208dd9124dfb4accfa72d694e0d0430a0142bc"
-  end
-
-  # Fix build with fmt 9+
-  # https://github.com/cryfs/cryfs/pull/433
-  patch do
-    url "https://github.com/cryfs/cryfs/commit/01cf1d5fc98b6c9ac4d7dacb59c6fb787225ea48.patch?full_index=1"
-    sha256 "1ad5022b6054e9ee98721c30cd8c038bf5f2fb5750047a954df62aefbd1ee3fd"
+  resource "versioneer" do
+    url "https://files.pythonhosted.org/packages/15/86/bed1c929495d8ca30512c8fcc6e9c2555ecffcdd32f0c04f11e492eba9e0/versioneer-0.28.tar.gz"
+    sha256 "7175ca8e7bb4dd0e3c9779dd2745e5b4a6036304af3f5e50bd896f10196586d6"
   end
 
   def install
