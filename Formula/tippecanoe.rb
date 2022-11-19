@@ -6,13 +6,13 @@ class Tippecanoe < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3595f557af8b85692fd172f12722ebe02ad388d1cd744c39773c5edcbddec36e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad96dbc4f57185439384f946478bc4f4af9f4d33268b92bbe90dd5b04e391286"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d2ee94332f0142b2896696981da60db54c7a3c63681bbeb0325880149124794"
-    sha256 cellar: :any_skip_relocation, monterey:       "8d1f391ced1624198acff584ccb5bb856e879c336e23fa46c36313494f6d63ce"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1096517502910b571862510ca7052f787d732aba9e1574b1cfb6b1694c2f8c8d"
-    sha256 cellar: :any_skip_relocation, catalina:       "e3c03e0f30628ebf97bca5c55c2fc7184d63d878dd8dcedd24d02b94d375b222"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3955f7d2cabc2dd735d608b68408588877f668c3625ddde6e605b85efe1a4394"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "93eaa6ea109e94cd004747c547615cd2b56bca65506b521d92d446c3208e749a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6950faa4dd5c42f8af8be5ba7f234db977fc80c9ada54bae0ab7d0d05d721410"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04dc87ad0d02b6cbba8e20397443561a72dd16fabe297ba6e2dcb633c5e2d97d"
+    sha256 cellar: :any_skip_relocation, monterey:       "f91b28e5978b9bda8f55eaec39eced2051b93f185d84964b98b9198c3ac224be"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3b139b7456e3d0b128009b43c3fa989c08899cc9290ae4403acf123cda75ebbc"
+    sha256 cellar: :any_skip_relocation, catalina:       "9e0be2b2a45d1bc817ea6014a0a63ee99308c1f56457a9c4d73c5a620bfb6270"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8c9279260a6477180e417ccd0714606cfb6c048afede80bab3060aad210e43d"
   end
 
   uses_from_macos "sqlite"
