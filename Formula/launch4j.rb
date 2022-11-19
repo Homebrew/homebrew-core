@@ -15,9 +15,9 @@ class Launch4j < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey: "10fe31dd5081fecb626537d801e678e8921c5f8d655f7daee5e6c8dd2e2ef619"
-    sha256 cellar: :any_skip_relocation, big_sur:  "4c6bfb289d9aeca25dbc25ff2f9fe12a49a635bf720fe54b788d4796c25bc108"
-    sha256 cellar: :any_skip_relocation, catalina: "beffc91a157d5958d257adb6844cdde8fa2d375083e58aa89c5db2dbb9fd37c0"
+    sha256 cellar: :any_skip_relocation, monterey: "65e2841bc477c9fb1368d5fb38fa875a1f4233d75885a4a6e61eadf1e2eea2ae"
+    sha256 cellar: :any_skip_relocation, big_sur:  "23513b54485b601791605269df164cdf4c77c84d122c61fff6db3bb5b65c8e59"
+    sha256 cellar: :any_skip_relocation, catalina: "8c114ad97d89fad8a9a1a9c6e54d1ce0604f28b71929438db26e97bda57eb58e"
   end
 
   depends_on "ant" => :build
