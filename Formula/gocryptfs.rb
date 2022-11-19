@@ -12,32 +12,14 @@ class Gocryptfs < Formula
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
+  depends_on "libfuse"
+  depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@3"
-
-  on_macos do
-    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
-  end
-
-  on_linux do
-    depends_on "libfuse"
-  end
 
   def install
     system "./build.bash"
     bin.install "gocryptfs", "gocryptfs-xray/gocryptfs-xray"
     man1.install "Documentation/gocryptfs.1", "Documentation/gocryptfs-xray.1"
-  end
-
-  def caveats
-    on_macos do
-      <<~EOS
-        The reasons for disabling this formula can be found here:
-          https://github.com/Homebrew/homebrew-core/pull/64491
-
-        An external tap may provide a replacement formula. See:
-          https://docs.brew.sh/Interesting-Taps-and-Forks
-      EOS
-    end
   end
 
   test do
