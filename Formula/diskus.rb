@@ -6,13 +6,13 @@ class Diskus < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d4d7536d2e0c0d056f2b1177ab73970aa9e306c658befa44968f450b436547f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "81ccae56cd463196bfd65dcc54a3ffc2825fa873f38fd50e01580237ae010ce5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "faa0f912797d8e7ec10d63d74b348f453881264320753378615a06c2f57ad70c"
-    sha256 cellar: :any_skip_relocation, monterey:       "f3e2388d8958e58c125fa77a085abb2e719d5ea6d75b8eafdd7db24478ca941e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "65524a3e2a3b3afa32a3cf5c58823ea56111baeb5898f1bf8fb7aa93aefb3644"
-    sha256 cellar: :any_skip_relocation, catalina:       "b0e11173e97d885d4b4870fba646b2a6ac8451de0664d864a87e4e5fab8643a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a62be25d2877d3f68c5becbdbdb8e2fbbc74a9f37b06f6f95bf2334b8abe368"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d90f186d664613cb2648b8d162bb8939ae4d0402686e4cb3b4af8c849c0ae0d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "74e62c4583cf8b98f123611e300f717a5105dcb6ba355ae6584acda35ecb2c89"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b78500b9b1efc3ab29584d668d900682240ed2a7d709c99701ed688d26d9c13a"
+    sha256 cellar: :any_skip_relocation, monterey:       "fe8f17e650e60a533e372f4f36ac4937283f2bdedc8451232b73cf9bc86fa710"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b1a7d68183cbef10abb0fed70d25051eee61751ee740b7e8c33beab0b7338a0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b627c9ead2e29d59b924b402b92b0f8c2ca43b6c646bb6ad740e680084d160d1"
   end
 
   depends_on "rust" => :build
