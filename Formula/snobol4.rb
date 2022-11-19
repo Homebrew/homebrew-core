@@ -15,7 +15,7 @@ class Snobol4 < Formula
     sha256 x86_64_linux:   "331ea256a30ddb70976b0896b4c62eac113fb905550f8420d03f9e065eea5db8"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "m4" => :build
   uses_from_macos "libffi"
