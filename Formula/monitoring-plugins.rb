@@ -20,7 +20,7 @@ class MonitoringPlugins < Formula
     sha256               x86_64_linux:   "d042858d2176f3c6256be7454134ef2000808e3be02dbd83e9818b6a442bfe4c"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "bind"
@@ -33,7 +33,7 @@ class MonitoringPlugins < Formula
       --disable-dependency-tracking
       --prefix=#{libexec}
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
     system "./configure", *args
