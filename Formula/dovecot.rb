@@ -22,7 +22,7 @@ class Dovecot < Formula
     sha256 x86_64_linux:   "bf86b0aa724b94bdd4110411e2695469689e1464c8da2d9df30d29ff88d6712e"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bzip2"
   uses_from_macos "libxcrypt"
