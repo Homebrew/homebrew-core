@@ -13,6 +13,7 @@ class Ktmpl < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "248f481ecd9cd1354cc55fe07877c6212fe2ffc3e031ea05c67ac42b621cfe5c"
     sha256 cellar: :any_skip_relocation, monterey:       "058e0b3999bd65c216e64d22e57f2fd82d4a602cf4f39ef6d84c3de5d47deb78"
     sha256 cellar: :any_skip_relocation, big_sur:        "8339361fc53cd0ede0a635cb1dfb808068b4615b477de71a3df35607edec9149"
+    sha256 cellar: :any_skip_relocation, catalina:       "77dbcd12d216cfa5bfc3ac870046630a86e13ce9936a92c3f7a99d1a91dd3a9d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee2d87ec29cf08bcbc3c0c32d4a818f45cda4ce17ae6006e1185b1fa3cd25db1"
   end
 
