@@ -6,13 +6,13 @@ class Kondo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1adcc4d6fc768929d168a6c708d84ee52da0c2b51bc5475de70115c208ebf9b1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d3f4ffcd0ca6b35d9002a4a150376920f1ec3bd18c6e21ecddee77a7d63c2f2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83725018560e700eddc7e976c35403901cf89298679459c451c1905c55c38173"
-    sha256 cellar: :any_skip_relocation, monterey:       "52407e9d2c5170245ecdd01de9b6ed5024fb22659ef0c680a509232937f62f73"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1ddadc0aee89c286f2d2eb436746912762fee3a0f24e4d83c6adc5f7549e2c76"
-    sha256 cellar: :any_skip_relocation, catalina:       "22ba00f9ceac0581035ab211ccbf1d235a615a46793f0a855e35d7b868c4e6a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cae0a0fb7b49ba6d1927fe1b3f524ac509bdc7b70af72b6cf6249c6dd02a652"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb5b73c4302c104b177064b47eeacd6f8b6e480bdc728d50bb2e249c1fb5704f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "083e5733e8bf0483348cd113f467de63e5b726bb503abc5311dd9b1a8ead9ed1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d031899ed01d3ab445a349fc575ea7b79e5ebdf2c3826968c849d1a4973c979"
+    sha256 cellar: :any_skip_relocation, monterey:       "2d223967e5935a86b2ed54e6bf0f440833ab4eaf5226a4fb54cd92068a9a9526"
+    sha256 cellar: :any_skip_relocation, big_sur:        "60c02e25eb4f689ea69a97a56a17f76b004b777337fa19a40a58c5d5009cfd74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75a47669cba55361a9c4525833da264c073bd847e0cf61fb5bff409a5a2c9327"
   end
 
   depends_on "rust" => :build
