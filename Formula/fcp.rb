@@ -11,14 +11,13 @@ class Fcp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "30f43b03367f799e74f8777e9a7a09214f7d618bb157844629b681a49f97ca96"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd3f468c4a6ace4bf7b1eaa64711ef3fa72cfb87fc95e9df2cc3d41697c552d1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2694de15f2cc9a32797a01cfde7f79a235a195fc65409582577a0c98977b1494"
-    sha256 cellar: :any_skip_relocation, monterey:       "d3986aed8f7455ff3c0dbce337bc2ab5a984ab5bd31de75349a9589cc7d29d70"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5e60b6a0d189ab71e4411a719ebdb2a7d8e15db7bc54c5a74ff47b2676a09cca"
-    sha256 cellar: :any_skip_relocation, catalina:       "890ab9d94808f3b3534a9f2610f9502ac35a57ff827f9b12363ec9a5de52d50f"
-    sha256 cellar: :any_skip_relocation, mojave:         "e54a5a79e09a561e2693dcef311856bfac90ae9221ebd30452d2812637fcea63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28c1e011bfdcb00954015a72ab6b8b24f2eeffb48ad95199fd169730e1235b28"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2581bfc5df020bbe4b83660fcf8c41d98f1bbadc4b2eeaa9d38e5d732706e1f3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86e9ee14f358f313fd20742cbc3c499853973ae51801cbc2a05cb467e8564bdf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb23fde600b15782fbf8d35106510d6f7dd8fcf869fde6571b066b81bea90aca"
+    sha256 cellar: :any_skip_relocation, monterey:       "c042caa2bd2172e276c0655553ce7009598ae0b34dfbe6c38641382b57a02eea"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f6623580eb5027ceb5acbe4a77d90009b4e5f2a702dfe8088b85afd56562f3f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73706dfe2bc62121136bb6ee95c3bb98f6ab584193078386abc23afc1e6f5ca6"
   end
 
   depends_on "rust" => :build
