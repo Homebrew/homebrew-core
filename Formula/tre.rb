@@ -14,6 +14,7 @@ class Tre < Formula
     sha256 cellar: :any, arm64_ventura:  "947292c07cddb27803a651f80bdebd4af83062cfaa7a267d5bdf04c27930333c"
     sha256 cellar: :any, arm64_monterey: "eed6c3c934fdeb27988331fe31137cd3849a46c877ff05e614f544e140ff9ab8"
     sha256 cellar: :any, arm64_big_sur:  "70e4b1149b1e72f6f86634dca2814241bddc8b5239cc243dd27ff7cfe669680e"
+    sha256 cellar: :any, ventura:        "190267705d135967a226e3f5049bae0be2b74529debd821ca970653d57515b70"
     sha256 cellar: :any, monterey:       "f2f8c94e26b27a1e3e1dcc8d99fa375ade859cc85ee1b53a7a02c8f79137f721"
     sha256 cellar: :any, big_sur:        "112a8c8590e654fbbbd5339cf5b3fa83a5c163c3320fcb386ddc0affad7148b2"
     sha256 cellar: :any, catalina:       "26b187538786109c8a08f52cb868ea9cf70dfbc9681c014a4778ead61c90f389"
