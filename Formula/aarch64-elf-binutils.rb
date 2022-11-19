@@ -14,6 +14,7 @@ class Aarch64ElfBinutils < Formula
     sha256 arm64_ventura:  "75fca4fd07afe73b111cecc6beaa1920110df1e602d5f2152541330b3b9d08e2"
     sha256 arm64_monterey: "816819b80149e70c4b001ff0d68b02b2809c208bbf3f005729f0ce6522dfc6c7"
     sha256 arm64_big_sur:  "b3f844bdbf112b87d74c2d368071d6838747252019692b6b200bf5ae4b2003d3"
+    sha256 ventura:        "1aea4eca9a82df1fbe5b05bd59663a1434aec026d9c55f77d572e48c3b0e31a8"
     sha256 monterey:       "039fa6a5d98e1e6c6bab7580d25afc6791cad9fbfe3b53ce388435e1c2fd2aa1"
     sha256 big_sur:        "5cbf1bf9d0a450e79405b239b8541cedd40619259828d2dd5cc42d53f619bce4"
     sha256 catalina:       "711d3b85605b84d64aa88cb22a0de52668e0a232345293fc3dc040fe431b9fb3"
