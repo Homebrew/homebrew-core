@@ -20,10 +20,18 @@ class GitCrypt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "954789caa6a1822c2f2fc02248c6607c0557184c803d6b0e545907457858f3bc"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "docbook" => :build
+  depends_on "docbook-xsl" => :build
+  depends_on "openssl@3"
+
   uses_from_macos "libxslt" => :build
 
   def install
+    # fix docbook load issue
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
+    ENV.append_to_cflags "-DOPENSSL_API_COMPAT=0x30000000L"
+
     system "make", "ENABLE_MAN=yes", "PREFIX=#{prefix}", "install"
   end
 
