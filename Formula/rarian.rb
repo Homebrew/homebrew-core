@@ -14,6 +14,7 @@ class Rarian < Formula
     sha256 arm64_ventura:  "eef2c738cf2200b17e3daab309cf09bb4fdb7ef94f720c6ec96cec75905aa490"
     sha256 arm64_monterey: "4952c81da347aeda97635c8b3601c58492055457e6fc4e6b6558f8d3d2a84746"
     sha256 arm64_big_sur:  "d69d0f1b4d7ddae2d5d751a506a3515b1969c4caa56ea55a4a8220971eb72641"
+    sha256 ventura:        "f3df37904c083d797acdbb67bf45068d0acd9b80ffee2460a67ba08266cfc2f7"
     sha256 monterey:       "16028f3277db47111df30fcaea37aad818e72608f75e5c63e3eddf8adc779d5c"
     sha256 big_sur:        "12560010f5d31af2a399dd3cc9427ffc37474a9d6d04d1f8eac715956983cc56"
     sha256 catalina:       "6cd01a0bbc9d5168548c6735ddf1057ae3ef403d3868be499ff1ce3ba1cd6ab8"
