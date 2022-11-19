@@ -9,6 +9,7 @@ class Liboauth < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9bc314906be04bdada39fec114bf9113b3395fbd94e5166bda71caf76bd0a517"
     sha256 cellar: :any,                 arm64_monterey: "bce45a2c6fb3760f067ff72b5c8f398226fd93a876c343f910266efa3737563c"
     sha256 cellar: :any,                 arm64_big_sur:  "e843a7ac1cf285dfadcb2ebe515dc842d73a3035aa7ceede90b940d4036459ac"
+    sha256 cellar: :any,                 ventura:        "d32b6da32869974e240877ec616cd87dc9452a74b29f4c47d64bdac2a8f70121"
     sha256 cellar: :any,                 monterey:       "73a09905fd2de111c13a9d0898b5cb89c95c6fe6a40b59c65012426b613b81ca"
     sha256 cellar: :any,                 big_sur:        "2a735e19305674c11fbf4aeae054f84fa9c50d4aed69aa757a818c8f27da0e7e"
     sha256 cellar: :any,                 catalina:       "1ce26c143029edc957263b3f7c64449c385a5b016e7adbfb1bf40018df08a319"
