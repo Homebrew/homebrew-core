@@ -8,16 +8,14 @@ class Libmowgli < Formula
   head "https://github.com/atheme/libmowgli-2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "547d81e361a5fb7474e918349d4d0662c4a1a805df3d0e8ef589ce2668dcb8c7"
-    sha256 cellar: :any,                 arm64_monterey: "1485e9c5e8e5869333781f7125f4c583ea94a2697190a0873af3ec51d3131731"
-    sha256 cellar: :any,                 arm64_big_sur:  "fe4733bd50b52c347b5f4f4af0e0126454227646a0851a15b01bd4dc90637f50"
-    sha256 cellar: :any,                 monterey:       "08a877b66f5ae61da1d1f02a2d8eb570a56fe62e4bcda1482d5a4f951f76318a"
-    sha256 cellar: :any,                 big_sur:        "71b4314960c13147708edb90db5ea48f339dcdecd2e5bb0273f831066913ad84"
-    sha256 cellar: :any,                 catalina:       "02bbaff929fa3e3967ec4184ce36fcf71ece1dca9aeedad67ca3c9533495fa52"
-    sha256 cellar: :any,                 mojave:         "68656add47085df19786c9d419d7dd2e880514f3a5fa63838362ef92807c3420"
-    sha256 cellar: :any,                 high_sierra:    "061c1fc5a942024894205ee47a5ffc41fae5dde42ca6b744f66dad5d4a2e60fe"
-    sha256 cellar: :any,                 sierra:         "a83b21ccd87a25d26122ab813afbd24ef6bc07e6c92b16db11813d4fab71a055"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7646bd88a24aa8d426ec1cbbf4b32504f0f0c062f257c71b445349667f6bf34"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "19a8d7aa0f5c72bf5c7e459c1d6924fc7f5ab479f878c8129de5a3693dae3b8d"
+    sha256 cellar: :any,                 arm64_monterey: "476e3d8c4864929ada3e6a5af324c768cb18719e9b2200e7ceeb7fe8711d9a2f"
+    sha256 cellar: :any,                 arm64_big_sur:  "706a51d84a1e84e3046231012cce4be4eb78288901bd8f07d274161c187a831c"
+    sha256 cellar: :any,                 monterey:       "62bff6552997f1240e9568627847e46c1f55371f2b383d005a8a62975ed2a029"
+    sha256 cellar: :any,                 big_sur:        "f64462da9e3debd990315e0c16ecfcffae50fcdddf44538f125ae9dbd4c98fdc"
+    sha256 cellar: :any,                 catalina:       "5ade175e55ef972a810e63c5508941679fb65a8c8583d7844676ce68e6c57dd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6251f4bbfcc34a629e644b110d247a21e5ca26464ec056924f718a9ca46a5b71"
   end
 
   depends_on "openssl@3"
