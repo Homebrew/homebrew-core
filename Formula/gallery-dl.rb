@@ -12,6 +12,7 @@ class GalleryDl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f37ccfeaf7a95b5ac0b4f6258e33959cd8c92ee6a211a6da5bbea7d6eff0771"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cfe1a3a95258a39cbaa697a8ca5d122786cdf433a1fc7387cc8d61c47aec9b22"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "69d0a9f083991e8fef1990d6ced61659448d9eaa658ff7d1ae543d18cb30ff16"
+    sha256 cellar: :any_skip_relocation, ventura:        "002f7e667ee2f06252ebaa97cbbac81683c04106186a44dca59d31245c7cb69e"
     sha256 cellar: :any_skip_relocation, monterey:       "e907a65f7e3e1b86a50bac4374094f710d2bb5332fdafbb66ac34d8735552f6d"
     sha256 cellar: :any_skip_relocation, big_sur:        "06edecc85e61936d5b176bc3a842aabb9c0fe378242bcdabc2e04df68b8caed7"
     sha256 cellar: :any_skip_relocation, catalina:       "88647aceacab7da691bdcde39e97fe790879c6ca1d69a3399cfa6ab160b53052"
