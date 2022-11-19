@@ -6,13 +6,13 @@ class GitWorkspace < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1014a9f3c7a194e754fc8e67d7b1a106c7f7975bbbfdbdb9ee0f1ea2cfad9619"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "45c05688ed39c64f93bc3b8e72483047da54de75c368c057cd670e48b9ddc0b4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5dfca2198b7160d94283337fe6e27fd6fe10d657a81b1f4c8535e64d45c07720"
-    sha256 cellar: :any_skip_relocation, monterey:       "c221ee1fa14e2b2f66e600b191d8ac0e7e355002fa31fda61135447d91f3bf13"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4926641c71a67efebc0a5a754f0278ccc98c06a57ae3d80ac3d3333c1209a7ee"
-    sha256 cellar: :any_skip_relocation, catalina:       "f970f18bfeb3880158276a0c2a28e5e6a2a0fd68ace3dd2e3cc9efebe8c2dfa6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10fd6cc73258a0325c6849e053caaa635793d770cdfeec4a381ecde800ed8e25"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "398a5eae79c1e5b8df0549f56535f0646bbb9a5c9007550317637d56d251c6ee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4606dbfc40b5901b6b45acd63d0adc0b7e8fe0c2002dde76a36d0169e451ad32"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c59cff01755ec0fc99f5cc671d2ca233cc32f5b000457bb0f11a289105db48e"
+    sha256 cellar: :any_skip_relocation, monterey:       "8326879f942c76f7f61e4345c22166ede204f75c02a36b7b9b7e4b9a7b037f57"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9d2967360552c7e9a4c940fabc91aa826c3fe7b0407aca2760df124820dd030c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "466a81967fd90d354c53ea7e3299fd0714bc5ea896ebef6f35e8ec0d84fe2154"
   end
 
   depends_on "rust" => :build
