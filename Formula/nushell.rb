@@ -17,6 +17,7 @@ class Nushell < Formula
     sha256 cellar: :any,                 arm64_ventura:  "51d415402fa98230d461bce3bca57d9076a98d13debaca60d6012bc13c67c177"
     sha256 cellar: :any,                 arm64_monterey: "9ab3431541a906e70dbc6ff6199bfc55b60f167020586be542c6c546ecfe6bef"
     sha256 cellar: :any,                 arm64_big_sur:  "dd19c564a15041fbdc9f2c033060beb0657c042c65eaca230738c03be44a5013"
+    sha256 cellar: :any,                 ventura:        "2d46517a0d804d8a5518d8e326553d090af4d246e799d2d265cbe19bef03fd2d"
     sha256 cellar: :any,                 monterey:       "d8c402110fe653332bae86db9baf0c0404e36bdd0b75ac7f08f5520b9d6ff770"
     sha256 cellar: :any,                 big_sur:        "bd772eb91d3d4e8f10be772ac58b06913640535147e122e2b28efe31e621dba3"
     sha256 cellar: :any,                 catalina:       "b9fe355f40ef6c81a55e08e12fb7b2d5403537e370d428a1ec8c3f7c64138f8d"
