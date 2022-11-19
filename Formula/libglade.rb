@@ -10,6 +10,7 @@ class Libglade < Formula
     sha256 arm64_ventura:  "061517923f3bae53a4fd54db5b1b87bc68f5256e18214853de94538062cebd62"
     sha256 arm64_monterey: "72596bd26b4e2fe8f08f3355afedccd2c8f9c9d6631794317c635e43d784fe2e"
     sha256 arm64_big_sur:  "d4590501ed823f6ba28905f2a7ab3e5d64b6497393b11829fb753c7ed56cc1d3"
+    sha256 ventura:        "ee02dbd7a6efe13dd9390971578b17ffa67a8f61144e1ce28c1258639ab94f3e"
     sha256 monterey:       "339fbb07749127c633652418e75148dbaed80c073f24aaee0982cd9ff2cc5ff0"
     sha256 big_sur:        "7408ed79b9c5c118628b566cda02c6fec57cb8cbdbad4db83759f41324d5171f"
     sha256 catalina:       "f87fe8b63946d78fd43586ef25fbd108d9f81fda2089a66f40cbdc0216601f8e"
