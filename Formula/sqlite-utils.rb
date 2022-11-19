@@ -11,6 +11,7 @@ class SqliteUtils < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5495bc587ebc8b58a3793bdd669d4a4455ec1b4b982b00ceae11c3bbeaeac4de"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b15dd4b77ad67b00182ab624937d605dbb69384cf56cbb33dd7a6678025d1e32"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8cd2aef4430857b9098fd71655481e63de0e210936c543385bc51e3171ae565d"
+    sha256 cellar: :any_skip_relocation, ventura:        "50f12af12483241309138eac5d3f9aaa41ffa8fbf945a3edd71706b621778f27"
     sha256 cellar: :any_skip_relocation, monterey:       "ea5cb1cccd49f94a6ea02760f94b7165da0f7c2270935425dfe4795ba66cca95"
     sha256 cellar: :any_skip_relocation, big_sur:        "46814e30f25e588a9d88be1e414dc8df08850a08678f067b311048c052ebe51c"
     sha256 cellar: :any_skip_relocation, catalina:       "41b7f5849c66845a8216434fd4b6b0dd4a112e111138db7597ecc8db530c68d1"
