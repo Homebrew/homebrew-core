@@ -15,6 +15,7 @@ class Urdfdom < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5e1e6d62b29b45f4ca8d470a8d7850d1d052243aa60623f065f57c8119a5c612"
     sha256 cellar: :any,                 arm64_monterey: "0119d332e408fcfc79bba65b7f2ead332e309c101d48eeb9587ea9eb3bcb3053"
     sha256 cellar: :any,                 arm64_big_sur:  "c36ca6d6feeb0bdc9b5a53ab272a78cd5a3e5902fd13bcc7b5ea1edc743a35d7"
+    sha256 cellar: :any,                 ventura:        "83da425b28bde6b5137cfe200532504996e406df14ee898d8b7adb5c611286bb"
     sha256 cellar: :any,                 monterey:       "71070ede6f57db3c5140144fc0d18ed71d7c159f14b5c7834d4cec7f33fbe8e1"
     sha256 cellar: :any,                 big_sur:        "da4484607e08e23f56cd1f38df0af861c8fa15de55e128f1c5baf264f58899f6"
     sha256 cellar: :any,                 catalina:       "9fca3bc7b89402d176cc2ccd392c49acf25274c170c1fd8a26c3b579b134ad30"
