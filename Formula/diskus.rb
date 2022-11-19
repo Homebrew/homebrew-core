@@ -12,6 +12,7 @@ class Diskus < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b78500b9b1efc3ab29584d668d900682240ed2a7d709c99701ed688d26d9c13a"
     sha256 cellar: :any_skip_relocation, monterey:       "fe8f17e650e60a533e372f4f36ac4937283f2bdedc8451232b73cf9bc86fa710"
     sha256 cellar: :any_skip_relocation, big_sur:        "b1a7d68183cbef10abb0fed70d25051eee61751ee740b7e8c33beab0b7338a0e"
+    sha256 cellar: :any_skip_relocation, catalina:       "e7c2db589c2dbe6340a297ae96dd4a92e4cd1654d4ab0f8a8bd77fd8fd87e583"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b627c9ead2e29d59b924b402b92b0f8c2ca43b6c646bb6ad740e680084d160d1"
   end
 
