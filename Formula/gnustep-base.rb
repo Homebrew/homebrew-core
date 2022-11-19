@@ -9,6 +9,7 @@ class GnustepBase < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "cf7a07aa822697b5f15a493422b07cf086408ce45849b75d64b8ffc216cef105"
     sha256 cellar: :any,                 arm64_big_sur:  "d5733e00bb51841c86c82dff375c4ce0466dabb0c59975a6816a6b633321685f"
+    sha256 cellar: :any,                 ventura:        "1dac9623aa322cdc307f5ee2a0a577106e06ed6192cb8ee3470a22302d3b7602"
     sha256 cellar: :any,                 monterey:       "5d678fc6a28241da2da40c5e57b1ea3826d503863a76a02accee96d1e67e7c94"
     sha256 cellar: :any,                 big_sur:        "d68aa3d0c33fcdd56cb24aac6725b886a2921390a4cafcf66ef2946120d691be"
     sha256 cellar: :any,                 catalina:       "b27fd65268dbd46b34cebb39a173a1c1c0f7e9ff5088f02e57e2e50faae7cb0d"
