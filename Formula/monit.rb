@@ -21,7 +21,7 @@ class Monit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa1e9ac3c7c0c129debf80185f30ec4b8dcea96a392649edd46f7bea7188b6f4"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
 
@@ -33,7 +33,7 @@ class Monit < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}/monit",
                           "--sysconfdir=#{etc}/monit",
-                          "--with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-ssl-dir=#{Formula["openssl@3"].opt_prefix}"
     system "make"
     system "make", "install"
     etc.install "monitrc"
