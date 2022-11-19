@@ -24,7 +24,7 @@ class Liboqs < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "ninja" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   fails_with gcc: "5"
 
