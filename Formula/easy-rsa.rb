@@ -10,6 +10,7 @@ class EasyRsa < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a041662e1abcfba6bddc70ac6f4416d4a84e75f10c5fa7b104fbeab8e842b81"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6a041662e1abcfba6bddc70ac6f4416d4a84e75f10c5fa7b104fbeab8e842b81"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a041662e1abcfba6bddc70ac6f4416d4a84e75f10c5fa7b104fbeab8e842b81"
+    sha256 cellar: :any_skip_relocation, ventura:        "d18291c09bc93374aefda8f1a8311cbca7fcdd325f2803b0fff6863624c95df6"
     sha256 cellar: :any_skip_relocation, monterey:       "d18291c09bc93374aefda8f1a8311cbca7fcdd325f2803b0fff6863624c95df6"
     sha256 cellar: :any_skip_relocation, big_sur:        "d18291c09bc93374aefda8f1a8311cbca7fcdd325f2803b0fff6863624c95df6"
     sha256 cellar: :any_skip_relocation, catalina:       "d18291c09bc93374aefda8f1a8311cbca7fcdd325f2803b0fff6863624c95df6"
