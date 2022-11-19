@@ -24,14 +24,14 @@ class Dmg2img < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "352d7b94084707e2138aa53245f2e3325c36c2faf21c7361fc81b0dbb9d8cabf"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  # Patch for OpenSSL 1.1 compatibility
+  # Patch for OpenSSL 3 compatibility
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/dmg2img/openssl-1.1.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b21aeee/dmg2img/openssl-3.diff"
     sha256 "bd57e74ecb562197abfeca8f17d0622125a911dd4580472ff53e0f0793f9da1c"
   end
 
