@@ -12,6 +12,7 @@ class Pyinstaller < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f25e5cb2efbe1506c2973c851bfa93de48b8be1074419645bdecb907e1f9bca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da5e2a251590824f466a9bc21ea3b4b07aadf2fcf393e0e22b3b5b0334bfe602"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4f58a1a77383d4cf07d137854eeca8aaf5e699fe637d80b97455393dd65ac42"
+    sha256 cellar: :any_skip_relocation, ventura:        "7952764b8061d4a5678fc6ecab4b8fbf3068626632cdc01683e7db8305c0ba65"
     sha256 cellar: :any_skip_relocation, monterey:       "a8870c99cde051fcb118e1e334bdc637723c6b21b8b41d235bacd817d278fd74"
     sha256 cellar: :any_skip_relocation, big_sur:        "c8585c90f9d370e892a20ed815e1220146459d7ca3a75499cb971fbea4f9424a"
     sha256 cellar: :any_skip_relocation, catalina:       "b18dceb891755a4afea75d15a42b01b8ce02758090aba9ec0fb5e4cc995608da"
