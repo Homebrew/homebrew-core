@@ -10,6 +10,7 @@ class Stow < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "41efa9a76b9e62d701778c81edac50a80dc79199b06b1d4857651f9169b87c39"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39057770aa013dbeb401c9fe470b7fddc414d0b700972f56a7308265df3458e6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f6dc9f73ac8ef55caa0f8204c893bf41dcdffbae22b39d95a85eee5c99507b55"
+    sha256 cellar: :any_skip_relocation, ventura:        "af621cf869f9ac18dbb5a74071b14db697ef300ab880da3e52b0c100657a1741"
     sha256 cellar: :any_skip_relocation, monterey:       "47c9ce7f30bb77f9458efd411f6f3c616196de21461a65c3c57068705f3b9555"
     sha256 cellar: :any_skip_relocation, big_sur:        "e2a4d5cae000bcb2a5464f618b0c1fb174f4c90f66793411ff3c3bdda0438083"
     sha256 cellar: :any_skip_relocation, catalina:       "c99a90dc5e3db8ebcb017df044723fb4e6cce7fb94aa24cf46c8d2c0665bf9a0"
