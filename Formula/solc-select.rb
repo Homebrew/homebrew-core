@@ -11,6 +11,7 @@ class SolcSelect < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5f060023b1506f1a282d4f0b91e1a691757680a7f2c858a965bb803ad324ee72"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35e57e18ac37ca3b35f8dc1cc6b87f2c774521dabc2e9eac85362d1184e88dd3"
+    sha256 cellar: :any_skip_relocation, ventura:        "078f906ee71cf52cfe50aba5a0404f8d8063259e0072bea1223b63b4d3f92b61"
     sha256 cellar: :any_skip_relocation, monterey:       "fec9c711e24f2aa6fd3ec6cb0c61548da8e1ad2497911a522ce2112548926eca"
     sha256 cellar: :any_skip_relocation, big_sur:        "79cf18b7ac85a4f2685e532ddda52eefa5e28fdb916a87ce1269fcd11ac1c0b6"
     sha256 cellar: :any_skip_relocation, catalina:       "c686f9825271685051660c84c6d48cf25b9b1109f8fe5de1e4d864d9acb2a7ce"
