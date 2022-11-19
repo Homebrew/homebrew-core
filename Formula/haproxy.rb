@@ -14,6 +14,7 @@ class Haproxy < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3b615ce41a10d34305e759a5682f5c929a451f9d8dab227dfde3d69e406a5cdf"
     sha256 cellar: :any,                 arm64_monterey: "07a8d81248230da3ed821cf92ca48d30d1671f04f860f0c19efabe4c4b34b7e5"
     sha256 cellar: :any,                 arm64_big_sur:  "e25b425534b2fb573699124b911c4d17c8272cb980e34c1fbd97925ff97169fc"
+    sha256 cellar: :any,                 ventura:        "ce2fadd70cbe5a77cac739ff85b38e7e99f98bc4b43c191edfc2eedcf3f79632"
     sha256 cellar: :any,                 monterey:       "4a7621195e23085b2ce7207bcce2b339a5b84bc1ee2646f12650bdb3a1441271"
     sha256 cellar: :any,                 big_sur:        "8f4c7d5054027dbd61cbfaa5431f5589a1061ef3a8c2a03dd3f7048d4cc4ef05"
     sha256 cellar: :any,                 catalina:       "3998379a11236c30db7260e2c1054d00723f30cf5953b400ce05dbca7150c7dc"
