@@ -91,6 +91,10 @@ class MariadbAT105 < Formula
       args << "-DCONNECT_WITH_JDBC=OFF"
     end
 
+    if OS.mac?
+      args << "-DWITH_READLINE=NO" # uses libedit on macOS
+    end
+
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
