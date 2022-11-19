@@ -11,6 +11,7 @@ class GnustepMake < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "766a6f8d245162ae284da0da2ffd00216c6df677e4455a67796173f4ac6fe474"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "45930b2ff42fd3d595f0bda8fa1c5a59489038e7242e447a4251d01f80a49557"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f16315c14cfbdab197ea1562749d533ebbf19435b848a8173ae7c3ed08502968"
     sha256 cellar: :any_skip_relocation, ventura:        "56bf7011e1da8ca1fff98f5f71ea0264c5d0ef1eb91d4d51a884367aefee166a"
