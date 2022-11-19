@@ -19,13 +19,14 @@ class Lcm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "07f135f3cc3dffa8fcd7313a2d368d1a5a353e82881184c413904c67c3994e7b"
-    sha256 cellar: :any,                 arm64_monterey: "a9fd491e4ac81b5ac1d6e53f4c878c0e99ae93e1ef35a1fb1db57a4c215fa961"
-    sha256 cellar: :any,                 arm64_big_sur:  "900f60952dde555d041ffcd3ed4cb531e7f444de49f0ea394530c40c691d2a10"
-    sha256 cellar: :any,                 monterey:       "cf6d8a33a2a4e9759453f0d83d8f70f94d15871a093fa2689414f7385ade3d5d"
-    sha256 cellar: :any,                 big_sur:        "07b9ccb0e05db6969b1dad98dbda75df66851a34a84157bd7c4f487b8a07439c"
-    sha256 cellar: :any,                 catalina:       "ed606aa227cf0de039cf27e070fd76273242fcc2bda96f8705a75dcb73194676"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32cedab1ef9208cdd44df820032e093b533d11cd9eb3391c7dde04b25a4a8d95"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "386e950921eba82b38394b42e31fccaa778922b1d069d9f79ccec9574d721fca"
+    sha256 cellar: :any,                 arm64_monterey: "43909fa2e1f9a714d4c8dd89776aa3781860242caeb4ffa8fecea7fa483401a6"
+    sha256 cellar: :any,                 arm64_big_sur:  "edb01154939c091081d063b46ee1d1c0c66f2df50faf15902ec5cada1a5ef0b8"
+    sha256 cellar: :any,                 monterey:       "1758d440848cb30faea78cd2fe83adb3ebd1cd4397fda48ab69484ad4c2d0d40"
+    sha256 cellar: :any,                 big_sur:        "253ad14044e332543f5857fb1ff33e81812fa01a539c204fa0189796a2ce60df"
+    sha256 cellar: :any,                 catalina:       "1968fc2e98dbb67e409caaf101bb1e13662f15748d6b887c274d68d4a08265cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a0f9a8ab26a721fb3be823187eee4ad9f49a49c28e1020808dd69d18977707b"
   end
 
   depends_on "cmake" => :build
