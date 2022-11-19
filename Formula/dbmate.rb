@@ -10,6 +10,7 @@ class Dbmate < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "84741107e6a4ae2535a5ac79a41fe6f35ffce6b7af815053edd5ee7a013b264c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "883afeccd9b6ec5d556f6f464b649dcf892a101591c72850a1f0849b61ce5934"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "608fe9104738fee53cc2575ec83905352e90e1a7b130644aff0912d4232da8cf"
+    sha256 cellar: :any_skip_relocation, ventura:        "6e7c0a8185fd2320499fbbe7bd326f72af65f128c81cb3bbad296942edb3cd8f"
     sha256 cellar: :any_skip_relocation, monterey:       "496b49b81b6f79263021d91dbecdac39df9553a087916fc5c7a8e59773399672"
     sha256 cellar: :any_skip_relocation, big_sur:        "6817c9225395174c7504486ea64a52995ec2c919078a4174f570c5b464a0447b"
     sha256 cellar: :any_skip_relocation, catalina:       "fa3aa15ff3782f200cea1aa55c56bdf6402de008dd9d10c26245c4c8e5a004f5"
