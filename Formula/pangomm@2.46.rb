@@ -11,14 +11,13 @@ class PangommAT246 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "919a3743d2c96c7abfa6971c140b74de45136251128c94611e724e9f5015ccd2"
-    sha256 cellar: :any,                 arm64_monterey: "c794e69f80086920c974a7a8982034cee2a72c3543156346768ce6c11fd04e62"
-    sha256 cellar: :any,                 arm64_big_sur:  "28a5885682e8cabb5240af2d46c4d982f4a74e87e0909d573a5d8f11941dab22"
-    sha256 cellar: :any,                 ventura:        "3b9fb3fc90cc84248c621419ad983a5243b3e8088fbeac917b18591561bcf25d"
-    sha256 cellar: :any,                 monterey:       "2670e2d8fcc5bcfe06c37c6b68c3871286312202329033341ed52a22db42be0b"
-    sha256 cellar: :any,                 big_sur:        "41a5c473ca7eb840d0238df3147aeab957c757afc0eb65fff3c5dce3ed0f7c83"
-    sha256 cellar: :any,                 catalina:       "93c8dc4f62582d30a9c48995923bba460e8a10600c9406d6d690c5406f231614"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2564f1187494082130a06400670c5b7b9d7a6e82f4c49172799ef00c3eacb22"
+    sha256 cellar: :any, arm64_ventura:  "34b42ded79cde5e0e0cf3e1801436cd02ac7462a2e78597d496c634ccf5cfc83"
+    sha256 cellar: :any, arm64_monterey: "70829eb5c5110ae6e8c0797080bae7d54b101d48e5b93d7858bd13b61f73d286"
+    sha256 cellar: :any, arm64_big_sur:  "fa06e509cea917f2086a2b24ad367edc21470bd69f8a9a2ee1b699e23df24494"
+    sha256 cellar: :any, monterey:       "cfd030509949ebe467ecd80530a689599d6374363760097e3d200f0e7c2ccf9d"
+    sha256 cellar: :any, big_sur:        "36ae7e79632f6040ee0b0e4ebc2f6c9ec19f297460524abe2bcfac7c92f939e3"
+    sha256 cellar: :any, catalina:       "0fb962aad84cc9a9053dd1d60cf0bf46102aaf6f20bc4872b6d5a45fdbe3f5f6"
+    sha256               x86_64_linux:   "cfbf4d51df7507bec4200db5635968917757ac6e2de071fc52e836fe837fc98d"
   end
 
   depends_on "meson" => :build
