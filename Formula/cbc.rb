@@ -14,6 +14,7 @@ class Cbc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c8bff9b2f9b87861b8ed62c50ac11ddcadc2a45207df8061d763c142e736d826"
     sha256 cellar: :any,                 arm64_monterey: "9c6816ac51c4f6dfce9211077647576e41c87484d80fe80f37b10b010357292c"
     sha256 cellar: :any,                 arm64_big_sur:  "f6d4d0d73a51b53cb17920352f78c1d7aba923d53ecc4bd3a7a4fa9968e7bdb5"
+    sha256 cellar: :any,                 ventura:        "b58cd56a49903ea0ee63cf8f6b847f487b577d21d02e3b73ce60d63a0af536c4"
     sha256 cellar: :any,                 monterey:       "58cd161d62e3c14010428dbe330a90858424f6fbb44b7da7337c2bbd21475dcb"
     sha256 cellar: :any,                 big_sur:        "9dfd9b522f7488c4f8e09277d38f8a73fce9ee7e3febf2a7cec27005130e8659"
     sha256 cellar: :any,                 catalina:       "255d298551bab042bd860bdd1a6fa005fb17ed61bf80bc4288a7862387dba4fc"
