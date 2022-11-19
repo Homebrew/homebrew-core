@@ -25,12 +25,12 @@ class Md5sha1sum < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c25d9290972bc2bcec287eb11b91349f3dd0e5db8ad3a24b35874f7715682cfa"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "coreutils", because: "both install `md5sum` and `sha1sum` binaries"
 
   def install
-    openssl = Formula["openssl@1.1"]
+    openssl = Formula["openssl@3"]
     ENV["SSLINCPATH"] = openssl.opt_include
     ENV["SSLLIBPATH"] = openssl.opt_lib
 
