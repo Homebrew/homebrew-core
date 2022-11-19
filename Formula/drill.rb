@@ -13,6 +13,7 @@ class Drill < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5328f14dddd1d0f0808ad64034794275643cf902690c745d7a6b11ba73d4008a"
     sha256 cellar: :any_skip_relocation, monterey:       "94fed7fc60d7554579a78aee13749bf309481b6c35a79a41816438a6db832f07"
     sha256 cellar: :any_skip_relocation, big_sur:        "37611f137324359d6e8329b520a027468265a225bde909b33bc748a5e72217b8"
+    sha256 cellar: :any_skip_relocation, catalina:       "6f93fbffcef67c34e531975dc653fe45a71a62f020d63265ea069f3c41fc5908"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdde246989361f99943e1a64bffce747174f54efd654d0f52e6e5a8e59d08956"
   end
 
