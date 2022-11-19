@@ -1,10 +1,10 @@
 class Geph4 < Formula
   desc "Modular Internet censorship circumvention system to deal with national filtering"
   homepage "https://geph.io/"
-  url "https://github.com/geph-official/geph4/archive/v4.5.0.tar.gz"
-  sha256 "8fa72c3630409d08b811654c288f32bb61dd2a8ae3c7ce101a0fb2d45e6df9d1"
+  url "https://github.com/geph-official/geph4-client/archive/refs/tags/v4.6.0.tar.gz"
+  sha256 "0f2228e4db10ab8711be41ee44ac8626283dad142b1e79c975decca0c6815c24"
   license "GPL-3.0-only"
-  head "https://github.com/geph-official/geph4.git", branch: "master"
+  head "https://github.com/geph-official/geph4-client.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "313da23eda7ff91eda76c3ae5bb864d115f79d1e1432948a668ba5f1ff25a567"
@@ -23,8 +23,9 @@ class Geph4 < Formula
   end
 
   test do
-    assert_equal "{\"error\":\"wrong password\"}",
-     shell_output("#{bin}/geph4-client sync --username 'test' --password 'test' --credential-cache ~/test.db")
-       .lines.last.strip
+    assert_match "Error: invalid username or password",
+     shell_output("#{bin}/geph4-client sync --credential-cache ~/test.db 2>&1", 1)
+
+    assert_match version.to_s, shell_output("#{bin}/geph4-client --version")
   end
 end
