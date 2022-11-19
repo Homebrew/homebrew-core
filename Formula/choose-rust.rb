@@ -12,6 +12,7 @@ class ChooseRust < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f009a6ef6eb59df17bf53037237cb94c97d9f8a00e6a20de63d1952fde5fc56b"
     sha256 cellar: :any_skip_relocation, monterey:       "eb7a88d2f6a7ea5dbc28602995baab358344289b590446d003e861fe3460f40f"
     sha256 cellar: :any_skip_relocation, big_sur:        "b2fa7efa2e78068e948a7991caa5d2a92b346af9118c1e775405a1ae5fc80b61"
+    sha256 cellar: :any_skip_relocation, catalina:       "da599fbd49ceee7815a21a1589b34f96d65efd6366d4ea286969f7b8efe0075c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1040d82ce5edb40b14f394947486e4cb07bfb4e1fdc0a387365a56debd5d07a"
   end
 
