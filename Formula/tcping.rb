@@ -15,6 +15,7 @@ class Tcping < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3b0ac471cf6c8da0ae0dcc060cb72d3aaf5516f2dd1f35633ed878b276ac846"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8f019bb5c3f6426b42c04db3d47f639b325e7560290bf422c876e292b5642109"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77f44aef18a3e45cdb8ee8ed377b81173b142496db34666e29df3703ab93dcaf"
+    sha256 cellar: :any_skip_relocation, ventura:        "3f12db115b1a6ae7230a30d0465d75e6182b1383e4cb6f43b299aca6385efe59"
     sha256 cellar: :any_skip_relocation, monterey:       "c0a4d5db6e0afe0ef2ede16b802c66c45698551b13389b869af6c198fd634037"
     sha256 cellar: :any_skip_relocation, big_sur:        "ca791764d99fc9e263fbbc3352d1861def26900f099552fcfce866eb25934fe9"
     sha256 cellar: :any_skip_relocation, catalina:       "2cf829fa6b3feab933a12f8fbc9fc1e8d585a304f31d918f26ba0d502f4772ab"
