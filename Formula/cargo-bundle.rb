@@ -11,6 +11,7 @@ class CargoBundle < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "80188536b9ea48f4bf2684a94f7a49cede6fa2df3363166d88dd9ab544863a8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d2a0a08c3bf07cb9cc441163497d39b59b9c7c4fdad0be8d3c40795b7cc93923"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3bd2d974ec9db345d90f862d0bcfdb73b09b829712b4c520522d1c3d1f05badc"
+    sha256 cellar: :any_skip_relocation, ventura:        "ada7709197c98af0cda23f5abcb6cf5bbab3b96afef5f607d2a571ef8ac2b8da"
     sha256 cellar: :any_skip_relocation, monterey:       "382768c4aeb9ec456bd70c770a3aff75ee4f8f2cf42f7fe9b8b481ed7f714fb7"
     sha256 cellar: :any_skip_relocation, big_sur:        "e2698372a48dfea6db720b4cf70c2b7cfa13560798dd17f434e57d59016d7c23"
     sha256 cellar: :any_skip_relocation, catalina:       "c5484070e73f28b33a947fe837f1b727b8329ba3857adcd148a8577cb82ca5fd"
