@@ -6,13 +6,13 @@ class Fastmod < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebd4164faa7b18ec6db9d4bf6c38e052fe07217df66d603902563ad43668a476"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f7102efe62e30ee88c4c0275f3db41d4156ff4e6f4dc78b7d852ba4600a994c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7b0504899573e920f09106daff5e391d40419bb56de623d18666f1d383e6b8c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "a6b584a8fdf984cac4e2f850a900d0010193426402d8bcc51eacd888af101099"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a476a2776cfbb639898cb7b70c3e5789d786c727d89b67af2e606916fd9b9d15"
-    sha256 cellar: :any_skip_relocation, catalina:       "950d5278ff21d3328e63428715ec925a9d444e997675e931e619f754b8608130"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39207c32d3fddb1fe08b86b6c7312dcba2b59958b8b6d3c62654cbd4703b5a4b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7df620dfd7106cf71b1aab7d95a2d7e3b4e846fb65fad55a5a5b228539db1776"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbdae4ac9ef2d408e51ed54b1e563090d2aaba5cd506cd6904cea7c2179f9a98"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "805f57f5a490b223d51e9608ed10ccf31c3532964f3f7414d81cc012f3430a4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "1397b657ee59c43478553a2b0f6e37dfd2b92e10c74986e98e405185be759797"
+    sha256 cellar: :any_skip_relocation, big_sur:        "89bcdaf3bc4230e1fea6b0d92da64a333d0ade90ed5ee3a8273842c8f7e3533a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "322cb4173cf2ff8cbdac4a81c249df2b2216c79ef340eb0692e8728295033c07"
   end
 
   depends_on "rust" => :build
