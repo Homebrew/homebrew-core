@@ -12,6 +12,7 @@ class Cobalt < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2da76763978a241499e834b64cd426e4ca433b3bb788b8d2cb63abd11dc79dd6"
     sha256 cellar: :any_skip_relocation, monterey:       "752ade1ce839efa00159f712a04af7ee87ffdb14b972be3cd1e8b63621e75bba"
     sha256 cellar: :any_skip_relocation, big_sur:        "bad62b23d320b35889ae0d95abb8837efc135e04d4910a0a2cf1b6ee7cddf33c"
+    sha256 cellar: :any_skip_relocation, catalina:       "b9f9a00ecbed764a7069accb681f8e6a4cb443f45374f964db0b123b460e75b8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5c6c9824431659a097830b65fd1b8f812d8268eef9464a1e1201ebcd6940d4b"
   end
 
