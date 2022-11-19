@@ -11,6 +11,7 @@ class Libmemcached < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0511d48bcc88a6860030c5c6bec5d36818068b43f11d67561f1519ce0dbf6b73"
     sha256 cellar: :any,                 arm64_monterey: "37977639be769bfd5ef97d38f408f57cf84f3607ce881c4d6f2c2d7c70a9b2a4"
     sha256 cellar: :any,                 arm64_big_sur:  "2ec7b12e9181c83bbbd45b62ba2a1a0e2958fe2caaa0d94be1da2319831de3be"
+    sha256 cellar: :any,                 ventura:        "2807a08a7c29739bd49450c44ec6f926e7c626b3b2104b1ed160226820a5465b"
     sha256 cellar: :any,                 monterey:       "902c0e16ba5ec76696c3f45888ef0c61b840a10b344149242bec812a7c99ee0d"
     sha256 cellar: :any,                 big_sur:        "c41f0bfdc440d240f8d0653dcc87270bd315571eab6979ff94d3271f863cb0e7"
     sha256 cellar: :any,                 catalina:       "70c6e1e3dd76241e343a4a3b38a62fae5bea6d2e2405739b11473d084f4409a9"
