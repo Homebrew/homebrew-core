@@ -7,13 +7,13 @@ class Htmlq < Formula
   head "https://github.com/mgdm/htmlq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ca95a7269b68a0b97323bea65ae13bd4363da7a035048dd49f42f9c4016fb95"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f975cfa431fbc03c5bc6eab5372313d95b38ce7a19e558a80021d2ac17c15fb4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa4eae2da351814a51f9332500c83b3c18360a2ffabbaaa9126fd7bae21e7421"
-    sha256 cellar: :any_skip_relocation, monterey:       "317689afb09ecbb2d08be598aafd16fcdf9b674868aadab1bff1128d4829ce94"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b136ace66829daaa18c37c91d7bdae098b71c39aedf4cb86d436efd6108d8209"
-    sha256 cellar: :any_skip_relocation, catalina:       "189fa5d4f2a99d4bb7b2002c89da361383a56fbac8c246b1a2fd52a00e2ca825"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "263b6af3a39eb169667349f20261e90faebf9446e350496649a9f51d57de49d3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b48cd78910d620c598a8102cc8801f0155b8aee452440b6f6d965e931488906"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e03e8a2c059ad4ac3454ad2b4cc70fb77e7883d7141f6f10d8a9bfe9c421b53"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "abf6473f80399fc7dd8252a2c35dff388c142ca028de0128b26defc46f6f107f"
+    sha256 cellar: :any_skip_relocation, monterey:       "c2dc9b6cb1914175ee46979f7edcf7d6883b9234da5f85711fd7f58ebef11e44"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f14e7cff6db455661e178db9d57b3b5cbc172c4bc3903d959ee1b5f38bf816a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b93418d06723d65a8da8cb3c34819f24f825a057efc7788bf45f0db3484abf13"
   end
 
   depends_on "rust" => :build
