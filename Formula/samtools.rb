@@ -9,6 +9,7 @@ class Samtools < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3f0df91af76a035fcdfcafb60dc556f701b04eb28cff361a3501580658925295"
     sha256 cellar: :any,                 arm64_monterey: "38860f7c351411db8e3eb78b23206330750d88bafb7cdc2e75d7d3a60e437757"
     sha256 cellar: :any,                 arm64_big_sur:  "84ac40b23832a34b8f6a92dee46d0ab45bdd30d5ec0363acf568c9ead7f7567e"
+    sha256 cellar: :any,                 ventura:        "2231b9c8d242a5e14e3118cb3992b76cd31eab5f3a57ce5521a194607a876497"
     sha256 cellar: :any,                 monterey:       "867f9b877cdcaa6b463add1a9b41eda14f20cf66ba4fe73ce00c405e1310b081"
     sha256 cellar: :any,                 big_sur:        "5c49374e4eb83be2be7e6254086c66b4e1c5d9ad270938f8a45f0bdde1f32346"
     sha256 cellar: :any,                 catalina:       "298a55bff49d78150c34c540254a36eb8474ae7074a96a6ade1ee59be62777a3"
