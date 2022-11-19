@@ -9,6 +9,7 @@ class Opensearch < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f7f361c67e838d435da4ac0985525e52993ad6f7a2c93b24c3bf6361442d45d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1f7f361c67e838d435da4ac0985525e52993ad6f7a2c93b24c3bf6361442d45d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1f7f361c67e838d435da4ac0985525e52993ad6f7a2c93b24c3bf6361442d45d"
+    sha256 cellar: :any_skip_relocation, ventura:        "ec0f8d465b277f1213c388ad4f4083846419f17f1820a6ce22355fc20fe08543"
     sha256 cellar: :any_skip_relocation, monterey:       "ec0f8d465b277f1213c388ad4f4083846419f17f1820a6ce22355fc20fe08543"
     sha256 cellar: :any_skip_relocation, big_sur:        "ec0f8d465b277f1213c388ad4f4083846419f17f1820a6ce22355fc20fe08543"
     sha256 cellar: :any_skip_relocation, catalina:       "ec0f8d465b277f1213c388ad4f4083846419f17f1820a6ce22355fc20fe08543"
