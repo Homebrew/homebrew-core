@@ -23,8 +23,9 @@ class Geph4 < Formula
   end
 
   test do
-    assert_equal "{\"error\":\"wrong password\"}",
-     shell_output("#{bin}/geph4-client sync --username 'test' --password 'test' --credential-cache ~/test.db")
-       .lines.last.strip
+    assert_match "Error: invalid username or password",
+     shell_output("#{bin}/geph4-client sync --credential-cache ~/test.db 2>&1", 1)
+
+    assert_match version.to_s, shell_output("#{bin}/geph4-client --version")
   end
 end
