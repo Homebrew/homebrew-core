@@ -18,12 +18,19 @@ class GitTrim < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   on_linux do
     depends_on "pkg-config" => :build
+  end
+
+  # Patch for OpenSSL 3 compatibility
+  # Upstream PR ref, https://github.com/foriequal0/git-trim/pull/195
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a67e684/git-trim/openssl-3.diff"
+    sha256 "b54a6ae417e520aefa402155acda892c40c23183a325cf37ac70920b5ad0246c"
   end
 
   def install
