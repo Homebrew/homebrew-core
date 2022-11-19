@@ -12,15 +12,13 @@ class Oakc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a41d724f0880905d50459fb34d4dfeb6e31488a4ff04ec9d44a7b2e6318bd3b0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3840062a2c8333fd493e289ee82feb0f92b3806ecf39d81f2eb1088e6df2c82"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b58035324817fb113cf2ed484deb7a994e0b1e0bacf8e685220944ed0aa8a35a"
-    sha256 cellar: :any_skip_relocation, monterey:       "f782f12b1cc552fff3db6bf157b5f4b02cfab7261254cf8e186f5f2e26adee8f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a42a5da5666621bcaedf03d27e569bd7089aca6d35823075cf02abe49d168a19"
-    sha256 cellar: :any_skip_relocation, catalina:       "d70a881ba63259365ca41b80ce29d36a7761f5af31ba92eba0f47d21bece3f3a"
-    sha256 cellar: :any_skip_relocation, mojave:         "ddce9bc14e1b7067e2bf562b986e813186a448c7fbb245cb34a7867fd6a8ba30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdb8902e208888e58db0f0d784bdce232af126b2e8e91dca3f86d7ea068b078b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2027a21cc9a6b104b4f5f28b0b75127116063abf32282890258db85b1f5c0fd6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3cdabb01c215dce0ca881f17a57c5426451fe6227f857bc9d935c23699ed31c3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ecb4eb764030b55cb485cdd0f28343b65bf2a93de1f0c4ce4ba633e80fafd76"
+    sha256 cellar: :any_skip_relocation, monterey:       "57b18008429add80e4fdd436cc10091e9563e3d4c01f76f9429d146b49d17184"
+    sha256 cellar: :any_skip_relocation, big_sur:        "df01ac42a1ff0632e6aebd2cd10f97d14631b5221556a667b71e6b61664a07e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ef60b48d23e35832e2d6b65a2c503ff72f88c6d5ced38a5dad9642b2147d642"
   end
 
   depends_on "rust" => :build
