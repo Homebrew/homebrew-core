@@ -22,20 +22,25 @@ class Ntp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "16137579ea8978ef71a1222071cd9e44a42eeeaa8d83ed83bdbf0fd048e6178c"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
+
+  # Patch for glibc 2.34+ compatibility
+  patch do
+    on_linux do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6c508ba/ntp/ntp-4.2.8p15-glibc.patch"
+      sha256 "f41a8066ce41f3f1d066801f54ead54b66d13e71355a50c20836d303f8b300e4"
+    end
+  end
 
   def install
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
-      --with-openssl-libdir=#{Formula["openssl@1.1"].lib}
-      --with-openssl-incdir=#{Formula["openssl@1.1"].include}
+      --with-openssl-libdir=#{Formula["openssl@3"].lib}
+      --with-openssl-incdir=#{Formula["openssl@3"].include}
       --with-net-snmp-config=no
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     ldflags = "-lresolv"
     ldflags = "#{ldflags} -undefined dynamic_lookup" if OS.mac?
     system "make", "install", "LDADD_LIBNTP=#{ldflags}"
