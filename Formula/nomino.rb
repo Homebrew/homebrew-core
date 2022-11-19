@@ -7,13 +7,13 @@ class Nomino < Formula
   head "https://github.com/yaa110/nomino.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5a73233f08d1696c956542aaa782f8e14d175be1703a5104dfdb30aa2a545b7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3242084099a30e161727977b3dcb5095758d84f3a75ec4d3bb782edbda04c1f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aad0076d622c8490155076f8aa47074c3391965ead1ca81633284c1e858fa424"
-    sha256 cellar: :any_skip_relocation, monterey:       "e59071ecb110e1d95855ebd6ac62a5910b8ffe187768c862a5428052769e3ff5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7ecc1a559be5387e04e708f38427dfd9b1b38f52772c70e1aae349cc67bb8e02"
-    sha256 cellar: :any_skip_relocation, catalina:       "621c85741ac046026ebd63732f910416ca14e39eb6ae6e06fa67a29fbf0e5cf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f80c9cabfc011c3f566b9ae4c982eade843f42d08dd3c16611aa08025ae0e84a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "230f30bff155bb8d4d8696fc67f2bb5ab2669612214622b9b9ef19548a3b2624"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "debc9347e26e32f96227f71b2379e576d51515b63dc0020bd1890c4d178701ed"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "565d6e8393273664dbaf36ad49d9376954d081e8d56e4feeea041dd909ead770"
+    sha256 cellar: :any_skip_relocation, monterey:       "b84565e1060c964ab085242ed73bfaf1534c80c571d6e504c500c14adf92d23a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6fc73e4690081a635905b8765408ff3fc2f3e028b324f15bdec334793d4f074c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c0f97f6502964f65800aa610d00b917f92f070e25c4a6efb65684620aba986f"
   end
 
   depends_on "rust" => :build
