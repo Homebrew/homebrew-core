@@ -16,6 +16,7 @@ class Zbar < Formula
     sha256 arm64_ventura:  "0148fabe1084ac13f107a34c15e69a68a4e0de8c1212550ea927d5873450843b"
     sha256 arm64_monterey: "e9b2610d5fa22cd12a463ac2701240acc8f6e1c1c190e6fbe1e8f56b12fb695e"
     sha256 arm64_big_sur:  "66d7b6a0b9cc69e2d0786aa626577abc917adba4dd76b79e7bc959afd9eefb7c"
+    sha256 ventura:        "e7b877bc80e132b018fe786882ade65d5650ab81ae7e087c81f1a61d278ffb7f"
     sha256 monterey:       "e3f3cd2101683ec1e5d129d9c590f9e61283dd078968231211c994ebd919eeeb"
     sha256 big_sur:        "7a440c19a50c6dd6ebf77b41a254e78fa5ffc641877ae180d131f1cc0d2f4e6b"
     sha256 catalina:       "6524034479ef1b0329914bba94b9a778f07436a4fdcef8d5685df31152a1d990"
