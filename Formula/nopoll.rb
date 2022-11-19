@@ -12,13 +12,14 @@ class Nopoll < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cced4a6f6a38cabd05d51941acc1ec04110375e4900147c40e865284f2f5dca0"
-    sha256 cellar: :any,                 arm64_monterey: "63203f653864f3d95320946e141b562087c2efebb5a0c78776a6715157ff79df"
-    sha256 cellar: :any,                 arm64_big_sur:  "9bd568c95d44276b460b9b9f42df93276093388885770a8d635592bb068602f7"
-    sha256 cellar: :any,                 monterey:       "064c5b6a8793964950a51ebaa22711c2aa092c5f285499325c7c1d725a617c8c"
-    sha256 cellar: :any,                 big_sur:        "63a54c90684fd19105629ec224096e6d8b5b0b29305598a418de2dc7ea3a34d2"
-    sha256 cellar: :any,                 catalina:       "baa8fafc0b418c402f497559c32f4181a72ff86fe6713c13d3e740b2bbe29327"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91fb815d3495b95770615b23075c3b628e96758815c490ef851dc2191396fcc9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "506b43f4c6599606a2d963ebc96fbb6fe0d513227a241bdf2be7645dce62fb62"
+    sha256 cellar: :any,                 arm64_monterey: "67fa34a544afa84b26e296f7c5614eb4f5d676f907a83048ee5912d256d80e9a"
+    sha256 cellar: :any,                 arm64_big_sur:  "549c85f59b6565f42734f55c461ddf7c6d6d5a501456d99bbae0baae769bc258"
+    sha256 cellar: :any,                 monterey:       "9ef66c711085d89346b8982c3f637aa6d97b8bfcb82fc3a69112c980c435b930"
+    sha256 cellar: :any,                 big_sur:        "786ad31fb592a5d8c9ea666714417e157833a68d639061466b283e744b06ce93"
+    sha256 cellar: :any,                 catalina:       "963a65db0b4c29a2c00e434b405d4dabc766b9179d4cd3765493af5f72668625"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34cef30326e6770bf5ed11ee2a1788f5ec7cee86ce39c36cfcf419909073b337"
   end
 
   depends_on "openssl@3"
