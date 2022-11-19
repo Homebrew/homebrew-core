@@ -9,6 +9,7 @@ class Sqlc < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a4170e863839e2931b98a762557003afeaf2bd36e07e7b0f6aa6cb1676e6a945"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c4115cf0c9ca5468148765fc9b453c1172981a9f2031a59f966fed473f017988"
+    sha256 cellar: :any_skip_relocation, ventura:        "26317447465dfadc090b44539e5c0ecc4a833d55bb537a6816a3b07ded05e1d3"
     sha256 cellar: :any_skip_relocation, monterey:       "2010f5477aaf1076d49cc51a0b837b8779183cd8c8a67c42f117c65fc439a71a"
     sha256 cellar: :any_skip_relocation, big_sur:        "b50a4d988e27ea54542a1abda3e7efb611f5b4fef9eaab52519e14f6553e075f"
     sha256 cellar: :any_skip_relocation, catalina:       "adcd071ce6993f4758010eefe731d2ab7af4ea946da04e8fd89c2834fde89a0e"
