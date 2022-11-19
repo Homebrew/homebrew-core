@@ -13,6 +13,7 @@ class Supervisor < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8eb69708ed6b2df4573ef41288d3a16b48540c4436508f8d513050e0e9d9671"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e8eb69708ed6b2df4573ef41288d3a16b48540c4436508f8d513050e0e9d9671"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8eb69708ed6b2df4573ef41288d3a16b48540c4436508f8d513050e0e9d9671"
+    sha256 cellar: :any_skip_relocation, ventura:        "67f3ae8029a4eadc49e9dde99abe66221f6a380f86991ecd4f386dd350d67c5e"
     sha256 cellar: :any_skip_relocation, monterey:       "67f3ae8029a4eadc49e9dde99abe66221f6a380f86991ecd4f386dd350d67c5e"
     sha256 cellar: :any_skip_relocation, big_sur:        "67f3ae8029a4eadc49e9dde99abe66221f6a380f86991ecd4f386dd350d67c5e"
     sha256 cellar: :any_skip_relocation, catalina:       "67f3ae8029a4eadc49e9dde99abe66221f6a380f86991ecd4f386dd350d67c5e"
