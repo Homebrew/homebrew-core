@@ -19,6 +19,7 @@ class Thrift < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ee3bde856db5cfd342c2383cb108c8b4d2cd93c82a99fc44d203c34fbad46804"
     sha256 cellar: :any,                 arm64_monterey: "cab37541e49c9895b900cfbec2ef67fddf240699975bdaa2eea25e5110dc31e1"
     sha256 cellar: :any,                 arm64_big_sur:  "bb496e6fe3cfdfafc3b2558af33c6008802f157efef43b12c801315c9cd4da45"
+    sha256 cellar: :any,                 ventura:        "cc594cd722d68c7d7bce933eb510cbe2b819e5e7a455ad5398caf00cc236a9ed"
     sha256 cellar: :any,                 monterey:       "17406f83b600ee211014de055114ba8948ef7802dd3f0de80bb63ed0a33dfd10"
     sha256 cellar: :any,                 big_sur:        "e446d029f2856a2f9afaccabec4c469abc60330df078e89c773f42e372f9b639"
     sha256 cellar: :any,                 catalina:       "103df8d65c791c3d3430d8ccf2165e27c30dd9745164a163871333b191338c62"
