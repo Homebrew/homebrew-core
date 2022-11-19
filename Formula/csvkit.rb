@@ -12,6 +12,7 @@ class Csvkit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b178b2bae1998e65ebb48d68e118f57f0e722053d7e47d617a595f7dbd505b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cbceed0aa18930240b00e1739ec3b7ceb41213abc842e9993ba7a7ac61f4051e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1f0ed0b9c1f37be522f66f695533feda9968657fa4354349e7f89dfe5875d3f"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d337bc627d211b678c256e9253c2521368611f6f7bf045038b652c54dd86b23"
     sha256 cellar: :any_skip_relocation, monterey:       "45a557b4351a1865e077235243ad796597d31f1696fa82a4da48b43837bef75a"
     sha256 cellar: :any_skip_relocation, big_sur:        "f876eaea9b494f14c934691853ec98e85854068b3dc4f255f721d816a2378cf6"
     sha256 cellar: :any_skip_relocation, catalina:       "de5f51781aa2c5d68da8495b0440054e705888beb2d78a21128777229b833494"
