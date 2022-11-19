@@ -13,6 +13,7 @@ class Udunits < Formula
     sha256 arm64_ventura:  "c6f54e9f07ec6617aeee1bd95a6ebd444e5b72adb9c3268b9fdb68cd443c26f6"
     sha256 arm64_monterey: "64af7e42ad61c45d6f1790d747c9e3d8bbd8634a86fc51961646b31a16f64edf"
     sha256 arm64_big_sur:  "d7abb17bec04dc4aede1c62e24766a4f31c6d4c4cc5f1716fcb56f1da06b0492"
+    sha256 ventura:        "05ba4dddcb5941e0a0af12b1064403e144577e4910c851a2e8ecb13d1faa5b20"
     sha256 monterey:       "ed2147b73e154d445d1959b871e956975bc2ed2d33757d9ed57df1114af2222c"
     sha256 big_sur:        "cb3a237ce5aa71c094ece2c9a7ba3199238d8facf053760a5f29ebec93f29e53"
     sha256 catalina:       "5787ba730b9969468621db38503a036de75aea0a8e62cbd253e9c73262355419"
