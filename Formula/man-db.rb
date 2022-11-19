@@ -15,6 +15,7 @@ class ManDb < Formula
     sha256 arm64_ventura:  "cdcde7118e97b5f3c887c428de68a2028a26cc452de78971dbcf48cc0608b7a9"
     sha256 arm64_monterey: "091ef85f9ead9918704ed11dafb1e47c75353e2ad2cc9fb0734778d2af77257a"
     sha256 arm64_big_sur:  "2813a0a078e8f7bfa54ede44e7b7ac78b52ad9985bb176d1e8ff3201f3b7c13f"
+    sha256 ventura:        "cb41bceffbded2f753f8a5a244db5dc19b1b2410ebec867e0f0de995c0cfbb9b"
     sha256 monterey:       "8a153ba7e269e34ce36ffe7e9fe2c9b6d5587dfa00232472a9154bf770f375c3"
     sha256 big_sur:        "f9ed6e200a6d53908c5cdfbcb17da39de9286bca99faf9b5e89d698c7c7d7cd6"
     sha256 catalina:       "56bf6723559d403435f3e1c6c28e7969115e78650bdc07f95c60d3955e9b55eb"
