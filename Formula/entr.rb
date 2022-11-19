@@ -15,6 +15,7 @@ class Entr < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "465f2d09a5e66083be2293f7b9f51e95922710b894f30e2512e3269249e538a8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "270d91dfcd9338451893d293cec6d3a678b60b992b11f4e4c3abc38b759cf6f2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "05029ebc446156661c5dfbfcca580b5d86eabf6a2ebef2aa3588fc8b0e7a6f2e"
+    sha256 cellar: :any_skip_relocation, ventura:        "c6f5b4d7834ec3015850b3dd86b593b359f1ec4ebaf3d583ee0fba005d780c33"
     sha256 cellar: :any_skip_relocation, monterey:       "1bc645365005cf6436d910ba5274d145637fe96d2c1c2c1879c19a92c8f9e8ba"
     sha256 cellar: :any_skip_relocation, big_sur:        "ecb46fcc12d0660c98fb34ea7499400f28fce37bc732fddf8b41280bb3fe911d"
     sha256 cellar: :any_skip_relocation, catalina:       "eb8cdfa72ff30ef75df060cc5ea0e10f0b2225be92cffcdd365731d576dbba8e"
