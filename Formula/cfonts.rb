@@ -18,6 +18,7 @@ class Cfonts < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6bb55c4b03515bcfc6a39bbf17c7a1649c2cdea22dcfcb24b1e8feac86dfb039"
     sha256 cellar: :any_skip_relocation, monterey:       "91d7aac3437586c842097e89775d4870b607a0ef14fbe41f1bf8e96c19ee892f"
     sha256 cellar: :any_skip_relocation, big_sur:        "e157f8fb65db360715a9383474866da5085caee1c66c4f0493df7095f83d54f7"
+    sha256 cellar: :any_skip_relocation, catalina:       "3618ee4e3aabd9643541d8b02e981774c3fa57759a0d0ec380dc90ce00483d6a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e19d9ccc36cf13c9252f14865a0ce025e3358f04144742800cbd3a145dd9ccc6"
   end
 
