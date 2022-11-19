@@ -14,6 +14,7 @@ class Astro < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f39eb2c24436444571706fb614b40084fd0e4ea076f178a01c37b7f45ca97fe3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f39eb2c24436444571706fb614b40084fd0e4ea076f178a01c37b7f45ca97fe3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f39eb2c24436444571706fb614b40084fd0e4ea076f178a01c37b7f45ca97fe3"
+    sha256 cellar: :any_skip_relocation, ventura:        "e15e8dfd0db310e8dd819099310fba12ca1d5b8167a5e171f4e418a56ade357a"
     sha256 cellar: :any_skip_relocation, monterey:       "e15e8dfd0db310e8dd819099310fba12ca1d5b8167a5e171f4e418a56ade357a"
     sha256 cellar: :any_skip_relocation, big_sur:        "e15e8dfd0db310e8dd819099310fba12ca1d5b8167a5e171f4e418a56ade357a"
     sha256 cellar: :any_skip_relocation, catalina:       "e15e8dfd0db310e8dd819099310fba12ca1d5b8167a5e171f4e418a56ade357a"
