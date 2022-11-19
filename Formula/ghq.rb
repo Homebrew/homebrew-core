@@ -11,6 +11,7 @@ class Ghq < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a31421cb53f1e02c89ea90bad57294641a791b7443477f4e3bc7ac6cc1e5c0a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c3c4b22cb50e06c75b1a268a9e5c83560277595e32aa706c67e9b5d21400b60"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "daf8e475bcb2917e46f6988e3656e0f700b5501fbaa60d5a793d1a2875f9144f"
+    sha256 cellar: :any_skip_relocation, ventura:        "5ffa314454fcd18f6ff60fca94d86caa202fbd12ba0ceb5f4c7b00ef7271463e"
     sha256 cellar: :any_skip_relocation, monterey:       "38d099e4a5a7e67edd8e4a3be8f4f44e6eff4d157d9f00595298c80e48c6b593"
     sha256 cellar: :any_skip_relocation, big_sur:        "2c141aa554879fbe830f03cda0e833e4f3a4c0f77864938168594c6aa7b6515a"
     sha256 cellar: :any_skip_relocation, catalina:       "d7c8f6c1b6d5d65f4547e91054f5c3d15a96e25487e34d62cb26dfcf80388424"
