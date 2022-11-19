@@ -4,6 +4,7 @@ class HttpLoad < Formula
   url "https://www.acme.com/software/http_load/http_load-09Mar2016.tar.gz"
   version "20160309"
   sha256 "5a7b00688680e3fca8726dc836fd3f94f403fde831c71d73d9a1537f215b4587"
+  license "BSD-2-Clause"
   revision 2
 
   livecheck do
