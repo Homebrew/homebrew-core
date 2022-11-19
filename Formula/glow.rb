@@ -9,6 +9,7 @@ class Glow < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aabb62d7b4b55c186cb8730efb887928ba8421de30d83fd3253fa5062f10d4fb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2b0a9d0e4c3cebc6a40e0209777c2bd98dc819ddca404602949cd835f8d82274"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c7e15ba449c8f2720d93f8bde3f80fa3e27c82cf5bacc2944114ec4650a25d45"
+    sha256 cellar: :any_skip_relocation, ventura:        "8b242dd83e184de281d85da331f20c2e7be74ded276f4abda8c9e07dece33798"
     sha256 cellar: :any_skip_relocation, monterey:       "9b1113f3305dc5643cf3e2ac2adca6b2be48e5e1f723721ebef023afb5425c6f"
     sha256 cellar: :any_skip_relocation, big_sur:        "c76069ff642658ed8b51fd903b1a5a5892247de72f7f62f29e10d46cae3e6caf"
     sha256 cellar: :any_skip_relocation, catalina:       "4e713fa69e7d61139e8e7f904c675d2bfbabba9977316c22b4868f3bf5e0c77e"
