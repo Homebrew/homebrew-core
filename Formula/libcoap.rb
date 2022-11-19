@@ -21,7 +21,7 @@ class Libcoap < Formula
   depends_on "doxygen" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./autogen.sh"
@@ -35,8 +35,8 @@ class Libcoap < Formula
   test do
     %w[coap-client coap-server].each do |src|
       system ENV.cc, pkgshare/"examples/#{src}.c",
-        "-I#{Formula["openssl@1.1"].opt_include}", "-I#{include}",
-        "-L#{Formula["openssl@1.1"].opt_lib}", "-L#{lib}",
+        "-I#{Formula["openssl@3"].opt_include}", "-I#{include}",
+        "-L#{Formula["openssl@3"].opt_lib}", "-L#{lib}",
         "-lcrypto", "-lssl", "-lcoap-3-openssl", "-o", src
     end
 
