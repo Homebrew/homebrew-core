@@ -16,6 +16,7 @@ class CheckPostgres < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e960bf564777b225109a65302d5f7ca36a11831ae9bc7ba9765168e191c37e4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9e960bf564777b225109a65302d5f7ca36a11831ae9bc7ba9765168e191c37e4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce72f3c88ea89aa7fd974e400d36e1ffe72531a2903476776680208d0e26a916"
+    sha256 cellar: :any_skip_relocation, ventura:        "ceae380da1a94e242438fb48bfe0db455a22abdea4ee86132779bcb337b931b3"
     sha256 cellar: :any_skip_relocation, monterey:       "ceae380da1a94e242438fb48bfe0db455a22abdea4ee86132779bcb337b931b3"
     sha256 cellar: :any_skip_relocation, big_sur:        "057605346ab18b273061dd719c70ff02ffb232416a19ad93ededf31170bafe3e"
     sha256 cellar: :any_skip_relocation, catalina:       "1e5d5939f4e5fe39416e7ca38959cf0898c437247df83c27c90ceb12612b6182"
