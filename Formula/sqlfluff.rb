@@ -11,6 +11,7 @@ class Sqlfluff < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d2a28fde40ba35199b6e4d2333a1d49924faca4b8d1e3e5d55f7c7eaa9418c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fcb11ad878981d30adf63dcf5531c25bdc39ef747140f20a9e2cf9b1b75e828b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73fd229641306e2b858a60a597cd715216791613ef099a1cb44aaf10b38d2db6"
+    sha256 cellar: :any_skip_relocation, ventura:        "d45056eb03ddbbc378b7a420b0c9ef876e46dc01bce0347576fca326f585eaf6"
     sha256 cellar: :any_skip_relocation, monterey:       "97904fb1f623d417a9efa340c7e08d41dcc0419bc8d0d3a4d0b1c37f4e049e88"
     sha256 cellar: :any_skip_relocation, big_sur:        "a6d414694a3c30990f8d6afa454d53cd4be4d8c5d50ca7f07324a84ad071aa2b"
     sha256 cellar: :any_skip_relocation, catalina:       "0ca4d205416fc5e3093a0a8472b6be7e864926865a9731b2078d908c711d10d2"
