@@ -1,8 +1,8 @@
 class Kalign < Formula
   desc "Fast multiple sequence alignment program for biological sequences"
   homepage "https://github.com/TimoLassmann/kalign"
-  url "https://github.com/TimoLassmann/kalign/archive/v3.3.2.tar.gz"
-  sha256 "c0b357feda32e16041cf286a4e67626a52bbf78c39e2237b485d54fb38ef319a"
+  url "https://github.com/TimoLassmann/kalign/archive/v3.3.4.tar.gz"
+  sha256 "f22fa45cbc5c81586d515ee6a77fdbb3704139dc8fdef83cc5f1596aafb59c7f"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -15,16 +15,17 @@ class Kalign < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9fa5d98ca2c31bcf8d24805ac30764d59154fb902a5378f1e2cca8f1e2bb085"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
 
   def install
-    system "./autogen.sh"
-    system "./configure", *std_configure_args
-    system "make"
-    system "make", "install"
+    args = std_cmake_args + %w[
+      -DENABLE_AVX=OFF
+      -DENABLE_AVX2=OFF
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
