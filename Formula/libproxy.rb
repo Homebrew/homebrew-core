@@ -11,6 +11,7 @@ class Libproxy < Formula
     sha256 arm64_ventura:  "bb9fa9d65a343c1d4f87006c81c48c52803e54b448edcb1ff151b48193c13f56"
     sha256 arm64_monterey: "ea29465d14b64ce0efdd879f98ecfad0731ba1bafff27aae5e257d78f4ddc84f"
     sha256 arm64_big_sur:  "535133b549c369ced715e3e017d0ddeec32376a4b29469d2b18cef030b50fbe0"
+    sha256 ventura:        "a17f17c544066f43eaf2f5d757a27f447cc6619295d8a7d979937f126374c5bf"
     sha256 monterey:       "22ef963f09431f28e2a50eb716cbff03a5369992640302fe4da3219674fbaab2"
     sha256 big_sur:        "b2d8852168ed2484cadb96d11dc3e69126822dcd544ec7e5c66d0694287ad451"
     sha256 catalina:       "c4811050c47e7178cb3ae6a5e675925d0448a39883a4a76b9d0f2d63e6ea1d53"
