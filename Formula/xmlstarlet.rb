@@ -9,6 +9,7 @@ class Xmlstarlet < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0c3177bfbd5b1a22f17a4088a81dc5826960f4df15347d975e4facbc1883a6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "86e4e8bd44e5a7c143dd2a4395c535ddcac9c08bb6e910688ab0138ad3151d1e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d654b90521d07ffc1304253fd2b927f9813effa5a65c3f6c43b67838077c009d"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d3f48d20afe2d69a9577d645c2da9add1e64c1044e9848509807be5af213715"
     sha256 cellar: :any_skip_relocation, monterey:       "5af39f6a67faf86069e1bf504a000ed321b18ad5d2cf5fe90978dc00fb32c1dd"
     sha256 cellar: :any_skip_relocation, big_sur:        "bc3baa847a617f3d67000ff14e96126f9bbdf54e916b6c693a2c8bf633ca0bfa"
     sha256 cellar: :any_skip_relocation, catalina:       "2a679570811f553e345748516fa37c2d4b529a75533bdb73316077aaed5ab8f6"
