@@ -12,6 +12,7 @@ class Cmdshelf < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cfd2cf4bb09a17661c2b513cf67eff5fa545d549734111829c8829b105cef14"
     sha256 cellar: :any_skip_relocation, monterey:       "fb958a194580d31dd505817d41030cf623f7b193a6482ee2d01fdb038b107c47"
     sha256 cellar: :any_skip_relocation, big_sur:        "b1b12cbcc8f895523782fc7955cd62fba746b27f76de5bc0e3b0f3c2555fd992"
+    sha256 cellar: :any_skip_relocation, catalina:       "7fb831db17eb8aa4dbfd17bc4c1dee5e53dcbc1bbffa1da075c2ddba5c1df93e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9125da575a5730c3dbf6e33cbaab9ad3fbb2cc361536727563306f23ba14ee01"
   end
 
