@@ -4,6 +4,7 @@ class HttpLoad < Formula
   url "https://www.acme.com/software/http_load/http_load-09Mar2016.tar.gz"
   version "20160309"
   sha256 "5a7b00688680e3fca8726dc836fd3f94f403fde831c71d73d9a1537f215b4587"
+  license "BSD-2-Clause"
   revision 2
 
   livecheck do
@@ -31,7 +32,7 @@ class HttpLoad < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7592ea4f24a3e2288078da70ddde1fbd1cb6133aa7126c43c13cedcbe74439cc"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     bin.mkpath
@@ -42,7 +43,7 @@ class HttpLoad < Formula
       LIBDIR=#{lib}
       MANDIR=#{man1}
       CC=#{ENV.cc}
-      SSL_TREE=#{Formula["openssl@1.1"].opt_prefix}
+      SSL_TREE=#{Formula["openssl@3"].opt_prefix}
     ]
 
     inreplace "Makefile", "#SSL_", "SSL_"
