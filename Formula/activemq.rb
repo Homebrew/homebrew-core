@@ -10,6 +10,7 @@ class Activemq < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "52e1a4a76f44e1644213fa3e6637b129f075648f702f4415e162f5288c6743d5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b210c29c07a8ed7a0d4c1767f3db980d0889e37745b4965c66bfcc7180cfa4c9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73b3b53c4db3ef9abc61beae4c3cf790b3cabd8c3f90589312376fb5e9803c50"
+    sha256 cellar: :any_skip_relocation, ventura:        "d8c2d4edd024334a4990d452281a43132e26a545e8472b95e4d5e872ad434db8"
     sha256 cellar: :any_skip_relocation, monterey:       "f5c58cef63893bcc281d051e11f730465bfc57f6c8e3d0040456ff4a04cb9ed0"
     sha256 cellar: :any_skip_relocation, big_sur:        "dfb6c7c27e9eb6bc1e1f116ac96fcde265f457e1bc24c60ce09872276e3c7050"
     sha256 cellar: :any_skip_relocation, catalina:       "65abfc596db7301ead3df54156330bc73e55253c50d14c27282de54b94695238"
