@@ -17,6 +17,7 @@ class Dpkg < Formula
     sha256 arm64_ventura:  "dbd498196dbd656cf169cb0fb659011011e0f0e691b6b590708c9d1e1a1b25c6"
     sha256 arm64_monterey: "32e8e22b3eb7935517621fd6121e40f894792d8de2c8659dfda13fdaeb4143dd"
     sha256 arm64_big_sur:  "c38a7e505ee994e1b746e0e3566d92cb9ca646291ddfe826bb5dd54d8a31ab1e"
+    sha256 ventura:        "caca2df7dbdb9fc665e4f178c32b7df230e9226d3c791ecab5dbfbcb3cd15f7c"
     sha256 monterey:       "8f76d6e5756b136e26835049af0ba825c75c9a55cbcc7f1b0de3c5256c75fa83"
     sha256 big_sur:        "f20bf1eb154f7b44af780a0cec1f7472be29ce542ea3832317ce1dee99422109"
     sha256 catalina:       "ccdded206405d6efc722169acadcc2c8770200b9ced532a32ff547475e055f56"
