@@ -6,14 +6,13 @@ class Py3cairo < Formula
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b6ed8a697cc11c3fcb81b8599f468fef30feb367774e423b94c4a90f40298d99"
-    sha256 cellar: :any,                 arm64_monterey: "835c501d1d5741824dd4a1e02cb0cc584bba31ad3de7dab749653ee626163417"
-    sha256 cellar: :any,                 arm64_big_sur:  "4308fb117d43f27bd93ac2ae4f38091feff2272a474c560cfced167e8c1115cf"
-    sha256 cellar: :any,                 ventura:        "84e5f8909f3f8e11e9bae1a9e54775c62abe8de803a0cf7eb7047f01a7518c1f"
-    sha256 cellar: :any,                 monterey:       "feb8a9be1270be213fa1f6be9de3906017d49389713e0c5cd347350fcb7341ed"
-    sha256 cellar: :any,                 big_sur:        "31a5442bd5a4c6fdf2a07abadf5ad49bf895ae6819b939be4d22687fc74aed40"
-    sha256 cellar: :any,                 catalina:       "46d411dc3b30aa251d78ac0c0883be898e69eea4a090c0c25c02297a7c5a6950"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9369efb02ce11d15a79945b698b170fe830afacb1af390a52508e92f4a71c67"
+    sha256 cellar: :any,                 arm64_ventura:  "93befda735b45aa8c04d1bc288b88b8c2b41d9f63f8236bc8e6184c580789e69"
+    sha256 cellar: :any,                 arm64_monterey: "e80415048672894adc9c906c9838760956813acb342ff523a21943edcae47688"
+    sha256 cellar: :any,                 arm64_big_sur:  "614fa1e30f7428f49531d7708c01565ce583a63ae1224a4e4f98361f5133b236"
+    sha256 cellar: :any,                 monterey:       "dad977428d3e8d0c02738180ca86e99dcd690b188c6ec2cef4cfbafbc8220cbd"
+    sha256 cellar: :any,                 big_sur:        "dc68f9a97b73f946b71fe5818b4077e9339054233eeefe7756f4bb8b2c633f00"
+    sha256 cellar: :any,                 catalina:       "77936c68a96077618720722fa8810c8c4b74c8330f7f4d8fe92f7ae91aa201e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfcc86df6633f5dc9327bd964e1acd9f8697f4cd21bae0f3aa9c39d8d3cdf0fa"
   end
 
   depends_on "pkg-config" => :build
