@@ -9,6 +9,7 @@ class Zola < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c61253251605ff8751e9c3198f3843bc9d18e582a9a7cbb8d2fe6e6aa7833496"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c08e6c88309de152f7a265da012dcb9823f1cbe5fbba77848b877bbd946cb1df"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a46518e851b622f75ecb407a3c7e2be03ca5dedbbb1b28f70bbb8439c1c1bfd"
+    sha256 cellar: :any_skip_relocation, ventura:        "8b045dd4de65f3d08d9e8a489b648812ef5bcd599071f7e8df8574ffa5495d11"
     sha256 cellar: :any_skip_relocation, monterey:       "f96375804c79ee2f6c6ce6403412a014b819f3432c170b9f8a6e27361886db79"
     sha256 cellar: :any_skip_relocation, big_sur:        "7c51958a5366ab917fc911e719e29b3a84f1bfd624ff8d2cfb66685667bc3af0"
     sha256 cellar: :any_skip_relocation, catalina:       "1bdac43bf87c55f43bbd1e85135673c870f90651b7948ea20c41c8a3a340b0f7"
