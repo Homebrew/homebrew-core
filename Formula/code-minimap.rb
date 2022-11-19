@@ -12,6 +12,7 @@ class CodeMinimap < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f541ddb82e19e68bfff17a19756c3270a2ab087bd9ad7de76a524407965efb5"
     sha256 cellar: :any_skip_relocation, monterey:       "b8bcde829b9158c1608fb9d43854a19a0b90333932d053e0dd11fb8f48985686"
     sha256 cellar: :any_skip_relocation, big_sur:        "8392793686aed76ac84933cbf4b2ee6b914b5d7dab315615872af14c16ae9f4d"
+    sha256 cellar: :any_skip_relocation, catalina:       "10a8fe0a0ae6b70d4f82ba3931aa9a7eb7451727b18a8dda8d2065d9d58da6bd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2289ca16b0c06af4d8880a69f70e610480b59bfe6c1f9352a072eca6ba6be9b3"
   end
 
