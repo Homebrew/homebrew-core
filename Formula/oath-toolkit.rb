@@ -15,6 +15,7 @@ class OathToolkit < Formula
     sha256 cellar: :any, arm64_ventura:  "25e229ea25ead409a0dd07c65472674e8909fbd483ef30cc4b0a03ce38de0027"
     sha256 cellar: :any, arm64_monterey: "d12d5f53c630491e0db01dd5955e9dd23baeae9080df3f24eb726ccf359aaa97"
     sha256               arm64_big_sur:  "3e54014feda461a1aa6f68f71570c8be14076aac4a6823345b76b10feba0cf94"
+    sha256               ventura:        "1177eafec71650b3a23f4d034ad4b15fd094ca6f6623bb3fbb69133b1486c316"
     sha256               monterey:       "a3b5fca2b9fbe382935b54efa49d56f07bb1f637cc1c17d90418a33ce265e92b"
     sha256               big_sur:        "ed6ceb54edc0b0bea449a75c756b604c6204f6fd80c9e280ce57b1e3d7140ac7"
     sha256               catalina:       "04c85d25d9c1e8cac2164a4b538344f95181346fd3170e65e43173aca6770b6d"
