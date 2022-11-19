@@ -10,6 +10,7 @@ class Uwsgi < Formula
     sha256 arm64_ventura:  "9f14390de18ef1adb63a98c4f5a19b146fa02cb6f99485ae513ca9fefe0e09bb"
     sha256 arm64_monterey: "9d1929c7a720d4ad1f8f8f4f8cef51bed5833e5adc5881da44e6f5b7946abbc6"
     sha256 arm64_big_sur:  "a3dfad629f7fc0aeb1df752862fe3311ae7aa1684dacf3225264187344b7ea7e"
+    sha256 ventura:        "8088e630d033c27705b52a86ee4f7622094490eaf5e0f544456e0b9c45a37584"
     sha256 monterey:       "2dc03c4a6aa1503256a73a59bc54a4abe9a478c647a0f35c63d8300f5f951115"
     sha256 big_sur:        "d25cafb4c641df72f8b3b23ece9257e7c44c2c3dbaee2fcb222e14e2e1926292"
     sha256 catalina:       "2e1ff38549441c6d30dfd1a9a43c9dff3bca37f84463c9661280324be112160a"
