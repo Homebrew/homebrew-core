@@ -63,10 +63,13 @@ jobs:
             - label: legacy
               path: Formula/.+@.+
               except:
+                - Formula/bash-completion@2.rb
                 - Formula/openssl@1.1.rb
                 - Formula/openssl@3.rb
-                - Formula/python@3.10.rb
-                - Formula/python-tk@3.10.rb
+                - Formula/postgresql@15.rb
+                - Formula/python@3.11.rb
+                - Formula/python-gdbm@3.11.rb
+                - Formula/python-tk@3.11.rb
 
             - label: missing license
               path: Formula/.+
