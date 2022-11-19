@@ -7,14 +7,13 @@ class Ktmpl < Formula
   head "https://github.com/jimmycuadra/ktmpl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed698a63ba9ac6c2456cf636946bfdddbe435f3935d7b153901fd266628e5da3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bdc914b0cfe58260b57759c3122bb838b2c865f4715fa07805354041e65d9acc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae419f6b93ac34ca8a983f23cc4740013e206554642b4b24db779411ab0becd4"
-    sha256 cellar: :any_skip_relocation, monterey:       "a6d055d30ddcea4abc0ab35b0a4c205df4690dae09fa282526d85df6b55e3809"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0a0b3e7477b6ceb8c1b32ebb47572df7ab5b050ec1d625259cf1c92c03c02e23"
-    sha256 cellar: :any_skip_relocation, catalina:       "706ba7f987af4076525132bd8867c9905d96a842a46c5f6b3991439b5893f05c"
-    sha256 cellar: :any_skip_relocation, mojave:         "3a884032f3b3d81433b6cc275637459a7dddd58db8d5f5bd5d044e07df5782c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "885513c3297b234f5c7c1011eb840e7ba47e5a0c6fd60b454fc3f837e00a3fb4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e549a6d1bf1f7d482349d5fcd6b592f7fe2281e2299ac0d8ecc1e8b45c3be605"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1714ecf6633220ed65b1c3283862d889552d8c189500614586501f72d4a6e863"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "248f481ecd9cd1354cc55fe07877c6212fe2ffc3e031ea05c67ac42b621cfe5c"
+    sha256 cellar: :any_skip_relocation, monterey:       "058e0b3999bd65c216e64d22e57f2fd82d4a602cf4f39ef6d84c3de5d47deb78"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8339361fc53cd0ede0a635cb1dfb808068b4615b477de71a3df35607edec9149"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee2d87ec29cf08bcbc3c0c32d4a818f45cda4ce17ae6006e1185b1fa3cd25db1"
   end
 
   depends_on "rust" => :build
