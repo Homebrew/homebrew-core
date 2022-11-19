@@ -9,6 +9,7 @@ class Libcue < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5a49053c126f385cb08b5e647bfcf7485a5a1a914bdea13d550d5b2cb94e84e3"
     sha256 cellar: :any,                 arm64_monterey: "f00d5a51c441a9698b375d1c2fca99a09e95dcc4a3931e2695aee332f46bd433"
     sha256 cellar: :any,                 arm64_big_sur:  "7619618f7bce8398ec7fe8ffd777012876cec3511a4bb595833770e9e631fed2"
+    sha256 cellar: :any,                 ventura:        "959f85f6095b4a938a0d76b06817ebc59893c1915420e3b30418a1ba5293fdea"
     sha256 cellar: :any,                 monterey:       "834c3966f24d06ed8ae039608372601c20845ffc718893d81044e104103fafe0"
     sha256 cellar: :any,                 big_sur:        "cedf45a5d0ce2803b22527805777d7f185e4e9875f004dddca1ccd1000364d5d"
     sha256 cellar: :any,                 catalina:       "17252ea3af3c3a75478e8526ae7856dadfa641d7eb050553503bfe383573e740"
