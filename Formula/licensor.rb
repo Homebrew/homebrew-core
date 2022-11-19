@@ -7,13 +7,13 @@ class Licensor < Formula
   head "https://github.com/raftario/licensor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c92c8617711ac707477b3af6409cf0d3fd2bb4f6ec8c64afca97713cab03355"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ced2f38da0f60e150836a6e9b5a8d4552f74779ef3059c708c1a325c6e8b7a00"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b107c7fdf50267fca917c134940c0147cd4604ecb0ad1c2df0c2deeddc62b542"
-    sha256 cellar: :any_skip_relocation, monterey:       "8444527ca924949045edce53ff444f25b96823ab8d99835d4e60cc9264576379"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0fe890312aaebe71da671a94c192c952fb46b1afc0f8f7b9f7a6933a25c8be7a"
-    sha256 cellar: :any_skip_relocation, catalina:       "16315e2c93f90aadf94c47fa73066f5d2f89c7d9d5923700a32d08a806f95284"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6dab62bd32bce3a4958d79111b496f9f21fbf7a94fa9a791fd21fc442175395"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f184aff71bc45ecea1244c55c2f7f01271ac80a46942a3e60f176d0e86ec36f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e6fbe393ce18e98a319aedae21997dce223fc2979deb761d97ce4437f77b7e0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ad74bf60d659d3523554d44db1ab486d0eee708d13bea561afff99f167a6e46"
+    sha256 cellar: :any_skip_relocation, monterey:       "3603cf3a10496131f6cdff4987b18c336b9c7b34afec1e31d722d34a58aa9187"
+    sha256 cellar: :any_skip_relocation, big_sur:        "167b3b40cc8af7b009ef8e9e61d886dd3bc356e3197c6672cf4d59edc0bbe6db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cd9933ef3863a349b7e364bcd9e135606d0b7468d2fe7402c3c688a8b3afd4c"
   end
 
   depends_on "rust" => :build
