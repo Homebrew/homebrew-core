@@ -17,6 +17,7 @@ class Torchvision < Formula
     sha256 cellar: :any,                 arm64_ventura:  "05e505a4b1f096f7fb43ef54108f02e70245267f2a98622fac536e759ceafdc6"
     sha256 cellar: :any,                 arm64_monterey: "85dadcd30747d1545d423e5382be022f08b4cbe64d4792e51ac8be2b2a6bfe65"
     sha256 cellar: :any,                 arm64_big_sur:  "74c3a9b9996b6f33a0dac17c3fc00448427849f05d3b3af96e7c90be3ffb28b3"
+    sha256 cellar: :any,                 ventura:        "2eff3282b96c376e89b839a03583528e215d211eda31cfb3830c938a8c9d1333"
     sha256 cellar: :any,                 monterey:       "6c0e377f96b59173b241a959d09ffbf1a18b2d65108488e670f6cd950e6d4c7c"
     sha256 cellar: :any,                 big_sur:        "818ed82d4d092f8b868a5dc330566d4d2bdca3692177d99d1e36ce0f3e8e5ffe"
     sha256 cellar: :any,                 catalina:       "fb7b87345a559aca821f60d053990a4cc5015ce949b4530daf2a3b662db44577"
