@@ -16,6 +16,7 @@ class Autogen < Formula
     sha256 arm64_ventura:  "3158365c07858e79995b689eb2e3d91c3e666db591d7b932d73c895aefc9ad0e"
     sha256 arm64_monterey: "002ff8cce7e99ea4013348ada75389cb74804dcf3fa810488aeed5812f160b81"
     sha256 arm64_big_sur:  "96cccae43990d233afe756eef8b9d700c7fc6ab316b3d119a809df04e04289dc"
+    sha256 ventura:        "914ff2b610598f432b4bd816bf7149c1a05a828b797260b74c53f9811f950d2d"
     sha256 monterey:       "ed4a28138185633424aa705f44e1449e5706c40f055b0e86fc58008f7400f0d7"
     sha256 big_sur:        "a26ab2c3665e3fabb1a3b3ca20f52b0e1ee0c4a0ccd12beea3af97b73d347690"
     sha256 catalina:       "45b3f716163b29ab1aab05aa9fbcf9e53bcee5c815b505165c52e80d9fa9234c"
