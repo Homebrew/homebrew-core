@@ -13,6 +13,7 @@ class YouGet < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1fc87aa728c1dea17c74a6c71e3d7fbd19973c1e0b92f3cf420f795e1504bea6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1fc87aa728c1dea17c74a6c71e3d7fbd19973c1e0b92f3cf420f795e1504bea6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1fc87aa728c1dea17c74a6c71e3d7fbd19973c1e0b92f3cf420f795e1504bea6"
+    sha256 cellar: :any_skip_relocation, ventura:        "656de5b16c513deb23076097ce237964770dff6940284bc9f9a4aa3213804af9"
     sha256 cellar: :any_skip_relocation, monterey:       "656de5b16c513deb23076097ce237964770dff6940284bc9f9a4aa3213804af9"
     sha256 cellar: :any_skip_relocation, big_sur:        "656de5b16c513deb23076097ce237964770dff6940284bc9f9a4aa3213804af9"
     sha256 cellar: :any_skip_relocation, catalina:       "656de5b16c513deb23076097ce237964770dff6940284bc9f9a4aa3213804af9"
