@@ -7,13 +7,13 @@ class Rhit < Formula
   head "https://github.com/Canop/rhit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "86d59f681928be83864c1f686a64489f92d79009a4cb4a48af0fef430b8e639b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a144f84aa0cc833bbed3531beb7178fea61bc2de09bf50d73282fe86af249a7e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a4733b9c78b1d3f903d0a79dad529916d72b5452fd24e33882454cb24249aed"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b96477e24e66323fc53ee385d478dd0d62e648470f1ecb5d1cc10b53015dc40"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6f1f7f492c158b1ec6df2c1236ecd011cc82271e30678ab7e8ed8e1e7f1e500f"
-    sha256 cellar: :any_skip_relocation, catalina:       "0670c75c7b3157ef50cf1b62a8909ea9d75254c513901e7c94c3d71261ad580c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fa24d263da8858ef4e9d7cf4ff32beec5e25bbed4a6e8d7c28667c69268bc35"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2dfde40e1010bed71f65705183f02c82d6123d3396cbe415ea2005d0dc077606"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "acc2568759d68ee8fe6f6025d9ba6aa862c82ef7e3998d6721eac3659896f780"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d726e22f8e9d5f4a015415b5cc62ceefca2323f12b2b5d664711dfeb93791730"
+    sha256 cellar: :any_skip_relocation, monterey:       "fed23fc40c646b81ffb88646b4db108c9fa8a12c172d8511c5675380a9760189"
+    sha256 cellar: :any_skip_relocation, big_sur:        "065efb5cce2cbfabccc0229aec870d3456740c89e4c1516e50237337afcb05ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd3b5255f4ae00a70c62a93017ae41a2147892d002a1a774070f4708012c7cd3"
   end
 
   depends_on "rust" => :build
