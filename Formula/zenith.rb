@@ -13,13 +13,13 @@ class Zenith < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d6e68206b3473e3b1dfefc1c520bfe0d497168fa28332cd909629e9904a87cc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "df4b38d5c3c167660e4fa6b3d0f3de6b40e16f8b11271a30af12b583a68aa806"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd23eca4646c5194bdc400bcb2d5a8661a68f96d95596c30a784671c6fd3b51c"
-    sha256 cellar: :any_skip_relocation, monterey:       "a3a8c6ad3b806d7c635eb55cb37f781f28f853a1493a55bb70ed407cb161c8f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7f50dca2bd86eeda17a7c0819470d5d969708f119a58307f164fe5b928401a93"
-    sha256 cellar: :any_skip_relocation, catalina:       "9dcb4f2c8781f406526a1ccb1cb31fa60e99f96cbc21ccec0faac88c03feb5bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09210872f3b111381d32b0d53bb176b183ac2180e08f417f6e6aa0a4e9f7dbd3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9704d8a28d5a9aa3c91ba4f60666653b8edbe24cbc7f45c5926f9ed645d24944"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1a9ace0e4078128fb378c9487dc2469526325d2c625298217ef1f8b5daf5a47"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eeeeac8902c3edc9d2b70a3a88640c855c47756787189174bccd417493081052"
+    sha256 cellar: :any_skip_relocation, monterey:       "942ee49856e4fc203ee1b270c07169f48ab349cae845b9a46d73c59692789ff9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bd572e0fb6e05f01b949aadd9d501e0a301ff2220daae4592eedcd92a18b42e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3332cd889a08fda83dba1b841b6062d8d5ea9a062d4b32f5d21aa44df2b79d2c"
   end
 
   depends_on "rust" => :build
