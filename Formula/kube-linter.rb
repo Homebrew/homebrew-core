@@ -10,6 +10,7 @@ class KubeLinter < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e2679ba2dc6b96d306643b992659f7a25eb25751d3bf277bc4ec80b50cfefb5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f41824152570afe2ee2f5bb16f8e544905328e5b19bc86a143cee6bc4165fef7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f41824152570afe2ee2f5bb16f8e544905328e5b19bc86a143cee6bc4165fef7"
+    sha256 cellar: :any_skip_relocation, ventura:        "5a814f821c074d1bbd659160fc5cdde841b45668f22bf491834396236d83d3b7"
     sha256 cellar: :any_skip_relocation, monterey:       "6afe851068045910e45c3385d6dcc4a81a0b947d0e1171140d80987faa65f8fc"
     sha256 cellar: :any_skip_relocation, big_sur:        "6afe851068045910e45c3385d6dcc4a81a0b947d0e1171140d80987faa65f8fc"
     sha256 cellar: :any_skip_relocation, catalina:       "6afe851068045910e45c3385d6dcc4a81a0b947d0e1171140d80987faa65f8fc"
