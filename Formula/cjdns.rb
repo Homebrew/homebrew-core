@@ -7,13 +7,13 @@ class Cjdns < Formula
   head "https://github.com/cjdelisle/cjdns.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "221653247556f80e152bbc891cad0678e69d4eba2a4679bee2d8ad648f82f19e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c48aa4df04535caab99cd5c645f4ba339a88d9c3bccecb5a63632fa74f75cf1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6eabaa1782af8d391877acc7c9448791458d05e78c78d7efe17a171153273a2f"
-    sha256 cellar: :any_skip_relocation, monterey:       "e6acfc82d7cd2878c581eea1e8b4b0b3b1ca6244a7ed8332fc94b8c63c9640bf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "50872d7ab683ad6bcb899d3746793b3792c0a609736b8f1a3f9badaa9ab2b17b"
-    sha256 cellar: :any_skip_relocation, catalina:       "df4aff8124a740742b35a22b66fc4e266110ffe6987089e08ac453783a80f43e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b20f0604ee2f09127ee8546a90fbed715123c19acc214d2fab06d88ef157985c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16f328c324d814cb4e8f640fd582b94baa59dc0f46486b0f36c2a526cae1b411"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "83df6698c19323e2bfef31db842073404c7b32b92e0930f87c266ed28840febf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6aade619d0ed1a435ef4b9a2dec7f06b789c19c7fa2bcea0f526b9a9034129e"
+    sha256 cellar: :any_skip_relocation, monterey:       "bb657ba499e1644b556eb609b7f8a0354fc850719c7ff4f44ac317e266f60fd9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a8a9025d30e0e861ffdddd5a753926dc503eb7d7e9ea815773b4944da56bfe13"
+    sha256 cellar: :any_skip_relocation, catalina:       "af362a1e5aaf21b04763557b7bfde820d28da74e7a072be24aba6b0362ab9ea3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7717c4aa96f3cd4286a9848870252ad60d9290c2d6026d409d257463f2c42bd2"
   end
 
   depends_on "node" => :build
