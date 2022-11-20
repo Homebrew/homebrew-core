@@ -13,6 +13,7 @@ class RobotFramework < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c4800385431780805c0908a1dd2494e1371099cfd94a929d19039eead5fdeeb6"
     sha256 cellar: :any,                 arm64_monterey: "c86f80e5f4983d7910dd45c3276f010e2ce97df9d35b7ba892d68be0bfb502a7"
     sha256 cellar: :any,                 arm64_big_sur:  "2b2ccc704d6f6c9c9bad543d5de83b5679dc661cd4b0f7be9303b5014de35c85"
+    sha256 cellar: :any,                 ventura:        "8cd12098ded419bb396fc71d238d49930b281f1862f7ca6951309cc4c8231567"
     sha256 cellar: :any,                 monterey:       "932bedd1165d173778b5427f593c790bfd1a877db4f4f00aa0beebf07461e4bb"
     sha256 cellar: :any,                 big_sur:        "4983c7cfea2277b34064b2ad08269af5381fd65b79964f64f67794781ccc209d"
     sha256 cellar: :any,                 catalina:       "7ac3dcf41cfff7ea20a08ecf76d72443f08e055a1bb3c1c306d6c4dcc736567d"
