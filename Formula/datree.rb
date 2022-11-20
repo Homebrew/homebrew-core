@@ -15,6 +15,7 @@ class Datree < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ca82193fe4049e6fbb0a51c353c33431e289e6145c58c972332039f4d352389"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "adb66835708c0570e2da608517b3829622de4a6037fb896af1789fef64f684b2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "29856a35b7785911f6e317aa62871eb83a896db7f1062fd2772e6661a7a171e0"
+    sha256 cellar: :any_skip_relocation, ventura:        "b58170125dc7c9a591ccb668963185074b6c408bb2500a88e540c5a3c6d775f9"
     sha256 cellar: :any_skip_relocation, monterey:       "9376132367987219513c52e64888ffabf1e8e37def7efe6c0f22437d52d6c212"
     sha256 cellar: :any_skip_relocation, big_sur:        "e08d4ce77d247b8a96d5dcc43b0f0e8040c20a6abb713d63debff1acb12b8d7e"
     sha256 cellar: :any_skip_relocation, catalina:       "0cc52826465542026dbe6c95f52ddd79a58d92670e353ea5c013f82cf7fd9b79"
