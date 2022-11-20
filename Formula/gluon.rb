@@ -14,14 +14,13 @@ class Gluon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb0ca82a9d8791cc2ecb55f93d913256a4bd741b9c96ec1e65580f3144d0717e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62a081e09aff7da0df608c4b9c7a852e75c2226d5953bc0a938af6fb716b793e"
-    sha256 cellar: :any_skip_relocation, monterey:       "4e0368654ce134df2cbf05aa1f3d449019a34dc1c9b30a4d44cd89c58b82fa87"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4c46d2aa89cd80b3fd135f8160019076bc0f01a208a561ef63d84e7959a5d64e"
-    sha256 cellar: :any_skip_relocation, catalina:       "abea6a7007ec7663a5d3d8994a8028412843d45210b5b17723f2bcb0dc43134b"
-    sha256 cellar: :any_skip_relocation, mojave:         "b6a865cd7da1a201a008ae65478191082501e1dc9ab7b6dae189e4f2f2bef8e4"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "847b61a0a4b7d4afc4598301c5bbf6afac3e70c737cdb0a26ad0438db42b1e44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79ec69866a1f38afa5fa00eda1c76817b2b81162f7977f9da1ad0efe1a3f111b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "772237093841dd3c01a7370dff7f9a36a22db5661b5838129b5e64836838ed46"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "856724c80aca4147aa43da1f46c03113ff95364e38e6dd9d1eb60bb393630f0a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d97b9493f40381d9df5020efc6b36b99854a7f30df2d032f2c230705acf09dff"
+    sha256 cellar: :any_skip_relocation, monterey:       "68a5decef287473baeeb071ce82c2662a3076a6acca56d1026e02e9a4ddb6cf1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a9db415b52c1f8113f7c3a46478282dd627a8c9035772b8455968888c96a8b7f"
+    sha256 cellar: :any_skip_relocation, catalina:       "873f425fb7417041c09b67efe496f1bb99b7631f2a24c2e9115875f4efe7e273"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8f2c8e631a2a1c180688996cde7d4e87dcd8f257c74a0bf5ac61798ffe48530"
   end
 
   depends_on "rust" => :build
