@@ -13,6 +13,7 @@ class SshPermitA38 < Formula
     sha256 cellar: :any,                 arm64_big_sur:  "ddc1b8ed3b76e9acbce18af5b81a4cf16942821a3e328843ab99c954b80c69d3"
     sha256 cellar: :any,                 monterey:       "f45f37f3fdbd00b71083b3039cc95e38c77e3f49ea7d8c6d69713bc6833738fc"
     sha256 cellar: :any,                 big_sur:        "be4350f56a90a669e3406b1fc47569970d7282b2d17fa3b72b0655a7a05afd82"
+    sha256 cellar: :any,                 catalina:       "7c6141113cbb8821cfc7c5b88c5b29a5290585f923898eb3ac04fcbc3b060ed4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef88b670035ed8bc6bcba5290a1bf297237a7abcaeb243c1d686f0e45683cbd7"
   end
 
