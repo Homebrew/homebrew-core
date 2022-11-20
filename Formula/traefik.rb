@@ -10,6 +10,7 @@ class Traefik < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e872420fd10ee7758ba882fa48b98a367b3431c1581942cf2bcd9d6451a682d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "047d70be07d6d5029b5a0f8a70085fb5270d330f020e3f677ec7461c11ffbc21"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ddc18c657bd4aef7514ae4acaf3b617b2c0919ff1d02cb8a3035c355a633389b"
+    sha256 cellar: :any_skip_relocation, ventura:        "3f7157e58a516a10720f6dce4d7c85e40fd650f7549b4c11298c9acb11a6a4a2"
     sha256 cellar: :any_skip_relocation, monterey:       "9722516b167609ef4e59d2d1e70cf6955595f92c5321bd179b95ded045a8a509"
     sha256 cellar: :any_skip_relocation, big_sur:        "ba30dfbb91ca5896a0b4da0bcc1f9fb690f723bfacb22848ba3b90e122c3abaf"
     sha256 cellar: :any_skip_relocation, catalina:       "e10a350d55e05b0bf6d46c54d93ad3435dcad83e567b040cbdff3105425acfbe"
