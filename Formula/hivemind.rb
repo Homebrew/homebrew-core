@@ -10,6 +10,7 @@ class Hivemind < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "607a7cc36605a2a8b01952dc7d5755995d57370cefa3ea320c77c893d1cd9e93"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f8ca06b6d2dde91c66cd6af2396a58b40e6be52e51fa738f24ff2e23376dc60a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f8ca06b6d2dde91c66cd6af2396a58b40e6be52e51fa738f24ff2e23376dc60a"
+    sha256 cellar: :any_skip_relocation, ventura:        "026944b2be6f616212ad147c3b9ce9bba4a18929f8db3edcee75e2eda6abaa20"
     sha256 cellar: :any_skip_relocation, monterey:       "eaedb2b4739dc4e668ae9bf563750e1bb54fea1f16e800f6bf496226dc1daff0"
     sha256 cellar: :any_skip_relocation, big_sur:        "eaedb2b4739dc4e668ae9bf563750e1bb54fea1f16e800f6bf496226dc1daff0"
     sha256 cellar: :any_skip_relocation, catalina:       "eaedb2b4739dc4e668ae9bf563750e1bb54fea1f16e800f6bf496226dc1daff0"
