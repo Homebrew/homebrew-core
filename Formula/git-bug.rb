@@ -2,8 +2,8 @@ class GitBug < Formula
   desc "Distributed, offline-first bug tracker embedded in git, with bridges"
   homepage "https://github.com/MichaelMure/git-bug"
   url "https://github.com/MichaelMure/git-bug.git",
-      tag:      "v0.7.2",
-      revision: "cc4a93c8ce931b1390c61035b888ad17110b7bd6"
+      tag:      "v0.8.0",
+      revision: "a3fa445a9c76631c4cd16f93e1c1c68a954adef7"
   license "GPL-3.0-or-later"
   head "https://github.com/MichaelMure/git-bug.git", branch: "master"
 
@@ -27,21 +27,16 @@ class GitBug < Formula
     man1.install Dir["doc/man/*.1"]
     doc.install Dir["doc/md/*.md"]
 
-    if build.stable?
-      bash_completion.install "misc/bash_completion/git-bug"
-      zsh_completion.install "misc/zsh_completion/git-bug" => "_git-bug"
-    else
-      bash_completion.install "misc/completion/bash/git-bug"
-      zsh_completion.install "misc/completion/zsh/git-bug" => "_git-bug"
-      fish_completion.install "misc/completion/fish/git-bug" => "git-bug.fish"
-    end
+    bash_completion.install "misc/completion/bash/git-bug"
+    zsh_completion.install "misc/completion/zsh/git-bug" => "_git-bug"
+    fish_completion.install "misc/completion/fish/git-bug" => "git-bug.fish"
   end
 
   test do
     # Version
-    assert_match version.to_s, shell_output("#{bin}/git-bug --version")
+    assert_match version.to_s, shell_output("#{bin}/git-bug version")
     # Version through git
-    assert_match version.to_s, shell_output("git bug --version")
+    assert_match version.to_s, shell_output("git bug version")
 
     mkdir testpath/"git-repo" do
       system "git", "init"
