@@ -11,6 +11,7 @@ class GruntCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e878a48df0184f262a7d4a0d4967b7623f9327e29206faaf90758664de3dd19"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "38f67054b492a11847be41d443b32c017fdbb9b94265ce42299675ea8742ef99"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8eafad607c94848c1bd74eca2a52b92533f399247c85d4de923ff12367ce2cda"
+    sha256 cellar: :any_skip_relocation, ventura:        "1caa9aaf12306e326ffeabc633855bec97c1a537506d8bc09a88a8869e4fd909"
     sha256 cellar: :any_skip_relocation, monterey:       "af276cc7570d11abe7da586cc0dfcee75947df3b58bcd29892722d8654649668"
     sha256 cellar: :any_skip_relocation, big_sur:        "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
     sha256 cellar: :any_skip_relocation, catalina:       "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
