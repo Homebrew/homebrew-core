@@ -14,6 +14,7 @@ class Ringojs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f0a28d7fa18573dd40579d1c426a439634af2d5f26298a973b105cd0cc07ef2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f0a28d7fa18573dd40579d1c426a439634af2d5f26298a973b105cd0cc07ef2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f0a28d7fa18573dd40579d1c426a439634af2d5f26298a973b105cd0cc07ef2"
+    sha256 cellar: :any_skip_relocation, ventura:        "bcdb0ab170dd1514ce780db40deca17ab9aa8e879d1886b62ea0f5269402b589"
     sha256 cellar: :any_skip_relocation, monterey:       "bcdb0ab170dd1514ce780db40deca17ab9aa8e879d1886b62ea0f5269402b589"
     sha256 cellar: :any_skip_relocation, big_sur:        "bcdb0ab170dd1514ce780db40deca17ab9aa8e879d1886b62ea0f5269402b589"
     sha256 cellar: :any_skip_relocation, catalina:       "bcdb0ab170dd1514ce780db40deca17ab9aa8e879d1886b62ea0f5269402b589"
