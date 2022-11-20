@@ -11,6 +11,7 @@ class Ppsspp < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a5d42c30cbad8d7eb332aa520d07832bc8026fa32705be36a220e2fab82af317"
     sha256 cellar: :any,                 arm64_monterey: "13bffd8ebd5acc25e6be6747fc2fa7a99582cecab7b2085bcff4ebba8109c63c"
     sha256 cellar: :any,                 arm64_big_sur:  "468aa96721c46a7051f1903b08c58b1eb4ab11d9db483eabf4a9aba17218d941"
+    sha256 cellar: :any,                 ventura:        "ec8b33a154ee0695f0132975e7416d6b9fb4cac85c92271d75e2446ae5155edc"
     sha256 cellar: :any,                 monterey:       "3e9a5da2560205a7afa1715c3d635949013efe6e950ac19ad8417685cff782dd"
     sha256 cellar: :any,                 big_sur:        "6f7bf991ba10cc703fc083dd646533ceaf7aff54df3cc69570b08b1503eda67c"
     sha256 cellar: :any,                 catalina:       "6b009ff1ab96a7ee01cbabdaab0484bbd1af093f2d1da9d19864fd95cd814f37"
