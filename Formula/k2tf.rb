@@ -10,6 +10,7 @@ class K2tf < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e813b7e8f7b2316c66da926e261d019d3d261114ca4aa2ed0b3348ac4f7ca67"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fae4ecfeba2b2a0a70b8029856a07b91af0cc54534ae0eb526dcd0eb7ef03b38"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a4d8b67c6c889d4e309bc92f387ca32539460de38df6b7d37d46dbc020d24c6d"
+    sha256 cellar: :any_skip_relocation, ventura:        "080fe0df1e7caa7e660bb1213916ae1d139c4309c3e1e60100b202c68ae9837f"
     sha256 cellar: :any_skip_relocation, monterey:       "0be13024e37cde90792989744d82eec44558f34f1a8537874a36031c13bf6656"
     sha256 cellar: :any_skip_relocation, big_sur:        "7031f0ba068d3425128ed2b23ae8ac6cdd7578a335fd7375abecb3f5537984c4"
     sha256 cellar: :any_skip_relocation, catalina:       "ccaa5b31b3fa878f8917ff1d6f9c16246894f0c9130f1ed9c4072b94dffa08bf"
