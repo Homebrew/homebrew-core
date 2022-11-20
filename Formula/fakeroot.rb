@@ -9,6 +9,7 @@ class Fakeroot < Formula
     sha256 cellar: :any,                 arm64_ventura:  "52c8c0df164c33131f151529ad3abae12c40afb58c25f3b2118e6003289c6b22"
     sha256 cellar: :any,                 arm64_monterey: "7e0e4ef8f43b55ea24a0e11b436b96263af4ab80c8a90b39d1e4d479633a31fb"
     sha256 cellar: :any,                 arm64_big_sur:  "38e3a802475e1ca4a146a7144f84e94925257331761bf841218e557f0556f988"
+    sha256 cellar: :any,                 ventura:        "6e061df8a3faff41f686699d9961e598c1715a5a9ee75a41aca5dfd1ca2a2577"
     sha256 cellar: :any,                 monterey:       "2522875d0b65d593eebbeecf71e5ed9fe38e3a911abce60db45bbfd1ec5a139c"
     sha256 cellar: :any,                 big_sur:        "8e0d19fe2fa84595407862beca5457a1b258d48eda689bd1cb0ca84fb966f7f1"
     sha256 cellar: :any,                 catalina:       "ec8a523ac84e27ebb81e3cbc41b619fb8fb7cf4858c6d2ada62c2b39a3461885"
