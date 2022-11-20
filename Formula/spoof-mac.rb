@@ -14,6 +14,7 @@ class SpoofMac < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "35b87b120597b9e19bc14586ef66fde370b95ab1f175c1cb355b8dd5d5a1a900"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "35b87b120597b9e19bc14586ef66fde370b95ab1f175c1cb355b8dd5d5a1a900"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35b87b120597b9e19bc14586ef66fde370b95ab1f175c1cb355b8dd5d5a1a900"
+    sha256 cellar: :any_skip_relocation, ventura:        "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
     sha256 cellar: :any_skip_relocation, monterey:       "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
     sha256 cellar: :any_skip_relocation, big_sur:        "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
     sha256 cellar: :any_skip_relocation, catalina:       "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
