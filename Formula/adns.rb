@@ -15,6 +15,7 @@ class Adns < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d22492ad638ea6ad3ffd4901f98eed339203524598b7a5128f11dd2c852f1ce3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6e1692fbac033b9a03740a68b5f9dacae5d743f1f73e1b5b76ba12968e12eb99"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12b6d675f6ca3782b27be8c241f104435f649c84aa91e9173914ec79542ea01b"
+    sha256 cellar: :any_skip_relocation, ventura:        "1183891047dc4f9c7bddb9b178bf2922e0f6dd9851949ad11aa80f9bee7ad0af"
     sha256 cellar: :any_skip_relocation, monterey:       "406ce641ec1c8f542e1cbfbada2b199341e93ff7d55b09757587c02f3a997487"
     sha256 cellar: :any_skip_relocation, big_sur:        "8801de53f606e09e09a2bf27a17d0724cc54557328b859ed337315104eadbcc3"
     sha256 cellar: :any_skip_relocation, catalina:       "d9cc50eec8ac243148a121049c236cba06af4a0b1156ab397d0a2850aa79c137"
