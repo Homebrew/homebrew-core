@@ -7,16 +7,13 @@ class Wagyu < Formula
   head "https://github.com/AleoHQ/wagyu.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "990c5e509b9587f32004595e6d28bc553cb78923ad39714f9dc0d2f6bcb13ea7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2c14c7661079d5874264f57eba98869611af37c89f8eb65b721200a4b252946"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42345a553422087010c9a64ac44910b4872eda94fd1cbe4adbe8d8a3959ae0af"
-    sha256 cellar: :any_skip_relocation, monterey:       "80e29f883d5202eeae50bde81d9c920daca36c4329096dc89b642242c71c4c08"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2b818f64c4f18e5fc7694d89f1bc1d038a0095ede55e3a5ecec2c80a0a04fa1d"
-    sha256 cellar: :any_skip_relocation, catalina:       "69e6539d7e3801aaea4cd14acd48684f703a4c1cac0f04790d3ada827daf77f9"
-    sha256 cellar: :any_skip_relocation, mojave:         "0b6fd9b45280ecac2586b191303e0e643ef14c85cad06b6aca73e51e7af6ae46"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c2175413a53a69da950ca7b879afc882f2181a34cb633e823bf2a3dc29675fc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50ad7922038829492f1f2bea64d1be5af4443ca3f6ab5aeec4bbfe3a37d5ceb8"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "57802d359431dc4eefc7b5b38d70be730221ef164ccd327600e350eb9244465c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ddd3c15f7b61762da075af23b4139550f61109882648de03745dfb8ac859d412"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a1163611ed4e907c5458922ca04ab13d6bb1c2f84b7de13d186f3e2f13ada34"
+    sha256 cellar: :any_skip_relocation, monterey:       "0a09ccc659885bddbe3daadfda30eff1a4f88bad1e2e4582567451013f855b3d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c3deaea08b0f90132b84451b50bcc6fc5dac9e5cf540c2ef18c3c2a7ce61f8d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a81b1c07ee67f4e0cac9e8a7ca17720e440b40c14d66e76db3f5945f862eadb9"
   end
 
   depends_on "rust" => :build
