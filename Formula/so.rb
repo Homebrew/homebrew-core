@@ -12,6 +12,7 @@ class So < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47389e3710448b5bcccfd92eaa3624c347c86e911baf70fb4a5d41580289f696"
     sha256 cellar: :any_skip_relocation, monterey:       "abd12b88855ecd1f853a8fb926ef0d1ecc20541a5b4e05f7ef03ef5759f80598"
     sha256 cellar: :any_skip_relocation, big_sur:        "893ed4998287a50c96a0332700f4c98ec56817c7e6f00423fdf5cbac9ffd3453"
+    sha256 cellar: :any_skip_relocation, catalina:       "72337e5a8cf8a9b8816b9a236f17ee36ca0132c99160bfe0e472351131cd64cf"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a30a6cb07820c5a35331564e09cd7530baa7f976d5bc8648ca9f8aeb1e803fa"
   end
 
