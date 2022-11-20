@@ -24,7 +24,7 @@ class Scrypt < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "expect" => :test
 
