@@ -15,6 +15,7 @@ class FluentBit < Formula
     sha256 arm64_ventura:  "daccc7851b1caf153122a4dc739ae7553783cdd41961ffea6ffd162431bf4774"
     sha256 arm64_monterey: "9f723bc0ddacff4111bb85353581268699ce329be2ebc9e63a1f85894980856a"
     sha256 arm64_big_sur:  "d6abe2db1e18c7ff88d7592a46ff106606d610690fe7d036e90a437a842eb49d"
+    sha256 ventura:        "d94908d12a51ed32fab6529b167df4b22644937929fa3e0e4e4487cb423b5b3a"
     sha256 monterey:       "2a1debaf30cbf27a157e89969964e4cfed66a34465dfbfdea0cd0a062ea32ef9"
     sha256 big_sur:        "11db473b6d0b1c78431b5e3e2bb5d1c90cf4bbe5f25581b3e37dc53451dcce20"
     sha256 catalina:       "1aceb9c24f5b169710f8e4ec12beece8322dfce7005d21a3e342f73e3a430d1d"
