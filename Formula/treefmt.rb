@@ -8,13 +8,13 @@ class Treefmt < Formula
   head "https://github.com/numtide/treefmt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d71ac3ba7e2e3242a3fd2b8a84bf784d8251503f9015cf01038107dacde07080"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e36fe5005a33042c3ce54228522d283457deedf874fdd5b37f7cca0ae6d30bd1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab43b82b98d0895b80671222f2358a43b7da23efec5e1c08e5bd81fbb18b339d"
-    sha256 cellar: :any_skip_relocation, monterey:       "d9ae614037e3cf4fbdfed41aa43d9bb92b500a0cd4b482a41d58731b2c3f61b8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cd0e7c598a3bc722fc45a7eb855d369c166a14e74d06fe0fa3867752e72b58d5"
-    sha256 cellar: :any_skip_relocation, catalina:       "c6b66734069db2cba8df597d2732376424cc186b90917a89de835ca8b86190d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9eb9b5430704c5e5b23f4c74eb31d40aa005ee4297e52f1c392d658320247b30"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "848af1802dbd4b2e155842f0d4d88f6c93890ee9e8b7913a17df9891a1884b8b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70693c71f8e8d0d6dd747c5bb42effce35701cd1dc48654a53c293e07d0fb093"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "070f05b40ef90f9cca25281b022cf06e32214cb4bfe8ebed446521c4c7cc0122"
+    sha256 cellar: :any_skip_relocation, monterey:       "083823b01f2d0241b4f64f1b48e887d5a8e6fd6fec3f4403ec83ae5e2eef9173"
+    sha256 cellar: :any_skip_relocation, big_sur:        "75d9369e6f359a4beb25c2f7eaede113aaf5e8e9c8698d85f2ff3339af02b1d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e635602de192435ca5dd8f7c744520d16ff10eaacabd92f536e9f10ee7a81eb"
   end
 
   depends_on "rust" => :build
