@@ -10,6 +10,7 @@ class Xq < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1274f9e951a45dca87ebed334d426bc90879300dd88a78b24f55af1da2ff56a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f1274f9e951a45dca87ebed334d426bc90879300dd88a78b24f55af1da2ff56a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1274f9e951a45dca87ebed334d426bc90879300dd88a78b24f55af1da2ff56a"
+    sha256 cellar: :any_skip_relocation, ventura:        "9bafb661146051bf917acf4ef0acb7e8f86a1346d64e4464d406684598ca0019"
     sha256 cellar: :any_skip_relocation, monterey:       "9bafb661146051bf917acf4ef0acb7e8f86a1346d64e4464d406684598ca0019"
     sha256 cellar: :any_skip_relocation, big_sur:        "9bafb661146051bf917acf4ef0acb7e8f86a1346d64e4464d406684598ca0019"
     sha256 cellar: :any_skip_relocation, catalina:       "9bafb661146051bf917acf4ef0acb7e8f86a1346d64e4464d406684598ca0019"
