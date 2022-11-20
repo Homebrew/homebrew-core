@@ -34,9 +34,9 @@ class GitBug < Formula
 
   test do
     # Version
-    assert_match version.to_s, shell_output("#{bin}/git-bug --version")
+    assert_match version.to_s, shell_output("#{bin}/git-bug version")
     # Version through git
-    assert_match version.to_s, shell_output("git bug --version")
+    assert_match version.to_s, shell_output("git bug version")
 
     mkdir testpath/"git-repo" do
       system "git", "init"
