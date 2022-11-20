@@ -9,6 +9,7 @@ class Mailcatcher < Formula
     sha256                               arm64_ventura:  "767b2931a3c17d8c96a2468051f06061a8196fe270b6b6bb15d805820bf37f6d"
     sha256                               arm64_monterey: "3be13e4d6da19162bc7d70f201185fdb3f7dcd1b6207d632df446a3adc9b27dc"
     sha256                               arm64_big_sur:  "f1a3d77e3f95325952f78a408eba5e08b125b962f47a12265afd80489458f077"
+    sha256                               ventura:        "866f5a5e8ed7b4ae7c6f9f436d22e38dfd3d0d5fbe4ffd895b31934c2d1c709c"
     sha256                               monterey:       "d33f530eef6e1f7455c7d2dd36fcf75472a709f76118da99d82d207034b6f484"
     sha256                               big_sur:        "4f8ffd6afc2180fb12b59fda6ff9346ff2bbf6e6e10e685286cb161f706179b6"
     sha256                               catalina:       "5bb1102c3a30c01a72f6b6a44ef0d19c35f434b32960cce7b2a3aa19c4ccbf20"
