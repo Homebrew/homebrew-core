@@ -9,6 +9,7 @@ class Zzuf < Formula
     sha256                               arm64_ventura:  "16fc98439ca072e8cf19c129649eff99e63e0cece1c1455e97f04ce7cb4dfd73"
     sha256                               arm64_monterey: "8cf189e969a94737e6729be772df9f64759b7c33580cee51d571b31365dbddf2"
     sha256                               arm64_big_sur:  "7ff801dd276cdd8f830d07d01c97a83207ed8ac77c6023ff21b29a2ec536637b"
+    sha256                               ventura:        "397eb044876f87b27787679b9a8f965da0aca9251386aa2a6dbbd1b5ef8cd3c9"
     sha256                               monterey:       "2cfa284477cd1e81ac3b248a20f25812083fe7b592a997ecbefee7663cedab91"
     sha256                               big_sur:        "284b235c4c744d7be86fbe6175a8d67a743a429c8021437182a31e6184105437"
     sha256                               catalina:       "809edd89cf9bd285a0f5496500627aca8b4b4cec071bfd747eb7ae3918526ae6"
