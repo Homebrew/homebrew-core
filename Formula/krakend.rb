@@ -9,6 +9,7 @@ class Krakend < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5eebc41b5f9f7150704d7078f8438ce58d250493e316c90cd76fed295cb99a70"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f62971146ee9f0f2a3ff9067d17914c2bb08deabc03b3f215189d75378f87064"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b660f57fe4eb4823510fecb55b2ab1dad7d660f80c538e37183845b0ec21c10"
+    sha256 cellar: :any_skip_relocation, ventura:        "b71850722965c822d56819ebd82b9a72945727f6a148b12ac2095a371ca64a3e"
     sha256 cellar: :any_skip_relocation, monterey:       "04e3b0df464ad15e684502d79ab907eac57e107e42f6d09507c0028717033654"
     sha256 cellar: :any_skip_relocation, big_sur:        "3b97d035d8b455883b0584f67e2538be87d36e9c7dc3785093aad69819d6480c"
     sha256 cellar: :any_skip_relocation, catalina:       "a8e8549baf50408c1b52857d78827a226ce76c0a85b8b1fd65035f48b57824ad"
