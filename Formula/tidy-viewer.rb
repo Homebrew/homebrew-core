@@ -12,13 +12,13 @@ class TidyViewer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1428be8a1116e5d86e9f506f35d5b27b9a6a664e38eb9542d3de7f044ad76285"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f767ffdd3274e903487c26772d9728858846174a7558c4d8d6c5d82d6b02d93"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ced1cc0f584974de24949023ba0fac33091616ef3fac7f518938de89c86d1d03"
-    sha256 cellar: :any_skip_relocation, monterey:       "0adfda2b71895f3963997200aa5d8ad3f262508729a7135a2ea9fb00e47b50c0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6a48cfc429300d2484a4f96dd7a997347e7593757b20e9d576cd62e073aea7bb"
-    sha256 cellar: :any_skip_relocation, catalina:       "9b51e1ba9b6b27314f0d392d136d34cbd5148f322dfc82e6e92300dd3bb8c2d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d9e873c0d5fddb922187101c10a9c9b747eb1cc66c2443a297deafc58334927"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "429da929eba086c22f3708e91b00e10825022f10e996d2553f13f475ea47edf3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2490d337a310788ad1e95332dd7cc4f3badc9fd40d26084e58f6abfd0672fe2f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "388a85cce1b3c584d129dae97ef8abf64d971545d71fdc891dc6dad3bcf73f22"
+    sha256 cellar: :any_skip_relocation, monterey:       "0013516e566f4828c75273d3661fd8b1e73b4067888b9c4678189bf4321662a4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "114e75cc03febfb53edfe1d74e635f3d888f48dd3941527cb91f6ff275faf107"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5afd1a8b09449b7eea4602e2a0850cead81ffcb341253f9a16f0a209c6d5b5d"
   end
 
   depends_on "rust" => :build
