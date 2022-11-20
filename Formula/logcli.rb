@@ -14,6 +14,7 @@ class Logcli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e30c9d6da1e5a098acc4c57d5d2b08b102b4dd6a5d65e150a86f2e66006e89f8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a70ba2e57d29b261e09ac15f53489d7f0ff63e3f90d011b03cd9554d1bb99086"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b555e614c1f2bba433124a04310801ed89065cb69a1ca0086316375d173b1351"
+    sha256 cellar: :any_skip_relocation, ventura:        "ed56322e2e7a51ec00ffd45ca4320c1f5c1b0e9d2f4e8a6a2333707c217dec66"
     sha256 cellar: :any_skip_relocation, monterey:       "8a62eb2c98b7dc08ec0e93ddb86c5b189a7059a0ce7ea3133c37ef254a964b61"
     sha256 cellar: :any_skip_relocation, big_sur:        "78e5824b3e1e5d2bbb52a83c338768e8a8655a36bc92e0a53c7e1003fb5ab29e"
     sha256 cellar: :any_skip_relocation, catalina:       "26403cd3898a625a3dd02a561565a814a852bf4104c2649c95e5a569a9afcf65"
