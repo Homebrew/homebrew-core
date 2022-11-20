@@ -9,6 +9,7 @@ class Hpack < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5a3a2a22f4ec0040e49ea3c9f0cee6b0aa9088626b145c01db092364f951b87a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "151c61eb08afd855006104db4ad884225afa63b562ef1b5261986c5ad67b85fd"
+    sha256 cellar: :any_skip_relocation, ventura:        "5c1891ae0a2c5fbbb3a41007cf1b4d08915af6470bf812178fe9f448daf47001"
     sha256 cellar: :any_skip_relocation, monterey:       "b2ca3c047995f49715b8a9f5f7b8e18611d33699b9d910fe3f2c39955bf01be7"
     sha256 cellar: :any_skip_relocation, big_sur:        "9d3a127911fe1c275e37351611d5d8b35bf6009b6006c9df9a163072ee8d1c3c"
     sha256 cellar: :any_skip_relocation, catalina:       "35be3997828e2752693e8f02b80bfd918f3e9d3707364e8aa0f5db552504a104"
