@@ -15,6 +15,7 @@ class Flint < Formula
     sha256 cellar: :any,                 arm64_ventura:  "8f7dbbc531e8d64fa8c92c8bf767ab46314143ba084d486520b080a6dda5fcd6"
     sha256 cellar: :any,                 arm64_monterey: "be89510010a3268664926b3b400a6bfb04c68bbc49e1458db1ade0d394cbc585"
     sha256 cellar: :any,                 arm64_big_sur:  "c1ba1710148d555a57c7b0ae9623c5799af577c3cdafb8286f57bd623eb93528"
+    sha256 cellar: :any,                 ventura:        "ebb8795940d7d8d89f0ec7746804c4b2ebb4da8ba00fd6dc513aa2a1f5827797"
     sha256 cellar: :any,                 monterey:       "9f90ceb53de5d8d10c75074ab6aa4b8d634bc532b9e3afc91b61c8e0e849518e"
     sha256 cellar: :any,                 big_sur:        "1337e5c2c7937e5a4d86946c2d15741d55fa7a0b54b99ea552cdec1e18807ce2"
     sha256 cellar: :any,                 catalina:       "3149763887d901d8f4c322b8bdac03c1118c285dfd72df588facadf02e24ebb3"
