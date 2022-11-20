@@ -23,11 +23,20 @@ class Nzbget < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e65e035d1c6512f7f3d906614af389d27e4c7a020acdadbf841b0377a6a6671"
   end
 
+  deprecate! date: "2022-11-20", because: :repo_archived
+
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
+
+  # Fix OpenSSL 3 compatibility
+  # upstream PR ref, https://github.com/nzbget/nzbget/pull/793
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/56a864d/nzbget/openssl-3.patch"
+    sha256 "7fd5e300c6ba456df20307a2d3de630e3cb6d5dfdc2662abd567190eb55ac3be"
+  end
 
   def install
     ENV.cxx11
