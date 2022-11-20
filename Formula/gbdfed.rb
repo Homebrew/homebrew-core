@@ -14,6 +14,7 @@ class Gbdfed < Formula
     sha256 cellar: :any,                 arm64_ventura:  "069fa238f937dddf882c41387fd6ff5980226e2bc58b16ba2ca73d4524f2e04d"
     sha256 cellar: :any,                 arm64_monterey: "0424481fee8309a3d8fe8c4a94dc7eba0210cae5a5b7e5ccd9c70412ce2a54b6"
     sha256 cellar: :any,                 arm64_big_sur:  "636d528318fa5e5fc90bdc61665ca3e3dc220a5c034bb478bedda854017de83d"
+    sha256 cellar: :any,                 ventura:        "1044d9ab30db312b6a4be0b21b2b06e63d52cabae98619b77d51ab9163aef47d"
     sha256 cellar: :any,                 monterey:       "61ee7effe80b58621ee18bda3b91bf26a304001797a8076b423724f6c2751692"
     sha256 cellar: :any,                 big_sur:        "0c060efda560aa9ab6addc8087cad336ca01f420b280f0e41b2460f4d74b06aa"
     sha256 cellar: :any,                 catalina:       "ac131ff87dd812928b3f8136d5ce364370ab0a8ded3ffdf2fbf2a38e58998494"
