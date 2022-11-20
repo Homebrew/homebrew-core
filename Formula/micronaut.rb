@@ -14,6 +14,7 @@ class Micronaut < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9626e4187478246040682a4950f1d1d8a2ce728b866fda09e0f343357d5355c8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2e610e2d2e1f0668570788e9e995ad9f9af2f13e4a03824c0c3db5393c551820"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ec4540ed37fc96b9464174ee47bed77ebf31b81da3752afe5db746c22c7cb464"
+    sha256 cellar: :any_skip_relocation, ventura:        "51bdc6df5dc5046813817757f241ffbaf658de7f90d2bb587f82dcb0d8f0961f"
     sha256 cellar: :any_skip_relocation, monterey:       "ac2105be3247f7b1c7c8751e85c2bc142e6ac6fabbefaca39e4f0e046f277257"
     sha256 cellar: :any_skip_relocation, big_sur:        "5320aaa697d7c6ad0005070cb1c1a934d401fe2cde6281d305abd937c9c25ee2"
     sha256 cellar: :any_skip_relocation, catalina:       "ca30a349898962ee6395ebdb6e18f91c7e814a5f00aead8657f9f99ba595d878"
