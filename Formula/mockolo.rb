@@ -16,8 +16,9 @@ class Mockolo < Formula
   depends_on :macos # depends on os.signpost, which is macOS-only.
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
+    system "swift", "build", "-c", "release", "--disable-sandbox", "-Xlinker", "-rpath", "-Xlinker", rpath
     bin.install ".build/release/mockolo"
+    lib.install ".build/release/lib_InternalSwiftSyntaxParser.dylib"
   end
 
   test do
