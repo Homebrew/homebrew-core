@@ -1,9 +1,11 @@
 class Rubyfmt < Formula
   desc "Ruby autoformatter"
   homepage "https://github.com/penelopezone/rubyfmt"
-  url "https://github.com/penelopezone/rubyfmt/archive/v0.2.0.tar.gz"
-  sha256 "68ebc0fd30933b1e27b609cc34c69a3bc886747d11c5b949e460ce01814adaeb"
+  url "https://github.com/penelopezone/rubyfmt.git",
+    tag:      "v0.8.0",
+    revision: "ed99cc4586a908c97f8b19ed78801342f7aa8512"
   license "MIT"
+  head "https://github.com/penelopezone/rubyfmt.git", branch: "trunk"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "93a5eab5b30e0ff0728557a9f51ce501cc9454fb7c6616b89f5a41d7be96e493"
@@ -15,11 +17,24 @@ class Rubyfmt < Formula
     sha256 cellar: :any_skip_relocation, all:           "ac11feb657dbe095a59e0bbbe1e8adbd8fe5eaa6dd989e36204780697b200e92"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "bison" => :build
+  depends_on "rust" => :build
   uses_from_macos "ruby"
 
+  # This patch includes a fix for Big Sur ARM builds which was not included in the 0.8.0
+  # release. This should be removed for future releases, which should include this patch.
+  patch do
+    on_big_sur do
+      url "https://github.com/penelopezone/rubyfmt/commit/8a193552e6b8232d44347505f4cd503c800161a3.patch?full_index=1"
+      sha256 "936734916d24233c03e986ded729b2cc0a3ebce4180136bcfd845dfef8b1f4c5"
+    end
+  end
+
   def install
-    system "make"
-    bin.install "build/rubyfmt.rb" => "rubyfmt"
+    system "cargo", "install", *std_cargo_args
+    bin.install "target/release/rubyfmt-main" => "rubyfmt"
   end
 
   test do
@@ -31,6 +46,6 @@ class Rubyfmt < Formula
         42
       end
     EOS
-    assert_equal expected, shell_output("#{bin}/rubyfmt #{testpath}/test.rb")
+    assert_equal expected, shell_output("#{bin}/rubyfmt -- #{testpath}/test.rb")
   end
 end
