@@ -10,6 +10,7 @@ class AliyunCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6168896ca913094e2d2788c0ee4bc83c0a8df5c56d758e18d810d0c0023e0a07"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "30f57b8ed4cfbf75a49f8070acfb81bbd990bba55ba3a284573d95f906d25957"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cd9cbffbe1877a3d6dbd8e42e8d82f12aabee912704b6dd039f7513a26880b84"
+    sha256 cellar: :any_skip_relocation, ventura:        "4998e9d90a441932a78fae851526c6eb3e3bc40be107e10639d93b912133a9e9"
     sha256 cellar: :any_skip_relocation, monterey:       "28a68ed93974ad80a4a2c7ec2903588811156c6895b14be24b070cfa8bb90aa8"
     sha256 cellar: :any_skip_relocation, big_sur:        "af9934e53b3546ab5fe8408417b7a5bc3bfa8371c6b03e41f3387f50a27bf47c"
     sha256 cellar: :any_skip_relocation, catalina:       "faddf9350322183b15f23ef2f3c488b3ea1cc4f0b80ce27e503d54347071cbe8"
