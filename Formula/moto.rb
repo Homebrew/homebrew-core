@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/54/22/13bbc6a5d48cdd24995880fccdb79ef368bfbd89cd060cef8e10567084a4/moto-4.0.9.tar.gz"
-  sha256 "ba03b638cf3b1cec64cbe9ac0d184ca898b69020c8e3c5b9b4961c1670629010"
+  url "https://files.pythonhosted.org/packages/7e/44/ac5e0758cdc7d41b1f970fbda04dba37ddd2319ec275f50936c670c1938a/moto-4.0.10.tar.gz"
+  sha256 "9ba96d04a472d5682493cad7fee33337da34ebef18b397af1ea6dfb41efbe148"
   license "Apache-2.0"
 
   bottle do
@@ -24,23 +24,23 @@ class Moto < Formula
   depends_on "six"
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/41/5f/7a38af115796ad4f134e6caab373a6931d867a4fc08e3312a794f1256c0c/aws-sam-translator-1.53.0.tar.gz"
-    sha256 "392ed4f5fb08f72cb68a8800f0bc278d2a3b6609bd1ac66bfcdeaaa94cdc18e5"
+    url "https://files.pythonhosted.org/packages/d3/47/c7b4eb84fb294f294df45fc75cf8e1fb987535f5adbda5d2e53c47e0a2de/aws-sam-translator-1.54.0.tar.gz"
+    sha256 "a3ae79f1f2d430f5ade4d245165d5612414233f540b471d170f1aab95c3713a6"
   end
 
   resource "aws-xray-sdk" do
-    url "https://files.pythonhosted.org/packages/4e/4f/52d20c9d82d1ea6ed999380a47026326db414f6efe6c455bdc4bf26a9110/aws-xray-sdk-2.10.0.tar.gz"
-    sha256 "9b14924fd0628cf92936055864655354003f0b1acc3e1c3ffde6403d0799dd7a"
+    url "https://files.pythonhosted.org/packages/2f/0e/fa4d9d6346cafde816e6b7afff0d93fff2fbd6bf21c4b0c4392a238c086a/aws-xray-sdk-2.11.0.tar.gz"
+    sha256 "78835fc841f03e550858f18a9973eab8618f47f22d2f59edf130578fa545a867"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/77/18/91af4ff58b26d03af8bf8e0759c4087b77032bdc54199d750905080c669a/boto3-1.26.0.tar.gz"
-    sha256 "8f0e4eb5c26f927c09bc03302d38156af578b816f1e4f8ca4f0f734d134b9d4f"
+    url "https://files.pythonhosted.org/packages/9d/47/ba9d6c7a869a5033c906bed24f23f7e8e10e5cee0e2edca23a0d9417ebee/boto3-1.26.13.tar.gz"
+    sha256 "853cf4b2136c4deec4e01a17b89126377bfca30223535795d879ca65af4c4a69"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/0a/95/8f31139077187f2da9132d7547979262376e19056d99c7cf6278431a53de/botocore-1.29.0.tar.gz"
-    sha256 "f25dc0827005f81abf4b890a20c71f64ee40ea9e9795df38a242fdeed79e0a89"
+    url "https://files.pythonhosted.org/packages/9f/10/e3c241bbad766b5bdbc64e14beeb08781265c3151d7bb71f381cdd4dbaf4/botocore-1.29.13.tar.gz"
+    sha256 "9d39db398f472c0aa97098870c8c4cf12636b2667a18e694fea5fae046af907e"
   end
 
   resource "certifi" do
@@ -54,8 +54,8 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/b0/41/e5c4ab4bca611fdf42e6326aaf66177345a1604918d1043b5f5c0abf6c75/cfn-lint-0.70.0.tar.gz"
-    sha256 "1227b9bdcd6a21e9b7aafe3eefb740ee17923ceb630cd7235c3fa16683d090ab"
+    url "https://files.pythonhosted.org/packages/79/5b/f35b5681e3c0670a0b8acda2a9c5f9213ac7e424c4787a5a846a49536576/cfn-lint-0.71.1.tar.gz"
+    sha256 "21769d24815f4d86221100705e14114b03303546905c62bb577a695bc3d50a67"
   end
 
   resource "charset-normalizer" do
@@ -74,8 +74,8 @@ class Moto < Formula
   end
 
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/1a/d1/c41d51a0b5192533885545e031ee1b98ee6dc93ceb0c1deb4ecfe212a9a8/docker-6.0.0.tar.gz"
-    sha256 "19e330470af40167d293b0352578c1fa22d74b34d3edf5d4ff90ebc203bbb2f1"
+    url "https://files.pythonhosted.org/packages/79/26/6609b51ecb418e12d1534d00b888ce7e108f38b47dc6cd589598d5c6aaa2/docker-6.0.1.tar.gz"
+    sha256 "896c4282e5c7af5c45e8b683b0b0c33932974fe6e50fc6906a0a83616ab3da97"
   end
 
   resource "ecdsa" do
@@ -244,8 +244,8 @@ class Moto < Formula
   end
 
   resource "types-toml" do
-    url "https://files.pythonhosted.org/packages/76/d0/11897ab7b3b2211be5c733e241d83401f5d37473c961ea5c9460393c6f45/types-toml-0.10.8.tar.gz"
-    sha256 "b7e7ea572308b1030dc86c3ba825c5210814c2825612ec679eb7814f8dd9295a"
+    url "https://files.pythonhosted.org/packages/c6/8b/a8544990966e9b475c1767f21272cbbdc2b470d4e690e04b5510b129b311/types-toml-0.10.8.1.tar.gz"
+    sha256 "171bdb3163d79a520560f24ba916a9fc9bff81659c5448a9fea89240923722be"
   end
 
   resource "urllib3" do
@@ -254,8 +254,8 @@ class Moto < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/99/11/01fe7ebcb7545a1990c53c11f31230afe1388b0b34256e3fd20e49482245/websocket-client-1.4.1.tar.gz"
-    sha256 "f9611eb65c8241a67fb373bef040b3cf8ad377a9f6546a12b620b6511e8ea9ef"
+    url "https://files.pythonhosted.org/packages/75/af/1d13b93e7a21aca7f8ab8645fcfcfad21fc39716dc9dce5dc2a97f73ff78/websocket-client-1.4.2.tar.gz"
+    sha256 "d6e8f90ca8e2dd4e8027c4561adeb9456b54044312dba655e7cae652ceb9ae59"
   end
 
   resource "Werkzeug" do
