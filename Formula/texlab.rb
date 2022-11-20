@@ -10,6 +10,7 @@ class Texlab < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "274614e944cbed724253142c4ba8397bcef074d90bc606f3b66c58b946cc7b7f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "08fc9377687658b1f19861744de2cd4d2cf0134c0e2125bcecbe9f0e9084d222"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6db4457aea70ae9be2d0f483ea3b3b0334a3eaadaaa62b39f16c1ca4faf0422c"
+    sha256 cellar: :any_skip_relocation, ventura:        "e43b6fb72e9af14ce9d42438ec07e3dbb4240a0e158e8da0b72a6e4a0366a282"
     sha256 cellar: :any_skip_relocation, monterey:       "2432b6f38c8bff2bd0c99d35097ff179ad469169388c7422f410fec9274e7340"
     sha256 cellar: :any_skip_relocation, big_sur:        "724f8a59f105f4bef5c8fecf66ea854a99fc261ab24e2ca719638142b5d15117"
     sha256 cellar: :any_skip_relocation, catalina:       "e778b139f56e8737ea03f510bf8ef21d66e15dbb4e09a9fde62c1d18a646fc38"
