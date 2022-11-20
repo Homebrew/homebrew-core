@@ -10,6 +10,7 @@ class Faudio < Formula
     sha256 cellar: :any,                 arm64_ventura:  "8f2994912d68a940a42aeaad11fa32e49de6817ef1a4bf20407c0fee26fd595d"
     sha256 cellar: :any,                 arm64_monterey: "b52eb6df5abfdf447d1c53469a4f85fdbef698cdaff021255cf320b4d98e6cd9"
     sha256 cellar: :any,                 arm64_big_sur:  "f1f392bb64d544bc808a8a9ec40bc334665c1b6f98b23e65c493ebf591c9813d"
+    sha256 cellar: :any,                 ventura:        "2adabbe5546108367be0588a02096a2a5b8c3dd73f1b3508d11cc0de41f8e595"
     sha256 cellar: :any,                 monterey:       "0a36f116ae330fbbf69884c3c8eef5faa367565790f9ebc2ec67138f7cbfb07a"
     sha256 cellar: :any,                 big_sur:        "9a7a183085d19b334695f66cd57188f1393ecc306c5a82877933af37d62c536e"
     sha256 cellar: :any,                 catalina:       "e6ba2525363b866ec383cb7913b2552f76a19520545c895154ed15d30f966697"
