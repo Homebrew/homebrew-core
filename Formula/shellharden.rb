@@ -12,6 +12,7 @@ class Shellharden < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41d6e352a23075865bf5b50a79c2e85feb0fa80a8fb6c99397bbe5a33466531d"
     sha256 cellar: :any_skip_relocation, monterey:       "4e9357aebe45d1e473c70d05c34dade5dc9d510f7dcc845933129e2dcd22ec56"
     sha256 cellar: :any_skip_relocation, big_sur:        "6481b5f71159d7afc13d7bfd1798483ebd0fe46ee168302e9e48938c55f0dd07"
+    sha256 cellar: :any_skip_relocation, catalina:       "b3b53405b95f10baac16f954fc2295d39177aa8b70653c151d25d0f0c287bae9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "36a59a10d57b518b7ebb1168f09c7ef397448d6df530cc0674e9aa8c061975a9"
   end
 
