@@ -7,13 +7,13 @@ class Tuc < Formula
   head "https://github.com/riquito/tuc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "332914588838539cfe8b1c48046120aa7ccaa24672d0a2b4c695367f1dbcd69a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c35d0097152baf416b76d4a86777d0ab9b48f9da0046c1a800874b3618adc03d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "537ca7a98e77de6b5f4cfc1958fad85057ccda999304de0671d789a2ca169aa3"
-    sha256 cellar: :any_skip_relocation, monterey:       "56e293f4f47c68952f0e8c2fa7e627cfc32b38f1ea86f04f2422644aad972326"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6fa9c63920893eda18123703506c11fe389c5223bb87d4ce86f921e8da30acd8"
-    sha256 cellar: :any_skip_relocation, catalina:       "c0bfaa86f7ff202b485e5eda4e391af965a18780bfd2876c80fa9426e3eab9c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26cf29e247aa014c052ecbd9e9a40a210a455c32ee97ba6ec6326da29c4be3c8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e7c00918141e32f21da94288bb29beae137f220517603c888962c19c670413b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "51d443992c134b4a5448a764ce1b9eb972eacf711a06cdac386e64961e1425df"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "058081c832d1526d067cfdf43254106329a5d3c39093afaa73af9c4df1a69092"
+    sha256 cellar: :any_skip_relocation, monterey:       "accd6c100cfe52050f9c67e208d44fb71a1e7aaf6da3f1d9619c5b30f4aaf06c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1013a3c42ad1130863d651b67ae3b46d60effce216480619a817cf8648c1c105"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c5af51e908c788ea4ebf48d4487d520a4e61e94498b38b896f85cebd68010b6"
   end
 
   depends_on "rust" => :build
