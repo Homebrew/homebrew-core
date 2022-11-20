@@ -12,16 +12,14 @@ class SblimSfcc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "881664effb151ca49f0ba00ffce1f592ef3b615bff39467016a7cd647affa58b"
-    sha256 cellar: :any,                 arm64_monterey: "1e22137d49b22b534626dcd8de3dfd98743d0eaba4fb1768e7e8f6553bfff162"
-    sha256 cellar: :any,                 arm64_big_sur:  "9b75fdfd7494479190a2651966a17408dfa29a1f2f62c860e165caa5f135a6df"
-    sha256 cellar: :any,                 monterey:       "dde4c03d86680b2886786a8a32d644187a9eb246e6de9c4db906250baa33ba99"
-    sha256 cellar: :any,                 big_sur:        "8a334b1f1c440e4103ab947b0871ea160a0d319cf095e8ce8b45521ec9440770"
-    sha256 cellar: :any,                 catalina:       "d20839c77aaa1c968981ca9af0e92bf1c7f600392ea5674971f532040dae518a"
-    sha256 cellar: :any,                 mojave:         "ff61a006626a9a36dafb474f352d798805b1a44adba341d8422bd0820eaae1ab"
-    sha256 cellar: :any,                 high_sierra:    "0ee558ce892d6e04acfe7ca2408a96e2837c7c858e71f6047b3a57a15b75ece0"
-    sha256 cellar: :any,                 sierra:         "2e1eea4bbad906293b2c48a27a09fd76d665ab0c9259ef49fcd81f4783fbb67c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c309028903cce29bd8b4473bc4f21e02e226aaa7c497a97138f931bd9f887e93"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "c8b172932d29f6725a2b1a87945ae3d5f904fd04ae045b3599e86eeb8bd103b3"
+    sha256 cellar: :any,                 arm64_monterey: "0cc8c1e52119cd38c9c9e6f2b08f0083693ae35ab2d40aa8c6352ec21c60909e"
+    sha256 cellar: :any,                 arm64_big_sur:  "eb4bb2cbbb7ef660b04d031f3634a29f2c4c9b4a4c0259bffe4cbdf87a8efbf5"
+    sha256 cellar: :any,                 monterey:       "368b654d4d5deee68646887d8946c78a5e3d7f7dc9022669cc8395f64361a8f0"
+    sha256 cellar: :any,                 big_sur:        "ab534857fa92d53f614c51b5a23f51986936c7d4156774f6f137c1ecabde2818"
+    sha256 cellar: :any,                 catalina:       "65ac52dfd7703bc7bb36d61a8458deb2b3efcbbcd9ebac2298d31bae8203ed2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c029309cfad2b173fe5b26e004b07b94fd295076a88244f3dbc2030c38a47e0"
   end
 
   depends_on "autoconf" => :build
