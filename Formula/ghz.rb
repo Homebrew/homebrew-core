@@ -14,6 +14,7 @@ class Ghz < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "27b541a734588cfaebf1e3a88f6653bb88983b2f01fff8e5360533f373038184"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ca3ecd802bba9b22f7b1672d418d37e84f55aee7f9fd090cc264d30444d50b41"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad084b3e17afc494d60133acf620b994eafb0f14dacb054211efb82d492c3f23"
+    sha256 cellar: :any_skip_relocation, ventura:        "527b30908e2ea4e6267bafa7febc425463764d8783a86ff80708300524a476ac"
     sha256 cellar: :any_skip_relocation, monterey:       "f29f5b2e9fbb1079a02b5ca6d9b383fdccc9119fc8b47ec7413d75c2be2dd929"
     sha256 cellar: :any_skip_relocation, big_sur:        "7241bcd5e8bf1b0fd196fe053626a410732e34e929da43c6cd69f8b21f5ad25b"
     sha256 cellar: :any_skip_relocation, catalina:       "bdd5e46cf2bc00b8b1ba6aa352e76318f45f9151e878514aca490ccaa5b0a471"
