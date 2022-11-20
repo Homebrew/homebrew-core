@@ -11,6 +11,7 @@ class A2ps < Formula
     sha256 arm64_ventura:  "adf71e909a31762f566a32be68297e0ed7b43faa0e386e5b90b199896dcd5884"
     sha256 arm64_monterey: "b92375f7cc49a7440b431d2248cad0d97c96fcca127dace6efdeb0b2f3faa08c"
     sha256 arm64_big_sur:  "8ac02041dbec3966b6a695dfc4215b90b9e331ae6eb8c6698cbbfa0175154c9f"
+    sha256 ventura:        "9d729c98415a5953f0c8ef4f6dbb9ce9a7864bcf7aeda3b3dc8473130fddbc42"
     sha256 monterey:       "c0347849efe7486dfa2c5cfd35fae4c87e194fdcd9a10c6ce8758c99e8cf144c"
     sha256 big_sur:        "e87da2b47386fc7e3c6f20b3ff90c4bbe37b9e0aaa884440ffa216492dbc150b"
     sha256 catalina:       "82e64b2008971430d160a3f564e32593e98fb55c43d7748c7deb9d6f546e1102"
