@@ -9,6 +9,7 @@ class Vegeta < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "00e8187e3ba614834ad0cddebe1a50402f49da9f387dea44bb08a944df8b5749"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "81e5234d266674684d94f92e09fc70504a7c35ab70e89afe744fb93c6c334fda"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d95ea4ba41b01adc23e73959805a728a4d279cac33448685cced10e268e2965"
+    sha256 cellar: :any_skip_relocation, ventura:        "c46e7214f55b814c8c6889e7c1bb906211fb8827ebfb50f06ff4a6ac5bddc243"
     sha256 cellar: :any_skip_relocation, monterey:       "5326e65fbdc12cacad9fd86befe186e708f083dde5b0fdb730772bd096bb3438"
     sha256 cellar: :any_skip_relocation, big_sur:        "1f2ea9a3a871ff2f93ee65f1a5977aece4479835d954026342ac0c5eb523db27"
     sha256 cellar: :any_skip_relocation, catalina:       "63b383f4cdff26cc0bf4ba3e24a84ea6d7485a9a61fe49ac62b09f39c5f01e13"
