@@ -20,6 +20,7 @@ class SpotifyTui < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2185bb29e510fc37ff8b3b4ba7c773ac123eaecae4b445d148a1e8386f1ac4da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b954b9ac5a2d06df7d91437f8cb6482a70e2e1d8272cf7a1bb2228c209249d3a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c288dda23d5db93085af63cda53114e2805d4d158460383f75edd4a9239e57ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "4a7dc0f39df30abe4faa21927fb59c5d9d0fd9fe64e312ef9af2ff495a5dc307"
     sha256 cellar: :any_skip_relocation, monterey:       "ea4f9319ebe04feeb8f65d9a6b16e6d527285c2da7ca0e29e9352c4253b735f4"
     sha256 cellar: :any_skip_relocation, big_sur:        "d0751434bfb6cc8d21772aa9d00ff517dc6cb3e613b31ee552c0e15a91ae83e5"
     sha256 cellar: :any_skip_relocation, catalina:       "f0cb2c9f0af0c31d1e49e5155a2028379fd00e3880407adbf68fa2fe390d7688"
