@@ -13,6 +13,7 @@ class Unicorn < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c4b1c9fc5aa717c2c2fca307f30c0ace45db771d38316c9a711d20157e06f773"
     sha256 cellar: :any,                 arm64_monterey: "9c3008bf2fcffaf16ed6ad3e6419a85c494ff725be673880c3ee8a3bb3521ba3"
     sha256 cellar: :any,                 arm64_big_sur:  "f48491de90d3fa69c91ba1136a9f0c024a6e2d4ab6c0b7c5de476d0c534b56f0"
+    sha256 cellar: :any,                 ventura:        "7d3d7650e7ba1589a979338ba66ecc12d2d89bc81e000c0da9a45d3b5e7daf70"
     sha256 cellar: :any,                 monterey:       "a73d5bb66602ec714ff8f292fb7bbf9e274220f0251c91cb68e948f7463c3a2a"
     sha256 cellar: :any,                 big_sur:        "859db47d54b2b8af4419765f68cc39b22110f1934bdeb0c59e774f7b2fe77b4b"
     sha256 cellar: :any,                 catalina:       "b06bdfa3516c07d3203fa5182318145743ad7aa3ff8e69b362fd08b6b7e0baca"
