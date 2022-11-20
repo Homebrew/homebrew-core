@@ -15,6 +15,7 @@ class Dnstop < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a172c0678ce76e45a73491379633aeb893dad579cbbf89047bf2c1c972332327"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7e991cd5c68fcbefb7c45ac7b977b3f9e51a719cae0dbead9aa7172dbfebeb3f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fba6f2f539b25ef2e918c9600a3027a72188984cad8748f2edd55c59712c414"
+    sha256 cellar: :any_skip_relocation, ventura:        "4411393ab2b699d8ecc96e791daf89c1fff67e7c10f2d48d19a8f7550da67ec7"
     sha256 cellar: :any_skip_relocation, monterey:       "717e890e2098e17066d717cdf2c38776838326b4d1f0dfeee6b4e55dbedd607f"
     sha256 cellar: :any_skip_relocation, big_sur:        "c07eca212e72ce354b9e29575efa61f607a9ba43dc07072247f925d331ce7763"
     sha256 cellar: :any_skip_relocation, catalina:       "61522feaa64c92d28044e88366555a6f816366671728d71e286960b83a176417"
