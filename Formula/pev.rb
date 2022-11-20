@@ -8,13 +8,14 @@ class Pev < Formula
   head "https://github.com/merces/pev.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "83bd8d76cafdfc5b08572085a492bef096046b8b01aec6549ea3a984ed5772a5"
-    sha256 arm64_monterey: "7de65d5c0b950da40c9c315f774b464a1aaf5d1a3402a4da2b8bdce395e54437"
-    sha256 arm64_big_sur:  "934d51d93b71115060a0a61bd458867760bdd429e31bf7b8ec58ab4958ab85f4"
-    sha256 monterey:       "7ca58d8adfb22028531bc5ddb4fe849de267253040e637d3b489602db94429c8"
-    sha256 big_sur:        "3b08293af4c00d399504754c4e6971287c1e16197547e8ae25cc44bae908c71d"
-    sha256 catalina:       "621dfa53cab827d0788c4b0f0df3f0ed46fef15ac6b5a6211fc30aa8e11a5c3e"
-    sha256 x86_64_linux:   "e795e98f80a0ff2683f4405257890e93f43290052ffe5945241375899812f8bc"
+    rebuild 1
+    sha256 arm64_ventura:  "f88c38cd11c261d607ee24dffd8507996947261d798b05576d89e012fc63cc02"
+    sha256 arm64_monterey: "42e5c0a125b5fcf2053d617d1d3d7de7d654c16542641b27dbf9a204c6654f8e"
+    sha256 arm64_big_sur:  "92683bbe4257e80a1e303ba7752b2483f26d9ca8dcd418500c8867b841010e2c"
+    sha256 monterey:       "d3b2c9704022bd9027c6b83c7584060afee39c303e22f4778a520268c9d7764d"
+    sha256 big_sur:        "aebcd75f9fa0c70f6318759347f1f6fa9fd36daa57bfed0b0d5caebb4b0d73aa"
+    sha256 catalina:       "509f575210d62910d65c1e7d3a0eee7c12647aa9bfee465c6c71983314b08cde"
+    sha256 x86_64_linux:   "0bb7e6192930c868b08379aadd687ce5f28f46d576748cda2bc4e6247849a522"
   end
 
   deprecate! date: "2022-02-28", because: :repo_archived
