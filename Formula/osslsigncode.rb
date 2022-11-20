@@ -6,13 +6,14 @@ class Osslsigncode < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "acb12ba6e6e57fdb582af74e685fac2b5cec9a490e72de1ad4be7d5cbc2b2cfd"
-    sha256 cellar: :any,                 arm64_monterey: "1548079408eb4af20b65cd3e139670cb0cf2b13a5479e54858d2f2bd11b0fda1"
-    sha256 cellar: :any,                 arm64_big_sur:  "8761a83191bdd8dff87f0e516bf62fa050d6934dc21d6e8babc05278582c5637"
-    sha256 cellar: :any,                 monterey:       "f297b56522de080dbab85a8205655a3abdb1bd5e83c410d16c8972ed75e355dc"
-    sha256 cellar: :any,                 big_sur:        "89c13c082ebd82eb6fa9ecb007b759b9159d270542666ad2f383e90627c501a4"
-    sha256 cellar: :any,                 catalina:       "bd1a562399486c6f212ec5c61562bd0f53ffb08224778c76fd787d07900920fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2549903650fdd0189c1083a177af1c789364758080828b8ea6cf46c376ed6d65"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "04a2c9abec9af3b2aeb89cc603c74454db963ae4f4159829afa411fc7cf79162"
+    sha256 cellar: :any,                 arm64_monterey: "4cc44545f4ccfcc7dcad11baa315223e255c25c7799c6f17a3c3f367fd985fd7"
+    sha256 cellar: :any,                 arm64_big_sur:  "8e87dd88e7f9822d00f8778893b33785dd41c592a7342c0674b62ebc6e180aa4"
+    sha256 cellar: :any,                 monterey:       "445b6f58e10e78d1ebd8807b5d28d8c974add34745d860c91383a501982ce4af"
+    sha256 cellar: :any,                 big_sur:        "3eb048df6eaee844a76b9bc5d010b9c758f445f151d57f607169c18d740b2543"
+    sha256 cellar: :any,                 catalina:       "53e53a72b451b4dda993527c67f66e6524ae7d73f58b406e695239718cda13c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fb951865556495e94c381859b33bef7fe74c02f4bf4867f4419cd5cf3f1e4cb"
   end
 
   depends_on "autoconf" => :build
