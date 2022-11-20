@@ -3,8 +3,8 @@ class ArxivLatexCleaner < Formula
 
   desc "Clean LaTeX code to submit to arXiv"
   homepage "https://github.com/google-research/arxiv-latex-cleaner"
-  url "https://files.pythonhosted.org/packages/ab/4c/a06ba3d1bc19c0c4f3215db8534582c9d5d096ff18948e0576d10ec8fe65/arxiv_latex_cleaner-0.1.29.tar.gz"
-  sha256 "9f74f4d7baa59d1a0cbc7d80bc2bb9005e975e04374273e81a2370de23879885"
+  url "https://files.pythonhosted.org/packages/50/94/1ef60b7f751ab669a420c13a6c0421efa9e9166c1ff47b76541905873758/arxiv_latex_cleaner-0.1.30.tar.gz"
+  sha256 "f665fb21be34f7cfd519805f2a9cb2dfeb4ef9b2c15313824f118df49deb4b1d"
   license "Apache-2.0"
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
 
