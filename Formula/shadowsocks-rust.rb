@@ -13,6 +13,7 @@ class ShadowsocksRust < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b3636c79f802d2305ab5f95a9aafd3d27b78728f6abfd2682c9bfdf29fc9d3a"
     sha256 cellar: :any_skip_relocation, monterey:       "26207795fd9e7f6b259843ff368f1a819aa4b3f39930dc2866c9a4462e4cb05b"
     sha256 cellar: :any_skip_relocation, big_sur:        "73964b24b192d5b587cb9c2fb609a8c3647781cd70d14b7df504e05e2286fade"
+    sha256 cellar: :any_skip_relocation, catalina:       "bc40e0a0d04b9c173bcc625ea3c38c448d22e51d41215a9a4dd526d49f1f1eae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0068e74e25ff5228d4f5767ab23cc7236dcfb465af7e18ce09fdc0efcd5fa037"
   end
 
