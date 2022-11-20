@@ -7,16 +7,13 @@ class SshPermitA38 < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "3b648a363b0f3e29cf942dc0b6b413cf762a260d0da1f9b2f78433a7509365b9"
-    sha256 cellar: :any,                 arm64_monterey: "ef2eb0850cf670b3b15074cf03e601be8e4d9dacbad032044b4352b5a5827c5d"
-    sha256 cellar: :any,                 arm64_big_sur:  "68df2c83ee0648226ee00df59ae6837dc97cce0c105487f5307be28615b2c3f4"
-    sha256 cellar: :any,                 monterey:       "e81cc7c78138751c3563ad1efac04789fddb2c938888edcc66c5714a43447782"
-    sha256 cellar: :any,                 big_sur:        "ed50251803a0e7fc976589be8b84f2cb7a149e871e1241b3f9819d5219413e99"
-    sha256 cellar: :any,                 catalina:       "3eefd64fbbe3e4d500a69352091da85ca685a435094facc30e6942d9d5e89a1d"
-    sha256 cellar: :any,                 mojave:         "683ebbe9a6a845802f825f1775e6d861387be41fd520b648275f97a580e92398"
-    sha256 cellar: :any,                 high_sierra:    "7d82d59932bb6d721a31726efc231d043d54d180995d0119d8f8bf9fc37f3e9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f45aa317ce341e24ffc8ba21c39bc3f46935a2d7ef4e74d299dba3ed6a58f11b"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "96e3d6e8f730a4e618df2dcdbb9e34d0d984279493ff7f0fd9584d45e0eb5a77"
+    sha256 cellar: :any,                 arm64_monterey: "7e4ba428801c4fc9ec23517e01dad136586e61052bd4d9205bfb75a652ac2136"
+    sha256 cellar: :any,                 arm64_big_sur:  "ddc1b8ed3b76e9acbce18af5b81a4cf16942821a3e328843ab99c954b80c69d3"
+    sha256 cellar: :any,                 monterey:       "f45f37f3fdbd00b71083b3039cc95e38c77e3f49ea7d8c6d69713bc6833738fc"
+    sha256 cellar: :any,                 big_sur:        "be4350f56a90a669e3406b1fc47569970d7282b2d17fa3b72b0655a7a05afd82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef88b670035ed8bc6bcba5290a1bf297237a7abcaeb243c1d686f0e45683cbd7"
   end
 
   depends_on "cmake" => :build
