@@ -9,6 +9,7 @@ class Openfast < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c9f10fe6b118c739ab43988c03a4132c43341f0c192a7ae254e74b137a0eca09"
     sha256 cellar: :any,                 arm64_monterey: "97cb2db42301fe6187c221fffd8b2992c525950eae4537cbc286508986f22b89"
     sha256 cellar: :any,                 arm64_big_sur:  "3a2cbf179216f5bf8811d85d093fcff460cde5738b0d263c55b8de75555fb5c9"
+    sha256 cellar: :any,                 ventura:        "55f75a2f7b085902be5858c95a5e550871d9b020a93a85d4106191062d5c28b1"
     sha256 cellar: :any,                 monterey:       "5cb32e81de0cdfd404ff9ccbd26a31123341e45a9c212d15119d43c3f0034801"
     sha256 cellar: :any,                 big_sur:        "b54f60dac1f3588c854e99625b88dcec04082321842d6377737c830ddf7b6a9a"
     sha256 cellar: :any,                 catalina:       "64ccf5de0b66943a6a264f6df6ff86957171ca67b64773924ef3224e9be7af24"
