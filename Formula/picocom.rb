@@ -10,6 +10,7 @@ class Picocom < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "10704a0718469ac5d0d1b0774341b0c24d9ddeb1a5e6d2d12deb916d27bc3506"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f286430d43b8e36f2abefdf1765e960f76e2bf2c3e04f3e6fa500fa0b8dafeb2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea502c2c427d1e389d7dd0822e6f01d6ac7b7eed6f856ee9f9e60fbd598ee845"
+    sha256 cellar: :any_skip_relocation, ventura:        "7e0e2b6e676423624e67f67a7f509332b6aa118e860c92f32308f9399405d87c"
     sha256 cellar: :any_skip_relocation, monterey:       "0b964f92ff9ba91ad3107dc9c435de2198bf8f37f72414ec71d6f269293144a3"
     sha256 cellar: :any_skip_relocation, big_sur:        "bcf999f8a55184741845fe1dbab36597c3be6723f4fa4f603ee453558bfd6170"
     sha256 cellar: :any_skip_relocation, catalina:       "dbbf7829cd18b6fc0b4cf2296de575e7399702fcad52a6da94280e30e3abc341"
