@@ -11,6 +11,7 @@ class Esphome < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5e1220aedd00a834015c677bd95a09db3ec6b6f560f436ba0baa35fd5b1e7a0f"
     sha256 cellar: :any,                 arm64_monterey: "98c7b570019e0db8e42af49656f5dc2da8b3e2e7f70a4eafde1871cede292743"
     sha256 cellar: :any,                 arm64_big_sur:  "45c85ae338ddcdb9cd6a0da6226e00e40eeac441a7fa284ecf6490c836454135"
+    sha256 cellar: :any,                 ventura:        "1afab92b29a51bb5df754fdab3dc61a8ed45b2aa5d88286b857e76e5bfd0f3b2"
     sha256 cellar: :any,                 monterey:       "0d53c346114544cfc2a9fce3ae5d16f1da7cea3b7e06cbd4e85b2d83ecbe64f8"
     sha256 cellar: :any,                 big_sur:        "e3d1ec4b0eea0d45505395121420f6a3fa1f50e0c1644cf4d2b55bb0b468909d"
     sha256 cellar: :any,                 catalina:       "54829e446f71210991c1ac1019bad4d3aa9688da89016430233cfe388f6e5d81"
