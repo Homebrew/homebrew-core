@@ -10,6 +10,7 @@ class SpidermonkeyAT78 < Formula
     rebuild 1
     sha256 cellar: :any,                 monterey:     "1708e27a5b11fe1dfe24310d08c01b289bc5c4e0c00e797efb29b97d0097ec1f"
     sha256 cellar: :any,                 big_sur:      "96797d1ed292a57ad3592f4da7186be0c67eef98668d2eb5d9208a0289d6c9f2"
+    sha256 cellar: :any,                 catalina:     "a1dcf35d035ce67b0ff26470130d8e2a986ff85c169e1b8ebed5c6d86e086527"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "6f0c131fa78090c6d5a4c731b9edc5b32581a62b26fd6c6a3345afde40e71af1"
   end
 
