@@ -9,6 +9,7 @@ class Nikto < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb11bfbc15cae557394eb54a4edf5ad658b32af5b2085b92089f25104894a87c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb11bfbc15cae557394eb54a4edf5ad658b32af5b2085b92089f25104894a87c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb11bfbc15cae557394eb54a4edf5ad658b32af5b2085b92089f25104894a87c"
+    sha256 cellar: :any_skip_relocation, ventura:        "a664c33768310d6673ef4a4adc9fa11522abd974f44928f7635b5663b11f948e"
     sha256 cellar: :any_skip_relocation, monterey:       "a664c33768310d6673ef4a4adc9fa11522abd974f44928f7635b5663b11f948e"
     sha256 cellar: :any_skip_relocation, big_sur:        "a664c33768310d6673ef4a4adc9fa11522abd974f44928f7635b5663b11f948e"
     sha256 cellar: :any_skip_relocation, catalina:       "a664c33768310d6673ef4a4adc9fa11522abd974f44928f7635b5663b11f948e"
