@@ -16,6 +16,7 @@ class Fluxctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "532a97ba265b178ac52c7cfc91128c6640e70902a3caa48f424aeacd0649dffc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "49440ef8e08d4acb3ac71b28e2841b550b2424b5d6e3dc1210d4af30c023da11"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9eba83c3ffb83bdae327868f9a20bac78ae0aa525d3bb6013d19386a6b8567a9"
+    sha256 cellar: :any_skip_relocation, ventura:        "84ec4d8c604127df3701a3c27a025ae43317c6dde15f6ace39c3966ef66f56da"
     sha256 cellar: :any_skip_relocation, monterey:       "9220f29d722241a3ef7ee0b045f157044f873bdbac3a4e27639855634c9a47e6"
     sha256 cellar: :any_skip_relocation, big_sur:        "3a95cb0085f72719f5091a06617a2f33d66ef9711b29634e72772560988063de"
     sha256 cellar: :any_skip_relocation, catalina:       "fce44e9caff89a9bd2b110ed3d7ee5aad3281b6e15d17fd472c41c4831b5868f"
