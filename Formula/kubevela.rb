@@ -11,6 +11,7 @@ class Kubevela < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d20aec4b1eb5850fb1f311b7cf0fdc38f81090bc3d1142d7cdb060cb8843bea9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d20aec4b1eb5850fb1f311b7cf0fdc38f81090bc3d1142d7cdb060cb8843bea9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d20aec4b1eb5850fb1f311b7cf0fdc38f81090bc3d1142d7cdb060cb8843bea9"
+    sha256 cellar: :any_skip_relocation, ventura:        "7227c74d63b185354f577e10c889d1914829212392209f4df17151770cbbf18f"
     sha256 cellar: :any_skip_relocation, monterey:       "7227c74d63b185354f577e10c889d1914829212392209f4df17151770cbbf18f"
     sha256 cellar: :any_skip_relocation, big_sur:        "7227c74d63b185354f577e10c889d1914829212392209f4df17151770cbbf18f"
     sha256 cellar: :any_skip_relocation, catalina:       "7227c74d63b185354f577e10c889d1914829212392209f4df17151770cbbf18f"
