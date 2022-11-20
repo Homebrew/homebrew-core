@@ -12,6 +12,7 @@ class Bzt < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e11e8f8f7493c0214980de9628b05aaad308a7c51d4c47ada5ea52bb692e9d0e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b5631d607db9b2d3856068ec883c910184b9070c00ef69b0769b65a9ceedc125"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f8787385c5add2fabfd169e2f3d998cbdd565b53947e3e1437762420ea8fd46"
+    sha256 cellar: :any_skip_relocation, ventura:        "f2810e81ad64fa14257da1860be3f866d90ab2627f275108eda1c38eb65bb71e"
     sha256 cellar: :any_skip_relocation, monterey:       "82ebc18b6145a8651cec3173bd5d430e55e7c55b4d6a13e01430f31a15a1cdbd"
     sha256 cellar: :any_skip_relocation, big_sur:        "b99266a66e9df2b9df706d8dc0d0a4fd0a4e3790004a2bd3f7844b3f21f6981b"
     sha256 cellar: :any_skip_relocation, catalina:       "fe08fc8464111d435d9c6560fcfd86c9d4f7caacfe735cacd8d14158e2267ddd"
