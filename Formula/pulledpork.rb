@@ -7,15 +7,14 @@ class Pulledpork < Formula
   head "https://github.com/shirkdog/pulledpork.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9cc01f28715be2f2193bcf8d36fd7f20e22171e0a3e3c371df8552a2a0493856"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9cc01f28715be2f2193bcf8d36fd7f20e22171e0a3e3c371df8552a2a0493856"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "035ca3f72d7950b0446825984e779be22a25b2b8b180f226eb7589120092673e"
-    sha256 cellar: :any_skip_relocation, monterey:       "2e99fc025321219153d576da6f41d7342e7566d1749e174ee375cfb579f19a63"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0fef43eada21d5f8e2adb9f4d69a4baf81626734cf732c4c2f630b176a70b58b"
-    sha256 cellar: :any_skip_relocation, catalina:       "f1e692043de24e99030c5e07a4c11269e091af1748f2bf910048f016358581b6"
-    sha256 cellar: :any_skip_relocation, mojave:         "8f4884077fee641db519a021f0b47c739165546b8dd8b07a4ea4d1a2f8918aaf"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "00f4875c0b5e47644250f39845f90f9a78f10152f489d5c103046f48cd0d5f0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "972556c0851f3be9aa2e9f51ac073461b01dede7fb05c847ccc8471509ab940f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c426bbb74ebe2d71cdcc359b5b627d3cee771138be816e22aafcf9bacab773e2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c426bbb74ebe2d71cdcc359b5b627d3cee771138be816e22aafcf9bacab773e2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d356a368ba34f3ebabf869b9edf2038d962b7cdd661be3317e3b3b68b825c03"
+    sha256 cellar: :any_skip_relocation, monterey:       "9ac992cb245188689c716615660393ff8904ed48b56ddf5d5b36df147274480c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ef9c66506c6ac34967fbc3c9bf48ecfc2946814a2dccb3e1fb53f1212e7a3bb1"
+    sha256 cellar: :any_skip_relocation, catalina:       "deaaf558752aa6c864008dbf4cd058850d4206f5e97b50bc6e1f5b2706694fa5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f925daf30d6bdfa68a3d8ebf2e2d0fef9a069aa14cd6d45c2b1e41b72665acdd"
   end
 
   depends_on "openssl@3"
