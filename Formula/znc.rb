@@ -11,6 +11,7 @@ class Znc < Formula
     sha256 arm64_ventura:  "1e1f3718f5abf66532f650cf7f1df3ddba587176c12b36c56f513cf50401ac35"
     sha256 arm64_monterey: "3a5652ad8b655725f9f824c2da28da03fc5ae0d4b3dd4ab666fa5377ba5ca586"
     sha256 arm64_big_sur:  "2e6656f598cf7512ebed68558ea8afd0bb785049ebca38ba2042dd2b81f1dd34"
+    sha256 ventura:        "3f6d3c8bf68af7342697a5d5c2cd9d9a54f9e4407988834fe088ecf6098d9d11"
     sha256 monterey:       "c0220516ba0bf2a16b478ba7c1d2cd8c146f1f3cc5c20f053e8008556b5ca8f8"
     sha256 big_sur:        "da0f129f9308c52d466431eeb447e3f69ab2874f04508b0bc6a27923e4d3e179"
     sha256 catalina:       "5b0d7cd57c96889fe33b2969a7525eccb307f6ece0020bb00b9ac9430efdee77"
