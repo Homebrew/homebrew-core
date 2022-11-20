@@ -10,6 +10,7 @@ class Ed < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2032af54afbacd9cdb684ca0365724700431472163f09ef424a95fc8b47717c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e11a548c78fe21d0e7b4d87e96cd3318df87754e86143d04cc395d62e3d23240"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0a969e4576aacc3385cc0482fca8752e8e07b54fb2696d9b12dfba2a54da346"
+    sha256 cellar: :any_skip_relocation, ventura:        "076affc3b8b5309a56aa27a849e6ac7ffa7dc3c6ea7153e29183c45211d99dd6"
     sha256 cellar: :any_skip_relocation, monterey:       "c83bebea01405eda32c70d694c3195fa86c3f3f2a32ee3923454844fd5f5ff5d"
     sha256 cellar: :any_skip_relocation, big_sur:        "f3c819b566fc68283182dd9c52c7978716df84d665eb10fc46400ddbfeb42d21"
     sha256 cellar: :any_skip_relocation, catalina:       "672b391318a2780fa8b5d352d4785eb652f268a8d23acb18742b6f9a29792029"
