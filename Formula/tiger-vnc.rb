@@ -9,6 +9,7 @@ class TigerVnc < Formula
     sha256 cellar: :any, arm64_ventura:  "109fdbc449f3d9888c9442b95280bf1f3c2b9ac876670a7bb52f1fb0c350e10e"
     sha256 cellar: :any, arm64_monterey: "77eb966db9ec8b43de5c86e21e6626097271d58f7fbd8ccea5d551bfb0e7ddbf"
     sha256 cellar: :any, arm64_big_sur:  "da27b10b7a89f771a6e134b9e81fa5fd49b8f0ffbd545c8e6569644cd0dcfc65"
+    sha256 cellar: :any, ventura:        "8de663dc2ccab42a4256b3d3af1bf595f33e5c5dacc809961a54799df0d47103"
     sha256 cellar: :any, monterey:       "13159586d63ec225969612e5d3f3d47eeacdadf7a3df3c930a932f9a95321002"
     sha256 cellar: :any, big_sur:        "168aaa072c658c672b6cf54901d27c603ce09fe4c70d5711f5cd6b4b8927daea"
     sha256 cellar: :any, catalina:       "e703e1d70a8d46b3c20bd58a9c8c4796ec221342413ca3342a2c2ea66cbc221f"
