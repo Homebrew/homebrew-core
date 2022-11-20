@@ -13,6 +13,7 @@ class DetectSecrets < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7031eb88670ddce6debdd065845964eedb4e76861cd18173c4c292bf46e91894"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1622566470e48ee2ebad364f0e55ef38c15287e7ba32a0684ab8f2e2fa4cb3eb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "183fe37e5115b2bbc4de9262ecf3bc3dd826201f45ab09e54c36fc231255fd21"
+    sha256 cellar: :any_skip_relocation, ventura:        "1f76cfc33331a7fb3b76b93d7d45b297462f20dd4ad11c0a0c8954425f9535bd"
     sha256 cellar: :any_skip_relocation, monterey:       "eaa33b66b295b5cebfce5bc2466b0b75ce366e486103eb91d049c052d569e650"
     sha256 cellar: :any_skip_relocation, big_sur:        "0830609eb2780349a180dfa53ae9d0cc2c294d0ad963697365b6c0d593245be8"
     sha256 cellar: :any_skip_relocation, catalina:       "22929cf2fb7109b11e718c01178c171bdcf639d390a0b57a133fccfe96ab0369"
