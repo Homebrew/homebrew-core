@@ -15,6 +15,7 @@ class Mytop < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0eb04ca2f9d13e1c62bea17ef96e34e01189d5d1b58160105338801f205fa888"
     sha256 cellar: :any,                 arm64_monterey: "8f02659e8b735fdf311c10368016aaf4b44a6e24c830439bdff91f9bd8ac2f6c"
     sha256 cellar: :any,                 arm64_big_sur:  "75452c7d92536a9ea9f92a1a22a9271e1db9f180ffc6ac5d3504c092e91f3adc"
+    sha256 cellar: :any,                 ventura:        "52a13013f86290fdd2b52f76097871d9c0c637575385ec28c94b34012b25ba22"
     sha256 cellar: :any,                 monterey:       "c5b43ff2ce82566006e3fb37f869d65d23fad64004458d2e9b3d895e8b867979"
     sha256 cellar: :any,                 big_sur:        "1d2309a462b4bbe804c4e944e4e799bafdd2e0f8d5b0095c815ec377e99b1dcd"
     sha256 cellar: :any,                 catalina:       "f376b1839b64b69043db8abe25c876b617c3d89ec1a2a8a9bc7112aa0b8d6137"
