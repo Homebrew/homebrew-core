@@ -7,13 +7,13 @@ class Trunk < Formula
   head "https://github.com/thedodd/trunk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "395b1e12e1c05ae8d31746eab21fd897664a3774d50492508b6bc3bf47d9bf64"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f88f7470a3ab319df911d8633e2b0fd461cfa1443ddb4f1b4b120bf1e33e21ba"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02ec3dacab7389f07c8129fb51aa7010f129f47a1487a3f2cb2d310fc9180b23"
-    sha256 cellar: :any_skip_relocation, monterey:       "6915a9e9b28aecd9e851ece1d2167b91c46b4381e42aa9474e4648a20b3ca6a4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "21995063ea04551b5614214b126a8478557ddd1899fdd1e288d6742aca90bfe5"
-    sha256 cellar: :any_skip_relocation, catalina:       "adc1647af84503351c0d631cf1dc21027222c9934083f78b9d6a2a6254a66e59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bad1e5690fbbc0ac71bff4dadb50ab5451eafbc5ee4bce1a4da2145436040ad1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9b443cab6df437394b07edd2f3b5d0d156061faebac570a1b913231c617cd92"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8698432271512ae4822f764aeb3981c4700482557a5356bedd68f82c6e49dc81"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a64951157d2cf3b3e357336037ae06de3a387d27b993f1ba453afc44744d1bfb"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec46a733f25e4cf02f7ed0308eb02717264668e2828ad1f0c50cd8205cdd23e7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7a456539cb5bcb23d14389194ad9b9d303205f6fe45c47a1b9eb8b877b9290fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44fb0361a0ef22f61a55a160527f63fe1fab72c70f147b1c91953edec1071884"
   end
 
   depends_on "rust" => :build
