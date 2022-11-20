@@ -13,6 +13,7 @@ class Reshape < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e03b64855b0ead19d73ecc3ef909a848be65cad053ac90064685ecb83321896c"
     sha256 cellar: :any_skip_relocation, monterey:       "2758bb9ece62be0961b0372269349912414abc658a6501eade88a2c055cd92fe"
     sha256 cellar: :any_skip_relocation, big_sur:        "e1e1609d559dabfcad4979db9a14621aa44c644cb662493d07efe3147ecc1115"
+    sha256 cellar: :any_skip_relocation, catalina:       "596f99930552bc9101e29a11b38effb1ac12ac7b571306cc0c3b3820f97800e1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "56244c04af16653423ae6ed64c2bcc8bd116af638ef48dfeeeaf4ae39de01062"
   end
 
