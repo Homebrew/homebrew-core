@@ -15,6 +15,7 @@ class Abook < Formula
     sha256 arm64_ventura:  "dbcc8ffc1eb5ee674721acec2fc715030ba3c53553f0b419c71994f72925e298"
     sha256 arm64_monterey: "24854522e2901befeb323be066c744ab4471920495b7a91280e9d05c9bc3b9e7"
     sha256 arm64_big_sur:  "e062925ce6b559649d5574f2ee4a709611df4a9a54f3396cf706c2a399cc747f"
+    sha256 ventura:        "82da61749b4896e7e09c2655a372f49a371d660f089c494ca49091a05a2f1993"
     sha256 monterey:       "923df44c0bbcdcb70df775092fb6aacb3c7c4740a12d40ce6f5ad4a8dd7ea91f"
     sha256 big_sur:        "0c4b7d1c41dbd920e192711e8ed1200db46c30be141aaaeb606c41718d0c2a79"
     sha256 catalina:       "09e77aa3db2cf8a702effbebbbf83f7a2f860b0d5db6bcf37549edb7db5438a7"
