@@ -22,10 +22,10 @@ class Cython < Formula
     Users are advised to use `pip` to install cython
   EOS
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python)
     system python, *Language::Python.setup_install_args(libexec, python)
 
@@ -34,7 +34,7 @@ class Cython < Formula
   end
 
   test do
-    python = Formula["python@3.10"].opt_bin/"python3.10"
+    python = Formula["python@3.11"].opt_bin/"python3.11"
     ENV.prepend_path "PYTHONPATH", libexec/Language::Python.site_packages(python)
 
     phrase = "You are using Homebrew"
