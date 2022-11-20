@@ -1,7 +1,7 @@
 class Flashrom < Formula
   desc "Identify, read, write, verify, and erase flash chips"
   homepage "https://flashrom.org/"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
   head "https://review.coreboot.org/flashrom.git", branch: "master"
 
