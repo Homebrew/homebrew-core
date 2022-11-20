@@ -13,6 +13,7 @@ class Fprettify < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4eaf9f8515de83e38a2279f945676e4c634b7831f91095b1da7321fc58dcb39c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4eaf9f8515de83e38a2279f945676e4c634b7831f91095b1da7321fc58dcb39c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4eaf9f8515de83e38a2279f945676e4c634b7831f91095b1da7321fc58dcb39c"
+    sha256 cellar: :any_skip_relocation, ventura:        "e7bf15a8edcf12f4aa936c7da9ce8e771f84a9e4177897351a87d25d1f281ba6"
     sha256 cellar: :any_skip_relocation, monterey:       "e7bf15a8edcf12f4aa936c7da9ce8e771f84a9e4177897351a87d25d1f281ba6"
     sha256 cellar: :any_skip_relocation, big_sur:        "e7bf15a8edcf12f4aa936c7da9ce8e771f84a9e4177897351a87d25d1f281ba6"
     sha256 cellar: :any_skip_relocation, catalina:       "e7bf15a8edcf12f4aa936c7da9ce8e771f84a9e4177897351a87d25d1f281ba6"
