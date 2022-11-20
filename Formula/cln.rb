@@ -20,6 +20,7 @@ class Cln < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 ventura:      "2c51b2f0a21013cd59254e80bfd098c6997e8eaa0e05b767c358d551649f2cf4"
     sha256 cellar: :any,                 monterey:     "e810a5132e834905a8ae4c67130a003cbf2a5d7482040eed19c24cda13118ce8"
     sha256 cellar: :any,                 big_sur:      "3234c105147111fdbb679c8a27a4b59a99d8195a3e461642783028905c244db4"
     sha256 cellar: :any,                 catalina:     "bbc7716e6028fc3dc95dc22bf20033d13119b6ffe62dbd4c2609ecce85459a92"
