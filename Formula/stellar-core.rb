@@ -10,6 +10,7 @@ class StellarCore < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "4c55b1f92a877b592994d808cb2ad4e5562fe53684434469a9975f4d3d1a7f3c"
     sha256 cellar: :any,                 arm64_big_sur:  "3ea5f35da2f08549ae689176f80bbaa094de9d7f150c6e84dde12f31638918ec"
+    sha256 cellar: :any,                 ventura:        "a5434f2ad715afd64b81c2b44fec58da3cdf6e034c13ad88f2f725cb834cb6a8"
     sha256 cellar: :any,                 monterey:       "bc62a5747f41ae8aa3fbbb669a59c42036e95e858ca1766f9846496f11944968"
     sha256 cellar: :any,                 big_sur:        "b6367ac81891a77cbc2dcbaa4698bfb9aca03dccac7ae17e6e19aed49892a424"
     sha256 cellar: :any,                 catalina:       "0ca7388d9c523d084635ad9d94aaafdfa6d8c87e90c9c15ff06aca39285d8f7f"
