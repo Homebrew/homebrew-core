@@ -15,6 +15,7 @@ class TerraformLs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c0d2b84a04da3743a82fa789cd6b9fd08a3802705624bbe7c56009beb15b7b92"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "78288fcd4cf461987793afe9650610e876dfd3f727e173a9758c879a206bfb58"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3e9b48b8d5c9b5c2c8ea235cc66f76ad223f570cc95f3b09b37d800e8ba44c17"
+    sha256 cellar: :any_skip_relocation, ventura:        "fe805b22cb54db356223efb3ef67037b7c87336c5756082b8ad8da6d4eebd6d5"
     sha256 cellar: :any_skip_relocation, monterey:       "cb415e1ab51c104a6fda225151a7d443bca4b1ff820ea41309023adb6596040a"
     sha256 cellar: :any_skip_relocation, big_sur:        "6157bc0a9cb46345c0f6622b98639d6e5bc958e6e00d920fb38451a4f11f7e4e"
     sha256 cellar: :any_skip_relocation, catalina:       "f93201fa60cea6fb001924bf6f8bc01729b49c32bb5e9156131573cd9bbedd58"
