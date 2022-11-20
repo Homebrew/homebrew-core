@@ -9,6 +9,7 @@ class Geoipupdate < Formula
   bottle do
     sha256 arm64_monterey: "fa1c58550c7a922498c844a0ab9b94edcc3dfd790b9ea4c02380ef11d47f5a5a"
     sha256 arm64_big_sur:  "ef5c0597ef2faf8809975df62ba4438e15768683f043e6296e59a50ac858782d"
+    sha256 ventura:        "2fa6ad7de9355328a1a90fe149f74254f7bc5dd1a0d7768f36ea69a31f623cdc"
     sha256 monterey:       "2f38b64724d094657593800a7973e7fbf39b230835865d2108cfe63d0a103fa6"
     sha256 big_sur:        "d0d3b637cba55a86581b099329cbbd3254bddd59306b58e32bce2b787c081dfe"
     sha256 catalina:       "cfeed208e46eb157a2c97ebbb71d9505e47da872ccfa67eae5ae2c594b037b0d"
