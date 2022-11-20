@@ -10,6 +10,7 @@ class Sheldon < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3da53db796890c0ac7f98174008145738e6344f354e8f25370d6e8a5eb90482a"
     sha256 cellar: :any,                 arm64_monterey: "eb6155ac30d1322c493584964ab5b9678724a85c739dd1b9ec91c6b6afc4a1f6"
     sha256 cellar: :any,                 arm64_big_sur:  "ab3bddd34e6be2812e919e497b39cb2df62de780890ccdfc0b18944f3696c30e"
+    sha256 cellar: :any,                 ventura:        "c11132d137cc60a285c7e86c88f93d1771e1bc1e93e066ef5c0dd21442e56223"
     sha256 cellar: :any,                 monterey:       "871a65be7e795ae1ca1a0fb72460ad68ebfd1b7d6c80c1c81dac8abe183b0ec3"
     sha256 cellar: :any,                 big_sur:        "690bfbafd4c66f64d31020acf62007d855be91b68db9f09b468080efb7ef2468"
     sha256 cellar: :any,                 catalina:       "e1038bebc73009330146de1fdaaa2d604c356569beb096234cc50ca250e70b77"
