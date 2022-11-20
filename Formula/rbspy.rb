@@ -9,6 +9,7 @@ class Rbspy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2ac1f835a4b3df59765b8fc6f427305dfbec58ca05cd736effb9e0fffff8d5c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "677c64c90ecf5d74723e64211eb452970adc3af6e95959f6b29351d1005b5bfc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89aeb2190cda7e9c747b23fdcd02ea616a3fe77634219e4bceca242e95d5ca9b"
+    sha256 cellar: :any_skip_relocation, ventura:        "131daa48060afde502726eff20db4125345b9ea599f7f40120e21fcb4caad36a"
     sha256 cellar: :any_skip_relocation, monterey:       "d2a26825e1f5440237462b97803612f2a4f373ce183b748b4feb6f61434a61c6"
     sha256 cellar: :any_skip_relocation, big_sur:        "fbbe19673d70d4009ca026c8c11c18e67e2d3ce1c841865dc53f8215b723e1bc"
     sha256 cellar: :any_skip_relocation, catalina:       "7ff2422b356d362fe9a84b080715db89d8777eae6eb973c5f2039097fb957824"
