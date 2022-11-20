@@ -10,6 +10,7 @@ class Gssdp < Formula
     sha256 cellar: :any, arm64_ventura:  "7dbdc99df01f118aee8140781d94d0d96e686d950a646944f6e99811ccc67da5"
     sha256 cellar: :any, arm64_monterey: "6d1d2fd00d1e4063bd3ae084c920c5903b4b476bddc259c3cdac42ccc24d3ed4"
     sha256 cellar: :any, arm64_big_sur:  "9f8e5df0f0ff86f39f3d14d96952731b5e56519e133dbb23098b3be86ee325e2"
+    sha256 cellar: :any, ventura:        "ba20bede2cdfdf92c43c7134a934089b0b7b2ac94ae6154d1906eaa2dfc98dff"
     sha256 cellar: :any, monterey:       "0488549919c434068ff0ddc900c5ef4e8fdfb1b58555ab0bc8764f585771e5ae"
     sha256 cellar: :any, big_sur:        "29b4fdb41b3229d620e602a503046e6cf58a7f08fb2f83be4df94fbb8f5ccaac"
     sha256 cellar: :any, catalina:       "f8478c7402cafddb596fbffd2c0f71e425ddda0d06a748064bf003601ead2f47"
