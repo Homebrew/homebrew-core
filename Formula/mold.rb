@@ -10,6 +10,7 @@ class Mold < Formula
     sha256 cellar: :any,                 arm64_ventura:  "99ea7e8eec146f8b7eb11c86e83721a562d8519d7f403e29bfb3c053f5cea917"
     sha256 cellar: :any,                 arm64_monterey: "4ae463200d72d37e33ed1dad9428bd7cdb6a0d232b7c7181ff7e49be978f44f9"
     sha256 cellar: :any,                 arm64_big_sur:  "0801c996eb684e9f0d5588f8cfa31626f98c902a58b6f21fc2abdceff646795e"
+    sha256 cellar: :any,                 ventura:        "1e8349b6fef28db2e311893757b7a2ef4f9699a22309b06460c19f84730e29d8"
     sha256 cellar: :any,                 monterey:       "f4a60f330bb6517877dbf207de391f9789d60d402a9f8228505507bd8da534c3"
     sha256 cellar: :any,                 big_sur:        "2d60b504d6416ef723c6609a427c4117cd9ea047c5f907d28cfc8421a1c1ff80"
     sha256 cellar: :any,                 catalina:       "ddf080287e5b51f3abba16ce22d371b9c3ab8f112910725ccd6438bb6b4fdc71"
