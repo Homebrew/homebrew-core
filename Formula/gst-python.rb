@@ -15,6 +15,7 @@ class GstPython < Formula
     sha256 arm64_ventura:  "515b686b5530cf30f7e4c83097b9564356a629552522eec0bad876a5ddda33db"
     sha256 arm64_monterey: "c7bd54bf59d884fece2bd93a8aa87156b1711fb792769e2e824b7980fe804fbd"
     sha256 arm64_big_sur:  "46577a49c80650c862830b1dfc739962dcf3181b03ec2af19f6e03adb3731d31"
+    sha256 ventura:        "5c46dd4bb09b1da3ed57f74d49b32932b40dce10031f1929050008957a447a81"
     sha256 monterey:       "7726dbe8e9697fc1704c7ed442fcfdcb7f5308b0b7ca573fee7d697b42978e8c"
     sha256 big_sur:        "a12e52607ac75e19ee6712dddd5d6d27f403dd5feb4d4fa942ce432c566f2ce3"
     sha256 catalina:       "6677dc74dee5380d456c0615390eeaefa55cdc3ec7e892c66cbb95a8c78e863c"
