@@ -17,6 +17,7 @@ class Imapsync < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "74d91189843fd80348a4c934962a1fb622edea57ff439abc4757d14b1f65cab6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4b5c95f09e1cc6660aa7885567f6170a5d16e98b077949b42de9fe8331526460"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d05561847d9721ab0fc85de4e73393dbc50228533946df8033297b24ebf46f4d"
+    sha256 cellar: :any_skip_relocation, ventura:        "7561f0c572dda9f4cdb2cf91214b33aad955e0ce705610045686e937d80f1f84"
     sha256 cellar: :any_skip_relocation, monterey:       "6f033299713beb002954a98b66442b27c2cb59dc5142d910010025ed0242f226"
     sha256 cellar: :any_skip_relocation, big_sur:        "3ada5a5214478fcc0dee5dd7eabaeb84beedc4145fe7dca0ce5af0fded86b2b9"
     sha256 cellar: :any_skip_relocation, catalina:       "b586245299d6146f1ae7e7066b675e540f5a862de7389b394537cdadcd24791d"
