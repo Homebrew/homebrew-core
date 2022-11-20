@@ -6,13 +6,13 @@ class Vivid < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "952153d3fb19ae266fa8b6f9b395eeee9f9f718425e241c6f6573ddadcb5d25e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5812d1ee1b84676ed4f7f40e2b6bbd637598994a6972e2f5f374951aae3b9d74"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d63fb2bb636e28b0c96d1fb30a0c96ca2b9d6d8ae96cf759b5c188b17ab01bd"
-    sha256 cellar: :any_skip_relocation, monterey:       "62f24fd28f1c34d545901fd9f1131c9b68f4dfcd3c24b80f237786a2a4773d1c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d05e79b8400ba8d0ea9951e049b60872f2b0a5cdc46eab2a2f0aa1d9a36517b0"
-    sha256 cellar: :any_skip_relocation, catalina:       "084ed6ec5118a90caab68edd0f18921f21b2ae4430dca72eacc346b411ea825a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9ebf69fb2697860406c4d8f2cc41e015be8ce6a763eaf08d89cae0ab616b991"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "50c1e057b6269dfa785c658b12faed016d7f77e8634a26a3c7bc68953c87f9a8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed34ea3eb374ee4f4d24ef56761e598bdf08ffb70d1e1dee4b8c0859c96fa664"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9b12d072fd632baff141e138d9d91dcf4fe99af3821cdc49959f771d1ecfad8"
+    sha256 cellar: :any_skip_relocation, monterey:       "51a780f70653818789135dd3f2ba35d39e037dae65657c8934a2d33a010e7cfb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5f65cf4cd1d603725e5b9028bea928568f4055d7d0dba023a7d1ea306ca97468"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6710b464db2dd6b87c41aae8efe8c6fd87a667b86be4ba4b6239fc9fe28626c"
   end
 
   depends_on "rust" => :build
