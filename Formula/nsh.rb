@@ -7,13 +7,13 @@ class Nsh < Formula
   head "https://github.com/nuta/nsh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "65ab94c008bb7f4f517c99c05c703137cb12747ff18d62f60c3def8ea79351ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1d4aaa96c329882423ba9bef1a834e9d0e7f12eebd786e7a229461113a7de99"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9025b069d64133a40f5e1c5f1ad35178ef47a601d321da10749323dc54f48f3c"
-    sha256 cellar: :any_skip_relocation, monterey:       "6deefb05e0d22f1597101e1703aadfa5a27e1ec3175037b84a5b5584b3310181"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8454140462f3968d3c29b64ab2248faa2fb544a491c3e3f2291da24f60801dac"
-    sha256 cellar: :any_skip_relocation, catalina:       "04010c69722c2060dd83c66a1b30281014126248a4586b5c0959ff5bbfdc00e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "131188c37bdb5c53e7cdad97e1c24ae13e0ae361636a883698521bee40c699d3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed0302eb6517ce8ab878bf1dce1954a16242a2dbc211d266f9773590aa1822e1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7cef76f0a812b0fe8ec3c23e9ceaaa5c2c671f418bd0aa5103972439c9544144"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "afed7ecb9b4cd75cf529db0b5c035bee623b2d59e713d2f543cd61e4ab28e1a1"
+    sha256 cellar: :any_skip_relocation, monterey:       "714f185da8a9912b95aacec6c43943eaf178afc960442ab6d131bbb58abdb79e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5ca1f1cd16b32c731c9702b80c3524071431823ee7df7f833b30e89725019783"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2459f1a58f38485536f990ac8e8817721e7fec5e313934af0ae00cc3d897f7b1"
   end
 
   depends_on "rust" => :build
