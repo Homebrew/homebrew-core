@@ -13,6 +13,7 @@ class Tinysvm < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6c2118088fe8eead47f050a218c6c7c5928f1c127cfebfb6652f845d5fa195fd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0bc765f1a83890ba72ab3ddd3b7c43d947b4f8e2aaac19807e7703c6ee58158b"
+    sha256 cellar: :any_skip_relocation, ventura:        "0fed16a29b53d89101342664aed44ff3c3341d012ff02ba3b17de3bec6e5ceda"
     sha256 cellar: :any_skip_relocation, monterey:       "06e39f32239001cf5191e4896a8c8714c598513769e08129c182f47aa7f47366"
     sha256 cellar: :any_skip_relocation, big_sur:        "2ead575e862216b468d3f55c0b20789405f25e03667838da0fadeb0bd3931d37"
     sha256 cellar: :any_skip_relocation, catalina:       "5bbed1c1f653d0fde6a8e82740a18f8f0e4c95f6d06c7c14dd8dbd4ed096c758"
