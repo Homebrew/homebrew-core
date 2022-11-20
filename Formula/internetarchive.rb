@@ -12,6 +12,7 @@ class Internetarchive < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec15f38252334fa70da201fd3680f28ea209754beff014384e77a682c353fef9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b533294e9c25fbec0c355c8f251f26d6ab2394f7efd44dfd734d8436302f14fd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "611d388a3accfb95226e2ec2e0f80f85f8f28dc1590dcfb0641447bf704da2ab"
+    sha256 cellar: :any_skip_relocation, ventura:        "ee300e3d468786e50afdd3646b0e7689d49ae4fd4c6e9831cda31199bd92c102"
     sha256 cellar: :any_skip_relocation, monterey:       "18761936e84c8201d3bfa779a1bd6f222171b04de744d24556b206c72d687db8"
     sha256 cellar: :any_skip_relocation, big_sur:        "eb707233051df5cb01f5595391f817af9c0ac3bf22f1e2544f6d1693a9887722"
     sha256 cellar: :any_skip_relocation, catalina:       "27838dd0fd7778086c5e53ab79d5cdca1d5e2bf8b282497818050858cf0cb680"
