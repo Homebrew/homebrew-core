@@ -3,6 +3,7 @@ class SblimSfcc < Formula
   homepage "https://sourceforge.net/projects/sblim/"
   url "https://downloads.sourceforge.net/project/sblim/sblim-sfcc/sblim-sfcc-2.2.8.tar.bz2"
   sha256 "1b8f187583bc6c6b0a63aae0165ca37892a2a3bd4bb0682cd76b56268b42c3d6"
+  license "EPL-1.0"
   revision 1
 
   livecheck do
