@@ -18,7 +18,7 @@ class Pulledpork < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "972556c0851f3be9aa2e9f51ac073461b01dede7fb05c847ccc8471509ab940f"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "perl"
 
