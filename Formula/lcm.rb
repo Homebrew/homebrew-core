@@ -1,7 +1,7 @@
 class Lcm < Formula
   desc "Libraries and tools for message passing and data marshalling"
   homepage "https://lcm-proj.github.io/"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   revision 7
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
