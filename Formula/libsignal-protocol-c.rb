@@ -9,6 +9,7 @@ class LibsignalProtocolC < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c2e2d424032060b1ea5eaad3e977c6bc2d2704c8aa1a43c371e119c06d68f1f1"
     sha256 cellar: :any,                 arm64_monterey: "28c12c6c31a0950b035347de5e67aca8a0057793bf35feb2b4dbe1d342a2682d"
     sha256 cellar: :any,                 arm64_big_sur:  "ae7936606ffb1bcc2cce9e6854bc6fa7cd6fcf44ae67b17b7a861158fa58ca7f"
+    sha256 cellar: :any,                 ventura:        "b5cf27a68fe60b12da74c76b2bbe0485a82c5662f7c6c3becde96053d364febc"
     sha256 cellar: :any,                 monterey:       "a5216e8239283c702a4c68d4f63da4cfa9e532d4452d0edc8ed560c7aa38900d"
     sha256 cellar: :any,                 big_sur:        "16cbd5edd6e2d6a2905a6cf1d4b342deb3b356093c1945a9a4333038fbb3b60e"
     sha256 cellar: :any,                 catalina:       "2ad98569b7c0543579c9a2596a78e86bb7a915fb17632850cea099feb9d2d674"
