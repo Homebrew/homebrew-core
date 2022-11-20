@@ -14,15 +14,14 @@ class Lynx < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "df32928bb8ccbd442daf2a7f9711859aadf3842765e6dc594b63cff758cd1f18"
-    sha256 arm64_monterey: "521f6b88727a5d059be6dbdb3b4ab121a75685a069d637a2392aa9495be12ff5"
-    sha256 arm64_big_sur:  "97f8541d87999f6f75c7283b276b72b90d142abe1fbec9d5d475183a755549d9"
-    sha256 ventura:        "3915636e50ed627acc7674b112a3bf72ab5f78652d9c56a13a5ebe2e04e04d42"
-    sha256 monterey:       "f57f89264c25fae795e80a505995f9e6a57d6bb575611abdd41ca0a886f9ebec"
-    sha256 big_sur:        "20ce6341dccfd5e1aa40ec6c29fa8954ecaab80cefad190525adece0f3355860"
-    sha256 catalina:       "7a726cbbb56d51acd300ac36cf338862ffd64f07aaef97cbab9c519c47204230"
-    sha256 x86_64_linux:   "9705dd1b53a269e2ccd2926928f499a4116385d86edbe9bb4ba9e4517dde104f"
+    rebuild 2
+    sha256 arm64_ventura:  "815b132d26bdb96a9631b8ef6582ea68d24345929fa27e5139c2fbfb54977b16"
+    sha256 arm64_monterey: "cce0820f34703a1c58f6438020653a5b5e529fda2ad408b2868ee2ad385f454e"
+    sha256 arm64_big_sur:  "4a2d0e0392f714f2bdcc03ab924aee26235f37bcebdc896bae9415947a7d0c77"
+    sha256 monterey:       "07114f2eeeb2d3dae0761fbf14505a24f6c71e6b56c233092171605739b96459"
+    sha256 big_sur:        "eeda5a5569d97234c0f69378bb5a71a78a4d3dea5211c1e2830c19853f9270b7"
+    sha256 catalina:       "da24cd977b30037c578f1a6f90b816cb463925fce34621630b3d41ebe890ef59"
+    sha256 x86_64_linux:   "de67ee9f6cd1dd1a9147d4b6240abec83111043de0a743768b1ed5d1c581aa5b"
   end
 
   depends_on "openssl@3"
