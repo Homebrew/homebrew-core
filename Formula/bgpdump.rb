@@ -14,6 +14,7 @@ class Bgpdump < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7d108fc2cd142cecb17da960a4ec7db84bd63178879596c9f9811ce7caf6f015"
     sha256 cellar: :any,                 arm64_monterey: "d4fe975c315b68318f0c63ff6b0d4ab3d9c6477fde81f6a4feed97ebe0fc39e4"
     sha256 cellar: :any,                 arm64_big_sur:  "547aa3e0a48f992ab4475b4f4b9203d46700fbde8588528382a7fc730157235c"
+    sha256 cellar: :any,                 ventura:        "ae7e665b60cb17e22cd9a145c59f8e5fb1e847892376fe8a621249b67e5786b9"
     sha256 cellar: :any,                 monterey:       "946678f11f01a3b35808d48e2ee9dc92a54f400364c7ae20989cf64263d9ae0a"
     sha256 cellar: :any,                 big_sur:        "30a4765bc4c7decdb628df132d66bc675da867c5ed9631beac87dd99bce53713"
     sha256 cellar: :any,                 catalina:       "f7c93574ccb3a6eaa05910009e26068f99f14082df78d3b2b0b84166488657e5"
