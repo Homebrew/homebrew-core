@@ -13,6 +13,7 @@ class Xonsh < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "98c7d25d687f8a0c2b3e4edbc14c354deb3c48ef9ce245126ab3ba83bb0aed22"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "94623f130a3c31cea0bd198617a688cfc5baa4908d8b0b88a163310ba9bb4182"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d40e283b8f3226a33e42ee7c794deec1c15765355d9610e81dcccfbec851ffb"
+    sha256 cellar: :any_skip_relocation, ventura:        "1365fde44d0e5a2378bf38bde97ed81ec69ad7b1bbf9dda413547c219557f0b3"
     sha256 cellar: :any_skip_relocation, monterey:       "ce0fb281461a5068377d51b7ace0f4924a70c79314dc29836af75ef78b5bb999"
     sha256 cellar: :any_skip_relocation, big_sur:        "b6ba23882117c378fecdd7b2589db9d18039ee54790863a5c37dae29e88fdd27"
     sha256 cellar: :any_skip_relocation, catalina:       "76eb9d2f0f13a7db8eac712b8c48dc4413586e72e4ee3553fae3a81fb05a8a31"
