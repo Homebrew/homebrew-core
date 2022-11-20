@@ -16,6 +16,7 @@ class Tcpdump < Formula
     sha256 cellar: :any,                 arm64_ventura:  "46e34484eae8d19ecb7a043fadaf97d57ff129ca13de047110279b9a5651964e"
     sha256 cellar: :any,                 arm64_monterey: "d71d0cc113fd1118d055762736255d98758c41c62b5fbafa85168cbf878dcf61"
     sha256 cellar: :any,                 arm64_big_sur:  "a59443b03462d0e8551309f149374a359ad004c296a10fbdfeccc63917a8145c"
+    sha256 cellar: :any,                 ventura:        "2629960e8aea5d02dd71fd2bf1002d2357ddb26776901c5fb36bbae5dee0ab6c"
     sha256 cellar: :any,                 monterey:       "89c4882162fbe7d4ca38f84541ecf209a7fa4c000a9222180f42dc9058ba134d"
     sha256 cellar: :any,                 big_sur:        "a19c2e85b694e3d96d39a63641c86c5bac9dafc4b54066e5daa446ff25aa8cdc"
     sha256 cellar: :any,                 catalina:       "309850763dc7ffe8410fb5ef889bf9587f56312b3f210f0274cf3322084b8b9f"
