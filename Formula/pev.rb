@@ -19,7 +19,7 @@ class Pev < Formula
 
   deprecate! date: "2022-02-28", because: :repo_archived
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Remove -flat_namespace.
   patch do
