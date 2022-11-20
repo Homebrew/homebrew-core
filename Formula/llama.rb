@@ -9,6 +9,7 @@ class Llama < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9073910ed891d81f9fd5507b457e7cb9dde3d4fc79967d152b293743d1f90921"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9073910ed891d81f9fd5507b457e7cb9dde3d4fc79967d152b293743d1f90921"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9073910ed891d81f9fd5507b457e7cb9dde3d4fc79967d152b293743d1f90921"
+    sha256 cellar: :any_skip_relocation, ventura:        "306440628604a10d958aa92109831598cbe795536399a33d318805021855706f"
     sha256 cellar: :any_skip_relocation, monterey:       "306440628604a10d958aa92109831598cbe795536399a33d318805021855706f"
     sha256 cellar: :any_skip_relocation, big_sur:        "306440628604a10d958aa92109831598cbe795536399a33d318805021855706f"
     sha256 cellar: :any_skip_relocation, catalina:       "306440628604a10d958aa92109831598cbe795536399a33d318805021855706f"
