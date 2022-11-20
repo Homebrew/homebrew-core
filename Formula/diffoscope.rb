@@ -11,6 +11,7 @@ class Diffoscope < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce20322fbe09898cbad9e5a57c97a7d53716771302f38b9c2fbddb9138aa1c35"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b62acdc10049bb6802ef2c075169cc520268a58814dbc560e190c3061fca58a7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b50209c32e7b08bcb1b95329ff4f832769397fa852ec2f8c545eddcf6ec38346"
+    sha256 cellar: :any_skip_relocation, ventura:        "3046209d5d0575cad9c213113ae2df1d1a0c291000d0c7ac050a1a4cb1e2b11d"
     sha256 cellar: :any_skip_relocation, monterey:       "2ae3165a27d879dd81ac101de71eefdf5361622cb251501365b6830049b37261"
     sha256 cellar: :any_skip_relocation, big_sur:        "e43f10f7bf8e999ad0b2b6494d592de102bae24fb8c809a3cfd256f7b7b6070a"
     sha256 cellar: :any_skip_relocation, catalina:       "37821148fecae0b6b8eecfd5aa855bc3e3cd5b3faf05317d646f11a777800649"
