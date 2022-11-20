@@ -7,13 +7,13 @@ class Statix < Formula
   head "https://github.com/nerdypepper/statix.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0be42775d9ae7242ae010c564fbdbb59627c03a2544f94726992ce0c560211c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f2725bb833bbd7d01c0e6490704561de8b2f60ad6b7301e04df541876896611"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f959d28ba6724738ba67cb0e78a2192a1f74247748a8d1405032855f892e2746"
-    sha256 cellar: :any_skip_relocation, monterey:       "0551ac6150f1cb190d00e0c4ba2177724165a544b44ac421746e576ec5028dd8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "706de39d4b5ff85977656949900fe66cdee35fa0042abcca16b7324d12abf3d6"
-    sha256 cellar: :any_skip_relocation, catalina:       "5a48aac0ccd1981df7a42ff682155457a54d419fb40b6cdb5f05557be1d75424"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b27c405541460dcdaa4297e88e9fbf3c43581b3188a54b9e788d1350a406d93"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "127c64e525f291f13a753e93484cc6261f5cf08fe8e631aaaf9bbd0c07dd80d5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a341c31ecd2a97b20d383a6a06761ee8902977d660da697cdfbf16d18587fcc6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "027921b88c04e2246da514fe0393e84bb82f0c077fcb3116a0f2ee58e169a969"
+    sha256 cellar: :any_skip_relocation, monterey:       "c9bec9a03e1fdd1d7b2806cd8d84db05950a22aec908cfab67314430134925dc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1a677e57aba3eae126b72090291c2e4ee96a6b3cb8403ed66b04eadf6b3a7cac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7aa6f1785699aaaa668f5c389ac5866f717c6a3ab0f2d40961259dc6eda92790"
   end
 
   depends_on "rust" => :build
