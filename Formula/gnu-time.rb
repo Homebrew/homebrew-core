@@ -11,6 +11,7 @@ class GnuTime < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5015e7e94a474156cdc47fb188143388231916979598f5398b72e79393a2000"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ff4691a2d76432eb0222284ccbeda79b3375cefdb1c606ba74ea3e8e06ac25f5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3930463651363f08ca7a90ec25deafd85c57f7a71be8ee236f7e15f20de7ff22"
+    sha256 cellar: :any_skip_relocation, ventura:        "950250410ffda2307e42e465b0a563b0d4175f83017467df59c580cba41d8c85"
     sha256 cellar: :any_skip_relocation, monterey:       "e7b649410f591aa0d0068ae267e7357db99c86c73fd5e992db0f5512614a07a6"
     sha256 cellar: :any_skip_relocation, big_sur:        "f4fc9d2c49b65130d04a476d4cd887b1e1033a7870df9805be28aba09be901f0"
     sha256 cellar: :any_skip_relocation, catalina:       "9a1d1160f85f46b3022dc4d978dfafe6b3a02fc97446bc51f8b1ae4580b7c69a"
