@@ -10,6 +10,7 @@ class Gotify < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7ab87d86e6fcd672cac1d2674c6be77bce527bd61b04bc48aa67f1dca35ad46"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a65045f1d44b21b89e38c8e153e8502b15d44d59ce19ec4f8571c8d860f448e5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14d9bf0ed0eb81919268e921507bbee01627bf672eae85bf76439dbafb52ee27"
+    sha256 cellar: :any_skip_relocation, ventura:        "373a1c2f2bcbef959b6d3a8cd71d217669641cdbc0ff31206c280a8f8fe7e5a6"
     sha256 cellar: :any_skip_relocation, monterey:       "646670177e99bd1781c9987916c1a19e259a66645d531cc8186c5b1cfd20799d"
     sha256 cellar: :any_skip_relocation, big_sur:        "48711ef7f1fc3c969fd760acff1d52e1dbe12e6aa22ee037f0dce9f958634e21"
     sha256 cellar: :any_skip_relocation, catalina:       "08586691d4beaec4643df08ff654247cb76af56babcb1fbb43fe83059b01a4cc"
