@@ -10,6 +10,7 @@ class Xdotool < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e97b772870557f47e08a218f6d5b799e4ed39ab167b5701c137f2219c1426275"
     sha256 cellar: :any,                 arm64_monterey: "2e59d046b4cb7d97f989a022c0775cbf3ab9f5929cd05650d50a9eed62b162c2"
     sha256 cellar: :any,                 arm64_big_sur:  "cdf3234a474044e88dcf18b5cb5e8da2c2af6da4d85eb04e8be737802baeae16"
+    sha256 cellar: :any,                 ventura:        "3990de3d762214cd1a8c4f6c0412b745728e8ca3509e6cd62040c111e38a3ec9"
     sha256 cellar: :any,                 monterey:       "ded3a6fc9f7ddc4e307a48744d2c25f2a60a752311628822c69d9f141d17ee34"
     sha256 cellar: :any,                 big_sur:        "f33aa5be05e49f700d166a13a36ecf5a1f8da3059e36f67e0cc9d7f26c3bf088"
     sha256 cellar: :any,                 catalina:       "21276c0386840d584e70f5425578b5184e56ef7649e6992f191a6c7a3cf8a30e"
