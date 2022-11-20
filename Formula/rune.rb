@@ -7,13 +7,13 @@ class Rune < Formula
   head "https://github.com/rune-rs/rune.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a8c668e4d4b73dd71d0f4508b4f39ea6123b0dced76a41363a3cd7d41b8d8cc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4609c4f7b0e77cac118f3df2e9b59f1eb364c182cc3d564ac0d50f36a4f7e6c8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d058db7728257b6a4438f56edec20eef25c14824b01e88bf18ba46d0c08a860a"
-    sha256 cellar: :any_skip_relocation, monterey:       "495574ddafd177562d02676690a7aab661a85e452a5ff1fd65525e39ce578a78"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92d02e131eb33b281e5bd6b5901895a9f55caa8b2bb9cfb6bcaf23be49f111bd"
-    sha256 cellar: :any_skip_relocation, catalina:       "45090c9dcd9c35948965bc68e057b99f19065b0c6342b9a1b3f06fad8c2f33e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ac7c88aee69843a328875a16058e824a7a18ee9a02ab55ef24281fffc6ac1df"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "12b623175e597bdcd6bdfa40e47daaa6d30ed47615a5cf10ac4caf21ecade611"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ead15808a4e9a028f9f0c792a8da3472b9dca5c28caa815db11b870967f71fc6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "37c8cf2ca8475684362479cb7e1287463c339eb42367948908f7c1b3951ee783"
+    sha256 cellar: :any_skip_relocation, monterey:       "5b0474ec5f77af2c8677593c89200a6e55dfbbc11c8aeb6e2c9bd244ea313803"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1b39b0c60660ac9923edcbb136c622262f8580242e4f290892a6e563bfbe599c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef7af62525bb7609d09dafe2bddb5270686e7d7352ff1c1949ac5168312bf267"
   end
 
   depends_on "rust" => :build
