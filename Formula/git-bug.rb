@@ -27,14 +27,9 @@ class GitBug < Formula
     man1.install Dir["doc/man/*.1"]
     doc.install Dir["doc/md/*.md"]
 
-    if build.stable?
-      bash_completion.install "misc/bash_completion/git-bug"
-      zsh_completion.install "misc/zsh_completion/git-bug" => "_git-bug"
-    else
-      bash_completion.install "misc/completion/bash/git-bug"
-      zsh_completion.install "misc/completion/zsh/git-bug" => "_git-bug"
-      fish_completion.install "misc/completion/fish/git-bug" => "git-bug.fish"
-    end
+    bash_completion.install "misc/completion/bash/git-bug"
+    zsh_completion.install "misc/completion/zsh/git-bug" => "_git-bug"
+    fish_completion.install "misc/completion/fish/git-bug" => "git-bug.fish"
   end
 
   test do
