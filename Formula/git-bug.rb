@@ -2,8 +2,8 @@ class GitBug < Formula
   desc "Distributed, offline-first bug tracker embedded in git, with bridges"
   homepage "https://github.com/MichaelMure/git-bug"
   url "https://github.com/MichaelMure/git-bug.git",
-      tag:      "v0.7.2",
-      revision: "cc4a93c8ce931b1390c61035b888ad17110b7bd6"
+      tag:      "v0.8.0",
+      revision: "a3fa445a9c76631c4cd16f93e1c1c68a954adef7"
   license "GPL-3.0-or-later"
   head "https://github.com/MichaelMure/git-bug.git", branch: "master"
 
