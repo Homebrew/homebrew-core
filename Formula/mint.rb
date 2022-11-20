@@ -6,14 +6,13 @@ class Mint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e41081a250f5d4ed3aa04792fd708f21dcc009fda7aba2f8298b0a2a6ace13ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a734b45954dab46148247b64dc0b41aaa20d11048f001102e8f7786770b35cd1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a853f9de02a1419b801046bd561c3f3b09912b1d7df1b1119e4b22dd5c29da37"
-    sha256 cellar: :any_skip_relocation, ventura:        "ebbb9f04894e5284aa9593ee89d52252435f6ee6820aa2380329fc775480a53c"
-    sha256 cellar: :any_skip_relocation, monterey:       "26c136026b22e8c13ae136d984af578ef2d32ae189216da6761b1435428cb4a3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "09f59209f7737020ccfae79fb88a91531ebf01d6f2fd7f7dfb1784a1023af44e"
-    sha256 cellar: :any_skip_relocation, catalina:       "02a284dfc9cc69a4257e3ff8db991e0ae91bee8ef8fa10c164cb730ab1567c86"
-    sha256                               x86_64_linux:   "5c91761cb4cb852674e949cd0a2253f7d8602528d2df70afb71cc7f99968a6f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6c2b944c3bd04099240ed8c4c1489ba8a6274e8d80793744cf3bf5b0388922a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4a82c0b54477a7c3c54000d84833724f3aaa6f9bb62a20ffddb3c880f264480"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "722c3f50d202e3461e5130c3639da14b4d3e55f5156d7803978571da5577f5cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a233f8e964bd5da4b4c6a4682e4d1bf1ee070a82afeffc12ec0dcbeb018f704"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ee17ecd152799a45f080066867c1046ffd332940f1aa925ec4a4b032c47b0f54"
+    sha256 cellar: :any_skip_relocation, catalina:       "54dd30032281efb21ce064aa2d205ca59c985f12f1bb55419ca6800c9b38a59b"
+    sha256                               x86_64_linux:   "84e7f55630889e1dd849fc58d2840b79e91523039e1fcc4516cfe45c779f8b40"
   end
 
   depends_on xcode: ["12.0", :build]
