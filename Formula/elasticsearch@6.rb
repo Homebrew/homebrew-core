@@ -9,6 +9,7 @@ class ElasticsearchAT6 < Formula
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5fb1d3e9bcae848e77b8041e8c870806d4dcf7977ad5c75c6849c4162f16f816"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5fb1d3e9bcae848e77b8041e8c870806d4dcf7977ad5c75c6849c4162f16f816"
+    sha256 cellar: :any_skip_relocation, ventura:        "c76ba900eb45c5187af15e086aa14b5de3455e447b926909a8e27d518cc39c00"
     sha256 cellar: :any_skip_relocation, monterey:       "c76ba900eb45c5187af15e086aa14b5de3455e447b926909a8e27d518cc39c00"
     sha256 cellar: :any_skip_relocation, big_sur:        "c76ba900eb45c5187af15e086aa14b5de3455e447b926909a8e27d518cc39c00"
     sha256 cellar: :any_skip_relocation, catalina:       "c76ba900eb45c5187af15e086aa14b5de3455e447b926909a8e27d518cc39c00"
