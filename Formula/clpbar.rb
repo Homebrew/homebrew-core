@@ -8,6 +8,7 @@ class Clpbar < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d3ff5e627cdb58179f1ea37f38cfa62e3ffc2751984d4d0c53c787f34f40f9c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d56041768cea07ca805047e0d319a5ed863e6b2d61cbfa626c3744c2ba53e08f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3e3c00a0a305c5ce2cc71cfb00fea55f9993976d1f63a73e7ea64022d47550be"
+    sha256 cellar: :any_skip_relocation, ventura:        "536fa2e325dad3dfa4bb63876bc54c9ebea202dadd68d8a87c517842906df821"
     sha256 cellar: :any_skip_relocation, monterey:       "90f14242e4340c8c8a9ec84271d5e629c03314df3761fc6033430cd3d9ae33ec"
     sha256 cellar: :any_skip_relocation, big_sur:        "4ba23543dd87e39ec0baea12951bcc835b65b67b8ef56b024a39d282781f3b62"
     sha256 cellar: :any_skip_relocation, catalina:       "86aefc9d1110a945b62a9dbd9d1efe2a1c4ebaade84ad56d00084857439914a8"
