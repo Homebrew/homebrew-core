@@ -11,6 +11,7 @@ class Aztfy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "795205276eb37c16f360d73e24af8a79386e5c361b75707e8c62704f824ac612"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "795205276eb37c16f360d73e24af8a79386e5c361b75707e8c62704f824ac612"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "795205276eb37c16f360d73e24af8a79386e5c361b75707e8c62704f824ac612"
+    sha256 cellar: :any_skip_relocation, ventura:        "c3a39ba41daaec2e319275f4733724608b6eada2e593d0ec165bbae155e02ae5"
     sha256 cellar: :any_skip_relocation, monterey:       "c3a39ba41daaec2e319275f4733724608b6eada2e593d0ec165bbae155e02ae5"
     sha256 cellar: :any_skip_relocation, big_sur:        "c3a39ba41daaec2e319275f4733724608b6eada2e593d0ec165bbae155e02ae5"
     sha256 cellar: :any_skip_relocation, catalina:       "c3a39ba41daaec2e319275f4733724608b6eada2e593d0ec165bbae155e02ae5"
