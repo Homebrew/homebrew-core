@@ -9,6 +9,7 @@ class Torsocks < Formula
     sha256 arm64_ventura:  "1b49807cb5abf53eb47cf3672b9883784fb4f7510472bb562b63d723cbb8d32b"
     sha256 arm64_monterey: "2cabbbb8642a786a45cb99e1633447ceab14b5df439679f8588814ecb3117aab"
     sha256 arm64_big_sur:  "8c1b04d704074ee39b0ad3ff78ffa87ce8bd58ddac3eb6fbb20f559f0bbac55f"
+    sha256 ventura:        "954dc96cc1a7a39d1424639f55e61e7cf650db8b50fac00eb84bec4a98f129af"
     sha256 monterey:       "65b106a97660e2d27779dca77bf2998df798f4376bc00fd7ba21cbe9ae3f3b26"
     sha256 big_sur:        "3ccf568b46201f651f12d017b6a507f51150cc5f714ad70e3a456e41fe737b7c"
     sha256 catalina:       "2e4214a024055b73d0c6f7f7a05c24d872940b4a49735ed2856711c58e37f2b4"
