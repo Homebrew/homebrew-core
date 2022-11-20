@@ -13,6 +13,7 @@ class Yamale < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "74b1479ab1daeaeb8e1a0048d1ed067c08ff38d7a69817fad6685f4480242959"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "74b1479ab1daeaeb8e1a0048d1ed067c08ff38d7a69817fad6685f4480242959"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "74b1479ab1daeaeb8e1a0048d1ed067c08ff38d7a69817fad6685f4480242959"
+    sha256 cellar: :any_skip_relocation, ventura:        "d3f3df5c8bbfa6008780dae17e10f985f5ec4e6e9f3fdb62190eacc31e33b094"
     sha256 cellar: :any_skip_relocation, monterey:       "d3f3df5c8bbfa6008780dae17e10f985f5ec4e6e9f3fdb62190eacc31e33b094"
     sha256 cellar: :any_skip_relocation, big_sur:        "d3f3df5c8bbfa6008780dae17e10f985f5ec4e6e9f3fdb62190eacc31e33b094"
     sha256 cellar: :any_skip_relocation, catalina:       "d3f3df5c8bbfa6008780dae17e10f985f5ec4e6e9f3fdb62190eacc31e33b094"
