@@ -12,6 +12,7 @@ class RpgCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0766f40464ad75ead48f2ac1715964054845b3d04c118c3a6c72cd1745057862"
     sha256 cellar: :any_skip_relocation, monterey:       "f7356f10891390e057d8c134e2938012411b7acb3f5b9753639c1e702f5dc08e"
     sha256 cellar: :any_skip_relocation, big_sur:        "e012c6b51e806c00b198bfd359c3f64b815380f8ffff6193910382ed02d14e7e"
+    sha256 cellar: :any_skip_relocation, catalina:       "9833ede83c62d4d39396dd15dcca7f595277dfd7c08f1be4cf29d86d24f97b87"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1cd66774457486f7ebfdc066ec5af7109b8894aab60ac07e9419436408314f4"
   end
 
