@@ -9,6 +9,7 @@ class Gitui < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae1a3d064adf9db8961ec103cfbf654c3feb6a5581af77ba665baa281263b411"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "30ac59879bfbf1c2423adb68f0801946f8d9f3c830fd8691a82d81368d7b1029"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c7abe27d949527707ef151ff86d228503330355023bde2a91394897ae24351d3"
+    sha256 cellar: :any_skip_relocation, ventura:        "9fe199807e3eedc42f3723d7f38fed672807bc1048a7b253536b7e6b9d685b13"
     sha256 cellar: :any_skip_relocation, monterey:       "0f3aa439e1211c2906c23e7c1ce3e0f8cad62af40dd2dcf2affe7c44bc9bba18"
     sha256 cellar: :any_skip_relocation, big_sur:        "cdd2e3d448f4df7ab00afe9e51f9e8790b91e76f378d664fb715b3b4f44dee94"
     sha256 cellar: :any_skip_relocation, catalina:       "c96baa42491d823c260487348bd568a3da964001d8ca5c7bcea076d07687d5b9"
