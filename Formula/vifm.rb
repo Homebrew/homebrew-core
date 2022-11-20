@@ -10,6 +10,7 @@ class Vifm < Formula
     sha256 arm64_ventura:  "622d7635189b4ba60c1e26642efbb4b4f7fb5dbfb6b7f12c2da7e8457763d19e"
     sha256 arm64_monterey: "9ff2c110a2487990dc8a5473c4198e6c14d06076d2676945873ca6c79b7e1f5a"
     sha256 arm64_big_sur:  "a054a93a662f4280f6b374ca8587d4a7b37dbbc3ff34ea0926c391f68faf7f8c"
+    sha256 ventura:        "7a00927b2058f0f9b48c035a9a69edc33d8b4d06b127c4fe9907bdabd78780a2"
     sha256 monterey:       "202faa12cccb273b6cb60b746d8dbbc96d80fe18da651d09adc9b954a151c8cb"
     sha256 big_sur:        "1e026dfdc6081bd33fb833c0694a25d30b588737bcac0a7e4588f10d2850ab3f"
     sha256 catalina:       "c1cd64539b149331b9c75cdaa309b73324d813a99aba93fe6943c070107e78a3"
