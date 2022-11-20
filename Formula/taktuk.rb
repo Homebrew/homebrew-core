@@ -9,6 +9,7 @@ class Taktuk < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f2ee8a7c0e82af568fa8106af14fe3b9e0247cd7a6f87b4e76c3fa21880577e2"
     sha256 cellar: :any,                 arm64_monterey: "ea5b8b832ba022f7545be2eea7ca316cd2d079263b87b0f93d669e26b06d6f3c"
     sha256 cellar: :any,                 arm64_big_sur:  "d9743ff8c715d03d4549f09850a2029c135e72859d0518d94b44b3aa51f7abf6"
+    sha256 cellar: :any,                 ventura:        "17dfde7ebadf43409f07cddc80ceaa7cb165646b9c9bfbb5137bb36b8cc28a1e"
     sha256 cellar: :any,                 monterey:       "36e40a6c21e87f656fce7ce72dbf0cc8f9aaade9986b630fa9306bd63f17544e"
     sha256 cellar: :any,                 big_sur:        "d33ad42f68016a53bbb84cfdf5704cae271041ada4b42c5b3892d30ff76e479e"
     sha256 cellar: :any,                 catalina:       "7ed3f1542b9acfc2ad2de0b9150ad4e7aa72246415be9046fe5eafaf794b478d"
