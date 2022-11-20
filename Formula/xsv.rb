@@ -7,16 +7,13 @@ class Xsv < Formula
   head "https://github.com/BurntSushi/xsv.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9681fbad04289f67a2d596214eeebf74901bbb9a05dfa511d1ab1f7721c48b3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0e5fb872dbacb405799b807b1c5872ca04cd81a83a0199e252e92ccd4f3d0a2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7374ba9bf778c782cdea3107aa7dcfeeb218c65f72d4270911c1f24f81d57c58"
-    sha256 cellar: :any_skip_relocation, monterey:       "47a88051ca68110279dd05aa1f6eca6c473a2c760d0e247d4afbfabfb615f1ae"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4dad76acfa42962ebd2a1b372e2f0cfdaedda68024849662e275525dd2c26a64"
-    sha256 cellar: :any_skip_relocation, catalina:       "b077e2fd6f968d6a3fa5c22a145e134bcead5cbe50ff20c78495937cbee7ea1d"
-    sha256 cellar: :any_skip_relocation, mojave:         "ade2c436c1acf011ef7807b01a2783f6c31c0cacf066e51db904adefd99d4a14"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "557ef267b773911347df0d1960040f2d28e20c3680637b8af5bd89edc77bcce2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "646dad8c1e42acb45476ed39e5e30c85c355d766f889db96893c31478def5c75"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3782f25035444ff4b65770eddc8598a1908e1538d1d338954fc22a928846db4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "410eeb772d867d03a7e80276ceb83d4eb7a7784b28d0087ed8ad49d69e8fbeb6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6084d9e55244c876bbe7b833f5c7e27a19f09993f8b48f30076bd3c689f56b46"
+    sha256 cellar: :any_skip_relocation, monterey:       "69ffb9f95356c1bc35999511f5ee4f2d31b9ec08f3dcd3b831476f75396d63a5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e0b4b23b91d31f0375fc425352a11ef551a1f2c75664d3b266c7cd9d8fc57f10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2e6982514f6800be13fbbe4d1e2512023baa2f3bb2dc9e4bad87c0699bb911f"
   end
 
   depends_on "rust" => :build
