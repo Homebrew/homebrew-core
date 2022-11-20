@@ -22,13 +22,13 @@ class Openrtsp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "333e241c8d6aaef1fe8e9ac94305af36f6bf8905acd281a47d7f1eab79ac8cb9"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Avoid linkage to system OpenSSL
     libs = [
-      Formula["openssl@1.1"].opt_lib/shared_library("libcrypto"),
-      Formula["openssl@1.1"].opt_lib/shared_library("libssl"),
+      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+      Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ]
 
     os_flag = OS.mac? ? "macosx-no-openssl" : "linux-no-openssl"
