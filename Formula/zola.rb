@@ -6,14 +6,14 @@ class Zola < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c61253251605ff8751e9c3198f3843bc9d18e582a9a7cbb8d2fe6e6aa7833496"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c08e6c88309de152f7a265da012dcb9823f1cbe5fbba77848b877bbd946cb1df"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a46518e851b622f75ecb407a3c7e2be03ca5dedbbb1b28f70bbb8439c1c1bfd"
-    sha256 cellar: :any_skip_relocation, ventura:        "8b045dd4de65f3d08d9e8a489b648812ef5bcd599071f7e8df8574ffa5495d11"
-    sha256 cellar: :any_skip_relocation, monterey:       "f96375804c79ee2f6c6ce6403412a014b819f3432c170b9f8a6e27361886db79"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7c51958a5366ab917fc911e719e29b3a84f1bfd624ff8d2cfb66685667bc3af0"
-    sha256 cellar: :any_skip_relocation, catalina:       "1bdac43bf87c55f43bbd1e85135673c870f90651b7948ea20c41c8a3a340b0f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "099dea7dde5fe17e0179b1b38a88c75845f7416df522dbd6e1fc3ebbc0520842"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "745cf51a531ba4f32b54a6f1a871586e06a61006dbfeecb06724f1541f068039"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "40487210c9f3e7df0359c0717717a824ed181fd00313e3434b1b670a8cdbacb0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0072604ec0763a9807cef530ca396ca21349c3994d3e4b09053fa3cfce660ae5"
+    sha256 cellar: :any_skip_relocation, ventura:        "9849137582ef3a4d8d67e15a4f80b2dfc88fa2c43feb425a97b70da76ae47690"
+    sha256 cellar: :any_skip_relocation, monterey:       "b56c6f2b926bdd873f3f1a2ff184f8b8140dda268d42c13297d1ce965a454a77"
+    sha256 cellar: :any_skip_relocation, big_sur:        "913c41c78e92dfec5b46b7733679892d42967dae731787df7332ac7cd4ca2746"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b185e33df9ce30f79b8a0501d4fe871bc8005f2dbdd115408c14bc3bb59845a1"
   end
 
   depends_on "cmake" => :build
