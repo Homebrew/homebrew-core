@@ -16,6 +16,7 @@ class Shntool < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec3c0feb069099563b7359c7e3f926ac1840aaf0364bf40be1a2cf1462865764"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "02dd5226afa9d564374ab0e56a1edd08d7b61ac8c9c7fb09ec2dc011d47cb955"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1dfa65178720559cebc5500eb9f32d4ca2606a4f1b6a94b9d175ceded8fae2f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "f8a5ea952382da86b8ebc29ccc1ab8c4d818a69a408c7e2adbd9cec2139fb5e6"
     sha256 cellar: :any_skip_relocation, monterey:       "858a65a08549e69ecc02979700c5155426f0a8202da7e6ec48bc0018a6ed9038"
     sha256 cellar: :any_skip_relocation, big_sur:        "c265916725e367c0b187924177b6e5d9ed12d434f242e6bc7b59596a02f08c71"
     sha256 cellar: :any_skip_relocation, catalina:       "e140337ce89f886c0044ac6eaf75dda3711622f9da418932e8a02337213785ca"
