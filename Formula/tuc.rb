@@ -13,6 +13,7 @@ class Tuc < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "058081c832d1526d067cfdf43254106329a5d3c39093afaa73af9c4df1a69092"
     sha256 cellar: :any_skip_relocation, monterey:       "accd6c100cfe52050f9c67e208d44fb71a1e7aaf6da3f1d9619c5b30f4aaf06c"
     sha256 cellar: :any_skip_relocation, big_sur:        "1013a3c42ad1130863d651b67ae3b46d60effce216480619a817cf8648c1c105"
+    sha256 cellar: :any_skip_relocation, catalina:       "483954735844c7a0958f551d3b2947f569c7d992528db397126323b8bf77c815"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c5af51e908c788ea4ebf48d4487d520a4e61e94498b38b896f85cebd68010b6"
   end
 
