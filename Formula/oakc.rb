@@ -18,6 +18,7 @@ class Oakc < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ecb4eb764030b55cb485cdd0f28343b65bf2a93de1f0c4ce4ba633e80fafd76"
     sha256 cellar: :any_skip_relocation, monterey:       "57b18008429add80e4fdd436cc10091e9563e3d4c01f76f9429d146b49d17184"
     sha256 cellar: :any_skip_relocation, big_sur:        "df01ac42a1ff0632e6aebd2cd10f97d14631b5221556a667b71e6b61664a07e6"
+    sha256 cellar: :any_skip_relocation, catalina:       "782964257658eba472afbe784511f772a4a84e951c582a5a57546cb682bb0b25"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ef60b48d23e35832e2d6b65a2c503ff72f88c6d5ced38a5dad9642b2147d642"
   end
 
