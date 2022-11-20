@@ -9,6 +9,7 @@ class Py3cairo < Formula
     sha256 cellar: :any,                 arm64_ventura:  "93befda735b45aa8c04d1bc288b88b8c2b41d9f63f8236bc8e6184c580789e69"
     sha256 cellar: :any,                 arm64_monterey: "e80415048672894adc9c906c9838760956813acb342ff523a21943edcae47688"
     sha256 cellar: :any,                 arm64_big_sur:  "614fa1e30f7428f49531d7708c01565ce583a63ae1224a4e4f98361f5133b236"
+    sha256 cellar: :any,                 ventura:        "5839416a7831eea998801a2c2dc465b0a961cd221eef92253ea6d52ab2680cb6"
     sha256 cellar: :any,                 monterey:       "dad977428d3e8d0c02738180ca86e99dcd690b188c6ec2cef4cfbafbc8220cbd"
     sha256 cellar: :any,                 big_sur:        "dc68f9a97b73f946b71fe5818b4077e9339054233eeefe7756f4bb8b2c633f00"
     sha256 cellar: :any,                 catalina:       "77936c68a96077618720722fa8810c8c4b74c8330f7f4d8fe92f7ae91aa201e9"
