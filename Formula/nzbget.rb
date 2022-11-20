@@ -12,15 +12,14 @@ class Nzbget < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "b8caf9237594bde5b8aa061f9d2ee56fcff7c6d85c54c4fe64fe61471f3ab652"
-    sha256 cellar: :any,                 arm64_monterey: "3f7ef62ade3d391d6a0cbb63b39e75e8c8fca3f07d0525ab291f607d35d94d38"
-    sha256 cellar: :any,                 arm64_big_sur:  "6a4743dcaa3ba3dfeca5d2c54c058b3d7a4ab4847ddbc21462b25cce84756c0a"
-    sha256                               monterey:       "609b10863046bd0fc1b354a521644e0cce214240070d516f9c240833ee402b81"
-    sha256                               big_sur:        "9810dbbf23b06f25ddface9bb1ca1685090d3d69dec8543d525a586dedf7480d"
-    sha256                               catalina:       "cb861d544daebf2727e2f0f870194de496a17e5ba14518d1db9d6e1e1a640479"
-    sha256                               mojave:         "d1e17cf15ec820ff11d114923c57edf57bb2c4cc90fd8106f4d5252442c217f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e65e035d1c6512f7f3d906614af389d27e4c7a020acdadbf841b0377a6a6671"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "458da39e32a96030249c365b62769481f25689f74ee883ee51f75f258a686663"
+    sha256 cellar: :any,                 arm64_monterey: "06a0bb3f22c5ab5b5e5be455957b4eae0566f938d1bbc88ec0dc090f67b41665"
+    sha256 cellar: :any,                 arm64_big_sur:  "7047029f0decc4922b72b1fe4b1f73977c54e0397e57b95c99691ee0c9a6917c"
+    sha256                               monterey:       "d924d48be76662efacb4b68861fdbe470500265e416c1cd679a441673cfde99e"
+    sha256                               big_sur:        "6b161f7f674c0b7cdf0282dd054723a2a859888dce1558277c17bd40b0985c15"
+    sha256                               catalina:       "9b8a312da9d8cfa4c7259488ea548aae1b2766c92311f747ff3105b19693b936"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65fd679c775ee8595c57e5459cc0eba8802944aa7181a4548e6cc6ad0340ffb3"
   end
 
   deprecate! date: "2022-11-20", because: :repo_archived
