@@ -7,16 +7,13 @@ class Svgcleaner < Formula
   head "https://github.com/RazrFalcon/svgcleaner.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38cce233671a4d996f0c2423e3d0744b0351a18503e2cc86ba010860630245c0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "526c99b79cb8de90e2d43a2723dedc23786f16a1e3992669d071d478cffb7e9d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4e1232a8f5f904166c97f537df03596bf133ea9d68a1ab08df2f4b0dfbbdc1b"
-    sha256 cellar: :any_skip_relocation, monterey:       "b0f023be007c4b8a5cb02b91de3369ac0cb49b4bfccc8917ed5ee81ee1f7ea76"
-    sha256 cellar: :any_skip_relocation, big_sur:        "69290442826481651a7e314ec175f7fc980640c53e7908aa5fd6e9cbff03a1dc"
-    sha256 cellar: :any_skip_relocation, catalina:       "43533727baf2ed09cdce9fe64357c1bc1f70fed57d70f37cfd824b664ab1266f"
-    sha256 cellar: :any_skip_relocation, mojave:         "bf18c353316b7a46ed2cecad188a638e359ce77acdcf501f578e5f96149ed667"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "7e6df86bb8f994b157ff6de9bb7f43605b813a6a476f6f2d3af4d3483c1b6483"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "faae5c691c1bbb241aa001e912458be50a1aaf6eea241591b6a34148d3d93228"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7d1ee246dc48406e261ac3ab4043f35f653d3973d738aecde6c9bf9fdcf85c3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9cba5273a6c44bc5257f11a1de3d7302872396d184aaa05128ad3a0903b34735"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af01e1a22b3edaaf33aeca10080cd50ba097531e72cde15a0ced468758df8aa4"
+    sha256 cellar: :any_skip_relocation, monterey:       "06aabee9050ad9a8882623cb4f2b20e537e7c56387eb428fa7e7800f513f14fb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9d2c263f4774a4c646576e2beb78adbddc67d966d8fad9fcbe43d5cae8b737d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ad0a9020b3aa287c3d3ad908c7cbc625aceef02a0cfc559d817a6b1f2acc064"
   end
 
   deprecate! date: "2021-12-11", because: :repo_archived
