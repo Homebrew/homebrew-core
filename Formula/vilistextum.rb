@@ -20,6 +20,7 @@ class Vilistextum < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a6b83b2e8ddabeedb5def8c287c556efa9b442929a98d06171265b7f781e8cf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e63b2fe29b72a3f2203aaf741fa4589b345c6ca5fb761a132cf27a6b5bee5068"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dfd4ab35a880dbac2c93e43eed5e0001093fad04c94c32f955c3f91822d84ccd"
+    sha256 cellar: :any_skip_relocation, ventura:        "768041a4e365f2dde17beb262782927aed7a6b44f5d6d0290e962ce2b96d0925"
     sha256 cellar: :any_skip_relocation, monterey:       "24296c2112ad6437cf40295a62b10898500ed3c13b2af65f514f8138ea874b6b"
     sha256 cellar: :any_skip_relocation, big_sur:        "c1107f3edeb308819c5b074f1ed2072583c3bc5a7800af162ab10ef460548f18"
     sha256 cellar: :any_skip_relocation, catalina:       "cead55f6cb7e4d66d3f6ca2bf013f0cb653144a0fe79620fdd5735a1e57566a5"
