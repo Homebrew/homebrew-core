@@ -15,6 +15,7 @@ class Fcp < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2581bfc5df020bbe4b83660fcf8c41d98f1bbadc4b2eeaa9d38e5d732706e1f3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "86e9ee14f358f313fd20742cbc3c499853973ae51801cbc2a05cb467e8564bdf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb23fde600b15782fbf8d35106510d6f7dd8fcf869fde6571b066b81bea90aca"
+    sha256 cellar: :any_skip_relocation, ventura:        "0ab8468cb87e1b8e4c98492da40a211ba4afe8871a7dee9eb14899411515dcb2"
     sha256 cellar: :any_skip_relocation, monterey:       "c042caa2bd2172e276c0655553ce7009598ae0b34dfbe6c38641382b57a02eea"
     sha256 cellar: :any_skip_relocation, big_sur:        "f6623580eb5027ceb5acbe4a77d90009b4e5f2a702dfe8088b85afd56562f3f3"
     sha256 cellar: :any_skip_relocation, catalina:       "626455ae555f987dfc0f6d43a49be3bfdba29873622b0662ca05fb8c13ad70af"
