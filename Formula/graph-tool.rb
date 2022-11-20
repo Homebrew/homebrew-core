@@ -17,6 +17,7 @@ class GraphTool < Formula
     sha256                               arm64_ventura:  "0e5113457b48f829a823a2c27861937ed5ba3de48f02f20a73f934e84292df20"
     sha256                               arm64_monterey: "72e51d21086a0f978b353bbf0eb273af83e10ed400df7272d282a3c810c96b73"
     sha256                               arm64_big_sur:  "3b393a7329669564548d8edff26b613b85eb7209f952a14ed0e9c00bfff18784"
+    sha256                               ventura:        "5b7ae782226e371e57023a39b1b344187aa71de5c0d539f753811d0491bb9022"
     sha256                               monterey:       "7f2394b7289eecc174e821204f41e756b7bc0b7070c14ef4dfe6ad671718482a"
     sha256                               big_sur:        "912a5656461297bc57424f50258c64ef69ec6215b40e2e4ae538122d822e65cc"
     sha256                               catalina:       "8eeb0ebb043660d3bf1ef17a8930050d992dd51084d86ac140c2b6f2b3431ec8"
