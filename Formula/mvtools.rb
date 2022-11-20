@@ -4,7 +4,7 @@ class Mvtools < Formula
   url "https://github.com/dubhater/vapoursynth-mvtools/archive/v23.tar.gz"
   sha256 "3b5fdad2b52a2525764510a04af01eab3bc5e8fe6a02aba44b78955887a47d44"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/dubhater/vapoursynth-mvtools.git", branch: "master"
 
   bottle do
