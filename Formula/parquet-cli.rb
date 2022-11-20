@@ -11,6 +11,7 @@ class ParquetCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a411057efdb1d471ba0f7da8c4c81ec3bd32cb9f68b51dfceec5dd67d1f3adf7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "feb0ac58cc6e7cebfb4c8f999bebe8821fb53e6d48a5674f0cb541c6c1f88608"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4738900ccf09ed266e176b4bf5984c61c5c083bf4547c13d7caf403ae6146d4"
+    sha256 cellar: :any_skip_relocation, ventura:        "802880c473564959939d9e3c9ee5983fb9cf0f68fc5c8788796946c04fdd819d"
     sha256 cellar: :any_skip_relocation, monterey:       "37c3f5ba078794608d2b1402cfdef42414b16151636ace59b2b52a5160df1a68"
     sha256 cellar: :any_skip_relocation, big_sur:        "ce0a8a0b97818bda0f82a331dde7dbbfa8f5cd2e5143fa8514a494ab217b5e91"
     sha256 cellar: :any_skip_relocation, catalina:       "18105bc4181c1a29479b9b62ec8d884f0e9f9425bbb6b30606bb8dea9b7fdd61"
