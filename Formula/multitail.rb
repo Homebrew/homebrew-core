@@ -10,6 +10,7 @@ class Multitail < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a19b4eb52cc23c3a9f3190dbdca3db1d34032bd8790a357f022f1b408dbd0cff"
     sha256 cellar: :any,                 arm64_monterey: "2d1abd3e7e31719e362d7a1f7e22375b60eb75403bab05562975dc8758b424d2"
     sha256 cellar: :any,                 arm64_big_sur:  "746bcb020d1cac7511697bb8c0a0933a3e2948544aa3069c44c79bfe7179f031"
+    sha256 cellar: :any,                 ventura:        "0bd2424867668b48d47985d2679c6aa705a6d1ce8801ebad42d737828a3d11c7"
     sha256 cellar: :any,                 monterey:       "a59560fd92bc0e68010cbe215edbcb6d31cc7f57a9acd43715f7adf93bd754f2"
     sha256 cellar: :any,                 big_sur:        "4361b3a0326daff64e701bfdfcdd105d2a36003a87a9e4196ceff935beba9807"
     sha256 cellar: :any,                 catalina:       "1506d3e77bb07b8c8e6726982ce235497ba2914f872b87587a5e21b0fa3bf627"
