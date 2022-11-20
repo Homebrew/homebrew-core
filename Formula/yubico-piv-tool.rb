@@ -14,6 +14,7 @@ class YubicoPivTool < Formula
     sha256 cellar: :any,                 arm64_ventura:  "003a83e34fadee641720bf199666c4ac9379fd781c1962d48c55020bc19e5237"
     sha256 cellar: :any,                 arm64_monterey: "8f318d73ecaba695565af93bb8b17220832e30c51cae308b9b3737788e394975"
     sha256 cellar: :any,                 arm64_big_sur:  "99b5bb89e217f0e98b5edaf95b75a2d50c07a5f593a104edc66518d51e86e59b"
+    sha256 cellar: :any,                 ventura:        "d8b283f9d158783072fa1c83cc11f26809143ef657c62dcd15541759ade0d6f1"
     sha256 cellar: :any,                 monterey:       "963208d74145e747d84890ad0515214e9fa843d103cebd74501e1230eda7a2b7"
     sha256 cellar: :any,                 big_sur:        "ba15d7a429b902fcc6cfdd6c5378081b01d22a28779a7571e268e1d5d10ff1d8"
     sha256 cellar: :any,                 catalina:       "118ab85bbda0694c6edc746dd210849814c05c41a586217c9ed974d67f406a30"
