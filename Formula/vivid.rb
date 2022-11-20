@@ -12,6 +12,7 @@ class Vivid < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9b12d072fd632baff141e138d9d91dcf4fe99af3821cdc49959f771d1ecfad8"
     sha256 cellar: :any_skip_relocation, monterey:       "51a780f70653818789135dd3f2ba35d39e037dae65657c8934a2d33a010e7cfb"
     sha256 cellar: :any_skip_relocation, big_sur:        "5f65cf4cd1d603725e5b9028bea928568f4055d7d0dba023a7d1ea306ca97468"
+    sha256 cellar: :any_skip_relocation, catalina:       "8c356bf673d2ceeab52948d1435e16bd9d4975078e73a6a9571a71ef471274e0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6710b464db2dd6b87c41aae8efe8c6fd87a667b86be4ba4b6239fc9fe28626c"
   end
 
