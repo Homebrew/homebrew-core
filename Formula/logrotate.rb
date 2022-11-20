@@ -9,6 +9,7 @@ class Logrotate < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3e71062bd2782798ede332160421dec7881cbaff5bcfd8378def329908cebad9"
     sha256 cellar: :any,                 arm64_monterey: "20bb6473a71d54801b2d141f8bb5fd57211bc4f4df3ec9e1d5f4b3c650a33cd2"
     sha256 cellar: :any,                 arm64_big_sur:  "333fd71f9f463920a1a76f04cfdb700563477168d25675237a1863ec5fae8727"
+    sha256 cellar: :any,                 ventura:        "5d0ecdbd31094309515e8cfa92c342abbf3be4be8cdf680fcfe05979e44e9f9e"
     sha256 cellar: :any,                 monterey:       "91cd5a2ed4988f3de33a607d22b77c4f629aba32b550810c4e5f6956a355fe39"
     sha256 cellar: :any,                 big_sur:        "7fe8e0c87218bf3b58125ffea6278287d586855663c73a20ca8fa07d4d22737f"
     sha256 cellar: :any,                 catalina:       "fded0c8e4a465b9fbed0f83bb371f3b3d950c75ab0e9bb786591455f4401ef05"
