@@ -15,6 +15,7 @@ class Opensc < Formula
     sha256 arm64_ventura:  "80011410c66cf3191890e84150abb2d55056ac0468a54d68734acae0d1b3c044"
     sha256 arm64_monterey: "8d683bfbc7dcaa651ed70ca75333402bc75f47fc2eaf005581138f824db97e52"
     sha256 arm64_big_sur:  "fb1e4fdfdca0bd35600e321fffd758aff4e8557957da8e2a467d4580b5f52092"
+    sha256 ventura:        "d8f3cc32c0feb0e84a823a1746e4e4c6f0c6c07a59d28187212e3a6dfa68371b"
     sha256 monterey:       "dfc3fd6cd5a271ed848c471930f5f3f8cdcab1214b0c1eb8090697a9d8e9fc94"
     sha256 big_sur:        "308076bb86f51319361ac05d6abb0d546e021fdef0d85294cce641808dd74d24"
     sha256 catalina:       "78c5529ee73f82e4c4830033a14a24befd358309fe74172e0d3b37b86a5c3e0e"
