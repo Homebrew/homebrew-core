@@ -10,6 +10,7 @@ class Kubespy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c4db20d09bcef468465226823d2b14af1e4a55206b16140248dfb306a69321f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "faff7e7c8eb84998d059df5dcc5e22d3da3be8cc5e524871c77f3acda36b7be6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04129547313f403451674f831e6212aebeeae70479c5fe21cef03f06f4119c6c"
+    sha256 cellar: :any_skip_relocation, ventura:        "eaa13f07ebf4369623a82014d55e1f92467f2651507334de7ea3d3c62b046d95"
     sha256 cellar: :any_skip_relocation, monterey:       "d8da458edd137ab26cfb3bc36d6c3ab7cf0404a11ca9a1b2c77f99fe08eb48d1"
     sha256 cellar: :any_skip_relocation, big_sur:        "bfc0e5e1537dc57fcdfa30af9526b395c148fde757078a3bf1ad0e0906dc239b"
     sha256 cellar: :any_skip_relocation, catalina:       "b103e94c9e8e673d5b5d731932dd7cfd7ce55d52a6fd937fe7c5e9de0cc71774"
