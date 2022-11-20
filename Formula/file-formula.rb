@@ -17,6 +17,7 @@ class FileFormula < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5af7991cbec38b44fbde8e3f698b586b9621f2da7680f5ff74d57cb6aa654d64"
     sha256 cellar: :any,                 arm64_monterey: "4670bf33cb4a2a2ec2167ba316f91d61ef524e67c0ec232ca2f513e4c6cc4a62"
     sha256 cellar: :any,                 arm64_big_sur:  "983ef3239b886fa044a56adc2797f63b4d2930d7e68f589e8cd386d4663f2fe7"
+    sha256 cellar: :any,                 ventura:        "a52371b9d176c1d2504772344c3862e8ed31fe474b7ae1a553c9822532a58591"
     sha256 cellar: :any,                 monterey:       "70ff46e2a33856064bfd7ab5752a26e2479fbef2c031cbca2a3c7c0eee867c33"
     sha256 cellar: :any,                 big_sur:        "91a17666871d695c9c0df10afdb2b41835da1a8114dcba529e65f0feeffe2c8f"
     sha256 cellar: :any,                 catalina:       "95ce9f08f5efa8f6c43390ab8ddc1f1807bba036419985f529ad1678c60cd595"
