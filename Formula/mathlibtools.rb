@@ -11,6 +11,7 @@ class Mathlibtools < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a797bd3200b10e37c73fa8fd0cb021185deed87ba8f45d2a6902dc7d3a6e7aaa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "19ce453b66d0d8e8428ddfd2f4b976b05f8516800a794ea6a0b690c56f409c95"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e81e5813036af22b1e81198268924b4a977614cdc427700906312f684199a0bf"
+    sha256 cellar: :any_skip_relocation, ventura:        "cbab3196ff69fd42c4e9dcd9e1156262996b1c6075470c51b5ac2dc322f41fd9"
     sha256 cellar: :any_skip_relocation, monterey:       "df14818088786e7c06e9209a2d3e4f8a832bdab9f39ed7a5d1397852c338b3a4"
     sha256 cellar: :any_skip_relocation, big_sur:        "769ee87daf4f1076b01e4eb0cfcceb392b2b5226643d702b1e16c721d407e04b"
     sha256 cellar: :any_skip_relocation, catalina:       "e25e751b4cb1250616311e974b19157ff8c69183a2e63ab3137c625f2b510620"
