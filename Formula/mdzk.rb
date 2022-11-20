@@ -22,6 +22,13 @@ class Mdzk < Formula
 
   depends_on "rust" => :build
 
+  # Fix compile with newer Rust.
+  # Remove with the next release.
+  patch do
+    url "https://raw.githubusercontent.com/NixOS/nixpkgs/ea76cad34d64ce213de5992154031bf0c9b75ace/pkgs/applications/misc/mdzk/update-mdbook-for-rust-1.64.patch"
+    sha256 "953f1d75d586acba6786d9c578f5c07fc2a52fc5ef5c743576a613a7491fbb50"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
