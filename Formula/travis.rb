@@ -10,6 +10,7 @@ class Travis < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6b8b0df541c9731bb23101d0ce5848edde1ef3de1c57672a6364de0d59029996"
     sha256 cellar: :any,                 arm64_monterey: "9f970f517ee07fd631f8413dc5258a2673004774adc123afb25ca1898083fdd3"
     sha256 cellar: :any,                 arm64_big_sur:  "cc488bfe2d8e576d6ae11665e3140019f25e8fe1239c65f3122b311217ea2c75"
+    sha256 cellar: :any,                 ventura:        "55851004f709e1ce460af6958f99d43f47c0ada9a32b52cbe77df6d3f9ce5c01"
     sha256 cellar: :any,                 monterey:       "6de804e665cc162474f236240206a8440d732cabf28eeab31a11b10ce8fcedf2"
     sha256 cellar: :any,                 big_sur:        "c6738baf45ae5a6853dfa23893c0291a085ae0047166c0af188e654e7f1d149d"
     sha256 cellar: :any,                 catalina:       "a5d9904fb3347ee3960ecccd760d324a47cb010f869cf93e286574635b588b1a"
