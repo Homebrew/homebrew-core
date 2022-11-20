@@ -10,6 +10,7 @@ class Xplr < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebc68fbf6aa3391e1121d66a11c98327189515987a4c8628d964c654b5c51924"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "041e9422da8ac61c2e0938b64b386b27b68545c73085eee2c3af013ea799564e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7df453f42410b4227ba15787aa915da20f4667c038a147c2c8950ef37162347"
+    sha256 cellar: :any_skip_relocation, ventura:        "1fab693300aadf15740cc35cacdd92c85f7fca1f7d82895e0a1812f31478272e"
     sha256 cellar: :any_skip_relocation, monterey:       "c7cecc06360afdf1f2ce5d9b49a513e10141874f31b043f91ce6dbcd9f6729c4"
     sha256 cellar: :any_skip_relocation, big_sur:        "e2094d31395093e21ae486ac0f1d72817c76b94a0233174e39b59b0c06d3266a"
     sha256 cellar: :any_skip_relocation, catalina:       "809ea7f0d2ee2dd72825f6b152fa1946ad68a1c7275e8e289b7b648b999ecf8a"
