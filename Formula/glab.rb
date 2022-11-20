@@ -10,6 +10,7 @@ class Glab < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c4d0c58933d3f927816d7d1f426b9e48baa11c6ae162f85698054adfc120a3e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "58a6efde41f754f75de93a2c6ddc50b888237f5a6d268cc22c375722972537a9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4fb720719b0cd88b52688b7298ef5b07b510d0eb0fd2b3067a7f3fe47303dc9c"
+    sha256 cellar: :any_skip_relocation, ventura:        "87f76149686090bd974f930ccee4a625656190ff30de3d0194ec29b32e6f556a"
     sha256 cellar: :any_skip_relocation, monterey:       "335d3798ad846544e68dfab75abdaedaf40397db17e5de76c9a5462c231285a0"
     sha256 cellar: :any_skip_relocation, big_sur:        "1b384f05896c4cc28fc9e679549825792320c54bdf675293dffffb1a6c2717d1"
     sha256 cellar: :any_skip_relocation, catalina:       "92114845aab1c15d5f52c0591d44508c28a4349a46e0f7669d5d551806155759"
