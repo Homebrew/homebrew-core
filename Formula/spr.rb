@@ -12,6 +12,7 @@ class Spr < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59cca6a0a52c53c8c758ba8722e24b52239c668273cdeb89884b9f9964bab36e"
     sha256 cellar: :any_skip_relocation, monterey:       "e4fc2f7bab9f2b2d2688e8a92517b07004dec292d8e000b988d01e976d5f516c"
     sha256 cellar: :any_skip_relocation, big_sur:        "d92cfc824a5c4bd30ac14c88fd1147b5dc5c84d560ab8ddb8cbc93694d668894"
+    sha256 cellar: :any_skip_relocation, catalina:       "34791a0fc2f0421bc7334137c5a538d4b77311430fbe5167e937ee2c36774a35"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "021b7008382f3b08eb08933c099c347203dd751684b27ff22cd6ac3e9eede534"
   end
 
