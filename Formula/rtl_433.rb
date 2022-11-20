@@ -8,13 +8,13 @@ class Rtl433 < Formula
   head "https://github.com/merbanan/rtl_433.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c2e760dbde258e65f4364a6408cba8379f14c0ee2304b6ab8763433f08f941d0"
-    sha256 cellar: :any,                 arm64_monterey: "50d863bfb93b8186913082ae451ad42cd7cdc3b6d56e3a52ff3da031a56459fd"
-    sha256 cellar: :any,                 arm64_big_sur:  "ed915afbe569d6802bd1c2ea70e04c25d3a05a97ff712af46f66e55c8158dbf5"
-    sha256 cellar: :any,                 monterey:       "41da1507a5b0c5f7c91ea129c459cc77fa772c7f1f4f763c11ee00b1939ba0cd"
-    sha256 cellar: :any,                 big_sur:        "0e4334269c387914888c2ae366ff784903dfadd9dd02b6c8507ac1b4202ff24c"
-    sha256 cellar: :any,                 catalina:       "bb968856b95daef8e3880cc8b9ddad3384bff348b4ecc13db96998e0eb4a7a90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f42cf7cdb9e8bd31e463a6ee3ad67dccf24d89bc1910fb226f39ba86d90b8cb"
+    sha256 cellar: :any,                 arm64_ventura:  "19a48132d8edf108f3cbc10887b6f6191cbb532b01124e0c51014fcfa618c344"
+    sha256 cellar: :any,                 arm64_monterey: "0bb06ae6847de3d39f757ede38bdb4d94c096fdd6791ffdba1642f2333446352"
+    sha256 cellar: :any,                 arm64_big_sur:  "41c501152be6572eb632e56774d6f8ae0f3bd17536917f65eb73c35363d3e79a"
+    sha256 cellar: :any,                 monterey:       "f1ae7ed5124e02d1f81fd74ab86a595d7d61c3449b977e453b8f025e6f5891ec"
+    sha256 cellar: :any,                 big_sur:        "664c64a13ba1e4168db43e00b309a02434088a2b11e4ac0c118c1fa3ab2ec5a4"
+    sha256 cellar: :any,                 catalina:       "bdf5a0193cadcc946e0a2efb1abf7104033943654ee041ccf6a77f7a381c8d59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c11a299405a3547eb31ecbf1b1b3636bed85c11f6279d6bc45f1ce002d0fa4f3"
   end
 
   depends_on "cmake" => :build
