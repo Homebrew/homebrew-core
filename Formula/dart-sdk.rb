@@ -8,6 +8,7 @@ class DartSdk < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e54eb1ad60e51fc7dcd09db3daaf17fa484c5e93a0aa7fc6e1647b1b8790b3fe"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab46b71a5d5cd98771718c4f3b899aee10335af23dfb71284c504a2a48ad47e7"
+    sha256 cellar: :any_skip_relocation, ventura:        "8d27db1d59a60a8f85b7b9c6d4214fbd754398b8863e07d8dad0b9c874612e1a"
     sha256 cellar: :any_skip_relocation, monterey:       "7083771968ac19e5ff24756e27bed189395a437d5f029731edaec1a32586c6e7"
     sha256 cellar: :any_skip_relocation, big_sur:        "0c1dac15c963574b664d6d4451f4f503197bc9b4f5d943760da491fec5ee21a5"
     sha256 cellar: :any_skip_relocation, catalina:       "8a5e1ed39d5ce06585a41b6dc2800ec3c20711be217ae3b19fac256260ea9fd2"
