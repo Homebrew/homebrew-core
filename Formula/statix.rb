@@ -13,6 +13,7 @@ class Statix < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "027921b88c04e2246da514fe0393e84bb82f0c077fcb3116a0f2ee58e169a969"
     sha256 cellar: :any_skip_relocation, monterey:       "c9bec9a03e1fdd1d7b2806cd8d84db05950a22aec908cfab67314430134925dc"
     sha256 cellar: :any_skip_relocation, big_sur:        "1a677e57aba3eae126b72090291c2e4ee96a6b3cb8403ed66b04eadf6b3a7cac"
+    sha256 cellar: :any_skip_relocation, catalina:       "f92e2af8ddd288908aaaebb1016fa5156132d0c3c6c20b8e432c1302fde03e8b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7aa6f1785699aaaa668f5c389ac5866f717c6a3ab0f2d40961259dc6eda92790"
   end
 
