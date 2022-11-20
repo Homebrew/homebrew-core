@@ -15,6 +15,7 @@ class Sleepwatcher < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "009536d9992206c912bd778ca8a596cd56915d900ea30f5db94c5ff48cec6c92"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "84f1c692fe19acb2929dd41746c3a184efb36146039b3b9c4554a4ca7a3e0d55"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01c66d5808a4c8defb52bb8c9acf2584dbe542940bf758a53cae0c4d68229c3e"
+    sha256 cellar: :any_skip_relocation, ventura:        "b85e0d84e33f248cfd9315efbfe6789886b4e65eafb82eed4f727aea18c49a84"
     sha256 cellar: :any_skip_relocation, monterey:       "5a6a9cf80d062199423619e15c9c32be29b1822cb49669ea89f107b6a58cd973"
     sha256 cellar: :any_skip_relocation, big_sur:        "ad8d8729a86763e64a3f555c4197ad6048ee5b8c6589ce4f2763d60b9826bb13"
     sha256 cellar: :any_skip_relocation, catalina:       "6752791ceaab316af2e61c45a6ee5e1a7c05f326be64f31e4bfad412a216b413"
