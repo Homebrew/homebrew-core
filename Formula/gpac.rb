@@ -18,6 +18,7 @@ class Gpac < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9ec6267f802e1c30d49e095425ad12794d4ad84382b872c54249c42adbe8de33"
     sha256 cellar: :any,                 arm64_monterey: "74f3336aa8d6f9cfc15c19ddd56a855adae55546875f113d95ac1be249688119"
     sha256 cellar: :any,                 arm64_big_sur:  "9d969e1cab82b163e4958a99e7e73f89fcf7a10675626223c5d4be1fc3b7d427"
+    sha256 cellar: :any,                 ventura:        "e0e47e419773dbc923288b989c3cc6540d6f17d9b6c1b60d9ccd265c9fe51173"
     sha256 cellar: :any,                 monterey:       "283c472be56974de1c4d1a7ea733e2616621a3294ff771be200d170b3dd0b3ce"
     sha256 cellar: :any,                 big_sur:        "f6c4c5413b6746988520e5d9b1f0ee584f7456b208ed994e87fa8675436c9c41"
     sha256 cellar: :any,                 catalina:       "cd323eba25dac7431970a3854c1317c1e4ce71e12421a1c789bfe127f2c373d7"
