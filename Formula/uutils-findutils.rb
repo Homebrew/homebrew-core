@@ -13,6 +13,7 @@ class UutilsFindutils < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7481db500d7ba0560895918bde9e9e0528a8c5b94f8840d0147c782529c3d49a"
     sha256 cellar: :any_skip_relocation, monterey:       "cde20a32a79062807f5c0af35665c19a94a1581620962ebd39f0013ee419b317"
     sha256 cellar: :any_skip_relocation, big_sur:        "b329e0a3499b2ea64883fcbbd841647dae919bd07a8d540e93bc7fb014665338"
+    sha256 cellar: :any_skip_relocation, catalina:       "20e961b0544246034d484f1b81ebe5058a3b915afa489a8b7c897c49b038952d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b3394d4fdfe9fe4620892049fe5d27736696416a8ef7c43b007cf418e223ee1"
   end
 
