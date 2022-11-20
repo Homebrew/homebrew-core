@@ -10,6 +10,7 @@ class Railway < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7363a99d8efff786a578f68fc3753d66888d8a8c37e82c2b55a512f01528c812"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7363a99d8efff786a578f68fc3753d66888d8a8c37e82c2b55a512f01528c812"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7363a99d8efff786a578f68fc3753d66888d8a8c37e82c2b55a512f01528c812"
+    sha256 cellar: :any_skip_relocation, ventura:        "9c05049b013ff3cddcbc7518cd2da2e4d414093553b8a90a6b7411efc69be02e"
     sha256 cellar: :any_skip_relocation, monterey:       "dd920e81026a98a7fc5e346183c143d5157829915950103214ea090b83dfaf4b"
     sha256 cellar: :any_skip_relocation, big_sur:        "dd920e81026a98a7fc5e346183c143d5157829915950103214ea090b83dfaf4b"
     sha256 cellar: :any_skip_relocation, catalina:       "dd920e81026a98a7fc5e346183c143d5157829915950103214ea090b83dfaf4b"
