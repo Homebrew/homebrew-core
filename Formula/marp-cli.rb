@@ -11,6 +11,7 @@ class MarpCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3e749b3344ed5bbeba63d79c99b5706615c7f946e967843892368fe793d1300"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "83f2f4333b43ab7bb31d809d4493022a45498e0ed3934edc2c69597fa2206c19"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83f2f4333b43ab7bb31d809d4493022a45498e0ed3934edc2c69597fa2206c19"
+    sha256 cellar: :any_skip_relocation, ventura:        "2c7a3e612d60cc20890b17c55de2f865cb5ff71187877a729b5aa4760164b904"
     sha256 cellar: :any_skip_relocation, monterey:       "9da350a4b17e8978544dabdaf9f3c130773b1e265e9e3fc8b36a13f81f210b08"
     sha256 cellar: :any_skip_relocation, big_sur:        "9da350a4b17e8978544dabdaf9f3c130773b1e265e9e3fc8b36a13f81f210b08"
     sha256 cellar: :any_skip_relocation, catalina:       "9da350a4b17e8978544dabdaf9f3c130773b1e265e9e3fc8b36a13f81f210b08"
