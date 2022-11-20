@@ -10,6 +10,8 @@ class Ibazel < Formula
   depends_on :macos
 
   def install
+    # upstream patch PR, https://github.com/bazelbuild/bazel-watcher/pull/556
+    # remove in next release
     inreplace ".bazelversion", "5.3.1", "5.3.2"
 
     system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//cmd/ibazel:ibazel"
