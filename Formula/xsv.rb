@@ -13,6 +13,7 @@ class Xsv < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6084d9e55244c876bbe7b833f5c7e27a19f09993f8b48f30076bd3c689f56b46"
     sha256 cellar: :any_skip_relocation, monterey:       "69ffb9f95356c1bc35999511f5ee4f2d31b9ec08f3dcd3b831476f75396d63a5"
     sha256 cellar: :any_skip_relocation, big_sur:        "e0b4b23b91d31f0375fc425352a11ef551a1f2c75664d3b266c7cd9d8fc57f10"
+    sha256 cellar: :any_skip_relocation, catalina:       "03926e8c78a90a6ad209dbd61d312e6d70d929e84a9f3fd325aa8fa81b8ccec6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2e6982514f6800be13fbbe4d1e2512023baa2f3bb2dc9e4bad87c0699bb911f"
   end
 
