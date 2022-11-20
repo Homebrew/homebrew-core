@@ -10,6 +10,7 @@ class Libcoap < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9c223e0327a209a36f730296d7f8c3b31169fccb0ac1694c10c18ccd7678f31e"
     sha256 cellar: :any,                 arm64_monterey: "f5ab53c8913b63df31cb87635e43d03f98f85bca6957c8a6a4049e39ed6174fd"
     sha256 cellar: :any,                 arm64_big_sur:  "2756ec8bb7385c9ec8336de194a22e6442bd49eee9aff72b10bcbf378d4eeddb"
+    sha256 cellar: :any,                 ventura:        "8bf6884a5e5fd902655f271158773b435769763f449e713d1cba27b33e86f5fe"
     sha256 cellar: :any,                 monterey:       "7e4043365c3df4efade4190fee51b4abad482f93c15f490ce8c0deeef43bdbfb"
     sha256 cellar: :any,                 big_sur:        "164bbd32151a0537ee38a227b197b1877398db08a6f5ad99d3120ba2e0629e4d"
     sha256 cellar: :any,                 catalina:       "4f7e4b320d8664bbdc4413c2d3407f3fc964f0aaba6a307d848eab61817d35ea"
