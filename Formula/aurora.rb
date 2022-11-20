@@ -10,6 +10,7 @@ class Aurora < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f466ea097843bef81d5d4ad254e51d06bc2cc33be76f7fcb900a65e6a513fe3a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5187558579ceb4884f08f91855d393bb0f0b79b7ac5a4ff1abc1cdc43a780006"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "798b63da7188da92582ffde96fed8f3407add006f2db88a610cb4aacda1c5b89"
+    sha256 cellar: :any_skip_relocation, ventura:        "93ceeb44e164b13e4c6c4711a3ddaee49451691bf7e19fc0f49de1ad47d453c5"
     sha256 cellar: :any_skip_relocation, monterey:       "fc1e371ec7afa848b85dd45424209ed1d9da85985e9cf5cc21a6ae46071847bf"
     sha256 cellar: :any_skip_relocation, big_sur:        "714b7116c80107b6ffb0f5b8abba41ae5aa88708fe688e61144ca3a636b7fc4f"
     sha256 cellar: :any_skip_relocation, catalina:       "f3b45006b5b5c6f15166d11d1a740fb14f3b22c1d64b3b64397ed2958e9c882d"
