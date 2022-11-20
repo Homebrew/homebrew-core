@@ -15,6 +15,7 @@ class Atool < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9772f860038b7901645159630516942318faf1c300f47ff7d393b018993c2927"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9772f860038b7901645159630516942318faf1c300f47ff7d393b018993c2927"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a498806923cebdf510cefbd1dc5e1dd8e88b8e50e317e3531dccb08d808d09f"
+    sha256 cellar: :any_skip_relocation, ventura:        "ca6b1d8ed7a241588990b84006bd047b05734f9f70a50354d2ea129e0adfdaee"
     sha256 cellar: :any_skip_relocation, monterey:       "ca6b1d8ed7a241588990b84006bd047b05734f9f70a50354d2ea129e0adfdaee"
     sha256 cellar: :any_skip_relocation, big_sur:        "b9492434916b077c29cfadeb04d853748db63bd54e9f4869f4efb03bcc3f00de"
     sha256 cellar: :any_skip_relocation, catalina:       "78769c7244232e9ba4b403f0dae560e61bc69d08d76936e9797c3f9b18b778f3"
