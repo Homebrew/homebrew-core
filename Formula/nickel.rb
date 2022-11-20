@@ -13,6 +13,7 @@ class Nickel < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12a2b4f73b25f3bfa80974b0106647a0becb5662feb04429f2c9ed41d0135144"
     sha256 cellar: :any_skip_relocation, monterey:       "594bafce3a8793da94a73838b872cd41799167d515425e5ba8aefb79077b4613"
     sha256 cellar: :any_skip_relocation, big_sur:        "b50e4f1d2decac26424a500bdd1874522b36a1023077620e315cfa37ba1799dd"
+    sha256 cellar: :any_skip_relocation, catalina:       "fdf52dcbba45229a18772b625b5f2783af7d678652eb41db018f96d5cb67cca7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "082449483169a4d0b8143a23cddede5037ee4c47830557186a5c06fbc97477ef"
   end
 
