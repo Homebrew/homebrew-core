@@ -7,13 +7,13 @@ class Weggli < Formula
   head "https://github.com/googleprojectzero/weggli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d70c70f37a569851484993ef7d87903357bc47d856513a5ebcd789960f33f65"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9022a081ad91f76f56ba573b33d9162e31907c4fd3af5a170cb2c645734a03ce"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "191de3fc48b48dd3767b93168af897b072a0c8805e80390096b508ff76ff284a"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f378b97c3edc8a6f0a5e7c6c5d12e048c3bce8a0abe437c28bbcfa36eaf042b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3033702205d41d02c7182823ec178f7ae351dca235e08fca842c774809e1b5c1"
-    sha256 cellar: :any_skip_relocation, catalina:       "7a5f9d5071d97301971c9504da05f02dc51ec6ea551da0c1f8d6b2a9e824816a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bd48098bc937bb9a40ccd1d56e00e0996a21f1b80b6259ac44a5b7e07a6ed78"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b85863bb8393ee053190a070ec0fcc44d7d7c78709df4f50e4811301edcf7652"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d71e7a726a9745ad22a4a7db9beec29730d0147b49088614a4dda3ad16da59f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7035dc61b7193c31af0c5e50e655b73b219e67accb597eb937f8bcada03e770b"
+    sha256 cellar: :any_skip_relocation, monterey:       "58fd6b690d5a4a5a92660d701c2e6627e9e9076a5c935e24298d2123227ce723"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f4f54dbc53220583652199f660a9cf93abcb084042b5e6a9744cd6fe5fdefb95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "070a5c12e89cdbd218bb7a07903f58718bbd83abeb6dfeb58f6b8d7cdd1077ff"
   end
 
   depends_on "rust" => :build
