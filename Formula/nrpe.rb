@@ -15,6 +15,7 @@ class Nrpe < Formula
     sha256 cellar: :any, arm64_ventura:  "91ee555fcf3a779c40ce93dccc6be2cc7b02dd1a6b0e18fae7096b43eb238ec1"
     sha256 cellar: :any, arm64_monterey: "81d5307bca972fc7945af1226e9e80e3bd798a2296ef7da9fa16240c27064b28"
     sha256 cellar: :any, arm64_big_sur:  "cec620b7f488a0e443b032921653c3bbf8e43438e8ca8b02b23cf6ea9284da5c"
+    sha256 cellar: :any, ventura:        "1213aefe88e396f74bc72002d81daaf592c3da0e76baaab5043a80827ab6e1d7"
     sha256 cellar: :any, monterey:       "9e8adb2e3df46f2a950a95d285d70e8142d9ce3a00eb7171fb34b27daf8624d6"
     sha256 cellar: :any, big_sur:        "0d5e76f99e6ea435cda18d6476158ced7debd4a4633176bcf1f3d6e721cd9724"
     sha256 cellar: :any, catalina:       "d142c84ff35a78b7a2705ac915552c617420ff747eb47fd8d3ba27347ec384bc"
