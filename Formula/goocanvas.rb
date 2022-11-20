@@ -8,6 +8,7 @@ class Goocanvas < Formula
     sha256                               arm64_ventura:  "0d114696187598ad5a64abe30c3bdb162b81499901baf74d33bfe60e78a5dfdd"
     sha256                               arm64_monterey: "ffbe53df96aebdefad5bca437f0be3a0ca39b725736e943d300747a6bd7770dd"
     sha256                               arm64_big_sur:  "d2881f093f710abde959761a53e797e7b7adab47b359136c52974cd0d39d9b3f"
+    sha256                               ventura:        "36413b12e3f7cf364cc16388e0dfd8f4592101516e8a26c3e506bc720fb0c582"
     sha256                               monterey:       "201056ff9afb6af37984ba0586e8fa0fd6d55a4f09d344754bf7394defd54570"
     sha256                               big_sur:        "2696cb6c47f70283a599e7b31d6ae359d1defb54d8c5cc2a466a0610ef8f470d"
     sha256                               catalina:       "28e1912c12842419642d61a4aa400dc7028a4dde604dcf06f8088bf7cf3cc3a7"
