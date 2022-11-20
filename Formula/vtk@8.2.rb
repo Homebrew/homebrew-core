@@ -1,7 +1,6 @@
 class VtkAT82 < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
@@ -18,8 +17,7 @@ class VtkAT82 < Formula
 
   keg_only :versioned_formula
 
-  # Commented out while this formula still has dependents.
-  deprecate! date: "2020-05-14", because: :versioned_formula
+  disable! date: "2022-11-20", because: :versioned_formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "boost"
@@ -38,10 +36,6 @@ class VtkAT82 < Formula
   uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
-  end
-
   on_linux do
     depends_on "icu4c"
     depends_on "libaec"
@@ -51,12 +45,6 @@ class VtkAT82 < Formula
 
   fails_with gcc: "5"
 
-  # clang: error: unable to execute command: Bus error: 10
-  # clang: error: clang frontend command failed due to signal (use -v to see invocation)
-  # Apple clang version 13.1.6 (clang-1316.0.21.2)
-  fails_with :clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
-
-  # TODO: use diff
   # Fix compile issues on Mojave and later
   patch do
     url "https://gitlab.kitware.com/vtk/vtk/commit/ca3b5a50d945b6e65f0e764b3138cad17bd7eb8d.diff"
@@ -82,11 +70,6 @@ class VtkAT82 < Formula
   end
 
   def install
-    if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-      ENV.llvm_clang
-    end
-
     # Do not record compiler path because it references the shim directory
     inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
@@ -152,9 +135,6 @@ class VtkAT82 < Formula
   end
 
   test do
-    # Force use of Apple Clang on macOS that needs LLVM to build
-    ENV.clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
-
     (testpath/"CMakeLists.txt").write <<~EOS
       set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
       set(CMAKE_INSTALL_RPATH "#{Formula["vtk@8.2"].opt_lib}")
