@@ -16,6 +16,7 @@ class Geeqie < Formula
     sha256 cellar: :any, arm64_ventura:  "e0f4adc0b1ba1bc1069c04613e133c1b1ea3754d318bb5a83ed8a91f47f63622"
     sha256 cellar: :any, arm64_monterey: "9aea268f6843bd97784c8819b1b7864f95b6a9c0baba6bf4e60fe213190accfb"
     sha256 cellar: :any, arm64_big_sur:  "94b5ef7be0839c42d359a3768d545a99b25bf093533b331a20e4b929a4848e0a"
+    sha256 cellar: :any, ventura:        "6501282671b37e9560f0d252cf27c926e919358cd4459dab8ce90ed388d06bba"
     sha256 cellar: :any, monterey:       "1104afb3786b064ea3072c85f30fc8270e8e92907d30003558f9f32946668c14"
     sha256 cellar: :any, big_sur:        "1a3f664e7889bf97ed3865872a46d5039ed45615e00102a1cb093dd94d5fa55b"
     sha256 cellar: :any, catalina:       "e2dec2996f949bf09f887c4bf1c6374efa563c31c41bae8ae121f253f5be53de"
