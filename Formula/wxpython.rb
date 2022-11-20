@@ -11,6 +11,7 @@ class Wxpython < Formula
     sha256 cellar: :any, arm64_ventura:  "1cdbafe9c9ffac660ad1a6bcc508c7ad76589a809bea0bcdb17e92c28661ff71"
     sha256 cellar: :any, arm64_monterey: "f9a20a76b190163dac2af2f1813e8e39dd9f637ead5453acdf415c5f2551dc13"
     sha256 cellar: :any, arm64_big_sur:  "6e5b449ee672e78a72d700d78dcf9d11c65eaaa657c9369979dceb7eeb245761"
+    sha256 cellar: :any, ventura:        "387be150b988621c79e7866f36a82247617545cc27c78e794b4d18113185749c"
     sha256 cellar: :any, monterey:       "6aef2edb2894f75c23c859edd6db7bd308d6420f4680ce32839b7904b425d382"
     sha256 cellar: :any, big_sur:        "3914f0cc1a1a67431e76c7ca793e5b3bf48ccbf98cb24f9476c8518ea87f3b43"
     sha256 cellar: :any, catalina:       "561959e711b0801d74c68ee2333bd5905e160923ca49a3e2f0dceaf3c80cf534"
