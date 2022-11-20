@@ -7,13 +7,13 @@ class Svgbob < Formula
   head "https://github.com/ivanceras/svgbob.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "233feeab1066398aeaf7c71db181ce3ffd5859bf5f6c648f52c4a1a12b0301b4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9487339e53bfa509c570f876622d604acd881bffe5dde975ae17bdb713760eb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7c79046d2c85f0cb5b0a31307aa2098aa3250bd32b7ce8e9fe997414b912010"
-    sha256 cellar: :any_skip_relocation, monterey:       "698a056b44d3e81740fc80577ecec9ef38455abc75beff788f99e2622cd7efa4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b565c6fd1a6e0714fe34a581083e6ad57758b64e29c2fe7bc21352ad789a3661"
-    sha256 cellar: :any_skip_relocation, catalina:       "7e097fec29cad170c5c5a23abac031445faadc106c6a27f27f0e14204dd5f7c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a8ba4e5e116f7738e5c2deaab13a98d19e259cad32c6476b283083366b32e1f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7069ee90b4e75610f0cd521bcdfc257005eb265f63a376a00f6b8d904731abb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d58f6a2a324e58304062a9dab476ed881beffc249e1086526cc121c18c36f4d6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b937566a070a3a45a1fb2f251d10b82b082b39c44e1691c43f04cad423fa240"
+    sha256 cellar: :any_skip_relocation, monterey:       "6efe06b3835e4a9e9d330a2cbbda2e994853231f81f2c906ba84dda64f2f235e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3b3540039e243c64cfb3c1ee67355fa93c31e89ef3673414720239fd7f258672"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "776c0ccc59be86ca69e05272775d2bd1fe59a13dc15a17e4628bff07557c4918"
   end
 
   depends_on "rust" => :build
