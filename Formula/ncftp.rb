@@ -16,6 +16,7 @@ class Ncftp < Formula
     sha256 arm64_ventura:  "f35284c1451cccd59675fff89f8a285aabfa287346928f1a3009db65074ec405"
     sha256 arm64_monterey: "0d10c2e5a5cd32d495bb7cf1b16de23c8335658097ee209397170ccbec21e164"
     sha256 arm64_big_sur:  "1fc3f5a43b5e4e23f2bac0046acaf8f746d5d07e0eb6cf60d593830fb3acbf13"
+    sha256 ventura:        "e83dbafd6d2cc7885ac986aa7d1452fa88fd73f6947dd7d6c8ef94c1dd0e4de0"
     sha256 monterey:       "f8a7be7e00a9ed10c22c5396e8c67f1f8697cfe117c003a4e5a62f3a9f13f33e"
     sha256 big_sur:        "be10854d86393b58f542fbe778bf650c90a9635fbd14eff8149459838c4455c6"
     sha256 catalina:       "c5759f94e328047e35a3f22c63ecf7bf7051edbc68432b3eb9db6c61d8f84bb2"
