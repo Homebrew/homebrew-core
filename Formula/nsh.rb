@@ -13,6 +13,7 @@ class Nsh < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "afed7ecb9b4cd75cf529db0b5c035bee623b2d59e713d2f543cd61e4ab28e1a1"
     sha256 cellar: :any_skip_relocation, monterey:       "714f185da8a9912b95aacec6c43943eaf178afc960442ab6d131bbb58abdb79e"
     sha256 cellar: :any_skip_relocation, big_sur:        "5ca1f1cd16b32c731c9702b80c3524071431823ee7df7f833b30e89725019783"
+    sha256 cellar: :any_skip_relocation, catalina:       "befe47c8ab9779445203caa06d3dd002f69967742a1483cc6f6f4ca54da65f9e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2459f1a58f38485536f990ac8e8817721e7fec5e313934af0ae00cc3d897f7b1"
   end
 
