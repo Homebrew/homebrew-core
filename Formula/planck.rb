@@ -36,12 +36,6 @@ class Planck < Formula
 
   fails_with gcc: "5"
 
-  # Apply upstream commit to fix issue with GNU sed.  Remove with next release.
-  patch do
-    url "https://github.com/planck-repl/planck/commit/f1f21bf9eb4cfca6312ff0117f75d3b38164b43d.patch?full_index=1"
-    sha256 "787ddf6fb1cfea1d70fa18a6f7b292579ea1ffbf1f437f1f775e3330d2b8d36c"
-  end
-
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
 
