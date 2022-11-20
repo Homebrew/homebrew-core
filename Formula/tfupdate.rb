@@ -10,6 +10,7 @@ class Tfupdate < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fff4e93c611eab2c0d26df8ddeb5f242c81e0104560f020f51817feba050353"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "19156a71dec1f2d6c17fae3a9b6c45671070f855e71e53e75a74a6e376229a35"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41ec805691e10a283cfb578414ab135264633afa0cce319708d8501f9bc5f6b2"
+    sha256 cellar: :any_skip_relocation, ventura:        "f80b7286c4b38ff1b9c257a4c70d51ba935b3e1e60acaaa9448bbe687f2c3618"
     sha256 cellar: :any_skip_relocation, monterey:       "0acb42223d76867e3a64145bbe9b824b95bdefc09bf9703581d73b060d109d57"
     sha256 cellar: :any_skip_relocation, big_sur:        "d6715e6cdc7737354e444cfc1bdae78a5f54017979744ef7a18e79ed807e056f"
     sha256 cellar: :any_skip_relocation, catalina:       "c6f9987eeb7eac917a496a02c10bbee9c087481b8a94d936cf18febe287165f5"
