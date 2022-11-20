@@ -15,6 +15,7 @@ class Ykpers < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ad5b67da47a110797570919026e4c78ec2220f858f804cca466ced27382170ca"
     sha256 cellar: :any,                 arm64_monterey: "a244acc561a3c5e5d5b67ccc25b9b24ea16b037e10acd8e01510a4a34f96ec15"
     sha256 cellar: :any,                 arm64_big_sur:  "512484b795857fd09d61e2fb5c186ff771295c90b809bdcc82fdcf76835b71a0"
+    sha256 cellar: :any,                 ventura:        "0f4e3087830e58adda6999b618bc2ab80e90906f6d29dbbb5349adbbabcb9785"
     sha256 cellar: :any,                 monterey:       "e45fba4f54b6e285c38879635f3b13588783cced19ded02b3899c8da282fb353"
     sha256 cellar: :any,                 big_sur:        "31b2bafcc829e3cc6e85f5e1021075088a909ba4db51ec8f20b23db93f59d802"
     sha256 cellar: :any,                 catalina:       "8c5ed1924d1059265589a221b8e2bb26a2bcd59f91ede210e3a1267412867f47"
