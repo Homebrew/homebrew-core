@@ -7,13 +7,13 @@ class TreCommand < Formula
   head "https://github.com/dduan/tre.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2364551f6552f1c19a26e54285d9a9b31a7b3100ddccd64338e569d9e7fd05f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea7a96260ab0d61ca2e71c5137635625e82472fd2935280dd9420d5eee1c5744"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "838817c4d488d31f1c2f89abbde6704eba4b775b09f4a33b0de720ca1a7b1191"
-    sha256 cellar: :any_skip_relocation, monterey:       "385a5a7ea1ff28970a7ca8145868bbd7eb0efa4e5439ecb258cb66303ffcab0c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1f07d73da700d15a4cdec3c309d54c6e4bf1091ad9c42784ca395f28432ed13"
-    sha256 cellar: :any_skip_relocation, catalina:       "150205b5b64c4a27a5fc9462d0aeedc14c26719473c0d180d892505926692dd1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da73bacbf146c92851ab02ccc5fb6c643ab43fbfb8b88dae659c70604750e5c9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f787031ef204c5d4e4dd52c3dc5481060a511566ec3ef62e384a9db088f1cdf8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfbf9c430e051dbdd5760442116b9f8ac7460303eb9d8a56b1c9e8cb43c0c1db"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba30451c10d70726bb77ed8778270a6c49dae005705c414ed0393b12c32b0c02"
+    sha256 cellar: :any_skip_relocation, monterey:       "fdc8517f7b935c90ef76f8e34d5848b94c8465748d1ef11482c3b2a7fd317fed"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a0fa68cab885f6f6df3d68728f8ae1fd5a37d70193e446b0c8f323987f57842a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08bc7da0c42d6496d0cfdd537d6668ae0250df89f0c1bf0aee5f580c7455be88"
   end
 
   depends_on "rust" => :build
