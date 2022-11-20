@@ -10,6 +10,7 @@ class Cpansearch < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ce6adedeb53580d1436e7359feb68260918d4f336594184851a062b3d227c60a"
     sha256 cellar: :any,                 arm64_monterey: "1aa72a4b6e9ec453f1fa20b57bf095f7e0446ec066d7718e115c67d87e95fa64"
     sha256 cellar: :any,                 arm64_big_sur:  "37c73b9a5acde5677d8cb3d423c671eba4f0fae0e01fd057789c20184b033a54"
+    sha256 cellar: :any,                 ventura:        "83f85b969c1f307e97bb0314b1ea7d88dec993451505abd3470147f5498b4cbf"
     sha256 cellar: :any,                 monterey:       "b81cf3ff44e7fbd6abe403ce13262cb94a6ce7dd126e881e81a0793d673527f3"
     sha256 cellar: :any,                 big_sur:        "5cf4f854e56de6fb4d1b992f8c3ba9004dac26aa676007841042e8a30e0539c3"
     sha256 cellar: :any,                 catalina:       "f5ad7240f2e1d3004c9b80d232192bbc50dcf777bdfe92fa73172e93476f5ef2"
