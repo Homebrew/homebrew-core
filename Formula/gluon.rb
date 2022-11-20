@@ -1,14 +1,16 @@
 class Gluon < Formula
   desc "Static, type inferred and embeddable language written in Rust"
   homepage "https://gluon-lang.org"
-  url "https://github.com/gluon-lang/gluon/archive/v0.17.2.tar.gz"
-  sha256 "8fc8cc2211cff7a3d37a64c0b1f0901767725d3c2c26535cb9aabbfe921ba18e"
+  url "https://github.com/gluon-lang/gluon/archive/v0.18.0.tar.gz"
+  sha256 "1532cae94c85c9172e0b96b061384c448e6e1b35093d1aacf0cd214e751fe1e3"
   license "MIT"
   head "https://github.com/gluon-lang/gluon.git", branch: "master"
 
+  # There's a lot of false tags here.
+  # Those prefixed with 'v' seem to be ok.
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -23,6 +25,13 @@ class Gluon < Formula
   end
 
   depends_on "rust" => :build
+
+  # Fix compile with newer Rust.
+  # Remove with 0.19.
+  patch do
+    url "https://github.com/gluon-lang/gluon/commit/f30127bf5e27520d41a654154381c2e9601d2f3e.patch?full_index=1"
+    sha256 "bcfb2d0c36104a30745f7e6ddc4c8650ed60cb969f1e55cd4e6bb2cb6fe48722"
+  end
 
   def install
     cd "repl" do
