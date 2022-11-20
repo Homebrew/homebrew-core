@@ -22,7 +22,7 @@ class Pjproject < Formula
   end
 
   depends_on macos: :high_sierra # Uses Security framework API enum cases introduced in 10.13.4
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # restore --version flag, remove in next version
   patch do
