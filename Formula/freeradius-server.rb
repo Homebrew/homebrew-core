@@ -24,6 +24,7 @@ class FreeradiusServer < Formula
     sha256 arm64_ventura:  "3a9c45b654f9936b59c1dd18fd61dbef5e2c740869f60bb5843dc895c3971b65"
     sha256 arm64_monterey: "41557555af1157aa2caa71bde5149523405f898b37c303b8c5501c4dd17bc3d8"
     sha256 arm64_big_sur:  "e4a7493d32a60bd8b58d4896a99e89fd353d59978ecb9d9dbdd5aa14c45384f4"
+    sha256 ventura:        "fe89d6ed617b6b35ce5cea239fbd28bd324aed8d4e661933abe16d1b6484ba16"
     sha256 monterey:       "3d123e9f63012690a85de802752edd3bc45a0d0985e6368a09c0002efce5263a"
     sha256 big_sur:        "a6190c53bec5379b83525fcc49a557ea23bb708f816bcdf279e30bed43b96cd7"
     sha256 catalina:       "4a5ace706738767b3e1dd02a7be32b4474a94797a914090c9ccf2150d670be80"
