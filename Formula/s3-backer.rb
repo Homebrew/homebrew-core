@@ -15,7 +15,7 @@ class S3Backer < Formula
   depends_on "expat"
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
