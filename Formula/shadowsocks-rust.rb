@@ -7,13 +7,13 @@ class ShadowsocksRust < Formula
   head "https://github.com/shadowsocks/shadowsocks-rust.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11c33fc20b3280d76502d9aee308ef26bbb29ce8d1eb4c0187dd800b414583ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "88d62b52c7b054b7c3f8e62a394b3c79b1918b445523677003a7510f32c93a1d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb5ae09531a8143b8c2bf73611c093dccf9314389024d3771aaa0e78f6beb08a"
-    sha256 cellar: :any_skip_relocation, monterey:       "042cae8f2613b729d11c48991ab4abf97d88995af2c0a63157ec474e48219b36"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2c14fa5da61271a48cfc8618eba8adaf631ae469ba1594e0d5dbca182a97fc34"
-    sha256 cellar: :any_skip_relocation, catalina:       "8eeb477f69deb528976bc2234ead8dbf7cc8428fb38fc802a558ceabab27f209"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70fb502b9f580ff862b61447cca3be865dc3345b9b204581590eae7a6210ec83"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef6ca7c523f0ecdf36c3c0e15b99b45db4047dfa1663b626af039336b642ff93"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17936e8eb86b5ff303096dd7923809b47adace1da94229214dc60f5ed41893c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b3636c79f802d2305ab5f95a9aafd3d27b78728f6abfd2682c9bfdf29fc9d3a"
+    sha256 cellar: :any_skip_relocation, monterey:       "26207795fd9e7f6b259843ff368f1a819aa4b3f39930dc2866c9a4462e4cb05b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "73964b24b192d5b587cb9c2fb609a8c3647781cd70d14b7df504e05e2286fade"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0068e74e25ff5228d4f5767ab23cc7236dcfb465af7e18ce09fdc0efcd5fa037"
   end
 
   depends_on "rust" => :build
