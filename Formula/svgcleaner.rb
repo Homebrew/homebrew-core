@@ -13,6 +13,7 @@ class Svgcleaner < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af01e1a22b3edaaf33aeca10080cd50ba097531e72cde15a0ced468758df8aa4"
     sha256 cellar: :any_skip_relocation, monterey:       "06aabee9050ad9a8882623cb4f2b20e537e7c56387eb428fa7e7800f513f14fb"
     sha256 cellar: :any_skip_relocation, big_sur:        "9d2c263f4774a4c646576e2beb78adbddc67d966d8fad9fcbe43d5cae8b737d7"
+    sha256 cellar: :any_skip_relocation, catalina:       "13ccddae8456f69bda812f89ab5657f23f27940a8b9e32a13f34e0d5f41f7ae8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ad0a9020b3aa287c3d3ad908c7cbc625aceef02a0cfc559d817a6b1f2acc064"
   end
 
