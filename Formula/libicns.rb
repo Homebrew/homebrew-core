@@ -10,6 +10,7 @@ class Libicns < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f346f50f790f74105c7d74ed2f4fa138cf1ba36aaf887c28d99cd40bd3c842d5"
     sha256 cellar: :any,                 arm64_monterey: "7f1629857173f47627750a68b5365c3b5302296077b9062022b82af8bae31d8f"
     sha256 cellar: :any,                 arm64_big_sur:  "593fecff6cdb88a92fd91a09563d3c253013128c4b00537766b905dbf988e76c"
+    sha256 cellar: :any,                 ventura:        "db7f40a1f0eb534b3ffda394ee48ae6559890623f55ae70f58e26888e8d80307"
     sha256 cellar: :any,                 monterey:       "4f58e79a5425fa0efa47388c5cb74d51f15f3f6ba5e97b32b92910004a78b933"
     sha256 cellar: :any,                 big_sur:        "460930e37a288de03e036ecdcfeb2031bf5ccd44a6abd17a9374ec006cdfa388"
     sha256 cellar: :any,                 catalina:       "b3a7a96858b1ccf7c772a4384df25b4442d021a9feb0ff3fef60d2aaf3243c33"
