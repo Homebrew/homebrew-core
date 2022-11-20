@@ -17,6 +17,7 @@ class Kcov < Formula
     sha256 arm64_ventura:  "126b48dce88672499df00ffea98e9041d24ac86af286ff3648e8c5fd2c2ee86c"
     sha256 arm64_monterey: "ac1c2c3b59a021af7822ed720ef499aee7dfd3650374c2b87afad5f03c7e7e20"
     sha256 arm64_big_sur:  "bdb4c013e4153a73e3f18b3c5dce933719946491ab23642c0f30ed63400e051d"
+    sha256 ventura:        "3db3a516946ba0dd0f2c744f962bac584441a48c60a5ca4679c1594675ed02ac"
     sha256 monterey:       "994883172334f1c2279dc51a1d5a57aef8e6774d1a9a78beb907caa6d8e2798c"
     sha256 big_sur:        "b0f468c3f75bb9c5fe67735e40d362916885b47ac678162b7a283a91813f8c25"
     sha256 catalina:       "d219d3bf36180ce31b3d7cf0352803a079ee058cecbba3aff6062ba793b01b1b"
