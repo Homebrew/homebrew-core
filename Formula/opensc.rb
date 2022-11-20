@@ -12,15 +12,14 @@ class Opensc < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "80011410c66cf3191890e84150abb2d55056ac0468a54d68734acae0d1b3c044"
-    sha256 arm64_monterey: "8d683bfbc7dcaa651ed70ca75333402bc75f47fc2eaf005581138f824db97e52"
-    sha256 arm64_big_sur:  "fb1e4fdfdca0bd35600e321fffd758aff4e8557957da8e2a467d4580b5f52092"
-    sha256 ventura:        "d8f3cc32c0feb0e84a823a1746e4e4c6f0c6c07a59d28187212e3a6dfa68371b"
-    sha256 monterey:       "dfc3fd6cd5a271ed848c471930f5f3f8cdcab1214b0c1eb8090697a9d8e9fc94"
-    sha256 big_sur:        "308076bb86f51319361ac05d6abb0d546e021fdef0d85294cce641808dd74d24"
-    sha256 catalina:       "78c5529ee73f82e4c4830033a14a24befd358309fe74172e0d3b37b86a5c3e0e"
-    sha256 mojave:         "59f94582f376029a1d80d4a1a2dfe0a76efd5ae03c3ae73c620eea10434f43dc"
-    sha256 x86_64_linux:   "02841a26a99ee24f685e0ac37b9cec2a905ae85953ae04a59f7e9655c12e87d4"
+    rebuild 1
+    sha256 arm64_ventura:  "ff63000387afc269b6c1effaabcbec8bc0af5f4bff1547790d850eb2f564cb79"
+    sha256 arm64_monterey: "e36b99415f0289b18c89b41a018e410b689008d282e6bcc645563075725b3ff4"
+    sha256 arm64_big_sur:  "a784ed8b0ef0ec7dd1ca997331424d4899ffac2b3774a5424e1c0da2d180022f"
+    sha256 monterey:       "0956e69b33a8e39e9c7345a086d446472c55cb79fe2082c9c34535840b9ff23a"
+    sha256 big_sur:        "5b46706b6ed0a2104cccb2511b830b289882ef92d9d263a4ee951090e068549d"
+    sha256 catalina:       "447703c3545b2d5114c5f105af76269d01ef2830e00e7bb8057f33650bca2060"
+    sha256 x86_64_linux:   "36ee5e4298c955fad69d97e94732c8a159a4beadbc8f918041b2614e3111f222"
   end
 
   depends_on "autoconf" => :build
