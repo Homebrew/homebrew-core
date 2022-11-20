@@ -10,6 +10,7 @@ class Duckdb < Formula
     sha256 cellar: :any,                 arm64_ventura:  "8ae40f7aa990a7a52e6d230555285d4d174a5bb7535ddd7e54e18e82804a8081"
     sha256 cellar: :any,                 arm64_monterey: "70e3ec7d1d9ea967a8fc345e83bc53966bccea15b24d63f81498e7e0ec6e3f0c"
     sha256 cellar: :any,                 arm64_big_sur:  "c802d1302a8e0d6c33fda447db102bafbecab74e2508f78fe6cc59448378b4f2"
+    sha256 cellar: :any,                 ventura:        "0b2ebf6385dbfd682eafb2edc35ae538f32bce73609e188ece2f3e4af801c628"
     sha256 cellar: :any,                 monterey:       "0cd2ea482fb01ea4aab3bd35e01169895ae31ba82f5947a4b24e9b20a22bae99"
     sha256 cellar: :any,                 big_sur:        "9a7b99c6588586d0e9aa4c1388af49e84b67bcb09b65d94ea7f1f654514dca46"
     sha256 cellar: :any,                 catalina:       "1c010a0e17e7f22ba3fadb32b4271b99e97b8489b6a16786087a8f47104df4b6"
