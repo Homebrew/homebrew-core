@@ -135,11 +135,6 @@ class SphinxDoc < Formula
 
   def install
     virtualenv_install_with_resources
-
-    # we depend on docutils, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.10")
-    docutils = Formula["docutils"].opt_libexec
-    (libexec/site_packages/"homebrew-docutils.pth").write docutils/site_packages
   end
 
   test do
