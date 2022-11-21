@@ -30,6 +30,7 @@ class Lammps < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5010e98fbcc1c63b025bd14fa2c9dd640beef1fedd9b076db81b6a24076802a2"
     sha256 cellar: :any,                 arm64_monterey: "92210ab28f759a0190f750278c6d46e26da078db0aadb6bf49a0a50f04dcb07e"
     sha256 cellar: :any,                 arm64_big_sur:  "a8aa255ed46e262bd98a79b4ef0b1d9d55cab432f839c7716d7562dfce1d80ed"
+    sha256 cellar: :any,                 ventura:        "adf7dc232c9acdf0e1eb5d9f129fe32ec8b6ad7fa2e110f2b4fde6f93d2df3ac"
     sha256 cellar: :any,                 monterey:       "da50b59f56062691df4b64b295e14478d95cef546f19d7b33a9dd53680b48437"
     sha256 cellar: :any,                 big_sur:        "3074f43e948a6fd92ee8daa060eba4430ed863339c51586a7ba11b6c3f0cdaf5"
     sha256 cellar: :any,                 catalina:       "6e678d1316c2c8f4b078d87ac5496c29547acedc5c93b8d66a536c15a8e8c686"
