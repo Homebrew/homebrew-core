@@ -16,6 +16,7 @@ class Languagetool < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7acf8bc0f9ce92f28d9eaa8b9e0f277155723c0d340e602084eff8f5c299ae1b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a547119fbcadfa0929159a2e21fbc70d3c767aaa45c731e2cf98cc8bea0ee182"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0511102dd9fe9218e35dd89dd76cc5625d331d6c9d31f36bf4c2fe6d7bfdc709"
+    sha256 cellar: :any_skip_relocation, ventura:        "5ec6d3e5d177ee966d1a73e63bb5d74f448d01a956f5b41a979c79cbdffabc6e"
     sha256 cellar: :any_skip_relocation, monterey:       "832468757ace167aa5948b5b67d9e525666328a1ec715d8fb17be477baddb167"
     sha256 cellar: :any_skip_relocation, big_sur:        "d8183f7c15a75d3a712a02c0e579e08bfe1ba2f0d6d91adb37775dce7f0cf4cf"
     sha256 cellar: :any_skip_relocation, catalina:       "cc9e47cf0a201c68c2a0565a41621c0448a3fbf92006c1c0fb1f4ceca32047aa"
