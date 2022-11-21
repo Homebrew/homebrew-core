@@ -18,6 +18,7 @@ class Urlview < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e61de906c2ad7b7303b2b69b2c3cc33ac29d77b22c5ad79a8eca704339d0fd5d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79e803c2e3dd3e77fa2c7792f7ca846e2c9fa9b614540792c9fb8bac3bb03b34"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4bd54ce3f197e6a1dbeada8a9e6927a3ca00b8c304b4389879a2cb15dd4db17a"
+    sha256 cellar: :any_skip_relocation, ventura:        "52ce80dc709a61c1c64cff409b1f14edd802bc60954834d498762a51aa463fe8"
     sha256 cellar: :any_skip_relocation, monterey:       "c906ca088635e62fba1979b6f3a5767edf0f0649929b31900ab9513ccbbc6cc3"
     sha256 cellar: :any_skip_relocation, big_sur:        "4ba2615a1ea02924d894084fdba9be8a6bc219dbfa852276fbcd330ad9c118ef"
     sha256 cellar: :any_skip_relocation, catalina:       "640e2ef08bf6e065c52b0f90832774049b9e9cd4cdeede8912ad8656c9c851af"
