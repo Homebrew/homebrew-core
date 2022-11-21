@@ -10,6 +10,7 @@ class BisonAT27 < Formula
     sha256 arm64_ventura:  "4c2881dcd188abeb431f4f53f1b01186b7dc588f12e890021ae77b3f3b547005"
     sha256 arm64_monterey: "52c4f32eb121a9442b25748e155a1d9d4ace7d433a07eafc13faed18272a2714"
     sha256 arm64_big_sur:  "a8889d09761ad553f7b7061947a1715e88a658ce7f4d3755b7d8d00f25a53f1a"
+    sha256 ventura:        "355f1fc5d497c0ce49e161173ff9c98a737dc8ec037ce2edde491f6bf65b6f79"
     sha256 monterey:       "fe295780aa756db1594d7a0db99e2f19c282b54f4c405d35a9248048714b680e"
     sha256 big_sur:        "01d3b84f13676a4da576df0d7f8f9fafcc7ea734b895a5d3947b1e055d9db330"
     sha256 catalina:       "b9af668b0da3e89f4a2d7b7e4d42009965780d1f7cd1541df85f758c2b7af55a"
