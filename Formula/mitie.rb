@@ -12,6 +12,7 @@ class Mitie < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7f07defbed3d51ba5924ac8899ca02c37f1f91b596a96d6fdb61a6aa7e016f44"
     sha256 cellar: :any,                 arm64_monterey: "8ffdc33a97a73185b528c95ba47ea4598164e5acc96260d32fab5b3eaae63676"
     sha256 cellar: :any,                 arm64_big_sur:  "78981478637045457fa8b6ba9f22333d40485ce8e2055bbf1a1b9f87878d7780"
+    sha256 cellar: :any,                 ventura:        "4e0aa20259afddb380bde9ef00978b17a61207042ec17062015939f69f4890b3"
     sha256 cellar: :any,                 monterey:       "3d5d6c140f6efb9eb6dbbd0c92c8faaf47d239d58679c9256b71a35c4f8dfc1e"
     sha256 cellar: :any,                 big_sur:        "b9df7253ad6fa374ddcbb0b03dd402b85dc09720191c308800d50c7a1bcafea2"
     sha256 cellar: :any,                 catalina:       "26373657c4989ff1fe0eda638afe51372bf8aea82e5189d15c82454340a771cc"
