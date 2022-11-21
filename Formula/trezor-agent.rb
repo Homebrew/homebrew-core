@@ -19,6 +19,7 @@ class TrezorAgent < Formula
   end
 
   depends_on "rust" => :build # python-daemon resource depends on cryptography
+  depends_on "docutils"
   depends_on "libusb"
   depends_on "pillow"
   depends_on "python-typing-extensions"
@@ -75,11 +76,6 @@ class TrezorAgent < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
     sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "ecdsa" do
