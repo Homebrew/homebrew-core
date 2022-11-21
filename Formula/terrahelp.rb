@@ -10,6 +10,7 @@ class Terrahelp < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0637ab5db3f9423836bd621b67c01fcfbcf44fd86ac6033ff2b4ffab979a64b4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1de2d581302493095a12fc646062b1ea074aa792a36e81d37827438e832599a3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a416eab4b11b794fd807c6a6ce9d1fd87ebf8a4bfedeaa6ac45eeb9f6c092d52"
+    sha256 cellar: :any_skip_relocation, ventura:        "87ba308df8d9e75be30aa87e63ed4682fe818f5dffc5d9528325fe6782876971"
     sha256 cellar: :any_skip_relocation, monterey:       "e04b7ade448da1809858ef7cefea05f34b5670d4b159b3f67d8700c0572201d7"
     sha256 cellar: :any_skip_relocation, big_sur:        "da129e3fa2f21f00fe0b054d5510509d39d6d26cbd58efa7d06297363254fcc7"
     sha256 cellar: :any_skip_relocation, catalina:       "8db95e8da4909b68eaa18a9fab2e38769fcfa79426b3c1a53a4ac9d5315092fd"
