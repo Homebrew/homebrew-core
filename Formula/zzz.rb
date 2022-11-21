@@ -3,6 +3,7 @@ class Zzz < Formula
   homepage "https://github.com/Orc/Zzz"
   url "https://github.com/Orc/Zzz/archive/v1.tar.gz"
   sha256 "8c8958b65a74ab1081ce1a950af6d360166828bdb383d71cc8fe37ddb1702576"
+  license :public_domain
   head "https://github.com/Orc/Zzz.git", branch: "main"
 
   bottle do
