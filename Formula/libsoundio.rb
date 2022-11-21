@@ -9,6 +9,7 @@ class Libsoundio < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c431c03a02859383ee3da45c2ad0cb4ba5abc811007f2dc9836a95b02f0b4895"
     sha256 cellar: :any,                 arm64_monterey: "b0f9dbada44ba4755bcdb77b1e795a2c986ffc12636dcc615dce885762aeab25"
     sha256 cellar: :any,                 arm64_big_sur:  "bddba449e4230b270c0e63b404ebb08bfd4d4b3d8eb3204295d09abffc1fa5fe"
+    sha256 cellar: :any,                 ventura:        "5a7adeda3e69f291442779d1a12981d131f9fac5c525bbad968d6f2c77fd01fb"
     sha256 cellar: :any,                 monterey:       "084c3968367c608574a7aa073da607b48970d867bc0085846e41abe58dd1d291"
     sha256 cellar: :any,                 big_sur:        "3cd37146cfc412fe8ec53a9f39b41597899cf62929cf15f15efb80006a341d6a"
     sha256 cellar: :any,                 catalina:       "e7e22b9890d244052a61b62da42affa11750a3f1437d9a9c652f4ddb28f6253b"
