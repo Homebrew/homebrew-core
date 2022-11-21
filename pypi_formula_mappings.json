@@ -520,6 +520,9 @@
     "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"],
     "exclude_packages": ["six"]
   },
+  "rst-lint": {
+    "exclude_packages": ["docutils"]
+  },
   "s3cmd": {
     "exclude_packages": ["six"]
   },
