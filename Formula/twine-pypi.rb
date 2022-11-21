@@ -19,6 +19,7 @@ class TwinePypi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eca77ec42af90432ef44e57c631116a3161f1474d1f34f1ea171d25dc790ecc"
   end
 
+  depends_on "docutils"
   depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
@@ -41,11 +42,6 @@ class TwinePypi < Formula
   resource "commonmark" do
     url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
     sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "idna" do
