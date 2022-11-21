@@ -10,6 +10,7 @@ class Microplane < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a01017eab3eee84e622e7eb9d39235af14aa90af2033392022307131298f853"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9683ab03d43b65a9b9f2800126aa5ebe96fa9c639dbe9d5bdd86d53334fac010"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb8cd7544c9c9801ea665666d9a0abf44fbc9a38c15e4749d2137ab62a4f33ff"
+    sha256 cellar: :any_skip_relocation, ventura:        "b9b933136c05b211848c70e2f9840306bba3e880a0314b65262e0dcaf174ea6e"
     sha256 cellar: :any_skip_relocation, monterey:       "08f86bc537d804034c176ab2445e7caeae118a7815500655456a30a57fdab75d"
     sha256 cellar: :any_skip_relocation, big_sur:        "ad84fa0e4efc89cd232632aec23c676ebfc23f787037f0da5a8356dc0b765028"
     sha256 cellar: :any_skip_relocation, catalina:       "f9e918678833d61cedb4decb86652ccc356665aed0febcc48b30d950bc8c9b71"
