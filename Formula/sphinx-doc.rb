@@ -12,6 +12,7 @@ class SphinxDoc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af812f4a272fe6d1c40d2cd106e1150fe8a4d5713e76d670862ac019a7ca0222"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be19e2cf840bc2f73a14abf19aa247bae2e011999aeac0d7404371b1234aefe6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f8a4f9a8cb60415eb579eca6e99f1ab57268bb787fa9cf95777abb8324fbaea"
+    sha256 cellar: :any_skip_relocation, ventura:        "f9591245335ccd5a079c8acb5999a4a62f5b06dc11806c69e808f4d3696d349d"
     sha256 cellar: :any_skip_relocation, monterey:       "440bc2f68859898a60710ef6f24714a194ffb2b1fb4f950ae991fd4b91c98bc5"
     sha256 cellar: :any_skip_relocation, big_sur:        "46a511ffc979f88b90329b98647875c2e9cee8a425bdc76222e3a974ded833b5"
     sha256 cellar: :any_skip_relocation, catalina:       "9815f6471a036a136e70dfe3c1cca0f48255f6e0d086d92cfb861c138dd00329"
