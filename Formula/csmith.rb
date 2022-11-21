@@ -15,6 +15,7 @@ class Csmith < Formula
     sha256 cellar: :any,                 arm64_ventura:  "289f49509657abe2bebc5f5b18f95df1c27860bb9cb9cfb6c5b740bb7ee77010"
     sha256 cellar: :any,                 arm64_monterey: "27b069ffcef5994e076353234fed07390d0a2462abc2b851669f619f30f6881c"
     sha256 cellar: :any,                 arm64_big_sur:  "79b39e5332514e816d46c871b31a283e9d16adc4d39f2b5177c3569ce2508c4a"
+    sha256 cellar: :any,                 ventura:        "4e49e28ba325a522c1fc7581bb550bad3d7e411aad88b2eb13e64e049bfb44fc"
     sha256 cellar: :any,                 monterey:       "2ea649dec15e5b7387bde10f8c564c168455ab7b0bca454e669aba28413b10d6"
     sha256 cellar: :any,                 big_sur:        "1194af6247da39f02e322f002dacb9654fb1b614a77ecab2a384bb8715493d01"
     sha256 cellar: :any,                 catalina:       "fdce1186c77ea774ed5575cd59bc194ab35725d3117c9a57bd54ce351a620965"
