@@ -14,6 +14,7 @@ class Remarshal < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c36beb1cd7fb1ef865ec2aa9b3fcf7e9616b9b541acb2190c359e809c373963f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "281c90e07cdb5699d117daeb35bb2610d32d8f9acfd92e751a3e5555f22c0f4e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d169ea5d55078749f1234d20327e8e9784840edc4f7d42e9791c95af0b03430d"
+    sha256 cellar: :any_skip_relocation, ventura:        "0111dc0cf3723ae11d2209a840dc3392af776008b8fddf7755726b6d018e2143"
     sha256 cellar: :any_skip_relocation, monterey:       "b991e129653532f96e7f2a91322bd21ded8941181fb4a4e1e09d64dcbd9e87d4"
     sha256 cellar: :any_skip_relocation, big_sur:        "2715ea7cf3d0e83b5a418b7faae7e2b2074f56c30f0251302f8a98f8bf22fb68"
     sha256 cellar: :any_skip_relocation, catalina:       "eb5b30cc63466ed94f6ecb486e4bbfc09876b69d26c2e37456363b3f81131db4"
