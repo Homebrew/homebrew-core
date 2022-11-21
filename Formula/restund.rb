@@ -3,6 +3,7 @@ class Restund < Formula
   homepage "https://web.archive.org/web/20200427184619/www.creytiv.com/restund.html"
   url "https://sources.openwrt.org/restund-0.4.12.tar.gz"
   sha256 "3170441dc882352ab0275556b6fc889b38b14203d936071b5fa12f39a5c86d47"
+  license "BSD-3-Clause"
   revision 8
 
   # The sources.openwrt.org directory listing page is 2+ MB in size and
