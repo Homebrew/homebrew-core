@@ -11,6 +11,7 @@ class RabbitmqC < Formula
     sha256 cellar: :any,                 arm64_ventura:  "683a44cba4e1e063e150bbcf602ea5c8a310b12d88faf0c98b8ca2673f0c7699"
     sha256 cellar: :any,                 arm64_monterey: "b5e656e15711c417775fb532b61374f34fb00b69ddf2f24841d6c8976bb1c29c"
     sha256 cellar: :any,                 arm64_big_sur:  "5356ca6f455bb61d4ab4d8d66a27d399ebd027bddd5ebfe9bc5daa69d97c1dda"
+    sha256 cellar: :any,                 ventura:        "5e79508f8c8f343e672a05051977de2aeaaccf72c6684a4eec96f9fba1f8d99a"
     sha256 cellar: :any,                 monterey:       "9528f0000e5d9beb29ca43cf88d0e04f92e05c1361bf1edbeb87212b68b8b295"
     sha256 cellar: :any,                 big_sur:        "5f060aea640ac85272c2a4c2b4f5e0ced90d38942bded0c841b9f75c2cbcdf75"
     sha256 cellar: :any,                 catalina:       "8f68d7d99f11f8443466b47289ea01700467e1786ee6ba0cd02ab98046787186"
