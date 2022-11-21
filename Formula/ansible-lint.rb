@@ -11,6 +11,7 @@ class AnsibleLint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "22cec19bedfc226bd4f4e512256b6997ba4e4553b5bef83044dc7bb8565e4334"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7435ff5d533219ca49634908762feea002afe74594474e4e735cd107130e0eb7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd2021aecf926479f04f17a79741e1667bf9ba5e1b4ceba4ab2cceeea1abf810"
+    sha256 cellar: :any_skip_relocation, ventura:        "750e544623f7a3e6f1a4d3474c126e8ff56c2dc44fc51352e6a5818a88c0a1a6"
     sha256 cellar: :any_skip_relocation, monterey:       "2a8be33b49f22c658d1d8be6fd5bc0ce6608b5e81835b41d117947fe0995a210"
     sha256 cellar: :any_skip_relocation, big_sur:        "1e230a400f71a92c296d22bee4cc5083981bd65ae763ccb23dbb0eb007514065"
     sha256 cellar: :any_skip_relocation, catalina:       "254e2dad4b6aa44424c5f44d8be97229eb271e9d1c2f717ee76543ae9f69a846"
