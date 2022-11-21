@@ -12,6 +12,7 @@ class Lasi < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b13ac894940a19c92183c5fad1f5058232af01fb4d6a7c8c1a490d5f289c3fc2"
     sha256 cellar: :any,                 arm64_monterey: "7316df1ac91816fd9ee342a973b4b96dd3e2bb4ce9eb93fedfe96b30a109d8f8"
     sha256 cellar: :any,                 arm64_big_sur:  "f6f4ac7da7af9beba184fff05fd4419335c07710beb3a2e3646afdde31745770"
+    sha256 cellar: :any,                 ventura:        "219654bc604d3071f1cbf7c5b39855af57ecaafe12088bd5e805373098fb2b7f"
     sha256 cellar: :any,                 monterey:       "d70d80fbc43693c3df3b1256ad7779d0cc7a5776cef1502faf9fa4868c1e9fee"
     sha256 cellar: :any,                 big_sur:        "d4d9a1f05e4acef822930f62b4dd5b5f87f815e01523eb41b91df079af35b69b"
     sha256 cellar: :any,                 catalina:       "9c9b3d4df3fef9c27ccc60f51583976cfb7093c5ea345c0dced428e0539b7ede"
