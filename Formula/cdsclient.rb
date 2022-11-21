@@ -1,5 +1,5 @@
 class Cdsclient < Formula
-  desc "Tools for querying CDS databases"
+  desc "Tools for querying CDS databases for astronomical data"
   homepage "https://cdsarc.u-strasbg.fr/doc/cdsclient.html"
   url "http://cdsarc.u-strasbg.fr/ftp/pub/sw/cdsclient-3.84.tar.gz"
   sha256 "09eb633011461b9261b923e1d0db69d3591d376b447f316eb1994aaea8919700"
