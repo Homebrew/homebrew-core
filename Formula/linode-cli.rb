@@ -18,9 +18,8 @@ class LinodeCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0cebe9b11039e84993bf1d1be880ffcc3c909715458bef375d865b62d5e46d1"
   end
 
-  depends_on "poetry" => :build # for terminaltables
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   resource "linode-api-spec" do
@@ -59,13 +58,16 @@ class LinodeCli < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10", system_site_packages: false)
+    venv = virtualenv_create(libexec, "python3.11", system_site_packages: false)
     non_pip_resources = %w[terminaltables linode-api-spec]
     venv.pip_install resources.reject { |r| non_pip_resources.include? r.name }
 
+    # Switch build-system to poetry-core to avoid rust dependency on Linux.
+    # Remove on next release: https://github.com/matthewdeanmartin/terminaltables/commit/9e3dda0efb54fee6934c744a13a7336d24c6e9e9
     resource("terminaltables").stage do
-      system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
-      venv.pip_install Dir["dist/terminaltables-*.whl"].first
+      inreplace "pyproject.toml", 'requires = ["poetry>=0.12"]', 'requires = ["poetry-core>=1.0"]'
+      inreplace "pyproject.toml", 'build-backend = "poetry.masonry.api"', 'build-backend = "poetry.core.masonry.api"'
+      venv.pip_install_and_link Pathname.pwd
     end
 
     resource("linode-api-spec").stage do
@@ -73,7 +75,7 @@ class LinodeCli < Formula
     end
 
     # The bake command creates a pickled version of the linode-cli OpenAPI spec
-    system "#{libexec}/bin/python3", "-m", "linodecli", "bake", "./openapi.yaml", "--skip-config"
+    system libexec/"bin/python3", "-m", "linodecli", "bake", "./openapi.yaml", "--skip-config"
     # Distribute the pickled spec object with the module
     cp "data-3", "linodecli"
 
@@ -94,7 +96,7 @@ class LinodeCli < Formula
     with_env(
       LINODE_CLI_TOKEN: random_token,
     ) do
-      json_text = shell_output("linode-cli regions view --json us-east")
+      json_text = shell_output("#{bin}/linode-cli regions view --json us-east")
       region = JSON.parse(json_text)[0]
       assert_equal region["id"], "us-east"
       assert_equal region["country"], "us"
