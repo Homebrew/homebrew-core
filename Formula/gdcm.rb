@@ -14,6 +14,7 @@ class Gdcm < Formula
     sha256 arm64_ventura:  "2088768166efa18eee1c6e6149eb19b4f95df31c5437ee0f6273ff23bcbbe3a1"
     sha256 arm64_monterey: "e224af67eb4d044addc014323a3e88721f19dfc8589f7d11f99b03b2916c6e33"
     sha256 arm64_big_sur:  "17c3d0f214aacc64ce87645daede1cf4e57aab89efbbbde7dcc3706c32576978"
+    sha256 ventura:        "13e0d4fcf47756797f45b01a66632b74d2cf3f56651fd72a8a34eb027534d0a0"
     sha256 monterey:       "57b30dfdf01965e50ecbec7dac8449bbf1fd8905febdb724c2082570709899a6"
     sha256 big_sur:        "029180bc81362c90b7ea004e78c7c7cf58901c6d784ad8fe86f1f458702852b0"
     sha256 catalina:       "62aabb2cdef58d8b641c166c75288aac9a1e562f2b45f9de360477dfce22b930"
