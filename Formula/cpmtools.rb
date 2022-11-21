@@ -14,6 +14,7 @@ class Cpmtools < Formula
     sha256 arm64_ventura:  "2fbd054f0433e92761ef5fa76de830ac7bfeeb08525eede726f9d3d969e165df"
     sha256 arm64_monterey: "2324010d143ab9616a622b9d147b7aaf256feed91b05ee18226c8bfaa14f956a"
     sha256 arm64_big_sur:  "c3488e8102d67d29360061444be429adab96c2f6bff0d679af380846be8b9926"
+    sha256 ventura:        "ee486061d9a3338f5b29ac3e999b18379685bf81503c52c4ce567eb0b1ecdd4d"
     sha256 monterey:       "01243a514e68e3d3dcc59a183a17e52c8101bd53ec3482692aa53b0790f90026"
     sha256 big_sur:        "feb6336a2eca5551ead4c111c3b3dc2f6d30b1b4f26b5b9845afe70ff4362165"
     sha256 catalina:       "21f01ac740cd1f784a1cb888ae1959df797deb5a06535c3ac9340feb04582339"
