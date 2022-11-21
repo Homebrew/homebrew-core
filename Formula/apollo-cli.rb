@@ -15,6 +15,9 @@ class ApolloCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8080e3a3d1c62e3f7fc42ff39aa13a4fd59a3317e4a57073ee004fd1fded9d44"
   end
 
+  # https://github.com/apollographql/apollo-tooling/issues/2551#issuecomment-1032071672
+  deprecate! date: "2022-01-21", because: :deprecated_upstream
+
   depends_on "node"
 
   def install
