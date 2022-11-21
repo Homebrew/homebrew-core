@@ -9,6 +9,7 @@ class Cloog < Formula
     sha256 cellar: :any,                 arm64_ventura:  "31099d80dbf2e419acd64dcb95e1c22e703a55088c8704e77bc91e34dc0e5e59"
     sha256 cellar: :any,                 arm64_monterey: "e6e5952ded447b71b8742c7110512d9afc91b7399a900ec8f7b3317c47731f49"
     sha256 cellar: :any,                 arm64_big_sur:  "7e9717c9f378f51c40282abd7defb978d0a0edd960eb84410f493bd96a27e222"
+    sha256 cellar: :any,                 ventura:        "72351d437a0b2e31a7941888fa1aeb946bf268573728fc5de5c7416be2913bfd"
     sha256 cellar: :any,                 monterey:       "7238821fcae5761ac240e91f19287ac119eab3db509b7f1b040ba7f9e5b562ff"
     sha256 cellar: :any,                 big_sur:        "d5e21a7bc40be89004c107f89e49c8dbda04cc1b9fb54e15d4225823562b8b19"
     sha256 cellar: :any,                 catalina:       "52c35562f93176d8f3e5216f5f2867aa857e3f0b8b238eb036dea9dbc077595e"
