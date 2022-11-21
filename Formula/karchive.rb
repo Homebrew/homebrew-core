@@ -22,6 +22,7 @@ class Karchive < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ae4310b1ff5d959da79c2b4434f6c5aa9c958222532909033282d26433c530aa"
     sha256 cellar: :any,                 arm64_monterey: "eda67ff177a5986f63ca07f104e9df9bd6a216dbe29843fd38c84d69b21329a9"
     sha256 cellar: :any,                 arm64_big_sur:  "a9e06742ae33e5e299f0e83fa3394c5102b5d830e8894562373c3c311c25f61c"
+    sha256 cellar: :any,                 ventura:        "d787876a78611ecdd88e860936060e6ee5eb1f90ccd6e6e6e4b7618911b9f28c"
     sha256 cellar: :any,                 monterey:       "c75474f1d218b7e11afbba0457b341dce4747c4ced36debdb7da735b06631365"
     sha256 cellar: :any,                 big_sur:        "908427b570afe6bd73de2091c77a8dab21576ccf4889d83f4d7a8ebdb7c8a1bd"
     sha256 cellar: :any,                 catalina:       "58f14148cafc6a279b68ce789b35f092474c5569642a1cca066e6b91783be59c"
