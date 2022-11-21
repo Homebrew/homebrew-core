@@ -40,7 +40,7 @@ class MarpCli < Formula
       # <!--fit--> :+1:
     EOS
 
-    system "marp", testpath/"deck.md", "-o", testpath/"deck.html"
+    system bin/"marp", testpath/"deck.md", "-o", testpath/"deck.html"
     assert_predicate testpath/"deck.html", :exist?
     content = (testpath/"deck.html").read
     assert_match "theme:uncover", content
