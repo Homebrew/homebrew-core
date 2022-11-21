@@ -10,6 +10,7 @@ class TerraformRover < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "968e2719282cd29685415ea7e18963d0c4ee9faf08c9d506cb3a15b69d6fb164"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a91f264c414c45431d9f49775405e736d8c98fdad348d2890189491eeaf14509"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2585975e144bff4b942e06fea9b4a537845506d8753c83cdd0604242f25565cd"
+    sha256 cellar: :any_skip_relocation, ventura:        "06ed2350c1cfb7e24b9a00d414e8bbce8c6f3ed5cc62fc7c01de2dedadd10b18"
     sha256 cellar: :any_skip_relocation, monterey:       "2fb8acc2af0c3029d217e0143115e34fd9ceca18cb6372053f35fa19a5d1fe15"
     sha256 cellar: :any_skip_relocation, big_sur:        "bbb836ca74b099587811edbe6806cd87767c543417f4bbc7043ee55fb00a9d3e"
     sha256 cellar: :any_skip_relocation, catalina:       "cb3ea8a62a309585e40a3ebca0f8633de15d80acfaed963046591d4ad1d610bf"
