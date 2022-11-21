@@ -14,6 +14,7 @@ class Timidity < Formula
     sha256 arm64_ventura:  "683ed0581cef4c5527eea9482440ced7ae6c7dfd9b09a7bf7207f7f2a49b5faf"
     sha256 arm64_monterey: "215a1a95a53e1f8f136d96107135133375060c7c5f97e37ea61224c152cfd17e"
     sha256 arm64_big_sur:  "8e0f3d548b9566140d1c2f1f12ebb221260e062060eb2c374fabc998efab5d1d"
+    sha256 ventura:        "d5cd5ebef9d74d9353dfe729c02b6b583c767e0426d3c12ca8b4da07ff8e25dc"
     sha256 monterey:       "7aeddb0863d411f946560c9a25606de141db96a596f63bbd80d19ccebbb4b4ec"
     sha256 big_sur:        "2feeeebd41909eb7296bbe8fd7b09b99e49bb4f52341eed107d0cb423a673793"
     sha256 catalina:       "761a0dd6e3c1499005cc2722a5cef8e8529216c8c668c18b9b1fc8711ea409f4"
