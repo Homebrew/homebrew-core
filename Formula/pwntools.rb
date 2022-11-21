@@ -13,6 +13,7 @@ class Pwntools < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f66d6b0da1564e6d863aa51626e29a96a464792308797a521c9367acd72d598b"
     sha256 cellar: :any,                 arm64_monterey: "fdc247c6b92386c6f9e191614c4021f5f9ff9bac41c7c380857da8f8d5807222"
     sha256 cellar: :any,                 arm64_big_sur:  "a17ad73d3db989602ac0cf21ef9f67bfb326315396a66bc2531560c424f74350"
+    sha256 cellar: :any,                 ventura:        "7f8d1926604dba1cdec5c427ac78423a4fe4fe4d11a396daaa6ad94928506361"
     sha256 cellar: :any,                 monterey:       "d15edfabf0888dad7a0215e213e1ecd2c793124474e7bcbe1a98156735b63288"
     sha256 cellar: :any,                 big_sur:        "5eea61e8c97d64a79d21ec14dc12906f3d9333e3f4ab97298d6274a510a9424d"
     sha256 cellar: :any,                 catalina:       "d5c7e023a0fcd9c30030ad3c7ced9eee64ca529ea0cbe7b6b6f76927945d5f7e"
