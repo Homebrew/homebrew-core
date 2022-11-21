@@ -15,6 +15,7 @@ class Arangodb < Formula
     sha256 arm64_ventura:  "01a162f32ecfbb10e1bf53131bccd1d09858cccfd160d0734c3a63745d429b21"
     sha256 arm64_monterey: "b3715b5940358df40ea5988403859804df160664b17447e4d0b061f0b566f917"
     sha256 arm64_big_sur:  "ba3473cf1c88aad5fa45784455c4832202ec14c1ee3c280766464ee6248fa9e7"
+    sha256 ventura:        "5f3def0aeb48125ccad9b31a74b06e573e6cb5f152dea09b59c849d40b70cc25"
     sha256 monterey:       "ef8adb6f3dbd14fae7867fbb8c325b7ecacfe7849bf33cc4a3dee74b10edd292"
     sha256 big_sur:        "a8195e62732388e7cb47997649df6634bb89e2a60691c43202bafeb9ac5b354c"
     sha256 catalina:       "87f66fb788efa6df85000599103bfbd67ed04637f279e5c084a6773f09929e2e"
