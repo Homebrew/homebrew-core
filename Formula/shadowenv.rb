@@ -9,6 +9,7 @@ class Shadowenv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "76bbe8c6c92c0fbd63d3f4f801b869e8f836bff4bb6f82dba7dbe08972934f34"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "28aabdbb7ebfab527b9e4a1201172ac9cea7594cca8d41bd237797fa40f82246"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8862ba2e18219cfc43153b40535ffbeded2803651f20ebd7777d7eb4c2d9b1c6"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d91d62c013d0429d7451e1d549587d1fdc953240a6aaa94c38a7a0dde3635f7"
     sha256 cellar: :any_skip_relocation, monterey:       "0d78a4c4030d259278de1428c501629ed441c6079b5b4d41074f579b1119eb87"
     sha256 cellar: :any_skip_relocation, big_sur:        "395d18e1a7e6cd780fa1f403394ccab654b8005185239bd66b69e6068503a136"
     sha256 cellar: :any_skip_relocation, catalina:       "9dd1aef3e3c5c943ecf2e111d4f263b313792166b53671adb28f1d434eca3f23"
