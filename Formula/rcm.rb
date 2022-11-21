@@ -16,6 +16,7 @@ class Rcm < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
+    sha256 cellar: :any_skip_relocation, ventura:        "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
     sha256 cellar: :any_skip_relocation, monterey:       "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
     sha256 cellar: :any_skip_relocation, big_sur:        "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
     sha256 cellar: :any_skip_relocation, catalina:       "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
