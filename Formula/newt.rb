@@ -14,6 +14,7 @@ class Newt < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b17f6125276c6ea8edeb84f03d0db4007db9ffa9f2a7e3dd0d8f4e1ccf0b338c"
     sha256 cellar: :any,                 arm64_monterey: "f7d9a7b2eaff90cd590e1ed1b0b43fa9b171dfea47ddf97e09f115af3917a285"
     sha256 cellar: :any,                 arm64_big_sur:  "a8874b099d758eb7db8201a917e88c0a2d2c4e672eef7bea5d4630cd466006cb"
+    sha256 cellar: :any,                 ventura:        "7a195d738d5e20dbd52ba2af08dfb712a6e1f7a3ced0e13b28b16b395b6f3931"
     sha256 cellar: :any,                 monterey:       "253ed4ae344bc4b7a83dfc591f6f61948a1c5d68d462f6f79579738d0474191b"
     sha256 cellar: :any,                 big_sur:        "f18f5b359bf194f03f92bf5788599d48ee1312ba18567b9f82e88a4e72727595"
     sha256 cellar: :any,                 catalina:       "9ea56c85b436611977f70be5257358ca6c09f3a003c0ad87b9b0ae754f796945"
