@@ -11,6 +11,7 @@ class Mogenerator < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e3905d64fb52d4543d39ab15d24d091829d22c885e5a423db3ab64d0e9b625d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "29159fa7d208a108c0a36a222f7a300151241810eccfef04059a86611dfe41d4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51aec3a49207ae357af26a5407494bc88d98027ba06293736b2888ece7b1d71c"
+    sha256 cellar: :any_skip_relocation, ventura:        "b270d1b6e1f7dd23d8606906587169bf49838f82ab27015b75299f56da9dcf71"
     sha256 cellar: :any_skip_relocation, monterey:       "a9907203474f336c731912e28fad5ec2e912a1e7378d5ba527a7bb3d3b160134"
     sha256 cellar: :any_skip_relocation, big_sur:        "415e0e160574b7b16dff3d0395a7e156894675191c911d09cddf59e1d916571b"
     sha256 cellar: :any_skip_relocation, catalina:       "d62cad0cc94a7b05286fb2a8a2f8e4a4cc3a9b46efa9a391aa9fcb00c381e85e"
