@@ -15,6 +15,7 @@ class PkgConfigWrapper < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf1a133af5a0736c339ca03ca1e55d460835c137c9c3430a4150f04addef59ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "73e0e3154ccc02d0fccf377426069944d80b112e671471ea93ab852001b3cf45"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0859f0c9900ff75118937dfb5fb4c819ea946cf85b28c26e00ed17471688da2b"
+    sha256 cellar: :any_skip_relocation, ventura:        "51f080f177cfe4b81a5aa5c19921db19c2792827a873c4a0432b882faf26e848"
     sha256 cellar: :any_skip_relocation, monterey:       "dfaba417b6359e63e6a16426f0cbf3368ed111294dadfd63f9b89435c2612003"
     sha256 cellar: :any_skip_relocation, big_sur:        "68d05c1c5e5310b4bd7a68d6aaad6cedf9190935a47513be58dd85e06909a556"
     sha256 cellar: :any_skip_relocation, catalina:       "d1a3561a851957ec62856bc5a1407501976c48fe54ef290abe102a3d357207d0"
