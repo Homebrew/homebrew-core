@@ -10,6 +10,7 @@ class Xorriso < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "34c3f5f4e2083387b0b98c8b33cc360070ad04a81fcc0357ca0146b2b0557edb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "521d0487cdb0635a13a2c44014518db085743a03d9ef19b4cd09ddd7d1ac4ed1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad2d5c7472a70aedf02d2bb91f518b72ab2f3df0068eec13b2edf0ba2ab5af50"
+    sha256 cellar: :any_skip_relocation, ventura:        "b4a25bea1608c3794a364dc61cd5a4adbb44293e5ff654907d69a6d0e4377efe"
     sha256 cellar: :any_skip_relocation, monterey:       "ac9ad05ef928432e181b339881782678864108f1421ef5a66d01f3cfbc70646c"
     sha256 cellar: :any_skip_relocation, big_sur:        "b54ce0eca9d92f9ffa571edf065baf3212cc1584ca20dbf1cbbf23f51f4ce5f7"
     sha256 cellar: :any_skip_relocation, catalina:       "e8282de999460c934b95defa41efd358c93da2d62ca38ce2829c8185eb49b4db"
