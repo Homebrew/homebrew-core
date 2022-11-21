@@ -28,7 +28,7 @@ class Mold < Formula
 
   on_linux do
     depends_on "mimalloc"
-    depends_on "openssl@1.1" # Uses CommonCrypto on macOS
+    depends_on "openssl@3" # Uses CommonCrypto on macOS
   end
 
   fails_with :clang do
