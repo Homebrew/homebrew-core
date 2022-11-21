@@ -15,6 +15,7 @@ class Dash < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "999ca07555b86be44033f06913d0a513995ecc43fc94757699e4b43d6c0ca523"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "98745c9a59dcf0e9894493ad047699171d5ddb4d943115e94d08b58e21c484dd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12e8257cfc5dda342cf5df3579e4d75d6c7da1c3e5188ea2bd632f66ca9291dc"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e65efe74dbcc532a9e9157dc033609294e9b38f183e12904870e34fb9527717"
     sha256 cellar: :any_skip_relocation, monterey:       "0891342216aaba226425c2e27a21082f1096994e6be82cebb08eedb7c4d9fb76"
     sha256 cellar: :any_skip_relocation, big_sur:        "a7eafa8a473d2bfd1d9fbc207ed863d5765189b6662341420bee8a78cc6d4360"
     sha256 cellar: :any_skip_relocation, catalina:       "b7ab66d5cea5b77081f58392eb8f8c66341cf20c94739a77c262f0a1f54716a6"
