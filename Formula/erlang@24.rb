@@ -15,6 +15,7 @@ class ErlangAT24 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7273be648fb66da6e16c14401718c55d4dce5036255f1a1c9332aadf4094eac3"
     sha256 cellar: :any,                 arm64_monterey: "7204baf7dfac19528154a198740865287309c6a49747035f6b2882bdf1faa3f3"
     sha256 cellar: :any,                 arm64_big_sur:  "748164a050aad8cda86ecd8e09298e1c4a938139a765b69a8966fb6380e47a81"
+    sha256 cellar: :any,                 ventura:        "3cc93a7d95f27cf4dcccf1e0b08daef94e9a833b782b2f52738881c26d799d40"
     sha256 cellar: :any,                 monterey:       "27c7839fb92e8a2b632389b421b853e9a056f026154d9f89536f6f47e81d6853"
     sha256 cellar: :any,                 big_sur:        "02e174dae9ddfad29b4e15018d553bc01653999ed616fe98b9b51f0d3f35ac14"
     sha256 cellar: :any,                 catalina:       "1bccce2c64fa688445d3494f08cb187925023912f67453fa8a98e65d8cbff0ed"
