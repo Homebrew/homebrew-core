@@ -6,6 +6,7 @@ class PreCommit < Formula
   url "https://files.pythonhosted.org/packages/1e/ba/8cf8b88d0e07588818de46877effc9971305541d9421bc6377b06639d135/pre_commit-2.20.0.tar.gz"
   sha256 "a978dac7bc9ec0bcee55c18a277d553b0f419d259dadb4b9418ff2d00eb43959"
   license "MIT"
+  revision 1
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
