@@ -11,6 +11,7 @@ class GitMachete < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a4547f07b1705c6f9997ee9c3d7fb07d200082ff27a4a788b367306626039ad"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a4547f07b1705c6f9997ee9c3d7fb07d200082ff27a4a788b367306626039ad"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a4547f07b1705c6f9997ee9c3d7fb07d200082ff27a4a788b367306626039ad"
+    sha256 cellar: :any_skip_relocation, ventura:        "85aa51fadf81da0e60dd352ba2e6276a7e81a08c9e303e34436247be8690d0d8"
     sha256 cellar: :any_skip_relocation, monterey:       "85aa51fadf81da0e60dd352ba2e6276a7e81a08c9e303e34436247be8690d0d8"
     sha256 cellar: :any_skip_relocation, big_sur:        "85aa51fadf81da0e60dd352ba2e6276a7e81a08c9e303e34436247be8690d0d8"
     sha256 cellar: :any_skip_relocation, catalina:       "85aa51fadf81da0e60dd352ba2e6276a7e81a08c9e303e34436247be8690d0d8"
