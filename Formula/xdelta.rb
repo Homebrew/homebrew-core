@@ -3,6 +3,7 @@ class Xdelta < Formula
   homepage "http://xdelta.org"
   url "https://github.com/jmacd/xdelta/archive/v3.1.0.tar.gz"
   sha256 "7515cf5378fca287a57f4e2fee1094aabc79569cfe60d91e06021a8fd7bae29d"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "63a96424b3e3b7c2c501fdb0b10ae2847cec321daeda40e0bfc1c4125cafd22a"
