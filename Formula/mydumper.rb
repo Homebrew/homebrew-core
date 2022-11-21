@@ -15,6 +15,7 @@ class Mydumper < Formula
     sha256 cellar: :any,                 arm64_ventura:  "4d531126bc2a58d6e4b2bce6d4ddc76bf00444c8308a8b40f7a476e6f6d118bd"
     sha256 cellar: :any,                 arm64_monterey: "70b1477d5ac79ccba9f262994616bf7fc0d574acae10c9ed3a329c1d2ce0b6db"
     sha256 cellar: :any,                 arm64_big_sur:  "431f5b4b94f1887cddc0f3d46eb1f1883351c7d1a49d62163f40a67767f57edb"
+    sha256 cellar: :any,                 ventura:        "d7f242fa425c6464f2b1edd3a376cd24c2254351bf0c2a7cd9ed20cb3e2cea84"
     sha256 cellar: :any,                 monterey:       "6c7247025d4dfe2cf643cb25fd5abd88de7a4f5d5514902ed5f98d7356e82981"
     sha256 cellar: :any,                 big_sur:        "efc50499675ac124c4496be1072443584cb7d115a7ff7db5617d401940d425bc"
     sha256 cellar: :any,                 catalina:       "adb864ab56386526f3dee82dd26d15272d7e31be07ef454f81982b62df0e67c5"
