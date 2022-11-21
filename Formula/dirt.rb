@@ -11,6 +11,7 @@ class Dirt < Formula
     sha256 cellar: :any,                 arm64_ventura:  "220df28058cee1be0e8326c1bc8b0aad2e916b98ab3e4754b8695823f3de5cb5"
     sha256 cellar: :any,                 arm64_monterey: "82bbbe42458acf9ec7e5f628eae3aaa8e8c9df057e083ff45e044e0a64339c88"
     sha256 cellar: :any,                 arm64_big_sur:  "c011771c2775cdbf313084355baf6734da930ad9fae75326775cfb27481482a4"
+    sha256 cellar: :any,                 ventura:        "70cbf8ba9111cbc64540966e1b52bdd9ed2705b785be0b22f81039fe524eeb1e"
     sha256 cellar: :any,                 monterey:       "dc6f8629d3cbdd9157fa9445ad7bcab0058cc286d042f7830c42c6c28e90190a"
     sha256 cellar: :any,                 big_sur:        "ac69059e87e5682411a7442619985d95d79ee67af88366bcea28cc89e35ef46a"
     sha256 cellar: :any,                 catalina:       "2e9cf5a28852453f9ec5394bb2218fe3366e2cc6ef133e2dda847fbfa71ee968"
