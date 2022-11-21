@@ -9,6 +9,7 @@ class Nethogs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bb8279f67ff45ea099cbb079aca0787666f98bd307a09f58e3089ec0eed797e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59ca360d633795f970278151bdb3c1a216cbd38f730a1ef87a40247cfae70a5e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bc7e3c64c95cb630973707c7a0bbd38ffb05d01f750c0c9ca342aacaa4c4f1e"
+    sha256 cellar: :any_skip_relocation, ventura:        "bc30be3873a9200346d0a6a0e52cd52a54ae3f504dec181b478d9a9f383ad1a9"
     sha256 cellar: :any_skip_relocation, monterey:       "6d4164c21109b7af5a40e4f6ab8f5938a8a13e415fb7fc2ab26082f88a1b2319"
     sha256 cellar: :any_skip_relocation, big_sur:        "02b86d804fd1346a681792ca116c0aa2576563b3fb980ea0b094fbcff9c323ae"
     sha256 cellar: :any_skip_relocation, catalina:       "f253c8798f68bce3fc2bd8222cd9059098c105e4a5607a8d2c138056192289c0"
