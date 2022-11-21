@@ -19,6 +19,7 @@ class Flit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbb8bd3dd4c36009ba6d16a49f5d6cac07a85411a63690033c3487b3bda4fd63"
   end
 
+  depends_on "docutils"
   depends_on "python@3.11"
 
   resource "certifi" do
@@ -29,11 +30,6 @@ class Flit < Formula
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
     sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "flit-core" do
