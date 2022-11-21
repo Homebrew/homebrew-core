@@ -18,6 +18,7 @@ class Alpine < Formula
     sha256 arm64_ventura:  "9515f6ff399dfc1ce8c44d8aa69f8ae964b9a49f286a305b80f503330feaa700"
     sha256 arm64_monterey: "73c032d1c64a658eb8de39c13cc9d5ac1c0094649414b01986ca6904a99e34a4"
     sha256 arm64_big_sur:  "0eec06860d16e03d7b2c658b52999ac43a4a5b1c89899303a3a6e8c536059cfc"
+    sha256 ventura:        "690b598885d6f5a920ef48620f0c5dcdf667ae681dfa375dce86c7c5e22623f3"
     sha256 monterey:       "6cafdbf3f332fc0f2fe3b3e1b604b1092afa426d4c93fff99b5a81de0e542618"
     sha256 big_sur:        "14e22faaa2ba81fcd8abdea1e9e2f132ac3707fd62db654460ee17228062e3ab"
     sha256 catalina:       "a42365580afd59810fb4cd1a36eae5a71a79c98cee667df38e0a8ee6ad6ce01d"
