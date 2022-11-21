@@ -20,6 +20,7 @@ class AwsShell < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "41987f5f58c200ac868b2dc992300ede78e3634bf456b42b1bde1ab8b922354a"
   end
 
+  depends_on "docutils"
   depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
@@ -47,11 +48,6 @@ class AwsShell < Formula
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz"
-    sha256 "c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"
   end
 
   resource "jmespath" do
