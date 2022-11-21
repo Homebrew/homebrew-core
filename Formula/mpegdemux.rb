@@ -14,6 +14,7 @@ class Mpegdemux < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0cdc12b4dbb683faf6d5778773fe6655c47b8a1b8639943e0fca57a50afe967a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ce2c6346e596ad75dbf869133e777b5ae0297172c93007ec0d68bf57d417faff"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b69d0d03885830c30bc529606bf3f7c95181512714bca1a12e4e8aaa4a83b1cc"
+    sha256 cellar: :any_skip_relocation, ventura:        "106ffa6aa9aeb4b844c50cb38aa312953a24a44c78a6dade8adc9947faafca46"
     sha256 cellar: :any_skip_relocation, monterey:       "e3c324812ab8418d89a93c67b13bcd088f434e762db103dcf9804b8afb687983"
     sha256 cellar: :any_skip_relocation, big_sur:        "7e9ee9336d84bb82b1ee8f5b415b534ea7a8b859638cedc074875c13be16e40e"
     sha256 cellar: :any_skip_relocation, catalina:       "1fd3f22495cec5d802f73def919457122829cc617e0a7ca82a91d10e0ab8001f"
