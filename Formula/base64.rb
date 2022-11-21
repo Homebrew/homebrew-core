@@ -13,6 +13,7 @@ class Base64 < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc888655b142849238c7aa9764e462c4f30a94c80c682962bddea75c96dc581d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aa86de79c32e57cf11fceeba4ab6ccdbd4bccbf88704e85b7f9bae100f9af236"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ddaa699165e82146b4f3b476d05cff364a9530d1c389d43573b8f59a2a2e7d5a"
+    sha256 cellar: :any_skip_relocation, ventura:        "6fe7f731c8dae0f98208beedf2610c71cac50df042d133612fe9be00864cfec5"
     sha256 cellar: :any_skip_relocation, monterey:       "283b796362540fd1f3a006f537bc87c92cfe1c47071eb8d2d2c863334ada81d6"
     sha256 cellar: :any_skip_relocation, big_sur:        "4c9e32d24df53a042aec56518070159c224216e16346f7f567a4261521609efd"
     sha256 cellar: :any_skip_relocation, catalina:       "f883e1602433f3a921fd1892747d76cf4548f75ac2e572be9eb0cfe0ced7290c"
