@@ -7,13 +7,13 @@ class CargoLlvmLines < Formula
   head "https://github.com/dtolnay/cargo-llvm-lines.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "421a65ae84c466255ea2ec6848f4e636caef85b6e6f1d179c97695c8b745e223"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c543b37bca92a13c3c30eb70d7f84defaf43a1a4352bd39f85817b927cafc680"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d2b2ce7fdae470496cefdd0a086c1ffe26b07ec1d6fa8ae2d78ae982268d671"
-    sha256 cellar: :any_skip_relocation, monterey:       "22aff3823d678159866598e24f7d9adac9eea69c983b1c2d522b1affbb4e66d3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "35421a80098d7c8d5d68361c956ed2291b9425bb83b722da2f183fb892fc129e"
-    sha256 cellar: :any_skip_relocation, catalina:       "fe5f7035f068743843ea1760c821e7502cb400a33e9f7af18b6d374fa875d7b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95a418669e33e45965aa1e4a9d816736cc93633f3976329b0b56e4667335e7ff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90e60996c9cc00b86f0bc282792d04731f770020f1f197e78f6f381e99d49b2b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31ac30a5bb7ab4875de07a91a037100c5542aa1fed660540a56606b7f530a572"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eb8b6fa1e60b7768c78b6da8e486150af942c1a2b55b34cb79817fd77c2eb7de"
+    sha256 cellar: :any_skip_relocation, monterey:       "9f22eae766c2706a0509e345c761e25b38b87741b15193fea7bad8bef0c984c1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "57693bcf1679794563e438bd922f9390f8dee5dde47c31c510b47b6a9d59c2d7"
+    sha256 cellar: :any_skip_relocation, catalina:       "e475c0b8a6ff6b03c7e842fc9f63fc6d8a989833920446c0c3a60213ff916d8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71cb92467c052bec994fdfd4b9c98abb7cde881cb70525c84155ecfc8aec9f17"
   end
 
   depends_on "rust"
