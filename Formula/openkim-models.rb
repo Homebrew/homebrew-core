@@ -3,6 +3,7 @@ class OpenkimModels < Formula
   homepage "https://openkim.org"
   url "https://s3.openkim.org/archives/collection/openkim-models-2021-08-11.txz", using: :homebrew_curl
   sha256 "f42d241969787297d839823bdd5528bc9324cd2d85f5cf2054866e654ce576da"
+  license "CDDL-1.0"
   revision 1
 
   livecheck do
