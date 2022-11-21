@@ -12,6 +12,7 @@ class Borgbackup < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f468dbf559ebec00779a1242708dfe800583250381d318ff98c75a3be8dfa675"
     sha256 cellar: :any,                 arm64_monterey: "f3ce53018f86bf63b5a410174903398cd0bdba587041c5adf42bb5eecdc4cf4a"
     sha256 cellar: :any,                 arm64_big_sur:  "9e847d6ecd68963b08ccd570aa7a453768e877968c24a30c0629c5b582c95129"
+    sha256 cellar: :any,                 ventura:        "e00acda76abf3dede13c50eeab7d5d952d6027327b2da777e6fb6a453de92aba"
     sha256 cellar: :any,                 monterey:       "0afb0588f8fd8b23a3bfb82c805198e954f607f3b0e7c9a05cca3e2224aeaf73"
     sha256 cellar: :any,                 big_sur:        "f94830c06a982822cdd602117c1bc9d59f06ee90791f6902d9104c8696c602f1"
     sha256 cellar: :any,                 catalina:       "a19d8cbc9245f083ae5ef585dd6f7701c247a342cf3031a9df28d5b2c8fb2fdc"
