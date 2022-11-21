@@ -1,10 +1,9 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.43.0.tar.gz"
-  sha256 "db1679653491a411dd16fa329488d840296c8f680e0691f9fe0d0e796e5d7bca"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.44.0.tar.gz"
+  sha256 "b653c845ac7a16fefab2ace78e3ae496c12b05304bb66e41e776071635d4e070"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "bfced034185151d8b401d080cb3263e6d05d0b6575ceb20fba042f84807f6347"
