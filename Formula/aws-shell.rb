@@ -13,6 +13,7 @@ class AwsShell < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a38a8a5307e9e702bba4a8fa6167ae4fc0e104c7ad6fea062d6d0cdfce9a1212"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a4c650eed807b6a1323b90a07663e5fa966d8e512ae2610431f79954f3549a95"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30954708665c5ca2f39d5c2943504479d7bfab8a6c778f497e9f2481ec8bcfa6"
+    sha256 cellar: :any_skip_relocation, ventura:        "ac71c0c95b7ebe0012063a8f48603813d78c3421871b6f40cd696f8c641a2843"
     sha256 cellar: :any_skip_relocation, monterey:       "891cdde98f362c286d1fb2af7f3c32c683ae30be0ebf7c1eab7b497eb0391a32"
     sha256 cellar: :any_skip_relocation, big_sur:        "147e16067c51e5b6362d0409252385dedad44bae66ddb2cb92dda1b6cb649716"
     sha256 cellar: :any_skip_relocation, catalina:       "d9ff1065eac4653fe94effd49746a53133eda425aea71a38be2512e76725701e"
