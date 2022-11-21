@@ -11,6 +11,7 @@ class Etcd < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4a29d70cf9e7c52cff3909b4c2c0cd801bbfb4d500009afb04143bd8e1de547"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e4a29d70cf9e7c52cff3909b4c2c0cd801bbfb4d500009afb04143bd8e1de547"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4a29d70cf9e7c52cff3909b4c2c0cd801bbfb4d500009afb04143bd8e1de547"
+    sha256 cellar: :any_skip_relocation, ventura:        "06ce94b0d467b7aab8a954f5ae1018bbee16f4cd268b77215900293f2a8c3e60"
     sha256 cellar: :any_skip_relocation, monterey:       "06ce94b0d467b7aab8a954f5ae1018bbee16f4cd268b77215900293f2a8c3e60"
     sha256 cellar: :any_skip_relocation, big_sur:        "06ce94b0d467b7aab8a954f5ae1018bbee16f4cd268b77215900293f2a8c3e60"
     sha256 cellar: :any_skip_relocation, catalina:       "06ce94b0d467b7aab8a954f5ae1018bbee16f4cd268b77215900293f2a8c3e60"
