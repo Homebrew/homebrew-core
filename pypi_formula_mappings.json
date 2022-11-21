@@ -167,7 +167,7 @@
   "diffoscope": "diffoscope[cmdline]",
   "dnstwist": "dnstwist[full]",
   "doc8": {
-    "exclude_packages": ["docutils"]
+    "exclude_packages": ["docutils", "Pygments"]
   },
   "docker-squash": {
     "exclude_packages": ["six"]
