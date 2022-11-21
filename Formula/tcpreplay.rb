@@ -9,6 +9,7 @@ class Tcpreplay < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e896b1585c29671bee6314886215fd6cc326b3f34888d7b820c32c39bf474c8e"
     sha256 cellar: :any,                 arm64_monterey: "ccbd67b7234176de48278515298a50ae17510c820950763b0e27a971d6080460"
     sha256 cellar: :any,                 arm64_big_sur:  "4bd03e1afa4b5528244fc212b17d21ed15bf0267284ce3f6d5cf7c5520c02484"
+    sha256 cellar: :any,                 ventura:        "4699dc67c1339b1899097574d2c93dc9b6472631ab545e2a7236fd466b4aa5ed"
     sha256 cellar: :any,                 monterey:       "8d7c52940e75b1ae73e8e018627ccf944fd33d65393e9e8fbe2528c950335450"
     sha256 cellar: :any,                 big_sur:        "fe94278be5d54b8584156256b5181aeaaa464d353ad6dea909db2ed57d0d67f5"
     sha256 cellar: :any,                 catalina:       "44f5dbde556a34f20bfce3446fcf5167ee6f70099ad7504c82c91a3fe13ade10"
