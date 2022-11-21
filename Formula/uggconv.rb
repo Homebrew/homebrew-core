@@ -3,6 +3,7 @@ class Uggconv < Formula
   homepage "https://wyrmcorp.com/software/uggconv/index.shtml"
   url "https://wyrmcorp.com/software/uggconv/uggconv-1.0.tar.gz"
   sha256 "9a215429bc692b38d88d11f38ec40f43713576193558cd8ca6c239541b1dd7b8"
+  license "BSD-3-Clause"
 
   # The homepage gives the status as "Final (will not be updated)" and it was
   # last modified on 2001-12-12.
