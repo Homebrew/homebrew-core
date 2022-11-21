@@ -15,6 +15,7 @@ class Ghcup < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c8fd25d92e26b13e31a78cd0185258321cfa381375ed0e29bb16c023d7d1763d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6c374ee90254045c3df618268852ed7182d38a404a36656d8c91a3176007331"
+    sha256 cellar: :any_skip_relocation, ventura:        "8cae0d1d4a20e8fa9a6dba80bfd44fcfa56417fd4dc91ef46c792ff8f86ae166"
     sha256 cellar: :any_skip_relocation, monterey:       "e5739de269fbe1ff0b03ae564fef3714b030caca20fcd5f500132e308fdca885"
     sha256 cellar: :any_skip_relocation, big_sur:        "ace684548a140c8db60e51e40e750dccc711e73ca2976b919b46eabeeb83097e"
     sha256 cellar: :any_skip_relocation, catalina:       "39d01f386acc5221527cbbc3509030a161049b252bf8b62507b00fb87e93805a"
