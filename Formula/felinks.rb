@@ -10,6 +10,7 @@ class Felinks < Formula
     sha256 cellar: :any,                 arm64_ventura:  "eea09552d2a9906086e8c1095ca171fcc7f187bd33990bac99fe7e5c3bb86bef"
     sha256 cellar: :any,                 arm64_monterey: "e16bb34d706cb774e454993bcd9b3e7355d0dafa41314bd9893bce0a84dd7ae7"
     sha256 cellar: :any,                 arm64_big_sur:  "674f805753c94b6ae1e4ae3da4d659213e8bbb2b3141d72bb0aed2b3403adf79"
+    sha256 cellar: :any,                 ventura:        "a6516e70a3d7c711473b0697b490ea2af62b8fded96004508d1bb6382d42043d"
     sha256 cellar: :any,                 monterey:       "cf7ce03ce6602554161c33dca17bc1ab13cae1f21afea98d185902790ea1a35e"
     sha256 cellar: :any,                 big_sur:        "89e15011eeac39eda0601814203794c416d8033842a32e95cc71330374401063"
     sha256 cellar: :any,                 catalina:       "821c66738ec5fa3549eacf6eac30d3fb508c9d01d1ec6bf375b54805fc8e4f21"
