@@ -11,6 +11,7 @@ class Dagger < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0badbc531d64aa8a1fee91f03cfed919be428bab7d7ce02192e2b9eecbbaf32d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3397d51bc458acbcfe9003fd55bd0fc086ed43f41d9f41a0c9cee48849aab809"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3397d51bc458acbcfe9003fd55bd0fc086ed43f41d9f41a0c9cee48849aab809"
+    sha256 cellar: :any_skip_relocation, ventura:        "1726c30e8192671268f2d0a08906aae1b4883dd802050b574c22c2904df4d235"
     sha256 cellar: :any_skip_relocation, monterey:       "45e4853cf61137a5113b0301ab8e875ab93b01c22db62b91be4173c935cf55e6"
     sha256 cellar: :any_skip_relocation, big_sur:        "45e4853cf61137a5113b0301ab8e875ab93b01c22db62b91be4173c935cf55e6"
     sha256 cellar: :any_skip_relocation, catalina:       "45e4853cf61137a5113b0301ab8e875ab93b01c22db62b91be4173c935cf55e6"
