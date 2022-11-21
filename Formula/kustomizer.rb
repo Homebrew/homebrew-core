@@ -7,13 +7,13 @@ class Kustomizer < Formula
   head "https://github.com/stefanprodan/kustomizer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbe2b710747552f90907da4d1b68087e6b833613a30905888e39a8bb3cf86573"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c2eb17bda0c54419dfa9c368179c8c0dafe4be905f6298c19a244004ab163c8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32ab4254bd7eb71b8e20c1cc6e111ef00bea41a339c04d6bebd146ffc0014cd1"
-    sha256 cellar: :any_skip_relocation, monterey:       "10c018605e83c667479b22a4f32f8b4e0fcbfbffd16242094e7c76b7c3c4d37d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6c0793b103efcd2f999efd44c7242a7895350e3b9949fd0b7ad9c52548df708e"
-    sha256 cellar: :any_skip_relocation, catalina:       "e8477174ab0e0dadb5bde2776351e05e0d495ecb8728b391a103f2cbcf7d45f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "108caba819fb38007b0e2c487acfcd2a9fda05e78531af1f42965e366894bc2b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ba254b8051b47aa5f1fb36236027a7ba73cda8218c504b43065ab3ad7677584"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc06563ebe12218833949dd690e7c3ffbe71d815e16581657ba4971af6ad1a64"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34ca6d21c6761b9732b0bd0cbb3bdc7bfa8c0701ba7edf2bd236f820be1ef44b"
+    sha256 cellar: :any_skip_relocation, monterey:       "826930275079d88859fd26976d3e7d8d7e9ebf57edeae256e232ce4c3603ce2f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8f9ac16b04e1da34901f680da8c8f481e605d374822cf77752d68777f9cd9cf1"
+    sha256 cellar: :any_skip_relocation, catalina:       "e954a47cd5a1e00b299a62432ec532ddd4545a7c2de6c4d669e2242af9080eb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ed1242aaec95d97b1c835476b50556d96a6f8902d1bcdeca14fa7625243b437"
   end
 
   depends_on "go" => :build
