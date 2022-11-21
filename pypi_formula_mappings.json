@@ -306,7 +306,7 @@
     ]
   },
   "keepkey-agent": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["six", "docutils"]
   },
   "khal": {
     "exclude_packages": ["six"]
