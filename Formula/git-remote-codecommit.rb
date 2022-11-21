@@ -13,6 +13,7 @@ class GitRemoteCodecommit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa3babcfd3c1322c57600ab40cf5f231c466c4b4efe40e789e5900182469681a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7a3e4159b111df2c478774b19092c6c526200abd7b3015097a8f0cb5e7af8673"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ced97705990d50c77851badbba049b5772c6c23d259bcc3ac3e36ca2d58b7b75"
+    sha256 cellar: :any_skip_relocation, ventura:        "c1cf2b611bbca3623840722e32c300fbd43bb8b66578312aef9e0d83e780c767"
     sha256 cellar: :any_skip_relocation, monterey:       "a700c8e7bfa15993e44e389aa082981432cb2630b6a0fc2ee5ad7948ee8d1040"
     sha256 cellar: :any_skip_relocation, big_sur:        "50d82f4816304ef6fd7a48399fe5019ca8c7eb85e9287c52cb23bfe5881ac017"
     sha256 cellar: :any_skip_relocation, catalina:       "01f8a1c497bf2aa29a0bdbcf97ca326338ffe7a956dd0e2a697c3384f5ef0c2f"
