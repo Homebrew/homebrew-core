@@ -9,6 +9,7 @@ class Menhir < Formula
     sha256 cellar: :any,                 arm64_ventura:  "78c4f6f0df81ca5434e84804ed0de09064575166f303dac94ef05cd3dbf1a2d9"
     sha256 cellar: :any,                 arm64_monterey: "034b3aeab807e0f5c9b61b1ac62937cab695e39c3cf9f6cd3b024687ff963822"
     sha256 cellar: :any,                 arm64_big_sur:  "b5cf9ea01bd4ef559ce640dddf2bbc4602b9e5726d2d1d198a9a6a41d78f631f"
+    sha256 cellar: :any,                 ventura:        "45feee1c33244877b6230a28f40530e33547a9ef1336e2335425a1ca310b66f0"
     sha256 cellar: :any,                 monterey:       "25465835b11b2d3aa42a82587acebb885b8d6c9329fb4d78d746964bbf1d757b"
     sha256 cellar: :any,                 big_sur:        "a7e520e7f276a33543b8b267b8f66bdd9173c627ae2d25c49012ee2d6e690848"
     sha256 cellar: :any,                 catalina:       "d5d243ea886ec400aa0eb78576fa3879e991e1265b52abf408cc02034efe4e3e"
