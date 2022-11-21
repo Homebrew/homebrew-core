@@ -12,6 +12,7 @@ class Toot < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "98bb231bada2ad37341d880908cdc58b2d4c4113fbc8f1badf63e8bd5f836ebf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8c4e7e5af3ab5f90d85f5c8cad6bdbf9c574dab13e62d59fac6a376013b35c57"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c604856aa9de103750a122b24e014465ac4871e41cafd285d27bf2a90459949"
+    sha256 cellar: :any_skip_relocation, ventura:        "01436427db986daf90cb005996edbecab3303bd13ccb5006598e733e465db2dc"
     sha256 cellar: :any_skip_relocation, monterey:       "634cd69f24febe1da9479af4a9d4b2cdc1e360f7dc95b87be54948485e03bb63"
     sha256 cellar: :any_skip_relocation, big_sur:        "c39d977da4de83aa5c0ddac2367266fea2ca3ab8b9f84ca84bdf05243cc8ba03"
     sha256 cellar: :any_skip_relocation, catalina:       "38c7495747ca954968fb0a45f709926457d89795faaef0c6317535aeba12f1a3"
