@@ -21,6 +21,7 @@ class Ki18n < Formula
     sha256 arm64_ventura:  "6de5f1469ee3cde56d3493f74914de6e47145f07bf15a6ce6c05a69d653900b1"
     sha256 arm64_monterey: "49bec3bd51c9222ebdf972d1c2dc8010548b3324e103360419701d349f0129f4"
     sha256 arm64_big_sur:  "3071fa3860cd0f2722d70b3697cb04e9cddc50aef3662783695470a96ee59ac1"
+    sha256 ventura:        "ea58a2589fb67ba20493078e97f60833b2ee4e8cf573cda79d5cbebde277e43b"
     sha256 monterey:       "c8561c2c33ab133de6dd5ee801669ad0ed8b1c8771cbd93749e74a1b4f7ce53c"
     sha256 big_sur:        "7e4a0f63e4c9f4f5f8f84e02492b2d98395960e008bc4f8ceeb589bb2bb95f65"
     sha256 catalina:       "943e5621603c97c08b458d2cb1f78b6545baab53c9eda0ee8e1a8faa9343590b"
