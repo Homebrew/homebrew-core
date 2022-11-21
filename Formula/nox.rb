@@ -6,6 +6,7 @@ class Nox < Formula
   url "https://files.pythonhosted.org/packages/12/f1/a810cf1f56e47b990824ebbb19e789745e4d1ea80ac0f2b6494c50e3f6a5/nox-2022.8.7.tar.gz"
   sha256 "1b894940551dc5c389f9271d197ca5d655d40bdc6ccf93ed6880e4042760a34b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 2
