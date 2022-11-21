@@ -3,6 +3,7 @@ class Surfraw < Formula
   homepage "https://packages.debian.org/sid/surfraw"
   url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/surfraw-2.3.0.tar.gz"
   sha256 "ad0420583c8cdd84a31437e59536f8070f15ba4585598d82638b950e5c5c3625"
+  license :public_domain
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "31d8b711776cd751f846106b974bd1aa944f614880f8038ba04b391120abe9c4"
