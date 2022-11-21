@@ -511,7 +511,7 @@
     "exclude_packages": ["six", "PyYAML"]
   },
   "restview": {
-    "exclude_packages": ["six", "Pygments"]
+    "exclude_packages": ["six", "Pygments", "docutils"]
   },
   "rich-cli": {
     "exclude_packages": ["Pygments", "docutils"]

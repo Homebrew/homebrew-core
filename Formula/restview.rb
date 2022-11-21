@@ -19,6 +19,7 @@ class Restview < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2f10c01a9e11fb9e3e0a93d39136956d7588e60e3ef869f0ac7df8d19db6287"
   end
 
+  depends_on "docutils"
   depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
@@ -26,11 +27,6 @@ class Restview < Formula
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/c2/5d/d5d45a38163ede3342d6ac1ca01b5d387329daadf534a25718f9a9ba818c/bleach-5.0.1.tar.gz"
     sha256 "0d03255c47eb9bd2f26aa9bb7f2107732e7e8fe195ca2f64709fcf3b0a4a085c"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "readme-renderer" do
