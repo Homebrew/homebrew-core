@@ -27,6 +27,7 @@ class Ffms2 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "43602ddccd0d7d579ff2b0409dc3f9ed4958367cd406fe18b8a9624717ad8495"
     sha256 cellar: :any,                 arm64_monterey: "6a5f31157cabfd498933f6aaf56b2cbc2b45c3aecec7cbd21664139a9debb10d"
     sha256 cellar: :any,                 arm64_big_sur:  "a6d5f4ef9f9230a782fd2f0557059ad2f27fb5aa68fca54ac7a1de3b92e3c09c"
+    sha256 cellar: :any,                 ventura:        "bb354ca6429730cc49f3a38322639fc57d78d8cd7efce7541c5eae86342c9678"
     sha256 cellar: :any,                 monterey:       "447cb287946c8fb459b8d0a8b4040550c342282ecb32528008d9e557445b2e2d"
     sha256 cellar: :any,                 big_sur:        "787a2bc2e060c2d97c7495f56c441075aeb94ed04932be8f606517a14f1a597a"
     sha256 cellar: :any,                 catalina:       "3e8716b0666397f71dcf28a8c08709a185b7a5d6e8e7f02b331a9056dd7ea7bf"
