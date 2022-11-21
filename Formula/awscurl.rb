@@ -14,6 +14,7 @@ class Awscurl < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0684b73a3273fb2bfcaedccaf6a6aaf3d23e907c2a0048174480e520d87a0b75"
     sha256 cellar: :any,                 arm64_monterey: "9a4a0c0bb4979d0ee08b9ffff456d79191326fa0ed7d29dc19e0323ec6713123"
     sha256 cellar: :any,                 arm64_big_sur:  "6675dd94fe8ce001a56f39fd8b973aeae6852e51316adbd625190f4cfb5a70c1"
+    sha256 cellar: :any,                 ventura:        "8549b5cd37215e32b78d0163bb832d29267282a230c3d52a2a6eec55a7d56b1e"
     sha256 cellar: :any,                 monterey:       "7eac4d1801aeb8fc8fd0718d7c09b85927e866616d5f136f20e6bae434e7af6b"
     sha256 cellar: :any,                 big_sur:        "471ca74336a65054df2342fbce5b4d88facee4321ee0f531f599cc3df4cdb0d5"
     sha256 cellar: :any,                 catalina:       "fa3fbbbef4bf6663c7426d446caac167683081465f4c554369137af194059768"
