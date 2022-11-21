@@ -10,6 +10,7 @@ class GpgTui < Formula
     sha256 cellar: :any,                 arm64_ventura:  "645483409ef5bcbe95ca15fa9010babeefa120136560dc3269d5506dcaebc17a"
     sha256 cellar: :any,                 arm64_monterey: "e7a9d5449a9f3540756842588180566cffe5e590a988e9e025fc4de9eaa232ca"
     sha256 cellar: :any,                 arm64_big_sur:  "2a4b61ff64d4d8bdaf725b76f84a0e9e630736be623dcd954952ef4799d2b56b"
+    sha256 cellar: :any,                 ventura:        "fd5c644d12326c4875455cbe7351d7e246a2ca49bab20c7d2ee214aef09b11c8"
     sha256 cellar: :any,                 monterey:       "028ca91850653b792a6e856af4296e14519f80f3c4d7cee5d8fa8f00824cd148"
     sha256 cellar: :any,                 big_sur:        "0f6d8d0be8a041ad99134aa3892258448e48574fcc213c2dd7789fb4eac36843"
     sha256 cellar: :any,                 catalina:       "b6d68c912426c0535ddbb889d09132450576319f23dc67869f14c6ef9f2422e8"
