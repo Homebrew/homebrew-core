@@ -9,6 +9,7 @@ class LiquidDsp < Formula
     sha256 cellar: :any,                 arm64_ventura:  "824e640ecb98dba3eacd1e310d2aa91cd6a9fdbc7d19d54c58ec3d12e70c76e7"
     sha256 cellar: :any,                 arm64_monterey: "c2824a45af2851ce70f2bd1abede9ec974a5c60d7ccd10265a2ec874fd5edbb7"
     sha256 cellar: :any,                 arm64_big_sur:  "4a8dd743e29c5704a0ef697f1c88b67d9373b246c5b18447b2be2264331f45d1"
+    sha256 cellar: :any,                 ventura:        "2b57763c8e8e322e08ef7e5cbd3cf91fe06053a7b79c100c1f5dba50bf10c43a"
     sha256 cellar: :any,                 monterey:       "f588d707c472176a2299a83ae4a5be4c6650cffad836fac944b6b3e5af37ebf2"
     sha256 cellar: :any,                 big_sur:        "e9c254a3a7769a511ee63e1424c4236e2e47c129cb013e9669ce66045a7a6e82"
     sha256 cellar: :any,                 catalina:       "9c4aaa2b4e3750fef350ec92bd05d1e18eba2b3709fd4b3b8c78df7279cc1da5"
