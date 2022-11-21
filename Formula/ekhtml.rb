@@ -3,6 +3,7 @@ class Ekhtml < Formula
   homepage "https://ekhtml.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ekhtml/ekhtml/0.3.2/ekhtml-0.3.2.tar.gz"
   sha256 "1ed1f0166cd56552253cd67abcfa51728ff6b88f39bab742dbf894b2974dc8d6"
+  license "BSD-2-Clause"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "58b661aa5f68e984f1fda1ccf0dd9dd9a9ab0f445c9069d96893d558e441dac8"
