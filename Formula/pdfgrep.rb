@@ -11,6 +11,7 @@ class Pdfgrep < Formula
     sha256 cellar: :any,                 arm64_ventura:  "955662644ac2934b8e215b1d40ac2ba75eb76cf00e298d6020bccd5d3cff4c88"
     sha256 cellar: :any,                 arm64_monterey: "a0cbc11de2be8d3bd61a1e4838b723de768059d94a72c92406f26127b040a599"
     sha256 cellar: :any,                 arm64_big_sur:  "76971615597120ebba8f1db8e9c26d70d91faea4b0953c037047eddc9dbeb878"
+    sha256 cellar: :any,                 ventura:        "536be42f4b67ca15c0707ca53168d74f6bc77f4eeb40bdee2920f5f8d1b2f87f"
     sha256 cellar: :any,                 monterey:       "934fedb57e6a7d731d93c0aa43dda0cdb02efb0e35822dc09dc1ce751c965166"
     sha256 cellar: :any,                 big_sur:        "29cd70f30111aecafd88eb0281319f19415183b6a30393d32e145e2121b91a91"
     sha256 cellar: :any,                 catalina:       "c1da1cf263fdba46a66396b2b31fd970c8299f538064a4341ba4045d36c4c082"
