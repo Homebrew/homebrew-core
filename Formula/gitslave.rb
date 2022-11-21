@@ -3,6 +3,7 @@ class Gitslave < Formula
   homepage "https://gitslave.sourceforge.io"
   url "https://downloads.sourceforge.net/project/gitslave/gitslave-2.0.2.tar.gz"
   sha256 "8aa3dcb1b50418cc9cee9bee86bb4b279c1c5a34b7adc846697205057d4826f0"
+  license "LGPL-2.1-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "86605c88a291edff807e0cdefaf09421c1ad00f9a292393ecaa2035173f13ef5"
