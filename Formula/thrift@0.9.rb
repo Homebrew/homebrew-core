@@ -9,6 +9,7 @@ class ThriftAT09 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1655b3b376b29c54e7f0af8cf55d7f4eff957b03a7df5f1e44fb9e81c457e8fb"
     sha256 cellar: :any,                 arm64_monterey: "051ccc03d1ec77a43ba687fcfe8a20f8f41d8892a6260bf0b8d9cb1a36560c11"
     sha256 cellar: :any,                 arm64_big_sur:  "0b96eded35c6da92ea4fb6a2cbbc2c572838a9a7a0221161088adb77f8ccaa9f"
+    sha256 cellar: :any,                 ventura:        "dd52d77c2563b04953249a32a3a4d5a7ffd7b9612a19d03f5c3fc9aa37477594"
     sha256 cellar: :any,                 monterey:       "01572a1b6a61c90cbb2e21f324fe3705c98943888915c32a78a072672ba2740c"
     sha256 cellar: :any,                 big_sur:        "0e5f46ca808e61fb8982787c04bbccedd6e17637b121dedf4a6581f5a30ea9fc"
     sha256 cellar: :any,                 catalina:       "bebef37eaa3671d2810eaaf9f06b7c6cf73ef56f83b8359de514643cd201b946"
