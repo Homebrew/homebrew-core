@@ -9,6 +9,7 @@ class Oras < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "58fca31793789b47ed7d8072056eaceee74a7da3f05793353ff33b329499ba84"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b90ec0087e27d88bd4a787185e6608bdd30c70ad4e5fe21cf94796292e1ce39b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb7a177fec1d7ab992783de091527c1d611e3b01cc883f3009a53098da694702"
+    sha256 cellar: :any_skip_relocation, ventura:        "efc057bc7f248ca6a7f48bb1833a5affdb317f54319da7467e9d5f713af62eba"
     sha256 cellar: :any_skip_relocation, monterey:       "edf4a4c5f44933565062b02cc57893a676c910450b57bea3d93dfc56ac389863"
     sha256 cellar: :any_skip_relocation, big_sur:        "21e8431478564cf9690ed154c02d44440eedbd077bb6df2eca09fa3ee0e8c82b"
     sha256 cellar: :any_skip_relocation, catalina:       "31ea37cd67526f34b2b96f842e79945d1cc8702fafda258e8d9a568afca76c21"
