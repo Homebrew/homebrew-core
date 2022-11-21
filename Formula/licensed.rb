@@ -2,8 +2,8 @@ class Licensed < Formula
   desc "Cache and verify the licenses of dependencies"
   homepage "https://github.com/github/licensed"
   url "https://github.com/github/licensed.git",
-      tag:      "3.7.3",
-      revision: "76727f75d486a24758890a030e540ebf87bba78b"
+      tag:      "3.9.0",
+      revision: "02435ab9489d03617a7f95941d2a2d267306052d"
   license "MIT"
 
   depends_on "cmake" => :build
