@@ -9,15 +9,14 @@ class PreCommit < Formula
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5270c8f90c5343d8b0e5eeccfd01d1058957f05c5da7fd2c0d4e4af1fab1ed9f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70cb628421bae2e6136cbc076dd620b2e3a1229ce93e47ad5592fe7739e3420b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "667e0b88c513b4ebc18265f3885c2fe5da0f0126f759cdf4cecaf52b5b1123b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "b091378b66c94fbdf5b901c4b1a8894501e7a109722b9994de794e41136f3c5d"
-    sha256 cellar: :any_skip_relocation, monterey:       "aff7fa28a2dacf9fbee3688cdea29c3fcf389044f791cc6284919b4f69172a5a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "53f5ba9dca685812cf1de4a2760313fe134a5f7e5bd1eff1439e82c16129a94f"
-    sha256 cellar: :any_skip_relocation, catalina:       "0d801a89ff2c787a8c8980ff53833dc8255c885fbd1cbdf4934c27d5cd49f407"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b08cce9e555890e9d84d0bd987ce9e9a3b87da1297c8bb6a728c17d3f59ed2c3"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c75a21e7c43731035a05941e3d84720da3dfaccb96c61d4b20b93e6b9bfbd57"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8b37f8a39067ac6664fbb19ba4104ca7736ee81e52aea7bdce0860afa875df4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "afd4642fb189b649e0b6ef45712379a8c97067d791b7f4c5466aeddfb02bda20"
+    sha256 cellar: :any_skip_relocation, monterey:       "3ed2d228d4f1896e589755efb9d9c1b1569462aeeadfcf995bbc80be8dbdb6a8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd58b20ce989dc2e500fd57f976761c96356ef772ece6a475a284932a6eabc5c"
+    sha256 cellar: :any_skip_relocation, catalina:       "735ac3350a76edf9f52737f6e7dd8eaa851348a3f390990db2deb7becf1a5bc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ef2db1ed7ba05a4cfe4d0ab6e75ddfb1e6e6626123f39cd6f3022b1b8716b73"
   end
 
   depends_on "python@3.11"
