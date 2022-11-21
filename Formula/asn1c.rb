@@ -10,6 +10,7 @@ class Asn1c < Formula
     sha256 arm64_ventura:  "3d72779b69c5ad5f2bf006ca514ad77d6cadf7512f5f8e21e7f7ca07399ff799"
     sha256 arm64_monterey: "d4a15a7420fc9ccf67b43823f117ff4ba4ecd8db6686ad2ed2748a3375d00c9b"
     sha256 arm64_big_sur:  "25ad95ded32395974dee8fdf8d0e5f7e2dc7cebd38ff0082a13cd3e52677f329"
+    sha256 ventura:        "40bcecf237baa2b3f51a6211ef981a515269e5aa243e862b3852d0cda417c662"
     sha256 monterey:       "a3999e6443202ae87c2c44823efb4ce4939838124f870cccbf19d8be61a01974"
     sha256 big_sur:        "d3db341a38f139efbea8f9d2f70912af6e80d4f9cd0b472f2f6202bcd31431b3"
     sha256 catalina:       "a7688d139182258a7377b3a30cf57ef3ff95c184940bcb171d0968c2c152f65f"
