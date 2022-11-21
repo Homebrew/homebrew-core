@@ -27,8 +27,11 @@ class Tesseract < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "cairo"
+  depends_on "icu4c"
   depends_on "leptonica"
   depends_on "libarchive"
+  depends_on "pango"
 
   fails_with gcc: "5"
 
@@ -64,10 +67,10 @@ class Tesseract < Formula
                           "--disable-dependency-tracking",
                           "--datarootdir=#{HOMEBREW_PREFIX}/share"
 
-    system "make"
+    system "make", "training"
 
     # make install in the local share folder to avoid permission errors
-    system "make", "install", "datarootdir=#{share}"
+    system "make", "install", "training-install", "datarootdir=#{share}"
 
     resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
     resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
