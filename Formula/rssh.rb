@@ -3,6 +3,7 @@ class Rssh < Formula
   homepage "http://www.pizzashack.org/rssh"
   url "https://downloads.sourceforge.net/project/rssh/rssh/2.3.4/rssh-2.3.4.tar.gz"
   sha256 "f30c6a760918a0ed39cf9e49a49a76cb309d7ef1c25a66e77a41e2b1d0b40cd9"
+  license "BSD-2-Clause"
 
   bottle do
     sha256 arm64_monterey: "15028af39a3549db2d28aedae2d8774c12ac44bce71139ba76269d9d7c2646f7"
