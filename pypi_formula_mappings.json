@@ -42,7 +42,7 @@
     "exclude_packages": ["six"]
   },
   "awscli@1": {
-    "exclude_packages": ["six", "PyYAML"]
+    "exclude_packages": ["six", "PyYAML", "docutils"]
   },
   "awslogs": {
     "exclude_packages": ["six"]
