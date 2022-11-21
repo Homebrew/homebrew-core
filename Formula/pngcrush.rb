@@ -13,6 +13,7 @@ class Pngcrush < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "abcad2b9692fd0f7346bfa30d8c9fce599af8ddf5270095430955cfd4e20b55c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "159bb125480ec4ac71bac11766ed999350c63304c2549df0898e2bbb07b4aa24"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba3aa0d156954d41cb43b96bd5529c3a68e56a67a751b3a9cc153e3ed47e2425"
+    sha256 cellar: :any_skip_relocation, ventura:        "9eca82828051b434711878c5abc8cd89350c370bfa8b108eef177f4aa4566703"
     sha256 cellar: :any_skip_relocation, monterey:       "f2d01a0b536d81a1db9b094f8cc282e16cfd4a218880b1d12cce67423d5865e6"
     sha256 cellar: :any_skip_relocation, big_sur:        "4f7a3810130d10dc7b448aeb8c53cf8b52da9312863ff12edeb3c1268eaf6ea6"
     sha256 cellar: :any_skip_relocation, catalina:       "f6b31e35011fd69dc4ee678e4529fd5a76ee7be8faba88bb7c9cb0b7cbfafacb"
