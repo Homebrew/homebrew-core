@@ -9,6 +9,7 @@ class Ftjam < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "110a5feb1831f3bc2fd8d5c4b4cc8315cbc27676c3f08f65e040b9b109ef4bb6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09eb3674d68bc70c0a968bab37408395e82acb51ab594f36baae4275972ff9f2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c40cff88de5ed098fbc6373f6ceaf998a63b1f8189e930afbdeb7ab352e207e"
+    sha256 cellar: :any_skip_relocation, ventura:        "2a6730f7f7a27f783a412f4b42a5f4ee3e856aebc453e728c6d14aa8ae0f19ad"
     sha256 cellar: :any_skip_relocation, monterey:       "2ade860ccc3972b17cab846917f1759e2676db0240b30375f9a289db365dd1e7"
     sha256 cellar: :any_skip_relocation, big_sur:        "84e96d642732ab02748dad0b9129c8094348d030bdb414adcacfb6633cc2d958"
     sha256 cellar: :any_skip_relocation, catalina:       "4440e1baa7919c2a6b7190b31f12067c20d1a532249bd22f842d84a821c3f8a8"
