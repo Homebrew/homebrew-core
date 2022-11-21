@@ -6,6 +6,16 @@ class Kustomizer < Formula
   license "Apache-2.0"
   head "https://github.com/stefanprodan/kustomizer.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbe2b710747552f90907da4d1b68087e6b833613a30905888e39a8bb3cf86573"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c2eb17bda0c54419dfa9c368179c8c0dafe4be905f6298c19a244004ab163c8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32ab4254bd7eb71b8e20c1cc6e111ef00bea41a339c04d6bebd146ffc0014cd1"
+    sha256 cellar: :any_skip_relocation, monterey:       "10c018605e83c667479b22a4f32f8b4e0fcbfbffd16242094e7c76b7c3c4d37d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6c0793b103efcd2f999efd44c7242a7895350e3b9949fd0b7ad9c52548df708e"
+    sha256 cellar: :any_skip_relocation, catalina:       "e8477174ab0e0dadb5bde2776351e05e0d495ecb8728b391a103f2cbcf7d45f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "108caba819fb38007b0e2c487acfcd2a9fda05e78531af1f42965e366894bc2b"
+  end
+
   depends_on "go" => :build
 
   def install
