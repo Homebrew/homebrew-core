@@ -15,6 +15,7 @@ class Gmsh < Formula
     sha256 cellar: :any,                 arm64_ventura:  "63241b9c89c11d539a292b17b169443e66d74c478b3c7263861ea6a7e160ee98"
     sha256 cellar: :any,                 arm64_monterey: "4b7af91984d0485cc745b2475080cd799838ce6878dfd20f650332d72cb57c11"
     sha256 cellar: :any,                 arm64_big_sur:  "4f5b32b8703a77ca66242748b897e570c4c36c20c5c38988bf82b3239137ef2a"
+    sha256 cellar: :any,                 ventura:        "9b92e7f01109512e8d50c2796c22221cd202e3932ed935742e80045af19477fc"
     sha256 cellar: :any,                 monterey:       "f9c21ee22ad8c8080f7f5ea16f2ebf26fe41042d5d79dd7bb26062ade24721ff"
     sha256 cellar: :any,                 big_sur:        "dce9a51ec0c4bd1140f4af255a7545ef5b501121d2c8ee7ced1502df5a49defe"
     sha256 cellar: :any,                 catalina:       "20c1a64af58684f8640c1f85bfae73f4ea856640a73e8fbc2f375ba621830cf7"
