@@ -10,6 +10,7 @@ class Chromaprint < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9df7a9b08cf6557f60d607c26c2fec7644ed9c1ebb0291113930b02e2ca8c33c"
     sha256 cellar: :any,                 arm64_monterey: "d4479962c7c30dbc07c8d4639639198e8de0015f35ce7e3ac47c5e87e492333f"
     sha256 cellar: :any,                 arm64_big_sur:  "8ce15ae4efe13275af05b62e83fbcde65644d7baee3dd4ae37fae7007396b80c"
+    sha256 cellar: :any,                 ventura:        "f3457e6b097e705e87d4c54ec7335c59365b7b307830ede26123810ae51eb0ba"
     sha256 cellar: :any,                 monterey:       "86d59168bfd57c19029084ea626953a99976361f4d0aadcdc6d51fbda8b8ca6b"
     sha256 cellar: :any,                 big_sur:        "f9df429a357d408b65f6e1e5effc720005bb75bc10e069891acbba25430b755d"
     sha256 cellar: :any,                 catalina:       "935e7dbb82458a6dd276b3265d8df41390c6aa236cbdf4ef4287662961f5d97d"
