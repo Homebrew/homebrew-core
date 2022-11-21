@@ -31,6 +31,7 @@ class DsdaDoom < Formula
     sha256 arm64_ventura:  "461e2bb2b2fd6de72decda0c33d83349cb9c613a646d6c59d4d6d1263b42552c"
     sha256 arm64_monterey: "8d5d4bc7d38e1a1f5eb9a7bfd452bc7554579af004024268e5dae60ed7351316"
     sha256 arm64_big_sur:  "6990524cfec0e271877e469ca890be0fda1d1d9ecc8e902651654a8fa5f4f934"
+    sha256 ventura:        "78fc51616af111d7715f3802fd929b8d32f81c105ffada9278a7b23398b45349"
     sha256 monterey:       "4465fe819a918ae2e4db6b28c0abd3ce4de4c80464f3287627536ae6ab7a2459"
     sha256 big_sur:        "5d94ace0be85ba85fcfe1bbb8c40ef401165f43c98c08aa199204a5cd0a7da2b"
     sha256 catalina:       "4c25430d4653d99c1dd136a795a2c3bf9033047b1ce8660ba9514abdaa4643a8"
