@@ -11,6 +11,7 @@ class Passenger < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c484bf21c4d99ca18b4fe53727e7e8dca5be790b5fc3c318136ff3299b7c892c"
     sha256 cellar: :any,                 arm64_monterey: "fe6fdbc2c4be58efb67a193a871d1c7045322b355dc3b353a95c11096305682c"
     sha256 cellar: :any,                 arm64_big_sur:  "5a58ee5238d5df54151f9f57d6612a45d2eec28256250cd2e564f37578b03bc2"
+    sha256 cellar: :any,                 ventura:        "e0cea8d3454ef1c4d29c7f0af6b9f7ca5cbbe22770faf478770637451dbf5ff7"
     sha256 cellar: :any,                 monterey:       "570ae0abdcf3eb3100a011d349b840c934485e3bdff92f6b6d698b24dfc12bae"
     sha256 cellar: :any,                 big_sur:        "dd7f6e422cdf93a1803c7eecaebe460e50ba433c5e34d47dca15001dbead5403"
     sha256 cellar: :any,                 catalina:       "7b9f32e433018ed5b2db2bc9a8fc435fcf700c9b7e00248afb9450495b54d93a"
