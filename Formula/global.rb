@@ -12,6 +12,7 @@ class Global < Formula
     sha256 arm64_ventura:  "fc5220bc90cdbae9f5943afb92fab2a578764079288914243bc74943cca442d8"
     sha256 arm64_monterey: "f695539cab306291779614dc48a7e711307499b448e18d88aaee41335717cfb8"
     sha256 arm64_big_sur:  "4798c08d49b918a026a10457575f301dae7943d9f61d234a1c50dc2fe0159121"
+    sha256 ventura:        "5293be6d86806e1f71c6f1afeb75c99819bab17c57fa2a7d94ae60903f7a7327"
     sha256 monterey:       "612fd73df9f636ce6fd323ad96475bb6fab68076ccddf0e7b064d0c3673ea0a9"
     sha256 big_sur:        "b4981a0ed6b7445ddb0f21ce8005fb36c0f530cfbd20a3a95c1d840cdf81886b"
     sha256 catalina:       "cbba064cb529f3a5f20e27d02f261f636afb2f099c32e09a3b6c210d4af3024f"
