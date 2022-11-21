@@ -3,6 +3,7 @@ class Markdown < Formula
   homepage "https://daringfireball.net/projects/markdown/"
   url "https://daringfireball.net/projects/downloads/Markdown_1.0.1.zip"
   sha256 "6520e9b6a58c5555e381b6223d66feddee67f675ed312ec19e9cee1b92bc0137"
+  license "BSD-3-Clause"
 
   livecheck do
     url :homepage
