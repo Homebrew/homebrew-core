@@ -10,13 +10,13 @@ class Macvim < Formula
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "1be1174eafbefff91ddaead17951d56f446fdb1d90872b8533dd1db000cfd4b9"
-    sha256 arm64_monterey: "a22ed2ccf2de13d727bb47798cdbec5595634e24e7b9ab70d1d1ef7836fe41b8"
-    sha256 arm64_big_sur:  "3f990eede6cb56c75bbe5f30aa8c00179a14479eaf4f4628a51ca430b8ede725"
-    sha256 ventura:        "9961ace39b1df1f7a284a13d7646adfa0fd140ffb2eda172ede8e88020761706"
-    sha256 monterey:       "cc2ac74c81bf5dcf1e759bf2965b8c1c66a4aa31fc8662a179c9eae7dcaf31ed"
-    sha256 big_sur:        "7529db993173ac24d9239857fa8fd95f58b7a054b3b9243fc21ae58d358597b8"
-    sha256 catalina:       "6403a4d6c0330ecaa97c50d6c373c896f00b9f41ae02b7f1ac9ce685329c058f"
+    rebuild 1
+    sha256 arm64_ventura:  "de5c5d8b02a4e5e88ce6f4c5ada027e494b7ad37f6e4d5be3a80a2f60e7243f4"
+    sha256 arm64_monterey: "0f2f16662a0ab3a6b880e48d70c13ac1780813f80e46bf8def642978eddf1eb7"
+    sha256 arm64_big_sur:  "1ad7f004dc4475d0b33dea8807e6a98b4b94c149e51242539197007e6d845fd1"
+    sha256 monterey:       "010a07565e1d30f2df3d6897eaab3349d045229c40a3649ee34f91262744088e"
+    sha256 big_sur:        "31235d0e38044b60a2b28c50f6045f315d4d4cb3ea30f270e7de0ea8231202d3"
+    sha256 catalina:       "637151f7b70df77045daaf913be2865d169c1fa3ad605e172cbdbed42b595d8b"
   end
 
   depends_on xcode: :build
