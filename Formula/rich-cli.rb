@@ -18,6 +18,7 @@ class RichCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "99dc90e4c784f42eb8bb90e64f99c4eb3fc262123bb32b8b299d187a65316f06"
   end
 
+  depends_on "docutils"
   depends_on "pygments"
   depends_on "python@3.11"
 
@@ -39,11 +40,6 @@ class RichCli < Formula
   resource "commonmark" do
     url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
     sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "idna" do
