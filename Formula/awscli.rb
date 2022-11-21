@@ -13,6 +13,7 @@ class Awscli < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a091bfbe1066afcb27d25b28fb78c2b571ac97364d2850234ccc0db4ffaedd50"
     sha256 cellar: :any,                 arm64_monterey: "2cd4075212c4b5d2ae9c3d0a570ec6aab87788e7b934f51700958385411f01b7"
     sha256 cellar: :any,                 arm64_big_sur:  "131b324a38669600e6ab232962bd3c4499dafbdf775e72823c846aa6494c5f36"
+    sha256 cellar: :any,                 ventura:        "9300c57d2e174eb6fc5074988c59282cf6caa1a076868af8a863bf2750390a54"
     sha256 cellar: :any,                 monterey:       "276b0012fa22776d217c685c5c21c5d7ea0ded9a0d330d35ec8f951e486b7ba6"
     sha256 cellar: :any,                 big_sur:        "c5c65d3a1017c7561d2b7ef7dd7d244be00e776c1edcc7ecfb7b0de2632f86e6"
     sha256 cellar: :any,                 catalina:       "7b49870481f82fb616e4bcd3f8393dbbe863873e9bc1967ca46c5f8b1f675b67"
