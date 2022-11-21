@@ -11,6 +11,7 @@ class YleDl < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "710c49400610594c867c01920f117e2f869f7afd97e9a2410207f3202c2aadd1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "309e7f86ea7e7199d617388b99b1de6c8296887e4eb082b2c34d57ca7878bdcc"
+    sha256 cellar: :any_skip_relocation, ventura:        "84293a9386e7a026bd4bb13b40dde97bd55b8f535e6c69e4d9df59ab73b07910"
     sha256 cellar: :any_skip_relocation, monterey:       "42647331f5ca4293c2d98b135301968e0cedc8f2850b59cebab71443ba07bb38"
     sha256 cellar: :any_skip_relocation, big_sur:        "2344c2eb8e2529a121d44ac9fcd7548bb2adc7a4805ba1f2793d1e679d0354ba"
     sha256 cellar: :any_skip_relocation, catalina:       "ef362fc461271db02e24cb123ee66a3016c17bde9bb4be092789318b5b776206"
