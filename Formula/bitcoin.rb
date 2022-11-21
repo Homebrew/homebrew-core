@@ -17,6 +17,7 @@ class Bitcoin < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3a68bac456e01f907ebcfd99052d1dd21bee6c578183ec835e26147f84011bc5"
     sha256 cellar: :any,                 arm64_monterey: "9fd296ac6a1ceeb057e054db69d75cb07ed6ab179f9be9aa46e203d71575ac79"
     sha256 cellar: :any,                 arm64_big_sur:  "488fb488a492c659af53bee662a2898a6f1df5fd1fe7b90a49e1eafd20a221f4"
+    sha256 cellar: :any,                 ventura:        "ad97d1ec9d4630ae8d8eb8e9032e02859055d9da914e1468e3ba2015a8643746"
     sha256 cellar: :any,                 monterey:       "28f59efb56c19c9ffca71b3e478e6340284863c3f06443ad9147cc046b276dc2"
     sha256 cellar: :any,                 big_sur:        "ec2c1135c41d86bf22d28ae706c1fe308533f629db837982b9def8e8785d8db2"
     sha256 cellar: :any,                 catalina:       "29335f3ab42d7114c254e903498ee3dfde71baf5290c9294b707c5f4031cd111"
