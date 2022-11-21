@@ -19,6 +19,8 @@ class Tea < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "teaxyz", because: "both install `tea` binaries"
+
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
     bash_completion.install "contrib/autocomplete.sh" => "tea"
