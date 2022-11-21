@@ -27,6 +27,7 @@ class Minetest < Formula
     sha256 cellar: :any, arm64_ventura:  "9e2ac2626be9b51ccc399acf6015e5fe5c1145ed39b3f87054c3aa3b8ed30c3c"
     sha256 cellar: :any, arm64_monterey: "44204d306faf6661f5cca1b9fa31ab19bb6dbe95843acdaad989029cfd3a0a11"
     sha256 cellar: :any, arm64_big_sur:  "7f9985b9a6437dd26301c72b8a0315309e7be24eef7a55378cf4d118d4471b45"
+    sha256 cellar: :any, ventura:        "a9ba0a5ec4d8a0a2f3fded68567ed3987034991e55292b5dabb6937b5009554c"
     sha256 cellar: :any, monterey:       "2797dece689806632a0c7015e336a21155bb367555afa77c5b5890b61ae7110d"
     sha256 cellar: :any, big_sur:        "7a85c4ffc2d2a3460c6e4f2ce000cafe69b75530c24741bf77f16474e7ba0d96"
     sha256 cellar: :any, catalina:       "6778f81afea196d5c31727cee99a5498d012ba6c3dfb54f1b658cd4e1ddce543"
