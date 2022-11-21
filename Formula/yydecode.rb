@@ -10,6 +10,7 @@ class Yydecode < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f42ef32de3ecc81a603e7b8643a321bcf7af9f564224756d8544479b2df6be7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a2b69a15d8d9928ae09b77b310408111186ee22fea50ce4d06a563f1b61cb1fa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83fcf98a8fbf68bf2ce8c5847b53730856f65f8139bda8506a912e4650020e8d"
+    sha256 cellar: :any_skip_relocation, ventura:        "0874c4fcf0259dbb8ee3fa756cd77f1ddd4a777d66b9bdef00591749bb791298"
     sha256 cellar: :any_skip_relocation, monterey:       "851194515f4b14bdcd0c7e2849b1e8f68222e9fd90494ae16281b9967355ff1a"
     sha256 cellar: :any_skip_relocation, big_sur:        "4700a77bb5b4bbce8b34f92662661cf13f9560c1637256fd8dc9581ec7caf077"
     sha256 cellar: :any_skip_relocation, catalina:       "206152a71458e053c332c7ca52f6db716b146e993c08384afb98e56a43c043b6"
