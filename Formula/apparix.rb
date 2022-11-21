@@ -3,6 +3,7 @@ class Apparix < Formula
   homepage "https://micans.org/apparix/"
   url "https://micans.org/apparix/src/apparix-11-062.tar.gz"
   sha256 "211bb5f67b32ba7c3e044a13e4e79eb998ca017538e9f4b06bc92d5953615235"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
