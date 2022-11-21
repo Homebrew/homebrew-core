@@ -6,6 +6,7 @@ class Hatch < Formula
   url "https://files.pythonhosted.org/packages/75/60/ea5735ec08a80cbf57ed152bd3544df775812fe5931c3de8937501aae2d6/hatch-1.6.3.tar.gz"
   sha256 "650e671ba300318e498ef93bbe3b99b32ce14920764fb8753f89993f63eed79a"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
