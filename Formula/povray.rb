@@ -16,6 +16,7 @@ class Povray < Formula
     sha256 arm64_ventura:  "bfc8165d9d4f40422baada6a3e0f13e3640bbfe18ffadb63ad9889323093a8bf"
     sha256 arm64_monterey: "2032ae90f229fbe6f3fdcae66d4767295232de2cfe7c56f9f04b832de5a8fbfb"
     sha256 arm64_big_sur:  "d614487df79e96385724fee64473eff2e13a38c148157877ae4652a4c37ea661"
+    sha256 ventura:        "3e680ffe8a72884cc7e43f8ebf7296c320513f7c98bce5cef353b3a71471a753"
     sha256 monterey:       "9ae1df8c6db5a0658a02a5bd8f08fd8cb8be5300b152233d71f2ef45e368ecdf"
     sha256 big_sur:        "0f961aae4c0d5e972b73f1ff37912d4fc4a99b2a9583e9e83f7071c90d513088"
     sha256 catalina:       "4f319b19fa285b2b9b134c610e77f9be10af29517a58bdbd5e2187410852f743"
