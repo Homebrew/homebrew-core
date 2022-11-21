@@ -13,6 +13,7 @@ class Bpython < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7e1f934ecdfd7e176ae519a4f2e3c7842606ed91b4a7bbfe52ea1b053568d1e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "51415da492e0680a8f7506b7583987cc9e82a613b49ecaaa3f859858089e38b3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "09e671aeb6b897898d6a02c50b0cf23bc3e660f22bcb2db074f4bd29b9579783"
+    sha256 cellar: :any_skip_relocation, ventura:        "e63b5bf3ca991828c469213bc38ff1821b6ea16fd4a9ce18657ce899fdfa7499"
     sha256 cellar: :any_skip_relocation, monterey:       "58eb4fcacb47a322c5dd459b1ffca04725bc5363093ca2d6cfd7916a89f65f68"
     sha256 cellar: :any_skip_relocation, big_sur:        "e0cfb059ee562407de784c0cf94b1e11af2eb1326f936b49e79f15a1cd6af412"
     sha256 cellar: :any_skip_relocation, catalina:       "3beafb36bd3e94a97ba9d99538b59fdf9b9f344b70d9bb04421db9880c6a5867"
