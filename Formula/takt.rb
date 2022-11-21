@@ -10,6 +10,7 @@ class Takt < Formula
     sha256 arm64_ventura:  "d9787c5847508262a9e7f4e61165e94c80a39efc54587a804a2fc20904acf42b"
     sha256 arm64_monterey: "1e8949e4e3457701233d4f72fd01e9852dafc3e1373124b9de0eaa08b7f6dca9"
     sha256 arm64_big_sur:  "910a1325ce07065c113c1efd53e8295a10b8db613ef6fa1e5bfda1abc8fa922d"
+    sha256 ventura:        "47084647d30b62e5b76dbad42b93aec1e4aa21ab16b4b326be2e783c14b128af"
     sha256 monterey:       "4a3a4bf1b60b32d06bd0fd687e1fbb67684432db141aaf0acd0dcf54b8f5f00e"
     sha256 big_sur:        "fd9dec43c0d9d5634d3bf23f8c6112090429d279243c5c0acd4dbfff8025fdbc"
     sha256 catalina:       "b5f6d5891f4955b26be88358c37199d9f9b1ebd66eaaa519ccbcfddbfa615780"
