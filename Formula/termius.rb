@@ -14,6 +14,7 @@ class Termius < Formula
     sha256 cellar: :any,                 arm64_ventura:  "44b135137f7deec6ae6ff17027bf208a7c21ae9a8c8df007c82827957b4de39c"
     sha256 cellar: :any,                 arm64_monterey: "f07c7cb17859ffa89efd82e1e254faf75e5f43f05ef12ccb4b7e4b06adb91880"
     sha256 cellar: :any,                 arm64_big_sur:  "c94f2d386a28e0b7212a063b6f934f1c56c7a4efb5a784c1f5dddc99fd5d6756"
+    sha256 cellar: :any,                 ventura:        "37b5344a51e1f29dc4f287b9b5f30fb2381146ec85082e3bc6976504324cdf88"
     sha256 cellar: :any,                 monterey:       "f925f657b7c4fc78ee945ff45ab1bb3db0cba0c84dc2ffbc748293597bd46f72"
     sha256 cellar: :any,                 big_sur:        "5c60614fcdbdcbcd1b490cd60583eb37d5a0577e26fbe66589f54fa58027c9de"
     sha256 cellar: :any,                 catalina:       "d40c0fa815938606c93c2eeccc88c4c08df8917103de7194705dc7e12f119282"
