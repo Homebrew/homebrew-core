@@ -1,6 +1,7 @@
 class Pce < Formula
   desc "PC emulator"
   homepage "http://www.hampa.ch/pce/"
+  license "GPL-2.0-only"
   revision 3
 
   # TODO: Remove `-fcommon` workaround and switch to `sdl2` on next release
