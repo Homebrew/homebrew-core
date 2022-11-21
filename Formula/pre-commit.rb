@@ -13,6 +13,7 @@ class PreCommit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c75a21e7c43731035a05941e3d84720da3dfaccb96c61d4b20b93e6b9bfbd57"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a8b37f8a39067ac6664fbb19ba4104ca7736ee81e52aea7bdce0860afa875df4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "afd4642fb189b649e0b6ef45712379a8c97067d791b7f4c5466aeddfb02bda20"
+    sha256 cellar: :any_skip_relocation, ventura:        "c987ab850bd87f104d30e4543bb4c105d6902238efdee9960b849b9ce28e2ead"
     sha256 cellar: :any_skip_relocation, monterey:       "3ed2d228d4f1896e589755efb9d9c1b1569462aeeadfcf995bbc80be8dbdb6a8"
     sha256 cellar: :any_skip_relocation, big_sur:        "fd58b20ce989dc2e500fd57f976761c96356ef772ece6a475a284932a6eabc5c"
     sha256 cellar: :any_skip_relocation, catalina:       "735ac3350a76edf9f52737f6e7dd8eaa851348a3f390990db2deb7becf1a5bc4"
