@@ -11,6 +11,7 @@ class Hexyl < Formula
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8e5ebeb79afe83fbd3574ac1f7215d31060516b60ca2641be8b8c815cdb29db6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5dd1b3f049527c0a9129fdf15d9e19efba0b5581956339f40f635838777ed651"
+    sha256 cellar: :any_skip_relocation, ventura:        "415d3dc85d5d2f7ee8d7a6df3ed4b29ba616f433ff5602c16f3c31ddd01025f7"
     sha256 cellar: :any_skip_relocation, monterey:       "b0257b995d1de194de33a15a3892f68b757a2f2f1a9b4516f5a661d90b838188"
     sha256 cellar: :any_skip_relocation, big_sur:        "129c0fcb8d127d18d3d8577031deff0a55686f65b50bd117accea0052e2aed72"
     sha256 cellar: :any_skip_relocation, catalina:       "89e5417b95e2136f6aff067cfb5c37dbcae977d2ecd3ad6c56bc9d4d369ab422"
