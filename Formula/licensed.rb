@@ -8,6 +8,7 @@ class Licensed < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "xz"
   uses_from_macos "ruby"
 
   # Runtime dependencies of licensed
