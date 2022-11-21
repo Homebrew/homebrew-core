@@ -6,6 +6,7 @@ class Dooit < Formula
   url "https://files.pythonhosted.org/packages/0b/42/5cc5f890df2de9088457f0274685713d0221e8406df89631767dd342b491/dooit-0.2.1.tar.gz"
   sha256 "7571d21385e2625646ac2572b59cc2ba9b8c5b6228165a444c76645e55444b62"
   license "MIT"
+  revision 1
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
   bottle do
