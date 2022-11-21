@@ -12,6 +12,7 @@ class Cpplint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdd27cfe1e885629d384959cb649c133ae6f9102522294e68c6ee23732dcc4e5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bdd27cfe1e885629d384959cb649c133ae6f9102522294e68c6ee23732dcc4e5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bdd27cfe1e885629d384959cb649c133ae6f9102522294e68c6ee23732dcc4e5"
+    sha256 cellar: :any_skip_relocation, ventura:        "39d32c6b83bba93c843dfd6b3f90a427970212ebc83352b96973f28425e9c6bb"
     sha256 cellar: :any_skip_relocation, monterey:       "39d32c6b83bba93c843dfd6b3f90a427970212ebc83352b96973f28425e9c6bb"
     sha256 cellar: :any_skip_relocation, big_sur:        "39d32c6b83bba93c843dfd6b3f90a427970212ebc83352b96973f28425e9c6bb"
     sha256 cellar: :any_skip_relocation, catalina:       "39d32c6b83bba93c843dfd6b3f90a427970212ebc83352b96973f28425e9c6bb"
