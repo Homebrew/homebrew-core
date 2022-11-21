@@ -10,6 +10,7 @@ class Inxi < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b6762cdfa00b1b1e30d7adbd5ff8d913da289f89083dc9aeaa69f1d95dee607"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b6762cdfa00b1b1e30d7adbd5ff8d913da289f89083dc9aeaa69f1d95dee607"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b6762cdfa00b1b1e30d7adbd5ff8d913da289f89083dc9aeaa69f1d95dee607"
+    sha256 cellar: :any_skip_relocation, ventura:        "c6db1e9b1b68b2f8bee1684d11ec89c1017c76350a99f2c02353e4eb568650ae"
     sha256 cellar: :any_skip_relocation, monterey:       "c6db1e9b1b68b2f8bee1684d11ec89c1017c76350a99f2c02353e4eb568650ae"
     sha256 cellar: :any_skip_relocation, big_sur:        "c6db1e9b1b68b2f8bee1684d11ec89c1017c76350a99f2c02353e4eb568650ae"
     sha256 cellar: :any_skip_relocation, catalina:       "c6db1e9b1b68b2f8bee1684d11ec89c1017c76350a99f2c02353e4eb568650ae"
