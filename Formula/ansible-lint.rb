@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/cb/bc/241ce1b97729aefe150f971e9fe8818cd022e185fb0e90563fdf8eec4652/ansible-lint-6.8.6.tar.gz"
-  sha256 "171fe8dad62078b9819b5c74d60eb5afaa30ea9cb9c9ba8706149e56c55a9b6e"
+  url "https://files.pythonhosted.org/packages/6a/83/08cd79e47452c0faf9325e19c9a1dd26fabfeaaa8733804165a066c19479/ansible-lint-6.8.7.tar.gz"
+  sha256 "de3de4e57cd54e17c1ec3a0b4a21d4811838e77d67b56cbe8f91107f2a434432"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -29,8 +29,8 @@ class AnsibleLint < Formula
   depends_on "yamllint"
 
   resource "ansible-compat" do
-    url "https://files.pythonhosted.org/packages/a8/7b/b884b18774a0149bedb7961428442e29d455195212cd455c0ab0f4ce34f7/ansible-compat-2.2.4.tar.gz"
-    sha256 "6a2c3ade5005530cdfdd8e961c784b1718f17ad480a1be5a8014bff89c9c9c2e"
+    url "https://files.pythonhosted.org/packages/37/1a/604884d3655a80476dff5ad3cc9991decc5fb26d3f5df51d38361c3cedb1/ansible-compat-2.2.5.tar.gz"
+    sha256 "28c7c545fd60ef9c3059cfb2fefd27f92db091ff6b5868f83f121ceb5e1fe1b5"
   end
 
   resource "bracex" do
@@ -68,19 +68,9 @@ class AnsibleLint < Formula
     sha256 "8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
   end
 
-  resource "ruamel.yaml.clib" do
-    url "https://files.pythonhosted.org/packages/d5/31/a3e6411947eb7a4f1c669f887e9e47d61a68f9d117f10c3c620296694a0b/ruamel.yaml.clib-0.2.7.tar.gz"
-    sha256 "1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"
-  end
-
   resource "subprocess-tee" do
     url "https://files.pythonhosted.org/packages/48/20/a38a078b58532bd44c4c189c85cc650268d1894a1dcc7080b6e7e9cfe7bb/subprocess-tee-0.3.5.tar.gz"
     sha256 "ff5cced589a4b8ac973276ca1ba21bb6e3de600cde11a69947ff51f696efd577"
-  end
-
-  resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "wcmatch" do
