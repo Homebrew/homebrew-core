@@ -10,6 +10,7 @@ class Rswift < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ced4bcf3d1ce445e1ca9eae4adddba44e81eaf83342ad0d0e3e68b79bfe2d212"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0a609e1a2f866c2b1d08ae2fb5114a182ba5a87a91f745202b8a0de67eadb3e4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2db2bde39d2e583b5982869ea8c25696909cd83b82fece0ea41f7c6809702459"
+    sha256 cellar: :any_skip_relocation, ventura:        "decefebfdaa729c286ea1013d77eb3223b50d31f5c3451565d21860a9b9a7d20"
     sha256 cellar: :any_skip_relocation, monterey:       "9d743c8f7a78919017ea4835de73d385e9fd04b9291aedd27ae7cba0e827cafd"
     sha256 cellar: :any_skip_relocation, big_sur:        "fb0930087125bb968caaa02eee28f21d9643def376de811c7b72aac874eed85b"
     sha256 cellar: :any_skip_relocation, catalina:       "5fa3a697f9af414e62a11567311054687c3805c3d4220ec9105639f439d92936"
