@@ -3,6 +3,7 @@ class Gzrt < Formula
   homepage "https://www.urbanophile.com/arenn/coding/gzrt/gzrt.html"
   url "https://www.urbanophile.com/arenn/coding/gzrt/gzrt-0.8.tar.gz"
   sha256 "b0b7dc53dadd8309ad9f43d6d6be7ac502c68ef854f1f9a15bd7f543e4571fee"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
