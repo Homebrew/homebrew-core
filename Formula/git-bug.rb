@@ -8,14 +8,13 @@ class GitBug < Formula
   head "https://github.com/MichaelMure/git-bug.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9955d843ba0fb77f1b9005d5a4bc6f3ab41bb29686e5705d7e04c73eb8be726c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "beeb321dc338263445c5a092cee6d627679ef38f65ef449cbcbf1d3dee53983b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7477b094e81aa878baf489654c8b131c6d8ebd40222b41769481e298089ba019"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc519ce7c73d26de779c4eb14118e0dc01c160d463e42b54c380e629f5e9cd5c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "26ead98df2569b14356aac45755b68397dceca6a0dc2cdb6ec00f1a4926fc669"
-    sha256 cellar: :any_skip_relocation, catalina:       "60c08117214d4d8657e67f182d1380b291882944d69c54c9adaa0f8140e28993"
-    sha256 cellar: :any_skip_relocation, mojave:         "6184e21ba0f2c4c28722dd7276004f2f430e02e4f2cf56462b4914d08df6f2f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "234a0d2749668c523e59bf359cdb0484d984fc4230cbe72c64c0ff585eaef6cc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be920be6f96dbd7da1c1054238ce09eca5b50c3402f8eedb7a603869ea00e6f1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1240cbfd96aefb7b6db471836b3cd67a622ad265bab6482c6998243177326cca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe0a8f7fae9cf1519ae096f7a65e1752ec80dcb72f371673766fc31229d1aacb"
+    sha256 cellar: :any_skip_relocation, monterey:       "c1c29f2a9a1ff994644ab1bb42778c6ec8d7bae2589689ee7efbf5200c626c76"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1a76c51936c483ccfdeead7e119751fc70989f3387e0bc5e93d8252005a2183e"
+    sha256 cellar: :any_skip_relocation, catalina:       "553181a157cfed0dc321bc90dd789256177ca86df0d4aef8a75c787642d4434a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc86c9ec48daf126f20298325c4d9b2d269025d6d0612eab3d4831a1402abfe7"
   end
 
   depends_on "go" => :build
