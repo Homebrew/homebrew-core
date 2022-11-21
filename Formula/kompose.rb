@@ -6,14 +6,13 @@ class Kompose < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dadc4cde7ba351d065c9b8acbd20698d2f65787075ed8d0130280435f6ba45dd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fce20c79ca7c5ec23d04804d5f0625796a9ae5bf2ff8f3c2dd6ebf6c9091039b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7608ab8e23169c6c25b6da42713a7ef7aa078d09b63bcd748949800a0a3c6bd"
-    sha256 cellar: :any_skip_relocation, ventura:        "c69653bc07ecfe1ede9ede3fd18fa9c324c22cbf11acae0c866f99dc9694bb8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "d900c5a6242038bbaf31560418d16f6b66790b7f4f9206415da2853276a1a137"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94764694cbc83e31edc3df3f8588327159cdba7ff2658ea9786e118b5a792e11"
-    sha256 cellar: :any_skip_relocation, catalina:       "975b28f3cd25872551219403be36825d38585a315f5c1f3ad5812d7be4e2913a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efb804b13b812975bb6995e458bd1a1404d26b836a47cd244031a362ce6c894e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c72e214d68b500682945ff6d24e363bfeeb5686fd8a1c165743f7f84c7a6b519"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "73286744b877e3da7becc95f0502833e06eb37c36057c5719d00bb68901716f9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ba5b4cd7d937e38071767bfef36948f1bd0786b607e150feab27d56e06d1e55"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b1d5018ace1b8247f3dd0474eb9632d011f38716afce6e74bdc30a402aa0402"
+    sha256 cellar: :any_skip_relocation, big_sur:        "be28041f3dd15d9b717c0615c4234a3c615ce01baf423046f3b23f5f090a7412"
+    sha256 cellar: :any_skip_relocation, catalina:       "b217de5792e76e969ce916c4e282f603751b69890d91a42f758cb4146a858566"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9b48d58808855c3e8aa8c4211422706693adbac6d416abfcb407e44d537188a"
   end
 
   # Bump to 1.18 on the next release, if possible.
