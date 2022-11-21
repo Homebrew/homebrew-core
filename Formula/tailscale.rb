@@ -10,6 +10,7 @@ class Tailscale < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "666d7a203842f683543ba554c497138aece3ca4e9bc6774407fa4b9c2c089e35"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f90caab2b4460e5cbdf86af6763498fd6b3399f8da7bc6ac05fa6e255e94d723"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95a94433fc019fbe0efd856d34485fb334308606601af4c22e5c16d7d1db8b90"
+    sha256 cellar: :any_skip_relocation, ventura:        "df29c3709c93ae742c8bbed13d1dd48f3a5937352d588885a9c2b2ba1da3a3a0"
     sha256 cellar: :any_skip_relocation, monterey:       "bf0d01f08345544f3285c62d61b2e3d6ea07fdc81be9b0fa54d6c2f133bf9181"
     sha256 cellar: :any_skip_relocation, big_sur:        "dc2d41e7d3329dbd48cd549d975eac381113602589358c528b85212331673c34"
     sha256 cellar: :any_skip_relocation, catalina:       "3df2585a8e00c64435dac5514ed0d0935747d999df348f799dafbcfbbe8ad907"
