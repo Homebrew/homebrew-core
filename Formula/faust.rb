@@ -9,6 +9,7 @@ class Faust < Formula
     sha256 cellar: :any,                 arm64_ventura:  "25aa7352bc2320116f1ebded5c7e14d7ebc9e38a222c1fe68615d493a8857d49"
     sha256 cellar: :any,                 arm64_monterey: "bbe2449e22fc66eaf4dbf90b7ccd220a9d65954c64ad51e8b178e0a7f3d3b471"
     sha256 cellar: :any,                 arm64_big_sur:  "79f18d935e081f08cfb64d708a4d72222c240e050c83d022ca8fcbcdf783f803"
+    sha256 cellar: :any,                 ventura:        "007a5ff2fac21b759b938ad78733f1bb453b3fb5b524c64feee058fec18ea50d"
     sha256 cellar: :any,                 monterey:       "0524e9894187380c7e47599fe47fd7e8e7d43372953f50c7dd022adf20e654c1"
     sha256 cellar: :any,                 big_sur:        "3daa5ef4021cd4af1fcfb4678ca906abe0e2d8412ea8dda1478ef6b63829cfd3"
     sha256 cellar: :any,                 catalina:       "8ee8b5cbbd4c775ab37940545b67db3d8665753330b29eb26d60b8e9ec928ecf"
