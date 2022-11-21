@@ -9,6 +9,7 @@ class Libical < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9f4df4f8eb6603ca56d187d1cf728e87b43dca690419fa2e813906846ff36b9a"
     sha256 cellar: :any,                 arm64_monterey: "591eb2b2865d474ef792519e96e5da74c2f8481b4c5aad671a79d3b940f88fd4"
     sha256 cellar: :any,                 arm64_big_sur:  "fa58234dfd4543c3b3c4aadb6ca3419875330a276674a5af853adca6fe28393d"
+    sha256 cellar: :any,                 ventura:        "faa365367394d2e2126ad3b8dc435fa0c993b66ea4caf7021fc6318cb4ce9f5b"
     sha256 cellar: :any,                 monterey:       "612436b983588dc3b03460ca8111afa4d909731aadd102907465ecf90d434ae0"
     sha256 cellar: :any,                 big_sur:        "0ac780f843bcf715ae93298eb93255202af31312a106fa1a1c5ef2a17c69f67b"
     sha256 cellar: :any,                 catalina:       "10e2448891b5aae10239d5b729af312d42de53b717a4ff3d96a5a7148ced10d9"
