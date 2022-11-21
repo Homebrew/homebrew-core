@@ -9,6 +9,7 @@ class Kompose < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c72e214d68b500682945ff6d24e363bfeeb5686fd8a1c165743f7f84c7a6b519"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "73286744b877e3da7becc95f0502833e06eb37c36057c5719d00bb68901716f9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ba5b4cd7d937e38071767bfef36948f1bd0786b607e150feab27d56e06d1e55"
+    sha256 cellar: :any_skip_relocation, ventura:        "b68ba2aae5888ec75ec9cbeb112e1edf9976ca0b361eb071eafb3409c5148e8d"
     sha256 cellar: :any_skip_relocation, monterey:       "1b1d5018ace1b8247f3dd0474eb9632d011f38716afce6e74bdc30a402aa0402"
     sha256 cellar: :any_skip_relocation, big_sur:        "be28041f3dd15d9b717c0615c4234a3c615ce01baf423046f3b23f5f090a7412"
     sha256 cellar: :any_skip_relocation, catalina:       "b217de5792e76e969ce916c4e282f603751b69890d91a42f758cb4146a858566"
