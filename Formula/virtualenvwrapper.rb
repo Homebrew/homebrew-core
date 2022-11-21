@@ -6,7 +6,7 @@ class Virtualenvwrapper < Formula
   url "https://files.pythonhosted.org/packages/c1/6b/2f05d73b2d2f2410b48b90d3783a0034c26afa534a4a95ad5f1178d61191/virtualenvwrapper-4.8.4.tar.gz"
   sha256 "51a1a934e7ed0ff221bdd91bf9d3b604d875afbb3aa2367133503fee168f5bfa"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
