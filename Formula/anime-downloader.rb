@@ -14,6 +14,7 @@ class AnimeDownloader < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af6aefac7fd2d26f0f0712544d6214e292f6c0b3df0d46af8a4ffe24623098ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3aada71979ba35b08c9241fb9473e8d59fc8dfbd798d5243edb68a009be422ca"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67054ab49350a67b144621caf72b5bbc0df2218cc1cbd9986d9e4ca7dff062e0"
+    sha256 cellar: :any_skip_relocation, ventura:        "187f677a3c1222e5158d2a4920c4ebaa44187d24adb191c684737b93854d7c71"
     sha256 cellar: :any_skip_relocation, monterey:       "df4e94952b8fb14b91611e0b512da1a44a75f9032bdf0c5598ad70a22c362521"
     sha256 cellar: :any_skip_relocation, big_sur:        "bc25d3a02ad10ea6156707f818ae3d0a8eb4a117999fa0a70f4593214f3c21cf"
     sha256 cellar: :any_skip_relocation, catalina:       "2df98ab6e5a8f81c488d6958652394325482abfc4e5df1a44919222649dafd85"
