@@ -2,8 +2,8 @@ class Clusterctl < Formula
   desc "Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle"
   homepage "https://cluster-api.sigs.k8s.io"
   url "https://github.com/kubernetes-sigs/cluster-api.git",
-      tag:      "v1.2.5",
-      revision: "cd87c3d90245c2fcf947cfe9fe0d8b7205746b7e"
+      tag:      "v1.2.6",
+      revision: "6f61373d9f32c32e62def4140bfc6becee46732b"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cluster-api.git", branch: "main"
 
