@@ -6,15 +6,14 @@ class Scrypt < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a7a358a4aaec95b0432276490345a34323b2819e670beebe66f0ab91aef021a2"
-    sha256 cellar: :any,                 arm64_monterey: "a451784bb5c8dfcbbac4e6d25a85f0986006e8580a831a8d2db4b1c8bf6facae"
-    sha256 cellar: :any,                 arm64_big_sur:  "452d9a1d1ebf709a71aebf1814646bf1fff3858d1ec9d4e1fd9ee802b93dd9e3"
-    sha256 cellar: :any,                 monterey:       "eda3c8c8096fc9756b3d6b8b55ee414b2afcfc9b349717d4939c89bc900b40bf"
-    sha256 cellar: :any,                 big_sur:        "1f89391f94ab6214697175294471c13003f638d7ca9ca57924f32a7aff223078"
-    sha256 cellar: :any,                 catalina:       "8f28f665fb701809fafc7f001d391c0139dd3f779317b0f2b82090577d189754"
-    sha256 cellar: :any,                 mojave:         "45a1cf76ba4ebb0708e3d751001e718f28bdbf659a020553742a17a688a91944"
-    sha256 cellar: :any,                 high_sierra:    "9c98acfbc8fc0def4b78d8f1101c236a15986ded5fabee93d1530ef17096817a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45ecda30c356a01e3e084cb93bc0b791e8f6d8333bbcc0ad7b16a9d9b85c6d8a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "cae01628c68cb6961a9515a9b6815dc390bce773d69da24b2e92dce4c45db8cb"
+    sha256 cellar: :any,                 arm64_monterey: "d76d3d327a97c51b522d65f6c6fc1dbcd227fccc39f0de4cde9ab991f138d9a9"
+    sha256 cellar: :any,                 arm64_big_sur:  "358e1343aa3e64b5b94a5eddfd5e75da9c9d089a18784f0fa21db93f9f34af2f"
+    sha256 cellar: :any,                 monterey:       "86671c984e05a532e7b25c9f8c6712096592a15147a04948ca80d9006335ba8d"
+    sha256 cellar: :any,                 big_sur:        "98864356e7d2a46eae0d85de33445b3baacf7d2bc362f34cebcc89c959e33b61"
+    sha256 cellar: :any,                 catalina:       "34668a3ffd312cd9687a9b9c4fef5e0ccf36103a9dca92cb2cd6c640aa87c9a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a301fa271721417d2aaa18c941716b1d64d22fafef03c3f91bf4aea0d072cf12"
   end
 
   head do
