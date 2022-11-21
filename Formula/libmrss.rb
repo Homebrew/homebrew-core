@@ -11,6 +11,7 @@ class Libmrss < Formula
     sha256 cellar: :any,                 arm64_ventura:  "62c46d4971e92b6d5c9e68b3b58b07ed9f5b0e2b8a56b6f7e26d90dced0cd0cc"
     sha256 cellar: :any,                 arm64_monterey: "c0082f527d5db823a42e82a431d37f4126de5d64c38d41b09ecd2af619a0cd2a"
     sha256 cellar: :any,                 arm64_big_sur:  "7c1c62cdc4b99cfc4367d8ce1523f06abbf3f8b115ef75c924f12ae40690dfdf"
+    sha256 cellar: :any,                 ventura:        "333ed9e94721d9b5d8ae559c070a1c971094e35acb8c666dc53f7a28f2093266"
     sha256 cellar: :any,                 monterey:       "7506db35ece883daf10551785b65407e10fccef5ef78a40f79d2eef06ca9d010"
     sha256 cellar: :any,                 big_sur:        "a64af37616c940a615987f40bd729ffaf9d190186ef2823a51f46ff13e318231"
     sha256 cellar: :any,                 catalina:       "03a62a0d10dd05156876128388b1081c329a00f38d71d6e8b52bff20b3d40fbe"
