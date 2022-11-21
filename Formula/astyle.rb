@@ -16,6 +16,7 @@ class Astyle < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "67a6f2d21a759aad0aa0ebf2fb74e3d2c4cd5404bab85793eb7334b5a73c40ae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7db1ad4d3520edb8177939efd807958cb7687a147d29eb7fdd0edbd93f785ed6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1cc43739c9ff8b7e21f03935eacbc29a0656d42d4b52e662ed0079751efe84f"
+    sha256 cellar: :any_skip_relocation, ventura:        "2efb6f1f92612273151b27b9513b36b9f28365ab546eeb83153e07cc4a4cca3d"
     sha256 cellar: :any_skip_relocation, monterey:       "770266207c36b178c5070470e62c70d1e0f3ad20abd52cee4b1ce7a92ac3ab10"
     sha256 cellar: :any_skip_relocation, big_sur:        "a327f191b54d199962e6de529a18dd99a6ff5fea0afb30db813fd66da80ed358"
     sha256 cellar: :any_skip_relocation, catalina:       "bb1c58888bd7c8de8876e9a9aa27985d30e4c2a5c420ebaaf237fe3ee13c2900"
