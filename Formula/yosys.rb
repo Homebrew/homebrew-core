@@ -10,6 +10,7 @@ class Yosys < Formula
     sha256 arm64_ventura:  "680da6a2a5b8473b5b42562ca5fa3f346657514485854ac7262149369c8d3f0d"
     sha256 arm64_monterey: "1d95ebb7bae0c0fcbd5ab8b276d8863baec7fbdab0fb886187af79cff48d4e5f"
     sha256 arm64_big_sur:  "f8a013aaa182322ce2bf5d28da57f2657b75e4f55bb5bd3666f17a6288d381e4"
+    sha256 ventura:        "e6e17e8cdfc0a75768e90256ebd4b70e7badd8354bbfaedaa6aa1e8bfdaec152"
     sha256 monterey:       "d86e6c2df87f47d2b728a6e38549a3d9324b676a6790335b18ed47dc4f5aaa23"
     sha256 big_sur:        "d1185d44a56d4618278a608581dc483adc7916d0e16dcc7de1b675c5418975f4"
     sha256 catalina:       "e376e65455c75ee743eb49c703e2db8f79b92632cae8115fb55dbd5b4a5da878"
