@@ -3,6 +3,7 @@ class Tweak < Formula
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/tweak/"
   url "https://www.chiark.greenend.org.uk/~sgtatham/tweak/tweak-3.02.tar.gz"
   sha256 "5b4c19b1bf8734d1623e723644b8da58150b882efa9f23bbe797c3922f295a1a"
+  license "MIT"
 
   livecheck do
     url :homepage
