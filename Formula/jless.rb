@@ -10,6 +10,7 @@ class Jless < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc206f32743e131b66991b39f15fc2db5cc9ac4fb8440d38ef351dcf3617ea24"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d9702468099f0396e88ca93673840aba8a9771d1628b0e4a94bd5dbdb7869d65"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c86789cf44ab4c397eeabcc263a4c7efef3ee0a8f5cc9383406131bdc7f946c"
+    sha256 cellar: :any_skip_relocation, ventura:        "322be887e2b2f9e53633210416936269ad61d4e0932f6658cd6654e5fbb6e3c2"
     sha256 cellar: :any_skip_relocation, monterey:       "837c1aec0a87ea6098bcfa6bc3fc0e858c70f2ac1cd6c65a2f21f141a711b4d3"
     sha256 cellar: :any_skip_relocation, big_sur:        "3e2bf888a308287819afc9c07cd82f0019d814ad9010509fc85d2eebae72a385"
     sha256 cellar: :any_skip_relocation, catalina:       "d3d6dab05c0270e22f00ed0018674d8fc4320e3fcb96bd87dd2b11377b461903"
