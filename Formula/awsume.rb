@@ -14,6 +14,7 @@ class Awsume < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f056197ace94877daffe14c98bc4f859469da266ba8efd654fd29197e6687cfe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "70a9d107be4299cb989de3e359fe84118624136dee1ec1060da5bbe7983201ff"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a46f5464bcbe5aed88954a839c66a97acb596e503f90b7cdfc7f4d1735b73422"
+    sha256 cellar: :any_skip_relocation, ventura:        "14e558f3fb2713cfeed9ce44f8559c2b184a1e41366384a5ae78f819c52bddde"
     sha256 cellar: :any_skip_relocation, monterey:       "27b7235a94d3f74816ddf545fe443aa4b24d2f7931c5f1ffd01a5dfff124249f"
     sha256 cellar: :any_skip_relocation, big_sur:        "2d7589975a41dfdd6175c5e5a82c8aa1e69e624331b6337d8394d1731caf252e"
     sha256 cellar: :any_skip_relocation, catalina:       "43bdff06f5c9fbe95560e9b7c812cbf6becbc93b41a5bcdfdff1e5f57da28abf"
