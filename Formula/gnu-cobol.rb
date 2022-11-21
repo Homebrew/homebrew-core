@@ -15,6 +15,7 @@ class GnuCobol < Formula
     sha256 arm64_ventura:  "282ed819370007480b302594d312787c223c3284603796bd724ed3343f78ddd9"
     sha256 arm64_monterey: "8486284406cb96f0b17a7a61226db7fc57726711852737c4c500e1b1b089e279"
     sha256 arm64_big_sur:  "56a9a4dedd7cac8608aa2c570d6e3c77647cc5a15235413eef2fc5ff7f4c698e"
+    sha256 ventura:        "947dd0c1123bf53a92b552fb52be8adfb0e16311857d4697f6491d4da53c3623"
     sha256 monterey:       "10d0dd94d0f10d121fb3910bfe7fbdfd006bf4a4f22f8f8ece72ae6c5371d00f"
     sha256 big_sur:        "bc73094fd113c6dc58c3cc475c78c8ec4dac1d9459895ab8ba23ff8f1974df34"
     sha256 catalina:       "ed671ad5c7cabc4992d399cdc02a5bdda5ead3d273d307dcff68eaa9204f3447"
