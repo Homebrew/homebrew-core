@@ -19,6 +19,7 @@ class Snakemake < Formula
   end
 
   depends_on "cbc"
+  depends_on "docutils"
   depends_on "jsonschema"
   depends_on "libpython-tabulate"
   depends_on "python@3.10"
@@ -52,11 +53,6 @@ class Snakemake < Formula
   resource "datrie" do
     url "https://files.pythonhosted.org/packages/9d/fe/db74bd405d515f06657f11ad529878fd389576dca4812bea6f98d9b31574/datrie-0.8.2.tar.gz"
     sha256 "525b08f638d5cf6115df6ccd818e5a01298cd230b2dac91c8ff2e6499d18765d"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "dpath" do

@@ -575,7 +575,7 @@
     "exclude_packages": ["six"]
   },
   "snakemake": {
-    "exclude_packages": ["tabulate", "PyYAML", "jsonschema", "attrs", "pyrsistent"]
+    "exclude_packages": ["tabulate", "PyYAML", "jsonschema", "attrs", "pyrsistent", "docutils"]
   },
   "sphinx-doc": {
     "extra_packages": ["numpydoc"],
