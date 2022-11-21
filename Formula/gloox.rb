@@ -3,6 +3,7 @@ class Gloox < Formula
   homepage "https://camaya.net/gloox/"
   url "https://camaya.net/download/gloox-1.0.24.tar.bz2"
   sha256 "ae1462be2a2eb8fe5cd054825143617c53c2c9c7195606cb5a5ba68c0f68f9c9"
+  license "GPL-3.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
     url :homepage
