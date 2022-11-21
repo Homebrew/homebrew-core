@@ -14,6 +14,7 @@ class Lighttpd < Formula
     sha256 arm64_ventura:  "cb599254c185916c4d3be91b735af9fe0b9553f7b0cd0ec9602d5ef588b26104"
     sha256 arm64_monterey: "44407e4dd4021ff95f7f2600f2b3ee588f882ef63c8964be34fa494fc11d9fb6"
     sha256 arm64_big_sur:  "9f96876d812006781086e73a334bac6d9be27c8b07080548f479f49e1bdf942c"
+    sha256 ventura:        "c29b293d3ac804bc18085255a5d51a9347db2e10c81927fecfe851228a538a14"
     sha256 monterey:       "b767d41ed5cbdba5ae2b2cc46edeeed2ff48d99f79a646d993e5ed0b23592112"
     sha256 big_sur:        "43f1ac2cebffd57f6f0d25f0175972d57055ba5c517f93fcc7045ef6e4daeff5"
     sha256 catalina:       "fc11c0e4faff6db25521b9fc27b9f72fe599564c1b2f2d4d64276f746ca8808a"
