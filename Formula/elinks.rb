@@ -11,6 +11,7 @@ class Elinks < Formula
     sha256 arm64_ventura:  "54e838b71b29c3cfc0aadf6e831b54281957f40cc6d7575214c35c4a3b57fa5b"
     sha256 arm64_monterey: "f0e220cd515da16c63ef96c099141f7df34667397c03c3f4c2c083101fd87d75"
     sha256 arm64_big_sur:  "8a503e767b08604fd16d50ae02f776d9913c84d46b8ff76933f38dd9d8bfdcfd"
+    sha256 ventura:        "7f1b9eaf7cc143e9d63d68d571ce4b561cb8916469aea8ebb55731bf68c81e2d"
     sha256 monterey:       "772f9d71d742a369f2dd9002fea64f80d64de5cd6de44e2887b806f3824e1a56"
     sha256 big_sur:        "918dc41b952f0ce90b4a66576450298995442a1627c94b8bbe30631942f3cf78"
     sha256 catalina:       "e6b142759a9de3c7bb75c7d4ddcb3cc90eafc758069af693d12f1f50e5cf3636"
