@@ -6,6 +6,7 @@ class Openssh < Formula
   version "9.1p1"
   sha256 "19f85009c7e3e23787f0236fbb1578392ab4d4bf9f8ec5fe6bc1cd7e8bfdd288"
   license "SSH-OpenSSH"
+  revision 1
 
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -78,6 +79,7 @@ class Openssh < Formula
       --with-pam
       --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
       --with-security-key-builtin
+      --with-privsep-user=_sshd
     ]
 
     args << "--with-privsep-path=#{var}/lib/sshd" if OS.linux?
