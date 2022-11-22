@@ -10,6 +10,7 @@ class StartupNotification < Formula
     sha256 cellar: :any,                 arm64_ventura:  "10d94fd081a6867bae73ef9bf9a47b7abb32d92aa50ed920c423cf1f35163265"
     sha256 cellar: :any,                 arm64_monterey: "9272c92348ee82fc166a46ad129d860019f9dbacbd1effc8f612cbd1dff3f049"
     sha256 cellar: :any,                 arm64_big_sur:  "d5cb6d07fb21b5bf6c2276de876642a3b8579c4d4f4b962532b3c1c831ba4f93"
+    sha256 cellar: :any,                 ventura:        "c7482a5c88b46b7750fa230fafea803b65666b824dff3e9c2d3364dea929410e"
     sha256 cellar: :any,                 monterey:       "7f062ed1316540ed9d9cd75f190954b57fc8eba9ee5394eb624a6748e9c4289d"
     sha256 cellar: :any,                 big_sur:        "17601558b8e72930f3917e9c7373d620a37e6cbf987172e3134f87a2ccc60af0"
     sha256 cellar: :any,                 catalina:       "bdb8f9123099562853461f5299108f7cbfac9be39ea3ab9ad6b3853c288ba5c9"
