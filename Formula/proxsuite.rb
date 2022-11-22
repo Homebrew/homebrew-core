@@ -10,6 +10,7 @@ class Proxsuite < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ddedc28df3068b2bb4020e95fd3a8bc6d23be495d3d60e74eb2e5b731e62dd0a"
     sha256 cellar: :any,                 arm64_monterey: "086d4c085dd469801cdf06d6a3ab85ae512b6a770941655f2a29f6472bf909b5"
     sha256 cellar: :any,                 arm64_big_sur:  "599a3002a0b630824182bd00043a9aa0e343af29d226b76afa90c3da65bb932d"
+    sha256 cellar: :any,                 ventura:        "e325e348343bfc4330d08af9f8cdd80e07c1431e0407d7c4b126b878093fd770"
     sha256 cellar: :any,                 monterey:       "877757403a2f9dc8ad9045fd78383d9c6121857db0162feeb697ac5d7bc17eea"
     sha256 cellar: :any,                 big_sur:        "31ef9d60e4bfc700041e754d53576431654ee8b403069ca8c04e0e087b0bcad1"
     sha256 cellar: :any,                 catalina:       "fc0ebfe066bfe9f932a5b21bd6d0f6d99004f57974d85c706855a9c0e459315c"
