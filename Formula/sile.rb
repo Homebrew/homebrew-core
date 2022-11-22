@@ -198,6 +198,15 @@ class Sile < Formula
     (bin/"sile").write_env_script libexec/"bin/sile", env
   end
 
+  def caveats
+    <<~EOS
+      Sile uses the font Gentium Plus by default. If this font is not installed or an alternative is not specified, you may encounter errors.
+
+      To install Gentium Plus from a Homebrew Cask run:
+        brew install --cask font-gentium-plus
+    EOS
+  end
+
   test do
     assert_match "SILE #{version.to_s.match(/\d\.\d\.\d/)}", shell_output("#{bin}/sile --version")
   end
