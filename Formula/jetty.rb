@@ -15,6 +15,7 @@ class Jetty < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ddbd9fc41788b8b9ea2f5c28844ce4c6c55f482907467280315e8ec5be88f442"
     sha256 cellar: :any,                 arm64_monterey: "1e58ae537a38a5e137b8ead3b23f548fcc58c74d85c9ca6203995b11d7d00ef1"
     sha256 cellar: :any,                 arm64_big_sur:  "572db08998b5e52b04ec5d388c784147602b810b6b5ec8fc5b3599565e748a01"
+    sha256 cellar: :any,                 ventura:        "76b7737022f7487f4d25f447bafe7d2eafd0b9f50628eeb60d34eafeeb00544f"
     sha256 cellar: :any,                 monterey:       "f5579d086de7aa2364b4b3bed97b0d1fb0b5e503249ac8af1aaa8317bacf6c88"
     sha256 cellar: :any,                 big_sur:        "f5579d086de7aa2364b4b3bed97b0d1fb0b5e503249ac8af1aaa8317bacf6c88"
     sha256 cellar: :any,                 catalina:       "f5579d086de7aa2364b4b3bed97b0d1fb0b5e503249ac8af1aaa8317bacf6c88"
