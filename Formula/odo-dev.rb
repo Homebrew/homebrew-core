@@ -11,6 +11,7 @@ class OdoDev < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4c908dfd07ef13114c63d7722012ed483c9cf09c396cca65c91bc25972c5145"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d405f7f4d8c103bd16599fc290cf79f756674884174838eb0199a687baf79f34"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17eae343c775c1a6283bc35fea10a124b844d4e96e047389d51988669023f9b5"
+    sha256 cellar: :any_skip_relocation, ventura:        "5adccf4774096cd2cabcd9de2c1f5b26a303093efd0f2ea8e86509b8850729ba"
     sha256 cellar: :any_skip_relocation, monterey:       "25e62844e17bf9cf96d08f31eeb71866383cfa2542ff1dee12cfe071ebed1bad"
     sha256 cellar: :any_skip_relocation, big_sur:        "f8cd0e6f18e5b1bdaa15e1f394d7d2b09930aeacb8133eed8956ad3792310d2a"
     sha256 cellar: :any_skip_relocation, catalina:       "cca484d07457a816d1cc629e4e2d113b70ba8113e349ebbe56592305072b589f"
