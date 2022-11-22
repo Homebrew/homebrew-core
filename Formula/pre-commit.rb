@@ -10,15 +10,13 @@ class PreCommit < Formula
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c75a21e7c43731035a05941e3d84720da3dfaccb96c61d4b20b93e6b9bfbd57"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8b37f8a39067ac6664fbb19ba4104ca7736ee81e52aea7bdce0860afa875df4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "afd4642fb189b649e0b6ef45712379a8c97067d791b7f4c5466aeddfb02bda20"
-    sha256 cellar: :any_skip_relocation, ventura:        "c987ab850bd87f104d30e4543bb4c105d6902238efdee9960b849b9ce28e2ead"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ed2d228d4f1896e589755efb9d9c1b1569462aeeadfcf995bbc80be8dbdb6a8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fd58b20ce989dc2e500fd57f976761c96356ef772ece6a475a284932a6eabc5c"
-    sha256 cellar: :any_skip_relocation, catalina:       "735ac3350a76edf9f52737f6e7dd8eaa851348a3f390990db2deb7becf1a5bc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ef2db1ed7ba05a4cfe4d0ab6e75ddfb1e6e6626123f39cd6f3022b1b8716b73"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc4ab3b751e5a0aafab0d8943ea66309034aed85392e8d09d252e0f14e17f08e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1cf2fbb0c8ffe108e30a425fc95eb2942fc07f5af69dc9cc023c2ef85cf56591"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7503a587bdf501da0dcef03fa9a56839d35f6f8750eb420397ed334bb9728fe3"
+    sha256 cellar: :any_skip_relocation, monterey:       "a2c37345ccf7aaf9bc5f46559f3f1fff0651f2af4370e5f8c20ed1dc20513580"
+    sha256 cellar: :any_skip_relocation, big_sur:        "72c36305b1d3fb44c59e11c3b937339c4e9759cdbe6671e134fd3f58b25131e6"
+    sha256 cellar: :any_skip_relocation, catalina:       "bb51f828d685794021556971cd2269c141fdb2f696f26e475f22104527673a3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ce40596bbb828e137dcf918ba0954a3095f99b922c053cc4e9c13bb55a5b283"
   end
 
   depends_on "python@3.11"
