@@ -8,6 +8,7 @@ class Rnv < Formula
     sha256 cellar: :any,                 arm64_ventura:  "86e6bfd85e0678347eaace39bb3ad203e08f8006c84939fa9a41e693ee6c1326"
     sha256 cellar: :any,                 arm64_monterey: "bf6a467df397afc6d6ffe8e54dabb5f41eb47f71b75fba32e19e6b6d0e297029"
     sha256 cellar: :any,                 arm64_big_sur:  "8901e5d1b3915babeec29f4485afa741d41b2b48946515c1d871f525512ae1b6"
+    sha256 cellar: :any,                 ventura:        "6648abdfb9856bb6aadfe9f24e54ba9dd64ee636bbf817b19e5386014c1336a6"
     sha256 cellar: :any,                 monterey:       "6e53766114e84c2d465873f78f4d8e9989186297140dae5966927b966d821d8e"
     sha256 cellar: :any,                 big_sur:        "c262efcf45b880c131f5e466d1b672ce5120dff6302b9b7504f6c1e1ee87cb22"
     sha256 cellar: :any,                 catalina:       "9a780a7b9ed3b264a7d0471aba7aac503b60640af76156028ecf118a0c35665e"
