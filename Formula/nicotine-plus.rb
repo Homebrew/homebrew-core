@@ -12,6 +12,7 @@ class NicotinePlus < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb80ddd865a0ff5f766a5bf534b3563546c47fc27b0fe1821c2823d6b7cb5782"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb80ddd865a0ff5f766a5bf534b3563546c47fc27b0fe1821c2823d6b7cb5782"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb80ddd865a0ff5f766a5bf534b3563546c47fc27b0fe1821c2823d6b7cb5782"
+    sha256 cellar: :any_skip_relocation, ventura:        "1a8a4981c4c5b4c0d9bad7c843cd1346fbd124cf882e6cf99781a76252121060"
     sha256 cellar: :any_skip_relocation, monterey:       "1a8a4981c4c5b4c0d9bad7c843cd1346fbd124cf882e6cf99781a76252121060"
     sha256 cellar: :any_skip_relocation, big_sur:        "1a8a4981c4c5b4c0d9bad7c843cd1346fbd124cf882e6cf99781a76252121060"
     sha256 cellar: :any_skip_relocation, catalina:       "1a8a4981c4c5b4c0d9bad7c843cd1346fbd124cf882e6cf99781a76252121060"
