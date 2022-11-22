@@ -10,6 +10,7 @@ class OpensearchDashboards < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, ventura:      "1c36f9b8ccb0208c4fb3985d5e69500ad1ea2dcbc370421a4d7db90f47be6e36"
     sha256 cellar: :any_skip_relocation, monterey:     "9ace1278a473cc0be04e9ac94d3bd4567e1e296441b86b0869e63074b7840351"
     sha256 cellar: :any_skip_relocation, big_sur:      "9ace1278a473cc0be04e9ac94d3bd4567e1e296441b86b0869e63074b7840351"
     sha256 cellar: :any_skip_relocation, catalina:     "9ace1278a473cc0be04e9ac94d3bd4567e1e296441b86b0869e63074b7840351"
