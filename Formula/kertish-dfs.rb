@@ -11,6 +11,7 @@ class KertishDfs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0dddc21a1847c5a75729b2eeafe55ae1916a12457cf727fb8b65c72ffc2c5f2f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d3f56111dd712f97ff71450eb7f09577e5dc0108482de91064c57fc312609b4e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e13c905be95c3f1d28bda7568811d2824e1125126f7a6f99a40aa937994a4fc8"
+    sha256 cellar: :any_skip_relocation, ventura:        "28dc3892e2e452effd229c826451d2231862bf235c2fb4e32a12d5cebbf3626f"
     sha256 cellar: :any_skip_relocation, monterey:       "08510e2f6ab40696f456d604a7d79372dfd585cc41c0b3703f2c09c7432a1483"
     sha256 cellar: :any_skip_relocation, big_sur:        "c9abefe4002333c21d00fe422d4d22b79fb665f923539e92e9da243eecaa0236"
     sha256 cellar: :any_skip_relocation, catalina:       "9faebdf52cff91734a78c929bb51cd460fffd6f8334c5e42c6db8ed8b337b023"
