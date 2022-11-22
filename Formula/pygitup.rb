@@ -11,6 +11,7 @@ class Pygitup < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e334b7e9e18589dfc6b2d615a8746a69336d0fb54e9e675c15ead5aa4d0f19e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fef07b7a13d65448ae0570887e2d8393457b9eab037246ec791559b28f64c1d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f347a89960458f826ee638da7c95acacee1c7532fc7b392a19186d0b56718fc8"
+    sha256 cellar: :any_skip_relocation, ventura:        "f88c27588eb7780db33684a8843a75a914dcd237f9415017a95c951ff45f876d"
     sha256 cellar: :any_skip_relocation, monterey:       "7bdd0ba57788f533752fd172ead77cc8875d0f73f6aa411cf8081f2fe4dac734"
     sha256 cellar: :any_skip_relocation, big_sur:        "38467c6e09fbf2c552a812770fe9f47e6eab7ac238c34b3351f41e8685bce6ad"
     sha256 cellar: :any_skip_relocation, catalina:       "a558b5e0e15a0f023e5391670c5fff6227d8a319cbcd1f0e8aad09eb27578e06"
