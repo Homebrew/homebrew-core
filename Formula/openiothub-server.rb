@@ -11,6 +11,7 @@ class OpeniothubServer < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e577ddde46d0ad27a625a73e9637d24e72961c3622fad535eb60059082135b4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "13dbc955f87f4db7312684958f4a37e10a87fddbc839b28d727f6a54754475de"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "611a932dba202a72cda774c99e7e4fcc946dd9ea3ed5905dc0c9458a0a3c16e4"
+    sha256 cellar: :any_skip_relocation, ventura:        "843ab385316ce21a0c37e406d1434023e05c6a0dd2add39e977fc0fae8c9d816"
     sha256 cellar: :any_skip_relocation, monterey:       "68189ff6031ff8e611d6a1a858cc485f0410f0ba5a35a5492beacfcae0ecd798"
     sha256 cellar: :any_skip_relocation, big_sur:        "e2d3403311ba16b4564ea082a2eabe71a2dee04ee67a1de95bc1392361793072"
     sha256 cellar: :any_skip_relocation, catalina:       "d5a7c18d1ebb71d72a9f8510e19be548b529f26af377762d394a6fcc556e6ac0"
