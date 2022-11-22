@@ -9,6 +9,7 @@ class Clockywock < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "374f2436ef7520b790bef5617cfc84c09852158f63c167de46438f616cf5f5c9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "65fa33df30cb24e484ded3464b69e1bb5118ed1ab6956c8b2aa7f0ee7051ae07"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfa5f241cbf228f38c8d43e80776e38d14a6daddb433cea08da610be0e02b541"
+    sha256 cellar: :any_skip_relocation, ventura:        "56232535a187f52fdb1cacaf512e4e13bf23ec0afdff589e184384d6752d52f6"
     sha256 cellar: :any_skip_relocation, monterey:       "24f3d1eb61bd2d75d7601b694907d2d2005132e389e987c42c1189d83d2da4d1"
     sha256 cellar: :any_skip_relocation, big_sur:        "6816f78abb433f6680474028cf20d219d8b6a51dfe7a185e90f12e8092a9ee89"
     sha256 cellar: :any_skip_relocation, catalina:       "5bc4dcd5f3b6d995d6245d3f67a55fb2b5bb6d604e9ad214bc687f4ca8d40bd8"
