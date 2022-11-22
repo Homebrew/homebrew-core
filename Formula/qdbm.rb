@@ -15,6 +15,7 @@ class Qdbm < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e6948ebb305c814ce996e7f26c20eed87531667acb01cfd47888ff002c89d324"
     sha256 cellar: :any,                 arm64_monterey: "81801d3db8db3a73c8421819684eddd73b84c385c5e0005a9a572de5faf654a9"
     sha256 cellar: :any,                 arm64_big_sur:  "5b0f851a602c8cb4f0fab49204037f7a6d28bc311a30559c7f08c37c36b66add"
+    sha256 cellar: :any,                 ventura:        "a94916c4050a878f94976c479fe1ccc042292676f1abe11f76c2b12f92851b1c"
     sha256 cellar: :any,                 monterey:       "f14f954b9e525de06afbb324b22df63af903f814ff81c5f2ecf787f9d9a2963f"
     sha256 cellar: :any,                 big_sur:        "7257a9e22ee3661fc2213d5ff60148b44e5e217781a3af807405c239020b3c6a"
     sha256 cellar: :any,                 catalina:       "0a0ba32270742fbd821ba60bbc6452e6b6b6a476d72e719bdb33fdf535e316f0"
