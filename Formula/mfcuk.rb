@@ -10,6 +10,7 @@ class Mfcuk < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c9ab885a21f8102b6a0f9256a565f35a2501a635880bc9e0f6aaf07c766fe97f"
     sha256 cellar: :any,                 arm64_monterey: "7b5be1129fc0bd29968d0c863391b101892525aacb5146316095066a87c652aa"
     sha256 cellar: :any,                 arm64_big_sur:  "f37625d6d5f84b70a6e85359da444790d64a56f898c8051c41f314ad061cbc42"
+    sha256 cellar: :any,                 ventura:        "c126f3f7da887cb15754a7e9ac59cd9f70bebb9bca2d4a931395a4bcdea9895e"
     sha256 cellar: :any,                 monterey:       "fb3c96007c69c0b301d8dbe1d4c05b21e5ecfe16927e18cdc8d8e3d1179f8ae6"
     sha256 cellar: :any,                 big_sur:        "0da7f4ed6a6b71a7960274fc7f020510d289269d6a3ed1e8f84f884a2619a684"
     sha256 cellar: :any,                 catalina:       "c9191edf0484422fa432827e017d05d4854cde1fd8194a3735eec0e060884652"
