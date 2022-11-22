@@ -9,15 +9,13 @@ class Certbot < Formula
   head "https://github.com/certbot/certbot.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "b249f0cd3ada179972f00e8d4dfb7e570a7b8e57d2ecc122274eb82173e0b3cf"
-    sha256 cellar: :any,                 arm64_monterey: "7d3ca34a45471e3edacfe292e6bd99a2b86b049c16e284fbe8c91809a26d4d20"
-    sha256 cellar: :any,                 arm64_big_sur:  "b76ffcaf7c8c829bc4c4a9b97273c04dca24ea3d2073e5e4f038085389385b93"
-    sha256 cellar: :any,                 ventura:        "8faa19bb3cd17446ff7b97ab0c044bfb7e63b4f95d7dd54bd40834ff24f3f75b"
-    sha256 cellar: :any,                 monterey:       "70e67115b1fd67b5ca23b1e200f939066b40694de9bbf78fed7daca1c6898ea7"
-    sha256 cellar: :any,                 big_sur:        "1ff847f56a5a9c8bd3deaf7f5366eca1bb84b63828da07c9404f8e91ea439bd6"
-    sha256 cellar: :any,                 catalina:       "65613e674c2103b3e9c2029903b413e1dd79e5eec1a8db93dbb2cacaa5052ac5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ccf3ac79ec3dae9240e795eee45a79074432350f066b1305d04251c3ea40c46"
+    sha256 cellar: :any,                 arm64_ventura:  "4f5057f5861e1556d41383b8a57f7ff902eb438b1c32ff4da2705e82796b7758"
+    sha256 cellar: :any,                 arm64_monterey: "9df1610c4279d6ba7288d334ad4c6d830d4dbb01cd1c0e4a649d059d469575a1"
+    sha256 cellar: :any,                 arm64_big_sur:  "3cfa9c3e324bb7ce0c3101726d564e79aea8bdfd81eba3aa6b74832a16931c32"
+    sha256 cellar: :any,                 monterey:       "bf1f5ccfc74d4e314ebc139880fa6b1081ec45b740b1fea626e2864465cc153b"
+    sha256 cellar: :any,                 big_sur:        "4c5356821e73848b39d70aa1a238ac194515c8d8fb0e73a08030e6b9fc733207"
+    sha256 cellar: :any,                 catalina:       "427d5e4bbae514d0d0803e8d8f7624b80d3123df0101fdebf93162f1807a898d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "505e2e51f18973a2133c620560a65cb7118c0cbf06d0b82f4a48de3c61e4be77"
   end
 
   depends_on "rust" => :build # for cryptography
