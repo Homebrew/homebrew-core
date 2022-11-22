@@ -6,7 +6,7 @@ class Wgetpaste < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "19e1162aaba99186726c81d52e599888ad597e4d7ec889604dc6f86f3049ddd9"
+    sha256 cellar: :any_skip_relocation, all: "e28f46fd5ff5ace39fab378e3e156ada2996420f9db32e78c5679f5b461fee16"
   end
 
   depends_on "wget"
