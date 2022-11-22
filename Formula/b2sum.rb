@@ -9,6 +9,7 @@ class B2sum < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9fb48197fac700a466ea1628a59ed6a5b6a9690977659bb31c9fe31bf5fce63"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "64c2c7d38639bafcf1ae62c5c1b4d6226dc57fcf7cff654c676d97be597b3d40"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7c75a1aaf69f5bdec9706848244f7baaa4c17066d99e791ad9d007a483d1671"
+    sha256 cellar: :any_skip_relocation, ventura:        "b68e4c748c44e8087d61da723e3402dd9e6506b038695e6bbd447333bb69503f"
     sha256 cellar: :any_skip_relocation, monterey:       "70a311dd99f685268a3bcef834c4373d8506fafcd17de9a15fbe9fb68f2fcaed"
     sha256 cellar: :any_skip_relocation, big_sur:        "fd4870a8a8ea954c5f8b45addfd4ee6ccac3f69f058a54be623ea271b3b4be78"
     sha256 cellar: :any_skip_relocation, catalina:       "339b959eb5c2cbc8c26a39022937ea27b7911ff1c9f0611c3f2ac1595f5b0e50"
