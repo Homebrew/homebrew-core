@@ -8,6 +8,7 @@ class ErlangAT21 < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 ventura:      "9a63e37bcd7aa3fb9f20454aece99b5010e8e1f37c9317c1fb862a8bd295028c"
     sha256 cellar: :any,                 monterey:     "9effd9cdb8786f80257db78e9d1c587e4065313628f6c04c1ffe588afe0d9953"
     sha256 cellar: :any,                 big_sur:      "f05c014c491877da25d19f775a576803a25c36c5d57309548711c253b90711c8"
     sha256 cellar: :any,                 catalina:     "042070fc8af915df870a67f1eaa43e87beacd3bcf4c8cde8d78bbe1e195cf133"
