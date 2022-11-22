@@ -15,6 +15,7 @@ class GitCrypt < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0fa83aa6dc1b794075e1a959c27ba858024f234c52d390c048a7b01538c089a0"
     sha256 cellar: :any,                 arm64_monterey: "e062f956b5b18899552b3389177be8f69f7cc41c4aee5688b40c2e4249ec9b98"
     sha256 cellar: :any,                 arm64_big_sur:  "f33b245d7f7948d3af259bb7faacdf37a83931e73e6f0e7e28f826b49fbff1c3"
+    sha256 cellar: :any,                 ventura:        "02d70c5e710b98eb4a9d1e95fd5265bff5b09841df7aa629f9576596d1ddcae9"
     sha256 cellar: :any,                 monterey:       "9a63b27a7544ebd2eba62ec5b744e8e278fd239451cba5dc6e876e5cdb59f581"
     sha256 cellar: :any,                 big_sur:        "d70c2f3e01239cf5294762cfcafecfe70d977c395da50bedd45f990d5bcc1b23"
     sha256 cellar: :any,                 catalina:       "0681b6a663f89c9e4d18d057ede3cd9116c6d3685c5a08e4f75aec38a9900971"
