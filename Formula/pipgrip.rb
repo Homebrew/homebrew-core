@@ -3,8 +3,8 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/73/90/66e8438b3cea05e5d7c79290fa21440f2c310b072ec705c892301fbc5750/pipgrip-0.8.7.tar.gz"
-  sha256 "ed551363b7566fccf33b58a89106163fd630539b5fd2ba2285b62357e80b47f7"
+  url "https://files.pythonhosted.org/packages/32/9f/2bb2d03ce4bb044756a754721d7d8d7ee6d439b0334134826ae02d0c6c8a/pipgrip-0.9.0.tar.gz"
+  sha256 "42248132a6b190ea255618b94d39fa21b8987d2934d03e3add410e1f3b9d4d54"
   license "BSD-3-Clause"
 
   bottle do
@@ -47,8 +47,8 @@ class Pipgrip < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/a4/5b/0718aa11e3360f97feb81ddcb19cbb9306df0a17bef7c360f8939d2629b8/wheel-0.38.2.tar.gz"
-    sha256 "3d492ef22379a156ec923d2a77051cedfd4df4b667864e9e41ba83f0b70b7149"
+    url "https://files.pythonhosted.org/packages/a2/b8/6a06ff0f13a00fc3c3e7d222a995526cbca26c1ad107691b6b1badbbabf1/wheel-0.38.4.tar.gz"
+    sha256 "965f5259b566725405b05e7cf774052044b1ed30119b5d586b2703aafe8719ac"
   end
 
   def install
