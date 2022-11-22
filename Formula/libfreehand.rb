@@ -14,6 +14,7 @@ class Libfreehand < Formula
     sha256 cellar: :any,                 arm64_ventura:  "53c1bcbcf740c42c5900949f2859734be9f3aa4adfa28f42a521d6c1618a8797"
     sha256 cellar: :any,                 arm64_monterey: "7960ce23fc10f7c545aa6ff36704340626b5652cdf514e2cc30abfd06923f158"
     sha256 cellar: :any,                 arm64_big_sur:  "1cd27b1d82fe6261a9def131e7a09143b35fe7547cbf539b720fc9d8bdc257b6"
+    sha256 cellar: :any,                 ventura:        "eeccebb0f1538b6a31480588def2399898dc5b1a46ab208de2ffe9cdeb693fa3"
     sha256 cellar: :any,                 monterey:       "52bf47cdb858c77f4745bae826181ff0790fa3bad79e8997fb6b4a5702fa218a"
     sha256 cellar: :any,                 big_sur:        "736e40282e91275e85e6586f9601bebf05a7111e484776a3a1cf8df1e266b329"
     sha256 cellar: :any,                 catalina:       "337aeb3f1454487fc132f9d67e3662dc6c3f0ba40a38a9a9c58d9f0b9bfc1955"
