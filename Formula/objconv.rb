@@ -21,6 +21,7 @@ class Objconv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b88423921e81d1f15c5ccab35ac80028b90f74a09f22385f49210feca3ac46d7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ad214921be4f29fce2c10e0338f0a44511ff0ff5d86ca7961bea508330c148f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9724c974ec6bf4019db01e8a59f1614b411a604ae4a65fcba4105bd66324ed13"
+    sha256 cellar: :any_skip_relocation, ventura:        "b83c1a66623b8d301d646e9728503678f10ce0b748bcbe99e08872f6a6f6c152"
     sha256 cellar: :any_skip_relocation, monterey:       "83a397727d2eb4081104d4479c3b87c018d737762b6f66d8c99bbe85311cb3ba"
     sha256 cellar: :any_skip_relocation, big_sur:        "56b733562dbe05686a393e31984fae182d7e3e6ed8d237a5a2f7163f56f9ae8f"
     sha256 cellar: :any_skip_relocation, catalina:       "4d6f7dd36d609935e1d216bc449078ad5c204debb3420494a9ff3bbe82f4e00f"
