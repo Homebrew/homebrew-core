@@ -21,6 +21,7 @@ class Puzzles < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0117d15b6070ce66418e2e3a5efeb19a1e891e34944624d5751ed8d0baf2eaeb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb6236f23397219b26ca75d91993979c6a4bf1d0bc3eb0fbc4a26adcc6c76b49"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a20cddcafbb586c839b81551c6d7e8b7efaafb921e7a49910c874ac08a69c68a"
+    sha256 cellar: :any_skip_relocation, ventura:        "0c6b0830d97e73d0c97245ded7e23b14cdf28064642840b0bc2afe306a2c0eb3"
     sha256 cellar: :any_skip_relocation, monterey:       "c7c28b5d666b212c4a302741ac46b9e5de1c8a05830ef83f20ab5a242efb7eb9"
     sha256 cellar: :any_skip_relocation, big_sur:        "d323d7a46fbb96efcea00609870974809a3bdb3d2be140072683e82e384bd9d3"
     sha256 cellar: :any_skip_relocation, catalina:       "1dfbb84426dcb19a7783343f5d624a66a7b710a5fd0a0fe7ac8e6b8c0e677a0b"
