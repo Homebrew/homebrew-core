@@ -2,8 +2,8 @@ class Kubekey < Formula
   desc "Installer for Kubernetes and / or KubeSphere, and related cloud-native add-ons"
   homepage "https://kubesphere.io"
   url "https://github.com/kubesphere/kubekey.git",
-      tag:      "v3.0.1",
-      revision: "0fc2b4557b929276085b81e6840410258557f9f1"
+      tag:      "v3.0.2",
+      revision: "1c395d22e75528d0a7d07c40e1af4830de265a23"
   license "Apache-2.0"
   head "https://github.com/kubesphere/kubekey.git", branch: "master"
 
