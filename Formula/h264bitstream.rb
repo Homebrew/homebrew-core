@@ -9,6 +9,7 @@ class H264bitstream < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9fd917379072e27703bae053f19aefc1abbf328dfcf5857e6aa4192babe3fc48"
     sha256 cellar: :any,                 arm64_monterey: "21fef413b7c8c4ae235dcdd1aba11a77553cd382f74d328c5958ba7e6ed47c39"
     sha256 cellar: :any,                 arm64_big_sur:  "86d9c15b08de87f85f791e45669241a1a27fefef2ddbccf6016642505e69c6e6"
+    sha256 cellar: :any,                 ventura:        "befe3309e1c2b4670bd77c741ac73abadcbb23fab0199422b61d901111fae7b3"
     sha256 cellar: :any,                 monterey:       "65af04578c1f21572695b045a268c8de1f3e8592dde3c407a2cc0c9e5aae797f"
     sha256 cellar: :any,                 big_sur:        "2ace75ebe5094b847024fb80a23a82bba3acfa7869399f3962c6910089ebc777"
     sha256 cellar: :any,                 catalina:       "ac1f452b4c4d4d90310ec1f3cd9ec45271665604844dca55df3f7a91885d28d7"
