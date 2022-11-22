@@ -15,6 +15,7 @@ class Bcrypt < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "19491cbd69ead5d58ce19e714d0b4705a08f50f65e3a5553b97f1f8b63a78175"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f04889e8272f7ed1efdcf2abd53fc9a108d2a33c72ba75c7da9aca1030cee43"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7b3e672ab9055b69dc1c7c5a7d13ad3a9a375f60de85cfcc5268f7eb139edcda"
+    sha256 cellar: :any_skip_relocation, ventura:        "72268b3472f9972c859fd653d6926a8a728e527fd6c4dec6dc76ca09b8621e21"
     sha256 cellar: :any_skip_relocation, monterey:       "4b2f21d383ed9a4319d26a8093d55702a34340f307148d2fbfa3d1084e7cd41d"
     sha256 cellar: :any_skip_relocation, big_sur:        "9c3948e719b6b5cb195fc30c8e0fd555c35d9fcea7a5a6c607b094ce2e097f01"
     sha256 cellar: :any_skip_relocation, catalina:       "132998cb8e196f506666943a94a26927a19899cb1e45ee8eaf65e5ad0ee7ef8d"
