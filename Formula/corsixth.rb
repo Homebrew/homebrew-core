@@ -12,6 +12,7 @@ class Corsixth < Formula
     sha256 arm64_ventura:  "651735456e7376c1de75b2499680f1ee88a9a3231c36db84d8acce27717a62df"
     sha256 arm64_monterey: "a8dbc402542a59704db0075dc3a1542977efd7cda3eeb0e24db11ee9c1b1ed6a"
     sha256 arm64_big_sur:  "ff512592cf6ca0bfcb6cf11f48f63d275771d00ca2803707da7cac5331314051"
+    sha256 ventura:        "1306f8e8678784f4b8949b7771e0e5063782faf822102a06fbd68e785895322c"
     sha256 monterey:       "66fc4a0640c757456c4efcc2113c0afecabbece807de950285ea577092221966"
     sha256 big_sur:        "64645106c33f43df0b0d308c48d90d129b5d0d1df39bdd20f94b3a464b02ef6a"
     sha256 catalina:       "b43968804acbf0f5baac47c2a8bb9a638f1f6a6478d83d5e846bb1c6cfb66837"
