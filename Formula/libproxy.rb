@@ -20,7 +20,7 @@ class Libproxy < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   on_linux do
     depends_on "dbus"
@@ -30,7 +30,7 @@ class Libproxy < Formula
   def install
     args = std_cmake_args + %W[
       ..
-      -DPYTHON3_SITEPKG_DIR=#{prefix/Language::Python.site_packages("python3.10")}
+      -DPYTHON3_SITEPKG_DIR=#{prefix/Language::Python.site_packages("python3.11")}
       -DWITH_PERL=OFF
       -DWITH_PYTHON2=OFF
     ]
