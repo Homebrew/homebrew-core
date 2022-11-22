@@ -12,14 +12,14 @@ class Libnghttp2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "df8eafb50f1f0ac0b13069be57c311a3c3dfade1a3acb041f5dfd2f7faede386"
-    sha256 cellar: :any,                 arm64_monterey: "ff36afd0e635b9be212ab7e886342ebe4faa15f4eb1fe39ffb85e68cee45fbb5"
-    sha256 cellar: :any,                 arm64_big_sur:  "a828fc6fd26731035429f3feebc44659b8d75da28180103daf8a6c1ad9caac80"
-    sha256 cellar: :any,                 ventura:        "78dc8ea4d17c2f5ab83ebf4ae939b10b1ff898501136ad6765e7c4ec4a812d74"
-    sha256 cellar: :any,                 monterey:       "76848a36505c3090d7aae71c4eaf2fb5fd66b72078b6338235c4975b2cf9de6d"
-    sha256 cellar: :any,                 big_sur:        "83d2f660a954847f7f2f5ef842ee7bb6ae6697049d001f533075ce048f4b3c44"
-    sha256 cellar: :any,                 catalina:       "b33c82c4e950c4217a52a450a55b3e2ec5a2716663e67c34ca1a236fc7f8be26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2467874e72ad4b90427b610d8bfa57b3fef810b9a884da5cf4582b4730c43c60"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "cee5995ce16befec71e1374d45fe817eaca0340591557318556dfd9f6e369038"
+    sha256 cellar: :any,                 arm64_monterey: "0449303373bd44645f0ff77464a4f99f600b9059212b0b31aa906580074ee3fc"
+    sha256 cellar: :any,                 arm64_big_sur:  "801da3162638fa32b973f4defb251ec048a4cd114d29e749787ade3c68b19e8a"
+    sha256 cellar: :any,                 ventura:        "42b2ee58bfa16484431b2bf296478884f62fae5bcc59ff00de5e2f46935b4c12"
+    sha256 cellar: :any,                 monterey:       "d94c9ee54c042c8d8608fcbd4cee72e0c42dda8e46aee5c6967f8e37d660de54"
+    sha256 cellar: :any,                 big_sur:        "7fc8c1465ff197a976d9b6440a44e033f1fb9e53f594839478db81160fefc248"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9a6a9bb02c118de8be5b7a1496809f7bf742ed7bf5b44752e52e9aacbb4a13b"
   end
 
   head do
