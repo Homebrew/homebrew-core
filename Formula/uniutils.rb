@@ -14,6 +14,7 @@ class Uniutils < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae4dc0b70cd3f5567f0c3a23d595be9f98d840c2437d3080abd25ef1241837a5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "211d63bf402c81b1ff57f098a7bd517090a35f47374c2d92fa6234678bcb613f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8cb5a86b69e6efe758a353744ac48a0ec1777f3b1ed814848906d6365ad7ba81"
+    sha256 cellar: :any_skip_relocation, ventura:        "09de82560f248a53ea2d1a34532f61e4b19250162e930e3743ef7bab37d6ff50"
     sha256 cellar: :any_skip_relocation, monterey:       "eece3849b5ed4da3c2ff4a850338a523cfc8fe2d64c7f663147e17d673c410aa"
     sha256 cellar: :any_skip_relocation, big_sur:        "df42759537263cec13ae2662eac1de96d0692b34e146eff756dbb52b79c7c5d7"
     sha256 cellar: :any_skip_relocation, catalina:       "c2991a6dc15937fd36591ef3a56134d9474b544a3d0f9407a9555adebf3a53e7"
