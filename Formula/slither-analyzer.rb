@@ -11,6 +11,7 @@ class SlitherAnalyzer < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ecb80e5ea4a66190e907804d54467bcb7fbcabbc783cf77db626d3546b71e892"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0125106eaa72b73eaf42570755d3efbe07a1cecf3a8d016b85b6deebe791c3a9"
+    sha256 cellar: :any_skip_relocation, ventura:        "8ef8f60cdf022d541e9343cf569e4dfbc56e28c19e30faf8d69679c61541f6cf"
     sha256 cellar: :any_skip_relocation, monterey:       "c79ddaacdf344efe0ddd684099d79ff633aebf933d87780a39d6ea4af7ee0565"
     sha256 cellar: :any_skip_relocation, big_sur:        "8c6a9092e992f9c2ba123c1ff2bfcb71435413c3b641eac50caff6a30a730142"
     sha256 cellar: :any_skip_relocation, catalina:       "3db5c6c6eca7ce3772d088683770e9b47c76a141110e22bcfe1ad81bbfcab136"
