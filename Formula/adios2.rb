@@ -15,6 +15,7 @@ class Adios2 < Formula
   bottle do
     sha256 arm64_monterey: "dd6c2120b4b480f41ed467eb288b7df6ad5c87a12fde5cb4d5b02c90098f2441"
     sha256 arm64_big_sur:  "b4c89ff59b0ed1b9c0bfe323baa1125955d07bfe64fa7dfdaf7a53d077a0b22e"
+    sha256 ventura:        "3240624d9596ea6f0dc5dfcae7a2b9fff81e5bd170ead385ec25522be3434254"
     sha256 monterey:       "5240e042cad078b840fe117bdd706f47786cbf3cc0db1eb91f9d26237de28d24"
     sha256 big_sur:        "1bef95f698fa1d53a16c66fcfe0b60543b5257554f9fee86041f415a3b73a8f1"
     sha256 catalina:       "dfb2ed4262187889d97bd41581c4642399d6e0544c9def52542d75e4e937e8ca"
