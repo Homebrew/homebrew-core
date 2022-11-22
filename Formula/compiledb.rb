@@ -12,6 +12,7 @@ class Compiledb < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "99d4ad0e016adfa94460cc9c886cc8dcceacba9ccbaf51d04d8e3b7028d58d61"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bd93b12502449ec25be15c4e247b940ba85f4fb51d641f750268967331fba099"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8d9505131e721298fad7ab7b89bc042954ec8275e8b17a396c931c2b1d84389"
+    sha256 cellar: :any_skip_relocation, ventura:        "ce10a050579461e0cc548dd2c9a6306618c9912f2390aa0d84c2cf0b25db1d93"
     sha256 cellar: :any_skip_relocation, monterey:       "a2572bb2b079e002259858088496a61d9bc76d7ffadd6e37b8cbd05cbc3495d6"
     sha256 cellar: :any_skip_relocation, big_sur:        "52aa66cc118dd3c8105ea952276c6227dad47a1634b2c8b533f1b305035f9a22"
     sha256 cellar: :any_skip_relocation, catalina:       "5a2d47563121d3383bf89e2b5c2f0ccd72d90d7df1e54b4bb4c8873bb9492565"
