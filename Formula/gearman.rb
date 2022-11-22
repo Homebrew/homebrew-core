@@ -10,6 +10,7 @@ class Gearman < Formula
     sha256 cellar: :any,                 arm64_ventura:  "df0394804cdf3de1302729a22ea1e9497aa95b338c887f885f74822b04d3a90f"
     sha256 cellar: :any,                 arm64_monterey: "2f0a2a49ce3a773f7c1a6843209a6cd08685cd4006c9a9a42027ba49aaa3e8df"
     sha256 cellar: :any,                 arm64_big_sur:  "e4ead0b0570c3c6d45bf2d819ab72ac18d23818fa738bfde4e85567afccab5aa"
+    sha256 cellar: :any,                 ventura:        "51996bf5e0b52769e10cdefe015beb2fc56fc7050d999218ee937031a0750ec0"
     sha256 cellar: :any,                 monterey:       "2abbf0333fc05b02a35ae4b2a0ab87a477c39594028a7f6a778dbebded6c6b03"
     sha256 cellar: :any,                 big_sur:        "acfaeab90270a909593744b93f070eac9c0a304a72e5aa9e8239a1611fd7232c"
     sha256 cellar: :any,                 catalina:       "70b0a28d14bf035972ad57d124d1bb968c47e016f2788567ee5bb6e44f35e74e"
