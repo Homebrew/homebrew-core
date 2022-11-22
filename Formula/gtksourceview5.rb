@@ -14,6 +14,7 @@ class Gtksourceview5 < Formula
     sha256 arm64_ventura:  "8500a38bde8f2362eba345a641ef494181ca8f9ca9d371d8c3eb5390cb3e447c"
     sha256 arm64_monterey: "95ecf13f25c7b6dba6ce922afea5933b2932d0bc099a69a7c11fff678afa3a53"
     sha256 arm64_big_sur:  "e89bff5608ef32a1e086e088a952f4cad107ea93889b8d50300c4585743bd021"
+    sha256 ventura:        "f8d9d594914e7ad2d94fb44d99a530dcb252e1a02d93dd19a09207dc90a75b89"
     sha256 monterey:       "9ce97c46b9e259a2650e6afad120346ce35b979d781a57352134a877fc8d386e"
     sha256 big_sur:        "326a12dd4ed21e70aa71a5e56c85fd10d0bb88f18f5a550037a958b0ad6af293"
     sha256 catalina:       "b9e031a18b4e9ee7cf66a18f241cb0f589da07639ccc0ee4874b3fb12c32440f"
