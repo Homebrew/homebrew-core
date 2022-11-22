@@ -14,6 +14,7 @@ class Libdvbpsi < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b10d05a1a32a329126bf588f77962518e48a459cb4354881757db39538df3e76"
     sha256 cellar: :any,                 arm64_monterey: "0f7e72f47f7677017fd3a003b0ef61d7d161fdaaf673adefd5a64fb3f83d8a40"
     sha256 cellar: :any,                 arm64_big_sur:  "a61aaac7ff201fdd38a929556c6a64a69993150891690f8ea9532e1b9c9c9ae3"
+    sha256 cellar: :any,                 ventura:        "541072af239fb15bfe435724a85fe273a391e394913c9b73167f0de542003991"
     sha256 cellar: :any,                 monterey:       "16bdd90a4f0734be90ab9e7c0a955913f07ee21dc41cf91666be43301661b1a4"
     sha256 cellar: :any,                 big_sur:        "255b960c43fac14b8a50af513ca3b2925cdfa0e71efa61d2eced2fd172fe8dff"
     sha256 cellar: :any,                 catalina:       "b6e6f300bbc36fabf785f74abb083c5cfc3f91fdd51ee7bd058cc579e709c78d"
