@@ -15,6 +15,7 @@ class Tcpflow < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1f2a7ca46614781861f8c1f9a9d6af8b13320bf9ff03f830fa199ad250a094a3"
     sha256 cellar: :any,                 arm64_monterey: "a41756ac3931a3f64fba3000f2b86a02f844b69bdd41907ced290b9855f97aec"
     sha256 cellar: :any,                 arm64_big_sur:  "6e3f95b6a3d009e8f85c0da483e8759b37190710a4b74f1980b751bec54cd42b"
+    sha256 cellar: :any,                 ventura:        "df7deb202cad6e5c8a51ed01ba5fcf16fddc80cccfda4eccc196bce7b6f9b0fd"
     sha256 cellar: :any,                 monterey:       "73e14653361b7c3276f5f5acd7e79c09982cc0f0d5f9c3f0102c1845bc5e5e95"
     sha256 cellar: :any,                 big_sur:        "b4bd69530d81550d1a428dff981fc71f5a45fd4cc406e9f10dee030e1b350b90"
     sha256 cellar: :any,                 catalina:       "96d3ce376bae12013a22db5a49e71bc45a8478a07ba7ef1bfb1dc1daa33e3bac"
