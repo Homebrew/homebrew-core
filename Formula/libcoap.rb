@@ -6,15 +6,13 @@ class Libcoap < Formula
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "9c223e0327a209a36f730296d7f8c3b31169fccb0ac1694c10c18ccd7678f31e"
-    sha256 cellar: :any,                 arm64_monterey: "f5ab53c8913b63df31cb87635e43d03f98f85bca6957c8a6a4049e39ed6174fd"
-    sha256 cellar: :any,                 arm64_big_sur:  "2756ec8bb7385c9ec8336de194a22e6442bd49eee9aff72b10bcbf378d4eeddb"
-    sha256 cellar: :any,                 ventura:        "8bf6884a5e5fd902655f271158773b435769763f449e713d1cba27b33e86f5fe"
-    sha256 cellar: :any,                 monterey:       "7e4043365c3df4efade4190fee51b4abad482f93c15f490ce8c0deeef43bdbfb"
-    sha256 cellar: :any,                 big_sur:        "164bbd32151a0537ee38a227b197b1877398db08a6f5ad99d3120ba2e0629e4d"
-    sha256 cellar: :any,                 catalina:       "4f7e4b320d8664bbdc4413c2d3407f3fc964f0aaba6a307d848eab61817d35ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bd4c6f410ad671a3a61c1386a4c9ced615dd5765d7b77cafd2ecce6f6a2ef04"
+    sha256 cellar: :any,                 arm64_ventura:  "3bad1beba15ee306b2b2f6245d889aef8c9477ce52f6eb5223338d1390b0e156"
+    sha256 cellar: :any,                 arm64_monterey: "7dd5d4c8918ca7bf9f05c86d020ccfda6fd9cbab6770aa8b693c818b3c4155cc"
+    sha256 cellar: :any,                 arm64_big_sur:  "876e1c10f9a7fab51e2462db44e95b23f1d8ac0085c9cfe02b11181ea64988f0"
+    sha256 cellar: :any,                 monterey:       "f275fc1b8e5aca8b3c179ab40d9a30058df7a501e62530dcd2f5fdf8d47e09c7"
+    sha256 cellar: :any,                 big_sur:        "ff567b66ad0ad10162c4f54561a4a0eaf97fe562efb6ff6b68e72c3973b3177d"
+    sha256 cellar: :any,                 catalina:       "b20f8aa33cdb7f91bff0215748b7c14f10952e7b03a3c56bb9f021209489afc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69dfa73e553e3aa8e22c312a8163b511cf2f495ec99f8d18e18790f4b40da08a"
   end
 
   depends_on "autoconf" => :build
