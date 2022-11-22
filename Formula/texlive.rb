@@ -66,7 +66,7 @@ class Texlive < Formula
   depends_on "potrace"
   depends_on "pstoedit"
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "icu4c"
   uses_from_macos "ncurses"
@@ -337,7 +337,7 @@ class Texlive < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     # Install Perl resources
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV["PERL_MM_USE_DEFAULT"] = "1"
