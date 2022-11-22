@@ -33,6 +33,7 @@ class Exim < Formula
     sha256 arm64_ventura:  "02bbfd3d923e23dd8b9d605ff9f3079b9cbe29150b77c9ee10004c5d4de483ba"
     sha256 arm64_monterey: "1dcfe9e8ff31d30c8c03c2f6db86d29199e3ad3884626e24a202dbf10da5b815"
     sha256 arm64_big_sur:  "9a376535eb48485e2cf30910da5da8fbc422f20790639f643f60195a29ad4bba"
+    sha256 ventura:        "7d030fce1ff8c9326ce679d95f07c1ae1ad429e5b54c3363de23e3b207bf25db"
     sha256 monterey:       "8212b900afb9970de0ea5a666d1fdf524d74f638d8233d3edf375ce13668678a"
     sha256 big_sur:        "2380ffa1a08a087a4ccc85c776fabc661cc377f32cd3fba3ebf79d042ae53727"
     sha256 catalina:       "e49195d49265f2e1941c71c39811d92a329ae04b5ea33c34116bdb1c0723307c"
