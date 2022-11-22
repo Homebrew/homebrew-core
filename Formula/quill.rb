@@ -10,6 +10,7 @@ class Quill < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f881260752e56ab4aada797cd47763f7e75198880477b29b09a4f7215e240f3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "98c0690192fe231079e6dc4158981a6206549745c415a6aff284d7e0a6200e49"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e54d5d7b4deb380ad8c3db42db4aa78627d7079bd87e6ebdf421909f67adf68d"
+    sha256 cellar: :any_skip_relocation, ventura:        "b97fe30b6d490db8a8e3864644994c39b884a155e439ba64b131955555605dce"
     sha256 cellar: :any_skip_relocation, monterey:       "226e3a7b183489b6787fad0b927b4e842eb77a09000a5e03533b638bb21ef434"
     sha256 cellar: :any_skip_relocation, big_sur:        "d096daa04f44428cf4cc7db8004fd2c4e09a8d074a70e26c158fb61a84ac2a70"
     sha256 cellar: :any_skip_relocation, catalina:       "2c5a8faa453435219fbc370aaad3dc1bbbba684f67763df2b0928f3c8d881b58"
