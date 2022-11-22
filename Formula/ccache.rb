@@ -10,6 +10,7 @@ class Ccache < Formula
     sha256 cellar: :any,                 arm64_ventura:  "35341df4e3899eb409b712e1f59826fac4312c78581c016acdcd15515a454209"
     sha256 cellar: :any,                 arm64_monterey: "ba78c3c27dfe4cfa628d0dd799c289056e848e5cbbbc847117f2fae6e33949a6"
     sha256 cellar: :any,                 arm64_big_sur:  "237f9ce565fa10a9bd43038bec4bf035cd44b136a849c45a12a00af18397833b"
+    sha256 cellar: :any,                 ventura:        "ff337e38d7d1a17c55bc60325e0fd197aa1f05b42f34f6180e35756a87e05508"
     sha256 cellar: :any,                 monterey:       "4e58ab93aa6690b1d754154b33c4e2fe457c6c2710aa29c208d1904cdd18f2dc"
     sha256 cellar: :any,                 big_sur:        "927efbcf6927bd90df8e15f4495ae614f9bce3b98601569dc1158cfc9ed5d4c2"
     sha256 cellar: :any,                 catalina:       "acde8ffc90a1c59bfe423720193dd8d4059816f850e0fa01caaa92126d96bcab"
