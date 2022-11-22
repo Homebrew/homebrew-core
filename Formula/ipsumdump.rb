@@ -15,6 +15,7 @@ class Ipsumdump < Formula
     sha256 arm64_ventura:  "e6643af43d1106c2e50a60b58d80997e52623dcfeab558f26e0045ba16a74ecc"
     sha256 arm64_monterey: "1494705fff0bb7937d74557efd7484896a8c87133dad9a4e40ee2ee5b5da67eb"
     sha256 arm64_big_sur:  "6348649ec33f562a3622f97fb7b253d39ed8b3f919a9aa2af8fa84b8d67d765a"
+    sha256 ventura:        "3b5c4c6d9645971bdb31dbaf9e2fa6feae366d34bf2c1d6720af1d8cd77a9062"
     sha256 monterey:       "421b6575ab2ea358e7dadb1d43f2519efb2e8f8353260c3e2b83e7d4610d3841"
     sha256 big_sur:        "f3302bce45a3eed980b7c07d05eabc9088a469cd07528c5e1f32a52474b6383a"
     sha256 catalina:       "bf3d17d0d8bd97b75c44fd7929e348e096f3f1ac6a94ff31e785eb1f685db041"
