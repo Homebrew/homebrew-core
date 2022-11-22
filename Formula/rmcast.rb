@@ -13,6 +13,7 @@ class Rmcast < Formula
     sha256 cellar: :any,                 arm64_ventura:  "07939c86d1018aeb45c483ea2e96514f24cc92fcca30f5ffe3ebdaa8f1a53b9d"
     sha256 cellar: :any,                 arm64_monterey: "bb3d3a129e3ac532f960335c23adb657e333751efee7243577c772f92abf31a6"
     sha256 cellar: :any,                 arm64_big_sur:  "7edab23a8770a245b0f06197b2d46c4777b8fdac0f39842ce619c56d74f1eef4"
+    sha256 cellar: :any,                 ventura:        "cecc9ec050585780015df098cbea1522dacdca625a2e9ae621b47bb975e5f559"
     sha256 cellar: :any,                 monterey:       "5f88f10530ed8ad07b13c512fba7310bee880f8bd138eac08d7fd37bb3be35e4"
     sha256 cellar: :any,                 big_sur:        "b2cc007eec98b5e422a7948e9e680f3a0d7c622eb4703f9b2bae6c867635107f"
     sha256 cellar: :any,                 catalina:       "e2054828627f6afdd376cfd276536c770b8dd77b082a44c5b63212e8dff84351"
