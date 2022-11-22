@@ -10,6 +10,7 @@ class Libffcall < Formula
     sha256 cellar: :any,                 arm64_ventura:  "cb0b3113b4075bd871c9dbc7c1c0af213e77b700aaedc4cf5532b1944015defc"
     sha256 cellar: :any,                 arm64_monterey: "58dd56d1ab429bde2b8078bb3737682b57a37a7d67b70e8c27bcc023f988e2fd"
     sha256 cellar: :any,                 arm64_big_sur:  "d7ace5f73fe02c38febe33718fbb293e765f7d1909763b39dc280d410e2a1488"
+    sha256 cellar: :any,                 ventura:        "ee2b7df162625a59cd9ac90a61a91a238138cf244a385c1c94dc50d90319d546"
     sha256 cellar: :any,                 monterey:       "947d7c231e88bbf9a4037e15c75abb158334b895efb9ea15e698e340e0d95f6b"
     sha256 cellar: :any,                 big_sur:        "61cb42231c842a5559808582e374420e058fe76cc60b47f08b383c2751536caa"
     sha256 cellar: :any,                 catalina:       "1412d8bb030690981a6322f18a3ef686aaa3f7b1ab3e390be2767e83cb5160a5"
