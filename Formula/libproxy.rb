@@ -20,7 +20,7 @@ class Libproxy < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   on_linux do
     depends_on "dbus"
