@@ -11,6 +11,7 @@ class Esptool < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3d167b89e510ed1950529a16b9a4aa87b0d7583f0ccf0a66472d6de2566c9f5e"
     sha256 cellar: :any,                 arm64_monterey: "57ac2459b31f69990c8ab54473db7291ce508ff6cb550b41de4ff428151783ce"
     sha256 cellar: :any,                 arm64_big_sur:  "0fc57a01edbae3e453d5245b7d0d0d6d2514c789476b7e67fd0d197692241871"
+    sha256 cellar: :any,                 ventura:        "55c5fb53d149f23c93660f9df7efc7f688925a0f6035a1ab696665b12728ad99"
     sha256 cellar: :any,                 monterey:       "a62ed1a748150306f25bc1ef215dcd3c6fdfea1d9ed47ca2b1393af7a2d2dbc6"
     sha256 cellar: :any,                 big_sur:        "0ad1dfdfc004497986c92ed91648e9ccecea40178cb76d41f66f0abb179b428e"
     sha256 cellar: :any,                 catalina:       "7d089d9bccd904989b887c819a0dfd6d6b9876a644123039fd6b25cc31b7004d"
