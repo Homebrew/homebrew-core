@@ -15,6 +15,7 @@ class Librcsc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "843e8fa7ea1ce56071294f4a7b833ba4367ae3bb6363af83aeaae7f6d52d7636"
     sha256 cellar: :any,                 arm64_monterey: "6ed80637e973c59168c069fabeec0634448c8c161120c886f62cc3a498a5784e"
     sha256 cellar: :any,                 arm64_big_sur:  "833fe11162a367e783177275011d5156933cb33c29c34d423237a253214f5552"
+    sha256 cellar: :any,                 ventura:        "6ac4c039117d05a0abdbcdfc09ac868667491fb670690929fc2597ffeeedf6fc"
     sha256 cellar: :any,                 monterey:       "5997731a4b6f409b301ea5014d41e53611048a5c8b8e59c78a31fba4f74626c0"
     sha256 cellar: :any,                 big_sur:        "e1af394e5832c69c864b55aece45a9a3a29664f32d28a20fb18f3e809eb01a31"
     sha256 cellar: :any,                 catalina:       "621b412c1c5c6623fef7b37e179dc75b47169b4a1007384aa2985daee09d6176"
