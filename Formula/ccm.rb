@@ -14,6 +14,7 @@ class Ccm < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "caa73c15f42b4bbde8b8c8b4a8e63bc73caec21fba17f4691ed872a4ee9772a4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8f1195eed8bd7612ed15b923ae39ff629a43902e6b954e313d5bc8bb2bc3f56"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbca70057fa9839396627d7780da959a3d017c435e9017e4a908b1a0832466aa"
+    sha256 cellar: :any_skip_relocation, ventura:        "00666fc11e3498143856e368a3d0b3e78ac6e797402b601962a108254c069b8b"
     sha256 cellar: :any_skip_relocation, monterey:       "5965d7c0684c03296b7f466a00c1cd9c0c2a5d5639aa97ea6cd9fb571e334123"
     sha256 cellar: :any_skip_relocation, big_sur:        "a18b40aee5ee0a8870a62ccedf5c8b5c2c55dc41ac907df7ff0843fc6b47fd38"
     sha256 cellar: :any_skip_relocation, catalina:       "d9f1096165bae0521103449c5c1586f945d628433d3884afaf14d23e56c25e0a"
