@@ -13,6 +13,7 @@ class PgpoolIi < Formula
     sha256 arm64_ventura:  "f859b822c4e63812880a2c1a098095bd3b7359cbc12b8fe150f1c7e3fe561b60"
     sha256 arm64_monterey: "eedfa1554111d90bae8aeff5a14169b69823ef348672c4cfc554a03c6ffe6775"
     sha256 arm64_big_sur:  "6ba946c5d04acd2bd5101d9d3b882d58f4a4dbae5ba92f3f5d96c5bfec7821ca"
+    sha256 ventura:        "d645c5c43f080dcf0ed0abd8802076a5de7963708c98839d6d5c0c7ff31ce1b7"
     sha256 monterey:       "82546227f35da4d840670417ac58917fb2d393b1ae8467d6281080d24fd28850"
     sha256 big_sur:        "361c2fa788bbf27fdeffa1e7b75b83f45c32a7b4651b6e4acd20f0939f4bcecd"
     sha256 catalina:       "d81047a9c76402e976246f7f3ccc48c0fd0943e9957a7b02ad1e78c16379d412"
