@@ -9,6 +9,7 @@ class Typespeed < Formula
     sha256 arm64_ventura:  "5b61f01011a8cd0315d07703f8efcba7fc009f9efa4a4c7a75254a1ac239e681"
     sha256 arm64_monterey: "f34485cb16d4e55ec320c2ed3a5a0f5c681a73ef7950c8f8c609b7b93a8a34e8"
     sha256 arm64_big_sur:  "bf2143006f2dbbb230b3c899a77fc98c1a056316fc957f195a5fb4b27c388947"
+    sha256 ventura:        "346b2433e18fde5989536ed95707edf90baa445b61edfcc40f8308edccbfece5"
     sha256 monterey:       "f369e235804129a758d84d47415d28bea243b3579cd96bce8a3163b44739eab1"
     sha256 big_sur:        "a1624c4d927fda389aceec074f743e73bd10417059764d480141a88fab23bb82"
     sha256 catalina:       "cff9da11f7441f1ff4db7cbfa57f0711ff0bbe08a80ee7067021c619bc01cb06"
