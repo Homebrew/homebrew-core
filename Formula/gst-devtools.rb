@@ -18,6 +18,7 @@ class GstDevtools < Formula
     sha256 arm64_ventura:  "def50d0cb223897a3eb61986e6a47c9738e2a070863d53976cf99ab11bf8c4e1"
     sha256 arm64_monterey: "3095ec9f22237b0c5404954ac1ff5200040eed7917b182229c31324250cc4b75"
     sha256 arm64_big_sur:  "9d0bf56c0adaafd48d91edcd36ed78de13acf92100471af791a6b9f3b49f1789"
+    sha256 ventura:        "e33ccbd945ec00ccc134fc262ae34fc30c0e895795109e9ab397b2ce0528a423"
     sha256 monterey:       "0358177078512fd1bde0aa1ec4d4bbf1bbcfa7578ed522e463ab707902c85cc2"
     sha256 big_sur:        "f03b752496981a59428124478fc5dc1595137fbf8d69a3130fa2d19602801eb4"
     sha256 catalina:       "cd0dc00c2cef759be7c1bd4ec6efd81f14258ac781696f457d80ec37fa9b2972"
