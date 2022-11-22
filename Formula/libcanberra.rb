@@ -23,6 +23,7 @@ class Libcanberra < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1874b238a6e087b86523eec9845e8ea16934041295bf2833ae676261dc186204"
     sha256 cellar: :any,                 arm64_monterey: "2407b2f3645eb6d00b7aec1ea237c48a0e7131c8b8d7e5b5d3e8f97d4e07b8ad"
     sha256 cellar: :any,                 arm64_big_sur:  "2183cecb64492002ff553ea1e4cc74be23921dec369d86c37c0950b8cdfa2fcd"
+    sha256 cellar: :any,                 ventura:        "07441e73895530de938f0a567885882ed7eef3a3709266b641ab60690f253f84"
     sha256 cellar: :any,                 monterey:       "0da5077b448fcb7b6971cf9544872d5670aff827c8150ea9782c0aebbcb6b1c1"
     sha256 cellar: :any,                 big_sur:        "37f03c26282f804ee5d3c1ae6335c53b494cc89418c017ea3ff3e7c1025dcd12"
     sha256 cellar: :any,                 catalina:       "34ff83c6dc8af0afc1f1988ebde1ccb4c17d4604fa6d36567daedef43da3047d"
