@@ -9,6 +9,7 @@ class Libgadu < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ea113337d33a26b40502ef72b239b0e7eba6a01290372cb70f857e21d4daf2f1"
     sha256 cellar: :any,                 arm64_monterey: "74b16aeaa51b6e018a7548cf7e9197836af9b6da578b86b44917813a23fdf380"
     sha256 cellar: :any,                 arm64_big_sur:  "e556444015bb575c2d7efc07815f72141da829fcc67262238f72257110226c99"
+    sha256 cellar: :any,                 ventura:        "c1e8f89093019a8904f82e94cb054280ee125ee99965cae3dd48ede9f777f137"
     sha256 cellar: :any,                 monterey:       "229f1b486e46ceec14e6480aa9b3c727639a42caceb6cd556cb56cc2b8d7eabb"
     sha256 cellar: :any,                 big_sur:        "d9f8198b7a7640ec47933ebbb7d4cab50bc0f29fe20fa88126e6ecd6b116d62b"
     sha256 cellar: :any,                 catalina:       "afe9b94a62b55c700f57d853d077be96a901b450faa7ff9585a43397cacf838a"
