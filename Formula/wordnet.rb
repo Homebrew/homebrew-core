@@ -12,6 +12,7 @@ class Wordnet < Formula
     sha256                               arm64_ventura:  "57a8ed88c01550f3fc44dd887ddd4ae3c9bbad47ea82c2793bfe167506aacfb6"
     sha256                               arm64_monterey: "6a7414051cb0af96f5b507dd61cd79fa9e63bede15c658bd20569171900e57d3"
     sha256                               arm64_big_sur:  "48c70e44e65ff918d9a7c59999af788a00a29ed67419a411c789ae8e2f29684d"
+    sha256                               ventura:        "897d064747be59d81b16da0b4dd1e34ac187c1d14d3c55399e66c04b3afc503e"
     sha256                               monterey:       "08b97395fa2463e0647a18617f694de1a8cdba61657681e416fc3e96d6df157f"
     sha256                               big_sur:        "603c49d51a805975f31491b9f0faec95900cc9bde2042a3ce042c14ed4a2a808"
     sha256                               catalina:       "56264f8aa182e0fb8d64b0166e2583465b6e373b5d69c7e2247e5ec011467a91"
