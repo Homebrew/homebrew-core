@@ -15,6 +15,7 @@ class Libcdr < Formula
     sha256 cellar: :any,                 arm64_ventura:  "cf2e771405921f6b7794f5b8d841d7a53402c6f236aea40cf37b269448186694"
     sha256 cellar: :any,                 arm64_monterey: "d989d83c9a258d96ac00a54a25a7b71c2cc3fde0c79d7c265ad92f856c4965b9"
     sha256 cellar: :any,                 arm64_big_sur:  "f81e9a7ceeaaa6d1fca79a35c1a6c8f1d082e710d5563ab4cd5fb71b38e5ad8d"
+    sha256 cellar: :any,                 ventura:        "906eccb4f2b71dc326efef9316303d28db4cfaf20f6098d86bf60057859e315b"
     sha256 cellar: :any,                 monterey:       "b15778df4e7ada6bd037466bf5ce04ac7d598dd9beafa00d7fdd59c0f023aa77"
     sha256 cellar: :any,                 big_sur:        "09cf51a1689edb6f7c3114dd02462e3076ffc81ddd91b2200fbcd49644a26d8f"
     sha256 cellar: :any,                 catalina:       "3f609d4dd59bf7bba036003ab23c99bfe91768bd55a4ced75e94cb1bcc947ec6"
