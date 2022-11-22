@@ -17,6 +17,7 @@ class ClickhouseOdbc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "646ee4f8ebc0df78b212c1ee74bd7a74ca2328ff015d30e768e696bac69ad7e2"
     sha256 cellar: :any,                 arm64_monterey: "12bbf5b2cfff9719b1b152fbaaeade5402dd00e3c1afdce26fe1038d816e62f8"
     sha256 cellar: :any,                 arm64_big_sur:  "f2f916066c47b770a833c6f57fe454fed0651404a3d7d661fca046b0d144e95d"
+    sha256 cellar: :any,                 ventura:        "189a8c47018d91004450d3126eaa9b6b2d04916f6c7e98688481fef460213e36"
     sha256 cellar: :any,                 monterey:       "c74cd3c21681d3ef719f093a0906b992c7f84f5da72a77e81875f97111f06a50"
     sha256 cellar: :any,                 big_sur:        "5d9076057b916ff473394f93ba6508e5c16e9b21a9b1925466192de0f1e9f94a"
     sha256 cellar: :any,                 catalina:       "340093f17757dc9016aea7083da93c1fbe5f51bfcb44978c3906519334951b8b"
