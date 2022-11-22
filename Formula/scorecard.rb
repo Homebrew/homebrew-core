@@ -11,6 +11,7 @@ class Scorecard < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "afb842c7ac3ac77bf741c9b2a4e132ce45641f1c7adaa8516b50cb4b25fe5ff1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "01b3f14d980a5c35a388ac305739135426709ace3ff8ae79676e084bafeff2df"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ac2829027a056b4fd660c0ade94b1ce26f34f8d99bdf8850c81739325ea5d69"
+    sha256 cellar: :any_skip_relocation, ventura:        "b69296248f8959a90a8d05d45fce7bfd90e93011dacd43c5785ae9468aba503c"
     sha256 cellar: :any_skip_relocation, monterey:       "59a1cf1bbe9a4e3fe1fc66bfafba7ee205cf6e26bd3b5663ce9962806cb7353d"
     sha256 cellar: :any_skip_relocation, big_sur:        "983f70f41793c186febd3b9bfec30378dc3bd7d14fa970e22af1be38259277c6"
     sha256 cellar: :any_skip_relocation, catalina:       "ee16271fd5ae1537adea820d0add2f9dd54fe00cae18eec20804c8692e70dc4a"
