@@ -14,6 +14,7 @@ class Todoman < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bc11977db8556b8020aa4d6a3c7191edd4c109371128c308f692d85523631c4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a3af01329308dd8810449d967d022f2484bf56d342e42f44e8aa7b06cf086ccb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98016df0d18a908c967133abae1a68baf130c035be4918cbbf08b1bab0056905"
+    sha256 cellar: :any_skip_relocation, ventura:        "f5cff41e9eefd51bbfdeb4de363209509ab9c7cceff30408522f4ca0ec5dd522"
     sha256 cellar: :any_skip_relocation, monterey:       "923854a7c40ad012b95d7da8148bcb010a1dcb9cc26ece944e324d26cc43b27c"
     sha256 cellar: :any_skip_relocation, big_sur:        "590e1eefc3398921e37e4243aa4a8f6a599227482709fcff26da4dfc61d5aff4"
     sha256 cellar: :any_skip_relocation, catalina:       "8fa7ef05501e43aefaee1d0419886b432927ffb2a879d411cfbe1ca9c3d499ae"
