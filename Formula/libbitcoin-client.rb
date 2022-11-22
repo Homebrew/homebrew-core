@@ -10,6 +10,7 @@ class LibbitcoinClient < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b89e10498e220be618efdacc2e33d15d8d5cfe54b7b1986fde9e16c180c92c02"
     sha256 cellar: :any,                 arm64_monterey: "c39d34c74a9162ff8fe454100407ff6aefe8dedcdfd144df5435ed321d1a243b"
     sha256 cellar: :any,                 arm64_big_sur:  "9940b9110b8ff68a6be7c67dbeabe7c7f8d42114185990d637753ec799ac2a92"
+    sha256 cellar: :any,                 ventura:        "4d5874a7e85e5bfbd3dcb988aa0549f9e80ab0ecea08388d3d1b8a9b0cf45246"
     sha256 cellar: :any,                 monterey:       "da7f7247c47202c3fa6d43ab62a815a1514b8453040776844df05688462ce583"
     sha256 cellar: :any,                 big_sur:        "9b9131622c37929c721083d3ae02d5db5b74d47730617ecdff0e5345bd326b56"
     sha256 cellar: :any,                 catalina:       "d0198baac9163a586987faf548f8f27f1918291a3454ed2e397a7c6040b87170"
