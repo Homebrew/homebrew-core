@@ -14,6 +14,7 @@ class Vdirsyncer < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd43a255f3ad916c9245c960807735b0f35ee29f9efb449b4caadc8d9560b59a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8e34eb4b43eedd1c8720875cf4773309e878f1dc75200a77b58ddf496f99dec3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ff47f93267a860f72c7d14dbf285de3ae4910e7cd531986307bb5b1037a556e"
+    sha256 cellar: :any_skip_relocation, ventura:        "fc83c7407d0e10a9630ee944a9144e76ab25d25fcce6a659bfd8956134493ef2"
     sha256 cellar: :any_skip_relocation, monterey:       "8864057f7f25b54126526d698f6301905ab5a76d30e0a96e706011bd93bf82b5"
     sha256 cellar: :any_skip_relocation, big_sur:        "b6a1585c290d0085dc140d7b1aff825bb05fbaf349fabc3c0923195bc8103ab1"
     sha256 cellar: :any_skip_relocation, catalina:       "6c9a7abfceff287ccf60f55fa08e45f58b993c9c4e15cd88d49f379b67df8491"
