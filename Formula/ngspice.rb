@@ -3,6 +3,8 @@ class Ngspice < Formula
   homepage "https://ngspice.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz"
   sha256 "2c3e22f6c47b165db241cf355371a0a7558540ab2af3f8b5eedeeb289a317c56"
+  license :cannot_represent
+  revision 1
 
   livecheck do
     url :stable
@@ -30,21 +32,25 @@ class Ngspice < Formula
   end
 
   depends_on "fftw"
+  depends_on "libngspice"
   depends_on "readline"
 
   def install
     system "./autogen.sh" if build.head?
 
-    args = %W[
+    args = %w[
       --disable-dependency-tracking
-      --prefix=#{prefix}
+      --disable-silent-rules
       --with-readline=yes
       --enable-xspice
       --without-x
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+
+    # fix references to libs
+    inreplace pkgshare/"scripts/spinit", lib/"ngspice/", Formula["libngspice"].opt_lib/"ngspice/"
 
     # remove conflict lib files with libngspice
     rm_rf Dir[lib/"ngspice"]
