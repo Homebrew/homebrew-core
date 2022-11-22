@@ -12,6 +12,7 @@ class MuRepo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6812873e9642055410a5a4f71928affeb2720b147c4567e8436529c1e2867ec1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6812873e9642055410a5a4f71928affeb2720b147c4567e8436529c1e2867ec1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6812873e9642055410a5a4f71928affeb2720b147c4567e8436529c1e2867ec1"
+    sha256 cellar: :any_skip_relocation, ventura:        "69148e98fc1134364d9bf43e8264fd71ce2869af08ff3ac5f2f41eb802e2b062"
     sha256 cellar: :any_skip_relocation, monterey:       "69148e98fc1134364d9bf43e8264fd71ce2869af08ff3ac5f2f41eb802e2b062"
     sha256 cellar: :any_skip_relocation, big_sur:        "69148e98fc1134364d9bf43e8264fd71ce2869af08ff3ac5f2f41eb802e2b062"
     sha256 cellar: :any_skip_relocation, catalina:       "69148e98fc1134364d9bf43e8264fd71ce2869af08ff3ac5f2f41eb802e2b062"
