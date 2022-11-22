@@ -22,6 +22,7 @@ class Kdoctools < Formula
     sha256 cellar: :any,                 arm64_ventura:  "547a0e4a16921e034d3a0d8ac3d19a8ca620f13ac2ed39983bfbdac3fe94a929"
     sha256 cellar: :any,                 arm64_monterey: "26ea9a1eda9a13708e6a6ad31a0b650c31f75c58b6f00add77e61a2c42e92b87"
     sha256 cellar: :any,                 arm64_big_sur:  "41fbb1a0918a3ad866cafc0e6c85553fab7f382ab50a5bdc10bec01c12da3ec1"
+    sha256 cellar: :any,                 ventura:        "821efbbce169e5c11fcd8cf72d3f7b5d676f816d7158b3283bacdec4b2774698"
     sha256 cellar: :any,                 monterey:       "5b72837b998354940279eafabfa2e836ac14bc8aad39febe9e4b5d25f72dd368"
     sha256 cellar: :any,                 big_sur:        "78aacf72356a0f7d712e1372c26c37cadec5387f976196721d022c18b60fec35"
     sha256 cellar: :any,                 catalina:       "66a759985b5bb0b6a611751a7e3a1bbafdf21044439af4c2f60ee50d2fc8d0ea"
