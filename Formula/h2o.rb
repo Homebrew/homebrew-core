@@ -10,6 +10,7 @@ class H2o < Formula
     sha256 arm64_ventura:  "c03e1941f5138d1601fb16511c1a709086fe70d20b49b031e93c93cc581239f2"
     sha256 arm64_monterey: "2dbad9aa8ba17951616a2b93dfc52b707ab0e7515cb9ec6efa43fc260edd1786"
     sha256 arm64_big_sur:  "c58c917d16ff1fcdde97c6bbf8c2bf5337120dc6c8a233f23be20096e9546af8"
+    sha256 ventura:        "ad6c689ce2b91644f70266d392fe570b5aef350b41eea2c33117af4289adab9f"
     sha256 monterey:       "f4d194b0192c88a258becd40eff437c36991fad0013afdec891e4c8fbcb5edba"
     sha256 big_sur:        "63efa37625758c8df46dfe344b8010d8117b687d62cb2ee9ed0973d609116d85"
     sha256 catalina:       "a60e3af7351adeebc4b93d0ae14229890734398c1b65b4198e4d6263a16d918d"
