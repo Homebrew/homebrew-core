@@ -6,16 +6,13 @@ class Libxpm < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8415ca95daa747940d5a7d18a9ab237872513cf8e67c1ee716290ba47f037650"
-    sha256 cellar: :any,                 arm64_monterey: "8b1e709e3a1c65e21f58ab2f43174c67a1528aeaabac6af88de7818c3ed46f34"
-    sha256 cellar: :any,                 arm64_big_sur:  "a776d9437e8557afeb4dd8e1e91e439ff049df1d8d256af9c34be49843ef7591"
-    sha256 cellar: :any,                 ventura:        "2bcabf2714d222d8405df214559845632803d80cd429c1eabd241d7800969487"
-    sha256 cellar: :any,                 monterey:       "4e4ffef5d95c5ef0e30408c1b00aebc0455fa08fc77e5158bcf326b4a1cbcb2e"
-    sha256 cellar: :any,                 big_sur:        "484557bf3ce403fc097a70127b9db08cbed9b39372263493588e1539b60ac631"
-    sha256 cellar: :any,                 catalina:       "fbd3f2bbf058c081bd35672c0129a33efa38b7e599726be145d0b8b818549516"
-    sha256 cellar: :any,                 mojave:         "c3f788d5e8d2f0ec940af7c758acc0efce194cf526b19ab64bdeaba55e1b6793"
-    sha256 cellar: :any,                 high_sierra:    "72d7dc1306010048b85b9070287e8c9d5f5a24308b1a413080a4e129aa9bcc0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd04dae0697e928535158273fb70b168c732b84d395ffd28f5a47835fc9bf536"
+    sha256 cellar: :any,                 arm64_ventura:  "f66c7c37f350124dadf52fd095e82968c2c1eea5578700f42363467c3d032345"
+    sha256 cellar: :any,                 arm64_monterey: "b61cb17b276c4022b041f0cacf3574ebf7828eecec90c50ce2994238071bdcac"
+    sha256 cellar: :any,                 arm64_big_sur:  "45de39851d4dccde446173f2df20e89a7588fd3b9029f3f8e6bf0e3976b05ed7"
+    sha256 cellar: :any,                 monterey:       "1b4e170f0804f2223320b204b8dca5276af8b5d88b301c3cc696c8e2962d75f0"
+    sha256 cellar: :any,                 big_sur:        "1c5c57e3d6ecc16842a5bc30e3fe13fcb79b6cd9226815d5f765165806532153"
+    sha256 cellar: :any,                 catalina:       "a5a896ef27db136e4c02a033fe254aa888175410e60826b0693b4913852a30c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97bf7345dd7ef36d58d873c15a5845d1b7523b0730306ee4ed290e62958c49e8"
   end
 
   depends_on "gettext" => :build
