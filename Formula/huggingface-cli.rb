@@ -78,7 +78,8 @@ class HuggingfaceCli < Formula
     test_cache = testpath/"cache"
     test_cache.mkdir
     ENV["HUGGINGFACE_HUB_CACHE"] = test_cache.to_s
+    ENV["NO_COLOR"] = "1"
     scan_output = shell_output("#{bin}/huggingface-cli scan-cache")
-    assert_match "Done in 0.0s. Scanned 0 repo(s) for a total of \e[1m\e[31m0.0\e[0m.", scan_output
+    assert_match "Done in 0.0s. Scanned 0 repo(s) for a total of 0.0.", scan_output
   end
 end
