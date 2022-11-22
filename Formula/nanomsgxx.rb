@@ -10,6 +10,7 @@ class Nanomsgxx < Formula
     sha256 cellar: :any,                 arm64_ventura:  "edb680fdffb9c416a4d16175673b8a94f1ad2c84a668ff3814f749a811f98889"
     sha256 cellar: :any,                 arm64_monterey: "8436ab0a7b9ed4472dfa37e576b2003510ca115e1ae686b2352d3bb00c351d92"
     sha256 cellar: :any,                 arm64_big_sur:  "722cb87d23c8dc14f3be995f3a83d3c8da43a2b76ebf621d57c27d63ce7c2598"
+    sha256 cellar: :any,                 ventura:        "b3f6da0864f1363f4841affd17e32669c718e39865e5678af6fc968799e0fb96"
     sha256 cellar: :any,                 monterey:       "2cfef95f0fc27d9d297a50191ae3d8e1d69b9a8f80ff3f34bc6bb90a9626a41f"
     sha256 cellar: :any,                 big_sur:        "6509c8160cbe5dba38a77d3adc1f1d5d515feff427bad6441992dc40cb5b4d1a"
     sha256 cellar: :any,                 catalina:       "0c377d26b223a21b48d90920818baf7b241ebadfac8c60a3420e0c3054df7401"
