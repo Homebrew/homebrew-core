@@ -10,6 +10,7 @@ class WatchSim < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0bfc458d4d6388c5a56247f39d543f46a28ec27031a2c28da38d29a729ff74d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c5ce9e4c33120183ab5666c3a33b4c98550d4dbfa2da0f8aa8c0b265ce6e985e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a615d042db08236fe150fc21ecc8ac12979007f851b90aa85faa4f7ba75474b"
+    sha256 cellar: :any_skip_relocation, ventura:        "0acbe748d776213a08f8ebbd082a12649edc1f848d7db02133df2edb36974376"
     sha256 cellar: :any_skip_relocation, monterey:       "6b1c014eff643254d48164c4aa1c1289d0bb4f30879f267982c3871f65437cb9"
     sha256 cellar: :any_skip_relocation, big_sur:        "4dc3e4f2872aeb25d3d4bcb22aac1012730b468543d351d0114498d8211b7f0c"
     sha256 cellar: :any_skip_relocation, catalina:       "bee9797e2c3a52b7dea9b6c5158bb78485b7ee10af530f84d81f31e20babf894"
