@@ -12,6 +12,7 @@ class Csfml < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0b5c92332e9fc998f9c548de0706f4d7bc230b582691789c19830ee44fd0bfa2"
     sha256 cellar: :any,                 arm64_monterey: "c4fea6bf57896674c9c9abe693aa48edc8fb265607acbb6eb296d7c9bb75937f"
     sha256 cellar: :any,                 arm64_big_sur:  "5da07203f213b3cd0f89cf61d454ee5fdcc0579fa033185b5b7bb4d28265c867"
+    sha256 cellar: :any,                 ventura:        "dede71e2be0599798a98e6887ae7a729d9c79e393dc516c4411fcea2e7458402"
     sha256 cellar: :any,                 monterey:       "0e28a1870c7025c51e561274a2623e259813fb0754fd81406d379e3bbd31b360"
     sha256 cellar: :any,                 big_sur:        "0b05f5e20a8a84a0343da2ef5a0ac7ea33cc45359b57fb15d5265ec019baf048"
     sha256 cellar: :any,                 catalina:       "b77291facbded3e67f15271030cd251fd3f59e6a79f6ac4012ae55f77e8e2032"
