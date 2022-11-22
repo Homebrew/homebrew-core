@@ -9,6 +9,7 @@ class Guichan < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ff8971a12e820a77df5f570dbe145fb5f1046d851d713d8f26f89030429ea93a"
     sha256 cellar: :any,                 arm64_monterey: "917384f24bef699687d0cdd48867f03733db6aeee593537da519360e250fd22e"
     sha256 cellar: :any,                 arm64_big_sur:  "3acc3607e1930e9864934244b269370ffc35081c10138daf9b61254195bacc7f"
+    sha256 cellar: :any,                 ventura:        "5415af4555a0b2bbacc69dfba87485659a55dc3d7a80c24599a172036235da5d"
     sha256 cellar: :any,                 monterey:       "1ef2ef362f796f72ba510c5e1878e8b290846bec405e7b5240e8485971ae6950"
     sha256 cellar: :any,                 big_sur:        "2d4f9b296640bffe66b4eb09642ab499517d050821de8299da838937f8611542"
     sha256 cellar: :any,                 catalina:       "93a5e8526479a48a82a7890393b2e8871e3cb2e4dae4fae4bddb964177fe784e"
