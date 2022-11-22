@@ -13,6 +13,7 @@ class Mdf2iso < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dad8470649a9874ce6321736a6a14d4a76cd2ea1ca5c379cadf10da1ab45c8b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7952ed81c8034b504bb0e55e147e2f601990494b35cfe1fea3ba3c2cd006bb0c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f37a97303ac1ff9388377bc91cf1e7f278e94f1245d38f96dc19a3b81c81f76"
+    sha256 cellar: :any_skip_relocation, ventura:        "143253bf20f183053fa47c7f6ea2a4fe0e93b218d86066f820f84004257502f8"
     sha256 cellar: :any_skip_relocation, monterey:       "60af1882c7912a64f4c1c79bf5fa6e59c0d1f01d8fc93e29cde28e3d564bf093"
     sha256 cellar: :any_skip_relocation, big_sur:        "204334f29ddd79b10b91e2d844e2d20507f315fb4d39109dcfbe7747b3fbf64d"
     sha256 cellar: :any_skip_relocation, catalina:       "ac57f5ffc3e1ac884d74b08dddce518e60f878e627cbfccc7dcb4642c5eb0653"
