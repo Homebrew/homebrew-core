@@ -9,6 +9,7 @@ class Aravis < Formula
     sha256 arm64_ventura:  "a228f73aa58f4472a371c70f9c64b2b4d65792ebc7be1fad5b8281d015e383ce"
     sha256 arm64_monterey: "01de5ba5556bf268d71cca75711dc4c698c40b1d9fffe4cc4a7885eb1adb2c10"
     sha256 arm64_big_sur:  "d2fa5781b57ee6332cc6f678369d25a4d26d6f579afac2f9875e42e045a13984"
+    sha256 ventura:        "c3ba500b92aba703f1edd829bcaeccb7e188afa368ec0cb120daddb2f888d8f3"
     sha256 monterey:       "dfa5542aed3674193dc577688156dc226d647fbcff828421504f6264d43f0108"
     sha256 big_sur:        "802ecc915a61af9b7933efea0cb0db3ae7db633decceb6ab898550c2db3be7af"
     sha256 catalina:       "a2ce71068e705a49d9a3e728729f2c1d947bf90b45e2b2893d007309c3db4780"
