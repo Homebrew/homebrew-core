@@ -14,6 +14,7 @@ class Abcmidi < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5bb8077d6cc0a549a924b076d41fc2244a4771cceb0632ea8bca7d88e492b8ef"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5d3b9cb25733443207fad61b61b264d84b7af219db13706629d0cea3484b49e6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c2480430d0a5a00b6c06df940bcc49d3d0e85bdcc06a8bbb4e45b4297db8ca2"
+    sha256 cellar: :any_skip_relocation, ventura:        "3c8b6700316a43cf6dfaac318ac7fec1fe37b48bdadc60dcad9daa8dda1d85d2"
     sha256 cellar: :any_skip_relocation, monterey:       "8f4220120dab7f6157db034fbc4e18bce0760fc6e957604b30bb82d12ed8ea6b"
     sha256 cellar: :any_skip_relocation, big_sur:        "eb82591a23a317227699ac5b8fc27f944a4b3d61d10d97b832b99206905c959b"
     sha256 cellar: :any_skip_relocation, catalina:       "7be30959e86a787db2b8a2f15a24bb265ef1bf700c7a9e904aa992bfed7a6463"
