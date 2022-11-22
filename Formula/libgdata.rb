@@ -11,6 +11,7 @@ class Libgdata < Formula
     sha256 cellar: :any, arm64_ventura:  "5e030516ecc07a1b31b7db82b7eeda2d828f8a742f5daf9c1aced0dc33b4fb4f"
     sha256 cellar: :any, arm64_monterey: "b262fab7a6607c82f01cb2c46098e6acc0cd0f8ee50f34d56789df69f5f03bc7"
     sha256 cellar: :any, arm64_big_sur:  "b5285aafaa3e8096eee5ffebd4c144e01b0a61d9e7d510dbdfbbd7acde33a3d8"
+    sha256 cellar: :any, ventura:        "c99a9af5d3dc41104d3f334fae4b64a74f20bc76fc20120c0ae484f761209ef8"
     sha256 cellar: :any, monterey:       "51f3dd89ac7e6c40a35c0c629ea385a558942d00eff37864925c038b0d185eab"
     sha256 cellar: :any, big_sur:        "02e1ac992638692a58f8bb8313168c8e62117e6bab46ba447fc52b16b3f0127e"
     sha256 cellar: :any, catalina:       "45066a1abdda5d00f7a6a41f6e1b1a3bc40e9faa2de3701372ac237ce776eb8a"
