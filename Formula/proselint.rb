@@ -14,6 +14,7 @@ class Proselint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "53c5150a7e3d4482836d9fd72cfdc4257ae2efea60f12af941874045aa05a069"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ff8f8f8ef7bb4b0fb56369770bd24e6516044d0e403d9a5a7eb72ff73bed9e3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6e14cd993003d73da10b027c1b970c53d99506cd0f1b773c67592d3e12b8681"
+    sha256 cellar: :any_skip_relocation, ventura:        "3990779414e97f32ac8262b906fdb3f24bcc890b7b4e2692b19b34d10464edab"
     sha256 cellar: :any_skip_relocation, monterey:       "5855ad203a93a97d78b54b9fc22efd40e9fddf8f51aae9c7d20f7234a3c62f82"
     sha256 cellar: :any_skip_relocation, big_sur:        "097182dbeeb8fcaeaa3b3bd40b690cd9f8026c760bc177b8d764f346e23d1c76"
     sha256 cellar: :any_skip_relocation, catalina:       "880b7bf9d6348fe8b2845971f37429c210d66836a054a20e7fe3de01bdcba2e1"
