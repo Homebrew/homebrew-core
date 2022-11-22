@@ -16,6 +16,7 @@ class Wasmtime < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b68628db229e8d67379f36a1bf1e355b14ee4684b35adb073c788e7387fd969"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a5f08c8c313601bb428ddd020b56ac4bba42e48487fa72d4bcd9a35b19ad325c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "10785a7089fc9d11127a662a1facfb21080806e2c18c67a9ee7553de79e08244"
+    sha256 cellar: :any_skip_relocation, ventura:        "51a038863b9fccffed2aabc56cba99b137d627c6bb3d338361057aeb863c4e8c"
     sha256 cellar: :any_skip_relocation, monterey:       "c42922259a2d947db530429b5a8fdf1a6f773f98a6015841cc620fc5067b984f"
     sha256 cellar: :any_skip_relocation, big_sur:        "ed257c052d1415d9720872571d0b8ad2128214570a3dc20c53416913df072733"
     sha256 cellar: :any_skip_relocation, catalina:       "af9563666ce7540f01e65557dff011ff1da0ff9a6479f79328c3f58a82fa4312"
