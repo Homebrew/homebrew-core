@@ -16,6 +16,7 @@ class B43Fwcutter < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4d24a045df3b788ed629cd5f67509f5a0c5bff70fcd213f72107c2db166e3d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22dc022f54852b54e28b799378fcbd2ca877eb815332d90199881dbfe291d84b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c68725ddd4ab0d3467c8eab623682712e51d180e4517e1fa04518c0aac4c65a"
+    sha256 cellar: :any_skip_relocation, ventura:        "5158aa819495b8aa8692bee35210299f865b62fb3cb4e559019290e1964b5ac5"
     sha256 cellar: :any_skip_relocation, monterey:       "a5c8994d63b3a39547fc9675b60c163575b6c88d24634d6ef0c0f29ebf1dbecf"
     sha256 cellar: :any_skip_relocation, big_sur:        "d71a9a74998af98e4593b5593ff415aa4e6f868a9fe7b7fa4814fd27a4b6652d"
     sha256 cellar: :any_skip_relocation, catalina:       "65b60abba52b848bd47386245505719c4c2218429719cf008a6720a4fbcac36a"
