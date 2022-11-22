@@ -9,6 +9,7 @@ class Lndir < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "98158643f50deee45b2435677d04fd5dac7cdd4bf3312f48da2a0c2fc912802c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7006aa215d5d08ec49a73e38106b576ba310ca7f7c18c5c0c8a436d2653a5a90"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16bf85f690f6bebcbd9f3e6fe4b73cd5b184484d3ba2b641a5300cd7d5f95c91"
+    sha256 cellar: :any_skip_relocation, ventura:        "0586cb74ca527bd8ad66ffb2e720a43e3569bfd00424fe832b94f038c2826353"
     sha256 cellar: :any_skip_relocation, monterey:       "5714cd4c9e37de6528d8f25996824855df115b4a002a5927049ad792ac2add41"
     sha256 cellar: :any_skip_relocation, big_sur:        "0acb2e9c42ed5d6c9ee5137fe3b520f8a97b736ddefff61aa6fee49ca1bbce12"
     sha256 cellar: :any_skip_relocation, catalina:       "f8f2e26ed44cea1bac963ba171402e74832ce57664d894ea759870391ee177f2"
