@@ -15,6 +15,7 @@ class GnupgPkcs11Scd < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ff2df0d0d0b140aecb03f1828c7a2cbdf1fe1752e51b6443e16c11bed5685dee"
     sha256 cellar: :any,                 arm64_monterey: "6a9e558c32ca0a72baba7945d2a883132adea17654befea53138c7a057add793"
     sha256 cellar: :any,                 arm64_big_sur:  "1c3702b21e91a23530aa6e16807c748151433312f38ebeb6a7944a654ee57bb4"
+    sha256 cellar: :any,                 ventura:        "19fd7386008289f8d354d958dd40554a496d5e7e2dbc75ea2586cf093cb7657f"
     sha256 cellar: :any,                 monterey:       "f79ae4cbac8bda88dc0902fe2a36ace5ecc961a5bbcd88187127d3eb3484d4e5"
     sha256 cellar: :any,                 big_sur:        "0019a8eac93fa627cf2ee05d66409042386e65d0462aaf2225d048ce6ad792d2"
     sha256 cellar: :any,                 catalina:       "fa6b2bfb9afff54c8e32072413513e293d6f53012c0f225794711d81aeca1ddf"
