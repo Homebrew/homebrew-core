@@ -18,7 +18,7 @@ class Qpdf < Formula
 
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
 
