@@ -12,6 +12,7 @@ class Livestreamer < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5c39ee8034638a1c7a05fc2b9e0a12f58b16489f7eb7ce1e658f47dbe1e53e6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e2e04a90df81ab82d3fe1d44640c2b4400ddec952797f44e1c005c0ab8d8c4d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e2e04a90df81ab82d3fe1d44640c2b4400ddec952797f44e1c005c0ab8d8c4d"
+    sha256 cellar: :any_skip_relocation, ventura:        "10a827e071e421bfa6b0fb9d80240015904f91b46e712f7a087b374eb5523b52"
     sha256 cellar: :any_skip_relocation, monterey:       "f479bd547db6c63cb62ad292c9ef75d18299fd7102d72d82a5b61352d3d720fa"
     sha256 cellar: :any_skip_relocation, big_sur:        "f479bd547db6c63cb62ad292c9ef75d18299fd7102d72d82a5b61352d3d720fa"
     sha256 cellar: :any_skip_relocation, catalina:       "f479bd547db6c63cb62ad292c9ef75d18299fd7102d72d82a5b61352d3d720fa"
