@@ -11,6 +11,7 @@ class YubikeyAgent < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f21dcc01bda26df3b7ba24520478c527cc0670f1da10f02eeff7e7a43dd1c9fa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be5cb10b00b668117f846d909914b119313ba79f9d0a7170c81b471f775aeed9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d00bf8d22edfe56f5352e59ff3c72d91e98dcf64d4acc3d1c7a5edbadd61402d"
+    sha256 cellar: :any_skip_relocation, ventura:        "aed889972c0513e793fb17d4750d0bba936463b9d710d142e6770f24ebf0e516"
     sha256 cellar: :any_skip_relocation, monterey:       "d5c58965efe5beed36e7927edd81cf15446015ddf05a6e35dda1ad7e7c1b8ade"
     sha256 cellar: :any_skip_relocation, big_sur:        "29df3472e1a5e57ed20f54cef3a5c4e87662e5c64f55338b01239741795447c3"
     sha256 cellar: :any_skip_relocation, catalina:       "4e7259eeb5ddd924251e7c73f6ae6904804193e4fee4d49e95fc02f211d3ac2e"
