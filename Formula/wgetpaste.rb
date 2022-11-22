@@ -1,8 +1,8 @@
 class Wgetpaste < Formula
   desc "Automate pasting to a number of pastebin services"
   homepage "https://wgetpaste.zlin.dk/"
-  url "https://github.com/zlin/wgetpaste/releases/download/2.32/wgetpaste-2.32.tar.xz"
-  sha256 "621dbafbc7bcf5438f11447a325d8974069e3df03ef0c8bb2a2cc3de2c0cdb13"
+  url "https://github.com/zlin/wgetpaste/releases/download/2.33/wgetpaste-2.33.tar.xz"
+  sha256 "e9359d84a3a63bbbd128621535c5302f2e3a85e23a52200e81e8fab9b77e971b"
   license "MIT"
 
   bottle do
