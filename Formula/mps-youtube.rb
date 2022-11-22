@@ -12,6 +12,7 @@ class MpsYoutube < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "978333f648bbc75f2d95b6b096b0ba21f094d88076f0c148cdeb2ffaf542d3ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8836a41e83de7ffe7e9d3f804b67f7b2f6f0581cef0a63a944f01833fd11dc8c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8836a41e83de7ffe7e9d3f804b67f7b2f6f0581cef0a63a944f01833fd11dc8c"
+    sha256 cellar: :any_skip_relocation, ventura:        "33ee577a62f2a89a924160b28f4747b78b7d6e94bca85d0723c00a1569447788"
     sha256 cellar: :any_skip_relocation, monterey:       "4427c42e4efe37f8c550288610f1404a88d3124815cd19d5749eafbf9a9d6272"
     sha256 cellar: :any_skip_relocation, big_sur:        "4427c42e4efe37f8c550288610f1404a88d3124815cd19d5749eafbf9a9d6272"
     sha256 cellar: :any_skip_relocation, catalina:       "4427c42e4efe37f8c550288610f1404a88d3124815cd19d5749eafbf9a9d6272"
