@@ -11,6 +11,7 @@ class Nox < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f0f23c7102f0aa1c3253ff48bf7b3cad48995cf8179c2ea8c2d7ccdc2b69fe6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2c50a6446b385e6918e50f722e7b4fbda7f3367cd7de5b3b225f0dc743648e91"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "202346d07ff46eb88d0db0607168e43b978606255fe7ac29383504b3be9b389e"
+    sha256 cellar: :any_skip_relocation, ventura:        "75f8cda188f16e991a41547021a68424b8c5a76a159ce5011dd3801e3bfaff60"
     sha256 cellar: :any_skip_relocation, monterey:       "cf8c1e4cef9105a72680fa84ba6899e07ea8739921d15c65a55a5c6c7c994ced"
     sha256 cellar: :any_skip_relocation, big_sur:        "76c96bfaaba66c385002caf4e9b18581c1876c928652733ffc87c5c61baeda81"
     sha256 cellar: :any_skip_relocation, catalina:       "f7215557be4811a34b35042f7f6ba5f0eecb5d3e8e0160e7a55ccc535252721a"
