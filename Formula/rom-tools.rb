@@ -15,6 +15,7 @@ class RomTools < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1bad9b386682f272fc587a1cbbdba99d78fdf3172b9fb8222d3a54b6509d626e"
     sha256 cellar: :any,                 arm64_monterey: "e5651565de855eb52c359131ade101fb57328fb505692f83e93ab300b9cf9d1b"
     sha256 cellar: :any,                 arm64_big_sur:  "b1ee796bf7cdcda4a07e53426fa135ef5c04d6632a16d5b792cf0f7d4f686ce0"
+    sha256 cellar: :any,                 ventura:        "8eee768aaf26a0fc4b31c991150687cb116e8888b71dd2cb71db72e38cd56330"
     sha256 cellar: :any,                 monterey:       "596041988acaee75e67a3d0f83233f394bad5f36293f975f5b7b624a785f13c3"
     sha256 cellar: :any,                 big_sur:        "700e727f57c1f103aa9f0ecb03b6dfc2743b27dad0a6321dfad572cfd74ac24f"
     sha256 cellar: :any,                 catalina:       "c14aede4a70676eb262bc991005c2ed9bbaeb58e40d3febc8f7d24f017474016"
