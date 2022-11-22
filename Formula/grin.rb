@@ -11,6 +11,7 @@ class Grin < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d3e499b338d6eb3a0921258ea0876261a18a7957b4338b382278f7f099ec062"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8d6664533cd67da4715371d48f3bc8eecef589cfdd2efe5e19af14472f91f0bc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "064eb5619f52ca1f2123ee82e6017e6380889b38b87b9654f01a946ef31bf0b8"
+    sha256 cellar: :any_skip_relocation, ventura:        "acfb62e9c0cc12c65c9caf71d79b371209017d6434c6f91a98c01889828472c4"
     sha256 cellar: :any_skip_relocation, monterey:       "cf3066f5430c31b31d00f9c1f56b0e4c5824efd00606231d719dbe24ad1c4de4"
     sha256 cellar: :any_skip_relocation, big_sur:        "4d4bea4bf9a3195bbe5aec65908e60834b2a55579f88c7ec9fe5856b2d8a009d"
     sha256 cellar: :any_skip_relocation, catalina:       "45d21d3e03f2af974b5ddd36636c013cef9beedbecab2cfb0606168a77981f4d"
