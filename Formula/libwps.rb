@@ -14,6 +14,7 @@ class Libwps < Formula
     sha256 cellar: :any,                 arm64_ventura:  "878881d9031c049f78df3536619291ca070b9ad4d7089f2d5ff30dd84b40d818"
     sha256 cellar: :any,                 arm64_monterey: "a3e3b275b2a784887d138aef481220987b5aaca55d3a294af76b31449ffd1432"
     sha256 cellar: :any,                 arm64_big_sur:  "d4fa9a17d34ded62debfbcb777f626d9475c0f4ca46e445b8f107fcecc317674"
+    sha256 cellar: :any,                 ventura:        "0ab5faa114d3bb663568735813c47f819b0ab3bfaa1af50f4ac441a41dd0b5df"
     sha256 cellar: :any,                 monterey:       "c46b5ba67486fd37d7865eaffa1c6852855890cecc4a8e4fb7fbe32bb4649f5e"
     sha256 cellar: :any,                 big_sur:        "a09bab16bcc1b32e299fe156fa8ced1d046d737fd2759681c53878822c6f6e6e"
     sha256 cellar: :any,                 catalina:       "8b65c9279666c2cf24382e3c2044f9d4b24ab2e0e52e31c36f6cd2c6556f5da6"
