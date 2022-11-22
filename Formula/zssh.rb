@@ -14,6 +14,7 @@ class Zssh < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c89cb5197c40525efecccb42fb351668392d9c425742450896e4ecdc46b59587"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4450134a2610b41d037efaf910d6ccdf2cc6d836887b877337f91bf73d49f44c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b567d08589f3ba595994ca4906bfde9fe2651ef246bbd872f332e9cc8993a60"
+    sha256 cellar: :any_skip_relocation, ventura:        "3168f9fb757fefc2c5ab7a5382a6fac4e489963324f9d57da667596769882713"
     sha256 cellar: :any_skip_relocation, monterey:       "9387acd7dec913faa9917b3d27baaff250a412ecd509eba625543d188c6922a9"
     sha256 cellar: :any_skip_relocation, big_sur:        "54bb3ff51405eda0900361c829fad63f988c21e685645fe5c8076c456567bd0b"
     sha256 cellar: :any_skip_relocation, catalina:       "6b9bce24c13dd2e979cdae57892e1b595bfcbd1d342bb81419dda378b8439495"
