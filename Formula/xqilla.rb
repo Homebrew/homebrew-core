@@ -15,6 +15,7 @@ class Xqilla < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6fcb5f3c1fc9d9964b88e428c2b82e93eed3d3cad94fc583a3249db04c334db7"
     sha256 cellar: :any,                 arm64_monterey: "adc61de0a3a381d0ceab22a8449c209d06ded447a3e2750733f673cbbc14ca82"
     sha256 cellar: :any,                 arm64_big_sur:  "1b8493188f6fc779948193c1ae7cc803e85a4a18c32464c039448a27f830d9fe"
+    sha256 cellar: :any,                 ventura:        "865b3199b6ec57665912c1aab41b98bb6e883c351e56d7f6d00983c6104828b1"
     sha256 cellar: :any,                 monterey:       "27ceea9b020373aa347f20b2f42682d13d2cf2a513df4330ce45239a74d4340c"
     sha256 cellar: :any,                 big_sur:        "ac66706739f52be905422e387435524387fdec6ca86243aad5b8be446182d59a"
     sha256 cellar: :any,                 catalina:       "3e01ca81220688c9680e3c23c0f7434f415e2b1e7b2e812f514a540eb51b50cd"
