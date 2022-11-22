@@ -15,6 +15,7 @@ class Libdshconfig < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3717933f302d4d371720ea523b77f0fccc3886c9f64e58b085fa8129b70eb2c2"
     sha256 cellar: :any,                 arm64_monterey: "d8ed328326850b16d0398cac9f951616fda597d084ded2363350a998d7105bfd"
     sha256 cellar: :any,                 arm64_big_sur:  "7c8ce322c8a67038c0d2eea98640665aad9a4f17dced7d796ac55e271936918a"
+    sha256 cellar: :any,                 ventura:        "bb3431f4d4aa5994f967ddfb94f567b46d5c5cef1a21ebd22731c6af71dc3f76"
     sha256 cellar: :any,                 monterey:       "80190054e7c4562cf68c8e13c09209a3667e06aca3af0e3b51d83adefc519d2d"
     sha256 cellar: :any,                 big_sur:        "aa368b8f973143fb64cb762956449fc29d978517519bc12c219351adaf0b9346"
     sha256 cellar: :any,                 catalina:       "eb5fb662035498062529345467af13234be5d022ccec9d2b3e2ad3437ff96e04"
