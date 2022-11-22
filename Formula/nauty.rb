@@ -19,6 +19,7 @@ class Nauty < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6c48fe168b22c2212ec55dbdaf652d95f80a950ad5dc456e4802defeb034f23"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "acb78882c72f75a110350392020355667a491a719a2c99a5a22de883d4b3c229"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a090567fde94a7ee21dcaefad77260fae1bca3908784fd5b774c50da104373e"
+    sha256 cellar: :any_skip_relocation, ventura:        "69d0468eabb3557f3a3c9e6f7359b0c41a2263f88046fa426fbb258e9ea33c2f"
     sha256 cellar: :any_skip_relocation, monterey:       "943940daf353131c9c44f058600bfeebb53c5977524aaf8990ebbbc512494ad2"
     sha256 cellar: :any_skip_relocation, big_sur:        "415553d529e04d204d4e48f094118d13d49d960b8c5bb09bd5e85e09536bd6fd"
     sha256 cellar: :any_skip_relocation, catalina:       "1fce01b26a7202adf02c78857f8f1385ffdd32ba40683a9329606b366bab5eda"
