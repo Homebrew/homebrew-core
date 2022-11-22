@@ -7,14 +7,14 @@ class Nghttp2 < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_ventura:  "1228943ffe3ca949f24ea6a4d1ecf021dfc6e8104257918872d052ca39ce1f50"
-    sha256 arm64_monterey: "6d3f13a35cad857895ea2a127e79a6ef5cf3331fd4dc630f16bce0b6afe689bb"
-    sha256 arm64_big_sur:  "e0d2bcc458d51d2efe0a6e152d870dd8de98f1818bdaf5e698200d3e23cb9123"
-    sha256 ventura:        "0b6cfb70087832f38e354cf2be64675ced7205aa125bc409738c87af378aabf5"
-    sha256 monterey:       "39abb63476c806f1475e0579f883b4e5b727ed8d19a21a87becd3a2e0514cbd1"
-    sha256 big_sur:        "9c6e6ab0f887af49397c77240c4be2d9f8c2be2af119fe6fb9800958c7ec9ebf"
-    sha256 catalina:       "03cec80f7a6e40907a55bd5fcda637353f91e12b8372384afc39aff63b635cf6"
-    sha256 x86_64_linux:   "6f959539df4d94b7e5c9a0aa6debc65d30bf058797231a686a81f31867905106"
+    rebuild 1
+    sha256 arm64_ventura:  "fb429fe151edbc052bac0626bb8c965b77cb5a03532269701745f8b765b7591c"
+    sha256 arm64_monterey: "fd7079661b7868aa2a5abb24df3370c08848c4e622640f0f38c03ab00a41f84c"
+    sha256 arm64_big_sur:  "d42d0ed5accbbe7c4f0ccffd3a8f5ebf747abc799da8f8459000348476c3e23f"
+    sha256 ventura:        "ae5de72a3407df9973e76fa8067076e87dd26345afde9cd247b812b16b6c567e"
+    sha256 monterey:       "78bc8f7d368a6a08609f235f1a3b976b3dfb965e3e1bf41425952f0b089cdbb8"
+    sha256 big_sur:        "f9e7779eeaa372d5514bb2de7e60a9ffad62b9bcc5ece3fe5f5baed52a754173"
+    sha256 x86_64_linux:   "152bb2ac4799f90ad7245612d370064c6d0927d876483a8097219743593cff61"
   end
 
   head do
