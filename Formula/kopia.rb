@@ -10,6 +10,7 @@ class Kopia < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8180adf19ab951183cf48ad9b51e86d7b14624aeb3b971a95592640c02143d7f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "23651e093d8c666791046edd4003f085b09368f95f23b966d6bbe7ce7378bb1e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d20c96560acc71c22cf424f9582c201d79ddc9325975516cc6cb1dcc44fc1133"
+    sha256 cellar: :any_skip_relocation, ventura:        "aec082f3f92a8420589c8af73ec74dce5545a1e587d1d2ca8e2da512e8b06363"
     sha256 cellar: :any_skip_relocation, monterey:       "4e87bff9bf7cfdb1b05ea31184d5e92aeddc3ce93c5706753f00c485d5dde4f6"
     sha256 cellar: :any_skip_relocation, big_sur:        "19097e5b27489e987ad3c2808e49b755ca7a3036c015fb24dbccb914082a9b80"
     sha256 cellar: :any_skip_relocation, catalina:       "7133b0f20f9879ff36468603b3ced1e1c6d324a459f62c24b318d54e2a08b560"
