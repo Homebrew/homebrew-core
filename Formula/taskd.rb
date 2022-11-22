@@ -17,6 +17,7 @@ class Taskd < Formula
     sha256 cellar: :any,                 arm64_ventura:  "de9179448eb26d2d5bcf63fc2bed922e8488181520508a390d113ad0939e1d2f"
     sha256 cellar: :any,                 arm64_monterey: "fbee3ac49bb6169fbd115157c8c8cc030817d0e5e8f872669ded94e203db770d"
     sha256 cellar: :any,                 arm64_big_sur:  "538ccd42a9ccb36722a35116bb1652217eeb33813683e14d194a3a8aab33bf35"
+    sha256 cellar: :any,                 ventura:        "490f7197acd57aef38de7b8388a48d19b705fbc53d8ea30e6706775a39429b55"
     sha256 cellar: :any,                 monterey:       "eef1a2c3549d1ef75365ee3d134b4ec30604deabfd4fb51421fc323e18ff9045"
     sha256 cellar: :any,                 big_sur:        "842ffc8f10936b3803281743196d37571057656ccfcd019364b8c5114ddc36cd"
     sha256 cellar: :any,                 catalina:       "88580976ecb71d4f74d814ff06c88c2082565fee61c7ff8e7f506bce19b460d4"
