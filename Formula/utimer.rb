@@ -9,6 +9,7 @@ class Utimer < Formula
     sha256 cellar: :any,                 arm64_ventura:  "f4b18b839f3d9864738ba4e120852b0d3fae8d67c7d98b4ce370a89a9eb839ec"
     sha256 cellar: :any,                 arm64_monterey: "3c86234c30c090ef832ddfb4c4b52117f6ef31956246abb311645860154cc6fc"
     sha256 cellar: :any,                 arm64_big_sur:  "bb50ed1a38ea9dc66c442261dbf8f6e517b9d374869e647d2136c580a47f7aca"
+    sha256 cellar: :any,                 ventura:        "ee2b3d29f6278e6a0195e0fccc6a787eb610a1b882960aad227a94ddcf19e6c8"
     sha256 cellar: :any,                 monterey:       "8f1bc7e7ea1445618ce50bfcc7c8aea1570ea70245d17e47b4ac7d9d6d68e295"
     sha256 cellar: :any,                 big_sur:        "35c830b5c976738af7451ff1d110028a351e1b16145efa54ba0d042ff43e8980"
     sha256 cellar: :any,                 catalina:       "58144b80218183cb1cb0bdccd87baf86a4bddbab8b3107a2197227a15b6a4f27"
