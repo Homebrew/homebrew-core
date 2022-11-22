@@ -11,6 +11,7 @@ class Bk < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba9da92be4cfe8dda48401bbb076d70023b9b99c3cdd3ad47672e4b6e7b8b383"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2c614062d4ccbaabe39d7cf8e3983f3f755d44de3d31303c61f4580f8e3f37c5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d6537ee4a045093a5a5806960a47115c3ae8a5ee445cc82381c173fe8ab9c14"
+    sha256 cellar: :any_skip_relocation, ventura:        "73f86729257ae80b45e394d58937ed200b5e8ae4ca8444f7def776ab234f863a"
     sha256 cellar: :any_skip_relocation, monterey:       "07d149e5806bf6444300a9d066bc682f0f950af403bac33bd14c397e39cd52ab"
     sha256 cellar: :any_skip_relocation, big_sur:        "c13b4e9b99a77a351c9dc92739c2bcc5530fbd210bb09414185a30a7bd43b0fa"
     sha256 cellar: :any_skip_relocation, catalina:       "a6f81962f928165e9f0f039534678bf5a09c25a99156de7de192bcb7c738ab72"
