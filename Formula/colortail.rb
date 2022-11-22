@@ -10,6 +10,7 @@ class Colortail < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "01d31038e80f6c276198a8dba844c6090156125163588cb42b344673507c68e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "620058633e6ec31c36c0cc251d355a1ec4537f91d1563e95b5308561b2277fdf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d7e35ff95a2d161fc60fcefa368c901dbe3ff1c973025f7f4c96617fd959fc3"
+    sha256 cellar: :any_skip_relocation, ventura:        "83d2bb33d8908c63fa2c1c7112afe87c90fd1b185b0783b0fd05e6f0cf910a48"
     sha256 cellar: :any_skip_relocation, monterey:       "94feb2affa50d2d9e6b829d1608246f4a4aa15b09adc485080da655022a822ad"
     sha256 cellar: :any_skip_relocation, big_sur:        "1cbd1fd25ee747f5c8db91de50511cc93ded9deb1b6daf99b343f5efaf449cda"
     sha256 cellar: :any_skip_relocation, catalina:       "76e327c10e6614aed10396f4da1008eda7d0574c77b009e6c4cc109829033bb1"
