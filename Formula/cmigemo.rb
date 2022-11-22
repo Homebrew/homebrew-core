@@ -16,6 +16,7 @@ class Cmigemo < Formula
     sha256 cellar: :any,                 arm64_ventura:  "4da77419c2e50f2a97340f7d6ad6a125895c46ed40900ba6c60ffb73256185c3"
     sha256 cellar: :any,                 arm64_monterey: "772f9659f6828e8404a849a9f52accab024a59e012d7b1c671a47facf7afdead"
     sha256 cellar: :any,                 arm64_big_sur:  "231afa328130c08c9ae6429cedbd5221633dca46fa478477f5ff441ec6c1ff8a"
+    sha256 cellar: :any,                 ventura:        "20da1760b82a2a4b9857dbddc20f48ea095f655df971cf06d3dcfa9abc2932d5"
     sha256 cellar: :any,                 monterey:       "19cbf239012e58e7d04dafdf6b10b52f46331f1db420343d7a51331f98b86395"
     sha256 cellar: :any,                 big_sur:        "a113cec93a42734d9751b9199f7aef92d77649d7921128f9f04d83260dd0effb"
     sha256 cellar: :any,                 catalina:       "81ea6aecbf5b3dec1ebc423d3503bd134d79f4fbfbb91b291e90c1b5a9fef1a4"
