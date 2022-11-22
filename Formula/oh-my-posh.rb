@@ -10,6 +10,7 @@ class OhMyPosh < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3600b6d686e683b82f90404bf61be49468f23565683969df7e668d6f38e9be0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9705be59f0950f1d402f1feb63b8456a5d64cf5791c837f9d73dfa3690c7e553"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b081cd37cbca8deb969b800f3a8a32201004c6110f09de1cb05a229bf3189f42"
+    sha256 cellar: :any_skip_relocation, ventura:        "7e5b2e6d8df477202caa7aaef4ed5c8862d644865332fd04bc1608450f7b293a"
     sha256 cellar: :any_skip_relocation, monterey:       "d2ab102b5f024c73f1ff77ed69bc53df6dc8575f694a2b0880590c5c4fb9e751"
     sha256 cellar: :any_skip_relocation, big_sur:        "46eec3b5043d93156381c5513cd4b11cfcd7c0174ba7a8319dde38bc3447a687"
     sha256 cellar: :any_skip_relocation, catalina:       "d14ac1d6964cd275b9cc839acb07c5345f67f86529ad67da411e67807e5fe9e5"
