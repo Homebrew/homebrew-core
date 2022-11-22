@@ -15,6 +15,7 @@ class Pianod < Formula
     sha256 arm64_ventura:  "ea6bd357e1c4adc9485f520ecef09bcea8bf690a59bf7a6c26a1618069e991c9"
     sha256 arm64_monterey: "face4fa3d0b5350001bd9fab327e91b4c93e27b9838739543e51500e7f56f87e"
     sha256 arm64_big_sur:  "be5cd3ad282889c61a990ad65d909a42f65d66df5cd3ee86629e6596e1e3961c"
+    sha256 ventura:        "45bf385a68a5a09b10b425606ca1eefb234a7c3a72dc99c1fd4d2c2fe7b221c8"
     sha256 monterey:       "c28a6af22280a294723b9ab645b12be7fea3dd7125a731019ea7e1640ec19a28"
     sha256 big_sur:        "d3f6100a1d1ae88f96c78708ce9b54140a3827819460c8a829c49d08cc5c13bd"
     sha256 catalina:       "f12927568166fb653d124f06a28728e96f0d2e443cb210cfb61f4860ab5935b2"
