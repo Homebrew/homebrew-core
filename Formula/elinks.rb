@@ -7,14 +7,14 @@ class Elinks < Formula
   revision 3
 
   bottle do
-    rebuild 2
-    sha256 arm64_ventura:  "14eaf8114897525e14f0c08a1bbf24467292051e8eeb3707c32fcffbc1d3f3e3"
-    sha256 arm64_monterey: "eadfed82fabcfb1b645b28af1d2806e7fb53a4dd0d91d2f4966b1d4bc4180744"
-    sha256 arm64_big_sur:  "a35f5c451853a1d1a2b90755d9caf6585993b2c3a2a0c195aee4b4ba1b4c736d"
-    sha256 monterey:       "263e1f1a669e0144438c9c30d12387766760957520012a1684fc8a329efc6a2e"
-    sha256 big_sur:        "ae280a859da1fc099f51e8916c41c2efb07b7fb0ff278f7ce7d1cccb2a132e19"
-    sha256 catalina:       "47c2068cd97c3579cb8e2fd9362bb41e85ea5e2312f8924ed65e67721e0c8121"
-    sha256 x86_64_linux:   "65e2e052958ee92ca06ebf8d5968b8fe74d11e6c09e06cd0cda7ba53a0b4e4a6"
+    rebuild 3
+    sha256 arm64_ventura:  "54e838b71b29c3cfc0aadf6e831b54281957f40cc6d7575214c35c4a3b57fa5b"
+    sha256 arm64_monterey: "f0e220cd515da16c63ef96c099141f7df34667397c03c3f4c2c083101fd87d75"
+    sha256 arm64_big_sur:  "8a503e767b08604fd16d50ae02f776d9913c84d46b8ff76933f38dd9d8bfdcfd"
+    sha256 monterey:       "772f9d71d742a369f2dd9002fea64f80d64de5cd6de44e2887b806f3824e1a56"
+    sha256 big_sur:        "918dc41b952f0ce90b4a66576450298995442a1627c94b8bbe30631942f3cf78"
+    sha256 catalina:       "e6b142759a9de3c7bb75c7d4ddcb3cc90eafc758069af693d12f1f50e5cf3636"
+    sha256 x86_64_linux:   "c2c770147ee3abd4622580dd7bc6391a0af29a9db2c514e494187150c2132153"
   end
 
   head do
