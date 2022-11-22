@@ -6,14 +6,13 @@ class Llama < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9073910ed891d81f9fd5507b457e7cb9dde3d4fc79967d152b293743d1f90921"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9073910ed891d81f9fd5507b457e7cb9dde3d4fc79967d152b293743d1f90921"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9073910ed891d81f9fd5507b457e7cb9dde3d4fc79967d152b293743d1f90921"
-    sha256 cellar: :any_skip_relocation, ventura:        "306440628604a10d958aa92109831598cbe795536399a33d318805021855706f"
-    sha256 cellar: :any_skip_relocation, monterey:       "306440628604a10d958aa92109831598cbe795536399a33d318805021855706f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "306440628604a10d958aa92109831598cbe795536399a33d318805021855706f"
-    sha256 cellar: :any_skip_relocation, catalina:       "306440628604a10d958aa92109831598cbe795536399a33d318805021855706f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd362a0613cead61493dcae5ee212c732f4d0fbdd5a19cdbbbbcaa8850b2e7f9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3450098c5433d3eb18f6457fa26f1a037c88e583a03b03094b7a55dd2680c0d5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3450098c5433d3eb18f6457fa26f1a037c88e583a03b03094b7a55dd2680c0d5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3450098c5433d3eb18f6457fa26f1a037c88e583a03b03094b7a55dd2680c0d5"
+    sha256 cellar: :any_skip_relocation, monterey:       "7e203ddd4320263525c048c53049baa9a3a70d8eda8c17694d70530003e6f33b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7e203ddd4320263525c048c53049baa9a3a70d8eda8c17694d70530003e6f33b"
+    sha256 cellar: :any_skip_relocation, catalina:       "7e203ddd4320263525c048c53049baa9a3a70d8eda8c17694d70530003e6f33b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26f8a283c4f3f18e0e0baae519e1c2d52dabb1b4d6fd0967401cea70ad11655d"
   end
 
   depends_on "go" => :build
