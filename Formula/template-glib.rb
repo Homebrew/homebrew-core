@@ -9,6 +9,7 @@ class TemplateGlib < Formula
     sha256 cellar: :any, arm64_ventura:  "a628c43a450581b900844970e893e39ad08a9767b16f5a88df93858c5b93c8ff"
     sha256 cellar: :any, arm64_monterey: "975a75a08cb72d71009a1d07f399f6847134af9b06492d746f4d86c9204b4c72"
     sha256 cellar: :any, arm64_big_sur:  "505dfa99643c6f897cf481ca1af19aba67af9bb7c5c020d375f51cf93eed1b9f"
+    sha256 cellar: :any, ventura:        "8ef983234e3de51baedbc3e4d00dde51266b1c0f863800d23b950145131c8036"
     sha256 cellar: :any, monterey:       "0abef023dfcaebcb376cac80a907ccdf7ad200955bba1fbdd64c11dcbb12b48e"
     sha256 cellar: :any, big_sur:        "cc7bb0842a23032fd361459b61b49fe7bce110dd027e658e30cb905a0a09a338"
     sha256 cellar: :any, catalina:       "73a0b311cedc2ae831aceb252b1c9215194ef4f75274bd5b8fc9e2dad8af79f1"
