@@ -10,6 +10,7 @@ class Makefile2graph < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d99f194c17cf570aac2bf56cea06e6bfb319e8fbaeba1ec5c536fa04c38bedfc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "96deab75f00bf9fa63e78af5b6623816b3a390c32adc0c4667099f3879938883"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5eb90095c4579d7d8616732bec7f266164f7b5f7665ef15fd3272720a4577cae"
+    sha256 cellar: :any_skip_relocation, ventura:        "9474d06d702c8a26fbe45928416150354d8510dcbeb948b3e3dfc937612197b8"
     sha256 cellar: :any_skip_relocation, monterey:       "6010cadf93231ec03033a5248ad53ff57b099915ec8a72aa847a9a80a401257f"
     sha256 cellar: :any_skip_relocation, big_sur:        "7018264b838135807ab0a5e062a6315cf20b8de88b8dcff3f71afa03251eb8a2"
     sha256 cellar: :any_skip_relocation, catalina:       "58d4ab28a477688fb01b4db124c5d7deda3d7c2076e94e4c303ea1e8ab9a65c8"
