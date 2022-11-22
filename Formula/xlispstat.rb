@@ -10,6 +10,7 @@ class Xlispstat < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3b11acb44e728fb2b1707b8700d5b0be9a68ff522884827fe824d44d6333ca33"
     sha256 cellar: :any,                 arm64_monterey: "e11e76582f1aa365ed04b44c6caac0a786b63f12b612399e27ed909803c1bdcf"
     sha256 cellar: :any,                 arm64_big_sur:  "1c7230181f7447fb264b14c84d8a6a2e3396faec78af73174ed6543f19536a8a"
+    sha256 cellar: :any,                 ventura:        "03fc5d039c560d5d3cab884da3911ca4752b5686ca5e9399e8a3417f44da7fdf"
     sha256 cellar: :any,                 monterey:       "9d418608c03816945f00a2ccbf93def9a54e6f8b9c00c93b7835a287cf7c2305"
     sha256 cellar: :any,                 big_sur:        "30bde68dbe2eada5b7646e5ef4b6fc0f804be39f37ae75244955b3befe803036"
     sha256 cellar: :any,                 catalina:       "d2e8f57e8dc13c6b1aaa38af29d291b5974b642626599cf478f3997e2981643a"
