@@ -14,6 +14,7 @@ class Ydcv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb6154d76b16bd58ccd709104fedad005bb7987624b81947dcb56e89e85f7c73"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb6154d76b16bd58ccd709104fedad005bb7987624b81947dcb56e89e85f7c73"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb6154d76b16bd58ccd709104fedad005bb7987624b81947dcb56e89e85f7c73"
+    sha256 cellar: :any_skip_relocation, ventura:        "1395cd029c7edc09b2d1d12707585e41f433dd14b54bdc92dcd53376cca76570"
     sha256 cellar: :any_skip_relocation, monterey:       "1395cd029c7edc09b2d1d12707585e41f433dd14b54bdc92dcd53376cca76570"
     sha256 cellar: :any_skip_relocation, big_sur:        "1395cd029c7edc09b2d1d12707585e41f433dd14b54bdc92dcd53376cca76570"
     sha256 cellar: :any_skip_relocation, catalina:       "1395cd029c7edc09b2d1d12707585e41f433dd14b54bdc92dcd53376cca76570"
