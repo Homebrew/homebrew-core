@@ -10,6 +10,7 @@ class Web100clt < Formula
     sha256 cellar: :any,                 arm64_ventura:  "a983c631a65d1ba764cf98ffc77ffbaabc1cf17625401702c8e6902a32ab7a46"
     sha256 cellar: :any,                 arm64_monterey: "0f11892f73529eceb8c6b1fd51c52e7c71b9a3a6bb3ae3f4dfc876c6fbb085d2"
     sha256 cellar: :any,                 arm64_big_sur:  "e6fb064b785043092357a6ca59164fad4ddb9be375f84b466a307b6af724d994"
+    sha256 cellar: :any,                 ventura:        "8e994ec872e3ea4d0f1faf771ad42cad2734764c3eba93aac468845f3a1084e0"
     sha256 cellar: :any,                 monterey:       "2e4e41297ba21f0934b509b1a4f593c327390a457956be735fef597d1d4484a4"
     sha256 cellar: :any,                 big_sur:        "d4872b871f3d043038fc48d815196f2207203afb5df034b942c6488c83520501"
     sha256 cellar: :any,                 catalina:       "6674131c694ef7d4b8f0bc6fe8342ddc6e015b180efcf1f9452366cfb5eaf2d9"
