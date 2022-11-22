@@ -10,6 +10,7 @@ class Goplus < Formula
     sha256 arm64_ventura:  "d5c30712180a7c9a55af310a414bc8861b962fb0d00bbbf95c0d93e0dc0c20cd"
     sha256 arm64_monterey: "3bbea21b81acb18f2dd31d8dfae195b6044aedbe56c6dc092929daa6cf99556c"
     sha256 arm64_big_sur:  "687641bddc2d20cf7a52f9dd4868974011ab2e13b962d5f1fed0718025c97bbe"
+    sha256 ventura:        "f5f6dffbf39cc8a2e71c9525de751b67e60f5476e3484bfba45c707878b9197e"
     sha256 monterey:       "c57bbd4e51542b467c353d46485eea935ec9781c35fa7e7d82c795226d34624f"
     sha256 big_sur:        "8dd6ef441b3d38b92a2afb27c3c6d4a0e593d668b67ff57f2ff8dc07cbbfdcf3"
     sha256 catalina:       "f74e821a749f66396d381e9a2648829a53117a552699563aac86e38732bab6da"
