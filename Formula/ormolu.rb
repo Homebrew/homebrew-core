@@ -9,6 +9,7 @@ class Ormolu < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "df90aba393f8c6738350da9930b186f7a94d90d7bf4723f07f9c111ed2d21adf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "496a0fdc72406ebc4336b0b91f088d8ad4e4db327ccec95c294cebdcab1d9b64"
+    sha256 cellar: :any_skip_relocation, ventura:        "9decb0aff648be0dccc073505ccea19bb086628b2662d3dfbce5be92986ade74"
     sha256 cellar: :any_skip_relocation, monterey:       "29ce357cf21e1666e2fc3acb8477cd84b51d2bb2b35a1873a4f94080e7c3340f"
     sha256 cellar: :any_skip_relocation, big_sur:        "528b1e653cb50a23bbc2c28db8b906a1d478f9ef91f49d381b2f649087ad2983"
     sha256 cellar: :any_skip_relocation, catalina:       "4bb90b51e6d9f945acdc4890b668aadbc0f6f777d22c07741a5d88b03c47d3fb"
