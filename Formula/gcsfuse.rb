@@ -6,6 +6,11 @@ class Gcsfuse < Formula
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "bacde7045f120f672172a84558fac45caf573c6b93147eb723dca9a9ea4303fb"
   end
