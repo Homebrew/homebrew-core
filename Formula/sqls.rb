@@ -10,6 +10,7 @@ class Sqls < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "faf408ae757458bf1e26893201d6e900f05eca022fb1ee01559fa5a0f1d1622f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6dbca6e8e07e366b9926ddb5da7068e4aab06a8f44ac4c10e39a4cc956c823f3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dea0bf951c056448af9f587db401b9aeaf8fb3def88ce54a5db05c3737cadae"
+    sha256 cellar: :any_skip_relocation, ventura:        "fd2c24c485ca9676c83fb24b735961b6a1f7436e81818e558657e058fce4b3cf"
     sha256 cellar: :any_skip_relocation, monterey:       "7e0b61b52ec2b7f34122844099657f8be14a27af74509e7f7ecb59f9aad0f0a0"
     sha256 cellar: :any_skip_relocation, big_sur:        "facee7e345867ac52396628dd98093a326032cefe43f1e16ce91941665dd39bd"
     sha256 cellar: :any_skip_relocation, catalina:       "5ec498c6c475d39d5badcdc0a4e81c5a7f10d9c51c9d6019021754351ed26361"
