@@ -19,6 +19,7 @@ class Tmpwatch < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d6f80858cba05532b70c7d3ae636b0c7550ef651891fef8e36b182e131662c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aee3dbca7f86d8c80da945837cb30a43a5c55ade929df40d4c4221ca3243b954"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5f38895989ced860baaac4a22ed677b6adc7e3eaf07ecea5e65325b3a090071"
+    sha256 cellar: :any_skip_relocation, ventura:        "e09f42c2a9e80778995eb414e36f92ab3735db17cdaee935ebc206bd30b3ecb9"
     sha256 cellar: :any_skip_relocation, monterey:       "4359f2939cbe74d9c423defa38ef041574c12d7d223d7fb9b2e9665a4e382f60"
     sha256 cellar: :any_skip_relocation, big_sur:        "990ba2839f3c2ddf69e280e976463969d3274410f1a84a90e00a6a9b0f5cef35"
     sha256 cellar: :any_skip_relocation, catalina:       "acd49e52b73f82c2cab4a77f46e99e0f69f856dc43cbf03f775ab58b44e78d6b"
