@@ -10,6 +10,7 @@ class Ondir < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a1cf9bc1e18b613e3b481b935f000c593acd83310b808ec7fd64b9d21a14703"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7145397ec79d9811f95dce65de062f977d3c0bc6d707cf251dfad0d46ac7ba75"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "135b0885a206244ce74e430ac0f2131b92742481d81f7774cc25377ca8da4b1e"
+    sha256 cellar: :any_skip_relocation, ventura:        "c7c513def5b74de78d947c2e3b84e2534f23bf134a01b282751adb58b506823b"
     sha256 cellar: :any_skip_relocation, monterey:       "7acbd1cdad05caabfe0af821c2c1db0bea782e89d2f81547efc33aaefcca4563"
     sha256 cellar: :any_skip_relocation, big_sur:        "1ba9a457a52f2964f6c831a192f8c107d73c96b5868d2a3d84cea954b2b33860"
     sha256 cellar: :any_skip_relocation, catalina:       "99ac333a6908b1862267764e69850b8f21b9ed160e271719393eb82e83becf42"
