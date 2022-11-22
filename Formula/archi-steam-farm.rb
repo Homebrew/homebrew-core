@@ -16,6 +16,7 @@ class ArchiSteamFarm < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aaf9f25e1cce66287405a3df0a23e95e2e9c26ddf86b98afe4b49df8e85e8350"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7d0b5cd305a10e755f3a722f0e8ae39dfcc9ff6e4356908a4a2f680948c02360"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49e04e344ea151bfb7257fc25af4ad3924593dbdc7751e92dc4e79cadb12c943"
+    sha256 cellar: :any_skip_relocation, ventura:        "28feeed0838624b4f5a55498cb89965f88969e7f2d44912bb3cda6a6f9efc94c"
     sha256 cellar: :any_skip_relocation, monterey:       "a33c65e5afeede009c3d2de6e07684ab8d979caa0bcb2fc8d85f0ac39dc98cbe"
     sha256 cellar: :any_skip_relocation, big_sur:        "2a48942cc7e41b5be605f86de4409f4eacac913be3ec2f5510cd9cef9bc0babb"
     sha256 cellar: :any_skip_relocation, catalina:       "5eef84d5aa4ca35ce132e41a9f4471e9381866212a2ab3c92cc237cbcf39ff40"
