@@ -10,6 +10,7 @@ class Oksh < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e258ac45b9617470688d9372662294980b1695a15c65ef30e322a8d3e2349c53"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "92bd0170e4c7084bbd99ffd3f690abff73aafc62cb1d1f39b512bc94cc7db2d1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "64acdda6e703c41d5f2c4f4ad18e726e39d10eb0b691c5817e01cb5ddc50deef"
+    sha256 cellar: :any_skip_relocation, ventura:        "b25395d101de87ec0a49ec8863e7f0d563570334f97c210d0648ea5a1af93909"
     sha256 cellar: :any_skip_relocation, monterey:       "31483e6b27d67a84e51be25126245200766863302f6db893c638f3f368d0eae1"
     sha256 cellar: :any_skip_relocation, big_sur:        "fab43495e25b0687f76339bfa26b9f0e32399a66cd40507a5d3a07e5ffd947b2"
     sha256 cellar: :any_skip_relocation, catalina:       "2338af0e8ef621b614ef57cce9bea4776079ac6205cf3861d89990fde13ec717"
