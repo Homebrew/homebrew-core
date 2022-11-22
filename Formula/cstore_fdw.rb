@@ -11,6 +11,7 @@ class CstoreFdw < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e8891a0d34043f651e21e61d5f896bad2f36eed0a3a4f8bac49c453924bd8dee"
     sha256 cellar: :any,                 arm64_monterey: "f4b421e5d9ee59a760ff188d0b695a8ec266b65e7503085d59c4f89f73326fe2"
     sha256 cellar: :any,                 arm64_big_sur:  "221261761221ba1a3aa0d12bbd6c7c1e9710a942d4cf0bda373cda3128aa71e6"
+    sha256 cellar: :any,                 ventura:        "b82c1097d8986d273ecf37720a6ceec797403ae1b18f6786d9e5697ae225575e"
     sha256 cellar: :any,                 monterey:       "f9632c66ce3e68c0f377f4579de7a702de40de6c0a5870effae2af492fe635a7"
     sha256 cellar: :any,                 big_sur:        "70e37b3984b6b0bfde28ed9db0049226b781ddec35c6bb9f7e4f677780bd6bc6"
     sha256 cellar: :any,                 catalina:       "cf773b6ddb214688cad1505cc01f4e3f6a4ddea8139d67d6c3d5fe2a7f8d8cd3"
