@@ -10,14 +10,13 @@ class Poetry < Formula
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78b9051e4f4cc528951e5a86adb53ab4de7df7d080e2342c1449625cfdab48ec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f28c855cca6e074c421b756005c0b88b504954dc53da61901b41fe8eabd9865b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5c52de8b2b7e9ff885dfc673c7d137fd060c66ee07005c54de3e65c62210d61"
-    sha256 cellar: :any_skip_relocation, monterey:       "cff9d130f985dc8a01753fdd54f380cc8baf26b1c86266fe22305e3debc3923a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6d31c42ae3e6e2e17b5ee701e04b4a15021ff15be6776be8e431d17910086cf8"
-    sha256 cellar: :any_skip_relocation, catalina:       "71d4c024f7b46c0d01e877104d384d6e9af9bd46fde77852aac7ec7ce35f76db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46f9f4ad106705772680da09880f284a6a4fb6680ae6a95c025ae292e1fb4e03"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "84745e5c42a0c01ac739aab277d339da1efb16a33d616dc1bb3e9caf877b69e7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "47db4c4fa49a5f722eb02e76c4eff691fd0594ecca09f5ed5b8fc71d19ebadeb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c167ba5e0796414e62c1c3c032e86a910d5d6061889e4516acfa27faef25018"
+    sha256 cellar: :any_skip_relocation, monterey:       "075bdd4906f5f70239ec319589fe5e7ee912ff7d8fdcc2eb633cb8595ed29a7b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d9ac1216e806257b2f483a8472b43ae23ea47063dc388d93c5efcc5f128c0c6e"
+    sha256 cellar: :any_skip_relocation, catalina:       "ad9aac2ef1a6c9bbcf0122981a4b22577172d145db381e8fa0a14d8f5aff649f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0444aede6b9906ff5b983e61dc636df1808b1fb953c17b1ddcfddae221bf2090"
   end
 
   depends_on "python@3.11"
