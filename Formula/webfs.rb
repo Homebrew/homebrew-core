@@ -11,6 +11,7 @@ class Webfs < Formula
     sha256 arm64_ventura:  "49156fc8ba3a476cf63f719f17e679ad66b96f1494ccf387ce7c0c6007150a56"
     sha256 arm64_monterey: "047b4b7404e97147da732a96019fa8e1bfb5f7e541ac9cc7178492ac12653b65"
     sha256 arm64_big_sur:  "56124768f91253664d4e30becdf5da71303e99cb26f3a0053c0707bde08c9889"
+    sha256 ventura:        "65ebbb49cd4a93f5abb177d97e737e5cd1f5b08a33ffad4fa6ddfc647f79066b"
     sha256 monterey:       "d5e072f43509860bf1720573e0da3762e734aeb450dabe4e2e8ae4cd96dff185"
     sha256 big_sur:        "3d7288254445f01e83e1950144448608501a91897b793cc8c173657d8d17ac2d"
     sha256 catalina:       "0b85fe4886d6c3e04d1f96fdfb39bc70dea3a4e75aa5e943c2b8bf4dde3e17aa"
