@@ -10,6 +10,7 @@ class Dsocks < Formula
     sha256 cellar: :any,                 arm64_ventura:  "5c950e6047a1c85b8107378594822cc7e563a87a7bce9547f3b21617362b8245"
     sha256 cellar: :any,                 arm64_monterey: "932d52fc3ff219d56ce68f2214e06b045d5a38d8b8fe517269a7664d9757568a"
     sha256 cellar: :any,                 arm64_big_sur:  "3df61628945a370c1d969c68a53c42bfb095b506ee6a9eae81711ef20c215238"
+    sha256 cellar: :any,                 ventura:        "a4d3e2c8193a67fbde79cdba6c28e0d3c603ea8d5a1f1e5a0705af588fa6f256"
     sha256 cellar: :any,                 monterey:       "bb719116a3f8703f022416836e22808dd5ed1b7974d5a36e853764324d663d0e"
     sha256 cellar: :any,                 big_sur:        "56c7d9bf70295a5c41fc439d16c9c905b4eb40dcc2d6a4d27513efd5cc48979a"
     sha256 cellar: :any,                 catalina:       "d675be1f5c6a31c1fbb20dd8c521a638edca6ecfe13a6bb1f8db84b35a01178d"
