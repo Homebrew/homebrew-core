@@ -8,6 +8,7 @@ class Dumb < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6ec724316f7ab409767fdb3b240bf6bd00c0753a66ea048b1a1527c19b659a6f"
     sha256 cellar: :any,                 arm64_monterey: "f046a0784378b98ac76156a7a5c306a8c4d931130309c64d6205b1bfd2d0dcfe"
     sha256 cellar: :any,                 arm64_big_sur:  "94dd00c18fd4f11400f30074357c4979fe727f49df6e45ad457e79a51d801f46"
+    sha256 cellar: :any,                 ventura:        "e2acfd0a2255bdb9c7256cd9cec4bf7a450e3db8853271a2ad0e13befc4bac4b"
     sha256 cellar: :any,                 monterey:       "a0933282bbe2feb52a06cac1a1a189b83af422e422036f78b0fcfa0e55f5726c"
     sha256 cellar: :any,                 big_sur:        "2dade8ff6646f71df07f3b2d586c9bb49ae24c3f0b5ddddea7a09a3762501f5c"
     sha256 cellar: :any,                 catalina:       "f9d0768b3b50614adfb2190899362e250f20a14be0fb0c2d21d37bee0afea672"
