@@ -13,6 +13,7 @@ class Smpeg2 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "4a6d907db29fbb6ff60aaf7aa276b383aa506bd2be330a9f872cb7aeff2bebfd"
     sha256 cellar: :any,                 arm64_monterey: "a3dff365e85c05609fdb62d1d72f9d376308f437aad9bbb19823e9b4aa02bb61"
     sha256 cellar: :any,                 arm64_big_sur:  "bf514f604adc800528192749aff14cf262f959b0c398174cb045fdea206b06ba"
+    sha256 cellar: :any,                 ventura:        "f0f6696738d46202086c15f298ce804bf9e587f96bc74caab310d67475c441f2"
     sha256 cellar: :any,                 monterey:       "5633c4f20cfefc11012b516c62f4152fafed42771db861b48977d49c0a8da356"
     sha256 cellar: :any,                 big_sur:        "816b0441d6d10986dea2c3b55f7889a9a72783c2fc55e92520fe9366b53a769c"
     sha256 cellar: :any,                 catalina:       "97d4ca204752184752822f6c4bbbff2e044d110917f6a0ce30c3c472d6cb622c"
