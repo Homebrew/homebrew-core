@@ -15,6 +15,7 @@ class Druid < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "54225275ad138758cb95403b42002dad5e8897c100123f2ffd79f7e5b10f6766"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "54225275ad138758cb95403b42002dad5e8897c100123f2ffd79f7e5b10f6766"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54225275ad138758cb95403b42002dad5e8897c100123f2ffd79f7e5b10f6766"
+    sha256 cellar: :any_skip_relocation, ventura:        "773bd26aa96f80d8a215d36b8415f5eef50188eae7b73a4b594c0e515d84a24e"
     sha256 cellar: :any_skip_relocation, monterey:       "773bd26aa96f80d8a215d36b8415f5eef50188eae7b73a4b594c0e515d84a24e"
     sha256 cellar: :any_skip_relocation, big_sur:        "773bd26aa96f80d8a215d36b8415f5eef50188eae7b73a4b594c0e515d84a24e"
     sha256 cellar: :any_skip_relocation, catalina:       "773bd26aa96f80d8a215d36b8415f5eef50188eae7b73a4b594c0e515d84a24e"
