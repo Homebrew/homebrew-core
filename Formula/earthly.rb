@@ -11,6 +11,7 @@ class Earthly < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e576fe99c01952c27a0cb9ac61ade2c08b976dca197ed080e51852da1682098d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e576fe99c01952c27a0cb9ac61ade2c08b976dca197ed080e51852da1682098d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e576fe99c01952c27a0cb9ac61ade2c08b976dca197ed080e51852da1682098d"
+    sha256 cellar: :any_skip_relocation, ventura:        "c12731381bb5ba4abd20324e7bb0e2b200c859b874cd437596b3af5bc73436ed"
     sha256 cellar: :any_skip_relocation, monterey:       "c12731381bb5ba4abd20324e7bb0e2b200c859b874cd437596b3af5bc73436ed"
     sha256 cellar: :any_skip_relocation, big_sur:        "c12731381bb5ba4abd20324e7bb0e2b200c859b874cd437596b3af5bc73436ed"
     sha256 cellar: :any_skip_relocation, catalina:       "c12731381bb5ba4abd20324e7bb0e2b200c859b874cd437596b3af5bc73436ed"
