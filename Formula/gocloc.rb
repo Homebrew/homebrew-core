@@ -10,6 +10,7 @@ class Gocloc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b5d998cf6afdf0235077ada50616b7e1da6c66f5f6d16cac584e78e18d4045c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7e01032fe7b3eba5c8fb7f4d22ab3bf0c1a9e122b464c73eef0d8fb53daf3064"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7e01032fe7b3eba5c8fb7f4d22ab3bf0c1a9e122b464c73eef0d8fb53daf3064"
+    sha256 cellar: :any_skip_relocation, ventura:        "87cde88d2238c4c732487f6582dd1741a1db2c6032cf70a5089b9f5ddfa39fc5"
     sha256 cellar: :any_skip_relocation, monterey:       "71eaf256d9a9108ef7b2ee147b8c71aae25c4304897744b57eaec70ccd3d2911"
     sha256 cellar: :any_skip_relocation, big_sur:        "71eaf256d9a9108ef7b2ee147b8c71aae25c4304897744b57eaec70ccd3d2911"
     sha256 cellar: :any_skip_relocation, catalina:       "71eaf256d9a9108ef7b2ee147b8c71aae25c4304897744b57eaec70ccd3d2911"
