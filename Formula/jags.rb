@@ -14,6 +14,7 @@ class Jags < Formula
     sha256 cellar: :any,                 arm64_ventura:  "19a6c1cc43790fdc7c79ca07194ee6b349fd39de66cbc91fa9c56572e791dad5"
     sha256 cellar: :any,                 arm64_monterey: "5fe69bb218cbcd93a194c8bd610de71e9f4642ae0095307ce5eac01d8fcc9dc5"
     sha256 cellar: :any,                 arm64_big_sur:  "c9eeb588bbb9ab7e510cde300552d5600a4f4645f0a3659b6c6ae231b4cdd5cd"
+    sha256 cellar: :any,                 ventura:        "a715c31c70722db36b832c40ef72c51e1d24007ef73c875a90babae90feefa3d"
     sha256 cellar: :any,                 monterey:       "e0e85fc93e1427ba170ffbd9a3b561880724cfd3db9e599d42de652bd2e7e48c"
     sha256 cellar: :any,                 big_sur:        "70d8dddaa0344b5e5f940bff4170a4af1075b403e48f3f7ef7f7fc69900d0cde"
     sha256 cellar: :any,                 catalina:       "73ae1d3288ea381653cffcb2ef30b67a90760df5f25361a42bf5dd7b13bbecce"
