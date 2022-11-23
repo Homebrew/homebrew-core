@@ -9,6 +9,7 @@ class Imagesnap < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f363a0b9e1961f5cd6fc19b2b6bcfc6677399732723b6f686c33e338a746c26a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9cab0cdeac3bb6d67021107d754628c02cb22b1e1111049cf6cac6d4dfdd3859"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0b0e448b487416847f57dd541f031b3f35b369d43e0317293f99043ed60b820"
+    sha256 cellar: :any_skip_relocation, ventura:        "f2db93533cc9d42b1dd51004751626a4d0ba932bf2b12042a7ee1f7ba9312582"
     sha256 cellar: :any_skip_relocation, monterey:       "acd11ffa88be2018f9fdad03371404284fb93d515dba7569b4219b8cb09dc37e"
     sha256 cellar: :any_skip_relocation, big_sur:        "d388402a4c5cbbd2ffe370dcc792075688fa55baedcd093c00f02b262a3ca942"
     sha256 cellar: :any_skip_relocation, catalina:       "29524d3af5547a05136b5cb91a73e596a4aaa64f5a9fb437207814240439a3b8"
