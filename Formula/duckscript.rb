@@ -10,6 +10,7 @@ class Duckscript < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f9b704892694dd7f25c1fd9ec6339bfaed0c9b037f2b0bd61f02df876402b72"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fb10344b0cb06968116c020655e911a25bbb5932e459d96987db3efecab863f8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed360751a3c2d4f18e814ded82edc7979cf8e04f08c6b1fa834f9decc1e394d6"
+    sha256 cellar: :any_skip_relocation, ventura:        "0b30683004a16a49afa83c210d063bc5922b4a21771bf98eccb61c9080d6ec1e"
     sha256 cellar: :any_skip_relocation, monterey:       "74aec71e559bd061699b7eff0db941e2fc0e419a9c94a0910a44da9752c136e9"
     sha256 cellar: :any_skip_relocation, big_sur:        "712af7fa480b36a9ee497aefbe712160866cb9bb6434e6cbea822ab2dd6e8e15"
     sha256 cellar: :any_skip_relocation, catalina:       "f96302fc40c976bfe6a893da8f5509c7b000ccb1e74c2fd02c879a5a2d1317df"
