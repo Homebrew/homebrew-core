@@ -12,6 +12,7 @@ class Pgcli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dcb2607b7f3d4992d3cd9693537d5fdc1a2c9c5cfe3da327a684551336c55a41"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "06dbf43feba0d7398bf820f6d445da8c671b6a86e161624eea2da3ab6cf6a919"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "771ff01da170b62f43e117ebc4b5ae73dc56fb158ba5be4170621528c2f9e7b2"
+    sha256 cellar: :any_skip_relocation, ventura:        "d81633f0b1e4f10c935ec7341e182b8a974bf0f70c658d55b3d4733bdafec243"
     sha256 cellar: :any_skip_relocation, monterey:       "f7725128ae72afce69654c4a301b6e2d786455c35026ace0ba559c85444367e4"
     sha256 cellar: :any_skip_relocation, big_sur:        "90b7cf28ae61181f2d727a8c4c509408b6c2898eab97ea653b0cc1f34f9fcbf8"
     sha256 cellar: :any_skip_relocation, catalina:       "3fa9b93c191b8486c3e6506ac1750c5d76aaff71aa9de285ab4a32930b1df887"
