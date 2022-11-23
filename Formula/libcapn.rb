@@ -20,6 +20,7 @@ class Libcapn < Formula
     sha256 arm64_ventura:  "3b5a9e7daacc13c6d73c936c9f8c247cc3580e3dc7f32b17d0494b9a187ecf05"
     sha256 arm64_monterey: "36eabf2b781cac77ffb0eeb016f1529a209a2f32826db8b1055e75792d1d2b8a"
     sha256 arm64_big_sur:  "b0a7f5d134d0c95ec3049e7972e79ce8934661c0f38abdaeadedbac4d31469bf"
+    sha256 ventura:        "c2bccd7a6f924c04635d4a2b670e2cd06841259a26fc5d932ec699cad5e37039"
     sha256 monterey:       "deabe1315cdb7a96b2c86ee5e428a0a73bad194aceee9e405c1fd633364c5ad0"
     sha256 big_sur:        "0260e8e294d7e97f803b5addf9b9f4aa835f519a6a9489d491227fb061007219"
     sha256 catalina:       "a919d9c084288cc727f4a4126ede23d0391e089d1f0af9f1785d0858d3311a49"
