@@ -10,6 +10,7 @@ class GitTrim < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b947a3ef610d4099bb69f3ce13a4dd1ab5cc3cf54ff26bad1a0416ec17db6345"
     sha256 cellar: :any,                 arm64_monterey: "bf3d14d3e49b2706d08eda7eb2c9996dd1dd084620750657b64ca4eaaed1ffbc"
     sha256 cellar: :any,                 arm64_big_sur:  "e533b21966078b880931e146e2de12983de87ad946a697b4123d2c8f53bd884a"
+    sha256 cellar: :any,                 ventura:        "25119e705899f67ed5e6ad09cdb548380e7223b67f234c82b70507ee0db2e95f"
     sha256 cellar: :any,                 monterey:       "74c5d18624b71730015cab7a8a56024dc938d22b15c99cda2e00bef8385def6e"
     sha256 cellar: :any,                 big_sur:        "48ca1fc5e4ce96b10f13cddf5e1fe5222a7419133b348c7e563ab2ae51f4c6af"
     sha256 cellar: :any,                 catalina:       "dd1226f0b393f6ea83d826b0c4c893caba223a466d13812cda14602d3e796f03"
