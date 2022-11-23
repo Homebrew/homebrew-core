@@ -364,7 +364,7 @@
   },
   "moto": {
     "package_name": "moto[all,server]",
-    "exclude_packages": ["junit-xml", "six", "jsonschema", "attrs", "pyrsistent", "PyYAML"],
+    "exclude_packages": ["junit-xml", "six", "PyYAML"],
     "extra_packages": ["junit-xml-2"]
   },
   "mycli": {
