@@ -14,6 +14,7 @@ class Legit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4a2b7df7b4eb30d69b9e02efa46e5a1bc27482b8d27dfdac51b05bada80a3e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "61bdf4d2367da08fe2f4fe316f03242725de6ac46e4d0e9b69572d9e12affe67"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e11124b41954a35784ba268114952d30738b5db6fef6beef8ba7dc5ef4523b26"
+    sha256 cellar: :any_skip_relocation, ventura:        "b7fcd3cb170762d0b55e6fa7c2b0c5aabf574bf7efd4ee233973e9fe859f75c1"
     sha256 cellar: :any_skip_relocation, monterey:       "9e09bba4b62da8a3c7db65b3b975d3ffec2957dbab000e3d5cd8eac441c20390"
     sha256 cellar: :any_skip_relocation, big_sur:        "301fca4bdf92f6b9f72e115158ed9db588319e3eeb0965a911552e143bbb18cc"
     sha256 cellar: :any_skip_relocation, catalina:       "2b902ec1395bf89ebdf0e65d46fb5d8b337043a019aa4abc1e898c245cc9f44f"
