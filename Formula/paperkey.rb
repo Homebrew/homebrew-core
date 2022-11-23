@@ -14,6 +14,7 @@ class Paperkey < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3334f86e54a5038f18b31f703a22981ef66b028cda73e2bc985db6a0c74a401e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e56628d74d3ba424c3c801ee83d03408a8fe0e72644b493504c1511d84eea422"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71c9db30e077414c7504d8b20e9f5809b2cde37997881c1715e51e953d90d76d"
+    sha256 cellar: :any_skip_relocation, ventura:        "b052c9ccf5ad09a444113225cabbfe0d6a65a0d64fd5df1451d2660a9b7a5ebb"
     sha256 cellar: :any_skip_relocation, monterey:       "8a3f3bdec644389ce5de309eb2ce36e5829d9da8b611bb30bbb7a73c32efc669"
     sha256 cellar: :any_skip_relocation, big_sur:        "c6af240418bfb7c29113a1861966302d2be55fc578298f6fb0a4f71bc8dbf89e"
     sha256 cellar: :any_skip_relocation, catalina:       "12be9f841cfb0d4069be3e461cd5e783ba4ea11195507a13763f90ccc026f31e"
