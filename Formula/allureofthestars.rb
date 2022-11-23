@@ -10,6 +10,7 @@ class Allureofthestars < Formula
   bottle do
     sha256 arm64_monterey: "e9fc754df55dd4f847fa243857044a1f709aa3ddb3ab2d6c546acc417e565057"
     sha256 arm64_big_sur:  "e803ba4913b166fc125412cc604f9f1c2069d6ba0fe43d3a1b97d31baec2824a"
+    sha256 ventura:        "1d22318774732d6d9eee2ea361efe5ddda52bde6c4f0a848be2642644d360e41"
     sha256 monterey:       "bc8b0af2c7a18f51970e25aa5b128b566cac20598527576bcb42d1f37d204569"
     sha256 big_sur:        "9b943037f3426c5b10f2bd0c021d7ccf596341f1241e92bd29d9d24aefcc9163"
     sha256 catalina:       "ed1f07f254c85c52c4d906a682a8cc5ddc2bb7c662abf3adbf73ad966b150afc"
