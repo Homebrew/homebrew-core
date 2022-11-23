@@ -566,7 +566,7 @@
   },
   "semgrep": {
     "package_name": "semgrep",
-    "exclude_packages": ["jsonschema", "attrs", "pyrsistent", "typing-extensions"]
+    "exclude_packages": ["typing-extensions"]
   },
   "sgr": {
     "exclude_packages": ["typing-extensions", "jsonschema", "attrs", "pyrsistent"]
