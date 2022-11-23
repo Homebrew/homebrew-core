@@ -6,9 +6,9 @@ class Gawk < Formula
 
   # Remove stable block when patch is no longer needed.
   stable do
-    url "https://ftp.gnu.org/gnu/gawk/gawk-5.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gawk/gawk-5.2.0.tar.xz"
-    sha256 "e4ddbad1c2ef10e8e815ca80208d0162d4c983e6cca16f925e8418632d639018"
+    url "https://ftp.gnu.org/gnu/gawk/gawk-5.2.1.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gawk/gawk-5.2.1.tar.xz"
+    sha256 "673553b91f9e18cc5792ed51075df8d510c9040f550a6f74e09c9add243a7e4f"
 
     # Patch taken from:
     # https://git.savannah.gnu.org/cgit/gawk.git/patch/?id=53d97efad03453b0fff5a941170db6b7abdb2083
@@ -65,12 +65,18 @@ end
 __END__
 --- a/configure
 +++ b/configure
-@@ -12722,8 +12722,18 @@ fi
+@@ -12619,14 +12619,17 @@ fi
  
  			;;
  		*darwin*)
+-			# 23 October 2022: See README_d/README.macosx for
+-			# the details on what's happening here. See also
+-			# the manual.
+-
+-			# Compile as Intel binary all the time, even on M1.
+-			CFLAGS="${CFLAGS} -arch x86_64"
 -			LDFLAGS="${LDFLAGS} -Xlinker -no_pie"
--			export LDFLAGS
+-			export CFLAGS LDFLAGS
 +			# 30 September 2022: PMA works on Intel but not
 +			# on M1, disable it, until it gets fixed
 +			case $host in
