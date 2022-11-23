@@ -9,6 +9,7 @@ class Hlint < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e90b3c512ac6c5489b0effd2b49ce968d28a18602ef867b442af8d520404d66"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86b42cd45b1750a33a6663f9133a569c02f2b5ce68afef26ab74ac30f0f604ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "d4585fac9a68e82fe5fb2139c4690dcee8a87260cb8432b6b64d0d4588464a89"
     sha256 cellar: :any_skip_relocation, monterey:       "ab3bd5dc47ddf0444490cf619dd64f01d1570fd058dc246fdb8de5fa99c73c23"
     sha256 cellar: :any_skip_relocation, big_sur:        "56014f8e39dcba3cb9ef0e6becd505e40987b80b0c24cb648a930c653153cc60"
     sha256 cellar: :any_skip_relocation, catalina:       "5bcec467d194253ae30ae799b1a7d20ae334dc4905bd38490541eb7ee0fed660"
