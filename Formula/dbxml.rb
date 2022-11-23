@@ -10,6 +10,7 @@ class Dbxml < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d15ff7b5156f4bb68e1a397e62c0631733f0323300afb3358da574be87cdf12f"
     sha256 cellar: :any,                 arm64_monterey: "04519c8d0b802cc58234228fb4e697d0e4e83a89304d449f6976c9c5fa8287c5"
     sha256                               arm64_big_sur:  "04e8d59d289cdfeded395a021516b357e5bb63eed09e49aca28ed262c8c31128"
+    sha256 cellar: :any,                 ventura:        "18bb9ec11944c14033f7486d0278fc9111ebb1de2778c6ca930ac79bb96dfa73"
     sha256 cellar: :any,                 monterey:       "33d915b0652f7509895b421e65f6228915f1fddb42820076cb618b711432a898"
     sha256                               big_sur:        "e53e40e0184768fdac585276000c0224a04cfa9284ce94be1ab80380d2b79965"
     sha256                               catalina:       "59c12069d26a6be4f542d4c7869841c2bd71e8cb08a1c809d559818fb1cb156a"
