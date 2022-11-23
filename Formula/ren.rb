@@ -9,6 +9,7 @@ class Ren < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9277aaf4732d7c2ab0b9590bf81a1dfe82a1e8e40dd4d5c2e4369d839bd781c5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f6b10a80274e2cd7b78b8bbf90e8132511c321ec104bd9418b89814fa6dd2a4e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ac0c757ec1ce881161a4f5cf29377fc60070b97a5578802e35edf4d271ee60d"
+    sha256 cellar: :any_skip_relocation, ventura:        "985da9224010992dd43987ae41b0a216ea37233d726918aab196326513f1c3a8"
     sha256 cellar: :any_skip_relocation, monterey:       "4c6fb1c77c59fd33c98809ae637e443959d671ad4ae66a5b03ee384714f8521f"
     sha256 cellar: :any_skip_relocation, big_sur:        "1b693ca6331acfcd0df015f3dd19c57ac97aed62f02013f3df2cc62d72387533"
     sha256 cellar: :any_skip_relocation, catalina:       "29c6fe9c0e66e571fd15e9593e94d4a27feb3dd4bb5f0091e8fc6d5dc32d3727"
