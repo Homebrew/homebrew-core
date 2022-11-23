@@ -10,6 +10,7 @@ class Edencommon < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3307120f09bb0974e1f1a2c743a15d39067a81487349ce67c0ff10c8aa21955d"
     sha256 cellar: :any,                 arm64_monterey: "71d66559de0a1a1a043b2bed4bcf830a8308ed169b8fb5ae5139141c9ceed929"
     sha256 cellar: :any,                 arm64_big_sur:  "ea91a6028bea07d3c7081f5f7f74b9be40525cf7c339586f29fd37a2b44587a1"
+    sha256 cellar: :any,                 ventura:        "e4dc73fca31044f7e248861107565a9e130962def20fbf2f6451a0739406add6"
     sha256 cellar: :any,                 monterey:       "8c34055e8f516839915b0eb185c221a5af028f5e14ed8117e2de7ba26dcc68fd"
     sha256 cellar: :any,                 big_sur:        "eb655a558fa8e01cda2bd9598777867cae5d036858e97ed875485a9d67e3fdc8"
     sha256 cellar: :any,                 catalina:       "63dc0acfb3bac452366deec041e826f10f8444da27c6365efd5628e366170b10"
