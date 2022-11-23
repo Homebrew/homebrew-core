@@ -10,6 +10,7 @@ class Liblouis < Formula
     sha256 arm64_ventura:  "fc6537c67f337ed02502cb8af8ebbf110c8071e15762b89a8d0021e8330a466e"
     sha256 arm64_monterey: "2ff0dd1d1a33c710b7fdde2a1c49f4780d586f1ae29bd7283eed3471d0b948e3"
     sha256 arm64_big_sur:  "1e908e6a6877ef23418c0b5ac9fce615ec0181e2a8ca21cd5e311ea2398fb591"
+    sha256 ventura:        "0a277e5e7313ef6e5a9bb6e026eca1e16a4f2ea295fa805bca168c87d9807563"
     sha256 monterey:       "dbfc4a7f7a8cc40ccf5afabb1f92ac2e369dd7f740ec3d4fba8ed915864dbc36"
     sha256 big_sur:        "0e4090d80ab6850d7d4418253f98eb8ba70c77d3959140b1eae8285ce28f1b40"
     sha256 catalina:       "c687424423fee672cb59c8253c9aa6550a4d0ccc334974955ed95141eba2c615"
