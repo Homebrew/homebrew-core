@@ -9,6 +9,7 @@ class Rpl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "286dbe82c334c92999af55394d6ae990ece5617563f39afe1d7e5d1e7b0510c0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "46ef9e4c29ce913017b65e176d38f3d7b1a3ab33147c0fafb270cb7b442a2d78"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66905494cd9a1dcff546a819ed9be8dc20113323ae4dc339d346359e8f4752dc"
+    sha256 cellar: :any_skip_relocation, ventura:        "c199985afc0139e5a97ba13b719537e1423aa821c424f20af11dae0e78a133d9"
     sha256 cellar: :any_skip_relocation, monterey:       "ec1ccbe3b7a0b822464cbd586bb247a0c5ef5f72781c9a9ec7aabcd0e0169348"
     sha256 cellar: :any_skip_relocation, big_sur:        "b07f269aff8704908beb57b9f6045daaf377805371ca4edc72e362cab4fb7e23"
     sha256 cellar: :any_skip_relocation, catalina:       "edbab26552da9547f8d356ba50bb2d02ce6c10549da2c2c4d5f65a3bc4039b81"
