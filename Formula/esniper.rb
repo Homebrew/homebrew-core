@@ -10,6 +10,7 @@ class Esniper < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8bb981e2a11b1963ecba800ea00ec07647d3f5f6d4d90986e512e8e4a72dd422"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a00cc8d55d37e3b20069a08176bfea366e64bae3ab651fe7063f857610a36ae"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6db787246047b9a9796d704b258f7f3c7a8f0d35eb77ea4eb5d766ee1c67895f"
+    sha256 cellar: :any_skip_relocation, ventura:        "5fff65a1cec7ac2bbaaa5cc849cd61a4e795f589ee5f0ea6231f405841eb4a06"
     sha256 cellar: :any_skip_relocation, monterey:       "99e0e6b314a7990401afdd12fe220bd78e8773eb5803a6c308cd658c88114013"
     sha256 cellar: :any_skip_relocation, big_sur:        "8533d8f2e0a0e4cafbc9f3305db9cd5eccdcdd0651d7bc8f8331b625395c1aab"
     sha256 cellar: :any_skip_relocation, catalina:       "609f0b7d7331c4e61d274a83cbfc7157394d905a5840c6df7547140b5b0a44da"
