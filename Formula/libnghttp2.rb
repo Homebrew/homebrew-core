@@ -19,6 +19,7 @@ class Libnghttp2 < Formula
     sha256 cellar: :any,                 ventura:        "42b2ee58bfa16484431b2bf296478884f62fae5bcc59ff00de5e2f46935b4c12"
     sha256 cellar: :any,                 monterey:       "d94c9ee54c042c8d8608fcbd4cee72e0c42dda8e46aee5c6967f8e37d660de54"
     sha256 cellar: :any,                 big_sur:        "7fc8c1465ff197a976d9b6440a44e033f1fb9e53f594839478db81160fefc248"
+    sha256 cellar: :any,                 catalina:       "f0c80e3010782ac3f3337a4c63c47ef41a972e01bf0b9fe9c8e418768a78db13"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9a6a9bb02c118de8be5b7a1496809f7bf742ed7bf5b44752e52e9aacbb4a13b"
   end
 
