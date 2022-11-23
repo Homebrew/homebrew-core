@@ -15,6 +15,7 @@ class Zebra < Formula
     sha256 arm64_ventura:  "e5031d8103e0a12a8250de2075d552577c3920e6dd5910506c126ad78339c2d2"
     sha256 arm64_monterey: "8bede656eb92a62100fbef7242bc5983698621e2e197bbcae466ab9f3ff2c51d"
     sha256 arm64_big_sur:  "3f306cc62317d8a0ace3904ea87cfbe2b87b86eb1b8a1261650d2142ed9670cd"
+    sha256 ventura:        "11256e93155452cc87c258f460ec2360d35bbbdeea07db933445523fa0c77a43"
     sha256 monterey:       "4edf6fa6edd68cdd84f0160b2da734a11d1ea9ee3dba66f123d3a67786c8d6db"
     sha256 big_sur:        "c4bcb8868fd1ad665e0b3793f63c3c26a2faf94be04c5bacc6cd3db12d6661d6"
     sha256 catalina:       "f18e747b339b6df99dca4aa709d2545575a0f3f5cad7f1d1f76b9544ea7b8a39"
