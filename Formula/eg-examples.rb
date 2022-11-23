@@ -13,6 +13,7 @@ class EgExamples < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c998d2ecb20e008e38511d86247d6d7c5d01b8def623c77508ea62cb15870add"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c998d2ecb20e008e38511d86247d6d7c5d01b8def623c77508ea62cb15870add"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c998d2ecb20e008e38511d86247d6d7c5d01b8def623c77508ea62cb15870add"
+    sha256 cellar: :any_skip_relocation, ventura:        "aa47a39ac7fa11e465914020ee475b3b9b5fbd22bbb32c9dedb515d8b0dbf8b5"
     sha256 cellar: :any_skip_relocation, monterey:       "aa47a39ac7fa11e465914020ee475b3b9b5fbd22bbb32c9dedb515d8b0dbf8b5"
     sha256 cellar: :any_skip_relocation, big_sur:        "aa47a39ac7fa11e465914020ee475b3b9b5fbd22bbb32c9dedb515d8b0dbf8b5"
     sha256 cellar: :any_skip_relocation, catalina:       "aa47a39ac7fa11e465914020ee475b3b9b5fbd22bbb32c9dedb515d8b0dbf8b5"
