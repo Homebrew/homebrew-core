@@ -12,14 +12,13 @@ class Nim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44fd907c84c4954b73eee7525055a62dab78b6f7478b8c3284c26deef6c74eee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9cf315218fdfada493834f1e84e729398dbc49c72f2bc9df02c8159a8538038e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ab63695ec5c202a239b56c0b2841665f27ce0e0f60c3e13b943d0fa3e790092"
-    sha256 cellar: :any_skip_relocation, ventura:        "45ee21b96df617d957797bbbb02e44506b1b0581a7c07c0883e22831585be990"
-    sha256 cellar: :any_skip_relocation, monterey:       "fd6df5f0e793848d5a89203204f57419e167dd5d5aa8ee59845614858f2e593a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "009ea313f3ec104f58778390548ddccf5fa411430ae063caec20b73bcf23c3b5"
-    sha256 cellar: :any_skip_relocation, catalina:       "38369d24bd3fb20b0df187468198b615be6c99a25cc53cc17906d140f4f783e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdd58b00a524ae51aff36a02c2e45b7ce379ce344059e413d6bf48f3c5931fc5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "045fb4b6a185a2777faa36ce9a833f4c22ebc8fb34355aff6109e5895e7e3abb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b43cd24e520f8e6058eb8a74fc9e32ddc0e63a63b44e3e4066bac9cba1ed4ab0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e65de919d23c6e3beecbe8def4fdbc895eec6905c2bcfd404e27f97d173ea0ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "77176b57b17ae53e35138a5bc91be98df78f8e7415157f7e89d486816a8d1f55"
+    sha256 cellar: :any_skip_relocation, big_sur:        "709143fff4265d8d95bcd1eeb67a1e5c50b24525e60f1fc0d90c0442db682db2"
+    sha256 cellar: :any_skip_relocation, catalina:       "4f5fc57392c8d04b3d23f19350e6db640689b0ea4ee6caf0646062ef9ca9569d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c133e78268012e5e8295dde39e4861be7f3a84b84f86443dad3d5f34986327ed"
   end
 
   depends_on "help2man" => :build
