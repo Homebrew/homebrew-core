@@ -19,6 +19,7 @@ class Flawfinder < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "baa4ede546ed9ce3bc3283002cde1fb529a6c91030614df0a5e30adadf38b933"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "baa4ede546ed9ce3bc3283002cde1fb529a6c91030614df0a5e30adadf38b933"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baa4ede546ed9ce3bc3283002cde1fb529a6c91030614df0a5e30adadf38b933"
+    sha256 cellar: :any_skip_relocation, ventura:        "914cd86fc8a41d17755bd041e7f57233d09d591257dba66ee2b166ebeed49e70"
     sha256 cellar: :any_skip_relocation, monterey:       "914cd86fc8a41d17755bd041e7f57233d09d591257dba66ee2b166ebeed49e70"
     sha256 cellar: :any_skip_relocation, big_sur:        "914cd86fc8a41d17755bd041e7f57233d09d591257dba66ee2b166ebeed49e70"
     sha256 cellar: :any_skip_relocation, catalina:       "914cd86fc8a41d17755bd041e7f57233d09d591257dba66ee2b166ebeed49e70"
