@@ -63,9 +63,6 @@
     "exclude_packages": ["six"]
   },
   "black": "black[d]",
-  "borgmatic": {
-    "exclude_packages": ["jsonschema", "attrs", "pyrsistent"]
-  },
   "bpython": {
     "exclude_packages": ["six", "Pygments"]
   },
