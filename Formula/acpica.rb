@@ -8,7 +8,7 @@ class Acpica < Formula
 
   livecheck do
     url "https://acpica.org/downloads"
-    regex(/current release of ACPICA is version <strong>v?(\d{6,8}) </i)
+    regex(/href=.*?acpica-unix[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
   bottle do
