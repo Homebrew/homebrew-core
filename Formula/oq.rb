@@ -9,6 +9,7 @@ class Oq < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6f881c126af64b040e201046d551b1271b033004874fd6a245622d9fc360072d"
     sha256 cellar: :any,                 arm64_monterey: "0ae85bcb68114e264bce9def780201dab80edaebc91a15811799976c42fc5682"
     sha256 cellar: :any,                 arm64_big_sur:  "a24d7e3301c02d8878d6b91371d48d40f9f659d678e8702785d59130d6374fee"
+    sha256 cellar: :any,                 ventura:        "09c18e63d77bdaad60afe431d07905ed214e93dd05b211c0c4925aee9528b1c3"
     sha256 cellar: :any,                 monterey:       "54a718d39d431feed30e2930557a6b97076d387194e9fd2534036cbcb415f1e0"
     sha256 cellar: :any,                 big_sur:        "6a560c164ee5ffb25c9449f3956d8e454b74ffa4681c2845e66c4df31f21cfab"
     sha256 cellar: :any,                 catalina:       "130986726eb1f832c75c22742d59674368b27f7c26685f0ca239067bdcc4be7e"
