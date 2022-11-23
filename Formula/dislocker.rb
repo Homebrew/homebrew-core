@@ -1,10 +1,9 @@
 class Dislocker < Formula
   desc "FUSE driver to read/write Windows' BitLocker-ed volumes"
   homepage "https://github.com/Aorimn/dislocker"
-  url "https://github.com/Aorimn/dislocker/archive/v0.7.1.tar.gz"
-  sha256 "742fb5c1b3ff540368ced54c29eae8b488ae5a5fcaca092947e17c2d358a6762"
+  url "https://github.com/Aorimn/dislocker/archive/refs/tags/v0.7.3.tar.gz"
+  sha256 "8d5275577c44f2bd87f6e05dd61971a71c0e56a9cbedf000bd38deadd8b6c1e6"
   license "GPL-2.0-only"
-  revision 6
 
   bottle do
     rebuild 1
