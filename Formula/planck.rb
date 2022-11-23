@@ -10,6 +10,7 @@ class Planck < Formula
     sha256 cellar: :any,                 arm64_ventura:  "080d20e356785cea7647afcf49ac9bd1b6f2e2673a9b8d4fbf4bc21fe210b3e7"
     sha256 cellar: :any,                 arm64_monterey: "d9d378f2fa9db4cb5e669a26c98e6fd2735ad0f0e59f36493bf3cfbcb0d80dc5"
     sha256 cellar: :any,                 arm64_big_sur:  "870a011b8ee9db70210675d51d7f997c36d6d29173074e711777aa333c88c837"
+    sha256 cellar: :any,                 ventura:        "57d68501020f62e385b564df8bf53d4b0ea20da90a8a5912623fd8fa6841025b"
     sha256 cellar: :any,                 monterey:       "7e79a7dc796052c2da5681c8d1609f91bd818f2bbdefd9ce8f02a09414b3d34c"
     sha256 cellar: :any,                 big_sur:        "575a4bb1d77c840f2e3e16b1d5dff64acbcddd7fd8cd61318cb01a9a54b988a2"
     sha256 cellar: :any,                 catalina:       "71720827f1deb111e07112a8f7cda8a576f5dd47596d048f8a9f9907c1f031e6"
