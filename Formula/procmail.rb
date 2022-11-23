@@ -9,6 +9,7 @@ class Procmail < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ebd812ae059d9cfcdc313028d1a967093b2fcb54745308f3ac900f17f850822"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f36e2740c6191a3cc46063e606fa3bf9bd5f5da712e7ef191722ee1ef5c85810"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e39fb3a7e1b24091190e1348b3a0cecf28f189828c5b5b126e3de0bfedaa02ac"
+    sha256 cellar: :any_skip_relocation, ventura:        "7b6228407ed3b8ad685845095e0d0ef126cefe4994a2ac87db15c4abc8b6bb23"
     sha256 cellar: :any_skip_relocation, monterey:       "68edea089a8cac07fe73a92c5c31ab7f8a17e4f57affad9acd8cc1d71e2bc8bf"
     sha256 cellar: :any_skip_relocation, big_sur:        "c29ed505600498218a3733d68ebff1eb29c259ac3789da32dc2c76d9aaa33527"
     sha256 cellar: :any_skip_relocation, catalina:       "a7f6ee9550f27ea88322a4c4c88b04421e6d2c676248a914571a2fbffd6d425f"
