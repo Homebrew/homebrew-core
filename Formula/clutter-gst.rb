@@ -10,6 +10,7 @@ class ClutterGst < Formula
     sha256                               arm64_ventura:  "ca0998f8c85dae7c5bb304de642e84b9c71f5a373657143a40ebb4790e702b8e"
     sha256                               arm64_monterey: "c1094b27e618b50d8bc57be10e87f2858608584cf952c499000636866f763c8d"
     sha256                               arm64_big_sur:  "bd23c3da4a8e9c35bb93bb043967defead1d749e15d912006f48b51cd1e467d4"
+    sha256                               ventura:        "2af351cb62af7219e4ae828a9e79f634a2327b5840678206f7ef255f876f96e9"
     sha256                               monterey:       "df2e7cc17a0b1c88a927eed54578a00fefd0908e537a36916f5a8a2cb6e61f41"
     sha256                               big_sur:        "e9d8f94e727561a95238da6366eb59589e9342edc8fd0a0eb6af86ce91aa9ef4"
     sha256                               catalina:       "9e5e48bdf08599d63be7a75eabac3221ce4b1799fcf51d857d37336345393c16"
