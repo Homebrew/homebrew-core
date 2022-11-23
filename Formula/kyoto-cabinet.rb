@@ -14,6 +14,7 @@ class KyotoCabinet < Formula
     sha256 arm64_ventura:  "3f3bda6747d743ddd1300f8df99662734395466240c46ac835648c3e38fc5526"
     sha256 arm64_monterey: "56224898ed5bf4ceecccd79901b90191180b89d4bf48e7cc218dbeff28fecc9d"
     sha256 arm64_big_sur:  "fa9322ae66dc8295d2f60365999a371c6602bcfd98f050e0897992e745c53d93"
+    sha256 ventura:        "cbf9dd9b70f76c786714ab690d6a381fd9cd73d187b1bcae3f805331768cb43f"
     sha256 monterey:       "5aee992a2c97e53568a06313204e83e795debab5260ca564fa846e982db8ed10"
     sha256 big_sur:        "8a7873835b5790ece37b54d398daf834e7aa75570202cd7a174ba7e5ebecf6a3"
     sha256 catalina:       "c78b84f7dc1e82f12a8bdbeb934abeb9858968fa8c53dee9a405b1e55b49155d"
