@@ -94,8 +94,6 @@ class Poetry < Formula
     sha256 "89559fa5c1d3c34eff6f631ad80bb21f378dbcbb35dd161fd2c6b93f5be2f98a"
   end
 
-  # TODO: switch this to `depends_on "jsonschema"`
-  # after the `jsonschema` formula has migrated to `python@3.11`
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/3a/3d/0653047b9b2ed03d3e96012bc90cfc96227221193fbedd4dc0cbf5a0e342/jsonschema-4.17.0.tar.gz"
     sha256 "5bfcf2bca16a087ade17e02b282d34af7ccd749ef76241e7f9bd7c0cb8a9424d"
@@ -210,7 +208,6 @@ class Poetry < Formula
     virtualenv_install_with_resources
 
     site_packages = Language::Python.site_packages("python3.11")
-    # TODO: add `jsonschema` to this list after it has migrated to python@3.11
     %w[virtualenv].each do |package_name|
       package = Formula[package_name].opt_libexec
       (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
