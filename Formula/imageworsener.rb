@@ -11,13 +11,13 @@ class Imageworsener < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "28cc65e18c1476f450e2535860c15e1cfa649d2af01936877511a0bca15e54fb"
-    sha256 cellar: :any,                 arm64_monterey: "95a22e3ec38cf958cf529618b473c4d909ebf0a63f419eedbd3a967c2ee59437"
-    sha256 cellar: :any,                 arm64_big_sur:  "49a10087ef0a0e2844b1aac81d6288a55a38ae1a44e6838b4839a16d7ede1ccd"
-    sha256 cellar: :any,                 monterey:       "5107b352565dbde45e70ecb9c0014d398f1484e0188d67796b567caf6a3d89d9"
-    sha256 cellar: :any,                 big_sur:        "8b89eef7348b681120d65279b58a424495a07f74df19c1688be31131a2aa19a6"
-    sha256 cellar: :any,                 catalina:       "a7cdd866470feabfcc8c7e602f1765a69aebc122d48b5da391a7ad3661b5b8f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bda810cee57ed24f184221afcffa158ee54c8c2e474f8b6b45953ed94f8b2b45"
+    sha256 cellar: :any,                 arm64_ventura:  "14a343a159b3410196cc3ed40b0e674b4bed5f8ee7b2760b49b1317e1a09811a"
+    sha256 cellar: :any,                 arm64_monterey: "0d8c2dab98fa032f871df63f93ae33d4d1a989fe7c97f185d976d976f243134a"
+    sha256 cellar: :any,                 arm64_big_sur:  "50063cbefef7614047703983639adaee5836d68c02f673aed62c38fea1c4418d"
+    sha256 cellar: :any,                 monterey:       "443be530e6d93e197026cf8ec457817446c38c94d84b39a3ca76e7a2282225ae"
+    sha256 cellar: :any,                 big_sur:        "7ce254b5dfb0dcd52e39b682cfd21ea665601cd14e9a2a5ab0c923e185ad5261"
+    sha256 cellar: :any,                 catalina:       "7301d5557860b7402e3d624c77a208c1e3eb1ed69479d6d3d3f1158a3e3ea079"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffeb2d98cb08aca5974ca2ece5a40a42b5bd6e0c2422f0a3013455d00793883d"
   end
 
   head do
