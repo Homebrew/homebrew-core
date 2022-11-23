@@ -14,6 +14,7 @@ class SearchThatHash < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d84ac4e3ab6115c4a8484cf8d632586a0ec6dcc7be463b50458530239f3ef805"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9d3e2a70f922e14e1cf44a6d0e51b1675223d425b950cb8ff9dd4a044f44d857"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c3a295b246a955d4e75837b8a8ad34b5c9d0c5a1d488a1dfc43a7b75078f571e"
+    sha256 cellar: :any_skip_relocation, ventura:        "2f5affb96ab4d31bc4463bab9319e3a20a63440878c2de81614fa7994f140057"
     sha256 cellar: :any_skip_relocation, monterey:       "b7c49fc78e71fedd39937cd44ccbcefe2472392ee5f0b4568dccd37f2ced785f"
     sha256 cellar: :any_skip_relocation, big_sur:        "3b4817beef5532aaad6b8dac4bcc6b3821435f3056897966a8bd0d1f949be5d5"
     sha256 cellar: :any_skip_relocation, catalina:       "808111c76e4c796dc625ff86d19fcddecfd487e5c7158954cac87ba72869a633"
