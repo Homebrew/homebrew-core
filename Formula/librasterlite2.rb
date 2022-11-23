@@ -6,6 +6,11 @@ class Librasterlite2 < Formula
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
   revision 2
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?librasterlite2[._-]v?(\d+(?:\.\d+)+[^.]*?)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f44af8912d6461e2d7400b5aa79779f52e1801afacdd01104e36314145ec094f"
     sha256 cellar: :any,                 arm64_monterey: "465fa76b41fa9b5bb74ac5e1cb685cb257ebcd0afc977f1d5c80b0b5a4fd36ff"
