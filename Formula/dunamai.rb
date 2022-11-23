@@ -11,6 +11,7 @@ class Dunamai < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1e8874af64e0e883688e3bd1652685336d0d6914c7d4394173cfba6275432f4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b9fe9f9dd984b8437c52e03ff2f7423e961341fbf22ae8f39afbf941ee8e5fdd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d82dc49050bc9fa40e2bb9246b29c515831bf4b71573a5a7ce99bff23dc06efb"
+    sha256 cellar: :any_skip_relocation, ventura:        "0fd553c2938009751be083c0387e5fc6e4fd16a625393884f2f44611d9df7fba"
     sha256 cellar: :any_skip_relocation, monterey:       "e91c11d29f1377c1cfe5aedbb6a13f881cae0ef278cfe3473999efbf1a53dcf9"
     sha256 cellar: :any_skip_relocation, big_sur:        "8aab254de13cae0163b4fb74bf72e35613bb2842258ce51d5edb163fda5ccbca"
     sha256 cellar: :any_skip_relocation, catalina:       "19f45286947ddeb91fcfc4559677483ba6947cf230ddbdeb0ebd3c6cbd1c80e0"
