@@ -9,6 +9,7 @@ class Kubeprod < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9299d3fcfdfbc1c9a0a24cc24f810cebf89375f4b9df5959479f21742cd8fff"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "397d87c63d6eb199e49a2d695d3f16619f0fef0ffdf905c6378d241d1259b4c4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cf8f68102f72c4f3dc4398baa40bed174c9383fe70d6c092416a2413b59fea7"
+    sha256 cellar: :any_skip_relocation, ventura:        "d631ac16ddff9bfa543840aa89cbda0586c1e2e7390f50d1bb88ef0040bc4ef4"
     sha256 cellar: :any_skip_relocation, monterey:       "da4dad9205b38cf15027cb688595bdc75b1b6fa653edea53061e151fae192987"
     sha256 cellar: :any_skip_relocation, big_sur:        "b5bcbbcfb672ba55f4cc8ff037265ad5609637c680a3913ed70902fcd942446f"
     sha256 cellar: :any_skip_relocation, catalina:       "d93e5540cc7b2b7a479b69613c9aab0e9809a838cb1241f20650c01c9c37fc56"
