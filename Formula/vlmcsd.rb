@@ -17,6 +17,7 @@ class Vlmcsd < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "58a2efe9d5940bc384b74ed21b81599146942ea924e9844a7b6060558f8ca621"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20f3ba285635e158a02b7cb528e25eda9fa45b6a832f5893536e88b6e965a332"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7b3abfda639485474805f9d4d93f2c6e47efacd9e8affbed3aca44bda55c1964"
+    sha256 cellar: :any_skip_relocation, ventura:        "dea463c5c77779229911e99d092d97a3cda08e557c262b23feed1764ef718b89"
     sha256 cellar: :any_skip_relocation, monterey:       "46d9330798889d87f2e2013b99fed4416124fa119d59591aadc7ebd80197c024"
     sha256 cellar: :any_skip_relocation, big_sur:        "4e7ff7a7b2b24f12671783aba5e87a444576418ec0220d037dbe25d5f1e2ff71"
     sha256 cellar: :any_skip_relocation, catalina:       "1b6375150a6cbd27eb386f0fae0bcbbccdfc9b3079dc6cfb5a9ce633029d5484"
