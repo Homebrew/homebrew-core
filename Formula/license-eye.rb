@@ -10,6 +10,7 @@ class LicenseEye < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcb1c4e71c6ba8f95cd8e5a3575203a23aa902c75ad54d09e609cd92223ee471"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b529d2b2a6acd07e456679165c835f6746831461c01091b734cdf078739fcc0d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "817bb92ef9bedf40930575884c6a3cb56f60b58e30883dff98e5567e9020a3a8"
+    sha256 cellar: :any_skip_relocation, ventura:        "15be89303dc6e43bcefb640562fa2ad3c4b2e621e3ad9766ed52471f7b921016"
     sha256 cellar: :any_skip_relocation, monterey:       "987285c263d671d34283c78f7bbc8a59f07cad99d042afa38dc63921c02f0b08"
     sha256 cellar: :any_skip_relocation, big_sur:        "a1e8fc941f02819d1290f6dad173561c0640d579173f52b77001e1f4a18f4f40"
     sha256 cellar: :any_skip_relocation, catalina:       "be68a423bcecb7cb02498285af32a9a4d1381fcd62978d0f2aa22d5aa8bdec4e"
