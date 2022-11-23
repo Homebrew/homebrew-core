@@ -3,8 +3,8 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/de/0f/f3e5202c7bcdc81d0577ff42e2358b697e3bad554b74e81d7f8983d1c298/FORD-6.1.16.tar.gz"
-  sha256 "5bbb1a2d87186bc8617c5907c23b11cc03ad67eb61746d2f354a7fec95891801"
+  url "https://files.pythonhosted.org/packages/14/89/156df5d59836a39a5d11d65f81135d0338a33023188ff8aa5e7b29764919/FORD-6.1.17.tar.gz"
+  sha256 "10f8cc19517ea6b8308251e59286a793c9bc47098c33da3528aca16a08143908"
   license "GPL-3.0-or-later"
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
