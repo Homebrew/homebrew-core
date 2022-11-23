@@ -9,6 +9,7 @@ class Goawk < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ddea1e70e7bc975a88822b896563ea72d2703694aa3ce81fc3b4670f780b418"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5bd91be1777a87389d5d9f2850ee3bceaae8f0906a6884cd0ff5733f46cc33cb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5bd91be1777a87389d5d9f2850ee3bceaae8f0906a6884cd0ff5733f46cc33cb"
+    sha256 cellar: :any_skip_relocation, ventura:        "1330b53a033055abd878d1327ecda824e690a515b8582d0044a71c0bd1e3ea3d"
     sha256 cellar: :any_skip_relocation, monterey:       "9d48a5cc2914124050be0ade5d8841b0e18e90d189bc7ac122b5810a93b5e3c9"
     sha256 cellar: :any_skip_relocation, big_sur:        "9d48a5cc2914124050be0ade5d8841b0e18e90d189bc7ac122b5810a93b5e3c9"
     sha256 cellar: :any_skip_relocation, catalina:       "9d48a5cc2914124050be0ade5d8841b0e18e90d189bc7ac122b5810a93b5e3c9"
