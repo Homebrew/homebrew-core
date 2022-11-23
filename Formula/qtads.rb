@@ -16,6 +16,7 @@ class Qtads < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9299d3c5b8a51eaf92592724c056f07d0e5edfc8094464fef736f11d24113c11"
     sha256 cellar: :any,                 arm64_monterey: "0e30ba9d9f377dcf72aba30d61c6afbe3c36d5c371776ef8c52115e48021ba7f"
     sha256 cellar: :any,                 arm64_big_sur:  "7c323cae1a69574d5b699a5c5204b3b11878c26f86ce74bb61d0a84761555331"
+    sha256 cellar: :any,                 ventura:        "05dc178c3844cbc7a10e4977c948db84e803f52a9e23b07c25374caa32932f09"
     sha256 cellar: :any,                 monterey:       "b2c94ccf083bbaf35d5e2417295996d4e3cfedca0ecc403feaff940646025ad0"
     sha256 cellar: :any,                 big_sur:        "f18e08b6d576a0d634602217c7ae797e34d39d527351e1be7b51724c069493ce"
     sha256 cellar: :any,                 catalina:       "ae983130a47c5061331a894e8f0ae509db915bb1a3fe80bdd1c6d6639389478a"
