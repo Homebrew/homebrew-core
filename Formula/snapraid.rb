@@ -9,6 +9,7 @@ class Snapraid < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a12c659bfe1a8ee981eb3bfae72b2d8ba469cb411a2596d856537a1ace55788"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b915f177268a0caf218c61839f0094fbce74d1ce02a8fd91c0f5be947e0a4ac2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d61d8bd872a854145c3204dd03b15ea5975437bf6041deded16a724449374a6"
+    sha256 cellar: :any_skip_relocation, ventura:        "38c6ec82977fd77980a5bf3883c41e1f95236223385b10aa7345504eea522e79"
     sha256 cellar: :any_skip_relocation, monterey:       "34530bba9f9d233b699c4b618190d09e245eedad765bf790b0aee213f5c6907d"
     sha256 cellar: :any_skip_relocation, big_sur:        "73bb540ade6633bc5483250e534decb865ff205c7df5662a854c6edb05d181d6"
     sha256 cellar: :any_skip_relocation, catalina:       "d3075caa16f4fc7afc551656065590b94b251268f16fa4d023594b070f0732ed"
