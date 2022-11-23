@@ -3,6 +3,7 @@ class Nuxeo < Formula
   homepage "https://nuxeo.github.io/"
   url "https://cdn.nuxeo.com/nuxeo-10.10/nuxeo-server-10.10-tomcat.zip"
   sha256 "93a923a6e654d216a57fc91767a428e8c22cf5a879f264474f8976016e34ca6f"
+  license "Apache-2.0"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3c4a5916ae6ddbd2f1294d1445429febf7f4ee4b674a72239a39f2183d9703c"
@@ -21,7 +22,6 @@ class Nuxeo < Formula
   depends_on "libwpd"
   depends_on "openjdk"
   depends_on "poppler"
-  depends_on "ufraw"
 
   def install
     libexec.install Dir["#{buildpath}/*"]
