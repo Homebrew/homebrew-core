@@ -12,6 +12,7 @@ class Dotdrop < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a79909245b7f4eab10d2194c278c669535f43eb7f753bb78862c5b76acb9c99"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a9100200107e492fa3e8724b18eba0b533311a03fd85b4b888a33521d412af2e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f69def539062e7eaae065a31d30af1c6bd680f681d88d08bd2dff97445cb5e6"
+    sha256 cellar: :any_skip_relocation, ventura:        "482682d23919e0bb09dedbef7cfe9da4f58695a288f37d5dc61bcca792bb5c16"
     sha256 cellar: :any_skip_relocation, monterey:       "52963b1051ac82ec4746c4a63ad2d6da142fe13b1bf4eb62e5a71ade5ab58f1d"
     sha256 cellar: :any_skip_relocation, big_sur:        "a258253c220d29e270fa96d921204d7079d8fddf429a7f440bc1610a4ff69e72"
     sha256 cellar: :any_skip_relocation, catalina:       "d8dff5c4650a7cb5c1dfc2a5e520082abcdea1ef813253ad48460047f5650f46"
