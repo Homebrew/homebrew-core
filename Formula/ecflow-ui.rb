@@ -9,6 +9,7 @@ class EcflowUi < Formula
     sha256                               arm64_ventura:  "ec7de105accd483779ab8a5e6c0883befb41331a30a3a41e499fd70494b3c082"
     sha256                               arm64_monterey: "6ae1e4af4d37930f8b3f9f2ac9eee1b21ce144f3ef3df8668d4a16d585e8dd41"
     sha256                               arm64_big_sur:  "b390efe842995399d306f2b2b3a80b6208129d01a4572172997ebaea899e514d"
+    sha256                               ventura:        "1556ad699b95553e2c25edc641e5d15832b1656ade27f761e43fed9d9115d9fa"
     sha256                               monterey:       "eb02666119c06fc883ae3259c003cdc29b7c15bc4fd35215f926e7a05c0ced38"
     sha256                               big_sur:        "71d788e687f913a6679a9ab86048bd34001a955780917670299c002cc1986c01"
     sha256                               catalina:       "6fe63e6d15f115811414b11a7adc75c95c6a34ac1a14ec02b298e7d0ba6a9f1e"
