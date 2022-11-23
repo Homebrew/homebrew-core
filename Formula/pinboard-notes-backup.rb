@@ -9,6 +9,7 @@ class PinboardNotesBackup < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3069c8f2bf3d19e00854023d614cbfaa54124714bc24f19add7342fddadbc7fb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "872d668ef3797167027e12761a3d7f75624c1fa0f2d2fd319e003647f6d67d0e"
+    sha256 cellar: :any_skip_relocation, ventura:        "aa2a58fc830cf1fd4251f2115f8ac0de7f0f5b1b87a43f9362dac87243d55072"
     sha256 cellar: :any_skip_relocation, monterey:       "014147bd4fab3f85d1d01efa02132303dbe6240ef67c7a71c1fe4f4595ea7d0f"
     sha256 cellar: :any_skip_relocation, big_sur:        "b383069c859d37cc356106c445768f3996f1eac4a83e20d57d9800a0c4328485"
     sha256 cellar: :any_skip_relocation, catalina:       "8f86319b5bd957198edc1a19cf7af1a11fba9ee5ef950f8f8bd8b8f56af0d37c"
