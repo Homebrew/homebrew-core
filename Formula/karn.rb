@@ -9,6 +9,7 @@ class Karn < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "91b3061405fb2c0de965f367a209f05d29c53f01d5ec9ed386980d29ada4b53d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b074d05548362367465ecd94b64f067b845e7f8aba75e93eefe73eab08293d11"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fff2a71abf62d3eaedba7d095e3fcfd9fbaa17895dab15fabefc4cd2d5a8725"
+    sha256 cellar: :any_skip_relocation, ventura:        "ec617c79910918e30a4ec52d3a9f254b85b11554a88174b525605ba49dc00b78"
     sha256 cellar: :any_skip_relocation, monterey:       "a46d49dec3cbcb3e0753ff3b95e38721446670b1cc9cd501d1bedfceb99adb48"
     sha256 cellar: :any_skip_relocation, big_sur:        "bdcf0389352b56c208549750ec502a1bfc01c02c0466c981abfcace027cc479b"
     sha256 cellar: :any_skip_relocation, catalina:       "6f9d3e100d55f950b54ee3ada80008209a1f61aefe62ae7f171e9615554b2f93"
