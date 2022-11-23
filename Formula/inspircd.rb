@@ -14,6 +14,7 @@ class Inspircd < Formula
     sha256 arm64_ventura:  "90863492d87e3d820958780b82e54f28033df2a0b7069513e55c00b0a42f7103"
     sha256 arm64_monterey: "a36480d741e6c9d5c82b04db21a0d897eb8f814ebe84fc347cc0f93eec9455ba"
     sha256 arm64_big_sur:  "c9dbf6c3bf58f439f0de1213ccd7040e4c1d4a9b8a1ddf3ed3a7ee393e991b31"
+    sha256 ventura:        "90885c177087e11c332457822fd7a21f2a4509a9eabb29a428fb183dfbcadca4"
     sha256 monterey:       "58c63fc7d11e36a96a193b0f9b4860a94ec5a2314a7637df8437499dcdaebd08"
     sha256 big_sur:        "6d4bed11f56f1dfe44a3dfb983a4b29885d8edd146523a352dfbcb87ae295829"
     sha256 catalina:       "064fd95d7b73359089b4dbff19e768a58aef7b36caff933781cf67ace3a94583"
