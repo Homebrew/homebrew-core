@@ -4,8 +4,8 @@ class Breezy < Formula
   desc "Version control system implemented in Python with multi-format support"
   # homepage "https://www.breezy-vcs.org" temporary? 503
   homepage "https://github.com/breezy-team/breezy"
-  url "https://files.pythonhosted.org/packages/42/05/abb86dd4d32d72a70ba4aeb7fa0eed5bfca8f23b911de66716f46fac224c/breezy-3.3.0.tar.gz"
-  sha256 "f4d51f18e13555a2c04520bcf33cb97c6ee4551b286828c342f1d4df9dc5041c"
+  url "https://files.pythonhosted.org/packages/5e/06/b6ffff222a6917e2f50705b553db35ef51b14857b147c12eb952c18c7148/breezy-3.3.1.tar.gz"
+  sha256 "f00c2d17766f2947f6dc692e1247e5c1771a9186f4e941aa97ecc9d2ac23a8a6"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -44,13 +44,13 @@ class Breezy < Formula
   end
 
   resource "merge3" do
-    url "https://files.pythonhosted.org/packages/1b/ef/6543392d9dcca7694c9c9bff93562107c3a3c104165f98348de41a080cd3/merge3-0.0.11.tar.gz"
-    sha256 "859ee1c31595c148f0961c55402779bc98c1c63dfdfca2f2cd7d443be6f0ab9c"
+    url "https://files.pythonhosted.org/packages/7d/1d/1a2a0ff25b18cc3b7af41180821099696c2c34e4459fff09a2d19729281e/merge3-0.0.12.tar.gz"
+    sha256 "fd3fc873dcf60b9944606d125f72643055c739ff41793979ccbdea3ea6818d36"
   end
 
   resource "patiencediff" do
-    url "https://files.pythonhosted.org/packages/28/48/ea6ff771aac65eb732f513f53eee22acc4020c0297e0597e3c517205ca73/patiencediff-0.2.7.tar.gz"
-    sha256 "f4aff7ea161f692f3b6114c1492511eedc210738dc723dda6ff7d39124a7eb0e"
+    url "https://files.pythonhosted.org/packages/96/d7/88848319e68f92db32982d0a2ca9b84c6fc05f38786f74c41c84adf26f6d/patiencediff-0.2.8.tar.gz"
+    sha256 "d8838ade52d91e09e3689f63c9d3ac7cb3b039f6ce2d730a39a1641cb40cdd53"
   end
 
   resource "urllib3" do
