@@ -9,6 +9,7 @@ class Webdis < Formula
     sha256 cellar: :any,                 arm64_ventura:  "72a5b658a3adfe30bceb5e169d3739c0241f19d92358b4adf670dbc265791c0e"
     sha256 cellar: :any,                 arm64_monterey: "01d68d884586fcc671ac5db5ee136eab325c122791193fae278ad6542f793ec7"
     sha256 cellar: :any,                 arm64_big_sur:  "e214f9eb12345cc5998c5e30930eb18b67751540e9be07c7cad9b466f91d147d"
+    sha256 cellar: :any,                 ventura:        "e1b7ec93e73942bd6fa46bf5cb1eabb2dd14f54d55aacaca9a38a09d1fccd020"
     sha256 cellar: :any,                 monterey:       "25c756e3714e87f34fb9ba04f03c1ac06a905291a2d67460067f0c43c5965716"
     sha256 cellar: :any,                 big_sur:        "8121d9e66429ec5b2c94683c7781cbabfdde8c71a90e7a4b986f02bcc451ad53"
     sha256 cellar: :any,                 catalina:       "ec7bd136523ac94e2644d8d6f8e7e4d9f0163e733af9504ae0e7769906550835"
