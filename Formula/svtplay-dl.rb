@@ -11,6 +11,7 @@ class SvtplayDl < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d62a189da51ee7ccda50b731509dc90da61e04caaeba21f25c99cb6c382ea1f0"
     sha256 cellar: :any,                 arm64_monterey: "64dbebd5ed217ef355ca4c4257dbd2e66d80f3850f1e54f7eb5d29080e768a35"
     sha256 cellar: :any,                 arm64_big_sur:  "d3503a497e78419dce8cfac04c3066a4cbd730705de00ac9446e2d38cb730589"
+    sha256 cellar: :any,                 ventura:        "b6f2b5202d262f3f3910c539146770eca96560c4783d18f823d549f783c2c136"
     sha256 cellar: :any,                 monterey:       "52babfcd4067b220e5da87ac46b7f49d3b306304a1ba5d22abd96184d88eff89"
     sha256 cellar: :any,                 big_sur:        "529ac1d03f40771f212051cf10eef37d5a83a9c07cf15dc06573e870cf3d5b66"
     sha256 cellar: :any,                 catalina:       "02e7c2a324d996f64599b3227b8a74b6ef7c6a75a30881db715d56e25f25b449"
