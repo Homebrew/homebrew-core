@@ -353,7 +353,7 @@
   "molecule": {
     "extra_packages": ["docker-py", "molecule-vagrant", "python-vagrant"],
     "exclude_packages": [
-      "six", "PyYAML", "jsonschema", "attrs", "pyrsistent", "Pygments",
+      "six", "PyYAML", "Pygments",
       "cookiecutter", "arrow", "binaryornot", "certifi", "chardet", "charset-normalizer",
       "click", "idna", "Jinja2", "jinja2-time", "MarkupSafe", "python-dateutil",
       "python-slugify", "requests", "text-unidecode", "urllib3"

@@ -75,8 +75,6 @@ class Molecule < Formula
     sha256 "0a2ab0d2931dff8947012602d1234d2a3ee002d9a355b5d70be6bf5466008893"
   end
 
-  # TODO: switch this to `depends_on "jsonschema"`
-  # after the `jsonschema` formula has migrated to `python@3.11`
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/3a/3d/0653047b9b2ed03d3e96012bc90cfc96227221193fbedd4dc0cbf5a0e342/jsonschema-4.17.0.tar.gz"
     sha256 "5bfcf2bca16a087ade17e02b282d34af7ccd749ef76241e7f9bd7c0cb8a9424d"
@@ -136,7 +134,6 @@ class Molecule < Formula
     virtualenv_install_with_resources
 
     site_packages = Language::Python.site_packages("python3.11")
-    # TODO: add `jsonschema` to this list after it has migrated to python@3.11
     %w[cookiecutter].each do |package_name|
       package = Formula[package_name].opt_libexec
       (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
