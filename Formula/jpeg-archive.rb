@@ -10,6 +10,7 @@ class JpegArchive < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fab1849787fa6dc209963175b418748a9b92bdb64f0a39a4329afac2d8b262f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cbaf592384b0d9906eb44217daa1971ec19d571cbc4cd25c2a14caa2451428e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6608df468a7af8298e39f54afc7b391cd9660bdd88783850577d86862b6ccb51"
+    sha256 cellar: :any_skip_relocation, ventura:        "0009726c390613fd0ed7f47a95383df4454efd2291da691129539f6ab32422f6"
     sha256 cellar: :any_skip_relocation, monterey:       "3461975fc932a94798f2d7c6cad3f030081a29a24a31bc391e2344c6aa6ed177"
     sha256 cellar: :any_skip_relocation, big_sur:        "41ac0d9c5bd290d77e7e5548a2257c6455f9f87265b06b5dc4e02ac7836dfc22"
     sha256 cellar: :any_skip_relocation, catalina:       "222d7258f63f000794693bc5912c88ce42d0a33473a8acbbc585821655c9b8dd"
