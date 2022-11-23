@@ -14,6 +14,7 @@ class Quotatool < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c633899b45ad7d378cf68b79b199b8f7a3599fbd68e5ad0f5ad5b13c26084d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "745e9918ee9275d034efcbfe3907e48b760e6e22fb0b6381b120592bfe9b92af"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33cf581ce810cb4704669a05ee01b5cc963008f02393db65453ef06216ed257f"
+    sha256 cellar: :any_skip_relocation, ventura:        "96f6f27296e9997a291c8468832d8dd6b267b3359bffeef7706529b362c03294"
     sha256 cellar: :any_skip_relocation, monterey:       "23e979daccf52492fa2a80f705954390cacc2aa835bb4337a6623ab62edf0bd5"
     sha256 cellar: :any_skip_relocation, big_sur:        "e5dbc4f83caec774f6f05d65515c51bd8963c28415020698666d534030e91b23"
     sha256 cellar: :any_skip_relocation, catalina:       "b8787cedb9e50c5ea14b10fa2e6cf9ec948e7842a97d5e7212abef0ea87e26c6"
