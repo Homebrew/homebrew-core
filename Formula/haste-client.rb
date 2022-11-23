@@ -20,6 +20,7 @@ class HasteClient < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bdc96fa486c1eda47dce4e807857784edb28f9b37b39ca4644cb4363a686d335"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b37f0ea5d4c45a13c49e4e88572a6998e9704d34ad145f763ba32e51af85e89a"
+    sha256 cellar: :any_skip_relocation, ventura:        "b475947811558afeda6c0a970f4b7aba4607043c9ca6155a3348e3a6043e9eef"
     sha256 cellar: :any_skip_relocation, monterey:       "bdc96fa486c1eda47dce4e807857784edb28f9b37b39ca4644cb4363a686d335"
     sha256 cellar: :any_skip_relocation, big_sur:        "b37f0ea5d4c45a13c49e4e88572a6998e9704d34ad145f763ba32e51af85e89a"
     sha256 cellar: :any_skip_relocation, catalina:       "b37f0ea5d4c45a13c49e4e88572a6998e9704d34ad145f763ba32e51af85e89a"
