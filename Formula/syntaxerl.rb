@@ -9,6 +9,7 @@ class Syntaxerl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b8b0d346a0d701c3146aa9c6beedf9122be2efd84112b78b05d07e45d343cb00"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b345b0ceabb3e230634ef5f9d8fe3bfee1500f94dc94a79b504bbf6173a6758"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab2fde926ac270aa052a969bef6b5a41deed043b9ca49255c77f6d4ec94d9041"
+    sha256 cellar: :any_skip_relocation, ventura:        "9cc0483c3b108df574160bd98eb42cbfc72567e59fdefa71dc2998b45b2b65b5"
     sha256 cellar: :any_skip_relocation, monterey:       "a534cfe8a626f0021cbb59bc36be178167b074b8305d4d56b7e38b6501735cc5"
     sha256 cellar: :any_skip_relocation, big_sur:        "ba352469157bac0b0645fc0a2cfc1ec738487e2fbf3f6e9c5842c8ce9d4e5a0c"
     sha256 cellar: :any_skip_relocation, catalina:       "1d83b5507f1a4f1ac6ae3a09ae41056ab6588caab3d0737ac3707384faa45770"
