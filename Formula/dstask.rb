@@ -10,6 +10,7 @@ class Dstask < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d79ae69accd7905d73e6f15fa3fb0a6f05ea23bfd7b7333ddd7839d522e285e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb785da84d172ec459b7322031e52d67df8611a701020218a03c91b90eb1a890"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4be4ac5744549c10dfb731337f312c4aa47e9ce103d46343c4690c8321882f0f"
+    sha256 cellar: :any_skip_relocation, ventura:        "e3a1e47af361d58a32e806b6d675a2257b12356bf54cefd6792790e50ec5928f"
     sha256 cellar: :any_skip_relocation, monterey:       "032acb245aafde4a1007a88c6bb19a6f3da10b3e6880ce41eaa8d96f89680559"
     sha256 cellar: :any_skip_relocation, big_sur:        "3c491f3930296ca760c81cfb4577616aa6bc9a9120e49a301b160becca721a7c"
     sha256 cellar: :any_skip_relocation, catalina:       "ffe559741df2fc7b18b745287658d29acc84d854533dff5d2176e8453ad179a7"
