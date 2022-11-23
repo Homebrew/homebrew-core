@@ -11,6 +11,7 @@ class ActivemqCpp < Formula
     sha256 cellar: :any,                 arm64_ventura:  "9b637874d78138b4debd3b45d1bbd54d79babf16bfdfbf9acc340103208262bd"
     sha256 cellar: :any,                 arm64_monterey: "aecbae4664dd780644ff782462ea5bcdcc592917dfad01dde5370a93db641319"
     sha256 cellar: :any,                 arm64_big_sur:  "8848bb4603302677cc482a59e21f5e5651e844d3d981c75c6ab3e82257ddf234"
+    sha256 cellar: :any,                 ventura:        "49bcd935f1f96ffcc79a19577e32f23d34019eea4c1436054dcf535a47d8ac97"
     sha256 cellar: :any,                 monterey:       "fc59b7bff98816254d9180614b72606f424c209a97ae1a0a6e28985af8889f6a"
     sha256 cellar: :any,                 big_sur:        "cce6f6a49cb80accb399d33826380c4220d01701b2b53f14eafde10406f835b5"
     sha256 cellar: :any,                 catalina:       "296375b0118271838d46daf6722954f6e5a8c791f08245324abd7289b4ded719"
